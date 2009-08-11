@@ -27,6 +27,12 @@ User's Guides that can be accessed by the following links:
 	  <td valign=\"top\">Library for digital electrical components based on the VHDL standard
 		 (2-,3-,4-,9-valued logic)</td>
 </tr>
+
+<tr><td valign=\"top\"><a href=\"Modelica://Modelica.Magnetic.FluxTubes.UsersGuide\">FluxTubes</a>
+			 </td>
+	  <td valign=\"top\">Library for modelling of electromagnetic devices with lumped magnetic networks</td>
+</tr>
+
 <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide\">MultiBody</a>
 			 </td>
 	  <td valign=\"top\">Library to model 3-dimensional mechanical systems</td>
@@ -37,12 +43,15 @@ User's Guides that can be accessed by the following links:
 	  <td valign=\"top\">Library to model 1-dimensional mechanical systems</td>
 </tr>
 
+<tr><td valign=\"top\"><a href=\"Modelica://Modelica.Fluid.UsersGuide\">Fluid</a></td>
+    <td valign=\"top\">Library of 1-dim. thermo-fluid flow models using the Modelica.Media media description</td>
+
 <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Media.UsersGuide\">Media</a>
 			 </td>
-	  <td valign=\"top\">Property models of media</td>
+	  <td valign=\"top\">Library of media property models</td>
 </tr>
 <tr><td valign=\"top\"><a href=\"Modelica://Modelica.SIunits.UsersGuide\">SIunits</a> </td>
-	  <td valign=\"top\">Type definitions based on SI units according to ISO 31-1992</td>
+	  <td valign=\"top\">Library of type definitions based on SI units according to ISO 31-1992</td>
 </tr>
 
 <tr><td valign=\"top\"><a href=\"Modelica://Modelica.StateGraph.UsersGuide\">StateGraph</a>
@@ -53,7 +62,7 @@ User's Guides that can be accessed by the following links:
 
 <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.UsersGuide\">Utilities</a>
 			 </td>
-	  <td valign=\"top\">Utility functions especially for scripting (Files, Streams, Strings, System)</td>
+	  <td valign=\"top\">Library of utility functions especially for scripting (Files, Streams, Strings, System)</td>
 </tr>
 </table>
 
@@ -75,8 +84,8 @@ main sub-libraries:
 	</td>
 	<td valign=\"top\">
 	<a href=\"Modelica://Modelica.Electrical.Analog\">Analog</a><br>
-	Analog electric and electronic components, such as <br>
-	resistor, capacitor, transformers, diodes, transistors,<br>
+	Analog electric and electronic components, such as 
+	resistor, capacitor, transformers, diodes, transistors,
 	transmission lines, switches, sources, sensors.
 	</td>
 </tr>
@@ -86,8 +95,8 @@ main sub-libraries:
 	</td>
 	<td valign=\"top\">
 	<a href=\"Modelica://Modelica.Electrical.Digital\">Digital</a><br>
-	Digital electrical components based on the VHDL standard, <br>
-	like basic logic blocks with 9-value logic, delays, gates, <br>
+	Digital electrical components based on the VHDL standard, 
+	like basic logic blocks with 9-value logic, delays, gates, 
 	sources, converters between 2-, 3-, 4-, and 9-valued logic.
 	</td>
 </tr>
@@ -97,8 +106,17 @@ main sub-libraries:
 	</td>
 	<td valign=\"top\">
 	<a href=\"Modelica://Modelica.Electrical.Machines\">Machines</a><br>
-	Electrical asynchronous-, synchronous-, and DC-machines<br>
+            Electrical asynchronous-, synchronous-, and DC-machines
 	(motors and generators) as well as 3-phase transformers.
+	</td>
+</tr>
+
+<tr><td valign=\"top\">
+	<img src=\"../Images/UsersGuide/Lib-FluxTubes.png\">
+	</td>
+	<td valign=\"top\">
+	<a href=\"Modelica://Modelica.Magnetic.FluxTubes\">FluxTubes</a><br>
+Based on magnetic flux tubes concepts. Especially to model electro-magnetic actuators. Nonlinear shape, force, leackage, and material models. Material data for steel, electric sheet, pure iron, Cobalt iron, Nickel iron, NdFeB, Sm2Co17, and more.
 	</td>
 </tr>
 
@@ -107,7 +125,7 @@ main sub-libraries:
 	</td>
 	<td valign=\"top\">
 	<a href=\"Modelica://Modelica.Mechanics.Translational\">Translational</a><br>
-	1-dim. mechanical, translational systems, e.g.,  <br>
+	1-dim. mechanical, translational systems, e.g., 
 	sliding mass, mass with stops, spring, damper.
 	</td>
 </tr>
@@ -117,22 +135,22 @@ main sub-libraries:
 	</td>
 	<td valign=\"top\">
 	<a href=\"Modelica://Modelica.Mechanics.Rotational\">Rotational</a><br>
-	1-dim. mechanical, rotational systems, e.g., inertias, gears, <br>
-	planetary gears, convenient definition of speed/torque dependent friction<br>
+	1-dim. mechanical, rotational systems, e.g., inertias, gears, 
+	planetary gears, convenient definition of speed/torque dependent friction
 	(clutches, brakes, bearings, ..)
 	</td>
 </tr>
 
-<tr><td valign=\"top\">
+<tr><td valign=\"top\" width=100>
 	<img src=\"../Images/UsersGuide/Lib-MultiBody1.png\"><br>
 	<img src=\"../Images/UsersGuide/Lib-MultiBody2.png\">
 	</td>
 	<td valign=\"top\">
-	<a href=\"Modelica://Modelica.Mechanics.MultiBody\">MultiBody</a><br>
-	3-dim. mechanical systems consisting of joints, bodies, force and <br>
-	sensor elements. Joints can be driven by drive trains defined by<br>
-	1-dim. mechanical system library (Rotational).<br>
-	Every component has a default animation.<br>
+	<a href=\"Modelica://Modelica.Mechanics.MultiBody\">MultiBody</a>
+	3-dim. mechanical systems consisting of joints, bodies, force and 
+	sensor elements. Joints can be driven by drive trains defined by
+	1-dim. mechanical system library (Rotational).
+	Every component has a default animation.
 	Components can be arbitrarily connected together.
 	</td>
 </tr>
@@ -142,9 +160,9 @@ main sub-libraries:
 	</td>
 	<td valign=\"top\">
 	<a href=\"Modelica://Modelica.Fluid\">Fluid</a><br>
-        1-dim. thermo-fluid flow in networks of vessels, pipes,<br>
-        fluid machines, valves and fittings. All media from the<br>
-        Modelica.Media library can be used (so incompressible or compressible,<br>
+        1-dim. thermo-fluid flow in networks of vessels, pipes,
+        fluid machines, valves and fittings. All media from the
+        Modelica.Media library can be used (so incompressible or compressible,
         single or multiple substance, one or two phase medium).
 	</td>
 </tr>
@@ -154,8 +172,8 @@ main sub-libraries:
 	</td>
 	<td valign=\"top\">
 	<a href=\"Modelica://Modelica.Media\">Media</a><br>
-	Large media library providing models and functions<br>
-	to compute media properties, such as h = h(p,T), d = d(p,T),<br>
+	Large media library providing models and functions
+	to compute media properties, such as h = h(p,T), d = d(p,T),
 	for the following media:
 	<ul>
 	<li> 1240 gases and mixtures between these gases.</li>
@@ -172,10 +190,10 @@ main sub-libraries:
 	</td>
 	<td valign=\"top\">
 	<a href=\"Modelica://Modelica.Thermal.FluidHeatFlow\">FluidHeatFlow</a>,
-	<a href=\"Modelica://Modelica.Thermal.HeatTransfer\">HeatTransfer</a><br>
-	Simple thermo-fluid pipe flow, especially to model cooling of machines <br>
-	with air or water (pipes, pumps, valves, ambient, sensors, sources) and<br>
-	lumped heat transfer with heat capacitors, thermal conductors, convection,<br>
+	<a href=\"Modelica://Modelica.Thermal.HeatTransfer\">HeatTransfer</a>
+	Simple thermo-fluid pipe flow, especially to model cooling of machines 
+	with air or water (pipes, pumps, valves, ambient, sensors, sources) and
+	lumped heat transfer with heat capacitors, thermal conductors, convection,
 	body radiation, sources and sensors.
 	</td>
 </tr>
@@ -186,9 +204,9 @@ main sub-libraries:
 	</td>
 	<td valign=\"top\">
 	<a href=\"Modelica://Modelica.Blocks\">Blocks</a><br>
-	Input/output blocks to model block diagrams and logical networks, e.g.,<br>
-	integerator, PI, PID, transfer function, linear state space system,<br>
-	sampler, unit delay, discrete transfer function, and/or blocks,<br>
+	Input/output blocks to model block diagrams and logical networks, e.g.,
+	integerator, PI, PID, transfer function, linear state space system,
+	sampler, unit delay, discrete transfer function, and/or blocks,
 	timer, hysteresis, nonlinear and routing blocks, sources, tables.
 	</td>
 </tr>
@@ -198,8 +216,8 @@ main sub-libraries:
 	</td>
 	<td valign=\"top\">
 	<a href=\"Modelica://Modelica.StateGraph\">StateGraph</a><br>
-	Hierarchical state machines with a similar modeling power as Statecharts. <br>
-	Modelica is used as synchronous action language, i.e. deterministic <br>
+	Hierarchical state machines with a similar modeling power as Statecharts. 
+	Modelica is used as synchronous action language, i.e. deterministic 
 	behavior is guaranteed
 	</td>
 </tr>
@@ -218,9 +236,9 @@ main sub-libraries:
 	<td valign=\"top\">
 	<a href=\"Modelica://Modelica.Math\">Math</a>,
 	<a href=\"Modelica://Modelica.Utilities\">Utilities</a><br>
-	Functions operating on vectors and matrices, such as for solving <br>
-	linear systems, eigen and singular values etc.,  and <br>
-	functions operating on strings, streams, files, e.g., <br>
+	Functions operating on vectors and matrices, such as for solving 
+	linear systems, eigen and singular values etc.,  and 
+	functions operating on strings, streams, files, e.g., 
 	to copy and remove a file or sort a vector of strings.
 	</td>
 </tr>
@@ -279,6 +297,14 @@ that have the flow attribute):
 	  <td valign=\"top\"><a href=\"Modelica://Modelica.Electrical.Digital.Interfaces\">Modelica.Electrical.Digital.Interfaces</a>
 		   <br>DigitalSignal, DigitalInput, DigitalOutput</td>
 	  <td valign=\"top\"><img src=\"../Images/UsersGuide/Digital.png\"></td></tr>
+
+<tr><td valign=\"top\"><b>magnetic</b></td>
+	  <td valign=\"top\">magnetic potential</td>
+	  <td valign=\"top\">magnetic flux</td>
+	  <td valign=\"top\">
+<a href=\"Modelica://Modelica.Magnetic.FluxTubes.Interfaces\">Modelica.Magnetic.FluxTubes.Interfaces</a>
+		   <br>MagneticPort, PositiveMagneticPort, <br>NegativeMagneticPort</td>
+	  <td valign=\"top\"><img src=\"../Images/UsersGuide/MagneticPorts.png\"></td></tr>
 
 <tr><td valign=\"top\"><b>translational</b></td>
 	  <td valign=\"top\">distance</td>
@@ -349,17 +375,6 @@ that have the flow attribute):
 	  <td valign=\"top\"><a href=\"Modelica://Modelica.StateGraph.Interfaces\">Modelica.StateGraph.Interfaces</a>
 		   <br>Step_in, Step_out, Transition_in, Transition_out</td>
 	  <td valign=\"top\"><img src=\"../Images/UsersGuide/StateGraphPorts.png\"></td></tr>
-
-<tr><td colspan=\"5\">&nbsp;<br><b>Connectors from libraries that will be included in one of
-								   the next releases of package Modelica</b></td></tr>
-
-
-<tr><td valign=\"top\"><b>magnetic</b></td>
-	  <td valign=\"top\">magnetic potential</td>
-	  <td valign=\"top\">magnetic flux</td>
-	  <td valign=\"top\">Magnetic.Interfaces
-		   <br>MagneticPort, PositiveMagneticPort, <br>NegativeMagneticPort</td>
-	  <td valign=\"top\"><img src=\"../Images/UsersGuide/MagneticPorts.png\"></td></tr>
 
 
 <tr><td colspan=\"5\">&nbsp;<br><b>Connectors from other libraries</b></td></tr>
@@ -674,7 +689,7 @@ more of the following changes.
 </html>"));
 end VersionManagement;
 
-class Version_3_1 "Version 3.1 (June, 2009)"
+class Version_3_1 "Version 3.1 (August 13, 2009)"
 
    annotation (Documentation(info="<html>
 
@@ -705,18 +720,26 @@ the following new language elements (compared to Modelica Specification 3.0):
 </ul>
 
 <p>
-The following <b style=\"color:blue\">new library</b> has been added:
+The following <b style=\"color:blue\">new libraries</b> have been added:
 </p>
 <table border=\"1\" cellspacing=0 cellpadding=2>
 <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Fluid\">Modelica.Fluid</a></td>
-          <td valign=\"top\">
-Components to model
- 1-dim. thermo-fluid flow in networks of vessels, pipes,
-        fluid machines, valves and fittings. All media from the
-        Modelica.Media library can be used (so incompressible or compressible,
-        single or multiple substance, one or two phase medium).
- The library is using the stream-concept from Modelica Specification 3.1.
-          </td>
+    <td valign=\"top\">
+     Components to model 1-dim. thermo-fluid flow in networks of vessels, pipes,
+     fluid machines, valves and fittings. All media from the
+     Modelica.Media library can be used (so incompressible or compressible,
+     single or multiple substance, one or two phase medium).
+    The library is using the stream-concept from Modelica Specification 3.1.
+    </td>
+
+<tr><td valign=\"top\"><a href=\"Modelica://Modelica.Magnetic.FluxTubes\">Modelica.Magnetic.FluxTubes</a></td>
+    <td valign=\"top\">
+     Components to model magnetic devices based on the magnetic flux tubes concepts. 
+     Especially to model 
+     electro-magnetic actuators. Nonlinear shape, force, leackage, and 
+     Material models. Material data for steel, electric sheet, pure iron,
+     Cobalt iron, Nickel iron, NdFeB, Sm2Co17, and more. 
+    </td>
 </table>
 
 
@@ -3929,16 +3952,16 @@ c/o PELAB, IDA, Link&ouml;pings Universitet <br>
 S-58183 Link&ouml;ping <br>
 Sweden<br>
 email: Board@Modelica.org<br>
-web&nbsp; : http://www.Modelica.org</p>
-<p style=\"margin-left: 40px;\"><b>Copyright notices of the files:</b></p>
-<div style=\"margin-left: 40px;\">Copyright &copy; 1998-2009,
-ABB, arsenal research, DLR, Dynasim, Fraunhofer, Modelon, TU
+web&nbsp; : <a href=\"http://www.Modelica.org\">http://www.Modelica.org</a></p>
+
+<p style=\"margin-left: 40px;\"><b>Copyright notices of the files:</b><br>
+Copyright &copy; 1998-2009,
+ABB, arsenal research, T.&nbsp;Bödrich, DLR, Dynasim, Fraunhofer, Modelon, TU
 Hamburg-Harburg, Politecnico di Milano.<br>
-</div>
 <br>
 </p>
 
-<p> <a href=\"#1.%20The%20Modelica%20License%202%7Coutline\">The
+<p> <a href=\"#ModelicaLicense2\">The
 Modelica License 2</a><br>
 <a href=\"#2.%20Frequently%20Asked%20Questions%7Coutline\">Frequently
 Asked Questions</a><br>
@@ -3946,7 +3969,7 @@ Asked Questions</a><br>
 </p>
 
 <hr>
-<h4><a name=\"1. The Modelica License 2|outline\"></a>The Modelica License 2</h4>
+<h4><a name=\"ModelicaLicense2\"></a>The Modelica License 2</h4>
 
 <p>
 <b>Preamble.</b> The goal of this license is that Modelica related
@@ -4533,8 +4556,8 @@ The following library officers are currently assigned:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><td valign=\"top\"><b>Sublibrary</b> </td
-	  <td valign=\"top\"><b>Library officers</td>
+<tr><td valign=\"top\"><b>Sublibraries</b> </td>
+	  <td valign=\"top\"><b>Library officers</b></td>
 </tr>
 
 <tr><td valign=\"top\"> Blocks <br> Constants </td>
@@ -4551,6 +4574,13 @@ The following library officers are currently assigned:
 						Electrical.MultiPhase </td>
 	  <td valign=\"top\"> Anton Haumer, Consultant, St.Andrae-Woerdern, Austria, and<br>
 						arsenal research, Vienna, Austria (Christian Kral)</td>
+</tr>
+
+<tr><td valign=\"top\"> Magnetic.FluxTubes </td>
+	  <td valign=\"top\"> Thomas Bödrich, Dresden, Germany<br>
+                               (Dresden University of Technology,<br>
+                               Institute of Electromechanical and Electronic Design)
+</td>
 </tr>
 
 <tr><td valign=\"top\"> Fluid </td>
@@ -4623,6 +4653,12 @@ of the Modelica package (many more people have contributed to the design):
 	  <td valign=\"top\"> University of Paderborn, Germany</td>
 	  <td valign=\"top\"> Modelica.Mechanics.Translational </td>
 </tr>
+
+<tr><td valign=\"top\"><b>Thomas Bödrich</b> </td
+	  <td valign=\"top\"> Dresden University of Technology, Germany</td>
+	  <td valign=\"top\"> Modelica.Magnetic.FluxTubes </td>
+
+
 <tr><td valign=\"top\"><b>Dag Br&uuml;ck</b> </td
 	  <td valign=\"top\"> Dynasim AB, Lund, Sweden</td>
 	  <td valign=\"top\"> Modelica.Utilities</td>
@@ -4850,8 +4886,8 @@ For an introduction, have especially a look at:
 This version of the Modelica Standard Library consists of
 </p>
 <ul>
-<li> <b>889</b> models and blocks, and</li>
-<li> <b>614</b> functions
+<li> <b>922</b> models and blocks, and</li>
+<li> <b>615</b> functions
 </ul>
 <p>
 that are directly usable (= number of public, non-partial classes).
@@ -4860,7 +4896,8 @@ that are directly usable (= number of public, non-partial classes).
 
 <p>
 <b>Licensed by the Modelica Association under the Modelica License 2</b><br>
-Copyright &copy; 1998-2009, ABB, arsenal research, DLR, Dynasim, Fraunhofer, Modelon, TU Hamburg-Harburg, Politecnico di Milano.
+Copyright &copy; 1998-2009, ABB, arsenal research, T.&nbsp;Bödrich, DLR, Dynasim, Fraunhofer, Modelon, 
+TU Hamburg-Harburg, Politecnico di Milano.
 </p>
 
 <p>
