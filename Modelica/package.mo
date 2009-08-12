@@ -4846,7 +4846,7 @@ conversion(
  from(version="2.2", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos"),
  from(version="2.2.1", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos"),
  from(version="2.2.2", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos")),
-__Dymola_classOrder={"UsersGuide","Blocks","StateGraph","Electrical","Mechanics","Fluid","Media","Thermal",
+__Dymola_classOrder={"UsersGuide","Blocks","StateGraph","Electrical","Magnetic","Mechanics","Fluid","Media","Thermal",
       "Math","Utilities","Constants", "Icons", "SIunits"},
 Settings(NewStateSelection=true),
 Documentation(info="<HTML>
