@@ -885,6 +885,14 @@ that do <b style=\"color:red\">not</b> lead to wrong simulation results, but, e.
 units are wrong or errors in documentation):
 </p>
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><b>Media.Air.MoistAir</b></td></tr>
+<tr><td valign=\"top\"> saturationPressureLiquid<br>
+                      sublimationPressureIce<br>
+                      saturationPressure</td>
+          <td valign=\"top\"> For these three functions, an error in the <code>derivative</code> annotation was corrected. However, the effect of
+                            this bug was minor, as a Modelica tool was allowed to compute derivatives automatically via
+                            the <code>smoothOrder</code> annotation.</td>
+</tr>
 <tr><td colspan=\"2\"><b>XXX</b></td></tr>
 <tr><td valign=\"top\"> XXX</td>
     <td valign=\"top\"> XXX</td> </tr>
