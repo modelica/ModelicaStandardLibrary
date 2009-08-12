@@ -768,14 +768,20 @@ to <b style=\"color:blue\">existing</b> libraries:
 <tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Examples.</b></td></tr>
 <tr><td valign=\"top\"> AmplifierWithOpAmpDetailed<br>
                       HeatingResistor<br>
+                      CompareTransformers<br>
                       OvervoltageProtection<br>
+                      ControlledSwitchWithArc<br>
                       SwitchWithArc<br>
                       ThyristorBehaviourTest</td>
     <td valign=\"top\"> New examples to demonstrate the usage of new components. </td> </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Basic.</b></td></tr>
-<tr><td valign=\"top\"> OpAmpDetailed</td>
-    <td valign=\"top\"> New detailed model of an operational amplifier. </td> </tr>
+<tr><td valign=\"top\"> OpAmpDetailed<br>
+                      TranslationalEMF<br>
+                      M_Transformer</td>
+    <td valign=\"top\"> New detailed model of an operational amplifier. <br>
+                      New electromotoric force from electrical energy into mechanical translattional energy.<br>
+                      Generic transformer with choosable number of inductors</td> </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Ideal.</b></td></tr>
 <tr><td valign=\"top\"> OpenerWithArc<br>
@@ -784,14 +790,18 @@ to <b style=\"color:blue\">existing</b> libraries:
                       ControlledCloserWithArc</td>
     <td valign=\"top\"> New switches with simple arc model. </td> </tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Semiconductors.</b></td></tr>
-<tr><td valign=\"top\"> ZDiode<br>Thyristor</td>
-    <td valign=\"top\"> Zener Diode with 3 working areas and simple thyristor model. </td> </tr>
-
 <tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Interfaces.</b></td></tr>
 <tr><td valign=\"top\"> ConditionalHeatPort</td>
     <td valign=\"top\"> New partial model to add a conditional HeatPort to
                       an electrical component. </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Lines.</b></td></tr>
+<tr><td valign=\"top\"> M_Oline</td>
+    <td valign=\"top\"> New multiple line model, both the number of lines and the number of segmants choosable. </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Semiconductors.</b></td></tr>
+<tr><td valign=\"top\"> ZDiode<br>Thyristor</td>
+    <td valign=\"top\"> Zener Diode with 3 working areas and simple thyristor model. </td> </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Examples.Elementary.</b></td></tr>
 <tr><td valign=\"top\"> RollingWheel<br>
@@ -864,9 +874,17 @@ have been <b style=\"color:blue\">improved</b> in a
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>XXX</b></td></tr>
-<tr><td valign=\"top\"> XXX</td>
-    <td valign=\"top\"> XXX</td> </tr>
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Basic</b></td></tr>
+<tr><td valign=\"top\"> Resistor, Conductor, VariableResistor, VariableConductor</td>
+    <td valign=\"top\"> Conditional heatport added for coupling to thermal network. </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Ideal</b></td></tr>
+<tr><td valign=\"top\"> Thyristors, Switches, IdealDiode</td>
+    <td valign=\"top\"> Conditional heatport added for coupling to thermal network</td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Semiconductors</b></td></tr>
+<tr><td valign=\"top\"> Diode, ZDiode, PMOS, NMOS, NPN, PNP</td>
+    <td valign=\"top\"> Conditional heatport added for coupling to thermal network</td> </tr>
 </table>
 
 <p><br>

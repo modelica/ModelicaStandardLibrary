@@ -656,7 +656,7 @@ relation:</p>
     v2 = M*der(i1) + L2*der(i2);
   end Transformer;
 
-model M_Transformer
+model M_Transformer "Generic transformer with free number of inductors"
 
   parameter Integer N(final min=1)=3 "number of inductors";
   protected
