@@ -23,46 +23,46 @@ User's Guides that can be accessed by the following links:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Electrical.Digital.UsersGuide\">Digital</a>
-	  </td>
-	  <td valign=\"top\">Library for digital electrical components based on the VHDL standard
-		 (2-,3-,4-,9-valued logic)</td>
+   </td>
+   <td valign=\"top\">Library for digital electrical components based on the VHDL standard
+   (2-,3-,4-,9-valued logic)</td>
 </tr>
 
 <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Magnetic.FluxTubes.UsersGuide\">FluxTubes</a>
-			 </td>
-	  <td valign=\"top\">Library for modelling of electromagnetic devices with lumped magnetic networks</td>
+    </td>
+   <td valign=\"top\">Library for modelling of electromagnetic devices with lumped magnetic networks</td>
 </tr>
 
 <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide\">MultiBody</a>
-			 </td>
-	  <td valign=\"top\">Library to model 3-dimensional mechanical systems</td>
+    </td>
+   <td valign=\"top\">Library to model 3-dimensional mechanical systems</td>
 </tr>
 
 <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.Rotational.UsersGuide\">Rotational</a>
-			 </td>
-	  <td valign=\"top\">Library to model 1-dimensional mechanical systems</td>
+    </td>
+   <td valign=\"top\">Library to model 1-dimensional mechanical systems</td>
 </tr>
 
 <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Fluid.UsersGuide\">Fluid</a></td>
     <td valign=\"top\">Library of 1-dim. thermo-fluid flow models using the Modelica.Media media description</td>
 
 <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Media.UsersGuide\">Media</a>
-			 </td>
-	  <td valign=\"top\">Library of media property models</td>
+    </td>
+   <td valign=\"top\">Library of media property models</td>
 </tr>
 <tr><td valign=\"top\"><a href=\"Modelica://Modelica.SIunits.UsersGuide\">SIunits</a> </td>
-	  <td valign=\"top\">Library of type definitions based on SI units according to ISO 31-1992</td>
+   <td valign=\"top\">Library of type definitions based on SI units according to ISO 31-1992</td>
 </tr>
 
 <tr><td valign=\"top\"><a href=\"Modelica://Modelica.StateGraph.UsersGuide\">StateGraph</a>
-			 </td>
-	  <td valign=\"top\">Library to model discrete event and reactive systems by hierarchical state machines</td>
+    </td>
+   <td valign=\"top\">Library to model discrete event and reactive systems by hierarchical state machines</td>
 </tr>
 
 
 <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.UsersGuide\">Utilities</a>
-			 </td>
-	  <td valign=\"top\">Library of utility functions especially for scripting (Files, Streams, Strings, System)</td>
+    </td>
+   <td valign=\"top\">Library of utility functions especially for scripting (Files, Streams, Strings, System)</td>
 </tr>
 </table>
 
@@ -80,167 +80,167 @@ main sub-libraries:
 <tr><th>Library Components</th> <th>Description</th></tr>
 
 <tr><td valign=\"top\">
-	<img src=\"../Images/UsersGuide/Lib-Electrical.png\">
-	</td>
-	<td valign=\"top\">
-	<a href=\"Modelica://Modelica.Electrical.Analog\">Analog</a><br>
-	Analog electric and electronic components, such as 
-	resistor, capacitor, transformers, diodes, transistors,
-	transmission lines, switches, sources, sensors.
-	</td>
+ <img src=\"../Images/UsersGuide/Lib-Electrical.png\">
+ </td>
+ <td valign=\"top\">
+ <a href=\"Modelica://Modelica.Electrical.Analog\">Analog</a><br>
+ Analog electric and electronic components, such as
+ resistor, capacitor, transformers, diodes, transistors,
+ transmission lines, switches, sources, sensors.
+ </td>
 </tr>
 
 <tr><td valign=\"top\">
-	<img src=\"../Images/UsersGuide/Lib-Digital.png\">
-	</td>
-	<td valign=\"top\">
-	<a href=\"Modelica://Modelica.Electrical.Digital\">Digital</a><br>
-	Digital electrical components based on the VHDL standard, 
-	like basic logic blocks with 9-value logic, delays, gates, 
-	sources, converters between 2-, 3-, 4-, and 9-valued logic.
-	</td>
+ <img src=\"../Images/UsersGuide/Lib-Digital.png\">
+ </td>
+ <td valign=\"top\">
+ <a href=\"Modelica://Modelica.Electrical.Digital\">Digital</a><br>
+ Digital electrical components based on the VHDL standard,
+ like basic logic blocks with 9-value logic, delays, gates,
+ sources, converters between 2-, 3-, 4-, and 9-valued logic.
+ </td>
 </tr>
 
 <tr><td valign=\"top\">
-	<img src=\"../Images/UsersGuide/Lib-Machines.png\">
-	</td>
-	<td valign=\"top\">
-	<a href=\"Modelica://Modelica.Electrical.Machines\">Machines</a><br>
+ <img src=\"../Images/UsersGuide/Lib-Machines.png\">
+ </td>
+ <td valign=\"top\">
+ <a href=\"Modelica://Modelica.Electrical.Machines\">Machines</a><br>
             Electrical asynchronous-, synchronous-, and DC-machines
-	(motors and generators) as well as 3-phase transformers.
-	</td>
+ (motors and generators) as well as 3-phase transformers.
+ </td>
 </tr>
 
 <tr><td valign=\"top\">
-	<img src=\"../Images/UsersGuide/Lib-FluxTubes.png\">
-	</td>
-	<td valign=\"top\">
-	<a href=\"Modelica://Modelica.Magnetic.FluxTubes\">FluxTubes</a><br>
+ <img src=\"../Images/UsersGuide/Lib-FluxTubes.png\">
+ </td>
+ <td valign=\"top\">
+ <a href=\"Modelica://Modelica.Magnetic.FluxTubes\">FluxTubes</a><br>
 Based on magnetic flux tubes concepts. Especially to model electro-magnetic actuators. Nonlinear shape, force, leackage, and material models. Material data for steel, electric sheet, pure iron, Cobalt iron, Nickel iron, NdFeB, Sm2Co17, and more.
-	</td>
+ </td>
 </tr>
 
 <tr><td valign=\"top\">
-	<img src=\"../Images/UsersGuide/Lib-Translational.png\">
-	</td>
-	<td valign=\"top\">
-	<a href=\"Modelica://Modelica.Mechanics.Translational\">Translational</a><br>
-	1-dim. mechanical, translational systems, e.g., 
-	sliding mass, mass with stops, spring, damper.
-	</td>
+ <img src=\"../Images/UsersGuide/Lib-Translational.png\">
+ </td>
+ <td valign=\"top\">
+ <a href=\"Modelica://Modelica.Mechanics.Translational\">Translational</a><br>
+ 1-dim. mechanical, translational systems, e.g.,
+ sliding mass, mass with stops, spring, damper.
+ </td>
 </tr>
 
 <tr><td valign=\"top\">
-	<img src=\"../Images/UsersGuide/Lib-Rotational.png\">
-	</td>
-	<td valign=\"top\">
-	<a href=\"Modelica://Modelica.Mechanics.Rotational\">Rotational</a><br>
-	1-dim. mechanical, rotational systems, e.g., inertias, gears, 
-	planetary gears, convenient definition of speed/torque dependent friction
-	(clutches, brakes, bearings, ..)
-	</td>
+ <img src=\"../Images/UsersGuide/Lib-Rotational.png\">
+ </td>
+ <td valign=\"top\">
+ <a href=\"Modelica://Modelica.Mechanics.Rotational\">Rotational</a><br>
+ 1-dim. mechanical, rotational systems, e.g., inertias, gears,
+ planetary gears, convenient definition of speed/torque dependent friction
+ (clutches, brakes, bearings, ..)
+ </td>
 </tr>
 
 <tr><td valign=\"top\" width=100>
-	<img src=\"../Images/UsersGuide/Lib-MultiBody1.png\"><br>
-	<img src=\"../Images/UsersGuide/Lib-MultiBody2.png\">
-	</td>
-	<td valign=\"top\">
-	<a href=\"Modelica://Modelica.Mechanics.MultiBody\">MultiBody</a>
-	3-dim. mechanical systems consisting of joints, bodies, force and 
-	sensor elements. Joints can be driven by drive trains defined by
-	1-dim. mechanical system library (Rotational).
-	Every component has a default animation.
-	Components can be arbitrarily connected together.
-	</td>
+ <img src=\"../Images/UsersGuide/Lib-MultiBody1.png\"><br>
+ <img src=\"../Images/UsersGuide/Lib-MultiBody2.png\">
+ </td>
+ <td valign=\"top\">
+ <a href=\"Modelica://Modelica.Mechanics.MultiBody\">MultiBody</a>
+ 3-dim. mechanical systems consisting of joints, bodies, force and
+ sensor elements. Joints can be driven by drive trains defined by
+ 1-dim. mechanical system library (Rotational).
+ Every component has a default animation.
+ Components can be arbitrarily connected together.
+ </td>
 </tr>
 
 <tr><td valign=\"top\">
-	<img src=\"../Images/UsersGuide/Lib-Fluid.png\">
-	</td>
-	<td valign=\"top\">
-	<a href=\"Modelica://Modelica.Fluid\">Fluid</a><br>
+ <img src=\"../Images/UsersGuide/Lib-Fluid.png\">
+ </td>
+ <td valign=\"top\">
+ <a href=\"Modelica://Modelica.Fluid\">Fluid</a><br>
         1-dim. thermo-fluid flow in networks of vessels, pipes,
         fluid machines, valves and fittings. All media from the
         Modelica.Media library can be used (so incompressible or compressible,
         single or multiple substance, one or two phase medium).
-	</td>
+ </td>
 </tr>
 
 <tr><td valign=\"top\">
-	<img src=\"../Images/UsersGuide/Lib-Media.png\">
-	</td>
-	<td valign=\"top\">
-	<a href=\"Modelica://Modelica.Media\">Media</a><br>
-	Large media library providing models and functions
-	to compute media properties, such as h = h(p,T), d = d(p,T),
-	for the following media:
-	<ul>
-	<li> 1240 gases and mixtures between these gases.</li>
-	<li> incompressible, table based liquids (h = h(T), etc.).</li>
-	<li> compressible liquids</li>
-	<li> dry and moist air</li>
-	<li> high precision model for water (IF97).</li>
-	</ul>
-	</td>
+ <img src=\"../Images/UsersGuide/Lib-Media.png\">
+ </td>
+ <td valign=\"top\">
+ <a href=\"Modelica://Modelica.Media\">Media</a><br>
+ Large media library providing models and functions
+ to compute media properties, such as h = h(p,T), d = d(p,T),
+ for the following media:
+ <ul>
+ <li> 1240 gases and mixtures between these gases.</li>
+ <li> incompressible, table based liquids (h = h(T), etc.).</li>
+ <li> compressible liquids</li>
+ <li> dry and moist air</li>
+ <li> high precision model for water (IF97).</li>
+ </ul>
+ </td>
 </tr>
 
 <tr><td valign=\"top\">
-	<img src=\"../Images/UsersGuide/Lib-Thermal.png\">
-	</td>
-	<td valign=\"top\">
-	<a href=\"Modelica://Modelica.Thermal.FluidHeatFlow\">FluidHeatFlow</a>,
-	<a href=\"Modelica://Modelica.Thermal.HeatTransfer\">HeatTransfer</a>
-	Simple thermo-fluid pipe flow, especially to model cooling of machines 
-	with air or water (pipes, pumps, valves, ambient, sensors, sources) and
-	lumped heat transfer with heat capacitors, thermal conductors, convection,
-	body radiation, sources and sensors.
-	</td>
+ <img src=\"../Images/UsersGuide/Lib-Thermal.png\">
+ </td>
+ <td valign=\"top\">
+ <a href=\"Modelica://Modelica.Thermal.FluidHeatFlow\">FluidHeatFlow</a>,
+ <a href=\"Modelica://Modelica.Thermal.HeatTransfer\">HeatTransfer</a>
+ Simple thermo-fluid pipe flow, especially to model cooling of machines
+ with air or water (pipes, pumps, valves, ambient, sensors, sources) and
+ lumped heat transfer with heat capacitors, thermal conductors, convection,
+ body radiation, sources and sensors.
+ </td>
 </tr>
 
 <tr><td valign=\"top\">
-	<img src=\"../Images/UsersGuide/Lib-Blocks1.png\"><br>
-	<img src=\"../Images/UsersGuide/Lib-Blocks2.png\">
-	</td>
-	<td valign=\"top\">
-	<a href=\"Modelica://Modelica.Blocks\">Blocks</a><br>
-	Input/output blocks to model block diagrams and logical networks, e.g.,
-	integerator, PI, PID, transfer function, linear state space system,
-	sampler, unit delay, discrete transfer function, and/or blocks,
-	timer, hysteresis, nonlinear and routing blocks, sources, tables.
-	</td>
+ <img src=\"../Images/UsersGuide/Lib-Blocks1.png\"><br>
+ <img src=\"../Images/UsersGuide/Lib-Blocks2.png\">
+ </td>
+ <td valign=\"top\">
+ <a href=\"Modelica://Modelica.Blocks\">Blocks</a><br>
+ Input/output blocks to model block diagrams and logical networks, e.g.,
+ integerator, PI, PID, transfer function, linear state space system,
+ sampler, unit delay, discrete transfer function, and/or blocks,
+ timer, hysteresis, nonlinear and routing blocks, sources, tables.
+ </td>
 </tr>
 
 <tr><td valign=\"top\">
-	<img src=\"../Images/UsersGuide/Lib-StateGraph.png\">
-	</td>
-	<td valign=\"top\">
-	<a href=\"Modelica://Modelica.StateGraph\">StateGraph</a><br>
-	Hierarchical state machines with a similar modeling power as Statecharts. 
-	Modelica is used as synchronous action language, i.e. deterministic 
-	behavior is guaranteed
-	</td>
+ <img src=\"../Images/UsersGuide/Lib-StateGraph.png\">
+ </td>
+ <td valign=\"top\">
+ <a href=\"Modelica://Modelica.StateGraph\">StateGraph</a><br>
+ Hierarchical state machines with a similar modeling power as Statecharts.
+ Modelica is used as synchronous action language, i.e. deterministic
+ behavior is guaranteed
+ </td>
 </tr>
 
 
 <tr><td valign=\"top\">
-	<pre>
-	A = [1,2,3;
-		 3,4,5;
-		 2,1,4];
-	b = {10,22,12};
-	x = Matrices.solve(A,b);
-	Matrices.eigenValues(A);
-	</pre>
-	</td>
-	<td valign=\"top\">
-	<a href=\"Modelica://Modelica.Math\">Math</a>,
-	<a href=\"Modelica://Modelica.Utilities\">Utilities</a><br>
-	Functions operating on vectors and matrices, such as for solving 
-	linear systems, eigen and singular values etc.,  and 
-	functions operating on strings, streams, files, e.g., 
-	to copy and remove a file or sort a vector of strings.
-	</td>
+ <pre>
+ A = [1,2,3;
+   3,4,5;
+   2,1,4];
+ b = {10,22,12};
+ x = Matrices.solve(A,b);
+ Matrices.eigenValues(A);
+ </pre>
+ </td>
+ <td valign=\"top\">
+ <a href=\"Modelica://Modelica.Math\">Math</a>,
+ <a href=\"Modelica://Modelica.Utilities\">Utilities</a><br>
+ Functions operating on vectors and matrices, such as for solving
+ linear systems, eigen and singular values etc.,  and
+ functions operating on strings, streams, files, e.g.,
+ to copy and remove a file or sort a vector of strings.
+ </td>
 </tr>
 
 </table>
@@ -266,132 +266,132 @@ that have the flow attribute):
 
 <table border=1 cellspacing=0 cellpadding=1>
 <tr><td valign=\"top\"><b>domain</b></td>
-	  <td valign=\"top\"><b>pot. variables</b></td>
-	  <td valign=\"top\"><b>flow variables</b></td>
-	  <td valign=\"top\"><b>connector definition</b></td>
-	  <td valign=\"top\"><b>icons</b></td></tr>
+   <td valign=\"top\"><b>pot. variables</b></td>
+   <td valign=\"top\"><b>flow variables</b></td>
+   <td valign=\"top\"><b>connector definition</b></td>
+   <td valign=\"top\"><b>icons</b></td></tr>
 
 <tr><td valign=\"top\"><b>electrical<br>analog</b></td>
-	  <td valign=\"top\">electrical potential</td>
-	  <td valign=\"top\">electrical current</td>
-	  <td valign=\"top\"><a href=\"Modelica://Modelica.Electrical.Analog.Interfaces\">Modelica.Electrical.Analog.Interfaces</a>
-		   <br>Pin, PositivePin, NegativePin</td>
-	  <td valign=\"top\"><img src=\"../Images/UsersGuide/ElectricalPins.png\"></td></tr>
+   <td valign=\"top\">electrical potential</td>
+   <td valign=\"top\">electrical current</td>
+   <td valign=\"top\"><a href=\"Modelica://Modelica.Electrical.Analog.Interfaces\">Modelica.Electrical.Analog.Interfaces</a>
+     <br>Pin, PositivePin, NegativePin</td>
+   <td valign=\"top\"><img src=\"../Images/UsersGuide/ElectricalPins.png\"></td></tr>
 
 <tr><td valign=\"top\"><b>electrical<br>multi-phase</b></td>
-	  <td colspan=\"2\">vector of electrical pins</td>
-	  <td valign=\"top\"><a href=\"Modelica://Modelica.Electrical.MultiPhase.Interfaces\">Modelica.Electrical.MultiPhase.Interfaces</a>
-		   <br>Plug, PositivePlug, NegativePlug</td>
-	  <td valign=\"top\"><img src=\"../Images/UsersGuide/ElectricalPlugs.png\"></td></tr>
+   <td colspan=\"2\">vector of electrical pins</td>
+   <td valign=\"top\"><a href=\"Modelica://Modelica.Electrical.MultiPhase.Interfaces\">Modelica.Electrical.MultiPhase.Interfaces</a>
+     <br>Plug, PositivePlug, NegativePlug</td>
+   <td valign=\"top\"><img src=\"../Images/UsersGuide/ElectricalPlugs.png\"></td></tr>
 
 <tr><td valign=\"top\"><b>electrical <br>sphace phasor</b></td>
-	  <td valign=\"top\">2 electrical potentials</td>
-	  <td valign=\"top\">2 electrical currents</td>
-	  <td valign=\"top\"><a href=\"Modelica://Modelica.Electrical.Machines.Interfaces\">Modelica.Electrical.Machines.Interfaces</a>
-		   <br>SpacePhasor</td>
-	  <td valign=\"top\"><img src=\"../Images/UsersGuide/SpacePhasor.png\"></td></tr>
+   <td valign=\"top\">2 electrical potentials</td>
+   <td valign=\"top\">2 electrical currents</td>
+   <td valign=\"top\"><a href=\"Modelica://Modelica.Electrical.Machines.Interfaces\">Modelica.Electrical.Machines.Interfaces</a>
+     <br>SpacePhasor</td>
+   <td valign=\"top\"><img src=\"../Images/UsersGuide/SpacePhasor.png\"></td></tr>
 
 <tr><td valign=\"top\"><b>electrical <br>digital</b></td>
-	  <td valign=\"top\">Integer (1..9)</td>
-	  <td valign=\"top\">---</td>
-	  <td valign=\"top\"><a href=\"Modelica://Modelica.Electrical.Digital.Interfaces\">Modelica.Electrical.Digital.Interfaces</a>
-		   <br>DigitalSignal, DigitalInput, DigitalOutput</td>
-	  <td valign=\"top\"><img src=\"../Images/UsersGuide/Digital.png\"></td></tr>
+   <td valign=\"top\">Integer (1..9)</td>
+   <td valign=\"top\">---</td>
+   <td valign=\"top\"><a href=\"Modelica://Modelica.Electrical.Digital.Interfaces\">Modelica.Electrical.Digital.Interfaces</a>
+     <br>DigitalSignal, DigitalInput, DigitalOutput</td>
+   <td valign=\"top\"><img src=\"../Images/UsersGuide/Digital.png\"></td></tr>
 
 <tr><td valign=\"top\"><b>magnetic</b></td>
-	  <td valign=\"top\">magnetic potential</td>
-	  <td valign=\"top\">magnetic flux</td>
-	  <td valign=\"top\">
+   <td valign=\"top\">magnetic potential</td>
+   <td valign=\"top\">magnetic flux</td>
+   <td valign=\"top\">
 <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Interfaces\">Modelica.Magnetic.FluxTubes.Interfaces</a>
-		   <br>MagneticPort, PositiveMagneticPort, <br>NegativeMagneticPort</td>
-	  <td valign=\"top\"><img src=\"../Images/UsersGuide/MagneticPorts.png\"></td></tr>
+     <br>MagneticPort, PositiveMagneticPort, <br>NegativeMagneticPort</td>
+   <td valign=\"top\"><img src=\"../Images/UsersGuide/MagneticPorts.png\"></td></tr>
 
 <tr><td valign=\"top\"><b>translational</b></td>
-	  <td valign=\"top\">distance</td>
-	  <td valign=\"top\">cut-force</td>
-	  <td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.Translational.Interfaces\">Modelica.Mechanics.Translational.Interfaces</a>
-		   <br>Flange_a, Flange_b</td>
-	  <td valign=\"top\"><img src=\"../Images/UsersGuide/TranslationalFlanges.png\"></td></tr>
+   <td valign=\"top\">distance</td>
+   <td valign=\"top\">cut-force</td>
+   <td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.Translational.Interfaces\">Modelica.Mechanics.Translational.Interfaces</a>
+     <br>Flange_a, Flange_b</td>
+   <td valign=\"top\"><img src=\"../Images/UsersGuide/TranslationalFlanges.png\"></td></tr>
 
 <tr><td valign=\"top\"><b>rotational</b></td>
-	  <td valign=\"top\">angle</td>
-	  <td valign=\"top\">cut-torque</td>
-	  <td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces\">Modelica.Mechanics.Rotational.Interfaces</a>
-		   <br>Flange_a, Flange_b</td>
-	  <td valign=\"top\"><img src=\"../Images/UsersGuide/RotationalFlanges.png\"></td></tr>
+   <td valign=\"top\">angle</td>
+   <td valign=\"top\">cut-torque</td>
+   <td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces\">Modelica.Mechanics.Rotational.Interfaces</a>
+     <br>Flange_a, Flange_b</td>
+   <td valign=\"top\"><img src=\"../Images/UsersGuide/RotationalFlanges.png\"></td></tr>
 
 <tr><td valign=\"top\"><b>3-dim.<br>mechanics</b></td>
-	  <td valign=\"top\">position vector<br>
-		  orientation object</td>
-	  <td valign=\"top\">cut-force vector<br>
-		  cut-torque vector</td>
-	  <td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Interfaces\">Modelica.Mechanics.MultiBody.Interfaces</a>
-		   <br>Frame, Frame_a, Frame_b, Frame_resolve</td>
-	  <td valign=\"top\"><img src=\"../Images/UsersGuide/MultiBodyFrames.png\"></td></tr>
+   <td valign=\"top\">position vector<br>
+    orientation object</td>
+   <td valign=\"top\">cut-force vector<br>
+    cut-torque vector</td>
+   <td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Interfaces\">Modelica.Mechanics.MultiBody.Interfaces</a>
+     <br>Frame, Frame_a, Frame_b, Frame_resolve</td>
+   <td valign=\"top\"><img src=\"../Images/UsersGuide/MultiBodyFrames.png\"></td></tr>
 
 <tr><td valign=\"top\"><b>simple<br>fluid flow</b></td>
-	  <td valign=\"top\">pressure<br>
-		  specific enthalpy</td>
-	  <td valign=\"top\">mass flow rate<br>
-		  enthalpy flow rate</td>
-	  <td valign=\"top\"><a href=\"Modelica://Modelica.Thermal.FluidHeatFlow.Interfaces\">Modelica.Thermal.FluidHeatFlow.Interfaces</a>
-		   <br>FlowPort, FlowPort_a, FlowPort_b</td>
-	  <td valign=\"top\"><img src=\"../Images/UsersGuide/FluidHeatFlowPorts.png\"></td></tr>
+   <td valign=\"top\">pressure<br>
+    specific enthalpy</td>
+   <td valign=\"top\">mass flow rate<br>
+    enthalpy flow rate</td>
+   <td valign=\"top\"><a href=\"Modelica://Modelica.Thermal.FluidHeatFlow.Interfaces\">Modelica.Thermal.FluidHeatFlow.Interfaces</a>
+     <br>FlowPort, FlowPort_a, FlowPort_b</td>
+   <td valign=\"top\"><img src=\"../Images/UsersGuide/FluidHeatFlowPorts.png\"></td></tr>
 
 <tr><td valign=\"top\"><b>thermo<br>fluid flow</b></td>
-	  <td valign=\"top\">pressure<br>
+   <td valign=\"top\">pressure<br>
                   <u>stream</u> variables:<br>
-		  &nbsp;&nbsp;specific enthalpy<br>
-		  &nbsp;&nbsp;mass fractions</td>
-	  <td valign=\"top\">mass flow rate</td>
-	  <td valign=\"top\">
+    &nbsp;&nbsp;specific enthalpy<br>
+    &nbsp;&nbsp;mass fractions</td>
+   <td valign=\"top\">mass flow rate</td>
+   <td valign=\"top\">
 <a href=\"Modelica://Modelica.Fluid.Interfaces\">Modelica.Fluid.Interfaces</a>
-		   <br>FluidPort, FluidPort_a, FluidPort_b</td>
-	  <td valign=\"top\"><img src=\"../Images/UsersGuide/FluidPorts.png\"></td></tr>
+     <br>FluidPort, FluidPort_a, FluidPort_b</td>
+   <td valign=\"top\"><img src=\"../Images/UsersGuide/FluidPorts.png\"></td></tr>
 
 <tr><td valign=\"top\"><b>heat<br>transfer</b></td>
-	  <td valign=\"top\">temperature</td>
-	  <td valign=\"top\">heat flow rate</td>
-	  <td valign=\"top\"><a href=\"Modelica://Modelica.Thermal.HeatTransfer.Interfaces\">Modelica.Thermal.HeatTransfer.Interfaces</a>
-		   <br>HeatPort, HeatPort_a, HeatPort_b</td>
-	  <td valign=\"top\"><img src=\"../Images/UsersGuide/ThermalHeatPorts.png\"></td></tr>
+   <td valign=\"top\">temperature</td>
+   <td valign=\"top\">heat flow rate</td>
+   <td valign=\"top\"><a href=\"Modelica://Modelica.Thermal.HeatTransfer.Interfaces\">Modelica.Thermal.HeatTransfer.Interfaces</a>
+     <br>HeatPort, HeatPort_a, HeatPort_b</td>
+   <td valign=\"top\"><img src=\"../Images/UsersGuide/ThermalHeatPorts.png\"></td></tr>
 
 <tr><td valign=\"top\"><b>block<br>diagram</b></td>
-	  <td valign=\"top\">Real variable<br>
-		  Integer variable<br>
-		  Boolean variable</td>
-	  <td valign=\"top\">---</td>
-	  <td valign=\"top\"><a href=\"Modelica://Modelica.Blocks.Interfaces\">Modelica.Blocks.Interfaces</a>
-		   <br>RealSignal, RealInput, RealOutput<br>
-			   IntegerSignal, IntegerInput, IntegerOutput<br>
-			   BooleanSignal, BooleanInput, BooleanOutput</td>
-	  <td valign=\"top\"><img src=\"../Images/UsersGuide/Signals.png\"></tr>
+   <td valign=\"top\">Real variable<br>
+    Integer variable<br>
+    Boolean variable</td>
+   <td valign=\"top\">---</td>
+   <td valign=\"top\"><a href=\"Modelica://Modelica.Blocks.Interfaces\">Modelica.Blocks.Interfaces</a>
+     <br>RealSignal, RealInput, RealOutput<br>
+      IntegerSignal, IntegerInput, IntegerOutput<br>
+      BooleanSignal, BooleanInput, BooleanOutput</td>
+   <td valign=\"top\"><img src=\"../Images/UsersGuide/Signals.png\"></tr>
 
 <tr><td valign=\"top\"><b>state<br>machine</b></td>
-	  <td valign=\"top\">Boolean variables<br>
-		  (occupied, set, <br>
-		   available, reset)</td>
-	  <td valign=\"top\">---</td>
-	  <td valign=\"top\"><a href=\"Modelica://Modelica.StateGraph.Interfaces\">Modelica.StateGraph.Interfaces</a>
-		   <br>Step_in, Step_out, Transition_in, Transition_out</td>
-	  <td valign=\"top\"><img src=\"../Images/UsersGuide/StateGraphPorts.png\"></td></tr>
+   <td valign=\"top\">Boolean variables<br>
+    (occupied, set, <br>
+     available, reset)</td>
+   <td valign=\"top\">---</td>
+   <td valign=\"top\"><a href=\"Modelica://Modelica.StateGraph.Interfaces\">Modelica.StateGraph.Interfaces</a>
+     <br>Step_in, Step_out, Transition_in, Transition_out</td>
+   <td valign=\"top\"><img src=\"../Images/UsersGuide/StateGraphPorts.png\"></td></tr>
 
 
 <tr><td colspan=\"5\">&nbsp;<br><b>Connectors from other libraries</b></td></tr>
 
 <tr><td valign=\"top\"><b>hydraulic</b></td>
-	  <td valign=\"top\">pressure</td>
-	  <td valign=\"top\">volume flow rate</td>
-	  <td valign=\"top\">HyLibLight.Interfaces
-		   <br>Port_A, Port_b</td>
-	  <td valign=\"top\"><img src=\"../Images/UsersGuide/HydraulicPorts.png\"></td></tr>
+   <td valign=\"top\">pressure</td>
+   <td valign=\"top\">volume flow rate</td>
+   <td valign=\"top\">HyLibLight.Interfaces
+     <br>Port_A, Port_b</td>
+   <td valign=\"top\"><img src=\"../Images/UsersGuide/HydraulicPorts.png\"></td></tr>
 
 <tr><td valign=\"top\"><b>pneumatic</b></td>
-	  <td valign=\"top\">pressure</td>
-	  <td valign=\"top\">mass flow rate</td>
-	  <td valign=\"top\">PneuLibLight.Interfaces
-		   <br>Port_1, Port_2</td>
-	  <td valign=\"top\"><img src=\"../Images/UsersGuide/PneumaticPorts.png\"></td></tr>
+   <td valign=\"top\">pressure</td>
+   <td valign=\"top\">mass flow rate</td>
+   <td valign=\"top\">PneuLibLight.Interfaces
+     <br>Port_1, Port_2</td>
+   <td valign=\"top\"><img src=\"../Images/UsersGuide/PneumaticPorts.png\"></td></tr>
 </table>
 
 <p>
@@ -408,9 +408,9 @@ For example, an electrical plug consisting of two electrical pins can be defined
 </p>
 
 <pre>   <b>connector</b> Plug
-	  <b>import</b> Modelica.Electrical.Analog.Interfaces;
-	  Interfaces.PositivePin phase;
-	  Interfaces.NegativePin ground;
+   <b>import</b> Modelica.Electrical.Analog.Interfaces;
+   Interfaces.PositivePin phase;
+   Interfaces.NegativePin ground;
 <b>end</b> Plug;
 </pre>
 
@@ -442,46 +442,46 @@ In the Modelica package the following conventions are used:
 </p>
 <ol>
 <li> Class and instance names are written in upper and lower case
-	 letters, e.g., \"ElectricCurrent\". An underscore is only used
-	 at the end of a name to characterize a lower or upper index,
-	 e.g., \"pin_a\".<br>&nbsp;</li>
+  letters, e.g., \"ElectricCurrent\". An underscore is only used
+  at the end of a name to characterize a lower or upper index,
+  e.g., \"pin_a\".<br>&nbsp;</li>
 
 <li> <b>Class names</b> start always with an upper case letter.<br>&nbsp;</li>
 
 <li> <b>Instance names</b>, i.e., names of component instances and
-	 of variables (with the exception of constants),
-	 start usually with a lower case letter with only
-	 a few exceptions if this is common sense
-	 (such as \"T\" for a temperature variable).<br>&nbsp;</li>
+  of variables (with the exception of constants),
+  start usually with a lower case letter with only
+  a few exceptions if this is common sense
+  (such as \"T\" for a temperature variable).<br>&nbsp;</li>
 
 <li> <b>Constant names</b>, i.e., names of variables declared with the
-	 \"constant\" prefix, follow the usual naming conventions
-	 (= upper and lower case letters) and start usually with an
-	 upper case letter, e.g. UniformGravity, SteadyState.<br>&nbsp;<li>
+  \"constant\" prefix, follow the usual naming conventions
+  (= upper and lower case letters) and start usually with an
+  upper case letter, e.g. UniformGravity, SteadyState.<br>&nbsp;<li>
 
 <li> The two connectors of a domain that have identical declarations
-	 and different icons are usually distinguished by \"_a\", \"_b\"
-	 or \"_p\", \"_n\", e.g., Flange_a/Flange_b, HeatPort_a, HeatPort_b.<br>&nbsp;</li>
+  and different icons are usually distinguished by \"_a\", \"_b\"
+  or \"_p\", \"_n\", e.g., Flange_a/Flange_b, HeatPort_a, HeatPort_b.<br>&nbsp;</li>
 
 <li> The <b>instance name</b> of a component is always displayed in its icon
-	 (= text string \"%name\") in <b>blue color</b>. A connector class has the instance
-	 name definition in the diagram layer and not in the icon layer.
-	 <b>Parameter</b> values, e.g., resistance, mass, gear ratio, are displayed
-	 in the icon in <b>black color</b> in a smaller font size as the instance name.
-	<br>&nbsp;<li>
+  (= text string \"%name\") in <b>blue color</b>. A connector class has the instance
+  name definition in the diagram layer and not in the icon layer.
+  <b>Parameter</b> values, e.g., resistance, mass, gear ratio, are displayed
+  in the icon in <b>black color</b> in a smaller font size as the instance name.
+ <br>&nbsp;<li>
 
 <li> A main package has usually the following subpackages:
-	 <ul>
-	 <li><b>UsersGuide</b> containing an overall description of the library
-		 and how to use it.</li>
-	 <li><b>Examples</b> containing models demonstrating the
-		 usage of the library.</li>
-	 <li><b>Interfaces</b> containing connectors and partial
-		 models.</li>
-	 <li><b>Types</b> containing type, enumeration and choice
-		 definitions.</li>
-	 </ul>
-	 </li>
+  <ul>
+  <li><b>UsersGuide</b> containing an overall description of the library
+   and how to use it.</li>
+  <li><b>Examples</b> containing models demonstrating the
+   usage of the library.</li>
+  <li><b>Interfaces</b> containing connectors and partial
+   models.</li>
+  <li><b>Types</b> containing type, enumeration and choice
+   definitions.</li>
+  </ul>
+  </li>
 </ol>
 
 </html>
@@ -526,28 +526,28 @@ situations are present:
 
 <ol>
 <li> The parameter value could be anything (e.g., a spring constant or
-	 a resistance value) and therefore the user should provide a value in
-	 all cases. A Modelica translator should warn, if no value is provided.
-	 <br><br></li>
+  a resistance value) and therefore the user should provide a value in
+  all cases. A Modelica translator should warn, if no value is provided.
+  <br><br></li>
 
 <li> The parameter value is not changed in &gt; 95 % of the cases
-	 (e.g. initialization or visualization parameters, or parameter phi_rel0
-	 in the example above). In this case a default parameter value should be
-	 provided, in order that the model or function can be conveniently
-	 used by a modeler.
-	 <br><br></li>
+  (e.g. initialization or visualization parameters, or parameter phi_rel0
+  in the example above). In this case a default parameter value should be
+  provided, in order that the model or function can be conveniently
+  used by a modeler.
+  <br><br></li>
 
 <li> A modeler would like to quickly utilize a model, e.g.,
-	 <ul>
-	 <li> to automatically check that the model still translates and/or simulates
-		  (after some changes in the library),</li>
-	 <li> to make a quick demo of a library by drag-and-drop of components,</li>
-	 <li> to implement a simple test model in order to get a better understanding
-		  of the desired component.</li>
-	 </ul>
-	 In all these cases, it would be not practical, if the modeler would
-	 have to provide explicit values for all parameters first.
-	 </li>
+  <ul>
+  <li> to automatically check that the model still translates and/or simulates
+    (after some changes in the library),</li>
+  <li> to make a quick demo of a library by drag-and-drop of components,</li>
+  <li> to implement a simple test model in order to get a better understanding
+    of the desired component.</li>
+  </ul>
+  In all these cases, it would be not practical, if the modeler would
+  have to provide explicit values for all parameters first.
+  </li>
 </ol>
 
 <p>
@@ -734,11 +734,11 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
 
 <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Magnetic.FluxTubes\">Modelica.Magnetic.FluxTubes</a></td>
     <td valign=\"top\">
-     Components to model magnetic devices based on the magnetic flux tubes concepts. 
-     Especially to model 
-     electro-magnetic actuators. Nonlinear shape, force, leackage, and 
+     Components to model magnetic devices based on the magnetic flux tubes concepts.
+     Especially to model
+     electro-magnetic actuators. Nonlinear shape, force, leackage, and
      Material models. Material data for steel, electric sheet, pure iron,
-     Cobalt iron, Nickel iron, NdFeB, Sm2Co17, and more. 
+     Cobalt iron, Nickel iron, NdFeB, Sm2Co17, and more.
     </td>
 </table>
 
@@ -3990,69 +3990,69 @@ by &lt;name of Licensor&gt; under the Modelica License 2</b></p>
 
 <p><b>1. Definitions.</b></p>
 <ol>
-	<li>&ldquo;License&rdquo; is this Modelica License.</li>
+ <li>&ldquo;License&rdquo; is this Modelica License.</li>
 
-	<li>
-	&ldquo;Original Work&rdquo; is any work of authorship, including
-	software, images, documents, data files, that contains the above
-	licensing notice or that is packed together with a licensing notice
-	referencing it.</li>
+ <li>
+ &ldquo;Original Work&rdquo; is any work of authorship, including
+ software, images, documents, data files, that contains the above
+ licensing notice or that is packed together with a licensing notice
+ referencing it.</li>
 
-	<li>
-	&ldquo;Licensor&rdquo; is the provider of the Original Work who has
-	placed this licensing notice adjacent to the copyright notice(s) for
-	the Original Work. The Original Work is either directly provided by
-	the owner of the Original Work, or by a licensee of the owner.</li>
+ <li>
+ &ldquo;Licensor&rdquo; is the provider of the Original Work who has
+ placed this licensing notice adjacent to the copyright notice(s) for
+ the Original Work. The Original Work is either directly provided by
+ the owner of the Original Work, or by a licensee of the owner.</li>
 
-	<li>
-	&ldquo;Derivative Work&rdquo; is any modification of the Original
-	Work which represents, as a whole, an original work of authorship.
-	For the matter of clarity and as examples: </li>
+ <li>
+ &ldquo;Derivative Work&rdquo; is any modification of the Original
+ Work which represents, as a whole, an original work of authorship.
+ For the matter of clarity and as examples: </li>
 
-	<ol>
-		<li>
-		Derivative Work shall not include work that remains separable from
-		the Original Work, as well as merely extracting a part of the
-		Original Work without modifying it.</li>
+ <ol>
+  <li>
+  Derivative Work shall not include work that remains separable from
+  the Original Work, as well as merely extracting a part of the
+  Original Work without modifying it.</li>
 
-		<li>
-		Derivative Work shall not include (a) fixing of errors and/or (b)
-		adding vendor specific Modelica annotations and/or (c) using a
-		subset of the classes of a Modelica package, and/or (d) using a
-		different representation, e.g., a binary representation.</li>
+  <li>
+  Derivative Work shall not include (a) fixing of errors and/or (b)
+  adding vendor specific Modelica annotations and/or (c) using a
+  subset of the classes of a Modelica package, and/or (d) using a
+  different representation, e.g., a binary representation.</li>
 
-		<li>
-		Derivative Work shall include classes that are copied from the
-		Original Work where declarations, equations or the documentation
-		are modified.</li>
+  <li>
+  Derivative Work shall include classes that are copied from the
+  Original Work where declarations, equations or the documentation
+  are modified.</li>
 
-		<li>
-		Derivative Work shall include executables to simulate the models
-		that are generated by a Modelica translator based on the Original
-		Work (of a Modelica package).</li>
-	</ol>
+  <li>
+  Derivative Work shall include executables to simulate the models
+  that are generated by a Modelica translator based on the Original
+  Work (of a Modelica package).</li>
+ </ol>
 
-	<li>
-	&ldquo;Modified Work&rdquo; is any modification of the Original Work
-	with the following exceptions: (a) fixing of errors and/or (b)
-	adding vendor specific Modelica annotations and/or (c) using a
-	subset of the classes of a Modelica package, and/or (d) using a
-	different representation, e.g., a binary representation.</li>
+ <li>
+ &ldquo;Modified Work&rdquo; is any modification of the Original Work
+ with the following exceptions: (a) fixing of errors and/or (b)
+ adding vendor specific Modelica annotations and/or (c) using a
+ subset of the classes of a Modelica package, and/or (d) using a
+ different representation, e.g., a binary representation.</li>
 
-	<li>
-	&quot;Source Code&quot; means the preferred form of the Original
-	Work for making modifications to it and all available documentation
-	describing how to modify the Original Work.</li>
+ <li>
+ &quot;Source Code&quot; means the preferred form of the Original
+ Work for making modifications to it and all available documentation
+ describing how to modify the Original Work.</li>
 
-	<li>
-	&ldquo;You&rdquo; means an individual or a legal entity exercising
-	rights under, and complying with all of the terms of, this License.</li>
+ <li>
+ &ldquo;You&rdquo; means an individual or a legal entity exercising
+ rights under, and complying with all of the terms of, this License.</li>
 
-	<li>
-	&ldquo;Modelica package&rdquo; means any Modelica library that is
-	defined with the<br>&ldquo;<FONT FACE=\"Courier New, monospace\"><FONT SIZE=2 STYLE=\"font-size: 9pt\"><b>package</b></FONT></FONT><FONT FACE=\"Courier New, monospace\"><FONT SIZE=2 STYLE=\"font-size: 9pt\">
-	&lt;Name&gt; ... </FONT></FONT><FONT FACE=\"Courier New, monospace\"><FONT SIZE=2 STYLE=\"font-size: 9pt\"><b>end</b></FONT></FONT><FONT FACE=\"Courier New, monospace\"><FONT SIZE=2 STYLE=\"font-size: 9pt\">
-	&lt;Name&gt;;</FONT></FONT>&ldquo; Modelica language element.</li>
+ <li>
+ &ldquo;Modelica package&rdquo; means any Modelica library that is
+ defined with the<br>&ldquo;<FONT FACE=\"Courier New, monospace\"><FONT SIZE=2 STYLE=\"font-size: 9pt\"><b>package</b></FONT></FONT><FONT FACE=\"Courier New, monospace\"><FONT SIZE=2 STYLE=\"font-size: 9pt\">
+ &lt;Name&gt; ... </FONT></FONT><FONT FACE=\"Courier New, monospace\"><FONT SIZE=2 STYLE=\"font-size: 9pt\"><b>end</b></FONT></FONT><FONT FACE=\"Courier New, monospace\"><FONT SIZE=2 STYLE=\"font-size: 9pt\">
+ &lt;Name&gt;;</FONT></FONT>&ldquo; Modelica language element.</li>
 </ol>
 
 <p>
@@ -4061,35 +4061,35 @@ worldwide, royalty-free, non-exclusive, sublicensable license, for
 the duration of the copyright, to do the following:</p>
 
 <ol>
-	<li><p>
-	To reproduce the Original Work in copies, either alone or as part of
-	a collection.</li></p>
-	<li><p>
-	To create Derivative Works according to Section 1d) of this License.</li></p>
-	<li><p>
-	To distribute or communicate to the public copies of the <u>Original
-	Work</u> or a <u>Derivative Work</u> under <u>this License</u>. No
-	fee, neither as a copyright-license fee, nor as a selling fee for
-	the copy as such may be charged under this License. Furthermore, a
-	verbatim copy of this License must be included in any copy of the
-	Original Work or a Derivative Work under this License.<br>      For
-	the matter of clarity, it is permitted A) to distribute or
-	communicate such copies as part of a (possible commercial)
-	collection where other parts are provided under different licenses
-	and a license fee is charged for the other parts only and B) to
-	charge for mere printing and shipping costs.</li></p>
-	<li><p>
-	To distribute or communicate to the public copies of a <u>Derivative
-	Work</u>, alternatively to Section 2c), under <u>any other license</u>
-	of your choice, especially also under a license for
-	commercial/proprietary software, as long as You comply with Sections
-	3, 4 and 8 below. <br>      For the matter of clarity, no
-	restrictions regarding fees, either as to a copyright-license fee or
-	as to a selling fee for the copy as such apply.</li></p>
-	<li><p>
-	To perform the Original Work publicly.</li></p>
-	<li><p>
-	To display the Original Work publicly.</li></p>
+ <li><p>
+ To reproduce the Original Work in copies, either alone or as part of
+ a collection.</li></p>
+ <li><p>
+ To create Derivative Works according to Section 1d) of this License.</li></p>
+ <li><p>
+ To distribute or communicate to the public copies of the <u>Original
+ Work</u> or a <u>Derivative Work</u> under <u>this License</u>. No
+ fee, neither as a copyright-license fee, nor as a selling fee for
+ the copy as such may be charged under this License. Furthermore, a
+ verbatim copy of this License must be included in any copy of the
+ Original Work or a Derivative Work under this License.<br>      For
+ the matter of clarity, it is permitted A) to distribute or
+ communicate such copies as part of a (possible commercial)
+ collection where other parts are provided under different licenses
+ and a license fee is charged for the other parts only and B) to
+ charge for mere printing and shipping costs.</li></p>
+ <li><p>
+ To distribute or communicate to the public copies of a <u>Derivative
+ Work</u>, alternatively to Section 2c), under <u>any other license</u>
+ of your choice, especially also under a license for
+ commercial/proprietary software, as long as You comply with Sections
+ 3, 4 and 8 below. <br>      For the matter of clarity, no
+ restrictions regarding fees, either as to a copyright-license fee or
+ as to a selling fee for the copy as such apply.</li></p>
+ <li><p>
+ To perform the Original Work publicly.</li></p>
+ <li><p>
+ To display the Original Work publicly.</li></p>
 </ol>
 
 <p>
@@ -4235,20 +4235,20 @@ action. This section shall survive the termination of this License.</p>
 <b>15. Miscellaneous.</b>
 </p>
 <ol>
-	<li>If any
-	provision of this License is held to be unenforceable, such
-	provision shall be reformed only to the extent necessary to make it
-	enforceable.</li>
+ <li>If any
+ provision of this License is held to be unenforceable, such
+ provision shall be reformed only to the extent necessary to make it
+ enforceable.</li>
 
-	<li>No verbal
-	ancillary agreements have been made. Changes and additions to this
-	License must appear in writing to be valid. This also applies to
-	changing the clause pertaining to written form.</li>
+ <li>No verbal
+ ancillary agreements have been made. Changes and additions to this
+ License must appear in writing to be valid. This also applies to
+ changing the clause pertaining to written form.</li>
 
-	<li>You may use the
-	Original Work in all ways not otherwise restricted or conditioned by
-	this License or by law, and Licensor promises not to interfere with
-	or be responsible for such uses by You.</li>
+ <li>You may use the
+ Original Work in all ways not otherwise restricted or conditioned by
+ this License or by law, and Licensor promises not to interfere with
+ or be responsible for such uses by You.</li>
 </ol>
 
 <p>
@@ -4276,42 +4276,42 @@ under the Modelica License 2</b></FONT></FONT></p>
 <p><b>What are the main
 differences to the previous version of the Modelica License?</b></p>
 <ol>
-	<li><p>
-	Modelica License 1 is unclear whether the licensed Modelica package
-	can be distributed under a different license. Version 2 explicitly
-	allows that &ldquo;Derivative Work&rdquo; can be distributed under
-	any license of Your choice, see examples in Section 1d) as to what
-	qualifies as Derivative Work (so, version 2 is clearer).</p>
-	<li><p>
-	If You modify a Modelica package under Modelica License 2 (besides
-	fixing of errors, adding vendor specific Modelica annotations, using
-	a subset of the classes of a Modelica package, or using another
-	representation, e.g., a binary representation), you must rename the
-	root-level name of the package for your distribution. In version 1
-	you could keep the name (so, version 2 is more restrictive). The
-	reason of this restriction is to reduce the risk that Modelica
-	packages are available that have identical names, but different
-	functionality.</p>
-	<li><p>
-	Modelica License 1 states that &ldquo;It is not allowed to charge a
-	fee for the original version or a modified version of the software,
-	besides a reasonable fee for distribution and support<SPAN LANG=\"en-GB\">&ldquo;.
-	Version 2 has a </SPAN>similar intention for all Original Work under
-	<u>Modelica License 2</u> (to remain free of charge and open source)
-	but states this more clearly as &ldquo;No fee, neither as a
-	copyright-license fee, nor as a selling fee for the copy as such may
-	be charged&rdquo;. Contrary to version 1, Modelica License 2 has no
-	restrictions on fees for Derivative Work that is provided under a
-	different license (so, version 2 is clearer and has fewer
-	restrictions).</p>
-	<li><p>
-	Modelica License 2 introduces several useful provisions for the
-	licensee (articles 5, 6, 12), and for the licensor (articles 7, 12,
-	13, 14) that have no counter part in version 1.</p>
-	<li><p>
-	Modelica License 2 can be applied to all type of work, including
-	documents, images and data files, contrary to version 1 that was
-	dedicated for software only (so, version 2 is more general).</p>
+ <li><p>
+ Modelica License 1 is unclear whether the licensed Modelica package
+ can be distributed under a different license. Version 2 explicitly
+ allows that &ldquo;Derivative Work&rdquo; can be distributed under
+ any license of Your choice, see examples in Section 1d) as to what
+ qualifies as Derivative Work (so, version 2 is clearer).</p>
+ <li><p>
+ If You modify a Modelica package under Modelica License 2 (besides
+ fixing of errors, adding vendor specific Modelica annotations, using
+ a subset of the classes of a Modelica package, or using another
+ representation, e.g., a binary representation), you must rename the
+ root-level name of the package for your distribution. In version 1
+ you could keep the name (so, version 2 is more restrictive). The
+ reason of this restriction is to reduce the risk that Modelica
+ packages are available that have identical names, but different
+ functionality.</p>
+ <li><p>
+ Modelica License 1 states that &ldquo;It is not allowed to charge a
+ fee for the original version or a modified version of the software,
+ besides a reasonable fee for distribution and support<SPAN LANG=\"en-GB\">&ldquo;.
+ Version 2 has a </SPAN>similar intention for all Original Work under
+ <u>Modelica License 2</u> (to remain free of charge and open source)
+ but states this more clearly as &ldquo;No fee, neither as a
+ copyright-license fee, nor as a selling fee for the copy as such may
+ be charged&rdquo;. Contrary to version 1, Modelica License 2 has no
+ restrictions on fees for Derivative Work that is provided under a
+ different license (so, version 2 is clearer and has fewer
+ restrictions).</p>
+ <li><p>
+ Modelica License 2 introduces several useful provisions for the
+ licensee (articles 5, 6, 12), and for the licensor (articles 7, 12,
+ 13, 14) that have no counter part in version 1.</p>
+ <li><p>
+ Modelica License 2 can be applied to all type of work, including
+ documents, images and data files, contrary to version 1 that was
+ dedicated for software only (so, version 2 is more general).</p>
 </ol>
 
 <p><b>Can I distribute a
@@ -4449,17 +4449,17 @@ under the Modelica License 2</b></FONT></FONT></p>
 <p>This
 section is devoted especially for the following applications:</p>
 <ol>
-	<li><p>
-	A Modelica tool extracts information out of a Modelica package and
-	presents the result in form of a &ldquo;manual&rdquo; for this
-	package in, e.g., html, doc, or pdf format.</p>
-	<li><p>
-	The Modelica language specification is a document defining the
-	Modelica language. It will be licensed under Modelica License 2.</p>
-	<li><p>
-	Someone writes a book about the Modelica language and/or Modelica
-	packages and uses information which is available in the Modelica
-	language specification and/or the corresponding Modelica package.</p>
+ <li><p>
+ A Modelica tool extracts information out of a Modelica package and
+ presents the result in form of a &ldquo;manual&rdquo; for this
+ package in, e.g., html, doc, or pdf format.</p>
+ <li><p>
+ The Modelica language specification is a document defining the
+ Modelica language. It will be licensed under Modelica License 2.</p>
+ <li><p>
+ Someone writes a book about the Modelica language and/or Modelica
+ packages and uses information which is available in the Modelica
+ language specification and/or the corresponding Modelica package.</p>
 </ol>
 
 <p><b>Can I sell a manual
@@ -4512,29 +4512,29 @@ class Contact "Contact"
 
 <dl>
 <dt>The Modelica Standard Library (this Modelica package)
-	is developed by many people from different organizations (see list below).
-	It is licensed under the
-	<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica License 2</a>
-	by:<br>&nbsp;</dt>
+ is developed by many people from different organizations (see list below).
+ It is licensed under the
+ <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica License 2</a>
+ by:<br>&nbsp;</dt>
 <dd>Modelica Association<br>
-	(Ideella F&ouml;reningar 822003-8858 in Link&ouml;ping) <br>
-	c/o PELAB, IDA, Link&ouml;pings Universitet<br>
-	S-58183 Link&ouml;ping<br>
-	Sweden<br>
-	email: <a href=\"mailto:Board@Modelica.org\">Board@Modelica.org</a><br>
-	web: <a href=\"http://www.Modelica.org\">http://www.Modelica.org</a><br>&nbsp;<br>&nbsp;</dd>
+ (Ideella F&ouml;reningar 822003-8858 in Link&ouml;ping) <br>
+ c/o PELAB, IDA, Link&ouml;pings Universitet<br>
+ S-58183 Link&ouml;ping<br>
+ Sweden<br>
+ email: <a href=\"mailto:Board@Modelica.org\">Board@Modelica.org</a><br>
+ web: <a href=\"http://www.Modelica.org\">http://www.Modelica.org</a><br>&nbsp;<br>&nbsp;</dd>
 </dl>
 
 <dl>
 <dt>The development of this Modelica package is organized by<br>&nbsp;</dt>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
-	Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
-	Institut f&uuml;r Robotik und Mechatronik<br>
-	Abteilung f&uuml;r Systemdynamik und Regelungstechnik<br>
-	Postfach 1116<br>
-	D-82230 Wessling<br>
-	Germany<br>
-	email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br></dd>
+ Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
+ Institut f&uuml;r Robotik und Mechatronik<br>
+ Abteilung f&uuml;r Systemdynamik und Regelungstechnik<br>
+ Postfach 1116<br>
+ D-82230 Wessling<br>
+ Germany<br>
+ email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br></dd>
 </dl>
 
 <p>
@@ -4557,88 +4557,88 @@ The following library officers are currently assigned:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><td valign=\"top\"><b>Sublibraries</b> </td>
-	  <td valign=\"top\"><b>Library officers</b></td>
+   <td valign=\"top\"><b>Library officers</b></td>
 </tr>
 
 <tr><td valign=\"top\"> Blocks <br> Constants </td>
-	  <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
-					   (Martin Otter)</td>
+   <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
+        (Martin Otter)</td>
 </tr>
 
 <tr><td valign=\"top\"> Electrical.Analog, <br> Electrical.Digital </td>
-	  <td valign=\"top\"> Fraunhofer Institute for Integrated Circuits, Dresden, Germany<br>
-						(Christoph Clauss)</td>
+   <td valign=\"top\"> Fraunhofer Institute for Integrated Circuits, Dresden, Germany<br>
+      (Christoph Clauss)</td>
 </tr>
 
 <tr><td valign=\"top\"> Electrical.Machines<br>
-						Electrical.MultiPhase </td>
-	  <td valign=\"top\"> Anton Haumer, Consultant, St.Andrae-Woerdern, Austria, and<br>
-						arsenal research, Vienna, Austria (Christian Kral)</td>
+      Electrical.MultiPhase </td>
+   <td valign=\"top\"> Anton Haumer, Consultant, St.Andrae-Woerdern, Austria, and<br>
+      arsenal research, Vienna, Austria (Christian Kral)</td>
 </tr>
 
 <tr><td valign=\"top\"> Magnetic.FluxTubes </td>
-	  <td valign=\"top\"> Thomas Bödrich, Dresden, Germany<br>
+   <td valign=\"top\"> Thomas Bödrich, Dresden, Germany<br>
                                (Dresden University of Technology,<br>
                                Institute of Electromechanical and Electronic Design)
 </td>
 </tr>
 
 <tr><td valign=\"top\"> Fluid </td>
-	  <td valign=\"top\"> Politecnico di Milano (Francesco Casella), and<br>
+   <td valign=\"top\"> Politecnico di Milano (Francesco Casella), and<br>
                             R&uuml;diger Franke (ABB)</td>
 </tr>
 
 <tr><td valign=\"top\"> Icons </td>
-	  <td valign=\"top\"> Modelon AB, Lund, Sweden (Johan Andreasson) </td>
+   <td valign=\"top\"> Modelon AB, Lund, Sweden (Johan Andreasson) </td>
 </tr>
 
 <tr><td valign=\"top\"> Math </td>
-	  <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
-						(Martin Otter)</td>
+   <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
+      (Martin Otter)</td>
 </tr>
 
 <tr><td valign=\"top\"> Mechanics.MultiBody </td>
-	  <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
-						(Martin Otter),<br>
-						 Modelon AB, Lund, Sweden (Johan Andreasson) </td>
+   <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
+      (Martin Otter),<br>
+       Modelon AB, Lund, Sweden (Johan Andreasson) </td>
 </tr>
 
 <tr><td valign=\"top\"> Mechanics.Rotational </td>
-	  <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
-						(Martin Otter)<br>
-						Anton Haumer, Consultant, St.Andrae-Woerdern, Austria,<br>
-						arsenal research, Vienna, Austria (Christian Kral),<br>
-						Modelon AB, Lund, Sweden (Johan Andreasson)</td>
+   <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
+      (Martin Otter)<br>
+      Anton Haumer, Consultant, St.Andrae-Woerdern, Austria,<br>
+      arsenal research, Vienna, Austria (Christian Kral),<br>
+      Modelon AB, Lund, Sweden (Johan Andreasson)</td>
 </tr>
 
 <tr><td valign=\"top\"> Mechanics.Translational </td>
-	  <td valign=\"top\"> Anton Haumer, Consultant, St.Andrae-Woerdern, Austria,<br>
-						arsenal research, Vienna, Austria (Christian Kral), <br>
-						DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
-						(Martin Otter)<br>
-						 Modelon AB, Lund, Sweden (Johan Andreasson)</td>
+   <td valign=\"top\"> Anton Haumer, Consultant, St.Andrae-Woerdern, Austria,<br>
+      arsenal research, Vienna, Austria (Christian Kral), <br>
+      DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
+      (Martin Otter)<br>
+       Modelon AB, Lund, Sweden (Johan Andreasson)</td>
 </tr>
 
 
 <tr><td valign=\"top\"> Media </td>
-	  <td valign=\"top\"> Modelon AB, Lund, Sweden (Hubertus Tummescheit) </td>
+   <td valign=\"top\"> Modelon AB, Lund, Sweden (Hubertus Tummescheit) </td>
 </tr>
 
 <tr><td valign=\"top\"> SIunits <br>
-						StateGraph </td>
-	  <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
-						(Martin Otter)</td>
+      StateGraph </td>
+   <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
+      (Martin Otter)</td>
 </tr>
 
 <tr><td valign=\"top\"> Thermal.FluidHeatFlow <br>
-						Thermal.HeatTransfer </td>
-	  <td valign=\"top\"> Anton Haumer, Consultant, St.Andrae-Woerdern, Austria, and<br>
-						arsenal research, Vienna, Austria (Christian Kral)</td>
+      Thermal.HeatTransfer </td>
+   <td valign=\"top\"> Anton Haumer, Consultant, St.Andrae-Woerdern, Austria, and<br>
+      arsenal research, Vienna, Austria (Christian Kral)</td>
 
 <tr><td valign=\"top\"> Utilities </td>
-	  <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
-						(Martin Otter)<br>
-						Dynasim AB, Lund, Sweden (Hans Olsson)</td>
+   <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
+      (Martin Otter)<br>
+      Dynasim AB, Lund, Sweden (Hans Olsson)</td>
 </tr>
 </table>
 
@@ -4650,178 +4650,178 @@ of the Modelica package (many more people have contributed to the design):
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><td valign=\"top\"><b>Peter Beater</b> </td
-	  <td valign=\"top\"> University of Paderborn, Germany</td>
-	  <td valign=\"top\"> Modelica.Mechanics.Translational </td>
+   <td valign=\"top\"> University of Paderborn, Germany</td>
+   <td valign=\"top\"> Modelica.Mechanics.Translational </td>
 </tr>
 
 <tr><td valign=\"top\"><b>Thomas Bödrich</b> </td
-	  <td valign=\"top\"> Dresden University of Technology, Germany</td>
-	  <td valign=\"top\"> Modelica.Magnetic.FluxTubes </td>
+   <td valign=\"top\"> Dresden University of Technology, Germany</td>
+   <td valign=\"top\"> Modelica.Magnetic.FluxTubes </td>
 
 
 <tr><td valign=\"top\"><b>Dag Br&uuml;ck</b> </td
-	  <td valign=\"top\"> Dynasim AB, Lund, Sweden</td>
-	  <td valign=\"top\"> Modelica.Utilities</td>
+   <td valign=\"top\"> Dynasim AB, Lund, Sweden</td>
+   <td valign=\"top\"> Modelica.Utilities</td>
 </tr>
 
 <tr><td valign=\"top\"><b>Francesco Casella</b> </td
-	  <td valign=\"top\"> Politecnico di Milano, Milano, Italy</td>
-	  <td valign=\"top\"> Modelica.Fluid<br>
+   <td valign=\"top\"> Politecnico di Milano, Milano, Italy</td>
+   <td valign=\"top\"> Modelica.Fluid<br>
                             Modelica.Media</td>
 </tr>
 
 <tr><td valign=\"top\"><b>Christoph Clauss</b> </td
-	  <td valign=\"top\"> Fraunhofer Institute for Integrated Circuits,<br> Dresden, Germany</td>
-	  <td valign=\"top\"> Modelica.Electrical.Analog<br>
-		   Modelica.Electrical.Digital</td>
+   <td valign=\"top\"> Fraunhofer Institute for Integrated Circuits,<br> Dresden, Germany</td>
+   <td valign=\"top\"> Modelica.Electrical.Analog<br>
+     Modelica.Electrical.Digital</td>
 </tr>
 
 <tr><td valign=\"top\"><b>Jonas Eborn</b> </td
-	  <td valign=\"top\"> Modelon AB, Lund, Sweden</td>
-	  <td valign=\"top\"> Modelica.Media</td>
+   <td valign=\"top\"> Modelon AB, Lund, Sweden</td>
+   <td valign=\"top\"> Modelica.Media</td>
 </tr>
 
 <tr><td valign=\"top\"><b>Hilding Elmqvist</b> </td
-	  <td valign=\"top\"> Dynasim AB, Lund, Sweden</td>
-	  <td valign=\"top\"> Modelica.Mechanics.MultiBody<br>
+   <td valign=\"top\"> Dynasim AB, Lund, Sweden</td>
+   <td valign=\"top\"> Modelica.Mechanics.MultiBody<br>
                    Modelica.Fluid<br>
-		   Modelica.Media<br>
-		   Modelica.StateGraph<br>
-		   Modelica.Utilities<br>
-		   Conversion from 1.6 to 2.0</td>
+     Modelica.Media<br>
+     Modelica.StateGraph<br>
+     Modelica.Utilities<br>
+     Conversion from 1.6 to 2.0</td>
 </tr>
 
 <tr><td valign=\"top\"><b>R&uuml;diger Franke</b> </td
-	  <td valign=\"top\"> ABB Corporate Research,<br>Ladenburg, German</td>
-	  <td valign=\"top\"> Modelica.Fluid<br>
+   <td valign=\"top\"> ABB Corporate Research,<br>Ladenburg, German</td>
+   <td valign=\"top\"> Modelica.Fluid<br>
                             Modelica.Media</td>
 </tr>
 
 <tr><td valign=\"top\"><b>Manuel Gr&auml;ber</b> </td
-	  <td valign=\"top\"> Institut f&uuml;r Thermodynamik, <br>
-		   Technische Universit&auml;t Braunschweig, <br>
-		   Germany</td>
-	  <td valign=\"top\"> Modelica.Fluid</td>
+   <td valign=\"top\"> Institut f&uuml;r Thermodynamik, <br>
+     Technische Universit&auml;t Braunschweig, <br>
+     Germany</td>
+   <td valign=\"top\"> Modelica.Fluid</td>
 </tr>
 
 <tr><td valign=\"top\"><b>Anton Haumer</b> </td
-	  <td valign=\"top\"> Consultant, St.Andrae-Woerdern,<br>Austria</td>
-	  <td valign=\"top\"> Modelica.Electrical.Machines<br>
-		   Modelica.Electrical.Multiphase<br>
-		   Modelica.Mechanics.Rotational<br>
-		   Modelica.Mechanics.Translational<br>
-		   Modelica.Thermal.FluidHeatFlow<br>
-		   Modelica.Thermal.HeatTransfer<br>
-		   Conversion from 1.6 to 2.0<br>
-		   Conversion from 2.2 to 3.0</td>
+   <td valign=\"top\"> Consultant, St.Andrae-Woerdern,<br>Austria</td>
+   <td valign=\"top\"> Modelica.Electrical.Machines<br>
+     Modelica.Electrical.Multiphase<br>
+     Modelica.Mechanics.Rotational<br>
+     Modelica.Mechanics.Translational<br>
+     Modelica.Thermal.FluidHeatFlow<br>
+     Modelica.Thermal.HeatTransfer<br>
+     Conversion from 1.6 to 2.0<br>
+     Conversion from 2.2 to 3.0</td>
 </tr>
 
 <tr><td valign=\"top\"><b>Hans-Dieter Joos</b> </td
-	  <td valign=\"top\"> Institute of Robotics and Mechatronics<br>
-		   DLR, German Aerospace Center, <br>
-		   Oberpfaffenhofen, Germany</td>
-	  <td valign=\"top\"> Modelica.Math.Matrices</td>
+   <td valign=\"top\"> Institute of Robotics and Mechatronics<br>
+     DLR, German Aerospace Center, <br>
+     Oberpfaffenhofen, Germany</td>
+   <td valign=\"top\"> Modelica.Math.Matrices</td>
 </tr>
 
 <tr><td valign=\"top\"><b>Christian Kral</b> </td
-	  <td valign=\"top\"> arsenal research, Vienna, Austria</td>
-	  <td valign=\"top\"> Modelica.Electrical.Machines<br>
-		   Modelica.Thermal.FluidHeatFlow</td>
+   <td valign=\"top\"> arsenal research, Vienna, Austria</td>
+   <td valign=\"top\"> Modelica.Electrical.Machines<br>
+     Modelica.Thermal.FluidHeatFlow</td>
 </tr>
 
 <tr><td valign=\"top\"><b>Sven Erik Mattsson</b> </td
-	  <td valign=\"top\"> Dynasim AB, Lund, Sweden</td>
-	  <td valign=\"top\"> Modelica.Mechanics.MultiBody</td>
+   <td valign=\"top\"> Dynasim AB, Lund, Sweden</td>
+   <td valign=\"top\"> Modelica.Mechanics.MultiBody</td>
 </tr>
 <tr><td valign=\"top\"><b>Hans Olsson</b> </td
-	  <td valign=\"top\"> Dynasim AB, Lund, Sweden</td>
-	  <td valign=\"top\"> Modelica.Blocks<br>
-		   Modelica.Math.Matrices<br>
-		   Modelica.Utilities<br>
-		   Conversion from 1.6 to 2.0<br>
-		   Conversion from 2.2 to 3.0</td>
+   <td valign=\"top\"> Dynasim AB, Lund, Sweden</td>
+   <td valign=\"top\"> Modelica.Blocks<br>
+     Modelica.Math.Matrices<br>
+     Modelica.Utilities<br>
+     Conversion from 1.6 to 2.0<br>
+     Conversion from 2.2 to 3.0</td>
 </tr>
 
 <tr><td valign=\"top\"><b>Martin Otter</b> </td
-	  <td valign=\"top\"> Institute of Robotics and Mechatronics<br>
-		   DLR, German Aerospace Center, <br>
-		   Oberpfaffenhofen, Germany</td>
-	  <td valign=\"top\"> Modelica.Blocks<br>
+   <td valign=\"top\"> Institute of Robotics and Mechatronics<br>
+     DLR, German Aerospace Center, <br>
+     Oberpfaffenhofen, Germany</td>
+   <td valign=\"top\"> Modelica.Blocks<br>
                    Modelica.Fluid<br>
-		   Modelica.Mechanics.MultiBody<br>
-		   Modelica.Mechanics.Rotational<br>
-		   Modelica.Mechanics.Translational<br>
-		   Modelica.Math<br>
-		   Modelica.Media<br>
-		   Modelica.SIunits<br>
-		   Modelica.StateGraph<br>
-		   Modelica.Thermal.HeatTransfer<br>
-		   Modelica.Utilities<br>
-		   ModelicaReference<br>
-		   Conversion from 1.6 to 2.0<br>
-		   Conversion from 2.2 to 3.0</td>
+     Modelica.Mechanics.MultiBody<br>
+     Modelica.Mechanics.Rotational<br>
+     Modelica.Mechanics.Translational<br>
+     Modelica.Math<br>
+     Modelica.Media<br>
+     Modelica.SIunits<br>
+     Modelica.StateGraph<br>
+     Modelica.Thermal.HeatTransfer<br>
+     Modelica.Utilities<br>
+     ModelicaReference<br>
+     Conversion from 1.6 to 2.0<br>
+     Conversion from 2.2 to 3.0</td>
 </tr>
 
 <tr><td valign=\"top\"><b>Katrin Pr&ouml;l&szlig;</b> </td
-	  <td valign=\"top\"> Modelon AB, Lund, Sweden<br>
+   <td valign=\"top\"> Modelon AB, Lund, Sweden<br>
                             until 2008:<br>
                             Department of Technical Thermodynamics,<br>
-		   Technical University Hamburg-Harburg,<br>Germany</td>
-	  <td valign=\"top\"> Modelica.Fluid<br>
+     Technical University Hamburg-Harburg,<br>Germany</td>
+   <td valign=\"top\"> Modelica.Fluid<br>
                             Modelica.Media</td>
 </tr>
 
 <tr><td valign=\"top\"><b>Christoph C. Richter</b> </td
-	  <td valign=\"top\"> Institut f&uuml;r Thermodynamik, <br>
-		   Technische Universit&auml;t Braunschweig, <br>
-		   Germany</td>
-	  <td valign=\"top\"> Modelica.Fluid<br>
+   <td valign=\"top\"> Institut f&uuml;r Thermodynamik, <br>
+     Technische Universit&auml;t Braunschweig, <br>
+     Germany</td>
+   <td valign=\"top\"> Modelica.Fluid<br>
                             Modelica.Media</td>
 </tr>
 
 <tr><td valign=\"top\"><b>Andr&eacute; Schneider</b> </td
-	  <td valign=\"top\"> Fraunhofer Institute for Integrated Circuits,<br> Dresden, Germany</td>
-	  <td valign=\"top\"> Modelica.Electrical.Analog<br>
-		   Modelica.Electrical.Digital</td>
+   <td valign=\"top\"> Fraunhofer Institute for Integrated Circuits,<br> Dresden, Germany</td>
+   <td valign=\"top\"> Modelica.Electrical.Analog<br>
+     Modelica.Electrical.Digital</td>
 </tr>
 <tr><td valign=\"top\"><b>Christian Schweiger</b> </td
-	  <td valign=\"top\"> Until 2006:<br>
-		   Institute of Robotics and Mechatronics,<br>
-		   DLR, German Aerospace Center,<br>
-		   Oberpfaffenhofen, Germany</td>
-	  <td valign=\"top\"> Modelica.Mechanics.Rotational<br>
-		   ModelicaReference<br>
-		   Conversion from 1.6 to 2.0</td>
+   <td valign=\"top\"> Until 2006:<br>
+     Institute of Robotics and Mechatronics,<br>
+     DLR, German Aerospace Center,<br>
+     Oberpfaffenhofen, Germany</td>
+   <td valign=\"top\"> Modelica.Mechanics.Rotational<br>
+     ModelicaReference<br>
+     Conversion from 1.6 to 2.0</td>
 </tr>
 
 <tr><td valign=\"top\"><b>Michael Sielemann</b> </td
-	  <td valign=\"top\"> Institute of Robotics and Mechatronics<br>
-		   DLR, German Aerospace Center, <br>
-		   Oberpfaffenhofen, Germany</td>
-	  <td valign=\"top\"> Modelica.Fluid</td>
+   <td valign=\"top\"> Institute of Robotics and Mechatronics<br>
+     DLR, German Aerospace Center, <br>
+     Oberpfaffenhofen, Germany</td>
+   <td valign=\"top\"> Modelica.Fluid</td>
 </tr>
 
 <tr><td valign=\"top\"><b>Michael Tiller</b> </td
-	  <td valign=\"top\"> Emmeskay, Inc., Dearborn, MI, U.S.A, <br>
-		   (previously Ford Motor Company, Dearborn) </td>
-	  <td valign=\"top\"> Modelica.Media<br>
-		   Modelica.Thermal.HeatTransfer</td>
+   <td valign=\"top\"> Emmeskay, Inc., Dearborn, MI, U.S.A, <br>
+     (previously Ford Motor Company, Dearborn) </td>
+   <td valign=\"top\"> Modelica.Media<br>
+     Modelica.Thermal.HeatTransfer</td>
 </tr>
 <tr><td valign=\"top\"><b>Hubertus Tummescheit</b> </td
-	  <td valign=\"top\"> Modelon AB, Lund, Sweden </td>
-	  <td valign=\"top\"> Modelica.Media<br>
-		   Modelica.Thermal.HeatTransfer</td>
+   <td valign=\"top\"> Modelon AB, Lund, Sweden </td>
+   <td valign=\"top\"> Modelica.Media<br>
+     Modelica.Thermal.HeatTransfer</td>
 </tr>
 <tr><td valign=\"top\"><b>Nico Walter</b> </td
-	  <td valign=\"top\"> Master thesis at HTWK Leipzig<br>
-		   (Prof. R. M&uuml;ller) and<br>
-		   DLR Oberpfaffenhofen, Germany</td>
-	  <td valign=\"top\"> Modelica.Math.Matrices</td>
+   <td valign=\"top\"> Master thesis at HTWK Leipzig<br>
+     (Prof. R. M&uuml;ller) and<br>
+     DLR Oberpfaffenhofen, Germany</td>
+   <td valign=\"top\"> Modelica.Math.Matrices</td>
 </tr>
 
 <tr><td valign=\"top\"><b>Manuel Wetter</b> </td
-	  <td valign=\"top\"> Lawrence Berkeley National Laboratory; U.S.A</td>
-	  <td valign=\"top\"> Modelica.Fluid</td>
+   <td valign=\"top\"> Lawrence Berkeley National Laboratory; U.S.A</td>
+   <td valign=\"top\"> Modelica.Fluid</td>
 </tr>
 </table>
 </html>
@@ -4870,16 +4870,16 @@ For an introduction, have especially a look at:
 </p>
 <ul>
 <li> <a href=\"Modelica://Modelica.UsersGuide.Overview\">Overview</a>
-	 provides an overview of the Modelica Standard Library
-	 inside the <a href=\"Modelica://Modelica.UsersGuide\">User's Guide</a>.</li>
+  provides an overview of the Modelica Standard Library
+  inside the <a href=\"Modelica://Modelica.UsersGuide\">User's Guide</a>.</li>
 <li><a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes\">Release Notes</a>
-	summarizes the changes of new versions of this package.</li>
+ summarizes the changes of new versions of this package.</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.Contact\">Contact</a>
-	 lists the contributors of the Modelica Standard Library.</li>
+  lists the contributors of the Modelica Standard Library.</li>
 <li> <a href=\"../help/Documentation/ModelicaStandardLibrary.pdf\">ModelicaStandardLibrary.pdf</a>
-	 is the complete documentation of the library in pdf format.
+  is the complete documentation of the library in pdf format.
 <li> The <b>Examples</b> packages in the various libraries, demonstrate
-	 how to use the components of the corresponding sublibrary.</li>
+  how to use the components of the corresponding sublibrary.</li>
 </ul>
 
 <p>
@@ -4896,7 +4896,7 @@ that are directly usable (= number of public, non-partial classes).
 
 <p>
 <b>Licensed by the Modelica Association under the Modelica License 2</b><br>
-Copyright &copy; 1998-2009, ABB, arsenal research, T.&nbsp;Bödrich, DLR, Dynasim, Fraunhofer, Modelon, 
+Copyright &copy; 1998-2009, ABB, arsenal research, T.&nbsp;Bödrich, DLR, Dynasim, Fraunhofer, Modelon,
 TU Hamburg-Harburg, Politecnico di Milano.
 </p>
 

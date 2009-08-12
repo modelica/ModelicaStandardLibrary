@@ -158,4 +158,4 @@ extern double ModelicaTables_CombiTable2D_interpolate(int tableID, double u1, do
  */
 
 
-#endif	/* MODELICA_TABLES */
+#endif /* MODELICA_TABLES */

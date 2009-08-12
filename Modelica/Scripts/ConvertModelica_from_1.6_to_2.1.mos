@@ -236,13 +236,13 @@ convertElement({"Modelica.Blocks.Continuous.StateSpace",
                 "ModelicaAdditions.Blocks.Discrete.StateSpace",
                 "ModelicaAdditions.Blocks.Multiplexer.ExtractSignal",
                 "ModelicaAdditions.Blocks.Multiplexer.Extractor",
-	              "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex2",
+               "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex2",
                 "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex3",
                 "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex4",
                 "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex5",
                 "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex6",
                 "ModelicaAdditions.Tables.CombiTable1D"},
-		            "inPort.signal", "u");
+              "inPort.signal", "u");
 
 // inPort1.signal -> {u1}
 convertElement("Modelica.Blocks.Math.Feedback",
@@ -267,7 +267,7 @@ convertElement({"Modelica.Blocks.Continuous.StateSpace",
                 "ModelicaAdditions.Blocks.Discrete.StateSpace",
                 "ModelicaAdditions.Blocks.Multiplexer.ExtractSignal",
                 "ModelicaAdditions.Blocks.Multiplexer.Extractor",
-	              "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex2",
+               "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex2",
                 "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex3",
                 "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex4",
                 "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex5",
@@ -1130,22 +1130,22 @@ convertElement("Modelica.Electrical.MultiPhase.Sources.SignalCurrent",
                {"inPort","inPort.signal"},   {"i[1]","i"});
 
 convertElement("Modelica.Electrical.Analog.Basic.VariableCapacitor",
-	{"C_Port","C_Port.signal[1]"},       {"C","C"});
+ {"C_Port","C_Port.signal[1]"},       {"C","C"});
 convertElement("Modelica.Electrical.Analog.Basic.VariableConductor",
-	{"G_Port","G_Port.signal[1]"},       {"G","G"});
+ {"G_Port","G_Port.signal[1]"},       {"G","G"});
 convertElement("Modelica.Electrical.Analog.Basic.VariableResistor",
-	{"R_Port","R_Port.signal[1]"},       {"R","R"});
+ {"R_Port","R_Port.signal[1]"},       {"R","R"});
 convertElement("Modelica.Electrical.Analog.Basic.VariableInductor",
-	{"L_Port","L_Port.signal[1]"},       {"L","L"});
+ {"L_Port","L_Port.signal[1]"},       {"L","L"});
 
 convertElement("Modelica.Electrical.MultiPhase.Basic.VariableCapacitor",
-	{"C_Port","C_Port.signal"},          {"C[1]","C"});
+ {"C_Port","C_Port.signal"},          {"C[1]","C"});
 convertElement("Modelica.Electrical.MultiPhase.Basic.VariableConductor",
-	{"G_Port","G_Port.signal"},          {"G[1]","G"});
+ {"G_Port","G_Port.signal"},          {"G[1]","G"});
 convertElement("Modelica.Electrical.MultiPhase.Basic.VariableResistor",
-	{"R_Port","R_Port.signal"},          {"R[1]","R"});
+ {"R_Port","R_Port.signal"},          {"R[1]","R"});
 convertElement("Modelica.Electrical.MultiPhase.Basic.VariableInductor",
-	{"L_Port","L_Port.signal"},          {"L[1]","L"});
+ {"L_Port","L_Port.signal"},          {"L[1]","L"});
 
 convertClass  ("Modelica.Electrical.Analog.Ideal.IdealSwitch",
                "Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch");

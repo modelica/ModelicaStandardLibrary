@@ -777,7 +777,7 @@ In a top-level class, the version number and the dependency to earlier versions 
      Defines that user models using the VERSION-NUMBER can be upgraded to
      the CURRENT-VERSION-NUMBER of the current class without any changes.<br>&nbsp;</li>
 
-<li> <code>conversion ( from (version = VERSION-NUMBER, script = \"?\") )	</code><br>
+<li> <code>conversion ( from (version = VERSION-NUMBER, script = \"?\") ) </code><br>
      Defines that user models using the VERSION-NUMBER can be upgraded to
      the CURRENT-VERSION-NUMBER of the current class by applying the given
      script. The semantics of the conversion script is not defined.<br>&nbsp;</li>
