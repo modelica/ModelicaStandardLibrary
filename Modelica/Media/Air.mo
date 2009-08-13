@@ -923,9 +923,13 @@ The Specific Helmholtz Energy is computed from the thermodynamic state record fo
         Documentation(info="<html>
 The specific heat capacity at constant pressure <b>cp</b> is computed from temperature and composition for a mixture of steam (X[1]) and dry air. All water is assumed to be in the vapor state.
 </html>"));
+    protected
+     Real dT(unit="s/K") = 1.0;
    algorithm
-     cp:= SingleGasNasa.cp_Tlow(dryair, state.T)*(1-state.X[Water])
-       + SingleGasNasa.cp_Tlow(steam, state.T)*state.X[Water];
+     cp := h_pTX_der(state.p,state.T,state.X, 0.0, 1.0, zeros(size(state.X,1)))*dT
+        "Definition of cp: dh/dT @ constant p";
+     //      cp:= SingleGasNasa.cp_Tlow(dryair, state.T)*(1-state.X[Water])
+     //        + SingleGasNasa.cp_Tlow(steam, state.T)*state.X[Water];
    end specificHeatCapacityCp;
 
   redeclare function extends specificHeatCapacityCv
