@@ -16,7 +16,7 @@ ShowSaturatingInductor
 ShowVariableResistor
 SwitchWithArc
 ThyristorBehaviourTest
-Utilities
 AmplifierWithOpAmpDetailed
 CompareTransformers
 ControlledSwitchWithArc
+Utilities

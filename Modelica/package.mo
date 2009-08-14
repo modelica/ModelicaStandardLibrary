@@ -740,6 +740,17 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
      Material models. Material data for steel, electric sheet, pure iron,
      Cobalt iron, Nickel iron, NdFeB, Sm2Co17, and more.
     </td>
+
+
+<tr><td valign=\"top\"><a href=\"Modelica://ModelicaServices\">ModelicaServices</a></td>
+    <td valign=\"top\">
+     New top level package that shall contain functions and models to be used in the 
+     Modelica Standard Library that requires a tool specific implementation.
+     ModelicaServices is then used in the Modelica package.
+     In this first version, the 3-dim. animation with model Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape
+     was moved to ModelicaServices. Tool vendors can now provide their own implementation
+     of the animation.
+    </td>
 </table>
 
 
@@ -749,6 +760,10 @@ to <b style=\"color:blue\">existing</b> libraries:
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><b>Modelica.</b></td></tr>
+<tr><td valign=\"top\"> versionBuild<br>versionDate<br>dateModified<br>revisionID </td>
+    <td valign=\"top\"> New annotations from Modelica 3.1 for version handling added.</td> </tr>
+
 <tr><td colspan=\"2\"><b>Modelica.UsersGuide.ReleaseNotes.</b></td></tr>
 <tr><td valign=\"top\"> VersionManagement </td>
     <td valign=\"top\"> Copied from info layer of previous ReleaseNotes (to make it more
@@ -857,11 +872,15 @@ to <b style=\"color:blue\">existing</b> libraries:
     <td valign=\"top\"> New icons (VariantLibrary and BaseClassLibrary have been moved
                       from Modelica_Fluid.Icons to this place).</td> </tr>
 
+<tr><td colspan=\"2\"><b>Modelica.SIunits.</b></td></tr>
+<tr><td valign=\"top\"> ElectricalForceConstant </td>
+    <td valign=\"top\"> New type added (#190).</td> </tr>
+
 <tr><td colspan=\"2\"><b>Modelica.SIunits.Conversions.</b></td></tr>
 <tr><td valign=\"top\"> from_Hz<br>
                       to_Hz</td>
     <td valign=\"top\"> New functions to convert between frequency [Hz] and
-                      angular velocity [1/s].</td> </tr>
+                      angular velocity [1/s]. (#156) </td> </tr>
 
 </table>
 
@@ -874,6 +893,11 @@ have been <b style=\"color:blue\">improved</b> in a
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><b>Modelica.</b></td></tr>
+<tr><td valign=\"top\"> Blocks<br>Mechanics<br>StateGraph </td>
+    <td valign=\"top\"> Provided missing parameter values for examples
+                      (these parameters had only start values)
+</td> </tr>
 <tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Basic</b></td></tr>
 <tr><td valign=\"top\"> Resistor, Conductor, VariableResistor, VariableConductor</td>
     <td valign=\"top\"> Conditional heatport added for coupling to thermal network. </td> </tr>
@@ -885,17 +909,31 @@ have been <b style=\"color:blue\">improved</b> in a
 <tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Semiconductors</b></td></tr>
 <tr><td valign=\"top\"> Diode, ZDiode, PMOS, NMOS, NPN, PNP</td>
     <td valign=\"top\"> Conditional heatport added for coupling to thermal network</td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Visualizers.Advanced.</b></td></tr>
+<tr><td valign=\"top\"> Shape </td>
+    <td valign=\"top\"> New implementation by inheriting from ModelicaServices. This allows a 
+                      tool vendor to provide its own implementation of Shape. </td> </tr>
+<tr><td colspan=\"2\"><b>Modelica.StateGraph.</b></td></tr>
+<tr><td valign=\"top\"> Examples </td>
+    <td valign=\"top\"> Introduced \"StateGraphRoot\" on the top level of all example models. </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.StateGraph.Interfaces.</b></td></tr>
+<tr><td valign=\"top\"> StateGraphRoot<br>PartialCompositeStep<br>CompositeStepState </td>
+    <td valign=\"top\"> Replaced the wrong Modelica code \"flow output Real xxx\" 
+                      by \"Real dummy; flow Real xxx;\". 
+                      As a side effect, several \"blocks\" had to be changed to \"models\". </td> </tr>
+<tr><td valign=\"top\"> PartialStep </td>
+    <td valign=\"top\"> Changed model by packing the protected outer connecter in to a model.
+                      Otherwise, there might be differences in the sign of the flow variable
+                      in Modelica 3.0 and 3.1. </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Utilities.Examples.</b></td></tr>
+<tr><td valign=\"top\"> expression </td>
+    <td valign=\"top\"> Changed local variable \"operator\" to \"opString\" since \"operator\" 
+                      is a reserved keyword in Modelica 3.1 </td> </tr>
 </table>
 
-<p><br>
-The following <b style=\"color:red\">critical errors</b> have been fixed (i.e. errors
-that can lead to wrong simulation results):
-</p>
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>XXX</b></td></tr>
-<tr><td valign=\"top\"> XXX</td>
-    <td valign=\"top\"> XXX</td> </tr>
-</table>
 
 <p><br>
 The following <b style=\"color:red\">uncritical errors</b> have been fixed (i.e. errors
@@ -903,7 +941,11 @@ that do <b style=\"color:red\">not</b> lead to wrong simulation results, but, e.
 units are wrong or errors in documentation):
 </p>
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>Media.Air.MoistAir</b></td></tr>
+<tr><td colspan=\"2\"><b>Modelica.</b></td></tr>
+<tr><td valign=\"top\"> Many models</td>
+    <td valign=\"top\"> Removed wrong usages of annotations fillColor and fillPattern
+                      in text annotations (#155, #185).</td> </tr>
+<tr><td colspan=\"2\"><b>Modelica.Media.Air.MoistAir</b></td></tr>
 <tr><td valign=\"top\"> saturationPressureLiquid<br>
                       sublimationPressureIce<br>
                       saturationPressure</td>
@@ -911,9 +953,9 @@ units are wrong or errors in documentation):
                             this bug was minor, as a Modelica tool was allowed to compute derivatives automatically via
                             the <code>smoothOrder</code> annotation.</td>
 </tr>
-<tr><td colspan=\"2\"><b>XXX</b></td></tr>
-<tr><td valign=\"top\"> XXX</td>
-    <td valign=\"top\"> XXX</td> </tr>
+<tr><td colspan=\"2\"><b>Modelica.Math.Matrices.</b></td></tr>
+<tr><td valign=\"top\"> eigenValues</td>
+    <td valign=\"top\"> Wrong documentation corrected (#162)</td> </tr>
 </table>
 
 </html>"));
