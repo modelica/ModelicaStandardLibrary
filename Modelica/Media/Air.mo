@@ -879,7 +879,7 @@ Derivative function for <a href=Modelica:Modelica.Media.Air.MoistAir.specificInt
    redeclare function extends specificEntropy
       "Return specific entropy from thermodynamic state record, only valid for phi<1"
 
-       annotation(Inline=false,smoothOrder=5,
+       annotation(Inline=false,smoothOrder=2,
         Documentation(info="<html>
 Specific entropy is calculated from the thermodynamic state record, assuming ideal gas behavior and including entropy of mixing. Liquid or solid water is not taken into account, the entire water content X[1] is assumed to be in the vapor state (relative humidity below 1.0).
 </html>"));

@@ -477,7 +477,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     input SI.SpecificEnthalpy h_off=h_offset
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
     output SI.SpecificEnthalpy h "Specific enthalpy at temperature T";
-    annotation (Inline=false,smoothOrder=1);
+    annotation (Inline=false,smoothOrder=2);
       //     annotation (InlineNoEvent=false, Inline=false,
       //                 derivative(zeroDerivative=data,
       //                            zeroDerivative=exclEnthForm,
@@ -526,7 +526,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     input SI.SpecificEnthalpy h_off=h_offset
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
     output SI.SpecificEnthalpy h "Specific enthalpy at temperature T";
-    annotation(Inline=false,InlineNoEvent=false,smoothOrder=1);
+    annotation(Inline=false,InlineNoEvent=false,smoothOrder=2);
       //     annotation (Inline=false,InlineNoEvent=false, derivative(zeroDerivative=data,
       //                                zeroDerivative=exclEnthForm,
       //                                zeroDerivative=refChoice,
@@ -973,7 +973,7 @@ required from medium model \""   + mediumName + "\".");
      input SI.SpecificEnthalpy h_off=h_offset
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
      output SI.SpecificEnthalpy h "Specific enthalpy at temperature T";
-    annotation(Inline=false,smoothOrder=1);
+    annotation(Inline=false,smoothOrder=2);
   algorithm
     h :=(if fixedX then reference_X else X)*
          {SingleGasNasa.h_T(data[i], T, exclEnthForm, refChoice, h_off) for i in 1:nX};
