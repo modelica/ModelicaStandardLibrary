@@ -4008,8 +4008,8 @@ class ModelicaLicense2 "Modelica License 2"
 
 <p>All files in this directory (Modelica) and in all
 subdirectories, especially all files that build package \"Modelica\" and all
-files in Modelica\\C-sources, Modelica\\help,
-Modelica\\Images are licensed by the <b><u>Modelica Association</u></b> under the
+files in \"Modelica\\C-sources\", \"Modelica\\help\",
+\"Modelica\\Images\" are licensed by the <b><u>Modelica Association</u></b> under the
 <b><u>Modelica License 2</u></b> (with exception of files
 \"Modelica\\C-sources\\win32_dirent.*\").&nbsp;</p>
 
@@ -4020,11 +4020,11 @@ c/o PELAB, IDA, Link&ouml;pings Universitet <br>
 S-58183 Link&ouml;ping <br>
 Sweden<br>
 email: Board@Modelica.org<br>
-web&nbsp; : <a href=\"http://www.Modelica.org\">http://www.Modelica.org</a></p>
+web: <a href=\"http://www.Modelica.org\">http://www.Modelica.org</a></p>
 
 <p style=\"margin-left: 40px;\"><b>Copyright notices of the files:</b><br>
 Copyright &copy; 1998-2009,
-ABB, arsenal research, T.&nbsp;Bödrich, DLR, Dynasim, Fraunhofer, Modelon, TU
+ABB, arsenal research, T.&nbsp;B&ouml;drich, DLR, Dynasim, Fraunhofer, Modelon, TU
 Hamburg-Harburg, Politecnico di Milano.<br>
 <br>
 </p>
@@ -4054,7 +4054,7 @@ The Modelica License applies to any Original Work that contains the
 following licensing notice adjacent to the copyright notice(s) for
 this Original Work:</p>
 <p><b>Licensed
-by &lt;name of Licensor&gt; under the Modelica License 2</b></p>
+by the Modelica Association under the Modelica License 2</b></p>
 
 <p><b>1. Definitions.</b></p>
 <ol>
