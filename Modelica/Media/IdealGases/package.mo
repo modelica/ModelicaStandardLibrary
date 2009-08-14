@@ -4,7 +4,6 @@ extends Modelica.Icons.Library;
 
 
 annotation (
-  __Dymola_classOrder={"Common", "SingleGases", "MixtureGases"},
 Documentation(info="<HTML>
 <p>This package contains data for the 1241 ideal gases from </p>
 <blockquote>

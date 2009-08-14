@@ -4862,8 +4862,8 @@ annotation (
 preferredView="info",
 version="3.1",
 versionBuild=1,
-versionDate="2009-06-22",
-dateModified = "2009-06-17 15:35:58Z",
+versionDate="2009-08-14",
+dateModified = "2009-08-14 10:35:58Z",
 revisionID="$Id::                                       $",
 conversion(
  noneFromVersion="3.0.1",
@@ -4872,8 +4872,6 @@ conversion(
  from(version="2.2", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos"),
  from(version="2.2.1", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos"),
  from(version="2.2.2", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos")),
-__Dymola_classOrder={"UsersGuide","Blocks","StateGraph","Electrical","Magnetic","Mechanics","Fluid","Media","Thermal",
-      "Math","Utilities","Constants", "Icons", "SIunits"},
 Settings(NewStateSelection=true),
 Documentation(info="<HTML>
 <p>
