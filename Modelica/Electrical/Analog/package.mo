@@ -7,6 +7,7 @@ extends Modelica.Icons.Library2;
 
 
 annotation (
+    __Dymola_classOrder={"Examples", "*"},
   Documentation(info="<html>
 <p>
 This package contains packages for analog electrical components:
