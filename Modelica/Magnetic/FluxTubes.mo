@@ -34,19 +34,19 @@ and the accompanying <b>disclaimer</b>
 </html>
 ", revisions="<html>
 <table border=1>
- 
+
 <thead>
 <tr><td>Version</td> <td>Date</td>  <td>Author(s)</td> <td>Comments</td></tr>
 </thead>
- 
+
 <tbody>
-<tr><td>1.2</td>  <td>2009-08-11</td> 
+<tr><td>1.2</td>  <td>2009-08-11</td>
     <td>Christian&nbsp;Kral<br>
         Anton&nbsp;Haumer<br>
         Thomas&nbsp;B&ouml;drich&nbsp;<br>
         Martin&nbsp;Otter</td> <td>Update and improvement for inclusion in the
         Modelica Standard Library.</td> </tr>
-<tr><td>1.1</td>  <td>2009-05-19</td>  <td>Thomas B&ouml;drich </td> 
+<tr><td>1.1</td>  <td>2009-05-19</td>  <td>Thomas B&ouml;drich </td>
     <td> Coupling coefficient in Basic.ElectroMagneticConverter Removed.<br>
          Basic.EddyCurrent added .<br>
          Example MovingCoilActuator, especially PermeanceModel, completely revised. <br>
@@ -59,9 +59,9 @@ and the accompanying <b>disclaimer</b>
 <tr><td>1.0</td>  <td>2007-10-11</td>  <td>Thomas B&ouml;drich </td> <td>Release of version 1.0 of the library </td> </tr>
 <tr><td></td>     <td>2005</td>        <td>Thomas B&ouml;drich </td> <td>First release of a Modelica magnetic library</td> </tr>
 </tbody>
- 
+
 </table>
- 
+
 </html>"),
   Icon(coordinateSystem(
       preserveAspectRatio=false,
@@ -136,7 +136,7 @@ Similar equations can be derived for other geometries. In cases where a direct i
 <p>
 Network elements for sources of a magnetic potential difference or magnetomotive force, i.e. coils or permanent magnets can be formulated as well. The resulting magnetic network models of actuators reflect the main dimensions of these devices as well as the normally nonlinear characteristics of their magnetically active materials.
 </p>
- 
+
 </html>
 "));
   equation
@@ -147,18 +147,18 @@ Network elements for sources of a magnetic potential difference or magnetomotive
 
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Calculation of reluctance forces from lumped magnetic network models</font></h3>
- 
+
 <p>
 Generally, the thrust <i>F</i> developed by a translatory electro-magneto-mechanical actuator (similar for the rotational case with torque and angular position) is equal to the change of magnetic co-energy <i>W<sub>m</sub><sup>*</sup></i> with armature position <i>x</i> according to
 
 <p><IMG SRC=\"../Images/Magnetic/FluxTubes/UsersGuide/ReluctanceForceCalculation/eq_CoEnergy_general.png\" ALT=\"Equation for force calculation from change of magnetic co-energy with armature position\"></p>
 
-(<i>&Psi;</i> flux linkage, <i>i</i> actuator current). In lumped magnetic network models, the above equation simplifies to 
+(<i>&Psi;</i> flux linkage, <i>i</i> actuator current). In lumped magnetic network models, the above equation simplifies to
 
 <p><IMG SRC=\"../Images/Magnetic/FluxTubes/UsersGuide/ReluctanceForceCalculation/eq_forceFromPermeance_network.png\" ALT=\"Equation for force calculation in lumped magnetic network models\"></p>
 
 <p>
-where <i>n<sub>linear</sub></i> is the number of flux tube elements with constant relative permeability that change its permeance <i>G<sub>m i</sub></i> with armature position (index <i>i</i>), <i>V<sub>m i</sub></i> the magnetic voltage across each respective flux tube and <i>dG<sub>m i</sub>/dx</i> the derivative of the respective permeances with respect to armature position. Transition from the general formula based on magnetic co-energy to the latter one is outlined in <a href=\"Literature\">[Ka08]</a> for the reciprocal of the permeance, i.e. for the magnetic reluctance <i>R<sub>m</sub></i>. Note that 
+where <i>n<sub>linear</sub></i> is the number of flux tube elements with constant relative permeability that change its permeance <i>G<sub>m i</sub></i> with armature position (index <i>i</i>), <i>V<sub>m i</sub></i> the magnetic voltage across each respective flux tube and <i>dG<sub>m i</sub>/dx</i> the derivative of the respective permeances with respect to armature position. Transition from the general formula based on magnetic co-energy to the latter one is outlined in <a href=\"Literature\">[Ka08]</a> for the reciprocal of the permeance, i.e. for the magnetic reluctance <i>R<sub>m</sub></i>. Note that
 </p>
 
 
@@ -173,8 +173,8 @@ Flux tube elements with <i>non-linear</i> material characteristics <i>&mu;<sub>r
 <p>
 The sub-package <a href=\"Modelica.Magnetic.FluxTubes.Shapes.Leakage\">Shapes.Leakage</a> contains flux tube shapes typical for leakage flux around prismatic or cylindrical poles. Since the permeance of these flux tubes does not change with armature position, they do not contribute to a reluctance actuator's thrust.
 </p>
- 
- 
+
+
 </html>
 "));
   equation
@@ -191,7 +191,7 @@ Usage of the Modelica Magnetic library is described in:
 <dl>
 <dt>[B&ouml;08] B&ouml;drich, T.:</dt>
 <dd> <b>Electromagnetic Actuator Modelling with the Extended Modelica Magnetic Library</b>.
-     Modelica 2008 Conference, Bielefeld, Germany, 
+     Modelica 2008 Conference, Bielefeld, Germany,
      pp. 221-227, March 3-4, 2008.
      Download from:
      <a href=\"http://www.modelica.org/events/modelica2008/Proceedings/sessions/session2d2.pdf\">http://www.modelica.org/events/modelica2008/Proceedings/sessions/session2d2.pdf</a>
@@ -227,9 +227,9 @@ Magna Physics Publishing and Oxford University Press 1994
 </dd>
 </dl>
 </li>
- 
+
 </ul>
- 
+
 </html>
 "));
   end Literature;
@@ -238,7 +238,7 @@ Magna Physics Publishing and Oxford University Press 1994
 
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Contact</font></h3>
- 
+
 <dl>
 <dt>
 <b>Main Author:</b></dt>
@@ -255,17 +255,17 @@ Magna Physics Publishing and Oxford University Press 1994
 <br>
 <p><b>Acknowledgements:</b></p>
 <ul>
- 
-<li> 
-The magnetisation characteristics of the included soft magnetic materials were compiled and measured respectively by Thomas Roschke, now with Johnson Electric. Provision of this data is highly appreciated. He also formulated the approximation function used for description of the magnetisation characteristics of these materials. 
+
+<li>
+The magnetisation characteristics of the included soft magnetic materials were compiled and measured respectively by Thomas Roschke, now with Johnson Electric. Provision of this data is highly appreciated. He also formulated the approximation function used for description of the magnetisation characteristics of these materials.
 </li>
- 
-<li> 
-Andr&eacute; Klick of then Dresden University of Technology, Dresden, Germany gave valuable support on the implementation of this library. His contribution is highly appreciated, too. 
+
+<li>
+Andr&eacute; Klick of then Dresden University of Technology, Dresden, Germany gave valuable support on the implementation of this library. His contribution is highly appreciated, too.
 </li>
- 
+
 </ul>
- 
+
 </html>
 "));
   end Contact;
@@ -278,23 +278,23 @@ end UsersGuide;
     model SaturatedInductor
       "Inductor with saturation in the ferromagnetic core"
 
-      Modelica.Magnetic.FluxTubes.Basic.Ground ground_m 
+      Modelica.Magnetic.FluxTubes.Basic.Ground ground_m
         annotation (Placement(transformation(extent={{50,-30},{70,-10}},
             rotation=0)));
       Modelica.Electrical.Analog.Sources.SineVoltage source(
         freqHz=50,
         phase=pi/2,
-        V=230*sqrt(2)) "Voltage applied to inductor" 
+        V=230*sqrt(2)) "Voltage applied to inductor"
                 annotation (Placement(transformation(
           origin={-80,10},
           extent={{-10,-10},{10,10}},
           rotation=270)));
       Modelica.Electrical.Analog.Basic.Resistor r(R=7.5)
-        "Inductor coil resistance" 
+        "Inductor coil resistance"
         annotation (Placement(transformation(extent={{-61,10},{-41,30}},
             rotation=0)));
       Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter coil(
-                                    N=600, i(fixed=true)) "Inductor coil" 
+                                    N=600, i(fixed=true)) "Inductor coil"
         annotation (Placement(transformation(extent={{-30,0},{-10,20}},
             rotation=0)));
       Basic.ConstantReluctance r_mLeak(R_m=1.2e6) "Constant leakage reluctance"
@@ -318,12 +318,12 @@ end UsersGuide;
         nonLinearPermeability=true,
         l=4*0.065,
         material=Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.ElectricSheet.M350_50A())
-        "Reluctance of ferromagnetic inductor core" 
+        "Reluctance of ferromagnetic inductor core"
         annotation (Placement(transformation(
           origin={60,10},
           extent={{-10,-10},{10,10}},
           rotation=270)));
-      Modelica.Electrical.Analog.Basic.Ground ground 
+      Modelica.Electrical.Analog.Basic.Ground ground
         annotation (Placement(transformation(extent={{-90,-30},{-70,-10}},
             rotation=0)));
 
@@ -333,21 +333,21 @@ end UsersGuide;
 <p>
 This model demonstrates the effects of non-linear magnetisation characteristics of soft magnetic materials (hysteresis neglected). A sinusoidal voltage is applied to an inductor with a closed ferromagnetic core of rectangular shape. Set the <b>tolerance</b> to <b>1e-7</b>, <b>simulate for 0.1 s</b> and plot for example:
 </p>
- 
+
 <pre>
     coil.i vs. time           // non-harmonic current due to saturation of the core material
     r_mFe.mu_r vs. r_mFe.B    // relative permeability vs. flux density inside core
     r_mFe.B vs. r_mFe.H       // magnetisation curve B(H); hysteresis neglected
 </pre>
- 
+
 <p>
-The magnetisation characteristics of the flux tube element representing the ferromagnetic core can easily be changed from simplified linear behaviour (nonLinearPermeability set to false and R_mFe.mu_rConst set to a positive value, preferably mu_rConst >> 1) to non-linear behaviour (e.g. selection of one of the electric sheets in <a href=\"Material.SoftMagnetic\">Material.SoftMagnetic</a> with nonLinearPermeability set to true). This enables for convenient inital design of magnetic circuits with linear material characteristics prior to simulation with non-linear behaviour. 
+The magnetisation characteristics of the flux tube element representing the ferromagnetic core can easily be changed from simplified linear behaviour (nonLinearPermeability set to false and R_mFe.mu_rConst set to a positive value, preferably mu_rConst >> 1) to non-linear behaviour (e.g. selection of one of the electric sheets in <a href=\"Material.SoftMagnetic\">Material.SoftMagnetic</a> with nonLinearPermeability set to true). This enables for convenient inital design of magnetic circuits with linear material characteristics prior to simulation with non-linear behaviour.
 </p>
- 
+
 <h4>Note</h4>
- 
+
 <p>
-If the supply voltage has a zero-crossing when applied to the inductor at time t=0 (i.e. source.phase set to zero instead of pi/2), then the inrush current that is typical for switching of inductive loads can be observed. 
+If the supply voltage has a zero-crossing when applied to the inductor at time t=0 (i.e. source.phase set to zero instead of pi/2), then the inrush current that is typical for switching of inductive loads can be observed.
 </p>
 </html>"),Icon(coordinateSystem(
           preserveAspectRatio=false,
@@ -414,7 +414,7 @@ If the supply voltage has a zero-crossing when applied to the inductor at time t
 
       annotation (Documentation(info="<html>
 <p>
-Moving coil actuators are often called electrodynamic actuators and a proportional behaviour between force and current is expressed by a converter constant (see <a href=\"Components.ConstantActuator\">ConstantActuator</a>). However, in a simple moving coil actuator as presented in this example there is an additional non-linear force component that is due to the increase of the inductance when the armature coil moves into the ferromagnetic stator. A simple <a href=\"Components.PermeanceActuator\">PermeanceActuator</a> can be used to describe this non-linear force component. 
+Moving coil actuators are often called electrodynamic actuators and a proportional behaviour between force and current is expressed by a converter constant (see <a href=\"Components.ConstantActuator\">ConstantActuator</a>). However, in a simple moving coil actuator as presented in this example there is an additional non-linear force component that is due to the increase of the inductance when the armature coil moves into the ferromagnetic stator. A simple <a href=\"Components.PermeanceActuator\">PermeanceActuator</a> can be used to describe this non-linear force component.
 </p>
 </html>"),     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={
@@ -466,74 +466,74 @@ Have a look at <a href=\"Components.ConstantActuator\">ConstantActuator</a> and 
 <p>
 Simulation of the force-current characteristics of both converter models with the armature blocked at mid-position x=0 reveals the difference between the two models. In the <a href=\"Components.ConstantActuator\">ConstantActuator</a>, force is proportional to current. In the simple <a href=\"Components.PermeanceActuator\">PermeanceActuator</a> there is an additional non-linear force component that is due to the dependency of the inductance on the armature position. Comparison with FEA results validates the higher accuracy of the <a href=\"Components.PermeanceActuator\">PermeanceActuator</a>. In the FEA model, the relative permeability of the stator iron was set to mu_rFe=const.=1000 in order to avoid additional non-linear force components due to saturation. <b>Simulate for 6 s</b> and <b>plot vs. current (e.g. iSensor.i)</b></p>
 <pre>
-    pmFixedPos.flange_b.f       // force of permeance model 
+    pmFixedPos.flange_b.f       // force of permeance model
     cFixedPos.flange_b.f        // force of converter constant model
     comparisonWithFEA.y[1]      // force of FEA model for comparison
 </pre>
 </html>"));
-        Modelica.Electrical.Analog.Basic.Ground pmGround 
+        Modelica.Electrical.Analog.Basic.Ground pmGround
           annotation (Placement(transformation(extent={{-70,-100},{-50,-80}},
               rotation=0)));
         Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator
           pmActuator(x(start=0), material=
               Modelica.Magnetic.FluxTubes.Material.HardMagnetic.PlasticNdFeB())
-          "Moving coil actuator described with permeance model" 
+          "Moving coil actuator described with permeance model"
           annotation (Placement(transformation(extent={{-20,-70},{0,-50}},
               rotation=0)));
         Modelica.Mechanics.Translational.Components.Fixed pmFixedPos(
                                                           s0=0)
-          "Fixed armature position" 
+          "Fixed armature position"
           annotation (Placement(transformation(extent={{10,-70},{30,-50}},
               rotation=0)));
         Modelica.Electrical.Analog.Sources.RampCurrent pmRampCurrent(
           I=-6,
           duration=6,
-          offset=3) "Ideal current source " 
+          offset=3) "Ideal current source "
           annotation (Placement(transformation(
             origin={-60,-60},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-        Modelica.Electrical.Analog.Basic.Ground cGround 
+        Modelica.Electrical.Analog.Basic.Ground cGround
           annotation (Placement(transformation(extent={{-70,-20},{-50,0}},
               rotation=0)));
         Modelica.Mechanics.Translational.Components.Fixed cFixedPos(
                                                          s0=0)
-          "Fixed armature position" 
+          "Fixed armature position"
           annotation (Placement(transformation(extent={{10,10},{30,30}},
               rotation=0)));
         Modelica.Electrical.Analog.Sources.RampCurrent cRampCurrent(
           I=-6,
           duration=6,
-          offset=3) "Ideal current source " 
+          offset=3) "Ideal current source "
           annotation (Placement(transformation(
             origin={-60,20},
             extent={{-10,-10},{10,10}},
             rotation=270)));
         Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator
-          cActuator "Moving coil actuator described with converter constant" 
+          cActuator "Moving coil actuator described with converter constant"
           annotation (Placement(transformation(extent={{-20,10},{0,30}},
               rotation=0)));
         Modelica.Blocks.Tables.CombiTable1Ds comparisonWithFEA(table=[-3,-9.65653;
               -2.5,-8.28587; -2,-6.82002; -1.5,-5.25898; -1,-3.60274; -0.5,-1.85131;
               0,-0.00468; 0.5,1.93714; 1,3.97415; 1.5,6.10636; 2,8.33376; 2.5,
               10.65636; 3,13.07415])
-          "Column 1: current, col. 2: force; mu_rFe=const.=1000 in FEA model" 
+          "Column 1: current, col. 2: force; mu_rFe=const.=1000 in FEA model"
           annotation (Placement(transformation(extent={{40,50},{60,70}},
               rotation=0)));
         Modelica.Electrical.Analog.Sensors.CurrentSensor iSensor
-          "Input value for look-up table with FEA results" 
+          "Input value for look-up table with FEA results"
           annotation (Placement(transformation(extent={{-50,40},{-30,20}},
               rotation=0)));
       equation
-        connect(pmFixedPos.flange,   pmActuator.flange) 
+        connect(pmFixedPos.flange,   pmActuator.flange)
           annotation (Line(points={{20,-60},{0,-60}}, color={0,127,0}));
-        connect(pmRampCurrent.p, pmActuator.p) 
+        connect(pmRampCurrent.p, pmActuator.p)
                                            annotation (Line(points={{-60,-50},{
               -30,-50},{-30,-54},{-20,-54}}, color={0,0,255}));
-        connect(pmActuator.n, pmRampCurrent.n) 
+        connect(pmActuator.n, pmRampCurrent.n)
                                            annotation (Line(points={{-20,-66},{
               -30,-66},{-30,-70},{-60,-70}}, color={0,0,255}));
-        connect(pmGround.p, pmRampCurrent.n) 
+        connect(pmGround.p, pmRampCurrent.n)
                                          annotation (Line(points={{-60,-80},{
               -60,-70}}, color={0,0,255}));
         connect(cGround.p,cRampCurrent. n) annotation (Line(points={{-60,0},{
@@ -570,22 +570,22 @@ Simulation of the force-stroke characteristic of the <a href=\"Components.Permea
 <pre>
     feedX.flange_b.f            // force of permeance model (permeance of stator iron neglegted in this model)
     comparisonWithFEA.y[1]      // force of FEA model with non-linear stator iron 1.0718
-    comparisonWithFEA.y[2]      // force of FEA model with mu_rFe=const.=1000 
+    comparisonWithFEA.y[2]      // force of FEA model with mu_rFe=const.=1000
     actuator.g_ma.G_m           // permeance G_ma
     actuator.g_mb.G_m           // permeance G_mb
-    actuator.L                  // inductance of permeance model 
+    actuator.L                  // inductance of permeance model
     comparisonWithFEA.y[3]      // inductance of FEA model for comparison (mu_rFe=const.=1000).
 </pre>
 </html>"));
-        Modelica.Electrical.Analog.Basic.Ground ground 
+        Modelica.Electrical.Analog.Basic.Ground ground
           annotation (Placement(transformation(extent={{-70,-30},{-50,-10}},
               rotation=0)));
         Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator
           actuator(x(start=0), material=
-              Modelica.Magnetic.FluxTubes.Material.HardMagnetic.PlasticNdFeB()) 
+              Modelica.Magnetic.FluxTubes.Material.HardMagnetic.PlasticNdFeB())
           annotation (Placement(transformation(extent={{-30,0},{-10,20}},
               rotation=0)));
-        Modelica.Electrical.Analog.Sources.ConstantCurrent source(I=3) 
+        Modelica.Electrical.Analog.Sources.ConstantCurrent source(I=3)
           annotation (Placement(transformation(
             origin={-60,10},
             extent={{-10,-10},{10,10}},
@@ -597,7 +597,7 @@ Simulation of the force-stroke characteristic of the <a href=\"Components.Permea
           startTime=-4) annotation (Placement(transformation(extent={{70,0},{50,
                 20}}, rotation=0)));
         Modelica.Mechanics.Translational.Sources.Position feedX(
-                                                        exact=true) 
+                                                        exact=true)
           annotation (Placement(transformation(extent={{30,0},{10,20}},
               rotation=0)));
         Modelica.Blocks.Tables.CombiTable1Ds comparisonWithFEA(table=[-0.004,-8.8729,
@@ -646,8 +646,8 @@ Simulation of the force-stroke characteristic of the <a href=\"Components.Permea
           Documentation(info="<html>
 <p>
 Have a look at <a href=\"Components.ConstantActuator\">ConstantActuator</a> and at <a href=\"Components.PermeanceActuator\">PermeanceActuator</a>
-for an explanation of both actuator models.</p> 
- 
+for an explanation of both actuator models.</p>
+
 <p>
 A voltage step at time t=0 is applied to both actuator models. In each model, the armature and an attached load mass perform a stroke between the two stoppers included in cActuator.armature and pmActuator.armature respectively. <b>Simulate for 0.05 s</b> and plot vs. time (same physical quantities together in a common diagram for comparison):
 </p>
@@ -662,18 +662,18 @@ A voltage step at time t=0 is applied to both actuator models. In each model, th
     pmActuator.L                      // inductance of permeance model
 </pre>
 <p>
-The initial current rise in both actuator models is due to the inductance of the actuator coil. After acceleration of the armature and the load, the current decreases due to the motion-induced back-emf. Bouncing occurs when the armatures of both models arrive at the stopper at maximum armature position. The bouncing is rather intense due to the absence of any kind of external friction in this simple example (apart from the nonlinear damping in the stopper elements). After decay of the bouncing, both actuators operate under conditions valid for a blocked armature. 
+The initial current rise in both actuator models is due to the inductance of the actuator coil. After acceleration of the armature and the load, the current decreases due to the motion-induced back-emf. Bouncing occurs when the armatures of both models arrive at the stopper at maximum armature position. The bouncing is rather intense due to the absence of any kind of external friction in this simple example (apart from the nonlinear damping in the stopper elements). After decay of the bouncing, both actuators operate under conditions valid for a blocked armature.
 </p>
 <p>
-Whereas the steady state current is the same in both models, the steady state actuator force is not due to the neglection of the non-linear force component in the converter constant model. Differences in the current rise of both models are due to the neglection of the coil inductance variation in the converter constant model. 
+Whereas the steady state current is the same in both models, the steady state actuator force is not due to the neglection of the non-linear force component in the converter constant model. Differences in the current rise of both models are due to the neglection of the coil inductance variation in the converter constant model.
 </p>
 </html>"));
-        Modelica.Electrical.Analog.Basic.Ground pmGround 
+        Modelica.Electrical.Analog.Basic.Ground pmGround
           annotation (Placement(transformation(extent={{-80,-70},{-60,-50}},
               rotation=0)));
         Modelica.Electrical.Analog.Sources.StepVoltage pmSource(
           startTime=0,
-          V=pmActuator.R*1.5) "Steady state current 1.5A" 
+          V=pmActuator.R*1.5) "Steady state current 1.5A"
           annotation (Placement(transformation(
             origin={-70,-30},
             extent={{-10,-10},{10,10}},
@@ -683,20 +683,20 @@ Whereas the steady state current is the same in both models, the steady state ac
               start=pmActuator.x_min, fixed=true),
         armature(v(fixed=true)),
         coil(i(fixed=true)))
-          "Moving coil actuator described with permeance model" 
+          "Moving coil actuator described with permeance model"
           annotation (Placement(transformation(extent={{-40,-40},{-20,-20}},
               rotation=0)));
         Modelica.Mechanics.Translational.Components.Mass pmLoad(
                                                             m=0.05)
-          "Load to be moved in addition to the armature mass" 
+          "Load to be moved in addition to the armature mass"
           annotation (Placement(transformation(extent={{0,-40},{20,-20}},
               rotation=0)));
-        Modelica.Electrical.Analog.Basic.Ground cGround 
+        Modelica.Electrical.Analog.Basic.Ground cGround
           annotation (Placement(transformation(extent={{-80,0},{-60,20}},
               rotation=0)));
         Modelica.Electrical.Analog.Sources.StepVoltage cSource(
           startTime=0,
-          V=cActuator.R*1.5) "Steady state current 1.5A" 
+          V=cActuator.R*1.5) "Steady state current 1.5A"
           annotation (Placement(transformation(
             origin={-70,40},
             extent={{-10,-10},{10,10}},
@@ -705,16 +705,16 @@ Whereas the steady state current is the same in both models, the steady state ac
           cActuator(x(start=cActuator.x_min, fixed=true), armature(v(
                 fixed=true)),
         l(i(start=0, fixed=true)))
-          "Moving coil actuator described with converter constant" 
+          "Moving coil actuator described with converter constant"
           annotation (Placement(transformation(extent={{-40,30},{-20,50}},
               rotation=0)));
         Modelica.Mechanics.Translational.Components.Mass cLoad(
                                                            m=0.05)
-          "Load to be moved in addition to the armature mass" 
+          "Load to be moved in addition to the armature mass"
           annotation (Placement(transformation(extent={{0,30},{20,50}},
               rotation=0)));
       equation
-        connect(pmLoad.flange_a, pmActuator.flange) 
+        connect(pmLoad.flange_a, pmActuator.flange)
           annotation (Line(points={{0,-30},{-20,-30}}, color={0,127,0}));
         connect(cGround.p, cSource.n) annotation (Line(points={{-70,20},{-70,30}},
             color={0,0,255}));
@@ -724,12 +724,12 @@ Whereas the steady state current is the same in both models, the steady state ac
               50},{-56,46},{-40,46}}, color={0,0,255}));
         connect(cSource.n, cActuator.n)  annotation (Line(points={{-70,30},{-56,
               30},{-56,34},{-40,34}}, color={0,0,255}));
-        connect(pmSource.n, pmGround.p) 
+        connect(pmSource.n, pmGround.p)
           annotation (Line(points={{-70,-40},{-70,-50}}, color={0,0,255}));
-        connect(pmSource.n, pmActuator.n) 
+        connect(pmSource.n, pmActuator.n)
                                         annotation (Line(points={{-70,-40},{-54,
               -40},{-54,-36},{-40,-36}}, color={0,0,255}));
-        connect(pmSource.p, pmActuator.p) 
+        connect(pmSource.p, pmActuator.p)
                                         annotation (Line(points={{-70,-20},{-55,
               -20},{-55,-24},{-40,-24}}, color={0,0,255}));
       end ArmatureStroke;
@@ -779,7 +779,7 @@ Whereas the steady state current is the same in both models, the steady state ac
           Modelica.Magnetic.FluxTubes.Sources.ConstantMagneticPotentialDifference
             mmf_PM(
             final V_m=material.H_cB*l_PM)
-            "Permanent magnet's magnetomotive force" 
+            "Permanent magnet's magnetomotive force"
             annotation (Placement(transformation(
               origin={10,20},
               extent={{-10,-10},{10,10}},
@@ -791,19 +791,19 @@ Whereas the steady state current is the same in both models, the steady state ac
                   graphics),
             Documentation(info="<html>
 <p>
-In the <a href=\"ConstantActuator\">ConstantActuator</a> model the force F is strictly proportional to the current i as indicated by the converter constant c. However, there is an additional non-linear force component in such an actuator that is due to the dependency of the coil inductance L on the armature position x. The inductance increases as the armature moves into the stator. The total force is 
+In the <a href=\"ConstantActuator\">ConstantActuator</a> model the force F is strictly proportional to the current i as indicated by the converter constant c. However, there is an additional non-linear force component in such an actuator that is due to the dependency of the coil inductance L on the armature position x. The inductance increases as the armature moves into the stator. The total force is
 </p>
- 
+
 <pre>
         1  2 dL
     F = - i  --  + c i
         2    dx
-</pre> 
- 
+</pre>
+
 <p>
-Both force components are properly considered with a simple permeance model as shown in the figures below. Figure (a) illustrates the dimensions of the axisymmetric moving coil actuator that are needed in the permeance model. Figure (b) shows partitioning into flux tubes and the permanent magnetic field without current. G_ma and G_mb both are the permeances resulting from a series connection of the permaent magnet and air gap sections. The field plot of the coil-imposed mmf is shown in figure (c) without the permanent magnetic mmf (H_cB=0). The placement of the magnetic network components in figure (d) retains the geometric structure of the actuator. In figure (e), the permeance model is restructured and thus simplified. 
+Both force components are properly considered with a simple permeance model as shown in the figures below. Figure (a) illustrates the dimensions of the axisymmetric moving coil actuator that are needed in the permeance model. Figure (b) shows partitioning into flux tubes and the permanent magnetic field without current. G_ma and G_mb both are the permeances resulting from a series connection of the permaent magnet and air gap sections. The field plot of the coil-imposed mmf is shown in figure (c) without the permanent magnetic mmf (H_cB=0). The placement of the magnetic network components in figure (d) retains the geometric structure of the actuator. In figure (e), the permeance model is restructured and thus simplified.
 </p>
- 
+
 <p><IMG SRC=\"../Images/Magnetic/FluxTubes/Examples/MovingCoilActuator/MovingCoilActuator_PermeanceModel.png\" ALT=\"Structure, assigned flux tubes and field plots of the moving coil actuator\"></p>
 </html>"),  Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={
@@ -865,7 +865,7 @@ Both force components are properly considered with a simple permeance model as s
             "Inertia of moving coil + coil carrier; stoppers at end of stroke range"
             annotation (Placement(transformation(extent={{60,-10},{80,10}},
                 rotation=0)));
-          Modelica.Electrical.Analog.Basic.Resistor r(final R=R) 
+          Modelica.Electrical.Analog.Basic.Resistor r(final R=R)
             annotation (Placement(transformation(
               origin={-80,30},
               extent={{-10,-10},{10,10}},
@@ -874,7 +874,7 @@ Both force components are properly considered with a simple permeance model as s
           Basic.Ground ground annotation (Placement(transformation(extent={{30,
                   -38},{50,-18}}, rotation=0)));
           Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter coil(
-                                        final N=N) 
+                                        final N=N)
             annotation (Placement(transformation(
               origin={0,-20},
               extent={{-10,-10},{10,10}},
@@ -886,7 +886,7 @@ Both force components are properly considered with a simple permeance model as s
             final r_i=r_core,
             final r_o=r_core + l_air + l_PM,
             final mu_r=1.05,
-            final useSupport=false) 
+            final useSupport=false)
                              annotation (Placement(transformation(
               origin={-20,0},
               extent={{-10,-10},{10,10}},
@@ -898,7 +898,7 @@ Both force components are properly considered with a simple permeance model as s
             final dlBydx=-1,
             final l=t/2 - x,
             final mu_r=1.05,
-            final useSupport=false) 
+            final useSupport=false)
                              annotation (Placement(transformation(
               origin={30,0},
               extent={{-10,-10},{10,10}},
@@ -922,15 +922,15 @@ Both force components are properly considered with a simple permeance model as s
               rotation=270)));
 
           Modelica.Electrical.Analog.Interfaces.PositivePin p
-            "Electrical connector" 
+            "Electrical connector"
             annotation (Placement(transformation(extent={{-110,50},{-90,70}},
                 rotation=0)));
           Modelica.Electrical.Analog.Interfaces.NegativePin n
-            "Electrical connector" 
+            "Electrical connector"
             annotation (Placement(transformation(extent={{-90,-70},{-110,-50}},
                 rotation=0)));
           Modelica.Mechanics.Translational.Interfaces.Flange_b flange
-            "Flange of component" 
+            "Flange of component"
             annotation (Placement(transformation(extent={{90,-10},{110,10}},
                 rotation=0)));
         equation
@@ -941,7 +941,7 @@ Both force components are properly considered with a simple permeance model as s
             points={{80,0},{100,0}},
             color={0,127,0},
             pattern=LinePattern.None));
-          connect(r.p, p) 
+          connect(r.p, p)
             annotation (Line(points={{-80,40},{-80,60},{-100,60}}, color={0,0,
                 255}));
           connect(armature.flange_a,g_mb. flange) annotation (Line(points={{60,0},{
@@ -996,7 +996,7 @@ Both force components are properly considered with a simple permeance model as s
             "Armature position, alias for flange position";
 
           Modelica.Electrical.Analog.Basic.Resistor r(final R=R)
-            "Coil resistance" 
+            "Coil resistance"
             annotation (Placement(transformation(extent={{-90,50},{-70,70}},
                 rotation=0)));
           Modelica.Magnetic.FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper
@@ -1007,28 +1007,28 @@ Both force components are properly considered with a simple permeance model as s
             final L=0,
             final c=c,
             final d=d,
-            n=2) "Armature inertia with stoppers at end of stroke range" 
+            n=2) "Armature inertia with stoppers at end of stroke range"
             annotation (Placement(transformation(extent={{60,-10},{80,10}},
                 rotation=0)));
 
           Modelica.Electrical.Analog.Basic.Inductor l(final L=L)
-            "Coil inductance" 
+            "Coil inductance"
             annotation (Placement(transformation(extent={{-60,50},{-40,70}},
                 rotation=0)));
           Modelica.Electrical.Analog.Basic.TranslationalEMF
-            electroTranslationalConverter( final k=k) 
+            electroTranslationalConverter( final k=k)
             annotation (Placement(transformation(extent={{-40,-10},{-20,10}},
                 rotation=0)));
           Modelica.Electrical.Analog.Interfaces.PositivePin p
-            "Electrical connector" 
+            "Electrical connector"
             annotation (Placement(transformation(extent={{-110,50},{-90,70}},
                 rotation=0)));
           Modelica.Electrical.Analog.Interfaces.NegativePin n
-            "Electrical connector" 
+            "Electrical connector"
             annotation (Placement(transformation(extent={{-90,-70},{-110,-50}},
                 rotation=0)));
           Modelica.Mechanics.Translational.Interfaces.Flange_b flange
-            "Flange of component" 
+            "Flange of component"
             annotation (Placement(transformation(extent={{90,-10},{110,10}},
                 rotation=0)));
         equation
@@ -1059,27 +1059,27 @@ Both force components are properly considered with a simple permeance model as s
 <p>
 Similar to rotational DC-Motors, the electro-mechanical energy conversion of translatory electrodynamic actuators and generators of moving coil and moving magnet type can be described with the following two converter equations:
 </p>
- 
+
 <pre>
       F = c * i
     V_i = c * v
 </pre>
- 
+
 <p>
 with electrodynamic or <i>Lorentz</i> force F, converter constant c, current i, induced back-emf V_i and armature velocity v. The model is very similar to the well-known behavioural model of a rotational one-phase DC-Machine, except that it is for translatory motion. For a moving coil actuator with a coil inside an air gap with flux density B and a total wire length l inside the magnetic field, the converter constant becomes
 </p>
- 
+
 <pre>
     c = B * l.
 </pre>
- 
+
 <p>
 The converter constant c as well as coil resistance R and inductance L are assumed to be known, e.g. from measurements or catalogue data. Hence this model is well-suited for system simulation together with neighbouring subsystems, but not for actuator design, where the motor constant is to be found on base of the magnetic circuit's geometry, material properties and winding data. See <a href=\"PermeanceActuator\">PermeanceActuator</a> for a more accurate model of this actuator that is based on a magnetic network. Due to identical connectors, both models can be used in system simulation, e.g. to simulate a stroke as demonstrated in <a href=\"ArmatureStroke\">ArmatureStroke</a>.
 </p>
 </html>"));
           connect(r.p, p) annotation (Line(points={{-90,60},{-100,60}}, color={
                 0,0,255}));
-          connect(l.p,r. n) 
+          connect(l.p,r. n)
             annotation (Line(points={{-60,60},{-70,60}}, color={0,0,255}));
           connect(armature.flange_b, flange) annotation (Line(points={{80,0},{
                 85,0},{85,1.16573e-015},{90,1.16573e-015},{90,0},{100,0}},
@@ -1088,7 +1088,7 @@ The converter constant c as well as coil resistance R and inductance L are assum
                {{-40,60},{-30,60},{-30,10}}, color={0,0,255}));
           connect(n, electroTranslationalConverter.n) annotation (Line(points={
                 {-100,-60},{-30,-60},{-30,-10}}, color={0,0,255}));
-          connect(electroTranslationalConverter.flange, armature.flange_a) 
+          connect(electroTranslationalConverter.flange, armature.flange_a)
             annotation (Line(points={{-20,0},{0,0},{0,-6.10623e-016},{20,
                 -6.10623e-016},{20,0},{60,0}}, color={0,127,0}));
         end ConstantActuator;
@@ -1115,42 +1115,42 @@ The converter constant c as well as coil resistance R and inductance L are assum
 <p>
 Have a look at <a href=\"SolenoidActuator\">SolenoidActuator</a> for general comments and at <a href=\"Components.SimpleSolenoid\">SimpleSolenoid</a> and <a href=\"Components.AdvancedSolenoid\">AdvancedSolenoid</a> for a detailed description of both magnetic network models.
 </p>
- 
-<p> 
+
+<p>
 Similar to static force-stroke measurements on real actuators, the armatures of both actuator models are forced to move slowly here. Hence, the dynamics of the electrical subsystems due to coil inductance and armature motion can be neglected and the static force-stroke characteristics are obtained. To illustrate the accuracy to be expected from the lumped magnetic network models, results obtained with stationary FEA are included as reference (position-dependent force, armature flux and actuator inductance). Note that these reference values are valid for the default supply voltage v_step=12V DC only!
 </p>
- 
-<p> 
+
+<p>
 Set the <b>tolerance</b> to <b>1e-7</b> and <b>simulate for 10 s</b>. Plot in one common window the electromagnetic force of the two magnetic network models and the FEA reference <b>vs. armature position x_set.y</b>:
 </p>
- 
+
 <pre>
     simpleSolenoid.armature.flange_a.f     // electromagnetic force of simple magnetic network model
     advancedSolenoid.armature.flange_a.f   // electromagnetic force of advaned magnetic network model
     comparisonWithFEA.y[1]                 // electromagnetic force obtained with FEA as reference
 </pre>
- 
+
 <p>
-Electromagnetic or reluctance forces always act towards a decrease of air gap lengths. With the defined armature position coordinate x, the forces of the models are negative. 
+Electromagnetic or reluctance forces always act towards a decrease of air gap lengths. With the defined armature position coordinate x, the forces of the models are negative.
 </p>
- 
+
 <p>
 The magnetic flux through the armature and the actuator's static inductance both illustrate the differences between the two magnetic network models. Similar to the forces, compare these quantities in one common plot window for each variable (plot vs. armature position x_set.y):
 </p>
- 
+
 <pre>
     simpleSolenoid.G_mFeArm.Phi            // magnetic flux through armature of simple magnetic network model
     advancedSolenoid.G_mFeArm.Phi          // magnetic flux through armature of advanced magnetic network model
-    comparisonWithFEA.y[2]                 // magnetic flux obtained with FEA as reference 
- 
-   
-    simpleSolenoid.coil.L_stat             // static inductance of simple magnetic network model 
+    comparisonWithFEA.y[2]                 // magnetic flux obtained with FEA as reference
+
+
+    simpleSolenoid.coil.L_stat             // static inductance of simple magnetic network model
     advancedSolenoid.L_statTot             // series connection of both partial coils of advanced network model
-    comparisonWithFEA.y[3]                 // static inductance obtained with FEA as reference  
+    comparisonWithFEA.y[3]                 // static inductance obtained with FEA as reference
 </pre>
- 
+
 <p>
-As mentioned in the description of both magnetic network models, one can tell the higher armature flux and inductance of the advanced solenoid model at large air gaps compared to that of the simple model. The effect of this difference on dynamic model behaviour can be analysed in <a href=\"ComparisonPullInStroke\">ComparisonPullInStroke</a>.  
+As mentioned in the description of both magnetic network models, one can tell the higher armature flux and inductance of the advanced solenoid model at large air gaps compared to that of the simple model. The effect of this difference on dynamic model behaviour can be analysed in <a href=\"ComparisonPullInStroke\">ComparisonPullInStroke</a>.
 </p>
 </html>"));
         Modelica.Blocks.Sources.Ramp x_set(
@@ -1160,38 +1160,38 @@ As mentioned in the description of both magnetic network models, one can tell th
           "Prescribed armature position, slow enforced motion from x_max to x_min"
                                annotation (Placement(transformation(extent={{80,
                 -10},{60,10}}, rotation=0)));
-        Modelica.Electrical.Analog.Basic.Ground advancedGround 
+        Modelica.Electrical.Analog.Basic.Ground advancedGround
           annotation (Placement(transformation(extent={{-80,10},{-60,30}},
               rotation=0)));
-        Modelica.Electrical.Analog.Sources.StepVoltage advancedSource(V=v_step) 
+        Modelica.Electrical.Analog.Sources.StepVoltage advancedSource(V=v_step)
           annotation (Placement(transformation(
             origin={-70,50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
         Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid
-          advancedSolenoid 
+          advancedSolenoid
           annotation (Placement(transformation(extent={{-40,40},{-20,60}},
               rotation=0)));
         Modelica.Mechanics.Translational.Sources.Position advancedFeed_x(
-                                                                 f_crit=1000, exact=true) 
+                                                                 f_crit=1000, exact=true)
           annotation (Placement(transformation(
             origin={0,50},
             extent={{-10,-10},{10,10}},
             rotation=180)));
-        Modelica.Electrical.Analog.Basic.Ground simpleGround 
+        Modelica.Electrical.Analog.Basic.Ground simpleGround
           annotation (Placement(transformation(extent={{-80,-90},{-60,-70}},
               rotation=0)));
-        Modelica.Electrical.Analog.Sources.StepVoltage simpleSource(V=v_step) 
+        Modelica.Electrical.Analog.Sources.StepVoltage simpleSource(V=v_step)
           annotation (Placement(transformation(
             origin={-70,-50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
         Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid
-          simpleSolenoid 
+          simpleSolenoid
           annotation (Placement(transformation(extent={{-40,-60},{-20,-40}},
               rotation=0)));
         Modelica.Mechanics.Translational.Sources.Position simpleFeed_x(
-                                                               f_crit=1000, exact=false) 
+                                                               f_crit=1000, exact=false)
           annotation (Placement(transformation(
             origin={0,-50},
             extent={{-10,-10},{10,10}},
@@ -1212,34 +1212,34 @@ As mentioned in the description of both magnetic network models, one can tell th
           annotation (Placement(transformation(extent={{60,60},{80,80}},
               rotation=0)));
       equation
-        connect(advancedGround.p, advancedSource.n) 
+        connect(advancedGround.p, advancedSource.n)
                                       annotation (Line(points={{-70,30},{-70,40}},
             color={0,0,255}));
-        connect(x_set.y, advancedFeed_x.s_ref) 
+        connect(x_set.y, advancedFeed_x.s_ref)
                                        annotation (Line(points={{59,0},{20,0},{
               20,50},{12,50}}, color={0,0,127}));
-        connect(simpleSolenoid.p, simpleSource.p) 
+        connect(simpleSolenoid.p, simpleSource.p)
                                              annotation (Line(points={{-40,-44},
               {-50,-44},{-50,-40},{-70,-40}}, color={0,0,255}));
-        connect(simpleSolenoid.n, simpleSource.n) 
+        connect(simpleSolenoid.n, simpleSource.n)
                                              annotation (Line(points={{-40,-56},
               {-50,-56},{-50,-60},{-70,-60}}, color={0,0,255}));
         connect(simpleSolenoid.flange,simpleFeed_x.flange)   annotation (Line(
             points={{-20,-50},{-10,-50}}, color={0,127,0}));
-        connect(advancedSolenoid.n, advancedSource.n) 
+        connect(advancedSolenoid.n, advancedSource.n)
                                               annotation (Line(points={{-40,44},
               {-50,44},{-50,40},{-70,40}}, color={0,0,255}));
         connect(simpleFeed_x.s_ref, x_set.y)  annotation (Line(points={{12,-50},
               {20,-50},{20,0},{59,0}}, color={0,0,127}));
         connect(x_set.y,comparisonWithFEA. u) annotation (Line(points={{59,0},{
               50,0},{50,70},{58,70}}, color={0,0,127}));
-        connect(advancedFeed_x.flange,   advancedSolenoid.flange) 
+        connect(advancedFeed_x.flange,   advancedSolenoid.flange)
                                                         annotation (Line(points=
              {{-10,50},{-20,50}}, color={0,127,0}));
-        connect(advancedSource.p, advancedSolenoid.p) 
+        connect(advancedSource.p, advancedSolenoid.p)
                                               annotation (Line(points={{-70,60},
               {-50,60},{-50,56},{-40,56}}, color={0,0,255}));
-        connect(simpleGround.p, simpleSource.n) 
+        connect(simpleGround.p, simpleSource.n)
                                         annotation (Line(points={{-70,-70},{-70,
               -60}}, color={0,0,255}));
       end ComparisonQuasiStationary;
@@ -1259,69 +1259,69 @@ As mentioned in the description of both magnetic network models, one can tell th
 <p>
 Have a look at <a href=\"SolenoidActuator\">SolenoidActuator</a> for general comments and at <a href=\"Components.SimpleSolenoid\">SimpleSolenoid</a> and <a href=\"Components.AdvancedSolenoid\">AdvancedSolenoid</a> for a detailed description of both magnetic network models.
 </p>
- 
+
 <p>
-A voltage step is applied to both solenoid models at time t=0. The armatures of both models and therewith connected loads are pulled from their rest position at maximum air gap length to their minimum position that is due to a stopper. As a reference, simulation results obtained with a dynamic model based on stationary FEA look-up tables (not part of this library) are included. Note that these reference results are valid for the default supply voltage v_step=12V DC and the default load mass m_load=0.01kg only! 
+A voltage step is applied to both solenoid models at time t=0. The armatures of both models and therewith connected loads are pulled from their rest position at maximum air gap length to their minimum position that is due to a stopper. As a reference, simulation results obtained with a dynamic model based on stationary FEA look-up tables (not part of this library) are included. Note that these reference results are valid for the default supply voltage v_step=12V DC and the default load mass m_load=0.01kg only!
 </p>
- 
-<p> 
+
+<p>
 Set the <b>tolerance</b> to <b>1e-7</b> and <b>simulate for 0.05 s</b>. Plot actuator current, force and position of the two magnetic network models and the FEA-based reference <b>vs. time</b> (each quantity in one common plot window):
 </p>
- 
+
 <pre>
 Plot window for current:
     simpleSolenoid.p.i          // rapid current rise indicates low inductance of simple network model
     advancedSolenoid.p.i        // current rise slower, better match with FEA reference
     comparisonWithFEA.y[1]      // current obtained from dynamic model based on stationary FEA look-up tables
- 
+
 Plot window for force:
     simpleSolenoid.armature.flange_a.f       // reluctance force of simple actuator model
     advancedSolenoid.armature.flange_a.f     // reluctance force of advanced actuator model
     comparisonWithFEA.y[2]      // force obtained from dynamic model based on stationary FEA look-up tables
- 
-Plot window for position:   
+
+Plot window for position:
     simpleSolenoid.x            // armature position of simple actuator model
     advancedSolenoid.x          // armature position of advanced actuator model
     comparisonWithFEA.y[3]      // position obtained from dynamic model based on stationary FEA look-up tables
 </pre>
- 
+
 <p>
-The characteristic current drop during pull-in is due to both armature motion and increasing inductance with decreasing air gap length. Bouncing occurs when  armature and load of each model arrive at the stopper at minimum position. Although the pull-in times of the two magnetic network models are relatively close to the time obtained with the reference model, the accuracy of the advanced solenoid model is better, as one can tell from a comparison of the current rise at the beginning of the stroke. 
+The characteristic current drop during pull-in is due to both armature motion and increasing inductance with decreasing air gap length. Bouncing occurs when  armature and load of each model arrive at the stopper at minimum position. Although the pull-in times of the two magnetic network models are relatively close to the time obtained with the reference model, the accuracy of the advanced solenoid model is better, as one can tell from a comparison of the current rise at the beginning of the stroke.
 </p>
- 
+
 </html>"));
-        Modelica.Electrical.Analog.Basic.Ground advancedGround 
+        Modelica.Electrical.Analog.Basic.Ground advancedGround
           annotation (Placement(transformation(extent={{-70,-10},{-50,10}},
               rotation=0)));
-        Modelica.Electrical.Analog.Sources.StepVoltage advancedSource(V=v_step) 
+        Modelica.Electrical.Analog.Sources.StepVoltage advancedSource(V=v_step)
           annotation (Placement(transformation(
             origin={-60,30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
         Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid
-          advancedSolenoid(x(fixed=true)) 
+          advancedSolenoid(x(fixed=true))
                          annotation (Placement(transformation(extent={{-20,20},
                 {0,40}}, rotation=0)));
         Modelica.Mechanics.Translational.Components.Mass advancedLoad(
                                                                   m=0.01)
-          "translatory load to be pulled horizontally" 
+          "translatory load to be pulled horizontally"
           annotation (Placement(transformation(extent={{20,20},{40,40}},
               rotation=0)));
-        Modelica.Electrical.Analog.Basic.Ground simpleGround 
+        Modelica.Electrical.Analog.Basic.Ground simpleGround
           annotation (Placement(transformation(extent={{-70,-90},{-50,-70}},
               rotation=0)));
-        Modelica.Electrical.Analog.Sources.StepVoltage simpleSource(V=v_step) 
+        Modelica.Electrical.Analog.Sources.StepVoltage simpleSource(V=v_step)
           annotation (Placement(transformation(
             origin={-60,-50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
         Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid
-          simpleSolenoid(x(fixed=true)) 
+          simpleSolenoid(x(fixed=true))
                        annotation (Placement(transformation(extent={{-20,-60},{
                 0,-40}}, rotation=0)));
         Modelica.Mechanics.Translational.Components.Mass simpleLoad(
                                                                 m=0.01)
-          "translatory load to be pulled horizontally" 
+          "translatory load to be pulled horizontally"
           annotation (Placement(transformation(extent={{20,-60},{40,-40}},
               rotation=0)));
         Modelica.Blocks.Sources.CombiTimeTable comparisonWithFEA(
@@ -1641,37 +1641,37 @@ The characteristic current drop during pull-in is due to both armature motion an
               rotation=0)));
 
       equation
-        connect(advancedGround.p, advancedSource.n) 
+        connect(advancedGround.p, advancedSource.n)
           annotation (Line(points={{-60,10},{-60,20}}, color={0,0,255}));
-        connect(advancedSource.p, advancedSolenoid.p) 
+        connect(advancedSource.p, advancedSolenoid.p)
           annotation (Line(points={{-60,40},{-40,40},{-40,36},{-20,36}}, color=
               {0,0,255}));
-        connect(advancedSolenoid.n, advancedSource.n) 
+        connect(advancedSolenoid.n, advancedSource.n)
           annotation (Line(points={{-20,24},{-40,24},{-40,20},{-60,20}}, color=
               {0,0,255}));
-        connect(advancedSolenoid.flange, advancedLoad.flange_a) 
+        connect(advancedSolenoid.flange, advancedLoad.flange_a)
           annotation (Line(points={{0,30},{20,30}}, color={0,127,0}));
-        connect(simpleGround.p, simpleSource.n) 
+        connect(simpleGround.p, simpleSource.n)
           annotation (Line(points={{-60,-70},{-60,-60}}, color={0,0,255}));
-        connect(simpleSource.p, simpleSolenoid.p) 
+        connect(simpleSource.p, simpleSolenoid.p)
           annotation (Line(points={{-60,-40},{-40,-40},{-40,-44},{-20,-44}},
             color={0,0,255}));
-        connect(simpleSolenoid.n, simpleSource.n) 
+        connect(simpleSolenoid.n, simpleSource.n)
           annotation (Line(points={{-20,-56},{-40,-56},{-40,-60},{-60,-60}},
             color={0,0,255}));
-        connect(simpleSolenoid.flange, simpleLoad.flange_a) 
+        connect(simpleSolenoid.flange, simpleLoad.flange_a)
           annotation (Line(points={{0,-50},{20,-50}}, color={0,127,0}));
       end ComparisonPullInStroke;
 
       annotation (Documentation(info="<html>
 <p>
-In electromagnetic or reluctance actuators, a thrust or reluctance force is generated due to a non-zero gradient of the relative magnetic permeability mu_r at surfaces between regions of different permeability (non-saturated ferromagnetic material: mu_r>>1, adjacent air: mu_r=1). In lumped magnetic network models, this force can be calculated as shortly outlined in <a href=\"UsersGuide.ReluctanceForceCalculation\">Reluctance Forces</a> of the Users Guide. 
+In electromagnetic or reluctance actuators, a thrust or reluctance force is generated due to a non-zero gradient of the relative magnetic permeability mu_r at surfaces between regions of different permeability (non-saturated ferromagnetic material: mu_r>>1, adjacent air: mu_r=1). In lumped magnetic network models, this force can be calculated as shortly outlined in <a href=\"UsersGuide.ReluctanceForceCalculation\">Reluctance Forces</a> of the Users Guide.
 </p>
- 
+
 <p>
-As an example of a reluctance actuator, a simple axisymmetric lifting magnet with planar end planes of armature and pole is shown. Often, a <a href=\"Components.SimpleSolenoid\">SimpleSolenoid</a> model is sufficient for initial rough design of such an actuator's magnetic subsystem. Higher accuracy can be gained from an <a href=\"Components.AdvancedSolenoid\">AdvancedSolenoid</a> model where the coil-imposed magnetomotive force is split and the leakage flux between armature and yoke is accounted for more precisely. 
+As an example of a reluctance actuator, a simple axisymmetric lifting magnet with planar end planes of armature and pole is shown. Often, a <a href=\"Components.SimpleSolenoid\">SimpleSolenoid</a> model is sufficient for initial rough design of such an actuator's magnetic subsystem. Higher accuracy can be gained from an <a href=\"Components.AdvancedSolenoid\">AdvancedSolenoid</a> model where the coil-imposed magnetomotive force is split and the leakage flux between armature and yoke is accounted for more precisely.
 </p>
- 
+
 <p>
 The differences between these two models in static behaviour can be analysed and compared to results obtained with a more accurate finite element analysis (FEA) in <a href=\"ComparisonQuasiStationary\">ComparisonQuasiStationary</a>. The resulting differences in dynamic behaviour can be analysed and compared to FEA results with simulation of a pull-in stroke in <a href=\"ComparisonPullInStroke\">ComparisonPullInStroke</a>.
 </p>
@@ -1726,7 +1726,7 @@ The differences between these two models in static behaviour can be analysed and
           parameter Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData
             material=
             Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel.Steel_9SMnPb28()
-            "Ferromagnetic material characteristics" 
+            "Ferromagnetic material characteristics"
             annotation(choicesAllMatching=true, Dialog(group="Material"));
 
         //armature
@@ -1818,34 +1818,34 @@ The differences between these two models in static behaviour can be analysed and
               grid={2,2}), graphics),
           Documentation(info="<html>
 <p>
-Please refer to the <b>Parameters</b> section for a schematic drawing of this axisymmetric lifting magnet. 
+Please refer to the <b>Parameters</b> section for a schematic drawing of this axisymmetric lifting magnet.
 In the half-section below, the flux tube elements of the actuator's magnetic circuit are superimposed on a field plot obtained with FEA. The magnetomotive force imposed by the coil is modelled as one lumped element. As a result, the radial leakage flux between armature and yoke that occurs especially at large working air gaps can not be considered properly. This leads to a a higher total reluctance and lower inductance respectively compared to FEA for large working air gaps (i.e. armature close to x_max). Please have a look at the comments associated with the individual model components for a short explanation of their purpose in the model.
 </p>
- 
+
 <p><IMG SRC=\"../Images/Magnetic/FluxTubes/Examples/SolenoidActuator/SimpleSolenoidModel_fluxTubePartitioning.png\" ALT=\"Field lines and assigned flux tubes of the simple solenoid model\"></p>
- 
+
 <p>
-The coupling coefficient c_coupl in the coil is set to 1 in this example, since leakage flux is accounted for explicitly with the flux tube element G_mLeakWork. Although this leakage model is rather simple, it describes the reluctance force due to the leakage field sufficiently, especially at large air gaps. With decreasing air gap length, the influence of the leakage flux on the actuator's net reluctance force decreases due to the increasing influence of the main working air gap G_mAirWork. 
+The coupling coefficient c_coupl in the coil is set to 1 in this example, since leakage flux is accounted for explicitly with the flux tube element G_mLeakWork. Although this leakage model is rather simple, it describes the reluctance force due to the leakage field sufficiently, especially at large air gaps. With decreasing air gap length, the influence of the leakage flux on the actuator's net reluctance force decreases due to the increasing influence of the main working air gap G_mAirWork.
 </p>
- 
+
 <p>
-During model-based actuator design, the radii and lengths of the flux tube elements (and hence their cross-sectional areas and flux densities) should be assigned with parametric equations so that common design rules are met (e.g. allowed flux density in ferromagnetic parts, allowed current density and required cross-sectional area of winding). For simplicity, those equations are omitted in the example. Instead, the found values are assigned to the model elements directly. 
+During model-based actuator design, the radii and lengths of the flux tube elements (and hence their cross-sectional areas and flux densities) should be assigned with parametric equations so that common design rules are met (e.g. allowed flux density in ferromagnetic parts, allowed current density and required cross-sectional area of winding). For simplicity, those equations are omitted in the example. Instead, the found values are assigned to the model elements directly.
 </p>
 </html>"));
 
         public
-          Modelica.Magnetic.FluxTubes.Basic.Ground ground 
+          Modelica.Magnetic.FluxTubes.Basic.Ground ground
             annotation (Placement(transformation(extent={{50,10},{70,30}},
                 rotation=0)));
           Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter coil(
                                         final N=N, i(fixed=true))
-            "Electro-magnetic converter" 
+            "Electro-magnetic converter"
             annotation (Placement(transformation(
               origin={0,20},
               extent={{-10,-10},{10,10}},
               rotation=90)));
           Modelica.Electrical.Analog.Basic.Resistor r(final R=R)
-            "Coil resistance" 
+            "Coil resistance"
             annotation (Placement(transformation(extent={{-70,-30},{-50,-10}},
                 rotation=0)));
           Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux
@@ -1855,7 +1855,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
             final l=l_yoke - (t_poleBot + t_yokeBot)/2,
             final r_i=r_yokeIn,
             final r_o=r_yokeOut)
-            "Permeance of of hollow cylindric section of ferromagnetic yoke" 
+            "Permeance of of hollow cylindric section of ferromagnetic yoke"
             annotation (Placement(transformation(extent={{-10,80},{10,100}},
                 rotation=0)));
 
@@ -1866,7 +1866,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
             final l=l_yoke - (t_yokeBot + t_poleBot)/2 - l_pole - (x_max +
                 x_min)/2,
             final r_i=0,
-            final r_o=r_arm) "Permeance of ferfomagnetic armature" 
+            final r_o=r_arm) "Permeance of ferfomagnetic armature"
             annotation (Placement(transformation(
               origin={16,40},
               extent={{-10,-10},{10,10}},
@@ -1892,7 +1892,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
             final l=t_yokeBot,
             final r_i=r_arm + t_airPar,
             final r_o=r_yokeIn)
-            "Permeance of bottom side of ferromagnetic yoke" 
+            "Permeance of bottom side of ferromagnetic yoke"
             annotation (Placement(transformation(
               origin={80,80},
               extent={{-10,-10},{10,10}},
@@ -1905,7 +1905,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
             final l=t_yokeBot,
             final r_i=r_arm,
             final r_o=r_arm + t_airPar)
-            "Permeance of parasitic radial air gap due to slide guiding" 
+            "Permeance of parasitic radial air gap due to slide guiding"
             annotation (Placement(transformation(
               origin={80,50},
               extent={{-10,-10},{10,10}},
@@ -1916,7 +1916,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
             final r_i=r_arm,
             final r_o=r_yokeIn,
             final nonLinearPermeability=true,
-            final material=material) "Permeance of bottom side of pole" 
+            final material=material) "Permeance of bottom side of pole"
             annotation (Placement(transformation(
               origin={-72,80},
               extent={{-10,-10},{10,10}},
@@ -1928,7 +1928,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
             final material=material,
             final l=l_pole,
             final r_i=0,
-            final r_o=r_arm) "Permeance of ferromagnetic pole" 
+            final r_o=r_arm) "Permeance of ferromagnetic pole"
             annotation (Placement(transformation(
               origin={-72,40},
               extent={{10,-10},{-10,10}},
@@ -1944,7 +1944,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
             final d=d,
             n=2,
           v(fixed=true))
-            "Inertia of armature and stoppers at end of stroke range" 
+            "Inertia of armature and stoppers at end of stroke range"
                                       annotation (Placement(transformation(
                 extent={{64,-10},{84,10}}, rotation=0)));
           Modelica.Magnetic.FluxTubes.Shapes.Leakage.QuarterCylinder g_mLeak1(
@@ -1976,15 +1976,15 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
               extent={{-10,10},{10,-10}},
               rotation=180)));
           Modelica.Electrical.Analog.Interfaces.PositivePin p
-            "Electrical connector" 
+            "Electrical connector"
             annotation (Placement(transformation(extent={{-110,50},{-90,70}},
                 rotation=0)));
           Modelica.Electrical.Analog.Interfaces.NegativePin n
-            "Electrical connector" 
+            "Electrical connector"
             annotation (Placement(transformation(extent={{-90,-70},{-110,-50}},
                 rotation=0)));
           Modelica.Mechanics.Translational.Interfaces.Flange_b flange
-            "Flange of component" 
+            "Flange of component"
             annotation (Placement(transformation(extent={{90,-10},{110,10}},
                 rotation=0)));
         equation
@@ -1996,7 +1996,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
               color={0,127,0}));
           connect(armature.flange_a,g_mAirWork. flange) annotation (Line(points=
                {{64,0},{34,0},{34,52},{-30,52},{-30,40}}, color={0,127,0}));
-          connect(g_mAirWork.flange,g_mLeakWork. flange) 
+          connect(g_mAirWork.flange,g_mLeakWork. flange)
                                                      annotation (Line(points={{
                 -30,40},{-30,52},{34,52},{34,80},{-30,80}}, color={0,127,0}));
           connect(r.n, coil.p) annotation (Line(points={{-50,-20},{-6,-20},{-6,
@@ -2065,17 +2065,17 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
           parameter Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData
             material=
             Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel.Steel_9SMnPb28()
-            "Ferromagnetic material characteristics" 
+            "Ferromagnetic material characteristics"
             annotation(choicesAllMatching=true, Dialog(group="Material"));
 
         //armature
           parameter SI.Radius r_arm = 5e-3 "Armature radius = pole radius" annotation(Dialog(group="Armature and stopper"));
           parameter SI.Length l_arm = 26e-3 "Armature length" annotation(Dialog(group="Armature and stopper"));
           parameter Modelica.SIunits.TranslationalSpringConstant c=
-                1e11 "Spring stiffness between impact partners" 
+                1e11 "Spring stiffness between impact partners"
             annotation(Dialog(group="Armature and stopper"));
           parameter Modelica.SIunits.TranslationalDampingConstant d=
-                400 "Damping coefficient between impact partners" 
+                400 "Damping coefficient between impact partners"
             annotation(Dialog(group="Armature and stopper"));
           parameter SI.Position x_min = 0.25e-3
             "Stopper at minimum armature position"                                     annotation(Dialog(group="Armature and stopper"));
@@ -2169,28 +2169,28 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
               grid={2,2}), graphics),
           Documentation(info="<html>
 <p>
-Please have a look at <a href=\"SimpleSolenoid\">SimpleSolenoid</a> for a general description of this actuator. Unlike in that simple magnetic network model, the coil is split into two lumped elements here. This enables for more realistic modelling of the radial leakage flux between armature and yoke (leakage permeance G_mLeakRad). Especially for large air gaps, the influence of this leakage flux on the actuator's inductance and its electromagnetic force is rather strong. Please have a look at <a href=\"ComparisonQuasiStationary\">ComparisonQuasiStationary</a> for a comparison of both models with FEA-based results included as reference. 
+Please have a look at <a href=\"SimpleSolenoid\">SimpleSolenoid</a> for a general description of this actuator. Unlike in that simple magnetic network model, the coil is split into two lumped elements here. This enables for more realistic modelling of the radial leakage flux between armature and yoke (leakage permeance G_mLeakRad). Especially for large air gaps, the influence of this leakage flux on the actuator's inductance and its electromagnetic force is rather strong. Please have a look at <a href=\"ComparisonQuasiStationary\">ComparisonQuasiStationary</a> for a comparison of both models with FEA-based results included as reference.
 </p>
 <p><IMG SRC=\"../Images/Magnetic/FluxTubes/Examples/SolenoidActuator/AdvancedSolenoidModel_fluxTubePartitioning.png\" ALT=\"Assigned flux tubes and field plot of the solenoid actuator\"></p>
- 
+
 <p>
-The parasitic capacitances c_par1 and c_par2 accross both partial coils assure that the voltages across these coils are well-defined during simulation. 
+The parasitic capacitances c_par1 and c_par2 accross both partial coils assure that the voltages across these coils are well-defined during simulation.
 </p>
 </html>"));
 
         public
-          Modelica.Magnetic.FluxTubes.Basic.Ground ground 
+          Modelica.Magnetic.FluxTubes.Basic.Ground ground
             annotation (Placement(transformation(extent={{42,2},{62,22}},
                 rotation=0)));
           Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter coil1(
                                          final N=N/2, i(fixed=true))
-            "Electro-magnetic conversion in first half of coil" 
+            "Electro-magnetic conversion in first half of coil"
             annotation (Placement(transformation(
               origin={-46,20},
               extent={{-10,-10},{10,10}},
               rotation=90)));
           Modelica.Electrical.Analog.Basic.Resistor r_1(final R=R)
-            "Resistance of first half of coil" 
+            "Resistance of first half of coil"
             annotation (Placement(transformation(extent={{-84,-30},{-64,-10}},
                 rotation=0)));
           Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux
@@ -2200,7 +2200,7 @@ The parasitic capacitances c_par1 and c_par2 accross both partial coils assure t
             final r_o=r_yokeOut,
             final nonLinearPermeability=true,
             final material=material)
-            "Permeance of of first half of yoke's hollow cylindric section" 
+            "Permeance of of first half of yoke's hollow cylindric section"
             annotation (Placement(transformation(extent={{-50,70},{-30,90}},
                 rotation=0)));
 
@@ -2210,7 +2210,7 @@ The parasitic capacitances c_par1 and c_par2 accross both partial coils assure t
             final l=l_yoke - (t_yokeBot + t_poleBot)/2 - l_pole - (x_max + x_min)/2,
             final r_o=r_arm,
             final nonLinearPermeability=true,
-            final material=material) "Permeance of ferfomagnetic armature" 
+            final material=material) "Permeance of ferfomagnetic armature"
             annotation (Placement(transformation(
               origin={10,30},
               extent={{-10,10},{10,-10}},
@@ -2236,7 +2236,7 @@ The parasitic capacitances c_par1 and c_par2 accross both partial coils assure t
             final r_o=r_yokeIn,
             final nonLinearPermeability=true,
             final material=material)
-            "Permeance of bottom side of ferromagnetic yoke" 
+            "Permeance of bottom side of ferromagnetic yoke"
             annotation (Placement(transformation(
               origin={74,70},
               extent={{-10,-10},{10,10}},
@@ -2249,7 +2249,7 @@ The parasitic capacitances c_par1 and c_par2 accross both partial coils assure t
             final r_o=r_arm + t_airPar,
             final nonLinearPermeability=false,
             final mu_rConst=1)
-            "Permeance of parasitic radial air gap due to slide guiding" 
+            "Permeance of parasitic radial air gap due to slide guiding"
             annotation (Placement(transformation(
               origin={74,40},
               extent={{-10,-10},{10,10}},
@@ -2260,7 +2260,7 @@ The parasitic capacitances c_par1 and c_par2 accross both partial coils assure t
             final r_i=r_arm,
             final r_o=r_yokeIn,
             final nonLinearPermeability=true,
-            final material=material) "Permeance of bottom side of pole" 
+            final material=material) "Permeance of bottom side of pole"
             annotation (Placement(transformation(
               origin={-78,56},
               extent={{-10,-10},{10,10}},
@@ -2271,7 +2271,7 @@ The parasitic capacitances c_par1 and c_par2 accross both partial coils assure t
             final l=l_pole,
             final r_o=r_arm,
             final nonLinearPermeability=true,
-            final material=material) "Permeance of ferromagnetic pole" 
+            final material=material) "Permeance of ferromagnetic pole"
             annotation (Placement(transformation(
               origin={-68,30},
               extent={{-10,10},{10,-10}},
@@ -2287,7 +2287,7 @@ The parasitic capacitances c_par1 and c_par2 accross both partial coils assure t
             final d=d,
             n=2,
           v(fixed=true))
-            "Inertia of armature and stoppers at end of stroke range" 
+            "Inertia of armature and stoppers at end of stroke range"
                                       annotation (Placement(transformation(
                 extent={{64,-10},{84,10}}, rotation=0)));
           Modelica.Magnetic.FluxTubes.Shapes.Leakage.QuarterCylinder g_mLeak1(
@@ -2308,14 +2308,14 @@ The parasitic capacitances c_par1 and c_par2 accross both partial coils assure t
               rotation=90)));
           Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter coil2(
             final N=N/2, i(fixed=true))
-            "Electro-magnetic conversion in first half of coil" 
+            "Electro-magnetic conversion in first half of coil"
             annotation (Placement(transformation(
               origin={30,20},
               extent={{-10,-10},{10,10}},
               rotation=90)));
           Modelica.Electrical.Analog.Basic.Capacitor c_par1(final C=C_par, v(start=
                 0, fixed=true))
-            "Parasitic capacitance assigned to first half of coil" 
+            "Parasitic capacitance assigned to first half of coil"
             annotation (Placement(transformation(extent={{-60,-50},{-40,-30}},
                 rotation=0)));
           Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux
@@ -2337,25 +2337,25 @@ The parasitic capacitances c_par1 and c_par2 accross both partial coils assure t
             r_o=r_yokeOut,
             final nonLinearPermeability=true,
             final material=material)
-            "Permeance of of second half of yoke's hollow cylindric section" 
+            "Permeance of of second half of yoke's hollow cylindric section"
             annotation (Placement(transformation(extent={{20,70},{40,90}},
                 rotation=0)));
 
           Modelica.Electrical.Analog.Basic.Capacitor c_par2(final C=C_par, v(start=
                 0, fixed=true))
-            "Parasitic capacitance assigned to second half of coil" 
+            "Parasitic capacitance assigned to second half of coil"
             annotation (Placement(transformation(extent={{16,-50},{36,-30}},
                 rotation=0)));
           Modelica.Electrical.Analog.Basic.Resistor r_par1(final R=R_par)
-            "Parasitic resistance assigned to first half of coil" 
+            "Parasitic resistance assigned to first half of coil"
             annotation (Placement(transformation(extent={{-84,-50},{-64,-30}},
                 rotation=0)));
           Modelica.Electrical.Analog.Basic.Resistor r_par2(final R=R_par)
-            "Parasitic resistance assigned to second half of coil" 
+            "Parasitic resistance assigned to second half of coil"
             annotation (Placement(transformation(extent={{-8,-50},{12,-30}},
                 rotation=0)));
           Modelica.Electrical.Analog.Basic.Resistor r_2(final R=R)
-            "Resistance of second half of coil" 
+            "Resistance of second half of coil"
             annotation (Placement(transformation(extent={{-8,-30},{12,-10}},
                 rotation=0)));
           Modelica.Magnetic.FluxTubes.Shapes.Leakage.QuarterCylinder g_mLeak3(
@@ -2379,15 +2379,15 @@ The parasitic capacitances c_par1 and c_par2 accross both partial coils assure t
               extent={{-10,10},{10,-10}},
               rotation=180)));
           Modelica.Electrical.Analog.Interfaces.PositivePin p
-            "Electrical connector" 
+            "Electrical connector"
             annotation (Placement(transformation(extent={{-110,50},{-90,70}},
                 rotation=0)));
           Modelica.Electrical.Analog.Interfaces.NegativePin n
-            "Electrical connector" 
+            "Electrical connector"
             annotation (Placement(transformation(extent={{-90,-70},{-110,-50}},
                 rotation=0)));
           Modelica.Mechanics.Translational.Interfaces.Flange_b flange
-            "Flange of component" 
+            "Flange of component"
             annotation (Placement(transformation(extent={{90,-10},{110,10}},
                 rotation=0)));
         equation
@@ -2397,12 +2397,12 @@ The parasitic capacitances c_par1 and c_par2 accross both partial coils assure t
           connect(armature.flange_b, flange)     annotation (Line(points={{84,0},
                 {88,0},{88,1.16573e-015},{92,1.16573e-015},{92,0},{100,0}},
               color={0,127,0}));
-          connect(r_par1.n,c_par1. p) 
+          connect(r_par1.n,c_par1. p)
                                    annotation (Line(points={{-64,-40},{-60,-40}},
               color={0,0,255}));
           connect(r_par1.p, r_1.p)      annotation (Line(points={{-84,-40},{-84,
                 -20}}, color={0,0,255}));
-          connect(c_par2.p,r_par2. n) 
+          connect(c_par2.p,r_par2. n)
                                    annotation (Line(points={{16,-40},{12,-40}},
               color={0,0,255}));
           connect(r_par2.p, r_2.p)      annotation (Line(points={{-8,-40},{-8,
@@ -2500,35 +2500,35 @@ The parasitic capacitances c_par1 and c_par2 accross both partial coils assure t
         Modelica.SIunits.Acceleration a(start=0)
           "Absolute acceleration of components (= der(v))";
         Modelica.Mechanics.Translational.Components.Mass mass(
-                                                          final L=L, final m=m) 
+                                                          final L=L, final m=m)
           annotation (Placement(transformation(extent={{-10,-10},{10,10}},
               rotation=0)));
-        Modelica.Mechanics.Translational.Interfaces.Flange_a flange_a 
+        Modelica.Mechanics.Translational.Interfaces.Flange_a flange_a
           annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
-        Modelica.Mechanics.Translational.Interfaces.Flange_b flange_b 
+        Modelica.Mechanics.Translational.Interfaces.Flange_b flange_b
           annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
         Modelica.Mechanics.Translational.Components.Fixed limit_xMin(
-                                                          s0=x_min) 
+                                                          s0=x_min)
           annotation (Placement(transformation(extent={{-80,-50},{-60,-30}},
               rotation=0)));
         Modelica.Mechanics.Translational.Components.Fixed limit_xMax(
-                                                          s0=x_max) 
+                                                          s0=x_max)
           annotation (Placement(transformation(extent={{60,-50},{80,-30}},
               rotation=0)));
         Modelica.Mechanics.Translational.Components.ElastoGap stopper_xMax(
           final c=c,
           final d=d,
           final n=n,
-          final s_rel0=0) 
+          final s_rel0=0)
           annotation (Placement(transformation(extent={{50,-30},{70,-10}},
               rotation=0)));
         Modelica.Mechanics.Translational.Components.ElastoGap stopper_xMin(
           final c=c,
           final d=d,
           final n=n,
-          final s_rel0=0) 
+          final s_rel0=0)
           annotation (Placement(transformation(extent={{-70,-30},{-50,-10}},
               rotation=0)));
 
@@ -2620,19 +2620,19 @@ The parasitic capacitances c_par1 and c_par2 accross both partial coils assure t
               fillPattern=FillPattern.Solid)}),
           Documentation(info="<html>
 <p>
-In translatory actuators with limited stroke, the armature with its inertia can travel between two stoppers. 
+In translatory actuators with limited stroke, the armature with its inertia can travel between two stoppers.
 </p>
 </html>"));
       equation
         mass.s = s;
         mass.v = v;
         mass.a = a;
-        connect(mass.flange_a, stopper_xMin.flange_b) 
+        connect(mass.flange_a, stopper_xMin.flange_b)
           annotation (Line(points={{-10,0},{-40,0},{-40,-20},{-50,-20}}, color=
               {0,127,0}));
-        connect(limit_xMax.flange,  stopper_xMax. flange_b) 
+        connect(limit_xMax.flange,  stopper_xMax. flange_b)
           annotation (Line(points={{70,-40},{70,-20}}, color={0,191,0}));
-        connect(stopper_xMax.flange_a, mass.flange_b) 
+        connect(stopper_xMax.flange_a, mass.flange_b)
           annotation (Line(points={{50,-20},{40,-20},{40,0},{10,0}}, color={0,
               127,0}));
         connect(mass.flange_a, flange_a)         annotation (Line(points={{-10,
@@ -2694,7 +2694,7 @@ In translatory actuators with limited stroke, the armature with its inertia can 
         parameter SI.Diameter d_wireChosen = d_wireCalculated
           "CHOSEN available wire diameter (without insulation)" annotation(Dialog(group="Chosen feasible parameters (optional)"));
 
-        parameter Real N_chosen = N_calculated "CHOSEN number of turns" 
+        parameter Real N_chosen = N_calculated "CHOSEN number of turns"
                                                          annotation(Dialog(group="Chosen feasible parameters (optional)"));
 
         final parameter SI.Area A_wireChosen = pi * d_wireChosen^2 / 4
@@ -2718,12 +2718,12 @@ In translatory actuators with limited stroke, the armature with its inertia can 
 <p>
 This model exemplarily shows dimensioning of a winding (wire diameter, number of turns) based on desired operating conditions (voltage, temperature, current density, conductor filling factor) for a given cross-section area of the winding. It can be modified according to the parameters given and sought after for a particular design project.
 </p>
- 
+
 <p>
-The calculated winding resistance and number of turns can be used as input parameters to the electrical subsystem 
+The calculated winding resistance and number of turns can be used as input parameters to the electrical subsystem
 of a device to be modelled. Operating voltage V_op can be minimum, nominal and maximum voltage respectively as specified for a particular design project. In conjunction with the setting of the operating temperature T_op, this enables for analysis of the device under worst-case conditions (e.g. minimum required magnetomotive force, maximum allowed ohmic losses, minimum and maximum force respectively).
 </p>
- 
+
 <p>
 For manufacturing of a winding, the obtained wire diameter d_wireCalculated must be rounded to that of an available wire. In order to analyse the influence of this rounding, one can enter the chosen wire diameter d_wireChosen and number of turns N_chosen as optional input. Calculation of the resulting winding parameters enables for comparison with the ones obtained otherwise.
 </p>
@@ -2737,7 +2737,7 @@ For manufacturing of a winding, the obtained wire diameter d_wireCalculated must
 
     model Ground "Zero magnetic potential"
 
-      Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort port 
+      Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort port
         annotation (Placement(transformation(extent={{-10,110},{10,90}},
             rotation=-0)));
       annotation (
@@ -2794,19 +2794,19 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
     model ElectroMagneticConverter "Electro-magnetic energy conversion"
 
       Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort port_p
-        "Positive magnetic port" 
+        "Positive magnetic port"
         annotation (Placement(transformation(extent={{90,50},{110,70}},
             rotation=0)));
       Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort port_n
-        "Negative magnetic port" 
+        "Negative magnetic port"
         annotation (Placement(transformation(extent={{110,-70},{90,-50}},
             rotation=0)));
       Modelica.Electrical.Analog.Interfaces.PositivePin p
-        "Positive electric pin" 
+        "Positive electric pin"
         annotation (Placement(transformation(extent={{-90,50},{-110,70}},
             rotation=0)));
       Modelica.Electrical.Analog.Interfaces.NegativePin n
-        "Negative electric pin" 
+        "Negative electric pin"
         annotation (Placement(transformation(extent={{-110,-70},{-90,-50}},
             rotation=0)));
       SI.Voltage v "Voltage";
@@ -2943,21 +2943,21 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
             fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
 <p>
-The electro-magnetic energy conversion is given by <i>Ampere</i>'s law and <i>Faraday</i>'s law respectively: 
+The electro-magnetic energy conversion is given by <i>Ampere</i>'s law and <i>Faraday</i>'s law respectively:
 </p>
- 
-<pre> 
+
+<pre>
     V_m = i * N
     N * d&Phi;/dt = -v
 </pre>
- 
+
 <p>
-V_m is the magnetomotive force that is supplied to the connected magnetic circuit, &Phi; is the magnetic flux through the associated branch of this magnetic circuit. The negative sign of the induced voltage v is due to <i>Lenz</i>'s law. 
+V_m is the magnetomotive force that is supplied to the connected magnetic circuit, &Phi; is the magnetic flux through the associated branch of this magnetic circuit. The negative sign of the induced voltage v is due to <i>Lenz</i>'s law.
 </p>
- 
+
 <p>
-The flux linkage &Psi; and the static inductance L_stat = |&Psi;/i| are calculated for information only. Note that L_stat is set to |&Psi;/eps| if |i| &lt; eps 
-(= 100*Modelica.Constants.eps). 
+The flux linkage &Psi; and the static inductance L_stat = |&Psi;/i| are calculated for information only. Note that L_stat is set to |&Psi;/eps| if |i| &lt; eps
+(= 100*Modelica.Constants.eps).
 </p>
 </html>"));
 
@@ -3016,7 +3016,7 @@ The flux linkage &Psi; and the static inductance L_stat = |&Psi;/i| are calculat
           grid={2,2}), graphics),
       Documentation(info="<html>
 <p>
-This constant reluctance is provided for test purposes and simple magnetic network models. The reluctance is not calculated from geometry and permeability of a flux tube, but is provided as a parameter. 
+This constant reluctance is provided for test purposes and simple magnetic network models. The reluctance is not calculated from geometry and permeability of a flux tube, but is provided as a parameter.
 </p>
 </html>"));
 
@@ -3037,20 +3037,20 @@ This constant reluctance is provided for test purposes and simple magnetic netwo
           Documentation(info="<html>
 <p>
 Differently from the flux tube elements of package <a href=\"Shapes.Leakage\">Shapes.Leakage</a>
-that are calculated from their geometry, this leakage reluctance is calculated with reference to the total reluctance of a useful flux path. Please refer to the <b>Parameters</b> section for an illustration of the resulting magnetic network. Exploiting <i>Kirchhoff</i>'s generalized current law, the leakage reluctance is calculated by means of a coupling coefficient c_usefulFlux. 
-</p> 
- 
+that are calculated from their geometry, this leakage reluctance is calculated with reference to the total reluctance of a useful flux path. Please refer to the <b>Parameters</b> section for an illustration of the resulting magnetic network. Exploiting <i>Kirchhoff</i>'s generalized current law, the leakage reluctance is calculated by means of a coupling coefficient c_usefulFlux.
+</p>
+
 <h4>Attention:</h4>
- 
+
 <p>
-This element must <b>not</b> be used <b>for dynamic simulation of</b> electro-magneto-mechanical <b>actuators</b>, where the shape of at least one flux tube element with reluctance force generation in the useful flux path changes with armature motion (e.g. air gap). This change results in a non-zero derivative dG_m/dx of those elements permeance G_m with respect to armature position x, which in turn will lead to a non-zero derivative of the leakage permeance with respect to armature position. This would generate a reluctance force in the leakage element that is not accounted for properly. <a href=\"Shapes.Force.LeakageAroundPoles\">Shapes.Force.LeakageAroundPoles</a> provides a simple leakage reluctance with force generation. 
-</p> 
+This element must <b>not</b> be used <b>for dynamic simulation of</b> electro-magneto-mechanical <b>actuators</b>, where the shape of at least one flux tube element with reluctance force generation in the useful flux path changes with armature motion (e.g. air gap). This change results in a non-zero derivative dG_m/dx of those elements permeance G_m with respect to armature position x, which in turn will lead to a non-zero derivative of the leakage permeance with respect to armature position. This would generate a reluctance force in the leakage element that is not accounted for properly. <a href=\"Shapes.Force.LeakageAroundPoles\">Shapes.Force.LeakageAroundPoles</a> provides a simple leakage reluctance with force generation.
+</p>
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
               100,100}}),
              graphics));
       input SI.Reluctance R_mUsefulTot
-        "Total reluctance of useful flux path as reference" 
+        "Total reluctance of useful flux path as reference"
          annotation(Dialog(group="Reference reluctance"));
     equation
       (1 - c_usefulFlux) * R_m = c_usefulFlux * R_mUsefulTot;   // Generalized Kirchhoff's current law
@@ -3103,11 +3103,11 @@ This element must <b>not</b> be used <b>for dynamic simulation of</b> electro-ma
           grid={2,2}), graphics),
       Documentation(info="<html>
 <p>
-Eddy currents are induced in a conductive magnetic flux tube when the flux changes with time. This causes a magnetic voltage drop in addition to the voltage drop that is due to the reluctance of this flux tube. The eddy current component can be thought of as a short-circuited secundary winding of a transformer with only one turn. Its resistance is calculated from the geometry and resistivity of the eddy current path. 
+Eddy currents are induced in a conductive magnetic flux tube when the flux changes with time. This causes a magnetic voltage drop in addition to the voltage drop that is due to the reluctance of this flux tube. The eddy current component can be thought of as a short-circuited secundary winding of a transformer with only one turn. Its resistance is calculated from the geometry and resistivity of the eddy current path.
 </p>
- 
+
 <p>
-Partitioning of a solid conductive cylinder or prism into several hollow cylinders or separate nested prisms and modelling of each of these flux tubes connected in parallel with a series connection of a reluctance element and an eddy current component can model the delayed buildup of the magnetic field in the complete flux tube from the outer to the inner sections. Please refer to <a href=\"UsersGuide.Literature\">[Ka08]</a> for an illustration. 
+Partitioning of a solid conductive cylinder or prism into several hollow cylinders or separate nested prisms and modelling of each of these flux tubes connected in parallel with a series connection of a reluctance element and an eddy current component can model the delayed buildup of the magnetic field in the complete flux tube from the outer to the inner sections. Please refer to <a href=\"UsersGuide.Literature\">[Ka08]</a> for an illustration.
 </p>
 </html>"));
 
@@ -3132,10 +3132,10 @@ Partitioning of a solid conductive cylinder or prism into several hollow cylinde
         parameter SI.Length l( start = 0.01)
           "Axial length (in direction of flux)"   annotation(Dialog(group="Fixed geometry"));
         parameter SI.Radius r_i( start = 0)
-          "Inner radius of hollow cylinder (zero for cylinder)" 
+          "Inner radius of hollow cylinder (zero for cylinder)"
           annotation(Dialog(group="Fixed geometry"));
         parameter SI.Radius r_o( start = 0.01)
-          "Outer radius of (hollow) cylinder" 
+          "Outer radius of (hollow) cylinder"
           annotation(Dialog(group="Fixed geometry"));
 
         annotation (Images(Parameters(group="Fixed geometry", source="Images/FluxTubes/Shapes/HollowCylinderAxialFlux.png")),
@@ -3154,11 +3154,11 @@ Partitioning of a solid conductive cylinder or prism into several hollow cylinde
             grid={2,2}), graphics),
         Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"FixedShape\">FixedShape</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m. 
-</p> 
- 
+Please refer to the enclosing sub-package <a href=\"FixedShape\">FixedShape</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+</p>
+
 <p>
-Set the inner radius r_i=0 for modelling of a solid cylindric flux tube.  
+Set the inner radius r_i=0 for modelling of a solid cylindric flux tube.
 </p>
 </html>"));
       equation
@@ -3195,15 +3195,15 @@ Set the inner radius r_i=0 for modelling of a solid cylindric flux tube.
             grid={2,2}), graphics),
         Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"FixedShape\">FixedShape</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m. 
-</p> 
- 
-<p>
-For hollow cylindric flux tubes with a radial magnetic flux, the flux density is a function of the radius. For that reason, the characteristic mu_r(B) is evaluated for the flux density at the flux tube's mean radius. 
+Please refer to the enclosing sub-package <a href=\"FixedShape\">FixedShape</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
 </p>
- 
+
 <p>
-For those flux tube sections of a magnetic device that have a nonlinear material characteristic mu_r(B) and a large aspect ratio of outer to inner radius r_o/r_i, the section can be split up in a series connection of several hollow cylindric flux tubes with radial flux. This allows for more realistic modelling of the dependence of flux density on the radius compared to modelling with just one flux tube element. 
+For hollow cylindric flux tubes with a radial magnetic flux, the flux density is a function of the radius. For that reason, the characteristic mu_r(B) is evaluated for the flux density at the flux tube's mean radius.
+</p>
+
+<p>
+For those flux tube sections of a magnetic device that have a nonlinear material characteristic mu_r(B) and a large aspect ratio of outer to inner radius r_o/r_i, the section can be split up in a series connection of several hollow cylindric flux tubes with radial flux. This allows for more realistic modelling of the dependence of flux density on the radius compared to modelling with just one flux tube element.
 </p>
 </html>"));
       equation
@@ -3216,12 +3216,12 @@ For those flux tube sections of a magnetic device that have a nonlinear material
 <p>
 Please have a look at <a href=\"UsersGuide.ReluctanceForceCalculation\">UsersGuide.ReluctanceForceCalculation</a> for an explanation of the different flux tube categories and resulting sub-packages.
 </p>
- 
+
 <p>
 Due to the restrictions on reluctance force calculation outlined there, flux tube elements with a possibly non-linear material characteristic mu_r(B) must have a fixed shape during simulation of converter motion. Hence, the dimensions of these flux tubes are defined as parameters in the model components that extend the base class <a href=\"Interfaces.PartialFixedShape\">Interfaces.PartialFixedShape</a>.  </p>
- 
+
 <p>
-For initial design of magnetic circuits, the relative permeability of possibly non-linear flux tube elements can easily be set to a constant value mu_rConst (non-linearPermeability set to false). In some cases, this can simplify the rough geometric design of a device's magnetic circuit. Once an initial geometry is found, the magnetic subsystem can be simulated and fine-tuned with more realistic non-linear characteristics of ferromagnetic materials. Doing so requires setting of the parameter non-linearPermeability to true and selection of one of the soft magnetic materials of <a href=\"Material.SoftMagnetic\">Material.SoftMagnetic</a>. 
+For initial design of magnetic circuits, the relative permeability of possibly non-linear flux tube elements can easily be set to a constant value mu_rConst (non-linearPermeability set to false). In some cases, this can simplify the rough geometric design of a device's magnetic circuit. Once an initial geometry is found, the magnetic subsystem can be simulated and fine-tuned with more realistic non-linear characteristics of ferromagnetic materials. Doing so requires setting of the parameter non-linearPermeability to true and selection of one of the soft magnetic materials of <a href=\"Material.SoftMagnetic\">Material.SoftMagnetic</a>.
 </p>
 </html>"));
       model Cuboid
@@ -3229,7 +3229,7 @@ For initial design of magnetic circuits, the relative permeability of possibly n
 
         extends Modelica.Magnetic.FluxTubes.Interfaces.PartialFixedShape;
 
-        parameter SI.Length l = 0.01 "Length in direction of flux" 
+        parameter SI.Length l = 0.01 "Length in direction of flux"
                                                   annotation(Dialog(group="Fixed geometry"));
         parameter SI.Length a = 0.01 "Width of rectangular cross-section"                           annotation(Dialog(group="Fixed geometry"));
         parameter SI.Length b = 0.01 "Height of rectangular cross-section" annotation(Dialog(group="Fixed geometry"));
@@ -3250,8 +3250,8 @@ For initial design of magnetic circuits, the relative permeability of possibly n
             grid={2,2}), graphics),
         Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"FixedShape\">FixedShape</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m. 
-</p> 
+Please refer to the enclosing sub-package <a href=\"FixedShape\">FixedShape</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+</p>
 </html>"));
       equation
         A = a * b;
@@ -3269,7 +3269,7 @@ Please refer to the enclosing sub-package <a href=\"FixedShape\">FixedShape</a> 
 
         extends Modelica.Magnetic.FluxTubes.Interfaces.PartialForce;
 
-        SI.Length l = s "Axial length (in direction of flux)" 
+        SI.Length l = s "Axial length (in direction of flux)"
                                                   annotation(Dialog(group="Variable geometry"));
         parameter SI.Radius r_i( start = 0) "Inner radius of (hollow) cylinder";
         parameter SI.Radius r_o( start = 0.01)
@@ -3278,8 +3278,8 @@ Please refer to the enclosing sub-package <a href=\"FixedShape\">FixedShape</a> 
         annotation (Images(Parameters(group="Variable geometry", source="Images/FluxTubes/Shapes/HollowCylinderAxialFlux.png")),
             Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"Force\">Force</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m. 
-</p> 
+Please refer to the enclosing sub-package <a href=\"Force\">Force</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+</p>
 </html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}),
                   graphics));
@@ -3312,10 +3312,10 @@ The derivative of each element's permeance with respect to armature position dGm
 </pre>
 </p>
 <p>
-The parameter dlBydx must be set in each flux tube element to +1 or -1 according to the definition of the armature co-ordinate and the position of the element in a device's magnetic circuit. Proper match between armature motion and resulting variation of the flux tube length assures that the element's reluctance force acts in the right direction. 
+The parameter dlBydx must be set in each flux tube element to +1 or -1 according to the definition of the armature co-ordinate and the position of the element in a device's magnetic circuit. Proper match between armature motion and resulting variation of the flux tube length assures that the element's reluctance force acts in the right direction.
 </p>
 <p>
-The shapes of the flux tubes defined in this package are rather simple. Only one dimenion varies with armature motion. Flux tubes with more complex variations of dimensions with armature motion can be defined by extending the base class <a href=\"Interfaces.PartialForce\">Interfaces.PartialForce</a>, if needed. Determination of the analytic derivative dGmBydl could become more complex for those flux tubes. 
+The shapes of the flux tubes defined in this package are rather simple. Only one dimenion varies with armature motion. Flux tubes with more complex variations of dimensions with armature motion can be defined by extending the base class <a href=\"Interfaces.PartialForce\">Interfaces.PartialForce</a>, if needed. Determination of the analytic derivative dGmBydl could become more complex for those flux tubes.
 </p>
 </html>"));
 
@@ -3324,7 +3324,7 @@ The shapes of the flux tubes defined in this package are rather simple. Only one
 
         extends Modelica.Magnetic.FluxTubes.Interfaces.PartialForce;
 
-        SI.Length l = s "Axial length (orthogonal to direction of flux)" 
+        SI.Length l = s "Axial length (orthogonal to direction of flux)"
                                                   annotation(Dialog(group="Variable geometry"));
         parameter SI.Radius r_i( start = 0.01)
           "Inner radius of hollow cylinder";
@@ -3334,8 +3334,8 @@ The shapes of the flux tubes defined in this package are rather simple. Only one
         annotation (Images(Parameters(group="Variable geometry", source="Images/FluxTubes/Shapes/HollowCylinderRadialFlux.png")),
             Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"Force\">Force</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m. 
-</p> 
+Please refer to the enclosing sub-package <a href=\"Force\">Force</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+</p>
 </html>"));
 
         SI.MagneticFluxDensity B_avg
@@ -3360,7 +3360,7 @@ Please refer to the enclosing sub-package <a href=\"Force\">Force</a> for a desc
 
         extends Modelica.Magnetic.FluxTubes.Interfaces.PartialForce;
 
-        SI.Length l = s "Axial length (in direction of flux)" 
+        SI.Length l = s "Axial length (in direction of flux)"
                                                   annotation(Dialog(group="Variable geometry"));
         parameter SI.Length a( start = 0.01)
           "Width of rectangular cross-section";
@@ -3370,8 +3370,8 @@ Please refer to the enclosing sub-package <a href=\"Force\">Force</a> for a desc
         annotation (Images(Parameters(group="Variable geometry", source="Images/FluxTubes/Shapes/CuboidParallelFlux.png")),
             Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"Force\">Force</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m. 
-</p> 
+Please refer to the enclosing sub-package <a href=\"Force\">Force</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+</p>
 </html>"));
 
         SI.MagneticFluxDensity B "Homogeneous flux density";
@@ -3394,7 +3394,7 @@ Please refer to the enclosing sub-package <a href=\"Force\">Force</a> for a desc
 
         extends Modelica.Magnetic.FluxTubes.Interfaces.PartialForce;
 
-        SI.Length l = s "Length in direction of motion (orthogonal to flux)" 
+        SI.Length l = s "Length in direction of motion (orthogonal to flux)"
           annotation(Dialog(group="Variable geometry"));
         parameter SI.Length a( start = 0.01)
           "Width of rectangular cross-section";
@@ -3404,8 +3404,8 @@ Please refer to the enclosing sub-package <a href=\"Force\">Force</a> for a desc
         annotation (Images(Parameters(group="Variable geometry", source="Images/FluxTubes/Shapes/CuboidOrthogonalFlux.png")),
             Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"Force\">Force</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m. 
-</p> 
+Please refer to the enclosing sub-package <a href=\"Force\">Force</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+</p>
 </html>"));
 
         SI.MagneticFluxDensity B "Homogeneous flux density";
@@ -3427,22 +3427,22 @@ Please refer to the enclosing sub-package <a href=\"Force\">Force</a> for a desc
         "Leakage flux tube around cylindrical or prismatic poles"
 
         extends Modelica.Magnetic.FluxTubes.Interfaces.PartialForce;
-        SI.Length l = s "Axial length (in direction of flux)" 
+        SI.Length l = s "Axial length (in direction of flux)"
           annotation(Dialog(group="Variable geometry"));
 
         annotation (Images(Parameters(group="Variable geometry", source="Images/FluxTubes/Shapes/LeakageAroundPoles.png")),
             Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing sub-package <a href=\"Force\">Force</a> for a description of all elements of this package. 
-</p> 
- 
+Please refer to the description of  the enclosing sub-package <a href=\"Force\">Force</a> for a description of all elements of this package.
+</p>
+
 <p>
-Leakage flux around a prismatic or cylindric air gap between to poles can be described with this model. Due to its constant radius of the leakage field r, the model is rather simple. Whereas in reality the leakage radius is approximately constant for air gap lengths l greater than this radius, it decreases with air gap lengths less than the leakage radius. This decrease for small air gaps is neglected here, since the influence of the leakage flux tube compared to that of the enclosed main air gap (connected in parallel) decreases for decreasing air gap length l. 
-</p> 
- 
+Leakage flux around a prismatic or cylindric air gap between to poles can be described with this model. Due to its constant radius of the leakage field r, the model is rather simple. Whereas in reality the leakage radius is approximately constant for air gap lengths l greater than this radius, it decreases with air gap lengths less than the leakage radius. This decrease for small air gaps is neglected here, since the influence of the leakage flux tube compared to that of the enclosed main air gap (connected in parallel) decreases for decreasing air gap length l.
+</p>
+
 <p>
-Note that in <a href=\"UsersGuide.Literature\">[Ka08]</a> the equation for G_m is accidentally swapped with that of a similar element. 
-</p> 
+Note that in <a href=\"UsersGuide.Literature\">[Ka08]</a> the equation for G_m is accidentally swapped with that of a similar element.
+</p>
 </html>"));
 
         parameter SI.Length w( start = 0.1)
@@ -3470,13 +3470,13 @@ Note that in <a href=\"UsersGuide.Literature\">[Ka08]</a> the equation for G_m i
 <p>
 Please have a look at <a href=\"UsersGuide.ReluctanceForceCalculation\">UsersGuide.ReluctanceForceCalculation</a> for an explanation of the different flux tube categories and resulting sub-packages.
 </p>
- 
+
 <p>
 The permeances of all elements of this package are calculated from their geometry. These flux tube elements are intended for modelling of leakage fields through vacuum, air and other media with a relative permeability mu_r=1. <a href=\"Basic.LeakageWithCoefficient\">Basic.LeakageWithCoefficient</a> accounts for leakage not by the geometry of flux tubes, but by a coupling coefficient c_usefulFlux.
 </p>
- 
+
 <p>
-All dimensions are defined as parameters. As a result, the shape of these elements will remain constant during dynamic simulation of actuators and reluctance forces will not be generated in these flux tube elements. A simple leakage flux tube with reluctance force generation is provided with the element <a href=\"Force.LeakageAroundPoles\">Force.LeakageAroundPoles</a>. In cases where the accuracy of that element is not sufficient, the leakage elements of this package can be adapted and extended so that they are able to change their shape with armature motion and to generate reluctance forces. This requires an extension of the partial model <a href=\"Interfaces.PartialForce\">Interfaces.PartialForce</a>, a higher variability of the variables representing the flux tube's dimensions, definition of a relationship between armature position and these dimensions and determination of the analytic derivative dG_m/dx of the flux tube's permeance G_m with respect to armature position x. 
+All dimensions are defined as parameters. As a result, the shape of these elements will remain constant during dynamic simulation of actuators and reluctance forces will not be generated in these flux tube elements. A simple leakage flux tube with reluctance force generation is provided with the element <a href=\"Force.LeakageAroundPoles\">Force.LeakageAroundPoles</a>. In cases where the accuracy of that element is not sufficient, the leakage elements of this package can be adapted and extended so that they are able to change their shape with armature motion and to generate reluctance forces. This requires an extension of the partial model <a href=\"Interfaces.PartialForce\">Interfaces.PartialForce</a>, a higher variability of the variables representing the flux tube's dimensions, definition of a relationship between armature position and these dimensions and determination of the analytic derivative dG_m/dx of the flux tube's permeance G_m with respect to armature position x.
 </p>
 </html>"));
 
@@ -3491,8 +3491,8 @@ All dimensions are defined as parameters. As a result, the shape of these elemen
         annotation (Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/QuarterCylinder.png")),
             Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m. 
-</p>  
+Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+</p>
 </html>"));
 
       equation
@@ -3512,8 +3512,8 @@ Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a 
         annotation (Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/QuarterHollowCylinder.png")),
             Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m. 
-</p>  
+Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+</p>
 </html>"));
 
       equation
@@ -3531,8 +3531,8 @@ Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a 
         annotation (Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/HalfCylinder.png")),
             Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m. 
-</p>  
+Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+</p>
 </html>"));
 
       equation
@@ -3552,8 +3552,8 @@ Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a 
         annotation (Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/HalfHollowCylinder.png")),
             Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m. 
-</p>  
+Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+</p>
 </html>"));
 
       equation
@@ -3571,8 +3571,8 @@ Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a 
         annotation (Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/QuarterSphere.png")),
             Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m. 
-</p>  
+Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+</p>
 </html>"));
 
       equation
@@ -3589,8 +3589,8 @@ Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a 
         annotation (Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/QuarterHollowSphere.png")),
           Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m. 
-</p>  
+Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+</p>
 </html>"));
 
       equation
@@ -3608,8 +3608,8 @@ Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a 
         annotation (Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/EighthOfSphere.png")),
             Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m. 
-</p>  
+Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+</p>
 </html>"));
 
       equation
@@ -3627,8 +3627,8 @@ Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a 
         annotation (Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/EighthOfHollowSphere.png")),
             Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m. 
-</p>  
+Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+</p>
 </html>"));
 
       equation
@@ -3656,14 +3656,14 @@ Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a 
         annotation (Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/CoaxCylindersEndFaces.png")),
             Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m. 
-</p> 
+Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+</p>
 </html>"));
 
       equation
         // [Ro41], p. 139, Eq. (22)
-        G_m = if t <= r_0 then 
-              2 * mu_0 * (r_0 + l_g/2) * Modelica.Math.log(1 + 2*t/l_g) else 
+        G_m = if t <= r_0 then
+              2 * mu_0 * (r_0 + l_g/2) * Modelica.Math.log(1 + 2*t/l_g) else
               2 * mu_0 * (r_0 + l_g/2) * Modelica.Math.log(1 + 2*r_0/l_g);
 
       end CoaxCylindersEndFaces;
@@ -3691,7 +3691,7 @@ Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a 
 
         annotation (Documentation(info="<html>
 <p>
-The parameters needed for <a href=\"mu_rApprox\">approximation of the magnetisation characteristics</a> of included soft magnetic materials are declared in this record. 
+The parameters needed for <a href=\"mu_rApprox\">approximation of the magnetisation characteristics</a> of included soft magnetic materials are declared in this record.
 </p>
 </html>"));
       end BaseData;
@@ -3706,8 +3706,8 @@ The parameters needed for <a href=\"mu_rApprox\">approximation of the magnetisat
             n=12.5);
           annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package. 
-</p> 
+Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+</p>
 </html>"));
         end Steel_9SMnPb28;
 
@@ -3717,11 +3717,11 @@ Please refer to the description of  the enclosing package <a href=\"SoftMagnetic
             B_myMax=1.036,
             c_a=43414,
             c_b=35.8,
-            n=14) 
+            n=14)
           annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package. 
-</p> 
+Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+</p>
 </html>"));
         end Steel_9SMn28K;
 
@@ -3731,12 +3731,12 @@ Please refer to the description of  the enclosing package <a href=\"SoftMagnetic
             B_myMax=1.1,
             c_a=6450,
             c_b=3.65,
-            n=7.7) 
+            n=7.7)
                   annotation (
             Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package. 
-</p> 
+Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+</p>
 </html>"));
         end DC01;
 
@@ -3749,8 +3749,8 @@ Please refer to the description of  the enclosing package <a href=\"SoftMagnetic
             n=10.4) annotation (
             Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package. 
-</p> 
+Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+</p>
 </html>"));
         end DC03;
 
@@ -3762,8 +3762,8 @@ Please refer to the description of  the enclosing package <a href=\"SoftMagnetic
             c_b=1.2,
             n=8.3) annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package. 
-</p> 
+Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+</p>
 </html>"));
         end X6Cr17;
 
@@ -3775,8 +3775,8 @@ Please refer to the description of  the enclosing package <a href=\"SoftMagnetic
             c_b=2.59,
             n=10) annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package. 
-</p> 
+Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+</p>
 </html>"));
         end AISI_1008;
 
@@ -3788,14 +3788,14 @@ Please refer to the description of  the enclosing package <a href=\"SoftMagnetic
             c_b=4.19,
             n=6.4) annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package. 
-</p> 
+Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+</p>
 </html>"));
         end AISI_12L14;
         annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package. 
-</p> 
+Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+</p>
 </html>"));
       end Steel;
 
@@ -3810,8 +3810,8 @@ Please refer to the description of  the enclosing package <a href=\"SoftMagnetic
             c_b=9.38,
             n=9.6) annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package. 
-</p> 
+Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+</p>
 <p>
 Sample: complete core after machining and packet assembling<br>
 </p>
@@ -3826,11 +3826,11 @@ Sample: complete core after machining and packet assembling<br>
             c_b=2.44,
             n=14) annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package. 
-</p> 
+Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+</p>
 <p>
 Sample: sheet strip<br>
-Measurement: Epstein frame 
+Measurement: Epstein frame
 </p>
 </html>"));
       end M350_50A;
@@ -3844,11 +3844,11 @@ Measurement: Epstein frame
             n=13.5) annotation (Documentation(
               info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package. 
-</p> 
+Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+</p>
 <p>
 Sample: sheet strip<br>
-Measurement: Epstein frame 
+Measurement: Epstein frame
 </p>
 </html>"));
       end M530_50A;
@@ -3862,11 +3862,11 @@ Measurement: Epstein frame
             n=13.15) annotation (Documentation(
               info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package. 
-</p> 
+Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+</p>
 <p>
 Sample: sheet strip<br>
-Measurement: Epstein frame 
+Measurement: Epstein frame
 </p>
 </html>"));
       end M700_100A;
@@ -3879,19 +3879,19 @@ Measurement: Epstein frame
             c_b=3.13,
             n=13.9) annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package. 
-</p> 
+Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+</p>
 <p>
 Sample: sheet strip<br>
-Measurement: Epstein frame 
+Measurement: Epstein frame
 </p>
 </html>"));
       end M940_100A;
 
         annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package. 
-</p> 
+Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+</p>
 </html>"));
       end ElectricSheet;
 
@@ -3904,8 +3904,8 @@ Please refer to the description of  the enclosing package <a href=\"SoftMagnetic
             c_b=6.4,
             n=10) annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package. 
-</p> 
+Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+</p>
 <p>
 Source of B(H) characteristics: Product catalogue <i>Magnequench</i>, 2000
 </p>
@@ -3920,8 +3920,8 @@ Source of B(H) characteristics: Product catalogue <i>Magnequench</i>, 2000
             c_b=4.24,
             n=19) annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package. 
-</p> 
+Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+</p>
 <p>
 Source of B(H) characteristics:
 <dd>
@@ -3943,8 +3943,8 @@ Source of B(H) characteristics:
             c_b=2.63,
             n=15.02) annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package. 
-</p> 
+Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+</p>
 <p>
 Source of B(H) characteristics: VACUUMSCHMELZE GmbH & Co. KG, Germany
 </p>
@@ -3961,8 +3961,8 @@ Source of B(H) characteristics: VACUUMSCHMELZE GmbH & Co. KG, Germany
             c_b=3.67,
             n=10) annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package. 
-</p> 
+Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+</p>
 <p>
 Source of B(H) characteristics:
 <dd>
@@ -3981,8 +3981,8 @@ Source of B(H) characteristics:
             n=9.3) annotation (Documentation(
               info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package. 
-</p> 
+Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+</p>
 <p>
 Source of B(H) characteristics:
 <dd>
@@ -4022,7 +4022,7 @@ Source of B(H) characteristics:
 
         annotation (Documentation(info="<html>
 <p>
-The relative permeability mu_r as a function of flux density B for all soft magnetic materials currently included in this library is approximated with the following function <a href=\"UsersGuide.Literature\">[Ro00]</a>: 
+The relative permeability mu_r as a function of flux density B for all soft magnetic materials currently included in this library is approximated with the following function <a href=\"UsersGuide.Literature\">[Ro00]</a>:
 <br>
 <dl>
 <dd>
@@ -4030,27 +4030,27 @@ The relative permeability mu_r as a function of flux density B for all soft magn
 </dd>
 </dl>
 <br>
-Two of the five parameters of this equation have a physical meaning, namely the initial relative permeability mu_i at B=0 and the magnetic flux density at maximum permeability B_myMax. B_N is the flux density normalized to latter parameter. 
+Two of the five parameters of this equation have a physical meaning, namely the initial relative permeability mu_i at B=0 and the magnetic flux density at maximum permeability B_myMax. B_N is the flux density normalized to latter parameter.
 </html>"));
       end mu_rApprox;
       annotation (Documentation(info="<html>
 <p>
-The magnetisation characteristics mu_r(B) of all soft magnetic materials currently included in this library are approximated with a <a href=\"mu_rApprox\">function</a>. Each material is characterised by the five parameters of this function. The approximated characteristics mu_r(B) for most of the ferromagnetic materials currently included are shown in the plots below (solid lines) together with the original data points compiled from measurements and literature. 
- 
+The magnetisation characteristics mu_r(B) of all soft magnetic materials currently included in this library are approximated with a <a href=\"mu_rApprox\">function</a>. Each material is characterised by the five parameters of this function. The approximated characteristics mu_r(B) for most of the ferromagnetic materials currently included are shown in the plots below (solid lines) together with the original data points compiled from measurements and literature.
+
 <p><IMG SRC=\"../Images/Magnetic/FluxTubes/Material/SoftMagnetic/Steel.png\" ALT=\"Approximated magnetization characteristics of selected steels\"></p>
 <p><IMG SRC=\"../Images/Magnetic/FluxTubes/Material/SoftMagnetic/Miscellaneous.png\" ALT=\"Approximated magnetization characteristics of miscellaneous soft magnetic materials\"></p>
 <p><IMG SRC=\"../Images/Magnetic/FluxTubes/Material/SoftMagnetic/ElectricSheet.png\" ALT=\"Approximated magnetization characteristics of included electric sheets\"></p>
- 
+
 <p>
 For the nonlinear curve fit, data points for high flux densities (approximately B>1T) have been weighted higher than the ones for low flux densities. This is due to the large impact of saturated ferromagnetic sections in a magnetic circuit compared to that of non-saturated sections with relative permeabilities mu_r>>1.
 </p>
- 
+
 <p>
 Note that the magnetisation characteristics largely depend on possible previous machining and on measurement conditions. A virgin material normally has a considerably higher permeability than the same material after machining (and packet assembling in case of electric sheets). This is indicated in the above plots by different magnetisation curves for similar materials. In most cases, the original data points represent commutating curves obtained with measurements at 50Hz.
 </p>
- 
+
 <p>
-Additional user-specific materials can be defined as needed. This requires determination of the approximation parameters from the original data points, preferably with a nonlinear curve fit. 
+Additional user-specific materials can be defined as needed. This requires determination of the approximation parameters from the original data points, preferably with a nonlinear curve fit.
 </p>
 </html>"));
 
@@ -4088,7 +4088,7 @@ Additional user-specific materials can be defined as needed. This requires deter
 
         annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"HardMagnetic\">HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package. 
+Please refer to the description of  the enclosing package <a href=\"HardMagnetic\">HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package.
 </p>
 </html>"));
       end BaseData;
@@ -4101,8 +4101,8 @@ Please refer to the description of  the enclosing package <a href=\"HardMagnetic
           alpha_Br=-0.001);
         annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"HardMagnetic\">HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package. 
-</p> 
+Please refer to the description of  the enclosing package <a href=\"HardMagnetic\">HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package.
+</p>
 </html>"));
       end NdFeB;
 
@@ -4114,8 +4114,8 @@ Please refer to the description of  the enclosing package <a href=\"HardMagnetic
           alpha_Br=-0.0003);
         annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"HardMagnetic\">HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package. 
-</p> 
+Please refer to the description of  the enclosing package <a href=\"HardMagnetic\">HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package.
+</p>
 </html>"));
       end Sm2Co17;
 
@@ -4127,8 +4127,8 @@ Please refer to the description of  the enclosing package <a href=\"HardMagnetic
           alpha_Br=-0.0004);
         annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"HardMagnetic\">HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package. 
-</p> 
+Please refer to the description of  the enclosing package <a href=\"HardMagnetic\">HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package.
+</p>
 </html>"));
       end SmCo5;
 
@@ -4140,8 +4140,8 @@ Please refer to the description of  the enclosing package <a href=\"HardMagnetic
           alpha_Br=-0.001);
         annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"HardMagnetic\">HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package. 
-</p> 
+Please refer to the description of  the enclosing package <a href=\"HardMagnetic\">HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package.
+</p>
 </html>"));
       end PlasticNdFeB;
 
@@ -4153,8 +4153,8 @@ Please refer to the description of  the enclosing package <a href=\"HardMagnetic
           alpha_Br=-0.0004);
         annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"HardMagnetic\">HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package. 
-</p> 
+Please refer to the description of  the enclosing package <a href=\"HardMagnetic\">HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package.
+</p>
 </html>"));
       end PlasticSmCo;
 
@@ -4166,8 +4166,8 @@ Please refer to the description of  the enclosing package <a href=\"HardMagnetic
           alpha_Br=-0.002);
         annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"HardMagnetic\">HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package. 
-</p> 
+Please refer to the description of  the enclosing package <a href=\"HardMagnetic\">HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package.
+</p>
 </html>"));
       end HardFerrite;
 
@@ -4179,14 +4179,14 @@ Please refer to the description of  the enclosing package <a href=\"HardMagnetic
           alpha_Br=-0.002);
         annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"HardMagnetic\">HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package. 
-</p> 
+Please refer to the description of  the enclosing package <a href=\"HardMagnetic\">HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package.
+</p>
 </html>"));
       end PlasticHardFerrite;
 
       annotation (Documentation(info="<html>
 <p>
-Typical values for remanence, coercivity and the temperature coefficient of remanence are provided for the common permanent magnetic materials illustrated below. 
+Typical values for remanence, coercivity and the temperature coefficient of remanence are provided for the common permanent magnetic materials illustrated below.
 <dl>
 <dd>
 <p><IMG SRC=\"../Images/Magnetic/FluxTubes/Material/HardMagnetic/HardMagneticMaterials.png\" ALT=\"Demagnetization characteristics of included permanent magnetic materials\"></p>
@@ -4196,7 +4196,7 @@ Typical values for remanence, coercivity and the temperature coefficient of rema
 Linear demagnetization curves are modelled. The characteristic, temperature-dependent \"knee\" of many permanent magnetic materials is not considered, since proper design of permanent magnetic circuits should avoid operation of permanent magnets \"below\" that point due to partial demagnetization. As a result, the temperature coefficient of coercivity is not considered. Only the temperature coefficient of remanence alpha_Br is accounted for, since it describes the dependende of the demagnetization curve on the temperature sufficiently for the region \"above the knee-point\".
 </p>
 <p>
-Additional user-specific materials can be defined as needed. 
+Additional user-specific materials can be defined as needed.
 </p>
 </html>"));
     end HardMagnetic;
@@ -4214,9 +4214,9 @@ Additional user-specific materials can be defined as needed.
         autolayout=1),
     Documentation(info="<html>
 <p>
-This package contains connectors for the magnetic domain and partial models for lumped magnetic network components. 
+This package contains connectors for the magnetic domain and partial models for lumped magnetic network components.
 </p>
- 
+
 </html>"));
 
     connector MagneticPort "Generic magnetic port"
@@ -4280,11 +4280,11 @@ This package contains connectors for the magnetic domain and partial models for 
       "Partial component with two magnetic ports p and n for textual programming"
 
       Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort port_p
-        "Positive magnetic port" 
+        "Positive magnetic port"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
             rotation=0)));
       Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort port_n
-        "Negative magnetic port" 
+        "Negative magnetic port"
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
             rotation=0)));
 
@@ -4293,7 +4293,7 @@ This package contains connectors for the magnetic domain and partial models for 
 <p>
 Partial model of a flux tube component with two magnetic ports:
 the positive port connector port_p, and the negative port
-connector port_n. 
+connector port_n.
 </p>
 </html>
 "),     Diagram(coordinateSystem(
@@ -4329,7 +4329,7 @@ connector port_n.
       annotation (Documentation(info="<html>
 <p>
 It is assumed that the magnetic flux flowing into port_p is identical to the flux flowing out of port_n.
-This magnetic flux is provided explicitly as flux Phi. 
+This magnetic flux is provided explicitly as flux Phi.
 </p>
 </html>"));
     end PartialTwoPorts;
@@ -4385,13 +4385,13 @@ This magnetic flux is provided explicitly as flux Phi.
           grid={2,2}), graphics),
       Documentation(info="<html>
 <p>
-Please refer to the description of  the sub-package <a href=\"Shapes.FixedShape\">Shapes.FixedShape</a> for utilisation of this partial model. 
-</p> 
+Please refer to the description of  the sub-package <a href=\"Shapes.FixedShape\">Shapes.FixedShape</a> for utilisation of this partial model.
+</p>
 </html>"));
         SI.RelativePermeability mu_r "Relative magnetic permeability";
 
     equation
-      mu_r = if nonLinearPermeability then 
+      mu_r = if nonLinearPermeability then
         Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.mu_rApprox(
             B,
             material.mu_i,
@@ -4412,7 +4412,7 @@ Please refer to the description of  the sub-package <a href=\"Shapes.FixedShape\
       extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPorts;
 
       parameter Boolean useSupport=false
-        "= true, if support flange enabled, otherwise implicitly grounded" 
+        "= true, if support flange enabled, otherwise implicitly grounded"
           annotation(Evaluate=true, HideResult=true);
 
       parameter SI.RelativePermeability mu_r = 1
@@ -4430,12 +4430,12 @@ Please refer to the description of  the sub-package <a href=\"Shapes.FixedShape\
         "Derivative of flux tube's varying dimension with respect to armature position; set to +1 or -1";
 
      Modelica.Mechanics.Translational.Interfaces.Flange_b flange
-        "Generated reluctance force at armature position" 
+        "Generated reluctance force at armature position"
       annotation (Placement(transformation(extent={{-10,90},{10,110}}, rotation=
              0)));
      Modelica.Mechanics.Translational.Interfaces.Support support(
-                 s=s_support, f=-flange.f) if 
-        useSupport "Support/housing of component" 
+                 s=s_support, f=-flange.f) if
+        useSupport "Support/housing of component"
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}},
             rotation=0)));
 
@@ -4484,8 +4484,8 @@ Please refer to the description of  the sub-package <a href=\"Shapes.FixedShape\
           grid={2,2}), graphics),
       Documentation(info="<html>
 <p>
-Please refer to the description of  the sub-package <a href=\"Shapes.Force\">Shapes.Force</a> for utilisation of this partial model. 
-</p> 
+Please refer to the description of  the sub-package <a href=\"Shapes.Force\">Shapes.Force</a> for utilisation of this partial model.
+</p>
 </html>"));
 
     equation
@@ -4535,8 +4535,8 @@ Please refer to the description of  the sub-package <a href=\"Shapes.Force\">Sha
           grid={2,2}), graphics),
       Documentation(info="<html>
 <p>
-Please refer to the description of  the sub-package <a href=\"Shapes.Leakage\">Shapes.Leakage</a> for utilisation of this partial model. 
-</p> 
+Please refer to the description of  the sub-package <a href=\"Shapes.Leakage\">Shapes.Leakage</a> for utilisation of this partial model.
+</p>
 </html>"));
 
     equation
@@ -4606,14 +4606,14 @@ This package contains sources of a magnetic potential difference or a magnetic f
           height=0.6),
         Documentation(info="<html>
 <p>
-Magnetic circuits under steady-state conditions, i.e. with stationary magnetic fields (change of magnetic flux  d&Phi;/dt = 0) can be described with constant sources of a magnetic potential difference or magnetomotive force (mmf). Constant magnetic potential differences are imposed by 
+Magnetic circuits under steady-state conditions, i.e. with stationary magnetic fields (change of magnetic flux  d&Phi;/dt = 0) can be described with constant sources of a magnetic potential difference or magnetomotive force (mmf). Constant magnetic potential differences are imposed by
 </p>
 <ul>
 <li>coils with stationary current (di / dt = 0) and </li>
 <li>permanent magnets modelled with <i>Th&eacute;venin</i>'s equivalent magnetic circuit. </li>
 </ul>
 <p>
-For modelling of reluctance actuators with this source component it is assumed that the armature is fixed so that no motion-induced flux change d&Phi;/dt can occur. 
+For modelling of reluctance actuators with this source component it is assumed that the armature is fixed so that no motion-induced flux change d&Phi;/dt can occur.
 </p>
 </html>"));
 
@@ -4628,7 +4628,7 @@ For modelling of reluctance actuators with this source component it is assumed t
       "Signal-controlled magnetomotive force"
 
       extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary;
-      Modelica.Blocks.Interfaces.RealInput V_m "Magnetic potential difference" 
+      Modelica.Blocks.Interfaces.RealInput V_m "Magnetic potential difference"
         annotation (Placement(transformation(
           origin={0,90},
           extent={{10,-10},{-10,10}},
@@ -4672,7 +4672,7 @@ For modelling of reluctance actuators with this source component it is assumed t
           grid={2,2}), graphics),
         Documentation(info="<html>
 <p>
-In electromagnetic devices, a change of a coil's magnetic flux linkage &Psi; reacts on the electrical subsystem in that a voltage v is induced due to <i>Faraday</i>'s law: 
+In electromagnetic devices, a change of a coil's magnetic flux linkage &Psi; reacts on the electrical subsystem in that a voltage v is induced due to <i>Faraday</i>'s law:
 </p>
 <pre>
     v = - d&Psi;/dt
@@ -4681,10 +4681,10 @@ In electromagnetic devices, a change of a coil's magnetic flux linkage &Psi; rea
 <ul>
 <li>modelling ofelectromagnetic actuators under quasi-stationary conditions (slow current change, slow armature motion),
 <li>modelling of current-controlled electromagnetic actuators (ideal current source) and</li>
-<li>for system simulation where the system dynamics is not governed by an electromagnetic actuator, but by the surrounding subsystems.</li> 
+<li>for system simulation where the system dynamics is not governed by an electromagnetic actuator, but by the surrounding subsystems.</li>
 </ul>
 <p>
-In these cases, the magnetic potential difference or magnetomotive force imposed by a coil can easily be modelled with a signal-controlled source. Except for the neglected dynamics, steady-state actuator forces will be calculated properly in actuator models based on these sources. 
+In these cases, the magnetic potential difference or magnetomotive force imposed by a coil can easily be modelled with a signal-controlled source. Except for the neglected dynamics, steady-state actuator forces will be calculated properly in actuator models based on these sources.
 </p>
 </html>"));
 
@@ -4737,7 +4737,7 @@ In these cases, the magnetic potential difference or magnetomotive force imposed
           height=0.6),
         Documentation(info="<html>
 <p>
-Sources of a constant magnetic flux are useful for modelling of permanent magnets with <i>Norton</i>'s magnetic equivalent circuit. 
+Sources of a constant magnetic flux are useful for modelling of permanent magnets with <i>Norton</i>'s magnetic equivalent circuit.
 </p>
 </html>"));
 
@@ -4750,7 +4750,7 @@ Sources of a constant magnetic flux are useful for modelling of permanent magnet
     model SignalMagneticFlux "Signal-controlled magnetic flux source"
 
       extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary;
-      Modelica.Blocks.Interfaces.RealInput Phi "Magnetic flux" 
+      Modelica.Blocks.Interfaces.RealInput Phi "Magnetic flux"
         annotation (Placement(transformation(
           origin={0,90},
           extent={{10,-10},{-10,10}},
@@ -4792,7 +4792,7 @@ Sources of a constant magnetic flux are useful for modelling of permanent magnet
           grid={2,2}), graphics),
         Documentation(info="<html>
 <p>
-This source of a magnetic flux is intended for test purposes, e.g. for simulation and subsequent plotting of a softmagnetic material's magnetisation characteristics if used together with a non-linear reluctance element. 
+This source of a magnetic flux is intended for test purposes, e.g. for simulation and subsequent plotting of a softmagnetic material's magnetisation characteristics if used together with a non-linear reluctance element.
 </p>
 </html>"));
 
@@ -4812,7 +4812,7 @@ This source of a magnetic flux is intended for test purposes, e.g. for simulatio
     extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary;
 
     Modelica.Blocks.Interfaces.RealOutput V_m
-        "Magnetic potential difference between ports p and n as output signal" 
+        "Magnetic potential difference between ports p and n as output signal"
        annotation (Placement(transformation(
           origin={0,-100},
           extent={{10,-10},{-10,10}},
@@ -4861,7 +4861,7 @@ This source of a magnetic flux is intended for test purposes, e.g. for simulatio
     extends Modelica.Icons.RotationalSensor;
 
     Modelica.Blocks.Interfaces.RealOutput Phi
-        "Magnetic flux from port p to port n as output signal" 
+        "Magnetic flux from port p to port n as output signal"
         annotation (Placement(transformation(
           origin={0,-100},
           extent={{10,-10},{-10,10}},
@@ -4913,7 +4913,7 @@ This source of a magnetic flux is intended for test purposes, e.g. for simulatio
   end MagneticFluxSensor;
     annotation (Documentation(info="<html>
 <p>
-For analysis of magnetic networks, only magnetic potential differences and magnetic flux are variables of interest. For that reason, a magnetic potential sensor is not provided. 
+For analysis of magnetic networks, only magnetic potential differences and magnetic flux are variables of interest. For that reason, a magnetic potential sensor is not provided.
 </p>
 </html>"));
   end Sensors;

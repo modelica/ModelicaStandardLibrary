@@ -32,16 +32,16 @@ package Vessels "Devices for storing fluid"
             textString="V=%V")}),
       Documentation(info="<html>
 <p>
-Ideally mixed volume of constant size with two fluid ports and one medium model. 
-The flow properties are computed from the upstream quantities, pressures are equal in both nodes and the medium model if <code>use_portsData=false</code>. 
-Heat transfer through a thermal port is possible, it equals zero if the port remains unconnected. 
+Ideally mixed volume of constant size with two fluid ports and one medium model.
+The flow properties are computed from the upstream quantities, pressures are equal in both nodes and the medium model if <code>use_portsData=false</code>.
+Heat transfer through a thermal port is possible, it equals zero if the port remains unconnected.
 A spherical shape is assumed for the heat transfer area, with V=4/3*pi*r^3, A=4*pi*r^2.
 Ideal heat transfer is assumed per default; the thermal port temperature is equal to the medium temperature.
 </p>
 <p>
-If <code>use_portsData=true</code>, the port pressures represent the pressures just after the outlet (or just before the inlet) in the attached pipe. 
-The hydraulic resistances <tt>portsData.zeta_in</tt> and <tt>portsData.zeta_out</tt> determine the dissipative pressure drop between volume and port depending on 
-the direction of mass flow. See <a href=\"Modelica://Modelica.Fluid.Vessels.BaseClasses.VesselPortsData\">VesselPortsData</a> and <i>[Idelchik, Handbook of Hydraulic Resistance, 2004]</i>. 
+If <code>use_portsData=true</code>, the port pressures represent the pressures just after the outlet (or just before the inlet) in the attached pipe.
+The hydraulic resistances <tt>portsData.zeta_in</tt> and <tt>portsData.zeta_out</tt> determine the dissipative pressure drop between volume and port depending on
+the direction of mass flow. See <a href=\"Modelica://Modelica.Fluid.Vessels.BaseClasses.VesselPortsData\">VesselPortsData</a> and <i>[Idelchik, Handbook of Hydraulic Resistance, 2004]</i>.
 </p>
 </html>"),
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
@@ -63,15 +63,15 @@ model OpenTank "Simple tank with inlet/outlet ports"
 
   // Ambient
   parameter Medium.AbsolutePressure p_ambient=system.p_ambient
-      "Tank surface pressure" 
+      "Tank surface pressure"
     annotation(Dialog(tab = "Assumptions", group = "Ambient"));
   parameter Medium.Temperature T_ambient=system.T_ambient
-      "Tank surface Temperature" 
+      "Tank surface Temperature"
     annotation(Dialog(tab = "Assumptions", group = "Ambient"));
 
   // Initialization
   parameter SI.Height level_start(min=0) = 0.5*height
-      "Start value of tank level" 
+      "Start value of tank level"
     annotation(Dialog(tab="Initialization"));
 
   // Mass and energy balance, ports
@@ -140,12 +140,12 @@ initial equation
                 1,
                 2)))}),
       Documentation(info="<HTML>
-<p> 
+<p>
 Model of a tank that is open to the ambient at the fixed pressure
 <tt>p_ambient</tt>.
 </p>
 <p>
-The vector of connectors <b>ports</b> represents fluid ports at configurable heights, relative to the bottom of tank. 
+The vector of connectors <b>ports</b> represents fluid ports at configurable heights, relative to the bottom of tank.
 Fluid can flow either out of or in to each port.
 </p>
 The following assumptions are made:
@@ -155,27 +155,27 @@ The following assumptions are made:
 <li>No liquid is leaving the tank through the open top; the simulation breaks with an assertion if the liquid level growths over the height.</li>
 </ul>
 <p>
-The port pressures represent the pressures just after the outlet (or just before the inlet) in the attached pipe. 
-The hydraulic resistances <tt>portsData.zeta_in</tt> and <tt>portsData.zeta_out</tt> determine the dissipative pressure drop between tank and port depending on 
-the direction of mass flow. See <a href=\"Modelica://Modelica.Fluid.Vessels.BaseClasses.VesselPortsData\">VesselPortsData</a> and <i>[Idelchik, Handbook of Hydraulic Resistance, 2004]</i>. 
+The port pressures represent the pressures just after the outlet (or just before the inlet) in the attached pipe.
+The hydraulic resistances <tt>portsData.zeta_in</tt> and <tt>portsData.zeta_out</tt> determine the dissipative pressure drop between tank and port depending on
+the direction of mass flow. See <a href=\"Modelica://Modelica.Fluid.Vessels.BaseClasses.VesselPortsData\">VesselPortsData</a> and <i>[Idelchik, Handbook of Hydraulic Resistance, 2004]</i>.
 </p>
 <p>
-With the setting <tt>use_portsData=false</tt>, the port pressure represents the static head 
-at the height of the respective port. 
-The relationship between pressure drop and mass flow rate at the port must then be provided by connected components; 
-Heights of ports as well as kinetic and potential energy of fluid enering or leaving are not taken into account anymore. 
-</p>   
+With the setting <tt>use_portsData=false</tt>, the port pressure represents the static head
+at the height of the respective port.
+The relationship between pressure drop and mass flow rate at the port must then be provided by connected components;
+Heights of ports as well as kinetic and potential energy of fluid enering or leaving are not taken into account anymore.
+</p>
 </HTML>", revisions="<html>
 <ul>
-<li><i>Dec. 12, 2008</i> by Ruediger Franke: move port definitions 
+<li><i>Dec. 12, 2008</i> by Ruediger Franke: move port definitions
    to BaseClasses.PartialLumpedVessel; also use energy and mass balance from common base class</li>
 <li><i>Dec. 8, 2008</i> by Michael Wetter (LBNL):<br>
 Implemented trace substances.</li>
-<li><i>Jan. 6, 2006</i> by Katja Poschlad, Manuel Remelhe (AST Uni Dortmund), 
-   Martin Otter (DLR):<br> 
+<li><i>Jan. 6, 2006</i> by Katja Poschlad, Manuel Remelhe (AST Uni Dortmund),
+   Martin Otter (DLR):<br>
    Implementation based on former tank model.</li>
 <li><i>Oct. 29, 2007</i> by Carsten Heinrich (ILK Dresden):<br>
-Adapted to the new fluid library interfaces: 
+Adapted to the new fluid library interfaces:
 <ul> <li>FluidPorts_b is used instead of FluidPort_b (due to it is defined as an array of ports)</li>
     <li>Port name changed from port to ports</li></ul>Updated documentation.</li>
 <li><i>Apr. 25, 2006</i> by Katrin Pr&ouml;l&szlig; (TUHH):<br>
@@ -200,27 +200,27 @@ end OpenTank;
         extends Modelica.Fluid.Interfaces.PartialLumpedVolume;
 
         // Port definitions
-        parameter Integer nPorts=0 "Number of ports" 
+        parameter Integer nPorts=0 "Number of ports"
           annotation(Evaluate=true, Dialog(__Dymola_connectorSizing=true, tab="General",group="Ports"));
         VesselFluidPorts_b ports[nPorts](redeclare each package Medium = Medium)
-        "Fluid inlets and outlets" 
+        "Fluid inlets and outlets"
           annotation (Placement(transformation(extent={{-40,-10},{40,10}},
             origin={0,-100})));
 
         // Port properties
         parameter Boolean use_portsData=true
-        "= false to neglect pressure loss and kinetic energy" 
+        "= false to neglect pressure loss and kinetic energy"
           annotation(Evaluate=true, Dialog(tab="General",group="Ports"));
         parameter Modelica.Fluid.Vessels.BaseClasses.VesselPortsData[nPorts]
-        portsData if   use_portsData "Data of inlet/outlet ports" 
+        portsData if   use_portsData "Data of inlet/outlet ports"
           annotation(Dialog(tab="General",group="Ports",enable= use_portsData));
 
         parameter SI.MassFlowRate m_flow_small(min=0) = system.m_flow_small
-        "Regularization range at zero mass flow rate" 
+        "Regularization range at zero mass flow rate"
           annotation(Dialog(tab="Advanced", group="Port properties", enable=stiffCharacteristicForEmptyPort));
       /*
-  parameter Medium.AbsolutePressure dp_small = system.dp_small 
-    "Turbulent flow if |dp| >= dp_small (regularization of zero flow)" 
+  parameter Medium.AbsolutePressure dp_small = system.dp_small
+    "Turbulent flow if |dp| >= dp_small (regularization of zero flow)"
     annotation(Dialog(tab="Advanced",group="Ports"));
 */
         Medium.EnthalpyFlowRate ports_H_flow[nPorts];
@@ -233,24 +233,24 @@ end OpenTank;
 
         // Heat transfer through boundary
         parameter Boolean use_HeatTransfer = false
-        "= true to use the HeatTransfer model" 
+        "= true to use the HeatTransfer model"
             annotation (Dialog(tab="Assumptions", group="Heat transfer"));
-        replaceable model HeatTransfer = 
-            Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer 
+        replaceable model HeatTransfer =
+            Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer
           constrainedby
         Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransfer
-        "Wall heat transfer" 
+        "Wall heat transfer"
             annotation (Dialog(tab="Assumptions", group="Heat transfer",enable=use_HeatTransfer),choicesAllMatching=true);
         HeatTransfer heatTransfer(
           redeclare final package Medium = Medium,
           final n=1,
           final states = {medium.state},
-          final use_k = use_HeatTransfer) 
+          final use_k = use_HeatTransfer)
             annotation (Placement(transformation(
               extent={{-10,-10},{30,30}},
               rotation=90,
               origin={-50,-10})));
-        Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if use_HeatTransfer 
+        Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if use_HeatTransfer
           annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
 
         // Conservation of kinetic energy
@@ -349,7 +349,7 @@ of the modeller. Increase nPorts to add an additional port.
             // Note: >= covers default values of zero as well
             if use_portsData then
               /* Without regularization
-        ports[i].p = vessel_ps_static[i] + 0.5*ports[i].m_flow^2/portAreas[i]^2 
+        ports[i].p = vessel_ps_static[i] + 0.5*ports[i].m_flow^2/portAreas[i]^2
                       * noEvent(if ports[i].m_flow>0 then zeta_in[i]/portDensities[i] else -zeta_out[i]/medium.d);
         */
 
@@ -412,13 +412,13 @@ The following modeling assumption are made:
 <li>homogenous medium, i.e. phase seperation is not taken into account,</li>
 <li>no kinetic energy in the fluid, i.e. kinetic energy dissipates into the internal energy,</li>
 <li>pressure loss definitions at vessel ports assume incompressible fluid,</li>
-<li>outflow of ambient media is prevented at each port assuming check valve behavior. 
+<li>outflow of ambient media is prevented at each port assuming check valve behavior.
     If <tt> fluidlevel &lt; portsData_height[i] </tt>and &nbsp; <tt> ports[i].p &lt; vessel_ps_static[i]</tt> massflow at the port is set to 0.</li>
 </ul>
 </p>
 Each port has a (hydraulic) diameter and a height above the bottom of the vessel, which can be configured using the &nbsp;<b><tt>portsData</tt></b> record.
 Alternatively the impact of port geometries can be neglected with <tt>use_portsData=false</tt>. This might be useful for early
-design studies. Note that this means to assume an infinite port diameter at the bottom of the vessel. 
+design studies. Note that this means to assume an infinite port diameter at the bottom of the vessel.
 Pressure drops and heights of the ports as well as kinetic and potential energy fluid entering or leaving the vessel are neglected then.
 <p>
 The following variables need to be defined by an extending model:
@@ -431,7 +431,7 @@ An extending model should define:
 <ul>
 <li><tt>parameter vesselArea</tt> (default: Modelica.Constants.inf m2), the area of the vessel, to be related to cross flow areas of the ports for the consideration of dynamic pressure effects.</li>
 </ul>
-Optionally the fluid level may vary in the vessel, which effects the flow through the ports at configurable <tt>portsData_height[nPorts]</tt>. 
+Optionally the fluid level may vary in the vessel, which effects the flow through the ports at configurable <tt>portsData_height[nPorts]</tt>.
 This is why an extending model with varying fluid level needs to define:
 <ul>
 <li><tt>input fluidLevel (default: 0m)</tt>, the level the fluid in the vessel, and</li>
@@ -439,7 +439,7 @@ This is why an extending model with varying fluid level needs to define:
 </ul>
 An extending model should not access the <tt>portsData</tt> record defined in the configuration dialog,
 as an access to <tt>portsData</tt> may fail for <tt>use_portsData=false</tt> or <tt>nPorts=0</tt>.
-Instead the predefined variables 
+Instead the predefined variables
 <ul>
 <li><tt>portsData_diameter[nPorts]</tt></li>,
 <li><tt>portsData_height[nPorts]</tt></li>,
@@ -535,19 +535,19 @@ Heat transfer correlations for pipe models
       annotation (preferredView="info", Documentation(info="<html>
 <h4><font color=\"#008000\" >Vessel Port Data</font></h4>
 <p>
-This record describes the <b>ports</b> of a <b>vessel</b>. The variables in it are mostly self-explanatory (see list below); only the &zeta; 
+This record describes the <b>ports</b> of a <b>vessel</b>. The variables in it are mostly self-explanatory (see list below); only the &zeta;
 loss factors are discussed further. All data is quoted from Idelchik (1994).
 </p>
- 
+
 <h4><font color=\"#008000\">Outlet Coefficients</font></h4>
- 
+
 <p>
 If a <b>straight pipe with constant cross section is mounted flush with the wall</b>, its outlet pressure loss coefficient will be <code>&zeta; = 0.5</code> (Idelchik, p. 160, Diagram 3-1, paragraph 2).
 </p>
 <p>
 If a <b>straight pipe with constant cross section is mounted into a vessel such that the entrance into it is at a distance</b> <code>b</code> from the wall (inside) the following table can be used. Herein, &delta; is the tube wall thickness (Idelchik, p. 160, Diagram 3-1, paragraph 1).
-</p> 
- 
+</p>
+
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\">Pressure loss coefficients for outlets, entrance at a distance from wall</caption>
   <tr>
@@ -572,11 +572,11 @@ If a <b>straight pipe with constant cross section is mounted into a vessel such 
               <th> 0.040 </th><td> 0.50 </td><td> 0.50  </td><td> 0.51  </td><td> 0.51  </td><td>      0.54     </td>
   </tr>
 </table>
- 
+
 <p>
 If a <b>straight pipe with a circular bellmouth inlet (collector) without baffle is mounted flush with the wall</b> then its pressure loss coefficient can be established from the following table. Herein, r is the radius of the bellmouth inlet surface (Idelchik, p. 164 f., Diagram 3-4, paragraph b)
 </p>
- 
+
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\">Pressure loss coefficients for outlets, bellmouth flush with wall</caption>
   <tr>
@@ -589,11 +589,11 @@ If a <b>straight pipe with a circular bellmouth inlet (collector) without baffle
      <th>&zeta;</th> <td> 0.44 </td><td> 0.31 </td><td> 0.22  </td><td> 0.15  </td><td> 0.06  </td><td>      0.03     </td>
   </tr>
 </table>
- 
+
 <p>
 If a <b>straight pipe with a circular bellmouth inlet (collector) without baffle is mounted at a distance from a wall</b> then its pressure loss coefficient can be established from the following table. Herein, r is the radius of the bellmouth inlet surface (Idelchik, p. 164 f., Diagram 3-4, paragraph a)
 </p>
- 
+
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\">Pressure loss coefficients for outlets, bellmouth at a distance of wall</caption>
   <tr>
@@ -606,15 +606,15 @@ If a <b>straight pipe with a circular bellmouth inlet (collector) without baffle
      <th>&zeta;</th> <td> 0.87 </td><td> 0.61 </td><td> 0.40  </td><td> 0.20  </td><td> 0.06  </td><td>      0.03     </td>
   </tr>
 </table>
- 
- 
- 
+
+
+
 <h4><font color=\"#008000\">Inlet Coefficients</font></h4>
- 
+
 <p>
 If a <b>straight pipe with constant circular cross section is mounted flush with the wall</b>, its vessel inlet pressure loss coefficient will be according to the following table (Idelchik, p. 209 f., Diagram 4-2 with <code>A_port/A_vessel = 0</code> and Idelchik, p. 640, Diagram 11-1, graph a). According to the text, <code>m = 9</code> is appropriate for fully developed turbulent flow.
 </p>
- 
+
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\">Pressure loss coefficients for inlets, circular tube flush with wall</caption>
   <tr>
@@ -627,11 +627,11 @@ If a <b>straight pipe with constant circular cross section is mounted flush with
      <th>&zeta;</th> <td> 2.70 </td><td> 1.50 </td><td> 1.25  </td><td> 1.15  </td><td> 1.06  </td><td>      1.04     </td>
   </tr>
 </table>
- 
+
 <p>
 For larger port diameters, relative to the area of the vessel, the inlet pressure loss coefficient will be according to the following table (Idelchik, p. 209 f., Diagram 4-2 with <code>m = 7</code>).
 </p>
- 
+
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\">Pressure loss coefficients for inlets, circular tube flush with wall</caption>
   <tr>
@@ -644,10 +644,10 @@ For larger port diameters, relative to the area of the vessel, the inlet pressur
      <th>&zeta;</th> <td> 1.04 </td><td> 0.84 </td><td> 0.67  </td><td> 0.39  </td><td> 0.18  </td><td>      0.06     </td>
   </tr>
 </table>
- 
- 
+
+
 <h4><font color=\"#008000\">References</font></h4>
- 
+
 <dl><dt>Idelchik I.E. (1994):</dt>
     <dd><a href=\"http://www.begellhouse.com/books/00c0f05b040d2ec0.html\"><b>Handbook
         of Hydraulic Resistance</b></a>. 3rd edition, Begell House, ISBN
@@ -797,6 +797,6 @@ For larger port diameters, relative to the area of the vessel, the inlet pressur
     end VesselFluidPorts_b;
   end BaseClasses;
   annotation (Documentation(info="<html>
- 
+
 </html>"));
 end Vessels;

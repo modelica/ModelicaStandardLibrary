@@ -232,14 +232,14 @@ is often abbreviated as <b>TCR</b>. In resistor catalogues, it is usually
 defined as <b>X [ppm/K]</b> (parts per million, similarly to per centage)
 meaning <b>X*1.e-6 [1/K]</b>. Resistors are available for 1 .. 7000 ppm/K,
 i.e., alpha = 1e-6 .. 7e-3 1/K;</p>
- 
+
 <p>
 Via parameter <b>useHeatPort</b> the heatPort connector can be enabled and disabled
 (default = enabled). If it is disabled, the generated heat is transported implicitly
 to an internal temperature source with a fixed temperature of T_ref.<br>
 If the heatPort connector is enabled, it must be connected.
 </p>
- 
+
 </HTML>
 ",   revisions="<html>
 <ul>
@@ -664,10 +664,10 @@ model M_Transformer "Generic transformer with free number of inductors"
   public
   parameter Modelica.SIunits.Inductance L[dimL]={1,0.1,0.2,2,0.3,3}
       "inductances and coupling inductances";
-  Modelica.Electrical.Analog.Interfaces.PositivePin p[N] "Positive pin" 
+  Modelica.Electrical.Analog.Interfaces.PositivePin p[N] "Positive pin"
               annotation (extent=[-80,-40; -62,40], Placement(transformation(
           extent={{-80,-40},{-62,40}}, rotation=0)));
-  Modelica.Electrical.Analog.Interfaces.NegativePin n[N] "Negative pin" 
+  Modelica.Electrical.Analog.Interfaces.NegativePin n[N] "Negative pin"
               annotation (extent=[62,-40; 80,40], Placement(transformation(
           extent={{62,-40},{80,40}}, rotation=0)));
 
@@ -677,7 +677,7 @@ model M_Transformer "Generic transformer with free number of inductors"
 algorithm
   for s in 1:N loop
      for z in 1:N loop
-       Lm[z,s]:= if (z>=s) then L[(s-1)*N+z-div((s-1)*s,2)] else 
+       Lm[z,s]:= if (z>=s) then L[(s-1)*N+z-div((s-1)*s,2)] else
                  Lm[s,z];
      end for;
   end for;
@@ -692,7 +692,7 @@ equation
   v =Lm*der(i);
 
   annotation (Icon(
-      coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), 
+      coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
 
         graphics={
           Ellipse(extent={{-36,24},{-18,42}}),
@@ -989,7 +989,7 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
 
   model EMF "Electromotoric force (electric/mechanic transformer)"
     parameter Boolean useSupport=false
-      "= true, if support flange enabled, otherwise implicitly grounded" 
+      "= true, if support flange enabled, otherwise implicitly grounded"
         annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
     parameter SI.ElectricalTorqueConstant k(start=1)
       "Transformation coefficient";
@@ -1006,10 +1006,10 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
           origin={0,-100},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    Modelica.Mechanics.Rotational.Interfaces.Flange_b flange 
+    Modelica.Mechanics.Rotational.Interfaces.Flange_b flange
       annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
     Mechanics.Rotational.Interfaces.Support support if useSupport
-      "Support/housing of emf shaft" 
+      "Support/housing of emf shaft"
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
     annotation (
       defaultComponentName="emf",
@@ -1101,9 +1101,9 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
 </ul>
 </html>"));
   protected
-    Mechanics.Rotational.Components.Fixed fixed if not useSupport 
+    Mechanics.Rotational.Components.Fixed fixed if not useSupport
       annotation (Placement(transformation(extent={{-90,-20},{-70,0}})));
-    Mechanics.Rotational.Interfaces.InternalSupport internalSupport(tau=-flange.tau) 
+    Mechanics.Rotational.Interfaces.InternalSupport internalSupport(tau=-flange.tau)
       annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
   equation
     v = p.v - n.v;
@@ -1126,7 +1126,7 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
 
   model TranslationalEMF "Electromotoric force (electric/mechanic transformer)"
     parameter Boolean useSupport=false
-      "= true, if support flange enabled, otherwise implicitly grounded" 
+      "= true, if support flange enabled, otherwise implicitly grounded"
       annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
     parameter Modelica.SIunits.ElectricalForceConstant k(start=1)
       "Transformation coefficient";
@@ -1254,25 +1254,25 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
 </ul>
 </html>"));
 
-    Modelica.Electrical.Analog.Interfaces.PositivePin p 
+    Modelica.Electrical.Analog.Interfaces.PositivePin p
       annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    Modelica.Electrical.Analog.Interfaces.NegativePin n 
+    Modelica.Electrical.Analog.Interfaces.NegativePin n
       annotation (Placement(transformation(
           origin={0,-100},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    Modelica.Mechanics.Translational.Interfaces.Flange_b flange 
+    Modelica.Mechanics.Translational.Interfaces.Flange_b flange
        annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
     Modelica.Mechanics.Translational.Interfaces.Support support if useSupport
-      "Support/housing" 
+      "Support/housing"
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
   protected
-    Modelica.Mechanics.Translational.Components.Fixed fixed if not useSupport 
+    Modelica.Mechanics.Translational.Components.Fixed fixed if not useSupport
       annotation (Placement(transformation(extent={{-90,-20},{-70,0}})));
-    Modelica.Mechanics.Translational.Interfaces.InternalSupport internalSupport(f=-flange.f) 
+    Modelica.Mechanics.Translational.Interfaces.InternalSupport internalSupport(f=-flange.f)
       annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
   equation
     v = p.v - n.v;
@@ -1474,7 +1474,7 @@ The left port voltage is zero. Any transResistance can be chosen.
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{-90,50},{-20,50},{-20,-50},{-90,-50}}, color={0,0,255}), 
+          Line(points={{-90,50},{-20,50},{-20,-50},{-90,-50}}, color={0,0,255}),
 
           Text(
             extent={{-140,-82},{160,-122}},
@@ -1533,7 +1533,7 @@ The left port voltage is zero. Any current gain can be chosen.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{-100,50},{-30,50},{-30,-50},{-100,-50}}, color={0,0,255}), 
+          Line(points={{-100,50},{-30,50},{-30,-50},{-100,-50}}, color={0,0,255}),
 
           Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}),
           Line(points={{-20,60},{20,60}}, color={0,0,255}),
@@ -1580,7 +1580,7 @@ The left port voltage is zero. Any current gain can be chosen.
     Modelica.Electrical.Analog.Interfaces.NegativePin in_n
       "Negative pin of the input port" annotation (Placement(transformation(
             extent={{-90,40},{-110,60}}, rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.PositivePin out "Output pin" 
+    Modelica.Electrical.Analog.Interfaces.PositivePin out "Output pin"
       annotation (Placement(transformation(extent={{110,-10},{90,10}}, rotation=
              0)));
     Modelica.Electrical.Analog.Interfaces.PositivePin VMax
@@ -1751,7 +1751,7 @@ value of Slope is taken into calculation.)
     Modelica.Electrical.Analog.Interfaces.NegativePin m
       "Negative pin of the input port" annotation (Placement(transformation(
             extent={{-90,40},{-111,61}}, rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.PositivePin outp "Output pin" 
+    Modelica.Electrical.Analog.Interfaces.PositivePin outp "Output pin"
       annotation (Placement(transformation(extent={{110,-10},{90,10}}, rotation=
              0)));
     Modelica.Electrical.Analog.Interfaces.PositivePin p_supply
@@ -1974,8 +1974,8 @@ Now one of these models, the model \"amp(macro)\" was transferred into Modelica.
 
      der(x) = (q_fp1 - v_source)/Ts;
      der(v_source) = smooth(0,noEvent(
-     if der(x) > sr_p_val then sr_p_val else 
-     if der(x) < sr_m_val then sr_m_val else 
+     if der(x) > sr_p_val then sr_p_val else
+     if der(x) < sr_m_val then sr_m_val else
         der(x)));
 
   // output stage
@@ -2003,7 +2003,7 @@ Now one of these models, the model \"amp(macro)\" was transferred into Modelica.
         extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
         Modelica.SIunits.Resistance R_actual
       "Resistance = R*(1 + alpha*(intenalHeatPort.T - T_ref))";
-        Modelica.Blocks.Interfaces.RealInput R 
+        Modelica.Blocks.Interfaces.RealInput R
           annotation (Placement(transformation(
         origin={0,110},
         extent={{-20,-20},{20,20}},
@@ -2083,7 +2083,7 @@ The Resistance <i>R</i> is given as input signal.
         extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
         Modelica.SIunits.Conductance G_actual
       "Conductance = G_ref/(1 + alpha*(intenalHeatPort.T - T_ref))";
-        Modelica.Blocks.Interfaces.RealInput G 
+        Modelica.Blocks.Interfaces.RealInput G
           annotation (Placement(transformation(
         origin={0,110},
         extent={{-20,-20},{20,20}},
@@ -2154,7 +2154,7 @@ The Conductance <i>G</i> is given as input signal.
         model VariableCapacitor
     "Ideal linear electrical capacitor with variable capacitance"
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
-          Modelica.Blocks.Interfaces.RealInput C 
+          Modelica.Blocks.Interfaces.RealInput C
             annotation (Placement(transformation(
           origin={0,110},
           extent={{-20,-20},{20,20}},
@@ -2231,7 +2231,7 @@ Cmin is a parameter with default value Modelica.Constants.eps.
     "Ideal linear electrical inductor with variable inductance"
 
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
-          Modelica.Blocks.Interfaces.RealInput L 
+          Modelica.Blocks.Interfaces.RealInput L
             annotation (Placement(transformation(
           origin={0,108},
           extent={{-20,-20},{20,20}},

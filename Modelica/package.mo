@@ -744,7 +744,7 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
 
 <tr><td valign=\"top\"><a href=\"Modelica://ModelicaServices\">ModelicaServices</a></td>
     <td valign=\"top\">
-     New top level package that shall contain functions and models to be used in the 
+     New top level package that shall contain functions and models to be used in the
      Modelica Standard Library that requires a tool specific implementation.
      ModelicaServices is then used in the Modelica package.
      In this first version, the 3-dim. animation with model Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape
@@ -912,7 +912,7 @@ have been <b style=\"color:blue\">improved</b> in a
 
 <tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Visualizers.Advanced.</b></td></tr>
 <tr><td valign=\"top\"> Shape </td>
-    <td valign=\"top\"> New implementation by inheriting from ModelicaServices. This allows a 
+    <td valign=\"top\"> New implementation by inheriting from ModelicaServices. This allows a
                       tool vendor to provide its own implementation of Shape. </td> </tr>
 <tr><td colspan=\"2\"><b>Modelica.StateGraph.</b></td></tr>
 <tr><td valign=\"top\"> Examples </td>
@@ -920,8 +920,8 @@ have been <b style=\"color:blue\">improved</b> in a
 
 <tr><td colspan=\"2\"><b>Modelica.StateGraph.Interfaces.</b></td></tr>
 <tr><td valign=\"top\"> StateGraphRoot<br>PartialCompositeStep<br>CompositeStepState </td>
-    <td valign=\"top\"> Replaced the wrong Modelica code \"flow output Real xxx\" 
-                      by \"Real dummy; flow Real xxx;\". 
+    <td valign=\"top\"> Replaced the wrong Modelica code \"flow output Real xxx\"
+                      by \"Real dummy; flow Real xxx;\".
                       As a side effect, several \"blocks\" had to be changed to \"models\". </td> </tr>
 <tr><td valign=\"top\"> PartialStep </td>
     <td valign=\"top\"> Changed model by packing the protected outer connecter in to a model.
@@ -930,7 +930,7 @@ have been <b style=\"color:blue\">improved</b> in a
 
 <tr><td colspan=\"2\"><b>Modelica.Utilities.Examples.</b></td></tr>
 <tr><td valign=\"top\"> expression </td>
-    <td valign=\"top\"> Changed local variable \"operator\" to \"opString\" since \"operator\" 
+    <td valign=\"top\"> Changed local variable \"operator\" to \"opString\" since \"operator\"
                       is a reserved keyword in Modelica 3.1 </td> </tr>
 </table>
 

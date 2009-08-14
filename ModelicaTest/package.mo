@@ -7,18 +7,18 @@ package ModelicaTest "Library to test components of library Modelica "
 This library provides models and functions to test components of
 <b>package Modelica</b> (the Modelica Standard Library).
 </p>
- 
+
 <p>
 Further development of this library should be performed in the following
 way:
 </p>
- 
+
 <ul>
 <li> Functions that are added to this library to test functions of the
      Modelica Standard Library, should be called in \"ModelicaTest.testAllFunctions()\".
-     The idea is that all test functions are called, when calling 
+     The idea is that all test functions are called, when calling
      \"testAllFunctions()\".</li>
- 
+
 <li> Models that are added to this library should have the annotation
      (with an appropriate StopTime):
      <pre>
@@ -27,14 +27,14 @@ way:
      the models that shall be simulated and, e.g., that shall be used in an automatic
      regression test.</li>
 </ul>
- 
+
 <p>
 Copyright &copy; 1998-2007, Modelica Association.
 </p>
 <p>
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> 
+and the accompanying <b>disclaimer</b>
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
 </p>
 </html>"),

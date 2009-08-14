@@ -2,8 +2,8 @@ within Modelica.Fluid.Examples;
 model IncompressibleFluidNetwork
   "Multi-way connections of pipes and incompressible medium model"
   extends Modelica.Icons.Example;
-  replaceable package Medium = 
-      Modelica.Media.Incompressible.Examples.Essotherm650 
+  replaceable package Medium =
+      Modelica.Media.Incompressible.Examples.Essotherm650
     constrainedby Modelica.Media.Interfaces.PartialMedium;
 
   model Pipe = Modelica.Fluid.Pipes.DynamicPipe;
@@ -19,7 +19,7 @@ model IncompressibleFluidNetwork
     length=10,
     diameter=2.5e-2,
     redeclare package Medium = Medium,
-    redeclare model FlowModel = 
+    redeclare model FlowModel =
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.TurbulentPipeFlow,
     p_a_start=500000)                  annotation (Placement(transformation(
           extent={{-80,0},{-60,20}}, rotation=0)));
@@ -29,7 +29,7 @@ model IncompressibleFluidNetwork
     diameter=2.5e-2,
     redeclare package Medium = Medium,
     length=0.5,
-    redeclare model FlowModel = 
+    redeclare model FlowModel =
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.TurbulentPipeFlow,
     p_a_start=500000)                  annotation (Placement(transformation(
         origin={-50,30},
@@ -41,7 +41,7 @@ model IncompressibleFluidNetwork
     diameter=2.5e-2,
     redeclare package Medium = Medium,
     length=0.5,
-    redeclare model FlowModel = 
+    redeclare model FlowModel =
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.TurbulentPipeFlow,
     p_a_start=500000)                  annotation (Placement(transformation(
         origin={-50,-10},
@@ -52,7 +52,7 @@ model IncompressibleFluidNetwork
     diameter=2.5e-2,
     redeclare package Medium = Medium,
     length=2,
-    redeclare model FlowModel = 
+    redeclare model FlowModel =
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.TurbulentPipeFlow,
     p_a_start=500000)                  annotation (Placement(transformation(
           extent={{-20,-40},{0,-20}}, rotation=0)));
@@ -61,7 +61,7 @@ model IncompressibleFluidNetwork
     diameter=2.5e-2,
     redeclare package Medium = Medium,
     length=20,
-    redeclare model FlowModel = 
+    redeclare model FlowModel =
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.TurbulentPipeFlow,
     p_a_start=500000)                  annotation (Placement(transformation(
           extent={{20,-30},{40,-10}}, rotation=0)));
@@ -70,7 +70,7 @@ model IncompressibleFluidNetwork
     CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
     m_flow_nominal=1,
     rho_nominal=1000,
-    dp_nominal=30000) 
+    dp_nominal=30000)
                 annotation (Placement(transformation(extent={{-46,40},{-26,60}},
           rotation=0)));
   Modelica.Fluid.Valves.ValveIncompressible valve2(
@@ -78,7 +78,7 @@ model IncompressibleFluidNetwork
     CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
     m_flow_nominal=1,
     rho_nominal=1000,
-    dp_nominal=30000) 
+    dp_nominal=30000)
                 annotation (Placement(transformation(extent={{-46,-20},{-26,
             -40}}, rotation=0)));
   Pipe pipe7(
@@ -86,7 +86,7 @@ model IncompressibleFluidNetwork
     length=10,
     diameter=2.5e-2,
     redeclare package Medium = Medium,
-    redeclare model FlowModel = 
+    redeclare model FlowModel =
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.TurbulentPipeFlow,
     p_a_start=500000)                  annotation (Placement(transformation(
           extent={{-20,40},{0,60}}, rotation=0)));
@@ -95,16 +95,16 @@ model IncompressibleFluidNetwork
     CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
     m_flow_nominal=1,
     rho_nominal=1000,
-    dp_nominal=30000) 
+    dp_nominal=30000)
                 annotation (Placement(transformation(extent={{60,0},{80,20}},
           rotation=0)));
   Sources.Boundary_pT sink(nPorts=1,
     redeclare package Medium = Medium,
     T=300,
-    p=1.0e5) 
+    p=1.0e5)
            annotation (Placement(transformation(extent={{98,4},{86,16}},
           rotation=0)));
-  inner Modelica.Fluid.System system 
+  inner Modelica.Fluid.System system
                         annotation (Placement(transformation(extent={{70,-92},
             {90,-72}},  rotation=0)));
   Modelica.Blocks.Sources.Step valveOpening1(
@@ -127,7 +127,7 @@ model IncompressibleFluidNetwork
     length=10,
     diameter=2.5e-2,
     redeclare package Medium = Medium,
-    redeclare model FlowModel = 
+    redeclare model FlowModel =
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.TurbulentPipeFlow,
     p_a_start=500000)                  annotation (Placement(transformation(
         origin={10,30},
@@ -138,7 +138,7 @@ model IncompressibleFluidNetwork
     length=10,
     diameter=2.5e-2,
     redeclare package Medium = Medium,
-    redeclare model FlowModel = 
+    redeclare model FlowModel =
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.TurbulentPipeFlow,
     p_a_start=500000)                  annotation (Placement(transformation(
           extent={{20,40},{40,60}}, rotation=0)));
@@ -147,7 +147,7 @@ model IncompressibleFluidNetwork
     length=10,
     diameter=2.5e-2,
     redeclare package Medium = Medium,
-    redeclare model FlowModel = 
+    redeclare model FlowModel =
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.TurbulentPipeFlow,
     p_a_start=500000)                  annotation (Placement(transformation(
           extent={{20,0},{40,20}},  rotation=0)));
@@ -156,7 +156,7 @@ model IncompressibleFluidNetwork
     diameter=2.5e-2,
     redeclare package Medium = Medium,
     length=20,
-    redeclare model FlowModel = 
+    redeclare model FlowModel =
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.TurbulentPipeFlow,
     p_a_start=500000)                  annotation (Placement(transformation(
           extent={{20,-60},{40,-40}}, rotation=0)));
@@ -188,7 +188,7 @@ equation
           {-36,-60},{-36,-38}},        color={0,0,127}));
   connect(valveOpening3.y, valve3.opening) annotation (Line(points={{61,80},{
           70,80},{70,18}},        color={0,0,127}));
-  connect(pipe7.port_b, pipe9.port_a) 
+  connect(pipe7.port_b, pipe9.port_a)
     annotation (Line(points={{0,50},{0,50},{20,50}},
                                               color={0,127,255}));
   connect(pipe7.port_b, pipe8.port_a) annotation (Line(points={{0,50},{10,50},{
@@ -222,27 +222,27 @@ equation
                        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics),
          Documentation(info="<html>
-This example demonstrates two aspects: the efficient treatment of multi-way connections 
+This example demonstrates two aspects: the efficient treatment of multi-way connections
 and the usage of an incompressible medium model.
 <p>
-Normally one would expect bad equation systems in multi-way connections 
-and possibly introduce mixing volumes to work around this. 
+Normally one would expect bad equation systems in multi-way connections
+and possibly introduce mixing volumes to work around this.
 Here the problem is treated with the the modelStructure=av_vb in the
-<a href=\"Modelica://Modelica.Fluid.Pipes.DynamicPipe\">DynamicPipe</a> model. 
-Each pipe exposes the states of the outer fluid segments to the respective fluid ports. 
-Consequently the pressures of all connected pipe segments get lumped together into one mass balance 
-spanning the whole connection set. With the stream concept in the fluid ports, the energy and substance 
+<a href=\"Modelica://Modelica.Fluid.Pipes.DynamicPipe\">DynamicPipe</a> model.
+Each pipe exposes the states of the outer fluid segments to the respective fluid ports.
+Consequently the pressures of all connected pipe segments get lumped together into one mass balance
+spanning the whole connection set. With the stream concept in the fluid ports, the energy and substance
 balances remain independent in the connected pipe segments.
 </p>
 <p>
-The model does not contain pressure dynamics as an incompressible medium is used (Essotherm650). 
+The model does not contain pressure dynamics as an incompressible medium is used (Essotherm650).
 Pressure dynamics becomes present with a compressible medium model (e.g. StandardWater).
 </p>
- 
+
 <p align=\"center\">
 <img src=\"../Images/Fluid/Examples/IncompressibleFluidNetwork.png\" border=\"1\">
 </p>
- 
+
 </html>"),
     experiment(StopTime=5),
     __Dymola_experimentSetupOutput(equdistant=false),

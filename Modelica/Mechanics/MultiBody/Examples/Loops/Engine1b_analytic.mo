@@ -12,14 +12,14 @@ model Engine1b_analytic
         grid={1,1}), graphics),
     Documentation(info="<html>
 <p>
-This is the same model as 
+This is the same model as
 <a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b#diagram\">Loops.Engine1b</a>.
 The only difference is that the central part of
 the planar kinematic loop has been replaced by the
 assembly joint \"Modelica.Mechanics.MultiBody.Joints.Assemblies.<b>JointRRP</b>\".
 The advantage of using JointRRP is, that the
-non-linear algebraic equation of this loop is solved analytically, and 
-not numerically as in 
+non-linear algebraic equation of this loop is solved analytically, and
+not numerically as in
 <a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b#diagram\">Loops.Engine1b</a>.
 </p>
 <p>
@@ -34,7 +34,7 @@ An animation of this example is shown in the figure below.
     n_b={0,-1,0},
     animation=false,
     rRod1_ia={0,0.2,0},
-    rRod2_ib={0,-0.1,0}) 
+    rRod2_ib={0,-0.1,0})
     annotation (Placement(transformation(
         origin={30,54},
         extent={{-20,20},{20,-20}},

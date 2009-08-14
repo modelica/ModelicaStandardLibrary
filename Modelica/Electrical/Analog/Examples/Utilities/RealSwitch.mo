@@ -23,7 +23,7 @@ equation
   connect(control, S.control) annotation (Line(points={{34,36},{34.6666,0.6667}}));
   annotation (
     Documentation(info="<html>
-  
+
 </html>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={Text(
           extent={{-90,86},{28,70}},

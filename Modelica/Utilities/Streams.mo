@@ -7,12 +7,12 @@ package Streams "Read from files and write to files"
 <h4>Library content</h4>
 <p>
 Package <b>Streams</b> contains functions to input and output strings
-to a message window or on files. Note that a string is interpreted 
+to a message window or on files. Note that a string is interpreted
 and displayed as html text (e.g., with print(..) or error(..))
 if it is enclosed with the Modelica html quotation, e.g.,
 </p>
 <center>
-string = \"&lt;html&gt; first line &lt;br&gt; second line &lt;/html&gt;\". 
+string = \"&lt;html&gt; first line &lt;br&gt; second line &lt;/html&gt;\".
 </center>
 <p>
 It is a quality of implementation, whether (a) all tags of html are supported
@@ -29,15 +29,15 @@ In the table below an example call to every function is given:
       <td valign=\"top\"> Print string \"string\" or vector of strings to message window or on
            file \"fileName\".</td>
   </tr>
-  <tr><td valign=\"top\">stringVector = 
+  <tr><td valign=\"top\">stringVector =
          <a href=\"Modelica://Modelica.Utilities.Streams.readFile\">readFile</a>(fileName)</td>
       <td valign=\"top\"> Read complete text file and return it as a vector of strings.</td>
   </tr>
-  <tr><td valign=\"top\">(string, endOfFile) = 
+  <tr><td valign=\"top\">(string, endOfFile) =
          <a href=\"Modelica://Modelica.Utilities.Streams.readLine\">readLine</a>(fileName, lineNumber)</td>
       <td valign=\"top\">Returns from the file the content of line lineNumber.</td>
   </tr>
-  <tr><td valign=\"top\">lines = 
+  <tr><td valign=\"top\">lines =
          <a href=\"Modelica://Modelica.Utilities.Streams.countLines\">countLines</a>(fileName)</td>
       <td valign=\"top\">Returns the number of lines in a file.</td>
   </tr>
@@ -51,14 +51,14 @@ In the table below an example call to every function is given:
   </tr>
 </table>
 <p>
-Use functions <b>scanXXX</b> from package 
+Use functions <b>scanXXX</b> from package
 <a href=\"Modelica://Modelica.Utilities.Strings\">Strings</a>
 to parse a string.
 </p>
 <p>
-If Real, Integer or Boolean values shall be printed 
+If Real, Integer or Boolean values shall be printed
 or used in an error message, they have to be first converted
-to strings with the builtin operator 
+to strings with the builtin operator
 <a href=\"Modelica://ModelicaReference.Operators.string\">String</a>(...).
 Example:
 </p>
@@ -74,7 +74,7 @@ Example:
     extends Modelica.Icons.Function;
     input String string="" "String to be printed";
     input String fileName=""
-      "File where to print (empty string is the terminal)" 
+      "File where to print (empty string is the terminal)"
                  annotation(Dialog(__Dymola_saveSelector(filter="Text files (*.txt)",
                         caption="Text file to store the output of print(..)")));
   external "C" ModelicaInternal_print(string, fileName);
@@ -115,7 +115,7 @@ After every call of \"print(..)\" a \"new line\" is printed automatically.
   function readFile
     "Read content of a file and return it in a vector of strings"
     extends Modelica.Icons.Function;
-    input String fileName "Name of the file that shall be read" 
+    input String fileName "Name of the file that shall be read"
                  annotation(Dialog(__Dymola_loadSelector(filter="Text files (*.txt)",
                         caption="Open text file for reading")));
     output String stringVector[countLines(fileName)] "Content of file";
@@ -128,7 +128,7 @@ stringVector = Streams.<b>readFile</b>(fileName)
 <h4>Description</h4>
 <p>
 Function <b>readFile</b>(..) opens the given file, reads the complete
-content, closes the file and returns the content as a vector of strings. Lines are separated by LF or CR-LF; the returned strings do not contain the line separators. 
+content, closes the file and returns the content as a vector of strings. Lines are separated by LF or CR-LF; the returned strings do not contain the line separators.
 </p>
 </html>"));
 
@@ -142,7 +142,7 @@ content, closes the file and returns the content as a vector of strings. Lines a
   function readLine
     "Reads a line of text from a file and returns it in a string"
     extends Modelica.Icons.Function;
-    input String fileName "Name of the file that shall be read" 
+    input String fileName "Name of the file that shall be read"
                         annotation(Dialog(__Dymola_loadSelector(filter="Text files (*.txt)",
                         caption="Open text file for reading")));
     input Integer lineNumber(min=1) "Number of line to read";
@@ -159,12 +159,12 @@ content, closes the file and returns the content as a vector of strings. Lines a
 <p>
 Function <b>readLine</b>(..) opens the given file, reads enough of the
 content to get the requested line, and returns the line as a string.
-Lines are separated by LF or CR-LF; the returned string does not 
+Lines are separated by LF or CR-LF; the returned string does not
 contain the line separator. The file might remain open after
 the call.
 </p>
 <p>
-If lineNumber > countLines(fileName), an empty string is returned 
+If lineNumber > countLines(fileName), an empty string is returned
 and endOfFile=true. Otherwise endOfFile=false.
 </p>
 </html>"));
@@ -172,7 +172,7 @@ and endOfFile=true. Otherwise endOfFile=false.
 
   function countLines "Returns the number of lines in a file"
     extends Modelica.Icons.Function;
-    input String fileName "Name of the file that shall be read" 
+    input String fileName "Name of the file that shall be read"
                        annotation(Dialog(__Dymola_loadSelector(filter="Text files (*.txt)",
                         caption="Open text file for coutning lines")));
 
@@ -205,7 +205,7 @@ Streams.<b>error</b>(string);
 <h4>Description</h4>
 <p>
 Print the string \"string\" as error message and
-cancel all actions. Line breaks are characterized 
+cancel all actions. Line breaks are characterized
 by \"\\n\" in the string.
 </p>
 <h4>Example</h4>
@@ -223,7 +223,7 @@ by \"\\n\" in the string.
 
   function close "Close file"
     extends Modelica.Icons.Function;
-    input String fileName "Name of the file that shall be closed" 
+    input String fileName "Name of the file that shall be closed"
                  annotation(Dialog(__Dymola_loadSelector(filter="Text files (*.txt)",
                         caption="Close text file")));
     external "C" ModelicaStreams_closeFile(fileName);

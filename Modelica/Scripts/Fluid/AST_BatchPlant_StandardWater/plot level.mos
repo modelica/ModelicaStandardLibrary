@@ -3,7 +3,7 @@
 removePlots();
 createPlot(id = 1,
  position = {1, 7, 841, 615},
- y = {"B1.level", "B2.level", "B3.level", "B4.level", "B5.level", "B6.level", 
+ y = {"B1.level", "B2.level", "B3.level", "B4.level", "B5.level", "B6.level",
 "B7.level"},
  range = {0, 3200.0, 0.4, (-0.02)},
  autoscale = true,

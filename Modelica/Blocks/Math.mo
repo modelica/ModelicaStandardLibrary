@@ -583,33 +583,33 @@ the result as output signal.
     end From_gps;
     annotation (Documentation(info="<html>
 <p>
-This package consists of blocks that convert an input signal 
+This package consists of blocks that convert an input signal
 with a specific unit to an output signal in another unit
 (e.g. conversion of an angle signal from \"deg\" to \"rad\").
 Block \"ConvertAllUnits\" converts between a set of units that
 can be selected in a pull-down menu of the parameter menu.
 All other blocks convert exactly between two different units.
 </p>
- 
+
 </html>"));
   end UnitConversions;
 
   block InverseBlockConstraints
     "Construct inverse model by requiring that two inputs and two outputs are identical (replaces the previously, unbalanced, TwoInputs and TwoOutputs blocks)"
 
-    Modelica.Blocks.Interfaces.RealInput u1 "Input signal 1 (u1 = u2)" 
+    Modelica.Blocks.Interfaces.RealInput u1 "Input signal 1 (u1 = u2)"
                             annotation (Placement(transformation(extent={{-240,
               -20},{-200,20}}, rotation=0), iconTransformation(extent={{-240,-20},
               {-200,20}})));
-    Modelica.Blocks.Interfaces.RealInput u2 "Input signal 2 (u1 = u2)" 
+    Modelica.Blocks.Interfaces.RealInput u2 "Input signal 2 (u1 = u2)"
                             annotation (Placement(transformation(extent={{-140,
               -20},{-180,20}}, rotation=0), iconTransformation(extent={{-140,-20},
               {-180,20}})));
-    Modelica.Blocks.Interfaces.RealOutput y1 "Output signal 1 (y1 = y2)" 
+    Modelica.Blocks.Interfaces.RealOutput y1 "Output signal 1 (y1 = y2)"
                              annotation (Placement(transformation(extent={{200,-10},
               {220,10}},      rotation=0), iconTransformation(extent={{200,-10},{
               220,10}})));
-    Modelica.Blocks.Interfaces.RealOutput y2 "Output signal 2 (y2 = y2)" 
+    Modelica.Blocks.Interfaces.RealOutput y2 "Output signal 2 (y2 = y2)"
                              annotation (Placement(transformation(extent={{10,-10},
               {-10,10}},       rotation=0,
           origin={170,0}),  iconTransformation(extent={{180,-10},{160,10}})));
@@ -637,13 +637,13 @@ block inputs. This block is used to construct inverse models.
 Its usage is demonstrated in example:
 <a href=\"Modelica://Modelica.Blocks.Examples.InverseModel\">Modelica.Blocks.Examples.InverseModel</a>.
 </p>
- 
+
 <p>
 Note, if a block shall be inverted that has several input and output blocks,
-then this can be easily achieved by using a vector of InverseBlockConstraints 
+then this can be easily achieved by using a vector of InverseBlockConstraints
 instances:
 </p>
- 
+
 <pre>
    InverseBlockConstraint invert[3];  // Block to be inverted has 3 input signals
 </pre>
@@ -657,10 +657,10 @@ instances:
 
         parameter Real k(start=1) "Gain value multiplied with input signal";
   public
-        Interfaces.RealInput u "Input signal connector" 
+        Interfaces.RealInput u "Input signal connector"
           annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
-        Interfaces.RealOutput y "Output signal connector" 
+        Interfaces.RealOutput y "Output signal connector"
           annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
         annotation (
@@ -819,7 +819,7 @@ Example:
 
         input Interfaces.RealInput u1 annotation (Placement(transformation(
             extent={{-100,-20},{-60,20}}, rotation=0)));
-        input Interfaces.RealInput u2 
+        input Interfaces.RealInput u2
           annotation (Placement(transformation(
           origin={0,-80},
           extent={{-20,-20},{20,20}},
@@ -1014,16 +1014,16 @@ Example:
         parameter Real k1=+1 "Gain of upper input";
         parameter Real k2=+1 "Gain of middle input";
         parameter Real k3=+1 "Gain of lower input";
-        input Interfaces.RealInput u1 "Connector 1 of Real input signals" 
+        input Interfaces.RealInput u1 "Connector 1 of Real input signals"
           annotation (Placement(transformation(extent={{-140,60},{-100,100}},
             rotation=0)));
-        input Interfaces.RealInput u2 "Connector 2 of Real input signals" 
+        input Interfaces.RealInput u2 "Connector 2 of Real input signals"
           annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
-        input Interfaces.RealInput u3 "Connector 3 of Real input signals" 
+        input Interfaces.RealInput u3 "Connector 3 of Real input signals"
           annotation (Placement(transformation(extent={{-140,-100},{-100,-60}},
             rotation=0)));
-        output Interfaces.RealOutput y "Connector of Real output signals" 
+        output Interfaces.RealOutput y "Connector of Real output signals"
           annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
         annotation (
@@ -1046,7 +1046,7 @@ Example:
 
      y = 2 * u1 - 3 * u2 + u3;
 </pre>
- 
+
 </HTML>
 "),       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -2728,14 +2728,14 @@ as <i>nearest integer value</i> of the input <b>u</b>:
 </html>
 "));
   public
-    Interfaces.RealInput u "Connector of Real input signal" 
+    Interfaces.RealInput u "Connector of Real input signal"
                            annotation (Placement(transformation(extent={{-140,
               -20},{-100,20}}, rotation=0)));
-    Interfaces.IntegerOutput y "Connector of Integer output signal" 
+    Interfaces.IntegerOutput y "Connector of Integer output signal"
                                annotation (Placement(transformation(extent={{
               100,-10},{120,10}}, rotation=0)));
   equation
-     y = if (u > 0) then integer(floor(u + 0.5)) else 
+     y = if (u > 0) then integer(floor(u + 0.5)) else
                          integer(ceil( u - 0.5));
   end RealToInteger;
 
@@ -2766,7 +2766,7 @@ as <i>Real equivalent</i> of the Integer input <b>u</b>:
 <p>where <b>u</b> is of Integer and <b>y</b> of Real type.</p>
 </html>
 "));
-    Interfaces.IntegerInput u "Connector of Integer input signal" 
+    Interfaces.IntegerInput u "Connector of Integer input signal"
                                                                annotation (Placement(
           transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
     Interfaces.RealOutput y "Connector of Real output signal"  annotation (Placement(
@@ -2780,7 +2780,7 @@ as <i>Real equivalent</i> of the Integer input <b>u</b>:
     parameter Real realTrue=1.0 "Output signal for true Boolean input";
     parameter Real realFalse=0.0 "Output signal for false Boolean input";
 
-    Blocks.Interfaces.RealOutput y "Connector of Real output signal" 
+    Blocks.Interfaces.RealOutput y "Connector of Real output signal"
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
 
@@ -2828,7 +2828,7 @@ and <b>realTrue</b> and <b>realFalse</b> are parameters.
     parameter Integer integerTrue=1 "Output signal for true Boolean input";
     parameter Integer integerFalse=0 "Output signal for false Boolean input";
 
-    Blocks.Interfaces.IntegerOutput y "Connector of Integer output signal" 
+    Blocks.Interfaces.IntegerOutput y "Connector of Integer output signal"
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
 
@@ -2973,15 +2973,15 @@ where <b>threshold</b> is a parameter.
     "Convert rectangular coordinates to polar coordinates"
     extends Modelica.Blocks.Interfaces.BlockIcon;
     Modelica.Blocks.Interfaces.RealInput u_re
-      "Real part of rectangular representation" 
+      "Real part of rectangular representation"
       annotation (Placement(transformation(extent={{-140,40},{-100,80}},
             rotation=0)));
     Modelica.Blocks.Interfaces.RealInput u_im
-      "Imaginary part of rectangular representation" 
+      "Imaginary part of rectangular representation"
       annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
             rotation=0)));
     Modelica.Blocks.Interfaces.RealOutput y_abs
-      "Length of polar representation" 
+      "Length of polar representation"
       annotation (Placement(transformation(extent={{100,50},{120,70}},
             rotation=0)));
     Modelica.Blocks.Interfaces.RealOutput y_arg "Angle of polar representation"
@@ -3009,9 +3009,9 @@ where <b>threshold</b> is a parameter.
             textString="arg")}),
       Documentation(info="<html>
 <p>
-The input values of this block are the rectangular components 
-<code>u_re</code> and <code>u_im</code> of a phasor in two dimensions. 
-This block calculates the length <code>y_abs</code> and 
+The input values of this block are the rectangular components
+<code>u_re</code> and <code>u_im</code> of a phasor in two dimensions.
+This block calculates the length <code>y_abs</code> and
 the angle <code>y_arg</code> of the polar representation of this phasor.
 </p>
 
@@ -3032,15 +3032,15 @@ the angle <code>y_arg</code> of the polar representation of this phasor.
     Modelica.Blocks.Interfaces.RealInput u_abs "Length of polar representation"
       annotation (Placement(transformation(extent={{-140,40},{-100,80}},
             rotation=0)));
-    Modelica.Blocks.Interfaces.RealInput u_arg "Angle of polar representation" 
+    Modelica.Blocks.Interfaces.RealInput u_arg "Angle of polar representation"
       annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
             rotation=0)));
     Modelica.Blocks.Interfaces.RealOutput y_re
-      "Real part of rectangular representation" 
+      "Real part of rectangular representation"
       annotation (Placement(transformation(extent={{100,50},{120,70}},
             rotation=0)));
     Modelica.Blocks.Interfaces.RealOutput y_im
-      "Imaginary part of rectangular representation" 
+      "Imaginary part of rectangular representation"
       annotation (Placement(transformation(extent={{100,-70},{120,-50}},
             rotation=0)));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
@@ -3065,7 +3065,7 @@ the angle <code>y_arg</code> of the polar representation of this phasor.
             textString="im")}),
       Documentation(info="<html>
 <p>
-The input values of this block are the polar components <code>uabs</code> and <code>uarg</code> of a phasor. 
+The input values of this block are the polar components <code>uabs</code> and <code>uarg</code> of a phasor.
 This block calculates the components <code>y_re</code> and <code>y_im</code> of the rectangular representation of this phasor.
 </p>
 <pre>

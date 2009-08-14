@@ -6,20 +6,20 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
   model SimpleDriveTrain
     Modelica.Blocks.Sources.Sine sine annotation (Placement(transformation(
               extent={{-80,0},{-60,20}}, rotation=0)));
-    Modelica.Mechanics.Rotational.Sources.Torque torque(useSupport=true) 
+    Modelica.Mechanics.Rotational.Sources.Torque torque(useSupport=true)
       annotation (Placement(transformation(extent={{-44,0},{-24,20}}, rotation=
                 0)));
-    Modelica.Mechanics.Rotational.Components.Fixed fixed 
+    Modelica.Mechanics.Rotational.Components.Fixed fixed
       annotation (Placement(transformation(extent={{-44,-20},{-24,0}}, rotation
               =0)));
     Modelica.Mechanics.Rotational.Components.Inertia J1(
-                                             J=0.2) 
+                                             J=0.2)
       annotation (Placement(transformation(extent={{-10,0},{10,20}}, rotation=0)));
     Modelica.Mechanics.Rotational.Components.IdealGear gear(
-                                                 ratio=5, useSupport=true) 
+                                                 ratio=5, useSupport=true)
       annotation (Placement(transformation(extent={{20,0},{40,20}}, rotation=0)));
     Modelica.Mechanics.Rotational.Components.Inertia J2(
-                                             J=5) 
+                                             J=5)
       annotation (Placement(transformation(extent={{52,0},{72,20}}, rotation=0)));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
                 -100,-100},{100,100}}), graphics),
@@ -52,28 +52,28 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
   end SimpleDriveTrain;
 
     model ConnectionPossibilities
-      Modelica.Mechanics.Rotational.Components.Inertia inertia1 
+      Modelica.Mechanics.Rotational.Components.Inertia inertia1
         annotation (Placement(transformation(extent={{-60,40},{-40,60}},
               rotation=0)));
-      Modelica.Mechanics.Rotational.Components.Inertia inertia2 
+      Modelica.Mechanics.Rotational.Components.Inertia inertia2
         annotation (Placement(transformation(extent={{-20,40},{0,60}}, rotation
               =0)));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
                 -100,-100},{100,100}}), graphics),
         experiment(StopTime=2),
         experimentSetupOutput);
-      Modelica.Mechanics.Rotational.Components.Inertia inertia3 
+      Modelica.Mechanics.Rotational.Components.Inertia inertia3
         annotation (Placement(transformation(extent={{-60,-20},{-40,0}},
               rotation=0)));
-      Modelica.Mechanics.Rotational.Components.Inertia inertia4 
+      Modelica.Mechanics.Rotational.Components.Inertia inertia4
         annotation (Placement(transformation(extent={{30,-20},{50,0}}, rotation
               =0)));
       Modelica.Mechanics.Rotational.Components.Spring spring1(
-                                                   c=1e4) 
+                                                   c=1e4)
         annotation (Placement(transformation(extent={{-30,-20},{-10,0}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Components.Spring spring2(
-                                                   c=1e4) 
+                                                   c=1e4)
         annotation (Placement(transformation(extent={{0,-20},{20,0}}, rotation=
                 0)));
       annotation (Diagram, experiment(StopTime=1.1));
@@ -98,30 +98,30 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
     end ConnectionPossibilities;
 
     model SupportTorque1
-      Modelica.Blocks.Sources.Sine sine2 
+      Modelica.Blocks.Sources.Sine sine2
                                         annotation (Placement(transformation(
               extent={{-80,0},{-60,20}}, rotation=0)));
-      Modelica.Mechanics.Rotational.Sources.Torque torque2(useSupport=true) 
+      Modelica.Mechanics.Rotational.Sources.Torque torque2(useSupport=true)
         annotation (Placement(transformation(extent={{-44,0},{-24,20}},
               rotation=0)));
-      Modelica.Mechanics.Rotational.Components.Fixed fixed1 
+      Modelica.Mechanics.Rotational.Components.Fixed fixed1
         annotation (Placement(transformation(extent={{-44,-20},{-24,0}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Components.Inertia inertia3(
-                                                     J=1) 
+                                                     J=1)
         annotation (Placement(transformation(extent={{-14,0},{6,20}}, rotation=
                 0)));
       Modelica.Mechanics.Rotational.Components.IdealGear idealGear2(
                                                          ratio=1, useSupport=
-            true) 
+            true)
         annotation (Placement(transformation(extent={{16,0},{36,20}}, rotation=
                 0)));
       Modelica.Mechanics.Rotational.Components.Inertia inertia4(
-                                                     J=1) 
+                                                     J=1)
         annotation (Placement(transformation(extent={{74,0},{94,20}}, rotation=
                 0)));
       Modelica.Mechanics.Rotational.Components.BearingFriction bearingFriction1
-        (useSupport=true) 
+        (useSupport=true)
         annotation (Placement(transformation(extent={{46,0},{66,20}}, rotation=
                 0)));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
@@ -131,7 +131,7 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
         experiment(StopTime=2),
         experimentSetupOutput);
     equation
-      connect(sine2.y, torque2.tau) 
+      connect(sine2.y, torque2.tau)
                                   annotation (Line(
           points={{-59,10},{-46,10}},
           color={0,0,127},
@@ -140,17 +140,17 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
           points={{-34,0},{-34,-10}},
           color={0,0,0},
           smooth=Smooth.None));
-      connect(torque2.flange,   inertia3.flange_a) 
+      connect(torque2.flange,   inertia3.flange_a)
                                             annotation (Line(
           points={{-24,10},{-14,10}},
           color={0,0,0},
           smooth=Smooth.None));
-      connect(fixed1.flange,idealGear2.support) 
+      connect(fixed1.flange,idealGear2.support)
                                             annotation (Line(
           points={{-34,-10},{26,-10},{26,0}},
           color={0,0,0},
           smooth=Smooth.None));
-      connect(inertia3.flange_b, idealGear2.flange_a) 
+      connect(inertia3.flange_b, idealGear2.flange_a)
                                           annotation (Line(
           points={{6,10},{16,10}},
           color={0,0,0},
@@ -172,29 +172,29 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
     model Directions
       Modelica.Blocks.Sources.Sine sine annotation (Placement(transformation(
               extent={{-80,60},{-60,80}}, rotation=0)));
-      Modelica.Mechanics.Rotational.Sources.Torque torque(useSupport=true) 
+      Modelica.Mechanics.Rotational.Sources.Torque torque(useSupport=true)
         annotation (Placement(transformation(extent={{-44,60},{-24,80}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Components.Inertia J1(
-                                               J=0.2) 
+                                               J=0.2)
         annotation (Placement(transformation(extent={{-10,60},{10,80}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Components.IdealGear gear(
-                                                   ratio=5, useSupport=true) 
+                                                   ratio=5, useSupport=true)
         annotation (Placement(transformation(extent={{20,60},{40,80}}, rotation
               =0)));
       Modelica.Mechanics.Rotational.Components.Inertia J2(
-                                               J=5) 
+                                               J=5)
         annotation (Placement(transformation(extent={{52,60},{72,80}}, rotation
               =0)));
-      Modelica.Blocks.Sources.Sine sine1 
+      Modelica.Blocks.Sources.Sine sine1
                                         annotation (Placement(transformation(
               extent={{-80,10},{-60,30}}, rotation=0)));
-      Modelica.Mechanics.Rotational.Sources.Torque torque1(useSupport=true) 
+      Modelica.Mechanics.Rotational.Sources.Torque torque1(useSupport=true)
         annotation (Placement(transformation(extent={{-44,10},{-24,30}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Components.Inertia J3(
-                                               J=0.2) 
+                                               J=0.2)
         annotation (Placement(transformation(extent={{-10,10},{10,30}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Components.IdealGear gear1(
@@ -202,17 +202,17 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
         annotation (Placement(transformation(extent={{40,10},{20,30}}, rotation
               =0)));
       Modelica.Mechanics.Rotational.Components.Inertia J4(
-                                               J=5) 
+                                               J=5)
         annotation (Placement(transformation(extent={{52,10},{72,30}}, rotation
               =0)));
-      Modelica.Blocks.Sources.Sine sine2 
+      Modelica.Blocks.Sources.Sine sine2
                                         annotation (Placement(transformation(
               extent={{-80,-50},{-60,-30}}, rotation=0)));
-      Modelica.Mechanics.Rotational.Sources.Torque torque2(useSupport=true) 
+      Modelica.Mechanics.Rotational.Sources.Torque torque2(useSupport=true)
         annotation (Placement(transformation(extent={{-44,-50},{-24,-30}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Components.Inertia J5(
-                                               J=0.2) 
+                                               J=0.2)
         annotation (Placement(transformation(extent={{-10,-50},{10,-30}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Components.IdealGear gear2(
@@ -220,7 +220,7 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
         annotation (Placement(transformation(extent={{40,-50},{20,-30}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Components.Inertia J6(
-                                               J=5) 
+                                               J=5)
         annotation (Placement(transformation(extent={{72,-50},{52,-30}},
               rotation=0)));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
@@ -238,13 +238,13 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
                    "(positive) axis of rotation")}),
         experiment(StopTime=2),
         experimentSetupOutput);
-      Modelica.Mechanics.Rotational.Components.Fixed fixed1 
+      Modelica.Mechanics.Rotational.Components.Fixed fixed1
         annotation (Placement(transformation(extent={{-10,42},{10,62}},
               rotation=0)));
-      Modelica.Mechanics.Rotational.Components.Fixed fixed2 
+      Modelica.Mechanics.Rotational.Components.Fixed fixed2
         annotation (Placement(transformation(extent={{-10,-6},{10,14}},
               rotation=0)));
-      Modelica.Mechanics.Rotational.Components.Fixed fixed3 
+      Modelica.Mechanics.Rotational.Components.Fixed fixed3
         annotation (Placement(transformation(extent={{-10,-66},{10,-46}},
               rotation=0)));
     equation
@@ -264,12 +264,12 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
           points={{10,70},{20,70}},
           color={0,0,0},
           smooth=Smooth.None));
-      connect(sine1.y, torque1.tau) 
+      connect(sine1.y, torque1.tau)
                                   annotation (Line(
           points={{-59,20},{-46,20}},
           color={0,0,127},
           smooth=Smooth.None));
-      connect(torque1.flange,   J3.flange_a) 
+      connect(torque1.flange,   J3.flange_a)
                                             annotation (Line(
           points={{-24,20},{-10,20}},
           color={0,0,0},
@@ -282,12 +282,12 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
           points={{40,20},{52,20}},
           color={0,0,0},
           smooth=Smooth.None));
-      connect(sine2.y, torque2.tau) 
+      connect(sine2.y, torque2.tau)
                                   annotation (Line(
           points={{-59,-40},{-46,-40}},
           color={0,0,127},
           smooth=Smooth.None));
-      connect(torque2.flange,   J5.flange_a) 
+      connect(torque2.flange,   J5.flange_a)
                                             annotation (Line(
           points={{-24,-40},{-10,-40}},
           color={0,0,0},
@@ -328,7 +328,7 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
 
     model Directions2
       Modelica.Mechanics.Rotational.Components.Inertia J2(
-                                               J=5) 
+                                               J=5)
         annotation (Placement(transformation(extent={{-60,55},{-40,75}},
               rotation=0)));
       annotation (Diagram(coordinateSystem(
@@ -437,55 +437,55 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
               fillPattern=FillPattern.Solid)}),
         experiment(StopTime=2));
       Modelica.Mechanics.Rotational.Components.Inertia J4(
-                                               J=5) 
+                                               J=5)
         annotation (Placement(transformation(extent={{-8,55},{12,75}}, rotation
               =0)));
       Modelica.Mechanics.Rotational.Components.Inertia J6(
-                                               J=5) 
+                                               J=5)
         annotation (Placement(transformation(extent={{65,55},{45,75}}, rotation
               =0)));
-      Modelica.Mechanics.Rotational.Components.Inertia inertia1 
+      Modelica.Mechanics.Rotational.Components.Inertia inertia1
         annotation (Placement(transformation(extent={{-30,-10},{-10,10}},
               rotation=0)));
-      Modelica.Mechanics.Rotational.Sources.Torque torque1(useSupport=true) 
+      Modelica.Mechanics.Rotational.Sources.Torque torque1(useSupport=true)
         annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
               rotation=0)));
-      Modelica.Blocks.Sources.Sine sine1 
+      Modelica.Blocks.Sources.Sine sine1
                                         annotation (Placement(transformation(
               extent={{-90,-10},{-70,10}}, rotation=0)));
-      Modelica.Mechanics.Rotational.Components.Inertia inertia2 
+      Modelica.Mechanics.Rotational.Components.Inertia inertia2
         annotation (Placement(transformation(extent={{10,-10},{30,10}},
               rotation=0)));
-      Modelica.Mechanics.Rotational.Sources.Torque torque2(useSupport=true) 
+      Modelica.Mechanics.Rotational.Sources.Torque torque2(useSupport=true)
         annotation (Placement(transformation(extent={{60,-10},{40,10}},
               rotation=0)));
-      Modelica.Blocks.Sources.Sine sine2 
+      Modelica.Blocks.Sources.Sine sine2
                                         annotation (Placement(transformation(
               extent={{90,-10},{70,10}}, rotation=0)));
-      Modelica.Mechanics.Rotational.Components.Inertia inertia3 
+      Modelica.Mechanics.Rotational.Components.Inertia inertia3
         annotation (Placement(transformation(extent={{-80,-100},{-60,-80}},
               rotation=0)));
-      Modelica.Mechanics.Rotational.Components.Inertia inertia4 
+      Modelica.Mechanics.Rotational.Components.Inertia inertia4
         annotation (Placement(transformation(extent={{-6,-64},{-26,-44}},
               rotation=0)));
-      Modelica.Mechanics.Rotational.Components.IdealPlanetary idealPlanetary1 
+      Modelica.Mechanics.Rotational.Components.IdealPlanetary idealPlanetary1
         annotation (Placement(transformation(extent={{-50,-100},{-30,-80}},
               rotation=0)));
-      Modelica.Mechanics.Rotational.Components.IdealPlanetary idealPlanetary2 
+      Modelica.Mechanics.Rotational.Components.IdealPlanetary idealPlanetary2
         annotation (Placement(transformation(extent={{60,-100},{80,-80}},
               rotation=0)));
-      Modelica.Mechanics.Rotational.Components.Inertia inertia5 
+      Modelica.Mechanics.Rotational.Components.Inertia inertia5
         annotation (Placement(transformation(extent={{0,-100},{20,-80}},
               rotation=0)));
-      Modelica.Mechanics.Rotational.Components.Inertia inertia6 
+      Modelica.Mechanics.Rotational.Components.Inertia inertia6
         annotation (Placement(transformation(
             origin={40,-50},
             extent={{-10,10},{10,-10}},
             rotation=90)));
-      Modelica.Mechanics.Rotational.Components.Fixed fixed1 
+      Modelica.Mechanics.Rotational.Components.Fixed fixed1
         annotation (Placement(transformation(extent={{-60,-27},{-40,-7}},
               rotation=0)));
-      Modelica.Mechanics.Rotational.Components.Fixed fixed2 
+      Modelica.Mechanics.Rotational.Components.Fixed fixed2
         annotation (Placement(transformation(extent={{40,-24},{60,-4}},
               rotation=0)));
     equation
@@ -533,7 +533,7 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
 
     model Directions3
       Modelica.Mechanics.Rotational.Components.Inertia J1(
-                                               J=1) 
+                                               J=1)
         annotation (Placement(transformation(extent={{-80,40},{-60,60}},
               rotation=0)));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
@@ -569,15 +569,15 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
               fillPattern=FillPattern.Solid)}),
         experiment(StopTime=2));
       Modelica.Mechanics.Rotational.Components.Inertia J2(
-                                               J=1) 
+                                               J=1)
         annotation (Placement(transformation(extent={{-20,40},{-40,60}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Components.Inertia J3(
-                                               J=1) 
+                                               J=1)
         annotation (Placement(transformation(extent={{20,40},{40,60}}, rotation
               =0)));
       Modelica.Mechanics.Rotational.Components.Inertia J4(
-                                               J=1) 
+                                               J=1)
         annotation (Placement(transformation(extent={{60,40},{80,60}}, rotation
               =0)));
     equation
@@ -600,72 +600,72 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
                 -100,-100},{100,100}}), graphics),
         experiment(StopTime=1.1));
       Modelica.Mechanics.Rotational.Components.Inertia inertia1(phi(start=
-              0.0174532925199433), w(start=2)) 
+              0.0174532925199433), w(start=2))
                                 annotation (Placement(transformation(extent={{
                 -86,40},{-66,60}}, rotation=0)));
       Modelica.Mechanics.Rotational.Components.Inertia inertia2(
         stateSelect=StateSelect.default,
         a(fixed=true),
         phi(fixed=false, start=0.0174532925199433),
-        w(fixed=true, start=2)) 
+        w(fixed=true, start=2))
         annotation (Placement(transformation(extent={{0,40},{20,60}}, rotation=
                 0)));
       Modelica.Mechanics.Rotational.Components.Inertia inertia3(
           stateSelect=StateSelect.prefer,
         a(fixed=false),
         phi(fixed=true),
-        w(fixed=true)) 
+        w(fixed=true))
         annotation (Placement(transformation(extent={{40,40},{60,60}}, rotation
               =0)));
       Modelica.Mechanics.Rotational.Components.Inertia inertia4(
         stateSelect=StateSelect.always,
         a(fixed=false),
         phi(fixed=true, start=-0.0174532925199433),
-        w(fixed=false, start=-2)) 
+        w(fixed=false, start=-2))
         annotation (Placement(transformation(extent={{80,40},{100,60}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Components.Inertia inertia5(
         stateSelect=StateSelect.avoid,
         a(fixed=false),
         phi(fixed=false, start=0.3839724354387525),
-        w(fixed=true, start=33)) 
+        w(fixed=true, start=33))
         annotation (Placement(transformation(extent={{-86,0},{-66,20}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Components.Inertia inertia6(
         a(fixed=true, start=44),
         phi(fixed=false),
-        w(fixed=false)) 
+        w(fixed=false))
                       annotation (Placement(transformation(extent={{-14,0},{6,
                 20}}, rotation=0)));
       Modelica.Mechanics.Rotational.Components.Inertia inertia7(
         a(fixed=true, start=3),
         phi(fixed=true, start=0.0174532925199433),
-        w(fixed=false, start=2)) 
-                   annotation (Placement(transformation(extent={{22,0},{42,20}}, 
+        w(fixed=false, start=2))
+                   annotation (Placement(transformation(extent={{22,0},{42,20}},
               rotation=0)));
 
       Modelica.Mechanics.Rotational.Components.Inertia inertia8(
         a(fixed=true),
         phi(fixed=false),
-        w(fixed=true)) 
+        w(fixed=true))
         annotation (Placement(transformation(extent={{-84,-40},{-64,-20}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Components.Inertia inertia9(
         a(fixed=true, start=33),
         phi(fixed=true, start=0.1919862177193762),
-        w(fixed=true, start=22)) 
+        w(fixed=true, start=22))
                     annotation (Placement(transformation(extent={{20,-40},{40,
                 -20}}, rotation=0)));
 
       Modelica.Mechanics.Rotational.Components.Spring spring(
-                                                  c=10000) 
+                                                  c=10000)
         annotation (Placement(transformation(extent={{-28,40},{-8,60}},
               rotation=0)));
-      Modelica.Mechanics.Rotational.Components.Fixed fixed 
+      Modelica.Mechanics.Rotational.Components.Fixed fixed
                                                 annotation (Placement(
             transformation(extent={{-50,40},{-30,60}}, rotation=0)));
       Modelica.Mechanics.Rotational.Components.Spring spring1(
-                                                   c=10000) 
+                                                   c=10000)
         annotation (Placement(transformation(extent={{50,0},{70,20}}, rotation=
                 0)));
       Modelica.Mechanics.Rotational.Components.Inertia inertia7a(
@@ -674,21 +674,21 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
         w(start=2))                   annotation (Placement(transformation(
               extent={{80,0},{100,20}}, rotation=0)));
       Modelica.Mechanics.Rotational.Components.Spring spring2(
-                                                   c=10000) 
+                                                   c=10000)
         annotation (Placement(transformation(extent={{-40,0},{-20,20}},
               rotation=0)));
-      Modelica.Mechanics.Rotational.Components.Fixed fixed1 
+      Modelica.Mechanics.Rotational.Components.Fixed fixed1
                                                  annotation (Placement(
             transformation(extent={{-60,0},{-40,20}}, rotation=0)));
       Modelica.Mechanics.Rotational.Components.Spring spring3(
-                                                   c=10000) 
+                                                   c=10000)
         annotation (Placement(transformation(extent={{-52,-40},{-32,-20}},
               rotation=0)));
-      Modelica.Mechanics.Rotational.Components.Inertia inertia8a 
+      Modelica.Mechanics.Rotational.Components.Inertia inertia8a
         annotation (Placement(transformation(extent={{-26,-40},{-6,-20}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Components.Spring spring4(
-                                                   c=10000) 
+                                                   c=10000)
         annotation (Placement(transformation(extent={{52,-40},{72,-20}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Components.Inertia inertia9a(
@@ -744,20 +744,20 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
         c=1e4,
         d=10,
         phi_rel(start=1),
-        w_rel(start=2)) 
+        w_rel(start=2))
                        annotation (Placement(transformation(extent={{-70,60},{
                 -50,80}}, rotation=0)));
-      Modelica.Mechanics.Rotational.Components.Fixed fixed 
+      Modelica.Mechanics.Rotational.Components.Fixed fixed
         annotation (Placement(transformation(extent={{-100,60},{-80,80}},
               rotation=0)));
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}), graphics),
         experiment(StopTime=1.1));
-      Modelica.Mechanics.Rotational.Components.Inertia inertia1 
+      Modelica.Mechanics.Rotational.Components.Inertia inertia1
         annotation (Placement(transformation(extent={{-40,60},{-20,80}},
               rotation=0)));
-      Modelica.Mechanics.Rotational.Components.Inertia inertia2 
+      Modelica.Mechanics.Rotational.Components.Inertia inertia2
         annotation (Placement(transformation(extent={{-40,20},{-20,40}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Components.SpringDamper springDamper2(
@@ -766,7 +766,7 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
         stateSelect=StateSelect.prefer,
         a_rel(fixed=true),
         phi_rel(fixed=false, start=-1),
-        w_rel(fixed=true, start=-2)) 
+        w_rel(fixed=true, start=-2))
         annotation (Placement(transformation(extent={{-70,20},{-50,40}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Components.SpringDamper springDamper3(
@@ -775,10 +775,10 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
         stateSelect=StateSelect.always,
         a_rel(fixed=false),
         phi_rel(fixed=true, start=1),
-        w_rel(fixed=true, start=2)) 
+        w_rel(fixed=true, start=2))
         annotation (Placement(transformation(extent={{-70,-20},{-50,0}},
               rotation=0)));
-      Modelica.Mechanics.Rotational.Components.Inertia inertia3 
+      Modelica.Mechanics.Rotational.Components.Inertia inertia3
         annotation (Placement(transformation(extent={{-40,-20},{-20,0}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Components.SpringDamper springDamper4(
@@ -787,10 +787,10 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
         stateSelect=StateSelect.avoid,
         a_rel(fixed=false),
         phi_rel(fixed=true),
-        w_rel(fixed=false)) 
+        w_rel(fixed=false))
         annotation (Placement(transformation(extent={{-70,-60},{-50,-40}},
               rotation=0)));
-      Modelica.Mechanics.Rotational.Components.Inertia inertia4 
+      Modelica.Mechanics.Rotational.Components.Inertia inertia4
         annotation (Placement(transformation(extent={{-40,-60},{-20,-40}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Components.SpringDamper springDamper5(
@@ -799,23 +799,23 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
         stateSelect=StateSelect.never,
         a_rel(fixed=false),
         phi_rel(fixed=false),
-        w_rel(fixed=true, start=3)) 
+        w_rel(fixed=true, start=3))
         annotation (Placement(transformation(extent={{-70,-100},{-50,-80}},
               rotation=0)));
-      Modelica.Mechanics.Rotational.Components.Inertia inertia5 
+      Modelica.Mechanics.Rotational.Components.Inertia inertia5
         annotation (Placement(transformation(extent={{-40,-100},{-20,-80}},
               rotation=0)));
-      Modelica.Mechanics.Rotational.Components.Inertia inertia6 
+      Modelica.Mechanics.Rotational.Components.Inertia inertia6
         annotation (Placement(transformation(extent={{20,40},{40,60}}, rotation
               =0)));
       Modelica.Mechanics.Rotational.Components.Spring spring(
-                                                  c=1e4) 
+                                                  c=1e4)
         annotation (Placement(transformation(extent={{48,40},{68,60}}, rotation
               =0)));
-      Modelica.Mechanics.Rotational.Components.Inertia inertia7 
+      Modelica.Mechanics.Rotational.Components.Inertia inertia7
         annotation (Placement(transformation(extent={{74,40},{94,60}}, rotation
               =0)));
-      Modelica.Mechanics.Rotational.Components.RelativeStates relativeStates 
+      Modelica.Mechanics.Rotational.Components.RelativeStates relativeStates
         annotation (Placement(transformation(extent={{48,20},{68,40}}, rotation
               =0)));
     equation
@@ -882,9 +882,9 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
   model TestSpeed
 
     Modelica.Mechanics.Rotational.Sources.Speed speed1(
-                                               f_crit=5, useSupport=false) 
+                                               f_crit=5, useSupport=false)
       annotation (Placement(transformation(extent={{-20,60},{0,80}}, rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia1 
+    Modelica.Mechanics.Rotational.Components.Inertia inertia1
       annotation (Placement(transformation(extent={{20,60},{40,80}}, rotation=0)));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
               -100,-100},{100,100}}), graphics),
@@ -892,51 +892,51 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
     Modelica.Mechanics.Rotational.Sources.Speed speed2(
       f_crit=5,
       exact=true,
-      useSupport=false) 
-                  annotation (Placement(transformation(extent={{-20,20},{0,40}}, 
+      useSupport=false)
+                  annotation (Placement(transformation(extent={{-20,20},{0,40}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia2 
+    Modelica.Mechanics.Rotational.Components.Inertia inertia2
       annotation (Placement(transformation(extent={{20,20},{40,40}}, rotation=0)));
     Modelica.Blocks.Sources.Sine sine2 annotation (Placement(transformation(
             extent={{-60,20},{-40,40}}, rotation=0)));
-    Modelica.Blocks.Sources.Step step(startTime=0.5) 
+    Modelica.Blocks.Sources.Step step(startTime=0.5)
       annotation (Placement(transformation(extent={{-60,60},{-40,80}}, rotation
             =0)));
     Modelica.Mechanics.Translational.Sources.Speed speed3(   f_crit=5, s(start=
-            1)) 
+            1))
       annotation (Placement(transformation(extent={{-20,-20},{0,0}}, rotation=0)));
     Modelica.Mechanics.Translational.Components.Mass mass1(
-                                                       m=2) 
+                                                       m=2)
       annotation (Placement(transformation(extent={{20,-20},{40,0}}, rotation=0)));
-    Modelica.Blocks.Sources.Step step1(startTime=0.5) 
+    Modelica.Blocks.Sources.Step step1(startTime=0.5)
       annotation (Placement(transformation(extent={{-60,-20},{-40,0}}, rotation
             =0)));
     Modelica.Mechanics.Translational.Sources.Speed speed4(   exact=true, s(start=
-            1)) 
+            1))
       annotation (Placement(transformation(extent={{-20,-60},{0,-40}}, rotation
             =0)));
     Modelica.Mechanics.Translational.Components.Mass mass2(
-                                                       m=2) 
+                                                       m=2)
       annotation (Placement(transformation(extent={{20,-60},{40,-40}}, rotation
             =0)));
     Modelica.Blocks.Sources.Sine sine4 annotation (Placement(transformation(
             extent={{-60,-60},{-40,-40}}, rotation=0)));
   equation
-    connect(speed1.flange,   inertia1.flange_a) 
+    connect(speed1.flange,   inertia1.flange_a)
       annotation (Line(points={{0,70},{20,70}}, color={0,0,0}));
-    connect(speed2.flange,   inertia2.flange_a) 
+    connect(speed2.flange,   inertia2.flange_a)
       annotation (Line(points={{0,30},{20,30}}, color={0,0,0}));
-    connect(sine2.y, speed2.w_ref) annotation (Line(points={{-39,30},{-22,30}}, 
+    connect(sine2.y, speed2.w_ref) annotation (Line(points={{-39,30},{-22,30}},
           color={0,0,127}));
     connect(step.y, speed1.w_ref) annotation (Line(points={{-39,70},{-22,70}},
           color={0,0,127}));
-    connect(speed3.flange,   mass1.flange_a) 
+    connect(speed3.flange,   mass1.flange_a)
       annotation (Line(points={{0,-10},{20,-10}}, color={0,127,0}));
-    connect(step1.y, speed3.v_ref) annotation (Line(points={{-39,-10},{-22,-10}}, 
+    connect(step1.y, speed3.v_ref) annotation (Line(points={{-39,-10},{-22,-10}},
           color={0,0,127}));
-    connect(speed4.flange,   mass2.flange_a) 
+    connect(speed4.flange,   mass2.flange_a)
       annotation (Line(points={{0,-50},{20,-50}}, color={0,127,0}));
-    connect(sine4.y, speed4.v_ref) annotation (Line(points={{-39,-50},{-22,-50}}, 
+    connect(sine4.y, speed4.v_ref) annotation (Line(points={{-39,-50},{-22,-50}},
           color={0,0,127}));
   end TestSpeed;
 
@@ -945,30 +945,30 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
     annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
               -100,-100},{100,100}}), graphics),
       experiment(StopTime=1.1));
-    Modelica.Mechanics.MultiBody.Parts.Body Body1(I_33=2) 
+    Modelica.Mechanics.MultiBody.Parts.Body Body1(I_33=2)
       annotation (Placement(transformation(extent={{66,36},{86,56}}, rotation=0)));
     Modelica.Mechanics.MultiBody.Joints.Revolute ActuatedRevolute1(
-        useAxisFlange=true) 
+        useAxisFlange=true)
       annotation (Placement(transformation(extent={{32,0},{52,20}}, rotation=0)));
-    inner Modelica.Mechanics.MultiBody.World world(g=0) 
+    inner Modelica.Mechanics.MultiBody.World world(g=0)
       annotation (Placement(transformation(extent={{0,0},{20,20}}, rotation=0)));
-    Modelica.Mechanics.Rotational.Sources.Move move(useSupport=false) 
+    Modelica.Mechanics.Rotational.Sources.Move move(useSupport=false)
                                              annotation (Placement(
           transformation(extent={{20,40},{40,60}}, rotation=0)));
-    Modelica.Blocks.Routing.Multiplex3 Multiplex3_1 
+    Modelica.Blocks.Routing.Multiplex3 Multiplex3_1
       annotation (Placement(transformation(extent={{-56,40},{-36,60}}, rotation
             =0)));
-    Modelica.Blocks.Sources.Constant Constant1 
+    Modelica.Blocks.Sources.Constant Constant1
       annotation (Placement(transformation(extent={{-100,16},{-80,36}},
             rotation=0)));
-    Modelica.Blocks.Sources.Constant Constant2(k=0) 
+    Modelica.Blocks.Sources.Constant Constant2(k=0)
       annotation (Placement(transformation(extent={{-100,70},{-80,90}},
             rotation=0)));
-    Modelica.Mechanics.Translational.Sources.Move move1 
+    Modelica.Mechanics.Translational.Sources.Move move1
       annotation (Placement(transformation(extent={{-20,-40},{0,-20}}, rotation
             =0)));
     Modelica.Mechanics.Translational.Components.Mass slidingMass(
-                                                             m=2) 
+                                                             m=2)
       annotation (Placement(transformation(extent={{20,-40},{40,-20}}, rotation
             =0)));
   equation
@@ -982,7 +982,7 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
         thickness=0.5));
     connect(move.flange,   ActuatedRevolute1.axis)  annotation (Line(points={{
             40,50},{42,50},{42,20}}, color={0,0,0}));
-    connect(Multiplex3_1.y, move.u) 
+    connect(Multiplex3_1.y, move.u)
       annotation (Line(points={{-35,50},{18,50}}, color={0,0,127}));
     connect(Constant1.y, Multiplex3_1.u3[1]) annotation (Line(points={{-79,26},
             {-74,26},{-74,43},{-58,43}}, color={0,0,127}));
@@ -992,13 +992,13 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
             {-74,80},{-74,50},{-58,50}}, color={0,0,127}));
     connect(Multiplex3_1.y, move1.u) annotation (Line(points={{-35,50},{-28,50},
             {-28,-30},{-22,-30}}, color={0,0,127}));
-    connect(move1.flange,   slidingMass.flange_a) 
+    connect(move1.flange,   slidingMass.flange_a)
       annotation (Line(points={{0,-30},{20,-30}}, color={0,127,0}));
   end TestMove;
 
   model AllComponents
     Modelica.Mechanics.Rotational.Components.Inertia inertia(
-                                                  J=3) 
+                                                  J=3)
       annotation (Placement(transformation(extent={{-60,40},{-40,60}}, rotation
             =0)));
     Modelica.Mechanics.Rotational.Components.IdealGear idealGear(
@@ -1011,33 +1011,33 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
           initialScale=0.1), graphics),
       experiment(StopTime=0.9));
     Modelica.Mechanics.Rotational.Components.IdealPlanetary idealPlanetary(
-                                                                ratio=3) 
+                                                                ratio=3)
       annotation (Placement(transformation(extent={{4,40},{24,60}}, rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Fixed fixed 
+    Modelica.Mechanics.Rotational.Components.Fixed fixed
       annotation (Placement(transformation(extent={{-30,10},{-10,30}}, rotation
             =0)));
     Modelica.Mechanics.Rotational.Components.Inertia inertia1(
-                                                   J=2) 
+                                                   J=2)
       annotation (Placement(transformation(extent={{-30,80},{-10,100}},
             rotation=0)));
     Modelica.Mechanics.Rotational.Components.Inertia inertia2(
-                                                   J=4) 
+                                                   J=4)
       annotation (Placement(transformation(extent={{60,40},{80,60}}, rotation=0)));
     Modelica.Mechanics.Rotational.Components.Spring spring(
-                                                c=1e4) 
+                                                c=1e4)
       annotation (Placement(transformation(extent={{32,40},{52,60}}, rotation=0)));
     Modelica.Mechanics.Rotational.Components.Damper damper(
-                                                d=10) 
+                                                d=10)
       annotation (Placement(transformation(extent={{32,58},{52,78}}, rotation=0)));
     Modelica.Mechanics.Rotational.Components.SpringDamper springDamper(
                                                             c=1e4, d=10,
-      phi_rel0=1.74532925199433e-005) 
+      phi_rel0=1.74532925199433e-005)
       annotation (Placement(transformation(extent={{-58,80},{-38,100}},
             rotation=0)));
     Modelica.Mechanics.Rotational.Components.Inertia inertia3(
       J=2,
       phi(start=0.0174532925199433),
-      w(start=2)) 
+      w(start=2))
       annotation (Placement(transformation(extent={{-92,80},{-72,100}},
             rotation=0)));
     Modelica.Mechanics.Rotational.Components.ElastoBacklash elastoBacklash(
@@ -1046,44 +1046,44 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
       d=20) annotation (Placement(transformation(extent={{10,80},{30,100}},
             rotation=0)));
     Modelica.Mechanics.Rotational.Components.Inertia inertia4(
-                                                   J=2) 
+                                                   J=2)
       annotation (Placement(transformation(extent={{40,80},{60,100}}, rotation=
               0)));
     Modelica.Mechanics.Rotational.Components.BearingFriction bearingFriction(
                                                                   tau_pos=[0,2],
         peak=1.1,
-      useSupport=true) 
-                  annotation (Placement(transformation(extent={{64,80},{84,100}}, 
+      useSupport=true)
+                  annotation (Placement(transformation(extent={{64,80},{84,100}},
             rotation=0)));
     Modelica.Mechanics.Rotational.Components.Clutch clutch(
       mue_pos=[0,1],
       peak=1.1,
       cgeo=1.2,
-      fn_max=1.3) annotation (Placement(transformation(extent={{-86,60},{-66,40}}, 
+      fn_max=1.3) annotation (Placement(transformation(extent={{-86,60},{-66,40}},
             rotation=0)));
     Modelica.Mechanics.Rotational.Components.Inertia inertia5(
-                                                   J=3) 
+                                                   J=3)
       annotation (Placement(transformation(extent={{-116,40},{-96,60}},
             rotation=0)));
     Modelica.Blocks.Sources.Sine sine annotation (Placement(transformation(
             extent={{-104,10},{-84,30}}, rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Brake brake(useSupport=true) 
+    Modelica.Mechanics.Rotational.Components.Brake brake(useSupport=true)
       annotation (Placement(transformation(extent={{100,40},{120,60}}, rotation
             =0)));
-    Modelica.Blocks.Sources.Sine sine1 
+    Modelica.Blocks.Sources.Sine sine1
       annotation (Placement(transformation(
           origin={110,90},
           extent={{-10,-10},{10,10}},
           rotation=270)));
     Modelica.Mechanics.Rotational.Components.LossyGear lossyGear(useSupport=
-          true) 
+          true)
       annotation (Placement(transformation(extent={{-120,80},{-100,100}},
             rotation=0)));
     Modelica.Mechanics.Rotational.Components.Inertia inertia6(
       J=2,
       a(fixed=false),
       phi(fixed=true, start=0.0174532925199433),
-      w(fixed=true, start=2)) 
+      w(fixed=true, start=2))
       annotation (Placement(transformation(extent={{-150,80},{-130,100}},
             rotation=0)));
     Modelica.Mechanics.Rotational.Components.Gearbox gear2_1(
@@ -1096,24 +1096,24 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
       useSupport=true)         annotation (Placement(transformation(extent={{
               -80,-40},{-60,-20}}, rotation=0)));
     Modelica.Mechanics.Rotational.Components.Inertia inertia7(
-                                                   J=3) 
+                                                   J=3)
       annotation (Placement(transformation(extent={{-110,-40},{-90,-20}},
             rotation=0)));
     Modelica.Mechanics.Rotational.Components.Inertia inertia8(
-                                                   J=3) 
+                                                   J=3)
       annotation (Placement(transformation(extent={{-48,-40},{-28,-20}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Sources.Position position(useSupport=true) 
+    Modelica.Mechanics.Rotational.Sources.Position position(useSupport=true)
       annotation (Placement(transformation(extent={{48,-10},{68,10}}, rotation=
               0)));
-    Modelica.Mechanics.Rotational.Components.Fixed fixed1 
+    Modelica.Mechanics.Rotational.Components.Fixed fixed1
       annotation (Placement(transformation(extent={{-80,-60},{-60,-40}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Fixed fixed2 
+    Modelica.Mechanics.Rotational.Components.Fixed fixed2
       annotation (Placement(transformation(extent={{48,-30},{68,-10}}, rotation
             =0)));
     Modelica.Mechanics.Rotational.Components.Inertia inertia9(
-                                                   J=3) 
+                                                   J=3)
       annotation (Placement(transformation(extent={{80,-10},{100,10}}, rotation
             =0)));
     Modelica.Blocks.Sources.Sine sine2 annotation (Placement(transformation(
@@ -1121,121 +1121,121 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
     Modelica.Blocks.Sources.Sine sine3 annotation (Placement(transformation(
             extent={{20,-60},{40,-40}}, rotation=0)));
     Modelica.Mechanics.Rotational.Components.Inertia inertia10(
-                                                    J=3) 
+                                                    J=3)
       annotation (Placement(transformation(extent={{80,-60},{100,-40}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Fixed fixed3 
+    Modelica.Mechanics.Rotational.Components.Fixed fixed3
       annotation (Placement(transformation(extent={{50,-80},{70,-60}}, rotation
             =0)));
-    Modelica.Mechanics.Rotational.Sources.Speed speed(useSupport=true) 
+    Modelica.Mechanics.Rotational.Sources.Speed speed(useSupport=true)
       annotation (Placement(transformation(extent={{50,-60},{70,-40}}, rotation
             =0)));
     Modelica.Blocks.Sources.Sine sine4 annotation (Placement(transformation(
             extent={{20,-120},{40,-100}}, rotation=0)));
     Modelica.Mechanics.Rotational.Components.Inertia inertia11(
-                                                    J=3) 
+                                                    J=3)
       annotation (Placement(transformation(extent={{80,-120},{100,-100}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Fixed fixed4 
+    Modelica.Mechanics.Rotational.Components.Fixed fixed4
       annotation (Placement(transformation(extent={{50,-140},{70,-120}},
             rotation=0)));
     Modelica.Mechanics.Rotational.Sources.Accelerate accelerate(useSupport=true)
       annotation (Placement(transformation(extent={{50,-120},{70,-100}},
             rotation=0)));
-    Modelica.Blocks.Sources.Sine sine5[3](each amplitude=2) 
+    Modelica.Blocks.Sources.Sine sine5[3](each amplitude=2)
       annotation (Placement(transformation(extent={{20,-180},{40,-160}},
             rotation=0)));
     Modelica.Mechanics.Rotational.Components.Inertia inertia12(
-                                                    J=3) 
+                                                    J=3)
       annotation (Placement(transformation(extent={{80,-180},{100,-160}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Fixed fixed5 
+    Modelica.Mechanics.Rotational.Components.Fixed fixed5
       annotation (Placement(transformation(extent={{50,-200},{70,-180}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Sources.Move move(useSupport=true) 
+    Modelica.Mechanics.Rotational.Sources.Move move(useSupport=true)
       annotation (Placement(transformation(extent={{50,-180},{70,-160}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Sources.Torque torque(useSupport=true) 
+    Modelica.Mechanics.Rotational.Sources.Torque torque(useSupport=true)
       annotation (Placement(transformation(extent={{160,40},{140,60}}, rotation
             =0)));
     Modelica.Blocks.Sources.Sine sine6 annotation (Placement(transformation(
             extent={{192,40},{172,60}}, rotation=0)));
-    Modelica.Mechanics.Rotational.Sources.Torque2 torque2_1 
+    Modelica.Mechanics.Rotational.Sources.Torque2 torque2_1
       annotation (Placement(transformation(extent={{112,-60},{132,-40}},
             rotation=0)));
     Modelica.Mechanics.Rotational.Components.Inertia inertia13(
-                                                    J=3) 
+                                                    J=3)
       annotation (Placement(transformation(extent={{140,-60},{160,-40}},
             rotation=0)));
     Modelica.Blocks.Sources.Sine sine7 annotation (Placement(transformation(
             extent={{94,-34},{114,-14}}, rotation=0)));
     Modelica.Mechanics.Rotational.Sources.LinearSpeedDependentTorque
       linearSpeedDependentTorque(tau_nominal=10, w_nominal=10,
-      useSupport=true) 
+      useSupport=true)
       annotation (Placement(transformation(extent={{-142,-40},{-122,-20}},
             rotation=0)));
     Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
       quadraticSpeedDependentTorque(tau_nominal=100, w_nominal=1,
-      useSupport=true) 
+      useSupport=true)
       annotation (Placement(transformation(extent={{6,-40},{-16,-20}}, rotation
             =0)));
     Modelica.Mechanics.Rotational.Sources.ConstantTorque constantTorque(
                                                                 tau_constant=11,
-        useSupport=true) 
+        useSupport=true)
       annotation (Placement(transformation(extent={{-120,-100},{-100,-80}},
             rotation=0)));
     Modelica.Mechanics.Rotational.Components.Inertia inertia14(
-                                                    J=3) 
+                                                    J=3)
       annotation (Placement(transformation(extent={{-84,-120},{-64,-100}},
             rotation=0)));
     Modelica.Mechanics.Rotational.Sources.TorqueStep torqueStep(
       stepTorque=22,
       offsetTorque=11,
       startTime=1,
-      useSupport=true) 
+      useSupport=true)
                    annotation (Placement(transformation(extent={{-120,-140},{
               -100,-120}}, rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Fixed fixed6 
+    Modelica.Mechanics.Rotational.Components.Fixed fixed6
       annotation (Placement(transformation(extent={{-120,-162},{-100,-142}},
             rotation=0)));
     Modelica.Mechanics.Rotational.Sources.ConstantSpeed constantSpeed(
                                                               w_fixed=11,
-        useSupport=true) 
+        useSupport=true)
       annotation (Placement(transformation(extent={{-60,-140},{-40,-120}},
             rotation=0)));
     Modelica.Mechanics.Rotational.Components.Inertia inertia15(
-                                                    J=3) 
+                                                    J=3)
       annotation (Placement(transformation(extent={{-30,-140},{-10,-120}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Components.RelativeStates relativeStates 
+    Modelica.Mechanics.Rotational.Components.RelativeStates relativeStates
       annotation (Placement(transformation(extent={{-60,-80},{-40,-60}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Sensors.AngleSensor angleSensor 
+    Modelica.Mechanics.Rotational.Sensors.AngleSensor angleSensor
       annotation (Placement(transformation(extent={{118,-120},{138,-100}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor 
+    Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor
       annotation (Placement(transformation(extent={{118,-96},{138,-76}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Sensors.AccSensor accSensor 
+    Modelica.Mechanics.Rotational.Sensors.AccSensor accSensor
       annotation (Placement(transformation(extent={{118,-146},{138,-126}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Sensors.RelAngleSensor relAngleSensor 
+    Modelica.Mechanics.Rotational.Sensors.RelAngleSensor relAngleSensor
       annotation (Placement(transformation(extent={{152,-20},{172,0}}, rotation
             =0)));
-    Modelica.Mechanics.Rotational.Sensors.RelSpeedSensor relSpeedSensor 
+    Modelica.Mechanics.Rotational.Sensors.RelSpeedSensor relSpeedSensor
       annotation (Placement(transformation(extent={{166,-88},{186,-68}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Sensors.RelAccSensor relAccSensor 
+    Modelica.Mechanics.Rotational.Sensors.RelAccSensor relAccSensor
       annotation (Placement(transformation(extent={{160,-130},{180,-110}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Sensors.TorqueSensor torqueSensor 
+    Modelica.Mechanics.Rotational.Sensors.TorqueSensor torqueSensor
       annotation (Placement(transformation(extent={{-26,-170},{-6,-150}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Sensors.PowerSensor powerSensor 
+    Modelica.Mechanics.Rotational.Sensors.PowerSensor powerSensor
       annotation (Placement(transformation(extent={{-58,-170},{-38,-150}},
             rotation=0)));
     Modelica.Mechanics.Rotational.Components.Inertia inertia16(
-                                                    J=3) 
+                                                    J=3)
       annotation (Placement(transformation(extent={{-88,-170},{-68,-150}},
             rotation=0)));
   equation
@@ -1368,7 +1368,7 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
         points={{60,-60},{60,-70}},
         color={0,0,0},
         smooth=Smooth.None));
-    connect(sine4.y,accelerate.a_ref) 
+    connect(sine4.y,accelerate.a_ref)
                                    annotation (Line(
         points={{41,-110},{48,-110}},
         color={0,0,127},
@@ -1425,7 +1425,7 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
         points={{-132,-42},{-132,-50},{-70,-50}},
         color={0,0,0},
         smooth=Smooth.None));
-    connect(quadraticSpeedDependentTorque.flange, inertia8.flange_b) 
+    connect(quadraticSpeedDependentTorque.flange, inertia8.flange_b)
       annotation (Line(
         points={{-16,-30},{-28,-30}},
         color={0,0,0},
@@ -1520,10 +1520,10 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
     "Test, whether conversion of bearing to support is correctly performed"
 
     Modelica.Mechanics.Rotational.Components.IdealGear idealGear(useSupport=
-          false) 
+          false)
       annotation (Placement(transformation(extent={{-60,140},{-40,160}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia 
+    Modelica.Mechanics.Rotational.Components.Inertia inertia
       annotation (Placement(transformation(extent={{-90,140},{-70,160}},
             rotation=0)));
     annotation (Diagram(coordinateSystem(
@@ -1533,111 +1533,111 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
       experiment(StopTime=0.5),
       experimentSetupOutput);
     Modelica.Mechanics.Rotational.Components.IdealGear idealGear1(useSupport=
-          true) 
+          true)
       annotation (Placement(transformation(extent={{-28,140},{-8,160}},
             rotation=0)));
     Modelica.Mechanics.Rotational.Components.BearingFriction bearingFriction(
-        useSupport=true) 
+        useSupport=true)
       annotation (Placement(transformation(extent={{0,140},{20,160}}, rotation=
               0)));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia1 
+    Modelica.Mechanics.Rotational.Components.Inertia inertia1
       annotation (Placement(transformation(extent={{-90,90},{-70,110}},
             rotation=0)));
     Modelica.Mechanics.Rotational.Components.BearingFriction bearingFriction1(
-        useSupport=false) 
+        useSupport=false)
       annotation (Placement(transformation(extent={{-60,90},{-40,110}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Fixed fixed 
+    Modelica.Mechanics.Rotational.Components.Fixed fixed
       annotation (Placement(transformation(extent={{-28,124},{-8,144}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Brake brake(useSupport=true) 
+    Modelica.Mechanics.Rotational.Components.Brake brake(useSupport=true)
       annotation (Placement(transformation(extent={{-60,30},{-40,50}}, rotation
             =0)));
     Modelica.Blocks.Sources.Sine sine annotation (Placement(transformation(
             extent={{-90,60},{-70,80}}, rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia2 
+    Modelica.Mechanics.Rotational.Components.Inertia inertia2
       annotation (Placement(transformation(extent={{-90,30},{-70,50}}, rotation
             =0)));
-    Modelica.Mechanics.Rotational.Components.Brake brake1(useSupport=false) 
+    Modelica.Mechanics.Rotational.Components.Brake brake1(useSupport=false)
       annotation (Placement(transformation(extent={{16,30},{36,50}}, rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia3 
+    Modelica.Mechanics.Rotational.Components.Inertia inertia3
       annotation (Placement(transformation(extent={{-20,30},{0,50}}, rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Fixed fixed1 
+    Modelica.Mechanics.Rotational.Components.Fixed fixed1
       annotation (Placement(transformation(extent={{-60,10},{-40,30}}, rotation
             =0)));
     Modelica.Mechanics.Rotational.Components.LossyGear lossyGear(useSupport=
-          false) 
+          false)
       annotation (Placement(transformation(extent={{4,90},{24,110}}, rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia4 
+    Modelica.Mechanics.Rotational.Components.Inertia inertia4
       annotation (Placement(transformation(extent={{-24,90},{-4,110}}, rotation
             =0)));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia5 
+    Modelica.Mechanics.Rotational.Components.Inertia inertia5
       annotation (Placement(transformation(extent={{34,90},{54,110}}, rotation=
               0)));
     Modelica.Mechanics.Rotational.Components.LossyGear lossyGear1(useSupport=
-          true) 
+          true)
       annotation (Placement(transformation(extent={{102,90},{122,110}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia6 
+    Modelica.Mechanics.Rotational.Components.Inertia inertia6
       annotation (Placement(transformation(extent={{74,90},{94,110}}, rotation=
               0)));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia7 
+    Modelica.Mechanics.Rotational.Components.Inertia inertia7
       annotation (Placement(transformation(extent={{132,90},{152,110}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Fixed fixed2 
+    Modelica.Mechanics.Rotational.Components.Fixed fixed2
       annotation (Placement(transformation(extent={{102,72},{122,92}}, rotation
             =0)));
-    Modelica.Mechanics.Rotational.Components.Gearbox gear2_1(useSupport=false) 
+    Modelica.Mechanics.Rotational.Components.Gearbox gear2_1(useSupport=false)
       annotation (Placement(transformation(extent={{76,30},{96,50}}, rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia8 
+    Modelica.Mechanics.Rotational.Components.Inertia inertia8
       annotation (Placement(transformation(extent={{50,30},{70,50}}, rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia9 
+    Modelica.Mechanics.Rotational.Components.Inertia inertia9
       annotation (Placement(transformation(extent={{104,30},{124,50}}, rotation
             =0)));
-    Modelica.Mechanics.Rotational.Sources.Position position(useSupport=false) 
+    Modelica.Mechanics.Rotational.Sources.Position position(useSupport=false)
       annotation (Placement(transformation(extent={{-60,-28},{-40,-8}},
             rotation=0)));
     Modelica.Blocks.Sources.Sine sine1 annotation (Placement(transformation(
             extent={{-96,-28},{-76,-8}}, rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia12 
+    Modelica.Mechanics.Rotational.Components.Inertia inertia12
       annotation (Placement(transformation(extent={{-30,-28},{-10,-8}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Sources.Position position1(useSupport=true) 
+    Modelica.Mechanics.Rotational.Sources.Position position1(useSupport=true)
       annotation (Placement(transformation(extent={{-60,-58},{-40,-38}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia13 
+    Modelica.Mechanics.Rotational.Components.Inertia inertia13
       annotation (Placement(transformation(extent={{-30,-58},{-10,-38}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Fixed fixed4 
+    Modelica.Mechanics.Rotational.Components.Fixed fixed4
       annotation (Placement(transformation(extent={{-60,-76},{-40,-56}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Gearbox gear2_2(useSupport=true) 
+    Modelica.Mechanics.Rotational.Components.Gearbox gear2_2(useSupport=true)
       annotation (Placement(transformation(extent={{66,142},{86,162}}, rotation
             =0)));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia10 
+    Modelica.Mechanics.Rotational.Components.Inertia inertia10
       annotation (Placement(transformation(extent={{40,142},{60,162}}, rotation
             =0)));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia11 
+    Modelica.Mechanics.Rotational.Components.Inertia inertia11
       annotation (Placement(transformation(extent={{94,142},{114,162}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Fixed fixed3 
+    Modelica.Mechanics.Rotational.Components.Fixed fixed3
       annotation (Placement(transformation(extent={{66,124},{86,144}}, rotation
             =0)));
-    Modelica.Mechanics.Rotational.Sources.Speed position2(useSupport=false) 
+    Modelica.Mechanics.Rotational.Sources.Speed position2(useSupport=false)
       annotation (Placement(transformation(extent={{40,-30},{60,-10}}, rotation
             =0)));
     Modelica.Blocks.Sources.Sine sine2 annotation (Placement(transformation(
             extent={{4,-30},{24,-10}}, rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia14 
+    Modelica.Mechanics.Rotational.Components.Inertia inertia14
       annotation (Placement(transformation(extent={{70,-30},{90,-10}}, rotation
             =0)));
-    Modelica.Mechanics.Rotational.Sources.Speed position3(useSupport=true) 
+    Modelica.Mechanics.Rotational.Sources.Speed position3(useSupport=true)
       annotation (Placement(transformation(extent={{40,-60},{60,-40}}, rotation
             =0)));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia15 
+    Modelica.Mechanics.Rotational.Components.Inertia inertia15
       annotation (Placement(transformation(extent={{70,-60},{90,-40}}, rotation
             =0)));
-    Modelica.Mechanics.Rotational.Components.Fixed fixed5 
+    Modelica.Mechanics.Rotational.Components.Fixed fixed5
       annotation (Placement(transformation(extent={{40,-78},{60,-58}}, rotation
             =0)));
     Modelica.Mechanics.Rotational.Sources.Accelerate position4(useSupport=false)
@@ -1645,39 +1645,39 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
             rotation=0)));
     Modelica.Blocks.Sources.Sine sine3 annotation (Placement(transformation(
             extent={{110,-30},{130,-10}}, rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia16 
+    Modelica.Mechanics.Rotational.Components.Inertia inertia16
       annotation (Placement(transformation(extent={{176,-30},{196,-10}},
             rotation=0)));
     Modelica.Mechanics.Rotational.Sources.Accelerate position5(useSupport=true)
       annotation (Placement(transformation(extent={{146,-60},{166,-40}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia17 
+    Modelica.Mechanics.Rotational.Components.Inertia inertia17
       annotation (Placement(transformation(extent={{176,-60},{196,-40}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Fixed fixed6 
+    Modelica.Mechanics.Rotational.Components.Fixed fixed6
       annotation (Placement(transformation(extent={{146,-78},{166,-58}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Sources.Move position6(useSupport=false) 
+    Modelica.Mechanics.Rotational.Sources.Move position6(useSupport=false)
       annotation (Placement(transformation(extent={{-60,-120},{-40,-100}},
             rotation=0)));
-    Modelica.Blocks.Sources.Sine sine4[3] 
+    Modelica.Blocks.Sources.Sine sine4[3]
       annotation (Placement(transformation(extent={{-96,-120},{-76,-100}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia18 
+    Modelica.Mechanics.Rotational.Components.Inertia inertia18
       annotation (Placement(transformation(extent={{-30,-120},{-10,-100}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Sources.Move position7(useSupport=true) 
+    Modelica.Mechanics.Rotational.Sources.Move position7(useSupport=true)
       annotation (Placement(transformation(extent={{-60,-150},{-40,-130}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia19 
+    Modelica.Mechanics.Rotational.Components.Inertia inertia19
       annotation (Placement(transformation(extent={{-30,-150},{-10,-130}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Fixed fixed8 
+    Modelica.Mechanics.Rotational.Components.Fixed fixed8
       annotation (Placement(transformation(extent={{-60,-168},{-40,-148}},
             rotation=0)));
     Modelica.Blocks.Sources.Sine sine5 annotation (Placement(transformation(
             extent={{24,-120},{44,-100}}, rotation=0)));
-    Modelica.Mechanics.Rotational.Sources.Torque torque(useSupport=false) 
+    Modelica.Mechanics.Rotational.Sources.Torque torque(useSupport=false)
       annotation (Placement(transformation(extent={{60,-120},{80,-100}},
             rotation=0)));
     Modelica.Mechanics.Rotational.Sources.LinearSpeedDependentTorque
@@ -1690,19 +1690,19 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
             ={{58,-190},{78,-170}}, rotation=0)));
     Modelica.Mechanics.Rotational.Sources.ConstantTorque constantTorque(
                                                                 tau_constant=1,
-        useSupport=false) 
+        useSupport=false)
       annotation (Placement(transformation(extent={{60,-224},{80,-204}},
             rotation=0)));
     Modelica.Mechanics.Rotational.Sources.TorqueStep torqueStep(useSupport=
-          false) 
+          false)
       annotation (Placement(transformation(extent={{60,-260},{80,-240}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia20 
+    Modelica.Mechanics.Rotational.Components.Inertia inertia20
       annotation (Placement(transformation(extent={{98,-120},{118,-100}},
             rotation=0)));
     Modelica.Blocks.Sources.Sine sine6 annotation (Placement(transformation(
             extent={{140,-120},{160,-100}}, rotation=0)));
-    Modelica.Mechanics.Rotational.Sources.Torque torque1(useSupport=true) 
+    Modelica.Mechanics.Rotational.Sources.Torque torque1(useSupport=true)
       annotation (Placement(transformation(extent={{176,-120},{196,-100}},
             rotation=0)));
     Modelica.Mechanics.Rotational.Sources.LinearSpeedDependentTorque
@@ -1715,43 +1715,43 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
             extent={{174,-190},{194,-170}}, rotation=0)));
     Modelica.Mechanics.Rotational.Sources.ConstantTorque constantTorque1(
                                                                  tau_constant=1,
-        useSupport=true) 
+        useSupport=true)
       annotation (Placement(transformation(extent={{176,-224},{196,-204}},
             rotation=0)));
     Modelica.Mechanics.Rotational.Sources.TorqueStep torqueStep1(useSupport=
-          true) 
+          true)
       annotation (Placement(transformation(extent={{176,-260},{196,-240}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia21 
+    Modelica.Mechanics.Rotational.Components.Inertia inertia21
       annotation (Placement(transformation(extent={{214,-120},{234,-100}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Fixed fixed7 
+    Modelica.Mechanics.Rotational.Components.Fixed fixed7
       annotation (Placement(transformation(extent={{220,-280},{240,-260}},
             rotation=0)));
     Modelica.Mechanics.Rotational.Components.IdealGearR2T idealGearR2T(
-        useSupportR=false, useSupportT=false) 
+        useSupportR=false, useSupportT=false)
       annotation (Placement(transformation(extent={{220,140},{240,160}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia22 
+    Modelica.Mechanics.Rotational.Components.Inertia inertia22
       annotation (Placement(transformation(extent={{184,140},{204,160}},
             rotation=0)));
-    Modelica.Mechanics.Translational.Components.Mass slidingMass 
+    Modelica.Mechanics.Translational.Components.Mass slidingMass
       annotation (Placement(transformation(extent={{260,140},{280,160}},
             rotation=0)));
     Modelica.Mechanics.Rotational.Components.IdealGearR2T idealGearR2T1(
-        useSupportR=true, useSupportT=true) 
+        useSupportR=true, useSupportT=true)
       annotation (Placement(transformation(extent={{216,100},{236,120}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia23 
+    Modelica.Mechanics.Rotational.Components.Inertia inertia23
       annotation (Placement(transformation(extent={{180,100},{200,120}},
             rotation=0)));
-    Modelica.Mechanics.Translational.Components.Mass slidingMass1 
+    Modelica.Mechanics.Translational.Components.Mass slidingMass1
       annotation (Placement(transformation(extent={{256,100},{276,120}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Fixed fixed9 
+    Modelica.Mechanics.Rotational.Components.Fixed fixed9
       annotation (Placement(transformation(extent={{210,82},{230,102}},
             rotation=0)));
-    Modelica.Mechanics.Translational.Components.Fixed fixed10 
+    Modelica.Mechanics.Translational.Components.Fixed fixed10
       annotation (Placement(transformation(extent={{232,82},{252,102}},
             rotation=0)));
   equation
@@ -1891,12 +1891,12 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
         points={{156,-60},{156,-68}},
         color={0,0,0},
         smooth=Smooth.None));
-    connect(sine3.y,position4.a_ref) 
+    connect(sine3.y,position4.a_ref)
                                   annotation (Line(
         points={{131,-20},{144,-20}},
         color={0,0,127},
         smooth=Smooth.None));
-    connect(sine3.y,position5.a_ref) 
+    connect(sine3.y,position5.a_ref)
                                   annotation (Line(
         points={{131,-20},{136,-20},{136,-50},{144,-50}},
         color={0,0,127},
@@ -1933,7 +1933,7 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
         points={{80,-144},{92,-144},{92,-110},{98,-110}},
         color={0,0,0},
         smooth=Smooth.None));
-    connect(quadraticSpeedDependentTorque.flange, inertia20.flange_a) 
+    connect(quadraticSpeedDependentTorque.flange, inertia20.flange_a)
       annotation (Line(
         points={{78,-180},{92,-180},{92,-110},{98,-110}},
         color={0,0,0},
@@ -1958,7 +1958,7 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
         points={{196,-144},{208,-144},{208,-110},{214,-110}},
         color={0,0,0},
         smooth=Smooth.None));
-    connect(quadraticSpeedDependentTorque1.flange, inertia21.flange_a) 
+    connect(quadraticSpeedDependentTorque1.flange, inertia21.flange_a)
       annotation (Line(
         points={{194,-180},{208,-180},{208,-110},{214,-110}},
         color={0,0,0},
@@ -1979,7 +1979,7 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
         points={{186,-224},{208,-224},{208,-228},{230,-228},{230,-270}},
         color={0,0,0},
         smooth=Smooth.None));
-    connect(quadraticSpeedDependentTorque1.support,fixed7.flange) 
+    connect(quadraticSpeedDependentTorque1.support,fixed7.flange)
       annotation (Line(
         points={{184,-190},{230,-190},{230,-270}},
         color={0,0,0},
@@ -2019,69 +2019,69 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
   end TestBearingConversion;
 
   model TestFriction "Test friction elements"
-    Modelica.Mechanics.Rotational.Components.Inertia inertia 
+    Modelica.Mechanics.Rotational.Components.Inertia inertia
       annotation (Placement(transformation(extent={{-8,80},{12,100}}, rotation=
               0)));
     Modelica.Mechanics.Rotational.Components.BearingFriction bearingFriction(
-        useSupport=false) 
+        useSupport=false)
       annotation (Placement(transformation(extent={{22,80},{42,100}}, rotation=
               0)));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
               -100,-100},{100,100}}), graphics),
       experiment(StopTime=1.1));
-    Modelica.Mechanics.Rotational.Sources.Torque torque(useSupport=false) 
+    Modelica.Mechanics.Rotational.Sources.Torque torque(useSupport=false)
       annotation (Placement(transformation(extent={{-40,80},{-20,100}},
             rotation=0)));
-    Modelica.Blocks.Sources.Sine sine(amplitude=10) 
+    Modelica.Blocks.Sources.Sine sine(amplitude=10)
       annotation (Placement(transformation(extent={{-80,80},{-60,100}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia1 
+    Modelica.Mechanics.Rotational.Components.Inertia inertia1
       annotation (Placement(transformation(extent={{-8,20},{12,40}}, rotation=0)));
-    Modelica.Mechanics.Rotational.Sources.Torque torque1(useSupport=false) 
+    Modelica.Mechanics.Rotational.Sources.Torque torque1(useSupport=false)
       annotation (Placement(transformation(extent={{-40,20},{-20,40}}, rotation
             =0)));
-    Modelica.Blocks.Sources.Sine sine1(amplitude=10) 
+    Modelica.Blocks.Sources.Sine sine1(amplitude=10)
       annotation (Placement(transformation(extent={{-80,20},{-60,40}}, rotation
             =0)));
-    Modelica.Mechanics.Rotational.Components.Brake brake(useSupport=false) 
+    Modelica.Mechanics.Rotational.Components.Brake brake(useSupport=false)
                                               annotation (Placement(
           transformation(extent={{20,20},{40,40}}, rotation=0)));
-    Modelica.Blocks.Sources.Step step(height=100, startTime=0.5) 
+    Modelica.Blocks.Sources.Step step(height=100, startTime=0.5)
       annotation (Placement(transformation(extent={{-18,50},{2,70}}, rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia2 
+    Modelica.Mechanics.Rotational.Components.Inertia inertia2
       annotation (Placement(transformation(extent={{-8,-40},{12,-20}}, rotation
             =0)));
-    Modelica.Mechanics.Rotational.Sources.Torque torque2(useSupport=false) 
+    Modelica.Mechanics.Rotational.Sources.Torque torque2(useSupport=false)
       annotation (Placement(transformation(extent={{-40,-40},{-20,-20}},
             rotation=0)));
-    Modelica.Blocks.Sources.Sine sine2(amplitude=10) 
+    Modelica.Blocks.Sources.Sine sine2(amplitude=10)
       annotation (Placement(transformation(extent={{-80,-40},{-60,-20}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Clutch clutch 
+    Modelica.Mechanics.Rotational.Components.Clutch clutch
       annotation (Placement(transformation(extent={{24,-40},{44,-20}}, rotation
             =0)));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia3 
+    Modelica.Mechanics.Rotational.Components.Inertia inertia3
       annotation (Placement(transformation(extent={{58,-40},{78,-20}}, rotation
             =0)));
-    Modelica.Blocks.Sources.Step step1(height=100, startTime=0.5) 
+    Modelica.Blocks.Sources.Step step1(height=100, startTime=0.5)
       annotation (Placement(transformation(extent={{-12,-10},{8,10}}, rotation=
               0)));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia4 
+    Modelica.Mechanics.Rotational.Components.Inertia inertia4
       annotation (Placement(transformation(extent={{-6,-100},{14,-80}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Sources.Torque torque3(useSupport=false) 
+    Modelica.Mechanics.Rotational.Sources.Torque torque3(useSupport=false)
       annotation (Placement(transformation(extent={{-38,-100},{-18,-80}},
             rotation=0)));
-    Modelica.Blocks.Sources.Sine sine3(amplitude=10) 
+    Modelica.Blocks.Sources.Sine sine3(amplitude=10)
       annotation (Placement(transformation(extent={{-78,-100},{-58,-80}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia5 
+    Modelica.Mechanics.Rotational.Components.Inertia inertia5
       annotation (Placement(transformation(extent={{60,-100},{80,-80}},
             rotation=0)));
-    Modelica.Blocks.Sources.Step step2(height=100, startTime=0.5) 
+    Modelica.Blocks.Sources.Step step2(height=100, startTime=0.5)
       annotation (Placement(transformation(extent={{-10,-70},{10,-50}},
             rotation=0)));
-    Modelica.Mechanics.Rotational.Components.OneWayClutch oneWayClutch 
+    Modelica.Mechanics.Rotational.Components.OneWayClutch oneWayClutch
       annotation (Placement(transformation(extent={{46,-100},{26,-80}},
             rotation=0)));
   equation

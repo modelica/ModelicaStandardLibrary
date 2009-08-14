@@ -8,11 +8,11 @@ class ReleaseNotes "Release notes"
 
   annotation (Documentation(info="<html>
 <h4>Version 1.0, 2009-06-21</h4>
- 
+
 <p>
 First version of the ModelicaServices library.
 </p>
- 
+
 </html>
 "));
 equation
@@ -24,7 +24,7 @@ class ModelicaLicense2 "Modelica License 2"
   annotation (Documentation(info="<html>
 
 <p>All files in this directory (ModelicaServices) and in all
-subdirectories are licensed by the <b><u>Modelica Association</u></b> under the 
+subdirectories are licensed by the <b><u>Modelica Association</u></b> under the
 <b><u>Modelica License 2</u></b>.</p>
 
 <p style=\"margin-left: 40px;\"><b>Licensor:</b><br>
@@ -192,13 +192,13 @@ representation).</p>
 
 <p>
 <b>5. Grant of Patent License.</b>
-Licensor grants You a worldwide, royalty-free, non-exclusive, sublicensable license, 
+Licensor grants You a worldwide, royalty-free, non-exclusive, sublicensable license,
 under patent claims owned by the Licensor or licensed to the Licensor by
 the owners of the Original Work that are embodied in the Original Work
-as furnished by the Licensor, for the duration of the patents, 
+as furnished by the Licensor, for the duration of the patents,
 to make, use, sell, offer for sale, have made, and import the Original Work
-and Derivative Works under the conditions as given in Section 2. 
-For the matter of clarity, the license regarding Derivative Works covers 
+and Derivative Works under the conditions as given in Section 2.
+For the matter of clarity, the license regarding Derivative Works covers
 patent claims to the extent as they are embodied in the Original Work only.</p>
 
 <p>
@@ -314,7 +314,7 @@ incurred in connection with such action, including any appeal of such
 action. This section shall survive the termination of this License.</p>
 
 <p>
-<b>15. Miscellaneous.</b> 
+<b>15. Miscellaneous.</b>
 </p>
 <ol>
  <li>If any
@@ -402,7 +402,7 @@ Modelica modeling and simulation environment?</b></p>
 <p>Yes,
 according to Section 2c). However, you are not allowed to charge a
 fee for this part of your environment. Of course, you can charge for
-your part of the environment. 
+your part of the environment.
 </p>
 
 <p><b>Can I distribute a
@@ -427,7 +427,7 @@ when I first add classes to the package?</b></p>
 The package itself remains unmodified, i.e., it is Original Work, and
 therefore the license for this part must remain under Modelica
 License 2. The newly added classes can be, however, under a different
-license. 
+license.
 </p>
 
 <p><b>Can
@@ -519,7 +519,7 @@ original work of authorship&quot;, a derivative work must be
 different enough from the original or must contain a substantial
 amount of new material. Making minor changes or additions of little
 substance to a preexisting work will not qualify the work as a new
-version for such purposes. 
+version for such purposes.
 </p>
 
 <p><br>
@@ -594,13 +594,13 @@ class Contact "Contact"
 <dt><b>Main Author:</b>
 <dd>
 </dl>
- 
+
 <table border=0 cellspacing=0 cellpadding=2>
 <tr>
 <td>
 <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
     Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
-    Institut f&uuml;r Robotik und Mechatronik<br> 
+    Institut f&uuml;r Robotik und Mechatronik<br>
     Abteilung f&uuml;r Systemdynamik und Regelungstechnik<br>
     Postfach 1116<br>
     D-82230 Wessling<br>
@@ -608,14 +608,14 @@ class Contact "Contact"
     email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A></td>
 </tr>
 </table>
- 
- 
+
+
 <p><b>Acknowledgements:</b></p>
- 
+
 <p>
 The design of the Animation.Shape component is from Hilding Elmqvist, Dynasim AB.
 </p>
- 
+
 </html>
 "));
 
@@ -631,20 +631,20 @@ This package contains a set of functions and models to be used in the
 Modelica Standard Library that requires a tool specific implementation.
 These are:
 </p>
- 
+
 <ul>
 <li> <a href=\"Modelica://ModelicaServices.Animation.Shape\">ModelicaServices.Animation.Shape</a>.
-     provides a 3-dim. visualization of 
+     provides a 3-dim. visualization of
      mechanical objects. It is used in
 <a href=\"Modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape</a>
      via inheritance.</li>
 </ul>
- 
+
 <p>
 <b>Licensed by DLR and Dynasim under the Modelica License 2</b><br>
 Copyright &copy; 2009, DLR and Dynasim.
 </p>
- 
+
 <p>
 <i>This Modelica package is <u>free</u> software and
 the use is completely at <u>your own risk</u>;
@@ -656,7 +656,7 @@ or at
 <a href=\"http://www.Modelica.org/licenses/ModelicaLicense2\">
 http://www.Modelica.org/licenses/ModelicaLicense2</a>.
 </p>
- 
+
 </html>"),
   uses(Modelica(version="3.1")));
 
@@ -685,17 +685,17 @@ model Shape
   output Real Form annotation (HideResult=false);
   public
   output Real rxvisobj[3](each final unit="1")
-      "x-axis unit vector of shape, resolved in world frame" 
+      "x-axis unit vector of shape, resolved in world frame"
     annotation (HideResult=false);
   output Real ryvisobj[3](each final unit="1")
-      "y-axis unit vector of shape, resolved in world frame" 
+      "y-axis unit vector of shape, resolved in world frame"
     annotation (HideResult=false);
   output SI.Position rvisobj[3]
       "position vector from world frame to shape frame, resolved in world frame"
     annotation (HideResult=false);
 
   protected
-  output SI.Length size[3] "{length,width,height} of shape" 
+  output SI.Length size[3] "{length,width,height} of shape"
     annotation (HideResult=false);
   output Real Material annotation (HideResult=false);
   output Real Extra annotation (HideResult=false);
@@ -743,7 +743,7 @@ equation
   Form = (987000 + PackShape(shapeType))*1E20;
   /*
   rxry = Frames.TransformationMatrices.to_exy(
-    Frames.TransformationMatrices.absoluteRotation(R.T, 
+    Frames.TransformationMatrices.absoluteRotation(R.T,
     Frames.TransformationMatrices.from_nxy(lengthDirection, widthDirection)));
   rxvisobj = rxry[:, 1];
   ryvisobj = rxry[:, 2];

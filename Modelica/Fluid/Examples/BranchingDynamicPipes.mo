@@ -9,7 +9,7 @@ replaceable package Medium=Modelica.Media.Air.MoistAir;
           preserveAspectRatio=true,  extent={{-100,-100},{100,100}}), graphics),
     Documentation(info="<html>
 <p>
-This model demonstrates the use of distributed pipe models with dynamic energy, mass and momentum balances. 
+This model demonstrates the use of distributed pipe models with dynamic energy, mass and momentum balances.
 At time=2s the pressure of boundary4 jumps, which causes a pressure wave and flow reversal.
 </p>
 <p>
@@ -17,10 +17,10 @@ Change system.momentumDynamics on the Assumptions tab of the system object from 
 in order to assume a steady-state momentum balance. This is the default for all models of the library.
 </p>
 <p>
-Change the Medium from MoistAir to StandardWater, in order to investigate a medium with significantly different density. 
+Change the Medium from MoistAir to StandardWater, in order to investigate a medium with significantly different density.
 Note the static head caused by the elevation of the pipes.
 </p>
- 
+
 <p>
 Note, pipe4.modelStructure = av_b, i.e., the pipe has no volume at port_b.
 It is not possible to have a volume at port_b, since otherwise the pressure of the volume is
@@ -30,7 +30,7 @@ requires this derivative. It is, however, not possible to compute this
 derivative because the input pressure is changing disontinuously and its
 derivative would be a dirac impulse.
 </p>
- 
+
 <p align=\"center\">
 <img src=\"../Images/Fluid/Examples/BranchingDynamicPipes.png\" border=\"1\">
 </p>
@@ -39,7 +39,7 @@ derivative would be a dirac impulse.
         7.8,32],
       style(color=69, rgbcolor={0,127,255}));
 
-  inner Modelica.Fluid.System system(momentumDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial) 
+  inner Modelica.Fluid.System system(momentumDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial)
     annotation (Placement(transformation(extent={{-90,70},{-70,90}},  rotation=
             0)));
   Modelica.Fluid.Sources.Boundary_pT boundary1(nPorts=1,
@@ -55,7 +55,7 @@ derivative would be a dirac impulse.
     p_a_start=150000,
     p_b_start=130000,
     height_ab=50,
-    length=50) 
+    length=50)
             annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=90,
         origin={0,-50})));
@@ -63,7 +63,7 @@ derivative would be a dirac impulse.
     redeclare package Medium = Medium,
     use_T_start=true,
     nNodes=5,
-    redeclare model HeatTransfer = 
+    redeclare model HeatTransfer =
         Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.LocalPipeFlowHeatTransfer,
     use_HeatTransfer=true,
     diameter=2.54e-2,
@@ -71,7 +71,7 @@ derivative would be a dirac impulse.
     length=50,
     height_ab=25,
     p_a_start=130000,
-    p_b_start=120000) 
+    p_b_start=120000)
             annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=90,
         origin={-20,-10})));
@@ -85,7 +85,7 @@ derivative would be a dirac impulse.
     length=25,
     p_a_start=130000,
     p_b_start=120000,
-    height_ab=25) 
+    height_ab=25)
             annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=90,
         origin={20,-10})));
@@ -99,7 +99,7 @@ derivative would be a dirac impulse.
     p_a_start=120000,
     p_b_start=100000,
     height_ab=50,
-    length=50) 
+    length=50)
             annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=90,
         origin={0,30})));
@@ -118,7 +118,7 @@ derivative would be a dirac impulse.
           rotation=0)));
   Modelica.Thermal.HeatTransfer.Sources.FixedHeatFlow[
                                               pipe2.nNodes] heat2(Q_flow=200*
-        pipe2.dxs) 
+        pipe2.dxs)
     annotation (Placement(transformation(extent={{-60,-20},{-40,0}},  rotation=
             0)));
 equation
@@ -150,7 +150,7 @@ equation
       points={{6.12323e-016,40},{6.12323e-016,50},{-8.88178e-016,50}},
       color={0,127,255},
       thickness=0.5));
-  connect(heat2.port,pipe2. heatPorts) 
+  connect(heat2.port,pipe2. heatPorts)
                                       annotation (Line(
       points={{-40,-10},{-24.4,-10},{-24.4,-9.9}},
       color={191,0,0},
@@ -164,7 +164,7 @@ equation
     __Dymola_experimentSetupOutput,
     Documentation(info="<html>
 <p>
-This model demonstrates the use of distributed pipe models with dynamic energy, mass and momentum balances. 
+This model demonstrates the use of distributed pipe models with dynamic energy, mass and momentum balances.
 At time=2s the pressure of boundary4 jumps, which causes a pressure wave and flow reversal.
 </p>
 <p>
@@ -172,7 +172,7 @@ Change system.momentumDynamics on the Assumptions tab of the system object from 
 in order to assume a steady-state momentum balance. This is the default for all models of the library.
 </p>
 <p>
-Change the Medium from MoistAir to StandardWater, in order to investigate a medium with sigificantly different density. 
+Change the Medium from MoistAir to StandardWater, in order to investigate a medium with sigificantly different density.
 Note the static head caused by the elevation of the pipes.
 </p>
 </html>"));

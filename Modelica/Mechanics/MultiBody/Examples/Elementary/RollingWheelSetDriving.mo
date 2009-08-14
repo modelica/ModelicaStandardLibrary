@@ -8,12 +8,12 @@ model RollingWheelSetDriving
     experiment(StopTime=3),
     __Dymola_experimentSetupOutput,
     Documentation(info="<html>
- 
+
 </html>"));
   Modelica.Mechanics.MultiBody.Visualizers.Ground ground(
-                length=3, groundColor={0,255,0}) 
+                length=3, groundColor={0,255,0})
     annotation (Placement(transformation(extent={{-20,-60},{0,-40}})));
-  inner Modelica.Mechanics.MultiBody.World world(label2="z", n={0,0,-1}) 
+  inner Modelica.Mechanics.MultiBody.World world(label2="z", n={0,0,-1})
     annotation (Placement(transformation(extent={{-80,-60},{-60,-40}})));
   Modelica.Mechanics.MultiBody.Parts.RollingWheelSet wheelSet(
     wheelRadius=0.1,
@@ -27,26 +27,26 @@ model RollingWheelSetDriving
     theta1(fixed=true),
     theta2(fixed=true),
     der_theta1(fixed=true),
-    der_theta2(fixed=true)) 
+    der_theta2(fixed=true))
     annotation (Placement(transformation(extent={{-20,-20},{0,0}})));
   Modelica.Mechanics.MultiBody.Parts.Body body(m=0.01, r_CM={0,0,0},
-    animation=false) 
+    animation=false)
     annotation (Placement(transformation(extent={{40,56},{60,76}})));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation(
                        r={0.2,0,0},
     animation=true,
-    width=0.04) 
+    width=0.04)
     annotation (Placement(transformation(extent={{0,56},{20,76}})));
-  Modelica.Blocks.Sources.Sine sine1(freqHz=1, amplitude=2) 
+  Modelica.Blocks.Sources.Sine sine1(freqHz=1, amplitude=2)
     annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
   Modelica.Blocks.Sources.Sine sine2(
     freqHz=1,
     amplitude=2,
-    phase=1.5707963267949) 
+    phase=1.5707963267949)
     annotation (Placement(transformation(extent={{60,20},{40,40}})));
-  Modelica.Mechanics.Rotational.Sources.Torque2 torque1 
+  Modelica.Mechanics.Rotational.Sources.Torque2 torque1
     annotation (Placement(transformation(extent={{-40,4},{-20,24}})));
-  Modelica.Mechanics.Rotational.Sources.Torque2 torque2 
+  Modelica.Mechanics.Rotational.Sources.Torque2 torque2
     annotation (Placement(transformation(extent={{24,4},{4,24}})));
   Modelica.Mechanics.MultiBody.Visualizers.FixedShape shape(
     final lengthDirection={0,1,0},

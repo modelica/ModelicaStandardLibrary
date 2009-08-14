@@ -89,7 +89,7 @@ Copyright &copy; 1998-2009, Modelica Association and DLR.
 <p>
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> 
+and the accompanying <b>disclaimer</b>
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
 </p><br>
 </HTML>
@@ -746,7 +746,7 @@ This icon is designed for a <b>sub-bus</b> in a signal connector.
             lineThickness=0.5)}),        Documentation(info="<html>
 <p>
 This partial model is intended to provide a <u>default icon
-for an obsolete model</u> that will be removed from the 
+for an obsolete model</u> that will be removed from the
 corresponding library in a future release.
 <p>
 </html>"));

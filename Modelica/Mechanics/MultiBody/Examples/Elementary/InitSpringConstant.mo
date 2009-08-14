@@ -12,19 +12,19 @@ model InitSpringConstant
     a(fixed=true))                         annotation (Placement(transformation(
           extent={{-40,0},{-20,20}}, rotation=0)));
   Modelica.Mechanics.Rotational.Components.Damper damper(
-                                              d=0.1) 
+                                              d=0.1)
     annotation (Placement(transformation(extent={{-40,40},{-20,60}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.BodyShape body(
     r={1,0,0},
     r_CM={0.5,0,0},
     m=1) annotation (Placement(transformation(extent={{0,0},{20,20}}, rotation=
             0)));
-  Modelica.Mechanics.MultiBody.Parts.Fixed fixed(r={1,0.2,0}, width=0.02) 
+  Modelica.Mechanics.MultiBody.Parts.Fixed fixed(r={1,0.2,0}, width=0.02)
     annotation (Placement(transformation(
         origin={50,70},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Mechanics.MultiBody.Forces.Spring spring(s_unstretched=0.1, c(fixed=false) = 100) 
+  Modelica.Mechanics.MultiBody.Forces.Spring spring(s_unstretched=0.1, c(fixed=false) = 100)
     annotation (Placement(transformation(
         origin={50,30},
         extent={{-10,-10},{10,10}},
@@ -62,14 +62,14 @@ The spring constant is computed as c = 49.05 N/m.
 An animation of this simulation is shown in the figure below.
 </p>
 <p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Elementary/InitSpringConstant.png\" 
+<IMG SRC=\"../Images/MultiBody/Examples/Elementary/InitSpringConstant.png\"
 ALT=\"model Examples.Elementary.InitSpringConstant\">
 </p>
 </html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics));
 equation
 
-  connect(world.frame_b, rev.frame_a) 
+  connect(world.frame_b, rev.frame_a)
     annotation (Line(
       points={{-60,10},{-40,10}},
       color={95,95,95},
@@ -78,17 +78,17 @@ equation
           {-16,26},{-30,26},{-30,20}}, color={0,0,0}));
   connect(rev.support, damper.flange_a) annotation (Line(points={{-36,20},{-36,
           26},{-48,26},{-48,50},{-40,50}}, color={0,0,0}));
-  connect(rev.frame_b, body.frame_a) 
+  connect(rev.frame_b, body.frame_a)
     annotation (Line(
       points={{-20,10},{0,10}},
       color={95,95,95},
       thickness=0.5));
-  connect(fixed.frame_b, spring.frame_a) 
+  connect(fixed.frame_b, spring.frame_a)
     annotation (Line(
       points={{50,60},{50,40}},
       color={95,95,95},
       thickness=0.5));
-  connect(body.frame_b, spring.frame_b) 
+  connect(body.frame_b, spring.frame_b)
     annotation (Line(
       points={{20,10},{50,10},{50,20}},
       color={95,95,95},

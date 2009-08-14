@@ -3,7 +3,7 @@ package Interfaces
   "Interfaces for steady state and unsteady, mixed-phase, multi-substance, incompressible and compressible flow"
 
   annotation (Documentation(info="<html>
- 
+
 </html>", revisions="<html>
 <ul>
 <li><i>June 9th, 2008</i>
@@ -259,8 +259,8 @@ package Interfaces
     import Modelica.Constants;
     outer Modelica.Fluid.System system "System wide properties";
 
-    replaceable package Medium = 
-        Modelica.Media.Interfaces.PartialMedium "Medium in the component" 
+    replaceable package Medium =
+        Modelica.Media.Interfaces.PartialMedium "Medium in the component"
         annotation (choicesAllMatching = true);
 
     parameter Boolean allowFlowReversal = system.allowFlowReversal
@@ -295,13 +295,13 @@ package Interfaces
             grid={1,1}), graphics),
       Documentation(info="<html>
 <p>
-This partial model defines an interface for components with two ports. 
+This partial model defines an interface for components with two ports.
 The treatment of the design flow direction and of flow reversal are predefined based on the parameter <tt><b>allowFlowReversal</b></tt>.
-The component may transport fluid and may have internal storage for a given fluid <tt><b>Medium</b></tt>. 
+The component may transport fluid and may have internal storage for a given fluid <tt><b>Medium</b></tt>.
 </p>
 <p>
-An extending model providing direct access to internal storage of mass or energy through port_a or port_b 
-should redefine the protected parameters <tt><b>port_a_exposesState</b></tt> and <tt><b>port_b_exposesState</b></tt> appropriately. 
+An extending model providing direct access to internal storage of mass or energy through port_a or port_b
+should redefine the protected parameters <tt><b>port_a_exposesState</b></tt> and <tt><b>port_b_exposesState</b></tt> appropriately.
 This will be visualized at the port icons, in order to improve the understanding of fluid model diagrams.
 </p>
 </html>"),
@@ -355,21 +355,21 @@ partial model PartialTwoPortTransport
 
   // Advanced
   parameter Medium.AbsolutePressure dp_start = 0.01*system.p_start
-      "Guess value of dp = port_a.p - port_b.p" 
+      "Guess value of dp = port_a.p - port_b.p"
     annotation(Dialog(tab = "Advanced"));
   parameter Medium.MassFlowRate m_flow_start = system.m_flow_start
-      "Guess value of m_flow = port_a.m_flow" 
+      "Guess value of m_flow = port_a.m_flow"
     annotation(Dialog(tab = "Advanced"));
   parameter Medium.MassFlowRate m_flow_small = system.m_flow_small
-      "Small mass flow rate for regularization of zero flow" 
+      "Small mass flow rate for regularization of zero flow"
     annotation(Dialog(tab = "Advanced"));
 
   // Diagnostics
   parameter Boolean show_T = true
-      "= true, if temperatures at port_a and port_b are computed" 
+      "= true, if temperatures at port_a and port_b are computed"
     annotation(Dialog(tab="Advanced",group="Diagnostics"));
   parameter Boolean show_V_flow = true
-      "= true, if volume flow rate at inflowing port is computed" 
+      "= true, if volume flow rate at inflowing port is computed"
     annotation(Dialog(tab="Advanced",group="Diagnostics"));
 
   // Variables
@@ -514,10 +514,10 @@ end PartialTwoPortTransport;
 
     // Parameters
     replaceable package Medium=Modelica.Media.Interfaces.PartialMedium
-      "Medium in the component" 
+      "Medium in the component"
       annotation(Dialog(tab="Internal Interface",enable=false));
 
-    parameter Integer n=1 "Number of heat transfer segments" 
+    parameter Integer n=1 "Number of heat transfer segments"
       annotation(Dialog(tab="Internal Interface",enable=false), Evaluate=true);
 
     // Inputs provided to heat transfer model
@@ -531,10 +531,10 @@ end PartialTwoPortTransport;
 
     // Parameters
     parameter Boolean use_k = false
-      "= true to use k value for thermal isolation" 
+      "= true to use k value for thermal isolation"
       annotation(Dialog(tab="Internal Interface",enable=false));
     parameter SI.CoefficientOfHeatTransfer k = 0
-      "Heat transfer coefficient to ambient" 
+      "Heat transfer coefficient to ambient"
       annotation(Dialog(group="Ambient"),Evaluate=true);
     parameter SI.Temperature T_ambient = system.T_ambient "Ambient temperature"
       annotation(Dialog(group="Ambient"));
@@ -542,7 +542,7 @@ end PartialTwoPortTransport;
 
     // Heat ports
     Modelica.Fluid.Interfaces.HeatPorts_a[n] heatPorts
-      "Heat port to component boundary" 
+      "Heat port to component boundary"
       annotation (Placement(transformation(extent={{-10,60},{10,80}},
               rotation=0), iconTransformation(extent={{-20,60},{20,80}})));
 
@@ -559,7 +559,7 @@ end PartialTwoPortTransport;
 
     annotation (Documentation(info="<html>
 <p>
-This component is a common interface for heat transfer models. The heat flow rates <tt>Q_flows[n]</tt> through the boundaries of n flow segments 
+This component is a common interface for heat transfer models. The heat flow rates <tt>Q_flows[n]</tt> through the boundaries of n flow segments
 are obtained as function of the thermodynamic <tt>states</tt> of the flow segments for a given fluid <tt>Medium</tt>,
 the <tt>surfaceAreas[n]</tt> and the boundary temperatures <tt>heatPorts[n].T</tt>.
 </p>
@@ -578,8 +578,8 @@ the boundary temperatures <tt>heatPorts[n].T</tt>, and the heat flow rates <tt>Q
     import Modelica.Fluid.Types.Dynamics;
 
       outer Modelica.Fluid.System system "System properties";
-      replaceable package Medium = 
-        Modelica.Media.Interfaces.PartialMedium "Medium in the component" 
+      replaceable package Medium =
+        Modelica.Media.Interfaces.PartialMedium "Medium in the component"
           annotation (choicesAllMatching = true);
 
       // Inputs provided to the volume model
@@ -587,39 +587,39 @@ the boundary temperatures <tt>heatPorts[n].T</tt>, and the heat flow rates <tt>Q
 
       // Assumptions
       parameter Types.Dynamics energyDynamics=system.energyDynamics
-      "Formulation of energy balance" 
+      "Formulation of energy balance"
         annotation(Evaluate=true, Dialog(tab = "Assumptions", group="Dynamics"));
       parameter Types.Dynamics massDynamics=system.massDynamics
-      "Formulation of mass balance" 
+      "Formulation of mass balance"
         annotation(Evaluate=true, Dialog(tab = "Assumptions", group="Dynamics"));
       final parameter Types.Dynamics substanceDynamics=massDynamics
-      "Formulation of substance balance" 
+      "Formulation of substance balance"
         annotation(Evaluate=true, Dialog(tab = "Assumptions", group="Dynamics"));
       final parameter Types.Dynamics traceDynamics=massDynamics
-      "Formulation of trace substance balance" 
+      "Formulation of trace substance balance"
         annotation(Evaluate=true, Dialog(tab = "Assumptions", group="Dynamics"));
 
       // Initialization
       parameter Medium.AbsolutePressure p_start = system.p_start
-      "Start value of pressure" 
+      "Start value of pressure"
         annotation(Dialog(tab = "Initialization"));
       parameter Boolean use_T_start = true
-      "= true, use T_start, otherwise h_start" 
+      "= true, use T_start, otherwise h_start"
         annotation(Dialog(tab = "Initialization"), Evaluate=true);
       parameter Medium.Temperature T_start=
         if use_T_start then system.T_start else Medium.temperature_phX(p_start,h_start,X_start)
-      "Start value of temperature" 
+      "Start value of temperature"
         annotation(Dialog(tab = "Initialization", enable = use_T_start));
       parameter Medium.SpecificEnthalpy h_start=
         if use_T_start then Medium.specificEnthalpy_pTX(p_start, T_start, X_start) else Medium.h_default
-      "Start value of specific enthalpy" 
+      "Start value of specific enthalpy"
         annotation(Dialog(tab = "Initialization", enable = not use_T_start));
       parameter Medium.MassFraction X_start[Medium.nX] = Medium.X_default
-      "Start value of mass fractions m_i/m" 
+      "Start value of mass fractions m_i/m"
         annotation (Dialog(tab="Initialization", enable=Medium.nXi > 0));
       parameter Medium.ExtraProperty C_start[Medium.nC](
            quantity=Medium.extraPropertiesNames)=fill(0, Medium.nC)
-      "Start value of trace substances" 
+      "Start value of trace substances"
         annotation (Dialog(tab="Initialization", enable=Medium.nC > 0));
 
       Medium.BaseProperties medium(
@@ -725,10 +725,10 @@ the boundary temperatures <tt>heatPorts[n].T</tt>, and the heat flow rates <tt>Q
 
       annotation (
         Documentation(info="<html>
-Interface and base class for an ideally mixed fluid volume with the ability to store mass and energy. 
+Interface and base class for an ideally mixed fluid volume with the ability to store mass and energy.
 The following boundary flow and source terms are part of the energy balance and must be specified in an extending class:
 <ul>
-<li><tt><b>Qb_flow</b></tt>, e.g. convective or latent heat flow rate across segment boundary, and</li> 
+<li><tt><b>Qb_flow</b></tt>, e.g. convective or latent heat flow rate across segment boundary, and</li>
 <li><tt><b>Wb_flow</b></tt>, work term, e.g. p*der(fluidVolume) if the volume is not constant.</li>
 </ul>
 The component volume <tt><b>fluidVolume</b></tt> is an input that needs to be set in the extending class to complete the model.
@@ -736,10 +736,10 @@ The component volume <tt><b>fluidVolume</b></tt> is an input that needs to be se
 Further source terms must be defined by an extending class for fluid flow across the segment boundary:
 </p>
 <ul>
-<li><tt><b>Hb_flow</b></tt>, enthalpy flow,</li> 
-<li><tt><b>mb_flow</b></tt>, mass flow,</li> 
-<li><tt><b>mbXi_flow</b></tt>, substance mass flow, and</li> 
-<li><tt><b>mbC_flow</b></tt>, trace substance mass flow.</li> 
+<li><tt><b>Hb_flow</b></tt>, enthalpy flow,</li>
+<li><tt><b>mb_flow</b></tt>, mass flow,</li>
+<li><tt><b>mbXi_flow</b></tt>, substance mass flow, and</li>
+<li><tt><b>mbC_flow</b></tt>, trace substance mass flow.</li>
 </ul>
 </html>"),
         Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
@@ -752,7 +752,7 @@ Further source terms must be defined by an extending class for fluid flow across
 
         outer Modelica.Fluid.System system "System properties";
 
-        replaceable package Medium = 
+        replaceable package Medium =
           Modelica.Media.Interfaces.PartialMedium "Medium in the component";
 
         parameter Boolean allowFlowReversal = system.allowFlowReversal
@@ -766,17 +766,17 @@ Further source terms must be defined by an extending class for fluid flow across
         Medium.MassFlowRate m_flow(
            min=if allowFlowReversal then -Modelica.Constants.inf else 0,
            start = m_flow_start,
-           stateSelect = if momentumDynamics == Types.Dynamics.SteadyState then StateSelect.default else 
+           stateSelect = if momentumDynamics == Types.Dynamics.SteadyState then StateSelect.default else
                                      StateSelect.prefer)
       "mass flow rates between states";
 
         // Parameters
         parameter Modelica.Fluid.Types.Dynamics momentumDynamics=system.momentumDynamics
-      "Formulation of momentum balance" 
+      "Formulation of momentum balance"
           annotation(Dialog(tab="Assumptions", group="Dynamics"), Evaluate=true);
 
         parameter Medium.MassFlowRate m_flow_start=system.m_flow_start
-      "Start value of mass flow rates" 
+      "Start value of mass flow rates"
           annotation(Dialog(tab="Initialization"));
 
         // Total quantities
@@ -809,12 +809,12 @@ Further source terms must be defined by an extending class for fluid flow across
            Documentation(info="<html>
 <p>
 Interface and base class for a momentum balance, defining the mass flow rate <tt><b>m_flow</b></tt>
-of a given <tt>Medium</tt> in a flow model. 
+of a given <tt>Medium</tt> in a flow model.
 </p>
 <p>
 The following boundary flow and force terms are part of the momentum balance and must be specified in an extending model (to zero if not considered):
 <ul>
-<li><tt><b>Ib_flow</b></tt>, the flow of momentum across model boundaries,</li> 
+<li><tt><b>Ib_flow</b></tt>, the flow of momentum across model boundaries,</li>
 <li><tt><b>F_p[m]</b></tt>, pressure force, and</li>
 <li><tt><b>F_fg[m]</b></tt>, friction and gravity forces.</li>
 </ul>
@@ -829,8 +829,8 @@ partial model PartialDistributedVolume
     import Modelica.Fluid.Types.Dynamics;
   outer Modelica.Fluid.System system "System properties";
 
-  replaceable package Medium = 
-    Modelica.Media.Interfaces.PartialMedium "Medium in the component" 
+  replaceable package Medium =
+    Modelica.Media.Interfaces.PartialMedium "Medium in the component"
       annotation (choicesAllMatching = true);
 
   // Discretization
@@ -842,50 +842,50 @@ partial model PartialDistributedVolume
 
   // Assumptions
   parameter Types.Dynamics energyDynamics=system.energyDynamics
-      "Formulation of energy balances" 
+      "Formulation of energy balances"
     annotation(Evaluate=true, Dialog(tab = "Assumptions", group="Dynamics"));
   parameter Types.Dynamics massDynamics=system.massDynamics
-      "Formulation of mass balances" 
+      "Formulation of mass balances"
     annotation(Evaluate=true, Dialog(tab = "Assumptions", group="Dynamics"));
   final parameter Types.Dynamics substanceDynamics=massDynamics
-      "Formulation of substance balances" 
+      "Formulation of substance balances"
     annotation(Evaluate=true, Dialog(tab = "Assumptions", group="Dynamics"));
   final parameter Types.Dynamics traceDynamics=massDynamics
-      "Formulation of trace substance balances" 
+      "Formulation of trace substance balances"
     annotation(Evaluate=true, Dialog(tab = "Assumptions", group="Dynamics"));
 
   //Initialization
   parameter Medium.AbsolutePressure p_a_start=system.p_start
-      "Start value of pressure at port a" 
+      "Start value of pressure at port a"
     annotation(Dialog(tab = "Initialization"));
   parameter Medium.AbsolutePressure p_b_start=p_a_start
-      "Start value of pressure at port b" 
+      "Start value of pressure at port b"
     annotation(Dialog(tab = "Initialization"));
   final parameter Medium.AbsolutePressure[n] ps_start=if n > 1 then linspace(
         p_a_start, p_b_start, n) else {(p_a_start + p_b_start)/2}
       "Start value of pressure";
 
-  parameter Boolean use_T_start=true "Use T_start if true, otherwise h_start" 
+  parameter Boolean use_T_start=true "Use T_start if true, otherwise h_start"
      annotation(Evaluate=true, Dialog(tab = "Initialization"));
 
-  parameter Medium.Temperature T_start=if use_T_start then system.T_start else 
+  parameter Medium.Temperature T_start=if use_T_start then system.T_start else
               Medium.temperature_phX(
         (p_a_start + p_b_start)/2,
         h_start,
-        X_start) "Start value of temperature" 
+        X_start) "Start value of temperature"
     annotation(Evaluate=true, Dialog(tab = "Initialization", enable = use_T_start));
-  parameter Medium.SpecificEnthalpy h_start=if use_T_start then 
+  parameter Medium.SpecificEnthalpy h_start=if use_T_start then
         Medium.specificEnthalpy_pTX(
         (p_a_start + p_b_start)/2,
         T_start,
-        X_start) else Medium.h_default "Start value of specific enthalpy" 
+        X_start) else Medium.h_default "Start value of specific enthalpy"
     annotation(Evaluate=true, Dialog(tab = "Initialization", enable = not use_T_start));
   parameter Medium.MassFraction X_start[Medium.nX]=Medium.X_default
-      "Start value of mass fractions m_i/m" 
+      "Start value of mass fractions m_i/m"
     annotation (Dialog(tab="Initialization", enable=Medium.nXi > 0));
   parameter Medium.ExtraProperty C_start[Medium.nC](
        quantity=Medium.extraPropertiesNames)=fill(0, Medium.nC)
-      "Start value of trace substances" 
+      "Start value of trace substances"
     annotation (Dialog(tab="Initialization", enable=Medium.nC > 0));
 
   // Total quantities
@@ -1017,10 +1017,10 @@ initial equation
             extent={{-100,-100},{100,100}}), graphics),
       Documentation(info="<html>
 Interface and base class for <tt><b>n</b></tt> ideally mixed fluid volumes with the ability to store mass and energy.
-It is inteded to model a one-dimensional spatial discretization of fluid flow according to the finite volume method. 
+It is inteded to model a one-dimensional spatial discretization of fluid flow according to the finite volume method.
 The following boundary flow and source terms are part of the energy balance and must be specified in an extending class:
 <ul>
-<li><tt><b>Qb_flows[n]</b></tt>, heat flow term, e.g. conductive heat flows across segment boundaries, and</li> 
+<li><tt><b>Qb_flows[n]</b></tt>, heat flow term, e.g. conductive heat flows across segment boundaries, and</li>
 <li><tt><b>Wb_flows[n]</b></tt>, work term.</li>
 </ul>
 The component volumes <tt><b>fluidVolumes[n]</b></tt> are an input that needs to be set in an extending class to complete the model.
@@ -1028,10 +1028,10 @@ The component volumes <tt><b>fluidVolumes[n]</b></tt> are an input that needs to
 Further source terms must be defined by an extending class for fluid flow across the segment boundary:
 </p>
 <ul>
-<li><tt><b>Hb_flows[n]</b></tt>, enthalpy flow,</li> 
-<li><tt><b>mb_flows[n]</b></tt>, mass flow,</li> 
-<li><tt><b>mbXi_flows[n]</b></tt>, substance mass flow, and</li> 
-<li><tt><b>mbC_flows[n]</b></tt>, trace substance mass flow.</li> 
+<li><tt><b>Hb_flows[n]</b></tt>, enthalpy flow,</li>
+<li><tt><b>mb_flows[n]</b></tt>, mass flow,</li>
+<li><tt><b>mbXi_flows[n]</b></tt>, substance mass flow, and</li>
+<li><tt><b>mbC_flows[n]</b></tt>, trace substance mass flow.</li>
 </ul>
 </html>"));
 end PartialDistributedVolume;
@@ -1041,7 +1041,7 @@ end PartialDistributedVolume;
 
         outer Modelica.Fluid.System system "System properties";
 
-        replaceable package Medium = 
+        replaceable package Medium =
           Modelica.Media.Interfaces.PartialMedium "Medium in the component";
 
         parameter Boolean allowFlowReversal = system.allowFlowReversal
@@ -1058,17 +1058,17 @@ end PartialDistributedVolume;
         Medium.MassFlowRate[m] m_flows(
            each min=if allowFlowReversal then -Modelica.Constants.inf else 0,
            each start = m_flow_start,
-           each stateSelect = if momentumDynamics == Types.Dynamics.SteadyState then StateSelect.default else 
+           each stateSelect = if momentumDynamics == Types.Dynamics.SteadyState then StateSelect.default else
                                      StateSelect.prefer)
       "mass flow rates between states";
 
         // Parameters
         parameter Modelica.Fluid.Types.Dynamics momentumDynamics=system.momentumDynamics
-      "Formulation of momentum balance" 
+      "Formulation of momentum balance"
           annotation(Dialog(tab="Assumptions", group="Dynamics"), Evaluate=true);
 
         parameter Medium.MassFlowRate m_flow_start=system.m_flow_start
-      "Start value of mass flow rates" 
+      "Start value of mass flow rates"
           annotation(Dialog(tab="Initialization"));
 
         // Total quantities
@@ -1101,12 +1101,12 @@ end PartialDistributedVolume;
            Documentation(info="<html>
 <p>
 Interface and base class for <tt><b>m</b></tt> momentum balances, defining the mass flow rates <tt><b>m_flows[m]</b></tt>
-of a given <tt>Medium</tt> in <tt><b>m</b></tt> flow segments. 
+of a given <tt>Medium</tt> in <tt><b>m</b></tt> flow segments.
 </p>
 <p>
 The following boundary flow and force terms are part of the momentum balances and must be specified in an extending model (to zero if not considered):
 <ul>
-<li><tt><b>Ib_flows[m]</b></tt>, the flows of momentum across segment boundaries,</li> 
+<li><tt><b>Ib_flows[m]</b></tt>, the flows of momentum across segment boundaries,</li>
 <li><tt><b>Fs_p[m]</b></tt>, pressure forces, and</li>
 <li><tt><b>Fs_fg[m]</b></tt>, friction and gravity forces.</li>
 </ul>

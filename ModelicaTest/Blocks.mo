@@ -2,23 +2,23 @@ within ModelicaTest;
 package Blocks "Test models for Modelica.Blocks"
   model Continuous
 
-    Modelica.Blocks.Continuous.Integrator integrator 
+    Modelica.Blocks.Continuous.Integrator integrator
       annotation (Placement(transformation(extent={{-60,60},{-40,80}}, rotation
             =0)));
-    Modelica.Blocks.Continuous.LimIntegrator limIntegrator 
+    Modelica.Blocks.Continuous.LimIntegrator limIntegrator
       annotation (Placement(transformation(extent={{-60,20},{-40,40}}, rotation
             =0)));
     annotation (                                       Diagram(coordinateSystem(
             preserveAspectRatio=false, extent={{-100,-200},{100,100}}),
           graphics),
       experiment(StopTime=1.1));
-    Modelica.Blocks.Continuous.Derivative derivative 
+    Modelica.Blocks.Continuous.Derivative derivative
       annotation (Placement(transformation(extent={{-60,-20},{-40,0}}, rotation
             =0)));
-    Modelica.Blocks.Continuous.FirstOrder firstOrder 
+    Modelica.Blocks.Continuous.FirstOrder firstOrder
       annotation (Placement(transformation(extent={{-60,-60},{-40,-40}},
             rotation=0)));
-    Modelica.Blocks.Continuous.SecondOrder secondOrder 
+    Modelica.Blocks.Continuous.SecondOrder secondOrder
       annotation (Placement(transformation(extent={{-60,-100},{-40,-80}},
             rotation=0)));
     Modelica.Blocks.Continuous.PI pI annotation (Placement(transformation(
@@ -32,21 +32,21 @@ package Blocks "Test models for Modelica.Blocks"
     Modelica.Blocks.Continuous.StateSpace stateSpace(
       A=[1,0; 0,1],
       B=[1; 1],
-      C=[1,1]) 
+      C=[1,1])
       annotation (Placement(transformation(extent={{40,-60},{60,-40}}, rotation
             =0)));
-    Modelica.Blocks.Continuous.LowpassButterworth lowpassButterworth 
+    Modelica.Blocks.Continuous.LowpassButterworth lowpassButterworth
       annotation (Placement(transformation(extent={{40,-100},{60,-80}},
             rotation=0)));
     Modelica.Blocks.Continuous.CriticalDamping criticalDamping(normalized=false)
       annotation (Placement(transformation(extent={{40,-140},{60,-120}},
             rotation=0)));
-    Modelica.Blocks.Sources.Ramp ramp(offset=0.5, startTime=0.5) 
+    Modelica.Blocks.Sources.Ramp ramp(offset=0.5, startTime=0.5)
       annotation (Placement(transformation(extent={{-100,60},{-80,80}},
             rotation=0)));
-    Modelica.Blocks.Sources.Ramp ramp1(offset=0.5, startTime=0.5) 
+    Modelica.Blocks.Sources.Ramp ramp1(offset=0.5, startTime=0.5)
       annotation (Placement(transformation(extent={{0,60},{20,80}}, rotation=0)));
-    Modelica.Blocks.Sources.Constant const(k=1.5) 
+    Modelica.Blocks.Sources.Constant const(k=1.5)
       annotation (Placement(transformation(
           origin={50,30},
           extent={{-10,-10},{10,10}},
@@ -70,7 +70,7 @@ package Blocks "Test models for Modelica.Blocks"
             {-62,-130}}, color={0,0,127}));
     connect(ramp.y, pID.u) annotation (Line(points={{-79,70},{-72,70},{-72,-170},
             {-62,-170}}, color={0,0,127}));
-    connect(ramp1.y, limPID.u_s) 
+    connect(ramp1.y, limPID.u_s)
       annotation (Line(points={{21,70},{38,70}}, color={0,0,127}));
     connect(ramp1.y, transferFunction.u) annotation (Line(points={{21,70},{28,
             70},{28,-10},{38,-10}}, color={0,0,127}));
@@ -80,7 +80,7 @@ package Blocks "Test models for Modelica.Blocks"
             70},{28,-90},{38,-90}}, color={0,0,127}));
     connect(ramp1.y, criticalDamping.u) annotation (Line(points={{21,70},{28,70},
             {28,-130},{38,-130}}, color={0,0,127}));
-    connect(const.y, limPID.u_m) 
+    connect(const.y, limPID.u_m)
       annotation (Line(points={{50,41},{50,58}}, color={0,0,127}));
     connect(sine.y, der1.u) annotation (Line(
         points={{21,-170},{38,-170}},
@@ -162,15 +162,15 @@ package Blocks "Test models for Modelica.Blocks"
 
   model Limiters
 
-    Modelica.Blocks.Nonlinear.Limiter limiter(limitsAtInit=false) 
+    Modelica.Blocks.Nonlinear.Limiter limiter(limitsAtInit=false)
       annotation (Placement(transformation(extent={{-20,40},{0,60}}, rotation=0)));
     Modelica.Blocks.Nonlinear.VariableLimiter variableLimiter(limitsAtInit=
           false) annotation (Placement(transformation(extent={{-20,0},{0,20}},
             rotation=0)));
-    Modelica.Blocks.Nonlinear.DeadZone deadZone(deadZoneAtInit=false) 
+    Modelica.Blocks.Nonlinear.DeadZone deadZone(deadZoneAtInit=false)
       annotation (Placement(transformation(extent={{-20,-40},{0,-20}}, rotation
             =0)));
-    Modelica.Blocks.Sources.Sine sine(amplitude=2) 
+    Modelica.Blocks.Sources.Sine sine(amplitude=2)
       annotation (Placement(transformation(extent={{-60,40},{-40,60}}, rotation
             =0)));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
@@ -178,7 +178,7 @@ package Blocks "Test models for Modelica.Blocks"
       experiment(StopTime=1.1));
     Modelica.Blocks.Sources.Constant const annotation (Placement(transformation(
             extent={{-80,16},{-60,36}}, rotation=0)));
-    Modelica.Blocks.Sources.Constant const1(k=-1) 
+    Modelica.Blocks.Sources.Constant const1(k=-1)
       annotation (Placement(transformation(extent={{-80,-26},{-60,-6}},
             rotation=0)));
   equation
@@ -201,25 +201,25 @@ package Blocks "Test models for Modelica.Blocks"
       qd_max={3},
       qdd_max={4},
       startTime=0.5,
-      deltaq={1}) annotation (Placement(transformation(extent={{-60,60},{-40,80}}, 
+      deltaq={1}) annotation (Placement(transformation(extent={{-60,60},{-40,80}},
             rotation=0)));
-    Modelica.Blocks.Continuous.Integrator integrator 
+    Modelica.Blocks.Continuous.Integrator integrator
       annotation (Placement(transformation(extent={{-20,60},{2,80}}, rotation=0)));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
               100,100}}), graphics),
       experiment(StopTime=3));
-    Modelica.Blocks.Continuous.Integrator integrator1(y_start=1) 
+    Modelica.Blocks.Continuous.Integrator integrator1(y_start=1)
       annotation (Placement(transformation(extent={{20,60},{42,80}}, rotation=0)));
     Modelica.Blocks.Sources.KinematicPTP kinematicPTP2a(
       qd_max={3},
       qdd_max={4},
       startTime=0.5,
-      deltaq={4}) annotation (Placement(transformation(extent={{-60,-20},{-40,0}}, 
+      deltaq={4}) annotation (Placement(transformation(extent={{-60,-20},{-40,0}},
             rotation=0)));
-    Modelica.Blocks.Continuous.Integrator integrator2 
+    Modelica.Blocks.Continuous.Integrator integrator2
       annotation (Placement(transformation(extent={{-20,-20},{2,0}}, rotation=0)));
-    Modelica.Blocks.Continuous.Integrator integrator3(y_start=1) 
+    Modelica.Blocks.Continuous.Integrator integrator3(y_start=1)
       annotation (Placement(transformation(extent={{20,-20},{42,0}}, rotation=0)));
   equation
     connect(kinematicPTP1a.y[1], integrator.u) annotation (Line(points={{-39,70},

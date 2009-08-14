@@ -12,24 +12,24 @@ with components of the Modelica.Blocks library.
 Also more realistic sensor models can be built, by further
 processing (e.g., by attaching block Modelica.Blocks.FirstOrder to
 model the time constant of the sensor).
- 
+
 </p>
- 
-<p align = justify>For the thermodynamic state variables temperature, specific entalpy, specific entropy and density 
+
+<p align = justify>For the thermodynamic state variables temperature, specific entalpy, specific entropy and density
 the fluid library provides two different types of sensors: <b>regular one port</b> and <b>two port</b> sensors. </p>
- 
+
 <ul>
 <li>
-The <b>regular one port</b> sensors have the advantage of easy introduction and removal from a model, as no connections have to be broken. 
+The <b>regular one port</b> sensors have the advantage of easy introduction and removal from a model, as no connections have to be broken.
 A potential drawback is that the obtained value jumps as flow reverts.
-<a href= \"Modelica.Fluid.Test.TestComponents.Sensors.TestTemperatureSensor\">Modelica.Fluid.Test.TestComponents.Sensors.TestTemperatureSensor </a> provides a test case, 
-which demonstrates this.</li> 
- 
+<a href= \"Modelica.Fluid.Test.TestComponents.Sensors.TestTemperatureSensor\">Modelica.Fluid.Test.TestComponents.Sensors.TestTemperatureSensor </a> provides a test case,
+which demonstrates this.</li>
+
 <li> The <b>two port</b> sensors offer the advantages of an adjustable regularized step function around zero flow.
 Moreover the obtained result is restricted to the value flowing into port_a if allowFlowReversal is false.</li>
 </ul>
- 
- 
+
+
 </html>",
       revisions="<html>
 <ul>
@@ -54,7 +54,7 @@ Moreover the obtained result is restricted to the value flowing into port_a if a
     Modelica.Blocks.Interfaces.RealOutput p(final quantity="Pressure",
                                             final unit="Pa",
                                             displayUnit="bar",
-                                            min=0) "Pressure at port" 
+                                            min=0) "Pressure at port"
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
     annotation (
@@ -78,7 +78,7 @@ Moreover the obtained result is restricted to the value flowing into port_a if a
             textString="p")}),
       Documentation(info="<HTML>
 <p>
-This component monitors the absolute pressure at its fluid port. The sensor is 
+This component monitors the absolute pressure at its fluid port. The sensor is
 ideal, i.e., it does not influence the fluid.
 </p>
 </HTML>
@@ -93,7 +93,7 @@ ideal, i.e., it does not influence the fluid.
     Modelica.Blocks.Interfaces.RealOutput d(final quantity="Density",
                                             final unit="kg/m3",
                                             displayUnit="g/cm3",
-                                            min=0) "Density in port medium" 
+                                            min=0) "Density in port medium"
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
 
@@ -114,11 +114,11 @@ ideal, i.e., it does not influence the fluid.
           Line(points={{70,0},{100,0}}, color={0,0,127})}),
     Documentation(info="<HTML>
 <p>
-This component monitors the density of the fluid passing its port. 
+This component monitors the density of the fluid passing its port.
 The sensor is ideal, i.e. it does not influence the fluid.
 </p>
 <p>If using the one port sensor please read the <a href = Modelica.Fluid.Sensors>Information</a>  first.</p>
- 
+
 </HTML>
 "));
   equation
@@ -132,7 +132,7 @@ The sensor is ideal, i.e. it does not influence the fluid.
                                             final unit="kg/m3",
                                             displayUnit="g/cm3",
                                             min=0)
-      "Density of the passing fluid" 
+      "Density of the passing fluid"
       annotation (Placement(transformation(
           origin={0,110},
           extent={{10,-10},{-10,10}},
@@ -156,7 +156,7 @@ The sensor is ideal, i.e. it does not influence the fluid.
           Line(points={{70,0},{100,0}}, color={0,128,255})}),
     Documentation(info="<HTML>
 <p>
-This component monitors the density of the fluid flowing from port_a to port_b. 
+This component monitors the density of the fluid flowing from port_a to port_b.
 The sensor is ideal, i.e. it does not influence the fluid.
 </p>
 </HTML>
@@ -182,14 +182,14 @@ The sensor is ideal, i.e. it does not influence the fluid.
 
     Modelica.Blocks.Interfaces.RealOutput T(final quantity="ThermodynamicTemperature",
                                             final unit = "K", displayUnit = "degC", min=0)
-      "Temperature in port medium" 
+      "Temperature in port medium"
       annotation (Placement(transformation(extent={{60,-10},{80,10}}, rotation=
               0)));
 
   annotation (defaultComponentName="temperature",
       Documentation(info="<HTML>
 <p>
-This component monitors the temperature of the fluid passing its port. 
+This component monitors the temperature of the fluid passing its port.
 The sensor is ideal, i.e. it does not influence the fluid.
 </p>
 </HTML>
@@ -273,7 +273,7 @@ The sensor is ideal, i.e. it does not influence the fluid.
                                              final unit="K",
                                              min = 0,
                                              displayUnit="degC")
-      "Temperature of the passing fluid" 
+      "Temperature of the passing fluid"
       annotation (Placement(transformation(
           origin={0,110},
           extent={{10,-10},{-10,10}},
@@ -325,7 +325,7 @@ The sensor is ideal, i.e. it does not influence the fluid.
             textString="T")}),
     Documentation(info="<HTML>
 <p>
-This component monitors the temperature of the passing fluid. 
+This component monitors the temperature of the passing fluid.
 The sensor is ideal, i.e. it does not influence the fluid.
 </p>
 </HTML>
@@ -351,7 +351,7 @@ The sensor is ideal, i.e. it does not influence the fluid.
     extends Modelica.Icons.RotationalSensor;
     Modelica.Blocks.Interfaces.RealOutput h_out(final quantity="SpecificEnergy",
                                                 final unit="J/kg")
-      "Specific enthalpy in port medium" 
+      "Specific enthalpy in port medium"
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
 
@@ -372,7 +372,7 @@ The sensor is ideal, i.e. it does not influence the fluid.
           Line(points={{70,0},{100,0}}, color={0,0,127})}),
     Documentation(info="<HTML>
 <p>
-This component monitors the specific enthalpy of the fluid passing its port. 
+This component monitors the specific enthalpy of the fluid passing its port.
 The sensor is ideal, i.e. it does not influence the fluid.
 </p>
 </HTML>
@@ -387,7 +387,7 @@ The sensor is ideal, i.e. it does not influence the fluid.
     extends Modelica.Icons.RotationalSensor;
     Modelica.Blocks.Interfaces.RealOutput h_out(final quantity="SpecificEnergy",
                                                 final unit="J/kg")
-      "Specific enthalpy of the passing fluid" 
+      "Specific enthalpy of the passing fluid"
       annotation (Placement(transformation(
           origin={0,110},
           extent={{10,-10},{-10,10}},
@@ -411,7 +411,7 @@ The sensor is ideal, i.e. it does not influence the fluid.
           Line(points={{70,0},{100,0}}, color={0,128,255})}),
     Documentation(info="<HTML>
 <p>
-This component monitors the specific enthalpy of a passing fluid. 
+This component monitors the specific enthalpy of a passing fluid.
 The sensor is ideal, i.e. it does not influence the fluid.
 </p>
 </HTML>
@@ -429,7 +429,7 @@ The sensor is ideal, i.e. it does not influence the fluid.
     extends Modelica.Icons.RotationalSensor;
     Modelica.Blocks.Interfaces.RealOutput s(final quantity="SpecificEntropy",
                                             final unit="J/(kg.K)")
-      "Specific entropy in port medium" 
+      "Specific entropy in port medium"
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
 
@@ -450,7 +450,7 @@ The sensor is ideal, i.e. it does not influence the fluid.
           Line(points={{70,0},{100,0}}, color={0,0,127})}),
     Documentation(info="<HTML>
 <p>
-This component monitors the specific entropy of the fluid passing its port. 
+This component monitors the specific entropy of the fluid passing its port.
 The sensor is ideal, i.e. it does not influence the fluid.
 </p>
 </HTML>
@@ -464,7 +464,7 @@ The sensor is ideal, i.e. it does not influence the fluid.
     extends Modelica.Icons.RotationalSensor;
     Modelica.Blocks.Interfaces.RealOutput s(final quantity="SpecificEntropy",
                                             final unit="J/(kg.K)")
-      "Specific entropy of the passing fluid" 
+      "Specific entropy of the passing fluid"
       annotation (Placement(transformation(
           origin={0,110},
           extent={{10,-10},{-10,10}},
@@ -487,7 +487,7 @@ The sensor is ideal, i.e. it does not influence the fluid.
           Line(points={{70,0},{100,0}}, color={0,128,255})}),
     Documentation(info="<HTML>
 <p>
-This component monitors the specific entropy of the passing fluid. 
+This component monitors the specific entropy of the passing fluid.
 The sensor is ideal, i.e. it does not influence the fluid.
 </p>
 </HTML>
@@ -514,7 +514,7 @@ The sensor is ideal, i.e. it does not influence the fluid.
     extends Modelica.Icons.RotationalSensor;
     parameter String substanceName = "CO2" "Name of trace substance";
 
-    Modelica.Blocks.Interfaces.RealOutput C "Trace substance in port medium" 
+    Modelica.Blocks.Interfaces.RealOutput C "Trace substance in port medium"
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
 
@@ -535,7 +535,7 @@ The sensor is ideal, i.e. it does not influence the fluid.
           Line(points={{70,0},{100,0}}, color={0,0,127})}),
     Documentation(info="<HTML>
 <p>
-This component monitors the trace substances contained in the fluid passing its port. 
+This component monitors the trace substances contained in the fluid passing its port.
 The sensor is ideal, i.e. it does not influence the fluid.
 </p>
 </HTML>
@@ -565,7 +565,7 @@ The sensor is ideal, i.e. it does not influence the fluid.
     extends Sensors.BaseClasses.PartialFlowSensor;
     extends Modelica.Icons.RotationalSensor;
     Modelica.Blocks.Interfaces.RealOutput C
-      "Trace substance of the passing fluid" 
+      "Trace substance of the passing fluid"
       annotation (Placement(transformation(
           origin={0,110},
           extent={{10,-10},{-10,10}},
@@ -589,7 +589,7 @@ The sensor is ideal, i.e. it does not influence the fluid.
           Line(points={{70,0},{100,0}}, color={0,128,255})}),
     Documentation(info="<HTML>
 <p>
-This component monitors the trace substance of the passing fluid. 
+This component monitors the trace substance of the passing fluid.
 The sensor is ideal, i.e. it does not influence the fluid.
 </p>
 </HTML>
@@ -640,7 +640,7 @@ The sensor is ideal, i.e. it does not influence the fluid.
           Line(points={{-100,0},{-70,0}}, color={0,128,255})}),
     Documentation(info="<HTML>
 <p>
-This component monitors the mass flow rate flowing from port_a to port_b. 
+This component monitors the mass flow rate flowing from port_a to port_b.
 The sensor is ideal, i.e., it does not influence the fluid.
 </p>
 </HTML>
@@ -654,7 +654,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
     extends Modelica.Icons.RotationalSensor;
     Modelica.Blocks.Interfaces.RealOutput V_flow(final quantity="VolumeFlowRate",
                                                  final unit="m3/s")
-      "Volume flow rate from port_a to port_b" 
+      "Volume flow rate from port_a to port_b"
       annotation (Placement(transformation(
           origin={0,110},
           extent={{10,-10},{-10,10}},
@@ -677,7 +677,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
           Line(points={{70,0},{100,0}}, color={0,128,255})}),
     Documentation(info="<HTML>
 <p>
-This component monitors the volume flow rate flowing from port_a to port_b. 
+This component monitors the volume flow rate flowing from port_a to port_b.
 The sensor is ideal, i.e. it does not influence the fluid.
 </p>
 </HTML>
@@ -702,16 +702,16 @@ The sensor is ideal, i.e. it does not influence the fluid.
 
   model RelativePressure "Ideal relative pressure sensor"
     extends Modelica.Icons.TranslationalSensor;
-    replaceable package Medium = 
+    replaceable package Medium =
       Modelica.Media.Interfaces.PartialMedium "Medium in the sensor"  annotation (
         choicesAllMatching = true);
 
     Modelica.Fluid.Interfaces.FluidPort_a port_a(m_flow(min=0),
-                                  redeclare package Medium = Medium) 
+                                  redeclare package Medium = Medium)
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
             rotation=0)));
     Modelica.Fluid.Interfaces.FluidPort_b port_b(m_flow(min=0),
-                                  redeclare package Medium = Medium) 
+                                  redeclare package Medium = Medium)
       annotation (Placement(transformation(extent={{110,-12},{90,8}}, rotation=
               0), iconTransformation(extent={{110,-10},{90,10}})));
 
@@ -774,15 +774,15 @@ through the sensor is allowed.
 
   model RelativeTemperature "Ideal relative temperature sensor"
     extends Modelica.Icons.TranslationalSensor;
-    replaceable package Medium = 
+    replaceable package Medium =
       Modelica.Media.Interfaces.PartialMedium "Medium in the sensor"  annotation (
         choicesAllMatching = true);
     Modelica.Fluid.Interfaces.FluidPort_a port_a(m_flow(min=0),
-                                  redeclare package Medium = Medium) 
+                                  redeclare package Medium = Medium)
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
             rotation=0)));
     Modelica.Fluid.Interfaces.FluidPort_b port_b(m_flow(min=0),
-                                  redeclare package Medium = Medium) 
+                                  redeclare package Medium = Medium)
       annotation (Placement(transformation(extent={{110,-10},{90,10}}, rotation=
              0)));
 
@@ -845,13 +845,13 @@ through the sensor is allowed.
   end RelativeTemperature;
 
 /*
-  model SpecificInternalEnergy "Ideal specific internal energy sensor" 
+  model SpecificInternalEnergy "Ideal specific internal energy sensor"
     extends BaseClasses.Sensors.PartialSensor;
     extends Modelica.Icons.RotationalSensor;
     Medium.BaseProperties medium;
-    Modelica.Blocks.Interfaces.RealOutput u(unit = "J/kg") 
+    Modelica.Blocks.Interfaces.RealOutput u(unit = "J/kg")
       "Specific internal energy in port medium" annotation (extent=[100,-10; 120,10]);
-    
+
   annotation (
     Diagram(
         Line(points=[70,0; 100,0], style(rgbcolor={0,0,127})),
@@ -866,24 +866,24 @@ through the sensor is allowed.
           string="u")),
     Documentation(info="<HTML>
 <p>
-This component monitors the specific internal energy of the medium in the fluid port. The sensor is 
+This component monitors the specific internal energy of the medium in the fluid port. The sensor is
 ideal, i.e., it does not influence the fluid.
 </p>
 </HTML>
 "));
-  equation 
+  equation
     port.p   = medium.p;
     port.h   = medium.h;
     port.Xi = medium.Xi;
     u = medium.u;
   end SpecificInternalEnergy;
-  
-  model RelDensity "Ideal relative density sensor" 
+
+  model RelDensity "Ideal relative density sensor"
     extends Interfaces.PartialRelativeSensor;
     extends Modelica.Icons.TranslationalSensor;
     Medium.BaseProperties medium_a;
     Medium.BaseProperties medium_b;
-    Modelica.Blocks.Interfaces.RealOutput rho_rel(redeclare type SignalType = 
+    Modelica.Blocks.Interfaces.RealOutput rho_rel(redeclare type SignalType =
           SI.Density) "Relative density signal" annotation (extent=[-10, -80; 10, -100], rotation=90);
     annotation (
       Icon(
@@ -910,23 +910,23 @@ the two ports of this component and is provided as output signal.
 </p>
 </HTML>
 "));
-  equation 
+  equation
     port_a.p   = medium_a.p;
     port_a.h   = medium_a.h;
     port_a.Xi = medium_a.Xi;
     port_b.p   = medium_b.p;
     port_b.h   = medium_b.h;
     port_b.Xi = medium_b.Xi;
-    
+
     rho_rel = medium_a.d - medium_b.d;
   end RelDensity;
-  
-  model RelTemperature "Ideal relative temperature sensor" 
+
+  model RelTemperature "Ideal relative temperature sensor"
     extends Interfaces.PartialRelativeSensor;
     extends Modelica.Icons.TranslationalSensor;
     Medium.BaseProperties medium_a;
     Medium.BaseProperties medium_b;
-    Modelica.Blocks.Interfaces.RealOutput T_rel(redeclare type SignalType = 
+    Modelica.Blocks.Interfaces.RealOutput T_rel(redeclare type SignalType =
           SI.Temperature) "Relative temperature signal" annotation (extent=[-10, -80; 10, -100], rotation=90);
     annotation (
       Icon(
@@ -953,21 +953,21 @@ the two ports of this component and is provided as output signal.
 </p>
 </HTML>
 "));
-  equation 
+  equation
     port_a.p   = medium_a.p;
     port_a.h   = medium_a.h;
     port_a.Xi = medium_a.Xi;
     port_b.p   = medium_b.p;
     port_b.h   = medium_b.h;
     port_b.Xi = medium_b.Xi;
-    
+
     T_rel = medium_a.T - medium_b.T;
   end RelTemperature;
-  
-  model RelSpecificEnthalpy "Ideal relative specific enthalpy sensor" 
+
+  model RelSpecificEnthalpy "Ideal relative specific enthalpy sensor"
     extends Interfaces.PartialRelativeSensor;
     extends Modelica.Icons.TranslationalSensor;
-    Modelica.Blocks.Interfaces.RealOutput h_rel(redeclare type SignalType = 
+    Modelica.Blocks.Interfaces.RealOutput h_rel(redeclare type SignalType =
           SI.SpecificEnthalpy) "Relative specific enthalpy signal" annotation (extent=[-10, -80; 10, -100], rotation=90);
     annotation (
       Icon(
@@ -994,17 +994,17 @@ the two ports of this component and is provided as output signal.
 </p>
 </HTML>
 "));
-  equation 
+  equation
     h_rel = port_a.h - port_b.h;
   end RelSpecificEnthalpy;
-  
-  model RelSpecificInternalEnergy 
-    "Ideal relative specific internal energy sensor" 
+
+  model RelSpecificInternalEnergy
+    "Ideal relative specific internal energy sensor"
     extends Interfaces.PartialRelativeSensor;
     extends Modelica.Icons.TranslationalSensor;
     Medium.BaseProperties medium_a;
     Medium.BaseProperties medium_b;
-    Modelica.Blocks.Interfaces.RealOutput u_rel(redeclare type SignalType = 
+    Modelica.Blocks.Interfaces.RealOutput u_rel(redeclare type SignalType =
           SI.SpecificEnergy) "Relative specific internal energy signal" annotation (extent=[-10, -80; 10, -100], rotation=90);
     annotation (
       Icon(
@@ -1031,14 +1031,14 @@ the two ports of this component and is provided as output signal.
 </p>
 </HTML>
 "));
-  equation 
+  equation
     port_a.p   = medium_a.p;
     port_a.h   = medium_a.h;
     port_a.Xi = medium_a.Xi;
     port_b.p   = medium_b.p;
     port_b.h   = medium_b.h;
     port_b.Xi = medium_b.Xi;
-    
+
     u_rel = medium_a.u - medium_b.u;
   end RelSpecificInternalEnergy;
 */
@@ -1051,10 +1051,10 @@ the two ports of this component and is provided as output signal.
       "Partial component to model a sensor that measures a potential variable"
 
       replaceable package Medium=Modelica.Media.Interfaces.PartialMedium
-        "Medium in the sensor" 
+        "Medium in the sensor"
         annotation(choicesAllMatching=true);
 
-      Modelica.Fluid.Interfaces.FluidPort_a port(redeclare package Medium=Medium, m_flow(min=0)) 
+      Modelica.Fluid.Interfaces.FluidPort_a port(redeclare package Medium=Medium, m_flow(min=0))
         annotation (Placement(transformation(
             origin={0,-100},
             extent={{-10,-10},{10,10}},

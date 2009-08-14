@@ -16,7 +16,7 @@ function getWorkDirectory "Get full path name of work directory"
 // POSIX function "getcwd"
   external "C" directory = ModelicaInternal_getcwd(0);
     annotation (Library="ModelicaExternalC",Documentation(info="<html>
- 
+
 </html>"));
 end getWorkDirectory;
 
@@ -26,7 +26,7 @@ function setWorkDirectory "Set work directory"
 // POSIX function "chdir"
 external "C" ModelicaInternal_chdir(directory);
     annotation (Library="ModelicaExternalC",Documentation(info="<html>
-  
+
 </html>"));
 end setWorkDirectory;
 
@@ -41,7 +41,7 @@ function getEnvironmentVariable "Get content of environment variable"
       "= true, if environment variable exists; = false, if it does not exist";
   external "C" ModelicaInternal_getenv(name, convertToSlash, content, exist);
     annotation (Library="ModelicaExternalC",Documentation(info="<html>
-  
+
 </html>"));
 end getEnvironmentVariable;
 
@@ -53,7 +53,7 @@ function setEnvironmentVariable "Set content of local environment variable"
       "True, if '/' in content shall be changed to the native directory separator";
 external "C" ModelicaInternal_setenv(name, content, convertFromSlash);
     annotation (Library="ModelicaExternalC",Documentation(info="<html>
-    
+
 </html>"));
 end setEnvironmentVariable;
 
@@ -63,7 +63,7 @@ function command "Execute command in default shell"
   output Integer result "Return value from command (depends on environment)";
   external "C" result = system(string);
     annotation (Library="ModelicaExternalC",Documentation(info="<html>
- 
+
 </html>"));
 end command;
 

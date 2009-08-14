@@ -41,7 +41,7 @@ user interface when the type is used as parameter in a declaration.
       choice={3,2,1} "{3,2,1}"));
 
   type Color = Modelica.Icons.TypeInteger[3] (each min=0, each max=255)
-    "RGB representation of color (will be improved with a color editor)" 
+    "RGB representation of color (will be improved with a color editor)"
     annotation (
       Dialog(colorSelector),
       choices(
@@ -69,7 +69,7 @@ Note, r g, b are given in the range 0 .. 255.
 </p>
 </html>"));
   type SpecularCoefficient = Modelica.Icons.TypeReal
-    "Reflection of ambient light (= 0: light is completely absorbed)" 
+    "Reflection of ambient light (= 0: light is completely absorbed)"
        annotation ( min=0,
          choices(choice=0 "\"0.0 (dull)\"",choice=0.7 "\"0.7 (medium)\"", choice=1
         "\"1.0 (glossy)\""),
@@ -83,10 +83,10 @@ longer visible, if the SpecularCoefficient value is too high.
 In the following image, the different values of SpecularCoefficient
 are shown for a cylinder:
 </p>
- 
+
 <p>
 <img src=\"../Images/MultiBody/Visualizers/SpecularCoefficient.png\"
-</p> 
+</p>
 </html>"));
   type ShapeType = Modelica.Icons.TypeString
     "Type of shape (box, sphere, cylinder, pipecylinder, cone, pipe, beam, gearwheel, spring, dxf-file)"
@@ -120,7 +120,7 @@ values for shapeType are possible, e.g., shapeType=\"box\":
 <p>&nbsp;<br>
 The dark blue arrows in the figure above are directed along
 variable <b>lengthDirection</b>. The light blue arrows are directed
-along variable <b>widthDirection</b>. The <b>coordinate systems</b> 
+along variable <b>widthDirection</b>. The <b>coordinate systems</b>
 in the figure represent frame_a of the Shape component.
 </p>
 <p>
@@ -129,13 +129,13 @@ Additionally, external shapes are specified as DXF-files
 etc.. The corresponding definitions should be in files \"1.dxf\",
 \"2.dxf\" etc.Since the DXF-files contain color and dimensions for
 the individual faces, the corresponding information in the model
-is currently ignored. The DXF-files must be found either in the current 
+is currently ignored. The DXF-files must be found either in the current
 directory or in the directory where the Shape instance is stored
 that references the DXF file.
 </p>
 </html>"));
   type ShapeExtra = Modelica.Icons.TypeReal
-    "Reflection of ambient light (= 0: light is completely absorbed)" 
+    "Reflection of ambient light (= 0: light is completely absorbed)"
        annotation ( min=0,
     Documentation(info="<html>
 <p>
@@ -186,10 +186,10 @@ variable <b>extra</b> is used as instance name:
 <tr><th><b>Types.ResolveInFrameA.</b></th><th><b>Meaning</b></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
- 
+
 <tr><td valign=\"top\">frame_a</td>
     <td valign=\"top\">Resolve vector in frame_a</td></tr>
- 
+
 <tr><td valign=\"top\">frame_resolve</td>
     <td valign=\"top\">Resolve vector in frame_resolve (frame_resolve must be connected)</td></tr>
 </table>
@@ -205,10 +205,10 @@ variable <b>extra</b> is used as instance name:
 <tr><th><b>Types.ResolveInFrameB.</b></th><th><b>Meaning</b></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
- 
+
 <tr><td valign=\"top\">frame_b</td>
     <td valign=\"top\">Resolve vector in frame_b</td></tr>
- 
+
 <tr><td valign=\"top\">frame_resolve</td>
     <td valign=\"top\">Resolve vector in frame_resolve (frame_resolve must be connected)</td></tr>
 </table>
@@ -225,13 +225,13 @@ variable <b>extra</b> is used as instance name:
 <tr><th><b>Types.ResolveInFrameAB.</b></th><th><b>Meaning</b></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
- 
+
 <tr><td valign=\"top\">frame_a</td>
     <td valign=\"top\">Resolve vector in frame_a</td></tr>
- 
+
 <tr><td valign=\"top\">frame_b</td>
     <td valign=\"top\">Resolve vector in frame_b</td></tr>
- 
+
 <tr><td valign=\"top\">frame_resolve</td>
     <td valign=\"top\">Resolve vector in frame_resolve (frame_resolve must be connected)</td></tr>
 </table>
@@ -249,10 +249,10 @@ variable <b>extra</b> is used as instance name:
 <tr><td valign=\"top\">RotationAxis</td>
     <td valign=\"top\">frame_b is defined by rotating the coordinate system along
         an axis fixed in frame_a and with a fixed angle.</td></tr>
- 
+
 <tr><td valign=\"top\">TwoAxesVectors</td>
     <td valign=\"top\">frame_b is defined by resolving two vectors of frame_b in frame_a.</td></tr>
- 
+
 <tr><td valign=\"top\">PlanarRotationSequence</td>
     <td valign=\"top\">frame_b is defined by rotating the coordinate system along
         3 consecutive axes vectors with fixed rotation angles
@@ -264,16 +264,16 @@ variable <b>extra</b> is used as instance name:
       NoGravity "No gravity field",
       UniformGravity "Uniform gravity field",
       PointGravity "Point gravity field")
-    "Enumeration defining the type of the gravity field" 
+    "Enumeration defining the type of the gravity field"
       annotation (Documentation(info="<html>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><b>Types.GravityTypes.</b></th><th><b>Meaning</b></th></tr>
 <tr><td valign=\"top\">NoGravity</td>
     <td valign=\"top\">No gravity field</td></tr>
- 
+
 <tr><td valign=\"top\">UniformGravity</td>
     <td valign=\"top\">Gravity field is described by a vector of constant gravity acceleration</td></tr>
- 
+
 <tr><td valign=\"top\">PointGravity</td>
     <td valign=\"top\">Central gravity field. The gravity acceleration vector is directed to
         the field center and the gravity is proportional to 1/r^2, where
@@ -338,9 +338,9 @@ in the MultiBody library.
       "Default for rod diameter as a fraction of joint sphere diameter attached to rod";
 
     /*
-  constant Real N_to_m(unit="N/m") = 1000 
+  constant Real N_to_m(unit="N/m") = 1000
     "Default force arrow scaling (length = force/N_to_m_default)";
-  constant Real Nm_to_m(unit="N.m/m") = 1000 
+  constant Real Nm_to_m(unit="N.m/m") = 1000
     "Default torque arrow scaling (length = torque/Nm_to_m_default)";
 */
   end Defaults;

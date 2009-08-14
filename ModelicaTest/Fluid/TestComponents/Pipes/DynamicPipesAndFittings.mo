@@ -12,7 +12,7 @@ replaceable package Medium=Modelica.Media.Water.StandardWater;
     nNodes=5,
     m_flow_start=0.1,
     length=2,
-    redeclare model HeatTransfer = 
+    redeclare model HeatTransfer =
         Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.ConstantFlowHeatTransfer
         (                                                                alpha0=
            500),
@@ -20,7 +20,7 @@ replaceable package Medium=Modelica.Media.Water.StandardWater;
     use_HeatTransfer=true,
     p_a_start=100000,
     p_b_start=100000,
-    T_start=280) 
+    T_start=280)
             annotation (Placement(transformation(extent={{-30,68},{-10,88}},
           rotation=0)));
 
@@ -49,7 +49,7 @@ Test of different dynamic pipe models. The first system uses explicit junctions,
     p_b_start=100000,
     T_start=340,
     modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b,
-    p_a_start=100000) 
+    p_a_start=100000)
             annotation (Placement(transformation(extent={{20,54},{40,74}},
           rotation=0)));
 
@@ -63,7 +63,7 @@ Test of different dynamic pipe models. The first system uses explicit junctions,
     p_b_start=1.0e5,
     length=0.4,
     modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b,
-    p_a_start=100000) 
+    p_a_start=100000)
             annotation (Placement(transformation(extent={{-82,54},{-62,74}},
           rotation=0)));
 
@@ -81,7 +81,7 @@ Test of different dynamic pipe models. The first system uses explicit junctions,
     offset=1e5,
     startTime=5,
     duration=0,
-    height=1.0e5) 
+    height=1.0e5)
                 annotation (Placement(transformation(extent={{90,64},{78,76}},
           rotation=0)));
 
@@ -95,11 +95,11 @@ Test of different dynamic pipe models. The first system uses explicit junctions,
     p_b_start=100000,
     T_start=360,
     modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b,
-    p_a_start=100000) 
+    p_a_start=100000)
             annotation (Placement(transformation(extent={{-30,38},{-10,58}},
           rotation=0)));
 
-  inner Modelica.Fluid.System system 
+  inner Modelica.Fluid.System system
     annotation (Placement(transformation(extent={{72,-94},{92,-74}}, rotation=0)));
   Modelica.Fluid.Fittings.TeeJunctionVolume junction1(
     redeclare package Medium = Medium,
@@ -119,7 +119,7 @@ Test of different dynamic pipe models. The first system uses explicit junctions,
   Modelica.Thermal.HeatTransfer.Sources.FixedHeatFlow[
                                               pipe2.n] heat(each Q_flow=200,
       each alpha=10000,
-      each T_ref=350) 
+      each T_ref=350)
     annotation (Placement(transformation(extent={{-54,80},{-34,100}}, rotation=
             0)));
  Modelica.Fluid.Pipes.DynamicPipe pipe5(
@@ -129,12 +129,12 @@ Test of different dynamic pipe models. The first system uses explicit junctions,
     nNodes=5,
     m_flow_start=0.1,
     length=2,
-    redeclare model HeatTransfer = 
+    redeclare model HeatTransfer =
         Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.LocalPipeFlowHeatTransfer,
     use_HeatTransfer=true,
     p_a_start=100000,
     p_b_start=100000,
-    T_start=280) 
+    T_start=280)
             annotation (Placement(transformation(extent={{-30,10},{-10,30}},
           rotation=0)));
 
@@ -155,7 +155,7 @@ Test of different dynamic pipe models. The first system uses explicit junctions,
     p_b_start=100000,
     T_start=340,
     modelStructure=Modelica.Fluid.Types.ModelStructure.av_b,
-    p_a_start=100000) 
+    p_a_start=100000)
             annotation (Placement(transformation(extent={{14,-2},{34,18}},
           rotation=0)));
   Modelica.Fluid.Pipes.DynamicPipe pipe7(
@@ -167,7 +167,7 @@ Test of different dynamic pipe models. The first system uses explicit junctions,
     m_flow_start=0.1,
     p_b_start=1.0e5,
     length=0.4,
-    p_a_start=100000) 
+    p_a_start=100000)
             annotation (Placement(transformation(extent={{-74,-2},{-54,18}},
           rotation=0)));
   Modelica.Fluid.Sources.Boundary_pT boundary3(nPorts=1,
@@ -179,7 +179,7 @@ Test of different dynamic pipe models. The first system uses explicit junctions,
     offset=1e5,
     startTime=5,
     duration=0,
-    height=1.0e5) 
+    height=1.0e5)
                 annotation (Placement(transformation(extent={{96,8},{84,20}},
           rotation=0)));
   Modelica.Fluid.Pipes.DynamicPipe pipe8(
@@ -191,13 +191,13 @@ Test of different dynamic pipe models. The first system uses explicit junctions,
     nNodes=5,
     m_flow_start=0.1,
     p_b_start=1.0e5,
-    p_a_start=100000) 
+    p_a_start=100000)
             annotation (Placement(transformation(extent={{-30,-12},{-10,8}},
           rotation=0)));
   Modelica.Thermal.HeatTransfer.Sources.FixedHeatFlow[
                                               pipe2.n] heat1(each Q_flow=200,
       each alpha=10000,
-      each T_ref=350) 
+      each T_ref=350)
     annotation (Placement(transformation(extent={{-72,22},{-52,42}}, rotation=0)));
  Modelica.Fluid.Pipes.DynamicPipe pipe9(
     redeclare package Medium = Medium,
@@ -206,14 +206,14 @@ Test of different dynamic pipe models. The first system uses explicit junctions,
     nNodes=5,
     m_flow_start=0.1,
     length=2,
-    redeclare model HeatTransfer = 
+    redeclare model HeatTransfer =
         Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.ConstantFlowHeatTransfer
         (                                                                alpha0=
            500),
     use_HeatTransfer=true,
     p_a_start=100000,
     p_b_start=100000,
-    T_start=280) 
+    T_start=280)
             annotation (Placement(transformation(extent={{-29,-50},{-9,-30}},
           rotation=0)));
   Modelica.Fluid.Sources.Boundary_pT boundary5(nPorts=1,
@@ -233,7 +233,7 @@ Test of different dynamic pipe models. The first system uses explicit junctions,
     m_flow_start=0.1,
     p_b_start=100000,
     T_start=340,
-    p_a_start=100000) 
+    p_a_start=100000)
             annotation (Placement(transformation(extent={{14,-62},{34,-42}},
           rotation=0)));
   Modelica.Fluid.Pipes.DynamicPipe pipe11(
@@ -246,7 +246,7 @@ Test of different dynamic pipe models. The first system uses explicit junctions,
     length=0.4,
     p_b_start=100000,
     T_start=300,
-    p_a_start=100000) 
+    p_a_start=100000)
             annotation (Placement(transformation(extent={{-74,-62},{-54,-42}},
           rotation=0)));
   Modelica.Fluid.Sources.Boundary_pT boundary6(nPorts=1,
@@ -258,7 +258,7 @@ Test of different dynamic pipe models. The first system uses explicit junctions,
     offset=1e5,
     startTime=5,
     duration=0,
-    height=1.0e5) 
+    height=1.0e5)
                 annotation (Placement(transformation(extent={{96,-52},{84,-40}},
           rotation=0)));
   Modelica.Fluid.Pipes.DynamicPipe pipe12(
@@ -270,33 +270,33 @@ Test of different dynamic pipe models. The first system uses explicit junctions,
     m_flow_start=0.1,
     p_b_start=100000,
     T_start=360,
-    p_a_start=100000) 
+    p_a_start=100000)
             annotation (Placement(transformation(extent={{-29,-72},{-9,-52}},
           rotation=0)));
   Modelica.Thermal.HeatTransfer.Sources.FixedHeatFlow[
                                               pipe2.n] heat2(each Q_flow=200,
       each alpha=10000,
-      each T_ref=350) 
+      each T_ref=350)
     annotation (Placement(transformation(extent={{-72,-38},{-52,-18}}, rotation=
            0)));
   Modelica.Fluid.Fittings.MultiPort muliPort11(nPorts_b=2, redeclare package
-      Medium = Medium) 
+      Medium = Medium)
     annotation (Placement(transformation(extent={{-50,-62},{-42,-42}})));
   Modelica.Fluid.Fittings.MultiPort multiPort10(nPorts_b=2, redeclare package
-      Medium = Medium) 
+      Medium = Medium)
     annotation (Placement(transformation(extent={{10,-62},{2,-42}})));
 equation
-  connect(boundary1.ports[1], pipe1.port_a) 
+  connect(boundary1.ports[1], pipe1.port_a)
                                         annotation (Line(
       points={{-88,64},{-82,64}},
       color={0,127,255},
       thickness=0.5));
-  connect(pipe3.port_b, boundary2.ports[1]) 
+  connect(pipe3.port_b, boundary2.ports[1])
                                         annotation (Line(
       points={{40,64},{50,64}},
       color={0,127,255},
       thickness=0.5));
-  connect(heat.port, pipe2.heatPorts) 
+  connect(heat.port, pipe2.heatPorts)
                                      annotation (Line(
       points={{-34,90},{-19.9,90},{-19.9,83.2}},
       color={191,0,0},
@@ -305,7 +305,7 @@ equation
       points={{83.4,14},{76.7,14},{76.7,16},{70,16}},
       color={0,0,127},
       thickness=0.5));
-  connect(boundary3.ports[1], pipe7.port_a) 
+  connect(boundary3.ports[1], pipe7.port_a)
                                         annotation (Line(
       points={{-88,8},{-74,8}},
       color={0,127,255},
@@ -326,12 +326,12 @@ equation
       points={{-10,-2},{2,-2},{2,8},{14,8}},
       color={0,127,255},
       thickness=0.5));
-  connect(pipe6.port_b, boundary4.ports[1]) 
+  connect(pipe6.port_b, boundary4.ports[1])
                                         annotation (Line(
       points={{34,8},{48,8}},
       color={0,127,255},
       thickness=0.5));
-  connect(heat1.port, pipe5.heatPorts) 
+  connect(heat1.port, pipe5.heatPorts)
                                       annotation (Line(
       points={{-52,32},{-19.9,32},{-19.9,25.2}},
       color={191,0,0},
@@ -344,17 +344,17 @@ equation
       points={{83.4,-46},{77.7,-46},{77.7,-44},{72,-44}},
       color={0,0,127},
       thickness=0.5));
-  connect(boundary6.ports[1], pipe11.port_a) 
+  connect(boundary6.ports[1], pipe11.port_a)
                                          annotation (Line(
       points={{-90,-52},{-74,-52}},
       color={0,127,255},
       thickness=0.5));
-  connect(pipe10.port_b, boundary5.ports[1]) 
+  connect(pipe10.port_b, boundary5.ports[1])
                                          annotation (Line(
       points={{34,-52},{50,-52}},
       color={0,127,255},
       thickness=0.5));
-  connect(heat2.port, pipe9.heatPorts) 
+  connect(heat2.port, pipe9.heatPorts)
                                       annotation (Line(
       points={{-52,-28},{-18.9,-28},{-18.9,-34.8}},
       color={191,0,0},

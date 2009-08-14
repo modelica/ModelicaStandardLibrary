@@ -5,11 +5,11 @@ package TraceSubstances "Library demonstrating the usage of trace substances"
     extends Modelica.Icons.Example;
     package Medium=Modelica.Media.Air.MoistAir(extraPropertiesNames={"CO2"});
     Modelica.Blocks.Sources.Constant C(k=0.3*1.519E-3)
-      "substance concentration, raising to 1000 PPM CO2" 
+      "substance concentration, raising to 1000 PPM CO2"
       annotation (Placement(transformation(extent={{-94,-28},{-74,-8}})));
-    Sources.FixedBoundary boundary4(nPorts=1,redeclare package Medium = Medium) 
+    Sources.FixedBoundary boundary4(nPorts=1,redeclare package Medium = Medium)
       annotation (Placement(transformation(extent={{80,-20},{60,0}})));
-    Sensors.TraceSubstances traceVolume(redeclare package Medium = Medium) 
+    Sensors.TraceSubstances traceVolume(redeclare package Medium = Medium)
       annotation (Placement(transformation(extent={{0,20},{20,40}})));
     inner System system              annotation (Placement(transformation(extent={{52,36},
               {72,56}},          rotation=0)));
@@ -18,7 +18,7 @@ package TraceSubstances "Library demonstrating the usage of trace substances"
       m_flow=100/1.2/3600*5,
       redeclare package Medium = Medium,
       nPorts=2,
-      X=Medium.X_default) 
+      X=Medium.X_default)
       annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
     Modelica.Fluid.Vessels.ClosedVolume volume(
       C_start={1.519E-3},
@@ -27,17 +27,17 @@ package TraceSubstances "Library demonstrating the usage of trace substances"
       nPorts=2,
       X_start={0.015,0.085},
       massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
-      use_portsData=false) 
+      use_portsData=false)
                 annotation (Placement(transformation(extent={{-20,0},{0,20}})));
     Modelica.Fluid.Pipes.StaticPipe pipe(
       redeclare package Medium = Medium,
       length=1,
       diameter=0.15,
-      redeclare model FlowModel = 
+      redeclare model FlowModel =
           Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow (
-           show_Res=true)) 
+           show_Res=true))
       annotation (Placement(transformation(extent={{20,-20},{40,0}})));
-    Sensors.TraceSubstances traceSource(redeclare package Medium = Medium) 
+    Sensors.TraceSubstances traceSource(redeclare package Medium = Medium)
       annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
   equation
     connect(C.y, boundary1.C_in[1]) annotation (Line(
@@ -69,19 +69,19 @@ package TraceSubstances "Library demonstrating the usage of trace substances"
               100,100}}), graphics),
       experiment(StopTime=3600),
       Documentation(info="<html>
- 
+
 <p>
 This example consists of a volume with a carbon dioxide concentration that corresponds to about 1000 PPM.
 There is a fresh air stream with a carbon dioxide concentration of about 300 PPM.
 The fresh air stream is such that the air exchange rate is about 5 air changes per hour.
-After 1 hour of ventilation, the volume's carbon dioxide concentration is close to the 
+After 1 hour of ventilation, the volume's carbon dioxide concentration is close to the
 concentration of the fresh air.
 </p>
- 
+
 <p align=\"center\">
 <img src=\"../Images/Fluid/Examples/RoomCO2.png\" border=\"1\">
 </p>
- 
+
 </html>"),
       __Dymola_Commands(file(ensureSimulated=true)=
           "Scripts/Fluid/RoomCO2/plotConcentrations.mos" "plot concentrations"));
@@ -93,9 +93,9 @@ concentration of the fresh air.
     Modelica.Blocks.Sources.Constant CAtm(k=0.3*1.519E-3)
       "Atmospheric trace substance concentration, corresponding to 300 PPM CO2"
       annotation (Placement(transformation(extent={{-100,-50},{-80,-30}})));
-    Sources.FixedBoundary boundary4(nPorts=1,redeclare package Medium = Medium) 
+    Sources.FixedBoundary boundary4(nPorts=1,redeclare package Medium = Medium)
       annotation (Placement(transformation(extent={{92,-40},{72,-20}})));
-    Sensors.TraceSubstances traceVolume(redeclare package Medium = Medium) 
+    Sensors.TraceSubstances traceVolume(redeclare package Medium = Medium)
       annotation (Placement(transformation(extent={{0,-2},{20,18}})));
     inner System system              annotation (Placement(transformation(extent={{70,70},
               {90,90}},          rotation=0)));
@@ -103,7 +103,7 @@ concentration of the fresh air.
       use_C_in=true,
       redeclare package Medium = Medium,
       nPorts=2,
-      use_m_flow_in=true) 
+      use_m_flow_in=true)
       annotation (Placement(transformation(extent={{-60,-42},{-40,-22}})));
     Modelica.Fluid.Vessels.ClosedVolume volume(
       C_start={1.519E-3},
@@ -111,17 +111,17 @@ concentration of the fresh air.
       redeclare package Medium = Medium,
       nPorts=3,
       massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
-      use_portsData=false) 
+      use_portsData=false)
                 annotation (Placement(transformation(extent={{-20,-22},{0,-2}})));
     Modelica.Fluid.Pipes.StaticPipe pipe(
       redeclare package Medium = Medium,
       length=1,
       diameter=0.15,
-      redeclare model FlowModel = 
+      redeclare model FlowModel =
           Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow (
-           show_Res=true)) 
+           show_Res=true))
       annotation (Placement(transformation(extent={{32,-40},{52,-20}})));
-    Sensors.TraceSubstances traceSource(redeclare package Medium = Medium) 
+    Sensors.TraceSubstances traceSource(redeclare package Medium = Medium)
       annotation (Placement(transformation(extent={{-40,-2},{-20,18}})));
     Sources.MassFlowSource_T peopleSource(
       m_flow=100/1.2/3600*5,
@@ -129,23 +129,23 @@ concentration of the fresh air.
       nPorts=1,
       use_m_flow_in=true,
       use_C_in=false,
-      C={100}) "CO2 emitted by room occupants." 
+      C={100}) "CO2 emitted by room occupants."
       annotation (Placement(transformation(extent={{-38,-98},{-18,-78}})));
     Modelica.Blocks.Sources.CombiTimeTable NumberOfPeople(table=[0,0; 9*3600,0;
           9*3600,10; 11*3600,10; 11*3600,2; 13*3600,2; 13*3600,15; 15*3600,15;
           15*3600,5; 18*3600,5; 18*3600,0; 24*3600,0])
-      "Time table for number of people in the room" 
+      "Time table for number of people in the room"
       annotation (Placement(transformation(extent={{-100,-90},{-80,-70}})));
     Modelica.Blocks.Math.Gain gain(k=8.18E-6/100)
       "CO2 mass flow rate, released per 100 person (there is another 100 factor in peopleSource)"
       annotation (Placement(transformation(extent={{-68,-90},{-48,-70}})));
     Modelica.Blocks.Math.Gain gain1(k=-100*1.2/3600*5)
-      "Nominal fresh air flow rate (for u=1)" 
+      "Nominal fresh air flow rate (for u=1)"
       annotation (Placement(transformation(extent={{0,40},{20,60}})));
     Modelica.Blocks.Math.Gain gainSensor(k=1/1.519E-3)
-      "Gain to normalize CO2 measurement signal. y=1 corresponds to 1000 PPM" 
+      "Gain to normalize CO2 measurement signal. y=1 corresponds to 1000 PPM"
       annotation (Placement(transformation(extent={{40,-2},{60,18}})));
-    Modelica.Blocks.Sources.Constant CO2Set(k=1) "Normalized CO2 set point" 
+    Modelica.Blocks.Sources.Constant CO2Set(k=1) "Normalized CO2 set point"
       annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
     Modelica.Blocks.Continuous.LimPID PID(
       controllerType=Modelica.Blocks.Types.SimpleController.PI,
@@ -154,7 +154,7 @@ concentration of the fresh air.
       Ti=10,
       k=10)   annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
   equation
-    connect(CAtm.y, freshAir.C_in[1]) 
+    connect(CAtm.y, freshAir.C_in[1])
                                     annotation (Line(
         points={{-79,-40},{-60,-40}},
         color={0,0,127},
@@ -193,28 +193,28 @@ The CO2 emission rate is proportional to the room occupancy, which is defined by
 The fresh air flow rate is controlled such that the room CO2
 concentration does not exceed <tt>1000 PPM (=1.519E-3 kg/kg)</tt>.
 The fresh air has a CO2 concentration of <tt>300 PPM</tt> which corresponds to a typical
-CO2 concentration in the outside air. 
+CO2 concentration in the outside air.
 </p>
- 
+
 <p>
 The CO2 emission from the occupants is implemented as a mass flow source.
-Depending on the activity and size, a person emits about <tt>8.18E-6 kg/s</tt> CO2. In the model, 
-this value is multiplied by the number of occupants. 
+Depending on the activity and size, a person emits about <tt>8.18E-6 kg/s</tt> CO2. In the model,
+this value is multiplied by the number of occupants.
 Since the mass flow rate associate with the CO2 source model contributes to the volume's energy balance,
 this mass flow rate should be kept small. Thus, in the source model, we set the
 CO2 concentration to <tt>C={100} kg/kg</tt>, and scaled the mass flow rate using
 </p>
- 
+
 <pre>
   m_flow = 1/100 * nPeo * 8.18E-6 kg/(s*person)
 </pre>
- 
+
 <p>
 where <tt>nPeo</tt> is the number of people in the room.
 This results in a mass flow rate that is about 5 orders of magnitudes smaller than the supply air flow rate,
 and hence its contribution to the volume's energy balance is negligible.
 </p>
- 
+
 <p align=\"center\">
 <img src=\"../Images/Fluid/Examples/RoomCO2WithControls.png\" border=\"1\">
 </p>
@@ -239,7 +239,7 @@ and hence its contribution to the volume's energy balance is negligible.
         points={{-59,50},{-42,50}},
         color={0,0,127},
         smooth=Smooth.None));
-    connect(gainSensor.y, PID.u_m) 
+    connect(gainSensor.y, PID.u_m)
                               annotation (Line(
         points={{61,8},{70,8},{70,30},{-30,30},{-30,38}},
         color={0,0,127},

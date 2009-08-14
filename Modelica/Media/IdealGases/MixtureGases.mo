@@ -12,7 +12,7 @@ package MixtureGases "Medium models consisting of mixtures of ideal gases"
       substanceNames = {"Nitrogen", "Oxygen"},
       reference_X={0.768,0.232});
     annotation (Documentation(info="<html>
-  
+
 </html>"));
   end CombustionAir;
 
@@ -25,7 +25,7 @@ package MixtureGases "Medium models consisting of mixtures of ideal gases"
        substanceNames = {"Water","Air"},
        reference_X={0.0,1.0});
     annotation (Documentation(info="<html>
-  
+
 </html>"));
   end AirSteam;
 
@@ -47,7 +47,7 @@ package MixtureGases "Medium models consisting of mixtures of ideal gases"
        substanceNames = {"Nitrogen","Oxygen","Water", "Carbondioxide"},
        reference_X={0.768,0.232,0.0,0.0});
     annotation (Documentation(info="<html>
-  
+
 </html>"));
   end FlueGasLambdaOnePlus;
 
@@ -70,7 +70,7 @@ package MixtureGases "Medium models consisting of mixtures of ideal gases"
        substanceNames = {"Nitrogen","Hydrogen,","Carbonmonoxide","Oxygen","Water","Carbondioxide"},
        reference_X={0.768,0.0,0.0,0.232,0.0,0.0});
     annotation (Documentation(info="<html>
-  
+
 </html>"));
   end FlueGasSixComponents;
 
@@ -92,7 +92,7 @@ package MixtureGases "Medium models consisting of mixtures of ideal gases"
        substanceNames = {"Methane","Ethane","Propane","N-Butane,","Nitrogen","Carbondioxide"},
        reference_X={0.92,0.048,0.005,0.002,0.015,0.01});
     annotation (Documentation(info="<html>
-  
+
 </html>"));
   end SimpleNaturalGas;
 
@@ -100,10 +100,10 @@ package MixtureGases "Medium models consisting of mixtures of ideal gases"
     "Same as SimpleNaturalGas but with fixed composition"
   extends SimpleNaturalGas(fixedX=true);
     annotation (Documentation(info="<html>
-  
+
 </html>"));
   end SimpleNaturalGasFixedComposition;
   annotation (Documentation(info="<html>
-  
+
 </html>"));
 end MixtureGases;

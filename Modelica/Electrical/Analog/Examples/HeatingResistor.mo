@@ -4,13 +4,13 @@ model HeatingResistor "Heating resistor"
   Basic.HeatingResistor heatingResistor(
     R_ref=100,
     alpha=1e-3,
-    T_ref=293.15) 
+    T_ref=293.15)
                 annotation (Placement(transformation(extent={{-10,10},{10,-10}},
           rotation=-90,
         origin={-32,34})));
-  Modelica.Electrical.Analog.Basic.Ground G 
+  Modelica.Electrical.Analog.Basic.Ground G
   annotation (Placement(transformation(extent={{-80,0},{-60,20}}, rotation=0)));
-  Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1(V=220, freqHz=1) 
+  Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1(V=220, freqHz=1)
   annotation (Placement(transformation(
         origin={-70,40},
         extent={{-10,-10},{10,10}},
@@ -26,21 +26,21 @@ annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
 This is a very simple circuit consisting of a voltage source and a resistor.
 The loss power in the resistor is transported to the environment via its heatPort.
 </P>
- 
+
 </HTML>
 "));
   Modelica.Thermal.HeatTransfer.Components.ThermalConductor thermalConductor(G=
-        50) 
+        50)
   annotation (Placement(transformation(
         origin={4,34},
         extent={{-10,-10},{10,10}},
         rotation=0)));
-  Thermal.HeatTransfer.Celsius.FixedTemperature fixedTemperature(T=20) 
+  Thermal.HeatTransfer.Celsius.FixedTemperature fixedTemperature(T=20)
     annotation (Placement(transformation(extent={{52,24},{32,44}})));
 equation
-  connect(SineVoltage1.n, G.p) 
+  connect(SineVoltage1.n, G.p)
   annotation (Line(points={{-70,30},{-70,20}}, color={0,0,255}));
-  connect(heatingResistor.heatPort, thermalConductor.port_a) 
+  connect(heatingResistor.heatPort, thermalConductor.port_a)
                                                           annotation (Line(
         points={{-22,34},{-6,34}},                    color={191,0,0}));
 

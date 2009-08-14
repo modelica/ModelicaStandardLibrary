@@ -8,7 +8,7 @@ package Sensors "Potential, voltage, current, and power sensors"
 <p>
 This package contains potential, voltage, and current sensors.
 </p>
- 
+
 </HTML>
 ", revisions="<html>
 <dl>
@@ -42,7 +42,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     Interfaces.PositivePin p "pin to be measured" annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
     Modelica.Blocks.Interfaces.RealOutput phi
-      "Absolute voltage potential as output signal" 
+      "Absolute voltage potential as output signal"
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
     annotation (
@@ -85,7 +85,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     Interfaces.NegativePin n "negative pin" annotation (Placement(
           transformation(extent={{90,-10},{110,10}}, rotation=0)));
     Modelica.Blocks.Interfaces.RealOutput v
-      "Voltage between pin p and n (= p.v - n.v) as output signal" 
+      "Voltage between pin p and n (= p.v - n.v) as output signal"
        annotation (Placement(transformation(
           origin={0,-100},
           extent={{10,-10},{-10,10}},
@@ -135,7 +135,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     Interfaces.NegativePin n "negative pin" annotation (Placement(
           transformation(extent={{90,-10},{110,10}}, rotation=0)));
     Modelica.Blocks.Interfaces.RealOutput i
-      "current in the branch from p to n as output signal" 
+      "current in the branch from p to n as output signal"
        annotation (Placement(transformation(
           origin={0,-100},
           extent={{10,-10},{-10,10}},
@@ -183,33 +183,33 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 
 model PowerSensor "Sensor to measure the power"
   Modelica.Electrical.Analog.Interfaces.PositivePin pc
-      "Positive pin, current path" 
+      "Positive pin, current path"
     annotation (Placement(transformation(extent={{-90,-10},{-110,10}}, rotation=
              0)));
   Modelica.Electrical.Analog.Interfaces.NegativePin nc
-      "Negative pin, current path" 
+      "Negative pin, current path"
     annotation (Placement(transformation(extent={{110,-10},{90,10}}, rotation=0)));
   Modelica.Electrical.Analog.Interfaces.PositivePin pv
-      "Positive pin, voltage path" 
+      "Positive pin, voltage path"
     annotation (Placement(transformation(extent={{-10,110},{10,90}}, rotation=0)));
   Modelica.Electrical.Analog.Interfaces.NegativePin nv
-      "Negative pin, voltage path" 
+      "Negative pin, voltage path"
     annotation (Placement(transformation(extent={{10,-110},{-10,-90}}, rotation=
              0)));
-  Modelica.Blocks.Interfaces.RealOutput power 
+  Modelica.Blocks.Interfaces.RealOutput power
     annotation (Placement(transformation(
           origin={-80,-110},
           extent={{-10,10},{10,-10}},
           rotation=270)));
-  Modelica.Electrical.Analog.Sensors.VoltageSensor voltageSensor 
+  Modelica.Electrical.Analog.Sensors.VoltageSensor voltageSensor
     annotation (Placement(transformation(
           origin={0,-30},
           extent={{10,-10},{-10,10}},
           rotation=90)));
-  Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor 
+  Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor
     annotation (Placement(transformation(extent={{-50,-10},{-30,10}}, rotation=
               0)));
-  Modelica.Blocks.Math.Product product 
+  Modelica.Blocks.Math.Product product
     annotation (Placement(transformation(
           origin={-30,-50},
           extent={{-10,-10},{10,10}},
@@ -271,9 +271,9 @@ equation
             6.12323e-016,-20}}, color={0,0,255}));
   connect(voltageSensor.n, nv) annotation (Line(points={{-6.12323e-016,-40},{
             -6.12323e-016,-63},{0,-63},{0,-100}}, color={0,0,255}));
-  connect(pc, currentSensor.p) 
+  connect(pc, currentSensor.p)
     annotation (Line(points={{-100,0},{-50,0}}, color={0,0,255}));
-  connect(currentSensor.n, nc) 
+  connect(currentSensor.n, nc)
     annotation (Line(points={{-30,0},{100,0}}, color={0,0,255}));
   connect(currentSensor.i, product.u2) annotation (Line(points={{-40,-10},{-40,
             -30},{-36,-30},{-36,-38}}, color={0,0,127}));

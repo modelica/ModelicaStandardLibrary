@@ -3,7 +3,7 @@
 
    The functions are mostly non-portable. The following #define's are used
    to define the system calls of the operating system
-  
+
     _WIN32        : System calls of Windows'95, Windows'NT
                     (Note, that these system calls allow both '/' and '\'
                     as directory separator for input arguments. As return
@@ -13,8 +13,8 @@
     _MSC_VER      : Microsoft Visual C++
     __GNUC__      : GNU C compiler
     NO_FILE_SYSTEM: A file system is not present (e.g. on dSpace or xPC).
-    
-      
+
+
     Release Notes:
       Sept. 26, 2004: by Martin Otter, DLR.
         Added missing implementations, merged code from previous ModelicaFiles
@@ -25,21 +25,21 @@
 
       Aug. 24, 2004: by Martin Otter, DLR.
         Adapted to Dymola 5.3 with minor improvements.
-        
+
       Jan.  7, 2002: by Martin Otter, DLR.
-        First version implemented. 
+        First version implemented.
         Only tested for _WIN32, but implemented all
         functions also for _POSIX_, with the exception of
         ModelicaInternal_getFullPath
-          
-            
-    Copyright (C) 2002-2006, Modelica Association and DLR.
-              
 
-   The content of this file is free software; it can be redistributed 
-   and/or modified under the terms of the Modelica License 2, see the 
+
+    Copyright (C) 2002-2006, Modelica Association and DLR.
+
+
+   The content of this file is free software; it can be redistributed
+   and/or modified under the terms of the Modelica License 2, see the
    license conditions and the accompanying disclaimer in file
-   Modelica/ModelicaLicense2.html or in Modelica.UsersGuide.ModelicaLicense2. 
+   Modelica/ModelicaLicense2.html or in Modelica.UsersGuide.ModelicaLicense2.
 
 */
 
@@ -52,10 +52,10 @@
 
 static void ModelicaNotExistError(const char* name) {
    /* Print error message if a function is not implemented */
-   ModelicaFormatError("C-Function \"%s\" is called\n" 
+   ModelicaFormatError("C-Function \"%s\" is called\n"
                        "but is not implemented for the actual environment\n"
                        "(e.g., because there is no file system available on the machine\n"
-                       "as for dSpace or xPC systems)", name); 
+                       "as for dSpace or xPC systems)", name);
 }
 
 #if NO_FILE_SYSTEM
@@ -162,7 +162,7 @@ typedef enum {
 static void ModelicaInternal_mkdir(const char* directoryName)
 {
     /* Create directory */
-        
+
 #if defined(_WIN32)
     int result = _mkdir(directoryName);
 #elif defined(_POSIX_)
@@ -171,7 +171,7 @@ static void ModelicaInternal_mkdir(const char* directoryName)
     int result = -1;
     ModelicaNotExistError("ModelicaInternal_mkdir");
 #endif
-    
+
     if (result != 0) {
         ModelicaFormatError("Not possible to create new directory\n"
             "\"%s\":\n%s", directoryName, strerror(errno));
@@ -191,7 +191,7 @@ static void ModelicaInternal_rmdir(const char* directoryName)
     int result = -1;
     ModelicaNotExistError("ModelicaInternal_rmdir");
 #endif
-    
+
     if (result != 0) {
         ModelicaFormatError("Not possible to remove directory\n"
             "\"%s\":\n%s", directoryName, strerror(errno));
@@ -203,7 +203,7 @@ static int ModelicaInternal_stat(const char* name)
 {
     /* Inquire type of file */
     ModelicaFileType type = FileType_NoFile;
-    
+
 #if defined(_WIN32) && defined(_MSC_VER)
     struct _stat fileInfo;
     if ( _stat(name, &fileInfo) != 0 ) {
@@ -307,7 +307,7 @@ static void ModelicaInternal_copyFile(const char* oldFile, const char* newFile) 
 }
 
 
-static void ModelicaInternal_readDirectory(const char* directory, int nFiles, 
+static void ModelicaInternal_readDirectory(const char* directory, int nFiles,
                                            const char** files) {
   /* Get all file and directory names in a directory in any order
      (must be very careful, to call closedir if an error occurs)
@@ -390,13 +390,13 @@ static void ModelicaInternal_readDirectory(const char* directory, int nFiles,
 
 static int ModelicaInternal_getNumberOfFiles(const char* directory) {
     /* Get number of files and directories in a directory */
-    
+
 #if defined(_WIN32) || defined(_POSIX_)
     int nFiles = 0;
     int errnoTemp;
     struct dirent *pinfo;
     DIR* pdir;
-        
+
     pdir = opendir(directory);
     if ( pdir == NULL ) goto ERROR;
     errno = 0;
@@ -411,7 +411,7 @@ static int ModelicaInternal_getNumberOfFiles(const char* directory) {
     if ( errnoTemp != 0 ) {errno = errnoTemp; goto ERROR;}
 
     return nFiles;
-    
+
 ERROR: ModelicaFormatError("Not possible to get number of files in \"%s\":\n%s",
                            directory, strerror(errno));
        return 0;
@@ -427,7 +427,7 @@ ERROR: ModelicaFormatError("Not possible to get number of files in \"%s\":\n%s",
 static const char* ModelicaInternal_fullPathName(const char* name)
 {
     /* Get full path name of file or directory */
-    
+
     char* fullName;
 
 #if defined(_WIN32)
@@ -452,14 +452,14 @@ static const char* ModelicaInternal_fullPathName(const char* name)
     strcat(fullName, "/");
     strcat(fullName, name);
 #endif
-    
+
     return fullName;
 }
 
 static const char* ModelicaInternal_temporaryFileName()
 {
     /* Get full path name of a temporary */
-    
+
     char* fullName;
 
     char* tempName = tmpnam(NULL);
@@ -470,7 +470,7 @@ static const char* ModelicaInternal_temporaryFileName()
     fullName = ModelicaAllocateString(strlen(tempName));
     strcpy(fullName, tempName);
     ModelicaConvertToUnixDirectorySeparator(fullName);
-    
+
     return fullName;
 }
 
@@ -497,7 +497,7 @@ static FILE* ModelicaStreams_openFileForReading(const char* fileName) {
 static FILE* ModelicaStreams_openFileForWriting(const char* fileName) {
    /* Open text file for writing (with append) */
       FILE* fp;
-   
+
    /* Check fileName */
       if ( strlen(fileName) == 0 ) {
          ModelicaError("fileName is an empty string.\n"
@@ -548,9 +548,9 @@ static int ModelicaInternal_countLines(const char* fileName)
     int nLines = 0;
     int start_of_line = 1;
     /* If true, next character starts a new line. */
-    
-    FILE* fp = ModelicaStreams_openFileForReading(fileName); 
-    
+
+    FILE* fp = ModelicaStreams_openFileForReading(fileName);
+
     /* Count number of lines */
     while ((c = fgetc(fp)) != EOF) {
         if (start_of_line) {
@@ -584,7 +584,7 @@ static void ModelicaInternal_readFile(const char* fileName, const char* string[]
               lineLen++;
               c = fgetc(fp);
            }
-           
+
         /* Allocate storage for next line */
            line = ModelicaAllocateStringWithErrorReturn(lineLen);
            if ( line == NULL ) {
@@ -695,7 +695,7 @@ static const char* ModelicaInternal_getcwd(int dummy)
 {
     const char* cwd;
     char* directory;
-    
+
 #if defined(_WIN32)
     cwd = _getcwd(buffer, sizeof(buffer));
 #elif defined(_POSIX_)
@@ -704,13 +704,13 @@ static const char* ModelicaInternal_getcwd(int dummy)
     ModelicaNotExistError("ModelicaInternal_getcwd");
     cwd = "";
 #endif
-    
+
     if (cwd == NULL) {
         ModelicaFormatError("Not possible to get current working directory:\n%s",
             strerror(errno));
         cwd = "";
     }
-    
+
     directory = ModelicaAllocateString(strlen(cwd));
     strcpy(directory, cwd);
     ModelicaConvertToUnixDirectorySeparator(directory);
@@ -723,7 +723,7 @@ static const char* ModelicaInternal_getenv(const char* name, int convertToSlash,
     /* Get content of environment variable */
     char* value = getenv(name);
     char* result;
-    
+
     if (value == NULL) {
         result = ModelicaAllocateString(0);
         result[0] = '\0';
@@ -740,7 +740,7 @@ static const char* ModelicaInternal_getenv(const char* name, int convertToSlash,
 
 static void ModelicaInternal_setenv(const char* name, const char* value, int convertFromSlash)
 {
-#if defined(_WIN32) || defined(_POSIX_)  
+#if defined(_WIN32) || defined(_POSIX_)
     int valueStart;
     if (strlen(name) + strlen(value) + 1 > sizeof(buffer)) {
         ModelicaFormatError("Environment variable\n"
@@ -749,12 +749,12 @@ static void ModelicaInternal_setenv(const char* name, const char* value, int con
             "in file \"ModelicaInternal.c\" is too small (= %d)",
             name, value, sizeof(buffer));
     }
-    
+
     strcpy(buffer,name);
     strcat(buffer, "=");
     valueStart = strlen(buffer);
     strcat(buffer, value);
-   
+
     if ( convertFromSlash == 1 ) ModelicaConvertFromUnixDirectorySeparator(&buffer[valueStart]);
 #endif
 

@@ -25,7 +25,7 @@ protected
 
   annotation (experiment(StopTime=3), experimentSetupOutput,
     Documentation(info="<html>
- 
+
 </html>"));
 equation
   dp = t2p*time - 1;

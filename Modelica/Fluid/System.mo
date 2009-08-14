@@ -3,57 +3,57 @@ model System
   "System properties and default values (ambient, flow direction, initialization)"
 
   package Medium = Modelica.Media.Interfaces.PartialMedium
-    "Medium model for default start values" 
+    "Medium model for default start values"
       annotation (choicesAllMatching = true);
   parameter Modelica.SIunits.AbsolutePressure p_ambient=101325
-    "Default ambient pressure" 
+    "Default ambient pressure"
     annotation(Dialog(group="Environment"));
   parameter Modelica.SIunits.Temperature T_ambient=293.15
-    "Default ambient temperature" 
+    "Default ambient temperature"
     annotation(Dialog(group="Environment"));
   parameter Modelica.SIunits.Acceleration g=Modelica.Constants.g_n
-    "Constant gravity acceleration" 
+    "Constant gravity acceleration"
     annotation(Dialog(group="Environment"));
 
   // Assumptions
   parameter Boolean allowFlowReversal = true
-    "= false to restrict to design flow direction (port_a -> port_b)" 
+    "= false to restrict to design flow direction (port_a -> port_b)"
     annotation(Dialog(tab="Assumptions"), Evaluate=true);
   parameter Modelica.Fluid.Types.Dynamics energyDynamics=
     Modelica.Fluid.Types.Dynamics.DynamicFreeInitial
-    "Default formulation of energy balances" 
+    "Default formulation of energy balances"
     annotation(Evaluate=true, Dialog(tab = "Assumptions", group="Dynamics"));
   parameter Modelica.Fluid.Types.Dynamics massDynamics=
-    energyDynamics "Default formulation of mass balances" 
+    energyDynamics "Default formulation of mass balances"
     annotation(Evaluate=true, Dialog(tab = "Assumptions", group="Dynamics"));
   final parameter Modelica.Fluid.Types.Dynamics substanceDynamics=
-    massDynamics "Default formulation of substance balances" 
+    massDynamics "Default formulation of substance balances"
     annotation(Evaluate=true, Dialog(tab = "Assumptions", group="Dynamics"));
   final parameter Modelica.Fluid.Types.Dynamics traceDynamics=
-    massDynamics "Default formulation of trace substance balances" 
+    massDynamics "Default formulation of trace substance balances"
     annotation(Evaluate=true, Dialog(tab = "Assumptions", group="Dynamics"));
   parameter Modelica.Fluid.Types.Dynamics momentumDynamics=
     Modelica.Fluid.Types.Dynamics.SteadyState
-    "Default formulation of momentum balances, if options available" 
+    "Default formulation of momentum balances, if options available"
     annotation(Evaluate=true, Dialog(tab = "Assumptions", group="Dynamics"));
 
   // Initialization
   parameter Modelica.SIunits.MassFlowRate m_flow_start = 0
-    "Default start value for mass flow rates" 
+    "Default start value for mass flow rates"
     annotation(Dialog(tab = "Initialization"));
   parameter Modelica.SIunits.AbsolutePressure p_start = p_ambient
-    "Default start value for pressures" 
+    "Default start value for pressures"
     annotation(Dialog(tab = "Initialization"));
   parameter Modelica.SIunits.Temperature T_start = T_ambient
-    "Default start value for temperatures" 
+    "Default start value for temperatures"
     annotation(Dialog(tab = "Initialization"));
 
   // Advanced
   parameter Modelica.SIunits.MassFlowRate m_flow_small(min=0) = 0.01
-    "Default small laminar mass flow rate for regularization of zero flow" 
+    "Default small laminar mass flow rate for regularization of zero flow"
     annotation(Dialog(tab = "Advanced"));
   parameter Modelica.SIunits.AbsolutePressure dp_small(min=0) = 1
-    "Default small pressure drop for regularization of laminar and zero flow" 
+    "Default small pressure drop for regularization of laminar and zero flow"
     annotation(Dialog(tab="Advanced"));
 
   annotation (
@@ -111,11 +111,11 @@ is used for the current simulation.
     Documentation(info="<html>
 <p>
  A system component is needed in each fluid model to provide system-wide settings, such as ambient conditions and overall modeling assumptions.
- The system settings are propagated to the fluid models using the inner/outer mechanism. 
+ The system settings are propagated to the fluid models using the inner/outer mechanism.
 </p>
 <p>
- A model should never directly use system parameters. 
- Instead a local parameter should be declared, which uses the global setting as default. 
+ A model should never directly use system parameters.
+ Instead a local parameter should be declared, which uses the global setting as default.
  The only exception currently made is the gravity system.g.
 </p>
 </html>"));

@@ -2,11 +2,11 @@ within ModelicaTest.Fluid.TestComponents.Sensors;
 model TestTemperatureSensor "Test and compare case for the difference between using one port with
    and without explicit junction model and two port sensor for fluid temperature meassuring"
   import Modelica.Fluid;
-  Modelica.Fluid.Sensors.Temperature Temperature(redeclare package Medium = 
-                       Modelica.Media.Water.StandardWater) 
+  Modelica.Fluid.Sensors.Temperature Temperature(redeclare package Medium =
+                       Modelica.Media.Water.StandardWater)
     annotation (Placement(transformation(extent={{-20,40},{0,60}}, rotation=0)));
   Modelica.Fluid.Sensors.TemperatureTwoPort temperatureTwoPort(redeclare
-      package Medium = Modelica.Media.Water.StandardWater) 
+      package Medium = Modelica.Media.Water.StandardWater)
     annotation (Placement(transformation(extent={{-20,-20},{0,0}}, rotation=0)));
   inner Modelica.Fluid.System system  annotation (Placement(transformation(
           extent={{-100,-100},{-80,-80}}, rotation=0)));
@@ -60,7 +60,7 @@ model TestTemperatureSensor "Test and compare case for the difference between us
   Modelica.Blocks.Sources.Sine sine annotation (Placement(transformation(extent=
            {{-100,10},{-80,30}}, rotation=0)));
   Modelica.Fluid.Sensors.Temperature TemperatureJunction(
-      redeclare package Medium = Modelica.Media.Water.StandardWater) 
+      redeclare package Medium = Modelica.Media.Water.StandardWater)
     annotation (Placement(transformation(extent={{-20,-80},{0,-60}}, rotation=0)));
   Modelica.Fluid.Vessels.OpenTank openTankCold3(nPorts=1,
     level_start=1,
@@ -84,10 +84,10 @@ model TestTemperatureSensor "Test and compare case for the difference between us
            {{-60,-90},{-40,-70}}, rotation=0)));
   Modelica.Fluid.Fittings.TeeJunctionIdeal junctionIdeal(
                                                        redeclare package Medium
-      = Modelica.Media.Water.StandardWater) 
+      = Modelica.Media.Water.StandardWater)
     annotation (Placement(transformation(extent={{20,-90},{40,-70}}, rotation=0)));
 equation
-  connect(massFlowRate2.ports[1], temperatureTwoPort.port_a) 
+  connect(massFlowRate2.ports[1], temperatureTwoPort.port_a)
                                                          annotation (Line(
       points={{-40,-10},{-20,-10}},
       color={0,127,255},

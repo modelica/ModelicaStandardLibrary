@@ -3,21 +3,21 @@ model PumpingSystem "Model of a pumping system for drinking water"
   extends Modelica.Icons.Example;
   Modelica.Fluid.Sources.FixedBoundary source(
     nPorts = 1,
-    redeclare package Medium = 
+    redeclare package Medium =
         Modelica.Media.Water.ConstantPropertyLiquidWater,
     use_T=true,
     T=Modelica.SIunits.Conversions.from_degC(20),
-    p=system.p_ambient) 
+    p=system.p_ambient)
     annotation (Placement(transformation(extent={{-100,-80},{-80,-60}},
           rotation=0)));
 
   Modelica.Fluid.Pipes.StaticPipe pipe(
-    redeclare package Medium = 
+    redeclare package Medium =
         Modelica.Media.Water.ConstantPropertyLiquidWater,
     allowFlowReversal=true,
     length=100,
     height_ab=50,
-    diameter=0.3) 
+    diameter=0.3)
     annotation (Placement(transformation(
         origin={-30,-51},
         extent={{-9,-10},{11,10}},
@@ -25,10 +25,10 @@ model PumpingSystem "Model of a pumping system for drinking water"
 
   Machines.PrescribedPump pumps(
     checkValve=true,
-    redeclare package Medium = 
+    redeclare package Medium =
         Modelica.Media.Water.ConstantPropertyLiquidWater,
     N_nominal=1200,
-    redeclare function flowCharacteristic = 
+    redeclare function flowCharacteristic =
         Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.quadraticFlow (
           V_flow_nominal={0,0.25,0.5}, head_nominal={100,60,0}),
     V=50/1000,
@@ -36,13 +36,13 @@ model PumpingSystem "Model of a pumping system for drinking water"
     use_N_in=true,
     nParallel=1,
     energyDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial,
-    massDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial) 
+    massDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial)
     annotation (Placement(transformation(extent={{-68,-80},{-48,-60}}, rotation=
            0)));
 
   Modelica.Fluid.Vessels.OpenTank reservoir(
     massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
-    redeclare package Medium = 
+    redeclare package Medium =
         Modelica.Media.Water.ConstantPropertyLiquidWater,
     T_start=Modelica.SIunits.Conversions.from_degC(20),
     use_portsData=true,
@@ -52,30 +52,30 @@ model PumpingSystem "Model of a pumping system for drinking water"
     nPorts=3,
     portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.3),
         Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.3),
-        Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.01)}) 
+        Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.01)})
     annotation (Placement(transformation(extent={{-20,-16},{0,4}}, rotation=0)));
 
-  Modelica.Fluid.Valves.ValveLinear userValve(   redeclare package Medium = 
+  Modelica.Fluid.Valves.ValveLinear userValve(   redeclare package Medium =
         Modelica.Media.Water.ConstantPropertyLiquidWater,
     allowFlowReversal=false,
     dp_nominal=200000,
-    m_flow_nominal=400) 
+    m_flow_nominal=400)
     annotation (Placement(transformation(extent={{58,-38},{74,-22}}, rotation=0)));
   Modelica.Fluid.Sources.FixedBoundary sink(
-                                       redeclare package Medium = 
+                                       redeclare package Medium =
         Modelica.Media.Water.ConstantPropertyLiquidWater,
     p=system.p_ambient,
     T=system.T_ambient,
-    nPorts=2) 
+    nPorts=2)
     annotation (Placement(transformation(extent={{100,-40},{80,-20}}, rotation=
             0)));
-  Modelica.Blocks.Sources.Step valveOpening(startTime=200, offset=1e-6) 
+  Modelica.Blocks.Sources.Step valveOpening(startTime=200, offset=1e-6)
     annotation (Placement(transformation(extent={{56,0},{76,20}}, rotation=0)));
-  Modelica.Blocks.Sources.Constant RelativePressureSetPoint(k=2e4) 
+  Modelica.Blocks.Sources.Constant RelativePressureSetPoint(k=2e4)
     annotation (Placement(transformation(extent={{-100,60},{-80,80}}, rotation=
             0)));
   Modelica.Blocks.Logical.OnOffController controller(bandwidth=4000,
-      pre_y_start=false) 
+      pre_y_start=false)
                         annotation (Placement(transformation(extent={{-40,60},{
             -20,80}}, rotation=0)));
   Modelica.Blocks.Logical.TriggeredTrapezoid PumpRPMGenerator(
@@ -86,13 +86,13 @@ model PumpingSystem "Model of a pumping system for drinking water"
           rotation=0)));
   Modelica.Fluid.Sensors.RelativePressure reservoirPressure(
                                                         redeclare package
-      Medium = 
-        Modelica.Media.Water.ConstantPropertyLiquidWater) 
+      Medium =
+        Modelica.Media.Water.ConstantPropertyLiquidWater)
     annotation (Placement(transformation(extent={{10,-12},{30,-32}}, rotation=0)));
   Modelica.Blocks.Continuous.FirstOrder PT1(
     T=2,
     initType=Modelica.Blocks.Types.Init.InitialState,
-    y_start=0) 
+    y_start=0)
     annotation (Placement(transformation(extent={{40,60},{60,80}}, rotation=0)));
 
   annotation (
@@ -109,11 +109,11 @@ Simulate for 2000 s. When the valve is opened at time t=200, the pump starts tur
 <p>
 If using Dymola, turn off \"Equidistant time grid\" to avoid numerical errors.
 </p>
- 
+
 <p align=\"center\">
 <img src=\"../Images/Fluid/Examples/PumpingSystem.png\" border=\"1\">
 </p>
- 
+
 </html>", revisions="<html>
 <ul>
 <li><i>Jan 2009</i>
@@ -124,7 +124,7 @@ If using Dymola, turn off \"Equidistant time grid\" to avoid numerical errors.
        Parameters updated.</li>
 <li><i>2 Nov 2005</i>
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
-       Created.</li> 
+       Created.</li>
 </ul>
 </html>"),
     experiment(
@@ -136,7 +136,7 @@ If using Dymola, turn off \"Equidistant time grid\" to avoid numerical errors.
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={1,1})));
-  inner Modelica.Fluid.System system 
+  inner Modelica.Fluid.System system
                                    annotation (Placement(transformation(extent=
             {{60,-96},{80,-76}}, rotation=0)));
 equation
@@ -147,10 +147,10 @@ equation
           -74,-70},{-68,-70}},               color={0,127,255}));
   connect(valveOpening.y, userValve.opening) annotation (Line(points={{77,10},{
           98,10},{98,-12},{66,-12},{66,-23.6}}, color={0,0,127}));
-  connect(RelativePressureSetPoint.y, controller.reference) 
+  connect(RelativePressureSetPoint.y, controller.reference)
                                                     annotation (Line(points={{
           -79,70},{-60,70},{-60,76},{-42,76}}, color={0,0,127}));
-  connect(controller.y, PumpRPMGenerator.u) 
+  connect(controller.y, PumpRPMGenerator.u)
     annotation (Line(points={{-19,70},{-2,70}}, color={255,0,255}));
   connect(reservoirPressure.p_rel, controller.u) annotation (Line(points={{20,
           -13},{20,50},{-52,50},{-52,64},{-42,64}}, color={0,0,127}));
@@ -158,7 +158,7 @@ equation
       points={{30,-22},{44,-22},{44,-48},{80,-48},{80,-32}},
       color={0,127,255},
       pattern=LinePattern.Dot));
-  connect(PumpRPMGenerator.y, PT1.u) 
+  connect(PumpRPMGenerator.y, PT1.u)
     annotation (Line(points={{21,70},{38,70}}, color={0,0,127}));
   connect(PT1.y, pumps.N_in) annotation (Line(points={{61,70},{74,70},{74,30},{
           -58,30},{-58,-60}},          color={0,0,127}));

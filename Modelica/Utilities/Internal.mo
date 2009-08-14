@@ -15,7 +15,7 @@ partial package PartialModelicaServices
     parameter Types.ShapeType shapeType="box"
           "Type of shape (box, sphere, cylinder, pipecylinder, cone, pipe, beam, gearwheel, spring)";
     input Frames.Orientation R=Frames.nullRotation()
-          "Orientation object to rotate the world frame into the object frame" 
+          "Orientation object to rotate the world frame into the object frame"
                                                                             annotation(Dialog);
     input SI.Position r[3]={0,0,0}
           "Position vector from origin of world frame to origin of object frame, resolved in world frame"
@@ -24,10 +24,10 @@ partial package PartialModelicaServices
           "Position vector from origin of object frame to shape origin, resolved in object frame"
                                                                                               annotation(Dialog);
     input Real lengthDirection[3](each final unit="1")={1,0,0}
-          "Vector in length direction, resolved in object frame" 
+          "Vector in length direction, resolved in object frame"
                                                               annotation(Dialog);
     input Real widthDirection[3](each final unit="1")={0,1,0}
-          "Vector in width direction, resolved in object frame" 
+          "Vector in width direction, resolved in object frame"
                                                              annotation(Dialog);
     input SI.Length length=0 "Length of visual object"  annotation(Dialog);
     input SI.Length width=0 "Width of visual object"  annotation(Dialog);
@@ -36,7 +36,7 @@ partial package PartialModelicaServices
           "Additional size data for some of the shape types"                             annotation(Dialog);
     input Real color[3]={255,0,0} "Color of shape"               annotation(Dialog);
     input Types.SpecularCoefficient specularCoefficient = 0.7
-          "Reflection of ambient light (= 0: light is completely absorbed)" 
+          "Reflection of ambient light (= 0: light is completely absorbed)"
                                                                         annotation(Dialog);
     // Real rxry[3, 2];
     annotation (
@@ -68,12 +68,12 @@ partial package PartialModelicaServices
               textString="%name",
               lineColor={0,0,255})}),
       Documentation(info="<html>
- 
+
 <p>
 This model is documented at
 <a href=\"Modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape</a>.
 </p>
- 
+
 </html>
 "));
 
@@ -81,7 +81,7 @@ This model is documented at
   end Animation;
 
     annotation (Documentation(info="<html>
- 
+
 <p>
 This package contains interfaces of a set of functions and models used in the
 Modelica Standard Library that requires a <u>tool specific implementation</u>.
@@ -91,7 +91,7 @@ tool. The default implementation is \"do nothing\".
 In the Modelica Standard Library, the models and functions of ModelicaServices
 are used.
 </p>
- 
+
 </html>"));
 end PartialModelicaServices;
 
@@ -103,7 +103,7 @@ package FileSystem
   annotation (
 Documentation(info="<html>
 <p>
-Package <b>Internal.FileSystem</b> is an internal package that contains 
+Package <b>Internal.FileSystem</b> is an internal package that contains
 low level functions as interface to the file system.
 These functions should not be called directly in a scripting
 environment since more convenient functions are provided

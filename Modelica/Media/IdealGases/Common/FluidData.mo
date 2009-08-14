@@ -693,7 +693,7 @@ package FluidData "Critical data, dipole moments and related data"
 <p>
 This package contains FluidConstants data records for the following 37 gases
 (see also the description in
-<a href=\"Modelica://Modelica.Media.IdealGases\">Modelica.Media.IdealGases</a>):       
+<a href=\"Modelica://Modelica.Media.IdealGases\">Modelica.Media.IdealGases</a>):
 </p>
 <pre>
 Argon             Methane          Methanol       Carbon Monoxide  Carbon Dioxide
@@ -704,7 +704,7 @@ N-Heptane         Ethylbenzene     N-Octane       Chlorine         Fluorine
 Hydrogen          Steam            Helium         Ammonia          Nitric Oxide
 Nitrogen Dioxide  Nitrogen         Nitrous        Oxide            Neon Oxygen
 Sulfur Dioxide    Sulfur Trioxide
-</pre>  
+</pre>
 
 </html>"));
 end FluidData;

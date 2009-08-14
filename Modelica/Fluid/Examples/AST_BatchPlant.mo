@@ -4,38 +4,38 @@ package AST_BatchPlant
 
   annotation (preferedView="info",Documentation(info="<html>
 <p>
-The process under consideration is an evaporation plant for a 
-student lab at the Process Control Laboratory (AST) of the 
-University of Dortmund that evaporates a water sodium chloride 
-mixture so that a higher concentrated solution is produced. 
-The task of the students is to learn how to program the process 
+The process under consideration is an evaporation plant for a
+student lab at the Process Control Laboratory (AST) of the
+University of Dortmund that evaporates a water sodium chloride
+mixture so that a higher concentrated solution is produced.
+The task of the students is to learn how to program the process
 control system. A picture of the batch plant is shown in the figure
 below.
 </p>
- 
+
 <p align=\"center\">
 <img src=\"../Images/Fluid/Examples/AST_BatchPlant1.jpg\" border=\"1\">
 </p>
- 
+
 <p>
 The flow sheet diagram is shown in the next figure.
 </p>
- 
+
 <p align=\"center\">
 <img src=\"../Images/Fluid/Examples/AST_BatchPlant2.png\" border=\"1\">
 </p>
- 
+
 <p>
-Pure water from tank B1 and concentrated sodium chloride 
-solution from tank B2 are mixed in a mixing tank B3. 
-After buffering in tank B4 the mixture flows to the 
-evaporator B5. Here the water sodium chloride mixture 
-is evaporated until the desired con-centration is reached. 
-The steam is condensed in the condenser K1 and cooled 
+Pure water from tank B1 and concentrated sodium chloride
+solution from tank B2 are mixed in a mixing tank B3.
+After buffering in tank B4 the mixture flows to the
+evaporator B5. Here the water sodium chloride mixture
+is evaporated until the desired con-centration is reached.
+The steam is condensed in the condenser K1 and cooled
 afterwards in the cooling tank B6. The concentrated
- solution is also led to a cooling tank B7. The cooled 
-fluids are pumped back to the charging vessels by the 
-pumps P1 and P2. Be-tween the tanks several valves are 
+ solution is also led to a cooling tank B7. The cooled
+fluids are pumped back to the charging vessels by the
+pumps P1 and P2. Be-tween the tanks several valves are
 present that are regulated by a central control system.
 </p>
 </html>"));
@@ -46,7 +46,7 @@ present that are regulated by a central control system.
       Modelica.Media.Interfaces.PartialTwoPhaseMedium "Component media";
 
   /*
-  replaceable package BatchMedium =Modelica.Media.Electrolytes.WaterNaCl extends 
+  replaceable package BatchMedium =Modelica.Media.Electrolytes.WaterNaCl extends
     Modelica.Media.Interfaces.PartialTwoPhaseMedium "Component media";
 */
 
@@ -66,15 +66,15 @@ present that are regulated by a central control system.
       crossArea=0.05,
       initType=BaseClasses.Init.InitialValues,
       side_pipeArea={0.0001},
-      redeclare model HeatTransfer = 
+      redeclare model HeatTransfer =
           Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer (k=
-              4.9)) 
+              4.9))
       annotation (Placement(transformation(extent={{-110,-60},{-30,-20}},
             rotation=0)));
     Modelica.Fluid.Valves.ValveDiscrete V12(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      dp_nominal = 100) 
+      dp_nominal = 100)
       annotation (Placement(transformation(
           origin={-90,2},
           extent={{-10,-10},{10,10}},
@@ -82,18 +82,18 @@ present that are regulated by a central control system.
     Modelica.Fluid.Valves.ValveDiscrete V15(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      dp_nominal = 100) 
+      dp_nominal = 100)
       annotation (Placement(transformation(
           origin={-90,-82},
           extent={{10,-10},{-10,10}},
           rotation=90)));
-    Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow HeatB5 
+    Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow HeatB5
       annotation (Placement(transformation(extent={{-150,-50},{-130,-30}},
             rotation=0)));
-    Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow CoolingB7 
+    Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow CoolingB7
       annotation (Placement(transformation(extent={{-150,-130},{-130,-110}},
             rotation=0)));
-    Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow CoolingB6 
+    Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow CoolingB6
       annotation (Placement(transformation(
           origin={110,-60},
           extent={{-10,-10},{10,10}},
@@ -114,22 +114,22 @@ present that are regulated by a central control system.
             "Scripts/Fluid/AST_BatchPlant_StandardWater/plot level.mos"
           "plot level"),
       Documentation(info="<html>
- 
+
 <p align=\"center\">
 <img src=\"../Images/Fluid/Examples/BatchPlant_StandardWater.png\" border=\"1\">
 </p>
- 
+
 </html>"));
     Modelica.Fluid.Valves.ValveDiscrete V11(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      dp_nominal = 100) 
+      dp_nominal = 100)
       annotation (Placement(transformation(extent={{-50,80},{-70,100}},rotation=
              0)));
     Modelica.Fluid.Valves.ValveDiscrete V8(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      dp_nominal = 100) 
+      dp_nominal = 100)
       annotation (Placement(transformation(
           origin={-90,160},
           extent={{10,-10},{-10,10}},
@@ -137,7 +137,7 @@ present that are regulated by a central control system.
     Modelica.Fluid.Valves.ValveDiscrete V9(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      dp_nominal = 100) 
+      dp_nominal = 100)
       annotation (Placement(transformation(
           origin={70,160},
           extent={{10,10},{-10,-10}},
@@ -145,23 +145,23 @@ present that are regulated by a central control system.
     Modelica.Fluid.Valves.ValveDiscrete V2(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      dp_nominal = 100) 
+      dp_nominal = 100)
       annotation (Placement(transformation(extent={{-60,230},{-40,250}},
             rotation=0)));
     Modelica.Fluid.Valves.ValveDiscrete V4(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      dp_nominal = 100) 
+      dp_nominal = 100)
       annotation (Placement(transformation(extent={{40,230},{20,250}}, rotation=
              0)));
     Modelica.Fluid.Valves.ValveDiscrete V3(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      dp_nominal = 100) 
+      dp_nominal = 100)
       annotation (Placement(transformation(extent={{-150,210},{-130,230}},
             rotation=0)));
     Fittings.TeeJunctionIdeal volume2(
-      redeclare package Medium = BatchMedium) 
+      redeclare package Medium = BatchMedium)
                annotation (Placement(transformation(
           origin={-180,220},
           extent={{-10,10},{10,-10}},
@@ -169,11 +169,11 @@ present that are regulated by a central control system.
     Modelica.Fluid.Valves.ValveDiscrete V6(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      dp_nominal = 100) 
+      dp_nominal = 100)
       annotation (Placement(transformation(extent={{130,210},{110,230}},
             rotation=0)));
     Fittings.TeeJunctionIdeal volume8(
-      redeclare package Medium = BatchMedium) 
+      redeclare package Medium = BatchMedium)
                annotation (Placement(transformation(
           origin={160,220},
           extent={{-10,-10},{10,10}},
@@ -181,7 +181,7 @@ present that are regulated by a central control system.
     Modelica.Fluid.Valves.ValveDiscrete V23(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      dp_nominal = 100) 
+      dp_nominal = 100)
       annotation (Placement(transformation(
           origin={-110,-250},
           extent={{-10,10},{10,-10}},
@@ -189,7 +189,7 @@ present that are regulated by a central control system.
     Modelica.Fluid.Valves.ValveDiscrete V1(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      dp_nominal = 100) 
+      dp_nominal = 100)
       annotation (Placement(transformation(
           origin={-180,110},
           extent={{-10,10},{10,-10}},
@@ -197,7 +197,7 @@ present that are regulated by a central control system.
     Modelica.Fluid.Valves.ValveDiscrete V22(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      dp_nominal = 100) 
+      dp_nominal = 100)
       annotation (Placement(transformation(
           origin={-180,-170},
           extent={{-10,10},{10,-10}},
@@ -205,7 +205,7 @@ present that are regulated by a central control system.
     Modelica.Fluid.Valves.ValveDiscrete V5(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      dp_nominal = 100) 
+      dp_nominal = 100)
       annotation (Placement(transformation(
           origin={160,110},
           extent={{10,-10},{-10,10}},
@@ -213,7 +213,7 @@ present that are regulated by a central control system.
     Modelica.Fluid.Valves.ValveDiscrete V24(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      dp_nominal = 100) 
+      dp_nominal = 100)
       annotation (Placement(transformation(
           origin={90,-250},
           extent={{10,10},{-10,-10}},
@@ -221,7 +221,7 @@ present that are regulated by a central control system.
     Modelica.Fluid.Valves.ValveDiscrete V25(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      dp_nominal = 100) 
+      dp_nominal = 100)
       annotation (Placement(transformation(
           origin={160,-170},
           extent={{10,-10},{-10,10}},
@@ -229,7 +229,7 @@ present that are regulated by a central control system.
     Modelica.Fluid.Valves.ValveDiscrete V20(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      dp_nominal = 100) 
+      dp_nominal = 100)
       annotation (Placement(transformation(
           origin={60,-210},
           extent={{10,10},{-10,-10}},
@@ -237,7 +237,7 @@ present that are regulated by a central control system.
     Modelica.Fluid.Valves.ValveDiscrete V19(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      dp_nominal = 100) 
+      dp_nominal = 100)
       annotation (Placement(transformation(
           origin={10,-200},
           extent={{-10,10},{10,-10}},
@@ -245,7 +245,7 @@ present that are regulated by a central control system.
     Modelica.Fluid.Valves.ValveDiscrete V10(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      dp_nominal = 100) 
+      dp_nominal = 100)
       annotation (Placement(transformation(
           origin={-21,-170},
           extent={{10,10},{-10,-10}},
@@ -253,7 +253,7 @@ present that are regulated by a central control system.
     Modelica.Fluid.Valves.ValveDiscrete V21(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      dp_nominal = 100) 
+      dp_nominal = 100)
       annotation (Placement(transformation(
           origin={30,-250},
           extent={{10,10},{-10,-10}},
@@ -265,7 +265,7 @@ present that are regulated by a central control system.
     Modelica.Fluid.Valves.ValveDiscrete V18(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      dp_nominal = 100) 
+      dp_nominal = 100)
       annotation (Placement(transformation(
           origin={-50,-200},
           extent={{10,10},{-10,-10}},
@@ -273,7 +273,7 @@ present that are regulated by a central control system.
     Machines.PrescribedPump P1(
       redeclare package Medium = BatchMedium,
       m_flow_start=0.1,
-      redeclare function flowCharacteristic = 
+      redeclare function flowCharacteristic =
           Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.quadraticFlow
           (                                                                   V_flow_nominal={0,
               0.001,0.0015}, head_nominal={100,50,0}),
@@ -285,13 +285,13 @@ present that are regulated by a central control system.
       p_a_start=100000,
       p_b_start=100000,
       energyDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial,
-      massDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial) 
+      massDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial)
       annotation (Placement(transformation(extent={{-140,-260},{-160,-240}},
             rotation=0)));
     Machines.PrescribedPump P2(
       redeclare package Medium = BatchMedium,
       m_flow_start=0.1,
-      redeclare function flowCharacteristic = 
+      redeclare function flowCharacteristic =
           Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.quadraticFlow
           (                                                                  V_flow_nominal={0,
               0.001,0.0015}, head_nominal={100,50,0}),
@@ -303,7 +303,7 @@ present that are regulated by a central control system.
       p_a_start=100000,
       p_b_start=100000,
       energyDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial,
-      massDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial) 
+      massDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial)
       annotation (Placement(transformation(extent={{120,-260},{140,-240}},
             rotation=0)));
     Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts B1(
@@ -317,16 +317,16 @@ present that are regulated by a central control system.
       portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(
                                                                  diameter=0.011,
           height=0)},
-      stiffCharacteristicForEmptyPort=false) 
+      stiffCharacteristicForEmptyPort=false)
                          annotation (Placement(transformation(extent={{-110,180},
               {-70,220}}, rotation=0)));
-    inner Modelica.Fluid.System system 
+    inner Modelica.Fluid.System system
                           annotation (Placement(transformation(extent={{180,250},
               {200,270}},       rotation=0)));
-    Modelica.Blocks.Logical.TriggeredTrapezoid P1_on(amplitude=100, rising=0) 
+    Modelica.Blocks.Logical.TriggeredTrapezoid P1_on(amplitude=100, rising=0)
       annotation (Placement(transformation(extent={{-122,-230},{-142,-210}},
             rotation=0)));
-    Modelica.Blocks.Logical.TriggeredTrapezoid P2_on(amplitude=50, rising=0) 
+    Modelica.Blocks.Logical.TriggeredTrapezoid P2_on(amplitude=50, rising=0)
       annotation (Placement(transformation(extent={{100,-230},{120,-210}},
             rotation=0)));
     Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts B2(
@@ -340,7 +340,7 @@ present that are regulated by a central control system.
       portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(
                                                                  diameter=0.011,
           height=0)},
-      stiffCharacteristicForEmptyPort=false) 
+      stiffCharacteristicForEmptyPort=false)
                          annotation (Placement(transformation(extent={{50,180},
               {90,220}},  rotation=0)));
     Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts B3(
@@ -355,7 +355,7 @@ present that are regulated by a central control system.
           height=0),Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=
            0.011, height=0)},
       level_start=0.02,
-      stiffCharacteristicForEmptyPort=false) 
+      stiffCharacteristicForEmptyPort=false)
                          annotation (Placement(transformation(extent={{-30,100},
               {10,140}}, rotation=0)));
     Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts B4(
@@ -369,7 +369,7 @@ present that are regulated by a central control system.
       portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(
                                                                  diameter=0.011,
           height=0)},
-      stiffCharacteristicForEmptyPort=false) 
+      stiffCharacteristicForEmptyPort=false)
                          annotation (Placement(transformation(extent={{-110,30},
               {-70,70}}, rotation=0)));
     Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts B7(
@@ -386,7 +386,7 @@ present that are regulated by a central control system.
       stiffCharacteristicForEmptyPort=false,
       use_HeatTransfer=true,
       T_start=298,
-      redeclare model HeatTransfer = 
+      redeclare model HeatTransfer =
           Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer (k=
               4.9))      annotation (Placement(transformation(extent={{-110,
               -140},{-70,-100}}, rotation=0)));
@@ -399,26 +399,26 @@ present that are regulated by a central control system.
     Pipes.StaticPipe pipeB1B3(
       redeclare package Medium = BatchMedium,
       length=1,
-      redeclare model FlowModel = 
+      redeclare model FlowModel =
           Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow,
       diameter=pipeDiameter,
-      height_ab=-0.1) 
+      height_ab=-0.1)
       annotation (Placement(transformation(extent={{-70,134},{-50,154}},
             rotation=0)));
     Pipes.StaticPipe pipeB2B3(
       redeclare package Medium = BatchMedium,
       length=1,
-      redeclare model FlowModel = 
+      redeclare model FlowModel =
           Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow,
       diameter=pipeDiameter,
-      height_ab=-0.1) 
+      height_ab=-0.1)
       annotation (Placement(transformation(extent={{50,134},{30,154}}, rotation=
              0)));
     Pipes.StaticPipe pipeB1B1(
       redeclare package Medium = BatchMedium,
       diameter=pipeDiameter,
       length=1,
-      height_ab=-0.5) 
+      height_ab=-0.5)
       annotation (Placement(transformation(
           origin={-8,10},
           extent={{10,10},{-10,-10}},
@@ -427,7 +427,7 @@ present that are regulated by a central control system.
       redeclare package Medium = BatchMedium,
       length=0.5,
       diameter=pipeDiameter,
-      height_ab=-0.5) 
+      height_ab=-0.5)
                    annotation (Placement(transformation(
           origin={60,-110},
           extent={{10,10},{-10,-10}},
@@ -436,7 +436,7 @@ present that are regulated by a central control system.
       redeclare package Medium = BatchMedium,
       length=1,
       diameter=pipeDiameter,
-      height_ab=-0.1) 
+      height_ab=-0.1)
                    annotation (Placement(transformation(
           origin={-90,-170},
           extent={{10,10},{-10,-10}},
@@ -471,7 +471,7 @@ present that are regulated by a central control system.
       stiffCharacteristicForEmptyPort=false,
       use_HeatTransfer=true,
       T_start=298,
-      redeclare model HeatTransfer = 
+      redeclare model HeatTransfer =
           Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer (k=
               4.9))      annotation (Placement(transformation(extent={{80,-80},
               {40,-40}}, rotation=0)));
@@ -719,7 +719,7 @@ present that are regulated by a central control system.
       parameter Real offset=0 "Offset of output signal";
 
       Modelica.Blocks.Interfaces.BooleanInput u
-        "Connector of Boolean input signal" 
+        "Connector of Boolean input signal"
                                        annotation (Placement(transformation(
               extent={{-140,-20},{-100,20}}, rotation=0)));
       Modelica.Blocks.Interfaces.RealOutput y "Connector of Real output signal"
@@ -890,7 +890,7 @@ handled properly.</p>
       discrete Modelica.SIunits.Time T
         "Predicted time of output reaching endValue";
     public
-      Modelica.Blocks.Interfaces.BooleanOutput y_high 
+      Modelica.Blocks.Interfaces.BooleanOutput y_high
         annotation (Placement(transformation(extent={{100,-90},{120,-70}},
               rotation=0)));
     initial equation
@@ -906,7 +906,7 @@ handled properly.</p>
 
         when {initial(),u,not u} then
           endValue = if u then offset + amplitude else offset;
-          rate = if u and (rising > 0) then amplitude/rising else 
+          rate = if u and (rising > 0) then amplitude/rising else
             if not u and (falling > 0) then -amplitude/falling else 0;
           T = if u and not (rising > 0) or not u and not (falling
              > 0) or not abs(amplitude) > 0 or initial() then time else time
@@ -916,7 +916,7 @@ handled properly.</p>
 
     block setReal "Set output signal to a time varying Real expression"
 
-      Modelica.Blocks.Interfaces.RealInput u "Set value of Real input" 
+      Modelica.Blocks.Interfaces.RealInput u "Set value of Real input"
         annotation (                            Dialog(group=
               "Time varying input signal"), Placement(transformation(extent={{
                 -140,-20},{-100,20}}, rotation=0)));
@@ -947,7 +947,7 @@ handled properly.</p>
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics),
         Documentation(info="<html>
- 
+
 </html>"));
 
     end setReal;
@@ -956,9 +956,9 @@ handled properly.</p>
       "Tank with Heating and Evaporation"
       import Modelica.SIunits.Conversions.*;
       import Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.Init;
-      replaceable package Medium = Modelica.Media.Water.WaterIF97_ph 
+      replaceable package Medium = Modelica.Media.Water.WaterIF97_ph
         constrainedby Modelica.Media.Interfaces.PartialTwoPhaseMedium
-        "Medium in the component" 
+        "Medium in the component"
         annotation (choicesAllMatching=true);
     // parameter for Tank
       parameter Modelica.SIunits.Area crossArea "Tank area";
@@ -971,24 +971,24 @@ handled properly.</p>
       parameter Real side_heights[n_SidePorts]=zeros(n_SidePorts);
       parameter Real bottom_heights[n_BottomPorts]=zeros(n_BottomPorts);
       parameter Real top_heights[n_TopPorts]=fill(height, n_TopPorts);
-      parameter SI.Height level_start(min=0) "Initial tank level" 
+      parameter SI.Height level_start(min=0) "Initial tank level"
         annotation(Dialog(tab="Initialization"));
       parameter Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.Init
         initType =                                 Init.GuessValues
-        "Initialization option" 
+        "Initialization option"
         annotation(Dialog(tab = "Initialization"));
       parameter Boolean use_T_start=true
         "Use T_start if true, otherwise h_start"                                    annotation(Dialog(tab = "Initialization"), Evaluate = true);
-      parameter Medium.Temperature T_start=if use_T_start then 293.15 else 
+      parameter Medium.Temperature T_start=if use_T_start then 293.15 else
           Medium.temperature_phX(p_ambient, h_start, X_start)
-        "Start value of temperature" 
+        "Start value of temperature"
         annotation(Dialog(tab = "Initialization", enable = use_T_start));
       parameter Medium.SpecificEnthalpy h_start=if use_T_start then Medium.specificEnthalpy_pTX(
           p_ambient, T_start, X_start[1:Medium.nXi]) else 1e4
-        "Start value of specific enthalpy" 
+        "Start value of specific enthalpy"
         annotation(Dialog(tab = "Initialization", enable = not use_T_start));
       parameter Medium.MassFraction X_start[Medium.nX]=Medium.reference_X
-        "Start value of mass fractions m_i/m" 
+        "Start value of mass fractions m_i/m"
         annotation (Dialog(tab="Initialization", enable=Medium.nXi > 0));
       parameter Medium.AbsolutePressure p_ambient=101325
         "Tank surface pressure";
@@ -1029,19 +1029,19 @@ handled properly.</p>
     // Connectors and InnerTanks
       Modelica.Fluid.Interfaces.FluidPort_b BottomFluidPort[n_BottomPorts](
         redeclare package Medium = Medium,
-        m_flow(each start=0)) 
+        m_flow(each start=0))
         annotation (Placement(transformation(
             origin={-100,-102},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Modelica.Fluid.Interfaces.FluidPort_a TopFluidPort[n_TopPorts](
         redeclare package Medium = Medium,
-        m_flow(each start=0)) 
+        m_flow(each start=0))
         annotation (Placement(transformation(extent={{-110,92},{-90,112}},
               rotation=0)));
       Modelica.Fluid.Interfaces.FluidPort_b SideFluidPort[n_SidePorts](
         redeclare package Medium = Medium,
-        m_flow(each start=0)) 
+        m_flow(each start=0))
         annotation (Placement(transformation(extent={{0,-10},{20,10}}, rotation=
                0)));
       Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.InnerTank InnerTankTop[n_TopPorts](
@@ -1051,7 +1051,7 @@ handled properly.</p>
         each Xi = medium.Xi,
         aboveLevel={level - top_heights[i] for i in 1:n_TopPorts},
         pipeArea={top_pipeArea[i] for i in 1:n_TopPorts},
-        redeclare package Medium = Medium) 
+        redeclare package Medium = Medium)
           annotation (Placement(transformation(extent={{-140,60},{-120,80}},
               rotation=0)));
       Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.InnerTank
@@ -1062,7 +1062,7 @@ handled properly.</p>
         each Xi = medium.Xi,
         aboveLevel={level - side_heights[i] for i in 1:n_SidePorts},
         pipeArea={side_pipeArea[i] for i in 1:n_SidePorts},
-        redeclare package Medium = Medium) 
+        redeclare package Medium = Medium)
           annotation (Placement(transformation(extent={{-20,0},{0,20}},
               rotation=0)));
       Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.InnerTank
@@ -1073,32 +1073,32 @@ handled properly.</p>
         each Xi = medium.Xi,
         aboveLevel={level - bottom_heights[i] for i in 1:n_BottomPorts},
         pipeArea={bottom_pipeArea[i] for i in 1:n_BottomPorts},
-        redeclare package Medium = Medium) 
+        redeclare package Medium = Medium)
           annotation (Placement(transformation(extent={{-80,-80},{-60,-60}},
               rotation=0)));
       Modelica.Fluid.Interfaces.FluidPort_b Condensed(redeclare package Medium
-          =        Medium) 
+          =        Medium)
         annotation (Placement(transformation(extent={{192,50},{212,70}},
               rotation=0)));
 
       // Heat transfer through boundary
-      replaceable model HeatTransfer = 
-          Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer 
+      replaceable model HeatTransfer =
+          Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer
         constrainedby
         Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransfer
-        "Wall heat transfer" 
+        "Wall heat transfer"
           annotation (Dialog(tab="Assumptions", group="Heat transfer",enable=use_HeatTransfer),choicesAllMatching=true);
       HeatTransfer heatTransfer(
         redeclare final package Medium = Medium,
         final n=1,
         final states = {medium.state},
         surfaceAreas={crossArea+2*sqrt(crossArea*Modelica.Constants.pi)*level},
-        final use_k = true) 
+        final use_k = true)
           annotation (Placement(transformation(
             extent={{-10,-10},{30,30}},
             rotation=90,
             origin={-50,-10})));
-      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort 
+      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort
         annotation (Placement(transformation(extent={{-210,-10},{-190,10}})));
 
     // parameter for Evaporator
@@ -1129,7 +1129,7 @@ handled properly.</p>
       mXi_flowBottomPorts = InnerTankBottom.mXi_flow;
 
       for i in 1:n_BottomPorts loop
-        m_flow_BottomPorts_pos[i] = (if m_flow_BottomPorts[i] > 0 then 
+        m_flow_BottomPorts_pos[i] = (if m_flow_BottomPorts[i] > 0 then
           m_flow_BottomPorts[i] else 0);
       end for;
       for i in 1:n_SidePorts loop
@@ -1137,7 +1137,7 @@ handled properly.</p>
           i] else 0;
       end for;
       for i in 1:n_TopPorts loop
-        m_flow_TopPorts_pos[i] = if m_flow_TopPorts[i] > 0 then m_flow_TopPorts[i] else 
+        m_flow_TopPorts_pos[i] = if m_flow_TopPorts[i] > 0 then m_flow_TopPorts[i] else
                 0;
       end for;
       for i in 1:n_BottomPorts loop
@@ -1208,7 +1208,7 @@ handled properly.</p>
                          sum(mXi_flow_topPorts[:,i]);
       end for;
 
-      assert(level < height, " 
+      assert(level < height, "
     Tank is overflowing.
     ");
 
@@ -1283,7 +1283,7 @@ handled properly.</p>
                       2)))}),
         Documentation(info="<HTML>
 <p>
-<p>This tank has the same geometric variables as TankWith3InletOutletArrays plus the feature of a HeatPort and the possibility of evaporation. 
+<p>This tank has the same geometric variables as TankWith3InletOutletArrays plus the feature of a HeatPort and the possibility of evaporation.
 (Assumption: The gas is condensed emidiatly afterwards so that a liquid boiling fluid is created.)
 <p>The tank can be initialized with the following options:
 <ul>
@@ -1291,7 +1291,7 @@ handled properly.</p>
 <li>InitialValues: initial values of temperature (or specific enthalpy), composition and level are specified
 <li>SteadyStateHydraulic: initial values of temperature (or specific enthalpy) and composition are specified; the initial level is determined so that levels and pressure are at steady state.
 </ul>
-Full steady state initialization is not supported, because the corresponding intial equations for temperature/enthalpy are undetermined (the flow rate through the port at steady state is zero). 
+Full steady state initialization is not supported, because the corresponding intial equations for temperature/enthalpy are undetermined (the flow rate through the port at steady state is zero).
 </p>
 </HTML>"),
         Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-200,-100},
@@ -1305,12 +1305,12 @@ Full steady state initialization is not supported, because the corresponding int
     end TankWith3InletOutletArraysWithEvaporatorCondensor;
 
     model InnerTank
-        replaceable package Medium = 
-        Modelica.Media.Interfaces.PartialMedium "Medium in the component" 
+        replaceable package Medium =
+        Modelica.Media.Interfaces.PartialMedium "Medium in the component"
         annotation (choicesAllMatching=true);
 
-        Modelica.Fluid.Interfaces.FluidPort_a port(redeclare package Medium = 
-            Medium) 
+        Modelica.Fluid.Interfaces.FluidPort_a port(redeclare package Medium =
+            Medium)
         annotation (Placement(transformation(
             origin={0,-110},
             extent={{-10,-10},{10,10}},
@@ -1352,7 +1352,7 @@ Full steady state initialization is not supported, because the corresponding int
     model Controller
 
       Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.ControllerUtilities.Port_Sensors
-        sensors 
+        sensors
         annotation (Placement(transformation(extent={{-280,-40},{-200,40}},
               rotation=0)));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-200,
@@ -1384,7 +1384,7 @@ Full steady state initialization is not supported, because the corresponding int
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}));
       Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.ControllerUtilities.Port_Actuators
-        actuators 
+        actuators
         annotation (Placement(transformation(extent={{200,-20},{240,20}},
               rotation=0)));
 
@@ -1393,16 +1393,16 @@ Full steady state initialization is not supported, because the corresponding int
       parameter Real startTime=1;
       parameter Real T5_batch_level=0.211;
 
-      Modelica.StateGraph.InitialStep InitialStep1 
+      Modelica.StateGraph.InitialStep InitialStep1
         annotation (Placement(transformation(extent={{-180,90},{-160,110}},
               rotation=0)));
       Modelica.StateGraph.Transition Transition1(enableTimer=true, waitTime=
             startTime) annotation (Placement(transformation(extent={{-150,90},{
                 -130,110}}, rotation=0)));
-      Modelica.StateGraph.Step Step1 
+      Modelica.StateGraph.Step Step1
         annotation (Placement(transformation(extent={{-120,90},{-100,110}},
               rotation=0)));
-      Modelica.StateGraph.Transition Transition2(condition=LIS_301 >= 0.13) 
+      Modelica.StateGraph.Transition Transition2(condition=LIS_301 >= 0.13)
         annotation (Placement(transformation(extent={{-90,90},{-70,110}},
               rotation=0)));
       Modelica.StateGraph.Step Step2 annotation (Placement(transformation(
@@ -1410,17 +1410,17 @@ Full steady state initialization is not supported, because the corresponding int
       Modelica.StateGraph.Transition Transition3(
         condition=true,
         enableTimer=true,
-        waitTime=500) 
+        waitTime=500)
         annotation (Placement(transformation(extent={{-30,90},{-10,110}},
               rotation=0)));
       Modelica.StateGraph.Step Step3 annotation (Placement(transformation(
               extent={{0,90},{20,110}}, rotation=0)));
-      Modelica.StateGraph.Transition Transition4(condition=LIS_301 <= 0.01) 
+      Modelica.StateGraph.Transition Transition4(condition=LIS_301 <= 0.01)
         annotation (Placement(transformation(extent={{30,90},{50,110}},
               rotation=0)));
       Modelica.StateGraph.Step Step4 annotation (Placement(transformation(
               extent={{60,90},{80,110}}, rotation=0)));
-      Modelica.StateGraph.Transition Transition5(condition=T5_idle) 
+      Modelica.StateGraph.Transition Transition5(condition=T5_idle)
         annotation (Placement(transformation(extent={{90,90},{110,110}},
               rotation=0)));
       Modelica.StateGraph.Step Step5 annotation (Placement(transformation(
@@ -1433,7 +1433,7 @@ Full steady state initialization is not supported, because the corresponding int
       Modelica.StateGraph.Transition Transition7(
         condition=true,
         enableTimer=true,
-        waitTime=300) 
+        waitTime=300)
         annotation (Placement(transformation(extent={{-90,30},{-70,50}},
               rotation=0)));
       Modelica.StateGraph.Parallel Parallel1 annotation (Placement(
@@ -1454,22 +1454,22 @@ Full steady state initialization is not supported, because the corresponding int
               extent={{-2,-40},{18,-20}}, rotation=0)));
       Modelica.StateGraph.Step Step14 annotation (Placement(transformation(
               extent={{58,-40},{78,-20}}, rotation=0)));
-      Modelica.StateGraph.Transition Transition8(condition=T7_idle) 
+      Modelica.StateGraph.Transition Transition8(condition=T7_idle)
         annotation (Placement(transformation(extent={{-92,-80},{-72,-60}},
               rotation=0)));
-      Modelica.StateGraph.Transition Transition9(condition=LIS_501 <= 0.01) 
+      Modelica.StateGraph.Transition Transition9(condition=LIS_501 <= 0.01)
         annotation (Placement(transformation(extent={{-32,-80},{-12,-60}},
               rotation=0)));
-      Modelica.StateGraph.Transition Transition10(condition=TIS_702 <= 298) 
+      Modelica.StateGraph.Transition Transition10(condition=TIS_702 <= 298)
         annotation (Placement(transformation(extent={{28,-80},{48,-60}},
               rotation=0)));
-      Modelica.StateGraph.Transition Transition11(condition=LIS_701 <= 0.01) 
+      Modelica.StateGraph.Transition Transition11(condition=LIS_701 <= 0.01)
         annotation (Placement(transformation(extent={{88,-80},{108,-60}},
               rotation=0)));
-      Modelica.StateGraph.Transition Transition12(condition=TIS_602 <= 298) 
+      Modelica.StateGraph.Transition Transition12(condition=TIS_602 <= 298)
         annotation (Placement(transformation(extent={{-32,-40},{-12,-20}},
               rotation=0)));
-      Modelica.StateGraph.Transition Transition13(condition=LIS_601 <= 0.01) 
+      Modelica.StateGraph.Transition Transition13(condition=LIS_601 <= 0.01)
         annotation (Placement(transformation(extent={{28,-40},{48,-20}},
               rotation=0)));
 
@@ -1483,13 +1483,13 @@ Full steady state initialization is not supported, because the corresponding int
       Real TIS_702;
       Boolean T5_idle;
       Boolean T7_idle;
-      Modelica.StateGraph.TransitionWithSignal TransitionWithSignal1 
+      Modelica.StateGraph.TransitionWithSignal TransitionWithSignal1
         annotation (Placement(transformation(
             origin={-2,-150},
             extent={{-10,-10},{10,10}},
             rotation=180)));
       Modelica.Blocks.Sources.BooleanExpression BooleanExpression1(y=time >
-            2500) 
+            2500)
         annotation (Placement(transformation(extent={{-104,-148},{-18,-116}},
               rotation=0)));
     equation
@@ -1536,38 +1536,38 @@ Full steady state initialization is not supported, because the corresponding int
             points={{-159.5,100},{-144,100}}, color={0,0,0}));
       connect(Transition1.outPort, Step1.inPort[1]) annotation (Line(points={{
               -138.5,100},{-121,100}}, color={0,0,0}));
-      connect(Step1.outPort[1], Transition2.inPort) 
+      connect(Step1.outPort[1], Transition2.inPort)
         annotation (Line(points={{-99.5,100},{-84,100}}, color={0,0,0}));
-      connect(Transition2.outPort, Step2.inPort[1]) 
+      connect(Transition2.outPort, Step2.inPort[1])
         annotation (Line(points={{-78.5,100},{-61,100}}, color={0,0,0}));
-      connect(Step2.outPort[1], Transition3.inPort) 
+      connect(Step2.outPort[1], Transition3.inPort)
         annotation (Line(points={{-39.5,100},{-24,100}}, color={0,0,0}));
-      connect(Transition3.outPort, Step3.inPort[1]) 
+      connect(Transition3.outPort, Step3.inPort[1])
         annotation (Line(points={{-18.5,100},{-1,100}}, color={0,0,0}));
-      connect(Step3.outPort[1], Transition4.inPort) 
+      connect(Step3.outPort[1], Transition4.inPort)
         annotation (Line(points={{20.5,100},{36,100}}, color={0,0,0}));
-      connect(Transition4.outPort, Step4.inPort[1]) 
+      connect(Transition4.outPort, Step4.inPort[1])
         annotation (Line(points={{41.5,100},{59,100}}, color={0,0,0}));
-      connect(Step4.outPort[1], Transition5.inPort) 
+      connect(Step4.outPort[1], Transition5.inPort)
         annotation (Line(points={{80.5,100},{96,100}}, color={0,0,0}));
-      connect(Transition5.outPort, Step5.inPort[1]) 
+      connect(Transition5.outPort, Step5.inPort[1])
         annotation (Line(points={{101.5,100},{119,100}}, color={0,0,0}));
-      connect(Step5.outPort[1], Transition6.inPort) 
+      connect(Step5.outPort[1], Transition6.inPort)
         annotation (Line(points={{140.5,100},{156,100}}, color={0,0,0}));
       connect(Transition6.outPort, Step6.inPort[1]) annotation (Line(points={{
               161.5,100},{184,100},{184,70},{-160,70},{-160,40},{-121,40}},
             color={0,0,0}));
-      connect(Step6.outPort[1], Transition7.inPort) 
+      connect(Step6.outPort[1], Transition7.inPort)
         annotation (Line(points={{-99.5,40},{-84,40}}, color={0,0,0}));
       connect(Step12.inPort[1], Parallel1.split[1]) annotation (Line(points={{
               -63,-30},{-134.375,-30},{-134.375,-25}}, color={0,0,0}));
-      connect(Step12.outPort[1], Transition12.inPort) 
+      connect(Step12.outPort[1], Transition12.inPort)
         annotation (Line(points={{-41.5,-30},{-26,-30}}, color={0,0,0}));
-      connect(Transition12.outPort, Step13.inPort[1]) 
+      connect(Transition12.outPort, Step13.inPort[1])
         annotation (Line(points={{-20.5,-30},{-3,-30}}, color={0,0,0}));
-      connect(Step13.outPort[1], Transition13.inPort) 
+      connect(Step13.outPort[1], Transition13.inPort)
         annotation (Line(points={{18.5,-30},{34,-30}}, color={0,0,0}));
-      connect(Transition13.outPort, Step14.inPort[1]) 
+      connect(Transition13.outPort, Step14.inPort[1])
         annotation (Line(points={{39.5,-30},{57,-30}}, color={0,0,0}));
       connect(Step14.outPort[1], Parallel1.join[1]) annotation (Line(points={{
               78.5,-30},{152.375,-30},{152.375,-25}}, color={0,0,0}));
@@ -1575,19 +1575,19 @@ Full steady state initialization is not supported, because the corresponding int
               -123,-70},{-138,-70},{-138,-75},{-134.375,-75}}, color={0,0,0}));
       connect(Step7.outPort[1], Transition8.inPort) annotation (Line(points={{
               -101.5,-70},{-86,-70}}, color={0,0,0}));
-      connect(Transition8.outPort, Step8.inPort[1]) 
+      connect(Transition8.outPort, Step8.inPort[1])
         annotation (Line(points={{-80.5,-70},{-63,-70}}, color={0,0,0}));
-      connect(Step8.outPort[1], Transition9.inPort) 
+      connect(Step8.outPort[1], Transition9.inPort)
         annotation (Line(points={{-41.5,-70},{-26,-70}}, color={0,0,0}));
-      connect(Transition9.outPort, Step9.inPort[1]) 
+      connect(Transition9.outPort, Step9.inPort[1])
         annotation (Line(points={{-20.5,-70},{-3,-70}}, color={0,0,0}));
-      connect(Step9.outPort[1], Transition10.inPort) 
+      connect(Step9.outPort[1], Transition10.inPort)
         annotation (Line(points={{18.5,-70},{34,-70}}, color={0,0,0}));
-      connect(Transition10.outPort, Step10.inPort[1]) 
+      connect(Transition10.outPort, Step10.inPort[1])
         annotation (Line(points={{39.5,-70},{57,-70}}, color={0,0,0}));
-      connect(Step10.outPort[1], Transition11.inPort) 
+      connect(Step10.outPort[1], Transition11.inPort)
         annotation (Line(points={{78.5,-70},{94,-70}}, color={0,0,0}));
-      connect(Transition11.outPort, Step11.inPort[1]) 
+      connect(Transition11.outPort, Step11.inPort[1])
         annotation (Line(points={{99.5,-70},{117,-70}}, color={0,0,0}));
       connect(Step11.outPort[1], Parallel1.join[2]) annotation (Line(points={{
               138.5,-70},{154,-70},{154,-75},{152.375,-75}}, color={0,0,0}));
@@ -1775,32 +1775,32 @@ Full steady state initialization is not supported, because the corresponding int
         InitialValues "InitialValues -- Initial values for p, T or h, X, C",
         SteadyStateMomentum "SteadyStateMomentum: Steady state momentum",
         SteadyStateHydraulic
-          "SteadyStateHydraulic -- Hydraulic steady state (der(p)=0), guess value for p, initial values for T or h, X, C", 
+          "SteadyStateHydraulic -- Hydraulic steady state (der(p)=0), guess value for p, initial values for T or h, X, C",
 
         SteadyState
           "SteadyState -- Steady state (guess values for p, T or h, X, C)")
-      "Enumeration to define initialization options" 
+      "Enumeration to define initialization options"
     annotation (Documentation(info="<html>
 <p>
 Integer type that can have the following values
 (to be selected via choices menu):
 </p>
- 
+
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><b>Types.Init.</b></th><th><b>Meaning</b></th></tr>
 <tr><td>GuessValues</td>
     <td>GuessValues -- Guess values (not fixed) for p, T or h, X, C</td></tr>
- 
+
 <tr><td>InitialValues</td>
     <td>Initial values for p, T or h, X, C</td></tr>
- 
+
 <tr><td>SteadyStateMomentum</td>
     <td>Steady state momentum</td></tr>
- 
+
 <tr><td>SteadyStateHydraulic</td>
-    <td>Hydraulic steady state (der(p)=0), guess value for p, 
+    <td>Hydraulic steady state (der(p)=0), guess value for p,
         initial values for T or h, X, C</td></tr>
- 
+
 <tr><td>SteadyState</td>
     <td>Steady state (guess values for p, T or h, X, C)</td></tr>
 </table>
@@ -1824,15 +1824,15 @@ Integer type that can have the following values
 
     //Ambient
     parameter Medium.AbsolutePressure p_ambient=system.p_ambient
-        "Tank surface pressure" 
+        "Tank surface pressure"
       annotation(Dialog(tab = "Assumptions", group = "Ambient"));
     parameter Medium.Temperature T_ambient=system.T_ambient
-        "Tank surface Temperature" 
+        "Tank surface Temperature"
       annotation(Dialog(tab = "Assumptions", group = "Ambient"));
 
     //Initialization
     parameter SI.Height level_start(min=0) = 0.5*height
-        "Start value of tank level" 
+        "Start value of tank level"
       annotation(Dialog(tab="Initialization"));
 
     //Mass and energy balance
@@ -1853,7 +1853,7 @@ Integer type that can have the following values
           origin={0,100})));
 
     parameter Integer nPorts = 0
-        "Number of inlet/outlet ports (on bottom and on the side)" 
+        "Number of inlet/outlet ports (on bottom and on the side)"
        annotation(Dialog(__Dymola_connectorSizing=true));
     parameter Modelica.Fluid.Vessels.BaseClasses.VesselPortsData portsData[
                                                                         nPorts]
@@ -1868,39 +1868,39 @@ Integer type that can have the following values
 
     // Heat transfer through boundary
     parameter Boolean use_HeatTransfer = false
-        "= true to use the HeatTransfer model" 
+        "= true to use the HeatTransfer model"
         annotation (Dialog(tab="Assumptions", group="Heat transfer"));
-    replaceable model HeatTransfer = 
-        Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer 
+    replaceable model HeatTransfer =
+        Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer
       constrainedby
         Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransfer
-        "Wall heat transfer" 
+        "Wall heat transfer"
         annotation (Dialog(tab="Assumptions", group="Heat transfer",enable=use_HeatTransfer),choicesAllMatching=true);
     HeatTransfer heatTransfer(
       redeclare final package Medium = Medium,
       final n=1,
       final states = {medium.state},
       surfaceAreas={crossArea+2*sqrt(crossArea*Modelica.Constants.pi)*level},
-      final use_k = use_HeatTransfer) 
+      final use_k = use_HeatTransfer)
         annotation (Placement(transformation(
           extent={{-10,-10},{30,30}},
           rotation=90,
           origin={-50,-10})));
-    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if use_HeatTransfer 
+    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if use_HeatTransfer
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
 
     // Advanced
     parameter Real hysteresisFactor(min=0) = 0.1
-        "Hysteresis for empty pipe = diameter*hysteresisFactor" 
+        "Hysteresis for empty pipe = diameter*hysteresisFactor"
       annotation(Dialog(tab="Advanced", group="Port properties"));
     parameter Boolean stiffCharacteristicForEmptyPort = false
-        "=true, if steep pressure loss characteristic for empty pipe port" 
+        "=true, if steep pressure loss characteristic for empty pipe port"
       annotation(Dialog(tab="Advanced", group="Port properties"), Evaluate=true);
     parameter Real zetaLarge(min=0) = 1e5
-        "Large pressure loss factor if mass flows out of empty pipe port" 
+        "Large pressure loss factor if mass flows out of empty pipe port"
       annotation(Dialog(tab="Advanced", group="Port properties", enable=stiffCharacteristicForEmptyPort));
     parameter SI.MassFlowRate m_flow_small(min=0) = system.m_flow_small
-        "Regularization range at zero mass flow rate" 
+        "Regularization range at zero mass flow rate"
       annotation(Dialog(tab="Advanced", group="Port properties", enable=stiffCharacteristicForEmptyPort));
 
     // Tank properties
@@ -1951,7 +1951,7 @@ place with these connections which is usually not the intention
 of the modeller.
 ");
 end for;
- 
+
 for i in 1:nPorts loop
   assert(cardinality(ports[i]) <= 1,"
 ports[" + String(i) + "] of volume can at most be connected to one component.
@@ -2087,20 +2087,20 @@ end for;
                     1,
                     2)))}),
         Documentation(info="<HTML>
-<p> 
-Model of a tank that is open to the environment at the fixed pressure
-<tt>p_ambient</tt>. 
-The tank is filled with a single or multiple-substance liquid, 
-assumed to have uniform temperature and mass fractions.
-</p> 
- 
 <p>
-At the top of the tank over the maximal fill level <b>height</b> 
+Model of a tank that is open to the environment at the fixed pressure
+<tt>p_ambient</tt>.
+The tank is filled with a single or multiple-substance liquid,
+assumed to have uniform temperature and mass fractions.
+</p>
+
+<p>
+At the top of the tank over the maximal fill level <b>height</b>
 a vector of FluidPorts, called <b>topPorts</b>, is present.
 The assumption is made that fluid flows always in to the tank via these
 ports (and never back in to the connector).
 </p>
- 
+
 <p>
 The vector of connectors <b>ports</b> are fluid ports at the bottom
 and side of the tank at a defineable height. Fluid can flow either out
@@ -2109,12 +2109,12 @@ one of these ports. This case is approximated by introducing a
 large pressure flow coefficient so that the mass flow rate
 through this port is very small in this case.
 </p>
- 
+
 <p>
 If the tank starts to over flow (i.e., level > height), an
 assertion is triggered.
 </p>
- 
+
 <p>
 When the diagram layer is open in the plot environment, the
 level of the tank is dynamically visualized. Note, the speed
@@ -2127,12 +2127,12 @@ of the diagram animation in Dymola can be set via command
    common definition in BaseClasses.PartialLumpedVolume</li>
 <li><i>Dec. 8, 2008</i> by Michael Wetter (LBNL):<br>
 Implemented trace substances and missing equation for outflow of multi substance media at top port.</li>
-<li><i>Jul. 29, 2006</i> by Martin Otter (DLR):<br> 
+<li><i>Jul. 29, 2006</i> by Martin Otter (DLR):<br>
    Improved handling of ports that are above the fluid level and
    simpler implementation.</li>
- 
-<li><i>Jan. 6, 2006</i> by Katja Poschlad, Manuel Remelhe (AST Uni Dortmund), 
-   Martin Otter (DLR):<br> 
+
+<li><i>Jan. 6, 2006</i> by Katja Poschlad, Manuel Remelhe (AST Uni Dortmund),
+   Martin Otter (DLR):<br>
    Implementation based on former tank model but with several improvements
    (top, bottom, side ports; correctly treating kinetic energy for outlet
    and total dissipation for inlet; ports can be above the fluid level).</li>
@@ -2159,7 +2159,7 @@ Implemented trace substances and missing equation for outflow of multi substance
       extends Modelica.Icons.Example;
 
       Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts tank(
-        redeclare package Medium = 
+        redeclare package Medium =
             Modelica.Media.Water.ConstantPropertyLiquidWater,
         crossArea=1,
         height=1,
@@ -2168,15 +2168,15 @@ Implemented trace substances and missing equation for outflow of multi substance
         V0=0.1,
         nTopPorts=1,
         nPorts=1,
-        level_start=0) 
+        level_start=0)
         annotation (Placement(transformation(extent={{0,0},{40,40}},   rotation=0)));
 
       Sources.MassFlowSource_T flowSource(nPorts=1,
-        redeclare package Medium = 
+        redeclare package Medium =
             Modelica.Media.Water.ConstantPropertyLiquidWater,
         m_flow=20,
         T=system.T_ambient,
-        use_m_flow_in=true) 
+        use_m_flow_in=true)
         annotation (Placement(transformation(extent={{-12,42},{8,62}},   rotation=
                0)));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
@@ -2188,28 +2188,28 @@ Implemented trace substances and missing equation for outflow of multi substance
             "plot level and port.p", file=
               "Scripts/Fluid/OneTank/plot level, port.p and port.m_flow.mos"
             "plot level, port.p and port.m_flow"));
-      inner Modelica.Fluid.System system 
+      inner Modelica.Fluid.System system
                             annotation (Placement(transformation(extent={{70,72},
                 {90,92}}, rotation=0)));
       Modelica.Fluid.Sources.Boundary_pT ambient_fixed(nPorts=1,
-                                             redeclare package Medium = 
+                                             redeclare package Medium =
             Modelica.Media.Water.ConstantPropertyLiquidWater,
         p=system.p_ambient,
-        T=system.T_ambient) 
+        T=system.T_ambient)
         annotation (Placement(transformation(extent={{-14,-50},{6,-30}}, rotation=
                0)));
       Modelica.Fluid.Pipes.StaticPipe pipe(
-        redeclare package Medium = 
+        redeclare package Medium =
             Modelica.Media.Water.ConstantPropertyLiquidWater,
         length=1,
         diameter=0.1,
-        height_ab=-1) 
+        height_ab=-1)
                      annotation (Placement(transformation(
             origin={20,-18},
             extent={{10,-10},{-10,10}},
             rotation=90)));
       Modelica.Blocks.Sources.TimeTable timeTable(table=[0,0; 10,0; 10,40; 20,40;
-            20,10; 50,10; 50,0; 60,0; 60,20; 70,20; 80,55; 80,0; 100,0]) 
+            20,10; 50,10; 50,0; 60,0; 60,20; 70,20; 80,55; 80,0; 100,0])
         annotation (Placement(transformation(extent={{-60,60},{-40,80}})));
     equation
       connect(flowSource.ports[1], tank.topPorts[1])  annotation (Line(points={{8,52},{
@@ -2240,12 +2240,12 @@ Implemented trace substances and missing equation for outflow of multi substance
         __Dymola_experimentSetupOutput,
         __Dymola_Commands(file="Scripts/Fluid/TwoTanks/plot level and port.p.mos"
             "plot level and port.p"));
-      inner Modelica.Fluid.System system 
+      inner Modelica.Fluid.System system
                             annotation (Placement(transformation(extent={{40,62},
                 {60,82}}, rotation=0)));
       Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts tank1
         (
-        redeclare package Medium = 
+        redeclare package Medium =
             Modelica.Media.Water.ConstantPropertyLiquidWater,
         stiffCharacteristicForEmptyPort = stiffCharacteristicForEmptyPort,
         crossArea=1,
@@ -2254,12 +2254,12 @@ Implemented trace substances and missing equation for outflow of multi substance
         T_start=Modelica.SIunits.Conversions.from_degC(50),
         nPorts=1,
         portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(
-            diameter=0.1, height=0)}) 
+            diameter=0.1, height=0)})
         annotation (Placement(transformation(extent={{-80,0},{-40,40}}, rotation=
                 0)));
       Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts tank2
         (
-        redeclare package Medium = 
+        redeclare package Medium =
             Modelica.Media.Water.ConstantPropertyLiquidWater,
         stiffCharacteristicForEmptyPort = stiffCharacteristicForEmptyPort,
         crossArea=1,
@@ -2268,10 +2268,10 @@ Implemented trace substances and missing equation for outflow of multi substance
         T_start=Modelica.SIunits.Conversions.from_degC(100),
         nPorts=1,
         portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(
-            diameter=0.1, height=0)}) 
+            diameter=0.1, height=0)})
         annotation (Placement(transformation(extent={{0,0},{40,40}}, rotation=0)));
       Modelica.Fluid.Pipes.StaticPipe pipe(
-        redeclare package Medium = 
+        redeclare package Medium =
             Modelica.Media.Water.ConstantPropertyLiquidWater,
         length=1,
         diameter=0.1)  annotation (Placement(transformation(extent={{-30,-30},{
@@ -2290,10 +2290,10 @@ Implemented trace substances and missing equation for outflow of multi substance
 
       Sources.MassFlowSource_T flowSource(
         nPorts=1,
-        redeclare package Medium = 
+        redeclare package Medium =
             Modelica.Media.Water.ConstantPropertyLiquidWater,
         m_flow=50,
-        T=system.T_ambient) 
+        T=system.T_ambient)
         annotation (Placement(transformation(extent={{-20,40},{0,60}}, rotation=0)));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}),
@@ -2305,31 +2305,31 @@ Implemented trace substances and missing equation for outflow of multi substance
             "plot level and port.p", file=
               "Scripts/Fluid/TankWithEmptyingPipe1/plot level, port.p and port.m_flow.mos"
             "plot level, port.p and port.m_flow"));
-      inner Modelica.Fluid.System system 
+      inner Modelica.Fluid.System system
                             annotation (Placement(transformation(extent={{-100,60},
                 {-80,80}}, rotation=0)));
       Modelica.Fluid.Sources.Boundary_pT ambient_fixed(nPorts=1,
-                                             redeclare package Medium = 
+                                             redeclare package Medium =
             Modelica.Media.Water.ConstantPropertyLiquidWater,
         p=system.p_ambient,
-        T=system.T_ambient) 
+        T=system.T_ambient)
         annotation (Placement(transformation(extent={{-60,-100},{-40,-80}},
               rotation=0)));
       Modelica.Fluid.Valves.ValveDiscrete valveDiscrete(
-                                                redeclare package Medium = 
+                                                redeclare package Medium =
             Modelica.Media.Water.ConstantPropertyLiquidWater,
         dp_nominal(displayUnit="Pa") = 1,
-        m_flow_nominal=100) 
+        m_flow_nominal=100)
         annotation (Placement(transformation(
             origin={-20,-50},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Modelica.Blocks.Sources.BooleanConstant open(k=false) 
+      Modelica.Blocks.Sources.BooleanConstant open(k=false)
         annotation (Placement(transformation(extent={{-60,-60},{-40,-40}},
               rotation=0)));
       Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts tank1
         (
-        redeclare package Medium = 
+        redeclare package Medium =
             Modelica.Media.Water.ConstantPropertyLiquidWater,
         crossArea=1,
         V0=0.1,
@@ -2342,11 +2342,11 @@ Implemented trace substances and missing equation for outflow of multi substance
                                                             diameter=0.1,
             height=1)},
         stiffCharacteristicForEmptyPort=true,
-        nTopPorts=1) 
+        nTopPorts=1)
         annotation (Placement(transformation(extent={{-40,-20},{0,20}}, rotation=
                 0)));
       Modelica.Fluid.Pipes.StaticPipe pipe(
-        redeclare package Medium = 
+        redeclare package Medium =
             Modelica.Media.Water.ConstantPropertyLiquidWater,
         length=1,
         diameter=0.1,
@@ -2381,19 +2381,19 @@ Implemented trace substances and missing equation for outflow of multi substance
         __Dymola_Commands(file=
               "Scripts/Fluid/TankWithEmptyingPipe2/plot level and port.p.mos"
             "plot level and port.p"));
-      inner Modelica.Fluid.System system 
+      inner Modelica.Fluid.System system
                             annotation (Placement(transformation(extent={{-100,60},
                 {-80,80}}, rotation=0)));
       Modelica.Fluid.Sources.Boundary_pT ambient_fixed(nPorts=1,
-                                             redeclare package Medium = 
+                                             redeclare package Medium =
             Modelica.Media.Water.ConstantPropertyLiquidWater,
         p=system.p_ambient,
-        T=system.T_ambient) 
+        T=system.T_ambient)
         annotation (Placement(transformation(extent={{-60,-100},{-40,-80}},
               rotation=0)));
       Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts tank1
         (
-        redeclare package Medium = 
+        redeclare package Medium =
             Modelica.Media.Water.ConstantPropertyLiquidWater,
         crossArea=1,
         V0=0.1,
@@ -2405,11 +2405,11 @@ Implemented trace substances and missing equation for outflow of multi substance
                                                             diameter=0.1,
             height=1)},
         level_start=2,
-        stiffCharacteristicForEmptyPort=true) 
+        stiffCharacteristicForEmptyPort=true)
         annotation (Placement(transformation(extent={{-40,-20},{0,20}}, rotation=
                 0)));
       Modelica.Fluid.Pipes.StaticPipe pipe1(
-        redeclare package Medium = 
+        redeclare package Medium =
             Modelica.Media.Water.ConstantPropertyLiquidWater,
         length=1,
         diameter=0.1,
@@ -2419,7 +2419,7 @@ Implemented trace substances and missing equation for outflow of multi substance
             rotation=90)));
 
       Modelica.Fluid.Pipes.StaticPipe pipe2(
-        redeclare package Medium = 
+        redeclare package Medium =
             Modelica.Media.Water.ConstantPropertyLiquidWater,
         length=1,
         diameter=0.1,
@@ -2428,10 +2428,10 @@ Implemented trace substances and missing equation for outflow of multi substance
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Modelica.Fluid.Sources.Boundary_pT ambient_fixed1(nPorts=1,
-                                             redeclare package Medium = 
+                                             redeclare package Medium =
             Modelica.Media.Water.ConstantPropertyLiquidWater,
         p=system.p_ambient,
-        T=system.T_ambient) 
+        T=system.T_ambient)
         annotation (Placement(transformation(extent={{0,-100},{20,-80}}, rotation=
                0)));
     equation
@@ -2460,19 +2460,19 @@ Implemented trace substances and missing equation for outflow of multi substance
           file=
               "Scripts/Fluid/TanksWithEmptyingPipe1/plot level, port.p and port.m_flow.mos"
             "plot level, port.p and port.m_flow"));
-      inner Modelica.Fluid.System system 
+      inner Modelica.Fluid.System system
                             annotation (Placement(transformation(extent={{-100,60},
                 {-80,80}}, rotation=0)));
       Modelica.Fluid.Sources.Boundary_pT ambient_fixed1(nPorts=1,
-                                              redeclare package Medium = 
+                                              redeclare package Medium =
             Modelica.Media.Water.ConstantPropertyLiquidWater,
         p=system.p_ambient,
-        T=system.T_ambient) 
+        T=system.T_ambient)
         annotation (Placement(transformation(extent={{-100,-80},{-80,-60}},
               rotation=0)));
       Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts tank1
         (
-        redeclare package Medium = 
+        redeclare package Medium =
             Modelica.Media.Water.ConstantPropertyLiquidWater,
         crossArea=1,
         V0=0.1,
@@ -2484,11 +2484,11 @@ Implemented trace substances and missing equation for outflow of multi substance
                                                             diameter=0.1,
             height=1)},
         level_start=2,
-        stiffCharacteristicForEmptyPort=true) 
+        stiffCharacteristicForEmptyPort=true)
         annotation (Placement(transformation(extent={{-80,0},{-40,40}}, rotation=
                 0)));
       Modelica.Fluid.Pipes.StaticPipe pipe1(
-        redeclare package Medium = 
+        redeclare package Medium =
             Modelica.Media.Water.ConstantPropertyLiquidWater,
         length=1,
         diameter=0.1,
@@ -2498,7 +2498,7 @@ Implemented trace substances and missing equation for outflow of multi substance
             rotation=90)));
 
       Modelica.Fluid.Pipes.StaticPipe pipe2(
-        redeclare package Medium = 
+        redeclare package Medium =
             Modelica.Media.Water.ConstantPropertyLiquidWater,
         length=1,
         diameter=0.1,
@@ -2507,15 +2507,15 @@ Implemented trace substances and missing equation for outflow of multi substance
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Modelica.Fluid.Sources.Boundary_pT ambient_fixed2(nPorts=1,
-                                             redeclare package Medium = 
+                                             redeclare package Medium =
             Modelica.Media.Water.ConstantPropertyLiquidWater,
         p=system.p_ambient,
-        T=system.T_ambient) 
+        T=system.T_ambient)
         annotation (Placement(transformation(extent={{0,-80},{20,-60}}, rotation=
                 0)));
       Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts tank2
         (
-        redeclare package Medium = 
+        redeclare package Medium =
             Modelica.Media.Water.ConstantPropertyLiquidWater,
         crossArea=1,
         V0=0.1,
@@ -2527,26 +2527,26 @@ Implemented trace substances and missing equation for outflow of multi substance
                                                             diameter=0.1,
             height=0.5)},
         level_start=0.1,
-        stiffCharacteristicForEmptyPort=true) 
+        stiffCharacteristicForEmptyPort=true)
         annotation (Placement(transformation(extent={{20,0},{60,40}}, rotation=0)));
       Modelica.Fluid.Pipes.StaticPipe pipe3(
-        redeclare package Medium = 
+        redeclare package Medium =
             Modelica.Media.Water.ConstantPropertyLiquidWater,
         length=1,
         diameter=0.1,
-        height_ab=-0.5) 
+        height_ab=-0.5)
                      annotation (Placement(transformation(extent={{-20,10},{0,30}},
               rotation=0)));
     equation
       connect(tank1.ports[1], pipe1.port_b) annotation (Line(points={{-62,-1},{
               -62,-15},{-60,-15},{-60,-30}},
                          color={0,127,255}));
-      connect(ambient_fixed1.ports[1], pipe1.port_a) 
+      connect(ambient_fixed1.ports[1], pipe1.port_a)
                                                 annotation (Line(points={{-80,-70},
               {-60,-70},{-60,-50}}, color={0,127,255}));
       connect(ambient_fixed2.ports[1], pipe2.port_a) annotation (Line(points={{20,-70},
               {40,-70},{40,-50}}, color={0,127,255}));
-      connect(tank2.ports[1], pipe2.port_b) 
+      connect(tank2.ports[1], pipe2.port_b)
         annotation (Line(points={{38,-1},{38,-15},{40,-15},{40,-30}},
                                                     color={0,127,255}));
       connect(pipe3.port_a, tank1.ports[2]) annotation (Line(points={{-20,20},{
@@ -2561,9 +2561,9 @@ Implemented trace substances and missing equation for outflow of multi substance
       parameter Boolean stiffCharacteristicForEmptyPort=true;
       import Modelica.SIunits.Conversions.from_bar;
       extends Modelica.Icons.Example;
-      replaceable package Medium = 
+      replaceable package Medium =
          Modelica.Media.Water.ConstantPropertyLiquidWater                    constrainedby
-        Modelica.Media.Interfaces.PartialMedium "Medium in the component" 
+        Modelica.Media.Interfaces.PartialMedium "Medium in the component"
           annotation (choicesAllMatching = true);
 
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
@@ -2574,26 +2574,26 @@ Implemented trace substances and missing equation for outflow of multi substance
         __Dymola_Commands(file=
               "Scripts/Fluid/TanksWithEmptyingPipe2/plot level and port.m_flow.mos"
             "plot level and port.m_flow"));
-      inner Modelica.Fluid.System system 
+      inner Modelica.Fluid.System system
                             annotation (Placement(transformation(extent={{-100,60},
                 {-80,80}}, rotation=0)));
       Modelica.Fluid.Sources.Boundary_pT ambient_fixed(nPorts=1,
-                                             redeclare package Medium = 
+                                             redeclare package Medium =
             Modelica.Media.Water.ConstantPropertyLiquidWater,
         p=system.p_ambient,
-        T=system.T_ambient) 
+        T=system.T_ambient)
         annotation (Placement(transformation(extent={{-16,-102},{-36,-82}},
               rotation=0)));
       Modelica.Fluid.Valves.ValveDiscrete valveDiscrete(
-                                                redeclare package Medium = 
+                                                redeclare package Medium =
             Modelica.Media.Water.ConstantPropertyLiquidWater,
         dp_nominal(displayUnit="Pa") = 1,
-        m_flow_nominal=100) 
+        m_flow_nominal=100)
         annotation (Placement(transformation(
             origin={-60,-78},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Modelica.Blocks.Sources.BooleanConstant open(k=false) 
+      Modelica.Blocks.Sources.BooleanConstant open(k=false)
         annotation (Placement(transformation(extent={{-98,-88},{-78,-68}},
               rotation=0)));
       Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts tank3
@@ -2610,7 +2610,7 @@ Implemented trace substances and missing equation for outflow of multi substance
             height=6.5)},
         level_start=6,
         nTopPorts=1,
-        stiffCharacteristicForEmptyPort = stiffCharacteristicForEmptyPort) 
+        stiffCharacteristicForEmptyPort = stiffCharacteristicForEmptyPort)
         annotation (Placement(transformation(extent={{-80,-50},{-40,-10}},
               rotation=0)));
       Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts tank1
@@ -2623,7 +2623,7 @@ Implemented trace substances and missing equation for outflow of multi substance
         portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(
             diameter=0.1, height=0)},
         level_start=9,
-        stiffCharacteristicForEmptyPort = stiffCharacteristicForEmptyPort) 
+        stiffCharacteristicForEmptyPort = stiffCharacteristicForEmptyPort)
         annotation (Placement(transformation(extent={{50,50},{90,90}}, rotation=0)));
       Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts tank2
         (
@@ -2639,7 +2639,7 @@ Implemented trace substances and missing equation for outflow of multi substance
             height=2),Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(
             diameter=0.1, height=3)},
         level_start=1,
-        stiffCharacteristicForEmptyPort = stiffCharacteristicForEmptyPort) 
+        stiffCharacteristicForEmptyPort = stiffCharacteristicForEmptyPort)
         annotation (Placement(transformation(extent={{-20,10},{20,50}}, rotation=
                 0)));
       Pipes.StaticPipe pipe1(         redeclare package Medium = Medium,
@@ -2677,7 +2677,7 @@ Implemented trace substances and missing equation for outflow of multi substance
       connect(pipe2.port_a, tank3.ports[2]) annotation (Line(points={{
               -6.12323e-016,-32},{-6.12323e-016,-48},{0,-60},{-58,-60},{-58,-51}},
                           color={0,127,255}));
-      connect(pipe3.port_a, tank3.topPorts[1]) 
+      connect(pipe3.port_a, tank3.topPorts[1])
                                               annotation (Line(points={{-60,0},
               {-60,-5},{-60,-9}},
                         color={0,127,255}));

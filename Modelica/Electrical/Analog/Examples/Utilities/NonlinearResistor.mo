@@ -33,7 +33,7 @@ model NonlinearResistor "Chua's resistor"
           textString="%name",
           lineColor={0,0,255})}),
     Documentation(info="<html>
-  
+
 </html>"));
 
   parameter SI.Conductance Ga "conductance in inner voltage range";

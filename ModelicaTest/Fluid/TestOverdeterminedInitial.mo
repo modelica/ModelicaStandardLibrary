@@ -8,7 +8,7 @@ package TestOverdeterminedInitial
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       use_T=false,
       p=10000000,
-      h=2e6) 
+      h=2e6)
       annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
     Modelica.Fluid.Pipes.DynamicPipe pipe(
       redeclare package Medium = Modelica.Media.Water.StandardWater,
@@ -20,31 +20,31 @@ package TestOverdeterminedInitial
       nNodes=5,
       p_a_start=10000000,
       p_b_start=9900000,
-      modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb) 
+      modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
       annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
     Modelica.Fluid.Valves.ValveCompressible valve(
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       Av=1e-3,
       dp_nominal=10000000,
-      m_flow_nominal=10) 
+      m_flow_nominal=10)
       annotation (Placement(transformation(extent={{0,-10},{20,10}})));
     Modelica.Fluid.Sources.FixedBoundary sink(nPorts=1,redeclare package Medium
-        = Modelica.Media.Water.StandardWaterOnePhase, p=9500000) 
+        = Modelica.Media.Water.StandardWaterOnePhase, p=9500000)
                 annotation (Placement(transformation(extent={{60,-10},{40,10}})));
     Modelica.Blocks.Sources.Ramp ramp(
       offset=1,
       duration=0.1,
       height=-0.5,
-      startTime=2) 
+      startTime=2)
                 annotation (Placement(transformation(extent={{46,30},{26,50}})));
-    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial) 
+    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial)
       annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
     discrete Modelica.SIunits.MassFlowRate m_flow_initial;
   equation
     when time > 0.1 then
       m_flow_initial = valve.port_a.m_flow;
     end when;
-    if pipe.energyDynamics >= Modelica.Fluid.Types.Dynamics.SteadyStateInitial and 
+    if pipe.energyDynamics >= Modelica.Fluid.Types.Dynamics.SteadyStateInitial and
        pipe.massDynamics >= Modelica.Fluid.Types.Dynamics.SteadyStateInitial then
       when time > 1 then
         assert(abs(valve.port_a.m_flow - m_flow_initial) < 1e-3, "!!!THE SIMULATION DID NOT START IN STEADY-STATE!!!");
@@ -68,7 +68,7 @@ package TestOverdeterminedInitial
         smooth=Smooth.None));
 
     annotation (Documentation(info="<html>
-All pressure states of the pipe are lumped into one. 
+All pressure states of the pipe are lumped into one.
 The steady-state initial conditions become overdetermined as they are now specified nNodes times for the same pressure state.
 The initial equations are consistent however and a tool shall reduce them appropriately.
 </html>"),
@@ -94,7 +94,7 @@ The initial equations are consistent however and a tool shall reduce them approp
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       use_T=false,
       h=2e6,
-      p=10000000) 
+      p=10000000)
       annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
     Modelica.Fluid.Pipes.DynamicPipe pipe(
       redeclare package Medium = Modelica.Media.Water.StandardWater,
@@ -105,31 +105,31 @@ The initial equations are consistent however and a tool shall reduce them approp
       nNodes=5,
       modelStructure=Modelica.Fluid.Types.ModelStructure.av_vb,
       p_a_start=10000000,
-      p_b_start=9900000) 
+      p_b_start=9900000)
       annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
     Modelica.Fluid.Valves.ValveCompressible valve(
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       Av=1e-3,
       dp_nominal=10000000,
-      m_flow_nominal=10) 
+      m_flow_nominal=10)
       annotation (Placement(transformation(extent={{0,-10},{20,10}})));
     Modelica.Fluid.Sources.FixedBoundary sink(nPorts=1,redeclare package Medium
-        = Modelica.Media.Water.StandardWaterOnePhase, p=9500000) 
+        = Modelica.Media.Water.StandardWaterOnePhase, p=9500000)
                 annotation (Placement(transformation(extent={{60,-10},{40,10}})));
     Modelica.Blocks.Sources.Ramp ramp(
       offset=1,
       duration=0.1,
       height=-0.5,
-      startTime=2) 
+      startTime=2)
                 annotation (Placement(transformation(extent={{46,30},{26,50}})));
-    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial) 
+    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
       annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
     discrete Modelica.SIunits.MassFlowRate m_flow_initial;
   equation
     when time > 0.1 then
       m_flow_initial = valve.port_a.m_flow;
     end when;
-    if pipe.energyDynamics >= Modelica.Fluid.Types.Dynamics.SteadyStateInitial and 
+    if pipe.energyDynamics >= Modelica.Fluid.Types.Dynamics.SteadyStateInitial and
        pipe.massDynamics >= Modelica.Fluid.Types.Dynamics.SteadyStateInitial then
       when time > 1 then
         assert(abs(valve.port_a.m_flow - m_flow_initial) < 1e-3, "!!!THE SIMULATION DID NOT START IN STEADY-STATE!!!");

@@ -10,22 +10,22 @@ package ControlledTankSystem
       tankController(
       waitTime=50,
       maxLevel=0.9*tank1.height,
-      minLevel=0.01) 
+      minLevel=0.01)
       annotation (Placement(transformation(extent={{-60,-20},{-20,20}},
             rotation=0)));
     Modelica.Fluid.Examples.ControlledTankSystem.Utilities.RadioButton start(
                                                            reset={stop.on,shut.on},
-        buttonTimeTable={20,280}) 
+        buttonTimeTable={20,280})
       annotation (Placement(transformation(extent={{-100,20},{-80,40}},
             rotation=0)));
     Modelica.Fluid.Examples.ControlledTankSystem.Utilities.RadioButton stop(
                                                           reset={start.on,shut.on},
-        buttonTimeTable={220,650}) 
+        buttonTimeTable={220,650})
       annotation (Placement(transformation(extent={{-100,-10},{-80,10}},
             rotation=0)));
     Modelica.Fluid.Examples.ControlledTankSystem.Utilities.RadioButton shut(
                                                           reset={start.on,stop.on},
-        buttonTimeTable={700}) 
+        buttonTimeTable={700})
       annotation (Placement(transformation(extent={{-100,-40},{-80,-20}},
             rotation=0)));
     annotation (
@@ -38,15 +38,15 @@ package ControlledTankSystem
       Documentation(info="<html>
 <p>
 With this example, the controller of a tank filling/emptying system
-is demonstrated. 
+is demonstrated.
 </p>
- 
+
 <p>
 The basic operation is to fill and empty the two tanks:
 </p>
 <ol>
 <li> Valve 1 is opened and tank 1 is filled.</li>
-<li> When tank 1 reaches its fill level limit, 
+<li> When tank 1 reaches its fill level limit,
      valve 1 is closed. </li>
 <li> After a waiting time, valve 2 is
      opened and the fluid flows from tank 1 into tank 2.</li>
@@ -56,7 +56,7 @@ The basic operation is to fill and empty the two tanks:
 <li> When tank 2 reaches its minimum level, valve 3 is closed</liI>
 </ol>
 <p>
-The above \"normal\" process can be influenced by three 
+The above \"normal\" process can be influenced by three
 buttons:
 </p>
 <ul>
@@ -67,18 +67,18 @@ buttons:
 <li> Button <b>stop</b> stops the above process by
      closing all valves. Then, the controller waits for
      further input (either \"start\" or \"shut\" operation).</li>
-<li> Button <b>shut</b> is used to shutdown the process, 
+<li> Button <b>shut</b> is used to shutdown the process,
      by emptying at once both tanks by opening valve 2 and
      valve 3. When this is achieved,
      the process goes back to its start configuration
      where all 3 valves are closed.
      Clicking on \"start\", restarts the process.</li>
-</ul> 
-     
+</ul>
+
 <p>
 The demo-run uses the following button presses:
 </p>
- 
+
 <ul>
 <li> Button <b>start</b> pressed at 20 s.</li>
 <li> Button <b>stop</b> pressed at 220 s </li>
@@ -87,11 +87,11 @@ The demo-run uses the following button presses:
 <li> Button <b>shut</b> pressed at 700 s </li>
 <li> Simulate for 900 s</li>
 </ul>
- 
+
 <p>
 This example is based on
 </p>
- 
+
 <dl>
 <dt>Dressler I. (2004):</dt>
 <dd> <b>Code Generation From JGrafchart to Modelica</b>.
@@ -99,11 +99,11 @@ This example is based on
      Department of Automatic Control, Lund Institute of Technology,
      Lund, Sweden, March 30, 2004<br>&nbsp;</dd>
 </dl>
- 
+
 <p align=\"center\">
 <img src=\"../Images/Fluid/Examples/ControlledTanks.png\" border=\"1\">
 </p>
- 
+
 </html>"),
       __Dymola_Commands(file=
             "Scripts/Fluid/ControlledTanks/plot level and ports.m_flow.mos"
@@ -111,7 +111,7 @@ This example is based on
     Modelica.Fluid.Valves.ValveDiscrete valve1(                     redeclare
         package Medium = Medium,
       m_flow_nominal=40,
-      dp_nominal=100000) 
+      dp_nominal=100000)
       annotation (Placement(transformation(
           origin={-10,70},
           extent={{10,-10},{-10,10}},
@@ -132,13 +132,13 @@ This example is based on
             zeta_out=0,
             zeta_in=1)})    annotation (Placement(transformation(extent={{10,30},
               {50,70}},      rotation=0)));
-    Modelica.Blocks.Sources.RealExpression level1(y=tank1.level) 
+    Modelica.Blocks.Sources.RealExpression level1(y=tank1.level)
       annotation (Placement(transformation(extent={{-90,-60},{-55,-40}},
             rotation=0)));
     Modelica.Fluid.Valves.ValveDiscrete valve2(        redeclare package Medium
         = Medium,
       dp_nominal(displayUnit="Pa") = 1,
-      m_flow_nominal=100) 
+      m_flow_nominal=100)
       annotation (Placement(transformation(
           origin={34,0},
           extent={{10,-10},{-10,10}},
@@ -146,7 +146,7 @@ This example is based on
     Modelica.Fluid.Valves.ValveDiscrete valve3(        redeclare package Medium
         = Medium,
       dp_nominal(displayUnit="Pa") = 1,
-      m_flow_nominal=10) 
+      m_flow_nominal=10)
       annotation (Placement(transformation(
           origin={35,-80},
           extent={{10,-10},{-10,10}},
@@ -167,23 +167,23 @@ This example is based on
             zeta_out=0,
             zeta_in=1)})   annotation (Placement(transformation(extent={{50,-60},
               {90,-20}},       rotation=0)));
-    Modelica.Fluid.Sources.Boundary_pT ambient1(redeclare package Medium = 
+    Modelica.Fluid.Sources.Boundary_pT ambient1(redeclare package Medium =
           Medium,nPorts=1,
       p=system.p_ambient,
-      T=system.T_ambient) 
+      T=system.T_ambient)
       annotation (Placement(transformation(extent={{-10,-90},{10,-70}},
             rotation=0)));
-    Modelica.Blocks.Sources.RealExpression level2(y=tank2.level) 
+    Modelica.Blocks.Sources.RealExpression level2(y=tank2.level)
       annotation (Placement(transformation(extent={{-70,-80},{-33,-60}},
             rotation=0)));
-    Modelica.Fluid.Sources.Boundary_pT source(redeclare package Medium = 
+    Modelica.Fluid.Sources.Boundary_pT source(redeclare package Medium =
           Medium, p=2.5e6,nPorts=1,
-      T=system.T_ambient) 
+      T=system.T_ambient)
       annotation (Placement(transformation(
           origin={-40,70},
           extent={{-10,-10},{10,10}},
           rotation=0)));
-    inner Modelica.Fluid.System system 
+    inner Modelica.Fluid.System system
                           annotation (Placement(transformation(extent={{-90,70},
               {-70,90}}, rotation=0)));
   equation
@@ -239,83 +239,83 @@ This example is based on
       parameter SI.Height minLevel "Lowest level of tank 1 and 2";
       parameter SI.Time waitTime "Wait time, between operations";
 
-      Modelica.StateGraph.InitialStep s1(nIn=2) 
+      Modelica.StateGraph.InitialStep s1(nIn=2)
                      annotation (Placement(transformation(extent={{-72,30},{-52,
                 50}}, rotation=0)));
       Modelica.Fluid.Examples.ControlledTankSystem.Utilities.NormalOperation
         normal(
         maxLevel=maxLevel,
         minLevel=minLevel,
-        waitTime=waitTime) 
+        waitTime=waitTime)
         annotation (Placement(transformation(extent={{-20,20},{20,60}},
               rotation=0)));
-      Modelica.StateGraph.Transition T1(condition=start) 
+      Modelica.StateGraph.Transition T1(condition=start)
                                      annotation (Placement(transformation(
               extent={{-50,50},{-30,30}}, rotation=0)));
-      Modelica.StateGraph.Transition T2(condition=level2 < minLevel) 
+      Modelica.StateGraph.Transition T2(condition=level2 < minLevel)
         annotation (Placement(transformation(extent={{27,50},{47,30}}, rotation=
                0)));
-      Modelica.StateGraph.Transition T3(condition=stop) 
+      Modelica.StateGraph.Transition T3(condition=stop)
         annotation (Placement(transformation(
             origin={-23,-1},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.StateGraph.Step s2(nOut=2) 
+      Modelica.StateGraph.Step s2(nOut=2)
               annotation (Placement(transformation(extent={{-50,-60},{-30,-40}},
               rotation=0)));
-      Modelica.StateGraph.Transition T4(condition=start) 
+      Modelica.StateGraph.Transition T4(condition=start)
         annotation (Placement(transformation(
             origin={10,0},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Modelica.StateGraph.Transition T5(condition=shut) 
+      Modelica.StateGraph.Transition T5(condition=shut)
                                     annotation (Placement(transformation(extent=
                {{-6,-60},{14,-40}}, rotation=0)));
-      Modelica.StateGraph.Step emptyTanks 
+      Modelica.StateGraph.Step emptyTanks
                       annotation (Placement(transformation(extent={{20,-60},{40,
                 -40}}, rotation=0)));
       Modelica.StateGraph.Transition T6(condition=level1 < minLevel and level2
-             < minLevel) 
+             < minLevel)
         annotation (Placement(transformation(extent={{45,-60},{65,-40}},
               rotation=0)));
-      Modelica.Blocks.Interfaces.BooleanInput start 
+      Modelica.Blocks.Interfaces.BooleanInput start
         annotation (Placement(transformation(extent={{-120,50},{-100,70}},
               rotation=0)));
-      Modelica.Blocks.Interfaces.BooleanInput stop 
+      Modelica.Blocks.Interfaces.BooleanInput stop
         annotation (Placement(transformation(extent={{-120,-10},{-100,10}},
               rotation=0)));
-      Modelica.Blocks.Interfaces.BooleanInput shut 
+      Modelica.Blocks.Interfaces.BooleanInput shut
         annotation (Placement(transformation(extent={{-120,-70},{-100,-50}},
               rotation=0)));
-      Modelica.Blocks.Interfaces.RealInput level1 
+      Modelica.Blocks.Interfaces.RealInput level1
         annotation (Placement(transformation(
             origin={-60,-110},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Modelica.Blocks.Interfaces.RealInput level2 
+      Modelica.Blocks.Interfaces.RealInput level2
         annotation (Placement(transformation(
             origin={60,-110},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Modelica.Blocks.Interfaces.BooleanOutput valve1 
+      Modelica.Blocks.Interfaces.BooleanOutput valve1
         annotation (Placement(transformation(extent={{100,55},{110,65}},
               rotation=0)));
-      Modelica.Blocks.Interfaces.BooleanOutput valve2 
+      Modelica.Blocks.Interfaces.BooleanOutput valve2
         annotation (Placement(transformation(extent={{100,-5},{110,5}},
               rotation=0)));
-      Modelica.Blocks.Interfaces.BooleanOutput valve3 
+      Modelica.Blocks.Interfaces.BooleanOutput valve3
         annotation (Placement(transformation(extent={{100,-65},{110,-55}},
               rotation=0)));
       Modelica.Blocks.Sources.BooleanExpression setValve1(y=normal.fillTank1.
-            active) 
+            active)
         annotation (Placement(transformation(extent={{20,73},{80,92}}, rotation=
                0)));
       Modelica.Blocks.Sources.BooleanExpression setValve2(y=normal.fillTank2.
-            active or emptyTanks.active and level1 > minLevel) 
+            active or emptyTanks.active and level1 > minLevel)
         annotation (Placement(transformation(extent={{-40,-85},{80,-64}},
               rotation=0)));
       Modelica.Blocks.Sources.BooleanExpression setValve3(y=normal.emptyTank2.
-            active or emptyTanks.active and level2 > minLevel) 
+            active or emptyTanks.active and level2 > minLevel)
         annotation (Placement(transformation(extent={{-40,-103},{80,-83}},
               rotation=0)));
     equation
@@ -362,30 +362,30 @@ This example is based on
               extent={{2,-51},{102,-67}},
               lineColor={0,0,0},
               textString="valve3")}));
-      connect(s1.outPort[1], T1.inPort) 
+      connect(s1.outPort[1], T1.inPort)
                                      annotation (Line(points={{-51.5,40},{-44,
               40}}, color={0,0,0}));
       connect(T1.outPort, normal.inPort)      annotation (Line(points={{-38.5,
               40},{-21.3333,40}}, color={0,0,0}));
       connect(normal.outPort, T2.inPort)      annotation (Line(points={{20.6667,
               40},{33,40}}, color={0,0,0}));
-      connect(T5.outPort, emptyTanks.inPort[1]) 
+      connect(T5.outPort, emptyTanks.inPort[1])
                                              annotation (Line(points={{5.5,-50},
               {19,-50}}, color={0,0,0}));
-      connect(emptyTanks.outPort[1], T6.inPort) 
+      connect(emptyTanks.outPort[1], T6.inPort)
                                              annotation (Line(points={{40.5,-50},
               {51,-50}}, color={0,0,0}));
-      connect(setValve1.y, valve1) 
+      connect(setValve1.y, valve1)
         annotation (Line(points={{83,82.5},{90,82.5},{90,60},{105,60}}, color={
               255,0,255}));
-      connect(setValve2.y, valve2) 
+      connect(setValve2.y, valve2)
         annotation (Line(points={{86,-74.5},{90,-74.5},{90,0},{105,0}}, color={
               255,0,255}));
       connect(setValve3.y, valve3) annotation (Line(points={{86,-93},{95,-93},{
               95,-60},{105,-60}}, color={255,0,255}));
       connect(normal.suspend[1], T3.inPort)   annotation (Line(points={{-10,
               19.3333},{-10,12},{-23,12},{-23,3}}, color={0,0,0}));
-      connect(T3.outPort, s2.inPort[1]) 
+      connect(T3.outPort, s2.inPort[1])
                                      annotation (Line(points={{-23,-2.5},{-23,
               -20},{-60,-20},{-60,-50},{-51,-50}}, color={0,0,0}));
       connect(level1, normal.level1)      annotation (Line(points={{-60,-110},{
@@ -410,70 +410,70 @@ This example is based on
       parameter SI.Height minLevel "Lowest level of tank 1 and 2";
       parameter SI.Time waitTime "Wait time between operations";
 
-      Modelica.Blocks.Interfaces.RealInput level1 
+      Modelica.Blocks.Interfaces.RealInput level1
         annotation (Placement(transformation(extent={{-190,-140},{-150,-100}},
               rotation=0)));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{
                 -150,-150},{150,150}}),
                           graphics),
                            Documentation(info="<html>
- 
+
 </html>"));
-      Modelica.StateGraph.Step fillTank1 
+      Modelica.StateGraph.Step fillTank1
                      annotation (Placement(transformation(extent={{-140,-10},{
                 -120,10}}, rotation=0)));
-      Modelica.StateGraph.Transition T1(condition=level1 > maxLevel) 
+      Modelica.StateGraph.Transition T1(condition=level1 > maxLevel)
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
-      Modelica.StateGraph.Step fillTank2 
+      Modelica.StateGraph.Step fillTank2
                      annotation (Placement(transformation(extent={{-10,-10},{10,
                 10}}, rotation=0)));
-      Modelica.StateGraph.Transition T3(condition=level1 < minLevel) 
+      Modelica.StateGraph.Transition T3(condition=level1 < minLevel)
         annotation (Placement(transformation(extent={{20,-10},{40,10}},
               rotation=0)));
-      Modelica.StateGraph.Step emptyTank2 
+      Modelica.StateGraph.Step emptyTank2
                       annotation (Placement(transformation(extent={{120,-10},{
                 140,10}}, rotation=0)));
-      Modelica.StateGraph.Step wait1 
+      Modelica.StateGraph.Step wait1
                  annotation (Placement(transformation(extent={{-80,-10},{-60,10}},
               rotation=0)));
-      Modelica.StateGraph.Transition T2(enableTimer=true, waitTime=waitTime) 
+      Modelica.StateGraph.Transition T2(enableTimer=true, waitTime=waitTime)
         annotation (Placement(transformation(extent={{-50,-10},{-30,10}},
               rotation=0)));
-      Modelica.StateGraph.Step wait2 
+      Modelica.StateGraph.Step wait2
                  annotation (Placement(transformation(extent={{54,-10},{74,10}},
               rotation=0)));
-      Modelica.StateGraph.Transition T4(enableTimer=true, waitTime=waitTime) 
+      Modelica.StateGraph.Transition T4(enableTimer=true, waitTime=waitTime)
         annotation (Placement(transformation(extent={{82,-10},{102,10}},
               rotation=0)));
     equation
-      connect(fillTank1.inPort[1], inPort) 
+      connect(fillTank1.inPort[1], inPort)
                                         annotation (Line(points={{-141,0},{-160,
               0}}, color={0,0,0}));
-      connect(fillTank1.outPort[1], T1.inPort) 
+      connect(fillTank1.outPort[1], T1.inPort)
                                             annotation (Line(points={{-119.5,0},
               {-104,0}}, color={0,0,0}));
-      connect(fillTank2.outPort[1], T3.inPort) 
+      connect(fillTank2.outPort[1], T3.inPort)
                                             annotation (Line(points={{10.5,0},{
               26,0}}, color={0,0,0}));
-      connect(emptyTank2.outPort[1], outPort) 
+      connect(emptyTank2.outPort[1], outPort)
                                            annotation (Line(points={{140.5,0},{
               155,0}}, color={0,0,0}));
-      connect(wait1.outPort[1], T2.inPort) 
+      connect(wait1.outPort[1], T2.inPort)
                                         annotation (Line(points={{-59.5,0},{-44,
               0}}, color={0,0,0}));
-      connect(T2.outPort, fillTank2.inPort[1]) 
+      connect(T2.outPort, fillTank2.inPort[1])
                                             annotation (Line(points={{-38.5,0},
               {-11,0}}, color={0,0,0}));
-      connect(T1.outPort, wait1.inPort[1]) 
+      connect(T1.outPort, wait1.inPort[1])
                                         annotation (Line(points={{-98.5,0},{-81,
               0}}, color={0,0,0}));
-      connect(wait2.outPort[1], T4.inPort) 
+      connect(wait2.outPort[1], T4.inPort)
                                         annotation (Line(points={{74.5,0},{88,0}},
             color={0,0,0}));
-      connect(T3.outPort, wait2.inPort[1]) 
+      connect(T3.outPort, wait2.inPort[1])
         annotation (Line(points={{31.5,0},{53,0}}, color={0,0,0}));
-      connect(T4.outPort,emptyTank2.inPort[1]) 
+      connect(T4.outPort,emptyTank2.inPort[1])
                                              annotation (Line(points={{93.5,0},
               {119,0}}, color={0,0,0}));
     end NormalOperation;
@@ -484,7 +484,7 @@ This example is based on
       parameter Modelica.SIunits.Time buttonTimeTable[:]
         "Time instants where button is pressend";
       input Boolean reset[:]={false}
-        "Reset button to false, if an element of reset becomes true" 
+        "Reset button to false, if an element of reset becomes true"
         annotation (Dialog(group="Time varying expressions"));
 
       annotation (Icon(
@@ -492,9 +492,9 @@ This example is based on
                 100}}),
           graphics={Rectangle(
               extent={{-100,-100},{100,100}},
-              fillColor=DynamicSelect({192,192,192}, if on > 0.5 then {0,255,0} else 
+              fillColor=DynamicSelect({192,192,192}, if on > 0.5 then {0,255,0} else
                         {192,192,192}),
-              fillPattern=DynamicSelect(FillPattern.Solid, if on > 0.5 then 
+              fillPattern=DynamicSelect(FillPattern.Solid, if on > 0.5 then
                   FillPattern.Solid else FillPattern.Solid),
               lineColor={128,128,128},
               lineThickness=0.5), Text(
@@ -507,9 +507,9 @@ This example is based on
                        extent={{-100,-100},{100,100}}),
                                       graphics),
           Documentation(info="<html>
-  
+
 </html>"));
-      Modelica.Blocks.Interfaces.BooleanOutput on 
+      Modelica.Blocks.Interfaces.BooleanOutput on
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
               rotation=0)));
     protected

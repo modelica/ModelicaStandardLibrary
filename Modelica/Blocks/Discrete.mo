@@ -361,7 +361,7 @@ Example:
      parameter: B = [2, 7;3, 1]
      parameter: C = [0.1, 2]
      parameter: D = zeros(ny,nu)
- 
+
 results in the following equations:
   [x[1]]   [0.12  2.00] [pre(x[1])]   [2.0  7.0] [u[1]]
   [    ] = [          ]*[         ] + [        ]*[    ]

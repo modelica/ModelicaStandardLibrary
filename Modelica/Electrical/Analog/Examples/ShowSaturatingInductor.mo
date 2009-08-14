@@ -22,24 +22,24 @@ model ShowSaturatingInductor
           textString="Show Saturating Inductor")}),
     experiment(StopTime=6.2832, Interval=0.01),
     Documentation(info="<html>
-  
+
 </html>"));
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1(
     V=U,
     phase=phase,
-    freqHz=f) 
+    freqHz=f)
     annotation (Placement(transformation(
         origin={-20,0},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Electrical.Analog.Basic.Ground Ground1 
+  Modelica.Electrical.Analog.Basic.Ground Ground1
     annotation (Placement(transformation(extent={{-30,-30},{-10,-10}}, rotation=
            0)));
   Modelica.Electrical.Analog.Basic.SaturatingInductor SaturatingInductance1(
     Lzer=Lzer,
     Lnom=Lnom,
     Inom=Inom,
-    Linf=Linf) 
+    Linf=Linf)
     annotation (Placement(transformation(
         origin={22,6},
         extent={{-10,-10},{10,10}},
