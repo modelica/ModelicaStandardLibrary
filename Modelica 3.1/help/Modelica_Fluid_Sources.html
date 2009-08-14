@@ -1,0 +1,739 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Fluid.Sources</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Define fixed or prescribed boundary conditions&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Sources<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Sources"></A><A HREF="Modelica_Fluid.html#Modelica.Fluid"
+>Modelica.Fluid</A>.Sources</H2>
+<B>Define fixed or prescribed boundary conditions</B>
+<P>
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+Package <b>Sources</b> contains generic sources for fluid connectors
+to define fixed or prescribed ambient conditions.
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Fluid_Icons.html#Modelica.Fluid.Icons.VariantLibrary"
+>Modelica.Fluid.Icons.VariantLibrary</A> (Icon for a library that contains several variants of one component).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Sources.FixedBoundaryS.png" ALT="Modelica.Fluid.Sources.FixedBoundary" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sources.html#Modelica.Fluid.Sources.FixedBoundary"
+>FixedBoundary</A>
+</TD><TD>Boundary source component</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Sources.Boundary_pTS.png" ALT="Modelica.Fluid.Sources.Boundary_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sources.html#Modelica.Fluid.Sources.Boundary_pT"
+>Boundary_pT</A>
+</TD><TD>Boundary with prescribed pressure, temperature, composition and trace substances</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Sources.Boundary_pTS.png" ALT="Modelica.Fluid.Sources.Boundary_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sources.html#Modelica.Fluid.Sources.Boundary_ph"
+>Boundary_ph</A>
+</TD><TD>Boundary with prescribed pressure, specific enthalpy, composition and trace substances</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Sources.MassFlowSource_TS.png" ALT="Modelica.Fluid.Sources.MassFlowSource_T" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sources.html#Modelica.Fluid.Sources.MassFlowSource_T"
+>MassFlowSource_T</A>
+</TD><TD>Ideal flow source that produces a prescribed mass flow with prescribed temperature, mass fraction and trace substances</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Sources.MassFlowSource_TS.png" ALT="Modelica.Fluid.Sources.MassFlowSource_h" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sources.html#Modelica.Fluid.Sources.MassFlowSource_h"
+>MassFlowSource_h</A>
+</TD><TD>Ideal flow source that produces a prescribed mass flow with prescribed specific enthalpy, mass fraction and trace substances</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Sources.BaseClassesS.png" ALT="Modelica.Fluid.Sources.BaseClasses" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sources_BaseClasses.html#Modelica.Fluid.Sources.BaseClasses"
+>BaseClasses</A>
+</TD><TD>Base classes used in the Sources package (only of interest to build new component models)</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FixedBoundary<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Sources.FixedBoundaryI.png" ALT="Modelica.Fluid.Sources.FixedBoundary" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Sources.FixedBoundary"></A><A HREF="Modelica_Fluid_Sources.html#Modelica.Fluid.Sources"
+>Modelica.Fluid.Sources</A>.FixedBoundary</H2>
+<B>Boundary source component</B><p>
+<IMG SRC="Modelica.Fluid.Sources.FixedBoundaryD.png" ALT="Modelica.Fluid.Sources.FixedBoundary">
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+Model <b>FixedBoundary</b> defines constant values for boundary conditions:
+</p>
+<ul>
+<li> Boundary pressure or boundary density.</li>
+<li> Boundary temperature or boundary specific enthalpy.</li>
+<li> Boundary composition (only for multi-substance or trace-substance flow).</li>
+</ul>
+<p>
+Note, that boundary temperature, density, specific enthalpy,
+mass fractions and trace substances have only an effect if the mass flow
+is from the Boundary into the port. If mass is flowing from
+the port into the boundary, the boundary definitions,
+with exception of boundary pressure, do not have an effect.
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Fluid_Sources_BaseClasses.html#Modelica.Fluid.Sources.BaseClasses.PartialSource"
+>Sources.BaseClasses.PartialSource</A> (Partial component source with one fluid connector).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium"
+>PartialMedium</A></TD><TD>Medium model within the source</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Boundary pressure or Boundary density</TD></TR>
+<TR><TD>Boolean</TD><TD>use_p</TD><TD>true</TD><TD>select p or d</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>p</TD><TD>Medium.p_default</TD><TD>Boundary pressure [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Density"
+>Density</A></TD><TD>d</TD><TD>Medium.density_pTX(Medium.p_...</TD><TD>Boundary density [kg/m3]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Boundary temperature or Boundary specific enthalpy</TD></TR>
+<TR><TD>Boolean</TD><TD>use_T</TD><TD>true</TD><TD>select T or h</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A></TD><TD>T</TD><TD>Medium.T_default</TD><TD>Boundary temperature [K]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h</TD><TD>Medium.h_default</TD><TD>Boundary specific enthalpy [J/kg]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Only for multi-substance flow</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>MassFraction</A></TD><TD>X[Medium.nX]</TD><TD>Medium.X_default</TD><TD>Boundary mass fractions m_i/m [kg/kg]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Only for trace-substance flow</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ExtraProperty"
+>ExtraProperty</A></TD><TD>C[Medium.nC]</TD><TD>fill(0, Medium.nC)</TD><TD>Boundary trace substances</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPorts_b"
+>FluidPorts_b</A></TD><TD>ports[nPorts]</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> FixedBoundary <font color="darkgreen">&quot;Boundary source component&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Sources_BaseClasses.html#Modelica.Fluid.Sources.BaseClasses.PartialSource"
+>Sources.BaseClasses.PartialSource</A>;
+  <font color="blue">parameter </font>Boolean use_p=true <font color="darkgreen">&quot;select p or d&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>Medium.AbsolutePressure</A> p=Medium.p_default <font color="darkgreen">&quot;Boundary pressure&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Density"
+>Medium.Density</A> d=<font color="red">Medium.density_pTX</font>(Medium.p_default, Medium.T_default, Medium.X_default) <font color="darkgreen">
+    &quot;Boundary density&quot;</font>;
+  <font color="blue">parameter </font>Boolean use_T=true <font color="darkgreen">&quot;select T or h&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Medium.Temperature</A> T=Medium.T_default <font color="darkgreen">&quot;Boundary temperature&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>Medium.SpecificEnthalpy</A> h=Medium.h_default <font color="darkgreen">
+    &quot;Boundary specific enthalpy&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>Medium.MassFraction</A> X[Medium.nX](
+       quantity=Medium.substanceNames)=Medium.X_default <font color="darkgreen">
+    &quot;Boundary mass fractions m_i/m&quot;</font>;
+
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ExtraProperty"
+>Medium.ExtraProperty</A> C[Medium.nC](
+       quantity=Medium.extraPropertiesNames)=<font color="red">fill</font>(0, Medium.nC) <font color="darkgreen">
+    &quot;Boundary trace substances&quot;</font>;
+
+
+<font color="blue">equation </font>
+  <font color="red">Modelica.Fluid.Utilities.checkBoundary</font>(Medium.mediumName, Medium.substanceNames,
+                                        Medium.singleState, use_p, X,
+                                        &quot;FixedBoundary&quot;);
+  <font color="blue">if </font>use_p<font color="blue"> or </font>Medium.singleState<font color="blue"> then</font>
+    medium.p = p;
+  <font color="blue">else</font>
+    medium.d = d;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font>use_T<font color="blue"> then</font>
+    medium.T = T;
+  <font color="blue">else</font>
+    medium.h = h;
+  <font color="blue">end if</font>;
+
+  medium.Xi = X[1:Medium.nXi];
+
+  ports.C_outflow =<font color="red"> fill</font>(C, nPorts);
+<font color="blue">end </font>FixedBoundary;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Boundary_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Sources.Boundary_pTI.png" ALT="Modelica.Fluid.Sources.Boundary_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Sources.Boundary_pT"></A><A HREF="Modelica_Fluid_Sources.html#Modelica.Fluid.Sources"
+>Modelica.Fluid.Sources</A>.Boundary_pT</H2>
+<B>Boundary with prescribed pressure, temperature, composition and trace substances</B><p>
+<IMG SRC="Modelica.Fluid.Sources.Boundary_pTD.png" ALT="Modelica.Fluid.Sources.Boundary_pT">
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+Defines prescribed values for boundary conditions:
+</p>
+<ul>
+<li> Prescribed boundary pressure.</li>
+<li> Prescribed boundary temperature.</li>
+<li> Boundary composition (only for multi-substance or trace-substance flow).</li>
+</ul>
+<p>If <tt>use_p_in</tt> is false (default option), the <tt>p</tt> parameter
+is used as boundary pressure, and the <tt>p_in</tt> input connector is disabled; if <tt>use_p_in</tt> is true, then the <tt>p</tt> parameter is ignored, and the value provided by the input connector is used instead.</p>
+<p>The same thing goes for the temperature, composition and trace substances.</p>
+<p>
+Note, that boundary temperature,
+mass fractions and trace substances have only an effect if the mass flow
+is from the boundary into the port. If mass is flowing from
+the port into the boundary, the boundary definitions,
+with exception of boundary pressure, do not have an effect.
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Fluid_Sources_BaseClasses.html#Modelica.Fluid.Sources.BaseClasses.PartialSource"
+>Sources.BaseClasses.PartialSource</A> (Partial component source with one fluid connector).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium"
+>PartialMedium</A></TD><TD>Medium model within the source</TD></TR>
+<TR><TD>Boolean</TD><TD>use_p_in</TD><TD>false</TD><TD>Get the pressure from the input connector</TD></TR>
+<TR><TD>Boolean</TD><TD>use_T_in</TD><TD>false</TD><TD>Get the temperature from the input connector</TD></TR>
+<TR><TD>Boolean</TD><TD>use_X_in</TD><TD>false</TD><TD>Get the composition from the input connector</TD></TR>
+<TR><TD>Boolean</TD><TD>use_C_in</TD><TD>false</TD><TD>Get the trace substances from the input connector</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>p</TD><TD>Medium.p_default</TD><TD>Fixed value of pressure [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A></TD><TD>T</TD><TD>Medium.T_default</TD><TD>Fixed value of temperature [K]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>MassFraction</A></TD><TD>X[Medium.nX]</TD><TD>Medium.X_default</TD><TD>Fixed value of composition [kg/kg]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ExtraProperty"
+>ExtraProperty</A></TD><TD>C[Medium.nC]</TD><TD>fill(0, Medium.nC)</TD><TD>Fixed values of trace substances</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPorts_b"
+>FluidPorts_b</A></TD><TD>ports[nPorts]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>p_in</TD><TD>Prescribed boundary pressure</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>T_in</TD><TD>Prescribed boundary temperature</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>X_in[Medium.nX]</TD><TD>Prescribed boundary composition</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>C_in[Medium.nC]</TD><TD>Prescribed boundary trace substances</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Boundary_pT <font color="darkgreen">
+  &quot;Boundary with prescribed pressure, temperature, composition and trace substances&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Sources_BaseClasses.html#Modelica.Fluid.Sources.BaseClasses.PartialSource"
+>Sources.BaseClasses.PartialSource</A>;
+  <font color="blue">parameter </font>Boolean use_p_in = false <font color="darkgreen">
+    &quot;Get the pressure from the input connector&quot;</font>;
+  <font color="blue">parameter </font>Boolean use_T_in= false <font color="darkgreen">
+    &quot;Get the temperature from the input connector&quot;</font>;
+  <font color="blue">parameter </font>Boolean use_X_in = false <font color="darkgreen">
+    &quot;Get the composition from the input connector&quot;</font>;
+  <font color="blue">parameter </font>Boolean use_C_in = false <font color="darkgreen">
+    &quot;Get the trace substances from the input connector&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>Medium.AbsolutePressure</A> p = Medium.p_default <font color="darkgreen">
+    &quot;Fixed value of pressure&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Medium.Temperature</A> T = Medium.T_default <font color="darkgreen">
+    &quot;Fixed value of temperature&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>Medium.MassFraction</A> X[Medium.nX] = Medium.X_default <font color="darkgreen">
+    &quot;Fixed value of composition&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ExtraProperty"
+>Medium.ExtraProperty</A> C[Medium.nC](
+       quantity=Medium.extraPropertiesNames)=<font color="red">fill</font>(0, Medium.nC) <font color="darkgreen">
+    &quot;Fixed values of trace substances&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> p_in <font color="blue">if </font>             use_p_in <font color="darkgreen">
+    &quot;Prescribed boundary pressure&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> T_in <font color="blue">if </font>        use_T_in <font color="darkgreen">
+    &quot;Prescribed boundary temperature&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> X_in[Medium.nX] <font color="blue">if </font>
+                                                        use_X_in <font color="darkgreen">
+    &quot;Prescribed boundary composition&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> C_in[Medium.nC] <font color="blue">if </font>
+                                                        use_C_in <font color="darkgreen">
+    &quot;Prescribed boundary trace substances&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> p_in_internal <font color="darkgreen">
+    &quot;Needed to connect to conditional connector&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> T_in_internal <font color="darkgreen">
+    &quot;Needed to connect to conditional connector&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> X_in_internal[Medium.nX] <font color="darkgreen">
+    &quot;Needed to connect to conditional connector&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> C_in_internal[Medium.nC] <font color="darkgreen">
+    &quot;Needed to connect to conditional connector&quot;</font>;
+<font color="blue">equation </font>
+  <font color="red">Modelica.Fluid.Utilities.checkBoundary</font>(Medium.mediumName, Medium.substanceNames,
+    Medium.singleState, true, X_in_internal, &quot;Boundary_pT&quot;);
+  <font color="red">connect</font>(p_in, p_in_internal);
+  <font color="red">connect</font>(T_in, T_in_internal);
+  <font color="red">connect</font>(X_in, X_in_internal);
+  <font color="red">connect</font>(C_in, C_in_internal);
+  <font color="blue">if </font><font color="blue">not </font>use_p_in<font color="blue"> then</font>
+    p_in_internal = p;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font><font color="blue">not </font>use_T_in<font color="blue"> then</font>
+    T_in_internal = T;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font><font color="blue">not </font>use_X_in<font color="blue"> then</font>
+    X_in_internal = X;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font><font color="blue">not </font>use_C_in<font color="blue"> then</font>
+    C_in_internal = C;
+  <font color="blue">end if</font>;
+  medium.p = p_in_internal;
+  medium.T = T_in_internal;
+  medium.Xi = X_in_internal[1:Medium.nXi];
+  ports.C_outflow =<font color="red"> fill</font>(C_in_internal, nPorts);
+<font color="blue">end </font>Boundary_pT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Boundary_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Sources.Boundary_pTI.png" ALT="Modelica.Fluid.Sources.Boundary_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Sources.Boundary_ph"></A><A HREF="Modelica_Fluid_Sources.html#Modelica.Fluid.Sources"
+>Modelica.Fluid.Sources</A>.Boundary_ph</H2>
+<B>Boundary with prescribed pressure, specific enthalpy, composition and trace substances</B><p>
+<IMG SRC="Modelica.Fluid.Sources.Boundary_phD.png" ALT="Modelica.Fluid.Sources.Boundary_ph">
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+Defines prescribed values for boundary conditions:
+</p>
+<ul>
+<li> Prescribed boundary pressure.</li>
+<li> Prescribed boundary temperature.</li>
+<li> Boundary composition (only for multi-substance or trace-substance flow).</li>
+</ul>
+<p>If <tt>use_p_in</tt> is false (default option), the <tt>p</tt> parameter
+is used as boundary pressure, and the <tt>p_in</tt> input connector is disabled; if <tt>use_p_in</tt> is true, then the <tt>p</tt> parameter is ignored, and the value provided by the input connector is used instead.</p>
+<p>The same thing goes for the specific enthalpy and composition</p>
+<p>
+Note, that boundary temperature,
+mass fractions and trace substances have only an effect if the mass flow
+is from the boundary into the port. If mass is flowing from
+the port into the boundary, the boundary definitions,
+with exception of boundary pressure, do not have an effect.
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Fluid_Sources_BaseClasses.html#Modelica.Fluid.Sources.BaseClasses.PartialSource"
+>Sources.BaseClasses.PartialSource</A> (Partial component source with one fluid connector).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium"
+>PartialMedium</A></TD><TD>Medium model within the source</TD></TR>
+<TR><TD>Boolean</TD><TD>use_p_in</TD><TD>false</TD><TD>Get the pressure from the input connector</TD></TR>
+<TR><TD>Boolean</TD><TD>use_h_in</TD><TD>false</TD><TD>Get the specific enthalpy from the input connector</TD></TR>
+<TR><TD>Boolean</TD><TD>use_X_in</TD><TD>false</TD><TD>Get the composition from the input connector</TD></TR>
+<TR><TD>Boolean</TD><TD>use_C_in</TD><TD>false</TD><TD>Get the trace substances from the input connector</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>p</TD><TD>Medium.p_default</TD><TD>Fixed value of pressure [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h</TD><TD>Medium.h_default</TD><TD>Fixed value of specific enthalpy [J/kg]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>MassFraction</A></TD><TD>X[Medium.nX]</TD><TD>Medium.X_default</TD><TD>Fixed value of composition [kg/kg]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ExtraProperty"
+>ExtraProperty</A></TD><TD>C[Medium.nC]</TD><TD>fill(0, Medium.nC)</TD><TD>Fixed values of trace substances</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPorts_b"
+>FluidPorts_b</A></TD><TD>ports[nPorts]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>p_in</TD><TD>Prescribed boundary pressure</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>h_in</TD><TD>Prescribed boundary specific enthalpy</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>X_in[Medium.nX]</TD><TD>Prescribed boundary composition</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>C_in[Medium.nC]</TD><TD>Prescribed boundary trace substances</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Boundary_ph <font color="darkgreen">
+  &quot;Boundary with prescribed pressure, specific enthalpy, composition and trace substances&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Sources_BaseClasses.html#Modelica.Fluid.Sources.BaseClasses.PartialSource"
+>Sources.BaseClasses.PartialSource</A>;
+  <font color="blue">parameter </font>Boolean use_p_in = false <font color="darkgreen">
+    &quot;Get the pressure from the input connector&quot;</font>;
+  <font color="blue">parameter </font>Boolean use_h_in= false <font color="darkgreen">
+    &quot;Get the specific enthalpy from the input connector&quot;</font>;
+  <font color="blue">parameter </font>Boolean use_X_in = false <font color="darkgreen">
+    &quot;Get the composition from the input connector&quot;</font>;
+  <font color="blue">parameter </font>Boolean use_C_in = false <font color="darkgreen">
+    &quot;Get the trace substances from the input connector&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>Medium.AbsolutePressure</A> p = Medium.p_default <font color="darkgreen">
+    &quot;Fixed value of pressure&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>Medium.SpecificEnthalpy</A> h = Medium.h_default <font color="darkgreen">
+    &quot;Fixed value of specific enthalpy&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>Medium.MassFraction</A> X[Medium.nX] = Medium.X_default <font color="darkgreen">
+    &quot;Fixed value of composition&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ExtraProperty"
+>Medium.ExtraProperty</A> C[Medium.nC](
+       quantity=Medium.extraPropertiesNames)=<font color="red">fill</font>(0, Medium.nC) <font color="darkgreen">
+    &quot;Fixed values of trace substances&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> p_in <font color="blue">if </font>             use_p_in <font color="darkgreen">
+    &quot;Prescribed boundary pressure&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> h_in <font color="blue">if </font>             use_h_in <font color="darkgreen">
+    &quot;Prescribed boundary specific enthalpy&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> X_in[Medium.nX] <font color="blue">if </font>
+                                                        use_X_in <font color="darkgreen">
+    &quot;Prescribed boundary composition&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> C_in[Medium.nC] <font color="blue">if </font>
+                                                        use_C_in <font color="darkgreen">
+    &quot;Prescribed boundary trace substances&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> p_in_internal <font color="darkgreen">
+    &quot;Needed to connect to conditional connector&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> h_in_internal <font color="darkgreen">
+    &quot;Needed to connect to conditional connector&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> X_in_internal[Medium.nX] <font color="darkgreen">
+    &quot;Needed to connect to conditional connector&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> C_in_internal[Medium.nC] <font color="darkgreen">
+    &quot;Needed to connect to conditional connector&quot;</font>;
+<font color="blue">equation </font>
+  <font color="red">Modelica.Fluid.Utilities.checkBoundary</font>(Medium.mediumName, Medium.substanceNames,
+    Medium.singleState, true, X_in_internal, &quot;Boundary_ph&quot;);
+  <font color="red">connect</font>(p_in, p_in_internal);
+  <font color="red">connect</font>(h_in, h_in_internal);
+  <font color="red">connect</font>(X_in, X_in_internal);
+  <font color="red">connect</font>(C_in, C_in_internal);
+  <font color="blue">if </font><font color="blue">not </font>use_p_in<font color="blue"> then</font>
+    p_in_internal = p;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font><font color="blue">not </font>use_h_in<font color="blue"> then</font>
+    h_in_internal = h;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font><font color="blue">not </font>use_X_in<font color="blue"> then</font>
+    X_in_internal = X;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font><font color="blue">not </font>use_C_in<font color="blue"> then</font>
+    C_in_internal = C;
+  <font color="blue">end if</font>;
+  medium.p = p_in_internal;
+  medium.h = h_in_internal;
+  medium.Xi = X_in_internal[1:Medium.nXi];
+  ports.C_outflow =<font color="red"> fill</font>(C_in_internal, nPorts);
+<font color="blue">end </font>Boundary_ph;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MassFlowSource_T<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Sources.MassFlowSource_TI.png" ALT="Modelica.Fluid.Sources.MassFlowSource_T" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Sources.MassFlowSource_T"></A><A HREF="Modelica_Fluid_Sources.html#Modelica.Fluid.Sources"
+>Modelica.Fluid.Sources</A>.MassFlowSource_T</H2>
+<B>Ideal flow source that produces a prescribed mass flow with prescribed temperature, mass fraction and trace substances</B><p>
+<IMG SRC="Modelica.Fluid.Sources.MassFlowSource_TD.png" ALT="Modelica.Fluid.Sources.MassFlowSource_T">
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+Models an ideal flow source, with prescribed values of flow rate, temperature, composition and trace substances:
+</p>
+<ul>
+<li> Prescribed mass flow rate.</li>
+<li> Prescribed temperature.</li>
+<li> Boundary composition (only for multi-substance or trace-substance flow).</li>
+</ul>
+<p>If <tt>use_m_flow_in</tt> is false (default option), the <tt>m_flow</tt> parameter
+is used as boundary pressure, and the <tt>m_flow_in</tt> input connector is disabled; if <tt>use_m_flow_in</tt> is true, then the <tt>m_flow</tt> parameter is ignored, and the value provided by the input connector is used instead.</p>
+<p>The same thing goes for the temperature and composition</p>
+<p>
+Note, that boundary temperature,
+mass fractions and trace substances have only an effect if the mass flow
+is from the boundary into the port. If mass is flowing from
+the port into the boundary, the boundary definitions,
+with exception of boundary flow rate, do not have an effect.
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Fluid_Sources_BaseClasses.html#Modelica.Fluid.Sources.BaseClasses.PartialSource"
+>Sources.BaseClasses.PartialSource</A> (Partial component source with one fluid connector).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium"
+>PartialMedium</A></TD><TD>Medium model within the source</TD></TR>
+<TR><TD>Boolean</TD><TD>use_m_flow_in</TD><TD>false</TD><TD>Get the mass flow rate from the input connector</TD></TR>
+<TR><TD>Boolean</TD><TD>use_T_in</TD><TD>false</TD><TD>Get the temperature from the input connector</TD></TR>
+<TR><TD>Boolean</TD><TD>use_X_in</TD><TD>false</TD><TD>Get the composition from the input connector</TD></TR>
+<TR><TD>Boolean</TD><TD>use_C_in</TD><TD>false</TD><TD>Get the trace substances from the input connector</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow</TD><TD>0</TD><TD>Fixed mass flow rate going out of the fluid port [kg/s]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A></TD><TD>T</TD><TD>Medium.T_default</TD><TD>Fixed value of temperature [K]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>MassFraction</A></TD><TD>X[Medium.nX]</TD><TD>Medium.X_default</TD><TD>Fixed value of composition [kg/kg]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ExtraProperty"
+>ExtraProperty</A></TD><TD>C[Medium.nC]</TD><TD>fill(0, Medium.nC)</TD><TD>Fixed values of trace substances</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPorts_b"
+>FluidPorts_b</A></TD><TD>ports[nPorts]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>m_flow_in</TD><TD>Prescribed mass flow rate</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>T_in</TD><TD>Prescribed fluid temperature</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>X_in[Medium.nX]</TD><TD>Prescribed fluid composition</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>C_in[Medium.nC]</TD><TD>Prescribed boundary trace substances</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> MassFlowSource_T <font color="darkgreen">
+  &quot;Ideal flow source that produces a prescribed mass flow with prescribed temperature, mass fraction and trace substances&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Sources_BaseClasses.html#Modelica.Fluid.Sources.BaseClasses.PartialSource"
+>Sources.BaseClasses.PartialSource</A>;
+  <font color="blue">parameter </font>Boolean use_m_flow_in = false <font color="darkgreen">
+    &quot;Get the mass flow rate from the input connector&quot;</font>;
+  <font color="blue">parameter </font>Boolean use_T_in= false <font color="darkgreen">
+    &quot;Get the temperature from the input connector&quot;</font>;
+  <font color="blue">parameter </font>Boolean use_X_in = false <font color="darkgreen">
+    &quot;Get the composition from the input connector&quot;</font>;
+  <font color="blue">parameter </font>Boolean use_C_in = false <font color="darkgreen">
+    &quot;Get the trace substances from the input connector&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>Medium.MassFlowRate</A> m_flow = 0 <font color="darkgreen">
+    &quot;Fixed mass flow rate going out of the fluid port&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Medium.Temperature</A> T = Medium.T_default <font color="darkgreen">
+    &quot;Fixed value of temperature&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>Medium.MassFraction</A> X[Medium.nX] = Medium.X_default <font color="darkgreen">
+    &quot;Fixed value of composition&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ExtraProperty"
+>Medium.ExtraProperty</A> C[Medium.nC](
+       quantity=Medium.extraPropertiesNames)=<font color="red">fill</font>(0, Medium.nC) <font color="darkgreen">
+    &quot;Fixed values of trace substances&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> m_flow_in <font color="blue">if </font>    use_m_flow_in <font color="darkgreen">
+    &quot;Prescribed mass flow rate&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> T_in <font color="blue">if </font>        use_T_in <font color="darkgreen">
+    &quot;Prescribed fluid temperature&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> X_in[Medium.nX] <font color="blue">if </font>
+                                                        use_X_in <font color="darkgreen">
+    &quot;Prescribed fluid composition&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> C_in[Medium.nC] <font color="blue">if </font>
+                                                        use_C_in <font color="darkgreen">
+    &quot;Prescribed boundary trace substances&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> m_flow_in_internal <font color="darkgreen">
+    &quot;Needed to connect to conditional connector&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> T_in_internal <font color="darkgreen">
+    &quot;Needed to connect to conditional connector&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> X_in_internal[Medium.nX] <font color="darkgreen">
+    &quot;Needed to connect to conditional connector&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> C_in_internal[Medium.nC] <font color="darkgreen">
+    &quot;Needed to connect to conditional connector&quot;</font>;
+<font color="blue">equation </font>
+  <font color="red">Utilities.checkBoundary</font>(Medium.mediumName, Medium.substanceNames,
+    Medium.singleState, true, X_in_internal, &quot;MassFlowSource_T&quot;);
+  <font color="red">connect</font>(m_flow_in, m_flow_in_internal);
+  <font color="red">connect</font>(T_in, T_in_internal);
+  <font color="red">connect</font>(X_in, X_in_internal);
+  <font color="red">connect</font>(C_in, C_in_internal);
+  <font color="blue">if </font><font color="blue">not </font>use_m_flow_in<font color="blue"> then</font>
+    m_flow_in_internal = m_flow;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font><font color="blue">not </font>use_T_in<font color="blue"> then</font>
+    T_in_internal = T;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font><font color="blue">not </font>use_X_in<font color="blue"> then</font>
+    X_in_internal = X;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font><font color="blue">not </font>use_C_in<font color="blue"> then</font>
+    C_in_internal = C;
+  <font color="blue">end if</font>;
+  <font color="red">sum</font>(ports.m_flow) = -m_flow_in_internal;
+  medium.T = T_in_internal;
+  medium.Xi = X_in_internal[1:Medium.nXi];
+  ports.C_outflow =<font color="red"> fill</font>(C_in_internal, nPorts);
+<font color="blue">end </font>MassFlowSource_T;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MassFlowSource_h<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Sources.MassFlowSource_TI.png" ALT="Modelica.Fluid.Sources.MassFlowSource_h" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Sources.MassFlowSource_h"></A><A HREF="Modelica_Fluid_Sources.html#Modelica.Fluid.Sources"
+>Modelica.Fluid.Sources</A>.MassFlowSource_h</H2>
+<B>Ideal flow source that produces a prescribed mass flow with prescribed specific enthalpy, mass fraction and trace substances</B><p>
+<IMG SRC="Modelica.Fluid.Sources.MassFlowSource_hD.png" ALT="Modelica.Fluid.Sources.MassFlowSource_h">
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+Models an ideal flow source, with prescribed values of flow rate, temperature and composition:
+</p>
+<ul>
+<li> Prescribed mass flow rate.</li>
+<li> Prescribed specific enthalpy.</li>
+<li> Boundary composition (only for multi-substance or trace-substance flow).</li>
+</ul>
+<p>If <tt>use_m_flow_in</tt> is false (default option), the <tt>m_flow</tt> parameter
+is used as boundary pressure, and the <tt>m_flow_in</tt> input connector is disabled; if <tt>use_m_flow_in</tt> is true, then the <tt>m_flow</tt> parameter is ignored, and the value provided by the input connector is used instead.</p>
+<p>The same thing goes for the temperature and composition</p>
+<p>
+Note, that boundary temperature,
+mass fractions and trace substances have only an effect if the mass flow
+is from the boundary into the port. If mass is flowing from
+the port into the boundary, the boundary definitions,
+with exception of boundary flow rate, do not have an effect.
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Fluid_Sources_BaseClasses.html#Modelica.Fluid.Sources.BaseClasses.PartialSource"
+>Sources.BaseClasses.PartialSource</A> (Partial component source with one fluid connector).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium"
+>PartialMedium</A></TD><TD>Medium model within the source</TD></TR>
+<TR><TD>Boolean</TD><TD>use_m_flow_in</TD><TD>false</TD><TD>Get the mass flow rate from the input connector</TD></TR>
+<TR><TD>Boolean</TD><TD>use_h_in</TD><TD>false</TD><TD>Get the specific enthalpy from the input connector</TD></TR>
+<TR><TD>Boolean</TD><TD>use_X_in</TD><TD>false</TD><TD>Get the composition from the input connector</TD></TR>
+<TR><TD>Boolean</TD><TD>use_C_in</TD><TD>false</TD><TD>Get the trace substances from the input connector</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow</TD><TD>0</TD><TD>Fixed mass flow rate going out of the fluid port [kg/s]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h</TD><TD>Medium.h_default</TD><TD>Fixed value of specific enthalpy [J/kg]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>MassFraction</A></TD><TD>X[Medium.nX]</TD><TD>Medium.X_default</TD><TD>Fixed value of composition [kg/kg]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ExtraProperty"
+>ExtraProperty</A></TD><TD>C[Medium.nC]</TD><TD>fill(0, Medium.nC)</TD><TD>Fixed values of trace substances</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPorts_b"
+>FluidPorts_b</A></TD><TD>ports[nPorts]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>m_flow_in</TD><TD>Prescribed mass flow rate</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>h_in</TD><TD>Prescribed fluid specific enthalpy</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>X_in[Medium.nX]</TD><TD>Prescribed fluid composition</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>C_in[Medium.nC]</TD><TD>Prescribed boundary trace substances</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> MassFlowSource_h <font color="darkgreen">
+  &quot;Ideal flow source that produces a prescribed mass flow with prescribed specific enthalpy, mass fraction and trace substances&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Sources_BaseClasses.html#Modelica.Fluid.Sources.BaseClasses.PartialSource"
+>Sources.BaseClasses.PartialSource</A>;
+  <font color="blue">parameter </font>Boolean use_m_flow_in = false <font color="darkgreen">
+    &quot;Get the mass flow rate from the input connector&quot;</font>;
+  <font color="blue">parameter </font>Boolean use_h_in= false <font color="darkgreen">
+    &quot;Get the specific enthalpy from the input connector&quot;</font>;
+  <font color="blue">parameter </font>Boolean use_X_in = false <font color="darkgreen">
+    &quot;Get the composition from the input connector&quot;</font>;
+  <font color="blue">parameter </font>Boolean use_C_in = false <font color="darkgreen">
+    &quot;Get the trace substances from the input connector&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>Medium.MassFlowRate</A> m_flow = 0 <font color="darkgreen">
+    &quot;Fixed mass flow rate going out of the fluid port&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>Medium.SpecificEnthalpy</A> h = Medium.h_default <font color="darkgreen">
+    &quot;Fixed value of specific enthalpy&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>Medium.MassFraction</A> X[Medium.nX] = Medium.X_default <font color="darkgreen">
+    &quot;Fixed value of composition&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ExtraProperty"
+>Medium.ExtraProperty</A> C[Medium.nC](
+       quantity=Medium.extraPropertiesNames)=<font color="red">fill</font>(0, Medium.nC) <font color="darkgreen">
+    &quot;Fixed values of trace substances&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> m_flow_in <font color="blue">if </font>    use_m_flow_in <font color="darkgreen">
+    &quot;Prescribed mass flow rate&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> h_in <font color="blue">if </font>             use_h_in <font color="darkgreen">
+    &quot;Prescribed fluid specific enthalpy&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> X_in[Medium.nX] <font color="blue">if </font>
+                                                        use_X_in <font color="darkgreen">
+    &quot;Prescribed fluid composition&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> C_in[Medium.nC] <font color="blue">if </font>
+                                                        use_C_in <font color="darkgreen">
+    &quot;Prescribed boundary trace substances&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> m_flow_in_internal <font color="darkgreen">
+    &quot;Needed to connect to conditional connector&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> h_in_internal <font color="darkgreen">
+    &quot;Needed to connect to conditional connector&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> X_in_internal[Medium.nX] <font color="darkgreen">
+    &quot;Needed to connect to conditional connector&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> C_in_internal[Medium.nC] <font color="darkgreen">
+    &quot;Needed to connect to conditional connector&quot;</font>;
+<font color="blue">equation </font>
+  <font color="red">Utilities.checkBoundary</font>(Medium.mediumName, Medium.substanceNames,
+    Medium.singleState, true, X_in_internal, &quot;MassFlowSource_h&quot;);
+  <font color="red">connect</font>(m_flow_in, m_flow_in_internal);
+  <font color="red">connect</font>(h_in, h_in_internal);
+  <font color="red">connect</font>(X_in, X_in_internal);
+  <font color="red">connect</font>(C_in, C_in_internal);
+  <font color="blue">if </font><font color="blue">not </font>use_m_flow_in<font color="blue"> then</font>
+    m_flow_in_internal = m_flow;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font><font color="blue">not </font>use_h_in<font color="blue"> then</font>
+    h_in_internal = h;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font><font color="blue">not </font>use_X_in<font color="blue"> then</font>
+    X_in_internal = X;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font><font color="blue">not </font>use_C_in<font color="blue"> then</font>
+    C_in_internal = C;
+  <font color="blue">end if</font>;
+  <font color="red">sum</font>(ports.m_flow) = -m_flow_in_internal;
+  medium.h = h_in_internal;
+  medium.Xi = X_in_internal[1:Medium.nXi];
+  ports.C_outflow =<font color="red"> fill</font>(C_in_internal, nPorts);
+<font color="blue">end </font>MassFlowSource_h;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.Dymola.com/">Dymola</a> Mon Sep  7 10:20:12 2009.
+</address></BODY>
+</HTML>

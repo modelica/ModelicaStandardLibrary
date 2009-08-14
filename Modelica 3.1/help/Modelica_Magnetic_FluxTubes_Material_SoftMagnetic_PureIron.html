@@ -1,0 +1,101 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.PureIron</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Pure iron &quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PureIron<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.PureIron"></A><A HREF="Modelica_Magnetic_FluxTubes_Material_SoftMagnetic.html#Modelica.Magnetic.FluxTubes.Material.SoftMagnetic"
+>Modelica.Magnetic.FluxTubes.Material.SoftMagnetic</A>.PureIron</H2>
+<B>Pure iron </B>
+<P>
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel.Steel_9SMnPb28S.png" ALT="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.PureIron.RFe80" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Material_SoftMagnetic_PureIron.html#Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.PureIron.RFe80"
+>RFe80</A>
+</TD><TD>Hyperm 0 (RFe80)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel.Steel_9SMnPb28S.png" ALT="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.PureIron.VacoferS2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Material_SoftMagnetic_PureIron.html#Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.PureIron.VacoferS2"
+>VacoferS2</A>
+</TD><TD>VACOFER S2 (99.95% Fe)</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE RFe80<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.PureIron.RFe80I.png" ALT="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.PureIron.RFe80" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.PureIron.RFe80"></A><A HREF="Modelica_Magnetic_FluxTubes_Material_SoftMagnetic_PureIron.html#Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.PureIron"
+>Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.PureIron</A>.RFe80</H2>
+<B>Hyperm 0 (RFe80)</B><p>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.RelativePermeability"
+>RelativePermeability</A></TD><TD>mu_i</TD><TD>123</TD><TD>Initial relative permeability at B=0 [1]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MagneticFluxDensity"
+>MagneticFluxDensity</A></TD><TD>B_myMax</TD><TD>1.27</TD><TD>Flux density at maximum relative permeability [T]</TD></TR>
+<TR><TD>Real</TD><TD>c_a</TD><TD>44410</TD><TD>Coefficient of approximation function</TD></TR>
+<TR><TD>Real</TD><TD>c_b</TD><TD>6.4</TD><TD>Coefficient of approximation function</TD></TR>
+<TR><TD>Real</TD><TD>n</TD><TD>10</TD><TD>Exponent of approximation function</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> RFe80 <font color="darkgreen">&quot;Hyperm 0 (RFe80)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Magnetic_FluxTubes_Material_SoftMagnetic.html#Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData"
+>Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData</A>(
+    mu_i=123,
+    B_myMax=1.27,
+    c_a=44410,
+    c_b=6.4,
+    n=10);
+<font color="blue">end </font>RFe80;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE VacoferS2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.PureIron.RFe80I.png" ALT="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.PureIron.VacoferS2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.PureIron.VacoferS2"></A><A HREF="Modelica_Magnetic_FluxTubes_Material_SoftMagnetic_PureIron.html#Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.PureIron"
+>Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.PureIron</A>.VacoferS2</H2>
+<B>VACOFER S2 (99.95% Fe)</B><p>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.RelativePermeability"
+>RelativePermeability</A></TD><TD>mu_i</TD><TD>2666</TD><TD>Initial relative permeability at B=0 [1]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MagneticFluxDensity"
+>MagneticFluxDensity</A></TD><TD>B_myMax</TD><TD>1.15</TD><TD>Flux density at maximum relative permeability [T]</TD></TR>
+<TR><TD>Real</TD><TD>c_a</TD><TD>187000</TD><TD>Coefficient of approximation function</TD></TR>
+<TR><TD>Real</TD><TD>c_b</TD><TD>4.24</TD><TD>Coefficient of approximation function</TD></TR>
+<TR><TD>Real</TD><TD>n</TD><TD>19</TD><TD>Exponent of approximation function</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> VacoferS2 <font color="darkgreen">&quot;VACOFER S2 (99.95% Fe)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Magnetic_FluxTubes_Material_SoftMagnetic.html#Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData"
+>Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData</A>(
+    mu_i=2666,
+    B_myMax=1.15,
+    c_a=187000,
+    c_b=4.24,
+    n=19);
+<font color="blue">end </font>VacoferS2;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.Dymola.com/">Dymola</a> Mon Sep  7 10:15:02 2009.
+</address></BODY>
+</HTML>

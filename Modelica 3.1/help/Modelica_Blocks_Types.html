@@ -1,0 +1,101 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Blocks.Types</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Library of constants and types with choices, especially to build menus&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Types<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Blocks.Types"></A><A HREF="Modelica_Blocks.html#Modelica.Blocks"
+>Modelica.Blocks</A>.Types</H2>
+<B>Library of constants and types with choices, especially to build menus</B>
+<P>
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+In this package <b>types</b> and <b>constants</b> are defined that are used
+in library Modelica.Blocks. The types have additional annotation choices
+definitions that define the menus to be built up in the graphical
+user interface when the type is used as parameter in a declaration.
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_Library.html#Modelica.Icons.Library"
+>Modelica.Icons.Library</A> (Icon for library).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Blocks_Types.html#Modelica.Blocks.Types.Smoothness"
+>Smoothness</A>
+</TD><TD>Enumeration defining the smoothness of table interpolation</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Types.html#Modelica.Blocks.Types.Extrapolation"
+>Extrapolation</A>
+</TD><TD>Enumeration defining the extrapolation of time table interpolation</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Types.html#Modelica.Blocks.Types.Init"
+>Init</A>
+</TD><TD>Enumeration defining initialization of a block</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Types.html#Modelica.Blocks.Types.InitPID"
+>InitPID</A>
+</TD><TD>Enumeration defining initialization of PID and LimPID blocks</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Types.html#Modelica.Blocks.Types.SimpleController"
+>SimpleController</A>
+</TD><TD>Enumeration defining P, PI, PD, or PID simple controller type</TD></TR>
+</TABLE>
+<P><H3>Types and constants</H3>
+<A NAME="Modelica.Blocks.Types.Smoothness"></A><PRE>  <font color="blue">type</font> Smoothness = <font color="blue">enumeration</font>(
+    LinearSegments <font color="darkgreen">&quot;Table points are linearly interpolated&quot;</font>,
+    ContinuousDerivative <font color="darkgreen">
+      &quot;Table points are interpolated such that the first derivative is continuous&quot;</font>)
+  <font color="darkgreen">&quot;Enumeration defining the smoothness of table interpolation&quot;</font>;</PRE><p>
+<A NAME="Modelica.Blocks.Types.Extrapolation"></A><PRE><font color="blue">type</font> Extrapolation = <font color="blue">enumeration</font>(
+    HoldLastPoint <font color="darkgreen">&quot;Hold the last table point outside of the table scope&quot;</font>,
+    LastTwoPoints <font color="darkgreen">
+      &quot;Extrapolate linearly through the last two table points outside of the table scope&quot;</font>,
+
+    Periodic <font color="darkgreen">&quot;Repeat the table scope periodically&quot;</font>) <font color="darkgreen">
+  &quot;Enumeration defining the extrapolation of time table interpolation&quot;</font>;</PRE><p>
+<A NAME="Modelica.Blocks.Types.Init"></A><PRE>  <font color="blue">type</font> Init = <font color="blue">enumeration</font>(
+    NoInit <font color="darkgreen">
+      &quot;No initialization (start values are used as guess values with fixed=false)&quot;</font>,
+
+    SteadyState <font color="darkgreen">&quot;Steady state initialization (derivatives of states are zero)&quot;</font>,
+
+    InitialState <font color="darkgreen">&quot;Initialization with initial states&quot;</font>,
+    InitialOutput <font color="darkgreen">
+      &quot;Initialization with initial outputs (and steady state of the states if possibles)&quot;</font>)
+  <font color="darkgreen">&quot;Enumeration defining initialization of a block&quot;</font>;</PRE><p>
+<A NAME="Modelica.Blocks.Types.InitPID"></A><PRE>  <font color="blue">type</font> InitPID = <font color="blue">enumeration</font>(
+    NoInit <font color="darkgreen">
+      &quot;No initialization (start values are used as guess values with fixed=false)&quot;</font>,
+
+    SteadyState <font color="darkgreen">&quot;Steady state initialization (derivatives of states are zero)&quot;</font>,
+
+    InitialState <font color="darkgreen">&quot;Initialization with initial states&quot;</font>,
+    InitialOutput <font color="darkgreen">
+      &quot;Initialization with initial outputs (and steady state of the states if possibles)&quot;</font>,
+
+    DoNotUse_InitialIntegratorState <font color="darkgreen">
+      &quot;Don&#39;t use, only for backward compatibility (initialize only integrator state)&quot;</font>)
+  <font color="darkgreen">&quot;Enumeration defining initialization of PID and LimPID blocks&quot;</font>;</PRE><p>
+<A NAME="Modelica.Blocks.Types.SimpleController"></A><PRE>  <font color="blue">type</font> SimpleController = <font color="blue">enumeration</font>(
+    P <font color="darkgreen">&quot;P controller&quot;</font>,
+    PI <font color="darkgreen">&quot;PI controller&quot;</font>,
+    PD <font color="darkgreen">&quot;PD controller&quot;</font>,
+    PID <font color="darkgreen">&quot;PID controller&quot;</font>) <font color="darkgreen">
+  &quot;Enumeration defining P, PI, PD, or PID simple controller type&quot;</font>;</PRE><p>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.Dymola.com/">Dymola</a> Mon Sep  7 10:12:44 2009.
+</address></BODY>
+</HTML>

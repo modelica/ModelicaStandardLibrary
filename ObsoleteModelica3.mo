@@ -2,7 +2,7 @@ within ;
 package ObsoleteModelica3
   "Library that contains components from Modelica Standard Library 2.2.2 that have been removed from version 3.0"
 
-  annotation (uses(Modelica(version="3.0")),
+  annotation (uses(Modelica(version="3.1")),
 Documentation(info="<html>
 <p>
 This package contains models and blocks from the Modelica Standard Library
@@ -482,7 +482,7 @@ connectors are set to zero.</p>
        by Anton Haumer<br> initially implemented<br>
        </li>
 </ul>
-</html>"),  uses(Modelica(version="2.2.1")));
+</html>"));
           Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort annotation (Placement(
                 transformation(
                 origin={0,-100},
@@ -518,15 +518,10 @@ connectors are set to zero.</p>
               pattern=LinePattern.Dash,
               lineThickness=0.5)}),        Documentation(info="<html>
 <p>
-This partial class is intended to design a <em>default icon
-for an obsolete class</em> that will be removed from the
-PowerTrain library later on.
+This partial block is intended to provide a <u>default icon
+for an obsolete block</u> that will be removed from the
+corresponding library in a future release.
 <p>
-</html>",
-        revisions="<html>
-<img src=\"../Extras/Images/dlr_logo.png\"  width=60 >
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <b>      Copyright &copy; 1999-2007, DLR Institute of Robotics and Mechatronics</b>
 </html>"));
     equation
 
@@ -543,15 +538,10 @@ PowerTrain library later on.
               pattern=LinePattern.Dash,
               lineThickness=0.5)}),        Documentation(info="<html>
 <p>
-This partial class is intended to design a <em>default icon
-for an obsolete class</em> that will be removed from the
-PowerTrain library later on.
+This partial model is intended to provide a <u>default icon
+for an obsolete model</u> that will be removed from the
+corresponding library in a future release.
 <p>
-</html>",
-        revisions="<html>
-<img src=\"../Extras/Images/dlr_logo.png\"  width=60 >
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <b>      Copyright &copy; 1999-2007, DLR Institute of Robotics and Mechatronics</b>
 </html>"));
     equation
 
@@ -766,7 +756,6 @@ is resolved in the world frame).
           frame_b.t = -Modelica.Mechanics.MultiBody.Frames.resolve2(frame_b.R, load[4
             :6]);
         end WorldForceAndTorque;
-        annotation (uses(Modelica(version="3.0")));
 
         model FrameForceAndTorque
           "Obsolete model. Use instead Modelica.Mechanics.MultiBody.Forces.ForceAndTorque"
@@ -1491,7 +1480,7 @@ library. It is only provided to built-up the Modelica.Mechanics.MultiBody.Joints
 joints.</b>
 </p>
 </HTML>
-"),           uses(Modelica(version="3.0")));
+"));
 
           protected
             SI.Position r_a[3]=position_a
@@ -1907,7 +1896,7 @@ library. It is only provided to built-up the Modelica.Mechanics.MultiBody.Joints
 joints.</b>
 </p>
 </HTML>
-"),           uses(Modelica(version="3.0")));
+"));
 
           protected
             SI.Position r_a[3]=position_a
@@ -2909,7 +2898,7 @@ with negative sign at frame_a.
 <p align=\"center\">
 <IMG SRC=\"../Images/MultiBody/Sensors/CutForceAndTorque.png\">
 </p>
-</HTML>"),  uses(Modelica(version="3.0")));
+</HTML>"));
         protected
           outer Modelica.Mechanics.MultiBody.World world;
           parameter Integer csign=if positiveSign then +1 else -1;
@@ -2972,7 +2961,7 @@ with negative sign at frame_a.
           annotation (__Dymola_obsolete="This is an emulated enumeration for initialization. Initialization is now defined with start/fixed values and appropriate support in the parameter menu",
         Documentation(info="<html>
 
-</html>"),         uses(Modelica(version="2.2.2")));
+</html>"));
           extends ObsoleteModelica3.Icons.Enumeration;
 
           constant Integer Free=1;
@@ -3076,8 +3065,7 @@ with inertia.
               x=0.18,
               y=0.3,
               width=0.61,
-              height=0.66),
-            uses(Modelica(version="3.0")));
+              height=0.66));
         equation
           flange_a.phi = phi;
           flange_b.phi = phi;
@@ -3255,7 +3243,7 @@ of several base components.</p>
 <p>
 Partial model of torque dependent on speed that accelerates the flange.
 </p>
-</HTML>"),  uses(Modelica(version="3.0")));
+</HTML>"));
         equation
           if cardinality(bearing) == 0 then
             bearing.phi = 0;

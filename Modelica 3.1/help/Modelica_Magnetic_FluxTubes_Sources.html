@@ -1,0 +1,265 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Magnetic.FluxTubes.Sources</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Sources of different complexity of magnetomotive force and magnetic flux&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Sources<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Magnetic.FluxTubes.Sources"></A><A HREF="Modelica_Magnetic_FluxTubes.html#Modelica.Magnetic.FluxTubes"
+>Modelica.Magnetic.FluxTubes</A>.Sources</H2>
+<B>Sources of different complexity of magnetomotive force and magnetic flux</B>
+<P>
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains sources of a magnetic potential difference or a magnetic flux:
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_Library.html#Modelica.Icons.Library"
+>Modelica.Icons.Library</A> (Icon for library).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTubes.Sources.ConstantMagneticPotentialDifferenceS.png" ALT="Modelica.Magnetic.FluxTubes.Sources.ConstantMagneticPotentialDifference" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Sources.html#Modelica.Magnetic.FluxTubes.Sources.ConstantMagneticPotentialDifference"
+>ConstantMagneticPotentialDifference</A>
+</TD><TD>Constant magnetomotive force</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTubes.Sources.SignalMagneticPotentialDifferenceS.png" ALT="Modelica.Magnetic.FluxTubes.Sources.SignalMagneticPotentialDifference" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Sources.html#Modelica.Magnetic.FluxTubes.Sources.SignalMagneticPotentialDifference"
+>SignalMagneticPotentialDifference</A>
+</TD><TD>Signal-controlled magnetomotive force</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTubes.Sources.ConstantMagneticFluxS.png" ALT="Modelica.Magnetic.FluxTubes.Sources.ConstantMagneticFlux" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Sources.html#Modelica.Magnetic.FluxTubes.Sources.ConstantMagneticFlux"
+>ConstantMagneticFlux</A>
+</TD><TD>Source of constant magnetic flux</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTubes.Sources.SignalMagneticFluxS.png" ALT="Modelica.Magnetic.FluxTubes.Sources.SignalMagneticFlux" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Sources.html#Modelica.Magnetic.FluxTubes.Sources.SignalMagneticFlux"
+>SignalMagneticFlux</A>
+</TD><TD>Signal-controlled magnetic flux source</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ConstantMagneticPotentialDifference<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.FluxTubes.Sources.ConstantMagneticPotentialDifferenceI.png" ALT="Modelica.Magnetic.FluxTubes.Sources.ConstantMagneticPotentialDifference" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FluxTubes.Sources.ConstantMagneticPotentialDifference"></A><A HREF="Modelica_Magnetic_FluxTubes_Sources.html#Modelica.Magnetic.FluxTubes.Sources"
+>Modelica.Magnetic.FluxTubes.Sources</A>.ConstantMagneticPotentialDifference</H2>
+<B>Constant magnetomotive force</B><p>
+<IMG SRC="Modelica.Magnetic.FluxTubes.Interfaces.PartialLeakageD.png" ALT="Modelica.Magnetic.FluxTubes.Sources.ConstantMagneticPotentialDifference">
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+Magnetic circuits under steady-state conditions, i.e. with stationary magnetic fields (change of magnetic flux  d&Phi;/dt = 0) can be described with constant sources of a magnetic potential difference or magnetomotive force (mmf). Constant magnetic potential differences are imposed by
+</p>
+<ul>
+<li>coils with stationary current (di / dt = 0) and </li>
+<li>permanent magnets modelled with <i>Th&eacute;venin</i>'s equivalent magnetic circuit. </li>
+</ul>
+<p>
+For modelling of reluctance actuators with this source component it is assumed that the armature is fixed so that no motion-induced flux change d&Phi;/dt can occur.
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary"
+>Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary</A> (Partial component with two magnetic ports p and n for textual programming).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MagneticPotentialDifference"
+>MagneticPotentialDifference</A></TD><TD>V_m</TD><TD>&nbsp;</TD><TD>Magnetic potential differnce [A]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort"
+>PositiveMagneticPort</A></TD><TD>port_p</TD><TD>Positive magnetic port</TD></TR>
+<TR><TD><A HREF="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort"
+>NegativeMagneticPort</A></TD><TD>port_n</TD><TD>Negative magnetic port</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ConstantMagneticPotentialDifference <font color="darkgreen">
+  &quot;Constant magnetomotive force&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary"
+>Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MagneticPotentialDifference"
+>SI.MagneticPotentialDifference</A> V_m <font color="darkgreen">&quot;Magnetic potential differnce&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.MagneticFlux"
+>SI.MagneticFlux</A> Phi <font color="darkgreen">&quot;Magnetic flux from port_p to port_n&quot;</font>;
+
+
+<font color="blue">equation </font>
+  V_m = port_p.V_m - port_n.V_m;
+  Phi = port_p.Phi;
+  0 = port_p.Phi + port_n.Phi;
+
+<font color="blue">end </font>ConstantMagneticPotentialDifference;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SignalMagneticPotentialDifference<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.FluxTubes.Sources.SignalMagneticPotentialDifferenceI.png" ALT="Modelica.Magnetic.FluxTubes.Sources.SignalMagneticPotentialDifference" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FluxTubes.Sources.SignalMagneticPotentialDifference"></A><A HREF="Modelica_Magnetic_FluxTubes_Sources.html#Modelica.Magnetic.FluxTubes.Sources"
+>Modelica.Magnetic.FluxTubes.Sources</A>.SignalMagneticPotentialDifference</H2>
+<B>Signal-controlled magnetomotive force</B><p>
+<IMG SRC="Modelica.Magnetic.FluxTubes.Sources.SignalMagneticPotentialDifferenceD.png" ALT="Modelica.Magnetic.FluxTubes.Sources.SignalMagneticPotentialDifference">
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+In electromagnetic devices, a change of a coil's magnetic flux linkage &Psi; reacts on the electrical subsystem in that a voltage v is induced due to <i>Faraday</i>'s law:
+</p>
+<pre>
+    v = - d&Psi;/dt
+</pre>
+<p>This reaction can possibly be neglected for</p>
+<ul>
+<li>modelling ofelectromagnetic actuators under quasi-stationary conditions (slow current change, slow armature motion),
+<li>modelling of current-controlled electromagnetic actuators (ideal current source) and</li>
+<li>for system simulation where the system dynamics is not governed by an electromagnetic actuator, but by the surrounding subsystems.</li>
+</ul>
+<p>
+In these cases, the magnetic potential difference or magnetomotive force imposed by a coil can easily be modelled with a signal-controlled source. Except for the neglected dynamics, steady-state actuator forces will be calculated properly in actuator models based on these sources.
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary"
+>Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary</A> (Partial component with two magnetic ports p and n for textual programming).
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort"
+>PositiveMagneticPort</A></TD><TD>port_p</TD><TD>Positive magnetic port</TD></TR>
+<TR><TD><A HREF="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort"
+>NegativeMagneticPort</A></TD><TD>port_n</TD><TD>Negative magnetic port</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>V_m</TD><TD>Magnetic potential difference</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> SignalMagneticPotentialDifference <font color="darkgreen">
+  &quot;Signal-controlled magnetomotive force&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary"
+>Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary</A>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> V_m <font color="darkgreen">&quot;Magnetic potential difference&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.MagneticFlux"
+>SI.MagneticFlux</A> Phi <font color="darkgreen">&quot;Magnetic flux from port_p to port_n&quot;</font>;
+
+
+<font color="blue">equation </font>
+  V_m = port_p.V_m - port_n.V_m;
+  Phi = port_p.Phi;
+  0 = port_p.Phi + port_n.Phi;
+<font color="blue">end </font>SignalMagneticPotentialDifference;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ConstantMagneticFlux<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.FluxTubes.Sources.ConstantMagneticFluxI.png" ALT="Modelica.Magnetic.FluxTubes.Sources.ConstantMagneticFlux" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FluxTubes.Sources.ConstantMagneticFlux"></A><A HREF="Modelica_Magnetic_FluxTubes_Sources.html#Modelica.Magnetic.FluxTubes.Sources"
+>Modelica.Magnetic.FluxTubes.Sources</A>.ConstantMagneticFlux</H2>
+<B>Source of constant magnetic flux</B><p>
+<IMG SRC="Modelica.Magnetic.FluxTubes.Sources.ConstantMagneticFluxD.png" ALT="Modelica.Magnetic.FluxTubes.Sources.ConstantMagneticFlux">
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+Sources of a constant magnetic flux are useful for modelling of permanent magnets with <i>Norton</i>'s magnetic equivalent circuit.
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary"
+>Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary</A> (Partial component with two magnetic ports p and n for textual programming).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MagneticFlux"
+>MagneticFlux</A></TD><TD>Phi</TD><TD>1</TD><TD>Magnetic flux [Wb]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort"
+>PositiveMagneticPort</A></TD><TD>port_p</TD><TD>Positive magnetic port</TD></TR>
+<TR><TD><A HREF="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort"
+>NegativeMagneticPort</A></TD><TD>port_n</TD><TD>Negative magnetic port</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ConstantMagneticFlux <font color="darkgreen">&quot;Source of constant magnetic flux&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary"
+>Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MagneticFlux"
+>SI.MagneticFlux</A> Phi = 1 <font color="darkgreen">&quot;Magnetic flux&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.MagneticPotentialDifference"
+>SI.MagneticPotentialDifference</A> V_m <font color="darkgreen">
+    &quot;Magnetic potential difference between both ports&quot;</font>;
+
+
+<font color="blue">equation </font>
+  V_m = port_p.V_m - port_n.V_m;
+  Phi = port_p.Phi;
+  0 = port_p.Phi + port_n.Phi;
+<font color="blue">end </font>ConstantMagneticFlux;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SignalMagneticFlux<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.FluxTubes.Sources.SignalMagneticFluxI.png" ALT="Modelica.Magnetic.FluxTubes.Sources.SignalMagneticFlux" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FluxTubes.Sources.SignalMagneticFlux"></A><A HREF="Modelica_Magnetic_FluxTubes_Sources.html#Modelica.Magnetic.FluxTubes.Sources"
+>Modelica.Magnetic.FluxTubes.Sources</A>.SignalMagneticFlux</H2>
+<B>Signal-controlled magnetic flux source</B><p>
+<IMG SRC="Modelica.Magnetic.FluxTubes.Sources.SignalMagneticFluxD.png" ALT="Modelica.Magnetic.FluxTubes.Sources.SignalMagneticFlux">
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+This source of a magnetic flux is intended for test purposes, e.g. for simulation and subsequent plotting of a softmagnetic material's magnetisation characteristics if used together with a non-linear reluctance element.
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary"
+>Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary</A> (Partial component with two magnetic ports p and n for textual programming).
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort"
+>PositiveMagneticPort</A></TD><TD>port_p</TD><TD>Positive magnetic port</TD></TR>
+<TR><TD><A HREF="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort"
+>NegativeMagneticPort</A></TD><TD>port_n</TD><TD>Negative magnetic port</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>Phi</TD><TD>Magnetic flux</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> SignalMagneticFlux <font color="darkgreen">&quot;Signal-controlled magnetic flux source&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary"
+>Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary</A>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> Phi <font color="darkgreen">&quot;Magnetic flux&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.MagneticPotentialDifference"
+>SI.MagneticPotentialDifference</A> V_m <font color="darkgreen">
+    &quot;Magnetic potential difference between both ports&quot;</font>;
+
+
+<font color="blue">equation </font>
+  V_m = port_p.V_m - port_n.V_m;
+  Phi = port_p.Phi;
+  0 = port_p.Phi + port_n.Phi;
+<font color="blue">end </font>SignalMagneticFlux;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.Dymola.com/">Dymola</a> Mon Sep  7 10:15:02 2009.
+</address></BODY>
+</HTML>

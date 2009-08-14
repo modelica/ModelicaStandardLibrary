@@ -1,0 +1,434 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Magnetic.FluxTubes.Material.HardMagnetic</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Characteristics of common permanent magnetic materials (temperature dependence considered)&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HardMagnetic<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Magnetic.FluxTubes.Material.HardMagnetic"></A><A HREF="Modelica_Magnetic_FluxTubes_Material.html#Modelica.Magnetic.FluxTubes.Material"
+>Modelica.Magnetic.FluxTubes.Material</A>.HardMagnetic</H2>
+<B>Characteristics of common permanent magnetic materials (temperature dependence considered)</B>
+<P>
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+Typical values for remanence, coercivity and the temperature coefficient of remanence are provided for the common permanent magnetic materials illustrated below.
+<dl>
+<dd>
+<p><IMG SRC="../Images/Magnetic/FluxTubes/Material/HardMagnetic/HardMagneticMaterials.png" ALT="Demagnetization characteristics of included permanent magnetic materials"></p>
+</dd>
+</dl>
+<p>
+Linear demagnetization curves are modelled. The characteristic, temperature-dependent "knee" of many permanent magnetic materials is not considered, since proper design of permanent magnetic circuits should avoid operation of permanent magnets "below" that point due to partial demagnetization. As a result, the temperature coefficient of coercivity is not considered. Only the temperature coefficient of remanence alpha_Br is accounted for, since it describes the dependende of the demagnetization curve on the temperature sufficiently for the region "above the knee-point".
+</p>
+<p>
+Additional user-specific materials can be defined as needed.
+</p>
+<pre></PRE><P>
+
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel.Steel_9SMnPb28S.png" ALT="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData"
+>BaseData</A>
+</TD><TD>Record for permanent magnetic material data</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel.Steel_9SMnPb28S.png" ALT="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.NdFeB" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic.NdFeB"
+>NdFeB</A>
+</TD><TD>NdFeB sintered; exemplary values</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel.Steel_9SMnPb28S.png" ALT="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.Sm2Co17" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic.Sm2Co17"
+>Sm2Co17</A>
+</TD><TD>Sm2Co17 sintered, exemplary values</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel.Steel_9SMnPb28S.png" ALT="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.SmCo5" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic.SmCo5"
+>SmCo5</A>
+</TD><TD>SmCo5 sintered, exemplary values</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel.Steel_9SMnPb28S.png" ALT="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.PlasticNdFeB" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic.PlasticNdFeB"
+>PlasticNdFeB</A>
+</TD><TD>Plastic-bonded NdFeB, exemplary values</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel.Steel_9SMnPb28S.png" ALT="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.PlasticSmCo" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic.PlasticSmCo"
+>PlasticSmCo</A>
+</TD><TD>Plastic-bonded Sm-Co, exemplary values</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel.Steel_9SMnPb28S.png" ALT="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.HardFerrite" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic.HardFerrite"
+>HardFerrite</A>
+</TD><TD>Hard ferrite sintered, exemplary values</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel.Steel_9SMnPb28S.png" ALT="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.PlasticHardFerrite" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic.PlasticHardFerrite"
+>PlasticHardFerrite</A>
+</TD><TD>Plastic-bonded hard ferrite, exemplary values</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BaseData<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseDataI.png" ALT="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData"></A><A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic"
+>Modelica.Magnetic.FluxTubes.Material.HardMagnetic</A>.BaseData</H2>
+<B>Record for permanent magnetic material data</B><p>
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+Please refer to the description of  the enclosing package <A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic"
+>HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package.
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for a record).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MagneticFieldStrength"
+>MagneticFieldStrength</A></TD><TD>H_cBRef</TD><TD>1</TD><TD>Coercivity at reference temperature [A/m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MagneticFluxDensity"
+>MagneticFluxDensity</A></TD><TD>B_rRef</TD><TD>1</TD><TD>Remanence at reference temperature [T]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T_ref</TD><TD>293.15</TD><TD>Reference temperature [K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.LinearTemperatureCoefficient"
+>LinearTemperatureCoefficient</A></TD><TD>alpha_Br</TD><TD>0</TD><TD>Temperature coefficient of remanence at reference temperature [1/K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T_op</TD><TD>293.15</TD><TD>Operating temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> BaseData <font color="darkgreen">&quot;Record for permanent magnetic material data&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A>;
+
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MagneticFieldStrength"
+>SI.MagneticFieldStrength</A> H_cBRef = 1 <font color="darkgreen">
+    &quot;Coercivity at reference temperature&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MagneticFluxDensity"
+>SI.MagneticFluxDensity</A> B_rRef = 1 <font color="darkgreen">
+    &quot;Remanence at reference temperature&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T_ref = 293.15 <font color="darkgreen">&quot;Reference temperature&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.LinearTemperatureCoefficient"
+>Modelica.SIunits.LinearTemperatureCoefficient</A> alpha_Br=
+                                                        0 <font color="darkgreen">
+    &quot;Temperature coefficient of remanence at reference temperature&quot;</font>;
+
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T_op = 293.15 <font color="darkgreen">&quot;Operating temperature&quot;</font>;
+
+  <font color="blue">final </font><font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MagneticFluxDensity"
+>SI.MagneticFluxDensity</A> B_r = B_rRef * (1 + alpha_Br *(T_op - T_ref)) <font color="darkgreen">
+    &quot;Remanence at operating temperature&quot;</font>;
+  <font color="blue">final </font><font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MagneticFieldStrength"
+>SI.MagneticFieldStrength</A> H_cB = H_cBRef * (1 + alpha_Br *(T_op - T_ref)) <font color="darkgreen">
+    &quot;Coercivity at operating temperature&quot;</font>;
+  <font color="blue">final </font><font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.RelativePermeability"
+>SI.RelativePermeability</A> mu_r = B_r/ (mu_0 * H_cB) <font color="darkgreen">
+    &quot;Relative permeability&quot;</font>;
+
+<font color="blue">end </font>BaseData;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE NdFeB<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseDataI.png" ALT="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.NdFeB" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.NdFeB"></A><A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic"
+>Modelica.Magnetic.FluxTubes.Material.HardMagnetic</A>.NdFeB</H2>
+<B>NdFeB sintered; exemplary values</B><p>
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+Please refer to the description of  the enclosing package <A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic"
+>HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package.
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData"
+>Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData</A> (Record for permanent magnetic material data).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MagneticFieldStrength"
+>MagneticFieldStrength</A></TD><TD>H_cBRef</TD><TD>900000</TD><TD>Coercivity at reference temperature [A/m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MagneticFluxDensity"
+>MagneticFluxDensity</A></TD><TD>B_rRef</TD><TD>1.2</TD><TD>Remanence at reference temperature [T]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T_ref</TD><TD>20 + 273.15</TD><TD>Reference temperature [K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.LinearTemperatureCoefficient"
+>LinearTemperatureCoefficient</A></TD><TD>alpha_Br</TD><TD>-0.001</TD><TD>Temperature coefficient of remanence at reference temperature [1/K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T_op</TD><TD>293.15</TD><TD>Operating temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> NdFeB <font color="darkgreen">&quot;NdFeB sintered; exemplary values&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData"
+>Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData</A>(
+    H_cBRef=900000,
+    B_rRef=1.2,
+    T_ref=20 + 273.15,
+    alpha_Br=-0.001);
+<font color="blue">end </font>NdFeB;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Sm2Co17<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseDataI.png" ALT="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.Sm2Co17" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.Sm2Co17"></A><A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic"
+>Modelica.Magnetic.FluxTubes.Material.HardMagnetic</A>.Sm2Co17</H2>
+<B>Sm2Co17 sintered, exemplary values</B><p>
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+Please refer to the description of  the enclosing package <A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic"
+>HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package.
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData"
+>Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData</A> (Record for permanent magnetic material data).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MagneticFieldStrength"
+>MagneticFieldStrength</A></TD><TD>H_cBRef</TD><TD>750000</TD><TD>Coercivity at reference temperature [A/m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MagneticFluxDensity"
+>MagneticFluxDensity</A></TD><TD>B_rRef</TD><TD>1.02</TD><TD>Remanence at reference temperature [T]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T_ref</TD><TD>20 + 273.15</TD><TD>Reference temperature [K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.LinearTemperatureCoefficient"
+>LinearTemperatureCoefficient</A></TD><TD>alpha_Br</TD><TD>-0.0003</TD><TD>Temperature coefficient of remanence at reference temperature [1/K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T_op</TD><TD>293.15</TD><TD>Operating temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> Sm2Co17 <font color="darkgreen">&quot;Sm2Co17 sintered, exemplary values&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData"
+>Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData</A>(
+    H_cBRef=750000,
+    B_rRef=1.02,
+    T_ref=20 + 273.15,
+    alpha_Br=-0.0003);
+<font color="blue">end </font>Sm2Co17;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SmCo5<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseDataI.png" ALT="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.SmCo5" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.SmCo5"></A><A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic"
+>Modelica.Magnetic.FluxTubes.Material.HardMagnetic</A>.SmCo5</H2>
+<B>SmCo5 sintered, exemplary values</B><p>
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+Please refer to the description of  the enclosing package <A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic"
+>HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package.
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData"
+>Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData</A> (Record for permanent magnetic material data).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MagneticFieldStrength"
+>MagneticFieldStrength</A></TD><TD>H_cBRef</TD><TD>720000</TD><TD>Coercivity at reference temperature [A/m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MagneticFluxDensity"
+>MagneticFluxDensity</A></TD><TD>B_rRef</TD><TD>0.95</TD><TD>Remanence at reference temperature [T]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T_ref</TD><TD>20 + 273.15</TD><TD>Reference temperature [K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.LinearTemperatureCoefficient"
+>LinearTemperatureCoefficient</A></TD><TD>alpha_Br</TD><TD>-0.0004</TD><TD>Temperature coefficient of remanence at reference temperature [1/K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T_op</TD><TD>293.15</TD><TD>Operating temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> SmCo5 <font color="darkgreen">&quot;SmCo5 sintered, exemplary values&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData"
+>Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData</A>(
+    H_cBRef=720000,
+    B_rRef=0.95,
+    T_ref=20 + 273.15,
+    alpha_Br=-0.0004);
+<font color="blue">end </font>SmCo5;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PlasticNdFeB<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseDataI.png" ALT="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.PlasticNdFeB" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.PlasticNdFeB"></A><A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic"
+>Modelica.Magnetic.FluxTubes.Material.HardMagnetic</A>.PlasticNdFeB</H2>
+<B>Plastic-bonded NdFeB, exemplary values</B><p>
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+Please refer to the description of  the enclosing package <A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic"
+>HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package.
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData"
+>Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData</A> (Record for permanent magnetic material data).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MagneticFieldStrength"
+>MagneticFieldStrength</A></TD><TD>H_cBRef</TD><TD>400000</TD><TD>Coercivity at reference temperature [A/m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MagneticFluxDensity"
+>MagneticFluxDensity</A></TD><TD>B_rRef</TD><TD>0.58</TD><TD>Remanence at reference temperature [T]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T_ref</TD><TD>20 + 273.15</TD><TD>Reference temperature [K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.LinearTemperatureCoefficient"
+>LinearTemperatureCoefficient</A></TD><TD>alpha_Br</TD><TD>-0.001</TD><TD>Temperature coefficient of remanence at reference temperature [1/K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T_op</TD><TD>293.15</TD><TD>Operating temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> PlasticNdFeB <font color="darkgreen">&quot;Plastic-bonded NdFeB, exemplary values&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData"
+>Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData</A>(
+    H_cBRef=400000,
+    B_rRef=0.58,
+    T_ref=20 + 273.15,
+    alpha_Br=-0.001);
+<font color="blue">end </font>PlasticNdFeB;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PlasticSmCo<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseDataI.png" ALT="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.PlasticSmCo" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.PlasticSmCo"></A><A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic"
+>Modelica.Magnetic.FluxTubes.Material.HardMagnetic</A>.PlasticSmCo</H2>
+<B>Plastic-bonded Sm-Co, exemplary values</B><p>
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+Please refer to the description of  the enclosing package <A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic"
+>HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package.
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData"
+>Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData</A> (Record for permanent magnetic material data).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MagneticFieldStrength"
+>MagneticFieldStrength</A></TD><TD>H_cBRef</TD><TD>385000</TD><TD>Coercivity at reference temperature [A/m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MagneticFluxDensity"
+>MagneticFluxDensity</A></TD><TD>B_rRef</TD><TD>0.57</TD><TD>Remanence at reference temperature [T]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T_ref</TD><TD>20 + 273.15</TD><TD>Reference temperature [K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.LinearTemperatureCoefficient"
+>LinearTemperatureCoefficient</A></TD><TD>alpha_Br</TD><TD>-0.0004</TD><TD>Temperature coefficient of remanence at reference temperature [1/K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T_op</TD><TD>293.15</TD><TD>Operating temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> PlasticSmCo <font color="darkgreen">&quot;Plastic-bonded Sm-Co, exemplary values&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData"
+>Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData</A>(
+    H_cBRef=385000,
+    B_rRef=0.57,
+    T_ref=20 + 273.15,
+    alpha_Br=-0.0004);
+<font color="blue">end </font>PlasticSmCo;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HardFerrite<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseDataI.png" ALT="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.HardFerrite" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.HardFerrite"></A><A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic"
+>Modelica.Magnetic.FluxTubes.Material.HardMagnetic</A>.HardFerrite</H2>
+<B>Hard ferrite sintered, exemplary values</B><p>
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+Please refer to the description of  the enclosing package <A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic"
+>HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package.
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData"
+>Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData</A> (Record for permanent magnetic material data).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MagneticFieldStrength"
+>MagneticFieldStrength</A></TD><TD>H_cBRef</TD><TD>170000</TD><TD>Coercivity at reference temperature [A/m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MagneticFluxDensity"
+>MagneticFluxDensity</A></TD><TD>B_rRef</TD><TD>0.38</TD><TD>Remanence at reference temperature [T]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T_ref</TD><TD>20 + 273.15</TD><TD>Reference temperature [K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.LinearTemperatureCoefficient"
+>LinearTemperatureCoefficient</A></TD><TD>alpha_Br</TD><TD>-0.002</TD><TD>Temperature coefficient of remanence at reference temperature [1/K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T_op</TD><TD>293.15</TD><TD>Operating temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> HardFerrite <font color="darkgreen">&quot;Hard ferrite sintered, exemplary values&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData"
+>Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData</A>(
+    H_cBRef=170000,
+    B_rRef=0.38,
+    T_ref=20 + 273.15,
+    alpha_Br=-0.002);
+<font color="blue">end </font>HardFerrite;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PlasticHardFerrite<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseDataI.png" ALT="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.PlasticHardFerrite" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.PlasticHardFerrite"></A><A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic"
+>Modelica.Magnetic.FluxTubes.Material.HardMagnetic</A>.PlasticHardFerrite</H2>
+<B>Plastic-bonded hard ferrite, exemplary values</B><p>
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+Please refer to the description of  the enclosing package <A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic"
+>HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package.
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData"
+>Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData</A> (Record for permanent magnetic material data).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MagneticFieldStrength"
+>MagneticFieldStrength</A></TD><TD>H_cBRef</TD><TD>130000</TD><TD>Coercivity at reference temperature [A/m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MagneticFluxDensity"
+>MagneticFluxDensity</A></TD><TD>B_rRef</TD><TD>0.21</TD><TD>Remanence at reference temperature [T]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T_ref</TD><TD>20 + 273.15</TD><TD>Reference temperature [K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.LinearTemperatureCoefficient"
+>LinearTemperatureCoefficient</A></TD><TD>alpha_Br</TD><TD>-0.002</TD><TD>Temperature coefficient of remanence at reference temperature [1/K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T_op</TD><TD>293.15</TD><TD>Operating temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> PlasticHardFerrite <font color="darkgreen">
+  &quot;Plastic-bonded hard ferrite, exemplary values&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Magnetic_FluxTubes_Material_HardMagnetic.html#Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData"
+>Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData</A>(
+    H_cBRef=130000,
+    B_rRef=0.21,
+    T_ref=20 + 273.15,
+    alpha_Br=-0.002);
+<font color="blue">end </font>PlasticHardFerrite;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.Dymola.com/">Dymola</a> Mon Sep  7 10:15:02 2009.
+</address></BODY>
+</HTML>

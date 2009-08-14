@@ -1,0 +1,89 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Fluid.Types</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Common types for fluid models&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Types<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Types"></A><A HREF="Modelica_Fluid.html#Modelica.Fluid"
+>Modelica.Fluid</A>.Types</H2>
+<B>Common types for fluid models</B>
+<P>
+<P><H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE><P>
+
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Fluid_Types.html#Modelica.Fluid.Types.HydraulicConductance"
+>HydraulicConductance</A>
+</TD><TD>Real type for hydraulic conductance</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Types.html#Modelica.Fluid.Types.HydraulicResistance"
+>HydraulicResistance</A>
+</TD><TD>Real type for hydraulic resistance</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Types.html#Modelica.Fluid.Types.Dynamics"
+>Dynamics</A>
+</TD><TD>Enumeration to define definition of balance equations</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Types.html#Modelica.Fluid.Types.CvTypes"
+>CvTypes</A>
+</TD><TD>Enumeration to define the choice of valve flow coefficient</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Types.html#Modelica.Fluid.Types.PortFlowDirection"
+>PortFlowDirection</A>
+</TD><TD>Enumeration to define whether flow reversal is allowed</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Types.html#Modelica.Fluid.Types.ModelStructure"
+>ModelStructure</A>
+</TD><TD>Enumeration with choices for model structure in distributed pipe model</TD></TR>
+</TABLE>
+<P><H3>Types and constants</H3>
+<A NAME="Modelica.Fluid.Types.HydraulicConductance"></A><PRE>  <font color="blue">type</font> HydraulicConductance =Real (
+      <font color="blue">final </font>quantity=&quot;HydraulicConductance&quot;,
+      <font color="blue">final </font>unit=&quot;kg/(s.Pa)&quot;) <font color="darkgreen">&quot;Real type for hydraulic conductance&quot;</font>;</PRE><p>
+<A NAME="Modelica.Fluid.Types.HydraulicResistance"></A><PRE>  <font color="blue">type</font> HydraulicResistance =Real (
+      <font color="blue">final </font>quantity=&quot;HydraulicResistance&quot;,
+      <font color="blue">final </font>unit=&quot;Pa.s/kg&quot;) <font color="darkgreen">&quot;Real type for hydraulic resistance&quot;</font>;</PRE><p>
+<A NAME="Modelica.Fluid.Types.Dynamics"></A><PRE>  <font color="blue">type</font> Dynamics = <font color="blue">enumeration</font>(
+    DynamicFreeInitial <font color="darkgreen">
+      &quot;DynamicFreeInitial -- Dynamic balance, Initial guess value&quot;</font>,
+    FixedInitial <font color="darkgreen">&quot;FixedInitial -- Dynamic balance, Initial value fixed&quot;</font>,
+    SteadyStateInitial <font color="darkgreen">
+      &quot;SteadyStateInitial -- Dynamic balance, Steady state initial with guess value&quot;</font>,
+
+    SteadyState <font color="darkgreen">&quot;SteadyState -- Steady state balance, Initial guess value&quot;</font>) <font color="darkgreen">
+  &quot;Enumeration to define definition of balance equations&quot;</font>;</PRE><p>
+<A NAME="Modelica.Fluid.Types.CvTypes"></A><PRE>  <font color="blue">type</font> CvTypes = <font color="blue">enumeration</font>(
+    Av <font color="darkgreen">&quot;Av (metric) flow coefficient&quot;</font>,
+    Kv <font color="darkgreen">&quot;Kv (metric) flow coefficient&quot;</font>,
+    Cv <font color="darkgreen">&quot;Cv (US) flow coefficient&quot;</font>,
+    OpPoint <font color="darkgreen">&quot;Av defined by operating point&quot;</font>) <font color="darkgreen">
+  &quot;Enumeration to define the choice of valve flow coefficient&quot;</font>;</PRE><p>
+<A NAME="Modelica.Fluid.Types.PortFlowDirection"></A><PRE>  <font color="blue">type</font> PortFlowDirection = <font color="blue">enumeration</font>(
+    Entering <font color="darkgreen">&quot;Fluid flow is only entering&quot;</font>,
+    Leaving <font color="darkgreen">&quot;Fluid flow is only leaving&quot;</font>,
+    Bidirectional <font color="darkgreen">&quot;No restrictions on fluid flow (flow reversal possible)&quot;</font>) <font color="darkgreen">
+  &quot;Enumeration to define whether flow reversal is allowed&quot;</font>;</PRE><p>
+<A NAME="Modelica.Fluid.Types.ModelStructure"></A><PRE>  <font color="blue">type</font> ModelStructure = <font color="blue">enumeration</font>(
+    av_vb <font color="darkgreen">&quot;av_vb: port_a - volume - flow model - volume - port_b&quot;</font>,
+    a_v_b <font color="darkgreen">&quot;a_v_b: port_a - flow model - volume - flow model - port_b&quot;</font>,
+    av_b <font color="darkgreen">&quot;av_b: port_a - volume - flow model - port_b&quot;</font>,
+    a_vb <font color="darkgreen">&quot;a_vb: port_a - flow model - volume - port_b&quot;</font>) <font color="darkgreen">
+  &quot;Enumeration with choices for model structure in distributed pipe model&quot;</font>;</PRE><p>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.Dymola.com/">Dymola</a> Mon Sep  7 10:20:13 2009.
+</address></BODY>
+</HTML>

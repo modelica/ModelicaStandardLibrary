@@ -1,0 +1,157 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Fluid.Examples.HeatExchanger</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Demo of a heat exchanger model&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HeatExchanger<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Examples.HeatExchanger"></A><A HREF="Modelica_Fluid_Examples.html#Modelica.Fluid.Examples"
+>Modelica.Fluid.Examples</A>.HeatExchanger</H2>
+<B>Demo of a heat exchanger model</B>
+<P>
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Examples.AST_BatchPlant.Test.OneTankS.png" ALT="Modelica.Fluid.Examples.HeatExchanger.HeatExchangerSimulation" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples_HeatExchanger.html#Modelica.Fluid.Examples.HeatExchanger.HeatExchangerSimulation"
+>HeatExchangerSimulation</A>
+</TD><TD>simulation for the heat exchanger model</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Examples.HeatExchanger.BaseClassesS.png" ALT="Modelica.Fluid.Examples.HeatExchanger.BaseClasses" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples_HeatExchanger_BaseClasses.html#Modelica.Fluid.Examples.HeatExchanger.BaseClasses"
+>BaseClasses</A>
+</TD><TD>Additional models for heat exchangers</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HeatExchangerSimulation<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Examples.HeatExchanger.HeatExchangerSimulationI.png" ALT="Modelica.Fluid.Examples.HeatExchanger.HeatExchangerSimulation" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Examples.HeatExchanger.HeatExchangerSimulation"></A><A HREF="Modelica_Fluid_Examples_HeatExchanger.html#Modelica.Fluid.Examples.HeatExchanger"
+>Modelica.Fluid.Examples.HeatExchanger</A>.HeatExchangerSimulation</H2>
+<B>simulation for the heat exchanger model</B><p>
+<IMG SRC="Modelica.Fluid.Examples.HeatExchanger.HeatExchangerSimulationD.png" ALT="Modelica.Fluid.Examples.HeatExchanger.HeatExchangerSimulation">
+<P><H3>Information</H3>
+<PRE></pre>
+<p align="center">
+<img src="../Images/Fluid/Examples/HeatExchanger.png" border="1">
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for an example model).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD>Modelica.Media.Water.Constan...</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> HeatExchangerSimulation <font color="darkgreen">
+  &quot;simulation for the heat exchanger model&quot;</font>
+
+<font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+
+<font color="blue">replaceable </font><font color="blue">package</font> Medium =
+      <A HREF="Modelica_Media_Water_ConstantPropertyLiquidWater.html#Modelica.Media.Water.ConstantPropertyLiquidWater"
+>Modelica.Media.Water.ConstantPropertyLiquidWater</A>;
+<font color="darkgreen">//replaceable package Medium = Modelica.Media.Water.StandardWater;</font>
+<font color="darkgreen">//package Medium = Modelica.Media.Incompressible.Examples.Essotherm650;</font>
+  <A HREF="Modelica_Fluid_Examples_HeatExchanger_BaseClasses.html#Modelica.Fluid.Examples.HeatExchanger.BaseClasses.BasicHX"
+>Modelica.Fluid.Examples.HeatExchanger.BaseClasses.BasicHX</A> HEX(
+    c_wall=500,
+    use_T_start=true,
+    nNodes=20,
+    length=2,
+    m_flow_start_1=0.2,
+    m_flow_start_2=0.2,
+    k_wall=100,
+    energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
+    massDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial,
+    s_wall=0.005,
+    crossArea_1=4.5e-4,
+    crossArea_2=4.5e-4,
+    perimeter_1=0.075,
+    perimeter_2=0.075,
+    area_h_1=0.075*2*20,
+    area_h_2=0.075*2*20,
+    rho_wall=900,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium_1 =
+        <A HREF="Modelica_Fluid_Examples_HeatExchanger_Medium.html#Modelica.Fluid.Examples.HeatExchanger.HeatExchangerSimulation.Medium"
+>Medium</A>,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium_2 =
+        <A HREF="Modelica_Fluid_Examples_HeatExchanger_Medium.html#Modelica.Fluid.Examples.HeatExchanger.HeatExchangerSimulation.Medium"
+>Medium</A>,
+    <font color="blue">redeclare </font><font color="blue">model</font> HeatTransfer_1 =
+        <A HREF="Modelica_Fluid_Pipes_BaseClasses_HeatTransfer.html#Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.ConstantFlowHeatTransfer"
+>Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.ConstantFlowHeatTransfer</A>
+        (                                                                   alpha0=
+           1000),
+    <font color="blue">redeclare </font><font color="blue">model</font> HeatTransfer_2 =
+        <A HREF="Modelica_Fluid_Pipes_BaseClasses_HeatTransfer.html#Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.ConstantFlowHeatTransfer"
+>Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.ConstantFlowHeatTransfer</A>
+        (alpha0=200),
+    Twall_start=300,
+    dT=10,
+    T_start_1=304,
+    T_start_2=300);
+
+  <A HREF="Modelica_Fluid_Sources.html#Modelica.Fluid.Sources.Boundary_pT"
+>Modelica.Fluid.Sources.Boundary_pT</A> ambient2(nPorts=1,
+    p=1e5,
+    T=280,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium);
+  <A HREF="Modelica_Fluid_Sources.html#Modelica.Fluid.Sources.Boundary_pT"
+>Modelica.Fluid.Sources.Boundary_pT</A> ambient1(nPorts=1,
+    p=1e5,
+    T=300,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium);
+  <A HREF="Modelica_Fluid_Sources.html#Modelica.Fluid.Sources.MassFlowSource_T"
+>Modelica.Fluid.Sources.MassFlowSource_T</A> massFlowRate2(nPorts=1,
+    m_flow=0.2,
+    T=360,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+    use_m_flow_in=true,
+    use_T_in=false,
+    use_X_in=false);
+  <A HREF="Modelica_Fluid_Sources.html#Modelica.Fluid.Sources.MassFlowSource_T"
+>Modelica.Fluid.Sources.MassFlowSource_T</A> massFlowRate1(nPorts=1,
+    T=300,
+    m_flow=0.5,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium);
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> Ramp1(
+    startTime=50,
+    duration=5,
+    height=-1,
+    offset=0.5);
+  <font color="blue">inner </font><A HREF="Modelica_Fluid.html#Modelica.Fluid.System"
+>Modelica.Fluid.System</A> system;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(massFlowRate1.ports[1], HEX.port_a1);
+  <font color="red">connect</font>(HEX.port_b1, ambient1.ports[1]);
+  <font color="red">connect</font>(Ramp1.y, massFlowRate2.m_flow_in);
+  <font color="red">connect</font>(massFlowRate2.ports[1], HEX.port_b2);
+  <font color="red">connect</font>(HEX.port_a2, ambient2.ports[1]);
+<font color="blue">end </font>HeatExchangerSimulation;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.Dymola.com/">Dymola</a> Mon Sep  7 10:20:05 2009.
+</address></BODY>
+</HTML>

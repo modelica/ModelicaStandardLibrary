@@ -1,0 +1,1136 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Fluid.Utilities</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Utility models to construct fluid components (should not be used directly) &quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Utilities<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Utilities"></A><A HREF="Modelica_Fluid.html#Modelica.Fluid"
+>Modelica.Fluid</A>.Utilities</H2>
+<B>Utility models to construct fluid components (should not be used directly) </B>
+<P>
+<P><H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_Library.html#Modelica.Icons.Library"
+>Modelica.Icons.Library</A> (Icon for library).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryS.png" ALT="Modelica.Fluid.Utilities.checkBoundary" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.checkBoundary"
+>checkBoundary</A>
+</TD><TD>Check whether boundary definition is correct</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryS.png" ALT="Modelica.Fluid.Utilities.regRoot" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.regRoot"
+>regRoot</A>
+</TD><TD>Anti-symmetric square root approximation with finite derivative in the origin</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryS.png" ALT="Modelica.Fluid.Utilities.regRoot_der" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.regRoot_der"
+>regRoot_der</A>
+</TD><TD>Derivative of regRoot</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryS.png" ALT="Modelica.Fluid.Utilities.regSquare" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.regSquare"
+>regSquare</A>
+</TD><TD>Anti-symmetric square approximation with non-zero derivative in the origin</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryS.png" ALT="Modelica.Fluid.Utilities.regPow" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.regPow"
+>regPow</A>
+</TD><TD>Anti-symmetric power approximation with non-zero derivative in the origin</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryS.png" ALT="Modelica.Fluid.Utilities.regRoot2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.regRoot2"
+>regRoot2</A>
+</TD><TD>Anti-symmetric approximation of square root with discontinuous factor so that the first derivative is finite and continuous</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryS.png" ALT="Modelica.Fluid.Utilities.regSquare2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.regSquare2"
+>regSquare2</A>
+</TD><TD>Anti-symmetric approximation of square with discontinuous factor so that the first derivative is non-zero and is continuous</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryS.png" ALT="Modelica.Fluid.Utilities.regStep" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.regStep"
+>regStep</A>
+</TD><TD>Approximation of a general step, such that the characteristic is continuous and differentiable</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryS.png" ALT="Modelica.Fluid.Utilities.evaluatePoly3_derivativeAtZero" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.evaluatePoly3_derivativeAtZero"
+>evaluatePoly3_derivativeAtZero</A>
+</TD><TD>Evaluate polynomial of order 3 that passes the origin with a predefined derivative</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Utilities.regFun3S.png" ALT="Modelica.Fluid.Utilities.regFun3" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.regFun3"
+>regFun3</A>
+</TD><TD>Co-monotonic and C1 smooth regularization function</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Utilities.regFun3S.png" ALT="Modelica.Fluid.Utilities.cubicHermite" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.cubicHermite"
+>cubicHermite</A>
+</TD><TD>Evaluate a cubic Hermite spline</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Utilities.regFun3S.png" ALT="Modelica.Fluid.Utilities.cubicHermite_withDerivative" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.cubicHermite_withDerivative"
+>cubicHermite_withDerivative</A>
+</TD><TD>Evaluate a cubic Hermite spline, return value and derivative</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE checkBoundary<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryI.png" ALT="Modelica.Fluid.Utilities.checkBoundary" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Utilities.checkBoundary"></A><A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
+>Modelica.Fluid.Utilities</A>.checkBoundary</H2>
+<B>Check whether boundary definition is correct</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>String</TD><TD>mediumName</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>String</TD><TD>substanceNames[:]</TD><TD>&nbsp;</TD><TD>Names of substances</TD></TR>
+<TR><TD>Boolean</TD><TD>singleState</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Boolean</TD><TD>define_p</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>X_boundary[:]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>String</TD><TD>modelName</TD><TD>&quot;??? boundary ???&quot;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> checkBoundary <font color="darkgreen">&quot;Check whether boundary definition is correct&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>String mediumName;
+  <font color="blue">input </font>String substanceNames[:] <font color="darkgreen">&quot;Names of substances&quot;</font>;
+  <font color="blue">input </font>Boolean singleState;
+  <font color="blue">input </font>Boolean define_p;
+  <font color="blue">input </font>Real X_boundary[:];
+  <font color="blue">input </font>String modelName = &quot;??? boundary ???&quot;;
+<font color="blue">protected </font>
+  Integer nX =<font color="red"> size</font>(X_boundary,1);
+  String X_str;
+<font color="blue">algorithm </font>
+  <font color="red">assert</font>(<font color="blue">not </font>singleState<font color="blue"> or </font>singleState<font color="blue"> and </font>define_p, &quot;
+Wrong value of parameter define_p (= false) in model \&quot;&quot; + modelName + &quot;\&quot;:
+The selected medium \&quot;&quot;
+                      + mediumName + &quot;\&quot; has Medium.singleState=true.
+Therefore, an boundary density cannot be defined and
+define_p = true is required.
+&quot;);
+
+  <font color="blue">for </font>i<font color="blue"> in </font>1:nX<font color="blue"> loop</font>
+    <font color="red">assert</font>(X_boundary[i] &gt;= 0.0, &quot;
+Wrong boundary mass fractions in medium \&quot;&quot;
++ mediumName + &quot;\&quot; in model \&quot;&quot; + modelName + &quot;\&quot;:
+The boundary value X_boundary(&quot;
+                            +<font color="red"> String</font>(i) + &quot;) = &quot; +<font color="red"> String</font>(
+      X_boundary[i]) + &quot;
+is negative. It must be positive.
+&quot;);
+  <font color="blue">end for</font>;
+
+  <font color="blue">if </font>nX &gt; 0<font color="blue"> and </font><font color="red">abs</font>(<font color="red">sum</font>(X_boundary) - 1.0) &gt; 1.e-10<font color="blue"> then</font>
+     X_str :=&quot;&quot;;
+     <font color="blue">for </font>i<font color="blue"> in </font>1:nX<font color="blue"> loop</font>
+        X_str :=X_str + &quot;   X_boundary[&quot; +<font color="red"> String</font>(i) + &quot;] = &quot; +<font color="red"> String</font>(X_boundary[
+        i]) + &quot; \&quot;&quot; + substanceNames[i] + &quot;\&quot;\n&quot;;
+     <font color="blue">end for</font>;
+    <font color="red"> Modelica.Utilities.Streams.error</font>(
+        &quot;The boundary mass fractions in medium \&quot;&quot; + mediumName + &quot;\&quot; in model \&quot;&quot; + modelName + &quot;\&quot;\n&quot; +
+        &quot;do not sum up to 1. Instead, sum(X_boundary) = &quot; +<font color="red"> String</font>(<font color="red">sum</font>(X_boundary)) + &quot;:\n&quot;
+        + X_str);
+  <font color="blue">end if</font>;
+<font color="blue">end </font>checkBoundary;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE regRoot<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryI.png" ALT="Modelica.Fluid.Utilities.regRoot" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Utilities.regRoot"></A><A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
+>Modelica.Fluid.Utilities</A>.regRoot</H2>
+<B>Anti-symmetric square root approximation with finite derivative in the origin</B><p>
+<P><H3>Information</H3>
+<PRE></pre>
+This function approximates sqrt(abs(x))*sgn(x), such that the derivative is finite and smooth in x=0.
+</p>
+<p>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th>Function</th><th>Approximation</th><th>Range</th></tr>
+<tr><td>y = regRoot(x)</td><td>y ~= sqrt(abs(x))*sgn(x)</td><td>abs(x) &gt;&gt delta</td></tr>
+<tr><td>y = regRoot(x)</td><td>y ~= x/sqrt(delta)</td><td>abs(x) &lt;&lt  delta</td></tr>
+</table>
+<p>
+With the default value of delta=0.01, the difference between sqrt(x) and regRoot(x) is 16% around x=0.01, 0.25% around x=0.1 and 0.0025% around x=1.
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for a function).
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>x</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>delta</TD><TD>0.01</TD><TD>Range of significant deviation from sqrt(abs(x))*sgn(x)</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>y</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> regRoot <font color="darkgreen">
+  &quot;Anti-symmetric square root approximation with finite derivative in the origin&quot;</font>
+  annotation(derivative=<A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.regRoot_der"
+>Utilities.regRoot_der</A>);
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real x;
+  <font color="blue">input </font>Real delta=0.01 <font color="darkgreen">
+    &quot;Range of significant deviation from sqrt(abs(x))*sgn(x)&quot;</font>;
+  <font color="blue">output </font>Real y;
+<font color="blue">algorithm </font>
+  y := x/(x*x+delta*delta)^0.25;
+
+<font color="blue">end </font>regRoot;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE regRoot_der<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryI.png" ALT="Modelica.Fluid.Utilities.regRoot_der" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Utilities.regRoot_der"></A><A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
+>Modelica.Fluid.Utilities</A>.regRoot_der</H2>
+<B>Derivative of regRoot</B><p>
+<P><H3>Information</H3>
+<PRE></pre>
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for a function).
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>x</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>delta</TD><TD>0.01</TD><TD>Range of significant deviation from sqrt(x)</TD></TR>
+<TR><TD>Real</TD><TD>dx</TD><TD>&nbsp;</TD><TD>Derivative of x</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>dy</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> regRoot_der <font color="darkgreen">&quot;Derivative of regRoot&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real x;
+  <font color="blue">input </font>Real delta=0.01 <font color="darkgreen">&quot;Range of significant deviation from sqrt(x)&quot;</font>;
+  <font color="blue">input </font>Real dx <font color="darkgreen">&quot;Derivative of x&quot;</font>;
+  <font color="blue">output </font>Real dy;
+<font color="blue">algorithm </font>
+  dy := dx*0.5*(x*x+2*delta*delta)/((x*x+delta*delta)^1.25);
+
+<font color="blue">end </font>regRoot_der;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE regSquare<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryI.png" ALT="Modelica.Fluid.Utilities.regSquare" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Utilities.regSquare"></A><A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
+>Modelica.Fluid.Utilities</A>.regSquare</H2>
+<B>Anti-symmetric square approximation with non-zero derivative in the origin</B><p>
+<P><H3>Information</H3>
+<PRE></pre>
+This function approximates x^2*sgn(x), such that the derivative is non-zero in x=0.
+</p>
+<p>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th>Function</th><th>Approximation</th><th>Range</th></tr>
+<tr><td>y = regSquare(x)</td><td>y ~= x^2*sgn(x)</td><td>abs(x) &gt;&gt delta</td></tr>
+<tr><td>y = regSquare(x)</td><td>y ~= x*delta</td><td>abs(x) &lt;&lt  delta</td></tr>
+</table>
+<p>
+With the default value of delta=0.01, the difference between x^2 and regSquare(x) is 41% around x=0.01, 0.4% around x=0.1 and 0.005% around x=1.
+</p>
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for a function).
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>x</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>delta</TD><TD>0.01</TD><TD>Range of significant deviation from x^2*sgn(x)</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>y</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> regSquare <font color="darkgreen">
+  &quot;Anti-symmetric square approximation with non-zero derivative in the origin&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real x;
+  <font color="blue">input </font>Real delta=0.01 <font color="darkgreen">&quot;Range of significant deviation from x^2*sgn(x)&quot;</font>;
+  <font color="blue">output </font>Real y;
+<font color="blue">algorithm </font>
+  y := x*<font color="red">sqrt</font>(x*x+delta*delta);
+
+<font color="blue">end </font>regSquare;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE regPow<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryI.png" ALT="Modelica.Fluid.Utilities.regPow" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Utilities.regPow"></A><A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
+>Modelica.Fluid.Utilities</A>.regPow</H2>
+<B>Anti-symmetric power approximation with non-zero derivative in the origin</B><p>
+<P><H3>Information</H3>
+<PRE></pre>
+This function approximates abs(x)^a*sign(x), such that the derivative is positive, finite and smooth in x=0.
+</p>
+<p>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th>Function</th><th>Approximation</th><th>Range</th></tr>
+<tr><td>y = regPow(x)</td><td>y ~= abs(x)^a*sgn(x)</td><td>abs(x) &gt;&gt delta</td></tr>
+<tr><td>y = regPow(x)</td><td>y ~= x*delta^(a-1)</td><td>abs(x) &lt;&lt  delta</td></tr>
+</table>
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for a function).
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>x</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>a</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>delta</TD><TD>0.01</TD><TD>Range of significant deviation from x^a*sgn(x)</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>y</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> regPow <font color="darkgreen">
+  &quot;Anti-symmetric power approximation with non-zero derivative in the origin&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real x;
+  <font color="blue">input </font>Real a;
+  <font color="blue">input </font>Real delta=0.01 <font color="darkgreen">&quot;Range of significant deviation from x^a*sgn(x)&quot;</font>;
+  <font color="blue">output </font>Real y;
+<font color="blue">algorithm </font>
+  y := x*(x*x+delta*delta)^((a-1)/2);
+
+<font color="blue">end </font>regPow;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE regRoot2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryI.png" ALT="Modelica.Fluid.Utilities.regRoot2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Utilities.regRoot2"></A><A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
+>Modelica.Fluid.Utilities</A>.regRoot2</H2>
+<B>Anti-symmetric approximation of square root with discontinuous factor so that the first derivative is finite and continuous</B><p>
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+Approximates the function
+</p>
+<pre>
+   y = <b>if</b> x &ge; 0 <b>then</b> <b>sqrt</b>(k1*x) <b>else</b> -<b>sqrt</b>(k2*<b>abs</b>(x)), with k1, k2 > 0
+</pre>
+<p>
+in such a way that within the region -x_small &le; x &le; x_small,
+the function is described by two polynomials of third order
+(one in the region -x_small .. 0 and one within the region 0 .. x_small)
+such that
+</p>
+<ul>
+<li> The derivative at x=0 is finite. </li>
+<li> The overall function is continuous with a
+     continuous first derivative everywhere.</li>
+<li> If parameter use_yd0 = <b>false</b>, the two polynomials
+     are constructed such that the second derivatives at x=0
+     are identical. If use_yd0 = <b>true</b>, the derivative
+     at x=0 is explicitly provided via the additional argument
+     yd0. If necessary, the derivative yd0 is automatically
+     reduced in order that the polynomials are strict monotonically
+     increasing <i>[Fritsch and Carlson, 1980]</i>.</li>
+</ul>
+<p>
+Typical screenshots for two different configurations
+are shown below. The first one with k1=k2=1:
+</p>
+<p>
+<img src="../Images/Fluid/Components/regRoot2_a.png">
+</p>
+<p>
+and the second one with k1=1 and k2=3:
+</p>
+<p>
+<img src="../Images/Fluid/Components/regRoot2_b.png">
+</p>
+
+<p>
+The (smooth) derivative of the function with
+k1=1, k2=3 is shown in the next figure:
+<p>
+<img src="../Images/Fluid/Components/regRoot2_c.png">
+</p>
+
+<p>
+<b>Literature</b>
+</p>
+
+<dl>
+<dt> Fritsch F.N. and Carlson R.E. (1980):</dt>
+<dd> <b>Monotone piecewise cubic interpolation</b>.
+     SIAM J. Numerc. Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
+</dl>
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for a function).
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>x</TD><TD>&nbsp;</TD><TD>abscissa value</TD></TR>
+<TR><TD>Real</TD><TD>x_small</TD><TD>0.01</TD><TD>approximation of function for |x| &lt;= x_small</TD></TR>
+<TR><TD>Real</TD><TD>k1</TD><TD>1</TD><TD>y = if x&gt;=0 then sqrt(k1*x) else -sqrt(k2*|x|)</TD></TR>
+<TR><TD>Real</TD><TD>k2</TD><TD>1</TD><TD>y = if x&gt;=0 then sqrt(k1*x) else -sqrt(k2*|x|)</TD></TR>
+<TR><TD>Boolean</TD><TD>use_yd0</TD><TD>false</TD><TD>= true, if yd0 shall be used</TD></TR>
+<TR><TD>Real</TD><TD>yd0</TD><TD>1</TD><TD>Desired derivative at x=0: dy/dx = yd0</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>y</TD><TD>ordinate value</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> regRoot2 <font color="darkgreen">
+  &quot;Anti-symmetric approximation of square root with discontinuous factor so that the first derivative is finite and continuous&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real x <font color="darkgreen">&quot;abscissa value&quot;</font>;
+  <font color="blue">input </font>Real x_small(min=0)=0.01 <font color="darkgreen">&quot;approximation of function for |x| &lt;= x_small&quot;</font>;
+  <font color="blue">input </font>Real k1(min=0)=1 <font color="darkgreen">&quot;y = if x&gt;=0 then sqrt(k1*x) else -sqrt(k2*|x|)&quot;</font>;
+  <font color="blue">input </font>Real k2(min=0)=1 <font color="darkgreen">&quot;y = if x&gt;=0 then sqrt(k1*x) else -sqrt(k2*|x|)&quot;</font>;
+  <font color="blue">input </font>Boolean use_yd0 = false <font color="darkgreen">&quot;= true, if yd0 shall be used&quot;</font>;
+  <font color="blue">input </font>Real yd0(min=0)=1 <font color="darkgreen">&quot;Desired derivative at x=0: dy/dx = yd0&quot;</font>;
+  <font color="blue">output </font>Real y <font color="darkgreen">&quot;ordinate value&quot;</font>;
+<font color="blue">protected </font>
+  <font color="blue">encapsulated </font><font color="blue">function</font> regRoot2_utility <font color="darkgreen">
+    &quot;Interpolating with two 3-order polynomials with a prescribed derivative at x=0&quot;</font>
+    <font color="blue">import </font><A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.evaluatePoly3_derivativeAtZero"
+>Modelica.Fluid.Utilities.evaluatePoly3_derivativeAtZero</A>;
+     <font color="blue">input </font>Real x;
+     <font color="blue">input </font>Real x1 <font color="darkgreen">&quot;approximation of function abs(x) &lt; x1&quot;</font>;
+     <font color="blue">input </font>Real k1 <font color="darkgreen">&quot;y = if x&gt;=0 then sqrt(k1*x) else -sqrt(k2*|x|); k1 &gt;= k2&quot;</font>;
+     <font color="blue">input </font>Real k2 <font color="darkgreen">&quot;y = if x&gt;=0 then sqrt(k1*x) else -sqrt(k2*|x|))&quot;</font>;
+     <font color="blue">input </font>Boolean use_yd0 <font color="darkgreen">&quot;= true, if yd0 shall be used&quot;</font>;
+     <font color="blue">input </font>Real yd0(min=0) <font color="darkgreen">&quot;Desired derivative at x=0: dy/dx = yd0&quot;</font>;
+     <font color="blue">output </font>Real y;
+  <font color="blue">protected </font>
+     Real x2;
+     Real xsqrt1;
+     Real xsqrt2;
+     Real y1;
+     Real y2;
+     Real y1d;
+     Real y2d;
+     Real w;
+     Real y0d;
+     Real w1;
+     Real w2;
+  <font color="blue">algorithm </font>
+     x2 :=-x1*(k2/k1);
+     <font color="darkgreen">//x2 :=-x1;</font>
+     <font color="blue">if </font>x &lt;= x2<font color="blue"> then</font>
+        y := -<font color="red">sqrt</font>(k2*<font color="red">abs</font>(x));
+     <font color="blue">else</font>
+        y1 :=<font color="red">sqrt</font>(k1*x1);
+        y2 :=-<font color="red">sqrt</font>(k2*<font color="red">abs</font>(x2));
+        y1d :=<font color="red">sqrt</font>(k1/x1)/2;
+        y2d :=<font color="red">sqrt</font>(k2/<font color="red">abs</font>(x2))/2;
+
+        <font color="blue">if </font>use_yd0<font color="blue"> then</font>
+           y0d :=yd0;
+        <font color="blue">else</font>
+        <font color="darkgreen">   /* Determine derivative, such that first and second derivative
+              of left and right polynomial are identical at x=0:
+           _
+           Basic equations:
+              y_right = a1*(x/x1) + a2*(x/x1)^2 + a3*(x/x1)^3
+              y_left  = b1*(x/x2) + b2*(x/x2)^2 + b3*(x/x2)^3
+              yrho_right*x1 = a1 + 2*a2*(x/x1) + 3*a3*(x/x1)^2
+              yrho_left *x2 = b1 + 2*b2*(x/x2) + 3*b3*(x/x2)^2
+              ydrho_right*x1^2 = 2*a2 + 6*a3*(x/x1)
+              ydrho_left *x2^2 = 2*b2 + 6*b3*(x/x2)
+           _
+           Conditions (6 equations for 6 unknowns):
+                     y1 = a1 + a2 + a3
+                     y2 = b1 + b2 + b3
+                 y1d*x1 = a1 + 2*a2 + 3*a3
+                 y2d*x2 = b1 + 2*b2 + 3*b3
+                    y0d = a1/x1 = b1/x2
+                   y0dd = 2*a2/x1^2 = 2*b2/x2^2
+           _
+           Derived equations:
+              b1 = a1*x2/x1
+              b2 = a2*(x2/x1)^2
+              b3 = y2 - b1 - b2
+                 = y2 - a1*(x2/x1) - a2*(x2/x1)^2
+              a3 = y1 - a1 - a2
+           _
+           Remaining equations
+              y1d*x1 = a1 + 2*a2 + 3*(y1 - a1 - a2)
+                     = 3*y1 - 2*a1 - a2
+              y2d*x2 = a1*(x2/x1) + 2*a2*(x2/x1)^2 +
+                       3*(y2 - a1*(x2/x1) - a2*(x2/x1)^2)
+                     = 3*y2 - 2*a1*(x2/x1) - a2*(x2/x1)^2
+              y0d    = a1/x1
+           _
+           Solving these equations results in y0d below
+           (note, the denominator &quot;(1-w)&quot; is always non-zero, because w is negative)
+           */</font>
+           w :=x2/x1;
+           y0d := ( (3*y2 - x2*y2d)/w - (3*y1 - x1*y1d)*w) /(2*x1*(1 - w));
+        <font color="blue">end if</font>;
+
+      <font color="darkgreen">  /* Modify derivative y0d, such that the polynomial is
+           monotonically increasing. A sufficient condition is
+             0 &lt;= y0d &lt;= sqrt(8.75*k_i/|x_i|)
+        */</font>
+        w1 :=<font color="red">sqrt</font>(8.75*k1/x1);
+        w2 :=<font color="red">sqrt</font>(8.75*k2/<font color="red">abs</font>(x2));
+        y0d :=<font color="red">min</font>(y0d, 0.9*<font color="red">min</font>(w1, w2));
+
+      <font color="darkgreen">  /* Perform interpolation in scaled polynomial:
+           y_new = y/y1
+           x_new = x/x1
+        */</font>
+        y := y1*(<font color="blue">if </font>x &gt;= 0<font color="blue"> then </font><font color="red">evaluatePoly3_derivativeAtZero</font>(x/x1,1,1,y1d*x1/y1,y0d*x1/y1)<font color="blue"> else </font>
+                                <font color="red">evaluatePoly3_derivativeAtZero</font>(x/x1,x2/x1,y2/y1,y2d*x1/y1,y0d*x1/y1));
+     <font color="blue">end if</font>;
+  <font color="blue">end </font>regRoot2_utility;
+<font color="blue">algorithm </font>
+  y :=<font color="red"> smooth</font>(2,<font color="blue">if </font>x &gt;= x_small<font color="blue"> then </font><font color="red">sqrt</font>(k1*x)<font color="blue"> else </font>
+                <font color="blue">if </font>x &lt;= -x_small<font color="blue"> then </font>-<font color="red">sqrt</font>(k2*<font color="red">abs</font>(x))<font color="blue"> else </font>
+                <font color="blue">if </font>k1 &gt;= k2<font color="blue"> then </font><font color="red">regRoot2_utility</font>(x,x_small,k1,k2,use_yd0,yd0)<font color="blue"> else </font>
+                                -<font color="red">regRoot2_utility</font>(-x,x_small,k2,k1,use_yd0,yd0));
+<font color="blue">end </font>regRoot2;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE regSquare2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryI.png" ALT="Modelica.Fluid.Utilities.regSquare2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Utilities.regSquare2"></A><A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
+>Modelica.Fluid.Utilities</A>.regSquare2</H2>
+<B>Anti-symmetric approximation of square with discontinuous factor so that the first derivative is non-zero and is continuous</B><p>
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+Approximates the function
+</p>
+<pre>
+   y = <b>if</b> x &ge; 0 <b>then</b> k1*x*x <b>else</b> -k2*x*x, with k1, k2 > 0
+</pre>
+<p>
+in such a way that within the region -x_small &le; x &le; x_small,
+the function is described by two polynomials of third order
+(one in the region -x_small .. 0 and one within the region 0 .. x_small)
+such that
+</p>
+
+<ul>
+<li> The derivative at x=0 is non-zero (in order that the
+     inverse of the function does not have an infinite derivative). </li>
+<li> The overall function is continuous with a
+     continuous first derivative everywhere.</li>
+<li> If parameter use_yd0 = <b>false</b>, the two polynomials
+     are constructed such that the second derivatives at x=0
+     are identical. If use_yd0 = <b>true</b>, the derivative
+     at x=0 is explicitly provided via the additional argument
+     yd0. If necessary, the derivative yd0 is automatically
+     reduced in order that the polynomials are strict monotonically
+     increasing <i>[Fritsch and Carlson, 1980]</i>.</li>
+</ul>
+</ul>
+<p>
+A typical screenshot for k1=1, k2=3 is shown in the next figure:
+</p>
+<p>
+<img src="../Images/Fluid/Components/regSquare2_b.png">
+</p>
+
+<p>
+The (smooth, non-zero) derivative of the function with
+k1=1, k2=3 is shown in the next figure:
+</p>
+
+<p>
+<img src="../Images/Fluid/Components/regSquare2_c.png">
+</p>
+
+<p>
+<b>Literature</b>
+</p>
+
+<dl>
+<dt> Fritsch F.N. and Carlson R.E. (1980):</dt>
+<dd> <b>Monotone piecewise cubic interpolation</b>.
+     SIAM J. Numerc. Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
+</dl>
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for a function).
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>x</TD><TD>&nbsp;</TD><TD>abscissa value</TD></TR>
+<TR><TD>Real</TD><TD>x_small</TD><TD>0.01</TD><TD>approximation of function for |x| &lt;= x_small</TD></TR>
+<TR><TD>Real</TD><TD>k1</TD><TD>1</TD><TD>y = (if x&gt;=0 then k1 else k2)*x*|x|</TD></TR>
+<TR><TD>Real</TD><TD>k2</TD><TD>1</TD><TD>y = (if x&gt;=0 then k1 else k2)*x*|x|</TD></TR>
+<TR><TD>Boolean</TD><TD>use_yd0</TD><TD>false</TD><TD>= true, if yd0 shall be used</TD></TR>
+<TR><TD>Real</TD><TD>yd0</TD><TD>1</TD><TD>Desired derivative at x=0: dy/dx = yd0</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>y</TD><TD>ordinate value</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> regSquare2 <font color="darkgreen">
+  &quot;Anti-symmetric approximation of square with discontinuous factor so that the first derivative is non-zero and is continuous&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real x <font color="darkgreen">&quot;abscissa value&quot;</font>;
+  <font color="blue">input </font>Real x_small(min=0)=0.01 <font color="darkgreen">&quot;approximation of function for |x| &lt;= x_small&quot;</font>;
+  <font color="blue">input </font>Real k1(min=0)=1 <font color="darkgreen">&quot;y = (if x&gt;=0 then k1 else k2)*x*|x|&quot;</font>;
+  <font color="blue">input </font>Real k2(min=0)=1 <font color="darkgreen">&quot;y = (if x&gt;=0 then k1 else k2)*x*|x|&quot;</font>;
+  <font color="blue">input </font>Boolean use_yd0 = false <font color="darkgreen">&quot;= true, if yd0 shall be used&quot;</font>;
+  <font color="blue">input </font>Real yd0(min=0)=1 <font color="darkgreen">&quot;Desired derivative at x=0: dy/dx = yd0&quot;</font>;
+  <font color="blue">output </font>Real y <font color="darkgreen">&quot;ordinate value&quot;</font>;
+<font color="blue">protected </font>
+  <font color="blue">encapsulated </font><font color="blue">function</font> regSquare2_utility <font color="darkgreen">
+    &quot;Interpolating with two 3-order polynomials with a prescribed derivative at x=0&quot;</font>
+    <font color="blue">import </font><A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.evaluatePoly3_derivativeAtZero"
+>Modelica.Fluid.Utilities.evaluatePoly3_derivativeAtZero</A>;
+     <font color="blue">input </font>Real x;
+     <font color="blue">input </font>Real x1 <font color="darkgreen">&quot;approximation of function abs(x) &lt; x1&quot;</font>;
+     <font color="blue">input </font>Real k1 <font color="darkgreen">&quot;y = (if x&gt;=0 then k1 else -k2)*x*|x|; k1 &gt;= k2&quot;</font>;
+     <font color="blue">input </font>Real k2 <font color="darkgreen">&quot;y = (if x&gt;=0 then k1 else -k2)*x*|x|&quot;</font>;
+     <font color="blue">input </font>Boolean use_yd0 = false <font color="darkgreen">&quot;= true, if yd0 shall be used&quot;</font>;
+     <font color="blue">input </font>Real yd0(min=0)=1 <font color="darkgreen">&quot;Desired derivative at x=0: dy/dx = yd0&quot;</font>;
+     <font color="blue">output </font>Real y;
+  <font color="blue">protected </font>
+     Real x2;
+     Real y1;
+     Real y2;
+     Real y1d;
+     Real y2d;
+     Real w;
+     Real w1;
+     Real w2;
+     Real y0d;
+  <font color="blue">algorithm </font>
+     <font color="darkgreen">// x2 :=-x1*(k2/k1)^2;</font>
+     x2 := -x1;
+     <font color="blue">if </font>x &lt;= x2<font color="blue"> then</font>
+        y := -k2*x^2;
+     <font color="blue">else</font>
+         y1 := k1*x1^2;
+         y2 :=-k2*x2^2;
+        y1d := k1*2*x1;
+        y2d :=-k2*2*x2;
+        <font color="blue">if </font>use_yd0<font color="blue"> then</font>
+           y0d :=yd0;
+        <font color="blue">else</font>
+        <font color="darkgreen">   /* Determine derivative, such that first and second derivative
+              of left and right polynomial are identical at x=0:
+              see derivation in function regRoot2
+           */</font>
+           w :=x2/x1;
+           y0d := ( (3*y2 - x2*y2d)/w - (3*y1 - x1*y1d)*w) /(2*x1*(1 - w));
+        <font color="blue">end if</font>;
+
+      <font color="darkgreen">  /* Modify derivative y0d, such that the polynomial is
+           monotonically increasing. A sufficient condition is
+             0 &lt;= y0d &lt;= sqrt(5)*k_i*|x_i|
+        */</font>
+        w1 :=<font color="red">sqrt</font>(5)*k1*x1;
+        w2 :=<font color="red">sqrt</font>(5)*k2*<font color="red">abs</font>(x2);
+        y0d :=<font color="red">min</font>(y0d, 0.9*<font color="red">min</font>(w1, w2));
+
+        y := <font color="blue">if </font>x &gt;= 0<font color="blue"> then </font><font color="red">evaluatePoly3_derivativeAtZero</font>(x,x1,y1,y1d,y0d)<font color="blue"> else </font>
+                            <font color="red">evaluatePoly3_derivativeAtZero</font>(x,x2,y2,y2d,y0d);
+     <font color="blue">end if</font>;
+  <font color="blue">end </font>regSquare2_utility;
+<font color="blue">algorithm </font>
+  y :=<font color="red"> smooth</font>(2,<font color="blue">if </font>x &gt;= x_small<font color="blue"> then </font>k1*x^2<font color="blue"> else </font>
+                <font color="blue">if </font>x &lt;= -x_small<font color="blue"> then </font>-k2*x^2<font color="blue"> else </font>
+                <font color="blue">if </font>k1 &gt;= k2<font color="blue"> then </font><font color="red">regSquare2_utility</font>(x,x_small,k1,k2,use_yd0,yd0)<font color="blue"> else </font>
+                                -<font color="red">regSquare2_utility</font>(-x,x_small,k2,k1,use_yd0,yd0));
+<font color="blue">end </font>regSquare2;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE regStep<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryI.png" ALT="Modelica.Fluid.Utilities.regStep" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Utilities.regStep"></A><A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
+>Modelica.Fluid.Utilities</A>.regStep</H2>
+<B>Approximation of a general step, such that the characteristic is continuous and differentiable</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>x</TD><TD>&nbsp;</TD><TD>Abscissa value</TD></TR>
+<TR><TD>Real</TD><TD>y1</TD><TD>&nbsp;</TD><TD>Ordinate value for x &gt; 0</TD></TR>
+<TR><TD>Real</TD><TD>y2</TD><TD>&nbsp;</TD><TD>Ordinate value for x &lt; 0</TD></TR>
+<TR><TD>Real</TD><TD>x_small</TD><TD>1e-5</TD><TD>Approximation of step for -x_small &lt;= x &lt;= x_small; x_small &gt; 0 required</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>y</TD><TD>Ordinate value to approximate y = if x &gt; 0 then y1 else y2</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> regStep <font color="darkgreen">
+  &quot;Approximation of a general step, such that the characteristic is continuous and differentiable&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real x <font color="darkgreen">&quot;Abscissa value&quot;</font>;
+  <font color="blue">input </font>Real y1 <font color="darkgreen">&quot;Ordinate value for x &gt; 0&quot;</font>;
+  <font color="blue">input </font>Real y2 <font color="darkgreen">&quot;Ordinate value for x &lt; 0&quot;</font>;
+  <font color="blue">input </font>Real x_small(min=0) = 1e-5 <font color="darkgreen">
+    &quot;Approximation of step for -x_small &lt;= x &lt;= x_small; x_small &gt; 0 required&quot;</font>;
+  <font color="blue">output </font>Real y <font color="darkgreen">&quot;Ordinate value to approximate y = if x &gt; 0 then y1 else y2&quot;</font>;
+  <font color="darkgreen">// output Real yd;</font>
+<font color="blue">algorithm </font>
+  y :=<font color="red"> smooth</font>(1, <font color="blue">if </font>x &gt;  x_small<font color="blue"> then </font>y1<font color="blue"> else </font>
+                 <font color="blue">if </font>x &lt; -x_small<font color="blue"> then </font>y2<font color="blue"> else </font>
+                 <font color="blue">if </font><font color="red">abs</font>(x_small)&gt;0<font color="blue"> then </font>(x/x_small)*((x/x_small)^2 - 3)*(y2-y1)/4 + (y1+y2)/2<font color="blue"> else </font>(y1+y2)/2);
+<font color="blue">end </font>regStep;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE evaluatePoly3_derivativeAtZero<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryI.png" ALT="Modelica.Fluid.Utilities.evaluatePoly3_derivativeAtZero" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Utilities.evaluatePoly3_derivativeAtZero"></A><A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
+>Modelica.Fluid.Utilities</A>.evaluatePoly3_derivativeAtZero</H2>
+<B>Evaluate polynomial of order 3 that passes the origin with a predefined derivative</B><p>
+<P><H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for a function).
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>x</TD><TD>&nbsp;</TD><TD>Value for which polynomial shall be evaluated</TD></TR>
+<TR><TD>Real</TD><TD>x1</TD><TD>&nbsp;</TD><TD>Abscissa value</TD></TR>
+<TR><TD>Real</TD><TD>y1</TD><TD>&nbsp;</TD><TD>y1=f(x1)</TD></TR>
+<TR><TD>Real</TD><TD>y1d</TD><TD>&nbsp;</TD><TD>First derivative at y1</TD></TR>
+<TR><TD>Real</TD><TD>y0d</TD><TD>&nbsp;</TD><TD>First derivative at f(x=0)</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>y</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> evaluatePoly3_derivativeAtZero <font color="darkgreen">
+  &quot;Evaluate polynomial of order 3 that passes the origin with a predefined derivative&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real x <font color="darkgreen">&quot;Value for which polynomial shall be evaluated&quot;</font>;
+  <font color="blue">input </font>Real x1 <font color="darkgreen">&quot;Abscissa value&quot;</font>;
+  <font color="blue">input </font>Real y1 <font color="darkgreen">&quot;y1=f(x1)&quot;</font>;
+  <font color="blue">input </font>Real y1d <font color="darkgreen">&quot;First derivative at y1&quot;</font>;
+  <font color="blue">input </font>Real y0d <font color="darkgreen">&quot;First derivative at f(x=0)&quot;</font>;
+  <font color="blue">output </font>Real y;
+<font color="blue">protected </font>
+  Real a1;
+  Real a2;
+  Real a3;
+  Real xx;
+<font color="blue">algorithm </font>
+  a1 := x1*y0d;
+  a2 := 3*y1 - x1*y1d - 2*a1;
+  a3 := y1 - a2 - a1;
+  xx := x/x1;
+  y  := xx*(a1 + xx*(a2 + xx*a3));
+<font color="blue">end </font>evaluatePoly3_derivativeAtZero;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE regFun3<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Utilities.regFun3"></A><A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
+>Modelica.Fluid.Utilities</A>.regFun3</H2>
+<B>Co-monotonic and C1 smooth regularization function</B><p>
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+Approximates a function in a region between <code>x0</code> and <code>x1</code>
+such that
+</p>
+<ul>
+<li> The overall function is continuous with a
+     continuous first derivative everywhere.</li>
+<li> The function is co-monotone with the given
+     data points.</li>
+</ul>
+<p>
+In this region, a continuation is constructed from the given points
+<code>(x0, y0)</code>, <code>(x1, y1)</code> and the respective
+derivatives. For this purpose, a single polynomial of third order or two
+cubic polynomials with a linear section in between are used <i>[Gasparo
+and Morandi, 1991]</i>. This algorithm was extended with two additional
+conditions to avoid saddle points with zero/infinite derivative that lead to
+integrator step size reduction to zero.
+</p>
+<p>
+This function was developed for pressure loss correlations properly
+addressing the static head on top of the established requirements
+for monotonicity and smoothness. In this case, the present function
+allows to implement the exact solution in the limit of
+<code>x1-x0 -> 0</code> or <code>y1-y0 -> 0</code>.
+</p>
+<p>
+Typical screenshots for two different configurations
+are shown below. The first one illustrates five different settings of <code>xi</code> and <code>yid</code>:
+</p>
+<p>
+<img src="../Images/Fluid/Components/regFun3_a.png">
+</p>
+<p>
+The second graph shows the continous derivative of this regularization function:
+</p>
+<p>
+<img src="../Images/Fluid/Components/regFun3_b.png">
+</p>
+
+<p>
+<b>Literature</b>
+</p>
+
+<dl>
+<dt> Gasparo M. G. and Morandi R. (1991):</dt>
+<dd> <b>Piecewise cubic monotone interpolation with assigned slopes</b>.
+     Computing, Vol. 46, Issue 4, December 1991, pp. 355 - 365.</dd>
+</dl>
+<pre></PRE>
+
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>x</TD><TD>&nbsp;</TD><TD>Abscissa value</TD></TR>
+<TR><TD>Real</TD><TD>x0</TD><TD>&nbsp;</TD><TD>Lower abscissa value</TD></TR>
+<TR><TD>Real</TD><TD>x1</TD><TD>&nbsp;</TD><TD>Upper abscissa value</TD></TR>
+<TR><TD>Real</TD><TD>y0</TD><TD>&nbsp;</TD><TD>Ordinate value at lower ordinate value</TD></TR>
+<TR><TD>Real</TD><TD>y1</TD><TD>&nbsp;</TD><TD>Ordinate value at upper ordinate value</TD></TR>
+<TR><TD>Real</TD><TD>y0d</TD><TD>&nbsp;</TD><TD>Derivative at lower abscissa value</TD></TR>
+<TR><TD>Real</TD><TD>y1d</TD><TD>&nbsp;</TD><TD>Derivative at upper abscissa value</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>y</TD><TD>Ordinate value</TD></TR>
+<TR><TD>Real</TD><TD>c</TD><TD>Slope of linear section between two cubic polynomials or dummy linear section slope if single cubic is used</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> regFun3 <font color="darkgreen">&quot;Co-monotonic and C1 smooth regularization function&quot;</font>
+
+  <font color="blue">input </font>Real x <font color="darkgreen">&quot;Abscissa value&quot;</font>;
+  <font color="blue">input </font>Real x0 <font color="darkgreen">&quot;Lower abscissa value&quot;</font>;
+  <font color="blue">input </font>Real x1 <font color="darkgreen">&quot;Upper abscissa value&quot;</font>;
+  <font color="blue">input </font>Real y0 <font color="darkgreen">&quot;Ordinate value at lower ordinate value&quot;</font>;
+  <font color="blue">input </font>Real y1 <font color="darkgreen">&quot;Ordinate value at upper ordinate value&quot;</font>;
+  <font color="blue">input </font>Real y0d <font color="darkgreen">&quot;Derivative at lower abscissa value&quot;</font>;
+  <font color="blue">input </font>Real y1d <font color="darkgreen">&quot;Derivative at upper abscissa value&quot;</font>;
+
+  <font color="blue">output </font>Real y <font color="darkgreen">&quot;Ordinate value&quot;</font>;
+  <font color="blue">output </font>Real c <font color="darkgreen">
+    &quot;Slope of linear section between two cubic polynomials or dummy linear section slope if single cubic is used&quot;</font>;
+
+<font color="blue">protected </font>
+  Real h0 <font color="darkgreen">&quot;Width of interval i=0&quot;</font>;
+  Real Delta0 <font color="darkgreen">&quot;Slope of secant on interval i=0&quot;</font>;
+  Real xstar <font color="darkgreen">&quot;Inflection point of cubic polynomial S0&quot;</font>;
+  Real mu <font color="darkgreen">&quot;Distance of inflection point and left limit x0&quot;</font>;
+  Real eta <font color="darkgreen">&quot;Distance of right limit x1 and inflection point&quot;</font>;
+  Real omega <font color="darkgreen">&quot;Slope of subic polynomial S0 at inflection point&quot;</font>;
+  Real rho <font color="darkgreen">&quot;Weighting factor of eta and eta_tilde, mu and mu_tilde&quot;</font>;
+  Real theta0 <font color="darkgreen">&quot;Slope metric&quot;</font>;
+  Real mu_tilde <font color="darkgreen">&quot;Distance of start of linear section and left limit x0&quot;</font>;
+  Real eta_tilde <font color="darkgreen">&quot;Distance of right limit x1 and end of linear section&quot;</font>;
+  Real xi1 <font color="darkgreen">&quot;Start of linear section &quot;</font>;
+  Real xi2 <font color="darkgreen">&quot;End of linear section &quot;</font>;
+  Real a1 <font color="darkgreen">&quot;Leading coefficient of cubic on the left&quot;</font>;
+  Real a2 <font color="darkgreen">&quot;Leading coefficient of cubic on the right&quot;</font>;
+  Real const12 <font color="darkgreen">&quot;Integration constant of left cubic, linear section&quot;</font>;
+  Real const3 <font color="darkgreen">&quot;Integration constant of right cubic&quot;</font>;
+  Real aux01;
+  Real aux02;
+  Boolean useSingleCubicPolynomial = false <font color="darkgreen">
+    &quot;Indicate to override further logic and use single cubic&quot;</font>;
+<font color="blue">algorithm </font>
+  <font color="red">assert</font>(x0&lt;x1, &quot;regFun3(): Data points not sorted appropriately (x0 = &quot;+<font color="red">String</font>(x0)+&quot; &gt; x1 = &quot;+<font color="red">String</font>(x1)+&quot;). Please flip arguments.&quot;);
+
+  h0 :=x1 - x0;
+  Delta0 :=(y1 - y0)/h0;
+
+  <font color="blue">if </font><font color="red">abs</font>(Delta0)&lt;=0<font color="blue"> then</font>
+    <font color="darkgreen">// Points (x0,y0) and (x1,y1) on horizonzal line</font>
+    <font color="darkgreen">// Degenerate case as we cannot fulfill the C1 goal an comonotone behaviour at the same time</font>
+    y := y0;<font color="darkgreen"> // == y1</font>
+  <font color="blue">else</font>
+    <font color="darkgreen">// Points (x0,y0) and (x1,y1) not on horizonzal line</font>
+    <font color="blue">if </font><font color="red">abs</font>(y1d+y0d-2*Delta0)&lt;100*Modelica.Constants.eps<font color="blue"> then</font>
+      xstar := (x1-x0)*(2*y0d+y1d-3*Delta0)*(<font color="blue">if </font>(y0d+y1d-2*Delta0)&gt;=0<font color="blue"> then </font>1<font color="blue"> else </font>-1)*Modelica.Constants.inf;
+    <font color="blue">else</font>
+      xstar :=1/3*(-3*x0*y0d - 3*x0*y1d + 6*x0*Delta0 - 2*h0*y0d - h0*y1d + 3*h0*
+        Delta0)/(-y0d - y1d + 2*Delta0);
+    <font color="blue">end if</font>;
+    mu :=xstar - x0;
+    eta :=x1 - xstar;
+    omega :=3*(y0d + y1d - 2*Delta0)*(xstar - x0)^2/h0^2 + 2*(-2*y0d - y1d + 3*
+      Delta0)*(xstar - x0)/h0 + y0d;
+
+    aux01 := 0.25 *<font color="red"> sign</font>(Delta0) *<font color="red"> min</font>(<font color="red">abs</font>(omega),<font color="red"> abs</font>(Delta0)) <font color="darkgreen">
+      &quot;Slope c if not using plain cubic S0&quot;</font>;
+    <font color="blue">if </font><font color="red">abs</font>(y0d-y1d)&lt;=100*Modelica.Constants.eps<font color="blue"> then</font>
+      <font color="darkgreen">// y0 == y1 (value and sign equal) -&gt; resolve indefinite 0/0</font>
+      aux02 := y0d;
+      <font color="blue">if </font>y1 &gt; y0 + y0d*(x1-x0)<font color="blue"> then</font>
+        <font color="darkgreen">// If y1 is above the linear extension through (x0/y0)</font>
+        <font color="darkgreen">// with slope y0d (when slopes are identical)</font>
+        <font color="darkgreen">//  -&gt; then always used single cubic polynomial</font>
+        useSingleCubicPolynomial := true;
+      <font color="blue">end if</font>;
+    <font color="blue">elseif </font><font color="red">abs</font>(y1d+y0d-2*Delta0)&lt;100*Modelica.Constants.eps<font color="blue"> then</font>
+      <font color="darkgreen">// (y1d+y0d-2*Delta0) approximately 0 -&gt; avoid division by 0</font>
+      aux02 := (6*Delta0*(y1d+y0d-3/2*Delta0)-y1d*y0d-y1d^2-y0d^2)*(<font color="blue">if </font>(y1d+y0d-2*Delta0)&gt;=0<font color="blue"> then </font>1<font color="blue"> else </font>-1)*Modelica.Constants.inf;
+    <font color="blue">else</font>
+      <font color="darkgreen">// Okay, no guarding necessary</font>
+      aux02 := (6*Delta0*(y1d+y0d-3/2*Delta0)-y1d*y0d-y1d^2-y0d^2)/(3*(y1d+y0d-2*Delta0));
+    <font color="blue">end if</font>;
+
+    <font color="darkgreen">//aux02 := -1/3*(y0d^2+y0d*y1d-6*y0d*Delta0+y1d^2-6*y1d*Delta0+9*Delta0^2)/(y0d+y1d-2*Delta0);</font>
+    <font color="darkgreen">//aux02 := -1/3*(6*y1d*y0*x1+y0d*y1d*x1^2-6*y0d*x0*y0+y0d^2*x0^2+y0d^2*x1^2+y1d^2*x1^2+y1d^2*x0^2-2*y0d*x0*y1d*x1-2*x0*y0d^2*x1+y0d*y1d*x0^2+6*y0d*x0*y1-6*y0d*y1*x1+6*y0d*y0*x1-2*x0*y1d^2*x1-6*y1d*y1*x1+6*y1d*x0*y1-6*y1d*x0*y0-18*y1*y0+9*y1^2+9*y0^2)/(y0d*x1^2-2*x0*y0d*x1+y1d*x1^2-2*x0*y1d*x1-2*y1*x1+2*y0*x1+y0d*x0^2+y1d*x0^2+2*x0*y1-2*x0*y0);</font>
+
+    <font color="darkgreen">// Test criteria (also used to avoid saddle points that lead to integrator contraction):</font>
+    <font color="darkgreen">//</font>
+    <font color="darkgreen">//  1. Cubic is not monotonic (from Gasparo Morandi)</font>
+    <font color="darkgreen">//       ((mu &gt; 0) and (eta &lt; h0) and (Delta0*omega &lt;= 0))</font>
+    <font color="darkgreen">//</font>
+    <font color="darkgreen">//  2. Cubic may be monotonic but the linear section slope c is either too close</font>
+    <font color="darkgreen">//     to zero or the end point of the linear section is left of the start point</font>
+    <font color="darkgreen">//     Note however, that the suggested slope has to have the same sign as Delta0.</font>
+    <font color="darkgreen">//       (abs(aux01)&lt;abs(aux02) and aux02*Delta0&gt;=0)</font>
+    <font color="darkgreen">//</font>
+    <font color="darkgreen">//  3. Cubic may be monotonic but the resulting slope in the linear section</font>
+    <font color="darkgreen">//     is too close to zero (less than 1/10 of Delta0).</font>
+    <font color="darkgreen">//       (c &lt; Delta0 / 10)</font>
+    <font color="darkgreen">//</font>
+    <font color="blue">if </font>(((mu &gt; 0)<font color="blue"> and </font>(eta &lt; h0)<font color="blue"> and </font>(Delta0*omega &lt;= 0))<font color="blue">
+        or </font>(<font color="red">abs</font>(aux01)&lt;<font color="red">abs</font>(aux02)<font color="blue"> and </font>aux02*Delta0&gt;=0)<font color="blue">
+        or </font>(<font color="red">abs</font>(aux01)&lt;<font color="red">abs</font>(0.1*Delta0)))<font color="blue"> and </font><font color="blue">not </font>useSingleCubicPolynomial<font color="blue"> then</font>
+      <font color="darkgreen">// NOT monotonic using plain cubic S0, use piecewise function S0 tilde instead</font>
+      c := aux01;
+      <font color="darkgreen">// Avoid saddle points that are co-monotonic but lead to integrator contraction</font>
+      <font color="blue">if </font><font color="red">abs</font>(c)&lt;<font color="red">abs</font>(aux02)<font color="blue"> and </font>aux02*Delta0&gt;=0<font color="blue"> then</font>
+        c := aux02;
+      <font color="blue">end if</font>;
+      <font color="blue">if </font><font color="red">abs</font>(c)&lt;<font color="red">abs</font>(0.1*Delta0)<font color="blue"> then</font>
+        c := 0.1*Delta0;
+      <font color="blue">end if</font>;
+      theta0 := (y0d*mu + y1d*eta)/h0;
+      <font color="blue">if </font><font color="red">abs</font>(theta0 - c)&lt;1e-6<font color="blue"> then</font>
+        <font color="darkgreen">// Slightly reduce c in order to avoid ill-posed problem</font>
+        c := (1-1e-6)*theta0;
+      <font color="blue">end if</font>;
+      rho := 3*(Delta0 - c)/(theta0 - c);
+      mu_tilde := rho * mu;
+      eta_tilde := rho * eta;
+      xi1 := x0 + mu_tilde;
+      xi2 := x1 - eta_tilde;
+      a1 := (y0d - c)/<font color="red">max</font>(mu_tilde^2, 100*Modelica.Constants.eps);
+      a2 := (y1d - c)/<font color="red">max</font>(eta_tilde^2, 100*Modelica.Constants.eps);
+      const12 := y0 - a1/3*(x0 - xi1)^3 - c*x0;
+      const3 := y1 - a2/3*(x1 - xi2)^3 - c*x1;
+      <font color="darkgreen">// Do actual interpolation</font>
+      <font color="blue">if </font>(x &lt; xi1)<font color="blue"> then</font>
+        y := a1/3*(x - xi1)^3 + c*x + const12;
+      <font color="blue">elseif </font>(x &lt; xi2)<font color="blue"> then</font>
+        y := c*x + const12;
+      <font color="blue">else</font>
+        y := a2/3*(x - xi2)^3 + c*x + const3;
+      <font color="blue">end if</font>;
+    <font color="blue">else</font>
+      <font color="darkgreen">// Cubic S0 is monotonic, use it as is</font>
+      y := (y0d+y1d-2*Delta0)*(x-x0)^3/h0^2+(-2*y0d-y1d+3*Delta0)*(x-x0)^2/h0+y0d*(x-x0)+y0;
+      <font color="darkgreen">// Provide a &quot;dummy linear section slope&quot; as the slope of the cubic at x:=(x0+x1)/2</font>
+      aux01 := (x0+x1)/2;
+      c := 3*(y0d+y1d-2*Delta0)*(aux01-x0)^2/h0^2+2*(-2*y0d-y1d+3*Delta0)*(aux01-x0)/h0+y0d;
+    <font color="blue">end if</font>;
+  <font color="blue">end if</font>;
+
+<font color="blue">end </font>regFun3;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE cubicHermite<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Utilities.cubicHermite"></A><A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
+>Modelica.Fluid.Utilities</A>.cubicHermite</H2>
+<B>Evaluate a cubic Hermite spline</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>x</TD><TD>&nbsp;</TD><TD>Abscissa value</TD></TR>
+<TR><TD>Real</TD><TD>x1</TD><TD>&nbsp;</TD><TD>Lower abscissa value</TD></TR>
+<TR><TD>Real</TD><TD>x2</TD><TD>&nbsp;</TD><TD>Upper abscissa value</TD></TR>
+<TR><TD>Real</TD><TD>y1</TD><TD>&nbsp;</TD><TD>Lower ordinate value</TD></TR>
+<TR><TD>Real</TD><TD>y2</TD><TD>&nbsp;</TD><TD>Upper ordinate value</TD></TR>
+<TR><TD>Real</TD><TD>y1d</TD><TD>&nbsp;</TD><TD>Lower gradient</TD></TR>
+<TR><TD>Real</TD><TD>y2d</TD><TD>&nbsp;</TD><TD>Upper gradient</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>y</TD><TD>Interpolated ordinate value</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> cubicHermite <font color="darkgreen">&quot;Evaluate a cubic Hermite spline&quot;</font>
+  <font color="blue">input </font>Real x <font color="darkgreen">&quot;Abscissa value&quot;</font>;
+  <font color="blue">input </font>Real x1 <font color="darkgreen">&quot;Lower abscissa value&quot;</font>;
+  <font color="blue">input </font>Real x2 <font color="darkgreen">&quot;Upper abscissa value&quot;</font>;
+  <font color="blue">input </font>Real y1 <font color="darkgreen">&quot;Lower ordinate value&quot;</font>;
+  <font color="blue">input </font>Real y2 <font color="darkgreen">&quot;Upper ordinate value&quot;</font>;
+  <font color="blue">input </font>Real y1d <font color="darkgreen">&quot;Lower gradient&quot;</font>;
+  <font color="blue">input </font>Real y2d <font color="darkgreen">&quot;Upper gradient&quot;</font>;
+  <font color="blue">output </font>Real y <font color="darkgreen">&quot;Interpolated ordinate value&quot;</font>;
+<font color="blue">protected </font>
+  Real h <font color="darkgreen">&quot;Distance between x1 and x2&quot;</font>;
+  Real t <font color="darkgreen">&quot;abscissa scaled with h, i.e. t=[0..1] within x=[x1..x2]&quot;</font>;
+  Real h00 <font color="darkgreen">&quot;Basis function 00 of cubic Hermite spline&quot;</font>;
+  Real h10 <font color="darkgreen">&quot;Basis function 10 of cubic Hermite spline&quot;</font>;
+  Real h01 <font color="darkgreen">&quot;Basis function 01 of cubic Hermite spline&quot;</font>;
+  Real h11 <font color="darkgreen">&quot;Basis function 11 of cubic Hermite spline&quot;</font>;
+  Real aux3 <font color="darkgreen">&quot;t cube&quot;</font>;
+  Real aux2 <font color="darkgreen">&quot;t square&quot;</font>;
+<font color="blue">algorithm </font>
+  h := x2 - x1;
+  <font color="blue">if </font><font color="red">abs</font>(h)&gt;0<font color="blue"> then</font>
+    <font color="darkgreen">// Regular case</font>
+    t := (x - x1)/h;
+
+    aux3 :=t^3;
+    aux2 :=t^2;
+
+    h00 := 2*aux3 - 3*aux2 + 1;
+    h10 := aux3 - 2*aux2 + t;
+    h01 := -2*aux3 + 3*aux2;
+    h11 := aux3 - aux2;
+    y := y1*h00 + h*y1d*h10 + y2*h01 + h*y2d*h11;
+  <font color="blue">else</font>
+    <font color="darkgreen">// Degenerate case, x1 and x2 are identical, return step function</font>
+    y := (y1 + y2)/2;
+  <font color="blue">end if</font>;
+<font color="blue">end </font>cubicHermite;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE cubicHermite_withDerivative<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Utilities.cubicHermite_withDerivative"></A><A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
+>Modelica.Fluid.Utilities</A>.cubicHermite_withDerivative</H2>
+<B>Evaluate a cubic Hermite spline, return value and derivative</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>x</TD><TD>&nbsp;</TD><TD>Abscissa value</TD></TR>
+<TR><TD>Real</TD><TD>x1</TD><TD>&nbsp;</TD><TD>Lower abscissa value</TD></TR>
+<TR><TD>Real</TD><TD>x2</TD><TD>&nbsp;</TD><TD>Upper abscissa value</TD></TR>
+<TR><TD>Real</TD><TD>y1</TD><TD>&nbsp;</TD><TD>Lower ordinate value</TD></TR>
+<TR><TD>Real</TD><TD>y2</TD><TD>&nbsp;</TD><TD>Upper ordinate value</TD></TR>
+<TR><TD>Real</TD><TD>y1d</TD><TD>&nbsp;</TD><TD>Lower gradient</TD></TR>
+<TR><TD>Real</TD><TD>y2d</TD><TD>&nbsp;</TD><TD>Upper gradient</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>y</TD><TD>Interpolated ordinate value</TD></TR>
+<TR><TD>Real</TD><TD>dy_dx</TD><TD>Derivative dy/dx at abscissa value x</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> cubicHermite_withDerivative <font color="darkgreen">
+  &quot;Evaluate a cubic Hermite spline, return value and derivative&quot;</font>
+  <font color="blue">input </font>Real x <font color="darkgreen">&quot;Abscissa value&quot;</font>;
+  <font color="blue">input </font>Real x1 <font color="darkgreen">&quot;Lower abscissa value&quot;</font>;
+  <font color="blue">input </font>Real x2 <font color="darkgreen">&quot;Upper abscissa value&quot;</font>;
+  <font color="blue">input </font>Real y1 <font color="darkgreen">&quot;Lower ordinate value&quot;</font>;
+  <font color="blue">input </font>Real y2 <font color="darkgreen">&quot;Upper ordinate value&quot;</font>;
+  <font color="blue">input </font>Real y1d <font color="darkgreen">&quot;Lower gradient&quot;</font>;
+  <font color="blue">input </font>Real y2d <font color="darkgreen">&quot;Upper gradient&quot;</font>;
+  <font color="blue">output </font>Real y <font color="darkgreen">&quot;Interpolated ordinate value&quot;</font>;
+  <font color="blue">output </font>Real dy_dx <font color="darkgreen">&quot;Derivative dy/dx at abscissa value x&quot;</font>;
+<font color="blue">protected </font>
+  Real h <font color="darkgreen">&quot;Distance between x1 and x2&quot;</font>;
+  Real t <font color="darkgreen">&quot;abscissa scaled with h, i.e. t=[0..1] within x=[x1..x2]&quot;</font>;
+  Real h00 <font color="darkgreen">&quot;Basis function 00 of cubic Hermite spline&quot;</font>;
+  Real h10 <font color="darkgreen">&quot;Basis function 10 of cubic Hermite spline&quot;</font>;
+  Real h01 <font color="darkgreen">&quot;Basis function 01 of cubic Hermite spline&quot;</font>;
+  Real h11 <font color="darkgreen">&quot;Basis function 11 of cubic Hermite spline&quot;</font>;
+
+  Real h00d <font color="darkgreen">&quot;d/dt h00&quot;</font>;
+  Real h10d <font color="darkgreen">&quot;d/dt h10&quot;</font>;
+  Real h01d <font color="darkgreen">&quot;d/dt h01&quot;</font>;
+  Real h11d <font color="darkgreen">&quot;d/dt h11&quot;</font>;
+
+  Real aux3 <font color="darkgreen">&quot;t cube&quot;</font>;
+  Real aux2 <font color="darkgreen">&quot;t square&quot;</font>;
+<font color="blue">algorithm </font>
+  h := x2 - x1;
+  <font color="blue">if </font><font color="red">abs</font>(h)&gt;0<font color="blue"> then</font>
+    <font color="darkgreen">// Regular case</font>
+    t := (x - x1)/h;
+
+    aux3 :=t^3;
+    aux2 :=t^2;
+
+    h00 := 2*aux3 - 3*aux2 + 1;
+    h10 := aux3 - 2*aux2 + t;
+    h01 := -2*aux3 + 3*aux2;
+    h11 := aux3 - aux2;
+
+    h00d := 6*(aux2 - t);
+    h10d := 3*aux2 - 4*t + 1;
+    h01d := 6*(t - aux2);
+    h11d := 3*aux2 - 2*t;
+
+    y := y1*h00 + h*y1d*h10 + y2*h01 + h*y2d*h11;
+    dy_dx := y1*h00d/h + y1d*h10d + y2*h01d/h + y2d*h11d;
+  <font color="blue">else</font>
+    <font color="darkgreen">// Degenerate case, x1 and x2 are identical, return step function</font>
+    y := (y1 + y2)/2;
+    dy_dx :=<font color="red"> sign</font>(y2 - y1)*Modelica.Constants.inf;
+  <font color="blue">end if</font>;
+<font color="blue">end </font>cubicHermite_withDerivative;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.Dymola.com/">Dymola</a> Mon Sep  7 10:20:13 2009.
+</address></BODY>
+</HTML>

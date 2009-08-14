@@ -1,0 +1,1715 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Mechanics.MultiBody.Frames.TransformationMatrices</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Functions for transformation matrices&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TransformationMatrices<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices"></A><A HREF="Modelica_Mechanics_MultiBody_Frames.html#Modelica.Mechanics.MultiBody.Frames"
+>Modelica.Mechanics.MultiBody.Frames</A>.TransformationMatrices</H2>
+<B>Functions for transformation matrices</B>
+<P>
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+Package <b>Frames.TransformationMatrices</b> contains type definitions and
+functions to transform rotational frame quantities using
+transformation matrices.
+</p>
+<h4>Content</h4>
+<p>In the table below an example is given for every function definition.
+The used variables have the following declaration:
+</p>
+<pre>
+   Orientation T, T1, T2, T_rel, T_inv;
+   Real[3]     v1, v2, w1, w2, n_x, n_y, n_z, e, e_x, res_ori, phi;
+   Real[6]     res_equal;
+   Real        L, angle;
+</pre>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><th><b><i>Function/type</i></b></th><th><b><i>Description</i></b></th></tr>
+  <tr><td valign="top"><b>Orientation T;</b></td>
+      <td valign="top">New type defining an orientation object that describes<br>
+          the rotation of frame 1 into frame 2.
+      </td>
+  </tr>
+  <tr><td valign="top"><b>der_Orientation</b> der_T;</td>
+      <td valign="top">New type defining the first time derivative
+         of Frames.Orientation.
+      </td>
+  </tr>
+  <tr><td valign="top">res_ori = <b>orientationConstraint</b>(T);</td>
+      <td valign="top">Return the constraints between the variables of an orientation object<br>
+      (shall be zero).</td>
+  </tr>
+  <tr><td valign="top">w1 = <b>angularVelocity1</b>(T, der_T);</td>
+      <td valign="top">Return angular velocity resolved in frame 1 from
+          orientation object T<br> and its derivative der_T.
+     </td>
+  </tr>
+  <tr><td valign="top">w2 = <b>angularVelocity2</b>(T, der_T);</td>
+      <td valign="top">Return angular velocity resolved in frame 2 from
+          orientation object T<br> and its derivative der_T.
+     </td>
+  </tr>
+  <tr><td valign="top">v1 = <b>resolve1</b>(T,v2);</td>
+      <td valign="top">Transform vector v2 from frame 2 to frame 1.
+      </td>
+  </tr>
+  <tr><td valign="top">v2 = <b>resolve2</b>(T,v1);</td>
+      <td valign="top">Transform vector v1 from frame 1 to frame 2.
+     </td>
+  </tr>
+  <tr><td valign="top">[v1,w1] = <b>multipleResolve1</b>(T, [v2,w2]);</td>
+      <td valign="top">Transform several vectors from frame 2 to frame 1.
+      </td>
+  </tr>
+  <tr><td valign="top">[v2,w2] = <b>multipleResolve2</b>(T, [v1,w1]);</td>
+      <td valign="top">Transform several vectors from frame 1 to frame 2.
+      </td>
+  </tr>
+  <tr><td valign="top">D1 = <b>resolveDyade1</b>(T,D2);</td>
+      <td valign="top">Transform second order tensor D2 from frame 2 to frame 1.
+      </td>
+  </tr>
+  <tr><td valign="top">D2 = <b>resolveDyade2</b>(T,D1);</td>
+      <td valign="top">Transform second order tensor D1 from frame 1 to frame 2.
+     </td>
+  </tr>
+  <tr><td valign="top">T= <b>nullRotation</b>()</td>
+      <td valign="top">Return orientation object T that does not rotate a frame.
+  </tr>
+  <tr><td valign="top">T_inv = <b>inverseRotation</b>(T);</td>
+      <td valign="top">Return inverse orientation object.
+      </td>
+  </tr>
+  <tr><td valign="top">T_rel = <b>relativeRotation</b>(T1,T2);</td>
+      <td valign="top">Return relative orientation object from two absolute
+          orientation objects.
+      </td>
+  </tr>
+  <tr><td valign="top">T2 = <b>absoluteRotation</b>(T1,T_rel);</td>
+      <td valign="top">Return absolute orientation object from another
+          absolute<br> and a relative orientation object.
+      </td>
+  </tr>
+  <tr><td valign="top">T = <b>planarRotation</b>(e, angle);</td>
+      <td valign="top">Return orientation object of a planar rotation.
+      </td>
+  </tr>
+  <tr><td valign="top">angle = <b>planarRotationAngle</b>(e, v1, v2);</td>
+      <td valign="top">Return angle of a planar rotation, given the rotation axis<br>
+        and the representations of a vector in frame 1 and frame 2.
+      </td>
+  </tr>
+  <tr><td valign="top">T = <b>axisRotation</b>(i, angle);</td>
+      <td valign="top">Return orientation object T for rotation around axis i of frame 1.
+      </td>
+  </tr>
+  <tr><td valign="top">T = <b>axesRotations</b>(sequence, angles);</td>
+      <td valign="top">Return rotation object to rotate in sequence around 3 axes. Example:<br>
+          T = axesRotations({1,2,3},{90,45,-90});
+      </td>
+  </tr>
+  <tr><td valign="top">angles = <b>axesRotationsAngles</b>(T, sequence);</td>
+      <td valign="top">Return the 3 angles to rotate in sequence around 3 axes to<br>
+          construct the given orientation object.
+      </td>
+  </tr>
+  <tr><td valign="top">phi = <b>smallRotation</b>(T);</td>
+      <td valign="top">Return rotation angles phi valid for a small rotation.
+      </td>
+  </tr>
+  <tr><td valign="top">T = <b>from_nxy</b>(n_x, n_y);</td>
+      <td valign="top">Return orientation object from n_x and n_y vectors.
+      </td>
+  </tr>
+  <tr><td valign="top">T = <b>from_nxz</b>(n_x, n_z);</td>
+      <td valign="top">Return orientation object from n_x and n_z vectors.
+      </td>
+  </tr>
+  <tr><td valign="top">R = <b>from_T</b>(T);</td>
+      <td valign="top">Return orientation object R from transformation matrix T.
+      </td>
+  </tr>
+  <tr><td valign="top">R = <b>from_T_inv</b>(T_inv);</td>
+      <td valign="top">Return orientation object R from inverse transformation matrix T_inv.
+      </td>
+  </tr>
+  <tr><td valign="top">T = <b>from_Q</b>(Q);</td>
+      <td valign="top">Return orientation object T from quaternion orientation object Q.
+      </td>
+  </tr>
+  <tr><td valign="top">T = <b>to_T</b>(R);</td>
+      <td valign="top">Return transformation matrix T from orientation object R.
+  </tr>
+  <tr><td valign="top">T_inv = <b>to_T_inv</b>(R);</td>
+      <td valign="top">Return inverse transformation matrix T_inv from orientation object R.
+      </td>
+  </tr>
+  <tr><td valign="top">Q = <b>to_Q</b>(T);</td>
+      <td valign="top">Return quaternione orientation object Q from orientation object T.
+      </td>
+  </tr>
+  <tr><td valign="top">exy = <b>to_exy</b>(T);</td>
+      <td valign="top">Return [e_x, e_y] matrix of an orientation object T, <br>
+          with e_x and e_y vectors of frame 2, resolved in frame 1.
+  </tr>
+</table>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_Library.html#Modelica.Icons.Library"
+>Modelica.Icons.Library</A> (Icon for library).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>Orientation</A>
+</TD><TD>Orientation type defining rotation from a frame 1 into a frame 2 with a transformation matrix</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.der_Orientation"
+>der_Orientation</A>
+</TD><TD>New type defining the first time derivative of Orientation</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintS.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraint" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraint"
+>orientationConstraint</A>
+</TD><TD>Return residues of orientation constraints (shall be zero)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintS.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.angularVelocity1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.angularVelocity1"
+>angularVelocity1</A>
+</TD><TD>Return angular velocity resolved in frame 1 from orientation object and its derivative</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintS.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.angularVelocity2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.angularVelocity2"
+>angularVelocity2</A>
+</TD><TD>Return angular velocity resolved in frame 2 from orientation object and its derivative</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintS.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.resolve1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.resolve1"
+>resolve1</A>
+</TD><TD>Transform vector from frame 2 to frame 1</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintS.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.resolve2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.resolve2"
+>resolve2</A>
+</TD><TD>Transform vector from frame 1 to frame 2</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintS.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.multipleResolve1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.multipleResolve1"
+>multipleResolve1</A>
+</TD><TD>Transform several vectors from frame 2 to frame 1</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintS.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.multipleResolve2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.multipleResolve2"
+>multipleResolve2</A>
+</TD><TD>Transform several vectors from frame 1 to frame 2</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintS.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.resolveDyade1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.resolveDyade1"
+>resolveDyade1</A>
+</TD><TD>Transform second order tensor from frame 2 to frame 1</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintS.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.resolveDyade2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.resolveDyade2"
+>resolveDyade2</A>
+</TD><TD>Transform second order tensor from frame 1 to frame 2</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintS.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.nullRotation" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.nullRotation"
+>nullRotation</A>
+</TD><TD>Return orientation object that does not rotate a frame</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintS.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.inverseRotation" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.inverseRotation"
+>inverseRotation</A>
+</TD><TD>Return inverse orientation object</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintS.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.relativeRotation" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.relativeRotation"
+>relativeRotation</A>
+</TD><TD>Return relative orientation object</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintS.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.absoluteRotation" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.absoluteRotation"
+>absoluteRotation</A>
+</TD><TD>Return absolute orientation object from another absolute and a relative orientation object</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintS.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.planarRotation" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.planarRotation"
+>planarRotation</A>
+</TD><TD>Return orientation object of a planar rotation</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintS.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.planarRotationAngle" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.planarRotationAngle"
+>planarRotationAngle</A>
+</TD><TD>Return angle of a planar rotation, given the rotation axis and the representations of a vector in frame 1 and frame 2</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintS.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.axisRotation" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.axisRotation"
+>axisRotation</A>
+</TD><TD>Return rotation object to rotate around one frame axis</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintS.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.axesRotations" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.axesRotations"
+>axesRotations</A>
+</TD><TD>Return rotation object to rotate in sequence around 3 axes</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintS.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.axesRotationsAngles" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.axesRotationsAngles"
+>axesRotationsAngles</A>
+</TD><TD>Return the 3 angles to rotate in sequence around 3 axes to construct the given orientation object</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintS.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.smallRotation" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.smallRotation"
+>smallRotation</A>
+</TD><TD>Return rotation angles valid for a small rotation and optionally residues that should be zero</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintS.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_nxy" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_nxy"
+>from_nxy</A>
+</TD><TD>Return orientation object from n_x and n_y vectors</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintS.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_nxz" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_nxz"
+>from_nxz</A>
+</TD><TD>Return orientation object from n_x and n_z vectors</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintS.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_T" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_T"
+>from_T</A>
+</TD><TD>Return orientation object R from transformation matrix T</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintS.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_T_inv" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_T_inv"
+>from_T_inv</A>
+</TD><TD>Return orientation object R from inverse transformation matrix T_inv</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintS.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_Q" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_Q"
+>from_Q</A>
+</TD><TD>Return orientation object T from quaternion orientation object Q</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintS.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_T" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_T"
+>to_T</A>
+</TD><TD>Return transformation matrix T from orientation object R</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintS.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_T_inv" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_T_inv"
+>to_T_inv</A>
+</TD><TD>Return inverse transformation matrix T_inv from orientation object R</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintS.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_Q" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_Q"
+>to_Q</A>
+</TD><TD>Return quaternion orientation object Q from orientation object T</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintS.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_vector" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_vector"
+>to_vector</A>
+</TD><TD>Map rotation object into vector</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintS.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_exy" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_exy"
+>to_exy</A>
+</TD><TD>Map rotation object into e_x and e_y vectors of frame 2, resolved in frame 1</TD></TR>
+</TABLE>
+<P><H3>Types and constants</H3>
+<A NAME="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"></A><PRE>  <font color="blue">type</font> Orientation <font color="darkgreen">
+  &quot;Orientation type defining rotation from a frame 1 into a frame 2 with a transformation matrix&quot;</font>
+
+    <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Frames_Internal.html#Modelica.Mechanics.MultiBody.Frames.Internal.TransformationMatrix"
+>Internal.TransformationMatrix</A>;
+
+    <font color="blue">encapsulated </font><font color="blue">function</font> equalityConstraint <font color="darkgreen">
+    &quot;Return the constraint residues to express that two frames have the same orientation&quot;</font>
+
+      <font color="blue">import </font><A HREF="Modelica.html#Modelica"
+>Modelica</A>;
+      <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices"
+>Modelica.Mechanics.MultiBody.Frames.TransformationMatrices</A>;
+      <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+      <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> T1 <font color="darkgreen">
+      &quot;Orientation object to rotate frame 0 into frame 1&quot;</font>;
+      <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> T2 <font color="darkgreen">
+      &quot;Orientation object to rotate frame 0 into frame 2&quot;</font>;
+      <font color="blue">output </font>Real residue[3] <font color="darkgreen">
+      &quot;The rotation angles around x-, y-, and z-axis of frame 1 to rotate frame 1 into frame 2 for a small rotation (should be zero)&quot;</font>;
+    <font color="blue">algorithm </font>
+      residue := {<font color="red">cross</font>(T1[1, :], T1[2, :])*T2[2, :],-<font color="red">cross</font>(T1[1, :], T1[2, :])
+        *T2[1, :],T1[2, :]*T2[1, :]};
+    <font color="blue">end </font>equalityConstraint;
+  <font color="blue">end </font>Orientation;</PRE><p>
+<A NAME="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.der_Orientation"></A><PRE>  <font color="blue">type</font> der_Orientation = Real[3, 3] (<font color="blue">each </font>unit=&quot;1/s&quot;) <font color="darkgreen">
+  &quot;New type defining the first time derivative of Orientation&quot;</font>;</PRE><p>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE orientationConstraint<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintI.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraint" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraint"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices"
+>Modelica.Mechanics.MultiBody.Frames.TransformationMatrices</A>.orientationConstraint</H2>
+<B>Return residues of orientation constraints (shall be zero)</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>Orientation</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>Orientation object to rotate frame 1 into frame 2</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>residue[6]</TD><TD>Residues of constraints between elements of orientation object (shall be zero)</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> orientationConstraint <font color="darkgreen">
+  &quot;Return residues of orientation constraints (shall be zero)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> T <font color="darkgreen">
+    &quot;Orientation object to rotate frame 1 into frame 2&quot;</font>;
+  <font color="blue">output </font>Real residue[6] <font color="darkgreen">
+    &quot;Residues of constraints between elements of orientation object (shall be zero)&quot;</font>;
+<font color="blue">algorithm </font>
+  residue := {T[:, 1]*T[:, 1] - 1,T[:, 2]*T[:, 2] - 1,T[:, 3]*T[:, 3] - 1,T[
+    :, 1]*T[:, 2],T[:, 1]*T[:, 3],T[:, 2]*T[:, 3]};
+<font color="blue">end </font>orientationConstraint;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE angularVelocity1<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintI.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.angularVelocity1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.angularVelocity1"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices"
+>Modelica.Mechanics.MultiBody.Frames.TransformationMatrices</A>.angularVelocity1</H2>
+<B>Return angular velocity resolved in frame 1 from orientation object and its derivative</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>Orientation</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>Orientation object to rotate frame 1 into frame 2</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.der_Orientation"
+>der_Orientation</A></TD><TD>der_T</TD><TD>&nbsp;</TD><TD>Derivative of T [1/s]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>AngularVelocity</A></TD><TD>w[3]</TD><TD>Angular velocity of frame 2 with respect to frame 1 resolved in frame 1 [rad/s]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> angularVelocity1 <font color="darkgreen">
+  &quot;Return angular velocity resolved in frame 1 from orientation object and its derivative&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> T <font color="darkgreen">
+    &quot;Orientation object to rotate frame 1 into frame 2&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.der_Orientation"
+>der_Orientation</A> der_T <font color="darkgreen">&quot;Derivative of T&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>Modelica.SIunits.AngularVelocity</A> w[3] <font color="darkgreen">
+    &quot;Angular velocity of frame 2 with respect to frame 1 resolved in frame 1&quot;</font>;
+<font color="blue">algorithm </font>
+  <font color="darkgreen">/* The angular velocity w of frame 2 with respect to frame 1 resolved in frame 1,
+     is defined as:
+        w = vec( der(transpose(T))*T );
+     where
+                   |   0 -w3  w2 |
+         skew(w) = |  w3   0 -w1 | and w = vec(skew(w))
+                   | -w2  w1   0 |
+     i.e.
+         W = der(transpose(T))*T)
+         w = {W(3,2), -W(3,1), W(2,1)}
+     Therefore, only 3 values of W need to be computed:
+             | der(T[:,1]) |
+         W = | der(T[:,2]) | * | T[:,1], T[:,2], T[:,3] |
+             | der(T[:,3]) |
+             |  W(3,2) |   |  der(T[:,3])*T[:,2] |
+         w = | -W(3,1) | = | -der(T[:,3])*T[:,1] |
+             |  W(2,1) |   |  der(T[:,2])*T[:,1] |
+  */</font>
+  w := {der_T[:, 3]*T[:, 2],-der_T[:, 3]*T[:, 1],der_T[:, 2]*T[:, 1]};
+<font color="blue">end </font>angularVelocity1;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE angularVelocity2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintI.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.angularVelocity2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.angularVelocity2"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices"
+>Modelica.Mechanics.MultiBody.Frames.TransformationMatrices</A>.angularVelocity2</H2>
+<B>Return angular velocity resolved in frame 2 from orientation object and its derivative</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>Orientation</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>Orientation object to rotate frame 1 into frame 2</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.der_Orientation"
+>der_Orientation</A></TD><TD>der_T</TD><TD>&nbsp;</TD><TD>Derivative of T [1/s]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>AngularVelocity</A></TD><TD>w[3]</TD><TD>Angular velocity of frame 2 with respect to frame 1 resolved in frame 2 [rad/s]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> angularVelocity2 <font color="darkgreen">
+  &quot;Return angular velocity resolved in frame 2 from orientation object and its derivative&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> T <font color="darkgreen">
+    &quot;Orientation object to rotate frame 1 into frame 2&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.der_Orientation"
+>der_Orientation</A> der_T <font color="darkgreen">&quot;Derivative of T&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>Modelica.SIunits.AngularVelocity</A> w[3] <font color="darkgreen">
+    &quot;Angular velocity of frame 2 with respect to frame 1 resolved in frame 2&quot;</font>;
+<font color="blue">algorithm </font>
+  <font color="darkgreen">/* The angular velocity w of frame 2 with respect to frame 1 resolved in frame 2,
+     is defined as:
+        w = vec(T*der(transpose(T)));
+     where
+                   |   0 -w3  w2 |
+         skew(w) = |  w3   0 -w1 | and w = vec(skew(w))
+                   | -w2  w1   0 |
+     i.e.
+         W = T*der(transpose(T))
+         w = {W(3,2), -W(3,1), W(2,1)}
+     Therefore, only 3 values of W need to be computed:
+             | T[1,:] |
+         W = | T[2,:] | * | der(T[1,:]), der(T[2,:]), der(T[3,:]) |
+             | T[3,:] |
+             |  W(3,2) |   |  T[3,:]*der(T[2,:]) |
+         w = | -W(3,1) | = | -T[3,:]*der(T[1,:]) |
+             |  W(2,1) |   |  T[2,:]*der(T[1,:]) |
+  */</font>
+  w := {T[3, :]*der_T[2, :],-T[3, :]*der_T[1, :],T[2, :]*der_T[1, :]};
+<font color="blue">end </font>angularVelocity2;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE resolve1<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintI.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.resolve1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.resolve1"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices"
+>Modelica.Mechanics.MultiBody.Frames.TransformationMatrices</A>.resolve1</H2>
+<B>Transform vector from frame 2 to frame 1</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>Orientation</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>Orientation object to rotate frame 1 into frame 2</TD></TR>
+<TR><TD>Real</TD><TD>v2[3]</TD><TD>&nbsp;</TD><TD>Vector in frame 2</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>v1[3]</TD><TD>Vector in frame 1</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> resolve1 <font color="darkgreen">&quot;Transform vector from frame 2 to frame 1&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> T <font color="darkgreen">
+    &quot;Orientation object to rotate frame 1 into frame 2&quot;</font>;
+  <font color="blue">input </font>Real v2[3] <font color="darkgreen">&quot;Vector in frame 2&quot;</font>;
+  <font color="blue">output </font>Real v1[3] <font color="darkgreen">&quot;Vector in frame 1&quot;</font>;
+<font color="blue">algorithm </font>
+  v1 :=<font color="red"> transpose</font>(T)*v2;
+<font color="blue">end </font>resolve1;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE resolve2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintI.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.resolve2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.resolve2"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices"
+>Modelica.Mechanics.MultiBody.Frames.TransformationMatrices</A>.resolve2</H2>
+<B>Transform vector from frame 1 to frame 2</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>Orientation</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>Orientation object to rotate frame 1 into frame 2</TD></TR>
+<TR><TD>Real</TD><TD>v1[3]</TD><TD>&nbsp;</TD><TD>Vector in frame 1</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>v2[3]</TD><TD>Vector in frame 2</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> resolve2 <font color="darkgreen">&quot;Transform vector from frame 1 to frame 2&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> T <font color="darkgreen">
+    &quot;Orientation object to rotate frame 1 into frame 2&quot;</font>;
+  <font color="blue">input </font>Real v1[3] <font color="darkgreen">&quot;Vector in frame 1&quot;</font>;
+  <font color="blue">output </font>Real v2[3] <font color="darkgreen">&quot;Vector in frame 2&quot;</font>;
+<font color="blue">algorithm </font>
+  v2 := T*v1;
+<font color="blue">end </font>resolve2;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE multipleResolve1<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintI.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.multipleResolve1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.multipleResolve1"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices"
+>Modelica.Mechanics.MultiBody.Frames.TransformationMatrices</A>.multipleResolve1</H2>
+<B>Transform several vectors from frame 2 to frame 1</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>Orientation</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>Orientation object to rotate frame 1 into frame 2</TD></TR>
+<TR><TD>Real</TD><TD>v2[3, :]</TD><TD>&nbsp;</TD><TD>Vectors in frame 2</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>v1[3, size(v2, 2)]</TD><TD>Vectors in frame 1</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> multipleResolve1 <font color="darkgreen">
+  &quot;Transform several vectors from frame 2 to frame 1&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> T <font color="darkgreen">
+    &quot;Orientation object to rotate frame 1 into frame 2&quot;</font>;
+  <font color="blue">input </font>Real v2[3, :] <font color="darkgreen">&quot;Vectors in frame 2&quot;</font>;
+  <font color="blue">output </font>Real v1[3,<font color="red"> size</font>(v2, 2)] <font color="darkgreen">&quot;Vectors in frame 1&quot;</font>;
+<font color="blue">algorithm </font>
+  v1 :=<font color="red"> transpose</font>(T)*v2;
+<font color="blue">end </font>multipleResolve1;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE multipleResolve2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintI.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.multipleResolve2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.multipleResolve2"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices"
+>Modelica.Mechanics.MultiBody.Frames.TransformationMatrices</A>.multipleResolve2</H2>
+<B>Transform several vectors from frame 1 to frame 2</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>Orientation</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>Orientation object to rotate frame 1 into frame 2</TD></TR>
+<TR><TD>Real</TD><TD>v1[3, :]</TD><TD>&nbsp;</TD><TD>Vectors in frame 1</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>v2[3, size(v1, 2)]</TD><TD>Vectors in frame 2</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> multipleResolve2 <font color="darkgreen">
+  &quot;Transform several vectors from frame 1 to frame 2&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> T <font color="darkgreen">
+    &quot;Orientation object to rotate frame 1 into frame 2&quot;</font>;
+  <font color="blue">input </font>Real v1[3, :] <font color="darkgreen">&quot;Vectors in frame 1&quot;</font>;
+  <font color="blue">output </font>Real v2[3,<font color="red"> size</font>(v1, 2)] <font color="darkgreen">&quot;Vectors in frame 2&quot;</font>;
+<font color="blue">algorithm </font>
+  v2 := T*v1;
+<font color="blue">end </font>multipleResolve2;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE resolveDyade1<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintI.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.resolveDyade1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.resolveDyade1"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices"
+>Modelica.Mechanics.MultiBody.Frames.TransformationMatrices</A>.resolveDyade1</H2>
+<B>Transform second order tensor from frame 2 to frame 1</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>Orientation</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>Orientation object to rotate frame 1 into frame 2</TD></TR>
+<TR><TD>Real</TD><TD>D2[3, 3]</TD><TD>&nbsp;</TD><TD>Second order tensor resolved in frame 2</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>D1[3, 3]</TD><TD>Second order tensor resolved in frame 1</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> resolveDyade1 <font color="darkgreen">
+  &quot;Transform second order tensor from frame 2 to frame 1&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> T <font color="darkgreen">
+    &quot;Orientation object to rotate frame 1 into frame 2&quot;</font>;
+  <font color="blue">input </font>Real D2[3, 3] <font color="darkgreen">&quot;Second order tensor resolved in frame 2&quot;</font>;
+  <font color="blue">output </font>Real D1[3, 3] <font color="darkgreen">&quot;Second order tensor resolved in frame 1&quot;</font>;
+<font color="blue">algorithm </font>
+  D1 :=<font color="red"> transpose</font>(T)*D2*T;
+<font color="blue">end </font>resolveDyade1;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE resolveDyade2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintI.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.resolveDyade2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.resolveDyade2"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices"
+>Modelica.Mechanics.MultiBody.Frames.TransformationMatrices</A>.resolveDyade2</H2>
+<B>Transform second order tensor from frame 1 to frame 2</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>Orientation</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>Orientation object to rotate frame 1 into frame 2</TD></TR>
+<TR><TD>Real</TD><TD>D1[3, 3]</TD><TD>&nbsp;</TD><TD>Second order tensor resolved in frame 1</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>D2[3, 3]</TD><TD>Second order tensor resolved in frame 2</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> resolveDyade2 <font color="darkgreen">
+  &quot;Transform second order tensor from frame 1 to frame 2&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> T <font color="darkgreen">
+    &quot;Orientation object to rotate frame 1 into frame 2&quot;</font>;
+  <font color="blue">input </font>Real D1[3, 3] <font color="darkgreen">&quot;Second order tensor resolved in frame 1&quot;</font>;
+  <font color="blue">output </font>Real D2[3, 3] <font color="darkgreen">&quot;Second order tensor resolved in frame 2&quot;</font>;
+<font color="blue">algorithm </font>
+  D2 := T*D1*<font color="red">transpose</font>(T);
+<font color="blue">end </font>resolveDyade2;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE nullRotation<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintI.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.nullRotation" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.nullRotation"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices"
+>Modelica.Mechanics.MultiBody.Frames.TransformationMatrices</A>.nullRotation</H2>
+<B>Return orientation object that does not rotate a frame</B><p>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>Orientation</A></TD><TD>T</TD><TD>Orientation object such that frame 1 and frame 2 are identical</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> nullRotation <font color="darkgreen">
+  &quot;Return orientation object that does not rotate a frame&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">output </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> T <font color="darkgreen">
+    &quot;Orientation object such that frame 1 and frame 2 are identical&quot;</font>;
+<font color="blue">algorithm </font>
+  T :=<font color="red"> identity</font>(3);
+<font color="blue">end </font>nullRotation;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE inverseRotation<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintI.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.inverseRotation" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.inverseRotation"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices"
+>Modelica.Mechanics.MultiBody.Frames.TransformationMatrices</A>.inverseRotation</H2>
+<B>Return inverse orientation object</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>Orientation</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>Orientation object to rotate frame 1 into frame 2</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>Orientation</A></TD><TD>T_inv</TD><TD>Orientation object to rotate frame 2 into frame 1</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> inverseRotation <font color="darkgreen">&quot;Return inverse orientation object&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> T <font color="darkgreen">
+    &quot;Orientation object to rotate frame 1 into frame 2&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> T_inv <font color="darkgreen">
+    &quot;Orientation object to rotate frame 2 into frame 1&quot;</font>;
+<font color="blue">algorithm </font>
+  T_inv :=<font color="red"> transpose</font>(T);
+<font color="blue">end </font>inverseRotation;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE relativeRotation<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintI.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.relativeRotation" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.relativeRotation"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices"
+>Modelica.Mechanics.MultiBody.Frames.TransformationMatrices</A>.relativeRotation</H2>
+<B>Return relative orientation object</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>Orientation</A></TD><TD>T1</TD><TD>&nbsp;</TD><TD>Orientation object to rotate frame 0 into frame 1</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>Orientation</A></TD><TD>T2</TD><TD>&nbsp;</TD><TD>Orientation object to rotate frame 0 into frame 2</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>Orientation</A></TD><TD>T_rel</TD><TD>Orientation object to rotate frame 1 into frame 2</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> relativeRotation <font color="darkgreen">&quot;Return relative orientation object&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> T1 <font color="darkgreen">
+    &quot;Orientation object to rotate frame 0 into frame 1&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> T2 <font color="darkgreen">
+    &quot;Orientation object to rotate frame 0 into frame 2&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> T_rel <font color="darkgreen">
+    &quot;Orientation object to rotate frame 1 into frame 2&quot;</font>;
+<font color="blue">algorithm </font>
+  T_rel := T2*<font color="red">transpose</font>(T1);
+<font color="blue">end </font>relativeRotation;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE absoluteRotation<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintI.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.absoluteRotation" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.absoluteRotation"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices"
+>Modelica.Mechanics.MultiBody.Frames.TransformationMatrices</A>.absoluteRotation</H2>
+<B>Return absolute orientation object from another absolute and a relative orientation object</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>Orientation</A></TD><TD>T1</TD><TD>&nbsp;</TD><TD>Orientation object to rotate frame 0 into frame 1</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>Orientation</A></TD><TD>T_rel</TD><TD>&nbsp;</TD><TD>Orientation object to rotate frame 1 into frame 2</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>Orientation</A></TD><TD>T2</TD><TD>Orientation object to rotate frame 0 into frame 2</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> absoluteRotation <font color="darkgreen">
+  &quot;Return absolute orientation object from another absolute and a relative orientation object&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> T1 <font color="darkgreen">
+    &quot;Orientation object to rotate frame 0 into frame 1&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> T_rel <font color="darkgreen">
+    &quot;Orientation object to rotate frame 1 into frame 2&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> T2 <font color="darkgreen">
+    &quot;Orientation object to rotate frame 0 into frame 2&quot;</font>;
+<font color="blue">algorithm </font>
+  T2 := T_rel*T1;
+<font color="blue">end </font>absoluteRotation;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE planarRotation<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintI.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.planarRotation" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.planarRotation"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices"
+>Modelica.Mechanics.MultiBody.Frames.TransformationMatrices</A>.planarRotation</H2>
+<B>Return orientation object of a planar rotation</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>e[3]</TD><TD>&nbsp;</TD><TD>Normalized axis of rotation (must have length=1) [1]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>angle</TD><TD>&nbsp;</TD><TD>Rotation angle to rotate frame 1 into frame 2 along axis e [rad]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>Orientation</A></TD><TD>T</TD><TD>Orientation object to rotate frame 1 into frame 2</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> planarRotation <font color="darkgreen">
+  &quot;Return orientation object of a planar rotation&quot;</font>
+  <font color="blue">import </font><A HREF="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real e[3](<font color="blue">each </font><font color="blue">final </font>unit=&quot;1&quot;) <font color="darkgreen">
+    &quot;Normalized axis of rotation (must have length=1)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> angle <font color="darkgreen">
+    &quot;Rotation angle to rotate frame 1 into frame 2 along axis e&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> T <font color="darkgreen">
+    &quot;Orientation object to rotate frame 1 into frame 2&quot;</font>;
+<font color="blue">algorithm </font>
+  T := [e]*<font color="red">transpose</font>([e]) + (<font color="red">identity</font>(3) - [e]*<font color="red">transpose</font>([e]))*<font color="red">Math.cos</font>(
+    angle) -<font color="red"> skew</font>(e)*<font color="red">Math.sin</font>(angle);
+<font color="blue">end </font>planarRotation;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE planarRotationAngle<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintI.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.planarRotationAngle" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.planarRotationAngle"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices"
+>Modelica.Mechanics.MultiBody.Frames.TransformationMatrices</A>.planarRotationAngle</H2>
+<B>Return angle of a planar rotation, given the rotation axis and the representations of a vector in frame 1 and frame 2</B><p>
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+A call to this function of the form
+</p>
+<pre>
+    Real[3]                e, v1, v2;
+    Modelica.SIunits.Angle angle;
+  <b>equation</b>
+    angle = <b>planarRotationAngle</b>(e, v1, v2);
+</pre>
+<p>
+computes the rotation angle "<b>angle</b>" of a planar
+rotation along unit vector <b>e</b>, rotating frame 1 into frame 2, given
+the coordinate representations of a vector "v" in frame 1 (<b>v1</b>)
+and in frame 2 (<b>v2</b>). Therefore, the result of this function
+fulfills the following equation:
+</p>
+<pre>
+    v2 = <b>resolve2</b>(<b>planarRotation</b>(e,angle), v1)
+</pre>
+<p>
+The rotation angle is returned in the range
+</p>
+<pre>
+    -<font face="Symbol">p</font> &lt;= angle &lt;= <font face="Symbol">p</font>
+</pre>
+<p>
+This function makes the following assumptions on the input arguments
+</p>
+<ul>
+<li> Vector <b>e</b> has length 1, i.e., length(e) = 1</li>
+<li> Vector "v" is not parallel to <b>e</b>, i.e.,
+     length(cross(e,v1)) &ne; 0</li>
+</ul>
+<p>
+The function does not check the above assumptions. If these
+assumptions are violated, a wrong result will be returned
+and/or a division by zero will occur.
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for a function).
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>e[3]</TD><TD>&nbsp;</TD><TD>Normalized axis of rotation to rotate frame 1 around e into frame 2 (must have length=1) [1]</TD></TR>
+<TR><TD>Real</TD><TD>v1[3]</TD><TD>&nbsp;</TD><TD>A vector v resolved in frame 1 (shall not be parallel to e)</TD></TR>
+<TR><TD>Real</TD><TD>v2[3]</TD><TD>&nbsp;</TD><TD>Vector v resolved in frame 2, i.e., v2 = resolve2(planarRotation(e,angle),v1)</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>angle</TD><TD>Rotation angle to rotate frame 1 into frame 2 along axis e in the range: -pi &lt;= angle &lt;= pi [rad]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> planarRotationAngle <font color="darkgreen">
+  &quot;Return angle of a planar rotation, given the rotation axis and the representations of a vector in frame 1 and frame 2&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real e[3](<font color="blue">each </font><font color="blue">final </font>unit=&quot;1&quot;) <font color="darkgreen">
+    &quot;Normalized axis of rotation to rotate frame 1 around e into frame 2 (must have length=1)&quot;</font>;
+  <font color="blue">input </font>Real v1[3] <font color="darkgreen">
+    &quot;A vector v resolved in frame 1 (shall not be parallel to e)&quot;</font>;
+  <font color="blue">input </font>Real v2[3] <font color="darkgreen">
+    &quot;Vector v resolved in frame 2, i.e., v2 = resolve2(planarRotation(e,angle),v1)&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> angle <font color="darkgreen">
+    &quot;Rotation angle to rotate frame 1 into frame 2 along axis e in the range: -pi &lt;= angle &lt;= pi&quot;</font>;
+<font color="blue">algorithm </font>
+  <font color="darkgreen">/* Vector v is resolved in frame 1 and frame 2 according to:
+        (1)  v2 = (e*transpose(e) + (identity(3) - e*transpose(e))*cos(angle) - skew(e)*sin(angle))*v1;
+                = e*(e*v1) + (v1 - e*(e*v1))*cos(angle) - cross(e,v1)*sin(angle)
+       Equation (1) is multiplied with &quot;v1&quot; resulting in (note: e*e = 1)
+            v1*v2 = (e*v1)*(e*v2) + (v1*v1 - (e*v1)*(e*v1))*cos(angle)
+       and therefore:
+        (2) cos(angle) = ( v1*v2 - (e*v1)*(e*v2)) / (v1*v1 - (e*v1)*(e*v1))
+       Similiarly, equation (1) is multiplied with cross(e,v1), i.e., a
+       a vector that is orthogonal to e and to v1:
+              cross(e,v1)*v2 = - cross(e,v1)*cross(e,v1)*sin(angle)
+       and therefore:
+          (3) sin(angle) = -cross(e,v1)*v2/(cross(e,v1)*cross(e,v1));
+       We have e*e=1; Therefore:
+          (4) v1*v1 - (e*v1)*(e*v1) = |v1|^2 - (|v1|*cos(e,v1))^2
+       and
+          (5) cross(e,v1)*cross(e,v1) = (|v1|*sin(e,v1))^2
+                                      = |v1|^2*(1 - cos(e,v1)^2)
+                                      = |v1|^2 - (|v1|*cos(e,v1))^2
+       The denominators of (2) and (3) are identical, according to (4) and (5).
+       Furthermore, the denominators are always positive according to (5).
+       Therefore, in the equation &quot;angle = atan2(sin(angle), cos(angle))&quot; the
+       denominators of sin(angle) and cos(angle) can be removed,
+       resulting in:
+          angle = atan2(-cross(e,v1)*v2, v1*v2 - (e*v1)*(e*v2));
+    */</font>
+  angle :=<font color="red"> Modelica.Math.atan2</font>(-<font color="red">cross</font>(e, v1)*v2, v1*v2 - (e*v1)*(e*v2));
+<font color="blue">end </font>planarRotationAngle;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE axisRotation<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintI.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.axisRotation" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.axisRotation"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices"
+>Modelica.Mechanics.MultiBody.Frames.TransformationMatrices</A>.axisRotation</H2>
+<B>Return rotation object to rotate around one frame axis</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>axis</TD><TD>&nbsp;</TD><TD>Rotate around &#39;axis&#39; of frame 1</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>angle</TD><TD>&nbsp;</TD><TD>Rotation angle to rotate frame 1 into frame 2 along &#39;axis&#39; of frame 1 [rad]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>Orientation</A></TD><TD>T</TD><TD>Orientation object to rotate frame 1 into frame 2</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> axisRotation <font color="darkgreen">
+  &quot;Return rotation object to rotate around one frame axis&quot;</font>
+  <font color="blue">import </font><A HREF="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</A>.*;
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Integer axis(min=1, max=3) <font color="darkgreen">&quot;Rotate around &#39;axis&#39; of frame 1&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> angle <font color="darkgreen">
+    &quot;Rotation angle to rotate frame 1 into frame 2 along &#39;axis&#39; of frame 1&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> T <font color="darkgreen">
+    &quot;Orientation object to rotate frame 1 into frame 2&quot;</font>;
+<font color="blue">algorithm </font>
+  T := <font color="blue">if </font>axis == 1<font color="blue"> then </font>[1, 0, 0; 0,<font color="red"> cos</font>(angle),<font color="red"> sin</font>(angle); 0, -<font color="red">sin</font>(angle),
+     <font color="red">cos</font>(angle)]<font color="blue"> else </font><font color="blue">if </font>axis == 2<font color="blue"> then </font>[<font color="red">cos</font>(angle), 0, -<font color="red">sin</font>(angle); 0, 1,
+    0;<font color="red"> sin</font>(angle), 0,<font color="red"> cos</font>(angle)]<font color="blue"> else </font>[<font color="red">cos</font>(angle),<font color="red"> sin</font>(angle), 0; -<font color="red">sin</font>(
+    angle),<font color="red"> cos</font>(angle), 0; 0, 0, 1];
+<font color="blue">end </font>axisRotation;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE axesRotations<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintI.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.axesRotations" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.axesRotations"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices"
+>Modelica.Mechanics.MultiBody.Frames.TransformationMatrices</A>.axesRotations</H2>
+<B>Return rotation object to rotate in sequence around 3 axes</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>sequence[3]</TD><TD>{1,2,3}</TD><TD>Sequence of rotations from frame 1 to frame 2 along axis sequence[i]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>angles[3]</TD><TD>{0,0,0}</TD><TD>Rotation angles around the axes defined in &#39;sequence&#39; [rad]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>Orientation</A></TD><TD>T</TD><TD>Orientation object to rotate frame 1 into frame 2</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> axesRotations <font color="darkgreen">
+  &quot;Return rotation object to rotate in sequence around 3 axes&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Integer sequence[3](
+    min={1,1,1},
+    max={3,3,3}) = {1,2,3} <font color="darkgreen">
+    &quot;Sequence of rotations from frame 1 to frame 2 along axis sequence[i]&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> angles[3]={0,0,0} <font color="darkgreen">
+    &quot;Rotation angles around the axes defined in &#39;sequence&#39;&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> T <font color="darkgreen">
+    &quot;Orientation object to rotate frame 1 into frame 2&quot;</font>;
+<font color="blue">algorithm </font>
+  T :=<font color="red"> absoluteRotation</font>(<font color="red">absoluteRotation</font>(<font color="red">axisRotation</font>(sequence[1], angles[1]),
+     <font color="red">axisRotation</font>(sequence[2], angles[2])),<font color="red"> axisRotation</font>(sequence[3],
+    angles[3]));
+<font color="blue">end </font>axesRotations;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE axesRotationsAngles<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintI.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.axesRotationsAngles" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.axesRotationsAngles"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices"
+>Modelica.Mechanics.MultiBody.Frames.TransformationMatrices</A>.axesRotationsAngles</H2>
+<B>Return the 3 angles to rotate in sequence around 3 axes to construct the given orientation object</B><p>
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+A call to this function of the form
+</p>
+<pre>
+    TransformationMatrices.Orientation     T;
+    <b>parameter</b> Integer      sequence[3] = {1,2,3};
+    Modelica.SIunits.Angle angles[3];
+  <b>equation</b>
+    angle = <b>axesRotationAngles</b>(T, sequence);
+</pre>
+<p>
+computes the rotation angles "<b>angles</b>[1:3]" to rotate frame 1
+into frame 2 along axes <b>sequence</b>[1:3], given the orientation
+object <b>T</b> from frame 1 to frame 2. Therefore, the result of
+this function fulfills the following equation:
+</p>
+<pre>
+    T = <b>axesRotation</b>(sequence, angles)
+</pre>
+<p>
+The rotation angles are returned in the range
+</p>
+<pre>
+    -<font face="Symbol">p</font> &lt;= angles[i] &lt;= <font face="Symbol">p</font>
+</pre>
+<p>
+There are <b>two solutions</b> for "angles[1]" in this range.
+Via the third argument <b>guessAngle1</b> (default = 0) the
+returned solution is selected such that |angles[1] - guessAngle1| is
+minimal. The orientation object T may be in a singular configuration, i.e.,
+there is an infinite number of angle values leading to the same T. The returned solution is
+selected by setting angles[1] = guessAngle1. Then angles[2]
+and angles[3] can be uniquely determined in the above range.
+</p>
+<p>
+Note, that input argument <b>sequence</b> has the restriction that
+only values 1,2,3 can be used and that sequence[1] &ne; sequence[2]
+and sequence[2] &ne; sequence[3]. Often used values are:
+</p>
+<pre>
+  sequence = <b>{1,2,3}</b>  // Cardan angle sequence
+           = <b>{3,1,3}</b>  // Euler angle sequence
+           = <b>{3,2,1}</b>  // Tait-Bryan angle sequence
+</pre>
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for a function).
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>Orientation</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>Orientation object to rotate frame 1 into frame 2</TD></TR>
+<TR><TD>Integer</TD><TD>sequence[3]</TD><TD>{1,2,3}</TD><TD>Sequence of rotations from frame 1 to frame 2 along axis sequence[i]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>guessAngle1</TD><TD>0</TD><TD>Select angles[1] such that |angles[1] - guessAngle1| is a minimum [rad]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>angles[3]</TD><TD>Rotation angles around the axes defined in &#39;sequence&#39; such that T=TransformationMatrices.axesRotation(sequence,angles); -pi &lt; angles[i] &lt;= pi [rad]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> axesRotationsAngles <font color="darkgreen">
+  &quot;Return the 3 angles to rotate in sequence around 3 axes to construct the given orientation object&quot;</font>
+
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> T <font color="darkgreen">
+    &quot;Orientation object to rotate frame 1 into frame 2&quot;</font>;
+  <font color="blue">input </font>Integer sequence[3](
+    min={1,1,1},
+    max={3,3,3}) = {1,2,3} <font color="darkgreen">
+    &quot;Sequence of rotations from frame 1 to frame 2 along axis sequence[i]&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> guessAngle1=0 <font color="darkgreen">
+    &quot;Select angles[1] such that |angles[1] - guessAngle1| is a minimum&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> angles[3] <font color="darkgreen">
+    &quot;Rotation angles around the axes defined in &#39;sequence&#39; such that T=TransformationMatrices.axesRotation(sequence,angles); -pi &lt; angles[i] &lt;= pi&quot;</font>;
+<font color="blue">protected </font>
+  Real e1_1[3](<font color="blue">each </font><font color="blue">final </font>unit=&quot;1&quot;) <font color="darkgreen">&quot;First rotation axis, resolved in frame 1&quot;</font>;
+  Real e2_1a[3](<font color="blue">each </font><font color="blue">final </font>unit=&quot;1&quot;) <font color="darkgreen">
+    &quot;Second rotation axis, resolved in frame 1a&quot;</font>;
+  Real e3_1[3](<font color="blue">each </font><font color="blue">final </font>unit=&quot;1&quot;) <font color="darkgreen">&quot;Third rotation axis, resolved in frame 1&quot;</font>;
+  Real e3_2[3](<font color="blue">each </font><font color="blue">final </font>unit=&quot;1&quot;) <font color="darkgreen">&quot;Third rotation axis, resolved in frame 2&quot;</font>;
+  Real A <font color="darkgreen">&quot;Coefficient A in the equation A*cos(angles[1])+B*sin(angles[1]) = 0&quot;</font>;
+  Real B <font color="darkgreen">&quot;Coefficient B in the equation A*cos(angles[1])+B*sin(angles[1]) = 0&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> angle_1a <font color="darkgreen">&quot;Solution 1 for angles[1]&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> angle_1b <font color="darkgreen">&quot;Solution 2 for angles[1]&quot;</font>;
+  <A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> T_1a <font color="darkgreen">
+    &quot;Orientation object to rotate frame 1 into frame 1a&quot;</font>;
+<font color="blue">algorithm </font>
+  <font color="darkgreen">/* The rotation object T is constructed by:
+     (1) Rotating frame 1 along axis e1 (= axis sequence[1]) with angles[1]
+         arriving at frame 1a.
+     (2) Rotating frame 1a along axis e2 (= axis sequence[2]) with angles[2]
+         arriving at frame 1b.
+     (3) Rotating frame 1b along axis e3 (= axis sequence[3]) with angles[3]
+         arriving at frame 2.
+     The goal is to determine angles[1:3]. This is performed in the following way:
+     1. e2 and e3 are perpendicular to each other, i.e., e2*e3 = 0;
+        Both vectors are resolved in frame 1 (T_ij is transformation matrix
+        from frame j to frame i; e1_1*e2_1a = 0, since the vectors are
+        perpendicular to each other):
+           e3_1 = T_12*e3_2
+                = T[sequence[3],:];
+           e2_1 = T_11a*e2_1a
+                = ( e1_1*transpose(e1_1) + (identity(3) - e1_1*transpose(e1_1))*cos(angles[1])
+                    + skew(e1_1)*sin(angles[1]) )*e2_1a
+                = e2_1a*cos(angles[1]) + cross(e1_1, e2_1a)*sin(angles[1]);
+        From this follows finally an equation for angles[1]
+           e2_1*e3_1 = 0
+                     = (e2_1a*cos(angles[1]) + cross(e1_1, e2_1a)*sin(angles[1]))*e3_1
+                     = (e2_1a*e3_1)*cos(angles[1]) + cross(e1_1, e2_1a)*e3_1*sin(angles[1])
+                     = A*cos(angles[1]) + B*sin(angles[1])
+                       with A = e2_1a*e3_1, B = cross(e1_1, e2_1a)*e3_1
+        This equation has two solutions in the range -pi &lt; angles[1] &lt;= pi:
+           sin(angles[1]) =  k*A/sqrt(A*A + B*B)
+           cos(angles[1]) = -k*B/sqrt(A*A + B*B)
+                        k = +/-1
+           tan(angles[1]) = k*A/(-k*B)
+        that is:
+           angles[1] = atan2(k*A, -k*B)
+        If A and B are both zero at the same time, there is a singular configuration
+        resulting in an infinite number of solutions for angles[1] (every value
+        is possible).
+     2. angles[2] is determined with function TransformationMatrices.planarRotationAngle.
+        This function requires to provide e_3 in frame 1a and in frame 1b:
+          e3_1a = TransformationMatrices.resolve2(planarRotation(e1_1,angles[1]), e3_1);
+          e3_1b = e3_2
+     3. angles[3] is determined with function TransformationMatrices.planarRotationAngle.
+        This function requires to provide e_2 in frame 1b and in frame 2:
+          e2_1b = e2_1a
+          e2_2  = TransformationMatrices.resolve2( T, TransformationMatrices.resolve1(planarRotation(e1_1,angles[1]), e2_1a));
+  */</font>
+  <font color="red">assert</font>(sequence[1] &lt;&gt; sequence[2]<font color="blue"> and </font>sequence[2] &lt;&gt; sequence[3],
+    &quot;input argument &#39;sequence[1:3]&#39; is not valid&quot;);
+  e1_1 := <font color="blue">if </font>sequence[1] == 1<font color="blue"> then </font>{1,0,0}<font color="blue"> else </font><font color="blue">if </font>sequence[1] == 2<font color="blue"> then </font>{0,
+    1,0}<font color="blue"> else </font>{0,0,1};
+  e2_1a := <font color="blue">if </font>sequence[2] == 1<font color="blue"> then </font>{1,0,0}<font color="blue"> else </font><font color="blue">if </font>sequence[2] == 2<font color="blue"> then </font>{
+    0,1,0}<font color="blue"> else </font>{0,0,1};
+  e3_1 := T[sequence[3], :];
+  e3_2 := <font color="blue">if </font>sequence[3] == 1<font color="blue"> then </font>{1,0,0}<font color="blue"> else </font><font color="blue">if </font>sequence[3] == 2<font color="blue"> then </font>{0,
+    1,0}<font color="blue"> else </font>{0,0,1};
+
+  A := e2_1a*e3_1;
+  B :=<font color="red"> cross</font>(e1_1, e2_1a)*e3_1;
+  <font color="blue">if </font><font color="red">abs</font>(A) &lt;= 1.e-12<font color="blue"> and </font><font color="red">abs</font>(B) &lt;= 1.e-12<font color="blue"> then</font>
+    angles[1] := guessAngle1;
+  <font color="blue">else</font>
+    angle_1a :=<font color="red"> Modelica.Math.atan2</font>(A, -B);
+    angle_1b :=<font color="red"> Modelica.Math.atan2</font>(-A, B);
+    angles[1] := <font color="blue">if </font><font color="red">abs</font>(angle_1a - guessAngle1) &lt;=<font color="red"> abs</font>(angle_1b -
+      guessAngle1)<font color="blue"> then </font>angle_1a<font color="blue"> else </font>angle_1b;
+  <font color="blue">end if</font>;
+  T_1a :=<font color="red"> planarRotation</font>(e1_1, angles[1]);
+  angles[2] :=<font color="red"> TransformationMatrices.planarRotationAngle</font>(e2_1a,
+    <font color="red">TransformationMatrices.resolve2</font>(T_1a, e3_1), e3_2);
+  angles[3] :=<font color="red"> TransformationMatrices.planarRotationAngle</font>(e3_2, e2_1a,
+    <font color="red">TransformationMatrices.resolve2</font>(T,<font color="red"> TransformationMatrices.resolve1</font>(T_1a,
+     e2_1a)));
+
+<font color="blue">end </font>axesRotationsAngles;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE smallRotation<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintI.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.smallRotation" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.smallRotation"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices"
+>Modelica.Mechanics.MultiBody.Frames.TransformationMatrices</A>.smallRotation</H2>
+<B>Return rotation angles valid for a small rotation and optionally residues that should be zero</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>Orientation</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>Orientation object to rotate frame 1 into frame 2</TD></TR>
+<TR><TD>Boolean</TD><TD>withResidues</TD><TD>false</TD><TD>= false/true, if &#39;angles&#39;/&#39;angles and residues&#39; are returned in phi</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>phi[if withResidues then 6 else 3]</TD><TD>The rotation angles around x-, y-, and z-axis of frame 1 to rotate frame 1 into frame 2 for a small rotation + optionally 3 residues that should be zero [rad]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> smallRotation <font color="darkgreen">
+  &quot;Return rotation angles valid for a small rotation and optionally residues that should be zero&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> T <font color="darkgreen">
+    &quot;Orientation object to rotate frame 1 into frame 2&quot;</font>;
+  <font color="blue">input </font>Boolean withResidues=false <font color="darkgreen">
+    &quot;= false/true, if &#39;angles&#39;/&#39;angles and residues&#39; are returned in phi&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> phi[<font color="blue">if </font>withResidues<font color="blue"> then </font>6<font color="blue"> else </font>3] <font color="darkgreen">
+    &quot;The rotation angles around x-, y-, and z-axis of frame 1 to rotate frame 1 into frame 2 for a small rotation + optionally 3 residues that should be zero&quot;</font>;
+<font color="blue">algorithm </font>
+  <font color="darkgreen">/* Planar rotation:
+       Trel = [e]*transpose([e]) + (identity(3) - [e]*transpose([e]))*cos(angle) - skew(e)*sin(angle)
+            = identity(3) - skew(e)*angle, for small angles
+            = identity(3) - skew(e*angle)
+               define phi = e*angle, then
+       Trel = [1,      phi3,   -phi2;
+               -phi3,     1,    phi1;
+                phi2, -phi1,       1 ];
+  */</font>
+  phi := <font color="blue">if </font>withResidues<font color="blue"> then </font>{T[2, 3],-T[1, 3],T[1, 2],T[1, 1] - 1,T[2, 2]
+     - 1,T[1, 1]*T[2, 2] - T[2, 1]*T[1, 2] - 1}<font color="blue"> else </font>{T[2, 3],-T[1, 3],T[1,
+     2]};
+<font color="blue">end </font>smallRotation;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE from_nxy<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintI.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_nxy" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_nxy"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices"
+>Modelica.Mechanics.MultiBody.Frames.TransformationMatrices</A>.from_nxy</H2>
+<B>Return orientation object from n_x and n_y vectors</B><p>
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+It is assumed that the two input vectors n_x and n_y are
+resolved in frame 1 and are directed along the x and y axis
+of frame 2 (i.e., n_x and n_y are orthogonal to each other)
+The function returns the orientation object T to rotate from
+frame 1 to frame 2.
+</p>
+<p>
+The function is robust in the sense that it returns always
+an orientation object T, even if n_y is not orthogonal to n_x.
+This is performed in the following way:
+</p>
+<p>
+If n_x and n_y are not orthogonal to each other, first a unit
+vector e_y is determined that is orthogonal to n_x and is lying
+in the plane spanned by n_x and n_y. If n_x and n_y are parallel
+or nearly parallel to each other, a vector e_y is selected
+arbitrarily such that e_x and e_y are orthogonal to each other.
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for a function).
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>n_x[3]</TD><TD>&nbsp;</TD><TD>Vector in direction of x-axis of frame 2, resolved in frame 1 [1]</TD></TR>
+<TR><TD>Real</TD><TD>n_y[3]</TD><TD>&nbsp;</TD><TD>Vector in direction of y-axis of frame 2, resolved in frame 1 [1]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>Orientation</A></TD><TD>T</TD><TD>Orientation object to rotate frame 1 into frame 2</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> from_nxy <font color="darkgreen">
+  &quot;Return orientation object from n_x and n_y vectors&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real n_x[3](<font color="blue">each </font><font color="blue">final </font>unit=&quot;1&quot;) <font color="darkgreen">
+    &quot;Vector in direction of x-axis of frame 2, resolved in frame 1&quot;</font>;
+  <font color="blue">input </font>Real n_y[3](<font color="blue">each </font><font color="blue">final </font>unit=&quot;1&quot;) <font color="darkgreen">
+    &quot;Vector in direction of y-axis of frame 2, resolved in frame 1&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> T <font color="darkgreen">
+    &quot;Orientation object to rotate frame 1 into frame 2&quot;</font>;
+<font color="blue">protected </font>
+  Real abs_n_x=<font color="red">sqrt</font>(n_x*n_x);
+  Real e_x[3](<font color="blue">each </font><font color="blue">final </font>unit=&quot;1&quot;)=<font color="blue">if </font>abs_n_x &lt; 1.e-10<font color="blue"> then </font>{1,0,0}<font color="blue"> else </font>n_x/abs_n_x;
+  Real n_z_aux[3](<font color="blue">each </font><font color="blue">final </font>unit=&quot;1&quot;)=<font color="red">cross</font>(e_x, n_y);
+  Real n_y_aux[3](<font color="blue">each </font><font color="blue">final </font>unit=&quot;1&quot;)=<font color="blue">if </font>n_z_aux*n_z_aux &gt; 1.0e-6<font color="blue"> then </font>n_y<font color="blue"> else </font>(<font color="blue">if </font><font color="red">abs</font>(e_x[1])
+       &gt; 1.0e-6<font color="blue"> then </font>{0,1,0}<font color="blue"> else </font>{1,0,0});
+  Real e_z_aux[3](<font color="blue">each </font><font color="blue">final </font>unit=&quot;1&quot;)=<font color="red">cross</font>(e_x, n_y_aux);
+  Real e_z[3](<font color="blue">each </font><font color="blue">final </font>unit=&quot;1&quot;)=e_z_aux/<font color="red">sqrt</font>(e_z_aux*e_z_aux);
+<font color="blue">algorithm </font>
+  T := {e_x,<font color="red">cross</font>(e_z, e_x),e_z};
+<font color="blue">end </font>from_nxy;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE from_nxz<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintI.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_nxz" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_nxz"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices"
+>Modelica.Mechanics.MultiBody.Frames.TransformationMatrices</A>.from_nxz</H2>
+<B>Return orientation object from n_x and n_z vectors</B><p>
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+It is assumed that the two input vectors n_x and n_z are
+resolved in frame 1 and are directed along the x and z axis
+of frame 2 (i.e., n_x and n_z are orthogonal to each other)
+The function returns the orientation object T to rotate from
+frame 1 to frame 2.
+</p>
+<p>
+The function is robust in the sense that it returns always
+an orientation object T, even if n_z is not orthogonal to n_x.
+This is performed in the following way:
+</p>
+<p>
+If n_x and n_z are not orthogonal to each other, first a unit
+vector e_z is determined that is orthogonal to n_x and is lying
+in the plane spanned by n_x and n_z. If n_x and n_z are parallel
+or nearly parallel to each other, a vector e_z is selected
+arbitrarily such that n_x and e_z are orthogonal to each other.
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for a function).
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>n_x[3]</TD><TD>&nbsp;</TD><TD>Vector in direction of x-axis of frame 2, resolved in frame 1 [1]</TD></TR>
+<TR><TD>Real</TD><TD>n_z[3]</TD><TD>&nbsp;</TD><TD>Vector in direction of z-axis of frame 2, resolved in frame 1 [1]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>Orientation</A></TD><TD>T</TD><TD>Orientation object to rotate frame 1 into frame 2</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> from_nxz <font color="darkgreen">
+  &quot;Return orientation object from n_x and n_z vectors&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real n_x[3](<font color="blue">each </font><font color="blue">final </font>unit=&quot;1&quot;) <font color="darkgreen">
+    &quot;Vector in direction of x-axis of frame 2, resolved in frame 1&quot;</font>;
+  <font color="blue">input </font>Real n_z[3](<font color="blue">each </font><font color="blue">final </font>unit=&quot;1&quot;) <font color="darkgreen">
+    &quot;Vector in direction of z-axis of frame 2, resolved in frame 1&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> T <font color="darkgreen">
+    &quot;Orientation object to rotate frame 1 into frame 2&quot;</font>;
+<font color="blue">protected </font>
+  Real abs_n_x=<font color="red">sqrt</font>(n_x*n_x);
+  Real e_x[3](<font color="blue">each </font><font color="blue">final </font>unit=&quot;1&quot;)=<font color="blue">if </font>abs_n_x &lt; 1.e-10<font color="blue"> then </font>{1,0,0}<font color="blue"> else </font>n_x/abs_n_x;
+  Real n_y_aux[3](<font color="blue">each </font><font color="blue">final </font>unit=&quot;1&quot;)=<font color="red">cross</font>(n_z, e_x);
+  Real n_z_aux[3](<font color="blue">each </font><font color="blue">final </font>unit=&quot;1&quot;)=<font color="blue">if </font>n_y_aux*n_y_aux &gt; 1.0e-6<font color="blue"> then </font>n_z<font color="blue"> else </font>(<font color="blue">if </font><font color="red">abs</font>(e_x[1])
+       &gt; 1.0e-6<font color="blue"> then </font>{0,0,1}<font color="blue"> else </font>{1,0,0});
+  Real e_y_aux[3](<font color="blue">each </font><font color="blue">final </font>unit=&quot;1&quot;)=<font color="red">cross</font>(n_z_aux, e_x);
+  Real e_y[3](<font color="blue">each </font><font color="blue">final </font>unit=&quot;1&quot;)=e_y_aux/<font color="red">sqrt</font>(e_y_aux*e_y_aux);
+<font color="blue">algorithm </font>
+  T := {e_x,e_y,<font color="red">cross</font>(e_x, e_y)};
+<font color="blue">end </font>from_nxz;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE from_T<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintI.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_T" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_T"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices"
+>Modelica.Mechanics.MultiBody.Frames.TransformationMatrices</A>.from_T</H2>
+<B>Return orientation object R from transformation matrix T</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>T[3, 3]</TD><TD>&nbsp;</TD><TD>Transformation matrix to transform vector from frame 1 to frame 2 (v2=T*v1)</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>Orientation</A></TD><TD>R</TD><TD>Orientation object to rotate frame 1 into frame 2</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> from_T <font color="darkgreen">
+  &quot;Return orientation object R from transformation matrix T&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real T[3, 3] <font color="darkgreen">
+    &quot;Transformation matrix to transform vector from frame 1 to frame 2 (v2=T*v1)&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> R <font color="darkgreen">
+    &quot;Orientation object to rotate frame 1 into frame 2&quot;</font>;
+<font color="blue">algorithm </font>
+  R := T;
+<font color="blue">end </font>from_T;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE from_T_inv<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintI.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_T_inv" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_T_inv"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices"
+>Modelica.Mechanics.MultiBody.Frames.TransformationMatrices</A>.from_T_inv</H2>
+<B>Return orientation object R from inverse transformation matrix T_inv</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>T_inv[3, 3]</TD><TD>&nbsp;</TD><TD>Inverse transformation matrix to transform vector from frame 2 to frame 1 (v1=T_inv*v2)</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>Orientation</A></TD><TD>R</TD><TD>Orientation object to rotate frame 1 into frame 2</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> from_T_inv <font color="darkgreen">
+  &quot;Return orientation object R from inverse transformation matrix T_inv&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real T_inv[3, 3] <font color="darkgreen">
+    &quot;Inverse transformation matrix to transform vector from frame 2 to frame 1 (v1=T_inv*v2)&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> R <font color="darkgreen">
+    &quot;Orientation object to rotate frame 1 into frame 2&quot;</font>;
+<font color="blue">algorithm </font>
+  R :=<font color="red"> transpose</font>(T_inv);
+<font color="blue">end </font>from_T_inv;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE from_Q<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintI.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_Q" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_Q"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices"
+>Modelica.Mechanics.MultiBody.Frames.TransformationMatrices</A>.from_Q</H2>
+<B>Return orientation object T from quaternion orientation object Q</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation"
+>Orientation</A></TD><TD>Q</TD><TD>&nbsp;</TD><TD>Quaternions orientation object to rotate frame 1 into frame 2</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>Orientation</A></TD><TD>T</TD><TD>Orientation object to rotate frame 1 into frame 2</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> from_Q <font color="darkgreen">
+  &quot;Return orientation object T from quaternion orientation object Q&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation"
+>Quaternions.Orientation</A> Q <font color="darkgreen">
+    &quot;Quaternions orientation object to rotate frame 1 into frame 2&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> T <font color="darkgreen">
+    &quot;Orientation object to rotate frame 1 into frame 2&quot;</font>;
+<font color="blue">algorithm </font>
+  <font color="darkgreen">/*
+  T := (2*Q[4]*Q[4] - 1)*identity(3) + 2*([Q[1:3]]*transpose([Q[1:3]]) - Q[4]*
+    skew(Q[1:3]));
+*/</font>
+  T := [2*(Q[1]*Q[1] + Q[4]*Q[4]) - 1, 2*(Q[1]*Q[2] + Q[3]*Q[4]), 2*(Q[1]*Q[
+    3] - Q[2]*Q[4]); 2*(Q[2]*Q[1] - Q[3]*Q[4]), 2*(Q[2]*Q[2] + Q[4]*Q[4])
+     - 1, 2*(Q[2]*Q[3] + Q[1]*Q[4]); 2*(Q[3]*Q[1] + Q[2]*Q[4]), 2*(Q[3]*Q[2]
+     - Q[1]*Q[4]), 2*(Q[3]*Q[3] + Q[4]*Q[4]) - 1];
+<font color="blue">end </font>from_Q;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE to_T<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintI.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_T" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_T"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices"
+>Modelica.Mechanics.MultiBody.Frames.TransformationMatrices</A>.to_T</H2>
+<B>Return transformation matrix T from orientation object R</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>Orientation</A></TD><TD>R</TD><TD>&nbsp;</TD><TD>Orientation object to rotate frame 1 into frame 2</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>T[3, 3]</TD><TD>Transformation matrix to transform vector from frame 1 to frame 2 (v2=T*v1)</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> to_T <font color="darkgreen">
+  &quot;Return transformation matrix T from orientation object R&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> R <font color="darkgreen">
+    &quot;Orientation object to rotate frame 1 into frame 2&quot;</font>;
+  <font color="blue">output </font>Real T[3, 3] <font color="darkgreen">
+    &quot;Transformation matrix to transform vector from frame 1 to frame 2 (v2=T*v1)&quot;</font>;
+<font color="blue">algorithm </font>
+  T := R;
+<font color="blue">end </font>to_T;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE to_T_inv<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintI.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_T_inv" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_T_inv"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices"
+>Modelica.Mechanics.MultiBody.Frames.TransformationMatrices</A>.to_T_inv</H2>
+<B>Return inverse transformation matrix T_inv from orientation object R</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>Orientation</A></TD><TD>R</TD><TD>&nbsp;</TD><TD>Orientation object to rotate frame 1 into frame 2</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>T_inv[3, 3]</TD><TD>Inverse transformation matrix to transform vector from frame 2 into frame 1 (v1=T_inv*v2)</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> to_T_inv <font color="darkgreen">
+  &quot;Return inverse transformation matrix T_inv from orientation object R&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> R <font color="darkgreen">
+    &quot;Orientation object to rotate frame 1 into frame 2&quot;</font>;
+  <font color="blue">output </font>Real T_inv[3, 3] <font color="darkgreen">
+    &quot;Inverse transformation matrix to transform vector from frame 2 into frame 1 (v1=T_inv*v2)&quot;</font>;
+<font color="blue">algorithm </font>
+  T_inv :=<font color="red"> transpose</font>(R);
+<font color="blue">end </font>to_T_inv;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE to_Q<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintI.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_Q" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_Q"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices"
+>Modelica.Mechanics.MultiBody.Frames.TransformationMatrices</A>.to_Q</H2>
+<B>Return quaternion orientation object Q from orientation object T</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>Orientation</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>Orientation object to rotate frame 1 into frame 2</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation"
+>Orientation</A></TD><TD>Q_guess</TD><TD>Quaternions.nullRotation()</TD><TD>Guess value for output Q (there are 2 solutions; the one closer to Q_guess is used</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation"
+>Orientation</A></TD><TD>Q</TD><TD>Quaternions orientation object to rotate frame 1 into frame 2</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> to_Q <font color="darkgreen">
+  &quot;Return quaternion orientation object Q from orientation object T&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> T <font color="darkgreen">
+    &quot;Orientation object to rotate frame 1 into frame 2&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation"
+>Quaternions.Orientation</A> Q_guess=<font color="red">Quaternions.nullRotation</font>() <font color="darkgreen">
+    &quot;Guess value for output Q (there are 2 solutions; the one closer to Q_guess is used&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Mechanics_MultiBody_Frames_Quaternions.html#Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation"
+>Quaternions.Orientation</A> Q <font color="darkgreen">
+    &quot;Quaternions orientation object to rotate frame 1 into frame 2&quot;</font>;
+<font color="blue">algorithm </font>
+  Q :=<font color="red"> Quaternions.from_T</font>(T, Q_guess);
+<font color="blue">end </font>to_Q;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE to_vector<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintI.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_vector" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_vector"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices"
+>Modelica.Mechanics.MultiBody.Frames.TransformationMatrices</A>.to_vector</H2>
+<B>Map rotation object into vector</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>Orientation</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>Orientation object to rotate frame 1 into frame 2</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>vec[9]</TD><TD>Elements of T in one vector</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> to_vector <font color="darkgreen">&quot;Map rotation object into vector&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> T <font color="darkgreen">
+    &quot;Orientation object to rotate frame 1 into frame 2&quot;</font>;
+  <font color="blue">output </font>Real vec[9] <font color="darkgreen">&quot;Elements of T in one vector&quot;</font>;
+<font color="blue">algorithm </font>
+  vec := {T[1, 1],T[2, 1],T[3, 1],T[1, 2],T[2, 2],T[3, 2],T[1, 3],T[2, 3],T[
+    3, 3]};
+<font color="blue">end </font>to_vector;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE to_exy<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.orientationConstraintI.png" ALT="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_exy" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_exy"></A><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices"
+>Modelica.Mechanics.MultiBody.Frames.TransformationMatrices</A>.to_exy</H2>
+<B>Map rotation object into e_x and e_y vectors of frame 2, resolved in frame 1</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>Orientation</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>Orientation object to rotate frame 1 into frame 2</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>exy[3, 2]</TD><TD>= [e_x, e_y] where e_x and e_y are axes unit vectors of frame 2, resolved in frame 1</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> to_exy <font color="darkgreen">
+  &quot;Map rotation object into e_x and e_y vectors of frame 2, resolved in frame 1&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>TransformationMatrices.Orientation</A> T <font color="darkgreen">
+    &quot;Orientation object to rotate frame 1 into frame 2&quot;</font>;
+  <font color="blue">output </font>Real exy[3, 2] <font color="darkgreen">
+    &quot;= [e_x, e_y] where e_x and e_y are axes unit vectors of frame 2, resolved in frame 1&quot;</font>;
+<font color="blue">algorithm </font>
+  exy := [T[1, :], T[2, :]];
+<font color="blue">end </font>to_exy;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.Dymola.com/">Dymola</a> Mon Sep  7 10:15:38 2009.
+</address></BODY>
+</HTML>

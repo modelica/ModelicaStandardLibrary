@@ -1,0 +1,928 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.MultiPhase.Ideal</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Multiphase components with idealized behaviour&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Ideal<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.MultiPhase.Ideal"></A><A HREF="Modelica_Electrical_MultiPhase.html#Modelica.Electrical.MultiPhase"
+>Modelica.Electrical.MultiPhase</A>.Ideal</H2>
+<B>Multiphase components with idealized behaviour</B>
+<P>
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains analog electrical multiphase components with idealized behaviour,
+like thyristor, diode, switch, transformer.
+</p>
+
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_Library2.html#Modelica.Icons.Library2"
+>Modelica.Icons.Library2</A> (Icon for library where additional icon elements shall be added).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealThyristorS.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealThyristor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal.IdealThyristor"
+>IdealThyristor</A>
+</TD><TD>Multiphase ideal thyristor</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealThyristorS.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealGTOThyristor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal.IdealGTOThyristor"
+>IdealGTOThyristor</A>
+</TD><TD>Multiphase ideal GTO thyristor</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitchS.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch"
+>IdealCommutingSwitch</A>
+</TD><TD>Multiphase ideal commuting switch</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealIntermediateSwitchS.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealIntermediateSwitch" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal.IdealIntermediateSwitch"
+>IdealIntermediateSwitch</A>
+</TD><TD>Multiphase ideal intermediate switch</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealDiodeS.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealDiode" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal.IdealDiode"
+>IdealDiode</A>
+</TD><TD>Multiphase ideal diode</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealTransformerS.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealTransformer" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal.IdealTransformer"
+>IdealTransformer</A>
+</TD><TD>Multiphase ideal transformer</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdleS.png" ALT="Modelica.Electrical.MultiPhase.Ideal.Idle" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal.Idle"
+>Idle</A>
+</TD><TD>Multiphase idle branch</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.MultiPhase.Ideal.ShortS.png" ALT="Modelica.Electrical.MultiPhase.Ideal.Short" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal.Short"
+>Short</A>
+</TD><TD>Multiphase short cut branch</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealOpeningSwitchS.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealOpeningSwitch" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal.IdealOpeningSwitch"
+>IdealOpeningSwitch</A>
+</TD><TD>Multiphase ideal opener</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitchS.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch"
+>IdealClosingSwitch</A>
+</TD><TD>Multiphase ideal closer</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.MultiPhase.Ideal.OpenerWithArcS.png" ALT="Modelica.Electrical.MultiPhase.Ideal.OpenerWithArc" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal.OpenerWithArc"
+>OpenerWithArc</A>
+</TD><TD>Multiphase opener with arc</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.MultiPhase.Ideal.CloserWithArcS.png" ALT="Modelica.Electrical.MultiPhase.Ideal.CloserWithArc" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal.CloserWithArc"
+>CloserWithArc</A>
+</TD><TD>Multiphase closer with arc</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IdealThyristor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealThyristorI.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealThyristor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Ideal.IdealThyristor"></A><A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal"
+>Modelica.Electrical.MultiPhase.Ideal</A>.IdealThyristor</H2>
+<B>Multiphase ideal thyristor</B><p>
+<IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealThyristorD.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealThyristor">
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A> (Component with one m-phase electric port), <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort</A> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>m</TD><TD>3</TD><TD>number of phases</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>Ron[m]</TD><TD>&nbsp;</TD><TD>Closed thyristor resistance [Ohm]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>Conductance</A></TD><TD>Goff[m]</TD><TD>&nbsp;</TD><TD>Opened thyristor conductance [S]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>Vknee[m]</TD><TD>&nbsp;</TD><TD>Treshold voltage [V]</TD></TR>
+<TR><TD>Integer</TD><TD>mh</TD><TD>m</TD><TD>Number of heatPorts=number of phases</TD></TR>
+<TR><TD>Boolean</TD><TD>useHeatPort</TD><TD>false</TD><TD>=true, if all HeatPorts are enabled</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T[mh]</TD><TD>fill(293.15, m)</TD><TD>Fixed device temperatures if useHeatPort = false [K]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>PositivePlug</A></TD><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>NegativePlug</A></TD><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a"
+>HeatPort_a</A></TD><TD>heatPort[mh]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>BooleanInput</A></TD><TD>fire[m]</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> IdealThyristor <font color="darkgreen">&quot;Multiphase ideal thyristor&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> Ron[m](<font color="blue">final </font>min=<font color="red">zeros</font>(m), start=<font color="red"> fill</font>(1.E-5, m)) <font color="darkgreen">
+    &quot;Closed thyristor resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>Modelica.SIunits.Conductance</A> Goff[m](<font color="blue">final </font>min=<font color="red">zeros</font>(m), start =<font color="red"> fill</font>(1.E-5, m)) <font color="darkgreen">
+    &quot;Opened thyristor conductance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> Vknee[m](<font color="blue">final </font>min=<font color="red">zeros</font>(m), start =<font color="red"> zeros</font>(m)) <font color="darkgreen">
+    &quot;Treshold voltage&quot;</font>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort</A>(<font color="blue">final </font>mh=m, <font color="blue">final </font>T=<font color="red">fill</font>(293.15,m));
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>Modelica.Blocks.Interfaces.BooleanInput</A> fire[m];
+  <A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealThyristor"
+>Modelica.Electrical.Analog.Ideal.IdealThyristor</A> idealThyristor[m](
+    <font color="blue">final </font>Ron=Ron,
+    <font color="blue">final </font>Goff=Goff,
+    <font color="blue">final </font>Vknee=Vknee,
+    <font color="blue">each </font><font color="blue">final </font>useHeatPort=useHeatPort);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(plug_p.pin, idealThyristor.p);
+  <font color="red">connect</font>(idealThyristor.n, plug_n.pin);
+  <font color="red">connect</font>(fire, idealThyristor.fire);
+  <font color="red">connect</font>(idealThyristor.heatPort, heatPort);
+<font color="blue">end </font>IdealThyristor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IdealGTOThyristor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealThyristorI.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealGTOThyristor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Ideal.IdealGTOThyristor"></A><A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal"
+>Modelica.Electrical.MultiPhase.Ideal</A>.IdealGTOThyristor</H2>
+<B>Multiphase ideal GTO thyristor</B><p>
+<IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealGTOThyristorD.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealGTOThyristor">
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m ideal GTO thyristors (Modelica.Electrical.Analog.Ideal.IdealGTOThyristor).
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A> (Component with one m-phase electric port), <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort</A> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>m</TD><TD>3</TD><TD>number of phases</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>Ron[m]</TD><TD>&nbsp;</TD><TD>Closed thyristor resistance [Ohm]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>Conductance</A></TD><TD>Goff[m]</TD><TD>&nbsp;</TD><TD>Opened thyristor conductance [S]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>Vknee[m]</TD><TD>&nbsp;</TD><TD>Treshold voltage [V]</TD></TR>
+<TR><TD>Integer</TD><TD>mh</TD><TD>m</TD><TD>Number of heatPorts=number of phases</TD></TR>
+<TR><TD>Boolean</TD><TD>useHeatPort</TD><TD>false</TD><TD>=true, if all HeatPorts are enabled</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T[mh]</TD><TD>fill(293.15, m)</TD><TD>Fixed device temperatures if useHeatPort = false [K]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>PositivePlug</A></TD><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>NegativePlug</A></TD><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a"
+>HeatPort_a</A></TD><TD>heatPort[mh]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>BooleanInput</A></TD><TD>fire[m]</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> IdealGTOThyristor <font color="darkgreen">&quot;Multiphase ideal GTO thyristor&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> Ron[m](<font color="blue">final </font>min=<font color="red">zeros</font>(m), start =<font color="red"> fill</font>(1.E-5, m)) <font color="darkgreen">
+    &quot;Closed thyristor resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>Modelica.SIunits.Conductance</A> Goff[m](<font color="blue">final </font>min=<font color="red">zeros</font>(m), start =<font color="red"> fill</font>(1.E-5, m)) <font color="darkgreen">
+    &quot;Opened thyristor conductance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> Vknee[m](<font color="blue">final </font>min=<font color="red">zeros</font>(m), start =<font color="red"> zeros</font>(m)) <font color="darkgreen">
+    &quot;Treshold voltage&quot;</font>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort</A>(<font color="blue">final </font>mh=m, <font color="blue">final </font>T=<font color="red">fill</font>(293.15,m));
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>Modelica.Blocks.Interfaces.BooleanInput</A> fire[m];
+  <A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealGTOThyristor"
+>Modelica.Electrical.Analog.Ideal.IdealGTOThyristor</A> idealGTOThyristor[m](
+    <font color="blue">final </font>Ron=Ron,
+    <font color="blue">final </font>Goff=Goff,
+    <font color="blue">final </font>Vknee=Vknee,
+    <font color="blue">each </font><font color="blue">final </font>useHeatPort=useHeatPort);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(idealGTOThyristor.p, plug_p.pin);
+  <font color="red">connect</font>(idealGTOThyristor.n, plug_n.pin);
+  <font color="red">connect</font>(fire, idealGTOThyristor.fire);
+  <font color="red">connect</font>(idealGTOThyristor.heatPort, heatPort);
+<font color="blue">end </font>IdealGTOThyristor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IdealCommutingSwitch<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitchI.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch"></A><A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal"
+>Modelica.Electrical.MultiPhase.Ideal</A>.IdealCommutingSwitch</H2>
+<B>Multiphase ideal commuting switch</B><p>
+<IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitchD.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch">
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch).
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort</A> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>m</TD><TD>3</TD><TD>number of phases</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>Ron[m]</TD><TD>&nbsp;</TD><TD>Closed switch resistance [Ohm]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>Conductance</A></TD><TD>Goff[m]</TD><TD>&nbsp;</TD><TD>Opened switch conductance [S]</TD></TR>
+<TR><TD>Integer</TD><TD>mh</TD><TD>m</TD><TD>Number of heatPorts=number of phases</TD></TR>
+<TR><TD>Boolean</TD><TD>useHeatPort</TD><TD>false</TD><TD>=true, if all HeatPorts are enabled</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T[mh]</TD><TD>fill(293.15, m)</TD><TD>Fixed device temperatures if useHeatPort = false [K]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a"
+>HeatPort_a</A></TD><TD>heatPort[mh]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>BooleanInput</A></TD><TD>control[m]</TD><TD>true =&gt; p--n2 connected, false =&gt; p--n1 connected</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>PositivePlug</A></TD><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>NegativePlug</A></TD><TD>plug_n2</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>NegativePlug</A></TD><TD>plug_n1</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> IdealCommutingSwitch <font color="darkgreen">&quot;Multiphase ideal commuting switch&quot;</font>
+  <font color="blue">parameter </font>Integer m(<font color="blue">final </font>min=1) = 3 <font color="darkgreen">&quot;number of phases&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> Ron[m](<font color="blue">final </font>min=<font color="red">zeros</font>(m), start =<font color="red"> fill</font>(1.E-5, m)) <font color="darkgreen">
+    &quot;Closed switch resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>Modelica.SIunits.Conductance</A> Goff[m](<font color="blue">final </font>min=<font color="red">zeros</font>(m), start =<font color="red"> fill</font>(1.E-5, m)) <font color="darkgreen">
+    &quot;Opened switch conductance&quot;</font>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort</A>(<font color="blue">final </font>mh=m, <font color="blue">final </font>T=<font color="red">fill</font>(293.15,m));
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>Modelica.Blocks.Interfaces.BooleanInput</A> control[m] <font color="darkgreen">
+    &quot;true =&gt; p--n2 connected, false =&gt; p--n1 connected&quot;</font>;
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>Interfaces.PositivePlug</A> plug_p(<font color="blue">final </font>m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>Interfaces.NegativePlug</A> plug_n2(<font color="blue">final </font>m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>Interfaces.NegativePlug</A> plug_n1(<font color="blue">final </font>m=m);
+  <A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch"
+>Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch</A> idealCommutingSwitch[m](
+    <font color="blue">final </font>Ron=Ron,
+    <font color="blue">final </font>Goff=Goff,
+    <font color="blue">each </font><font color="blue">final </font>useHeatPort=useHeatPort);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(plug_p.pin, idealCommutingSwitch.p);
+  <font color="red">connect</font>(idealCommutingSwitch.n2, plug_n2.pin);
+  <font color="red">connect</font>(idealCommutingSwitch.n1, plug_n1.pin);
+  <font color="red">connect</font>(control, idealCommutingSwitch.control);
+  <font color="red">connect</font>(idealCommutingSwitch.heatPort, heatPort);
+<font color="blue">end </font>IdealCommutingSwitch;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IdealIntermediateSwitch<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealIntermediateSwitchI.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealIntermediateSwitch" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Ideal.IdealIntermediateSwitch"></A><A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal"
+>Modelica.Electrical.MultiPhase.Ideal</A>.IdealIntermediateSwitch</H2>
+<B>Multiphase ideal intermediate switch</B><p>
+<IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealIntermediateSwitchD.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealIntermediateSwitch">
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m ideal intermediate switches (Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch).
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort</A> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>m</TD><TD>3</TD><TD>number of phases</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>Ron[m]</TD><TD>&nbsp;</TD><TD>Closed switch resistance [Ohm]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>Conductance</A></TD><TD>Goff[m]</TD><TD>&nbsp;</TD><TD>Opened switch conductance [S]</TD></TR>
+<TR><TD>Integer</TD><TD>mh</TD><TD>m</TD><TD>Number of heatPorts=number of phases</TD></TR>
+<TR><TD>Boolean</TD><TD>useHeatPort</TD><TD>false</TD><TD>=true, if all HeatPorts are enabled</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T[mh]</TD><TD>fill(293.15, m)</TD><TD>Fixed device temperatures if useHeatPort = false [K]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a"
+>HeatPort_a</A></TD><TD>heatPort[mh]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>BooleanInput</A></TD><TD>control[m]</TD><TD>true =&gt; p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2 connected</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>PositivePlug</A></TD><TD>plug_p1</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>PositivePlug</A></TD><TD>plug_p2</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>NegativePlug</A></TD><TD>plug_n2</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>NegativePlug</A></TD><TD>plug_n1</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> IdealIntermediateSwitch <font color="darkgreen">&quot;Multiphase ideal intermediate switch&quot;</font>
+  <font color="blue">parameter </font>Integer m(<font color="blue">final </font>min=1) = 3 <font color="darkgreen">&quot;number of phases&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> Ron[m](<font color="blue">final </font>min=<font color="red">zeros</font>(m), start =<font color="red"> fill</font>(1.E-5, m)) <font color="darkgreen">
+    &quot;Closed switch resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>Modelica.SIunits.Conductance</A> Goff[m](<font color="blue">final </font>min=<font color="red">zeros</font>(m), start =<font color="red"> fill</font>(1.E-5, m)) <font color="darkgreen">
+    &quot;Opened switch conductance&quot;</font>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort</A>(<font color="blue">final </font>mh=m, <font color="blue">final </font>T=<font color="red">fill</font>(293.15,m));
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>Modelica.Blocks.Interfaces.BooleanInput</A> control[m] <font color="darkgreen">
+    &quot;true =&gt; p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2 connected&quot;</font>;
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>Interfaces.PositivePlug</A> plug_p1(<font color="blue">final </font>m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>Interfaces.PositivePlug</A> plug_p2(<font color="blue">final </font>m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>Interfaces.NegativePlug</A> plug_n2(<font color="blue">final </font>m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>Interfaces.NegativePlug</A> plug_n1(<font color="blue">final </font>m=m);
+  <A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch"
+>Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch</A>
+    idealIntermediateSwitch[m](
+    <font color="blue">final </font>Ron=Ron,
+    <font color="blue">final </font>Goff=Goff,
+    <font color="blue">each </font><font color="blue">final </font>useHeatPort=useHeatPort);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(plug_p2.pin, idealIntermediateSwitch.p2);
+  <font color="red">connect</font>(idealIntermediateSwitch.n2, plug_n2.pin);
+  <font color="red">connect</font>(idealIntermediateSwitch.p1, plug_p1.pin);
+  <font color="red">connect</font>(idealIntermediateSwitch.n1, plug_n1.pin);
+  <font color="red">connect</font>(control, idealIntermediateSwitch.control);
+  <font color="red">connect</font>(idealIntermediateSwitch.heatPort, heatPort);
+<font color="blue">end </font>IdealIntermediateSwitch;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IdealDiode<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealDiodeI.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealDiode" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Ideal.IdealDiode"></A><A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal"
+>Modelica.Electrical.MultiPhase.Ideal</A>.IdealDiode</H2>
+<B>Multiphase ideal diode</B><p>
+<IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealDiodeD.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealDiode">
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m ideal diodes (Modelica.Electrical.Analog.Ideal.IdealDiode).
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A> (Component with one m-phase electric port), <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort</A> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>m</TD><TD>3</TD><TD>number of phases</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>Ron[m]</TD><TD>&nbsp;</TD><TD>Closed diode resistance [Ohm]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>Conductance</A></TD><TD>Goff[m]</TD><TD>&nbsp;</TD><TD>Opened diode conductance [S]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>Vknee[m]</TD><TD>&nbsp;</TD><TD>Treshold voltage [V]</TD></TR>
+<TR><TD>Integer</TD><TD>mh</TD><TD>m</TD><TD>Number of heatPorts=number of phases</TD></TR>
+<TR><TD>Boolean</TD><TD>useHeatPort</TD><TD>false</TD><TD>=true, if all HeatPorts are enabled</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T[mh]</TD><TD>fill(293.15, m)</TD><TD>Fixed device temperatures if useHeatPort = false [K]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>PositivePlug</A></TD><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>NegativePlug</A></TD><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a"
+>HeatPort_a</A></TD><TD>heatPort[mh]</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> IdealDiode <font color="darkgreen">&quot;Multiphase ideal diode&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> Ron[m](<font color="blue">final </font>min=<font color="red">zeros</font>(m), start =<font color="red"> fill</font>(1.E-5, m)) <font color="darkgreen">
+    &quot;Closed diode resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>Modelica.SIunits.Conductance</A> Goff[m](<font color="blue">final </font>min=<font color="red">zeros</font>(m), start =<font color="red"> fill</font>(1.E-5, m)) <font color="darkgreen">
+    &quot;Opened diode conductance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> Vknee[m](<font color="blue">final </font>min=<font color="red">zeros</font>(m), start =<font color="red"> zeros</font>(m)) <font color="darkgreen">
+    &quot;Treshold voltage&quot;</font>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort</A>(<font color="blue">final </font>mh=m, <font color="blue">final </font>T=<font color="red">fill</font>(293.15,m));
+  <A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealDiode"
+>Modelica.Electrical.Analog.Ideal.IdealDiode</A> idealDiode[m](
+    <font color="blue">final </font>Ron=Ron,
+    <font color="blue">final </font>Goff=Goff,
+    <font color="blue">final </font>Vknee=Vknee,
+    <font color="blue">each </font><font color="blue">final </font>useHeatPort=useHeatPort);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(plug_p.pin, idealDiode.p);
+  <font color="red">connect</font>(idealDiode.n, plug_n.pin);
+<font color="blue">end </font>IdealDiode;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IdealTransformer<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealTransformerI.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealTransformer" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Ideal.IdealTransformer"></A><A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal"
+>Modelica.Electrical.MultiPhase.Ideal</A>.IdealTransformer</H2>
+<B>Multiphase ideal transformer</B><p>
+<IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealTransformerD.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealTransformer">
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m ideal transformers (Modelica.Electrical.Analog.Ideal.IdealTransformer).
+</p>
+<p>
+<b>Note:</b> Due to the above equations, also DC signals will be transformed!
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.FourPlug"
+>Interfaces.FourPlug</A> (Component with two m-phase electric ports).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>m</TD><TD>3</TD><TD>number of phases</TD></TR>
+<TR><TD>Real</TD><TD>n[m]</TD><TD>&nbsp;</TD><TD>Turns ratio</TD></TR>
+<TR><TD>Boolean</TD><TD>considerMagnetization</TD><TD>false</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Inductance</A></TD><TD>Lm1[m]</TD><TD>&nbsp;</TD><TD>Magnetization inductances w.r.t. primary side [H]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>PositivePlug</A></TD><TD>plug_p1</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>PositivePlug</A></TD><TD>plug_p2</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>NegativePlug</A></TD><TD>plug_n1</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>NegativePlug</A></TD><TD>plug_n2</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> IdealTransformer <font color="darkgreen">&quot;Multiphase ideal transformer&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.FourPlug"
+>Interfaces.FourPlug</A>;
+  <font color="blue">parameter </font>Real n[m](start=<font color="red">fill</font>(1, m)) <font color="darkgreen">&quot;Turns ratio&quot;</font>;
+  <font color="blue">parameter </font>Boolean considerMagnetization=false;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>SIunits.Inductance</A> Lm1[m](start=<font color="red">fill</font>(1,m)) <font color="darkgreen">
+    &quot;Magnetization inductances w.r.t. primary side&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealTransformer"
+>Modelica.Electrical.Analog.Ideal.IdealTransformer</A> idealTransformer[m](
+      <font color="blue">final </font>n=n,
+      <font color="blue">each </font><font color="blue">final </font>considerMagnetization=considerMagnetization,
+      <font color="blue">final </font>Lm1=Lm1);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(plug_p1.pin, idealTransformer.p1);
+  <font color="red">connect</font>(plug_p2.pin, idealTransformer.p2);
+  <font color="red">connect</font>(plug_n1.pin, idealTransformer.n1);
+  <font color="red">connect</font>(plug_n2.pin, idealTransformer.n2);
+<font color="blue">end </font>IdealTransformer;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Idle<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdleI.png" ALT="Modelica.Electrical.MultiPhase.Ideal.Idle" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Ideal.Idle"></A><A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal"
+>Modelica.Electrical.MultiPhase.Ideal</A>.Idle</H2>
+<B>Multiphase idle branch</B><p>
+<IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdleD.png" ALT="Modelica.Electrical.MultiPhase.Ideal.Idle">
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m idles (Modelica.Electrical.Analog.Ideal.Idle)
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A> (Component with one m-phase electric port).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>m</TD><TD>3</TD><TD>number of phases</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>PositivePlug</A></TD><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>NegativePlug</A></TD><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Idle <font color="darkgreen">&quot;Multiphase idle branch&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A>;
+  <A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.Idle"
+>Modelica.Electrical.Analog.Ideal.Idle</A> idle[m];
+<font color="blue">equation </font>
+
+  <font color="red">connect</font>(plug_p.pin, idle.p);
+  <font color="red">connect</font>(idle.n, plug_n.pin);
+<font color="blue">end </font>Idle;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Short<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Ideal.ShortI.png" ALT="Modelica.Electrical.MultiPhase.Ideal.Short" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Ideal.Short"></A><A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal"
+>Modelica.Electrical.MultiPhase.Ideal</A>.Short</H2>
+<B>Multiphase short cut branch</B><p>
+<IMG SRC="Modelica.Electrical.MultiPhase.Ideal.ShortD.png" ALT="Modelica.Electrical.MultiPhase.Ideal.Short">
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m short cuts (Modelica.Electrical.Analog.Ideal.Short)
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A> (Component with one m-phase electric port).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>m</TD><TD>3</TD><TD>number of phases</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>PositivePlug</A></TD><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>NegativePlug</A></TD><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Short <font color="darkgreen">&quot;Multiphase short cut branch&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A>;
+  <A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.Short"
+>Modelica.Electrical.Analog.Ideal.Short</A> short[m];
+<font color="blue">equation </font>
+
+  <font color="red">connect</font>(plug_p.pin, short.p);
+  <font color="red">connect</font>(short.n, plug_n.pin);
+<font color="blue">end </font>Short;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IdealOpeningSwitch<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealOpeningSwitchI.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealOpeningSwitch" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Ideal.IdealOpeningSwitch"></A><A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal"
+>Modelica.Electrical.MultiPhase.Ideal</A>.IdealOpeningSwitch</H2>
+<B>Multiphase ideal opener</B><p>
+<IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealOpeningSwitchD.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealOpeningSwitch">
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m ideal opening switches (Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch).
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A> (Component with one m-phase electric port), <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort</A> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>m</TD><TD>3</TD><TD>number of phases</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>Ron[m]</TD><TD>&nbsp;</TD><TD>Closed switch resistance [Ohm]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>Conductance</A></TD><TD>Goff[m]</TD><TD>&nbsp;</TD><TD>Opened switch conductance [S]</TD></TR>
+<TR><TD>Integer</TD><TD>mh</TD><TD>m</TD><TD>Number of heatPorts=number of phases</TD></TR>
+<TR><TD>Boolean</TD><TD>useHeatPort</TD><TD>false</TD><TD>=true, if all HeatPorts are enabled</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T[mh]</TD><TD>fill(293.15, m)</TD><TD>Fixed device temperatures if useHeatPort = false [K]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>PositivePlug</A></TD><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>NegativePlug</A></TD><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a"
+>HeatPort_a</A></TD><TD>heatPort[mh]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>BooleanInput</A></TD><TD>control[m]</TD><TD>true =&gt; switch open, false =&gt; p--n connected</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> IdealOpeningSwitch <font color="darkgreen">&quot;Multiphase ideal opener&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> Ron[m](<font color="blue">final </font>min=<font color="red">zeros</font>(m), start =<font color="red"> fill</font>(1.E-5, m)) <font color="darkgreen">
+    &quot;Closed switch resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>Modelica.SIunits.Conductance</A> Goff[m](<font color="blue">final </font>min=<font color="red">zeros</font>(m), start =<font color="red"> fill</font>(1.E-5, m)) <font color="darkgreen">
+    &quot;Opened switch conductance&quot;</font>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort</A>(<font color="blue">final </font>mh=m, <font color="blue">final </font>T=<font color="red">fill</font>(293.15,m));
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>Modelica.Blocks.Interfaces.BooleanInput</A> control[m] <font color="darkgreen">
+    &quot;true =&gt; switch open, false =&gt; p--n connected&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch"
+>Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch</A> idealOpeningSwitch[m](
+    <font color="blue">final </font>Ron=Ron,
+    <font color="blue">final </font>Goff=Goff,
+    <font color="blue">each </font><font color="blue">final </font>useHeatPort=useHeatPort);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(plug_p.pin, idealOpeningSwitch.p);
+  <font color="red">connect</font>(idealOpeningSwitch.n, plug_n.pin);
+  <font color="red">connect</font>(control, idealOpeningSwitch.control);
+  <font color="red">connect</font>(idealOpeningSwitch.heatPort, heatPort);
+<font color="blue">end </font>IdealOpeningSwitch;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IdealClosingSwitch<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitchI.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch"></A><A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal"
+>Modelica.Electrical.MultiPhase.Ideal</A>.IdealClosingSwitch</H2>
+<B>Multiphase ideal closer</B><p>
+<IMG SRC="Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitchD.png" ALT="Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch">
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosingSwitch).
+</p><
+/HTML><em>Error:Found no end-tag in HTML-documentation</em><pre></PRE>
+Extends from <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A> (Component with one m-phase electric port), <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort</A> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>m</TD><TD>3</TD><TD>number of phases</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>Ron[m]</TD><TD>&nbsp;</TD><TD>Closed switch resistance [Ohm]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>Conductance</A></TD><TD>Goff[m]</TD><TD>&nbsp;</TD><TD>Opened switch conductance [S]</TD></TR>
+<TR><TD>Integer</TD><TD>mh</TD><TD>m</TD><TD>Number of heatPorts=number of phases</TD></TR>
+<TR><TD>Boolean</TD><TD>useHeatPort</TD><TD>false</TD><TD>=true, if all HeatPorts are enabled</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T[mh]</TD><TD>fill(293.15, m)</TD><TD>Fixed device temperatures if useHeatPort = false [K]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>PositivePlug</A></TD><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>NegativePlug</A></TD><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a"
+>HeatPort_a</A></TD><TD>heatPort[mh]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>BooleanInput</A></TD><TD>control[m]</TD><TD>true =&gt; p--n connected, false =&gt; switch open</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> IdealClosingSwitch <font color="darkgreen">&quot;Multiphase ideal closer&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> Ron[m](<font color="blue">final </font>min=<font color="red">zeros</font>(m), start =<font color="red"> fill</font>(1.E-5, m)) <font color="darkgreen">
+    &quot;Closed switch resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>Modelica.SIunits.Conductance</A> Goff[m](<font color="blue">final </font>min=<font color="red">zeros</font>(m), start =<font color="red"> fill</font>(1.E-5, m)) <font color="darkgreen">
+    &quot;Opened switch conductance&quot;</font>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort</A>(<font color="blue">final </font>mh=m, <font color="blue">final </font>T=<font color="red">fill</font>(293.15,m));
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>Modelica.Blocks.Interfaces.BooleanInput</A> control[m] <font color="darkgreen">
+    &quot;true =&gt; p--n connected, false =&gt; switch open&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealClosingSwitch"
+>Modelica.Electrical.Analog.Ideal.IdealClosingSwitch</A> idealClosingSwitch[m](
+    <font color="blue">final </font>Ron=Ron,
+    <font color="blue">final </font>Goff=Goff,
+    <font color="blue">each </font><font color="blue">final </font>useHeatPort=useHeatPort);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(plug_p.pin, idealClosingSwitch.p);
+  <font color="red">connect</font>(idealClosingSwitch.n, plug_n.pin);
+  <font color="red">connect</font>(control, idealClosingSwitch.control);
+  <font color="red">connect</font>(idealClosingSwitch.heatPort, heatPort);
+<font color="blue">end </font>IdealClosingSwitch;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE OpenerWithArc<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Ideal.OpenerWithArcI.png" ALT="Modelica.Electrical.MultiPhase.Ideal.OpenerWithArc" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Ideal.OpenerWithArc"></A><A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal"
+>Modelica.Electrical.MultiPhase.Ideal</A>.OpenerWithArc</H2>
+<B>Multiphase opener with arc</B><p>
+<IMG SRC="Modelica.Electrical.MultiPhase.Ideal.OpenerWithArcD.png" ALT="Modelica.Electrical.MultiPhase.Ideal.OpenerWithArc">
+<P><H3>Information</H3>
+<PRE></pre>
+<p>Contains m opening switches with arc (Modelica.Electrical.Analog.Ideal.OpenerWithArc). </p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A> (Component with one m-phase electric port), <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort</A> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>m</TD><TD>3</TD><TD>number of phases</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>Ron[m]</TD><TD>&nbsp;</TD><TD>Closed switch resistance [Ohm]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>Conductance</A></TD><TD>Goff[m]</TD><TD>&nbsp;</TD><TD>Opened switch conductance [S]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>V0[m]</TD><TD>&nbsp;</TD><TD>Initial arc voltage [V]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.VoltageSlope"
+>VoltageSlope</A></TD><TD>dVdt[m]</TD><TD>&nbsp;</TD><TD>Arc voltage slope [V/s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>Vmax[m]</TD><TD>&nbsp;</TD><TD>Max. arc voltage [V]</TD></TR>
+<TR><TD>Integer</TD><TD>mh</TD><TD>m</TD><TD>Number of heatPorts=number of phases</TD></TR>
+<TR><TD>Boolean</TD><TD>useHeatPort</TD><TD>false</TD><TD>=true, if all HeatPorts are enabled</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T[mh]</TD><TD>fill(293.15, m)</TD><TD>Fixed device temperatures if useHeatPort = false [K]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>PositivePlug</A></TD><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>NegativePlug</A></TD><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a"
+>HeatPort_a</A></TD><TD>heatPort[mh]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>BooleanInput</A></TD><TD>control[m]</TD><TD>true =&gt; switch open, false =&gt; p--n connected</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> OpenerWithArc <font color="darkgreen">&quot;Multiphase opener with arc&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> Ron[m](<font color="blue">final </font>min=<font color="red">zeros</font>(m), start =<font color="red"> fill</font>(1.E-5, m)) <font color="darkgreen">
+    &quot;Closed switch resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>Modelica.SIunits.Conductance</A> Goff[m](<font color="blue">final </font>min=<font color="red">zeros</font>(m), start =<font color="red"> fill</font>(1.E-5, m)) <font color="darkgreen">
+    &quot;Opened switch conductance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> V0[m](start=<font color="red">fill</font>(30,m)) <font color="darkgreen">
+    &quot;Initial arc voltage&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.VoltageSlope"
+>Modelica.SIunits.VoltageSlope</A> dVdt[m](start=<font color="red">fill</font>(10E3,m)) <font color="darkgreen">
+    &quot;Arc voltage slope&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> Vmax[m](start=<font color="red">fill</font>(60,m)) <font color="darkgreen">
+    &quot;Max. arc voltage&quot;</font>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort</A>(<font color="blue">final </font>mh=m, <font color="blue">final </font>T=<font color="red">fill</font>(293.15,m));
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>Modelica.Blocks.Interfaces.BooleanInput</A> control[m] <font color="darkgreen">
+    &quot;true =&gt; switch open, false =&gt; p--n connected&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.OpenerWithArc"
+>Modelica.Electrical.Analog.Ideal.OpenerWithArc</A> openerWithArc[m](
+    <font color="blue">final </font>Ron=Ron,
+    <font color="blue">final </font>Goff=Goff,
+    <font color="blue">final </font>V0=V0,
+    <font color="blue">final </font>dVdt=dVdt,
+    <font color="blue">final </font>Vmax=Vmax,
+    <font color="blue">each </font><font color="blue">final </font>useHeatPort=useHeatPort);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(plug_p.pin, openerWithArc.p);
+  <font color="red">connect</font>(openerWithArc.n, plug_n.pin);
+  <font color="red">connect</font>(control, openerWithArc.control);
+  <font color="red">connect</font>(openerWithArc.heatPort, heatPort);
+<font color="blue">end </font>OpenerWithArc;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CloserWithArc<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Ideal.CloserWithArcI.png" ALT="Modelica.Electrical.MultiPhase.Ideal.CloserWithArc" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Ideal.CloserWithArc"></A><A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal"
+>Modelica.Electrical.MultiPhase.Ideal</A>.CloserWithArc</H2>
+<B>Multiphase closer with arc</B><p>
+<IMG SRC="Modelica.Electrical.MultiPhase.Ideal.CloserWithArcD.png" ALT="Modelica.Electrical.MultiPhase.Ideal.CloserWithArc">
+<P><H3>Information</H3>
+<PRE></pre>
+<p>Contains m closing switches with arc (Modelica.Electrical.Analog.Ideal.CloserWithArc). </p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A> (Component with one m-phase electric port), <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort</A> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>m</TD><TD>3</TD><TD>number of phases</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>Ron[m]</TD><TD>&nbsp;</TD><TD>Closed switch resistance [Ohm]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>Conductance</A></TD><TD>Goff[m]</TD><TD>&nbsp;</TD><TD>Opened switch conductance [S]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>V0[m]</TD><TD>&nbsp;</TD><TD>Initial arc voltage [V]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.VoltageSlope"
+>VoltageSlope</A></TD><TD>dVdt[m]</TD><TD>&nbsp;</TD><TD>Arc voltage slope [V/s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>Vmax[m]</TD><TD>&nbsp;</TD><TD>Max. arc voltage [V]</TD></TR>
+<TR><TD>Integer</TD><TD>mh</TD><TD>m</TD><TD>Number of heatPorts=number of phases</TD></TR>
+<TR><TD>Boolean</TD><TD>useHeatPort</TD><TD>false</TD><TD>=true, if all HeatPorts are enabled</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T[mh]</TD><TD>fill(293.15, m)</TD><TD>Fixed device temperatures if useHeatPort = false [K]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>PositivePlug</A></TD><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>NegativePlug</A></TD><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a"
+>HeatPort_a</A></TD><TD>heatPort[mh]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>BooleanInput</A></TD><TD>control[m]</TD><TD>true =&gt; switch open, false =&gt; p--n connected</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> CloserWithArc <font color="darkgreen">&quot;Multiphase closer with arc&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> Ron[m](<font color="blue">final </font>min=<font color="red">zeros</font>(m), start =<font color="red"> fill</font>(1.E-5, m)) <font color="darkgreen">
+    &quot;Closed switch resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>Modelica.SIunits.Conductance</A> Goff[m](<font color="blue">final </font>min=<font color="red">zeros</font>(m), start =<font color="red"> fill</font>(1.E-5, m)) <font color="darkgreen">
+    &quot;Opened switch conductance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> V0[m](start=<font color="red">fill</font>(30,m)) <font color="darkgreen">
+    &quot;Initial arc voltage&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.VoltageSlope"
+>Modelica.SIunits.VoltageSlope</A> dVdt[m](start=<font color="red">fill</font>(10E3,m)) <font color="darkgreen">
+    &quot;Arc voltage slope&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> Vmax[m](start=<font color="red">fill</font>(60,m)) <font color="darkgreen">
+    &quot;Max. arc voltage&quot;</font>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort</A>(<font color="blue">final </font>mh=m, <font color="blue">final </font>T=<font color="red">fill</font>(293.15,m));
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>Modelica.Blocks.Interfaces.BooleanInput</A> control[m] <font color="darkgreen">
+    &quot;true =&gt; switch open, false =&gt; p--n connected&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.CloserWithArc"
+>Modelica.Electrical.Analog.Ideal.CloserWithArc</A> closerWithArc[m](
+    <font color="blue">final </font>Ron=Ron,
+    <font color="blue">final </font>Goff=Goff,
+    <font color="blue">final </font>V0=V0,
+    <font color="blue">final </font>dVdt=dVdt,
+    <font color="blue">final </font>Vmax=Vmax,
+    <font color="blue">each </font><font color="blue">final </font>useHeatPort=useHeatPort);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(plug_p.pin,closerWithArc. p);
+  <font color="red">connect</font>(closerWithArc.n, plug_n.pin);
+  <font color="red">connect</font>(control,closerWithArc. control);
+  <font color="red">connect</font>(closerWithArc.heatPort, heatPort);
+<font color="blue">end </font>CloserWithArc;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.Dymola.com/">Dymola</a> Mon Sep  7 10:14:53 2009.
+</address></BODY>
+</HTML>

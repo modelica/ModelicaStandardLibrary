@@ -1,0 +1,399 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Pipe wall friction in the laminar regime (linear correlation)&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Laminar<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar"></A><A HREF="Modelica_Fluid_Pipes_BaseClasses_WallFriction.html#Modelica.Fluid.Pipes.BaseClasses.WallFriction"
+>Modelica.Fluid.Pipes.BaseClasses.WallFriction</A>.Laminar</H2>
+<B>Pipe wall friction in the laminar regime (linear correlation)</B>
+<P>
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+This component defines only the laminar region of wall friction:
+dp = k*m_flow, where "k" depends on density and dynamic viscosity.
+The roughness of the wall does not have an influence on the laminar
+flow and therefore argument roughness is ignored.
+Since this is a linear relationship, the occuring systems of equations
+are usually much simpler (e.g. either linear instead of non-linear).
+By using nominal values for density and dynamic viscosity, the
+systems of equations can still further be reduced.
+</p>
+
+<p>
+In <A HREF="Modelica_Fluid_UsersGuide_ComponentDefinition.html#Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction"
+>UsersGuide</a> the complete friction regime is illustrated.
+This component describes only the <b>Hagen-Poiseuille</b> equation.
+</p>
+<br>
+
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Fluid_Pipes_BaseClasses_WallFriction_PartialWallFriction.html#Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction"
+>PartialWallFriction</A> (Partial wall friction characteristic (base package of all wall friction characteristics)).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.massFlowRate_dpS.png" ALT="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar.massFlowRate_dp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Pipes_BaseClasses_WallFriction_Laminar.html#Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar.massFlowRate_dp"
+>massFlowRate_dp</A>
+</TD><TD>Return mass flow rate m_flow as function of pressure loss dp, i.e., m_flow = f(dp), due to wall friction</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.massFlowRate_dpS.png" ALT="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar.pressureLoss_m_flow" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Pipes_BaseClasses_WallFriction_Laminar.html#Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar.pressureLoss_m_flow"
+>pressureLoss_m_flow</A>
+</TD><TD>Return pressure loss dp as function of mass flow rate m_flow, i.e., dp = f(m_flow), due to wall friction</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.massFlowRate_dpS.png" ALT="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar.massFlowRate_dp_staticHead" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Pipes_BaseClasses_WallFriction_Laminar.html#Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar.massFlowRate_dp_staticHead"
+>massFlowRate_dp_staticHead</A>
+</TD><TD>Return mass flow rate m_flow as function of pressure loss dp, i.e., m_flow = f(dp), due to wall friction and static head</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.massFlowRate_dpS.png" ALT="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar.pressureLoss_m_flow_staticHead" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Pipes_BaseClasses_WallFriction_Laminar.html#Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar.pressureLoss_m_flow_staticHead"
+>pressureLoss_m_flow_staticHead</A>
+</TD><TD>Return pressure loss dp as function of mass flow rate m_flow, i.e., dp = f(m_flow), due to wall friction and static head</TD></TR>
+<TR><TH COLSPAN="2">Inherited</TH></TR>
+<TR><TD>use_mu=true</TD><TD>= true, if mu_a/mu_b are used in function, otherwise value is not used</TD></TR>
+<TR><TD>use_roughness=true</TD><TD>= true, if roughness is used in function, otherwise value is not used</TD></TR>
+<TR><TD>use_dp_small=true</TD><TD>= true, if dp_small is used in function, otherwise value is not used</TD></TR>
+<TR><TD>use_m_flow_small=true</TD><TD>= true, if m_flow_small is used in function, otherwise value is not used</TD></TR>
+<TR><TD>dp_is_zero=false</TD><TD>= true, if no wall friction is present, i.e., dp = 0 (function massFlowRate_dp() cannot be used)</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE massFlowRate_dp<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar.massFlowRate_dpI.png" ALT="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar.massFlowRate_dp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar.massFlowRate_dp"></A><A HREF="Modelica_Fluid_Pipes_BaseClasses_WallFriction_Laminar.html#Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar"
+>Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar</A>.massFlowRate_dp</H2>
+<B>Return mass flow rate m_flow as function of pressure loss dp, i.e., m_flow = f(dp), due to wall friction</B><p>
+<P><H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE>
+Extends from <A HREF="Modelica_Fluid_Pipes_BaseClasses_WallFriction_PartialWallFriction.html#Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.massFlowRate_dp"
+></A> (Return mass flow rate m_flow as function of pressure loss dp, i.e., m_flow = f(dp), due to wall friction).
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>dp</TD><TD>&nbsp;</TD><TD>Pressure loss (dp = port_a.p - port_b.p) [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_a</TD><TD>&nbsp;</TD><TD>Density at port_a [kg/m3]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_b</TD><TD>&nbsp;</TD><TD>Density at port_b [kg/m3]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>DynamicViscosity</A></TD><TD>mu_a</TD><TD>&nbsp;</TD><TD>Dynamic viscosity at port_a (dummy if use_mu = false) [Pa.s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>DynamicViscosity</A></TD><TD>mu_b</TD><TD>&nbsp;</TD><TD>Dynamic viscosity at port_b (dummy if use_mu = false) [Pa.s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>length</TD><TD>&nbsp;</TD><TD>Length of pipe [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>diameter</TD><TD>&nbsp;</TD><TD>Inner (hydraulic) diameter of pipe [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>roughness</TD><TD>2.5e-5</TD><TD>Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false) [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>dp_small</TD><TD>1</TD><TD>Turbulent flow if |dp| &gt;= dp_small (dummy if use_dp_small = false) [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow</TD><TD>Mass flow rate from port_a to port_b [kg/s]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>massFlowRate_dp <font color="darkgreen">
+  &quot;Return mass flow rate m_flow as function of pressure loss dp, i.e., m_flow = f(dp), due to wall friction&quot;</font>
+
+<font color="blue">algorithm </font>
+  m_flow :=dp*Modelica.Constants.pi*diameter^4*(rho_a + rho_b)/(128*length*(mu_a + mu_b));
+<font color="blue">end </font>massFlowRate_dp;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE pressureLoss_m_flow<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar.massFlowRate_dpI.png" ALT="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar.pressureLoss_m_flow" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar.pressureLoss_m_flow"></A><A HREF="Modelica_Fluid_Pipes_BaseClasses_WallFriction_Laminar.html#Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar"
+>Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar</A>.pressureLoss_m_flow</H2>
+<B>Return pressure loss dp as function of mass flow rate m_flow, i.e., dp = f(m_flow), due to wall friction</B><p>
+<P><H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE>
+Extends from <A HREF="Modelica_Fluid_Pipes_BaseClasses_WallFriction_PartialWallFriction.html#Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.pressureLoss_m_flow"
+></A> (Return pressure loss dp as function of mass flow rate m_flow, i.e., dp = f(m_flow), due to wall friction).
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow</TD><TD>&nbsp;</TD><TD>Mass flow rate from port_a to port_b [kg/s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_a</TD><TD>&nbsp;</TD><TD>Density at port_a [kg/m3]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_b</TD><TD>&nbsp;</TD><TD>Density at port_b [kg/m3]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>DynamicViscosity</A></TD><TD>mu_a</TD><TD>&nbsp;</TD><TD>Dynamic viscosity at port_a (dummy if use_mu = false) [Pa.s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>DynamicViscosity</A></TD><TD>mu_b</TD><TD>&nbsp;</TD><TD>Dynamic viscosity at port_b (dummy if use_mu = false) [Pa.s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>length</TD><TD>&nbsp;</TD><TD>Length of pipe [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>diameter</TD><TD>&nbsp;</TD><TD>Inner (hydraulic) diameter of pipe [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>roughness</TD><TD>2.5e-5</TD><TD>Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false) [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow_small</TD><TD>0.01</TD><TD>Turbulent flow if |m_flow| &gt;= m_flow_small (dummy if use_m_flow_small = false) [kg/s]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>dp</TD><TD>Pressure loss (dp = port_a.p - port_b.p) [Pa]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>pressureLoss_m_flow <font color="darkgreen">
+  &quot;Return pressure loss dp as function of mass flow rate m_flow, i.e., dp = f(m_flow), due to wall friction&quot;</font>
+
+<font color="blue">algorithm </font>
+  dp := m_flow*128*length*(mu_a + mu_b)/(Modelica.Constants.pi*diameter^4*(rho_a + rho_b));
+<font color="blue">end </font>pressureLoss_m_flow;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE massFlowRate_dp_staticHead<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar.massFlowRate_dpI.png" ALT="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar.massFlowRate_dp_staticHead" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar.massFlowRate_dp_staticHead"></A><A HREF="Modelica_Fluid_Pipes_BaseClasses_WallFriction_Laminar.html#Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar"
+>Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar</A>.massFlowRate_dp_staticHead</H2>
+<B>Return mass flow rate m_flow as function of pressure loss dp, i.e., m_flow = f(dp), due to wall friction and static head</B><p>
+<P><H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE>
+Extends from <A HREF="Modelica_Fluid_Pipes_BaseClasses_WallFriction_PartialWallFriction.html#Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.massFlowRate_dp_staticHead"
+></A> (Return mass flow rate m_flow as function of pressure loss dp, i.e., m_flow = f(dp), due to wall friction and static head).
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>dp</TD><TD>&nbsp;</TD><TD>Pressure loss (dp = port_a.p - port_b.p) [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_a</TD><TD>&nbsp;</TD><TD>Density at port_a [kg/m3]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_b</TD><TD>&nbsp;</TD><TD>Density at port_b [kg/m3]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>DynamicViscosity</A></TD><TD>mu_a</TD><TD>&nbsp;</TD><TD>Dynamic viscosity at port_a (dummy if use_mu = false) [Pa.s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>DynamicViscosity</A></TD><TD>mu_b</TD><TD>&nbsp;</TD><TD>Dynamic viscosity at port_b (dummy if use_mu = false) [Pa.s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>length</TD><TD>&nbsp;</TD><TD>Length of pipe [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>diameter</TD><TD>&nbsp;</TD><TD>Inner (hydraulic) diameter of pipe [m]</TD></TR>
+<TR><TD>Real</TD><TD>g_times_height_ab</TD><TD>&nbsp;</TD><TD>Gravity times (Height(port_b) - Height(port_a))</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>roughness</TD><TD>2.5e-5</TD><TD>Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false) [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>dp_small</TD><TD>1</TD><TD>Turbulent flow if |dp| &gt;= dp_small (dummy if use_dp_small = false) [Pa]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow</TD><TD>Mass flow rate from port_a to port_b [kg/s]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>massFlowRate_dp_staticHead <font color="darkgreen">
+  &quot;Return mass flow rate m_flow as function of pressure loss dp, i.e., m_flow = f(dp), due to wall friction and static head&quot;</font>
+
+<font color="blue">protected </font>
+  Real k0inv = Modelica.Constants.pi*diameter^4/(128*length) <font color="darkgreen">&quot;Constant factor&quot;</font>;
+
+  Real dp_grav_a = g_times_height_ab*rho_a <font color="darkgreen">
+    &quot;Static head if mass flows in design direction (a to b)&quot;</font>;
+  Real dp_grav_b = g_times_height_ab*rho_b <font color="darkgreen">
+    &quot;Static head if mass flows against design direction (b to a)&quot;</font>;
+
+  Real dm_flow_ddp_fric_a = k0inv*rho_a/mu_a <font color="darkgreen">
+    &quot;Slope of mass flow rate over dp if flow in design direction (a to b)&quot;</font>;
+  Real dm_flow_ddp_fric_b = k0inv*rho_b/mu_b <font color="darkgreen">
+    &quot;Slope of mass flow rate over dp if flow against design direction (b to a)&quot;</font>;
+
+  Real dp_a=<font color="red">max</font>(dp_grav_a,dp_grav_b)+dp_small <font color="darkgreen">
+    &quot;Upper end of regularization domain of the m_flow(dp) relation&quot;</font>;
+  Real dp_b=<font color="red">min</font>(dp_grav_a,dp_grav_b)-dp_small <font color="darkgreen">
+    &quot;Lower end of regularization domain of the m_flow(dp) relation&quot;</font>;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> m_flow_a <font color="darkgreen">&quot;Value at upper end of regularization domain&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> m_flow_b <font color="darkgreen">&quot;Value at lower end of regularization domain&quot;</font>;
+
+  <font color="darkgreen">// Properly define zero mass flow conditions</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> m_flow_zero = 0;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> dp_zero = (dp_grav_a + dp_grav_b)/2;
+  Real dm_flow_ddp_fric_zero;
+<font color="blue">algorithm </font>
+<font color="darkgreen">/*
+  dp = 0.5*zeta/(A^2*d) * m_flow * |m_flow|
+     = 0.5 * c0/(|m_flow|*(4/pi)/(D_Re*mu)) / ((pi*(D_Re/2)^2)^2*d) * m_flow*|m_flow|
+     = 0.5 * c0*(pi/4)*(D_Re*mu) * 16/(pi^2*D_Re^4*d) * m_flow*|m_flow|
+     = 2*c0/(pi*D_Re^3) * mu/d * m_flow
+     = k0 * mu/d * m_flow
+  k0 = 2*c0/(pi*D_Re^3)
+*/</font>
+
+  <font color="blue">if </font>dp&gt;=dp_a<font color="blue"> then</font>
+    <font color="darkgreen">// Positive flow outside regularization</font>
+    m_flow := dm_flow_ddp_fric_a*(dp-dp_grav_a);
+  <font color="blue">elseif </font>dp&lt;=dp_b<font color="blue"> then</font>
+    <font color="darkgreen">// Negative flow outside regularization</font>
+    m_flow := dm_flow_ddp_fric_b*(dp-dp_grav_b);
+  <font color="blue">else</font>
+    m_flow_a := dm_flow_ddp_fric_a*(dp_a - dp_grav_a);
+    m_flow_b := dm_flow_ddp_fric_b*(dp_b - dp_grav_b);
+
+    <font color="darkgreen">// Include a properly defined zero mass flow point</font>
+    <font color="darkgreen">// Obtain a suitable slope from the linear section slope c (value of m_flow is overwritten later)</font>
+    (m_flow, dm_flow_ddp_fric_zero) :=<font color="red"> Utilities.regFun3</font>(dp_zero, dp_b, dp_a, m_flow_b, m_flow_a, dm_flow_ddp_fric_b, dm_flow_ddp_fric_a);
+    <font color="darkgreen">// Do regularization</font>
+    <font color="blue">if </font>dp&gt;dp_zero<font color="blue"> then</font>
+      m_flow :=<font color="red"> Utilities.regFun3</font>(dp, dp_zero, dp_a, m_flow_zero, m_flow_a, dm_flow_ddp_fric_zero, dm_flow_ddp_fric_a);
+    <font color="blue">else</font>
+      m_flow :=<font color="red"> Utilities.regFun3</font>(dp, dp_b, dp_zero, m_flow_b, m_flow_zero, dm_flow_ddp_fric_b, dm_flow_ddp_fric_zero);
+    <font color="blue">end if</font>;
+  <font color="blue">end if</font>;
+<font color="darkgreen">/*
+  m_flow := if dp&lt;dp_b then dm_flow_ddp_b*(dp-dp_grav_b) else
+              (if dp&gt;dp_a then dm_flow_ddp_a*(dp-dp_grav_a) else
+                Modelica.Fluid.Utilities.regFun3(dp, dp_b, dp_a, dm_flow_ddp_b*(dp_b - dp_grav_b), dm_flow_ddp_a*(dp_a - dp_grav_a), dm_flow_ddp_b, dm_flow_ddp_a));
+*/</font>
+<font color="blue">end </font>massFlowRate_dp_staticHead;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE pressureLoss_m_flow_staticHead<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar.massFlowRate_dpI.png" ALT="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar.pressureLoss_m_flow_staticHead" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar.pressureLoss_m_flow_staticHead"></A><A HREF="Modelica_Fluid_Pipes_BaseClasses_WallFriction_Laminar.html#Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar"
+>Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar</A>.pressureLoss_m_flow_staticHead</H2>
+<B>Return pressure loss dp as function of mass flow rate m_flow, i.e., dp = f(m_flow), due to wall friction and static head</B><p>
+<P><H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE>
+Extends from <A HREF="Modelica_Fluid_Pipes_BaseClasses_WallFriction_PartialWallFriction.html#Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.pressureLoss_m_flow_staticHead"
+></A> (Return pressure loss dp as function of mass flow rate m_flow, i.e., dp = f(m_flow), due to wall friction and static head).
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow</TD><TD>&nbsp;</TD><TD>Mass flow rate from port_a to port_b [kg/s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_a</TD><TD>&nbsp;</TD><TD>Density at port_a [kg/m3]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_b</TD><TD>&nbsp;</TD><TD>Density at port_b [kg/m3]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>DynamicViscosity</A></TD><TD>mu_a</TD><TD>&nbsp;</TD><TD>Dynamic viscosity at port_a (dummy if use_mu = false) [Pa.s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>DynamicViscosity</A></TD><TD>mu_b</TD><TD>&nbsp;</TD><TD>Dynamic viscosity at port_b (dummy if use_mu = false) [Pa.s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>length</TD><TD>&nbsp;</TD><TD>Length of pipe [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>diameter</TD><TD>&nbsp;</TD><TD>Inner (hydraulic) diameter of pipe [m]</TD></TR>
+<TR><TD>Real</TD><TD>g_times_height_ab</TD><TD>&nbsp;</TD><TD>Gravity times (Height(port_b) - Height(port_a))</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>roughness</TD><TD>2.5e-5</TD><TD>Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false) [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow_small</TD><TD>0.01</TD><TD>Turbulent flow if |m_flow| &gt;= m_flow_small (dummy if use_m_flow_small = false) [kg/s]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>dp</TD><TD>Pressure loss (dp = port_a.p - port_b.p) [Pa]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>pressureLoss_m_flow_staticHead <font color="darkgreen">
+  &quot;Return pressure loss dp as function of mass flow rate m_flow, i.e., dp = f(m_flow), due to wall friction and static head&quot;</font>
+
+<font color="blue">protected </font>
+  Real k0 = 128*length/(Modelica.Constants.pi*diameter^4) <font color="darkgreen">&quot;Constant factor&quot;</font>;
+
+  Real dp_grav_a = g_times_height_ab*rho_a <font color="darkgreen">
+    &quot;Static head if mass flows in design direction (a to b)&quot;</font>;
+  Real dp_grav_b = g_times_height_ab*rho_b <font color="darkgreen">
+    &quot;Static head if mass flows against design direction (b to a)&quot;</font>;
+
+  Real ddp_dm_flow_a = k0*mu_a/rho_a <font color="darkgreen">
+    &quot;Slope of dp over mass flow rate if flow in design direction (a to b)&quot;</font>;
+  Real ddp_dm_flow_b = k0*mu_b/rho_b <font color="darkgreen">
+    &quot;Slope of dp over mass flow rate if flow against design direction (b to a)&quot;</font>;
+
+  Real m_flow_a=<font color="blue">if </font>dp_grav_a &gt;= dp_grav_b<font color="blue"> then </font>m_flow_small<font color="blue"> else </font>m_flow_small + (dp_grav_b-dp_grav_a)/ddp_dm_flow_a <font color="darkgreen">
+    &quot;Upper end of regularization domain of the dp(m_flow) relation&quot;</font>;
+  Real m_flow_b=<font color="blue">if </font>dp_grav_a &gt;= dp_grav_b<font color="blue"> then </font>-m_flow_small<font color="blue"> else </font>-m_flow_small - (dp_grav_b - dp_grav_a)/ddp_dm_flow_b <font color="darkgreen">
+    &quot;Lower end of regularization domain of the dp(m_flow) relation&quot;</font>;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> dp_a <font color="darkgreen">&quot;Value at upper end of regularization domain&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> dp_b <font color="darkgreen">&quot;Value at lower end of regularization domain&quot;</font>;
+
+  <font color="darkgreen">// Properly define zero mass flow conditions</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> m_flow_zero = 0;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> dp_zero = (dp_grav_a + dp_grav_b)/2;
+  Real ddp_dm_flow_zero;
+<font color="blue">algorithm </font>
+<font color="darkgreen">/*
+  dp = 0.5*zeta/(A^2*d) * m_flow * |m_flow|
+     = 0.5 * c0/(|m_flow|*(4/pi)/(D_Re*mu)) / ((pi*(D_Re/2)^2)^2*d) * m_flow*|m_flow|
+     = 0.5 * c0*(pi/4)*(D_Re*mu) * 16/(pi^2*D_Re^4*d) * m_flow*|m_flow|
+     = 2*c0/(pi*D_Re^3) * mu/d * m_flow
+     = k0 * mu/d * m_flow
+  k0 = 2*c0/(pi*D_Re^3)
+*/</font>
+
+  <font color="blue">if </font>m_flow&gt;=m_flow_a<font color="blue"> then</font>
+    <font color="darkgreen">// Positive flow outside regularization</font>
+    dp := (ddp_dm_flow_a*m_flow + dp_grav_a);
+  <font color="blue">elseif </font>m_flow&lt;=m_flow_b<font color="blue"> then</font>
+    <font color="darkgreen">// Negative flow outside regularization</font>
+    dp := (ddp_dm_flow_b*m_flow + dp_grav_b);
+  <font color="blue">else</font>
+    <font color="darkgreen">// Regularization parameters</font>
+    dp_a := ddp_dm_flow_a*m_flow_a + dp_grav_a;
+    dp_b := ddp_dm_flow_b*m_flow_b + dp_grav_b;
+    <font color="darkgreen">// Include a properly defined zero mass flow point</font>
+    <font color="darkgreen">// Obtain a suitable slope from the linear section slope c (value of dp is overwritten later)</font>
+    (dp, ddp_dm_flow_zero) :=<font color="red"> Utilities.regFun3</font>(m_flow_zero, m_flow_b, m_flow_a, dp_b, dp_a, ddp_dm_flow_b, ddp_dm_flow_a);
+    <font color="darkgreen">// Do regularization</font>
+    <font color="blue">if </font>m_flow&gt;m_flow_zero<font color="blue"> then</font>
+      dp :=<font color="red"> Utilities.regFun3</font>(m_flow, m_flow_zero, m_flow_a, dp_zero, dp_a, ddp_dm_flow_zero, ddp_dm_flow_a);
+    <font color="blue">else</font>
+      dp :=<font color="red"> Utilities.regFun3</font>(m_flow, m_flow_b, m_flow_zero, dp_b, dp_zero, ddp_dm_flow_b, ddp_dm_flow_zero);
+    <font color="blue">end if</font>;
+  <font color="blue">end if</font>;
+<font color="blue">end </font>pressureLoss_m_flow_staticHead;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.Dymola.com/">Dymola</a> Mon Sep  7 10:20:10 2009.
+</address></BODY>
+</HTML>

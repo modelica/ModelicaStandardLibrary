@@ -1,0 +1,122 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Media</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Library of media property models&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Media<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media"></A><A HREF="Modelica.html#Modelica"
+>Modelica</A>.Media</H2>
+<B>Library of media property models</B>
+<P>
+<P><H3>Information</H3>
+<PRE></pre>
+<p>
+This library contains <A HREF="Modelica_Media_Interfaces.html#Modelica.Media.Interfaces"
+>interface</a>
+definitions for media and the following <b>property</b> models for
+single and multiple substance fluids with one and multiple phases:
+</p>
+<ul>
+<li> <A HREF="Modelica_Media_IdealGases.html#Modelica.Media.IdealGases"
+>Ideal gases:</a><br>
+     1241 high precision gas models based on the
+     NASA Glenn coefficients, plus ideal gas mixture models based
+     on the same data.</li>
+<li> <A HREF="Modelica_Media_Water.html#Modelica.Media.Water"
+>Water models:</a><br>
+     ConstantPropertyLiquidWater, WaterIF97 (high precision
+     water model according to the IAPWS/IF97 standard)</li>
+<li> <A HREF="Modelica_Media_Air.html#Modelica.Media.Air"
+>Air models:</a><br>
+     SimpleAir, DryAirNasa, and MoistAir</li>
+<li> <A HREF="Modelica_Media_Incompressible.html#Modelica.Media.Incompressible"
+>
+     Incompressible media:</a><br>
+     TableBased incompressible fluid models (properties are defined by tables rho(T),
+     HeatCapacity_cp(T), etc.)</li>
+<li> <A HREF="Modelica_Media_CompressibleLiquids.html#Modelica.Media.CompressibleLiquids"
+>
+     Compressible liquids:</a><br>
+     Simple liquid models with linear compressibility</li>
+</ul>
+<p>
+The following parts are useful, when newly starting with this library:
+<ul>
+<li> <A HREF="Modelica_Media_UsersGuide.html#Modelica.Media.UsersGuide"
+>Modelica.Media.UsersGuide</a>.</li>
+<li> <A HREF="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage"
+>Modelica.Media.UsersGuide.MediumUsage</a>
+     describes how to use a medium model in a component model.</li>
+<li> <A HREF="Modelica_Media_UsersGuide_MediumDefinition.html#Modelica.Media.UsersGuide.MediumDefinition"
+>
+     Modelica.Media.UsersGuide.MediumDefinition</a>
+     describes how a new fluid medium model has to be implemented.</li>
+<li> <A HREF="Modelica_Media_UsersGuide.html#Modelica.Media.UsersGuide.ReleaseNotes"
+>Modelica.Media.UsersGuide.ReleaseNotes</a>
+     summarizes the changes of the library releases.</li>
+<li> <A HREF="Modelica_Media_Examples.html#Modelica.Media.Examples"
+>Modelica.Media.Examples</a>
+     contains examples that demonstrate the usage of this library.</li>
+</ul>
+<p>
+Copyright &copy; 1998-2009, Modelica Association.
+</p>
+<p>
+<i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the accompanying <b>disclaimer</b>
+<a href="Modelica://Modelica.UsersGuide.ModelicaLicense">here</a>.</i>
+</p><br>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_Library.html#Modelica.Icons.Library"
+>Modelica.Icons.Library</A> (Icon for library).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Media.UsersGuideS.png" ALT="Modelica.Media.UsersGuide" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_UsersGuide.html#Modelica.Media.UsersGuide"
+>UsersGuide</A>
+</TD><TD>User&#39;s Guide of Media Library</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.ExamplesS.png" ALT="Modelica.Media.Examples" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Examples.html#Modelica.Media.Examples"
+>Examples</A>
+</TD><TD>Demonstrate usage of property models (currently: simple tests)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.ExamplesS.png" ALT="Modelica.Media.Interfaces" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces.html#Modelica.Media.Interfaces"
+>Interfaces</A>
+</TD><TD>Interfaces for media models</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.ExamplesS.png" ALT="Modelica.Media.Common" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Common</A>
+</TD><TD>data structures and fundamental functions for fluid properties</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.AirS.png" ALT="Modelica.Media.Air" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air.html#Modelica.Media.Air"
+>Air</A>
+</TD><TD>Medium models for air</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.AirS.png" ALT="Modelica.Media.CompressibleLiquids" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_CompressibleLiquids.html#Modelica.Media.CompressibleLiquids"
+>CompressibleLiquids</A>
+</TD><TD>compressible liquid models</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.IdealGasesS.png" ALT="Modelica.Media.IdealGases" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_IdealGases.html#Modelica.Media.IdealGases"
+>IdealGases</A>
+</TD><TD>Data and models of ideal gases (single, fixed and dynamic mixtures) from NASA source</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.IncompressibleS.png" ALT="Modelica.Media.Incompressible" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Incompressible.html#Modelica.Media.Incompressible"
+>Incompressible</A>
+</TD><TD>Medium model for T-dependent properties, defined by tables or polynomials</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.WaterS.png" ALT="Modelica.Media.Water" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water.html#Modelica.Media.Water"
+>Water</A>
+</TD><TD>Medium models for water</TD></TR>
+</TABLE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.Dymola.com/">Dymola</a> Mon Sep  7 10:20:13 2009.
+</address></BODY>
+</HTML>

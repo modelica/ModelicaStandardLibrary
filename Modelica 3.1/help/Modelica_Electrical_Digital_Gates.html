@@ -1,0 +1,532 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.Digital.Gates</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Logic gates including delays&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Gates<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Digital.Gates"></A><A HREF="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
+>Modelica.Electrical.Digital</A>.Gates</H2>
+<B>Logic gates including delays</B>
+<P>
+<P><H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE><P>
+
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digital.Gates.InvGateS.png" ALT="Modelica.Electrical.Digital.Gates.InvGate" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Gates.html#Modelica.Electrical.Digital.Gates.InvGate"
+>InvGate</A>
+</TD><TD>InvGate with 1 input value, composed by Not and sensitive intertial delay</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digital.Gates.AndGateS.png" ALT="Modelica.Electrical.Digital.Gates.AndGate" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Gates.html#Modelica.Electrical.Digital.Gates.AndGate"
+>AndGate</A>
+</TD><TD>AndGate with multiple input</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digital.Gates.NandGateS.png" ALT="Modelica.Electrical.Digital.Gates.NandGate" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Gates.html#Modelica.Electrical.Digital.Gates.NandGate"
+>NandGate</A>
+</TD><TD>NandGate with multiple input</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digital.Gates.OrGateS.png" ALT="Modelica.Electrical.Digital.Gates.OrGate" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Gates.html#Modelica.Electrical.Digital.Gates.OrGate"
+>OrGate</A>
+</TD><TD>OrGate with multiple input</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digital.Gates.NorGateS.png" ALT="Modelica.Electrical.Digital.Gates.NorGate" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Gates.html#Modelica.Electrical.Digital.Gates.NorGate"
+>NorGate</A>
+</TD><TD>NorGate with multiple input</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digital.Gates.XorGateS.png" ALT="Modelica.Electrical.Digital.Gates.XorGate" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Gates.html#Modelica.Electrical.Digital.Gates.XorGate"
+>XorGate</A>
+</TD><TD>XorGate with multiple input</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digital.Gates.XnorGateS.png" ALT="Modelica.Electrical.Digital.Gates.XnorGate" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Gates.html#Modelica.Electrical.Digital.Gates.XnorGate"
+>XnorGate</A>
+</TD><TD>XnorGate with multiple input</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digital.Gates.BufGateS.png" ALT="Modelica.Electrical.Digital.Gates.BufGate" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Gates.html#Modelica.Electrical.Digital.Gates.BufGate"
+>BufGate</A>
+</TD><TD>BufGate with 1 input value, composed by Not and sensitive intertial delay</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE InvGate<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digital.Gates.InvGateI.png" ALT="Modelica.Electrical.Digital.Gates.InvGate" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Gates.InvGate"></A><A HREF="Modelica_Electrical_Digital_Gates.html#Modelica.Electrical.Digital.Gates"
+>Modelica.Electrical.Digital.Gates</A>.InvGate</H2>
+<B>InvGate with 1 input value, composed by Not and sensitive intertial delay</B><p>
+<IMG SRC="Modelica.Electrical.Digital.Gates.InvGateD.png" ALT="Modelica.Electrical.Digital.Gates.InvGate">
+<P><H3>Information</H3>
+<PRE></pre>
+<P>
+InvGate with 1 input value, composed by Not and sensitive intertial delay.
+</P>
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Electrical_Digital_Delay.html#Modelica.Electrical.Digital.Delay.DelayParams"
+>D.Delay.DelayParams</A> (Definition of delay parameters), <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.SISO"
+>D.Interfaces.SISO</A> (Single input, single output).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>tLH</TD><TD>&nbsp;</TD><TD>rise inertial delay [s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>tHL</TD><TD>&nbsp;</TD><TD>fall inertial delay [s]</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Logic"
+>Logic</A></TD><TD>y0</TD><TD>L.&#39;U&#39;</TD><TD>initial value of output</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalInput"
+>DigitalInput</A></TD><TD>x</TD><TD>Connector of Digital input signal</TD></TR>
+<TR><TD>output <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalOutput"
+>DigitalOutput</A></TD><TD>y</TD><TD>Connector of Digital output signal</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> InvGate <font color="darkgreen">
+  &quot;InvGate with 1 input value, composed by Not and sensitive intertial delay&quot;</font>
+  <font color="blue">import </font>D = <A HREF="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
+>Modelica.Electrical.Digital</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Digital_Delay.html#Modelica.Electrical.Digital.Delay.DelayParams"
+>D.Delay.DelayParams</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.SISO"
+>D.Interfaces.SISO</A>;
+  <A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic.Not"
+>D.Basic.Not</A> G1;
+  <A HREF="Modelica_Electrical_Digital_Delay.html#Modelica.Electrical.Digital.Delay.InertialDelaySensitive"
+>D.Delay.InertialDelaySensitive</A> G2(tLH=tLH, tHL=tHL);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(G2.y, y);
+  <font color="red">connect</font>(G1.x, x);
+  <font color="red">connect</font>(G1.y, G2.x);
+<font color="blue">end </font>InvGate;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE AndGate<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digital.Gates.AndGateI.png" ALT="Modelica.Electrical.Digital.Gates.AndGate" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Gates.AndGate"></A><A HREF="Modelica_Electrical_Digital_Gates.html#Modelica.Electrical.Digital.Gates"
+>Modelica.Electrical.Digital.Gates</A>.AndGate</H2>
+<B>AndGate with multiple input</B><p>
+<IMG SRC="Modelica.Electrical.Digital.Gates.AndGateD.png" ALT="Modelica.Electrical.Digital.Gates.AndGate">
+<P><H3>Information</H3>
+<PRE></pre>
+<P>
+AndGate with n input values, composed by And and sensitive intertial delay.
+</P>
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.MISO"
+>D.Interfaces.MISO</A> (Multiple input - single output), <A HREF="Modelica_Electrical_Digital_Delay.html#Modelica.Electrical.Digital.Delay.DelayParams"
+>D.Delay.DelayParams</A> (Definition of delay parameters).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>n</TD><TD>2</TD><TD>Number of inputs</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>tLH</TD><TD>&nbsp;</TD><TD>rise inertial delay [s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>tHL</TD><TD>&nbsp;</TD><TD>fall inertial delay [s]</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Logic"
+>Logic</A></TD><TD>y0</TD><TD>L.&#39;U&#39;</TD><TD>initial value of output</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalInput"
+>DigitalInput</A></TD><TD>x[n]</TD><TD>Connector of Digital input signal vector</TD></TR>
+<TR><TD>output <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalOutput"
+>DigitalOutput</A></TD><TD>y</TD><TD>Connector of Digital output signal</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> AndGate <font color="darkgreen">&quot;AndGate with multiple input&quot;</font>
+  <font color="blue">import </font>D = <A HREF="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
+>Modelica.Electrical.Digital</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.MISO"
+>D.Interfaces.MISO</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Digital_Delay.html#Modelica.Electrical.Digital.Delay.DelayParams"
+>D.Delay.DelayParams</A>;
+  <A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic.And"
+>D.Basic.And</A> G1(<font color="blue">final </font>n=n);
+  <A HREF="Modelica_Electrical_Digital_Delay.html#Modelica.Electrical.Digital.Delay.InertialDelaySensitive"
+>D.Delay.InertialDelaySensitive</A> G2(
+    tLH=tLH,
+    tHL=tHL,
+    y0=y0);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(x, G1.x);
+  <font color="red">connect</font>(y, G2.y);
+  <font color="red">connect</font>(G1.y, G2.x);
+<font color="blue">end </font>AndGate;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE NandGate<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digital.Gates.NandGateI.png" ALT="Modelica.Electrical.Digital.Gates.NandGate" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Gates.NandGate"></A><A HREF="Modelica_Electrical_Digital_Gates.html#Modelica.Electrical.Digital.Gates"
+>Modelica.Electrical.Digital.Gates</A>.NandGate</H2>
+<B>NandGate with multiple input</B><p>
+<IMG SRC="Modelica.Electrical.Digital.Gates.NandGateD.png" ALT="Modelica.Electrical.Digital.Gates.NandGate">
+<P><H3>Information</H3>
+<PRE></pre>
+<P>
+NandGate with n input values, composed by Nand and sensitive intertial delay.
+</P>
+<pre></PRE>
+Extends from <A HREF="Modelica_Electrical_Digital_Delay.html#Modelica.Electrical.Digital.Delay.DelayParams"
+>D.Delay.DelayParams</A> (Definition of delay parameters), <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.MISO"
+>D.Interfaces.MISO</A> (Multiple input - single output).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>tLH</TD><TD>&nbsp;</TD><TD>rise inertial delay [s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>tHL</TD><TD>&nbsp;</TD><TD>fall inertial delay [s]</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Logic"
+>Logic</A></TD><TD>y0</TD><TD>L.&#39;U&#39;</TD><TD>initial value of output</TD></TR>
+<TR><TD>Integer</TD><TD>n</TD><TD>2</TD><TD>Number of inputs</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalInput"
+>DigitalInput</A></TD><TD>x[n]</TD><TD>Connector of Digital input signal vector</TD></TR>
+<TR><TD>output <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalOutput"
+>DigitalOutput</A></TD><TD>y</TD><TD>Connector of Digital output signal</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> NandGate <font color="darkgreen">&quot;NandGate with multiple input&quot;</font>
+  <font color="blue">import </font>D = <A HREF="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
+>Modelica.Electrical.Digital</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Digital_Delay.html#Modelica.Electrical.Digital.Delay.DelayParams"
+>D.Delay.DelayParams</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.MISO"
+>D.Interfaces.MISO</A>;
+  <A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic.Nand"
+>D.Basic.Nand</A> G1(<font color="blue">final </font>n=n);
+  <A HREF="Modelica_Electrical_Digital_Delay.html#Modelica.Electrical.Digital.Delay.InertialDelaySensitive"
+>D.Delay.InertialDelaySensitive</A> G2(
+    tLH=tLH,
+    tHL=tHL,
+    y0=y0);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(x, G1.x);
+  <font color="red">connect</font>(G1.y, G2.x);
+  <font color="red">connect</font>(G2.y, y);
+<font color="blue">end </font>NandGate;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE OrGate<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digital.Gates.OrGateI.png" ALT="Modelica.Electrical.Digital.Gates.OrGate" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Gates.OrGate"></A><A HREF="Modelica_Electrical_Digital_Gates.html#Modelica.Electrical.Digital.Gates"
+>Modelica.Electrical.Digital.Gates</A>.OrGate</H2>
+<B>OrGate with multiple input</B><p>
+<IMG SRC="Modelica.Electrical.Digital.Gates.OrGateD.png" ALT="Modelica.Electrical.Digital.Gates.OrGate">
+<P><H3>Information</H3>
+<PRE></pre>
+<P>
+OrGate with n input values, composed by Or and sensitive intertial delay.
+</P>
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Electrical_Digital_Delay.html#Modelica.Electrical.Digital.Delay.DelayParams"
+>D.Delay.DelayParams</A> (Definition of delay parameters), <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.MISO"
+>D.Interfaces.MISO</A> (Multiple input - single output).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>tLH</TD><TD>&nbsp;</TD><TD>rise inertial delay [s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>tHL</TD><TD>&nbsp;</TD><TD>fall inertial delay [s]</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Logic"
+>Logic</A></TD><TD>y0</TD><TD>L.&#39;U&#39;</TD><TD>initial value of output</TD></TR>
+<TR><TD>Integer</TD><TD>n</TD><TD>2</TD><TD>Number of inputs</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalInput"
+>DigitalInput</A></TD><TD>x[n]</TD><TD>Connector of Digital input signal vector</TD></TR>
+<TR><TD>output <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalOutput"
+>DigitalOutput</A></TD><TD>y</TD><TD>Connector of Digital output signal</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> OrGate <font color="darkgreen">&quot;OrGate with multiple input&quot;</font>
+  <font color="blue">import </font>D = <A HREF="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
+>Modelica.Electrical.Digital</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Digital_Delay.html#Modelica.Electrical.Digital.Delay.DelayParams"
+>D.Delay.DelayParams</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.MISO"
+>D.Interfaces.MISO</A>;
+  <A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic.Or"
+>D.Basic.Or</A> G1(<font color="blue">final </font>n=n);
+  <A HREF="Modelica_Electrical_Digital_Delay.html#Modelica.Electrical.Digital.Delay.InertialDelaySensitive"
+>D.Delay.InertialDelaySensitive</A> G2(
+    tLH=tLH,
+    tHL=tHL,
+    y0=y0);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(G1.y, G2.x);
+  <font color="red">connect</font>(x,G1. x);
+  <font color="red">connect</font>(y, G2.y);
+<font color="blue">end </font>OrGate;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE NorGate<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digital.Gates.NorGateI.png" ALT="Modelica.Electrical.Digital.Gates.NorGate" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Gates.NorGate"></A><A HREF="Modelica_Electrical_Digital_Gates.html#Modelica.Electrical.Digital.Gates"
+>Modelica.Electrical.Digital.Gates</A>.NorGate</H2>
+<B>NorGate with multiple input</B><p>
+<IMG SRC="Modelica.Electrical.Digital.Gates.NorGateD.png" ALT="Modelica.Electrical.Digital.Gates.NorGate">
+<P><H3>Information</H3>
+<PRE></pre>
+<P>
+NorGate with n input values, composed by Nor and sensitive intertial delay.
+</P>
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Electrical_Digital_Delay.html#Modelica.Electrical.Digital.Delay.DelayParams"
+>D.Delay.DelayParams</A> (Definition of delay parameters), <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.MISO"
+>D.Interfaces.MISO</A> (Multiple input - single output).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>tLH</TD><TD>&nbsp;</TD><TD>rise inertial delay [s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>tHL</TD><TD>&nbsp;</TD><TD>fall inertial delay [s]</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Logic"
+>Logic</A></TD><TD>y0</TD><TD>L.&#39;U&#39;</TD><TD>initial value of output</TD></TR>
+<TR><TD>Integer</TD><TD>n</TD><TD>2</TD><TD>Number of inputs</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalInput"
+>DigitalInput</A></TD><TD>x[n]</TD><TD>Connector of Digital input signal vector</TD></TR>
+<TR><TD>output <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalOutput"
+>DigitalOutput</A></TD><TD>y</TD><TD>Connector of Digital output signal</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> NorGate <font color="darkgreen">&quot;NorGate with multiple input&quot;</font>
+  <font color="blue">import </font>D = <A HREF="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
+>Modelica.Electrical.Digital</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Digital_Delay.html#Modelica.Electrical.Digital.Delay.DelayParams"
+>D.Delay.DelayParams</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.MISO"
+>D.Interfaces.MISO</A>;
+  <A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic.Nor"
+>D.Basic.Nor</A> G1(<font color="blue">final </font>n=n);
+  <A HREF="Modelica_Electrical_Digital_Delay.html#Modelica.Electrical.Digital.Delay.InertialDelaySensitive"
+>D.Delay.InertialDelaySensitive</A> G2(
+    tLH=tLH,
+    tHL=tHL,
+    y0=y0);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(G1.y, G2.x);
+  <font color="red">connect</font>(x, G1.x);
+  <font color="red">connect</font>(y, G2.y);
+<font color="blue">end </font>NorGate;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE XorGate<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digital.Gates.XorGateI.png" ALT="Modelica.Electrical.Digital.Gates.XorGate" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Gates.XorGate"></A><A HREF="Modelica_Electrical_Digital_Gates.html#Modelica.Electrical.Digital.Gates"
+>Modelica.Electrical.Digital.Gates</A>.XorGate</H2>
+<B>XorGate with multiple input</B><p>
+<IMG SRC="Modelica.Electrical.Digital.Gates.XorGateD.png" ALT="Modelica.Electrical.Digital.Gates.XorGate">
+<P><H3>Information</H3>
+<PRE></pre>
+<P>
+XorGate with n input values, composed by Xor and sensitive intertial delay.
+</P>
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Electrical_Digital_Delay.html#Modelica.Electrical.Digital.Delay.DelayParams"
+>D.Delay.DelayParams</A> (Definition of delay parameters), <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.MISO"
+>D.Interfaces.MISO</A> (Multiple input - single output).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>tLH</TD><TD>&nbsp;</TD><TD>rise inertial delay [s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>tHL</TD><TD>&nbsp;</TD><TD>fall inertial delay [s]</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Logic"
+>Logic</A></TD><TD>y0</TD><TD>L.&#39;U&#39;</TD><TD>initial value of output</TD></TR>
+<TR><TD>Integer</TD><TD>n</TD><TD>2</TD><TD>Number of inputs</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalInput"
+>DigitalInput</A></TD><TD>x[n]</TD><TD>Connector of Digital input signal vector</TD></TR>
+<TR><TD>output <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalOutput"
+>DigitalOutput</A></TD><TD>y</TD><TD>Connector of Digital output signal</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> XorGate <font color="darkgreen">&quot;XorGate with multiple input&quot;</font>
+  <font color="blue">import </font>D = <A HREF="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
+>Modelica.Electrical.Digital</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Digital_Delay.html#Modelica.Electrical.Digital.Delay.DelayParams"
+>D.Delay.DelayParams</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.MISO"
+>D.Interfaces.MISO</A>;
+  <A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic.Xor"
+>D.Basic.Xor</A> G1(<font color="blue">final </font>n=n);
+  <A HREF="Modelica_Electrical_Digital_Delay.html#Modelica.Electrical.Digital.Delay.InertialDelaySensitive"
+>D.Delay.InertialDelaySensitive</A> G2(
+    tLH=tLH,
+    tHL=tHL,
+    y0=y0);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(x, G1.x);
+  <font color="red">connect</font>(G1.y, G2.x);
+  <font color="red">connect</font>(G2.y, y);
+<font color="blue">end </font>XorGate;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE XnorGate<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digital.Gates.XnorGateI.png" ALT="Modelica.Electrical.Digital.Gates.XnorGate" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Gates.XnorGate"></A><A HREF="Modelica_Electrical_Digital_Gates.html#Modelica.Electrical.Digital.Gates"
+>Modelica.Electrical.Digital.Gates</A>.XnorGate</H2>
+<B>XnorGate with multiple input</B><p>
+<IMG SRC="Modelica.Electrical.Digital.Gates.XnorGateD.png" ALT="Modelica.Electrical.Digital.Gates.XnorGate">
+<P><H3>Information</H3>
+<PRE></pre>
+<P>
+XNorGate with n input values, composed by XNor and sensitive intertial delay.
+</P>
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Electrical_Digital_Delay.html#Modelica.Electrical.Digital.Delay.DelayParams"
+>D.Delay.DelayParams</A> (Definition of delay parameters), <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.MISO"
+>D.Interfaces.MISO</A> (Multiple input - single output).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>tLH</TD><TD>&nbsp;</TD><TD>rise inertial delay [s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>tHL</TD><TD>&nbsp;</TD><TD>fall inertial delay [s]</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Logic"
+>Logic</A></TD><TD>y0</TD><TD>L.&#39;U&#39;</TD><TD>initial value of output</TD></TR>
+<TR><TD>Integer</TD><TD>n</TD><TD>2</TD><TD>Number of inputs</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalInput"
+>DigitalInput</A></TD><TD>x[n]</TD><TD>Connector of Digital input signal vector</TD></TR>
+<TR><TD>output <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalOutput"
+>DigitalOutput</A></TD><TD>y</TD><TD>Connector of Digital output signal</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> XnorGate <font color="darkgreen">&quot;XnorGate with multiple input&quot;</font>
+  <font color="blue">import </font>D = <A HREF="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
+>Modelica.Electrical.Digital</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Digital_Delay.html#Modelica.Electrical.Digital.Delay.DelayParams"
+>D.Delay.DelayParams</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.MISO"
+>D.Interfaces.MISO</A>;
+  <A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic.Xnor"
+>D.Basic.Xnor</A> G1(<font color="blue">final </font>n=n);
+  <A HREF="Modelica_Electrical_Digital_Delay.html#Modelica.Electrical.Digital.Delay.InertialDelaySensitive"
+>D.Delay.InertialDelaySensitive</A> G2(
+    tLH=tLH,
+    tHL=tHL,
+    y0=y0);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(x, G1.x);
+  <font color="red">connect</font>(G2.y, y);
+  <font color="red">connect</font>(G1.y, G2.x);
+<font color="blue">end </font>XnorGate;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BufGate<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digital.Gates.BufGateI.png" ALT="Modelica.Electrical.Digital.Gates.BufGate" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Gates.BufGate"></A><A HREF="Modelica_Electrical_Digital_Gates.html#Modelica.Electrical.Digital.Gates"
+>Modelica.Electrical.Digital.Gates</A>.BufGate</H2>
+<B>BufGate with 1 input value, composed by Not and sensitive intertial delay</B><p>
+<IMG SRC="Modelica.Electrical.Digital.Gates.BufGateD.png" ALT="Modelica.Electrical.Digital.Gates.BufGate">
+<P><H3>Information</H3>
+<PRE></pre>
+<P>
+BufGate with 1 input value, composed by Not and sensitive intertial delay.
+</P>
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Electrical_Digital_Delay.html#Modelica.Electrical.Digital.Delay.DelayParams"
+>D.Delay.DelayParams</A> (Definition of delay parameters), <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.SISO"
+>D.Interfaces.SISO</A> (Single input, single output).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>tLH</TD><TD>&nbsp;</TD><TD>rise inertial delay [s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>tHL</TD><TD>&nbsp;</TD><TD>fall inertial delay [s]</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Logic"
+>Logic</A></TD><TD>y0</TD><TD>L.&#39;U&#39;</TD><TD>initial value of output</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalInput"
+>DigitalInput</A></TD><TD>x</TD><TD>Connector of Digital input signal</TD></TR>
+<TR><TD>output <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalOutput"
+>DigitalOutput</A></TD><TD>y</TD><TD>Connector of Digital output signal</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> BufGate <font color="darkgreen">
+  &quot;BufGate with 1 input value, composed by Not and sensitive intertial delay&quot;</font>
+  <font color="blue">import </font>D = <A HREF="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
+>Modelica.Electrical.Digital</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Digital_Delay.html#Modelica.Electrical.Digital.Delay.DelayParams"
+>D.Delay.DelayParams</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.SISO"
+>D.Interfaces.SISO</A>;
+  <A HREF="Modelica_Electrical_Digital_Delay.html#Modelica.Electrical.Digital.Delay.InertialDelaySensitive"
+>D.Delay.InertialDelaySensitive</A> G1(tLH=tLH, tHL=tHL);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(G1.y, y);
+  <font color="red">connect</font>(G1.x, x);
+<font color="blue">end </font>BufGate;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.Dymola.com/">Dymola</a> Mon Sep  7 10:14:07 2009.
+</address></BODY>
+</HTML>
