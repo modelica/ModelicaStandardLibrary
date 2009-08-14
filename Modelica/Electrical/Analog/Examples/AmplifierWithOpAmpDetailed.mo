@@ -8,7 +8,7 @@ model AmplifierWithOpAmpDetailed
     experiment(
       StopTime=0.003,
       NumberOfIntervals=2500,
-      Tolerance=1e-008),
+      Tolerance=2e-007),
     __Dymola_experimentSetupOutput,
     Documentation(revisions="<html>
 <ul>
