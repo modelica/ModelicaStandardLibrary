@@ -689,7 +689,7 @@ more of the following changes.
 </html>"));
 end VersionManagement;
 
-class Version_3_1 "Version 3.1 (August 13, 2009)"
+class Version_3_1 "Version 3.1 (August 14, 2009)"
 
    annotation (Documentation(info="<html>
 
