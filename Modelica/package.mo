@@ -655,14 +655,14 @@ Incorporation of bug fixes (subversion \"commit\") shall be performed in the fol
          Modelica.UsersGuide.ReleaseNotes.Version_&lt;release-number&gt;_BugFixes.</li>
 <li> Annotations \"version\" and \"versionDate\" must <u>not</u> be changed in a maintenance release.</li>
 <li> Every change to the maintenance branch requires changing the
-     \"versionBuild\" number (incrementing it by one), as well as the revisionID.
+     \"versionBuild\" number (incrementing it by one), as well as the \"revisionId\".
      The latter one is automatically done once a commit of file Modelica\\package.mo
      is performed. Example:
          <pre>  annotation(version      = \"3.1\",
              versionDate  = \"2009-06-22\",
              versionBuild = 3,
              dateModified = \"2009-06-21 08:13:18Z\",
-             revisionID   = \"$Id::                                       $\").</pre></li>
+             revisionId   = \"$Id::                                       $\").</pre></li>
 <li> If time does not permit, a vendor makes the bug fix in its local version
          and then has to include it in the maintenance version. It would be best to make these
          changes at a new branch in order to get a unique release number.</li>
@@ -710,7 +710,7 @@ the following new language elements (compared to Modelica Specification 3.0):
 <li> Annotation <u>connectorSizing</u> in Modelica.Fluid.</li>
 <li> Annotation <u>inverse</u> in Modelica.Media.</li>
 <li> Annotations <u>versionBuild</u>, <u>dateModified</u>,
-     <u>revisionID</u> at the root level annotation of package Modelica,
+     <u>revisionId</u> at the root level annotation of package Modelica,
      to improve the version handling.</li>
 <li> Modifiers can be used in connectors instances (so balanced models
      are less restrictive). This allowed to make the implementation
@@ -761,7 +761,7 @@ to <b style=\"color:blue\">existing</b> libraries:
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><b>Modelica.</b></td></tr>
-<tr><td valign=\"top\"> versionBuild<br>versionDate<br>dateModified<br>revisionID </td>
+<tr><td valign=\"top\"> versionBuild<br>versionDate<br>dateModified<br>revisionId </td>
     <td valign=\"top\"> New annotations from Modelica 3.1 for version handling added.</td> </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.UsersGuide.ReleaseNotes.</b></td></tr>
@@ -4903,10 +4903,10 @@ end UsersGuide;
 annotation (
 preferredView="info",
 version="3.1",
-versionBuild=1,
+versionBuild=2,
 versionDate="2009-08-14",
-dateModified = "2009-08-14 10:16:58Z",
-revisionID="$Id::                                       $",
+dateModified = "2009-08-15 19:32:58Z",
+revisionId="$Id::                                       $",
 conversion(
  noneFromVersion="3.0.1",
  noneFromVersion="3.0",
