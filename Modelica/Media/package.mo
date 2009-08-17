@@ -3306,8 +3306,6 @@ with exception of ambient pressure, do not have an effect.
 Model <b>ShortPipe</b> defines a simple pipe model
 with pressure loss due to friction. It is assumed that
 no mass or energy is stored in the pipe.
-The details of the pipe friction model are described
-<a href=\"Modelica://Modelica_Fluid.Utilities.PipeFriction\">here</a>.
 </p>
 </html>"));
       equation
