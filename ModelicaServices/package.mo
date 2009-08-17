@@ -1,5 +1,6 @@
 within ;
 package ModelicaServices "Models and functions used in the Modelica Standard Library requiring a tool specific implementation"
+
 package UsersGuide "Users Guide"
 
   annotation(__Dymola_DocumentationClass=true);
@@ -37,8 +38,7 @@ email: Board@Modelica.org<br>
 web&nbsp; : http://www.Modelica.org</p>
 <p style=\"margin-left: 40px;\"><b>Copyright notices of the files:</b></p>
 <div style=\"margin-left: 40px;\">Copyright &copy; 1998-2009,
-ABB, arsenal research, DLR, Dynasim, Fraunhofer, Modelon, TU
-Hamburg-Harburg, Politecnico di Milano.<br>
+DLR, Dynasim.<br>
 </div>
 <br>
 </p>
@@ -68,7 +68,7 @@ The Modelica License applies to any Original Work that contains the
 following licensing notice adjacent to the copyright notice(s) for
 this Original Work:</p>
 <p><b>Licensed
-by &lt;name of Licensor&gt; under the Modelica License 2</b></p>
+by the Modelica Association under the Modelica License 2</b></p>
 
 <p><b>1. Definitions.</b></p>
 <ol>
@@ -625,6 +625,8 @@ end UsersGuide;
 annotation (preferredView="info",
 version="1.0",
 versionDate="2009-06-21",
+versionBuild=2,
+revisionId="$Id::                                       $",
   Documentation(info="<html>
 <p>
 This package contains a set of functions and models to be used in the
