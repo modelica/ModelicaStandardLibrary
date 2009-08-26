@@ -458,8 +458,8 @@ This package contains basic analog electrical multiphase components.
       Modelica.Electrical.Analog.Interfaces.NegativePin pin_n 
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}}), graphics={
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={
             Text(
               extent={{-150,60},{150,120}},
               textString="%name",
@@ -503,8 +503,8 @@ Connects all pins of plug_p to pin_n, thus establishing a so-called star-connect
       Interfaces.NegativePlug plug_n(final m=m) 
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}}), graphics={
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={
             Text(
               extent={{-150,60},{150,120}},
               lineColor={0,0,255},
@@ -593,8 +593,8 @@ Connects pin <i>k</i> of plug_p to pin_p, leaving the other pins of plug_p uncon
       Modelica.Electrical.Analog.Interfaces.NegativePin pin_n 
         annotation (Placement(transformation(extent={{10,-10},{30,10}},
               rotation=0)));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}}), graphics={
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={
             Text(
               extent={{-150,100},{150,40}},
               textString="%name",
@@ -836,8 +836,8 @@ Contains m inductors (Modelica.Electrical.Analog.Basic.Inductor)
         final Linf=Linf) 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
               rotation=0)));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}}), graphics={
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={
             Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}),
             Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}),
             Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}),
@@ -942,7 +942,9 @@ Each element of the array of saturatingInductors is only dependent on the curren
 Contains m transformers (Modelica.Electrical.Analog.Basic.Transformer)
 </p>
 </HTML>"),
-        Diagram(graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics));
     equation
 
       connect(plug_p1.pin, transformer.p1) annotation (Line(
@@ -1100,8 +1102,8 @@ Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConduct
       Modelica.Electrical.Analog.Basic.VariableCapacitor variableCapacitor[m](final Cmin = Cmin) 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
               rotation=0)));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}}), graphics={
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={
             Line(points={{0,90},{0,30}}, color={0,0,255}),
             Text(
               extent={{-150,-100},{150,-40}},
@@ -1156,8 +1158,8 @@ Cmin is a parameter with default value Modelica.Constants.eps.
           =    Lmin) 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
               rotation=0)));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}}), graphics={
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={
             Text(
               extent={{-150,-100},{150,-40}},
               textString="%name",
@@ -1582,8 +1584,13 @@ Contains m ideal diodes (Modelica.Electrical.Analog.Ideal.IdealDiode).
     model IdealTransformer "Multiphase ideal transformer"
       extends Interfaces.FourPlug;
       parameter Real n[m](start=fill(1, m)) "Turns ratio";
+      parameter Boolean considerMagnetization=false;
+      parameter SIunits.Inductance Lm1[m](start=fill(1,m))
+        "Magnetization inductances w.r.t. primary side";
       Modelica.Electrical.Analog.Ideal.IdealTransformer idealTransformer[m](
-          final n=n) annotation (Placement(transformation(extent={{-10,-10},{10,
+          final n=n,
+          each final considerMagnetization=considerMagnetization,
+          final Lm1=Lm1)     annotation (Placement(transformation(extent={{-10,-10},{10,
                 10}}, rotation=0)));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
