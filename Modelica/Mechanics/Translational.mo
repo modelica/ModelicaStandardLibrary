@@ -1936,8 +1936,7 @@ where the different effects are visualized:
             Text(
               extent={{0,120},{0,60}},
               textString="%name",
-              lineColor={0,0,255})}),
-        uses(Modelica(version="2.2.2")));
+              lineColor={0,0,255})}));
 
     /*
 Please note that initialization might fail due to the nonlinear spring characteristic
