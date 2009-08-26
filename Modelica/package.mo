@@ -934,19 +934,6 @@ have been <b style=\"color:blue\">improved</b> in a
                       is a reserved keyword in Modelica 3.1 </td> </tr>
 </table>
 
-<p><br>
-The following <b style=\"color:red\">critical errors</b> have been fixed (i.e. errors
-that can lead to wrong simulation results):
-</p>
-
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>Mechanics.Translational.Components</b></td></tr>
-<tr><td valign=\"top\">ElastoGap</td>
-          <td valign=\"top\"> The ElastoGap component was changed in a non backwards
-compatible way. This was fixed in the <code>versionBuild=3</code> version of Modelica Standard Library 3.1
-(see also <a href=\"http://trac.modelica.org/Modelica/ticket/203\">Ticket #203</a>).</td>
-</tr>
-</table>
 
 <p><br>
 The following <b style=\"color:red\">uncritical errors</b> have been fixed (i.e. errors
@@ -4918,7 +4905,7 @@ preferredView="info",
 version="3.1",
 versionBuild=3,
 versionDate="2009-08-14",
-dateModified = "2009-08-26 12:20:00Z",
+dateModified = "2009-08-26 15:35:35Z",
 revisionId="$Id::                                       $",
 conversion(
  noneFromVersion="3.0.1",
