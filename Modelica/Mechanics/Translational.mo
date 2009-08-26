@@ -1113,7 +1113,7 @@ Spool position s as a function of working force f.
           smooth=Smooth.None));
     end PreLoad;
 
-    model ElastoGap "Demonstrate usgae of ElastoGap"
+    model ElastoGap "Demonstrate usage of ElastoGap"
     extends Modelica.Icons.Example;
       annotation (
         Documentation(info="<html>
@@ -1174,19 +1174,21 @@ mass2 moves freely as long as -0.5 m &lt; s &lt; +0.5 m.
     equation
 
       connect(rod1.flange_b, fixed.flange) annotation (Line(
-          points={{-20,0},{0,0}},
+          points={{-20,6.10623e-16},{-15,6.10623e-16},{-15,1.11022e-15},{-10,
+              1.11022e-15},{-10,4.996e-16},{6.10623e-16,4.996e-16}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(fixed.flange, rod2.flange_a) annotation (Line(
-          points={{0,0},{20,0}},
+          points={{6.10623e-16,4.996e-16},{5,4.996e-16},{5,1.11022e-15},{10,
+              1.11022e-15},{10,6.10623e-16},{20,6.10623e-16}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(springDamper1.flange_a, rod1.flange_a) annotation (Line(
-          points={{-40,30},{-48,30},{-48,0},{-40,0}},
+          points={{-40,30},{-48,30},{-48,6.10623e-16},{-40,6.10623e-16}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(springDamper2.flange_b, rod2.flange_b) annotation (Line(
-          points={{40,30},{50,30},{50,0},{40,0}},
+          points={{40,30},{50,30},{50,6.10623e-16},{40,6.10623e-16}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(springDamper1.flange_b, mass1.flange_a) annotation (Line(
@@ -1198,11 +1200,11 @@ mass2 moves freely as long as -0.5 m &lt; s &lt; +0.5 m.
           color={0,127,0},
           smooth=Smooth.None));
       connect(rod1.flange_a, elastoGap1.flange_a) annotation (Line(
-          points={{-40,0},{-48,0},{-48,-30},{-40,-30}},
+          points={{-40,6.10623e-16},{-48,6.10623e-16},{-48,-30},{-40,-30}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(rod2.flange_b, elastoGap2.flange_b) annotation (Line(
-          points={{40,0},{50,0},{50,-30},{40,-30}},
+          points={{40,6.10623e-16},{50,6.10623e-16},{50,-30},{40,-30}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(elastoGap1.flange_b, mass2.flange_a) annotation (Line(
@@ -1747,7 +1749,11 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
     end SpringDamper;
 
     model ElastoGap "1D translational spring damper combination with gap"
-      extends Modelica.Mechanics.Translational.Interfaces.PartialCompliant;
+      extends Modelica.Mechanics.Translational.Interfaces.PartialCompliant(
+         s_rel(stateSelect=stateSelect));
+      parameter StateSelect stateSelect=StateSelect.prefer
+        "Priority to use s_rel and v_rel as states"
+      annotation(HideResult=true, Dialog(tab="Advanced"));
       parameter Real c(final unit="N/m", final min=0, start=1)
         "Spring constant";
       parameter Real d(final unit="N/ (m/s)", final min=0, start=1)
@@ -1769,18 +1775,15 @@ The component can be connected between a sliding mass and the housing (model
 <a href=\"Modelica://Modelica.Mechanics.Translational.Components.Fixed\">Fixed</a>),
 to describe the contact of a sliding mass with the housing.
 </p>
-
 <p>
 As long as s_rel &gt; s_rel0, no force is exerted (s_rel = flange_b.s - flange_a.s).
 If s_rel &le; s_rel0, the contact force is basically computed with a linear
 spring/damper characteristic. With parameter n&ge;1 (exponent of spring force),
 a nonlinear spring force can be modeled:
 </p>
-
 <pre>
    desiredContactForce = c*|s_rel - s_rel0|^n + d*<b>der</b>(s_rel)
 </pre>
-
 <p>
 Note, Hertzian contact is described by:
 </p>
@@ -1788,16 +1791,13 @@ Note, Hertzian contact is described by:
 <li> Contact between two metallic spheres: n=1.5</li>
 <li> Contact between two metallic plates: n=1</li>
 </ul>
-
 <p>
 The above force law leads to the following difficulties:
 </p>
-
 <ol>
 <li> If the damper force becomes larger as the spring force and with opposite sign,
      the contact force would be \"pulling/sticking\" which is unphysical, since during
      contact only pushing forces can occur.</li>
-
 <li> When contact occurs with a non-zero relative speed (which is the usual
      situation), the damping force has a non-zero value and therefore the contact
      force changes discontinuously at s_rel = s_rel0. Again, this is not physical
@@ -1805,7 +1805,6 @@ The above force law leads to the following difficulties:
      idealized model where a steep characteristic is approximated by a discontinuity,
      but it shall model the steep characteristic.)</li>
 </ol>
-
 <p>
 In the literature there are several proposals to fix problem (2). Especially, often
 the following model is used (see, e.g.,
@@ -1813,11 +1812,9 @@ Lankarani, Nikravesh: Continuous Contact Force Models for Impact
 Analysis in Multibody Systems, Nonlinear Dynamics 5, pp. 193-207, 1994,
 <a href=\"http://www.springerlink.com/content/h50x61270q06p65n/fulltext.pdf\">pdf-download</a>):
 </p>
-
 <pre>
    f = c*s_rel^n + (d*s_rel^n)*<b>der</b>(s_rel)
 </pre>
-
 <p>
 However, this and other models proposed in literature violate
 issue (1), i.e., unphysical pulling forces can occur (if d*<b>der</b>(s_rel)
@@ -1827,7 +1824,6 @@ For this reason, the most simplest approach is used in the ElastoGap model
 to fix both problems by using this necessary condition in the force law directly.
 If s_rel0 = 0, the equations are:
 </p>
-
 <pre>
     <b>if</b> s_rel &ge; 0 <b>then</b>
        f = 0;    // contact force
@@ -1839,18 +1835,15 @@ If s_rel0 = 0, the equations are:
        f    = f_c + f_d;            // contact force
     <b>end if</b>;
 </pre>
-
 <p>
 Note, since |f_d| &le; |f_c|, pulling forces cannot occur and the contact force
 is always continuous, especially around the start of the penetration at s_rel = s_rel0.
 </p>
-
 <p>
 In the next figure, a typical simulation with the ElastoGap model is shown
 (<a href=\"Modelica://Modelica.Mechanics.Translational.Examples.ElastoGap\">Examples.ElastoGap</a>)
 where the different effects are visualized:
 </p>
-
 <ol>
 <li> Curve 1 (elastoGap1.f) is the unmodified contact force, i.e., the linear spring/damper
      characteristic. A pulling/sticking force is present at the end of the contact.</li>
@@ -1860,7 +1853,6 @@ where the different effects are visualized:
 <li> Curve 3 (elastoGap3.f) is the ElastoGap model of this library. No discontinuity and no
      pulling/sticking occurs.</li>
 </ol>
-
 <p align=\"center\">
 <img src=\"../Images/Translational/ElastoGap1.png\">
 </p>
@@ -1959,7 +1951,8 @@ if a positive force is acting on the element and no other force balances this fo
       Modelica.SIunits.Force f_d2 "Linear damping force";
       Modelica.SIunits.Force f_d
         "Linear damping force which is limited by spring force (|f_d| <= |f_c|)";
-      Modelica.SIunits.Velocity v_rel = der(s_rel) "Penetration velocity";
+      Modelica.SIunits.Velocity v_rel(stateSelect=stateSelect) = der(s_rel)
+        "Penetration velocity";
     equation
       // Modify contact force, so that it is only "pushing" and not
       // "pulling/sticking" and that it is continous
