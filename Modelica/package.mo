@@ -818,6 +818,10 @@ to <b style=\"color:blue\">existing</b> libraries:
 <tr><td valign=\"top\"> ZDiode<br>Thyristor</td>
     <td valign=\"top\"> Zener Diode with 3 working areas and simple thyristor model. </td> </tr>
 
+<tr><td colspan=\"2\"><b>Modelica.Electrical.MultiPhase.Ideal.</b></td></tr>
+<tr><td valign=\"top\"> OpenerWithArc<br>CloserWithArc</td>
+    <td valign=\"top\"> New switches with simple arc model (as in Modelica.Electrical.Analog.Ideal. </td> </tr>
+
 <tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Examples.Elementary.</b></td></tr>
 <tr><td valign=\"top\"> RollingWheel<br>
                       RollingWheelSetDriving<br>
@@ -865,6 +869,13 @@ to <b style=\"color:blue\">existing</b> libraries:
                       implementation (currently only \"Shape\" for 3-dim. animation,
                       but will be extended in the future)</td> </tr>
 
+<tr><td colspan=\"2\"><b>Modelica.Thermal.HeatTransfer.Components.</b></td></tr>
+<tr><td valign=\"top\"> ThermalCollector</td>
+    <td valign=\"top\"> New auxiliary model to collect the heat flows
+                      from m heatports to a single heatport;
+                      useful for multiphase resistors (with heatports)
+                      as a junction of the m heatports.</td> </tr>
+                      
 <tr><td colspan=\"2\"><b>Modelica.Icons.</b></td></tr>
 <tr><td valign=\"top\"> VariantLibrary<br>
                       BaseClassLibrary<br>
@@ -896,19 +907,27 @@ have been <b style=\"color:blue\">improved</b> in a
 <tr><td colspan=\"2\"><b>Modelica.</b></td></tr>
 <tr><td valign=\"top\"> Blocks<br>Mechanics<br>StateGraph </td>
     <td valign=\"top\"> Provided missing parameter values for examples
-                      (these parameters had only start values)
-</td> </tr>
+                      (these parameters had only start values)</td> </tr>
+                      
 <tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Basic</b></td></tr>
 <tr><td valign=\"top\"> Resistor, Conductor, VariableResistor, VariableConductor</td>
     <td valign=\"top\"> Conditional heatport added for coupling to thermal network. </td> </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Ideal</b></td></tr>
 <tr><td valign=\"top\"> Thyristors, Switches, IdealDiode</td>
-    <td valign=\"top\"> Conditional heatport added for coupling to thermal network</td> </tr>
+    <td valign=\"top\"> Conditional heatport added for coupling to thermal network. </td> </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Semiconductors</b></td></tr>
 <tr><td valign=\"top\"> Diode, ZDiode, PMOS, NMOS, NPN, PNP</td>
-    <td valign=\"top\"> Conditional heatport added for coupling to thermal network</td> </tr>
+    <td valign=\"top\"> Conditional heatport added for coupling to thermal network. </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Electrical.MultiPhase.Basic</b></td></tr>
+<tr><td valign=\"top\"> Resistor, Conductor, VariableResistor, VariableConductor</td>
+    <td valign=\"top\"> Conditional heatport added for coupling to thermal network (as in Modelica.Electrical.Analog). </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Electrical.MultiPhase.Ideal</b></td></tr>
+<tr><td valign=\"top\"> Thyristors, Switches, IdealDiode</td>
+    <td valign=\"top\"> Conditional heatport added for coupling to thermal network (as in Modelica.Electrical.Analog). </td> </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Visualizers.Advanced.</b></td></tr>
 <tr><td valign=\"top\"> Shape </td>
@@ -958,6 +977,12 @@ units are wrong or errors in documentation):
 <tr><td valign=\"top\"> Many models</td>
     <td valign=\"top\"> Removed wrong usages of annotations fillColor and fillPattern
                       in text annotations (#155, #185).</td> </tr>
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines</b></td></tr>
+<tr><td valign=\"top\"> All machine models</td>
+    <td valign=\"top\"> The conditional heatports of the instantiated resistors
+                        (which are new in Modelica.Electrical.Analog and Modelica.Electrical.MultiPhase)
+                        are finally switched off until a thermal connector design for machines is implemented. </td> </tr>
+
 <tr><td colspan=\"2\"><b>Modelica.Media.Air.MoistAir</b></td></tr>
 <tr><td valign=\"top\"> saturationPressureLiquid<br>
                       sublimationPressureIce<br>
@@ -4916,9 +4941,9 @@ end UsersGuide;
 annotation (
 preferredView="info",
 version="3.1",
-versionBuild=3,
+versionBuild=4,
 versionDate="2009-08-14",
-dateModified = "2009-08-28 07:34:00Z",
+dateModified = "2009-08-28 08:30:00Z",
 revisionId="$Id::                                       $",
 conversion(
  noneFromVersion="3.0.1",
