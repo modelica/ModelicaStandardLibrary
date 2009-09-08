@@ -875,7 +875,7 @@ to <b style=\"color:blue\">existing</b> libraries:
                       from m heatports to a single heatport;
                       useful for multiphase resistors (with heatports)
                       as a junction of the m heatports.</td> </tr>
-                      
+
 <tr><td colspan=\"2\"><b>Modelica.Icons.</b></td></tr>
 <tr><td valign=\"top\"> VariantLibrary<br>
                       BaseClassLibrary<br>
@@ -908,7 +908,7 @@ have been <b style=\"color:blue\">improved</b> in a
 <tr><td valign=\"top\"> Blocks<br>Mechanics<br>StateGraph </td>
     <td valign=\"top\"> Provided missing parameter values for examples
                       (these parameters had only start values)</td> </tr>
-                      
+
 <tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Basic</b></td></tr>
 <tr><td valign=\"top\"> Resistor, Conductor, VariableResistor, VariableConductor</td>
     <td valign=\"top\"> Conditional heatport added for coupling to thermal network. </td> </tr>
