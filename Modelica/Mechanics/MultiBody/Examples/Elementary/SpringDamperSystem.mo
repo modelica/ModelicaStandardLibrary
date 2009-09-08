@@ -15,7 +15,7 @@ This example demonstrates:
 <ul>
 <li>The animation of spring and damper components</li>
 <li>A body can be freely moving without any connection to a joint.
-    In this case body coordinates are used automatically as 
+    In this case body coordinates are used automatically as
     states (whenever joints are present, it is first tried to
     use the generalized coordinates of the joints as states).</li>
 <li>If a body is freely moving, the initial position and velocity of the body
@@ -23,7 +23,7 @@ This example demonstrates:
     body \"body1\" in the left part (click on \"Initialization\").</li>
 </ul>
 <p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Elementary/SpringDamperSystem.png\" 
+<IMG SRC=\"../Images/MultiBody/Examples/Elementary/SpringDamperSystem.png\"
 ALT=\"model Examples.Elementary.SpringDamperSystem\">
 </p>
 </html>"));
@@ -42,14 +42,14 @@ ALT=\"model Examples.Elementary.SpringDamperSystem\">
     v_0(fixed=true),
     angles_fixed=true,
     w_0_fixed=true,
-    w_0_start(displayUnit="deg/s") = {0,0,0.03490658503988659}) 
+    w_0_start(displayUnit="deg/s") = {0,0,0.03490658503988659})
               annotation (Placement(transformation(
         origin={-20,-50},
         extent={{-10,10},{10,-10}},
         rotation=270)));
-  Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar1(animation=animation, r={0.3,0,0}) 
+  Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar1(animation=animation, r={0.3,0,0})
     annotation (Placement(transformation(extent={{-46,20},{-26,40}}, rotation=0)));
-  Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar2(animation=animation, r={0.6,0,0}) 
+  Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar2(animation=animation, r={0.6,0,0})
     annotation (Placement(transformation(extent={{0,20},{20,40}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.Body body2(
     m=1,
@@ -66,7 +66,7 @@ ALT=\"model Examples.Elementary.SpringDamperSystem\">
     boxWidth=0.05,
     stateSelect=StateSelect.always,
     v(fixed=true),
-    s(fixed=true, start=0.1)) 
+    s(fixed=true, start=0.1))
                    annotation (Placement(transformation(
         origin={50,-10},
         extent={{-10,-10},{10,10}},
@@ -88,33 +88,33 @@ ALT=\"model Examples.Elementary.SpringDamperSystem\">
         origin={-6,-10},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Mechanics.MultiBody.Forces.Damper damper1(d=2) 
+  Modelica.Mechanics.MultiBody.Forces.Damper damper1(d=2)
     annotation (Placement(transformation(
         origin={-30,-10},
         extent={{-10,-10},{10,10}},
         rotation=270)));
 equation
-  connect(world.frame_b, bar1.frame_a) 
+  connect(world.frame_b, bar1.frame_a)
     annotation (Line(
       points={{-60,30},{-46,30}},
       color={95,95,95},
       thickness=0.5));
-  connect(bar1.frame_b, bar2.frame_a) 
+  connect(bar1.frame_b, bar2.frame_a)
     annotation (Line(
       points={{-26,30},{0,30}},
       color={95,95,95},
       thickness=0.5));
-  connect(bar2.frame_b, p2.frame_a) 
+  connect(bar2.frame_b, p2.frame_a)
     annotation (Line(
       points={{20,30},{50,30},{50,0}},
       color={95,95,95},
       thickness=0.5));
-  connect(p2.frame_b, body2.frame_a) 
+  connect(p2.frame_b, body2.frame_a)
     annotation (Line(
       points={{50,-20},{50,-40}},
       color={95,95,95},
       thickness=0.5));
-  connect(bar2.frame_b, spring2.frame_a) 
+  connect(bar2.frame_b, spring2.frame_a)
     annotation (Line(
       points={{20,30},{90,30},{90,0}},
       color={95,95,95},

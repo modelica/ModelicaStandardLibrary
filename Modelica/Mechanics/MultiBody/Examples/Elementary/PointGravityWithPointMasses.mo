@@ -6,32 +6,32 @@ model PointGravityWithPointMasses
   inner Modelica.Mechanics.MultiBody.World world(
     mue=1,
     gravitySphereDiameter=0.1,
-    gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.PointGravity) 
+    gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.PointGravity)
                                annotation (Placement(transformation(extent={{
             -20,-20},{0,0}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.PointMass body1(
     m=1,
     sphereDiameter=0.1,
     r_0(start={0,0.6,0}, fixed=true),
-    v_0(start={1,0,0}, fixed=true)) 
+    v_0(start={1,0,0}, fixed=true))
     annotation (Placement(transformation(extent={{-20,20},{0,40}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.PointMass body2(
     m=1,
     sphereDiameter=0.1,
     r_0(start={0.6,0.6,0}, fixed=true),
-    v_0(start={0.6,0,0}, fixed=true)) 
+    v_0(start={0.6,0,0}, fixed=true))
     annotation (Placement(transformation(extent={{20,20},{40,40}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.PointMass body3(
     m=1,
     sphereDiameter=0.1,
     r_0(start={0,0.8,0}, fixed=true),
-    v_0(start={0.6,0,0}, fixed=true)) 
+    v_0(start={0.6,0,0}, fixed=true))
     annotation (Placement(transformation(extent={{-20,60},{0,80}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.PointMass body4(
     m=1,
     sphereDiameter=0.1,
     r_0(start={0.3,0.8,0}, fixed=true),
-    v_0(start={0.6,0,0}, fixed=true)) 
+    v_0(start={0.6,0,0}, fixed=true))
     annotation (Placement(transformation(extent={{20,60},{40,80}}, rotation=0)));
   Forces.Spring spring(showMass=false, c=10) annotation (Placement(
         transformation(extent={{0,60},{20,80}}, rotation=0)));
@@ -44,7 +44,7 @@ equation
     experiment(StopTime=2),
     Documentation(info="<HTML>
 <p>
-This model demonstrates the usage of model Parts.PointMass in a 
+This model demonstrates the usage of model Parts.PointMass in a
 point gravity field. The PointMass model has the feature that
 that rotation is not taken into account and can therefore also not be
 calculated. This example demonstrates two cases where this does not matter:

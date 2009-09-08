@@ -3,7 +3,7 @@ package Lines
   "Lossy and lossless segmented transmission lines, and LC distributed line models"
   extends Modelica.Icons.Library;
   annotation (
-    
+
     Documentation(info="<html>
 <p>
 This package contains lossy and lossless segmented transmission lines,
@@ -18,9 +18,9 @@ and LC distributed line models.
 <dd>
 <a href=\"http://people.eas.iis.fhg.de/Christoph.Clauss/\">Christoph Clau&szlig;</a>
     &lt;<a href=\"mailto:clauss@eas.iis.fhg.de\">clauss@eas.iis.fhg.de</a>&gt;<br>
-    <a href=\"http://people.eas.iis.fhg.de/Joachim.Haase/\">Joachim Haase;</a> 
+    <a href=\"http://people.eas.iis.fhg.de/Joachim.Haase/\">Joachim Haase;</a>
     &lt;<a href=\"mailto:haase@eas.iis.fhg.de\">haase@eas.iis.fhg.de</a>&gt;<br>
-    <a href=\"http://people.eas.iis.fhg.de/Andre.Schneider/\">Andr&eacute; Schneider</a> 
+    <a href=\"http://people.eas.iis.fhg.de/Andre.Schneider/\">Andr&eacute; Schneider</a>
     &lt;<a href=\"mailto:schneider@eas.iis.fhg.de\">schneider@eas.iis.fhg.de</a>&gt;<br>
     Fraunhofer Institute for Integrated Circuits<br>
     Design Automation Department<br>
@@ -274,7 +274,7 @@ Lossless transmission line with characteristic impedance Z0 and transmission del
   consist of a resistor with characteristic impedance Z0 and a controled voltage
   source that takes into consideration the transmission delay TD.
   For further details see Branin's article below.
-  The model parameters can be derived from inductance and 
+  The model parameters can be derived from inductance and
   capacitance per length (L' resp. C'), i. e.
   Z0 = sqrt(L'/C') and TD = sqrt(L'*C')*length_of_line. Resistance R'
   and conductance C' per meter are assumed to be zero.
@@ -371,13 +371,13 @@ Lossless transmission line with characteristic impedance Z0 and transmission del
 <p>
 Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL
   The lossless transmission line TLine2 is a two Port. Both port branches
-  consist of a resistor with the value of the characteristic impedance Z0 
-  and a controled voltage source that takes into consideration 
+  consist of a resistor with the value of the characteristic impedance Z0
+  and a controled voltage source that takes into consideration
   the transmission delay.
   For further details see Branin's article below.
   Resistance R' and conductance C' per meter are assumed to be zero.
-  The characteristic impedance Z0 can be derived from inductance and 
-  capacitance per length (L' resp. C'), i. e. Z0 = sqrt(L'/C').   
+  The characteristic impedance Z0 can be derived from inductance and
+  capacitance per length (L' resp. C'), i. e. Z0 = sqrt(L'/C').
   The normalized length NL is equal to the length of the line divided
   by the wavelength corresponding to the frequency F, i. e. the
   transmission delay TD is the quotient of NL and F.
@@ -469,13 +469,13 @@ Lossless transmission line with characteristic impedance Z0, frequency F and nor
 <p>
 Lossless transmission line with characteristic impedance Z0 and frequency F
   The lossless transmission line TLine3 is a two Port. Both port branches
-  consist of a resistor with value of the characteristic impedance Z0 
-  and a controled voltage source that takes into consideration 
+  consist of a resistor with value of the characteristic impedance Z0
+  and a controled voltage source that takes into consideration
   the transmission delay.
   For further details see Branin's article below.
   Resistance R' and conductance C' per meter are assumed to be zero.
-  The characteristic impedance Z0 can be derived from inductance and 
-  capacitance per length (L' resp. C'), i. e. Z0 = sqrt(L'/C').   
+  The characteristic impedance Z0 can be derived from inductance and
+  capacitance per length (L' resp. C'), i. e. Z0 = sqrt(L'/C').
   The length of the line is equal to a quarter of the wavelength
   corresponding to the frequency F, i. e. the
   transmission delay is the quotient of 4 and F.

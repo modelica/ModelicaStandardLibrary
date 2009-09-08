@@ -162,7 +162,7 @@ the output is <b>false</b>.
                                     graphics),
       Documentation(info="<html>
 <p>
-This block delays the Boolean input by an infinitesimal small time delay and 
+This block delays the Boolean input by an infinitesimal small time delay and
 therefore breaks algebraic loops. In a network of logical blocks, in every
 \"closed connection loop\" at least one logical block must have a delay,
 since algebraic systems of Boolean equations are not solveable.
@@ -281,7 +281,7 @@ the output is <b>false</b>.
                                 graphics),
       Documentation(info="<html>
 <p>
-The output is <b>true</b> if the Real input is greater than 
+The output is <b>true</b> if the Real input is greater than
 parameter <b>threshold</b>, otherwise
 the output is <b>false</b>.
 </p>
@@ -326,7 +326,7 @@ the output is <b>false</b>.
                                     graphics),
       Documentation(info="<html>
 <p>
-The output is <b>true</b> if the Real input is less than 
+The output is <b>true</b> if the Real input is less than
 parameter <b>threshold</b>, otherwise
 the output is <b>false</b>.
 </p>
@@ -451,7 +451,7 @@ Real input u2, otherwise the output is <b>false</b>.
     Blocks.Interfaces.RealInput u annotation (Placement(transformation(extent={
               {-140,-20},{-100,20}}, rotation=0)));
     Blocks.Interfaces.BooleanInput enable
-      "Zero input crossing is triggered if the enable input signal is true" 
+      "Zero input crossing is triggered if the enable input signal is true"
       annotation (Placement(transformation(
           origin={0,-120},
           extent={{-20,-20},{20,20}},
@@ -567,16 +567,16 @@ u1, else it is set equal to u2.</p>
 
   block Switch "Switch between two Real signals"
     extends Blocks.Interfaces.partialBooleanBlockIcon;
-    Blocks.Interfaces.RealInput u1 "Connector of first Real input signal" 
+    Blocks.Interfaces.RealInput u1 "Connector of first Real input signal"
                                    annotation (Placement(transformation(extent=
               {{-140,60},{-100,100}}, rotation=0)));
-    Blocks.Interfaces.BooleanInput u2 "Connector of Boolean input signal" 
+    Blocks.Interfaces.BooleanInput u2 "Connector of Boolean input signal"
                                       annotation (Placement(transformation(
             extent={{-140,-20},{-100,20}}, rotation=0)));
-    Blocks.Interfaces.RealInput u3 "Connector of second Real input signal" 
+    Blocks.Interfaces.RealInput u3 "Connector of second Real input signal"
                                    annotation (Placement(transformation(extent=
               {{-140,-100},{-100,-60}}, rotation=0)));
-    Blocks.Interfaces.RealOutput y "Connector of Real output signal" 
+    Blocks.Interfaces.RealOutput y "Connector of Real output signal"
                                    annotation (Placement(transformation(extent=
               {{100,-10},{120,10}}, rotation=0)));
 
@@ -639,7 +639,7 @@ u1, else it is set equal to u3.</p>
 
     Blocks.Interfaces.RealInput u annotation (Placement(transformation(extent={
               {-140,-20},{-100,20}}, rotation=0)));
-    Blocks.Interfaces.BooleanOutput y 
+    Blocks.Interfaces.BooleanOutput y
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
 
@@ -778,15 +778,15 @@ The default value of this parameter is <b>false</b>.
   block OnOffController "On-off controller"
     extends Interfaces.partialBooleanBlockIcon;
     Blocks.Interfaces.RealInput reference
-      "Connector of Real input signal used as reference signal" 
+      "Connector of Real input signal used as reference signal"
                                           annotation (Placement(transformation(
             extent={{-140,80},{-100,40}}, rotation=0)));
     Blocks.Interfaces.RealInput u
-      "Connector of Real input signal used as measurement signal" 
+      "Connector of Real input signal used as measurement signal"
                                   annotation (Placement(transformation(extent={
               {-140,-40},{-100,-80}}, rotation=0)));
     Blocks.Interfaces.BooleanOutput y
-      "Connector of Real output signal used as actuator signal" 
+      "Connector of Real output signal used as actuator signal"
                                       annotation (Placement(transformation(
             extent={{100,-10},{120,10}}, rotation=0)));
 
@@ -809,7 +809,7 @@ The default value of this parameter is <b>false</b>.
           Line(points={{-78,-2},{-6,18},{82,-12}}, color={255,0,0}),
           Line(points={{-78,12},{-6,30},{82,0}}, color={0,0,0}),
           Line(points={{-78,-16},{-6,4},{82,-26}}, color={0,0,0}),
-          Line(points={{-82,-18},{-56,-18},{-56,-40},{64,-40},{64,-20},{90,-20}}, 
+          Line(points={{-82,-18},{-56,-18},{-56,-40},{64,-40},{64,-20},{90,-20}},
               color={255,0,255})}),         Documentation(info="<html>
 <p>The block OnOffController sets the output signal <b>y</b> to <b>true</b> when
 the input signal <b>u</b> falls below the <b>reference</b> signal minus half of
@@ -833,10 +833,10 @@ signal <b>u</b> exceeds the <b>reference</b> signal plus half of the bandwidth.<
       "Falling duration of trapezoid";
     parameter Real offset=0 "Offset of output signal";
 
-    Blocks.Interfaces.BooleanInput u "Connector of Boolean input signal" 
+    Blocks.Interfaces.BooleanInput u "Connector of Boolean input signal"
                                      annotation (Placement(transformation(
             extent={{-140,-20},{-100,20}}, rotation=0)));
-    Blocks.Interfaces.RealOutput y "Connector of Real output signal" 
+    Blocks.Interfaces.RealOutput y "Connector of Real output signal"
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
 
@@ -1011,7 +1011,7 @@ handled properly.</p>
 
       when {initial(),u,not u} then
         endValue = if u then offset + amplitude else offset;
-        rate = if u and (rising > 0) then amplitude/rising else 
+        rate = if u and (rising > 0) then amplitude/rising else
           if not u and (falling > 0) then -amplitude/falling else 0;
         T = if u and not (rising > 0) or not u and not (falling
            > 0) or not abs(amplitude) > 0 or initial() then time else time
@@ -1023,10 +1023,10 @@ handled properly.</p>
     "Timer measuring the time from the time instant where the Boolean input became true"
 
     extends Interfaces.partialBooleanBlockIcon;
-    Blocks.Interfaces.BooleanInput u "Connector of Boolean input signal" 
+    Blocks.Interfaces.BooleanInput u "Connector of Boolean input signal"
                                      annotation (Placement(transformation(
             extent={{-140,-20},{-100,20}}, rotation=0)));
-    Blocks.Interfaces.RealOutput y "Connector of Real output signal" 
+    Blocks.Interfaces.RealOutput y "Connector of Real output signal"
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
 
@@ -1045,7 +1045,7 @@ handled properly.</p>
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
-          Line(points={{-80,-70},{-60,-70},{-60,-26},{38,-26},{38,-70},{66,-70}}, 
+          Line(points={{-80,-70},{-60,-70},{-60,-26},{38,-26},{38,-70},{66,-70}},
               color={255,0,255}),
           Line(points={{-80,0},{-62,0},{40,90},{40,0},{68,0}}, color={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -1100,7 +1100,7 @@ input becomes false.
   block TerminateSimulation "Terminate simulation if condition is fullfilled"
 
     Modelica.Blocks.Interfaces.BooleanOutput condition=false
-      "Terminate simulation when condition becomes true" 
+      "Terminate simulation when condition becomes true"
       annotation (Dialog, Placement(transformation(extent={{200,-10},{220,10}},
             rotation=0)));
     parameter String terminationText = "... End condition reached"
@@ -1142,7 +1142,7 @@ input becomes false.
           initialScale=0.2), graphics),
       Documentation(info="<html>
 <p>
-In the parameter menu, a <b>time varying</b> expression can be defined 
+In the parameter menu, a <b>time varying</b> expression can be defined
 via variable <b>condition</b>, for example \"condition = x &lt; 0\",
 where \"x\" is a variable that is declared in the model in which the
 \"TerminateSimulation\" block is present.
@@ -1151,7 +1151,7 @@ the simulation is (successfully) terminated. A termination message
 explaining the reason for the termination can be given via
 parameter \"terminationText\".
 </p>
- 
+
 </html>"));
 
   equation

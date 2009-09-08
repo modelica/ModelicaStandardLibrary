@@ -71,7 +71,7 @@ package Incompressible
       "true if table tableViscosity is present";
     constant Boolean hasVaporPressure = not (size(tableVaporPressure,1)==0)
       "true if table tableVaporPressure is present";
-    final constant Real invTK[neta] = if size(tableViscosity,1) > 0 then 
+    final constant Real invTK[neta] = if size(tableViscosity,1) > 0 then
         invertTemp(tableViscosity[:,1],TinK) else fill(0,0);
   annotation(__Dymola_keepConstant = true, Documentation(info="<HTML>
 <p>
@@ -104,20 +104,20 @@ properties and vapor pressure are optional, if the data tables are empty the cor
 function calls can not be used.
 </p>
 </HTML>"));
-    final constant Real poly_rho[:] = if hasDensity then 
-                                         Poly.fitting(tableDensity[:,1],tableDensity[:,2],npol) else 
+    final constant Real poly_rho[:] = if hasDensity then
+                                         Poly.fitting(tableDensity[:,1],tableDensity[:,2],npol) else
                                            zeros(npol+1) annotation(keepConstant = true);
-    final constant Real poly_Cp[:] = if hasHeatCapacity then 
-                                         Poly.fitting(tableHeatCapacity[:,1],tableHeatCapacity[:,2],npol) else 
+    final constant Real poly_Cp[:] = if hasHeatCapacity then
+                                         Poly.fitting(tableHeatCapacity[:,1],tableHeatCapacity[:,2],npol) else
                                            zeros(npol+1) annotation(keepConstant = true);
-    final constant Real poly_eta[:] = if hasViscosity then 
-                                         Poly.fitting(invTK, Math.log(tableViscosity[:,2]),npol) else 
+    final constant Real poly_eta[:] = if hasViscosity then
+                                         Poly.fitting(invTK, Math.log(tableViscosity[:,2]),npol) else
                                            zeros(npol+1) annotation(keepConstant = true);
-    final constant Real poly_pVap[:] = if hasVaporPressure then 
-                                         Poly.fitting(tableVaporPressure[:,1],tableVaporPressure[:,2],npol) else 
+    final constant Real poly_pVap[:] = if hasVaporPressure then
+                                         Poly.fitting(tableVaporPressure[:,1],tableVaporPressure[:,2],npol) else
                                             zeros(npol+1) annotation(keepConstant= true);
-    final constant Real poly_lam[:] = if size(tableConductivity,1)>0 then 
-                                         Poly.fitting(tableConductivity[:,1],tableConductivity[:,2],npol) else 
+    final constant Real poly_lam[:] = if size(tableConductivity,1)>0 then
+                                         Poly.fitting(tableConductivity[:,1],tableConductivity[:,2],npol) else
                                            zeros(npol+1) annotation(keepConstant = true);
     function invertTemp "function to invert temperatures"
       input Real[:] table "table temperature data";
@@ -146,13 +146,13 @@ p-reference_p)/rho*(T/rho)*(partial rho /partial T). This is very small for
 liquids due to proportionality to 1/d^2, but can be problematic for gases that are
 modeled incompressible.
 </p>
- 
-<p>                               
+
+<p>
 Enthalpy is never a function of T only (h = h(T) + (p-reference_p)/d), but the
 error is also small and non-linear systems can be avoided. In particular,
 non-linear systems are small and local as opposed to large and over all volumes.
-</p>                               
-    
+</p>
+
 <p>
 Entropy is calculated as
 </p>
@@ -280,8 +280,8 @@ which is only exactly true for a fluid with constant density d=d0.
       input Temperature T "temperature";
       output SpecificEntropy s "specific entropy";
     algorithm
-      s := s0 + (if TinK then 
-        Poly.integralValue(poly_Cp[1:npol],T, T0) else 
+      s := s0 + (if TinK then
+        Poly.integralValue(poly_Cp[1:npol],T, T0) else
         Poly.integralValue(poly_Cp[1:npol],Cv.to_degC(T),Cv.to_degC(T0)))
         + Modelica.Math.log(T/T0)*
         Poly.evaluate(poly_Cp,if TinK then 0 else Modelica.Constants.T_zero);
@@ -306,7 +306,7 @@ which is only exactly true for a fluid with constant density d=d0.
       output SI.SpecificEnthalpy h "Specific enthalpy at p, T";
      annotation(derivative=h_T_der);
     algorithm
-      h :=h0 + Poly.integralValue(poly_Cp, if TinK then T else Cv.to_degC(T), if TinK then 
+      h :=h0 + Poly.integralValue(poly_Cp, if TinK then T else Cv.to_degC(T), if TinK then
       T0 else Cv.to_degC(T0));
     end h_T;
 
@@ -330,8 +330,8 @@ which is only exactly true for a fluid with constant density d=d0.
       output SI.SpecificEnthalpy h "Specific enthalpy at p, T";
      annotation(smoothOrder=2);
     algorithm
-      h :=h0 + Poly.integralValue(poly_Cp, if TinK then T else Cv.to_degC(T), if TinK then 
-      T0 else Cv.to_degC(T0)) + (p - reference_p)/Poly.evaluate(poly_rho, if TinK then 
+      h :=h0 + Poly.integralValue(poly_Cp, if TinK then T else Cv.to_degC(T), if TinK then
+      T0 else Cv.to_degC(T0)) + (p - reference_p)/Poly.evaluate(poly_rho, if TinK then
               T else Cv.to_degC(T))
         *(if densityOfT then (1 + T/Poly.evaluate(poly_rho, if TinK then T else Cv.to_degC(T))
       *Poly.derivativeValue(poly_rho,if TinK then T else Cv.to_degC(T))) else 1.0);
@@ -692,7 +692,7 @@ function calls can not be used.
       tableVaporPressure=
         [0, 500; 20, 1.9e3; 40, 5.3e3; 60, 16e3; 80, 37e3; 100, 80e3]);
       annotation (Documentation(info="<html>
-   
+
 </html>"));
   end Glycol47;
 
@@ -716,7 +716,7 @@ function calls can not be used.
         [160, 3; 180, 10; 200, 40; 220, 100; 240, 300; 260, 600;
          280, 1600; 300, 3e3; 320, 5.5e3]);
       annotation (Documentation(info="<html>
-  
+
 </html>"));
   end Essotherm650;
 
@@ -749,7 +749,7 @@ incompressible fluids. The package contains:
 density and heat capacity as functions of temperature.</li>
 <li><b>Essotherm650</b>, a medium model for thermal oil, also based on tables.</li>
 </ul>
- 
+
 </HTML>"));
   end Examples;
 
@@ -787,7 +787,7 @@ to choose temperature as the only medium state and avoids non-linear equation
 systems, see the section about
 <a href=\"Modelica://Modelica.Media.UsersGuide.MediumDefinition.StaticStateSelection\">Static
 state selection</a> in the Modelica.Media User's Guide.
- 
+
 </p>
 <h4>Contents</h4>
 <p>
@@ -799,7 +799,7 @@ Currently, the package contains the following parts:
 <li> <a href=\"Modelica://Modelica.Media.Incompressible.Examples\">
       Example medium models</a></li>
 </ol>
- 
+
 <p>
 A few examples are given in the Examples package. The model
 <a href=\"Modelica://Modelica.Media.Incompressible.Examples.Glycol47\">
@@ -808,7 +808,7 @@ realistic examples of how to implement volume models with medium properties
 look in the <a href=\"Modelica://Modelica.Media.UsersGuide.MediumUsage\">Medium
 usage section</a> of the User's Guide.
 </p>
- 
+
 </HTML>"));
 
 end Incompressible;

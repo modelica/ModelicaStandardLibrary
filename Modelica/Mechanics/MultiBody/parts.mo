@@ -8,7 +8,7 @@ package Parts
   annotation ( Documentation(info="<HTML>
 <p>
 Package <b>Parts</b> contains <b>rigid components</b> of a
-multi-body system. These components may be used to build up 
+multi-body system. These components may be used to build up
 more complicated structures. For example, a part may be built up of
 a \"Body\" and of several \"FixedTranslation\" components.
 </p>
@@ -91,12 +91,12 @@ and <b>BodyShape</b> are visualized according to parameter
 <IMG SRC=\"../Images/MultiBody/FixedShape.png\" ALT=\"model Visualizers.FixedShape\">
 <p>
 All the details of the visualization shape parameters are
-given in 
+given in
 <a href=\"Modelica://Modelica.Mechanics.MultiBody.Visualizers.FixedShape\">Visualizers.FixedShape</a>
 </p>
 <p>
 Colors in all animation parts are defined via parameter <b>color</b>.
-This is an Integer vector with 3 elements, {r, g, b}, and specifies the 
+This is an Integer vector with 3 elements, {r, g, b}, and specifies the
 color of the shape. {r,g,b} are the \"red\", \"green\" and \"blue\" color parts,
 given in the ranges 0 .. 255, respectively. The predefined type
 <b>MultiBody.Types.Color</b> contains a menu
@@ -110,44 +110,44 @@ definition of the colors used in the MultiBody library
     import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
 
-    Interfaces.Frame_b frame_b "Coordinate system fixed in the world frame" 
+    Interfaces.Frame_b frame_b "Coordinate system fixed in the world frame"
       annotation (Placement(transformation(extent={{84,-16},{116,16}}, rotation=
              0)));
 
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter SI.Position r[3]={0,0,0}
       "Position vector from world frame to frame_b, resolved in world frame";
-    parameter Types.ShapeType shapeType="cylinder" " Type of shape" 
+    parameter Types.ShapeType shapeType="cylinder" " Type of shape"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter SI.Position r_shape[3]={0,0,0}
-      " Vector from world frame to shape origin, resolved in world frame" 
+      " Vector from world frame to shape origin, resolved in world frame"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter SI.Position lengthDirection[3]=r - r_shape
-      " Vector in length direction of shape, resolved in world frame" 
+      " Vector in length direction of shape, resolved in world frame"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter SI.Position widthDirection[3]={0,1,0}
-      " Vector in width direction of shape, resolved in world frame" 
+      " Vector in width direction of shape, resolved in world frame"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter SI.Length length=Modelica.Math.Vectors.length(
-                                             r - r_shape) " Length of shape" 
+                                             r - r_shape) " Length of shape"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter SI.Distance width=length/world.defaultWidthFraction
-      " Width of shape" 
+      " Width of shape"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Distance height=width " Height of shape" 
+    parameter SI.Distance height=width " Height of shape"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter Types.ShapeExtra extra=0.0
       " Additional parameter for cone, pipe etc. (see docu of Visualizers.Advanced.Shape)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor
-      " Color of shape" 
+      " Color of shape"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
 
     annotation (
-      
+
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -181,7 +181,7 @@ world frame).
 <p>
 By default, this component is visualized by a cylinder connecting the
 world frame and frame_b of this components, as shown in the figure below.
-Note, that the visualized world frame on the left side and 
+Note, that the visualized world frame on the left side and
 Fixed.frame_b on the right side are not part of the
 component animation and that the animation may be switched off via parameter
 animation = <b>false</b>.
@@ -236,39 +236,39 @@ animation = <b>false</b>.
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter SI.Position r[3](start={0,0,0})
       "Vector from frame_a to frame_b resolved in frame_a";
-    parameter Types.ShapeType shapeType="cylinder" " Type of shape" 
+    parameter Types.ShapeType shapeType="cylinder" " Type of shape"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter SI.Position r_shape[3]={0,0,0}
-      " Vector from frame_a to shape origin, resolved in frame_a" 
+      " Vector from frame_a to shape origin, resolved in frame_a"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter Types.Axis lengthDirection=r - r_shape
-      " Vector in length direction of shape, resolved in frame_a" 
+      " Vector in length direction of shape, resolved in frame_a"
       annotation (Evaluate=true, Dialog(tab="Animation", group=
             "if animation = true", enable=animation));
     parameter Types.Axis widthDirection={0,1,0}
-      " Vector in width direction of shape, resolved in frame_a" 
+      " Vector in width direction of shape, resolved in frame_a"
       annotation (Evaluate=true, Dialog(tab="Animation", group=
             "if animation = true", enable=animation));
     parameter SI.Length length=Modelica.Math.Vectors.length(
-                                             r - r_shape) " Length of shape" 
+                                             r - r_shape) " Length of shape"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter SI.Distance width=length/world.defaultWidthFraction
-      " Width of shape" 
+      " Width of shape"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Distance height=width " Height of shape." 
+    parameter SI.Distance height=width " Height of shape."
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter Types.ShapeExtra extra=0.0
       " Additional parameter depending on shapeType (see docu of Visualizers.Advanced.Shape)."
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor
-      " Color of shape" 
+      " Color of shape"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
 
     annotation (
-      
+
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -410,80 +410,80 @@ the animation may be switched off via parameter animation = <b>false</b>.
       "Vector from frame_a to frame_b resolved in frame_a";
     parameter Modelica.Mechanics.MultiBody.Types.RotationTypes rotationType=
               Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis
-      "Type of rotation description" 
+      "Type of rotation description"
       annotation (Evaluate=true);
     parameter Types.Axis n={1,0,0}
-      " Axis of rotation in frame_a (= same as in frame_b)" 
+      " Axis of rotation in frame_a (= same as in frame_b)"
       annotation (Evaluate=true, Dialog(group="if rotationType = RotationAxis",
                   enable=rotationType==Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis));
     parameter Cv.NonSIunits.Angle_deg angle=0
-      " Angle to rotate frame_a around axis n into frame_b" 
+      " Angle to rotate frame_a around axis n into frame_b"
       annotation (Dialog(group="if rotationType = RotationAxis",
                   enable=rotationType==Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis));
 
     parameter Types.Axis n_x={1,0,0}
-      " Vector along x-axis of frame_b resolved in frame_a" 
+      " Vector along x-axis of frame_b resolved in frame_a"
       annotation (Evaluate=true, Dialog(group="if rotationType = TwoAxesVectors",
                   enable=rotationType==Types.RotationTypes.TwoAxesVectors));
     parameter Types.Axis n_y={0,1,0}
-      " Vector along y-axis of frame_b resolved in frame_a" 
+      " Vector along y-axis of frame_b resolved in frame_a"
       annotation (Evaluate=true, Dialog(group="if rotationType = TwoAxesVectors",
                   enable=rotationType==Types.RotationTypes.TwoAxesVectors));
 
     parameter Types.RotationSequence sequence(
       min={1,1,1},
-      max={3,3,3}) = {1,2,3} " Sequence of rotations" 
+      max={3,3,3}) = {1,2,3} " Sequence of rotations"
       annotation (Evaluate=true, Dialog(group=
                   "if rotationType = PlanarRotationSequence",
                   enable=rotationType==Types.RotationTypes.PlanarRotationSequence));
     parameter Cv.NonSIunits.Angle_deg angles[3]={0,0,0}
-      " Rotation angles around the axes defined in 'sequence'" 
+      " Rotation angles around the axes defined in 'sequence'"
       annotation (Dialog(group="if rotationType = PlanarRotationSequence",
                   enable=rotationType==Types.RotationTypes.PlanarRotationSequence));
-    parameter Types.ShapeType shapeType="cylinder" " Type of shape" 
+    parameter Types.ShapeType shapeType="cylinder" " Type of shape"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter SI.Position r_shape[3]={0,0,0}
-      " Vector from frame_a to shape origin, resolved in frame_a" 
+      " Vector from frame_a to shape origin, resolved in frame_a"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter Types.Axis lengthDirection=r - r_shape
-      " Vector in length direction of shape, resolved in frame_a" 
+      " Vector in length direction of shape, resolved in frame_a"
       annotation (Evaluate=true, Dialog(tab="Animation", group=
             "if animation = true", enable=animation));
     parameter Types.Axis widthDirection={0,1,0}
-      " Vector in width direction of shape, resolved in frame_a" 
+      " Vector in width direction of shape, resolved in frame_a"
       annotation (Evaluate=true, Dialog(tab="Animation", group=
             "if animation = true", enable=animation));
     parameter SI.Length length=Modelica.Math.Vectors.length(
-                                             r - r_shape) " Length of shape" 
+                                             r - r_shape) " Length of shape"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter SI.Distance width=length/world.defaultWidthFraction
-      " Width of shape" 
+      " Width of shape"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Distance height=width " Height of shape." 
+    parameter SI.Distance height=width " Height of shape."
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter Types.ShapeExtra extra=0.0
       " Additional parameter depending on shapeType (see docu of Visualizers.Advanced.Shape)."
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
   /*
-  parameter Boolean checkTotalPower=false 
+  parameter Boolean checkTotalPower=false
     "= true, if total power flowing into this component shall be determined (must be zero)"
     annotation (Dialog(tab="Advanced"));
 */
 
     input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor
-      " Color of shape" 
+      " Color of shape"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    final parameter Frames.Orientation R_rel=if rotationType == 1 then 
+    final parameter Frames.Orientation R_rel=if rotationType == 1 then
         Frames.planarRotation(Modelica.Math.Vectors.normalize(
-                                               n), Cv.from_deg(angle), 0) else 
-        if rotationType == 2 then Frames.from_nxy(n_x, n_y) else 
+                                               n), Cv.from_deg(angle), 0) else
+        if rotationType == 2 then Frames.from_nxy(n_x, n_y) else
         Frames.axesRotations(sequence, Cv.from_deg(angles), zeros(3))
       "Fixed rotation object from frame_a to frame_b";
   /*
-  SI.Power totalPower 
+  SI.Power totalPower
     "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
 */
   protected
@@ -491,7 +491,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
 
     /*
   parameter Frames.Orientation R_rel_inv=
-      Frames.inverseRotation(R_rel) 
+      Frames.inverseRotation(R_rel)
 */
     parameter Frames.Orientation R_rel_inv=Frames.from_T(transpose(R_rel.T),
         zeros(3)) "Inverse of R_rel (rotate from frame_b to frame_a)";
@@ -509,7 +509,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
       r=frame_a.r_0,
       R=frame_a.R) if world.enableAnimation and animation;
     annotation (
-      
+
       Documentation(info="<HTML>
 <p>
 Component for a <b>fixed translation</b> and <b>fixed rotation</b> of frame_b with respect
@@ -675,7 +675,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
     import Modelica.Math.*;
     import Modelica.Mechanics.MultiBody.Types;
     import Modelica.Mechanics.MultiBody.Frames;
-    Interfaces.Frame_a frame_a "Coordinate system fixed at body" 
+    Interfaces.Frame_a frame_a "Coordinate system fixed at body"
       annotation (Placement(transformation(extent={{-116,-16},{-84,16}},
             rotation=0)));
     parameter Boolean animation=true
@@ -702,16 +702,16 @@ the animation may be switched off via parameter animation = <b>false</b>.
         Dialog(group=
             "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
 
-    SI.Position r_0[3](start={0,0,0}, stateSelect=if enforceStates then 
+    SI.Position r_0[3](start={0,0,0}, stateSelect=if enforceStates then
                 StateSelect.always else StateSelect.avoid)
-      "Position vector from origin of world frame to origin of frame_a" 
+      "Position vector from origin of world frame to origin of frame_a"
       annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
-    SI.Velocity v_0[3](start={0,0,0}, stateSelect=if enforceStates then StateSelect.always else 
+    SI.Velocity v_0[3](start={0,0,0}, stateSelect=if enforceStates then StateSelect.always else
                 StateSelect.avoid)
-      "Absolute velocity of frame_a, resolved in world frame (= der(r_0))" 
+      "Absolute velocity of frame_a, resolved in world frame (= der(r_0))"
       annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
     SI.Acceleration a_0[3](start={0,0,0})
-      "Absolute acceleration of frame_a resolved in world frame (= der(v_0))" 
+      "Absolute acceleration of frame_a resolved in world frame (= der(v_0))"
       annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
 
     parameter Boolean angles_fixed = false
@@ -721,21 +721,21 @@ the animation may be switched off via parameter animation = <b>false</b>.
       "Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b"
       annotation (Dialog(tab="Initialization"));
     parameter Types.RotationSequence sequence_start={1,2,3}
-      "Sequence of rotations to rotate frame_a into frame_b at initial time" 
+      "Sequence of rotations to rotate frame_a into frame_b at initial time"
       annotation (Evaluate=true, Dialog(tab="Initialization"));
 
     parameter Boolean w_0_fixed = false
-      "= true, if w_0_start are used as initial values, else as guess values" 
+      "= true, if w_0_start are used as initial values, else as guess values"
       annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
     parameter SI.AngularVelocity w_0_start[3]={0,0,0}
       "Initial or guess values of angular velocity of frame_a resolved in world frame"
       annotation (Dialog(tab="Initialization"));
 
     parameter Boolean z_0_fixed = false
-      "= true, if z_0_start are used as initial values, else as guess values" 
+      "= true, if z_0_start are used as initial values, else as guess values"
       annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
     parameter SI.AngularAcceleration z_0_start[3]={0,0,0}
-      "Initial values of angular acceleration z_0 = der(w_0)" 
+      "Initial values of angular acceleration z_0 = der(w_0)"
       annotation (Dialog(tab="Initialization"));
 
     parameter SI.Diameter sphereDiameter=world.defaultBodyDiameter
@@ -749,18 +749,18 @@ the animation may be switched off via parameter animation = <b>false</b>.
         group="if animation = true",
         enable=animation));
     parameter SI.Diameter cylinderDiameter=sphereDiameter/Types.Defaults.
-        BodyCylinderDiameterFraction "Diameter of cylinder" 
+        BodyCylinderDiameterFraction "Diameter of cylinder"
       annotation (Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
-    input Types.Color cylinderColor=sphereColor "Color of cylinder" 
+    input Types.Color cylinderColor=sphereColor "Color of cylinder"
       annotation (Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(
         tab="Animation",
         group="if animation = true",
@@ -773,7 +773,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
       annotation (Evaluate=true,Dialog(tab="Advanced"));
     parameter Types.RotationSequence sequence_angleStates={1,2,3}
       " Sequence of rotations to rotate world frame into frame_a around the 3 angles used as potential states"
-       annotation (Evaluate=true, Dialog(tab="Advanced", enable=not 
+       annotation (Evaluate=true, Dialog(tab="Advanced", enable=not
             useQuaternions));
 
     final parameter SI.Inertia I[3, 3]=[I_11, I_21, I_31; I_21, I_22, I_32;
@@ -786,7 +786,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
 
     SI.AngularVelocity w_a[3](start=Frames.resolve2(R_start, w_0_start),
                               fixed=fill(w_0_fixed,3),
-                              stateSelect=if enforceStates then (if useQuaternions then 
+                              stateSelect=if enforceStates then (if useQuaternions then
                               StateSelect.always else StateSelect.never) else StateSelect.avoid)
       "Absolute angular velocity of frame_a resolved in frame_a";
     SI.AngularAcceleration z_a[3](start=Frames.resolve2(R_start, z_0_start),fixed=fill(z_0_fixed,3))
@@ -850,12 +850,12 @@ states of the body are:
 </p>
 <ul>
 <li> The <b>position vector</b> frame_a.r_0 from the origin of the
-     world frame to the origin of frame_a of the body, resolved in 
-     the world frame and the <b>absolute velocity</b> v_0 of the origin of 
+     world frame to the origin of frame_a of the body, resolved in
+     the world frame and the <b>absolute velocity</b> v_0 of the origin of
      frame_a, resolved in the world frame (= der(frame_a.r_0)).</li>
 </li>
 <li> If parameter <b>useQuaternions</b> in the \"Advanced\" menu
-     is <b>true</b> (this is the default), then <b>4 quaternions</b> 
+     is <b>true</b> (this is the default), then <b>4 quaternions</b>
      are potential states. Additionally, the coordinates of the
      absolute angular velocity vector of the
      body are 3 potential states.<br>
@@ -871,9 +871,9 @@ states of the body are:
  </li>
 </ul>
 <p>
-The quaternions have the slight disadvantage that there is a 
-non-linear constraint equation between the 4 quaternions. 
-Therefore, at least one non-linear equation has to be solved 
+The quaternions have the slight disadvantage that there is a
+non-linear constraint equation between the 4 quaternions.
+Therefore, at least one non-linear equation has to be solved
 during simulation. A tool might, however, analytically solve this
 simple constraint equation. Using the 3 angles as states has the
 disadvantage that there is a singular configuration in which a
@@ -883,7 +883,7 @@ of the operating region, the 3 angles might be used as potential
 states by setting <b>useQuaternions</b> = <b>false</b>.
 </p>
 <p>
-In text books about 3-dimensional mechanics often 3 angles and the 
+In text books about 3-dimensional mechanics often 3 angles and the
 angular velocity are used as states. This is not the case here, since
 3 angles and their derivatives are used as potential states
 (if useQuaternions = false). The reason
@@ -899,7 +899,7 @@ Whether or not variables of the body are used as states is usually
 automatically selected by the Modelica translator. If parameter
 <b>enforceStates</b> is set to <b>true</b> in the \"Advanced\" menu,
 then body variables are forced to be used as states according
-to the setting of parameters \"useQuaternions\" and 
+to the setting of parameters \"useQuaternions\" and
 \"sequence_angleStates\".
 </p>
 </HTML>"));
@@ -910,23 +910,23 @@ to the setting of parameters \"useQuaternions\" and
     // Declarations for quaternions (dummies, if quaternions are not used)
     parameter Frames.Quaternions.Orientation Q_start=Frames.to_Q(R_start)
       "Quaternion orientation object from world frame to frame_a at initial time";
-    Frames.Quaternions.Orientation Q(start=Q_start, stateSelect=if 
-          enforceStates then (if useQuaternions then StateSelect.prefer else 
+    Frames.Quaternions.Orientation Q(start=Q_start, stateSelect=if
+          enforceStates then (if useQuaternions then StateSelect.prefer else
           StateSelect.never) else StateSelect.avoid)
       "Quaternion orientation object from world frame to frame_a (dummy value, if quaternions are not used as states)";
 
     // Declaration for 3 angles
     parameter SI.Angle phi_start[3]=if sequence_start[1] ==
         sequence_angleStates[1] and sequence_start[2] == sequence_angleStates[2]
-         and sequence_start[3] == sequence_angleStates[3] then angles_start else 
+         and sequence_start[3] == sequence_angleStates[3] then angles_start else
          Frames.axesRotationsAngles(R_start, sequence_angleStates)
       "Potential angle states at initial time";
-    SI.Angle phi[3](start=phi_start, stateSelect=if enforceStates then (if 
-          useQuaternions then StateSelect.never else StateSelect.always) else 
+    SI.Angle phi[3](start=phi_start, stateSelect=if enforceStates then (if
+          useQuaternions then StateSelect.never else StateSelect.always) else
           StateSelect.avoid)
       "Dummy or 3 angles to rotate world frame into frame_a of body";
-    SI.AngularVelocity phi_d[3](stateSelect=if enforceStates then (if 
-          useQuaternions then StateSelect.never else StateSelect.always) else 
+    SI.AngularVelocity phi_d[3](stateSelect=if enforceStates then (if
+          useQuaternions then StateSelect.never else StateSelect.always) else
           StateSelect.avoid) "= der(phi)";
     SI.AngularAcceleration phi_dd[3] "= der(phi_d)";
 
@@ -935,7 +935,7 @@ to the setting of parameters \"useQuaternions\" and
       shapeType="cylinder",
       color=cylinderColor,
       specularCoefficient=specularCoefficient,
-      length=if Modelica.Math.Vectors.length(r_CM) > sphereDiameter/2 then 
+      length=if Modelica.Math.Vectors.length(r_CM) > sphereDiameter/2 then
                 Modelica.Math.Vectors.length(r_CM) - (if cylinderDiameter > 1.1*
           sphereDiameter then sphereDiameter/2 else 0) else 0,
       width=cylinderDiameter,
@@ -1017,7 +1017,7 @@ to the setting of parameters \"useQuaternions\" and
     w_a = Frames.angularVelocity2(frame_a.R);
     z_a = der(w_a);
 
-    /* Newton/Euler equations with respect to center of mass 
+    /* Newton/Euler equations with respect to center of mass
             a_CM = a_a + cross(z_a, r_CM) + cross(w_a, cross(w_a, r_CM));
             f_CM = m*(a_CM - g_a);
             t_CM = I*z_a + cross(w_a, I*w_a);
@@ -1065,28 +1065,28 @@ to the setting of parameters \"useQuaternions\" and
       annotation (Dialog(group=
             "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
     parameter SI.Inertia I_21(min=-C.inf) = 0
-      " (2,1) element of inertia tensor" 
+      " (2,1) element of inertia tensor"
       annotation (Dialog(group=
             "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
     parameter SI.Inertia I_31(min=-C.inf) = 0
-      " (3,1) element of inertia tensor" 
+      " (3,1) element of inertia tensor"
       annotation (Dialog(group=
             "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
     parameter SI.Inertia I_32(min=-C.inf) = 0
-      " (3,2) element of inertia tensor" 
+      " (3,2) element of inertia tensor"
       annotation (Dialog(group=
             "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
 
-    SI.Position r_0[3](start={0,0,0}, stateSelect=if enforceStates then 
+    SI.Position r_0[3](start={0,0,0}, stateSelect=if enforceStates then
                 StateSelect.always else StateSelect.avoid)
-      "Position vector from origin of world frame to origin of frame_a" 
+      "Position vector from origin of world frame to origin of frame_a"
       annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
-    SI.Velocity v_0[3](start={0,0,0}, stateSelect=if enforceStates then StateSelect.always else 
+    SI.Velocity v_0[3](start={0,0,0}, stateSelect=if enforceStates then StateSelect.always else
                 StateSelect.avoid)
-      "Absolute velocity of frame_a, resolved in world frame (= der(r_0))" 
+      "Absolute velocity of frame_a, resolved in world frame (= der(r_0))"
       annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
     SI.Acceleration a_0[3](start={0,0,0})
-      "Absolute acceleration of frame_a resolved in world frame (= der(v_0))" 
+      "Absolute acceleration of frame_a resolved in world frame (= der(v_0))"
       annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
 
     parameter Boolean angles_fixed = false
@@ -1096,59 +1096,59 @@ to the setting of parameters \"useQuaternions\" and
       "Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b"
       annotation (Dialog(tab="Initialization"));
     parameter Types.RotationSequence sequence_start={1,2,3}
-      "Sequence of rotations to rotate frame_a into frame_b at initial time" 
+      "Sequence of rotations to rotate frame_a into frame_b at initial time"
       annotation (Evaluate=true, Dialog(tab="Initialization"));
 
     parameter Boolean w_0_fixed = false
-      "= true, if w_0_start are used as initial values, else as guess values" 
+      "= true, if w_0_start are used as initial values, else as guess values"
       annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
     parameter SI.AngularVelocity w_0_start[3]={0,0,0}
       "Initial or guess values of angular velocity of frame_a resolved in world frame"
       annotation (Dialog(tab="Initialization"));
 
     parameter Boolean z_0_fixed = false
-      "= true, if z_0_start are used as initial values, else as guess values" 
+      "= true, if z_0_start are used as initial values, else as guess values"
       annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
     parameter SI.AngularAcceleration z_0_start[3]={0,0,0}
-      "Initial values of angular acceleration z_0 = der(w_0)" 
+      "Initial values of angular acceleration z_0 = der(w_0)"
       annotation (Dialog(tab="Initialization"));
 
-    parameter Types.ShapeType shapeType="cylinder" " Type of shape" 
+    parameter Types.ShapeType shapeType="cylinder" " Type of shape"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter SI.Position r_shape[3]={0,0,0}
-      " Vector from frame_a to shape origin, resolved in frame_a" 
+      " Vector from frame_a to shape origin, resolved in frame_a"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter Types.Axis lengthDirection=r - r_shape
-      " Vector in length direction of shape, resolved in frame_a" 
+      " Vector in length direction of shape, resolved in frame_a"
       annotation (Evaluate=true, Dialog(tab="Animation", group=
             "if animation = true", enable=animation));
     parameter Types.Axis widthDirection={0,1,0}
-      " Vector in width direction of shape, resolved in frame_a" 
+      " Vector in width direction of shape, resolved in frame_a"
       annotation (Evaluate=true, Dialog(tab="Animation", group=
             "if animation = true", enable=animation));
     parameter SI.Length length=Modelica.Math.Vectors.length(
-                                             r - r_shape) " Length of shape" 
+                                             r - r_shape) " Length of shape"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter SI.Distance width=length/world.defaultWidthFraction
-      " Width of shape" 
+      " Width of shape"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Distance height=width " Height of shape." 
+    parameter SI.Distance height=width " Height of shape."
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter Types.ShapeExtra extra=0.0
       " Additional parameter depending on shapeType (see docu of Visualizers.Advanced.Shape)."
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
-      " Color of shape" 
+      " Color of shape"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Diameter sphereDiameter=2*width " Diameter of sphere" 
+    parameter SI.Diameter sphereDiameter=2*width " Diameter of sphere"
       annotation (Dialog(tab="Animation", group=
             "if animation = true and animateSphere = true",
             enable=animation and animateSphere));
-    input Types.Color sphereColor=color " Color of sphere of mass" 
+    input Types.Color sphereColor=color " Color of sphere of mass"
       annotation (Dialog(tab="Animation", group=
             "if animation = true and animateSphere = true", enable=animation and animateSphere));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group=
             "if animation = true", enable=animation));
     parameter Boolean enforceStates=false
@@ -1159,10 +1159,10 @@ to the setting of parameters \"useQuaternions\" and
       annotation (Dialog(tab="Advanced"));
     parameter Types.RotationSequence sequence_angleStates={1,2,3}
       " Sequence of rotations to rotate world frame into frame_a around the 3 angles used as potential states"
-       annotation (Evaluate=true, Dialog(tab="Advanced", enable=not 
+       annotation (Evaluate=true, Dialog(tab="Advanced", enable=not
             useQuaternions));
     annotation (
-      
+
       Documentation(info="<HTML>
 <p>
 <b>Rigid body</b> with mass and inertia tensor and <b>two frame connectors</b>.
@@ -1188,7 +1188,7 @@ e.g., shapeType=\"cone\":
 </p>
 <IMG SRC=\"../Images/MultiBody/FixedShape.png\" ALT=\"Visualizers.FixedShape\">
 <p>
-A BodyShape component has potential states. For details of these 
+A BodyShape component has potential states. For details of these
 states and of the \"Advanced\" menu parameters, see model
 <a href=\"Modelica://Modelica.Mechanics.MultiBody.Parts.Body\">MultiBody.Parts.Body</a>.
 </p>
@@ -1256,7 +1256,7 @@ states and of the \"Advanced\" menu parameters, see model
             textString="r_CM"),
           Line(points={{0,-46},{0,-90}}, color={128,128,128})}));
 
-    FixedTranslation frameTranslation(r=r, animation=false) 
+    FixedTranslation frameTranslation(r=r, animation=false)
       annotation (Placement(transformation(extent={{-20,-20},{20,20}}, rotation=
              0)));
     Body body(
@@ -1278,7 +1278,7 @@ states and of the \"Advanced\" menu parameters, see model
       z_0_start=z_0_start,
       useQuaternions=useQuaternions,
       enforceStates=enforceStates,
-      sequence_angleStates=sequence_angleStates) 
+      sequence_angleStates=sequence_angleStates)
       annotation (Placement(transformation(extent={{-27.3333,-70.3333},{13,-30}},
             rotation=0)));
   protected
@@ -1312,12 +1312,12 @@ states and of the \"Advanced\" menu parameters, see model
     r_0 = frame_a.r_0;
     v_0 = der(r_0);
     a_0 = der(v_0);
-    connect(frame_a, frameTranslation.frame_a) 
+    connect(frame_a, frameTranslation.frame_a)
       annotation (Line(
         points={{-100,0},{-20,0}},
         color={95,95,95},
         thickness=0.5));
-    connect(frame_b, frameTranslation.frame_b) 
+    connect(frame_b, frameTranslation.frame_b)
       annotation (Line(
         points={{100,0},{20,0}},
         color={95,95,95},
@@ -1349,10 +1349,10 @@ states and of the \"Advanced\" menu parameters, see model
     parameter SI.Position r_shape[3]={0,0,0}
       "Vector from frame_a to box origin, resolved in frame_a";
     parameter Modelica.Mechanics.MultiBody.Types.Axis lengthDirection=r - r_shape
-      "Vector in length direction of box, resolved in frame_a" 
+      "Vector in length direction of box, resolved in frame_a"
       annotation (Evaluate=true);
     parameter Modelica.Mechanics.MultiBody.Types.Axis widthDirection={0,1,0}
-      "Vector in width direction of box, resolved in frame_a" 
+      "Vector in width direction of box, resolved in frame_a"
       annotation (Evaluate=true);
     parameter SI.Length length=Modelica.Math.Vectors.length(
                                              r - r_shape) "Length of box";
@@ -1366,22 +1366,22 @@ states and of the \"Advanced\" menu parameters, see model
     parameter SI.Density density = 7700
       "Density of cylinder (e.g., steel: 7700 .. 7900, wood : 400 .. 800)";
     input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
-      "Color of box" 
+      "Color of box"
       annotation (Dialog(enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(enable=animation));
 
-    SI.Position r_0[3](start={0,0,0}, stateSelect=if enforceStates then 
+    SI.Position r_0[3](start={0,0,0}, stateSelect=if enforceStates then
                 StateSelect.always else StateSelect.avoid)
-      "Position vector from origin of world frame to origin of frame_a" 
+      "Position vector from origin of world frame to origin of frame_a"
       annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
-    SI.Velocity v_0[3](start={0,0,0}, stateSelect=if enforceStates then StateSelect.always else 
+    SI.Velocity v_0[3](start={0,0,0}, stateSelect=if enforceStates then StateSelect.always else
                 StateSelect.avoid)
-      "Absolute velocity of frame_a, resolved in world frame (= der(r_0))" 
+      "Absolute velocity of frame_a, resolved in world frame (= der(r_0))"
       annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
     SI.Acceleration a_0[3](start={0,0,0})
-      "Absolute acceleration of frame_a resolved in world frame (= der(v_0))" 
+      "Absolute acceleration of frame_a resolved in world frame (= der(v_0))"
       annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
 
     parameter Boolean angles_fixed = false
@@ -1391,21 +1391,21 @@ states and of the \"Advanced\" menu parameters, see model
       "Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b"
       annotation (Dialog(tab="Initialization"));
     parameter Types.RotationSequence sequence_start={1,2,3}
-      "Sequence of rotations to rotate frame_a into frame_b at initial time" 
+      "Sequence of rotations to rotate frame_a into frame_b at initial time"
       annotation (Evaluate=true, Dialog(tab="Initialization"));
 
     parameter Boolean w_0_fixed = false
-      "= true, if w_0_start are used as initial values, else as guess values" 
+      "= true, if w_0_start are used as initial values, else as guess values"
       annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
     parameter SI.AngularVelocity w_0_start[3]={0,0,0}
       "Initial or guess values of angular velocity of frame_a resolved in world frame"
       annotation (Dialog(tab="Initialization"));
 
     parameter Boolean z_0_fixed = false
-      "= true, if z_0_start are used as initial values, else as guess values" 
+      "= true, if z_0_start are used as initial values, else as guess values"
       annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
     parameter SI.AngularAcceleration z_0_start[3]={0,0,0}
-      "Initial values of angular acceleration z_0 = der(w_0)" 
+      "Initial values of angular acceleration z_0 = der(w_0)"
       annotation (Dialog(tab="Initialization"));
 
     parameter Boolean enforceStates=false
@@ -1416,7 +1416,7 @@ states and of the \"Advanced\" menu parameters, see model
       annotation (Dialog(tab="Advanced"));
     parameter Types.RotationSequence sequence_angleStates={1,2,3}
       " Sequence of rotations to rotate world frame into frame_a around the 3 angles used as potential states"
-       annotation (Evaluate=true, Dialog(tab="Advanced", enable=not 
+       annotation (Evaluate=true, Dialog(tab="Advanced", enable=not
             useQuaternions));
 
     final parameter SI.Mass mo(min=0)=density*length*width*height
@@ -1454,7 +1454,7 @@ states and of the \"Advanced\" menu parameters, see model
       z_0_start=z_0_start,
       useQuaternions=useQuaternions,
       enforceStates=enforceStates,
-      sequence_angleStates=sequence_angleStates) 
+      sequence_angleStates=sequence_angleStates)
       annotation (Placement(transformation(extent={{-30,-80},{10,-40}},
             rotation=0)));
     FixedTranslation frameTranslation(
@@ -1471,7 +1471,7 @@ states and of the \"Advanced\" menu parameters, see model
      specularCoefficient=specularCoefficient) annotation (Placement(
           transformation(extent={{-30,-20},{10,20}}, rotation=0)));
     annotation (
-      
+
       Documentation(info="<HTML>
 <p>
 <b>Rigid body</b> with <b>box</b> shape.
@@ -1487,7 +1487,7 @@ the animation may be switched off via parameter animation = <b>false</b>):
 </p>
 <IMG SRC=\"../Images/MultiBody/BodyBox.png\" ALT=\"Parts.BodyBox\">
 <p>
-A BodyBox component has potential states. For details of these 
+A BodyBox component has potential states. For details of these
 states and of the \"Advanced\" menu parameters, see model
 <a href=\"Modelica://Modelica.Mechanics.MultiBody.Parts.Body\">MultiBody.Parts.Body</a>.</p>
 </HTML>
@@ -1578,7 +1578,7 @@ states and of the \"Advanced\" menu parameters, see model
     parameter SI.Position r_shape[3]={0,0,0}
       "Vector from frame_a to cylinder origin, resolved in frame_a";
     parameter Modelica.Mechanics.MultiBody.Types.Axis lengthDirection=r - r_shape
-      "Vector in length direction of cylinder, resolved in frame_a" 
+      "Vector in length direction of cylinder, resolved in frame_a"
       annotation (Evaluate=true);
     parameter SI.Length length=Modelica.Math.Vectors.length(
                                              r - r_shape) "Length of cylinder";
@@ -1591,19 +1591,19 @@ states and of the \"Advanced\" menu parameters, see model
     input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
       "Color of cylinder" annotation (Dialog(enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(enable=animation));
 
-    SI.Position r_0[3](start={0,0,0}, stateSelect=if enforceStates then 
+    SI.Position r_0[3](start={0,0,0}, stateSelect=if enforceStates then
                 StateSelect.always else StateSelect.avoid)
-      "Position vector from origin of world frame to origin of frame_a" 
+      "Position vector from origin of world frame to origin of frame_a"
       annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
-    SI.Velocity v_0[3](start={0,0,0}, stateSelect=if enforceStates then StateSelect.always else 
+    SI.Velocity v_0[3](start={0,0,0}, stateSelect=if enforceStates then StateSelect.always else
                 StateSelect.avoid)
-      "Absolute velocity of frame_a, resolved in world frame (= der(r_0))" 
+      "Absolute velocity of frame_a, resolved in world frame (= der(r_0))"
       annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
     SI.Acceleration a_0[3](start={0,0,0})
-      "Absolute acceleration of frame_a resolved in world frame (= der(v_0))" 
+      "Absolute acceleration of frame_a resolved in world frame (= der(v_0))"
       annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
 
     parameter Boolean angles_fixed = false
@@ -1613,21 +1613,21 @@ states and of the \"Advanced\" menu parameters, see model
       "Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b"
       annotation (Dialog(tab="Initialization"));
     parameter Types.RotationSequence sequence_start={1,2,3}
-      "Sequence of rotations to rotate frame_a into frame_b at initial time" 
+      "Sequence of rotations to rotate frame_a into frame_b at initial time"
       annotation (Evaluate=true, Dialog(tab="Initialization"));
 
     parameter Boolean w_0_fixed = false
-      "= true, if w_0_start are used as initial values, else as guess values" 
+      "= true, if w_0_start are used as initial values, else as guess values"
       annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
     parameter SI.AngularVelocity w_0_start[3]={0,0,0}
       "Initial or guess values of angular velocity of frame_a resolved in world frame"
       annotation (Dialog(tab="Initialization"));
 
     parameter Boolean z_0_fixed = false
-      "= true, if z_0_start are used as initial values, else as guess values" 
+      "= true, if z_0_start are used as initial values, else as guess values"
       annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
     parameter SI.AngularAcceleration z_0_start[3]={0,0,0}
-      "Initial values of angular acceleration z_0 = der(w_0)" 
+      "Initial values of angular acceleration z_0 = der(w_0)"
       annotation (Dialog(tab="Initialization"));
 
     parameter Boolean enforceStates=false
@@ -1638,7 +1638,7 @@ states and of the \"Advanced\" menu parameters, see model
       annotation (Dialog(tab="Advanced"));
     parameter Types.RotationSequence sequence_angleStates={1,2,3}
       " Sequence of rotations to rotate world frame into frame_a around the 3 angles used as potential states"
-       annotation (Evaluate=true, Dialog(tab="Advanced", enable=not 
+       annotation (Evaluate=true, Dialog(tab="Advanced", enable=not
             useQuaternions));
 
     constant Real pi=Modelica.Constants.pi;
@@ -1681,7 +1681,7 @@ states and of the \"Advanced\" menu parameters, see model
       z_0_start=z_0_start,
       useQuaternions=useQuaternions,
       enforceStates=enforceStates,
-      sequence_angleStates=sequence_angleStates) 
+      sequence_angleStates=sequence_angleStates)
       annotation (Placement(transformation(extent={{-30,-80},{10,-40}},
             rotation=0)));
     FixedTranslation frameTranslation(
@@ -1699,7 +1699,7 @@ states and of the \"Advanced\" menu parameters, see model
       widthDirection={0,1,0}) annotation (Placement(transformation(extent={{-30,
               -20},{10,20}}, rotation=0)));
     annotation (
-      
+
       Documentation(info="<HTML>
 <p>
 <b>Rigid body</b> with <b>cylinder</b> shape.
@@ -1714,7 +1714,7 @@ the animation may be switched off via parameter animation = <b>false</b>):
 </p>
 <IMG SRC=\"../Images/MultiBody/BodyCylinder.png\" ALT=\"Parts.BodyCylinder\">
 <p>
-A BodyCylinder component has potential states. For details of these 
+A BodyCylinder component has potential states. For details of these
 states and of the \"Advanced\" menu parameters, see model
 <a href=\"Modelica://Modelica.Mechanics.MultiBody.Parts.Body\">MultiBody.Parts.Body</a>.</HTML>
 "),   Icon(coordinateSystem(
@@ -1776,7 +1776,7 @@ states and of the \"Advanced\" menu parameters, see model
     import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
     Interfaces.Frame_a frame_a
-      "Coordinate system fixed at center of mass point" 
+      "Coordinate system fixed at center of mass point"
       annotation (Placement(transformation(extent={{-16,-16},{16,16}}, rotation=
              0)));
     parameter Boolean animation=true
@@ -1793,7 +1793,7 @@ states and of the \"Advanced\" menu parameters, see model
         group="if animation = true",
         enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(
         tab="Animation",
         group="if animation = true",
@@ -1805,10 +1805,10 @@ states and of the \"Advanced\" menu parameters, see model
       "Position vector from origin of world frame to origin of frame_a, resolved in world frame"
       annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
     SI.Velocity v_0[3](start={0,0,0}, stateSelect=stateSelect)
-      "Absolute velocity of frame_a, resolved in world frame (= der(r_0))" 
+      "Absolute velocity of frame_a, resolved in world frame (= der(r_0))"
       annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
     SI.Acceleration a_0[3](start={0,0,0})
-      "Absolute acceleration of frame_a resolved in world frame (= der(v_0))" 
+      "Absolute acceleration of frame_a resolved in world frame (= der(v_0))"
       annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
     annotation (
       Icon(coordinateSystem(
@@ -1841,7 +1841,7 @@ By default, this component is visualized by a <b>sphere</b> that has
 its center at frame_a. Note, that
 the animation may be switched off via parameter animation = <b>false</b>.
 </p>
- 
+
 <p>
 Every PointMass has potential states. If possible a tool will select
 the states of joints and not the states of PointMasss because this is
@@ -1850,11 +1850,11 @@ velocity of frame_a of the body will be computed
 by the component that is connected to frame_a. However, if a PointMass is moving
 freely in space, variables of the PointMass have to be used as states. The potential
 states are: The <b>position vector</b> frame_a.r_0 from the origin of the
-world frame to the origin of frame_a of the body, resolved in 
-the world frame and the <b>absolute velocity</b> v_0 of the origin of 
+world frame to the origin of frame_a of the body, resolved in
+the world frame and the <b>absolute velocity</b> v_0 of the origin of
 frame_a, resolved in the world frame (= der(frame_a.r_0)).
 </p>
- 
+
 <p>
 Whether or not variables of the body are used as states is usually
 automatically selected by the Modelica translator. If parameter
@@ -1887,11 +1887,11 @@ are forced to be used as states.
     if Connections.isRoot(frame_a.R) then
        assert(cardinality(frame_a)==0, "
 A Modelica.Mechanics.MultiBody.Parts.PointMass model is connected in
-a way, so that no equations are present to compute frame_a.R 
+a way, so that no equations are present to compute frame_a.R
 (the orientation object in the connector). Setting frame_a.R to
 an arbitrary value in the PointMass model, might lead to a wrong
 overall model, depending on how the PointMass model is used.
-   You can avoid this message, by providing equations that 
+   You can avoid this message, by providing equations that
 compute the orientation object, e.g., by using the
 Modelica.Mechanics.MultiBody.Joints.FreeMotion joint.
    If a PointMass model is not connected at all, the
@@ -1945,7 +1945,7 @@ the only case where this is done.
           Line(points={{0,0},{90,0}}, color={0,0,0})}),
       Documentation(info="<html>
 <p>This component is used to acquire support torques from a 1-dim.-rotational
-mechanical system (e.g., components from Modelica.Mechanics.Rotational) 
+mechanical system (e.g., components from Modelica.Mechanics.Rotational)
 and to propagate them to a carrier body.</p>
 <p>The 1-dim. support torque at <tt>flange_b</tt> is transformed into 3-dim. space under
 consideration of the rotation axis, parameter <tt>n</tt>, which has to be given in the
@@ -1973,7 +1973,7 @@ November 3-4, 2003, pp. 149-158</p>
     encapsulated model Housing
       import Modelica;
       input Modelica.SIunits.Torque t[3];
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
                                  annotation (Placement(transformation(extent={{
                 -116,-16},{-84,16}}, rotation=0)));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1991,7 +1991,7 @@ November 3-4, 2003, pp. 149-158</p>
       frame_a.f=zeros(3);
       frame_a.t=t;
     end Housing;
-    Housing housing(t=-n*flange_b.tau) if world.driveTrainMechanics3D 
+    Housing housing(t=-n*flange_b.tau) if world.driveTrainMechanics3D
                     annotation (Placement(transformation(extent={{20,-60},{40,-40}},
             rotation=0)));
   equation
@@ -2016,20 +2016,20 @@ November 3-4, 2003, pp. 149-158</p>
     parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0}
       "Axis of rotation resolved in frame_a";
     parameter SI.Position r_center[3]=zeros(3)
-      "Position vector from origin of frame_a to center of cylinder" 
+      "Position vector from origin of frame_a to center of cylinder"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter SI.Distance cylinderLength=2*world.defaultJointLength
-      "Length of cylinder representing the rotor" 
+      "Length of cylinder representing the rotor"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter SI.Distance cylinderDiameter=2*world.defaultJointWidth
-      "Diameter of cylinder representing the rotor" 
+      "Diameter of cylinder representing the rotor"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor
-      "Color of cylinder representing the rotor" 
+      "Color of cylinder representing the rotor"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
       specularCoefficient=world.defaultSpecularCoefficient
-      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter StateSelect stateSelect=StateSelect.default
       "Priority to use rotor angle (phi) and rotor speed (w) as states" annotation(Dialog(tab="Advanced"));
@@ -2045,11 +2045,11 @@ November 3-4, 2003, pp. 149-158</p>
       "Angular acceleration of rotor with respect to frame_a";
 
     Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a
-      "(left) driving flange (flange axis directed INTO cut plane)" 
+      "(left) driving flange (flange axis directed INTO cut plane)"
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
              0)));
     Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b
-      "(right) driven flange (flange axis directed OUT OF cut plane)" 
+      "(right) driven flange (flange axis directed OUT OF cut plane)"
       annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
     Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a if world.driveTrainMechanics3D
       "Frame in which rotor housing is fixed (connector is removed, if world.driveTrainMechanics3D=false)"
@@ -2067,7 +2067,7 @@ the parameter <tt>n</tt>, which has to be given in the local coordinate system
 of <tt>frame_a</tt>. The default animation of this component is
 shown in the figure below. </p>
       <IMG SRC=\"../Images/MultiBody/Parts/Rotor1D.png\" ALT=\"model Parts.Rotor1D\">
-<p>This component is a replacement for 
+<p>This component is a replacement for
 <a href=\"Modelica://Modelica.Mechanics.Rotational.Inertia\">Modelica.Mechanics.Rotational.Inertia</a>
 for the case, that a 1-dim.-rotational mechanical system should be attached with a 3-dim.
 carrier body.</p>
@@ -2136,22 +2136,22 @@ November 3-4, 2003, pp. 149-158</p>
         "Moment of inertia of rotor around its axis of rotation";
     parameter Types.Axis n={1,0,0} "Axis of rotation resolved in frame_a";
     parameter SI.Position r_center[3]=zeros(3)
-        "Position vector from origin of frame_a to center of cylinder" 
+        "Position vector from origin of frame_a to center of cylinder"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter SI.Distance cylinderLength=2*world.defaultJointLength
-        "Length of cylinder representing the rotor" 
+        "Length of cylinder representing the rotor"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter SI.Distance cylinderDiameter=2*world.defaultJointWidth
-        "Diameter of cylinder representing the rotor" 
+        "Diameter of cylinder representing the rotor"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor
-        "Color of cylinder representing the rotor" 
+        "Color of cylinder representing the rotor"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient =                              world.defaultSpecularCoefficient
-        "Reflection of ambient light (= 0: light is completely absorbed)" 
+        "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter StateSelect stateSelect=StateSelect.default
-        "Priority to use rotor angle (phi) and rotor speed (w) as states" 
+        "Priority to use rotor angle (phi) and rotor speed (w) as states"
                                                                         annotation(Dialog(tab="Advanced"));
     parameter Boolean exact=true
         "= true, if exact calculations; false if influence of bearing on rotor acceleration is neglected to avoid an algebraic loop"
@@ -2164,21 +2164,21 @@ November 3-4, 2003, pp. 149-158</p>
       annotation(Dialog(__Dymola_initialDialog=true));
 
     SI.AngularVelocity w(start=0, stateSelect=stateSelect)
-        "Angular velocity of rotor with respect to frame_a" 
+        "Angular velocity of rotor with respect to frame_a"
       annotation(Dialog(__Dymola_initialDialog=true));
     SI.AngularAcceleration a(start=0)
-        "Angular acceleration of rotor with respect to frame_a" 
+        "Angular acceleration of rotor with respect to frame_a"
       annotation(Dialog(__Dymola_initialDialog=true));
 
     Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a
-        "(left) driving flange (flange axis directed INTO cut plane)" 
+        "(left) driving flange (flange axis directed INTO cut plane)"
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
                0)));
     Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b
-        "(right) driven flange (flange axis directed OUT OF cut plane)" 
+        "(right) driven flange (flange axis directed OUT OF cut plane)"
       annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
     Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
-        "Frame in which rotor housing is fixed" 
+        "Frame in which rotor housing is fixed"
       annotation (Placement(transformation(
             origin={0,-100},
             extent={{-20,-20},{20,20}},
@@ -2195,7 +2195,7 @@ the parameter <tt>n</tt>, which has to be given in the local coordinate system
 of <tt>frame_a</tt>. The default animation of this component is
 shown in the figure below. </p>
       <IMG SRC=\"../Images/MultiBody/Parts/Rotor1D.png\" ALT=\"model Parts.Rotor1D\">
-<p>This component is a replacement for 
+<p>This component is a replacement for
 <a href=\"Modelica://Modelica.Mechanics.Rotational.Inertia\">Modelica.Mechanics.Rotational.Inertia</a>
 for the case, that a 1-dim.-rotational mechanical system should be attached with a 3-dim.
 carrier body.</p>
@@ -2268,7 +2268,7 @@ November 3-4, 2003, pp. 149-158</p>
       extra=1,
       r_shape=r_center - e*(cylinderLength/2),
       r=frame_a.r_0,
-      R=Frames.absoluteRotation(frame_a.R, Frames.planarRotation(e, phi, 0))) if 
+      R=Frames.absoluteRotation(frame_a.R, Frames.planarRotation(e, phi, 0))) if
          world.enableAnimation and animation;
   equation
     phi = flange_a.phi;
@@ -2285,13 +2285,13 @@ November 3-4, 2003, pp. 149-158</p>
 
    /* Reaction torque:
         t = n*(J*a - flange_a.tau - flange_b.tau) + cross(w_a, nJ*w)
- 
+
      Since
         J*a = flange_a.tau + flange_b.tau - nJ*der(w_a);
- 
+
      the reaction torque can be simplified to
         t = n*(- nJ*der(w_a)) + cross(w_a, nJ*w)
- 
+
   */
     frame_a.f = zeros(3);
     frame_a.t = cross(w_a, nJ*w)-e*(nJ*der(w_a));
@@ -2320,8 +2320,8 @@ November 3-4, 2003, pp. 149-158</p>
           0)) if world.enableAnimation and animation and not world.driveTrainMechanics3D;
 
     Modelica.Mechanics.Rotational.Components.Inertia inertia(
-      J=J) if 
-          not world.driveTrainMechanics3D 
+      J=J) if
+          not world.driveTrainMechanics3D
       annotation (Placement(transformation(extent={{-20,-20},{20,20}}, rotation=0)));
     RotorWith3DEffects rotorWith3DEffects(
       animation=animation,
@@ -2373,7 +2373,7 @@ November 3-4, 2003, pp. 149-158</p>
       "Axis of rotation of flange_b, resolved in frame_a";
 
     Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a if world.driveTrainMechanics3D
-      "Bearing frame" 
+      "Bearing frame"
       annotation (Placement(transformation(
           origin={0,-100},
           extent={{-20,-20},{20,20}},
@@ -2458,7 +2458,7 @@ November 3-4, 2003, pp. 149-158</p>
     encapsulated model Housing
       import Modelica;
       input Modelica.SIunits.Torque t[3];
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
                                  annotation (Placement(transformation(extent={{
                 -116,-16},{-84,16}}, rotation=0)));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -2476,7 +2476,7 @@ November 3-4, 2003, pp. 149-158</p>
       frame_a.f=zeros(3);
       frame_a.t=t;
     end Housing;
-    Housing housing(t=-flange_a.tau*e_a - flange_b.tau*e_b) if world.driveTrainMechanics3D 
+    Housing housing(t=-flange_a.tau*e_a - flange_b.tau*e_b) if world.driveTrainMechanics3D
                     annotation (Placement(transformation(extent={{20,-60},{40,-40}},
             rotation=0)));
 

@@ -88,7 +88,7 @@ via parameter <b>samplePeriod</b>.
     extends Interfaces.DiscreteSISO;
     output Real ySample(start=0, fixed=true);
     annotation (
-      
+
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -121,7 +121,7 @@ sample instant during the sample points.
     Modelica.SIunits.Time tSample;
     Real c;
     annotation (
-      
+
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -153,7 +153,7 @@ values of the last two sampled input signals.
     extends Interfaces.DiscreteSISO;
 
     annotation (
-      
+
       Documentation(info="<html>
 <p>
 This block describes a unit delay:
@@ -228,7 +228,7 @@ the output y is identical to parameter yStart.
     Real x1;
     Real xext[size(a, 1)];
     annotation (
-      
+
       Documentation(info="<html>
 <p>The <b>discrete transfer function</b> block defines the
 transfer function between the input signal u and the output
@@ -331,7 +331,7 @@ states can be set as start values of <b>x</b>.<p>
     output Real x[size(A, 1)] "State vector";
 
     annotation (
-      
+
       Documentation(info="<html>
 <p>
 The <b>discrete state space</b> block defines the relation

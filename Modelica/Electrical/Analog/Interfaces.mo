@@ -341,7 +341,7 @@ This current is provided explicitly as current i.
        </li>
 </ul>
 </html>", info="<html>
- 
+
 </html>"));
   equation
     v1 = p1.v - n1.v;
@@ -362,7 +362,7 @@ This current is provided explicitly as current i.
       "Measured quantity as Real output signal"                                       annotation (Placement(
           transformation(extent={{100,-10},{120,10}}, rotation=0)));
     annotation (
-      
+
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -439,7 +439,7 @@ This current is provided explicitly as current i.
     parameter SI.Voltage offset=0 "Voltage offset";
     parameter SI.Time startTime=0 "Time offset";
     replaceable Modelica.Blocks.Interfaces.SignalSource signalSource(
-        final offset = offset, final startTime=startTime) 
+        final offset = offset, final startTime=startTime)
     annotation (Placement(transformation(extent={{70,70},{90,90}}, rotation=0)));
     annotation (
       Icon(coordinateSystem(

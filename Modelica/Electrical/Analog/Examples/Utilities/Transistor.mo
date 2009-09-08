@@ -16,7 +16,7 @@ model Transistor "transistor with resistance an capacitance"
         Line(points={{-10,-10},{40,-60},{60,-60}}, color={0,0,255})})
     ,
     Documentation(info="<html>
-  
+
 </html>"));
   Basic.Resistor rtb(R=0.05) annotation (Placement(transformation(extent={{-80,
             -10},{-60,10}}, rotation=0)));

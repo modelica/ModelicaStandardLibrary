@@ -115,7 +115,7 @@ Currently these are the following gases:
   H2O
   He
   N2
-  N2O 
+  N2O
   NH3
   NO
   O2
@@ -155,7 +155,7 @@ and adapted to the Modelica.Media package.
      substanceNames={data.name},
      singleState=false,
      Temperature(min=200, max=6000, start=500, nominal=500),
-     SpecificEnthalpy(start=if referenceChoice==ReferenceEnthalpy.ZeroAt0K then data.H0 else 
+     SpecificEnthalpy(start=if referenceChoice==ReferenceEnthalpy.ZeroAt0K then data.H0 else
         if referenceChoice==ReferenceEnthalpy.UserDefined then h_offset else 0, nominal=1.0e5),
      Density(start=10, nominal=10),
      AbsolutePressure(start=10e5, nominal=10e5));
@@ -456,7 +456,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
       *(3.*data.alow[6] + 4.*data.alow[7]*T)))));
   end cp_Tlow_der;
 
-  function h_T "Compute specific enthalpy from temperature and gas data; reference is decided by the 
+  function h_T "Compute specific enthalpy from temperature and gas data; reference is decided by the
     refChoice input, or by the referenceChoice package constant by default"
     import Modelica.Media.Interfaces.PartialMedium.Choices;
     extends Modelica.Icons.Function;
@@ -481,10 +481,10 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
       alow[4] + T*(1/3*data.alow[5] + T*(0.25*data.alow[6] + 0.2*data.alow[7]*T))))))
       /T) else data.R*((-data.ahigh[1] + T*(data.bhigh[1] + data.ahigh[2]*
       Math.log(T) + T*(1.*data.ahigh[3] + T*(0.5*data.ahigh[4] + T*(1/3*data.
-      ahigh[5] + T*(0.25*data.ahigh[6] + 0.2*data.ahigh[7]*T))))))/T)) + (if 
+      ahigh[5] + T*(0.25*data.ahigh[6] + 0.2*data.ahigh[7]*T))))))/T)) + (if
       exclEnthForm then -data.Hf else 0.0) + (if (refChoice
-       == Choices.ReferenceEnthalpy.ZeroAt0K) then data.H0 else 0.0) + (if 
-      refChoice == Choices.ReferenceEnthalpy.UserDefined then h_off else 
+       == Choices.ReferenceEnthalpy.ZeroAt0K) then data.H0 else 0.0) + (if
+      refChoice == Choices.ReferenceEnthalpy.UserDefined then h_off else
             0.0));
   end h_T;
 
@@ -505,7 +505,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     h_der := dT*cp_T(data,T);
   end h_T_der;
 
-  function h_Tlow "Compute specific enthalpy, low T region; reference is decided by the 
+  function h_Tlow "Compute specific enthalpy, low T region; reference is decided by the
     refChoice input, or by the referenceChoice package constant by default"
     import Modelica.Media.Interfaces.PartialMedium.Choices;
     extends Modelica.Icons.Function;
@@ -527,14 +527,14 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     h := data.R*((-data.alow[1] + T*(data.
       blow[1] + data.alow[2]*Math.log(T) + T*(1.*data.alow[3] + T*(0.5*data.
       alow[4] + T*(1/3*data.alow[5] + T*(0.25*data.alow[6] + 0.2*data.alow[7]*T))))))
-      /T) + (if 
+      /T) + (if
       exclEnthForm then -data.Hf else 0.0) + (if (refChoice
-       == Choices.ReferenceEnthalpy.ZeroAt0K) then data.H0 else 0.0) + (if 
-      refChoice == Choices.ReferenceEnthalpy.UserDefined then h_off else 
+       == Choices.ReferenceEnthalpy.ZeroAt0K) then data.H0 else 0.0) + (if
+      refChoice == Choices.ReferenceEnthalpy.UserDefined then h_off else
             0.0);
   end h_Tlow;
 
-  function h_Tlow_der "Compute specific enthalpy, low T region; reference is decided by the 
+  function h_Tlow_der "Compute specific enthalpy, low T region; reference is decided by the
     refChoice input, or by the referenceChoice package constant by default"
     import Modelica.Media.Interfaces.PartialMedium.Choices;
     extends Modelica.Icons.Function;
@@ -610,24 +610,24 @@ The used formula are based on the method of Chung et al (1984, 1988) referred to
 The formula 9-4.10 is the one being used. The Formula is given in non-SI units, the follwong onversion constants were used to
 transform the formula to SI units:
 </p>
- 
+
 <ul>
-<li> <b>Const1_SI:</b> The factor 10^(-9.5) =10^(-2.5)*1e-7 where the 
+<li> <b>Const1_SI:</b> The factor 10^(-9.5) =10^(-2.5)*1e-7 where the
      factor 10^(-2.5) originates from the conversion of g/mol->kg/mol + cm^3/mol->m^3/mol
       and the factor 1e-7 is due to conversionfrom microPoise->Pa.s.</li>
-<li>  <b>Const2_SI:</b> The factor 1/3.335641e-27 = 1e-3/3.335641e-30 
+<li>  <b>Const2_SI:</b> The factor 1/3.335641e-27 = 1e-3/3.335641e-30
       where the factor 3.335641e-30 comes from debye->C.m and
       1e-3 is due to conversion from cm^3/mol->m^3/mol</li>
 </ul>
- 
+
 <h4>References:</h4>
 <p>
 [1] Bruce E. Poling, John E. Prausnitz, John P. O'Connell, \"The Properties of Gases and Liquids\" 5th Ed. Mc Graw Hill.
 </p>
- 
+
 <h4>Author</h4>
 <p>T. Skoglund, Lund, Sweden, 2004-08-31</p>
- 
+
 </html>"));
   algorithm
     Tstar := 1.2593*T/Tc;
@@ -663,12 +663,12 @@ transform the formula to SI units:
        - data.R)*(1.32 + 1.77/((Cp/Modelica.Constants.R) - 1.0));
     annotation (Documentation(info="<html>
 <p>
-This function provides two similar methods for estimating the 
+This function provides two similar methods for estimating the
 thermal conductivity of polyatomic gases.
-The Eucken method (input method == 1) gives good results for low temperatures, 
-but it tends to give an underestimated value of the thermal conductivity 
+The Eucken method (input method == 1) gives good results for low temperatures,
+but it tends to give an underestimated value of the thermal conductivity
 (lambda) at higher temperatures.<br>
-The Modified Eucken method (input method == 2) gives good results for 
+The Modified Eucken method (input method == 2) gives good results for
 high-temperatures, but it tends to give an overestimated value of the
 thermal conductivity (lambda) at low temperatures.
 </p>
@@ -787,7 +787,7 @@ It has been developed by Hubertus Tummescheit.
      reducedX = false,
      singleState=false,
      reference_X=fill(1/nX,nX),
-     SpecificEnthalpy(start=if referenceChoice==ReferenceEnthalpy.ZeroAt0K then 3e5 else 
+     SpecificEnthalpy(start=if referenceChoice==ReferenceEnthalpy.ZeroAt0K then 3e5 else
         if referenceChoice==ReferenceEnthalpy.UserDefined then h_offset else 0, nominal=1.0e5),
      Density(start=10, nominal=10),
      AbsolutePressure(start=10e5, nominal=10e5),
@@ -848,7 +848,7 @@ required from medium model \""   + mediumName + "\".");
       input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm
-      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T, X=X) else 
+      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T, X=X) else
              ThermodynamicState(p=p,T=T, X=cat(1,X,{1-sum(X)}));
     end setState_pTX;
 
@@ -860,7 +860,7 @@ required from medium model \""   + mediumName + "\".");
       input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm
-      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T_hX(h,X),X=X) else 
+      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T_hX(h,X),X=X) else
              ThermodynamicState(p=p,T=T_hX(h,X), X=cat(1,X,{1-sum(X)}));
     end setState_phX;
 
@@ -872,7 +872,7 @@ required from medium model \""   + mediumName + "\".");
       input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm
-      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T_psX(p,s,X),X=X) else 
+      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T_psX(p,s,X),X=X) else
              ThermodynamicState(p=p,T=T_psX(p,s,X), X=cat(1,X,{1-sum(X)}));
     end setState_psX;
 
@@ -884,7 +884,7 @@ required from medium model \""   + mediumName + "\".");
       input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm
-      state := if size(X,1) == nX then ThermodynamicState(p=d*(data.R*X)*T,T=T,X=X) else 
+      state := if size(X,1) == nX then ThermodynamicState(p=d*(data.R*X)*T,T=T,X=X) else
              ThermodynamicState(p=d*(data.R*cat(1,X,{1-sum(X)}))*T,T=T, X=cat(1,X,{1-sum(X)}));
     end setState_dTX;
 
@@ -922,7 +922,7 @@ required from medium model \""   + mediumName + "\".");
       "Molar fractions";
   algorithm
   s :=  s_TX(state.T, state.X) - sum(state.X[i]*Modelica.Constants.R/MMX[i]*
-      (if state.X[i]<Modelica.Constants.eps then Y[i] else 
+      (if state.X[i]<Modelica.Constants.eps then Y[i] else
       Modelica.Math.log(Y[i]*state.p/reference_p)) for i in 1:nX);
   end specificEntropy;
 
@@ -974,8 +974,8 @@ required from medium model \""   + mediumName + "\".");
     output Real h_der "Specific enthalpy at temperature T";
     annotation (InlineNoEvent=false, Inline = false);
   algorithm
-    h_der := if fixedX then 
-      dT*sum((SingleGasNasa.cp_T(data[i], T)*reference_X[i]) for i in 1:nX) else 
+    h_der := if fixedX then
+      dT*sum((SingleGasNasa.cp_T(data[i], T)*reference_X[i]) for i in 1:nX) else
       dT*sum((SingleGasNasa.cp_T(data[i], T)*X[i]) for i in 1:nX)+
       sum((SingleGasNasa.h_T(data[i], T)*dX[i]) for i in 1:nX);
   end h_TX_der;
@@ -1002,7 +1002,7 @@ required from medium model \""   + mediumName + "\".");
     input SI.MoleFraction x[:] "mole fraction of mixture";
     output Real smix "mixing entropy contribution, divided by gas constant";
   algorithm
-    smix := sum(if x[i] > Modelica.Constants.eps then -x[i]*Modelica.Math.log(x[i]) else 
+    smix := sum(if x[i] > Modelica.Constants.eps then -x[i]*Modelica.Math.log(x[i]) else
                      x[i] for i in 1:size(x,1));
   end MixEntropy;
 
@@ -1052,7 +1052,7 @@ required from medium model \""   + mediumName + "\".");
     input Boolean exact = false
       "flag wether exact or approximate version should be used";
   algorithm
-    h_is := if exact then specificEnthalpy_psX(p_downstream,specificEntropy(refState),refState.X) else 
+    h_is := if exact then specificEnthalpy_psX(p_downstream,specificEntropy(refState),refState.X) else
            isentropicEnthalpyApproximation(p_downstream,refState);
   end isentropicEnthalpy;
 
@@ -1084,7 +1084,7 @@ algorithm
   etam := sum(yi[i]*eta[i]/sum(yi[j]*fi[i,j] for j in 1:size(eta,1)) for i in 1:size(eta,1));
 
  annotation (Documentation(info="<html>
- 
+
 <p>
 Simplification of the kinetic theory (Chapman and Enskog theory)
 approach neglecting the second-order effects.<br>
@@ -1105,7 +1105,7 @@ mixtures of aliphatic alcohols (Reid and Belenyessy, 1960). The
 principal reservation appears to lie in those cases where Mi&gt;&gt;Mj
 and etai&gt;&gt;etaj.<br>
 </p>
- 
+
 </html>
 "));
 equation
@@ -1203,7 +1203,7 @@ end gasMixtureViscosity;
   etam := 26.69*Fcm*(Mm*T)^(1/2)/(sigmam3^(2/3)*omegav);
   etaMixture := etam*1e7;
   annotation (Documentation(info="<html>
- 
+
 <p>
 Equation to estimate the viscosity of gas mixtures at low pressures.<br>
 It is a simplification of an extension of the rigorous kinetic theory
@@ -1211,13 +1211,13 @@ of Chapman and Enskog to determine the viscosity of multicomponent
 mixtures, at low pressures and with a factor to correct for molecule
 shape and polarity.
 </p>
- 
+
 <p>
 The input argument Kappa is a special correction for highly polar substances such as
 alcohols and acids.<br>
 Values of kappa for a few such materials:
 </p>
- 
+
 <table style=\"text-align: left; width: 302px; height: 200px;\" border=\"1\"
 cellspacing=\"0\" cellpadding=\"2\">
 <tbody>
@@ -1352,13 +1352,13 @@ algorithm
   end for;
   lambdam := sum(y[i]*lambda[i]/(sum(y[j]*A[i,j] for j in 1:size(y,1))) for i in 1:size(y,1));
   annotation (Documentation(info="<html>
- 
+
 <p>
 This function applies the Masson and Saxena modification of the
 Wassiljewa Equation for the thermal conductivity for gas mixtures of
 n elements at low pressure.
 </p>
- 
+
 <p>
 For nonpolar gas mixtures errors will generally be less than 3 to 4%.
 For mixtures of nonpolar-polar and polar-polar gases, errors greater
@@ -1367,7 +1367,7 @@ polarities of the constituent molecules are not greatly different, the
 thermal conductivity can be estimated satisfactorily by a mole fraction
 average of the pure component conductivities.
 </p>
- 
+
 </html>
 "));
 equation
@@ -1493,7 +1493,7 @@ end lowPressureThermalConductivity;
           "Molar fractions";
     algorithm
       y := s_TX(x,Xfull) - sum(Xfull[i]*Modelica.Constants.R/MMX[i]*
-      (if Xfull[i]<Modelica.Constants.eps then Y[i] else 
+      (if Xfull[i]<Modelica.Constants.eps then Y[i] else
       Modelica.Math.log(Y[i]*p/reference_p)) for i in 1:nX);
         // s_TX(x,X)- data[:].R*X*(Modelica.Math.log(p/reference_p)
         //       + MixEntropy(massToMoleFractions(X,data[:].MM)));
@@ -1533,6 +1533,6 @@ end MixtureGasNasa;
 
 
 annotation (Documentation(info="<html>
- 
+
 </html>"));
 end Common;

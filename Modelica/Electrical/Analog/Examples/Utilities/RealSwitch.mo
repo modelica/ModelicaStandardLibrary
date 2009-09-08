@@ -21,8 +21,8 @@ equation
   connect(n2, S.n2) annotation (Line(points={{100,14},{58,41.3334}}));
   connect(control, S.control) annotation (Line(points={{34,100},{34.6666,
           64.6667}}));
-  annotation (             
+  annotation (
     Documentation(info="<html>
-  
+
 </html>"));
 end RealSwitch;

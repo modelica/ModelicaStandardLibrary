@@ -6,7 +6,7 @@ block ExtractSignal "Extract signals from an input signal vector"
   extends Modelica.Blocks.Interfaces.MIMO;
   parameter Integer extract[nout]=1:nout "Extracting vector";
   annotation (
-    
+
     Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -318,7 +318,7 @@ equation
 
   end when;
 
-  y = if not allowOutOfRange or index > 0 and index <= nin then 
+  y = if not allowOutOfRange or index > 0 and index <= nin then
               k*u else outOfRangeValue;
 end Extractor;
 
@@ -336,7 +336,7 @@ end Extractor;
       "Connector of Real output signals" annotation (Placement(transformation(
             extent={{100,-10},{120,10}}, rotation=0)));
     annotation (
-      
+
       Documentation(info="<HTML>
 <p>
 The output connector is the <b>concatenation</b> of the two input connectors.
@@ -390,7 +390,7 @@ explicitly defined via parameters n1 and n2.
       "Connector of Real output signals" annotation (Placement(transformation(
             extent={{100,-10},{120,10}}, rotation=0)));
     annotation (
-      
+
       Documentation(info="<HTML>
 <p>
 The output connector is the <b>concatenation</b> of the three input connectors.
@@ -449,7 +449,7 @@ explicitly defined via parameters n1, n2 and n3.
       "Connector of Real output signals" annotation (Placement(transformation(
             extent={{100,-10},{120,10}}, rotation=0)));
     annotation (
-      
+
       Documentation(info="<HTML>
 <p>
 The output connector is the <b>concatenation</b> of the four input connectors.
@@ -515,7 +515,7 @@ explicitly defined via parameters n1, n2, n3 and n4.
       "Connector of Real output signals" annotation (Placement(transformation(
             extent={{100,-10},{120,10}}, rotation=0)));
     annotation (
-      
+
       Documentation(info="<HTML>
 <p>
 The output connector is the <b>concatenation</b> of the five input connectors.
@@ -588,7 +588,7 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
       "Connector of Real output signals" annotation (Placement(transformation(
             extent={{100,-10},{120,10}}, rotation=0)));
     annotation (
-      
+
       Documentation(info="<HTML>
 <p>
 The output connector is the <b>concatenation</b> of the six input connectors.
@@ -646,7 +646,7 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
       "Connector of Real output signals 2" annotation (Placement(transformation(
             extent={{100,-70},{120,-50}}, rotation=0)));
     annotation (
-      
+
       Documentation(info="<HTML>
 <p>
 The input connector is <b>splitted</b> up into two output connectors.
@@ -700,7 +700,7 @@ explicitly defined via parameters n1 and n2.
       "Connector of Real output signals 3" annotation (Placement(transformation(
             extent={{100,-80},{120,-60}}, rotation=0)));
     annotation (
-      
+
       Documentation(info="<HTML>
 <p>
 The input connector is <b>splitted</b> up into three output connectors.
@@ -761,7 +761,7 @@ explicitly defined via parameters n1, n2 and n3.
       "Connector of Real output signals 4" annotation (Placement(transformation(
             extent={{100,-100},{120,-80}}, rotation=0)));
     annotation (
-      
+
       Documentation(info="<HTML>
 <p>
 The input connector is <b>splitted</b> up into four output connectors.
@@ -827,7 +827,7 @@ explicitly defined via parameters n1, n2, n3 and n4.
       "Connector of Real output signals 5" annotation (Placement(transformation(
             extent={{100,-90},{120,-70}}, rotation=0)));
     annotation (
-      
+
       Documentation(info="<HTML>
 <p>
 The input connector is <b>splitted</b> up into five output connectors.
@@ -898,7 +898,7 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
       "Connector of Real output signals 6" annotation (Placement(transformation(
             extent={{100,-100},{120,-80}}, rotation=0)));
     annotation (
-      
+
       Documentation(info="<HTML>
 <p>
 The input connector is <b>splitted</b> up into six output connectors.
@@ -950,10 +950,10 @@ This package contains blocks to combine and extract signals.
 
     extends Modelica.Blocks.Interfaces.BlockIcon;
 
-    Modelica.Blocks.Interfaces.RealInput u "Input signal" 
+    Modelica.Blocks.Interfaces.RealInput u "Input signal"
       annotation (HideResult=true, Placement(transformation(extent={{-140,-20},{-100,
               20}}, rotation=0)));
-    Modelica.Blocks.Interfaces.RealOutput y "Output signal" 
+    Modelica.Blocks.Interfaces.RealOutput y "Output signal"
       annotation (HideResult=true, Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -971,10 +971,10 @@ Passes a Real signal through without modification.  Enables signals to be read o
   model IntegerPassThrough "Pass a Integer signal through without modification"
     extends Modelica.Blocks.Interfaces.IntegerBlockIcon;
 
-    Modelica.Blocks.Interfaces.IntegerInput u "Input signal" 
+    Modelica.Blocks.Interfaces.IntegerInput u "Input signal"
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
-    Modelica.Blocks.Interfaces.IntegerOutput y "Output signal" 
+    Modelica.Blocks.Interfaces.IntegerOutput y "Output signal"
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -991,10 +991,10 @@ Passes a Real signal through without modification.  Enables signals to be read o
   model BooleanPassThrough "Pass a Boolean signal through without modification"
     extends Modelica.Blocks.Interfaces.BooleanBlockIcon;
 
-    Modelica.Blocks.Interfaces.BooleanInput u "Input signal" 
+    Modelica.Blocks.Interfaces.BooleanInput u "Input signal"
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
-    Modelica.Blocks.Interfaces.BooleanOutput y "Output signal" 
+    Modelica.Blocks.Interfaces.BooleanOutput y "Output signal"
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{

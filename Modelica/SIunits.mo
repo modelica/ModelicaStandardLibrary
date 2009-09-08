@@ -9,7 +9,7 @@ Library <b>SIunits</b> is a <b>free</b> Modelica package providing
 predefined types, such as <i>Mass</i>,
 <i>Length</i>, <i>Time</i>, based on the international standard
 on units.</p>
- 
+
 </HTML>"));
 
   class HowToUseSIunits "How to use SIunits"
@@ -22,7 +22,7 @@ The basic approach in Modelica is that the unit attribute of
 a variable is the <b>unit</b> in which the <b>equations</b> are <b>written</b>,
 for example:
 </p>
- 
+
 <pre>   <b>model</b> MassOnGround
      <b>parameter</b> Real m(quantity=\"Mass\", unit=\"kg\") \"Mass\";
      <b>parameter</b> Real f(quantity=\"Force\", unit=\"N\") \"Driving force\";
@@ -33,7 +33,7 @@ for example:
      m*<b>der</b>(v) = f;
    <b>end</b> MassOnGround;
 </pre>
- 
+
 <p>
 This means that the equations in the equation section are only correct
 for the specified units. A different issue is the user interface, i.e.,
@@ -48,15 +48,15 @@ user interface has to be stored. In order to have a standardized way
 of doing this, Modelica provides the following three attributs
 for a variable of type Real:
 </p>
- 
+
 <ul>
 <li><b>quantity</b> to define the physical quantity (e.g. \"Length\", or \"Energy\").</li>
 <li><b>unit</b> to define the unit that has to be used
     in order that the equations are correct (e.g. \"N.m\").</li>
-<li><b>displayUnit</b> to define the unit used in the graphical 
+<li><b>displayUnit</b> to define the unit used in the graphical
     user interface as default display unit for input and/or output.</li>
 </ul>
- 
+
 <p>
 Note, a unit, such as \"N.m\", is not sufficient to define uniquely the
 physical quantity, since, e.g., \"N.m\" might be either \"torque\" or
@@ -64,47 +64,47 @@ physical quantity, since, e.g., \"N.m\" might be either \"torque\" or
 to select the corresponding menu from which the user can select
 a unit for the corresponding variable.
 </p>
- 
+
 <p>
-For example, after providing a value for \"m\" and \"f\" in a parameter 
+For example, after providing a value for \"m\" and \"f\" in a parameter
 menu of an instance of MassOnGround, a tool might generate the following code:
 </p>
- 
+
 <pre>
    MassOnGround myObject(m(displayUnit=\"g\")=2, f=3);
 </pre>
- 
+
 <p>
 The meaning is that in the equations a value of \"2\" is used
 and that in the graphical user interface a value of \"2000\" should be used,
-together with the unit \"g\" from the unit set \"Mass\" (= the quantity name). 
+together with the unit \"g\" from the unit set \"Mass\" (= the quantity name).
 Note, according to the Modelica specification
 a tool might ignore the \"displayUnit\" attribute.
 </p>
- 
+
 <p>
 In order to help the Modelica model developer, the Modelica.SIunits
 library provides about 450 predefined type names,
 together with values for the attributes <b>quantity</b>, <b>unit</b> and sometimes
 <b>displayUnit</b> and <b>min</b>. The unit is always selected as SI-unit according to the
-ISO standard. The type and the quantity names are the 
+ISO standard. The type and the quantity names are the
 quantity names used in the ISO standard. \"quantity\" and \"unit\" are defined
 as \"<b>final</b>\" in order that they cannot be modified. Attributes \"displayUnit\"
 and \"min\" can, however, be changed in a model via a modification. The example above,
 might therefore be alternatively also defined as:
 </p>
- 
+
 <pre>   <b>model</b> MassOnGround
      <b>parameter</b> Modelica.SIunits.Mass  m \"Mass\";
      <b>parameter</b> Modelica.SIunits.Force f \"Driving force\";
      ...
    <b>end</b> MassOnGround;
 </pre>
- 
+
 <p>
 or in a short hand notation as
 </p>
- 
+
 <pre>
    <b>model</b> MassOnGround
      <b>import</b> SI = Modelica.SIunits;
@@ -113,7 +113,7 @@ or in a short hand notation as
      ...
    <b>end</b> MassOnGround;
 </pre>
- 
+
 <p>
 For some often
 used Non SI-units (like hour), some additional type definitions are
@@ -121,7 +121,7 @@ present as Modelica.SIunits.Conversions.NonSIunits. If this is not sufficient,
 the user has to define its own types or use the attributes directly
 in the declaration as in the example at the beginning.
 </p>
- 
+
 </html>"));
 
   end HowToUseSIunits;
@@ -175,21 +175,21 @@ in the declaration as in the example at the beginning.
     annotation (Documentation(info="<html>
 <p> This package is based on the following references
 </p>
- 
+
 <dl>
 <dt>ISO 31-1992:</dt>
 <dd> <b>General principles concerning
     quantities, units and symbols</b>.<br>&nbsp;</dd>
- 
+
 <dt>ISO 1000-1992:</dt>
 <dd> <b>SI units and recommendations for the use
     of their multiples and of certain other units</b>.<br>&nbsp;</dd>
- 
+
 <dt>Cardarelli F.:</dt>
 <dd> <b>Scientific Unit Conversion - A Practical
      Guide to Metrication</b>. Springer 1997.</dd>
 </dl>
- 
+
 </html>
 "));
   end Literature;
@@ -201,15 +201,15 @@ in the declaration as in the example at the beginning.
 <dt><b>Main Author:</b>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
     Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
-    Institut f&uuml;r Robotik und Mechatronik<br> 
+    Institut f&uuml;r Robotik und Mechatronik<br>
     Abteilung f&uuml;r Entwurfsorientierte Regelungstechnik<br>
     Postfach 1116<br>
     D-82230 Wessling<br>
     Germany<br>
     email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br>
 </dl>
- 
- 
+
+
 <p><b>Acknowledgements:</b></p>
 <ul>
 <li> Astrid Jaschinski, Hubertus Tummescheit and Christian Schweiger
@@ -223,7 +223,7 @@ end UsersGuide;
   extends Modelica.Icons.Library2;
 
   annotation (
-    
+
     Invisible=true,
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={Text(
@@ -233,36 +233,36 @@ end UsersGuide;
     Documentation(info="<html>
 <p>This package provides predefined types, such as <i>Mass</i>,
 <i>Angle</i>, <i>Time</i>, based on the international standard
-on units, e.g., 
+on units, e.g.,
 </p>
- 
+
 <pre>   <b>type</b> Angle = Real(<b>final</b> quantity = \"Angle\",
                      <b>final</b> unit     = \"rad\",
                      displayUnit    = \"deg\");
 </pre>
- 
+
 <p>
 as well as conversion functions from non SI-units to SI-units
-and vice versa in subpackage 
+and vice versa in subpackage
 <a href=\"Modelica://Modelica.SIunits.Conversions\">Conversions</a>.
 </p>
- 
+
 <p>
 For an introduction how units are used in the Modelica standard library
 with package SIunits, have a look at:
 <a href=\"Modelica://Modelica.SIunits.UsersGuide.HowToUseSIunits\">How to use SIunits</a>.
 </p>
- 
+
 <p>
 Copyright &copy; 1998-2008, Modelica Association and DLR.
 </p>
 <p>
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> 
+and the accompanying <b>disclaimer</b>
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
 </p>
- 
+
 </html>", revisions="<html>
 <ul>
 <li><i>Dec. 14, 2005</i>
@@ -374,7 +374,7 @@ and the accompanying <b>disclaimer</b>
 defined in package Modelica.SIunits.Conversions.NonSIunits to the
 corresponding SI Units defined in package Modelica.SIunits and vice
 versa. It is recommended to use these functions in the following
-way (note, that all functions have one Real input and one Real output 
+way (note, that all functions have one Real input and one Real output
 argument):</p>
 <pre>
   <b>import</b> SI = Modelica.SIunits;
@@ -385,7 +385,7 @@ argument):</p>
   <b>parameter</b> SI.AngularVelocity w   = from_rpm(3600);  // convert 3600 revolutions per minutes
                                                       // to radian per seconds
 </pre>
- 
+
 </HTML>
 "));
 
@@ -412,7 +412,7 @@ argument):</p>
         "Angular velocity in revolutions per minute. Alias unit names that are outside of the SI system: rpm, r/min, rev/min"
         annotation (Documentation(info="<html>
 <p>
- 
+
 </html>"));
       type Velocity_kmh = Real (final quantity="Velocity", final unit="km/h")
         "Velocity in kilometers per hour";

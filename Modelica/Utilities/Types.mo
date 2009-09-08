@@ -31,7 +31,7 @@ package Types "Type definitions used in package Modelica.Utilities"
      String string
       "Value if tokenType == TokenType.StringToken/IdentifierToken/DelimiterToken";
     annotation (Documentation(info="<html>
-   
+
 </html>"));
   end TokenValue;
   annotation (Documentation(info="<html>

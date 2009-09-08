@@ -16,7 +16,7 @@ This example demonstrates:
 <ul>
 <li>The animation of spring and damper components</li>
 <li>A body can be freely moving without any connection to a joint.
-    In this case body coordinates are used automatically as 
+    In this case body coordinates are used automatically as
     states (whenever joints are present, it is first tried to
     use the generalized coordinates of the joints as states).</li>
 <li>If a body is freely moving, the initial position and velocity of the body
@@ -24,13 +24,13 @@ This example demonstrates:
     body \"body1\" in the left part (click on \"Initialization\").</li>
 </ul>
 <p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Elementary/FreeBody.png\" 
+<IMG SRC=\"../Images/MultiBody/Examples/Elementary/FreeBody.png\"
 ALT=\"model Examples.Elementary.FreeBody\">
 </p>
 </html>"));
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
         transformation(extent={{-60,20},{-40,40}}, rotation=0)));
-  Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar2(r={0.8,0,0}, animation=false) 
+  Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar2(r={0.8,0,0}, animation=false)
     annotation (Placement(transformation(extent={{0,20},{20,40}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Forces.Spring spring1(
     width=0.1,
@@ -53,7 +53,7 @@ ALT=\"model Examples.Elementary.FreeBody\">
     v_0(fixed=true),
     angles_fixed=true,
     w_0_fixed=true,
-    angles_start={0.174532925199433,0.174532925199433,0.174532925199433}) 
+    angles_start={0.174532925199433,0.174532925199433,0.174532925199433})
     annotation (Placement(transformation(extent={{0,-40},{20,-20}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Forces.Spring spring2(
     c=20,
@@ -65,7 +65,7 @@ ALT=\"model Examples.Elementary.FreeBody\">
         extent={{-10,-10},{10,10}},
         rotation=270)));
 equation
-  connect(bar2.frame_a, world.frame_b) 
+  connect(bar2.frame_a, world.frame_b)
     annotation (Line(
       points={{0,30},{-40,30}},
       color={95,95,95},
@@ -74,7 +74,7 @@ equation
       points={{-20,-4},{-20,-30},{0,-30}},
       color={95,95,95},
       thickness=0.5));
-  connect(bar2.frame_b, spring2.frame_a) 
+  connect(bar2.frame_b, spring2.frame_a)
     annotation (Line(
       points={{20,30},{40,30},{40,16}},
       color={95,95,95},
