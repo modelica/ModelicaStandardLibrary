@@ -25,7 +25,7 @@ The simulation end time should be set to 1e- 8. Please plot the input voltage V1
 Tietze, U.; Schenk, Ch.: Halbleiter-Schaltungstechnik. Springer-Verlag Berlin Heidelberg NewYork 1980, p. 59
 </dd>
 </dl>
- 
+
 </HTML>
 ", revisions="<html>
 <dl>

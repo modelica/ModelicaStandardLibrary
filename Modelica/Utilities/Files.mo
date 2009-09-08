@@ -35,7 +35,7 @@ function list "List content of file or directory"
      String directory2;
   algorithm
      // Construct directory with a trailing "/"
-     directory2 := if Strings.substring(directory,lenDirectory,lenDirectory) == "/" then 
+     directory2 := if Strings.substring(directory,lenDirectory,lenDirectory) == "/" then
                       directory else directory + "/";
 
      // Distinguish directories and files
@@ -218,9 +218,9 @@ function copy "Generate a copy of a file or of a directory"
 
   Integer lenOldName = Strings.length(oldName);
   Integer lenNewName = Strings.length(newName);
-  String oldName2 = if Strings.substring(oldName,lenOldName,lenOldName) == "/" then 
+  String oldName2 = if Strings.substring(oldName,lenOldName,lenOldName) == "/" then
                        Strings.substring(oldName,1,lenOldName-1) else oldName;
-  String newName2 = if Strings.substring(newName,lenNewName,lenNewName) == "/" then 
+  String newName2 = if Strings.substring(newName,lenNewName,lenNewName) == "/" then
                        Strings.substring(newName,1,lenNewName-1) else newName;
   Types.FileType oldFileType = Internal.stat(oldName2);
   Types.FileType newFileType;
@@ -232,7 +232,7 @@ algorithm
      newFileType :=Internal.stat(newName2);
      if newFileType == Types.FileType.NoFile then
         createDirectory(newName2);
-     elseif newFileType == Types.FileType.RegularFile or 
+     elseif newFileType == Types.FileType.RegularFile or
             newFileType == Types.FileType.SpecialFile then
         if replace then
            Files.removeFile(newName2);
@@ -272,7 +272,7 @@ If oldName/newName are directories, then the newName
 directory may exist. In such a case the content of oldName
 is copied into directory newName. If replace = <b>false</b>
 it is required that the existing files
-in newName are different from the existing files in 
+in newName are different from the existing files in
 oldName.
 </p>
 <h4>Example</h4>
@@ -322,7 +322,7 @@ If oldName/newName are directories, then the newName
 directory may exist. In such a case the content of oldName
 is moved into directory newName. If replace = <b>false</b>
 it is required that the existing files
-in newName are different from the existing files in 
+in newName are different from the existing files in
 oldName.
 </p>
 <h4>Example</h4>
@@ -352,7 +352,7 @@ function remove "Remove file or directory (ignore call, if it does not exist)"
      Integer lenName = Strings.length(name);
      String fileNames[nNames];
      // remove an optional trailing "/"
-     String name2 = if Strings.substring(name,lenName,lenName) == "/" then 
+     String name2 = if Strings.substring(name,lenName,lenName) == "/" then
                        Strings.substring(name,lenName-1,lenName-1) else name;
   algorithm
      fileNames :=Internal.readDirectory(name2, nNames);
@@ -365,7 +365,7 @@ function remove "Remove file or directory (ignore call, if it does not exist)"
   String fullName = Files.fullPathName(name);
   Types.FileType fileType=Internal.stat(fullName);
 algorithm
-  if fileType == Types.FileType.RegularFile or 
+  if fileType == Types.FileType.RegularFile or
      fileType == Types.FileType.SpecialFile then
      Internal.removeFile(fullName);
   elseif fileType == Types.FileType.Directory then
@@ -414,7 +414,7 @@ Files.<b>removeFile</b>(fileName);
 Removes the file \"fileName\". If \"fileName\" does not exist,
 the function call is ignored. If \"fileName\" exists but is
 no regular file (e.g., directory, pipe, device, etc.) an
-error is triggered. 
+error is triggered.
 </p>
 <p>
 This function is silent, i.e., it does not print a message.
@@ -436,7 +436,7 @@ function createDirectory
     protected
      Types.FileType fileType = Internal.stat(directoryName);
   algorithm
-     if fileType == Types.FileType.RegularFile or 
+     if fileType == Types.FileType.RegularFile or
         fileType == Types.FileType.SpecialFile then
         Streams.error("Directory \"" + directoryName + "\" cannot be created\n" +
                       "because this is an existing file.");
@@ -625,7 +625,7 @@ Function <b>splitPathName</b>(..) splits a path name into its parts.
 <h4>Example</h4>
 <pre>
   (directory, name, extension) = Files.splitPathName(\"C:/user/test/input.txt\")
-  
+
   -> directory = \"C:/user/test/\"
      name      = \"input\"
      extension = \".txt\"
@@ -690,7 +690,7 @@ fileName = Files.<b>temporaryFileName</b>();
 <h4>Description</h4>
 <p>
 Return arbitrary name of a file that does not exist
-and is in a directory where access rights allow to 
+and is in a directory where access rights allow to
 write to this file (useful for temporary output of files).
 </p>
 </html>"));

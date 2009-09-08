@@ -1693,8 +1693,8 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
             region := 4;
           else
             // phase == 1 or 0, now check if we are in the legal area
-            if 
-              (p < triple.ptriple) or (p > data.PLIMIT1) or (h < hlowerofp1(p)) or 
+            if
+              (p < triple.ptriple) or (p > data.PLIMIT1) or (h < hlowerofp1(p)) or
               ((p < 10.0e6) and (h > hupperofp5(p)))
               or ((p >= 10.0e6) and (h > hupperofp2(p))) then
               // outside of valid range
@@ -2789,7 +2789,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
            == 1 then
           gibbs
          := g1(p,T);
-        elseif 
+        elseif
         region == 2 then
           gibbs
          := g2(p,T);
@@ -4447,8 +4447,8 @@ Ordinary Water Substance<br>
         assert(d > triple.dvtriple,
           "IF97 medium function cond_dTp called with too low density\n" +
           "d = " + String(d) + " <= " + String(triple.dvtriple) + " (triple point density)");
-        assert((p <= 100e6 and (Tc >= 0.0 and Tc <= 500)) or 
-        (p <= 70e6 and (Tc > 500.0 and Tc <= 650)) or 
+        assert((p <= 100e6 and (Tc >= 0.0 and Tc <= 500)) or
+        (p <= 70e6 and (Tc > 500.0 and Tc <= 650)) or
         (p <= 40e6 and (Tc > 650.0 and Tc <= 800)),
         "IF97 medium function cond_dTp: thermal conductivity computed outside the range\n" +
         "of validity of the IF97 formulation: p = " + String(p) + " Pa, Tc = " + String(Tc) + " K");
@@ -4489,13 +4489,13 @@ Ordinary Water Substance<br>
           Lam0 := 1/(n0 + (n1 + (n2 + n3*tau)*tau)*tau)/(tau^0.5);
           Lam1 := 0.0;
           tfun := 1.0;
-          for 
+          for
        i in 1:5 loop
             if (i <> 1) then
        tfun := tfun*taum1;
             end if;
             rhofun := 1.0;
-            for 
+            for
          j in 0:5 loop
        if (j <> 0) then
                 rhofun := rhofun*deltam1;
@@ -5423,7 +5423,7 @@ Ordinary Water Substance<br>
       algorithm
         if p < data.PCRIT then
           // allow a 10 J margin inside the (well approximated) phase boundary
-          subregion := if h < (Regions.hl_p(p) + 10.0) then 1 else 
+          subregion := if h < (Regions.hl_p(p) + 10.0) then 1 else
             if h > (Regions.hv_p(p) - 10.0) then 2 else 0;
           assert(subregion <> 0,"inverse iteration of dt from ph called in 2 phase region: this can not work");
         else
@@ -5489,7 +5489,7 @@ Ordinary Water Substance<br>
         found := false;
         if p < data.PCRIT then
           // allow a 1 J/K margin inside the (well approximated) phase boundary
-          subregion := if s < (Regions.sl_p(p) + 10.0) then 1 else 
+          subregion := if s < (Regions.sl_p(p) + 10.0) then 1 else
             if s > (Regions.sv_p(p) - 10.0) then 2 else 0;
           assert(subregion <> 0,"inverse iteration of dt from ps called in 2 phase region: this is illegal!");
         else
@@ -6001,7 +6001,7 @@ Ordinary Water Substance<br>
           pro.liq := Modelica.Media.Common.helmholtzToBoundaryProps(fl);
           pro.vap := Modelica.Media.Common.helmholtzToBoundaryProps(fv);
         end if;
-        pro.x := if (h < pro.liq.h) then 0.0 else if (pro.vap.h <> pro.liq.h) then 
+        pro.x := if (h < pro.liq.h) then 0.0 else if (pro.vap.h <> pro.liq.h) then
                 (h - pro.liq.h)/(pro.vap.h - pro.liq.h) else 1.0;
         pro.d := pro.liq.d*pro.vap.d/(pro.vap.d + pro.x*(pro.liq.d - pro.vap.d));
         pro.u := pro.x*pro.vap.u + (1 - pro.x)*pro.liq.u;
@@ -6107,7 +6107,7 @@ Ordinary Water Substance<br>
           liq := Modelica.Media.Common.helmholtzToBoundaryProps(fl);
           vap := Modelica.Media.Common.helmholtzToBoundaryProps(fv);
         end if;
-        x := if (vap.d <> liq.d) then (1/d - 1/liq.d)/(1/vap.d - 1/liq.d) else 
+        x := if (vap.d <> liq.d) then (1/d - 1/liq.d)/(1/vap.d - 1/liq.d) else
           1.0;
         pro.u := x*vap.u + (1 - x)*liq.u;
         pro.h := x*vap.h + (1 - x)*liq.h;
@@ -6236,7 +6236,7 @@ Ordinary Water Substance<br>
     SI.Temperature t2
       "temperature at phase boundary, using inverse from region 2";
   algorithm
-    aux.region := if region == 0 then 
+    aux.region := if region == 0 then
       (if phase == 2 then 4 else BaseIF97.Regions.region_ph(p=p,h= h,phase= phase)) else region;
     aux.phase := if phase <> 0 then phase else if aux.region == 4 then 2 else 1;
     aux.p := max(p,611.657);
@@ -6357,7 +6357,7 @@ Ordinary Water Substance<br>
     SI.Temperature t2
       "temperature at phase boundary, using inverse from region 2";
   algorithm
-    aux.region := if region == 0 then 
+    aux.region := if region == 0 then
       (if phase == 2 then 4 else BaseIF97.Regions.region_ps(p=p,s=s,phase=phase)) else region;
     aux.phase := if phase <> 0 then phase else if aux.region == 4 then 2 else 1;
     aux.p := p;
@@ -6415,7 +6415,7 @@ Ordinary Water Substance<br>
         liq := Common.helmholtzToBoundaryProps(fl);
         vap := Common.helmholtzToBoundaryProps(fv);
       end if;
-      aux.dpT := (vap.s - liq.s)*(if (liq.d <> vap.d) then (vap.s - liq.s)*liq.d*vap.d/(liq.d - vap.d) else 
+      aux.dpT := (vap.s - liq.s)*(if (liq.d <> vap.d) then (vap.s - liq.s)*liq.d*vap.d/(liq.d - vap.d) else
            BaseIF97.Basic.dptofT(aux.T));
       aux.h := liq.h + aux.x*(vap.h - liq.h);
       aux.rho := liq.d*vap.d/(vap.d + aux.x*(liq.d - vap.d));
@@ -6756,8 +6756,8 @@ Ordinary Water Substance<br>
       Inline=false,
       LateInline=true);
   algorithm
-    beta := if aux.region == 3 or aux.region == 4 then 
-      aux.pt/(aux.rho*aux.pd) else 
+    beta := if aux.region == 3 or aux.region == 4 then
+      aux.pt/(aux.rho*aux.pd) else
       aux.vt*aux.rho;
   end beta_props_ph;
 
@@ -6786,7 +6786,7 @@ Ordinary Water Substance<br>
       Inline=false,
       LateInline=true);
   algorithm
-    kappa := if aux.region == 3 or aux.region == 4 then 
+    kappa := if aux.region == 3 or aux.region == 4 then
       1/(aux.rho*aux.pd) else -aux.vp*aux.rho;
   end kappa_props_ph;
 
@@ -6816,9 +6816,9 @@ Ordinary Water Substance<br>
       LateInline=true);
   algorithm
     // dp/drho at constant s
-    v_sound := if aux.region == 3 then sqrt(max(0,(aux.pd*aux.rho*aux.rho*aux.cv + aux.pt*aux.pt*aux.T)/(aux.rho*aux.rho*aux.cv))) else 
-      if aux.region == 4 then 
-      sqrt(max(0,1/((aux.rho*(aux.rho*aux.cv/aux.dpT + 1.0)/(aux.dpT*aux.T)) - 1/aux.rho*aux.rho*aux.rho/(aux.dpT*aux.T)))) else 
+    v_sound := if aux.region == 3 then sqrt(max(0,(aux.pd*aux.rho*aux.rho*aux.cv + aux.pt*aux.pt*aux.T)/(aux.rho*aux.rho*aux.cv))) else
+      if aux.region == 4 then
+      sqrt(max(0,1/((aux.rho*(aux.rho*aux.cv/aux.dpT + 1.0)/(aux.dpT*aux.T)) - 1/aux.rho*aux.rho*aux.rho/(aux.dpT*aux.T)))) else
            sqrt(max(0,-aux.cp/(aux.rho*aux.rho*(aux.vp*aux.cp+aux.vt*aux.vt*aux.T))));
   end velocityOfSound_props_ph;
 
@@ -6845,8 +6845,8 @@ Ordinary Water Substance<br>
       Inline=false,
       LateInline=true);
   algorithm
-    gamma := if aux.region == 3 then 1/(aux.rho*p)*((aux.pd*aux.cv*aux.rho*aux.rho + aux.pt*aux.pt*aux.T)/(aux.cv)) else 
-           if aux.region == 4 then 1/(aux.rho*p)*aux.dpT*aux.dpT*aux.T/aux.cv else 
+    gamma := if aux.region == 3 then 1/(aux.rho*p)*((aux.pd*aux.cv*aux.rho*aux.rho + aux.pt*aux.pt*aux.T)/(aux.cv)) else
+           if aux.region == 4 then 1/(aux.rho*p)*aux.dpT*aux.dpT*aux.T/aux.cv else
       -1/(aux.rho*aux.p)*aux.cp/(aux.vp*aux.cp + aux.vt*aux.vt*aux.T);
   end isentropicExponent_props_ph;
 
@@ -6877,9 +6877,9 @@ Ordinary Water Substance<br>
       Inline=false,
       LateInline=true);
   algorithm
-    ddph := if aux.region == 3 then 
-      ((aux.rho*(aux.cv*aux.rho + aux.pt))/(aux.rho*aux.rho*aux.pd*aux.cv + aux.T*aux.pt*aux.pt)) else 
-      if aux.region == 4 then  (aux.rho*(aux.rho*aux.cv/aux.dpT + 1.0)/(aux.dpT*aux.T)) else 
+    ddph := if aux.region == 3 then
+      ((aux.rho*(aux.cv*aux.rho + aux.pt))/(aux.rho*aux.rho*aux.pd*aux.cv + aux.T*aux.pt*aux.pt)) else
+      if aux.region == 4 then  (aux.rho*(aux.rho*aux.cv/aux.dpT + 1.0)/(aux.dpT*aux.T)) else
            (-aux.rho*aux.rho*(aux.vp*aux.cp - aux.vt/aux.rho + aux.T*aux.vt*aux.vt)/aux.cp);
   end ddph_props;
 
@@ -6906,9 +6906,9 @@ Ordinary Water Substance<br>
       Inline=false,
       LateInline=true);
   algorithm
-    ddhp := if aux.region == 3 then 
-      -aux.rho*aux.rho*aux.pt/(aux.rho*aux.rho*aux.pd*aux.cv + aux.T*aux.pt*aux.pt) else 
-      if aux.region == 4 then -aux.rho*aux.rho/(aux.dpT*aux.T) else 
+    ddhp := if aux.region == 3 then
+      -aux.rho*aux.rho*aux.pt/(aux.rho*aux.rho*aux.pd*aux.cv + aux.T*aux.pt*aux.pt) else
+      if aux.region == 4 then -aux.rho*aux.rho/(aux.dpT*aux.T) else
            -aux.rho*aux.rho*aux.vt/(aux.cp);
   end ddhp_props;
 
@@ -7142,8 +7142,8 @@ Ordinary Water Substance<br>
       Inline=false,
       LateInline=true);
   algorithm
-    cp := if aux.region == 3 then 
-      (aux.rho*aux.rho*aux.pd*aux.cv + aux.T*aux.pt*aux.pt)/(aux.rho*aux.rho*aux.pd) else 
+    cp := if aux.region == 3 then
+      (aux.rho*aux.rho*aux.pd*aux.cv + aux.T*aux.pt*aux.pt)/(aux.rho*aux.rho*aux.pd) else
       aux.cp;
   end cp_props_pT;
 
@@ -7172,8 +7172,8 @@ Ordinary Water Substance<br>
       Inline=false,
       LateInline=true);
   algorithm
-    beta := if aux.region == 3 then 
-      aux.pt/(aux.rho*aux.pd) else 
+    beta := if aux.region == 3 then
+      aux.pt/(aux.rho*aux.pd) else
       aux.vt*aux.rho;
   end beta_props_pT;
 
@@ -7202,7 +7202,7 @@ Ordinary Water Substance<br>
       Inline=false,
       LateInline=true);
   algorithm
-    kappa := if aux.region == 3 then 
+    kappa := if aux.region == 3 then
       1/(aux.rho*aux.pd) else -aux.vp*aux.rho;
   end kappa_props_pT;
 
@@ -7232,7 +7232,7 @@ Ordinary Water Substance<br>
       LateInline=true);
   algorithm
     // dp/drho at constant s
-    v_sound := if aux.region == 3 then sqrt(max(0,(aux.pd*aux.rho*aux.rho*aux.cv + aux.pt*aux.pt*aux.T)/(aux.rho*aux.rho*aux.cv))) else 
+    v_sound := if aux.region == 3 then sqrt(max(0,(aux.pd*aux.rho*aux.rho*aux.cv + aux.pt*aux.pt*aux.T)/(aux.rho*aux.rho*aux.cv))) else
       sqrt(max(0,-aux.cp/(aux.rho*aux.rho*(aux.vp*aux.cp+aux.vt*aux.vt*aux.T))));
   end velocityOfSound_props_pT;
 
@@ -7259,7 +7259,7 @@ Ordinary Water Substance<br>
       Inline=false,
       LateInline=true);
   algorithm
-    gamma := if aux.region == 3 then 1/(aux.rho*p)*((aux.pd*aux.cv*aux.rho*aux.rho + aux.pt*aux.pt*aux.T)/(aux.cv)) else 
+    gamma := if aux.region == 3 then 1/(aux.rho*p)*((aux.pd*aux.cv*aux.rho*aux.rho + aux.pt*aux.pt*aux.T)/(aux.cv)) else
       -1/(aux.rho*aux.p)*aux.cp/(aux.vp*aux.cp + aux.vt*aux.vt*aux.T);
   end isentropicExponent_props_pT;
 
@@ -7311,7 +7311,7 @@ Ordinary Water Substance<br>
       "dimensionless Helmholtz function and dervatives wrt delta and tau";
     Integer error "error flag for inverse iterations";
   algorithm
-    aux.region := if region == 0 then 
+    aux.region := if region == 0 then
       (if phase == 2 then 4 else BaseIF97.Regions.region_dT(d=rho,T= T,phase= phase)) else region;
     aux.phase := if aux.region == 4 then 2 else 1;
     aux.R := BaseIF97.data.RH2O;
@@ -7358,7 +7358,7 @@ Ordinary Water Substance<br>
       d_vap := rhov_T(T);
       h_liq := hl_p(aux.p);
       h_vap := hv_p(aux.p);
-      aux.x := if (d_vap <> d_liq) then (1/rho - 1/d_liq)/(1/d_vap - 1/d_liq) else 
+      aux.x := if (d_vap <> d_liq) then (1/rho - 1/d_liq)/(1/d_vap - 1/d_liq) else
       1.0;
       aux.h := h_liq + aux.x*(h_vap - h_liq);
       if T < BaseIF97.data.TLIMIT1 then
@@ -7578,8 +7578,8 @@ Ordinary Water Substance<br>
       Inline=false,
       LateInline=true);
   algorithm
-    beta := if aux.region == 3 or aux.region == 4 then 
-      aux.pt/(aux.rho*aux.pd) else 
+    beta := if aux.region == 3 or aux.region == 4 then
+      aux.pt/(aux.rho*aux.pd) else
       aux.vt*aux.rho;
   end beta_props_dT;
 
@@ -7608,7 +7608,7 @@ Ordinary Water Substance<br>
       Inline=false,
       LateInline=true);
   algorithm
-    kappa := if aux.region == 3 or aux.region == 4 then 
+    kappa := if aux.region == 3 or aux.region == 4 then
       1/(aux.rho*aux.pd) else -aux.vp*aux.rho;
   end kappa_props_dT;
 
@@ -7638,9 +7638,9 @@ Ordinary Water Substance<br>
       LateInline=true);
   algorithm
     // dp/drho at constant s
-    v_sound := if aux.region == 3 then sqrt(max(0,((aux.pd*aux.rho*aux.rho*aux.cv + aux.pt*aux.pt*aux.T)/(aux.rho*aux.rho*aux.cv)))) else 
-      if aux.region == 4 then 
-      sqrt(max(0,1/((aux.rho*(aux.rho*aux.cv/aux.dpT + 1.0)/(aux.dpT*aux.T)) - 1/aux.rho*aux.rho*aux.rho/(aux.dpT*aux.T)))) else 
+    v_sound := if aux.region == 3 then sqrt(max(0,((aux.pd*aux.rho*aux.rho*aux.cv + aux.pt*aux.pt*aux.T)/(aux.rho*aux.rho*aux.cv)))) else
+      if aux.region == 4 then
+      sqrt(max(0,1/((aux.rho*(aux.rho*aux.cv/aux.dpT + 1.0)/(aux.dpT*aux.T)) - 1/aux.rho*aux.rho*aux.rho/(aux.dpT*aux.T)))) else
            sqrt(max(0,-aux.cp/(aux.rho*aux.rho*(aux.vp*aux.cp+aux.vt*aux.vt*aux.T))));
   end velocityOfSound_props_dT;
 
@@ -7668,8 +7668,8 @@ Ordinary Water Substance<br>
       Inline=false,
       LateInline=true);
   algorithm
-    gamma := if aux.region == 3 then 1/(aux.rho*aux.p)*((aux.pd*aux.cv*aux.rho*aux.rho + aux.pt*aux.pt*aux.T)/(aux.cv)) else 
-           if aux.region == 4 then 1/(aux.rho*aux.p)*aux.dpT*aux.dpT*aux.T/aux.cv else 
+    gamma := if aux.region == 3 then 1/(aux.rho*aux.p)*((aux.pd*aux.cv*aux.rho*aux.rho + aux.pt*aux.pt*aux.T)/(aux.cv)) else
+           if aux.region == 4 then 1/(aux.rho*aux.p)*aux.dpT*aux.dpT*aux.T/aux.cv else
       -1/(aux.rho*aux.p)*aux.cp/(aux.vp*aux.cp + aux.vt*aux.vt*aux.T);
   end isentropicExponent_props_dT;
 

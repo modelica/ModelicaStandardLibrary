@@ -491,10 +491,10 @@ on page 317 ff.
     vbe = B.v - E.v;
     qbk = 1 - vbc*Vak;
 
-    ibc = smooth(1,if (vbc/Vt < EMin) then Is*(ExMin*(vbc/Vt - EMin + 1) - 1) + vbc*Gbc else 
+    ibc = smooth(1,if (vbc/Vt < EMin) then Is*(ExMin*(vbc/Vt - EMin + 1) - 1) + vbc*Gbc else
             if (vbc/Vt > EMax) then Is*(ExMax*(vbc/Vt - EMax + 1) - 1) + vbc*
       Gbc else Is*(exp(vbc/Vt) - 1) + vbc*Gbc);
-    ibe = smooth(1,if (vbe/Vt < EMin) then Is*(ExMin*(vbe/Vt - EMin + 1) - 1) + vbe*Gbe else 
+    ibe = smooth(1,if (vbe/Vt < EMin) then Is*(ExMin*(vbe/Vt - EMin + 1) - 1) + vbe*Gbe else
             if (vbe/Vt > EMax) then Is*(ExMax*(vbe/Vt - EMax + 1) - 1) + vbe*
       Gbe else Is*(exp(vbe/Vt) - 1) + vbe*Gbe);
     Capcjc = smooth(1,(if (vbc/Phic > 0) then Cjc*(1 + Mc*vbc/Phic) else Cjc*pow(1 - vbc
@@ -633,11 +633,11 @@ on page 317 ff.
     vbe = E.v - B.v;
     qbk = 1 - vbc*Vak;
 
-    ibc = smooth(1,(if (vbc/Vt < EMin) then Is*(ExMin*(vbc/Vt - EMin + 1) - 1) + vbc*Gbc else 
+    ibc = smooth(1,(if (vbc/Vt < EMin) then Is*(ExMin*(vbc/Vt - EMin + 1) - 1) + vbc*Gbc else
             if (vbc/Vt > EMax) then Is*(ExMax*(vbc/Vt - EMax + 1) - 1) + vbc*
       Gbc else Is*(exp(vbc/Vt) - 1) + vbc*Gbc));
 
-    ibe = smooth(1,(if (vbe/Vt < EMin) then Is*(ExMin*(vbe/Vt - EMin + 1) - 1) + vbe*Gbe else 
+    ibe = smooth(1,(if (vbe/Vt < EMin) then Is*(ExMin*(vbe/Vt - EMin + 1) - 1) + vbe*Gbe else
             if (vbe/Vt > EMax) then Is*(ExMax*(vbe/Vt - EMax + 1) - 1) + vbe*
       Gbe else Is*(exp(vbe/Vt) - 1) + vbe*Gbe));
 
@@ -659,7 +659,7 @@ on page 317 ff.
         model HeatingDiode "Simple diode with heating port"
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
           Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=
-                  300.15)) 
+                  300.15))
             annotation (Placement(transformation(
           origin={0,-100},
           extent={{10,-10},{-10,10}},
@@ -758,20 +758,20 @@ The thermal power is calculated by <i>i*v</i>.
         end HeatingDiode;
 
         model HeatingNMOS "Simple MOS Transistor with heating port"
-          Modelica.Electrical.Analog.Interfaces.Pin D "Drain" 
+          Modelica.Electrical.Analog.Interfaces.Pin D "Drain"
             annotation (Placement(transformation(extent={{90,40},{110,60}},
             rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin G "Gate" 
+          Modelica.Electrical.Analog.Interfaces.Pin G "Gate"
             annotation (Placement(transformation(extent={{-90,-40},{-110,-60}},
             rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin S "Source" 
+          Modelica.Electrical.Analog.Interfaces.Pin S "Source"
             annotation (Placement(transformation(extent={{90,-40},{110,-60}},
             rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin B "Bulk" 
+          Modelica.Electrical.Analog.Interfaces.Pin B "Bulk"
             annotation (Placement(transformation(extent={{90,-10},{110,10}},
             rotation=0)));
           Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=
-                  300.15)) 
+                  300.15))
             annotation (Placement(transformation(
           origin={0,-100},
           extent={{10,-10},{-10,10}},
@@ -927,20 +927,20 @@ Muenchen Wien 1990.
         end HeatingNMOS;
 
         model HeatingPMOS "Simple PMOS Transistor with heating port"
-         Modelica.Electrical.Analog.Interfaces.Pin D "Drain" 
+         Modelica.Electrical.Analog.Interfaces.Pin D "Drain"
             annotation (Placement(transformation(extent={{90,40},{110,60}},
             rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin G "Gate" 
+          Modelica.Electrical.Analog.Interfaces.Pin G "Gate"
             annotation (Placement(transformation(extent={{-90,-40},{-110,-60}},
             rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin S "Source" 
+          Modelica.Electrical.Analog.Interfaces.Pin S "Source"
             annotation (Placement(transformation(extent={{90,-40},{110,-60}},
             rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin B "Bulk" 
+          Modelica.Electrical.Analog.Interfaces.Pin B "Bulk"
             annotation (Placement(transformation(extent={{90,-10},{110,10}},
             rotation=0)));
           Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=
-                  300.15)) 
+                  300.15))
             annotation (Placement(transformation(
           origin={0,-100},
           extent={{10,-10},{-10,10}},
@@ -1145,17 +1145,17 @@ Some typical parameter sets are:
           Real hexp;
           Real htempexp;
   public
-          Modelica.Electrical.Analog.Interfaces.Pin C "Collector" 
+          Modelica.Electrical.Analog.Interfaces.Pin C "Collector"
             annotation (Placement(transformation(extent={{90,40},{110,60}},
             rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin B "Base" 
+          Modelica.Electrical.Analog.Interfaces.Pin B "Base"
             annotation (Placement(transformation(extent={{-90,-10},{-110,10}},
             rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" 
+          Modelica.Electrical.Analog.Interfaces.Pin E "Emitter"
             annotation (Placement(transformation(extent={{90,-40},{110,-60}},
             rotation=0)));
           Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=
-                  300.15)) 
+                  300.15))
             annotation (Placement(transformation(
           origin={0,-100},
           extent={{10,-10},{-10,10}},
@@ -1261,12 +1261,12 @@ on page 317 ff.
           Capcje = smooth(1,(if (vbe/Phie > 0) then Cje*(1 + Me*vbe/Phie) else Cje*pow(1
              - vbe/Phie, -Me)));
           cbc = smooth(1,(if (vbc/(NR*vt_t) < EMin) then Taur*is_t/(NR*vt_t)*ExMin*(vbc/(
-            NR*vt_t) - EMin + 1) + Capcjc else if (vbc/(NR*vt_t) > EMax) then 
-            Taur*is_t/(NR*vt_t)*ExMax*(vbc/(NR*vt_t) - EMax + 1) + Capcjc else 
+            NR*vt_t) - EMin + 1) + Capcjc else if (vbc/(NR*vt_t) > EMax) then
+            Taur*is_t/(NR*vt_t)*ExMax*(vbc/(NR*vt_t) - EMax + 1) + Capcjc else
             Taur*is_t/(NR*vt_t)*exp(vbc/(NR*vt_t)) + Capcjc));
           cbe = smooth(1,(if (vbe/(NF*vt_t) < EMin) then Tauf*is_t/(NF*vt_t)*ExMin*(vbe/(
-            NF*vt_t) - EMin + 1) + Capcje else if (vbe/(NF*vt_t) > EMax) then 
-            Tauf*is_t/(NF*vt_t)*ExMax*(vbe/(NF*vt_t) - EMax + 1) + Capcje else 
+            NF*vt_t) - EMin + 1) + Capcje else if (vbe/(NF*vt_t) > EMax) then
+            Tauf*is_t/(NF*vt_t)*ExMax*(vbe/(NF*vt_t) - EMax + 1) + Capcje else
             Tauf*is_t/(NF*vt_t)*exp(vbe/(NF*vt_t)) + Capcje));
           C.i = (ibe - ibc)*qbk - ibc/br_t - cbc*der(vbc) + Ccs*der(C.v);
           B.i = ibe/bf_t + ibc/br_t + cbc*der(vbc) + cbe*der(vbe);
@@ -1337,17 +1337,17 @@ on page 317 ff.
           Real hexp;
           Real htempexp;
   public
-          Modelica.Electrical.Analog.Interfaces.Pin C "Collector" 
+          Modelica.Electrical.Analog.Interfaces.Pin C "Collector"
             annotation (Placement(transformation(extent={{90,40},{110,60}},
             rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin B "Base" 
+          Modelica.Electrical.Analog.Interfaces.Pin B "Base"
             annotation (Placement(transformation(extent={{-90,-10},{-110,10}},
             rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" 
+          Modelica.Electrical.Analog.Interfaces.Pin E "Emitter"
             annotation (Placement(transformation(extent={{90,-40},{110,-60}},
             rotation=0)));
           Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=
-                  300.15)) 
+                  300.15))
             annotation (Placement(transformation(
           origin={0,-100},
           extent={{10,-10},{-10,10}},
@@ -1453,12 +1453,12 @@ on page 317 ff.
           Capcje = smooth(1,(if (veb/Phie > 0) then Cje*(1 + Me*veb/Phie) else Cje*pow(1
              - veb/Phie, -Me)));
           ccb = smooth(1,(if (vcb/(NR*vt_t) < EMin) then Taur*is_t/(NR*vt_t)*ExMin*(vcb/(
-            NR*vt_t) - EMin + 1) + Capcjc else if (vcb/(NR*vt_t) > EMax) then 
-            Taur*is_t/(NR*vt_t)*ExMax*(vcb/(NR*vt_t) - EMax + 1) + Capcjc else 
+            NR*vt_t) - EMin + 1) + Capcjc else if (vcb/(NR*vt_t) > EMax) then
+            Taur*is_t/(NR*vt_t)*ExMax*(vcb/(NR*vt_t) - EMax + 1) + Capcjc else
             Taur*is_t/(NR*vt_t)*exp(vcb/(NR*vt_t)) + Capcjc));
           ceb = smooth(1,(if (veb/(NF*vt_t) < EMin) then Tauf*is_t/(NF*vt_t)*ExMin*(veb/(
-            NF*vt_t) - EMin + 1) + Capcje else if (veb/(NF*vt_t) > EMax) then 
-            Tauf*is_t/(NF*vt_t)*ExMax*(veb/(NF*vt_t) - EMax + 1) + Capcje else 
+            NF*vt_t) - EMin + 1) + Capcje else if (veb/(NF*vt_t) > EMax) then
+            Tauf*is_t/(NF*vt_t)*ExMax*(veb/(NF*vt_t) - EMax + 1) + Capcje else
             Tauf*is_t/(NF*vt_t)*exp(veb/(NF*vt_t)) + Capcje));
           C.i = icb/br_t + ccb*der(vcb) + Ccs*der(C.v) + (icb - ieb)*qbk;
           B.i = -ieb/bf_t - icb/br_t - ceb*der(veb) - ccb*der(vcb);

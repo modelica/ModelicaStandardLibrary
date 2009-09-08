@@ -8,7 +8,7 @@ package Lines
 This package contains lossy and lossless segmented transmission lines,
 and LC distributed line models.
 </p>
- 
+
 </HTML>
 ", revisions="<html>
 <dl>
@@ -17,9 +17,9 @@ and LC distributed line models.
 <dd>
 <a href=\"http://people.eas.iis.fhg.de/Christoph.Clauss/\">Christoph Clau&szlig;</a>
     &lt;<a href=\"mailto:clauss@eas.iis.fhg.de\">clauss@eas.iis.fhg.de</a>&gt;<br>
-    <a href=\"http://people.eas.iis.fhg.de/Joachim.Haase/\">Joachim Haase;</a> 
+    <a href=\"http://people.eas.iis.fhg.de/Joachim.Haase/\">Joachim Haase;</a>
     &lt;<a href=\"mailto:haase@eas.iis.fhg.de\">haase@eas.iis.fhg.de</a>&gt;<br>
-    <a href=\"http://people.eas.iis.fhg.de/Andre.Schneider/\">Andr&eacute; Schneider</a> 
+    <a href=\"http://people.eas.iis.fhg.de/Andre.Schneider/\">Andr&eacute; Schneider</a>
     &lt;<a href=\"mailto:schneider@eas.iis.fhg.de\">schneider@eas.iis.fhg.de</a>&gt;<br>
     Fraunhofer Institute for Integrated Circuits<br>
     Design Automation Department<br>
@@ -182,10 +182,10 @@ model segment
 
   parameter Integer lines(final min=1)=3;       //number of lines
   parameter Integer dim_vector_lgc=div(lines*(lines+1),2);
-  Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin" 
+  Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin"
               annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
             rotation=0)));
-  Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin" 
+  Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
               annotation (Placement(transformation(extent={{40,-10},{60,10}},
             rotation=0)));
 
@@ -236,10 +236,10 @@ end segment;
 
 model segment_last
 
-  Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin" 
+  Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin"
               annotation (Placement(transformation(extent={{-40,-10},{-20,10}},
             rotation=0)));
-  Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin" 
+  Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
               annotation (Placement(transformation(extent={{20,-10},{40,10}},
             rotation=0)));
   parameter Integer lines(final min=1)=3;
@@ -284,10 +284,10 @@ end segment_last;
     lines=lines,
     Rl=r*length/(2*N),
     Ll=l*length/(2*N));
-  Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin" 
+  Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin"
               annotation (Placement(transformation(extent={{-100,-80},{-80,80}},
           rotation=0)));
-  Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin" 
+  Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
               annotation (Placement(transformation(extent={{80,-80},{100,80}},
           rotation=0)));
 
@@ -323,7 +323,7 @@ equation
             textString="%name")}),
     Documentation(revisions="<HTML>
 <ul>
- 
+
 <li><i> November 24, 2008   </i> docu added, cosmetic, K. Majetta
        </li>
 <li><i>February 26, 2007</i>
@@ -333,12 +333,12 @@ equation
 </HTML>",
         info="<html>
 <p>
-The M_OLine is a multi line model  which consists of several segements and several single lines. 
+The M_OLine is a multi line model  which consists of several segements and several single lines.
 Each segement consists of resistors and inductors that are connected in series in each single line, and of capacitors and conductors both between the lines and to the ground. The inductors are coupled to each other like in the M_Inductor model. The following picture shows the schematic of a segment with four single lines (lines=4):
 <br>
 <br>
 <p align=\"center\">
-<IMG SRC=\"../Images/Electrical/Analog/segment.png\" width=\"600\"  
+<IMG SRC=\"../Images/Electrical/Analog/segment.png\" width=\"600\"
 ALT=\"model Analog.Lines.M_OLine\">
 </p>
 <br>
@@ -348,34 +348,34 @@ The complete multi line consists of N segments and an auxiliary segment_last:<br
 -- segment_1 -- segment_2 -- ... -- segment_N -- segment_last -- <br>
 </center>
 <br>
- 
+
 In the picture of the segment can be seen, that a single segment is unsymmetric. Connecting such unsymmetric segments in a series forces also an unsymmetric multi line. To get a symmetric model which
 is useful for coupling and which guaranties the same pin properties, in the segment_1 only half valued resistors and inductors are used. The remaining resistors and inductors are at the other end of the line within the auxiliary segment_last. For the example with 4 lines the schematic of segment_last is like this:<br>
 <br>
 <p align=\"center\">
-<IMG SRC=\"../Images/Electrical/Analog/segment_last.png\" width=\"200\"  
+<IMG SRC=\"../Images/Electrical/Analog/segment_last.png\" width=\"200\"
 ALT=\"model Analog.Lines.M_OLine\">
 </p>
 <br>
- The number of the capacitors 
+ The number of the capacitors
 and conductors depends on the number of single lines that are used, because each line is connected to every other line by both a capacitor and a conductor. One line consists of <b>at least two segements</b>.
 </p>
 
 Inside the model M_OLine the model <i>segment</i> is used. This model represents one segment which is build as described above. For modelling the inductances and their mutual couplings the model M_Transformer is used.
 
 
-To fill the resistance vector, resistance values as many as lines are needed, e.g. if there are four lines, 
-four resistances are needed. For example for a microelectronic line of 0.1m lenght, a sensible resistance-vector 
+To fill the resistance vector, resistance values as many as lines are needed, e.g. if there are four lines,
+four resistances are needed. For example for a microelectronic line of 0.1m lenght, a sensible resistance-vector
 would be R=[4.76e5, 1.72e5, 1.72e5, 1.72e5].
 
 <p>
-Filling the matrixes of the inductances, capacitances and conductances is a bit more complicated, because 
-those components occur also between two lines and not only (like the resistor) in one line. The entries of 
-the matrices are given by the user in form of a vector. The  vector length dim_vector_lgc is calculated by  <b>dim_vector_lgc = lines*(lines+1)/2</b>. Inside the model a symmetric inductance matrix, a symmetric capacitance matrix and 
-a symmetric conductance matrix are build out of the entries of the vectors given by the user. The way of building 
-is the same for each matrix, so the approach for filling one of the matrices will be shown at an example: 
+Filling the matrixes of the inductances, capacitances and conductances is a bit more complicated, because
+those components occur also between two lines and not only (like the resistor) in one line. The entries of
+the matrices are given by the user in form of a vector. The  vector length dim_vector_lgc is calculated by  <b>dim_vector_lgc = lines*(lines+1)/2</b>. Inside the model a symmetric inductance matrix, a symmetric capacitance matrix and
+a symmetric conductance matrix are build out of the entries of the vectors given by the user. The way of building
+is the same for each matrix, so the approach for filling one of the matrices will be shown at an example:
 <br>
-The number of lines is assumed to be four. To build the matrix, the model needs the values from the main diagonal and from <br>the positions that are below the main diagonal. To get the following matrix  
+The number of lines is assumed to be four. To build the matrix, the model needs the values from the main diagonal and from <br>the positions that are below the main diagonal. To get the following matrix
 <br>
 <br>
 <center>
@@ -386,7 +386,7 @@ The number of lines is assumed to be four. To build the matrix, the model needs 
     <td><b>1</b></td>
     <td>0.1</td>
     <td>0.2</td>
-    <td>0.4</td> 
+    <td>0.4</td>
   </tr>
   <tr>
     <td>Matrix</td>
@@ -417,7 +417,7 @@ The number of lines is assumed to be four. To build the matrix, the model needs 
 the vector with dim_vector_lgc=4*5/2=10 has to appear in the following way: vector = [<b>1</b>, 0.1, 0.2, 0.4, <b>2</b>, 0.3 0.5, <b>3</b>, 0.6, <b>4</b>]
 </p>
 <p>
-For the example of a microelectronic line of 0.1m lenght, which is used as default example for the M_OLine model, a sensible inductance-matrix would be 
+For the example of a microelectronic line of 0.1m lenght, which is used as default example for the M_OLine model, a sensible inductance-matrix would be
 <center>
 <table>
   <tr>
@@ -456,7 +456,7 @@ For the example of a microelectronic line of 0.1m lenght, which is used as defau
 </center>
 </p>
 <p>
-For the example of a microelectronic line of 0.1m lenght, which is used as default example for the M_OLine model, a sensible capacitance-matrix would be 
+For the example of a microelectronic line of 0.1m lenght, which is used as default example for the M_OLine model, a sensible capacitance-matrix would be
 <center>
 <table>
   <tr>
@@ -495,7 +495,7 @@ For the example of a microelectronic line of 0.1m lenght, which is used as defau
 </center>
 </p>
 <p>
-For the example of a microelectronic line of 0.1m lenght, which is used as default example for the M_OLine model, a sensible conductance-matrix would be 
+For the example of a microelectronic line of 0.1m lenght, which is used as default example for the M_OLine model, a sensible conductance-matrix would be
 <center>
 <table>
   <tr>
@@ -580,7 +580,7 @@ connected with the reference pin p3. The precision
 of the model depends on the number N of
 lumped segments.
 </P>
- 
+
 <p>
 <b>References</b></dt>
 </p>
@@ -668,13 +668,13 @@ Lossless transmission line with characteristic impedance Z0 and transmission del
   consist of a resistor with characteristic impedance Z0 and a controled voltage
   source that takes into consideration the transmission delay TD.
   For further details see Branin's article below.
-  The model parameters can be derived from inductance and 
+  The model parameters can be derived from inductance and
   capacitance per length (L' resp. C'), i. e.
   Z0 = sqrt(L'/C') and TD = sqrt(L'*C')*length_of_line. Resistance R'
   and conductance C' per meter are assumed to be zero.
 </p>
- 
- 
+
+
 <p>
 <b>References:</b>
 </p>
@@ -687,7 +687,7 @@ Lossless transmission line with characteristic impedance Z0 and transmission del
   Schaltungen. Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985.
 </dd>
 </dl>
- 
+
 </html>
 ", revisions="<html>
 <ul>
@@ -764,19 +764,19 @@ Lossless transmission line with characteristic impedance Z0 and transmission del
 <p>
 Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL
   The lossless transmission line TLine2 is a two Port. Both port branches
-  consist of a resistor with the value of the characteristic impedance Z0 
-  and a controled voltage source that takes into consideration 
+  consist of a resistor with the value of the characteristic impedance Z0
+  and a controled voltage source that takes into consideration
   the transmission delay.
   For further details see Branin's article below.
   Resistance R' and conductance C' per meter are assumed to be zero.
-  The characteristic impedance Z0 can be derived from inductance and 
-  capacitance per length (L' resp. C'), i. e. Z0 = sqrt(L'/C').   
+  The characteristic impedance Z0 can be derived from inductance and
+  capacitance per length (L' resp. C'), i. e. Z0 = sqrt(L'/C').
   The normalized length NL is equal to the length of the line divided
   by the wavelength corresponding to the frequency F, i. e. the
   transmission delay TD is the quotient of NL and F.
 </p>
- 
- 
+
+
 <p>
 <b>References:</b>
 </p>
@@ -789,7 +789,7 @@ Lossless transmission line with characteristic impedance Z0, frequency F and nor
   Schaltungen. Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985.
 </dd>
 </dl>
- 
+
 </html>
 ", revisions="<html>
 <ul>
@@ -861,20 +861,20 @@ Lossless transmission line with characteristic impedance Z0, frequency F and nor
 <p>
 Lossless transmission line with characteristic impedance Z0 and frequency F
   The lossless transmission line TLine3 is a two Port. Both port branches
-  consist of a resistor with value of the characteristic impedance Z0 
-  and a controled voltage source that takes into consideration 
+  consist of a resistor with value of the characteristic impedance Z0
+  and a controled voltage source that takes into consideration
   the transmission delay.
   For further details see Branin's article below.
   Resistance R' and conductance C' per meter are assumed to be zero.
-  The characteristic impedance Z0 can be derived from inductance and 
-  capacitance per length (L' resp. C'), i. e. Z0 = sqrt(L'/C').   
+  The characteristic impedance Z0 can be derived from inductance and
+  capacitance per length (L' resp. C'), i. e. Z0 = sqrt(L'/C').
   The length of the line is equal to a quarter of the wavelength
   corresponding to the frequency F, i. e. the
   transmission delay is the quotient of 4 and F.
   In this case, the caracteristic impedance is called natural impedance.
 </p>
- 
- 
+
+
 <p>
 <b>References:</b>
 </p>
@@ -887,7 +887,7 @@ Lossless transmission line with characteristic impedance Z0 and frequency F
   Schaltungen. Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985.
 </dd>
 </dl>
- 
+
 </html>
 ", revisions="<html>
 <ul>

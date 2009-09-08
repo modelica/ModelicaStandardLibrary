@@ -5,7 +5,7 @@ model PointGravity "Two point masses in a point gravity field"
   inner Modelica.Mechanics.MultiBody.World world(
     mue=1,
     gravitySphereDiameter=0.1,
-    gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.PointGravity) 
+    gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.PointGravity)
                                annotation (Placement(transformation(extent={{
             -20,-20},{0,0}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.Body body1(
@@ -17,7 +17,7 @@ model PointGravity "Two point masses in a point gravity field"
     r_0(start={0,0.6,0}, fixed=true),
     v_0(start={1,0,0}, fixed=true),
     angles_fixed=true,
-    w_0_fixed=true) 
+    w_0_fixed=true)
     annotation (Placement(transformation(extent={{-20,20},{0,40}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.Body body2(
     m=1,
@@ -28,7 +28,7 @@ model PointGravity "Two point masses in a point gravity field"
     r_0(start={0.6,0.6,0}, fixed=true),
     v_0(start={0.6,0,0}, fixed=true),
     angles_fixed=true,
-    w_0_fixed=true) 
+    w_0_fixed=true)
     annotation (Placement(transformation(extent={{20,20},{40,40}}, rotation=0)));
 equation
 
@@ -40,13 +40,13 @@ equation
     Documentation(info="<HTML>
 <p>
 This model demonstrates a point gravity field. Two bodies
-are placed in the gravity field. The initial positions and velocities of 
+are placed in the gravity field. The initial positions and velocities of
 these bodies are selected such that one body rotates on a circle and
 the other body rotates on an ellipse around the center of the
 point gravity field.
 </p>
 <p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Elementary/PointGravity.png\" 
+<IMG SRC=\"../Images/MultiBody/Examples/Elementary/PointGravity.png\"
 ALT=\"model Examples.Elementary.PointGravity\">
 </p>
 </HTML>"));

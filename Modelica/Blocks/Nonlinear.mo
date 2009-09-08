@@ -107,7 +107,7 @@ as output.
                              ") < uMin (=" + String(uMin) + ")");
         if initial() and not limitsAtInit then
            y = u;
-           assert(u >= uMin - 0.01*abs(uMin) and 
+           assert(u >= uMin - 0.01*abs(uMin) and
                   u <= uMax + 0.01*abs(uMax),
                  "Limiter: During initialization the limits have been ignored.\n"+
                  "However, the result is that the input u is not within the required limits:\n"+
@@ -122,11 +122,11 @@ as output.
     parameter Boolean limitsAtInit = true
       "= false, if limits are ignored during initializiation (i.e., y=u)";
     Interfaces.RealInput limit1
-      "Connector of Real input signal used as maximum of input u" 
+      "Connector of Real input signal used as maximum of input u"
                                 annotation (Placement(transformation(extent={{
               -140,60},{-100,100}}, rotation=0)));
     Interfaces.RealInput limit2
-      "Connector of Real input signal used as minimum of input u" 
+      "Connector of Real input signal used as minimum of input u"
                                 annotation (Placement(transformation(extent={{
               -140,-100},{-100,-60}}, rotation=0)));
   protected
@@ -210,7 +210,7 @@ is passed as output.
 
     if initial() and not limitsAtInit then
        y = u;
-       assert(u >= uMin - 0.01*abs(uMin) and 
+       assert(u >= uMin - 0.01*abs(uMin) and
               u <= uMax + 0.01*abs(uMax),
              "VariableLimiter: During initialization the limits have been ignored.\n"+
              "However, the result is that the input u is not within the required limits:\n"+

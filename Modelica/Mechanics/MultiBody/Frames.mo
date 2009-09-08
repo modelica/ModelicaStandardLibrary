@@ -52,7 +52,7 @@ The used variables have the following declaration:
      </td>
   </tr>
   <tr><td valign=\"top\">v2 = <b>resolveRelative</b>(v1,R1,R2);</td>
-      <td valign=\"top\">Transform vector v1 from frame 1 to frame 2 
+      <td valign=\"top\">Transform vector v1 from frame 1 to frame 2
           using absolute orientation objects R1 of frame 1 and R2 of frame 2.
       </td>
   </tr>
@@ -164,12 +164,12 @@ The used variables have the following declaration:
       </td>
   </tr>
   <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions\">Quaternions</a></td>
-      <td valign=\"top\"><b>Package</b> with functions to transform rotational frame quantities based 
+      <td valign=\"top\"><b>Package</b> with functions to transform rotational frame quantities based
           on quaternions (also called Euler parameters).
       </td>
   </tr>
   <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices\">TransformationMatrices</a></td>
-      <td valign=\"top\"><b>Package</b> with functions to transform rotational frame quantities based 
+      <td valign=\"top\"><b>Package</b> with functions to transform rotational frame quantities based
           on transformation matrices.
       </td>
   </tr>
@@ -208,7 +208,7 @@ The used variables have the following declaration:
     annotation (Documentation(info="<html>
 <p>
 This object describes the <b>rotation</b> from a <b>frame 1</b> into a <b>frame 2</b>.
-An instance of this type should never be directly accessed but 
+An instance of this type should never be directly accessed but
 only with the access functions provided
 in package Modelica.Mechanics.MultiBody.Frames. As a consequence, it is not necessary to know
 the internal representation of this object as described in the next paragraphs.
@@ -532,8 +532,8 @@ and/or a division by zero will occur.
     annotation(Inline=true);
   algorithm
     /*
-  R := absoluteRotation(absoluteRotation(axisRotation(sequence[1], angles[1], 
-    der_angles[1]), axisRotation(sequence[2], angles[2], der_angles[2])), 
+  R := absoluteRotation(absoluteRotation(axisRotation(sequence[1], angles[1],
+    der_angles[1]), axisRotation(sequence[2], angles[2], der_angles[2])),
     axisRotation(sequence[3], angles[3], der_angles[3]));
 */
     R := Orientation(T=TM.axisRotation(sequence[3], angles[3])*TM.axisRotation(
@@ -683,7 +683,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
     else
       angle_1a := Modelica.Math.atan2(A, -B);
       angle_1b := Modelica.Math.atan2(-A, B);
-      angles[1] := if abs(angle_1a - guessAngle1) <= abs(angle_1b - guessAngle1) then 
+      angles[1] := if abs(angle_1a - guessAngle1) <= abs(angle_1b - guessAngle1) then
               angle_1a else angle_1b;
     end if;
     T_1a := TransformationMatrices.planarRotation(e1_1, angles[1]);
@@ -943,12 +943,12 @@ is not possible or too difficult to compute, use function from_T2(..).
 <p>
 Package <b>Frames.Quaternions</b> contains type definitions and
 functions to transform rotational frame quantities with quaternions.
-Functions of this package are currently only utilized in 
+Functions of this package are currently only utilized in
 MultiBody.Parts.Body components, when quaternions shall be used
 as parts of the body states.
-Some functions are also used in a new Modelica package for 
+Some functions are also used in a new Modelica package for
 B-Spline interpolation that is able to interpolate paths consisting of
-position vectors and orientation objects. 
+position vectors and orientation objects.
 </p>
 <h4>Content</h4>
 <p>In the table below an example is given for every function definition.
@@ -1488,7 +1488,7 @@ Rotation can be defined by adapting this package correspondingly.
         "Angular velocity of frame 2 with respect to frame 1 resolved in frame 1";
       annotation(Inline=true);
     algorithm
-      /* The angular velocity w of frame 2 with respect to frame 1 resolved in frame 1, 
+      /* The angular velocity w of frame 2 with respect to frame 1 resolved in frame 1,
      is defined as:
         w = vec( der(transpose(T))*T );
      where
@@ -1520,7 +1520,7 @@ Rotation can be defined by adapting this package correspondingly.
         "Angular velocity of frame 2 with respect to frame 1 resolved in frame 2";
       annotation(Inline=true);
     algorithm
-      /* The angular velocity w of frame 2 with respect to frame 1 resolved in frame 2, 
+      /* The angular velocity w of frame 2 with respect to frame 1 resolved in frame 2,
      is defined as:
         w = vec(T*der(transpose(T)));
      where
@@ -1531,8 +1531,8 @@ Rotation can be defined by adapting this package correspondingly.
          W = T*der(transpose(T))
          w = {W(3,2), -W(3,1), W(2,1)}
      Therefore, only 3 values of W need to be computed:
-             | T[1,:] |                       
-         W = | T[2,:] | * | der(T[1,:]), der(T[2,:]), der(T[3,:]) |   
+             | T[1,:] |
+         W = | T[2,:] | * | der(T[1,:]), der(T[2,:]), der(T[3,:]) |
              | T[3,:] |
              |  W(3,2) |   |  T[3,:]*der(T[2,:]) |
          w = | -W(3,1) | = | -T[3,:]*der(T[1,:]) |
@@ -2163,7 +2163,7 @@ arbitrarily such that n_x and e_z are orthogonal to each other.
 <p>
 Package <b>Frames.TransformationMatrices</b> contains type definitions and
 functions to transform rotational frame quantities using
-transformation matrices. 
+transformation matrices.
 </p>
 <h4>Content</h4>
 <p>In the table below an example is given for every function definition.
@@ -2412,7 +2412,7 @@ messages.
                 - cross(R2.w, Frames.resolveRelative(v1, R1, R2));
 
       /* skew(w) = T*der(T'), -skew(w) = der(T)*T'
- 
+
      v2 = T2*(T1'*v1)
      der(v2) = der(T2)*T1'*v1 + T2*der(T1')*v1 + T2*T1'*der(v1)
              = der(T2)*T2'*T2*T1'*v1 + T2*T1'*T1*der(T1')*v1 + T2*T1'*der(v1)

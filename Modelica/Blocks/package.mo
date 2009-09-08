@@ -7,7 +7,7 @@ extends Modelica.Icons.Library2;
 
 
 annotation (
-  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), 
+  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
       graphics={
       Rectangle(extent={{-32,-6},{16,-35}}, lineColor={0,0,0}),
       Rectangle(extent={{-32,-56},{16,-85}}, lineColor={0,0,0}),
@@ -107,7 +107,7 @@ package Examples
       Ni=0.1,
       initType=Modelica.Blocks.Types.Init.SteadyState,
       limitsAtInit=false,
-      controllerType=Modelica.Blocks.Types.SimpleController.PI) 
+      controllerType=Modelica.Blocks.Types.SimpleController.PI)
       annotation (Placement(transformation(extent={{-56,-20},{-36,0}}, rotation=
              0)));
     Modelica.Mechanics.Rotational.Components.Inertia inertia1(
@@ -203,16 +203,16 @@ is forced back to its limit after a transient phase.
 
 </html>"));
 
-    Modelica.Mechanics.Rotational.Sources.Torque torque 
+    Modelica.Mechanics.Rotational.Sources.Torque torque
       annotation (Placement(transformation(extent={{-25,-20},{-5,0}}, rotation=
               0)));
     Modelica.Mechanics.Rotational.Components.SpringDamper spring(
                                                       c=1e4, d=100,
       stateSelect=StateSelect.prefer,
-      w_rel(fixed=true)) 
+      w_rel(fixed=true))
       annotation (Placement(transformation(extent={{32,-20},{52,0}}, rotation=0)));
     Modelica.Mechanics.Rotational.Components.Inertia inertia2(
-                                                   J=2) 
+                                                   J=2)
       annotation (Placement(transformation(extent={{60,-20},{80,0}}, rotation=0)));
     Modelica.Blocks.Sources.KinematicPTP kinematicPTP(startTime=0.5, deltaq={
           driveAngle},
@@ -222,28 +222,28 @@ is forced back to its limit after a transient phase.
     Modelica.Blocks.Continuous.Integrator integrator(initType=Modelica.Blocks.
           Types.Init.InitialState) annotation (Placement(transformation(extent=
               {{-63,20},{-43,40}}, rotation=0)));
-    Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor 
+    Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor
       annotation (Placement(transformation(extent={{22,-50},{2,-30}}, rotation=
               0)));
     Modelica.Mechanics.Rotational.Sources.ConstantTorque loadTorque(
                                                             tau_constant=10,
-        useSupport=false) 
+        useSupport=false)
       annotation (Placement(transformation(extent={{98,-15},{88,-5}}, rotation=
               0)));
   initial equation
     der(spring.w_rel) = 0;
   equation
-    connect(spring.flange_b,inertia2. flange_a) 
+    connect(spring.flange_b,inertia2. flange_a)
       annotation (Line(points={{52,-10},{60,-10}}, color={0,0,0}));
-    connect(inertia1.flange_b, spring.flange_a) 
+    connect(inertia1.flange_b, spring.flange_a)
       annotation (Line(points={{22,-10},{32,-10}}, color={0,0,0}));
-    connect(torque.flange, inertia1.flange_a) 
+    connect(torque.flange, inertia1.flange_a)
       annotation (Line(points={{-5,-10},{2,-10}}, color={0,0,0}));
     connect(kinematicPTP.y[1], integrator.u) annotation (Line(points={{-71,30},
             {-65,30}}, color={0,0,127}));
-    connect(speedSensor.flange, inertia1.flange_b) 
+    connect(speedSensor.flange, inertia1.flange_b)
       annotation (Line(points={{22,-40},{22,-10}}, color={0,0,0}));
-    connect(loadTorque.flange, inertia2.flange_b) 
+    connect(loadTorque.flange, inertia2.flange_b)
       annotation (Line(points={{88,-10},{80,-10}}, color={0,0,0}));
     connect(PI.y, torque.tau)  annotation (Line(points={{-35,-10},{-27,-10}},
           color={0,0,127}));
@@ -259,12 +259,12 @@ is forced back to its limit after a transient phase.
     Continuous.FirstOrder firstOrder1(
       k=1,
       T=0.3,
-      initType=Modelica.Blocks.Types.Init.SteadyState) 
+      initType=Modelica.Blocks.Types.Init.SteadyState)
       annotation (Placement(transformation(extent={{20,20},{0,40}})));
     Sources.Sine sine(
       freqHz=2,
       offset=1,
-      startTime=0.2) 
+      startTime=0.2)
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{
               -100,-100},{100,100}}), graphics), Documentation(info="<html>
@@ -340,16 +340,16 @@ agreement. A typical simulation result is shown in the next figure:
 </p>
 
 </html>"));
-    Math.InverseBlockConstraints inverseBlockConstraints 
+    Math.InverseBlockConstraints inverseBlockConstraints
       annotation (Placement(transformation(extent={{-10,20},{30,40}})));
     Continuous.FirstOrder firstOrder2(
       k=1,
       T=0.3,
-      initType=Modelica.Blocks.Types.Init.SteadyState) 
+      initType=Modelica.Blocks.Types.Init.SteadyState)
       annotation (Placement(transformation(extent={{20,-20},{0,0}})));
-    Math.Feedback feedback 
+    Math.Feedback feedback
       annotation (Placement(transformation(extent={{-40,0},{-60,-20}})));
-    Continuous.CriticalDamping criticalDamping(n=1, f=50*sine.freqHz) 
+    Continuous.CriticalDamping criticalDamping(n=1, f=50*sine.freqHz)
       annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
   equation
     connect(firstOrder1.y, inverseBlockConstraints.u2) annotation (Line(
@@ -385,7 +385,7 @@ agreement. A typical simulation result is shown in the next figure:
      model ShowLogicalSources
     "Demonstrates the usage of logical sources together with their diagram animation"
        extends Modelica.Icons.Example;
-       Sources.BooleanTable table(table={2,4,6,8}) 
+       Sources.BooleanTable table(table={2,4,6,8})
                                        annotation (Placement(transformation(
             extent={{-60,-100},{-40,-80}}, rotation=0)));
        Sources.BooleanConstant const    annotation (Placement(transformation(
@@ -414,7 +414,7 @@ model.
                           period=0.5) annotation (Placement(transformation(
             extent={{-60,-60},{-40,-40}}, rotation=0)));
       Sources.BooleanExpression booleanExpression(
-                                                y=pulse.y and step.y) 
+                                                y=pulse.y and step.y)
       annotation (Placement(transformation(extent={{20,20},{80,40}}, rotation=0)));
      end ShowLogicalSources;
 
@@ -597,21 +597,21 @@ just potential signals. The user might still add different signal names.
       offset=2,
       startTime=0.5)   annotation (Placement(transformation(extent={{-60,-40},{
               -40,-20}}, rotation=0)));
-    Modelica.Blocks.Sources.BooleanStep booleanStep(startTime=0.5) 
+    Modelica.Blocks.Sources.BooleanStep booleanStep(startTime=0.5)
                                                                annotation (Placement(
           transformation(extent={{-58,0},{-38,20}}, rotation=0)));
-    Modelica.Blocks.Sources.Sine sine 
+    Modelica.Blocks.Sources.Sine sine
                                      annotation (Placement(transformation(
             extent={{-60,40},{-40,60}}, rotation=0)));
 
-    Modelica.Blocks.Examples.BusUsage_Utilities.Part part 
+    Modelica.Blocks.Examples.BusUsage_Utilities.Part part
               annotation (Placement(transformation(extent={{-60,-80},{-40,-60}},
             rotation=0)));
-    Modelica.Blocks.Math.Gain gain 
+    Modelica.Blocks.Math.Gain gain
       annotation (Placement(transformation(extent={{-40,70},{-60,90}}, rotation=
              0)));
   protected
-    BusUsage_Utilities.Interfaces.ControlBus controlBus 
+    BusUsage_Utilities.Interfaces.ControlBus controlBus
       annotation (Placement(transformation(
           origin={30,10},
           extent={{-20,20},{20,-20}},
@@ -794,14 +794,14 @@ This model is used to demonstrate the bus usage in example
 </p>
 </p>
 </html>"));
-     Interfaces.SubControlBus subControlBus 
+     Interfaces.SubControlBus subControlBus
        annotation (Placement(transformation(
             origin={100,0},
             extent={{-20,-20},{20,20}},
             rotation=270)));
-     Sources.RealExpression realExpression(y=time) 
+     Sources.RealExpression realExpression(y=time)
        annotation (Placement(transformation(extent={{-6,0},{20,20}}, rotation=0)));
-     Sources.BooleanExpression booleanExpression(y=time > 0.5) 
+     Sources.BooleanExpression booleanExpression(y=time > 0.5)
        annotation (Placement(transformation(extent={{-6,-30},{20,-10}},
               rotation=0)));
    equation

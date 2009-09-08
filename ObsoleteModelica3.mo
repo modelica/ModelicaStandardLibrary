@@ -13,11 +13,11 @@ ObsoleteModelica3. The user should <b>manually</b> replace all
 references to ObsoleteModelica3 in his/her models to the models
 that are recommended in the documentation of the respective model.
 </p>
- 
+
 <p>
 In most cases, this means that a model with the name
 \"ObsoleteModelica3.XXX\" should be renamed to \"Modelica.XXX\" (version 3.0)
-and then a manual adaptation is needed. For example, a reference to 
+and then a manual adaptation is needed. For example, a reference to
 ObsoleteModelica3.Mechanics.MultiBody.Sensors.AbsoluteSensor
 should be replaced by
 Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor (version 3.0).
@@ -26,14 +26,14 @@ optional connectors, and no longer one connector where all signals
 are packed together), this requires some changes at the place where
 the model is used (besides the renaming of the underlying class).
 </p>
- 
+
 <p>
 The models in ObsoleteModelica3 are either not according to the Modelica Language
 version 3.0 and higher, or the model was changed to get a better design.
 In all cases, an automatic conversion to the new implementation
 was not feasible, since too complicated.
 </p>
- 
+
 <p>
 In order to easily detect obsolete models and blocks, all of them are specially
 marked in the icon layer with a red box.
@@ -45,17 +45,17 @@ Copyright &copy; 2007-2009, Modelica Association.
 <p>
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> 
+and the accompanying <b>disclaimer</b>
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
 </p>
- 
+
 </html>"));
 
   package Blocks
     "Library of basic input/output control blocks (continuous, discrete, logical, table blocks)"
     package Interfaces
       "Library of connectors and partial models for input/output blocks"
-    connector RealSignal = Real "Real port (both input/output possible)" 
+    connector RealSignal = Real "Real port (both input/output possible)"
         annotation (__Dymola_obsolete="Connector is not valid according to Modelica 3, since input/output prefixes are missing. When using this connector, it is not possible to check for balanced models.",
     Documentation(info="<html>
 <p>
@@ -63,7 +63,7 @@ Connector with one signal of type Real (no icon, no input/output prefix).
 </p>
 </html>"));
     connector BooleanSignal = Boolean
-        "Boolean port (both input/output possible)" 
+        "Boolean port (both input/output possible)"
         annotation (__Dymola_obsolete="Connector is not valid according to Modelica 3, since input/output prefixes are missing. When using this connector, it is not possible to check for balanced models.",
     Documentation(info="<html>
 <p>
@@ -71,7 +71,7 @@ Connector with one signal of type Boolean (no icon, no input/output prefix).
 </p>
 </html>"));
     connector IntegerSignal = Integer
-        "Integer port (both input/output possible)" 
+        "Integer port (both input/output possible)"
         annotation (__Dymola_obsolete="Connector is not valid according to Modelica 3, since input/output prefixes are missing. When using this connector, it is not possible to check for balanced models.",
     Documentation(info="<html>
 <p>
@@ -138,7 +138,7 @@ This block is only provided for backward compatibility.
           "Completely obsolete adaptor between 'old' and 'new' Boolean signal connectors (only for backward compatibility)"
         extends ObsoleteModelica3.Icons.ObsoleteBlock;
         ObsoleteModelica3.Blocks.Interfaces.BooleanSignal newBoolean
-            "Connector of Modelica version 2.1" 
+            "Connector of Modelica version 2.1"
           annotation (                            Hide=true, Placement(
                 transformation(extent={{100,-10},{120,10}}, rotation=0)));
         BooleanPort oldBoolean(final n=1) "Connector of Modelica version 1.6" annotation (Placement(
@@ -193,7 +193,7 @@ This block is only provided for backward compatibility.
           "Completely obsolete adaptor between 'old' and 'new' Integer signal connectors (only for backward compatibility)"
         extends ObsoleteModelica3.Icons.ObsoleteBlock;
         ObsoleteModelica3.Blocks.Interfaces.IntegerSignal newInteger
-            "Connector of Modelica version 2.1" 
+            "Connector of Modelica version 2.1"
           annotation (                            Hide=true, Placement(
                 transformation(extent={{100,-10},{120,10}}, rotation=0)));
         IntegerPort oldInteger(final n=1) "Connector of Modelica version 1.6"  annotation (Placement(
@@ -251,9 +251,9 @@ This block is only provided for backward compatibility.
         "Conversion blocks to convert between SI and non-SI unit signals"
         block ConvertAllUnits
           "Obsolete block. Use one of Modelica.Blocks.Math.UnitConversions.XXX instead"
-          replaceable block ConversionBlock = 
+          replaceable block ConversionBlock =
               Modelica.Blocks.Interfaces.PartialConversionBlock
-            "Conversion block" 
+            "Conversion block"
             annotation (choicesAllMatching=true,
             Documentation(info=
                            "<html>
@@ -282,16 +282,16 @@ simplify their use. The block contains a replaceable block class <b>ConversionBl
 changed to be any of the blocks defined in Modelica.Blocks.Math.UnitConversions, and more generally, any
 blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.
 </p>
- 
+
 <p
-The desired conversion can be selected in the parameter menu 
+The desired conversion can be selected in the parameter menu
 (the selected units are then displayed in the icon):</p>
 </p>
- 
+
 <p>
 <img src=\"../Modelica/Images/Blocks/ConvertAllUnits.png\">
 </p>
- 
+
 </html>"));
         end ConvertAllUnits;
       end UnitConversions;
@@ -312,7 +312,7 @@ The desired conversion can be selected in the parameter menu
 This block is used to enable asignment of values to variables preliminary
 defined as outputs (e.g. useful for inverse model generation).
 </p>
- 
+
 </HTML>
 "),           Icon(coordinateSystem(
               preserveAspectRatio=false,
@@ -322,12 +322,12 @@ defined as outputs (e.g. useful for inverse model generation).
                 lineColor={0,0,127},
                 textString="=")}));
             Modelica.Blocks.Interfaces.RealInput u1
-          "Connector of first Real input signal" 
+          "Connector of first Real input signal"
               annotation (                                       layer="icon",
             Placement(transformation(extent={{-139.742,-19.0044},{-100,20}},
                 rotation=0)));
             Modelica.Blocks.Interfaces.RealInput u2
-          "Connector of second Real input signal (u1=u2)" 
+          "Connector of second Real input signal (u1=u2)"
                                            annotation (
               layer="icon", Placement(transformation(
               origin={120,0},
@@ -354,7 +354,7 @@ defined as outputs (e.g. useful for inverse model generation).
 This block is used to enable calculation of values preliminary defined as inputs.
 (e.g. useful for inverse model generation).
 </p>
- 
+
 </HTML>
 "),           Icon(coordinateSystem(
               preserveAspectRatio=false,
@@ -364,11 +364,11 @@ This block is used to enable calculation of values preliminary defined as inputs
                 lineColor={0,0,127},
                 textString="=")}));
             output Modelica.Blocks.Interfaces.RealOutput y1
-          "Connector of first Real output signal" 
+          "Connector of first Real output signal"
               annotation (Placement(transformation(extent={{100,-10},{120,10}},
                 rotation=0)));
             output Modelica.Blocks.Interfaces.RealOutput y2
-          "Connector of second Real output signal (y1=y2)" 
+          "Connector of second Real output signal (y1=y2)"
                                                    annotation (Placement(
               transformation(
               origin={-110.366,-0.90289},
@@ -605,10 +605,10 @@ This icon is designed for an <b>enumeration</b>
           parameter Boolean animation=true
             "= true, if animation shall be enabled";
           parameter Real N_to_m(unit="N/m") = world.defaultN_to_m
-            " Force arrow scaling (length = force/N_to_m)" 
+            " Force arrow scaling (length = force/N_to_m)"
             annotation (Dialog(group="if animation = true", enable=animation));
           parameter Real Nm_to_m(unit="N.m/m") = world.defaultNm_to_m
-            " Torque arrow scaling (length = torque/Nm_to_m)" 
+            " Torque arrow scaling (length = torque/Nm_to_m)"
             annotation (Dialog(group="if animation = true", enable=animation));
           input SI.Diameter forceDiameter=world.defaultArrowDiameter
             " Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
@@ -619,7 +619,7 @@ This icon is designed for an <b>enumeration</b>
           input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
             " Color of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
           input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-            "Reflection of ambient light (= 0: light is completely absorbed)" 
+            "Reflection of ambient light (= 0: light is completely absorbed)"
             annotation (Dialog(group="if animation = true", enable=animation));
 
           annotation (
@@ -695,7 +695,7 @@ to the length of the force and torque vectors, respectively, using parameters
 then a force of 350 N is displayed as an arrow of length 3.5 m.
 </p>
 <p>
-An example how to use this model is given in the 
+An example how to use this model is given in the
 following figure:
 </p>
 <p align=\"center\">
@@ -776,7 +776,7 @@ is resolved in the world frame).
           extends Modelica.Mechanics.MultiBody.Interfaces.PartialOneFrame_b;
           extends ObsoleteModelica3.Icons.ObsoleteModel;
           Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve
-            "If connected, the input signals are resolved in this frame" 
+            "If connected, the input signals are resolved in this frame"
             annotation (Placement(transformation(
                 origin={0,100},
                 extent={{16,-16},{-16,16}},
@@ -788,10 +788,10 @@ is resolved in the world frame).
           parameter Boolean animation=true
             "= true, if animation shall be enabled";
           parameter Real N_to_m(unit="N/m") = world.defaultN_to_m
-            " Force arrow scaling (length = force/N_to_m)" 
+            " Force arrow scaling (length = force/N_to_m)"
             annotation (Dialog(group="if animation = true", enable=animation));
           parameter Real Nm_to_m(unit="N.m/m") = world.defaultNm_to_m
-            " Torque arrow scaling (length = torque/Nm_to_m)" 
+            " Torque arrow scaling (length = torque/Nm_to_m)"
             annotation (Dialog(group="if animation = true", enable=animation));
           input SI.Diameter forceDiameter=world.defaultArrowDiameter
             " Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
@@ -802,7 +802,7 @@ is resolved in the world frame).
           input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
             " Color of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
           input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-            "Reflection of ambient light (= 0: light is completely absorbed)" 
+            "Reflection of ambient light (= 0: light is completely absorbed)"
             annotation (Dialog(group="if animation = true", enable=animation));
           annotation (
             __Dymola_obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Forces.ForceAndTorque",
@@ -887,7 +887,7 @@ if N_to_m = 100 N/m,
 then a force of 350 N is displayed as an arrow of length 3.5 m.
 </p>
 <p>
-An example how to use this model is given in the 
+An example how to use this model is given in the
 following figure:
 </p>
 <p align=\"center\">
@@ -979,7 +979,7 @@ is resolved in the world frame).
           extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
           extends ObsoleteModelica3.Icons.ObsoleteModel;
           Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve
-            "If connected, the input signals are resolved in this frame" 
+            "If connected, the input signals are resolved in this frame"
             annotation (Placement(transformation(
                 origin={40,100},
                 extent={{-16,-16},{16,16}},
@@ -994,27 +994,27 @@ is resolved in the world frame).
           parameter Boolean animation=true
             "= true, if animation shall be enabled";
           parameter Real N_to_m(unit="N/m") = world.defaultN_to_m
-            " Force arrow scaling (length = force/N_to_m)" 
+            " Force arrow scaling (length = force/N_to_m)"
             annotation (Dialog(group="if animation = true", enable=animation));
           parameter Real Nm_to_m(unit="N.m/m") = world.defaultNm_to_m
-            " Torque arrow scaling (length = torque/Nm_to_m)" 
+            " Torque arrow scaling (length = torque/Nm_to_m)"
             annotation (Dialog(group="if animation = true", enable=animation));
           input SI.Diameter forceDiameter=world.defaultArrowDiameter
             " Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
           input SI.Diameter torqueDiameter=forceDiameter
             " Diameter of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
           input SI.Diameter connectionLineDiameter=forceDiameter
-            " Diameter of line connecting frame_a and frame_b" 
+            " Diameter of line connecting frame_a and frame_b"
             annotation (Dialog(group="if animation = true", enable=animation));
           input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
             " Color of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
           input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
             " Color of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
           input Types.Color connectionLineColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
-            " Color of line connecting frame_a and frame_b" 
+            " Color of line connecting frame_a and frame_b"
             annotation (Dialog(group="if animation = true", enable=animation));
           input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-            "Reflection of ambient light (= 0: light is completely absorbed)" 
+            "Reflection of ambient light (= 0: light is completely absorbed)"
             annotation (Dialog(group="if animation = true", enable=animation));
           SI.Position r_0[3]
             "Position vector from origin of frame_a to origin of frame_b resolved in world frame";
@@ -1098,7 +1098,7 @@ Additionally, a force and torque acts on frame_a in such a way that
 the force and torque balance between frame_a and frame_b is fulfilled.
 </p>
 <p>
-An example how to use this model is given in the 
+An example how to use this model is given in the
 following figure:
 </p>
 <p align=\"center\">
@@ -1107,7 +1107,7 @@ following figure:
 <p>
 This leads to the following animation (the yellow cylinder
 characterizes the line between frame_a and frame_b of the
-ForceAndTorque component, i.e., the force and torque acts with 
+ForceAndTorque component, i.e., the force and torque acts with
 negative sign
 also on the opposite side of this cylinder, but for
 clarity this is not shown in the animation):
@@ -1322,10 +1322,10 @@ with the blocks of package Modelica.Blocks.
             extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
             extends ObsoleteModelica3.Icons.ObsoleteModel;
             Modelica.Mechanics.Rotational.Interfaces.Flange_a axis
-              "1-dim. rotational flange that drives the joint" 
+              "1-dim. rotational flange that drives the joint"
               annotation (Placement(transformation(extent={{10,90},{-10,110}}, rotation=0)));
             Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing
-              "1-dim. rotational flange of the drive bearing" 
+              "1-dim. rotational flange of the drive bearing"
               annotation (Placement(transformation(extent={{-50,90},{-70,110}}, rotation=
                       0)));
 
@@ -1343,20 +1343,20 @@ with the blocks of package Modelica.Blocks.
             parameter SI.Position lengthConstraint=1
               "Fixed length of length constraint";
             parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,0,1}
-              "Axis of rotation resolved in frame_a (= same as in frame_b)" 
+              "Axis of rotation resolved in frame_a (= same as in frame_b)"
               annotation (Evaluate=true);
             parameter Cv.NonSIunits.Angle_deg phi_offset=0
               "Relative angle offset (angle = phi + from_deg(phi_offset))";
             parameter Cv.NonSIunits.Angle_deg phi_guess=0
               "Select the configuration such that at initial time |phi - from_deg(phi_guess)|is minimal";
             parameter SI.Distance cylinderLength=world.defaultJointLength
-              "Length of cylinder representing the joint axis" 
+              "Length of cylinder representing the joint axis"
               annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
             parameter SI.Distance cylinderDiameter=world.defaultJointWidth
-              "Diameter of cylinder representing the joint axis" 
+              "Diameter of cylinder representing the joint axis"
               annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
             input Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
-              "Color of cylinder representing the joint axis" 
+              "Color of cylinder representing the joint axis"
               annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
             input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
               specularCoefficient=world.defaultSpecularCoefficient
@@ -1696,10 +1696,10 @@ position a degree of freedom is lost.
             extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
             extends ObsoleteModelica3.Icons.ObsoleteModel;
             Modelica.Mechanics.Translational.Interfaces.Flange_a axis
-              "1-dim. translational flange that drives the joint" 
+              "1-dim. translational flange that drives the joint"
               annotation (Placement(transformation(extent={{70,80},{90,60}}, rotation=0)));
             Modelica.Mechanics.Translational.Interfaces.Flange_b bearing
-              "1-dim. translational flange of the drive bearing" 
+              "1-dim. translational flange of the drive bearing"
               annotation (Placement(transformation(extent={{-30,80},{-50,60}}, rotation=0)));
             Modelica.Blocks.Interfaces.RealInput position_a[3]
               "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint"
@@ -1714,7 +1714,7 @@ position a degree of freedom is lost.
               "= true, if animation shall be enabled";
             parameter SI.Position length=1 "Fixed length of length constraint";
             parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0}
-              "Axis of translation resolved in frame_a (= same as in frame_b)" 
+              "Axis of translation resolved in frame_a (= same as in frame_b)"
               annotation (Evaluate=true);
             parameter SI.Position s_offset=0
               "Relative distance offset (distance between frame_a and frame_b = s(t) + s_offset)";
@@ -1722,17 +1722,17 @@ position a degree of freedom is lost.
               "Select the configuration such that at initial time |s(t0)-s_guess|is minimal";
             parameter Modelica.Mechanics.MultiBody.Types.Axis boxWidthDirection
               =                                                                 {0,1,0}
-              "Vector in width direction of box, resolved in frame_a" 
+              "Vector in width direction of box, resolved in frame_a"
               annotation (Evaluate=true, Dialog(tab="Animation", group=
                     "if animation = true", enable=animation));
             parameter SI.Distance boxWidth=world.defaultJointWidth
-              "Width of prismatic joint box" 
+              "Width of prismatic joint box"
               annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
             parameter SI.Distance boxHeight=boxWidth
-              "Height of prismatic joint box" 
+              "Height of prismatic joint box"
               annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
             input Modelica.Mechanics.MultiBody.Types.Color boxColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
-              "Color of prismatic joint box" 
+              "Color of prismatic joint box"
               annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
             input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
               specularCoefficient=world.defaultSpecularCoefficient
@@ -2053,12 +2053,12 @@ degree of freedom is lost.
           import Modelica.Mechanics.MultiBody.Types;
           extends Modelica.Mechanics.MultiBody.Interfaces.PartialAbsoluteSensor(final
               n_out=3*((if get_r_abs then 1 else 0) + (if get_v_abs then 1 else 0) + (
-                if get_a_abs then 1 else 0) + (if get_angles then 1 else 0) + (if 
+                if get_a_abs then 1 else 0) + (if get_angles then 1 else 0) + (if
                 get_w_abs then 1 else 0) + (if get_z_abs then 1 else 0)));
           extends ObsoleteModelica3.Icons.ObsoleteModel;
 
           Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve
-            "If connected, the output signals are resolved in this frame" 
+            "If connected, the output signals are resolved in this frame"
             annotation (Placement(transformation(
                 origin={0,100},
                 extent={{-16,-16},{16,16}},
@@ -2088,13 +2088,13 @@ degree of freedom is lost.
             " Select angles[1] such that abs(angles[1] - guessAngle1) is a minimum"
             annotation (Dialog(group="if get_angles = true", enable=get_angles));
           input SI.Diameter arrowDiameter=world.defaultArrowDiameter
-            " Diameter of arrow from world frame to frame_a" 
+            " Diameter of arrow from world frame to frame_a"
             annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
           input Types.Color arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
-            " Color of arrow from world frame to frame_a" 
+            " Color of arrow from world frame to frame_a"
             annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
           input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-            "Reflection of ambient light (= 0: light is completely absorbed)" 
+            "Reflection of ambient light (= 0: light is completely absorbed)"
             annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
 
           annotation (
@@ -2127,7 +2127,7 @@ in packed format in the order
 <ol>
 <li> absolute position vector (= r_abs)</li>
 <li> absolute velocity vectory (= v_abs)</li>
-<li> absolute acceleration vector (= a_abs)</li> 
+<li> absolute acceleration vector (= a_abs)</li>
 <li> 3 angles to rotate the world frame into frame_a (= angles)</li>
 <li> absolute angular velocity vector (= w_abs)</li>
 <li> absolute angular acceleration vector (= z_abs)</li>
@@ -2157,17 +2157,17 @@ coordinate system in which the relative quantities are
 resolved is defined by parameter <b>resolveInFrame_a</b>.
 If this parameter is <b>true</b>, then the
 provided kinematic vectors are resolved in frame_a of this
-component. Otherwise, the kinematic vectors are resolved in 
+component. Otherwise, the kinematic vectors are resolved in
 the world frame. For example, if frame_resolve is not
 connected and if resolveInFrame_a = <b>false</b>, and
 get_v = <b>true</b>, then
 </p>
 <pre>
-  y = <b>der</b>(frame_a.r) // resolved in world frame 
+  y = <b>der</b>(frame_a.r) // resolved in world frame
 </pre>
 <p>
 is returned, i.e., the derivative of the distance frame_a.r_0
-from the origin of the world frame to the origin of frame_a, 
+from the origin of the world frame to the origin of frame_a,
 resolved in the world frame.
 </p>
 <p>
@@ -2175,7 +2175,7 @@ Note, the cut-force and the cut-torque in frame_resolve are
 always zero, whether frame_resolve is connected or not.
 </p>
 <p>
-If <b>get_angles</b> = <b>true</b>, the 3 angles to rotate the world 
+If <b>get_angles</b> = <b>true</b>, the 3 angles to rotate the world
 frame into frame_a along the axes defined by parameter <b>sequence</b>
 are returned. For example, if sequence = {3,1,2} then the world frame is
 rotated around angles[1] along the z-axis, afterwards it is rotated
@@ -2213,15 +2213,15 @@ Exact definition of the returned quantities:
 <ol>
 <li>r_abs is vector frame_a.r_0, resolved according to table below.</li>
 <li>v_abs is vector <b>der</b>(frame_a.r_0), resolved according to table below.</li>
-<li>a_abs is vector <b>der</b>(<b>der</b>(frame_a.r_0)), resolved according to 
+<li>a_abs is vector <b>der</b>(<b>der</b>(frame_a.r_0)), resolved according to
             table below.</li>
 <li>angles is a vector of 3 angles such that
     frame_a.R = Frames.axesRotations(sequence, angles).</li>
 <li>w_abs is vector Modelica.Mechanics.MultiBody.Frames.angularVelocity1(frame_a.R, <b>der</b>(frame_a.R)),
             resolved according to table below.</li>
-<li>z_abs is vector <b>der</b>(w_abs) (= derivative of absolute angular 
+<li>z_abs is vector <b>der</b>(w_abs) (= derivative of absolute angular
             velocity of frame_a with respect to the world frame,
-            resolved according to table below).</li> 
+            resolved according to table below).</li>
 </ol>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><b><i>frame_resolve is</i></b></th>
@@ -2422,12 +2422,12 @@ Exact definition of the returned quantities:
           import Modelica.Mechanics.MultiBody.Types;
           extends Modelica.Mechanics.MultiBody.Interfaces.PartialRelativeSensor(final
               n_out=3*((if get_r_rel then 1 else 0) + (if get_v_rel then 1 else 0) + (
-                if get_a_rel then 1 else 0) + (if get_angles then 1 else 0) + (if 
+                if get_a_rel then 1 else 0) + (if get_angles then 1 else 0) + (if
                 get_w_rel then 1 else 0) + (if get_z_rel then 1 else 0)));
           extends ObsoleteModelica3.Icons.ObsoleteModel;
 
           Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve
-            "If connected, the output signals are resolved in this frame" 
+            "If connected, the output signals are resolved in this frame"
             annotation (Placement(transformation(
                 origin={-60,-100},
                 extent={{-16,-16},{16,16}},
@@ -2458,13 +2458,13 @@ Exact definition of the returned quantities:
             " Select angles[1] such that abs(angles[1] - guessAngle1) is a minimum"
             annotation (Dialog(group="if get_angles = true", enable=get_angles));
           input SI.Diameter arrowDiameter=world.defaultArrowDiameter
-            " Diameter of relative arrow from frame_a to frame_b" 
+            " Diameter of relative arrow from frame_a to frame_b"
             annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
           input Types.Color arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
-            " Color of relative arrow from frame_a to frame_b" 
+            " Color of relative arrow from frame_a to frame_b"
             annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
           input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-            "Reflection of ambient light (= 0: light is completely absorbed)" 
+            "Reflection of ambient light (= 0: light is completely absorbed)"
             annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
 
           SI.Position r_rel[3]
@@ -2528,7 +2528,7 @@ in packed format in the order
 <ol>
 <li> relative position vector (= r_rel)</li>
 <li> relative velocity vectory (= v_rel)</li>
-<li> relative acceleration vector (= a_rel))</li> 
+<li> relative acceleration vector (= a_rel))</li>
 <li> 3 angles to rotate frame_a into frame_b (= angles)</li>
 <li> relative angular velocity vector (= w_rel)</li>
 <li> relative angular acceleration vector (= z_rel)</li>
@@ -2554,11 +2554,11 @@ the yellow arrow is the animated sensor.
 <p>
 If parameter <b>resolveInFrame_a</b> = <b>true</b>, then the
 provided relative kinematic vectors of frame_b with respect to
-frame_a are resolved before differentiation in frame_a. If this 
-parameter is <b>false</b>, the relative kinematic vectors are 
+frame_a are resolved before differentiation in frame_a. If this
+parameter is <b>false</b>, the relative kinematic vectors are
 resolved before differentiation in frame_b.
 If <b>frame_resolve</b> is connected to another frame, then the
-kinematic vector as defined above and/or its required derivatives 
+kinematic vector as defined above and/or its required derivatives
 are resolved in frame_resolve. Note, derivatives
 of relative kinematic quantities are always performed with
 respect to frame_a (<b>resolveInFrame_a</b> = <b>true</b>)
@@ -2572,15 +2572,15 @@ connected and if resolveInFrame_a = <b>false</b>, and
 get_v = <b>true</b>, then
 </p>
 <pre>
-  y = v_rel 
+  y = v_rel
     = <b>der</b>(r_rel)
 </pre>
 is returned (r_rel = resolve2(frame_b.R, frame_b.r_0 - frame_a.r0)), i.e.,
-the derivative of the relative distance from frame_a to frame_b, 
+the derivative of the relative distance from frame_a to frame_b,
 resolved in frame_b. If frame_resolve is connected, then
 </p>
 <pre>
-  y = v_rel 
+  y = v_rel
     = resolve2(frame_resolve.R, <b>der</b>(r_rel))
 </pre>
 <p>
@@ -2631,7 +2631,7 @@ Exact definition of the returned quantities
 <ol>
 <li>r_rel is vector r_rel_ab, resolved according to table below.</li>
 <li>v_rel is vector <b>der</b>(r_rel_ab), resolved according to table below.</li>
-<li>a_rel is vector <b>der</b>(<b>der</b>(r_rel_ab)), resolved according to 
+<li>a_rel is vector <b>der</b>(<b>der</b>(r_rel_ab)), resolved according to
             table below.</li>
 <li>angles is a vector of 3 angles such that
     R_rel_ab = Frames.axesRotations(sequence, angles).</li>
@@ -2846,23 +2846,23 @@ and resolved in the following frame
           parameter Boolean resolveInFrame_a=true
             "= true, if force and torque are resolved in frame_a/frame_b, otherwise in the world frame (if connector frame_resolve is connected, the force/torque is resolved in frame_resolve)";
           input Real N_to_m(unit="N/m") = 1000
-            " Force arrow scaling (length = force/N_to_m)" 
+            " Force arrow scaling (length = force/N_to_m)"
             annotation (Dialog(group="if animation = true", enable=animation));
           input Real Nm_to_m(unit="N.m/m") = 1000
-            " Torque arrow scaling (length = torque/Nm_to_m)" 
+            " Torque arrow scaling (length = torque/Nm_to_m)"
             annotation (Dialog(group="if animation = true", enable=animation));
           input SI.Diameter forceDiameter=world.defaultArrowDiameter
             " Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
           input SI.Diameter torqueDiameter=forceDiameter
             " Diameter of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
           input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
-            " Color of force arrow" 
+            " Color of force arrow"
             annotation (Dialog(group="if animation = true", enable=animation));
           input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
-            " Color of torque arrow" 
+            " Color of torque arrow"
             annotation (Dialog(group="if animation = true", enable=animation));
           input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-            "Reflection of ambient light (= 0: light is completely absorbed)" 
+            "Reflection of ambient light (= 0: light is completely absorbed)"
             annotation (Dialog(group="if animation = true", enable=animation));
 
           SI.Force force[3]
@@ -2879,7 +2879,7 @@ and resolved in the following frame
             Documentation(info="<HTML>
 <p>
 The cut-force and cut-torque acting at the component to which frame_b is
-connected are determined and provided at the output signal connector 
+connected are determined and provided at the output signal connector
 <b>load</b>:
 </p>
 <pre>
@@ -2901,7 +2901,7 @@ resolved in the world frame.
 </p>
 <p>
 In the following figure the animation of a CutForceAndTorque
-sensor is shown. The dark blue coordinate system is frame_b, 
+sensor is shown. The dark blue coordinate system is frame_b,
 and the green arrows are the cut force and the cut torque,
 respectively, acting at frame_b and
 with negative sign at frame_a.
@@ -2971,7 +2971,7 @@ with negative sign at frame_a.
 
           annotation (__Dymola_obsolete="This is an emulated enumeration for initialization. Initialization is now defined with start/fixed values and appropriate support in the parameter menu",
         Documentation(info="<html>
-  
+
 </html>"),         uses(Modelica(version="2.2.2")));
           extends ObsoleteModelica3.Icons.Enumeration;
 
@@ -3005,32 +3005,32 @@ with negative sign at frame_a.
                 choice=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocityAcceleration
                   "initialize generalized position, velocity and acceleration variables"),
                 Documentation(info="<html>
-  
+
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><b>Types.Init.</b></th><th><b>Meaning</b></th></tr>
 <tr><td valign=\"top\">Free</td>
     <td valign=\"top\">No initialization</td></tr>
- 
+
 <tr><td valign=\"top\">PositionVelocity</td>
     <td valign=\"top\">Initialize generalized position and velocity variables</td></tr>
- 
+
 <tr><td valign=\"top\">SteadyState</td>
     <td valign=\"top\">Initialize in steady state (velocity and acceleration are zero)</td></tr>
- 
+
 <tr><td valign=\"top\">Position </td>
     <td valign=\"top\">Initialize only generalized position variable(s)</td></tr>
- 
+
 <tr><td valign=\"top\">Velocity</td>
     <td valign=\"top\">Initialize only generalized velocity variable(s)</td></tr>
- 
+
 <tr><td valign=\"top\">VelocityAcceleration</td>
     <td valign=\"top\">Initialize generalized velocity and acceleration variables</td></tr>
- 
+
 <tr><td valign=\"top\">PositionVelocityAcceleration</td>
     <td valign=\"top\">Initialize generalized position, velocity and acceleration variables</td></tr>
- 
+
 </table>
- 
+
 </html>"));
 
           end Temp;
@@ -3052,11 +3052,11 @@ with negative sign at frame_a.
             "Absolute rotation angle of component (= flange_a.phi = flange_b.phi)";
 
           Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a
-            "(left) driving flange (flange axis directed INTO cut plane)" 
+            "(left) driving flange (flange axis directed INTO cut plane)"
             annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
                   rotation=0)));
           Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b
-            "(right) driven flange (flange axis directed OUT OF cut plane)" 
+            "(right) driven flange (flange axis directed OUT OF cut plane)"
             annotation (Placement(transformation(extent={{90,-10},{110,10}},
                   rotation=0)));
           annotation (
@@ -3066,7 +3066,7 @@ This is a 1D rotational component with two rigidly connected flanges,
 i.e., flange_a.phi = flange_b.phi. It is used e.g. to built up components
 with inertia.
 </p>
- 
+
 </HTML>
 "),         Diagram(coordinateSystem(
                 preserveAspectRatio=false,
@@ -3091,7 +3091,7 @@ with inertia.
           Modelica.SIunits.Torque tau_support;
 
           Modelica.Mechanics.Rotational.Interfaces.Flange_a bearing
-            "Flange of bearing" 
+            "Flange of bearing"
                            annotation (Placement(transformation(extent={{-10,-110},
                     {10,-90}}, rotation=0)));
           annotation (
@@ -3113,7 +3113,7 @@ with inertia.
 <p>
 This is a 1D rotational component with two flanges and an additional bearing flange.
 It is a superclass for the two components TwoFlangesAndBearing and TwoFlangesAndBearingH.</p>
- 
+
 </HTML>
 "));
 
@@ -3134,7 +3134,7 @@ It is a superclass for the two components TwoFlangesAndBearing and TwoFlangesAnd
 <p>
 This is a 1D rotational component with two flanges and an additional bearing flange.
 It is used e.g. to build up equation-based parts of a drive train.</p>
- 
+
 </HTML>
 "));
         equation
@@ -3155,7 +3155,7 @@ It is used e.g. to build up equation-based parts of a drive train.</p>
 
           extends ObsoleteModelica3.Mechanics.Rotational.Interfaces.Bearing;
 
-          Adapter adapter(bearingConnected=cardinality(bearing) > 1) 
+          Adapter adapter(bearingConnected=cardinality(bearing) > 1)
             annotation (Placement(transformation(
                 origin={0,-60},
                 extent={{-10,-10},{10,10}},
@@ -3199,7 +3199,7 @@ It is used e.g. to build up equation-based parts of a drive train.</p>
 This is a 1D rotational component with two flanges and an additional bearing flange.
 It is used e.g. to build up parts of a drive train consisting
 of several base components.</p>
- 
+
 </HTML>
 "));
         end TwoFlangesAndBearingH;
@@ -3212,7 +3212,7 @@ of several base components.</p>
           Modelica.SIunits.Torque tau = flange.tau
             "accelerating torque acting at flange";
           Modelica.Mechanics.Rotational.Interfaces.Flange_b flange
-            "Flange on which torque is acting" 
+            "Flange on which torque is acting"
             annotation (Placement(transformation(extent={{110,-10},{90,10}},
                   rotation=0)));
           Modelica.Mechanics.Rotational.Interfaces.Flange_a bearing
@@ -3274,7 +3274,7 @@ Partial model of torque dependent on speed that accelerates the flange.
             "(left) flange to be measured (flange axis directed INTO cut plane)"
             annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
                   rotation=0)));
-          Modelica.Blocks.Interfaces.RealOutput y "Sensor signal" 
+          Modelica.Blocks.Interfaces.RealOutput y "Sensor signal"
             annotation (Placement(transformation(extent={{100,-10},{120,10}},
                   rotation=0)));
           annotation (
@@ -3292,7 +3292,7 @@ output signal y in order to measure an absolute kinematic quantity in the flange
 and to provide the measured signal as output signal for further processing
 with the blocks of package Modelica.Blocks.
 </p>
- 
+
 </HTML>
 "),         Icon(coordinateSystem(
                 preserveAspectRatio=true,
@@ -3318,14 +3318,14 @@ with the blocks of package Modelica.Blocks.
           extends ObsoleteModelica3.Icons.ObsoleteModel;
 
           Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a
-            "(left) driving flange (flange axis directed INTO cut plane)" 
+            "(left) driving flange (flange axis directed INTO cut plane)"
             annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
                   rotation=0)));
           Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b
-            "(right) driven flange (flange axis directed OUT OF cut plane)" 
+            "(right) driven flange (flange axis directed OUT OF cut plane)"
             annotation (Placement(transformation(extent={{90,-10},{110,10}},
                   rotation=0)));
-          Modelica.Blocks.Interfaces.RealOutput y "Sensor signal" 
+          Modelica.Blocks.Interfaces.RealOutput y "Sensor signal"
             annotation (Placement(transformation(
                 origin={0,-110},
                 extent={{10,-10},{-10,10}},
@@ -3346,7 +3346,7 @@ between the two flanges or the cut-torque in the flange and
 to provide the measured signal as output signal for further processing
 with the blocks of package Modelica.Blocks.
 </p>
- 
+
 </HTML>
 "),         Icon(coordinateSystem(
                 preserveAspectRatio=true,
@@ -3433,7 +3433,7 @@ user interface when the type is used as parameter in a declaration.
 Type <b>Init</b> defines initialization of absolute rotational
 quantities.
 </p>
- 
+
 </html>"));
         end Init;
 
@@ -3473,7 +3473,7 @@ quantities.
 Type <b>Init</b> defines initialization of relative rotational
 quantities.
 </p>
- 
+
 </html>"));
         end InitRel;
       end Types;
@@ -3583,7 +3583,7 @@ When the motorTorque becomes smaller as the bearingTorque,
 be careful to determine the gear <b>efficiency</b> of this element
 from tables of the gear manufacturers.
 </p>
- 
+
 </HTML>
 "),       Diagram(coordinateSystem(
               preserveAspectRatio=true,
@@ -3664,7 +3664,7 @@ The inertia of the gear wheels is not modeled. If necessary, inertia
 has to be taken into account by connecting components of model Inertia
 to the left and/or the right flange.
 </p>
- 
+
 </HTML>
 "),       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
@@ -3723,11 +3723,11 @@ to the left and/or the right flange.
               Line(points={{-36,25},{-3,25}}, color={128,128,128})}));
 
         Modelica.Mechanics.Rotational.Components.IdealGear gearRatio(final
-            ratio =                                                              ratio) 
+            ratio =                                                              ratio)
           annotation (Placement(transformation(extent={{-70,-10},{-50,10}},
                 rotation=0)));
         ObsoleteModelica3.Mechanics.Rotational.GearEfficiency gearEfficiency(
-                                      final eta=eta) 
+                                      final eta=eta)
           annotation (Placement(transformation(extent={{-30,-10},{-10,10}},
                 rotation=0)));
         Modelica.Mechanics.Rotational.Components.ElastoBacklash elastoBacklash(
@@ -3738,19 +3738,19 @@ to the left and/or the right flange.
                 rotation=0)));
         Modelica.Mechanics.Rotational.Components.BearingFriction
           bearingFriction(                                                       final
-            tau_pos=friction_pos, final peak=peak) 
+            tau_pos=friction_pos, final peak=peak)
           annotation (Placement(transformation(extent={{10,-10},{30,10}}, rotation=
                   0)));
       equation
-        connect(flange_a, gearRatio.flange_a) 
+        connect(flange_a, gearRatio.flange_a)
           annotation (Line(points={{-100,0},{-70,0}}, color={0,0,0}));
-        connect(gearRatio.flange_b, gearEfficiency.flange_a) 
+        connect(gearRatio.flange_b, gearEfficiency.flange_a)
           annotation (Line(points={{-50,0},{-30,0}}, color={0,0,0}));
-        connect(gearEfficiency.flange_b, bearingFriction.flange_a) 
+        connect(gearEfficiency.flange_b, bearingFriction.flange_a)
           annotation (Line(points={{-10,0},{10,0}}, color={0,0,0}));
-        connect(bearingFriction.flange_b, elastoBacklash.flange_a) 
+        connect(bearingFriction.flange_b, elastoBacklash.flange_a)
           annotation (Line(points={{30,0},{50,0}}, color={0,0,0}));
-        connect(elastoBacklash.flange_b, flange_b) 
+        connect(elastoBacklash.flange_b, flange_b)
           annotation (Line(points={{70,0},{100,0}}, color={0,0,0}));
         connect(gearEfficiency.bearing, adapter.flange_b) annotation (Line(points={{-20,-10},
                 {-20,-40},{6.12323e-016,-40},{6.12323e-016,-50}},           color={

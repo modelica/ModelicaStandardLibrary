@@ -5,7 +5,7 @@ package Sources
   "Library of signal source blocks generating Real and Boolean signals"
   block RealExpression "Set output signal to a time varying Real expression"
 
-    Modelica.Blocks.Interfaces.RealOutput y=0.0 "Value of Real output" 
+    Modelica.Blocks.Interfaces.RealOutput y=0.0 "Value of Real output"
       annotation (                            Dialog(group=
             "Time varying output signal"), Placement(transformation(extent={{
               100,-10},{120,10}}, rotation=0)));
@@ -43,7 +43,7 @@ easy definition of Real expressions in a block diagram. For example,
 in the y-menu the definition \"if time &lt; 1 then 0 else 1\" can be given in order
 to define that the output signal is one, if time &ge; 1 and otherwise
 it is zero. Note, that \"time\" is a built-in variable that is always
-accessible and represents the \"model time\" and that 
+accessible and represents the \"model time\" and that
 Variable <b>y</b> is both a variable and a connector.
 </p>
 </html>"));
@@ -53,7 +53,7 @@ Variable <b>y</b> is both a variable and a connector.
   block IntegerExpression
     "Set output signal to a time varying Integer expression"
 
-    Modelica.Blocks.Interfaces.IntegerOutput y=0 "Value of Integer output" 
+    Modelica.Blocks.Interfaces.IntegerOutput y=0 "Value of Integer output"
       annotation (                            Dialog(group=
             "Time varying output signal"), Placement(transformation(extent={{
               100,-10},{120,10}}, rotation=0)));
@@ -91,7 +91,7 @@ easy definition of Integer expressions in a block diagram. For example,
 in the y-menu the definition \"if time &lt; 1 then 0 else 1\" can be given in order
 to define that the output signal is one, if time &ge; 1 and otherwise
 it is zero. Note, that \"time\" is a built-in variable that is always
-accessible and represents the \"model time\" and that 
+accessible and represents the \"model time\" and that
 Variable <b>y</b> is both a variable and a connector.
 </p>
 </html>"));
@@ -101,7 +101,7 @@ Variable <b>y</b> is both a variable and a connector.
   block BooleanExpression
     "Set output signal to a time varying Boolean expression"
 
-    Modelica.Blocks.Interfaces.BooleanOutput y=false "Value of Boolean output" 
+    Modelica.Blocks.Interfaces.BooleanOutput y=false "Value of Boolean output"
       annotation (                            Dialog(group=
             "Time varying output signal"), Placement(transformation(extent={{
               100,-10},{120,10}}, rotation=0)));
@@ -129,9 +129,9 @@ Variable <b>y</b> is both a variable and a connector.
             lineColor={0,0,255}),
           Polygon(
             points={{100,10},{120,0},{100,-10},{100,10}},
-            lineColor=DynamicSelect({255,0,255}, if y > 0.5 then {0,255,0} else 
+            lineColor=DynamicSelect({255,0,255}, if y > 0.5 then {0,255,0} else
                       {255,0,255}),
-            fillColor=DynamicSelect({255,255,255}, if y > 0.5 then {0,255,0} else 
+            fillColor=DynamicSelect({255,255,255}, if y > 0.5 then {0,255,0} else
                       {255,255,255}),
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(
@@ -147,7 +147,7 @@ in the y-menu the definition \"time &gt;= 1 and time &lt;= 2\" can be given in o
 to define that the output signal is <b>true</b> in the time interval
 1 &le; time &le; 2 and otherwise it is <b>false</b>.
 Note, that \"time\" is a built-in variable that is always
-accessible and represents the \"model time\" and that 
+accessible and represents the \"model time\" and that
 Variable <b>y</b> is both a variable and a connector.
 </p>
 </html>"));
@@ -1094,7 +1094,7 @@ by a falling exponential signal:
       equation
         y_riseTime = outMax*(1 - Modelica.Math.exp(-riseTime/riseTimeConst));
         y = offset + (if (time < startTime) then 0 else if (time < (startTime
-           + riseTime)) then outMax*(1 - Modelica.Math.exp(-(time - startTime)/riseTimeConst)) else 
+           + riseTime)) then outMax*(1 - Modelica.Math.exp(-(time - startTime)/riseTimeConst)) else
                 y_riseTime*Modelica.Math.exp(-(time - startTime - riseTime)/
           fallTimeConst));
 
@@ -1268,7 +1268,7 @@ The Real output y is a pulse signal:
         when sample(startTime, period) then
           T0 = time;
         end when;
-        y = offset + (if time < startTime or time >= T0 + T_width then 0 else 
+        y = offset + (if time < startTime or time >= T0 + T_width then 0 else
           amplitude);
       end Pulse;
 
@@ -1654,7 +1654,7 @@ The Real output y is a trapezoid signal:
         end when;
         y = offset + (if (time < startTime or counter2 == 0 or time >= T0 +
           T_falling) then 0 else if (time < T0 + T_rising) then (time - T0)*
-          amplitude/T_rising else if (time < T0 + T_width) then amplitude else 
+          amplitude/T_rising else if (time < T0 + T_width) then amplitude else
           (T0 + T_falling - time)*amplitude/(T_falling - T_width));
       end Trapezoid;
 
@@ -1848,15 +1848,15 @@ a flange according to a given acceleration.
     output Modelica.SIunits.Time endTime "Time instant at which movement stops";
 
     Modelica.Blocks.Interfaces.RealOutput q[nout]
-      "Reference position of path planning" 
+      "Reference position of path planning"
       annotation (Placement(transformation(extent={{100,70},{120,90}}, rotation=
              0)));
     Modelica.Blocks.Interfaces.RealOutput qd[nout]
-      "Reference speed of path planning" 
+      "Reference speed of path planning"
       annotation (Placement(transformation(extent={{100,20},{120,40}}, rotation=
              0)));
     Modelica.Blocks.Interfaces.RealOutput qdd[nout]
-      "Reference acceleration of path planning" 
+      "Reference acceleration of path planning"
       annotation (Placement(transformation(extent={{100,-40},{120,-20}},
             rotation=0)));
     Modelica.Blocks.Interfaces.BooleanOutput moving[nout]
@@ -1941,7 +1941,7 @@ a flange according to a given acceleration.
       Documentation(info="<html>
 <p>
 The goal is to move as <b>fast</b> as possible from start position <b>q_begin</b>
-to end position <b>q_end</b> 
+to end position <b>q_end</b>
 under given <b>kinematical constraints</b>. The positions can be translational or
 rotational definitions (i.e., q_begin/q_end is given). In robotics such a movement is called <b>PTP</b> (Point-To-Point).
 This source block generates the <b>position</b> q(t), the
@@ -1969,7 +1969,7 @@ This element is useful to generate a reference signal for a controller
 which controls, e.g., a drive train, or to drive
 a flange according to a given acceleration.
 </p>
- 
+
 </html>
 ",   revisions="<html>
 <ul>
@@ -2319,12 +2319,12 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     e.g., time = 2.0, the output y =  4.0,
     e.g., time = 5.0, the output y = 23.0 (i.e. extrapolation).
 </pre>
- 
- 
+
+
 <p>
 <img src=\"../Images/Blocks/Sources/TimeTable.png\">
 </p>
- 
+
 </HTML>
 ",       revisions=
              "<html>
@@ -2423,31 +2423,31 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     "Table look-up with respect to time and linear/perodic extrapolation methods (data from matrix/file)"
 
     parameter Boolean tableOnFile=false
-      "= true, if table is defined on file or in function usertab" 
+      "= true, if table is defined on file or in function usertab"
       annotation(Dialog(group="table data definition"));
     parameter Real table[:, :] = fill(0.0,0,2)
-      "Table matrix (time = first column; e.g. table=[0,2])" 
+      "Table matrix (time = first column; e.g. table=[0,2])"
          annotation(Dialog(group="table data definition", enable = not tableOnFile));
     parameter String tableName="NoName"
-      "Table name on file or in function usertab (see docu)" 
+      "Table name on file or in function usertab (see docu)"
          annotation(Dialog(group="table data definition", enable = tableOnFile));
-    parameter String fileName="NoName" "File where matrix is stored" 
+    parameter String fileName="NoName" "File where matrix is stored"
          annotation(Dialog(group="table data definition", enable = tableOnFile,
                            __Dymola_loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
                            caption="Open file in which table is present")));
     parameter Integer columns[:]=2:size(table, 2)
-      "Columns of table to be interpolated" 
+      "Columns of table to be interpolated"
     annotation(Dialog(group="table data interpretation"));
     parameter Modelica.Blocks.Types.Smoothness smoothness=Modelica.Blocks.Types.Smoothness.LinearSegments
-      "Smoothness of table interpolation" 
+      "Smoothness of table interpolation"
     annotation(Dialog(group="table data interpretation"));
     parameter Modelica.Blocks.Types.Extrapolation extrapolation=Modelica.Blocks.Types.Extrapolation.LastTwoPoints
-      "Extrapolation of data outside the definition range" 
+      "Extrapolation of data outside the definition range"
     annotation(Dialog(group="table data interpretation"));
-    parameter Real offset[:]={0} "Offsets of output signals" 
+    parameter Real offset[:]={0} "Offsets of output signals"
     annotation(Dialog(group="table data interpretation"));
     parameter Modelica.SIunits.Time startTime=0
-      "Output = offset for time < startTime" 
+      "Output = offset for time < startTime"
     annotation(Dialog(group="table data interpretation"));
     extends Modelica.Blocks.Interfaces.MO(final nout=max([size(columns, 1); size(offset, 1)]));
     final parameter Real t_min(fixed=false)
@@ -2463,11 +2463,11 @@ a table. The time points and function values are stored in a matrix
 <b>table[i,j]</b>, where the first column table[:,1] contains the
 time points and the other columns contain the data to be interpolated.
 </p>
- 
+
 <p>
 <img src=\"../Images/Blocks/Sources/CombiTimeTable.png\">
 </p>
- 
+
 <p>
 Via parameter <b>columns</b> it can be defined which columns of the
 table are interpolated. If, e.g., columns={2,4}, it is assumed that
@@ -2592,7 +2592,7 @@ with type, name and actual dimensions. Finally, in successive
 rows of the file, the elements of the matrix have to be given.
 Several matrices may be defined one after another.
 </p>
- 
+
 </HTML>
 ", revisions="<html>
 <p><b>Release Notes:</b></p>
@@ -2728,7 +2728,7 @@ Several matrices may be defined one after another.
       input Integer icol;
       input Real timeIn;
       output Real value;
-    external "C" value = 
+    external "C" value =
                        ModelicaTables_CombiTimeTable_interpolate(tableID, icol, timeIn);
       annotation(Library="ModelicaExternalC");
     end tableTimeIpo;
@@ -2736,7 +2736,7 @@ Several matrices may be defined one after another.
     function tableTimeTmin
       input Integer tableID;
       output Real Tmin "minimum time value in table";
-    external "C" Tmin = 
+    external "C" Tmin =
                       ModelicaTables_CombiTimeTable_minimumTime(tableID);
       annotation(Library="ModelicaExternalC");
     end tableTimeTmin;
@@ -2744,7 +2744,7 @@ Several matrices may be defined one after another.
     function tableTimeTmax
       input Integer tableID;
       output Real Tmax "maximum time value in table";
-    external "C" Tmax = 
+    external "C" Tmax =
                       ModelicaTables_CombiTimeTable_maximumTime(tableID);
       annotation(Library="ModelicaExternalC");
     end tableTimeTmax;
@@ -2970,7 +2970,7 @@ The Boolean output y is a pulse signal:
   protected
       parameter Modelica.SIunits.Time Twidth=period*width/100
       "width of one pulse"                                              annotation(HideResult=true);
-      discrete Modelica.SIunits.Time pulsStart "Start time of pulse" 
+      discrete Modelica.SIunits.Time pulsStart "Start time of pulse"
                                                  annotation(HideResult=true);
     initial equation
       pulsStart = startTime;

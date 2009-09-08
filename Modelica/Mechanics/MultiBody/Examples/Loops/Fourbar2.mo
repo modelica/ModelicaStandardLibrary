@@ -24,8 +24,8 @@ the three revolute joints on the left top-side and the two revolute
 joints on the right top side have been replaced by the joint <b>UniversalSpherical</b>
 that is a rod connecting a spherical and a universal joint. This joint is defined
 by <b>1 constraint</b> stating that the distance between the two spherical joints is
-constant. Using this joint in a kinematic loop reduces the sizes of 
-non-linear algebraic equations. For this loop, only one non-linear 
+constant. Using this joint in a kinematic loop reduces the sizes of
+non-linear algebraic equations. For this loop, only one non-linear
 algebraic system of equations of order 1 remains.
 </p>
 <p>
@@ -39,7 +39,7 @@ Another feature is that the length of the connecting rod can be
 automatically calculated during <b>initialization</b>. In order to do this,
 another initialization condition has to be given. In this example, the
 initial value of the distance of the prismatic joint j2 has been fixed
-(via the \"Initialization\" menu) and the rod length of joint 
+(via the \"Initialization\" menu) and the rod length of joint
 \"UniversalSpherical\" is computed during initialization since parameter
 <b>computeLength</b> = <b>true</b> is set in the joint parameter
 menu. The main advantage is that during initialization no non-linear
@@ -63,20 +63,20 @@ for rodLength:
     phi(fixed=true),
     w(displayUnit="deg/s",
       start=5.235987755982989,
-      fixed=true)) 
+      fixed=true))
                  annotation (Placement(transformation(extent={{-54,-40},{-34,
             -20}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Joints.Prismatic j2(
     n={1,0,0},
     boxWidth=0.05,
-    s(fixed=true, start=-0.2)) 
+    s(fixed=true, start=-0.2))
     annotation (Placement(transformation(extent={{12,-80},{32,-60}}, rotation=0)));
-  Modelica.Mechanics.MultiBody.Parts.BodyCylinder b1(r={0,0.5,0.1}, diameter=0.05) 
+  Modelica.Mechanics.MultiBody.Parts.BodyCylinder b1(r={0,0.5,0.1}, diameter=0.05)
     annotation (Placement(transformation(
         origin={-30,0},
         extent={{-10,-10},{10,10}},
         rotation=90)));
-  Modelica.Mechanics.MultiBody.Parts.BodyCylinder b2(r={0,0.2,0}, diameter=0.05) 
+  Modelica.Mechanics.MultiBody.Parts.BodyCylinder b2(r={0,0.2,0}, diameter=0.05)
     annotation (Placement(transformation(
         origin={50,-50},
         extent={{-10,-10},{10,10}},
@@ -86,10 +86,10 @@ for rodLength:
     computeRodLength=true,
     rRod_ia={-1,0.3,0.1}) annotation (Placement(transformation(extent={{0,18},{
             -20,38}}, rotation=0)));
-  Modelica.Mechanics.MultiBody.Parts.FixedTranslation b3(r={1.2,0,0}, animation=false) 
+  Modelica.Mechanics.MultiBody.Parts.FixedTranslation b3(r={1.2,0,0}, animation=false)
     annotation (Placement(transformation(extent={{-32,-80},{-12,-60}}, rotation=
            0)));
-  Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrame(color_x={0,0,255}) 
+  Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrame(color_x={0,0,255})
     annotation (Placement(transformation(
         origin={-6,70},
         extent={{-10,-10},{10,10}},
@@ -115,17 +115,17 @@ equation
       points={{-30,10},{-30,28},{-20,28}},
       color={95,95,95},
       thickness=0.5));
-  connect(universalSpherical.frame_a, b2.frame_b) 
+  connect(universalSpherical.frame_a, b2.frame_b)
     annotation (Line(
       points={{0,28},{50,28},{50,-40}},
       color={95,95,95},
       thickness=0.5));
-  connect(b3.frame_a, world.frame_b) 
+  connect(b3.frame_a, world.frame_b)
     annotation (Line(
       points={{-32,-70},{-60,-70}},
       color={95,95,95},
       thickness=0.5));
-  connect(b3.frame_b, j2.frame_a) 
+  connect(b3.frame_b, j2.frame_a)
     annotation (Line(
       points={{-12,-70},{12,-70}},
       color={95,95,95},

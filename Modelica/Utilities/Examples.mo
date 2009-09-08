@@ -9,7 +9,7 @@ the following examples are present.
 </p>
 <ul>
 <li> Function <a href=\"Modelica://Modelica.Utilities.Examples.calculator\">calculator</a>
-     is an interpreter to evaluate 
+     is an interpreter to evaluate
      expressions consisting of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi.
      For example: calculator(\"1.5*sin(pi/6)\"); <br>&nbsp;</li>
 <li> Function <a href=\"Modelica://Modelica.Utilities.Examples.expression\">expression</a>
@@ -45,7 +45,7 @@ result = <b>calculator</b>(expression);
 This function demonstrates how a simple expression calculator
 can be implemented in form of a recursive decent parser
 using basically the Strings.scanToken(..) and Strings.scanDelimiter(..)
-function. 
+function.
 </p>
 <p>
 The following operations are supported (pi=3.14.. is a predefined constant):
@@ -101,7 +101,7 @@ The following operations are supported (pi=3.14.. is a predefined constant):
 <p>
 This function is nearly the same as Examples.<b>calculator</b>.
 The essential difference is that function \"expression\" might be
-used in other parsing operations: After the expression is 
+used in other parsing operations: After the expression is
 parsed and evaluated, the function returns with the value
 of the expression as well as the position of the character
 directly after the expression.
@@ -298,7 +298,7 @@ performs the following actions:
 </p>
 <ol>
 <li> It opens file \"fileName\" and reads the lines of the file.</li>
-<li> In every line, Modelica line comments (\"// ... end-of-line\") 
+<li> In every line, Modelica line comments (\"// ... end-of-line\")
      are skipped </li>
 <li> If a line consists of \"name = expression\" and the \"name\"
      in this line is identical to the second argument \"name\"
@@ -316,7 +316,7 @@ On file \"test.txt\" the following lines might be present:
 // Motor data
 J        = 2.3     // inertia
 w_rel0   = 1.5*2;  // relative angular velocity
-phi_rel0 = pi/3    
+phi_rel0 = pi/3
 </pre></blockquote>
 <p>
 The function returns the value \"3.0\" when called as:
@@ -379,7 +379,7 @@ readRealParameter(\"test.txt\", \"w_rel0\")
     extends Modelica.Icons.Example;
 
     parameter String file = "Modelica/Utilities/data/Examples_readRealParameters.txt"
-      "File on which data is present" 
+      "File on which data is present"
           annotation(Dialog(__Dymola_loadSelector(filter="Text files (*.txt)",
                         caption="Open text file to read parameters of the form \"name = value\"")));
     parameter SI.Inertia J =              readRealParameter(file, "J")

@@ -3,11 +3,11 @@
 #include "dymtable.h"
 
 
-int ModelicaTables_CombiTimeTable_init(const char* tableName, const char* fileName, 
+int ModelicaTables_CombiTimeTable_init(const char* tableName, const char* fileName,
                                         double const *table, int nRow, int nColumn,
                                         double startTime, int smoothness,
                                         int extrapolation) {
-  int tableID = (int) dymTableTimeIni2(0.0, startTime, smoothness-1, extrapolation-1, 
+  int tableID = (int) dymTableTimeIni2(0.0, startTime, smoothness-1, extrapolation-1,
                                        tableName, fileName, table, nRow, nColumn, 0.0);
   return tableID;
 }
@@ -34,8 +34,8 @@ double ModelicaTables_CombiTimeTable_maximumTime(int tableID) {
 
 
 
-int ModelicaTables_CombiTable1D_init(const char* tableName, const char* fileName, 
-                                       double const *table, int nRow, int nColumn, 
+int ModelicaTables_CombiTable1D_init(const char* tableName, const char* fileName,
+                                       double const *table, int nRow, int nColumn,
                                        int smoothness) {
   int tableID = (int) dymTableInit(1.0, smoothness-1, tableName, fileName, table, nRow, nColumn, 0.0);
   return tableID;
@@ -55,7 +55,7 @@ double ModelicaTables_CombiTable1D_interpolate(int tableID, int icol, double u) 
 
 
 int ModelicaTables_CombiTable2D_init(const char* tableName, const char* fileName,
-                                       double const *table, int nRow, int nColumn, 
+                                       double const *table, int nRow, int nColumn,
                                        int smoothness) {
   int tableID = (int) dymTableInit(2.0, smoothness-1, tableName, fileName, table, nRow, nColumn, 0.0);
   return tableID;

@@ -16,8 +16,8 @@ annotation (Documentation(info="<html>
 </ul>
 <h4>Overview of WaterIF97 derived water models</h4>
 <p>
-The WaterIF97 models calculate medium properties 
-for water in the <b>liquid</b>, <b>gas</b> and <b>two phase</b> regions 
+The WaterIF97 models calculate medium properties
+for water in the <b>liquid</b>, <b>gas</b> and <b>two phase</b> regions
 according to the IAPWS/IF97 standard, i.e., the accepted industrial standard
 and best compromise between accuracy and computation time.
 It has been part of the ThermoFluid Modelica library and been extended,
@@ -30,16 +30,16 @@ from different functions if one of the functions is called often but can be opti
 <p>Three variable pairs can be the independent variables of the model:
 </p>
 <ol>
-<li>Pressure <b>p</b> and specific enthalpy <b>h</b> are 
-    the most natural choice for general applications. 
-    This is the recommended choice for most general purpose 
+<li>Pressure <b>p</b> and specific enthalpy <b>h</b> are
+    the most natural choice for general applications.
+    This is the recommended choice for most general purpose
     applications, in particular for power plants.</li>
-<li>Pressure <b>p</b> and temperature <b>T</b> are the most natural 
+<li>Pressure <b>p</b> and temperature <b>T</b> are the most natural
     choice for applications where water is always in the same phase,
     both for liquid water and steam.</li>
-<li>Density <b>d</b> and temperature <b>T</b> are explicit 
-    variables of the Helmholtz function in the near-critical 
-    region and can be the best choice for applications with 
+<li>Density <b>d</b> and temperature <b>T</b> are explicit
+    variables of the Helmholtz function in the near-critical
+    region and can be the best choice for applications with
     super-critical or near-critial states.</li>
 </ol>
 <p>
@@ -129,12 +129,12 @@ one of the following functions:
 <p>More details are given in
 <a href=\"Modelica://Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">
 Modelica.Media.UsersGuide.MediumUsage.OptionalProperties</a>.
- 
-Many additional optional functions are defined to compute properties of 
-saturated media, either liquid (bubble point) or vapour (dew point). 
+
+Many additional optional functions are defined to compute properties of
+saturated media, either liquid (bubble point) or vapour (dew point).
 The argument to such functions is a SaturationProperties record, which can be
 set starting from either the saturation pressure or the saturation temperature.
-With reference to a model defining a pressure p, a temperature T, and a 
+With reference to a model defining a pressure p, a temperature T, and a
 SaturationProperties record sat, the following functions are provided:
 </p>
 <p>
@@ -185,17 +185,17 @@ SaturationProperties record sat, the following functions are provided:
       <td valign=\"top\">N/m</td>
       <td valign=\"top\">Surface tension between liquid and vapour phase</td></tr>
 </table>
- 
+
 <p>Details on usage and some examples are given in:
 <a href=\"Modelica://Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
 Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 </p>
- 
+
 <p>Many further properties can be computed. Using the well-known Bridgman's Tables,
 all first partial derivatives of the standard thermodynamic variables can be computed easily.
 </p>
 <p>
-The documentation of the IAPWS/IF97 steam properties can be freely 
+The documentation of the IAPWS/IF97 steam properties can be freely
 distributed with computer implementations and are included here
 (in directory Modelica\\help\\Documentation\\IF97documentation):
 <ul>
@@ -270,7 +270,7 @@ package ConstantPropertyLiquidWater
           extent={{-100,-100},{100,100}}),
                                     graphics),
     Documentation(info="<html>
-  
+
 </html>"));
 end ConstantPropertyLiquidWater;
 
@@ -279,7 +279,7 @@ package IdealSteam "Water: Steam as ideal gas from NASA source"
   extends IdealGases.SingleGases.H2O(
   fluidConstants = waterConstants);
   annotation (Documentation(info="<html>
-  
+
 </html>"));
 end IdealSteam;
 
@@ -302,7 +302,7 @@ package WaterIF97OnePhase_ph
     final smoothModel=true,
     final onePhase=true);
   annotation (Documentation(info="<html>
-   
+
 </html>"));
 end WaterIF97OnePhase_ph;
 
@@ -327,7 +327,7 @@ package WaterIF97_ph "Water using the IF97 standard, explicit in p and h"
     smoothModel=false,
     onePhase=false);
   annotation (Documentation(info="<html>
-  
+
 </html>"));
 end WaterIF97_ph;
 
@@ -345,12 +345,12 @@ partial package WaterIF97_base
           textString="water")}),
                           Documentation(info="<HTML>
 <p>
-This model calculates medium properties 
-for water in the <b>liquid</b>, <b>gas</b> and <b>two phase</b> regions 
+This model calculates medium properties
+for water in the <b>liquid</b>, <b>gas</b> and <b>two phase</b> regions
 according to the IAPWS/IF97 standard, i.e., the accepted industrial standard
 and best compromise between accuracy and computation time.
 For more details see <a href=\"Modelica://Modelica.Media.Water.IF97_Utilities\">
-Modelica.Media.Water.IF97_Utilities</a>. Three variable pairs can be the 
+Modelica.Media.Water.IF97_Utilities</a>. Three variable pairs can be the
 independent variables of the model:
 <ol>
 <li>Pressure <b>p</b> and specific enthalpy <b>h</b> are the most natural choice for general applications. This is the recommended choice for most general purpose applications, in particular for power plants.</li>
@@ -382,7 +382,7 @@ The following quantities are always computed:
 <p>
 In some cases additional medium properties are needed.
 A component that needs these optional properties has to call
-one of the functions listed in 
+one of the functions listed in
 <a href=\"Modelica://Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">
 Modelica.Media.UsersGuide.MediumUsage.OptionalProperties</a> and in
 <a href=\"Modelica://Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
@@ -928,12 +928,12 @@ partial package WaterIF97_fixedregion
           textString="water")}),
                           Documentation(info="<HTML>
 <p>
-This model calculates medium properties 
-for water in the <b>liquid</b>, <b>gas</b> and <b>two phase</b> regions 
+This model calculates medium properties
+for water in the <b>liquid</b>, <b>gas</b> and <b>two phase</b> regions
 according to the IAPWS/IF97 standard, i.e., the accepted industrial standard
 and best compromise between accuracy and computation time.
 For more details see <a href=\"Modelica://Modelica.Media.Water.IF97_Utilities\">
-Modelica.Media.Water.IF97_Utilities</a>. Three variable pairs can be the 
+Modelica.Media.Water.IF97_Utilities</a>. Three variable pairs can be the
 independent variables of the model:
 <ol>
 <li>Pressure <b>p</b> and specific enthalpy <b>h</b> are the most natural choice for general applications. This is the recommended choice for most general purpose applications, in particular for power plants.</li>
@@ -965,7 +965,7 @@ The following quantities are always computed:
 <p>
 In some cases additional medium properties are needed.
 A component that needs these optional properties has to call
-one of the functions listed in 
+one of the functions listed in
 <a href=\"Modelica://Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">
 Modelica.Media.UsersGuide.MediumUsage.OptionalProperties</a> and in
 <a href=\"Modelica://Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
@@ -1527,7 +1527,7 @@ package WaterIF97_R1ph "region 1 (liquid) water according to IF97 standard"
     smoothModel=true,
     onePhase=true);
   annotation (Documentation(info="<html>
-  
+
 </html>"));
 end WaterIF97_R1ph;
 
@@ -1542,7 +1542,7 @@ package WaterIF97_R2ph "region 2 (steam) water according to IF97 standard"
     smoothModel=true,
     onePhase=true);
   annotation (Documentation(info="<html>
-  
+
 </html>"));
 end WaterIF97_R2ph;
 
@@ -1557,7 +1557,7 @@ package WaterIF97_R3ph "region 3 water according to IF97 standard"
     smoothModel=true,
     onePhase=true);
   annotation (Documentation(info="<html>
-  
+
 </html>"));
 end WaterIF97_R3ph;
 
@@ -1572,7 +1572,7 @@ package WaterIF97_R4ph "region 4 water according to IF97 standard"
     smoothModel=true,
     onePhase=false);
   annotation (Documentation(info="<html>
-  
+
 </html>"));
 end WaterIF97_R4ph;
 
@@ -1587,7 +1587,7 @@ package WaterIF97_R5ph "region 5 water according to IF97 standard"
     smoothModel=true,
     onePhase=true);
   annotation (Documentation(info="<html>
-  
+
 </html>"));
 end WaterIF97_R5ph;
 
@@ -1602,7 +1602,7 @@ package WaterIF97_R1pT "region 1 (liquid) water according to IF97 standard"
     smoothModel=true,
     onePhase=true);
   annotation (Documentation(info="<html>
-  
+
 </html>"));
 end WaterIF97_R1pT;
 
@@ -1617,7 +1617,7 @@ package WaterIF97_R2pT "region 2 (steam) water according to IF97 standard"
     smoothModel=true,
     onePhase=true);
   annotation (Documentation(info="<html>
-  
+
 </html>"));
 end WaterIF97_R2pT;
 end Water;

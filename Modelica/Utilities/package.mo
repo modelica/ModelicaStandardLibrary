@@ -35,8 +35,8 @@ The following main sublibraries are available:
      provides functions to operate on strings. E.g.
      substring, find, replace, sort, scanToken.</li>
 <li> <a href=\"Modelica://Modelica.Utilities.System\">System</a>
-     provides functions to interact with the environment. 
-     E.g., get or set the working directory or environment 
+     provides functions to interact with the environment.
+     E.g., get or set the working directory or environment
      variables and to send a command to the default shell.</li>
 </ul>
 
@@ -46,7 +46,7 @@ Copyright &copy; 1998-2009, Modelica Association, DLR and Dynasim.
 <p>
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> 
+and the accompanying <b>disclaimer</b>
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
 </p><br>
 </html>
@@ -106,7 +106,7 @@ Below the major design decisions of this library are summarized.
      used as a basis for the integration in the vendors environment.<br>&nbsp;</li>
 <li> <b>Character Encoding</b><br>
      The representation of characters is different in operating systems.
-     The more modern ones (e.g. Windows-NT) use an early variant of 
+     The more modern ones (e.g. Windows-NT) use an early variant of
      Unicode (16 bit per character)
      other (e.g. Windows-ME) use 8-bit encoding. Also 32 bit per character
      and multi-byte representations are in use. This is important, since e.g.,
@@ -118,13 +118,13 @@ Below the major design decisions of this library are summarized.
      The C-interface of the Modelica language provides only an 8-bit
      character encoding passing mechanism of strings. As a result, the
      reference implementation in \"Modelica.Utilities\\C-Source\" needs to
-     be adapted to the character representation supported in the 
+     be adapted to the character representation supported in the
      Modelica vendor environment.<br>&nbsp;</li>
 <li> <b>Internal String Representation</b><br>
      The design of this package was made in order that string handling
      is convenient. This is in contrast to, e.g., the C-language, where
      string handling is inconvenient, cumbersome and error prone, but on the
-     other hand is in some sense \"efficient\". 
+     other hand is in some sense \"efficient\".
      The standard reference implementation in \"Modelica.Utilities\\C-Source\"
      is based on the standard C definition of a string, i.e., a pointer to
      a sequence of characters, ended with a null terminating character.
@@ -133,11 +133,11 @@ Below the major design decisions of this library are summarized.
      a substring is efficient (O(1) access instead of O(n) as in standard C).
      This allows to hide string pointer arithmetic from the user.
      In such a case, a similiar efficiency as in C can be expected for
-     most high level operations, such as find, sort, replace. 
+     most high level operations, such as find, sort, replace.
      The \"efficient character access\" can be reached if, e.g.,
      the number of characters
      are stored in a string, and the length of a character is fixed,
-     say 16 or 32 bit (if all Unicode characters shall be represented). 
+     say 16 or 32 bit (if all Unicode characters shall be represented).
      A vendor should adapt the reference implementation in this
      respect.<br>&nbsp;</li>
 <li> <b>String copy = pointer copy</b><br>
@@ -189,7 +189,7 @@ First version implemented.
 </dl>
 <p><b>Acknowledgements:</b></p>
 <ul>
-<li> This library has been designed by:<br> 
+<li> This library has been designed by:<br>
      <blockquote>
      Dag Br&uuml;ck, Dynasim AB, Sweden <br>
      Hilding Elmqvist, Dynasim AB, Sweden <br>
@@ -214,13 +214,13 @@ end UsersGuide;
 // newest Dymola release
 
 
-protected 
+protected
 package Internal "Internal package as interface to the operating system"
  extends Modelica.Icons.Library;
   annotation (
 Documentation(info="<html>
 <p>
-Package <b>Internal</b> is an internal package that contains 
+Package <b>Internal</b> is an internal package that contains
 low level functions as interface to the operating system.
 These functions should not be called directly in a scripting
 environment since more convenient functions are provided

@@ -317,7 +317,7 @@ equation
 
   end when;
 
-  y = if not allowOutOfRange or index > 0 and index <= nin then 
+  y = if not allowOutOfRange or index > 0 and index <= nin then
               k*u else outOfRangeValue;
 end Extractor;
 
@@ -949,10 +949,10 @@ This package contains blocks to combine and extract signals.
 
     extends Modelica.Blocks.Interfaces.BlockIcon;
 
-    Modelica.Blocks.Interfaces.RealInput u "Input signal" 
+    Modelica.Blocks.Interfaces.RealInput u "Input signal"
       annotation (HideResult=true, Placement(transformation(extent={{-140,-20},{-100,
               20}}, rotation=0)));
-    Modelica.Blocks.Interfaces.RealOutput y "Output signal" 
+    Modelica.Blocks.Interfaces.RealOutput y "Output signal"
       annotation (HideResult=true, Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -970,10 +970,10 @@ Passes a Real signal through without modification.  Enables signals to be read o
   model IntegerPassThrough "Pass a Integer signal through without modification"
     extends Modelica.Blocks.Interfaces.IntegerBlockIcon;
 
-    Modelica.Blocks.Interfaces.IntegerInput u "Input signal" 
+    Modelica.Blocks.Interfaces.IntegerInput u "Input signal"
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
-    Modelica.Blocks.Interfaces.IntegerOutput y "Output signal" 
+    Modelica.Blocks.Interfaces.IntegerOutput y "Output signal"
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -990,10 +990,10 @@ Passes a Real signal through without modification.  Enables signals to be read o
   model BooleanPassThrough "Pass a Boolean signal through without modification"
     extends Modelica.Blocks.Interfaces.BooleanBlockIcon;
 
-    Modelica.Blocks.Interfaces.BooleanInput u "Input signal" 
+    Modelica.Blocks.Interfaces.BooleanInput u "Input signal"
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
-    Modelica.Blocks.Interfaces.BooleanOutput y "Output signal" 
+    Modelica.Blocks.Interfaces.BooleanOutput y "Output signal"
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{
