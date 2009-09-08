@@ -1,6 +1,6 @@
 within Modelica.Electrical.Analog;
-package Interfaces 
-  "Connectors and partial models for Analog electrical components" 
+package Interfaces
+  "Connectors and partial models for Analog electrical components"
   extends Modelica.Icons.Library;
   annotation(preferedView="info", Window(
       x=0.03,
@@ -49,8 +49,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
        </li>
 </ul>
 </html>"));
-  
-  connector Pin "Pin of an electrical component" 
+
+  connector Pin "Pin of an electrical component"
     SI.Voltage v "Potential at the pin";
     flow SI.Current i "Current flowing into the pin";
     annotation (defaultComponentName="pin",
@@ -70,8 +70,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 </ul>
 </html>"));
   end Pin;
-  
-  connector PositivePin "Positive pin of an electric component" 
+
+  connector PositivePin "Positive pin of an electric component"
     SI.Voltage v "Potential at the pin";
     flow SI.Current i "Current flowing into the pin";
     annotation (defaultComponentName="pin_p",
@@ -97,8 +97,8 @@ component.</p></html>", revisions="<html>
           string="%name",
           style(color=3))));
   end PositivePin;
-  
-  connector NegativePin "Negative pin of an electric component" 
+
+  connector NegativePin "Negative pin of an electric component"
     SI.Voltage v "Potential at the pin";
     flow SI.Current i "Current flowing into the pin";
     annotation (defaultComponentName="pin_n",
@@ -129,10 +129,10 @@ component.</p></html>", revisions="<html>
               "%name")),
       Terminal(Rectangle(extent=[-100, 100; 100, -100], style(color=3))));
   end NegativePin;
-  
-  partial model TwoPin "Component with one electrical port" 
+
+  partial model TwoPin "Component with one electrical port"
     SI.Voltage v "Voltage drop between the two pins (= p.v - n.v)";
-    PositivePin p 
+    PositivePin p
       "Positive pin Positive pin (potential p.v > n.v for positive voltage drop v)"
                                                                                                 annotation (extent=[-110, -10; -90, 10]);
     NegativePin n "Negative pin" annotation (extent=[90, -10; 110, 10]);
@@ -174,13 +174,13 @@ component.</p></html>", revisions="<html>
        </li>
 </ul>
 </html>"));
-  equation 
+  equation
     v = p.v - n.v;
   end TwoPin;
-  
-  partial model OnePort 
-    "Component with two electrical pins p and n and current i from p to n" 
-    
+
+  partial model OnePort
+    "Component with two electrical pins p and n and current i from p to n"
+
     SI.Voltage v "Voltage drop between the two pins (= p.v - n.v)";
     SI.Current i "Current flowing from pin p to pin n";
     annotation (
@@ -233,28 +233,28 @@ This current is provided explicitly as current i.
         y=0.04,
         width=0.63,
         height=0.67));
-    PositivePin p 
+    PositivePin p
       "Positive pin (potential p.v > n.v for positive voltage drop v)"             annotation (extent=[-110, -10; -90, 10]);
     NegativePin n "Negative pin" annotation (extent=[110, -10; 90, 10]);
-  equation 
+  equation
     v = p.v - n.v;
     0 = p.i + n.i;
     i = p.i;
   end OnePort;
-  
-  partial model TwoPort 
-    "Component with two electrical ports, including current" 
+
+  partial model TwoPort
+    "Component with two electrical ports, including current"
     SI.Voltage v1 "Voltage drop over the left port";
     SI.Voltage v2 "Voltage drop over the right port";
     SI.Current i1 "Current flowing from pos. to neg. pin of the left port";
     SI.Current i2 "Current flowing from pos. to neg. pin of the right port";
-    PositivePin p1 
+    PositivePin p1
       "Positive pin of the left port (potential p1.v > n1.v for positive voltage drop v1)"
                                                                                                         annotation (extent=[-110, 40;
             -90, 60]);
     NegativePin n1 "Negative pin of the left port" annotation (extent=[-90,-60;
           -110,-40]);
-    PositivePin p2 
+    PositivePin p2
       "Positive pin of the right port (potential p2.v > n2.v for positive voltage drop v2)"
                                                                                                          annotation (extent=[110,40;
           90,60]);
@@ -323,9 +323,9 @@ This current is provided explicitly as current i.
        </li>
 </ul>
 </html>", info="<html>
- 
+
 </html>"));
-  equation 
+  equation
     v1 = p1.v - n1.v;
     v2 = p2.v - n2.v;
     0 = p1.i + n1.i;
@@ -333,13 +333,13 @@ This current is provided explicitly as current i.
     i1 = p1.i;
     i2 = p2.i;
   end TwoPort;
-  
-  partial model AbsoluteSensor 
-    "Base class to measure the absolute value of a pin variable" 
+
+  partial model AbsoluteSensor
+    "Base class to measure the absolute value of a pin variable"
     extends Modelica.Icons.RotationalSensor;
-    
+
     Interfaces.PositivePin p "Pin to be measured" annotation (extent=[-110, -10; -90, 10]);
-    Modelica.Blocks.Interfaces.RealOutput y 
+    Modelica.Blocks.Interfaces.RealOutput y
       "Measured quantity as Real output signal"                                       annotation (extent=[100, -10; 120, 10]);
     annotation (
       Coordsys(
@@ -367,17 +367,17 @@ This current is provided explicitly as current i.
 </ul>
 </html>"));
   end AbsoluteSensor;
-  
-  partial model RelativeSensor 
-    "Base class to measure a relative variable between two pins" 
+
+  partial model RelativeSensor
+    "Base class to measure a relative variable between two pins"
     extends Modelica.Icons.RotationalSensor;
-    
+
     Interfaces.PositivePin p "Positive pin" annotation (extent=[-110, -10; -90, 10]);
     Interfaces.NegativePin n "Negative pin" annotation (extent=[90, -10; 110, 10]);
-    Modelica.Blocks.Interfaces.RealOutput y 
+    Modelica.Blocks.Interfaces.RealOutput y
       "Measured quantity as Real output signal"                                       annotation (extent=[-10, -90; 10, -110],
         rotation=90);
-    
+
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -401,12 +401,12 @@ This current is provided explicitly as current i.
        </li>
 </ul>
 </html>"));
-    
+
   end RelativeSensor;
-  
-  partial model VoltageSource "Interface for voltage sources" 
+
+  partial model VoltageSource "Interface for voltage sources"
     extends OnePort;
-    
+
     parameter SI.Voltage offset=0 "Voltage offset";
     parameter SI.Time startTime=0 "Time offset";
     annotation (
@@ -445,15 +445,15 @@ This current is provided explicitly as current i.
 </ul>
 </html>"));
     replaceable Modelica.Blocks.Interfaces.SignalSource signalSource(
-        final offset = offset, final startTime=startTime) 
+        final offset = offset, final startTime=startTime)
     annotation (extent=[70, 70; 90, 90]);
-  equation 
+  equation
     v = signalSource.y;
   end VoltageSource;
-  
-  partial model CurrentSource "Interface for current sources" 
+
+  partial model CurrentSource "Interface for current sources"
     extends OnePort;
-    
+
     parameter SI.Current offset=0 "Current offset";
     parameter SI.Time startTime=0 "Time offset";
     annotation (
@@ -493,7 +493,7 @@ This current is provided explicitly as current i.
     replaceable Modelica.Blocks.Interfaces.SignalSource signalSource(
         final offset = offset, final startTime=startTime) annotation (extent=[70,
           69; 91,89]);
-  equation 
+  equation
     i = signalSource.y;
   end CurrentSource;
 end Interfaces;

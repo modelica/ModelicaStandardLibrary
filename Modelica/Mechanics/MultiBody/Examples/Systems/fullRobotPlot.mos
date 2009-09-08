@@ -3,7 +3,7 @@
 animationRemove(id = 1);
 animationPosition(position={5,11,646,599},id=1);
 animationGrid(grid_square = 1, grid_size = 50.0);
-animationView(view = 
+animationView(view =
 [0.870550563296124, 0, 0, 0.261165168988837;
 0, 0.870550563296124, 0, (-0.522330337977674);
 0, 0, 0.870550563296124, (-1.40629335490872E-009);

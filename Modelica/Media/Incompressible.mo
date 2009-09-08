@@ -1,24 +1,24 @@
 within Modelica.Media;
-package Incompressible 
-  "Medium model for T-dependent properties, defined by tables or polynomials" 
-  
+package Incompressible
+  "Medium model for T-dependent properties, defined by tables or polynomials"
+
   import SI = Modelica.SIunits;
   import Cv = Modelica.SIunits.Conversions;
   import Modelica.Constants;
   import Modelica.Math;
-  
-  package Common "Common data structures" 
-    
+
+  package Common "Common data structures"
+
     // Extended record for input to functions based on polynomials
-    record BaseProps_Tpoly "Fluid state record" 
+    record BaseProps_Tpoly "Fluid state record"
       extends Modelica.Media.Interfaces.PartialMedium.ThermodynamicState;
       //      SI.SpecificHeatCapacity cp "specific heat capacity";
       SI.Temperature T "temperature";
       SI.Pressure p "pressure";
       //    SI.Density d "density";
     end BaseProps_Tpoly;
-    
-    //     record BaseProps_Tpoly_old "fluid state record" 
+
+    //     record BaseProps_Tpoly_old "fluid state record"
     //       extends Modelica.Media.Interfaces.PartialMedium.ThermodynamicState;
     //       //      SI.SpecificHeatCapacity cp "specific heat capacity";
     //       SI.Temperature T "temperature";
@@ -32,20 +32,20 @@ package Incompressible
     //       parameter Real[:] invTK "inverse T [1/K]";
     //     end BaseProps_Tpoly_old;
   end Common;
-  
-  package TableBased "Incompressible medium properties based on tables" 
-    
+
+  package TableBased "Incompressible medium properties based on tables"
+
     import Poly = Modelica.Media.Incompressible.TableBased.Polynomials_Temp;
-    
+
     extends Modelica.Media.Interfaces.PartialMedium(
        final reducedX=true,
        mediumName="tableMedium",
        redeclare record ThermodynamicState=Common.BaseProps_Tpoly,
        singleState=true);
     // Constants to be set in actual Medium
-    constant Boolean enthalpyOfT=true 
+    constant Boolean enthalpyOfT=true
       "true if enthalpy is approximated as a function of T only, (p-dependence neglected)";
-    constant Boolean densityOfT = size(tableDensity,1) > 1 
+    constant Boolean densityOfT = size(tableDensity,1) > 1
       "true if density is a function of temperature";
     constant Temperature T_min "Minimum temperature valid for medium model";
     constant Temperature T_max "Maximum temperature valid for medium model";
@@ -54,7 +54,7 @@ package Incompressible
     constant SpecificEntropy s0=0 "reference entropy at T0, reference_p";
     constant MolarMass MM_const=0.1 "Molar mass";
     constant Integer npol=2 "degree of polynomial used for fitting";
-    constant Integer neta=size(tableViscosity,1) 
+    constant Integer neta=size(tableViscosity,1)
       "number of data points for viscosity";
     constant Real[:,:] tableDensity "Table for rho(T)";
     constant Real[:,:] tableHeatCapacity "Table for Cp(T)";
@@ -99,39 +99,39 @@ properties and vapor pressure are optional, if the data tables are empty the cor
 function calls can not be used.
 </p>
 </HTML>"));
-    final constant Real poly_rho[:] = if hasDensity then 
-                                         Poly.fitting(tableDensity[:,1],tableDensity[:,2],npol) else 
+    final constant Real poly_rho[:] = if hasDensity then
+                                         Poly.fitting(tableDensity[:,1],tableDensity[:,2],npol) else
                                            zeros(npol+1) annotation(keepConstant = true);
-    final constant Real poly_Cp[:] = if hasHeatCapacity then 
-                                         Poly.fitting(tableHeatCapacity[:,1],tableHeatCapacity[:,2],npol) else 
+    final constant Real poly_Cp[:] = if hasHeatCapacity then
+                                         Poly.fitting(tableHeatCapacity[:,1],tableHeatCapacity[:,2],npol) else
                                            zeros(npol+1) annotation(keepConstant = true);
-    final constant Real poly_eta[:] = if hasViscosity then 
-                                         Poly.fitting(invTK, Math.log(tableViscosity[:,2]),npol) else 
+    final constant Real poly_eta[:] = if hasViscosity then
+                                         Poly.fitting(invTK, Math.log(tableViscosity[:,2]),npol) else
                                            zeros(npol+1) annotation(keepConstant = true);
-    final constant Real poly_pVap[:] = if hasVaporPressure then 
-                                         Poly.fitting(tableVaporPressure[:,1],tableVaporPressure[:,2],npol) else 
+    final constant Real poly_pVap[:] = if hasVaporPressure then
+                                         Poly.fitting(tableVaporPressure[:,1],tableVaporPressure[:,2],npol) else
                                             zeros(npol+1) annotation(keepConstant= true);
-    final constant Real poly_lam[:] = if size(tableConductivity,1)>0 then 
-                                         Poly.fitting(tableConductivity[:,1],tableConductivity[:,2],npol) else 
+    final constant Real poly_lam[:] = if size(tableConductivity,1)>0 then
+                                         Poly.fitting(tableConductivity[:,1],tableConductivity[:,2],npol) else
                                            zeros(npol+1) annotation(keepConstant = true);
-    function invertTemp "function to invert temperatures" 
+    function invertTemp "function to invert temperatures"
       input Real[:] table "table temperature data";
       input Boolean Tink "flag for Celsius or Kelvin";
       output Real invTable[size(table,1)] "inverted temperatures";
-    algorithm 
+    algorithm
       for i in 1:size(table,1) loop
         invTable[i] := if TinK then 1/table[i] else 1/Cv.from_degC(table[i]);
       end for;
     end invertTemp;
-    
+
     redeclare model extends BaseProperties(
       R=Modelica.Constants.R,
       p_bar=Cv.to_bar(p),
       T_degC(start = T_start-273.15)=Cv.to_degC(T),
       T(start = T_start,
-        stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default)) 
-      "Base properties of T dependent medium" 
-      
+        stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default))
+      "Base properties of T dependent medium"
+
       annotation(Documentation(info="<html>
 <p>
 Note that the inner energy neglects the pressure dependence, which is only
@@ -141,12 +141,12 @@ liquids due to proportionality to 1/d^2, but can be problematic for gases that a
 modeled incompressible.
 </p>
 
-<p>                               
+<p>
 Enthalpy is never a function of T only (h = h(T) + (p-reference_p)/d), but the
 error is also small and non-linear systems can be avoided. In particular,
 non-linear systems are small and local as opposed to large and over all volumes.
-</p>                               
-    
+</p>
+
 <p>
 Entropy is calculated as
 </p>
@@ -160,7 +160,7 @@ which is only exactly true for a fluid with constant density d=d0.
       "));
       SI.SpecificHeatCapacity cp "specific heat capacity";
       parameter SI.Temperature T_start = 298.15 "initial temperature";
-    equation 
+    equation
       assert(hasDensity,"Medium " + mediumName +
                         " can not be used without assigning tableDensity.");
       assert(T >= T_min and T <= T_max, "Temperature T (= " + String(T) +
@@ -179,244 +179,244 @@ which is only exactly true for a fluid with constant density d=d0.
       state.p = p;
       MM = MM_const;
     end BaseProperties;
-    
-    redeclare function extends setState_pTX 
-      "Returns state record, given pressure and temperature" 
-    algorithm 
+
+    redeclare function extends setState_pTX
+      "Returns state record, given pressure and temperature"
+    algorithm
       state := ThermodynamicState(p=p,T=T);
     end setState_pTX;
-    
-    redeclare function extends setState_dTX 
-      "Returns state record, given pressure and temperature" 
-    algorithm 
+
+    redeclare function extends setState_dTX
+      "Returns state record, given pressure and temperature"
+    algorithm
       assert(false, "for incompressible media with d(T) only, state can not be set from density and temperature");
     end setState_dTX;
-    
-    function setState_pT "returns state record as function of p and T" 
+
+    function setState_pT "returns state record as function of p and T"
       input AbsolutePressure p "pressure";
       input Temperature T "temperature";
       output ThermodynamicState state "thermodynamic state";
-    algorithm 
+    algorithm
       state.T := T;
       state.p := p;
     end setState_pT;
-    
-    redeclare function extends setState_phX 
-      "Returns state record, given pressure and specific enthalpy" 
-    algorithm 
+
+    redeclare function extends setState_phX
+      "Returns state record, given pressure and specific enthalpy"
+    algorithm
       state :=ThermodynamicState(p=p,T=T_ph(p,h));
     end setState_phX;
-    
-    function setState_ph "returns state record as function of p and h" 
+
+    function setState_ph "returns state record as function of p and h"
       input AbsolutePressure p "pressure";
       input SpecificEnthalpy h "specific enthalpy";
       output ThermodynamicState state "thermodynamic state";
-    algorithm 
+    algorithm
       state :=ThermodynamicState(p=p,T=T_ph(p,h));
     end setState_ph;
-    
-    redeclare function extends setState_psX 
-      "Returns state record, given pressure and specific entropy" 
-    algorithm 
+
+    redeclare function extends setState_psX
+      "Returns state record, given pressure and specific entropy"
+    algorithm
       state :=ThermodynamicState(p=p,T=T_ps(p,s));
     end setState_psX;
-    
-    function setState_ps "returns state record as function of p and s" 
+
+    function setState_ps "returns state record as function of p and s"
       input AbsolutePressure p "pressure";
       input SpecificEntropy s "specific entropy";
       output ThermodynamicState state "thermodynamic state";
-    algorithm 
+    algorithm
       state :=ThermodynamicState(p=p,T=T_ps(p,s));
     end setState_ps;
-    
-    redeclare function extends specificHeatCapacityCv 
-      "Specific heat capacity at constant volume (or pressure) of medium" 
-      
+
+    redeclare function extends specificHeatCapacityCv
+      "Specific heat capacity at constant volume (or pressure) of medium"
+
      annotation(smoothOrder=2);
-    algorithm 
+    algorithm
       assert(hasHeatCapacity,"Specific Heat Capacity, Cv, is not defined for medium "
                                              + mediumName + ".");
       cv := Poly.evaluate(poly_Cp,if TinK then state.T else state.T - 273.15);
     end specificHeatCapacityCv;
-    
-    redeclare function extends specificHeatCapacityCp 
-      "Specific heat capacity at constant volume (or pressure) of medium" 
-      
+
+    redeclare function extends specificHeatCapacityCp
+      "Specific heat capacity at constant volume (or pressure) of medium"
+
      annotation(smoothOrder=2);
-    algorithm 
+    algorithm
       assert(hasHeatCapacity,"Specific Heat Capacity, Cv, is not defined for medium "
                                              + mediumName + ".");
       cp := Poly.evaluate(poly_Cp,if TinK then state.T else state.T - 273.15);
     end specificHeatCapacityCp;
-    
-    redeclare function extends dynamicViscosity 
-      
+
+    redeclare function extends dynamicViscosity
+
      annotation(smoothOrder=2);
-    algorithm 
+    algorithm
       assert(size(tableViscosity,1)>0,"DynamicViscosity, eta, is not defined for medium "
                                              + mediumName + ".");
       eta := Math.exp(Poly.evaluate(poly_eta, 1/state.T));
     end dynamicViscosity;
-    
-    redeclare function extends thermalConductivity 
-      
+
+    redeclare function extends thermalConductivity
+
      annotation(smoothOrder=2);
-    algorithm 
+    algorithm
       assert(size(tableConductivity,1)>0,"ThermalConductivity, lambda, is not defined for medium "
                                              + mediumName + ".");
       lambda := Poly.evaluate(poly_lam,if TinK then state.T else Cv.to_degC(state.T));
     end thermalConductivity;
-    
-    function s_T "compute specific entropy" 
+
+    function s_T "compute specific entropy"
       input Temperature T "temperature";
       output SpecificEntropy s "specific entropy";
-    algorithm 
-      s := s0 + (if TinK then 
-        Poly.integralValue(poly_Cp[1:npol],T, T0) else 
+    algorithm
+      s := s0 + (if TinK then
+        Poly.integralValue(poly_Cp[1:npol],T, T0) else
         Poly.integralValue(poly_Cp[1:npol],Cv.to_degC(T),Cv.to_degC(T0)))
         + Modelica.Math.log(T/T0)*
         Poly.evaluate(poly_Cp,if TinK then 0 else Modelica.Constants.T_zero);
     end s_T;
-    
-    redeclare function extends specificEntropy 
-    protected 
+
+    redeclare function extends specificEntropy
+    protected
       Integer npol=size(poly_Cp,1)-1;
      annotation(smoothOrder=2);
-    algorithm 
+    algorithm
       assert(hasHeatCapacity,"Specific Entropy, s(T), is not defined for medium "
                                              + mediumName + ".");
       s := s_T(state.T);
     end specificEntropy;
-    
-    function h_T "Compute specific enthalpy from temperature" 
+
+    function h_T "Compute specific enthalpy from temperature"
       import Modelica.SIunits.Conversions.to_degC;
       extends Modelica.Icons.Function;
       input SI.Temperature T "Temperature";
       output SI.SpecificEnthalpy h "Specific enthalpy at p, T";
      annotation(derivative=h_T_der);
-    algorithm 
-      h :=h0 + Poly.integralValue(poly_Cp, if TinK then T else Cv.to_degC(T), if TinK then 
+    algorithm
+      h :=h0 + Poly.integralValue(poly_Cp, if TinK then T else Cv.to_degC(T), if TinK then
       T0 else Cv.to_degC(T0));
     end h_T;
-    
-    function h_T_der "Compute specific enthalpy from temperature" 
+
+    function h_T_der "Compute specific enthalpy from temperature"
       import Modelica.SIunits.Conversions.to_degC;
       extends Modelica.Icons.Function;
       input SI.Temperature T "Temperature";
       input Real dT "temperature derivative";
       output Real dh "derivative of Specific enthalpy at T";
-    algorithm 
+    algorithm
       dh :=Poly.evaluate(poly_Cp, if TinK then T else Cv.to_degC(T))*dT;
     end h_T_der;
-    
-    function h_pT "Compute specific enthalpy from pressure and temperature" 
+
+    function h_pT "Compute specific enthalpy from pressure and temperature"
       import Modelica.SIunits.Conversions.to_degC;
       extends Modelica.Icons.Function;
       input SI.Pressure p "Pressure";
       input SI.Temperature T "Temperature";
-      input Boolean densityOfT = false 
+      input Boolean densityOfT = false
         "include or neglect density derivative dependence of enthalpy" annotation(Evaluate);
       output SI.SpecificEnthalpy h "Specific enthalpy at p, T";
      annotation(smoothOrder=2);
-    algorithm 
-      h :=h0 + Poly.integralValue(poly_Cp, if TinK then T else Cv.to_degC(T), if TinK then 
-      T0 else Cv.to_degC(T0)) + (p - reference_p)/Poly.evaluate(poly_rho, if TinK then 
+    algorithm
+      h :=h0 + Poly.integralValue(poly_Cp, if TinK then T else Cv.to_degC(T), if TinK then
+      T0 else Cv.to_degC(T0)) + (p - reference_p)/Poly.evaluate(poly_rho, if TinK then
               T else Cv.to_degC(T))
         *(if densityOfT then (1 + T/Poly.evaluate(poly_rho, if TinK then T else Cv.to_degC(T))
       *Poly.derivativeValue(poly_rho,if TinK then T else Cv.to_degC(T))) else 1.0);
     end h_pT;
-    
-    function density_T 
+
+    function density_T
       input Temperature T "temperature";
       output Density d "density";
-    algorithm 
+    algorithm
       d := Poly.evaluate(poly_rho,if TinK then T else Cv.to_degC(T));
     end density_T;
-    
-    redeclare function extends temperature 
-    algorithm 
+
+    redeclare function extends temperature
+    algorithm
      T := state.T;
     end temperature;
-    
-    redeclare function extends pressure 
-    algorithm 
+
+    redeclare function extends pressure
+    algorithm
      p := state.p;
     end pressure;
-    
-    redeclare function extends density 
-    algorithm 
+
+    redeclare function extends density
+    algorithm
       d := Poly.evaluate(poly_rho,if TinK then state.T else Cv.to_degC(state.T));
     end density;
-    
-    redeclare function extends specificEnthalpy 
-    algorithm 
+
+    redeclare function extends specificEnthalpy
+    algorithm
       h := if enthalpyOfT then h_T(state.T) else h_pT(state.p,state.T);
     end specificEnthalpy;
-    
-    redeclare function extends specificInternalEnergy 
-    algorithm 
+
+    redeclare function extends specificInternalEnergy
+    algorithm
       u := if enthalpyOfT then h_T(state.T) else h_pT(state.p,state.T)
         - (if singleState then  reference_p/density(state) else state.p/density(state));
     end specificInternalEnergy;
-    
-    function T_ph "Compute temperature from pressure and specific enthalpy" 
+
+    function T_ph "Compute temperature from pressure and specific enthalpy"
       input AbsolutePressure p "pressure";
       input SpecificEnthalpy h "specific enthalpy";
       output Temperature T "temperature";
-    protected 
-      package Internal 
-        "Solve h(T) for T with given h (use only indirectly via temperature_phX)" 
+    protected
+      package Internal
+        "Solve h(T) for T with given h (use only indirectly via temperature_phX)"
         extends Modelica.Media.Common.OneNonLinearEquation;
-        
-        redeclare record extends f_nonlinear_Data 
-          "superfluous record, fix later when better structure of inverse functions exists" 
+
+        redeclare record extends f_nonlinear_Data
+          "superfluous record, fix later when better structure of inverse functions exists"
             constant Real[5] dummy = {1,2,3,4,5};
         end f_nonlinear_Data;
-        
-        redeclare function extends f_nonlinear "p is smuggled in via vector" 
-        algorithm 
+
+        redeclare function extends f_nonlinear "p is smuggled in via vector"
+        algorithm
           y := if singleState then h_T(x) else h_pT(p,x);
         end f_nonlinear;
-        
+
         // Dummy definition has to be added for current Dymola
-        redeclare function extends solve 
+        redeclare function extends solve
         end solve;
       end Internal;
-    algorithm 
+    algorithm
      T := Internal.solve(h, T_min, T_max, p, {1}, Internal.f_nonlinear_Data());
     end T_ph;
-    
-    function T_ps "Compute temperature from pressure and specific enthalpy" 
+
+    function T_ps "Compute temperature from pressure and specific enthalpy"
       input AbsolutePressure p "pressure";
       input SpecificEntropy s "specific entropy";
       output Temperature T "temperature";
-    protected 
-      package Internal 
-        "Solve h(T) for T with given h (use only indirectly via temperature_phX)" 
+    protected
+      package Internal
+        "Solve h(T) for T with given h (use only indirectly via temperature_phX)"
         extends Modelica.Media.Common.OneNonLinearEquation;
-        
-        redeclare record extends f_nonlinear_Data 
-          "superfluous record, fix later when better structure of inverse functions exists" 
+
+        redeclare record extends f_nonlinear_Data
+          "superfluous record, fix later when better structure of inverse functions exists"
             constant Real[5] dummy = {1,2,3,4,5};
         end f_nonlinear_Data;
-        
-        redeclare function extends f_nonlinear "p is smuggled in via vector" 
-        algorithm 
+
+        redeclare function extends f_nonlinear "p is smuggled in via vector"
+        algorithm
           y := s_T(x);
         end f_nonlinear;
-        
+
         // Dummy definition has to be added for current Dymola
-        redeclare function extends solve 
+        redeclare function extends solve
         end solve;
       end Internal;
-    algorithm 
+    algorithm
      T := Internal.solve(s, T_min, T_max, p, {1}, Internal.f_nonlinear_Data());
     end T_ps;
-    
-    package Polynomials_Temp 
-      "Temporary Functions operating on polynomials (including polynomial fitting); only to be used in Modelica.Media.Incompressible.TableBased" 
+
+    package Polynomials_Temp
+      "Temporary Functions operating on polynomials (including polynomial fitting); only to be used in Modelica.Media.Incompressible.TableBased"
       extends Modelica.Icons.Library;
-      
+
       annotation (Documentation(info="<HTML>
 <p>
 This package contains functions to operate on polynomials,
@@ -450,107 +450,107 @@ Modelica in file \"Modelica/package.mo\".
 </li>
 </ul>
 </html>"),     uses(Modelica(version="2.1"), Modelica_Interpolation(version="0.94")));
-      function evaluate "Evaluate polynomial at a given abszissa value" 
+      function evaluate "Evaluate polynomial at a given abszissa value"
         extends Modelica.Icons.Function;
-        input Real p[:] 
+        input Real p[:]
           "Polynomial coefficients (p[1] is coefficient of highest power)";
         input Real u "Abszissa value";
         output Real y "Value of polynomial at u";
         annotation(derivative(zeroDerivative=p)=evaluate_der);
-      algorithm 
+      algorithm
         y := p[1];
         for j in 2:size(p, 1) loop
           y := p[j] + u*y;
         end for;
       end evaluate;
-      
-      function derivative "Derivative of polynomial" 
+
+      function derivative "Derivative of polynomial"
         extends Modelica.Icons.Function;
-        input Real p1[:] 
+        input Real p1[:]
           "Polynomial coefficients (p1[1] is coefficient of highest power)";
         output Real p2[size(p1, 1) - 1] "Derivative of polynomial p1";
-      protected 
+      protected
         Integer n=size(p1, 1);
-      algorithm 
+      algorithm
         for j in 1:n-1 loop
           p2[j] := p1[j]*(n - j);
         end for;
       end derivative;
-      
-      function derivativeValue 
-        "Value of derivative of polynomial at abszissa value u" 
+
+      function derivativeValue
+        "Value of derivative of polynomial at abszissa value u"
         extends Modelica.Icons.Function;
-        input Real p[:] 
+        input Real p[:]
           "Polynomial coefficients (p[1] is coefficient of highest power)";
         input Real u "Abszissa value";
         output Real y "Value of derivative of polynomial at u";
         annotation(derivative(zeroDerivative=p)=derivativeValue_der);
-      protected 
+      protected
         Integer n=size(p, 1);
-      algorithm 
+      algorithm
         y := p[1]*(n - 1);
         for j in 2:size(p, 1)-1 loop
           y := p[j]*(n - j) + u*y;
         end for;
       end derivativeValue;
-      
-      function secondDerivativeValue 
-        "Value of 2nd derivative of polynomial at abszissa value u" 
+
+      function secondDerivativeValue
+        "Value of 2nd derivative of polynomial at abszissa value u"
         extends Modelica.Icons.Function;
-        input Real p[:] 
+        input Real p[:]
           "Polynomial coefficients (p[1] is coefficient of highest power)";
         input Real u "Abszissa value";
         output Real y "Value of 2nd derivative of polynomial at u";
-      protected 
+      protected
         Integer n=size(p, 1);
-      algorithm 
+      algorithm
         y := p[1]*(n - 1)*(n - 2);
         for j in 2:size(p, 1)-2 loop
           y := p[j]*(n - j)*(n - j - 1) + u*y;
         end for;
       end secondDerivativeValue;
-      
-      function integral "Indefinite integral of polynomial p(u)" 
+
+      function integral "Indefinite integral of polynomial p(u)"
         extends Modelica.Icons.Function;
-        input Real p1[:] 
+        input Real p1[:]
           "Polynomial coefficients (p1[1] is coefficient of highest power)";
-        output Real p2[size(p1, 1) + 1] 
+        output Real p2[size(p1, 1) + 1]
           "Polynomial coefficients of indefinite integral of polynomial p1 (polynomial p2 + C is the indefinite integral of p1, where C is an arbitrary constant)";
-      protected 
+      protected
         Integer n=size(p1, 1) + 1 "degree of output polynomial";
-      algorithm 
+      algorithm
         for j in 1:n-1 loop
           p2[j] := p1[j]/(n-j);
         end for;
       end integral;
-      
-      function integralValue "Integral of polynomial p(u) from u_low to u_high" 
+
+      function integralValue "Integral of polynomial p(u) from u_low to u_high"
         extends Modelica.Icons.Function;
         input Real p[:] "Polynomial coefficients";
         input Real u_high "High integrand value";
         input Real u_low=0 "Low integrand value, default 0";
-        output Real integral=0.0 
+        output Real integral=0.0
           "Integral of polynomial p from u_low to u_high";
         annotation(derivative(zeroDerivative=p)=integralValue_der);
-      protected 
+      protected
         Integer n=size(p, 1) "degree of integrated polynomial";
         Real y_low=0 "value at lower integrand";
-      algorithm 
+      algorithm
         for j in 1:n loop
           integral := u_high*(p[j]/(n - j + 1) + integral);
           y_low := u_low*(p[j]/(n - j + 1) + y_low);
         end for;
         integral := integral - y_low;
       end integralValue;
-      
-      function fitting 
-        "Computes the coefficients of a polynomial that fits a set of data points in a least-squares sense" 
+
+      function fitting
+        "Computes the coefficients of a polynomial that fits a set of data points in a least-squares sense"
         extends Modelica.Icons.Function;
         input Real u[:] "Abscissa data values";
         input Real y[size(u, 1)] "Ordinate data values";
-        input Integer n(min=1) 
+        input Integer n(min=1)
           "Order of desired polynomial that fits the data points (u,y)";
-        output Real p[n + 1] 
+        output Real p[n + 1]
           "Polynomial coefficients of polynomial that fits the date points";
         annotation (Documentation(info="<HTML>
 <p>
@@ -563,62 +563,62 @@ returned as a vector p[n+1] that has the following definition:
   p(u) = p[1]*u^n + p[2]*u^(n-1) + ... + p[n]*u + p[n+1];
 </pre>
 </HTML>"));
-      protected 
+      protected
         Real V[size(u, 1), n + 1] "Vandermonde matrix";
-      algorithm 
+      algorithm
         // Construct Vandermonde matrix
         V[:, n + 1] := ones(size(u, 1));
         for j in n:-1:1 loop
           V[:, j] := {u[i] * V[i, j + 1] for i in 1:size(u,1)};
         end for;
-        
+
         // Solve least squares problem
         p :=Modelica.Math.Matrices.leastSquares(V, y);
       end fitting;
-      
-      function evaluate_der "Evaluate polynomial at a given abszissa value" 
+
+      function evaluate_der "Evaluate polynomial at a given abszissa value"
         extends Modelica.Icons.Function;
-        input Real p[:] 
+        input Real p[:]
           "Polynomial coefficients (p[1] is coefficient of highest power)";
         input Real u "Abszissa value";
         input Real du "Abszissa value";
         output Real dy "Value of polynomial at u";
-      protected 
+      protected
         Integer n=size(p, 1);
-      algorithm 
+      algorithm
         dy := p[1]*(n - 1);
         for j in 2:size(p, 1)-1 loop
           dy := p[j]*(n - j) + u*dy;
         end for;
         dy := dy*du;
       end evaluate_der;
-      
-      function integralValue_der 
-        "Time derivative of integral of polynomial p(u) from u_low to u_high, assuming only u_high as time-dependent (Leibnitz rule)" 
+
+      function integralValue_der
+        "Time derivative of integral of polynomial p(u) from u_low to u_high, assuming only u_high as time-dependent (Leibnitz rule)"
         extends Modelica.Icons.Function;
         input Real p[:] "Polynomial coefficients";
         input Real u_high "High integrand value";
         input Real u_low=0 "Low integrand value, default 0";
         input Real du_high "High integrand value";
         input Real du_low=0 "Low integrand value, default 0";
-        output Real dintegral=0.0 
+        output Real dintegral=0.0
           "Integral of polynomial p from u_low to u_high";
-      algorithm 
+      algorithm
         dintegral := evaluate(p,u_high)*du_high;
       end integralValue_der;
-      
-      function derivativeValue_der 
-        "time derivative of derivative of polynomial" 
+
+      function derivativeValue_der
+        "time derivative of derivative of polynomial"
         extends Modelica.Icons.Function;
-        input Real p[:] 
+        input Real p[:]
           "Polynomial coefficients (p[1] is coefficient of highest power)";
         input Real u "Abszissa value";
         input Real du "delta of abszissa value";
-        output Real dy 
+        output Real dy
           "time-derivative of derivative of polynomial w.r.t. input variable at u";
-      protected 
+      protected
         Integer n=size(p, 1);
-      algorithm 
+      algorithm
         dy := secondDerivativeValue(p,u)*du;
       end derivativeValue_der;
     end Polynomials_Temp;
@@ -651,10 +651,10 @@ properties and vapor pressure are optional, if the data tables are empty the cor
 function calls can not be used.
 </HTML>"));
   end TableBased;
-  
-  package Examples "Examples for incompressible media" 
-    
-  package Glycol47 "1,2-Propylene glycol, 47% mixture with water" 
+
+  package Examples "Examples for incompressible media"
+
+  package Glycol47 "1,2-Propylene glycol, 47% mixture with water"
     extends TableBased(
       mediumName="Glycol-Water 47%",
       T_min = Cv.from_degC(-30), T_max = Cv.from_degC(100),
@@ -674,11 +674,11 @@ function calls can not be used.
       tableVaporPressure=
         [0, 500; 20, 1.9e3; 40, 5.3e3; 60, 16e3; 80, 37e3; 100, 80e3]);
       annotation (Documentation(info="<html>
-   
+
 </html>"));
   end Glycol47;
-    
-  package Essotherm650 "Essotherm thermal oil" 
+
+  package Essotherm650 "Essotherm thermal oil"
     extends TableBased(
       mediumName="Essotherm 650",
       T_min = Cv.from_degC(0), T_max = Cv.from_degC(320),
@@ -698,27 +698,27 @@ function calls can not be used.
         [160, 3; 180, 10; 200, 40; 220, 100; 240, 300; 260, 600;
          280, 1600; 300, 3e3; 320, 5.5e3]);
       annotation (Documentation(info="<html>
-  
+
 </html>"));
   end Essotherm650;
-    
-  model TestGlycol "Test Glycol47 Medium model" 
+
+  model TestGlycol "Test Glycol47 Medium model"
     extends Modelica.Icons.Example;
     package Medium = Glycol47;
     extends Medium.BaseProperties;
-      
+
     Medium.DynamicViscosity eta=Medium.dynamicViscosity(state);
     Medium.ThermalConductivity lambda=Medium.thermalConductivity(state);
     Medium.SpecificEntropy s=Medium.specificEntropy(state);
     Medium.SpecificHeatCapacity cv=Medium.specificHeatCapacityCv(state);
-    protected 
+    protected
     constant Modelica.SIunits.Time timeUnit = 1;
     constant Modelica.SIunits.Temperature Ta = 1;
-  equation 
+  equation
     p = 1e5;
     T = Medium.T_min + time/timeUnit*Ta;
   end TestGlycol;
-    
+
   annotation (
     Documentation(info="<HTML>
 
@@ -731,10 +731,10 @@ incompressible fluids. The package contains:
 density and heat capacity as functions of temperature.</li>
 <li><b>Essotherm650</b>, a medium model for thermal oil, also based on tables.</li>
 </ul>
- 
+
 </HTML>"));
   end Examples;
-  
+
   annotation (
     preferedView="info",
     Documentation(info="<HTML>
@@ -770,7 +770,7 @@ to choose temperature as the only medium state and avoids non-linear equation
 systems, see the section about
 <a href=\"Modelica://Modelica.Media.UsersGuide.MediumDefinition.StaticStateSelection\">Static
 state selection</a> in the Modelica.Media User's Guide.
- 
+
 </p>
 <h4>Contents</h4>
 <p>
@@ -782,7 +782,7 @@ Currently, the package contains the following parts:
 <li> <a href=\"Modelica://Modelica.Media.Incompressible.Examples\">
       Example medium models</a></li>
 </ol>
- 
+
 <p>
 A few examples are given in the Examples package. The model
 <a href=\"Modelica://Modelica.Media.Incompressible.Examples.Glycol47\">
@@ -791,6 +791,6 @@ realistic examples of how to implement volume models with medium properties
 look in the <a href=\"Modelica://Modelica.Media.UsersGuide.MediumUsage\">Medium
 usage section</a> of the User's Guide.
 </p>
- 
+
 </HTML>"));
 end Incompressible;

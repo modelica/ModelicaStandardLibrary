@@ -36,8 +36,8 @@ The following main sublibraries are available:
      provides functions to operate on strings. E.g.
      substring, find, replace, sort, scanToken.</li>
 <li> <a href=\"Modelica://Modelica.Utilities.System\">System</a>
-     provides functions to interact with the environment. 
-     E.g., get or set the working directory or environment 
+     provides functions to interact with the environment.
+     E.g., get or set the working directory or environment
      variables and to send a command to the default shell.</li>
 </ul>
 
@@ -47,15 +47,15 @@ Copyright &copy; 1998-2007, Modelica Association, DLR and Dynasim.
 <p>
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> 
+and the accompanying <b>disclaimer</b>
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
 </p><br>
 </html>
 "));
 
 
-package UsersGuide "User's Guide of Utilities Library" 
-  
+package UsersGuide "User's Guide of Utilities Library"
+
   annotation (DocumentationClass=true, Documentation(info="<HTML>
 <p>
 Library <b>Modelica.Utilities</b> contains Modelica <b>functions</b> that are
@@ -88,9 +88,9 @@ In the near future, an exception handling mechanism will be introduced
 in Modelica that will allow to catch errors at a defined place.
 </p>
 </HTML>"));
-  
-  class ImplementationNotes "Implementation Notes" 
-    
+
+  class ImplementationNotes "Implementation Notes"
+
     annotation (Documentation(info="<html>
 <p>
 Below the major design decisions of this library are summarized.
@@ -107,7 +107,7 @@ Below the major design decisions of this library are summarized.
      used as a basis for the integration in the vendors environment.<br>&nbsp;</li>
 <li> <b>Character Encoding</b><br>
      The representation of characters is different in operating systems.
-     The more modern ones (e.g. Windows-NT) use an early variant of 
+     The more modern ones (e.g. Windows-NT) use an early variant of
      Unicode (16 bit per character)
      other (e.g. Windows-ME) use 8-bit encoding. Also 32 bit per character
      and multi-byte representations are in use. This is important, since e.g.,
@@ -119,13 +119,13 @@ Below the major design decisions of this library are summarized.
      The C-interface of the Modelica language provides only an 8-bit
      character encoding passing mechanism of strings. As a result, the
      reference implementation in \"Modelica.Utilities\\C-Source\" needs to
-     be adapted to the character representation supported in the 
+     be adapted to the character representation supported in the
      Modelica vendor environment.<br>&nbsp;</li>
 <li> <b>Internal String Representation</b><br>
      The design of this package was made in order that string handling
      is convenient. This is in contrast to, e.g., the C-language, where
      string handling is inconvenient, cumbersome and error prone, but on the
-     other hand is in some sense \"efficient\". 
+     other hand is in some sense \"efficient\".
      The standard reference implementation in \"Modelica.Utilities\\C-Source\"
      is based on the standard C definition of a string, i.e., a pointer to
      a sequence of characters, ended with a null terminating character.
@@ -134,11 +134,11 @@ Below the major design decisions of this library are summarized.
      a substring is efficient (O(1) access instead of O(n) as in standard C).
      This allows to hide string pointer arithmetic from the user.
      In such a case, a similiar efficiency as in C can be expected for
-     most high level operations, such as find, sort, replace. 
+     most high level operations, such as find, sort, replace.
      The \"efficient character access\" can be reached if, e.g.,
      the number of characters
      are stored in a string, and the length of a character is fixed,
-     say 16 or 32 bit (if all Unicode characters shall be represented). 
+     say 16 or 32 bit (if all Unicode characters shall be represented).
      A vendor should adapt the reference implementation in this
      respect.<br>&nbsp;</li>
 <li> <b>String copy = pointer copy</b><br>
@@ -166,9 +166,9 @@ Below the major design decisions of this library are summarized.
 </html>
 "));
   end ImplementationNotes;
-  
-  class ReleaseNotes "Release notes" 
-    
+
+  class ReleaseNotes "Release notes"
+
     annotation (Documentation(info="<HTML>
 <h4>Version 1.0, 2004-09-29</h4>
 <p>
@@ -176,12 +176,12 @@ First version implemented.
 </p>
 </HTML>
 "));
-  equation 
-    
+  equation
+
   end ReleaseNotes;
-  
-  class Contact "Contact" 
-    
+
+  class Contact "Contact"
+
     annotation (Documentation(info="<html>
 <dl>
 <dt><b>Responsible for Library:</b>
@@ -190,7 +190,7 @@ First version implemented.
 </dl>
 <p><b>Acknowledgements:</b></p>
 <ul>
-<li> This library has been designed by:<br> 
+<li> This library has been designed by:<br>
      <blockquote>
      Dag Br&uuml;ck, Dynasim AB, Sweden <br>
      Hilding Elmqvist, Dynasim AB, Sweden <br>
@@ -208,16 +208,16 @@ First version implemented.
 </html>
 "));
   end Contact;
-  
+
 end UsersGuide;
 
 
-package Internal "Internal package as interface to the operating system" 
+package Internal "Internal package as interface to the operating system"
  extends Modelica.Icons.Library;
   annotation (  preferedView="info",
 Documentation(info="<html>
 <p>
-Package <b>Internal</b> is an internal package that contains 
+Package <b>Internal</b> is an internal package that contains
 low level functions as interface to the operating system.
 These functions should not be called directly in a scripting
 environment since more convenient functions are provided
@@ -233,67 +233,67 @@ representation of a string is hidden by this interface,
 especially if the operating system supports Unicode characters.
 </p>
 </html>"));
-  
-  function mkdir "Make directory (POSIX: 'mkdir')" 
+
+  function mkdir "Make directory (POSIX: 'mkdir')"
     extends Modelica.Icons.Function;
     input String directoryName "Make a new directory";
   external "C" ModelicaInternal_mkdir(directoryName);
   end mkdir;
-  
-  function rmdir "Remove empty directory (POSIX function 'rmdir')" 
+
+  function rmdir "Remove empty directory (POSIX function 'rmdir')"
     extends Modelica.Icons.Function;
     input String directoryName "Empty directory to be removed";
   external "C" ModelicaInternal_rmdir(directoryName);
   end rmdir;
-  
-  function stat "Inquire file information (POSIX function 'stat')" 
+
+  function stat "Inquire file information (POSIX function 'stat')"
     extends Modelica.Icons.Function;
     input String name "Name of file, directory, pipe etc.";
     output Types.FileType.Type fileType "Type of file";
   external "C" fileType=  ModelicaInternal_stat(name);
   end stat;
-  
-  function rename "Rename existing file or directory (C function 'rename')" 
+
+  function rename "Rename existing file or directory (C function 'rename')"
     extends Modelica.Icons.Function;
     input String oldName "Current name";
     input String newName "New name";
   external "C" ModelicaInternal_rename(oldName, newName);
   end rename;
-  
-  function removeFile "Remove existing file (C function 'remove')" 
+
+  function removeFile "Remove existing file (C function 'remove')"
     extends Modelica.Icons.Function;
     input String fileName "File to be removed";
   external "C" ModelicaInternal_removeFile(fileName);
   end removeFile;
-  
-  function copyFile 
-    "Copy existing file (C functions 'fopen', 'getc', 'putc', 'fclose')" 
+
+  function copyFile
+    "Copy existing file (C functions 'fopen', 'getc', 'putc', 'fclose')"
     extends Modelica.Icons.Function;
     input String fromName "Name of file to be copied";
     input String toName "Name of copy of file";
   external "C" ModelicaInternal_copyFile(fromName, toName);
   end copyFile;
-  
-  function readDirectory 
-    "Read names of a directory (POSIX functions opendir, readdir, closedir)" 
+
+  function readDirectory
+    "Read names of a directory (POSIX functions opendir, readdir, closedir)"
     extends Modelica.Icons.Function;
-    input String directory 
+    input String directory
       "Name of the directory from which information is desired";
-    input Integer nNames 
+    input Integer nNames
       "Number of names that are returned (inquire with getNumberOfFiles)";
-    output String names[nNames] 
+    output String names[nNames]
       "All file and directory names in any order from the desired directory";
     external "C" ModelicaInternal_readDirectory(directory,nNames,names);
   end readDirectory;
-  
-function getNumberOfFiles 
-    "Get number of files and directories in a directory (POSIX functions opendir, readdir, closedir)" 
+
+function getNumberOfFiles
+    "Get number of files and directories in a directory (POSIX functions opendir, readdir, closedir)"
   extends Modelica.Icons.Function;
   input String directory "Directory name";
-  output Integer result 
+  output Integer result
       "Number of files and directories present in 'directory'";
   external "C" result = ModelicaInternal_getNumberOfFiles(directory);
 end getNumberOfFiles;
-  
+
 end Internal;
 end Utilities;

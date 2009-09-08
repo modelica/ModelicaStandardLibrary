@@ -1,7 +1,7 @@
 within Modelica.Blocks;
-package Logical "Library of components with Boolean input and output signals" 
+package Logical "Library of components with Boolean input and output signals"
     extends Modelica.Icons.Library;
-  
+
   annotation(preferedView="info",Documentation(info="<html>
 <p>
 This package provides blocks with Boolean input and output signals
@@ -19,8 +19,8 @@ value <b>false</b> and \"green\" color means value <b>true</b>. These
 values are visualized in a diagram animation.
 </p>
 </html>"));
-  
-  model And "Logical 'and': y = u1 and u2" 
+
+  model And "Logical 'and': y = u1 and u2"
     extends Blocks.Interfaces.partialBooleanSI2SO;
     annotation (defaultComponentName="and1",
            Icon(Text(extent=[-90,40; 90,-40],
@@ -32,11 +32,11 @@ The output is <b>true</b> if all inputs are <b>true</b>, otherwise
 the output is <b>false</b>.
 </p>
 </html>"));
-  equation 
+  equation
     y = u1 and u2;
   end And;
-  
-  model Or "Logical 'or': y = u1 or u2" 
+
+  model Or "Logical 'or': y = u1 or u2"
     extends Blocks.Interfaces.partialBooleanSI2SO;
     annotation (defaultComponentName="or1",
            Icon(Text(extent=[-90,40; 90,-40],
@@ -48,11 +48,11 @@ The output is <b>true</b> if at least one input is <b>true</b>, otherwise
 the output is <b>false</b>.
 </p>
 </html>"));
-  equation 
+  equation
     y = u1 or u2;
   end Or;
-  
-  model Xor "Logical 'xor': y = u1 xor u2" 
+
+  model Xor "Logical 'xor': y = u1 xor u2"
     extends Blocks.Interfaces.partialBooleanSI2SO;
     annotation (Icon(Text(extent=[-90,40; 90,-40],
             string="xor",
@@ -63,11 +63,11 @@ The output is <b>true</b> if exactly one input is <b>true</b>, otherwise
 the output is <b>false</b>.
 </p>
 </html>"));
-  equation 
+  equation
     y =not  ( (u1 and u2) or (not u1 and not u2));
   end Xor;
-  
-  model Nor "Logical 'nor': y = not (u1 or u2)" 
+
+  model Nor "Logical 'nor': y = not (u1 or u2)"
     extends Blocks.Interfaces.partialBooleanSI2SO;
     annotation (Icon(Text(extent=[-90,40; 90,-40],
             string="nor",
@@ -78,11 +78,11 @@ The output is <b>true</b> if none of the inputs is <b>true</b>, otherwise
 the output is <b>false</b>.
 </p>
 </html>"));
-  equation 
+  equation
     y =not  ( u1 or u2);
   end Nor;
-  
-  model Nand "Logical 'nand': y = not (u1 and u2)" 
+
+  model Nand "Logical 'nand': y = not (u1 and u2)"
     extends Blocks.Interfaces.partialBooleanSI2SO;
     annotation (Icon(Text(extent=[-90,40; 90,-40],
             string="nand",
@@ -93,13 +93,13 @@ The output is <b>true</b> if at least one input is <b>false</b>, otherwise
 the output is <b>false</b>.
 </p>
 </html>"));
-  equation 
+  equation
     y =not  ( u1 and u2);
   end Nand;
-  
-  model Not "Logical 'not': y = not u" 
+
+  model Not "Logical 'not': y = not u"
     extends Blocks.Interfaces.partialBooleanSISO;
-    
+
     annotation (defaultComponentName="not1",
          Icon(Text(extent=[-90,40; 90,-40],
           string="not",
@@ -110,24 +110,24 @@ The output is <b>true</b> if the input is <b>false</b>, otherwise
 the output is <b>false</b>.
 </p>
 </html>"));
-  equation 
+  equation
     y =not  u;
   end Not;
-  
-  model Pre 
-    "Breaks algebraic loops by an infinitesimal small time delay (y = pre(u): event iteration continues until u = pre(u))" 
-    
-    parameter Boolean pre_u_start = false 
+
+  model Pre
+    "Breaks algebraic loops by an infinitesimal small time delay (y = pre(u): event iteration continues until u = pre(u))"
+
+    parameter Boolean pre_u_start = false
       "Start value of pre(u) at initial time";
     extends Blocks.Interfaces.partialBooleanSISO;
-    
+
     annotation (defaultComponentName="pre1",
          Icon(Text(extent=[-90,40; 90,-40],
           string="pre",
           style(color=0))), Diagram,
       Documentation(info="<html>
 <p>
-This block delays the Boolean input by an infinitesimal small time delay and 
+This block delays the Boolean input by an infinitesimal small time delay and
 therefore breaks algebraic loops. In a network of logical blocks, in every
 \"closed connection loop\" at least one logical block must have a delay,
 since algebraic systems of Boolean equations are not solveable.
@@ -139,18 +139,18 @@ last \"event iteration\". The \"event iteration\" stops, once both
 values are identical (u = pre(u)).
 </p>
 </html>"));
-  initial equation 
+  initial equation
     pre(u) = pre_u_start;
-  equation 
+  equation
     y = pre(u);
   end Pre;
-  
-  model Edge "Output y is true, if the input u has a rising edge (y = edge(u))" 
-    
-    parameter Boolean pre_u_start = false 
+
+  model Edge "Output y is true, if the input u has a rising edge (y = edge(u))"
+
+    parameter Boolean pre_u_start = false
       "Start value of pre(u) at initial time";
     extends Blocks.Interfaces.partialBooleanSISO;
-    
+
     annotation (defaultComponentName="edge1",
       Icon(Text(extent=[-90,40; 90,-40],
           string="edge",
@@ -162,19 +162,19 @@ from <b>false</b> to <b>true</b>, otherwise
 the output is <b>false</b>.
 </p>
 </html>"));
-  initial equation 
+  initial equation
     pre(u) = pre_u_start;
-  equation 
+  equation
     y = edge(u);
   end Edge;
-  
-  model FallingEdge 
-    "Output y is true, if the input u has a falling edge (y = edge(not u))" 
-    
-    parameter Boolean pre_u_start = false 
+
+  model FallingEdge
+    "Output y is true, if the input u has a falling edge (y = edge(not u))"
+
+    parameter Boolean pre_u_start = false
       "Start value of pre(u) at initial time";
     extends Blocks.Interfaces.partialBooleanSISO;
-    
+
     annotation (Icon(Text(extent=[-90,40; 90,-40],
           string="falling",
           style(color=0))), Diagram,
@@ -185,21 +185,21 @@ from <b>true</b> to <b>false</b>, otherwise
 the output is <b>false</b>.
 </p>
 </html>"));
-  protected 
+  protected
    Boolean not_u=not u;
-  initial equation 
+  initial equation
     pre(not_u) =not  pre_u_start;
-  equation 
+  equation
     y = edge(not_u);
   end FallingEdge;
-  
-  model Change 
-    "Output y is true, if the input u has a rising or falling edge (y = change(u))" 
-    
-    parameter Boolean pre_u_start = false 
+
+  model Change
+    "Output y is true, if the input u has a rising or falling edge (y = change(u))"
+
+    parameter Boolean pre_u_start = false
       "Start value of pre(u) at initial time";
     extends Blocks.Interfaces.partialBooleanSISO;
-    
+
     annotation (defaultComponentName="change1",
       Icon(Text(extent=[-90,40; 90,-40],
           style(color=0),
@@ -212,14 +212,14 @@ from <b>false</b> to <b>true</b> or a falling edge from
 the output is <b>false</b>.
 </p>
 </html>"));
-  initial equation 
+  initial equation
     pre(u) = pre_u_start;
-  equation 
+  equation
     y = change(u);
   end Change;
-  
-  block GreaterThreshold 
-    "Output y is true, if input u is greater than threshold" 
+
+  block GreaterThreshold
+    "Output y is true, if input u is greater than threshold"
     extends Blocks.Interfaces.partialBooleanThresholdComparison;
     annotation (Icon(Text(
           extent=[-90,-40; 60,40],
@@ -227,18 +227,18 @@ the output is <b>false</b>.
           string=">")), Diagram,
       Documentation(info="<html>
 <p>
-The output is <b>true</b> if the Real input is greater than 
+The output is <b>true</b> if the Real input is greater than
 parameter <b>threshold</b>, otherwise
 the output is <b>false</b>.
 </p>
 </html>"));
-  equation 
+  equation
     y = u > threshold;
   end GreaterThreshold;
-  
-  block GreaterEqualThreshold 
-    "Output y is true, if input u is greater or equal than threshold" 
-    
+
+  block GreaterEqualThreshold
+    "Output y is true, if input u is greater or equal than threshold"
+
     extends Blocks.Interfaces.partialBooleanThresholdComparison;
     annotation (Icon(Text(
           extent=[-90,-40; 60,40],
@@ -251,12 +251,12 @@ parameter <b>threshold</b>, otherwise
 the output is <b>false</b>.
 </p>
 </html>"));
-  equation 
+  equation
     y = u >= threshold;
   end GreaterEqualThreshold;
-  
-  block LessThreshold "Output y is true, if input u is less than threshold" 
-    
+
+  block LessThreshold "Output y is true, if input u is less than threshold"
+
     extends Blocks.Interfaces.partialBooleanThresholdComparison;
     annotation (Icon(Text(
           extent=[-90,-40; 60,40],
@@ -264,17 +264,17 @@ the output is <b>false</b>.
           string="<")),     Diagram,
       Documentation(info="<html>
 <p>
-The output is <b>true</b> if the Real input is less than 
+The output is <b>true</b> if the Real input is less than
 parameter <b>threshold</b>, otherwise
 the output is <b>false</b>.
 </p>
 </html>"));
-  equation 
+  equation
     y = u < threshold;
   end LessThreshold;
-  
-  block LessEqualThreshold 
-    "Output y is true, if input u is less or equal than threshold" 
+
+  block LessEqualThreshold
+    "Output y is true, if input u is less or equal than threshold"
     extends Blocks.Interfaces.partialBooleanThresholdComparison;
     annotation (Icon(Text(
           extent=[-90,-40; 60,40],
@@ -287,13 +287,13 @@ parameter <b>threshold</b>, otherwise
 the output is <b>false</b>.
 </p>
 </html>"));
-  equation 
+  equation
     y = u <= threshold;
   end LessEqualThreshold;
-  
-  block Greater "Output y is true, if input u1 is greater as input u2" 
+
+  block Greater "Output y is true, if input u1 is greater as input u2"
     extends Blocks.Interfaces.partialBooleanComparison;
-    
+
     annotation (Icon(
         Ellipse(extent=[32,10; 52,-10],   style(fillPattern=1)),
         Line(points=[-100,-80; 42,-80; 42,0],    style(fillPattern=1)),
@@ -307,14 +307,14 @@ The output is <b>true</b> if Real input u1 is greater than
 Real input u2, otherwise the output is <b>false</b>.
 </p>
 </html>"));
-  equation 
+  equation
     y = u1 > u2;
   end Greater;
-  
-  block GreaterEqual 
-    "Output y is true, if input u1 is greater or equal as input u2" 
+
+  block GreaterEqual
+    "Output y is true, if input u1 is greater or equal as input u2"
     extends Blocks.Interfaces.partialBooleanComparison;
-    
+
     annotation (Icon(
         Ellipse(extent=[32,10; 52,-10],   style(fillPattern=1)),
         Line(points=[-100,-80; 42,-80; 42,0],    style(fillPattern=1)),
@@ -328,13 +328,13 @@ The output is <b>true</b> if Real input u1 is greater than or equal to
 Real input u2, otherwise the output is <b>false</b>.
 </p>
 </html>"));
-  equation 
+  equation
     y = u1 >= u2;
   end GreaterEqual;
-  
-  block Less "Output y is true, if input u1 is less as input u2" 
+
+  block Less "Output y is true, if input u1 is less as input u2"
     extends Blocks.Interfaces.partialBooleanComparison;
-    
+
     annotation (Icon(
         Ellipse(extent=[32,10; 52,-10],   style(fillPattern=1)),
         Line(points=[-100,-80; 42,-80; 42,0],    style(fillPattern=1)),
@@ -348,13 +348,13 @@ The output is <b>true</b> if Real input u1 is less than
 Real input u2, otherwise the output is <b>false</b>.
 </p>
 </html>"));
-  equation 
+  equation
     y = u1 < u2;
   end Less;
-  
-  block LessEqual "Output y is true, if input u1 is less or equal as input u2" 
+
+  block LessEqual "Output y is true, if input u1 is less or equal as input u2"
     extends Blocks.Interfaces.partialBooleanComparison;
-    
+
     annotation (Icon(
         Ellipse(extent=[32,10; 52,-10],   style(fillPattern=1)),
         Line(points=[-100,-80; 42,-80; 42,0],    style(fillPattern=1)),
@@ -368,17 +368,17 @@ The output is <b>true</b> if Real input u1 is less than or equal to
 Real input u2, otherwise the output is <b>false</b>.
 </p>
 </html>"));
-  equation 
+  equation
     y = u1 <= u2;
   end LessEqual;
-  
-  block ZeroCrossing "Trigger zero crossing of input u" 
+
+  block ZeroCrossing "Trigger zero crossing of input u"
     extends Blocks.Interfaces.partialBooleanSO;
     Blocks.Interfaces.RealInput u annotation(extent=[-140,-20; -100,20]);
-    Blocks.Interfaces.BooleanInput enable 
-      "Zero input crossing is triggered if the enable input signal is true" 
+    Blocks.Interfaces.BooleanInput enable
+      "Zero input crossing is triggered if the enable input signal is true"
       annotation (extent=[-20, -140; 20, -100], rotation=90);
-    
+
     annotation (Documentation(info="<HTML>
 <p>
 The output \"y\" is <b>true</b> at the
@@ -414,21 +414,21 @@ component <i>ModelicaAdditions.Blocks.Discrete.TriggeredSampler</i>.
         Line(points=[6, -59; 6, 81], style(color=5)),
         Line(points=[49, -59; 49, 81], style(color=5)),
         Line(points=[-78, 0; 70, 0], style(color=5))));
-  protected 
+  protected
     Boolean disable=not   enable;
     Boolean u_pos;
-  initial equation 
+  initial equation
     pre(u_pos)  = false;
     pre(enable) = false;
     pre(disable) =not  pre(enable);
-  equation 
+  equation
     u_pos = enable and u >= 0;
     y = change(u_pos) and not edge(enable) and not edge(disable);
   end ZeroCrossing;
-  
-  block LogicalSwitch "Logical Switch" 
+
+  block LogicalSwitch "Logical Switch"
     extends Blocks.Interfaces.partialBooleanSI3SO;
-    
+
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -468,21 +468,21 @@ u1, else it is set equal to u2.</p>
         Line(points=[-40,80; 8,2],   style(color=85, thickness=4)),
         Ellipse(extent=[2, 8; 18, -6], style(fillColor=0, fillPattern=1))),
       Diagram);
-  equation 
+  equation
     y = if u2 then u1 else u3;
   end LogicalSwitch;
-  
-  block Switch "Switch between two Real signals" 
+
+  block Switch "Switch between two Real signals"
     extends Blocks.Interfaces.partialBooleanBlockIcon;
-    Blocks.Interfaces.RealInput u1 "Connector of first Real input signal" 
+    Blocks.Interfaces.RealInput u1 "Connector of first Real input signal"
                                    annotation(extent=[-140,60; -100,100]);
-    Blocks.Interfaces.BooleanInput u2 "Connector of Boolean input signal" 
+    Blocks.Interfaces.BooleanInput u2 "Connector of Boolean input signal"
                                       annotation(extent=[-140,-20; -100,20]);
-    Blocks.Interfaces.RealInput u3 "Connector of second Real input signal" 
+    Blocks.Interfaces.RealInput u3 "Connector of second Real input signal"
                                    annotation(extent=[-140,-100; -100,-60]);
-    Blocks.Interfaces.RealOutput y "Connector of Real output signal" 
+    Blocks.Interfaces.RealOutput y "Connector of Real output signal"
                                    annotation(extent=[100,-10; 120,10]);
-    
+
     annotation (defaultComponentName="switch1",
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -520,21 +520,21 @@ u1, else it is set equal to u3.</p>
         Line(points=[-38,80; 6,2],   style(thickness=4)),
         Ellipse(extent=[2, 8; 18, -6], style(fillColor=0, fillPattern=1))),
       Diagram);
-  equation 
+  equation
     y = if u2 then u1 else u3;
   end Switch;
-  
-  block Hysteresis "Transform Real to Boolean signal with Hysteresis" 
-    
+
+  block Hysteresis "Transform Real to Boolean signal with Hysteresis"
+
     extends Blocks.Interfaces.partialBooleanBlockIcon;
     parameter Real uLow=0 "if y=true and u<=uLow, switch to y=false";
     parameter Real uHigh=1 "if y=false and u>=uHigh, switch to y=true";
     parameter Boolean pre_y_start = false "Value of pre(y) at initial time";
-    
+
     Blocks.Interfaces.RealInput u annotation(extent=[-140,-20; -100,20]);
-    Blocks.Interfaces.BooleanOutput y 
+    Blocks.Interfaces.BooleanOutput y
       annotation (extent=[100,-10; 120,10]);
-    
+
     annotation (
       Diagram(
         Polygon(points=[-65, 89; -73, 67; -57, 67; -65, 89], style(color=8,
@@ -623,27 +623,27 @@ The default value of this parameter is <b>false</b>.
 </p>
 </HTML>
 "));
-  initial equation 
+  initial equation
     pre(y) = pre_y_start;
-  equation 
+  equation
      y = u > uHigh or pre(y) and u >= uLow;
   end Hysteresis;
-  
-  block OnOffController "On-off controller" 
+
+  block OnOffController "On-off controller"
     extends Interfaces.partialBooleanBlockIcon;
-    Blocks.Interfaces.RealInput reference 
-      "Connector of Real input signal used as reference signal" 
+    Blocks.Interfaces.RealInput reference
+      "Connector of Real input signal used as reference signal"
                                           annotation(extent=[-140, 80; -100,40]);
-    Blocks.Interfaces.RealInput u 
-      "Connector of Real input signal used as measurement signal" 
+    Blocks.Interfaces.RealInput u
+      "Connector of Real input signal used as measurement signal"
                                   annotation(extent=[-140,-40; -100,-80]);
-    Blocks.Interfaces.BooleanOutput y 
-      "Connector of Real output signal used as actuator signal" 
+    Blocks.Interfaces.BooleanOutput y
+      "Connector of Real output signal used as actuator signal"
                                       annotation(extent=[100,-10; 120,10]);
-    
+
     parameter Real bandwidth=0.1 "Bandwidth around reference signal";
     parameter Boolean pre_y_start = false "Value of pre(y) at initial time";
-    
+
     annotation (Icon(
         Text(
           extent=[-92,74; 44,44],
@@ -669,27 +669,27 @@ the bandwidth and sets the output signal <b>y</b> to <b>false</b> when the input
 signal <b>u</b> exceeds the <b>reference</b> signal plus half of the bandwidth.</p>
 </html>
 "));
-  initial equation 
+  initial equation
     pre(y) = pre_y_start;
-  equation 
+  equation
     y = pre(y) and (u < reference + bandwidth/2) or (u < reference - bandwidth/2);
   end OnOffController;
-  
-  block TriggeredTrapezoid "Triggered trapezoid generator" 
+
+  block TriggeredTrapezoid "Triggered trapezoid generator"
     extends Interfaces.partialBooleanBlockIcon;
-    
+
     parameter Real amplitude=1 "Amplitude of trapezoid";
-    parameter Modelica.SIunits.Time rising(final min=0)=0 
+    parameter Modelica.SIunits.Time rising(final min=0)=0
       "Rising duration of trapezoid";
-    parameter Modelica.SIunits.Time falling(final min=0)=rising 
+    parameter Modelica.SIunits.Time falling(final min=0)=rising
       "Falling duration of trapezoid";
     parameter Real offset=0 "Offset of output signal";
-    
-    Blocks.Interfaces.BooleanInput u "Connector of Boolean input signal" 
+
+    Blocks.Interfaces.BooleanInput u "Connector of Boolean input signal"
                                      annotation(extent=[-140,-20; -100,20]);
-    Blocks.Interfaces.RealOutput y "Connector of Real output signal" 
+    Blocks.Interfaces.RealOutput y "Connector of Real output signal"
       annotation (extent=[100,-10; 120,10]);
-    
+
     annotation (
       Icon(
         Line(points=[-60, -70; -60, -70; -30, 40; 8, 40; 40, -70; 40, -70]),
@@ -825,40 +825,40 @@ during <i>falling</i> to a value of <i>offset</i>.
 handled properly.</p>
 </HTML>
 "));
-  protected 
+  protected
     discrete Real endValue "Value of y at time of recent edge";
     discrete Real rate "Current rising/falling rate";
-    discrete Modelica.SIunits.Time T 
+    discrete Modelica.SIunits.Time T
       "Predicted time of output reaching endValue";
-  initial equation 
+  initial equation
     /* A start value of y is set, because pre(y) is present
      to avoid a warning message from the compiler. However,
      this setting does not have an effect, because y is initialized
      correctly, before pre(y) is used
   */
     pre(y) = 0;
-  equation 
+  equation
       y = if time < T then endValue - (T - time)*rate else  endValue;
-    
+
       when {initial(),u,not u} then
         endValue = if u then offset + amplitude else offset;
-        rate = if u and (rising > 0) then amplitude/rising else 
+        rate = if u and (rising > 0) then amplitude/rising else
           if not u and (falling > 0) then -amplitude/falling else 0;
         T = if u and not (rising > 0) or not u and not (falling
            > 0) or not abs(amplitude) > 0 or initial() then time else time
            + (endValue - pre(y))/rate;
       end when;
   end TriggeredTrapezoid;
-  
-  block Timer 
-    "Timer measuring the time from the time instant where the Boolean input became true" 
-    
+
+  block Timer
+    "Timer measuring the time from the time instant where the Boolean input became true"
+
     extends Interfaces.partialBooleanBlockIcon;
-    Blocks.Interfaces.BooleanInput u "Connector of Boolean input signal" 
+    Blocks.Interfaces.BooleanInput u "Connector of Boolean input signal"
                                      annotation(extent=[-140,-20; -100,20]);
-    Blocks.Interfaces.RealOutput y "Connector of Real output signal" 
+    Blocks.Interfaces.RealOutput y "Connector of Real output signal"
       annotation (extent=[100,-10; 120,10]);
-    
+
     annotation (
       Icon(
         Line(points=[-90, -70; 82, -70], style(color=8)),
@@ -904,23 +904,23 @@ input becomes false.
 </p>
 </HTML>
 "));
-  protected 
+  protected
     discrete Modelica.SIunits.Time entryTime "Time instant when u became true";
-  initial equation 
+  initial equation
     pre(entryTime) = 0;
-  equation 
+  equation
     when u then
       entryTime = time;
     end when;
     y = if u then time - entryTime else 0.0;
   end Timer;
-  
-  block TerminateSimulation "Terminate simulation if condition is fullfilled" 
-    
-    Modelica.Blocks.Interfaces.BooleanOutput condition=false 
-      "Terminate simulation when condition becomes true" 
+
+  block TerminateSimulation "Terminate simulation if condition is fullfilled"
+
+    Modelica.Blocks.Interfaces.BooleanOutput condition=false
+      "Terminate simulation when condition becomes true"
       annotation (Dialog, extent=[200,-10; 220,10]);
-    parameter String terminationText = "... End condition reached" 
+    parameter String terminationText = "... End condition reached"
       "Text that will be displayed when simulation is terminated";
     annotation (
       Coordsys(
@@ -961,7 +961,7 @@ input becomes false.
       Diagram,
       Documentation(info="<html>
 <p>
-In the parameter menu, a <b>time varying</b> expression can be defined 
+In the parameter menu, a <b>time varying</b> expression can be defined
 via variable <b>condition</b>, for example \"condition = x &lt; 0\",
 where \"x\" is a variable that is declared in the model in which the
 \"TerminateSimulation\" block is present.
@@ -970,9 +970,9 @@ the simulation is (successfully) terminated. A termination message
 explaining the reason for the termination can be given via
 parameter \"terminationText\".
 </p>
- 
+
 </html>"));
-  equation 
+  equation
     when condition then
        terminate(terminationText);
     end when;

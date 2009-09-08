@@ -1,9 +1,9 @@
 within Modelica.Blocks;
-package Discrete 
-  "Library of discrete input/output blocks with fixed sample period" 
-  
+package Discrete
+  "Library of discrete input/output blocks with fixed sample period"
+
   extends Modelica.Icons.Library;
-  
+
   annotation(preferedView="info", Documentation(info="<html>
 <p>
 This package contains <b>discrete control blocks</b>
@@ -36,10 +36,10 @@ as the components of packages <b>Modelica.Blocks.Math</b>,
        Hilding Elmqvist.</li>
 </ul>
 </html>"));
-  
-  block Sampler "Ideal sampling of continuous signals" 
+
+  block Sampler "Ideal sampling of continuous signals"
     extends Interfaces.DiscreteSISO;
-    
+
     annotation (
       Icon(
         Ellipse(extent=[-25, -10; -45, 10], style(color=3, fillColor=7)),
@@ -60,13 +60,13 @@ via parameter <b>samplePeriod</b>.
 </p>
 </HTML>
 "));
-  equation 
+  equation
     when {sampleTrigger, initial()} then
       y = u;
     end when;
   end Sampler;
-  
-  block ZeroOrderHold "Zero order hold of a sampled-data system" 
+
+  block ZeroOrderHold "Zero order hold of a sampled-data system"
     extends Interfaces.DiscreteSISO;
     output Real ySample(start=0, fixed=true);
     annotation (
@@ -89,7 +89,7 @@ sample instant during the sample points.
 </p>
 </HTML>
 "));
-  equation 
+  equation
     when {sampleTrigger, initial()} then
       ySample = u;
     end when;
@@ -99,10 +99,10 @@ sample instant during the sample points.
     */
     y = pre(ySample);
   end ZeroOrderHold;
-  
-  block FirstOrderHold "First order hold of a sampled-data system" 
+
+  block FirstOrderHold "First order hold of a sampled-data system"
     extends Interfaces.DiscreteSISO;
-  protected 
+  protected
     Real ySample;
     Modelica.SIunits.Time tSample;
     Real c;
@@ -125,7 +125,7 @@ values of the last two sampled input signals.
 </p>
 </HTML>
 "));
-  equation 
+  equation
     when sampleTrigger then
       ySample = u;
       tSample = time;
@@ -137,11 +137,11 @@ values of the last two sampled input signals.
     */
     y = pre(ySample) + pre(c)*(time - tSample);
   end FirstOrderHold;
-  
-  block UnitDelay "Unit Delay Block" 
+
+  block UnitDelay "Unit Delay Block"
     parameter Real y_start=0 "Initial value of output signal";
     extends Interfaces.DiscreteSISO;
-    
+
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -187,22 +187,22 @@ the output y is identical to parameter yStart.
           extent=[-55, -5; 55, -55],
           string="z",
           style(color=0))));
-  equation 
+  equation
     when sampleTrigger then
       y = pre(u);
     end when;
-    
-  initial equation 
+
+  initial equation
       y = y_start;
   end UnitDelay;
-  
-  block TransferFunction "Discrete Transfer Function block" 
+
+  block TransferFunction "Discrete Transfer Function block"
     parameter Real b[:]={1} "Numerator coefficients of transfer function.";
     parameter Real a[:]={1,1} "Denominator coefficients of transfer function.";
     extends Interfaces.DiscreteSISO;
-    output Real x[size(a, 1) - 1](start=zeros(size(a, 1) - 1), fixed=fill(true,size(a, 1) - 1)) 
+    output Real x[size(a, 1) - 1](start=zeros(size(a, 1) - 1), fixed=fill(true,size(a, 1) - 1))
       "State of transfer function from controller canonical form";
-  protected 
+  protected
     parameter Integer nb=size(b, 1) "Size of Numerator of transfer function";
     parameter Integer na=size(a, 1) "Size of Denominator of transfer function";
     Real x1;
@@ -275,7 +275,7 @@ states can be set as start values of <b>x</b>.<p>
           style(color=0)),
         Line(points=[-100, 0; -60, 0]),
         Line(points=[60, 0; 100, 0])));
-  equation 
+  equation
     when sampleTrigger then
       /* State variables x are defined according to
        controller canonical form. */
@@ -298,18 +298,18 @@ states can be set as start values of <b>x</b>.<p>
      end when;
 */
   end TransferFunction;
-  
-  block StateSpace "Discrete State Space block" 
-    parameter Real A[:, size(A, 1)]=[1, 0; 0, 1] 
+
+  block StateSpace "Discrete State Space block"
+    parameter Real A[:, size(A, 1)]=[1, 0; 0, 1]
       "Matrix A of state space model";
     parameter Real B[size(A, 1), :]=[1; 1] "Matrix B of state space model";
     parameter Real C[:, size(A, 1)]=[1, 1] "Matrix C of state space model";
-    parameter Real D[size(C, 1), size(B, 2)]=zeros(size(C, 1), size(B, 2)) 
+    parameter Real D[size(C, 1), size(B, 2)]=zeros(size(C, 1), size(B, 2))
       "Matrix D of state space model";
-    
+
     extends Interfaces.DiscreteMIMO(final nin=size(B, 2), final nout=size(C, 1));
     output Real x[size(A, 1)] "State vector";
-    
+
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -385,18 +385,18 @@ results in the following equations:
             fillPattern=1)),
         Line(points=[-102, 0; -60, 0]),
         Line(points=[60, 0; 100, 0])));
-  equation 
+  equation
     when sampleTrigger then
       x = A*pre(x) + B*u;
       y = C*pre(x) + D*u;
     end when;
   end StateSpace;
-  
-  block TriggeredSampler "Triggered sampling of continuous signals" 
+
+  block TriggeredSampler "Triggered sampling of continuous signals"
     extends Interfaces.DiscreteBlockIcon;
     replaceable type SignalType = Real "Type of input and output signal";
     parameter SignalType y_start=0 "initial value of output signal";
-    
+
     annotation (
       Icon(
         Ellipse(extent=[-25, -10; -45, 10], style(color=3, fillColor=7)),
@@ -422,27 +422,27 @@ the initial value defined via parameter <b>y0</b>.
 </p>
 </HTML>
 "));
-    Modelica.Blocks.Interfaces.RealInput u(redeclare type SignalType = 
-          SignalType) "Connector with an input signal of type SignalType" 
+    Modelica.Blocks.Interfaces.RealInput u(redeclare type SignalType =
+          SignalType) "Connector with an input signal of type SignalType"
                                                           annotation (extent=[-
           140, -20; -100, 20]);
-    Modelica.Blocks.Interfaces.RealOutput y(redeclare type SignalType = 
-          SignalType) "Connector with an output signal of type SignalType" 
+    Modelica.Blocks.Interfaces.RealOutput y(redeclare type SignalType =
+          SignalType) "Connector with an output signal of type SignalType"
                                                            annotation (extent=[
           100, -10; 120, 10]);
     Modelica.Blocks.Interfaces.BooleanInput trigger annotation (
         extent=[-20, -138; 20, -98], rotation=90);
-  equation 
+  equation
     when trigger then
       y = u;
     end when;
-  initial equation 
+  initial equation
     y = y_start;
   end TriggeredSampler;
-  
-  block TriggeredMax 
-    "Compute maximum, absolute value of continuous signal at trigger instants" 
-    
+
+  block TriggeredMax
+    "Compute maximum, absolute value of continuous signal at trigger instants"
+
     extends Interfaces.DiscreteBlockIcon;
     replaceable type SignalType = Real "type of input and output signal";
     annotation (
@@ -473,21 +473,21 @@ at the sampling point is provided as output signal.
 </p>
 </HTML>
 "));
-    Modelica.Blocks.Interfaces.RealInput u(redeclare type SignalType = 
-          SignalType) "Connector with an input signal of type SignalType" 
+    Modelica.Blocks.Interfaces.RealInput u(redeclare type SignalType =
+          SignalType) "Connector with an input signal of type SignalType"
                                                           annotation (extent=[-
           140, -20; -100, 20]);
-    Modelica.Blocks.Interfaces.RealOutput y(redeclare type SignalType = 
-          SignalType) "Connector with an output signal of type SignalType" 
+    Modelica.Blocks.Interfaces.RealOutput y(redeclare type SignalType =
+          SignalType) "Connector with an output signal of type SignalType"
                                                            annotation (extent=[
           100, -10; 120, 10]);
     Modelica.Blocks.Interfaces.BooleanInput trigger annotation (
         extent=[-20, -138; 20, -98], rotation=90);
-  equation 
+  equation
     when trigger then
        y = max(pre(y), abs(u));
     end when;
-  initial equation 
+  initial equation
     y = 0;
   end TriggeredMax;
 end Discrete;

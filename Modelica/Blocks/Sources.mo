@@ -1,12 +1,12 @@
 within Modelica.Blocks;
-package Sources 
-  "Library of signal source blocks generating Real and Boolean signals" 
-  block RealExpression "Set output signal to a time varying Real expression" 
-    
-    Blocks.Interfaces.RealOutput y=0.0 "Value of Real output" 
+package Sources
+  "Library of signal source blocks generating Real and Boolean signals"
+  block RealExpression "Set output signal to a time varying Real expression"
+
+    Blocks.Interfaces.RealOutput y=0.0 "Value of Real output"
       annotation (extent=[100, -10; 120, 10], Dialog(group=
             "Time varying output signal"));
-    
+
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -38,20 +38,20 @@ easy definition of Real expressions in a block diagram. For example,
 in the y-menu the definition \"if time &lt; 1 then 0 else 1\" can be given in order
 to define that the output signal is one, if time &ge; 1 and otherwise
 it is zero. Note, that \"time\" is a built-in variable that is always
-accessible and represents the \"model time\" and that 
+accessible and represents the \"model time\" and that
 Variable <b>y</b> is both a variable and a connector.
 </p>
 </html>"));
-    
+
   end RealExpression;
-  
-  block IntegerExpression 
-    "Set output signal to a time varying Integer expression" 
-    
-    Blocks.Interfaces.IntegerOutput y=0 "Value of Integer output" 
+
+  block IntegerExpression
+    "Set output signal to a time varying Integer expression"
+
+    Blocks.Interfaces.IntegerOutput y=0 "Value of Integer output"
       annotation (extent=[100, -10; 120, 10], Dialog(group=
             "Time varying output signal"));
-    
+
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -83,20 +83,20 @@ easy definition of Integer expressions in a block diagram. For example,
 in the y-menu the definition \"if time &lt; 1 then 0 else 1\" can be given in order
 to define that the output signal is one, if time &ge; 1 and otherwise
 it is zero. Note, that \"time\" is a built-in variable that is always
-accessible and represents the \"model time\" and that 
+accessible and represents the \"model time\" and that
 Variable <b>y</b> is both a variable and a connector.
 </p>
 </html>"));
-    
+
   end IntegerExpression;
-  
-  block BooleanExpression 
-    "Set output signal to a time varying Boolean expression" 
-    
-    Blocks.Interfaces.BooleanOutput y=false "Value of Boolean output" 
+
+  block BooleanExpression
+    "Set output signal to a time varying Boolean expression"
+
+    Blocks.Interfaces.BooleanOutput y=false "Value of Boolean output"
       annotation (extent=[100, -10; 120, 10], Dialog(group=
             "Time varying output signal"));
-    
+
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -132,16 +132,16 @@ in the y-menu the definition \"time &gt;= 1 and time &lt;= 2\" can be given in o
 to define that the output signal is <b>true</b> in the time interval
 1 &le; time &le; 2 and otherwise it is <b>false</b>.
 Note, that \"time\" is a built-in variable that is always
-accessible and represents the \"model time\" and that 
+accessible and represents the \"model time\" and that
 Variable <b>y</b> is both a variable and a connector.
 </p>
 </html>"));
-    
+
   end BooleanExpression;
   import Modelica.Blocks.Interfaces;
   import Modelica.SIunits;
       extends Modelica.Icons.Library;
-  
+
       annotation(preferedView="info",
         Coordsys(
           extent=[0, 0; 430, 442],
@@ -209,12 +209,12 @@ usually requires a trimming calculation.
        of Dieter Moormann and Hilding Elmqvist.</li>
 </ul>
 </html>"));
-      block Clock "Generate actual time signal " 
+      block Clock "Generate actual time signal "
         parameter Modelica.SIunits.Time offset=0 "Offset of output signal";
-        parameter Modelica.SIunits.Time startTime=0 
+        parameter Modelica.SIunits.Time startTime=0
       "Output = offset for time < startTime";
         extends Interfaces.SO;
-    
+
         annotation (
           Coordsys(
             extent=[-100, -100; 100, 100],
@@ -357,15 +357,15 @@ The Real output y is a clock signal:
 <img src=\"../Images/Blocks/Sources/Clock.png\">
 </p>
 </html>"));
-    
-      equation 
+
+      equation
         y = offset + (if time < startTime then 0 else time - startTime);
       end Clock;
-  
-      block Constant "Generate constant signal of type Real" 
+
+      block Constant "Generate constant signal of type Real"
         parameter Real k=1 "Constant output value";
         extends Interfaces.SO;
-    
+
         annotation (defaultComponentName="const",
           Coordsys(
             extent=[-100, -100; 100, 100],
@@ -446,11 +446,11 @@ The Real output y is a constant signal:
 <img src=\"../Images/Blocks/Sources/Constant.png\">
 </p>
 </html>"));
-      equation 
+      equation
         y = k;
       end Constant;
-  
-      block Step "Generate step signal of type Real" 
+
+      block Step "Generate step signal of type Real"
         parameter Real height=1 "Height of step";
         extends Interfaces.SignalSource;
         annotation (
@@ -590,20 +590,20 @@ The Real output y is a step signal:
 </p>
 
 </html>"));
-    
-      equation 
+
+      equation
         y = offset + (if time < startTime then 0 else height);
       end Step;
-  
-      block Ramp "Generate ramp signal" 
+
+      block Ramp "Generate ramp signal"
         parameter Real height=1 "Height of ramps";
-        parameter Modelica.SIunits.Time duration(min=Modelica.Constants.small) = 2 
+        parameter Modelica.SIunits.Time duration(min=Modelica.Constants.small) = 2
       "Durations of ramp";
         parameter Real offset=0 "Offset of output signal";
-        parameter Modelica.SIunits.Time startTime=0 
+        parameter Modelica.SIunits.Time startTime=0
       "Output = offset for time < startTime";
         extends Interfaces.SO;
-    
+
         annotation (
           Coordsys(
             extent=[-100, -100; 100, 100],
@@ -778,20 +778,20 @@ The Real output y is a ramp signal:
 <img src=\"../Images/Blocks/Sources/Ramp.png\">
 </p>
 </html>"));
-      equation 
+      equation
         y = offset + (if time < startTime then 0 else if time < (startTime +
           duration) then (time - startTime)*height/duration else height);
       end Ramp;
-  
-      block Sine "Generate sine signal" 
+
+      block Sine "Generate sine signal"
         parameter Real amplitude=1 "Amplitude of sine wave";
         parameter SIunits.Frequency freqHz=1 "Frequency of sine wave";
         parameter SIunits.Angle phase=0 "Phase of sine wave";
         parameter Real offset=0 "Offset of output signal";
-        parameter SIunits.Time startTime=0 
+        parameter SIunits.Time startTime=0
       "Output = offset for time < startTime";
         extends Interfaces.SO;
-  protected 
+  protected
         constant Real pi=Modelica.Constants.pi;
         annotation (
           Coordsys(
@@ -932,21 +932,21 @@ The Real output y is a sine signal:
 <img src=\"../Images/Blocks/Sources/Sine.png\">
 </p>
 </html>"));
-      equation 
+      equation
         y = offset + (if time < startTime then 0 else amplitude*
           Modelica.Math.sin(2*pi*freqHz*(time - startTime) + phase));
       end Sine;
-  
-      block ExpSine "Generate exponentially damped sine signal" 
+
+      block ExpSine "Generate exponentially damped sine signal"
         parameter Real amplitude=1 "Amplitude of sine wave";
         parameter SIunits.Frequency freqHz=2 "Frequency of sine wave";
         parameter SIunits.Angle phase=0 "Phase of sine wave";
         parameter SIunits.Damping damping=1 "Damping coefficient of sine wave";
         parameter Real offset=0 "Offset of output signal";
-        parameter SIunits.Time startTime=0 
+        parameter SIunits.Time startTime=0
       "Output = offset for time < startTime";
         extends Interfaces.SO;
-  protected 
+  protected
         constant Real pi=Modelica.Constants.pi;
         annotation (
           Coordsys(
@@ -1131,14 +1131,14 @@ The Real output y is a sine signal with exponentially changing amplitude:
 <img src=\"../Images/Blocks/Sources/ExpSine.png\">
 </p>
 </html>"));
-      equation 
+      equation
         y = offset + (if time < startTime then 0 else amplitude*
           Modelica.Math.exp(-(time - startTime)*damping)*Modelica.Math.sin(2*pi
           *freqHz*(time - startTime) + phase));
       end ExpSine;
-  
-      model Exponentials "Generate a rising and falling exponential signal" 
-    
+
+      model Exponentials "Generate a rising and falling exponential signal"
+
         parameter Real outMax=1 "Height of output for infinite riseTime";
         parameter SIunits.Time riseTime(min=0) = 0.5 "Rise time";
         parameter SIunits.Time riseTimeConst(min=Modelica.Constants.small)=
@@ -1146,10 +1146,10 @@ The Real output y is a sine signal with exponentially changing amplitude:
         parameter SIunits.Time fallTimeConst(min=Modelica.Constants.small)=
           riseTimeConst "Fall time constant";
         parameter Real offset=0 "Offset of output signal";
-        parameter SIunits.Time startTime=0 
+        parameter SIunits.Time startTime=0
       "Output = offset for time < startTime";
         extends Interfaces.SO;
-  protected 
+  protected
         Real y_riseTime;
         annotation (
           Coordsys(
@@ -1298,24 +1298,24 @@ by a falling exponential signal:
 <img src=\"../Images/Blocks/Sources/Exponentials.png\">
 </p>
 </html>"));
-      equation 
+      equation
         y_riseTime = outMax*(1 - Modelica.Math.exp(-riseTime/riseTimeConst));
         y = offset + (if (time < startTime) then 0 else if (time < (startTime
-           + riseTime)) then outMax*(1 - Modelica.Math.exp(-(time - startTime)/riseTimeConst)) else 
+           + riseTime)) then outMax*(1 - Modelica.Math.exp(-(time - startTime)/riseTimeConst)) else
                 y_riseTime*Modelica.Math.exp(-(time - startTime - riseTime)/
           fallTimeConst));
-    
+
       end Exponentials;
-  
-      block Pulse "Generate pulse signal of type Real" 
+
+      block Pulse "Generate pulse signal of type Real"
         parameter Real amplitude=1 "Amplitude of pulse";
         parameter Real width(
           final min=Modelica.Constants.small,
           final max=100) = 50 "Width of pulse in % of periods";
-        parameter Modelica.SIunits.Time period(final min=Modelica.Constants.small)=1 
+        parameter Modelica.SIunits.Time period(final min=Modelica.Constants.small)=1
       "Time for one period";
         parameter Real offset=0 "Offset of output signals";
-        parameter Modelica.SIunits.Time startTime=0 
+        parameter Modelica.SIunits.Time startTime=0
       "Output = offset for time < startTime";
         extends Modelica.Blocks.Interfaces.SO;
         annotation (
@@ -1527,27 +1527,27 @@ The Real output y is a pulse signal:
 <img src=\"../Images/Blocks/Sources/Pulse.png\">
 </p>
 </html>"));
-  protected 
-        Modelica.SIunits.Time T0(final start=startTime) 
+  protected
+        Modelica.SIunits.Time T0(final start=startTime)
       "Start time of current period";
         Modelica.SIunits.Time T_width = period*width/100;
-      equation 
+      equation
         when sample(startTime, period) then
           T0 = time;
         end when;
-        y = offset + (if time < startTime or time >= T0 + T_width then 0 else 
+        y = offset + (if time < startTime or time >= T0 + T_width then 0 else
           amplitude);
       end Pulse;
-  
-      block SawTooth "Generate saw tooth signal" 
+
+      block SawTooth "Generate saw tooth signal"
         parameter Real amplitude=1 "Amplitude of saw tooth";
-        parameter SIunits.Time period(final min=Modelica.Constants.small) = 1 
+        parameter SIunits.Time period(final min=Modelica.Constants.small) = 1
       "Time for one period";
         parameter Real offset=0 "Offset of output signals";
-        parameter SIunits.Time startTime=0 
+        parameter SIunits.Time startTime=0
       "Output = offset for time < startTime";
         extends Interfaces.SO;
-  protected 
+  protected
         SIunits.Time T0(final start=startTime) "Start time of current period";
         annotation (
           Coordsys(
@@ -1721,36 +1721,36 @@ The Real output y is a saw tooth signal:
 <img src=\"../Images/Blocks/Sources/SawTooth.png\">
 </p>
 </html>"));
-      equation 
+      equation
         when sample(startTime, period) then
           T0 = time;
         end when;
         y = offset + (if time < startTime then 0 else (amplitude/period)*(time
            - T0));
       end SawTooth;
-  
-      block Trapezoid "Generate trapezoidal signal of type Real" 
+
+      block Trapezoid "Generate trapezoidal signal of type Real"
         parameter Real amplitude=1 "Amplitude of trapezoid";
-        parameter SIunits.Time rising(final min=0) = 0 
+        parameter SIunits.Time rising(final min=0) = 0
       "Rising duration of trapezoid";
-        parameter SIunits.Time width(final min=0) = 0.5 
+        parameter SIunits.Time width(final min=0) = 0.5
       "Width duration of trapezoid";
-        parameter SIunits.Time falling(final min=0) = 0 
+        parameter SIunits.Time falling(final min=0) = 0
       "Falling duration of trapezoid";
-        parameter SIunits.Time period(final min=Modelica.Constants.small) = 1 
+        parameter SIunits.Time period(final min=Modelica.Constants.small) = 1
       "Time for one period";
-        parameter Integer nperiod=-1 
+        parameter Integer nperiod=-1
       "Number of periods (< 0 means infinite number of periods)";
         parameter Real offset=0 "Offset of output signal";
-        parameter SIunits.Time startTime=0 
+        parameter SIunits.Time startTime=0
       "Output = offset for time < startTime";
         extends Interfaces.SO;
-  protected 
-        parameter SIunits.Time T_rising=rising 
+  protected
+        parameter SIunits.Time T_rising=rising
       "End time of rising phase within one period";
-        parameter SIunits.Time T_width=T_rising + width 
+        parameter SIunits.Time T_width=T_rising + width
       "End time of width phase within one period";
-        parameter SIunits.Time T_falling=T_width + falling 
+        parameter SIunits.Time T_falling=T_width + falling
       "End time of falling phase within one period";
         SIunits.Time T0(final start=startTime) "Start time of current period";
         Integer counter(start=nperiod) "Period counter";
@@ -2007,7 +2007,7 @@ The Real output y is a trapezoid signal:
 <img src=\"../Images/Blocks/Sources/Trapezoid.png\">
 </p>
 </html>"));
-      equation 
+      equation
         when pre(counter2) <> 0 and sample(startTime, period) then
           T0 = time;
           counter2 = pre(counter);
@@ -2015,25 +2015,25 @@ The Real output y is a trapezoid signal:
         end when;
         y = offset + (if (time < startTime or counter2 == 0 or time >= T0 +
           T_falling) then 0 else if (time < T0 + T_rising) then (time - T0)*
-          amplitude/T_rising else if (time < T0 + T_width) then amplitude else 
+          amplitude/T_rising else if (time < T0 + T_width) then amplitude else
           (T0 + T_falling - time)*amplitude/(T_falling - T_width));
       end Trapezoid;
-  
-      block KinematicPTP 
-    "Move as fast as possible along a distance within given kinematic constraints" 
-    
+
+      block KinematicPTP
+    "Move as fast as possible along a distance within given kinematic constraints"
+
         parameter Real deltaq[:]={1} "Distance to move";
-        parameter Real qd_max[:](each final min=Modelica.Constants.small) = {1} 
+        parameter Real qd_max[:](each final min=Modelica.Constants.small) = {1}
       "Maximum velocities der(q)";
-        parameter Real qdd_max[:](each final min=Modelica.Constants.small) = {1} 
+        parameter Real qdd_max[:](each final min=Modelica.Constants.small) = {1}
       "Maximum accelerations der(qd)";
-        parameter SIunits.Time startTime=0 
+        parameter SIunits.Time startTime=0
       "Time instant at which movement starts";
-    
+
         extends Interfaces.MO(final nout=max([size(deltaq, 1); size(qd_max, 1);
                size(qdd_max, 1)]));
-    
-  protected 
+
+  protected
         parameter Real p_deltaq[nout]=(if size(deltaq, 1) == 1 then ones(nout)*
             deltaq[1] else deltaq);
         parameter Real p_qd_max[nout]=(if size(qd_max, 1) == 1 then ones(nout)*
@@ -2173,61 +2173,61 @@ a flange according to a given acceleration.
        realized.</li>
 </ul>
 </html>"));
-      equation 
+      equation
         for i in 1:nout loop
           aux1[i] = p_deltaq[i]/p_qd_max[i];
           aux2[i] = p_deltaq[i]/p_qdd_max[i];
         end for;
         sd_max = 1/max(abs(aux1));
         sdd_max = 1/max(abs(aux2));
-    
+
         Ta1 = sqrt(1/sdd_max);
         Ta2 = sd_max/sdd_max;
         noWphase = Ta2 >= Ta1;
         Tv = if noWphase then Ta1 else 1/sd_max;
         Te = if noWphase then Ta1 + Ta1 else Tv + Ta2;
-    
+
         // path-acceleration
         sdd = if time < startTime then 0 else ((if noWphase then (if time < Ta1
            + startTime then sdd_max else (if time < Te + startTime then -
           sdd_max else 0)) else (if time < Ta2 + startTime then sdd_max else (
           if time < Tv + startTime then 0 else (if time < Te + startTime then -
           sdd_max else 0)))));
-    
+
         // acceleration
         y = p_deltaq*sdd;
       end KinematicPTP;
-  
-  block KinematicPTP2 
-    "Move as fast as possible from start to end position within given kinematic constraints with output signals q, qd=der(q), qdd=der(qd)" 
-    
+
+  block KinematicPTP2
+    "Move as fast as possible from start to end position within given kinematic constraints with output signals q, qd=der(q), qdd=der(qd)"
+
     parameter Real q_begin[:]={0} "Start position";
     parameter Real q_end[:]={1} "End position";
-    parameter Real qd_max[:](each final min=Modelica.Constants.small) = {1} 
+    parameter Real qd_max[:](each final min=Modelica.Constants.small) = {1}
       "Maximum velocities der(q)";
-    parameter Real qdd_max[:](each final min=Modelica.Constants.small) = {1} 
+    parameter Real qdd_max[:](each final min=Modelica.Constants.small) = {1}
       "Maximum accelerations der(qd)";
     parameter SI.Time startTime=0 "Time instant at which movement starts";
-    
+
     extends Modelica.Blocks.Interfaces.BlockIcon;
     final parameter Integer nout=max([size(q_begin, 1); size(q_end, 1); size(
-        qd_max, 1); size(qdd_max, 1)]) 
+        qd_max, 1); size(qdd_max, 1)])
       "Number of output signals (= dimension of q, qd, qdd, moving)";
     output SI.Time endTime "Time instant at which movement stops";
-    
-    Modelica.Blocks.Interfaces.RealOutput q[nout] 
-      "Reference position of path planning" 
+
+    Modelica.Blocks.Interfaces.RealOutput q[nout]
+      "Reference position of path planning"
       annotation (extent=[100,70; 120,90]);
-    Modelica.Blocks.Interfaces.RealOutput qd[nout] 
-      "Reference speed of path planning" 
+    Modelica.Blocks.Interfaces.RealOutput qd[nout]
+      "Reference speed of path planning"
       annotation (extent=[100,20; 120,40]);
-    Modelica.Blocks.Interfaces.RealOutput qdd[nout] 
-      "Reference acceleration of path planning" 
+    Modelica.Blocks.Interfaces.RealOutput qdd[nout]
+      "Reference acceleration of path planning"
       annotation (extent=[100,-40; 120,-20]);
-    Modelica.Blocks.Interfaces.BooleanOutput moving[nout] 
+    Modelica.Blocks.Interfaces.BooleanOutput moving[nout]
       "= true, if end position not yet reached; = false, if end position reached or axis is completely at rest"
       annotation (extent=[100,-90; 120,-70]);
-    
+
     annotation (defaultComponentName="kinematicPTP",
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -2320,7 +2320,7 @@ a flange according to a given acceleration.
       Documentation(info="<html>
 <p>
 The goal is to move as <b>fast</b> as possible from start position <b>q_begin</b>
-to end position <b>q_end</b> 
+to end position <b>q_end</b>
 under given <b>kinematical constraints</b>. The positions can be translational or
 rotational definitions (i.e., q_begin/q_end is given). In robotics such a movement is called <b>PTP</b> (Point-To-Point).
 This source block generates the <b>position</b> q(t), the
@@ -2347,7 +2347,7 @@ This element is useful to generate a reference signal for a controller
 which controls, e.g., a drive train, or to drive
 a flange according to a given acceleration.
 </p>
- 
+
 </html>
 ",   revisions="<html>
 <ul>
@@ -2367,7 +2367,7 @@ a flange according to a given acceleration.
        realized.</li>
 </ul>
 </html>"));
-  protected 
+  protected
     parameter Real p_q_begin[nout]=(if size(q_begin, 1) == 1 then ones(nout)*
         q_begin[1] else q_begin);
     parameter Real p_q_end[nout]=(if size(q_end, 1) == 1 then ones(nout)*
@@ -2404,52 +2404,52 @@ a flange according to a given acceleration.
     Real r_s;
     Real r_sd;
     Real r_sdd;
-    
-    function position 
-       input Real q_qd_qdd[3] 
+
+    function position
+       input Real q_qd_qdd[3]
         "Required values for position, speed, acceleration";
-       input Real dummy 
+       input Real dummy
         "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
        output Real q;
       annotation (derivative(noDerivative=q_qd_qdd) = position_der,
           InlineAfterIndexReduction=true);
-    algorithm 
+    algorithm
       q :=q_qd_qdd[1];
     end position;
-    
-    function position_der 
-       input Real q_qd_qdd[3] 
+
+    function position_der
+       input Real q_qd_qdd[3]
         "Required values for position, speed, acceleration";
-       input Real dummy 
+       input Real dummy
         "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
        input Real dummy_der;
        output Real qd;
       annotation (derivative(noDerivative=q_qd_qdd) = position_der2,
           InlineAfterIndexReduction=true);
-    algorithm 
+    algorithm
       qd :=q_qd_qdd[2];
     end position_der;
-    
-    function position_der2 
-       input Real q_qd_qdd[3] 
+
+    function position_der2
+       input Real q_qd_qdd[3]
         "Required values for position, speed, acceleration";
-       input Real dummy 
+       input Real dummy
         "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
        input Real dummy_der;
        input Real dummy_der2;
        output Real qdd;
-    algorithm 
+    algorithm
       qdd :=q_qd_qdd[3];
     end position_der2;
-  equation 
+  equation
     for i in 1:nout loop
       aux1[i] = p_deltaq[i]/p_qd_max[i];
       aux2[i] = p_deltaq[i]/p_qdd_max[i];
     end for;
-    
+
     sd_max_inv = max(abs(aux1));
     sdd_max_inv = max(abs(aux2));
-    
+
     if sd_max_inv <= eps or sdd_max_inv <= eps then
       sd_max = 0;
       sdd_max = 0;
@@ -2486,7 +2486,7 @@ a flange according to a given acceleration.
       s2 = s1 + (if noWphase then sd_max2*(Te - Ta1) - (sdd_max/2)*(Te - Ta1)
         ^2 else sd_max*(Tv - Ta2));
       s3 = s2 + sd_max*(Te - Tv) - (sdd_max/2)*(Te - Tv)*(Te - Tv);
-      
+
       if time < startTime then
         r_sdd = 0;
         r_sd = 0;
@@ -2523,37 +2523,37 @@ a flange according to a given acceleration.
         r_sd = 0;
         r_s = s3;
       end if;
-      
+
     end if;
-    
+
     // acceleration
     qdd = p_deltaq*sdd;
     qd = p_deltaq*sd;
     q = p_q_begin + p_deltaq*s;
     endTime = Tes;
-    
+
     s = position({r_s, r_sd, r_sdd}, time);
     sd = der(s);
     sdd = der(sd);
-    
+
     // report when axis is moving
     motion_ref = time <= endTime;
     for i in 1:nout loop
       moving[i] = if abs(q_begin[i] - q_end[i]) > eps then motion_ref else false;
     end for;
-    
+
   end KinematicPTP2;
-  
-      block TimeTable 
-    "Generate a (possibly discontinuous) signal by linear interpolation in a table" 
-    
-        parameter Real table[:, 2]=[0, 0; 1, 1; 2, 4] 
+
+      block TimeTable
+    "Generate a (possibly discontinuous) signal by linear interpolation in a table"
+
+        parameter Real table[:, 2]=[0, 0; 1, 1; 2, 4]
       "Table matrix (time = first column)";
         parameter Real offset=0 "Offset of output signal";
-        parameter SIunits.Time startTime=0 
+        parameter SIunits.Time startTime=0
       "Output = offset for time < startTime";
         extends Interfaces.SO;
-  protected 
+  protected
         Real a "Interpolation coefficients a of actual interval (y=a*x+b)";
         Real b "Interpolation coefficients b of actual interval (y=a*x+b)";
         Integer last(start=1) "Last used lower grid index";
@@ -2748,32 +2748,32 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
        Realized.</li>
 </ul>
 </html>"));
-        function getInterpolationCoefficients 
-      "Determine interpolation coefficients and next time event" 
+        function getInterpolationCoefficients
+      "Determine interpolation coefficients and next time event"
           input Real table[:, 2] "Table for interpolation";
           input Real offset "y-offset";
           input Real startTime "time-offset";
           input Real t "Actual time instant";
           input Integer last "Last used lower grid index";
-          input Real TimeEps 
+          input Real TimeEps
         "Relative epsilon to check for identical time instants";
           output Real a "Interpolation coefficients a (y=a*x + b)";
           output Real b "Interpolation coefficients b (y=a*x + b)";
           output Real nextEvent "Next event instant";
           output Integer next "New lower grid index";
-    protected 
+    protected
           Integer columns=2 "Column to be interpolated";
           Integer ncol=2 "Number of columns to be interpolated";
           Integer nrow=size(table, 1) "Number of table rows";
           Integer next0;
           Real tp;
           Real dt;
-        algorithm 
+        algorithm
           next := last;
           nextEvent := t - TimeEps*abs(t);
           // in case there are no more time events
           tp := t + TimeEps*abs(t) - startTime;
-      
+
           if tp < 0.0 then
             // First event not yet reached
             nextEvent := startTime;
@@ -2784,18 +2784,18 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
             a := 0;
             b := offset + table[1, columns];
           else
-        
+
               // Find next time event instant. Note, that two consecutive time instants
             // in the table may be identical due to a discontinuous point.
             while next < nrow and tp >= table[next, 1] loop
               next := next + 1;
             end while;
-        
+
             // Define next time event, if last table entry not reached
             if next < nrow then
               nextEvent := startTime + table[next, 1];
             end if;
-        
+
             // Determine interpolation coefficients
             next0 := next - 1;
             dt := table[next, 1] - table[next0, 1];
@@ -2811,55 +2811,55 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
           // Take into account startTime "a*(time - startTime) + b"
           b := b - a*startTime;
         end getInterpolationCoefficients;
-      algorithm 
+      algorithm
         when {time >= pre(nextEvent),initial()} then
           (a,b,nextEvent,last) := getInterpolationCoefficients(table, offset,
             startTime, time, last, 100*Modelica.Constants.eps);
         end when;
-      equation 
+      equation
         y = a*time + b;
       end TimeTable;
-  
-  block CombiTimeTable 
-    "Table look-up with respect to time and linear/perodic extrapolation methods (data from matrix/file)" 
-    
-    parameter Boolean tableOnFile=false 
-      "= true, if table is defined on file or in function usertab" 
+
+  block CombiTimeTable
+    "Table look-up with respect to time and linear/perodic extrapolation methods (data from matrix/file)"
+
+    parameter Boolean tableOnFile=false
+      "= true, if table is defined on file or in function usertab"
       annotation(Dialog(group="table data definition"));
-    parameter Real table[:, :]=fill(0.0,0,2) 
-      "Table matrix (time = first column)" 
+    parameter Real table[:, :]=fill(0.0,0,2)
+      "Table matrix (time = first column)"
          annotation(Dialog(group="table data definition", enable = not tableOnFile));
-    parameter String tableName="NoName" 
-      "Table name on file or in function usertab (see docu)" 
+    parameter String tableName="NoName"
+      "Table name on file or in function usertab (see docu)"
          annotation(Dialog(group="table data definition", enable = tableOnFile));
-    parameter String fileName="NoName" "File where matrix is stored" 
+    parameter String fileName="NoName" "File where matrix is stored"
          annotation(Dialog(group="table data definition", enable = tableOnFile));
-    parameter Integer columns[:]=2:size(table, 2) 
-      "Columns of table to be interpolated" 
+    parameter Integer columns[:]=2:size(table, 2)
+      "Columns of table to be interpolated"
     annotation(Dialog(group="table data interpretation"));
-    parameter Blocks.Types.Smoothness.Temp smoothness=Blocks.Types.Smoothness.LinearSegments 
-      "Smoothness of table interpolation" 
+    parameter Blocks.Types.Smoothness.Temp smoothness=Blocks.Types.Smoothness.LinearSegments
+      "Smoothness of table interpolation"
     annotation(Dialog(group="table data interpretation"));
-    parameter Blocks.Types.Extrapolation.Temp extrapolation=Blocks.Types.Extrapolation.LastTwoPoints 
-      "Extrapolation of data outside the definition range" 
+    parameter Blocks.Types.Extrapolation.Temp extrapolation=Blocks.Types.Extrapolation.LastTwoPoints
+      "Extrapolation of data outside the definition range"
     annotation(Dialog(group="table data interpretation"));
-    parameter Real offset[:]={0} "Offsets of output signals" 
+    parameter Real offset[:]={0} "Offsets of output signals"
     annotation(Dialog(group="table data interpretation"));
-    parameter SI.Time startTime=0 "Output = offset for time < startTime" 
+    parameter SI.Time startTime=0 "Output = offset for time < startTime"
     annotation(Dialog(group="table data interpretation"));
     extends Modelica.Blocks.Interfaces.MO(final nout=max([size(columns, 1); size(offset, 1)]));
-    final parameter Real t_min(fixed=false) 
+    final parameter Real t_min(fixed=false)
       "Minimum abscissa value defined in table";
-    final parameter Real t_max(fixed=false) 
+    final parameter Real t_max(fixed=false)
       "Maximum abscissa value defined in table";
-    
-  protected 
+
+  protected
     final parameter Real p_offset[nout]=(if size(offset, 1) == 1 then ones(nout)
          *offset[1] else offset);
-    
+
     Integer tableID;
-    
-    function tableTimeInit 
+
+    function tableTimeInit
       input Real timeIn;
       input Real startTime;
       input Integer ipoType;
@@ -2873,22 +2873,22 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
         expoType, tableName, fileName, table, size(table, 1), size(table, 2),
         colWise);
     end tableTimeInit;
-    
-    function tableTimeIpo 
+
+    function tableTimeIpo
       input Integer tableID;
       input Integer icol;
       input Real timeIn;
       output Real value;
     external "C" value = dymTableTimeIpo2(tableID, icol, timeIn);
     end tableTimeIpo;
-    
-    function tableTimeTmin 
+
+    function tableTimeTmin
       input Integer tableID;
       output Real Tmin "minimum time value in table";
     external "C" Tmin = dymTableTimeTmin(tableID);
     end tableTimeTmin;
-    
-    function tableTimeTmax 
+
+    function tableTimeTmax
       input Integer tableID;
       output Real Tmax "maximum time value in table";
     external "C" Tmax = dymTableTimeTmax(tableID);
@@ -3154,7 +3154,7 @@ Several matrices may be defined one after another.
           extent=[51,82; 80,68],
           style(color=0),
           string="y[2]")));
-  equation 
+  equation
     if tableOnFile then
       assert(tableName<>"NoName", "tableOnFile = true and no table name given");
     end if;
@@ -3169,12 +3169,12 @@ Several matrices may be defined one after another.
         extrapolation, (if not tableOnFile then "NoName" else tableName),
                        (if not tableOnFile then "NoName" else fileName), table, 0);
     end when;
-  initial equation 
+  initial equation
       t_min=tableTimeTmin(tableID);
       t_max=tableTimeTmax(tableID);
   end CombiTimeTable;
-  
-    block BooleanConstant "Generate constant signal of type Boolean" 
+
+    block BooleanConstant "Generate constant signal of type Boolean"
       parameter Boolean k=true "Constant output value";
       extends Interfaces.partialBooleanSource;
       annotation (
@@ -3229,14 +3229,14 @@ The Boolean output y is a constant signal:
 <img src=\"../Images/Blocks/Sources/BooleanConstant.png\">
 </p>
 </html>"));
-    equation 
+    equation
       y = k;
     end BooleanConstant;
-  
-    block BooleanStep "Generate step signal of type Boolean" 
+
+    block BooleanStep "Generate step signal of type Boolean"
       parameter Modelica.SIunits.Time startTime=0 "Time instant of step start";
       parameter Boolean startValue = false "Output before startTime";
-    
+
       extends Interfaces.partialBooleanSource;
       annotation (Icon(Line(points=[-80, -70; 0, -70; 0, 50; 80, 50], style(color=
                  0)), Text(
@@ -3286,12 +3286,12 @@ The Boolean output y is a step signal:
 <img src=\"../Images/Blocks/Sources/BooleanStep.png\">
 </p>
 </html>"));
-    equation 
+    equation
      y = if time >= startTime then not startValue else startValue;
     end BooleanStep;
-  
-    block BooleanPulse "Generate pulse signal of type Boolean" 
-    
+
+    block BooleanPulse "Generate pulse signal of type Boolean"
+
       parameter Real width(
         final min=Modelica.Constants.small,
         final max=100) = 50 "Width of pulse in % of period";
@@ -3420,27 +3420,27 @@ The Boolean output y is a pulse signal:
 <img src=\"../Images/Blocks/Sources/Pulse.png\">
 </p>
 </html>"));
-  protected 
-      parameter Modelica.SIunits.Time Twidth=period*width/100 
+  protected
+      parameter Modelica.SIunits.Time Twidth=period*width/100
       "width of one pulse"                                              annotation(Hide=true);
-      discrete Modelica.SIunits.Time pulsStart "Start time of pulse" 
+      discrete Modelica.SIunits.Time pulsStart "Start time of pulse"
                                                  annotation(Hide=true);
-    initial equation 
+    initial equation
       pulsStart = startTime;
-    equation 
+    equation
         when sample(startTime, period) then
           pulsStart = time;
         end when;
         y = time >= pulsStart and time < pulsStart + Twidth;
     end BooleanPulse;
-  
-    block SampleTrigger "Generate sample trigger signal" 
+
+    block SampleTrigger "Generate sample trigger signal"
       parameter Modelica.SIunits.Time period(final min=Modelica.Constants.small)=
          0.01 "Sample period";
-      parameter Modelica.SIunits.Time startTime=0 
+      parameter Modelica.SIunits.Time startTime=0
       "Time instant of first sample trigger";
       extends Interfaces.partialBooleanSource;
-    
+
       annotation (
         Coordsys(
           extent=[-100, -100; 100, 100],
@@ -3550,16 +3550,16 @@ at sample times (defined by parameter <b>period</b>) and is otherwise
 <img src=\"../Images/Blocks/Sources/SampleTrigger.png\">
 </p>
 </html>"));
-    equation 
+    equation
       y = sample(startTime, period);
     end SampleTrigger;
-  
-    block BooleanTable 
-    "Generate a Boolean output signal based on a vector of time instants" 
-    
-      parameter Boolean startValue = false 
+
+    block BooleanTable
+    "Generate a Boolean output signal based on a vector of time instants"
+
+      parameter Boolean startValue = false
       "Start value of y. At time = table[1], y changes to 'not startValue'";
-      parameter Modelica.SIunits.Time table[:] 
+      parameter Modelica.SIunits.Time table[:]
       "Vector of time points. At every time point, the output y gets its opposite value";
       extends Interfaces.partialBooleanSource;
       annotation (
@@ -3594,20 +3594,20 @@ changes its value to the negated value of the previous one.
 <img src=\"../Images/Blocks/Sources/BooleanTable.png\">
 </p>
 </html>"));
-    
-  protected 
-      function getFirstIndex "Get first index of table and check table" 
+
+  protected
+      function getFirstIndex "Get first index of table and check table"
         input Real table[:] "Vector of time instants";
         input Modelica.SIunits.Time simulationStartTime "Simulation start time";
         input Boolean startValue "Value of y for y < table[1]";
         output Integer index "First index to be used";
         output Modelica.SIunits.Time nextTime "Time instant of first event";
         output Boolean y "Value of y at simulationStartTime";
-    protected 
+    protected
         Modelica.SIunits.Time t_last;
         Integer j;
         Integer n=size(table,1) "Number of table points";
-      algorithm 
+      algorithm
         if size(table,1) == 0 then
            index :=0;
            nextTime :=-Modelica.Constants.inf;
@@ -3622,7 +3622,7 @@ changes its value to the negated value of the previous one.
               y        :=startValue;
            end if;
         else
-        
+
         // Check whether time values are strict monotonically increasing
           t_last :=table[1];
           for i in 2:n loop
@@ -3631,7 +3631,7 @@ changes its value to the negated value of the previous one.
                String(i-1) + "] = " + String(table[i-1]) + "table[" + String(i)   +
                "] = " + String(table[i]));
           end for;
-        
+
           // Determine first index in table
           j := 1;
           y := startValue;
@@ -3639,7 +3639,7 @@ changes its value to the negated value of the previous one.
             y :=not  y;
             j := j + 1;
           end while;
-        
+
           if j == 1 then
              nextTime := table[1];
              y        := startValue;
@@ -3649,17 +3649,17 @@ changes its value to the negated value of the previous one.
           else
              nextTime := table[j];
           end if;
-        
+
           index := j;
         end if;
       end getFirstIndex;
-    
+
       parameter Integer n = size(table,1) "Number of table points";
       Modelica.SIunits.Time nextTime;
       Integer index "Index of actual table entry";
-    initial algorithm 
+    initial algorithm
       (index, nextTime, y) :=getFirstIndex(table, time, startValue);
-    algorithm 
+    algorithm
       when time >= pre(nextTime) and n > 0 then
          if index < n then
             index    := index + 1;
@@ -3671,11 +3671,11 @@ changes its value to the negated value of the previous one.
          end if;
       end when;
     end BooleanTable;
-  
-  block IntegerConstant "Generate constant signal of type Integer" 
+
+  block IntegerConstant "Generate constant signal of type Integer"
     parameter Integer k=1 "Constant output value";
     extends Interfaces.IntegerSO;
-    
+
     annotation (Icon(
         Line(points=[-80, 68; -80, -80], style(color=8)),
         Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
@@ -3745,11 +3745,11 @@ The Integer output y is a constant signal:
 <img src=\"../Images/Blocks/Sources/IntegerConstant.png\">
 </p>
 </html>"));
-  equation 
+  equation
     y = k;
   end IntegerConstant;
-  
-  block IntegerStep "Generate step signal of type Integer" 
+
+  block IntegerStep "Generate step signal of type Integer"
     parameter Integer height=1 "Height of step";
     extends Interfaces.IntegerSignalSource;
     annotation (Icon(
@@ -3877,8 +3877,8 @@ The Integer output y is a step signal:
 <img src=\"../Images/Blocks/Sources/IntegerStep.png\">
 </p>
 </html>"));
-  equation 
+  equation
     y = offset + (if time < startTime then 0 else height);
   end IntegerStep;
-  
+
 end Sources;

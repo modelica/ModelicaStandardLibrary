@@ -1,9 +1,9 @@
 within Modelica.Blocks;
-package Math "Library of mathematical functions as input/output blocks" 
+package Math "Library of mathematical functions as input/output blocks"
   import Modelica.SIunits;
   import Modelica.Blocks.Interfaces;
   extends Modelica.Icons.Library;
-  
+
   annotation (
     preferedView="info",
     Coordsys(
@@ -40,15 +40,15 @@ connected with continuous blocks or with sampled-data blocks.
 </li>
 </ul>
 </html>"));
-  encapsulated package UnitConversions 
-    "Conversion blocks to convert between SI and non-SI unit signals" 
+  encapsulated package UnitConversions
+    "Conversion blocks to convert between SI and non-SI unit signals"
     import Modelica;
     import SI = Modelica.SIunits;
     import NonSI = Modelica.SIunits.Conversions.NonSIunits;
-    
-    block ConvertAllUnits "Convert signal to a signal with different unit" 
-      replaceable block ConversionBlock = 
-          Modelica.Blocks.Interfaces.PartialConversionBlock "Conversion block" 
+
+    block ConvertAllUnits "Convert signal to a signal with different unit"
+      replaceable block ConversionBlock =
+          Modelica.Blocks.Interfaces.PartialConversionBlock "Conversion block"
         annotation (choicesAllMatching=true, Documentation(info="<html>
 <p>
 Internal replaceable block that is used to construct the
@@ -56,7 +56,7 @@ Internal replaceable block that is used to construct the
 </p>
 </html>"));
       extends ConversionBlock;
-      
+
       annotation (
         defaultComponentName="convert",
         Icon(Line(points=[-90, 0; 30, 0],style(color=42)), Polygon(points=[90,
@@ -69,7 +69,7 @@ blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.
 </p>
 
 <p
-The desired conversion can be selected in the parameter menu 
+The desired conversion can be selected in the parameter menu
 (the selected units are then displayed in the icon):</p>
 </p>
 
@@ -79,11 +79,11 @@ The desired conversion can be selected in the parameter menu
 
 </html>"));
     end ConvertAllUnits;
-    
-    block To_degC "Convert from Kelvin to °Celsius" 
+
+    block To_degC "Convert from Kelvin to °Celsius"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="K"), y(
             unit="degC"));
-      
+
       annotation (Icon(Text(
             extent=[-20, 100; -100, 20],
             style(color=0),
@@ -96,11 +96,11 @@ This block converts the input signal from Kelvin to °Celsius and returns
 the result as output signal.
 </p>
 </html>"));
-    equation 
+    equation
       y = SI.Conversions.to_degC(u);
     end To_degC;
-    
-    block From_degC "Convert from °Celsius to Kelvin" 
+
+    block From_degC "Convert from °Celsius to Kelvin"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="degC"),
           y(unit="K"));
       annotation (Icon(Text(
@@ -115,11 +115,11 @@ This block converts the input signal from °Celsius to Kelvin and returns
 the result as output signal.
 </p>
 </html>"));
-    equation 
+    equation
       y = SI.Conversions.from_degC(u);
     end From_degC;
-    
-    block To_degF "Convert from Kelvin to °Fahrenheit" 
+
+    block To_degF "Convert from Kelvin to °Fahrenheit"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="K"), y(
             unit="degF"));
       annotation (Icon(Text(
@@ -134,11 +134,11 @@ This block converts the input signal from Kelvin to °Fahrenheit and returns
 the result as output signal.
 </p>
 </html>"));
-    equation 
+    equation
       y = SI.Conversions.to_degF(u);
     end To_degF;
-    
-    block From_degF "Convert from °Fahrenheit to Kelvin" 
+
+    block From_degF "Convert from °Fahrenheit to Kelvin"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="degF"),
           y(unit="K"));
       annotation (Icon(Text(
@@ -153,11 +153,11 @@ This block converts the input signal from °Fahrenheit to Kelvin and returns
 the result as output signal.
 </p>
 </html>"));
-    equation 
+    equation
       y = SI.Conversions.from_degF(u);
     end From_degF;
-    
-    block To_degRk "Convert from Kelvin to °Rankine" 
+
+    block To_degRk "Convert from Kelvin to °Rankine"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="K"), y(
             unit="degRk"));
       annotation (Icon(Text(
@@ -172,11 +172,11 @@ This block converts the input signal from Kelvin to °Rankine and returns
 the result as output signal.
 </p>
 </html>"));
-    equation 
+    equation
       y = SI.Conversions.to_degRk(u);
     end To_degRk;
-    
-    block From_degRk "Convert from °Rankine to Kelvin" 
+
+    block From_degRk "Convert from °Rankine to Kelvin"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="degRk"),
           y(unit="K"));
       annotation (Icon(Text(
@@ -191,11 +191,11 @@ This block converts the input signal from °Rankine to Kelvin and returns
 the result as output signal.
 </p>
 </html>"));
-    equation 
+    equation
       y = SI.Conversions.from_degRk(u);
     end From_degRk;
-    
-    block To_deg "Convert from radian to degree" 
+
+    block To_deg "Convert from radian to degree"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="rad"),
           y(unit="deg"));
       annotation (Icon(Text(
@@ -210,11 +210,11 @@ This block converts the input signal from radian to degree and returns
 the result as output signal.
 </p>
 </html>"));
-    equation 
+    equation
       y = SI.Conversions.to_deg(u);
     end To_deg;
-    
-    block From_deg "Convert from degree to radian" 
+
+    block From_deg "Convert from degree to radian"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="deg"),
           y(unit="rad"));
       annotation (Icon(Text(
@@ -229,11 +229,11 @@ This block converts the input signal from degree to radian and returns
 the result as output signal.
 </p>
 </html>"));
-    equation 
+    equation
       y = SI.Conversions.from_deg(u);
     end From_deg;
-    
-    block To_rpm "Convert from radian per second to revolutions per minute" 
+
+    block To_rpm "Convert from radian per second to revolutions per minute"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="rad/s"),
           y(unit="rev/min"));
       annotation (Icon(Text(
@@ -248,11 +248,11 @@ This block converts the input signal from radian per second to revolutions per m
 the result as output signal.
 </p>
 </html>"));
-    equation 
+    equation
       y = SI.Conversions.to_rpm(u);
     end To_rpm;
-    
-    block From_rpm "Convert from revolutions per minute to radian per second" 
+
+    block From_rpm "Convert from revolutions per minute to radian per second"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit=
               "rev/min"), y(unit="rad/s"));
       annotation (Icon(Text(
@@ -267,11 +267,11 @@ This block converts the input signal from revolutions per minute to radian per s
 the result as output signal.
 </p>
 </html>"));
-    equation 
+    equation
       y = SI.Conversions.from_rpm(u);
     end From_rpm;
-    
-    block To_kmh "Convert from metre per second to kilometre per hour" 
+
+    block To_kmh "Convert from metre per second to kilometre per hour"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="m/s"),
           y(unit="km/h"));
       annotation (Icon(Text(
@@ -286,11 +286,11 @@ This block converts the input signal from metre per second to kilometre per hour
 the result as output signal.
 </p>
 </html>"));
-    equation 
+    equation
       y = SI.Conversions.to_kmh(u);
     end To_kmh;
-    
-    block From_kmh "Convert from kilometre per hour to metre per second" 
+
+    block From_kmh "Convert from kilometre per hour to metre per second"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="km/h"),
           y(unit="m/s"));
       annotation (Icon(Text(
@@ -305,11 +305,11 @@ This block converts the input signal from kilometre per hour to metre per second
 the result as output signal.
 </p>
 </html>"));
-    equation 
+    equation
       y = SI.Conversions.from_kmh(u);
     end From_kmh;
-    
-    block To_day "Convert from second to day" 
+
+    block To_day "Convert from second to day"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="s"), y(
             unit="d"));
       annotation (Icon(Text(
@@ -324,11 +324,11 @@ This block converts the input signal from second to day and returns
 the result as output signal.
 </p>
 </html>"));
-    equation 
+    equation
       y = SI.Conversions.to_day(u);
     end To_day;
-    
-    block From_day "Convert from day to second" 
+
+    block From_day "Convert from day to second"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="d"), y(
             unit="s"));
       annotation (Icon(Text(
@@ -343,11 +343,11 @@ This block converts the input signal from day to second and returns
 the result as output signal.
 </p>
 </html>"));
-    equation 
+    equation
       y = SI.Conversions.from_day(u);
     end From_day;
-    
-    block To_hour "Convert from second to hour" 
+
+    block To_hour "Convert from second to hour"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="s"), y(
             unit="h"));
       annotation (Icon(Text(
@@ -362,11 +362,11 @@ This block converts the input signal from second to hour and returns
 the result as output signal.
 </p>
 </html>"));
-    equation 
+    equation
       y = SI.Conversions.to_hour(u);
     end To_hour;
-    
-    block From_hour "Convert from hour to second" 
+
+    block From_hour "Convert from hour to second"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="h"), y(
             unit="s"));
       annotation (Icon(Text(
@@ -381,11 +381,11 @@ This block converts the input signal from hour to second and returns
 the result as output signal.
 </p>
 </html>"));
-    equation 
+    equation
       y = SI.Conversions.from_hour(u);
     end From_hour;
-    
-    block To_minute "Convert from second to minute" 
+
+    block To_minute "Convert from second to minute"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="s"), y(
             unit="min"));
       annotation (Icon(Text(
@@ -400,11 +400,11 @@ This block converts the input signal from second to minute and returns
 the result as output signal.
 </p>
 </html>"));
-    equation 
+    equation
       y = SI.Conversions.to_minute(u);
     end To_minute;
-    
-    block From_minute "Convert from minute to second" 
+
+    block From_minute "Convert from minute to second"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="min"),
           y(unit="s"));
       annotation (Icon(Text(
@@ -419,11 +419,11 @@ This block converts the input signal from minute to second and returns
 the result as output signal.
 </p>
 </html>"));
-    equation 
+    equation
       y = SI.Conversions.from_minute(u);
     end From_minute;
-    
-    block To_litre "Convert from cubic metre to litre" 
+
+    block To_litre "Convert from cubic metre to litre"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="m3"), y(
             unit="l"));
       annotation (Icon(Text(
@@ -438,11 +438,11 @@ This block converts the input signal from metre to litre and returns
 the result as output signal.
 </p>
 </html>"));
-    equation 
+    equation
       y = SI.Conversions.to_litre(u);
     end To_litre;
-    
-    block From_litre "Convert from litre to cubic metre" 
+
+    block From_litre "Convert from litre to cubic metre"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="l"), y(
             unit="m3"));
       annotation (Icon(Text(
@@ -457,11 +457,11 @@ This block converts the input signal from litre to cubic metre and returns
 the result as output signal.
 </p>
 </html>"));
-    equation 
+    equation
       y = SI.Conversions.from_litre(u);
     end From_litre;
-    
-    block To_kWh "Convert from Joule to kilo Watt hour" 
+
+    block To_kWh "Convert from Joule to kilo Watt hour"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="J"), y(
             unit="kW.h"));
       annotation (Icon(Text(
@@ -476,11 +476,11 @@ This block converts the input signal from Joule to kilo Watt hour and returns
 the result as output signal.
 </p>
 </html>"));
-    equation 
+    equation
       y = SI.Conversions.to_kWh(u);
     end To_kWh;
-    
-    block From_kWh "Convert from kilo Watt hour to Joule" 
+
+    block From_kWh "Convert from kilo Watt hour to Joule"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="kW.h"),
           y(unit="J"));
       annotation (Icon(Text(
@@ -495,11 +495,11 @@ This block converts the input signal from kilo Watt hour to Joule and returns
 the result as output signal.
 </p>
 </html>"));
-    equation 
+    equation
       y = SI.Conversions.from_kWh(u);
     end From_kWh;
-    
-    block To_bar "Convert from Pascal to bar" 
+
+    block To_bar "Convert from Pascal to bar"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="Pa"), y(
             unit="bar"));
       annotation (Icon(Text(
@@ -514,11 +514,11 @@ This block converts the input signal from Pascal to bar and returns
 the result as output signal.
 </p>
 </html>"));
-    equation 
+    equation
       y = SI.Conversions.to_bar(u);
     end To_bar;
-    
-    block From_bar "Convert from bar to Pascal" 
+
+    block From_bar "Convert from bar to Pascal"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="bar"),
           y(unit="Pa"));
       annotation (Icon(Text(
@@ -533,11 +533,11 @@ This block converts the input signal from bar to Pascal and returns
 the result as output signal.
 </p>
 </html>"));
-    equation 
+    equation
       y = SI.Conversions.from_bar(u);
     end From_bar;
-    
-    block To_gps "Convert from kilogram per second to gram per second" 
+
+    block To_gps "Convert from kilogram per second to gram per second"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="kg/s"),
           y(unit="g/s"));
       annotation (Icon(Text(
@@ -552,11 +552,11 @@ This block converts the input signal from kilogram per second to gram per second
 the result as output signal.
 </p>
 </html>"));
-    equation 
+    equation
       y = SI.Conversions.to_gps(u);
     end To_gps;
-    
-    block From_gps "Convert from gram per second to kilogram per second" 
+
+    block From_gps "Convert from gram per second to kilogram per second"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="g/s"),
           y(unit="kg/s"));
       annotation (Icon(Text(
@@ -571,24 +571,24 @@ This block converts the input signal from gram per second to kilogram per second
 the result as output signal.
 </p>
 </html>"));
-    equation 
+    equation
       y = SI.Conversions.from_gps(u);
     end From_gps;
     annotation (Documentation(info="<html>
 <p>
-This package consists of blocks that convert an input signal 
+This package consists of blocks that convert an input signal
 with a specific unit to an output signal in another unit
 (e.g. conversion of an angle signal from \"deg\" to \"rad\").
 Block \"ConvertAllUnits\" converts between a set of units that
 can be selected in a pull-down menu of the parameter menu.
 All other blocks convert exactly between two different units.
 </p>
- 
+
 </html>"));
   end UnitConversions;
-  
-  block TwoInputs 
-    "Change causality of input signals by defining that two input signals are identical (e.g. for inverse models)" 
+
+  block TwoInputs
+    "Change causality of input signals by defining that two input signals are identical (e.g. for inverse models)"
     extends Blocks.Interfaces.BlockIcon;
         annotation(structurallyIncomplete,
           Coordsys(
@@ -611,20 +611,20 @@ defined as outputs (e.g. useful for inverse model generation).
               extent=[-95,50; 95,-50],
               string="=",
           style(color=74, rgbcolor={0,0,127}))));
-        Blocks.Interfaces.RealInput u1 "Connector of first Real input signal" 
+        Blocks.Interfaces.RealInput u1 "Connector of first Real input signal"
           annotation (extent=[-139.742, -19.0044; -100, 20], layer="icon");
-        Blocks.Interfaces.RealInput u2 
-      "Connector of second Real input signal (u1=u2)" 
+        Blocks.Interfaces.RealInput u2
+      "Connector of second Real input signal (u1=u2)"
                                        annotation (
           extent=[100, -20; 140, 20],
           rotation=180,
           layer="icon");
-  equation 
+  equation
         u1 = u2;
   end TwoInputs;
-  
-      block TwoOutputs 
-    "Change causality of output signals by defining that two output signals are identical (e.g. for inverse models)" 
+
+      block TwoOutputs
+    "Change causality of output signals by defining that two output signals are identical (e.g. for inverse models)"
         extends Blocks.Interfaces.BlockIcon;
         annotation(structurallyIncomplete,
           Coordsys(
@@ -648,24 +648,24 @@ This block is used to enable calculation of values preliminary defined as inputs
               extent=[-95,50; 95,-50],
               string="=",
               style(color=74, rgbcolor={0,0,127}))));
-        output Blocks.Interfaces.RealOutput y1 
-      "Connector of first Real output signal" 
+        output Blocks.Interfaces.RealOutput y1
+      "Connector of first Real output signal"
           annotation (extent=[100, -10; 120, 10]);
-        output Blocks.Interfaces.RealOutput y2 
-      "Connector of second Real output signal (y1=y2)" 
+        output Blocks.Interfaces.RealOutput y2
+      "Connector of second Real output signal (y1=y2)"
                                                annotation (extent=[-120.366, -10.9029;
                -100.365, 9.09712], rotation=180);
-      equation 
+      equation
         y1 = y2;
       end TwoOutputs;
-  
-      block Gain "Output the product of a gain value with the input signal" 
-    
+
+      block Gain "Output the product of a gain value with the input signal"
+
         parameter Real k=1 "Gain value multiplied with input signal";
-  public 
-        Interfaces.RealInput u "Input signal connector" 
+  public
+        Interfaces.RealInput u "Input signal connector"
           annotation (extent=[-140, -20; -100, 20]);
-        Interfaces.RealOutput y "Output signal connector" 
+        Interfaces.RealOutput y "Output signal connector"
           annotation (extent=[100, -10; 120, 10]);
         annotation (
           Coordsys(
@@ -707,14 +707,14 @@ input <i>u</i>:
                       fillColor=7,
                       rgbfillColor={255,255,255})),
                   Text(extent=[-76, 38; 0, -34], string="k")));
-      equation 
+      equation
         y = k*u;
       end Gain;
-  
-      block MatrixGain 
-    "Output the product of a gain matrix with the input signal vector" 
-    
-        parameter Real K[:, :]=[1, 0; 0, 1] 
+
+      block MatrixGain
+    "Output the product of a gain matrix with the input signal vector"
+
+        parameter Real K[:, :]=[1, 0; 0, 1]
       "Gain matrix which is multiplied with the input";
         extends Interfaces.MIMO(final nin=size(K, 2), final nout=size(K, 1));
         annotation (
@@ -760,11 +760,11 @@ Example:
             y=0.09,
             width=0.6,
             height=0.6));
-      equation 
+      equation
         y = K*u;
       end MatrixGain;
-  
-      block Sum "Output the sum of the elements of the input vector" 
+
+      block Sum "Output the sum of the elements of the input vector"
         extends Interfaces.MISO;
         parameter Real k[nin]=ones(nin) "Optional: sum coefficients";
         annotation (defaultComponentName="sum1",
@@ -805,14 +805,14 @@ Example:
           Diagram(Rectangle(extent=[-100, -100; 100, 100], style(color=3,
                   fillColor=7)), Line(points=[26, 42; -34, 42; 6, 2; -34, -38;
                   26, -38], style(color=0, thickness=1))));
-      equation 
+      equation
         y = k*u;
       end Sum;
-  
-      block Feedback "Output difference between commanded and feedback input" 
-    
+
+      block Feedback "Output difference between commanded and feedback input"
+
         input Interfaces.RealInput u1 annotation (extent=[-100, -20; -60, 20]);
-        input Interfaces.RealInput u2 
+        input Interfaces.RealInput u2
           annotation (extent=[-20, -100; 20, -60], rotation=90);
         output Interfaces.RealOutput y annotation (extent=[80, -10; 100, 10]);
         annotation (
@@ -875,11 +875,11 @@ Example:
               extent=[-12, 10; 84, -84],
               string="-",
               style(color=0))));
-      equation 
+      equation
         y = u1 - u2;
       end Feedback;
-  
-      block Add "Output the sum of the two inputs" 
+
+      block Add "Output the sum of the two inputs"
         extends Interfaces.SI2SO;
         parameter Real k1=+1 "Gain of upper input";
         parameter Real k2=+1 "Gain of lower input";
@@ -992,24 +992,24 @@ Example:
               extent=[-100, -52; 5, -92],
               string="k2",
               style(color=0))));
-    
-      equation 
+
+      equation
         y = k1*u1 + k2*u2;
       end Add;
-  
-      block Add3 "Output the sum of the three inputs" 
+
+      block Add3 "Output the sum of the three inputs"
         extends Interfaces.BlockIcon;
-    
+
         parameter Real k1=+1 "Gain of upper input";
         parameter Real k2=+1 "Gain of middle input";
         parameter Real k3=+1 "Gain of lower input";
-        input Interfaces.RealInput u1 "Connector 1 of Real input signals" 
+        input Interfaces.RealInput u1 "Connector 1 of Real input signals"
           annotation (extent=[-140, 60; -100, 100]);
-        input Interfaces.RealInput u2 "Connector 2 of Real input signals" 
+        input Interfaces.RealInput u2 "Connector 2 of Real input signals"
           annotation (extent=[-140, -20; -100, 20]);
-        input Interfaces.RealInput u3 "Connector 3 of Real input signals" 
+        input Interfaces.RealInput u3 "Connector 3 of Real input signals"
           annotation (extent=[-140, -100; -100, -60]);
-        output Interfaces.RealOutput y "Connector of Real output signals" 
+        output Interfaces.RealOutput y "Connector of Real output signals"
           annotation (extent=[100, -10; 120, 10]);
         annotation (
           Coordsys(
@@ -1040,7 +1040,7 @@ Example:
 
      y = 2 * u1 - 3 * u2 + u3;
 </pre>
- 
+
 </HTML>
 "),       Icon(
             Text(
@@ -1094,12 +1094,12 @@ Example:
               extent=[2, 36; 100, -44],
               string="+",
               style(color=0))));
-    
-      equation 
+
+      equation
         y = k1*u1 + k2*u2 + k3*u3;
       end Add3;
-  
-      block Product "Output product of the two inputs" 
+
+      block Product "Output product of the two inputs"
         extends Interfaces.SI2SO;
         annotation (
           Documentation(info="
@@ -1143,12 +1143,12 @@ the two inputs <b>u1</b> and <b>u2</b>:
             y=0.01,
             width=0.47,
             height=0.62));
-    
-      equation 
+
+      equation
         y = u1*u2;
       end Product;
-  
-      block Division "Output first input divided by second input" 
+
+      block Division "Output first input divided by second input"
         extends Interfaces.SI2SO;
         annotation (
           Documentation(info="
@@ -1193,12 +1193,12 @@ the two inputs <b>u1</b> and <b>u2</b>:
             y=0.09,
             width=0.6,
             height=0.6));
-    
-      equation 
+
+      equation
         y = u1/u2;
       end Division;
-  
-      block Abs "Output the absolute value of the input" 
+
+      block Abs "Output the absolute value of the input"
         extends Interfaces.SISO;
         annotation (defaultComponentName="abs1",
           Icon(
@@ -1254,11 +1254,11 @@ as <i>absolute value</i> of the input <b>u</b>:
             y=0.06,
             width=0.6,
             height=0.6));
-      equation 
+      equation
         y = abs(u);
       end Abs;
-  
-      block Sign "Output the sign of the input" 
+
+      block Sign "Output the sign of the input"
         extends Interfaces.SISO;
         annotation (defaultComponentName="sign1",
           Icon(
@@ -1323,11 +1323,11 @@ as <b>sign</b> of the input <b>u</b>:
             y=0.11,
             width=0.6,
             height=0.6));
-      equation 
+      equation
         y = sign(u);
       end Sign;
-  
-      block Sqrt "Output the square root of the input (input >= 0 required)" 
+
+      block Sqrt "Output the square root of the input (input >= 0 required)"
         extends Interfaces.SISO;
         annotation (defaultComponentName="sqrt1",
           Icon(
@@ -1385,12 +1385,12 @@ Otherwise an error occurs.
             y=0.15,
             width=0.6,
             height=0.6));
-    
-      equation 
+
+      equation
         y = sqrt(u);
       end Sqrt;
-  
-      block Sin "Output the sine of the input" 
+
+      block Sin "Output the sine of the input"
         extends Interfaces.SISO;
         annotation (
           Icon(
@@ -1459,11 +1459,11 @@ as <b>sine</b> of the input <b>u</b>:
             y=0.23,
             width=0.6,
             height=0.6));
-      equation 
+      equation
         y = Modelica.Math.sin(u);
       end Sin;
-  
-      block Cos "Output the cosine of the input" 
+
+      block Cos "Output the cosine of the input"
         extends Interfaces.SISO;
         annotation (
           Icon(
@@ -1530,12 +1530,12 @@ as <b>cos</b> of the input <b>u</b>:
             y=0.18,
             width=0.6,
             height=0.6));
-    
-      equation 
+
+      equation
         y = Modelica.Math.cos(u);
       end Cos;
-  
-      block Tan "Output the tangent of the input" 
+
+      block Tan "Output the tangent of the input"
         extends Interfaces.SISO;
         annotation (
           Icon(
@@ -1602,11 +1602,11 @@ as <b>tan</b> of the input <b>u</b>:
             y=0.18,
             width=0.6,
             height=0.6));
-      equation 
+      equation
         y = Modelica.Math.tan(u);
       end Tan;
-  
-      block Asin "Output the arc sine of the input" 
+
+      block Asin "Output the arc sine of the input"
         extends Interfaces.SISO;
         annotation (
           Icon(
@@ -1675,12 +1675,12 @@ Otherwise an error occurs.
             y=0.13,
             width=0.6,
             height=0.6));
-    
-      equation 
+
+      equation
         y = Modelica.Math.asin(u);
       end Asin;
-  
-      block Acos "Output the arc cosine of the input" 
+
+      block Acos "Output the arc cosine of the input"
         extends Interfaces.SISO;
         annotation (
           Icon(
@@ -1750,11 +1750,11 @@ Otherwise an error occurs.
             y=0.18,
             width=0.6,
             height=0.6));
-      equation 
+      equation
         y = Modelica.Math.acos(u);
       end Acos;
-  
-      block Atan "Output the arc tangent of the input" 
+
+      block Atan "Output the arc tangent of the input"
         extends Interfaces.SISO;
         annotation (
           Icon(
@@ -1820,11 +1820,11 @@ This blocks computes the output <b>y</b> as the
             y=0.12,
             width=0.6,
             height=0.6));
-      equation 
+      equation
         y = Modelica.Math.atan(u);
       end Atan;
-  
-      block Atan2 "Output atan(u1/u2) of the inputs u1 and u2" 
+
+      block Atan2 "Output atan(u1/u2) of the inputs u1 and u2"
         extends Interfaces.SI2SO;
         annotation (
           Icon(
@@ -1907,11 +1907,11 @@ block <b>Atan</b> gives a solution in the range
             y=0.21,
             width=0.6,
             height=0.6));
-      equation 
+      equation
         y = Modelica.Math.atan2(u1, u2);
       end Atan2;
-  
-      block Sinh "Output the hyperbolic sine of the input" 
+
+      block Sinh "Output the hyperbolic sine of the input"
         extends Interfaces.SISO;
         annotation (
           Icon(
@@ -1977,12 +1977,12 @@ This blocks computes the output <b>y</b> as the
             y=0.13,
             width=0.6,
             height=0.6));
-    
-      equation 
+
+      equation
         y = Modelica.Math.sinh(u);
       end Sinh;
-  
-      block Cosh "Output the hyperbolic cosine of the input" 
+
+      block Cosh "Output the hyperbolic cosine of the input"
         extends Interfaces.SISO;
         annotation (
           Icon(
@@ -2051,11 +2051,11 @@ This blocks computes the output <b>y</b> as the
             y=0.07,
             width=0.6,
             height=0.6));
-      equation 
+      equation
         y = Modelica.Math.cosh(u);
       end Cosh;
-  
-      block Tanh "Output the hyperbolic tangent of the input" 
+
+      block Tanh "Output the hyperbolic tangent of the input"
         extends Interfaces.SISO;
         annotation (
           Icon(
@@ -2121,11 +2121,11 @@ This blocks computes the output <b>y</b> as the
             y=0.14,
             width=0.6,
             height=0.6));
-      equation 
+      equation
         y = Modelica.Math.tanh(u);
       end Tanh;
-  
-      block Exp "Output the exponential (base e) of the input" 
+
+      block Exp "Output the exponential (base e) of the input"
         extends Interfaces.SISO;
         annotation (
           Icon(
@@ -2189,13 +2189,13 @@ This blocks computes the output <b>y</b> as the
             y=0.09,
             width=0.6,
             height=0.6));
-      equation 
+      equation
         y = Modelica.Math.exp(u);
       end Exp;
-  
-      block Log 
-    "Output the natural (base e) logarithm of the input (input > 0 required)" 
-    
+
+      block Log
+    "Output the natural (base e) logarithm of the input (input > 0 required)"
+
         extends Interfaces.SISO;
         annotation (
           Icon(
@@ -2265,13 +2265,13 @@ zero or negative.
             y=0.23,
             width=0.6,
             height=0.6));
-      equation 
+      equation
         y = Modelica.Math.log(u);
       end Log;
-  
-      block Log10 
-    "Output the base 10 logarithm of the input (input > 0 required)" 
-    
+
+      block Log10
+    "Output the base 10 logarithm of the input (input > 0 required)"
+
         extends Interfaces.SISO;
         annotation (
           Icon(
@@ -2341,11 +2341,11 @@ zero or negative.
             y=0.11,
             width=0.6,
             height=0.6));
-      equation 
+      equation
         y = Modelica.Math.log10(u);
       end Log10;
-  
-  block RealToInteger "Convert Real to Integer signal" 
+
+  block RealToInteger "Convert Real to Integer signal"
     extends Interfaces.IntegerBlockIcon;
     annotation (Icon(
         Text(extent=[-100, 60; 0, -60], string="R"),
@@ -2364,18 +2364,18 @@ as <i>nearest integer value</i> of the input <b>u</b>:
 </pre>
 </html>
 "));
-  public 
-    Interfaces.RealInput u "Connector of Real input signal" 
+  public
+    Interfaces.RealInput u "Connector of Real input signal"
                            annotation (extent=[-140, -20; -100, 20]);
-    Interfaces.IntegerOutput y "Connector of Integer output signal" 
+    Interfaces.IntegerOutput y "Connector of Integer output signal"
                                annotation (extent=[100, -10;
           120, 10]);
-  equation 
-     y = if (u > 0) then integer(floor(u + 0.5)) else 
+  equation
+     y = if (u > 0) then integer(floor(u + 0.5)) else
                          integer(ceil( u - 0.5));
   end RealToInteger;
-  
-  block IntegerToReal "Convert integer to real signals" 
+
+  block IntegerToReal "Convert integer to real signals"
     extends Interfaces.BlockIcon;
     annotation (Icon(
         Text(
@@ -2394,22 +2394,22 @@ as <i>Real equivalent</i> of the Integer input <b>u</b>:
 <p>where <b>u</b> is of Integer and <b>y</b> of Real type.</p>
 </html>
 "));
-    Interfaces.IntegerInput u "Connector of Integer input signal" 
+    Interfaces.IntegerInput u "Connector of Integer input signal"
                                                                annotation (extent=[-140, -20; -
           100, 20]);
     Interfaces.RealOutput y "Connector of Real output signal"  annotation (extent=[100, -10; 120, 10]);
-  equation 
+  equation
     y = u;
   end IntegerToReal;
-  
-  block BooleanToReal "Convert Boolean to Real signal" 
+
+  block BooleanToReal "Convert Boolean to Real signal"
     extends Interfaces.partialBooleanSI;
     parameter Real realTrue=1.0 "Output signal for true Boolean input";
     parameter Real realFalse=0.0 "Output signal for false Boolean input";
-    
-    Blocks.Interfaces.RealOutput y "Connector of Real output signal" 
+
+    Blocks.Interfaces.RealOutput y "Connector of Real output signal"
       annotation (extent=[100, -10; 120, 10]);
-    
+
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -2440,19 +2440,19 @@ and <b>realTrue</b> and <b>realFalse</b> are parameters.
               -66; -12,-46],   style(fillColor=73)),
         Text(extent=[8,-4; 92,-94],    string="R")),
       Diagram);
-    
-  equation 
+
+  equation
     y = if u then realTrue else realFalse;
   end BooleanToReal;
-  
-  block BooleanToInteger "Convert Boolean to Integer signal" 
+
+  block BooleanToInteger "Convert Boolean to Integer signal"
     extends Interfaces.partialBooleanSI;
     parameter Integer integerTrue=1 "Output signal for true Boolean input";
     parameter Integer integerFalse=0 "Output signal for false Boolean input";
-    
-    Blocks.Interfaces.IntegerOutput y "Connector of Integer output signal" 
+
+    Blocks.Interfaces.IntegerOutput y "Connector of Integer output signal"
       annotation (extent=[100, -10; 120, 10]);
-    
+
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -2489,18 +2489,18 @@ and <b>integerTrue</b> and <b>integerFalse</b> are parameters.
             string="I",
             style(color=47, rgbcolor={255,170,85}))),
       Diagram);
-    
-  equation 
+
+  equation
     y = if u then integerTrue else integerFalse;
   end BooleanToInteger;
-  
-  block RealToBoolean "Convert Real to Boolean signal" 
-    
+
+  block RealToBoolean "Convert Real to Boolean signal"
+
     Blocks.Interfaces.RealInput u "Connector of Real input signal"  annotation(extent=[-140,-20; -100,20]);
     extends Interfaces.partialBooleanSO;
-    parameter Real threshold=0.5 
+    parameter Real threshold=0.5
       "Output signal y is true, if input u >= threshold";
-    
+
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -2537,18 +2537,18 @@ where <b>threshold</b> is a parameter.
           string="B",
           style(color=81))),
       Diagram);
-    
-  equation 
+
+  equation
     y = u >= threshold;
   end RealToBoolean;
-  
-  block IntegerToBoolean "Convert Integer to Boolean signal" 
-    
+
+  block IntegerToBoolean "Convert Integer to Boolean signal"
+
     Blocks.Interfaces.IntegerInput u "Connector of Integer input signal" annotation(extent=[-140,-20; -100,20]);
     extends Interfaces.partialBooleanSO;
-    parameter Integer threshold=1 
+    parameter Integer threshold=1
       "Output signal y is true, if input u >= threshold";
-    
+
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -2585,12 +2585,12 @@ where <b>threshold</b> is a parameter.
           string="B",
           style(color=81))),
       Diagram);
-    
-  equation 
+
+  equation
     y = u >= threshold;
   end IntegerToBoolean;
-  
-  block Max "Pass through the largest signal" 
+
+  block Max "Pass through the largest signal"
     extends Interfaces.SI2SO;
     annotation (Icon(Text(
           extent=[-90, 36; 90, -36],
@@ -2604,11 +2604,11 @@ of the two Real inputs <b>u1</b> and <b>u2</b>:
 </pre>
 </html>
 "));
-  equation 
+  equation
     y = max(u1, u2);
   end Max;
-  
-  block Min "Pass through the smallest signal" 
+
+  block Min "Pass through the smallest signal"
     extends Interfaces.SI2SO;
     annotation (Icon(Text(
           extent=[-90, 36; 90, -36],
@@ -2622,11 +2622,11 @@ the two Real inputs <b>u1</b> and <b>u2</b>:
 </pre>
 </html>
 "));
-  equation 
+  equation
      y = min(u1, u2);
   end Min;
-  
-  block Edge "Indicates rising edge of boolean signal" 
+
+  block Edge "Indicates rising edge of boolean signal"
     extends Interfaces.BooleanSISO;
     annotation (Icon(Text(
           extent=[-90, 36; 90, -36],
@@ -2640,11 +2640,11 @@ when the Boolean input <b>u</b> shows a <i>rising edge</i>:
 </pre>
 </html>
 "));
-  equation 
+  equation
     y = edge(u);
   end Edge;
-  
-  block BooleanChange "Indicates boolean signal changing" 
+
+  block BooleanChange "Indicates boolean signal changing"
     extends Interfaces.BooleanSISO;
     annotation (Icon(Text(
           extent=[-90, 36; 90, -36],
@@ -2659,11 +2659,11 @@ i.e., when the signal changes:
 </pre>
 </html>
 "));
-  equation 
+  equation
     y = change(u);
   end BooleanChange;
-  
-  block IntegerChange "Indicates integer signal changing" 
+
+  block IntegerChange "Indicates integer signal changing"
     extends Interfaces.IntegerSIBooleanSO;
     annotation (Icon(Text(
           extent=[-90, 36; 90, -36],
@@ -2677,8 +2677,8 @@ Integer input <b>u</b> changes:
 </pre>
 </html>
 "));
-  equation 
+  equation
     y = change(u);
   end IntegerChange;
-  
+
 end Math;

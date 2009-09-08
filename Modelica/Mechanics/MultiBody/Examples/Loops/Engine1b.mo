@@ -1,6 +1,6 @@
 within Modelica.Mechanics.MultiBody.Examples.Loops;
-model Engine1b 
-  "Model of one cylinder engine with gas force and preparation for assembly joint JointRRP" 
+model Engine1b
+  "Model of one cylinder engine with gas force and preparation for assembly joint JointRRP"
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Example;
   extends Utilities.Engine1bBase;
@@ -32,17 +32,17 @@ model Engine1b
     Documentation(info="<html>
 <p>
 This is a model of the mechanical part of one cylinder of an engine.
-It is similiar to 
+It is similiar to
 <a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Engine1a#diagram\">Loops.Engine1a</a>.
 The difference is that a simple
-model for the gas force in the cylinder is added and that the 
+model for the gas force in the cylinder is added and that the
 model is restructured in such a way, that the central part of
 the planar kinematic loop can be easily replaced by the
 assembly joint \"Modelica.Mechanics.MultiBody.Joints.Assemblies.<b>JointRRP</b>\".
 This exchange of the kinematic loop is shown in
 <a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b_analytic#diagram\">Loops.Engine1b_analytic</a>.
 The advantage of using JointRRP is, that the
-non-linear algebraic equation of this loop is solved analytically, and 
+non-linear algebraic equation of this loop is solved analytically, and
 not numerically as in this model (Engine1b).
 </p>
 <p>
@@ -61,16 +61,16 @@ An animation of this example is shown in the figure below.
   Modelica.Mechanics.MultiBody.Joints.Revolute B1(
     n={1,0,0},
     cylinderLength=0.02,
-    cylinderDiameter=0.05) 
+    cylinderDiameter=0.05)
                          annotation (extent=[40,-20; 60,0],      rotation=0);
   Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic Cylinder(
-    boxWidth=0.02, n={0,-1,0}) 
+    boxWidth=0.02, n={0,-1,0})
                    annotation (extent=[40,87; 60,107],    rotation=-90);
-  Parts.FixedTranslation Rod1(r={0,0.2,0}, animation=false) 
+  Parts.FixedTranslation Rod1(r={0,0.2,0}, animation=false)
     annotation (extent=[60,0; 80,20], rotation=90);
-  Parts.FixedTranslation Rod3(r={0,-0.1,0}, animation=false) 
+  Parts.FixedTranslation Rod3(r={0,-0.1,0}, animation=false)
     annotation (extent=[40,68; 60,48],rotation=90);
-equation 
+equation
   connect(B1.frame_b, Rod1.frame_a) annotation (points=[60,-10; 70,-10; 70,0],
       style(
       color=10,

@@ -1,6 +1,6 @@
 within Modelica.Mechanics.MultiBody.Examples.Elementary;
-model PointGravityWithPointMasses 
-  "Two point masses in a point gravity field (rotation of bodies is neglected)" 
+model PointGravityWithPointMasses
+  "Two point masses in a point gravity field (rotation of bodies is neglected)"
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Example;
   inner Modelica.Mechanics.MultiBody.World world(
@@ -12,38 +12,38 @@ model PointGravityWithPointMasses
     v_0_start={1,0,0},
     r_0_start={0,0.6,0},
     sphereDiameter=0.1,
-    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity) 
+    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity)
     annotation (extent=[-20, 20; 0, 40]);
   Modelica.Mechanics.MultiBody.Parts.PointMass body2(
     m=1,
     r_0_start={0.6,0.6,0},
     v_0_start={0.6,0,0},
     sphereDiameter=0.1,
-    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity) 
+    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity)
     annotation (extent=[20, 20; 40, 40]);
   Modelica.Mechanics.MultiBody.Parts.PointMass body3(
     m=1,
     v_0_start={0.6,0,0},
     sphereDiameter=0.1,
     initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
-    r_0_start={0,0.8,0}) 
+    r_0_start={0,0.8,0})
     annotation (extent=[-20,60; 0,80]);
   Modelica.Mechanics.MultiBody.Parts.PointMass body4(
     m=1,
     v_0_start={0.6,0,0},
     sphereDiameter=0.1,
     initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
-    r_0_start={0.3,0.8,0}) 
+    r_0_start={0.3,0.8,0})
     annotation (extent=[20,60; 40,80]);
   Forces.Spring spring(showMass=false, c=10) annotation (extent=[0,60; 20,80]);
-equation 
-  
+equation
+
   annotation (
     Diagram,
     experiment(StopTime=2),
     Documentation(info="<HTML>
 <p>
-This model demonstrates the usage of model Parts.PointMass in a 
+This model demonstrates the usage of model Parts.PointMass in a
 point gravity field. The PointMass model has the feature that
 that rotation is not taken into account and can therefore also not be
 calculated. This example demonstrates two cases where this does not matter:

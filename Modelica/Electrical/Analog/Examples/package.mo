@@ -15,7 +15,7 @@ annotation(preferedView="info",
 This package contains examples that demonstrate the usage of the
 components of the Electrical.Analog library.
 </p>
- 
+
 </HTML>
 ", revisions="<html>
 <dl>

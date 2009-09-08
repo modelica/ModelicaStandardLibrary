@@ -1,10 +1,10 @@
 within Modelica.Electrical.Analog.Examples;
-encapsulated model ChuaCircuit "Chua's circuit, ns, V, A" 
+encapsulated model ChuaCircuit "Chua's circuit, ns, V, A"
   import Modelica.Electrical.Analog.Basic;
   import Modelica.Electrical.Analog.Examples.Utilities;
   import Modelica.Icons;
   extends Icons.Example;
-  
+
   annotation (
     Coordsys(
       extent=[-100, -100; 100, 100],
@@ -24,7 +24,7 @@ The simulation end time should be set to 5e4. To get the chaotic behaviour pleas
 Kennedy, M.P.: Three Steps to Chaos - Part I: Evolution. IEEE Transactions on CAS I 40 (1993)10, 640-656
 </dd>
 </dl>
- 
+
 </HTML>
 ", revisions="<html>
 <dt>
@@ -69,7 +69,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     Gb(min=-1) = -0.409091,
     Ve=1) annotation (extent=[50, -10; 100, 40], rotation=-90);
   Basic.Ground Gnd annotation (extent=[-25, -100; 25, -50]);
-equation 
+equation
   connect(L.p, G.p) annotation (points=[-75, 75; -25, 75]);
   connect(G.n, Nr.p) annotation (points=[25, 75; 75, 75; 75, 40]);
   connect(Nr.n, Gnd.p) annotation (points=[75, -10; 75, -50; 0, -50]);

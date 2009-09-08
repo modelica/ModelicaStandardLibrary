@@ -1,6 +1,6 @@
 within Modelica.Mechanics.MultiBody.Examples.Elementary;
-encapsulated model FreeBody 
-  "Free flying body attached by two springs to environment" 
+encapsulated model FreeBody
+  "Free flying body attached by two springs to environment"
   import Modelica.Icons;
   import Modelica.Mechanics.MultiBody;
   import Modelica.Mechanics.Rotational;
@@ -26,7 +26,7 @@ This example demonstrates:
 <ul>
 <li>The animation of spring and damper components</li>
 <li>A body can be freely moving without any connection to a joint.
-    In this case body coordinates are used automatically as 
+    In this case body coordinates are used automatically as
     states (whenever joints are present, it is first tried to
     use the generalized coordinates of the joints as states).</li>
 <li>If a body is freely moving, the initial position and velocity of the body
@@ -34,12 +34,12 @@ This example demonstrates:
     body \"body1\" in the left part (click on \"Initialization\").</li>
 </ul>
 <p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Elementary/FreeBody.png\" 
+<IMG SRC=\"../Images/MultiBody/Examples/Elementary/FreeBody.png\"
 ALT=\"model Examples.Elementary.FreeBody\">
 </p>
 </html>"));
   inner Modelica.Mechanics.MultiBody.World world annotation (extent=[-60, 20; -40, 40]);
-  Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar2(r={0.8,0,0}, animation=false) 
+  Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar2(r={0.8,0,0}, animation=false)
     annotation (extent=[0, 20; 20, 40]);
   Modelica.Mechanics.MultiBody.Forces.Spring spring1(
     width=0.1,
@@ -57,7 +57,7 @@ ALT=\"model Examples.Elementary.FreeBody\">
     r_0_start={0.2,-0.5,0.1},
     angles_start={10,10,10},
     width=0.05,
-    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity) 
+    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity)
     annotation (extent=[0, -40; 20, -20]);
   Modelica.Mechanics.MultiBody.Forces.Spring spring2(
     c=20,
@@ -65,8 +65,8 @@ ALT=\"model Examples.Elementary.FreeBody\">
     width=0.1,
     coilWidth=0.005,
     numberOfWindings=5) annotation (extent=[32, -4; 52, 16], rotation=-90);
-equation 
-  connect(bar2.frame_a, world.frame_b) 
+equation
+  connect(bar2.frame_a, world.frame_b)
     annotation (points=[0,30; -40,30], style(
       color=10,
       rgbcolor={95,95,95},
@@ -76,12 +76,12 @@ equation
       color=10,
       rgbcolor={95,95,95},
       thickness=2));
-  connect(spring2.frame_b, body.frame_b) 
+  connect(spring2.frame_b, body.frame_b)
     annotation (points=[42,-4; 20,-30], style(
       color=10,
       rgbcolor={95,95,95},
       thickness=2));
-  connect(bar2.frame_b, spring2.frame_a) 
+  connect(bar2.frame_b, spring2.frame_a)
     annotation (points=[20,30; 42,30; 42,16], style(
       color=10,
       rgbcolor={95,95,95},

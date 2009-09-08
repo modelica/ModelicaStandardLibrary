@@ -1,10 +1,10 @@
 within Modelica.Mechanics.MultiBody.Examples.Loops;
-model Fourbar_analytic 
-  "One kinematic loop with four bars (with JointSSP joint; analytic solution of non-linear algebraic loop)" 
-  
+model Fourbar_analytic
+  "One kinematic loop with four bars (with JointSSP joint; analytic solution of non-linear algebraic loop)"
+
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Example;
-  
+
   output SI.Angle j1_phi "angle of revolute joint j1";
   output SI.Position j2_s "distance of prismatic joint j2";
   output SI.AngularVelocity j1_w "axis speed of revolute joint j1";
@@ -21,7 +21,7 @@ This is a third version of the \"four-bar\" mechanism, see figure:
 <p>
 In this case
 the three revolute joints on the left top-side and the two revolute
-joints on the right top side have been replaced by the assembly joint 
+joints on the right top side have been replaced by the assembly joint
 <b>Joints.Assemblies.JointSSP</b>
 which consists of two spherical joints and one prismatic joint.
 Since JointSSP solves the non-linear constraint equation internally
@@ -29,21 +29,21 @@ analytically, no non-linear equation appears any more and a Modelica
 translator, such as Dymola, can transform the system into state space
 form without solving a system of equations. For more details, see
 <a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">
-MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>. 
+MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
 </p>
 </html>"),
     Diagram);
-  
-  inner Modelica.Mechanics.MultiBody.World world(animateGravity=false) 
+
+  inner Modelica.Mechanics.MultiBody.World world(animateGravity=false)
     annotation (extent=[-80, -60; -60, -40]);
   Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute j1(
     n={1,0,0},
     initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
     enforceStates=true,
     w_start=300) annotation (extent=[-54, -40; -34, -20]);
-  Modelica.Mechanics.MultiBody.Parts.BodyCylinder b1(r={0,0.5,0.1}, diameter=0.05) 
+  Modelica.Mechanics.MultiBody.Parts.BodyCylinder b1(r={0,0.5,0.1}, diameter=0.05)
     annotation (extent=[-40, -18; -20, 2], rotation=90);
-  Modelica.Mechanics.MultiBody.Parts.FixedTranslation b3(r={1.2,0,0}, animation=false) 
+  Modelica.Mechanics.MultiBody.Parts.FixedTranslation b3(r={1.2,0,0}, animation=false)
     annotation (extent=[-32, -60; -12, -40]);
   Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP jointSSP(
     rod1Length=sqrt({-1,0.3,0.1}*{-1,0.3,0.1}),
@@ -57,7 +57,7 @@ MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
     r={0,0.2,0},
     diameter=0.05,
     animation=false) annotation (extent=[40,20; 60,0],    rotation=90);
-equation 
+equation
   j1_phi = j1.phi;
   j2_s = jointSSP.prismatic.distance;
   j1_w = j1.w;
@@ -72,7 +72,7 @@ equation
       color=10,
       rgbcolor={95,95,95},
       thickness=2));
-  connect(b3.frame_a, world.frame_b) 
+  connect(b3.frame_a, world.frame_b)
     annotation (points=[-32,-50; -60,-50], style(
       color=10,
       rgbcolor={95,95,95},

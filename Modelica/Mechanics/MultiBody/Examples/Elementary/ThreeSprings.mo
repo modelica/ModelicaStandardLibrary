@@ -1,6 +1,6 @@
 within Modelica.Mechanics.MultiBody.Examples.Elementary;
-encapsulated model ThreeSprings 
-  "3-dim. springs in series and parallel connection" 
+encapsulated model ThreeSprings
+  "3-dim. springs in series and parallel connection"
   import Modelica.Icons;
   import Modelica.Mechanics.MultiBody;
   import Modelica.Mechanics.Rotational;
@@ -21,19 +21,19 @@ encapsulated model ThreeSprings
     Diagram,
     Documentation(info="<html>
 <p>
-This example demonstrates that <b>3-dimensional line force</b> elements 
+This example demonstrates that <b>3-dimensional line force</b> elements
 (here: Modelica.Mechanics.MultiBody.Forces.Spring elements) can be connected together
 in <b>series</b> without having a body with mass at the
 connection point (as usually required by multi-body programs).
-This is advantageous since stiff systems can be avoided, say, due to 
+This is advantageous since stiff systems can be avoided, say, due to
 a stiff spring and a small mass at the connection point.
 </p>
 <p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Elementary/ThreeSprings.png\" 
+<IMG SRC=\"../Images/MultiBody/Examples/Elementary/ThreeSprings.png\"
 ALT=\"model Examples.Elementary.ThreeSprings\">
 </p>
 </html>"));
-  inner Modelica.Mechanics.MultiBody.World world(animateWorld=animation) 
+  inner Modelica.Mechanics.MultiBody.World world(animateWorld=animation)
     annotation (extent=[-60, 20; -40, 40]);
   Modelica.Mechanics.MultiBody.Parts.Body body1(
     animation=animation,
@@ -45,7 +45,7 @@ ALT=\"model Examples.Elementary.ThreeSprings\">
     I_33=0.1,
     initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
     sphereDiameter=0.2) annotation (extent=[40, -80; 20, -60], rotation=-90);
-  Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar1(animation=animation, r={0.3,0,0}) 
+  Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar1(animation=animation, r={0.3,0,0})
     annotation (extent=[-20, 20; 0, 40]);
   Modelica.Mechanics.MultiBody.Forces.Spring spring1(
     lineForce(r_rel_0(start={-0.2,-0.2,0.2})),
@@ -55,7 +55,7 @@ ALT=\"model Examples.Elementary.ThreeSprings\">
     numberOfWindings=5,
     c=20,
     animation=animation) annotation (extent=[20, 0; 40, 20], rotation=-90);
-  Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar2(animation=animation, r={0,0,0.3}) 
+  Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar2(animation=animation, r={0,0,0.3})
     annotation (extent=[-40, 0; -20, -20], rotation=90);
   Modelica.Mechanics.MultiBody.Forces.Spring spring2(
     s_unstretched=0.1,
@@ -71,8 +71,8 @@ ALT=\"model Examples.Elementary.ThreeSprings\">
     numberOfWindings=5,
     c=20,
     animation=animation) annotation (extent=[-20, -42; 0, -22], rotation=0);
-equation 
-  connect(world.frame_b, bar1.frame_a) 
+equation
+  connect(world.frame_b, bar1.frame_a)
     annotation (points=[-40,30; -20,30], style(
       color=10,
       rgbcolor={95,95,95},
@@ -82,7 +82,7 @@ equation
       color=10,
       rgbcolor={95,95,95},
       thickness=2));
-  connect(bar1.frame_b, spring1.frame_a) 
+  connect(bar1.frame_b, spring1.frame_a)
     annotation (points=[0,30; 30,30; 30,20], style(
       color=10,
       rgbcolor={95,95,95},
@@ -92,14 +92,14 @@ equation
       color=10,
       rgbcolor={95,95,95},
       thickness=2));
-  connect(spring2.frame_b, body1.frame_a) 
+  connect(spring2.frame_b, body1.frame_a)
     annotation (points=[30,-48; 30,-60],   style(color=0, thickness=2));
-  connect(spring3.frame_b, spring1.frame_b) 
+  connect(spring3.frame_b, spring1.frame_b)
     annotation (points=[0,-32; 30,-14; 30,0], style(
       color=10,
       rgbcolor={95,95,95},
       thickness=2));
-  connect(spring2.frame_a, spring1.frame_b) 
+  connect(spring2.frame_a, spring1.frame_b)
     annotation (points=[30,-28; 30,0], style(
       color=10,
       rgbcolor={95,95,95},

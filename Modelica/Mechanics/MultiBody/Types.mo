@@ -1,5 +1,5 @@
 within Modelica.Mechanics.MultiBody;
-package Types "Constants and types with choices, especially to build menus" 
+package Types "Constants and types with choices, especially to build menus"
   extends Modelica.Icons.Library;
   annotation (preferedView="info", Documentation(info="<HTML>
 <p>
@@ -9,8 +9,8 @@ definitions that define the menus to be built up in the graphical
 user interface when the type is used as parameter in a declaration.
 </p>
 </HTML>"));
-  
-  type Axis = Modelica.Icons.TypeReal[3](each final unit="1") 
+
+  type Axis = Modelica.Icons.TypeReal[3](each final unit="1")
     "Axis vector with choices for menus"                                      annotation (
     preferedView="text",
     Evaluate=true,
@@ -23,15 +23,15 @@ user interface when the type is used as parameter in a declaration.
       choice={0,0,-1} "{0,0,-1} \"negative z axis\""),
     Documentation(info="<html>
 </html>"));
-  
-  type AxisLabel = Modelica.Icons.TypeString 
+
+  type AxisLabel = Modelica.Icons.TypeString
     "Label of axis with choices for menus"                                          annotation (
       preferedView="text", choices(
       choice="x" "x",
       choice="y" "y",
       choice="z" "z"));
-  
-  type RotationSequence = Modelica.Icons.TypeInteger[3] (min={1,1,1}, max={3,3,3}) 
+
+  type RotationSequence = Modelica.Icons.TypeInteger[3] (min={1,1,1}, max={3,3,3})
     "Sequence of planar frame rotations with choices for menus" annotation (
     preferedView="text",
     Evaluate=true,
@@ -39,9 +39,9 @@ user interface when the type is used as parameter in a declaration.
       choice={1,2,3} "{1,2,3} \"Cardan/Tait-Bryan angles\"",
       choice={3,1,3} "{3,1,3} \"Euler angles\"",
       choice={3,2,1} "{3,2,1}"));
-  
-  type Color = Modelica.Icons.TypeInteger[3] (each min=0, each max=255) 
-    "RGB representation of color (will be improved with a color editor)" 
+
+  type Color = Modelica.Icons.TypeInteger[3] (each min=0, each max=255)
+    "RGB representation of color (will be improved with a color editor)"
     annotation (preferedView="info",
       Dialog(colorSelector),
       choices(
@@ -68,10 +68,10 @@ Type <b>Color</b> is an Integer vector with 3 elements,
 Note, r g, b are given in the range 0 .. 255.
 </p>
 </html>"));
-  type SpecularCoefficient = Modelica.Icons.TypeReal 
-    "Reflection of ambient light (= 0: light is completely absorbed)" 
+  type SpecularCoefficient = Modelica.Icons.TypeReal
+    "Reflection of ambient light (= 0: light is completely absorbed)"
        annotation (preferedView="info", min=0,
-         choices(choice=0 "\"0.0 (dull)\"",choice=0.7 "\"0.7 (medium)\"", choice=1 
+         choices(choice=0 "\"0.0 (dull)\"",choice=0.7 "\"0.7 (medium)\"", choice=1
         "\"1.0 (glossy)\""),
     Documentation(info="<html>
 <p>
@@ -83,12 +83,12 @@ longer visible, if the SpecularCoefficient value is too high.
 In the following image, the different values of SpecularCoefficient
 are shown for a cylinder:
 </p>
- 
+
 <p>
 <img src=\"../Images/MultiBody/Visualizers/SpecularCoefficient.png\"
-</p> 
+</p>
 </html>"));
-  type ShapeType = Modelica.Icons.TypeString 
+  type ShapeType = Modelica.Icons.TypeString
     "Type of shape (box, sphere, cylinder, pipecylinder, cone, pipe, beam, gearwheel, spring, dxf-file)"
      annotation (preferedView="info", choices(
       choice="box" "\"box\"",
@@ -120,7 +120,7 @@ values for shapeType are possible, e.g., shapeType=\"box\":
 <p>&nbsp;<br>
 The dark blue arrows in the figure above are directed along
 variable <b>lengthDirection</b>. The light blue arrows are directed
-along variable <b>widthDirection</b>. The <b>coordinate systems</b> 
+along variable <b>widthDirection</b>. The <b>coordinate systems</b>
 in the figure represent frame_a of the Shape component.
 </p>
 <p>
@@ -129,13 +129,13 @@ Additionally, external shapes are specified as DXF-files
 etc.. The corresponding definitions should be in files \"1.dxf\",
 \"2.dxf\" etc.Since the DXF-files contain color and dimensions for
 the individual faces, the corresponding information in the model
-is currently ignored. The DXF-files must be found either in the current 
+is currently ignored. The DXF-files must be found either in the current
 directory or in the directory where the Shape instance is stored
 that references the DXF file.
 </p>
 </html>"));
-  type ShapeExtra = Modelica.Icons.TypeReal 
-    "Reflection of ambient light (= 0: light is completely absorbed)" 
+  type ShapeExtra = Modelica.Icons.TypeReal
+    "Reflection of ambient light (= 0: light is completely absorbed)"
        annotation (preferedView="info", min=0,
     Documentation(info="<html>
 <p>
@@ -174,34 +174,34 @@ variable <b>extra</b> is used as instance name:
 </tr>
 </table>
 </html>"));
-  
+
   type AngularVelocity_degs = Modelica.Icons.TypeReal(final quantity="AngularVelocity", final unit
         =    "deg/s") "Angular velocity type in deg/s";
-  
+
   type AngularAcceleration_degs2 = Modelica.Icons.TypeReal (final quantity="AngularAcceleration",
         final unit="deg/s2") "Angular acceleration type in deg/s^2";
-  
-  package RotationTypes 
-    "Type, constants and menu choices for rotation types, as temporary solution until enumerations are available" 
-    
+
+  package RotationTypes
+    "Type, constants and menu choices for rotation types, as temporary solution until enumerations are available"
+
     annotation (Documentation(info="<html>
-  
+
 </html>"));
-    
+
     extends Modelica.Icons.Enumeration;
     constant Integer RotationAxis=1;
     constant Integer TwoAxesVectors=2;
     constant Integer PlanarRotationSequence=3;
-    type Temp 
-      "Temporary type of RotationTypes with choices for menus (until enumerations are available)" 
-      
+    type Temp
+      "Temporary type of RotationTypes with choices for menus (until enumerations are available)"
+
       extends Modelica.Icons.TypeInteger;
       annotation (Evaluate=true, choices(
-          choice=Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis 
+          choice=Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis
             "Rotation axis",
-          choice=Modelica.Mechanics.MultiBody.Types.RotationTypes.TwoAxesVectors 
+          choice=Modelica.Mechanics.MultiBody.Types.RotationTypes.TwoAxesVectors
             "Two axes vectors",
-          choice=Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence 
+          choice=Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence
             "Planar rotation sequence"),
         Documentation(info="<html>
 <table border=1 cellspacing=0 cellpadding=2>
@@ -209,68 +209,68 @@ variable <b>extra</b> is used as instance name:
 <tr><td valign=\"top\">RotationAxis</td>
     <td valign=\"top\">frame_b is defined by rotating the coordinate system along
         an axis fixed in frame_a and with a fixed angle.</td></tr>
- 
+
 <tr><td valign=\"top\">TwoAxesVectors</td>
     <td valign=\"top\">frame_b is defined by resolving two vectors of frame_b in frame_a.</td></tr>
- 
+
 <tr><td valign=\"top\">PlanarRotationSequence</td>
     <td valign=\"top\">frame_b is defined by rotating the coordinate system along
         3 consecutive axes vectors with fixed rotation angles
         (e.g. Cardan or Euler angle sequence rotation).</td></tr>
 </table>
 </html>"));
-      
+
     end Temp;
   end RotationTypes;
-  
-  package GravityTypes 
-    "Type, constants and menu choices for gravity fields, as temporary solution until enumerations are available" 
-    
+
+  package GravityTypes
+    "Type, constants and menu choices for gravity fields, as temporary solution until enumerations are available"
+
     annotation (Documentation(info="<html>
-  
+
 </html>"));
     extends Modelica.Icons.Enumeration;
     constant Integer NoGravity=0;
     constant Integer UniformGravity=1;
     constant Integer PointGravity=2;
-    
-    type Temp 
-      "Temporary type of gravity field with choices for menus (until enumerations are available)" 
-      
+
+    type Temp
+      "Temporary type of gravity field with choices for menus (until enumerations are available)"
+
       extends Modelica.Icons.TypeInteger;
       annotation (choices(
-          choice=Modelica.Mechanics.MultiBody.Types.GravityTypes.NoGravity 
+          choice=Modelica.Mechanics.MultiBody.Types.GravityTypes.NoGravity
             "no gravity",
-          choice=Modelica.Mechanics.MultiBody.Types.GravityTypes.UniformGravity 
+          choice=Modelica.Mechanics.MultiBody.Types.GravityTypes.UniformGravity
             "uniform gravity",
-          choice=Modelica.Mechanics.MultiBody.Types.GravityTypes.PointGravity 
+          choice=Modelica.Mechanics.MultiBody.Types.GravityTypes.PointGravity
             "point gravity"), Documentation(info="<html>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><b>Types.GravityTypes.</b></th><th><b>Meaning</b></th></tr>
 <tr><td valign=\"top\">NoGravity</td>
     <td valign=\"top\">No gravity field</td></tr>
- 
+
 <tr><td valign=\"top\">UniformGravity</td>
     <td valign=\"top\">Gravity field is described by a vector of constant gravity acceleration</td></tr>
- 
+
 <tr><td valign=\"top\">PointGravity</td>
     <td valign=\"top\">Central gravity field. The gravity acceleration vector is directed to
         the field center and the gravity is proportional to 1/r^2, where
         r is the distance to the field center.</td></tr>
 </table>
 </html>"));
-      
+
     end Temp;
   end GravityTypes;
-  
-  package Init 
-    "Type, constants and menu choices to define initialization, as temporary solution until enumerations are available" 
-    
+
+  package Init
+    "Type, constants and menu choices to define initialization, as temporary solution until enumerations are available"
+
     annotation (Documentation(info="<html>
-  
+
 </html>"));
     extends Modelica.Icons.Enumeration;
-    
+
     constant Integer Free=1;
     constant Integer PositionVelocity=2;
     constant Integer SteadyState=3;
@@ -278,59 +278,59 @@ variable <b>extra</b> is used as instance name:
     constant Integer Velocity=5;
     constant Integer VelocityAcceleration=6;
     constant Integer PositionVelocityAcceleration=7;
-    
-    type Temp 
-      "Temporary type of Init with choices for menus (until enumerations are available)" 
-      
+
+    type Temp
+      "Temporary type of Init with choices for menus (until enumerations are available)"
+
       extends Modelica.Icons.TypeInteger;
       annotation (choices(
-          choice=Modelica.Mechanics.MultiBody.Types.Init.Free 
+          choice=Modelica.Mechanics.MultiBody.Types.Init.Free
             "free (no initialization)",
-          choice=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity 
+          choice=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity
             "initialize generalized position and velocity variables",
-          choice=Modelica.Mechanics.MultiBody.Types.Init.SteadyState 
+          choice=Modelica.Mechanics.MultiBody.Types.Init.SteadyState
             "initialize in steady state (velocity and acceleration are zero)",
-          choice=Modelica.Mechanics.MultiBody.Types.Init.Position 
+          choice=Modelica.Mechanics.MultiBody.Types.Init.Position
             "initialize only generalized position variable(s)",
-          choice=Modelica.Mechanics.MultiBody.Types.Init.Velocity 
+          choice=Modelica.Mechanics.MultiBody.Types.Init.Velocity
             "initialize only generalized velocity variable(s)",
-          choice=Modelica.Mechanics.MultiBody.Types.Init.VelocityAcceleration 
+          choice=Modelica.Mechanics.MultiBody.Types.Init.VelocityAcceleration
             "initialize generalized velocity and acceleration variables",
-          choice=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocityAcceleration 
+          choice=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocityAcceleration
             "initialize generalized position, velocity and acceleration variables"),
           Documentation(info="<html>
-  
+
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><b>Types.Init.</b></th><th><b>Meaning</b></th></tr>
 <tr><td valign=\"top\">Free</td>
     <td valign=\"top\">No initialization</td></tr>
- 
+
 <tr><td valign=\"top\">PositionVelocity</td>
     <td valign=\"top\">Initialize generalized position and velocity variables</td></tr>
- 
+
 <tr><td valign=\"top\">SteadyState</td>
     <td valign=\"top\">Initialize in steady state (velocity and acceleration are zero)</td></tr>
- 
+
 <tr><td valign=\"top\">Position </td>
     <td valign=\"top\">Initialize only generalized position variable(s)</td></tr>
- 
+
 <tr><td valign=\"top\">Velocity</td>
     <td valign=\"top\">Initialize only generalized velocity variable(s)</td></tr>
- 
+
 <tr><td valign=\"top\">VelocityAcceleration</td>
     <td valign=\"top\">Initialize generalized velocity and acceleration variables</td></tr>
- 
+
 <tr><td valign=\"top\">PositionVelocityAcceleration</td>
     <td valign=\"top\">Initialize generalized position, velocity and acceleration variables</td></tr>
- 
+
 </table>
- 
+
 </html>"));
-      
+
     end Temp;
   end Init;
-  
-  package Defaults "Default settings of the MultiBody library via constants" 
+
+  package Defaults "Default settings of the MultiBody library via constants"
     annotation (preferedView="info", Documentation(info="<html>
 <p>
 This package contains constants used as default setting
@@ -338,51 +338,51 @@ in the MultiBody library.
 </p>
 </html>"));
     extends Modelica.Icons.Library;
-    
+
     // Color defaults
-    constant Types.Color BodyColor={0,128,255} 
+    constant Types.Color BodyColor={0,128,255}
       "Default color for body shapes that have mass (light blue)";
-    constant Types.Color RodColor={155,155,155} 
+    constant Types.Color RodColor={155,155,155}
       "Default color for massless rod shapes (grey)";
-    constant Types.Color JointColor={255,0,0} 
+    constant Types.Color JointColor={255,0,0}
       "Default color for elementary joints (red)";
-    constant Types.Color ForceColor={0,128,0} 
+    constant Types.Color ForceColor={0,128,0}
       "Default color for force arrow (dark green)";
-    constant Types.Color TorqueColor={0,128,0} 
+    constant Types.Color TorqueColor={0,128,0}
       "Default color for torque arrow (dark green)";
-    constant Types.Color SpringColor={0,0,255} 
+    constant Types.Color SpringColor={0,0,255}
       "Default color for a spring (blue)";
-    constant Types.Color SensorColor={255,255,0} 
+    constant Types.Color SensorColor={255,255,0}
       "Default color for sensors (yellow)";
-    constant Types.Color FrameColor={0,0,0} 
+    constant Types.Color FrameColor={0,0,0}
       "Default color for frame axes and labels (black)";
-    constant Types.Color ArrowColor={0,0,255} 
+    constant Types.Color ArrowColor={0,0,255}
       "Default color for arrows and double arrows (blue)";
-    
+
     // Arrow and frame defaults
-    constant Real FrameHeadLengthFraction=5.0 
+    constant Real FrameHeadLengthFraction=5.0
       "Frame arrow head length / arrow diameter";
-    constant Real FrameHeadWidthFraction=3.0 
+    constant Real FrameHeadWidthFraction=3.0
       "Frame arrow head width / arrow diameter";
-    constant Real FrameLabelHeightFraction=3.0 
+    constant Real FrameLabelHeightFraction=3.0
       "Height of frame label / arrow diameter";
-    constant Real ArrowHeadLengthFraction=4.0 
+    constant Real ArrowHeadLengthFraction=4.0
       "Arrow head length / arrow diameter";
-    constant Real ArrowHeadWidthFraction=3.0 
+    constant Real ArrowHeadWidthFraction=3.0
       "Arrow head width / arrow diameter";
-    
+
     // Other defaults
-    constant SI.Diameter BodyCylinderDiameterFraction=3 
+    constant SI.Diameter BodyCylinderDiameterFraction=3
       "Default for body cylinder diameter as a fraction of body sphere diameter";
-    constant Real JointRodDiameterFraction=2 
+    constant Real JointRodDiameterFraction=2
       "Default for rod diameter as a fraction of joint sphere diameter attached to rod";
-    
+
     /*
-  constant Real N_to_m(unit="N/m") = 1000 
+  constant Real N_to_m(unit="N/m") = 1000
     "Default force arrow scaling (length = force/N_to_m_default)";
-  constant Real Nm_to_m(unit="N.m/m") = 1000 
+  constant Real Nm_to_m(unit="N.m/m") = 1000
     "Default torque arrow scaling (length = torque/Nm_to_m_default)";
 */
   end Defaults;
-  
+
 end Types;

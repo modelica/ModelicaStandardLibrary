@@ -1,197 +1,197 @@
 within Modelica.Media.IdealGases.Common;
-package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients" 
+package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
   extends Modelica.Icons.Library;
   annotation (preferedView="info", Documentation(info="<HTML>
 <p>This package contains ideal gas models for the 1241 ideal gases from </p>
 <blockquote>
-  <p>McBride B.J., Zehe M.J., and Gordon S. (2002): <b>NASA Glenn Coefficients 
-  for Calculating Thermodynamic Properties of Individual Species</b>. NASA 
+  <p>McBride B.J., Zehe M.J., and Gordon S. (2002): <b>NASA Glenn Coefficients
+  for Calculating Thermodynamic Properties of Individual Species</b>. NASA
   report TP-2002-211556</p>
 </blockquote>
 
 <pre>
- Ag        BaOH+           C2H4O_ethylen_o DF      In2I4    Nb      ScO2   
- Ag+       Ba_OH_2         CH3CHO_ethanal  DOCl    In2I6    Nb+     Sc2O   
- Ag-       BaS             CH3COOH         DO2     In2O     Nb-     Sc2O2  
- Air       Ba2             OHCH2COOH       DO2-    K        NbCl5   Si     
- Al        Be              C2H5            D2      K+       NbO     Si+    
- Al+       Be+             C2H5Br          D2+     K-       NbOCl3  Si-    
- Al-       Be++            C2H6            D2-     KAlF4    NbO2    SiBr   
- AlBr      BeBr            CH3N2CH3        D2O     KBO2     Ne      SiBr2  
- AlBr2     BeBr2           C2H5OH          D2O2    KBr      Ne+     SiBr3  
- AlBr3     BeCl            CH3OCH3         D2S     KCN      Ni      SiBr4  
- AlC       BeCl2           CH3O2CH3        e-      KCl      Ni+     SiC    
- AlC2      BeF             CCN             F       KF       Ni-     SiC2   
- AlCl      BeF2            CNC             F+      KH       NiCl    SiCl   
- AlCl+     BeH             OCCN            F-      KI       NiCl2   SiCl2  
- AlCl2     BeH+            C2N2            FCN     Kli      NiO     SiCl3  
- AlCl3     BeH2            C2O             FCO     KNO2     NiS     SiCl4  
- AlF       BeI             C3              FO      KNO3     O       SiF    
- AlF+      BeI2            C3H3_1_propynl  FO2_FOO KNa      O+      SiFCl  
- AlFCl     BeN             C3H3_2_propynl  FO2_OFO KO       O-      SiF2   
- AlFCl2    BeO             C3H4_allene     F2      KOH      OD      SiF3   
- AlF2      BeOH            C3H4_propyne    F2O     K2       OD-     SiF4   
- AlF2-     BeOH+           C3H4_cyclo      F2O2    K2+      OH      SiH    
- AlF2Cl    Be_OH_2         C3H5_allyl      FS2F    K2Br2    OH+     SiH+   
- AlF3      BeS             C3H6_propylene  Fe      K2CO3    OH-     SiHBr3 
- AlF4-     Be2             C3H6_cyclo      Fe+     K2C2N2   O2      SiHCl  
- AlH       Be2Cl4          C3H6O_propylox  Fe_CO_5 K2Cl2    O2+     SiHCl3 
- AlHCl     Be2F4           C3H6O_acetone   FeCl    K2F2     O2-     SiHF   
- AlHCl2    Be2O            C3H6O_propanal  FeCl2   K2I2     O3      SiHF3  
- AlHF      Be2OF2          C3H7_n_propyl   FeCl3   K2O      P       SiHI3  
- AlHFCl    Be2O2           C3H7_i_propyl   FeO     K2O+     P+      SiH2   
+ Ag        BaOH+           C2H4O_ethylen_o DF      In2I4    Nb      ScO2
+ Ag+       Ba_OH_2         CH3CHO_ethanal  DOCl    In2I6    Nb+     Sc2O
+ Ag-       BaS             CH3COOH         DO2     In2O     Nb-     Sc2O2
+ Air       Ba2             OHCH2COOH       DO2-    K        NbCl5   Si
+ Al        Be              C2H5            D2      K+       NbO     Si+
+ Al+       Be+             C2H5Br          D2+     K-       NbOCl3  Si-
+ Al-       Be++            C2H6            D2-     KAlF4    NbO2    SiBr
+ AlBr      BeBr            CH3N2CH3        D2O     KBO2     Ne      SiBr2
+ AlBr2     BeBr2           C2H5OH          D2O2    KBr      Ne+     SiBr3
+ AlBr3     BeCl            CH3OCH3         D2S     KCN      Ni      SiBr4
+ AlC       BeCl2           CH3O2CH3        e-      KCl      Ni+     SiC
+ AlC2      BeF             CCN             F       KF       Ni-     SiC2
+ AlCl      BeF2            CNC             F+      KH       NiCl    SiCl
+ AlCl+     BeH             OCCN            F-      KI       NiCl2   SiCl2
+ AlCl2     BeH+            C2N2            FCN     Kli      NiO     SiCl3
+ AlCl3     BeH2            C2O             FCO     KNO2     NiS     SiCl4
+ AlF       BeI             C3              FO      KNO3     O       SiF
+ AlF+      BeI2            C3H3_1_propynl  FO2_FOO KNa      O+      SiFCl
+ AlFCl     BeN             C3H3_2_propynl  FO2_OFO KO       O-      SiF2
+ AlFCl2    BeO             C3H4_allene     F2      KOH      OD      SiF3
+ AlF2      BeOH            C3H4_propyne    F2O     K2       OD-     SiF4
+ AlF2-     BeOH+           C3H4_cyclo      F2O2    K2+      OH      SiH
+ AlF2Cl    Be_OH_2         C3H5_allyl      FS2F    K2Br2    OH+     SiH+
+ AlF3      BeS             C3H6_propylene  Fe      K2CO3    OH-     SiHBr3
+ AlF4-     Be2             C3H6_cyclo      Fe+     K2C2N2   O2      SiHCl
+ AlH       Be2Cl4          C3H6O_propylox  Fe_CO_5 K2Cl2    O2+     SiHCl3
+ AlHCl     Be2F4           C3H6O_acetone   FeCl    K2F2     O2-     SiHF
+ AlHCl2    Be2O            C3H6O_propanal  FeCl2   K2I2     O3      SiHF3
+ AlHF      Be2OF2          C3H7_n_propyl   FeCl3   K2O      P       SiHI3
+ AlHFCl    Be2O2           C3H7_i_propyl   FeO     K2O+     P+      SiH2
  AlHF2     Be3O3           C3H8            Fe_OH_2 K2O2     P-      SiH2Br2
  AlH2      Be4O4           C3H8O_1propanol Fe2Cl4  K2O2H2   PCl     SiH2Cl2
- AlH2Cl    Br              C3H8O_2propanol Fe2Cl6  K2SO4    PCl2    SiH2F2 
- AlH2F     Br+             CNCOCN          Ga      Kr       PCl2-   SiH2I2 
- AlH3      Br-             C3O2            Ga+     Kr+      PCl3    SiH3   
- AlI       BrCl            C4              GaBr    li       PCl5    SiH3Br 
- AlI2      BrF             C4H2_butadiyne  GaBr2   li+      PF      SiH3Cl 
- AlI3      BrF3            C4H4_1_3-cyclo  GaBr3   li-      PF+     SiH3F  
- AlN       BrF5            C4H6_butadiene  GaCl    liAlF4   PF-     SiH3I  
- AlO       BrO             C4H6_1butyne    GaCl2   liBO2    PFCl    SiH4   
- AlO+      OBrO            C4H6_2butyne    GaCl3   liBr     PFCl-   SiI    
- AlO-      BrOO            C4H6_cyclo      GaF     liCl     PFCl2   SiI2   
- AlOCl     BrO3            C4H8_1_butene   GaF2    liF      PFCl4   SiN    
- AlOCl2    Br2             C4H8_cis2_buten GaF3    liH      PF2     SiO    
- AlOF      BrBrO           C4H8_isobutene  GaH     liI      PF2-    SiO2   
- AlOF2     BrOBr           C4H8_cyclo      GaI     liN      PF2Cl   SiS    
- AlOF2-    C               C4H9_n_butyl    GaI2    liNO2    PF2Cl3  SiS2   
- AlOH      C+              C4H9_i_butyl    GaI3    liNO3    PF3     Si2    
- AlOHCl    C-              C4H9_s_butyl    GaO     liO      PF3Cl2  Si2C   
- AlOHCl2   CBr             C4H9_t_butyl    GaOH    liOF     PF4Cl   Si2F6  
- AlOHF     CBr2            C4H10_n_butane  Ga2Br2  liOH     PF5     Si2N   
- AlOHF2    CBr3            C4H10_isobutane Ga2Br4  liON     PH      Si3    
- AlO2      CBr4            C4N2            Ga2Br6  li2      PH2     Sn     
- AlO2-     CCl             C5              Ga2Cl2  li2+     PH2-    Sn+    
- Al_OH_2   CCl2            C5H6_1_3cyclo   Ga2Cl4  li2Br2   PH3     Sn-    
- Al_OH_2Cl CCl2Br2         C5H8_cyclo      Ga2Cl6  li2F2    PN      SnBr   
- Al_OH_2F  CCl3            C5H10_1_pentene Ga2F2   li2I2    PO      SnBr2  
- Al_OH_3   CCl3Br          C5H10_cyclo     Ga2F4   li2O     PO-     SnBr3  
- AlS       CCl4            C5H11_pentyl    Ga2F6   li2O+    POCl3   SnBr4  
- AlS2      CF              C5H11_t_pentyl  Ga2I2   li2O2    POFCl2  SnCl   
- Al2       CF+             C5H12_n_pentane Ga2I4   li2O2H2  POF2Cl  SnCl2  
- Al2Br6    CFBr3           C5H12_i_pentane Ga2I6   li2SO4   POF3    SnCl3  
- Al2C2     CFCl            CH3C_CH3_2CH3   Ga2O    li3+     PO2     SnCl4  
- Al2Cl6    CFClBr2         C6D5_phenyl     Ge      li3Br3   PO2-    SnF    
- Al2F6     CFCl2           C6D6            Ge+     li3Cl3   PS      SnF2   
- Al2I6     CFCl2Br         C6H2            Ge-     li3F3    P2      SnF3   
- Al2O      CFCl3           C6H5_phenyl     GeBr    li3I3    P2O3    SnF4   
- Al2O+     CF2             C6H5O_phenoxy   GeBr2   Mg       P2O4    SnI    
- Al2O2     CF2+            C6H6            GeBr3   Mg+      P2O5    SnI2   
- Al2O2+    CF2Br2          C6H5OH_phenol   GeBr4   MgBr     P3      SnI3   
- Al2O3     CF2Cl           C6H10_cyclo     GeCl    MgBr2    P3O6    SnI4   
- Al2S      CF2ClBr         C6H12_1_hexene  GeCl2   MgCl     P4      SnO    
- Al2S2     CF2Cl2          C6H12_cyclo     GeCl3   MgCl+    P4O6    SnO2   
- Ar        CF3             C6H13_n_hexyl   GeCl4   MgCl2    P4O7    SnS    
- Ar+       CF3+            C6H14_n_hexane  GeF     MgF      P4O8    SnS2   
- B         CF3Br           C7H7_benzyl     GeF2    MgF+     P4O9    Sn2    
- B+        CF3Cl           C7H8            GeF3    MgF2     P4O10   Sr     
- B-        CF4             C7H8O_cresol_mx GeF4    MgF2+    Pb      Sr+    
- BBr       CH+             C7H14_1_heptene GeH4    MgH      Pb+     SrBr   
- BBr2      CHBr3           C7H15_n_heptyl  GeI     MgI      Pb-     SrBr2  
- BBr3      CHCl            C7H16_n_heptane GeO     MgI2     PbBr    SrCl   
- BC        CHClBr2         C7H16_2_methylh GeO2    MgN      PbBr2   SrCl+  
- BC2       CHCl2           C8H8_styrene    GeS     MgO      PbBr3   SrCl2  
- BCl       CHCl2Br         C8H10_ethylbenz GeS2    MgOH     PbBr4   SrF    
- BCl+      CHCl3           C8H16_1_octene  Ge2     MgOH+    PbCl    SrF+   
- BClOH     CHF             C8H17_n_octyl   H       Mg_OH_2  PbCl2   SrF2   
- BCl_OH_2  CHFBr2          C8H18_n_octane  H+      MgS      PbCl3   SrH    
- BCl2      CHFCl           C8H18_isooctane H-      Mg2      PbCl4   SrI    
- BCl2+     CHFClBr         C9H19_n_nonyl   HAlO    Mg2F4    PbF     SrI2   
- BCl2OH    CHFCl2          C10H8_naphthale HAlO2   Mn       PbF2    SrO    
- BF        CHF2            C10H21_n_decyl  HBO     Mn+      PbF3    SrOH   
- BFCl      CHF2Br          C12H9_o_bipheny HBO+    Mo       PbF4    SrOH+  
+ AlH2Cl    Br              C3H8O_2propanol Fe2Cl6  K2SO4    PCl2    SiH2F2
+ AlH2F     Br+             CNCOCN          Ga      Kr       PCl2-   SiH2I2
+ AlH3      Br-             C3O2            Ga+     Kr+      PCl3    SiH3
+ AlI       BrCl            C4              GaBr    li       PCl5    SiH3Br
+ AlI2      BrF             C4H2_butadiyne  GaBr2   li+      PF      SiH3Cl
+ AlI3      BrF3            C4H4_1_3-cyclo  GaBr3   li-      PF+     SiH3F
+ AlN       BrF5            C4H6_butadiene  GaCl    liAlF4   PF-     SiH3I
+ AlO       BrO             C4H6_1butyne    GaCl2   liBO2    PFCl    SiH4
+ AlO+      OBrO            C4H6_2butyne    GaCl3   liBr     PFCl-   SiI
+ AlO-      BrOO            C4H6_cyclo      GaF     liCl     PFCl2   SiI2
+ AlOCl     BrO3            C4H8_1_butene   GaF2    liF      PFCl4   SiN
+ AlOCl2    Br2             C4H8_cis2_buten GaF3    liH      PF2     SiO
+ AlOF      BrBrO           C4H8_isobutene  GaH     liI      PF2-    SiO2
+ AlOF2     BrOBr           C4H8_cyclo      GaI     liN      PF2Cl   SiS
+ AlOF2-    C               C4H9_n_butyl    GaI2    liNO2    PF2Cl3  SiS2
+ AlOH      C+              C4H9_i_butyl    GaI3    liNO3    PF3     Si2
+ AlOHCl    C-              C4H9_s_butyl    GaO     liO      PF3Cl2  Si2C
+ AlOHCl2   CBr             C4H9_t_butyl    GaOH    liOF     PF4Cl   Si2F6
+ AlOHF     CBr2            C4H10_n_butane  Ga2Br2  liOH     PF5     Si2N
+ AlOHF2    CBr3            C4H10_isobutane Ga2Br4  liON     PH      Si3
+ AlO2      CBr4            C4N2            Ga2Br6  li2      PH2     Sn
+ AlO2-     CCl             C5              Ga2Cl2  li2+     PH2-    Sn+
+ Al_OH_2   CCl2            C5H6_1_3cyclo   Ga2Cl4  li2Br2   PH3     Sn-
+ Al_OH_2Cl CCl2Br2         C5H8_cyclo      Ga2Cl6  li2F2    PN      SnBr
+ Al_OH_2F  CCl3            C5H10_1_pentene Ga2F2   li2I2    PO      SnBr2
+ Al_OH_3   CCl3Br          C5H10_cyclo     Ga2F4   li2O     PO-     SnBr3
+ AlS       CCl4            C5H11_pentyl    Ga2F6   li2O+    POCl3   SnBr4
+ AlS2      CF              C5H11_t_pentyl  Ga2I2   li2O2    POFCl2  SnCl
+ Al2       CF+             C5H12_n_pentane Ga2I4   li2O2H2  POF2Cl  SnCl2
+ Al2Br6    CFBr3           C5H12_i_pentane Ga2I6   li2SO4   POF3    SnCl3
+ Al2C2     CFCl            CH3C_CH3_2CH3   Ga2O    li3+     PO2     SnCl4
+ Al2Cl6    CFClBr2         C6D5_phenyl     Ge      li3Br3   PO2-    SnF
+ Al2F6     CFCl2           C6D6            Ge+     li3Cl3   PS      SnF2
+ Al2I6     CFCl2Br         C6H2            Ge-     li3F3    P2      SnF3
+ Al2O      CFCl3           C6H5_phenyl     GeBr    li3I3    P2O3    SnF4
+ Al2O+     CF2             C6H5O_phenoxy   GeBr2   Mg       P2O4    SnI
+ Al2O2     CF2+            C6H6            GeBr3   Mg+      P2O5    SnI2
+ Al2O2+    CF2Br2          C6H5OH_phenol   GeBr4   MgBr     P3      SnI3
+ Al2O3     CF2Cl           C6H10_cyclo     GeCl    MgBr2    P3O6    SnI4
+ Al2S      CF2ClBr         C6H12_1_hexene  GeCl2   MgCl     P4      SnO
+ Al2S2     CF2Cl2          C6H12_cyclo     GeCl3   MgCl+    P4O6    SnO2
+ Ar        CF3             C6H13_n_hexyl   GeCl4   MgCl2    P4O7    SnS
+ Ar+       CF3+            C6H14_n_hexane  GeF     MgF      P4O8    SnS2
+ B         CF3Br           C7H7_benzyl     GeF2    MgF+     P4O9    Sn2
+ B+        CF3Cl           C7H8            GeF3    MgF2     P4O10   Sr
+ B-        CF4             C7H8O_cresol_mx GeF4    MgF2+    Pb      Sr+
+ BBr       CH+             C7H14_1_heptene GeH4    MgH      Pb+     SrBr
+ BBr2      CHBr3           C7H15_n_heptyl  GeI     MgI      Pb-     SrBr2
+ BBr3      CHCl            C7H16_n_heptane GeO     MgI2     PbBr    SrCl
+ BC        CHClBr2         C7H16_2_methylh GeO2    MgN      PbBr2   SrCl+
+ BC2       CHCl2           C8H8_styrene    GeS     MgO      PbBr3   SrCl2
+ BCl       CHCl2Br         C8H10_ethylbenz GeS2    MgOH     PbBr4   SrF
+ BCl+      CHCl3           C8H16_1_octene  Ge2     MgOH+    PbCl    SrF+
+ BClOH     CHF             C8H17_n_octyl   H       Mg_OH_2  PbCl2   SrF2
+ BCl_OH_2  CHFBr2          C8H18_n_octane  H+      MgS      PbCl3   SrH
+ BCl2      CHFCl           C8H18_isooctane H-      Mg2      PbCl4   SrI
+ BCl2+     CHFClBr         C9H19_n_nonyl   HAlO    Mg2F4    PbF     SrI2
+ BCl2OH    CHFCl2          C10H8_naphthale HAlO2   Mn       PbF2    SrO
+ BF        CHF2            C10H21_n_decyl  HBO     Mn+      PbF3    SrOH
+ BFCl      CHF2Br          C12H9_o_bipheny HBO+    Mo       PbF4    SrOH+
  BFCl2     CHF2Cl          C12H10_biphenyl HBO2    Mo+      PbI     Sr_OH_2
- BFOH      CHF3            Ca              HBS     Mo-      PbI2    SrS    
- BF_OH_2   CHI3            Ca+             HBS+    MoO      PbI3    Sr2    
- BF2       CH2             CaBr            HCN     MoO2     PbI4    Ta     
- BF2+      CH2Br2          CaBr2           HCO     MoO3     PbO     Ta+    
- BF2-      CH2Cl           CaCl            HCO+    MoO3-    PbO2    Ta-    
- BF2Cl     CH2ClBr         CaCl+           HCCN    Mo2O6    PbS     TaCl5  
- BF2OH     CH2Cl2          CaCl2           HCCO    Mo3O9    PbS2    TaO    
- BF3       CH2F            CaF             HCl     Mo4O12   Rb      TaO2   
- BF4-      CH2FBr          CaF+            HD      Mo5O15   Rb+     Ti     
- BH        CH2FCl          CaF2            HD+     N        Rb-     Ti+    
- BHCl      CH2F2           CaH             HDO     N+       RbBO2   Ti-    
- BHCl2     CH2I2           CaI             HDO2    N-       RbBr    TiCl   
- BHF       CH3             CaI2            HF      NCO      RbCl    TiCl2  
- BHFCl     CH3Br           CaO             HI      ND       RbF     TiCl3  
- BHF2      CH3Cl           CaO+            HNC     ND2      RbH     TiCl4  
- BH2       CH3F            CaOH            HNCO    ND3      RbI     TiO    
- BH2Cl     CH3I            CaOH+           HNO     NF       RbK     TiO+   
- BH2F      CH2OH           Ca_OH_2         HNO2    NF2      Rbli    TiOCl  
- BH3       CH2OH+          CaS             HNO3    NF3      RbNO2   TiOCl2 
- BH3NH3    CH3O            Ca2             HOCl    NH       RbNO3   TiO2   
- BH4       CH4             Cd              HOF     NH+      RbNa    U      
- BI        CH3OH           Cd+             HO2     NHF      RbO     UF     
- BI2       CH3OOH          Cl              HO2-    NHF2     RbOH    UF+    
- BI3       CI              Cl+             HPO     NH2      Rb2Br2  UF-    
- BN        CI2             Cl-             HSO3F   NH2F     Rb2Cl2  UF2    
- BO        CI3             ClCN            H2      NH3      Rb2F2   UF2+   
- BO-       CI4             ClF             H2+     NH2OH    Rb2I2   UF2-   
- BOCl      CN              ClF3            H2-     NH4+     Rb2O    UF3    
- BOCl2     CN+             ClF5            HBOH    NO       Rb2O2   UF3+   
- BOF       CN-             ClO             HCOOH   NOCl     Rb2O2H2 UF3-   
- BOF2      CNN             ClO2            H2F2    NOF      Rb2SO4  UF4    
- BOH       CO              Cl2             H2O     NOF3     Rn      UF4+   
- BO2       CO+             Cl2O            H2O+    NO2      Rn+     UF4-   
- BO2-      COCl            Co              H2O2    NO2-     S       UF5    
- B_OH_2    COCl2           Co+             H2S     NO2Cl    S+      UF5+   
- BS        COFCl           Co-             H2SO4   NO2F     S-      UF5-   
- BS2       COF2            Cr              H2BOH   NO3      SCl     UF6    
- B2        COHCl           Cr+             HB_OH_2 NO3-     SCl2    UF6-   
- B2C       COHF            Cr-             H3BO3   NO3F     SCl2+   UO     
- B2Cl4     COS             CrN             H3B3O3  N2       SD      UO+    
- B2F4      CO2             CrO             H3B3O6  N2+      SF      UOF    
- B2H       CO2+            CrO2            H3F3    N2-      SF+     UOF2   
- B2H2      COOH            CrO3            H3O+    NCN      SF-     UOF3   
- B2H3      CP              CrO3-           H4F4    N2D2_cis SF2     UOF4   
- B2H3_db   CS              Cs              H5F5    N2F2     SF2+    UO2    
- B2H4      CS2             Cs+             H6F6    N2F4     SF2-    UO2+   
- B2H4_db   C2              Cs-             H7F7    N2H2     SF3     UO2-   
- B2H5      C2+             CsBO2           He      NH2NO2   SF3+    UO2F   
- B2H5_db   C2-             CsBr            He+     N2H4     SF3-    UO2F2  
- B2H6      C2Cl            CsCl            Hg      N2O      SF4     UO3    
- B2O       C2Cl2           CsF             Hg+     N2O+     SF4+    UO3-   
- B2O2      C2Cl3           CsH             HgBr2   N2O3     SF4-    V      
- B2O3      C2Cl4           CsI             I       N2O4     SF5     V+     
- B2_OH_4   C2Cl6           Csli            I+      N2O5     SF5+    V-     
- B2S       C2F             CsNO2           I-      N3       SF5-    VCl4   
- B2S2      C2FCl           CsNO3           IF5     N3H      SF6     VN     
- B2S3      C2FCl3          CsNa            IF7     Na       SF6-    VO     
- B3H7_C2v  C2F2            CsO             I2      Na+      SH      VO2    
- B3H7_Cs   C2F2Cl2         CsOH            In      Na-      SH-     V4O10  
- B3H9      C2F3            CsRb            In+     NaAlF4   SN      W      
- B3N3H6    C2F3Cl          Cs2             InBr    NaBO2    SO      W+     
- B3O3Cl3   C2F4            Cs2Br2          InBr2   NaBr     SO-     W-     
- B3O3FCl2  C2F6            Cs2CO3          InBr3   NaCN     SOF2    WCl6   
- B3O3F2Cl  C2H             Cs2Cl2          InCl    NaCl     SO2     WO     
- B3O3F3    C2HCl           Cs2F2           InCl2   NaF      SO2-    WOCl4  
- B4H4      C2HCl3          Cs2I2           InCl3   NaH      SO2Cl2  WO2    
- B4H10     C2HF            Cs2O            InF     NaI      SO2FCl  WO2Cl2 
- B4H12     C2HFCl2         Cs2O+           InF2    Nali     SO2F2   WO3    
- B5H9      C2HF2Cl         Cs2O2           InF3    NaNO2    SO3     WO3-   
- Ba        C2HF3           Cs2O2H2         InH     NaNO3    S2      Xe     
- Ba+       C2H2_vinylidene Cs2SO4          InI     NaO      S2-     Xe+    
- BaBr      C2H2Cl2         Cu              InI2    NaOH     S2Cl2   Zn     
- BaBr2     C2H2FCl         Cu+             InI3    NaOH+    S2F2    Zn+    
- BaCl      C2H2F2          Cu-             InO     Na2      S2O     Zr     
- BaCl+     CH2CO_ketene    CuCl            InOH    Na2Br2   S3      Zr+    
- BaCl2     O_CH_2O         CuF             In2Br2  Na2Cl2   S4      Zr-    
- BaF       HO_CO_2OH       CuF2            In2Br4  Na2F2    S5      ZrN    
- BaF+      C2H3_vinyl      CuO             In2Br6  Na2I2    S6      ZrO    
- BaF2      CH2Br-COOH      Cu2             In2Cl2  Na2O     S7      ZrO+   
- BaH       C2H3Cl          Cu3Cl3          In2Cl4  Na2O+    S8      ZrO2   
- BaI       CH2Cl-COOH      D               In2Cl6  Na2O2    Sc     
- BaI2      C2H3F           D+              In2F2   Na2O2H2  Sc+    
- BaO       CH3CN           D-              In2F4   Na2SO4   Sc-    
- BaO+      CH3CO_acetyl    DBr             In2F6   Na3Cl3   ScO    
- BaOH      C2H4            DCl             In2I2   Na3F3    ScO+   
+ BFOH      CHF3            Ca              HBS     Mo-      PbI2    SrS
+ BF_OH_2   CHI3            Ca+             HBS+    MoO      PbI3    Sr2
+ BF2       CH2             CaBr            HCN     MoO2     PbI4    Ta
+ BF2+      CH2Br2          CaBr2           HCO     MoO3     PbO     Ta+
+ BF2-      CH2Cl           CaCl            HCO+    MoO3-    PbO2    Ta-
+ BF2Cl     CH2ClBr         CaCl+           HCCN    Mo2O6    PbS     TaCl5
+ BF2OH     CH2Cl2          CaCl2           HCCO    Mo3O9    PbS2    TaO
+ BF3       CH2F            CaF             HCl     Mo4O12   Rb      TaO2
+ BF4-      CH2FBr          CaF+            HD      Mo5O15   Rb+     Ti
+ BH        CH2FCl          CaF2            HD+     N        Rb-     Ti+
+ BHCl      CH2F2           CaH             HDO     N+       RbBO2   Ti-
+ BHCl2     CH2I2           CaI             HDO2    N-       RbBr    TiCl
+ BHF       CH3             CaI2            HF      NCO      RbCl    TiCl2
+ BHFCl     CH3Br           CaO             HI      ND       RbF     TiCl3
+ BHF2      CH3Cl           CaO+            HNC     ND2      RbH     TiCl4
+ BH2       CH3F            CaOH            HNCO    ND3      RbI     TiO
+ BH2Cl     CH3I            CaOH+           HNO     NF       RbK     TiO+
+ BH2F      CH2OH           Ca_OH_2         HNO2    NF2      Rbli    TiOCl
+ BH3       CH2OH+          CaS             HNO3    NF3      RbNO2   TiOCl2
+ BH3NH3    CH3O            Ca2             HOCl    NH       RbNO3   TiO2
+ BH4       CH4             Cd              HOF     NH+      RbNa    U
+ BI        CH3OH           Cd+             HO2     NHF      RbO     UF
+ BI2       CH3OOH          Cl              HO2-    NHF2     RbOH    UF+
+ BI3       CI              Cl+             HPO     NH2      Rb2Br2  UF-
+ BN        CI2             Cl-             HSO3F   NH2F     Rb2Cl2  UF2
+ BO        CI3             ClCN            H2      NH3      Rb2F2   UF2+
+ BO-       CI4             ClF             H2+     NH2OH    Rb2I2   UF2-
+ BOCl      CN              ClF3            H2-     NH4+     Rb2O    UF3
+ BOCl2     CN+             ClF5            HBOH    NO       Rb2O2   UF3+
+ BOF       CN-             ClO             HCOOH   NOCl     Rb2O2H2 UF3-
+ BOF2      CNN             ClO2            H2F2    NOF      Rb2SO4  UF4
+ BOH       CO              Cl2             H2O     NOF3     Rn      UF4+
+ BO2       CO+             Cl2O            H2O+    NO2      Rn+     UF4-
+ BO2-      COCl            Co              H2O2    NO2-     S       UF5
+ B_OH_2    COCl2           Co+             H2S     NO2Cl    S+      UF5+
+ BS        COFCl           Co-             H2SO4   NO2F     S-      UF5-
+ BS2       COF2            Cr              H2BOH   NO3      SCl     UF6
+ B2        COHCl           Cr+             HB_OH_2 NO3-     SCl2    UF6-
+ B2C       COHF            Cr-             H3BO3   NO3F     SCl2+   UO
+ B2Cl4     COS             CrN             H3B3O3  N2       SD      UO+
+ B2F4      CO2             CrO             H3B3O6  N2+      SF      UOF
+ B2H       CO2+            CrO2            H3F3    N2-      SF+     UOF2
+ B2H2      COOH            CrO3            H3O+    NCN      SF-     UOF3
+ B2H3      CP              CrO3-           H4F4    N2D2_cis SF2     UOF4
+ B2H3_db   CS              Cs              H5F5    N2F2     SF2+    UO2
+ B2H4      CS2             Cs+             H6F6    N2F4     SF2-    UO2+
+ B2H4_db   C2              Cs-             H7F7    N2H2     SF3     UO2-
+ B2H5      C2+             CsBO2           He      NH2NO2   SF3+    UO2F
+ B2H5_db   C2-             CsBr            He+     N2H4     SF3-    UO2F2
+ B2H6      C2Cl            CsCl            Hg      N2O      SF4     UO3
+ B2O       C2Cl2           CsF             Hg+     N2O+     SF4+    UO3-
+ B2O2      C2Cl3           CsH             HgBr2   N2O3     SF4-    V
+ B2O3      C2Cl4           CsI             I       N2O4     SF5     V+
+ B2_OH_4   C2Cl6           Csli            I+      N2O5     SF5+    V-
+ B2S       C2F             CsNO2           I-      N3       SF5-    VCl4
+ B2S2      C2FCl           CsNO3           IF5     N3H      SF6     VN
+ B2S3      C2FCl3          CsNa            IF7     Na       SF6-    VO
+ B3H7_C2v  C2F2            CsO             I2      Na+      SH      VO2
+ B3H7_Cs   C2F2Cl2         CsOH            In      Na-      SH-     V4O10
+ B3H9      C2F3            CsRb            In+     NaAlF4   SN      W
+ B3N3H6    C2F3Cl          Cs2             InBr    NaBO2    SO      W+
+ B3O3Cl3   C2F4            Cs2Br2          InBr2   NaBr     SO-     W-
+ B3O3FCl2  C2F6            Cs2CO3          InBr3   NaCN     SOF2    WCl6
+ B3O3F2Cl  C2H             Cs2Cl2          InCl    NaCl     SO2     WO
+ B3O3F3    C2HCl           Cs2F2           InCl2   NaF      SO2-    WOCl4
+ B4H4      C2HCl3          Cs2I2           InCl3   NaH      SO2Cl2  WO2
+ B4H10     C2HF            Cs2O            InF     NaI      SO2FCl  WO2Cl2
+ B4H12     C2HFCl2         Cs2O+           InF2    Nali     SO2F2   WO3
+ B5H9      C2HF2Cl         Cs2O2           InF3    NaNO2    SO3     WO3-
+ Ba        C2HF3           Cs2O2H2         InH     NaNO3    S2      Xe
+ Ba+       C2H2_vinylidene Cs2SO4          InI     NaO      S2-     Xe+
+ BaBr      C2H2Cl2         Cu              InI2    NaOH     S2Cl2   Zn
+ BaBr2     C2H2FCl         Cu+             InI3    NaOH+    S2F2    Zn+
+ BaCl      C2H2F2          Cu-             InO     Na2      S2O     Zr
+ BaCl+     CH2CO_ketene    CuCl            InOH    Na2Br2   S3      Zr+
+ BaCl2     O_CH_2O         CuF             In2Br2  Na2Cl2   S4      Zr-
+ BaF       HO_CO_2OH       CuF2            In2Br4  Na2F2    S5      ZrN
+ BaF+      C2H3_vinyl      CuO             In2Br6  Na2I2    S6      ZrO
+ BaF2      CH2Br-COOH      Cu2             In2Cl2  Na2O     S7      ZrO+
+ BaH       C2H3Cl          Cu3Cl3          In2Cl4  Na2O+    S8      ZrO2
+ BaI       CH2Cl-COOH      D               In2Cl6  Na2O2    Sc
+ BaI2      C2H3F           D+              In2F2   Na2O2H2  Sc+
+ BaO       CH3CN           D-              In2F4   Na2SO4   Sc-
+ BaO+      CH3CO_acetyl    DBr             In2F6   Na3Cl3   ScO
+ BaOH      C2H4            DCl             In2I2   Na3F3    ScO+
 </pre>
 
 </HTML>"));
-  
+
   constant IdealGases.Common.DataRecord Ag(
     name="Ag",
     MM=0.1078682,
@@ -204,7 +204,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.008826848e-011,-5.627285655e-016},
     bhigh={27267.19171,14.56862733},
     R=77.07991789980736);
-  
+
   constant IdealGases.Common.DataRecord Agplus(
     name="Agplus",
     MM=0.1078676514,
@@ -218,7 +218,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.26383591e-009,-5.852542535e-014},
     bhigh={-743912.2509999999,844.6266189999999},
     R=77.08030991764042);
-  
+
   constant IdealGases.Common.DataRecord Agminus(
     name="Agminus",
     MM=0.1078687486,
@@ -230,7 +230,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
     ahigh={0,0,2.5,0,0,0,0},
     bhigh={17665.65919,5.8696798},
     R=77.07952588596174);
-  
+
   constant IdealGases.Common.DataRecord Air(
     name="Air",
     MM=0.0289651159,
@@ -244,7 +244,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.57780015e-016},
     bhigh={6462.26319,-8.147411905},
     R=287.0512249529787);
-  
+
   constant IdealGases.Common.DataRecord AL(
     name="AL",
     MM=0.026981538,
@@ -258,7 +258,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -9.97167026e-013,5.053278264e-016},
     bhigh={38232.8865,6.600920155},
     R=308.1541163442944);
-  
+
   constant IdealGases.Common.DataRecord ALplus(
     name="ALplus",
     MM=0.0269809894,
@@ -271,7 +271,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.132291294e-008,-7.74889463e-012,7.27444769e-016},
     bhigh={109101.1485,3.48866729},
     R=308.1603819910326);
-  
+
   constant IdealGases.Common.DataRecord ALminus(
     name="ALminus",
     MM=0.0269820866,
@@ -285,7 +285,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.472436088e-015},
     bhigh={47803.0654,-15.36906816},
     R=308.1478509523426);
-  
+
   constant IdealGases.Common.DataRecord ALBr(
     name="ALBr",
     MM=0.106885538,
@@ -299,7 +299,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.172854627e-010,-7.17874276e-015},
     bhigh={-12178.12867,22.04450764},
     R=77.7885591968485);
-  
+
   constant IdealGases.Common.DataRecord ALBr2(
     name="ALBr2",
     MM=0.186789538,
@@ -313,7 +313,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.17672595e-015},
     bhigh={-22650.04078,-2.69561036},
     R=44.51251440003026);
-  
+
   constant IdealGases.Common.DataRecord ALBr3(
     name="ALBr3",
     MM=0.266693538,
@@ -327,7 +327,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.904243317e-009,-2.215195785e-013,1.038219389e-017},
     bhigh={-52492.4764,-15.79666403},
     R=31.17612845947546);
-  
+
   constant IdealGases.Common.DataRecord ALC(
     name="ALC",
     MM=0.038992238,
@@ -341,7 +341,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.926461091e-006,-2.585922351e-010,1.222659806e-014},
     bhigh={122536.3649,-61.52244872},
     R=213.2340287828567);
-  
+
   constant IdealGases.Common.DataRecord ALC2(
     name="ALC2",
     MM=0.051002938,
@@ -355,7 +355,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.9031745e-008,-8.880023720000001e-012,4.05363395e-016},
     bhigh={87059.24230000001,-21.27956728},
     R=163.019471544953);
-  
+
   constant IdealGases.Common.DataRecord ALCL(
     name="ALCL",
     MM=0.06243453800000001,
@@ -369,7 +369,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.182380673e-010,-6.66049813e-015},
     bhigh={-24961.64448,26.1692548},
     R=133.1710342759323);
-  
+
   constant IdealGases.Common.DataRecord ALCLplus(
     name="ALCLplus",
     MM=0.0624339894,
@@ -383,7 +383,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.347511329999999e-007,-1.158320344e-010,6.870022460000001e-015},
     bhigh={93183.32699999999,4.047521108},
     R=133.1722044338881);
-  
+
   constant IdealGases.Common.DataRecord ALCL2(
     name="ALCL2",
     MM=0.09788753800000001,
@@ -397,7 +397,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.40184488e-007,-2.427836709e-011,8.390123470000001e-016},
     bhigh={-21458.84709,-18.03641668},
     R=84.93902461823076);
-  
+
   constant IdealGases.Common.DataRecord ALCL3(
     name="ALCL3",
     MM=0.133340538,
@@ -411,7 +411,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.72466466e-009,-4.27552678e-013,1.982341329e-017},
     bhigh={-73434.0747,-20.45130429},
     R=62.35517063835456);
-  
+
   constant IdealGases.Common.DataRecord ALF(
     name="ALF",
     MM=0.0459799412,
@@ -425,7 +425,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.1538044e-011,-2.945403999e-015},
     bhigh={-45407.2896,16.13163743},
     R=180.8282434254179);
-  
+
   constant IdealGases.Common.DataRecord ALFplus(
     name="ALFplus",
     MM=0.0459793926,
@@ -439,7 +439,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.773587168e-010,-9.665841379999999e-015},
     bhigh={98850.8385,5.99189459},
     R=180.8304009653229);
-  
+
   constant IdealGases.Common.DataRecord ALFCL(
     name="ALFCL",
     MM=0.0814329412,
@@ -453,7 +453,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.382317949e-008,4.44378576e-012,-5.486977849999999e-016},
     bhigh={-51009.43199999999,-10.91164505},
     R=102.1020716859482);
-  
+
   constant IdealGases.Common.DataRecord ALFCL2(
     name="ALFCL2",
     MM=0.1168859412,
@@ -467,7 +467,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.83095261e-009,-8.961734229999999e-013,4.14533026e-017},
     bhigh={-98041.8547,-21.27046859},
     R=71.13320827671959);
-  
+
   constant IdealGases.Common.DataRecord ALF2(
     name="ALF2",
     MM=0.0649783444,
@@ -481,7 +481,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.472534201e-011,-8.803695299999999e-016},
     bhigh={-78840.02680000001,-7.915370474},
     R=127.9575845887511);
-  
+
   constant IdealGases.Common.DataRecord ALF2minus(
     name="ALF2minus",
     MM=0.064978893,
@@ -495,7 +495,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.391935746e-008,-1.603901265e-012,7.461508519999999e-017},
     bhigh={-104047.9429,-11.22696648},
     R=127.9565042759347);
-  
+
   constant IdealGases.Common.DataRecord ALF2CL(
     name="ALF2CL",
     MM=0.1004313444,
@@ -509,7 +509,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.281071982e-008,-1.465366277e-012,6.77600245e-017},
     bhigh={-122715.311,-23.59853398},
     R=82.78762023621782);
-  
+
   constant IdealGases.Common.DataRecord ALF3(
     name="ALF3",
     MM=0.0839767476,
@@ -523,7 +523,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.905713108e-008,-2.181058411e-012,1.009055287e-016},
     bhigh={-147569.4276,-27.03983244},
     R=99.00921668940654);
-  
+
   constant IdealGases.Common.DataRecord ALF4minus(
     name="ALF4minus",
     MM=0.1029756994,
@@ -537,7 +537,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.786204421e-008,-2.062751964e-012,9.61258177e-017},
     bhigh={-238157.7915,-42.31634321999999},
     R=80.74207845584199);
-  
+
   constant IdealGases.Common.DataRecord ALH(
     name="ALH",
     MM=0.027989478,
@@ -551,7 +551,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.49214236e-006,-6.17845037e-010,3.11520526e-014},
     bhigh={165830.1221,-187.6766425},
     R=297.0570583702919);
-  
+
   constant IdealGases.Common.DataRecord ALHCL(
     name="ALHCL",
     MM=0.063442478,
@@ -565,7 +565,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.94981722e-007,-6.40108676e-011,3.5783541e-015},
     bhigh={3641.50485,-18.00686894},
     R=131.0552844420737);
-  
+
   constant IdealGases.Common.DataRecord ALHCL2(
     name="ALHCL2",
     MM=0.098895478,
@@ -579,7 +579,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.46584373e-008,-9.48333652e-012,4.31903353e-016},
     bhigh={-36692.1639,-32.36862171},
     R=84.07332840840307);
-  
+
   constant IdealGases.Common.DataRecord ALHF(
     name="ALHF",
     MM=0.0469878812,
@@ -593,7 +593,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.615687860000001e-007,-5.39041474e-011,2.340478515e-015},
     bhigh={-2965.279722,-37.13172313},
     R=176.9492853829723);
-  
+
   constant IdealGases.Common.DataRecord ALHFCL(
     name="ALHFCL",
     MM=0.08244088120000001,
@@ -607,7 +607,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -9.70065952e-012,4.423629509999999e-016},
     bhigh={-61298.8811,-34.03564016},
     R=100.8537497292059);
-  
+
   constant IdealGases.Common.DataRecord ALHF2(
     name="ALHF2",
     MM=0.0659862844,
@@ -621,7 +621,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.049431425e-011,4.78833398e-016},
     bhigh={-86069.16189999999,-36.76383785},
     R=126.0030334425073);
-  
+
   constant IdealGases.Common.DataRecord ALH2(
     name="ALH2",
     MM=0.028997418,
@@ -635,7 +635,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.77719136e-007,-7.32472189e-011,3.99790094e-015},
     bhigh={44859.5185,-32.20814285},
     R=286.7314600217164);
-  
+
   constant IdealGases.Common.DataRecord ALH2CL(
     name="ALH2CL",
     MM=0.064450418,
@@ -649,7 +649,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.765027123e-007,-1.977372723e-011,9.00617628e-016},
     bhigh={2411.845642,-47.18390855},
     R=129.0057110257997);
-  
+
   constant IdealGases.Common.DataRecord ALH2F(
     name="ALH2F",
     MM=0.0479958212,
@@ -663,7 +663,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.030947985e-011,9.251825820000001e-016},
     bhigh={-22592.17746,-49.41337333},
     R=173.2332480645211);
-  
+
   constant IdealGases.Common.DataRecord ALH3(
     name="ALH3",
     MM=0.030005358,
@@ -677,7 +677,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.943725869e-011,1.341177648e-015},
     bhigh={39917.1695,-61.81829295},
     R=277.0995766822712);
-  
+
   constant IdealGases.Common.DataRecord ALI(
     name="ALI",
     MM=0.153886008,
@@ -691,7 +691,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.568173190000001e-011,-3.960201360000001e-015},
     bhigh={14646.27816,-3.141199746},
     R=54.03007140194319);
-  
+
   constant IdealGases.Common.DataRecord ALI2(
     name="ALI2",
     MM=0.280790478,
@@ -705,7 +705,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.161480314e-007,-5.51548916e-011,3.17415582e-015},
     bhigh={-9785.48885,-0.5602275943999999},
     R=29.61094713475291);
-  
+
   constant IdealGases.Common.DataRecord ALI3(
     name="ALI3",
     MM=0.407694948,
@@ -719,7 +719,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.40919449e-013,6.67127639e-018},
     bhigh={-26114.55525,-12.47999813},
     R=20.39385584930034);
-  
+
   constant IdealGases.Common.DataRecord ALN(
     name="ALN",
     MM=0.040988238,
@@ -733,7 +733,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.922770960000001e-007,-8.086892210000001e-011,2.893539736e-015},
     bhigh={120523.634,-72.88585119000001},
     R=202.8501932676394);
-  
+
   constant IdealGases.Common.DataRecord ALO(
     name="ALO",
     MM=0.042980938,
@@ -747,7 +747,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.238529070000001e-010,-2.280655341e-014},
     bhigh={-13316.94655,68.30663436},
     R=193.4455688240215);
-  
+
   constant IdealGases.Common.DataRecord ALOplus(
     name="ALOplus",
     MM=0.0429803894,
@@ -761,7 +761,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.075047303e-007,-2.655281004e-011,1.28312966e-015},
     bhigh={121868.2226,-7.05103588},
     R=193.4480379556543);
-  
+
   constant IdealGases.Common.DataRecord ALOminus(
     name="ALOminus",
     MM=0.04298148659999999,
@@ -775,7 +775,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.632506336e-008,-1.727134051e-012,8.136840640000001e-017},
     bhigh={-33077.1893,-2.155922595},
     R=193.4430997554189);
-  
+
   constant IdealGases.Common.DataRecord ALOCL(
     name="ALOCL",
     MM=0.078433938,
@@ -789,7 +789,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.611337534e-008,1.852889749e-012,8.60727822e-017},
     bhigh={-37543.2605,-14.7581832},
     R=106.0060505950881);
-  
+
   constant IdealGases.Common.DataRecord ALOCL2(
     name="ALOCL2",
     MM=0.113886938,
@@ -803,7 +803,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.751187029999999e-009,-8.8724706e-013,4.10481544e-017},
     bhigh={-51249.4414,-20.5925296},
     R=73.00637058132162);
-  
+
   constant IdealGases.Common.DataRecord ALOF(
     name="ALOF",
     MM=0.0619793412,
@@ -817,7 +817,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.165743208e-008,-2.486541919e-012,1.153633944e-016},
     bhigh={-69740.85090000001,-17.17253748},
     R=134.1490864378533);
-  
+
   constant IdealGases.Common.DataRecord ALOF2(
     name="ALOF2",
     MM=0.08097774440000001,
@@ -831,7 +831,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.855520828e-008,-2.122974022e-012,9.8193191e-017},
     bhigh={-95218.0419,-25.22534812},
     R=102.6760137813866);
-  
+
   constant IdealGases.Common.DataRecord ALOF2minus(
     name="ALOF2minus",
     MM=0.08097829299999999,
@@ -845,7 +845,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.944846334e-008,-2.241045051e-012,1.042591053e-016},
     bhigh={-119057.6566,-26.00779629},
     R=102.6753181868134);
-  
+
   constant IdealGases.Common.DataRecord ALOH(
     name="ALOH",
     MM=0.043988878,
@@ -859,7 +859,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.265414876e-011,-6.87597253e-016},
     bhigh={-10398.08093,-22.09032458},
     R=189.0130500714294);
-  
+
   constant IdealGases.Common.DataRecord ALOHCL(
     name="ALOHCL",
     MM=0.07944187800000001,
@@ -873,7 +873,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.41589377e-012,-2.973546112e-016},
     bhigh={-29698.61461,-32.96113996},
     R=104.661070575396);
-  
+
   constant IdealGases.Common.DataRecord ALOHCL2(
     name="ALOHCL2",
     MM=0.114894878,
@@ -887,7 +887,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.25832763e-012,-2.900049181e-016},
     bhigh={-72930.48,-46.81834857},
     R=72.36590651151568);
-  
+
   constant IdealGases.Common.DataRecord ALOHF(
     name="ALOHF",
     MM=0.0629872812,
@@ -901,7 +901,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.72998122e-012,-2.657027781e-016},
     bhigh={-53401.309,-35.27397302},
     R=132.0023954296348);
-  
+
   constant IdealGases.Common.DataRecord ALOHF2(
     name="ALOHF2",
     MM=0.0819856844,
@@ -915,7 +915,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.993805003e-012,-2.315956955e-016},
     bhigh={-122305.2213,-51.5121069},
     R=101.4137048540635);
-  
+
   constant IdealGases.Common.DataRecord ALO2(
     name="ALO2",
     MM=0.058980338,
@@ -929,7 +929,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.96706946e-008,4.0148977e-014,-3.51570252e-016},
     bhigh={-2033.107586,-17.15063884},
     R=140.9702331648218);
-  
+
   constant IdealGases.Common.DataRecord ALO2minus(
     name="ALO2minus",
     MM=0.0589808866,
@@ -943,7 +943,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.576717569e-008,-1.816494162e-012,8.449707959999999e-017},
     bhigh={-55946.40560000001,-17.73751567},
     R=140.9689219558121);
-  
+
   constant IdealGases.Common.DataRecord AL_OH_2(
     name="AL_OH_2",
     MM=0.060996218,
@@ -957,7 +957,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.413044529999999e-008,-1.196022328e-012,-1.082001733e-016},
     bhigh={-26975.25061,-66.17911543},
     R=136.3112709709314);
-  
+
   constant IdealGases.Common.DataRecord AL_OH_2CL(
     name="AL_OH_2CL",
     MM=0.096449218,
@@ -971,7 +971,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.0830794e-012,-3.64132343e-016},
     bhigh={-71186.9985,-77.57541774000001},
     R=86.20569634893255);
-  
+
   constant IdealGases.Common.DataRecord AL_OH_2F(
     name="AL_OH_2F",
     MM=0.07999462119999999,
@@ -985,7 +985,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.54478406e-012,-3.39345388e-016},
     bhigh={-96231.0089,-79.71351802},
     R=103.9378882639174);
-  
+
   constant IdealGases.Common.DataRecord AL_OH_3(
     name="AL_OH_3",
     MM=0.078003558,
@@ -999,7 +999,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.66349443e-008,-2.420287082e-012,-1.331746442e-016},
     bhigh={-70152.7864,-112.1899198},
     R=106.5909326854039);
-  
+
   constant IdealGases.Common.DataRecord ALS(
     name="ALS",
     MM=0.059046538,
@@ -1013,7 +1013,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.045319809e-006,-2.08797089e-010,8.152792520000001e-015},
     bhigh={188576.1615,-178.6036457},
     R=140.8121844501705);
-  
+
   constant IdealGases.Common.DataRecord ALS2(
     name="ALS2",
     MM=0.09111153799999999,
@@ -1027,7 +1027,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.811865152e-009,-2.086958125e-013,9.703246379999999e-018},
     bhigh={27583.62737,-7.873490263},
     R=91.25597243238283);
-  
+
   constant IdealGases.Common.DataRecord AL2(
     name="AL2",
     MM=0.053963076,
@@ -1041,7 +1041,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.36154481e-010,-2.24115724e-014},
     bhigh={2904.589544,99.60320745000001},
     R=154.0770581721472);
-  
+
   constant IdealGases.Common.DataRecord AL2Br6(
     name="AL2Br6",
     MM=0.533387076,
@@ -1055,7 +1055,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.23863134e-009,-3.80387976e-013,1.796525455e-017},
     bhigh={-120233.8355,-62.0105495},
     R=15.58806422973773);
-  
+
   constant IdealGases.Common.DataRecord AL2C2(
     name="AL2C2",
     MM=0.077984476,
@@ -1069,7 +1069,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.049615854e-011,4.78046893e-016},
     bhigh={72048.89810000001,-36.48164252},
     R=106.6170143914284);
-  
+
   constant IdealGases.Common.DataRecord AL2CL6(
     name="AL2CL6",
     MM=0.266681076,
@@ -1083,7 +1083,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.42332569e-009,-7.4365852e-013,3.47206467e-017},
     bhigh={-162915.7014,-70.91602129},
     R=31.17758531917728);
-  
+
   constant IdealGases.Common.DataRecord AL2F6(
     name="AL2F6",
     MM=0.1679534952,
@@ -1097,7 +1097,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.59522504e-008,-4.12120144e-012,1.909095384e-016},
     bhigh={-321968.391,-85.89867941},
     R=49.50460834470327);
-  
+
   constant IdealGases.Common.DataRecord AL2I6(
     name="AL2I6",
     MM=0.815389896,
@@ -1111,7 +1111,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.957831901e-009,-2.326573151e-013,1.108910373e-017},
     bhigh={-65485.2375,-55.28536481},
     R=10.19692792465017);
-  
+
   constant IdealGases.Common.DataRecord AL2O(
     name="AL2O",
     MM=0.069962476,
@@ -1125,7 +1125,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.180702791e-008,-1.355444579e-012,6.28732389e-017},
     bhigh={-19475.80149,-14.15764167},
     R=118.8418774658576);
-  
+
   constant IdealGases.Common.DataRecord AL2Oplus(
     name="AL2Oplus",
     MM=0.0699619274,
@@ -1139,7 +1139,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.21852032e-009,-9.473649719999999e-013,4.40862135e-017},
     bhigh={76149.43580000001,-12.82233856},
     R=118.842809353477);
-  
+
   constant IdealGases.Common.DataRecord AL2O2(
     name="AL2O2",
     MM=0.08596187600000001,
@@ -1153,7 +1153,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.044733119e-008,-3.49619392e-012,1.622305079e-016},
     bhigh={-49630.5578,-29.4653809},
     R=96.72278441201074);
-  
+
   constant IdealGases.Common.DataRecord AL2O2plus(
     name="AL2O2plus",
     MM=0.0859613274,
@@ -1167,7 +1167,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.2533012e-009,-4.942390419999999e-013,2.314507373e-017},
     bhigh={63862.19,-23.45753361},
     R=96.72340169097949);
-  
+
   constant IdealGases.Common.DataRecord AL2O3(
     name="AL2O3",
     MM=0.101961276,
@@ -1181,7 +1181,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -3.73086735e-012,1.730444284e-016},
     bhigh={-67907.5785,-43.75559873},
     R=81.54538983996238);
-  
+
   constant IdealGases.Common.DataRecord AL2S(
     name="AL2S",
     MM=0.086028076,
@@ -1195,7 +1195,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.091989298e-013,9.727537699999999e-018},
     bhigh={24227.18377,-10.66580982},
     R=96.64835466040181);
-  
+
   constant IdealGases.Common.DataRecord AL2S2(
     name="AL2S2",
     MM=0.118093076,
@@ -1209,7 +1209,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.00768285e-009,-5.715862119999999e-013,2.63799924e-017},
     bhigh={13133.36091,-22.56851594},
     R=70.40609222508525);
-  
+
   constant IdealGases.Common.DataRecord Ar(
     name="Ar",
     MM=0.039948,
@@ -1222,7 +1222,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.20527214e-011,-1.819015576e-015,1.078576636e-019},
     bhigh={-744.993961,4.37918011},
     R=208.1323720837088);
-  
+
   constant IdealGases.Common.DataRecord Arplus(
     name="Arplus",
     MM=0.0399474514,
@@ -1236,7 +1236,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.265493898e-016},
     bhigh={177181.1455,7.94750748},
     R=208.135230374171);
-  
+
   constant IdealGases.Common.DataRecord B(
     name="B",
     MM=0.010811,
@@ -1250,7 +1250,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.37742799e-012,-2.282443381e-016},
     bhigh={66434.13099999999,6.87706967},
     R=769.0752011839794);
-  
+
   constant IdealGases.Common.DataRecord Bplus(
     name="Bplus",
     MM=0.0108104514,
@@ -1264,7 +1264,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -7.38217591e-012,7.12072156e-016},
     bhigh={165452.6303,2.23866978},
     R=769.1142295871198);
-  
+
   constant IdealGases.Common.DataRecord Bminus(
     name="Bminus",
     MM=0.0108115486,
@@ -1278,7 +1278,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.09059863e-018,-2.601566168e-022},
     bhigh={64517.8914,4.61645583},
     R=769.0361767416002);
-  
+
   constant IdealGases.Common.DataRecord BBr(
     name="BBr",
     MM=0.090715,
@@ -1292,7 +1292,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.51911954e-011,-4.83536832e-015},
     bhigh={31890.8434,-0.8255870910000001},
     R=91.65487515846331);
-  
+
   constant IdealGases.Common.DataRecord BBr2(
     name="BBr2",
     MM=0.170619,
@@ -1306,7 +1306,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.19113676e-015},
     bhigh={6118.98205,-5.50275962},
     R=48.73121985241972);
-  
+
   constant IdealGases.Common.DataRecord BBr3(
     name="BBr3",
     MM=0.250523,
@@ -1320,7 +1320,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.409696190000001e-009,-1.06521847e-012,4.883048770000001e-017},
     bhigh={-27425.53062,-19.97496003},
     R=33.18845774639455);
-  
+
   constant IdealGases.Common.DataRecord BC(
     name="BC",
     MM=0.0228217,
@@ -1334,7 +1334,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.351919576e-011,8.265104270000001e-016},
     bhigh={57866.8507,50.37884876},
     R=364.323078473558);
-  
+
   constant IdealGases.Common.DataRecord BC2(
     name="BC2",
     MM=0.0348324,
@@ -1348,7 +1348,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.081927223e-006,-1.378744645e-010,6.473822e-015},
     bhigh={131120.4013,-63.37215498},
     R=238.6993718491979);
-  
+
   constant IdealGases.Common.DataRecord BCL(
     name="BCL",
     MM=0.046264,
@@ -1362,7 +1362,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.849002029999999e-011,-6.46881817e-015},
     bhigh={19127.2648,5.235317877},
     R=179.7179664533979);
-  
+
   constant IdealGases.Common.DataRecord BCLplus(
     name="BCLplus",
     MM=0.0462634514,
@@ -1376,7 +1376,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.207061044e-011,-5.262253270000001e-016},
     bhigh={144547.7224,3.488222017},
     R=179.7200975800954);
-  
+
   constant IdealGases.Common.DataRecord BCLOH(
     name="BCLOH",
     MM=0.06327134,
@@ -1390,7 +1390,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.40991244e-012,-3.46415384e-016},
     bhigh={-13072.21888,-35.85168799},
     R=131.4097662543578);
-  
+
   constant IdealGases.Common.DataRecord BCL_OH_2(
     name="BCL_OH_2",
     MM=0.08027867999999999,
@@ -1404,7 +1404,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.838560759999999e-012,-6.47267882e-016},
     bhigh={-64742.6176,-81.00399519},
     R=103.5701135095894);
-  
+
   constant IdealGases.Common.DataRecord BCL2(
     name="BCL2",
     MM=0.081717,
@@ -1418,7 +1418,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.722954559999999e-016},
     bhigh={568.2909440000001,-21.48348344},
     R=101.7471517554487);
-  
+
   constant IdealGases.Common.DataRecord BCL2plus(
     name="BCL2plus",
     MM=0.0817164514,
@@ -1432,7 +1432,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.727833266e-007,-1.523567337e-011,4.22691144e-016},
     bhigh={86534.15770000001,-22.67466616},
     R=101.747834830723);
-  
+
   constant IdealGases.Common.DataRecord BCL2OH(
     name="BCL2OH",
     MM=0.09872433999999999,
@@ -1446,7 +1446,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.42289219e-012,-3.004089365e-016},
     bhigh={-58241.6807,-51.50858228},
     R=84.2190689752902);
-  
+
   constant IdealGases.Common.DataRecord BF(
     name="BF",
     MM=0.0298094032,
@@ -1460,7 +1460,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.426601527e-011,-9.394651579999999e-016},
     bhigh={-18191.79292,3.71660929},
     R=278.9211157370638);
-  
+
   constant IdealGases.Common.DataRecord BFCL(
     name="BFCL",
     MM=0.0652624032,
@@ -1474,7 +1474,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.052290533e-011,-7.615432260000001e-016},
     bhigh={-33058.9121,-11.86586595},
     R=127.4006409865091);
-  
+
   constant IdealGases.Common.DataRecord BFCL2(
     name="BFCL2",
     MM=0.1007154032,
@@ -1488,7 +1488,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.22488779e-008,-4.84726692e-012,2.247974725e-016},
     bhigh={-77406.2648,-28.14630564},
     R=82.5541251469666);
-  
+
   constant IdealGases.Common.DataRecord BFOH(
     name="BFOH",
     MM=0.0468167432,
@@ -1502,7 +1502,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.6651581e-012,-2.186647438e-016},
     bhigh={-37168.0808,-39.7846349},
     R=177.5961212099008);
-  
+
   constant IdealGases.Common.DataRecord BF_OH_2(
     name="BF_OH_2",
     MM=0.06382408319999999,
@@ -1516,7 +1516,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.75869977e-012,-5.04255454e-016},
     bhigh={-91862.5419,-85.27895049999999},
     R=130.2717028295677);
-  
+
   constant IdealGases.Common.DataRecord BF2(
     name="BF2",
     MM=0.04880780639999999,
@@ -1530,7 +1530,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.32847186e-008,-6.11879794e-012,2.839984178e-016},
     bhigh={-57962.2217,-16.55644047},
     R=170.3512739716162);
-  
+
   constant IdealGases.Common.DataRecord BF2plus(
     name="BF2plus",
     MM=0.0488072578,
@@ -1544,7 +1544,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.73253381e-012,-3.21635423e-016},
     bhigh={39087.4505,-19.36560315},
     R=170.3531887423513);
-  
+
   constant IdealGases.Common.DataRecord BF2minus(
     name="BF2minus",
     MM=0.048808355,
@@ -1558,7 +1558,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.064363959999999e-008,-4.66770095e-012,2.16626484e-016},
     bhigh={-87414.0453,-16.20604664},
     R=170.3493592439245);
-  
+
   constant IdealGases.Common.DataRecord BF2CL(
     name="BF2CL",
     MM=0.08426080640000001,
@@ -1572,7 +1572,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.67252147e-008,-7.6499419e-012,3.5462245e-016},
     bhigh={-104693.6725,-32.29995036},
     R=98.67543826402306);
-  
+
   constant IdealGases.Common.DataRecord BF2OH(
     name="BF2OH",
     MM=0.0658151464,
@@ -1586,7 +1586,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.764337508e-008,-1.90549317e-013,-8.69497194e-017},
     bhigh={-113358.9041,-58.9698151},
     R=126.3306769762044);
-  
+
   constant IdealGases.Common.DataRecord BF3(
     name="BF3",
     MM=0.0678062096,
@@ -1600,7 +1600,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.031277570000001e-008,-1.03305736e-011,4.780551830000001e-016},
     bhigh={-132313.6863,-37.3838608},
     R=122.6210998822739);
-  
+
   constant IdealGases.Common.DataRecord BF4minus(
     name="BF4minus",
     MM=0.0868051614,
@@ -1614,7 +1614,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -5.982245780000001e-012,2.781163206e-016},
     bhigh={-212725.1877,-49.533697},
     R=95.783152359878);
-  
+
   constant IdealGases.Common.DataRecord BH(
     name="BH",
     MM=0.01181894,
@@ -1628,7 +1628,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.718307052e-006,-4.83981221e-010,2.868523222e-014},
     bhigh={50167.3567,-29.71030686},
     R=703.4871147497153);
-  
+
   constant IdealGases.Common.DataRecord BHCL(
     name="BHCL",
     MM=0.04727194,
@@ -1642,7 +1642,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.6200676e-015},
     bhigh={28412.40364,-25.89566225},
     R=175.8859907166916);
-  
+
   constant IdealGases.Common.DataRecord BHCL2(
     name="BHCL2",
     MM=0.08272494,
@@ -1656,7 +1656,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.352862344e-011,5.92165351e-016},
     bhigh={-16172.8876,-42.17900972},
     R=100.5074406823384);
-  
+
   constant IdealGases.Common.DataRecord BHF(
     name="BHF",
     MM=0.0308173432,
@@ -1670,7 +1670,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.432441145e-015},
     bhigh={18026.40937,-42.85931169999999},
     R=269.798468545465);
-  
+
   constant IdealGases.Common.DataRecord BHFCL(
     name="BHFCL",
     MM=0.0662703432,
@@ -1684,7 +1684,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.56519707e-011,6.910075059999999e-016},
     bhigh={-42323.6834,-44.66542881},
     R=125.4629386014708);
-  
+
   constant IdealGases.Common.DataRecord BHF2(
     name="BHF2",
     MM=0.0498157464,
@@ -1698,7 +1698,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.841732568e-007,-2.010774349e-011,8.979196590000001e-016},
     bhigh={-69781.4293,-51.0321804},
     R=166.904495081499);
-  
+
   constant IdealGases.Common.DataRecord BH2(
     name="BH2",
     MM=0.01282688,
@@ -1712,7 +1712,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.187742442e-011,4.68255251e-016},
     bhigh={68902.92660000001,-41.9049012},
     R=648.2068905298874);
-  
+
   constant IdealGases.Common.DataRecord BH2CL(
     name="BH2CL",
     MM=0.04827988,
@@ -1726,7 +1726,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.71384527e-011,1.172827257e-015},
     bhigh={26393.87516,-63.99725308},
     R=172.2140154449431);
-  
+
   constant IdealGases.Common.DataRecord BH2F(
     name="BH2F",
     MM=0.0318252832,
@@ -1740,7 +1740,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.992498948e-011,1.302618926e-015},
     bhigh={-793.719267,-68.013564},
     R=261.2536689068646);
-  
+
   constant IdealGases.Common.DataRecord BH3(
     name="BH3",
     MM=0.01383482,
@@ -1754,7 +1754,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.6125111e-007,-3.86603591e-011,1.698508879e-015},
     bhigh={59675.3707,-79.94046159999999},
     R=600.9815812565686);
-  
+
   constant IdealGases.Common.DataRecord BH3NH3(
     name="BH3NH3",
     MM=0.03086534,
@@ -1768,7 +1768,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.3825786e-015},
     bhigh={94381.18030000001,-189.7865799},
     R=269.3789214698429);
-  
+
   constant IdealGases.Common.DataRecord BH4(
     name="BH4",
     MM=0.01484276,
@@ -1782,7 +1782,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.014115885e-015},
     bhigh={74702.49489999999,-96.8608689},
     R=560.1702109311207);
-  
+
   constant IdealGases.Common.DataRecord BI(
     name="BI",
     MM=0.13771547,
@@ -1796,7 +1796,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.06428215e-007,-4.23006893e-011,-4.20807847e-016},
     bhigh={77976.3481,-46.6404261},
     R=60.37427748676311);
-  
+
   constant IdealGases.Common.DataRecord BI2(
     name="BI2",
     MM=0.26461994,
@@ -1810,7 +1810,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.1839597e-015},
     bhigh={22919.72638,-3.20179324},
     R=31.42042886110548);
-  
+
   constant IdealGases.Common.DataRecord BI3(
     name="BI3",
     MM=0.39152441,
@@ -1824,7 +1824,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.01996673e-009,-5.65434963e-013,2.580651348e-017},
     bhigh={-426.168791,-16.17962779},
     R=21.23615230018481);
-  
+
   constant IdealGases.Common.DataRecord BN(
     name="BN",
     MM=0.0248177,
@@ -1838,7 +1838,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -6.526052929999999e-013,5.74946612e-017},
     bhigh={67844.6513,-0.6778568656},
     R=335.0218593987356);
-  
+
   constant IdealGases.Common.DataRecord BO(
     name="BO",
     MM=0.0268104,
@@ -1852,7 +1852,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.870854291e-011,-1.030218131e-015},
     bhigh={4841.311089999999,-3.39889058},
     R=310.1211470175753);
-  
+
   constant IdealGases.Common.DataRecord BOminus(
     name="BOminus",
     MM=0.0268109486,
@@ -1867,7 +1867,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.71536439e-016},
     bhigh={-27068.92261,-9.77375367},
     R=310.1148013837899);
-  
+
   constant IdealGases.Common.DataRecord BOCL(
     name="BOCL",
     MM=0.0622634,
@@ -1881,7 +1881,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -9.261027459999999e-012,4.21999801e-016},
     bhigh={-32035.8904,-23.72713292},
     R=133.5370699319344);
-  
+
   constant IdealGases.Common.DataRecord BOCL2(
     name="BOCL2",
     MM=0.0977164,
@@ -1895,7 +1895,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.07121543e-008,-4.67224655e-012,2.167237536e-016},
     bhigh={-43715.3842,-27.43570215},
     R=85.08778465027366);
-  
+
   constant IdealGases.Common.DataRecord BOF(
     name="BOF",
     MM=0.0458088032,
@@ -1909,7 +1909,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.59101908e-008,-1.067806769e-011,4.840007660000001e-016},
     bhigh={-63301.5239,-27.02458617},
     R=181.5038031816557);
-  
+
   constant IdealGases.Common.DataRecord BOF2(
     name="BOF2",
     MM=0.0648072064,
@@ -1923,7 +1923,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.2975493e-016},
     bhigh={-96804.47579999999,-34.8285333},
     R=128.2954853613317);
-  
+
   constant IdealGases.Common.DataRecord BOH(
     name="BOH",
     MM=0.02781834,
@@ -1937,7 +1937,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.127133119e-012,-2.376665451e-016},
     bhigh={16476.98495,-26.03227947},
     R=298.8845488264217);
-  
+
   constant IdealGases.Common.DataRecord BO2(
     name="BO2",
     MM=0.0428098,
@@ -1951,7 +1951,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.87228899e-009,8.15836676e-012,-7.52751966e-016},
     bhigh={-34235.6402,-22.24772278},
     R=194.2188938046896);
-  
+
   constant IdealGases.Common.DataRecord BO2minus(
     name="BO2minus",
     MM=0.0428103486,
@@ -1965,7 +1965,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.867011870000001e-008,-1.107288516e-011,5.05018324e-016},
     bhigh={-78257.89689999999,-28.39356505},
     R=194.2164049558802);
-  
+
   constant IdealGases.Common.DataRecord B_OH_2(
     name="B_OH_2",
     MM=0.04482568,
@@ -1979,7 +1979,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.030332746e-011,-6.68588983e-016},
     bhigh={-18068.10301,-65.902689},
     R=185.4845704515805);
-  
+
   constant IdealGases.Common.DataRecord BS(
     name="BS",
     MM=0.042876,
@@ -1993,7 +1993,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.18927531e-007,-1.354787322e-011,-1.360684605e-015},
     bhigh={59130.6545,-33.36696868},
     R=193.9190222968561);
-  
+
   constant IdealGases.Common.DataRecord BS2(
     name="BS2",
     MM=0.07494100000000001,
@@ -2007,7 +2007,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.75430116e-007,-4.40038378e-011,1.887662968e-015},
     bhigh={17365.35,-27.57546712},
     R=110.9469048985202);
-  
+
   constant IdealGases.Common.DataRecord B2(
     name="B2",
     MM=0.021622,
@@ -2021,7 +2021,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.951732355e-007,-2.555902119e-011,1.053557323e-015},
     bhigh={118780.7611,-19.49045025},
     R=384.5376005919897);
-  
+
   constant IdealGases.Common.DataRecord B2C(
     name="B2C",
     MM=0.0336327,
@@ -2035,7 +2035,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -6.932935770000001e-011,2.672933741e-015},
     bhigh={122244.2137,-51.99066186},
     R=247.2139316795856);
-  
+
   constant IdealGases.Common.DataRecord B2CL4(
     name="B2CL4",
     MM=0.163434,
@@ -2049,7 +2049,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.218822573e-012,7.241208409999999e-017},
     bhigh={-68200.66,-41.39110669},
     R=50.87357587772434);
-  
+
   constant IdealGases.Common.DataRecord B2F4(
     name="B2F4",
     MM=0.09761561279999999,
@@ -2063,7 +2063,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.428613504e-011,5.21873967e-016},
     bhigh={-161305.1924,-71.8480325},
     R=85.17563698580808);
-  
+
   constant IdealGases.Common.DataRecord B2H(
     name="B2H",
     MM=0.02262994,
@@ -2077,7 +2077,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.0507147e-007,-1.092459556e-011,4.68485466e-016},
     bhigh={109953.7555,-31.6402991},
     R=367.4102538495462);
-  
+
   constant IdealGases.Common.DataRecord B2H2(
     name="B2H2",
     MM=0.02363788,
@@ -2091,7 +2091,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.361530467e-011,1.022604572e-015},
     bhigh={85065.1149,-64.354613},
     R=351.7435573748576);
-  
+
   constant IdealGases.Common.DataRecord B2H3(
     name="B2H3",
     MM=0.02464582,
@@ -2105,7 +2105,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -3.61454368e-011,1.575671409e-015},
     bhigh={87377.1189,-90.5462946},
     R=337.3583025437985);
-  
+
   constant IdealGases.Common.DataRecord B2H3_db(
     name="B2H3_db",
     MM=0.02464582,
@@ -2119,7 +2119,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.472919654e-015},
     bhigh={83243.4967,-87.79549259999999},
     R=337.3583025437985);
-  
+
   constant IdealGases.Common.DataRecord B2H4(
     name="B2H4",
     MM=0.02565376,
@@ -2133,7 +2133,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -5.0901004e-011,2.23391159e-015},
     bhigh={86385.91979999999,-124.6794566},
     R=324.1034452649437);
-  
+
   constant IdealGases.Common.DataRecord B2H4_db(
     name="B2H4_db",
     MM=0.02565376,
@@ -2147,7 +2147,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -5.11067303e-011,2.262693782e-015},
     bhigh={82334.87,-123.7455797},
     R=324.1034452649437);
-  
+
   constant IdealGases.Common.DataRecord B2H5(
     name="B2H5",
     MM=0.0266617,
@@ -2161,7 +2161,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -6.41374855e-011,2.821187823e-015},
     bhigh={106452.4901,-155.9654379},
     R=311.8507822081863);
-  
+
   constant IdealGases.Common.DataRecord B2H5_db(
     name="B2H5_db",
     MM=0.0266617,
@@ -2175,7 +2175,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -7.12733394e-011,3.16949265e-015},
     bhigh={110637.0527,-159.7214457},
     R=311.8507822081863);
-  
+
   constant IdealGases.Common.DataRecord B2H6(
     name="B2H6",
     MM=0.02766964,
@@ -2189,7 +2189,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.75222338e-015},
     bhigh={93583.7855,-192.0223395},
     R=300.4907906282843);
-  
+
   constant IdealGases.Common.DataRecord B2O(
     name="B2O",
     MM=0.0376214,
@@ -2203,7 +2203,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.893783941e-012,1.339210475e-016},
     bhigh={22630.35354,-19.08513011},
     R=221.0037903958917);
-  
+
   constant IdealGases.Common.DataRecord B2O2(
     name="B2O2",
     MM=0.0536208,
@@ -2217,7 +2217,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.86769478e-011,8.486190669999999e-016},
     bhigh={-40157.4815,-48.7441371},
     R=155.0605735087876);
-  
+
   constant IdealGases.Common.DataRecord B2O3(
     name="B2O3",
     MM=0.06962019999999999,
@@ -2231,7 +2231,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.068887872e-007,-2.310858356e-011,1.050136734e-015},
     bhigh={-82630.5441,-63.9086344},
     R=119.4261435617824);
-  
+
   constant IdealGases.Common.DataRecord B2_OH_4(
     name="B2_OH_4",
     MM=0.08965136,
@@ -2245,7 +2245,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.67197728e-011,-1.156366726e-015},
     bhigh={-82809.76969999999,-165.3010498},
     R=92.74228522579023);
-  
+
   constant IdealGases.Common.DataRecord B2S(
     name="B2S",
     MM=0.053687,
@@ -2259,7 +2259,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.92395117e-009,-4.40386238e-013,2.003651718e-017},
     bhigh={72585.3187,-13.94971229},
     R=154.8693724737832);
-  
+
   constant IdealGases.Common.DataRecord B2S2(
     name="B2S2",
     MM=0.085752,
@@ -2273,7 +2273,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.12561429e-008,-5.89408123e-012,2.738673834e-016},
     bhigh={17330.03515,-33.59766998},
     R=96.95951114842804);
-  
+
   constant IdealGases.Common.DataRecord B2S3(
     name="B2S3",
     MM=0.117817,
@@ -2287,7 +2287,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.1101558e-008,-7.00804857e-012,3.24952462e-016},
     bhigh={2906.43376,-39.46870479},
     R=70.57107208637125);
-  
+
   constant IdealGases.Common.DataRecord B3H7_C2v(
     name="B3H7_C2v",
     MM=0.03948858,
@@ -2301,7 +2301,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.705358820000001e-007,-9.38510502e-011,4.14786531e-015},
     bhigh={127215.4092,-237.9769856},
     R=210.5538360710869);
-  
+
   constant IdealGases.Common.DataRecord B3H7_Cs(
     name="B3H7_Cs",
     MM=0.03948858,
@@ -2315,7 +2315,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.076496770000001e-015},
     bhigh={121362.2564,-235.7090217},
     R=210.5538360710869);
-  
+
   constant IdealGases.Common.DataRecord B3H9(
     name="B3H9",
     MM=0.04150446,
@@ -2329,7 +2329,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.52034818e-015},
     bhigh={142218.7123,-295.8240102},
     R=200.3271937521895);
-  
+
   constant IdealGases.Common.DataRecord B3N3H6(
     name="B3N3H6",
     MM=0.08050073999999999,
@@ -2343,7 +2343,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.191943197e-015},
     bhigh={47584.2616,-264.1156625},
     R=103.2844170128126);
-  
+
   constant IdealGases.Common.DataRecord B3O3CL3(
     name="B3O3CL3",
     MM=0.1867902,
@@ -2357,7 +2357,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.886231553e-011,8.737926310000001e-016},
     bhigh={-192350.9858,-118.5636255},
     R=44.51235664397812);
-  
+
   constant IdealGases.Common.DataRecord B3O3FCL2(
     name="B3O3FCL2",
     MM=0.1703356032,
@@ -2371,7 +2371,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.852318684e-007,-2.121694694e-011,9.827291560000002e-016},
     bhigh={-220272.9252,-121.0679365},
     R=48.81229668842362);
-  
+
   constant IdealGases.Common.DataRecord B3O3F2CL(
     name="B3O3F2CL",
     MM=0.1538810064,
@@ -2385,7 +2385,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.49957348e-011,1.157532106e-015},
     bhigh={-247211.4785,-126.1501548},
     R=54.03182754333741);
-  
+
   constant IdealGases.Common.DataRecord B3O3F3(
     name="B3O3F3",
     MM=0.1374264096,
@@ -2399,7 +2399,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.80648498e-011,1.299750466e-015},
     bhigh={-274886.5475,-131.5605015},
     R=60.50126772721858);
-  
+
   constant IdealGases.Common.DataRecord B4H4(
     name="B4H4",
     MM=0.04727576,
@@ -2413,7 +2413,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -5.17049023e-011,2.269138182e-015},
     bhigh={98365.95389999999,-156.1814117},
     R=175.8717786874288);
-  
+
   constant IdealGases.Common.DataRecord B4H10(
     name="B4H10",
     MM=0.0533234,
@@ -2427,7 +2427,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.258866560000001e-015},
     bhigh={150600.9087,-352.07142},
     R=155.9253911040931);
-  
+
   constant IdealGases.Common.DataRecord B4H12(
     name="B4H12",
     MM=0.05533928000000001,
@@ -2441,7 +2441,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.512993908e-006,-1.635619071e-010,7.24538514e-015},
     bhigh={205458.6275,-414.210686},
     R=150.2453953141421);
-  
+
   constant IdealGases.Common.DataRecord B5H9(
     name="B5H9",
     MM=0.06312646,
@@ -2455,7 +2455,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.157837073e-006,-1.270332301e-010,5.69426203e-015},
     bhigh={133445.2571,-337.106046},
     R=131.7113616065276);
-  
+
   constant IdealGases.Common.DataRecord Ba(
     name="Ba",
     MM=0.137327,
@@ -2469,7 +2469,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.0851268e-010,-3.199486918e-014},
     bhigh={-358966.372,500.75834},
     R=60.54506397139674);
-  
+
   constant IdealGases.Common.DataRecord Baplus(
     name="Baplus",
     MM=0.1373264514,
@@ -2483,7 +2483,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.667412753e-010,-1.07011731e-014},
     bhigh={214680.0732,-92.28264190000002},
     R=60.54530584047409);
-  
+
   constant IdealGases.Common.DataRecord BaBr(
     name="BaBr",
     MM=0.217231,
@@ -2497,7 +2497,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.893189803e-014},
     bhigh={-19502.33645,-5.06927964},
     R=38.27479503385797);
-  
+
   constant IdealGases.Common.DataRecord BaBr2(
     name="BaBr2",
     MM=0.297135,
@@ -2511,7 +2511,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.092392109999999e-011,-8.670038099999999e-015,4.22174231e-019},
     bhigh={-51726.6949,1.910185706},
     R=27.98213606609791);
-  
+
   constant IdealGases.Common.DataRecord BaCL(
     name="BaCL",
     MM=0.17278,
@@ -2525,7 +2525,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.632658438e-014},
     bhigh={-27791.73737,-3.574185216},
     R=48.12172705174211);
-  
+
   constant IdealGases.Common.DataRecord BaCLplus(
     name="BaCLplus",
     MM=0.1727794514,
@@ -2539,7 +2539,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.396147871e-009,5.4794586e-014,1.174342316e-018},
     bhigh={40551.00150000001,4.503765564},
     R=48.12187984525572);
-  
+
   constant IdealGases.Common.DataRecord BaCL2(
     name="BaCL2",
     MM=0.208233,
@@ -2553,7 +2553,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.61184921e-010,-4.38675906e-014,2.125803293e-018},
     bhigh={-62190.9527,-1.132439694},
     R=39.92869525963705);
-  
+
   constant IdealGases.Common.DataRecord BaF(
     name="BaF",
     MM=0.1563254032,
@@ -2567,7 +2567,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.366313845e-006,-3.2877343e-010,1.647896238e-014},
     bhigh={3571.78068,-66.6239092},
     R=53.18695381429856);
-  
+
   constant IdealGases.Common.DataRecord BaFplus(
     name="BaFplus",
     MM=0.1563248546,
@@ -2581,7 +2581,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.612088236e-009,-9.502197929999999e-014,6.515176160000001e-018},
     bhigh={14744.8657,2.783167711},
     R=53.18714046640156);
-  
+
   constant IdealGases.Common.DataRecord BaF2(
     name="BaF2",
     MM=0.1753238064,
@@ -2595,7 +2595,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.321203959e-009,-1.565528167e-013,7.444983019999999e-018},
     bhigh={-99835.29700000001,-4.38958149},
     R=47.42351977592018);
-  
+
   constant IdealGases.Common.DataRecord BaH(
     name="BaH",
     MM=0.13833494,
@@ -2609,7 +2609,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.052342502e-010,1.111101879e-014},
     bhigh={-89540.70379999999,118.2377538},
     R=60.10391879303957);
-  
+
   constant IdealGases.Common.DataRecord BaI(
     name="BaI",
     MM=0.26423147,
@@ -2623,7 +2623,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.011371472e-014},
     bhigh={-53402.2959,37.1044387},
     R=31.46662280613282);
-  
+
   constant IdealGases.Common.DataRecord BaI2(
     name="BaI2",
     MM=0.39113594,
@@ -2637,7 +2637,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -4.201754979999999e-015,2.047703474e-019},
     bhigh={-36796.5075,3.61547532},
     R=21.25724370918203);
-  
+
   constant IdealGases.Common.DataRecord BaO(
     name="BaO",
     MM=0.1533264,
@@ -2651,7 +2651,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.335677450000001e-006,-5.1523043e-010,1.4330834e-014},
     bhigh={230690.2396,-302.8332772},
     R=54.22726940696449);
-  
+
   constant IdealGases.Common.DataRecord BaOplus(
     name="BaOplus",
     MM=0.1533258514,
@@ -2665,7 +2665,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.382873231e-011,-6.38443703e-016},
     bhigh={50252.4761,14.09092365},
     R=54.22746343217109);
-  
+
   constant IdealGases.Common.DataRecord BaOH(
     name="BaOH",
     MM=0.15433434,
@@ -2679,7 +2679,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.594657431e-006,-2.180478542e-010,1.084610688e-014},
     bhigh={23935.50647,-74.9070579},
     R=53.87311728549849);
-  
+
   constant IdealGases.Common.DataRecord BaOHplus(
     name="BaOHplus",
     MM=0.1543337914,
@@ -2693,7 +2693,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.028729445e-011,-5.74180857e-016},
     bhigh={37725.1747,-19.30805001},
     R=53.87330878466322);
-  
+
   constant IdealGases.Common.DataRecord Ba_OH_2(
     name="Ba_OH_2",
     MM=0.17134168,
@@ -2707,7 +2707,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.048917625e-011,-1.144045777e-015},
     bhigh={-45459.6441,-49.2945719},
     R=48.52568271771352);
-  
+
   constant IdealGases.Common.DataRecord BaS(
     name="BaS",
     MM=0.169392,
@@ -2721,7 +2721,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.88410195e-014},
     bhigh={140413.8006,-214.1776331},
     R=49.08420704637764);
-  
+
   constant IdealGases.Common.DataRecord Ba2(
     name="Ba2",
     MM=0.274654,
@@ -2735,7 +2735,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.04895196e-012,-3.54744017e-016},
     bhigh={41677.6297,23.75906459},
     R=30.27253198569837);
-  
+
   constant IdealGases.Common.DataRecord Be(
     name="Be",
     MM=0.009012181999999999,
@@ -2749,7 +2749,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.587880407e-010,-9.415600603e-015},
     bhigh={23002.12917,26.23234754},
     R=922.581456965694);
-  
+
   constant IdealGases.Common.DataRecord Beplus(
     name="Beplus",
     MM=0.0090116334,
@@ -2762,7 +2762,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.54235047e-012,-6.270417825e-017},
     bhigh={145385.0986,5.05550384},
     R=922.6376208335329);
-  
+
   constant IdealGases.Common.DataRecord Beplusplus(
     name="Beplusplus",
     MM=0.009011084800000001,
@@ -2774,7 +2774,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
     ahigh={0,0,2.5,0,0,0,0},
     bhigh={359227.916,2.145990203},
     R=922.6937915399486);
-  
+
   constant IdealGases.Common.DataRecord BeBr(
     name="BeBr",
     MM=0.08891618200000001,
@@ -2788,7 +2788,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.84913634e-007,-9.98912932e-011,5.192456840000001e-015},
     bhigh={32293.7287,-23.26810811},
     R=93.50909826515043);
-  
+
   constant IdealGases.Common.DataRecord BeBr2(
     name="BeBr2",
     MM=0.168820182,
@@ -2802,7 +2802,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.003180548e-008,-1.146879501e-012,5.30179538e-017},
     bhigh={-29845.27608,-11.4936098},
     R=49.25046224627338);
-  
+
   constant IdealGases.Common.DataRecord BeCL(
     name="BeCL",
     MM=0.044465182,
@@ -2816,7 +2816,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.459036606e-007,-1.230971735e-011,9.90080476e-017},
     bhigh={12246.49804,-8.38237137},
     R=186.9883721604918);
-  
+
   constant IdealGases.Common.DataRecord BeCL2(
     name="BeCL2",
     MM=0.079918182,
@@ -2830,7 +2830,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.649479787e-008,-1.895997075e-012,8.804973950000001e-017},
     bhigh={-44687.4728,-15.00337407},
     R=104.0373015492269);
-  
+
   constant IdealGases.Common.DataRecord BeF(
     name="BeF",
     MM=0.0280105852,
@@ -2844,7 +2844,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.152149888e-011,-6.33558644e-016},
     bhigh={-22579.5096,-0.218478727},
     R=296.8332128955307);
-  
+
   constant IdealGases.Common.DataRecord BeF2(
     name="BeF2",
     MM=0.0470089884,
@@ -2858,7 +2858,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.89159866e-008,-5.58788672e-012,2.583409761e-016},
     bhigh={-93954.9549,-21.25660266},
     R=176.8698345357289);
-  
+
   constant IdealGases.Common.DataRecord BeH(
     name="BeH",
     MM=0.010020122,
@@ -2872,7 +2872,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.297785691e-010,-5.29188581e-015},
     bhigh={-2489.846221,52.1601869},
     R=829.7775216708938);
-  
+
   constant IdealGases.Common.DataRecord BeHplus(
     name="BeHplus",
     MM=0.0100195734,
@@ -2886,7 +2886,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.55717791e-011,-2.569695765e-015},
     bhigh={151585.9734,-13.69222641},
     R=829.822954338555);
-  
+
   constant IdealGases.Common.DataRecord BeH2(
     name="BeH2",
     MM=0.011028062,
@@ -2900,7 +2900,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.929908660000001e-016},
     bhigh={37931.052,-42.5465358},
     R=753.9377272271411);
-  
+
   constant IdealGases.Common.DataRecord BeI(
     name="BeI",
     MM=0.135916652,
@@ -2914,7 +2914,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -3.58945788e-011,2.72276956e-015},
     bhigh={15854.74307,9.370951270000001},
     R=61.17331377468009);
-  
+
   constant IdealGases.Common.DataRecord BeI2(
     name="BeI2",
     MM=0.262821122,
@@ -2928,7 +2928,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.61426533e-009,-6.35966385e-013,2.917080336e-017},
     bhigh={-9814.768620000001,-9.03204281},
     R=31.63547867359002);
-  
+
   constant IdealGases.Common.DataRecord BeN(
     name="BeN",
     MM=0.023018882,
@@ -2942,7 +2942,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.006201069e-008,-2.300018068e-012,1.066101831e-016},
     bhigh={51560.9571,-3.031380625},
     R=361.2022512648529);
-  
+
   constant IdealGases.Common.DataRecord BeO(
     name="BeO",
     MM=0.025011582,
@@ -2956,7 +2956,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.0055584e-009,-9.426891790000001e-014},
     bhigh={-657001.8000000001,864.0898030000001},
     R=332.4248742042786);
-  
+
   constant IdealGases.Common.DataRecord BeOH(
     name="BeOH",
     MM=0.026019522,
@@ -2970,7 +2970,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.926511920000001e-012,-4.64541952e-016},
     bhigh={3121.216271,-25.71641308},
     R=319.5474536388486);
-  
+
   constant IdealGases.Common.DataRecord BeOHplus(
     name="BeOHplus",
     MM=0.0260189734,
@@ -2984,7 +2984,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.67810638e-012,-3.58325356e-016},
     bhigh={107312.9932,-29.01093335},
     R=319.5541911734304);
-  
+
   constant IdealGases.Common.DataRecord Be_OH_2(
     name="Be_OH_2",
     MM=0.043026862,
@@ -2998,7 +2998,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.630912925e-011,-9.505371139999999e-016},
     bhigh={-46428.2384,-64.7680402},
     R=193.2390979383995);
-  
+
   constant IdealGases.Common.DataRecord BeS(
     name="BeS",
     MM=0.041077182,
@@ -3012,7 +3012,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.394030343e-009,-6.93695504e-014},
     bhigh={-312155.9628,480.3454935},
     R=202.4109638290182);
-  
+
   constant IdealGases.Common.DataRecord Be2(
     name="Be2",
     MM=0.018024364,
@@ -3026,7 +3026,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.003129697e-011,-5.68281834e-016},
     bhigh={75501.3973,12.38758616},
     R=461.290728482847);
-  
+
   constant IdealGases.Common.DataRecord Be2CL4(
     name="Be2CL4",
     MM=0.159836364,
@@ -3040,7 +3040,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.472073032e-008,-1.672352806e-012,7.68877397e-017},
     bhigh={-103107.5197,-50.47009374},
     R=52.01865077461346);
-  
+
   constant IdealGases.Common.DataRecord Be2F4(
     name="Be2F4",
     MM=0.0940179768,
@@ -3054,7 +3054,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.178061719999999e-008,-7.08308019e-012,3.28279104e-016},
     bhigh={-208904.5725,-60.9266576},
     R=88.43491726786446);
-  
+
   constant IdealGases.Common.DataRecord Be2O(
     name="Be2O",
     MM=0.034023764,
@@ -3068,7 +3068,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.313342334e-008,-2.657722263e-012,1.233820439e-016},
     bhigh={-5172.38549,-18.54887619},
     R=244.3724921205073);
-  
+
   constant IdealGases.Common.DataRecord Be2OF2(
     name="Be2OF2",
     MM=0.0720205704,
@@ -3082,7 +3082,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.30492101e-008,-8.36270438e-012,3.87218498e-016},
     bhigh={-143139.0587,-47.3915023},
     R=115.4457949141708);
-  
+
   constant IdealGases.Common.DataRecord Be2O2(
     name="Be2O2",
     MM=0.050023164,
@@ -3096,7 +3096,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.87762999e-008,-6.71866409e-012,3.105949075e-016},
     bhigh={-48611.1433,-36.1654689},
     R=166.2124371021393);
-  
+
   constant IdealGases.Common.DataRecord Be3O3(
     name="Be3O3",
     MM=0.075034746,
@@ -3110,7 +3110,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.043465231e-011,4.83305377e-016},
     bhigh={-121904.5534,-70.0061451},
     R=110.8082914014262);
-  
+
   constant IdealGases.Common.DataRecord Be4O4(
     name="Be4O4",
     MM=0.100046328,
@@ -3124,7 +3124,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.794255972e-007,-2.059359498e-011,9.552905330000001e-016},
     bhigh={-192371.0587,-113.662075},
     R=83.10621855106966);
-  
+
   constant IdealGases.Common.DataRecord Br(
     name="Br",
     MM=0.079904,
@@ -3138,7 +3138,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.489781e-010,-2.122507526e-014},
     bhigh={-92070.54960000001,166.1695929},
     R=104.0557669203044);
-  
+
   constant IdealGases.Common.DataRecord Brplus(
     name="Brplus",
     MM=0.07990345139999999,
@@ -3152,7 +3152,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.59045456e-007,-7.9537703e-011,3.735898818e-015},
     bhigh={185178.1643,-36.3790903},
     R=104.0564813449348);
-  
+
   constant IdealGases.Common.DataRecord Brminus(
     name="Brminus",
     MM=0.0799045486,
@@ -3164,7 +3164,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
     ahigh={0,0,2.5,0,0,0,0},
     bhigh={-27084.92743,5.41955617},
     R=104.055052505484);
-  
+
   constant IdealGases.Common.DataRecord BrCL(
     name="BrCL",
     MM=0.115357,
@@ -3178,7 +3178,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.761469114e-010,1.694450407e-014},
     bhigh={5938.264260000001,-19.25044389},
     R=72.07600752446753);
-  
+
   constant IdealGases.Common.DataRecord BrF(
     name="BrF",
     MM=0.09890240319999999,
@@ -3192,7 +3192,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.64827508e-014},
     bhigh={70626.0972,-113.02536},
     R=84.06744154827575);
-  
+
   constant IdealGases.Common.DataRecord BrF3(
     name="BrF3",
     MM=0.1368992096,
@@ -3206,7 +3206,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.47857686e-009,-6.28265526e-013,2.910628214e-017},
     bhigh={-33868.0037,-22.98937369},
     R=60.73425861474075);
-  
+
   constant IdealGases.Common.DataRecord BrF5(
     name="BrF5",
     MM=0.174896016,
@@ -3220,7 +3220,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.059755365e-008,-1.218527723e-012,5.65753545e-017},
     bhigh={-56672.66800000001,-55.4083931},
     R=47.53951628034798);
-  
+
   constant IdealGases.Common.DataRecord BrO(
     name="BrO",
     MM=0.0959034,
@@ -3234,7 +3234,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.51429134e-011,-1.715768736e-015},
     bhigh={-30844.99064,53.6104836},
     R=86.6963215068496);
-  
+
   constant IdealGases.Common.DataRecord OBrO(
     name="OBrO",
     MM=0.1119028,
@@ -3248,7 +3248,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.981833259999999e-009,-1.013712869e-012,4.63513314e-017},
     bhigh={16500.75386,-9.11181792},
     R=74.300839657274);
-  
+
   constant IdealGases.Common.DataRecord BrOO(
     name="BrOO",
     MM=0.1119028,
@@ -3262,7 +3262,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.22694617e-008,-4.83739261e-012,2.23974132e-016},
     bhigh={14603.5347,-9.85038024},
     R=74.300839657274);
-  
+
   constant IdealGases.Common.DataRecord BrO3(
     name="BrO3",
     MM=0.1279022,
@@ -3276,7 +3276,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.535701661e-008,-1.75445495e-012,8.10410015e-017},
     bhigh={24011.4014,-25.88197197},
     R=65.00648151478239);
-  
+
   constant IdealGases.Common.DataRecord Br2(
     name="Br2",
     MM=0.159808,
@@ -3290,7 +3290,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -6.21750676e-011,7.37534162e-015},
     bhigh={-70365.8416,78.7847802},
     R=52.02788346015218);
-  
+
   constant IdealGases.Common.DataRecord BrBrO(
     name="BrBrO",
     MM=0.1758074,
@@ -3304,7 +3304,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -4.50068795e-013,2.055867395e-017},
     bhigh={18215.66655,-3.162186125},
     R=47.29307185021791);
-  
+
   constant IdealGases.Common.DataRecord BrOBr(
     name="BrOBr",
     MM=0.1758074,
@@ -3318,7 +3318,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.576958549e-009,-2.941186078e-013,1.357198784e-017},
     bhigh={10769.42321,-5.69777938},
     R=47.29307185021791);
-  
+
   constant IdealGases.Common.DataRecord C(
     name="C",
     MM=0.0120107,
@@ -3332,7 +3332,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.902817829e-011,1.642182385e-015},
     bhigh={84105.9785,4.130047418},
     R=692.2554055966764);
-  
+
   constant IdealGases.Common.DataRecord Cplus(
     name="Cplus",
     MM=0.0120101514,
@@ -3346,7 +3346,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.751641969999999e-009,-1.736855394e-012,1.246191931e-016},
     bhigh={217100.1786,4.063913515},
     R=692.2870264566357);
-  
+
   constant IdealGases.Common.DataRecord Cminus(
     name="Cminus",
     MM=0.0120112486,
@@ -3360,7 +3360,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.478507810000001e-018,-4.830487319999999e-022},
     bhigh={70012.17170000001,4.879624211},
     R=692.22378762521);
-  
+
   constant IdealGases.Common.DataRecord CBr(
     name="CBr",
     MM=0.0919147,
@@ -3374,7 +3374,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.988355369999999e-007,-9.719134370000001e-011,4.71697624e-015},
     bhigh={78059.24059999999,-25.18386915},
     R=90.45856647522105);
-  
+
   constant IdealGases.Common.DataRecord CBr2(
     name="CBr2",
     MM=0.1718187,
@@ -3388,7 +3388,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.336438546e-006,-2.304854483e-010,1.337493953e-014},
     bhigh={33646.1814,-15.99565135},
     R=48.39096093731357);
-  
+
   constant IdealGases.Common.DataRecord CBr3(
     name="CBr3",
     MM=0.2517227,
@@ -3402,7 +3402,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.55044501e-009,-9.747493679999999e-013,4.49424559e-017},
     bhigh={25415.76129,-18.66868947},
     R=33.03028292641069);
-  
+
   constant IdealGases.Common.DataRecord CBr4(
     name="CBr4",
     MM=0.3316267000000001,
@@ -3416,7 +3416,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.77530981e-009,-7.72183754e-013,3.55921824e-017},
     bhigh={5615.89394,-32.8378763},
     R=25.0717810116013);
-  
+
   constant IdealGases.Common.DataRecord CCL(
     name="CCL",
     MM=0.0474637,
@@ -3430,7 +3430,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.218229619e-015},
     bhigh={63589.2205,-16.10664472},
     R=175.1753866639137);
-  
+
   constant IdealGases.Common.DataRecord CCL2(
     name="CCL2",
     MM=0.08291670000000001,
@@ -3444,7 +3444,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.47346892e-010,-1.553272793e-014},
     bhigh={-99612.42159999999,155.6949315},
     R=100.2749988844225);
-  
+
   constant IdealGases.Common.DataRecord CCL2Br2(
     name="CCL2Br2",
     MM=0.2427247,
@@ -3458,7 +3458,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.036912808e-008,-1.183321687e-012,5.46061269e-017},
     bhigh={-2588.63698,-34.61705319},
     R=34.25474210082452);
-  
+
   constant IdealGases.Common.DataRecord CCL3(
     name="CCL3",
     MM=0.1183697,
@@ -3472,7 +3472,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.30126304e-008,-2.6566392e-011,2.105668053e-015},
     bhigh={386.621615,-15.28745849},
     R=70.24155674974254);
-  
+
   constant IdealGases.Common.DataRecord CCL3Br(
     name="CCL3Br",
     MM=0.1982737,
@@ -3486,7 +3486,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.197658923e-008,-1.367818632e-012,6.316164790000001e-017},
     bhigh={-8895.857689999999,-36.69528209},
     R=41.93431604897675);
-  
+
   constant IdealGases.Common.DataRecord CCL4(
     name="CCL4",
     MM=0.1538227,
@@ -3500,7 +3500,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.416482497e-008,-1.61934332e-012,7.48397435e-017},
     bhigh={-15123.2007,-39.968443},
     R=54.05230827439643);
-  
+
   constant IdealGases.Common.DataRecord CF(
     name="CF",
     MM=0.0310091032,
@@ -3514,7 +3514,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.590212389999999e-012,-3.73126161e-016},
     bhigh={28159.34108,-0.664046873},
     R=268.1300373756052);
-  
+
   constant IdealGases.Common.DataRecord CFplus(
     name="CFplus",
     MM=0.0310085546,
@@ -3528,7 +3528,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -5.23679043e-012,5.31394913e-016},
     bhigh={138133.7068,-3.92051473},
     R=268.1347811032766);
-  
+
   constant IdealGases.Common.DataRecord CFBr3(
     name="CFBr3",
     MM=0.2707211032,
@@ -3542,7 +3542,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.193640054e-008,-2.515424945e-012,1.165680878e-016},
     bhigh={-17301.85479,-36.2681843},
     R=30.71231574384335);
-  
+
   constant IdealGases.Common.DataRecord CFCL(
     name="CFCL",
     MM=0.0664621032,
@@ -3556,7 +3556,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.82092446e-012,-5.05889721e-016},
     bhigh={301.7669604,-9.005085128999999},
     R=125.1009462487188);
-  
+
   constant IdealGases.Common.DataRecord CFCLBr2(
     name="CFCLBr2",
     MM=0.2262701032,
@@ -3570,7 +3570,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.670979639e-012,1.237844667e-016},
     bhigh={-23875.94306,-36.84977271},
     R=36.74578250689551);
-  
+
   constant IdealGases.Common.DataRecord CFCL2(
     name="CFCL2",
     MM=0.1019151032,
@@ -3584,7 +3584,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.948755634e-008,-3.3833062e-012,1.568746348e-016},
     bhigh={-13931.60489,-25.56817972},
     R=81.58233410884678);
-  
+
   constant IdealGases.Common.DataRecord CFCL2Br(
     name="CFCL2Br",
     MM=0.1818191032,
@@ -3598,7 +3598,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.564498787e-008,-2.941639768e-012,1.363542881e-016},
     bhigh={-30974.21144,-38.71356695},
     R=45.72936426187367);
-  
+
   constant IdealGases.Common.DataRecord CFCL3(
     name="CFCL3",
     MM=0.1373681032,
@@ -3612,7 +3612,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.761391353e-008,-3.16820764e-012,1.468834601e-016},
     bhigh={-36740.6719,-41.56886057000001},
     R=60.52694771430753);
-  
+
   constant IdealGases.Common.DataRecord CF2(
     name="CF2",
     MM=0.0500075064,
@@ -3626,7 +3626,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.142196389999999e-011,-4.17283326e-015},
     bhigh={-21529.45157,-13.56143285},
     R=166.2644790462898);
-  
+
   constant IdealGases.Common.DataRecord CF2plus(
     name="CF2plus",
     MM=0.0500069578,
@@ -3640,7 +3640,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.130804079999999e-008,-8.53318359e-012,4.25163882e-016},
     bhigh={117844.6465,-18.19424707},
     R=166.2663030463333);
-  
+
   constant IdealGases.Common.DataRecord CF2Br2(
     name="CF2Br2",
     MM=0.2098155064,
@@ -3654,7 +3654,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -4.69981043e-012,2.180811799e-016},
     bhigh={-47151.8661,-41.0536924},
     R=39.62753822469625);
-  
+
   constant IdealGases.Common.DataRecord CF2CL(
     name="CF2CL",
     MM=0.0854605064,
@@ -3668,7 +3668,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.52889718e-008,-5.20022903e-012,2.41297145e-016},
     bhigh={-33081.7948,-28.74899785},
     R=97.29022621377774);
-  
+
   constant IdealGases.Common.DataRecord CF2CLBr(
     name="CF2CLBr",
     MM=0.1653645064,
@@ -3682,7 +3682,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -4.97264437e-012,2.30757505e-016},
     bhigh={-53651.4117,-42.24913908000001},
     R=50.27966509262958);
-  
+
   constant IdealGases.Common.DataRecord CF2CL2(
     name="CF2CL2",
     MM=0.1209135064,
@@ -3696,7 +3696,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -5.276874600000001e-012,2.449037044e-016},
     bhigh={-60215.2777,-44.79580046},
     R=68.76379858255437);
-  
+
   constant IdealGases.Common.DataRecord CF3(
     name="CF3",
     MM=0.0690059096,
@@ -3710,7 +3710,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.89135143e-008,-7.91122564e-012,3.67059302e-016},
     bhigh={-54253.044,-34.1703879},
     R=120.489274733073);
-  
+
   constant IdealGases.Common.DataRecord CF3plus(
     name="CF3plus",
     MM=0.06900536099999999,
@@ -3724,7 +3724,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.232297113e-007,-1.399758046e-011,6.44301795e-016},
     bhigh={59023.458,-40.80349990000001},
     R=120.4902326356934);
-  
+
   constant IdealGases.Common.DataRecord CF3Br(
     name="CF3Br",
     MM=0.1489099096,
@@ -3738,7 +3738,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.421892200000001e-008,-7.37568877e-012,3.42315425e-016},
     bhigh={-77653.0631,-47.1736721},
     R=55.83558557206995);
-  
+
   constant IdealGases.Common.DataRecord CF3CL(
     name="CF3CL",
     MM=0.1044589096,
@@ -3752,7 +3752,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.75596604e-008,-7.75931525e-012,3.60119229e-016},
     bhigh={-84105.5937,-49.13411939},
     R=79.59562311954289);
-  
+
   constant IdealGases.Common.DataRecord CF4(
     name="CF4",
     MM=0.0880043128,
@@ -3766,7 +3766,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.06457583e-011,4.937099680000001e-016},
     bhigh={-109469.1149,-54.87105},
     R=94.47800608244737);
-  
+
   constant IdealGases.Common.DataRecord CHplus(
     name="CHplus",
     MM=0.0130180914,
@@ -3780,7 +3780,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.134243575e-010,1.105962085e-014},
     bhigh={75412.9604,124.3984829},
     R=638.6859443927395);
-  
+
   constant IdealGases.Common.DataRecord CHBr3(
     name="CHBr3",
     MM=0.25273064,
@@ -3794,7 +3794,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.31915245e-016},
     bhigh={18772.34659,-53.1190965},
     R=32.89855159627658);
-  
+
   constant IdealGases.Common.DataRecord CHCL(
     name="CHCL",
     MM=0.04847164,
@@ -3808,7 +3808,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.529236537e-011,-6.596159359999999e-016},
     bhigh={18801.2181,2.674761385},
     R=171.5327147998293);
-  
+
   constant IdealGases.Common.DataRecord CHCLBr2(
     name="CHCLBr2",
     MM=0.20827964,
@@ -3822,7 +3822,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.733482859999999e-016},
     bhigh={18224.60958,-54.07258924},
     R=39.91975403836881);
-  
+
   constant IdealGases.Common.DataRecord CHCL2(
     name="CHCL2",
     MM=0.08392464,
@@ -3836,7 +3836,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.1338604e-008,-1.885433405e-012,-1.234221421e-016},
     bhigh={30711.36475,-40.88905858},
     R=99.0706900857722);
-  
+
   constant IdealGases.Common.DataRecord CHCL2Br(
     name="CHCL2Br",
     MM=0.16382864,
@@ -3850,7 +3850,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.198476716e-011,4.96994807e-016},
     bhigh={11972.51405,-56.02687781},
     R=50.75102863577455);
-  
+
   constant IdealGases.Common.DataRecord CHCL3(
     name="CHCL3",
     MM=0.11937764,
@@ -3864,7 +3864,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.267494791e-011,5.259022309999999e-016},
     bhigh={6203.31345,-59.92576539},
     R=69.64848693607949);
-  
+
   constant IdealGases.Common.DataRecord CHF(
     name="CHF",
     MM=0.03201704320000001,
@@ -3878,7 +3878,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.34823295e-010,-1.88682505e-014},
     bhigh={67061.34940000001,-23.81240379},
     R=259.6889396707313);
-  
+
   constant IdealGases.Common.DataRecord CHFBr2(
     name="CHFBr2",
     MM=0.1918250432,
@@ -3892,7 +3892,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.360636972e-007,-1.385897355e-011,5.844209110000001e-016},
     bhigh={-2347.676027,-57.6578343},
     R=43.34403819907494);
-  
+
   constant IdealGases.Common.DataRecord CHFCL(
     name="CHFCL",
     MM=0.06747004320000001,
@@ -3906,7 +3906,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.27378068e-016},
     bhigh={10189.87746,-46.58365563},
     R=123.2320538961801);
-  
+
   constant IdealGases.Common.DataRecord CHFCLBr(
     name="CHFCLBr",
     MM=0.1473740432,
@@ -3920,7 +3920,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.407097155e-007,-1.438245319e-011,6.08386715e-016},
     bhigh={-8552.249899999999,-59.03677705},
     R=56.41747908562503);
-  
+
   constant IdealGases.Common.DataRecord CHFCL2(
     name="CHFCL2",
     MM=0.1029230432,
@@ -3934,7 +3934,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.452498792e-007,-1.490796515e-011,6.3289985e-016},
     bhigh={-14847.36185,-61.67535516},
     R=80.78338670809922);
-  
+
   constant IdealGases.Common.DataRecord CHF2(
     name="CHF2",
     MM=0.0510154464,
@@ -3948,7 +3948,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.34919239e-016},
     bhigh={-9437.06842,-47.044162},
     R=162.9795010477454);
-  
+
   constant IdealGases.Common.DataRecord CHF2Br(
     name="CHF2Br",
     MM=0.1309194464,
@@ -3962,7 +3962,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.727828054e-011,7.43562723e-016},
     bhigh={-29661.47348,-63.4938014},
     R=63.50830398867315);
-  
+
   constant IdealGases.Common.DataRecord CHF2CL(
     name="CHF2CL",
     MM=0.08646844640000001,
@@ -3976,7 +3976,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.720248689e-007,-1.797910869e-011,7.753391699999999e-016},
     bhigh={-36340.6716,-66.11261479999999},
     R=96.15613956491762);
-  
+
   constant IdealGases.Common.DataRecord CHF3(
     name="CHF3",
     MM=0.0700138496,
@@ -3990,7 +3990,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.970841706e-007,-2.062115571e-011,8.970599639999999e-016},
     bhigh={-59231.9637,-71.6127322},
     R=118.7546756463453);
-  
+
   constant IdealGases.Common.DataRecord CHI3(
     name="CHI3",
     MM=0.39373205,
@@ -4004,7 +4004,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.32972002e-016},
     bhigh={41036.098,-49.0135739},
     R=21.11708203586678);
-  
+
   constant IdealGases.Common.DataRecord CH2(
     name="CH2",
     MM=0.01402658,
@@ -4018,7 +4018,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.991728605e-007,-2.767007492e-011},
     bhigh={1.05134174e-015,0},
     R=592.7654495964092);
-  
+
   constant IdealGases.Common.DataRecord CH2Br2(
     name="CH2Br2",
     MM=0.17383458,
@@ -4032,7 +4032,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.122634493e-007,-2.07547224e-011,8.4285777e-016},
     bhigh={36007.0664,-74.48065490000001},
     R=47.82979312861688);
-  
+
   constant IdealGases.Common.DataRecord CH2CL(
     name="CH2CL",
     MM=0.04947958,
@@ -4046,7 +4046,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.052347186e-011,8.37577227e-016},
     bhigh={52129.0612,-61.48586271},
     R=168.0384514177364);
-  
+
   constant IdealGases.Common.DataRecord CH2CLBr(
     name="CH2CLBr",
     MM=0.12938358,
@@ -4060,7 +4060,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.219063248e-011,9.104705129999999e-016},
     bhigh={33202.3992,-76.37571062000001},
     R=64.26218844771493);
-  
+
   constant IdealGases.Common.DataRecord CH2CL2(
     name="CH2CL2",
     MM=0.08493258000000001,
@@ -4074,7 +4074,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.333227421e-011,9.632834730000001e-016},
     bhigh={28063.18171,-79.49453509999999},
     R=97.89496563038588);
-  
+
   constant IdealGases.Common.DataRecord CH2F(
     name="CH2F",
     MM=0.0330249832,
@@ -4088,7 +4088,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.612869080000001e-007,-9.664554980000001e-011,4.8447681e-015},
     bhigh={52283.9131,-87.0755157},
     R=251.7630955221803);
-  
+
   constant IdealGases.Common.DataRecord CH2FBr(
     name="CH2FBr",
     MM=0.1129289832,
@@ -4102,7 +4102,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.558977386e-011,1.069310946e-015},
     bhigh={15096.04224,-80.62053710000001},
     R=73.62566955265032);
-  
+
   constant IdealGases.Common.DataRecord CH2FCL(
     name="CH2FCL",
     MM=0.0684779832,
@@ -4116,7 +4116,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.675653563e-011,1.123582778e-015},
     bhigh={9813.71046,-83.13642553},
     R=121.4181786825755);
-  
+
   constant IdealGases.Common.DataRecord CH2F2(
     name="CH2F2",
     MM=0.0520233864,
@@ -4130,7 +4130,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -3.18340546e-011,1.363827177e-015},
     bhigh={-9800.13596,-89.0742036},
     R=159.8218142908129);
-  
+
   constant IdealGases.Common.DataRecord CH2I2(
     name="CH2I2",
     MM=0.26783552,
@@ -4144,7 +4144,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.282283700000001e-016},
     bhigh={50582.1903,-71.2523514},
     R=31.0432014394506);
-  
+
   constant IdealGases.Common.DataRecord CH3(
     name="CH3",
     MM=0.01503452,
@@ -4158,7 +4158,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.444477951e-007,-2.224555778e-011},
     bhigh={8.39506576e-016,0},
     R=553.0254374599256);
-  
+
   constant IdealGases.Common.DataRecord CH3Br(
     name="CH3Br",
     MM=0.09493852,
@@ -4172,7 +4172,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -3.25091203e-011,1.330179925e-015},
     bhigh={55405.7639,-97.7866446},
     R=87.57743432275962);
-  
+
   constant IdealGases.Common.DataRecord CH3CL(
     name="CH3CL",
     MM=0.05048752,
@@ -4186,7 +4186,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -3.45888722e-011,1.428941079e-015},
     bhigh={51114.1741,-100.6571389},
     R=164.6837079737725);
-  
+
   constant IdealGases.Common.DataRecord CH3F(
     name="CH3F",
     MM=0.0340329232,
@@ -4200,7 +4200,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -3.99450342e-011,1.681447081e-015},
     bhigh={35635.0851,-106.1158456},
     R=244.3067247305985);
-  
+
   constant IdealGases.Common.DataRecord CH3I(
     name="CH3I",
     MM=0.14193899,
@@ -4214,7 +4214,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.24220626e-007,-3.19294201e-011,1.305407821e-015},
     bhigh={60669.29949999999,-95.9077704},
     R=58.57778754097095);
-  
+
   constant IdealGases.Common.DataRecord CH2OH(
     name="CH2OH",
     MM=0.03103392,
@@ -4228,7 +4228,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.06918395e-008,4.40834946e-012,-5.7023095e-016},
     bhigh={46453.1343,-78.3515845},
     R=267.9156226477351);
-  
+
   constant IdealGases.Common.DataRecord CH2OHplus(
     name="CH2OHplus",
     MM=0.0310333714,
@@ -4242,7 +4242,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.22148598e-012,-5.09018379e-016},
     bhigh={146540.2426,-92.2395528},
     R=267.9203587915685);
-  
+
   constant IdealGases.Common.DataRecord CH3O(
     name="CH3O",
     MM=0.03103392,
@@ -4256,7 +4256,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.34043427e-007,-3.43067316e-011,1.473897771e-015},
     bhigh={53095.82060000001,-94.2250059},
     R=267.9156226477351);
-  
+
   constant IdealGases.Common.DataRecord CH4(
     name="CH4",
     MM=0.01604246,
@@ -4270,7 +4270,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -3.72881469e-011,1.623737207e-015},
     bhigh={75320.6691,-121.9124889},
     R=518.2791167938085);
-  
+
   constant IdealGases.Common.DataRecord CH3OH(
     name="CH3OH",
     MM=0.03204186,
@@ -4284,7 +4284,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -3.49884639e-011,1.366073444e-015},
     bhigh={56360.8156,-127.7814279},
     R=259.4878075117987);
-  
+
   constant IdealGases.Common.DataRecord CH3OOH(
     name="CH3OOH",
     MM=0.04804126,
@@ -4298,7 +4298,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.44342991e-007,-4.4166595e-011},
     bhigh={1.819673372e-015,0},
     R=173.069399095694);
-  
+
   constant IdealGases.Common.DataRecord CI(
     name="CI",
     MM=0.13891517,
@@ -4312,7 +4312,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.061239719999999e-007,-1.047700525e-010,6.74084314e-015},
     bhigh={64513.4202,1.090913159},
     R=59.85287279999731);
-  
+
   constant IdealGases.Common.DataRecord CI2(
     name="CI2",
     MM=0.26581964,
@@ -4326,7 +4326,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.45318341e-010,1.425270291e-014},
     bhigh={50211.34209999999,-15.60349377},
     R=31.27862185051489);
-  
+
   constant IdealGases.Common.DataRecord CI3(
     name="CI3",
     MM=0.39272411,
@@ -4340,7 +4340,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.41905475e-009,-6.181417e-013,2.851262022e-017},
     bhigh={45825.8953,-14.94825345},
     R=21.17127975667193);
-  
+
   constant IdealGases.Common.DataRecord CI4(
     name="CI4",
     MM=0.51962858,
@@ -4354,7 +4354,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.56755047e-009,-4.10536698e-013,1.907272766e-017},
     bhigh={28177.46618,-28.10414436},
     R=16.0007981085259);
-  
+
   constant IdealGases.Common.DataRecord CN(
     name="CN",
     MM=0.0260174,
@@ -4368,7 +4368,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.325929798e-007,-6.93700637e-011,5.49495227e-015},
     bhigh={17844.96132,32.82563919},
     R=319.5735161853222);
-  
+
   constant IdealGases.Common.DataRecord CNplus(
     name="CNplus",
     MM=0.0260168514,
@@ -4382,7 +4382,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.184848778e-010,-4.799838730000001e-015},
     bhigh={92426.44959999999,113.5340573},
     R=319.5802548189978);
-  
+
   constant IdealGases.Common.DataRecord CNminus(
     name="CNminus",
     MM=0.0260179486,
@@ -4396,7 +4396,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.856147079999999e-008,-9.722872320000001e-012,4.43420569e-016},
     bhigh={16479.76581,-11.75502699},
     R=319.5667778358206);
-  
+
   constant IdealGases.Common.DataRecord CNN(
     name="CNN",
     MM=0.0400241,
@@ -4410,7 +4410,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.45665581e-012,-2.836496278e-016},
     bhigh={77234.8898,-19.66012324},
     R=207.7366386751982);
-  
+
   constant IdealGases.Common.DataRecord CO(
     name="CO",
     MM=0.0280101,
@@ -4424,7 +4424,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.39881454e-007,-1.787680361e-011,9.62093557e-016},
     bhigh={-2466.261084,-13.87413108},
     R=296.8383547363272);
-  
+
   constant IdealGases.Common.DataRecord COplus(
     name="COplus",
     MM=0.0280095514,
@@ -4438,7 +4438,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.26756642e-011,-3.28951027e-015},
     bhigh={155505.0724,-3.87346264},
     R=296.8441686645506);
-  
+
   constant IdealGases.Common.DataRecord COCL(
     name="COCL",
     MM=0.0634631,
@@ -4452,7 +4452,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.113555710000001e-008,-3.111441728e-012,-2.040435218e-016},
     bhigh={6914.470149999999,-19.98919104},
     R=131.0126987178376);
-  
+
   constant IdealGases.Common.DataRecord COCL2(
     name="COCL2",
     MM=0.09891610000000001,
@@ -4466,7 +4466,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.78701765e-008,-8.79245203e-012,4.02869661e-016},
     bhigh={-22198.4734,-32.3330345},
     R=84.05580082514373);
-  
+
   constant IdealGases.Common.DataRecord COFCL(
     name="COFCL",
     MM=0.08246150319999999,
@@ -4480,7 +4480,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.464190710000001e-008,-1.069291346e-011,4.901756640000001e-016},
     bhigh={-45996.6723,-35.25879824},
     R=100.8285281901095);
-  
+
   constant IdealGases.Common.DataRecord COF2(
     name="COF2",
     MM=0.06600690640000001,
@@ -4494,7 +4494,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.175232744e-007,-1.326564192e-011,6.07677213e-016},
     bhigh={-69077.9541,-40.09695},
     R=125.9636673413314);
-  
+
   constant IdealGases.Common.DataRecord COHCL(
     name="COHCL",
     MM=0.06447104000000001,
@@ -4508,7 +4508,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.855335611e-007,-1.958378539e-011,8.512046829999999e-016},
     bhigh={4330.49644,-51.45071542},
     R=128.9644466724905);
-  
+
   constant IdealGases.Common.DataRecord COHF(
     name="COHF",
     MM=0.0480164432,
@@ -4522,7 +4522,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.136698091e-011,9.299588910000002e-016},
     bhigh={-18789.33107,-55.2744914},
     R=173.1588482172291);
-  
+
   constant IdealGases.Common.DataRecord COS(
     name="COS",
     MM=0.0600751,
@@ -4536,7 +4536,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.159609663e-011,5.691053860000001e-016},
     bhigh={-8927.09669,-26.36328016},
     R=138.4013010382005);
-  
+
   constant IdealGases.Common.DataRecord CO2(
     name="CO2",
     MM=0.0440095,
@@ -4550,7 +4550,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.891053312e-012,6.330036589999999e-016},
     bhigh={-39083.5059,-26.52669281},
     R=188.9244822140674);
-  
+
   constant IdealGases.Common.DataRecord CO2plus(
     name="CO2plus",
     MM=0.0440089514,
@@ -4564,7 +4564,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.566759314e-008,-2.404195965e-012,1.6774468e-016},
     bhigh={115438.9478,-21.33567772},
     R=188.9268372797449);
-  
+
   constant IdealGases.Common.DataRecord COOH(
     name="COOH",
     MM=0.04501744,
@@ -4578,7 +4578,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.332996131e-007,-1.28271055e-011,5.1379979e-016},
     bhigh={-851.8232680000001,-50.6806551},
     R=184.694465078423);
-  
+
   constant IdealGases.Common.DataRecord CP(
     name="CP",
     MM=0.042984461,
@@ -4592,7 +4592,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.37936404e-010,-1.554457397e-014},
     bhigh={-45545.17739999999,145.1324059},
     R=193.429714054109);
-  
+
   constant IdealGases.Common.DataRecord CS(
     name="CS",
     MM=0.0440757,
@@ -4606,7 +4606,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.50475708e-011,-5.94545773e-016},
     bhigh={16810.20727,18.7404822},
     R=188.6407249346012);
-  
+
   constant IdealGases.Common.DataRecord CS2(
     name="CS2",
     MM=0.07614069999999999,
@@ -4620,7 +4620,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.374091042e-010,-6.99957557e-015},
     bhigh={-10138.98046,15.65113703},
     R=109.1987859318341);
-  
+
   constant IdealGases.Common.DataRecord C2(
     name="C2",
     MM=0.0240214,
@@ -4634,7 +4634,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.67065725e-011,-4.07690681e-015},
     bhigh={76817.96829999999,33.3998524},
     R=346.1277027983382);
-  
+
   constant IdealGases.Common.DataRecord C2plus(
     name="C2plus",
     MM=0.0240208514,
@@ -4648,7 +4648,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.8829425e-010,-2.190639912e-014},
     bhigh={285744.7553,0.729738349},
     R=346.1356078327848);
-  
+
   constant IdealGases.Common.DataRecord C2minus(
     name="C2minus",
     MM=0.0240219486,
@@ -4662,7 +4662,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.7102136e-011,-3.33726687e-015},
     bhigh={132535.6168,-69.75964399999999},
     R=346.1197981249531);
-  
+
   constant IdealGases.Common.DataRecord C2CL(
     name="C2CL",
     MM=0.0594744,
@@ -4676,7 +4676,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.007541495e-011,4.570764750000001e-016},
     bhigh={71710.9328,-24.13014598},
     R=139.7991740984356);
-  
+
   constant IdealGases.Common.DataRecord C2CL2(
     name="C2CL2",
     MM=0.09492680000000001,
@@ -4690,7 +4690,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.072661556e-007,-1.183411171e-011},
     bhigh={5.32649834e-016,0},
     R=87.58824694396103);
-  
+
   constant IdealGases.Common.DataRecord C2CL3(
     name="C2CL3",
     MM=0.1303804,
@@ -4704,7 +4704,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.77752895e-008,-7.72730182e-012,3.56669022e-016},
     bhigh={24310.20015,-43.42161815},
     R=63.77087353620636);
-  
+
   constant IdealGases.Common.DataRecord C2CL4(
     name="C2CL4",
     MM=0.1658322,
@@ -4718,7 +4718,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.22090703e-008,-8.24533269e-012},
     bhigh={3.81011278e-016,0},
     R=50.13786224870682);
-  
+
   constant IdealGases.Common.DataRecord C2CL6(
     name="C2CL6",
     MM=0.2367376,
@@ -4732,7 +4732,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.25754658e-008,-3.72709921e-012},
     bhigh={1.723801704e-016,0},
     R=35.12104541061496);
-  
+
   constant IdealGases.Common.DataRecord C2F(
     name="C2F",
     MM=0.0430198032,
@@ -4746,7 +4746,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.212216787e-011,5.48228768e-016},
     bhigh={52412.8792,-27.7308958},
     R=193.2708051067979);
-  
+
   constant IdealGases.Common.DataRecord C2FCL(
     name="C2FCL",
     MM=0.0784728032,
@@ -4760,7 +4760,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.99255661e-016},
     bhigh={15020.61224,-42.52445687},
     R=105.9535490125068);
-  
+
   constant IdealGases.Common.DataRecord C2FCL3(
     name="C2FCL3",
     MM=0.1493788032,
@@ -4774,7 +4774,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.357199850000001e-008,-1.067932796e-011,4.93326161e-016},
     bhigh={-17384.33314,-61.97054796},
     R=55.66032008482446);
-  
+
   constant IdealGases.Common.DataRecord C2F2(
     name="C2F2",
     MM=0.0620182064,
@@ -4788,7 +4788,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.385254301e-007,-1.520813764e-011,6.81982103e-016},
     bhigh={-4179.221939999999,-46.7038623},
     R=134.0650186878026);
-  
+
   constant IdealGases.Common.DataRecord C2F2CL2(
     name="C2F2CL2",
     MM=0.1329242064,
@@ -4802,7 +4802,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.28592434e-012,-3.89858107e-016},
     bhigh={-52088.8871,-49.98300753},
     R=62.55047312435939);
-  
+
   constant IdealGases.Common.DataRecord C2F3(
     name="C2F3",
     MM=0.0810166096,
@@ -4816,7 +4816,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.331427672e-007,-1.515124358e-011,6.98411206e-016},
     bhigh={-19771.46179,-54.21039870000001},
     R=102.6267581555277);
-  
+
   constant IdealGases.Common.DataRecord C2F3CL(
     name="C2F3CL",
     MM=0.1164696096,
@@ -4830,7 +4830,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.37416661e-007,-1.565004037e-011,7.218309900000001e-016},
     bhigh={-55151.095,-69.21931823999999},
     R=71.38748063597872);
-  
+
   constant IdealGases.Common.DataRecord C2F4(
     name="C2F4",
     MM=0.1000150128,
@@ -4844,7 +4844,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.61446034e-007,-1.835820392e-011,8.45764107e-016},
     bhigh={-70063.7166,-74.54165860000001},
     R=83.13223952314488);
-  
+
   constant IdealGases.Common.DataRecord C2F6(
     name="C2F6",
     MM=0.1380118192,
@@ -4858,7 +4858,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.8660453e-008,-3.46711861e-012,2.488311205e-016},
     bhigh={-165743.4402,-93.02161150000001},
     R=60.24463736653651);
-  
+
   constant IdealGases.Common.DataRecord C2H(
     name="C2H",
     MM=0.02502934,
@@ -4872,7 +4872,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.719262793e-015},
     bhigh={143326.6627,-95.6163438},
     R=332.1890229626511);
-  
+
   constant IdealGases.Common.DataRecord C2HCL(
     name="C2HCL",
     MM=0.06048204,
@@ -4886,7 +4886,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.151382756e-007,-1.046641954e-011},
     bhigh={3.94986052e-016,0},
     R=137.4700985614903);
-  
+
   constant IdealGases.Common.DataRecord C2HCL3(
     name="C2HCL3",
     MM=0.13138744,
@@ -4900,7 +4900,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.551211545e-007,-1.584630634e-011},
     bhigh={6.70093249e-016,0},
     R=63.28209149976589);
-  
+
   constant IdealGases.Common.DataRecord C2HF(
     name="C2HF",
     MM=0.0440277432,
@@ -4914,7 +4914,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.184559365e-011,4.53678476e-016},
     bhigh={32368.1171,-56.4079182},
     R=188.8462000477917);
-  
+
   constant IdealGases.Common.DataRecord C2HFCL2(
     name="C2HFCL2",
     MM=0.1149337432,
@@ -4928,7 +4928,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.92000972e-016},
     bhigh={-2676.849943,-75.67353566999999},
     R=72.34143575687527);
-  
+
   constant IdealGases.Common.DataRecord C2HF2CL(
     name="C2HF2CL",
     MM=0.09847914640000001,
@@ -4942,7 +4942,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.45998516e-016},
     bhigh={-22058.75409,-75.90948533},
     R=84.42875780247421);
-  
+
   constant IdealGases.Common.DataRecord C2HF3(
     name="C2HF3",
     MM=0.0820245496,
@@ -4956,7 +4956,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.195126633e-011,9.472702399999999e-016},
     bhigh={-32476.4021,-87.5045695},
     R=101.3656526070093);
-  
+
   constant IdealGases.Common.DataRecord C2H2_vinylidene(
     name="C2H2_vinylidene",
     MM=0.02603728,
@@ -4970,7 +4970,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.470804368e-007,-1.220040365e-011,4.12239166e-016},
     bhigh={91071.1293,-63.3750293},
     R=319.3295152181795);
-  
+
   constant IdealGases.Common.DataRecord C2H2CL2(
     name="C2H2CL2",
     MM=0.09694328000000001,
@@ -4984,7 +4984,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.411885716e-007,-2.38416674e-011,9.78541575e-016},
     bhigh={41222.009,-95.50252712000001},
     R=85.76635739991467);
-  
+
   constant IdealGases.Common.DataRecord C2H2FCL(
     name="C2H2FCL",
     MM=0.08048868319999999,
@@ -4998,7 +4998,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.780587502e-007,-1.633098515e-011,6.213465560000001e-016},
     bhigh={17052.66451,-91.94078300999999},
     R=103.2998884991077);
-  
+
   constant IdealGases.Common.DataRecord C2H2F2(
     name="C2H2F2",
     MM=0.06403408640000001,
@@ -5012,7 +5012,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.546725128e-007,-3.157578705e-011,1.55154096e-015},
     bhigh={-31100.28589,-84.00834700000002},
     R=129.8444698353657);
-  
+
   constant IdealGases.Common.DataRecord CH2CO_ketene(
     name="CH2CO_ketene",
     MM=0.04203668,
@@ -5026,7 +5026,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.695886969e-007,-2.66567484e-011},
     bhigh={1.094204522e-015,0},
     R=197.7908816776206);
-  
+
   constant IdealGases.Common.DataRecord O_CH_2O(
     name="O_CH_2O",
     MM=0.05803608,
@@ -5040,7 +5040,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.272621878e-007,-1.237226678e-011},
     bhigh={5.02505752e-016,0},
     R=143.2638455250596);
-  
+
   constant IdealGases.Common.DataRecord HO_CO_2OH(
     name="HO_CO_2OH",
     MM=0.09003488,
@@ -5054,7 +5054,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.526840574e-007,-2.521005198e-011},
     bhigh={1.040036111e-015,0},
     R=92.34723253921148);
-  
+
   constant IdealGases.Common.DataRecord C2H3_vinyl(
     name="C2H3_vinyl",
     MM=0.02704522,
@@ -5068,7 +5068,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.680594939e-007,-2.439003999e-011,9.20909639e-016},
     bhigh={97650.55589999999,-97.6008686},
     R=307.4285215649937);
-  
+
   constant IdealGases.Common.DataRecord CH2BrminusCOOH(
     name="CH2BrminusCOOH",
     MM=0.13894802,
@@ -5082,7 +5082,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.26539274e-007,-3.122663159e-011},
     bhigh={1.223452495e-015,0},
     R=59.83872242296076);
-  
+
   constant IdealGases.Common.DataRecord C2H3CL(
     name="C2H3CL",
     MM=0.06249792,
@@ -5096,7 +5096,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.29636995e-007,-3.21439569e-011},
     bhigh={1.302254061e-015,0},
     R=133.0359794373957);
-  
+
   constant IdealGases.Common.DataRecord CH2CLminusCOOH(
     name="CH2CLminusCOOH",
     MM=0.09449671999999999,
@@ -5110,7 +5110,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.36177605e-007,-3.23127225e-011},
     bhigh={1.273275883e-015,0},
     R=87.98688462414359);
-  
+
   constant IdealGases.Common.DataRecord C2H3F(
     name="C2H3F",
     MM=0.0460436232,
@@ -5124,7 +5124,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.345081799e-015},
     bhigh={45634.5555,-118.0410277},
     R=180.5781435549581);
-  
+
   constant IdealGases.Common.DataRecord CH3CN(
     name="CH3CN",
     MM=0.04105192000000001,
@@ -5138,7 +5138,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.622157170000001e-007,-4.74060124e-011,2.010639467e-015},
     bhigh={80585.65550000001,-129.2249102},
     R=202.5355208721054);
-  
+
   constant IdealGases.Common.DataRecord CH3CO_acetyl(
     name="CH3CO_acetyl",
     MM=0.04304462,
@@ -5152,7 +5152,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.044663903e-015},
     bhigh={63800.8841,-121.5350925},
     R=193.1593774088376);
-  
+
   constant IdealGases.Common.DataRecord C2H4(
     name="C2H4",
     MM=0.02805316,
@@ -5166,7 +5166,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -4.35268339e-011,1.775410633e-015},
     bhigh={88204.2938,-137.1278108},
     R=296.3827247982046);
-  
+
   constant IdealGases.Common.DataRecord C2H4O_ethylen_o(
     name="C2H4O_ethylen_o",
     MM=0.04405256,
@@ -5180,7 +5180,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.853891929999999e-007,-4.85214476e-011,2.011778721e-015},
     bhigh={76625.61440000001,-156.3952401},
     R=188.7398144398419);
-  
+
   constant IdealGases.Common.DataRecord CH3CHO_ethanal(
     name="CH3CHO_ethanal",
     MM=0.04405256,
@@ -5194,7 +5194,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -5.73267488e-011,2.443965239e-015},
     bhigh={65077.5564,-153.6236027},
     R=188.7398144398419);
-  
+
   constant IdealGases.Common.DataRecord CH3COOH(
     name="CH3COOH",
     MM=0.06005196,
@@ -5208,7 +5208,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.606041158e-010,7.652794250000001e-015},
     bhigh={29242.28407,-193.527885},
     R=138.4546316223484);
-  
+
   constant IdealGases.Common.DataRecord OHCH2COOH(
     name="OHCH2COOH",
     MM=0.07605136,
@@ -5222,7 +5222,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.416275950000001e-008,1.069321262e-012,-3.23717828e-016},
     bhigh={-16946.5047,-147.4109363},
     R=109.3270652885103);
-  
+
   constant IdealGases.Common.DataRecord C2H5(
     name="C2H5",
     MM=0.0290611,
@@ -5236,7 +5236,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.685160040000001e-007,-5.6828636e-011,2.355648561e-015},
     bhigh={113701.0087,-163.9357995},
     R=286.1031413126138);
-  
+
   constant IdealGases.Common.DataRecord C2H5Br(
     name="C2H5Br",
     MM=0.1089651,
@@ -5250,7 +5250,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -5.34819809e-011,2.63983585e-015},
     bhigh={64140.6205,-152.8277085},
     R=76.30399091085127);
-  
+
   constant IdealGases.Common.DataRecord C2H6(
     name="C2H6",
     MM=0.03006904,
@@ -5264,7 +5264,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.065468699e-015},
     bhigh={111596.395,-203.9410584},
     R=276.5127187299628);
-  
+
   constant IdealGases.Common.DataRecord CH3N2CH3(
     name="CH3N2CH3",
     MM=0.05808244,
@@ -5278,7 +5278,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.023361980000001e-007,-8.212260020000001e-011,3.47723744e-015},
     bhigh={144996.261,-237.2109745},
     R=143.1494957856454);
-  
+
   constant IdealGases.Common.DataRecord C2H5OH(
     name="C2H5OH",
     MM=0.04606844,
@@ -5292,7 +5292,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.2262264e-015},
     bhigh={86016.22709999999,-203.4801732},
     R=180.4808671619877);
-  
+
   constant IdealGases.Common.DataRecord CH3OCH3(
     name="CH3OCH3",
     MM=0.04606844,
@@ -5306,7 +5306,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.90322031e-007,-8.13143563e-011,3.45816611e-015},
     bhigh={101330.1012,-218.5447466},
     R=180.4808671619877);
-  
+
   constant IdealGases.Common.DataRecord CH3O2CH3(
     name="CH3O2CH3",
     MM=0.06206784,
@@ -5320,7 +5320,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.792987200000001e-007,-9.068221189999999e-011,3.865664890000001e-015},
     bhigh={116159.6028,-239.5296055},
     R=133.9578113238676);
-  
+
   constant IdealGases.Common.DataRecord CCN(
     name="CCN",
     MM=0.0380281,
@@ -5334,7 +5334,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.753683113e-008,2.545998719e-012,-2.645649117e-016},
     bhigh={102318.7495,-22.5979394},
     R=218.6402160507625);
-  
+
   constant IdealGases.Common.DataRecord CNC(
     name="CNC",
     MM=0.0380281,
@@ -5348,7 +5348,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.39750877e-008,-6.18398486e-012,2.865172411e-016},
     bhigh={84518.33600000001,-21.02937255},
     R=218.6402160507625);
-  
+
   constant IdealGases.Common.DataRecord OCCN(
     name="OCCN",
     MM=0.05402754,
@@ -5362,7 +5362,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.81987344e-007,-3.945161e-011,1.509598839e-015},
     bhigh={49512.2278,-54.1708968},
     R=153.8932181624409);
-  
+
   constant IdealGases.Common.DataRecord C2N2(
     name="C2N2",
     MM=0.0520348,
@@ -5376,7 +5376,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.059156733e-007,-2.200469389e-011,9.97448577e-016},
     bhigh={58636.323,-54.73201251},
     R=159.7867580926611);
-  
+
   constant IdealGases.Common.DataRecord C2O(
     name="C2O",
     MM=0.0400208,
@@ -5390,7 +5390,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.98917994e-011,-1.546043135e-015},
     bhigh={24898.03938,0.980904059},
     R=207.7537680406189);
-  
+
   constant IdealGases.Common.DataRecord C3(
     name="C3",
     MM=0.0360321,
@@ -5404,7 +5404,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.146069341e-006,-2.103867761e-010,6.351589060000001e-015},
     bhigh={191197.6065,-127.1869723},
     R=230.7518018655588);
-  
+
   constant IdealGases.Common.DataRecord C3H3_1_propynl(
     name="C3H3_1_propynl",
     MM=0.03905592,
@@ -5418,7 +5418,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.250211369e-010,6.02658205e-015},
     bhigh={153408.7662,-156.5931809},
     R=212.8863434787863);
-  
+
   constant IdealGases.Common.DataRecord C3H3_2_propynl(
     name="C3H3_2_propynl",
     MM=0.03905592,
@@ -5432,7 +5432,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -4.43898059e-011,1.970824701e-015},
     bhigh={106187.8289,-118.6744583},
     R=212.8863434787863);
-  
+
   constant IdealGases.Common.DataRecord C3H4_allene(
     name="C3H4_allene",
     MM=0.04006386,
@@ -5446,7 +5446,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.908219044e-015},
     bhigh={107231.2354,-154.8846158},
     R=207.5304775925235);
-  
+
   constant IdealGases.Common.DataRecord C3H4_propyne(
     name="C3H4_propyne",
     MM=0.04006386,
@@ -5460,7 +5460,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.858300350000001e-007,-4.79412848e-011,1.964338121e-015},
     bhigh={110489.8462,-156.7992462},
     R=207.5304775925235);
-  
+
   constant IdealGases.Common.DataRecord C3H4_cyclo(
     name="C3H4_cyclo",
     MM=0.04006386,
@@ -5474,7 +5474,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.775948955e-015},
     bhigh={113368.3702,-152.2619086},
     R=207.5304775925235);
-  
+
   constant IdealGases.Common.DataRecord C3H5_allyl(
     name="C3H5_allyl",
     MM=0.04107180000000001,
@@ -5488,7 +5488,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -5.05828422e-011,2.039932554e-015},
     bhigh={118572.0481,-182.3070197},
     R=202.437487521852);
-  
+
   constant IdealGases.Common.DataRecord C3H6_propylene(
     name="C3H6_propylene",
     MM=0.04207974,
@@ -5502,7 +5502,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.052176369e-015},
     bhigh={126124.5355,-219.5715757},
     R=197.588483198803);
-  
+
   constant IdealGases.Common.DataRecord C3H6_cyclo(
     name="C3H6_cyclo",
     MM=0.04207974,
@@ -5516,7 +5516,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.568705857e-015},
     bhigh={126827.4126,-222.3729099},
     R=197.588483198803);
-  
+
   constant IdealGases.Common.DataRecord C3H6O_propylox(
     name="C3H6O_propylox",
     MM=0.05807914,
@@ -5530,7 +5530,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.32553151e-007,-7.35708597e-011,3.0606185e-015},
     bhigh={112034.454,-237.2004192},
     R=143.1576294001599);
-  
+
   constant IdealGases.Common.DataRecord C3H6O_acetone(
     name="C3H6O_acetone",
     MM=0.05807914,
@@ -5544,7 +5544,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.42878096e-015},
     bhigh={101514.5028,-236.8533477},
     R=143.1576294001599);
-  
+
   constant IdealGases.Common.DataRecord C3H6O_propanal(
     name="C3H6O_propanal",
     MM=0.05807914,
@@ -5558,7 +5558,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.88169216e-007,-8.107684080000001e-011,3.43710543e-015},
     bhigh={99449.37879999999,-231.6690627},
     R=143.1576294001599);
-  
+
   constant IdealGases.Common.DataRecord C3H7_n_propyl(
     name="C3H7_n_propyl",
     MM=0.04308768,
@@ -5572,7 +5572,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.56255777e-007,-7.47826302e-011,3.068983677e-015},
     bhigh={148300.6853,-240.378119},
     R=192.9663421191394);
-  
+
   constant IdealGases.Common.DataRecord C3H7_i_propyl(
     name="C3H7_i_propyl",
     MM=0.04308768,
@@ -5586,7 +5586,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.499427170000001e-007,-8.573514339999999e-011,3.58338396e-015},
     bhigh={154650.405,-248.7098372},
     R=192.9663421191394);
-  
+
   constant IdealGases.Common.DataRecord C3H8(
     name="C3H8",
     MM=0.04409562,
@@ -5600,7 +5600,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.471216939999999e-007,-9.57540523e-011,4.00967288e-015},
     bhigh={145558.2459,-281.8374734},
     R=188.5555073270316);
-  
+
   constant IdealGases.Common.DataRecord C3H8O_1propanol(
     name="C3H8O_1propanol",
     MM=0.06009502,
@@ -5614,7 +5614,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.59346536e-007,-8.68209182e-011,3.64222401e-015},
     bhigh={125500.3155,-285.9463804},
     R=138.3554244594644);
-  
+
   constant IdealGases.Common.DataRecord C3H8O_2propanol(
     name="C3H8O_2propanol",
     MM=0.06009502,
@@ -5628,7 +5628,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.69367877e-007,-7.45058484e-011,2.998959935e-015},
     bhigh={114851.8732,-279.6132222},
     R=138.3554244594644);
-  
+
   constant IdealGases.Common.DataRecord CNCOCN(
     name="CNCOCN",
     MM=0.08004498,
@@ -5642,7 +5642,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.75360075e-007,-3.056290852e-011,1.382140838e-015},
     bhigh={55393.3888,-86.2755086},
     R=103.8724976881748);
-  
+
   constant IdealGases.Common.DataRecord C3O2(
     name="C3O2",
     MM=0.06803090000000001,
@@ -5656,7 +5656,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.478106444e-007,-2.745165984e-011,1.239566766e-015},
     bhigh={12525.80069,-72.75968780000001},
     R=122.2161106203211);
-  
+
   constant IdealGases.Common.DataRecord C4(
     name="C4",
     MM=0.0480428,
@@ -5670,7 +5670,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.589873632e-010,-1.385553481e-014},
     bhigh={133438.9611,-7.26114882},
     R=173.0638513991691);
-  
+
   constant IdealGases.Common.DataRecord C4H2_butadiyne(
     name="C4H2_butadiyne",
     MM=0.05005868,
@@ -5684,7 +5684,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.327503159e-007,-2.124517624e-011,8.053313019999999e-016},
     bhigh={105778.8416,-108.8313574},
     R=166.0945114813255);
-  
+
   constant IdealGases.Common.DataRecord C4H4_1_3minuscyclo(
     name="C4H4_1_3minuscyclo",
     MM=0.05207456,
@@ -5698,7 +5698,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -4.77532971e-011,1.974923662e-015},
     bhigh={127466.692,-172.7532057},
     R=159.6647576090898);
-  
+
   constant IdealGases.Common.DataRecord C4H6_butadiene(
     name="C4H6_butadiene",
     MM=0.05409044,
@@ -5712,7 +5712,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.29259621e-011,4.23676604e-015},
     bhigh={-367135.862,301.3437302},
     R=153.7142607824969);
-  
+
   constant IdealGases.Common.DataRecord C4H6_1butyne(
     name="C4H6_1butyne",
     MM=0.05409044,
@@ -5726,7 +5726,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.20180251e-011,-2.854392633e-015},
     bhigh={163433.5546,-246.0284791},
     R=153.7142607824969);
-  
+
   constant IdealGases.Common.DataRecord C4H6_2butyne(
     name="C4H6_2butyne",
     MM=0.05409044,
@@ -5740,7 +5740,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.442072006e-015},
     bhigh={126146.0214,-215.5866205},
     R=153.7142607824969);
-  
+
   constant IdealGases.Common.DataRecord C4H6_cyclo(
     name="C4H6_cyclo",
     MM=0.05409044,
@@ -5754,7 +5754,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.44848499e-007,-7.52975417e-011,3.153253502e-015},
     bhigh={140646.9848,-243.4836999},
     R=153.7142607824969);
-  
+
   constant IdealGases.Common.DataRecord C4H8_1_butene(
     name="C4H8_1_butene",
     MM=0.05610631999999999,
@@ -5768,7 +5768,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.12883844e-007,-5.991020839999999e-011,2.051753504e-015},
     bhigh={156925.2657,-291.3869761},
     R=148.1913623991023);
-  
+
   constant IdealGases.Common.DataRecord C4H8_cis2_buten(
     name="C4H8_cis2_buten",
     MM=0.05610631999999999,
@@ -5782,7 +5782,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.412626100000001e-007,-7.63389037e-011,2.861702826e-015},
     bhigh={163085.6187,-300.3105998},
     R=148.1913623991023);
-  
+
   constant IdealGases.Common.DataRecord C4H8_isobutene(
     name="C4H8_isobutene",
     MM=0.05610631999999999,
@@ -5796,7 +5796,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.782303056e-015},
     bhigh={159594.1773,-298.2986237},
     R=148.1913623991023);
-  
+
   constant IdealGases.Common.DataRecord C4H8_cyclo(
     name="C4H8_cyclo",
     MM=0.05610631999999999,
@@ -5810,7 +5810,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.317165260000001e-007,-5.08107938e-011,2.048919092e-015},
     bhigh={135548.7603,-277.1801965},
     R=148.1913623991023);
-  
+
   constant IdealGases.Common.DataRecord C4H9_n_butyl(
     name="C4H9_n_butyl",
     MM=0.05711426,
@@ -5824,7 +5824,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.917758369999999e-007,-9.464455870000001e-011,3.72948704e-015},
     bhigh={183456.6472,-321.420917},
     R=145.5761135660341);
-  
+
   constant IdealGases.Common.DataRecord C4H9_i_butyl(
     name="C4H9_i_butyl",
     MM=0.05711426,
@@ -5838,7 +5838,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.099140009e-015},
     bhigh={174344.848,-314.9940745},
     R=145.5761135660341);
-  
+
   constant IdealGases.Common.DataRecord C4H9_s_butyl(
     name="C4H9_s_butyl",
     MM=0.05711426,
@@ -5852,7 +5852,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.443810960000001e-015},
     bhigh={188349.4279,-325.571988},
     R=145.5761135660341);
-  
+
   constant IdealGases.Common.DataRecord C4H9_t_butyl(
     name="C4H9_t_butyl",
     MM=0.05711426,
@@ -5866,7 +5866,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.241097612e-006,-1.2872483e-010,5.51261874e-015},
     bhigh={193450.6997,-339.9325290000001},
     R=145.5761135660341);
-  
+
   constant IdealGases.Common.DataRecord C4H10_n_butane(
     name="C4H10_n_butane",
     MM=0.0581222,
@@ -5880,7 +5880,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.250635250000001e-015},
     bhigh={177452.656,-358.791876},
     R=143.0515706563069);
-  
+
   constant IdealGases.Common.DataRecord C4H10_isobutane(
     name="C4H10_isobutane",
     MM=0.0581222,
@@ -5894,7 +5894,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.84604291e-015},
     bhigh={172850.0802,-357.617689},
     R=143.0515706563069);
-  
+
   constant IdealGases.Common.DataRecord C4N2(
     name="C4N2",
     MM=0.0760562,
@@ -5908,7 +5908,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.16236168e-007,-3.4699228e-011,1.555154128e-015},
     bhigh={96674.09389999999,-96.69734738000001},
     R=109.3201080253812);
-  
+
   constant IdealGases.Common.DataRecord C5(
     name="C5",
     MM=0.0600535,
@@ -5922,7 +5922,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.776898025e-007,-2.009853583e-011,9.222677770000001e-016},
     bhigh={139520.8064,-64.33077179999999},
     R=138.4510811193353);
-  
+
   constant IdealGases.Common.DataRecord C5H6_1_3cyclo(
     name="C5H6_1_3cyclo",
     MM=0.06610114,
@@ -5936,7 +5936,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.31184701e-007,-7.32724119e-011,3.044403403e-015},
     bhigh={138254.2782,-260.5959678},
     R=125.78409389006);
-  
+
   constant IdealGases.Common.DataRecord C5H8_cyclo(
     name="C5H8_cyclo",
     MM=0.06811702,
@@ -5950,7 +5950,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.44786539e-015},
     bhigh={141398.3093,-298.9533527},
     R=122.0615934167408);
-  
+
   constant IdealGases.Common.DataRecord C5H10_1_pentene(
     name="C5H10_1_pentene",
     MM=0.07013290000000001,
@@ -5964,7 +5964,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.367074243e-011,-9.31319423e-016},
     bhigh={115409.1373,-278.6177449000001},
     R=118.5530899192818);
-  
+
   constant IdealGases.Common.DataRecord C5H10_cyclo(
     name="C5H10_cyclo",
     MM=0.07013290000000001,
@@ -5978,7 +5978,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.86735764e-015},
     bhigh={195492.5511,-402.65509},
     R=118.5530899192818);
-  
+
   constant IdealGases.Common.DataRecord C5H11_pentyl(
     name="C5H11_pentyl",
     MM=0.07114084,
@@ -5992,7 +5992,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.41996763e-007,-1.509664551e-011,-6.62696443e-016},
     bhigh={171700.955,-352.247712},
     R=116.873402113329);
-  
+
   constant IdealGases.Common.DataRecord C5H11_t_pentyl(
     name="C5H11_t_pentyl",
     MM=0.07114084,
@@ -6006,7 +6006,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.451612787e-006,-1.495593207e-010,6.368022329999999e-015},
     bhigh={228185.8805,-416.940855},
     R=116.873402113329);
-  
+
   constant IdealGases.Common.DataRecord C5H12_n_pentane(
     name="C5H12_n_pentane",
     MM=0.07214878,
@@ -6020,7 +6020,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -5.31872894e-010,2.886896868e-014},
     bhigh={14846.16529,-251.6550384},
     R=115.2406457877736);
-  
+
   constant IdealGases.Common.DataRecord C5H12_i_pentane(
     name="C5H12_i_pentane",
     MM=0.07214878,
@@ -6034,7 +6034,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.444393314e-006,-1.464370213e-010,6.230285000000001e-015},
     bhigh={254492.7135,-480.198578},
     R=115.2406457877736);
-  
+
   constant IdealGases.Common.DataRecord CH3C_CH3_2CH3(
     name="CH3C_CH3_2CH3",
     MM=0.07214878,
@@ -6048,7 +6048,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.653363091e-006,-1.674727926e-010,7.37211936e-015},
     bhigh={345849.682,-576.046697},
     R=115.2406457877736);
-  
+
   constant IdealGases.Common.DataRecord C6D5_phenyl(
     name="C6D5_phenyl",
     MM=0.08213471,
@@ -6062,7 +6062,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.70533097e-015},
     bhigh={108807.3731,-229.3621057},
     R=101.2296993560944);
-  
+
   constant IdealGases.Common.DataRecord C6D6(
     name="C6D6",
     MM=0.084148812,
@@ -6076,7 +6076,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.4454344e-007,-9.36055698e-011,4.22847553e-015},
     bhigh={89620.45359999999,-261.5332268},
     R=98.80676627971884);
-  
+
   constant IdealGases.Common.DataRecord C6H2(
     name="C6H2",
     MM=0.07408007999999999,
@@ -6090,7 +6090,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -3.33739289e-011,1.356853889e-015},
     bhigh={141851.7294,-149.4853494},
     R=112.2362718830757);
-  
+
   constant IdealGases.Common.DataRecord C6H5_phenyl(
     name="C6H5_phenyl",
     MM=0.07710389999999999,
@@ -6104,7 +6104,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.748094212e-015},
     bhigh={147674.4628,-247.5301142},
     R=107.8346490903833);
-  
+
   constant IdealGases.Common.DataRecord C6H5O_phenoxy(
     name="C6H5O_phenoxy",
     MM=0.0931033,
@@ -6118,7 +6118,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.045637067e-015},
     bhigh={116359.5961,-268.1058539},
     R=89.30373037260763);
-  
+
   constant IdealGases.Common.DataRecord C6H6(
     name="C6H6",
     MM=0.07811184,
@@ -6132,7 +6132,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.90799433e-007,-7.9683021e-011,3.32821208e-015},
     bhigh={139146.4686,-286.8751333},
     R=106.4431717393932);
-  
+
   constant IdealGases.Common.DataRecord C6H5OH_phenol(
     name="C6H5OH_phenol",
     MM=0.09411124,
@@ -6146,7 +6146,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.32717573e-007,-6.039905720000001e-011,2.399168678e-015},
     bhigh={111372.6204,-286.0454446},
     R=88.34727924103434);
-  
+
   constant IdealGases.Common.DataRecord C6H10_cyclo(
     name="C6H10_cyclo",
     MM=0.08214360000000001,
@@ -6160,7 +6160,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.3581664e-006,-1.400074492e-010,5.964551700000001e-015},
     bhigh={206027.4332,-423.819766},
     R=101.218743760926);
-  
+
   constant IdealGases.Common.DataRecord C6H12_1_hexene(
     name="C6H12_1_hexene",
     MM=0.08415948000000001,
@@ -6174,7 +6174,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.28035582e-011,-1.472353254e-015},
     bhigh={66977.4041,-262.3643854},
     R=98.79424159940152);
-  
+
   constant IdealGases.Common.DataRecord C6H12_cyclo(
     name="C6H12_cyclo",
     MM=0.08415948000000001,
@@ -6188,7 +6188,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.318443254e-006,-1.390794789e-010,6.06010224e-015},
     bhigh={173253.7609,-454.681417},
     R=98.79424159940152);
-  
+
   constant IdealGases.Common.DataRecord C6H13_n_hexyl(
     name="C6H13_n_hexyl",
     MM=0.08516742000000001,
@@ -6202,7 +6202,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.496523820000001e-007,-2.292851471e-011,-5.08634189e-016},
     bhigh={190697.8683,-418.5362},
     R=97.62503079229123);
-  
+
   constant IdealGases.Common.DataRecord C6H14_n_hexane(
     name="C6H14_n_hexane",
     MM=0.08617535999999999,
@@ -6216,7 +6216,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.068996667e-006,-4.21214168e-010,2.452345845e-014},
     bhigh={523.750312,-254.9967718},
     R=96.48317105956971);
-  
+
   constant IdealGases.Common.DataRecord C7H7_benzyl(
     name="C7H7_benzyl",
     MM=0.09113048,
@@ -6230,7 +6230,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.06447042e-015},
     bhigh={173838.2912,-334.382955},
     R=91.23700434805129);
-  
+
   constant IdealGases.Common.DataRecord C7H8(
     name="C7H8",
     MM=0.09213842,
@@ -6244,7 +6244,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.080748416e-006,-1.098702235e-010,4.62474022e-015},
     bhigh={178204.7857,-369.808225},
     R=90.23892530390688);
-  
+
   constant IdealGases.Common.DataRecord C7H8O_cresol_mx(
     name="C7H8O_cresol_mx",
     MM=0.10813782,
@@ -6258,7 +6258,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.13427995e-007,-8.979444109999999e-011,3.66775697e-015},
     bhigh={147221.84,-367.485014},
     R=76.88773455947235);
-  
+
   constant IdealGases.Common.DataRecord C7H14_1_heptene(
     name="C7H14_1_heptene",
     MM=0.09818605999999999,
@@ -6272,7 +6272,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.81399526e-011,-1.473979569e-015},
     bhigh={26009.14656,-256.2880707},
     R=84.68077851377274);
-  
+
   constant IdealGases.Common.DataRecord C7H15_n_heptyl(
     name="C7H15_n_heptyl",
     MM=0.099194,
@@ -6286,7 +6286,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.343496957e-007,2.467674021e-011,-3.162012849e-015},
     bhigh={193907.9354,-464.142466},
     R=83.82031171240196);
-  
+
   constant IdealGases.Common.DataRecord C7H16_n_heptane(
     name="C7H16_n_heptane",
     MM=0.10020194,
@@ -6300,7 +6300,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.071774142e-006,-3.4425393e-010,1.976834775e-014},
     bhigh={205070.8295,-485.110402},
     R=82.97715593131233);
-  
+
   constant IdealGases.Common.DataRecord C7H16_2_methylh(
     name="C7H16_2_methylh",
     MM=0.10020194,
@@ -6314,7 +6314,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.432255843e-009,-1.135553789e-013},
     bhigh={-16375.29884,-29.8186241},
     R=82.97715593131233);
-  
+
   constant IdealGases.Common.DataRecord C8H8_styrene(
     name="C8H8_styrene",
     MM=0.10414912,
@@ -6328,7 +6328,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.338825116e-009,-6.03253492e-014},
     bhigh={-89973.2415,43.1128279},
     R=79.83237880454487);
-  
+
   constant IdealGases.Common.DataRecord C8H10_ethylbenz(
     name="C8H10_ethylbenz",
     MM=0.106165,
@@ -6342,7 +6342,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.166031743e-010,-1.142545514e-014},
     bhigh={164224.1062,-369.176982},
     R=78.31650732350586);
-  
+
   constant IdealGases.Common.DataRecord C8H16_1_octene(
     name="C8H16_1_octene",
     MM=0.11221264,
@@ -6356,7 +6356,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         0.007912339629999999,-7.88866951e-007,9.97021235e-012,1.913144872e-015},
     bhigh={-11226.19342,-257.7650649},
     R=74.09568119955115);
-  
+
   constant IdealGases.Common.DataRecord C8H17_n_octyl(
     name="C8H17_n_octyl",
     MM=0.11322058,
@@ -6370,7 +6370,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.544260445e-007,2.908638837e-011,-3.67954974e-015},
     bhigh={210313.547,-526.242283},
     R=73.43604846398067);
-  
+
   constant IdealGases.Common.DataRecord C8H18_n_octane(
     name="C8H18_n_octane",
     MM=0.11422852,
@@ -6384,7 +6384,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.543226319999999e-010,-2.651436499e-014},
     bhigh={150096.8785,-416.989565},
     R=72.78805678301707);
-  
+
   constant IdealGases.Common.DataRecord C8H18_isooctane(
     name="C8H18_isooctane",
     MM=0.11422852,
@@ -6398,7 +6398,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.24823297e-010,-3.81919011e-014},
     bhigh={254117.8017,-493.388719},
     R=72.78805678301707);
-  
+
   constant IdealGases.Common.DataRecord C9H19_n_nonyl(
     name="C9H19_n_nonyl",
     MM=0.12724716,
@@ -6412,7 +6412,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.97810699e-009,6.80525024e-011,-5.90709533e-015},
     bhigh={216532.0614,-575.44495},
     R=65.34112038335474);
-  
+
   constant IdealGases.Common.DataRecord C10H8_naphthale(
     name="C10H8_naphthale",
     MM=0.12817052,
@@ -6426,7 +6426,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.89284402e-015},
     bhigh={196256.7046,-434.7848950000001},
     R=64.87039297336079);
-  
+
   constant IdealGases.Common.DataRecord C10H21_n_decyl(
     name="C10H21_n_decyl",
     MM=0.14127374,
@@ -6440,7 +6440,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.056127364e-010,-8.0680659e-015},
     bhigh={223542.989,-625.5191159999999},
     R=58.85362700810497);
-  
+
   constant IdealGases.Common.DataRecord C12H9_o_bipheny(
     name="C12H9_o_bipheny",
     MM=0.15319986,
@@ -6454,7 +6454,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.43647043e-015},
     bhigh={255552.4521,-504.246297},
     R=54.27206003974155);
-  
+
   constant IdealGases.Common.DataRecord C12H10_biphenyl(
     name="C12H10_biphenyl",
     MM=0.1542078,
@@ -6468,7 +6468,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.531868544e-006,-1.576450171e-010,6.70060273e-015},
     bhigh={243805.0641,-538.138149},
     R=53.91732454519163);
-  
+
   constant IdealGases.Common.DataRecord Ca(
     name="Ca",
     MM=0.040078,
@@ -6481,7 +6481,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.293249636e-006,-1.209075383e-010,-4.015333268e-015},
     bhigh={158586.2323,-160.9512955},
     R=207.4572583462249);
-  
+
   constant IdealGases.Common.DataRecord Caplus(
     name="Caplus",
     MM=0.0400774514,
@@ -6494,7 +6494,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.988243468e-010,1.356563002e-014},
     bhigh={166432.9088,-95.8282126},
     R=207.4600981239042);
-  
+
   constant IdealGases.Common.DataRecord CaBr(
     name="CaBr",
     MM=0.119982,
@@ -6508,7 +6508,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.522218659e-006,-1.831824807e-010,7.86428866e-015},
     bhigh={49312.7068,-65.37001100000001},
     R=69.29766131586405);
-  
+
   constant IdealGases.Common.DataRecord CaBr2(
     name="CaBr2",
     MM=0.199886,
@@ -6522,7 +6522,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.87942806e-010,-4.68342426e-014,2.259325541e-018},
     bhigh={-48854.3682,-5.59032425},
     R=41.59606975976306);
-  
+
   constant IdealGases.Common.DataRecord CaCL(
     name="CaCL",
     MM=0.075531,
@@ -6536,7 +6536,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.813177639999999e-017},
     bhigh={16625.99241,-33.98731174},
     R=110.0802584369332);
-  
+
   constant IdealGases.Common.DataRecord CaCLplus(
     name="CaCLplus",
     MM=0.0755304514,
@@ -6550,7 +6550,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.137973112e-014,-5.57288731e-016},
     bhigh={58534.17249999999,-2.191253644},
     R=110.0810579823968);
-  
+
   constant IdealGases.Common.DataRecord CaCL2(
     name="CaCL2",
     MM=0.110984,
@@ -6564,7 +6564,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.322886480000001e-010,-8.776403220000001e-014,4.21048604e-018},
     bhigh={-60667.7966,-8.553523451},
     R=74.91595184891516);
-  
+
   constant IdealGases.Common.DataRecord CaF(
     name="CaF",
     MM=0.0590764032,
@@ -6578,7 +6578,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.74991596e-011,-3.47097645e-015},
     bhigh={-24888.14584,-8.6146637},
     R=140.7409989374573);
-  
+
   constant IdealGases.Common.DataRecord CaFplus(
     name="CaFplus",
     MM=0.0590758546,
@@ -6592,7 +6592,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.98575631e-012,-6.05962188e-016},
     bhigh={28416.05897,2.740342729},
     R=140.7423059098666);
-  
+
   constant IdealGases.Common.DataRecord CaF2(
     name="CaF2",
     MM=0.0780748064,
@@ -6606,7 +6606,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.118160895e-009,-2.440713888e-013,1.135135468e-017},
     bhigh={-97294.66770000001,-7.54624334},
     R=106.4936614431362);
-  
+
   constant IdealGases.Common.DataRecord CaH(
     name="CaH",
     MM=0.04108594,
@@ -6620,7 +6620,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.42307242e-010,-1.892679792e-014},
     bhigh={-27738.19107,78.45822010000001},
     R=202.367817311713);
-  
+
   constant IdealGases.Common.DataRecord CaI(
     name="CaI",
     MM=0.16698247,
@@ -6634,7 +6634,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.38076235e-015},
     bhigh={35832.932,-44.0591757},
     R=49.79248420507854);
-  
+
   constant IdealGases.Common.DataRecord CaI2(
     name="CaI2",
     MM=0.29388694,
@@ -6648,7 +6648,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.544559095e-010,-3.083631004e-014,1.491836724e-018},
     bhigh={-33463.4117,-3.56730574},
     R=28.29139668472509);
-  
+
   constant IdealGases.Common.DataRecord CaO(
     name="CaO",
     MM=0.0560774,
@@ -6662,7 +6662,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.07498072e-009,-1.485914237e-013},
     bhigh={-946151.172,1235.694769},
     R=148.2677870229362);
-  
+
   constant IdealGases.Common.DataRecord CaOplus(
     name="CaOplus",
     MM=0.0560768514,
@@ -6676,7 +6676,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.25713841e-015},
     bhigh={102809.8401,-24.61547836},
     R=148.2692375271269);
-  
+
   constant IdealGases.Common.DataRecord CaOH(
     name="CaOH",
     MM=0.05708534000000001,
@@ -6690,7 +6690,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.789056647e-011,-3.58071641e-016},
     bhigh={13401.96822,-46.46084260000001},
     R=145.6498638704788);
-  
+
   constant IdealGases.Common.DataRecord CaOHplus(
     name="CaOHplus",
     MM=0.0570847914,
@@ -6704,7 +6704,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.019540904e-011,-5.69892528e-016},
     bhigh={58305.80119999999,-21.52181937},
     R=145.6512636043372);
-  
+
   constant IdealGases.Common.DataRecord Ca_OH_2(
     name="Ca_OH_2",
     MM=0.07409268000000001,
@@ -6718,7 +6718,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.033402404e-011,-1.137157819e-015},
     bhigh={-44437.6135,-52.8744486},
     R=112.2171852873995);
-  
+
   constant IdealGases.Common.DataRecord CaS(
     name="CaS",
     MM=0.072143,
@@ -6732,7 +6732,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.464389344e-009,-7.37607897e-014},
     bhigh={-317202.267,479.9606012},
     R=115.2498787131115);
-  
+
   constant IdealGases.Common.DataRecord Ca2(
     name="Ca2",
     MM=0.08015600000000001,
@@ -6746,7 +6746,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.01530269e-012,-3.70566032e-016},
     bhigh={40818.754,18.95399607},
     R=103.7286291731124);
-  
+
   constant IdealGases.Common.DataRecord Cd(
     name="Cd",
     MM=0.112411,
@@ -6760,7 +6760,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.074836707e-011,8.790199554999999e-017},
     bhigh={7675.14826,12.20006052},
     R=73.96493225751928);
-  
+
   constant IdealGases.Common.DataRecord Cdplus(
     name="Cdplus",
     MM=0.1124104514,
@@ -6774,7 +6774,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.072802814e-012,1.420665367e-016},
     bhigh={118107.0109,6.21641448},
     R=73.96529323073246);
-  
+
   constant IdealGases.Common.DataRecord CL(
     name="CL",
     MM=0.03545300000000001,
@@ -6788,7 +6788,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.842504775e-012,-1.252911731e-016},
     bhigh={9934.3874,8.844772103},
     R=234.5209714269596);
-  
+
   constant IdealGases.Common.DataRecord CLplus(
     name="CLplus",
     MM=0.0354524514,
@@ -6802,7 +6802,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.708780842e-015},
     bhigh={165298.2337,2.574942598},
     R=234.5246004624662);
-  
+
   constant IdealGases.Common.DataRecord CLminus(
     name="CLminus",
     MM=0.0354535486,
@@ -6814,7 +6814,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
     ahigh={0,0,2.5,0,0,0,0},
     bhigh={-28883.89093,4.200642023},
     R=234.5173425037629);
-  
+
   constant IdealGases.Common.DataRecord CLCN(
     name="CLCN",
     MM=0.06147039999999999,
@@ -6828,7 +6828,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.024761895e-007,-1.110675026e-011,4.98617942e-016},
     bhigh={25819.23944,-26.36885363},
     R=135.2597673026367);
-  
+
   constant IdealGases.Common.DataRecord CLF(
     name="CLF",
     MM=0.0544514032,
@@ -6842,7 +6842,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.336213612e-006,-3.36586546e-010,1.763082415e-014},
     bhigh={54471.20800000001,-87.07987094000001},
     R=152.6952752615198);
-  
+
   constant IdealGases.Common.DataRecord CLF3(
     name="CLF3",
     MM=0.0924482096,
@@ -6856,7 +6856,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -9.23084995e-013,4.27256949e-017},
     bhigh={-22828.40447,-25.11605479},
     R=89.93653891161999);
-  
+
   constant IdealGases.Common.DataRecord CLF5(
     name="CLF5",
     MM=0.130445016,
@@ -6870,7 +6870,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.376637959e-008,-1.581335709e-012,7.33642249e-017},
     bhigh={-33614.666,-57.57531175},
     R=63.73928460402045);
-  
+
   constant IdealGases.Common.DataRecord CLO(
     name="CLO",
     MM=0.0514524,
@@ -6884,7 +6884,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.07644104e-015},
     bhigh={21518.91784,-16.68645548},
     R=161.5954163459819);
-  
+
   constant IdealGases.Common.DataRecord CLO2(
     name="CLO2",
     MM=0.06745180000000001,
@@ -6898,7 +6898,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.920383252e-011,-2.024030202e-015},
     bhigh={11849.46452,-10.91168827},
     R=123.2653835776065);
-  
+
   constant IdealGases.Common.DataRecord CL2(
     name="CL2",
     MM=0.07090600000000001,
@@ -6912,7 +6912,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.32736029e-014},
     bhigh={121211.7724,-169.0778824},
     R=117.2604857134798);
-  
+
   constant IdealGases.Common.DataRecord CL2O(
     name="CL2O",
     MM=0.08690539999999999,
@@ -6926,7 +6926,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.366209050000001e-009,-4.978580680000001e-013,2.295679186e-017},
     bhigh={7387.2893,-8.797477254},
     R=95.67267396502405);
-  
+
   constant IdealGases.Common.DataRecord Co(
     name="Co",
     MM=0.0589332,
@@ -6940,7 +6940,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.57494657e-012,-1.102384178e-015},
     bhigh={74944.42909999999,-22.58500836},
     R=141.0829888755405);
-  
+
   constant IdealGases.Common.DataRecord Coplus(
     name="Coplus",
     MM=0.05893265139999999,
@@ -6954,7 +6954,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.74800468e-007,-2.534065135e-011,2.976607469e-016},
     bhigh={197741.9221,-60.9653344},
     R=141.0843022073838);
-  
+
   constant IdealGases.Common.DataRecord Cominus(
     name="Cominus",
     MM=0.0589337486,
@@ -6968,7 +6968,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.99570154e-012,-3.49044e-016},
     bhigh={30834.93114,16.34360353},
     R=141.0816755681481);
-  
+
   constant IdealGases.Common.DataRecord Cr(
     name="Cr",
     MM=0.0519961,
@@ -6982,7 +6982,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.17360171e-010,-3.505127367e-014},
     bhigh={-168899.344,286.4481267},
     R=159.9056852340849);
-  
+
   constant IdealGases.Common.DataRecord Crplus(
     name="Crplus",
     MM=0.0519955514,
@@ -6996,7 +6996,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.36810811e-010,8.952805604e-015},
     bhigh={193299.767,-86.0435667},
     R=159.9073723833997);
-  
+
   constant IdealGases.Common.DataRecord Crminus(
     name="Crminus",
     MM=0.0519966486,
@@ -7008,7 +7008,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
     ahigh={0,0,2.5,0,0,0,0},
     bhigh={38586.2787,6.56683537},
     R=159.9039981203712);
-  
+
   constant IdealGases.Common.DataRecord CrN(
     name="CrN",
     MM=0.0660028,
@@ -7022,7 +7022,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.404331106e-015},
     bhigh={82548.04580000001,-27.99968411},
     R=125.9715042392141);
-  
+
   constant IdealGases.Common.DataRecord CrO(
     name="CrO",
     MM=0.0679955,
@@ -7036,7 +7036,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.928051680000001e-007,-6.390831950000001e-011,1.659741645e-015},
     bhigh={44470.9821,-29.42600453},
     R=122.2797391003817);
-  
+
   constant IdealGases.Common.DataRecord CrO2(
     name="CrO2",
     MM=0.0839949,
@@ -7050,7 +7050,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.908946349e-015},
     bhigh={-17433.39545,-10.0642472},
     R=98.9878194985648);
-  
+
   constant IdealGases.Common.DataRecord CrO3(
     name="CrO3",
     MM=0.09999429999999999,
@@ -7064,7 +7064,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.36678579e-011,-1.614026492e-015},
     bhigh={-47238.802,-19.45305345},
     R=83.1494595191926);
-  
+
   constant IdealGases.Common.DataRecord CrO3minus(
     name="CrO3minus",
     MM=0.09999484859999999,
@@ -7078,7 +7078,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.659097549e-015},
     bhigh={-83500.1973,-24.648109},
     R=83.14900333775795);
-  
+
   constant IdealGases.Common.DataRecord Cs(
     name="Cs",
     MM=0.13290545,
@@ -7092,7 +7092,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.30901739e-006,-3.35401202e-010,9.626500908000001e-015},
     bhigh={128511.1231,-152.2942188},
     R=62.559300615588);
-  
+
   constant IdealGases.Common.DataRecord Csplus(
     name="Csplus",
     MM=0.1329049014,
@@ -7104,7 +7104,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
     ahigh={0,0,2.5,0,0,0,0},
     bhigh={54387.3782,6.182757992},
     R=62.55955884558522);
-  
+
   constant IdealGases.Common.DataRecord Csminus(
     name="Csminus",
     MM=0.1329059986,
@@ -7116,7 +7116,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
     ahigh={0,0,2.5,0,0,0,0},
     bhigh={2237.029001,6.182770382},
     R=62.5590423877226);
-  
+
   constant IdealGases.Common.DataRecord CsBO2(
     name="CsBO2",
     MM=0.17571525,
@@ -7130,7 +7130,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.621091809999999e-008,-1.081470115e-011,4.93844674e-016},
     bhigh={-76104.79670000001,-30.36616012},
     R=47.31787366207544);
-  
+
   constant IdealGases.Common.DataRecord CsBr(
     name="CsBr",
     MM=0.21280945,
@@ -7144,7 +7144,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.698111786e-010,-1.98353448e-014},
     bhigh={-33278.4203,24.84116659},
     R=39.07003189942927);
-  
+
   constant IdealGases.Common.DataRecord CsCL(
     name="CsCL",
     MM=0.16835845,
@@ -7158,7 +7158,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.53423339e-010,-3.4012315e-014},
     bhigh={-104865.8658,111.4096064},
     R=49.38553425741328);
-  
+
   constant IdealGases.Common.DataRecord CsF(
     name="CsF",
     MM=0.1519038532,
@@ -7172,7 +7172,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.941483152e-010,-1.071166179e-014},
     bhigh={-80798.2779,51.3555945},
     R=54.73509608115722);
-  
+
   constant IdealGases.Common.DataRecord CsH(
     name="CsH",
     MM=0.13391339,
@@ -7186,7 +7186,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.154598897e-010,-1.254525606e-014},
     bhigh={-9158.717270000001,39.0880003},
     R=62.08842894650043);
-  
+
   constant IdealGases.Common.DataRecord CsI(
     name="CsI",
     MM=0.25980992,
@@ -7200,7 +7200,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.348201245e-006,-2.874285248e-010,1.20808775e-014},
     bhigh={65734.3913,-102.1032592},
     R=32.0021344835486);
-  
+
   constant IdealGases.Common.DataRecord CsLi(
     name="CsLi",
     MM=0.13984645,
@@ -7214,7 +7214,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.72018628e-014},
     bhigh={194513.7819,-285.7846194},
     R=59.45429433496524);
-  
+
   constant IdealGases.Common.DataRecord CsNO2(
     name="CsNO2",
     MM=0.17891095,
@@ -7228,7 +7228,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.54125577e-008,-6.35559195e-012,2.946880031e-016},
     bhigh={-24030.40739,-24.43488888},
     R=46.4726837569193);
-  
+
   constant IdealGases.Common.DataRecord CsNO3(
     name="CsNO3",
     MM=0.19491035,
@@ -7242,7 +7242,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.013466457e-011,4.69175873e-016},
     bhigh={-35490.2667,-45.00692791},
     R=42.65792965843015);
-  
+
   constant IdealGases.Common.DataRecord CsNa(
     name="CsNa",
     MM=0.15589522,
@@ -7256,7 +7256,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.861975840000001e-006,-1.171011257e-009,6.323927369999999e-014},
     bhigh={119577.6556,-200.1754433},
     R=53.33371991777555);
-  
+
   constant IdealGases.Common.DataRecord CsO(
     name="CsO",
     MM=0.14890485,
@@ -7270,7 +7270,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.312755917e-006,-2.150508925e-010,1.21913898e-014},
     bhigh={18094.93447,-24.6085858},
     R=55.83748279522124);
-  
+
   constant IdealGases.Common.DataRecord CsOH(
     name="CsOH",
     MM=0.14991279,
@@ -7284,7 +7284,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.045968201e-011,-5.82251417e-016},
     bhigh={-17362.58234,-18.64239624},
     R=55.46205897442107);
-  
+
   constant IdealGases.Common.DataRecord CsRb(
     name="CsRb",
     MM=0.21837325,
@@ -7298,7 +7298,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.667747207e-014},
     bhigh={-212400.8997,223.9970251},
     R=38.07459017988696);
-  
+
   constant IdealGases.Common.DataRecord Cs2(
     name="Cs2",
     MM=0.2658109,
@@ -7312,7 +7312,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.171850729999999e-010,-3.0892859e-014},
     bhigh={-471504.572,586.093375},
     R=31.279650307794);
-  
+
   constant IdealGases.Common.DataRecord Cs2Br2(
     name="Cs2Br2",
     MM=0.4256189,
@@ -7326,7 +7326,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.923604258e-011,-2.34469814e-015,1.139365834e-019},
     bhigh={-71058.8354,-7.25179304},
     R=19.53501594971464);
-  
+
   constant IdealGases.Common.DataRecord Cs2CO3(
     name="Cs2CO3",
     MM=0.3258198,
@@ -7340,7 +7340,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.798325240000001e-008,-1.121256063e-011,5.189734780000001e-016},
     bhigh={-94204.1477,-56.8200626},
     R=25.51862102917011);
-  
+
   constant IdealGases.Common.DataRecord Cs2CL2(
     name="Cs2CL2",
     MM=0.3367169,
@@ -7354,7 +7354,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.14496808e-011,-9.897475279999999e-015,4.79833081e-019},
     bhigh={-80565.13219999999,-10.81977337},
     R=24.69276712870664);
-  
+
   constant IdealGases.Common.DataRecord Cs2F2(
     name="Cs2F2",
     MM=0.3038077064,
@@ -7368,7 +7368,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.79146974e-010,-4.57868743e-014,2.209385787e-018},
     bhigh={-110345.6448,-14.15086452},
     R=27.36754804057861);
-  
+
   constant IdealGases.Common.DataRecord Cs2I2(
     name="Cs2I2",
     MM=0.5196198399999999,
@@ -7382,7 +7382,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.844660910000001e-012,-1.081178562e-015,5.26614198e-020},
     bhigh={-57605.01040000001,-5.14486489},
     R=16.0010672417743);
-  
+
   constant IdealGases.Common.DataRecord Cs2O(
     name="Cs2O",
     MM=0.2818103,
@@ -7396,7 +7396,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -9.499419930000001e-014,4.48912254e-018},
     bhigh={-19343.7785,-1.20397045},
     R=29.503790315684);
-  
+
   constant IdealGases.Common.DataRecord Cs2Oplus(
     name="Cs2Oplus",
     MM=0.2818097514,
@@ -7410,7 +7410,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -4.88237627e-014,2.295419936e-018},
     bhigh={31962.2731,-0.0543435069},
     R=29.50384775081279);
-  
+
   constant IdealGases.Common.DataRecord Cs2O2(
     name="Cs2O2",
     MM=0.2978097,
@@ -7424,7 +7424,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.11075296e-009,-7.003595480000001e-013,3.24374252e-017},
     bhigh={-32556.1074,-17.24868948},
     R=27.91874139761062);
-  
+
   constant IdealGases.Common.DataRecord Cs2O2H2(
     name="Cs2O2H2",
     MM=0.29982558,
@@ -7438,7 +7438,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.066555839e-011,-1.152390667e-015},
     bhigh={-51908.1369,-58.4971916},
     R=27.73102948721054);
-  
+
   constant IdealGases.Common.DataRecord Cs2SO4(
     name="Cs2SO4",
     MM=0.3618735,
@@ -7452,7 +7452,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.240792279999999e-008,-7.16346407e-012,3.32266719e-016},
     bhigh={-136417.9983,-68.20406795},
     R=22.97618366639171);
-  
+
   constant IdealGases.Common.DataRecord Cu(
     name="Cu",
     MM=0.06354600000000001,
@@ -7466,7 +7466,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.304265084e-014},
     bhigh={92075.3562,-78.5470156},
     R=130.8417839045731);
-  
+
   constant IdealGases.Common.DataRecord Cuplus(
     name="Cuplus",
     MM=0.06354545139999999,
@@ -7480,7 +7480,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.56643144e-010,-2.081198501e-014},
     bhigh={85164.56659999999,71.16800670000001},
     R=130.842913486645);
-  
+
   constant IdealGases.Common.DataRecord Cuminus(
     name="Cuminus",
     MM=0.0635465486,
@@ -7492,7 +7492,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
     ahigh={0,0,2.5,0,0,0,0},
     bhigh={24838.64954,5.07596603},
     R=130.8406543420047);
-  
+
   constant IdealGases.Common.DataRecord CuCL(
     name="CuCL",
     MM=0.09899899999999999,
@@ -7506,7 +7506,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.006622062e-018},
     bhigh={9566.192870000001,2.680067564},
     R=83.98541399408076);
-  
+
   constant IdealGases.Common.DataRecord CuF(
     name="CuF",
     MM=0.08254440320000001,
@@ -7520,7 +7520,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.06603408e-011,-4.15320511e-015},
     bhigh={6305.506600000001,-7.40777361},
     R=100.7272652981032);
-  
+
   constant IdealGases.Common.DataRecord CuF2(
     name="CuF2",
     MM=0.1015428064,
@@ -7534,7 +7534,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.82324873e-015},
     bhigh={-59533.717,15.22659664},
     R=81.88144778318831);
-  
+
   constant IdealGases.Common.DataRecord CuO(
     name="CuO",
     MM=0.0795454,
@@ -7548,7 +7548,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.23680312e-011,-4.026745619999999e-015},
     bhigh={41507.9286,-2.63407096},
     R=104.5248625313343);
-  
+
   constant IdealGases.Common.DataRecord Cu2(
     name="Cu2",
     MM=0.127092,
@@ -7562,7 +7562,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.21910819e-011,-1.958830868e-015},
     bhigh={55060.9019,6.91450217},
     R=65.42089195228652);
-  
+
   constant IdealGases.Common.DataRecord Cu3CL3(
     name="Cu3CL3",
     MM=0.296997,
@@ -7576,7 +7576,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.302748507e-009,-1.560175322e-013,7.48082757e-018},
     bhigh={-36087.6074,-40.13211395},
     R=27.99513799802692);
-  
+
   constant IdealGases.Common.DataRecord D(
     name="D",
     MM=0.002014102,
@@ -7589,7 +7589,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.71517217e-011,-5.66068021e-015,3.393920393e-019},
     bhigh={25922.43752,0.590212537},
     R=4128.128565484767);
-  
+
   constant IdealGases.Common.DataRecord Dplus(
     name="Dplus",
     MM=0.0020135534,
@@ -7601,7 +7601,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
     ahigh={0,0,2.5,0,0,0,0},
     bhigh={184512.0037,-0.1018414521},
     R=4129.253289234842);
-  
+
   constant IdealGases.Common.DataRecord Dminus(
     name="Dminus",
     MM=0.0020146506,
@@ -7613,7 +7613,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
     ahigh={0,0,2.5,0,0,0,0},
     bhigh={16423.73393,-0.1010243437},
     R=4127.004454271128);
-  
+
   constant IdealGases.Common.DataRecord DBr(
     name="DBr",
     MM=0.08191810200000001,
@@ -7627,7 +7627,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.011011776e-015},
     bhigh={10378.1314,-19.73703653},
     R=101.4973711182908);
-  
+
   constant IdealGases.Common.DataRecord DCL(
     name="DCL",
     MM=0.037467102,
@@ -7641,7 +7641,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.88268803e-008,3.76025313e-013,-5.16460056e-016},
     bhigh={-1541.258092,-12.75659404},
     R=221.9139339893436);
-  
+
   constant IdealGases.Common.DataRecord DF(
     name="DF",
     MM=0.0210125052,
@@ -7655,7 +7655,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.714418979e-008,2.697462563e-012,-2.88829741e-016},
     bhigh={-18574.47029,-14.73004444},
     R=395.6916093945809);
-  
+
   constant IdealGases.Common.DataRecord DOCL(
     name="DOCL",
     MM=0.053466502,
@@ -7669,7 +7669,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.086845232e-007,-1.13738129e-011,4.90429552e-016},
     bhigh={4845.79518,-25.88861801},
     R=155.5080599811822);
-  
+
   constant IdealGases.Common.DataRecord DO2(
     name="DO2",
     MM=0.034012902,
@@ -7683,7 +7683,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.7292892e-011,-2.765192818e-015},
     bhigh={-19594.11733,17.89922833},
     R=244.4505323303493);
-  
+
   constant IdealGases.Common.DataRecord DO2minus(
     name="DO2minus",
     MM=0.0340134506,
@@ -7697,7 +7697,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.272331622e-007,-1.364440687e-011,6.00519944e-016},
     bhigh={2512.066767,-28.90020381},
     R=244.4465896088767);
-  
+
   constant IdealGases.Common.DataRecord D2(
     name="D2",
     MM=0.004028204,
@@ -7711,7 +7711,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.456447415e-011,-1.960597698e-015},
     bhigh={14342.14587,-17.12600356},
     R=2064.064282742384);
-  
+
   constant IdealGases.Common.DataRecord D2plus(
     name="D2plus",
     MM=0.004027655400000001,
@@ -7725,7 +7725,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.857684975e-014},
     bhigh={205829.889,-52.8391224},
     R=2064.345425380731);
-  
+
   constant IdealGases.Common.DataRecord D2minus(
     name="D2minus",
     MM=0.004028752599999999,
@@ -7739,7 +7739,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.01897543e-008,-2.311492448e-012,1.070266527e-016},
     bhigh={28512.00896,-9.15752792},
     R=2063.783216671086);
-  
+
   constant IdealGases.Common.DataRecord D2O(
     name="D2O",
     MM=0.020027604,
@@ -7753,7 +7753,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.036545675e-007,-2.050566442e-011,8.510770689999999e-016},
     bhigh={2983.24898,-44.6501157},
     R=415.1506091292798);
-  
+
   constant IdealGases.Common.DataRecord D2O2(
     name="D2O2",
     MM=0.036027004,
@@ -7767,7 +7767,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.961433535e-011,1.310306129e-015},
     bhigh={12195.80532,-56.905382},
     R=230.7844415816536);
-  
+
   constant IdealGases.Common.DataRecord D2S(
     name="D2S",
     MM=0.036093204,
@@ -7781,7 +7781,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.797991376e-011,8.16093957e-016},
     bhigh={12046.03509,-31.91047376},
     R=230.3611505368158);
-  
+
   constant IdealGases.Common.DataRecord eminus(
     name="eminus",
     MM=5.48579903e-007,
@@ -7793,7 +7793,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
     ahigh={0,0,2.5,0,0,0,0},
     bhigh={-745.375,-11.72081224},
     R=15156355.44527048);
-  
+
   constant IdealGases.Common.DataRecord F(
     name="F",
     MM=0.0189984032,
@@ -7807,7 +7807,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.10952873e-013,-2.333894647e-017},
     bhigh={8388.37465,5.47871064},
     R=437.6405697085111);
-  
+
   constant IdealGases.Common.DataRecord Fplus(
     name="Fplus",
     MM=0.0189978546,
@@ -7821,7 +7821,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.027225149999999e-012,-5.47066494e-016},
     bhigh={211074.5327,6.62581709},
     R=437.653207431117);
-  
+
   constant IdealGases.Common.DataRecord Fminus(
     name="Fminus",
     MM=0.0189989518,
@@ -7833,7 +7833,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
     ahigh={0,0,2.5,0,0,0,0},
     bhigh={-31425.72443,3.26488271},
     R=437.6279327157407);
-  
+
   constant IdealGases.Common.DataRecord FCN(
     name="FCN",
     MM=0.0450158032,
@@ -7847,7 +7847,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.191059272e-007,-1.280287231e-011,5.73380719e-016},
     bhigh={15884.49451,-29.84971982},
     R=184.7011806733685);
-  
+
   constant IdealGases.Common.DataRecord FCO(
     name="FCO",
     MM=0.0470085032,
@@ -7861,7 +7861,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.484612871e-012,-9.9979168e-017},
     bhigh={-18050.98416,-16.30331278},
     R=176.8716601042511);
-  
+
   constant IdealGases.Common.DataRecord FO(
     name="FO",
     MM=0.0349978032,
@@ -7875,7 +7875,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.24647968e-011,-2.726912632e-015},
     bhigh={-16442.48211,35.5992361},
     R=237.5712541866057);
-  
+
   constant IdealGases.Common.DataRecord FO2_FOO(
     name="FO2_FOO",
     MM=0.0509972032,
@@ -7889,7 +7889,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.085643277e-011,1.216995394e-015},
     bhigh={-15968.00286,8.65519318},
     R=163.0378036103753);
-  
+
   constant IdealGases.Common.DataRecord FO2_OFO(
     name="FO2_OFO",
     MM=0.0509972032,
@@ -7903,7 +7903,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.66731224e-012,-2.059767432e-016},
     bhigh={36383.5727,-6.15026433},
     R=163.0378036103753);
-  
+
   constant IdealGases.Common.DataRecord F2(
     name="F2",
     MM=0.0379968064,
@@ -7917,7 +7917,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.915845236e-010,-1.425033974e-014},
     bhigh={-60710.0561,84.23835080000001},
     R=218.8202848542556);
-  
+
   constant IdealGases.Common.DataRecord F2O(
     name="F2O",
     MM=0.0539962064,
@@ -7931,7 +7931,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.804705706e-008,-1.416973671e-012,6.489389390000001e-017},
     bhigh={1449.129965,-12.57858336},
     R=153.9825212609751);
-  
+
   constant IdealGases.Common.DataRecord F2O2(
     name="F2O2",
     MM=0.06999560639999999,
@@ -7945,7 +7945,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.570922521e-008,-2.949199983e-012,1.367386916e-016},
     bhigh={827.8020939999999,-27.56752555},
     R=118.7856270933028);
-  
+
   constant IdealGases.Common.DataRecord FS2F(
     name="FS2F",
     MM=0.1021268064,
@@ -7959,7 +7959,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.12522527e-009,-8.13478741e-013,3.75502241e-017},
     bhigh={-43494.4606,-23.46916058},
     R=81.41321845936034);
-  
+
   constant IdealGases.Common.DataRecord Fe(
     name="Fe",
     MM=0.055845,
@@ -7973,7 +7973,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.544348856e-010,-8.023578182e-015},
     bhigh={7137.37006,65.0497986},
     R=148.8848061599069);
-  
+
   constant IdealGases.Common.DataRecord Feplus(
     name="Feplus",
     MM=0.0558444514,
@@ -7987,7 +7987,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.228179208e-011,-1.483964439e-015},
     bhigh={128635.2466,15.00256262},
     R=148.8862687618774);
-  
+
   constant IdealGases.Common.DataRecord Fe_CO_5(
     name="Fe_CO_5",
     MM=0.1958955,
@@ -8001,7 +8001,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.235704865e-015},
     bhigh={-48606.6125,-175.4566113},
     R=42.44340477448436);
-  
+
   constant IdealGases.Common.DataRecord FeCL(
     name="FeCL",
     MM=0.091298,
@@ -8015,7 +8015,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.469606582e-013,-1.213444602e-016},
     bhigh={37261.9673,-4.075134191},
     R=91.06959626716905);
-  
+
   constant IdealGases.Common.DataRecord FeCL2(
     name="FeCL2",
     MM=0.126751,
@@ -8029,7 +8029,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.170827576e-010,-5.93806195e-015},
     bhigh={-22197.21855,11.16897701},
     R=65.59689469905563);
-  
+
   constant IdealGases.Common.DataRecord FeCL3(
     name="FeCL3",
     MM=0.162204,
@@ -8043,7 +8043,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.545873639999999e-010,-1.023070527e-013,4.90406364e-018},
     bhigh={-130501.205,-15.98494171},
     R=51.25935242040887);
-  
+
   constant IdealGases.Common.DataRecord FeO(
     name="FeO",
     MM=0.07184439999999999,
@@ -8057,7 +8057,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.37691383e-007,-6.79062946e-011,3.63929268e-015},
     bhigh={30379.85806,-3.63365542},
     R=115.7288807478384);
-  
+
   constant IdealGases.Common.DataRecord Fe_OH_2(
     name="Fe_OH_2",
     MM=0.08985968,
@@ -8071,7 +8071,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.990105746e-015},
     bhigh={-2992.568633,-84.45940589999999},
     R=92.52728253650581);
-  
+
   constant IdealGases.Common.DataRecord Fe2CL4(
     name="Fe2CL4",
     MM=0.253502,
@@ -8085,7 +8085,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.170782491e-010,-5.93777808e-015},
     bhigh={-59741.72730000001,-17.52491511},
     R=32.79844734952781);
-  
+
   constant IdealGases.Common.DataRecord Fe2CL6(
     name="Fe2CL6",
     MM=0.324408,
@@ -8099,7 +8099,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.226831608e-009,-1.473195806e-013,7.07827233e-018},
     bhigh={-85514.9619,-61.43757198},
     R=25.62967621020443);
-  
+
   constant IdealGases.Common.DataRecord Ga(
     name="Ga",
     MM=0.06972299999999999,
@@ -8113,7 +8113,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.682832239e-012,3.132134914e-016},
     bhigh={26843.51822,12.52212023},
     R=119.2500609554953);
-  
+
   constant IdealGases.Common.DataRecord Gaplus(
     name="Gaplus",
     MM=0.0697224514,
@@ -8127,7 +8127,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.734243614e-008,-4.55567374e-012,3.035050101e-016},
     bhigh={102989.743,4.25707541},
     R=119.2509992555999);
-  
+
   constant IdealGases.Common.DataRecord GaBr(
     name="GaBr",
     MM=0.149627,
@@ -8141,7 +8141,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.63512382e-011,-3.35817783e-015},
     bhigh={2035.179445,-0.427789408},
     R=55.56799240778737);
-  
+
   constant IdealGases.Common.DataRecord GaBr2(
     name="GaBr2",
     MM=0.229531,
@@ -8155,7 +8155,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.159876015e-007,-5.51363715e-011,3.17329323e-015},
     bhigh={-23656.8362,-1.162714892},
     R=36.22374319808653);
-  
+
   constant IdealGases.Common.DataRecord GaBr3(
     name="GaBr3",
     MM=0.309435,
@@ -8169,7 +8169,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.679838140000001e-010,-9.175147259999999e-014,4.39118694e-018},
     bhigh={-38334.0215,-14.10315914},
     R=26.86984988769855);
-  
+
   constant IdealGases.Common.DataRecord GaCL(
     name="GaCL",
     MM=0.105176,
@@ -8183,7 +8183,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.47044048e-011,-3.019622103e-015},
     bhigh={-18950.84035,15.70926145},
     R=79.05293983418271);
-  
+
   constant IdealGases.Common.DataRecord GaCL2(
     name="GaCL2",
     MM=0.140629,
@@ -8197,7 +8197,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.17535303e-015},
     bhigh={-32309.3616,-3.74484074},
     R=59.12345248846255);
-  
+
   constant IdealGases.Common.DataRecord GaCL3(
     name="GaCL3",
     MM=0.176082,
@@ -8211,7 +8211,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.901439055e-009,-2.231168493e-013,1.052949609e-017},
     bhigh={-55182.0143,-18.64958383},
     R=47.21931827216866);
-  
+
   constant IdealGases.Common.DataRecord GaF(
     name="GaF",
     MM=0.08872140319999999,
@@ -8225,7 +8225,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.177385396e-011,-1.031058874e-015},
     bhigh={-34085.2871,7.55396},
     R=93.71438796179906);
-  
+
   constant IdealGases.Common.DataRecord GaF2(
     name="GaF2",
     MM=0.1077198064,
@@ -8239,7 +8239,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.745755154e-007,-2.907681311e-011,1.084834142e-015},
     bhigh={-53765.716,-21.13835528},
     R=77.18610233224483);
-  
+
   constant IdealGases.Common.DataRecord GaF3(
     name="GaF3",
     MM=0.1267182096,
@@ -8253,7 +8253,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.16475945e-009,-1.042661957e-012,4.79916345e-017},
     bhigh={-113667.8134,-23.9253933},
     R=65.61386896362842);
-  
+
   constant IdealGases.Common.DataRecord GaH(
     name="GaH",
     MM=0.07073094000000001,
@@ -8267,7 +8267,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.601293566e-006,-3.81345935e-010,2.028049649e-014},
     bhigh={93697.78240000001,-98.2090022},
     R=117.5507069466347);
-  
+
   constant IdealGases.Common.DataRecord GaI(
     name="GaI",
     MM=0.19662747,
@@ -8281,7 +8281,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.658040509999999e-007,-1.106638204e-010,5.00783686e-015},
     bhigh={32918.1191,-32.2735977},
     R=42.28540396720764);
-  
+
   constant IdealGases.Common.DataRecord GaI2(
     name="GaI2",
     MM=0.32353194,
@@ -8295,7 +8295,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.17197773e-015},
     bhigh={-9180.919610000001,0.727520488},
     R=25.69907626430948);
-  
+
   constant IdealGases.Common.DataRecord GaI3(
     name="GaI3",
     MM=0.45043641,
@@ -8309,7 +8309,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -4.35097887e-014,2.095704875e-018},
     bhigh={-17000.58453,-10.90291552},
     R=18.45870319408682);
-  
+
   constant IdealGases.Common.DataRecord GaO(
     name="GaO",
     MM=0.08572239999999999,
@@ -8323,7 +8323,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.887560878e-010,7.97268692e-015},
     bhigh={85302.48080000001,-99.04040480000001},
     R=96.9929913301541);
-  
+
   constant IdealGases.Common.DataRecord GaOH(
     name="GaOH",
     MM=0.08673034,
@@ -8337,7 +8337,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.841943439999999e-012,-5.53155279e-016},
     bhigh={-3751.78825,-21.71053719},
     R=95.86578353088434);
-  
+
   constant IdealGases.Common.DataRecord Ga2Br2(
     name="Ga2Br2",
     MM=0.299254,
@@ -8351,7 +8351,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.137227648e-010,-1.380820486e-014,6.69024243e-019},
     bhigh={-19510.53843,-11.41667594},
     R=27.78399620389368);
-  
+
   constant IdealGases.Common.DataRecord Ga2Br4(
     name="Ga2Br4",
     MM=0.459062,
@@ -8365,7 +8365,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -7.40543865e-014,3.56712663e-018},
     bhigh={-54933.8976,-34.79271660000001},
     R=18.11187159904327);
-  
+
   constant IdealGases.Common.DataRecord Ga2Br6(
     name="Ga2Br6",
     MM=0.61887,
@@ -8379,7 +8379,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.443806473e-013,6.928270740000001e-018},
     bhigh={-87822.23300000001,-57.6589512},
     R=13.43492494384927);
-  
+
   constant IdealGases.Common.DataRecord Ga2CL2(
     name="Ga2CL2",
     MM=0.210352,
@@ -8393,7 +8393,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -4.65252773e-014,2.244498791e-018},
     bhigh={-29656.33085,-14.69535817},
     R=39.52646991709135);
-  
+
   constant IdealGases.Common.DataRecord Ga2CL4(
     name="Ga2CL4",
     MM=0.281258,
@@ -8407,7 +8407,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.721694751e-009,-2.051361953e-013,9.797311499999999e-018},
     bhigh={-77468.53380000001,-41.4728087},
     R=29.56172624423128);
-  
+
   constant IdealGases.Common.DataRecord Ga2CL6(
     name="Ga2CL6",
     MM=0.352164,
@@ -8421,7 +8421,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.36951281e-009,-3.9754628e-013,1.884231868e-017},
     bhigh={-122696.9998,-67.45332883},
     R=23.60965913608433);
-  
+
   constant IdealGases.Common.DataRecord Ga2F2(
     name="Ga2F2",
     MM=0.1774428064,
@@ -8435,7 +8435,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.556129063e-009,-1.845316975e-013,8.780884020000001e-018},
     bhigh={-76073.6863,-19.08325521},
     R=46.85719398089953);
-  
+
   constant IdealGases.Common.DataRecord Ga2F4(
     name="Ga2F4",
     MM=0.2154396128,
@@ -8449,7 +8449,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.04958272e-009,-8.10237952e-013,3.76054053e-017},
     bhigh={-164416.9589,-48.9659173},
     R=38.59305116612241);
-  
+
   constant IdealGases.Common.DataRecord Ga2F6(
     name="Ga2F6",
     MM=0.2534364192,
@@ -8463,7 +8463,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.399738556e-008,-1.601732039e-012,7.407584420000001e-017},
     bhigh={-249429.8707,-77.87635830000001},
     R=32.80693448181421);
-  
+
   constant IdealGases.Common.DataRecord Ga2I2(
     name="Ga2I2",
     MM=0.39325494,
@@ -8477,7 +8477,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.79946781e-011,-5.83478108e-015,2.829565069e-019},
     bhigh={-1393.258606,-9.052614910000001},
     R=21.14270198360382);
-  
+
   constant IdealGases.Common.DataRecord Ga2I4(
     name="Ga2I4",
     MM=0.64706388,
@@ -8491,7 +8491,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.041966602e-010,-2.476145769e-014,1.198551944e-018},
     bhigh={-24019.40505,-30.08672521},
     R=12.84953813215474);
-  
+
   constant IdealGases.Common.DataRecord Ga2I6(
     name="Ga2I6",
     MM=0.90087282,
@@ -8505,7 +8505,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -6.659445350000001e-014,3.21367043e-018},
     bhigh={-44886.9938,-51.6100875},
     R=9.22935159704341);
-  
+
   constant IdealGases.Common.DataRecord Ga2O(
     name="Ga2O",
     MM=0.1554454,
@@ -8519,7 +8519,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.65110849e-009,-6.44819054e-013,2.975374645e-017},
     bhigh={-13936.94796,-6.9428013},
     R=53.4880543264709);
-  
+
   constant IdealGases.Common.DataRecord Ge(
     name="Ge",
     MM=0.07264,
@@ -8533,7 +8533,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.984958090000001e-011,-2.541700646e-015},
     bhigh={19565.18798,38.41408752},
     R=114.4613436123348);
-  
+
   constant IdealGases.Common.DataRecord Geplus(
     name="Geplus",
     MM=0.0726394514,
@@ -8547,7 +8547,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.155945775e-011,-3.784413134e-016},
     bhigh={100682.3985,29.65845411},
     R=114.4622080667311);
-  
+
   constant IdealGases.Common.DataRecord Geminus(
     name="Geminus",
     MM=0.07264054860000001,
@@ -8561,7 +8561,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.378119925e-015,-8.475212940000001e-020},
     bhigh={28817.39757,7.577953867},
     R=114.4604791709957);
-  
+
   constant IdealGases.Common.DataRecord GeBr(
     name="GeBr",
     MM=0.152544,
@@ -8575,7 +8575,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.510481953e-015},
     bhigh={19428.63606,-6.106507844},
     R=54.50540172015943);
-  
+
   constant IdealGases.Common.DataRecord GeBr2(
     name="GeBr2",
     MM=0.232448,
@@ -8589,7 +8589,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.40159136e-010,-4.09345703e-014,1.969987842e-018},
     bhigh={-9484.999249999999,-1.673617098},
     R=35.76916987885463);
-  
+
   constant IdealGases.Common.DataRecord GeBr3(
     name="GeBr3",
     MM=0.312352,
@@ -8603,7 +8603,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -9.24157185e-014,4.43287623e-018},
     bhigh={-17426.97092,-13.66946296},
     R=26.61891711914763);
-  
+
   constant IdealGases.Common.DataRecord GeBr4(
     name="GeBr4",
     MM=0.392256,
@@ -8617,7 +8617,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.203567209999999e-010,-1.076853369e-013,5.0409548e-018},
     bhigh={-39041.4816,-26.8943607},
     R=21.19654511339533);
-  
+
   constant IdealGases.Common.DataRecord GeCL(
     name="GeCL",
     MM=0.108093,
@@ -8631,7 +8631,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.15195788e-011,-3.53421457e-015},
     bhigh={-2087.046335,13.8503382},
     R=76.91961551626839);
-  
+
   constant IdealGases.Common.DataRecord GeCL2(
     name="GeCL2",
     MM=0.143546,
@@ -8645,7 +8645,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.86563357e-010,-1.05200054e-013,5.00842222e-018},
     bhigh={-22752.54424,-4.656641298},
     R=57.9220040962479);
-  
+
   constant IdealGases.Common.DataRecord GeCL3(
     name="GeCL3",
     MM=0.178999,
@@ -8659,7 +8659,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.260936724e-009,-1.500137106e-013,7.15640081e-018},
     bhigh={-35251.3172,-17.19719944},
     R=46.44982374203208);
-  
+
   constant IdealGases.Common.DataRecord GeCL4(
     name="GeCL4",
     MM=0.214452,
@@ -8673,7 +8673,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.43980875e-017},
     bhigh={-64262.8178,-33.18158305},
     R=38.77078320556581);
-  
+
   constant IdealGases.Common.DataRecord GeF(
     name="GeF",
     MM=0.0916384032,
@@ -8687,7 +8687,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.62418386e-011,-2.133840473e-015},
     bhigh={-20515.29487,13.7315423},
     R=90.73130597718665);
-  
+
   constant IdealGases.Common.DataRecord GeF2(
     name="GeF2",
     MM=0.1106368064,
@@ -8701,7 +8701,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -5.24639467e-013,2.416218951e-017},
     bhigh={-71126.3763,-8.483841439000001},
     R=75.15104846699552);
-  
+
   constant IdealGases.Common.DataRecord GeF3(
     name="GeF3",
     MM=0.1296352096,
@@ -8715,7 +8715,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.1838967e-009,-8.19038812e-013,3.77632244e-017},
     bhigh={-99997.4909,-23.0346594},
     R=64.13745174366579);
-  
+
   constant IdealGases.Common.DataRecord GeF4(
     name="GeF4",
     MM=0.1486336128,
@@ -8729,7 +8729,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.637384721e-008,-1.866482733e-012,8.605530500000001e-017},
     bhigh={-146617.6526,-41.22237561},
     R=55.93937900969867);
-  
+
   constant IdealGases.Common.DataRecord GeH4(
     name="GeH4",
     MM=0.07667176000000001,
@@ -8743,7 +8743,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.419674126e-010,-5.00463975e-015},
     bhigh={-61585.1852,71.68961272999999},
     R=108.4424304333173);
-  
+
   constant IdealGases.Common.DataRecord GeI(
     name="GeI",
     MM=0.19954447,
@@ -8757,7 +8757,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.44769276e-010,8.401042789999999e-015},
     bhigh={24523.26136,-8.549783749},
     R=41.66726344257999);
-  
+
   constant IdealGases.Common.DataRecord GeO(
     name="GeO",
     MM=0.08863939999999999,
@@ -8771,7 +8771,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.37495802e-011,-2.172371872e-015},
     bhigh={-23621.04658,23.50906051},
     R=93.80108619868818);
-  
+
   constant IdealGases.Common.DataRecord GeO2(
     name="GeO2",
     MM=0.1046388,
@@ -8785,7 +8785,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.949874702e-008,-2.235834829e-012,1.036128507e-016},
     bhigh={-13879.83288,-16.69845695},
     R=79.45878584234529);
-  
+
   constant IdealGases.Common.DataRecord GeS(
     name="GeS",
     MM=0.104705,
@@ -8799,7 +8799,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.632908084e-010,-1.39437404e-014},
     bhigh={-35833.1725,65.05566890999999},
     R=79.40854782484124);
-  
+
   constant IdealGases.Common.DataRecord GeS2(
     name="GeS2",
     MM=0.13677,
@@ -8813,7 +8813,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.62874877e-013,1.222218614e-017},
     bhigh={11952.32103,-11.35170616},
     R=60.79163559260072);
-  
+
   constant IdealGases.Common.DataRecord Ge2(
     name="Ge2",
     MM=0.14528,
@@ -8827,7 +8827,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.475431760000001e-015},
     bhigh={89256.65990000001,-37.50233948},
     R=57.23067180616741);
-  
+
   constant IdealGases.Common.DataRecord H(
     name="H",
     MM=0.00100794,
@@ -8840,7 +8840,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.73287633e-011,-5.68774456e-015,3.410210197e-019},
     bhigh={25474.86398,-0.448191777},
     R=8248.975137408972);
-  
+
   constant IdealGases.Common.DataRecord Hplus(
     name="Hplus",
     MM=0.0010073914,
@@ -8852,7 +8852,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
     ahigh={0,0,2.5,0,0,0,0},
     bhigh={184021.4877,-1.140646644},
     R=8253.46732163884);
-  
+
   constant IdealGases.Common.DataRecord Hminus(
     name="Hminus",
     MM=0.0010084886,
@@ -8864,7 +8864,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
     ahigh={0,0,2.5,0,0,0,0},
     bhigh={15976.15494,-1.139013868},
     R=8244.487840516989);
-  
+
   constant IdealGases.Common.DataRecord HALO(
     name="HALO",
     MM=0.043988878,
@@ -8878,7 +8878,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.9350817e-008,-1.007036446e-011,4.60801725e-016},
     bhigh={6663.24189,-26.72948642},
     R=189.0130500714294);
-  
+
   constant IdealGases.Common.DataRecord HALO2(
     name="HALO2",
     MM=0.059988278,
@@ -8892,7 +8892,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.29164119e-012,-3.88903311e-016},
     bhigh={-27643.92495,-37.7588634},
     R=138.6016114681605);
-  
+
   constant IdealGases.Common.DataRecord HBO(
     name="HBO",
     MM=0.02781834,
@@ -8906,7 +8906,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.621530554e-007,-1.703550237e-011,7.372740020000001e-016},
     bhigh={-3161.852029,-40.3681272},
     R=298.8845488264217);
-  
+
   constant IdealGases.Common.DataRecord HBOplus(
     name="HBOplus",
     MM=0.0278177914,
@@ -8920,7 +8920,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.29704981e-011,-1.530684082e-015},
     bhigh={146361.7504,-16.99646159},
     R=298.8904431859389);
-  
+
   constant IdealGases.Common.DataRecord HBO2(
     name="HBO2",
     MM=0.04381774,
@@ -8934,7 +8934,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.08020714e-008,-3.64156544e-012,6.15597317e-017},
     bhigh={-42211.4947,-49.11366819999999},
     R=189.7512742555869);
-  
+
   constant IdealGases.Common.DataRecord HBS(
     name="HBS",
     MM=0.04388394,
@@ -8948,7 +8948,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.34296831e-011,-2.154140451e-015},
     bhigh={6485.47562,-13.31379864},
     R=189.4650298036138);
-  
+
   constant IdealGases.Common.DataRecord HBSplus(
     name="HBSplus",
     MM=0.0438833914,
@@ -8962,7 +8962,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.751213140000001e-008,-4.19113293e-012,2.687149095e-017},
     bhigh={151073.4114,-30.81426166},
     R=189.4673983652048);
-  
+
   constant IdealGases.Common.DataRecord HCN(
     name="HCN",
     MM=0.02702534,
@@ -8976,7 +8976,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.07279144e-007,-1.013313244e-011,3.34824798e-016},
     bhigh={42215.1377,-40.05774072000001},
     R=307.6546678043644);
-  
+
   constant IdealGases.Common.DataRecord HCO(
     name="HCO",
     MM=0.02901804,
@@ -8990,7 +8990,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.875328019e-007,-3.62624774e-011,1.808329595e-015},
     bhigh={25437.0444,-35.8247372},
     R=286.5276910501192);
-  
+
   constant IdealGases.Common.DataRecord HCOplus(
     name="HCOplus",
     MM=0.0290174914,
@@ -9004,7 +9004,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.683285548e-011,7.04005178e-016},
     bhigh={127798.9027,-43.5115846},
     R=286.5331080963119);
-  
+
   constant IdealGases.Common.DataRecord HCCN(
     name="HCCN",
     MM=0.03903604,
@@ -9018,7 +9018,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.186956238e-011,4.76061035e-016},
     bhigh={95851.6482,-52.48695794},
     R=212.9947607390504);
-  
+
   constant IdealGases.Common.DataRecord HCCO(
     name="HCCO",
     MM=0.04102874,
@@ -9032,7 +9032,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.108549019e-007,-1.125488678e-011,5.68915194e-016},
     bhigh={46522.803,-50.9907043},
     R=202.6499473296036);
-  
+
   constant IdealGases.Common.DataRecord HCL(
     name="HCL",
     MM=0.03646094,
@@ -9046,7 +9046,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.810262054e-012,-6.65610422e-016},
     bhigh={5674.95805,-16.42825822},
     R=228.0377850927595);
-  
+
   constant IdealGases.Common.DataRecord HD(
     name="HD",
     MM=0.003022042,
@@ -9060,7 +9060,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.03612668e-011,-2.727170705e-015},
     bhigh={12272.54163,-10.84742878},
     R=2751.276123892388);
-  
+
   constant IdealGases.Common.DataRecord HDplus(
     name="HDplus",
     MM=0.0030214934,
@@ -9074,7 +9074,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.976302344e-006,-3.30657353e-010,1.937902763e-014},
     bhigh={213534.8051,-61.2875839},
     R=2751.775661664527);
-  
+
   constant IdealGases.Common.DataRecord HDO(
     name="HDO",
     MM=0.019021442,
@@ -9088,7 +9088,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.152343519999999e-008,-4.78076857e-014,-1.46803517e-016},
     bhigh={3245.22468,-37.7460068},
     R=437.1104987729112);
-  
+
   constant IdealGases.Common.DataRecord HDO2(
     name="HDO2",
     MM=0.035020842,
@@ -9102,7 +9102,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.079624939e-011,3.87401372e-016},
     bhigh={13032.0967,-50.85276870000001},
     R=237.4149656367485);
-  
+
   constant IdealGases.Common.DataRecord HF(
     name="HF",
     MM=0.0200063432,
@@ -9116,7 +9116,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.050092453e-011,-1.639495583e-015},
     bhigh={-23554.5666,-3.20385683},
     R=415.5917909075958);
-  
+
   constant IdealGases.Common.DataRecord HI(
     name="HI",
     MM=0.12791241,
@@ -9130,7 +9130,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.474332049999999e-008,-1.033534431e-011,4.61161479e-016},
     bhigh={13948.57037,-11.82487652},
     R=65.00129268145288);
-  
+
   constant IdealGases.Common.DataRecord HNC(
     name="HNC",
     MM=0.02702534,
@@ -9144,7 +9144,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -7.789455389999999e-017},
     bhigh={46588.103,-34.68575882},
     R=307.6546678043644);
-  
+
   constant IdealGases.Common.DataRecord HNCO(
     name="HNCO",
     MM=0.04302474,
@@ -9158,7 +9158,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.097738448e-007,-9.3064038e-012,3.24260695e-016},
     bhigh={14531.55559,-53.06419819},
     R=193.2486285797427);
-  
+
   constant IdealGases.Common.DataRecord HNO(
     name="HNO",
     MM=0.03101404,
@@ -9172,7 +9172,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.397924169999999e-010,-3.142619368e-014},
     bhigh={-110419.2372,181.8650338},
     R=268.0873565649622);
-  
+
   constant IdealGases.Common.DataRecord HNO2(
     name="HNO2",
     MM=0.04701344,
@@ -9186,7 +9186,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.13363679e-008,-5.37630334e-012,1.581778986e-016},
     bhigh={12463.43241,-46.08874688},
     R=176.8530871172158);
-  
+
   constant IdealGases.Common.DataRecord HNO3(
     name="HNO3",
     MM=0.06301284,
@@ -9200,7 +9200,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.702693665e-007,-1.930543961e-011,8.870455120000001e-016},
     bhigh={-4882.51778,-59.28392985000001},
     R=131.9488535987269);
-  
+
   constant IdealGases.Common.DataRecord HOCL(
     name="HOCL",
     MM=0.05246034,
@@ -9214,7 +9214,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.59167827e-012,-3.060073987e-016},
     bhigh={7250.964950000001,-22.4983169},
     R=158.4906235834537);
-  
+
   constant IdealGases.Common.DataRecord HOF(
     name="HOF",
     MM=0.0360057432,
@@ -9228,7 +9228,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.459115709e-008,1.095883303e-012,-1.404445608e-016},
     bhigh={6300.54671,-25.90150427},
     R=230.9207160039958);
-  
+
   constant IdealGases.Common.DataRecord HO2(
     name="HO2",
     MM=0.03300674,
@@ -9242,7 +9242,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.061859447e-006,1.144567878e-010},
     bhigh={-4.76306416e-015,0},
     R=251.9022478439252);
-  
+
   constant IdealGases.Common.DataRecord HO2minus(
     name="HO2minus",
     MM=0.0330072886,
@@ -9256,7 +9256,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.955377000000001e-012},
     bhigh={-5.60647728e-016,0},
     R=251.8980610846054);
-  
+
   constant IdealGases.Common.DataRecord HPO(
     name="HPO",
     MM=0.04798110100000001,
@@ -9270,7 +9270,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.253640566e-011,-1.943063011e-015},
     bhigh={5761.63212,-26.49097544},
     R=173.2863945743971);
-  
+
   constant IdealGases.Common.DataRecord HSO3F(
     name="HSO3F",
     MM=0.1000695432,
@@ -9284,7 +9284,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.891284000000001e-017},
     bhigh={-71534.3827,-76.13127849},
     R=83.08693868405707);
-  
+
   constant IdealGases.Common.DataRecord H2(
     name="H2",
     MM=0.00201588,
@@ -9298,7 +9298,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.936625200000001e-011,-3.6069941e-015},
     bhigh={5339.82441,-2.202774769},
     R=4124.487568704486);
-  
+
   constant IdealGases.Common.DataRecord H2plus(
     name="H2plus",
     MM=0.0020153314,
@@ -9312,7 +9312,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -3.35102748e-010,1.946089104e-014},
     bhigh={218999.9548,-67.9271078},
     R=4125.610309053885);
-  
+
   constant IdealGases.Common.DataRecord H2minus(
     name="H2minus",
     MM=0.0020164286,
@@ -9326,7 +9326,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.446919560000001e-008,-6.155174449999999e-012,2.822451181e-016},
     bhigh={32341.0518,-14.4078098},
     R=4123.365439272186);
-  
+
   constant IdealGases.Common.DataRecord HBOH(
     name="HBOH",
     MM=0.02882628,
@@ -9340,7 +9340,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -7.67092674e-012,2.211854768e-016},
     bhigh={27793.70419,-56.0886008},
     R=288.4337486488024);
-  
+
   constant IdealGases.Common.DataRecord HCOOH(
     name="HCOOH",
     MM=0.04602538,
@@ -9354,7 +9354,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.102001695e-006,-1.364343517e-010,6.64842975e-015},
     bhigh={-5781.43191,-111.1790688},
     R=180.6497197850404);
-  
+
   constant IdealGases.Common.DataRecord H2F2(
     name="H2F2",
     MM=0.0400126864,
@@ -9368,7 +9368,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.45604623e-011,-2.281370136e-015},
     bhigh={-48254.42090000001,-26.39128168},
     R=207.7958954537979);
-  
+
   constant IdealGases.Common.DataRecord H2O(
     name="H2O",
     MM=0.01801528,
@@ -9382,7 +9382,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.426468930000001e-011,-4.82238053e-015},
     bhigh={-13842.86509,-7.97814851},
     R=461.5233290850878);
-  
+
   constant IdealGases.Common.DataRecord H2Oplus(
     name="H2Oplus",
     MM=0.0180147314,
@@ -9396,7 +9396,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.407709940000001e-015},
     bhigh={134208.6651,-26.3661792},
     R=461.5373837880259);
-  
+
   constant IdealGases.Common.DataRecord H2O2(
     name="H2O2",
     MM=0.03401468,
@@ -9410,7 +9410,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.94726559e-012,-4.8278319e-016},
     bhigh={14182.51038,-46.50855660000001},
     R=244.4377545224592);
-  
+
   constant IdealGases.Common.DataRecord H2S(
     name="H2S",
     MM=0.03408088,
@@ -9424,7 +9424,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.1696957e-011,9.318163070000001e-016},
     bhigh={29086.96214,-43.49160391},
     R=243.9629493135154);
-  
+
   constant IdealGases.Common.DataRecord H2SO4(
     name="H2SO4",
     MM=0.09807848,
@@ -9438,7 +9438,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.334842469e-012,-2.946330375e-016},
     bhigh={-52590.92950000001,-102.3603724},
     R=84.77366288710837);
-  
+
   constant IdealGases.Common.DataRecord H2BOH(
     name="H2BOH",
     MM=0.02983422,
@@ -9452,7 +9452,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.635641095e-007,-2.483163637e-011,9.736759120000001e-016},
     bhigh={20397.38953,-94.48201210000001},
     R=278.689102647899);
-  
+
   constant IdealGases.Common.DataRecord HB_OH_2(
     name="HB_OH_2",
     MM=0.04583362000000001,
@@ -9466,7 +9466,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.955082040000001e-008,-3.34483051e-012,-6.919578139999999e-017},
     bhigh={-27887.90377,-99.8355961},
     R=181.4055272090662);
-  
+
   constant IdealGases.Common.DataRecord H3BO3(
     name="H3BO3",
     MM=0.06183302,
@@ -9480,7 +9480,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.482296684e-011,-9.7644209e-016},
     bhigh={-69702.9847,-112.2292829},
     R=134.4665358412059);
-  
+
   constant IdealGases.Common.DataRecord H3B3O3(
     name="H3B3O3",
     MM=0.08345502000000001,
@@ -9494,7 +9494,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -5.833567379999999e-011,2.600757913e-015},
     bhigh={-87528.5689,-177.0847815},
     R=99.62818294214057);
-  
+
   constant IdealGases.Common.DataRecord H3B3O6(
     name="H3B3O6",
     MM=0.13145322,
@@ -9508,7 +9508,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -5.72846482e-012,-2.214529572e-017},
     bhigh={-212092.7136,-207.5566801},
     R=63.25042475186231);
-  
+
   constant IdealGases.Common.DataRecord H3F3(
     name="H3F3",
     MM=0.0600190296,
@@ -9522,7 +9522,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.308662105e-011,3.978322e-016},
     bhigh={-54717.1365,-99.07787640000001},
     R=138.5305969691986);
-  
+
   constant IdealGases.Common.DataRecord H3Oplus(
     name="H3Oplus",
     MM=0.0190226714,
@@ -9536,7 +9536,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.138387119e-008,7.25992721e-012,-6.13373436e-016},
     bhigh={129053.4257,-70.2182818},
     R=437.0822491314233);
-  
+
   constant IdealGases.Common.DataRecord H4F4(
     name="H4F4",
     MM=0.08002537279999999,
@@ -9550,7 +9550,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.744867255e-011,5.304351740000001e-016},
     bhigh={-74202.13160000001,-138.8603332},
     R=103.897947726899);
-  
+
   constant IdealGases.Common.DataRecord H5F5(
     name="H5F5",
     MM=0.100031716,
@@ -9564,7 +9564,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.181090984e-011,6.63047416e-016},
     bhigh={-93687.042,-178.8592044},
     R=83.11835818151914);
-  
+
   constant IdealGases.Common.DataRecord H6F6(
     name="H6F6",
     MM=0.1200380592,
@@ -9578,7 +9578,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.930051519e-007,-2.052079159e-011,5.2069373e-016},
     bhigh={-115449.7653,-216.3947001},
     R=69.26529848459929);
-  
+
   constant IdealGases.Common.DataRecord H7F7(
     name="H7F7",
     MM=0.1400444024,
@@ -9592,7 +9592,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.28260178e-016},
     bhigh={-133017.7809,-259.2385142},
     R=59.37025584394225);
-  
+
   constant IdealGases.Common.DataRecord He(
     name="He",
     MM=0.004002602,
@@ -9604,7 +9604,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
     ahigh={0,0,2.5,0,0,0,0},
     bhigh={-745.375,0.9287239740000001},
     R=2077.26673798694);
-  
+
   constant IdealGases.Common.DataRecord Heplus(
     name="Heplus",
     MM=0.0040020534,
@@ -9616,7 +9616,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
     ahigh={0,0,2.5,0,0,0,0},
     bhigh={285323.3739,1.621665557},
     R=2077.551488943151);
-  
+
   constant IdealGases.Common.DataRecord Hg(
     name="Hg",
     MM=0.20059,
@@ -9629,7 +9629,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -9.47248501e-012,7.034797406e-016},
     bhigh={7688.68493,5.27123609},
     R=41.45008225734085);
-  
+
   constant IdealGases.Common.DataRecord Hgplus(
     name="Hgplus",
     MM=0.2005894514,
@@ -9643,7 +9643,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.489685859999999e-009,-2.549887287e-012,2.819873366e-016},
     bhigh={128318.8257,7.62524457},
     R=41.45019562080521);
-  
+
   constant IdealGases.Common.DataRecord HgBr2(
     name="HgBr2",
     MM=0.3603980000000001,
@@ -9657,7 +9657,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.830526999e-010,-3.4076867e-014,1.640497921e-018},
     bhigh={-13274.83366,-4.3685556},
     R=23.07025011237576);
-  
+
   constant IdealGases.Common.DataRecord I(
     name="I",
     MM=0.12690447,
@@ -9671,7 +9671,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.963511339e-011,-6.243525940999999e-016},
     bhigh={-2616.792742,25.58922997},
     R=65.51756608730962);
-  
+
   constant IdealGases.Common.DataRecord Iplus(
     name="Iplus",
     MM=0.1269039214,
@@ -9685,7 +9685,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.923983959999999e-012,-9.775286439000001e-017},
     bhigh={118853.1631,27.10544347},
     R=65.5178493168297);
-  
+
   constant IdealGases.Common.DataRecord Iminus(
     name="Iminus",
     MM=0.1269050186,
@@ -9697,7 +9697,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
     ahigh={0,0,2.5,0,0,0,0},
     bhigh={-24149.70936,6.11346538},
     R=65.51728286023828);
-  
+
   constant IdealGases.Common.DataRecord IF5(
     name="IF5",
     MM=0.221896486,
@@ -9711,7 +9711,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.086015052e-008,-1.244672691e-012,5.76359362e-017},
     bhigh={-106164.2293,-53.9877336},
     R=37.47004808359156);
-  
+
   constant IdealGases.Common.DataRecord IF7(
     name="IF7",
     MM=0.2598932924,
@@ -9725,7 +9725,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.768835964e-008,-2.031523755e-012,9.423767390000001e-017},
     bhigh={-122524.5322,-87.74010730000001},
     R=31.99186836728072);
-  
+
   constant IdealGases.Common.DataRecord I2(
     name="I2",
     MM=0.25380894,
@@ -9739,7 +9739,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.12547794e-010,-1.960461713e-014},
     bhigh={-106850.5292,160.0531883},
     R=32.75878304365481);
-  
+
   constant IdealGases.Common.DataRecord In(
     name="In",
     MM=0.114818,
@@ -9753,7 +9753,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -5.15809241e-011,3.183043089e-015},
     bhigh={10959.65206,2.557189088},
     R=72.41436011775157);
-  
+
   constant IdealGases.Common.DataRecord Inplus(
     name="Inplus",
     MM=0.1148174514,
@@ -9767,7 +9767,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -6.87924362e-012,4.81920492e-016},
     bhigh={1004.26144,4.68375918},
     R=72.4147061149626);
-  
+
   constant IdealGases.Common.DataRecord InBr(
     name="InBr",
     MM=0.194722,
@@ -9781,7 +9781,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.85319277e-016},
     bhigh={6957.627289999999,-12.7350266},
     R=42.69919166812174);
-  
+
   constant IdealGases.Common.DataRecord InBr2(
     name="InBr2",
     MM=0.274626,
@@ -9795,7 +9795,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.157862421e-007,-5.51125451e-011,3.17216139e-015},
     bhigh={-23709.23659,0.1193263347},
     R=30.27561847749303);
-  
+
   constant IdealGases.Common.DataRecord InBr3(
     name="InBr3",
     MM=0.35453,
@@ -9809,7 +9809,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -5.01552887e-014,2.415414123e-018},
     bhigh={-33931.7924,-12.29069868},
     R=23.45209714269597);
-  
+
   constant IdealGases.Common.DataRecord InCL(
     name="InCL",
     MM=0.150271,
@@ -9823,7 +9823,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.74545881e-011,-3.64527575e-015},
     bhigh={-15616.0343,12.66880374},
     R=55.32985073633636);
-  
+
   constant IdealGases.Common.DataRecord InCL2(
     name="InCL2",
     MM=0.185724,
@@ -9837,7 +9837,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.17368038e-015},
     bhigh={-29950.95917,-2.294555511},
     R=44.76789214102647);
-  
+
   constant IdealGases.Common.DataRecord InCL3(
     name="InCL3",
     MM=0.221177,
@@ -9851,7 +9851,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.279877732e-009,-1.518261505e-013,7.22656277e-018},
     bhigh={-47589.7417,-16.69761011},
     R=37.59193767887258);
-  
+
   constant IdealGases.Common.DataRecord InF(
     name="InF",
     MM=0.1338164032,
@@ -9865,7 +9865,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.92664656e-011,-2.699156425e-015},
     bhigh={-33083.6981,13.96688303},
     R=62.13342909518585);
-  
+
   constant IdealGases.Common.DataRecord InF2(
     name="InF2",
     MM=0.1528148064,
@@ -9879,7 +9879,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.72393419e-007,-2.882959902e-011,1.073493779e-015},
     bhigh={-46736.91940000001,-19.32464363},
     R=54.40881152731022);
-  
+
   constant IdealGases.Common.DataRecord InF3(
     name="InF3",
     MM=0.1718132096,
@@ -9893,7 +9893,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.16351293e-009,-5.88804881e-013,2.715090697e-017},
     bhigh={-106868.2627,-21.32968218},
     R=48.39250730113827);
-  
+
   constant IdealGases.Common.DataRecord InH(
     name="InH",
     MM=0.11582594,
@@ -9907,7 +9907,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.274009748e-014},
     bhigh={46432.9546,-36.5932923},
     R=71.78419618265131);
-  
+
   constant IdealGases.Common.DataRecord InI(
     name="InI",
     MM=0.24172247,
@@ -9921,7 +9921,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.460834390000001e-007,-1.253862848e-010,5.94980564e-015},
     bhigh={31524.78143,-32.9769749},
     R=34.39676915431156);
-  
+
   constant IdealGases.Common.DataRecord InI2(
     name="InI2",
     MM=0.36862694,
@@ -9935,7 +9935,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.17116283e-015},
     bhigh={-10430.1275,2.141662307},
     R=22.55524786115741);
-  
+
   constant IdealGases.Common.DataRecord InI3(
     name="InI3",
     MM=0.49553141,
@@ -9949,7 +9949,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.897343164e-010,-2.29625246e-014,1.109838196e-018},
     bhigh={-15724.06335,-9.17088869},
     R=16.7789000499484);
-  
+
   constant IdealGases.Common.DataRecord InO(
     name="InO",
     MM=0.1308174,
@@ -9963,7 +9963,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.22959776e-007,-4.58015038e-011,1.954611725e-015},
     bhigh={4005.51981,3.50074246},
     R=63.55784475153917);
-  
+
   constant IdealGases.Common.DataRecord InOH(
     name="InOH",
     MM=0.13182534,
@@ -9977,7 +9977,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.016169575e-011,-5.682557639999999e-016},
     bhigh={-1536.21361,-20.43107643},
     R=63.07187980702344);
-  
+
   constant IdealGases.Common.DataRecord In2Br2(
     name="In2Br2",
     MM=0.389444,
@@ -9991,7 +9991,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.51731572e-011,-6.708620190000001e-015,3.25384165e-019},
     bhigh={-26631.36878,-9.149949469999999},
     R=21.34959583406087);
-  
+
   constant IdealGases.Common.DataRecord In2Br4(
     name="In2Br4",
     MM=0.549252,
@@ -10005,7 +10005,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.28171574e-010,-5.17199802e-014,2.496142837e-018},
     bhigh={-57391.7541,-31.7490639},
     R=15.13780923874652);
-  
+
   constant IdealGases.Common.DataRecord In2Br6(
     name="In2Br6",
     MM=0.7090599999999999,
@@ -10019,7 +10019,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.23596573e-010,-8.722870580000001e-014,4.20346991e-018},
     bhigh={-82357.59850000001,-53.221928},
     R=11.72604857134799);
-  
+
   constant IdealGases.Common.DataRecord In2CL2(
     name="In2CL2",
     MM=0.300542,
@@ -10033,7 +10033,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.130755553e-010,-2.5811409e-014,1.248404822e-018},
     bhigh={-30980.16735,-12.34946505},
     R=27.66492536816818);
-  
+
   constant IdealGases.Common.DataRecord In2CL4(
     name="In2CL4",
     MM=0.371448,
@@ -10047,7 +10047,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.267594997e-009,-1.514110365e-013,7.24540454e-018},
     bhigh={-74619.21740000001,-36.91150615},
     R=22.38394607051324);
-  
+
   constant IdealGases.Common.DataRecord In2CL6(
     name="In2CL6",
     MM=0.442354,
@@ -10061,7 +10061,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.397911922e-009,-2.855307516e-013,1.363051661e-017},
     bhigh={-113011.0233,-62.93985679999999},
     R=18.79596883943629);
-  
+
   constant IdealGases.Common.DataRecord In2F2(
     name="In2F2",
     MM=0.2676328064,
@@ -10075,7 +10075,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.60882832e-010,-1.150013486e-013,5.511437479999999e-018},
     bhigh={-67142.7785,-16.61718474},
     R=31.06671454759293);
-  
+
   constant IdealGases.Common.DataRecord In2F4(
     name="In2F4",
     MM=0.3056296128,
@@ -10089,7 +10089,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.32958279e-009,-6.14460957e-013,2.859099598e-017},
     bhigh={-159571.6347,-44.6957458},
     R=27.20440576365511);
-  
+
   constant IdealGases.Common.DataRecord In2F6(
     name="In2F6",
     MM=0.3436264192,
@@ -10103,7 +10103,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.96895904e-009,-9.191681699999999e-013,4.278494150000001e-017},
     bhigh={-242666.1118,-71.5532856},
     R=24.19625365056914);
-  
+
   constant IdealGases.Common.DataRecord In2I2(
     name="In2I2",
     MM=0.48344494,
@@ -10117,7 +10117,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.24298818e-011,-2.732299303e-015,1.327135699e-019},
     bhigh={-6352.6515,-6.94772542},
     R=17.19838457715578);
-  
+
   constant IdealGases.Common.DataRecord In2I4(
     name="In2I4",
     MM=0.73725388,
@@ -10131,7 +10131,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.472308565e-010,-1.786593333e-014,8.652338779999999e-019},
     bhigh={-28796.55333,-27.57790375},
     R=11.2776239305787);
-  
+
   constant IdealGases.Common.DataRecord In2I6(
     name="In2I6",
     MM=0.99106282,
@@ -10145,7 +10145,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -3.64967671e-014,1.765530622e-018},
     bhigh={-45138.2027,-48.0686837},
     R=8.389450024974199);
-  
+
   constant IdealGases.Common.DataRecord In2O(
     name="In2O",
     MM=0.2456354,
@@ -10159,7 +10159,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -3.8854571e-013,1.79512527e-017},
     bhigh={-6270.9268,-4.42182041},
     R=33.84883449209683);
-  
+
   constant IdealGases.Common.DataRecord K(
     name="K",
     MM=0.0390983,
@@ -10173,7 +10173,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.71529415e-010,-2.97689735e-014},
     bhigh={-58753.3701,97.3855124},
     R=212.6555886061542);
-  
+
   constant IdealGases.Common.DataRecord Kplus(
     name="Kplus",
     MM=0.0390977514,
@@ -10185,7 +10185,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
     ahigh={0,0,2.5,0,0,0,0},
     bhigh={61075.1686,4.34740444},
     R=212.6585724825086);
-  
+
   constant IdealGases.Common.DataRecord Kminus(
     name="Kminus",
     MM=0.0390988486,
@@ -10197,7 +10197,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
     ahigh={0,0,2.5,0,0,0,0},
     bhigh={3394.15071,4.34744653},
     R=212.6526048135341);
-  
+
   constant IdealGases.Common.DataRecord KALF4(
     name="KALF4",
     MM=0.1420734508,
@@ -10211,7 +10211,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.585712708e-008,-1.814017733e-012,8.388391179999999e-017},
     bhigh={-233965.8121,-52.338987},
     R=58.5223484977814);
-  
+
   constant IdealGases.Common.DataRecord KBO2(
     name="KBO2",
     MM=0.08190810000000001,
@@ -10225,7 +10225,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.9768458e-016},
     bhigh={-73753.36080000001,-32.7474937},
     R=101.5097652124759);
-  
+
   constant IdealGases.Common.DataRecord KBr(
     name="KBr",
     MM=0.1190023,
@@ -10239,7 +10239,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.40192385e-007,-1.448178289e-011,-2.27333876e-015},
     bhigh={5315.34201,-28.64647026},
     R=69.86816221199086);
-  
+
   constant IdealGases.Common.DataRecord KCN(
     name="KCN",
     MM=0.0651157,
@@ -10253,7 +10253,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.249499710000001e-008,-1.021916855e-011,4.604767189999999e-016},
     bhigh={18137.34856,-22.81619241},
     R=127.6876697939207);
-  
+
   constant IdealGases.Common.DataRecord KCL(
     name="KCL",
     MM=0.0745513,
@@ -10267,7 +10267,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.255777709e-010,-9.150147999999999e-015},
     bhigh={-32737.8764,14.01864636},
     R=111.5268546624942);
-  
+
   constant IdealGases.Common.DataRecord KF(
     name="KF",
     MM=0.0580967032,
@@ -10281,7 +10281,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.771028824e-010,-1.029032783e-014},
     bhigh={-69633.2981,40.8863592},
     R=143.1143514525623);
-  
+
   constant IdealGases.Common.DataRecord KH(
     name="KH",
     MM=0.04010624,
@@ -10295,7 +10295,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.34407236e-010,-1.701157835e-014},
     bhigh={-60251.033,101.030459},
     R=207.3111815019309);
-  
+
   constant IdealGases.Common.DataRecord KI(
     name="KI",
     MM=0.16600277,
@@ -10309,7 +10309,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.677673023e-010,1.273359646e-014},
     bhigh={46763.4867,-78.5912337},
     R=50.08634494472592);
-  
+
   constant IdealGases.Common.DataRecord KLi(
     name="KLi",
     MM=0.0460393,
@@ -10323,7 +10323,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.975062200000001e-006,-1.189303691e-009,5.88012918e-014},
     bhigh={273879.2595,-366.96936},
     R=180.5951002730276);
-  
+
   constant IdealGases.Common.DataRecord KNO2(
     name="KNO2",
     MM=0.08510380000000001,
@@ -10337,7 +10337,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.57364441e-008,-6.39318592e-012,2.964484049e-016},
     bhigh={-21877.01436,-27.55200432},
     R=97.69801113463794);
-  
+
   constant IdealGases.Common.DataRecord KNO3(
     name="KNO3",
     MM=0.1011032,
@@ -10351,7 +10351,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.018771993e-011,4.71598202e-016},
     bhigh={-35138.5322,-48.04256439},
     R=82.23747616297011);
-  
+
   constant IdealGases.Common.DataRecord KNa(
     name="KNa",
     MM=0.06208807,
@@ -10365,7 +10365,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.66326489e-014},
     bhigh={169727.4909,-266.4117219},
     R=133.9141641864532);
-  
+
   constant IdealGases.Common.DataRecord KO(
     name="KO",
     MM=0.05509770000000001,
@@ -10379,7 +10379,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.79082787e-014},
     bhigh={26049.72496,-34.4878152},
     R=150.9041575238168);
-  
+
   constant IdealGases.Common.DataRecord KOH(
     name="KOH",
     MM=0.05610564,
@@ -10393,7 +10393,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.027938106e-011,-5.73668582e-016},
     bhigh={-14436.96469,-20.76401416},
     R=148.1931584774721);
-  
+
   constant IdealGases.Common.DataRecord K2(
     name="K2",
     MM=0.07819660000000001,
@@ -10407,7 +10407,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.984557092e-006,-1.064158914e-009,8.334936929999999e-014},
     bhigh={-422624.383,386.714251},
     R=106.3277943030771);
-  
+
   constant IdealGases.Common.DataRecord K2plus(
     name="K2plus",
     MM=0.07819605140000001,
@@ -10421,7 +10421,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.360587923e-005,-2.361920107e-009,1.67343061e-013},
     bhigh={317761.205,-410.50631},
     R=106.3285402669322);
-  
+
   constant IdealGases.Common.DataRecord K2Br2(
     name="K2Br2",
     MM=0.2380046,
@@ -10435,7 +10435,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.33102416e-011,-8.908944780000001e-015,4.319245429999999e-019},
     bhigh={-67825.9544,-11.80425726},
     R=34.93408110599543);
-  
+
   constant IdealGases.Common.DataRecord K2CO3(
     name="K2CO3",
     MM=0.1382055,
@@ -10449,7 +10449,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.125478371e-011,5.21006912e-016},
     bhigh={-94882.75099999999,-62.1522063},
     R=60.16021070073188);
-  
+
   constant IdealGases.Common.DataRecord K2C2N2(
     name="K2C2N2",
     MM=0.1302314,
@@ -10463,7 +10463,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.18542099e-016},
     bhigh={15826.00773,-67.28484052},
     R=63.84383489696034);
-  
+
   constant IdealGases.Common.DataRecord K2CL2(
     name="K2CL2",
     MM=0.1491026,
@@ -10477,7 +10477,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.869281152e-010,-2.266272348e-014,1.096790704e-018},
     bhigh={-77071.8933,-14.99720802},
     R=55.76342733124707);
-  
+
   constant IdealGases.Common.DataRecord K2F2(
     name="K2F2",
     MM=0.1161934064,
@@ -10491,7 +10491,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -9.165649529999999e-014,4.40504844e-018},
     bhigh={-106541.3546,-18.7403762},
     R=71.55717572628115);
-  
+
   constant IdealGases.Common.DataRecord K2I2(
     name="K2I2",
     MM=0.33200554,
@@ -10505,7 +10505,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.32056097e-011,-5.259699430000001e-015,2.553419144e-019},
     bhigh={-53402.10230000001,-9.6644405},
     R=25.04317247236296);
-  
+
   constant IdealGases.Common.DataRecord K2O(
     name="K2O",
     MM=0.094196,
@@ -10519,7 +10519,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.747788419999999e-010,-1.135283694e-013,5.325860600000001e-018},
     bhigh={-11072.22244,-5.76871872},
     R=88.26778207142554);
-  
+
   constant IdealGases.Common.DataRecord K2Oplus(
     name="K2Oplus",
     MM=0.09419545139999999,
@@ -10533,7 +10533,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.478334960000001e-018},
     bhigh={42145.19680000001,-4.41827661},
     R=88.26829614832124);
-  
+
   constant IdealGases.Common.DataRecord K2O2(
     name="K2O2",
     MM=0.1101954,
@@ -10547,7 +10547,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.81525281e-009,-7.82865445e-013,3.6325061e-017},
     bhigh={-25920.56324,-21.62287184},
     R=75.45207876190838);
-  
+
   constant IdealGases.Common.DataRecord K2O2H2(
     name="K2O2H2",
     MM=0.11221128,
@@ -10561,7 +10561,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.057506565e-011,-1.148042134e-015},
     bhigh={-50512.63310000001,-63.3477392},
     R=74.09657923873607);
-  
+
   constant IdealGases.Common.DataRecord K2SO4(
     name="K2SO4",
     MM=0.1742592,
@@ -10575,7 +10575,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.342480639999999e-008,-7.281462539999999e-012,3.37788693e-016},
     bhigh={-133787.3384,-73.99103550999999},
     R=47.71324555604525);
-  
+
   constant IdealGases.Common.DataRecord Kr(
     name="Kr",
     MM=0.0838,
@@ -10588,7 +10588,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.620730161e-010,-2.467898017e-014,1.47858504e-018},
     bhigh={-740.348894,5.48439815},
     R=99.21804295942721);
-  
+
   constant IdealGases.Common.DataRecord Krplus(
     name="Krplus",
     MM=0.08379945139999999,
@@ -10602,7 +10602,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.98285351e-011,-2.406719258e-015},
     bhigh={155600.2861,20.59230986},
     R=99.21869249850485);
-  
+
   constant IdealGases.Common.DataRecord Li(
     name="Li",
     MM=0.006941,
@@ -10615,7 +10615,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.884948238e-015},
     bhigh={40346.374,-26.55918195},
     R=1197.878115545311);
-  
+
   constant IdealGases.Common.DataRecord Liplus(
     name="Liplus",
     MM=0.0069404514,
@@ -10627,7 +10627,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
     ahigh={0,0,2.5,0,0,0,0},
     bhigh={81727.24550000001,1.754357228},
     R=1197.972800443499);
-  
+
   constant IdealGases.Common.DataRecord Liminus(
     name="Liminus",
     MM=0.0069415486,
@@ -10639,7 +10639,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
     ahigh={0,0,2.5,0,0,0,0},
     bhigh={10496.98659,1.754594332},
     R=1197.783445613274);
-  
+
   constant IdealGases.Common.DataRecord LiALF4(
     name="LiALF4",
     MM=0.1099161508,
@@ -10653,7 +10653,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.83690569e-008,-2.104932808e-012,9.74725302e-017},
     bhigh={-227869.6416,-55.9730484},
     R=75.64376972342085);
-  
+
   constant IdealGases.Common.DataRecord LiBO2(
     name="LiBO2",
     MM=0.0497508,
@@ -10667,7 +10667,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.999875689999999e-008,-1.122880592e-011,5.12352946e-016},
     bhigh={-71547.4382,-36.1239729},
     R=167.1223779316112);
-  
+
   constant IdealGases.Common.DataRecord LiBr(
     name="LiBr",
     MM=0.08684500000000001,
@@ -10681,7 +10681,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.058203991e-011,-1.942190308e-015},
     bhigh={-17933.63752,-0.2290806613},
     R=95.73921354136679);
-  
+
   constant IdealGases.Common.DataRecord LiCL(
     name="LiCL",
     MM=0.042394,
@@ -10695,7 +10695,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.22040361e-011,-2.848628426e-015},
     bhigh={-28623.58494,5.618511135},
     R=196.1237911025145);
-  
+
   constant IdealGases.Common.DataRecord LiF(
     name="LiF",
     MM=0.0259394032,
@@ -10709,7 +10709,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.569397177e-011,-1.406798386e-015},
     bhigh={-47564.6945,4.38516329},
     R=320.5344369680795);
-  
+
   constant IdealGases.Common.DataRecord LiH(
     name="LiH",
     MM=0.00794894,
@@ -10723,7 +10723,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.775909869999999e-011,-2.889490251e-015},
     bhigh={-29900.43016,49.71984499999999},
     R=1045.984999257763);
-  
+
   constant IdealGases.Common.DataRecord LiI(
     name="LiI",
     MM=0.13384547,
@@ -10737,7 +10737,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.03731377e-007,-9.028172610000001e-011,3.078321954e-015},
     bhigh={19377.18764,-37.2927631},
     R=62.11993577369485);
-  
+
   constant IdealGases.Common.DataRecord LiN(
     name="LiN",
     MM=0.0209477,
@@ -10751,7 +10751,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.557428364e-009,-2.9057518e-013,1.336125922e-017},
     bhigh={38948.3113,-1.214952896},
     R=396.9157473135476);
-  
+
   constant IdealGases.Common.DataRecord LiNO2(
     name="LiNO2",
     MM=0.0529465,
@@ -10765,7 +10765,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -6.47614005e-012,3.003536591e-016},
     bhigh={-23135.47535,-32.38277103},
     R=157.0353470012182);
-  
+
   constant IdealGases.Common.DataRecord LiNO3(
     name="LiNO3",
     MM=0.06894589999999999,
@@ -10779,7 +10779,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.320824509999999e-008,-1.065894872e-011,4.93078062e-016},
     bhigh={-34348.2746,-52.75382697000001},
     R=120.5941470051156);
-  
+
   constant IdealGases.Common.DataRecord LiO(
     name="LiO",
     MM=0.0229404,
@@ -10793,7 +10793,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.133194659999999e-007,-1.027902258e-010,3.822991e-015},
     bhigh={42015.7547,-48.5735458},
     R=362.4379696953846);
-  
+
   constant IdealGases.Common.DataRecord LiOF(
     name="LiOF",
     MM=0.0419388032,
@@ -10807,7 +10807,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.376567002e-008,-1.574099067e-012,7.277167140000001e-017},
     bhigh={-12545.30277,-12.72130479},
     R=198.2524861367527);
-  
+
   constant IdealGases.Common.DataRecord LiOH(
     name="LiOH",
     MM=0.02394834,
@@ -10821,7 +10821,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.368054029999999e-012,-5.31378568e-016},
     bhigh={-13658.94396,-24.57598093},
     R=347.1836461316316);
-  
+
   constant IdealGases.Common.DataRecord LiON(
     name="LiON",
     MM=0.0369471,
@@ -10835,7 +10835,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.32991498e-008,-3.81751429e-012,1.769558455e-016},
     bhigh={22110.06635,-14.5410504},
     R=225.0372018372214);
-  
+
   constant IdealGases.Common.DataRecord Li2(
     name="Li2",
     MM=0.013882,
@@ -10849,7 +10849,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.652000081e-013},
     bhigh={772307.201,-1021.697298},
     R=598.9390577726553);
-  
+
   constant IdealGases.Common.DataRecord Li2plus(
     name="Li2plus",
     MM=0.0138814514,
@@ -10863,7 +10863,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.08766925e-015},
     bhigh={311796.445,-250.9543641},
     R=598.9627280617069);
-  
+
   constant IdealGases.Common.DataRecord Li2Br2(
     name="Li2Br2",
     MM=0.17369,
@@ -10877,7 +10877,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.556299963e-009,-1.844693069e-013,8.774879919999999e-018},
     bhigh={-62799.8996,-19.43063525},
     R=47.8696067706834);
-  
+
   constant IdealGases.Common.DataRecord Li2F2(
     name="Li2F2",
     MM=0.05187880640000001,
@@ -10891,7 +10891,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.217549520000001e-009,-7.14626702e-013,3.3168573e-017},
     bhigh={-115661.1527,-27.29853181},
     R=160.2672184840397);
-  
+
   constant IdealGases.Common.DataRecord Li2I2(
     name="Li2I2",
     MM=0.26769094,
@@ -10905,7 +10905,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.070510527e-009,-1.277717768e-013,6.11061224e-018},
     bhigh={-46774.7005,-17.21894034},
     R=31.05996788684742);
-  
+
   constant IdealGases.Common.DataRecord Li2O(
     name="Li2O",
     MM=0.0298814,
@@ -10919,7 +10919,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.086339840000001e-006,-1.370211764e-009,8.11172719e-014},
     bhigh={29907.26399,-156.4517822},
     R=278.2490780217794);
-  
+
   constant IdealGases.Common.DataRecord Li2Oplus(
     name="Li2Oplus",
     MM=0.0298808514,
@@ -10933,7 +10933,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.947160640000001e-009,-1.147038806e-012,5.33924147e-017},
     bhigh={50987.6231,-15.28011047},
     R=278.2541865590885);
-  
+
   constant IdealGases.Common.DataRecord Li2O2(
     name="Li2O2",
     MM=0.0458808,
@@ -10947,7 +10947,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.521202834e-008,-1.733841909e-012,7.99315462e-017},
     bhigh={-36184.8191,-29.04221044},
     R=181.2189848476923);
-  
+
   constant IdealGases.Common.DataRecord Li2O2H2(
     name="Li2O2H2",
     MM=0.04789668,
@@ -10961,7 +10961,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.6468417e-011,-1.904139406e-015},
     bhigh={-67387.4838,-66.472084},
     R=173.5918230658158);
-  
+
   constant IdealGases.Common.DataRecord Li2SO4(
     name="Li2SO4",
     MM=0.1099446,
@@ -10975,7 +10975,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.062411120000001e-008,-8.11443907e-012,3.76683021e-016},
     bhigh={-126890.8595,-80.14316674},
     R=75.62419618607918);
-  
+
   constant IdealGases.Common.DataRecord Li3plus(
     name="Li3plus",
     MM=0.0208224514,
@@ -10989,7 +10989,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.429152229999999e-010,-5.18198319e-014,2.439894871e-018},
     bhigh={88799.02870000001,-10.66880792},
     R=399.303225171653);
-  
+
   constant IdealGases.Common.DataRecord Li3Br3(
     name="Li3Br3",
     MM=0.260535,
@@ -11003,7 +11003,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.014221791e-009,-3.54029216e-013,1.672030783e-017},
     bhigh={-104247.0448,-44.05478160000001},
     R=31.9130711804556);
-  
+
   constant IdealGases.Common.DataRecord Li3CL3(
     name="Li3CL3",
     MM=0.127182,
@@ -11017,7 +11017,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.25351737e-009,-4.95556094e-013,2.325408214e-017},
     bhigh={-122492.7071,-48.44413629},
     R=65.37459703417152);
-  
+
   constant IdealGases.Common.DataRecord Li3F3(
     name="Li3F3",
     MM=0.07781820960000001,
@@ -11031,7 +11031,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.274057038e-008,-1.458168875e-012,6.744850030000001e-017},
     bhigh={-188208.1974,-56.3361288},
     R=106.8448123226932);
-  
+
   constant IdealGases.Common.DataRecord Li3I3(
     name="Li3I3",
     MM=0.40153641,
@@ -11045,7 +11045,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.163919735e-009,-2.561731922e-013,1.217394107e-017},
     bhigh={-78695.5068,-40.9172406},
     R=20.70664525789828);
-  
+
   constant IdealGases.Common.DataRecord Mg(
     name="Mg",
     MM=0.024305,
@@ -11058,7 +11058,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.359277788e-010,-7.766898397000001e-015},
     bhigh={4829.188109999999,23.39104998},
     R=342.0889528903518);
-  
+
   constant IdealGases.Common.DataRecord Mgplus(
     name="Mgplus",
     MM=0.0243044514,
@@ -11071,7 +11071,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.897261686e-009,-1.580433756e-012,2.135732238e-016},
     bhigh={106102.2394,4.64644286},
     R=342.0966745211126);
-  
+
   constant IdealGases.Common.DataRecord MgBr(
     name="MgBr",
     MM=0.104209,
@@ -11085,7 +11085,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.44333096e-007,-1.197734078e-010,7.421644240000001e-015},
     bhigh={2824.060334,-6.26443992},
     R=79.78650596397624);
-  
+
   constant IdealGases.Common.DataRecord MgBr2(
     name="MgBr2",
     MM=0.184113,
@@ -11099,7 +11099,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.20110431e-018},
     bhigh={-39198.8602,-7.40916803},
     R=45.15961393274782);
-  
+
   constant IdealGases.Common.DataRecord MgCL(
     name="MgCL",
     MM=0.05975800000000001,
@@ -11113,7 +11113,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.84196944e-007,-1.12640938e-010,5.81062073e-015},
     bhigh={13271.88977,-27.03802395},
     R=139.1357140466548);
-  
+
   constant IdealGases.Common.DataRecord MgCLplus(
     name="MgCLplus",
     MM=0.0597574514,
@@ -11127,7 +11127,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.424433718e-010,2.789613105e-016},
     bhigh={-148701.374,255.2015117},
     R=139.1369913744347);
-  
+
   constant IdealGases.Common.DataRecord MgCL2(
     name="MgCL2",
     MM=0.095211,
@@ -11141,7 +11141,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.931706275e-013,8.971657820000001e-018},
     bhigh={-50326.8691,-10.53268382},
     R=87.32680047473507);
-  
+
   constant IdealGases.Common.DataRecord MgF(
     name="MgF",
     MM=0.0433034032,
@@ -11155,7 +11155,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.33605229e-011,-2.270104205e-015},
     bhigh={-31693.2399,4.4105659},
     R=192.0050477695481);
-  
+
   constant IdealGases.Common.DataRecord MgFplus(
     name="MgFplus",
     MM=0.0433028546,
@@ -11169,7 +11169,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.263502341e-011,2.284524246e-015},
     bhigh={-83315.4988,87.2710238},
     R=192.0074802643611);
-  
+
   constant IdealGases.Common.DataRecord MgF2(
     name="MgF2",
     MM=0.0623018064,
@@ -11183,7 +11183,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.44012914e-009,-6.15824576e-013,2.822792666e-017},
     bhigh={-90600.19439999999,-14.2079699},
     R=133.4547500375527);
-  
+
   constant IdealGases.Common.DataRecord MgF2plus(
     name="MgF2plus",
     MM=0.0623012578,
@@ -11197,7 +11197,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.996274309e-011,-1.233278721e-015},
     bhigh={66991.175,-10.94528006},
     R=133.4559251867945);
-  
+
   constant IdealGases.Common.DataRecord MgH(
     name="MgH",
     MM=0.02531294,
@@ -11211,7 +11211,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.3248805e-010,-1.824672746e-014},
     bhigh={15985.82755,34.3123316},
     R=328.4672582481529);
-  
+
   constant IdealGases.Common.DataRecord MgI(
     name="MgI",
     MM=0.15120947,
@@ -11225,7 +11225,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.0233294e-010,-3.79030487e-015},
     bhigh={-38185.5111,59.9310438},
     R=54.98645025341336);
-  
+
   constant IdealGases.Common.DataRecord MgI2(
     name="MgI2",
     MM=0.27811394,
@@ -11239,7 +11239,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.241336470000001e-010,-8.56766495e-014,4.0696917e-018},
     bhigh={-22945.55505,-5.24127259},
     R=29.89591963639075);
-  
+
   constant IdealGases.Common.DataRecord MgN(
     name="MgN",
     MM=0.0383117,
@@ -11253,7 +11253,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.330639131e-017},
     bhigh={33412.857,0.7925250209},
     R=217.0217453153997);
-  
+
   constant IdealGases.Common.DataRecord MgO(
     name="MgO",
     MM=0.0403044,
@@ -11267,7 +11267,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.957488529999999e-011,-3.052513649e-015},
     bhigh={-230050.4434,173.8984472},
     R=206.2919185002134);
-  
+
   constant IdealGases.Common.DataRecord MgOH(
     name="MgOH",
     MM=0.04131234,
@@ -11281,7 +11281,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.025677088e-011,-1.554849476e-015},
     bhigh={-6149.11456,-16.71027009},
     R=201.2588006392279);
-  
+
   constant IdealGases.Common.DataRecord MgOHplus(
     name="MgOHplus",
     MM=0.0413117914,
@@ -11295,7 +11295,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.312358260000001e-012,-4.80283622e-016},
     bhigh={88016.61709999999,-24.38155217},
     R=201.261473255793);
-  
+
   constant IdealGases.Common.DataRecord Mg_OH_2(
     name="Mg_OH_2",
     MM=0.05831968,
@@ -11309,7 +11309,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.015343753e-011,-1.128993279e-015},
     bhigh={-38877.2467,-58.4049812},
     R=142.5671745798331);
-  
+
   constant IdealGases.Common.DataRecord MgS(
     name="MgS",
     MM=0.05637,
@@ -11323,7 +11323,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.403084420000002e-006,-9.53988217e-010,4.264658029999999e-014},
     bhigh={507893.117,-583.4656096},
     R=147.4981727869434);
-  
+
   constant IdealGases.Common.DataRecord Mg2(
     name="Mg2",
     MM=0.04861,
@@ -11337,7 +11337,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.104045317e-011,-6.558868290000001e-016},
     bhigh={33510.3656,15.88177377},
     R=171.0444764451759);
-  
+
   constant IdealGases.Common.DataRecord Mg2F4(
     name="Mg2F4",
     MM=0.1246036128,
@@ -11351,7 +11351,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.22031705e-009,-9.48886978e-013,4.41979533e-017},
     bhigh={-211734.969,-53.08655469999999},
     R=66.72737501877634);
-  
+
   constant IdealGases.Common.DataRecord Mn(
     name="Mn",
     MM=0.054938049,
@@ -11365,7 +11365,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.87260329e-010,-1.92363357e-014},
     bhigh={28678.03487,22.92541198},
     R=151.3426878337088);
-  
+
   constant IdealGases.Common.DataRecord Mnplus(
     name="Mnplus",
     MM=0.0549375004,
@@ -11379,7 +11379,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.467879847e-015},
     bhigh={134990.2108,-17.02666341},
     R=151.344199125594);
-  
+
   constant IdealGases.Common.DataRecord Mo(
     name="Mo",
     MM=0.09594,
@@ -11393,7 +11393,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.034189087e-015},
     bhigh={184264.6473,-127.5326434},
     R=86.66324786324788);
-  
+
   constant IdealGases.Common.DataRecord Moplus(
     name="Moplus",
     MM=0.0959394514,
@@ -11407,7 +11407,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.78842304e-014},
     bhigh={411894.857,-321.679103},
     R=86.66374342015469);
-  
+
   constant IdealGases.Common.DataRecord Mominus(
     name="Mominus",
     MM=0.0959405486,
@@ -11419,7 +11419,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
     ahigh={0,0,2.5,0,0,0,0},
     bhigh={69051.2369,7.48565954},
     R=86.66275231200837);
-  
+
   constant IdealGases.Common.DataRecord MoO(
     name="MoO",
     MM=0.1119394,
@@ -11433,7 +11433,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.358975691e-010,5.77526858e-015},
     bhigh={74489.72,-42.5361293},
     R=74.27654605974304);
-  
+
   constant IdealGases.Common.DataRecord MoO2(
     name="MoO2",
     MM=0.1279388,
@@ -11447,7 +11447,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.752760170000001e-007,-7.59045747e-011,3.46133778e-015},
     bhigh={7327.72518,-25.33315948},
     R=64.98788483243551);
-  
+
   constant IdealGases.Common.DataRecord MoO3(
     name="MoO3",
     MM=0.1439382,
@@ -11461,7 +11461,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.69263726e-011,-3.48965731e-015},
     bhigh={-49237.38720000001,-21.14864892},
     R=57.76417934919292);
-  
+
   constant IdealGases.Common.DataRecord MoO3minus(
     name="MoO3minus",
     MM=0.1439387486,
@@ -11475,7 +11475,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -4.73319589e-011,2.527517727e-015},
     bhigh={-83378.155,-27.01522825},
     R=57.763959190069);
-  
+
   constant IdealGases.Common.DataRecord Mo2O6(
     name="Mo2O6",
     MM=0.2878764,
@@ -11489,7 +11489,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -4.959777990000001e-012,2.293212733e-016},
     bhigh={-143057.325,-86.69628539999999},
     R=28.88208967459646);
-  
+
   constant IdealGases.Common.DataRecord Mo3O9(
     name="Mo3O9",
     MM=0.4318146,
@@ -11503,7 +11503,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.71787953e-016},
     bhigh={-235742.2166,-144.8769485},
     R=19.25472644973097);
-  
+
   constant IdealGases.Common.DataRecord Mo4O12(
     name="Mo4O12",
     MM=0.5757528,
@@ -11517,7 +11517,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.928472389999999e-008,-1.021091158e-011,4.721091689999999e-016},
     bhigh={-325647.777,-204.7486535},
     R=14.44104483729823);
-  
+
   constant IdealGases.Common.DataRecord Mo5O15(
     name="Mo5O15",
     MM=0.7196910000000001,
@@ -11531,7 +11531,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.116223706e-007,-1.276562233e-011,5.90231891e-016},
     bhigh={-412897.2380000001,-265.1287167},
     R=11.55283586983858);
-  
+
   constant IdealGases.Common.DataRecord N(
     name="N",
     MM=0.0140067,
@@ -11544,7 +11544,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.01265788e-011,-2.677227571e-015},
     bhigh={56973.5133,4.865231506},
     R=593.6067739010616);
-  
+
   constant IdealGases.Common.DataRecord Nplus(
     name="Nplus",
     MM=0.0140061514,
@@ -11558,7 +11558,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.352350307e-007,-1.389834122e-011,5.046166279e-016},
     bhigh={231080.9984,-1.994146545},
     R=593.6300245904811);
-  
+
   constant IdealGases.Common.DataRecord Nminus(
     name="Nminus",
     MM=0.0140072486,
@@ -11572,7 +11572,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.100136461e-015,-9.754986710000001e-020},
     bhigh={56214.13890000001,5.006484157},
     R=593.583525032889);
-  
+
   constant IdealGases.Common.DataRecord NCO(
     name="NCO",
     MM=0.04201680000000001,
@@ -11586,7 +11586,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -7.25380415e-012,3.24487241e-016},
     bhigh={23657.92776,-26.1953297},
     R=197.8844652615144);
-  
+
   constant IdealGases.Common.DataRecord ND(
     name="ND",
     MM=0.016020802,
@@ -11600,7 +11600,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.768929529999999e-008,-1.056317654e-011,4.68307921e-016},
     bhigh={54666.3341,-14.80810939},
     R=518.9797614376608);
-  
+
   constant IdealGases.Common.DataRecord ND2(
     name="ND2",
     MM=0.018034904,
@@ -11614,7 +11614,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.181660230000001e-007,-1.241119284e-010,6.22629986e-015},
     bhigh={61089.2958,-61.24502693},
     R=461.0211398962811);
-  
+
   constant IdealGases.Common.DataRecord ND3(
     name="ND3",
     MM=0.020049006,
@@ -11628,7 +11628,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.106175650000001e-015},
     bhigh={53972.0566,-98.10988569},
     R=414.7074423540001);
-  
+
   constant IdealGases.Common.DataRecord NF(
     name="NF",
     MM=0.0330051032,
@@ -11642,7 +11642,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.15004211e-007,-1.36525663e-010,7.23462441e-015},
     bhigh={46428.19450000001,-30.19933248},
     R=251.9147402635602);
-  
+
   constant IdealGases.Common.DataRecord NF2(
     name="NF2",
     MM=0.0520035064,
@@ -11656,7 +11656,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.667577562e-012,1.236070614e-016},
     bhigh={3435.44059,-13.36102511},
     R=159.8829112799979);
-  
+
   constant IdealGases.Common.DataRecord NF3(
     name="NF3",
     MM=0.07100190960000001,
@@ -11670,7 +11670,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -3.157737664e-012,1.714329953e-016},
     bhigh={-17131.83352,-30.98920858},
     R=117.1020898851994);
-  
+
   constant IdealGases.Common.DataRecord NH(
     name="NH",
     MM=0.01501464,
@@ -11684,7 +11684,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.07609248e-007,-6.647942750000001e-011,2.384234783e-015},
     bhigh={78989.1234,-41.169704},
     R=553.7576658514623);
-  
+
   constant IdealGases.Common.DataRecord NHplus(
     name="NHplus",
     MM=0.0150140914,
@@ -11698,7 +11698,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.010098289e-011,3.71719018e-017},
     bhigh={225897.596,-27.86785234},
     R=553.7778996070318);
-  
+
   constant IdealGases.Common.DataRecord NHF(
     name="NHF",
     MM=0.0340130432,
@@ -11712,7 +11712,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.322774501e-008,6.28048733e-012,-6.28309569e-016},
     bhigh={33370.6534,-29.00483634},
     R=244.4495175309689);
-  
+
   constant IdealGases.Common.DataRecord NHF2(
     name="NHF2",
     MM=0.0530114464,
@@ -11726,7 +11726,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.08651759e-016},
     bhigh={9134.195979999999,-48.67843963},
     R=156.8429568448825);
-  
+
   constant IdealGases.Common.DataRecord NH2(
     name="NH2",
     MM=0.01602258,
@@ -11740,7 +11740,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.078593449999999e-015},
     bhigh={65037.7856,-53.59155744},
     R=518.9221710860547);
-  
+
   constant IdealGases.Common.DataRecord NH2F(
     name="NH2F",
     MM=0.0350209832,
@@ -11754,7 +11754,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.05067867e-007,-1.90876131e-011,7.38923621e-016},
     bhigh={35529.2734,-67.31185490999999},
     R=237.4140084108204);
-  
+
   constant IdealGases.Common.DataRecord NH3(
     name="NH3",
     MM=0.01703052,
@@ -11768,7 +11768,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.53092357e-012,-3.32270053e-016},
     bhigh={43861.91959999999,-64.62330602},
     R=488.2101075011215);
-  
+
   constant IdealGases.Common.DataRecord NH2OH(
     name="NH2OH",
     MM=0.03302992,
@@ -11782,7 +11782,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.918174365e-016},
     bhigh={89230.2071,-126.9053624},
     R=251.7254658806319);
-  
+
   constant IdealGases.Common.DataRecord NH4plus(
     name="NH4plus",
     MM=0.0180379114,
@@ -11796,7 +11796,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.894342129999999e-016},
     bhigh={166419.6236,-120.1535761},
     R=460.944275399867);
-  
+
   constant IdealGases.Common.DataRecord NO(
     name="NO",
     MM=0.0300061,
@@ -11810,7 +11810,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.880966450000001e-008,-1.416076856e-011,9.380184619999999e-016},
     bhigh={17503.17656,-8.50166909},
     R=277.0927244793559);
-  
+
   constant IdealGases.Common.DataRecord NOCL(
     name="NOCL",
     MM=0.06545910000000001,
@@ -11824,7 +11824,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.215378352e-010,1.280394898e-014},
     bhigh={4517.32842,-23.07323335},
     R=127.0178172324398);
-  
+
   constant IdealGases.Common.DataRecord NOF(
     name="NOF",
     MM=0.0490045032,
@@ -11838,7 +11838,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.21035443e-015},
     bhigh={32099.0078,-63.70266962},
     R=169.667509250456);
-  
+
   constant IdealGases.Common.DataRecord NOF3(
     name="NOF3",
     MM=0.08700130959999999,
@@ -11852,7 +11852,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -8.85041197e-012,4.07598003e-016},
     bhigh={-20256.51446,-51.06881858999999},
     R=95.56720511710552);
-  
+
   constant IdealGases.Common.DataRecord NO2(
     name="NO2",
     MM=0.0460055,
@@ -11866,7 +11866,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.32836105e-015},
     bhigh={25024.97403,-43.0513004},
     R=180.7277825477389);
-  
+
   constant IdealGases.Common.DataRecord NO2minus(
     name="NO2minus",
     MM=0.0460060486,
@@ -11880,7 +11880,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.826729008e-011,-2.353985481e-015},
     bhigh={-17157.95217,-22.28576043},
     R=180.7256274558646);
-  
+
   constant IdealGases.Common.DataRecord NO2CL(
     name="NO2CL",
     MM=0.0814585,
@@ -11894,7 +11894,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.101543039999999e-008,-1.036656913e-011,4.78166481e-016},
     bhigh={6294.26732,-35.21239681},
     R=102.0700356623311);
-  
+
   constant IdealGases.Common.DataRecord NO2F(
     name="NO2F",
     MM=0.06500390319999999,
@@ -11908,7 +11908,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.047692566e-007,-1.189150595e-011,5.470307120000001e-016},
     bhigh={-6891.71918,-38.49788492},
     R=127.9072731127937);
-  
+
   constant IdealGases.Common.DataRecord NO3(
     name="NO3",
     MM=0.0620049,
@@ -11922,7 +11922,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -6.19546675e-012,2.870000149e-016},
     bhigh={8982.01173,-34.44666597},
     R=134.0937893618085);
-  
+
   constant IdealGases.Common.DataRecord NO3minus(
     name="NO3minus",
     MM=0.0620054486,
@@ -11936,7 +11936,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.90208647e-008,-1.01973348e-011,4.72333079e-016},
     bhigh={-33643.2109,-38.78432657},
     R=134.0926029523154);
-  
+
   constant IdealGases.Common.DataRecord NO3F(
     name="NO3F",
     MM=0.0810033032,
@@ -11950,7 +11950,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -5.68604014e-011,2.720906921e-015},
     bhigh={9760.583979999999,-65.58153684},
     R=102.6436166371052);
-  
+
   constant IdealGases.Common.DataRecord N2(
     name="N2",
     MM=0.0280134,
@@ -11964,7 +11964,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.061954386e-015},
     bhigh={12832.10415,-15.86640027},
     R=296.8033869505308);
-  
+
   constant IdealGases.Common.DataRecord N2plus(
     name="N2plus",
     MM=0.0280128514,
@@ -11978,7 +11978,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.102514545e-011,5.41199647e-016},
     bhigh={134038.8483,50.90897022},
     R=296.809199509051);
-  
+
   constant IdealGases.Common.DataRecord N2minus(
     name="N2minus",
     MM=0.0280139486,
@@ -11992,7 +11992,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.311051349999999e-008,-8.202017370000001e-012,3.7400447e-016},
     bhigh={24249.64308,-9.014934294},
     R=296.7975746196665);
-  
+
   constant IdealGases.Common.DataRecord NCN(
     name="NCN",
     MM=0.0400241,
@@ -12006,7 +12006,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.983403318e-008,-3.120157047e-012,1.99269872e-016},
     bhigh={61844.24479999999,-21.4910882},
     R=207.7366386751982);
-  
+
   constant IdealGases.Common.DataRecord N2D2_cis(
     name="N2D2_cis",
     MM=0.032041604,
@@ -12020,7 +12020,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -3.036294387e-011,1.365324117e-015},
     bhigh={53563.11889999999,-62.71215875},
     R=259.4898807188304);
-  
+
   constant IdealGases.Common.DataRecord N2F2(
     name="N2F2",
     MM=0.06601020640000001,
@@ -12034,7 +12034,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.19258723e-016},
     bhigh={9283.46696,-32.46968772},
     R=125.9573701317801);
-  
+
   constant IdealGases.Common.DataRecord N2F4(
     name="N2F4",
     MM=0.1040070128,
@@ -12048,7 +12048,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -5.08980888e-012,2.359374159e-016},
     bhigh={-5281.4889,-60.40513435},
     R=79.94145563999894);
-  
+
   constant IdealGases.Common.DataRecord N2H2(
     name="N2H2",
     MM=0.03002928,
@@ -12062,7 +12062,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.117921171e-010,-7.627102210000001e-015},
     bhigh={137415.2574,-119.9559168},
     R=276.8788329257312);
-  
+
   constant IdealGases.Common.DataRecord NH2NO2(
     name="NH2NO2",
     MM=0.06202808,
@@ -12076,7 +12076,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.122804183e-007,-1.948359653e-011,7.43935136e-016},
     bhigh={42308.2258,-101.6190179},
     R=134.0436782824811);
-  
+
   constant IdealGases.Common.DataRecord N2H4(
     name="N2H4",
     MM=0.03204516,
@@ -12090,7 +12090,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.318016127e-011,3.16640017e-016},
     bhigh={83484.337,-115.5751024},
     R=259.4610855430274);
-  
+
   constant IdealGases.Common.DataRecord N2O(
     name="N2O",
     MM=0.0440128,
@@ -12104,7 +12104,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.315124031e-007,-1.4142151e-011,6.38106687e-016},
     bhigh={21986.32638,-31.47805016},
     R=188.9103169986913);
-  
+
   constant IdealGases.Common.DataRecord N2Oplus(
     name="N2Oplus",
     MM=0.04401225139999999,
@@ -12118,7 +12118,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.70510501e-008,-5.95888512e-012,2.835725557e-016},
     bhigh={164602.1769,-22.87356617},
     R=188.9126717112227);
-  
+
   constant IdealGases.Common.DataRecord N2O3(
     name="N2O3",
     MM=0.0760116,
@@ -12132,7 +12132,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.309541710000001e-007,-6.19045122e-011,2.692956658e-015},
     bhigh={33609.1245,-67.39212388},
     R=109.384251877345);
-  
+
   constant IdealGases.Common.DataRecord N2O4(
     name="N2O4",
     MM=0.092011,
@@ -12146,7 +12146,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.14363467e-007,-1.316288176e-011,5.976316620000001e-016},
     bhigh={4306.90052,-65.69450380000001},
     R=90.36389127386944);
-  
+
   constant IdealGases.Common.DataRecord N2O5(
     name="N2O5",
     MM=0.1080104,
@@ -12160,7 +12160,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.401398635e-007,-3.057161911e-011,1.495915511e-015},
     bhigh={13369.57281,-82.98623341000001},
     R=76.97843911327057);
-  
+
   constant IdealGases.Common.DataRecord N3(
     name="N3",
     MM=0.0420201,
@@ -12174,7 +12174,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.324094351e-007,-1.47898964e-011,6.721230470000001e-016},
     bhigh={64126.95389999999,-31.35825973},
     R=197.8689246336872);
-  
+
   constant IdealGases.Common.DataRecord N3H(
     name="N3H",
     MM=0.04302804,
@@ -12188,7 +12188,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.512289051e-011,6.102906629999999e-016},
     bhigh={64283.4447,-55.13119107999999},
     R=193.2338075357372);
-  
+
   constant IdealGases.Common.DataRecord Na(
     name="Na",
     MM=0.02298977,
@@ -12201,7 +12201,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.306301844e-007,-1.249597843e-011,7.226771190000001e-016},
     bhigh={29129.63564,-15.19717061},
     R=361.6596425279592);
-  
+
   constant IdealGases.Common.DataRecord Naplus(
     name="Naplus",
     MM=0.0229892214,
@@ -12213,7 +12213,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
     ahigh={0,0,2.5,0,0,0,0},
     bhigh={72565.3707,3.55084508},
     R=361.6682729411619);
-  
+
   constant IdealGases.Common.DataRecord Naminus(
     name="Naminus",
     MM=0.0229903186,
@@ -12225,7 +12225,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
     ahigh={0,0,2.500000001,0,0,0,0},
     bhigh={5082.19967,3.55091679},
     R=361.6510125266381);
-  
+
   constant IdealGases.Common.DataRecord NaALF4(
     name="NaALF4",
     MM=0.1259649208,
@@ -12239,7 +12239,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.644510872e-008,-1.883696066e-012,8.719877450000001e-017},
     bhigh={-227953.3538,-53.7066514},
     R=66.00624957484196);
-  
+
   constant IdealGases.Common.DataRecord NaBO2(
     name="NaBO2",
     MM=0.06579957,
@@ -12253,7 +12253,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.80450516e-008,-1.101655008e-011,5.02917276e-016},
     bhigh={-69492.9206,-34.1635313},
     R=126.360582599552);
-  
+
   constant IdealGases.Common.DataRecord NaBr(
     name="NaBr",
     MM=0.10289377,
@@ -12267,7 +12267,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.47039274e-007,-4.83281021e-011,1.4239613e-015},
     bhigh={-1750.862247,-18.56478949},
     R=80.80636952072025);
-  
+
   constant IdealGases.Common.DataRecord NaCN(
     name="NaCN",
     MM=0.04900717,
@@ -12281,7 +12281,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.650466810000001e-016},
     bhigh={20109.26347,-24.19276094},
     R=169.6582765338215);
-  
+
   constant IdealGases.Common.DataRecord NaCL(
     name="NaCL",
     MM=0.05844277000000001,
@@ -12295,7 +12295,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.465673596e-011,-2.730355213e-015},
     bhigh={-17362.77667,-3.99828856},
     R=142.2669048712099);
-  
+
   constant IdealGases.Common.DataRecord NaF(
     name="NaF",
     MM=0.0419881732,
@@ -12309,7 +12309,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.417053025e-010,-8.600270160000001e-015},
     bhigh={-57728.8463,29.09489906},
     R=198.0193794189646);
-  
+
   constant IdealGases.Common.DataRecord NaH(
     name="NaH",
     MM=0.02399771,
@@ -12323,7 +12323,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.90532288e-010,-1.923931194e-014},
     bhigh={-76329.2227,122.207006},
     R=346.4693922878474);
-  
+
   constant IdealGases.Common.DataRecord NaI(
     name="NaI",
     MM=0.14989424,
@@ -12337,7 +12337,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.285837754e-010,1.19588995e-014},
     bhigh={32538.9362,-56.4002332},
     R=55.46892262170982);
-  
+
   constant IdealGases.Common.DataRecord NaLi(
     name="NaLi",
     MM=0.02993077,
@@ -12351,7 +12351,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.68532437e-006,-6.458143299999999e-010,2.696508992e-014},
     bhigh={239443.1755,-296.1780126},
     R=277.7901136522716);
-  
+
   constant IdealGases.Common.DataRecord NaNO2(
     name="NaNO2",
     MM=0.06899527000000001,
@@ -12365,7 +12365,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -6.48671032e-012,3.008171243e-016},
     bhigh={-18684.35672,-29.21304474},
     R=120.5078551036904);
-  
+
   constant IdealGases.Common.DataRecord NaNO3(
     name="NaNO3",
     MM=0.08499466999999999,
@@ -12379,7 +12379,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.023845720000001e-008,-1.032543966e-011,4.77867155e-016},
     bhigh={-31388.89875,-49.59121431},
     R=97.82345175291582);
-  
+
   constant IdealGases.Common.DataRecord NaO(
     name="NaO",
     MM=0.03898917,
@@ -12393,7 +12393,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.428508328e-014},
     bhigh={24132.39357,-29.89159486},
     R=213.2508078525396);
-  
+
   constant IdealGases.Common.DataRecord NaOH(
     name="NaOH",
     MM=0.03999711,
@@ -12407,7 +12407,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.022715136e-011,-5.71328641e-016},
     bhigh={-9509.90171,-22.02310401},
     R=207.87681910018);
-  
+
   constant IdealGases.Common.DataRecord NaOHplus(
     name="NaOHplus",
     MM=0.0399965614,
@@ -12421,7 +12421,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.007487881e-011,-5.47440621e-016},
     bhigh={95844.41650000001,-20.79484012},
     R=207.8796703758639);
-  
+
   constant IdealGases.Common.DataRecord Na2(
     name="Na2",
     MM=0.04597954,
@@ -12435,7 +12435,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.259515667e-005,-1.560445735e-009,7.02467717e-014},
     bhigh={409082.08,-550.997089},
     R=180.8298212639796);
-  
+
   constant IdealGases.Common.DataRecord Na2Br2(
     name="Na2Br2",
     MM=0.20578754,
@@ -12449,7 +12449,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.358676253e-010,-2.857194816e-014,1.381909879e-018},
     bhigh={-60900.3992,-14.94517863},
     R=40.40318476036013);
-  
+
   constant IdealGases.Common.DataRecord Na2CL2(
     name="Na2CL2",
     MM=0.11688554,
@@ -12463,7 +12463,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -5.64894068e-014,2.724721177e-018},
     bhigh={-70980.6341,-17.87230397},
     R=71.13345243560495);
-  
+
   constant IdealGases.Common.DataRecord Na2F2(
     name="Na2F2",
     MM=0.0839763464,
@@ -12477,7 +12477,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.516333603e-009,-1.804877459e-013,8.61347492e-018},
     bhigh={-103489.6664,-21.78860202},
     R=99.00968970948229);
-  
+
   constant IdealGases.Common.DataRecord Na2I2(
     name="Na2I2",
     MM=0.29978848,
@@ -12491,7 +12491,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.360287207e-010,-1.650916036e-014,7.996149680000001e-019},
     bhigh={-45969.2175,-12.76523965},
     R=27.73446131085491);
-  
+
   constant IdealGases.Common.DataRecord Na2O(
     name="Na2O",
     MM=0.06197894,
@@ -12505,7 +12505,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.996634558e-013,9.27643355e-018},
     bhigh={-4297.33965,-10.63530214},
     R=134.1499548072297);
-  
+
   constant IdealGases.Common.DataRecord Na2Oplus(
     name="Na2Oplus",
     MM=0.0619783914,
@@ -12519,7 +12519,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.407321045e-009,-1.635833952e-013,7.66244513e-018},
     bhigh={60329.77469999999,-9.42652674},
     R=134.1511422318069);
-  
+
   constant IdealGases.Common.DataRecord Na2O2(
     name="Na2O2",
     MM=0.07797834000000001,
@@ -12533,7 +12533,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.577721890000001e-009,-8.70125673e-013,4.03606139e-017},
     bhigh={-17803.00574,-23.8678919},
     R=106.6254039262698);
-  
+
   constant IdealGases.Common.DataRecord Na2O2H2(
     name="Na2O2H2",
     MM=0.07999422000000001,
@@ -12547,7 +12547,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.025311778e-011,-1.132991623e-015},
     bhigh={-48562.4557,-68.1348098},
     R=103.93840955009);
-  
+
   constant IdealGases.Common.DataRecord Na2SO4(
     name="Na2SO4",
     MM=0.14204214,
@@ -12561,7 +12561,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.498708169999999e-008,-7.462479400000001e-012,3.46249166e-016},
     bhigh={-127059.7762,-76.67871596000001},
     R=58.53524876490879);
-  
+
   constant IdealGases.Common.DataRecord Na3CL3(
     name="Na3CL3",
     MM=0.17532831,
@@ -12575,7 +12575,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.190943689999999e-010,-9.86321003e-014,4.74900535e-018},
     bhigh={-114725.2948,-40.31342160000001},
     R=47.42230162373664);
-  
+
   constant IdealGases.Common.DataRecord Na3F3(
     name="Na3F3",
     MM=0.1259645196,
@@ -12589,7 +12589,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.75724873e-009,-3.26330097e-013,1.550483212e-017},
     bhigh={-167214.1773,-47.5378068},
     R=66.00645980632153);
-  
+
   constant IdealGases.Common.DataRecord Nb(
     name="Nb",
     MM=0.09290638,
@@ -12603,7 +12603,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.464237990000001e-007,-1.486269508e-010,8.714309406000001e-015},
     bhigh={68791.24550000001,13.9816903},
     R=89.49301436564421);
-  
+
   constant IdealGases.Common.DataRecord Nbplus(
     name="Nbplus",
     MM=0.0929058314,
@@ -12617,7 +12617,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.05791509e-007,-1.032401533e-010,6.629241279999999e-015},
     bhigh={151794.5546,12.10678502},
     R=89.49354281328783);
-  
+
   constant IdealGases.Common.DataRecord Nbminus(
     name="Nbminus",
     MM=0.09290692859999999,
@@ -12631,7 +12631,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.195577988e-012,-5.606330449999999e-017},
     bhigh={74739.9675,9.67531561},
     R=89.49248592424141);
-  
+
   constant IdealGases.Common.DataRecord NbCL5(
     name="NbCL5",
     MM=0.27017138,
@@ -12645,7 +12645,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.42077792e-009,-4.04112442e-013,1.917266128e-017},
     bhigh={-89628.15120000001,-43.74582607},
     R=30.77480671712896);
-  
+
   constant IdealGases.Common.DataRecord NbO(
     name="NbO",
     MM=0.10890578,
@@ -12659,7 +12659,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.04877371e-011,-1.893595022e-015},
     bhigh={32684.5779,-1.868958549},
     R=76.34555300921586);
-  
+
   constant IdealGases.Common.DataRecord NbOCL3(
     name="NbOCL3",
     MM=0.21526478,
@@ -12673,7 +12673,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.778576440000001e-008,-9.36517065e-012,4.67003693e-016},
     bhigh={-94907.68120000001,-27.45263834},
     R=38.62439550027646);
-  
+
   constant IdealGases.Common.DataRecord NbO2(
     name="NbO2",
     MM=0.12490518,
@@ -12687,7 +12687,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.602430854e-015},
     bhigh={-33250.2732,-3.55955655},
     R=66.56627051015819);
-  
+
   constant IdealGases.Common.DataRecord Ne(
     name="Ne",
     MM=0.0201797,
@@ -12699,7 +12699,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
     ahigh={0,0,2.5,0,0,0,0},
     bhigh={-745.375,3.35532272},
     R=412.0215860493466);
-  
+
   constant IdealGases.Common.DataRecord Neplus(
     name="Neplus",
     MM=0.0201791514,
@@ -12713,7 +12713,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.510218183e-012,-1.126646096e-016},
     bhigh={247253.6944,7.46614054},
     R=412.0327874639962);
-  
+
   constant IdealGases.Common.DataRecord Ni(
     name="Ni",
     MM=0.0586934,
@@ -12727,7 +12727,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.62479521e-012,-4.448865218e-017},
     bhigh={43360.7217,9.677195599999999},
     R=141.6594029311643);
-  
+
   constant IdealGases.Common.DataRecord Niplus(
     name="Niplus",
     MM=0.0586928514,
@@ -12741,7 +12741,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.235342833e-015},
     bhigh={73403.9512,71.37503100000001},
     R=141.6607270165784);
-  
+
   constant IdealGases.Common.DataRecord Niminus(
     name="Niminus",
     MM=0.0586939486,
@@ -12755,7 +12755,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.271571579e-016},
     bhigh={28547.59122,10.43462235},
     R=141.6580788705022);
-  
+
   constant IdealGases.Common.DataRecord NiCL(
     name="NiCL",
     MM=0.09414640000000001,
@@ -12769,7 +12769,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.3076358e-015},
     bhigh={-45053.9705,67.69402548000001},
     R=88.31428498593679);
-  
+
   constant IdealGases.Common.DataRecord NiCL2(
     name="NiCL2",
     MM=0.1295994,
@@ -12783,7 +12783,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.608172043e-007,-3.26463725e-011,1.525950893e-015},
     bhigh={-4578.98554,-22.12397347},
     R=64.15517355790227);
-  
+
   constant IdealGases.Common.DataRecord NiO(
     name="NiO",
     MM=0.0746928,
@@ -12797,7 +12797,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.139832819999999e-009,-5.85347491e-013,2.697077329e-017},
     bhigh={34611.4385,1.209414814},
     R=111.3155752629437);
-  
+
   constant IdealGases.Common.DataRecord NiS(
     name="NiS",
     MM=0.09075839999999999,
@@ -12811,7 +12811,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.569591708e-011,6.67704506e-016},
     bhigh={32755.6594,3.690652283},
     R=91.61104647062973);
-  
+
   constant IdealGases.Common.DataRecord O(
     name="O",
     MM=0.0159994,
@@ -12825,7 +12825,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -9.438304329999999e-012,2.725038297e-016},
     bhigh={33924.2806,-0.667958535},
     R=519.6739877745415);
-  
+
   constant IdealGases.Common.DataRecord Oplus(
     name="Oplus",
     MM=0.0159988514,
@@ -12838,7 +12838,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.016595903e-011,-9.107157761999999e-016},
     bhigh={183719.1966,10.05690382},
     R=519.691807375622);
-  
+
   constant IdealGases.Common.DataRecord Ominus(
     name="Ominus",
     MM=0.0159999486,
@@ -12852,7 +12852,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.912083080000001e-014,-2.271600083e-018},
     bhigh={11495.54438,4.83703644},
     R=519.6561693954442);
-  
+
   constant IdealGases.Common.DataRecord OD(
     name="OD",
     MM=0.018013502,
@@ -12866,7 +12866,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.95952762e-008,3.45445473e-012},
     bhigh={-7.3806268e-016,0},
     R=461.5688831633072);
-  
+
   constant IdealGases.Common.DataRecord ODminus(
     name="ODminus",
     MM=0.0180140506,
@@ -12880,7 +12880,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.411665054e-007,4.248425540000001e-011},
     bhigh={-2.387099102e-015,-11889.35343},
     R=461.5548265418994);
-  
+
   constant IdealGases.Common.DataRecord OH(
     name="OH",
     MM=0.01700734,
@@ -12894,7 +12894,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.006475941e-011,-1.556993656e-015},
     bhigh={20196.40206,-11.01282337},
     R=488.8755090449183);
-  
+
   constant IdealGases.Common.DataRecord OHplus(
     name="OHplus",
     MM=0.0170067914,
@@ -12908,7 +12908,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.792853949999999e-011,-4.36387213e-015},
     bhigh={164383.9235,-3.99705849},
     R=488.8912790451466);
-  
+
   constant IdealGases.Common.DataRecord OHminus(
     name="OHminus",
     MM=0.0170078886,
@@ -12922,7 +12922,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.23908167e-011,-3.35434322e-015},
     bhigh={-12248.49139,1.48773626},
     R=488.8597400620322);
-  
+
   constant IdealGases.Common.DataRecord O2(
     name="O2",
     MM=0.0319988,
@@ -12936,7 +12936,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.053719572e-011,-8.193467050000001e-016},
     bhigh={-16890.10929,17.38716506},
     R=259.8369938872708);
-  
+
   constant IdealGases.Common.DataRecord O2plus(
     name="O2plus",
     MM=0.0319982514,
@@ -12950,7 +12950,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.578465409e-015},
     bhigh={144632.1044,-5.81123065},
     R=259.841448711163);
-  
+
   constant IdealGases.Common.DataRecord O2minus(
     name="O2minus",
     MM=0.0319993486,
@@ -12964,7 +12964,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.757645062e-012,8.24817279e-017},
     bhigh={-5960.17775,-2.436885556},
     R=259.8325392161265);
-  
+
   constant IdealGases.Common.DataRecord O3(
     name="O3",
     MM=0.0479982,
@@ -12978,7 +12978,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.24818811e-014},
     bhigh={-651791.818,702.9109520000001},
     R=173.2246625915139);
-  
+
   constant IdealGases.Common.DataRecord P(
     name="P",
     MM=0.030973761,
@@ -12992,7 +12992,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.021022887e-014},
     bhigh={65417.23959999999,-39.15974795},
     R=268.4359836056074);
-  
+
   constant IdealGases.Common.DataRecord Pplus(
     name="Pplus",
     MM=0.0309732124,
@@ -13006,7 +13006,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.810842484e-012,4.31811257e-016},
     bhigh={149049.3431,18.45275207},
     R=268.4407381650862);
-  
+
   constant IdealGases.Common.DataRecord Pminus(
     name="Pminus",
     MM=0.0309743096,
@@ -13020,7 +13020,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.82376629e-014,-3.16695991e-018},
     bhigh={27975.72693,6.246793872},
     R=268.4312292145488);
-  
+
   constant IdealGases.Common.DataRecord PCL(
     name="PCL",
     MM=0.066426761,
@@ -13034,7 +13034,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.295588390000001e-008,-3.090212484e-011,2.106384858e-015},
     bhigh={8433.59115,10.64902238},
     R=125.1675059092525);
-  
+
   constant IdealGases.Common.DataRecord PCL2(
     name="PCL2",
     MM=0.101879761,
@@ -13048,7 +13048,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.89678474e-009,-2.21487992e-013,1.04165355e-017},
     bhigh={-8742.99368,-6.23402319},
     R=81.61063510936191);
-  
+
   constant IdealGases.Common.DataRecord PCL2minus(
     name="PCL2minus",
     MM=0.1018803096,
@@ -13062,7 +13062,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.253747944e-009,-2.619657192e-013,1.227059658e-017},
     bhigh={-45038.1143,-6.721522361},
     R=81.6101956564922);
-  
+
   constant IdealGases.Common.DataRecord PCL3(
     name="PCL3",
     MM=0.137332761,
@@ -13076,7 +13076,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -3.39186924e-013,1.58642553e-017},
     bhigh={-38003.3668,-20.50737678},
     R=60.54252415416013);
-  
+
   constant IdealGases.Common.DataRecord PCL5(
     name="PCL5",
     MM=0.208238761,
@@ -13090,7 +13090,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.97139229e-009,-5.79986005e-013,2.72597077e-017},
     bhigh={-50342.3422,-48.7245487},
     R=39.92759061796377);
-  
+
   constant IdealGases.Common.DataRecord PF(
     name="PF",
     MM=0.0499721642,
@@ -13104,7 +13104,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.243648570000001e-011,-2.618755712e-015},
     bhigh={-27667.73009,27.59312302},
     R=166.3820675591232);
-  
+
   constant IdealGases.Common.DataRecord PFplus(
     name="PFplus",
     MM=0.0499716156,
@@ -13118,7 +13118,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.431831329e-008,-2.300109157e-012,1.694069882e-016},
     bhigh={107863.3756,-0.04072343949999999},
     R=166.3838941400966);
-  
+
   constant IdealGases.Common.DataRecord PFminus(
     name="PFminus",
     MM=0.0499727128,
@@ -13132,7 +13132,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.182073001e-011,-6.083906640000001e-016},
     bhigh={-22907.99827,3.7485261},
     R=166.3802410182543);
-  
+
   constant IdealGases.Common.DataRecord PFCL(
     name="PFCL",
     MM=0.0854251642,
@@ -13146,7 +13146,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.408504490000001e-009,-7.33899377e-013,3.39672317e-017},
     bhigh={-36006.4926,-7.626493035},
     R=97.33047724127172);
-  
+
   constant IdealGases.Common.DataRecord PFCLminus(
     name="PFCLminus",
     MM=0.0854257128,
@@ -13160,7 +13160,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.685280620000001e-009,-7.7222622e-013,3.5993823e-017},
     bhigh={-65588.1722,-8.208878059},
     R=97.32985218942183);
-  
+
   constant IdealGases.Common.DataRecord PFCL2(
     name="PFCL2",
     MM=0.1208781642,
@@ -13174,7 +13174,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.62797201e-009,-8.75309743e-013,4.05778835e-017},
     bhigh={-64504.7219,-21.74054563},
     R=68.7839036523025);
-  
+
   constant IdealGases.Common.DataRecord PFCL4(
     name="PFCL4",
     MM=0.1917841642,
@@ -13188,7 +13188,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.971130739999999e-009,-1.03328881e-012,4.80446835e-017},
     bhigh={-81357.19399999999,-50.62403920000001},
     R=43.35327702723852);
-  
+
   constant IdealGases.Common.DataRecord PF2(
     name="PF2",
     MM=0.06897056739999999,
@@ -13202,7 +13202,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.09733523e-008,-1.25287026e-012,5.78479114e-017},
     bhigh={-63382.9584,-10.41715673},
     R=120.5510163745587);
-  
+
   constant IdealGases.Common.DataRecord PF2minus(
     name="PF2minus",
     MM=0.068971116,
@@ -13216,7 +13216,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.117302152e-008,-1.289308601e-012,6.00470667e-017},
     bhigh={-87002.23319999999,-11.09074866},
     R=120.5500575052316);
-  
+
   constant IdealGases.Common.DataRecord PF2CL(
     name="PF2CL",
     MM=0.1044235674,
@@ -13230,7 +13230,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.333942001e-008,-1.526772528e-012,7.063339179999999e-017},
     bhigh={-91011.1059,-24.17825549},
     R=79.62256229143155);
-  
+
   constant IdealGases.Common.DataRecord PF2CL3(
     name="PF2CL3",
     MM=0.1753295674,
@@ -13244,7 +13244,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.355610375e-008,-1.55712964e-012,7.22435997e-017},
     bhigh={-110494.1533,-53.87308191},
     R=47.42196152820714);
-  
+
   constant IdealGases.Common.DataRecord PF3(
     name="PF3",
     MM=0.0879689706,
@@ -13258,7 +13258,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.958901359e-008,-2.240491075e-012,1.035952523e-016},
     bhigh={-117374.3464,-27.77419177},
     R=94.51596333673592);
-  
+
   constant IdealGases.Common.DataRecord PF3CL2(
     name="PF3CL2",
     MM=0.1588749706,
@@ -13272,7 +13272,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.129279712e-008,-2.443515401e-012,1.13290435e-016},
     bhigh={-139264.2151,-55.31285745},
     R=52.33342903919946);
-  
+
   constant IdealGases.Common.DataRecord PF4CL(
     name="PF4CL",
     MM=0.1424203738,
@@ -13286,7 +13286,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.806715254e-008,-3.2151663e-012,1.488512118e-016},
     bhigh={-168048.8362,-57.35844805},
     R=58.37979341127105);
-  
+
   constant IdealGases.Common.DataRecord PF5(
     name="PF5",
     MM=0.125965777,
@@ -13300,7 +13300,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.332945909e-016},
     bhigh={-194432.1623,-62.61721040000001},
     R=66.00580092480199);
-  
+
   constant IdealGases.Common.DataRecord PH(
     name="PH",
     MM=0.031981701,
@@ -13314,7 +13314,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.1659477e-007,-1.142128853e-010,6.175410560000001e-015},
     bhigh={45362.6018,-24.6729814},
     R=259.9759156024878);
-  
+
   constant IdealGases.Common.DataRecord PH2(
     name="PH2",
     MM=0.032989641,
@@ -13328,7 +13328,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.150542671e-007,-1.624213739e-011,3.76622524e-016},
     bhigh={41830.7463,-42.3162325},
     R=252.0328123607044);
-  
+
   constant IdealGases.Common.DataRecord PH2minus(
     name="PH2minus",
     MM=0.0329901896,
@@ -13342,7 +13342,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.338005187e-011,1.015580932e-015},
     bhigh={29906.83733,-43.78711584999999},
     R=252.0286212601821);
-  
+
   constant IdealGases.Common.DataRecord PH3(
     name="PH3",
     MM=0.033997581,
@@ -13356,7 +13356,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -3.73627208e-011,1.672947506e-015},
     bhigh={39103.2571,-71.9878119},
     R=244.5606938917213);
-  
+
   constant IdealGases.Common.DataRecord PN(
     name="PN",
     MM=0.044980461,
@@ -13370,7 +13370,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.263645119999999e-012,3.063920924e-016},
     bhigh={17703.17267,1.325517397},
     R=184.8463047099495);
-  
+
   constant IdealGases.Common.DataRecord PO(
     name="PO",
     MM=0.046973161,
@@ -13384,7 +13384,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.18441323e-011,-1.573691908e-015},
     bhigh={-8939.79039,6.954859188},
     R=177.0047368113038);
-  
+
   constant IdealGases.Common.DataRecord POminus(
     name="POminus",
     MM=0.0469737096,
@@ -13398,7 +13398,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.64575227e-011,-3.39570376e-015},
     bhigh={-19872.0954,10.75444355},
     R=177.0026695954198);
-  
+
   constant IdealGases.Common.DataRecord POCL3(
     name="POCL3",
     MM=0.153332161,
@@ -13412,7 +13412,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.77932988e-016},
     bhigh={-70093.15090000001,-39.84746301},
     R=54.2252319785671);
-  
+
   constant IdealGases.Common.DataRecord POFCL2(
     name="POFCL2",
     MM=0.1368775642,
@@ -13426,7 +13426,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.29118449e-008,-4.9218448e-012,2.282079808e-016},
     bhigh={-96543.92140000001,-41.64963494},
     R=60.74386294492521);
-  
+
   constant IdealGases.Common.DataRecord POF2CL(
     name="POF2CL",
     MM=0.1204229674,
@@ -13440,7 +13440,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.34371272e-008,-6.126461349999999e-012,2.839570116e-016},
     bhigh={-123340.1194,-44.96103437000001},
     R=69.04390565615641);
-  
+
   constant IdealGases.Common.DataRecord POF3(
     name="POF3",
     MM=0.1039683706,
@@ -13454,7 +13454,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.47896991e-016},
     bhigh={-149976.173,-48.82214181000001},
     R=79.97116769280214);
-  
+
   constant IdealGases.Common.DataRecord PO2(
     name="PO2",
     MM=0.062972561,
@@ -13468,7 +13468,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.532912819e-007,-1.789964539e-011,1.800381054e-016},
     bhigh={-20288.84763,-29.69743125},
     R=132.0332517522989);
-  
+
   constant IdealGases.Common.DataRecord PO2minus(
     name="PO2minus",
     MM=0.06297310960000001,
@@ -13482,7 +13482,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.488198340000001e-007,-1.040308759e-010,4.01903366e-015},
     bhigh={-36859.595,-59.5679622},
     R=132.0321015241718);
-  
+
   constant IdealGases.Common.DataRecord PS(
     name="PS",
     MM=0.063038761,
@@ -13496,7 +13496,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.019861879999999e-011,-4.26912231e-015},
     bhigh={11215.10462,11.47334049},
     R=131.8945973573307);
-  
+
   constant IdealGases.Common.DataRecord P2(
     name="P2",
     MM=0.061947522,
@@ -13510,7 +13510,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.25936012e-010,-7.07975249e-015},
     bhigh={1329.82474,21.69741365},
     R=134.2179918028037);
-  
+
   constant IdealGases.Common.DataRecord P2O3(
     name="P2O3",
     MM=0.109945722,
@@ -13524,7 +13524,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.70435606e-016},
     bhigh={-79227.56999999999,-47.39487232000001},
     R=75.62342443846974);
-  
+
   constant IdealGases.Common.DataRecord P2O4(
     name="P2O4",
     MM=0.125945122,
@@ -13538,7 +13538,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.65065458e-016},
     bhigh={-109043.593,-67.14276593},
     R=66.01662587614946);
-  
+
   constant IdealGases.Common.DataRecord P2O5(
     name="P2O5",
     MM=0.141944522,
@@ -13552,7 +13552,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.90357341e-016},
     bhigh={-130629.016,-80.31642952},
     R=58.57550459044837);
-  
+
   constant IdealGases.Common.DataRecord P3(
     name="P3",
     MM=0.09292128300000001,
@@ -13566,7 +13566,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -6.24466057e-013,2.88772422e-017},
     bhigh={23087.2228,-12.28310621},
     R=89.47866120186912);
-  
+
   constant IdealGases.Common.DataRecord P3O6(
     name="P3O6",
     MM=0.188917683,
@@ -13580,7 +13580,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.067867708e-007,-1.218015776e-011,5.61491196e-016},
     bhigh={-190916.5548,-122.0665277},
     R=44.01108391743297);
-  
+
   constant IdealGases.Common.DataRecord P4(
     name="P4",
     MM=0.123895044,
@@ -13594,7 +13594,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.482408440000001e-009,-5.22610367e-013,2.45579129e-017},
     bhigh={3848.21092,-24.77297797},
     R=67.10899590140184);
-  
+
   constant IdealGases.Common.DataRecord P4O6(
     name="P4O6",
     MM=0.219891444,
@@ -13608,7 +13608,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.07439193e-016},
     bhigh={-199713.89,-128.1853821},
     R=37.81171221923487);
-  
+
   constant IdealGases.Common.DataRecord P4O7(
     name="P4O7",
     MM=0.235890844,
@@ -13622,7 +13622,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.516639610000001e-008,-1.075204176e-011,4.91102568e-016},
     bhigh={-242909.654,-147.3140859},
     R=35.24711624669926);
-  
+
   constant IdealGases.Common.DataRecord P4O8(
     name="P4O8",
     MM=0.251890244,
@@ -13636,7 +13636,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.429623989e-007,-1.635821725e-011,7.571070759999999e-016},
     bhigh={-278384.3144,-167.963696},
     R=33.00831293807473);
-  
+
   constant IdealGases.Common.DataRecord P4O9(
     name="P4O9",
     MM=0.267889644,
@@ -13650,7 +13650,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.937914895e-007,-2.230510118e-011,1.037248818e-015},
     bhigh={-312963.7516,-189.717642},
     R=31.03692952012733);
-  
+
   constant IdealGases.Common.DataRecord P4O10(
     name="P4O10",
     MM=0.283889044,
@@ -13664,7 +13664,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.620219946e-011,1.213529528e-015},
     bhigh={-345951.505,-211.5498906},
     R=29.28775229522418);
-  
+
   constant IdealGases.Common.DataRecord Pb(
     name="Pb",
     MM=0.2072,
@@ -13678,7 +13678,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.3524328e-010,-7.324114532e-015},
     bhigh={-148165.0666,215.4011624},
     R=40.12776061776062);
-  
+
   constant IdealGases.Common.DataRecord Pbplus(
     name="Pbplus",
     MM=0.2071994514,
@@ -13692,7 +13692,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.016371727e-015},
     bhigh={135434.7306,-27.22020908},
     R=40.12786686364751);
-  
+
   constant IdealGases.Common.DataRecord Pbminus(
     name="Pbminus",
     MM=0.2072005486,
@@ -13704,7 +13704,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
     ahigh={0,0,2.5,0,0,0,0},
     bhigh={17762.2614,8.2351321},
     R=40.12765437243635);
-  
+
   constant IdealGases.Common.DataRecord PbBr(
     name="PbBr",
     MM=0.287104,
@@ -13718,7 +13718,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.095529211e-011,1.508555088e-015},
     bhigh={-39704.4098,59.5923865},
     R=28.95979157378512);
-  
+
   constant IdealGases.Common.DataRecord PbBr2(
     name="PbBr2",
     MM=0.367008,
@@ -13732,7 +13732,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.018044861e-010,-1.234016791e-014,5.97133765e-019},
     bhigh={-14622.1375,0.8868582650000001},
     R=22.65474322085622);
-  
+
   constant IdealGases.Common.DataRecord PbBr3(
     name="PbBr3",
     MM=0.446912,
@@ -13746,7 +13746,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.326232632e-010,-2.81599446e-014,1.361283735e-018},
     bhigh={-15569.81182,-10.81765474},
     R=18.60427108692539);
-  
+
   constant IdealGases.Common.DataRecord PbBr4(
     name="PbBr4",
     MM=0.5268160000000001,
@@ -13760,7 +13760,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.83413088e-010,-4.63396718e-014,2.237427066e-018},
     bhigh={-25923.27065,-22.87710636},
     R=15.78249711474215);
-  
+
   constant IdealGases.Common.DataRecord PbCL(
     name="PbCL",
     MM=0.242653,
@@ -13774,7 +13774,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.0873955e-007,-9.772753809999999e-011,5.807471579999999e-015},
     bhigh={-5269.68472,6.646491015},
     R=34.26486381787986);
-  
+
   constant IdealGases.Common.DataRecord PbCL2(
     name="PbCL2",
     MM=0.278106,
@@ -13788,7 +13788,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.65171959e-010,-5.57913701e-014,2.67814357e-018},
     bhigh={-23274.39309,-2.140739285},
     R=29.896773172819);
-  
+
   constant IdealGases.Common.DataRecord PbCL3(
     name="PbCL3",
     MM=0.313559,
@@ -13802,7 +13802,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.79933081e-010,-9.3546061e-014,4.4905897e-018},
     bhigh={-24485.08643,-15.0749087},
     R=26.51645144932851);
-  
+
   constant IdealGases.Common.DataRecord PbCL4(
     name="PbCL4",
     MM=0.349012,
@@ -13816,7 +13816,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.585922492e-013,7.58176361e-018},
     bhigh={-43439.84220000001,-28.74559263},
     R=23.82288288081785);
-  
+
   constant IdealGases.Common.DataRecord PbF(
     name="PbF",
     MM=0.2261984032,
@@ -13830,7 +13830,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -5.76645965e-011,3.24748619e-015},
     bhigh={-20261.65076,9.319483890000001},
     R=36.75743012495325);
-  
+
   constant IdealGases.Common.DataRecord PbF2(
     name="PbF2",
     MM=0.2451968064,
@@ -13844,7 +13844,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.108489027e-009,-2.434212002e-013,1.133872429e-017},
     bhigh={-55522.3677,-5.49607322},
     R=33.90938129282258);
-  
+
   constant IdealGases.Common.DataRecord PbF3(
     name="PbF3",
     MM=0.2641952096,
@@ -13858,7 +13858,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.36247499e-009,-3.89602071e-013,1.820152103e-017},
     bhigh={-62068.6959,-20.06978661},
     R=31.47094155336267);
-  
+
   constant IdealGases.Common.DataRecord PbF4(
     name="PbF4",
     MM=0.2831936128,
@@ -13872,7 +13872,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.69332459e-009,-6.526219550000001e-013,3.02234196e-017},
     bhigh={-100290.8979,-35.9024028},
     R=29.35967346788974);
-  
+
   constant IdealGases.Common.DataRecord PbI(
     name="PbI",
     MM=0.33410447,
@@ -13886,7 +13886,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.626692202e-010,-6.55332888e-015},
     bhigh={-61544.3369,99.38404970000001},
     R=24.88584483769403);
-  
+
   constant IdealGases.Common.DataRecord PbI2(
     name="PbI2",
     MM=0.46100894,
@@ -13900,7 +13900,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.331718140000001e-011,-8.89919388e-015,4.3107125e-019},
     bhigh={-3352.09638,2.458605463},
     R=18.03538126614204);
-  
+
   constant IdealGases.Common.DataRecord PbI3(
     name="PbI3",
     MM=0.58791341,
@@ -13914,7 +13914,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.04675172e-011,-1.098840054e-014,5.325388290000001e-019},
     bhigh={-413.825893,-7.57941711},
     R=14.14234113149418);
-  
+
   constant IdealGases.Common.DataRecord PbI4(
     name="PbI4",
     MM=0.7148178799999999,
@@ -13928,7 +13928,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.104213978e-010,-1.341397771e-014,6.50170611e-019},
     bhigh={-8893.193200000002,-18.40570345},
     R=11.63159488959622);
-  
+
   constant IdealGases.Common.DataRecord PbO(
     name="PbO",
     MM=0.2231994,
@@ -13942,7 +13942,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.540990941e-010,-1.834652493e-014},
     bhigh={8339.391539999999,10.50920926},
     R=37.25131877594653);
-  
+
   constant IdealGases.Common.DataRecord PbO2(
     name="PbO2",
     MM=0.2391988,
@@ -13956,7 +13956,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.696463999999999e-009,-5.34497218e-013,2.460760535e-017},
     bhigh={14133.86101,-12.52684909},
     R=34.75967270738816);
-  
+
   constant IdealGases.Common.DataRecord PbS(
     name="PbS",
     MM=0.239265,
@@ -13970,7 +13970,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.451447577e-010,-1.393564925e-014},
     bhigh={50093.3453,-32.17417657},
     R=34.75005537792824);
-  
+
   constant IdealGases.Common.DataRecord PbS2(
     name="PbS2",
     MM=0.27133,
@@ -13984,7 +13984,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.032444494e-009,-1.219580043e-013,5.78580465e-018},
     bhigh={27012.29533,-8.714618097000001},
     R=30.64339365348469);
-  
+
   constant IdealGases.Common.DataRecord Rb(
     name="Rb",
     MM=0.0854678,
@@ -13998,7 +13998,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.51189314e-010,-2.521064422e-014},
     bhigh={-14664.54849,42.53442370000001},
     R=97.28192371864024);
-  
+
   constant IdealGases.Common.DataRecord Rbplus(
     name="Rbplus",
     MM=0.0854672514,
@@ -14010,7 +14010,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
     ahigh={0,0,2.5,0,0,0,0},
     bhigh={58203.2736,5.52050692},
     R=97.28254815504691);
-  
+
   constant IdealGases.Common.DataRecord Rbminus(
     name="Rbminus",
     MM=0.08546834859999999,
@@ -14022,7 +14022,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
     ahigh={0,0,2.5,0,0,0,0},
     bhigh={2600.405796,5.52052617},
     R=97.28129929024978);
-  
+
   constant IdealGases.Common.DataRecord RbBO2(
     name="RbBO2",
     MM=0.1282776,
@@ -14036,7 +14036,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.68133059e-008,-1.088037652e-011,4.96773366e-016},
     bhigh={-75079.0325,-31.31951149},
     R=64.81624227456703);
-  
+
   constant IdealGases.Common.DataRecord RbBr(
     name="RbBr",
     MM=0.1653718,
@@ -14050,7 +14050,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -3.092443341e-015},
     bhigh={4427.46769,-27.57714089},
     R=50.27744754547027);
-  
+
   constant IdealGases.Common.DataRecord RbCL(
     name="RbCL",
     MM=0.1209208,
@@ -14064,7 +14064,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.719263762e-010,-1.81046398e-014},
     bhigh={-52976.86040000001,43.11317822},
     R=68.75965094508142);
-  
+
   constant IdealGases.Common.DataRecord RbF(
     name="RbF",
     MM=0.1044662032,
@@ -14078,7 +14078,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.134905135e-010,-6.825624440000001e-015},
     bhigh={-58101.7911,25.88118896},
     R=79.59006592861414);
-  
+
   constant IdealGases.Common.DataRecord RbH(
     name="RbH",
     MM=0.08647574,
@@ -14092,7 +14092,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.871300173e-010,-1.459981256e-014},
     bhigh={-45955.18829999999,83.65664320000001},
     R=96.14802949358978);
-  
+
   constant IdealGases.Common.DataRecord RbI(
     name="RbI",
     MM=0.21237227,
@@ -14106,7 +14106,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.463480035e-006,-3.19157573e-010,1.458455589e-014},
     bhigh={64329.4804,-100.9499336},
     R=39.15045970926431);
-  
+
   constant IdealGases.Common.DataRecord RbK(
     name="RbK",
     MM=0.1245661,
@@ -14120,7 +14120,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.96482606e-006,-8.716698790000001e-010,5.22188796e-014},
     bhigh={-32727.6904,-13.72401997},
     R=66.74746981722957);
-  
+
   constant IdealGases.Common.DataRecord RbLi(
     name="RbLi",
     MM=0.0924088,
@@ -14134,7 +14134,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.43166205e-014},
     bhigh={254396.4131,-352.075871},
     R=89.9748941659236);
-  
+
   constant IdealGases.Common.DataRecord RbNO2(
     name="RbNO2",
     MM=0.1314733,
@@ -14148,7 +14148,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.56142012e-008,-6.378805599999999e-012,2.957679896e-016},
     bhigh={-21285.90982,-25.68367325},
     R=63.24076447461196);
-  
+
   constant IdealGases.Common.DataRecord RbNO3(
     name="RbNO3",
     MM=0.1474727,
@@ -14162,7 +14162,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.878332289999999e-008,-1.016221214e-011,4.704254090000001e-016},
     bhigh={-35043.3994,-46.19379241},
     R=56.37973672415301);
-  
+
   constant IdealGases.Common.DataRecord RbNa(
     name="RbNa",
     MM=0.10845757,
@@ -14176,7 +14176,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.61759846e-014},
     bhigh={124261.0951,-199.366198},
     R=76.6610574070579);
-  
+
   constant IdealGases.Common.DataRecord RbO(
     name="RbO",
     MM=0.1014672,
@@ -14190,7 +14190,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.24260743e-014},
     bhigh={18281.64827,-21.17386042},
     R=81.94246022359934);
-  
+
   constant IdealGases.Common.DataRecord RbOH(
     name="RbOH",
     MM=0.10247514,
@@ -14204,7 +14204,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.029358824e-011,-5.74327779e-016},
     bhigh={-15155.68947,-19.50051629},
     R=81.13647856445964);
-  
+
   constant IdealGases.Common.DataRecord Rb2Br2(
     name="Rb2Br2",
     MM=0.3307436,
@@ -14218,7 +14218,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.30206795e-011,-4.02158182e-015,1.953006729e-019},
     bhigh={-69379.6088,-9.12256236},
     R=25.13872377273513);
-  
+
   constant IdealGases.Common.DataRecord Rb2CL2(
     name="Rb2CL2",
     MM=0.2418416,
@@ -14232,7 +14232,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.024725787e-010,-1.244291058e-014,6.02891239e-019},
     bhigh={-77408.9767,-12.04843385},
     R=34.37982547254071);
-  
+
   constant IdealGases.Common.DataRecord Rb2F2(
     name="Rb2F2",
     MM=0.2089324064,
@@ -14246,7 +14246,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.96241627e-010,-5.98217497e-014,2.882751742e-018},
     bhigh={-105917.6154,-16.03254014},
     R=39.79503296430707);
-  
+
   constant IdealGases.Common.DataRecord Rb2I2(
     name="Rb2I2",
     MM=0.42474454,
@@ -14260,7 +14260,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.51281117e-011,-1.843027189e-015,8.951244179999999e-020},
     bhigh={-55075.7962,-6.94804539},
     R=19.57522985463216);
-  
+
   constant IdealGases.Common.DataRecord Rb2O(
     name="Rb2O",
     MM=0.186935,
@@ -14274,7 +14274,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -9.195683850000001e-014,4.325201520000001e-018},
     bhigh={-15253.73768,-3.23038878},
     R=44.47787733704229);
-  
+
   constant IdealGases.Common.DataRecord Rb2O2(
     name="Rb2O2",
     MM=0.2029344,
@@ -14288,7 +14288,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.4056391e-009,-7.35141939e-013,3.40856171e-017},
     bhigh={-28821.79733,-19.10948823},
     R=40.97123011179967);
-  
+
   constant IdealGases.Common.DataRecord Rb2O2H2(
     name="Rb2O2H2",
     MM=0.20495028,
@@ -14302,7 +14302,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.063382927e-011,-1.150861507e-015},
     bhigh={-50241.1763,-60.27054920000001},
     R=40.56823928222982);
-  
+
   constant IdealGases.Common.DataRecord Rb2SO4(
     name="Rb2SO4",
     MM=0.2669982,
@@ -14316,7 +14316,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.289142939999999e-008,-7.2193243e-012,3.34871819e-016},
     bhigh={-133871.3151,-70.56246881999999},
     R=31.1405545056109);
-  
+
   constant IdealGases.Common.DataRecord Rn(
     name="Rn",
     MM=0.2220176,
@@ -14330,7 +14330,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.819136527e-008,-2.866656182e-012,1.789322176e-016},
     bhigh={-220.280934,6.25500571},
     R=37.44960759867686);
-  
+
   constant IdealGases.Common.DataRecord Rnplus(
     name="Rnplus",
     MM=0.2220170514,
@@ -14344,7 +14344,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.192256661e-012,-3.18452198e-017},
     bhigh={124352.8478,8.821997789999999},
     R=37.44970013595992);
-  
+
   constant IdealGases.Common.DataRecord S(
     name="S",
     MM=0.032065,
@@ -14358,7 +14358,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -9.547095849999999e-012,8.041466646e-016},
     bhigh={23349.9527,15.59554855},
     R=259.300545766412);
-  
+
   constant IdealGases.Common.DataRecord Splus(
     name="Splus",
     MM=0.03206445140000001,
@@ -14371,7 +14371,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.141387919e-015},
     bhigh={179282.3835,-27.86935079},
     R=259.3049822146652);
-  
+
   constant IdealGases.Common.DataRecord Sminus(
     name="Sminus",
     MM=0.0320655486,
@@ -14385,7 +14385,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.95220838e-013,-4.09966282e-017},
     bhigh={6931.1957,6.574986902},
     R=259.2961094699624);
-  
+
   constant IdealGases.Common.DataRecord SCL(
     name="SCL",
     MM=0.067518,
@@ -14399,7 +14399,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.252700734e-011,-6.41746365e-016},
     bhigh={15231.11069,6.014528409},
     R=123.1445244231168);
-  
+
   constant IdealGases.Common.DataRecord SCL2(
     name="SCL2",
     MM=0.102971,
@@ -14413,7 +14413,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.39331857e-011,-6.39479517e-016},
     bhigh={-7210.4737,-2.774273151},
     R=80.7457633702693);
-  
+
   constant IdealGases.Common.DataRecord SCL2plus(
     name="SCL2plus",
     MM=0.1029704514,
@@ -14427,7 +14427,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.93593888e-011,-2.955831247e-015},
     bhigh={102678.7381,0.1365611954},
     R=80.74619356286517);
-  
+
   constant IdealGases.Common.DataRecord SD(
     name="SD",
     MM=0.034079102,
@@ -14441,7 +14441,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.009960290000001e-008,-7.13116364e-012,4.0358587e-016},
     bhigh={22655.45124,-8.350483655},
     R=243.9756775281227);
-  
+
   constant IdealGases.Common.DataRecord SF(
     name="SF",
     MM=0.0510634032,
@@ -14455,7 +14455,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.98029731e-015},
     bhigh={15774.61591,-19.02584835},
     R=162.8264369187207);
-  
+
   constant IdealGases.Common.DataRecord SFplus(
     name="SFplus",
     MM=0.0510628546,
@@ -14469,7 +14469,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.2226919e-012,3.25974688e-017},
     bhigh={102684.9122,18.87705768},
     R=162.8281862643848);
-  
+
   constant IdealGases.Common.DataRecord SFminus(
     name="SFminus",
     MM=0.0510639518,
@@ -14483,7 +14483,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.198331099e-010,7.12173954e-015},
     bhigh={-21509.94816,-14.70239183},
     R=162.8246876106444);
-  
+
   constant IdealGases.Common.DataRecord SF2(
     name="SF2",
     MM=0.0700618064,
@@ -14497,7 +14497,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.104468959e-012,5.09530878e-017},
     bhigh={-37042.8949,-10.9525396},
     R=118.6733889293497);
-  
+
   constant IdealGases.Common.DataRecord SF2plus(
     name="SF2plus",
     MM=0.07006125780000001,
@@ -14511,7 +14511,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.079708115e-011,-9.69170989e-016},
     bhigh={78842.1381,-4.21611053},
     R=118.6743181764573);
-  
+
   constant IdealGases.Common.DataRecord SF2minus(
     name="SF2minus",
     MM=0.07006235499999999,
@@ -14525,7 +14525,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.566295898e-009,-2.981125977e-013,1.395700722e-017},
     bhigh={-49670.5033,-8.483087898999999},
     R=118.6724596967944);
-  
+
   constant IdealGases.Common.DataRecord SF3(
     name="SF3",
     MM=0.0890602096,
@@ -14539,7 +14539,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.336120599999999e-009,-1.068727665e-012,4.9443426e-017},
     bhigh={-63584.4586,-24.89561796},
     R=93.35787595092299);
-  
+
   constant IdealGases.Common.DataRecord SF3plus(
     name="SF3plus",
     MM=0.08905966100000001,
@@ -14553,7 +14553,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.300856025e-011,-7.915106980000001e-016},
     bhigh={44154.26809999999,-26.7390077},
     R=93.35845102756454);
-  
+
   constant IdealGases.Common.DataRecord SF3minus(
     name="SF3minus",
     MM=0.08906075819999999,
@@ -14567,7 +14567,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.064565220000001e-009,-1.049320641e-012,4.89920126e-017},
     bhigh={-98002.272,-25.24368023},
     R=93.35730088136619);
-  
+
   constant IdealGases.Common.DataRecord SF4(
     name="SF4",
     MM=0.1080586128,
@@ -14581,7 +14581,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.929905265e-008,-2.209423506e-012,1.022335559e-016},
     bhigh={-94831.7534,-42.43061278},
     R=76.944093437409);
-  
+
   constant IdealGases.Common.DataRecord SF4plus(
     name="SF4plus",
     MM=0.1080580642,
@@ -14595,7 +14595,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.574595959999999e-012,-3.69667078e-016},
     bhigh={44699.4423,-37.60378598},
     R=76.94448407488684);
-  
+
   constant IdealGases.Common.DataRecord SF4minus(
     name="SF4minus",
     MM=0.1080591614,
@@ -14609,7 +14609,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.905761211e-011,1.084482543e-015},
     bhigh={-100523.1225,-51.64256578},
     R=76.94370280389758);
-  
+
   constant IdealGases.Common.DataRecord SF5(
     name="SF5",
     MM=0.127057016,
@@ -14623,7 +14623,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.231433706e-008,-1.417173409e-012,6.5848894e-017},
     bhigh={-113567.1054,-55.77524201},
     R=65.43890500308933);
-  
+
   constant IdealGases.Common.DataRecord SF5plus(
     name="SF5plus",
     MM=0.1270564674,
@@ -14637,7 +14637,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -3.99003589e-011,2.279087545e-015},
     bhigh={9090.95319,-55.31460631},
     R=65.43918755291948);
-  
+
   constant IdealGases.Common.DataRecord SF5minus(
     name="SF5minus",
     MM=0.1270575646,
@@ -14651,7 +14651,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.249477046e-008,-1.448104799e-012,6.7674623e-017},
     bhigh={-149855.4401,-56.31439391},
     R=65.4386224556991);
-  
+
   constant IdealGases.Common.DataRecord SF6(
     name="SF6",
     MM=0.1460554192,
@@ -14665,7 +14665,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -4.78374495e-012,2.213516129e-016},
     bhigh={-151060.9837,-81.47574587},
     R=56.92682986733026);
-  
+
   constant IdealGases.Common.DataRecord SF6minus(
     name="SF6minus",
     MM=0.1460559678,
@@ -14679,7 +14679,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.05707957e-008,-4.683820930000001e-012,2.182263999e-016},
     bhigh={-165890.2452,-79.65845887},
     R=56.92661604478445);
-  
+
   constant IdealGases.Common.DataRecord SH(
     name="SH",
     MM=0.03307294,
@@ -14693,7 +14693,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.543914779999999e-007,-8.468470419999999e-011,3.86474155e-015},
     bhigh={48992.14490000001,-37.70400275},
     R=251.3980311396568);
-  
+
   constant IdealGases.Common.DataRecord SHminus(
     name="SHminus",
     MM=0.0330734886,
@@ -14707,7 +14707,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.05508478e-016},
     bhigh={13174.77387,-28.18370616},
     R=251.3938611241634);
-  
+
   constant IdealGases.Common.DataRecord SN(
     name="SN",
     MM=0.0460717,
@@ -14721,7 +14721,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.157370109999999e-011,-2.128351755e-015},
     bhigh={23793.45477,10.33222139},
     R=180.4680964670286);
-  
+
   constant IdealGases.Common.DataRecord SO(
     name="SO",
     MM=0.0480644,
@@ -14735,7 +14735,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.838221189999999e-011,-3.56050907e-015},
     bhigh={-27088.38059,36.15358329},
     R=172.9860770133404);
-  
+
   constant IdealGases.Common.DataRecord SOminus(
     name="SOminus",
     MM=0.0480649486,
@@ -14749,7 +14749,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -3.67646949e-012,-2.910092894e-016},
     bhigh={-9984.43801,-3.951456757},
     R=172.9841025982081);
-  
+
   constant IdealGases.Common.DataRecord SOF2(
     name="SOF2",
     MM=0.08606120640000001,
@@ -14763,7 +14763,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.96416973e-008,-4.54305524e-012,2.104969923e-016},
     bhigh={-70720.71710000001,-29.04334504},
     R=96.61114859761017);
-  
+
   constant IdealGases.Common.DataRecord SO2(
     name="SO2",
     MM=0.0640638,
@@ -14777,7 +14777,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -5.45431661e-012,2.918294102e-016},
     bhigh={-33513.0869,-16.55776085},
     R=129.7842463294403);
-  
+
   constant IdealGases.Common.DataRecord SO2minus(
     name="SO2minus",
     MM=0.0640643486,
@@ -14791,7 +14791,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.443328132e-008,-2.809735019e-012,1.305160431e-016},
     bhigh={-49730.7261,-12.61421156},
     R=129.7831349525343);
-  
+
   constant IdealGases.Common.DataRecord SO2CL2(
     name="SO2CL2",
     MM=0.1349698,
@@ -14805,7 +14805,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.29350962e-008,-7.21784426e-012,3.34684022e-016},
     bhigh={-41900.7299,-44.81942574999999},
     R=61.60246218042851);
-  
+
   constant IdealGases.Common.DataRecord SO2FCL(
     name="SO2FCL",
     MM=0.1185152032,
@@ -14819,7 +14819,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -8.230625200000001e-012,3.81292562e-016},
     bhigh={-65524.7269,-47.09166446},
     R=70.15531995476509);
-  
+
   constant IdealGases.Common.DataRecord SO2F2(
     name="SO2F2",
     MM=0.1020606064,
@@ -14833,7 +14833,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.456688780000001e-008,-9.678246870000001e-012,4.48001428e-016},
     bhigh={-89019.9414,-51.0927005},
     R=81.46602585735764);
-  
+
   constant IdealGases.Common.DataRecord SO3(
     name="SO3",
     MM=0.0800632,
@@ -14847,7 +14847,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.466889039999999e-008,-9.70539929e-012,4.49839754e-016},
     bhigh={-43982.83990000001,-36.55217314},
     R=103.8488594010732);
-  
+
   constant IdealGases.Common.DataRecord S2(
     name="S2",
     MM=0.06412999999999999,
@@ -14861,7 +14861,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.002813651e-010,-5.59699005e-015},
     bhigh={10855.08427,14.58544515},
     R=129.650272883206);
-  
+
   constant IdealGases.Common.DataRecord S2minus(
     name="S2minus",
     MM=0.0641305486,
@@ -14875,7 +14875,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.28224169e-007,-2.504364698e-011,7.28055078e-016},
     bhigh={2660.25849,-9.010480318999999},
     R=129.6491637996061);
-  
+
   constant IdealGases.Common.DataRecord S2CL2(
     name="S2CL2",
     MM=0.135036,
@@ -14889,7 +14889,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.69246606e-015},
     bhigh={15266.72656,-54.53315445000001},
     R=61.5722622115584);
-  
+
   constant IdealGases.Common.DataRecord S2F2(
     name="S2F2",
     MM=0.1021268064,
@@ -14903,7 +14903,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.41234314e-009,-9.91138714e-013,9.621861440000001e-017},
     bhigh={-51476.75180000001,-23.7566614},
     R=81.41321845936034);
-  
+
   constant IdealGases.Common.DataRecord S2O(
     name="S2O",
     MM=0.0801294,
@@ -14917,7 +14917,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.15177875e-016},
     bhigh={-7438.55393,-10.85180744},
     R=103.7630632452009);
-  
+
   constant IdealGases.Common.DataRecord S3(
     name="S3",
     MM=0.09619499999999999,
@@ -14931,7 +14931,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.40834041e-009,-3.89686236e-013,1.800860389e-017},
     bhigh={15254.06485,-7.610045099},
     R=86.43351525547067);
-  
+
   constant IdealGases.Common.DataRecord S4(
     name="S4",
     MM=0.12826,
@@ -14945,7 +14945,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.38780619e-009,-7.31176743e-013,3.38226529e-017},
     bhigh={13211.0953,-23.44872237},
     R=64.82513644160301);
-  
+
   constant IdealGases.Common.DataRecord S5(
     name="S5",
     MM=0.160325,
@@ -14959,7 +14959,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.145210795e-011,-7.213102680000001e-016},
     bhigh={-46869.2542,11.04229196},
     R=51.8601091532824);
-  
+
   constant IdealGases.Common.DataRecord S6(
     name="S6",
     MM=0.19239,
@@ -14973,7 +14973,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.060780798e-010,-1.190354318e-014},
     bhigh={60324.8648,-74.90245718},
     R=43.21675762773533);
-  
+
   constant IdealGases.Common.DataRecord S7(
     name="S7",
     MM=0.224455,
@@ -14987,7 +14987,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.4426713e-009,-6.379663479999999e-013,3.008212993e-017},
     bhigh={7308.458830000001,-61.59112428},
     R=37.04293510948742);
-  
+
   constant IdealGases.Common.DataRecord S8(
     name="S8",
     MM=0.25652,
@@ -15001,7 +15001,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.397604162e-006,-2.169815281e-010,1.212304364e-014},
     bhigh={-86581.10819999999,-64.35742508},
     R=32.4125682208015);
-  
+
   constant IdealGases.Common.DataRecord Sc(
     name="Sc",
     MM=0.04495591,
@@ -15015,7 +15015,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.290283900000001e-006,-6.58540806e-010,2.997850429e-014},
     bhigh={216246.0097,-222.5618519},
     R=184.9472516516738);
-  
+
   constant IdealGases.Common.DataRecord Scplus(
     name="Scplus",
     MM=0.0449553614,
@@ -15029,7 +15029,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.632373790000001e-012,-8.544709642000001e-016},
     bhigh={154342.3764,-22.61925782},
     R=184.9495086029939);
-  
+
   constant IdealGases.Common.DataRecord Scminus(
     name="Scminus",
     MM=0.0449564586,
@@ -15041,7 +15041,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
     ahigh={0,0,2.5,0,0,0,0},
     bhigh={41657.4639,8.270420720000001},
     R=184.9449947554365);
-  
+
   constant IdealGases.Common.DataRecord ScO(
     name="ScO",
     MM=0.06095531,
@@ -15055,7 +15055,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.06698985e-007,-1.504459913e-011,-8.4729989e-016},
     bhigh={16773.22594,-29.51656272},
     R=136.4027514584045);
-  
+
   constant IdealGases.Common.DataRecord ScOplus(
     name="ScOplus",
     MM=0.0609547614,
@@ -15069,7 +15069,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.69564502e-010,-2.214038347e-014},
     bhigh={29553.64078,56.6088941},
     R=136.4039790991619);
-  
+
   constant IdealGases.Common.DataRecord ScO2(
     name="ScO2",
     MM=0.07695471000000001,
@@ -15083,7 +15083,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.510998557e-008,-1.727951588e-012,7.9889805e-017},
     bhigh={-51129.74750000001,-10.90764597},
     R=108.0437051871159);
-  
+
   constant IdealGases.Common.DataRecord Sc2O(
     name="Sc2O",
     MM=0.10591122,
@@ -15097,7 +15097,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.221589315e-008,-1.400490463e-012,6.48885811e-017},
     bhigh={-4240.235140000001,-9.37271095},
     R=78.50416603642182);
-  
+
   constant IdealGases.Common.DataRecord Sc2O2(
     name="Sc2O2",
     MM=0.12191062,
@@ -15111,7 +15111,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.83608979e-008,-4.403078029999999e-012,2.042208922e-016},
     bhigh={-59648.6628,-28.55828369},
     R=68.20137572920227);
-  
+
   constant IdealGases.Common.DataRecord Si(
     name="Si",
     MM=0.0280855,
@@ -15125,7 +15125,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.55888478e-011,-1.889515353e-015},
     bhigh={39535.5876,26.79668061},
     R=296.0414448736893);
-  
+
   constant IdealGases.Common.DataRecord Siplus(
     name="Siplus",
     MM=0.0280849514,
@@ -15139,7 +15139,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.082923821e-012,1.471452049e-016},
     bhigh={149143.1392,5.24426714},
     R=296.0472276266784);
-  
+
   constant IdealGases.Common.DataRecord Siminus(
     name="Siminus",
     MM=0.0280860486,
@@ -15153,7 +15153,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.699962923e-010,-1.105062911e-014},
     bhigh={-83140.8931,159.5298253},
     R=296.0356623466072);
-  
+
   constant IdealGases.Common.DataRecord SiBr(
     name="SiBr",
     MM=0.1079895,
@@ -15167,7 +15167,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.23567007e-016},
     bhigh={43328.5155,-24.67075472},
     R=76.99333731520194);
-  
+
   constant IdealGases.Common.DataRecord SiBr2(
     name="SiBr2",
     MM=0.1878935,
@@ -15181,7 +15181,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.877651970000001e-010,-1.168133105e-013,5.54668138e-018},
     bhigh={-8319.54225,-3.61182661},
     R=44.25098260450734);
-  
+
   constant IdealGases.Common.DataRecord SiBr3(
     name="SiBr3",
     MM=0.2677975,
@@ -15195,7 +15195,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.70924269e-009,-2.011596627e-013,9.51553415e-018},
     bhigh={-22030.26938,-15.37574366},
     R=31.04760873421148);
-  
+
   constant IdealGases.Common.DataRecord SiBr4(
     name="SiBr4",
     MM=0.3477015,
@@ -15209,7 +15209,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.693843051e-009,-3.137193207e-013,1.471642663e-017},
     bhigh={-54089.9883,-29.4038433},
     R=23.9126722202809);
-  
+
   constant IdealGases.Common.DataRecord SiC(
     name="SiC",
     MM=0.04009620000000001,
@@ -15223,7 +15223,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.177110259999999e-011,-4.96916674e-015},
     bhigh={83212.2585,16.01675317},
     R=207.3630917643068);
-  
+
   constant IdealGases.Common.DataRecord SiC2(
     name="SiC2",
     MM=0.05210690000000001,
@@ -15237,7 +15237,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.30735369e-006,-8.84838351e-010,4.53054985e-014},
     bhigh={226732.5155,-236.6622024},
     R=159.5656621291998);
-  
+
   constant IdealGases.Common.DataRecord SiCL(
     name="SiCL",
     MM=0.0635385,
@@ -15251,7 +15251,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.517304648e-007,-1.291391394e-011,1.55462842e-016},
     bhigh={23062.78401,-6.098515228},
     R=130.857228294656);
-  
+
   constant IdealGases.Common.DataRecord SiCL2(
     name="SiCL2",
     MM=0.0989915,
@@ -15265,7 +15265,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.871092411e-009,-2.171552767e-013,1.015849895e-017},
     bhigh={-21812.94885,-6.638764238},
     R=83.99177707176879);
-  
+
   constant IdealGases.Common.DataRecord SiCL3(
     name="SiCL3",
     MM=0.1344445,
@@ -15279,7 +15279,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.64194011e-009,-4.20060059e-013,1.955201587e-017},
     bhigh={-43605.7165,-20.06632444},
     R=61.84315461026669);
-  
+
   constant IdealGases.Common.DataRecord SiCL4(
     name="SiCL4",
     MM=0.1698975,
@@ -15293,7 +15293,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.65381847e-009,-6.48875267e-013,3.008025543e-017},
     bhigh={-83722.6813,-35.92584781},
     R=48.93816565870598);
-  
+
   constant IdealGases.Common.DataRecord SiF(
     name="SiF",
     MM=0.0470839032,
@@ -15307,7 +15307,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.7667818e-011,-2.143080403e-015},
     bhigh={-10116.97664,8.968132819999999},
     R=176.5884184385121);
-  
+
   constant IdealGases.Common.DataRecord SiFCL(
     name="SiFCL",
     MM=0.0825369032,
@@ -15321,7 +15321,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.175173009999999e-009,-9.35643521e-013,4.32854434e-017},
     bhigh={-47233.0972,-8.337392707999999},
     R=100.7364182280103);
-  
+
   constant IdealGases.Common.DataRecord SiF2(
     name="SiF2",
     MM=0.0660823064,
@@ -15335,7 +15335,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.199012961e-008,-1.369470187e-012,6.32488999e-017},
     bhigh={-72874.0102,-11.17933348},
     R=125.8199426283947);
-  
+
   constant IdealGases.Common.DataRecord SiF3(
     name="SiF3",
     MM=0.08508070960000001,
@@ -15349,7 +15349,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.250326132e-008,-2.577117181e-012,1.192923177e-016},
     bhigh={-121808.8967,-27.25261142},
     R=97.7245257954454);
-  
+
   constant IdealGases.Common.DataRecord SiF4(
     name="SiF4",
     MM=0.1040791128,
@@ -15363,7 +15363,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -4.95959811e-012,2.299314375e-016},
     bhigh={-195728.4479,-46.7389465},
     R=79.88607681521283);
-  
+
   constant IdealGases.Common.DataRecord SiH(
     name="SiH",
     MM=0.02909344,
@@ -15377,7 +15377,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.136251507e-014},
     bhigh={57047.3768,-24.48054429},
     R=285.7851116952825);
-  
+
   constant IdealGases.Common.DataRecord SiHplus(
     name="SiHplus",
     MM=0.0290928914,
@@ -15391,7 +15391,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.41884348e-011,-7.85531696e-016},
     bhigh={143172.145,-7.55329914},
     R=285.7905006994252);
-  
+
   constant IdealGases.Common.DataRecord SiHBr3(
     name="SiHBr3",
     MM=0.26880544,
@@ -15405,7 +15405,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.054049755e-007,-1.160828765e-011,5.21725768e-016},
     bhigh={-28420.86214,-45.3643717},
     R=30.9311894878318);
-  
+
   constant IdealGases.Common.DataRecord SiHCL(
     name="SiHCL",
     MM=0.06454644000000001,
@@ -15419,7 +15419,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.96441404e-011,-2.64058008e-015},
     bhigh={11410.64087,-15.07678798},
     R=128.8137967020334);
-  
+
   constant IdealGases.Common.DataRecord SiHCL3(
     name="SiHCL3",
     MM=0.13545244,
@@ -15433,7 +15433,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.098826178e-007,-1.209327059e-011,5.432187049999999e-016},
     bhigh={-51303.5194,-50.36360893000001},
     R=61.3829621673851);
-  
+
   constant IdealGases.Common.DataRecord SiHF(
     name="SiHF",
     MM=0.0480918432,
@@ -15447,7 +15447,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.9602501e-010,-1.144682011e-014},
     bhigh={41332.252,-47.363176},
     R=172.8873639844189);
-  
+
   constant IdealGases.Common.DataRecord SiHF3(
     name="SiHF3",
     MM=0.0860886496,
@@ -15461,7 +15461,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.83249715e-016},
     bhigh={-133661.1887,-58.5145095},
     R=96.58035105245745);
-  
+
   constant IdealGases.Common.DataRecord SiHI3(
     name="SiHI3",
     MM=0.40980685,
@@ -15475,7 +15475,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.003097496e-007,-1.107859145e-011,4.990338200000001e-016},
     bhigh={-1614.547674,-41.2294307},
     R=20.28875798440168);
-  
+
   constant IdealGases.Common.DataRecord SiH2(
     name="SiH2",
     MM=0.03010138,
@@ -15489,7 +15489,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.646297357e-010,-9.965090370000001e-015},
     bhigh={107247.5101,-66.0607807},
     R=276.2156419406685);
-  
+
   constant IdealGases.Common.DataRecord SiH2Br2(
     name="SiH2Br2",
     MM=0.18990938,
@@ -15503,7 +15503,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.084856022e-007,-2.299521351e-011,1.034736283e-015},
     bhigh={-2990.69018,-61.9047652},
     R=43.7812603042567);
-  
+
   constant IdealGases.Common.DataRecord SiH2CL2(
     name="SiH2CL2",
     MM=0.10100738,
@@ -15517,7 +15517,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.345079226e-011,1.054871984e-015},
     bhigh={-18230.98225,-65.44540499},
     R=82.31549021467541);
-  
+
   constant IdealGases.Common.DataRecord SiH2F2(
     name="SiH2F2",
     MM=0.0680981864,
@@ -15531,7 +15531,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.315838331e-007,-2.556974559e-011,1.151499711e-015},
     bhigh={-73161.8446,-70.9898927},
     R=122.0953514262753);
-  
+
   constant IdealGases.Common.DataRecord SiH2I2(
     name="SiH2I2",
     MM=0.28391032,
@@ -15545,7 +15545,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.054871384e-007,-2.265587199e-011,1.019168663e-015},
     bhigh={15136.27352,-59.4081252},
     R=29.28555749576134);
-  
+
   constant IdealGases.Common.DataRecord SiH3(
     name="SiH3",
     MM=0.03110932,
@@ -15559,7 +15559,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.68828594e-007,-3.010741582e-011,1.370945857e-015},
     bhigh={49744.2064,-61.405031},
     R=267.2662726154092);
-  
+
   constant IdealGases.Common.DataRecord SiH3Br(
     name="SiH3Br",
     MM=0.11101332,
@@ -15573,7 +15573,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -3.44907147e-011,1.553431675e-015},
     bhigh={22415.60128,-79.4861159},
     R=74.89616561327956);
-  
+
   constant IdealGases.Common.DataRecord SiH3CL(
     name="SiH3CL",
     MM=0.06656231999999999,
@@ -15587,7 +15587,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -3.47516846e-011,1.565281681e-015},
     bhigh={14937.93206,-81.27277864},
     R=124.9125931908624);
-  
+
   constant IdealGases.Common.DataRecord SiH3F(
     name="SiH3F",
     MM=0.0501077232,
@@ -15601,7 +15601,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.61415138e-015},
     bhigh={-12614.87616,-83.99227209999999},
     R=165.9319455967618);
-  
+
   constant IdealGases.Common.DataRecord SiH3I(
     name="SiH3I",
     MM=0.15801379,
@@ -15615,7 +15615,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.539334807e-015},
     bhigh={31274.99231,-78.01700080000001},
     R=52.61864803065607);
-  
+
   constant IdealGases.Common.DataRecord SiH4(
     name="SiH4",
     MM=0.03211726,
@@ -15629,7 +15629,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.072777131e-015},
     bhigh={47668.8795,-98.0169746},
     R=258.8786216507884);
-  
+
   constant IdealGases.Common.DataRecord SiI(
     name="SiI",
     MM=0.15498997,
@@ -15643,7 +15643,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.542866629999999e-007,-9.49415829e-011,4.89004137e-015},
     bhigh={45781.6094,-17.33975081},
     R=53.64522620399243);
-  
+
   constant IdealGases.Common.DataRecord SiI2(
     name="SiI2",
     MM=0.28189444,
@@ -15657,7 +15657,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.5534571e-011,-3.01679828e-015},
     bhigh={9007.368100000002,0.2887336913},
     R=29.49498400890774);
-  
+
   constant IdealGases.Common.DataRecord SiN(
     name="SiN",
     MM=0.0420922,
@@ -15671,7 +15671,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.88776104e-011,-4.18984259e-015},
     bhigh={6527.14881,25.53145732},
     R=197.5299936805394);
-  
+
   constant IdealGases.Common.DataRecord SiO(
     name="SiO",
     MM=0.0440849,
@@ -15685,7 +15685,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.327012559e-011,1.613253297e-015},
     bhigh={-13508.4236,-0.838695733},
     R=188.601357834542);
-  
+
   constant IdealGases.Common.DataRecord SiO2(
     name="SiO2",
     MM=0.0600843,
@@ -15699,7 +15699,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -4.69720676e-012,2.17805428e-016},
     bhigh={-37918.3477,-20.45285414},
     R=138.3801092797952);
-  
+
   constant IdealGases.Common.DataRecord SiS(
     name="SiS",
     MM=0.0601505,
@@ -15713,7 +15713,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.998097253e-010,-9.882035800000001e-015},
     bhigh={-27955.38166,54.05828786},
     R=138.2278119051379);
-  
+
   constant IdealGases.Common.DataRecord SiS2(
     name="SiS2",
     MM=0.09221550000000001,
@@ -15727,7 +15727,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.40558784e-009,-7.329273340000001e-013,3.38981978e-017},
     bhigh={-1244.672263,-13.52710463},
     R=90.1634974597546);
-  
+
   constant IdealGases.Common.DataRecord Si2(
     name="Si2",
     MM=0.056171,
@@ -15741,7 +15741,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.586345959999999e-007,-1.372449748e-010,6.765028100000001e-015},
     bhigh={95108.84539999999,-31.6838519},
     R=148.0207224368446);
-  
+
   constant IdealGases.Common.DataRecord Si2C(
     name="Si2C",
     MM=0.06818170000000001,
@@ -15755,7 +15755,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.250902158e-008,-2.584074852e-012,1.198884876e-016},
     bhigh={66080.0938,-11.46216579},
     R=121.9458007060545);
-  
+
   constant IdealGases.Common.DataRecord Si2F6(
     name="Si2F6",
     MM=0.1701614192,
@@ -15769,7 +15769,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -9.18425266e-012,4.53723836e-016},
     bhigh={-296617.6753,-78.4902247},
     R=48.8622628977227);
-  
+
   constant IdealGases.Common.DataRecord Si2N(
     name="Si2N",
     MM=0.0701777,
@@ -15783,7 +15783,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.552154244e-011,-8.03626045e-016},
     bhigh={43420.1479,-10.0957091},
     R=118.4774080655251);
-  
+
   constant IdealGases.Common.DataRecord Si3(
     name="Si3",
     MM=0.0842565,
@@ -15797,7 +15797,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.10344486e-012,6.08630924e-016},
     bhigh={42779.1681,25.86540384},
     R=98.6804816245631);
-  
+
   constant IdealGases.Common.DataRecord Sn(
     name="Sn",
     MM=0.11871,
@@ -15811,7 +15811,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.440237836e-011,-2.937628285e-016},
     bhigh={-42150.1357,59.81450930000001},
     R=70.0401988038076);
-  
+
   constant IdealGases.Common.DataRecord Snplus(
     name="Snplus",
     MM=0.1187094514,
@@ -15825,7 +15825,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.09851349e-007,-5.362951439999999e-012,-8.663474691e-016},
     bhigh={199432.2977,-68.3710828},
     R=70.04052248530566);
-  
+
   constant IdealGases.Common.DataRecord Snminus(
     name="Snminus",
     MM=0.1187105486,
@@ -15839,7 +15839,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.10233938e-012,-2.843422486e-016},
     bhigh={16457.39414,12.65436865},
     R=70.03987512530121);
-  
+
   constant IdealGases.Common.DataRecord SnBr(
     name="SnBr",
     MM=0.198614,
@@ -15853,7 +15853,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.971513500000001e-015},
     bhigh={49255.8309,-56.4096278},
     R=41.86246689558642);
-  
+
   constant IdealGases.Common.DataRecord SnBr2(
     name="SnBr2",
     MM=0.278518,
@@ -15867,7 +15867,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.039869794e-010,-2.464780359e-014,1.189850894e-018},
     bhigh={-16448.28122,-0.434935475},
     R=29.85254812974386);
-  
+
   constant IdealGases.Common.DataRecord SnBr3(
     name="SnBr3",
     MM=0.358422,
@@ -15881,7 +15881,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -5.19188793e-014,2.502455595e-018},
     bhigh={-22172.99473,-12.29854098},
     R=23.19743765728666);
-  
+
   constant IdealGases.Common.DataRecord SnBr4(
     name="SnBr4",
     MM=0.4383260000000001,
@@ -15895,7 +15895,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -7.62708719e-014,3.671112e-018},
     bhigh={-43001.6634,-24.71455118},
     R=18.96869453329257);
-  
+
   constant IdealGases.Common.DataRecord SnCL(
     name="SnCL",
     MM=0.154163,
@@ -15909,7 +15909,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.36771216e-007,-6.75429557e-011,2.484167602e-015},
     bhigh={24424.47662,-32.25454098},
     R=53.93299300091461);
-  
+
   constant IdealGases.Common.DataRecord SnCL2(
     name="SnCL2",
     MM=0.189616,
@@ -15923,7 +15923,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.461341420000001e-010,-7.1190674e-015,3.68813118e-018},
     bhigh={-26545.29653,-3.368081174},
     R=43.84900008438107);
-  
+
   constant IdealGases.Common.DataRecord SnCL3(
     name="SnCL3",
     MM=0.225069,
@@ -15937,7 +15937,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.226095111e-009,-1.459895108e-013,6.96887978e-018},
     bhigh={-38308.7827,-16.63063137},
     R=36.94188004567489);
-  
+
   constant IdealGases.Common.DataRecord SnCL4(
     name="SnCL4",
     MM=0.260522,
@@ -15951,7 +15951,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.976570888e-009,-2.337929994e-013,1.110287624e-017},
     bhigh={-61635.6203,-30.72702622},
     R=31.91466363685217);
-  
+
   constant IdealGases.Common.DataRecord SnF(
     name="SnF",
     MM=0.1377084032,
@@ -15965,7 +15965,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.360371345e-011,6.11678371e-016},
     bhigh={-4776.68897,-16.81202516},
     R=60.3773757213968);
-  
+
   constant IdealGases.Common.DataRecord SnF2(
     name="SnF2",
     MM=0.1567068064,
@@ -15979,7 +15979,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.934271938e-009,-3.35841592e-013,1.553358669e-017},
     bhigh={-63621.2588,-6.81008452},
     R=53.05750395280852);
-  
+
   constant IdealGases.Common.DataRecord SnF3(
     name="SnF3",
     MM=0.1757052096,
@@ -15993,7 +15993,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.03469582e-009,-5.77653096e-013,2.67721417e-017},
     bhigh={-80918.97590000001,-21.91673972},
     R=47.32057756812237);
-  
+
   constant IdealGases.Common.DataRecord SnF4(
     name="SnF4",
     MM=0.1947036128,
@@ -16007,7 +16007,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.28687195e-009,-1.057062694e-012,4.86710868e-017},
     bhigh={-127153.9967,-38.039219},
     R=42.70322404618472);
-  
+
   constant IdealGases.Common.DataRecord SnI(
     name="SnI",
     MM=0.24561447,
@@ -16021,7 +16021,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.8098036e-007,-1.348104887e-010,8.207184700000001e-015},
     bhigh={27448.64953,-16.26822892},
     R=33.85171891542058);
-  
+
   constant IdealGases.Common.DataRecord SnI2(
     name="SnI2",
     MM=0.37251894,
@@ -16035,7 +16035,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.407432564e-010,-1.703457321e-014,8.23361171e-019},
     bhigh={-3100.608319,1.235038509},
     R=22.31959534728624);
-  
+
   constant IdealGases.Common.DataRecord SnI3(
     name="SnI3",
     MM=0.49942341,
@@ -16049,7 +16049,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.07646498e-010,-2.514060336e-014,1.215482266e-018},
     bhigh={-4017.05561,-9.26390846},
     R=16.64814230474298);
-  
+
   constant IdealGases.Common.DataRecord SnI4(
     name="SnI4",
     MM=0.6263278800000001,
@@ -16063,7 +16063,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.196515817e-010,-2.661071614e-014,1.287167546e-018},
     bhigh={-18250.83832,-20.27484281},
     R=13.27495113262402);
-  
+
   constant IdealGases.Common.DataRecord SnO(
     name="SnO",
     MM=0.1347094,
@@ -16077,7 +16077,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.30707488e-010,-1.848169716e-014},
     bhigh={-48416.6391,71.75952460000001},
     R=61.72154281735352);
-  
+
   constant IdealGases.Common.DataRecord SnO2(
     name="SnO2",
     MM=0.1507088,
@@ -16091,7 +16091,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.218742430000002e-009,-1.051372983e-012,4.84957927e-017},
     bhigh={-523.453187,-14.28360169},
     R=55.16912084762137);
-  
+
   constant IdealGases.Common.DataRecord SnS(
     name="SnS",
     MM=0.150775,
@@ -16105,7 +16105,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.899542e-010,-2.40656363e-014},
     bhigh={-26113.49815,62.56820705},
     R=55.14489802686122);
-  
+
   constant IdealGases.Common.DataRecord SnS2(
     name="SnS2",
     MM=0.18284,
@@ -16119,7 +16119,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.434207625e-009,-1.676383081e-013,7.886911900000001e-018},
     bhigh={15650.53629,-9.922744838},
     R=45.47403194049442);
-  
+
   constant IdealGases.Common.DataRecord Sn2(
     name="Sn2",
     MM=0.23742,
@@ -16133,7 +16133,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.805262952e-010,-7.058656809999999e-015},
     bhigh={-30014.1872,100.5138538},
     R=35.0200994019038);
-  
+
   constant IdealGases.Common.DataRecord Sr(
     name="Sr",
     MM=0.08762,
@@ -16147,7 +16147,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.417779662e-014},
     bhigh={297754.5522,-345.489077},
     R=94.89239899566309);
-  
+
   constant IdealGases.Common.DataRecord Srplus(
     name="Srplus",
     MM=0.08761945140000001,
@@ -16161,7 +16161,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.594068746e-006,-1.718800946e-010,6.322256169e-015},
     bhigh={145799.1907,-72.3641693},
     R=94.8929931328011);
-  
+
   constant IdealGases.Common.DataRecord SrBr(
     name="SrBr",
     MM=0.167524,
@@ -16175,7 +16175,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -2.039438429e-010,8.807775840000001e-015},
     bhigh={49228.06129999999,-70.6825383},
     R=49.63152742293642);
-  
+
   constant IdealGases.Common.DataRecord SrBr2(
     name="SrBr2",
     MM=0.247428,
@@ -16189,7 +16189,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.296969275e-010,-1.580911652e-014,7.68158227e-019},
     bhigh={-51185.75210000001,-3.55203711},
     R=33.60360185589343);
-  
+
   constant IdealGases.Common.DataRecord SrCL(
     name="SrCL",
     MM=0.123073,
@@ -16203,7 +16203,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.707242192e-015},
     bhigh={22714.71632,-45.61058514},
     R=67.55723838697359);
-  
+
   constant IdealGases.Common.DataRecord SrCLplus(
     name="SrCLplus",
     MM=0.1230724514,
@@ -16217,7 +16217,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.667610500000001e-014,1.613288103e-018},
     bhigh={47693.2603,3.637722496},
     R=67.55753952586014);
-  
+
   constant IdealGases.Common.DataRecord SrCL2(
     name="SrCL2",
     MM=0.158526,
@@ -16231,7 +16231,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -5.67021588e-014,2.742892387e-018},
     bhigh={-60453.9953,-2.192202775},
     R=52.44863303180551);
-  
+
   constant IdealGases.Common.DataRecord SrF(
     name="SrF",
     MM=0.1066184032,
@@ -16245,7 +16245,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.996165066e-007,1.103842667e-011,-2.343183859e-015},
     bhigh={-21336.71699,-16.67390309},
     R=77.98346017622593);
-  
+
   constant IdealGases.Common.DataRecord SrFplus(
     name="SrFplus",
     MM=0.1066178546,
@@ -16259,7 +16259,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -1.511394636e-013,9.53749118e-018},
     bhigh={23838.61417,1.892197325},
     R=77.98386143853246);
-  
+
   constant IdealGases.Common.DataRecord SrF2(
     name="SrF2",
     MM=0.1256168064,
@@ -16273,7 +16273,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.490473613e-009,-1.75643704e-013,8.317093849999999e-018},
     bhigh={-96567.0125,-5.40230876},
     R=66.1891687767028);
-  
+
   constant IdealGases.Common.DataRecord SrH(
     name="SrH",
     MM=0.08862793999999999,
@@ -16287,7 +16287,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.073091147e-010,-1.300839287e-014},
     bhigh={17355.47062,21.12916944},
     R=93.81321511026886);
-  
+
   constant IdealGases.Common.DataRecord SrI(
     name="SrI",
     MM=0.21452447,
@@ -16301,7 +16301,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.078496824e-014},
     bhigh={42190.77170000001,-55.308332},
     R=38.75768577822381);
-  
+
   constant IdealGases.Common.DataRecord SrI2(
     name="SrI2",
     MM=0.34142894,
@@ -16315,7 +16315,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.87655697e-011,-8.398807359999999e-015,4.08696816e-019},
     bhigh={-35721.0642,-1.693119087},
     R=24.35198375392549);
-  
+
   constant IdealGases.Common.DataRecord SrO(
     name="SrO",
     MM=0.1036194,
@@ -16329,7 +16329,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.452307103e-009,-1.108841292e-013},
     bhigh={-968782.9519999999,1197.846971},
     R=80.24049550566787);
-  
+
   constant IdealGases.Common.DataRecord SrOH(
     name="SrOH",
     MM=0.10462734,
@@ -16343,7 +16343,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -7.921280320000001e-011,2.740829111e-015},
     bhigh={22313.02058,-61.4878113},
     R=79.46748909032763);
-  
+
   constant IdealGases.Common.DataRecord SrOHplus(
     name="SrOHplus",
     MM=0.1046267914,
@@ -16357,7 +16357,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.024851502e-011,-5.72368392e-016},
     bhigh={50731.5772,-20.27046917},
     R=79.46790577007029);
-  
+
   constant IdealGases.Common.DataRecord Sr_OH_2(
     name="Sr_OH_2",
     MM=0.12163468,
@@ -16371,7 +16371,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.044549432e-011,-1.142004855e-015},
     bhigh={-44271.7024,-50.5145685},
     R=68.35609712624722);
-  
+
   constant IdealGases.Common.DataRecord SrS(
     name="SrS",
     MM=0.119685,
@@ -16385,7 +16385,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.324312746e-010,-3.6145557e-015},
     bhigh={-241024.6179,299.1679642},
     R=69.46962443079751);
-  
+
   constant IdealGases.Common.DataRecord Sr2(
     name="Sr2",
     MM=0.17524,
@@ -16399,7 +16399,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.71141915e-012,-3.374128e-016},
     bhigh={36366.4269,21.68088517},
     R=47.44619949783154);
-  
+
   constant IdealGases.Common.DataRecord Ta(
     name="Ta",
     MM=0.1809479,
@@ -16413,7 +16413,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.44303117e-007,-7.189237249999999e-011,3.11335207e-015},
     bhigh={130671.0983,-43.3509627},
     R=45.94953575034582);
-  
+
   constant IdealGases.Common.DataRecord Taplus(
     name="Taplus",
     MM=0.1809473514,
@@ -16427,7 +16427,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.151786937e-006,-2.816764844e-010,1.413722944e-014},
     bhigh={263687.6455,-106.5864286},
     R=45.94967506111836);
-  
+
   constant IdealGases.Common.DataRecord Taminus(
     name="Taminus",
     MM=0.1809484486,
@@ -16441,7 +16441,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.88640803e-011,-2.030547835e-015},
     bhigh={15746.99408,64.918027},
     R=45.94939644041801);
-  
+
   constant IdealGases.Common.DataRecord TaCL5(
     name="TaCL5",
     MM=0.3582129,
@@ -16455,7 +16455,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.084307611e-009,-3.66393006e-013,1.745841795e-017},
     bhigh={-97012.9717,-42.56986372},
     R=23.21097872243015);
-  
+
   constant IdealGases.Common.DataRecord TaO(
     name="TaO",
     MM=0.1969473,
@@ -16469,7 +16469,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.443666035e-014},
     bhigh={152581.4433,-165.8307106},
     R=42.21673513675993);
-  
+
   constant IdealGases.Common.DataRecord TaO2(
     name="TaO2",
     MM=0.2129467,
@@ -16483,7 +16483,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.754904271e-007,-3.29704313e-011,1.356249074e-015},
     bhigh={3418.98567,-33.9264279},
     R=39.04485019021192);
-  
+
   constant IdealGases.Common.DataRecord Ti(
     name="Ti",
     MM=0.047867,
@@ -16497,7 +16497,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.091697848e-007,-5.74002728e-011,2.927371014e-015},
     bhigh={49780.69910000001,17.40431368},
     R=173.699458917417);
-  
+
   constant IdealGases.Common.DataRecord Tiplus(
     name="Tiplus",
     MM=0.0478664514,
@@ -16511,7 +16511,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.895443077e-015},
     bhigh={119882.1489,24.8479915},
     R=173.7014496963525);
-  
+
   constant IdealGases.Common.DataRecord Timinus(
     name="Timinus",
     MM=0.0478675486,
@@ -16525,7 +16525,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.717202291e-014,-1.295670294e-018},
     bhigh={54546.62179999999,7.99982395},
     R=173.6974681841134);
-  
+
   constant IdealGases.Common.DataRecord TiCL(
     name="TiCL",
     MM=0.08331999999999999,
@@ -16539,7 +16539,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.0491034e-011,-2.304720715e-015},
     bhigh={-1811.011561,23.19450287},
     R=99.78963034085456);
-  
+
   constant IdealGases.Common.DataRecord TiCL2(
     name="TiCL2",
     MM=0.118773,
@@ -16553,7 +16553,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.118106588e-010,-1.041245457e-014},
     bhigh={-94809.82980000001,78.23195948},
     R=70.00304783073595);
-  
+
   constant IdealGases.Common.DataRecord TiCL3(
     name="TiCL3",
     MM=0.154226,
@@ -16567,7 +16567,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.95916935e-008,-1.176740054e-011,6.41622348e-016},
     bhigh={-67691.1468,-23.69164216},
     R=53.91096183522882);
-  
+
   constant IdealGases.Common.DataRecord TiCL4(
     name="TiCL4",
     MM=0.189679,
@@ -16581,7 +16581,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.093403483e-009,-3.60424516e-013,1.691384523e-017},
     bhigh={-95889.46999999999,-32.47541011},
     R=43.83443607357694);
-  
+
   constant IdealGases.Common.DataRecord TiO(
     name="TiO",
     MM=0.0638664,
@@ -16595,7 +16595,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.186303111e-006,-1.367644275e-010,5.70321225e-015},
     bhigh={51448.4136,-57.9399424},
     R=130.1853869953528);
-  
+
   constant IdealGases.Common.DataRecord TiOplus(
     name="TiOplus",
     MM=0.06386585139999999,
@@ -16609,7 +16609,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.04565811e-015},
     bhigh={93626.4699,-22.61587887},
     R=130.1865052722056);
-  
+
   constant IdealGases.Common.DataRecord TiOCL(
     name="TiOCL",
     MM=0.0993194,
@@ -16623,7 +16623,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -8.37882226e-013,3.87927506e-017},
     bhigh={-31393.56857,-12.47104274},
     R=83.71448075602551);
-  
+
   constant IdealGases.Common.DataRecord TiOCL2(
     name="TiOCL2",
     MM=0.1347724,
@@ -16637,7 +16637,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.40177504e-009,-7.3384526e-013,3.39928267e-017},
     bhigh={-68474.09640000001,-19.75043469},
     R=61.69269078832164);
-  
+
   constant IdealGases.Common.DataRecord TiO2(
     name="TiO2",
     MM=0.07986579999999999,
@@ -16651,7 +16651,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.100244802e-011,-2.49472543e-015},
     bhigh={-32663.3675,-15.9153466},
     R=104.1055370383819);
-  
+
   constant IdealGases.Common.DataRecord U(
     name="U",
     MM=0.23802891,
@@ -16665,7 +16665,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -3.84435385e-011,7.066508567e-015},
     bhigh={-16993.72664,115.5026301},
     R=34.93051327252644);
-  
+
   constant IdealGases.Common.DataRecord UF(
     name="UF",
     MM=0.2570273132,
@@ -16679,7 +16679,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.155572896e-010,-1.544694839e-014},
     bhigh={-105719.6525,122.0828149},
     R=32.34859321557893);
-  
+
   constant IdealGases.Common.DataRecord UFplus(
     name="UFplus",
     MM=0.2570267646,
@@ -16693,7 +16693,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -6.79584554e-011,3.152666445e-015},
     bhigh={82672.91220000001,-33.07089704},
     R=32.34866226067727);
-  
+
   constant IdealGases.Common.DataRecord UFminus(
     name="UFminus",
     MM=0.2570278618,
@@ -16707,7 +16707,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.483511059999999e-010,-4.9106881e-014},
     bhigh={-138080.129,224.0758537},
     R=32.34852417077533);
-  
+
   constant IdealGases.Common.DataRecord UF2(
     name="UF2",
     MM=0.2760257164,
@@ -16721,7 +16721,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.54117805e-009,1.818915497e-012,-2.287963719e-016},
     bhigh={-69952.3505,-9.648963156000001},
     R=30.12209191389676);
-  
+
   constant IdealGases.Common.DataRecord UF2plus(
     name="UF2plus",
     MM=0.2760251678,
@@ -16735,7 +16735,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.116973593e-010,-1.417216291e-014},
     bhigh={-74334.402,118.9131079},
     R=30.12215178155214);
-  
+
   constant IdealGases.Common.DataRecord UF2minus(
     name="UF2minus",
     MM=0.2760262650000001,
@@ -16749,7 +16749,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.70985889e-015},
     bhigh={100157.2794,-209.4039075},
     R=30.12203204647934);
-  
+
   constant IdealGases.Common.DataRecord UF3(
     name="UF3",
     MM=0.2950241196,
@@ -16763,7 +16763,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.115594509e-010,-1.4165794e-014},
     bhigh={-211361.5913,105.4464687},
     R=28.18234662058458);
-  
+
   constant IdealGases.Common.DataRecord UF3plus(
     name="UF3plus",
     MM=0.295023571,
@@ -16777,7 +16777,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.319641252e-010,-6.10112918e-015},
     bhigh={-61995.4174,21.37623045},
     R=28.18239902600868);
-  
+
   constant IdealGases.Common.DataRecord UF3minus(
     name="UF3minus",
     MM=0.2950246682,
@@ -16791,7 +16791,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.242009537e-011,-1.42819528e-015},
     bhigh={-143862.8681,-27.74680411},
     R=28.18229421535538);
-  
+
   constant IdealGases.Common.DataRecord UF4(
     name="UF4",
     MM=0.3140225228,
@@ -16805,7 +16805,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.308042117e-010,-6.04439087e-015},
     bhigh={-221414.292,6.270300658},
     R=26.47731100897964);
-  
+
   constant IdealGases.Common.DataRecord UF4plus(
     name="UF4plus",
     MM=0.3140219742,
@@ -16819,7 +16819,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.021096599999999e-011,-2.438874329e-015},
     bhigh={-106191.0645,-4.162641042},
     R=26.47735726514645);
-  
+
   constant IdealGases.Common.DataRecord UF4minus(
     name="UF4minus",
     MM=0.3140230714,
@@ -16833,7 +16833,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.140230790000001e-010,-2.511687821e-014},
     bhigh={-312514.0933,127.4038784},
     R=26.47726475297446);
-  
+
   constant IdealGases.Common.DataRecord UF5(
     name="UF5",
     MM=0.333020926,
@@ -16847,7 +16847,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.00276561e-011,-2.430740809e-015},
     bhigh={-264510.7342,-18.83137475},
     R=24.96681544870847);
-  
+
   constant IdealGases.Common.DataRecord UF5plus(
     name="UF5plus",
     MM=0.3330203774,
@@ -16861,7 +16861,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.221494970000001e-009,-9.53716052e-013,4.46014508e-017},
     bhigh={-107629.3931,-47.63374165000001},
     R=24.96685657770803);
-  
+
   constant IdealGases.Common.DataRecord UF5minus(
     name="UF5minus",
     MM=0.3330214746,
@@ -16875,7 +16875,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.314215436e-010,-6.07577827e-015},
     bhigh={-304950.6955,-7.977511665},
     R=24.96677431984442);
-  
+
   constant IdealGases.Common.DataRecord UF6(
     name="UF6",
     MM=0.3520193292,
@@ -16889,7 +16889,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.617604659999999e-009,-1.100915551e-012,5.09264508e-017},
     bhigh={-264364.5561,-65.79130395999999},
     R=23.61936209268818);
-  
+
   constant IdealGases.Common.DataRecord UF6minus(
     name="UF6minus",
     MM=0.3520198778,
@@ -16903,7 +16903,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.821820469999999e-011,-4.56033472e-015},
     bhigh={-285566.7984,-91.82896336},
     R=23.61932528345421);
-  
+
   constant IdealGases.Common.DataRecord UO(
     name="UO",
     MM=0.25402831,
@@ -16917,7 +16917,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.096321351e-007,-2.654652526e-011,1.361108472e-015},
     bhigh={-26651.49645,5.580598689},
     R=32.73049369969828);
-  
+
   constant IdealGases.Common.DataRecord UOplus(
     name="UOplus",
     MM=0.2540277614,
@@ -16931,7 +16931,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.06603391e-007,-7.37397747e-011,4.07476643e-015},
     bhigh={77890.8584,-21.1528425},
     R=32.73056438468461);
-  
+
   constant IdealGases.Common.DataRecord UOF(
     name="UOF",
     MM=0.2730267132,
@@ -16945,7 +16945,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.114551623e-010,-1.416111895e-014},
     bhigh={-147897.6701,118.4570601},
     R=30.45296155292104);
-  
+
   constant IdealGases.Common.DataRecord UOF2(
     name="UOF2",
     MM=0.2920251164,
@@ -16959,7 +16959,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.306398384e-010,-6.03690152e-015},
     bhigh={-161263.7583,20.18237189},
     R=28.47177017682031);
-  
+
   constant IdealGases.Common.DataRecord UOF3(
     name="UOF3",
     MM=0.3110235196,
@@ -16973,7 +16973,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.98906211e-011,-2.42453481e-015},
     bhigh={-210549.1714,-5.670532802},
     R=26.73261498260018);
-  
+
   constant IdealGases.Common.DataRecord UOF4(
     name="UOF4",
     MM=0.3300219228,
@@ -16987,7 +16987,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.098253497e-008,-1.255803231e-012,5.80448098e-017},
     bhigh={-219545.926,-50.24484645},
     R=25.1936960110336);
-  
+
   constant IdealGases.Common.DataRecord UO2(
     name="UO2",
     MM=0.27002771,
@@ -17001,7 +17001,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.305134065e-010,-6.03121575e-015},
     bhigh={-83676.1801,25.90742388},
     R=30.79118065327443);
-  
+
   constant IdealGases.Common.DataRecord UO2plus(
     name="UO2plus",
     MM=0.2700271614,
@@ -17015,7 +17015,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.93945164e-011,-2.401047056e-015},
     bhigh={-20485.58817,14.64015614},
     R=30.79124321009879);
-  
+
   constant IdealGases.Common.DataRecord UO2minus(
     name="UO2minus",
     MM=0.2700282586,
@@ -17029,7 +17029,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.851708013e-010,-1.466578192e-014},
     bhigh={-88934.3618,41.45760316},
     R=30.79111809670427);
-  
+
   constant IdealGases.Common.DataRecord UO2F(
     name="UO2F",
     MM=0.2890261132,
@@ -17043,7 +17043,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.98882352e-011,-2.424485602e-015},
     bhigh={-147835.7384,8.736139132},
     R=28.76719998738163);
-  
+
   constant IdealGases.Common.DataRecord UO2F2(
     name="UO2F2",
     MM=0.3080245164,
@@ -17057,7 +17057,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.321137913e-008,-1.508668985e-012,6.96618275e-017},
     bhigh={-166444.4818,-35.66258175},
     R=26.99289036202185);
-  
+
   constant IdealGases.Common.DataRecord UO3(
     name="UO3",
     MM=0.28602711,
@@ -17071,7 +17071,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.849985929e-010,-1.102849619e-014},
     bhigh={-117336.0017,6.672828312},
     R=29.06882497956226);
-  
+
   constant IdealGases.Common.DataRecord UO3minus(
     name="UO3minus",
     MM=0.2860276586,
@@ -17085,7 +17085,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.94541313e-011,-2.403730982e-015},
     bhigh={-184592.7385,7.032059012},
     R=29.06876922566257);
-  
+
   constant IdealGases.Common.DataRecord V(
     name="V",
     MM=0.0509415,
@@ -17099,7 +17099,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.488547375e-006,-1.785922508e-010,8.113013866e-015},
     bhigh={91707.40909999999,-47.6833632},
     R=163.2160811911703);
-  
+
   constant IdealGases.Common.DataRecord Vplus(
     name="Vplus",
     MM=0.0509409514,
@@ -17113,7 +17113,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.968884877e-006,-2.539798544e-010,1.226783122e-014},
     bhigh={195835.1444,-78.5559293},
     R=163.2178389192786);
-  
+
   constant IdealGases.Common.DataRecord Vminus(
     name="Vminus",
     MM=0.0509420486,
@@ -17127,7 +17127,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.581021334e-014,-1.240812796e-018},
     bhigh={54700.0708,7.97790024},
     R=163.2143235009202);
-  
+
   constant IdealGases.Common.DataRecord VCL4(
     name="VCL4",
     MM=0.1927535,
@@ -17141,7 +17141,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.2717875e-011,-8.8586908e-016},
     bhigh={-96906.20060000001,4.348293098},
     R=43.13525824433798);
-  
+
   constant IdealGases.Common.DataRecord VN(
     name="VN",
     MM=0.0649482,
@@ -17155,7 +17155,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.005181767e-006,-1.243211436e-010,5.48677656e-015},
     bhigh={85573.18339999999,-35.52830762},
     R=128.0169735265951);
-  
+
   constant IdealGases.Common.DataRecord VO(
     name="VO",
     MM=0.0669409,
@@ -17169,7 +17169,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         -3.54740035e-010,1.770268056e-014},
     bhigh={79612.5488,-87.89993010000001},
     R=124.2061579691937);
-  
+
   constant IdealGases.Common.DataRecord VO2(
     name="VO2",
     MM=0.0829403,
@@ -17183,7 +17183,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.23143016e-007,-6.476071140000001e-011,2.847226026e-015},
     bhigh={-20973.06345,-25.47380687},
     R=100.2464664342907);
-  
+
   constant IdealGases.Common.DataRecord V4O10(
     name="V4O10",
     MM=0.36376,
@@ -17197,7 +17197,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.53563729e-016},
     bhigh={-348461.612,-190.7911348},
     R=22.85702661095228);
-  
+
   constant IdealGases.Common.DataRecord W(
     name="W",
     MM=0.18384,
@@ -17211,7 +17211,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.409225475e-006,-2.233011706e-010,1.262640862e-014},
     bhigh={-3091.130919,39.5582219},
     R=45.22667536988686);
-  
+
   constant IdealGases.Common.DataRecord Wplus(
     name="Wplus",
     MM=0.1838394514,
@@ -17225,7 +17225,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         3.27120049e-006,-4.065463720000001e-010,1.912595872e-014},
     bhigh={324517.443,-171.6919194},
     R=45.22681033196339);
-  
+
   constant IdealGases.Common.DataRecord Wminus(
     name="Wminus",
     MM=0.1838405486,
@@ -17237,7 +17237,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
     ahigh={0,0,2.5,0,0,0,0},
     bhigh={91429.8137,8.46116967},
     R=45.22654040861582);
-  
+
   constant IdealGases.Common.DataRecord WCL6(
     name="WCL6",
     MM=0.396558,
@@ -17251,7 +17251,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.917675103e-009,-3.50598144e-013,1.685355887e-017},
     bhigh={-65357.79790000001,-58.94914959000001},
     R=20.96659757210799);
-  
+
   constant IdealGases.Common.DataRecord WO(
     name="WO",
     MM=0.1998394,
@@ -17265,7 +17265,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.89393396e-007,-8.955318699999999e-011,2.504359614e-015},
     bhigh={73133.8064,-31.4488229},
     R=41.60576943285459);
-  
+
   constant IdealGases.Common.DataRecord WOCL4(
     name="WOCL4",
     MM=0.3416514000000001,
@@ -17279,7 +17279,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.340548846e-008,-2.685852021e-012,1.245412684e-016},
     bhigh={-72725.46739999999,-49.91761253},
     R=24.33612740940034);
-  
+
   constant IdealGases.Common.DataRecord WO2(
     name="WO2",
     MM=0.2158388,
@@ -17293,7 +17293,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         6.24517175e-011,-9.046613900000001e-016},
     bhigh={-17694.2023,34.0572401},
     R=38.52167450893908);
-  
+
   constant IdealGases.Common.DataRecord WO2CL2(
     name="WO2CL2",
     MM=0.2867448,
@@ -17307,7 +17307,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.00658102e-008,-2.296837607e-012,1.062829386e-016},
     bhigh={-83674.93059999999,-34.91556626},
     R=28.99606897840868);
-  
+
   constant IdealGases.Common.DataRecord WO3(
     name="WO3",
     MM=0.2318382,
@@ -17321,7 +17321,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.079935799999999e-007,-6.589378720000001e-011,1.142928957e-015},
     bhigh={-2473.075565,-74.0747409},
     R=35.86325290655294);
-  
+
   constant IdealGases.Common.DataRecord WO3minus(
     name="WO3minus",
     MM=0.2318387486,
@@ -17335,7 +17335,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.7375319e-011,-3.157605982e-015},
     bhigh={-72395.1557,-23.91116343},
     R=35.86316804334235);
-  
+
   constant IdealGases.Common.DataRecord Xe(
     name="Xe",
     MM=0.131293,
@@ -17348,7 +17348,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.530232618e-009,-3.89233323e-013,2.360439138e-017},
     bhigh={-668.5800730000001,6.063710715},
     R=63.3276107637117);
-  
+
   constant IdealGases.Common.DataRecord Xeplus(
     name="Xeplus",
     MM=0.1312924514,
@@ -17362,7 +17362,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         1.959138719e-007,-3.037761925e-011,1.637361082e-015},
     bhigh={141496.6808,4.565685735},
     R=63.32787537547646);
-  
+
   constant IdealGases.Common.DataRecord Zn(
     name="Zn",
     MM=0.06539,
@@ -17375,7 +17375,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.723336049e-012,4.266685808e-016},
     bhigh={11737.73458,8.961085649999999},
     R=127.1520415965744);
-  
+
   constant IdealGases.Common.DataRecord Znplus(
     name="Znplus",
     MM=0.06538945139999999,
@@ -17389,7 +17389,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.558567779999999e-013,1.168827311e-015},
     bhigh={118532.1933,13.0074267},
     R=127.1531083681794);
-  
+
   constant IdealGases.Common.DataRecord Zr(
     name="Zr",
     MM=0.091224,
@@ -17403,7 +17403,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         9.334092610000001e-015},
     bhigh={173463.6249,-105.1117377},
     R=91.1434710163992);
-  
+
   constant IdealGases.Common.DataRecord Zrplus(
     name="Zrplus",
     MM=0.0912234514,
@@ -17417,7 +17417,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         7.092401041999999e-016},
     bhigh={162088.4945,-9.820640859999999},
     R=91.14401913541281);
-  
+
   constant IdealGases.Common.DataRecord Zrminus(
     name="Zrminus",
     MM=0.09122454860000001,
@@ -17431,7 +17431,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         2.647293502e-012,-1.235813604e-016},
     bhigh={64223.376,10.81261057},
     R=91.14292290397806);
-  
+
   constant IdealGases.Common.DataRecord ZrN(
     name="ZrN",
     MM=0.1052307,
@@ -17445,7 +17445,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         5.203830769999999e-009,-5.92743667e-013,2.731548854e-017},
     bhigh={84686.48390000001,1.493633264},
     R=79.01184730311593);
-  
+
   constant IdealGases.Common.DataRecord ZrO(
     name="ZrO",
     MM=0.1072234,
@@ -17459,7 +17459,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.08466776e-016},
     bhigh={7317.3407,1.502933548},
     R=77.54344667302101);
-  
+
   constant IdealGases.Common.DataRecord ZrOplus(
     name="ZrOplus",
     MM=0.1072228514,
@@ -17473,7 +17473,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         4.41427986e-015},
     bhigh={80188.80660000001,2.928943704},
     R=77.5438434199298);
-  
+
   constant IdealGases.Common.DataRecord ZrO2(
     name="ZrO2",
     MM=0.1232228,
@@ -17487,5 +17487,5 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
         8.959096920000001e-007,-4.054667109999999e-011,-2.147732083e-015},
     bhigh={15275.10023,-74.8199549},
     R=67.47511012572349);
-  
+
 end SingleGasesData;

@@ -1,8 +1,8 @@
 within Modelica.Electrical.Analog;
-package Sources "Time-dependend and controlled voltage and current sources" 
-  
+package Sources "Time-dependend and controlled voltage and current sources"
+
   extends Modelica.Icons.Library;
-  
+
   annotation(preferedView="info",
     Window(
       x=0.03,
@@ -41,18 +41,18 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 <p>
 </dl>
 </html>"));
-  
-  model SignalVoltage 
-    "Generic voltage source using the input signal as source voltage" 
-    
+
+  model SignalVoltage
+    "Generic voltage source using the input signal as source voltage"
+
     Interfaces.PositivePin p annotation (extent=[-110, -10; -90, 10]);
     Interfaces.NegativePin n annotation (extent=[110, -10; 90, 10]);
     Modelica.Blocks.Interfaces.RealInput v(
-        redeclare type SignalType = SI.Voltage) 
-      "Voltage between pin p and n (= p.v - n.v) as input signal" 
+        redeclare type SignalType = SI.Voltage)
+      "Voltage between pin p and n (= p.v - n.v) as input signal"
        annotation (extent=[-20, 50; 20, 90], rotation=-90);
     SI.Current i "Current flowing from pin p to pin n";
-    
+
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -120,13 +120,13 @@ Modelica in file \"Modelica/package.mo\".</i><br>
        </li>
 </ul>
 </html>"));
-  equation 
+  equation
     v = p.v - n.v;
     0 = p.i + n.i;
     i = p.i;
   end SignalVoltage;
-  
-  model ConstantVoltage "Source for constant voltage" 
+
+  model ConstantVoltage "Source for constant voltage"
     parameter SI.Voltage V=1 "Value of constant voltage";
     extends Interfaces.OnePort;
     annotation (
@@ -167,13 +167,13 @@ Modelica in file \"Modelica/package.mo\".</i><br>
        </li>
 </ul>
 </html>"));
-  equation 
+  equation
     v = V;
   end ConstantVoltage;
-  
-  model StepVoltage "Step voltage source" 
+
+  model StepVoltage "Step voltage source"
     parameter SI.Voltage V=1 "Height of step";
-    extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.Step 
+    extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.Step
         signalSource(height=V));
     annotation (
       Icon(Line(points=[-70, -70; 0, -70; 0, 70; 69, 70], style(color=8))),
@@ -254,12 +254,12 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 </ul>
 </html>"));
   end StepVoltage;
-  
-  model RampVoltage "Ramp voltage source" 
+
+  model RampVoltage "Ramp voltage source"
     parameter SI.Voltage V=1 "Height of ramp";
-    parameter SI.Time duration(min=Modelica.Constants.small) = 2 
+    parameter SI.Time duration(min=Modelica.Constants.small) = 2
       "Duration of ramp";
-    extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.Ramp 
+    extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.Ramp
         signalSource( final height=
                  V, final duration=duration));
     annotation (
@@ -359,12 +359,12 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 </ul>
 </html>"));
   end RampVoltage;
-  
-  model SineVoltage "Sine voltage source" 
+
+  model SineVoltage "Sine voltage source"
     parameter SI.Voltage V=1 "Amplitude of sine wave";
     parameter SI.Angle phase=0 "Phase of sine wave";
     parameter SI.Frequency freqHz=1 "Frequency of sine wave";
-    extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.Sine 
+    extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.Sine
         signalSource(
         amplitude=V,
         freqHz=freqHz,
@@ -443,13 +443,13 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 </ul>
 </html>"));
   end SineVoltage;
-  
-  model ExpSineVoltage "Exponentially damped sine voltage source" 
+
+  model ExpSineVoltage "Exponentially damped sine voltage source"
     parameter SI.Voltage V=1 "Amplitude of sine wave";
     parameter SI.Frequency freqHz=2 "Frequency of sine wave";
     parameter SI.Angle phase=0 "Phase of sine wave";
     parameter SI.Damping damping=1 "Damping coefficient of sine wave";
-    extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.ExpSine 
+    extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.ExpSine
         signalSource(
         amplitude=V,
         freqHz=freqHz,
@@ -545,15 +545,15 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 </ul>
 </html>"));
   end ExpSineVoltage;
-  
-  model ExponentialsVoltage " Rising and falling exponential voltage source" 
+
+  model ExponentialsVoltage " Rising and falling exponential voltage source"
     parameter Real vMax=1 "Upper bound for rising edge";
     parameter SI.Time riseTime(min=0) = 0.5 "Rise time";
-    parameter SI.Time riseTimeConst(min=Modelica.Constants.small) = 0.1 
+    parameter SI.Time riseTimeConst(min=Modelica.Constants.small) = 0.1
       "Rise time constant";
-    parameter SI.Time fallTimeConst(min=Modelica.Constants.small) = riseTimeConst 
+    parameter SI.Time fallTimeConst(min=Modelica.Constants.small) = riseTimeConst
       "Fall time constant";
-    extends Interfaces.VoltageSource(redeclare 
+    extends Interfaces.VoltageSource(redeclare
         Modelica.Blocks.Sources.Exponentials signalSource(
         outMax=vMax,
         riseTime=riseTime,
@@ -710,15 +710,15 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 </ul>
 </html>"));
   end ExponentialsVoltage;
-  
-  model PulseVoltage "Pulse voltage source" 
+
+  model PulseVoltage "Pulse voltage source"
     parameter SI.Voltage V=1 "Amplitude of pulse";
     parameter Real width(
       final min=Modelica.Constants.small,
       final max=100) = 50 "Width of pulse in % of period";
-    parameter SI.Time period(final min=Modelica.Constants.small) = 1 
+    parameter SI.Time period(final min=Modelica.Constants.small) = 1
       "Time for one period";
-    extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.Pulse 
+    extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.Pulse
         signalSource(
         amplitude=V,
         width=width,
@@ -835,8 +835,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 </ul>
 </html>"));
   end PulseVoltage;
-  
-  model SawToothVoltage "Saw tooth voltage source" 
+
+  model SawToothVoltage "Saw tooth voltage source"
     parameter SI.Voltage V=1 "Amplitude of saw tooth";
     parameter SI.Time period=1 "Time for one period";
     extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.SawTooth
@@ -939,17 +939,17 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 </ul>
 </html>"));
   end SawToothVoltage;
-  
-  model TrapezoidVoltage "Trapezoidal voltage source" 
+
+  model TrapezoidVoltage "Trapezoidal voltage source"
     parameter SI.Voltage V=1 "Amplitude of trapezoid";
     parameter SI.Time rising(final min=0) = 0 "Rising duration of trapezoid";
     parameter SI.Time width(final min=0) = 0.5 "Width duration of trapezoid";
     parameter SI.Time falling(final min=0) = 0 "Falling duration of trapezoid";
-    parameter SI.Time period(final min=Modelica.Constants.small) = 1 
+    parameter SI.Time period(final min=Modelica.Constants.small) = 1
       "Time for one period";
-    parameter Integer nperiod=-1 
+    parameter Integer nperiod=-1
       "Number of periods (< 0 means infinite number of periods)";
-    extends Interfaces.VoltageSource(redeclare 
+    extends Interfaces.VoltageSource(redeclare
         Modelica.Blocks.Sources.Trapezoid signalSource(
         amplitude=V,
         rising=rising,
@@ -1094,11 +1094,11 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 </ul>
 </html>"));
   end TrapezoidVoltage;
-  
-  model TableVoltage "Voltage source by linear interpolation in a table" 
-    parameter Real table[:, :]=[0, 0; 1, 1; 2, 4] 
+
+  model TableVoltage "Voltage source by linear interpolation in a table"
+    parameter Real table[:, :]=[0, 0; 1, 1; 2, 4]
       "Table matrix (time = first column, voltage = second column)";
-    extends Interfaces.VoltageSource(redeclare 
+    extends Interfaces.VoltageSource(redeclare
         Modelica.Blocks.Sources.TimeTable signalSource(                                       table=
            table));
     annotation (
@@ -1222,18 +1222,18 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 </ul>
 </html>"));
   end TableVoltage;
-  
-  model SignalCurrent 
-    "Generic current source using the input signal as source current" 
-    
+
+  model SignalCurrent
+    "Generic current source using the input signal as source current"
+
     Interfaces.PositivePin p annotation (extent=[-110, -10; -90, 10]);
     Interfaces.NegativePin n annotation (extent=[110, -10; 90, 10]);
     SI.Voltage v "Voltage drop between the two pins (= p.v - n.v)";
     Modelica.Blocks.Interfaces.RealInput i(
-        redeclare type SignalType = SI.Current) 
-      "Current flowing from pin p to pin n as input signal" 
+        redeclare type SignalType = SI.Current)
+      "Current flowing from pin p to pin n as input signal"
        annotation (extent=[-20, 50; 20, 90], rotation=-90);
-    
+
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -1277,13 +1277,13 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
        </li>
 </ul>
 </html>"));
-  equation 
+  equation
     v = p.v - n.v;
     0 = p.i + n.i;
     i = p.i;
   end SignalCurrent;
-  
-  model ConstantCurrent "Source for constant current" 
+
+  model ConstantCurrent "Source for constant current"
     parameter SI.Current I=1 "Value of constant current";
     extends Interfaces.OnePort;
     annotation (
@@ -1329,13 +1329,13 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
        </li>
 </ul>
 </html>"));
-  equation 
+  equation
     i = I;
   end ConstantCurrent;
-  
-  model StepCurrent "Step current source" 
+
+  model StepCurrent "Step current source"
     parameter SI.Current I=1 "Height of step";
-    extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.Step 
+    extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.Step
         signalSource(                                                                    height=I));
     annotation (
       Icon(Line(points=[-86,-70; -14,-70; -14,70; 57,70],     style(color=8))),
@@ -1416,13 +1416,13 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 </ul>
 </html>"));
   end StepCurrent;
-  
-  model RampCurrent "Ramp current source" 
+
+  model RampCurrent "Ramp current source"
     parameter SI.Current I=1 "Height of ramp";
-    parameter SI.Time duration(min=Modelica.Constants.small) = 2 
+    parameter SI.Time duration(min=Modelica.Constants.small) = 2
       "Duration of ramp";
-    extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.Ramp 
-        signalSource(                                                                    final 
+    extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.Ramp
+        signalSource(                                                                    final
           height=I, final duration=duration));
     annotation (
       Diagram(
@@ -1521,12 +1521,12 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 </ul>
 </html>"));
   end RampCurrent;
-  
-  model SineCurrent "Sine current source" 
+
+  model SineCurrent "Sine current source"
     parameter SI.Current I=1 "Amplitude of sine wave";
     parameter SI.Angle phase=0 "Phase of sine wave";
     parameter SI.Frequency freqHz=1 "Frequency of sine wave";
-    extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.Sine 
+    extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.Sine
         signalSource(
         amplitude=I,
         freqHz=freqHz,
@@ -1605,13 +1605,13 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 </ul>
 </html>"));
   end SineCurrent;
-  
-  model ExpSineCurrent "Exponentially damped sine current source" 
+
+  model ExpSineCurrent "Exponentially damped sine current source"
     parameter Real I=1 "Amplitude of sine wave";
     parameter SI.Frequency freqHz=2 "Frequency of sine wave";
     parameter SI.Angle phase=0 "Phase of sine wave";
     parameter SI.Damping damping=1 "Damping coefficient of sine wave";
-    extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.ExpSine 
+    extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.ExpSine
         signalSource(
         amplitude=I,
         freqHz=freqHz,
@@ -1707,15 +1707,15 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 </ul>
 </html>"));
   end ExpSineCurrent;
-  
-  model ExponentialsCurrent " Rising and falling exponential current source" 
+
+  model ExponentialsCurrent " Rising and falling exponential current source"
     parameter Real iMax=1 "Upper bound for rising edge";
     parameter SI.Time riseTime(min=0) = 0.5 "Rise time";
-    parameter SI.Time riseTimeConst(min=Modelica.Constants.small) = 0.1 
+    parameter SI.Time riseTimeConst(min=Modelica.Constants.small) = 0.1
       "Rise time constant";
-    parameter SI.Time fallTimeConst(min=Modelica.Constants.small) = riseTimeConst 
+    parameter SI.Time fallTimeConst(min=Modelica.Constants.small) = riseTimeConst
       "Fall time constant";
-    extends Interfaces.CurrentSource(redeclare 
+    extends Interfaces.CurrentSource(redeclare
         Modelica.Blocks.Sources.Exponentials signalSource(
         outMax=iMax,
         riseTime=riseTime,
@@ -1804,15 +1804,15 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 </ul>
 </html>"));
   end ExponentialsCurrent;
-  
-  model PulseCurrent "Pulse current source" 
+
+  model PulseCurrent "Pulse current source"
     parameter SI.Current I=1 "Amplitude of pulse";
     parameter Real width(
       final min=Modelica.Constants.small,
       final max=100) = 50 "Width of pulse in % of period";
-    parameter SI.Time period(final min=Modelica.Constants.small) = 1 
+    parameter SI.Time period(final min=Modelica.Constants.small) = 1
       "Time for one period";
-    extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.Pulse 
+    extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.Pulse
         signalSource(
         amplitude=I,
         width=width,
@@ -1929,8 +1929,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 </ul>
 </html>"));
   end PulseCurrent;
-  
-  model SawToothCurrent "Saw tooth current source" 
+
+  model SawToothCurrent "Saw tooth current source"
     parameter SI.Current I=1 "Amplitude of saw tooth";
     parameter SI.Time period=1 "Time for one period";
     extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.SawTooth
@@ -2033,17 +2033,17 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 </ul>
 </html>"));
   end SawToothCurrent;
-  
-  model TrapezoidCurrent "Trapezoidal current source" 
+
+  model TrapezoidCurrent "Trapezoidal current source"
     parameter SI.Current I=1 "Amplitude of trapezoid";
     parameter SI.Time rising(final min=0) = 0 "Rising duration of trapezoid";
     parameter SI.Time width(final min=0) = 0.5 "Width duration of trapezoid";
     parameter SI.Time falling(final min=0) = 0 "Falling duration of trapezoid";
-    parameter SI.Time period(final min=Modelica.Constants.small) = 1 
+    parameter SI.Time period(final min=Modelica.Constants.small) = 1
       "Time for one period";
-    parameter Integer nperiod=-1 
+    parameter Integer nperiod=-1
       "Number of periods (< 0 means infinite number of periods)";
-    extends Interfaces.CurrentSource(redeclare 
+    extends Interfaces.CurrentSource(redeclare
         Modelica.Blocks.Sources.Trapezoid signalSource(
         amplitude=I,
         rising=rising,
@@ -2188,11 +2188,11 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 </ul>
 </html>"));
   end TrapezoidCurrent;
-  
-  model TableCurrent "Current source by linear interpolation in a table" 
-    parameter Real table[:, :]=[0, 0; 1, 1; 2, 4] 
+
+  model TableCurrent "Current source by linear interpolation in a table"
+    parameter Real table[:, :]=[0, 0; 1, 1; 2, 4]
       "Table matrix (time = first column, current = second column)";
-    extends Interfaces.CurrentSource(redeclare 
+    extends Interfaces.CurrentSource(redeclare
         Modelica.Blocks.Sources.TimeTable signalSource(                                       table=
            table));
     annotation (
@@ -2316,5 +2316,5 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
 </ul>
 </html>"));
   end TableCurrent;
-  
+
 end Sources;

@@ -1,6 +1,6 @@
 within Modelica;
-package Icons "Library of icons" 
-  
+package Icons "Library of icons"
+
   annotation(preferedView="info",
     Window(
       x=0.08,
@@ -81,7 +81,7 @@ Copyright &copy; 1998-2007, Modelica Association and DLR.
 <p>
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> 
+and the accompanying <b>disclaimer</b>
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
 </p><br>
 </HTML>
@@ -113,8 +113,8 @@ and the accompanying <b>disclaimer</b>
 </ul>
 <br>
 </html>"));
-  partial model Info "Icon for an information class" 
-    
+  partial model Info "Icon for an information class"
+
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -139,12 +139,12 @@ and the accompanying <b>disclaimer</b>
 This icon is designed for an <b>information</b> class.
 </p>
 </html>"));
-  equation 
-    
+  equation
+
   end Info;
-  
-  partial package Library "Icon for library" 
-    
+
+  partial package Library "Icon for library"
+
     annotation (Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -170,10 +170,10 @@ This icon is designed for a <b>library</b>.
 </p>
 </html>"));
   end Library;
-  
-  partial package Library2 
-    "Icon for library where additional icon elements shall be added" 
-    
+
+  partial package Library2
+    "Icon for library where additional icon elements shall be added"
+
     annotation (Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -203,9 +203,9 @@ specific graphic is additionally included in the icon.
 </p>
 </html>"));
   end Library2;
-  
-  partial model Example "Icon for an example model" 
-    
+
+  partial model Example "Icon for an example model"
+
     annotation (Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -229,12 +229,12 @@ This icon is designed for an <b>Example package</b>,
 i.e. a package containing executable demo models.
 </p>
 </html>"));
-  equation 
-    
+  equation
+
   end Example;
-  
-  partial function Function "Icon for a function" 
-    
+
+  partial function Function "Icon for a function"
+
     annotation (Icon(
         Text(extent=[-140,162; 136,102],  string="%name"),
         Ellipse(extent=[-100,100; 100,-100],  style(color=45, fillColor=7)),
@@ -247,9 +247,9 @@ This icon is designed for a <b>function</b>
 </p>
 </html>"));
   end Function;
-  
-  partial record Record "Icon for a record" 
-    
+
+  partial record Record "Icon for a record"
+
     annotation (Icon(
         Rectangle(extent=[-100, 50; 100, -100], style(fillColor=51,
               fillPattern=
@@ -263,9 +263,9 @@ This icon is designed for a <b>record</b>
 </p>
 </html>"));
   end Record;
-  
-  partial class Enumeration "Icon for an enumeration (emulated by a package)" 
-    
+
+  partial class Enumeration "Icon for an enumeration (emulated by a package)"
+
     annotation (Icon(
         Text(extent=[-138,164; 138,104],  string="%name"),
         Ellipse(extent=[-100,100; 100,-100],  style(color=85, fillColor=7)),
@@ -279,8 +279,8 @@ This icon is designed for an <b>enumeration</b>
 </p>
 </html>"));
   end Enumeration;
-  
-  type TypeReal "Icon for a Real type" 
+
+  type TypeReal "Icon for a Real type"
       extends Real;
       annotation(Icon(Rectangle(extent=[-100,100; 100,-100], style(
             color=0,
@@ -299,8 +299,8 @@ This icon is designed for a <b>Real</b> type.
 </p>
 </html>"));
   end TypeReal;
-  
-  type TypeInteger "Icon for an Integer type" 
+
+  type TypeInteger "Icon for an Integer type"
       extends Integer;
       annotation(Icon(Rectangle(extent=[-100,100; 100,-100], style(
             color=0,
@@ -319,8 +319,8 @@ This icon is designed for an <b>Integer</b> type.
 </p>
 </html>"));
   end TypeInteger;
-  
-  type TypeBoolean "Icon for a Boolean type" 
+
+  type TypeBoolean "Icon for a Boolean type"
       extends Boolean;
       annotation(Icon(Rectangle(extent=[-100,100; 100,-100], style(
             color=0,
@@ -339,8 +339,8 @@ This icon is designed for a <b>Boolean</b> type.
 </p>
 </html>"));
   end TypeBoolean;
-  
-  type TypeString "Icon for a String type" 
+
+  type TypeString "Icon for a String type"
       extends String;
       annotation(Icon(Rectangle(extent=[-100,100; 100,-100], style(
             color=0,
@@ -359,10 +359,10 @@ This icon is designed for a <b>String</b> type.
 </p>
 </html>"));
   end TypeString;
-  
-  partial model TranslationalSensor 
-    "Icon representing translational measurement device" 
-    
+
+  partial model TranslationalSensor
+    "Icon representing translational measurement device"
+
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -401,13 +401,13 @@ This icon is designed for a <b>String</b> type.
 This icon is designed for a <b>translational sensor</b> model.
 </p>
 </html>"));
-  equation 
-    
+  equation
+
   end TranslationalSensor;
-  
-  partial model RotationalSensor 
-    "Icon representing rotational measurement device" 
-    
+
+  partial model RotationalSensor
+    "Icon representing rotational measurement device"
+
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -452,12 +452,12 @@ This icon is designed for a <b>translational sensor</b> model.
 This icon is designed for a <b>rotational sensor</b> model.
 </p>
 </html>"));
-  equation 
-    
+  equation
+
   end RotationalSensor;
-  
-  partial model GearIcon "Icon for gearbox" 
-    
+
+  partial model GearIcon "Icon for gearbox"
+
     annotation (Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[2, 2],
@@ -498,12 +498,12 @@ This icon is designed for a <b>rotational sensor</b> model.
 This icon is designed for a <b>gearbox</b> model.
 </p>
 </html>"));
-  equation 
-    
+  equation
+
   end GearIcon;
-  
-  partial model MotorIcon "Icon for electrical motor" 
-    
+
+  partial model MotorIcon "Icon for electrical motor"
+
     annotation (Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -528,12 +528,12 @@ This icon is designed for a <b>gearbox</b> model.
 This icon is designed for an <b>electrical motor</b> model.
 </p>
 </html>"));
-  equation 
-    
+  equation
+
   end MotorIcon;
-  
-  connector SignalBus "Icon for signal bus" 
-    
+
+  connector SignalBus "Icon for signal bus"
+
     annotation (
       Icon(
         Rectangle(extent=[-20,2; 20,-2], style(rgbcolor={255,204,51}, thickness=2)),
@@ -610,11 +610,11 @@ This icon is designed for an <b>electrical motor</b> model.
 This icon is designed for a <b>signal bus</b> connector.
 </p>
 </html>"));
-    
+
   end SignalBus;
-  
-  connector SignalSubBus "Icon for signal sub-bus" 
-    
+
+  connector SignalSubBus "Icon for signal sub-bus"
+
     annotation (
       Icon(
         Line(points=[-16, 2; 16, 2], style(rgbcolor={255,204,51}, thickness=2)),
@@ -676,6 +676,6 @@ This icon is designed for a <b>signal bus</b> connector.
 This icon is designed for a <b>sub-bus</b> in a signal connector.
 </p>
 </html>"));
-    
+
   end SignalSubBus;
 end Icons;
