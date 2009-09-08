@@ -1,9 +1,9 @@
-model Fourbar2 
-  "One kinematic loop with four bars (with UniversalSpherical joint; 1 non-linear equation)" 
-  
+model Fourbar2
+  "One kinematic loop with four bars (with UniversalSpherical joint; 1 non-linear equation)"
+
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Example;
-  
+
   output SI.Angle j1_phi "angle of revolute joint j1";
   output SI.Position j2_s "distance of prismatic joint j2";
   output SI.AngularVelocity j1_w "axis speed of revolute joint j1";
@@ -23,8 +23,8 @@ the three revolute joints on the left top-side and the two revolute
 joints on the right top side have been replaced by the joint <b>UniversalSpherical</b>
 that is a rod connecting a spherical and a universal joint. This joint is defined
 by <b>1 constraint</b> stating that the distance between the two spherical joints is
-constant. Using this joint in a kinematic loop reduces the sizes of 
-non-linear algebraic equations. For this loop, only one non-linear 
+constant. Using this joint in a kinematic loop reduces the sizes of
+non-linear algebraic equations. For this loop, only one non-linear
 algebraic system of equations of order 1 remains.
 </p>
 <p>
@@ -38,7 +38,7 @@ Another feature is that the length of the connecting rod can be
 automatically calculated during <b>initialization</b>. In order to do this,
 another initialization condition has to be given. In this example, the
 initial value of the distance of the prismatic joint j2 has been fixed
-(via the \"Initialization\" menu) and the rod length of joint 
+(via the \"Initialization\" menu) and the rod length of joint
 \"UniversalSpherical\" is computed during initialization since parameter
 <b>computeLength</b> = <b>true</b> is set in the joint parameter
 menu. The main advantage is that during initialization no non-linear
@@ -51,7 +51,7 @@ for rodLength:
 </pre>
 </html>"),
     Diagram);
-  
+
   inner Modelica.Mechanics.MultiBody.World world annotation (extent=[-80, -80; -60, -60]);
   Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute j1(
     n={1,0,0},
@@ -62,21 +62,21 @@ for rodLength:
     n={1,0,0},
     s_offset=-0.2,
     boxWidth=0.05,
-    initType=Modelica.Mechanics.MultiBody.Types.Init.Position) 
+    initType=Modelica.Mechanics.MultiBody.Types.Init.Position)
     annotation (extent=[12, -80; 32, -60]);
-  Modelica.Mechanics.MultiBody.Parts.BodyCylinder b1(r={0,0.5,0.1}, diameter=0.05) 
+  Modelica.Mechanics.MultiBody.Parts.BodyCylinder b1(r={0,0.5,0.1}, diameter=0.05)
     annotation (extent=[-40, -10; -20, 10], rotation=90);
-  Modelica.Mechanics.MultiBody.Parts.BodyCylinder b2(r={0,0.2,0}, diameter=0.05) 
+  Modelica.Mechanics.MultiBody.Parts.BodyCylinder b2(r={0,0.2,0}, diameter=0.05)
     annotation (extent=[40, -60; 60, -40], rotation=90);
   Modelica.Mechanics.MultiBody.Joints.UniversalSpherical universalSpherical(
     n1_a={0,1,0},
     computeRodLength=true,
     rRod_ia={-1,0.3,0.1}) annotation (extent=[0, 18; -20, 38]);
-  Modelica.Mechanics.MultiBody.Parts.FixedTranslation b3(r={1.2,0,0}, animation=false) 
+  Modelica.Mechanics.MultiBody.Parts.FixedTranslation b3(r={1.2,0,0}, animation=false)
     annotation (extent=[-32, -80; -12, -60]);
-  Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrame(color_x={0,0,255}) 
+  Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrame(color_x={0,0,255})
     annotation (extent=[-16,60; 4,80],   rotation=90);
-equation 
+equation
   j1_phi = j1.phi;
   j2_s = j2.s;
   j1_w = j1.w;
@@ -101,17 +101,17 @@ equation
       color=10,
       rgbcolor={95,95,95},
       thickness=2));
-  connect(universalSpherical.frame_a, b2.frame_b) 
+  connect(universalSpherical.frame_a, b2.frame_b)
     annotation (points=[0,28; 50,28; 50,-40], style(
       color=10,
       rgbcolor={95,95,95},
       thickness=2));
-  connect(b3.frame_a, world.frame_b) 
+  connect(b3.frame_a, world.frame_b)
     annotation (points=[-32,-70; -60,-70], style(
       color=10,
       rgbcolor={95,95,95},
       thickness=2));
-  connect(b3.frame_b, j2.frame_a) 
+  connect(b3.frame_b, j2.frame_a)
     annotation (points=[-12,-70; 12,-70], style(
       color=10,
       rgbcolor={95,95,95},

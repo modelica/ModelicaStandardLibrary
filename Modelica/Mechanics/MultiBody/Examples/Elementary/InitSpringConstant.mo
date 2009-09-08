@@ -1,22 +1,22 @@
-model InitSpringConstant 
-  "Determine spring constant such that system is in steady state at given position" 
-  
+model InitSpringConstant
+  "Determine spring constant such that system is in steady state at given position"
+
   extends Modelica.Icons.Example;
   inner Modelica.Mechanics.MultiBody.World world(gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.
         UniformGravity) annotation (extent=[-80, 0; -60, 20]);
   Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute rev(n={0,0,1}, initType=Modelica.Mechanics.MultiBody.Types.
         Init.PositionVelocityAcceleration) annotation (extent=[-40, 0; -20, 20]);
-  Modelica.Mechanics.Rotational.Damper damper(d=0.1) 
+  Modelica.Mechanics.Rotational.Damper damper(d=0.1)
     annotation (extent=[-40, 40; -20, 60]);
   Modelica.Mechanics.MultiBody.Parts.BodyShape body(
     r={1,0,0},
     r_CM={0.5,0,0},
     m=1) annotation (extent=[0, 0; 20, 20]);
-  Modelica.Mechanics.MultiBody.Parts.Fixed fixed(r={1,0.2,0}, width=0.02) 
+  Modelica.Mechanics.MultiBody.Parts.Fixed fixed(r={1,0.2,0}, width=0.02)
     annotation (extent=[40, 60; 60, 80], rotation=-90);
-  Modelica.Mechanics.MultiBody.Forces.Spring spring(s_unstretched=0.1, c(fixed=false) = 100) 
+  Modelica.Mechanics.MultiBody.Forces.Spring spring(s_unstretched=0.1, c(fixed=false) = 100)
     annotation (extent=[40, 20; 60, 40], rotation=-90);
-  
+
   annotation (Documentation(info="<html>
 <p>
 This example demonstrates a non-standard type of initialization
@@ -40,7 +40,7 @@ initialization. The 3 initial equations are the rotational
 angle of the revolute joint and its first and second
 derivative. The latter one are zero, in order to initialize
 in steady state. By setting parameter initType of the revolute
-joint \"rev\" to 
+joint \"rev\" to
 \"MultiBody.Types.Init.PositionVelocityAcceleration\", the required
 3 initial equations are defined.
 </p>
@@ -50,13 +50,13 @@ The spring constant is computed as c = 49.05 N/m.
 An animation of this simulation is shown in the figure below.
 </p>
 <p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Elementary/InitSpringConstant.png\" 
+<IMG SRC=\"../Images/MultiBody/Examples/Elementary/InitSpringConstant.png\"
 ALT=\"model Examples.Elementary.InitSpringConstant\">
 </p>
 </html>"));
-equation 
-  
-  connect(world.frame_b, rev.frame_a) 
+equation
+
+  connect(world.frame_b, rev.frame_a)
     annotation (points=[-60,10; -40,10], style(
       color=10,
       rgbcolor={95,95,95},
@@ -65,17 +65,17 @@ equation
          26; -30, 26; -30, 20], style(color=0));
   connect(rev.bearing, damper.flange_a) annotation (points=[-36, 20; -36, 26; -48,
          26; -48, 50; -40, 50], style(color=0));
-  connect(rev.frame_b, body.frame_a) 
+  connect(rev.frame_b, body.frame_a)
     annotation (points=[-20,10; 0,10], style(
       color=10,
       rgbcolor={95,95,95},
       thickness=2));
-  connect(fixed.frame_b, spring.frame_a) 
+  connect(fixed.frame_b, spring.frame_a)
     annotation (points=[50,60; 50,40], style(
       color=10,
       rgbcolor={95,95,95},
       thickness=2));
-  connect(body.frame_b, spring.frame_b) 
+  connect(body.frame_b, spring.frame_b)
     annotation (points=[20,10; 50,10; 50,20], style(
       color=10,
       rgbcolor={95,95,95},

@@ -1,7 +1,7 @@
-package Sensors "Potential, voltage, current, and power sensors" 
-  
+package Sensors "Potential, voltage, current, and power sensors"
+
   extends Modelica.Icons.Library;
-  
+
   annotation(preferedView="info",
     Window(
       x=0.03,
@@ -14,7 +14,7 @@ package Sensors "Potential, voltage, current, and power sensors"
 <p>
 This package contains potential, voltage, and current sensors.
 </p>
- 
+
 </HTML>
 ", revisions="<html>
 <dl>
@@ -41,14 +41,14 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 <p>
 </dl>
 </html>"));
-  
-  model PotentialSensor "Sensor to measure the potential" 
+
+  model PotentialSensor "Sensor to measure the potential"
     extends Modelica.Icons.RotationalSensor;
-    
+
     Interfaces.PositivePin p "pin to be measured" annotation (extent=[-110, -10; -90, 10]);
     Modelica.Blocks.Interfaces.RealOutput phi(
-        redeclare type SignalType = SI.ElectricPotential) 
-      "Absolute voltage potential as output signal" 
+        redeclare type SignalType = SI.ElectricPotential)
+      "Absolute voltage potential as output signal"
         annotation (extent=[100, -10; 120, 10]);
     annotation (
       Coordsys(
@@ -79,22 +79,22 @@ Modelica in file \"Modelica/package.mo\".</i><br>
        </li>
 </ul>
 </html>"));
-  equation 
+  equation
     p.i = 0;
     phi = p.v;
   end PotentialSensor;
-  
-  model VoltageSensor "Sensor to measure the voltage between two pins" 
+
+  model VoltageSensor "Sensor to measure the voltage between two pins"
     extends Modelica.Icons.RotationalSensor;
-    
+
     Interfaces.PositivePin p "positive pin" annotation (extent=[-110, -10; -90, 10]);
     Interfaces.NegativePin n "negative pin" annotation (extent=[90, -10; 110, 10]);
     Modelica.Blocks.Interfaces.RealOutput v(
-        redeclare type SignalType = SI.Voltage) 
-      "Voltage between pin p and n (= p.v - n.v) as output signal" 
+        redeclare type SignalType = SI.Voltage)
+      "Voltage between pin p and n (= p.v - n.v) as output signal"
        annotation (extent=[-10, -90; 10, -110],
         rotation=90);
-    
+
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -126,20 +126,20 @@ Modelica in file \"Modelica/package.mo\".</i><br>
        </li>
 </ul>
 </html>"));
-  equation 
+  equation
     p.i = 0;
     n.i = 0;
     v = p.v - n.v;
   end VoltageSensor;
-  
-  model CurrentSensor "Sensor to measure the current in a branch" 
+
+  model CurrentSensor "Sensor to measure the current in a branch"
     extends Modelica.Icons.RotationalSensor;
-    
+
     Interfaces.PositivePin p "positive pin" annotation (extent=[-110, -10; -90, 10]);
     Interfaces.NegativePin n "negative pin" annotation (extent=[90, -10; 110, 10]);
     Modelica.Blocks.Interfaces.RealOutput i(
-        redeclare type SignalType = SI.Current) 
-      "current in the branch from p to n as output signal" 
+        redeclare type SignalType = SI.Current)
+      "current in the branch from p to n as output signal"
        annotation (extent=[-10, -90; 10, -110],
         rotation=90);
     annotation (
@@ -174,14 +174,14 @@ Modelica in file \"Modelica/package.mo\".</i><br>
        </li>
 </ul>
 </html>"));
-  equation 
+  equation
     p.v = n.v;
     p.i = i;
     n.i = -i;
   end CurrentSensor;
-  
-model PowerSensor "Sensor to measure the power" 
-    
+
+model PowerSensor "Sensor to measure the power"
+
   annotation (uses(Modelica(version="2.2")),
     Icon(
       Ellipse(extent=[-70,70; 70,-70],   style(color=0, fillColor=7)),
@@ -223,37 +223,37 @@ This power sensor measures instantaneous electrical power of a singlephase syste
        </li>
 </ul>
 </html>"));
-  Modelica.Electrical.Analog.Interfaces.PositivePin pc 
-      "Positive pin, current path" 
+  Modelica.Electrical.Analog.Interfaces.PositivePin pc
+      "Positive pin, current path"
     annotation (extent=[-90,-10; -110,10]);
-  Modelica.Electrical.Analog.Interfaces.NegativePin nc 
-      "Negative pin, current path" 
+  Modelica.Electrical.Analog.Interfaces.NegativePin nc
+      "Negative pin, current path"
     annotation (extent=[110,-10; 90,10], rotation=0);
-  Modelica.Electrical.Analog.Interfaces.PositivePin pv 
-      "Positive pin, voltage path" 
+  Modelica.Electrical.Analog.Interfaces.PositivePin pv
+      "Positive pin, voltage path"
     annotation (extent=[-10,110; 10,90]);
-  Modelica.Electrical.Analog.Interfaces.NegativePin nv 
-      "Negative pin, voltage path" 
+  Modelica.Electrical.Analog.Interfaces.NegativePin nv
+      "Negative pin, voltage path"
     annotation (extent=[10,-110; -10,-90]);
-  Modelica.Blocks.Interfaces.RealOutput power(redeclare type SignalType = 
-        Modelica.SIunits.Power) 
+  Modelica.Blocks.Interfaces.RealOutput power(redeclare type SignalType =
+        Modelica.SIunits.Power)
     annotation (extent=[-70,-120; -90,-100],rotation=270);
-  Modelica.Electrical.Analog.Sensors.VoltageSensor voltageSensor 
+  Modelica.Electrical.Analog.Sensors.VoltageSensor voltageSensor
     annotation (extent=[10,-20; -10,-40], rotation=90);
-  Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor 
+  Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor
     annotation (extent=[-50,-10; -30,10],rotation=0);
-  Modelica.Blocks.Math.Product product 
+  Modelica.Blocks.Math.Product product
     annotation (extent=[-40,-60; -20,-40], rotation=270);
-equation 
+equation
   connect(pv, voltageSensor.p) annotation (points=[0,100; 0,-20; 6.12303e-016,
           -20],
               style(color=3, rgbcolor={0,0,255}));
-  connect(voltageSensor.n, nv) annotation (points=[-6.12303e-016,-40; 
+  connect(voltageSensor.n, nv) annotation (points=[-6.12303e-016,-40;
           -6.12303e-016,-63; 0,-63; 0,-100],
                                            style(color=3, rgbcolor={0,0,255}));
-  connect(pc, currentSensor.p) 
+  connect(pc, currentSensor.p)
     annotation (points=[-100,0; -50,0], style(color=3, rgbcolor={0,0,255}));
-  connect(currentSensor.n, nc) 
+  connect(currentSensor.n, nc)
     annotation (points=[-30,0; 100,0], style(color=3, rgbcolor={0,0,255}));
   connect(currentSensor.i, product.u2) annotation (points=[-40,-10; -40,-30;
         -36,-30; -36,-38], style(color=74, rgbcolor={0,0,127}));

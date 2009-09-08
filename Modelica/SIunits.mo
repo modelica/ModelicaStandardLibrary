@@ -1,6 +1,6 @@
-package SIunits 
-  "Type and unit definitions based on SI units according to ISO 31-1992" 
-package UsersGuide "Users Guide" 
+package SIunits
+  "Type and unit definitions based on SI units according to ISO 31-1992"
+package UsersGuide "Users Guide"
   annotation (DocumentationClass=true, Documentation(info="<HTML>
 <h3><font color=\"#008000\" size=5>Users Guide of package SIunits</font></h3>
 <p>
@@ -10,9 +10,9 @@ predefined types, such as <i>Mass</i>,
 on units.</p>
 
 </HTML>"));
-    
-  package HowToUseSIunits "How to use SIunits" 
-      
+
+  package HowToUseSIunits "How to use SIunits"
+
     annotation (DocumentationClass=true, Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>How to use SIunits</font></h3>
 
@@ -54,7 +54,7 @@ for a variable of type Real:
 <li><b>quantity</b> to define the physical quantity (e.g. \"Length\", or \"Energy\").</li>
 <li><b>unit</b> to define the unit that has to be used
     in order that the equations are correct (e.g. \"N.m\").</li>
-<li><b>displayUnit</b> to define the unit used in the graphical 
+<li><b>displayUnit</b> to define the unit used in the graphical
     user interface as default display unit for input and/or output.</li>
 </ul>
 
@@ -67,7 +67,7 @@ a unit for the corresponding variable.
 </p>
 
 <p>
-For example, after providing a value for \"m\" and \"f\" in a parameter 
+For example, after providing a value for \"m\" and \"f\" in a parameter
 menu of an instance of MassOnGround, a tool might generate the following code:
 </p>
 
@@ -78,7 +78,7 @@ menu of an instance of MassOnGround, a tool might generate the following code:
 <p>
 The meaning is that in the equations a value of \"2\" is used
 and that in the graphical user interface a value of \"2000\" should be used,
-together with the unit \"g\" from the unit set \"Mass\" (= the quantity name). 
+together with the unit \"g\" from the unit set \"Mass\" (= the quantity name).
 Note, according to the Modelica specification
 a tool might ignore the \"displayUnit\" attribute.
 </p>
@@ -88,7 +88,7 @@ In order to help the Modelica model developer, the Modelica.SIunits
 library provides about 450 predefined type names,
 together with values for the attributes <b>quantity</b>, <b>unit</b> and sometimes
 <b>displayUnit</b> and <b>min</b>. The unit is always selected as SI-unit according to the
-ISO standard. The type and the quantity names are the 
+ISO standard. The type and the quantity names are the
 quantity names used in the ISO standard. \"quantity\" and \"unit\" are defined
 as \"<b>final</b>\" in order that they cannot be modified. Attributes \"displayUnit\"
 and \"min\" can, however, be changed in a model via a modification. The example above,
@@ -124,11 +124,11 @@ in the declaration as in the example at the beginning.
 </p>
 
 </html>"));
-      
+
   end HowToUseSIunits;
-    
-  package Conventions "Conventions" 
-      
+
+  package Conventions "Conventions"
+
     annotation (DocumentationClass=true, Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Conventions</font></h3>
 
@@ -170,11 +170,11 @@ in the declaration as in the example at the beginning.
     <b>Conversions</b>.</li>
 </ul>
 </html>"));
-      
+
   end Conventions;
-    
-  class Literature "Literature" 
-      
+
+  class Literature "Literature"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Literature</font></h3>
 
@@ -198,9 +198,9 @@ in the declaration as in the example at the beginning.
 </html>
 "));
   end Literature;
-    
-  class Contact "Contact" 
-      
+
+  class Contact "Contact"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Contact</font></h3>
 
@@ -208,7 +208,7 @@ in the declaration as in the example at the beginning.
 <dt><b>Main Author:</b>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
     Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
-    Institut f&uuml;r Robotik und Mechatronik<br> 
+    Institut f&uuml;r Robotik und Mechatronik<br>
     Abteilung f&uuml;r Entwurfsorientierte Regelungstechnik<br>
     Postfach 1116<br>
     D-82230 Wessling<br>
@@ -225,10 +225,10 @@ in the declaration as in the example at the beginning.
 </html>
 "));
   end Contact;
-    
+
 end UsersGuide;
   extends Modelica.Icons.Library2;
-  
+
   annotation(preferedView="info",
     Window(
       x=0.08,
@@ -245,7 +245,7 @@ end UsersGuide;
     Documentation(info="<html>
 <p>This package provides predefined types, such as <i>Mass</i>,
 <i>Angle</i>, <i>Time</i>, based on the international standard
-on units, e.g., 
+on units, e.g.,
 </p>
 
 <pre>   <b>type</b> Angle = Real(<b>final</b> quantity = \"Angle\",
@@ -255,7 +255,7 @@ on units, e.g.,
 
 <p>
 as well as conversion functions from non SI-units to SI-units
-and vice versa in subpackage 
+and vice versa in subpackage
 <a href=\"Modelica://Modelica.SIunits.Conversions\">Conversions</a>.
 </p>
 
@@ -271,7 +271,7 @@ Copyright &copy; 1998-2006, Modelica Association and DLR.
 <p>
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> 
+and the accompanying <b>disclaimer</b>
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
 </p>
 
@@ -347,12 +347,12 @@ and the accompanying <b>disclaimer</b>
         extent=[163, 320; 406, 264],
         string="Modelica.SIunits",
         style(color=1))));
-  
-  package Conversions 
-    "Conversion functions to/from non SI units and type definitions of non SI units" 
-    
+
+  package Conversions
+    "Conversion functions to/from non SI units and type definitions of non SI units"
+
     extends Modelica.Icons.Library2;
-    
+
     annotation(preferedView="info", Icon(
         Text(
           extent=[-33, -7; -92, -67],
@@ -369,7 +369,7 @@ and the accompanying <b>disclaimer</b>
 defined in package Modelica.SIunits.Conversions.NonSIunits to the
 corresponding SI Units defined in package Modelica.SIunits and vice
 versa. It is recommended to use these functions in the following
-way (note, that all functions have one Real input and one Real output 
+way (note, that all functions have one Real input and one Real output
 argument):</p>
 <pre>
   <b>import</b> SI = Modelica.SIunits;
@@ -380,14 +380,14 @@ argument):</p>
   <b>parameter</b> SI.AngularVelocity w   = from_rpm(3600);  // convert 3600 revolutions per minutes
                                                       // to radian per seconds
 </pre>
- 
+
 </HTML>
 "));
-    
-    package NonSIunits "Type definitions of non SI units" 
-      
+
+    package NonSIunits "Type definitions of non SI units"
+
       extends Modelica.Icons.Library2;
-      
+
       type Temperature_degC = Real (final quantity="ThermodynamicTemperature",
             final unit="degC");
       type Temperature_degF = Real (final quantity="ThermodynamicTemperature",
@@ -406,7 +406,7 @@ argument):</p>
       type Pressure_bar = Real (final quantity="Pressure", final unit="bar");
       type MassFlowRate_gps = Real (final quantity="MassFlowRate", final unit=
               "g/s");
-      
+
       annotation(preferedView="info", Documentation(info="<HTML>
 <p>
 This package provides predefined types, such as <b>Angle_deg</b> (angle in
@@ -431,8 +431,8 @@ still kept in Modelica.SIunits.</p>
             string="[rev/min]",
             style(color=0))));
     end NonSIunits;
-    
-    function to_degC "Convert from Kelvin to °Celsius" 
+
+    function to_degC "Convert from Kelvin to °Celsius"
       extends ConversionIcon;
       input Temperature Kelvin "Kelvin value";
       output NonSIunits.Temperature_degC Celsius "Celsius value";
@@ -443,11 +443,11 @@ still kept in Modelica.SIunits.</p>
             extent=[100, -20; 20, -100],
             style(color=0),
             string="°C")));
-    algorithm 
+    algorithm
       Celsius := Kelvin + Modelica.Constants.T_zero;
     end to_degC;
-    
-    function from_degC "Convert from °Celsius to Kelvin" 
+
+    function from_degC "Convert from °Celsius to Kelvin"
       extends ConversionIcon;
       input NonSIunits.Temperature_degC Celsius "Celsius value";
       output Temperature Kelvin "Kelvin value";
@@ -458,11 +458,11 @@ still kept in Modelica.SIunits.</p>
             extent=[100, -20; 20, -100],
             style(color=0),
             string="K")));
-    algorithm 
+    algorithm
       Kelvin := Celsius - Modelica.Constants.T_zero;
     end from_degC;
-    
-    function to_degF "Convert from Kelvin to °Fahrenheit" 
+
+    function to_degF "Convert from Kelvin to °Fahrenheit"
       extends ConversionIcon;
       input Temperature Kelvin "Kelvin value";
       output NonSIunits.Temperature_degF Fahrenheit "Fahrenheit value";
@@ -473,11 +473,11 @@ still kept in Modelica.SIunits.</p>
             extent=[100, -20; 20, -100],
             style(color=0),
             string="°F")));
-    algorithm 
+    algorithm
       Fahrenheit := (Kelvin + Modelica.Constants.T_zero)*(9/5) + 32;
     end to_degF;
-    
-    function from_degF "Convert from °Fahrenheit to Kelvin" 
+
+    function from_degF "Convert from °Fahrenheit to Kelvin"
       extends ConversionIcon;
       input NonSIunits.Temperature_degF Fahrenheit "Fahrenheit value";
       output Temperature Kelvin "Kelvin value";
@@ -488,11 +488,11 @@ still kept in Modelica.SIunits.</p>
             extent=[100, -20; 20, -100],
             style(color=0),
             string="K")));
-    algorithm 
+    algorithm
       Kelvin := (Fahrenheit - 32)*(5/9) - Modelica.Constants.T_zero;
     end from_degF;
-    
-    function to_degRk "Convert from Kelvin to °Rankine" 
+
+    function to_degRk "Convert from Kelvin to °Rankine"
       extends ConversionIcon;
       input Temperature Kelvin "Kelvin value";
       output NonSIunits.Temperature_degRk Rankine "Rankine value";
@@ -503,11 +503,11 @@ still kept in Modelica.SIunits.</p>
             extent=[100, -20; 20, -100],
             style(color=0),
             string="°Rk")));
-    algorithm 
+    algorithm
       Rankine := (9/5)*Kelvin;
     end to_degRk;
-    
-    function from_degRk "Convert from °Rankine to Kelvin" 
+
+    function from_degRk "Convert from °Rankine to Kelvin"
       extends ConversionIcon;
       input NonSIunits.Temperature_degRk Rankine "Rankine value";
       output Temperature Kelvin "Kelvin value";
@@ -518,11 +518,11 @@ still kept in Modelica.SIunits.</p>
             extent=[100, -20; 20, -100],
             style(color=0),
             string="K")));
-    algorithm 
+    algorithm
       Kelvin := (5/9)*Rankine;
     end from_degRk;
-    
-    function to_deg "Convert from radian to degree" 
+
+    function to_deg "Convert from radian to degree"
       extends ConversionIcon;
       input Angle radian "radian value";
       output NonSIunits.Angle_deg degree "degree value";
@@ -533,11 +533,11 @@ still kept in Modelica.SIunits.</p>
             extent=[100, -20; 20, -100],
             style(color=0),
             string="deg")));
-    algorithm 
+    algorithm
       degree := (180.0/Modelica.Constants.pi)*radian;
     end to_deg;
-    
-    function from_deg "Convert from degree to radian" 
+
+    function from_deg "Convert from degree to radian"
       extends ConversionIcon;
       input NonSIunits.Angle_deg degree "degree value";
       output Angle radian "radian value";
@@ -548,11 +548,11 @@ still kept in Modelica.SIunits.</p>
             extent=[100, -20; 20, -100],
             style(color=0),
             string="rad")));
-    algorithm 
+    algorithm
       radian := (Modelica.Constants.pi/180.0)*degree;
     end from_deg;
-    
-    function to_rpm "Convert from radian per second to revolutions per minute" 
+
+    function to_rpm "Convert from radian per second to revolutions per minute"
       extends ConversionIcon;
       input AngularVelocity rs "radian per second value";
       output NonSIunits.AngularVelocity_rpm rpm "revolutions per minute value";
@@ -563,12 +563,12 @@ still kept in Modelica.SIunits.</p>
             extent=[100, -20; 20, -100],
             style(color=0),
             string="rev/min")));
-    algorithm 
+    algorithm
       rpm := (30/Modelica.Constants.pi)*rs;
     end to_rpm;
-    
-    function from_rpm 
-      "Convert from revolutions per minute to radian per second" 
+
+    function from_rpm
+      "Convert from revolutions per minute to radian per second"
       extends ConversionIcon;
       input NonSIunits.AngularVelocity_rpm rpm "revolutions per minute value";
       output AngularVelocity rs "radian per second value";
@@ -579,11 +579,11 @@ still kept in Modelica.SIunits.</p>
             extent=[100, -20; 20, -100],
             style(color=0),
             string="rad/s")));
-    algorithm 
+    algorithm
       rs := (Modelica.Constants.pi/30)*rpm;
     end from_rpm;
-    
-    function to_kmh "Convert from metre per second to kilometre per hour" 
+
+    function to_kmh "Convert from metre per second to kilometre per hour"
       extends ConversionIcon;
       input Velocity ms "metre per second value";
       output NonSIunits.Velocity_kmh kmh "kilometre per hour value";
@@ -594,11 +594,11 @@ still kept in Modelica.SIunits.</p>
             extent=[100, -20; 20, -100],
             style(color=0),
             string="km/h")));
-    algorithm 
+    algorithm
       kmh := 3.6*ms;
     end to_kmh;
-    
-    function from_kmh "Convert from kilometre per hour to metre per second" 
+
+    function from_kmh "Convert from kilometre per hour to metre per second"
       extends ConversionIcon;
       input NonSIunits.Velocity_kmh kmh "kilometre per hour value";
       output Velocity ms "metre per second value";
@@ -609,11 +609,11 @@ still kept in Modelica.SIunits.</p>
             extent=[100, -20; 20, -100],
             style(color=0),
             string="m/s")));
-    algorithm 
+    algorithm
       ms := kmh/3.6;
     end from_kmh;
-    
-    function to_day "Convert from second to day" 
+
+    function to_day "Convert from second to day"
       extends ConversionIcon;
       input Time s "second value";
       output NonSIunits.Time_day day "day value";
@@ -624,11 +624,11 @@ still kept in Modelica.SIunits.</p>
             extent=[100, -20; 20, -100],
             style(color=0),
             string="day")));
-    algorithm 
+    algorithm
       day := s/86400;
     end to_day;
-    
-    function from_day "Convert from day to second" 
+
+    function from_day "Convert from day to second"
       extends ConversionIcon;
       input NonSIunits.Time_day day "day value";
       output Time s "second value";
@@ -639,11 +639,11 @@ still kept in Modelica.SIunits.</p>
             extent=[100, -20; 20, -100],
             style(color=0),
             string="s")));
-    algorithm 
+    algorithm
       s := 86400*day;
     end from_day;
-    
-    function to_hour "Convert from second to hour" 
+
+    function to_hour "Convert from second to hour"
       extends ConversionIcon;
       input Time s "second value";
       output NonSIunits.Time_hour hour "hour value";
@@ -654,11 +654,11 @@ still kept in Modelica.SIunits.</p>
             extent=[100, -20; 20, -100],
             style(color=0),
             string="hour")));
-    algorithm 
+    algorithm
       hour := s/3600;
     end to_hour;
-    
-    function from_hour "Convert from hour to second" 
+
+    function from_hour "Convert from hour to second"
       extends ConversionIcon;
       input NonSIunits.Time_hour hour "hour value";
       output Time s "second value";
@@ -669,11 +669,11 @@ still kept in Modelica.SIunits.</p>
             extent=[100, -20; 20, -100],
             style(color=0),
             string="s")));
-    algorithm 
+    algorithm
       s := 3600*hour;
     end from_hour;
-    
-    function to_minute "Convert from second to minute" 
+
+    function to_minute "Convert from second to minute"
       extends ConversionIcon;
       input Time s "second value";
       output NonSIunits.Time_minute minute "minute value";
@@ -684,11 +684,11 @@ still kept in Modelica.SIunits.</p>
             extent=[100, -20; 20, -100],
             style(color=0),
             string="minute")));
-    algorithm 
+    algorithm
       minute := s/60;
     end to_minute;
-    
-    function from_minute "Convert from minute to second" 
+
+    function from_minute "Convert from minute to second"
       extends ConversionIcon;
       input NonSIunits.Time_minute minute "minute value";
       output Time s "second value";
@@ -699,11 +699,11 @@ still kept in Modelica.SIunits.</p>
             extent=[100, -20; 20, -100],
             style(color=0),
             string="s")));
-    algorithm 
+    algorithm
       s := 60*minute;
     end from_minute;
-    
-    function to_litre "Convert from cubic metre to litre" 
+
+    function to_litre "Convert from cubic metre to litre"
       extends ConversionIcon;
       input Volume m3 "cubic metre value";
       output NonSIunits.Volume_litre litre "litre value";
@@ -714,11 +714,11 @@ still kept in Modelica.SIunits.</p>
             extent=[100, -20; 20, -100],
             style(color=0),
             string="litre")));
-    algorithm 
+    algorithm
       litre := 1000*m3;
     end to_litre;
-    
-    function from_litre "Convert from litre to cubic metre" 
+
+    function from_litre "Convert from litre to cubic metre"
       extends ConversionIcon;
       input NonSIunits.Volume_litre litre "litre value";
       output Volume m3 "cubic metre value";
@@ -729,11 +729,11 @@ still kept in Modelica.SIunits.</p>
             extent=[100, -20; 20, -100],
             style(color=0),
             string="m3")));
-    algorithm 
+    algorithm
       m3 := litre/1000;
     end from_litre;
-    
-    function to_kWh "Convert from Joule to kilo Watt hour" 
+
+    function to_kWh "Convert from Joule to kilo Watt hour"
       extends ConversionIcon;
       input Energy J "Joule value";
       output NonSIunits.Energy_kWh kWh "kWh value";
@@ -744,11 +744,11 @@ still kept in Modelica.SIunits.</p>
             extent=[100, -20; 20, -100],
             style(color=0),
             string="kWh")));
-    algorithm 
+    algorithm
       kWh := J/3.6e6;
     end to_kWh;
-    
-    function from_kWh "Convert from kilo Watt hour to Joule" 
+
+    function from_kWh "Convert from kilo Watt hour to Joule"
       extends ConversionIcon;
       input NonSIunits.Energy_kWh kWh "kWh value";
       output Energy J "Joule value";
@@ -759,11 +759,11 @@ still kept in Modelica.SIunits.</p>
             extent=[100, -20; 20, -100],
             style(color=0),
             string="J")));
-    algorithm 
+    algorithm
       J := 3.6e6*kWh;
     end from_kWh;
-    
-    function to_bar "Convert from Pascal to bar" 
+
+    function to_bar "Convert from Pascal to bar"
       extends ConversionIcon;
       input Pressure Pa "Pascal value";
       output NonSIunits.Pressure_bar bar "bar value";
@@ -774,11 +774,11 @@ still kept in Modelica.SIunits.</p>
             extent=[100, -20; 20, -100],
             style(color=0),
             string="bar")));
-    algorithm 
+    algorithm
       bar := Pa/1e5;
     end to_bar;
-    
-    function from_bar "Convert from bar to Pascal" 
+
+    function from_bar "Convert from bar to Pascal"
       extends ConversionIcon;
       input NonSIunits.Pressure_bar bar "bar value";
       output Pressure Pa "Pascal value";
@@ -789,11 +789,11 @@ still kept in Modelica.SIunits.</p>
             extent=[100, -20; 20, -100],
             style(color=0),
             string="Pa")));
-    algorithm 
+    algorithm
       Pa := 1e5*bar;
     end from_bar;
-    
-    function to_gps "Convert from kilogram per second to gram per second" 
+
+    function to_gps "Convert from kilogram per second to gram per second"
       extends ConversionIcon;
       input MassFlowRate kgps "kg/s value";
       output NonSIunits.MassFlowRate_gps gps "g/s value";
@@ -804,11 +804,11 @@ still kept in Modelica.SIunits.</p>
             extent=[100, -20; 20, -100],
             style(color=0),
             string="g/s")));
-    algorithm 
+    algorithm
       gps := 1000*kgps;
     end to_gps;
-    
-    function from_gps "Convert from gram per second to kilogram per second" 
+
+    function from_gps "Convert from gram per second to kilogram per second"
       extends ConversionIcon;
       input NonSIunits.MassFlowRate_gps gps "g/s value";
       output MassFlowRate kgps "kg/s value";
@@ -819,11 +819,11 @@ still kept in Modelica.SIunits.</p>
             extent=[100, -20; 20, -100],
             style(color=0),
             string="kg/s")));
-    algorithm 
+    algorithm
       kgps := gps/1000;
     end from_gps;
-    
-    partial function ConversionIcon "Base icon for conversion functions" 
+
+    partial function ConversionIcon "Base icon for conversion functions"
       annotation (Icon(
           Rectangle(extent=[-100, 100; 100, -100], style(color=42, fillColor=7)),
           Line(points=[-90, 0; 30, 0], style(color=42)),
@@ -831,9 +831,9 @@ still kept in Modelica.SIunits.</p>
                 fillColor=42)),
           Text(extent=[-115, 155; 115, 105], string="%name")));
     end ConversionIcon;
-    
+
   end Conversions;
-  
+
   // Space and Time (chapter 1 of ISO 31-1992)
   type Angle = Real (
       final quantity="Angle",
@@ -861,7 +861,7 @@ still kept in Modelica.SIunits.</p>
         =    "rad/s2");
   type Velocity = Real (final quantity="Velocity", final unit="m/s");
   type Acceleration = Real (final quantity="Acceleration", final unit="m/s2");
-  
+
   // Periodic and related phenomens (chapter 2 of ISO 31-1992)
   type Period = Real (final quantity="Time", final unit="s");
   type Frequency = Real (final quantity="Frequency", final unit="Hz");
@@ -889,7 +889,7 @@ still kept in Modelica.SIunits.</p>
         final unit="m-1");
   // added to ISO-chapter
   type Damping = DampingCoefficient;
-  
+
   // Mechanics (chapter 3 of ISO 31-1992)
   type Mass = Real (
       quantity="Mass",
@@ -980,7 +980,7 @@ still kept in Modelica.SIunits.</p>
   type MomentumFlux = Real (final quantity="MomentumFlux", final unit="N");
   type AngularMomentumFlux = Real (final quantity="AngularMomentumFlux", final unit
         =    "N.m");
-  
+
   // Heat (chapter 4 of ISO 31-1992)
   type ThermodynamicTemperature = Real (
       final quantity="ThermodynamicTemperature",
@@ -1058,7 +1058,7 @@ still kept in Modelica.SIunits.</p>
   type DerEnthalpyByPressure = Real (final unit="J.m.s2/kg2");
   type DerEnergyByDensity = Real (final unit="J.m3/kg");
   type DerEnergyByPressure = Real (final unit="J.m.s2/kg");
-  
+
   // Electricity and Magnetism (chapter 5 of ISO 31-1992)
   type ElectricCurrent = Real (final quantity="ElectricCurrent", final unit="A");
   type Current = ElectricCurrent;
@@ -1179,7 +1179,7 @@ still kept in Modelica.SIunits.</p>
           "A/V2");
   type InversePotential = Real (final quantity="InversePotential", final unit=
           "1/V");
-  
+
   // Light and Related Electromagnetic Radiations (chapter 6 of ISO 31-1992)"
   type RadiantEnergy = Real (final quantity="Energy", final unit="J");
   type RadiantEnergyDensity = Real (final quantity="EnergyDensity", final unit=
@@ -1237,7 +1237,7 @@ still kept in Modelica.SIunits.</p>
   type MolarAbsorptionCoefficient = Real (final quantity=
           "MolarAbsorptionCoefficient", final unit="m2/mol");
   type RefractiveIndex = Real (final quantity="RefractiveIndex", final unit="1");
-  
+
   // Acoustics (chapter 7 of ISO 31-1992)
   type StaticPressure = Real (
       final quantity="Pressure",
@@ -1282,7 +1282,7 @@ still kept in Modelica.SIunits.</p>
   type LoundnessLevel = Real (final quantity="LoundnessLevel", final unit=
           "phon");
   type Loundness = Real (final quantity="Loundness", final unit="sone");
-  
+
   // Physical chemistry and molecular physics (chapter 8 of ISO 31-1992)
   type RelativeAtomicMass = Real (final quantity="RelativeAtomicMass", final unit
         =    "1");
@@ -1387,7 +1387,7 @@ still kept in Modelica.SIunits.</p>
         ="S.m2/mol");
   type TransportNumberOfIonic = Real (final quantity="TransportNumberOfIonic",
         final unit="1");
-  
+
   // Atomic and Nuclear Physics (chapter 9 of ISO 31-1992)
   type ProtonNumber = Real (final quantity="ProtonNumber", final unit="1");
   type NeutronNumber = Real (final quantity="NeutronNumber", final unit="1");
@@ -1437,7 +1437,7 @@ still kept in Modelica.SIunits.</p>
   type MaximumBetaParticleEnergy = Real (final quantity="Energy", final unit=
           "J");
   type BetaDisintegrationEnergy = Real (final quantity="Energy", final unit="J");
-  
+
   // Nuclear Reactions and Ionizing Radiations (chapter 10 of ISO 31-1992)
   type ReactionEnergy = Real (final quantity="Energy", final unit="J");
   type ResonanceEnergy = Real (final quantity="Energy", final unit="J");
@@ -1532,9 +1532,9 @@ still kept in Modelica.SIunits.</p>
   type Exposure = Real (final quantity="Exposure", final unit="C/kg");
   type ExposureRate = Real (final quantity="ExposureRate", final unit=
           "C/(kg.s)");
-  
+
   // chapter 11 is not defined in ISO 31-1992
-  
+
   // Characteristic Numbers (chapter 12 of ISO 31-1992)
   type ReynoldsNumber = Real (final quantity="ReynoldsNumber", final unit="1");
   type EulerNumber = Real (final quantity="EulerNumber", final unit="1");
@@ -1571,7 +1571,7 @@ still kept in Modelica.SIunits.</p>
   type AlfvenNumber = Real (final quantity="AlfvenNumber", final unit="1");
   type HartmannNumber = Real (final quantity="HartmannNumber", final unit="1");
   type CowlingNumber = Real (final quantity="CowlingNumber", final unit="1");
-  
+
   // Solid State Physics (chapter 13 of ISO 31-1992)
   type BraggAngle = Angle;
   type OrderOfReflexion = Real (final quantity="OrderOfReflexion", final unit=
@@ -1643,5 +1643,5 @@ still kept in Modelica.SIunits.</p>
   type LandauGinzburgParameter = Real (final quantity="LandauGinzburgParameter",
           final unit="1");
   type FluxiodQuantum = Real (final quantity="FluxiodQuantum", final unit="Wb");
-  
+
 end SIunits;

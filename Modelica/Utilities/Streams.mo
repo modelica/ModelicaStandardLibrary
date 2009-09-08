@@ -1,18 +1,18 @@
-package Streams "Read from files and write to files" 
+package Streams "Read from files and write to files"
   extends Modelica.Icons.Library;
-  
+
   annotation (
   preferedView="info",
     Documentation(info="<HTML>
 <h3><font color=\"#008000\">Library content</font></h3>
 <p>
 Package <b>Streams</b> contains functions to input and output strings
-to a message window or on files. Note that a string is interpreted 
+to a message window or on files. Note that a string is interpreted
 and displayed as html text (e.g., with print(..) or error(..))
 if it is enclosed with the Modelica html quotation, e.g.,
 </p>
 <center>
-string = \"&lt;html&gt; first line &lt;br&gt; second line &lt;/html&gt;\". 
+string = \"&lt;html&gt; first line &lt;br&gt; second line &lt;/html&gt;\".
 </center>
 <p>
 It is a quality of implementation, whether (a) all tags of html are supported
@@ -29,15 +29,15 @@ In the table below an example call to every function is given:
       <td> Print string \"string\" or vector of strings to message window or on
            file \"fileName\".</td>
   </tr>
-  <tr><td>stringVector = 
+  <tr><td>stringVector =
          <a href=\"Modelica:Modelica.Utilities.Streams.readFile\">readFile</a>(fileName)</td>
       <td> Read complete text file and return it as a vector of strings.</td>
   </tr>
-  <tr><td>(string, endOfFile) = 
+  <tr><td>(string, endOfFile) =
          <a href=\"Modelica:Modelica.Utilities.Streams.readLine\">readLine</a>(fileName, lineNumber)</td>
       <td>Returns from the file the content of line lineNumber.</td>
   </tr>
-  <tr><td>lines = 
+  <tr><td>lines =
          <a href=\"Modelica:Modelica.Utilities.Streams.countLines\">countLines</a>(fileName)</td>
       <td>Returns the number of lines in a file.</td>
   </tr>
@@ -51,14 +51,14 @@ In the table below an example call to every function is given:
   </tr>
 </table>
 <p>
-Use functions <b>scanXXX</b> from package 
+Use functions <b>scanXXX</b> from package
 <a href=\"Modelica:Modelica.Utilities.Strings\">Strings</a>
 to parse a string.
 </p>
 <p>
-If Real, Integer or Boolean values shall be printed 
+If Real, Integer or Boolean values shall be printed
 or used in an error message, they have to be first converted
-to strings with the builtin operator 
+to strings with the builtin operator
 <a href=\"Modelica:ModelicaReference.Operators.string\">String</a>(...).
 Example:
 </p>
@@ -69,11 +69,11 @@ Example:
 </pre>
 </HTML>
 "));
-  
-  function print "Print string to terminal or file" 
+
+  function print "Print string to terminal or file"
     extends Modelica.Icons.Function;
     input String string="" "String to be printed";
-    input String fileName="" 
+    input String fileName=""
       "File where to print (empty string is the terminal)";
   external "C" ModelicaInternal_print(string, fileName);
     annotation (  preferedView="info",
@@ -109,13 +109,13 @@ After every call of \"print(..)\" a \"new line\" is printed automatically.
 </p>
 </HTML>"));
   end print;
-  
-  function readFile 
-    "Read content of a file and return it in a vector of strings" 
+
+  function readFile
+    "Read content of a file and return it in a vector of strings"
     extends Modelica.Icons.Function;
     input String fileName "Name of the file that shall be read";
     output String stringVector[countLines(fileName)] "Content of file";
-    
+
     annotation (preferedView="info", Documentation(info="<html>
 <h3><font color=\"#008000\">Syntax</font></h3>
 <blockquote><pre>
@@ -124,24 +124,24 @@ stringVector = Streams.<b>readFile</b>(fileName)
 <h3><font color=\"#008000\">Description</font></h3>
 <p>
 Function <b>readFile</b>(..) opens the given file, reads the complete
-content, closes the file and returns the content as a vector of strings. Lines are separated by LF or CR-LF; the returned strings do not contain the line separators. 
+content, closes the file and returns the content as a vector of strings. Lines are separated by LF or CR-LF; the returned strings do not contain the line separators.
 </p>
 </html>"));
-    
-  algorithm 
+
+  algorithm
     for i in 1:size(stringVector, 1) loop
       stringVector[i] := readLine(fileName, i);
     end for;
     Streams.close(fileName);
   end readFile;
-  
-  function readLine 
-    "Reads a line of text from a file and returns it in a string" 
+
+  function readLine
+    "Reads a line of text from a file and returns it in a string"
     extends Modelica.Icons.Function;
     input String fileName "Name of the file that shall be read";
     input Integer lineNumber(min=1) "Number of line to read";
     output String string "Line of text";
-    output Boolean endOfFile 
+    output Boolean endOfFile
       "If true, end-of-file was reached when trying to read line";
    external "C" string=  ModelicaInternal_readLine(fileName,lineNumber,endOfFile);
     annotation (preferedView="info",Documentation(info="<html>
@@ -153,18 +153,18 @@ content, closes the file and returns the content as a vector of strings. Lines a
 <p>
 Function <b>readLine</b>(..) opens the given file, reads enough of the
 content to get the requested line, and returns the line as a string.
-Lines are separated by LF or CR-LF; the returned string does not 
+Lines are separated by LF or CR-LF; the returned string does not
 contain the line separator. The file might remain open after
 the call.
 </p>
 <p>
-If lineNumber > countLines(fileName), an empty string is returned 
+If lineNumber > countLines(fileName), an empty string is returned
 and endOfFile=true. Otherwise endOfFile=false.
 </p>
 </html>"));
   end readLine;
-  
-  function countLines "Returns the number of lines in a file" 
+
+  function countLines "Returns the number of lines in a file"
     extends Modelica.Icons.Function;
     input String fileName "Name of the file that shall be read";
     output Integer numberOfLines "Number of lines in file";
@@ -182,8 +182,8 @@ separated by LF or CR-LF.
 </p>
 </html>"));
   end countLines;
-  
-  function error "Print error message and cancel all actions" 
+
+  function error "Print error message and cancel all actions"
     extends Modelica.Icons.Function;
     input String string "String to be printed to error message window";
     external "C" ModelicaError(string);
@@ -196,7 +196,7 @@ Streams.<b>error</b>(string);
 <h3><font color=\"#008000\">Description</font></h3>
 <p>
 Print the string \"string\" as error message and
-cancel all actions. Line breaks are characterized 
+cancel all actions. Line breaks are characterized
 by \"\\n\" in the string.
 </p>
 <h3><font color=\"#008000\">Example</font></h3>
@@ -211,8 +211,8 @@ by \"\\n\" in the string.
 </p>
 </html>"));
   end error;
-  
-  function close "Close file" 
+
+  function close "Close file"
     extends Modelica.Icons.Function;
     input String fileName "Name of the file that shall be closed";
     external "C" ModelicaStreams_closeFile(fileName);
@@ -228,5 +228,5 @@ file is already closed or does not exist.
 </p>
 </html>"));
   end close;
-  
+
 end Streams;

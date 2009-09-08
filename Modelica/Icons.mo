@@ -1,5 +1,5 @@
-package Icons "Icon definitions"  
-  
+package Icons "Icon definitions"
+
   annotation(preferedView="info",
     Window(
       x=0.08,
@@ -79,7 +79,7 @@ Copyright &copy; 1998-2006, Modelica Association and DLR.
 <p>
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> 
+and the accompanying <b>disclaimer</b>
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
 </p><br>
 </HTML>
@@ -111,7 +111,7 @@ and the accompanying <b>disclaimer</b>
 </ul>
 <br>
 </html>"));
-  partial model Info "Icon for an information class" 
+  partial model Info "Icon for an information class"
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -131,11 +131,11 @@ and the accompanying <b>disclaimer</b>
         Polygon(points=[80, -90; 90, -80; 90, 90; 80, 80; 80, -90], style(
               fillColor=3)),
         Text(extent=[-80, 70; 60, -70], string="Info")));
-  equation 
-    
+  equation
+
   end Info;
-  
-  partial package Library "Icon for library" 
+
+  partial package Library "Icon for library"
     annotation (Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -156,9 +156,9 @@ and the accompanying <b>disclaimer</b>
           string="%name",
           style(color=1))));
   end Library;
-  
-  partial package Library2 
-    "Icon for library where additional icon elements shall be added" 
+
+  partial package Library2
+    "Icon for library where additional icon elements shall be added"
     annotation (Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -182,8 +182,8 @@ and the accompanying <b>disclaimer</b>
             fillColor=0,
             fillPattern=1))));
   end Library2;
-  
-  partial model Example "Icon for an example model" 
+
+  partial model Example "Icon for an example model"
     annotation (Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -201,11 +201,11 @@ and the accompanying <b>disclaimer</b>
           extent=[-120, 132; 120, 73],
           string="%name",
           style(color=1))));
-  equation 
-    
+  equation
+
   end Example;
-  
-  partial function Function "Icon for a function" 
+
+  partial function Function "Icon for a function"
     annotation (Icon(
         Text(extent=[-140,162; 136,102],  string="%name"),
         Ellipse(extent=[-100,100; 100,-100],  style(color=45, fillColor=7)),
@@ -214,8 +214,8 @@ and the accompanying <b>disclaimer</b>
           style(color=45),
           string="f")));
   end Function;
-  
-  partial record Record "Icon for a record" 
+
+  partial record Record "Icon for a record"
     annotation (Icon(
         Rectangle(extent=[-100, 50; 100, -100], style(fillColor=51,
               fillPattern=
@@ -225,9 +225,9 @@ and the accompanying <b>disclaimer</b>
         Line(points=[-100, 0; 100, 0], style(color=0)),
         Line(points=[0, 50; 0, -100], style(color=0))));
   end Record;
-  
-  partial class Enumeration "Icon for an enumeration (emulated by a package)" 
-    
+
+  partial class Enumeration "Icon for an enumeration (emulated by a package)"
+
     annotation (Icon(
         Text(extent=[-138,164; 138,104],  string="%name"),
         Ellipse(extent=[-100,100; 100,-100],  style(color=85, fillColor=7)),
@@ -236,8 +236,8 @@ and the accompanying <b>disclaimer</b>
           style(color=85, fillColor=88),
           string="e")));
   end Enumeration;
-  
-  type TypeReal "Icon for a Real type" 
+
+  type TypeReal "Icon for a Real type"
       extends Real;
       annotation(Icon(Rectangle(extent=[-100,100; 100,-100], style(
             color=0,
@@ -252,8 +252,8 @@ and the accompanying <b>disclaimer</b>
             rgbfillColor={181,181,181}),
           string="R")));
   end TypeReal;
-  
-  type TypeInteger "Icon for an Integer type" 
+
+  type TypeInteger "Icon for an Integer type"
       extends Integer;
       annotation(Icon(Rectangle(extent=[-100,100; 100,-100], style(
             color=0,
@@ -268,8 +268,8 @@ and the accompanying <b>disclaimer</b>
             rgbfillColor={181,181,181}),
           string="I")));
   end TypeInteger;
-  
-  type TypeBoolean "Icon for a Boolean type" 
+
+  type TypeBoolean "Icon for a Boolean type"
       extends Boolean;
       annotation(Icon(Rectangle(extent=[-100,100; 100,-100], style(
             color=0,
@@ -284,8 +284,8 @@ and the accompanying <b>disclaimer</b>
             rgbfillColor={181,181,181}),
           string="B")));
   end TypeBoolean;
-  
-  type TypeString "Icon for a String type" 
+
+  type TypeString "Icon for a String type"
       extends String;
       annotation(Icon(Rectangle(extent=[-100,100; 100,-100], style(
             color=0,
@@ -300,9 +300,9 @@ and the accompanying <b>disclaimer</b>
             rgbfillColor={181,181,181}),
           string="S")));
   end TypeString;
-  
-  partial model TranslationalSensor 
-    "Icon representing translational measurement device" 
+
+  partial model TranslationalSensor
+    "Icon representing translational measurement device"
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -336,12 +336,12 @@ and the accompanying <b>disclaimer</b>
         Line(points=[10, -40; 10, -60], style(color=0)),
         Line(points=[30, -40; 30, -60], style(color=0)),
         Line(points=[50, -40; 50, -60], style(color=0))));
-  equation 
-    
+  equation
+
   end TranslationalSensor;
-  
-  partial model RotationalSensor 
-    "Icon representing rotational measurement device" 
+
+  partial model RotationalSensor
+    "Icon representing rotational measurement device"
     annotation (
       Coordsys(
         extent=[-100, -100; 100, 100],
@@ -381,11 +381,11 @@ and the accompanying <b>disclaimer</b>
             gradient=0,
             fillColor=0,
             fillPattern=1))));
-  equation 
-    
+  equation
+
   end RotationalSensor;
-  
-  partial model GearIcon "Icon for gearbox" 
+
+  partial model GearIcon "Icon for gearbox"
     annotation (Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[2, 2],
@@ -421,11 +421,11 @@ and the accompanying <b>disclaimer</b>
             color=0,
             fillColor=0,
             fillPattern=1))));
-  equation 
-    
+  equation
+
   end GearIcon;
-  
-  partial model MotorIcon "Icon for electrical motor" 
+
+  partial model MotorIcon "Icon for electrical motor"
     annotation (Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
@@ -445,16 +445,16 @@ and the accompanying <b>disclaimer</b>
             gradient=2,
             fillColor=8,
             fillPattern=1))));
-  equation 
-    
+  equation
+
   end MotorIcon;
-  
-  connector SignalBus "Icon for signal bus" 
-    
+
+  connector SignalBus "Icon for signal bus"
+
     annotation (
       Icon(
         Rectangle(extent=[-20,2; 20,-2], style(rgbcolor={255,204,51}, thickness=2)),
-        Polygon(points=[-80,50; 80,50; 100,30; 80,-40; 60,-50; -60,-50; -80,-40; 
+        Polygon(points=[-80,50; 80,50; 100,30; 80,-40; 60,-50; -60,-50; -80,-40;
               -100,30; -80,50],        style(
             color=0,
             rgbcolor={0,0,0},
@@ -522,11 +522,11 @@ and the accompanying <b>disclaimer</b>
           extent=[-150, 70; 150, 40],
           string="%name",
           style(color=0))));
-    
+
   end SignalBus;
-  
-  connector SignalSubBus "Icon for signal sub-bus" 
-    
+
+  connector SignalSubBus "Icon for signal sub-bus"
+
     annotation (
       Icon(
         Line(points=[-16, 2; 16, 2], style(rgbcolor={255,204,51}, thickness=2)),
@@ -583,6 +583,6 @@ and the accompanying <b>disclaimer</b>
           extent=[-150, 70; 150, 40],
           string="%name",
           style(color=0))));
-    
+
   end SignalSubBus;
 end Icons;

@@ -1,4 +1,4 @@
-model NonlinearResistor "Chua's resistor" 
+model NonlinearResistor "Chua's resistor"
   extends Interfaces.OnePort;
   annotation (
     Coordsys(
@@ -26,12 +26,12 @@ model NonlinearResistor "Chua's resistor"
             fillPattern=1)),
       Text(extent=[-100, 100; 100, 70], string="%name")),
     Documentation(info="<html>
-  
+
 </html>"));
   parameter SI.Conductance Ga;
   parameter SI.Conductance Gb;
   parameter SI.Voltage Ve;
-equation 
+equation
   i = if (v < -Ve) then Gb*(v + Ve) - Ga*Ve else if (v > Ve) then Gb*(v - Ve)
      + Ga*Ve else Ga*v;
 end NonlinearResistor;

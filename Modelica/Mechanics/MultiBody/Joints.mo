@@ -1,7 +1,7 @@
-package Joints "Components that constrain the motion between two frames" 
+package Joints "Components that constrain the motion between two frames"
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Library;
-  
+
   annotation (preferedView="info", Documentation(info="<HTML>
 <p>
 This package contains <b>joint components</b>,
@@ -17,7 +17,7 @@ solved, i.e., robustly and efficiently).
   <tr><th><b><i>Model</i></b></th><th><b><i>Description</i></b></th></tr>
   <tr><td><b><a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.Prismatic\">Prismatic</a></b><br>
 <b><a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic\">ActuatedPrismatic</a></b></td>
-      <td>Prismatic joint and actuated prismatic joint 
+      <td>Prismatic joint and actuated prismatic joint
           (1 translational degree-of-freedom, 2 potential states)<br>
       <IMG SRC=\"../Images/MultiBody/Joints/Prismatic.png\">
       </td>
@@ -25,7 +25,7 @@ solved, i.e., robustly and efficiently).
   <tr><td><b><a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.Revolute\">Revolute</a></b><br>
   <b><a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute\">ActuatedRevolute</a></b>
  </td>
-      <td>Revolute and actuated revolute joint 
+      <td>Revolute and actuated revolute joint
           (1 rotational degree-of-freedom, 2 potential states)<br>
       <IMG SRC=\"../Images/MultiBody/Joints/Revolute.png\">
       </td>
@@ -56,7 +56,7 @@ solved, i.e., robustly and efficiently).
       </td>
   </tr>
   <tr><td><b><a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.SphericalSpherical\">SphericalSpherical</a></b></td>
-      <td>Spherical - spherical joint aggregation (1 constraint,  
+      <td>Spherical - spherical joint aggregation (1 constraint,
           no potential states) with an optional point mass in the middle<br>
       <IMG SRC=\"../Images/MultiBody/Joints/SphericalSpherical.png\">
       </td>
@@ -76,12 +76,12 @@ solved, i.e., robustly and efficiently).
   </tr>
 </table>
 </HTML>"));
-  
-  model Prismatic 
-    "Prismatic joint (1 translational degree-of-freedom, 2 potential states)" 
-    
+
+  model Prismatic
+    "Prismatic joint (1 translational degree-of-freedom, 2 potential states)"
+
     extends Internal.Prismatic;
-    
+
     annotation (
       preferedView="info",
       Icon(Text(
@@ -106,7 +106,7 @@ it might be slightly more efficient, when using the \"enforceStates\" setting.
 <p>
 In the following figure the animation of a prismatic
 joint is shown. The light blue coordinate system is
-frame_a and the dark blue coordinate system is 
+frame_a and the dark blue coordinate system is
 frame_b of the joint. The black arrow is parameter
 vector \"n\" defining the translation axis
 (here: n = {1,1,0}).
@@ -116,18 +116,18 @@ vector \"n\" defining the translation axis
 </p>
 </HTML>
 "),   Diagram);
-    
+
   end Prismatic;
-  
-  model ActuatedPrismatic 
-    "Actuated prismatic joint (1 translational degree-of-freedom, 2 potential states)" 
-    
+
+  model ActuatedPrismatic
+    "Actuated prismatic joint (1 translational degree-of-freedom, 2 potential states)"
+
     extends Internal.Prismatic(final f=axis.f);
-    Modelica.Mechanics.Translational.Interfaces.Flange_a axis 
-      "1-dim. translational flange that drives the joint" 
+    Modelica.Mechanics.Translational.Interfaces.Flange_a axis
+      "1-dim. translational flange that drives the joint"
       annotation (extent=[90,50; 70,70]);
-    Modelica.Mechanics.Translational.Interfaces.Flange_b bearing 
-      "1-dim. translational flange of the drive bearing" 
+    Modelica.Mechanics.Translational.Interfaces.Flange_b bearing
+      "1-dim. translational flange of the drive bearing"
       annotation (extent=[-30,50; -50,70]);
     annotation (
       preferedView="info",
@@ -183,7 +183,7 @@ it might be slightly more efficient, when using the \"enforceStates\" setting.
 In the following figure the animation of an actuated
 prismatic
 joint is shown. The light blue coordinate system is
-frame_a and the dark blue coordinate system is 
+frame_a and the dark blue coordinate system is
 frame_b of the joint. The black arrow is parameter
 vector \"n\" defining the translation axis
 (here: n = {1,1,0}).
@@ -193,14 +193,14 @@ vector \"n\" defining the translation axis
 </p>
 </HTML>
 "));
-  equation 
+  equation
     axis.s = s;
     bearing.s = 0;
   end ActuatedPrismatic;
-  
-  model Revolute 
-    "Revolute joint (1 rotational degree-of-freedom, 2 potential states)" 
-    
+
+  model Revolute
+    "Revolute joint (1 rotational degree-of-freedom, 2 potential states)"
+
     extends Internal.Revolute;
     annotation (
       preferedView="info",
@@ -263,7 +263,7 @@ this force is an unknown quantity).
 <p>
 In the following figure the animation of a revolute
 joint is shown. The light blue coordinate system is
-frame_a and the dark blue coordinate system is 
+frame_a and the dark blue coordinate system is
 frame_b of the joint. The black arrow is parameter
 vector \"n\" defining the translation axis
 (here: n = {0,0,1}, phi_start = 45<sup>o</sup>).
@@ -272,18 +272,18 @@ vector \"n\" defining the translation axis
 <IMG SRC=\"../Images/MultiBody/Joints/Revolute.png\">
 </p>
 </HTML>"));
-    
+
   end Revolute;
-  
-  model ActuatedRevolute 
-    "Actuated revolute joint (1 rotational degree-of-freedom, 2 potential states)" 
-    
+
+  model ActuatedRevolute
+    "Actuated revolute joint (1 rotational degree-of-freedom, 2 potential states)"
+
     extends Internal.Revolute(final tau=axis.tau);
-    Modelica.Mechanics.Rotational.Interfaces.Flange_a axis 
-      "1-dim. rotational flange that drives the joint" 
+    Modelica.Mechanics.Rotational.Interfaces.Flange_a axis
+      "1-dim. rotational flange that drives the joint"
       annotation (extent=[10,90; -10,110]);
-    Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing 
-      "1-dim. rotational flange of the drive bearing" 
+    Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing
+      "1-dim. rotational flange of the drive bearing"
       annotation (extent=[-70,90; -50,110]);
     annotation (
       preferedView="info",
@@ -405,7 +405,7 @@ this force is an unknown quantity).
 <p>
 In the following figure the animation of an actuated revolute
 joint is shown. The light blue coordinate system is
-frame_a and the dark blue coordinate system is 
+frame_a and the dark blue coordinate system is
 frame_b of the joint. The black arrow is parameter
 vector \"n\" defining the translation axis
 (here: n = {0,0,1}, phi_start = 45<sup>o</sup>).
@@ -414,52 +414,52 @@ vector \"n\" defining the translation axis
 <IMG SRC=\"../Images/MultiBody/Joints/Revolute.png\">
 </p>
 </HTML>"));
-  equation 
+  equation
     axis.phi = phi;
     bearing.phi = 0;
   end ActuatedRevolute;
-  
-  model Cylindrical 
-    "Cylindrical joint (2 degrees-of-freedom, 4 potential states)" 
+
+  model Cylindrical
+    "Cylindrical joint (2 degrees-of-freedom, 4 potential states)"
     import SI = Modelica.SIunits;
     import NonSI = Modelica.SIunits.Conversions.NonSIunits;
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
-    parameter Boolean animation=true 
+    parameter Boolean animation=true
       "= true, if animation shall be enabled (show cylinder)";
-    parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0} 
-      "Cylinder axis resolved in frame_a (= same as in frame_b)" 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0}
+      "Cylinder axis resolved in frame_a (= same as in frame_b)"
       annotation (Evaluate=true);
-    parameter Types.Init.Temp initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
-      "Type of initialization (defines usage of start values below)" 
+    parameter Types.Init.Temp initType=Modelica.Mechanics.MultiBody.Types.Init.Free
+      "Type of initialization (defines usage of start values below)"
       annotation (Dialog(group="Initialization"));
-    parameter NonSI.Angle_deg phi_start=0 
-      "Initial value of rotation angle phi (fixed or guess value)" 
+    parameter NonSI.Angle_deg phi_start=0
+      "Initial value of rotation angle phi (fixed or guess value)"
       annotation (Evaluate=false, Dialog(group="Initialization"));
-    parameter SI.Position s_start=0 
-      "Initial value of relative distance (fixed or guess value)" 
+    parameter SI.Position s_start=0
+      "Initial value of relative distance (fixed or guess value)"
       annotation (Evaluate=false, Dialog(group="Initialization"));
-    parameter Types.AngularVelocity_degs w_start=0 
-      "Initial value of relative angular velocity w = der(phi)" 
+    parameter Types.AngularVelocity_degs w_start=0
+      "Initial value of relative angular velocity w = der(phi)"
       annotation (Evaluate=false, Dialog(group="Initialization"));
-    parameter SI.Velocity v_start=0 
-      "Initial value of relative velocity v = der(s)" 
+    parameter SI.Velocity v_start=0
+      "Initial value of relative velocity v = der(s)"
       annotation (Evaluate=false, Dialog(group="Initialization"));
-    parameter SI.Acceleration a_start=0 
-      "Initial value of relative acceleration a = der(v)" 
+    parameter SI.Acceleration a_start=0
+      "Initial value of relative acceleration a = der(v)"
       annotation (Evaluate=false, Dialog(group="Initialization"));
-    parameter Types.AngularAcceleration_degs2 wd_start=0 
-      "Initial value of relative angular acceleration wd = der(w)" 
+    parameter Types.AngularAcceleration_degs2 wd_start=0
+      "Initial value of relative angular acceleration wd = der(w)"
       annotation (Evaluate=false, Dialog(group="Initialization"));
-    parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
-      "Diameter of cylinder" 
+    parameter SI.Distance cylinderDiameter=world.defaultJointWidth
+      "Diameter of cylinder"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
-      "Color of cylinder" 
+    input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
+      "Color of cylinder"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
-      "Reflection of ambient light (= 0: light is completely absorbed)" 
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
+      "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter Boolean enforceStates=false 
+    parameter Boolean enforceStates=false
       "= true, if generalized variables shall be used as states (StateSelect.always)"
       annotation (Dialog(tab="Advanced"));
     Prismatic prismatic(
@@ -514,7 +514,7 @@ it might be slightly more efficient, when using the \"enforceStates\" setting.
 <p>
 In the following figure the animation of a cylindrical
 joint is shown. The light blue coordinate system is
-frame_a and the dark blue coordinate system is 
+frame_a and the dark blue coordinate system is
 frame_b of the joint. The black arrow is parameter
 vector \"n\" defining the cylinder axis
 (here: n = {0,0,1}).
@@ -538,8 +538,8 @@ vector \"n\" defining the cylinder axis
           extent=[-118, -65; 120, -102],
           string="n=%n",
           style(color=0))));
-    
-  protected 
+
+  protected
     Visualizers.Advanced.Shape cylinder(
       shapeType="cylinder",
       color=cylinderColor,
@@ -550,73 +550,73 @@ vector \"n\" defining the cylinder axis
       lengthDirection=prismatic.n,
       widthDirection={0,1,0},
       r=frame_a.r_0,
-      R=frame_a.R) if world.enableAnimation and animation 
+      R=frame_a.R) if world.enableAnimation and animation
       annotation (extent=[-10, 40; 10, 60]);
-  equation 
-    connect(frame_a, prismatic.frame_a) 
+  equation
+    connect(frame_a, prismatic.frame_a)
       annotation (points=[-100,0; -70,0], style(
         color=10,
         rgbcolor={95,95,95},
         thickness=2));
-    connect(prismatic.frame_b, revolute.frame_a) 
+    connect(prismatic.frame_b, revolute.frame_a)
       annotation (points=[-15,0; 10,0], style(
         color=10,
         rgbcolor={95,95,95},
         thickness=2));
-    connect(revolute.frame_b, frame_b) 
+    connect(revolute.frame_b, frame_b)
       annotation (points=[65,0; 100,0], style(
         color=10,
         rgbcolor={95,95,95},
         thickness=2));
   end Cylindrical;
-  
-  model Universal "Universal joint (2 degrees-of-freedom, 4 potential states)" 
+
+  model Universal "Universal joint (2 degrees-of-freedom, 4 potential states)"
     import SI = Modelica.SIunits;
     import NonSI = Modelica.SIunits.Conversions.NonSIunits;
     import Modelica.Mechanics.MultiBody.Types;
-    
+
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter Modelica.Mechanics.MultiBody.Types.Axis n_a={1,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n_a={1,0,0}
       "Axis of revolute joint 1 resolved in frame_a" annotation (Evaluate=true);
-    parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={0,1,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={0,1,0}
       "Axis of revolute joint 2 resolved in frame_b" annotation (Evaluate=true);
-    
-    parameter Types.Init.Temp initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
-      "Type of initialization (defines usage of start values below)" 
+
+    parameter Types.Init.Temp initType=Modelica.Mechanics.MultiBody.Types.Init.Free
+      "Type of initialization (defines usage of start values below)"
       annotation (Dialog(group="Initialization"));
-    parameter NonSI.Angle_deg phi_start_a=0 
-      "Initial value of rotation angle at frame_a (fixed or guess value)" 
+    parameter NonSI.Angle_deg phi_start_a=0
+      "Initial value of rotation angle at frame_a (fixed or guess value)"
       annotation (Dialog(group="Initialization"));
-    parameter NonSI.Angle_deg phi_start_b=0 
-      "Initial value of rotation angle at frame_b (fixed or guess value)" 
+    parameter NonSI.Angle_deg phi_start_b=0
+      "Initial value of rotation angle at frame_b (fixed or guess value)"
       annotation (Dialog(group="Initialization"));
-    parameter Types.AngularVelocity_degs w_start_a=0 
-      "Initial value of derivative of rotation angle at frame_a" 
+    parameter Types.AngularVelocity_degs w_start_a=0
+      "Initial value of derivative of rotation angle at frame_a"
       annotation (Dialog(group="Initialization"));
-    parameter Types.AngularVelocity_degs w_start_b=0 
-      "Initial value of derivative of rotation angle at frame_b" 
+    parameter Types.AngularVelocity_degs w_start_b=0
+      "Initial value of derivative of rotation angle at frame_b"
       annotation (Dialog(group="Initialization"));
-    parameter Types.AngularAcceleration_degs2 a_start_a=0 
-      "Initial value of second derivative of rotation angle at frame_a" 
+    parameter Types.AngularAcceleration_degs2 a_start_a=0
+      "Initial value of second derivative of rotation angle at frame_a"
       annotation (Dialog(group="Initialization"));
-    parameter Types.AngularAcceleration_degs2 a_start_b=0 
-      "Initial value of second derivative of rotation angle at frame_b" 
+    parameter Types.AngularAcceleration_degs2 a_start_b=0
+      "Initial value of second derivative of rotation angle at frame_b"
       annotation (Dialog(group="Initialization"));
-    
-    parameter SI.Distance cylinderLength=world.defaultJointLength 
-      "Length of cylinders representing the joint axes" 
+
+    parameter SI.Distance cylinderLength=world.defaultJointLength
+      "Length of cylinders representing the joint axes"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
-      "Diameter of cylinders representing the joint axes" 
+    parameter SI.Distance cylinderDiameter=world.defaultJointWidth
+      "Diameter of cylinders representing the joint axes"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
-      "Color of cylinders representing the joint axes" 
+    input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
+      "Color of cylinders representing the joint axes"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
-      "Reflection of ambient light (= 0: light is completely absorbed)" 
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
+      "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter Boolean enforceStates=false 
+    parameter Boolean enforceStates=false
       "= true, if generalized variables shall be used as states (StateSelect.always)"
       annotation (Dialog(tab="Advanced"));
     Modelica.Mechanics.MultiBody.Joints.Revolute revolute_a(
@@ -642,7 +642,7 @@ vector \"n\" defining the cylinder axis
       cylinderDiameter=cylinderDiameter,
       cylinderLength=cylinderLength,
       cylinderColor=cylinderColor,
-      specularCoefficient=specularCoefficient) 
+      specularCoefficient=specularCoefficient)
       annotation (extent=[10, 20; 60, 70], rotation=90);
     annotation (
       preferedView="info",
@@ -681,7 +681,7 @@ it might be slightly more efficient, when using the \"enforceStates\" setting.
 <p>
 In the following figure the animation of a universal
 joint is shown. The light blue coordinate system is
-frame_a and the dark blue coordinate system is 
+frame_a and the dark blue coordinate system is
 frame_b of the joint
 (here: n_a = {0,0,1}, n_b = {0,1,0}, phi_start_a = 90<sup>o</sup>,
 phi_start_b = 45<sup>o</sup>).
@@ -731,9 +731,9 @@ phi_start_b = 45<sup>o</sup>).
             fillColor=7,
             fillPattern=1))),
       Diagram);
-  equation 
-    
-    connect(frame_a, revolute_a.frame_a) 
+  equation
+
+    connect(frame_a, revolute_a.frame_a)
       annotation (points=[-100,0; -60,0], style(
         color=10,
         rgbcolor={95,95,95},
@@ -749,68 +749,68 @@ phi_start_b = 45<sup>o</sup>).
         rgbcolor={95,95,95},
         thickness=2));
   end Universal;
-  
-  model Planar "Planar joint (3 degrees-of-freedom, 6 potential states)" 
+
+  model Planar "Planar joint (3 degrees-of-freedom, 6 potential states)"
     import NonSI = Modelica.SIunits.Conversions.NonSIunits;
     import Modelica.Mechanics.MultiBody.Types;
-    
+
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,0,1} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,0,1}
       "Axis orthogonal to unconstrained plane, resolved in frame_a (= same as in frame_b)"
       annotation (Evaluate=true);
-    parameter Modelica.Mechanics.MultiBody.Types.Axis n_x={1,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n_x={1,0,0}
       "Vector in direction of x-axis of plane, resolved in frame_a (n_x shall be orthogonal to n)"
       annotation (Evaluate=true);
-    
-    parameter Types.Init.Temp initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
-      "Type of initialization (defines usage of start values below)" 
+
+    parameter Types.Init.Temp initType=Modelica.Mechanics.MultiBody.Types.Init.Free
+      "Type of initialization (defines usage of start values below)"
       annotation (Dialog(group="Initialization"));
-    parameter SI.Position s_start_x=0 
-      "Initial value of x-distance (along n_x; fixed or guess value)" 
+    parameter SI.Position s_start_x=0
+      "Initial value of x-distance (along n_x; fixed or guess value)"
       annotation (Dialog(group="Initialization"));
-    parameter SI.Position s_start_y=0 
-      "Initial value of y-distance (along cross(n,n_x); fixed or guess value)" 
+    parameter SI.Position s_start_y=0
+      "Initial value of y-distance (along cross(n,n_x); fixed or guess value)"
       annotation (Dialog(group="Initialization"));
-    parameter NonSI.Angle_deg phi_start=0 
-      "Initial value of rotation angle along n (fixed or guess value)" 
+    parameter NonSI.Angle_deg phi_start=0
+      "Initial value of rotation angle along n (fixed or guess value)"
       annotation (Dialog(group="Initialization"));
-    parameter SI.Velocity v_start_x=0 
-      "Initial value of derivative of x-distance" 
+    parameter SI.Velocity v_start_x=0
+      "Initial value of derivative of x-distance"
       annotation (Dialog(group="Initialization"));
-    parameter SI.Velocity v_start_y=0 
-      "Initial value of derivative of y-distance" 
+    parameter SI.Velocity v_start_y=0
+      "Initial value of derivative of y-distance"
       annotation (Dialog(group="Initialization"));
-    parameter Types.AngularVelocity_degs w_start=0 
-      "Initial value of derivative of rotation angle" 
+    parameter Types.AngularVelocity_degs w_start=0
+      "Initial value of derivative of rotation angle"
       annotation (Dialog(group="Initialization"));
-    parameter SI.Acceleration a_start_x=0 
-      "Initial value of second derivative of x-distance" 
+    parameter SI.Acceleration a_start_x=0
+      "Initial value of second derivative of x-distance"
       annotation (Dialog(group="Initialization"));
-    parameter SI.Acceleration a_start_y=0 
-      "Initial value of second derivative of y-distance" 
+    parameter SI.Acceleration a_start_y=0
+      "Initial value of second derivative of y-distance"
       annotation (Dialog(group="Initialization"));
-    parameter Types.AngularAcceleration_degs2 wd_start=0 
-      "Initial value of second derivative of rotation angle" 
+    parameter Types.AngularAcceleration_degs2 wd_start=0
+      "Initial value of second derivative of rotation angle"
       annotation (Dialog(group="Initialization"));
-    parameter SI.Distance cylinderLength=world.defaultJointLength 
-      "Length of revolute cylinder" 
+    parameter SI.Distance cylinderLength=world.defaultJointLength
+      "Length of revolute cylinder"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
-      "Diameter of revolute cylinder" 
+    parameter SI.Distance cylinderDiameter=world.defaultJointWidth
+      "Diameter of revolute cylinder"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
-      "Color of revolute cylinder" 
+    input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
+      "Color of revolute cylinder"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Distance boxWidth=0.3*cylinderDiameter 
-      "Width of prismatic joint boxes" 
+    parameter SI.Distance boxWidth=0.3*cylinderDiameter
+      "Width of prismatic joint boxes"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Distance boxHeight=boxWidth "Height of prismatic joint boxes" 
+    parameter SI.Distance boxHeight=boxWidth "Height of prismatic joint boxes"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.Color boxColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
-      "Color of prismatic joint boxes" 
+    input Types.Color boxColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
+      "Color of prismatic joint boxes"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter Boolean enforceStates=false 
+    parameter Boolean enforceStates=false
       "= true, if generalized variables (s,phi,v,w) shall be used as states (StateSelect.always)"
       annotation (Dialog(tab="Advanced"));
     Prismatic prismatic_x(
@@ -877,10 +877,10 @@ it might be slightly more efficient, when using the \"enforceStates\" setting.
 <p>
 In the following figure the animation of a planar
 joint is shown. The light blue coordinate system is
-frame_a and the dark blue coordinate system is 
+frame_a and the dark blue coordinate system is
 frame_b of the joint. The black arrows are parameter
 vectors \"n\" and \"n_x\"
-(here: n = {0,1,0}, n_x = {0,0,1}, s_start_x = 0.5, 
+(here: n = {0,1,0}, n_x = {0,0,1}, s_start_x = 0.5,
 s_start_y = 0.5, phi_start = 45<sup>o</sup>).
 </p>
 <p align=\"center\">
@@ -909,11 +909,11 @@ s_start_y = 0.5, phi_start = 45<sup>o</sup>).
           string="n=%n",
           style(color=0)),
         Text(extent=[-124, 127; 136, 67], string="%name")));
-    
-  protected 
+
+  protected
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
     parameter Real e[3]=Frames.normalize(n);
-  protected 
+  protected
     Visualizers.Advanced.Shape box_x[ndim](
       each shapeType="box",
       each color=boxColor,
@@ -945,8 +945,8 @@ s_start_y = 0.5, phi_start = 45<sup>o</sup>).
       each r_shape=-e*(cylinderLength/2),
       each r=revolute.frame_b.r_0,
       each R=revolute.frame_b.R) annotation (extent=[50, 30; 70, 50]);
-  equation 
-    connect(frame_a, prismatic_x.frame_a) 
+  equation
+    connect(frame_a, prismatic_x.frame_a)
       annotation (points=[-100,0; -69,0], style(
         color=10,
         rgbcolor={95,95,95},
@@ -961,58 +961,58 @@ s_start_y = 0.5, phi_start = 45<sup>o</sup>).
         color=10,
         rgbcolor={95,95,95},
         thickness=2));
-    connect(revolute.frame_b, frame_b) 
+    connect(revolute.frame_b, frame_b)
       annotation (points=[81,0; 100,0], style(
         color=10,
         rgbcolor={95,95,95},
         thickness=2));
   end Planar;
-  
-  model Spherical 
-    "Spherical joint (3 constraints and no potential states, or 3 degrees-of-freedom and 3 states)" 
-    
+
+  model Spherical
+    "Spherical joint (3 constraints and no potential states, or 3 degrees-of-freedom and 3 states)"
+
     import Modelica.Mechanics.MultiBody.Frames;
     import SI = Modelica.SIunits;
     import Cv = Modelica.SIunits.Conversions;
-    
+
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
-    parameter Boolean animation=true 
+    parameter Boolean animation=true
       "= true, if animation shall be enabled (show sphere)";
-    parameter SI.Distance sphereDiameter=world.defaultJointLength 
-      "Diameter of sphere representing the spherical joint" 
+    parameter SI.Distance sphereDiameter=world.defaultJointLength
+      "Diameter of sphere representing the spherical joint"
       annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
-      "Color of sphere representing the spherical joint" 
+    input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
+      "Color of sphere representing the spherical joint"
       annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
-      "Reflection of ambient light (= 0: light is completely absorbed)" 
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
+      "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
-    parameter Types.Init.Temp initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
-      "Type of initialization (defines usage of start values below)" 
+    parameter Types.Init.Temp initType=Modelica.Mechanics.MultiBody.Types.Init.Free
+      "Type of initialization (defines usage of start values below)"
       annotation (Dialog(tab="Initialization"));
-    parameter Types.RotationSequence sequence_start={1,2,3} 
-      "Sequence of rotations to rotate frame_a into frame_b at initial time" 
+    parameter Types.RotationSequence sequence_start={1,2,3}
+      "Sequence of rotations to rotate frame_a into frame_b at initial time"
       annotation (Evaluate=true, Dialog(tab="Initialization"));
-    parameter Cv.NonSIunits.Angle_deg angles_start[3]={0,0,0} 
+    parameter Cv.NonSIunits.Angle_deg angles_start[3]={0,0,0}
       "Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b"
       annotation (Evaluate=false, Dialog(tab="Initialization"));
-    parameter Types.AngularVelocity_degs w_rel_a_start[3]={0,0,0} 
+    parameter Types.AngularVelocity_degs w_rel_a_start[3]={0,0,0}
       "Initial values of angular velocity of frame_b with respect to frame_a, resolved in frame_a"
       annotation (Evaluate=false, Dialog(tab="Initialization"));
-    parameter Types.AngularAcceleration_degs2 z_rel_a_start[3]={0,0,0} 
-      "Initial values of angular acceleration z_rel = der(w_rel)" 
+    parameter Types.AngularAcceleration_degs2 z_rel_a_start[3]={0,0,0}
+      "Initial values of angular acceleration z_rel = der(w_rel)"
       annotation (Evaluate=false, Dialog(tab="Initialization"));
-    parameter Boolean enforceStates=false 
+    parameter Boolean enforceStates=false
       " = true, if relative variables of spherical joint shall be used as states (StateSelect.always)"
       annotation (Dialog(tab="Advanced"));
-    parameter Boolean useQuaternions=true 
+    parameter Boolean useQuaternions=true
       " = true, if quaternions shall be used as states otherwise use 3 angles as states (provided enforceStates=true)"
       annotation (Dialog(tab="Advanced", enable=enforceStates));
-    parameter Types.RotationSequence sequence_angleStates={1,2,3} 
+    parameter Types.RotationSequence sequence_angleStates={1,2,3}
       " Sequence of rotations to rotate frame_a into frame_b around the 3 angles used as states"
        annotation (Evaluate=true, Dialog(tab="Advanced", enable=enforceStates
              and not useQuaternions));
-    
+
     final parameter Frames.Orientation R_rel_start=
         Modelica.Mechanics.MultiBody.Frames.axesRotations(sequence_start, Cv.from_deg(angles_start),
          zeros(3)) "Orientation object from frame_a to frame_b at initial time";
@@ -1037,7 +1037,7 @@ s_start_y = 0.5, phi_start = 45<sup>o</sup>).
 <p>
 Joint with <b>3 constraints</b> that define that the origin of
 frame_a and the origin of frame_b coincide. By default this joint
-defines only the 3 constraints without any potential states. 
+defines only the 3 constraints without any potential states.
 If parameter <b>enforceStates</b> is set to <b>true</b>
 in the \"Advanced\" menu, three states are introduced.
 Depending on parameter <b>useQuaternions</b> these are either
@@ -1049,7 +1049,7 @@ the Cardan angle sequence) around the angles used as states.
 For example, the default is to rotate the x-axis of frame_a
 around angles[1], the new y-axis around angles[2] and the new z-axis
 around angles[3], arriving at frame_b. If angles are used
-as states there is the slight disadvantage that 
+as states there is the slight disadvantage that
 a singular configuration is present leading to a divison by zero.
 </p>
 <p>
@@ -1073,8 +1073,8 @@ as states.
 <p>
 In the following figure the animation of a spherical
 joint is shown. The light blue coordinate system is
-frame_a and the dark blue coordinate system is 
-frame_b of the joint. 
+frame_a and the dark blue coordinate system is
+frame_b of the joint.
 (here: angles_start = {45, 45, 45}<sup>o</sup>).
 </p>
 <p align=\"center\">
@@ -1136,8 +1136,8 @@ frame_b of the joint.
             color=0,
             gradient=3,
             fillColor=9))));
-    
-  protected 
+
+  protected
     Visualizers.Advanced.Shape sphere(
       shapeType="sphere",
       color=sphereColor,
@@ -1150,40 +1150,40 @@ frame_b of the joint.
       r_shape={-0.5,0,0}*sphereDiameter,
       r=frame_a.r_0,
       R=frame_a.R) if world.enableAnimation and animation;
-    
+
     // Declarations for quaternions (dummies, if quaternions are not used)
     parameter Frames.Quaternions.Orientation Q_start=Modelica.Mechanics.MultiBody.Frames.to_Q(
-        R_rel_start) 
+        R_rel_start)
       "Quaternion orientation object from frame_a to frame_b at initial time";
-    Frames.Quaternions.Orientation Q(start=Q_start, stateSelect=if 
-          enforceStates and useQuaternions then StateSelect.prefer else 
-          StateSelect.never) 
+    Frames.Quaternions.Orientation Q(start=Q_start, stateSelect=if
+          enforceStates and useQuaternions then StateSelect.prefer else
+          StateSelect.never)
       "Quaternion orientation object from frame_a to frame_b (dummy value, if quaternions are not used as states)";
-    
+
     // Declaration for 3 angles
     parameter SI.Angle phi_start[3]=if sequence_start[1] ==
         sequence_angleStates[1] and sequence_start[2] == sequence_angleStates[2]
          and sequence_start[3] == sequence_angleStates[3] then Cv.from_deg(
         angles_start) else Frames.axesRotationsAngles(R_rel_start,
         sequence_angleStates) "Potential angle states at initial time";
-    SI.Angle phi[3](start=phi_start, stateSelect=if enforceStates and not 
-          useQuaternions then StateSelect.always else StateSelect.never) 
+    SI.Angle phi[3](start=phi_start, stateSelect=if enforceStates and not
+          useQuaternions then StateSelect.always else StateSelect.never)
       "Dummy or 3 angles to rotate frame_a into frame_b";
-    SI.AngularVelocity phi_d[3](stateSelect=if enforceStates and not 
-          useQuaternions then StateSelect.always else StateSelect.never) 
+    SI.AngularVelocity phi_d[3](stateSelect=if enforceStates and not
+          useQuaternions then StateSelect.always else StateSelect.never)
       "= der(phi)";
     SI.AngularAcceleration phi_dd[3] "= der(phi_d)";
-    
+
     // Other declarations
-    SI.AngularVelocity w_rel[3](start=w_rel_start_rad, stateSelect=if 
-          enforceStates and useQuaternions then StateSelect.always else 
-          StateSelect.never) 
+    SI.AngularVelocity w_rel[3](start=w_rel_start_rad, stateSelect=if
+          enforceStates and useQuaternions then StateSelect.always else
+          StateSelect.never)
       "Dummy or relative angular velocity of frame_b with respect to frame_a, resolved in frame_b";
-    Frames.Orientation R_rel 
+    Frames.Orientation R_rel
       "Dummy or relative orientation object to rotate from frame_a to frame_b";
-    Frames.Orientation R_rel_inv 
+    Frames.Orientation R_rel_inv
       "Dummy or relative orientation object to rotate from frame_b to frame_a";
-  initial equation 
+  initial equation
     if initType == Types.Init.Position or initType == Types.Init.
         PositionVelocity or initType == Types.Init.PositionVelocityAcceleration then
       // Initialize positional variables
@@ -1199,32 +1199,32 @@ frame_b of the joint.
         phi = phi_start;
       end if;
     end if;
-    
+
     if initType == Types.Init.PositionVelocity or initType == Types.Init.
-        PositionVelocityAcceleration or initType == Types.Init.Velocity or 
+        PositionVelocityAcceleration or initType == Types.Init.Velocity or
         initType == Types.Init.VelocityAcceleration then
       // Initialize velocity variables
       w_rel = w_rel_start_rad;
     end if;
-    
+
     if initType == Types.Init.VelocityAcceleration or initType == Types.Init.
         PositionVelocityAcceleration then
       // Initialize acceleration variables
       der(w_rel) = z_rel_start_rad;
     end if;
-    
+
     if initType == Types.Init.SteadyState then
       w_rel = zeros(3);
       der(w_rel) = zeros(3);
     end if;
     // torque balance
-  equation 
+  equation
     zeros(3) = frame_a.t;
     zeros(3) = frame_b.t;
-    
+
     if enforceStates then
       defineBranch(frame_a.R, frame_b.R);
-      
+
       frame_b.r_0 = frame_a.r_0;
       if rooted(frame_a.R) then
         R_rel_inv = Frames.nullRotation();
@@ -1242,30 +1242,30 @@ frame_b of the joint.
         {0} = Frames.Quaternions.orientationConstraint(Q);
         w_rel = Frames.Quaternions.angularVelocity2(Q, der(Q));
         R_rel = Frames.from_Q(Q, w_rel);
-        
+
         // Dummies
         phi = zeros(3);
         phi_d = zeros(3);
         phi_dd = zeros(3);
-        
+
       else
         // Use angles as states
         phi_d = der(phi);
         phi_dd = der(phi_d);
         R_rel = Frames.axesRotations(sequence_angleStates, phi, phi_d);
         w_rel = Frames.angularVelocity2(R_rel);
-        
+
         // Dummies
         Q = zeros(4);
       end if;
-      
+
     else
       // Spherical joint does not have states
       // frame_b.r_0 = frame_a.r_0;
       frame_b.r_0 = transpose(frame_b.R.T)*(frame_b.R.T*(transpose(frame_a.R.T)*(frame_a.R.T*frame_a.r_0)));
-      
+
       zeros(3) = frame_a.f + Frames.resolveRelative(frame_b.f, frame_b.R, frame_a.R);
-      
+
       if initType == Types.Init.Free or initType == Types.Init.Position then
         // dummies
         w_rel = zeros(3);
@@ -1273,7 +1273,7 @@ frame_b of the joint.
         w_rel = Frames.angularVelocity2(frame_b.R) - Frames.resolve2(frame_b.R,
            Frames.angularVelocity1(frame_a.R));
       end if;
-      
+
       // Dummies
       R_rel = Frames.nullRotation();
       R_rel_inv = Frames.nullRotation();
@@ -1283,74 +1283,74 @@ frame_b of the joint.
       phi_dd = zeros(3);
     end if;
   end Spherical;
-  
-  model FreeMotion 
-    "Free motion joint (6 degrees-of-freedom, 12 potential states)" 
-    
+
+  model FreeMotion
+    "Free motion joint (6 degrees-of-freedom, 12 potential states)"
+
     import Modelica.Math.*;
     import SI = Modelica.SIunits;
     import Cv = Modelica.SIunits.Conversions;
-    
+
     extends Interfaces.PartialTwoFrames;
-    
-    parameter Boolean animation=true 
+
+    parameter Boolean animation=true
       "= true, if animation shall be enabled (show arrow from frame_a to frame_b)";
-    
-    parameter Types.Init.Temp initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
-      "Type of initialization (defines usage of start values below)" 
+
+    parameter Types.Init.Temp initType=Modelica.Mechanics.MultiBody.Types.Init.Free
+      "Type of initialization (defines usage of start values below)"
       annotation (Dialog(group="Initialization"));
-    
-    parameter SI.Position r_rel_a_start[3]={0,0,0} 
+
+    parameter SI.Position r_rel_a_start[3]={0,0,0}
       "Initial values of r_rel_a (vector from origin of frame_a to origin of frame_b resolved in frame_a)"
       annotation (Dialog(group="Initialization"));
-    parameter Types.RotationSequence sequence_start={1,2,3} 
-      "Sequence of rotations to rotate frame_a into frame_b at initial time" 
+    parameter Types.RotationSequence sequence_start={1,2,3}
+      "Sequence of rotations to rotate frame_a into frame_b at initial time"
       annotation (Evaluate=true, Dialog(group="Initialization"));
-    parameter Cv.NonSIunits.Angle_deg angles_start[3]={0,0,0} 
+    parameter Cv.NonSIunits.Angle_deg angles_start[3]={0,0,0}
       "Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b"
       annotation (Evaluate=false, Dialog(group="Initialization"));
-    parameter SI.Velocity v_rel_a_start[3]={0,0,0} 
-      "Initial values of velocity v_rel_a = der(r_rel_a)" 
+    parameter SI.Velocity v_rel_a_start[3]={0,0,0}
+      "Initial values of velocity v_rel_a = der(r_rel_a)"
       annotation (Dialog(group="Initialization"));
-    parameter Types.AngularVelocity_degs w_rel_a_start[3]={0,0,0} 
+    parameter Types.AngularVelocity_degs w_rel_a_start[3]={0,0,0}
       "Initial values of angular velocity of frame_b with respect to frame_a resolved in frame_a"
       annotation (Dialog(group="Initialization"));
-    parameter SI.Acceleration a_rel_a_start[3]={0,0,0} 
-      "Initial values of acceleration a_rel_a = der(v_rel_a)" 
+    parameter SI.Acceleration a_rel_a_start[3]={0,0,0}
+      "Initial values of acceleration a_rel_a = der(v_rel_a)"
       annotation (Dialog(group="Initialization"));
-    parameter Types.AngularAcceleration_degs2 z_rel_a_start[3]={0,0,0} 
-      "Initial values of angular acceleration z_rel_a = der(w_rel_a)" 
+    parameter Types.AngularAcceleration_degs2 z_rel_a_start[3]={0,0,0}
+      "Initial values of angular acceleration z_rel_a = der(w_rel_a)"
       annotation (Dialog(group="Initialization"));
-    
-    parameter SI.Length arrowDiameter=world.defaultArrowDiameter 
-      "Diameter of arrow from frame_a to frame_b" 
+
+    parameter SI.Length arrowDiameter=world.defaultArrowDiameter
+      "Diameter of arrow from frame_a to frame_b"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.Color arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor 
-      "Color of arrow" 
+    input Types.Color arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
+      "Color of arrow"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
-      "Reflection of ambient light (= 0: light is completely absorbed)" 
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
+      "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter Boolean enforceStates=true 
+    parameter Boolean enforceStates=true
       " = true, if relative variables between frame_a and frame_b shall be used as states"
       annotation (Dialog(tab="Advanced"));
-    parameter Boolean useQuaternions=true 
+    parameter Boolean useQuaternions=true
       " = true, if quaternions shall be used as states otherwise use 3 angles as states"
       annotation (Dialog(tab="Advanced"));
-    parameter Types.RotationSequence sequence_angleStates={1,2,3} 
+    parameter Types.RotationSequence sequence_angleStates={1,2,3}
       " Sequence of rotations to rotate frame_a into frame_b around the 3 angles used as states"
-       annotation (Evaluate=true, Dialog(tab="Advanced", enable=not 
+       annotation (Evaluate=true, Dialog(tab="Advanced", enable=not
             useQuaternions));
-    
+
     final parameter Frames.Orientation R_rel_start=
         Modelica.Mechanics.MultiBody.Frames.axesRotations(sequence_start, Cv.from_deg(angles_start),
          zeros(3)) "Orientation object from frame_a to frame_b at initial time";
-    
-    SI.Position r_rel_a[3](start=r_rel_a_start, stateSelect=if enforceStates then 
-                StateSelect.always else StateSelect.prefer) 
+
+    SI.Position r_rel_a[3](start=r_rel_a_start, stateSelect=if enforceStates then
+                StateSelect.always else StateSelect.prefer)
       "Position vector from origin of frame_a to origin of frame_b, resolved in frame_a";
-    SI.Velocity v_rel_a[3](stateSelect=if enforceStates then StateSelect.always else 
-                StateSelect.prefer) 
+    SI.Velocity v_rel_a[3](stateSelect=if enforceStates then StateSelect.always else
+                StateSelect.prefer)
       "= der(r_rel_a), i.e., velocity of origin of frame_b with respect to origin of frame_a, resolved in frame_a";
     SI.Acceleration a_rel_a[3] "= der(v_rel_a)";
     annotation (
@@ -1382,14 +1382,14 @@ a FreeMotion joint is not needed.
 The states of the FreeMotion object are:
 </p>
 <ul>
-<li> The <b>relative position vector</b> r_rel_a from the origin of  
-     frame_a to the origin of frame_b, resolved in 
-     frame_a and the <b>relative velocity</b> v_rel_a of the origin of 
+<li> The <b>relative position vector</b> r_rel_a from the origin of
+     frame_a to the origin of frame_b, resolved in
+     frame_a and the <b>relative velocity</b> v_rel_a of the origin of
      frame_b with respect to the origin of frame_a, resolved in frame_a
      (= der(r_rel_a)).</li>
 </li>
 <li> If parameter <b>useQuaternions</b> in the \"Advanced\" menu
-     is <b>true</b> (this is the default), then <b>4 quaternions</b> 
+     is <b>true</b> (this is the default), then <b>4 quaternions</b>
      are states. Additionally, the coordinates of the
      relative angular velocity vector are 3 potential states.<br>
      If <b>useQuaternions</b> in the \"Advanced\" menu
@@ -1404,9 +1404,9 @@ The states of the FreeMotion object are:
  </li>
 </ul>
 <p>
-The quaternions have the slight disadvantage that there is a 
-non-linear constraint equation between the 4 quaternions. 
-Therefore, at least one non-linear equation has to be solved 
+The quaternions have the slight disadvantage that there is a
+non-linear constraint equation between the 4 quaternions.
+Therefore, at least one non-linear equation has to be solved
 during simulation. A tool might, however, analytically solve this
 simple constraint equation. Using the 3 angles as states has the
 disadvantage that there is a singular configuration in which a
@@ -1416,7 +1416,7 @@ of the operating region, the 3 angles might be used as
 states by setting <b>useQuaternions</b> = <b>false</b>.
 </p>
 <p>
-In text books about 3-dimensional mechanics often 3 angles and the 
+In text books about 3-dimensional mechanics often 3 angles and the
 angular velocity are used as states. This is not the case here, since
 3 angles and their derivatives are used as states
 (if useQuaternions = false). The reason
@@ -1432,14 +1432,14 @@ If parameter
 <b>enforceStates</b> is set to <b>true</b> (= the default)
 in the \"Advanced\" menu,
 then FreeMotion variables are forced to be used as states according
-to the setting of parameters \"useQuaternions\" and 
+to the setting of parameters \"useQuaternions\" and
 \"sequence_angleStates\".
 </p>
 <p>
 In the following figure the animation of a FreeMotion
 joint is shown. The light blue coordinate system is
-frame_a and the dark blue coordinate system is 
-frame_b of the joint. 
+frame_a and the dark blue coordinate system is
+frame_b of the joint.
 (here: r_rel_a_start = {0.5, 0, 0.5}, angles_start = {45, 45, 45}<sup>o</sup>).
 </p>
 <p align=\"center\">
@@ -1478,8 +1478,8 @@ frame_b of the joint.
         Rectangle(extent=[11, -5; -9, 5], style(color=0, fillColor=8)),
         Rectangle(extent=[-30, -5; -50, 5], style(color=0, fillColor=8)),
         Rectangle(extent=[-70, -5; -90, 5], style(color=0, fillColor=8))));
-    
-  protected 
+
+  protected
     Visualizers.Advanced.Arrow arrow(
       r_head=r_rel_a,
       diameter=arrowDiameter,
@@ -1487,49 +1487,49 @@ frame_b of the joint.
       specularCoefficient=specularCoefficient,
       r=frame_a.r_0,
       R=frame_a.R) if world.enableAnimation and animation;
-    
+
     // Initial values
     parameter SI.AngularVelocity w_rel_b_start_rad[3]=Modelica.Mechanics.MultiBody.Frames.resolve2(
          R_rel_start, w_rel_a_start*Modelica.Constants.D2R);
     parameter SI.AngularAcceleration z_rel_b_start_rad[3]=
         Modelica.Mechanics.MultiBody.Frames.resolve2(R_rel_start, z_rel_a_start*Modelica.Constants.
          D2R);
-    
+
     // Declarations for quaternions (dummies, if quaternions are not used)
     parameter Frames.Quaternions.Orientation Q_start=Modelica.Mechanics.MultiBody.Frames.to_Q(
-        R_rel_start) 
+        R_rel_start)
       "Quaternion orientation object from frame_a to frame_b at initial time";
-    Frames.Quaternions.Orientation Q(start=Q_start, stateSelect=if 
-          enforceStates then (if useQuaternions then StateSelect.prefer else 
-          StateSelect.never) else StateSelect.default) 
+    Frames.Quaternions.Orientation Q(start=Q_start, stateSelect=if
+          enforceStates then (if useQuaternions then StateSelect.prefer else
+          StateSelect.never) else StateSelect.default)
       "Quaternion orientation object from frame_a to frame_b (dummy value, if quaternions are not used as states)";
-    
+
     // Declaration for 3 angles
     parameter SI.Angle phi_start[3]=if sequence_start[1] ==
         sequence_angleStates[1] and sequence_start[2] == sequence_angleStates[2]
          and sequence_start[3] == sequence_angleStates[3] then Cv.from_deg(
         angles_start) else Frames.axesRotationsAngles(R_rel_start,
         sequence_angleStates) "Potential angle states at initial time";
-    SI.Angle phi[3](start=phi_start, stateSelect=if enforceStates then (if 
-          useQuaternions then StateSelect.never else StateSelect.always) else 
-          StateSelect.default) 
+    SI.Angle phi[3](start=phi_start, stateSelect=if enforceStates then (if
+          useQuaternions then StateSelect.never else StateSelect.always) else
+          StateSelect.default)
       "Dummy or 3 angles to rotate frame_a into frame_b";
-    SI.AngularVelocity phi_d[3](stateSelect=if enforceStates then (if 
-          useQuaternions then StateSelect.never else StateSelect.always) else 
+    SI.AngularVelocity phi_d[3](stateSelect=if enforceStates then (if
+          useQuaternions then StateSelect.never else StateSelect.always) else
           StateSelect.default) "= der(phi)";
     SI.AngularAcceleration phi_dd[3] "= der(phi_d)";
-    
+
     // Other declarations
-    SI.AngularVelocity w_rel_b[3](start=w_rel_b_start_rad, stateSelect=if 
-          enforceStates then (if useQuaternions then StateSelect.always else 
-          StateSelect.avoid) else StateSelect.default) 
+    SI.AngularVelocity w_rel_b[3](start=w_rel_b_start_rad, stateSelect=if
+          enforceStates then (if useQuaternions then StateSelect.always else
+          StateSelect.avoid) else StateSelect.default)
       "Dummy or relative angular velocity of frame_b with respect to frame_a, resolved in frame_b";
-    Frames.Orientation R_rel 
+    Frames.Orientation R_rel
       "Dummy or relative orientation object to rotate from frame_a to frame_b";
-    Frames.Orientation R_rel_inv 
+    Frames.Orientation R_rel_inv
       "Dummy or relative orientation object to rotate from frame_b to frame_a";
-    
-  initial equation 
+
+  initial equation
     if initType == Types.Init.Position or initType == Types.Init.
         PositionVelocity or initType == Types.Init.PositionVelocityAcceleration then
       // Initialize positional variables
@@ -1546,46 +1546,46 @@ frame_b of the joint.
         phi = phi_start;
       end if;
     end if;
-    
+
     if initType == Types.Init.PositionVelocity or initType == Types.Init.
-        PositionVelocityAcceleration or initType == Types.Init.Velocity or 
+        PositionVelocityAcceleration or initType == Types.Init.Velocity or
         initType == Types.Init.VelocityAcceleration then
       // Initialize velocity variables
       v_rel_a = v_rel_a_start;
       w_rel_b = w_rel_b_start_rad;
     end if;
-    
+
     if initType == Types.Init.VelocityAcceleration or initType == Types.Init.
         PositionVelocityAcceleration then
       // Initialize acceleration variables
       a_rel_a = a_rel_a_start;
       der(w_rel_b) = z_rel_b_start_rad;
     end if;
-    
+
     if initType == Types.Init.SteadyState then
       v_rel_a = zeros(3);
       w_rel_b = zeros(3);
       a_rel_a = zeros(3);
       der(w_rel_b) = zeros(3);
     end if;
-    
-  equation 
+
+  equation
     // Kinematic differential equations for translational motion
     der(r_rel_a) = v_rel_a;
     der(v_rel_a) = a_rel_a;
-    
+
     // Kinematic relationships
     frame_b.r_0 = frame_a.r_0 + Frames.resolve1(frame_a.R, r_rel_a);
-    
+
     // Cut-forces and cut-torques are zero
     frame_a.f = zeros(3);
     frame_a.t = zeros(3);
     frame_b.f = zeros(3);
     frame_b.t = zeros(3);
-    
+
     if enforceStates then
       defineBranch(frame_a.R, frame_b.R);
-      
+
       if rooted(frame_a.R) then
         R_rel_inv = Frames.nullRotation();
         frame_b.R = Frames.absoluteRotation(frame_a.R, R_rel);
@@ -1594,32 +1594,32 @@ frame_b of the joint.
            R_rel, R_rel.w));
         frame_a.R = Frames.absoluteRotation(frame_b.R, R_rel_inv);
       end if;
-      
+
       // Compute relative orientation object
       if useQuaternions then
         // Use Quaternions as states (with dynamic state selection)
         {0} = Frames.Quaternions.orientationConstraint(Q);
         w_rel_b = Frames.Quaternions.angularVelocity2(Q, der(Q));
         R_rel = Frames.from_Q(Q, w_rel_b);
-        
+
         // Dummies
         phi = zeros(3);
         phi_d = zeros(3);
         phi_dd = zeros(3);
-        
+
       else
         // Use angles as states
         phi_d = der(phi);
         phi_dd = der(phi_d);
         R_rel = Frames.axesRotations(sequence_angleStates, phi, phi_d);
         w_rel_b = Frames.angularVelocity2(R_rel);
-        
+
         // Dummies
         Q = zeros(4);
       end if;
-      
+
     else
-      // Free motion joint does not have states   
+      // Free motion joint does not have states
       if initType == Types.Init.Free or initType == Types.Init.Position then
         // dummies
         w_rel_b = zeros(3);
@@ -1627,7 +1627,7 @@ frame_b of the joint.
         w_rel_b = Frames.angularVelocity2(frame_b.R) - Frames.resolve2(frame_b.
           R, Frames.angularVelocity1(frame_a.R));
       end if;
-      
+
       // Dummies
       R_rel = Frames.nullRotation();
       R_rel_inv = Frames.nullRotation();
@@ -1637,78 +1637,78 @@ frame_b of the joint.
       phi_dd = zeros(3);
     end if;
   end FreeMotion;
-  
-  model SphericalSpherical 
-    "Spherical - spherical joint aggregation (1 constraint, no potential states) with an optional point mass in the middle" 
-    
+
+  model SphericalSpherical
+    "Spherical - spherical joint aggregation (1 constraint, no potential states) with an optional point mass in the middle"
+
     import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
     extends Interfaces.PartialTwoFrames;
-    
+
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter Boolean showMass=true 
+    parameter Boolean showMass=true
       "= true, if mass shall be shown (provided animation = true and m > 0)";
-    parameter Boolean computeRodLength=false 
+    parameter Boolean computeRodLength=false
       "= true, if rodLength shall be computed during initialization (see info)";
     parameter SI.Length rodLength(
       min=Modelica.Constants.eps,
-      fixed=not computeRodLength) = 1 
+      fixed=not computeRodLength) = 1
       "Distance between the origins of frame_a and frame_b (if computeRodLength=true, guess value)";
-    parameter SI.Mass m(min=0)=0 
+    parameter SI.Mass m(min=0)=0
       "Mass of rod (= point mass located in middle of rod)";
-    parameter SI.Diameter sphereDiameter=world.defaultJointLength 
-      "Diameter of spheres respresenting the spherical joints" 
+    parameter SI.Diameter sphereDiameter=world.defaultJointLength
+      "Diameter of spheres respresenting the spherical joints"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
-      "Color of spheres respresenting the spherical joints" 
+    input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
+      "Color of spheres respresenting the spherical joints"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Diameter rodDiameter=sphereDiameter/Types.Defaults.JointRodDiameterFraction 
-      "Diameter of rod connecting the two spherical joint" 
+    parameter SI.Diameter rodDiameter=sphereDiameter/Types.Defaults.JointRodDiameterFraction
+      "Diameter of rod connecting the two spherical joint"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.Color rodColor=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor 
-      "Color of rod connecting the two spherical joints" 
+    input Types.Color rodColor=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor
+      "Color of rod connecting the two spherical joints"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Diameter massDiameter=sphereDiameter 
-      "Diameter of sphere representing the mass point" 
+    parameter SI.Diameter massDiameter=sphereDiameter
+      "Diameter of sphere representing the mass point"
       annotation (Dialog(tab=
             "Animation", group="if animation = true and showMass = true and m > 0",
             enable=animation and showMass and m > 0));
-    input Types.Color massColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor 
+    input Types.Color massColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
       "Color of sphere representing the mass point"  annotation (
         Dialog(tab="Animation", group=
             "if animation = true and showMass = true and m > 0",
             enable=animation and showMass and m > 0));
-    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
-      "Reflection of ambient light (= 0: light is completely absorbed)" 
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
+      "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    
-    parameter Boolean kinematicConstraint=true 
+
+    parameter Boolean kinematicConstraint=true
       "= false, if no constraint shall be defined, due to analytically solving a kinematic loop"
       annotation (Dialog(tab="Advanced"));
-    parameter Boolean checkTotalPower=false 
+    parameter Boolean checkTotalPower=false
       "= true, if total power flowing into this component shall be determined (must be zero)"
       annotation (Dialog(tab="Advanced"));
-    
-    SI.Force f_rod 
+
+    SI.Force f_rod
       "Constraint force in direction of the rod (positive on frame_a, when directed from frame_a to frame_b)";
-    SI.Position rRod_0[3] 
+    SI.Position rRod_0[3]
       "Position vector from frame_a to frame_b resolved in world frame";
-    SI.Position rRod_a[3] 
+    SI.Position rRod_a[3]
       "Position vector from frame_a to frame_b resolved in frame_a";
-    Real eRod_a[3] 
+    Real eRod_a[3]
       "Unit vector in direction from frame_a to frame_b, resolved in frame_a";
-    SI.Position r_CM_0[3] 
+    SI.Position r_CM_0[3]
       "Dummy if m==0, or position vector from world frame to mid-point of rod, resolved in world frame";
     SI.Velocity v_CM_0[3] "First derivative of r_CM_0";
-    SI.Force f_CM_a[3] 
+    SI.Force f_CM_a[3]
       "Dummy if m==0, or inertial force acting at mid-point of rod due to mass oint acceleration, resolved in frame_a";
-    SI.Force f_CM_e[3] 
+    SI.Force f_CM_e[3]
       "Dummy if m==0, or projection of f_CM_a onto eRod_a, resolved in frame_a";
-    SI.Force f_b_a1[3] 
+    SI.Force f_b_a1[3]
       "Force acting at frame_b, but without force in rod, resolved in frame_a";
-    SI.Power totalPower 
+    SI.Power totalPower
       "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
-    
+
     annotation (
       preferedView="info",
       Coordsys(
@@ -1846,7 +1846,7 @@ the two spherical joints. If this is needed, use instead joint Joints.<b>Univers
 that has this property.
 </p>
 </html>"));
-  protected 
+  protected
     Visualizers.Advanced.Shape shape_rod(
       shapeType="cylinder",
       color=rodColor,
@@ -1894,7 +1894,7 @@ that has this property.
       r_shape=eRod_a*(rodLength/2 - sphereDiameter/2),
       r=frame_a.r_0,
       R=frame_a.R) if world.enableAnimation and animation and showMass and m > 0;
-  equation 
+  equation
     // Determine relative position vector between the two frames
     if kinematicConstraint then
       rRod_0 = transpose(frame_b.R.T)*(frame_b.R.T*frame_b.r_0) - transpose(
@@ -1902,22 +1902,22 @@ that has this property.
     else
       rRod_0 = frame_b.r_0 - frame_a.r_0;
     end if;
-    
+
     //rRod_0 = frame_b.r_0 - frame_a.r_0;
     rRod_a = Frames.resolve2(frame_a.R, rRod_0);
     eRod_a = rRod_a/rodLength;
-    
+
     /* Constraint equation is removed, when taken into account somewhere else,
      e.g., when analytically solving a kinematic loop
   */
     if kinematicConstraint then
       0 = rRod_0*rRod_0 - rodLength*rodLength;
     end if;
-    
+
     // Cut-torques at frame_a and frame_b
     frame_a.t = zeros(3);
     frame_b.t = zeros(3);
-    
+
     /* Force and torque balance of rod
      - Kinematics for center of mass CM of mass point
        r_CM_0 = frame_a.r_0 + rRod_0/2;
@@ -1939,7 +1939,7 @@ that has this property.
      fb_rod_e = f_CM_e - fa_rod_e;
      fa_rod_e is the unknown computed from loop
   */
-    
+
       // f_b_a1 is needed in aggregation joints to solve kinematic loops analytically
     if m > 0 then
       r_CM_0 = frame_a.r_0 + rRod_0/2;
@@ -1960,7 +1960,7 @@ that has this property.
       frame_a.f = f_rod*eRod_a;
       frame_b.f = -Frames.resolveRelative(frame_a.f, frame_a.R, frame_b.R);
     end if;
-    
+
     if checkTotalPower then
       totalPower = frame_a.f*Frames.resolve2(frame_a.R, der(frame_a.r_0)) +
         frame_b.f*Frames.resolve2(frame_b.R, der(frame_b.r_0)) + (-m)*(der(
@@ -1971,92 +1971,92 @@ that has this property.
       totalPower = 0;
     end if;
   end SphericalSpherical;
-  
-  model UniversalSpherical 
-    "Universal - spherical joint aggregation (1 constraint, no potential states)" 
-    
+
+  model UniversalSpherical
+    "Universal - spherical joint aggregation (1 constraint, no potential states)"
+
     import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
-    
+
     extends Interfaces.PartialTwoFrames;
-    Interfaces.Frame_a frame_ia 
+    Interfaces.Frame_a frame_ia
       "Coordinate system at the origin of frame_a, fixed at the rod connecting the universal with the spherical joint"
       annotation (extent=[-56,84; -24,116], rotation=-90);
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter Boolean showUniversalAxes=true 
+    parameter Boolean showUniversalAxes=true
       " = true, if universal joint shall be visualized with two cylinders, otherwise with a sphere (provided animation=true)";
-    parameter Boolean computeRodLength=false 
+    parameter Boolean computeRodLength=false
       "= true, if distance between frame_a and frame_b shall be computed during initialization (see info)";
-    parameter Modelica.Mechanics.MultiBody.Types.Axis n1_a={0,0,1} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n1_a={0,0,1}
       "Axis 1 of universal joint resolved in frame_a (axis 2 is orthogonal to axis 1 and to rod)"
       annotation (Evaluate=true);
-    parameter SI.Position rRod_ia[3]={1,0,0} 
+    parameter SI.Position rRod_ia[3]={1,0,0}
       "Vector from origin of frame_a to origin of frame_b, resolved in frame_ia (if computeRodLength=true, rRod_ia is only an axis vector along the connecting rod)"
       annotation (Evaluate=true);
-    parameter SI.Diameter sphereDiameter=world.defaultJointLength 
-      "Diameter of spheres representing the universal and the spherical joint" 
+    parameter SI.Diameter sphereDiameter=world.defaultJointLength
+      "Diameter of spheres representing the universal and the spherical joint"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
-      "Color of spheres representing the universal and the spherical joint" 
+    input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
+      "Color of spheres representing the universal and the spherical joint"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter Types.ShapeType rodShapeType="cylinder" 
-      "Shape type of rod connecting the universal and the spherical joint" 
+    parameter Types.ShapeType rodShapeType="cylinder"
+      "Shape type of rod connecting the universal and the spherical joint"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Distance rodWidth=sphereDiameter/Types.Defaults.JointRodDiameterFraction 
-      "Width of rod shape in direction of axis 2 of universal joint." 
+    parameter SI.Distance rodWidth=sphereDiameter/Types.Defaults.JointRodDiameterFraction
+      "Width of rod shape in direction of axis 2 of universal joint."
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Distance rodHeight=rodWidth 
+    parameter SI.Distance rodHeight=rodWidth
       "Height of rod shape in direction that is orthogonal to rod and to axis 2"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter Types.ShapeExtra rodExtra=0.0 
-      "Additional parameter depending on rodShapeType" 
+    parameter Types.ShapeExtra rodExtra=0.0
+      "Additional parameter depending on rodShapeType"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.Color rodColor=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor 
-      "Color of rod shape connecting the universal and the spherical joints" 
+    input Types.Color rodColor=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor
+      "Color of rod shape connecting the universal and the spherical joints"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Distance cylinderLength=world.defaultJointLength 
+    parameter SI.Distance cylinderLength=world.defaultJointLength
       "Length of cylinders representing the two universal joint axes" annotation (
        Dialog(tab="Animation", group="if animation = true and showUniversalAxes",
                                enable=animation and showUniversalAxes));
-    parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
-      "Diameter of cylinders representing the two universal joint axes" 
+    parameter SI.Distance cylinderDiameter=world.defaultJointWidth
+      "Diameter of cylinders representing the two universal joint axes"
       annotation (Dialog(tab="Animation", group=
             "if animation = true and showUniversalAxes",
             enable=animation and showUniversalAxes));
-    input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
+    input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
       "Color of cylinders representing the two universal joint axes" annotation (
         Dialog(tab="Animation", group="if animation = true and showUniversalAxes",
                                 enable=animation and showUniversalAxes));
-    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
-      "Reflection of ambient light (= 0: light is completely absorbed)" 
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
+      "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    
-    parameter Boolean kinematicConstraint=true 
+
+    parameter Boolean kinematicConstraint=true
       "= false, if no constraint shall be defined, due to analytically solving a kinematic loop"
       annotation (Dialog(tab="Advanced"));
-    parameter Boolean checkTotalPower=false 
+    parameter Boolean checkTotalPower=false
       "= true, if total power flowing into this component shall be determined (must be zero)"
       annotation (Dialog(tab="Advanced"));
-    SI.Force f_rod 
+    SI.Force f_rod
       "Constraint force in direction of the rod (positive, if rod is pressed)";
     final parameter SI.Distance rodLength(fixed=not computeRodLength)=
-      Frames.length(rRod_ia) 
+      Frames.length(rRod_ia)
       "Length of rod (distance between origin of frame_a and origin of frame_b)";
-    final parameter Real eRod_ia[3]=Frames.normalize(rRod_ia) 
+    final parameter Real eRod_ia[3]=Frames.normalize(rRod_ia)
       "Unit vector from origin of frame_a to origin of frame_b, resolved in frame_ia";
-    final parameter Real e2_ia[3]=Frames.normalize(cross(n1_a, eRod_ia)) 
+    final parameter Real e2_ia[3]=Frames.normalize(cross(n1_a, eRod_ia))
       "Unit vector in direction of axis 2 of universal joint, resolved in frame_ia (orthogonal to n1_a and eRod_ia; note: frame_ia is parallel to frame_a when the universal joint angles are zero)";
-    final parameter Real e3_ia[3]=cross(eRod_ia, e2_ia) 
+    final parameter Real e3_ia[3]=cross(eRod_ia, e2_ia)
       "Unit vector perpendicular to eRod_ia and e2_ia, resolved in frame_ia";
-    SI.Power totalPower 
+    SI.Power totalPower
       "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
-    SI.Force f_b_a1[3] 
+    SI.Force f_b_a1[3]
       "frame_b.f without f_rod part, resolved in frame_a (needed for analytic loop handling)";
-    Real eRod_a[3] 
+    Real eRod_a[3]
       "Unit vector in direction of rRod_a, resolved in frame_a (needed for analytic loop handling)";
-    SI.Position rRod_0[3](start=rRod_ia) 
+    SI.Position rRod_0[3](start=rRod_ia)
       "Position vector from origin of frame_a to origin of frame_b resolved in world frame";
-    SI.Position rRod_a[3](start=rRod_ia) 
+    SI.Position rRod_a[3](start=rRod_ia)
       "Position vector from origin of frame_a to origin of frame_b resolved in frame_a";
     annotation (
       preferedView="info",
@@ -2320,18 +2320,18 @@ the origin of frame_a to the middle of the rod, this might be defined as:
         Line(points=[60, -1; 60, -72]),
         Line(points=[-40, 100; -40, 70; -60, 0], style(color=10, thickness=2)),
         Text(extent=[-23, 30; 26, 10], string=" eRod*e2 = 0;  n1*e2 = 0")));
-    
-  protected 
+
+  protected
     SI.Force f_b_a[3] "frame_b.f resolved in frame_a";
     SI.Force f_ia_a[3] "frame_ia.f resolved in frame_a";
     SI.Torque t_ia_a[3] "frame_ia.t resolved in frame_a";
-    Real n2_a[3] 
+    Real n2_a[3]
       "Vector in direction of axis 2 of the universal joint (e2_ia), resolved in frame_a";
     Real length2_n2_a(start=1, unit="m2") "Square of length of vector n2_a";
     SI.Length length_n2_a "Length of vector n2_a";
-    Real e2_a[3] 
+    Real e2_a[3]
       "Unit vector in direction of axis 2 of the universal joint (e2_ia), resolved in frame_a";
-    Real e3_a[3] 
+    Real e3_a[3]
       "Unit vector perpendicular to eRod_ia and e2_a, resolved in frame_a";
     Real der_rRod_a_L[3] "= der(rRod_a)/rodLength";
     SI.AngularVelocity w_rel_ia1[3];
@@ -2339,7 +2339,7 @@ the origin of frame_a to the middle of the rod, this might be defined as:
     Frames.Orientation R_rel_ia2;
     // Real T_rel_ia[3, 3];
     Frames.Orientation R_rel_ia "Rotation from frame_a to frame_ia";
-    
+
     Visualizers.Advanced.Shape rodShape(
       shapeType=rodShapeType,
       color=rodColor,
@@ -2399,8 +2399,8 @@ the origin of frame_a to the middle of the rod, this might be defined as:
       r_shape=-e2_ia*(cylinderLength/2),
       r=frame_ia.r_0,
       R=frame_ia.R) if world.enableAnimation and animation and showUniversalAxes;
-    
-  equation 
+
+  equation
     defineBranch(frame_a.R, frame_ia.R);
     if kinematicConstraint then
       rRod_0 = transpose(frame_b.R.T)*(frame_b.R.T*frame_b.r_0) - transpose(
@@ -2410,19 +2410,19 @@ the origin of frame_a to the middle of the rod, this might be defined as:
     end if;
     //rRod_0 = frame_b.r_0 - frame_a.r_0;
     rRod_a = Frames.resolve2(frame_a.R, rRod_0);
-    
+
     // Constraint equation
     if kinematicConstraint then
       0 = rRod_0*rRod_0 - rodLength*rodLength;
     end if;
-    
+
     /* Determine relative Rotation R_rel_ia from frame_a to frame_ia
      and absolute rotation of frame_a.R.
   */
     eRod_a = rRod_a/rodLength;
     n2_a = cross(n1_a, eRod_a);
     length2_n2_a = n2_a*n2_a;
-    
+
     assert(length2_n2_a > 1.e-10, "
 A Modelica.Mechanics.MultiBody.Joints.UniversalSpherical joint (consisting of
 a universal joint and a spherical joint connected together
@@ -2436,25 +2436,25 @@ use instead Modelica.Mechanics.MultiBody.Joints.SphericalSpherical, if this is
 possible, because this joint aggregation does not have a
 singular configuration.
 ");
-    
+
     length_n2_a = sqrt(length2_n2_a);
     e2_a = n2_a/length_n2_a;
     e3_a = cross(eRod_a, e2_a);
-    
+
     /* The statements below are an efficient implementation of the
    original equations:
      T_rel_ia = [eRod_ia, e2_ia, e3_ia]*transpose([eRod_a, e2_a, e3_a]);
-     R_rel_ia = Frames.from_T(T_rel_ia, 
+     R_rel_ia = Frames.from_T(T_rel_ia,
                    Frames.TransformationMatrices.angularVelocity2(T_rel_ia, der(T_rel_ia)));
    To perform this, the rotation is split into two parts:
      R_rel_ia : Rotation object from frame_a to frame_ia
      R_rel_ia1: Rotation object from frame_a to frame_ia1
-                (frame that is fixed in frame_ia such that x-axis 
-                is along the rod axis) 
+                (frame that is fixed in frame_ia such that x-axis
+                is along the rod axis)
                 T = transpose([eRod_a, e2_a, e3_a]; w = w_rel_ia1
      R_rel_ia2: Fixed rotation object from frame_ia1 to frame_ia
                 T = [eRod_ia, e2_ia, e3_ia]; w = zeros(3)
- 
+
    The difficult part is to compute w_rel_ia1:
       w_rel_ia1 = [  e3_a*der(e2_a);
                     -e3_a*der(eRod_a);
@@ -2484,14 +2484,14 @@ singular configuration.
     R_rel_ia = Frames.absoluteRotation(R_rel_ia1, R_rel_ia2);
     /*
   T_rel_ia = [eRod_ia, e2_ia, e3_ia]*transpose([eRod_a, e2_a, e3_a]);
-  R_rel_ia = Frames.from_T(T_rel_ia, 
+  R_rel_ia = Frames.from_T(T_rel_ia,
     Frames.TransformationMatrices.angularVelocity2(T_rel_ia, der(T_rel_ia)));
 */
-    
+
     // Compute kinematic quantities of frame_ia
     frame_ia.r_0 = frame_a.r_0;
     frame_ia.R = Frames.absoluteRotation(frame_a.R, R_rel_ia);
-    
+
     /* In the following formulas f_a, f_b, f_ia, t_a, t_b, t_ia are
      the forces and torques at frame_a, frame_b, frame_ia, respectively,
      resolved in frame_a. e_x, e_y, e_z are the unit vectors resolved in frame_a.
@@ -2515,7 +2515,7 @@ singular configuration.
   */
     f_ia_a = Frames.resolve1(R_rel_ia, frame_ia.f);
     t_ia_a = Frames.resolve1(R_rel_ia, frame_ia.t);
-    
+
       // f_b_a1 is needed in aggregation joints to solve kinematic loops analytically
     f_b_a1 = -e2_a*((n1_a*t_ia_a)/(rodLength*(n1_a*e3_a))) + e3_a*((e2_a*t_ia_a)
       /rodLength);
@@ -2524,7 +2524,7 @@ singular configuration.
     frame_b.t = zeros(3);
     zeros(3) = frame_a.f + f_b_a + f_ia_a;
     zeros(3) = frame_a.t + t_ia_a + cross(rRod_a, f_b_a);
-    
+
     // Measure power for test purposes
     if checkTotalPower then
       totalPower = frame_a.f*Frames.resolve2(frame_a.R, der(frame_a.r_0)) +
@@ -2536,24 +2536,24 @@ singular configuration.
       totalPower = 0;
     end if;
   end UniversalSpherical;
-  
-  model GearConstraint "Ideal 3-dim. gearbox (arbitrary shaft directions)" 
+
+  model GearConstraint "Ideal 3-dim. gearbox (arbitrary shaft directions)"
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
-    Interfaces.Frame_a bearing "Coordinate system fixed in the bearing" 
+    Interfaces.Frame_a bearing "Coordinate system fixed in the bearing"
      annotation (extent=[-16,-116; 16,-84], rotation=90);
-    
+
     parameter Real ratio=2 "Gear speed ratio";
-    
-    parameter Modelica.Mechanics.MultiBody.Types.Axis n_a={1,0,0} 
+
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n_a={1,0,0}
       "Axis of rotation of shaft a (same coordinates in frame_a, frame_b, bearing)";
-    parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={1,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={1,0,0}
       "Axis of rotation of shaft b (same coordinates in frame_a, frame_b, bearing)";
-    
-    parameter Modelica.SIunits.Position r_a[3]={0,0,0} 
+
+    parameter Modelica.SIunits.Position r_a[3]={0,0,0}
       "Vector from frame bearing to frame_a resolved in bearing";
-    parameter Modelica.SIunits.Position r_b[3]={0,0,0} 
+    parameter Modelica.SIunits.Position r_b[3]={0,0,0}
       "Vector from frame bearing to frame_b resolved in bearing";
-    
+
     annotation (
       Icon(
         Rectangle(extent=[-98, 98; 98, -98], style(color=7, fillColor=7)),
@@ -2608,23 +2608,23 @@ Modelica Conference</i>. Link&ouml;ping : The Modelica Association and Link&ouml
 November 3-4, 2003, pp. 149-158</p>
 </html>"),
       Diagram);
-    Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute actuatedRevolute_a(n=n_a, animation=false) 
+    Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute actuatedRevolute_a(n=n_a, animation=false)
       annotation (extent=[-40, -10; -60, 10], rotation=0);
-    Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute actuatedRevolute_b(n=n_b, animation=false) 
+    Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute actuatedRevolute_b(n=n_b, animation=false)
       annotation (extent=[40, -10; 60, 10]);
-    Modelica.Mechanics.Rotational.IdealGear idealGear(ratio=ratio) 
+    Modelica.Mechanics.Rotational.IdealGear idealGear(ratio=ratio)
       annotation (extent=[-10, 30; 10, 50]);
-    Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation1(animation=false, r=r_b) 
+    Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation1(animation=false, r=r_b)
       annotation (extent=[10, -10; 30, 10]);
-    Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation2(animation=false, r=r_a) 
+    Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation2(animation=false, r=r_a)
       annotation (extent=[-30, -10; -10, 10], rotation=180);
-  equation 
+  equation
     assert(cardinality(bearing) > 0,
       "Connector bearing of component is not connected");
-    
-    connect(actuatedRevolute_a.axis, idealGear.flange_a) 
+
+    connect(actuatedRevolute_a.axis, idealGear.flange_a)
       annotation (points=[-50, 10; -50, 40; -10, 40], style(color=0));
-    connect(idealGear.flange_b, actuatedRevolute_b.axis) 
+    connect(idealGear.flange_b, actuatedRevolute_b.axis)
       annotation (points=[10, 40; 50, 40; 50, 10], style(color=0));
     connect(actuatedRevolute_a.frame_a,fixedTranslation2. frame_b) annotation (
         points=[-40,0; -35,0; -35,1.22461e-015; -30,1.22461e-015], style(
@@ -2636,32 +2636,32 @@ November 3-4, 2003, pp. 149-158</p>
         color=10,
         rgbcolor={95,95,95},
         thickness=2));
-    connect(fixedTranslation1.frame_a, bearing) 
+    connect(fixedTranslation1.frame_a, bearing)
       annotation (points=[10,0; 0,0; 0,-100], style(
         color=10,
         rgbcolor={95,95,95},
         thickness=2));
-    connect(fixedTranslation1.frame_b, actuatedRevolute_b.frame_a) 
+    connect(fixedTranslation1.frame_b, actuatedRevolute_b.frame_a)
       annotation (points=[30,0; 40,0], style(
         color=10,
         rgbcolor={95,95,95},
         thickness=2));
-    connect(frame_a, actuatedRevolute_a.frame_b) 
+    connect(frame_a, actuatedRevolute_a.frame_b)
       annotation (points=[-100,0; -60,0], style(
         color=10,
         rgbcolor={95,95,95},
         thickness=2));
-    connect(actuatedRevolute_b.frame_b, frame_b) 
+    connect(actuatedRevolute_b.frame_b, frame_b)
       annotation (points=[60,0; 100,0], style(
         color=10,
         rgbcolor={95,95,95},
         thickness=2));
   end GearConstraint;
-  
-  package Assemblies "Joint aggregations for analytic loop handling" 
+
+  package Assemblies "Joint aggregations for analytic loop handling"
     import SI = Modelica.SIunits;
     extends Modelica.Icons.Library;
-    
+
     annotation (preferedView="info", Documentation(info="<HTML>
 <p>
 The joints in this package are mainly designed to be used
@@ -2673,7 +2673,7 @@ i.e., there are <b>no constraints</b> between frame_a and frame_b.
 This requires to solve a <b>non-linear system of equations</b> which
 is performed <b>analytically</b> (i.e., when a mathematical
 solution exists, it is computed efficiently and reliably).
-A detailed description how to use these joints is provided in 
+A detailed description how to use these joints is provided in
 <a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
 </p>
 <p>
@@ -2689,7 +2689,7 @@ component, in particular:
 </table>
 <p>
 For example, JointUSR is an assembly joint consisting
-of a universal, a spherical and a revolute joint. 
+of a universal, a spherical and a revolute joint.
 </p>
 <p> This package contains the following models:
 </p>
@@ -2772,81 +2772,81 @@ pair of joints\" from Woernle and Hiller is described in:
     Proceedings 7th World Congress Th. Mach. Mech., Sevilla 1987. </dd>
 </dl>
 </HTML>"));
-    
-    model JointUPS 
-      "Universal - prismatic - spherical joint aggregation (no constraints, no potential states)" 
-      
+
+    model JointUPS
+      "Universal - prismatic - spherical joint aggregation (no constraints, no potential states)"
+
       import SI = Modelica.SIunits;
       import Modelica.Mechanics.MultiBody.Types;
       extends Interfaces.PartialTwoFramesDoubleSize;
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
-        "Coordinate system at origin of frame_a fixed at prismatic joint" 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia
+        "Coordinate system at origin of frame_a fixed at prismatic joint"
         annotation (extent=[-88,92; -72,108],  rotation=-90);
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
-        "Coordinate system at origin of frame_b fixed at prismatic joint" 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib
+        "Coordinate system at origin of frame_b fixed at prismatic joint"
         annotation (extent=[88,92; 72,108], rotation=-90);
-      Modelica.Mechanics.Translational.Interfaces.Flange_a axis 
-        "1-dim. translational flange that drives the prismatic joint" 
+      Modelica.Mechanics.Translational.Interfaces.Flange_a axis
+        "1-dim. translational flange that drives the prismatic joint"
         annotation (extent=[45,95; 35,105]);
-      Modelica.Mechanics.Translational.Interfaces.Flange_b bearing 
+      Modelica.Mechanics.Translational.Interfaces.Flange_b bearing
         "1-dim. translational flange of the drive bearing of the prismatic joint"
         annotation (extent=[-35,95; -45,105]);
-      
+
       parameter Boolean animation=true "= true, if animation shall be enabled";
-      parameter Boolean showUniversalAxes=true 
+      parameter Boolean showUniversalAxes=true
         " = true, if universal joint shall be visualized with two cylinders, otherwise with a sphere (provided animation=true)";
-      parameter Modelica.Mechanics.MultiBody.Types.Axis n1_a={0,0,1} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n1_a={0,0,1}
         "Axis 1 of universal joint resolved in frame_a (axis 2 is orthogonal to axis 1 and to line from universal to spherical joint)"
         annotation (Evaluate=true);
-      parameter SI.Position nAxis_ia[3]={1,0,0} 
+      parameter SI.Position nAxis_ia[3]={1,0,0}
         "Axis vector along line from origin of frame_a to origin of frame_b, resolved in frame_ia"
         annotation (Evaluate=true);
-      parameter SI.Position s_offset=0 
+      parameter SI.Position s_offset=0
         "Relative distance offset (distance between frame_a and frame_b = s(t) + s_offset)";
-      parameter SI.Diameter sphereDiameter=world.defaultJointLength 
-        "Diameter of spheres representing the spherical joints" 
+      parameter SI.Diameter sphereDiameter=world.defaultJointLength
+        "Diameter of spheres representing the spherical joints"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
-        "Color of spheres representing the spherical joints" 
+      input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
+        "Color of spheres representing the spherical joints"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Diameter axisDiameter=sphereDiameter/Types.Defaults.
-          JointRodDiameterFraction 
-        "Diameter of cylinder on the connecting line from frame_a to frame_b" 
+          JointRodDiameterFraction
+        "Diameter of cylinder on the connecting line from frame_a to frame_b"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color axisColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor 
-        "Color of cylinder on the connecting line from frame_a to frame_b" 
+      input Types.Color axisColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
+        "Color of cylinder on the connecting line from frame_a to frame_b"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
-        "Reflection of ambient light (= 0: light is completely absorbed)" 
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
+        "Reflection of ambient light (= 0: light is completely absorbed)"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Distance cylinderLength=world.defaultJointLength 
+      parameter SI.Distance cylinderLength=world.defaultJointLength
         "Length of cylinders representing the two universal joint axes" annotation (
          Dialog(tab="Animation", group="if animation = true and showUniversalAxes",
                 enable=animation and showUniversalAxes));
-      parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
-        "Diameter of cylinders representing the two universal joint axes" 
+      parameter SI.Distance cylinderDiameter=world.defaultJointWidth
+        "Diameter of cylinders representing the two universal joint axes"
         annotation (Dialog(tab="Animation", group=
               "if animation = true and showUniversalAxes",
                 enable=animation and showUniversalAxes));
-     input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
+     input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
         "Color of cylinders representing the two universal joint axes" annotation (
           Dialog(tab="Animation", group="if animation = true and showUniversalAxes",
                 enable=animation and showUniversalAxes));
-      
-      parameter Boolean checkTotalPower=false 
+
+      parameter Boolean checkTotalPower=false
         "= true, if total power flowing into this component shall be determined (must be zero)"
         annotation (Dialog(tab="Advanced"));
-      final parameter Real eAxis_ia[3]=Frames.normalize(nAxis_ia) 
+      final parameter Real eAxis_ia[3]=Frames.normalize(nAxis_ia)
         "Unit vector from origin of frame_a to origin of frame_b, resolved in frame_ia";
-      final parameter Real e2_ia[3]=Frames.normalize(cross(n1_a, eAxis_ia)) 
+      final parameter Real e2_ia[3]=Frames.normalize(cross(n1_a, eAxis_ia))
         "Unit vector in direction of second rotation axis of universal joint, resolved in frame_ia";
-      final parameter Real e3_ia[3]=cross(eAxis_ia, e2_ia) 
+      final parameter Real e3_ia[3]=cross(eAxis_ia, e2_ia)
         "Unit vector perpendicular to eAxis_ia and e2_ia, resolved in frame_ia";
-      SI.Position s 
+      SI.Position s
         "Relative distance between frame_a and frame_b along axis nAxis = s + s_offset";
       SI.Force f "= axis.f (driving force in the axis; = -bearing.f)";
       SI.Length axisLength "Distance between frame_a and frame_b";
-      SI.Power totalPower 
+      SI.Power totalPower
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
       annotation (
         preferedView="info",
@@ -3156,22 +3156,22 @@ component).
               color=10,
               rgbcolor={135,135,135},
               thickness=2))));
-      
-    protected 
+
+    protected
       SI.Force f_c_a[3] "frame_ia.f resolved in frame_a";
       SI.Torque t_cd_a[3] "frame_ia.t + frame_ib.t resolved in frame_a";
       SI.Force f_bd_a[3] "frame_b.f + frame_ib.f resolved in frame_a";
-      SI.Position rAxis_0[3] 
+      SI.Position rAxis_0[3]
         "Position vector from origin of frame_a to origin of frame_b resolved in world frame";
-      SI.Position rAxis_a[3] 
+      SI.Position rAxis_a[3]
         "Position vector from origin of frame_a to origin of frame_b resolved in frame_a";
-      Real eAxis_a[3] 
+      Real eAxis_a[3]
         "Unit vector in direction of rAxis_a, resolved in frame_a";
-      Real e2_a[3] 
+      Real e2_a[3]
         "Unit vector in direction of second rotation axis of universal joint, resolved in frame_a";
-      Real e3_a[3] 
+      Real e3_a[3]
         "Unit vector perpendicular to eAxis_a and e2_a, resolved in frame_a";
-      Real n2_a[3] 
+      Real n2_a[3]
         "Vector in direction of second rotation axis of universal joint, resolved in frame_a";
       Real length2_n2_a(unit="m2") "Square of length of vector n2_a";
       SI.Length length_n2_a "Length of vector n2_a";
@@ -3181,7 +3181,7 @@ component).
       Frames.Orientation R_ia2_a;
       Frames.Orientation R_ia_a "Rotation from frame_a to frame_ia";
       // Real T_ia_a[3, 3] "Transformation matrix from frame_a to frame_ia";
-      
+
       Visualizers.Advanced.Shape axisCylinder(
         shapeType="cylinder",
         color=axisColor,
@@ -3241,20 +3241,20 @@ component).
         r_shape=-e2_ia*(cylinderLength/2),
         r=frame_ia.r_0,
         R=frame_ia.R) if world.enableAnimation and animation and showUniversalAxes;
-    equation 
+    equation
       defineBranch(frame_a.R, frame_ia.R);
       defineBranch(frame_ia.R, frame_ib.R);
-      
+
       // Translational flanges
       axisLength = s + s_offset;
       bearing.s = 0;
       axis.s = s;
       axis.f = f;
-      
+
       // Position vector rAxis from frame_a to frame_b
       rAxis_0 = frame_b.r_0 - frame_a.r_0;
       rAxis_a = Frames.resolve2(frame_a.R, rAxis_0);
-      
+
       /* Determine relative Rotation R_rel_c from frame_a to frame_ia
      and absolute rotation of frame_a.R.
   */
@@ -3263,7 +3263,7 @@ component).
 Distance between frame_a and frame_b of a JointUPS joint
 became zero. This is not allowed. If this occurs during
 initialization, the initial conditions are probably wrong.");
-      
+
       eAxis_a = rAxis_a/axisLength;
       n2_a = cross(n1_a, eAxis_a);
       length2_n2_a = n2_a*n2_a;
@@ -3278,21 +3278,21 @@ origin of frame_b. You may try to use another \"n1_a\" vector.
       length_n2_a = sqrt(length2_n2_a);
       e2_a = n2_a/length_n2_a;
       e3_a = cross(eAxis_a, e2_a);
-      
+
       /* The statements below are an efficient implementation of the
      original equations:
        T_ia_a = [eAxis_ia, e2_ia, e3_ia]*transpose([eAxis_a, e2_a, e3_a]);
-       R_ia_a = Frames.from_T(T_ia_a, 
+       R_ia_a = Frames.from_T(T_ia_a,
                      Frames.TransformationMatrices.angularVelocity2(T_ia_a, der(T_ia_a)));
    To perform this, the rotation is split into two parts:
      R_ia_a : Rotation object from frame_a to frame_ia
      R_ia1_a: Rotation object from frame_a to frame_ia1
-                (frame that is fixed in frame_ia such that x-axis 
-                is along the rod axis) 
+                (frame that is fixed in frame_ia such that x-axis
+                is along the rod axis)
                 T = transpose([eAxis_a, e2_a, e3_a]; w = w_rel_ia1
      R_ia2_a: Fixed rotation object from frame_ia1 to frame_ia
                 T = [eAxis_a, e2_ia, e3_ia]; w = zeros(3)
- 
+
    The difficult part is to compute w_rel_ia1:
       w_rel_ia1 = [  e3_a*der(e2_a);
                     -e3_a*der(eAxis_a);
@@ -3325,13 +3325,13 @@ origin of frame_b. You may try to use another \"n1_a\" vector.
   R_ia_a = Frames.from_T(T_ia_a, Frames.TransformationMatrices.angularVelocity2
     (T_ia_a, der(T_ia_a)));
 */
-      
+
       // Compute kinematic quantities of frame_ia and frame_ib
       frame_ia.r_0 = frame_a.r_0;
       frame_ib.r_0 = frame_b.r_0;
       frame_ia.R = Frames.absoluteRotation(frame_a.R, R_ia_a);
       frame_ib.R = frame_ia.R;
-      
+
       /* In the following formulas f_a, f_b, f_ia, f_ib, t_a, t_b, t_ia, t_ib are
      the forces and torques at frame_a, frame_b, frame_ia, frame_ib respectively,
      resolved in frame_a. eAxis, e2, e3 are the unit vectors resolved in frame_a.
@@ -3364,7 +3364,7 @@ origin of frame_b. You may try to use another \"n1_a\" vector.
       zeros(3) = frame_b.t;
       zeros(3) = frame_a.f + f_c_a + f_bd_a;
       zeros(3) = frame_a.t + t_cd_a + cross(rAxis_a, f_bd_a);
-      
+
       // Measure power for test purposes
       if checkTotalPower then
         totalPower = frame_a.f*Frames.resolve2(frame_a.R, der(frame_a.r_0)) +
@@ -3380,110 +3380,110 @@ origin of frame_b. You may try to use another \"n1_a\" vector.
         totalPower = 0;
       end if;
     end JointUPS;
-    
-    model JointUSR 
-      "Universal - spherical - revolute joint aggregation (no constraints, no potential states)" 
-      
+
+    model JointUSR
+      "Universal - spherical - revolute joint aggregation (no constraints, no potential states)"
+
       import SI = Modelica.SIunits;
       import Cv = Modelica.SIunits.Conversions;
       import Modelica.Mechanics.MultiBody.Types;
-      
+
       extends Interfaces.PartialTwoFramesDoubleSize;
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia
         "Coordinate system at origin of frame_a fixed at connecting rod of universal and spherical joint"
         annotation (extent=[-88,92; -72,108], rotation=-270);
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib
         "Coordinate system at origin of frame_b fixed at connecting rod of spherical and revolute joint"
         annotation (extent=[88,92; 72,108], rotation=-90);
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im
         "Coordinate system at origin of spherical joint fixed at connecting rod of spherical and revolute joint"
         annotation (extent=[-8, 108; 8, 92], rotation=-90);
-      Modelica.Mechanics.Rotational.Interfaces.Flange_a axis 
-        "1-dim. rotational flange that drives the revolute joint" 
+      Modelica.Mechanics.Rotational.Interfaces.Flange_a axis
+        "1-dim. rotational flange that drives the revolute joint"
         annotation (extent=[105,85; 95,75]);
-      Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing 
-        "1-dim. rotational flange of the drive bearing of the revolute joint" 
+      Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing
+        "1-dim. rotational flange of the drive bearing of the revolute joint"
         annotation (extent=[95,45; 105,35]);
-      
+
       parameter Boolean animation=true "= true, if animation shall be enabled";
-      parameter Boolean showUniversalAxes=true 
+      parameter Boolean showUniversalAxes=true
         " = true, if universal joint shall be visualized with two cylinders, otherwise with a sphere (provided animation=true)";
-      parameter Modelica.Mechanics.MultiBody.Types.Axis n1_a={0,0,1} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n1_a={0,0,1}
         "Axis 1 of universal joint fixed and resolved in frame_a (axis 2 is orthogonal to axis 1 and to rod 1)"
         annotation (Evaluate=true);
-      parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={0,0,1} 
-        "Axis of revolute joint fixed and resolved in frame_b" 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={0,0,1}
+        "Axis of revolute joint fixed and resolved in frame_b"
         annotation (Evaluate=true);
-      parameter SI.Position rRod1_ia[3]={1,0,0} 
+      parameter SI.Position rRod1_ia[3]={1,0,0}
         "Vector from origin of frame_a to spherical joint, resolved in frame_ia"
         annotation (Evaluate=true);
-      parameter SI.Position rRod2_ib[3]={-1,0,0} 
+      parameter SI.Position rRod2_ib[3]={-1,0,0}
         "Vector from origin of frame_ib to spherical joint, resolved in frame_ib";
-      parameter Cv.NonSIunits.Angle_deg phi_offset=0 
+      parameter Cv.NonSIunits.Angle_deg phi_offset=0
         "Relative angle offset of revolute joint (angle = phi(t) + from_deg(phi_offset))";
-      parameter Cv.NonSIunits.Angle_deg phi_guess=0 
+      parameter Cv.NonSIunits.Angle_deg phi_guess=0
         "Select the configuration such that at initial time |phi(t0) - from_deg(phi_guess)|is minimal";
-      parameter SI.Diameter sphereDiameter=world.defaultJointLength 
+      parameter SI.Diameter sphereDiameter=world.defaultJointLength
         "Diameter of the spheres representing the universal and the spherical joint"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.
-           JointColor 
+           JointColor
         "Color of the spheres representing the universal and the spherical joint"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Diameter rod1Diameter=sphereDiameter/Types.Defaults.
-          JointRodDiameterFraction 
-        "Diameter of rod 1 connecting the universal and the spherical joint" 
+          JointRodDiameterFraction
+        "Diameter of rod 1 connecting the universal and the spherical joint"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color rod1Color=Modelica.Mechanics.MultiBody.Types.Defaults.
-          RodColor 
-        "Color of rod 1 connecting the universal and the spherical joint" 
+          RodColor
+        "Color of rod 1 connecting the universal and the spherical joint"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      
-      parameter SI.Diameter rod2Diameter=rod1Diameter 
-        "Diameter of rod 2 connecting the revolute and the spherical joint" 
+
+      parameter SI.Diameter rod2Diameter=rod1Diameter
+        "Diameter of rod 2 connecting the revolute and the spherical joint"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color rod2Color=rod1Color 
-        "Color of rod 2 connecting the revolute and the spherical joint" 
+      input Types.Color rod2Color=rod1Color
+        "Color of rod 2 connecting the revolute and the spherical joint"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Diameter revoluteDiameter=world.defaultJointWidth 
-        "Diameter of cylinder representing the revolute joint" 
+      parameter SI.Diameter revoluteDiameter=world.defaultJointWidth
+        "Diameter of cylinder representing the revolute joint"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Distance revoluteLength=world.defaultJointLength 
-        "Length of cylinder representing the revolute joint" 
+      parameter SI.Distance revoluteLength=world.defaultJointLength
+        "Length of cylinder representing the revolute joint"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color revoluteColor=Modelica.Mechanics.MultiBody.Types.
-          Defaults.JointColor 
-        "Color of cylinder representing the revolute joint" 
+          Defaults.JointColor
+        "Color of cylinder representing the revolute joint"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
-        "Reflection of ambient light (= 0: light is completely absorbed)" 
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
+        "Reflection of ambient light (= 0: light is completely absorbed)"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Distance cylinderLength=world.defaultJointLength 
+      parameter SI.Distance cylinderLength=world.defaultJointLength
         "Length of cylinders representing the two universal joint axes" annotation (
          Dialog(tab="Animation", group="if animation = true and showUniversalAxes",
                 enable=animation and showUniversalAxes));
-      parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
-        "Diameter of cylinders representing the two universal joint axes" 
+      parameter SI.Distance cylinderDiameter=world.defaultJointWidth
+        "Diameter of cylinders representing the two universal joint axes"
         annotation (Dialog(tab="Animation", group=
               "if animation = true and showUniversalAxes",
                 enable=animation and showUniversalAxes));
-      input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
+      input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
         "Color of cylinders representing the two universal joint axes" annotation (
           Dialog(tab="Animation", group="if animation = true and showUniversalAxes",
                 enable=animation and showUniversalAxes));
-      
-      parameter Boolean checkTotalPower=false 
+
+      parameter Boolean checkTotalPower=false
         "= true, if total power flowing into this component shall be determined (must be zero)"
         annotation (Dialog(tab="Advanced"));
-      final parameter Real eRod1_ia[3]=rod1.eRod_ia 
+      final parameter Real eRod1_ia[3]=rod1.eRod_ia
         "Unit vector from origin of frame_a to origin of spherical joint, resolved in frame_ia";
-      final parameter Real e2_ia[3]=rod1.e2_ia 
+      final parameter Real e2_ia[3]=rod1.e2_ia
         "Unit vector in direction of axis 2 of universal joint, resolved in frame_ia";
-      final parameter SI.Distance rod1Length=rod1.rodLength 
+      final parameter SI.Distance rod1Length=rod1.rodLength
         "Length of rod 1 (= distance between universal and spherical joint";
-      SI.Power totalPower 
+      SI.Power totalPower
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
-      SI.Position aux 
+      SI.Position aux
         "Denominator used to compute force in rod connecting universal and spherical joint";
       annotation (
         preferedView="info",
@@ -3714,7 +3714,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
               rgbcolor={95,95,95},
               thickness=2))),
         Diagram);
-      
+
       Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint
         revolute(
         animation=animation,
@@ -3749,13 +3749,13 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         color=rod2Color,
         specularCoefficient=specularCoefficient,
         r=rRod2_ib) annotation (extent=[15, -20; -25, 20]);
-      Modelica.Mechanics.MultiBody.Sensors.RelativeSensor relativeSensor(animation=false) 
+      Modelica.Mechanics.MultiBody.Sensors.RelativeSensor relativeSensor(animation=false)
         annotation (extent=[60, -70; 40, -90]);
-      Modelica.Blocks.Sources.Constant position_b[3](k=rRod2_ib) 
+      Modelica.Blocks.Sources.Constant position_b[3](k=rRod2_ib)
         annotation (extent=[-20, -50; 0, -30]);
-    equation 
+    equation
       defineRoot(frame_ib.R);
-      
+
       /* Compute the unknown force in the rod of the rod1 joint
      by a torque balance at the revolute joint:
        0 = revolute.frame_b.t + frame_ib.t + frame_im.t + cross(rRod2_ib, frame_im.f)
@@ -3782,9 +3782,9 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         rod1.frame_a.R, rod1.frame_b.R);
       rod1.f_rod = (-revolute.tau - revolute.e*(frame_ib.t + frame_im.t + cross(
         rRod2_ib, frame_im.f) - cross(rRod2_ib, Frames.resolveRelative(rod1.
-        f_b_a1, rod1.frame_a.R, rod1.frame_b.R))))/noEvent(if abs(aux) < 1.e-10 then 
+        f_b_a1, rod1.frame_a.R, rod1.frame_b.R))))/noEvent(if abs(aux) < 1.e-10 then
               1.e-10 else aux);
-      
+
       // Measure power for test purposes
       if checkTotalPower then
         totalPower = frame_a.f*Frames.resolve2(frame_a.R, der(frame_a.r_0)) +
@@ -3801,7 +3801,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       else
         totalPower = 0;
       end if;
-      
+
       connect(revolute.frame_b, rod2.frame_a) annotation (points=[35,0; 15,0], style(
           color=10,
           rgbcolor={95,95,95},
@@ -3876,108 +3876,108 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           thickness=2));
       connect(revolute.axis, axis) annotation (points=[55,20; 55,60; 90,60; 90,80;
             100,80],          style(color=0));
-      connect(revolute.bearing, bearing) 
+      connect(revolute.bearing, bearing)
         annotation (points=[67,20; 67,40; 100,40],    style(color=0));
     end JointUSR;
-    
-    model JointUSP 
-      "Universal - spherical - prismatic joint aggregation (no constraints, no potential states)" 
-      
+
+    model JointUSP
+      "Universal - spherical - prismatic joint aggregation (no constraints, no potential states)"
+
       import SI = Modelica.SIunits;
       import Modelica.Mechanics.MultiBody.Types;
-      
+
       extends Interfaces.PartialTwoFramesDoubleSize;
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia
         "Coordinate system at origin of frame_a fixed at connecting rod of universal and spherical joint"
         annotation (extent=[-88,92; -72,108], rotation=-270);
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib
         "Coordinate system at origin of frame_b fixed at connecting rod of spherical and prismatic joint"
         annotation (extent=[88,92; 72,108], rotation=-90);
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im
         "Coordinate system at origin of spherical joint fixed at connecting rod of spherical and prismatic joint"
         annotation (extent=[-8, 108; 8, 92], rotation=-90);
-      Modelica.Mechanics.Translational.Interfaces.Flange_a axis 
-        "1-dim. translational flange that drives the prismatic joint" 
+      Modelica.Mechanics.Translational.Interfaces.Flange_a axis
+        "1-dim. translational flange that drives the prismatic joint"
         annotation (extent=[95,75; 105,85]);
-      Modelica.Mechanics.Translational.Interfaces.Flange_b bearing 
+      Modelica.Mechanics.Translational.Interfaces.Flange_b bearing
         "1-dim. translational flange of the drive bearing of the prismatic joint"
         annotation (extent=[105,35; 95,45]);
-      
+
       parameter Boolean animation=true "= true, if animation shall be enabled";
-      parameter Boolean showUniversalAxes=true 
+      parameter Boolean showUniversalAxes=true
         " = true, if universal joint shall be visualized with two cylinders, otherwise with a sphere (provided animation=true)";
-      parameter Modelica.Mechanics.MultiBody.Types.Axis n1_a={0,0,1} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n1_a={0,0,1}
         "Axis 1 of universal joint fixed and resolved in frame_a (axis 2 is orthogonal to axis 1 and to rod 1)"
         annotation (Evaluate=true);
-      parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={-1,0,0} 
-        "Axis of prismatic joint fixed and resolved in frame_b" 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={-1,0,0}
+        "Axis of prismatic joint fixed and resolved in frame_b"
         annotation (Evaluate=true);
-      parameter SI.Position rRod1_ia[3]={1,0,0} 
+      parameter SI.Position rRod1_ia[3]={1,0,0}
         "Vector from origin of frame_a to spherical joint, resolved in frame_ia"
         annotation (Evaluate=true);
-      parameter SI.Position rRod2_ib[3]={-1,0,0} 
+      parameter SI.Position rRod2_ib[3]={-1,0,0}
         "Vector from origin of frame_ib to spherical joint, resolved in frame_ib (frame_ib is parallel to frame_b)"
         annotation (Evaluate=true);
-      parameter SI.Position s_offset=0 
+      parameter SI.Position s_offset=0
         "Relative distance offset of prismatic joint (distance between the prismatic joint frames = s(t) + s_offset)";
-      parameter SI.Position s_guess=0 
+      parameter SI.Position s_guess=0
         "Select the configuration such that at initial time |s(t0)-s_guess|is minimal";
-      parameter SI.Diameter sphereDiameter=world.defaultJointLength 
+      parameter SI.Diameter sphereDiameter=world.defaultJointLength
         "Diameter of the spheres representing the universal and the spherical joint"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
+      input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
         "Color of the spheres representing the universal and the spherical joint"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Diameter rod1Diameter=sphereDiameter/Types.Defaults.
-          JointRodDiameterFraction 
-        "Diameter of rod 1 connecting the universal and the spherical joint" 
+          JointRodDiameterFraction
+        "Diameter of rod 1 connecting the universal and the spherical joint"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color rod1Color=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor 
-        "Color of rod 1 connecting the universal and the spherical joint" 
+      input Types.Color rod1Color=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor
+        "Color of rod 1 connecting the universal and the spherical joint"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Diameter rod2Diameter=rod1Diameter 
-        "Diameter of rod 2 connecting the prismatic and the spherical joint" 
+      parameter SI.Diameter rod2Diameter=rod1Diameter
+        "Diameter of rod 2 connecting the prismatic and the spherical joint"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color rod2Color=rod1Color 
-        "Color of rod 2 connecting the prismatic and the spherical joint" 
+      input Types.Color rod2Color=rod1Color
+        "Color of rod 2 connecting the prismatic and the spherical joint"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter Types.Axis boxWidthDirection={0,1,0} 
-        "Vector in width direction of prismatic joint, resolved in frame_b" 
+      parameter Types.Axis boxWidthDirection={0,1,0}
+        "Vector in width direction of prismatic joint, resolved in frame_b"
         annotation (Evaluate=true, Dialog(tab="Animation", group=
               "if animation = true", enable=animation));
-      parameter SI.Distance boxWidth=world.defaultJointWidth 
-        "Width of prismatic joint box" 
+      parameter SI.Distance boxWidth=world.defaultJointWidth
+        "Width of prismatic joint box"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Distance boxHeight=boxWidth "Height of prismatic joint box" 
+      parameter SI.Distance boxHeight=boxWidth "Height of prismatic joint box"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color boxColor=sphereColor "Color of prismatic joint box" 
+      input Types.Color boxColor=sphereColor "Color of prismatic joint box"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
-        "Reflection of ambient light (= 0: light is completely absorbed)" 
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
+        "Reflection of ambient light (= 0: light is completely absorbed)"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Distance cylinderLength=world.defaultJointLength 
+      parameter SI.Distance cylinderLength=world.defaultJointLength
         "Length of cylinders representing the two universal joint axes" annotation (
          Dialog(tab="Animation", group="if animation = true and showUniversalAxes",
                 enable=animation and showUniversalAxes));
-      parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
-        "Diameter of cylinders representing the two universal joint axes" 
+      parameter SI.Distance cylinderDiameter=world.defaultJointWidth
+        "Diameter of cylinders representing the two universal joint axes"
         annotation (Dialog(tab="Animation", group=
               "if animation = true and showUniversalAxes",
                 enable=animation and showUniversalAxes));
-      input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
+      input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
         "Color of cylinders representing the two universal joint axes" annotation (
           Dialog(tab="Animation", group="if animation = true and showUniversalAxes",
                 enable=animation and showUniversalAxes));
-      parameter Boolean checkTotalPower=false 
+      parameter Boolean checkTotalPower=false
         "= true, if total power flowing into this component shall be determined (must be zero)"
         annotation (Dialog(tab="Advanced"));
-      final parameter Real eRod1_ia[3]=rod1.eRod_ia 
+      final parameter Real eRod1_ia[3]=rod1.eRod_ia
         "Unit vector from origin of frame_a to origin of spherical joint, resolved in frame_ia";
-      final parameter Real e2_ia[3]=rod1.e2_ia 
+      final parameter Real e2_ia[3]=rod1.e2_ia
         "Unit vector in direction of axis 2 of universal joint, resolved in frame_ia";
-      final parameter SI.Distance rod1Length=rod1.rodLength 
+      final parameter SI.Distance rod1Length=rod1.rodLength
         "Length of rod 1 (= distance between universal and spherical joint";
-      SI.Power totalPower 
+      SI.Power totalPower
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
       annotation (
         preferedView="info",
@@ -4223,7 +4223,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             string="rRod2_ib",
             style(color=10)),
           Line(points=[3, 30; -43, 30], style(color=10, arrow=1))));
-      
+
       Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint
         prismatic(
         animation=animation,
@@ -4259,14 +4259,14 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         height=rod2Diameter,
         specularCoefficient=specularCoefficient,
         color=rod2Color) annotation (extent=[0, 20; -40, -20]);
-      Modelica.Mechanics.MultiBody.Sensors.RelativeSensor relativeSensor(animation=false) 
+      Modelica.Mechanics.MultiBody.Sensors.RelativeSensor relativeSensor(animation=false)
         annotation (extent=[50, -70; 30, -90]);
-      Modelica.Blocks.Sources.Constant position_b[3](k=rRod2_ib) 
+      Modelica.Blocks.Sources.Constant position_b[3](k=rRod2_ib)
         annotation (extent=[-20, -60; 0, -40], rotation=0);
-    protected 
-      Real aux 
+    protected
+      Real aux
         "Denominator used to compute force in rod connecting universal and spherical joint";
-    equation 
+    equation
       /* Compute the unknown force in rod1 connecting the universal and
      the spherical joint by a force balance at the prismatic joint
         0 = -prismatic.frame_b.f + frame_ib.f + frame_im.f - rod1.frame_b.f
@@ -4309,7 +4309,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       else
         totalPower = 0;
       end if;
-      
+
       connect(prismatic.frame_b, rod2.frame_a) annotation (points=[36,0; 0,0], style(
           color=10,
           rgbcolor={95,95,95},
@@ -4383,85 +4383,85 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           fillPattern=1));
       connect(prismatic.axis, axis) annotation (points=[40,14; 40,56; 90,56; 90,80;
             100,80],           style(color=58));
-      connect(prismatic.bearing, bearing) 
+      connect(prismatic.bearing, bearing)
         annotation (points=[64,14; 64,40; 100,40],    style(color=58));
     end JointUSP;
-    
-    model JointSSR 
-      "Spherical - spherical - revolute joint aggregation with mass (no constraints, no potential states)" 
-      
+
+    model JointSSR
+      "Spherical - spherical - revolute joint aggregation with mass (no constraints, no potential states)"
+
       import SI = Modelica.SIunits;
       import Cv = Modelica.SIunits.Conversions;
       import Modelica.Mechanics.MultiBody.Types;
-      
+
       extends Interfaces.PartialTwoFramesDoubleSize;
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib
         "Coordinate system at origin of frame_b fixed at connecting rod of spherical and revolute joint"
         annotation (extent=[88,92; 72,108], rotation=-90);
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im
         "Coordinate system at origin of spherical joint in the middle fixed at connecting rod of spherical and revolute joint"
         annotation (extent=[-8, 108; 8, 92], rotation=-90);
-      Modelica.Mechanics.Rotational.Interfaces.Flange_a axis 
-        "1-dim. rotational flange that drives the revolute joint" 
+      Modelica.Mechanics.Rotational.Interfaces.Flange_a axis
+        "1-dim. rotational flange that drives the revolute joint"
         annotation (extent=[105,85; 95,75]);
-      Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing 
-        "1-dim. rotational flange of the drive bearing of the revolute joint" 
+      Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing
+        "1-dim. rotational flange of the drive bearing of the revolute joint"
         annotation (extent=[95,45; 105,35]);
-      
+
       parameter Boolean animation=true "= true, if animation shall be enabled";
-      parameter Boolean showMass=true 
+      parameter Boolean showMass=true
         "= true, if point mass on rod 1 shall be shown (provided animation = true and rod1Mass > 0)";
-      parameter SI.Length rod1Length(min=Modelica.Constants.eps) = 1 
+      parameter SI.Length rod1Length(min=Modelica.Constants.eps) = 1
         "Distance between the origins of the two spherical joints ";
-      parameter SI.Mass rod1Mass(min=0)=0 
+      parameter SI.Mass rod1Mass(min=0)=0
         "Mass of rod 1 (= point mass located in middle of rod connecting the two spherical joints)";
-      parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={0,0,1} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={0,0,1}
         "Axis of revolute joint fixed and resolved in frame_b";
-      parameter SI.Position rRod2_ib[3]={1,0,0} 
+      parameter SI.Position rRod2_ib[3]={1,0,0}
         "Vector from origin of frame_ib to spherical joint in the middle, resolved in frame_ib";
-      parameter Cv.NonSIunits.Angle_deg phi_offset=0 
+      parameter Cv.NonSIunits.Angle_deg phi_offset=0
         "Relative angle offset of revolute joint (angle = phi(t) + from_deg(phi_offset))";
-      parameter Cv.NonSIunits.Angle_deg phi_guess=0 
+      parameter Cv.NonSIunits.Angle_deg phi_guess=0
         "Select the configuration such that at initial time |phi(t0) - from_deg(phi_guess)|is minimal";
-      parameter SI.Diameter sphereDiameter=world.defaultJointLength 
-        "Diameter of the spheres representing the two spherical joints" 
+      parameter SI.Diameter sphereDiameter=world.defaultJointLength
+        "Diameter of the spheres representing the two spherical joints"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.
-           JointColor 
-        "Color of the spheres representing the two spherical joints" 
+           JointColor
+        "Color of the spheres representing the two spherical joints"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Diameter rod1Diameter=sphereDiameter/Types.Defaults.
-          JointRodDiameterFraction 
-        "Diameter of rod 1 connecting the two spherical joints" 
+          JointRodDiameterFraction
+        "Diameter of rod 1 connecting the two spherical joints"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color rod1Color=Modelica.Mechanics.MultiBody.Types.Defaults.
-          RodColor "Color of rod 1 connecting the two spherical joint" 
+          RodColor "Color of rod 1 connecting the two spherical joint"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Diameter rod2Diameter=rod1Diameter 
+      parameter SI.Diameter rod2Diameter=rod1Diameter
         "Diameter of rod 2 connecting the revolute joint and spherical joint 2"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color rod2Color=rod1Color 
-        "Color of rod 2 connecting the revolute joint and spherical joint 2" 
+      input Types.Color rod2Color=rod1Color
+        "Color of rod 2 connecting the revolute joint and spherical joint 2"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Diameter revoluteDiameter=world.defaultJointWidth 
-        "Diameter of cylinder representing the revolute joint" 
+      parameter SI.Diameter revoluteDiameter=world.defaultJointWidth
+        "Diameter of cylinder representing the revolute joint"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Distance revoluteLength=world.defaultJointLength 
-        "Length of cylinder representing the revolute joint" 
+      parameter SI.Distance revoluteLength=world.defaultJointLength
+        "Length of cylinder representing the revolute joint"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color revoluteColor=Modelica.Mechanics.MultiBody.Types.
-          Defaults.JointColor 
-        "Color of cylinder representing the revolute joint" 
+          Defaults.JointColor
+        "Color of cylinder representing the revolute joint"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
-        "Reflection of ambient light (= 0: light is completely absorbed)" 
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
+        "Reflection of ambient light (= 0: light is completely absorbed)"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter Boolean checkTotalPower=false 
+      parameter Boolean checkTotalPower=false
         "= true, if total power flowing into this component shall be determined (must be zero)"
         annotation (Dialog(tab="Advanced"));
-      SI.Position aux 
+      SI.Position aux
         "Denominator used to compute force in rod connecting universal and spherical joint";
-      SI.Power totalPower 
+      SI.Power totalPower
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
       annotation (
         preferedView="info",
@@ -4588,7 +4588,7 @@ component).
               rgbcolor={95,95,95},
               thickness=2))),
         Diagram);
-      
+
       Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint
         revolute(
         animation=animation,
@@ -4619,11 +4619,11 @@ component).
         color=rod2Color,
         specularCoefficient=specularCoefficient,
         r=rRod2_ib) annotation (extent=[15, -20; -25, 20]);
-      Modelica.Mechanics.MultiBody.Sensors.RelativeSensor relativeSensor(animation=false) 
+      Modelica.Mechanics.MultiBody.Sensors.RelativeSensor relativeSensor(animation=false)
         annotation (extent=[60, -70; 40, -90]);
-      Modelica.Blocks.Sources.Constant position_b[3](k=rRod2_ib) 
+      Modelica.Blocks.Sources.Constant position_b[3](k=rRod2_ib)
         annotation (extent=[-20, -50; 0, -30]);
-    equation 
+    equation
       defineRoot(frame_ib.R);
       /* Compute the unknown force in the rod of the rod1 joint
      by a torque balance at the revolute joint:
@@ -4647,14 +4647,14 @@ component).
                    / (cross(e,rRod2_ib)*Frames.resolve2(rod1.R_rel, rod1.eRod_a)))
      Additionally, a guard against division by zero is introduced
   */
-      
+
       aux = cross(revolute.e, rRod2_ib)*Frames.resolveRelative(rod1.eRod_a,
         rod1.frame_a.R, rod1.frame_b.R);
       rod1.f_rod = (-revolute.tau - revolute.e*(frame_ib.t + frame_im.t + cross(
         rRod2_ib, frame_im.f) - cross(rRod2_ib, Frames.resolveRelative(rod1.
-        f_b_a1, rod1.frame_a.R, rod1.frame_b.R))))/noEvent(if abs(aux) < 1.e-10 then 
+        f_b_a1, rod1.frame_a.R, rod1.frame_b.R))))/noEvent(if abs(aux) < 1.e-10 then
               1.e-10 else aux);
-      
+
       // Measure power for test purposes
       if checkTotalPower then
         totalPower = frame_a.f*Frames.resolve2(frame_a.R, der(frame_a.r_0)) +
@@ -4670,7 +4670,7 @@ component).
       else
         totalPower = 0;
       end if;
-      
+
       connect(revolute.frame_b, rod2.frame_a) annotation (points=[35,0; 15,0], style(
           color=10,
           rgbcolor={95,95,95},
@@ -4735,7 +4735,7 @@ component).
           fillColor=8));
       connect(revolute.axis, axis) annotation (points=[55,20; 55,60; 90,60; 90,80;
             100,80],          style(color=0));
-      connect(revolute.bearing, bearing) 
+      connect(revolute.bearing, bearing)
         annotation (points=[67,20; 67,40; 100,40],    style(color=0));
       connect(rod2.frame_b, frame_im) annotation (points=[-25,0; -35,0; -35,60; 0,
             60; 0,100], style(
@@ -4743,87 +4743,87 @@ component).
           rgbcolor={95,95,95},
           thickness=2));
     end JointSSR;
-    
-    model JointSSP 
-      "Spherical - spherical - prismatic joint aggregation with mass (no constraints, no potential states)" 
-      
+
+    model JointSSP
+      "Spherical - spherical - prismatic joint aggregation with mass (no constraints, no potential states)"
+
       import SI = Modelica.SIunits;
       import Cv = Modelica.SIunits.Conversions;
       import Modelica.Mechanics.MultiBody.Types;
-      
+
       extends Interfaces.PartialTwoFramesDoubleSize;
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib
         "Coordinate system at origin of frame_b fixed at connecting rod of spherical and prismatic joint"
         annotation (extent=[88,92; 72,108], rotation=-90);
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im
         "Coordinate system at origin of spherical joint in the middle fixed at connecting rod of spherical and prismatic joint"
         annotation (extent=[-8, 108; 8, 92], rotation=-90);
-      Modelica.Mechanics.Translational.Interfaces.Flange_a axis 
-        "1-dim. translational flange that drives the prismatic joint" 
+      Modelica.Mechanics.Translational.Interfaces.Flange_a axis
+        "1-dim. translational flange that drives the prismatic joint"
         annotation (extent=[95,75; 105,85]);
-      Modelica.Mechanics.Translational.Interfaces.Flange_b bearing 
+      Modelica.Mechanics.Translational.Interfaces.Flange_b bearing
         "1-dim. translational flange of the drive bearing of the prismatic joint"
         annotation (extent=[105,35; 95,45]);
-      
+
       parameter Boolean animation=true "= true, if animation shall be enabled";
-      parameter Boolean showMass=true 
+      parameter Boolean showMass=true
         "= true, if point mass on rod 1 shall be shown (provided animation = true and rod1Mass > 0)";
-      parameter SI.Length rod1Length(min=Modelica.Constants.eps) = 1 
+      parameter SI.Length rod1Length(min=Modelica.Constants.eps) = 1
         "Distance between the origins of the two spherical joints ";
-      parameter SI.Mass rod1Mass(min=0)=0 
+      parameter SI.Mass rod1Mass(min=0)=0
         "Mass of rod 1 (= point mass located in middle of rod connecting the two spherical joints)";
-      parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={0,0,1} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={0,0,1}
         "Axis of prismatic joint fixed and resolved in frame_b";
-      parameter SI.Position rRod2_ib[3]={1,0,0} 
+      parameter SI.Position rRod2_ib[3]={1,0,0}
         "Vector from origin of frame_ib to spherical joint in the middle, resolved in frame_ib";
-      parameter SI.Position s_offset=0 
+      parameter SI.Position s_offset=0
         "Relative distance offset of prismatic joint (distance between frame_b and frame_ib = s(t) + s_offset)";
-      parameter SI.Position s_guess=0 
+      parameter SI.Position s_guess=0
         "Select the configuration such that at initial time |s(t0)-s_guess|is minimal";
-      
-      parameter SI.Diameter sphereDiameter=world.defaultJointLength 
-        "Diameter of the spheres representing the two spherical joints" 
+
+      parameter SI.Diameter sphereDiameter=world.defaultJointLength
+        "Diameter of the spheres representing the two spherical joints"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.
-           JointColor 
-        "Color of the spheres representing the two spherical joints" 
+           JointColor
+        "Color of the spheres representing the two spherical joints"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Diameter rod1Diameter=sphereDiameter/Types.Defaults.
-          JointRodDiameterFraction 
-        "Diameter of rod 1 connecting the two spherical joints" 
+          JointRodDiameterFraction
+        "Diameter of rod 1 connecting the two spherical joints"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color rod1Color=Modelica.Mechanics.MultiBody.Types.Defaults.
-          RodColor "Color of rod 1 connecting the two spherical joint" 
+          RodColor "Color of rod 1 connecting the two spherical joint"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      
-      parameter SI.Diameter rod2Diameter=rod1Diameter 
+
+      parameter SI.Diameter rod2Diameter=rod1Diameter
         "Diameter of rod 2 connecting the revolute joint and spherical joint 2"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color rod2Color=rod1Color 
-        "Color of rod 2 connecting the revolute joint and spherical joint 2" 
+      input Types.Color rod2Color=rod1Color
+        "Color of rod 2 connecting the revolute joint and spherical joint 2"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      
-      parameter Types.Axis boxWidthDirection={0,1,0} 
+
+      parameter Types.Axis boxWidthDirection={0,1,0}
         "Vector in width direction of prismatic joint box, resolved in frame_b"
         annotation (Evaluate=true, Dialog(tab="Animation", group=
               "if animation = true", enable=animation));
-      parameter SI.Distance boxWidth=world.defaultJointWidth 
-        "Width of prismatic joint box" 
+      parameter SI.Distance boxWidth=world.defaultJointWidth
+        "Width of prismatic joint box"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Distance boxHeight=boxWidth "Height of prismatic joint box" 
+      parameter SI.Distance boxHeight=boxWidth "Height of prismatic joint box"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color boxColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
-        "Color of prismatic joint box" 
+      input Types.Color boxColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
+        "Color of prismatic joint box"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
-        "Reflection of ambient light (= 0: light is completely absorbed)" 
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
+        "Reflection of ambient light (= 0: light is completely absorbed)"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter Boolean checkTotalPower=false 
+      parameter Boolean checkTotalPower=false
         "= true, if total power flowing into this component shall be determined (must be zero)"
         annotation (Dialog(tab="Advanced"));
-      Real aux 
+      Real aux
         "Denominator used to compute force in rod connecting universal and spherical joint";
-      SI.Power totalPower 
+      SI.Power totalPower
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
       annotation (
         preferedView="info",
@@ -4945,7 +4945,7 @@ component).
               rgbcolor={95,95,95},
               thickness=2))),
         Diagram);
-      
+
       Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint
         prismatic(
         animation=animation,
@@ -4977,24 +4977,24 @@ component).
         specularCoefficient=specularCoefficient,
         color=rod2Color,
         r=rRod2_ib) annotation (extent=[15, -20; -25, 20]);
-      Modelica.Mechanics.MultiBody.Sensors.RelativeSensor relativeSensor(animation=false) 
+      Modelica.Mechanics.MultiBody.Sensors.RelativeSensor relativeSensor(animation=false)
         annotation (extent=[60, -70; 40, -90]);
-      Modelica.Blocks.Sources.Constant position_b[3](k=rRod2_ib) 
+      Modelica.Blocks.Sources.Constant position_b[3](k=rRod2_ib)
         annotation (extent=[-20, -50; 0, -30]);
-    equation 
+    equation
       defineRoot(frame_ib.R);
       /* Compute the unknown force in the rod of the rod1 joint
      by a force balance:
-       0 = frame_b.f + frame_ib.f + frame_im.f + 
+       0 = frame_b.f + frame_ib.f + frame_im.f +
            Frames.resolve2(rod1.R_rel, rod1.f_rod*rod1.eRod_a)
      The condition is that the projection of the force in the prismatic
      joint along the axis of the prismatic joint is equal to the driving
      axis force in the flange:
        -prismatic.f = prismatic.e*frame_b.f
      Therefore, we have with e=prismatic.e and f=prismatic.f
-        f = e*(frame_ib.f + frame_im.f + 
+        f = e*(frame_ib.f + frame_im.f +
                Frames.resolve2(rod1.R_rel, rod1.f_rod*rod1.eRod_a))
-          = e*(frame_ib.f + frame_im.f + 
+          = e*(frame_ib.f + frame_im.f +
                rod1.f_rod*Frames.resolve2(rod1.R_rel, rod1.eRod_a))
      Solving this equation for f_rod results in
        rod1.f_rod = (f - e*(frame_ib.f + frame_im.f))
@@ -5005,7 +5005,7 @@ component).
         rod1.frame_b.R);
       rod1.f_rod = (-prismatic.f - prismatic.e*(frame_ib.f + frame_im.f))/
         noEvent(if abs(aux) < 1.e-10 then 1.e-10 else aux);
-      
+
       // Measure power for test purposes
       if checkTotalPower then
         totalPower = frame_a.f*Frames.resolve2(frame_a.R, der(frame_a.r_0)) +
@@ -5021,7 +5021,7 @@ component).
       else
         totalPower = 0;
       end if;
-      
+
       connect(prismatic.frame_b, rod2.frame_a) annotation (points=[35,0; 15,0], style(
           color=10,
           rgbcolor={95,95,95},
@@ -5086,7 +5086,7 @@ component).
           fillColor=8));
       connect(prismatic.axis, axis) annotation (points=[39,14; 40,14; 40,60; 90,60;
             90,80; 100,80],    style(color=0));
-      connect(prismatic.bearing, bearing) 
+      connect(prismatic.bearing, bearing)
         annotation (points=[63,14; 63,40; 100,40],    style(color=0));
       connect(rod2.frame_b, frame_im) annotation (points=[-25,0; -35,0; -35,60; 0,
             60; 0,100], style(
@@ -5094,79 +5094,79 @@ component).
           rgbcolor={95,95,95},
           thickness=2));
     end JointSSP;
-    
-    model JointRRR 
-      "Planar revolute - revolute - revolute joint aggregation (no constraints, no potential states)" 
-      
+
+    model JointRRR
+      "Planar revolute - revolute - revolute joint aggregation (no constraints, no potential states)"
+
       import SI = Modelica.SIunits;
       import Cv = Modelica.SIunits.Conversions;
       import Modelica.Mechanics.MultiBody.Types;
-      
+
       extends Interfaces.PartialTwoFramesDoubleSize;
-      
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
+
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia
         "Coordinate system at origin of frame_a fixed at connecting rod of left and middle revolute joint"
         annotation (extent=[-88,92; -72,108], rotation=-270);
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib
         "Coordinate system at origin of frame_b fixed at connecting rod of middle and right revolute joint"
         annotation (extent=[88,92; 72,108], rotation=-90);
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im
         "Coordinate system at origin of revolute joint in the middle fixed at connecting rod of middle and right revolute joint"
         annotation (extent=[-8, 108; 8, 92], rotation=-90);
-      Modelica.Mechanics.Rotational.Interfaces.Flange_a axis 
+      Modelica.Mechanics.Rotational.Interfaces.Flange_a axis
         "1-dim. rotational flange that drives the right revolute joint at frame_b"
         annotation (extent=[105,85; 95,75]);
-      Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing 
+      Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing
         "1-dim. rotational flange of the drive bearing of the right revolute joint at frame_b"
         annotation (extent=[95,45; 105,35]);
-      
+
       parameter Boolean animation=true "= true, if animation shall be enabled";
-      parameter Modelica.Mechanics.MultiBody.Types.Axis n_a={0,0,1} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n_a={0,0,1}
         "Axes of revolute joints resolved in frame_a (all axes are parallel to each other)"
         annotation (Evaluate=true);
-      final parameter Real n_b[3](fixed=false) = {0,0,1} 
-        "Axis of revolute joint fixed and resolved in frame_b" 
+      final parameter Real n_b[3](fixed=false) = {0,0,1}
+        "Axis of revolute joint fixed and resolved in frame_b"
         annotation (Evaluate=true);
-      parameter SI.Position rRod1_ia[3]={1,0,0} 
+      parameter SI.Position rRod1_ia[3]={1,0,0}
         "Vector from origin of frame_a to revolute joint in the middle, resolved in frame_ia"
         annotation (Evaluate=true);
-      parameter SI.Position rRod2_ib[3]={-1,0,0} 
+      parameter SI.Position rRod2_ib[3]={-1,0,0}
         "Vector from origin of frame_ib to revolute joint in the middle, resolved in frame_ib";
-      parameter Cv.NonSIunits.Angle_deg phi_offset=0 
+      parameter Cv.NonSIunits.Angle_deg phi_offset=0
         "Relative angle offset of revolute joint at frame_b (angle = phi(t) + from_deg(phi_offset))";
-      parameter Cv.NonSIunits.Angle_deg phi_guess=0 
+      parameter Cv.NonSIunits.Angle_deg phi_guess=0
         "Select the configuration such that at initial time |phi(t0) - from_deg(phi_guess)|is minimal";
-      parameter SI.Distance cylinderLength=world.defaultJointLength 
-        "Length of cylinders representing the revolute joints" 
+      parameter SI.Distance cylinderLength=world.defaultJointLength
+        "Length of cylinders representing the revolute joints"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
-        "Diameter of cylinders representing the revolute joints" 
+      parameter SI.Distance cylinderDiameter=world.defaultJointWidth
+        "Diameter of cylinders representing the revolute joints"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
-        "Color of cylinders representing the revolute joints" 
+      input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
+        "Color of cylinders representing the revolute joints"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Diameter rodDiameter=1.1*cylinderDiameter 
-        "Diameter of the two rods connecting the revolute joints" 
+      parameter SI.Diameter rodDiameter=1.1*cylinderDiameter
+        "Diameter of the two rods connecting the revolute joints"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color rodColor=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor 
-        "Color of the two rods connecting the revolute joint" 
+      input Types.Color rodColor=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor
+        "Color of the two rods connecting the revolute joint"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
-        "Reflection of ambient light (= 0: light is completely absorbed)" 
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
+        "Reflection of ambient light (= 0: light is completely absorbed)"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      
-      parameter Boolean checkTotalPower=false 
+
+      parameter Boolean checkTotalPower=false
         "= true, if total power flowing into this component shall be determined (must be zero)"
         annotation (Dialog(tab="Advanced"));
-      final parameter Real e_a[3]=Frames.normalize(n_a) 
+      final parameter Real e_a[3]=Frames.normalize(n_a)
         "Unit vector along axes of rotations, resolved in frame_a";
-      final parameter Real e_ia[3]=jointUSR.e2_ia 
+      final parameter Real e_ia[3]=jointUSR.e2_ia
         "Unit vector along axes of rotations, resolved in frame_ia";
-      final parameter Real e_b[3]=jointUSR.revolute.e 
+      final parameter Real e_b[3]=jointUSR.revolute.e
         "Unit vector along axes of rotations, resolved in frame_b, frame_ib and frame_im";
-      SI.Power totalPower=jointUSR.totalPower 
+      SI.Power totalPower=jointUSR.totalPower
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
-      
+
       annotation (
         preferedView="info",
         Coordsys(
@@ -5291,7 +5291,7 @@ are connected by rigid rods.
               rgbcolor={95,95,95},
               thickness=2))),
         Diagram);
-      
+
       JointUSR jointUSR(
         animation=false,
         n1_a=n_a,
@@ -5302,8 +5302,8 @@ are connected by rigid rods.
         rRod1_ia=rRod1_ia,
         checkTotalPower=checkTotalPower,
         phi_guess=phi_guess) annotation (extent=[-30, -20; 10, 20]);
-      
-    protected 
+
+    protected
      Visualizers.Advanced.Shape shape_rev1(
         shapeType="cylinder",
         color=cylinderColor,
@@ -5362,15 +5362,15 @@ are connected by rigid rods.
         widthDirection=e_b,
         r=frame_ib.r_0,
         R=frame_ib.R) if world.enableAnimation and animation;
-    initial equation 
+    initial equation
       n_b = Frames.resolve2(frame_b.R, Frames.resolve1(frame_a.R, n_a));
-    equation 
-      connect(jointUSR.frame_a, frame_a) 
+    equation
+      connect(jointUSR.frame_a, frame_a)
         annotation (points=[-30,0; -100,0], style(
           color=10,
           rgbcolor={95,95,95},
           thickness=2));
-      connect(jointUSR.frame_b, frame_b) 
+      connect(jointUSR.frame_b, frame_b)
         annotation (points=[10,0; 100,0], style(
           color=10,
           rgbcolor={95,95,95},
@@ -5390,95 +5390,95 @@ are connected by rigid rods.
           color=10,
           rgbcolor={95,95,95},
           thickness=2));
-      connect(jointUSR.axis, axis) 
+      connect(jointUSR.axis, axis)
         annotation (points=[10,16; 86,16; 86,80; 100,80],     style(color=0));
-      connect(jointUSR.bearing, bearing) 
+      connect(jointUSR.bearing, bearing)
         annotation (points=[10,8; 94,8; 94,40; 100,40],     style(color=0));
     end JointRRR;
-    
-    model JointRRP 
-      "Planar revolute - revolute - prismatic joint aggregation (no constraints, no potential states)" 
-      
+
+    model JointRRP
+      "Planar revolute - revolute - prismatic joint aggregation (no constraints, no potential states)"
+
       import SI = Modelica.SIunits;
       import Cv = Modelica.SIunits.Conversions;
       import Modelica.Mechanics.MultiBody.Types;
-      
+
       extends Interfaces.PartialTwoFramesDoubleSize;
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia
         "Coordinate system at origin of frame_a fixed at connecting rod of revolute joints"
         annotation (extent=[-88,92; -72,108], rotation=-270);
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib
         "Coordinate system at origin of frame_b fixed at connecting rod of revolute and prismatic joint"
         annotation (extent=[88,92; 72,108], rotation=-90);
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im
         "Coordinate system at origin of revolute joint in the middle fixed at connecting rod of revolute and prismatic joint"
         annotation (extent=[-8, 108; 8, 92], rotation=-90);
-      Modelica.Mechanics.Translational.Interfaces.Flange_a axis 
-        "1-dim. translational flange that drives the prismatic joint" 
+      Modelica.Mechanics.Translational.Interfaces.Flange_a axis
+        "1-dim. translational flange that drives the prismatic joint"
         annotation (extent=[95,75; 105,85]);
-      Modelica.Mechanics.Translational.Interfaces.Flange_b bearing 
+      Modelica.Mechanics.Translational.Interfaces.Flange_b bearing
         "1-dim. translational flange of the drive bearing of the prismatic joint"
         annotation (extent=[105,35; 95,45]);
-      
+
       parameter Boolean animation=true "= true, if animation shall be enabled";
-      parameter Modelica.Mechanics.MultiBody.Types.Axis n_a={0,0,1} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n_a={0,0,1}
         "Axes of the two revolute joints resolved in frame_a (both axes are parallel to each other)"
         annotation (Evaluate=true);
-      parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={-1,0,0} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={-1,0,0}
         "Axis of prismatic joint fixed and resolved in frame_b (must be orthogonal to revolute joint axes)"
         annotation (Evaluate=true);
-      parameter SI.Position rRod1_ia[3]={1,0,0} 
+      parameter SI.Position rRod1_ia[3]={1,0,0}
         "Vector from origin of frame_a to revolute joint in the middle, resolved in frame_ia"
         annotation (Evaluate=true);
-      parameter SI.Position rRod2_ib[3]={-1,0,0} 
+      parameter SI.Position rRod2_ib[3]={-1,0,0}
         "Vector from origin of frame_ib to revolute joint in the middle, resolved in frame_ib (frame_ib is parallel to frame_b)";
-      parameter SI.Position s_offset=0 
+      parameter SI.Position s_offset=0
         "Relative distance offset of prismatic joint (distance between the prismatic joint frames = s(t) + s_offset)";
-      parameter SI.Position s_guess=0 
+      parameter SI.Position s_guess=0
         "Select the configuration such that at initial time |s(t0)-s_guess|is minimal";
-      parameter SI.Distance cylinderLength=world.defaultJointLength 
-        "Length of cylinders representing the revolute joints" 
+      parameter SI.Distance cylinderLength=world.defaultJointLength
+        "Length of cylinders representing the revolute joints"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
-        "Diameter of cylinders representing the revolute joints" 
+      parameter SI.Distance cylinderDiameter=world.defaultJointWidth
+        "Diameter of cylinders representing the revolute joints"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
-        "Color of cylinders representing the revolute joints" 
+      input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
+        "Color of cylinders representing the revolute joints"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter Types.Axis boxWidthDirection={0,1,0} 
-        "Vector in width direction of prismatic joint, resolved in frame_b" 
+      parameter Types.Axis boxWidthDirection={0,1,0}
+        "Vector in width direction of prismatic joint, resolved in frame_b"
         annotation (Evaluate=true, Dialog(tab="Animation", group=
               "if animation = true", enable=animation));
-      parameter SI.Distance boxWidth=world.defaultJointWidth 
-        "Width of prismatic joint box" 
+      parameter SI.Distance boxWidth=world.defaultJointWidth
+        "Width of prismatic joint box"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Distance boxHeight=boxWidth "Height of prismatic joint box" 
+      parameter SI.Distance boxHeight=boxWidth "Height of prismatic joint box"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color boxColor=cylinderColor "Color of prismatic joint box" 
+      input Types.Color boxColor=cylinderColor "Color of prismatic joint box"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Diameter rodDiameter=1.1*cylinderDiameter 
-        "Diameter of the two rods connecting the joints" 
+      parameter SI.Diameter rodDiameter=1.1*cylinderDiameter
+        "Diameter of the two rods connecting the joints"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color rodColor=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor 
-        "Color of the two rods connecting the joints" 
+      input Types.Color rodColor=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor
+        "Color of the two rods connecting the joints"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
-        "Reflection of ambient light (= 0: light is completely absorbed)" 
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
+        "Reflection of ambient light (= 0: light is completely absorbed)"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter Boolean checkTotalPower=false 
+      parameter Boolean checkTotalPower=false
         "= true, if total power flowing into this component shall be determined (must be zero)"
         annotation (Dialog(tab="Advanced"));
-      final parameter Real e_a[3]=Frames.normalize(n_a) 
+      final parameter Real e_a[3]=Frames.normalize(n_a)
         "Unit vector along axes of rotations, resolved in frame_a";
-      final parameter Real e_ia[3]=jointUSP.e2_ia 
+      final parameter Real e_ia[3]=jointUSP.e2_ia
         "Unit vector along axes of rotations, resolved in frame_ia";
-      final parameter Real e_im[3](each fixed=false) 
+      final parameter Real e_im[3](each fixed=false)
         "Unit vector along axes of rotations, resolved in frame_im";
-      final parameter Real e_b[3]=jointUSP.prismatic.e 
+      final parameter Real e_b[3]=jointUSP.prismatic.e
         "Unit vector along axes of translation of the prismatic joint, resolved in frame_b and frame_ib";
-      SI.Power totalPower=jointUSP.totalPower 
+      SI.Power totalPower=jointUSP.totalPower
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
-      
+
       annotation (
         preferedView="info",
         Coordsys(
@@ -5605,7 +5605,7 @@ and 1 prismatic joint are connected by rigid rods.
               rgbcolor={95,95,95},
               thickness=2))),
         Diagram);
-      
+
       JointUSP jointUSP(
         animation=false,
         showUniversalAxes=false,
@@ -5616,8 +5616,8 @@ and 1 prismatic joint are connected by rigid rods.
         rRod1_ia=rRod1_ia,
         rRod2_ib=rRod2_ib,
         checkTotalPower=checkTotalPower) annotation (extent=[-30, -20; 10, 20]);
-      
-    protected 
+
+    protected
       Visualizers.Advanced.Shape shape_rev1(
         shapeType="cylinder",
         color=cylinderColor,
@@ -5675,15 +5675,15 @@ and 1 prismatic joint are connected by rigid rods.
         widthDirection=e_b,
         r=frame_ib.r_0,
         R=frame_ib.R) if world.enableAnimation and animation;
-    initial equation 
+    initial equation
       e_im = Frames.resolve2(frame_im.R, Frames.resolve1(frame_a.R, e_a));
-    equation 
-      connect(jointUSP.frame_a, frame_a) 
+    equation
+      connect(jointUSP.frame_a, frame_a)
         annotation (points=[-30,0; -100,0], style(
           color=10,
           rgbcolor={95,95,95},
           thickness=2));
-      connect(jointUSP.frame_b, frame_b) 
+      connect(jointUSP.frame_b, frame_b)
         annotation (points=[10,0; 100,0], style(
           color=10,
           rgbcolor={95,95,95},
@@ -5703,88 +5703,88 @@ and 1 prismatic joint are connected by rigid rods.
           color=10,
           rgbcolor={95,95,95},
           thickness=2));
-      connect(jointUSP.axis, axis) 
+      connect(jointUSP.axis, axis)
         annotation (points=[10,16; 86,16; 86,80; 100,80],     style(color=0));
-      connect(jointUSP.bearing, bearing) 
+      connect(jointUSP.bearing, bearing)
         annotation (points=[10,8; 94,8; 94,40; 100,40],     style(color=0));
     end JointRRP;
   end Assemblies;
-  
-  package Internal 
-    "Components used for analytic solution of kinematic loops (use only if you know what you are doing)" 
-    
+
+  package Internal
+    "Components used for analytic solution of kinematic loops (use only if you know what you are doing)"
+
     extends Modelica.Icons.Library;
-    model Revolute 
-      "Revolute joint (1 rotational degree-of-freedom, 2 potential states)" 
-      
+    model Revolute
+      "Revolute joint (1 rotational degree-of-freedom, 2 potential states)"
+
       import SI = Modelica.SIunits;
       import Cv = Modelica.SIunits.Conversions;
       import T = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
       import Modelica.Mechanics.MultiBody.Types;
-      
-      Interfaces.Frame_a frame_a 
+
+      Interfaces.Frame_a frame_a
         "Coordinate system fixed to the joint with one cut-force and cut-torque"
         annotation (extent=[-116,-16; -84,16]);
-      Interfaces.Frame_b frame_b 
+      Interfaces.Frame_b frame_b
         "Coordinate system fixed to the joint with one cut-force and cut-torque"
         annotation (extent=[84,-16; 116,16]);
-      
-      parameter Boolean animation=true 
+
+      parameter Boolean animation=true
         "= true, if animation shall be enabled (show axis as cylinder)";
-      parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,0,1} 
-        "Axis of rotation resolved in frame_a (= same as in frame_b)" 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,0,1}
+        "Axis of rotation resolved in frame_a (= same as in frame_b)"
         annotation (Evaluate=true);
-      parameter Cv.NonSIunits.Angle_deg phi_offset=0 
-        "Relative angle offset (angle = phi + from_deg(phi_offset))" 
+      parameter Cv.NonSIunits.Angle_deg phi_offset=0
+        "Relative angle offset (angle = phi + from_deg(phi_offset))"
         annotation (Evaluate=false);
-      parameter Types.Init.Temp initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
-        "Type of initialization (defines usage of start values below)" 
+      parameter Types.Init.Temp initType=Modelica.Mechanics.MultiBody.Types.Init.Free
+        "Type of initialization (defines usage of start values below)"
         annotation (Dialog(group="Initialization"));
-      parameter Cv.NonSIunits.Angle_deg phi_start=0 
-        "Initial value of rotation angle phi (fixed or guess value)" 
+      parameter Cv.NonSIunits.Angle_deg phi_start=0
+        "Initial value of rotation angle phi (fixed or guess value)"
         annotation (Evaluate=false, Dialog(group="Initialization"));
-      parameter Types.AngularVelocity_degs w_start=0 
-        "Initial value of relative angular velocity w = der(phi)" 
+      parameter Types.AngularVelocity_degs w_start=0
+        "Initial value of relative angular velocity w = der(phi)"
         annotation (Evaluate=false, Dialog(group="Initialization"));
-      parameter Types.AngularAcceleration_degs2 a_start=0 
-        "Initial value of relative angular acceleration a = der(w)" 
+      parameter Types.AngularAcceleration_degs2 a_start=0
+        "Initial value of relative angular acceleration a = der(w)"
         annotation (Evaluate=false, Dialog(group="Initialization"));
-      parameter SI.Distance cylinderLength=world.defaultJointLength 
-        "Length of cylinder representing the joint axis" 
+      parameter SI.Distance cylinderLength=world.defaultJointLength
+        "Length of cylinder representing the joint axis"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
-        "Diameter of cylinder representing the joint axis" 
+      parameter SI.Distance cylinderDiameter=world.defaultJointWidth
+        "Diameter of cylinder representing the joint axis"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
-        "Color of cylinder representing the joint axis" 
+      input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
+        "Color of cylinder representing the joint axis"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
-        "Reflection of ambient light (= 0: light is completely absorbed)" 
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
+        "Reflection of ambient light (= 0: light is completely absorbed)"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      
-      parameter Boolean enforceStates=false 
+
+      parameter Boolean enforceStates=false
         "= true, if generalized variables (phi,w) shall be used as states (StateSelect.always)"
         annotation (Dialog(tab="Advanced"));
-      parameter Boolean planarCutJoint=false 
-        "= true, if joint shall be used as cut-joint in a planar loop" 
+      parameter Boolean planarCutJoint=false
+        "= true, if joint shall be used as cut-joint in a planar loop"
         annotation (Dialog(tab="Advanced"));
-      
-      SI.Angle phi(start=Cv.from_deg(phi_start), stateSelect=if enforceStates then 
+
+      SI.Angle phi(start=Cv.from_deg(phi_start), stateSelect=if enforceStates then
                   StateSelect.always else if planarCutJoint then StateSelect.
-            never else StateSelect.prefer) 
+            never else StateSelect.prefer)
         "Relative rotation angle from frame_a to frame_b = phi + from_deg(phi_offset))"
          annotation (unassignedMessage="
 The rotation angle phi of a revolute joint cannot be determined.
 A non-zero mass might be missing on either side of the parts
 connected to the revolute joint.
 ");
-      SI.AngularVelocity w(stateSelect=if enforceStates then StateSelect.always else 
+      SI.AngularVelocity w(stateSelect=if enforceStates then StateSelect.always else
                   if planarCutJoint then StateSelect.never else StateSelect.
             prefer) "First derivative of angle phi (relative angular velocity)";
-      SI.AngularAcceleration a 
+      SI.AngularAcceleration a
         "Second derivative of angle phi (relative angular acceleration)";
       SI.Torque tau=0 "Driving torque in direction of axis of rotation";
-      SI.Angle angle(start=Cv.from_deg(phi_start+phi_offset)) 
+      SI.Angle angle(start=Cv.from_deg(phi_start+phi_offset))
         "= from_deg(phi_offset) + phi";
       annotation (
         preferedView="info",
@@ -5843,30 +5843,30 @@ this force is an unknown quantity).
 </p>
 </HTML>
 "));
-    protected 
+    protected
       outer Modelica.Mechanics.MultiBody.World world;
-      parameter Real e[3]=Frames.normalize(n) 
+      parameter Real e[3]=Frames.normalize(n)
         "Unit vector in direction of rotation axis, resolved in frame_a (= same as in frame_b)";
       parameter Real nnx_a[3]=if abs(e[1]) > 0.1 then {0,1,0} else (if abs(e[2])
-           > 0.1 then {0,0,1} else {1,0,0}) 
-        "Arbitrary vector that is not aligned with rotation axis n" 
+           > 0.1 then {0,0,1} else {1,0,0})
+        "Arbitrary vector that is not aligned with rotation axis n"
         annotation (Evaluate=true);
-      parameter Real ey_a[3]=Frames.normalize(cross(e, nnx_a)) 
+      parameter Real ey_a[3]=Frames.normalize(cross(e, nnx_a))
         "Unit vector orthogonal to axis n of revolute joint, resolved in frame_a"
         annotation (Evaluate=true);
-      parameter Real ex_a[3]=cross(ey_a, e) 
+      parameter Real ex_a[3]=cross(ey_a, e)
         "Unit vector orthogonal to axis n of revolute joint and to ey_a, resolved in frame_a"
         annotation (Evaluate=true);
       Real ey_b[3] "ey_a, resolved in frame_b";
       Real ex_b[3] "ex_a, resolved in frame_b";
-      Frames.Orientation R_rel 
+      Frames.Orientation R_rel
         "Dummy or relative orientation object from frame_a to frame_b";
-      Frames.Orientation R_rel_inv 
+      Frames.Orientation R_rel_inv
         "Dummy or relative orientation object from frame_b to frame_a";
-      Real r_rel_a[3] 
+      Real r_rel_a[3]
         "Position vector from origin of frame_a to origin of frame_b, resolved in frame_a";
       SI.Force f_c[2] "Dummy or constraint forces in direction of ex_a, ey_a";
-      
+
       Visualizers.Advanced.Shape cylinder(
         shapeType="cylinder",
         color=cylinderColor,
@@ -5879,7 +5879,7 @@ this force is an unknown quantity).
         r_shape=-e*(cylinderLength/2),
         r=frame_a.r_0,
         R=frame_a.R) if world.enableAnimation and animation;
-    initial equation 
+    initial equation
       if initType == Types.Init.PositionVelocity then
         phi = Cv.from_deg(phi_start);
         w = w_start*Modelica.Constants.D2R;
@@ -5898,24 +5898,24 @@ this force is an unknown quantity).
         w = w_start*Modelica.Constants.D2R;
         a = a_start*Modelica.Constants.D2R;
       end if;
-      
-    equation 
+
+    equation
       assert(cardinality(frame_a) > 0,
         "Connector frame_a of revolute joint is not connected");
       assert(cardinality(frame_b) > 0,
         "Connector frame_b of revolute joint is not connected");
-      
+
       if not planarCutJoint then
         defineBranch(frame_a.R, frame_b.R);
-        
+
         angle = Cv.from_deg(phi_offset) + phi;
         w = der(phi);
         a = der(w);
-        
+
         // relationships between quantities of frame_a and of frame_b
         R_rel = Frames.planarRotation(e, angle, der(angle));
         frame_b.r_0 = frame_a.r_0;
-        
+
         if rooted(frame_a.R) then
           R_rel_inv = Frames.nullRotation();
           frame_b.R = Frames.absoluteRotation(frame_a.R, R_rel);
@@ -5927,10 +5927,10 @@ this force is an unknown quantity).
           frame_b.f = -Frames.resolve2(R_rel, frame_a.f);
           frame_b.t = -Frames.resolve2(R_rel, frame_a.t);
         end if;
-        
+
         // d'Alemberts principle
         tau = -frame_b.t*e;
-        
+
         // Set not used variables to arbitrary value
         r_rel_a = zeros(3);
         f_c = zeros(2);
@@ -5941,11 +5941,11 @@ this force is an unknown quantity).
         R_rel = Frames.relativeRotation(frame_a.R, frame_b.R);
         r_rel_a = Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
         // r_rel_a = T.resolve1(R_rel.T, T.resolve2(frame_b.R.T, frame_b.r_0 - frame_a.r_0));
-        
+
         // Constraint equations
         0 = ex_a*r_rel_a;
         0 = ey_a*r_rel_a;
-        
+
         /* Transform forces and torques
        (Note that e has the same coordinates in frame_a and in frame_b
         and therefore a simplified transformation of the torque in
@@ -5955,25 +5955,25 @@ this force is an unknown quantity).
     */
         frame_b.t = -e*tau;
         frame_a.t = -frame_b.t;
-        
+
         frame_a.f = [ex_a, ey_a]*f_c;
         frame_b.f = -Frames.resolve2(R_rel, frame_a.f);
-        
+
         //angle = planarRotationAngle(e, npx, npx_b);
         angle = 0;
         phi = 0;
         w = 0;
         a = 0;
-        
+
         // dummy
         R_rel_inv = Frames.nullRotation();
-        
+
         // check that revolute joint is used in planar loop
         ex_b = Frames.resolve2(R_rel, ex_a);
         ey_b = Frames.resolve2(R_rel, ey_a);
-        assert(noEvent(abs(e*r_rel_a) <= 1.e-10 and abs(e*ex_b) <= 1.e-10 and 
+        assert(noEvent(abs(e*r_rel_a) <= 1.e-10 and abs(e*ex_b) <= 1.e-10 and
           abs(e*ey_b) <= 1.e-10), "
-The revolute joint is used with parameter 
+The revolute joint is used with parameter
 planarCutJoint=true. However, the revolute joint
 is not part of a planar loop where the axis of the
 revolute joint (parameter n) is orthogonal to the
@@ -5983,65 +5983,65 @@ in the revolute joints of the planar loop.
 ");
       end if;
     end Revolute;
-    
-    model Prismatic 
-      "Prismatic joint (1 translational degree-of-freedom, 2 potential states)" 
-      
+
+    model Prismatic
+      "Prismatic joint (1 translational degree-of-freedom, 2 potential states)"
+
       import SI = Modelica.SIunits;
       extends Modelica.Mechanics.MultiBody.Interfaces.PartialElementaryJoint;
       parameter Boolean animation=true "= true, if animation shall be enabled";
-      parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0} 
-        "Axis of translation resolved in frame_a (= same as in frame_b)" 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0}
+        "Axis of translation resolved in frame_a (= same as in frame_b)"
         annotation (Evaluate=true);
-      parameter SI.Position s_offset=0 
+      parameter SI.Position s_offset=0
         "Relative distance offset (distance between frame_a and frame_b = s_offset + s)"
         annotation (Evaluate=false);
-      parameter Types.Init.Temp initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
-        "Type of initialization (defines usage of start values below)" 
+      parameter Types.Init.Temp initType=Modelica.Mechanics.MultiBody.Types.Init.Free
+        "Type of initialization (defines usage of start values below)"
         annotation (Dialog(group="Initialization"));
-      parameter SI.Position s_start=0 
-        "Initial value of distance (fixed or guess value)" 
+      parameter SI.Position s_start=0
+        "Initial value of distance (fixed or guess value)"
         annotation (Evaluate=false, Dialog(group="Initialization"));
-      parameter SI.Velocity v_start=0 
-        "Initial value of relative velocity v = der(s)" 
+      parameter SI.Velocity v_start=0
+        "Initial value of relative velocity v = der(s)"
         annotation (Evaluate=false, Dialog(group="Initialization"));
-      parameter SI.Acceleration a_start=0 
-        "Initial value of relative acceleration a = der(v)" 
+      parameter SI.Acceleration a_start=0
+        "Initial value of relative acceleration a = der(v)"
         annotation (Evaluate=false, Dialog(group="Initialization"));
-      parameter Types.Axis boxWidthDirection={0,1,0} 
-        "Vector in width direction of box, resolved in frame_a" 
+      parameter Types.Axis boxWidthDirection={0,1,0}
+        "Vector in width direction of box, resolved in frame_a"
         annotation (Evaluate=true, Dialog(tab="Animation", group=
               "if animation = true", enable=animation));
-      parameter SI.Distance boxWidth=world.defaultJointWidth 
-        "Width of prismatic joint box" 
+      parameter SI.Distance boxWidth=world.defaultJointWidth
+        "Width of prismatic joint box"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Distance boxHeight=boxWidth "Height of prismatic joint box" 
+      parameter SI.Distance boxHeight=boxWidth "Height of prismatic joint box"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color boxColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
-        "Color of prismatic joint box" 
+      input Types.Color boxColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
+        "Color of prismatic joint box"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
-        "Reflection of ambient light (= 0: light is completely absorbed)" 
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
+        "Reflection of ambient light (= 0: light is completely absorbed)"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter Boolean enforceStates=false 
+      parameter Boolean enforceStates=false
         "= true, if generalized variables (s,v) shall be used as states (StateSelect.always)"
         annotation (Dialog(tab="Advanced"));
-      final parameter Real e[3]=Frames.normalize(n) 
+      final parameter Real e[3]=Frames.normalize(n)
         "Unit vector in direction of prismatic axis n";
-      
-      SI.Position s(start=s_start, stateSelect=if enforceStates then 
-            StateSelect.always else StateSelect.prefer) 
-        "Relative distance between frame_a and frame_b = s + s_offset)" 
+
+      SI.Position s(start=s_start, stateSelect=if enforceStates then
+            StateSelect.always else StateSelect.prefer)
+        "Relative distance between frame_a and frame_b = s + s_offset)"
         annotation (unassignedMessage="
 The relative distance s of a prismatic joint cannot be determined.
 A non-zero mass might be missing on either side of the parts
 connected to the prismatic joint.");
-      
-      SI.Velocity v(stateSelect=if enforceStates then StateSelect.always else 
+
+      SI.Velocity v(stateSelect=if enforceStates then StateSelect.always else
             StateSelect.prefer) "First derivative of s (relative velocity)";
       SI.Acceleration a;
       SI.Force f=0 "Actuation force in direction of joint axis";
-      
+
       annotation (
         preferedView="info",
         Coordsys(
@@ -6130,8 +6130,8 @@ it might be slightly more efficient, when using the \"enforceStates\" setting.
 </p>
 </HTML>
 "));
-      
-    protected 
+
+    protected
       Visualizers.Advanced.Shape box(
         shapeType="box",
         color=boxColor,
@@ -6143,7 +6143,7 @@ it might be slightly more efficient, when using the \"enforceStates\" setting.
         widthDirection=boxWidthDirection,
         r=frame_a.r_0,
         R=frame_a.R) if world.enableAnimation and animation;
-    initial equation 
+    initial equation
       if initType == Types.Init.PositionVelocity then
         s = s_start;
         v = v_start;
@@ -6163,82 +6163,82 @@ it might be slightly more efficient, when using the \"enforceStates\" setting.
         a = a_start;
       end if;
       // define potential states
-    equation 
+    equation
       v = der(s);
       a = der(v);
-      
+
       // relationships between kinematic quantities of frame_a and of frame_b
       frame_b.r_0 = frame_a.r_0 + Frames.resolve1(frame_a.R, e*(s_offset + s));
       frame_b.R = frame_a.R;
-      
+
       // Force and torque balance
       zeros(3) = frame_a.f + frame_b.f;
       zeros(3) = frame_a.t + frame_b.t + cross(e*(s_offset + s), frame_b.f);
-      
+
       // d'Alemberts principle
       f = -e*frame_b.f;
     end Prismatic;
-    
-    model RevoluteWithLengthConstraint 
-      "Revolute joint where the rotation angle is computed from a length constraint (1 degree-of-freedom, no potential state)" 
-      
+
+    model RevoluteWithLengthConstraint
+      "Revolute joint where the rotation angle is computed from a length constraint (1 degree-of-freedom, no potential state)"
+
       import SI = Modelica.SIunits;
       import Cv = Modelica.SIunits.Conversions;
       extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
-      Modelica.Mechanics.Rotational.Interfaces.Flange_a axis 
-        "1-dim. rotational flange that drives the joint" 
+      Modelica.Mechanics.Rotational.Interfaces.Flange_a axis
+        "1-dim. rotational flange that drives the joint"
         annotation (extent=[10,90; -10,110]);
-      Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing 
-        "1-dim. rotational flange of the drive bearing" 
+      Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing
+        "1-dim. rotational flange of the drive bearing"
         annotation (extent=[-50,90; -70,110]);
-      
-      Modelica.Blocks.Interfaces.RealInput position_a[3](redeclare each type 
-          SignalType = SI.Position) 
+
+      Modelica.Blocks.Interfaces.RealInput position_a[3](redeclare each type
+          SignalType = SI.Position)
         "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint"
         annotation (extent=[-140, -80; -100, -40]);
-      Modelica.Blocks.Interfaces.RealInput position_b[3](redeclare each type 
-          SignalType = SI.Position) 
+      Modelica.Blocks.Interfaces.RealInput position_b[3](redeclare each type
+          SignalType = SI.Position)
         "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint"
         annotation (extent=[140, -80; 100, -40]);
-      
+
       parameter Boolean animation=true "= true, if animation shall be enabled";
-      parameter SI.Position lengthConstraint=1 
+      parameter SI.Position lengthConstraint=1
         "Fixed length of length constraint";
-      parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,0,1} 
-        "Axis of rotation resolved in frame_a (= same as in frame_b)" 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,0,1}
+        "Axis of rotation resolved in frame_a (= same as in frame_b)"
         annotation (Evaluate=true);
-      parameter Cv.NonSIunits.Angle_deg phi_offset=0 
+      parameter Cv.NonSIunits.Angle_deg phi_offset=0
         "Relative angle offset (angle = phi + from_deg(phi_offset))";
-      parameter Cv.NonSIunits.Angle_deg phi_guess=0 
+      parameter Cv.NonSIunits.Angle_deg phi_guess=0
         "Select the configuration such that at initial time |phi - from_deg(phi_guess)|is minimal";
-      parameter SI.Distance cylinderLength=world.defaultJointLength 
-        "Length of cylinder representing the joint axis" 
+      parameter SI.Distance cylinderLength=world.defaultJointLength
+        "Length of cylinder representing the joint axis"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
-        "Diameter of cylinder representing the joint axis" 
+      parameter SI.Distance cylinderDiameter=world.defaultJointWidth
+        "Diameter of cylinder representing the joint axis"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
-        "Color of cylinder representing the joint axis" 
+      input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
+        "Color of cylinder representing the joint axis"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
-        "Reflection of ambient light (= 0: light is completely absorbed)" 
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
+        "Reflection of ambient light (= 0: light is completely absorbed)"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      
-      parameter Boolean axisTorqueBalance=true 
+
+      parameter Boolean axisTorqueBalance=true
         "= true, if torque balance of flange axis with the frame_b connector (axis.tau = -e*frame_b.t) shall be defined. Otherwise this equation has to be provided outside of this joint"
         annotation (Dialog(tab="Advanced"));
-      final parameter Boolean positiveBranch(fixed=false) 
+      final parameter Boolean positiveBranch(fixed=false)
         "Based on phi_guess, selection of one of the two solutions of the non-linear constraint equation";
-      final parameter Real e[3]=Modelica.Mechanics.MultiBody.Frames.normalize(n) 
+      final parameter Real e[3]=Modelica.Mechanics.MultiBody.Frames.normalize(n)
         "Unit vector in direction of rotation axis, resolved in frame_a";
-      
+
       SI.Angle phi "Rotation angle of revolute joint";
-      Frames.Orientation R_rel 
+      Frames.Orientation R_rel
         "Relative orientation object from frame_a to frame_b";
-      SI.Angle angle 
+      SI.Angle angle
         "= phi + from_deg(phi_offset) (relative rotation angle between frame_a and frame_b)";
       SI.Torque tau "= axis.tau (driving torque in the axis)";
-      
+
       annotation (
         structurallyIncomplete,
         preferedView="info",
@@ -6338,11 +6338,11 @@ joints.</b>
 </p>
 </HTML>
 "));
-      
-    protected 
-      SI.Position r_a[3]=position_a 
+
+    protected
+      SI.Position r_a[3]=position_a
         "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint";
-      SI.Position r_b[3]=position_b 
+      SI.Position r_b[3]=position_b
         "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint";
       Real e_r_a "Projection of r_a on e";
       Real e_r_b "Projection of r_b on e";
@@ -6355,7 +6355,7 @@ joints.</b>
       Real k1b;
       Real kcos_angle "= k1*cos(angle)";
       Real ksin_angle "= k1*sin(angle)";
-      
+
       Visualizers.Advanced.Shape cylinder(
         shapeType="cylinder",
         color=cylinderColor,
@@ -6368,22 +6368,22 @@ joints.</b>
         r_shape=-e*(cylinderLength/2),
         r=frame_a.r_0,
         R=frame_a.R) if world.enableAnimation and animation;
-      
-      function selectBranch 
-        "Determine branch which is closest to initial angle=0" 
-        
+
+      function selectBranch
+        "Determine branch which is closest to initial angle=0"
+
         import Modelica.Math.*;
         input SI.Length L "Length of length constraint";
-        input Real e[3] 
+        input Real e[3]
           "Unit vector along axis of rotation, resolved in frame_a (= same in frame_b)";
-        input SI.Angle angle_guess 
+        input SI.Angle angle_guess
           "Select the configuration such that at initial time |angle-angle_guess|is minimal (angle=0: frame_a and frame_b coincide)";
-        input SI.Position r_a[3] 
+        input SI.Position r_a[3]
           "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint";
-        input SI.Position r_b[3] 
+        input SI.Position r_b[3]
           "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint";
         output Boolean positiveBranch "Branch of the initial solution";
-      protected 
+      protected
         Real e_r_a "Projection of r_a on e";
         Real e_r_b "Projection of r_b on e";
         Real A "Coefficient A of equation: A*cos(phi) + B*sin(phi) + C = 0";
@@ -6397,7 +6397,7 @@ joints.</b>
         Real ksin2 "k2*sin(angle2)";
         SI.Angle angle1 "solution 1 of nonlinear equation";
         SI.Angle angle2 "solution 2 of nonlinear equation";
-      algorithm 
+      algorithm
         /* The position vector r_rel from frame_a to frame_b of the length constraint
        element, resolved in frame_b of the revolute joint is given by
        (T_rel is the planar transformation matrix from frame_a to frame_b of
@@ -6443,41 +6443,41 @@ joints.</b>
         C := r_a*r_a + r_b*r_b - L*L - 2*e_r_b*e_r_a;
         k1 := A*A + B*B;
         k2 := sqrt(k1 - C*C);
-        
+
         kcos1 := -A*C + B*k2;
         ksin1 := -B*C - A*k2;
         angle1 := atan2(ksin1, kcos1);
-        
+
         kcos2 := -A*C - B*k2;
         ksin2 := -B*C + A*k2;
         angle2 := atan2(ksin2, kcos2);
-        
+
         if abs(angle1 - angle_guess) <= abs(angle2 - angle_guess) then
           positiveBranch := true;
         else
           positiveBranch := false;
         end if;
       end selectBranch;
-    initial equation 
+    initial equation
       positiveBranch = selectBranch(lengthConstraint, e, Cv.from_deg(phi_offset
          + phi_guess), r_a, r_b);
-    equation 
+    equation
       axis.tau = tau;
       axis.phi = phi;
       bearing.phi = 0;
-      
+
       angle = Cv.from_deg(phi_offset) + phi;
-      
+
       // transform kinematic quantities from frame_a to frame_b
       frame_b.r_0 = frame_a.r_0;
-      
+
       R_rel = Frames.planarRotation(e, angle, der(angle));
       frame_b.R = Frames.absoluteRotation(frame_a.R, R_rel);
-      
+
       // Transform the force and torque acting at frame_b to frame_a
       zeros(3) = frame_a.f + Frames.resolve1(R_rel, frame_b.f);
       zeros(3) = frame_a.t + Frames.resolve1(R_rel, frame_b.t);
-      
+
       if axisTorqueBalance then
         /* Note, if axisTorqueBalance is false, the force in the
        length constraint must be calculated such that the driving
@@ -6491,7 +6491,7 @@ joints.</b>
     */
         tau = -e*frame_b.t;
       end if;
-      
+
       // Compute rotation angle (details, see function "selectBranch")
       e_r_a = e*r_a;
       e_r_b = e*r_b;
@@ -6500,7 +6500,7 @@ joints.</b>
       C = r_a*r_a + r_b*r_b - lengthConstraint*lengthConstraint - 2*e_r_b*e_r_a;
       k1 = A*A + B*B;
       k1a = k1 - C*C;
-      
+
       assert(k1a > 1.e-10, "
 Singular position of loop (either no or two analytic solutions;
 the mechanism has lost one-degree-of freedom in this position).
@@ -6514,76 +6514,76 @@ and rely on dynamic state selection, i.e., during simulation
 the states will be dynamically selected in such a way that in no
 position a degree of freedom is lost.
 ");
-      
+
       k1b = Frames.Internal.maxWithoutEvent(k1a, 1.0e-12);
       k2 = sqrt(k1b);
       kcos_angle = -A*C + (if positiveBranch then B else -B)*k2;
       ksin_angle = -B*C + (if positiveBranch then -A else A)*k2;
-      
+
       angle = Modelica.Math.atan2(ksin_angle, kcos_angle);
     end RevoluteWithLengthConstraint;
-    
-    model PrismaticWithLengthConstraint 
-      "Prismatic joint where the translational distance is computed from a length constraint (1 degree-of-freedom, no potential state)" 
-      
+
+    model PrismaticWithLengthConstraint
+      "Prismatic joint where the translational distance is computed from a length constraint (1 degree-of-freedom, no potential state)"
+
       import SI = Modelica.SIunits;
       import Cv = Modelica.SIunits.Conversions;
       extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
-      Modelica.Mechanics.Translational.Interfaces.Flange_a axis 
-        "1-dim. translational flange that drives the joint" 
+      Modelica.Mechanics.Translational.Interfaces.Flange_a axis
+        "1-dim. translational flange that drives the joint"
         annotation (extent=[70, 80; 90, 60]);
-      Modelica.Mechanics.Translational.Interfaces.Flange_b bearing 
-        "1-dim. translational flange of the drive bearing" 
+      Modelica.Mechanics.Translational.Interfaces.Flange_b bearing
+        "1-dim. translational flange of the drive bearing"
         annotation (extent=[-30, 80; -50, 60]);
-      Modelica.Blocks.Interfaces.RealInput position_a[3]( redeclare each type 
-          SignalType = SI.Position) 
+      Modelica.Blocks.Interfaces.RealInput position_a[3]( redeclare each type
+          SignalType = SI.Position)
         "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint"
         annotation (extent=[-140, -80; -100, -40]);
-      Modelica.Blocks.Interfaces.RealInput position_b[3]( redeclare each type 
-          SignalType = SI.Position) 
+      Modelica.Blocks.Interfaces.RealInput position_b[3]( redeclare each type
+          SignalType = SI.Position)
         "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint"
         annotation (extent=[140, -80; 100, -40]);
-      
+
       parameter Boolean animation=true "= true, if animation shall be enabled";
       parameter SI.Position length=1 "Fixed length of length constraint";
-      parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0} 
-        "Axis of translation resolved in frame_a (= same as in frame_b)" 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0}
+        "Axis of translation resolved in frame_a (= same as in frame_b)"
         annotation (Evaluate=true);
-      parameter SI.Position s_offset=0 
+      parameter SI.Position s_offset=0
         "Relative distance offset (distance between frame_a and frame_b = s(t) + s_offset)";
-      parameter SI.Position s_guess=0 
+      parameter SI.Position s_guess=0
         "Select the configuration such that at initial time |s(t0)-s_guess|is minimal";
-      parameter Types.Axis boxWidthDirection={0,1,0} 
-        "Vector in width direction of box, resolved in frame_a" 
+      parameter Types.Axis boxWidthDirection={0,1,0}
+        "Vector in width direction of box, resolved in frame_a"
         annotation (Evaluate=true, Dialog(tab="Animation", group=
               "if animation = true", enable=animation));
-      parameter SI.Distance boxWidth=world.defaultJointWidth 
-        "Width of prismatic joint box" 
+      parameter SI.Distance boxWidth=world.defaultJointWidth
+        "Width of prismatic joint box"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Distance boxHeight=boxWidth "Height of prismatic joint box" 
+      parameter SI.Distance boxHeight=boxWidth "Height of prismatic joint box"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color boxColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
-        "Color of prismatic joint box" 
+      input Types.Color boxColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
+        "Color of prismatic joint box"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
-        "Reflection of ambient light (= 0: light is completely absorbed)" 
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
+        "Reflection of ambient light (= 0: light is completely absorbed)"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      
-      parameter Boolean axisForceBalance=true 
+
+      parameter Boolean axisForceBalance=true
         "= true, if force balance of flange axis with the frame_b connector (axis.f = -e*frame_b.f) shall be defined. Otherwise this equation has to be provided outside of this joint"
         annotation (Dialog(tab="Advanced"));
-      final parameter Boolean positiveBranch(fixed=false) 
+      final parameter Boolean positiveBranch(fixed=false)
         "Selection of one of the two solutions of the non-linear constraint equation";
-      final parameter Real e[3]=Modelica.Mechanics.MultiBody.Frames.normalize(n) 
+      final parameter Real e[3]=Modelica.Mechanics.MultiBody.Frames.normalize(n)
         "Unit vector in direction of translation axis, resolved in frame_a";
-      SI.Position s 
+      SI.Position s
         "Relative distance between frame_a and frame_b along axis n = s + s_offset)";
-      SI.Position distance 
+      SI.Position distance
         "Relative distance between frame_a and frame_b along axis n";
-      SI.Position r_rel_a[3] 
+      SI.Position r_rel_a[3]
         "Position vector from frame_a to frame_b resolved in frame_a";
       SI.Force f "= axis.f (driving force in the axis)";
-      
+
       annotation (
         structurallyIncomplete,
         preferedView="info",
@@ -6693,11 +6693,11 @@ joints.</b>
 </p>
 </HTML>
 "));
-      
-    protected 
-      SI.Position r_a[3]=position_a 
+
+    protected
+      SI.Position r_a[3]=position_a
         "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint";
-      SI.Position r_b[3]=position_b 
+      SI.Position r_b[3]=position_b
         "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint";
       Real rbra[3] "= rb - ra";
       Real B "Coefficient B of equation: s*s + B*s + C = 0";
@@ -6706,7 +6706,7 @@ joints.</b>
       Real k2 "Constant of quadratic equation solution";
       Real k1a(start=1);
       Real k1b;
-      
+
       Visualizers.Advanced.Shape box(
         shapeType="box",
         color=boxColor,
@@ -6718,21 +6718,21 @@ joints.</b>
         widthDirection=boxWidthDirection,
         r=frame_a.r_0,
         R=frame_a.R) if world.enableAnimation and animation;
-      
-      function selectBranch 
-        "Determine branch which is closest to initial angle=0" 
+
+      function selectBranch
+        "Determine branch which is closest to initial angle=0"
         import Modelica.Math.*;
         input SI.Length L "Length of length constraint";
-        input Real e[3] 
+        input Real e[3]
           "Unit vector along axis of translation, resolved in frame_a (= same in frame_b)";
-        input SI.Position d_guess 
+        input SI.Position d_guess
           "Select the configuration such that at initial time |d-d_guess|is minimal (d: distance between origin of frame_a and origin of frame_b)";
-        input SI.Position r_a[3] 
+        input SI.Position r_a[3]
           "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of prismatic joint";
-        input SI.Position r_b[3] 
+        input SI.Position r_b[3]
           "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of prismatic joint";
         output Boolean positiveBranch "Branch of the initial solution";
-      protected 
+      protected
         Real rbra[3] "= rb - ra";
         Real B "Coefficient B of equation: d*d + B*d + C = 0";
         Real C "Coefficient C of equation: d*d + B*d + C = 0";
@@ -6740,7 +6740,7 @@ joints.</b>
         Real k2 "Constant of quadratic equation solution";
         Real d1 "solution 1 of quadratic equation";
         Real d2 "solution 2 of quadratic equation";
-      algorithm 
+      algorithm
         /* The position vector r_rel from frame_a to frame_b of the length constraint
        element, resolved in frame_b of the prismatic joint (frame_a and frame_b
        of the prismatic joint are parallel to each other) is given by:
@@ -6774,21 +6774,21 @@ joints.</b>
           positiveBranch := false;
         end if;
       end selectBranch;
-    initial equation 
+    initial equation
       positiveBranch = selectBranch(length, e, s_offset + s_guess, r_a, r_b);
-    equation 
+    equation
       axis.f = f;
       axis.s = s;
       bearing.s = 0;
       distance = s_offset + s;
-      
+
       // relationships of frame_a and frame_b quantities
       r_rel_a = e*distance;
       frame_b.r_0 = frame_a.r_0 + Frames.resolve1(frame_a.R, r_rel_a);
       frame_b.R = frame_a.R;
       zeros(3) = frame_a.f + frame_b.f;
       zeros(3) = frame_a.t + frame_b.t + cross(r_rel_a, frame_b.f);
-      
+
       if axisForceBalance then
         /* Note, if axisForceBalance is false, the force in the
        length constraint must be calculated such that the driving
@@ -6801,7 +6801,7 @@ joints.</b>
     */
         f = -e*frame_b.f;
       end if;
-      
+
       // Compute translational distance (details, see function "selectBranch")
       rbra = r_b - r_a;
       B = 2*(e*rbra);
@@ -6834,5 +6834,5 @@ Don't use the models of this package.
 </p>
 </HTML>"));
   end Internal;
-  
+
 end Joints;

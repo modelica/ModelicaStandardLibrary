@@ -1,7 +1,7 @@
-package MixtureGases "Medium models consisting of mixtures of ideal gases" 
+package MixtureGases "Medium models consisting of mixtures of ideal gases"
   extends Modelica.Icons.Library;
-  
-  package CombustionAir "Air as mixture of N2 and O2" 
+
+  package CombustionAir "Air as mixture of N2 and O2"
     extends Common.MixtureGasNasa(
       mediumName="CombustionAirN2O2",
       data={Common.SingleGasesData.N2,
@@ -11,11 +11,11 @@ package MixtureGases "Medium models consisting of mixtures of ideal gases"
       substanceNames = {"Nitrogen", "Oxygen"},
       reference_X={0.768,0.232});
     annotation (Documentation(info="<html>
-  
+
 </html>"));
   end CombustionAir;
-  
-  package AirSteam "air and steam mixture (no condensation!, pseudo-mixture)" 
+
+  package AirSteam "air and steam mixture (no condensation!, pseudo-mixture)"
     extends Common.MixtureGasNasa(
        mediumName="MoistAir",
        data={Common.SingleGasesData.H2O,
@@ -23,14 +23,14 @@ package MixtureGases "Medium models consisting of mixtures of ideal gases"
        substanceNames = {"Water","Air"},
        reference_X={0.0,1.0});
     annotation (Documentation(info="<html>
-  
+
 </html>"));
   end AirSteam;
-  
+
   package simpleMoistAir = AirSteam(reference_X={0.03,0.97}) "moist air without condensation";
 
-  package FlueGasLambdaOnePlus 
-    "simple flue gas for over0stochiometric O2-fuel ratios" 
+  package FlueGasLambdaOnePlus
+    "simple flue gas for over0stochiometric O2-fuel ratios"
     extends Common.MixtureGasNasa(
        mediumName="FlueGasLambda1plus",
        data={Common.SingleGasesData.N2,
@@ -44,12 +44,12 @@ package MixtureGases "Medium models consisting of mixtures of ideal gases"
        substanceNames = {"Nitrogen","Oxygen","Water", "Carbondioxide"},
        reference_X={0.768,0.232,0.0,0.0});
     annotation (Documentation(info="<html>
-  
+
 </html>"));
   end FlueGasLambdaOnePlus;
-  
-  package FlueGasSixComponents 
-    "simplest flue gas for over-and understochiometric combustion of hydrocarbons" 
+
+  package FlueGasSixComponents
+    "simplest flue gas for over-and understochiometric combustion of hydrocarbons"
     extends Common.MixtureGasNasa(
        mediumName="FlueGasSixComponents",
        data={Common.SingleGasesData.N2,
@@ -67,11 +67,11 @@ package MixtureGases "Medium models consisting of mixtures of ideal gases"
        substanceNames = {"Nitrogen","Hydrogen,","Carbonmonoxide","Oxygen","Water","Carbondioxide"},
        reference_X={0.768,0.0,0.0,0.232,0.0,0.0});
     annotation (Documentation(info="<html>
-  
+
 </html>"));
   end FlueGasSixComponents;
-  
-  package SimpleNaturalGas "simple natural gas mix with 6 components" 
+
+  package SimpleNaturalGas "simple natural gas mix with 6 components"
     extends Common.MixtureGasNasa(
        mediumName="SimpleNaturalGas",
        data={Common.SingleGasesData.CH4,
@@ -89,18 +89,18 @@ package MixtureGases "Medium models consisting of mixtures of ideal gases"
        substanceNames = {"Methane","Ethane","Propane","N-Butane,","Nitrogen","Carbondioxide"},
        reference_X={0.92,0.048,0.005,0.002,0.015,0.01});
     annotation (Documentation(info="<html>
-  
+
 </html>"));
   end SimpleNaturalGas;
-  
-  package SimpleNaturalGasFixedComposition 
-    "Same as SimpleNaturalGas but with fixed composition" 
+
+  package SimpleNaturalGasFixedComposition
+    "Same as SimpleNaturalGas but with fixed composition"
   extends SimpleNaturalGas(fixedX=true);
     annotation (Documentation(info="<html>
-  
+
 </html>"));
   end SimpleNaturalGasFixedComposition;
   annotation (Documentation(info="<html>
-  
+
 </html>"));
 end MixtureGases;

@@ -1,7 +1,7 @@
-package Types "Type definitions used in package Modelica.Utilities" 
-  package Compare 
-    "Type and constants to compare two strings, as temporary solution until enumerations are available" 
-    
+package Types "Type definitions used in package Modelica.Utilities"
+  package Compare
+    "Type and constants to compare two strings, as temporary solution until enumerations are available"
+
     extends Modelica.Icons.Enumeration;
     constant Integer Less=1;
     constant Integer Equal=2;
@@ -27,16 +27,16 @@ Modelica tools.
 </p>
 </html>"));
   end Compare;
-  
-  package FileType 
-    "Type and constants to describe the type of a file, as temporary solution until enumerations are available" 
-    
+
+  package FileType
+    "Type and constants to describe the type of a file, as temporary solution until enumerations are available"
+
     extends Modelica.Icons.Enumeration;
     constant Integer NoFile=1 "no file exists";
     constant Integer RegularFile=2 "regular file";
     constant Integer Directory=3 "directory";
     constant Integer SpecialFile=4 "pipe, FIFO, device, etc.";
-    
+
     type Type = Integer;
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\">Syntax</font></h3>
@@ -56,10 +56,10 @@ Modelica tools.
 </p>
 </html>"));
   end FileType;
-  
-  package TokenType 
-    "Type and constants for token types, as temporary solution until enumerations are available" 
-    
+
+  package TokenType
+    "Type and constants for token types, as temporary solution until enumerations are available"
+
     extends Modelica.Icons.Enumeration;
     constant Integer RealToken=1;
     constant Integer IntegerToken=2;
@@ -68,7 +68,7 @@ Modelica tools.
     constant Integer IdentifierToken=5;
     constant Integer DelimiterToken=6;
     constant Integer NoToken=7;
-    
+
     type Type = Integer;
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\">Syntax</font></h3>
@@ -90,17 +90,17 @@ Modelica tools.
 </p>
 </html>"));
   end TokenType;
-  
-  record TokenValue "Value of token" 
+
+  record TokenValue "Value of token"
      extends Modelica.Icons.Record;
      TokenType.Type tokenType "Type of token";
      Real real "Value if tokenType == TokenType.RealToken";
      Integer integer "Value if tokenType == TokenType.IntegerToken";
      Boolean boolean "Value if tokenType == TokenType.BooleanToken";
-     String string 
+     String string
       "Value if tokenType == TokenType.StringToken/IdentifierToken/DelimiterToken";
     annotation (Documentation(info="<html>
-   
+
 </html>"));
   end TokenValue;
   annotation (Documentation(info="<html>

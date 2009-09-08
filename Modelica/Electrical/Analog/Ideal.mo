@@ -1,8 +1,8 @@
-package Ideal 
-  "Ideal electrical elements such as switches, diode, transformer, operational amplifier" 
-  
+package Ideal
+  "Ideal electrical elements such as switches, diode, transformer, operational amplifier"
+
   extends Modelica.Icons.Library;
-  
+
   annotation(preferedView="info", Window(
        x=0.03,
        y=0.04,
@@ -40,18 +40,18 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 <p>
 </dl>
 </html>"));
-  
-          model IdealThyristor "Ideal thyristor" 
+
+          model IdealThyristor "Ideal thyristor"
             extends Modelica.Electrical.Analog.Interfaces.OnePort;
-            parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5 
+            parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
       "Closed thyristor resistance";
-            parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5 
+            parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
       "Opened thyristor conductance";
-            parameter Modelica.SIunits.Voltage Vknee(final min=0) = 0 
+            parameter Modelica.SIunits.Voltage Vknee(final min=0) = 0
       "Forward threshold voltage";
             Boolean off(start=true) "Switching state";
-  protected 
-            Real s 
+  protected
+            Real s
       "Auxiliary variable: if on then current, if opened then voltage";
             annotation (
               Documentation(info="<html>
@@ -69,7 +69,7 @@ resistance <i>Ron</i> which is default.
 </P>
 <P>
 The parameter <i>Vknee</i> which is the forward threshold voltage, allows to displace
-the knee point <br> 
+the knee point <br>
 along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
 </p>
 </HTML>
@@ -172,27 +172,27 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
                 y=0.18,
                 width=0.6,
                 height=0.6));
-    
-  public 
-            Modelica.Blocks.Interfaces.BooleanInput fire 
+
+  public
+            Modelica.Blocks.Interfaces.BooleanInput fire
               annotation (extent=[50,90; 90,130],   rotation=-90);
-          equation 
+          equation
             off = s < 0 or pre(off) and not fire;
             v = s*(if off then 1 else Ron) + Vknee;
             i = s*(if off then Goff else 1) + Goff*Vknee;
           end IdealThyristor;
-  
-          model IdealGTOThyristor "Ideal GTO thyristor" 
+
+          model IdealGTOThyristor "Ideal GTO thyristor"
             extends Modelica.Electrical.Analog.Interfaces.OnePort;
-            parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5 
+            parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
       "Closed thyristor resistance";
-            parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5 
+            parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
       "Opened thyristor conductance";
-            parameter Modelica.SIunits.Voltage Vknee(final min=0) = 0 
+            parameter Modelica.SIunits.Voltage Vknee(final min=0) = 0
       "Forward threshold voltage";
             Boolean off(start=true) "Switching state";
-  protected 
-            Real s 
+  protected
+            Real s
       "Auxiliary variable: if on then current, if opened then voltage";
             annotation (
               Documentation(info="<html>
@@ -210,7 +210,7 @@ resistance <i>Ron</i> which is default.
 </P>
 <P>
 The parameter <i>Vknee</i> which is the forward threshold voltage, allows to displace
-the knee point <br> 
+the knee point <br>
 along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
 </p>
 </HTML>
@@ -310,36 +310,36 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
                 y=0.13,
                 width=0.6,
                 height=0.6));
-    
-  public 
-            Modelica.Blocks.Interfaces.BooleanInput fire 
+
+  public
+            Modelica.Blocks.Interfaces.BooleanInput fire
               annotation (extent=[50,90; 90,130],   rotation=-90);
-          equation 
+          equation
             off = s < 0 or not fire;
             v = s*(if off then 1 else Ron) + Vknee;
             i = s*(if off then Goff else 1) + Goff*Vknee;
           end IdealGTOThyristor;
-  
-  model IdealCommutingSwitch "Ideal commuting switch" 
+
+  model IdealCommutingSwitch "Ideal commuting switch"
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
-    parameter SI.Conductance Goff(final min=0) = 1.E-5 
+    parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance";
     annotation (
       Documentation(info="<HTML>
 <P>
-The commuting switch has a positive pin p and two negative pins n1 and n2. 
+The commuting switch has a positive pin p and two negative pins n1 and n2.
 The switching behaviour is controlled
-by the inpug signal control. If control is true, the pin p is connected 
+by the inpug signal control. If control is true, the pin p is connected
 with the negative pin n2. Otherwise, the pin p is connected to the negative pin n1.
 </P>
 <P>
-In order to prevent singularities during switching, the opened 
+In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
-and the closed switch has a (very low) resistance Ron. 
+and the closed switch has a (very low) resistance Ron.
 The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
-open switch could be also exactly zero. Note, there are circuits, 
-where a description with zero Ron or zero Goff is not possible. 
+open switch could be also exactly zero. Note, there are circuits,
+where a description with zero Ron or zero Goff is not possible.
 </P>
 </HTML>
 ", revisions="<html>
@@ -378,50 +378,50 @@ where a description with zero Ron or zero Goff is not possible.
         y=0.05,
         width=0.6,
         height=0.6));
-  public 
+  public
     Interfaces.PositivePin p annotation (extent=[-110, -10; -90, 10]);
     Interfaces.NegativePin n2 annotation (extent=[90, -10; 110, 10]);
     Interfaces.NegativePin n1 annotation (extent=[90, 40; 110, 60]);
-    Modelica.Blocks.Interfaces.BooleanInput control 
+    Modelica.Blocks.Interfaces.BooleanInput control
       "true => p--n2 connected, false => p--n1 connected" annotation (extent=[
           -20,60; 20,100], rotation=-90);
-  protected 
+  protected
     Real s1;
     Real s2 "Auxiliary variables";
-  equation 
+  equation
     0 = p.i + n2.i + n1.i;
-    
+
     p.v - n1.v = s1*(if (control) then 1 else Ron);
     n1.i = -s1*(if (control) then Goff else 1);
     p.v - n2.v = s2*(if (control) then Ron else 1);
     n2.i = -s2*(if (control) then 1 else Goff);
   end IdealCommutingSwitch;
-  
-  model IdealIntermediateSwitch "Ideal intermediate switch" 
+
+  model IdealIntermediateSwitch "Ideal intermediate switch"
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
-    parameter SI.Conductance Goff(final min=0) = 1.E-5 
+    parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance";
     annotation (
       Documentation(info="<HTML>
 <P>
-The intermediate switch has four switching contact pins p1, p2, n1, and n2. 
+The intermediate switch has four switching contact pins p1, p2, n1, and n2.
 The switching behaviour is controlled by the input signal control. If control
-is true, the pin p1 is connected to pin n2, and the pin p2 is 
+is true, the pin p1 is connected to pin n2, and the pin p2 is
 connected to the pin n2. Otherwise, the pin p1 is connected to n1, and
 p2 is connected to n2.
 </P>
 <IMG SRC=\"../Images/IdealIntermediateSwitch1.png\" ALT=\"IdealIntermediateSwitch1\">
 <P>
-In order to prevent singularities during switching, the opened 
+In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
-and the closed switch has a (very low) resistance Ron. 
+and the closed switch has a (very low) resistance Ron.
 </P>
 <IMG SRC=\"../Images/IdealIntermediateSwitch2.png\" ALT=\"IdealIntermediateSwitch2\">
 <P>
 The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
-open switch could be also exactly zero. Note, there are circuits, 
-where a description with zero Ron or zero Goff is not possible. 
+open switch could be also exactly zero. Note, there are circuits,
+where a description with zero Ron or zero Goff is not possible.
 </P>
 </HTML>
 ", revisions="<html>
@@ -465,53 +465,53 @@ where a description with zero Ron or zero Goff is not possible.
         y=0.05,
         width=0.6,
         height=0.6));
-  public 
+  public
     Interfaces.PositivePin p1 annotation (extent=[-110, 40; -90, 60]);
     Interfaces.PositivePin p2 annotation (extent=[-110, -10; -90, 10]);
     Interfaces.NegativePin n1 annotation (extent=[90, 40; 110, 60]);
     Interfaces.NegativePin n2 annotation (extent=[90, -10; 110, 10]);
-    Modelica.Blocks.Interfaces.BooleanInput control 
-      "true => p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2  connected" 
+    Modelica.Blocks.Interfaces.BooleanInput control
+      "true => p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2  connected"
       annotation (extent=[-20,60; 20,100],rotation=-90);
-  protected 
+  protected
     Real s1;
     Real s2;
     Real s3;
     Real s4 "Auxiliary variables";
-  equation 
+  equation
     p1.v - n1.v = s1*(if (control) then 1 else Ron);
     p2.v - n2.v = s2*(if (control) then 1 else Ron);
     p1.v - n2.v = s3*(if (control) then Ron else 1);
     p2.v - n1.v = s4*(if (control) then Ron else 1);
-    
+
     p1.i = if (control) then s1*Goff + s3 else s1 + s3*Goff;
     p2.i = if (control) then s2*Goff + s4 else s2 + s4*Goff;
     n1.i = if (control) then -s1*Goff - s4 else -s1 - s4*Goff;
     n2.i = if (control) then -s2*Goff - s3 else -s2 - s3*Goff;
   end IdealIntermediateSwitch;
-  
-  model ControlledIdealCommutingSwitch "Controlled ideal commuting switch" 
+
+  model ControlledIdealCommutingSwitch "Controlled ideal commuting switch"
     parameter SI.Voltage level=0.5 "Switch level";
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
-    parameter SI.Conductance Goff(final min=0) = 1.E-5 
+    parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance";
     annotation (
       Documentation(info="<HTML>
 <P>
-The commuting switch has a positive pin p and two negative pins n1 and n2. 
+The commuting switch has a positive pin p and two negative pins n1 and n2.
 The switching behaviour is controlled
 by the control pin. If its voltage exceeds the value of the parameter level,
-the pin p is connected with the negative pin n2. Otherwise, the pin p is 
+the pin p is connected with the negative pin n2. Otherwise, the pin p is
 connected the negative pin n1.
 </P>
 <P>
-In order to prevent singularities during switching, the opened 
+In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
-and the closed switch has a (very low) resistance Ron. 
+and the closed switch has a (very low) resistance Ron.
 The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
-open switch could be also exactly zero. Note, there are circuits, 
-where a description with zero Ron or zero Goff is not possible. 
+open switch could be also exactly zero. Note, there are circuits,
+where a description with zero Ron or zero Goff is not possible.
 </P>
 </HTML>
 ", revisions="<html>
@@ -550,54 +550,54 @@ where a description with zero Ron or zero Goff is not possible.
         y=0.05,
         width=0.6,
         height=0.6));
-  public 
+  public
     Interfaces.PositivePin p annotation (extent=[-110, -10; -90, 10]);
     Interfaces.NegativePin n2 annotation (extent=[90, -10; 110, 10]);
     Interfaces.NegativePin n1 annotation (extent=[90, 40; 110, 60]);
-    Interfaces.Pin control 
+    Interfaces.Pin control
       "Control pin: if control.v > level p--n2 connected, otherwise p--n1 connected"
        annotation (extent=[-10, 90; 10, 110], rotation=90);
-  protected 
+  protected
     Real s1;
     Real s2 "Auxiliary variables";
-  equation 
+  equation
     control.i = 0;
     0 = p.i + n2.i + n1.i;
-    
+
     p.v - n1.v = s1*(if (control.v > level) then 1 else Ron);
     n1.i = -s1*(if (control.v > level) then Goff else 1);
     p.v - n2.v = s2*(if (control.v > level) then Ron else 1);
     n2.i = -s2*(if (control.v > level) then 1 else Goff);
   end ControlledIdealCommutingSwitch;
-  
-  model ControlledIdealIntermediateSwitch 
-    "Controlled ideal intermediate switch" 
+
+  model ControlledIdealIntermediateSwitch
+    "Controlled ideal intermediate switch"
     parameter SI.Voltage level=0.5 "Switch level";
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
-    parameter SI.Conductance Goff(final min=0) = 1.E-5 
+    parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance";
     annotation (
       Documentation(info="<HTML>
 <P>
-The intermediate switch has four switching contact pins p1, p2, n1, and n2. 
+The intermediate switch has four switching contact pins p1, p2, n1, and n2.
 The switching behaviour is controlled
-by the control pin. If its voltage exceeds the value of the 
-parameter level, the pin p1 is connected to pin n2, and the pin p2 is 
+by the control pin. If its voltage exceeds the value of the
+parameter level, the pin p1 is connected to pin n2, and the pin p2 is
 connected to the pin n2. Otherwise, the pin p1 is connected to n1, and
 p2 is connected to n2.
 </P>
 <IMG SRC=\"../Images/ControlledIdealIntermediateSwitch1.png\" ALT=\"ControlledIdealIntermediateSwitch1\">
 <P>
-In order to prevent singularities during switching, the opened 
+In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
-and the closed switch has a (very low) resistance Ron. 
+and the closed switch has a (very low) resistance Ron.
 </P>
 <IMG SRC=\"../Images/ControlledIdealIntermediateSwitch2.png\" ALT=\"ControlledIdealIntermediateSwitch2\">
 <P>
 The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
-open switch could be also exactly zero. Note, there are circuits, 
-where a description with zero Ron or zero Goff is not possible. 
+open switch could be also exactly zero. Note, there are circuits,
+where a description with zero Ron or zero Goff is not possible.
 </P>
 </HTML>
 ", revisions="<html>
@@ -641,8 +641,8 @@ where a description with zero Ron or zero Goff is not possible.
         y=0.05,
         width=0.6,
         height=0.6));
-    
-  public 
+
+  public
     Interfaces.PositivePin p1 annotation (extent=[-110, 40; -90, 60]);
     Interfaces.PositivePin p2 annotation (extent=[-110, -10; -90, 10]);
     Interfaces.NegativePin n1 annotation (extent=[90, 40; 110, 60]);
@@ -650,26 +650,26 @@ where a description with zero Ron or zero Goff is not possible.
     Interfaces.Pin control "Control pin: if control.v > level p1--n2, p2--n1 connected,
          otherwise p1--n1, p2--n2  connected" annotation (extent=[-10, 90; 10,
           110], rotation=90);
-  protected 
+  protected
     Real s1;
     Real s2;
     Real s3;
     Real s4 "Auxiliary variables";
-  equation 
+  equation
     control.i = 0;
-    
+
     p1.v - n1.v = s1*(if (control.v > level) then 1 else Ron);
     p2.v - n2.v = s2*(if (control.v > level) then 1 else Ron);
     p1.v - n2.v = s3*(if (control.v > level) then Ron else 1);
     p2.v - n1.v = s4*(if (control.v > level) then Ron else 1);
-    
+
     p1.i = if (control.v > level) then s1*Goff + s3 else s1 + s3*Goff;
     p2.i = if (control.v > level) then s2*Goff + s4 else s2 + s4*Goff;
     n1.i = if (control.v > level) then -s1*Goff - s4 else -s1 - s4*Goff;
     n2.i = if (control.v > level) then -s2*Goff - s3 else -s2 - s3*Goff;
   end ControlledIdealIntermediateSwitch;
-  
-  model IdealOpAmp "Ideal operational amplifier (norator-nullator pair)" 
+
+  model IdealOpAmp "Ideal operational amplifier (norator-nullator pair)"
     SI.Voltage v1 "Voltage drop over the left port";
     SI.Voltage v2 "Voltage drop over the right port";
     SI.Current i1 "Current flowing from pos. to neg. pin of the left port";
@@ -763,7 +763,7 @@ are possible (norator).
         extent=[90, -10; 110, 10]);
     Interfaces.NegativePin n2 "Negative pin of the right port" annotation (
         extent=[-10, -90; 10, -110], rotation=-90);
-  equation 
+  equation
     v1 = p1.v - n1.v;
     v2 = p2.v - n2.v;
     0 = p1.i + n1.i;
@@ -773,10 +773,10 @@ are possible (norator).
     v1 = 0;
     i1 = 0;
   end IdealOpAmp;
-  
-  model IdealOpAmp3Pin 
-    "Ideal operational amplifier (norator-nullator pair), but 3 pins" 
-    
+
+  model IdealOpAmp3Pin
+    "Ideal operational amplifier (norator-nullator pair), but 3 pins"
+
     annotation (
       Documentation(info="<html>
 <P>
@@ -852,13 +852,13 @@ are possible.
         extent=[-110, 40; -90, 60]);
     Interfaces.PositivePin out "Output pin" annotation (extent=[90, -10; 110,
           10]);
-  equation 
+  equation
     in_p.v = in_n.v;
     in_p.i = 0;
     in_n.i = 0;
   end IdealOpAmp3Pin;
-  
-  model IdealOpAmpLimited "Ideal operational amplifier with limitation" 
+
+  model IdealOpAmpLimited "Ideal operational amplifier with limitation"
     annotation (
       Documentation(info="<HTML>
 <P>
@@ -940,14 +940,14 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
         extent=[-110, 40; -90, 60]);
     Interfaces.PositivePin out "Output pin" annotation (extent=[90, -10; 110,
           10]);
-    Interfaces.PositivePin VMax "Positive output voltage limitation" 
+    Interfaces.PositivePin VMax "Positive output voltage limitation"
       annotation (extent=[-10, 60; 10, 80]);
-    Interfaces.NegativePin VMin "Negative output voltage limitation" 
+    Interfaces.NegativePin VMin "Negative output voltage limitation"
       annotation (extent=[-10, -80; 10, -60]);
     SI.Voltage vin "input voltage";
-  protected 
+  protected
     Real s "Auxiliary variable";
-  equation 
+  equation
     in_p.i = 0;
     in_n.i = 0;
     VMax.i = 0;
@@ -957,18 +957,18 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
     out.v = if (s < -1) then VMin.v else if (s > 1) then VMax.v else (VMax.v -
       VMin.v)*s/2 + (VMax.v + VMin.v)/2;
   end IdealOpAmpLimited;
-  
-        model IdealDiode "Ideal diode" 
+
+        model IdealDiode "Ideal diode"
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
-          parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5 
+          parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
       "Forward state-on differential resistance (closed diode resistance)";
-          parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5 
+          parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
       "Backward state-off conductance (opened diode conductance)";
-          parameter Modelica.SIunits.Voltage Vknee(final min=0) = 0 
+          parameter Modelica.SIunits.Voltage Vknee(final min=0) = 0
       "Forward threshold voltage";
           Boolean off(start=true) "Switching state";
-  protected 
-          Real s 
+  protected
+          Real s
       "Auxiliary variable: if on then current, if opened then voltage";
           annotation (
             Documentation(info="<html>
@@ -987,7 +987,7 @@ resistance <i>Roff</i> which is default.
 </P>
 <P>
 The parameter <i>Vknee</i> which is the forward threshold voltage, allows to displace
-the knee point <br> 
+the knee point <br>
 along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
 </p>
 </HTML>
@@ -1080,14 +1080,14 @@ along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
               y=0.11,
               width=0.6,
               height=0.6));
-    
-        equation 
+
+        equation
           off = s < 0;
           v = s*(if off then 1 else Ron) + Vknee;
           i = s*(if off then Goff else 1) + Goff*Vknee;
         end IdealDiode;
-  
-  model IdealTransformer "Ideal electrical transformer" 
+
+  model IdealTransformer "Ideal electrical transformer"
     extends Interfaces.TwoPort;
     parameter Real n=1 "Turns ratio";
     annotation (
@@ -1123,39 +1123,39 @@ where <i>n</i> is a real number called the turns ratio.
       Coordsys(extent=[-100, -100; 100, 100], grid=[1, 1]),
       Icon(
         Text(extent=[-100, 100; 100, 80], string="%name"),
-        Text(extent=[-100, -80; 100, -100], string="n=%n"), 
-        Ellipse(extent=[-80,50; 20,-50], style(color=3, rgbcolor={0,0,255})), 
-        Ellipse(extent=[-20,50; 80,-50], style(color=3, rgbcolor={0,0,255})), 
+        Text(extent=[-100, -80; 100, -100], string="n=%n"),
+        Ellipse(extent=[-80,50; 20,-50], style(color=3, rgbcolor={0,0,255})),
+        Ellipse(extent=[-20,50; 80,-50], style(color=3, rgbcolor={0,0,255})),
         Text(
-          extent=[-20,20; 20,-20], 
-          style(color=3, rgbcolor={0,0,255}), 
-          string="="), 
-        Line(points=[-30,50; -96,50], style(color=3, rgbcolor={0,0,255})), 
-        Line(points=[96,50; 30,50], style(color=3, rgbcolor={0,0,255})), 
-        Line(points=[-30,-50; -96,-50], style(color=3, rgbcolor={0,0,255})), 
+          extent=[-20,20; 20,-20],
+          style(color=3, rgbcolor={0,0,255}),
+          string="="),
+        Line(points=[-30,50; -96,50], style(color=3, rgbcolor={0,0,255})),
+        Line(points=[96,50; 30,50], style(color=3, rgbcolor={0,0,255})),
+        Line(points=[-30,-50; -96,-50], style(color=3, rgbcolor={0,0,255})),
         Line(points=[96,-50; 30,-50], style(color=3, rgbcolor={0,0,255}))),
       Diagram(
-        Ellipse(extent=[-80,50; 20,-50], style(color=3, rgbcolor={0,0,255})), 
-        Ellipse(extent=[-20,50; 80,-50], style(color=3, rgbcolor={0,0,255})), 
+        Ellipse(extent=[-80,50; 20,-50], style(color=3, rgbcolor={0,0,255})),
+        Ellipse(extent=[-20,50; 80,-50], style(color=3, rgbcolor={0,0,255})),
         Text(
-          extent=[-20,20; 20,-20], 
-          style(color=3, rgbcolor={0,0,255}), 
-          string="="), 
-        Line(points=[-30,50; -96,50], style(color=3, rgbcolor={0,0,255})), 
-        Line(points=[96,50; 30,50], style(color=3, rgbcolor={0,0,255})), 
-        Line(points=[-30,-50; -96,-50], style(color=3, rgbcolor={0,0,255})), 
+          extent=[-20,20; 20,-20],
+          style(color=3, rgbcolor={0,0,255}),
+          string="="),
+        Line(points=[-30,50; -96,50], style(color=3, rgbcolor={0,0,255})),
+        Line(points=[96,50; 30,50], style(color=3, rgbcolor={0,0,255})),
+        Line(points=[-30,-50; -96,-50], style(color=3, rgbcolor={0,0,255})),
         Line(points=[96,-50; 30,-50], style(color=3, rgbcolor={0,0,255}))),
       Window(
         x=0.29,
         y=0.07,
         width=0.6,
         height=0.6));
-  equation 
+  equation
     v1 = n*v2;
     i2 = -n*i1;
   end IdealTransformer;
-  
-  model IdealGyrator "Ideal gyrator" 
+
+  model IdealGyrator "Ideal gyrator"
     extends Interfaces.TwoPort;
     annotation (
       Documentation(info="<html>
@@ -1216,12 +1216,12 @@ where the constant <i>G</i> is called the gyration conductance.
         Rectangle(extent=[80, -40; 40, 40], style(color=7, fillColor=7)),
         Line(points=[96,50; 40,50; 40,-50; 96,-50])));
     parameter SI.Conductance G=1 "Gyration conductance";
-  equation 
+  equation
     i1 = G*v2;
     i2 = -G*v1;
   end IdealGyrator;
-  
-  model Idle "Idle branch" 
+
+  model Idle "Idle branch"
     extends Interfaces.OnePort;
     annotation (
       Documentation(info="<html>
@@ -1256,13 +1256,13 @@ The model Idle is a simple idle running branch.
         y=0.16,
         width=0.6,
         height=0.6));
-  equation 
-    
+  equation
+
     i = 0;
-    
+
   end Idle;
-  
-  model Short "Short cut branch" 
+
+  model Short "Short cut branch"
     extends Interfaces.OnePort;
     annotation (
       Documentation(info="<html>
@@ -1296,39 +1296,39 @@ The model Short is a simple short cut branch.
         y=0.14,
         width=0.6,
         height=0.6));
-  equation 
+  equation
     v = 0;
   end Short;
-  
- model IdealOpeningSwitch "Ideal electrical opener" 
+
+ model IdealOpeningSwitch "Ideal electrical opener"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
        annotation (extent=[-56.6667, 10; -10, 56.6667]);
-    parameter SI.Conductance Goff(final min=0) = 1.E-5 
+    parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance" annotation (extent=[10, 10; 56.6667, 56.6667]);
-    Modelica.Blocks.Interfaces.BooleanInput control 
+    Modelica.Blocks.Interfaces.BooleanInput control
       "true => switch open, false => p--n connected" annotation (extent=[-20,50;
           20,90],      rotation=-90);
-  protected 
+  protected
     Real s "Auxiliary variable";
-    
+
     annotation (
       Documentation(info="<HTML>
-<P> 
-The ideal opening switch has a positive pin p and a negative pin n. 
-The switching behaviour is controlled by the input signal control. 
-If control is true, pin p is not connected 
-with negative pin n. Otherwise, pin p is connected 
+<P>
+The ideal opening switch has a positive pin p and a negative pin n.
+The switching behaviour is controlled by the input signal control.
+If control is true, pin p is not connected
+with negative pin n. Otherwise, pin p is connected
 with negative pin n.
 </P>
 <P>
-In order to prevent singularities during switching, the opened 
+In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
-and the closed switch has a (very low) resistance Ron. 
+and the closed switch has a (very low) resistance Ron.
 The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
-open switch could be also exactly zero. Note, there are circuits, 
-where a description with zero Ron or zero Goff is not possible. 
+open switch could be also exactly zero. Note, there are circuits,
+where a description with zero Ron or zero Goff is not possible.
 </P>
 </HTML>
 ", revisions="<html>
@@ -1365,41 +1365,41 @@ where a description with zero Ron or zero Goff is not possible.
         Text(extent=[-100, -40; 100, -79], string="%name"),
         Line(points=[0, 51; 0, 26]),
         Line(points=[40, 20; 40, 0])));
- equation 
+ equation
     v = s*(if control then 1 else Ron);
     i = s*(if control then Goff else 1);
  end IdealOpeningSwitch;
-  
-    model IdealClosingSwitch "Ideal electrical closer" 
+
+    model IdealClosingSwitch "Ideal electrical closer"
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
-      parameter SI.Resistance Ron(final min=0) = 1.E-5 
-      "Closed switch resistance" 
+      parameter SI.Resistance Ron(final min=0) = 1.E-5
+      "Closed switch resistance"
          annotation (extent=[-56.6667, 10; -10, 56.6667]);
-      parameter SI.Conductance Goff(final min=0) = 1.E-5 
+      parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance"   annotation (extent=[10, 10; 56.6667, 56.6667]);
-      Modelica.Blocks.Interfaces.BooleanInput control 
+      Modelica.Blocks.Interfaces.BooleanInput control
       "true => p--n connected, false => switch open"   annotation (extent=[-20,50;
             20,90],      rotation=-90);
-  protected 
+  protected
       Real s "Auxiliary variable";
-    
+
       annotation (
         Documentation(info="<HTML>
-<P> 
-The ideal closing switch has a positive pin p and a negative pin n. 
-The switching behaviour is controlled by input signal control. 
-If control is true, pin p is connected 
-with negative pin n. Otherwise, pin p is not connected 
+<P>
+The ideal closing switch has a positive pin p and a negative pin n.
+The switching behaviour is controlled by input signal control.
+If control is true, pin p is connected
+with negative pin n. Otherwise, pin p is not connected
 with negative pin n.
 </P>
 <P>
-In order to prevent singularities during switching, the opened 
+In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
-and the closed switch has a (very low) resistance Ron. 
+and the closed switch has a (very low) resistance Ron.
 The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
-open switch could be also exactly zero. Note, there are circuits, 
-where a description with zero Ron or zero Goff is not possible. 
+open switch could be also exactly zero. Note, there are circuits,
+where a description with zero Ron or zero Goff is not possible.
 </P>
 </HTML>
 ", revisions="<html>
@@ -1434,39 +1434,39 @@ where a description with zero Ron or zero Goff is not possible.
           Line(points=[40,0; 96,0]),
           Text(extent=[-100, -40; 100, -79], string="%name"),
           Line(points=[0, 51; 0, 26])));
-    equation 
+    equation
       v = s*(if control then Ron else 1);
       i = s*(if control then 1 else Goff);
     end IdealClosingSwitch;
-  
-  model ControlledIdealOpeningSwitch "Controlled ideal electrical opener" 
+
+  model ControlledIdealOpeningSwitch "Controlled ideal electrical opener"
     parameter SI.Voltage level=0.5 "Switch level" annotation (extent=[-56.6667,
             10; -10, 56.6667]);
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
        annotation (extent=[10, 10; 56.6667, 56.6667]);
-    parameter SI.Conductance Goff(final min=0) = 1.E-5 
+    parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance" annotation (extent=[-56.6667, -56.6667; -10,
           -10]);
-  protected 
+  protected
     Real s "Auxiliary variable";
     annotation (
       Documentation(info="
 <HTML>
 <P>
-The ideal switch has a positive pin p and a negative pin n. 
-The switching behaviour is controlled by the control pin. 
+The ideal switch has a positive pin p and a negative pin n.
+The switching behaviour is controlled by the control pin.
 If its voltage exceeds the voltage of the parameter level,
-pin p is not connected with negative pin n. 
+pin p is not connected with negative pin n.
 Otherwise, pin p is connected with negative pin n.
 </P>
 <P>
-In order to prevent singularities during switching, the opened 
+In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
-and the closed switch has a (very low) resistance Ron. 
+and the closed switch has a (very low) resistance Ron.
 The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
-open switch could be also exactly zero. Note, there are circuits, 
-where a description with zero Ron or zero Goff is not possible. 
+open switch could be also exactly zero. Note, there are circuits,
+where a description with zero Ron or zero Goff is not possible.
 </P>
 </HTML>
 ", revisions="<html>
@@ -1502,48 +1502,48 @@ where a description with zero Ron or zero Goff is not possible.
         Line(points=[40,0; 96,0]),
         Line(points=[0,96; 0,25]),
         Line(points=[40, 20; 40, 0])));
-  public 
+  public
     Interfaces.PositivePin p annotation (extent=[-110, -10; -90, 10]);
     Interfaces.NegativePin n annotation (extent=[90, -10; 110, 10]);
-    Interfaces.Pin control 
-      "Control pin: control.v > level switch open, otherwise p--n connected" 
+    Interfaces.Pin control
+      "Control pin: control.v > level switch open, otherwise p--n connected"
       annotation (extent=[-10, 90; 10, 110], rotation=90);
-  equation 
+  equation
     control.i = 0;
     0 = p.i + n.i;
     p.v - n.v = s*(if (control.v > level) then 1 else Ron);
     p.i = s*(if (control.v > level) then Goff else 1);
   end ControlledIdealOpeningSwitch;
-  
-    model ControlledIdealClosingSwitch "Controlled ideal electrical closer" 
+
+    model ControlledIdealClosingSwitch "Controlled ideal electrical closer"
       parameter SI.Voltage level=0.5 "Switch level" annotation (extent=[-56.6667,
               10; -10, 56.6667]);
-      parameter SI.Resistance Ron(final min=0) = 1.E-5 
-      "Closed switch resistance" 
+      parameter SI.Resistance Ron(final min=0) = 1.E-5
+      "Closed switch resistance"
          annotation (extent=[10, 10; 56.6667, 56.6667]);
-      parameter SI.Conductance Goff(final min=0) = 1.E-5 
+      parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance"   annotation (extent=[-56.6667, -56.6667; -10,
             -10]);
-  protected 
+  protected
       Real s "Auxiliary variable";
       annotation (
         Documentation(info="
 <HTML>
 <P>
-The closing ideal switch has a positive pin p and a negative pin n. 
-The switching behaviour is controlled by the control pin. 
+The closing ideal switch has a positive pin p and a negative pin n.
+The switching behaviour is controlled by the control pin.
 If its voltage exceeds the voltage of the parameter level,
-pin p is connected with negative pin n. 
+pin p is connected with negative pin n.
 Otherwise, pin p is not connected with negative pin n.
 </P>
 <P>
-In order to prevent singularities during switching, the opened 
+In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
-and the closed switch has a (very low) resistance Ron. 
+and the closed switch has a (very low) resistance Ron.
 The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
-open switch could be also exactly zero. Note, there are circuits, 
-where a description with zero Ron or zero Goff is not possible. 
+open switch could be also exactly zero. Note, there are circuits,
+where a description with zero Ron or zero Goff is not possible.
 </P>
 </HTML>
 ", revisions="<html>
@@ -1577,17 +1577,17 @@ where a description with zero Ron or zero Goff is not possible.
           Line(points=[-37, 2; 40, 50]),
           Line(points=[40,0; 96,0]),
           Line(points=[0,96; 0,25])));
-  public 
+  public
       Modelica.Electrical.Analog.Interfaces.PositivePin p annotation (extent=[-110, -10; -90, 10]);
       Modelica.Electrical.Analog.Interfaces.NegativePin n annotation (extent=[90, -10; 110, 10]);
-      Modelica.Electrical.Analog.Interfaces.Pin control 
-      "Control pin: control.v > level switch closed, otherwise switch open" 
+      Modelica.Electrical.Analog.Interfaces.Pin control
+      "Control pin: control.v > level switch closed, otherwise switch open"
         annotation (extent=[-10, 90; 10, 110], rotation=90);
-    equation 
+    equation
       control.i = 0;
       0 = p.i + n.i;
       p.v - n.v = s*(if (control.v > level) then Ron else 1);
       p.i = s*(if (control.v > level) then 1 else Goff);
     end ControlledIdealClosingSwitch;
-  
+
 end Ideal;

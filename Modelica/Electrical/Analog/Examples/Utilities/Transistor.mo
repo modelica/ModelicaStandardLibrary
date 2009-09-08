@@ -1,4 +1,4 @@
-model Transistor 
+model Transistor
   annotation (
     Coordsys(
       extent=[-100, -100; 100, 100],
@@ -19,7 +19,7 @@ model Transistor
       width=0.6,
       height=0.6),
     Documentation(info="<html>
-  
+
 </html>"));
   Basic.Resistor rtb(R=0.05) annotation (extent=[-80, -10; -60, 10]);
   Basic.Resistor rtc(R=0.1) annotation (extent=[40, 0; 60, 20]);
@@ -46,7 +46,7 @@ model Transistor
   Interfaces.Pin c annotation (extent=[90, 50; 110, 70]);
   Interfaces.Pin b annotation (extent=[-110, -10; -90, 10]);
   Interfaces.Pin e annotation (extent=[90, -70; 110, -50]);
-equation 
+equation
   connect(rtb.n, Tr.B) annotation (points=[-60, 0; -20, 0]);
   connect(rtb.n, ct.p) annotation (points=[-60, 0; -40, 0; -40, -20]);
   connect(ct.n, Ground1.p) annotation (points=[-40, -40; -40, -60]);

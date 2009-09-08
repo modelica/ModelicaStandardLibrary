@@ -1,5 +1,5 @@
-package Examples 
-  "Examples to demonstrate the usage of package Modelica.Utilities" 
+package Examples
+  "Examples to demonstrate the usage of package Modelica.Utilities"
   annotation (preferedView="info",Documentation(info="<html>
 <p>
 This package contains quite involved examples that demonstrate how to
@@ -8,7 +8,7 @@ the following examples are present.
 </p>
 <ul>
 <li> Function <a href=\"Modelica:Modelica.Utilities.Examples.calculator\">calculator</a>
-     is an interpreter to evaluate 
+     is an interpreter to evaluate
      expressions consisting of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi.
      For example: calculator(\"1.5*sin(pi/6)\"); <br>&nbsp;</li>
 <li> Function <a href=\"Modelica:Modelica.Utilities.Examples.expression\">expression</a>
@@ -26,16 +26,16 @@ the following examples are present.
      </li>
 </ul>
 </html>"));
-  
-  function calculator 
-    "Interpreter to evaluate simple expressions consisting of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi" 
+
+  function calculator
+    "Interpreter to evaluate simple expressions consisting of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi"
     import Modelica.Utilities.Strings.*;
     extends Modelica.Icons.Function;
     input String string "Expression that is evaluated";
     output Real result "Value of expression";
-  protected 
+  protected
     Integer nextIndex;
-  algorithm 
+  algorithm
     (result,nextIndex) := expression(string, 1);
     Strings.scanNoToken(string,nextIndex);
     annotation (preferedView="info",Documentation(info="<html>
@@ -48,7 +48,7 @@ result = <b>calculator</b>(expression);
 This function demonstrates how a simple expression calculator
 can be implemented in form of a recursive decent parser
 using basically the Strings.scanToken(..) and Strings.scanDelimiter(..)
-function. 
+function.
 </p>
 <p>
 The following operations are supported (pi=3.14.. is a predefined constant):
@@ -70,22 +70,22 @@ The following operations are supported (pi=3.14.. is a predefined constant):
 </pre></blockquote>
 </html>"));
   end calculator;
-  
-  function expression 
-    "Expression interpreter that returns with the position after the expression (expression may consist of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi" 
+
+  function expression
+    "Expression interpreter that returns with the position after the expression (expression may consist of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi"
     import Modelica.Utilities.*;
     import Modelica.Utilities.Types.TokenType;
     extends Modelica.Icons.Function;
     input String string "Expression that is evaluated";
-    input Integer startIndex=1 
+    input Integer startIndex=1
       "Start scanning of expression at character startIndex";
-    input String message="" 
+    input String message=""
       "Message used in error message if scan is not successful";
     output Real result "Value of expression";
     output Integer nextIndex "Index after the scanned expression";
-    
-  protected 
-  encapsulated function term "Evaluate term of an expression" 
+
+  protected
+  encapsulated function term "Evaluate term of an expression"
       import Modelica.Utilities.Types;
       import Modelica.Utilities.Strings;
       import Modelica.Utilities.Examples.expression.primary;
@@ -96,11 +96,11 @@ The following operations are supported (pi=3.14.. is a predefined constant):
     input String message="";
     output Real result;
     output Integer nextIndex;
-    protected 
+    protected
     Real result2;
     Boolean scanning=true;
     String operator;
-  algorithm 
+  algorithm
     // scan for "primary * primary" or "primary / primary"
     (result, nextIndex) := primary(string, startIndex, message);
     while scanning loop
@@ -114,8 +114,8 @@ The following operations are supported (pi=3.14.. is a predefined constant):
       end if;
     end while;
   end term;
-    
-  encapsulated function primary "Evaluate primary of an expression" 
+
+  encapsulated function primary "Evaluate primary of an expression"
       import Modelica.Math;
       import Modelica.Constants;
       import Modelica.Utilities.Types;
@@ -123,30 +123,30 @@ The following operations are supported (pi=3.14.. is a predefined constant):
       import Modelica.Utilities.Examples.expression;
       import Modelica.Icons;
     extends Icons.Function;
-      
+
     input String string;
     input Integer startIndex;
     input String message="";
     output Real result;
     output Integer nextIndex;
-    protected 
+    protected
     Types.TokenValue token;
     Real result2;
     String delimiter;
     String functionName;
     Real pi = Constants.pi;
-  algorithm 
+  algorithm
     (token,nextIndex) := scanToken(string, startIndex,unsigned=true);
     if token.tokenType == Types.TokenType.DelimiterToken and token.string == "(" then
       (result,nextIndex) := expression(string, nextIndex,message);
       (delimiter,nextIndex) := scanDelimiter(string,nextIndex,{")"}, message);
-        
+
     elseif token.tokenType == Types.TokenType.RealToken then
       result := token.real;
-        
+
     elseif token.tokenType == Types.TokenType.IntegerToken then
       result := token.integer;
-        
+
     elseif token.tokenType == Types.TokenType.IdentifierToken then
       if token.string == "pi" then
          result := pi;
@@ -172,27 +172,27 @@ The following operations are supported (pi=3.14.. is a predefined constant):
                                            message);
          end if;
       end if;
-        
+
     else
       syntaxError(string, startIndex, "Invalid primary of expression.\n" + message);
     end if;
   end primary;
-    
+
     Real result2;
     String signOfNumber;
     Boolean scanning=true;
     String operator;
-  algorithm 
+  algorithm
     // scan for optional leading "+" or "-" sign
     (signOfNumber, nextIndex) :=Strings.scanDelimiter(
                                      string, startIndex, {"+","-",""}, message);
-    
+
     // scan for "term + term" or "term - term"
     (result, nextIndex) := term(string, nextIndex, message);
     if signOfNumber == "-" then
        result := -result;
     end if;
-    
+
     while scanning loop
       (operator, nextIndex) := Strings.scanDelimiter(
                                       string, nextIndex, {"+","-",""}, message);
@@ -213,7 +213,7 @@ The following operations are supported (pi=3.14.. is a predefined constant):
 <p>
 This function is nearly the same as Examples.<b>calculator</b>.
 The essential difference is that function \"expression\" might be
-used in other parsing operations: After the expression is 
+used in other parsing operations: After the expression is
 parsed and evaluated, the function returns with the value
 of the expression as well as the position of the character
 directly after the expression.
@@ -276,14 +276,14 @@ function can be used as part of another scan operation.
 </pre></blockquote>
 </html>"));
   end expression;
-  
-  function readRealParameter "Read the value of a Real parameter from file" 
+
+  function readRealParameter "Read the value of a Real parameter from file"
     import Modelica.Utilities.*;
     extends Modelica.Icons.Function;
     input String fileName "Name of file";
     input String name "Name of parameter";
     output Real result "Actual value of parameter on file";
-  protected 
+  protected
     String line;
     String identifier;
     String delimiter;
@@ -294,9 +294,9 @@ function can be used as part of another scan operation.
     String message2;
     Boolean found = false;
     Boolean endOfFile=false;
-  algorithm 
+  algorithm
    (line, endOfFile) :=Streams.readLine(fileName, iline);
-    
+
     while not found and not endOfFile loop
       (token, nextIndex) := Strings.scanToken(line);
        if token.tokenType == Types.TokenType.NoToken then
@@ -319,11 +319,11 @@ function can be used as part of another scan operation.
           // wrong token
           Strings.syntaxError(line, nextIndex, "Expected identifier " + message + String(iline));
        end if;
-      
+
        // read next line
        (line, endOfFile) :=Streams.readLine(fileName, iline);
     end while;
-    
+
     if not found then
        Streams.error("Parameter \"" + name + "\" not found in file \"" + fileName + "\"");
     end if;
@@ -340,7 +340,7 @@ performs the following actions:
 </p>
 <ol>
 <li> It opens file \"fileName\" and reads the lines of the file.</li>
-<li> In every line, Modelica line comments (\"// ... end-of-line\") 
+<li> In every line, Modelica line comments (\"// ... end-of-line\")
      are skipped </li>
 <li> If a line consists of \"name = expression\" and the \"name\"
      in this line is identical to the second argument \"name\"
@@ -358,7 +358,7 @@ On file \"test.txt\" the following lines might be present:
 // Motor data
 J        = 2.3     // inertia
 w_rel0   = 1.5*2;  // relative angular velocity
-phi_rel0 = pi/3    
+phi_rel0 = pi/3
 </pre></blockquote>
 <p>
 The function returns the value \"3.0\" when called as:
@@ -368,19 +368,19 @@ readRealParameter(\"test.txt\", \"w_rel0\")
 </pre></blockquote>
 </html>"));
   end readRealParameter;
-  
-  model readRealParameterModel 
-    "Demonstrate usage of Examples.readRealParameter/.expression" 
+
+  model readRealParameterModel
+    "Demonstrate usage of Examples.readRealParameter/.expression"
     import SI = Modelica.SIunits;
     extends Modelica.Icons.Example;
-    
-    parameter String file = classDirectory() + "data/Examples_readRealParameters.txt" 
+
+    parameter String file = classDirectory() + "data/Examples_readRealParameters.txt"
       "File on which data is present";
     parameter SI.Inertia J =              readRealParameter(file, "J");
     parameter SI.Angle phi_rel0 =         readRealParameter(file, "phi_rel0");
     parameter SI.AngularVelocity w_rel0 = readRealParameter(file, "w_rel0");
-  equation 
-    
+  equation
+
     annotation (preferedView="info",Documentation(info="<html>
 <p>
 Model that shows the usage of Examples.readRealParameter and Examples.expression.

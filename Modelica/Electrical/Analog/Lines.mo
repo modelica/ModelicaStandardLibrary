@@ -1,8 +1,8 @@
-package Lines 
-  "Lossy and lossless segmented transmission lines, and LC distributed line models" 
-  
+package Lines
+  "Lossy and lossless segmented transmission lines, and LC distributed line models"
+
   extends Modelica.Icons.Library;
-  
+
   annotation(preferedView="info",
     Window(
       x=0.03,
@@ -25,9 +25,9 @@ and LC distributed line models.
 <dd>
 <a href=\"http://people.eas.iis.fhg.de/Christoph.Clauss/\">Christoph Clau&szlig;</a>
     &lt;<a href=\"mailto:clauss@eas.iis.fhg.de\">clauss@eas.iis.fhg.de</a>&gt;<br>
-    <a href=\"http://people.eas.iis.fhg.de/Joachim.Haase/\">Joachim Haase;</a> 
+    <a href=\"http://people.eas.iis.fhg.de/Joachim.Haase/\">Joachim Haase;</a>
     &lt;<a href=\"mailto:haase@eas.iis.fhg.de\">haase@eas.iis.fhg.de</a>&gt;<br>
-    <a href=\"http://people.eas.iis.fhg.de/Andre.Schneider/\">Andr&eacute; Schneider</a> 
+    <a href=\"http://people.eas.iis.fhg.de/Andre.Schneider/\">Andr&eacute; Schneider</a>
     &lt;<a href=\"mailto:schneider@eas.iis.fhg.de\">schneider@eas.iis.fhg.de</a>&gt;<br>
     Fraunhofer Institute for Integrated Circuits<br>
     Design Automation Department<br>
@@ -45,8 +45,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 <p>
 </dl>
 </html>"));
-  
-  model OLine "Lossy Transmission Line" 
+
+  model OLine "Lossy Transmission Line"
     //extends Interfaces.ThreePol;
     Interfaces.Pin p1 annotation (extent=[-110, -10; -90, 10]);
     Interfaces.Pin p2 annotation (extent=[90, -10; 110, 10]);
@@ -67,10 +67,10 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     parameter Real c(
       final min=Modelica.Constants.small,
       unit="F/m") = 1 "Capacitance per meter";
-    parameter SI.Length length(final min=Modelica.Constants.small) = 1 
+    parameter SI.Length length(final min=Modelica.Constants.small) = 1
       "Length of line";
     parameter Integer N(final min=1) = 1 "Number of lumped segments";
-  protected 
+  protected
     Basic.Resistor R[N + 1](R=fill(r*length/(N + 1), N + 1));
     Basic.Inductor L[N + 1](L=fill(l*length/(N + 1), N + 1));
     Basic.Capacitor C[N](C=fill(c*length/(N), N));
@@ -133,7 +133,7 @@ Lossy Transmission Line.
         y=0.07,
         width=0.6,
         height=0.6));
-  equation 
+  equation
     v13 = p1.v - p3.v;
     v23 = p2.v - p3.v;
     i1 = p1.i;
@@ -150,8 +150,8 @@ Lossy Transmission Line.
     connect(R[N + 1].n, L[N + 1].p);
     connect(L[N + 1].n, p2);
   end OLine;
-  
-  model ULine "Lossy RC Line" 
+
+  model ULine "Lossy RC Line"
     //extends Interfaces.ThreePol;
     Interfaces.Pin p1 annotation (extent=[-110, -10; -90, 10]);
     Interfaces.Pin p2 annotation (extent=[90, -10; 110, 10]);
@@ -166,10 +166,10 @@ Lossy Transmission Line.
     parameter Real c(
       final min=Modelica.Constants.small,
       unit="F/m") = 1 "Capacitance per meter";
-    parameter SI.Length length(final min=Modelica.Constants.small) = 1 
+    parameter SI.Length length(final min=Modelica.Constants.small) = 1
       "Length of line";
     parameter Integer N(final min=1) = 1 "Number of lumped segments";
-  protected 
+  protected
     Basic.Resistor R[N + 1](R=fill(r*length/(N + 1), N + 1));
     Basic.Capacitor C[N](C=fill(c*length/(N), N));
     annotation (
@@ -229,7 +229,7 @@ lumped segments.
         Line(points=[30, 30; -30, 30]),
         Line(points=[-30, 40; -30, 20]),
         Line(points=[30, 40; 30, 20])));
-  equation 
+  equation
     v13 = p1.v - p3.v;
     v23 = p2.v - p3.v;
     i1 = p1.i;
@@ -246,16 +246,16 @@ lumped segments.
     end for;
     connect(R[N + 1].n, p2);
   end ULine;
-  
-   model TLine1 
-    "Lossless transmission line with characteristic impedance Z0 and transmission delay TD" 
-    
+
+   model TLine1
+    "Lossless transmission line with characteristic impedance Z0 and transmission delay TD"
+
     extends Modelica.Electrical.Analog.Interfaces.TwoPort;
-    
+
     parameter Modelica.SIunits.Resistance Z0=1 "Characteristic impedance";
     parameter Modelica.SIunits.Time TD=1 "Transmission delay";
-    
-  protected 
+
+  protected
     Modelica.SIunits.Voltage er;
     Modelica.SIunits.Voltage es;
     annotation (
@@ -266,7 +266,7 @@ Lossless transmission line with characteristic impedance Z0 and transmission del
   consist of a resistor with characteristic impedance Z0 and a controled voltage
   source that takes into consideration the transmission delay TD.
   For further details see Branin's article below.
-  The model parameters can be derived from inductance and 
+  The model parameters can be derived from inductance and
   capacitance per length (L' resp. C'), i. e.
   Z0 = sqrt(L'/C') and TD = sqrt(L'*C')*length_of_line. Resistance R'
   and conductance C' per meter are assumed to be zero.
@@ -327,27 +327,27 @@ Lossless transmission line with characteristic impedance Z0 and transmission del
         y=0.01,
         width=0.51,
         height=0.83));
-   equation 
-    
+   equation
+
     assert(Z0 > 0, "Z0 has to be positive");
     assert(TD > 0, "TD has to be positive");
     i1 = (v1 - es)/Z0;
     i2 = (v2 - er)/Z0;
     es = 2*delay(v2, TD) - delay(er, TD);
     er = 2*delay(v1, TD) - delay(es, TD);
-    
+
    end TLine1;
-  
-  model TLine2 
-    "Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL" 
-    
+
+  model TLine2
+    "Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL"
+
     extends Modelica.Electrical.Analog.Interfaces.TwoPort;
-    
+
     parameter Modelica.SIunits.Resistance Z0=1 "Characteristic impedance";
     parameter Modelica.SIunits.Frequency F=1 "Frequency";
     parameter Real NL=1 "Normalized length";
-    
-  protected 
+
+  protected
     Modelica.SIunits.Voltage er;
     Modelica.SIunits.Voltage es;
     Modelica.SIunits.Time TD;
@@ -356,13 +356,13 @@ Lossless transmission line with characteristic impedance Z0 and transmission del
 <p>
 Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL
   The lossless transmission line TLine2 is a two Port. Both port branches
-  consist of a resistor with the value of the characteristic impedance Z0 
-  and a controled voltage source that takes into consideration 
+  consist of a resistor with the value of the characteristic impedance Z0
+  and a controled voltage source that takes into consideration
   the transmission delay.
   For further details see Branin's article below.
   Resistance R' and conductance C' per meter are assumed to be zero.
-  The characteristic impedance Z0 can be derived from inductance and 
-  capacitance per length (L' resp. C'), i. e. Z0 = sqrt(L'/C').   
+  The characteristic impedance Z0 can be derived from inductance and
+  capacitance per length (L' resp. C'), i. e. Z0 = sqrt(L'/C').
   The normalized length NL is equal to the length of the line divided
   by the wavelength corresponding to the frequency F, i. e. the
   transmission delay TD is the quotient of NL and F.
@@ -422,8 +422,8 @@ Lossless transmission line with characteristic impedance Z0, frequency F and nor
         y=0.03,
         width=0.78,
         height=0.89));
-  equation 
-    
+  equation
+
     assert(Z0 > 0, "Z0 has to be positive");
     assert(NL > 0, "NL has to be positive");
     assert(F > 0, "F  has to be positive");
@@ -432,18 +432,18 @@ Lossless transmission line with characteristic impedance Z0, frequency F and nor
     i2 = (v2 - er)/Z0;
     es = 2*delay(v2, TD) - delay(er, TD);
     er = 2*delay(v1, TD) - delay(es, TD);
-    
+
   end TLine2;
-  
-  model TLine3 
-    "Lossless transmission line with characteristic impedance Z0 and frequency F" 
-    
+
+  model TLine3
+    "Lossless transmission line with characteristic impedance Z0 and frequency F"
+
     extends Modelica.Electrical.Analog.Interfaces.TwoPort;
-    
+
     parameter Modelica.SIunits.Resistance Z0=1 "Natural impedance";
     parameter Modelica.SIunits.Frequency F=1 "Frequency";
-    
-  protected 
+
+  protected
     Modelica.SIunits.Voltage er;
     Modelica.SIunits.Voltage es;
     Modelica.SIunits.Time TD;
@@ -452,13 +452,13 @@ Lossless transmission line with characteristic impedance Z0, frequency F and nor
 <p>
 Lossless transmission line with characteristic impedance Z0 and frequency F
   The lossless transmission line TLine3 is a two Port. Both port branches
-  consist of a resistor with value of the characteristic impedance Z0 
-  and a controled voltage source that takes into consideration 
+  consist of a resistor with value of the characteristic impedance Z0
+  and a controled voltage source that takes into consideration
   the transmission delay.
   For further details see Branin's article below.
   Resistance R' and conductance C' per meter are assumed to be zero.
-  The characteristic impedance Z0 can be derived from inductance and 
-  capacitance per length (L' resp. C'), i. e. Z0 = sqrt(L'/C').   
+  The characteristic impedance Z0 can be derived from inductance and
+  capacitance per length (L' resp. C'), i. e. Z0 = sqrt(L'/C').
   The length of the line is equal to a quarter of the wavelength
   corresponding to the frequency F, i. e. the
   transmission delay is the quotient of 4 and F.
@@ -519,8 +519,8 @@ Lossless transmission line with characteristic impedance Z0 and frequency F
         y=0,
         width=0.7,
         height=0.92));
-  equation 
-    
+  equation
+
     assert(Z0 > 0, "Z0 has to be positive");
     assert(F > 0, "F  has to be positive");
     TD = 1/F/4;
@@ -528,6 +528,6 @@ Lossless transmission line with characteristic impedance Z0 and frequency F
     i2 = (v2 - er)/Z0;
     es = 2*delay(v2, TD) - delay(er, TD);
     er = 2*delay(v1, TD) - delay(es, TD);
-    
+
   end TLine3;
 end Lines;

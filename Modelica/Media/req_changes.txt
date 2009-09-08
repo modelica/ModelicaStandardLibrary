@@ -120,45 +120,45 @@ each single medium model the task to declare its own state variables, as
 it's done with media extending PartialMedium.
 ---
 Date submitted: 17 Jan 2005 by: Francesco Casella
-Assigned to: None 
+Assigned to: None
 Testing assigned to: None
 Date fixed:  by: None
 ---
 
-12. 
+12.
 Modelica_Media.Interfaces.PartialMixtureMedium.BaseProperties.MM
 This is surely needed for ideal gas mixtures, but maybe not for other
 models (e.g. for liquid mixtures). Same cure, remove from here and add
 to IdealGas.MixtureGasNasa.* models.
 ---
 Date submitted: 17 Jan 2005 by: Francesco Casella
-Assigned to: None 
+Assigned to: None
 Testing assigned to: None
 Date fixed:  by: None
 ---
 
 13.
 Modelica_Media.Interfaces.PartialMixtureMedium.BaseProperties.h_component[]
-Externally supplied media models (e.g. foreign C models) could supply the total 
-mixture enthalpy h, but not the componentwise enthalpy. It is of course possible 
-to set them to zero, but maybe it's better to remove this from the standard 
+Externally supplied media models (e.g. foreign C models) could supply the total
+mixture enthalpy h, but not the componentwise enthalpy. It is of course possible
+to set them to zero, but maybe it's better to remove this from the standard
 interface and to add it to gas mixture models as well.
 ---
 Date submitted: 17 Jan 2005 by: Francesco Casella
-Assigned to: None 
+Assigned to: None
 Testing assigned to: None
 Date fixed:  by: None
 ---
 
 14.
-Component molar masses in current IdealGases NASA models are contained 
-in the package "data" record. Unfortunately, this datum, which can be 
-important when dealing with chemical reactions, is not included in any 
+Component molar masses in current IdealGases NASA models are contained
+in the package "data" record. Unfortunately, this datum, which can be
+important when dealing with chemical reactions, is not included in any
 generic medium interfaces. I'd suggest adding it to the PartialMixtureMedium
 interface.
 ---
 Date submitted: 17 Jan 2005 by: Francesco Casella
-Assigned to: None 
+Assigned to: None
 Testing assigned to: None
 Date fixed:  by: None
 ---
@@ -174,7 +174,7 @@ o Introduced "MM_const" in PartialSimpleMedium
 o Set MM_const=18.016e-3 for ConstantPropertyLiquidWater
 ---
 Date submitted: 21 Jan 2005 by: Martin Otter
-Assigned to: None 
+Assigned to: None
 Testing assigned to: None
 Date fixed:  by: Martin Otter
 
@@ -200,7 +200,7 @@ In PartialMedium
     constant String extraPropertiesNames[:]= fill("",0) "Names of ... Set extraPropertiesNames=fill(\"\",0) if unused";
     constant Boolean incompressible "= true, if medium is incompressible (i.e., density = constant)";
     constant Integer nX =  if size(substanceNames, 1) > 1 then size(substanceNames, 1) else 0;
-    constant MassFraction referenceX[nX] "Default composition of medium"; 
+    constant MassFraction referenceX[nX] "Default composition of medium";
     constant Integer nC =  size(extraPropertiesNames,1) ;
     constant AbsolutePressure p_reference = 101325 "reference pressure of Medium: default 1 atmosphere";
 
@@ -243,7 +243,7 @@ particularly "good" property databases comes at 36 000 Euro/year
 
 Obviously the best solution would be to completely separate the data
 from the model, and query the data on demand from a database (unless
-you run embedded of course). 
+you run embedded of course).
 
 A solution that takes this situation into account should at least do
 the following:
@@ -285,7 +285,7 @@ query what data is available for all of the mixture constituents and
 based on that, the best possible method for computing properties is
 selected. In the current situation that woudl mean: only when critical
 data and dipole moments of all species in a mixture are known can the
-viscosity be computed. 
+viscosity be computed.
 
 Now that there are a number of string parsing functions in
 Modelica_Utilities, the critical data could be stored on file as a
@@ -294,12 +294,12 @@ necessary as we get access to more data.
 
 The goal is, that this could even work with external data, using a
 user-supplied query function. The casRegistryNumber is the simplest
-generally accepted identifier for a substance. 
+generally accepted identifier for a substance.
 
 I would at least like to be able to compute viscosities and thermal
 conductivity for the most important technical gases, i.e. combustion
 poducts, natural gas mixtures, gaseous fuels, refrigerants, ... for the 1.0
-release. 
+release.
 
 Date submitted: 27 Jan 2005 by: Hubertus
 
@@ -310,7 +310,7 @@ Martin Feb. 22 2005:
 
 Results of Modelica_Media.Examples.Tests
 
-- Models that are satisfactorily (they simulate, 
+- Models that are satisfactorily (they simulate,
   static state selection and no non-linear system of equations)
     Modelica_Media.Examples.Tests.MediaTestModels.Air.SimpleAir
     Modelica_Media.Examples.Tests.MediaTestModels.IdealGases.SimpleNaturalGas
@@ -333,7 +333,7 @@ Results of Modelica_Media.Examples.Tests
 
   o Modelica_Media.Examples.Tests.MediaTestModels.Water.WaterIF97_pT
       two non-linear systems of equations of size 1 each
- 
+
   o Modelica_Media.Examples.Tests.MediaTestModels.Water.WaterIF97_dT
       three non-linear systems of equations of size {1,2,2}
 
@@ -373,4 +373,4 @@ Results of Modelica_Media.Examples.Tests
 
   o PartialMixtureMedium has "p" as ThermodynamicState.
     This is not true for incompressible mixtures.
-    Probably best to remove redeclaration of ThermodynamicState 
+    Probably best to remove redeclaration of ThermodynamicState

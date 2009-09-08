@@ -1,7 +1,7 @@
 package Modelica "Modelica Standard Library"
-extends Icons.Library; 
+extends Icons.Library;
 
- 
+
 annotation(preferedView="info",
   Window(
     x=0.02,
@@ -30,15 +30,15 @@ that is developed together with the Modelica language from the
 Modelica Association, see
 <a href=\"http://www.Modelica.org\">http://www.Modelica.org</a>.
 It is also called <b>Modelica Standard Library</b>.
-It provides model components in many domains that are based on 
+It provides model components in many domains that are based on
 standardized interface definitions. Some typical examples are shown
 in the next figure:
 </p>
- 
+
 <p>
 <img src=\"../Images/UsersGuide/ModelicaLibraries.png\">
 </p>
- 
+
 <p>
 For an introduction, have especially a look at:
 </p>
@@ -51,26 +51,26 @@ For an introduction, have especially a look at:
 <li> Packages <b>Examples</b> in the various subpackages, demonstrate
      how to use the components of the corresponding sublibrary.</li>
 </ul>
- 
+
 <p>
 Copyright &copy; 1998-2006, Modelica Association.
 </p>
 <p>
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> 
+and the accompanying <b>disclaimer</b>
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
 </p><br>
 </HTML>
 ", revisions="<html>
 <p>
                 <em>Note</em>: This version of the Modelica Standard Library is the maintenance branch
-                of version 2.2.1 and contains minor changes compared to the first version of 2.2.1 as released by the Modelica Association. 
+                of version 2.2.1 and contains minor changes compared to the first version of 2.2.1 as released by the Modelica Association.
 We strongly recommend that you use this version instead of the original one, or the development branch,
 unless you have very good reasons to use a different version.
 </p>
 <p>
-All corrections have either been made available by Dynasim to the Modelica Association 
+All corrections have either been made available by Dynasim to the Modelica Association
 or made by the Modelica Association.
 </p>
 <p>
@@ -82,34 +82,34 @@ the expression is non-smooth for changes in y.
 </li>
 <li>Several models in the <a href=\"Modelica://Modelica.Electrical.Digital\">Digital</a>
 library have been rewritten for better performance, without modifying the behaviour.
-<li>The examples <a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6\">EngineV6</a> and 
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6_analytic\">EngineV6_analytic</a> 
+<li>The examples <a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6\">EngineV6</a> and
+<a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6_analytic\">EngineV6_analytic</a>
 have more realistic crank-angles and load.</li>
-<li>The <a href=\"Modelica://Modelica.Mechanics.MultiBody.Parts.PointMass\">PointMass</a> 
+<li>The <a href=\"Modelica://Modelica.Mechanics.MultiBody.Parts.PointMass\">PointMass</a>
 model will generate appropriate diagnostics if used as a root, and lowered priority of it becoming root.
 </li>
-<li>The <a href=\"Modelica://Modelica.Mechanics.MultiBody.Frames.Orientation.equalityConstraint\">equalityConstraint</a> 
+<li>The <a href=\"Modelica://Modelica.Mechanics.MultiBody.Frames.Orientation.equalityConstraint\">equalityConstraint</a>
 function has been improved to avoid spurious solutions for closed kinematic loops.
 </li>
-<li>Base class 
-<a href=\"Modelica://Modelica.Media.Interfaces.PartialSimpleIdealGasMedium\">PartialSimpleIdealGasMedium</a> 
+<li>Base class
+<a href=\"Modelica://Modelica.Media.Interfaces.PartialSimpleIdealGasMedium\">PartialSimpleIdealGasMedium</a>
 has correct equation for cv_const.</li>
-<li>A new type <a href=\"Modelica://Modelica.SIunits.TemperatureDifference\">TemperatureDifference</a> 
+<li>A new type <a href=\"Modelica://Modelica.SIunits.TemperatureDifference\">TemperatureDifference</a>
 is introduced and used to distinguish between absolute temperatures and temperature differences.</li>
 <li>Several minor corrections and added functions for Media, in particular:</li>
 <ul>
-<li>Better start values for iterations in 
+<li>Better start values for iterations in
 <a href=\"Modelica://Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofps3\">dtofps3</a>.</li>
 <li>ReferenceX is added as default input for X in functions taking mixture in
 <a href=\"Modelica://Modelica.Media.Interfaces.PartialMedium\">PartialMedium</a>
 and <a href=\"Modelica://Modelica.Media.Air.MoistAir\">MoistAir</a>
-and instead of empty input in 
+and instead of empty input in
 <a href=\"Modelica://Modelica.Media.Interfaces.PartialSimpleIdealGasMedium\">PartialSimpleIdealGasMedium</a>
 and <a href=\"Modelica://Modelica.Media.IdealGases.Common.SingleGasNasa\">SingleGasNasa</a>.
 </li>
-<li>Correct call of underlying function in 
-<a href=\"Modelica://Modelica.Media.Interfaces.PartialPureSubstance.pressure_dT\">pressure_dT</a>, 
-<a href=\"Modelica://Modelica.Media.Interfaces.PartialPureSubstance.specificEnthalpy_dT\">specificEnthalpy_dT</a>, 
+<li>Correct call of underlying function in
+<a href=\"Modelica://Modelica.Media.Interfaces.PartialPureSubstance.pressure_dT\">pressure_dT</a>,
+<a href=\"Modelica://Modelica.Media.Interfaces.PartialPureSubstance.specificEnthalpy_dT\">specificEnthalpy_dT</a>,
 <a href=\"Modelica://Modelica.Media.Interfaces.PartialTwoPhaseMedium.pressure_dT\">pressure_dT</a>, and
 <a href=\"Modelica://Modelica.Media.Interfaces.PartialTwoPhaseMedium.specificEnthalpy_dT\">specificEnthalpy_dT</a>.
 </li>
@@ -119,15 +119,15 @@ and <a href=\"Modelica://Modelica.Media.IdealGases.Common.SingleGasNasa\">Single
 Several corrections in <a href=\"Modelica://Modelica.Media.Common.ThermoFluidSpecial\">ThermoFluidSpecial</a>
 </li>
 </ul>
-<li>Several minor errors in units for variables have been corrected. 
+<li>Several minor errors in units for variables have been corrected.
 The unit-checking has also detected several of the issues above.</li>
 </ul>
 </p>
 </html>"));
 
 
-package UsersGuide "Users Guide" 
-  
+package UsersGuide "Users Guide"
+
   annotation (DocumentationClass=true, Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Users Guide of the Modelica Standard Library</font></h3>
 <p>
@@ -140,7 +140,7 @@ It provides constants, types, connectors, partial models and model
 components in various disciplines.
 </p>
 <p>
-This package contains a short <b>users guide</b> for 
+This package contains a short <b>users guide</b> for
 the overall library. Some of the main sublibraries have their own
 users guides that can be accessed by the following links:
 </p>
@@ -148,7 +148,7 @@ users guides that can be accessed by the following links:
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td><a href=\"Modelica://Modelica.Electrical.Digital.UsersGuide\">Digital</a><
              </td>
-      <td>Library for digital electrical components based on the VHDL standard 
+      <td>Library for digital electrical components based on the VHDL standard
          (2-,3-,4-,9-valued logic)\"</td>
   </tr>
   <tr><td><a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide\">MultiBody</a>
@@ -182,14 +182,14 @@ users guides that can be accessed by the following links:
 </table>
 
 </html>"));
-  
-  class Connectors "Connectors" 
-    
+
+  class Connectors "Connectors"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Connectors</font></h3>
 <p>
-The Modelica standard library defines the most important 
-<b>elementary connectors</b> in various domains. If any possible, 
+The Modelica standard library defines the most important
+<b>elementary connectors</b> in various domains. If any possible,
 a user should utilize these connectors in order that components
 from the Modelica Standard Library and from other libraries
 can be combined without problems. The following elementary
@@ -197,14 +197,14 @@ connectors are defined (potential variables are connector variables
 without the flow attribute, flow variables are connector variables
 that have the flow attribute):
 </p>
- 
+
 <table border=1 cellspacing=0 cellpadding=1>
   <tr><td><b>domain</b></td>
       <td><b>pot. variables</b></td>
       <td><b>flow variables</b></td>
       <td><b>connector definition</b></td>
       <td><b>icons</b></td></tr>
- 
+
   <tr><td><b>electrical<br>analog</b></td>
       <td>electrical potential</td>
       <td>electrical current</td>
@@ -217,28 +217,28 @@ that have the flow attribute):
       <td><a href=\"Modelica://Modelica.Electrical.MultiPhase.Interfaces\">Modelica.Electrical.MultiPhase.Interfaces</a>
            <br>Plug, PositivePlug, NegativePlug</td>
       <td><img src=\"../Images/UsersGuide/ElectricalPlugs.png\"></td></tr>
-  
+
   <tr><td><b>electrical <br>sphace phasor</b></td>
       <td>2 electrical potentials</td>
       <td>2 electrical currents</td>
       <td><a href=\"Modelica://Modelica.Electrical.Machines.Interfaces\">Modelica.Electrical.Machines.Interfaces</a>
            <br>SpacePhasor</td>
       <td><img src=\"../Images/UsersGuide/SpacePhasor.png\"></td></tr>
-  
+
   <tr><td><b>electrical <br>digital</b></td>
       <td>Integer (1..9)</td>
       <td>---</td>
       <td><a href=\"Modelica://Modelica.Electrical.Digital.Interfaces\">Modelica.Electrical.Digital.Interfaces</a>
            <br>DigitalSignal, DigitalInput, DigitalOutput</td>
       <td><img src=\"../Images/UsersGuide/Digital.png\"></td></tr>
-  
+
   <tr><td><b>translational</b></td>
       <td>distance</td>
       <td>cut-force</td>
       <td><a href=\"Modelica://Modelica.Mechanics.Translational.Interfaces\">Modelica.Mechanics.Translational.Interfaces</a>
            <br>Flange_a, Flange_b</td>
       <td><img src=\"../Images/UsersGuide/TranslationalFlanges.png\"></td></tr>
- 
+
   <tr><td><b>rotational</b></td>
       <td>angle</td>
       <td>cut-torque</td>
@@ -270,7 +270,7 @@ that have the flow attribute):
       <td><a href=\"Modelica://Modelica.Thermal.HeatTransfer.Interfaces\">Modelica.Thermal.HeatTransfer.Interfaces</a>
            <br>HeatPort, HeatPort_a, HeatPort_b</td>
       <td><img src=\"../Images/UsersGuide/ThermalHeatPorts.png\"></td></tr>
- 
+
   <tr><td><b>block<br>diagram</b></td>
       <td>Real variable<br>
           Integer variable<br>
@@ -291,7 +291,7 @@ that have the flow attribute):
            <br>Step_in, Step_out, Transition_in, Transition_out</td>
       <td><img src=\"../Images/UsersGuide/StateGraphPorts.png\"></td></tr>
 
-  <tr><td colspan=\"5\">&nbsp;<br><b>Connectors from libraries that will be included in one of 
+  <tr><td colspan=\"5\">&nbsp;<br><b>Connectors from libraries that will be included in one of
                                    the next releases of package Modelica</b></td></tr>
 
   <tr><td><b>thermo<br>fluid flow</b></td>
@@ -338,8 +338,8 @@ component.
 </p>
 
 <p>
-Modelica supports also hierarchical connectors, in a similar way as hierarchical models. 
-As a result, it is, e.g., possible, to collect elementary connectors together. 
+Modelica supports also hierarchical connectors, in a similar way as hierarchical models.
+As a result, it is, e.g., possible, to collect elementary connectors together.
 For example, an electrical plug consisting of two electrical pins can be defined as:
 </p>
 
@@ -351,9 +351,9 @@ For example, an electrical plug consisting of two electrical pins can be defined
 </pre>
 
 <p>
-With one connect(..) equation, either two plugs can be connected 
-(and therefore implicitly also the phase and ground pins) or a 
-Pin connector can be directly connected to the phase or ground of 
+With one connect(..) equation, either two plugs can be connected
+(and therefore implicitly also the phase and ground pins) or a
+Pin connector can be directly connected to the phase or ground of
 a Plug connector, such as \"connect(resistor.p, plug.phase)\".
 </p>
 
@@ -361,9 +361,9 @@ a Plug connector, such as \"connect(resistor.p, plug.phase)\".
 </html>
 "));
   end Connectors;
-  
-  class Conventions "Conventions" 
-    
+
+  class Conventions "Conventions"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Conventions</font></h3>
 
@@ -379,14 +379,14 @@ In the Modelica package the following conventions are used:
 <li> <b>Class names</b> start always with an upper case letter.<br>&nbsp;</li>
 
 <li> <b>Instance names</b>, i.e., names of component instances and
-     of variables (with the exception of constants), 
+     of variables (with the exception of constants),
      start usually with a lower case letter with only
-     a few exceptions if this is common sense 
+     a few exceptions if this is common sense
      (such as \"T\" for a temperature variable).<br>&nbsp;</li>
 
 <li> <b>Constant names</b>, i.e., names of variables declared with the
-     \"constant\" prefix, follow the usual naming conventions 
-     (= upper and lower case letters) and start usually with an 
+     \"constant\" prefix, follow the usual naming conventions
+     (= upper and lower case letters) and start usually with an
      upper case letter, e.g. UniformGravity, SteadyState.<br>&nbsp;<li>
 
 <li> The two connectors of a domain that have identical declarations
@@ -403,11 +403,11 @@ In the Modelica package the following conventions are used:
 <li> A main package has usually the following subpackages:
      <ul>
      <li><b>UsersGuide</b> containing an overall description of the library
-         and how to use it.</li>  
+         and how to use it.</li>
      <li><b>Examples</b> containing models demonstrating the
-         usage of the library.</li>  
+         usage of the library.</li>
      <li><b>Interfaces</b> containing connectors and partial
-         models.</li>  
+         models.</li>
      <li><b>Types</b> containing type, enumeration and choice
          definitions.</li>
      </ul>
@@ -432,14 +432,14 @@ are emulated with packages and constants. For example, the enumeration
 is emulated in the following way:
 </p>
 
-<pre>   <b>package</b>  Init \"Enumeration emulation\" 
+<pre>   <b>package</b>  Init \"Enumeration emulation\"
       <b>extends</b>  Modelica.Icons.Enumeration;
-  
+
       <b>constant</b>  Integer NoInit=1;
       <b>constant</b>  Integer InitializeStates=2;
       <b>constant</b>  Integer SteadyState=3;
-  
-      <b>type</b>  Temp  
+
+      <b>type</b>  Temp
          <b>extends</b>  Modelica.Icons.TypeInteger;
          <b>annotation</b>  (choices(
              choice=Init.NoInit           \"NoInit (no initialization)\",
@@ -453,9 +453,9 @@ is emulated in the following way:
 </html>
 "));
   end Conventions;
-  
-  class ReleaseNotes "Release notes" 
-    
+
+  class ReleaseNotes "Release notes"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Release notes</font></h3>
 <p>
@@ -473,25 +473,25 @@ on the Modelica standard library.
 </ul>
 </html>
 "));
-    
-  class Version_2_2_1 "Version 2.2.1" 
-      
+
+  class Version_2_2_1 "Version 2.2.1"
+
       annotation (Documentation(info="<html>
 <h3><font color=\"#008000\">Version 2.2.1</font></h3>
 <p>
 Version 2.2.1 is backward compatible to version 2.2.
 </p>
- 
+
 <p>
 In this version, <b>no</b> new libraries have been added.
 The following major improvements have been made:
 </p>
- 
+
 <ul>
 <li> The <b>Documentation</b> of the Modelica standard library was
      considerably improved:<br>
      In Dymola 6, the new feature was introduced to automatically add tables
-     for class content and component interface definitions (parameters and 
+     for class content and component interface definitions (parameters and
      connectors) to the info layer. For this reason, the corresponding (partial)
      tables previously present in the Modelica Standard Library have been
      removed. The new feature of Dymola 6 has the significant advantage that
@@ -519,11 +519,11 @@ The following major improvements have been made:
      implemented in a robust way for all media (with a few exceptions, if the
      generic function does not make sense for a particular medium).</li>
 </ul>
- 
+
 <p>
 The following <b>new components</b> have been added to <b>existing</b> libraries:
 </p>
- 
+
 <table border=\"1\" cellspacing=0 cellpadding=2>
   <tr><td colspan=\"2\"><b>Modelica.Blocks.Examples.</b></td></tr>
   <tr><td> PID_Controller</td>
@@ -539,20 +539,20 @@ The following <b>new components</b> have been added to <b>existing</b> libraries
       <td> Electrical excited synchronous induction machine with damper cage</td> </tr>
   <tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.BasicMachines.Components.</b></td></tr>
   <tr><td> ElectricalExcitation </td>
-      <td> Electrical excitation for electrical excited synchronous 
+      <td> Electrical excitation for electrical excited synchronous
            induction machines</td> </tr>
   <tr><td> DamperCage</td>
-      <td> Unsymmetrical damper cage for electrical excited synchronous 
+      <td> Unsymmetrical damper cage for electrical excited synchronous
            induction machines. At least the user has to specify the dampers
            resistance and stray inductance in d-axis; if he omits the
-           parameters of the q-axis, the same values as for the d.axis 
+           parameters of the q-axis, the same values as for the d.axis
            are used, assuming a symmetrical damper.</td> </tr>
   <tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.Examples.</b></td></tr>
   <tr><td> SMEE_Gen </td>
-      <td> Test example 7: ElectricalExcitedSynchronousInductionMachine 
+      <td> Test example 7: ElectricalExcitedSynchronousInductionMachine
            as Generator</td> </tr>
   <tr><td> Utilities.TerminalBox</td>
-      <td> Terminal box for three-phase induction machines to choose  
+      <td> Terminal box for three-phase induction machines to choose
            either star (wye) ? or delta ? connection</td> </tr>
 
   <tr><td colspan=\"2\"><b>Modelica.Math.Matrices.</b></td></tr>
@@ -564,21 +564,21 @@ The following <b>new components</b> have been added to <b>existing</b> libraries
   <tr><td> Parts.PointMass</td>
       <td> Point mass, i.e., body where inertia tensor is neglected.</td> </tr>
   <tr><td> Interfaces.FlangeWithBearing</td>
-      <td> Connector consisting of 1-dim. rotational flange and its 
+      <td> Connector consisting of 1-dim. rotational flange and its
            3-dim. bearing frame.</td> </tr>
   <tr><td> Interfaces.FlangeWithBearingAdaptor</td>
-      <td> Adaptor to allow direct connections to the sub-connectors 
+      <td> Adaptor to allow direct connections to the sub-connectors
            of FlangeWithBearing.</td> </tr>
   <tr><td> Types.SpecularCoefficient</td>
       <td> New type to define a specular coefficient.</td> </tr>
   <tr><td> Types.ShapeExtra</td>
       <td> New type to define the extra data for visual shape objects and to
            have a central place for the documentation of this data.</td> </tr>
- 
+
   <tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Examples.Elementary</b></td></tr>
   <tr><td> PointGravityWithPointMasses</td>
       <td> Example of two point masses in a central gravity field.</td> </tr>
- 
+
   <tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.</b></td></tr>
   <tr><td>UsersGuide</td>
       <td> A users guide has been added by using the documentation previously
@@ -586,10 +586,10 @@ The following <b>new components</b> have been added to <b>existing</b> libraries
   <tr><td>Sensors.PowerSensor</td>
       <td> New component to measure the energy flow between two connectors
            of the Rotational library.</td> </tr>
- 
+
   <tr><td colspan=\"2\"><b>Modelica.Mechanics.Translational.</b></td></tr>
   <tr><td>Speed</td>
-      <td> New component to move a translational flange 
+      <td> New component to move a translational flange
            according to a reference speed</td> </tr>
 
   <tr><td colspan=\"2\"><b>Modelica.Media.Interfaces.PartialMedium.</b></td></tr>
@@ -612,15 +612,15 @@ The following <b>new components</b> have been added to <b>existing</b> libraries
   <tr><td> Resistance<br>
            Conductance</td>
       <td> Attribute 'min=0' removed from these types.</td> </tr>
- 
+
   <tr><td colspan=\"2\"><b>Modelica.Thermal.FluidHeatFlow.</b></td></tr>
   <tr><td> Components.Valve</td>
-      <td> Simple controlled valve with either linear or 
+      <td> Simple controlled valve with either linear or
            exponential characteristic.</td> </tr>
   <tr><td> Sources. IdealPump </td>
       <td> Simple ideal pump (resp. fan)  dependent on the shaft?s speed;
-           pressure increase versus volume flow is defined as a linear 
-           function. Torque * Speed = Pressure invrease * Volume flow 
+           pressure increase versus volume flow is defined as a linear
+           function. Torque * Speed = Pressure invrease * Volume flow
            (without losses).</td> </tr>
   <tr><td> Examples.PumpAndValve </td>
       <td> Test example for valves.</td> </tr>
@@ -632,12 +632,12 @@ The following <b>new components</b> have been added to <b>existing</b> libraries
       <td> Cooling of 1 hot mass to test behavior of semiLinear.</td> </tr>
   <tr><td> Examples.TwoMass </td>
       <td> Cooling of 2 hot masses to test behavior of semiLinear.</td> </tr>
-</table> 
- 
+</table>
+
 <p>
 The following <b>components</b> have been improved:
 </p>
- 
+
 <table border=\"1\" cellspacing=0 cellpadding=2>
   <tr><td colspan=\"2\"><b>Modelica.</b></td></tr>
   <tr><td> UsersGuide</td>
@@ -679,15 +679,15 @@ The following <b>components</b> have been improved:
   <tr><td> SM_PermanentMagnetDamperCage<br>
            SM_ElectricalExcitedDamperCage<br>
            SM_ReluctanceRotorDamperCage</td>
-      <td> The user can choose \"DamperCage = false\" (default: true) 
+      <td> The user can choose \"DamperCage = false\" (default: true)
            to remove all equations for the damper cage from the model.</td> </tr>
   <tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines. </b></td></tr>
   <tr><td> AIM_SlipRing</td>
-      <td> Easier parameterization: if the user selects \"useTrunsRatio = false\" 
-           (default: true, this is the same behavior as before), 
-            parameter TurnsRatio is calculated internally from 
+      <td> Easier parameterization: if the user selects \"useTrunsRatio = false\"
+           (default: true, this is the same behavior as before),
+            parameter TurnsRatio is calculated internally from
             Nominal stator voltage and Locked-rotor voltage.</td> </tr>
- 
+
   <tr><td colspan=\"2\"><b>Modelica.Math.Matrices.</b></td></tr>
   <tr><td>leastSquares</td>
       <td>The A matrix in the least squares problem might be rank deficient.
@@ -695,9 +695,9 @@ The following <b>components</b> have been improved:
 
   <tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.</b></td></tr>
   <tr><td>all models</td>
-      <td> <ul> 
+      <td> <ul>
            <li> All components with animation information have a new variable
-                <b>specularCoefficient</b> to define the reflection of ambient light. 
+                <b>specularCoefficient</b> to define the reflection of ambient light.
                 The default value is world.defaultSpecularCoefficient which has
                 a default of 0.7. By changing world.defaultSpecularCoefficient, the
                 specularCoefficient of all components is changed that are not
@@ -716,7 +716,7 @@ The following <b>components</b> have been improved:
                 display the temperature of a part).</li>
            <li> All menus have been changed to follow the Modelica 2.2 annotations
                 \"Dialog, group, tab, enable\" (previously, a non-standard Dymola
-                definition for menus was used). Also, the \"enable\" annotation 
+                definition for menus was used). Also, the \"enable\" annotation
                 is used in all menus
                 to disable input fields if the input would be ignored.</li>
            <li> All visual shapes are now defined with conditional declarations
@@ -733,7 +733,7 @@ The following <b>components</b> have been improved:
 
   <tr><td>Forces.*</td>
       <td> The scaling factors N_to_m and Nm_to_m have no longer a default
-           value of 1000 but a default value of world.defaultN_to_m (=1000) 
+           value of 1000 but a default value of world.defaultN_to_m (=1000)
            and world.defaultNm_to_m (=1000). This allows to change the
            scaling factors for all forces and torques in the world
            object.</td>
@@ -742,7 +742,7 @@ The following <b>components</b> have been improved:
           Interfaces.Frame_resolve</td>
       <td> The Frame connectors are now centered around the origin to ease
            the usage. The shape was changed, such that the icon is a factor
-           of 1.6 larger as a standard icon (previously, the icon had a 
+           of 1.6 larger as a standard icon (previously, the icon had a
            standard size when dragged and then the icon was manually enlarged
            by a factor of 1.5 in the y-direction in the MultiBody library;
            the height of 16 allows easy positioning on the standard grid size of 2).
@@ -751,13 +751,13 @@ The following <b>components</b> have been improved:
            line is dark grey and no longer black which looks better.</td>
   <tr><td>Joints.Assemblies.*</td>
       <td> When dragging an assembly joint, the icon is a factor of 2
-           larger as a standard icon. Icon texts and connectors have a 
+           larger as a standard icon. Icon texts and connectors have a
            standard size in this enlarged icon (and are not a factor of 2
            larger as previously). </td>
   <tr><td>Types.*</td>
       <td> All types have a corresponding icon now to visualize the content
            in the package browser (previously, the types did not have an icon).</td>
- 
+
   <tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.</b></td></tr>
   <tr><td> Inertia</td>
       <td> Initialization and state selection added.</td> </tr>
@@ -779,7 +779,7 @@ The following <b>components</b> have been improved:
   <tr><td> IsolatedPipe <br>
            HeatedPipe</td>
       <td> Added geodetic height as a source of pressure change;
-           feeds friction losses as calculated by simple friction to  
+           feeds friction losses as calculated by simple friction to
            the energy balance of the medium.</td> </tr>
   <tr><td colspan=\"2\"><b>Modelica.Media.Interfaces.PartialMedium.FluidConstants.</b></td></tr>
   <tr><td>HCRIT0</td><td>Critical specifc enthalpy of the fundamental
@@ -797,11 +797,11 @@ The following <b>components</b> have been improved:
   <tr><td>h_default</td><td>Default value for specific enthalpy of medium (for initialization)</td></tr>
   <tr><td>p_default</td><td>Default value for pressure of medium (for initialization)</td></tr>
   <tr><td>X_default</td><td>Default value for mass fractions of medium (for initialization)</td></tr>
-</table> 
+</table>
 <p>
 The following <b>errors</b> have been fixed:
 </p>
- 
+
 <table border=\"1\" cellspacing=0 cellpadding=2>
   <tr><td colspan=\"2\"><b>Modelica.Blocks.Tables.</b></td></tr>
   <tr><td>CombiTable1D<br>
@@ -811,15 +811,15 @@ The following <b>errors</b> have been fixed:
            file or used from parameter \"table\". Previously, if \"fileName\" was not
            \"NoName\", a table was always read from file \"fileName\", independently
            of the setting of \"tableOnFile\". This has been corrected.<br>
-           Furthermore, the initialization of a table is now performed in a 
+           Furthermore, the initialization of a table is now performed in a
            when-clause and no longer in a parameter declaration, because some
            tools evaluate the parameter declaration in some situation more than
-           once and then the table is unnecessarily read several times    
+           once and then the table is unnecessarily read several times
            (and occupies also more memory).</td> </tr>
 
   <tr><td colspan=\"2\"><b>Modelica.Blocks.Sources.</b></td></tr>
   <tr><td>CombiTimeTable</td>
-      <td> Same bug fix/improvement as for the tables from Modelica.Blocks.Tables 
+      <td> Same bug fix/improvement as for the tables from Modelica.Blocks.Tables
            as outlined above.</td> </tr>
 
   <tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Semiconductors. </b></td></tr>
@@ -838,22 +838,22 @@ The following <b>errors</b> have been fixed:
 
   <tr><td colspan=\"2\"> <b>Modelica.Media.IdealGases.Common.SingleGasNasa.</b></td></tr>
   <tr><td> dynamicViscosityLowPressure</td>
-      <td> Viscosity and thermal conductivity (which needs viscosity as input) 
-           were computed wrong for polar gases and gas mixtures 
+      <td> Viscosity and thermal conductivity (which needs viscosity as input)
+           were computed wrong for polar gases and gas mixtures
            (i.e. if dipole moment not 0.0). This has been fixed in version 2.2.1.</td> </tr>
   <tr><td colspan=\"2\"><b>Modelica.Utilities.Streams.</b></td></tr>
   <tr><td>readLine</td>
       <td> Depending on the C-implementation, the stream was not correctly closed.
-           This has been corrected by adding a \"Streams.close(..)\" 
+           This has been corrected by adding a \"Streams.close(..)\"
            after reading the file content.</td> </tr>
 
-</table>                                 
+</table>
 </html>
 "));
   end Version_2_2_1;
-    
-  class Version_2_2 "Version 2.2" 
-      
+
+  class Version_2_2 "Version 2.2"
+
       annotation (Documentation(info=
                                "<html>
 <h3><font color=\"#008000\">Version 2.2 (April 6, 2005)</font></h3>
@@ -871,28 +871,28 @@ The following <b>new libraries</b> have been added:
            <li> high precision water model (according to IAPWS/IF97 standard), </li>
            <li> incompressible media defined by tables (cp(T), rho(t), eta(T), etc. are defined by tables).</li>
            </ul>
-           The user can conveniently define mixtures of gases between the 
+           The user can conveniently define mixtures of gases between the
            1241 gas models. The models are
            designed to work well in dynamic simulations. They
            are based on a new standard interface for media with
            single and multiple substances and one or multiple phases
            with the following features:
            <ul>
-           <li> The independent variables of a medium model do not influence the 
+           <li> The independent variables of a medium model do not influence the
                 definition of a fluid connector port or how the
                 balance equations have to be implemented.<br>
                 Used independent variables: \"p,T\", \"p,T,X\", \"p,h\", \"d,T\".</li>
-           <li> Optional variables, e.g., dynamic viscosity, are only computed 
+           <li> Optional variables, e.g., dynamic viscosity, are only computed
                 if needed.<li>
-           <li> The medium models are implemented with regards to efficient 
+           <li> The medium models are implemented with regards to efficient
                 dynamic simulation.</li>
            </ul>
       </td><tr>
   <tr><td><a href=\"Modelica://Modelica.Thermal.FluidHeatFlow\">Modelica.Thermal.FluidHeatFlow</a></td>
-      <td> Simple components for 1-dim., incompressible thermo-fluid flow 
+      <td> Simple components for 1-dim., incompressible thermo-fluid flow
            to model coolant flows, e.g., of electrical machines.
            Components can be connected arbitrarily together (= ideal mixing
-           at connection points) and fluid may reverse direction of flow. 
+           at connection points) and fluid may reverse direction of flow.
   </td><tr>
 </table>
 <p>
@@ -902,7 +902,7 @@ The following <b>changes</b> have been performed in the
 <ul>
 <li> Component MultiBody.World has a new parameter
      <b>driveTrainMechanics3D</b>. If set to <b>true</b>, 3D mechanical effects
-     of MultiBody.Parts.Mounting1D/Rotor1D/BevelGear1D are taken into account. If set to 
+     of MultiBody.Parts.Mounting1D/Rotor1D/BevelGear1D are taken into account. If set to
      <b>false</b> (= default), 3D mechanical effects in these elements
      are not taken into account and the
      frame connectors to connect to 3D parts are disabled (all
@@ -916,8 +916,8 @@ The following <b>changes</b> have been performed in the
 </html>
 "));
   end Version_2_2;
-    
-  class Version_2_1 "Version 2.1" 
+
+  class Version_2_1 "Version 2.1"
       annotation (Documentation(info=
                                "<html>
 <h3><font color=\"#008000\">Version 2.1 (November 11, 2004)</font></h3>
@@ -930,7 +930,7 @@ The following <b>changes</b> have been performed in the
 <li> An input/output connector is defined <b>without</b> a hierarchy (this is possible
      due to new features of the Modelica language). For example, the input
      signal of a block \"FirstOrder\" was previously accessed as \"FirstOrder.inPort.signal[1]\".
-     Now it is accessed as \"FirstOrder.u\". This simplifies the understanding and usage 
+     Now it is accessed as \"FirstOrder.u\". This simplifies the understanding and usage
      especially for beginners.</li>
 <li> De-vectorized the <b>Modelica.Blocks</b> library. All blocks in the
      Modelica.Blocks library are now scalar blocks. As a result,
@@ -940,20 +940,20 @@ The following <b>changes</b> have been performed in the
      the understanding and usage especially for beginners.<br>
      If a vector of blocks is needed, this can be easily
      accomplished by adding a dimension to the instance. For example
-     \"Constant const[3](k={1,2,3}\" defines three Constant blocks. 
+     \"Constant const[3](k={1,2,3}\" defines three Constant blocks.
      An additional advantage of the new approach is that
      the implementation of Modelica.Blocks is much simpler and is easier to
      understand.
 </li>
 </ul>
-     
+
 <p>
 The discussed changes of Modelica.Blocks are not backward compatible.
 A script to <b>automatically</b> convert models to this new version is
-provided. There might be rare cases, where this script does not convert. 
+provided. There might be rare cases, where this script does not convert.
 In this case models have to be manually converted.
 In any case you should make a back-up copy of your model
-before automatic conversion is performed. 
+before automatic conversion is performed.
 </p>
 <p>
 The following <b>new libraries</b> have been added:
@@ -1085,7 +1085,7 @@ The following <b>bugs</b> have been <b>corrected</b>:
   <tr><td>Speed</td>
       <td>If parameter exact=<b>false</b>, the filter was wrong<br>
           (position was filtered and not the speed input signal)</td></tr>
-</table> 
+</table>
 <p>
 Other changes:
 </p>
@@ -1109,12 +1109,12 @@ Other changes:
 </html>
 "));
   end Version_2_1;
-    
-  class Version_1_6 "Version 1.6" 
+
+  class Version_1_6 "Version 1.6"
       annotation (Documentation(info=
                                "<html>
 <h3><font color=\"#008000\">Version 1.6 (June 21, 2004)</font></h3>
-<p> Added 1 new library (Electrical.MultiPhase), 17 new components, 
+<p> Added 1 new library (Electrical.MultiPhase), 17 new components,
     improved 3 existing components
     in the Modelica.Electrical library and improved 3 types
     in the Modelica.SIunits library. Furthermore,
@@ -1154,11 +1154,11 @@ Other changes:
 <b>New examples</b>
 </p>
 <p>
-The following new examples have been added to 
+The following new examples have been added to
 Modelica.Electrical.Analog.Examples:
 </p>
 <p>
-CharacteristicThyristors, 
+CharacteristicThyristors,
 CharacteristicIdealDiodes,
 HeatingNPN_OrGate,
 HeatingMOSInverter,
@@ -1188,8 +1188,8 @@ ShowVariableResistor
 </html>
 "));
   end Version_1_6;
-    
-  class Version_1_5 "Version 1.5" 
+
+  class Version_1_5 "Version 1.5"
       annotation (Documentation(info=
                                "<html>
 <h3><font color=\"#008000\">Version 1.5 (December 16, 2002)</font></h3>
@@ -1197,8 +1197,8 @@ ShowVariableResistor
     <b>Thermal.HeatTransfer</b> for modeling of lumped
     heat transfer, added model <b>LossyGear</b> in Mechanics.Rotational
     to model gear efficiency and bearing friction according to a new
-    theory in a robust way, added 10 new models in Electrical.Analog and 
-    added several other new models and improved existing models. 
+    theory in a robust way, added 10 new models in Electrical.Analog and
+    added several other new models and improved existing models.
 </p>
 <p>
 <b>New components</b>
@@ -1243,7 +1243,7 @@ ShowVariableResistor
   <tr><td>IdealClosingSwitch</td><td>Ideal closer</td></tr>
   <tr><td>ControlledIdealOpeningSwitch</td><td>Controlled ideal opener</td></tr>
   <tr><td>ControlledIdealClosingSwitch</td><td>Controlled ideal closer</td></tr>
-  
+
   <tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Lines.</b></td></tr>
   <tr><td>TLine1</td><td>Lossless transmission line (Z0, TD)</td></tr>
   <tr><td>TLine2</td><td>Lossless transmission line (Z0, F, NL)</td></tr>
@@ -1393,8 +1393,8 @@ filled with white and not transparent any more.</p>
 </html>
 "));
   end Version_1_5;
-    
-  class Version_1_4 "Version 1.4" 
+
+  class Version_1_4 "Version 1.4"
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\">Version 1.4.1 (June 28, 2001)</font></h3>
 <ul>
@@ -1459,16 +1459,16 @@ First official release of the library.
 "));
   end Version_1_4;
   end ReleaseNotes;
-  
-  class Contact "Contact" 
-    
+
+  class Contact "Contact"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Contact</font></h3>
 <dl>
 <dt>The development of the Modelica package is organized by<br>&nbsp;</dt>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
     Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
-    Institut f&uuml;r Robotik und Mechatronik<br> 
+    Institut f&uuml;r Robotik und Mechatronik<br>
     Abteilung f&uuml;r Entwurfsorientierte Regelungstechnik<br>
     Postfach 1116<br>
     D-82230 Wessling<br>
@@ -1499,7 +1499,7 @@ In particular, the following people have directly contributed
 
   <tr><td><b>Christoph Clauss</b> </td
       <td> Fraunhofer Institute for Integrated Circuits,<br> Dresden, Germany</td>
-      <td> Modelica.Electrical.Analog<br> 
+      <td> Modelica.Electrical.Analog<br>
            Modelica.Electrical.Digital</td>
   </tr>
 
@@ -1558,7 +1558,7 @@ In particular, the following people have directly contributed
       <td> Institute of Robotics and Mechatronics<br>
            DLR, German Aerospace Center, <br>
            Oberpfaffenhofen, Germany</td>
-      <td> Modelica.Blocks<br> 
+      <td> Modelica.Blocks<br>
            Modelica.Mechanics.MultiBody<br>
            Modelica.Mechanics.Rotational<br>
            Modelica.Math<br>
@@ -1586,12 +1586,12 @@ In particular, the following people have directly contributed
 
   <tr><td><b>Andr&eacute; Schneider</b> </td
       <td> Fraunhofer Institute for Integrated Circuits,<br> Dresden, Germany</td>
-      <td> Modelica.Electrical.Analog<br> 
+      <td> Modelica.Electrical.Analog<br>
            Modelica.Electrical.Digital</td>
   </tr>
   <tr><td><b>Christian Schweiger</b> </td
       <td> Institute of Robotics and Mechatronics,<br>
-           DLR, German Aerospace Center,<br> 
+           DLR, German Aerospace Center,<br>
            Oberpfaffenhofen, Germany</td>
       <td> Modelica.Mechanics.Rotational<br>
            ModelicaReference<br>
@@ -1617,13 +1617,13 @@ In particular, the following people have directly contributed
 </table>
 </html>
 "));
-    
+
   end Contact;
-  
-  class ModelicaLicense "Modelica License" 
-    
+
+  class ModelicaLicense "Modelica License"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>The Modelica License 
+<h3><font color=\"#008000\" size=5>The Modelica License
 (Version 1.1 of June 30, 2000) </font></h3>
 <p>Redistribution and use in source and binary forms, with or without
 modification are permitted, provided that the following conditions are met:
@@ -1658,7 +1658,7 @@ even if advised of the possibility of such damage.
 </p>
 </html>
 "));
-    
+
   end ModelicaLicense;
 end UsersGuide;
 end Modelica;

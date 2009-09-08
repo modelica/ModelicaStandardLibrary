@@ -1,7 +1,7 @@
-package Routing "Blocks to combine and extract signals" 
+package Routing "Blocks to combine and extract signals"
   extends Icons.Library;
-  
-block ExtractSignal "Extract signals from an input signal vector" 
+
+block ExtractSignal "Extract signals from an input signal vector"
   extends Modelica.Blocks.Interfaces.MIMO;
   parameter Integer extract[nout]=1:nout "Extracting vector";
   annotation (
@@ -115,22 +115,22 @@ input vector (nin=7):</p>
 </pre>
 </HTML>
 "));
-equation 
-    
+equation
+
   for i in 1:nout loop
     y[i] = u[extract[i]];
-      
+
   end for;
 end ExtractSignal;
-  
-block Extractor 
-    "Extract scalar signal out of signal vector dependent on IntegerRealInput index" 
-    
+
+block Extractor
+    "Extract scalar signal out of signal vector dependent on IntegerRealInput index"
+
   extends Modelica.Blocks.Interfaces.MISO;
-    
+
   parameter Boolean allowOutOfRange=false "Index may be out of range";
   parameter Real outOfRangeValue=1e10 "Output signal if index is out of range";
-    
+
   annotation (Icon(
       Rectangle(extent=[-80, 50; -40, -50], style(color=73, fillColor=7)),
       Polygon(points=[-84.4104, 1.9079; -84.4104, -2.09208; -80.4104, -
@@ -197,34 +197,34 @@ value of the additional u index:</p>
 </html>"));
   Modelica.Blocks.Interfaces.IntegerInput index             annotation (
       extent=[-20, -140; 20, -100], rotation=90);
-  protected 
+  protected
   Real k[nin];
-equation 
-    
+equation
+
   when {initial(),change(index)} then
-      
+
     for i in 1:nin loop
       k[i] = if index == i then 1 else 0;
-        
+
     end for;
-      
+
   end when;
-    
-  y = if not allowOutOfRange or index > 0 and index <= nin then 
+
+  y = if not allowOutOfRange or index > 0 and index <= nin then
               k*u else outOfRangeValue;
 end Extractor;
-  
-  block Multiplex2 "Multiplexer block for two input connectors" 
+
+  block Multiplex2 "Multiplexer block for two input connectors"
     extends Modelica.Blocks.Interfaces.BlockIcon;
     parameter Integer n1=1 "dimension of input signal connector 1";
     parameter Integer n2=1 "dimension of input signal connector 2";
-    Modelica.Blocks.Interfaces.RealInput u1[n1] 
+    Modelica.Blocks.Interfaces.RealInput u1[n1]
       "Connector of Real input signals 1" annotation (extent=[-140, 40; -100,
           80]);
-    Modelica.Blocks.Interfaces.RealInput u2[n2] 
+    Modelica.Blocks.Interfaces.RealInput u2[n2]
       "Connector of Real input signals 2" annotation (extent=[-140, -80; -100,
           -40]);
-    Modelica.Blocks.Interfaces.RealOutput y[n1 + n2] 
+    Modelica.Blocks.Interfaces.RealOutput y[n1 + n2]
       "Connector of Real output signals" annotation (extent=[100, -10; 120, 10]);
     annotation (
       Coordsys(
@@ -253,25 +253,25 @@ explicitly defined via parameters n1 and n2.
         Line(points=[-98, -60; -60, -60; -4, -4]),
         Line(points=[8, 0; 102, 0]),
         Ellipse(extent=[-14, 16; 16, -14], style(fillColor=73))));
-  equation 
+  equation
     [y] = [u1; u2];
   end Multiplex2;
-  
-  block Multiplex3 "Multiplexer block for three input connectors" 
+
+  block Multiplex3 "Multiplexer block for three input connectors"
     extends Modelica.Blocks.Interfaces.BlockIcon;
     parameter Integer n1=1 "dimension of input signal connector 1";
     parameter Integer n2=1 "dimension of input signal connector 2";
     parameter Integer n3=1 "dimension of input signal connector 3";
-    Modelica.Blocks.Interfaces.RealInput u1[n1] 
+    Modelica.Blocks.Interfaces.RealInput u1[n1]
       "Connector of Real input signals 1" annotation (extent=[-140, 50; -100,
           90]);
-    Modelica.Blocks.Interfaces.RealInput u2[n2] 
+    Modelica.Blocks.Interfaces.RealInput u2[n2]
       "Connector of Real input signals 2" annotation (extent=[-140, -20; -100,
           20]);
-    Modelica.Blocks.Interfaces.RealInput u3[n3] 
+    Modelica.Blocks.Interfaces.RealInput u3[n3]
       "Connector of Real input signals 3" annotation (extent=[-140, -90; -100,
           -50]);
-    Modelica.Blocks.Interfaces.RealOutput y[n1 + n2 + n3] 
+    Modelica.Blocks.Interfaces.RealOutput y[n1 + n2 + n3]
       "Connector of Real output signals" annotation (extent=[100, -10; 120, 10]);
     annotation (
       Coordsys(
@@ -301,29 +301,29 @@ explicitly defined via parameters n1, n2 and n3.
         Line(points=[8, 0; 102, 0]),
         Ellipse(extent=[-14, 16; 16, -14], style(fillColor=73)),
         Line(points=[-100, 0; -12, 0])));
-  equation 
+  equation
     [y] = [u1; u2; u3];
   end Multiplex3;
-  
-  block Multiplex4 "Multiplexer block for four input connectors" 
+
+  block Multiplex4 "Multiplexer block for four input connectors"
     extends Modelica.Blocks.Interfaces.BlockIcon;
     parameter Integer n1=1 "dimension of input signal connector 1";
     parameter Integer n2=1 "dimension of input signal connector 2";
     parameter Integer n3=1 "dimension of input signal connector 3";
     parameter Integer n4=1 "dimension of input signal connector 4";
-    Modelica.Blocks.Interfaces.RealInput u1[n1] 
+    Modelica.Blocks.Interfaces.RealInput u1[n1]
       "Connector of Real input signals 1" annotation (extent=[-140, 70; -100,
           110]);
-    Modelica.Blocks.Interfaces.RealInput u2[n2] 
+    Modelica.Blocks.Interfaces.RealInput u2[n2]
       "Connector of Real input signals 2" annotation (extent=[-140, 10; -100,
           50]);
-    Modelica.Blocks.Interfaces.RealInput u3[n3] 
+    Modelica.Blocks.Interfaces.RealInput u3[n3]
       "Connector of Real input signals 3" annotation (extent=[-140, -50; -100,
           -10]);
-    Modelica.Blocks.Interfaces.RealInput u4[n4] 
+    Modelica.Blocks.Interfaces.RealInput u4[n4]
       "Connector of Real input signals 4" annotation (extent=[-140, -110; -100,
             -70]);
-    Modelica.Blocks.Interfaces.RealOutput y[n1 + n2 + n3 + n4] 
+    Modelica.Blocks.Interfaces.RealOutput y[n1 + n2 + n3 + n4]
       "Connector of Real output signals" annotation (extent=[100, -10; 120, 10]);
     annotation (
       Coordsys(
@@ -356,33 +356,33 @@ explicitly defined via parameters n1, n2, n3 and n4.
         Ellipse(extent=[-15, 15; 15, -15], style(fillColor=73)),
         Line(points=[-100, 30; -60, 30; -9, 0]),
         Line(points=[-99, -30; -59, -30; -10, -5])));
-  equation 
+  equation
     [y] = [u1; u2; u3; u4];
   end Multiplex4;
-  
-  block Multiplex5 "Multiplexer block for five input connectors" 
+
+  block Multiplex5 "Multiplexer block for five input connectors"
     extends Modelica.Blocks.Interfaces.BlockIcon;
     parameter Integer n1=1 "dimension of input signal connector 1";
     parameter Integer n2=1 "dimension of input signal connector 2";
     parameter Integer n3=1 "dimension of input signal connector 3";
     parameter Integer n4=1 "dimension of input signal connector 4";
     parameter Integer n5=1 "dimension of input signal connector 5";
-    Modelica.Blocks.Interfaces.RealInput u1[n1] 
+    Modelica.Blocks.Interfaces.RealInput u1[n1]
       "Connector of Real input signals 1" annotation (extent=[-140, 80; -100,
           120]);
-    Modelica.Blocks.Interfaces.RealInput u2[n2] 
+    Modelica.Blocks.Interfaces.RealInput u2[n2]
       "Connector of Real input signals 2" annotation (extent=[-140, 30; -100,
           70]);
-    Modelica.Blocks.Interfaces.RealInput u3[n3] 
+    Modelica.Blocks.Interfaces.RealInput u3[n3]
       "Connector of Real input signals 3" annotation (extent=[-140, -20; -100,
           20]);
-    Modelica.Blocks.Interfaces.RealInput u4[n4] 
+    Modelica.Blocks.Interfaces.RealInput u4[n4]
       "Connector of Real input signals 4" annotation (extent=[-140, -70; -100,
           -30]);
-    Modelica.Blocks.Interfaces.RealInput u5[n5] 
+    Modelica.Blocks.Interfaces.RealInput u5[n5]
       "Connector of Real input signals 5" annotation (extent=[-140, -120; -100,
             -80]);
-    Modelica.Blocks.Interfaces.RealOutput y[n1 + n2 + n3 + n4 + n5] 
+    Modelica.Blocks.Interfaces.RealOutput y[n1 + n2 + n3 + n4 + n5]
       "Connector of Real output signals" annotation (extent=[100, -10; 120, 10]);
     annotation (
       Coordsys(
@@ -417,11 +417,11 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
         Line(points=[-99, 50; -60, 50; -8, 5]),
         Line(points=[-100, 0; -7, 0]),
         Line(points=[-99, -50; -60, -50; -9, -6])));
-  equation 
+  equation
     [y] = [u1; u2; u3; u4; u5];
   end Multiplex5;
-  
-  block Multiplex6 "Multiplexer block for six input connectors" 
+
+  block Multiplex6 "Multiplexer block for six input connectors"
     extends Modelica.Blocks.Interfaces.BlockIcon;
     parameter Integer n1=1 "dimension of input signal connector 1";
     parameter Integer n2=1 "dimension of input signal connector 2";
@@ -429,25 +429,25 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
     parameter Integer n4=1 "dimension of input signal connector 4";
     parameter Integer n5=1 "dimension of input signal connector 5";
     parameter Integer n6=1 "dimension of input signal connector 6";
-    Modelica.Blocks.Interfaces.RealInput u1[n1] 
+    Modelica.Blocks.Interfaces.RealInput u1[n1]
       "Connector of Real input signals 1" annotation (extent=[-124, 73; -100,
           97]);
-    Modelica.Blocks.Interfaces.RealInput u2[n2] 
+    Modelica.Blocks.Interfaces.RealInput u2[n2]
       "Connector of Real input signals 2" annotation (extent=[-124, 39; -100,
           63]);
-    Modelica.Blocks.Interfaces.RealInput u3[n3] 
+    Modelica.Blocks.Interfaces.RealInput u3[n3]
       "Connector of Real input signals 3" annotation (extent=[-124, 5; -100, 29]);
-    
-    Modelica.Blocks.Interfaces.RealInput u4[n4] 
+
+    Modelica.Blocks.Interfaces.RealInput u4[n4]
       "Connector of Real input signals 4" annotation (extent=[-124, -29; -100,
           -5]);
-    Modelica.Blocks.Interfaces.RealInput u5[n5] 
+    Modelica.Blocks.Interfaces.RealInput u5[n5]
       "Connector of Real input signals 5" annotation (extent=[-124, -63; -100,
           -39]);
-    Modelica.Blocks.Interfaces.RealInput u6[n6] 
+    Modelica.Blocks.Interfaces.RealInput u6[n6]
       "Connector of Real input signals 6" annotation (extent=[-124, -97; -100,
           -73]);
-    Modelica.Blocks.Interfaces.RealOutput y[n1 + n2 + n3 + n4 + n5 + n6] 
+    Modelica.Blocks.Interfaces.RealOutput y[n1 + n2 + n3 + n4 + n5 + n6]
       "Connector of Real output signals" annotation (extent=[100, -
           10; 120, 10]);
     annotation (
@@ -485,19 +485,19 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
         Line(points=[-99, -50; -60, -50; -9, -6]),
         Line(points=[-101, 17; -60, 17; -9, 2]),
         Line(points=[-100, -18; -60, -18; -11, -4])));
-  equation 
+  equation
     [y] = [u1; u2; u3; u4; u5; u6];
   end Multiplex6;
-  
-  block DeMultiplex2 "DeMultiplexer block for two output connectors" 
+
+  block DeMultiplex2 "DeMultiplexer block for two output connectors"
     extends Modelica.Blocks.Interfaces.BlockIcon;
     parameter Integer n1=1 "dimension of output signal connector 1";
     parameter Integer n2=1 "dimension of output signal connector 2";
-    Modelica.Blocks.Interfaces.RealInput u[n1 + n2] 
+    Modelica.Blocks.Interfaces.RealInput u[n1 + n2]
       "Connector of Real input signals" annotation (extent=[-140, -20; -100, 20]);
-    Modelica.Blocks.Interfaces.RealOutput y1[n1] 
+    Modelica.Blocks.Interfaces.RealOutput y1[n1]
       "Connector of Real output signals 1" annotation (extent=[100, 50; 120, 70]);
-    Modelica.Blocks.Interfaces.RealOutput y2[n2] 
+    Modelica.Blocks.Interfaces.RealOutput y2[n2]
       "Connector of Real output signals 2" annotation (extent=[100, -70; 120, -
           50]);
     annotation (
@@ -527,23 +527,23 @@ explicitly defined via parameters n1 and n2.
         Line(points=[100, -60; 60, -60; 8, -8]),
         Line(points=[-100, 0; -6, 0]),
         Ellipse(extent=[-14, 16; 16, -14], style(fillColor=73))));
-  equation 
+  equation
     [u] = [y1; y2];
   end DeMultiplex2;
-  
-  block DeMultiplex3 "DeMultiplexer block for three output connectors" 
+
+  block DeMultiplex3 "DeMultiplexer block for three output connectors"
     extends Modelica.Blocks.Interfaces.BlockIcon;
     parameter Integer n1=1 "dimension of output signal connector 1";
     parameter Integer n2=1 "dimension of output signal connector 2";
     parameter Integer n3=1 "dimension of output signal connector 3";
-    Modelica.Blocks.Interfaces.RealInput u[n1 + n2 + n3] 
+    Modelica.Blocks.Interfaces.RealInput u[n1 + n2 + n3]
       "Connector of Real input signals" annotation (extent=[-140, -20; -100, 20]);
-    Modelica.Blocks.Interfaces.RealOutput y1[n1] 
+    Modelica.Blocks.Interfaces.RealOutput y1[n1]
       "Connector of Real output signals 1" annotation (extent=[100, 60; 120, 80]);
-    Modelica.Blocks.Interfaces.RealOutput y2[n2] 
+    Modelica.Blocks.Interfaces.RealOutput y2[n2]
       "Connector of Real output signals 2" annotation (extent=[100, -10; 120,
           10]);
-    Modelica.Blocks.Interfaces.RealOutput y3[n3] 
+    Modelica.Blocks.Interfaces.RealOutput y3[n3]
       "Connector of Real output signals 3" annotation (extent=[100, -80; 120, -
           60]);
     annotation (
@@ -575,28 +575,28 @@ explicitly defined via parameters n1, n2 and n3.
         Line(points=[-100, 0; -6, 0]),
         Ellipse(extent=[-16, 15; 14, -15], style(fillColor=73)),
         Line(points=[0, 0; 101, 0])));
-  equation 
+  equation
     [u] = [y1; y2; y3];
   end DeMultiplex3;
-  
-  block DeMultiplex4 "DeMultiplexer block for four output connectors" 
-    
+
+  block DeMultiplex4 "DeMultiplexer block for four output connectors"
+
     extends Modelica.Blocks.Interfaces.BlockIcon;
     parameter Integer n1=1 "dimension of output signal connector 1";
     parameter Integer n2=1 "dimension of output signal connector 2";
     parameter Integer n3=1 "dimension of output signal connector 3";
     parameter Integer n4=1 "dimension of output signal connector 4";
-    Modelica.Blocks.Interfaces.RealInput u[n1 + n2 + n3 + n4] 
+    Modelica.Blocks.Interfaces.RealInput u[n1 + n2 + n3 + n4]
       "Connector of Real input signals" annotation (extent=[-140, -20; -100, 20]);
-    Modelica.Blocks.Interfaces.RealOutput y1[n1] 
+    Modelica.Blocks.Interfaces.RealOutput y1[n1]
       "Connector of Real output signals 1" annotation (extent=[100, 80; 120,
           100]);
-    Modelica.Blocks.Interfaces.RealOutput y2[n2] 
+    Modelica.Blocks.Interfaces.RealOutput y2[n2]
       "Connector of Real output signals 2" annotation (extent=[100, 20; 120, 40]);
-    Modelica.Blocks.Interfaces.RealOutput y3[n3] 
+    Modelica.Blocks.Interfaces.RealOutput y3[n3]
       "Connector of Real output signals 3" annotation (extent=[100, -40; 120, -
           20]);
-    Modelica.Blocks.Interfaces.RealOutput y4[n4] 
+    Modelica.Blocks.Interfaces.RealOutput y4[n4]
       "Connector of Real output signals 4" annotation (extent=[100, -100; 120,
           -80]);
     annotation (
@@ -629,31 +629,31 @@ explicitly defined via parameters n1, n2, n3 and n4.
         Line(points=[100, 30; 60, 30; 9, 2]),
         Line(points=[100, -30; 60, -30; 8, -4]),
         Ellipse(extent=[-16, 15; 14, -15], style(fillColor=73))));
-  equation 
+  equation
     [u] = [y1; y2; y3; y4];
   end DeMultiplex4;
-  
-  block DeMultiplex5 "DeMultiplexer block for five output connectors" 
-    
+
+  block DeMultiplex5 "DeMultiplexer block for five output connectors"
+
     extends Modelica.Blocks.Interfaces.BlockIcon;
     parameter Integer n1=1 "dimension of output signal connector 1";
     parameter Integer n2=1 "dimension of output signal connector 2";
     parameter Integer n3=1 "dimension of output signal connector 3";
     parameter Integer n4=1 "dimension of output signal connector 4";
     parameter Integer n5=1 "dimension of output signal connector 5";
-    Modelica.Blocks.Interfaces.RealInput u[n1 + n2 + n3 + n4 + n5] 
+    Modelica.Blocks.Interfaces.RealInput u[n1 + n2 + n3 + n4 + n5]
       "Connector of Real input signals" annotation (extent=[-140, -20; -100, 20]);
-    Modelica.Blocks.Interfaces.RealOutput y1[n1] 
+    Modelica.Blocks.Interfaces.RealOutput y1[n1]
       "Connector of Real output signals 1" annotation (extent=[100, 70; 120, 90]);
-    Modelica.Blocks.Interfaces.RealOutput y2[n2] 
+    Modelica.Blocks.Interfaces.RealOutput y2[n2]
       "Connector of Real output signals 2" annotation (extent=[100, 30; 120, 50]);
-    Modelica.Blocks.Interfaces.RealOutput y3[n3] 
+    Modelica.Blocks.Interfaces.RealOutput y3[n3]
       "Connector of Real output signals 3" annotation (extent=[100, -10; 120,
           10]);
-    Modelica.Blocks.Interfaces.RealOutput y4[n4] 
+    Modelica.Blocks.Interfaces.RealOutput y4[n4]
       "Connector of Real output signals 4" annotation (extent=[100, -50; 120, -
           30]);
-    Modelica.Blocks.Interfaces.RealOutput y5[n5] 
+    Modelica.Blocks.Interfaces.RealOutput y5[n5]
       "Connector of Real output signals 5" annotation (extent=[100, -90; 120, -
           70]);
     annotation (
@@ -688,11 +688,11 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
         Line(points=[100, 40; 60, 40; 10, 3]),
         Line(points=[100, 0; 10, 0]),
         Line(points=[100, -40; 61, -40; 11, -7])));
-  equation 
+  equation
     [u] = [y1; y2; y3; y4; y5];
   end DeMultiplex5;
-  
-  block DeMultiplex6 "DeMultiplexer block for six output connectors" 
+
+  block DeMultiplex6 "DeMultiplexer block for six output connectors"
     extends Modelica.Blocks.Interfaces.BlockIcon;
     parameter Integer n1=1 "dimension of output signal connector 1";
     parameter Integer n2=1 "dimension of output signal connector 2";
@@ -700,23 +700,23 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
     parameter Integer n4=1 "dimension of output signal connector 4";
     parameter Integer n5=1 "dimension of output signal connector 5";
     parameter Integer n6=1 "dimension of output signal connector 6";
-    Modelica.Blocks.Interfaces.RealInput u[n1 + n2 + n3 + n4 + n5 + n6] 
+    Modelica.Blocks.Interfaces.RealInput u[n1 + n2 + n3 + n4 + n5 + n6]
       "Connector of Real input signals" annotation (extent=[-140, -20;
           -100, 20]);
-    Modelica.Blocks.Interfaces.RealOutput y1[n1] 
+    Modelica.Blocks.Interfaces.RealOutput y1[n1]
       "Connector of Real output signals 1" annotation (extent=[100, 80; 120,
           100]);
-    Modelica.Blocks.Interfaces.RealOutput y2[n2] 
+    Modelica.Blocks.Interfaces.RealOutput y2[n2]
       "Connector of Real output signals 2" annotation (extent=[100, 44; 120, 64]);
-    Modelica.Blocks.Interfaces.RealOutput y3[n3] 
+    Modelica.Blocks.Interfaces.RealOutput y3[n3]
       "Connector of Real output signals 3" annotation (extent=[100, 8; 120, 28]);
-    Modelica.Blocks.Interfaces.RealOutput y4[n4] 
+    Modelica.Blocks.Interfaces.RealOutput y4[n4]
       "Connector of Real output signals 4" annotation (extent=[100, -28; 120, -
           8]);
-    Modelica.Blocks.Interfaces.RealOutput y5[n5] 
+    Modelica.Blocks.Interfaces.RealOutput y5[n5]
       "Connector of Real output signals 5" annotation (extent=[100, -64; 120, -
           44]);
-    Modelica.Blocks.Interfaces.RealOutput y6[n6] 
+    Modelica.Blocks.Interfaces.RealOutput y6[n6]
       "Connector of Real output signals 6" annotation (extent=[100, -100; 120,
           -80]);
     annotation (
@@ -753,10 +753,10 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
         Line(points=[99, -54; 60, -54; 9, -1]),
         Line(points=[100, 18; 59, 18; 7, 2]),
         Line(points=[100, -19; 60, -19; 13, -2])));
-  equation 
+  equation
     [u] = [y1; y2; y3; y4; y5; y6];
   end DeMultiplex6;
-  
+
   annotation (Documentation(info="<html>
 <p>
 This package contains blocks to combine and extract signals.

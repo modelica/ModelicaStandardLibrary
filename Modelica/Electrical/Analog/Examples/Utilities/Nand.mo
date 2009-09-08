@@ -1,4 +1,4 @@
-model Nand "CMOS NAND Gate (see Tietze/Schenk, page 157)" 
+model Nand "CMOS NAND Gate (see Tietze/Schenk, page 157)"
   annotation (
     Coordsys(
       extent=[-100, -100; 100, 100],
@@ -114,7 +114,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
   Interfaces.Pin x2 annotation (extent=[-110, -60; -90, -40]);
   Interfaces.Pin Vdd annotation (extent=[-10, 90; 10, 110]);
   Interfaces.Pin y annotation (extent=[90, -10; 110, 10]);
-equation 
+equation
   connect(TN1.S, TN2.D) annotation (points=[30, 20; 30, -10]);
   connect(TN2.B, Gnd.p) annotation (points=[30, -15; 38, -15; 38, -15; 45, -15]);
   connect(TN2.D, C7.p) annotation (points=[30, -10; 55, -10; 55, -40]);
