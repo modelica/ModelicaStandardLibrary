@@ -8,6 +8,11 @@
 
    These functions are defined in Section 12.9.6 of the 
    Modelica Specification 3.0 and 3.1.
+
+   A generic C-implementation of these functions cannot be given, 
+   because it is tool dependent how strings are output in a
+   window of the respective simulation tool. Therefore, only
+   this header file is shipped with the Modelica Standard Library.
 */
 
 void ModelicaMessage(const char *string);
