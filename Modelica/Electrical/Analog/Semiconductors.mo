@@ -1372,8 +1372,8 @@ on page 317 ff.
           B.i = -ieb/bf_t - icb/br_t - ceb*der(veb) - ccb*der(vcb);
           E.i = -B.i - C.i + Ccs*der(C.v);
 
-          heatPort.Q_flow = -(vcb*icb/br_t + veb*ieb/bf_t + (icb - ieb)*qbk*(E.v
-             - C.v));
+          heatPort.Q_flow = -(vcb*icb/br_t + veb*ieb/bf_t + (icb - ieb)*qbk*(C.v
+             - E.v));
         end HeatingPNP;
 
 protected
