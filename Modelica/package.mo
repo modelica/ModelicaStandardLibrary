@@ -689,6 +689,38 @@ more of the following changes.
 </html>"));
 end VersionManagement;
 
+class Version_3_1_BugFixes "Version 3.1 with bug fixes"
+annotation (Documentation(info="<html>
+<p>
+In this section bug fixes are summarized that have been incorporated
+since the release of version 3.1-build 4.
+</p>
+ 
+<p><br>
+The following <b style=\"color:red\">critical errors</b> have been fixed (i.e. errors
+that can lead to wrong simulation results):
+</p>
+ 
+<p>
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+  <tr><td colspan=\"2\"><b>Electrical.Analog.SemiConductors.</b></td></tr>
+  <tr><td valign=\"top\"> NPN<br>
+                        PNP<br>
+                        HeatingPNP </td>
+      <td valign=\"top\"> LossPower was wrongly calculated. This was corrected.</td> 
+  </tr>
+
+  <tr><td colspan=\"2\"><b>StateGraph.Examples.Utilities.</b></td></tr>
+  <tr><td valign=\"top\"> TankController </td>
+      <td valign=\"top\"> A graphical annotation was wrong leading to a syntay error in some Modelica tools.
+                        This has been corrected. </td> 
+  </tr>
+</table>
+</p>
+                                               
+</html>"));
+end Version_3_1_BugFixes;
+
 class Version_3_1 "Version 3.1 (August 14, 2009)"
 
    annotation (Documentation(info="<html>
@@ -4941,9 +4973,9 @@ end UsersGuide;
 annotation (
 preferredView="info",
 version="3.1",
-versionBuild=4,
+versionBuild=5,
 versionDate="2009-08-14",
-dateModified = "2009-08-28 08:30:00Z",
+dateModified = "2009-09-17 08:30:00Z",
 revisionId="$Id::                                       $",
 conversion(
  noneFromVersion="3.0.1",

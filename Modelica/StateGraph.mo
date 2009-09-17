@@ -1361,7 +1361,7 @@ buttons:
                 textString="level1"),
               Text(
                 extent={{24,-84},{96,-98}},
-                lineColor={0,0,0},d,
+                lineColor={0,0,0},
                 textString="level2"),
               Text(
                 extent={{31,68},{99,54}},
