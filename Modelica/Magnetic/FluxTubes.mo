@@ -203,7 +203,7 @@ The method of magnetic flux tubes as well as derivation of the permeance of many
 <dl>
 <dt>[Ro41] Roters, H.:</dt>
 <dd> <b>Electromagnetic Devices</b>.
-New York: John Wiley & Sons 1941 (8th Printing 1961)
+New York: John Wiley &amp; Sons 1941 (8th Printing 1961)
 </dd>
 </dl>
 </li>
@@ -3946,7 +3946,7 @@ Source of B(H) characteristics:
 Please refer to the description of  the enclosing package <a href=\"SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
 <p>
-Source of B(H) characteristics: VACUUMSCHMELZE GmbH & Co. KG, Germany
+Source of B(H) characteristics: VACUUMSCHMELZE GmbH &amp; Co. KG, Germany
 </p>
 </html>"));
         end Vacoflux50;

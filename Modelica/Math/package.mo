@@ -2376,7 +2376,7 @@ speaking, a scalar w or a ratio  alpha/beta = w, such that  A - w*B
 is singular.  It is usually represented as the pair (alpha,beta),
 as there is a reasonable interpretation for beta=0, and even for
 both being zero.  A good beginning reference is the book, \"Matrix
-Computations\", by G. Golub & C. van Loan (Johns Hopkins U. Press)
+Computations\", by G. Golub &amp; C. van Loan (Johns Hopkins U. Press)
 A right generalized eigenvector corresponding to a generalized
 eigenvalue  w  for a pair of matrices (A,B) is a vector  r  such
 that  (A - w B) r = 0 .  A left generalized eigenvector is a vector
