@@ -113,7 +113,7 @@ numerical DAE integrators can cope at most with index 2 DAEs).
      </li>
 
 <li> <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-     Technical Consulting & Electrical Engineering<br>
+     Technical Consulting &amp; Electrical Engineering<br>
      A-3423 St.Andrae-Woerdern, Austria<br>
      email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br><br></li>
 
