@@ -119,7 +119,7 @@ Kluwer Academic Publishers Boston.
 <b>Acknowledgements:</b><br>
 Several helpful remarks from the following persons are acknowledged:
 John Batteh, Ford Motors, Dearborn, U.S.A;
-<a href=\"http://www.haumer.at/\">Anton Haumer</a>, Technical Consulting & Electrical Engineering, Austria;
+<a href=\"http://www.haumer.at/\">Anton Haumer</a>, Technical Consulting &amp; Electrical Engineering, Austria;
 Ludwig Marvan, VA TECH ELIN EBG Elektronik GmbH, Wien, Austria;
 Hans Olsson, Dynasim AB, Sweden;
 Hubertus Tummescheit, Lund Institute of Technology, Lund, Sweden.
@@ -129,7 +129,7 @@ Hubertus Tummescheit, Lund Institute of Technology, Lund, Sweden.
   <dd>
   <p>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-  Technical Consulting & Electrical Engineering<br>
+  Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern, Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </p>

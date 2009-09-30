@@ -475,7 +475,7 @@ as possible.
 <li> <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> (DLR-RM)</li>
 <li> Christian Schweiger (DLR-RM, until 2006).</li>
 <li> <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-     Technical Consulting & Electrical Engineering<br>
+     Technical Consulting &amp; Electrical Engineering<br>
      A-3423 St.Andrae-Woerdern, Austria<br>
      email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a></li>
 </ul>
