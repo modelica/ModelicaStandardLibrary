@@ -47,7 +47,7 @@ Outlet temperature is defined by variable T of the corresponding component.</li>
   <dd>
   <p>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-  Technical Consulting & Electrical Engineering<br>
+  Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern, Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </p>
@@ -157,7 +157,7 @@ This package contains test examples:
   <dd>
   <p>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-  Technical Consulting & Electrical Engineering<br>
+  Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern, Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </p>
@@ -1301,7 +1301,7 @@ This package contains utility components used for the test examples.<br>
   <dd>
   <p>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-  Technical Consulting & Electrical Engineering<br>
+  Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern, Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </p>
@@ -1416,7 +1416,7 @@ Thermodynamic equations are defined in partial models (package Partials).<br>
   <dd>
   <p>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-  Technical Consulting & Electrical Engineering<br>
+  Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern, Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </p>
@@ -1626,7 +1626,7 @@ This package contains definitions of medium properties.<br>
   <dd>
   <p>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-  Technical Consulting & Electrical Engineering<br>
+  Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern, Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </p>
@@ -1738,7 +1738,7 @@ All fans / pumps are considered without losses, they do not change enthalpy flow
   <dd>
   <p>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-  Technical Consulting & Electrical Engineering<br>
+  Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern, Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </p>
@@ -2109,7 +2109,7 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
   <dd>
   <p>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-  Technical Consulting & Electrical Engineering<br>
+  Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern, Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </p>
@@ -2306,7 +2306,7 @@ This package contains connectors and partial models:
   <dd>
   <p>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-  Technical Consulting & Electrical Engineering<br>
+  Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern, Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </p>
@@ -2445,7 +2445,7 @@ This package contains partial models, defining in a very compact way the basic t
   <dd>
   <p>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-  Technical Consulting & Electrical Engineering<br>
+  Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern, Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </p>
