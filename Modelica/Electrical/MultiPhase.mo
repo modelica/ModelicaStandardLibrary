@@ -32,7 +32,7 @@ Further development:
   <dt><b>Main Author:</b></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-  Technical Consulting & Electrical Engineering<br>
+  Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
@@ -92,7 +92,7 @@ This package contains basic analog electrical multiphase components.
   <dt><b>Main Authors:</b></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-  Technical Consulting & Electrical Engineering<br>
+  Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
@@ -688,7 +688,7 @@ This package contains test examples of analog electrical multiphase circuits.
   <dt><b>Main Authors:</b></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-  Technical Consulting & Electrical Engineering<br>
+  Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
@@ -938,7 +938,7 @@ like thyristor, diode, switch, transformer.
   <dt><b>Main Authors:</b></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-  Technical Consulting & Electrical Engineering<br>
+  Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
@@ -1456,7 +1456,7 @@ electrical multiphase components, based on Modelica.Electrical.Analog.
   <dt><b>Main Authors:</b></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-  Technical Consulting & Electrical Engineering<br>
+  Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
@@ -1647,7 +1647,7 @@ This package contains multiphase potential, voltage, and current sensors.
   <dt><b>Main Authors:</b></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-  Technical Consulting & Electrical Engineering<br>
+  Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
@@ -1965,7 +1965,7 @@ This package contains time-dependend and controlled multiphase voltage and curre
   <dt><b>Main Authors:</b></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-  Technical Consulting & Electrical Engineering<br>
+  Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
