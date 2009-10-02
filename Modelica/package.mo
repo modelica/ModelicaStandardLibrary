@@ -2070,7 +2070,7 @@ the following exceptions:
 An overview of the differences between version 2.2.2 and the previous
 version 2.2.1 is given below. The exact differences (but without
 differences in the documentation) are available
-<a href=\"../help/Documentation/Differences-Modelica-221-222.html\">here</a>.
+<a href=\"Documentation/Differences-Modelica-221-222.html\">here</a>.
 This comparison file was generated automatically with Dymolas
 ModelManagement.compare function.
 </p>
@@ -2079,7 +2079,7 @@ ModelManagement.compare function.
 In this version, <b>no</b> new libraries have been added. The <b>documentation</b>
 of the whole library was improved. Especially, the documentation is now also
 available as
-<a href=\"../help/Documentation/ModelicaStandardLibrary.pdf\">one pdf file</a>.
+<a href=\"Documentation/ModelicaStandardLibrary.pdf\">one pdf file</a>.
 </p>
 
 
@@ -4969,7 +4969,7 @@ For an introduction, have especially a look at:
  summarizes the changes of new versions of this package.</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.Contact\">Contact</a>
   lists the contributors of the Modelica Standard Library.</li>
-<li> <a href=\"../help/Documentation/ModelicaStandardLibrary.pdf\">ModelicaStandardLibrary.pdf</a>
+<li> <a href=\"Documentation/ModelicaStandardLibrary.pdf\">ModelicaStandardLibrary.pdf</a>
   is the complete documentation of the library in pdf format.
 <li> The <b>Examples</b> packages in the various libraries, demonstrate
   how to use the components of the corresponding sublibrary.</li>
