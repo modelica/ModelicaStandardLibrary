@@ -165,7 +165,7 @@ current in reverse direction if the breakdown voltage Bv (also known zener knee 
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <b> not </b> modelled yet. The parameters are not temperature dependent.
-<\\P>
+</P>
 
 
 </HTML>

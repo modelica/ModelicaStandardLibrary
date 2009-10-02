@@ -384,7 +384,7 @@ In many mechanisms it is possible to solve the non-linear algebraic
 equations analytically. For a certain class of systems this can
 be performed also with the MultiBody library. This technique
 is described in section
-\"<a href=\"AnalyticLoopHandling\">Analytic loop handling</a>\".
+\"<a href=\"Modelica://Modelica.Mechanics.Multibody.AnalyticLoopHandling\">Analytic loop handling</a>\".
 </p>
 </HTML>"));
       end Introduction;
@@ -471,7 +471,7 @@ Both cases are discussed in the error message.
 Note, that the non-linear algebraic equations occurring
 in planar loops can be solved analytically in most cases and therefore it is
 highly recommended to use the techniques discussed in section
-\"<a href=\"AnalyticLoopHandling\">Analytic loop handling</a>\"
+\"<a href=\"Modelica://Modelica.Mechanics.Multibody.AnalyticLoopHandling\">Analytic loop handling</a>\"
 for such systems.
 </p>
 </HTML>"));
