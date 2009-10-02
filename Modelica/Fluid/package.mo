@@ -240,7 +240,7 @@ In the simpler case of a one-to-one connections between port_a and port_b,
 inStream(port_a.h_outflow) just returns port_b.h_outflow. For multiple-way connections,
 mixing equations are generated, and special care is taken in order to avoid discontinuities
 around zero flow rates. For more details, see this
-<a href=\"../help/Documentation/Fluid/Stream-Connectors-Overview-Rationale.pdf\">presentation</a>
+<a href=\"Documentation/Fluid/Stream-Connectors-Overview-Rationale.pdf\">presentation</a>
 which illustrates the stream concept rationale and the underlying technicalities.
 </p>
 
@@ -1737,7 +1737,7 @@ of the connectors has been changed in a non-backward compatible way,
 using the recently developed concept
 of stream connectors that results in much more reliable simulations
 (see an overview and a rationale
-<a href=\"../help/Documentation/Fluid/Stream-Connectors-Overview-Rationale.pdf\">here</a>).
+<a href=\"Documentation/Fluid/Stream-Connectors-Overview-Rationale.pdf\">here</a>).
 This extension was included in Modelica 3.1.
 As of Jan. 2009, the stream concept is supported in Dymola 7.1.
 It is recommended to use Dymola 7.2 (available since Feb. 2009), or a later Dymola version,
