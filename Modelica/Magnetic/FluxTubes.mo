@@ -785,7 +785,7 @@ Whereas the steady state current is the same in both models, the steady state ac
               extent={{-10,-10},{10,10}},
               rotation=270)));
           annotation (
-          Images(Parameters(source="Images/FluxTubes/Examples/MovingCoilActuator/MovingCoilActuator_dimensions.png")),
+          __Dymola_Images(Parameters(source="Images/FluxTubes/Examples/MovingCoilActuator/MovingCoilActuator_dimensions.png")),
           Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}),
                   graphics),
@@ -1748,7 +1748,7 @@ The differences between these two models in static behaviour can be analysed and
           parameter SI.Density rho_steel = 7853
             "Density for calculation of armature mass from geometry";
 
-          annotation (Images(Parameters(source="Images/FluxTubes/Examples/SolenoidActuator/Solenoid_dimensions.png")),
+          annotation (__Dymola_Images(Parameters(source="Images/FluxTubes/Examples/SolenoidActuator/Solenoid_dimensions.png")),
             Window(
               x=0.16,
               y=0.15,
@@ -2093,7 +2093,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
           parameter SI.Density rho_steel = 7853
             "Density for calculation of armature mass from geometry";
 
-          annotation (Images(Parameters(source="Images/FluxTubes/Examples/SolenoidActuator/Solenoid_dimensions.png")),
+          annotation (__Dymola_Images(Parameters(source="Images/FluxTubes/Examples/SolenoidActuator/Solenoid_dimensions.png")),
             Window(
               x=0.16,
               y=0.15,
@@ -3033,7 +3033,7 @@ This constant reluctance is provided for test purposes and simple magnetic netwo
       parameter SI.CouplingCoefficient c_usefulFlux( start = 0.7)
         "Ratio useful flux/(leakage flux + useful flux) = useful flux/total flux";
 
-      annotation (Images(Parameters(group="Reference reluctance", source="Images/FluxTubes/Basic/LeakageWithCoefficient.png")),
+      annotation (__Dymola_Images(Parameters(group="Reference reluctance", source="Images/FluxTubes/Basic/LeakageWithCoefficient.png")),
           Documentation(info="<html>
 <p>
 Differently from the flux tube elements of package <a href=\"Shapes.Leakage\">Shapes.Leakage</a>
@@ -3138,7 +3138,7 @@ Partitioning of a solid conductive cylinder or prism into several hollow cylinde
           "Outer radius of (hollow) cylinder"
           annotation(Dialog(group="Fixed geometry"));
 
-        annotation (Images(Parameters(group="Fixed geometry", source="Images/FluxTubes/Shapes/HollowCylinderAxialFlux.png")),
+        annotation (__Dymola_Images(Parameters(group="Fixed geometry", source="Images/FluxTubes/Shapes/HollowCylinderAxialFlux.png")),
           Window(
             x=0.16,
             y=0.15,
@@ -3179,7 +3179,7 @@ Set the inner radius r_i=0 for modelling of a solid cylindric flux tube.
         parameter SI.Radius r_o( start = 0.02)
           "Outer radius of hollow cylinder"                                      annotation(Dialog(group="Fixed geometry"));
 
-        annotation (Images(Parameters(group="Fixed geometry", source="Images/FluxTubes/Shapes/HollowCylinderRadialFlux.png")),
+        annotation (__Dymola_Images(Parameters(group="Fixed geometry", source="Images/FluxTubes/Shapes/HollowCylinderRadialFlux.png")),
           Window(
             x=0.16,
             y=0.15,
@@ -3234,7 +3234,7 @@ For initial design of magnetic circuits, the relative permeability of possibly n
         parameter SI.Length a = 0.01 "Width of rectangular cross-section"                           annotation(Dialog(group="Fixed geometry"));
         parameter SI.Length b = 0.01 "Height of rectangular cross-section" annotation(Dialog(group="Fixed geometry"));
 
-        annotation (Images(Parameters(group="Fixed geometry", source="Images/FluxTubes/Shapes/CuboidParallelFlux.png")),
+        annotation (__Dymola_Images(Parameters(group="Fixed geometry", source="Images/FluxTubes/Shapes/CuboidParallelFlux.png")),
           Window(
             x=0.16,
             y=0.15,
@@ -3275,7 +3275,7 @@ Please refer to the enclosing sub-package <a href=\"FixedShape\">FixedShape</a> 
         parameter SI.Radius r_o( start = 0.01)
           "Outer radius of (hollow) cylinder";
 
-        annotation (Images(Parameters(group="Variable geometry", source="Images/FluxTubes/Shapes/HollowCylinderAxialFlux.png")),
+        annotation (__Dymola_Images(Parameters(group="Variable geometry", source="Images/FluxTubes/Shapes/HollowCylinderAxialFlux.png")),
             Documentation(info="<html>
 <p>
 Please refer to the enclosing sub-package <a href=\"Force\">Force</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
@@ -3331,7 +3331,7 @@ The shapes of the flux tubes defined in this package are rather simple. Only one
         parameter SI.Radius r_o( start = 0.015)
           "Outer radius of hollow cylinder";
 
-        annotation (Images(Parameters(group="Variable geometry", source="Images/FluxTubes/Shapes/HollowCylinderRadialFlux.png")),
+        annotation (__Dymola_Images(Parameters(group="Variable geometry", source="Images/FluxTubes/Shapes/HollowCylinderRadialFlux.png")),
             Documentation(info="<html>
 <p>
 Please refer to the enclosing sub-package <a href=\"Force\">Force</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
@@ -3367,7 +3367,7 @@ Please refer to the enclosing sub-package <a href=\"Force\">Force</a> for a desc
         parameter SI.Length b( start = 0.01)
           "Height of rectangular cross-section";
 
-        annotation (Images(Parameters(group="Variable geometry", source="Images/FluxTubes/Shapes/CuboidParallelFlux.png")),
+        annotation (__Dymola_Images(Parameters(group="Variable geometry", source="Images/FluxTubes/Shapes/CuboidParallelFlux.png")),
             Documentation(info="<html>
 <p>
 Please refer to the enclosing sub-package <a href=\"Force\">Force</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
@@ -3401,7 +3401,7 @@ Please refer to the enclosing sub-package <a href=\"Force\">Force</a> for a desc
         parameter SI.Length b( start = 0.01)
           "Height of rectangular cross-section (in flux direction)";
 
-        annotation (Images(Parameters(group="Variable geometry", source="Images/FluxTubes/Shapes/CuboidOrthogonalFlux.png")),
+        annotation (__Dymola_Images(Parameters(group="Variable geometry", source="Images/FluxTubes/Shapes/CuboidOrthogonalFlux.png")),
             Documentation(info="<html>
 <p>
 Please refer to the enclosing sub-package <a href=\"Force\">Force</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
@@ -3430,7 +3430,7 @@ Please refer to the enclosing sub-package <a href=\"Force\">Force</a> for a desc
         SI.Length l = s "Axial length (in direction of flux)"
           annotation(Dialog(group="Variable geometry"));
 
-        annotation (Images(Parameters(group="Variable geometry", source="Images/FluxTubes/Shapes/LeakageAroundPoles.png")),
+        annotation (__Dymola_Images(Parameters(group="Variable geometry", source="Images/FluxTubes/Shapes/LeakageAroundPoles.png")),
             Documentation(info="<html>
 <p>
 Please refer to the description of  the enclosing sub-package <a href=\"Force\">Force</a> for a description of all elements of this package.
@@ -3488,7 +3488,7 @@ All dimensions are defined as parameters. As a result, the shape of these elemen
         parameter SI.Length l( start = 0.1)
           "Axial length orthogonal to flux (=2*pi*r for cylindrical pole and r>>distance between edge and plane)";
 
-        annotation (Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/QuarterCylinder.png")),
+        annotation (__Dymola_Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/QuarterCylinder.png")),
             Documentation(info="<html>
 <p>
 Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
@@ -3509,7 +3509,7 @@ Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a 
           "Axial length orthogonal to flux (=2*pi*r for cylindrical pole and r>>r_i)";
         parameter Real ratio( start = 1) "Constant ratio t/r_i";
 
-        annotation (Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/QuarterHollowCylinder.png")),
+        annotation (__Dymola_Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/QuarterHollowCylinder.png")),
             Documentation(info="<html>
 <p>
 Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
@@ -3528,7 +3528,7 @@ Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a 
         parameter SI.Length l( start = 0.1)
           "Axial length orthogonal to flux (=2*pi*r for cylindrical pole and r>>distance between edges)";
 
-        annotation (Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/HalfCylinder.png")),
+        annotation (__Dymola_Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/HalfCylinder.png")),
             Documentation(info="<html>
 <p>
 Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
@@ -3549,7 +3549,7 @@ Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a 
           "Axial length orthogonal to flux (=2*pi*r for cylindrical pole and r>>r_i)";
         parameter Real ratio( start = 1) "Constant ratio t/r_i";
 
-        annotation (Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/HalfHollowCylinder.png")),
+        annotation (__Dymola_Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/HalfHollowCylinder.png")),
             Documentation(info="<html>
 <p>
 Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
@@ -3568,7 +3568,7 @@ Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a 
 
         parameter SI.Radius r( start = 0.005) "Radius of quarter sphere";
 
-        annotation (Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/QuarterSphere.png")),
+        annotation (__Dymola_Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/QuarterSphere.png")),
             Documentation(info="<html>
 <p>
 Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
@@ -3586,7 +3586,7 @@ Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a 
         extends Modelica.Magnetic.FluxTubes.Interfaces.PartialLeakage;
 
         parameter SI.Length t( start = 0.01) "Thickness of sperical shell";
-        annotation (Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/QuarterHollowSphere.png")),
+        annotation (__Dymola_Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/QuarterHollowSphere.png")),
           Documentation(info="<html>
 <p>
 Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
@@ -3605,7 +3605,7 @@ Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a 
 
         parameter SI.Radius r( start = 0.01) "Radius of eighth of sphere";
 
-        annotation (Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/EighthOfSphere.png")),
+        annotation (__Dymola_Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/EighthOfSphere.png")),
             Documentation(info="<html>
 <p>
 Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
@@ -3624,7 +3624,7 @@ Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a 
 
         parameter SI.Length t( start = 0.01) "Thickness of sperical shell";
 
-        annotation (Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/EighthOfHollowSphere.png")),
+        annotation (__Dymola_Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/EighthOfHollowSphere.png")),
             Documentation(info="<html>
 <p>
 Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
@@ -3653,7 +3653,7 @@ Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a 
         final parameter SI.Length t = r_2 - r_1
           "Radial thickness of outer hollow cylinder";
 
-        annotation (Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/CoaxCylindersEndFaces.png")),
+        annotation (__Dymola_Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/CoaxCylindersEndFaces.png")),
             Documentation(info="<html>
 <p>
 Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
