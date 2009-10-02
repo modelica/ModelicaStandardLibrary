@@ -10,7 +10,6 @@ model CompareTransformers
           lineColor={0,0,255},
           textString="Basic.Transformer (mutual inductance)")}),
     experiment(StopTime=50, Interval=0.001),
-    experimentSetupOutput,
     Documentation(revisions="<html>
 <ul>
 <li><i>  </i>

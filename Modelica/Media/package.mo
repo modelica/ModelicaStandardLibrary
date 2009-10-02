@@ -2453,8 +2453,7 @@ The function that is implemented is approximate, but usually very good: the seco
 is given to compare the approximation.
 </p>
 </html>"),
-      experiment(Tolerance=1e-005),
-      __Dymola_experimentSetupOutput);
+      experiment(Tolerance=1e-005));
 
   Medium.ThermodynamicState state1;
   Medium.ThermodynamicState state2;

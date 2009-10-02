@@ -161,7 +161,6 @@ equation
                        experiment(StopTime=10),
     __Dymola_Commands(file(ensureSimulated=true)=
         "Scripts/Fluid/BranchingDynamicPipes/plotResults.mos" "plotResults"),
-    __Dymola_experimentSetupOutput,
     Documentation(info="<html>
 <p>
 This model demonstrates the use of distributed pipe models with dynamic energy, mass and momentum balances.

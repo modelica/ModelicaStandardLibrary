@@ -7,7 +7,6 @@ model RollingWheelSetPulling "Rolling wheel set that is pulled by a force"
   annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics),
     experiment(StopTime=3),
-    __Dymola_experimentSetupOutput,
     Documentation(info="<html>
 
 </html>"));
