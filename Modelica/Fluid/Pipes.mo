@@ -24,7 +24,7 @@ package Pipes "Devices for conveying fluid"
             states={Medium.setState_phX(port_a.p, inStream(port_a.h_outflow), inStream(port_a.Xi_outflow)),
                    Medium.setState_phX(port_b.p, inStream(port_b.h_outflow), inStream(port_b.Xi_outflow))},
             vs={port_a.m_flow/Medium.density(flowModel.states[1])/flowModel.crossAreas[1],
-                -port_b.m_flow/Medium.density(flowModel.states[2])/flowModel.crossAreas[2]},
+                -port_b.m_flow/Medium.density(flowModel.states[2])/flowModel.crossAreas[2]}/nParallel,
             final momentumDynamics=Types.Dynamics.SteadyState,
             final allowFlowReversal=allowFlowReversal,
             final p_a_start=p_a_start,
@@ -135,25 +135,25 @@ or other flow models without storage, are directly connected.
     // Wb_flow = v*A*dpdx + v*F_fric
     //         = v*A*dpdx + v*A*flowModel.dp_fg - v*A*dp_grav
     if n == 1 or useLumpedPressure then
-      Wb_flows = dxs * ((vs*dxs)*(crossAreas*dxs)*((port_b.p - port_a.p) + sum(flowModel.dps_fg) - system.g*(dheights*mediums.d)));
+      Wb_flows = dxs * ((vs*dxs)*(crossAreas*dxs)*((port_b.p - port_a.p) + sum(flowModel.dps_fg) - system.g*(dheights*mediums.d)))*nParallel;
     else
       if modelStructure == ModelStructure.av_vb or modelStructure == ModelStructure.av_b then
-        Wb_flows[2:n-1] = {vs[i]*crossAreas[i]*((mediums[i+1].p - mediums[i-1].p)/2 + (flowModel.dps_fg[i-1]+flowModel.dps_fg[i])/2 - system.g*dheights[i]*mediums[i].d) for i in 2:n-1};
+        Wb_flows[2:n-1] = {vs[i]*crossAreas[i]*((mediums[i+1].p - mediums[i-1].p)/2 + (flowModel.dps_fg[i-1]+flowModel.dps_fg[i])/2 - system.g*dheights[i]*mediums[i].d) for i in 2:n-1}*nParallel;
       else
-        Wb_flows[2:n-1] = {vs[i]*crossAreas[i]*((mediums[i+1].p - mediums[i-1].p)/2 + (flowModel.dps_fg[i]+flowModel.dps_fg[i+1])/2 - system.g*dheights[i]*mediums[i].d) for i in 2:n-1};
+        Wb_flows[2:n-1] = {vs[i]*crossAreas[i]*((mediums[i+1].p - mediums[i-1].p)/2 + (flowModel.dps_fg[i]+flowModel.dps_fg[i+1])/2 - system.g*dheights[i]*mediums[i].d) for i in 2:n-1}*nParallel;
       end if;
       if modelStructure == ModelStructure.av_vb then
-        Wb_flows[1] = vs[1]*crossAreas[1]*((mediums[2].p - mediums[1].p)/2 + flowModel.dps_fg[1]/2 - system.g*dheights[1]*mediums[1].d);
-        Wb_flows[n] = vs[n]*crossAreas[n]*((mediums[n].p - mediums[n-1].p)/2 + flowModel.dps_fg[n-1]/2 - system.g*dheights[n]*mediums[n].d);
+        Wb_flows[1] = vs[1]*crossAreas[1]*((mediums[2].p - mediums[1].p)/2 + flowModel.dps_fg[1]/2 - system.g*dheights[1]*mediums[1].d)*nParallel;
+        Wb_flows[n] = vs[n]*crossAreas[n]*((mediums[n].p - mediums[n-1].p)/2 + flowModel.dps_fg[n-1]/2 - system.g*dheights[n]*mediums[n].d)*nParallel;
       elseif modelStructure == ModelStructure.av_b then
-        Wb_flows[1] = vs[1]*crossAreas[1]*((mediums[2].p - mediums[1].p)/2 + flowModel.dps_fg[1]/2 - system.g*dheights[1]*mediums[1].d);
-        Wb_flows[n] = vs[n]*crossAreas[n]*((port_b.p - mediums[n-1].p)/1.5 + flowModel.dps_fg[n-1]/2+flowModel.dps_fg[n] - system.g*dheights[n]*mediums[n].d);
+        Wb_flows[1] = vs[1]*crossAreas[1]*((mediums[2].p - mediums[1].p)/2 + flowModel.dps_fg[1]/2 - system.g*dheights[1]*mediums[1].d)*nParallel;
+        Wb_flows[n] = vs[n]*crossAreas[n]*((port_b.p - mediums[n-1].p)/1.5 + flowModel.dps_fg[n-1]/2+flowModel.dps_fg[n] - system.g*dheights[n]*mediums[n].d)*nParallel;
       elseif modelStructure == ModelStructure.a_vb then
-        Wb_flows[1] = vs[1]*crossAreas[1]*((mediums[2].p - port_a.p)/1.5 + flowModel.dps_fg[1]+flowModel.dps_fg[2]/2 - system.g*dheights[1]*mediums[1].d);
-        Wb_flows[n] = vs[n]*crossAreas[n]*((mediums[n].p - mediums[n-1].p)/2 + flowModel.dps_fg[n]/2 - system.g*dheights[n]*mediums[n].d);
+        Wb_flows[1] = vs[1]*crossAreas[1]*((mediums[2].p - port_a.p)/1.5 + flowModel.dps_fg[1]+flowModel.dps_fg[2]/2 - system.g*dheights[1]*mediums[1].d)*nParallel;
+        Wb_flows[n] = vs[n]*crossAreas[n]*((mediums[n].p - mediums[n-1].p)/2 + flowModel.dps_fg[n]/2 - system.g*dheights[n]*mediums[n].d)*nParallel;
       elseif modelStructure == ModelStructure.a_v_b then
-        Wb_flows[1] = vs[1]*crossAreas[1]*((mediums[2].p - port_a.p)/1.5 + flowModel.dps_fg[1]+flowModel.dps_fg[2]/2 - system.g*dheights[1]*mediums[1].d);
-        Wb_flows[n] = vs[n]*crossAreas[n]*((port_b.p - mediums[n-1].p)/1.5 + flowModel.dps_fg[n]/2+flowModel.dps_fg[n+1] - system.g*dheights[n]*mediums[n].d);
+        Wb_flows[1] = vs[1]*crossAreas[1]*((mediums[2].p - port_a.p)/1.5 + flowModel.dps_fg[1]+flowModel.dps_fg[2]/2 - system.g*dheights[1]*mediums[1].d)*nParallel;
+        Wb_flows[n] = vs[n]*crossAreas[n]*((port_b.p - mediums[n-1].p)/1.5 + flowModel.dps_fg[n]/2+flowModel.dps_fg[n+1] - system.g*dheights[n]*mediums[n].d)*nParallel;
       else
         assert(true, "Unknown model structure");
       end if;
@@ -451,7 +451,7 @@ Base class for one dimensional flow models. It specializes a PartialTwoPort with
       Medium.EnthalpyFlowRate[n+1] H_flows
         "Enthalpy flow rates of fluid across segment boundaries";
 
-      SI.Velocity[n] vs = {0.5*(m_flows[i] + m_flows[i+1])/mediums[i].d/crossAreas[i] for i in 1:n}
+      SI.Velocity[n] vs = {0.5*(m_flows[i] + m_flows[i+1])/mediums[i].d/crossAreas[i] for i in 1:n}/nParallel
         "mean velocities in flow segments";
 
       // Model structure dependent flow geometry
@@ -1233,15 +1233,15 @@ e.g. with numerical smoothing or by raising events as appropriate.
         // Laminar.massFlowRate_dp:
         //   m_flow = dp*pi*diameter^4*d/(128*length*mu);
         SI.Length[n-1] pathLengths_nominal=
-          {(dp_nominal-g*dheights[i])*Modelica.Constants.pi*((dimensions[i]+dimensions[i+1])/2)^4*rhos_act[i]/(128*mus_act[i])/
+          {(dp_nominal/(n-1)-g*dheights[i])*Modelica.Constants.pi*((dimensions[i]+dimensions[i+1])/2)^4*rhos_act[i]/(128*mus_act[i])/
            (m_flow_nominal/nParallel) for i in 1:n-1} if show_Res;
 
       equation
         // linear pressure loss
         if  not allowFlowReversal or use_rho_nominal or not useUpstreamScheme then
-          dps_fg = {g*dheights[i]*rhos_act[i] for i in 1:n-1} + dp_nominal/m_flow_nominal*m_flows*nParallel;
+          dps_fg = {g*dheights[i]*rhos_act[i] for i in 1:n-1} + dp_nominal/(n-1)/m_flow_nominal*m_flows;
         else
-          dps_fg = {g*dheights[i]*(if m_flows[i] > 0 then rhos[i] else rhos[i+1]) for i in 1:n-1} + dp_nominal/m_flow_nominal*m_flows*nParallel;
+          dps_fg = {g*dheights[i]*(if m_flows[i] > 0 then rhos[i] else rhos[i+1]) for i in 1:n-1} + dp_nominal/(n-1)/m_flow_nominal*m_flows;
         end if;
 
         annotation (Documentation(info="<html>
@@ -1448,7 +1448,7 @@ simulation and/or might give a more robust simulation.
             //   k_inv = (pi*diameter*diameter)^2/(8*zeta);
             //   k = rho*k_inv "Factor in m_flow = sqrt(k*dp)";
             for i in 1:n-1 loop
-              ks_inv[i] = (m_flow_nominal/nParallel)^2/((dp_nominal-g*dheights[i]*rhos_act[i]))/rhos_act[i];
+              ks_inv[i] = (m_flow_nominal/nParallel)^2/((dp_nominal/(n-1)-g*dheights[i]*rhos_act[i]))/rhos_act[i];
               zetas[i] = (pi*diameters[i]*diameters[i])^2/(8*ks_inv[i]);
               pathLengths_nominal[i] =
                 zetas[i]*diameters[i]*(2*Modelica.Math.log10(3.7 /((roughnesses[i]+roughnesses[i+1])/2/diameters[i])))^2;
