@@ -1701,7 +1701,7 @@ In this chapter <b>operators</b> of Modelica are documented.
 Elementary operators, such as \"+\" or \"-\" are overloaded and
 operate on scalar and array variables. Other operators
 have the same syntax as a
-<a href=\"Modelica:ModelicaReference.Classes.Function\">Modelica function</a>
+<a href=\"Modelica://ModelicaReference.Classes.Function\">Modelica function</a>
 call. However, they do not behave as a Modelica function,
 either because the result depends not only on the input arguments but
 also on the status of the simulation (such as \"pre(..)\"), or
