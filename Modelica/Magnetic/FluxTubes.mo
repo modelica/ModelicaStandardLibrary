@@ -15,7 +15,7 @@ annotation (
 This library contains components for modelling of electromagnetic devices with lumped magnetic networks. Those models are suited for both rough design of the magnetic subsystem of a device as well as for efficient dynamic simulation at system level together with neighbouring subsystems. At present, components and examples for modelling of <i>translatory</i> electromagnetic and electrodynamic actuators are provided. If needed, these components can be adapted to network modelling of <i>rotational</i> electrical machines.
 </p>
 <p>
-<a href=\"Modelica.Magnetic.FluxTubes.UsersGuide\">Users Guide</a> gives a short introduction to the underlying concept of <b>magnetic flux tubes</b>, summarizes the calculation of magnetic <b>reluctance forces</b> from lumped magnetic network models and lists <b>reference literature</b>.
+<a href=\"Modelica.Magnetic.FluxTubes.UsersGuide\">User's Guide</a> gives a short introduction to the underlying concept of <b>magnetic flux tubes</b>, summarizes the calculation of magnetic <b>reluctance forces</b> from lumped magnetic network models and lists <b>reference literature</b>.
 </p>
 <p>
 <a href=\"Modelica.Magnetic.FluxTubes.Examples\">Examples</a> illustrates the usage of magnetic network models with simple models from different fields of application.
@@ -84,14 +84,14 @@ and the accompanying <b>disclaimer</b>
 
   extends Modelica.Icons.Library2;
 
-package UsersGuide "Users Guide"
+package UsersGuide "User's Guide"
 
   annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 This library contains components for modelling of electromagnetic devices with lumped magnetic networks. Those models are suited for both rough design of the magnetic subsystem of a device as well as for efficient dynamic simulation at system level together with neighbouring subsystems. At present, components and examples for modelling of <i>translatory</i> electromagnetic and electrodynamic actuators are provided. If needed, these components can be adapted to network modellling of <i>rotational</i> electrical machines.
 </p>
 <p>
-This users guide gives a short introduction to the underlying concept of <b>magnetic flux tubes</b>, summarizes the calculation of magnetic <b>reluctance forces</b> from lumped magnetic network models and lists <b>reference literature</b>.
+This user's guide gives a short introduction to the underlying concept of <b>magnetic flux tubes</b>, summarizes the calculation of magnetic <b>reluctance forces</b> from lumped magnetic network models and lists <b>reference literature</b>.
 </p>
 <p>
 <a href=\"Modelica.Magnetic.FluxTubes.Examples\">Examples</a> illustrates the usage of magnetic network models with simple models from different fields of application.
@@ -158,7 +158,7 @@ Generally, the thrust <i>F</i> developed by a translatory electro-magneto-mechan
 <p><IMG SRC=\"../Images/Magnetic/FluxTubes/UsersGuide/ReluctanceForceCalculation/eq_forceFromPermeance_network.png\" ALT=\"Equation for force calculation in lumped magnetic network models\"></p>
 
 <p>
-where <i>n<sub>linear</sub></i> is the number of flux tube elements with constant relative permeability that change its permeance <i>G<sub>m i</sub></i> with armature position (index <i>i</i>), <i>V<sub>m i</sub></i> the magnetic voltage across each respective flux tube and <i>dG<sub>m i</sub>/dx</i> the derivative of the respective permeances with respect to armature position. Transition from the general formula based on magnetic co-energy to the latter one is outlined in <a href=\"Literature\">[Ka08]</a> for the reciprocal of the permeance, i.e. for the magnetic reluctance <i>R<sub>m</sub></i>. Note that
+where <i>n<sub>linear</sub></i> is the number of flux tube elements with constant relative permeability that change its permeance <i>G<sub>m i</sub></i> with armature position (index <i>i</i>), <i>V<sub>m i</sub></i> the magnetic voltage across each respective flux tube and <i>dG<sub>m i</sub>/dx</i> the derivative of the respective permeances with respect to armature position. Transition from the general formula based on magnetic co-energy to the latter one is outlined in <a href=\"Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ka08]</a> for the reciprocal of the permeance, i.e. for the magnetic reluctance <i>R<sub>m</sub></i>. Note that
 </p>
 
 
@@ -1665,7 +1665,7 @@ The characteristic current drop during pull-in is due to both armature motion an
 
       annotation (Documentation(info="<html>
 <p>
-In electromagnetic or reluctance actuators, a thrust or reluctance force is generated due to a non-zero gradient of the relative magnetic permeability mu_r at surfaces between regions of different permeability (non-saturated ferromagnetic material: mu_r>>1, adjacent air: mu_r=1). In lumped magnetic network models, this force can be calculated as shortly outlined in <a href=\"UsersGuide.ReluctanceForceCalculation\">Reluctance Forces</a> of the Users Guide.
+In electromagnetic or reluctance actuators, a thrust or reluctance force is generated due to a non-zero gradient of the relative magnetic permeability mu_r at surfaces between regions of different permeability (non-saturated ferromagnetic material: mu_r>>1, adjacent air: mu_r=1). In lumped magnetic network models, this force can be calculated as shortly outlined in <a href=\"UsersGuide.ReluctanceForceCalculation\">Reluctance Forces</a> of the User's Guide.
 </p>
 
 <p>
@@ -3107,7 +3107,7 @@ Eddy currents are induced in a conductive magnetic flux tube when the flux chang
 </p>
 
 <p>
-Partitioning of a solid conductive cylinder or prism into several hollow cylinders or separate nested prisms and modelling of each of these flux tubes connected in parallel with a series connection of a reluctance element and an eddy current component can model the delayed buildup of the magnetic field in the complete flux tube from the outer to the inner sections. Please refer to <a href=\"UsersGuide.Literature\">[Ka08]</a> for an illustration.
+Partitioning of a solid conductive cylinder or prism into several hollow cylinders or separate nested prisms and modelling of each of these flux tubes connected in parallel with a series connection of a reluctance element and an eddy current component can model the delayed buildup of the magnetic field in the complete flux tube from the outer to the inner sections. Please refer to <a href=\"Modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ka08]</a> for an illustration.
 </p>
 </html>"));
 
@@ -3154,7 +3154,7 @@ Partitioning of a solid conductive cylinder or prism into several hollow cylinde
             grid={2,2}), graphics),
         Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"FixedShape\">FixedShape</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+Please refer to the enclosing sub-package <a href=\"FixedShape\">FixedShape</a> for a description of all elements of this package and to <a href=\"Modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
 </p>
 
 <p>
@@ -3195,7 +3195,7 @@ Set the inner radius r_i=0 for modelling of a solid cylindric flux tube.
             grid={2,2}), graphics),
         Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"FixedShape\">FixedShape</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+Please refer to the enclosing sub-package <a href=\"FixedShape\">FixedShape</a> for a description of all elements of this package and to <a href=\"Modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
 </p>
 
 <p>
@@ -3250,7 +3250,7 @@ For initial design of magnetic circuits, the relative permeability of possibly n
             grid={2,2}), graphics),
         Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"FixedShape\">FixedShape</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+Please refer to the enclosing sub-package <a href=\"FixedShape\">FixedShape</a> for a description of all elements of this package and to <a href=\"Modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
 </p>
 </html>"));
       equation
@@ -3278,7 +3278,7 @@ Please refer to the enclosing sub-package <a href=\"FixedShape\">FixedShape</a> 
         annotation (__Dymola_Images(Parameters(group="Variable geometry", source="Images/FluxTubes/Shapes/HollowCylinderAxialFlux.png")),
             Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"Force\">Force</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+Please refer to the enclosing sub-package <a href=\"Force\">Force</a> for a description of all elements of this package and to <a href=\"Modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
 </p>
 </html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}),
@@ -3334,7 +3334,7 @@ The shapes of the flux tubes defined in this package are rather simple. Only one
         annotation (__Dymola_Images(Parameters(group="Variable geometry", source="Images/FluxTubes/Shapes/HollowCylinderRadialFlux.png")),
             Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"Force\">Force</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+Please refer to the enclosing sub-package <a href=\"Force\">Force</a> for a description of all elements of this package and to <a href=\"Modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
 </p>
 </html>"));
 
@@ -3370,7 +3370,7 @@ Please refer to the enclosing sub-package <a href=\"Force\">Force</a> for a desc
         annotation (__Dymola_Images(Parameters(group="Variable geometry", source="Images/FluxTubes/Shapes/CuboidParallelFlux.png")),
             Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"Force\">Force</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+Please refer to the enclosing sub-package <a href=\"Force\">Force</a> for a description of all elements of this package and to <a href=\"Modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
 </p>
 </html>"));
 
@@ -3404,7 +3404,7 @@ Please refer to the enclosing sub-package <a href=\"Force\">Force</a> for a desc
         annotation (__Dymola_Images(Parameters(group="Variable geometry", source="Images/FluxTubes/Shapes/CuboidOrthogonalFlux.png")),
             Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"Force\">Force</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+Please refer to the enclosing sub-package <a href=\"Force\">Force</a> for a description of all elements of this package and to <a href=\"Modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
 </p>
 </html>"));
 
@@ -3441,7 +3441,7 @@ Leakage flux around a prismatic or cylindric air gap between to poles can be des
 </p>
 
 <p>
-Note that in <a href=\"UsersGuide.Literature\">[Ka08]</a> the equation for G_m is accidentally swapped with that of a similar element.
+Note that in <a href=\"Modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ka08]</a> the equation for G_m is accidentally swapped with that of a similar element.
 </p>
 </html>"));
 
@@ -3491,7 +3491,7 @@ All dimensions are defined as parameters. As a result, the shape of these elemen
         annotation (__Dymola_Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/QuarterCylinder.png")),
             Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"Modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
 </p>
 </html>"));
 
@@ -3512,7 +3512,7 @@ Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a 
         annotation (__Dymola_Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/QuarterHollowCylinder.png")),
             Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"Modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
 </p>
 </html>"));
 
@@ -3531,7 +3531,7 @@ Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a 
         annotation (__Dymola_Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/HalfCylinder.png")),
             Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"Modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
 </p>
 </html>"));
 
@@ -3552,7 +3552,7 @@ Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a 
         annotation (__Dymola_Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/HalfHollowCylinder.png")),
             Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"Modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
 </p>
 </html>"));
 
@@ -3571,7 +3571,7 @@ Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a 
         annotation (__Dymola_Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/QuarterSphere.png")),
             Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"Modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
 </p>
 </html>"));
 
@@ -3589,7 +3589,7 @@ Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a 
         annotation (__Dymola_Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/QuarterHollowSphere.png")),
           Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"Modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
 </p>
 </html>"));
 
@@ -3608,7 +3608,7 @@ Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a 
         annotation (__Dymola_Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/EighthOfSphere.png")),
             Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"Modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
 </p>
 </html>"));
 
@@ -3627,7 +3627,7 @@ Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a 
         annotation (__Dymola_Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/EighthOfHollowSphere.png")),
             Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"Modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
 </p>
 </html>"));
 
@@ -3656,7 +3656,7 @@ Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a 
         annotation (__Dymola_Images(Parameters(source="Images/FluxTubes/Shapes/Leakage/CoaxCylindersEndFaces.png")),
             Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+Please refer to the enclosing sub-package <a href=\"Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"Modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
 </p>
 </html>"));
 
@@ -4022,7 +4022,7 @@ Source of B(H) characteristics:
 
         annotation (Documentation(info="<html>
 <p>
-The relative permeability mu_r as a function of flux density B for all soft magnetic materials currently included in this library is approximated with the following function <a href=\"UsersGuide.Literature\">[Ro00]</a>:
+The relative permeability mu_r as a function of flux density B for all soft magnetic materials currently included in this library is approximated with the following function <a href=\"Modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro00]</a>:
 <br>
 <dl>
 <dd>
