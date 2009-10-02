@@ -124,18 +124,21 @@ package HeatExchanger "Demo of a heat exchanger model"
       parameter SI.Length perimeter_2 "Flow channel perimeter" annotation(Dialog(tab="General",group="Fluid 2"));
       parameter SI.Length length(min=0) "Length of flow path for both fluids";
       parameter SI.Length s_wall(min=0) "Wall thickness";
+      parameter Boolean use_HeatTransfer = false
+        "= true to use the HeatTransfer_1/_2 model";
+
       // Heat transfer
       replaceable model HeatTransfer_1 =
           Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.IdealFlowHeatTransfer
         constrainedby
         Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer
-        "Heat transfer model" annotation(choicesAllMatching, Dialog(tab="General", group="Fluid 1"));
+        "Heat transfer model" annotation(choicesAllMatching, Dialog(tab="General", group="Fluid 1", enable=use_HeatTransfer));
 
       replaceable model HeatTransfer_2 =
           Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.IdealFlowHeatTransfer
         constrainedby
         Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer
-        "Heat transfer model" annotation(choicesAllMatching, Dialog(tab="General", group="Fluid 2"));
+        "Heat transfer model" annotation(choicesAllMatching, Dialog(tab="General", group="Fluid 2", enable=use_HeatTransfer));
 
       parameter SI.Area area_h_1 "Heat transfer area" annotation(Dialog(tab="General",group="Fluid 1"));
       parameter SI.Area area_h_2 "Heat transfer area" annotation(Dialog(tab="General",group="Fluid 2"));
@@ -255,49 +258,51 @@ package HeatExchanger "Demo of a heat exchanger model"
                0)));
 
       Modelica.Fluid.Pipes.DynamicPipe pipe_1(
-        redeclare package Medium = Medium_1,
-        isCircular=false,
-        diameter=0,
-        nNodes=nNodes,
-        allowFlowReversal=allowFlowReversal,
-        energyDynamics=energyDynamics,
-        massDynamics=massDynamics,
-        momentumDynamics=momentumDynamics,
-        length=length,
-        redeclare model HeatTransfer = HeatTransfer_1(perimeter=fill(area_h_1/length*n, n)),
-        use_T_start=use_T_start,
-        T_start=T_start_1,
-        h_start=h_start_1,
-        X_start=X_start_1,
-        m_flow_start=m_flow_start_1,
-        perimeter=perimeter_1,
-        crossArea=crossArea_1,
-        roughness=roughness_1,
-        redeclare model FlowModel = FlowModel_1)   annotation (Placement(transformation(extent={{-40,-80},
+        redeclare final package Medium = Medium_1,
+        final isCircular=false,
+        final diameter=0,
+        final nNodes=nNodes,
+        final allowFlowReversal=allowFlowReversal,
+        final energyDynamics=energyDynamics,
+        final massDynamics=massDynamics,
+        final momentumDynamics=momentumDynamics,
+        final length=length,
+        final use_HeatTransfer=use_HeatTransfer,
+        redeclare final model HeatTransfer = HeatTransfer_1,
+        final use_T_start=use_T_start,
+        final T_start=T_start_1,
+        final h_start=h_start_1,
+        final X_start=X_start_1,
+        final m_flow_start=m_flow_start_1,
+        final perimeter=perimeter_1,
+        final crossArea=crossArea_1,
+        final roughness=roughness_1,
+        redeclare final model FlowModel = FlowModel_1)   annotation (Placement(transformation(extent={{-40,-80},
                 {20,-20}},        rotation=0)));
 
       Modelica.Fluid.Pipes.DynamicPipe pipe_2(
-        redeclare package Medium = Medium_2,
-        nNodes=nNodes,
-        allowFlowReversal=allowFlowReversal,
-        energyDynamics=energyDynamics,
-        massDynamics=massDynamics,
-        momentumDynamics=momentumDynamics,
-        length=length,
-        isCircular=false,
-        diameter=0,
-        redeclare model HeatTransfer = HeatTransfer_2(perimeter=fill(area_h_2/length*n, n)),
-        use_T_start=use_T_start,
-        T_start=T_start_2,
-        h_start=h_start_2,
-        X_start=X_start_2,
-        m_flow_start=m_flow_start_2,
-        perimeter=perimeter_2,
-        crossArea=crossArea_2,
-        p_a_start=p_a_start1,
-        p_b_start=p_b_start2,
-        roughness=roughness_2,
-        redeclare model FlowModel = FlowModel_2)
+        redeclare final package Medium = Medium_2,
+        final nNodes=nNodes,
+        final allowFlowReversal=allowFlowReversal,
+        final energyDynamics=energyDynamics,
+        final massDynamics=massDynamics,
+        final momentumDynamics=momentumDynamics,
+        final length=length,
+        final isCircular=false,
+        final diameter=0,
+        final use_HeatTransfer=use_HeatTransfer,
+        redeclare final model HeatTransfer = HeatTransfer_2,
+        final use_T_start=use_T_start,
+        final T_start=T_start_2,
+        final h_start=h_start_2,
+        final X_start=X_start_2,
+        final m_flow_start=m_flow_start_2,
+        final perimeter=perimeter_2,
+        final crossArea=crossArea_2,
+        final p_a_start=p_a_start1,
+        final p_b_start=p_b_start2,
+        final roughness=roughness_2,
+        redeclare final model FlowModel = FlowModel_2)
                   annotation (Placement(transformation(extent={{20,88},{-40,28}},
               rotation=0)));
 
@@ -362,16 +367,20 @@ For both fluids geometry parameters, such as heat transfer area and cross sectio
 The flow scheme may be concurrent or counterflow, defined by the respective flow directions of the fluids entering the component.
 The design flow direction with positive m_flow variables is counterflow.
 </html>"));
-      Modelica.Fluid.Interfaces.FluidPort_b port_b1(redeclare package Medium =
+      Modelica.Fluid.Interfaces.FluidPort_b port_b1(redeclare final package
+          Medium =
             Medium_1) annotation (Placement(transformation(extent={{100,-12},{120,
                 8}}, rotation=0)));
-      Modelica.Fluid.Interfaces.FluidPort_a port_a1(redeclare package Medium =
+      Modelica.Fluid.Interfaces.FluidPort_a port_a1(redeclare final package
+          Medium =
             Medium_1) annotation (Placement(transformation(extent={{-120,-12},{
                 -100,8}}, rotation=0)));
-      Modelica.Fluid.Interfaces.FluidPort_b port_b2(redeclare package Medium =
+      Modelica.Fluid.Interfaces.FluidPort_b port_b2(redeclare final package
+          Medium =
             Medium_2) annotation (Placement(transformation(extent={{-120,36},{
                 -100,56}}, rotation=0)));
-      Modelica.Fluid.Interfaces.FluidPort_a port_a2(redeclare package Medium =
+      Modelica.Fluid.Interfaces.FluidPort_a port_a2(redeclare final package
+          Medium =
             Medium_2) annotation (Placement(transformation(extent={{100,-56},{120,
                 -36}}, rotation=0)));
 
