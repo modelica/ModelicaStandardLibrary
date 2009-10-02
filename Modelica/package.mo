@@ -695,29 +695,31 @@ annotation (Documentation(info="<html>
 In this section bug fixes are summarized that have been incorporated
 since the release of version 3.1-build 4.
 </p>
- 
+
 <p><br>
 The following <b style=\"color:red\">critical errors</b> have been fixed (i.e. errors
 that can lead to wrong simulation results):
 </p>
- 
+
 <p>
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
   <tr><td colspan=\"2\"><b>Electrical.Analog.SemiConductors.</b></td></tr>
   <tr><td valign=\"top\"> NPN<br>
                         PNP<br>
                         HeatingPNP </td>
-      <td valign=\"top\"> LossPower was wrongly calculated. This was corrected.</td> 
+      <td valign=\"top\"> LossPower was wrongly calculated.
+      This was corrected (<a href=\"http://trac.modelica.org/Modelica/changeset/2925/Modelica\">changeset:2925</a>).</td>
   </tr>
 
   <tr><td colspan=\"2\"><b>StateGraph.Examples.Utilities.</b></td></tr>
   <tr><td valign=\"top\"> TankController </td>
       <td valign=\"top\"> A graphical annotation was wrong leading to a syntay error in some Modelica tools.
-                        This has been corrected. </td> 
+                        This has been corrected (<a href=\"http://trac.modelica.org/Modelica/ticket/206\">ticket:206</a>,
+                        <a href=\"http://trac.modelica.org/Modelica/changeset/2926/Modelica\">changeset:2926</a>). </td>
   </tr>
 </table>
 </p>
-                                               
+
 </html>"));
 end Version_3_1_BugFixes;
 
