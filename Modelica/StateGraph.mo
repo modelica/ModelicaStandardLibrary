@@ -3235,8 +3235,7 @@ value, still requires to go in to the text layer.
     Modelica.Blocks.Interfaces.RealInput Value "Real value to be shown in icon"
       annotation (
       Dialog(enable=hideConnector),
-      visible=not boolean(hideConnector),
-        Placement(transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
+      Placement(visible=not boolean(hideConnector), transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
 
   end NumericValue;
 
