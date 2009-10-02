@@ -35,11 +35,7 @@ derivative would be a dirac impulse.
 <img src=\"../Images/Fluid/Examples/BranchingDynamicPipes.png\" border=\"1\">
 </p>
 </html>"));
-                                     annotation (points=[-22,42; -2,42; -2,32;
-        7.8,32],
-      style(color=69, rgbcolor={0,127,255}));
-
-  inner Modelica.Fluid.System system(momentumDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial)
+  inner Modelica.Fluid.System system(momentumDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial) 
     annotation (Placement(transformation(extent={{-90,70},{-70,90}},  rotation=
             0)));
   Modelica.Fluid.Sources.Boundary_pT boundary1(nPorts=1,
@@ -55,7 +51,7 @@ derivative would be a dirac impulse.
     p_a_start=150000,
     p_b_start=130000,
     height_ab=50,
-    length=50)
+    length=50) 
             annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=90,
         origin={0,-50})));
@@ -63,7 +59,7 @@ derivative would be a dirac impulse.
     redeclare package Medium = Medium,
     use_T_start=true,
     nNodes=5,
-    redeclare model HeatTransfer =
+    redeclare model HeatTransfer = 
         Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.LocalPipeFlowHeatTransfer,
     use_HeatTransfer=true,
     diameter=2.54e-2,
@@ -71,7 +67,7 @@ derivative would be a dirac impulse.
     length=50,
     height_ab=25,
     p_a_start=130000,
-    p_b_start=120000)
+    p_b_start=120000) 
             annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=90,
         origin={-20,-10})));
@@ -85,7 +81,7 @@ derivative would be a dirac impulse.
     length=25,
     p_a_start=130000,
     p_b_start=120000,
-    height_ab=25)
+    height_ab=25) 
             annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=90,
         origin={20,-10})));
@@ -99,7 +95,7 @@ derivative would be a dirac impulse.
     p_a_start=120000,
     p_b_start=100000,
     height_ab=50,
-    length=50)
+    length=50) 
             annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=90,
         origin={0,30})));
@@ -118,7 +114,7 @@ derivative would be a dirac impulse.
           rotation=0)));
   Modelica.Thermal.HeatTransfer.Sources.FixedHeatFlow[
                                               pipe2.nNodes] heat2(Q_flow=200*
-        pipe2.dxs)
+        pipe2.dxs) 
     annotation (Placement(transformation(extent={{-60,-20},{-40,0}},  rotation=
             0)));
 equation
@@ -150,7 +146,7 @@ equation
       points={{6.12323e-016,40},{6.12323e-016,50},{-8.88178e-016,50}},
       color={0,127,255},
       thickness=0.5));
-  connect(heat2.port,pipe2. heatPorts)
+  connect(heat2.port,pipe2. heatPorts) 
                                       annotation (Line(
       points={{-40,-10},{-24.4,-10},{-24.4,-9.9}},
       color={191,0,0},
