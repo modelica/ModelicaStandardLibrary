@@ -22,7 +22,7 @@ the fluid library provides two different types of sensors: <b>regular one port</
 <li>
 The <b>regular one port</b> sensors have the advantage of easy introduction and removal from a model, as no connections have to be broken.
 A potential drawback is that the obtained value jumps as flow reverts.
-<a href=\"Modelica://Modelica.Fluid.Test.TestComponents.Sensors.TestTemperatureSensor\">Modelica.Fluid.Test.TestComponents.Sensors.TestTemperatureSensor </a> provides a test case,
+<a href=\"Modelica://ModelicaTest.Fluid.Test.TestComponents.Sensors.TestTemperatureSensor\">ModelicaTest.Fluid.Test.TestComponents.Sensors.TestTemperatureSensor </a> provides a test case,
 which demonstrates this.</li>
 
 <li> The <b>two port</b> sensors offer the advantages of an adjustable regularized step function around zero flow.

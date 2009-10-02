@@ -29,7 +29,7 @@ operators and is based on the
 it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b>
-<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
+<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
 </p><br>
 </html>", revisions="<html>
 
@@ -4004,7 +4004,7 @@ Break lookup in hierarchy
 <pre><b>encapsulated model</b> Test
   <b>import</b> Modelica.Mechanics.Rotational;
 
-  Rotational.Inertia inertia; // lookup successful
+  Rotational.Components.Inertia inertia; // lookup successful
   Modelica.Mechanics.Translational.SlidingMass slidingMass; // lookup fails
 <b>equation</b>
   ...
@@ -4906,7 +4906,7 @@ Import classes
   <b>import</b> Modelica.Mechanics.Rotational; // #3
 
   SI.Torque torque; // due to #1 (Modelica.SIunits.Torque)
-  Rotational.Inertia inertia; // due to #3 (Modelica.Mechanics.Rotational.Inertia)
+  Rotational.Components.Inertia inertia; // due to #3 (Modelica.Mechanics.Rotational.Components.Inertia)
 <b>equation</b>
   torque = sin(<b>time</b>); // due to #2 (Modelica.Math.sin)
   ...

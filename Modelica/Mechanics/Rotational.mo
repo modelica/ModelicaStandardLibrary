@@ -41,7 +41,7 @@ Copyright &copy; 1998-2009, Modelica Association and DLR.
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b>
-<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
+<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
 </p><br>
 </html>
 ", revisions=""),
@@ -4023,7 +4023,7 @@ provided via a signal bus.
         Documentation(info="<html>
 <p>
 Usually, the absolute angle and the absolute angular velocity of
-Modelica.Mechanics.Rotational.Inertia models are used as state variables.
+Modelica.Mechanics.Rotational.Components.Inertia models are used as state variables.
 In some circumstances, relative quantities are better suited, e.g.,
 because it may be easier to supply initial values.
 In such cases, model <b>RelativeStates</b> allows the definition of state variables

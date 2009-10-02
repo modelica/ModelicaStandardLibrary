@@ -2061,7 +2061,7 @@ of <tt>frame_a</tt>. The default animation of this component is
 shown in the figure below. </p>
       <IMG SRC=\"../Images/MultiBody/Parts/Rotor1D.png\" ALT=\"model Parts.Rotor1D\">
 <p>This component is a replacement for
-<a href=\"Modelica://Modelica.Mechanics.Rotational.Inertia\">Modelica.Mechanics.Rotational.Inertia</a>
+<a href=\"Modelica://Modelica.Mechanics.Rotational.Components.Inertia\">Modelica.Mechanics.Rotational.Components.Inertia</a>
 for the case, that a 1-dim.-rotational mechanical system should be attached with a 3-dim.
 carrier body.</p>
 <p>The Boolean parameter <tt>exact</tt> was introduced due to performance
@@ -2189,7 +2189,7 @@ of <tt>frame_a</tt>. The default animation of this component is
 shown in the figure below. </p>
       <IMG SRC=\"../Images/MultiBody/Parts/Rotor1D.png\" ALT=\"model Parts.Rotor1D\">
 <p>This component is a replacement for
-<a href=\"Modelica://Modelica.Mechanics.Rotational.Inertia\">Modelica.Mechanics.Rotational.Inertia</a>
+<a href=\"Modelica://Modelica.Mechanics.Rotational.Components.Inertia\">Modelica.Mechanics.Rotational.Components.Inertia</a>
 for the case, that a 1-dim.-rotational mechanical system should be attached with a 3-dim.
 carrier body.</p>
 <p>The Boolean parameter <tt>exact</tt> was introduced due to performance
