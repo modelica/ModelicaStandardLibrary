@@ -245,7 +245,6 @@ Pressure dynamics becomes present with a compressible medium model (e.g. Standar
 
 </html>"),
     experiment(StopTime=5),
-    __Dymola_experimentSetupOutput(equdistant=false),
     __Dymola_Commands(file=
           "Scripts/Fluid/IncompressibleFluidNetwork/plotJunctionPressuresAndValves.mos"
         "Plot junction pressures and valves"));

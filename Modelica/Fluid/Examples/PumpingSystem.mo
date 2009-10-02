@@ -131,7 +131,6 @@ If using Dymola, turn off \"Equidistant time grid\" to avoid numerical errors.
       StopTime=2000,
       NumberOfIntervals=5000,
       Tolerance=1e-006),
-    __Dymola_experimentSetupOutput(equdistant=false),
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},

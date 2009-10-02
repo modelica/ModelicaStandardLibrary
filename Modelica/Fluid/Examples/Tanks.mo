@@ -230,7 +230,6 @@ package Tanks "Library demonstrating the usage of the tank model"
           extent={{-160,-120},{100,120}},
           initialScale=0.1), graphics),
       experiment(StopTime=25000, NumberOfIntervals=5000),
-      __Dymola_experimentSetupOutput(equdistant=false),
       __Dymola_Commands(file=
             "Scripts/Fluid/TanksWithOverflow/plot level and port.m_flow.mos"
           "plot level and port.m_flow"),
