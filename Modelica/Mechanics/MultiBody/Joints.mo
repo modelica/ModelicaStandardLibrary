@@ -4772,52 +4772,36 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       connect(revolute.frame_b, rod2.frame_a) annotation (Line(
           points={{35,0},{15,0}},
           color={95,95,95},
-          thickness=0.5,
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}));
+          thickness=0.5));
       connect(rod2.frame_b, rod1.frame_b) annotation (Line(
           points={{-25,0},{-52,0}},
           color={95,95,95},
-          thickness=0.5,
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}));
+          thickness=0.5));
       connect(revolute.frame_a, frame_b) annotation (Line(
           points={{75,0},{100,0}},
           color={95,95,95},
-          thickness=0.5,
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}));
+          thickness=0.5));
       connect(rod2.frame_a, frame_ib) annotation (Line(
           points={{15,0},{26,0},{26,70},{80,70},{80,100}},
           color={95,95,95},
-          thickness=0.5,
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}));
+          thickness=0.5));
       connect(rod1.frame_a, frame_a) annotation (Line(
           points={{-92,0},{-100,0}},
           color={95,95,95},
-          thickness=0.5,
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}));
+          thickness=0.5));
       connect(relativePosition.frame_b, frame_a)
                                                annotation (Line(
           points={{40,-80},{-96,-80},{-96,0},{-100,0}},
           color={95,95,95},
-          pattern=LinePattern.Dot,
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}));
+          pattern=LinePattern.Dot));
       connect(relativePosition.frame_a, frame_b)
                                                annotation (Line(
           points={{60,-80},{96,-80},{96,0},{100,0}},
           color={95,95,95},
-          pattern=LinePattern.Dot,
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}));
+          pattern=LinePattern.Dot));
       connect(position_b.y, revolute.position_b)       annotation (Line(
           points={{1,-40},{20,-40},{20,-12},{31,-12}},
-          color={0,0,127},
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}));
+          color={0,0,127}));
       connect(rod2.frame_b, frame_im) annotation (Line(
           points={{-25,0},{-40,0},{-40,80},{0,80},{0,100}},
           color={95,95,95},
@@ -5327,47 +5311,33 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       connect(prismatic.frame_b, rod2.frame_a) annotation (Line(
           points={{36,0},{0,0}},
           color={95,95,95},
-          thickness=0.5,
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}));
+          thickness=0.5));
       connect(rod2.frame_b, rod1.frame_b) annotation (Line(
           points={{-40,0},{-52,0}},
           color={0,0,0},
-          thickness=0.5,
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}));
+          thickness=0.5));
       connect(prismatic.frame_a, frame_b) annotation (Line(
           points={{76,0},{100,0}},
           color={95,95,95},
-          thickness=0.5,
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}));
+          thickness=0.5));
       connect(rod2.frame_a, frame_ib) annotation (Line(
           points={{0,0},{7,0},{7,70},{80,70},{80,100}},
           color={95,95,95},
-          thickness=0.5,
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}));
+          thickness=0.5));
       connect(rod1.frame_a, frame_a) annotation (Line(
           points={{-92,0},{-100,0}},
           color={95,95,95},
-          thickness=0.5,
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}));
+          thickness=0.5));
       connect(relativePosition.frame_b, frame_a)
                                                annotation (Line(
           points={{30,-80},{-97,-80},{-97,0},{-100,0}},
           color={95,95,95},
-          pattern=LinePattern.Dot,
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}));
+          pattern=LinePattern.Dot));
       connect(relativePosition.frame_a, frame_b)
                                                annotation (Line(
           points={{50,-80},{95,-80},{95,0},{100,0}},
           color={95,95,95},
-          pattern=LinePattern.Dot,
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}));
+          pattern=LinePattern.Dot));
       connect(rod2.frame_b, frame_im) annotation (Line(
           points={{-40,0},{-46,0},{-46,80},{0,80},{0,100}},
           color={95,95,95},
@@ -5716,52 +5686,36 @@ component).
       connect(revolute.frame_b, rod2.frame_a) annotation (Line(
           points={{35,0},{15,0}},
           color={95,95,95},
-          thickness=0.5,
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}));
+          thickness=0.5));
       connect(rod2.frame_b, rod1.frame_b) annotation (Line(
           points={{-25,0},{-49,0}},
           color={95,95,95},
-          thickness=0.5,
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}));
+          thickness=0.5));
       connect(revolute.frame_a, frame_b) annotation (Line(
           points={{75,0},{100,0}},
           color={95,95,95},
-          thickness=0.5,
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}));
+          thickness=0.5));
       connect(rod2.frame_a, frame_ib) annotation (Line(
           points={{15,0},{26,0},{26,70},{80,70},{80,100}},
           color={95,95,95},
-          thickness=0.5,
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}));
+          thickness=0.5));
       connect(rod1.frame_a, frame_a) annotation (Line(
           points={{-89,0},{-100,0}},
           color={95,95,95},
-          thickness=0.5,
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}));
+          thickness=0.5));
       connect(relativePosition.frame_b, frame_a)
                                                annotation (Line(
           points={{40,-80},{-95,-80},{-95,0},{-100,0}},
           color={95,95,95},
-          pattern=LinePattern.Dot,
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}));
+          pattern=LinePattern.Dot));
       connect(relativePosition.frame_a, frame_b)
                                                annotation (Line(
           points={{60,-80},{96,-80},{96,0},{100,0}},
           color={95,95,95},
-          pattern=LinePattern.Dot,
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}));
+          pattern=LinePattern.Dot));
       connect(position_b.y, revolute.position_b)       annotation (Line(
           points={{1,-40},{20,-40},{20,-12},{31,-12}},
-          color={0,0,127},
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}));
+          color={0,0,127}));
       connect(revolute.axis, axis) annotation (Line(points={{55,20},{55,60},{90,
               60},{90,80},{100,80}}, color={0,0,0}));
       connect(rod2.frame_b, frame_im) annotation (Line(
@@ -6106,52 +6060,36 @@ component).
       connect(prismatic.frame_b, rod2.frame_a) annotation (Line(
           points={{35,0},{15,0}},
           color={95,95,95},
-          thickness=0.5,
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}));
+          thickness=0.5));
       connect(rod2.frame_b, rod1.frame_b) annotation (Line(
           points={{-25,0},{-49,0}},
           color={95,95,95},
-          thickness=0.5,
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}));
+          thickness=0.5));
       connect(prismatic.frame_a, frame_b) annotation (Line(
           points={{75,0},{100,0}},
           color={95,95,95},
-          thickness=0.5,
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}));
+          thickness=0.5));
       connect(rod2.frame_a, frame_ib) annotation (Line(
           points={{15,0},{26,0},{26,70},{80,70},{80,100}},
           color={95,95,95},
-          thickness=0.5,
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}));
+          thickness=0.5));
       connect(rod1.frame_a, frame_a) annotation (Line(
           points={{-89,0},{-100,0}},
           color={95,95,95},
-          thickness=0.5,
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}));
+          thickness=0.5));
       connect(relativePosition.frame_b, frame_a)
                                                annotation (Line(
           points={{40,-80},{-95,-80},{-95,0},{-100,0}},
           color={95,95,95},
-          pattern=LinePattern.Dot,
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}));
+          pattern=LinePattern.Dot));
       connect(relativePosition.frame_a, frame_b)
                                                annotation (Line(
           points={{60,-80},{96,-80},{96,0},{100,0}},
           color={95,95,95},
-          pattern=LinePattern.Dot,
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}));
+          pattern=LinePattern.Dot));
       connect(position_b.y, prismatic.position_b)       annotation (Line(
           points={{1,-40},{20,-40},{20,-12},{31,-12}},
-          color={0,0,127},
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}));
+          color={0,0,127}));
       connect(prismatic.axis, axis) annotation (Line(points={{39,14},{40,14},{
               40,60},{90,60},{90,80},{100,80}}, color={0,0,0}));
       connect(prismatic.bearing, bearing)
