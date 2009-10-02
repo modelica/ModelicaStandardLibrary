@@ -45,7 +45,6 @@ package DrumBoiler
             lineColor={0,0,0},
             textString="boiler")}),
       experiment(StopTime=5400),
-      __Dymola_experimentSetupOutput,
       Documentation(info="<html>
 <p align=\"center\">
 <img src=\"../Images/Fluid/Examples/DrumBoiler.png\" border=\"1\">

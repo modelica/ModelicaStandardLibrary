@@ -34,7 +34,6 @@ package ControlledTankSystem
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics),
       experiment(StopTime=900),
-      __Dymola_experimentSetupOutput,
       Documentation(info="<html>
 <p>
 With this example, the controller of a tank filling/emptying system

@@ -19,7 +19,6 @@ model RollingWheel
     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}),      graphics),
     experiment(StopTime=4),
-    __Dymola_experimentSetupOutput,
     Documentation(info="<html>
 
 </html>"));

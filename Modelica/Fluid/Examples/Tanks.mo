@@ -97,7 +97,6 @@ package Tanks "Library demonstrating the usage of the tank model"
               -100},{100,100}}),
                         graphics),
       experiment(StopTime=200),
-      __Dymola_experimentSetupOutput,
       __Dymola_Commands(file=
             "Scripts/Fluid/ThreeTanks/plot level and port.m_flow.mos"
           "plot level and port.m_flow"),
@@ -309,7 +308,6 @@ simulation accuracy could be increased in order to avoid errors.
               100,100}}),
               graphics),
       experiment(StopTime=50),
-      __Dymola_experimentSetupOutput,
       __Dymola_Commands(file="Scripts/Fluid/EmptyTanks/plot level and port.p.mos"
           "plot level and port.p"),
       Documentation(info="<html>

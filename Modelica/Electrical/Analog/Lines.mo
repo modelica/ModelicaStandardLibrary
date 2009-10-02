@@ -557,8 +557,7 @@ For the example of a microelectronic line of 0.1m lenght, which is used as defau
     experiment(
       StopTime=1e-009,
       NumberOfIntervals=2000,
-      Tolerance=1e-009),
-    __Dymola_experimentSetupOutput);
+      Tolerance=1e-009));
 end M_OLine;
 
   model ULine "Lossy RC Line"
