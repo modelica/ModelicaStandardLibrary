@@ -90,7 +90,7 @@ package IF97_Utilities
       SE-22370 Lund, Sweden<br>
       email: hubertus@modelon.se
       </address>
-      </HTML>", revisions="<h4>Intermediate release notes during development<\\h4>
+      </HTML>", revisions="<h4>Intermediate release notes during development</h4>
 <p>Currenly the Events/noEvents switch is only implmented for p-h states. Only after testing that implmentation, it will be extended to dT.</p>"));
   extends Modelica.Icons.Library;
 

@@ -411,7 +411,7 @@ Derivative function of <a href=Modelica://Modelica.Media.Air.MoistAir.sublimatio
       annotation(Inline=false,smoothOrder=5,derivative=saturationPressure_der,
         Documentation(info="<html>
 Saturation pressure of water in the liquid and the solid region is computed using an Antoine-type correlation. It's range of validity is between 223.16 and 373.16 K. Outside of these limits a (less accurate) result is returned. Functions for the
-<a href=Modelica.Media.Air.MoistAir.sublimationPressureIce>solid</a> and the <a href=\"Modelica.Media.MoistAir.saturationPressureLiquid\"> liquid</a> region, respectively, are combined using the first derivative continuous <a href=Modelica.Media.MoistAir.Utilities.spliceFunction>spliceFunction</a>.
+<a href=Modelica://Modelica.Media.Air.MoistAir.sublimationPressureIce>solid</a> and the <a href=\"Modelica://Modelica.Media.Air.MoistAir.saturationPressureLiquid\"> liquid</a> region, respectively, are combined using the first derivative continuous <a href=Modelica://Modelica.Media.Air.MoistAir.Utilities.spliceFunction>spliceFunction</a>.
 </html>"));
     algorithm
       psat := Utilities.spliceFunction(saturationPressureLiquid(Tsat),sublimationPressureIce(Tsat),Tsat-273.16,1.0);
