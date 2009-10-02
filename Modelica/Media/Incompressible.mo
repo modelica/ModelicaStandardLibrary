@@ -113,19 +113,19 @@ function calls can not be used.
 </HTML>"));
     final constant Real poly_rho[:] = if hasDensity then
                                          Poly.fitting(tableDensity[:,1],tableDensity[:,2],npol) else
-                                           zeros(npol+1) annotation(keepConstant = true);
+                                           zeros(npol+1) annotation(__Dymola_keepConstant = true);
     final constant Real poly_Cp[:] = if hasHeatCapacity then
                                          Poly.fitting(tableHeatCapacity[:,1],tableHeatCapacity[:,2],npol) else
-                                           zeros(npol+1) annotation(keepConstant = true);
+                                           zeros(npol+1) annotation(__Dymola_keepConstant = true);
     final constant Real poly_eta[:] = if hasViscosity then
                                          Poly.fitting(invTK, Math.log(tableViscosity[:,2]),npol) else
-                                           zeros(npol+1) annotation(keepConstant = true);
+                                           zeros(npol+1) annotation(__Dymola_keepConstant = true);
     final constant Real poly_pVap[:] = if hasVaporPressure then
                                          Poly.fitting(tableVaporPressure[:,1],tableVaporPressure[:,2],npol) else
-                                            zeros(npol+1) annotation(keepConstant= true);
+                                            zeros(npol+1) annotation(__Dymola_keepConstant= true);
     final constant Real poly_lam[:] = if size(tableConductivity,1)>0 then
                                          Poly.fitting(tableConductivity[:,1],tableConductivity[:,2],npol) else
-                                           zeros(npol+1) annotation(keepConstant = true);
+                                           zeros(npol+1) annotation(__Dymola_keepConstant = true);
     function invertTemp "function to invert temperatures"
       input Real[:] table "table temperature data";
       input Boolean Tink "flag for Celsius or Kelvin";
