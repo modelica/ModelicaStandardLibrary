@@ -710,7 +710,15 @@ that can lead to wrong simulation results):
       <td valign=\"top\"> LossPower was wrongly calculated.
       This was corrected (<a href=\"http://trac.modelica.org/Modelica/changeset/2925/Modelica\">changeset:2925</a>).</td>
   </tr>
+ <tr><td colspan=\"2\"><b>Fluid.</b></td></tr>
+  <tr><td valign=\"top\">Pipes </td>
+      <td valign=\"top\"><a href=\"http://trac.modelica.org/Modelica/ticket/215\">ticket:215</a>:
+      <ul><li>fix consideration of nParallel>1 for velocity of fluid flow</li>
+          <li>fix consideration of nNodes in nominal (inverse) flow models</li>
+      </ul>
 
+      </td>
+  </tr>
   <tr><td colspan=\"2\"><b>StateGraph.Examples.Utilities.</b></td></tr>
   <tr><td valign=\"top\"> TankController </td>
       <td valign=\"top\"> A graphical annotation was wrong leading to a syntay error in some Modelica tools.
