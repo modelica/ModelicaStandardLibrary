@@ -121,9 +121,9 @@ The Electrical.Digital library is based on the following references:
     annotation (Documentation(info="<html>
 <dl>
 <dt><b>Main Authors:</b>
-<dd><a href=\"http://people.eas.iis.fraunhofer.de/Christoph.Clauss/\">Christoph Clau&szlig;</a>
+<dd>Christoph Clau&szlig;
     &lt;<A HREF=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</A>&gt;<br>
-    <a href=\"http://people.eas.iis.fraunhofer.de/Andre.Schneider/\">Andr&eacute; Schneider</a>
+    Andr&eacute; Schneider
     &lt;<A HREF=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</A>&gt;<br>
     Fraunhofer Institute for Integrated Circuits (IIS)<br>
     Design Automation Department (EAS)<br>
