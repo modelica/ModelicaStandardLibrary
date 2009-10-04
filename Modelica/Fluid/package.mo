@@ -877,7 +877,7 @@ It is valid for incompressible and compressible flow up to a Mach number of 0.6.
          region between the smooth and rough pipe laws</b>.
          J. Inst. Civ. Eng. no. 4, 14-25.</dd>
     <dt>Idelchik I.E. (1994):</dt>
-    <dd><a href=\"http://www.begellhouse.com/books/00c0f05b040d2ec0.html\"><b>Handbook
+    <dd><a href=\"http://www.bookfinder.com/dir/i/Handbook_of_Hydraulic_Resistance/0849399084/\"><b>Handbook
         of Hydraulic Resistance</b></a>. 3rd edition, Begell House, ISBN
         0-8493-9908-4</dd>
     <dt>Miller D. S. (1990):</dt>
