@@ -414,7 +414,7 @@ If the supply voltage has a zero-crossing when applied to the inductor at time t
 
       annotation (Documentation(info="<html>
 <p>
-Moving coil actuators are often called electrodynamic actuators and a proportional behaviour between force and current is expressed by a converter constant (see <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator\">ConstantActuator</a>). However, in a simple moving coil actuator as presented in this example there is an additional non-linear force component that is due to the increase of the inductance when the armature coil moves into the ferromagnetic stator. A simple <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Components.PermeanceActuator\">PermeanceActuator</a> can be used to describe this non-linear force component.
+Moving coil actuators are often called electrodynamic actuators and a proportional behaviour between force and current is expressed by a converter constant (see <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator\">ConstantActuator</a>). However, in a simple moving coil actuator as presented in this example there is an additional non-linear force component that is due to the increase of the inductance when the armature coil moves into the ferromagnetic stator. A simple <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator\">PermeanceActuator</a> can be used to describe this non-linear force component.
 </p>
 </html>"),     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={
@@ -461,10 +461,10 @@ Moving coil actuators are often called electrodynamic actuators and a proportion
                 6, Tolerance=1e-007),
           Documentation(info="<html>
 <p>
-Have a look at <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator\">ConstantActuator</a> and at <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Components.PermeanceActuator\">PermeanceActuator</a> for an explanation of both converter models. <br>
+Have a look at <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator\">ConstantActuator</a> and at <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator\">PermeanceActuator</a> for an explanation of both converter models. <br>
 </p>
 <p>
-Simulation of the force-current characteristics of both converter models with the armature blocked at mid-position x=0 reveals the difference between the two models. In the <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator\">ConstantActuator</a>, force is proportional to current. In the simple <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Components.PermeanceActuator\">PermeanceActuator</a> there is an additional non-linear force component that is due to the dependency of the inductance on the armature position. Comparison with FEA results validates the higher accuracy of the <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Components.PermeanceActuator\">PermeanceActuator</a>. In the FEA model, the relative permeability of the stator iron was set to mu_rFe=const.=1000 in order to avoid additional non-linear force components due to saturation. <b>Simulate for 6 s</b> and <b>plot vs. current (e.g. iSensor.i)</b></p>
+Simulation of the force-current characteristics of both converter models with the armature blocked at mid-position x=0 reveals the difference between the two models. In the <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator\">ConstantActuator</a>, force is proportional to current. In the simple <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator\">PermeanceActuator</a> there is an additional non-linear force component that is due to the dependency of the inductance on the armature position. Comparison with FEA results validates the higher accuracy of the <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator\">PermeanceActuator</a>. In the FEA model, the relative permeability of the stator iron was set to mu_rFe=const.=1000 in order to avoid additional non-linear force components due to saturation. <b>Simulate for 6 s</b> and <b>plot vs. current (e.g. iSensor.i)</b></p>
 <pre>
     pmFixedPos.flange_b.f       // force of permeance model
     cFixedPos.flange_b.f        // force of converter constant model
@@ -563,10 +563,10 @@ Simulation of the force-current characteristics of both converter models with th
             Tolerance=1e-007),
           Documentation(info="<html>
 <p>
-Have a look at <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator\">ConstantActuator</a> and at <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Components.PermeanceActuator\">PermeanceActuator</a> for an explanation of both converter models. <br>
+Have a look at <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator\">ConstantActuator</a> and at <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator\">PermeanceActuator</a> for an explanation of both converter models. <br>
 </p>
 <p>
-Simulation of the force-stroke characteristic of the <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Components.PermeanceActuator\">PermeanceActuator</a> with a constant current I=3A and a forced armature movement (similar to measurements in reality) shows the dependency of both force-generating permeances G_ma and G_mb as well as inductance L on armature position x. <b>Simulate for 8 s</b> and <b>plot vs.</b> armature position <b>feedX.flange_b.s</b> (same physical quantities together in a common diagram for comparison):</p>
+Simulation of the force-stroke characteristic of the <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator\">PermeanceActuator</a> with a constant current I=3A and a forced armature movement (similar to measurements in reality) shows the dependency of both force-generating permeances G_ma and G_mb as well as inductance L on armature position x. <b>Simulate for 8 s</b> and <b>plot vs.</b> armature position <b>feedX.flange_b.s</b> (same physical quantities together in a common diagram for comparison):</p>
 <pre>
     feedX.flange_b.f            // force of permeance model (permeance of stator iron neglegted in this model)
     comparisonWithFEA.y[1]      // force of FEA model with non-linear stator iron 1.0718
@@ -645,7 +645,7 @@ Simulation of the force-stroke characteristic of the <a href=\"Modelica://Modeli
                 0.05, Tolerance=1e-007),
           Documentation(info="<html>
 <p>
-Have a look at <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator\">ConstantActuator</a> and at <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Components.PermeanceActuator\">PermeanceActuator</a>
+Have a look at <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator\">ConstantActuator</a> and at <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator\">PermeanceActuator</a>
 for an explanation of both actuator models.</p>
 
 <p>
@@ -791,7 +791,7 @@ Whereas the steady state current is the same in both models, the steady state ac
                   graphics),
             Documentation(info="<html>
 <p>
-In the <a href=\"Modelica://Modelica.Magnetic.FluxTubes.ConstantActuator\">ConstantActuator</a> model the force F is strictly proportional to the current i as indicated by the converter constant c. However, there is an additional non-linear force component in such an actuator that is due to the dependency of the coil inductance L on the armature position x. The inductance increases as the armature moves into the stator. The total force is
+In the <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator\">ConstantActuator</a> model the force F is strictly proportional to the current i as indicated by the converter constant c. However, there is an additional non-linear force component in such an actuator that is due to the dependency of the coil inductance L on the armature position x. The inductance increases as the armature moves into the stator. The total force is
 </p>
 
 <pre>
@@ -1074,7 +1074,7 @@ with electrodynamic or <i>Lorentz</i> force F, converter constant c, current i, 
 </pre>
 
 <p>
-The converter constant c as well as coil resistance R and inductance L are assumed to be known, e.g. from measurements or catalogue data. Hence this model is well-suited for system simulation together with neighbouring subsystems, but not for actuator design, where the motor constant is to be found on base of the magnetic circuit's geometry, material properties and winding data. See <a href=\"Modelica://Modelica.Magnetic.FluxTubes.PermeanceActuator\">PermeanceActuator</a> for a more accurate model of this actuator that is based on a magnetic network. Due to identical connectors, both models can be used in system simulation, e.g. to simulate a stroke as demonstrated in <a href=\"Modelica://Modelica.Magnetic.FluxTubes.ArmatureStroke\">ArmatureStroke</a>.
+The converter constant c as well as coil resistance R and inductance L are assumed to be known, e.g. from measurements or catalogue data. Hence this model is well-suited for system simulation together with neighbouring subsystems, but not for actuator design, where the motor constant is to be found on base of the magnetic circuit's geometry, material properties and winding data. See <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator\">PermeanceActuator</a> for a more accurate model of this actuator that is based on a magnetic network. Due to identical connectors, both models can be used in system simulation, e.g. to simulate a stroke as demonstrated in <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ArmatureStroke\">ArmatureStroke</a>.
 </p>
 </html>"));
           connect(r.p, p) annotation (Line(points={{-90,60},{-100,60}}, color={
@@ -1113,7 +1113,7 @@ The converter constant c as well as coil resistance R and inductance L are assum
                 10, Tolerance=1e-007),
           Documentation(info="<html>
 <p>
-Have a look at <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator\">SolenoidActuator</a> for general comments and at <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Components.SimpleSolenoid\">SimpleSolenoid</a> and <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid\">AdvancedSolenoid</a> for a detailed description of both magnetic network models.
+Have a look at <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator\">SolenoidActuator</a> for general comments and at <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid\">SimpleSolenoid</a> and <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid\">AdvancedSolenoid</a> for a detailed description of both magnetic network models.
 </p>
 
 <p>
@@ -1150,7 +1150,7 @@ The magnetic flux through the armature and the actuator's static inductance both
 </pre>
 
 <p>
-As mentioned in the description of both magnetic network models, one can tell the higher armature flux and inductance of the advanced solenoid model at large air gaps compared to that of the simple model. The effect of this difference on dynamic model behaviour can be analysed in <a href=\"Modelica://Modelica.Magnetic.FluxTubes.ComparisonPullInStroke\">ComparisonPullInStroke</a>.
+As mentioned in the description of both magnetic network models, one can tell the higher armature flux and inductance of the advanced solenoid model at large air gaps compared to that of the simple model. The effect of this difference on dynamic model behaviour can be analysed in <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke\">ComparisonPullInStroke</a>.
 </p>
 </html>"));
         Modelica.Blocks.Sources.Ramp x_set(
@@ -1257,7 +1257,7 @@ As mentioned in the description of both magnetic network models, one can tell th
                 0.05, Tolerance=1e-007),
           Documentation(info="<html>
 <p>
-Have a look at <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator\">SolenoidActuator</a> for general comments and at <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Components.SimpleSolenoid\">SimpleSolenoid</a> and <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid\">AdvancedSolenoid</a> for a detailed description of both magnetic network models.
+Have a look at <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator\">SolenoidActuator</a> for general comments and at <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid\">SimpleSolenoid</a> and <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid\">AdvancedSolenoid</a> for a detailed description of both magnetic network models.
 </p>
 
 <p>
@@ -1669,11 +1669,11 @@ In electromagnetic or reluctance actuators, a thrust or reluctance force is gene
 </p>
 
 <p>
-As an example of a reluctance actuator, a simple axisymmetric lifting magnet with planar end planes of armature and pole is shown. Often, a <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Components.SimpleSolenoid\">SimpleSolenoid</a> model is sufficient for initial rough design of such an actuator's magnetic subsystem. Higher accuracy can be gained from an <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid\">AdvancedSolenoid</a> model where the coil-imposed magnetomotive force is split and the leakage flux between armature and yoke is accounted for more precisely.
+As an example of a reluctance actuator, a simple axisymmetric lifting magnet with planar end planes of armature and pole is shown. Often, a <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid\">SimpleSolenoid</a> model is sufficient for initial rough design of such an actuator's magnetic subsystem. Higher accuracy can be gained from an <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid\">AdvancedSolenoid</a> model where the coil-imposed magnetomotive force is split and the leakage flux between armature and yoke is accounted for more precisely.
 </p>
 
 <p>
-The differences between these two models in static behaviour can be analysed and compared to results obtained with a more accurate finite element analysis (FEA) in <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary\">ComparisonQuasiStationary</a>. The resulting differences in dynamic behaviour can be analysed and compared to FEA results with simulation of a pull-in stroke in <a href=\"Modelica://Modelica.Magnetic.FluxTubes.ComparisonPullInStroke\">ComparisonPullInStroke</a>.
+The differences between these two models in static behaviour can be analysed and compared to results obtained with a more accurate finite element analysis (FEA) in <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary\">ComparisonQuasiStationary</a>. The resulting differences in dynamic behaviour can be analysed and compared to FEA results with simulation of a pull-in stroke in <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke\">ComparisonPullInStroke</a>.
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
               {100,100}}), graphics={
@@ -3706,7 +3706,7 @@ The parameters needed for <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Mater
             n=12.5);
           annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
 </html>"));
         end Steel_9SMnPb28;
@@ -3720,7 +3720,7 @@ Please refer to the description of  the enclosing package <a href=\"Modelica://M
             n=14)
           annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
 </html>"));
         end Steel_9SMn28K;
@@ -3735,7 +3735,7 @@ Please refer to the description of  the enclosing package <a href=\"Modelica://M
                   annotation (
             Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
 </html>"));
         end DC01;
@@ -3749,7 +3749,7 @@ Please refer to the description of  the enclosing package <a href=\"Modelica://M
             n=10.4) annotation (
             Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
 </html>"));
         end DC03;
@@ -3762,7 +3762,7 @@ Please refer to the description of  the enclosing package <a href=\"Modelica://M
             c_b=1.2,
             n=8.3) annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
 </html>"));
         end X6Cr17;
@@ -3775,7 +3775,7 @@ Please refer to the description of  the enclosing package <a href=\"Modelica://M
             c_b=2.59,
             n=10) annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
 </html>"));
         end AISI_1008;
@@ -3788,13 +3788,13 @@ Please refer to the description of  the enclosing package <a href=\"Modelica://M
             c_b=4.19,
             n=6.4) annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
 </html>"));
         end AISI_12L14;
         annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
 </html>"));
       end Steel;
@@ -3810,7 +3810,7 @@ Please refer to the description of  the enclosing package <a href=\"Modelica://M
             c_b=9.38,
             n=9.6) annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
 <p>
 Sample: complete core after machining and packet assembling<br>
@@ -3826,7 +3826,7 @@ Sample: complete core after machining and packet assembling<br>
             c_b=2.44,
             n=14) annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
 <p>
 Sample: sheet strip<br>
@@ -3844,7 +3844,7 @@ Measurement: Epstein frame
             n=13.5) annotation (Documentation(
               info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
 <p>
 Sample: sheet strip<br>
@@ -3862,7 +3862,7 @@ Measurement: Epstein frame
             n=13.15) annotation (Documentation(
               info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
 <p>
 Sample: sheet strip<br>
@@ -3879,7 +3879,7 @@ Measurement: Epstein frame
             c_b=3.13,
             n=13.9) annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
 <p>
 Sample: sheet strip<br>
@@ -3890,7 +3890,7 @@ Measurement: Epstein frame
 
         annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
 </html>"));
       end ElectricSheet;
@@ -3904,7 +3904,7 @@ Please refer to the description of  the enclosing package <a href=\"Modelica://M
             c_b=6.4,
             n=10) annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
 <p>
 Source of B(H) characteristics: Product catalogue <i>Magnequench</i>, 2000
@@ -3920,7 +3920,7 @@ Source of B(H) characteristics: Product catalogue <i>Magnequench</i>, 2000
             c_b=4.24,
             n=19) annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
 <p>
 Source of B(H) characteristics:
@@ -3943,7 +3943,7 @@ Source of B(H) characteristics:
             c_b=2.63,
             n=15.02) annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
 <p>
 Source of B(H) characteristics: VACUUMSCHMELZE GmbH &amp; Co. KG, Germany
@@ -3961,7 +3961,7 @@ Source of B(H) characteristics: VACUUMSCHMELZE GmbH &amp; Co. KG, Germany
             c_b=3.67,
             n=10) annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
 <p>
 Source of B(H) characteristics:
@@ -3981,7 +3981,7 @@ Source of B(H) characteristics:
             n=9.3) annotation (Documentation(
               info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
+Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
 <p>
 Source of B(H) characteristics:
