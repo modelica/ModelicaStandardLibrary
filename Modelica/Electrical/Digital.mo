@@ -136,7 +136,7 @@ The Electrical.Digital library is based on the following references:
 <dl>
 <dt><b>Acknowledgements:</b></dt>
 <dd>
-    We thank our colleague <a href=\"http://people.eas.iis.fraunhofer.de/Ulrich.Donath/\">Ulrich Donath</a>
+    We thank our colleague Ulrich Donath
     &lt;<a href=\"mailto:Ulrich.Donath@eas.iis.fraunhofer.de\">Ulrich.Donath@eas.iis.fraunhofer.de</a>&gt;
     for his support and fruitful discussions regarding all questions on VHDL and the IEEE 1164 standard
     logic libraries. Furthermore, we thank our students Teresa Schlegel and Enrico Weber for implementing
