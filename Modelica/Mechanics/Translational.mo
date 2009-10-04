@@ -108,7 +108,7 @@ numerical DAE integrators can cope at most with index 2 DAEs).
      L&uuml;becker Ring 2 <br>
      D 59494 Soest <br>
      Germany <br>
-     email: <A HREF=\"mailto:Beater@mailso.uni-paderborn.de\">Beater@mailso.uni-paderborn.de</A><br><br>
+     email: <A HREF=\"mailto:info@beater.de\">info@beater.de</A><br><br>
      </li>
 
 <li> <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
