@@ -22,13 +22,17 @@ the fluid library provides two different types of sensors: <b>regular one port</
 <li>
 The <b>regular one port</b> sensors have the advantage of easy introduction and removal from a model, as no connections have to be broken.
 A potential drawback is that the obtained value jumps as flow reverts.
-<a href=\"Modelica://ModelicaTest.Fluid.TestComponents.Sensors.TestTemperatureSensor\">ModelicaTest.Fluid.TestComponents.Sensors.TestTemperatureSensor </a> provides a test case,
-which demonstrates this.</li>
+</li>
 
 <li> The <b>two port</b> sensors offer the advantages of an adjustable regularized step function around zero flow.
 Moreover the obtained result is restricted to the value flowing into port_a if allowFlowReversal is false.</li>
 </ul>
 
+<p>
+<a href=\"Modelica://Modelica.Fluid.Examples.Explanatory.MeasuringTemperature\">Modelica.Fluid.Examples.Explanatory.MeasuringTemperature</a>
+demonstrates the differences between one- and two-port sensor at hand of a
+simple example.
+</p>
 
 </html>",
       revisions="<html>
