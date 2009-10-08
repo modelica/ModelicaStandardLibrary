@@ -710,6 +710,7 @@ that can lead to wrong simulation results):
       <td valign=\"top\"> LossPower was wrongly calculated.
       This was corrected (<a href=\"http://trac.modelica.org/Modelica/changeset/2925/Modelica\">changeset:2925</a>).</td>
   </tr>
+
  <tr><td colspan=\"2\"><b>Fluid.</b></td></tr>
   <tr><td valign=\"top\">Pipes </td>
       <td valign=\"top\"><a href=\"http://trac.modelica.org/Modelica/ticket/215\">ticket:215</a>:
@@ -719,6 +720,15 @@ that can lead to wrong simulation results):
 
       </td>
   </tr>
+
+ <tr><td colspan=\"2\"><b>Fluid.Examples</b></td></tr>
+  <tr><td valign=\"top\">HeatExchanger </td>
+      <td valign=\"top\"> Wrong heat transfer modifier \"perimeter\" removed.
+                        New parameter use_heatTransfer added, in order that heat transfer
+                        can be switched on (was previously always switched off)
+      </td>
+  </tr>
+
   <tr><td colspan=\"2\"><b>StateGraph.Examples.Utilities.</b></td></tr>
   <tr><td valign=\"top\"> TankController </td>
       <td valign=\"top\"> A graphical annotation was wrong leading to a syntay error in some Modelica tools.
@@ -727,6 +737,32 @@ that can lead to wrong simulation results):
   </tr>
 </table>
 </p>
+
+<p>
+Additionally, the following (backward compatible and uncritical) bug fixes have been applied:
+</p>
+<ul> 
+<li> Wrong links in html-documentation to other classes and to images have been fixed.</li>
+<li> Removed fillPattern and fillColor attributes from Line annotaion 
+     (<a href=\"http://trac.modelica.org/Modelica/ticket/155\">ticket:155</a>)</li>
+<li> Moved misplaced \"visible\" annotation inside \"Placement\" annotation
+     (in Modelica.StateGraph.Temporary.NumericValue).</li>
+<li> Replacement of wrong usages of \"ampersand\" in the html-documentation of
+     Machines, MultiPhase, Rotational, Translational, FluidHeatFlow, HeatTransfer
+     with the correct html-keyword.</li>
+<li> Replacement of non-standard annotations by tool specific annotations:<br>
+     Images -> __Dymola_Images,<br>
+     keepConstant -> __Dymola_keepConstant,<br>
+     editButton -> __Dymola_editButton,<br>
+     experimentSetupOutput -> __Dymola_experimentSetupOutput</li>
+<li> Replaced misspelled annotation \"tolerance\" by \"Tolerance in
+     Modelica.Fluid.Examples.TraceSubstances.RoomCO2WithControls.</li>
+<li> Added a new example Fluid.Examples.Explanatory.MeasuringTemperature
+      (copied from ModelicaTest.Fluid and adapted) since the example is useful
+      to demonstrate the differences between one- and two-port sensors and
+      because the link in Fluid.Sensors to this examples is then only inside the
+      Fluid-library and not to ModelicaTest that most people will not have.</li>
+</ul>
 
 </html>"));
 end Version_3_1_BugFixes;
