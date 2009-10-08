@@ -731,7 +731,7 @@ that can lead to wrong simulation results):
 
   <tr><td colspan=\"2\"><b>StateGraph.Examples.Utilities.</b></td></tr>
   <tr><td valign=\"top\"> TankController </td>
-      <td valign=\"top\"> A graphical annotation was wrong leading to a syntay error in some Modelica tools.
+      <td valign=\"top\"> A graphical annotation was wrong leading to a syntax error in some Modelica tools.
                         This has been corrected (<a href=\"http://trac.modelica.org/Modelica/ticket/206\">ticket:206</a>,
                         <a href=\"http://trac.modelica.org/Modelica/changeset/2926/Modelica\">changeset:2926</a>). </td>
   </tr>
