@@ -741,9 +741,9 @@ that can lead to wrong simulation results):
 <p>
 Additionally, the following (backward compatible and uncritical) bug fixes have been applied:
 </p>
-<ul> 
+<ul>
 <li> Wrong links in html-documentation to other classes and to images have been fixed.</li>
-<li> Removed fillPattern and fillColor attributes from Line annotaion 
+<li> Removed fillPattern and fillColor attributes from Line annotaion
      (<a href=\"http://trac.modelica.org/Modelica/ticket/155\">ticket:155</a>)</li>
 <li> Moved misplaced \"visible\" annotation inside \"Placement\" annotation
      (in Modelica.StateGraph.Temporary.NumericValue).</li>
@@ -5021,7 +5021,7 @@ preferredView="info",
 version="3.1",
 versionBuild=5,
 versionDate="2009-08-14",
-dateModified = "2009-09-17 08:30:00Z",
+dateModified = "2009-10-08 08:52:38Z",
 revisionId="$Id::                                       $",
 conversion(
  noneFromVersion="3.0.1",
