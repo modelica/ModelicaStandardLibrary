@@ -5348,9 +5348,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           thickness=0.5));
       connect(position_b.y, prismatic.position_b)       annotation (Line(
           points={{1,-50},{10,-50},{10,-12},{32,-12}},
-          color={0,0,127},
-          fillColor={192,192,192},
-          fillPattern=FillPattern.Solid));
+          color={0,0,127}));
       connect(prismatic.axis, axis) annotation (Line(points={{40,14},{40,56},{
               90,56},{90,80},{100,80}}, color={0,191,0}));
       connect(prismatic.bearing, bearing)

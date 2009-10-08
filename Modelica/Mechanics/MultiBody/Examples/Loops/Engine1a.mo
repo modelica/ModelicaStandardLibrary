@@ -162,9 +162,7 @@ equation
       thickness=0.5));
   connect(Inertia.flange_b, Bearing.axis) annotation (Line(
       points={{-8,-110},{0,-110},{0,-100}},
-      color={0,0,0},
-      fillColor={255,255,255},
-      fillPattern=FillPattern.Solid));
+      color={0,0,0}));
   connect(Mid.frame_a, Crank2.frame_b) annotation (Line(
       points={{70,-43},{63,-43},{63,-61},{70,-61},{70,-66}},
       color={95,95,95},
