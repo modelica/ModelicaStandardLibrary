@@ -1338,7 +1338,7 @@ or arrays.
       <td>a &lt; b</td>
       <td>less than</td></tr>
   <tr><td>&lt;=</td>
-      <td>a &gt;= b</td>
+      <td>a &lt;= b</td>
       <td>less than or equal</td></tr>
   <tr><td>&gt;</td>
       <td>a &gt; b</td>
