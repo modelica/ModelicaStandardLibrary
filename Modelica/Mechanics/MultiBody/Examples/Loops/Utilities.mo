@@ -1041,21 +1041,15 @@ An animation of this example is shown in the figure below.
     connect(Crank2.frame_a, Crank1.frame_b) annotation (Line(
         points={{30,-86},{30,-90},{4,-90}},
         color={95,95,95},
-        thickness=0.5,
-        fillColor={192,192,192},
-        fillPattern=FillPattern.Solid));
+        thickness=0.5));
     connect(Crank2.frame_b, Crank3.frame_a) annotation (Line(
         points={{30,-66},{30,-61},{41.5,-61}},
         color={95,95,95},
-        thickness=0.5,
-        fillColor={192,192,192},
-        fillPattern=FillPattern.Solid));
+        thickness=0.5));
     connect(Bearing.frame_b, Crank1.frame_a) annotation (Line(
         points={{-30,-90},{-16,-90}},
         color={95,95,95},
-        thickness=0.5,
-        fillColor={192,192,192},
-        fillPattern=FillPattern.Solid));
+        thickness=0.5));
     connect(world.frame_b, cylPosition.frame_a) annotation (Line(
         points={{-70,-90},{-60,-90},{-60,110},{-40.5,110}},
         color={95,95,95},

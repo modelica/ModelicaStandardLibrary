@@ -117,21 +117,15 @@ equation
   connect(Crank2.frame_a, Crank1.frame_b) annotation (Line(
       points={{70,-86},{70,-90},{44,-90}},
       color={95,95,95},
-      thickness=0.5,
-      fillColor={192,192,192},
-      fillPattern=FillPattern.Solid));
+      thickness=0.5));
   connect(Crank2.frame_b, Crank3.frame_a) annotation (Line(
       points={{70,-66},{70,-61},{81.5,-61}},
       color={95,95,95},
-      thickness=0.5,
-      fillColor={192,192,192},
-      fillPattern=FillPattern.Solid));
+      thickness=0.5));
   connect(Bearing.frame_b, Crank1.frame_a) annotation (Line(
       points={{10,-90},{24,-90}},
       color={95,95,95},
-      thickness=0.5,
-      fillColor={192,192,192},
-      fillPattern=FillPattern.Solid));
+      thickness=0.5));
   connect(cylPosition.frame_b, Cylinder.frame_a) annotation (Line(
       points={{19.5,110},{90,110},{90,106}},
       color={95,95,95},
