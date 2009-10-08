@@ -1066,9 +1066,7 @@ An animation of this example is shown in the figure below.
         thickness=0.5));
     connect(Inertia.flange_b, Bearing.axis) annotation (Line(
         points={{-48,-110},{-40,-110},{-40,-100}},
-        color={0,0,0},
-        fillColor={255,255,255},
-        fillPattern=FillPattern.Solid));
+        color={0,0,0}));
     connect(Mid.frame_a, Crank2.frame_b) annotation (Line(
         points={{30,-43},{23,-43},{23,-61},{30,-61},{30,-66}},
         color={95,95,95},

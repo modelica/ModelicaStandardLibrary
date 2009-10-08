@@ -42,6 +42,5 @@ equation
   connect(body.frame_a, rev.frame_b) annotation (Line(
       points={{20,10},{0,10}},
       color={95,95,95},
-      thickness=0.5,
-      fillPattern=FillPattern.HorizontalCylinder));
+      thickness=0.5));
 end Pendulum;
