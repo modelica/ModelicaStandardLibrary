@@ -164,7 +164,7 @@ Note, this is different to the lumped line model of SPICE.
     connect(L[N + 1].n, p2);
   end OLine;
 
-model M_OLine "multiple OLine"
+model M_OLine "Multiple OLine"
 
   parameter Modelica.SIunits.Length length(final min=Modelica.Constants.small) = 0.1
       "Length of line";
@@ -196,10 +196,10 @@ model segment
 
   parameter Integer lines(final min=1)=3;       //number of lines
   parameter Integer dim_vector_lgc=div(lines*(lines+1),2);
-  Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin"
+  Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin" 
               annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
             rotation=0)));
-  Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
+  Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin" 
               annotation (Placement(transformation(extent={{40,-10},{60,10}},
             rotation=0)));
 
@@ -241,7 +241,7 @@ equation
     connect(G[dim_vector_lgc].n,M.p);
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Rectangle(extent={{40,-40},{-40,40}},
+                -100},{100,100}}), graphics={Rectangle(extent={{40,-40},{-40,40}}, 
                 lineColor={0,0,255})}),
                             Diagram(coordinateSystem(preserveAspectRatio=false,
               extent={{-100,-100},{100,100}}),graphics));
@@ -249,10 +249,10 @@ end segment;
 
 model segment_last
 
-  Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin"
+  Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin" 
               annotation (Placement(transformation(extent={{-40,-10},{-20,10}},
             rotation=0)));
-  Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
+  Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin" 
               annotation (Placement(transformation(extent={{20,-10},{40,10}},
             rotation=0)));
   parameter Integer lines(final min=1)=3;
@@ -275,7 +275,7 @@ equation
     connect(R[lines].n,n[lines]);
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Rectangle(extent={{20,-40},{-20,40}},
+                -100},{100,100}}), graphics={Rectangle(extent={{20,-40},{-20,40}}, 
                 lineColor={0,0,255})}));
 end segment_last;
 
@@ -297,10 +297,10 @@ end segment_last;
     lines=lines,
     Rl=r*length/(2*N),
     Ll=l*length/(2*N));
-  Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin"
+  Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin" 
               annotation (Placement(transformation(extent={{-100,-80},{-80,80}},
           rotation=0)));
-  Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
+  Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin" 
               annotation (Placement(transformation(extent={{80,-80},{100,80}},
           rotation=0)));
 

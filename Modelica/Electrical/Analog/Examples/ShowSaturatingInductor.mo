@@ -7,13 +7,13 @@ model ShowSaturatingInductor
     "Nominal inductance at Nominal current";
   parameter Modelica.SIunits.Current Inom=1 "Nominal current";
   parameter Modelica.SIunits.Inductance Linf=0.5 "Inductance at large currents";
-  parameter Modelica.SIunits.Voltage U=1.25 "source voltage (peak)";
+  parameter Modelica.SIunits.Voltage U=1.25 "Source voltage (peak)";
   parameter Modelica.SIunits.Frequency f=1/(2*Modelica.Constants.pi)
-    "source frequency";
+    "Source frequency";
   parameter Modelica.SIunits.Angle phase=Modelica.Constants.pi/2
-    "source voltage phase shift";
-  output Modelica.SIunits.Voltage v "voltage drop over saturating inductor";
-  output Modelica.SIunits.Current i "current across saturating inductor";
+    "Source voltage phase shift";
+  output Modelica.SIunits.Voltage v "Voltage drop over saturating inductor";
+  output Modelica.SIunits.Current i "Current across saturating inductor";
   annotation (
     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={Text(
@@ -27,19 +27,19 @@ model ShowSaturatingInductor
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1(
     V=U,
     phase=phase,
-    freqHz=f)
+    freqHz=f) 
     annotation (Placement(transformation(
         origin={-20,0},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Electrical.Analog.Basic.Ground Ground1
+  Modelica.Electrical.Analog.Basic.Ground Ground1 
     annotation (Placement(transformation(extent={{-30,-30},{-10,-10}}, rotation=
            0)));
   Modelica.Electrical.Analog.Basic.SaturatingInductor SaturatingInductance1(
     Lzer=Lzer,
     Lnom=Lnom,
     Inom=Inom,
-    Linf=Linf)
+    Linf=Linf) 
     annotation (Placement(transformation(
         origin={22,6},
         extent={{-10,-10},{10,10}},
