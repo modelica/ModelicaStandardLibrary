@@ -105,14 +105,10 @@ Connector with one signal of type Icon (no icon, no input/output prefix).
                 Text(
                   extent={{-88,22},{88,-24}},
                   lineColor={0,0,255},
-                  fillColor={191,0,0},
-                  fillPattern=FillPattern.Solid,
                   textString="adaptor"),
                 Text(
                   extent={{-216,-58},{36,-80}},
                   lineColor={0,0,0},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
                   textString="port.signal")}),
                                       Documentation(info="<html>
 <p>
@@ -164,8 +160,6 @@ This block is only provided for backward compatibility.
                 Text(
                   extent={{-216,-58},{36,-80}},
                   lineColor={0,0,0},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
                   textString="port.signal")}),
                                       Documentation(info="<html>
 <p>
@@ -219,8 +213,6 @@ This block is only provided for backward compatibility.
                 Text(
                   extent={{-216,-58},{36,-80}},
                   lineColor={0,0,0},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
                   textString="port.signal")}),
                                       Documentation(info="<html>
 <p>
@@ -562,8 +554,6 @@ corresponding library in a future release.
             Text(
               extent={{-100,100},{100,-100}},
               lineColor={255,0,127},
-              fillColor={223,159,191},
-              fillPattern=FillPattern.Solid,
               textString="e")}),
                           Documentation(info="<html>
 <p>
