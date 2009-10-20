@@ -89,15 +89,15 @@ at least one ground object.
 
 model Resistor "Ideal linear electrical resistor"
   parameter Modelica.SIunits.Resistance R(start=1)
-      "Resistance R_ref at temperature T_ref";
+      "Resistance at temperature T_ref";
   parameter Modelica.SIunits.Temperature T_ref=300.15 "Reference temperature";
   parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
-      "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha*(heatPort.T - T_ref))";
+      "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
 
   extends Modelica.Electrical.Analog.Interfaces.OnePort;
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
   Modelica.SIunits.Resistance R_actual
-      "Resistance = R_ref*(1 + alpha*(intenalHeatPort.T - T_ref))";
+      "Actual resistance = R*(1 + alpha*(T_heatPort - T_ref))";
   annotation (
     Documentation(info="<HTML>
 <P>
@@ -168,7 +168,7 @@ end Resistor;
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref, useHeatPort=true);
     Modelica.SIunits.Resistance R
-      "Resistance = R_ref*(1 + alpha*(intenalHeatPort.T - T_ref))";
+      "Resistance = R_ref*(1 + alpha*(T_heatPort - T_ref))";
     annotation (__Dymola_structurallyIncomplete=true,
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
@@ -263,14 +263,14 @@ If the heatPort connector is enabled, it must be connected.
 
 model Conductor "Ideal linear electrical conductor"
   parameter Modelica.SIunits.Conductance G(start=1)
-      "Conductance G_ref at temperature T_ref";
+      "Conductance at temperature T_ref";
   parameter Modelica.SIunits.Temperature T_ref=300.15 "Reference temperature";
   parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
-      "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha*(heatPort.T - T_ref))";
+      "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref))";
   extends Modelica.Electrical.Analog.Interfaces.OnePort;
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
   Modelica.SIunits.Conductance G_actual
-      "Conductance = G_ref/(1 + alpha*(intenalHeatPort.T - T_ref))";
+      "Actual conductance = G_ref/(1 + alpha*(T_heatPort - T_ref))";
   annotation (
     Documentation(info="<HTML>
 <P>
@@ -1998,11 +1998,11 @@ Now one of these models, the model \"amp(macro)\" was transferred into Modelica.
         parameter Modelica.SIunits.Temperature T_ref=300.15
       "Reference temperature";
         parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
-      "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(heatPort.T - T_ref))";
+      "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
         extends Modelica.Electrical.Analog.Interfaces.OnePort;
         extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
         Modelica.SIunits.Resistance R_actual
-      "Resistance = R*(1 + alpha*(intenalHeatPort.T - T_ref))";
+      "Actual resistance = R*(1 + alpha*(T_heatPort - T_ref))";
         Modelica.Blocks.Interfaces.RealInput R 
           annotation (Placement(transformation(
         origin={0,110},
@@ -2078,11 +2078,11 @@ The Resistance <i>R</i> is given as input signal.
         parameter Modelica.SIunits.Temperature T_ref=300.15
       "Reference temperature";
         parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
-      "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(heatPort.T - T_ref))";
+      "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(T_heatPort - T_ref))";
         extends Modelica.Electrical.Analog.Interfaces.OnePort;
         extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
         Modelica.SIunits.Conductance G_actual
-      "Conductance = G_ref/(1 + alpha*(intenalHeatPort.T - T_ref))";
+      "Actual conductance = G/(1 + alpha*(T_heatPort - T_ref))";
         Modelica.Blocks.Interfaces.RealInput G 
           annotation (Placement(transformation(
         origin={0,110},
