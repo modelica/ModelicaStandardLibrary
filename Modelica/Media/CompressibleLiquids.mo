@@ -54,6 +54,16 @@ package CompressibleLiquids "compressible liquid models"
     annotation (Documentation(info="<html>
 <h4>Water model with linear compressibility at ambient conditions</h4>
 </html>"));
+  redeclare function extends dynamicViscosity "Dynamic viscosity of water"
+  algorithm
+    eta := 1.0e-3;
+  end dynamicViscosity;
+
+  redeclare function extends thermalConductivity
+      "Thermal conductivity of water"
+  algorithm
+    lambda := 0.598;
+  end thermalConductivity;
   end LinearWater_pT_Ambient;
 
   annotation (Documentation(info="<html>

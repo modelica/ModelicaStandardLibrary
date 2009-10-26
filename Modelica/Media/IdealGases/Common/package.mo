@@ -156,7 +156,7 @@ and adapted to the Modelica.Media package.
      substanceNames={data.name},
      singleState=false,
      Temperature(min=200, max=6000, start=500, nominal=500),
-     SpecificEnthalpy(start=if referenceChoice==ReferenceEnthalpy.ZeroAt0K then data.H0 else
+     SpecificEnthalpy(start=if referenceChoice==ReferenceEnthalpy.ZeroAt0K then data.H0 else 
         if referenceChoice==ReferenceEnthalpy.UserDefined then h_offset else 0, nominal=1.0e5),
      Density(start=10, nominal=10),
      AbsolutePressure(start=10e5, nominal=10e5));
@@ -420,7 +420,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
   redeclare function extends density_derX
     "Returns the partial derivative of density with respect to mass fractions at constant pressure and temperature"
   algorithm
-    dddX := fill(0,0);
+    dddX := fill(0,nX);
   end density_derX;
 
   function cp_T
@@ -489,10 +489,10 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
       alow[4] + T*(1/3*data.alow[5] + T*(0.25*data.alow[6] + 0.2*data.alow[7]*T))))))
       /T) else data.R*((-data.ahigh[1] + T*(data.bhigh[1] + data.ahigh[2]*
       Math.log(T) + T*(1.*data.ahigh[3] + T*(0.5*data.ahigh[4] + T*(1/3*data.
-      ahigh[5] + T*(0.25*data.ahigh[6] + 0.2*data.ahigh[7]*T))))))/T)) + (if
+      ahigh[5] + T*(0.25*data.ahigh[6] + 0.2*data.ahigh[7]*T))))))/T)) + (if 
       exclEnthForm then -data.Hf else 0.0) + (if (refChoice
-       == Choices.ReferenceEnthalpy.ZeroAt0K) then data.H0 else 0.0) + (if
-      refChoice == Choices.ReferenceEnthalpy.UserDefined then h_off else
+       == Choices.ReferenceEnthalpy.ZeroAt0K) then data.H0 else 0.0) + (if 
+      refChoice == Choices.ReferenceEnthalpy.UserDefined then h_off else 
             0.0));
   end h_T;
 
@@ -535,10 +535,10 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     h := data.R*((-data.alow[1] + T*(data.
       blow[1] + data.alow[2]*Math.log(T) + T*(1.*data.alow[3] + T*(0.5*data.
       alow[4] + T*(1/3*data.alow[5] + T*(0.25*data.alow[6] + 0.2*data.alow[7]*T))))))
-      /T) + (if
+      /T) + (if 
       exclEnthForm then -data.Hf else 0.0) + (if (refChoice
-       == Choices.ReferenceEnthalpy.ZeroAt0K) then data.H0 else 0.0) + (if
-      refChoice == Choices.ReferenceEnthalpy.UserDefined then h_off else
+       == Choices.ReferenceEnthalpy.ZeroAt0K) then data.H0 else 0.0) + (if 
+      refChoice == Choices.ReferenceEnthalpy.UserDefined then h_off else 
             0.0);
   end h_Tlow;
 
@@ -800,7 +800,7 @@ It has been developed by Hubertus Tummescheit.
      reducedX = false,
      singleState=false,
      reference_X=fill(1/nX,nX),
-     SpecificEnthalpy(start=if referenceChoice==ReferenceEnthalpy.ZeroAt0K then 3e5 else
+     SpecificEnthalpy(start=if referenceChoice==ReferenceEnthalpy.ZeroAt0K then 3e5 else 
         if referenceChoice==ReferenceEnthalpy.UserDefined then h_offset else 0, nominal=1.0e5),
      Density(start=10, nominal=10),
      AbsolutePressure(start=10e5, nominal=10e5),
@@ -861,7 +861,7 @@ required from medium model \""   + mediumName + "\".");
       input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm
-      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T, X=X) else
+      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T, X=X) else 
              ThermodynamicState(p=p,T=T, X=cat(1,X,{1-sum(X)}));
     end setState_pTX;
 
@@ -873,7 +873,7 @@ required from medium model \""   + mediumName + "\".");
       input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm
-      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T_hX(h,X),X=X) else
+      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T_hX(h,X),X=X) else 
              ThermodynamicState(p=p,T=T_hX(h,X), X=cat(1,X,{1-sum(X)}));
     end setState_phX;
 
@@ -885,7 +885,7 @@ required from medium model \""   + mediumName + "\".");
       input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm
-      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T_psX(p,s,X),X=X) else
+      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T_psX(p,s,X),X=X) else 
              ThermodynamicState(p=p,T=T_psX(p,s,X), X=cat(1,X,{1-sum(X)}));
     end setState_psX;
 
@@ -897,7 +897,7 @@ required from medium model \""   + mediumName + "\".");
       input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm
-      state := if size(X,1) == nX then ThermodynamicState(p=d*(data.R*X)*T,T=T,X=X) else
+      state := if size(X,1) == nX then ThermodynamicState(p=d*(data.R*X)*T,T=T,X=X) else 
              ThermodynamicState(p=d*(data.R*cat(1,X,{1-sum(X)}))*T,T=T, X=cat(1,X,{1-sum(X)}));
     end setState_dTX;
 
@@ -943,7 +943,7 @@ required from medium model \""   + mediumName + "\".");
       "Molar fractions";
   algorithm
   s :=  s_TX(state.T, state.X) - sum(state.X[i]*Modelica.Constants.R/MMX[i]*
-      (if state.X[i]<Modelica.Constants.eps then Y[i] else
+      (if state.X[i]<Modelica.Constants.eps then Y[i] else 
       Modelica.Math.log(Y[i]*state.p/reference_p)) for i in 1:nX);
   end specificEntropy;
 
@@ -995,8 +995,8 @@ required from medium model \""   + mediumName + "\".");
     output Real h_der "Specific enthalpy at temperature T";
     annotation (InlineNoEvent=false, Inline = false);
   algorithm
-    h_der := if fixedX then
-      dT*sum((SingleGasNasa.cp_T(data[i], T)*reference_X[i]) for i in 1:nX) else
+    h_der := if fixedX then 
+      dT*sum((SingleGasNasa.cp_T(data[i], T)*reference_X[i]) for i in 1:nX) else 
       dT*sum((SingleGasNasa.cp_T(data[i], T)*X[i]) for i in 1:nX)+
       sum((SingleGasNasa.h_T(data[i], T)*dX[i]) for i in 1:nX);
   end h_TX_der;
@@ -1023,7 +1023,7 @@ required from medium model \""   + mediumName + "\".");
     input SI.MoleFraction x[:] "mole fraction of mixture";
     output Real smix "mixing entropy contribution, divided by gas constant";
   algorithm
-    smix := sum(if x[i] > Modelica.Constants.eps then -x[i]*Modelica.Math.log(x[i]) else
+    smix := sum(if x[i] > Modelica.Constants.eps then -x[i]*Modelica.Math.log(x[i]) else 
                      x[i] for i in 1:size(x,1));
   end MixEntropy;
 
@@ -1073,7 +1073,7 @@ required from medium model \""   + mediumName + "\".");
     input Boolean exact = false
       "flag wether exact or approximate version should be used";
   algorithm
-    h_is := if exact then specificEnthalpy_psX(p_downstream,specificEntropy(refState),refState.X) else
+    h_is := if exact then specificEnthalpy_psX(p_downstream,specificEntropy(refState),refState.X) else 
            isentropicEnthalpyApproximation(p_downstream,refState);
   end isentropicEnthalpy;
 
@@ -1519,7 +1519,7 @@ end lowPressureThermalConductivity;
           "Molar fractions";
     algorithm
       y := s_TX(x,Xfull) - sum(Xfull[i]*Modelica.Constants.R/MMX[i]*
-      (if Xfull[i]<Modelica.Constants.eps then Y[i] else
+      (if Xfull[i]<Modelica.Constants.eps then Y[i] else 
       Modelica.Math.log(Y[i]*p/reference_p)) for i in 1:nX);
         // s_TX(x,X)- data[:].R*X*(Modelica.Math.log(p/reference_p)
         //       + MixEntropy(massToMoleFractions(X,data[:].MM)));
