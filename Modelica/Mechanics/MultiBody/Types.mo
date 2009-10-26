@@ -1,14 +1,6 @@
 within Modelica.Mechanics.MultiBody;
 package Types "Constants and types with choices, especially to build menus"
   extends Modelica.Icons.Library;
-  annotation ( Documentation(info="<HTML>
-<p>
-In this package <b>types</b> and <b>constants</b> are defined that are used in the
-MultiBody library. The types have additional annotation choices
-definitions that define the menus to be built up in the graphical
-user interface when the type is used as parameter in a declaration.
-</p>
-</HTML>"));
 
   type Axis = Modelica.Icons.TypeReal[3](each final unit="1")
     "Axis vector with choices for menus"                                      annotation (
@@ -41,7 +33,7 @@ user interface when the type is used as parameter in a declaration.
       choice={3,2,1} "{3,2,1}"));
 
   type Color = Modelica.Icons.TypeInteger[3] (each min=0, each max=255)
-    "RGB representation of color (will be improved with a color editor)"
+    "RGB representation of color (will be improved with a color editor)" 
     annotation (
       Dialog(colorSelector),
       choices(
@@ -69,7 +61,7 @@ Note, r g, b are given in the range 0 .. 255.
 </p>
 </html>"));
   type SpecularCoefficient = Modelica.Icons.TypeReal
-    "Reflection of ambient light (= 0: light is completely absorbed)"
+    "Reflection of ambient light (= 0: light is completely absorbed)" 
        annotation ( min=0,
          choices(choice=0 "\"0.0 (dull)\"",choice=0.7 "\"0.7 (medium)\"", choice=1
         "\"1.0 (glossy)\""),
@@ -135,7 +127,7 @@ that references the DXF file.
 </p>
 </html>"));
   type ShapeExtra = Modelica.Icons.TypeReal
-    "Reflection of ambient light (= 0: light is completely absorbed)"
+    "Reflection of ambient light (= 0: light is completely absorbed)" 
        annotation ( min=0,
     Documentation(info="<html>
 <p>
@@ -264,7 +256,7 @@ variable <b>extra</b> is used as instance name:
       NoGravity "No gravity field",
       UniformGravity "Uniform gravity field",
       PointGravity "Point gravity field")
-    "Enumeration defining the type of the gravity field"
+    "Enumeration defining the type of the gravity field" 
       annotation (Documentation(info="<html>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><b>Types.GravityTypes.</b></th><th><b>Meaning</b></th></tr>
@@ -291,12 +283,6 @@ type Init = enumeration(
       PositionVelocityAcceleration);
 
   package Defaults "Default settings of the MultiBody library via constants"
-    annotation ( Documentation(info="<html>
-<p>
-This package contains constants used as default setting
-in the MultiBody library.
-</p>
-</html>"));
     extends Modelica.Icons.Library;
 
     // Color defaults
@@ -343,6 +329,20 @@ in the MultiBody library.
   constant Real Nm_to_m(unit="N.m/m") = 1000
     "Default torque arrow scaling (length = torque/Nm_to_m_default)";
 */
+    annotation ( Documentation(info="<html>
+<p>
+This package contains constants used as default setting
+in the MultiBody library.
+</p>
+</html>"));
   end Defaults;
 
+  annotation ( Documentation(info="<HTML>
+<p>
+In this package <b>types</b> and <b>constants</b> are defined that are used in the
+MultiBody library. The types have additional annotation choices
+definitions that define the menus to be built up in the graphical
+user interface when the type is used as parameter in a declaration.
+</p>
+</HTML>"));
 end Types;

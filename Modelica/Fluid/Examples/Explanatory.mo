@@ -61,64 +61,6 @@ package Explanatory
       use_m_flow_in=true,
       T=323.15)                       annotation (Placement(transformation(extent=
              {{-60,-20},{-40,0}}, rotation=0)));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-              -100},{100,100}}), graphics={
-          Text(
-            extent={{42,52},{62,46}},
-            lineColor={0,0,0},
-            textString="T=80"),
-          Text(
-            extent={{-4,76},{18,70}},
-            lineColor={0,0,0},
-            textString="T=20"),
-          Text(
-            extent={{-62,20},{-36,12}},
-            lineColor={0,0,0},
-            textString="T=50")}),
-                         Documentation(info="<html>
-<p>
-This model demonstrates the differences that occur when using
-one- and two-port temperature sensors with and without explicit junction models.
-As shown in the next figure, the same system is shown in 3 different variations.
-In all cases exactly the same fluid system is defined. The only difference is
-how the temperature is measured:
-</p>
-
-<blockquote>
-<img src=\"../Images/Fluid/Examples/MeasuringTemperature1.png\">
-</blockquote>
-
-<p>
-A pre-defined mass flow rate is present so that fluid flows from the reservoir to the 
-tanks and after 0.5 s the mass flows from the tanks to the reservoir.
-The reservoir has a temperature of 50<sup>0</sup>C whereas the tanks have an 
-initial temperatur of 20<sup>0</sup>C and of 80<sup>0</sup>C. The initial height of the
-tanks is made in such a form that fluid always flows out of the cold tank.
-When the fluid flows from the reservoir to the tanks, then it mixes with the
-cold tank and enters the hot tank.
-When the fluid flow from the tanks to the reservoir, then the cold and hot water
-from the two tanks first mixes and the flows to the reservoir.
-</p>
-
-<p>
-A one-port sensor measures the <em>mixing</em> temperature at a connection point.
-Therefore T_onePort.T (the blue curve in the figure below) is the
-temperature of the mixing point.
-A two-port sensor measures the temperature at the <em>upstream</em> side. 
-Therefore T_twoPort.T (the red curve in the figure below which is identical
-to the green curve) shows first the temperature of the reservoir and then
-the mixing temperature when fluid flows from the tanks to the reservoir.
-The same is measured with T_junction.T (the green curve below), because
-the one-port sensor is connected between the mass flow source and the junction
-and since the mixing takes place in the junction, the same situation is
-present as for T_twoPort.T.
-</p>
-
-<blockquote>
-<img src=\"../Images/Fluid/Examples/MeasuringTemperature2.png\">
-</blockquote>
-
-</html>"));
     Modelica.Blocks.Sources.Sine sine(freqHz=1) 
                                       annotation (Placement(transformation(extent=
              {{-100,10},{-80,30}}, rotation=0)));
@@ -195,39 +137,69 @@ present as for T_twoPort.T.
         points={{-10,40},{30,40},{30,60}},
         color={0,127,255},
         smooth=Smooth.None));
+    annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
+              -100},{100,100}}), graphics={
+          Text(
+            extent={{42,52},{62,46}},
+            lineColor={0,0,0},
+            textString="T=80"),
+          Text(
+            extent={{-4,76},{18,70}},
+            lineColor={0,0,0},
+            textString="T=20"),
+          Text(
+            extent={{-62,20},{-36,12}},
+            lineColor={0,0,0},
+            textString="T=50")}),
+                         Documentation(info="<html>
+<p>
+This model demonstrates the differences that occur when using
+one- and two-port temperature sensors with and without explicit junction models.
+As shown in the next figure, the same system is shown in 3 different variations.
+In all cases exactly the same fluid system is defined. The only difference is
+how the temperature is measured:
+</p>
+
+<blockquote>
+<img src=\"../Images/Fluid/Examples/MeasuringTemperature1.png\">
+</blockquote>
+
+<p>
+A pre-defined mass flow rate is present so that fluid flows from the reservoir to the 
+tanks and after 0.5 s the mass flows from the tanks to the reservoir.
+The reservoir has a temperature of 50<sup>0</sup>C whereas the tanks have an 
+initial temperatur of 20<sup>0</sup>C and of 80<sup>0</sup>C. The initial height of the
+tanks is made in such a form that fluid always flows out of the cold tank.
+When the fluid flows from the reservoir to the tanks, then it mixes with the
+cold tank and enters the hot tank.
+When the fluid flow from the tanks to the reservoir, then the cold and hot water
+from the two tanks first mixes and the flows to the reservoir.
+</p>
+
+<p>
+A one-port sensor measures the <em>mixing</em> temperature at a connection point.
+Therefore T_onePort.T (the blue curve in the figure below) is the
+temperature of the mixing point.
+A two-port sensor measures the temperature at the <em>upstream</em> side. 
+Therefore T_twoPort.T (the red curve in the figure below which is identical
+to the green curve) shows first the temperature of the reservoir and then
+the mixing temperature when fluid flows from the tanks to the reservoir.
+The same is measured with T_junction.T (the green curve below), because
+the one-port sensor is connected between the mass flow source and the junction
+and since the mixing takes place in the junction, the same situation is
+present as for T_twoPort.T.
+</p>
+
+<blockquote>
+<img src=\"../Images/Fluid/Examples/MeasuringTemperature2.png\">
+</blockquote>
+
+</html>"));
   end MeasuringTemperature;
 
   model MomentumBalanceFittings
     "Illustrating a case in which kinetic terms play a major role in the momentum balance"
      extends Modelica.Icons.Example;
-    annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}),
-                      graphics),
-      Documentation(info="<html>
-<p>
-This example shows the use of a sudden expansion / contraction model, which is connected to two boundary conditions prescribing static pressure. Notice that the prescribed static pressure on the right boundary is higher than on the left one. Still, the fluid flows from left to right.
-</p>
-<p>
-The reason for this is that the boundary conditions model infinite reservoirs with an infinite diameter and thus zero flow velocity. The sudden expansion model does however have two ends with finite diameters, and, as explained in the <a href=\"Modelica://Modelica.Fluid.UsersGuide.Overview\">Overview</a> of the Users' Guide, the momentum balance is not fulfilled exactly for this type of connections. Using a simple <code>connect()</code>-statement, the difference of the kinetic terms is neglected, which is not reasonable in the present model: At the left boundary condition it is zero, and on the left side of the sudden expansion it has a non-zero value. It is not reasonable to neglect it in the shown model, because there is little friction and therefore these kinetic effects dominate. Consequently, only modelling these effects explicitly leads to the correct results.
-</p>
-<p>
-To do so, two additional sudden expansions / contractions are included in the model. The diameter is set to <code>inf</code> close to the boundaries and the proper values close to the original model. These additional components now introduce <i>exact</i> momentum balances and the results are as expected.
-</p>
-<p>
-The total pressures offer an additional perspective on the model. After setting the parameter <code>show_totalPressures</code> on the Advanced tab of the <code>AbruptAdaptor</code>s to <code>true</code>, the total pressures are included in said models and may be plotted. This allows to confirm that the <b>total</b> pressure <i>always</i> reduces along the flow direction, even in the upper model.
-</p>
-
-
-<p align=\"center\">
-<img src=\"../Images/Fluid/Examples/MomentumBalanceFittings.png\" border=\"1\">
-</p>
-
-
-</html>"),
-      __Dymola_Commands(file=
-            "Scripts/Fluid/MomentumBalanceFittings/Plot the model results.mos"
-          "Plot the model results"));
     Modelica.Fluid.Sources.Boundary_pT leftBoundary1(
       redeclare package Medium = Modelica.Media.Water.StandardWaterOnePhase,
       nPorts=1,
@@ -299,5 +271,33 @@ The total pressures offer an additional perspective on the model. After setting 
         points={{60,-30},{70,-30}},
         color={0,127,255},
         smooth=Smooth.None));
+    annotation (
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+              100,100}}),
+                      graphics),
+      Documentation(info="<html>
+<p>
+This example shows the use of a sudden expansion / contraction model, which is connected to two boundary conditions prescribing static pressure. Notice that the prescribed static pressure on the right boundary is higher than on the left one. Still, the fluid flows from left to right.
+</p>
+<p>
+The reason for this is that the boundary conditions model infinite reservoirs with an infinite diameter and thus zero flow velocity. The sudden expansion model does however have two ends with finite diameters, and, as explained in the <a href=\"Modelica://Modelica.Fluid.UsersGuide.Overview\">Overview</a> of the Users' Guide, the momentum balance is not fulfilled exactly for this type of connections. Using a simple <code>connect()</code>-statement, the difference of the kinetic terms is neglected, which is not reasonable in the present model: At the left boundary condition it is zero, and on the left side of the sudden expansion it has a non-zero value. It is not reasonable to neglect it in the shown model, because there is little friction and therefore these kinetic effects dominate. Consequently, only modelling these effects explicitly leads to the correct results.
+</p>
+<p>
+To do so, two additional sudden expansions / contractions are included in the model. The diameter is set to <code>inf</code> close to the boundaries and the proper values close to the original model. These additional components now introduce <i>exact</i> momentum balances and the results are as expected.
+</p>
+<p>
+The total pressures offer an additional perspective on the model. After setting the parameter <code>show_totalPressures</code> on the Advanced tab of the <code>AbruptAdaptor</code>s to <code>true</code>, the total pressures are included in said models and may be plotted. This allows to confirm that the <b>total</b> pressure <i>always</i> reduces along the flow direction, even in the upper model.
+</p>
+
+
+<p align=\"center\">
+<img src=\"../Images/Fluid/Examples/MomentumBalanceFittings.png\" border=\"1\">
+</p>
+
+
+</html>"),
+      __Dymola_Commands(file=
+            "Scripts/Fluid/MomentumBalanceFittings/Plot the model results.mos"
+          "Plot the model results"));
   end MomentumBalanceFittings;
 end Explanatory;

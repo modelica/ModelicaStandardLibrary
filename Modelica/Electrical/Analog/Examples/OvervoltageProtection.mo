@@ -1,47 +1,6 @@
 within Modelica.Electrical.Analog.Examples;
 model OvervoltageProtection
 
- annotation (Diagram(coordinateSystem(
-         preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics),
-   experiment(StopTime=0.4),
-   Documentation(info="<html>
-This example is a simple circuit for overvoltage protection. If the voltage zDiode_1.n.v is too high, the Diode zDiode_2 breaks through and the voltage gets down.<br>
-The simulation end time should be set to 0.4. To get the typical behaviour please plot sineVoltage.p.v, RL.p.v, zDiode_2.n.v and zDiode_1.n.i.
-</html>",revisions="<html>
-<ul>
-<li><i>February 02, 2009</i>
-       by Kristin Majetta<br>
-       documentation added</li>
-<li><i> January 08, 2009   </i>
-        by Matthias Franke <br>initially implemented
-       </li>
-</ul>
-</html>"),
-    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-            100}}), graphics={
-        Rectangle(
-          extent={{-100,-100},{80,50}},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Polygon(
-          points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Polygon(
-          points={{100,70},{100,-80},{80,-100},{80,50},{100,70}},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Text(
-          extent={{-96,3},{77,-49}},
-          lineColor={0,0,255},
-          textString="Example"),
-        Text(
-          extent={{-120,132},{120,73}},
-          lineColor={255,0,0},
-          textString="%name")}));
  Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(
    offset=0,
    V=10,
@@ -49,24 +8,24 @@ The simulation end time should be set to 0.4. To get the typical behaviour pleas
        extent={{-10,-10},{10,10}},
        rotation=270,
        origin={-66,6})));
- Modelica.Electrical.Analog.Basic.Resistor Rv(R=20)
+ Modelica.Electrical.Analog.Basic.Resistor Rv(R=20) 
    annotation (Placement(transformation(extent={{-56,32},{-36,52}})));
  Modelica.Electrical.Analog.Basic.Resistor RL(R=2000) annotation (Placement(
        transformation(
        extent={{-10,-10},{10,10}},
        rotation=270,
        origin={26,4})));
- Modelica.Electrical.Analog.Semiconductors.ZDiode zDiode_1
+ Modelica.Electrical.Analog.Semiconductors.ZDiode zDiode_1 
                        annotation (Placement(transformation(
        extent={{-10,-10},{10,10}},
        rotation=90,
        origin={-20,-10})));
- Modelica.Electrical.Analog.Semiconductors.ZDiode zDiode_2
+ Modelica.Electrical.Analog.Semiconductors.ZDiode zDiode_2 
                        annotation (Placement(transformation(
        extent={{-10,-10},{10,10}},
        rotation=270,
        origin={-20,22})));
- Modelica.Electrical.Analog.Basic.Ground ground
+ Modelica.Electrical.Analog.Basic.Ground ground 
    annotation (Placement(transformation(extent={{-30,-82},{-10,-62}})));
  Modelica.Electrical.Analog.Basic.Capacitor CL(C=1e-7) annotation (Placement(
        transformation(
@@ -110,4 +69,45 @@ equation
      points={{26,-6},{62,-6}},
      color={0,0,255},
      smooth=Smooth.None));
+ annotation (Diagram(coordinateSystem(
+         preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics),
+   experiment(StopTime=0.4),
+   Documentation(info="<html>
+This example is a simple circuit for overvoltage protection. If the voltage zDiode_1.n.v is too high, the Diode zDiode_2 breaks through and the voltage gets down.<br>
+The simulation end time should be set to 0.4. To get the typical behaviour please plot sineVoltage.p.v, RL.p.v, zDiode_2.n.v and zDiode_1.n.i.
+</html>",revisions="<html>
+<ul>
+<li><i>February 02, 2009</i>
+       by Kristin Majetta<br>
+       documentation added</li>
+<li><i> January 08, 2009   </i>
+        by Matthias Franke <br>initially implemented
+       </li>
+</ul>
+</html>"),
+    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+            100}}), graphics={
+        Rectangle(
+          extent={{-100,-100},{80,50}},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
+        Polygon(
+          points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
+        Polygon(
+          points={{100,70},{100,-80},{80,-100},{80,50},{100,70}},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
+        Text(
+          extent={{-96,3},{77,-49}},
+          lineColor={0,0,255},
+          textString="Example"),
+        Text(
+          extent={{-120,132},{120,73}},
+          lineColor={255,0,0},
+          textString="%name")}));
 end OvervoltageProtection;

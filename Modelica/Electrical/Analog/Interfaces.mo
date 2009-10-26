@@ -2,47 +2,6 @@ within Modelica.Electrical.Analog;
 package Interfaces
   "Connectors and partial models for Analog electrical components"
   extends Modelica.Icons.Library;
-  annotation (Documentation(info="<html>
-<p>
-This package contains connectors and interfaces (partial models) for
-analog electrical components.
-</p>
-
-</HTML>
-", revisions="<html>
-<dl>
-<dt>
-<b>Main Authors:</b>
-<dd>
-Christoph Clau&szlig;
-    &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
-    Andr&eacute; Schneider
-    &lt;<a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>&gt;<br>
-    Fraunhofer Institute for Integrated Circuits<br>
-    Design Automation Department<br>
-    Zeunerstra&szlig;e 38<br>
-    D-01069 Dresden<br>
-<p>
-<dt>
-</dl>
-
-<b>Copyright:</b>
-<dl>
-<dd>
-Copyright &copy; 1998-2006, Modelica Association and Fraunhofer-Gesellschaft.<br>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> in the documentation of package
-Modelica in file \"Modelica/package.mo\".</i><br>
-<p>
-</dl>
-
-<ul>
-<li><i> 1998</i>
-       by Christoph Clauss<br> initially implemented<br>
-       </li>
-</ul>
-</html>"));
 
   connector Pin "Pin of an electrical component"
     SI.Voltage v "Potential at the pin";
@@ -147,6 +106,8 @@ component.</p></html>", revisions="<html>
           transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
     NegativePin n "Negative pin" annotation (Placement(transformation(extent={{
               90,-10},{110,10}}, rotation=0)));
+  equation
+    v = p.v - n.v;
     annotation (
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -179,8 +140,6 @@ component.</p></html>", revisions="<html>
        </li>
 </ul>
 </html>"));
-  equation
-    v = p.v - n.v;
   end TwoPin;
 
   partial model OnePort
@@ -193,6 +152,10 @@ component.</p></html>", revisions="<html>
           transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
     NegativePin n "Negative pin" annotation (Placement(transformation(extent={{
               110,-10},{90,10}}, rotation=0)));
+  equation
+    v = p.v - n.v;
+    0 = p.i + n.i;
+    i = p.i;
     annotation (
       Documentation(info="<HTML>
 <P>
@@ -237,10 +200,6 @@ This current is provided explicitly as current i.
             extent={{90,45},{110,25}},
             lineColor={160,160,164},
             textString="i")}));
-  equation
-    v = p.v - n.v;
-    0 = p.i + n.i;
-    i = p.i;
   end OnePort;
 
   partial model TwoPort
@@ -261,6 +220,13 @@ This current is provided explicitly as current i.
           transformation(extent={{110,40},{90,60}}, rotation=0)));
     NegativePin n2 "Negative pin of the right port" annotation (Placement(
           transformation(extent={{90,-60},{110,-40}}, rotation=0)));
+  equation
+    v1 = p1.v - n1.v;
+    v2 = p2.v - n2.v;
+    0 = p1.i + n1.i;
+    0 = p2.i + n2.i;
+    i1 = p1.i;
+    i2 = p2.i;
     annotation (
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -315,23 +281,16 @@ This current is provided explicitly as current i.
 </html>", info="<html>
 
 </html>"));
-  equation
-    v1 = p1.v - n1.v;
-    v2 = p2.v - n2.v;
-    0 = p1.i + n1.i;
-    0 = p2.i + n2.i;
-    i1 = p1.i;
-    i2 = p2.i;
   end TwoPort;
 
   partial model ConditionalHeatPort
     "Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network"
 
-    parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
+    parameter Boolean useHeatPort = false "=true, if HeatPort is enabled" 
     annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
     parameter Modelica.SIunits.Temperature T=293.15
       "Fixed device temperature if useHeatPort = false" annotation(Dialog(enable=not useHeatPort));
-    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=T)=T_heatPort, Q_flow=-LossPower) if useHeatPort
+    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=T)=T_heatPort, Q_flow=-LossPower) if useHeatPort 
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
           iconTransformation(extent={{-10,-110},{10,-90}})));
     Modelica.SIunits.Power LossPower
@@ -453,8 +412,10 @@ on the model behaviour.
     parameter SI.Voltage offset=0 "Voltage offset";
     parameter SI.Time startTime=0 "Time offset";
     replaceable Modelica.Blocks.Interfaces.SignalSource signalSource(
-        final offset = offset, final startTime=startTime)
+        final offset = offset, final startTime=startTime) 
     annotation (Placement(transformation(extent={{70,70},{90,90}}, rotation=0)));
+  equation
+    v = signalSource.y;
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -485,8 +446,6 @@ on the model behaviour.
        </li>
 </ul>
 </html>"));
-  equation
-    v = signalSource.y;
   end VoltageSource;
 
   partial model CurrentSource "Interface for current sources"
@@ -496,6 +455,8 @@ on the model behaviour.
     replaceable Modelica.Blocks.Interfaces.SignalSource signalSource(
         final offset = offset, final startTime=startTime) annotation (Placement(
           transformation(extent={{70,69},{91,89}}, rotation=0)));
+  equation
+    i = signalSource.y;
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -525,8 +486,47 @@ on the model behaviour.
        </li>
 </ul>
 </html>"));
-  equation
-    i = signalSource.y;
   end CurrentSource;
 
+  annotation (Documentation(info="<html>
+<p>
+This package contains connectors and interfaces (partial models) for
+analog electrical components.
+</p>
+
+</HTML>
+", revisions="<html>
+<dl>
+<dt>
+<b>Main Authors:</b>
+<dd>
+Christoph Clau&szlig;
+    &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
+    Andr&eacute; Schneider
+    &lt;<a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>&gt;<br>
+    Fraunhofer Institute for Integrated Circuits<br>
+    Design Automation Department<br>
+    Zeunerstra&szlig;e 38<br>
+    D-01069 Dresden<br>
+<p>
+<dt>
+</dl>
+
+<b>Copyright:</b>
+<dl>
+<dd>
+Copyright &copy; 1998-2006, Modelica Association and Fraunhofer-Gesellschaft.<br>
+<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the accompanying <b>disclaimer</b> in the documentation of package
+Modelica in file \"Modelica/package.mo\".</i><br>
+<p>
+</dl>
+
+<ul>
+<li><i> 1998</i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
 end Interfaces;

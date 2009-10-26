@@ -4,6 +4,8 @@ package Routing "Library of blocks to combine and extract signals"
 
   block Replicator "Signal replicator"
     extends Modelica.Blocks.Interfaces.SIMO;
+  equation
+    y = fill(u, nout);
     annotation (
       Window(
         x=0.15,
@@ -31,13 +33,17 @@ package Routing "Library of blocks to combine and extract signals"
 This block replicates the input signal to an array of <code>nout</code> identical output signals.
 </p>
 </html>"));
-  equation
-    y = fill(u, nout);
   end Replicator;
 
 block ExtractSignal "Extract signals from an input signal vector"
   extends Modelica.Blocks.Interfaces.MIMO;
   parameter Integer extract[nout]=1:nout "Extracting vector";
+
+equation
+  for i in 1:nout loop
+    y[i] = u[extract[i]];
+
+  end for;
   annotation (
     Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -236,12 +242,6 @@ input vector (nin=7):</p>
 </pre>
 </HTML>
 "));
-
-equation
-  for i in 1:nout loop
-    y[i] = u[extract[i]];
-
-  end for;
 end ExtractSignal;
 
 block Extractor
@@ -252,6 +252,26 @@ block Extractor
   parameter Boolean allowOutOfRange=false "Index may be out of range";
   parameter Real outOfRangeValue=1e10 "Output signal if index is out of range";
 
+  Modelica.Blocks.Interfaces.IntegerInput index             annotation (Placement(
+          transformation(
+          origin={0,-120},
+          extent={{-20,-20},{20,20}},
+          rotation=90)));
+  protected
+  Real k[nin];
+equation
+
+  when {initial(),change(index)} then
+
+    for i in 1:nin loop
+      k[i] = if index == i then 1 else 0;
+
+    end for;
+
+  end when;
+
+  y = if not allowOutOfRange or index > 0 and index <= nin then 
+              k*u else outOfRangeValue;
   annotation (Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -331,27 +351,6 @@ value of the additional u index:</p>
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1})));
-
-  Modelica.Blocks.Interfaces.IntegerInput index             annotation (Placement(
-          transformation(
-          origin={0,-120},
-          extent={{-20,-20},{20,20}},
-          rotation=90)));
-  protected
-  Real k[nin];
-equation
-
-  when {initial(),change(index)} then
-
-    for i in 1:nin loop
-      k[i] = if index == i then 1 else 0;
-
-    end for;
-
-  end when;
-
-  y = if not allowOutOfRange or index > 0 and index <= nin then
-              k*u else outOfRangeValue;
 end Extractor;
 
   block Multiplex2 "Multiplexer block for two input connectors"
@@ -367,6 +366,9 @@ end Extractor;
     Modelica.Blocks.Interfaces.RealOutput y[n1 + n2]
       "Connector of Real output signals" annotation (Placement(transformation(
             extent={{100,-10},{120,10}}, rotation=0)));
+
+  equation
+    [y] = [u1; u2];
     annotation (
       Documentation(info="<HTML>
 <p>
@@ -399,9 +401,6 @@ explicitly defined via parameters n1 and n2.
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255})}));
-
-  equation
-    [y] = [u1; u2];
   end Multiplex2;
 
   block Multiplex3 "Multiplexer block for three input connectors"
@@ -421,6 +420,9 @@ explicitly defined via parameters n1 and n2.
     Modelica.Blocks.Interfaces.RealOutput y[n1 + n2 + n3]
       "Connector of Real output signals" annotation (Placement(transformation(
             extent={{100,-10},{120,10}}, rotation=0)));
+
+  equation
+    [y] = [u1; u2; u3];
     annotation (
       Documentation(info="<HTML>
 <p>
@@ -454,9 +456,6 @@ explicitly defined via parameters n1, n2 and n3.
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
           Line(points={{-100,0},{-12,0}}, color={0,0,255})}));
-
-  equation
-    [y] = [u1; u2; u3];
   end Multiplex3;
 
   block Multiplex4 "Multiplexer block for four input connectors"
@@ -480,6 +479,9 @@ explicitly defined via parameters n1, n2 and n3.
     Modelica.Blocks.Interfaces.RealOutput y[n1 + n2 + n3 + n4]
       "Connector of Real output signals" annotation (Placement(transformation(
             extent={{100,-10},{120,10}}, rotation=0)));
+
+  equation
+    [y] = [u1; u2; u3; u4];
     annotation (
       Documentation(info="<HTML>
 <p>
@@ -516,9 +518,6 @@ explicitly defined via parameters n1, n2, n3 and n4.
             lineColor={0,0,255}),
           Line(points={{-100,30},{-60,30},{-9,0}}, color={0,0,255}),
           Line(points={{-99,-30},{-59,-30},{-10,-5}}, color={0,0,255})}));
-
-  equation
-    [y] = [u1; u2; u3; u4];
   end Multiplex4;
 
   block Multiplex5 "Multiplexer block for five input connectors"
@@ -546,6 +545,9 @@ explicitly defined via parameters n1, n2, n3 and n4.
     Modelica.Blocks.Interfaces.RealOutput y[n1 + n2 + n3 + n4 + n5]
       "Connector of Real output signals" annotation (Placement(transformation(
             extent={{100,-10},{120,10}}, rotation=0)));
+
+  equation
+    [y] = [u1; u2; u3; u4; u5];
     annotation (
       Documentation(info="<HTML>
 <p>
@@ -584,9 +586,6 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
           Line(points={{-99,50},{-60,50},{-8,5}}, color={0,0,255}),
           Line(points={{-100,0},{-7,0}}, color={0,0,255}),
           Line(points={{-99,-50},{-60,-50},{-9,-6}}, color={0,0,255})}));
-
-  equation
-    [y] = [u1; u2; u3; u4; u5];
   end Multiplex5;
 
   block Multiplex6 "Multiplexer block for six input connectors"
@@ -619,6 +618,9 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
     Modelica.Blocks.Interfaces.RealOutput y[n1 + n2 + n3 + n4 + n5 + n6]
       "Connector of Real output signals" annotation (Placement(transformation(
             extent={{100,-10},{120,10}}, rotation=0)));
+
+  equation
+    [y] = [u1; u2; u3; u4; u5; u6];
     annotation (
       Documentation(info="<HTML>
 <p>
@@ -659,9 +661,6 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
           Line(points={{-99,-50},{-60,-50},{-9,-6}}, color={0,0,255}),
           Line(points={{-101,17},{-60,17},{-9,2}}, color={0,0,255}),
           Line(points={{-100,-18},{-60,-18},{-11,-4}}, color={0,0,255})}));
-
-  equation
-    [y] = [u1; u2; u3; u4; u5; u6];
   end Multiplex6;
 
   block DeMultiplex2 "DeMultiplexer block for two output connectors"
@@ -677,6 +676,9 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
     Modelica.Blocks.Interfaces.RealOutput y2[n2]
       "Connector of Real output signals 2" annotation (Placement(transformation(
             extent={{100,-70},{120,-50}}, rotation=0)));
+
+  equation
+    [u] = [y1; y2];
     annotation (
       Documentation(info="<HTML>
 <p>
@@ -709,9 +711,6 @@ explicitly defined via parameters n1 and n2.
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255})}));
-
-  equation
-    [u] = [y1; y2];
   end DeMultiplex2;
 
   block DeMultiplex3 "DeMultiplexer block for three output connectors"
@@ -731,6 +730,9 @@ explicitly defined via parameters n1 and n2.
     Modelica.Blocks.Interfaces.RealOutput y3[n3]
       "Connector of Real output signals 3" annotation (Placement(transformation(
             extent={{100,-80},{120,-60}}, rotation=0)));
+
+  equation
+    [u] = [y1; y2; y3];
     annotation (
       Documentation(info="<HTML>
 <p>
@@ -765,9 +767,6 @@ explicitly defined via parameters n1, n2 and n3.
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
           Line(points={{0,0},{101,0}}, color={0,0,255})}));
-
-  equation
-    [u] = [y1; y2; y3];
   end DeMultiplex3;
 
   block DeMultiplex4 "DeMultiplexer block for four output connectors"
@@ -792,6 +791,9 @@ explicitly defined via parameters n1, n2 and n3.
     Modelica.Blocks.Interfaces.RealOutput y4[n4]
       "Connector of Real output signals 4" annotation (Placement(transformation(
             extent={{100,-100},{120,-80}}, rotation=0)));
+
+  equation
+    [u] = [y1; y2; y3; y4];
     annotation (
       Documentation(info="<HTML>
 <p>
@@ -827,9 +829,6 @@ explicitly defined via parameters n1, n2, n3 and n4.
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255})}));
-
-  equation
-    [u] = [y1; y2; y3; y4];
   end DeMultiplex4;
 
   block DeMultiplex5 "DeMultiplexer block for five output connectors"
@@ -858,6 +857,9 @@ explicitly defined via parameters n1, n2, n3 and n4.
     Modelica.Blocks.Interfaces.RealOutput y5[n5]
       "Connector of Real output signals 5" annotation (Placement(transformation(
             extent={{100,-90},{120,-70}}, rotation=0)));
+
+  equation
+    [u] = [y1; y2; y3; y4; y5];
     annotation (
       Documentation(info="<HTML>
 <p>
@@ -895,9 +897,6 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
           Line(points={{100,40},{60,40},{10,3}}, color={0,0,255}),
           Line(points={{100,0},{10,0}}, color={0,0,255}),
           Line(points={{100,-40},{61,-40},{11,-7}}, color={0,0,255})}));
-
-  equation
-    [u] = [y1; y2; y3; y4; y5];
   end DeMultiplex5;
 
   block DeMultiplex6 "DeMultiplexer block for six output connectors"
@@ -929,6 +928,9 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
     Modelica.Blocks.Interfaces.RealOutput y6[n6]
       "Connector of Real output signals 6" annotation (Placement(transformation(
             extent={{100,-100},{120,-80}}, rotation=0)));
+
+  equation
+    [u] = [y1; y2; y3; y4; y5; y6];
     annotation (
       Documentation(info="<HTML>
 <p>
@@ -968,26 +970,20 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
           Line(points={{99,-54},{60,-54},{9,-1}}, color={0,0,255}),
           Line(points={{100,18},{59,18},{7,2}}, color={0,0,255}),
           Line(points={{100,-19},{60,-19},{13,-2}}, color={0,0,255})}));
-
-  equation
-    [u] = [y1; y2; y3; y4; y5; y6];
   end DeMultiplex6;
 
-  annotation (Documentation(info="<html>
-<p>
-This package contains blocks to combine and extract signals.
-</p>
-</html>"));
   model RealPassThrough "Pass a Real signal through without modification"
 
     extends Modelica.Blocks.Interfaces.BlockIcon;
 
-    Modelica.Blocks.Interfaces.RealInput u "Input signal"
+    Modelica.Blocks.Interfaces.RealInput u "Input signal" 
       annotation (HideResult=true, Placement(transformation(extent={{-140,-20},{-100,
               20}}, rotation=0)));
-    Modelica.Blocks.Interfaces.RealOutput y "Output signal"
+    Modelica.Blocks.Interfaces.RealOutput y "Output signal" 
       annotation (HideResult=true, Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
+  equation
+    y = u;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Line(points={{-100,0},{100,0}},
               color={0,0,127})}),
@@ -996,39 +992,39 @@ This package contains blocks to combine and extract signals.
 Passes a Real signal through without modification.  Enables signals to be read out of one bus, have their name changed and be sent back to a bus.
 </p>
 </html>"));
-  equation
-    y = u;
   end RealPassThrough;
 
   model IntegerPassThrough "Pass a Integer signal through without modification"
     extends Modelica.Blocks.Interfaces.IntegerBlockIcon;
 
-    Modelica.Blocks.Interfaces.IntegerInput u "Input signal"
+    Modelica.Blocks.Interfaces.IntegerInput u "Input signal" 
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
-    Modelica.Blocks.Interfaces.IntegerOutput y "Output signal"
+    Modelica.Blocks.Interfaces.IntegerOutput y "Output signal" 
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
+  equation
+    y = u;
+
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Line(points={{-100,0},{100,0}},
               color={255,128,0})}),
                       Documentation(info="<html>
 <p>Passes a Integer signal through without modification.  Enables signals to be read out of one bus, have their name changed and be sent back to a bus.</p>
 </html>"));
-  equation
-    y = u;
-
   end IntegerPassThrough;
 
   model BooleanPassThrough "Pass a Boolean signal through without modification"
     extends Modelica.Blocks.Interfaces.BooleanBlockIcon;
 
-    Modelica.Blocks.Interfaces.BooleanInput u "Input signal"
+    Modelica.Blocks.Interfaces.BooleanInput u "Input signal" 
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
-    Modelica.Blocks.Interfaces.BooleanOutput y "Output signal"
+    Modelica.Blocks.Interfaces.BooleanOutput y "Output signal" 
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
+  equation
+    y = u;
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{
               -100,-100},{100,100}}),
                         graphics),
@@ -1038,7 +1034,10 @@ Passes a Real signal through without modification.  Enables signals to be read o
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-100,0},{100,0}}, color={255,0,
                 255})}));
-  equation
-    y = u;
   end BooleanPassThrough;
+  annotation (Documentation(info="<html>
+<p>
+This package contains blocks to combine and extract signals.
+</p>
+</html>"));
 end Routing;

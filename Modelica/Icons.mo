@@ -1,127 +1,6 @@
 within Modelica;
 package Icons "Library of icons"
 
-  annotation (
-    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-            100}}), graphics={
-        Rectangle(
-          extent={{-100,-100},{80,50}},
-          fillColor={235,235,235},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Polygon(
-          points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}},
-          fillColor={235,235,235},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Polygon(
-          points={{100,70},{100,-80},{80,-100},{80,50},{100,70}},
-          fillColor={235,235,235},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Text(
-          extent={{-120,135},{120,70}},
-          lineColor={255,0,0},
-          textString="%name"),
-        Text(
-          extent={{-90,40},{70,10}},
-          lineColor={160,160,164},
-          textString="Library"),
-        Rectangle(
-          extent={{-100,-100},{80,50}},
-          fillColor={235,235,235},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Polygon(
-          points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}},
-          fillColor={235,235,235},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Polygon(
-          points={{100,70},{100,-80},{80,-100},{80,50},{100,70}},
-          fillColor={235,235,235},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Text(
-          extent={{-90,40},{70,10}},
-          lineColor={160,160,164},
-          textString="Library"),
-        Polygon(
-          points={{-64,-20},{-50,-4},{50,-4},{36,-20},{-64,-20},{-64,-20}},
-          lineColor={0,0,0},
-          fillColor={192,192,192},
-          fillPattern=FillPattern.Solid),
-        Rectangle(
-          extent={{-64,-20},{36,-84}},
-          lineColor={0,0,0},
-          fillColor={192,192,192},
-          fillPattern=FillPattern.Solid),
-        Text(
-          extent={{-60,-24},{32,-38}},
-          lineColor={128,128,128},
-          textString="Library"),
-        Polygon(
-          points={{50,-4},{50,-70},{36,-84},{36,-20},{50,-4}},
-          lineColor={0,0,0},
-          fillColor={192,192,192},
-          fillPattern=FillPattern.Solid)}),
-                            Documentation(info="<html>
-<p>
-This package contains definitions for the graphical layout of
-components which may be used in different libraries.
-The icons can be utilized by inheriting them in the desired class
-using \"extends\" or by directly copying the \"icon\" layer.
-</p>
-
-<dl>
-<dt><b>Main Author:</b>
-<dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
-    Deutsches Zentrum fuer Luft und Raumfahrt e.V. (DLR)<br>
-    Oberpfaffenhofen<br>
-    Postfach 1116<br>
-    D-82230 Wessling<br>
-    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br>
-</dl>
-
-<p>
-Copyright &copy; 1998-2009, Modelica Association and DLR.
-</p>
-<p>
-<i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b>
-<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
-</p><br>
-</HTML>
-", revisions="<html>
-<ul>
-<li><i>October 21, 2002</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
-       and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
-       Added new icons <b>Function</b>, <b>Enumerations</b> and <b>Record</b>.</li>
-<li><i>June 6, 2000</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Replaced <b>model</b> keyword by <b>package</b> if the main
-       usage is for inheriting from a package.<br>
-       New icons <b>GearIcon</b> and <b>MotorIcon</b>.</li>
-<li><i>Sept. 18, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Renaming package Icon to Icons.
-       Model Advanced removed (icon not accepted on the Modelica meeting).
-       New model Library2, which is the Library icon with enough place
-       to add library specific elements in the icon. Icon also used in diagram
-       level for models Info, TranslationalSensor, RotationalSensor.</li>
-<li><i>July 15, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Model Caution renamed to Advanced, model Sensor renamed to
-       TranslationalSensor, new model RotationalSensor.</li>
-<li><i>June 30, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized a first version.</li>
-</ul>
-<br>
-</html>"));
-
   partial model Info "Icon for an information class"
 
     annotation (
@@ -753,4 +632,124 @@ corresponding library in a future release.
   equation
 
   end ObsoleteModel;
+  annotation (
+    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+            100}}), graphics={
+        Rectangle(
+          extent={{-100,-100},{80,50}},
+          fillColor={235,235,235},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
+        Polygon(
+          points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}},
+          fillColor={235,235,235},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
+        Polygon(
+          points={{100,70},{100,-80},{80,-100},{80,50},{100,70}},
+          fillColor={235,235,235},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
+        Text(
+          extent={{-120,135},{120,70}},
+          lineColor={255,0,0},
+          textString="%name"),
+        Text(
+          extent={{-90,40},{70,10}},
+          lineColor={160,160,164},
+          textString="Library"),
+        Rectangle(
+          extent={{-100,-100},{80,50}},
+          fillColor={235,235,235},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
+        Polygon(
+          points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}},
+          fillColor={235,235,235},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
+        Polygon(
+          points={{100,70},{100,-80},{80,-100},{80,50},{100,70}},
+          fillColor={235,235,235},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
+        Text(
+          extent={{-90,40},{70,10}},
+          lineColor={160,160,164},
+          textString="Library"),
+        Polygon(
+          points={{-64,-20},{-50,-4},{50,-4},{36,-20},{-64,-20},{-64,-20}},
+          lineColor={0,0,0},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid),
+        Rectangle(
+          extent={{-64,-20},{36,-84}},
+          lineColor={0,0,0},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid),
+        Text(
+          extent={{-60,-24},{32,-38}},
+          lineColor={128,128,128},
+          textString="Library"),
+        Polygon(
+          points={{50,-4},{50,-70},{36,-84},{36,-20},{50,-4}},
+          lineColor={0,0,0},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid)}),
+                            Documentation(info="<html>
+<p>
+This package contains definitions for the graphical layout of
+components which may be used in different libraries.
+The icons can be utilized by inheriting them in the desired class
+using \"extends\" or by directly copying the \"icon\" layer.
+</p>
+
+<dl>
+<dt><b>Main Author:</b>
+<dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
+    Deutsches Zentrum fuer Luft und Raumfahrt e.V. (DLR)<br>
+    Oberpfaffenhofen<br>
+    Postfach 1116<br>
+    D-82230 Wessling<br>
+    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br>
+</dl>
+
+<p>
+Copyright &copy; 1998-2009, Modelica Association and DLR.
+</p>
+<p>
+<i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the accompanying <b>disclaimer</b>
+<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
+</p><br>
+</HTML>
+", revisions="<html>
+<ul>
+<li><i>October 21, 2002</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
+       and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
+       Added new icons <b>Function</b>, <b>Enumerations</b> and <b>Record</b>.</li>
+<li><i>June 6, 2000</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+       Replaced <b>model</b> keyword by <b>package</b> if the main
+       usage is for inheriting from a package.<br>
+       New icons <b>GearIcon</b> and <b>MotorIcon</b>.</li>
+<li><i>Sept. 18, 1999</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+       Renaming package Icon to Icons.
+       Model Advanced removed (icon not accepted on the Modelica meeting).
+       New model Library2, which is the Library icon with enough place
+       to add library specific elements in the icon. Icon also used in diagram
+       level for models Info, TranslationalSensor, RotationalSensor.</li>
+<li><i>July 15, 1999</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+       Model Caution renamed to Advanced, model Sensor renamed to
+       TranslationalSensor, new model RotationalSensor.</li>
+<li><i>June 30, 1999</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+       Realized a first version.</li>
+</ul>
+<br>
+</html>"));
 end Icons;

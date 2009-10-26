@@ -4,13 +4,6 @@ package Interfaces
 
   extends Modelica.Icons.Library;
 
-  annotation ( Documentation(info="<html>
-<p>
-This package contains connectors and partial models (i.e. models
-that are only used to build other models) of the MultiBody library.
-</p>
-</html>"));
-
   connector Frame
     "Coordinate system fixed to the component with one cut-force and cut-torque (no icon)"
     import SI = Modelica.SIunits;
@@ -167,7 +160,7 @@ end Frame_resolve;
       "= true, if bearing frame connector is present, otherwise not present";
     Modelica.Mechanics.Rotational.Interfaces.Flange_a flange
       "1-dim. rotational flange";
-    Modelica.Mechanics.MultiBody.Interfaces.Frame bearingFrame if
+    Modelica.Mechanics.MultiBody.Interfaces.Frame bearingFrame if 
       includeBearingConnector
       "3-dim. frame in which the 1-dim. shaft is mounted";
 
@@ -255,7 +248,7 @@ to the FlangeWithBearing connector.
                                    annotation (Placement(transformation(extent=
               {{-130,-30},{-70,30}}, rotation=0)));
     Modelica.Mechanics.Rotational.Interfaces.Flange_b flange
-      "1-dim. rotational flange"
+      "1-dim. rotational flange" 
       annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=
              0)));
     Frame_a frame if includeBearingConnector
@@ -265,6 +258,14 @@ to the FlangeWithBearing connector.
           extent={{-16,-16},{16,16}},
           rotation=90)));
 
+  equation
+    connect(flange, flangeAndFrame.flange) annotation (Line(
+        points={{0,0},{-100,0}},
+        color={0,0,0}));
+    connect(frame, flangeAndFrame.bearingFrame) annotation (Line(
+        points={{0,-100},{0,-40},{-100,-40},{-100,0}},
+        color={0,0,0},
+        thickness=0.5));
     annotation (
       defaultComponentName="adaptor",
       Diagram(coordinateSystem(
@@ -297,14 +298,6 @@ subconnectors of a
 connector.
 </p>
 </html>"));
-  equation
-    connect(flange, flangeAndFrame.flange) annotation (Line(
-        points={{0,0},{-100,0}},
-        color={0,0,0}));
-    connect(frame, flangeAndFrame.bearingFrame) annotation (Line(
-        points={{0,-100},{0,-40},{-100,-40},{-100,0}},
-        color={0,0,0},
-        thickness=0.5));
   end FlangeWithBearingAdaptor;
 
   partial model PartialTwoFrames
@@ -361,6 +354,13 @@ needed and if the two frame connectors should be connected for a correct model.
       "Coordinate system fixed to the component with one cut-force and cut-torque"
       annotation (Placement(transformation(extent={{92,-8},{108,8}})));
 
+  protected
+    outer Modelica.Mechanics.MultiBody.World world;
+  equation
+    assert(cardinality(frame_a) > 0,
+      "Connector frame_a of component is not connected");
+    assert(cardinality(frame_b) > 0,
+      "Connector frame_b of component is not connected");
     annotation (
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -389,14 +389,6 @@ larger as usual. This partial model is used by the Joint.Assemblies
 joint aggregation models.
 </p>
 </HTML>"));
-
-  protected
-    outer Modelica.Mechanics.MultiBody.World world;
-  equation
-    assert(cardinality(frame_a) > 0,
-      "Connector frame_a of component is not connected");
-    assert(cardinality(frame_b) > 0,
-      "Connector frame_b of component is not connected");
   end PartialTwoFramesDoubleSize;
 
   partial model PartialOneFrame_a
@@ -463,11 +455,11 @@ needed and if this connector should be connected for a correct model.
     "Base model for elementary joints (has two frames + outer world + assert to guarantee that the joint is connected)"
 
     Interfaces.Frame_a frame_a
-      "Coordinate system fixed to the joint with one cut-force and cut-torque"
+      "Coordinate system fixed to the joint with one cut-force and cut-torque" 
                                annotation (Placement(transformation(extent={{
               -116,-16},{-84,16}}, rotation=0)));
     Interfaces.Frame_b frame_b
-      "Coordinate system fixed to the joint with one cut-force and cut-torque"
+      "Coordinate system fixed to the joint with one cut-force and cut-torque" 
                                annotation (Placement(transformation(extent={{84,
               -16},{116,16}}, rotation=0)));
 
@@ -512,11 +504,11 @@ object and an assert to check that both frame connectors are connected.
 
     import SI = Modelica.SIunits;
     Interfaces.Frame_a frame_a
-      "Coordinate system fixed to the joint with one cut-force and cut-torque"
+      "Coordinate system fixed to the joint with one cut-force and cut-torque" 
                                annotation (Placement(transformation(extent={{
               -116,-16},{-84,16}}, rotation=0)));
     Interfaces.Frame_b frame_b
-      "Coordinate system fixed to the joint with one cut-force and cut-torque"
+      "Coordinate system fixed to the joint with one cut-force and cut-torque" 
                                annotation (Placement(transformation(extent={{84,
               -16},{116,16}}, rotation=0)));
 
@@ -588,7 +580,7 @@ to which this force element is connected.
   partial model PartialLineForce "Base model for line force elements"
     import SI = Modelica.SIunits;
     parameter SI.Position s_small=1.E-6
-      " Prevent zero-division if relative distance s=0"
+      " Prevent zero-division if relative distance s=0" 
       annotation (Dialog(tab="Advanced"));
     Interfaces.Frame_a frame_a
       "Coordinate system fixed to the force element with one cut-force and cut-torque"
@@ -681,11 +673,15 @@ has to be defined. Example:
             rotation=0)));
 
     Modelica.Blocks.Interfaces.RealOutput y[n_out]
-      "Measured data as signal vector"
+      "Measured data as signal vector" 
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
   protected
     outer Modelica.Mechanics.MultiBody.World world;
+
+  equation
+    assert(cardinality(frame_a) > 0,
+      "Connector frame_a of absolute sensor object is not connected");
     annotation (
       Documentation(info="
 <HTML>
@@ -710,10 +706,6 @@ with the blocks of package Modelica.Blocks.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics));
-
-  equation
-    assert(cardinality(frame_a) > 0,
-      "Connector frame_a of absolute sensor object is not connected");
   end PartialAbsoluteSensor;
 
   partial model PartialRelativeSensor
@@ -726,13 +718,20 @@ with the blocks of package Modelica.Blocks.
           transformation(extent={{84,-16},{116,16}}, rotation=0)));
 
     Modelica.Blocks.Interfaces.RealOutput y[n_out]
-      "Measured data as signal vector"
+      "Measured data as signal vector" 
       annotation (Placement(transformation(
           origin={0,-110},
           extent={{10,-10},{-10,10}},
           rotation=90)));
   protected
     outer Modelica.Mechanics.MultiBody.World world;
+
+  equation
+    assert(cardinality(frame_a) > 0,
+      "Connector frame_a of relative sensor object is not connected");
+    assert(cardinality(frame_b) > 0,
+      "Connector frame_b of relative sensor object is not connected");
+
     annotation (
       Documentation(info="
 <HTML>
@@ -767,13 +766,6 @@ with the blocks of package Modelica.Blocks.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics));
-
-  equation
-    assert(cardinality(frame_a) > 0,
-      "Connector frame_a of relative sensor object is not connected");
-    assert(cardinality(frame_b) > 0,
-      "Connector frame_b of relative sensor object is not connected");
-
   end PartialRelativeSensor;
 
   partial model PartialVisualizer
@@ -802,8 +794,12 @@ It is used by inheritance from all visualizer objects.
   model ZeroPosition
     "Set absolute position vector of frame_resolve to a zero vector and the orientation object to a null rotation"
      extends Modelica.Blocks.Interfaces.BlockIcon;
-    Interfaces.Frame_resolve frame_resolve
+    Interfaces.Frame_resolve frame_resolve 
       annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
+  equation
+    Connections.root(frame_resolve.R);
+    frame_resolve.R = Modelica.Mechanics.MultiBody.Frames.nullRotation();
+    frame_resolve.r_0 = zeros(3);
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Text(
             extent={{-74,24},{80,-20}},
@@ -811,9 +807,11 @@ It is used by inheritance from all visualizer objects.
             textString="r = 0")}), Diagram(coordinateSystem(
             preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
           graphics));
-  equation
-    Connections.root(frame_resolve.R);
-    frame_resolve.R = Modelica.Mechanics.MultiBody.Frames.nullRotation();
-    frame_resolve.r_0 = zeros(3);
   end ZeroPosition;
+  annotation ( Documentation(info="<html>
+<p>
+This package contains connectors and partial models (i.e. models
+that are only used to build other models) of the MultiBody library.
+</p>
+</html>"));
 end Interfaces;

@@ -2,40 +2,7 @@ within Modelica.Mechanics.MultiBody.Examples.Loops;
 model Engine1a "Model of one cylinder engine"
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Example;
-  annotation (
-    experiment(StopTime=5),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-120},{150,120}},
-        grid={1,1}), graphics),
-    Documentation(info="<html>
-<p>
-This is a model of the mechanical part of one cylinder of an engine.
-The combustion is not modelled. The \"inertia\" component at the lower
-left part is the output inertia of the engine driving the gearbox.
-The angular velocity of the output inertia has a start value of 10 rad/s
-in order to demonstrate the movement of the engine.
-</p>
-<p>
-The engine is modeled solely by revolute and prismatic joints.
-Since this results in a <b>planar</b> loop there is the well known
-difficulty that the cut-forces perpendicular to the loop cannot be
-uniquely computed, as well as the cut-torques within the plane.
-This ambiguity is resolved by using the option <b>planarCutJoint</b>
-in the <b>Advanced</b> menu of one revolute joint in every planar loop
-(here: joint B1). This option sets the cut-force in direction of the
-axis of rotation, as well as the cut-torques perpendicular to the axis
-of rotation at this joint to zero and makes the problem mathematically
-well-formed.
-</p>
-<p>
-An animation of this example is shown in the figure below.
-</p>
-<p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Loops/Engine.png\" ALT=\"model Examples.Loops.Engine\">
-</p>
-</html>"));
-  Modelica.Mechanics.MultiBody.Parts.BodyCylinder Piston(diameter=0.1, r={0,-0.1,0})
+  Modelica.Mechanics.MultiBody.Parts.BodyCylinder Piston(diameter=0.1, r={0,-0.1,0}) 
     annotation (Placement(transformation(
         origin={90.5,66.5},
         extent={{-10.5,30.5},{10.5,-30.5}},
@@ -78,7 +45,7 @@ An animation of this example is shown in the figure below.
   Modelica.Mechanics.MultiBody.Parts.BodyCylinder Crank3(r={0.1,0,0}, diameter=0.03) annotation (
                                  Placement(transformation(extent={{81.5,-71},{
             101.5,-51}}, rotation=0)));
-  Modelica.Mechanics.MultiBody.Parts.BodyCylinder Crank1(diameter=0.05, r={0.1,0,0})
+  Modelica.Mechanics.MultiBody.Parts.BodyCylinder Crank1(diameter=0.05, r={0.1,0,0}) 
     annotation (Placement(transformation(extent={{24,-100},{44,-80}}, rotation=
             0)));
   Modelica.Mechanics.MultiBody.Parts.BodyBox Crank2(
@@ -92,10 +59,10 @@ An animation of this example is shown in the figure below.
   Joints.RevolutePlanarLoopConstraint B1(
     n={1,0,0},
     cylinderLength=0.02,
-    cylinderDiameter=0.05)
+    cylinderDiameter=0.05) 
                          annotation (Placement(transformation(extent={{80,-30},
             {100,-10}}, rotation=0)));
-  Modelica.Mechanics.MultiBody.Parts.FixedTranslation Mid(r={0.05,0,0})
+  Modelica.Mechanics.MultiBody.Parts.FixedTranslation Mid(r={0.05,0,0}) 
     annotation (Placement(transformation(extent={{70,-53},{90,-33}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Joints.Prismatic Cylinder(
     boxWidth=0.02,
@@ -105,11 +72,11 @@ An animation of this example is shown in the figure below.
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation cylPosition(                 animation=false, r={0.15,
-        0.45,0})
+        0.45,0}) 
     annotation (Placement(transformation(extent={{-0.5,100},{19.5,120}},
           rotation=0)));
 equation
-  connect(world.frame_b, Bearing.frame_a)
+  connect(world.frame_b, Bearing.frame_a) 
     annotation (Line(
       points={{-30,-90},{-10,-90}},
       color={95,95,95},
@@ -165,4 +132,37 @@ equation
       points={{90,86},{90,77},{90.5,77}},
       color={95,95,95},
       thickness=0.5));
+  annotation (
+    experiment(StopTime=5),
+    Diagram(coordinateSystem(
+        preserveAspectRatio=true,
+        extent={{-100,-120},{150,120}},
+        grid={1,1}), graphics),
+    Documentation(info="<html>
+<p>
+This is a model of the mechanical part of one cylinder of an engine.
+The combustion is not modelled. The \"inertia\" component at the lower
+left part is the output inertia of the engine driving the gearbox.
+The angular velocity of the output inertia has a start value of 10 rad/s
+in order to demonstrate the movement of the engine.
+</p>
+<p>
+The engine is modeled solely by revolute and prismatic joints.
+Since this results in a <b>planar</b> loop there is the well known
+difficulty that the cut-forces perpendicular to the loop cannot be
+uniquely computed, as well as the cut-torques within the plane.
+This ambiguity is resolved by using the option <b>planarCutJoint</b>
+in the <b>Advanced</b> menu of one revolute joint in every planar loop
+(here: joint B1). This option sets the cut-force in direction of the
+axis of rotation, as well as the cut-torques perpendicular to the axis
+of rotation at this joint to zero and makes the problem mathematically
+well-formed.
+</p>
+<p>
+An animation of this example is shown in the figure below.
+</p>
+<p align=\"center\">
+<IMG SRC=\"../Images/MultiBody/Examples/Loops/Engine.png\" ALT=\"model Examples.Loops.Engine\">
+</p>
+</html>"));
 end Engine1a;

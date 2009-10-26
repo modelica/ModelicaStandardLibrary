@@ -108,7 +108,7 @@ package Machines
     extends Modelica.Fluid.Machines.BaseClasses.PartialPump;
     SI.Angle phi "Shaft angle";
     SI.AngularVelocity omega "Shaft angular velocity";
-    Modelica.Mechanics.Rotational.Interfaces.Flange_a shaft
+    Modelica.Mechanics.Rotational.Interfaces.Flange_a shaft 
     annotation (Placement(transformation(extent={{-10,90},{10,110}},
                                                                    rotation=0)));
   equation
@@ -145,7 +145,7 @@ package Machines
     extends Modelica.Fluid.Machines.BaseClasses.PartialPump(
       N_nominal=1500,
       N(start=N_nominal),
-      redeclare replaceable function flowCharacteristic =
+      redeclare replaceable function flowCharacteristic = 
           Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.quadraticFlow
           ( V_flow_nominal={0, V_flow_op, 1.5*V_flow_op},
             head_nominal={2*head_op, head_op, 0}));
@@ -160,13 +160,13 @@ package Machines
 
     // what to control
     parameter Boolean control_m_flow = true
-      "= false to control outlet pressure port_b.p instead of m_flow"
+      "= false to control outlet pressure port_b.p instead of m_flow" 
       annotation(Evaluate = true);
     parameter Boolean use_m_flow_set = false
-      "= true to use input signal m_flow_set instead of m_flow_nominal"
+      "= true to use input signal m_flow_set instead of m_flow_nominal" 
       annotation (Dialog(enable = control_m_flow));
     parameter Boolean use_p_set = false
-      "= true to use input signal p_set instead of p_b_nominal"
+      "= true to use input signal p_set instead of p_b_nominal" 
       annotation (Dialog(enable = not control_m_flow));
 
     // exemplary characteristics
@@ -176,13 +176,13 @@ package Machines
       "operational pump head according to nominal values";
 
     Modelica.Blocks.Interfaces.RealInput m_flow_set if use_m_flow_set
-      "Prescribed mass flow rate"
+      "Prescribed mass flow rate" 
       annotation (Placement(transformation(
           extent={{-20,-20},{20,20}},
           rotation=-90,
           origin={-50,82})));
     Modelica.Blocks.Interfaces.RealInput p_set if use_p_set
-      "Prescribed outlet pressure"
+      "Prescribed outlet pressure" 
       annotation (Placement(transformation(
           extent={{-20,-20},{20,20}},
           rotation=-90,
@@ -254,7 +254,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
       N_const =                                                                     N_nominal
       "Constant rotational speed" annotation(Dialog(enable = not use_N_in));
     Modelica.Blocks.Interfaces.RealInput N_in(unit="1/min") if use_N_in
-      "Prescribed rotational speed"
+      "Prescribed rotational speed" 
       annotation (Placement(transformation(
           extent={{-20,-20},{20,20}},
           rotation=-90,
@@ -262,6 +262,20 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
           extent={{-20,-20},{20,20}},
           rotation=-90,
           origin={0,100})));
+
+  protected
+    Modelica.Blocks.Interfaces.RealInput N_in_internal(unit="1/min")
+      "Needed to connect to conditional connector";
+  equation
+    // Connect statement active only if use_p_in = true
+    connect(N_in, N_in_internal);
+    // Internal connector value when use_p_in = false
+    if not use_N_in then
+      N_in_internal = N_const;
+    end if;
+    // Set N with a lower limit to avoid singularities at zero speed
+    N = max(N_in_internal,1e-3) "Rotational speed";
+
     annotation (defaultComponentName="pump",
       Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
               100}}), graphics={Text(
@@ -282,20 +296,6 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
        Model added to the Fluid library</li>
 </ul>
 </html>"));
-
-  protected
-    Modelica.Blocks.Interfaces.RealInput N_in_internal(unit="1/min")
-      "Needed to connect to conditional connector";
-  equation
-    // Connect statement active only if use_p_in = true
-    connect(N_in, N_in_internal);
-    // Internal connector value when use_p_in = false
-    if not use_N_in then
-      N_in_internal = N_const;
-    end if;
-    // Set N with a lower limit to avoid singularities at zero speed
-    N = max(N_in_internal,1e-3) "Rotational speed";
-
   end PrescribedPump;
 
   package BaseClasses
@@ -319,49 +319,49 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
 
     // Initialization
     parameter Medium.AbsolutePressure p_a_start=system.p_start
-        "Guess value for inlet pressure"
+        "Guess value for inlet pressure" 
       annotation(Dialog(tab="Initialization"));
     parameter Medium.AbsolutePressure p_b_start=p_a_start
-        "Guess value for outlet pressure"
+        "Guess value for outlet pressure" 
       annotation(Dialog(tab="Initialization"));
     parameter Medium.MassFlowRate m_flow_start = 1
-        "Guess value of m_flow = port_a.m_flow"
+        "Guess value of m_flow = port_a.m_flow" 
       annotation(Dialog(tab = "Initialization"));
 
     // Characteristics
-    parameter Integer nParallel(min=1) = 1 "Number of pumps in parallel"
+    parameter Integer nParallel(min=1) = 1 "Number of pumps in parallel" 
       annotation(Dialog(group="Characteristics"));
-    replaceable function flowCharacteristic =
+    replaceable function flowCharacteristic = 
         PumpCharacteristics.baseFlow
-        "Head vs. V_flow characteristic at nominal speed and density"
+        "Head vs. V_flow characteristic at nominal speed and density" 
       annotation(Dialog(group="Characteristics"), choicesAllMatching=true);
     parameter AngularVelocity_rpm N_nominal
-        "Nominal rotational speed for flow characteristic"
+        "Nominal rotational speed for flow characteristic" 
       annotation(Dialog(group="Characteristics"));
     parameter Medium.Density rho_nominal = Medium.density_pTX(Medium.p_default, Medium.T_default, Medium.X_default)
-        "Nominal fluid density for characteristic"
+        "Nominal fluid density for characteristic" 
       annotation(Dialog(group="Characteristics"));
     parameter Boolean use_powerCharacteristic = false
-        "Use powerCharacteristic (vs. efficiencyCharacteristic)"
+        "Use powerCharacteristic (vs. efficiencyCharacteristic)" 
        annotation(Evaluate=true,Dialog(group="Characteristics"));
-    replaceable function powerCharacteristic =
+    replaceable function powerCharacteristic = 
           PumpCharacteristics.quadraticPower (
          V_flow_nominal={0,0,0},W_nominal={0,0,0})
-        "Power consumption vs. V_flow at nominal speed and density"
+        "Power consumption vs. V_flow at nominal speed and density" 
       annotation(Dialog(group="Characteristics", enable = use_powerCharacteristic),
                  choicesAllMatching=true);
-    replaceable function efficiencyCharacteristic =
+    replaceable function efficiencyCharacteristic = 
       PumpCharacteristics.constantEfficiency(eta_nominal = 0.8) constrainedby
         PumpCharacteristics.baseEfficiency
-        "Efficiency vs. V_flow at nominal speed and density"
+        "Efficiency vs. V_flow at nominal speed and density" 
       annotation(Dialog(group="Characteristics",enable = not use_powerCharacteristic),
                  choicesAllMatching=true);
 
     // Assumptions
-    parameter Boolean checkValve=false "= true to prevent reverse flow"
+    parameter Boolean checkValve=false "= true to prevent reverse flow" 
       annotation(Dialog(tab="Assumptions"), Evaluate=true);
 
-    parameter SI.Volume V = 0 "Volume inside the pump"
+    parameter SI.Volume V = 0 "Volume inside the pump" 
       annotation(Dialog(tab="Assumptions"),Evaluate=true);
 
     // Energy and mass balance
@@ -373,25 +373,25 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
 
     // Heat transfer through boundary, e.g. to add a housing
     parameter Boolean use_HeatTransfer = false
-        "= true to use a HeatTransfer model, e.g. for a housing"
+        "= true to use a HeatTransfer model, e.g. for a housing" 
         annotation (Dialog(tab="Assumptions",group="Heat transfer"));
-    replaceable model HeatTransfer =
-        Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer
+    replaceable model HeatTransfer = 
+        Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer 
       constrainedby
         Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransfer
-        "Wall heat transfer"
+        "Wall heat transfer" 
         annotation (Dialog(tab="Assumptions",group="Heat transfer",enable=use_HeatTransfer),choicesAllMatching=true);
     HeatTransfer heatTransfer(
       redeclare final package Medium = Medium,
       final n=1,
       surfaceAreas={4*Modelica.Constants.pi*(3/4*V/Modelica.Constants.pi)^(2/3)},
       final states = {medium.state},
-      final use_k = use_HeatTransfer)
+      final use_k = use_HeatTransfer) 
         annotation (Placement(transformation(
           extent={{-10,-10},{30,30}},
           rotation=180,
           origin={50,-10})));
-    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if use_HeatTransfer
+    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if use_HeatTransfer 
       annotation (Placement(transformation(extent={{30,-70},{50,-50}})));
 
     // Variables
@@ -414,10 +414,10 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
 
     // Diagnostics
     parameter Boolean show_NPSHa = false
-        "= true to compute Net Positive Suction Head available"
+        "= true to compute Net Positive Suction Head available" 
       annotation(Dialog(tab="Advanced", group="Diagnostics"));
     Medium.ThermodynamicState state_a=
-      Medium.setState_phX(port_a.p, inStream(port_a.h_outflow), inStream(port_a.Xi_outflow)) if
+      Medium.setState_phX(port_a.p, inStream(port_a.h_outflow), inStream(port_a.Xi_outflow)) if 
          show_NPSHa "state for medium inflowing through port_a";
     Medium.Density rho_in = Medium.density(state_a) if show_NPSHa
         "Liquid density at the inlet port_a";
@@ -600,7 +600,7 @@ provided a two-phase medium model is used.
     function linearFlow "Linear flow characteristic"
       extends baseFlow;
       input SI.VolumeFlowRate V_flow_nominal[2]
-          "Volume flow rate for two operating points (single pump)"
+          "Volume flow rate for two operating points (single pump)" 
                                                                   annotation(Dialog);
       input SI.Height head_nominal[2] "Pump head for two operating points" annotation(Dialog);
       /* Linear system to determine the coefficients:
@@ -618,7 +618,7 @@ provided a two-phase medium model is used.
     function quadraticFlow "Quadratic flow characteristic"
       extends baseFlow;
       input SI.VolumeFlowRate V_flow_nominal[3]
-          "Volume flow rate for three operating points (single pump)"
+          "Volume flow rate for three operating points (single pump)" 
                                                                     annotation(Dialog);
       input SI.Height head_nominal[3] "Pump head for three operating points" annotation(Dialog);
       protected
@@ -639,7 +639,7 @@ provided a two-phase medium model is used.
     function polynomialFlow "Polynomial flow characteristic"
       extends baseFlow;
       input SI.VolumeFlowRate V_flow_nominal[:]
-          "Volume flow rate for N operating points (single pump)"
+          "Volume flow rate for N operating points (single pump)" 
                                                                 annotation(Dialog);
       input SI.Height head_nominal[:] "Pump head for N operating points" annotation(Dialog);
       protected
@@ -685,7 +685,7 @@ provided a two-phase medium model is used.
     function quadraticPower "Quadratic power consumption characteristic"
       extends basePower;
       input SI.VolumeFlowRate V_flow_nominal[3]
-          "Volume flow rate for three operating points (single pump)"
+          "Volume flow rate for three operating points (single pump)" 
                                                                     annotation(Dialog);
       input SI.Power W_nominal[3]
           "Power consumption for three operating points"                         annotation(Dialog);

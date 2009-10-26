@@ -24,34 +24,6 @@ model PlanarLoops_analytic
   final parameter SI.Length r3a[3]=r3b + rh - r2b
     "Position vector from 'upper left' revolute to 'upper right' revolute joint in the third loop";
 
-  annotation (
-    experiment(StopTime=5),
-    Documentation(info="<html>
-<p>
-It is demonstrated how the Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR joint can be
-used to solve the non-linear equations of coupled planar loops analytically.
-In the mechanism below no non-linear equation occurs any more from the tool
-view, since these equations are solved analytically in the JointRRR joints.
-For more details, see
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">
-MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
-</p>
-
-<p>
-In the following figure the parameter vectors of this example are visualized in the
-animation view.
-</p>
-
-<p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Loops/PlanarLoops2.png\" ALT=\"model Examples.Loops.PlanarLoops2\">
-</p>
-
-</html>"),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics));
-
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
         transformation(extent={{-94,-90},{-74,-70}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR jointRRR1(
@@ -61,30 +33,30 @@ animation view.
         origin={-20,0},
         extent={{-20,-20},{20,20}},
         rotation=270)));
-  Modelica.Mechanics.MultiBody.Joints.Revolute rev(useAxisFlange=true,w(fixed=true))
+  Modelica.Mechanics.MultiBody.Joints.Revolute rev(useAxisFlange=true,w(fixed=true)) 
     annotation (Placement(transformation(
         origin={-56,-10},
         extent={{-10,-10},{10,10}},
         rotation=90)));
-  Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod1(r=rv)
+  Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod1(r=rv) 
     annotation (Placement(transformation(
         origin={-56,30},
         extent={{-10,-10},{10,10}},
         rotation=90)));
-  Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod2(r=rh)
+  Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod2(r=rh) 
     annotation (Placement(transformation(extent={{-50,-60},{-30,-40}}, rotation=
            0)));
   Modelica.Mechanics.MultiBody.Parts.Body body1(
     m=1,
     cylinderColor={155,155,155},
-    r_CM=jointRRR1.rRod1_ia/2)
+    r_CM=jointRRR1.rRod1_ia/2) 
     annotation (Placement(transformation(
         origin={6,60},
         extent={{-10,-10},{10,10}},
         rotation=90)));
-  Modelica.Mechanics.Rotational.Sources.Position position(useSupport=true)
+  Modelica.Mechanics.Rotational.Sources.Position position(useSupport=true) 
     annotation (Placement(transformation(extent={{-90,-20},{-70,0}}, rotation=0)));
-  Modelica.Blocks.Sources.Sine sine(amplitude=0.7, freqHz=1)
+  Modelica.Blocks.Sources.Sine sine(amplitude=0.7, freqHz=1) 
     annotation (Placement(transformation(
         origin={-96,30},
         extent={{-10,-10},{10,10}},
@@ -96,7 +68,7 @@ animation view.
         origin={30,0},
         extent={{-20,-20},{20,20}},
         rotation=270)));
-  Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod3(r=rh)
+  Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod3(r=rh) 
     annotation (Placement(transformation(extent={{0,-60},{20,-40}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.Body body2(
     m=1,
@@ -112,7 +84,7 @@ animation view.
         origin={80,0},
         extent={{-20,-20},{20,20}},
         rotation=270)));
-  Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod4(r=rh)
+  Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod4(r=rh) 
     annotation (Placement(transformation(extent={{40,-60},{60,-40}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.Body body3(
     m=1,
@@ -121,14 +93,14 @@ animation view.
         origin={108,62},
         extent={{-10,-10},{10,10}},
         rotation=90)));
-  Parts.Mounting1D mounting1D
+  Parts.Mounting1D mounting1D 
     annotation (Placement(transformation(extent={{-100,-50},{-80,-30}})));
 equation
   connect(world.frame_b, rev.frame_a) annotation (Line(
       points={{-74,-80},{-56,-80},{-56,-20}},
       color={95,95,95},
       thickness=0.5));
-  connect(rod1.frame_a, rev.frame_b)
+  connect(rod1.frame_a, rev.frame_b) 
     annotation (Line(
       points={{-56,20},{-56,0}},
       color={0,0,0},
@@ -137,7 +109,7 @@ equation
       points={{-56,40},{-56,50},{-20,50},{-20,20}},
       color={95,95,95},
       thickness=0.5));
-  connect(rod2.frame_a, world.frame_b)
+  connect(rod2.frame_a, world.frame_b) 
     annotation (Line(
       points={{-50,-50},{-56,-50},{-56,-80},{-74,-80}},
       color={95,95,95},
@@ -150,7 +122,7 @@ equation
       points={{3.55271e-015,16},{6,16},{6,50}},
       color={95,95,95},
       thickness=0.5));
-  connect(rod3.frame_a, rod2.frame_b)
+  connect(rod3.frame_a, rod2.frame_b) 
     annotation (Line(
       points={{0,-50},{-30,-50}},
       color={95,95,95},
@@ -167,7 +139,7 @@ equation
       points={{0,-3.67394e-015},{12,-3.67394e-015},{12,25},{30,25},{30,20}},
       color={95,95,95},
       thickness=0.5));
-  connect(rod3.frame_b, rod4.frame_a)
+  connect(rod3.frame_b, rod4.frame_a) 
     annotation (Line(
       points={{20,-50},{40,-50}},
       color={95,95,95},
@@ -199,4 +171,31 @@ equation
       points={{-70,-10},{-66,-10}},
       color={0,0,0},
       smooth=Smooth.None));
+  annotation (
+    experiment(StopTime=5),
+    Documentation(info="<html>
+<p>
+It is demonstrated how the Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR joint can be
+used to solve the non-linear equations of coupled planar loops analytically.
+In the mechanism below no non-linear equation occurs any more from the tool
+view, since these equations are solved analytically in the JointRRR joints.
+For more details, see
+<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">
+MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
+</p>
+
+<p>
+In the following figure the parameter vectors of this example are visualized in the
+animation view.
+</p>
+
+<p align=\"center\">
+<IMG SRC=\"../Images/MultiBody/Examples/Loops/PlanarLoops2.png\" ALT=\"model Examples.Loops.PlanarLoops2\">
+</p>
+
+</html>"),
+    Diagram(coordinateSystem(
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
+        grid={1,1}), graphics));
 end PlanarLoops_analytic;

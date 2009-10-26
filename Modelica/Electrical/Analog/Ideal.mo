@@ -4,38 +4,6 @@ package Ideal
 
   extends Modelica.Icons.Library;
 
-  annotation (Documentation(info="<html>
-<p>
-This package contains electrical components with idealized behaviour:
-</p>
-
-</HTML>
-", revisions="<html>
-<dl>
-<dt>
-<b>Main Authors:</b>
-<dd>
-Christoph Clau&szlig;
-    &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
-    Andr&eacute; Schneider
-    &lt;<a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>&gt;<br>
-    Fraunhofer Institute for Integrated Circuits<br>
-    Design Automation Department<br>
-    Zeunerstra&szlig;e 38<br>
-    D-01069 Dresden<br>
-<p>
-<dt>
-<b>Copyright:</b>
-<dd>
-Copyright &copy; 1998-2006, Modelica Association and Fraunhofer-Gesellschaft.<br>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> in the documentation of package
-Modelica in file \"Modelica/package.mo\".</i><br>
-<p>
-</dl>
-</html>"));
-
           model IdealThyristor "Ideal thyristor"
             extends Modelica.Electrical.Analog.Interfaces.OnePort;
             parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
@@ -46,7 +14,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
       "Forward threshold voltage";
             extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
             Boolean off(start=true) "Switching state";
-            Modelica.Blocks.Interfaces.BooleanInput fire
+            Modelica.Blocks.Interfaces.BooleanInput fire 
               annotation (Placement(transformation(
           origin={70,110},
           extent={{-20,-20},{20,20}},
@@ -56,6 +24,11 @@ Modelica in file \"Modelica/package.mo\".</i><br>
       "Auxiliary variable: if on then current, if opened then voltage";
             constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
             constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
+          equation
+            off = s < 0 or pre(off) and not fire;
+            v = (s*unitCurrent)*(if off then 1 else Ron) + Vknee;
+            i = (s*unitVoltage)*(if off then Goff else 1) + Goff*Vknee;
+            LossPower = v*i;
             annotation (
               Documentation(info="<html>
 This is an ideal thyristor model which is<br><br>
@@ -171,11 +144,6 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
             points={{20,10},{70,40}},
             color={0,0,0},
             thickness=0.5)}));
-          equation
-            off = s < 0 or pre(off) and not fire;
-            v = (s*unitCurrent)*(if off then 1 else Ron) + Vknee;
-            i = (s*unitVoltage)*(if off then Goff else 1) + Goff*Vknee;
-            LossPower = v*i;
           end IdealThyristor;
 
           model IdealGTOThyristor "Ideal GTO thyristor"
@@ -188,7 +156,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
       "Forward threshold voltage";
             extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
             Boolean off(start=true) "Switching state";
-            Modelica.Blocks.Interfaces.BooleanInput fire
+            Modelica.Blocks.Interfaces.BooleanInput fire 
               annotation (Placement(transformation(
           origin={70,110},
           extent={{-20,-20},{20,20}},
@@ -198,6 +166,11 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
       "Auxiliary variable: if on then current, if opened then voltage";
             constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
             constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
+          equation
+            off = s < 0 or not fire;
+            v = (s*unitCurrent)*(if off then 1 else Ron) + Vknee;
+            i = (s*unitVoltage)*(if off then Goff else 1) + Goff*Vknee;
+            LossPower = v*i;
             annotation (
               Documentation(info="<html>
 This is an ideal GTO thyristor model which is<br><br>
@@ -313,11 +286,6 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
             points={{20,10},{70,40}},
             color={0,0,0},
             thickness=0.5)}));
-          equation
-            off = s < 0 or not fire;
-            v = (s*unitCurrent)*(if off then 1 else Ron) + Vknee;
-            i = (s*unitVoltage)*(if off then Goff else 1) + Goff*Vknee;
-            LossPower = v*i;
           end IdealGTOThyristor;
 
   model IdealCommutingSwitch "Ideal commuting switch"
@@ -342,6 +310,14 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     Real s2(final unit="1") "Auxiliary variables";
     constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
     constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
+  equation
+    0 = p.i + n2.i + n1.i;
+
+    p.v - n1.v = (s1*unitCurrent)*(if (control) then 1 else Ron);
+    n1.i = -(s1*unitVoltage)*(if (control) then Goff else 1);
+    p.v - n2.v = (s2*unitCurrent)*(if (control) then Ron else 1);
+    n2.i = -(s2*unitVoltage)*(if (control) then 1 else Goff);
+    LossPower = p.i * p.v + n1.i *n1.v + n2.i * n2.v;
     annotation (
       Documentation(info="<HTML>
 <P>
@@ -416,14 +392,6 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
           Line(points={{40,50},{96,50}}, color={0,0,255}),
           Line(points={{0,60},{0,25}}, color={0,0,255}),
           Line(points={{40,0},{96,0}}, color={0,0,255})}));
-  equation
-    0 = p.i + n2.i + n1.i;
-
-    p.v - n1.v = (s1*unitCurrent)*(if (control) then 1 else Ron);
-    n1.i = -(s1*unitVoltage)*(if (control) then Goff else 1);
-    p.v - n2.v = (s2*unitCurrent)*(if (control) then Ron else 1);
-    n2.i = -(s2*unitVoltage)*(if (control) then 1 else Goff);
-    LossPower = p.i * p.v + n1.i *n1.v + n2.i * n2.v;
   end IdealCommutingSwitch;
 
   model IdealIntermediateSwitch "Ideal intermediate switch"
@@ -440,7 +408,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     Interfaces.NegativePin n2 annotation (Placement(transformation(extent={{90,
               -10},{110,10}}, rotation=0)));
     Modelica.Blocks.Interfaces.BooleanInput control
-      "true => p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2  connected"
+      "true => p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2  connected" 
       annotation (Placement(transformation(
           origin={0,80},
           extent={{-20,-20},{20,20}},
@@ -452,6 +420,18 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     Real s4(final unit="1") "Auxiliary variables";
     constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
     constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
+  equation
+    p1.v - n1.v = (s1*unitCurrent)*(if (control) then 1 else Ron);
+    p2.v - n2.v = (s2*unitCurrent)*(if (control) then 1 else Ron);
+    p1.v - n2.v = (s3*unitCurrent)*(if (control) then Ron else 1);
+    p2.v - n1.v = (s4*unitCurrent)*(if (control) then Ron else 1);
+
+    p1.i = if control then s1*unitVoltage*Goff + s3*unitCurrent else s1*unitCurrent + s3*unitVoltage*Goff;
+    p2.i = if control then s2*unitVoltage*Goff + s4*unitCurrent else s2*unitCurrent + s4*unitVoltage*Goff;
+    n1.i = if control then -s1*unitVoltage*Goff - s4*unitCurrent else -s1*unitCurrent - s4*unitVoltage*Goff;
+    n2.i = if control then -s2*unitVoltage*Goff - s3*unitCurrent else -s2*unitCurrent - s3*unitVoltage*Goff;
+
+    LossPower = p1.i * p1.v + p2.i * p2.v + n1.i *n1.v + n2.i * n2.v;
     annotation (
       Documentation(info="<HTML>
 <P>
@@ -533,18 +513,6 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
           Line(points={{40,50},{96,50}}, color={0,0,255}),
           Line(points={{0,60},{0,25}}, color={0,0,255}),
           Line(points={{40,0},{96,0}}, color={0,0,255})}));
-  equation
-    p1.v - n1.v = (s1*unitCurrent)*(if (control) then 1 else Ron);
-    p2.v - n2.v = (s2*unitCurrent)*(if (control) then 1 else Ron);
-    p1.v - n2.v = (s3*unitCurrent)*(if (control) then Ron else 1);
-    p2.v - n1.v = (s4*unitCurrent)*(if (control) then Ron else 1);
-
-    p1.i = if control then s1*unitVoltage*Goff + s3*unitCurrent else s1*unitCurrent + s3*unitVoltage*Goff;
-    p2.i = if control then s2*unitVoltage*Goff + s4*unitCurrent else s2*unitCurrent + s4*unitVoltage*Goff;
-    n1.i = if control then -s1*unitVoltage*Goff - s4*unitCurrent else -s1*unitCurrent - s4*unitVoltage*Goff;
-    n2.i = if control then -s2*unitVoltage*Goff - s3*unitCurrent else -s2*unitCurrent - s3*unitVoltage*Goff;
-
-    LossPower = p1.i * p1.v + p2.i * p2.v + n1.i *n1.v + n2.i * n2.v;
   end IdealIntermediateSwitch;
 
   model ControlledIdealCommutingSwitch "Controlled ideal commuting switch"
@@ -570,6 +538,15 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     Real s2(final unit="1") "Auxiliary variables";
     constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
     constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
+  equation
+    control.i = 0;
+    0 = p.i + n2.i + n1.i;
+
+    p.v - n1.v = (s1*unitCurrent)*(if (control.v > level) then 1 else Ron);
+    n1.i = -(s1*unitVoltage)*(if (control.v > level) then Goff else 1);
+    p.v - n2.v = (s2*unitCurrent)*(if (control.v > level) then Ron else 1);
+    n2.i = -(s2*unitVoltage)*(if (control.v > level) then 1 else Goff);
+    LossPower = p.i * p.v + n1.i *n1.v + n2.i * n2.v;
     annotation (
       Documentation(info="<HTML>
 <P>
@@ -645,15 +622,6 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
           Line(points={{40,50},{96,50}}, color={0,0,255}),
           Line(points={{0,96},{0,25}}, color={0,0,255}),
           Line(points={{40,0},{96,0}}, color={0,0,255})}));
-  equation
-    control.i = 0;
-    0 = p.i + n2.i + n1.i;
-
-    p.v - n1.v = (s1*unitCurrent)*(if (control.v > level) then 1 else Ron);
-    n1.i = -(s1*unitVoltage)*(if (control.v > level) then Goff else 1);
-    p.v - n2.v = (s2*unitCurrent)*(if (control.v > level) then Ron else 1);
-    n2.i = -(s2*unitVoltage)*(if (control.v > level) then 1 else Goff);
-    LossPower = p.i * p.v + n1.i *n1.v + n2.i * n2.v;
   end ControlledIdealCommutingSwitch;
 
   model ControlledIdealIntermediateSwitch
@@ -684,6 +652,20 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     Real s4(final unit="1") "Auxiliary variables";
     constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
     constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
+  equation
+    control.i = 0;
+
+    p1.v - n1.v = (s1*unitCurrent)*(if (control.v > level) then 1 else Ron);
+    p2.v - n2.v = (s2*unitCurrent)*(if (control.v > level) then 1 else Ron);
+    p1.v - n2.v = (s3*unitCurrent)*(if (control.v > level) then Ron else 1);
+    p2.v - n1.v = (s4*unitCurrent)*(if (control.v > level) then Ron else 1);
+
+    p1.i = if control.v > level then s1*unitVoltage*Goff + s3*unitCurrent else s1*unitCurrent + s3*unitVoltage*Goff;
+    p2.i = if control.v > level then s2*unitVoltage*Goff + s4*unitCurrent else s2*unitCurrent + s4*unitVoltage*Goff;
+    n1.i = if control.v > level then -s1*unitVoltage*Goff - s4*unitCurrent else -s1*unitCurrent - s4*unitVoltage*Goff;
+    n2.i = if control.v > level then -s2*unitVoltage*Goff - s3*unitCurrent else -s2*unitCurrent - s3*unitVoltage*Goff;
+
+    LossPower = p1.i * p1.v + p2.i * p2.v + n1.i *n1.v + n2.i * n2.v;
     annotation (
       Documentation(info="<HTML>
 <P>
@@ -772,20 +754,6 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
           Line(points={{40,50},{96,50}}, color={0,0,255}),
           Line(points={{0,96},{0,25}}, color={0,0,255}),
           Line(points={{40,0},{96,0}}, color={0,0,255})}));
-  equation
-    control.i = 0;
-
-    p1.v - n1.v = (s1*unitCurrent)*(if (control.v > level) then 1 else Ron);
-    p2.v - n2.v = (s2*unitCurrent)*(if (control.v > level) then 1 else Ron);
-    p1.v - n2.v = (s3*unitCurrent)*(if (control.v > level) then Ron else 1);
-    p2.v - n1.v = (s4*unitCurrent)*(if (control.v > level) then Ron else 1);
-
-    p1.i = if control.v > level then s1*unitVoltage*Goff + s3*unitCurrent else s1*unitCurrent + s3*unitVoltage*Goff;
-    p2.i = if control.v > level then s2*unitVoltage*Goff + s4*unitCurrent else s2*unitCurrent + s4*unitVoltage*Goff;
-    n1.i = if control.v > level then -s1*unitVoltage*Goff - s4*unitCurrent else -s1*unitCurrent - s4*unitVoltage*Goff;
-    n2.i = if control.v > level then -s2*unitVoltage*Goff - s3*unitCurrent else -s2*unitCurrent - s3*unitVoltage*Goff;
-
-    LossPower = p1.i * p1.v + p2.i * p2.v + n1.i *n1.v + n2.i * n2.v;
   end ControlledIdealIntermediateSwitch;
 
   model IdealOpAmp "Ideal operational amplifier (norator-nullator pair)"
@@ -804,6 +772,15 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
           origin={0,-100},
           extent={{10,-10},{-10,10}},
           rotation=270)));
+  equation
+    v1 = p1.v - n1.v;
+    v2 = p2.v - n2.v;
+    0 = p1.i + n1.i;
+    0 = p2.i + n2.i;
+    i1 = p1.i;
+    i2 = p2.i;
+    v1 = 0;
+    i1 = 0;
     annotation (
       Documentation(info="<html>
 <P>
@@ -883,15 +860,6 @@ are possible (norator).
             extent={{22,-100},{39,-85}},
             lineColor={0,0,0},
             textString="i2")}));
-  equation
-    v1 = p1.v - n1.v;
-    v2 = p2.v - n2.v;
-    0 = p1.i + n1.i;
-    0 = p2.i + n2.i;
-    i1 = p1.i;
-    i2 = p2.i;
-    v1 = 0;
-    i1 = 0;
   end IdealOpAmp;
 
   model IdealOpAmp3Pin
@@ -902,6 +870,10 @@ are possible (norator).
           transformation(extent={{-110,40},{-90,60}}, rotation=0)));
     Interfaces.PositivePin out "Output pin" annotation (Placement(
           transformation(extent={{90,-10},{110,10}}, rotation=0)));
+  equation
+    in_p.v = in_n.v;
+    in_p.i = 0;
+    in_n.i = 0;
     annotation (
       Documentation(info="<html>
 <P>
@@ -971,10 +943,6 @@ are possible.
             extent={{-111,60},{-90,80}},
             lineColor={160,160,164},
             textString="n1.i=0")}));
-  equation
-    in_p.v = in_n.v;
-    in_p.i = 0;
-    in_n.i = 0;
   end IdealOpAmp3Pin;
 
   model IdealOpAmpLimited "Ideal operational amplifier with limitation"
@@ -984,16 +952,25 @@ are possible.
           transformation(extent={{-110,40},{-90,60}}, rotation=0)));
     Interfaces.PositivePin out "Output pin" annotation (Placement(
           transformation(extent={{90,-10},{110,10}}, rotation=0)));
-    Interfaces.PositivePin VMax "Positive output voltage limitation"
+    Interfaces.PositivePin VMax "Positive output voltage limitation" 
       annotation (Placement(transformation(extent={{-10,60},{10,80}}, rotation=
               0)));
-    Interfaces.NegativePin VMin "Negative output voltage limitation"
+    Interfaces.NegativePin VMin "Negative output voltage limitation" 
       annotation (Placement(transformation(extent={{-10,-80},{10,-60}},
             rotation=0)));
     SI.Voltage vin "input voltage";
   protected
     Real s(final unit="1") "Auxiliary variable";
     constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
+
+  equation
+    in_p.i = 0;
+    in_n.i = 0;
+    VMax.i = 0;
+    VMin.i = 0;
+    vin = in_p.v - in_n.v;
+    in_p.v - in_n.v = unitVoltage*smooth(0,(if s < -1 then s + 1 else if s > 1 then s - 1 else 0));
+    out.v = smooth(0,if s < -1 then VMin.v else if s > 1 then VMax.v else (VMax.v - VMin.v)*s/2 + (VMax.v + VMin.v)/2);
     annotation (
       Documentation(info="<HTML>
 <P>
@@ -1021,7 +998,6 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
           Line(points={{-45,-10},{-10,-10},{-10,10},{20,10}}, color={0,0,255}),
-
           Line(points={{0,35},{0,80}}, color={0,0,255}),
           Line(points={{0,-35},{0,-80}}, color={0,0,255}),
           Line(points={{-90,50},{-60,50}}, color={0,0,255}),
@@ -1070,15 +1046,6 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
             extent={{-111,60},{-90,80}},
             lineColor={160,160,164},
             textString="n1.i=0")}));
-
-  equation
-    in_p.i = 0;
-    in_n.i = 0;
-    VMax.i = 0;
-    VMin.i = 0;
-    vin = in_p.v - in_n.v;
-    in_p.v - in_n.v = unitVoltage*smooth(0,(if s < -1 then s + 1 else if s > 1 then s - 1 else 0));
-    out.v = smooth(0,if s < -1 then VMin.v else if s > 1 then VMax.v else (VMax.v - VMin.v)*s/2 + (VMax.v + VMin.v)/2);
   end IdealOpAmpLimited;
 
         model IdealDiode "Ideal diode"
@@ -1096,6 +1063,12 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
       "Auxiliary variable: if on then current, if opened then voltage";
           constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
           constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
+        equation
+          off = s < 0;
+          v = (s*unitCurrent)*(if off then 1 else Ron) + Vknee;
+          i = (s*unitVoltage)*(if off then Goff else 1) + Goff*Vknee;
+
+          LossPower = v*i;
           annotation (
             Documentation(info="<html>
 <P>
@@ -1206,12 +1179,6 @@ behavior is <b> not </b> modelled.
             extent={{18,12},{22,8}},
             pattern=LinePattern.Dot,
             lineColor={0,0,255})}));
-        equation
-          off = s < 0;
-          v = (s*unitCurrent)*(if off then 1 else Ron) + Vknee;
-          i = (s*unitVoltage)*(if off then Goff else 1) + Goff*Vknee;
-
-          LossPower = v*i;
         end IdealDiode;
 
   model IdealTransformer "Ideal transformer core with or without magnetization"
@@ -1219,8 +1186,21 @@ behavior is <b> not </b> modelled.
     parameter Real n(start=1) "Turns ratio primary:secondary voltage";
     parameter Boolean considerMagnetization=false;
     parameter Modelica.SIunits.Inductance Lm1(start=1)
-      "Magnetization inductance w.r.t. primary side"
+      "Magnetization inductance w.r.t. primary side" 
       annotation(Dialog(enable=considerMagnetization));
+  protected
+    Modelica.SIunits.Current im1 "Magnetization current w.r.t. primary side";
+    Modelica.SIunits.MagneticFlux psim1 "Magnetic flux w.r.t primary side";
+  equation
+    im1 = i1 + i2/n;
+    if considerMagnetization then
+      psim1 = Lm1*im1;
+      v1 = der(psim1);
+    else
+      psim1= 0;
+      im1 = 0;
+    end if;
+    v1 =  n*v2;
     annotation (
       Documentation(info="<html>
 <p>
@@ -1315,24 +1295,15 @@ For the backward conversion, one has to decide about the partitioning of the lea
             extent={{0,10},{100,-10}},
             lineColor={0,0,255},
             textString="2=secondary")}));
-  protected
-    Modelica.SIunits.Current im1 "Magnetization current w.r.t. primary side";
-    Modelica.SIunits.MagneticFlux psim1 "Magnetic flux w.r.t primary side";
-  equation
-    im1 = i1 + i2/n;
-    if considerMagnetization then
-      psim1 = Lm1*im1;
-      v1 = der(psim1);
-    else
-      psim1= 0;
-      im1 = 0;
-    end if;
-    v1 =  n*v2;
   end IdealTransformer;
 
   model IdealGyrator "Ideal gyrator"
     extends Interfaces.TwoPort;
     parameter SI.Conductance G(start=1) "Gyration conductance";
+
+  equation
+    i1 = G*v2;
+    i2 = -G*v1;
     annotation (
       Documentation(info="<html>
 <P>
@@ -1366,7 +1337,6 @@ where the constant <i>G</i> is called the gyration conductance.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Line(points={{-90,50},{-40,50},{-40,-50},{-90,-50}}, color={0,0,255}),
-
           Line(points={{-30,60},{20,60}}, color={0,0,255}),
           Polygon(
             points={{20,63},{30,60},{20,57},{20,63}},
@@ -1412,14 +1382,12 @@ where the constant <i>G</i> is called the gyration conductance.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Line(points={{96,50},{40,50},{40,-50},{96,-50}}, color={0,0,255})}));
-
-  equation
-    i1 = G*v2;
-    i2 = -G*v1;
   end IdealGyrator;
 
   model Idle "Idle branch"
     extends Interfaces.OnePort;
+  equation
+    i = 0;
     annotation (
       Documentation(info="<html>
 <P>
@@ -1455,12 +1423,12 @@ The model Idle is a simple idle running branch.
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Line(points={{-96,0},{-41,0}}, color={0,0,255}),
           Line(points={{96,0},{40,0}}, color={0,0,255})}));
-  equation
-    i = 0;
   end Idle;
 
   model Short "Short cut branch"
     extends Interfaces.OnePort;
+  equation
+    v = 0;
     annotation (
       Documentation(info="<html>
 <P>
@@ -1498,13 +1466,11 @@ The model Short is a simple short cut branch.
             extent={{-100,100},{100,70}},
             textString="Short",
             lineColor={0,0,255})}));
-  equation
-    v = 0;
   end Short;
 
  model IdealOpeningSwitch "Ideal electrical opener"
    extends Modelica.Electrical.Analog.Interfaces.OnePort;
-   parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
+   parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance" 
        annotation (Placement(transformation(extent={{-56.6667,10},{-10,56.6667}},
             rotation=0)));
    parameter SI.Conductance Goff(final min=0) = 1.E-5
@@ -1521,6 +1487,11 @@ The model Short is a simple short cut branch.
    Real s(final unit="1") "Auxiliary variable";
    constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
    constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
+ equation
+   v = (s*unitCurrent)*(if control then 1 else Ron);
+   i = (s*unitVoltage)*(if control then Goff else 1);
+
+   LossPower = v*i;
     annotation (
       Documentation(info="<HTML>
 <P>
@@ -1588,17 +1559,12 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
             lineColor={0,0,255}),
           Line(points={{0,51},{0,26}}, color={0,0,255}),
           Line(points={{40,20},{40,0}}, color={0,0,255})}));
- equation
-   v = (s*unitCurrent)*(if control then 1 else Ron);
-   i = (s*unitVoltage)*(if control then Goff else 1);
-
-   LossPower = v*i;
  end IdealOpeningSwitch;
 
     model IdealClosingSwitch "Ideal electrical closer"
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
       parameter SI.Resistance Ron(final min=0) = 1.E-5
-      "Closed switch resistance"
+      "Closed switch resistance" 
          annotation (Placement(transformation(extent={{-56.6667,10},{-10,
               56.6667}}, rotation=0)));
       parameter SI.Conductance Goff(final min=0) = 1.E-5
@@ -1615,6 +1581,11 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
       Real s(final unit="1") "Auxiliary variable";
       constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
       constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
+    equation
+      v = (s*unitCurrent)*(if control then Ron else 1);
+      i = (s*unitVoltage)*(if control then 1 else Goff);
+
+      LossPower = v*i;
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -1680,11 +1651,6 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
             textString="%name",
             lineColor={0,0,255}),
           Line(points={{0,51},{0,26}}, color={0,0,255})}));
-    equation
-      v = (s*unitCurrent)*(if control then Ron else 1);
-      i = (s*unitVoltage)*(if control then 1 else Goff);
-
-      LossPower = v*i;
     end IdealClosingSwitch;
 
   model ControlledIdealOpeningSwitch "Controlled ideal electrical opener"
@@ -1702,7 +1668,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     Interfaces.NegativePin n annotation (Placement(transformation(extent={{90,
               -10},{110,10}}, rotation=0)));
     Interfaces.Pin control
-      "Control pin: control.v > level switch open, otherwise p--n connected"
+      "Control pin: control.v > level switch open, otherwise p--n connected" 
       annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
@@ -1711,6 +1677,13 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     Real s(final unit="1") "Auxiliary variable";
     constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
     constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
+  equation
+    control.i = 0;
+    0 = p.i + n.i;
+    p.v - n.v = (s*unitCurrent)*(if (control.v > level) then 1 else Ron);
+    p.i = (s*unitVoltage)*(if (control.v > level) then Goff else 1);
+
+    LossPower = (p.v - n.v)*p.i;
     annotation (
       Documentation(info="
 <HTML>
@@ -1775,20 +1748,13 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
           Line(points={{40,0},{96,0}}, color={0,0,255}),
           Line(points={{0,96},{0,25}}, color={0,0,255}),
           Line(points={{40,20},{40,0}}, color={0,0,255})}));
-  equation
-    control.i = 0;
-    0 = p.i + n.i;
-    p.v - n.v = (s*unitCurrent)*(if (control.v > level) then 1 else Ron);
-    p.i = (s*unitVoltage)*(if (control.v > level) then Goff else 1);
-
-    LossPower = (p.v - n.v)*p.i;
   end ControlledIdealOpeningSwitch;
 
     model ControlledIdealClosingSwitch "Controlled ideal electrical closer"
       parameter SI.Voltage level=0.5 "Switch level" annotation (Placement(
           transformation(extent={{-56.6667,10},{-10,56.6667}}, rotation=0)));
       parameter SI.Resistance Ron(final min=0) = 1.E-5
-      "Closed switch resistance"
+      "Closed switch resistance" 
          annotation (Placement(transformation(extent={{10,10},{56.6667,56.6667}},
             rotation=0)));
       parameter SI.Conductance Goff(final min=0) = 1.E-5
@@ -1800,7 +1766,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
       Modelica.Electrical.Analog.Interfaces.NegativePin n annotation (Placement(
           transformation(extent={{90,-10},{110,10}}, rotation=0)));
       Modelica.Electrical.Analog.Interfaces.Pin control
-      "Control pin: control.v > level switch closed, otherwise switch open"
+      "Control pin: control.v > level switch closed, otherwise switch open" 
         annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
@@ -1809,6 +1775,13 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
       Real s(final unit="1") "Auxiliary variable";
       constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
       constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
+    equation
+      control.i = 0;
+      0 = p.i + n.i;
+      p.v - n.v = (s*unitCurrent)*(if (control.v > level) then Ron else 1);
+      p.i = (s*unitVoltage)*(if (control.v > level) then 1 else Goff);
+
+      LossPower = (p.v - n.v)*p.i;
       annotation (
         Documentation(info="
 <HTML>
@@ -1871,13 +1844,6 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
           Line(points={{-37,2},{40,50}}, color={0,0,255}),
           Line(points={{40,0},{96,0}}, color={0,0,255}),
           Line(points={{0,96},{0,25}}, color={0,0,255})}));
-    equation
-      control.i = 0;
-      0 = p.i + n.i;
-      p.v - n.v = (s*unitCurrent)*(if (control.v > level) then Ron else 1);
-      p.i = (s*unitVoltage)*(if (control.v > level) then 1 else Goff);
-
-      LossPower = (p.v - n.v)*p.i;
     end ControlledIdealClosingSwitch;
 
   model OpenerWithArc "Ideal opening switch with simple arc model"
@@ -1890,12 +1856,32 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     parameter Modelica.SIunits.Voltage Vmax=60 "Max. arc voltage";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
     Modelica.Blocks.Interfaces.BooleanInput control
-      "false => p--n connected, true => switch open"
+      "false => p--n connected, true => switch open" 
       annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
           rotation=270)));
 
+  protected
+    Boolean off=control;
+    Boolean on=not off;
+    discrete Modelica.SIunits.Time tSwitch;
+    Boolean quenched;
+  equation
+    when edge(off) then
+      tSwitch=time;
+    end when;
+    quenched=off and (abs(i)<=abs(v)*Goff or pre(quenched));
+    if on then
+      v=Ron*i;
+    else
+      if quenched then
+        i=Goff*v;
+      else
+        v=min(Vmax, V0 + dVdt*(time - tSwitch))*sign(i);
+      end if;
+    end if;
+   LossPower = v*i;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
               -100},{100,100}}), graphics={
           Line(points={{40,50},{32,32},{48,28},{40,18}}, color={255,0,0}),
@@ -1992,10 +1978,27 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
        </li>
 </ul>
 </html>"));
+  end OpenerWithArc;
+
+  model CloserWithArc "Ideal closing switch with simple arc model"
+    extends Modelica.Electrical.Analog.Interfaces.OnePort;
+    parameter Modelica.SIunits.Resistance Ron= 1E-5 "Closed switch resistance";
+    parameter Modelica.SIunits.Conductance Goff=1E-5
+      "Opened switch conductance";
+    parameter Modelica.SIunits.Voltage V0=30 "Initial arc voltage";
+    parameter Modelica.SIunits.VoltageSlope dVdt=10E3 "Arc voltage slope";
+    parameter Modelica.SIunits.Voltage Vmax=60 "Max. arc voltage";
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+    Modelica.Blocks.Interfaces.BooleanInput control
+      "true => p--n connected, false => switch open" 
+      annotation (Placement(transformation(
+          origin={0,100},
+          extent={{-10,-10},{10,10}},
+          rotation=270)));
 
   protected
-    Boolean off=control;
-    Boolean on=not off;
+    Boolean on=control;
+    Boolean off=not on;
     discrete Modelica.SIunits.Time tSwitch;
     Boolean quenched;
   equation
@@ -2012,24 +2015,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
         v=min(Vmax, V0 + dVdt*(time - tSwitch))*sign(i);
       end if;
     end if;
-   LossPower = v*i;
-  end OpenerWithArc;
-
-  model CloserWithArc "Ideal closing switch with simple arc model"
-    extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    parameter Modelica.SIunits.Resistance Ron= 1E-5 "Closed switch resistance";
-    parameter Modelica.SIunits.Conductance Goff=1E-5
-      "Opened switch conductance";
-    parameter Modelica.SIunits.Voltage V0=30 "Initial arc voltage";
-    parameter Modelica.SIunits.VoltageSlope dVdt=10E3 "Arc voltage slope";
-    parameter Modelica.SIunits.Voltage Vmax=60 "Max. arc voltage";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
-    Modelica.Blocks.Interfaces.BooleanInput control
-      "true => p--n connected, false => switch open"
-      annotation (Placement(transformation(
-          origin={0,100},
-          extent={{-10,-10},{10,10}},
-          rotation=270)));
+  LossPower = v*i;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={
           Line(points={{40,50},{32,24},{48,28},{40,0}}, color={255,0,0}),
@@ -2122,37 +2108,16 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
        </li>
 </ul>
 </html>"));
-
-  protected
-    Boolean on=control;
-    Boolean off=not on;
-    discrete Modelica.SIunits.Time tSwitch;
-    Boolean quenched;
-  equation
-    when edge(off) then
-      tSwitch=time;
-    end when;
-    quenched=off and (abs(i)<=abs(v)*Goff or pre(quenched));
-    if on then
-      v=Ron*i;
-    else
-      if quenched then
-        i=Goff*v;
-      else
-        v=min(Vmax, V0 + dVdt*(time - tSwitch))*sign(i);
-      end if;
-    end if;
-  LossPower = v*i;
   end CloserWithArc;
 
   model ControlledOpenerWithArc
     "Controlled ideal electrical opener with simple arc model"
 
-    parameter Modelica.SIunits.Voltage level=0.5 "Switch level"
+    parameter Modelica.SIunits.Voltage level=0.5 "Switch level" 
                                                   annotation (Placement(
           transformation(extent={{-56.6667,10},{-10,56.6667}}, rotation=0)));
     parameter Modelica.SIunits.Resistance Ron(final min=0)=1.E-5
-      "Closed switch resistance"
+      "Closed switch resistance" 
        annotation (Placement(transformation(extent={{10,10},{56.6667,56.6667}},
             rotation=0)));
     parameter Modelica.SIunits.Conductance Goff(final min=0)=1.E-5
@@ -2162,14 +2127,14 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     parameter Modelica.SIunits.VoltageSlope dVdt=10E3 "Arc voltage slope";
     parameter Modelica.SIunits.Voltage Vmax=60 "Max. arc voltage";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
-    Modelica.Electrical.Analog.Interfaces.PositivePin p
+    Modelica.Electrical.Analog.Interfaces.PositivePin p 
                              annotation (Placement(transformation(extent={{-110,
               -10},{-90,10}}, rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.NegativePin n
+    Modelica.Electrical.Analog.Interfaces.NegativePin n 
                              annotation (Placement(transformation(extent={{90,
               -10},{110,10}}, rotation=0)));
     Modelica.Electrical.Analog.Interfaces.Pin control
-      "Control pin: control.v > level switch open, otherwise p--n connected"
+      "Control pin: control.v > level switch open, otherwise p--n connected" 
       annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
@@ -2183,6 +2148,26 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     Boolean on=not off;
     discrete Modelica.SIunits.Time tSwitch;
     Boolean quenched;
+  equation
+    control.i = 0;
+    0 = p.i + n.i;
+    i = p.i;
+    p.v - n.v = v;
+
+    when edge(off) then
+      tSwitch=time;
+    end when;
+    quenched=off and (abs(i)<=abs(v)*Goff or pre(quenched));
+    if on then
+      v=Ron*i;
+    else
+      if quenched then
+        i=Goff*v;
+      else
+        v=min(Vmax, V0 + dVdt*(time - tSwitch))*sign(i);
+      end if;
+    end if;
+   LossPower = v*i;
     annotation (
       Documentation(info="
 <HTML>
@@ -2263,36 +2248,16 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
           Line(points={{40,0},{96,0}}, color={0,0,255}),
           Line(points={{0,96},{0,25}}, color={0,0,255}),
           Line(points={{40,20},{40,0}}, color={0,0,255})}));
-  equation
-    control.i = 0;
-    0 = p.i + n.i;
-    i = p.i;
-    p.v - n.v = v;
-
-    when edge(off) then
-      tSwitch=time;
-    end when;
-    quenched=off and (abs(i)<=abs(v)*Goff or pre(quenched));
-    if on then
-      v=Ron*i;
-    else
-      if quenched then
-        i=Goff*v;
-      else
-        v=min(Vmax, V0 + dVdt*(time - tSwitch))*sign(i);
-      end if;
-    end if;
-   LossPower = v*i;
   end ControlledOpenerWithArc;
 
     model ControlledCloserWithArc
     "Controlled ideal electrical closer with simple arc model"
 
-      parameter Modelica.SIunits.Voltage level=0.5 "Switch level"
+      parameter Modelica.SIunits.Voltage level=0.5 "Switch level" 
                                                     annotation (Placement(
           transformation(extent={{-56.6667,10},{-10,56.6667}}, rotation=0)));
       parameter Modelica.SIunits.Resistance Ron(final min=0)=1.E-5
-      "Closed switch resistance"
+      "Closed switch resistance" 
          annotation (Placement(transformation(extent={{10,10},{56.6667,56.6667}},
             rotation=0)));
       parameter Modelica.SIunits.Conductance Goff(final min=0)=1.E-5
@@ -2307,7 +2272,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
       Modelica.Electrical.Analog.Interfaces.NegativePin n annotation (Placement(
           transformation(extent={{90,-10},{110,10}}, rotation=0)));
       Modelica.Electrical.Analog.Interfaces.Pin control
-      "Control pin: control.v > level switch closed, otherwise switch open"
+      "Control pin: control.v > level switch closed, otherwise switch open" 
         annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
@@ -2321,6 +2286,26 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
       Boolean on=not off;
       discrete Modelica.SIunits.Time tSwitch;
       Boolean quenched;
+    equation
+      control.i = 0;
+      0 = p.i + n.i;
+      i = p.i;
+      p.v - n.v = v;
+
+      when edge(off) then
+        tSwitch=time;
+      end when;
+      quenched=off and (abs(i)<=abs(v)*Goff or pre(quenched));
+      if on then
+        v=Ron*i;
+      else
+        if quenched then
+          i=Goff*v;
+        else
+          v=min(Vmax, V0 + dVdt*(time - tSwitch))*sign(i);
+        end if;
+      end if;
+     LossPower = v*i;
       annotation (
         Documentation(info="
 <HTML>
@@ -2401,25 +2386,36 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
           Line(points={{-37,2},{40,50}}, color={0,0,255}),
           Line(points={{40,0},{96,0}}, color={0,0,255}),
           Line(points={{0,96},{0,25}}, color={0,0,255})}));
-    equation
-      control.i = 0;
-      0 = p.i + n.i;
-      i = p.i;
-      p.v - n.v = v;
-
-      when edge(off) then
-        tSwitch=time;
-      end when;
-      quenched=off and (abs(i)<=abs(v)*Goff or pre(quenched));
-      if on then
-        v=Ron*i;
-      else
-        if quenched then
-          i=Goff*v;
-        else
-          v=min(Vmax, V0 + dVdt*(time - tSwitch))*sign(i);
-        end if;
-      end if;
-     LossPower = v*i;
     end ControlledCloserWithArc;
+  annotation (Documentation(info="<html>
+<p>
+This package contains electrical components with idealized behaviour:
+</p>
+
+</HTML>
+", revisions="<html>
+<dl>
+<dt>
+<b>Main Authors:</b>
+<dd>
+Christoph Clau&szlig;
+    &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
+    Andr&eacute; Schneider
+    &lt;<a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>&gt;<br>
+    Fraunhofer Institute for Integrated Circuits<br>
+    Design Automation Department<br>
+    Zeunerstra&szlig;e 38<br>
+    D-01069 Dresden<br>
+<p>
+<dt>
+<b>Copyright:</b>
+<dd>
+Copyright &copy; 1998-2006, Modelica Association and Fraunhofer-Gesellschaft.<br>
+<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the accompanying <b>disclaimer</b> in the documentation of package
+Modelica in file \"Modelica/package.mo\".</i><br>
+<p>
+</dl>
+</html>"));
 end Ideal;

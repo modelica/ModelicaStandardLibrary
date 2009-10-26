@@ -4,28 +4,6 @@ package Nonlinear
   import Modelica.Blocks.Interfaces;
       extends Modelica.Icons.Library;
 
-      annotation (
-        Documentation(info="
-<HTML>
-<p>
-This package contains <b>discontinuous</b> and
-<b>non-differentiable, algebraic</b> input/output blocks.
-</p>
-</HTML>
-", revisions="<html>
-<ul>
-<li><i>October 21, 2002</i>
-       by <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
-       New block VariableLimiter added.
-<li><i>August 22, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized, based on an existing Dymola library
-       of Dieter Moormann and Hilding Elmqvist.
-</li>
-</ul>
-</html>
-"));
-
       block Limiter "Limit the range of a signal"
         parameter Real uMax(start=1) "Upper limits of input signals";
         parameter Real uMin= -uMax "Lower limits of input signals";
@@ -33,6 +11,19 @@ This package contains <b>discontinuous</b> and
       "= false, if limits are ignored during initializiation (i.e., y=u)";
         extends Interfaces.SISO;
 
+      equation
+        assert(uMax >= uMin, "Limiter: Limits must be consistent. However, uMax (=" + String(uMax) +
+                             ") < uMin (=" + String(uMin) + ")");
+        if initial() and not limitsAtInit then
+           y = u;
+           assert(u >= uMin - 0.01*abs(uMin) and 
+                  u <= uMax + 0.01*abs(uMax),
+                 "Limiter: During initialization the limits have been ignored.\n"+
+                 "However, the result is that the input u is not within the required limits:\n"+
+                 "  u = " + String(u) + ", uMin = " + String(uMin) + ", uMax = " + String(uMax));
+        else
+           y = smooth(0,if u > uMax then uMax else if u < uMin then uMin else u);
+        end if;
         annotation (
           Documentation(info="
 <HTML>
@@ -101,20 +92,6 @@ as output.
             extent={{26,40},{66,56}},
             lineColor={128,128,128},
             textString="uMax")}));
-
-      equation
-        assert(uMax >= uMin, "Limiter: Limits must be consistent. However, uMax (=" + String(uMax) +
-                             ") < uMin (=" + String(uMin) + ")");
-        if initial() and not limitsAtInit then
-           y = u;
-           assert(u >= uMin - 0.01*abs(uMin) and
-                  u <= uMax + 0.01*abs(uMax),
-                 "Limiter: During initialization the limits have been ignored.\n"+
-                 "However, the result is that the input u is not within the required limits:\n"+
-                 "  u = " + String(u) + ", uMin = " + String(uMin) + ", uMax = " + String(uMax));
-        else
-           y = smooth(0,if u > uMax then uMax else if u < uMin then uMin else u);
-        end if;
       end Limiter;
 
   block VariableLimiter "Limit the range of a signal with variable limits"
@@ -122,17 +99,31 @@ as output.
     parameter Boolean limitsAtInit = true
       "= false, if limits are ignored during initializiation (i.e., y=u)";
     Interfaces.RealInput limit1
-      "Connector of Real input signal used as maximum of input u"
+      "Connector of Real input signal used as maximum of input u" 
                                 annotation (Placement(transformation(extent={{
               -140,60},{-100,100}}, rotation=0)));
     Interfaces.RealInput limit2
-      "Connector of Real input signal used as minimum of input u"
+      "Connector of Real input signal used as minimum of input u" 
                                 annotation (Placement(transformation(extent={{
               -140,-100},{-100,-60}}, rotation=0)));
   protected
     Real uMax;
     Real uMin;
 
+  equation
+    uMax = max(limit1, limit2);
+    uMin = min(limit1, limit2);
+
+    if initial() and not limitsAtInit then
+       y = u;
+       assert(u >= uMin - 0.01*abs(uMin) and 
+              u <= uMax + 0.01*abs(uMax),
+             "VariableLimiter: During initialization the limits have been ignored.\n"+
+             "However, the result is that the input u is not within the required limits:\n"+
+             "  u = " + String(u) + ", uMin = " + String(uMin) + ", uMax = " + String(uMax));
+    else
+       y = smooth(0,if u > uMax then uMax else if u < uMin then uMin else u);
+    end if;
     annotation (
       Documentation(info="<html>
 <p>
@@ -203,21 +194,6 @@ is passed as output.
           Polygon(points={{40,40},{35,50},{45,50},{40,40}}, lineColor={0,0,255}),
           Polygon(points={{-40,-40},{-45,-50},{-35,-50},{-40,-40}}, lineColor={
                 0,0,255})}));
-
-  equation
-    uMax = max(limit1, limit2);
-    uMin = min(limit1, limit2);
-
-    if initial() and not limitsAtInit then
-       y = u;
-       assert(u >= uMin - 0.01*abs(uMin) and
-              u <= uMax + 0.01*abs(uMax),
-             "VariableLimiter: During initialization the limits have been ignored.\n"+
-             "However, the result is that the input u is not within the required limits:\n"+
-             "  u = " + String(u) + ", uMin = " + String(uMin) + ", uMax = " + String(uMax));
-    else
-       y = smooth(0,if u > uMax then uMax else if u < uMin then uMin else u);
-    end if;
   end VariableLimiter;
 
       block DeadZone "Provide a region of zero output"
@@ -227,6 +203,15 @@ is passed as output.
       "= false, if dead zone is ignored during initializiation (i.e., y=u)";
         extends Interfaces.SISO;
 
+      equation
+        assert(uMax >= uMin, "DeadZone: Limits must be consistent. However, uMax (=" + String(uMax) +
+                             ") < uMin (=" + String(uMin) + ")");
+
+        if initial() and not deadZoneAtInit then
+           y = u;
+        else
+           y = smooth(0,if u > uMax then u - uMax else if u < uMin then u - uMin else 0);
+        end if;
         annotation (
           Documentation(info="
 <HTML>
@@ -297,16 +282,6 @@ function of the input with a slope of 1.
             extent={{27,21},{52,5}},
             lineColor={128,128,128},
             textString="uMax")}));
-
-      equation
-        assert(uMax >= uMin, "DeadZone: Limits must be consistent. However, uMax (=" + String(uMax) +
-                             ") < uMin (=" + String(uMin) + ")");
-
-        if initial() and not deadZoneAtInit then
-           y = u;
-        else
-           y = smooth(0,if u > uMax then u - uMax else if u < uMin then u - uMin else 0);
-        end if;
       end DeadZone;
 
   block FixedDelay "Delay block with fixed DelayTime"
@@ -314,6 +289,8 @@ function of the input with a slope of 1.
     parameter SI.Time delayTime(start=1)
       "Delay time of output with respect to input signal";
 
+  equation
+    y = delay(u, delayTime);
     annotation (
       Documentation(info="<html>
 <p>
@@ -399,9 +376,6 @@ The Input signal is delayed by a given time instant, or more precisely:
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}));
-
-  equation
-    y = delay(u, delayTime);
   end FixedDelay;
 
   block PadeDelay "Pade approximation of delay block with fixed DelayTime "
@@ -422,6 +396,41 @@ The Input signal is delayed by a given time instant, or more precisely:
   public
     final output Real x[n]
       "State of transfer function from controller canonical form";
+
+  protected
+    function padeCoefficients
+      input Real T "delay time";
+      input Integer n "order of denominator";
+      input Integer m "order of numerator";
+      output Real b[m + 1] "numerator coefficients of transfer function";
+      output Real a[n + 1] "denominator coefficients of transfer function";
+    protected
+      Real nm;
+    algorithm
+      a[1] := 1;
+      b[1] := 1;
+      nm := n + m;
+
+      for i in 1:n loop
+        a[i + 1] := a[i]*(T*((n - i + 1)/(nm - i + 1))/i);
+        if i <= m then
+          b[i + 1] := -b[i]*(T*((m - i + 1)/(nm - i + 1))/i);
+        end if;
+      end for;
+
+      b := b[m + 1:-1:1];
+      a := a[n + 1:-1:1];
+    end padeCoefficients;
+  equation
+
+    (b,a) = padeCoefficients(delayTime, n, m);
+
+    [der(x); xn] = [x1dot; x];
+    [u] = transpose([a])*[x1dot; x];
+    [y] = transpose([zeros(n - m, 1); b])*[x1dot; x];
+
+  initial equation
+    x[n] = u;
     annotation (
       Documentation(info="<html>
 <p>
@@ -546,46 +555,16 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}));
-
-  protected
-    function padeCoefficients
-      input Real T "delay time";
-      input Integer n "order of denominator";
-      input Integer m "order of numerator";
-      output Real b[m + 1] "numerator coefficients of transfer function";
-      output Real a[n + 1] "denominator coefficients of transfer function";
-    protected
-      Real nm;
-    algorithm
-      a[1] := 1;
-      b[1] := 1;
-      nm := n + m;
-
-      for i in 1:n loop
-        a[i + 1] := a[i]*(T*((n - i + 1)/(nm - i + 1))/i);
-        if i <= m then
-          b[i + 1] := -b[i]*(T*((m - i + 1)/(nm - i + 1))/i);
-        end if;
-      end for;
-
-      b := b[m + 1:-1:1];
-      a := a[n + 1:-1:1];
-    end padeCoefficients;
-  equation
-
-    (b,a) = padeCoefficients(delayTime, n, m);
-
-    [der(x); xn] = [x1dot; x];
-    [u] = transpose([a])*[x1dot; x];
-    [y] = transpose([zeros(n - m, 1); b])*[x1dot; x];
-
-  initial equation
-    x[n] = u;
   end PadeDelay;
 
   block VariableDelay "Delay block with variable DelayTime"
     extends Modelica.Blocks.Interfaces.SISO;
     parameter Real delayMax(min=0, start=1) "maximum delay time";
+
+    Modelica.Blocks.Interfaces.RealInput delayTime         annotation (Placement(
+          transformation(extent={{-140,-80},{-100,-40}}, rotation=0)));
+  equation
+    y = delay(u, delayTime, delayMax);
     annotation (
       Documentation(info="<html>
 <p>
@@ -732,11 +711,27 @@ the following relationship:
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-64,-30},{-64,0}}, color={192,192,192})}));
-
-    Modelica.Blocks.Interfaces.RealInput delayTime         annotation (Placement(
-          transformation(extent={{-140,-80},{-100,-40}}, rotation=0)));
-  equation
-    y = delay(u, delayTime, delayMax);
   end VariableDelay;
 
+      annotation (
+        Documentation(info="
+<HTML>
+<p>
+This package contains <b>discontinuous</b> and
+<b>non-differentiable, algebraic</b> input/output blocks.
+</p>
+</HTML>
+", revisions="<html>
+<ul>
+<li><i>October 21, 2002</i>
+       by <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
+       New block VariableLimiter added.
+<li><i>August 22, 1999</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+       Realized, based on an existing Dymola library
+       of Dieter Moormann and Hilding Elmqvist.
+</li>
+</ul>
+</html>
+"));
 end Nonlinear;

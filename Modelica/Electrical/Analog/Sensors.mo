@@ -3,48 +3,18 @@ package Sensors "Potential, voltage, current, and power sensors"
 
   extends Modelica.Icons.Library;
 
-  annotation (
-    Documentation(info="<html>
-<p>
-This package contains potential, voltage, and current sensors.
-</p>
-
-</HTML>
-", revisions="<html>
-<dl>
-<dt>
-<b>Main Authors:</b>
-<dd>
-Christoph Clau&szlig;
-    &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
-    Andr&eacute; Schneider
-    &lt;<a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>&gt;<br>
-    Fraunhofer Institute for Integrated Circuits<br>
-    Design Automation Department<br>
-    Zeunerstra&szlig;e 38<br>
-    D-01069 Dresden<br>
-<p>
-<dt>
-<b>Copyright:</b>
-<dd>
-Copyright &copy; 1998-2006, Modelica Association and Fraunhofer-Gesellschaft.<br>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> in the documentation of package
-Modelica in file \"Modelica/package.mo\".</i><br>
-<p>
-</dl>
-</html>"));
-
   model PotentialSensor "Sensor to measure the potential"
     extends Modelica.Icons.RotationalSensor;
 
     Interfaces.PositivePin p "pin to be measured" annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
     Modelica.Blocks.Interfaces.RealOutput phi
-      "Absolute voltage potential as output signal"
+      "Absolute voltage potential as output signal" 
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
+  equation
+    p.i = 0;
+    phi = p.v;
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -72,9 +42,6 @@ Modelica in file \"Modelica/package.mo\".</i><br>
        </li>
 </ul>
 </html>"));
-  equation
-    p.i = 0;
-    phi = p.v;
   end PotentialSensor;
 
   model VoltageSensor "Sensor to measure the voltage between two pins"
@@ -85,11 +52,16 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     Interfaces.NegativePin n "negative pin" annotation (Placement(
           transformation(extent={{90,-10},{110,10}}, rotation=0)));
     Modelica.Blocks.Interfaces.RealOutput v
-      "Voltage between pin p and n (= p.v - n.v) as output signal"
+      "Voltage between pin p and n (= p.v - n.v) as output signal" 
        annotation (Placement(transformation(
           origin={0,-100},
           extent={{10,-10},{-10,10}},
           rotation=90)));
+
+  equation
+    p.i = 0;
+    n.i = 0;
+    v = p.v - n.v;
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -120,11 +92,6 @@ Modelica in file \"Modelica/package.mo\".</i><br>
        </li>
 </ul>
 </html>"));
-
-  equation
-    p.i = 0;
-    n.i = 0;
-    v = p.v - n.v;
   end VoltageSensor;
 
   model CurrentSensor "Sensor to measure the current in a branch"
@@ -135,11 +102,16 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     Interfaces.NegativePin n "negative pin" annotation (Placement(
           transformation(extent={{90,-10},{110,10}}, rotation=0)));
     Modelica.Blocks.Interfaces.RealOutput i
-      "current in the branch from p to n as output signal"
+      "current in the branch from p to n as output signal" 
        annotation (Placement(transformation(
           origin={0,-100},
           extent={{10,-10},{-10,10}},
           rotation=90)));
+
+  equation
+    p.v = n.v;
+    p.i = i;
+    n.i = -i;
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -174,47 +146,57 @@ Modelica in file \"Modelica/package.mo\".</i><br>
        </li>
 </ul>
 </html>"));
-
-  equation
-    p.v = n.v;
-    p.i = i;
-    n.i = -i;
   end CurrentSensor;
 
 model PowerSensor "Sensor to measure the power"
   Modelica.Electrical.Analog.Interfaces.PositivePin pc
-      "Positive pin, current path"
+      "Positive pin, current path" 
     annotation (Placement(transformation(extent={{-90,-10},{-110,10}}, rotation=
              0)));
   Modelica.Electrical.Analog.Interfaces.NegativePin nc
-      "Negative pin, current path"
+      "Negative pin, current path" 
     annotation (Placement(transformation(extent={{110,-10},{90,10}}, rotation=0)));
   Modelica.Electrical.Analog.Interfaces.PositivePin pv
-      "Positive pin, voltage path"
+      "Positive pin, voltage path" 
     annotation (Placement(transformation(extent={{-10,110},{10,90}}, rotation=0)));
   Modelica.Electrical.Analog.Interfaces.NegativePin nv
-      "Negative pin, voltage path"
+      "Negative pin, voltage path" 
     annotation (Placement(transformation(extent={{10,-110},{-10,-90}}, rotation=
              0)));
-  Modelica.Blocks.Interfaces.RealOutput power
+  Modelica.Blocks.Interfaces.RealOutput power 
     annotation (Placement(transformation(
           origin={-80,-110},
           extent={{-10,10},{10,-10}},
           rotation=270)));
-  Modelica.Electrical.Analog.Sensors.VoltageSensor voltageSensor
+  Modelica.Electrical.Analog.Sensors.VoltageSensor voltageSensor 
     annotation (Placement(transformation(
           origin={0,-30},
           extent={{10,-10},{-10,10}},
           rotation=90)));
-  Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor
+  Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor 
     annotation (Placement(transformation(extent={{-50,-10},{-30,10}}, rotation=
               0)));
-  Modelica.Blocks.Math.Product product
+  Modelica.Blocks.Math.Product product 
     annotation (Placement(transformation(
           origin={-30,-50},
           extent={{-10,-10},{10,10}},
           rotation=270)));
 
+equation
+  connect(pv, voltageSensor.p) annotation (Line(points={{0,100},{0,-20},{
+            6.12323e-016,-20}}, color={0,0,255}));
+  connect(voltageSensor.n, nv) annotation (Line(points={{-6.12323e-016,-40},{
+            -6.12323e-016,-63},{0,-63},{0,-100}}, color={0,0,255}));
+  connect(pc, currentSensor.p) 
+    annotation (Line(points={{-100,0},{-50,0}}, color={0,0,255}));
+  connect(currentSensor.n, nc) 
+    annotation (Line(points={{-30,0},{100,0}}, color={0,0,255}));
+  connect(currentSensor.i, product.u2) annotation (Line(points={{-40,-10},{-40,
+            -30},{-36,-30},{-36,-38}}, color={0,0,127}));
+  connect(voltageSensor.v, product.u1) annotation (Line(points={{10,-30},{-24,
+          -30},{-24,-38}},   color={0,0,127}));
+  connect(product.y, power) annotation (Line(points={{-30,-61},{-30,-80},{-80,
+            -80},{-80,-110}}, color={0,0,127}));
   annotation (Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -266,20 +248,37 @@ This power sensor measures instantaneous electrical power of a singlephase syste
        </li>
 </ul>
 </html>"));
-equation
-  connect(pv, voltageSensor.p) annotation (Line(points={{0,100},{0,-20},{
-            6.12323e-016,-20}}, color={0,0,255}));
-  connect(voltageSensor.n, nv) annotation (Line(points={{-6.12323e-016,-40},{
-            -6.12323e-016,-63},{0,-63},{0,-100}}, color={0,0,255}));
-  connect(pc, currentSensor.p)
-    annotation (Line(points={{-100,0},{-50,0}}, color={0,0,255}));
-  connect(currentSensor.n, nc)
-    annotation (Line(points={{-30,0},{100,0}}, color={0,0,255}));
-  connect(currentSensor.i, product.u2) annotation (Line(points={{-40,-10},{-40,
-            -30},{-36,-30},{-36,-38}}, color={0,0,127}));
-  connect(voltageSensor.v, product.u1) annotation (Line(points={{10,-30},{-24,
-          -30},{-24,-38}},   color={0,0,127}));
-  connect(product.y, power) annotation (Line(points={{-30,-61},{-30,-80},{-80,
-            -80},{-80,-110}}, color={0,0,127}));
 end PowerSensor;
+  annotation (
+    Documentation(info="<html>
+<p>
+This package contains potential, voltage, and current sensors.
+</p>
+
+</HTML>
+", revisions="<html>
+<dl>
+<dt>
+<b>Main Authors:</b>
+<dd>
+Christoph Clau&szlig;
+    &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
+    Andr&eacute; Schneider
+    &lt;<a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>&gt;<br>
+    Fraunhofer Institute for Integrated Circuits<br>
+    Design Automation Department<br>
+    Zeunerstra&szlig;e 38<br>
+    D-01069 Dresden<br>
+<p>
+<dt>
+<b>Copyright:</b>
+<dd>
+Copyright &copy; 1998-2006, Modelica Association and Fraunhofer-Gesellschaft.<br>
+<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the accompanying <b>disclaimer</b> in the documentation of package
+Modelica in file \"Modelica/package.mo\".</i><br>
+<p>
+</dl>
+</html>"));
 end Sensors;

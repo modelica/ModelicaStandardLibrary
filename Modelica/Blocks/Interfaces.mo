@@ -4,40 +4,7 @@ package Interfaces
   import Modelica.SIunits;
     extends Modelica.Icons.Library;
 
-    annotation (
-      Documentation(info="<HTML>
-<p>
-This package contains interface definitions for
-<b>continuous</b> input/output blocks with Real,
-Integer and Boolean signals. Furthermore, it contains
-partial models for continuous and discrete blocks.
-</p>
-
-</HTML>
-", revisions="<html>
-<ul>
-<li><i>Oct. 21, 2002</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
-       and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
-       Added several new interfaces. <a href=\"../Documentation/ChangeNotes1.5.html\">Detailed description</a> available.
-<li><i>Oct. 24, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       RealInputSignal renamed to RealInput. RealOutputSignal renamed to
-       output RealOutput. GraphBlock renamed to BlockIcon. SISOreal renamed to
-       SISO. SOreal renamed to SO. I2SOreal renamed to M2SO.
-       SignalGenerator renamed to SignalSource. Introduced the following
-       new models: MIMO, MIMOs, SVcontrol, MVcontrol, DiscreteBlockIcon,
-       DiscreteBlock, DiscreteSISO, DiscreteMIMO, DiscreteMIMOs,
-       BooleanBlockIcon, BooleanSISO, BooleanSignalSource, MI2BooleanMOs.</li>
-<li><i>June 30, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized a first version, based on an existing Dymola library
-       of Dieter Moormann and Hilding Elmqvist.</li>
-</ul>
-</html>
-"));
-
-connector RealInput = input Real "'input Real' as connector"
+connector RealInput = input Real "'input Real' as connector" 
   annotation (defaultComponentName="u",
   Icon(graphics={Polygon(
           points={{-100,100},{100,0},{-100,-100},{-100,100}},
@@ -62,7 +29,7 @@ Connector with one input signal of type Real.
 </p>
 </html>"));
 
-connector RealOutput = output Real "'output Real' as connector"
+connector RealOutput = output Real "'output Real' as connector" 
   annotation (defaultComponentName="y",
   Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -89,7 +56,7 @@ Connector with one output signal of type Real.
 </p>
 </html>"));
 
-connector BooleanInput = input Boolean "'input Boolean' as connector"
+connector BooleanInput = input Boolean "'input Boolean' as connector" 
   annotation (defaultComponentName="u",
        Icon(graphics={Polygon(
           points={{-100,100},{100,0},{-100,-100},{-100,100}},
@@ -114,7 +81,7 @@ Connector with one input signal of type Boolean.
 </p>
 </html>"));
 
-connector BooleanOutput = output Boolean "'output Boolean' as connector"
+connector BooleanOutput = output Boolean "'output Boolean' as connector" 
                                   annotation (defaultComponentName="y",
   Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -141,7 +108,7 @@ Connector with one output signal of type Boolean.
 </p>
 </html>"));
 
-connector IntegerInput = input Integer "'input Integer' as connector"
+connector IntegerInput = input Integer "'input Integer' as connector" 
   annotation (defaultComponentName="u",
   Icon(graphics={Polygon(
           points={{-100,100},{100,0},{-100,-100},{-100,100}},
@@ -167,7 +134,7 @@ Connector with one input signal of type Integer.
 </p>
 </html>"));
 
-connector IntegerOutput = output Integer "'output Integer' as connector"
+connector IntegerOutput = output Integer "'output Integer' as connector" 
                                   annotation (defaultComponentName="y",
   Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -220,7 +187,7 @@ from this block.
     partial block SO "Single Output continuous control block"
       extends BlockIcon;
 
-      RealOutput y "Connector of Real output signal"
+      RealOutput y "Connector of Real output signal" 
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
       annotation (
@@ -240,7 +207,7 @@ Block has one continuous Real output signal.
       extends BlockIcon;
 
       parameter Integer nout(min=1) = 1 "Number of outputs";
-      RealOutput y[nout] "Connector of Real output signals"
+      RealOutput y[nout] "Connector of Real output signals" 
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
       annotation (
@@ -255,10 +222,10 @@ Block has one continuous Real output signal vector.
     partial block SISO "Single Input Single Output continuous control block"
       extends BlockIcon;
 
-      RealInput u "Connector of Real input signal"
+      RealInput u "Connector of Real input signal" 
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
-      RealOutput y "Connector of Real output signal"
+      RealOutput y "Connector of Real output signal" 
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
       annotation (
@@ -273,13 +240,13 @@ Block has one continuous Real input and one continuous Real output signal.
     "2 Single Input / 1 Single Output continuous control block"
       extends BlockIcon;
 
-      RealInput u1 "Connector of Real input signal 1"
+      RealInput u1 "Connector of Real input signal 1" 
         annotation (Placement(transformation(extent={{-140,40},{-100,80}},
             rotation=0)));
-      RealInput u2 "Connector of Real input signal 2"
+      RealInput u2 "Connector of Real input signal 2" 
         annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
             rotation=0)));
-      RealOutput y "Connector of Real output signal"
+      RealOutput y "Connector of Real output signal" 
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
 
@@ -300,10 +267,10 @@ continuous Real output signal y.
 partial block SIMO "Single Input Multiple Output continuous control block"
   extends BlockIcon;
   parameter Integer nout=1 "Number of outputs";
-      RealInput u "Connector of Real input signal"
+      RealInput u "Connector of Real input signal" 
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
-      RealOutput y[nout] "Connector of Real output signals"
+      RealOutput y[nout] "Connector of Real output signals" 
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
 
@@ -319,10 +286,10 @@ end SIMO;
 
       extends BlockIcon;
       parameter Integer nin=1 "Number of inputs";
-      RealInput u[nin] "Connector of Real input signals"
+      RealInput u[nin] "Connector of Real input signals" 
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
-      RealOutput y "Connector of Real output signal"
+      RealOutput y "Connector of Real output signal" 
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
       annotation (Documentation(info="<HTML>
@@ -340,10 +307,10 @@ one continuous Real output signal.
       extends BlockIcon;
       parameter Integer nin=1 "Number of inputs";
       parameter Integer nout=1 "Number of outputs";
-      RealInput u[nin] "Connector of Real input signals"
+      RealInput u[nin] "Connector of Real input signals" 
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
-      RealOutput y[nout] "Connector of Real output signals"
+      RealOutput y[nout] "Connector of Real output signals" 
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
       annotation (Documentation(info="<HTML>
@@ -360,10 +327,10 @@ The signal sizes of the input and output vector may be different.
 
       extends BlockIcon;
       parameter Integer n=1 "Number of inputs (= number of outputs)";
-      RealInput u[n] "Connector of Real input signals"
+      RealInput u[n] "Connector of Real input signals" 
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
-      RealOutput y[n] "Connector of Real output signals"
+      RealOutput y[n] "Connector of Real output signals" 
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
       annotation (
@@ -382,13 +349,13 @@ where the signal sizes of the input and output vector are identical.
 
       parameter Integer n=1 "Dimension of input and output vectors.";
 
-      RealInput u1[n] "Connector 1 of Real input signals"
+      RealInput u1[n] "Connector 1 of Real input signals" 
         annotation (Placement(transformation(extent={{-140,40},{-100,80}},
             rotation=0)));
-      RealInput u2[n] "Connector 2 of Real input signals"
+      RealInput u2[n] "Connector 2 of Real input signals" 
         annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
             rotation=0)));
-      RealOutput y[n] "Connector of Real output signals"
+      RealOutput y[n] "Connector of Real output signals" 
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
       annotation (
@@ -424,15 +391,15 @@ generated signal.
     partial block SVcontrol "Single-Variable continuous controller"
       extends BlockIcon;
 
-      RealInput u_s "Connector of setpoint input signal"
+      RealInput u_s "Connector of setpoint input signal" 
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
-      RealInput u_m "Connector of measurement input signal"
+      RealInput u_m "Connector of measurement input signal" 
         annotation (Placement(transformation(
           origin={0,-120},
           extent={{20,-20},{-20,20}},
           rotation=270)));
-      RealOutput y "Connector of actuator output signal"
+      RealOutput y "Connector of actuator output signal" 
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
       annotation (
@@ -467,15 +434,15 @@ to be used as base class for a corresponding controller.
       parameter Integer nu_s=1 "Number of setpoint inputs";
       parameter Integer nu_m=1 "Number of measurement inputs";
       parameter Integer ny=1 "Number of actuator outputs";
-      RealInput u_s[nu_s] "Connector of setpoint input signals"
+      RealInput u_s[nu_s] "Connector of setpoint input signals" 
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
-      RealInput u_m[nu_m] "Connector of measurement input signals"
+      RealInput u_m[nu_m] "Connector of measurement input signals" 
         annotation (Placement(transformation(
           origin={0,-120},
           extent={{20,-20},{-20,20}},
           rotation=270)));
-      RealOutput y[ny] "Connector of actuator output signals"
+      RealOutput y[ny] "Connector of actuator output signals" 
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
       annotation (
@@ -554,10 +521,10 @@ Blocks.Discrete.
 
       extends DiscreteBlock;
 
-      Modelica.Blocks.Interfaces.RealInput u "Continuous input signal"
+      Modelica.Blocks.Interfaces.RealInput u "Continuous input signal" 
                                   annotation (Placement(transformation(extent={
               {-140,-20},{-100,20}}, rotation=0)));
-      Modelica.Blocks.Interfaces.RealOutput y "Continuous output signal"
+      Modelica.Blocks.Interfaces.RealOutput y "Continuous output signal" 
                                    annotation (Placement(transformation(extent=
               {{100,-10},{120,10}}, rotation=0)));
     annotation (Documentation(info="<html>
@@ -575,7 +542,7 @@ which are sampled due to the defined <b>samplePeriod</b> parameter.
       parameter Integer nin=1 "Number of inputs";
       parameter Integer nout=1 "Number of outputs";
 
-      Modelica.Blocks.Interfaces.RealInput u[nin] "Continuous input signals"
+      Modelica.Blocks.Interfaces.RealInput u[nin] "Continuous input signals" 
                                    annotation (Placement(transformation(extent=
               {{-140,-20},{-100,20}}, rotation=0)));
       Modelica.Blocks.Interfaces.RealOutput y[nout] "Continuous output signals"
@@ -596,10 +563,10 @@ which are sampled due to the defined <b>samplePeriod</b> parameter.
       parameter Integer n=1 "Number of inputs (= number of outputs)";
       extends DiscreteBlock;
 
-      Modelica.Blocks.Interfaces.RealInput u[n] "Continuous input signals"
+      Modelica.Blocks.Interfaces.RealInput u[n] "Continuous input signals" 
                                    annotation (Placement(transformation(extent=
               {{-140,-20},{-100,20}}, rotation=0)));
-      Modelica.Blocks.Interfaces.RealOutput y[n] "Continuous output signals"
+      Modelica.Blocks.Interfaces.RealOutput y[n] "Continuous output signals" 
                                     annotation (Placement(transformation(extent=
              {{100,-10},{120,10}}, rotation=0)));
 
@@ -639,6 +606,11 @@ These signals are sampled due to the defined <b>samplePeriod</b> parameter.
       Modelica.Blocks.Interfaces.RealOutput y
       "Continuous scalar actuator output signal"   annotation (Placement(
           transformation(extent={{100,-10},{120,10}}, rotation=0)));
+    equation
+      connect(u_s, sampler_s.u)           annotation (Line(points={{-120,0},{
+            -102,0}}));
+      connect(u_m, sampler_m.u)           annotation (Line(points={{0,-120},{0,
+            -111},{0,-102},{-7.34788e-016,-102}}));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Text(
@@ -662,11 +634,6 @@ The block is designed
 to be used as base class for a corresponding controller.
 </p>
 </html>"));
-    equation
-      connect(u_s, sampler_s.u)           annotation (Line(points={{-120,0},{
-            -102,0}}));
-      connect(u_m, sampler_m.u)           annotation (Line(points={{0,-120},{0,
-            -111},{0,-102},{-7.34788e-016,-102}}));
     end SVdiscrete;
 
     partial block MVdiscrete "Discrete Multi-Variable controller"
@@ -676,12 +643,12 @@ to be used as base class for a corresponding controller.
       parameter Integer ny=1 "Number of actuator outputs";
       Discrete.Sampler sampler_s[nu_s](
         each final samplePeriod=samplePeriod,
-        each final startTime=startTime)
+        each final startTime=startTime) 
                                    annotation (Placement(transformation(extent=
               {{-90,-10},{-70,10}}, rotation=0)));
       Discrete.Sampler sampler_m[nu_m](
         each final samplePeriod=samplePeriod,
-        each final startTime=startTime)
+        each final startTime=startTime) 
                                    annotation (Placement(transformation(
           origin={0,-80},
           extent={{-10,-10},{10,10}},
@@ -698,6 +665,11 @@ to be used as base class for a corresponding controller.
       Modelica.Blocks.Interfaces.RealOutput y[ny]
       "Continuous actuator output signals"   annotation (Placement(
           transformation(extent={{100,-10},{120,10}}, rotation=0)));
+    equation
+      connect(u_s, sampler_s.u)           annotation (Line(points={{-120,0},{
+            -92,0}}));
+      connect(u_m, sampler_m.u)           annotation (Line(points={{0,-120},{0,
+            -106},{0,-92},{-7.34788e-016,-92}}));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Text(
@@ -725,11 +697,6 @@ The block is designed
 to be used as base class for a corresponding controller.
 </p>
 </html>"));
-    equation
-      connect(u_s, sampler_s.u)           annotation (Line(points={{-120,0},{
-            -92,0}}));
-      connect(u_m, sampler_m.u)           annotation (Line(points={{0,-120},{0,
-            -106},{0,-92},{-7.34788e-016,-92}}));
     end MVdiscrete;
 
     partial block BooleanBlockIcon "Basic graphical layout of Boolean block"
@@ -759,10 +726,10 @@ Boolean block (no declarations, no equations).
       extends BooleanBlockIcon;
 
   public
-      BooleanInput u "Connector of Boolean input signal"
+      BooleanInput u "Connector of Boolean input signal" 
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
-      BooleanOutput y "Connector of Boolean output signal"
+      BooleanOutput y "Connector of Boolean output signal" 
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
 
@@ -779,10 +746,10 @@ partial block BooleanMIMOs
 
   extends BooleanBlockIcon;
   parameter Integer n=1 "Number of inputs (= number of outputs)";
-  BooleanInput u[n] "Connector of Boolean input signals"
+  BooleanInput u[n] "Connector of Boolean input signals" 
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
-  BooleanOutput y[n] "Connector of Boolean output signals"
+  BooleanOutput y[n] "Connector of Boolean output signals" 
     annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=
               0)));
   annotation (Documentation(info="<HTML>
@@ -799,13 +766,13 @@ partial block MI2BooleanMOs
 
   extends BooleanBlockIcon;
   parameter Integer n=1 "Dimension of input and output vectors.";
-  RealInput u1[n] "Connector 1 of Boolean input signals"
+  RealInput u1[n] "Connector 1 of Boolean input signals" 
     annotation (Placement(transformation(extent={{-140,40},{-100,80}}, rotation=
              0)));
-  RealInput u2[n] "Connector 2 of Boolean input signals"
+  RealInput u2[n] "Connector 2 of Boolean input signals" 
     annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
             rotation=0)));
-  BooleanOutput y[n] "Connector of Boolean output signals"
+  BooleanOutput y[n] "Connector of Boolean output signals" 
     annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=
               0)));
   annotation (Documentation(info="<html>
@@ -818,13 +785,13 @@ end MI2BooleanMOs;
     partial block SI2BooleanSO "2 Single Input / Boolean Single Output block"
 
       extends BooleanBlockIcon;
-      input RealInput u1 "Connector 1 of Boolean input signals"
+      input RealInput u1 "Connector 1 of Boolean input signals" 
         annotation (Placement(transformation(extent={{-140,40},{-100,80}},
             rotation=0)));
-      input RealInput u2 "Connector 2 of Boolean input signals"
+      input RealInput u2 "Connector 2 of Boolean input signals" 
         annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
             rotation=0)));
-      output BooleanOutput y "Connector of Boolean output signals"
+      output BooleanOutput y "Connector of Boolean output signals" 
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
       annotation (
@@ -840,7 +807,7 @@ Block has two Boolean input signals u1 and u2 and one Boolean output signal y.
     partial block BooleanSignalSource "Base class for Boolean signal sources"
 
       extends BooleanBlockIcon;
-      BooleanOutput y "Connector of Boolean output signal"
+      BooleanOutput y "Connector of Boolean output signal" 
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
       annotation (
@@ -897,7 +864,7 @@ end IntegerBlockIcon;
 partial block IntegerSO "Single Integer Output continuous control block"
   extends IntegerBlockIcon;
 
-  IntegerOutput y "Connector of Integer output signal"
+  IntegerOutput y "Connector of Integer output signal" 
     annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=
               0)));
     annotation (Documentation(info="<html>
@@ -911,7 +878,7 @@ partial block IntegerMO "Multiple Integer Output continuous control block"
   extends IntegerBlockIcon;
 
   parameter Integer nout(min=1) = 1 "Number of outputs";
-  IntegerOutput y[nout] "Connector of Integer output signals"
+  IntegerOutput y[nout] "Connector of Integer output signals" 
     annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=
               0)));
     annotation (Documentation(info="<html>
@@ -940,10 +907,10 @@ partial block IntegerSIBooleanSO
     "Integer Input Boolean Output continuous control block"
 
   extends BooleanBlockIcon;
-  IntegerInput u "Connector of Integer input signal"
+  IntegerInput u "Connector of Integer input signal" 
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
-  BooleanOutput y "Connector of Boolean output signal"
+  BooleanOutput y "Connector of Boolean output signal" 
     annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=
               0)));
   annotation (Documentation(info="<HTML>
@@ -959,10 +926,10 @@ partial block IntegerMIBooleanMOs
 
   extends BooleanBlockIcon;
   parameter Integer n=1 "Number of inputs (= number of outputs)";
-  IntegerInput u[n] "Connector of Integer input signals"
+  IntegerInput u[n] "Connector of Integer input signals" 
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
-  BooleanOutput y[n] "Connector of Boolean output signals"
+  BooleanOutput y[n] "Connector of Boolean output signals" 
     annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=
               0)));
   annotation (Documentation(info="<HTML>
@@ -1010,15 +977,15 @@ in the Blocks.Logical library.
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Ellipse(
             extent={{-71,7},{-85,-7}},
-            lineColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0} else
+            lineColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0} else 
                       {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0} else
+            fillColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0} else 
                       {235,235,235}),
             fillPattern=FillPattern.Solid), Ellipse(
             extent={{71,7},{85,-7}},
-            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
+            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else 
                       {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
+            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else 
                       {235,235,235}),
             fillPattern=FillPattern.Solid)}),
                               Documentation(info="<html>
@@ -1034,11 +1001,11 @@ with a 3D icon (e.g. used in Blocks.Logical library).
     "Partial block with 2 input and 1 output Boolean signal"
     extends partialBooleanBlockIcon;
            Blocks.Interfaces.BooleanInput u1
-      "Connector of first Boolean input signal"
+      "Connector of first Boolean input signal" 
                                              annotation (Placement(
           transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
            Blocks.Interfaces.BooleanInput u2
-      "Connector of second Boolean input signal"
+      "Connector of second Boolean input signal" 
                                              annotation (Placement(
           transformation(extent={{-140,-100},{-100,-60}}, rotation=0)));
            Blocks.Interfaces.BooleanOutput y
@@ -1051,23 +1018,23 @@ with a 3D icon (e.g. used in Blocks.Logical library).
           grid={1,1}), graphics={
           Ellipse(
             extent={{-71,7},{-85,-7}},
-            lineColor=DynamicSelect({235,235,235}, if u1 > 0.5 then {0,255,0} else
+            lineColor=DynamicSelect({235,235,235}, if u1 > 0.5 then {0,255,0} else 
                       {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if u1 > 0.5 then {0,255,0} else
+            fillColor=DynamicSelect({235,235,235}, if u1 > 0.5 then {0,255,0} else 
                       {235,235,235}),
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-71,-74},{-85,-88}},
-            lineColor=DynamicSelect({235,235,235}, if u2 > 0.5 then {0,255,0} else
+            lineColor=DynamicSelect({235,235,235}, if u2 > 0.5 then {0,255,0} else 
                       {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if u2 > 0.5 then {0,255,0} else
+            fillColor=DynamicSelect({235,235,235}, if u2 > 0.5 then {0,255,0} else 
                       {235,235,235}),
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{71,7},{85,-7}},
-            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
+            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else 
                       {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
+            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else 
                       {235,235,235}),
             fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
@@ -1083,15 +1050,15 @@ with a 3D icon (e.g. used in Blocks.Logical library).
     "Partial block with 3 input and 1 output Boolean signal"
     extends partialBooleanBlockIcon;
            Blocks.Interfaces.BooleanInput u1
-      "Connector of first Boolean input signal"
+      "Connector of first Boolean input signal" 
                                              annotation (Placement(
           transformation(extent={{-140,60},{-100,100}}, rotation=0)));
            Blocks.Interfaces.BooleanInput u2
-      "Connector of second Boolean input signal"
+      "Connector of second Boolean input signal" 
                                              annotation (Placement(
           transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
            Blocks.Interfaces.BooleanInput u3
-      "Connector of third Boolean input signal"
+      "Connector of third Boolean input signal" 
                                              annotation (Placement(
           transformation(extent={{-140,-100},{-100,-60}}, rotation=0)));
            Blocks.Interfaces.BooleanOutput y
@@ -1104,30 +1071,30 @@ with a 3D icon (e.g. used in Blocks.Logical library).
           grid={1,1}), graphics={
           Ellipse(
             extent={{-71,74},{-85,88}},
-            lineColor=DynamicSelect({235,235,235}, if u1 > 0.5 then {0,255,0} else
+            lineColor=DynamicSelect({235,235,235}, if u1 > 0.5 then {0,255,0} else 
                       {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if u1 > 0.5 then {0,255,0} else
+            fillColor=DynamicSelect({235,235,235}, if u1 > 0.5 then {0,255,0} else 
                       {235,235,235}),
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-71,7},{-85,-7}},
-            lineColor=DynamicSelect({235,235,235}, if u2 > 0.5 then {0,255,0} else
+            lineColor=DynamicSelect({235,235,235}, if u2 > 0.5 then {0,255,0} else 
                       {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if u2 > 0.5 then {0,255,0} else
+            fillColor=DynamicSelect({235,235,235}, if u2 > 0.5 then {0,255,0} else 
                       {235,235,235}),
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-71,-74},{-85,-88}},
-            lineColor=DynamicSelect({235,235,235}, if u3 > 0.5 then {0,255,0} else
+            lineColor=DynamicSelect({235,235,235}, if u3 > 0.5 then {0,255,0} else 
                       {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if u3 > 0.5 then {0,255,0} else
+            fillColor=DynamicSelect({235,235,235}, if u3 > 0.5 then {0,255,0} else 
                       {235,235,235}),
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{71,7},{85,-7}},
-            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
+            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else 
                       {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
+            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else 
                       {235,235,235}),
             fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
@@ -1148,9 +1115,9 @@ with a 3D icon (e.g. used in Blocks.Logical library).
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Ellipse(
             extent={{-71,7},{-85,-7}},
-            lineColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0} else
+            lineColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0} else 
                       {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0} else
+            fillColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0} else 
                       {235,235,235}),
             fillPattern=FillPattern.Solid)}),
                               Documentation(info="<html>
@@ -1172,9 +1139,9 @@ with a 3D icon (e.g. used in Blocks.Logical library).
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Ellipse(
             extent={{71,7},{85,-7}},
-            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
+            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else 
                       {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
+            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else 
                       {235,235,235}),
             fillPattern=FillPattern.Solid)}),
                               Documentation(info="<html>
@@ -1190,7 +1157,7 @@ with a 3D icon (e.g. used in Blocks.Logical library).
     "Partial source block (has 1 output Boolean signal and an appropriate default icon)"
     extends partialBooleanBlockIcon;
 
-    Blocks.Interfaces.BooleanOutput y "Connector of Boolean output signal"
+    Blocks.Interfaces.BooleanOutput y "Connector of Boolean output signal" 
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
 
@@ -1210,9 +1177,9 @@ with a 3D icon (e.g. used in Blocks.Logical library).
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{71,7},{85,-7}},
-            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
+            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else 
                       {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
+            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else 
                       {235,235,235}),
             fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -1252,10 +1219,10 @@ and a 3D icon (e.g. used in Blocks.Logical library).
 
     parameter Real threshold=0 "Comparison with respect to threshold";
 
-    Blocks.Interfaces.RealInput u "Connector of Boolean input signal"
+    Blocks.Interfaces.RealInput u "Connector of Boolean input signal" 
                                   annotation (Placement(transformation(extent={
               {-140,-20},{-100,20}}, rotation=0)));
-    Blocks.Interfaces.BooleanOutput y "Connector of Boolean output signal"
+    Blocks.Interfaces.BooleanOutput y "Connector of Boolean output signal" 
                                       annotation (Placement(transformation(
             extent={{100,-10},{120,10}}, rotation=0)));
 
@@ -1273,9 +1240,9 @@ and a 3D icon (e.g. used in Blocks.Logical library).
             textString="%threshold"),
           Ellipse(
             extent={{71,7},{85,-7}},
-            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
+            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else 
                       {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
+            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else 
                       {235,235,235}),
             fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -1293,13 +1260,13 @@ as well as a 3D icon (e.g. used in Blocks.Logical library).
   partial block partialBooleanComparison
     "Partial block with 2 Real input and 1 Boolean output signal (the result of a comparison of the two Real inputs"
 
-    Blocks.Interfaces.RealInput u1 "Connector of first Boolean input signal"
+    Blocks.Interfaces.RealInput u1 "Connector of first Boolean input signal" 
                                    annotation (Placement(transformation(extent=
               {{-140,-20},{-100,20}}, rotation=0)));
-    Blocks.Interfaces.RealInput u2 "Connector of second Boolean input signal"
+    Blocks.Interfaces.RealInput u2 "Connector of second Boolean input signal" 
                                    annotation (Placement(transformation(extent=
               {{-140,-100},{-100,-60}}, rotation=0)));
-    Blocks.Interfaces.BooleanOutput y "Connector of Boolean output signal"
+    Blocks.Interfaces.BooleanOutput y "Connector of Boolean output signal" 
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
 
@@ -1313,9 +1280,9 @@ as well as a 3D icon (e.g. used in Blocks.Logical library).
             borderPattern=BorderPattern.Raised),
           Ellipse(
             extent={{73,7},{87,-7}},
-            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
+            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else 
                       {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
+            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else 
                       {235,235,235}),
             fillPattern=FillPattern.Solid),
           Ellipse(extent={{32,10},{52,-10}}, lineColor={0,0,255}),
@@ -1343,6 +1310,8 @@ package Adaptors
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
     RealInput u "Input signal to be send to bus" annotation (Placement(
             transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
+  equation
+    toBus = u;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Rectangle(
@@ -1371,8 +1340,6 @@ for signal buses, see example
 </p>
 </html>
 "));
-  equation
-    toBus = u;
   end SendReal;
 
   block SendBoolean "Obsolete block to send Boolean signal to bus"
@@ -1380,6 +1347,8 @@ for signal buses, see example
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
     BooleanInput u "Input signal to be send to bus" annotation (Placement(
             transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
+  equation
+    toBus = u;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Rectangle(
@@ -1408,8 +1377,6 @@ for signal buses, see example
 </p>
 </html>
 "));
-  equation
-    toBus = u;
   end SendBoolean;
 
   block SendInteger "Obsolete block to send Integer signal to bus"
@@ -1417,6 +1384,8 @@ for signal buses, see example
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
     IntegerInput u "Input signal to be send to bus" annotation (Placement(
             transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
+  equation
+    toBus = u;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Rectangle(
@@ -1444,8 +1413,6 @@ for signal buses, see example
 <a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
 </html>"));
-  equation
-    toBus = u;
   end SendInteger;
 
   block ReceiveReal "Obsolete block to receive Real signal from bus"
@@ -1453,6 +1420,8 @@ for signal buses, see example
             transformation(extent={{-120,-10},{-100,10}}, rotation=0)));
     RealOutput y "Output signal to be received from bus" annotation (Placement(
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
+  equation
+    y = fromBus;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Rectangle(
@@ -1481,8 +1450,6 @@ for signal buses, see example
 <a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
 </html>"));
-  equation
-    y = fromBus;
   end ReceiveReal;
 
   block ReceiveBoolean "Obsolete block to receive Boolean signal from bus"
@@ -1490,6 +1457,8 @@ for signal buses, see example
             transformation(extent={{-120,-10},{-100,10}}, rotation=0)));
     BooleanOutput y "Output signal to be received from bus" annotation (Placement(
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
+  equation
+    y = fromBus;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Rectangle(
@@ -1518,8 +1487,6 @@ for signal buses, see example
 <a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
 </html>"));
-  equation
-    y = fromBus;
   end ReceiveBoolean;
 
   block ReceiveInteger "Obsolete block to receive Integer signal from bus"
@@ -1527,6 +1494,8 @@ for signal buses, see example
             transformation(extent={{-120,-10},{-100,10}}, rotation=0)));
     IntegerOutput y "Output signal to be received from bus" annotation (Placement(
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
+  equation
+    y = fromBus;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Rectangle(
@@ -1556,8 +1525,6 @@ for signal buses, see example
 </p>
 </html>
 "));
-  equation
-    y = fromBus;
   end ReceiveInteger;
 
     annotation (Documentation(info="<html>
@@ -1574,7 +1541,7 @@ end Adaptors;
   partial block PartialConversionBlock
     "Partial block defining the interface for conversion blocks"
 
-    RealInput u "Connector of Real input signal to be converted"
+    RealInput u "Connector of Real input signal to be converted" 
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
     RealOutput y
@@ -1606,4 +1573,36 @@ converts from one unit into another one.
 </html>"));
 
   end PartialConversionBlock;
+    annotation (
+      Documentation(info="<HTML>
+<p>
+This package contains interface definitions for
+<b>continuous</b> input/output blocks with Real,
+Integer and Boolean signals. Furthermore, it contains
+partial models for continuous and discrete blocks.
+</p>
+
+</HTML>
+", revisions="<html>
+<ul>
+<li><i>Oct. 21, 2002</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
+       and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
+       Added several new interfaces. <a href=\"../Documentation/ChangeNotes1.5.html\">Detailed description</a> available.
+<li><i>Oct. 24, 1999</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+       RealInputSignal renamed to RealInput. RealOutputSignal renamed to
+       output RealOutput. GraphBlock renamed to BlockIcon. SISOreal renamed to
+       SISO. SOreal renamed to SO. I2SOreal renamed to M2SO.
+       SignalGenerator renamed to SignalSource. Introduced the following
+       new models: MIMO, MIMOs, SVcontrol, MVcontrol, DiscreteBlockIcon,
+       DiscreteBlock, DiscreteSISO, DiscreteMIMO, DiscreteMIMOs,
+       BooleanBlockIcon, BooleanSISO, BooleanSignalSource, MI2BooleanMOs.</li>
+<li><i>June 30, 1999</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+       Realized a first version, based on an existing Dymola library
+       of Dieter Moormann and Hilding Elmqvist.</li>
+</ul>
+</html>
+"));
 end Interfaces;

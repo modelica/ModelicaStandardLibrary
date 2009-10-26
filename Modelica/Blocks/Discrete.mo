@@ -4,42 +4,13 @@ package Discrete
 
   extends Modelica.Icons.Library;
 
-  annotation (Documentation(info="<html>
-<p>
-This package contains <b>discrete control blocks</b>
-with <b>fixed sample period</b>.
-Every component of this package is structured in the following way:
-</p>
-<ol>
-<li> A component has <b>continuous real</b> input and output signals.</li>
-<li> The <b>input</b> signals are <b>sampled</b> by the given sample period
-     defined via parameter <b>samplePeriod</b>.
-     The first sample instant is defined by parameter <b>startTime</b>.
-<li> The <b>output</b> signals are computed from the sampled input signals.
-</ol>
-<p>
-A <b>sampled data system</b> may consist of components of package <b>Discrete</b>
-and of every other purely <b>algebraic</b> input/output block, such
-as the components of packages <b>Modelica.Blocks.Math</b>,
-<b>Modelica.Blocks.Nonlinear</b> or <b>Modelica.Blocks.Sources</b>.
-</p>
-
-</HTML>
-", revisions="<html>
-<ul>
-<li><i>October 21, 2002</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       New components TriggeredSampler and TriggeredMax added.</li>
-<li><i>June 18, 2000</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized based on a corresponding library of Dieter Moormann and
-       Hilding Elmqvist.</li>
-</ul>
-</html>"));
-
   block Sampler "Ideal sampling of continuous signals"
     extends Interfaces.DiscreteSISO;
 
+  equation
+    when {sampleTrigger, initial()} then
+      y = u;
+    end when;
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
@@ -78,15 +49,21 @@ via parameter <b>samplePeriod</b>.
 </p>
 </HTML>
 "));
-  equation
-    when {sampleTrigger, initial()} then
-      y = u;
-    end when;
   end Sampler;
 
   block ZeroOrderHold "Zero order hold of a sampled-data system"
     extends Interfaces.DiscreteSISO;
     output Real ySample(start=0, fixed=true);
+
+  equation
+    when {sampleTrigger, initial()} then
+      ySample = u;
+    end when;
+    /* Define y=ySample with an infinitesimal delay to break potential
+       algebraic loops if both the continuous and the discrete part have
+       direct feedthrough
+    */
+    y = pre(ySample);
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -102,16 +79,6 @@ sample instant during the sample points.
 </p>
 </HTML>
 "));
-
-  equation
-    when {sampleTrigger, initial()} then
-      ySample = u;
-    end when;
-    /* Define y=ySample with an infinitesimal delay to break potential
-       algebraic loops if both the continuous and the discrete part have
-       direct feedthrough
-    */
-    y = pre(ySample);
   end ZeroOrderHold;
 
   block FirstOrderHold "First order hold of a sampled-data system"
@@ -120,6 +87,18 @@ sample instant during the sample points.
     Real ySample;
     Modelica.SIunits.Time tSample;
     Real c;
+
+  equation
+    when sampleTrigger then
+      ySample = u;
+      tSample = time;
+      c = if firstTrigger then 0 else (ySample - pre(ySample))/samplePeriod;
+    end when;
+    /* Use pre(ySample) and pre(c) to break potential algebraic loops by an
+       infinitesimal delay if both the continuous and the discrete part
+       have direct feedthrough.
+    */
+    y = pre(ySample) + pre(c)*(time - tSample);
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -134,24 +113,19 @@ values of the last two sampled input signals.
 </p>
 </HTML>
 "));
-
-  equation
-    when sampleTrigger then
-      ySample = u;
-      tSample = time;
-      c = if firstTrigger then 0 else (ySample - pre(ySample))/samplePeriod;
-    end when;
-    /* Use pre(ySample) and pre(c) to break potential algebraic loops by an
-       infinitesimal delay if both the continuous and the discrete part
-       have direct feedthrough.
-    */
-    y = pre(ySample) + pre(c)*(time - tSample);
   end FirstOrderHold;
 
   block UnitDelay "Unit Delay Block"
     parameter Real y_start=0 "Initial value of output signal";
     extends Interfaces.DiscreteSISO;
 
+  equation
+    when sampleTrigger then
+      y = pre(u);
+    end when;
+
+  initial equation
+      y = y_start;
     annotation (
       Documentation(info="<html>
 <p>
@@ -206,14 +180,6 @@ the output y is identical to parameter yStart.
             extent={{-55,-5},{55,-55}},
             lineColor={0,0,0},
             textString="z")}));
-
-  equation
-    when sampleTrigger then
-      y = pre(u);
-    end when;
-
-  initial equation
-      y = y_start;
   end UnitDelay;
 
   block TransferFunction "Discrete Transfer Function block"
@@ -227,6 +193,29 @@ the output y is identical to parameter yStart.
     parameter Integer na=size(a, 1) "Size of Denominator of transfer function";
     Real x1;
     Real xext[size(a, 1)];
+
+  equation
+    when sampleTrigger then
+      /* State variables x are defined according to
+       controller canonical form. */
+      x1 = (u - a[2:size(a, 1)]*pre(x))/a[1];
+      xext = vector([x1; pre(x)]);
+      x = xext[1:size(x, 1)];
+      y = vector([zeros(na - nb, 1); b])*xext;
+    end when;
+    /* This is a non-sampled equation and above there are two separate
+       when-clauses. This breaks feeback loops without direct terms,
+       since in that case y will be independent of x1 (and only dependent
+       on pre(x)).
+    */
+    /* Corresponding (simpler) version using when-semantics of Modelica 1.3:
+   equation
+     when sampleTrigger then
+      [x; xn] = [x1; pre(x)];
+      [u] = transpose([a])*[x1; pre(x)];
+      [y] = transpose([zeros(na - nb, 1); b])*[x1; pre(x)];
+     end when;
+*/
     annotation (
       Documentation(info="<html>
 <p>The <b>discrete transfer function</b> block defines the
@@ -295,29 +284,6 @@ states can be set as start values of <b>x</b>.<p>
             textString="a(z)"),
           Line(points={{-100,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{100,0}}, color={0,0,255})}));
-
-  equation
-    when sampleTrigger then
-      /* State variables x are defined according to
-       controller canonical form. */
-      x1 = (u - a[2:size(a, 1)]*pre(x))/a[1];
-      xext = vector([x1; pre(x)]);
-      x = xext[1:size(x, 1)];
-      y = vector([zeros(na - nb, 1); b])*xext;
-    end when;
-    /* This is a non-sampled equation and above there are two separate
-       when-clauses. This breaks feeback loops without direct terms,
-       since in that case y will be independent of x1 (and only dependent
-       on pre(x)).
-    */
-    /* Corresponding (simpler) version using when-semantics of Modelica 1.3:
-   equation
-     when sampleTrigger then
-      [x; xn] = [x1; pre(x)];
-      [u] = transpose([a])*[x1; pre(x)];
-      [y] = transpose([zeros(na - nb, 1); b])*[x1; pre(x)];
-     end when;
-*/
   end TransferFunction;
 
   block StateSpace "Discrete State Space block"
@@ -330,6 +296,11 @@ states can be set as start values of <b>x</b>.<p>
     extends Interfaces.DiscreteMIMO(final nin=size(B, 2), final nout=size(C, 1));
     output Real x[size(A, 1)] "State vector";
 
+  equation
+    when sampleTrigger then
+      x = A*pre(x) + B*u;
+      y = C*pre(x) + D*u;
+    end when;
     annotation (
       Documentation(info="<html>
 <p>
@@ -410,18 +381,29 @@ results in the following equations:
             textString="  y=Cx+Du"),
           Line(points={{-102,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{100,0}}, color={0,0,255})}));
-
-  equation
-    when sampleTrigger then
-      x = A*pre(x) + B*u;
-      y = C*pre(x) + D*u;
-    end when;
   end StateSpace;
 
   block TriggeredSampler "Triggered sampling of continuous signals"
     extends Interfaces.DiscreteBlockIcon;
     parameter Real y_start=0 "initial value of output signal";
 
+    Modelica.Blocks.Interfaces.RealInput u "Connector with a Real input signal"
+                                                          annotation (Placement(
+          transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
+    Modelica.Blocks.Interfaces.RealOutput y
+      "Connector with a Real output signal"                annotation (Placement(
+          transformation(extent={{100,-10},{120,10}}, rotation=0)));
+    Modelica.Blocks.Interfaces.BooleanInput trigger annotation (Placement(
+          transformation(
+          origin={0,-118},
+          extent={{-20,-20},{20,20}},
+          rotation=90)));
+  equation
+    when trigger then
+      y = u;
+    end when;
+  initial equation
+    y = y_start;
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
@@ -465,11 +447,17 @@ the initial value defined via parameter <b>y0</b>.
 </p>
 </HTML>
 "));
+  end TriggeredSampler;
+
+  block TriggeredMax
+    "Compute maximum, absolute value of continuous signal at trigger instants"
+
+    extends Interfaces.DiscreteBlockIcon;
     Modelica.Blocks.Interfaces.RealInput u "Connector with a Real input signal"
-                                                          annotation (Placement(
-          transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
+                                           annotation (Placement(transformation(
+            extent={{-140,-20},{-100,20}}, rotation=0)));
     Modelica.Blocks.Interfaces.RealOutput y
-      "Connector with a Real output signal"                annotation (Placement(
+      "Connector with a Real output signal" annotation (Placement(
           transformation(extent={{100,-10},{120,10}}, rotation=0)));
     Modelica.Blocks.Interfaces.BooleanInput trigger annotation (Placement(
           transformation(
@@ -478,16 +466,10 @@ the initial value defined via parameter <b>y0</b>.
           rotation=90)));
   equation
     when trigger then
-      y = u;
+       y = max(pre(y), abs(u));
     end when;
   initial equation
-    y = y_start;
-  end TriggeredSampler;
-
-  block TriggeredMax
-    "Compute maximum, absolute value of continuous signal at trigger instants"
-
-    extends Interfaces.DiscreteBlockIcon;
+    y = 0;
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
@@ -534,22 +516,37 @@ at the sampling point is provided as output signal.
 </p>
 </HTML>
 "));
-    Modelica.Blocks.Interfaces.RealInput u "Connector with a Real input signal"
-                                           annotation (Placement(transformation(
-            extent={{-140,-20},{-100,20}}, rotation=0)));
-    Modelica.Blocks.Interfaces.RealOutput y
-      "Connector with a Real output signal" annotation (Placement(
-          transformation(extent={{100,-10},{120,10}}, rotation=0)));
-    Modelica.Blocks.Interfaces.BooleanInput trigger annotation (Placement(
-          transformation(
-          origin={0,-118},
-          extent={{-20,-20},{20,20}},
-          rotation=90)));
-  equation
-    when trigger then
-       y = max(pre(y), abs(u));
-    end when;
-  initial equation
-    y = 0;
   end TriggeredMax;
+  annotation (Documentation(info="<html>
+<p>
+This package contains <b>discrete control blocks</b>
+with <b>fixed sample period</b>.
+Every component of this package is structured in the following way:
+</p>
+<ol>
+<li> A component has <b>continuous real</b> input and output signals.</li>
+<li> The <b>input</b> signals are <b>sampled</b> by the given sample period
+     defined via parameter <b>samplePeriod</b>.
+     The first sample instant is defined by parameter <b>startTime</b>.
+<li> The <b>output</b> signals are computed from the sampled input signals.
+</ol>
+<p>
+A <b>sampled data system</b> may consist of components of package <b>Discrete</b>
+and of every other purely <b>algebraic</b> input/output block, such
+as the components of packages <b>Modelica.Blocks.Math</b>,
+<b>Modelica.Blocks.Nonlinear</b> or <b>Modelica.Blocks.Sources</b>.
+</p>
+
+</HTML>
+", revisions="<html>
+<ul>
+<li><i>October 21, 2002</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+       New components TriggeredSampler and TriggeredMax added.</li>
+<li><i>June 18, 2000</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+       Realized based on a corresponding library of Dieter Moormann and
+       Hilding Elmqvist.</li>
+</ul>
+</html>"));
 end Discrete;

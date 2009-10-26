@@ -3,39 +3,6 @@ package Sources "Time-dependend and controlled voltage and current sources"
 
   extends Modelica.Icons.Library;
 
-  annotation (
-    Documentation(info="<html>
-<p>
-This package contains time-dependend and controlled voltage and current sources.
-</p>
-
-</HTML>
-", revisions="<html>
-<dl>
-<dt>
-<b>Main Authors:</b>
-<dd>
-Christoph Clau&szlig;
-    &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
-    Andr&eacute; Schneider
-    &lt;<a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>&gt;<br>
-    Fraunhofer Institute for Integrated Circuits<br>
-    Design Automation Department<br>
-    Zeunerstra&szlig;e 38<br>
-    D-01069 Dresden<br>
-<p>
-<dt>
-<b>Copyright:</b>
-<dd>
-Copyright &copy; 1998-2006, Modelica Association and Fraunhofer-Gesellschaft.<br>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> in the documentation of package
-Modelica in file \"Modelica/package.mo\".</i><br>
-<p>
-</dl>
-</html>"));
-
   model SignalVoltage
     "Generic voltage source using the input signal as source voltage"
 
@@ -44,12 +11,16 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     Interfaces.NegativePin n annotation (Placement(transformation(extent={{110,
               -10},{90,10}}, rotation=0)));
     Modelica.Blocks.Interfaces.RealInput v
-      "Voltage between pin p and n (= p.v - n.v) as input signal"
+      "Voltage between pin p and n (= p.v - n.v) as input signal" 
        annotation (Placement(transformation(
           origin={0,70},
           extent={{-20,-20},{20,20}},
           rotation=270)));
     SI.Current i "Current flowing from pin p to pin n";
+  equation
+    v = p.v - n.v;
+    0 = p.i + n.i;
+    i = p.i;
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -117,15 +88,14 @@ Modelica in file \"Modelica/package.mo\".</i><br>
        </li>
 </ul>
 </html>"));
-  equation
-    v = p.v - n.v;
-    0 = p.i + n.i;
-    i = p.i;
   end SignalVoltage;
 
   model ConstantVoltage "Source for constant voltage"
     parameter SI.Voltage V(start=1) "Value of constant voltage";
     extends Interfaces.OnePort;
+
+  equation
+    v = V;
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -162,9 +132,6 @@ Modelica in file \"Modelica/package.mo\".</i><br>
        </li>
 </ul>
 </html>"));
-
-  equation
-    v = V;
   end ConstantVoltage;
 
   model StepVoltage "Step voltage source"
@@ -1432,11 +1399,15 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               -10},{90,10}}, rotation=0)));
     SI.Voltage v "Voltage drop between the two pins (= p.v - n.v)";
     Modelica.Blocks.Interfaces.RealInput i
-      "Current flowing from pin p to pin n as input signal"
+      "Current flowing from pin p to pin n as input signal" 
        annotation (Placement(transformation(
           origin={0,70},
           extent={{-20,-20},{20,20}},
           rotation=270)));
+  equation
+    v = p.v - n.v;
+    0 = p.i + n.i;
+    i = p.i;
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -1478,15 +1449,13 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
        </li>
 </ul>
 </html>"));
-  equation
-    v = p.v - n.v;
-    0 = p.i + n.i;
-    i = p.i;
   end SignalCurrent;
 
   model ConstantCurrent "Source for constant current"
     parameter SI.Current I(start=1) "Value of constant current";
     extends Interfaces.OnePort;
+  equation
+    i = I;
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -1528,8 +1497,6 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
        </li>
 </ul>
 </html>"));
-  equation
-    i = I;
   end ConstantCurrent;
 
   model StepCurrent "Step current source"
@@ -2706,4 +2673,36 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
 </html>"));
   end TableCurrent;
 
+  annotation (
+    Documentation(info="<html>
+<p>
+This package contains time-dependend and controlled voltage and current sources.
+</p>
+
+</HTML>
+", revisions="<html>
+<dl>
+<dt>
+<b>Main Authors:</b>
+<dd>
+Christoph Clau&szlig;
+    &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
+    Andr&eacute; Schneider
+    &lt;<a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>&gt;<br>
+    Fraunhofer Institute for Integrated Circuits<br>
+    Design Automation Department<br>
+    Zeunerstra&szlig;e 38<br>
+    D-01069 Dresden<br>
+<p>
+<dt>
+<b>Copyright:</b>
+<dd>
+Copyright &copy; 1998-2006, Modelica Association and Fraunhofer-Gesellschaft.<br>
+<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the accompanying <b>disclaimer</b> in the documentation of package
+Modelica in file \"Modelica/package.mo\".</i><br>
+<p>
+</dl>
+</html>"));
 end Sources;

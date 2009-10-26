@@ -7,57 +7,6 @@ encapsulated model DifferenceAmplifier
   import Modelica.Icons;
   extends Icons.Example;
 
-  annotation (
-    Icon(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics),
-    Documentation(info="<html>
-<p>
-It is a simple NPN transistor amplifier circuit. The voltage difference between R1.p and R3.n is amplified. The output signal is the voltage between R2.n and R4.n. In this example the voltage at V1 is amplified because R3.n is grounded.
-<p>
-The simulation end time should be set to 1e- 8. Please plot the input voltage V1.v, and the output voltages R2.n.v, and R4.n.v.
-<p>
-<dl>
-<dt>
-<b>Reference:</b>
-<dd>
-Tietze, U.; Schenk, Ch.: Halbleiter-Schaltungstechnik. Springer-Verlag Berlin Heidelberg NewYork 1980, p. 59
-</dd>
-</dl>
-
-</HTML>
-", revisions="<html>
-<dl>
-<dt>
-<b>Main Authors:</b>
-<dd>
-Christoph Clau&szlig;
-    &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
-    Andr&eacute; Schneider
-    &lt;<a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>&gt;<br>
-    Fraunhofer Institute for Integrated Circuits<br>
-    Design Automation Department<br>
-    Zeunerstra&szlig;e 38<br>
-    D-01069 Dresden<br>
-<p>
-<dt>
-<b>Copyright:</b>
-<dd>
-Copyright &copy; 1998-2006, Modelica Association and Fraunhofer-Gesellschaft.<br>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> in the documentation of package
-Modelica in file \"Modelica/package.mo\".</i><br>
-<p>
-</dl>
-</html>"),
-    experiment(StopTime=1),
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-            100,100}}), graphics={Text(
-          extent={{-98,106},{22,60}},
-          lineColor={0,0,255},
-          textString="Difference Amplifier")}));
   Sources.ExpSineVoltage V1(
     V=0.2,
     freqHz=0.2e9,
@@ -152,4 +101,55 @@ equation
   connect(R4.n, Transistor2.c) annotation (Line(points={{40,20},{40,-4}}));
   connect(C5.p, Transistor2.e) annotation (Line(points={{10,-40},{30,-40},{30,
           -16},{40,-16}}));
+  annotation (
+    Icon(coordinateSystem(
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
+        grid={1,1}), graphics),
+    Documentation(info="<html>
+<p>
+It is a simple NPN transistor amplifier circuit. The voltage difference between R1.p and R3.n is amplified. The output signal is the voltage between R2.n and R4.n. In this example the voltage at V1 is amplified because R3.n is grounded.
+<p>
+The simulation end time should be set to 1e- 8. Please plot the input voltage V1.v, and the output voltages R2.n.v, and R4.n.v.
+<p>
+<dl>
+<dt>
+<b>Reference:</b>
+<dd>
+Tietze, U.; Schenk, Ch.: Halbleiter-Schaltungstechnik. Springer-Verlag Berlin Heidelberg NewYork 1980, p. 59
+</dd>
+</dl>
+
+</HTML>
+", revisions="<html>
+<dl>
+<dt>
+<b>Main Authors:</b>
+<dd>
+Christoph Clau&szlig;
+    &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
+    Andr&eacute; Schneider
+    &lt;<a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>&gt;<br>
+    Fraunhofer Institute for Integrated Circuits<br>
+    Design Automation Department<br>
+    Zeunerstra&szlig;e 38<br>
+    D-01069 Dresden<br>
+<p>
+<dt>
+<b>Copyright:</b>
+<dd>
+Copyright &copy; 1998-2006, Modelica Association and Fraunhofer-Gesellschaft.<br>
+<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the accompanying <b>disclaimer</b> in the documentation of package
+Modelica in file \"Modelica/package.mo\".</i><br>
+<p>
+</dl>
+</html>"),
+    experiment(StopTime=1),
+    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+            100,100}}), graphics={Text(
+          extent={{-98,106},{22,60}},
+          lineColor={0,0,255},
+          textString="Difference Amplifier")}));
 end DifferenceAmplifier;

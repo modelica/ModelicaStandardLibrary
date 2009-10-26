@@ -18,142 +18,110 @@ package DrumBoiler
       massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
       p_start=100000)     annotation (Placement(transformation(extent={{-46,-30},
               {-26,-10}}, rotation=0)));
-    annotation (
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics),
-      Icon(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
-          Rectangle(
-            extent={{-100,100},{100,-100}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Text(
-            extent={{-151,165},{138,102}},
-            lineColor={0,0,255},
-            textString="%name"),
-          Text(
-            extent={{-79,67},{67,21}},
-            lineColor={0,0,0},
-            textString="drum"),
-          Text(
-            extent={{-90,-14},{88,-64}},
-            lineColor={0,0,0},
-            textString="boiler")}),
-      experiment(StopTime=5400),
-      Documentation(info="<html>
-<p align=\"center\">
-<img src=\"../Images/Fluid/Examples/DrumBoiler.png\" border=\"1\">
-</p>
-</html>"));
-    Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow furnace
+    Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow furnace 
       annotation (Placement(transformation(
           origin={-36,-53},
           extent={{-10,-10},{10,10}},
           rotation=90)));
     Modelica.Fluid.Sources.FixedBoundary sink(nPorts=1, p=from_bar(0.5),
       redeclare package Medium = Modelica.Media.Water.StandardWaterOnePhase,
-      T=500)
+      T=500) 
       annotation (Placement(transformation(
           origin={90,-20},
           extent={{-10,-10},{10,10}},
           rotation=180)));
     Modelica.Fluid.Sensors.MassFlowRate massFlowRate(           redeclare
-        package Medium =
-          Modelica.Media.Water.StandardWater)
+        package Medium = 
+          Modelica.Media.Water.StandardWater) 
       annotation (Placement(transformation(
           origin={30,-20},
           extent={{10,10},{-10,-10}},
           rotation=180)));
     Modelica.Fluid.Sensors.Temperature temperature(    redeclare package Medium
-        = Modelica.Media.Water.StandardWater)
+        = Modelica.Media.Water.StandardWater) 
       annotation (Placement(transformation(
           origin={-3,-1},
           extent={{10,10},{-10,-10}},
           rotation=180)));
     Modelica.Fluid.Sensors.Pressure pressure(           redeclare package
-        Medium =
-          Modelica.Media.Water.StandardWater)
+        Medium = 
+          Modelica.Media.Water.StandardWater) 
       annotation (Placement(transformation(extent={{10,14},{30,34}}, rotation=0)));
-    Modelica.Blocks.Continuous.PI controller(T=120, k=10)
+    Modelica.Blocks.Continuous.PI controller(T=120, k=10) 
       annotation (Placement(transformation(extent={{-51,23},{-65,37}}, rotation=
              0)));
     Modelica.Fluid.Sources.MassFlowSource_h pump(nPorts=1,
-                                             h=5e5, redeclare package Medium =
+                                             h=5e5, redeclare package Medium = 
           Modelica.Media.Water.StandardWater,
-      use_m_flow_in=true)
+      use_m_flow_in=true) 
       annotation (Placement(transformation(extent={{-80,-30},{-60,-10}},
             rotation=0)));
-    Modelica.Blocks.Math.Feedback feedback
+    Modelica.Blocks.Math.Feedback feedback 
       annotation (Placement(transformation(extent={{-26,20},{-46,40}}, rotation=
              0)));
-    Modelica.Blocks.Sources.Constant levelSetPoint(k=67)
+    Modelica.Blocks.Sources.Constant levelSetPoint(k=67) 
       annotation (Placement(transformation(extent={{-43,50},{-30,63}}, rotation=
              0)));
-    Modelica.Blocks.Interfaces.RealOutput T_S
+    Modelica.Blocks.Interfaces.RealOutput T_S 
       annotation (Placement(transformation(extent={{100,56},{108,64}}, rotation=
              0)));
-    Modelica.Blocks.Interfaces.RealOutput p_S
+    Modelica.Blocks.Interfaces.RealOutput p_S 
       annotation (Placement(transformation(extent={{100,20},{108,28}}, rotation=
              0)));
-    Modelica.Blocks.Interfaces.RealOutput qm_S
+    Modelica.Blocks.Interfaces.RealOutput qm_S 
       annotation (Placement(transformation(extent={{100,-4},{108,4}}, rotation=
               0)));
-    Modelica.Blocks.Interfaces.RealOutput V_l
+    Modelica.Blocks.Interfaces.RealOutput V_l 
       annotation (Placement(transformation(extent={{100,88},{108,96}}, rotation=
              0)));
   public
-    Modelica.Blocks.Math.Gain MW2W(k=1e6)
+    Modelica.Blocks.Math.Gain MW2W(k=1e6) 
       annotation (Placement(transformation(extent={{-60,-75.5},{-50,-64.5}},
             rotation=0)));
     Modelica.Blocks.Math.Gain Pa2bar(k=1e-5) annotation (Placement(
           transformation(extent={{37,19},{47,29}}, rotation=0)));
-    Modelica.Thermal.HeatTransfer.Celsius.FromKelvin K2degC
+    Modelica.Thermal.HeatTransfer.Celsius.FromKelvin K2degC 
       annotation (Placement(transformation(extent={{38,55},{48,65}}, rotation=0)));
-    Modelica.Blocks.Nonlinear.Limiter limiter(uMin=0, uMax=500)
+    Modelica.Blocks.Nonlinear.Limiter limiter(uMin=0, uMax=500) 
       annotation (Placement(transformation(
           origin={-78,30},
           extent={{-7,-7},{7,7}},
           rotation=180)));
     Modelica.Fluid.Valves.ValveLinear SteamValve(                  redeclare
-        package Medium =
+        package Medium = 
           Modelica.Media.Water.StandardWater,
       dp_nominal=9000000,
-      m_flow_nominal=180)
+      m_flow_nominal=180) 
       annotation (Placement(transformation(extent={{50,-10},{70,-30}}, rotation=
              0)));
 
-    inner Modelica.Fluid.System system
+    inner Modelica.Fluid.System system 
       annotation (Placement(transformation(extent={{-90,70},{-70,90}})));
     Modelica.Blocks.Sources.TimeTable q_F_Tab(table=[0, 0; 3600, 400; 7210,
           400]) annotation (Placement(transformation(extent={{-90,-80},{-70,-60}},
             rotation=0)));
-    Modelica.Blocks.Sources.TimeTable Y_Valve_Tab(table=[0,0; 900,1; 7210,1])
+    Modelica.Blocks.Sources.TimeTable Y_Valve_Tab(table=[0,0; 900,1; 7210,1]) 
                annotation (Placement(transformation(extent={{20,-80},{40,-60}},
             rotation=0)));
   equation
-    connect(furnace.port, evaporator.heatPort)
+    connect(furnace.port, evaporator.heatPort) 
       annotation (Line(points={{-36,-43},{-36,-30}}, color={191,0,0}));
-    connect(controller.u,feedback.y)
+    connect(controller.u,feedback.y) 
       annotation (Line(points={{-49.6,30},{-45,30}}, color={0,0,127}));
-    connect(feedback.u2,      evaporator.V)
+    connect(feedback.u2,      evaporator.V) 
       annotation (Line(points={{-36,22},{-36,-9},{-26,-9}}, color={0,0,127}));
     connect(levelSetPoint.y,feedback.u1)             annotation (Line(points={{
             -29.35,56.5},{-22,56.5},{-22,30},{-28,30}}, color={0,0,127}));
-    connect(massFlowRate.m_flow, qm_S)
+    connect(massFlowRate.m_flow, qm_S) 
       annotation (Line(points={{30,-9},{30,0},{104,0}}, color={0,0,127}));
-    connect(evaporator.V, V_l)
+    connect(evaporator.V, V_l) 
       annotation (Line(points={{-26,-9},{-26,11},{-15,11},{-15,92},{104,92}},
           color={0,0,127}));
     connect(MW2W.y,furnace.Q_flow)       annotation (Line(points={{-49.5,-70},{
             -36,-70},{-36,-63}}, color={0,0,127}));
-    connect(pressure.p, Pa2bar.u)
+    connect(pressure.p, Pa2bar.u) 
       annotation (Line(points={{31,24},{36,24}}, color={0,0,127}));
-    connect(Pa2bar.y, p_S)
+    connect(Pa2bar.y, p_S) 
       annotation (Line(points={{47.5,24},{104,24}}, color={0,0,127}));
     connect(K2degC.Celsius, T_S) annotation (Line(points={{48.5,60},{104,60}},
           color={0,0,127}));
@@ -186,6 +154,38 @@ package DrumBoiler
         points={{41,-70},{60,-70},{60,-28}},
         color={0,0,127},
         smooth=Smooth.None));
+    annotation (
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics),
+      Icon(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics={
+          Rectangle(
+            extent={{-100,100},{100,-100}},
+            lineColor={0,0,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{-151,165},{138,102}},
+            lineColor={0,0,255},
+            textString="%name"),
+          Text(
+            extent={{-79,67},{67,21}},
+            lineColor={0,0,0},
+            textString="drum"),
+          Text(
+            extent={{-90,-14},{88,-64}},
+            lineColor={0,0,0},
+            textString="boiler")}),
+      experiment(StopTime=5400),
+      Documentation(info="<html>
+<p align=\"center\">
+<img src=\"../Images/Fluid/Examples/DrumBoiler.png\" border=\"1\">
+</p>
+</html>"));
   end DrumBoiler;
 
   package BaseClasses "Additional components for drum boiler example"
@@ -196,8 +196,8 @@ package DrumBoiler
       extends Modelica.Fluid.Interfaces.PartialTwoPort(
         final port_a_exposesState=true,
         final port_b_exposesState=true,
-        redeclare replaceable package Medium =
-            Modelica.Media.Water.StandardWater
+        redeclare replaceable package Medium = 
+            Modelica.Media.Water.StandardWater 
             constrainedby Modelica.Media.Interfaces.PartialTwoPhaseMedium);
       import Modelica.SIunits.Conversions.*;
       import Modelica.Constants;
@@ -208,10 +208,10 @@ package DrumBoiler
         "specific heat capacity of drum metal";
       parameter SI.Volume V_t "total volume inside drum";
       parameter Medium.AbsolutePressure p_start=system.p_start
-        "Start value of pressure"
+        "Start value of pressure" 
       annotation(Dialog(tab = "Initialization"));
       parameter SI.Volume V_l_start=V_t/2
-        "Start value of liquid volumeStart value of volume"
+        "Start value of liquid volumeStart value of volume" 
       annotation(Dialog(tab = "Initialization"));
 
       // Assumptions
@@ -219,16 +219,16 @@ package DrumBoiler
         "allow flow reversal, false restricts to design direction (port_a -> port_b)"
         annotation(Dialog(tab="Assumptions"), Evaluate=true);
       parameter Types.Dynamics energyDynamics=system.energyDynamics
-        "Formulation of energy balance"
+        "Formulation of energy balance" 
         annotation(Evaluate=true, Dialog(tab = "Assumptions", group="Dynamics"));
       parameter Types.Dynamics massDynamics=system.massDynamics
-        "Formulation of mass balance"
+        "Formulation of mass balance" 
         annotation(Evaluate=true, Dialog(tab = "Assumptions", group="Dynamics"));
 
-      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort
+      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort 
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}}, rotation=
                0)));
-      Modelica.Blocks.Interfaces.RealOutput V "liquid volume"
+      Modelica.Blocks.Interfaces.RealOutput V "liquid volume" 
       annotation (Placement(transformation(
             origin={100,110},
             extent={{-10,-10},{10,10}},

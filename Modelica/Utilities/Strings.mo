@@ -26,7 +26,7 @@ Returns the number of characters of \"string\".
     input Integer endIndex(min=1) "Character position of substring end";
     output String result
       "String containing substring string[startIndex:endIndex]";
-  external "C" result =
+  external "C" result = 
                       ModelicaStrings_substring(string,startIndex,endIndex);
     annotation (Library="ModelicaExternalC",
   Documentation(info="<html>
@@ -57,6 +57,11 @@ if endIndex &gt; length(string), an assert is triggered.
     input Integer n(min=0) = 1 "Number of occurences";
     input String string=" " "String that is repeated";
     output String repeatedString "String containing n concatenated strings";
+  algorithm
+    repeatedString :="";
+    for i in 1:n loop
+       repeatedString := repeatedString + string;
+    end for;
     annotation (
   Documentation(info="<html>
 <h4>Syntax</h4>
@@ -73,11 +78,6 @@ The second form returns a string consisting of n substrings
 defined by the optional argument \"string\".
 </p>
 </html>"));
-  algorithm
-    repeatedString :="";
-    for i in 1:n loop
-       repeatedString := repeatedString + string;
-    end for;
   end repeat;
 
   function compare "Compare two strings lexicographically"
@@ -118,6 +118,8 @@ e.g., \"a\" &lt; \"b\";
     input Boolean caseSensitive=true
       "= false, if lower and upper case are ignored for the comparison";
     output Boolean identical "True, if string1 is identical to string2";
+  algorithm
+    identical :=compare(string1, string2, caseSensitive) == Types.Compare.Equal;
     annotation (
   Documentation(info="<html>
 <h4>Syntax</h4>
@@ -131,77 +133,9 @@ Compare whether two strings are identical,
 optionally ignoring case.
 </p>
 </html>"));
-  algorithm
-    identical :=compare(string1, string2, caseSensitive) == Types.Compare.Equal;
   end isEqual;
   extends Modelica.Icons.Library;
 
-  annotation (
-    Documentation(info="<HTML>
-<h4>Library content</h4>
-<p>
-Package <b>Strings</b> contains functions to manipulate strings.
-</p>
-<p>
-In the table below an example
-call to every function is given using the <b>default</b> options.
-</p>
-<table border=1 cellspacing=0 cellpadding=2>
-  <tr><th><b><i>Function</i></b></th><th><b><i>Description</i></b></th></tr>
-  <tr><td valign=\"top\">len = <a href=\"Modelica://Modelica.Utilities.Strings.length\">length</a>(string)</td>
-      <td valign=\"top\">Returns length of string</td></tr>
-  <tr><td valign=\"top\">string2 = <a href=\"Modelica://Modelica.Utilities.Strings.substring\">substring</a>(string1,startIndex,endIndex)
-       </td>
-      <td valign=\"top\">Returns a substring defined by start and end index</td></tr>
-  <tr><td valign=\"top\">result = <a href=\"Modelica://Modelica.Utilities.Strings.repeat\">repeat</a>(n)<br>
- result = <a href=\"Modelica://Modelica.Utilities.Strings.repeat\">repeat</a>(n,string)</td>
-      <td valign=\"top\">Repeat a blank or a string n times.</td></tr>
-  <tr><td valign=\"top\">result = <a href=\"Modelica://Modelica.Utilities.Strings.compare\">compare</a>(string1, string2)</td>
-      <td valign=\"top\">Compares two substrings with regards to alphabetical order</td></tr>
-  <tr><td valign=\"top\">identical =
-<a href=\"Modelica://Modelica.Utilities.Strings.isEqual\">isEqual</a>(string1,string2)</td>
-      <td valign=\"top\">Determine whether two strings are identical</td></tr>
-  <tr><td valign=\"top\">result = <a href=\"Modelica://Modelica.Utilities.Strings.count\">count</a>(string,searchString)</td>
-      <td valign=\"top\">Count the number of occurrences of a string</td></tr>
-  <tr>
-<td valign=\"top\">index = <a href=\"Modelica://Modelica.Utilities.Strings.find\">find</a>(string,searchString)</td>
-      <td valign=\"top\">Find first occurrence of a string in another string</td></tr>
-<tr>
-<td valign=\"top\">index = <a href=\"Modelica://Modelica.Utilities.Strings.findLast\">findLast</a>(string,searchString)</td>
-      <td valign=\"top\">Find last occurrence of a string in another string</td></tr>
-  <tr><td valign=\"top\">string2 = <a href=\"Modelica://Modelica.Utilities.Strings.replace\">replace</a>(string,searchString,replaceString)</td>
-      <td valign=\"top\">Replace one or all occurrences of a string</td></tr>
-  <tr><td valign=\"top\">stringVector2 = <a href=\"Modelica://Modelica.Utilities.Strings.sort\">sort</a>(stringVector1)</td>
-      <td valign=\"top\">Sort vector of strings in alphabetic order</td></tr>
-  <tr><td valign=\"top\">(token, index) = <a href=\"Modelica://Modelica.Utilities.Strings.scanToken\">scanToken</a>(string,startIndex)</td>
-      <td valign=\"top\">Scan for a token (Real/Integer/Boolean/String/Identifier/Delimiter/NoToken)</td></tr>
-  <tr><td valign=\"top\">(number, index) = <a href=\"Modelica://Modelica.Utilities.Strings.scanReal\">scanReal</a>(string,startIndex)</td>
-      <td valign=\"top\">Scan for a Real constant</td></tr>
-  <tr><td valign=\"top\">(number, index) = <a href=\"Modelica://Modelica.Utilities.Strings.scanInteger\">scanInteger</a>(string,startIndex)</td>
-      <td valign=\"top\">Scan for an Integer constant</td></tr>
-  <tr><td valign=\"top\">(boolean, index) = <a href=\"Modelica://Modelica.Utilities.Strings.scanBoolean\">scanBoolean</a>(string,startIndex)</td>
-      <td valign=\"top\">Scan for a Boolean constant</td></tr>
-  <tr><td valign=\"top\">(string2, index) = <a href=\"Modelica://Modelica.Utilities.Strings.scanString\">scanString</a>(string,startIndex)</td>
-      <td valign=\"top\">Scan for a String constant</td></tr>
-  <tr><td valign=\"top\">(identifier, index) = <a href=\"Modelica://Modelica.Utilities.Strings.scanIdentifier\">scanIdentifier</a>(string,startIndex)</td>
-      <td valign=\"top\">Scan for an identifier</td></tr>
-  <tr><td valign=\"top\">(delimiter, index) = <a href=\"Modelica://Modelica.Utilities.Strings.scanDelimiter\">scanDelimiter</a>(string,startIndex)</td>
-      <td valign=\"top\">Scan for delimiters</td></tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Strings.scanNoToken\">scanNoToken</a>(string,startIndex)</td>
-      <td valign=\"top\">Check that remaining part of string consists solely of <br>
-          white space or line comments (\"// ...\\n\").</td></tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Strings.syntaxError\">syntaxError</a>(string,index,message)</td>
-      <td valign=\"top\"> Print a \"syntax error message\" as well as a string and the <br>
-           index at which scanning detected an error</td></tr>
-</table>
-<p>
-The functions \"compare\", \"isEqual\", \"count\", \"find\", \"findLast\", \"replace\", \"sort\"
-have the optional
-input argument <b>caseSensitive</b> with default <b>true</b>.
-If <b>false</b>, the operation is carried out without taking
-into account whether a character is upper or lower case.
-</p>
-</HTML>"));
   // illegal use of top-level annotation removed:
   // version="1.0", versionDate="2004-10-01",
 
@@ -213,6 +147,18 @@ into account whether a character is upper or lower case.
     input Boolean caseSensitive=true
       "= false, if lower and upper case are ignored for count";
     output Integer result "Number of occurrences of 'searchString' in 'string'";
+  protected
+    Integer lenSearchString = length(searchString);
+    Integer i = startIndex;
+  algorithm
+    result := 0;
+    while i <> 0 loop
+       i := find(string, searchString, i, caseSensitive);
+       if i > 0 then
+          result := result + 1;
+          i := i + lenSearchString;
+       end if;
+    end while;
     annotation (
   Documentation(info="<html>
 <h4>Syntax</h4>
@@ -230,18 +176,6 @@ for the counting it does not matter whether a letter is upper
 or lower case.
 /p>
 </html>"));
-  protected
-    Integer lenSearchString = length(searchString);
-    Integer i = startIndex;
-  algorithm
-    result := 0;
-    while i <> 0 loop
-       i := find(string, searchString, i, caseSensitive);
-       if i > 0 then
-          result := result + 1;
-          i := i + lenSearchString;
-       end if;
-    end while;
   end count;
 
   function find "Find first occurrence of a string within another string"
@@ -253,6 +187,22 @@ or lower case.
       "= false, if lower and upper case are ignored for the search";
      output Integer index
       "Index of the beginning of the first occurrence of 'searchString' within 'string', or zero if not present";
+  protected
+    Integer lengthSearchString = length(searchString);
+    Integer len = lengthSearchString-1;
+    Integer i = startIndex;
+    Integer i_max = length(string) - lengthSearchString + 1;
+  algorithm
+    index := 0;
+    while i <= i_max loop
+       if isEqual(substring(string,i,i+len),
+                  searchString, caseSensitive) then
+          index := i;
+          i := i_max + 1;
+       else
+          i := i+1;
+       end if;
+    end while;
     annotation (
   Documentation(info="<html>
 <h4>Syntax</h4>
@@ -272,22 +222,6 @@ If \"searchString\" is not found, a value of \"0\" is returned.
 </p>
 </html>
 "));
-  protected
-    Integer lengthSearchString = length(searchString);
-    Integer len = lengthSearchString-1;
-    Integer i = startIndex;
-    Integer i_max = length(string) - lengthSearchString + 1;
-  algorithm
-    index := 0;
-    while i <= i_max loop
-       if isEqual(substring(string,i,i+len),
-                  searchString, caseSensitive) then
-          index := i;
-          i := i_max + 1;
-       else
-          i := i+1;
-       end if;
-    end while;
   end find;
 
   function findLast "Find last occurrence of a string within another string"
@@ -300,6 +234,22 @@ If \"searchString\" is not found, a value of \"0\" is returned.
       "= false, if lower and upper case are ignored for the search";
     output Integer index
       "Index of the beginning of the last occurrence of 'searchString' within 'string', or zero if not present";
+  protected
+    Integer lenString = length(string);
+    Integer lenSearchString = length(searchString);
+    Integer i;
+  algorithm
+    i := if startIndex == 0 then lenString-lenSearchString+1 else startIndex;
+    index := 0;
+    while i >= 1 loop
+       if isEqual(substring(string,i,i+lenSearchString-1),
+                  searchString, caseSensitive) then
+          index := i;
+          i := 0;
+       else
+          i := i-1;
+       end if;
+    end while;
     annotation (
   Documentation(info="<html>
 <h4>Syntax</h4>
@@ -320,22 +270,6 @@ If \"searchString\" is not found, a value of \"0\" is returned.
 </p>
 </html>
 "));
-  protected
-    Integer lenString = length(string);
-    Integer lenSearchString = length(searchString);
-    Integer i;
-  algorithm
-    i := if startIndex == 0 then lenString-lenSearchString+1 else startIndex;
-    index := 0;
-    while i >= 1 loop
-       if isEqual(substring(string,i,i+lenSearchString-1),
-                  searchString, caseSensitive) then
-          index := i;
-          i := 0;
-       else
-          i := i-1;
-       end if;
-    end while;
   end findLast;
 
   function replace
@@ -352,6 +286,33 @@ If \"searchString\" is not found, a value of \"0\" is returned.
     input Boolean caseSensitive=true
       "= false, if lower and upper case are ignored when searching for searchString";
     output String result "Resultant string of replacement operation";
+  protected
+    Integer lenString = length(string);
+    Integer lenSearchString = length(searchString);
+    Integer i = startIndex;
+    Integer i_found;
+  algorithm
+    result := if startIndex == 1 then "" else substring(string,1,startIndex-1);
+    while i > 0 loop
+       i_found := find(string, searchString, i, caseSensitive);
+       if i_found > 0 then
+          result := if i_found == 1 then 
+                       replaceString else 
+                       result + (if i_found-1<i then "" else substring(string, i, i_found-1)) + replaceString;
+          i := i_found + lenSearchString;
+          if i > lenString then
+             i := 0;
+          elseif not replaceAll then
+             result := result + substring(string, i, lenString);
+             i := 0;
+          end if;
+       elseif lenString<i then
+          i := 0;
+       else
+          result := result + substring(string, i, lenString);
+          i := 0;
+       end if;
+    end while;
     annotation (
   Documentation(info="<html>
 <h4>Syntax</h4>
@@ -384,33 +345,6 @@ The function returns the \"string\" with the
 performed replacements.
 </p>
 </html>"));
-  protected
-    Integer lenString = length(string);
-    Integer lenSearchString = length(searchString);
-    Integer i = startIndex;
-    Integer i_found;
-  algorithm
-    result := if startIndex == 1 then "" else substring(string,1,startIndex-1);
-    while i > 0 loop
-       i_found := find(string, searchString, i, caseSensitive);
-       if i_found > 0 then
-          result := if i_found == 1 then
-                       replaceString else
-                       result + (if i_found-1<i then "" else substring(string, i, i_found-1)) + replaceString;
-          i := i_found + lenSearchString;
-          if i > lenString then
-             i := 0;
-          elseif not replaceAll then
-             result := result + substring(string, i, lenString);
-             i := 0;
-          end if;
-       elseif lenString<i then
-          i := 0;
-       else
-          result := result + substring(string, i, lenString);
-          i := 0;
-       end if;
-    end while;
   end replace;
 
   function sort "Sort vector of strings in alphabetic order"
@@ -492,6 +426,62 @@ and upper case letters are not distinguished.
     output Types.TokenValue token "Scanned token";
     output Integer nextIndex
       "Index of character after the found token; = 0, if NoToken";
+  protected
+    Integer startTokenIndex;
+  algorithm
+    // Initialize token
+    token.real :=0.0;
+    token.integer :=0;
+    token.boolean :=false;
+    token.string :="";
+
+    // skip white space and line comments
+    startTokenIndex := Advanced.skipLineComments(string, startIndex);
+    if startTokenIndex > length(string) then
+      token.tokenType := Modelica.Utilities.Types.TokenType.NoToken;
+      nextIndex := startTokenIndex;
+    else
+      // scan Integer number
+        (nextIndex, token.integer) := Advanced.scanInteger(string, startTokenIndex, unsigned);
+         token.tokenType := Types.TokenType.IntegerToken;
+
+      // scan Real number
+      if nextIndex == startTokenIndex then
+        (nextIndex, token.real) :=Advanced.scanReal(string, startTokenIndex, unsigned);
+         token.tokenType := Types.TokenType.RealToken;
+      end if;
+
+      // scan String
+      if nextIndex == startTokenIndex then
+         (nextIndex,token.string) := Advanced.scanString(string, startTokenIndex);
+          token.tokenType:= Types.TokenType.StringToken;
+      end if;
+
+      // scan Identifier or Boolean
+      if nextIndex == startTokenIndex then
+         (nextIndex,token.string) := Advanced.scanIdentifier(string, startTokenIndex);
+         if nextIndex > startTokenIndex then
+            if token.string == "false" then
+               token.string := "";
+               token.boolean :=false;
+               token.tokenType := Types.TokenType.BooleanToken;
+            elseif token.string == "true" then
+               token.string := "";
+               token.boolean := true;
+               token.tokenType := Types.TokenType.BooleanToken;
+            else
+               token.tokenType := Types.TokenType.IdentifierToken;
+            end if;
+         end if;
+      end if;
+
+      // scan Delimiter
+      if nextIndex == startTokenIndex then
+         token.string :=substring(string, startTokenIndex, startTokenIndex);
+         token.tokenType := Types.TokenType.DelimiterToken;
+         nextIndex := startTokenIndex + 1;
+      end if;
+    end if;
     annotation ( Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -565,62 +555,6 @@ is not allowed to start with a \"+\" or \"-\" sign.
   <b>end if</b>;
 </pre></blockquote>
 </html>"));
-  protected
-    Integer startTokenIndex;
-  algorithm
-    // Initialize token
-    token.real :=0.0;
-    token.integer :=0;
-    token.boolean :=false;
-    token.string :="";
-
-    // skip white space and line comments
-    startTokenIndex := Advanced.skipLineComments(string, startIndex);
-    if startTokenIndex > length(string) then
-      token.tokenType := Modelica.Utilities.Types.TokenType.NoToken;
-      nextIndex := startTokenIndex;
-    else
-      // scan Integer number
-        (nextIndex, token.integer) := Advanced.scanInteger(string, startTokenIndex, unsigned);
-         token.tokenType := Types.TokenType.IntegerToken;
-
-      // scan Real number
-      if nextIndex == startTokenIndex then
-        (nextIndex, token.real) :=Advanced.scanReal(string, startTokenIndex, unsigned);
-         token.tokenType := Types.TokenType.RealToken;
-      end if;
-
-      // scan String
-      if nextIndex == startTokenIndex then
-         (nextIndex,token.string) := Advanced.scanString(string, startTokenIndex);
-          token.tokenType:= Types.TokenType.StringToken;
-      end if;
-
-      // scan Identifier or Boolean
-      if nextIndex == startTokenIndex then
-         (nextIndex,token.string) := Advanced.scanIdentifier(string, startTokenIndex);
-         if nextIndex > startTokenIndex then
-            if token.string == "false" then
-               token.string := "";
-               token.boolean :=false;
-               token.tokenType := Types.TokenType.BooleanToken;
-            elseif token.string == "true" then
-               token.string := "";
-               token.boolean := true;
-               token.tokenType := Types.TokenType.BooleanToken;
-            else
-               token.tokenType := Types.TokenType.IdentifierToken;
-            end if;
-         end if;
-      end if;
-
-      // scan Delimiter
-      if nextIndex == startTokenIndex then
-         token.string :=substring(string, startTokenIndex, startTokenIndex);
-         token.tokenType := Types.TokenType.DelimiterToken;
-         nextIndex := startTokenIndex + 1;
-      end if;
-    end if;
   end scanToken;
 
   function scanReal
@@ -635,6 +569,16 @@ is not allowed to start with a \"+\" or \"-\" sign.
       "Message used in error message if scan is not successful";
     output Real number "Value of real number";
     output Integer nextIndex "index of character after the found number";
+  algorithm
+    (nextIndex, number) :=Advanced.scanReal(string, startIndex, unsigned);
+    if nextIndex == startIndex then
+       nextIndex :=Advanced.skipWhiteSpace(string, startIndex);
+       if unsigned then
+          syntaxError(string, nextIndex, "Expected a Real number without a sign " + message);
+       else
+          syntaxError(string, nextIndex, "Expected a Real number " + message);
+       end if;
+    end if;
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -661,16 +605,6 @@ If the required Real number with leading white space
 is not present in \"string\",  an assert is triggered.
 </p>
 </html>"));
-  algorithm
-    (nextIndex, number) :=Advanced.scanReal(string, startIndex, unsigned);
-    if nextIndex == startIndex then
-       nextIndex :=Advanced.skipWhiteSpace(string, startIndex);
-       if unsigned then
-          syntaxError(string, nextIndex, "Expected a Real number without a sign " + message);
-       else
-          syntaxError(string, nextIndex, "Expected a Real number " + message);
-       end if;
-    end if;
   end scanReal;
 
   function scanInteger
@@ -685,6 +619,16 @@ is not present in \"string\",  an assert is triggered.
       "Message used in error message if scan is not successful";
     output Integer number "Value of Integer number";
     output Integer nextIndex "Index of character after the found number";
+  algorithm
+    (nextIndex, number) :=Advanced.scanInteger(string, startIndex, unsigned);
+    if nextIndex == startIndex then
+       nextIndex :=Advanced.skipWhiteSpace(string, startIndex);
+       if unsigned then
+          syntaxError(string, nextIndex, "Expected an Integer number without a sign " + message);
+       else
+          syntaxError(string, nextIndex, "Expected an Integer number " + message);
+       end if;
+    end if;
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -702,16 +646,6 @@ if the scanned string does not contain an Integer literal with optional
 leading white space.
 </p>
 </html>"));
-  algorithm
-    (nextIndex, number) :=Advanced.scanInteger(string, startIndex, unsigned);
-    if nextIndex == startIndex then
-       nextIndex :=Advanced.skipWhiteSpace(string, startIndex);
-       if unsigned then
-          syntaxError(string, nextIndex, "Expected an Integer number without a sign " + message);
-       else
-          syntaxError(string, nextIndex, "Expected an Integer number " + message);
-       end if;
-    end if;
   end scanInteger;
 
   function scanBoolean
@@ -724,23 +658,6 @@ leading white space.
       "Message used in error message if scan is not successful";
     output Boolean number "Value of Boolean";
     output Integer nextIndex "Index of character after the found number";
-    annotation (Documentation(info="<html>
-<h4>Syntax</h4>
-<blockquote><pre>
-             number = Strings.<b>scanBoolean</b>(string);
-(number, nextIndex) = Strings.<b>scanBoolean</b>(string, startIndex=1, message=\"\");
-</pre></blockquote>
-<h4>Description</h4>
-<p>
-Function <b>scanBoolean</b> scans the string starting at index
-\"startIndex\", checks whether the next token is a Boolean literal
-(i.e., is either the string \"false\" or \"true\", if converted to lower case letters)
-and returns its value as a Boolean number, as well as the
-index directly after the Boolean number. An assert is triggered,
-if the scanned string does not contain a Boolean literal with optional
-leading white space.
-</p>
-</html>"));
   protected
     String identifier;
   algorithm
@@ -761,6 +678,23 @@ leading white space.
        syntaxError(string, nextIndex,
          "Expected a Boolean constant, i.e., \"false\" or \"true\" " + message);
     end if;
+    annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+             number = Strings.<b>scanBoolean</b>(string);
+(number, nextIndex) = Strings.<b>scanBoolean</b>(string, startIndex=1, message=\"\");
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Function <b>scanBoolean</b> scans the string starting at index
+\"startIndex\", checks whether the next token is a Boolean literal
+(i.e., is either the string \"false\" or \"true\", if converted to lower case letters)
+and returns its value as a Boolean number, as well as the
+index directly after the Boolean number. An assert is triggered,
+if the scanned string does not contain a Boolean literal with optional
+leading white space.
+</p>
+</html>"));
   end scanBoolean;
 
   function scanString
@@ -773,6 +707,12 @@ leading white space.
       "Message used in error message if scan is not successful";
     output String result "Value of string";
     output Integer nextIndex "Index of character after the found string";
+  algorithm
+    (nextIndex, result) :=Advanced.scanString(string, startIndex);
+    if nextIndex == startIndex then
+       nextIndex :=Advanced.skipWhiteSpace(string, startIndex);
+       syntaxError(string, nextIndex, "Expected a string enclosed in double quotes " + message);
+    end if;
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -789,12 +729,6 @@ if the scanned string does not contain a String literal with optional
 leading white space.
 </p>
 </html>"));
-  algorithm
-    (nextIndex, result) :=Advanced.scanString(string, startIndex);
-    if nextIndex == startIndex then
-       nextIndex :=Advanced.skipWhiteSpace(string, startIndex);
-       syntaxError(string, nextIndex, "Expected a string enclosed in double quotes " + message);
-    end if;
   end scanString;
 
   function scanIdentifier
@@ -807,6 +741,12 @@ leading white space.
       "Message used in error message if scan is not successful";
     output String identifier "Value of Identifier";
     output Integer nextIndex "Index of character after the found identifier";
+  algorithm
+    (nextIndex, identifier) :=Advanced.scanIdentifier(string, startIndex);
+    if nextIndex == startIndex then
+       nextIndex :=Advanced.skipWhiteSpace(string, startIndex);
+       syntaxError(string, nextIndex, "Expected an identifier " + message);
+    end if;
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -823,12 +763,6 @@ if the scanned string does not contain an Identifier with optional
 leading white space.
 </p>
 </html>"));
-  algorithm
-    (nextIndex, identifier) :=Advanced.scanIdentifier(string, startIndex);
-    if nextIndex == startIndex then
-       nextIndex :=Advanced.skipWhiteSpace(string, startIndex);
-       syntaxError(string, nextIndex, "Expected an identifier " + message);
-    end if;
   end scanIdentifier;
 
   function scanDelimiter
@@ -842,27 +776,6 @@ leading white space.
       "Message used in error message if scan is not successful";
     output String delimiter "Found delimiter";
     output Integer nextIndex "Index of character after the found delimiter";
-    annotation (Documentation(info="<html>
-<h4>Syntax</h4>
-<blockquote><pre>
-             delimiter = Strings.<b>scanDelimiter</b>(string);
-(delimiter, nextIndex) = Strings.<b>scanDelimiter</b>(string, startIndex=1,
-                                 requiredDelimiters={\",\"}, message=\"\");
-</pre></blockquote>
-<h4>Description</h4>
-<p>
-Function <b>scanDelimiter</b> scans the string starting at index
-\"startIndex\", checks whether the next token is a delimiter string
-and returns its value as a string, as well as the
-index directly after the delimiter. An assert is triggered,
-if the scanned string does not contain a delimiter out of the
-list of requiredDelimiters. Input argument requiredDelimiters is a vector
-of strings. The elements may have any length, including length 0.
-If an element of the requiredDelimiters is zero, white space
-is treated as delimiter. The function returns delimiter=\"\" and nextIndex
-is the index of the first non white space character.
-</p>
-</html>"));
   protected
     Integer lenString = length(string);
     Integer lenDelimiter;
@@ -916,6 +829,27 @@ is the index of the first non white space character.
                       concatenate(requiredDelimiters) + "\n" + message);
        end if;
     end if;
+    annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+             delimiter = Strings.<b>scanDelimiter</b>(string);
+(delimiter, nextIndex) = Strings.<b>scanDelimiter</b>(string, startIndex=1,
+                                 requiredDelimiters={\",\"}, message=\"\");
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Function <b>scanDelimiter</b> scans the string starting at index
+\"startIndex\", checks whether the next token is a delimiter string
+and returns its value as a string, as well as the
+index directly after the delimiter. An assert is triggered,
+if the scanned string does not contain a delimiter out of the
+list of requiredDelimiters. Input argument requiredDelimiters is a vector
+of strings. The elements may have any length, including length 0.
+If an element of the requiredDelimiters is zero, white space
+is treated as delimiter. The function returns delimiter=\"\" and nextIndex
+is the index of the first non white space character.
+</p>
+</html>"));
   end scanDelimiter;
 
   function scanNoToken "Scan string and check that it contains no more token"
@@ -925,6 +859,13 @@ is the index of the first non white space character.
       "Start scanning of string at character startIndex";
     input String message=""
       "Message used in error message if scan is not successful";
+  protected
+    Integer nextIndex;
+  algorithm
+    nextIndex :=Advanced.skipLineComments(string, startIndex);
+    if nextIndex <= length(string) then
+       syntaxError(string, nextIndex, "Expected no more token " + message);
+    end if;
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -939,13 +880,6 @@ using the \"message\" argument as additional explanation in
 the error text.
 </p>
 </html>"));
-  protected
-    Integer nextIndex;
-  algorithm
-    nextIndex :=Advanced.skipLineComments(string, startIndex);
-    if nextIndex <= length(string) then
-       syntaxError(string, nextIndex, "Expected no more token " + message);
-    end if;
   end scanNoToken;
 
   function syntaxError
@@ -955,6 +889,30 @@ the error text.
     input Integer index "Index of string at which scanning detected an error";
     input String message="" "String printed at end of error message";
 
+  protected
+    Integer maxIndex = 40;
+    Integer maxLenString = 60;
+    Integer lenString = length(string);
+    String errString;
+    Integer index2 = if index < 1 then 1 else if index > lenString then lenString else index;
+  algorithm
+  // if "string" is too long, skip part of the string when printing it
+     if index2 <= maxIndex then
+       errString := string;
+     else
+       errString := "... " + substring(string, index2-maxIndex, lenString);
+       index2 := maxIndex + 5; // To mark right position
+     end if;
+
+     if length(errString) > maxLenString then
+        errString := substring(errString, 1, maxLenString) + " ...";
+     end if;
+
+  // Print error message
+     Streams.error("Syntax error at character " + String(index) + " of\n" +
+                   errString + "\n" +
+                   repeat(index2-1, " ") + "*" + "\n" +
+                   message);
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -980,97 +938,9 @@ If the given string is too long, only a relevant
 part of the string is printed.
 </p>
 </html>"));
-  protected
-    Integer maxIndex = 40;
-    Integer maxLenString = 60;
-    Integer lenString = length(string);
-    String errString;
-    Integer index2 = if index < 1 then 1 else if index > lenString then lenString else index;
-  algorithm
-  // if "string" is too long, skip part of the string when printing it
-     if index2 <= maxIndex then
-       errString := string;
-     else
-       errString := "... " + substring(string, index2-maxIndex, lenString);
-       index2 := maxIndex + 5; // To mark right position
-     end if;
-
-     if length(errString) > maxLenString then
-        errString := substring(errString, 1, maxLenString) + " ...";
-     end if;
-
-  // Print error message
-     Streams.error("Syntax error at character " + String(index) + " of\n" +
-                   errString + "\n" +
-                   repeat(index2-1, " ") + "*" + "\n" +
-                   message);
   end syntaxError;
 
   package Advanced "Advanced scanning functions"
-    annotation (Documentation(info="<html>
-<h4>Library content</h4>
-<p>
-Package <b>Strings.Advanced</b> contains basic scanning
-functions. These functions should be <b>not called</b> directly, because
-it is much simpler to utilize the higher level functions \"Strings.scanXXX\".
-The functions of the \"Strings.Advanced\" library provide
-the basic interface in order to implement the higher level
-functions in package \"Strings\".
-</p>
-<p>
-Library \"Advanced\" provides the following functions:
-</p>
-<pre>
-  (nextIndex, realNumber)    = <a href=\"Modelica://Modelica.Utilities.Strings.Advanced.scanReal\">scanReal</a>        (string, startIndex, unsigned=false);
-  (nextIndex, integerNumber) = <a href=\"Modelica://Modelica.Utilities.Strings.Advanced.scanInteger\">scanInteger</a>     (string, startIndex, unsigned=false);
-  (nextIndex, string2)       = <a href=\"Modelica://Modelica.Utilities.Strings.Advanced.scanString\">scanString</a>      (string, startIndex);
-  (nextIndex, identifier)    = <a href=\"Modelica://Modelica.Utilities.Strings.Advanced.scanIdentifier\">scanIdentifier</a>  (string, startIndex);
-   nextIndex                 = <a href=\"Modelica://Modelica.Utilities.Strings.Advanced.skipWhiteSpace\">skipWhiteSpace</a>  (string, startIndex);
-   nextIndex                 = <a href=\"Modelica://Modelica.Utilities.Strings.Advanced.skipLineComments\">skipLineComments</a>(string, startIndex);
-</pre>
-<p>
-All functions perform the following actions:
-</p>
-<ol>
-<li> Scanning starts at character position \"startIndex\" of
-     \"string\" (startIndex has a default of 1).
-<li> First, white space is skipped, such as blanks (\" \"), tabs (\"\\t\"), or newline (\"\\n\")</li>
-<li> Afterwards, the required token is scanned.</li>
-<li> If successful, on return nextIndex = index of character
-     directly after the found token and the token value is returned
-     as second output argument.<br>
-     If not successful, on return nextIndex = startIndex.
-     </li>
-</ol>
-<p>
-The following additional rules apply for the scanning:
-</p>
-<ul>
-<li> Function <a href=\"Modelica://Modelica.Utilities.Strings.Advanced.scanReal\">scanReal</a>:<br>
-     Scans a full number including one optional leading \"+\" or \"-\" (if unsigned=false)
-     according to the Modelica grammar. For example, \"+1.23e-5\", \"0.123\" are
-     Real numbers, but \".1\" is not.
-     Note, an Integer number, such as \"123\" is also treated as a Real number.<br>&nbsp;</li>
-<li> Function <a href=\"Modelica://Modelica.Utilities.Strings.Advanced.scanInteger\">scanInteger</a>:<br>
-     Scans an Integer number including one optional leading \"+\"
-     or \"-\" (if unsigned=false) according to the Modelica (and C/C++) grammar.
-     For example, \"+123\", \"20\" are Integer numbers.
-     Note, a Real number, such as \"123.4\" is not an Integer and
-     scanInteger returns nextIndex = startIndex.<br>&nbsp;</li>
-<li> Function <a href=\"Modelica://Modelica.Utilities.Strings.Advanced.scanString\">scanString</a>:<br>
-     Scans a String according to the Modelica (and C/C++) grammar, e.g.,
-     \"This is a \"string\"\" is a valid string token.<br>&nbsp;</li>
-<li> Function <a href=\"Modelica://Modelica.Utilities.Strings.Advanced.scanIdentifier\">scanIdentifier</a>:<br>
-     Scans a Modelica identifier, i.e., the identifier starts either
-     with a letter, followed by letters, digits or \"_\".
-     For example, \"w_rel\", \"T12\".<br>&nbsp;</li>
-<li> Function <a href=\"Modelica://Modelica.Utilities.Strings.Advanced.skipLineComments\">skipLineComments</a><br>
-     Skips white space and Modelica (C/C++) line comments iteratively.
-     A line comment starts with \"//\" and ends either with an
-     end-of-line (\"\\n\") or the end of the \"string\". </li>
-</ul>
-</html>
-"));
 
     function scanReal "Scans a signed real number"
       extends Modelica.Icons.Function;
@@ -1267,33 +1137,6 @@ of the first non white space character.
       input String string;
       input Integer startIndex(min=1)=1;
       output Integer nextIndex;
-      annotation (Documentation(info="<html>
-<h4>Syntax</h4>
-<blockquote><pre>
-nextIndex = <b>skipLineComments</b>(string, startIndex);
-</pre></blockquote>
-<h4>Description</h4>
-<p>
-Starts scanning of \"string\" at position \"startIndex\".
-First skips white space and scans afterwards a Modelica (C/C++)
-line comment, i.e., a sequence of characters that
-starts with \"//\" and ends with an end-of-line \"\\n\" or
-with the end of the string. If end-of-line is reached,
-the function continues to skip white space and
-scanning of line comments until end-of-string is
-reached, or another token is detected.
-</p>
-<p>
-If successful, the function returns nextIndex = index of character
-directly after the found line comment.
-</p>
-<p>
-If not successful, on return nextIndex = startIndex.
-</p>
-<h4>See also</h4>
-<a href=\"Modelica://Modelica.Utilities.Strings.Advanced\">Strings.Advanced</a>.
-</html>
-"));
     protected
       Integer lenString = length(string);
       Boolean scanning;
@@ -1329,6 +1172,163 @@ If not successful, on return nextIndex = startIndex.
             scanning := false;
          end if;
       end while;
+      annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+nextIndex = <b>skipLineComments</b>(string, startIndex);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Starts scanning of \"string\" at position \"startIndex\".
+First skips white space and scans afterwards a Modelica (C/C++)
+line comment, i.e., a sequence of characters that
+starts with \"//\" and ends with an end-of-line \"\\n\" or
+with the end of the string. If end-of-line is reached,
+the function continues to skip white space and
+scanning of line comments until end-of-string is
+reached, or another token is detected.
+</p>
+<p>
+If successful, the function returns nextIndex = index of character
+directly after the found line comment.
+</p>
+<p>
+If not successful, on return nextIndex = startIndex.
+</p>
+<h4>See also</h4>
+<a href=\"Modelica://Modelica.Utilities.Strings.Advanced\">Strings.Advanced</a>.
+</html>
+"));
     end skipLineComments;
+    annotation (Documentation(info="<html>
+<h4>Library content</h4>
+<p>
+Package <b>Strings.Advanced</b> contains basic scanning
+functions. These functions should be <b>not called</b> directly, because
+it is much simpler to utilize the higher level functions \"Strings.scanXXX\".
+The functions of the \"Strings.Advanced\" library provide
+the basic interface in order to implement the higher level
+functions in package \"Strings\".
+</p>
+<p>
+Library \"Advanced\" provides the following functions:
+</p>
+<pre>
+  (nextIndex, realNumber)    = <a href=\"Modelica://Modelica.Utilities.Strings.Advanced.scanReal\">scanReal</a>        (string, startIndex, unsigned=false);
+  (nextIndex, integerNumber) = <a href=\"Modelica://Modelica.Utilities.Strings.Advanced.scanInteger\">scanInteger</a>     (string, startIndex, unsigned=false);
+  (nextIndex, string2)       = <a href=\"Modelica://Modelica.Utilities.Strings.Advanced.scanString\">scanString</a>      (string, startIndex);
+  (nextIndex, identifier)    = <a href=\"Modelica://Modelica.Utilities.Strings.Advanced.scanIdentifier\">scanIdentifier</a>  (string, startIndex);
+   nextIndex                 = <a href=\"Modelica://Modelica.Utilities.Strings.Advanced.skipWhiteSpace\">skipWhiteSpace</a>  (string, startIndex);
+   nextIndex                 = <a href=\"Modelica://Modelica.Utilities.Strings.Advanced.skipLineComments\">skipLineComments</a>(string, startIndex);
+</pre>
+<p>
+All functions perform the following actions:
+</p>
+<ol>
+<li> Scanning starts at character position \"startIndex\" of
+     \"string\" (startIndex has a default of 1).
+<li> First, white space is skipped, such as blanks (\" \"), tabs (\"\\t\"), or newline (\"\\n\")</li>
+<li> Afterwards, the required token is scanned.</li>
+<li> If successful, on return nextIndex = index of character
+     directly after the found token and the token value is returned
+     as second output argument.<br>
+     If not successful, on return nextIndex = startIndex.
+     </li>
+</ol>
+<p>
+The following additional rules apply for the scanning:
+</p>
+<ul>
+<li> Function <a href=\"Modelica://Modelica.Utilities.Strings.Advanced.scanReal\">scanReal</a>:<br>
+     Scans a full number including one optional leading \"+\" or \"-\" (if unsigned=false)
+     according to the Modelica grammar. For example, \"+1.23e-5\", \"0.123\" are
+     Real numbers, but \".1\" is not.
+     Note, an Integer number, such as \"123\" is also treated as a Real number.<br>&nbsp;</li>
+<li> Function <a href=\"Modelica://Modelica.Utilities.Strings.Advanced.scanInteger\">scanInteger</a>:<br>
+     Scans an Integer number including one optional leading \"+\"
+     or \"-\" (if unsigned=false) according to the Modelica (and C/C++) grammar.
+     For example, \"+123\", \"20\" are Integer numbers.
+     Note, a Real number, such as \"123.4\" is not an Integer and
+     scanInteger returns nextIndex = startIndex.<br>&nbsp;</li>
+<li> Function <a href=\"Modelica://Modelica.Utilities.Strings.Advanced.scanString\">scanString</a>:<br>
+     Scans a String according to the Modelica (and C/C++) grammar, e.g.,
+     \"This is a \"string\"\" is a valid string token.<br>&nbsp;</li>
+<li> Function <a href=\"Modelica://Modelica.Utilities.Strings.Advanced.scanIdentifier\">scanIdentifier</a>:<br>
+     Scans a Modelica identifier, i.e., the identifier starts either
+     with a letter, followed by letters, digits or \"_\".
+     For example, \"w_rel\", \"T12\".<br>&nbsp;</li>
+<li> Function <a href=\"Modelica://Modelica.Utilities.Strings.Advanced.skipLineComments\">skipLineComments</a><br>
+     Skips white space and Modelica (C/C++) line comments iteratively.
+     A line comment starts with \"//\" and ends either with an
+     end-of-line (\"\\n\") or the end of the \"string\". </li>
+</ul>
+</html>
+"));
   end Advanced;
+  annotation (
+    Documentation(info="<HTML>
+<h4>Library content</h4>
+<p>
+Package <b>Strings</b> contains functions to manipulate strings.
+</p>
+<p>
+In the table below an example
+call to every function is given using the <b>default</b> options.
+</p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><th><b><i>Function</i></b></th><th><b><i>Description</i></b></th></tr>
+  <tr><td valign=\"top\">len = <a href=\"Modelica://Modelica.Utilities.Strings.length\">length</a>(string)</td>
+      <td valign=\"top\">Returns length of string</td></tr>
+  <tr><td valign=\"top\">string2 = <a href=\"Modelica://Modelica.Utilities.Strings.substring\">substring</a>(string1,startIndex,endIndex)
+       </td>
+      <td valign=\"top\">Returns a substring defined by start and end index</td></tr>
+  <tr><td valign=\"top\">result = <a href=\"Modelica://Modelica.Utilities.Strings.repeat\">repeat</a>(n)<br>
+ result = <a href=\"Modelica://Modelica.Utilities.Strings.repeat\">repeat</a>(n,string)</td>
+      <td valign=\"top\">Repeat a blank or a string n times.</td></tr>
+  <tr><td valign=\"top\">result = <a href=\"Modelica://Modelica.Utilities.Strings.compare\">compare</a>(string1, string2)</td>
+      <td valign=\"top\">Compares two substrings with regards to alphabetical order</td></tr>
+  <tr><td valign=\"top\">identical =
+<a href=\"Modelica://Modelica.Utilities.Strings.isEqual\">isEqual</a>(string1,string2)</td>
+      <td valign=\"top\">Determine whether two strings are identical</td></tr>
+  <tr><td valign=\"top\">result = <a href=\"Modelica://Modelica.Utilities.Strings.count\">count</a>(string,searchString)</td>
+      <td valign=\"top\">Count the number of occurrences of a string</td></tr>
+  <tr>
+<td valign=\"top\">index = <a href=\"Modelica://Modelica.Utilities.Strings.find\">find</a>(string,searchString)</td>
+      <td valign=\"top\">Find first occurrence of a string in another string</td></tr>
+<tr>
+<td valign=\"top\">index = <a href=\"Modelica://Modelica.Utilities.Strings.findLast\">findLast</a>(string,searchString)</td>
+      <td valign=\"top\">Find last occurrence of a string in another string</td></tr>
+  <tr><td valign=\"top\">string2 = <a href=\"Modelica://Modelica.Utilities.Strings.replace\">replace</a>(string,searchString,replaceString)</td>
+      <td valign=\"top\">Replace one or all occurrences of a string</td></tr>
+  <tr><td valign=\"top\">stringVector2 = <a href=\"Modelica://Modelica.Utilities.Strings.sort\">sort</a>(stringVector1)</td>
+      <td valign=\"top\">Sort vector of strings in alphabetic order</td></tr>
+  <tr><td valign=\"top\">(token, index) = <a href=\"Modelica://Modelica.Utilities.Strings.scanToken\">scanToken</a>(string,startIndex)</td>
+      <td valign=\"top\">Scan for a token (Real/Integer/Boolean/String/Identifier/Delimiter/NoToken)</td></tr>
+  <tr><td valign=\"top\">(number, index) = <a href=\"Modelica://Modelica.Utilities.Strings.scanReal\">scanReal</a>(string,startIndex)</td>
+      <td valign=\"top\">Scan for a Real constant</td></tr>
+  <tr><td valign=\"top\">(number, index) = <a href=\"Modelica://Modelica.Utilities.Strings.scanInteger\">scanInteger</a>(string,startIndex)</td>
+      <td valign=\"top\">Scan for an Integer constant</td></tr>
+  <tr><td valign=\"top\">(boolean, index) = <a href=\"Modelica://Modelica.Utilities.Strings.scanBoolean\">scanBoolean</a>(string,startIndex)</td>
+      <td valign=\"top\">Scan for a Boolean constant</td></tr>
+  <tr><td valign=\"top\">(string2, index) = <a href=\"Modelica://Modelica.Utilities.Strings.scanString\">scanString</a>(string,startIndex)</td>
+      <td valign=\"top\">Scan for a String constant</td></tr>
+  <tr><td valign=\"top\">(identifier, index) = <a href=\"Modelica://Modelica.Utilities.Strings.scanIdentifier\">scanIdentifier</a>(string,startIndex)</td>
+      <td valign=\"top\">Scan for an identifier</td></tr>
+  <tr><td valign=\"top\">(delimiter, index) = <a href=\"Modelica://Modelica.Utilities.Strings.scanDelimiter\">scanDelimiter</a>(string,startIndex)</td>
+      <td valign=\"top\">Scan for delimiters</td></tr>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Strings.scanNoToken\">scanNoToken</a>(string,startIndex)</td>
+      <td valign=\"top\">Check that remaining part of string consists solely of <br>
+          white space or line comments (\"// ...\\n\").</td></tr>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Strings.syntaxError\">syntaxError</a>(string,index,message)</td>
+      <td valign=\"top\"> Print a \"syntax error message\" as well as a string and the <br>
+           index at which scanning detected an error</td></tr>
+</table>
+<p>
+The functions \"compare\", \"isEqual\", \"count\", \"find\", \"findLast\", \"replace\", \"sort\"
+have the optional
+input argument <b>caseSensitive</b> with default <b>true</b>.
+If <b>false</b>, the operation is carried out without taking
+into account whether a character is upper or lower case.
+</p>
+</HTML>"));
 end Strings;

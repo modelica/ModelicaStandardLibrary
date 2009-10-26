@@ -15,7 +15,7 @@ partial package PartialModelicaServices
     parameter Types.ShapeType shapeType="box"
           "Type of shape (box, sphere, cylinder, pipecylinder, cone, pipe, beam, gearwheel, spring)";
     input Frames.Orientation R=Frames.nullRotation()
-          "Orientation object to rotate the world frame into the object frame"
+          "Orientation object to rotate the world frame into the object frame" 
                                                                             annotation(Dialog);
     input SI.Position r[3]={0,0,0}
           "Position vector from origin of world frame to origin of object frame, resolved in world frame"
@@ -24,10 +24,10 @@ partial package PartialModelicaServices
           "Position vector from origin of object frame to shape origin, resolved in object frame"
                                                                                               annotation(Dialog);
     input Real lengthDirection[3](each final unit="1")={1,0,0}
-          "Vector in length direction, resolved in object frame"
+          "Vector in length direction, resolved in object frame" 
                                                               annotation(Dialog);
     input Real widthDirection[3](each final unit="1")={0,1,0}
-          "Vector in width direction, resolved in object frame"
+          "Vector in width direction, resolved in object frame" 
                                                              annotation(Dialog);
     input SI.Length length=0 "Length of visual object"  annotation(Dialog);
     input SI.Length width=0 "Width of visual object"  annotation(Dialog);
@@ -36,7 +36,7 @@ partial package PartialModelicaServices
           "Additional size data for some of the shape types"                             annotation(Dialog);
     input Real color[3]={255,0,0} "Color of shape"               annotation(Dialog);
     input Types.SpecularCoefficient specularCoefficient = 0.7
-          "Reflection of ambient light (= 0: light is completely absorbed)"
+          "Reflection of ambient light (= 0: light is completely absorbed)" 
                                                                         annotation(Dialog);
     // Real rxry[3, 2];
     annotation (
@@ -99,26 +99,6 @@ protected
 package FileSystem
     "Internal package with external functions as interface to the file system"
  extends Modelica.Icons.Library;
-
-  annotation (
-Documentation(info="<html>
-<p>
-Package <b>Internal.FileSystem</b> is an internal package that contains
-low level functions as interface to the file system.
-These functions should not be called directly in a scripting
-environment since more convenient functions are provided
-in packages Files and Systems.
-</p>
-<p>
-Note, the functions in this package are direct interfaces to
-functions of POSIX and of the standard C library. Errors
-occuring in these functions are treated by triggering
-a Modelica assert. Therefore, the functions in this package
-return only for a successful operation. Furthermore, the
-representation of a string is hidden by this interface,
-especially if the operating system supports Unicode characters.
-</p>
-</html>"));
 
   function mkdir "Make directory (POSIX: 'mkdir')"
     extends Modelica.Icons.Function;
@@ -197,5 +177,24 @@ function getNumberOfFiles
   annotation(Library="ModelicaExternalC");
 end getNumberOfFiles;
 
+  annotation (
+Documentation(info="<html>
+<p>
+Package <b>Internal.FileSystem</b> is an internal package that contains
+low level functions as interface to the file system.
+These functions should not be called directly in a scripting
+environment since more convenient functions are provided
+in packages Files and Systems.
+</p>
+<p>
+Note, the functions in this package are direct interfaces to
+functions of POSIX and of the standard C library. Errors
+occuring in these functions are treated by triggering
+a Modelica assert. Therefore, the functions in this package
+return only for a successful operation. Furthermore, the
+representation of a string is hidden by this interface,
+especially if the operating system supports Unicode characters.
+</p>
+</html>"));
 end FileSystem;
 end Internal;

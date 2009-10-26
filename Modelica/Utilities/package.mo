@@ -2,91 +2,11 @@ within Modelica;
 package Utilities "Library of utility functions dedicated to scripting (operating on files, streams, strings, system)"
   extends Modelica.Icons.Library;
 
-
-    annotation (
-Documentation(info="<html>
-<p>
-This package contains Modelica <b>functions</b> that are
-especially suited for <b>scripting</b>. The functions might
-be used to work with strings, read data from file, write data
-to file or copy, move and remove files.
-</p>
-<p>
-For an introduction, have especially a look at:
-</p>
-<ul>
-<li> <a href=\"Modelica://Modelica.Utilities.UsersGuide\">Modelica.Utilities.User's Guide</a>
-     discusses the most important aspects of this library.</li>
-<li> <a href=\"Modelica://Modelica.Utilities.Examples\">Modelica.Utilities.Examples</a>
-     contains examples that demonstrate the usage of this library.</li>
-</ul>
-<p>
-The following main sublibraries are available:
-</p>
-<ul>
-<li> <a href=\"Modelica://Modelica.Utilities.Files\">Files</a>
-     provides functions to operate on files and directories, e.g.,
-     to copy, move, remove files.</li>
-<li> <a href=\"Modelica://Modelica.Utilities.Streams\">Streams</a>
-     provides functions to read from files and write to files.</li>
-<li> <a href=\"Modelica://Modelica.Utilities.Strings\">Strings</a>
-     provides functions to operate on strings. E.g.
-     substring, find, replace, sort, scanToken.</li>
-<li> <a href=\"Modelica://Modelica.Utilities.System\">System</a>
-     provides functions to interact with the environment.
-     E.g., get or set the working directory or environment
-     variables and to send a command to the default shell.</li>
-</ul>
-
-<p>
-Copyright &copy; 1998-2009, Modelica Association, DLR and Dynasim.
-</p>
-<p>
-<i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b>
-<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
-</p><br>
-</html>
-"));
     // illegal use of top-level annotation removed:
     //  version="1.0", versionDate="2004-10-01",
 
 
 package UsersGuide "User's Guide of Utilities Library"
-
-  annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
-<p>
-Library <b>Modelica.Utilities</b> contains Modelica <b>functions</b> that are
-especially suited for <b>scripting</b>. Currently, only a rudimentary
-User's Guide is present. This will be improved in the next releases.
-The User's Guide has currently the following chapters:
-</p>
-<ol>
-<li>
-<a href=\"Modelica://Modelica.Utilities.UsersGuide.ReleaseNotes\">Release Notes</a>
-  summarizes the differences between different versions of this
-  library.
-</li>
-<li>
-<a href=\"Modelica://Modelica.Utilities.UsersGuide.ImplementationNotes\">ImplementationNotes</a>
-  describes design decisions for this library especially for
-  Modelica tool vendors.
-</li>
-<li>
-<a href=\"Modelica://Modelica.Utilities.UsersGuide.Contact\">Contact</a> provides
-  information about the authors of the library as well as acknowledgments.
-</li>
-</ol>
-<p>
-<b>Error handling</b><br>
-In case of error, all functions in this library use a Modelica \"assert(..)\"
-to provide an error message and to cancel all actions. This means that
-functions do not return, if an error is triggered inside the function.
-In the near future, an exception handling mechanism will be introduced
-in Modelica that will allow to catch errors at a defined place.
-</p>
-</HTML>"));
 
   class ImplementationNotes "Implementation Notes"
 
@@ -208,5 +128,85 @@ First version implemented.
 "));
   end Contact;
 
+  annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
+<p>
+Library <b>Modelica.Utilities</b> contains Modelica <b>functions</b> that are
+especially suited for <b>scripting</b>. Currently, only a rudimentary
+User's Guide is present. This will be improved in the next releases.
+The User's Guide has currently the following chapters:
+</p>
+<ol>
+<li>
+<a href=\"Modelica://Modelica.Utilities.UsersGuide.ReleaseNotes\">Release Notes</a>
+  summarizes the differences between different versions of this
+  library.
+</li>
+<li>
+<a href=\"Modelica://Modelica.Utilities.UsersGuide.ImplementationNotes\">ImplementationNotes</a>
+  describes design decisions for this library especially for
+  Modelica tool vendors.
+</li>
+<li>
+<a href=\"Modelica://Modelica.Utilities.UsersGuide.Contact\">Contact</a> provides
+  information about the authors of the library as well as acknowledgments.
+</li>
+</ol>
+<p>
+<b>Error handling</b><br>
+In case of error, all functions in this library use a Modelica \"assert(..)\"
+to provide an error message and to cancel all actions. This means that
+functions do not return, if an error is triggered inside the function.
+In the near future, an exception handling mechanism will be introduced
+in Modelica that will allow to catch errors at a defined place.
+</p>
+</HTML>"));
 end UsersGuide;
+
+
+    annotation (
+Documentation(info="<html>
+<p>
+This package contains Modelica <b>functions</b> that are
+especially suited for <b>scripting</b>. The functions might
+be used to work with strings, read data from file, write data
+to file or copy, move and remove files.
+</p>
+<p>
+For an introduction, have especially a look at:
+</p>
+<ul>
+<li> <a href=\"Modelica://Modelica.Utilities.UsersGuide\">Modelica.Utilities.User's Guide</a>
+     discusses the most important aspects of this library.</li>
+<li> <a href=\"Modelica://Modelica.Utilities.Examples\">Modelica.Utilities.Examples</a>
+     contains examples that demonstrate the usage of this library.</li>
+</ul>
+<p>
+The following main sublibraries are available:
+</p>
+<ul>
+<li> <a href=\"Modelica://Modelica.Utilities.Files\">Files</a>
+     provides functions to operate on files and directories, e.g.,
+     to copy, move, remove files.</li>
+<li> <a href=\"Modelica://Modelica.Utilities.Streams\">Streams</a>
+     provides functions to read from files and write to files.</li>
+<li> <a href=\"Modelica://Modelica.Utilities.Strings\">Strings</a>
+     provides functions to operate on strings. E.g.
+     substring, find, replace, sort, scanToken.</li>
+<li> <a href=\"Modelica://Modelica.Utilities.System\">System</a>
+     provides functions to interact with the environment.
+     E.g., get or set the working directory or environment
+     variables and to send a command to the default shell.</li>
+</ul>
+
+<p>
+Copyright &copy; 1998-2009, Modelica Association, DLR and Dynasim.
+</p>
+<p>
+<i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the accompanying <b>disclaimer</b>
+<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
+</p><br>
+</html>
+"));
 end Utilities;

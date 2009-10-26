@@ -5,94 +5,6 @@ package Continuous "Library of continuous control blocks with internal states"
   import Modelica.SIunits;
   extends Modelica.Icons.Library;
 
-  annotation (
-    Documentation(info="<html>
-<p>
-This package contains basic <b>continuous</b> input/output blocks
-described by differential equations.
-</p>
-
-<p>
-All blocks of this package can be initialized in different
-ways controlled by parameter <b>initType</b>. The possible
-values of initType are defined in
-<a href=\"Modelica://Modelica.Blocks.Types.Init\">Modelica.Blocks.Types.Init</a>:
-</p>
-
-<table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>Name</b></td>
-      <td valign=\"top\"><b>Description</b></td></tr>
-
-  <tr><td valign=\"top\"><b>Init.NoInit</b></td>
-      <td valign=\"top\">no initialization (start values are used as guess values with fixed=false)</td></tr>
-
-  <tr><td valign=\"top\"><b>Init.SteadyState</b></td>
-      <td valign=\"top\">steady state initialization (derivatives of states are zero)</td></tr>
-
-  <tr><td valign=\"top\"><b>Init.InitialState</b></td>
-      <td valign=\"top\">Initialization with initial states</td></tr>
-
-  <tr><td valign=\"top\"><b>Init.InitialOutput</b></td>
-      <td valign=\"top\">Initialization with initial outputs (and steady state of the states if possibles)</td></tr>
-</table>
-
-<p>
-For backward compatibility reasons the default of all blocks is
-<b>Init.NoInit</b>, with the exception of Integrator and LimIntegrator
-where the default is <b>Init.InitialState</b> (this was the initialization
-defined in version 2.2 of the Modelica standard library).
-</p>
-
-<p>
-In many cases, the most useful initial condition is
-<b>Init.SteadyState</b> because initial transients are then no longer
-present. The drawback is that in combination with a non-linear
-plant, non-linear algebraic equations occur that might be
-difficult to solve if appropriate guess values for the
-iteration variables are not provided (i.e. start values with fixed=false).
-However, it is often already useful to just initialize
-the linear blocks from the Continuous blocks library in SteadyState.
-This is uncritical, because only linear algebraic equations occur.
-If Init.NoInit is set, then the start values for the states are
-interpreted as <b>guess</b> values and are propagated to the
-states with fixed=<b>false</b>.
-</p>
-
-<p>
-Note, initialization with Init.SteadyState is usually difficult
-for a block that contains an integrator
-(Integrator, LimIntegrator, PI, PID, LimPID).
-This is due to the basic equation of an integrator:
-</p>
-
-<pre>
-  <b>initial equation</b>
-     <b>der</b>(y) = 0;   // Init.SteadyState
-  <b>equation</b>
-     <b>der</b>(y) = k*u;
-</pre>
-
-<p>
-The steady state equation leads to the condition that the input to the
-integrator is zero. If the input u is already (directly or indirectly) defined
-by another initial condition, then the initialization problem is <b>singular</b>
-(has none or infinitely many solutions). This situation occurs often
-for mechanical systems, where, e.g., u = desiredSpeed - measuredSpeed and
-since speed is both a state and a derivative, it is always defined by
-Init.InitialState or Init.SteadyState initializtion.
-</p>
-
-<p>
-In such a case, <b>Init.NoInit</b> has to be selected for the integrator
-and an additional initial equation has to be added to the system
-to which the integrator is connected. E.g., useful initial conditions
-for a 1-dim. rotational inertia controlled by a PI controller are that
-<b>angle</b>, <b>speed</b>, and <b>acceleration</b> of the inertia are zero.
-</p>
-
-</html>
-"));
-
   block Integrator "Output the integral of the input signal"
     import Modelica.Blocks.Types.Init;
     parameter Real k=1 "Integrator gain";
@@ -104,10 +16,19 @@ for a 1-dim. rotational inertia controlled by a PI controller are that
       "Type of initialization (1: no init, 2: steady state, 3,4: initial output)"
                                                                                       annotation(Evaluate=true,
         Dialog(group="Initialization"));
-    parameter Real y_start=0 "Initial or guess value of output (= state)"
+    parameter Real y_start=0 "Initial or guess value of output (= state)" 
       annotation (Dialog(group="Initialization"));
     extends Interfaces.SISO(y(start=y_start));
 
+  initial equation
+    if initType == Init.SteadyState then
+       der(y) = 0;
+    elseif initType == Init.InitialState or 
+           initType == Init.InitialOutput then
+      y = y_start;
+    end if;
+  equation
+    der(y) = k*u;
     annotation (
       Documentation(info="<html>
 <p>
@@ -169,16 +90,6 @@ This is discussed in the description of package
             lineColor={0,0,0},
             textString="s"),
           Line(points={{-46,0},{46,0}}, color={0,0,0})}));
-
-  initial equation
-    if initType == Init.SteadyState then
-       der(y) = 0;
-    elseif initType == Init.InitialState or
-           initType == Init.InitialOutput then
-      y = y_start;
-    end if;
-  equation
-    der(y) = k*u;
   end Integrator;
 
   block LimIntegrator "Integrator with limited value of the output"
@@ -196,6 +107,25 @@ This is discussed in the description of package
       "Initial or guess value of output (must be in the limits outMin .. outMax)"
       annotation (Dialog(group="Initialization"));
     extends Interfaces.SISO(y(start=y_start));
+
+  initial equation
+    if initType == Init.SteadyState then
+       der(y) = 0;
+    elseif initType == Init.InitialState or 
+           initType == Init.InitialOutput then
+      y = y_start;
+    end if;
+  equation
+    if initial() and not limitsAtInit then
+       der(y) = k*u;
+       assert(y >= outMin - 0.01*abs(outMin) and 
+              y <= outMax + 0.01*abs(outMax),
+             "LimIntegrator: During initialization the limits have been ignored.\n"+
+             "However, the result is that the output y is not within the required limits:\n"+
+             "  y = " + String(y) + ", outMin = " + String(outMin) + ", outMax = " + String(outMax));
+    else
+       der(y) = if y < outMin and u < 0 or y > outMax and u > 0 then 0 else k*u;
+    end if;
     annotation (
       Documentation(info="<html>
 <p>
@@ -268,25 +198,6 @@ to use <b>limitAtInit</b> = <b>false</b>.
             lineColor={0,0,0},
             textString="s"),
           Line(points={{4,0},{46,0}}, color={0,0,0})}));
-
-  initial equation
-    if initType == Init.SteadyState then
-       der(y) = 0;
-    elseif initType == Init.InitialState or
-           initType == Init.InitialOutput then
-      y = y_start;
-    end if;
-  equation
-    if initial() and not limitsAtInit then
-       der(y) = k*u;
-       assert(y >= outMin - 0.01*abs(outMin) and
-              y <= outMax + 0.01*abs(outMax),
-             "LimIntegrator: During initialization the limits have been ignored.\n"+
-             "However, the result is that the output y is not within the required limits:\n"+
-             "  y = " + String(y) + ", outMin = " + String(outMin) + ", outMax = " + String(outMax));
-    else
-       der(y) = if y < outMin and u < 0 or y > outMax and u > 0 then 0 else k*u;
-    end if;
   end LimIntegrator;
 
   block Derivative "Approximated derivative block"
@@ -298,15 +209,32 @@ to use <b>limitAtInit</b> = <b>false</b>.
       "Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)"
                                                                                       annotation(Evaluate=true,
         Dialog(group="Initialization"));
-    parameter Real x_start=0 "Initial or guess value of state"
+    parameter Real x_start=0 "Initial or guess value of state" 
       annotation (Dialog(group="Initialization"));
-    parameter Real y_start=0 "Initial value of output (= state)"
+    parameter Real y_start=0 "Initial value of output (= state)" 
       annotation(Dialog(enable=initType == Init.InitialOutput, group=
             "Initialization"));
     extends Interfaces.SISO;
 
     output Real x(start=x_start) "State of block";
 
+  protected
+    parameter Boolean zeroGain = abs(k) < Modelica.Constants.eps;
+  initial equation
+    if initType == Init.SteadyState then
+      der(x) = 0;
+    elseif initType == Init.InitialState then
+      x = x_start;
+    elseif initType == Init.InitialOutput then
+      if zeroGain then
+         x = u;
+      else
+         y = y_start;
+      end if;
+    end if;
+  equation
+    der(x) = if zeroGain then 0 else (u - x)/T;
+    y = if zeroGain then 0 else (k/T)*(u - x);
     annotation (
       Documentation(info="
 <HTML>
@@ -376,23 +304,6 @@ If k=0, the block reduces to y=0.
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Line(points={{-100,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{100,0}}, color={0,0,255})}));
-  protected
-    parameter Boolean zeroGain = abs(k) < Modelica.Constants.eps;
-  initial equation
-    if initType == Init.SteadyState then
-      der(x) = 0;
-    elseif initType == Init.InitialState then
-      x = x_start;
-    elseif initType == Init.InitialOutput then
-      if zeroGain then
-         x = u;
-      else
-         y = y_start;
-      end if;
-    end if;
-  equation
-    der(x) = if zeroGain then 0 else (u - x)/T;
-    y = if zeroGain then 0 else (k/T)*(u - x);
   end Derivative;
 
   block FirstOrder "First order transfer function block (= 1 pole)"
@@ -403,11 +314,19 @@ If k=0, the block reduces to y=0.
       "Type of initialization (1: no init, 2: steady state, 3/4: initial output)"
                                                                                       annotation(Evaluate=true,
         Dialog(group="Initialization"));
-    parameter Real y_start=0 "Initial or guess value of output (= state)"
+    parameter Real y_start=0 "Initial or guess value of output (= state)" 
       annotation (Dialog(group="Initialization"));
 
     extends Interfaces.SISO(y(start=y_start));
 
+  initial equation
+    if initType == Init.SteadyState then
+      der(y) = 0;
+    elseif initType == Init.InitialState or initType == Init.InitialOutput then
+      y = y_start;
+    end if;
+  equation
+    der(y) = (k*u - y)/T;
     annotation (
       Documentation(info="<HTML>
 <p>
@@ -480,14 +399,6 @@ Example:
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Line(points={{-100,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{100,0}}, color={0,0,255})}));
-  initial equation
-    if initType == Init.SteadyState then
-      der(y) = 0;
-    elseif initType == Init.InitialState or initType == Init.InitialOutput then
-      y = y_start;
-    end if;
-  equation
-    der(y) = (k*u - y)/T;
   end FirstOrder;
 
   block SecondOrder "Second order transfer function block (= 2 poles)"
@@ -499,14 +410,26 @@ Example:
       "Type of initialization (1: no init, 2: steady state, 3/4: initial output)"
                                                                                       annotation(Evaluate=true,
         Dialog(group="Initialization"));
-    parameter Real y_start=0 "Initial or guess value of output (= state)"
+    parameter Real y_start=0 "Initial or guess value of output (= state)" 
       annotation (Dialog(group="Initialization"));
     parameter Real yd_start=0
-      "Initial or guess value of derivative of output (= state)"
+      "Initial or guess value of derivative of output (= state)" 
       annotation (Dialog(group="Initialization"));
 
     extends Interfaces.SISO(y(start=y_start));
     output Real yd(start=yd_start) "Derivative of y";
+
+  initial equation
+    if initType == Init.SteadyState then
+      der(y) = 0;
+      der(yd) = 0;
+    elseif initType == Init.InitialState or initType == Init.InitialOutput then
+      y = y_start;
+      yd = yd_start;
+    end if;
+  equation
+    der(y) = yd;
+    der(yd) = w*(w*(k*u - y) - 2*D*yd);
     annotation (
       Documentation(info="<HTML>
 <p>
@@ -611,18 +534,6 @@ Example:
             extent={{30,2},{58,-42}},
             lineColor={0,0,0},
             textString="+1")}));
-
-  initial equation
-    if initType == Init.SteadyState then
-      der(y) = 0;
-      der(yd) = 0;
-    elseif initType == Init.InitialState or initType == Init.InitialOutput then
-      y = y_start;
-      yd = yd_start;
-    end if;
-  equation
-    der(y) = yd;
-    der(yd) = w*(w*(k*u - y) - 2*D*yd);
   end SecondOrder;
 
   block PI "Proportional-Integral controller"
@@ -634,15 +545,26 @@ Example:
       "Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)"
                                                                               annotation(Evaluate=true,
         Dialog(group="Initialization"));
-    parameter Real x_start=0 "Initial or guess value of state"
+    parameter Real x_start=0 "Initial or guess value of state" 
       annotation (Dialog(group="Initialization"));
-    parameter Real y_start=0 "Initial value of output"
+    parameter Real y_start=0 "Initial value of output" 
       annotation(Dialog(enable=initType == Init.SteadyState or initType == Init.InitialOutput, group=
             "Initialization"));
 
     extends Interfaces.SISO;
     output Real x(start=x_start) "State of block";
 
+  initial equation
+    if initType == Init.SteadyState then
+      der(x) = 0;
+    elseif initType == Init.InitialState then
+      x = x_start;
+    elseif initType == Init.InitialOutput then
+      y = y_start;
+    end if;
+  equation
+    der(x) = u/T;
+    y = k*(x + u);
     annotation (defaultComponentName="PI",
       Documentation(info="
 <HTML>
@@ -729,17 +651,6 @@ This is discussed in the description of package
           Line(points={{-24,0},{54,0}}, color={0,0,0}),
           Line(points={{-100,0},{-60,0}}, color={0,0,255}),
           Line(points={{62,0},{100,0}}, color={0,0,255})}));
-  initial equation
-    if initType == Init.SteadyState then
-      der(x) = 0;
-    elseif initType == Init.InitialState then
-      x = x_start;
-    elseif initType == Init.InitialOutput then
-      y = y_start;
-    end if;
-  equation
-    der(x) = u/T;
-    y = k*(x + u);
   end PI;
 
   block PID "PID-controller in additive description form"
@@ -761,12 +672,59 @@ This is discussed in the description of package
       "Initial or guess value value for integrator output (= integrator state)"
       annotation (Dialog(group="Initialization"));
     parameter Real xd_start=0
-      "Initial or guess value for state of derivative block"
+      "Initial or guess value for state of derivative block" 
       annotation (Dialog(group="Initialization"));
-    parameter Real y_start=0 "Initial value of output"
+    parameter Real y_start=0 "Initial value of output" 
       annotation(Dialog(enable=initType == Init.InitialOutput, group=
             "Initialization"));
 
+    Blocks.Math.Gain P(k=1) "Proportional part of PID controller" 
+      annotation (Placement(transformation(extent={{-60,60},{-20,100}},
+            rotation=0)));
+    Blocks.Continuous.Integrator I(k=1/Ti, y_start=xi_start,
+      initType=if initType==InitPID.SteadyState then 
+                  InitPID.SteadyState else 
+               if initType==InitPID.InitialState or 
+                  initType==InitPID.DoNotUse_InitialIntegratorState then 
+                  InitPID.InitialState else InitPID.NoInit)
+      "Integral part of PID controller" 
+      annotation (Placement(transformation(extent={{-60,-20},{-20,20}},
+            rotation=0)));
+    Blocks.Continuous.Derivative D(k=Td, T=max([Td/Nd, 100*Modelica.
+          Constants.eps]), x_start=xd_start,
+      initType=if initType==InitPID.SteadyState or 
+                  initType==InitPID.InitialOutput then InitPID.SteadyState else 
+               if initType==InitPID.InitialState then InitPID.InitialState else 
+                  InitPID.NoInit) "Derivative part of PID controller" 
+      annotation (Placement(transformation(extent={{-60,-100},{-20,-60}},
+            rotation=0)));
+    Blocks.Math.Gain Gain(k=k) "Gain of PID controller" 
+      annotation (Placement(transformation(extent={{60,-10},{80,10}}, rotation=
+              0)));
+    Blocks.Math.Add3 Add annotation (Placement(transformation(extent={{20,-10},
+              {40,10}}, rotation=0)));
+  initial equation
+    if initType==InitPID.InitialOutput then
+       y = y_start;
+    end if;
+
+  equation
+    connect(u, P.u) annotation (Line(points={{-120,0},{-80,0},{-80,80},{-64,80}},
+          color={0,0,127}));
+    connect(u, I.u) 
+      annotation (Line(points={{-120,0},{-64,0}}, color={0,0,127}));
+    connect(u, D.u) annotation (Line(points={{-120,0},{-80,0},{-80,-80},{-64,
+            -80}}, color={0,0,127}));
+    connect(P.y, Add.u1) annotation (Line(points={{-18,80},{0,80},{0,8},{18,8}},
+          color={0,0,127}));
+    connect(I.y, Add.u2) 
+      annotation (Line(points={{-18,0},{18,0}}, color={0,0,127}));
+    connect(D.y, Add.u3) annotation (Line(points={{-18,-80},{0,-80},{0,-8},{18,
+            -8}}, color={0,0,127}));
+    connect(Add.y, Gain.u) 
+      annotation (Line(points={{41,0},{58,0}}, color={0,0,127}));
+    connect(Gain.y, y) 
+      annotation (Line(points={{81,0},{110,0}}, color={0,0,127}));
     annotation (defaultComponentName="PID",
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -877,54 +835,6 @@ to compute u by an algebraic equation.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics));
-
-    Blocks.Math.Gain P(k=1) "Proportional part of PID controller"
-      annotation (Placement(transformation(extent={{-60,60},{-20,100}},
-            rotation=0)));
-    Blocks.Continuous.Integrator I(k=1/Ti, y_start=xi_start,
-      initType=if initType==InitPID.SteadyState then
-                  InitPID.SteadyState else
-               if initType==InitPID.InitialState or
-                  initType==InitPID.DoNotUse_InitialIntegratorState then
-                  InitPID.InitialState else InitPID.NoInit)
-      "Integral part of PID controller"
-      annotation (Placement(transformation(extent={{-60,-20},{-20,20}},
-            rotation=0)));
-    Blocks.Continuous.Derivative D(k=Td, T=max([Td/Nd, 100*Modelica.
-          Constants.eps]), x_start=xd_start,
-      initType=if initType==InitPID.SteadyState or
-                  initType==InitPID.InitialOutput then InitPID.SteadyState else
-               if initType==InitPID.InitialState then InitPID.InitialState else
-                  InitPID.NoInit) "Derivative part of PID controller"
-      annotation (Placement(transformation(extent={{-60,-100},{-20,-60}},
-            rotation=0)));
-    Blocks.Math.Gain Gain(k=k) "Gain of PID controller"
-      annotation (Placement(transformation(extent={{60,-10},{80,10}}, rotation=
-              0)));
-    Blocks.Math.Add3 Add annotation (Placement(transformation(extent={{20,-10},
-              {40,10}}, rotation=0)));
-  initial equation
-    if initType==InitPID.InitialOutput then
-       y = y_start;
-    end if;
-
-  equation
-    connect(u, P.u) annotation (Line(points={{-120,0},{-80,0},{-80,80},{-64,80}},
-          color={0,0,127}));
-    connect(u, I.u)
-      annotation (Line(points={{-120,0},{-64,0}}, color={0,0,127}));
-    connect(u, D.u) annotation (Line(points={{-120,0},{-80,0},{-80,-80},{-64,
-            -80}}, color={0,0,127}));
-    connect(P.y, Add.u1) annotation (Line(points={{-18,80},{0,80},{0,8},{18,8}},
-          color={0,0,127}));
-    connect(I.y, Add.u2)
-      annotation (Line(points={{-18,0},{18,0}}, color={0,0,127}));
-    connect(D.y, Add.u3) annotation (Line(points={{-18,-80},{0,-80},{0,-8},{18,
-            -8}}, color={0,0,127}));
-    connect(Add.y, Gain.u)
-      annotation (Line(points={{41,0},{58,0}}, color={0,0,127}));
-    connect(Gain.y, y)
-      annotation (Line(points={{81,0},{110,0}}, color={0,0,127}));
   end PID;
 
   block LimPID
@@ -939,51 +849,169 @@ to compute u by an algebraic equation.
            Modelica.Blocks.Types.SimpleController.PID "Type of controller";
     parameter Real k(min=0) = 1 "Gain of controller";
     parameter SIunits.Time Ti(min=Modelica.Constants.small, start=0.5)
-      "Time constant of Integrator block"
-       annotation(Dialog(enable=controllerType==SimpleController.PI or
+      "Time constant of Integrator block" 
+       annotation(Dialog(enable=controllerType==SimpleController.PI or 
                                 controllerType==SimpleController.PID));
     parameter SIunits.Time Td(min=0, start= 0.1)
-      "Time constant of Derivative block"
-         annotation(Dialog(enable=controllerType==SimpleController.PD or
+      "Time constant of Derivative block" 
+         annotation(Dialog(enable=controllerType==SimpleController.PD or 
                                   controllerType==SimpleController.PID));
     parameter Real yMax(start=1) "Upper limit of output";
     parameter Real yMin=-yMax "Lower limit of output";
     parameter Real wp(min=0) = 1
       "Set-point weight for Proportional block (0..1)";
     parameter Real wd(min=0) = 0 "Set-point weight for Derivative block (0..1)"
-         annotation(Dialog(enable=controllerType==SimpleController.PD or
+         annotation(Dialog(enable=controllerType==SimpleController.PD or 
                                   controllerType==SimpleController.PID));
     parameter Real Ni(min=100*Modelica.Constants.eps) = 0.9
-      "Ni*Ti is time constant of anti-windup compensation"
-       annotation(Dialog(enable=controllerType==SimpleController.PI or
+      "Ni*Ti is time constant of anti-windup compensation" 
+       annotation(Dialog(enable=controllerType==SimpleController.PI or 
                                 controllerType==SimpleController.PID));
     parameter Real Nd(min=100*Modelica.Constants.eps) = 10
-      "The higher Nd, the more ideal the derivative block"
-         annotation(Dialog(enable=controllerType==SimpleController.PD or
+      "The higher Nd, the more ideal the derivative block" 
+         annotation(Dialog(enable=controllerType==SimpleController.PD or 
                                   controllerType==SimpleController.PID));
     parameter Modelica.Blocks.Types.InitPID initType= Modelica.Blocks.Types.InitPID.DoNotUse_InitialIntegratorState
       "Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)"
                                        annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Boolean limitsAtInit = true
-      "= false, if limits are ignored during initializiation"
+      "= false, if limits are ignored during initializiation" 
       annotation(Evaluate=true, Dialog(group="Initialization",
-                         enable=controllerType==SimpleController.PI or
+                         enable=controllerType==SimpleController.PI or 
                                 controllerType==SimpleController.PID));
     parameter Real xi_start=0
       "Initial or guess value value for integrator output (= integrator state)"
       annotation (Dialog(group="Initialization",
-                  enable=controllerType==SimpleController.PI or
+                  enable=controllerType==SimpleController.PI or 
                          controllerType==SimpleController.PID));
     parameter Real xd_start=0
-      "Initial or guess value for state of derivative block"
+      "Initial or guess value for state of derivative block" 
       annotation (Dialog(group="Initialization",
-                           enable=controllerType==SimpleController.PD or
+                           enable=controllerType==SimpleController.PD or 
                                   controllerType==SimpleController.PID));
-    parameter Real y_start=0 "Initial value of output"
+    parameter Real y_start=0 "Initial value of output" 
       annotation(Dialog(enable=initType == InitPID.InitialOutput, group=
             "Initialization"));
 
+    Blocks.Math.Add addP(k1=wp, k2=-1) 
+      annotation (Placement(transformation(extent={{-80,40},{-60,60}}, rotation=
+             0)));
+    Blocks.Math.Add addD(k1=wd, k2=-1) if with_D 
+      annotation (Placement(transformation(extent={{-80,-10},{-60,10}},
+            rotation=0)));
+    Blocks.Math.Gain P(k=1) 
+                       annotation (Placement(transformation(extent={{-40,40},{
+              -20,60}}, rotation=0)));
+    Blocks.Continuous.Integrator I(k=1/Ti, y_start=xi_start,
+      initType=if initType==InitPID.SteadyState then 
+                  InitPID.SteadyState else 
+               if initType==InitPID.InitialState or 
+                  initType==InitPID.DoNotUse_InitialIntegratorState then 
+                  InitPID.InitialState else InitPID.NoInit) if with_I 
+      annotation (Placement(transformation(extent={{-40,-60},{-20,-40}},
+            rotation=0)));
+    Blocks.Continuous.Derivative D(k=Td, T=max([Td/Nd, 1.e-14]), x_start=xd_start,
+      initType=if initType==InitPID.SteadyState or 
+                  initType==InitPID.InitialOutput then InitPID.SteadyState else 
+               if initType==InitPID.InitialState then InitPID.InitialState else 
+                  InitPID.NoInit) if with_D 
+      annotation (Placement(transformation(extent={{-40,-10},{-20,10}},
+            rotation=0)));
+    Blocks.Math.Gain gainPID(k=k) annotation (Placement(transformation(extent={
+              {30,-10},{50,10}}, rotation=0)));
+    Blocks.Math.Add3 addPID annotation (Placement(transformation(
+            extent={{0,-10},{20,10}}, rotation=0)));
+    Blocks.Math.Add3 addI(k2=-1) if with_I annotation (Placement(
+          transformation(extent={{-80,-60},{-60,-40}}, rotation=0)));
+    Blocks.Math.Add addSat(k1=+1, k2=-1) if 
+                                     with_I 
+      annotation (Placement(transformation(
+          origin={80,-50},
+          extent={{-10,-10},{10,10}},
+          rotation=270)));
+    Blocks.Math.Gain gainTrack(k=1/(k*Ni)) if with_I 
+      annotation (Placement(transformation(extent={{40,-80},{20,-60}}, rotation=
+             0)));
+    Blocks.Nonlinear.Limiter limiter(uMax=yMax, uMin=yMin, limitsAtInit=limitsAtInit) 
+      annotation (Placement(transformation(extent={{70,-10},{90,10}}, rotation=
+              0)));
+  protected
+    parameter Boolean with_I = controllerType==SimpleController.PI or 
+                               controllerType==SimpleController.PID annotation(Evaluate=true, HideResult=true);
+    parameter Boolean with_D = controllerType==SimpleController.PD or 
+                               controllerType==SimpleController.PID annotation(Evaluate=true, HideResult=true);
+  public
+    Sources.Constant Dzero(k=0) if not with_D 
+      annotation (Placement(transformation(extent={{-30,20},{-20,30}}, rotation=
+             0)));
+    Sources.Constant Izero(k=0) if not with_I 
+      annotation (Placement(transformation(extent={{10,-55},{0,-45}}, rotation=
+              0)));
+  initial equation
+    if initType==InitPID.InitialOutput then
+       y = y_start;
+    end if;
+  equation
+    assert(yMax >= yMin, "LimPID: Limits must be consistent. However, yMax (=" + String(yMax) +
+                         ") < yMin (=" + String(yMin) + ")");
+    if initType == InitPID.InitialOutput and (y_start < yMin or y_start > yMax) then
+        Modelica.Utilities.Streams.error("LimPID: Start value y_start (=" + String(y_start) +
+           ") is outside of the limits of yMin (=" + String(yMin) +") and yMax (=" + String(yMax) + ")");
+    end if;
+    assert(limitsAtInit or not limitsAtInit and y >= yMin and y <= yMax,
+           "LimPID: During initialization the limits have been switched off.\n" +
+           "After initialization, the output y (=" + String(y) +
+           ") is outside of the limits of yMin (=" + String(yMin) +") and yMax (=" + String(yMax) + ")");
+
+    connect(u_s, addP.u1) annotation (Line(points={{-120,0},{-96,0},{-96,56},{
+            -82,56}}, color={0,0,127}));
+    connect(u_s, addD.u1) annotation (Line(points={{-120,0},{-96,0},{-96,6},{
+            -82,6}}, color={0,0,127}));
+    connect(u_s, addI.u1) annotation (Line(points={{-120,0},{-96,0},{-96,-42},{
+            -82,-42}}, color={0,0,127}));
+    connect(addP.y, P.u) annotation (Line(points={{-59,50},{-42,50}}, color={0,
+            0,127}));
+    connect(addD.y, D.u) 
+      annotation (Line(points={{-59,0},{-42,0}}, color={0,0,127}));
+    connect(addI.y, I.u) annotation (Line(points={{-59,-50},{-42,-50}}, color={
+            0,0,127}));
+    connect(P.y, addPID.u1) annotation (Line(points={{-19,50},{-10,50},{-10,8},
+            {-2,8}}, color={0,0,127}));
+    connect(D.y, addPID.u2) 
+      annotation (Line(points={{-19,0},{-2,0}}, color={0,0,127}));
+    connect(I.y, addPID.u3) annotation (Line(points={{-19,-50},{-10,-50},{-10,
+            -8},{-2,-8}}, color={0,0,127}));
+    connect(addPID.y, gainPID.u) 
+      annotation (Line(points={{21,0},{28,0}}, color={0,0,127}));
+    connect(gainPID.y, addSat.u2) annotation (Line(points={{51,0},{60,0},{60,
+            -20},{74,-20},{74,-38}}, color={0,0,127}));
+    connect(gainPID.y, limiter.u) 
+      annotation (Line(points={{51,0},{68,0}}, color={0,0,127}));
+    connect(limiter.y, addSat.u1) annotation (Line(points={{91,0},{94,0},{94,
+            -20},{86,-20},{86,-38}}, color={0,0,127}));
+    connect(limiter.y, y) 
+      annotation (Line(points={{91,0},{110,0}}, color={0,0,127}));
+    connect(addSat.y, gainTrack.u) annotation (Line(points={{80,-61},{80,-70},{
+            42,-70}}, color={0,0,127}));
+    connect(gainTrack.y, addI.u3) annotation (Line(points={{19,-70},{-88,-70},{
+            -88,-58},{-82,-58}}, color={0,0,127}));
+    connect(u_m, addP.u2) annotation (Line(
+        points={{0,-120},{0,-92},{-92,-92},{-92,44},{-82,44}},
+        color={0,0,127},
+        thickness=0.5));
+    connect(u_m, addD.u2) annotation (Line(
+        points={{0,-120},{0,-92},{-92,-92},{-92,-6},{-82,-6}},
+        color={0,0,127},
+        thickness=0.5));
+    connect(u_m, addI.u2) annotation (Line(
+        points={{0,-120},{0,-92},{-92,-92},{-92,-50},{-82,-50}},
+        color={0,0,127},
+        thickness=0.5));
+    connect(Dzero.y, addPID.u2) annotation (Line(points={{-19.5,25},{-14,25},{
+            -14,0},{-2,0}}, color={0,0,127}));
+    connect(Izero.y, addPID.u3) annotation (Line(points={{-0.5,-50},{-10,-50},{
+            -10,-8},{-2,-8}}, color={0,0,127}));
     annotation (defaultComponentName="PID",
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -1165,140 +1193,22 @@ to use <b>limitAtInit</b> = <b>false</b>.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics));
-    Blocks.Math.Add addP(k1=wp, k2=-1)
-      annotation (Placement(transformation(extent={{-80,40},{-60,60}}, rotation=
-             0)));
-    Blocks.Math.Add addD(k1=wd, k2=-1) if with_D
-      annotation (Placement(transformation(extent={{-80,-10},{-60,10}},
-            rotation=0)));
-    Blocks.Math.Gain P(k=1)
-                       annotation (Placement(transformation(extent={{-40,40},{
-              -20,60}}, rotation=0)));
-    Blocks.Continuous.Integrator I(k=1/Ti, y_start=xi_start,
-      initType=if initType==InitPID.SteadyState then
-                  InitPID.SteadyState else
-               if initType==InitPID.InitialState or
-                  initType==InitPID.DoNotUse_InitialIntegratorState then
-                  InitPID.InitialState else InitPID.NoInit) if with_I
-      annotation (Placement(transformation(extent={{-40,-60},{-20,-40}},
-            rotation=0)));
-    Blocks.Continuous.Derivative D(k=Td, T=max([Td/Nd, 1.e-14]), x_start=xd_start,
-      initType=if initType==InitPID.SteadyState or
-                  initType==InitPID.InitialOutput then InitPID.SteadyState else
-               if initType==InitPID.InitialState then InitPID.InitialState else
-                  InitPID.NoInit) if with_D
-      annotation (Placement(transformation(extent={{-40,-10},{-20,10}},
-            rotation=0)));
-    Blocks.Math.Gain gainPID(k=k) annotation (Placement(transformation(extent={
-              {30,-10},{50,10}}, rotation=0)));
-    Blocks.Math.Add3 addPID annotation (Placement(transformation(
-            extent={{0,-10},{20,10}}, rotation=0)));
-    Blocks.Math.Add3 addI(k2=-1) if with_I annotation (Placement(
-          transformation(extent={{-80,-60},{-60,-40}}, rotation=0)));
-    Blocks.Math.Add addSat(k1=+1, k2=-1) if
-                                     with_I
-      annotation (Placement(transformation(
-          origin={80,-50},
-          extent={{-10,-10},{10,10}},
-          rotation=270)));
-    Blocks.Math.Gain gainTrack(k=1/(k*Ni)) if with_I
-      annotation (Placement(transformation(extent={{40,-80},{20,-60}}, rotation=
-             0)));
-    Blocks.Nonlinear.Limiter limiter(uMax=yMax, uMin=yMin, limitsAtInit=limitsAtInit)
-      annotation (Placement(transformation(extent={{70,-10},{90,10}}, rotation=
-              0)));
-  protected
-    parameter Boolean with_I = controllerType==SimpleController.PI or
-                               controllerType==SimpleController.PID annotation(Evaluate=true, HideResult=true);
-    parameter Boolean with_D = controllerType==SimpleController.PD or
-                               controllerType==SimpleController.PID annotation(Evaluate=true, HideResult=true);
-  public
-    Sources.Constant Dzero(k=0) if not with_D
-      annotation (Placement(transformation(extent={{-30,20},{-20,30}}, rotation=
-             0)));
-    Sources.Constant Izero(k=0) if not with_I
-      annotation (Placement(transformation(extent={{10,-55},{0,-45}}, rotation=
-              0)));
-  initial equation
-    if initType==InitPID.InitialOutput then
-       y = y_start;
-    end if;
-  equation
-    assert(yMax >= yMin, "LimPID: Limits must be consistent. However, yMax (=" + String(yMax) +
-                         ") < yMin (=" + String(yMin) + ")");
-    if initType == InitPID.InitialOutput and (y_start < yMin or y_start > yMax) then
-        Modelica.Utilities.Streams.error("LimPID: Start value y_start (=" + String(y_start) +
-           ") is outside of the limits of yMin (=" + String(yMin) +") and yMax (=" + String(yMax) + ")");
-    end if;
-    assert(limitsAtInit or not limitsAtInit and y >= yMin and y <= yMax,
-           "LimPID: During initialization the limits have been switched off.\n" +
-           "After initialization, the output y (=" + String(y) +
-           ") is outside of the limits of yMin (=" + String(yMin) +") and yMax (=" + String(yMax) + ")");
-
-    connect(u_s, addP.u1) annotation (Line(points={{-120,0},{-96,0},{-96,56},{
-            -82,56}}, color={0,0,127}));
-    connect(u_s, addD.u1) annotation (Line(points={{-120,0},{-96,0},{-96,6},{
-            -82,6}}, color={0,0,127}));
-    connect(u_s, addI.u1) annotation (Line(points={{-120,0},{-96,0},{-96,-42},{
-            -82,-42}}, color={0,0,127}));
-    connect(addP.y, P.u) annotation (Line(points={{-59,50},{-42,50}}, color={0,
-            0,127}));
-    connect(addD.y, D.u)
-      annotation (Line(points={{-59,0},{-42,0}}, color={0,0,127}));
-    connect(addI.y, I.u) annotation (Line(points={{-59,-50},{-42,-50}}, color={
-            0,0,127}));
-    connect(P.y, addPID.u1) annotation (Line(points={{-19,50},{-10,50},{-10,8},
-            {-2,8}}, color={0,0,127}));
-    connect(D.y, addPID.u2)
-      annotation (Line(points={{-19,0},{-2,0}}, color={0,0,127}));
-    connect(I.y, addPID.u3) annotation (Line(points={{-19,-50},{-10,-50},{-10,
-            -8},{-2,-8}}, color={0,0,127}));
-    connect(addPID.y, gainPID.u)
-      annotation (Line(points={{21,0},{28,0}}, color={0,0,127}));
-    connect(gainPID.y, addSat.u2) annotation (Line(points={{51,0},{60,0},{60,
-            -20},{74,-20},{74,-38}}, color={0,0,127}));
-    connect(gainPID.y, limiter.u)
-      annotation (Line(points={{51,0},{68,0}}, color={0,0,127}));
-    connect(limiter.y, addSat.u1) annotation (Line(points={{91,0},{94,0},{94,
-            -20},{86,-20},{86,-38}}, color={0,0,127}));
-    connect(limiter.y, y)
-      annotation (Line(points={{91,0},{110,0}}, color={0,0,127}));
-    connect(addSat.y, gainTrack.u) annotation (Line(points={{80,-61},{80,-70},{
-            42,-70}}, color={0,0,127}));
-    connect(gainTrack.y, addI.u3) annotation (Line(points={{19,-70},{-88,-70},{
-            -88,-58},{-82,-58}}, color={0,0,127}));
-    connect(u_m, addP.u2) annotation (Line(
-        points={{0,-120},{0,-92},{-92,-92},{-92,44},{-82,44}},
-        color={0,0,127},
-        thickness=0.5));
-    connect(u_m, addD.u2) annotation (Line(
-        points={{0,-120},{0,-92},{-92,-92},{-92,-6},{-82,-6}},
-        color={0,0,127},
-        thickness=0.5));
-    connect(u_m, addI.u2) annotation (Line(
-        points={{0,-120},{0,-92},{-92,-92},{-92,-50},{-82,-50}},
-        color={0,0,127},
-        thickness=0.5));
-    connect(Dzero.y, addPID.u2) annotation (Line(points={{-19.5,25},{-14,25},{
-            -14,0},{-2,0}}, color={0,0,127}));
-    connect(Izero.y, addPID.u3) annotation (Line(points={{-0.5,-50},{-10,-50},{
-            -10,-8},{-2,-8}}, color={0,0,127}));
   end LimPID;
 
   block TransferFunction "Linear transfer function"
     import Modelica.Blocks.Types.Init;
     extends Interfaces.SISO;
 
-    parameter Real b[:]={1} "Numerator coefficients of transfer function"
+    parameter Real b[:]={1} "Numerator coefficients of transfer function" 
       annotation(Dialog(group="y = (2*s+3)/(4*s^2+5*s+6)*u is defined as b={2,3}, a={4,5,6}"));
-    parameter Real a[:] "Denominator coefficients of transfer function"
+    parameter Real a[:] "Denominator coefficients of transfer function" 
       annotation(Dialog(group="y = (2*s+3)/(4*s^2+5*s+6)*u is defined as b={2,3}, a={4,5,6}"));
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit
       "Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)"
                                        annotation(Evaluate=true, Dialog(group=
             "Initialization"));
     parameter Real x_start[size(a, 1) - 1]=zeros(nx)
-      "Initial or guess values of states"
+      "Initial or guess values of states" 
       annotation (Dialog(group="Initialization"));
     parameter Real y_start=0
       "Initial value of output (derivatives of y are zero upto nx-1-th derivative)"
@@ -1314,6 +1224,26 @@ to use <b>limitAtInit</b> = <b>false</b>.
     parameter Real d = bb[1]/a[1];
     parameter Real a_end = if a[end] > 100*Modelica.Constants.eps*sqrt(a*a) then a[end] else 1.0;
     Real x_scaled[size(x,1)] "Scaled vector x";
+
+  initial equation
+    if initType == Init.SteadyState then
+      der(x_scaled) = zeros(nx);
+    elseif initType == Init.InitialState then
+      x_scaled = x_start*a_end;
+    elseif initType == Init.InitialOutput then
+      y = y_start;
+      der(x_scaled[2:nx]) = zeros(nx-1);
+    end if;
+  equation
+    assert(size(b,1) <= size(a,1), "Transfer function is not proper");
+    if nx == 0 then
+       y = d*u;
+    else
+       der(x_scaled[1])    = (-a[2:na]*x_scaled + a_end*u)/a[1];
+       der(x_scaled[2:nx]) = x_scaled[1:nx-1];
+       y = ((bb[2:na] - d*a[2:na])*x_scaled)/a_end + d*u;
+       x = x_scaled/a_end;
+    end if;
     annotation (
       Documentation(info="<html>
 <p>
@@ -1379,26 +1309,6 @@ results in the following transfer function:
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Line(points={{-100,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{100,0}}, color={0,0,255})}));
-
-  initial equation
-    if initType == Init.SteadyState then
-      der(x_scaled) = zeros(nx);
-    elseif initType == Init.InitialState then
-      x_scaled = x_start*a_end;
-    elseif initType == Init.InitialOutput then
-      y = y_start;
-      der(x_scaled[2:nx]) = zeros(nx-1);
-    end if;
-  equation
-    assert(size(b,1) <= size(a,1), "Transfer function is not proper");
-    if nx == 0 then
-       y = d*u;
-    else
-       der(x_scaled[1])    = (-a[2:na]*x_scaled + a_end*u)/a[1];
-       der(x_scaled[2:nx]) = x_scaled[1:nx-1];
-       y = ((bb[2:na] - d*a[2:na])*x_scaled)/a_end + d*u;
-       x = x_scaled/a_end;
-    end if;
   end TransferFunction;
 
   block StateSpace "Linear state space system"
@@ -1415,7 +1325,7 @@ results in the following transfer function:
       "Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)"
                                                                                       annotation(Evaluate=true,
         Dialog(group="Initialization"));
-    parameter Real x_start[nx]=zeros(nx) "Initial or guess values of states"
+    parameter Real x_start[nx]=zeros(nx) "Initial or guess values of states" 
       annotation (Dialog(group="Initialization"));
     parameter Real y_start[ny]=zeros(ny)
       "Initial values of outputs (remaining states are in steady state if possible)"
@@ -1424,6 +1334,21 @@ results in the following transfer function:
 
     extends Interfaces.MIMO(final nin=size(B, 2), final nout=size(C, 1));
     output Real x[size(A, 1)](start=x_start) "State vector";
+
+  protected
+    parameter Integer nx = size(A, 1) "number of states";
+    parameter Integer ny = size(C, 1) "number of outputs";
+  initial equation
+    if initType == Init.SteadyState then
+      der(x) = zeros(nx);
+    elseif initType == Init.InitialState then
+      x = x_start;
+    elseif initType == Init.InitialOutput then
+      x = Modelica.Math.Matrices.equalityLeastSquares(A, -B*u, C, y_start - D*u);
+    end if;
+  equation
+    der(x) = A*x + B*u;
+    y = C*x + D*u;
     annotation (
       Documentation(info="<HTML>
 <p>
@@ -1500,26 +1425,13 @@ results in the following equations:
             textString=" y=Cx+Du"),
           Line(points={{-100,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{100,0}}, color={0,0,255})}));
-
-  protected
-    parameter Integer nx = size(A, 1) "number of states";
-    parameter Integer ny = size(C, 1) "number of outputs";
-  initial equation
-    if initType == Init.SteadyState then
-      der(x) = zeros(nx);
-    elseif initType == Init.InitialState then
-      x = x_start;
-    elseif initType == Init.InitialOutput then
-      x = Modelica.Math.Matrices.equalityLeastSquares(A, -B*u, C, y_start - D*u);
-    end if;
-  equation
-    der(x) = A*x + B*u;
-    y = C*x + D*u;
   end StateSpace;
 
   block Der "Derivative of input (= analytic differentations)"
       extends Interfaces.SISO;
 
+  equation
+    y = der(u);
       annotation (defaultComponentName="der1",
    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
           graphics={Text(
@@ -1536,8 +1448,6 @@ by the Modelica translator, if this derivative is not yet present in
 the model.
 </p>
 </HTML>"));
-  equation
-    y = der(u);
   end Der;
 
   block LowpassButterworth
@@ -1555,12 +1465,12 @@ the model.
                                                                                       annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Real x1_start[m]=zeros(m)
-      "Initial or guess values of states 1 (der(x1)=x2))"
+      "Initial or guess values of states 1 (der(x1)=x2))" 
       annotation (Dialog(group="Initialization"));
-    parameter Real x2_start[m]=zeros(m) "Initial or guess values of states 2"
+    parameter Real x2_start[m]=zeros(m) "Initial or guess values of states 2" 
       annotation (Dialog(group="Initialization"));
     parameter Real xr_start=0.0
-      "Initial or guess value of real pole for uneven order otherwise dummy"
+      "Initial or guess value of real pole for uneven order otherwise dummy" 
       annotation (Dialog(group="Initialization"));
     parameter Real y_start=0.0
       "Initial value of output (states are initialized in steady state if possible)"
@@ -1572,6 +1482,78 @@ the model.
     output Real x2[m](start=x2_start) "states 2 of second order filters";
     output Real xr(start=xr_start)
       "state of real pole for uneven order otherwise dummy";
+  protected
+    constant Real pi=Modelica.Constants.pi;
+    parameter Integer m=integer(n/2);
+    parameter Boolean evenOrder = 2*m == n;
+    parameter Real w=2*pi*f;
+    Real z[m + 1];
+    Real polereal[m];
+    Real poleimag[m];
+    Real realpol;
+    Real k2[m];
+    Real D[m];
+    Real w0[m];
+    Real k1;
+    Real T;
+  initial equation
+    if initType == Init.SteadyState then
+      der(x1) = zeros(m);
+      der(x2) = zeros(m);
+      if not evenOrder then
+        der(xr) = 0.0;
+      end if;
+    elseif initType == Init.InitialState then
+      x1 = x1_start;
+      x2 = x2_start;
+      if not evenOrder then
+        xr = xr_start;
+      end if;
+    elseif initType == Init.InitialOutput then
+      y = y_start;
+      der(x1) = zeros(m);
+      if evenOrder then
+        if m > 1 then
+          der(x2[1:m-1]) = zeros(m-1);
+        end if;
+      else
+        der(x1) = zeros(m);
+      end if;
+    end if;
+  equation
+    k2 = ones(m);
+    k1 = 1;
+    z[1] = u;
+
+    // calculate filter parameters
+    for i in 1:m loop
+      // poles of prototype lowpass
+      polereal[i] = cos(pi/2 + pi/n*(i - 0.5));
+      poleimag[i] = sin(pi/2 + pi/n*(i - 0.5));
+      // scaling and calculation of secon order filter coefficients
+      w0[i] = (polereal[i]^2 + poleimag[i]^2)*w;
+      D[i] = -polereal[i]/w0[i]*w;
+    end for;
+    realpol = 1*w;
+    T = 1/realpol;
+
+    // calculate second order filters
+    for i in 1:m loop
+      der(x1[i]) = x2[i];
+      der(x2[i]) = k2[i]*w0[i]^2*z[i] - 2*D[i]*w0[i]*x2[i] - w0[i]^2*x1[i];
+      z[i + 1] = x1[i];
+    end for;
+
+    // calculate first order filter if necessary
+    if evenOrder then
+      // even order
+      xr = 0;
+      y = z[m + 1];
+    else
+      // uneven order
+      der(xr) = (k1*z[m + 1] - xr)/T;
+      y = xr;
+    end if;
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
@@ -1646,78 +1628,6 @@ initType=Modelica.Blocks.Types.Init.SteadyState).
 
 </html>
 "));
-  protected
-    constant Real pi=Modelica.Constants.pi;
-    parameter Integer m=integer(n/2);
-    parameter Boolean evenOrder = 2*m == n;
-    parameter Real w=2*pi*f;
-    Real z[m + 1];
-    Real polereal[m];
-    Real poleimag[m];
-    Real realpol;
-    Real k2[m];
-    Real D[m];
-    Real w0[m];
-    Real k1;
-    Real T;
-  initial equation
-    if initType == Init.SteadyState then
-      der(x1) = zeros(m);
-      der(x2) = zeros(m);
-      if not evenOrder then
-        der(xr) = 0.0;
-      end if;
-    elseif initType == Init.InitialState then
-      x1 = x1_start;
-      x2 = x2_start;
-      if not evenOrder then
-        xr = xr_start;
-      end if;
-    elseif initType == Init.InitialOutput then
-      y = y_start;
-      der(x1) = zeros(m);
-      if evenOrder then
-        if m > 1 then
-          der(x2[1:m-1]) = zeros(m-1);
-        end if;
-      else
-        der(x1) = zeros(m);
-      end if;
-    end if;
-  equation
-    k2 = ones(m);
-    k1 = 1;
-    z[1] = u;
-
-    // calculate filter parameters
-    for i in 1:m loop
-      // poles of prototype lowpass
-      polereal[i] = cos(pi/2 + pi/n*(i - 0.5));
-      poleimag[i] = sin(pi/2 + pi/n*(i - 0.5));
-      // scaling and calculation of secon order filter coefficients
-      w0[i] = (polereal[i]^2 + poleimag[i]^2)*w;
-      D[i] = -polereal[i]/w0[i]*w;
-    end for;
-    realpol = 1*w;
-    T = 1/realpol;
-
-    // calculate second order filters
-    for i in 1:m loop
-      der(x1[i]) = x2[i];
-      der(x2[i]) = k2[i]*w0[i]^2*z[i] - 2*D[i]*w0[i]*x2[i] - w0[i]^2*x1[i];
-      z[i + 1] = x1[i];
-    end for;
-
-    // calculate first order filter if necessary
-    if evenOrder then
-      // even order
-      xr = 0;
-      y = z[m + 1];
-    else
-      // uneven order
-      der(xr) = (k1*z[m + 1] - xr)/T;
-      y = xr;
-    end if;
   end LowpassButterworth;
 
   block CriticalDamping
@@ -1734,14 +1644,33 @@ initType=Modelica.Blocks.Types.Init.SteadyState).
       "Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)"
                                                                                       annotation(Evaluate=true,
         Dialog(group="Initialization"));
-    parameter Real x_start[n]=zeros(n) "Initial or guess values of states"
+    parameter Real x_start[n]=zeros(n) "Initial or guess values of states" 
       annotation (Dialog(group="Initialization"));
     parameter Real y_start=0.0
-      "Initial value of output (remaining states are in steady state)"
+      "Initial value of output (remaining states are in steady state)" 
       annotation(Dialog(enable=initType == Init.InitialOutput, group=
             "Initialization"));
 
     output Real x[n](start=x_start) "Filter states";
+  protected
+    parameter Real alpha=if normalized then sqrt(2^(1/n) - 1) else 1.0
+      "Frequency correction factor for normalized filter";
+    parameter Real w=2*Modelica.Constants.pi*f/alpha;
+  initial equation
+    if initType == Init.SteadyState then
+      der(x) = zeros(n);
+    elseif initType == Init.InitialState then
+      x = x_start;
+    elseif initType == Init.InitialOutput then
+      y = y_start;
+      der(x[1:n-1]) = zeros(n-1);
+    end if;
+  equation
+    der(x[1]) = (u - x[1])*w;
+    for i in 2:n loop
+      der(x[i]) = (x[i - 1] - x[i])*w;
+    end for;
+    y = x[n];
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
@@ -1845,25 +1774,93 @@ The critical damping filter is defined as
 
 </html>
 "));
-  protected
-    parameter Real alpha=if normalized then sqrt(2^(1/n) - 1) else 1.0
-      "Frequency correction factor for normalized filter";
-    parameter Real w=2*Modelica.Constants.pi*f/alpha;
-  initial equation
-    if initType == Init.SteadyState then
-      der(x) = zeros(n);
-    elseif initType == Init.InitialState then
-      x = x_start;
-    elseif initType == Init.InitialOutput then
-      y = y_start;
-      der(x[1:n-1]) = zeros(n-1);
-    end if;
-  equation
-    der(x[1]) = (u - x[1])*w;
-    for i in 2:n loop
-      der(x[i]) = (x[i - 1] - x[i])*w;
-    end for;
-    y = x[n];
   end CriticalDamping;
 
+  annotation (
+    Documentation(info="<html>
+<p>
+This package contains basic <b>continuous</b> input/output blocks
+described by differential equations.
+</p>
+
+<p>
+All blocks of this package can be initialized in different
+ways controlled by parameter <b>initType</b>. The possible
+values of initType are defined in
+<a href=\"Modelica://Modelica.Blocks.Types.Init\">Modelica.Blocks.Types.Init</a>:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign=\"top\"><b>Name</b></td>
+      <td valign=\"top\"><b>Description</b></td></tr>
+
+  <tr><td valign=\"top\"><b>Init.NoInit</b></td>
+      <td valign=\"top\">no initialization (start values are used as guess values with fixed=false)</td></tr>
+
+  <tr><td valign=\"top\"><b>Init.SteadyState</b></td>
+      <td valign=\"top\">steady state initialization (derivatives of states are zero)</td></tr>
+
+  <tr><td valign=\"top\"><b>Init.InitialState</b></td>
+      <td valign=\"top\">Initialization with initial states</td></tr>
+
+  <tr><td valign=\"top\"><b>Init.InitialOutput</b></td>
+      <td valign=\"top\">Initialization with initial outputs (and steady state of the states if possibles)</td></tr>
+</table>
+
+<p>
+For backward compatibility reasons the default of all blocks is
+<b>Init.NoInit</b>, with the exception of Integrator and LimIntegrator
+where the default is <b>Init.InitialState</b> (this was the initialization
+defined in version 2.2 of the Modelica standard library).
+</p>
+
+<p>
+In many cases, the most useful initial condition is
+<b>Init.SteadyState</b> because initial transients are then no longer
+present. The drawback is that in combination with a non-linear
+plant, non-linear algebraic equations occur that might be
+difficult to solve if appropriate guess values for the
+iteration variables are not provided (i.e. start values with fixed=false).
+However, it is often already useful to just initialize
+the linear blocks from the Continuous blocks library in SteadyState.
+This is uncritical, because only linear algebraic equations occur.
+If Init.NoInit is set, then the start values for the states are
+interpreted as <b>guess</b> values and are propagated to the
+states with fixed=<b>false</b>.
+</p>
+
+<p>
+Note, initialization with Init.SteadyState is usually difficult
+for a block that contains an integrator
+(Integrator, LimIntegrator, PI, PID, LimPID).
+This is due to the basic equation of an integrator:
+</p>
+
+<pre>
+  <b>initial equation</b>
+     <b>der</b>(y) = 0;   // Init.SteadyState
+  <b>equation</b>
+     <b>der</b>(y) = k*u;
+</pre>
+
+<p>
+The steady state equation leads to the condition that the input to the
+integrator is zero. If the input u is already (directly or indirectly) defined
+by another initial condition, then the initialization problem is <b>singular</b>
+(has none or infinitely many solutions). This situation occurs often
+for mechanical systems, where, e.g., u = desiredSpeed - measuredSpeed and
+since speed is both a state and a derivative, it is always defined by
+Init.InitialState or Init.SteadyState initializtion.
+</p>
+
+<p>
+In such a case, <b>Init.NoInit</b> has to be selected for the integrator
+and an additional initial equation has to be added to the system
+to which the integrator is connected. E.g., useful initial conditions
+for a 1-dim. rotational inertia controlled by a PI controller are that
+<b>angle</b>, <b>speed</b>, and <b>acceleration</b> of the inertia are zero.
+</p>
+
+</html>
+"));
 end Continuous;

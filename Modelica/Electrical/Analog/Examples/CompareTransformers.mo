@@ -1,46 +1,6 @@
 within Modelica.Electrical.Analog.Examples;
 model CompareTransformers
 
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-            -100},{100,100}}), graphics={Text(
-          extent={{-60,-80},{60,-100}},
-          lineColor={0,0,255},
-          textString="try considerMagnetization=false/true"), Text(
-          extent={{-60,20},{60,0}},
-          lineColor={0,0,255},
-          textString="Basic.Transformer (mutual inductance)")}),
-    experiment(StopTime=50, Interval=0.001),
-    Documentation(revisions="<html>
-<ul>
-<li><i>  </i>
-       </li>
-<li><i> 2009   </i>
-       by Anton Haumer<br> initially implemented<br>
-       </li>
-</ul>
-</html>",
-        info="<html>
-<p>
-This example is o demonstrate the behaviour of transformer models. The Basic.Transformer, which consists of mutual coupled inductors,<br>
-is compared with the ideal transformer model. If the ideal model is used with considerMagnetization=true eakage inductances are taken <br>
-into account, otherwise not.
-</p>
-<p>
-The example is constructed in such a way that the ideal transformer circuit with considerMagnetization=true shows the same behaviour as the basic transformer.
-</p>
-
-Simulate until T=50 s with both considerMagnetization=false and <br>
-considerMagnetization=true of the ideal transformer.<br>
-Plot in separate windows for comparison:<br> <br>
-basicTransformer.p1.v and idealTransformer.p1.v <br>
-basicTransformer.p1.i and idealTransformer.p1.i <br>
-basicTransformer.p2.v and idealTransformer.p2.v <br>
-basicTransformer.p2.i and idealTransformer.p2.i <br>
-
-</P>
-
-
-</html>"));
   extends Modelica.Icons.Example;
   constant Modelica.SIunits.Angle pi = Modelica.Constants.pi;
   parameter Modelica.SIunits.Voltage Vdc=0.1 "DC offset of voltage source";
@@ -84,56 +44,56 @@ basicTransformer.p2.i and idealTransformer.p2.i <br>
     V=Vpeak,
     phase=phi0,
     freqHz=f,
-    offset=Vdc)
+    offset=Vdc) 
     annotation (Placement(transformation(
         origin={-80,40},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Electrical.Analog.Basic.Ground ground11
+  Modelica.Electrical.Analog.Basic.Ground ground11 
     annotation (Placement(transformation(extent={{-90,0},{-70,20}}, rotation=
             0)));
-  Modelica.Electrical.Analog.Basic.Resistor resistor11(R=R1)
+  Modelica.Electrical.Analog.Basic.Resistor resistor11(R=R1) 
     annotation (Placement(transformation(extent={{-80,50},{-60,70}}, rotation=
            0)));
-  Modelica.Electrical.Analog.Basic.Resistor resistor12(R=R2)
+  Modelica.Electrical.Analog.Basic.Resistor resistor12(R=R2) 
     annotation (Placement(transformation(extent={{60,50},{80,70}}, rotation=0)));
-  Modelica.Electrical.Analog.Basic.Resistor load1(R=RL)
+  Modelica.Electrical.Analog.Basic.Resistor load1(R=RL) 
     annotation (Placement(transformation(
         origin={80,40},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Electrical.Analog.Basic.Ground ground12
+  Modelica.Electrical.Analog.Basic.Ground ground12 
     annotation (Placement(transformation(extent={{70,0},{90,20}}, rotation=0)));
   Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage2(
     V=Vpeak,
     phase=phi0,
     freqHz=f,
-    offset=Vdc)
+    offset=Vdc) 
     annotation (Placement(transformation(
         origin={-80,-50},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Electrical.Analog.Basic.Ground ground21
+  Modelica.Electrical.Analog.Basic.Ground ground21 
     annotation (Placement(transformation(extent={{-90,-90},{-70,-70}},
           rotation=0)));
-  Modelica.Electrical.Analog.Basic.Resistor resistor21(R=R1)
+  Modelica.Electrical.Analog.Basic.Resistor resistor21(R=R1) 
     annotation (Placement(transformation(extent={{-80,-40},{-60,-20}},
           rotation=0)));
-  Modelica.Electrical.Analog.Basic.Inductor inductor21(L=L1sigma)
+  Modelica.Electrical.Analog.Basic.Inductor inductor21(L=L1sigma) 
     annotation (Placement(transformation(extent={{-50,-40},{-30,-20}},
           rotation=0)));
-  Modelica.Electrical.Analog.Basic.Inductor inductor22(L=L2sigma)
+  Modelica.Electrical.Analog.Basic.Inductor inductor22(L=L2sigma) 
     annotation (Placement(transformation(extent={{30,-40},{50,-20}}, rotation=
            0)));
-  Modelica.Electrical.Analog.Basic.Resistor resistor22(R=R2)
+  Modelica.Electrical.Analog.Basic.Resistor resistor22(R=R2) 
     annotation (Placement(transformation(extent={{60,-40},{80,-20}}, rotation=
            0)));
-  Modelica.Electrical.Analog.Basic.Resistor load2(R=RL)
+  Modelica.Electrical.Analog.Basic.Resistor load2(R=RL) 
     annotation (Placement(transformation(
         origin={80,-50},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Electrical.Analog.Basic.Ground ground22
+  Modelica.Electrical.Analog.Basic.Ground ground22 
     annotation (Placement(transformation(extent={{70,-90},{90,-70}}, rotation=
            0)));
   Modelica.Electrical.Analog.Basic.Transformer basicTransformer(
@@ -143,29 +103,29 @@ basicTransformer.p2.i and idealTransformer.p2.i <br>
           rotation=0)));
   Modelica.Electrical.Analog.Ideal.IdealTransformer idealTransformer(n=n,
       Lm1=Lm1,
-    considerMagnetization=false)
+    considerMagnetization=false) 
     annotation (Placement(transformation(extent={{-10,-50},{10,-30}},
           rotation=0)));
 equation
-  connect(sineVoltage1.n, ground11.p)
+  connect(sineVoltage1.n, ground11.p) 
     annotation (Line(points={{-80,30},{-80,20}}, color={0,0,255}));
-  connect(sineVoltage1.p, resistor11.p)
+  connect(sineVoltage1.p, resistor11.p) 
     annotation (Line(points={{-80,50},{-80,60}}, color={0,0,255}));
-  connect(load1.n, ground12.p)
+  connect(load1.n, ground12.p) 
     annotation (Line(points={{80,30},{80,20}}, color={0,0,255}));
-  connect(resistor12.n, load1.p)
+  connect(resistor12.n, load1.p) 
     annotation (Line(points={{80,60},{80,50}}, color={0,0,255}));
-  connect(sineVoltage2.n, ground21.p)
+  connect(sineVoltage2.n, ground21.p) 
     annotation (Line(points={{-80,-60},{-80,-70}}, color={0,0,255}));
-  connect(sineVoltage2.p, resistor21.p)
+  connect(sineVoltage2.p, resistor21.p) 
     annotation (Line(points={{-80,-40},{-80,-30}}, color={0,0,255}));
-  connect(resistor21.n, inductor21.p)
+  connect(resistor21.n, inductor21.p) 
     annotation (Line(points={{-60,-30},{-50,-30}}, color={0,0,255}));
-  connect(inductor22.n, resistor22.p)
+  connect(inductor22.n, resistor22.p) 
     annotation (Line(points={{50,-30},{60,-30}}, color={0,0,255}));
-  connect(load2.n, ground22.p)
+  connect(load2.n, ground22.p) 
     annotation (Line(points={{80,-60},{80,-70}}, color={0,0,255}));
-  connect(resistor22.n, load2.p)
+  connect(resistor22.n, load2.p) 
     annotation (Line(points={{80,-30},{80,-40}}, color={0,0,255}));
   connect(ground11.p, basicTransformer.n1) annotation (Line(points={{-80,20},
           {-10,20},{-10,45}}, color={0,0,255}));
@@ -183,4 +143,44 @@ equation
           -35},{-10,-30},{-30,-30}}, color={0,0,255}));
   connect(idealTransformer.p2, inductor22.p) annotation (Line(points={{10,-35},
           {10,-30},{30,-30}}, color={0,0,255}));
+  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+            -100},{100,100}}), graphics={Text(
+          extent={{-60,-80},{60,-100}},
+          lineColor={0,0,255},
+          textString="try considerMagnetization=false/true"), Text(
+          extent={{-60,20},{60,0}},
+          lineColor={0,0,255},
+          textString="Basic.Transformer (mutual inductance)")}),
+    experiment(StopTime=50, Interval=0.001),
+    Documentation(revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 2009   </i>
+       by Anton Haumer<br> initially implemented<br>
+       </li>
+</ul>
+</html>",
+        info="<html>
+<p>
+This example is o demonstrate the behaviour of transformer models. The Basic.Transformer, which consists of mutual coupled inductors,<br>
+is compared with the ideal transformer model. If the ideal model is used with considerMagnetization=true eakage inductances are taken <br>
+into account, otherwise not.
+</p>
+<p>
+The example is constructed in such a way that the ideal transformer circuit with considerMagnetization=true shows the same behaviour as the basic transformer.
+</p>
+
+Simulate until T=50 s with both considerMagnetization=false and <br>
+considerMagnetization=true of the ideal transformer.<br>
+Plot in separate windows for comparison:<br> <br>
+basicTransformer.p1.v and idealTransformer.p1.v <br>
+basicTransformer.p1.i and idealTransformer.p1.i <br>
+basicTransformer.p2.v and idealTransformer.p2.v <br>
+basicTransformer.p2.i and idealTransformer.p2.i <br>
+
+</P>
+
+
+</html>"));
 end CompareTransformers;

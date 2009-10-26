@@ -35,5 +35,4 @@ of 1-dim. rotational, 1-dim. translational, and
 </p>
 </HTML>
 "));
-
 end Mechanics;
