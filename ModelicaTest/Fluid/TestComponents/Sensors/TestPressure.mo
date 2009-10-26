@@ -1,7 +1,7 @@
 within ModelicaTest.Fluid.TestComponents.Sensors;
 model TestPressure
   import Modelica.Fluid;
-  Modelica.Fluid.Sensors.Pressure pressure1(redeclare package Medium =
+  Modelica.Fluid.Sensors.Pressure pressure1(redeclare package Medium = 
         Modelica.Media.Water.StandardWater) annotation (Placement(
         transformation(extent={{-20,0},{0,20}}, rotation=0)));
   Modelica.Fluid.Fittings.SimpleGenericOrifice simpleGenericOrifice(
@@ -10,14 +10,14 @@ model TestPressure
     diameter=0.1) annotation (Placement(transformation(extent={{20,-10},{40,10}},
           rotation=0)));
   Modelica.Fluid.Sensors.RelativePressure relativePressure(redeclare package
-      Medium = Modelica.Media.Water.StandardWater)
+      Medium = Modelica.Media.Water.StandardWater) 
     annotation (Placement(transformation(extent={{20,34},{40,54}}, rotation=0)));
   Modelica.Blocks.Sources.Sine sine annotation (Placement(transformation(extent=
            {{-100,0},{-80,20}}, rotation=0)));
   Modelica.Fluid.Sources.MassFlowSource_T massFlowRate1(nPorts=1,
     use_m_flow_in=true,
     T=SI.Conversions.from_degC(50),
-    redeclare package Medium = Modelica.Media.Water.StandardWater)
+    redeclare package Medium = Modelica.Media.Water.StandardWater) 
                                     annotation (Placement(transformation(extent=
            {{-60,0},{-40,20}}, rotation=0)));
   annotation (
@@ -31,7 +31,7 @@ model TestPressure
     p=system.p_ambient,
     h=3000e3) annotation (Placement(transformation(extent={{100,-10},{80,10}},
           rotation=0)));
-  Modelica.Fluid.Sensors.Pressure pressure2(redeclare package Medium =
+  Modelica.Fluid.Sensors.Pressure pressure2(redeclare package Medium = 
         Modelica.Media.Water.StandardWater) annotation (Placement(
         transformation(extent={{50,0},{70,20}}, rotation=0)));
   inner Modelica.Fluid.System system  annotation (Placement(transformation(
@@ -41,7 +41,7 @@ equation
       points={{-79,10},{-70,10},{-70,18},{-60,18}},
       color={0,0,127},
       smooth=Smooth.None));
-  connect(massFlowRate1.ports[1], pressure1.port)
+  connect(massFlowRate1.ports[1], pressure1.port) 
                                               annotation (Line(
       points={{-40,10},{-26,10},{-26,0},{-10,0}},
       color={0,127,255},
@@ -58,7 +58,7 @@ equation
       points={{40,44},{40,23},{40,23},{40,0}},
       color={0,127,255},
       smooth=Smooth.None));
-  connect(pressure2.port, boundary_fixed.ports[1])
+  connect(pressure2.port, boundary_fixed.ports[1]) 
                                                annotation (Line(
       points={{60,0},{80,0}},
       color={0,127,255},

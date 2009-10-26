@@ -278,13 +278,13 @@ package Utilities "Test functions for Modelica.Utilities"
     Streams.print("... Test of Modelica.Utilities.Files", logFile);
 
     (directory, name, extension) := Files.splitPathName("E:/test1/test2.save.txt");
-    assert(directory == "E:/test1/" and
-           name      == "test2.save" and
+    assert(directory == "E:/test1/" and 
+           name      == "test2.save" and 
            extension == ".txt", "Files.splitPathName 1 failed");
 
     (directory, name, extension) := Files.splitPathName("E:/test1/test2");
-    assert(directory == "E:/test1/" and
-           name      == "test2" and
+    assert(directory == "E:/test1/" and 
+           name      == "test2" and 
            extension == "", "Files.splitPathName 2 failed");
 
     ok := true;

@@ -24,7 +24,7 @@ package Math "Test models for Modelica.Math"
     assert(r == 38, "Polynomials.evaluate failed");
 
     p2 := Poly.integral(p1);
-    assert( p2[1] == -0.5 and p2[2] == -1 and p2[3] == -2 and
+    assert( p2[1] == -0.5 and p2[2] == -1 and p2[3] == -2 and 
             p2[4] == -1 and p2[5] == 0, "Polynomials.integral failed");
 
     p3 := Poly.derivative(p2);
@@ -42,9 +42,9 @@ package Math "Test models for Modelica.Math"
        y[i] := Poly.evaluate(p1,u[i]) + 0.01*i;
     end for;
     p4 := Poly.fitting(u,y,3);
-    assert( abs(p4[1] - p1[1]) <= 1.e-8 and
-            abs(p4[2] - p1[2]) <= 1.e-8 and
-            abs(p4[3] - p1[3]) <= 0.1 and
+    assert( abs(p4[1] - p1[1]) <= 1.e-8 and 
+            abs(p4[2] - p1[2]) <= 1.e-8 and 
+            abs(p4[3] - p1[3]) <= 0.1 and 
             abs(p4[4] - p1[4]) <= 0.1, "Polynomials.fitting failed");
 
     ok := true;

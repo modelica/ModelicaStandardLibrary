@@ -5,7 +5,7 @@ model TestSimpleTank
   extends Modelica.Icons.Example;
 
   Modelica.Fluid.Vessels.OpenTank tank(
-    redeclare package Medium =
+    redeclare package Medium = 
         Modelica.Media.Water.ConstantPropertyLiquidWater,
     height=1,
     nPorts=2,
@@ -13,41 +13,41 @@ model TestSimpleTank
         height=0),Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=
         0.1, height=1)},
     crossArea=1,
-    level_start=0)
+    level_start=0) 
     annotation (Placement(transformation(extent={{0,0},{40,40}},   rotation=0)));
 
-  inner Modelica.Fluid.System system
+  inner Modelica.Fluid.System system 
                         annotation (Placement(transformation(extent={{70,70},
             {90,90}}, rotation=0)));
   Modelica.Fluid.Sources.Boundary_pT ambient_fixed(
-                                         redeclare package Medium =
+                                         redeclare package Medium = 
         Modelica.Media.Water.ConstantPropertyLiquidWater,
     p=system.p_ambient,
     T=system.T_ambient,
-    nPorts=1)
+    nPorts=1) 
     annotation (Placement(transformation(extent={{-40,-70},{-20,-50}},
                                                                      rotation=
            0)));
   Modelica.Fluid.Pipes.StaticPipe pipe(
-    redeclare package Medium =
+    redeclare package Medium = 
         Modelica.Media.Water.ConstantPropertyLiquidWater,
     length=1,
     height_ab=-1,
-    diameter=0.1)
+    diameter=0.1) 
                  annotation (Placement(transformation(
         origin={20,-30},
         extent={{10,-10},{-10,10}},
         rotation=90)));
   Modelica.Fluid.Sources.MassFlowSource_T flowSource(nPorts=1,
-    redeclare package Medium =
+    redeclare package Medium = 
         Modelica.Media.Water.ConstantPropertyLiquidWater,
     m_flow=20,
     T=system.T_ambient,
-    use_m_flow_in=true)
+    use_m_flow_in=true) 
     annotation (Placement(transformation(extent={{-40,30},{-20,50}}, rotation=
            0)));
   Modelica.Blocks.Sources.TimeTable timeTable(table=[0,0; 10,0; 10,40; 20,40;
-        20,10; 50,10; 50,0; 60,0; 60,20; 70,20; 80,55; 80,0; 100,0])
+        20,10; 50,10; 50,0; 60,0; 60,20; 70,20; 80,55; 80,0; 100,0]) 
     annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
 equation
   connect(pipe.port_a, tank.ports[1]) annotation (Line(

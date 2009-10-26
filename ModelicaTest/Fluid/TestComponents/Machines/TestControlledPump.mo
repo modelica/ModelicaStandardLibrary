@@ -17,13 +17,13 @@ annotation (
   Modelica.Fluid.Sources.Boundary_pT source(nPorts=1, redeclare package Medium
       = Modelica.Media.Water.StandardWater,
     T=system.T_ambient,
-    p=100000)
+    p=100000) 
   annotation (Placement(transformation(extent={{-90,20},{-70,40}},  rotation=0)));
   Modelica.Fluid.Sources.Boundary_pT sink(nPorts=1,
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     T=system.T_ambient,
     use_p_in=true,
-    p=200000)
+    p=200000) 
   annotation (Placement(transformation(extent={{50,20},{30,40}}, rotation=0)));
   Modelica.Fluid.Machines.ControlledPump pump(
     redeclare package Medium = Modelica.Media.Water.StandardWater,
@@ -32,14 +32,14 @@ annotation (
     p_a_nominal=100000,
     p_b_nominal=1000000)     annotation (Placement(transformation(extent={{-50,20},
             {-30,40}}, rotation=0)));
-  inner Modelica.Fluid.System system
+  inner Modelica.Fluid.System system 
                                    annotation (Placement(transformation(extent={{70,-90},
             {90,-70}},         rotation=0)));
   Modelica.Fluid.Valves.ValveIncompressible valve(
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
     m_flow_nominal=1,
-    dp_nominal=200000)
+    dp_nominal=200000) 
     annotation (Placement(transformation(extent={{-10,20},{10,40}})));
   Modelica.Blocks.Sources.Ramp valveOpening(
     duration=1,
@@ -50,19 +50,19 @@ annotation (
   Modelica.Blocks.Sources.Sine pressure1(
     amplitude=5e5,
     freqHz=1/7,
-    offset=10e5)
+    offset=10e5) 
                 annotation (Placement(transformation(extent={{-70,-40},{-50,-20}},
           rotation=0)));
   Modelica.Fluid.Sources.Boundary_pT source1(nPorts=1,redeclare package Medium
       = Modelica.Media.Water.StandardWater,
     T=system.T_ambient,
-    p=100000)
+    p=100000) 
   annotation (Placement(transformation(extent={{-90,-80},{-70,-60}},rotation=0)));
   Modelica.Fluid.Sources.Boundary_pT sink1(nPorts=1,
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     T=system.T_ambient,
     use_p_in=true,
-    p=200000)
+    p=200000) 
   annotation (Placement(transformation(extent={{50,-80},{30,-60}},
                                                                  rotation=0)));
   Modelica.Fluid.Machines.ControlledPump pump1(
@@ -72,14 +72,14 @@ annotation (
     use_p_set=true,
     m_flow_nominal=1,
     p_a_nominal=100000,
-    p_b_nominal=1000000)
+    p_b_nominal=1000000) 
                         annotation (Placement(transformation(extent={{-50,-80},
             {-30,-60}},rotation=0)));
   Modelica.Fluid.Valves.ValveIncompressible valve1(
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
     m_flow_nominal=1,
-    dp_nominal=200000)
+    dp_nominal=200000) 
     annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
   Modelica.Blocks.Sources.Ramp valveOpening1(
     duration=1,
@@ -94,7 +94,7 @@ annotation (
     offset=8e5) annotation (Placement(transformation(extent={{90,60},{70,80}},
           rotation=0)));
 equation
-  connect(pump.port_a,source.ports[1])
+  connect(pump.port_a,source.ports[1]) 
                                      annotation (Line(points={{-50,30},{-70,30}},
                               color={0,127,255}));
   connect(pump.port_b, valve.port_a) annotation (Line(
@@ -113,20 +113,20 @@ equation
       points={{-49,70},{-45,70},{-45,38.2}},
       color={0,0,127},
       smooth=Smooth.None));
-  connect(pump1.port_a, source1.ports[1])
+  connect(pump1.port_a, source1.ports[1]) 
                                      annotation (Line(points={{-50,-70},{-70,
           -70}},              color={0,127,255}));
-  connect(pump1.port_b, valve1.port_a)
+  connect(pump1.port_b, valve1.port_a) 
                                      annotation (Line(
       points={{-30,-70},{-10,-70}},
       color={0,127,255},
       smooth=Smooth.None));
-  connect(valve1.port_b, sink1.ports[1])
+  connect(valve1.port_b, sink1.ports[1]) 
                                        annotation (Line(
       points={{10,-70},{30,-70}},
       color={0,127,255},
       smooth=Smooth.None));
-  connect(valveOpening1.y, valve1.opening)
+  connect(valveOpening1.y, valve1.opening) 
                                          annotation (Line(
       points={{9,-30},{0,-30},{0,-62}},
       color={0,0,127},

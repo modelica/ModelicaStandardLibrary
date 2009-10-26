@@ -7,14 +7,14 @@ package BaseClasses "Specific models used for testing"
     extends Modelica.Fluid.Interfaces.PartialTwoPortTransport;
 
     // Static head
-    parameter SI.Length height_ab "Height(port_b) - Height(port_a)"
+    parameter SI.Length height_ab "Height(port_b) - Height(port_a)" 
         annotation(Dialog(group="Static head"));
 
     // Pressure loss
-    replaceable model PressureLoss =
-      Modelica.Fluid.Pipes.BaseClasses.FlowModels.NominalLaminarFlow
+    replaceable model PressureLoss = 
+      Modelica.Fluid.Pipes.BaseClasses.FlowModels.NominalLaminarFlow 
       constrainedby Modelica.Fluid.Interfaces.PartialDistributedFlow
-      "Pressure loss model"
+      "Pressure loss model" 
         annotation(Dialog(group="Pressure loss"), choicesAllMatching=true);
 
     PressureLoss pressureLoss(
@@ -81,57 +81,57 @@ The regularization can be changed for the PressureLoss model.
 
     // Assumptions
     parameter Modelica.Fluid.Types.Dynamics energyDynamics=system.energyDynamics
-      "Formulation of energy balance"
+      "Formulation of energy balance" 
       annotation(Evaluate=true, Dialog(tab = "Assumptions", group="Dynamics"));
     parameter Modelica.Fluid.Types.Dynamics massDynamics=system.massDynamics
-      "Formulation of mass balance"
+      "Formulation of mass balance" 
       annotation(Evaluate=true, Dialog(tab = "Assumptions", group="Dynamics"));
 
     // Initialization
     parameter Medium.AbsolutePressure p_a_start=system.p_start
-      "Start value of pressure at port a"
+      "Start value of pressure at port a" 
       annotation(Dialog(tab = "Initialization"));
     parameter Medium.AbsolutePressure p_b_start=p_a_start
-      "Start value of pressure at port b"
+      "Start value of pressure at port b" 
       annotation(Dialog(tab = "Initialization"));
 
     parameter Boolean use_T_start=true "Use T_start if true, otherwise h_start"
        annotation(Evaluate=true, Dialog(tab = "Initialization"));
-    parameter Medium.Temperature T_start=if use_T_start then system.T_start else
+    parameter Medium.Temperature T_start=if use_T_start then system.T_start else 
                 Medium.temperature_phX(
           (p_a_start + p_b_start)/2,
           h_start,
-          X_start) "Start value of temperature"
+          X_start) "Start value of temperature" 
       annotation(Evaluate=true, Dialog(tab = "Initialization", enable = use_T_start));
-    parameter Medium.SpecificEnthalpy h_start=if use_T_start then
+    parameter Medium.SpecificEnthalpy h_start=if use_T_start then 
           Medium.specificEnthalpy_pTX(
           (p_a_start + p_b_start)/2,
           T_start,
-          X_start) else Medium.h_default "Start value of specific enthalpy"
+          X_start) else Medium.h_default "Start value of specific enthalpy" 
       annotation(Evaluate=true, Dialog(tab = "Initialization", enable = not use_T_start));
     parameter Medium.MassFraction X_start[Medium.nX]=Medium.X_default
-      "Start value of mass fractions m_i/m"
+      "Start value of mass fractions m_i/m" 
       annotation (Dialog(tab="Initialization", enable=Medium.nXi > 0));
     parameter Medium.ExtraProperty C_start[Medium.nC](
          quantity=Medium.extraPropertiesNames)=fill(0, Medium.nC)
-      "Start value of trace substances"
+      "Start value of trace substances" 
       annotation (Dialog(tab="Initialization", enable=Medium.nC > 0));
 
     parameter Medium.MassFlowRate m_flow_start = system.m_flow_start
-      "Start value for mass flow rate"
+      "Start value for mass flow rate" 
        annotation(Evaluate=true, Dialog(tab = "Initialization"));
 
     // Wall heat transfer
     parameter Boolean use_HeatTransfer = false
-      "= true to use the HeatTransfer model"
+      "= true to use the HeatTransfer model" 
         annotation (Dialog(tab="Assumptions", group="Heat transfer"));
-    replaceable model HeatTransfer =
-        Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer
+    replaceable model HeatTransfer = 
+        Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer 
       constrainedby
       Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransfer
-      "Wall heat transfer"
+      "Wall heat transfer" 
         annotation (Dialog(tab="Assumptions", group="Heat transfer",enable=use_HeatTransfer),choicesAllMatching=true);
-    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if use_HeatTransfer
+    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if use_HeatTransfer 
       annotation (Placement(transformation(extent={{-10,44},{10,64}}, rotation=
               0), iconTransformation(extent={{-10,35},{10,55}})));
 
@@ -146,7 +146,7 @@ The regularization can be changed for the PressureLoss model.
       crossArea=crossArea,
       height_ab=height_ab/2,
       m_flow_start=m_flow_start,
-      redeclare final model FlowModel = FlowModel)
+      redeclare final model FlowModel = FlowModel) 
       annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
             rotation=0)));
     Modelica.Fluid.Vessels.ClosedVolume volume(
@@ -164,7 +164,7 @@ The regularization can be changed for the PressureLoss model.
       V=V,
       nPorts=2,
       use_portsData=false,
-      use_HeatTransfer=use_HeatTransfer)
+      use_HeatTransfer=use_HeatTransfer) 
       annotation (Placement(transformation(extent={{-10,10},{10,30}},  rotation=
              0)));
     Modelica.Fluid.Pipes.StaticPipe staticPipe2(
@@ -182,10 +182,10 @@ The regularization can be changed for the PressureLoss model.
               {60,10}},          rotation=0)));
 
   equation
-    connect(staticPipe1.port_a, port_a)
+    connect(staticPipe1.port_a, port_a) 
       annotation (Line(points={{-60,0},{-80,0},{-100,0}},
                                                   color={0,127,255}));
-    connect(staticPipe2.port_b, port_b)
+    connect(staticPipe2.port_b, port_b) 
       annotation (Line(points={{60,0},{80,0},{100,0}},
                                                 color={0,127,255}));
     annotation (defaultComponentName="pipe",Icon(coordinateSystem(

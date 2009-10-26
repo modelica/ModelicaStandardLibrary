@@ -2,7 +2,7 @@ within ModelicaTest.Fluid.TestComponents.Pipes;
 model StaticPipe
   import Modelica.Fluid;
   extends Modelica.Icons.Example;
-  replaceable package Medium =
+  replaceable package Medium = 
       Modelica.Media.Water.ConstantPropertyLiquidWater;
   //Modelica.Media.Water.StandardWater;
 
@@ -28,17 +28,17 @@ Test of the StaticPipe model.
     T=300)   annotation (Placement(transformation(extent={{56,4},{44,16}},
           rotation=0)));
 
-  inner Modelica.Fluid.System system
+  inner Modelica.Fluid.System system 
                         annotation (Placement(transformation(extent={{-100,60},
             {-80,80}}, rotation=0)));
-  Modelica.Blocks.Sources.TimeTable p_table(table=[0,1e5; 10,3e5])
+  Modelica.Blocks.Sources.TimeTable p_table(table=[0,1e5; 10,3e5]) 
     annotation (Placement(transformation(extent={{-90,20},{-70,40}}, rotation=0)));
   Modelica.Fluid.Sources.Boundary_pT source(
     redeclare package Medium = Medium,
     p=system.p_ambient,
     T=system.T_ambient,
     use_p_in=true,
-    nPorts=1)
+    nPorts=1) 
     annotation (Placement(transformation(extent={{-56,4},{-44,16}},  rotation=0)));
 equation
   connect(pipe1.port_b, sink.ports[1]) annotation (Line(

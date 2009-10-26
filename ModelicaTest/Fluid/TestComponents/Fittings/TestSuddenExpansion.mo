@@ -18,54 +18,54 @@ To do so, two additional sudden expansions / contractions are included in the mo
 </p>
 </html>"));
   Modelica.Fluid.Sources.Boundary_pT leftBoundary1(
-    redeclare package Medium =
+    redeclare package Medium = 
         Modelica.Media.Water.StandardWaterOnePhase,
     nPorts=1,
-    p=100000)
+    p=100000) 
     annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
   Modelica.Fluid.Sources.Boundary_pT rightBoundary1(
-    redeclare package Medium =
+    redeclare package Medium = 
         Modelica.Media.Water.StandardWaterOnePhase,
     nPorts=1,
-    p=110000)
+    p=110000) 
     annotation (Placement(transformation(extent={{80,20},{60,40}})));
   Modelica.Fluid.Fittings.AbruptAdaptor suddenExpansion1(
     diameter_a=0.1,
     diameter_b=0.2,
-    redeclare package Medium =
-        Modelica.Media.Water.StandardWaterOnePhase)
+    redeclare package Medium = 
+        Modelica.Media.Water.StandardWaterOnePhase) 
     annotation (Placement(transformation(extent={{-12,20},{8,40}})));
   Modelica.Fluid.Sources.Boundary_pT leftBoundary2(
-    redeclare package Medium =
+    redeclare package Medium = 
         Modelica.Media.Water.StandardWaterOnePhase,
     nPorts=1,
-    p=100000)
+    p=100000) 
     annotation (Placement(transformation(extent={{-90,-40},{-70,-20}})));
   Modelica.Fluid.Sources.Boundary_pT rightBoundary2(
-    redeclare package Medium =
+    redeclare package Medium = 
         Modelica.Media.Water.StandardWaterOnePhase,
     nPorts=1,
-    p=110000)
+    p=110000) 
     annotation (Placement(transformation(extent={{90,-40},{70,-20}})));
   Modelica.Fluid.Fittings.AbruptAdaptor suddenExpansion2(
     diameter_a=0.1,
     diameter_b=0.2,
-    redeclare package Medium =
-        Modelica.Media.Water.StandardWaterOnePhase)
+    redeclare package Medium = 
+        Modelica.Media.Water.StandardWaterOnePhase) 
     annotation (Placement(transformation(extent={{-10,-40},{10,-20}})));
   Modelica.Fluid.Fittings.AbruptAdaptor leftAdapter(
     diameter_a=0.1,
-    redeclare package Medium =
+    redeclare package Medium = 
         Modelica.Media.Water.StandardWaterOnePhase,
-    diameter_b=Modelica.Constants.inf)
+    diameter_b=Modelica.Constants.inf) 
     annotation (Placement(transformation(extent={{-40,-40},{-60,-20}})));
   Modelica.Fluid.Fittings.AbruptAdaptor rightAdapter(
-    redeclare package Medium =
+    redeclare package Medium = 
         Modelica.Media.Water.StandardWaterOnePhase,
     diameter_a=0.2,
-    diameter_b=Modelica.Constants.inf)
+    diameter_b=Modelica.Constants.inf) 
     annotation (Placement(transformation(extent={{40,-40},{60,-20}})));
-  inner Modelica.Fluid.System system
+  inner Modelica.Fluid.System system 
     annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
 equation
   connect(leftBoundary1.ports[1], suddenExpansion1.port_a) annotation (Line(

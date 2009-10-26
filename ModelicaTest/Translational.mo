@@ -2,65 +2,65 @@ within ModelicaTest;
 package Translational
 
   model AllComponents
-    Modelica.Mechanics.Translational.Components.Mass slidingMass
-      annotation (Placement(transformation(extent={{-60,60},{-40,80}}, rotation
-            =0)));
-    Modelica.Mechanics.Translational.Components.Rod rod
+    Modelica.Mechanics.Translational.Components.Mass slidingMass 
+      annotation (Placement(transformation(extent={{-60,60},{-40,80}}, rotation=
+             0)));
+    Modelica.Mechanics.Translational.Components.Rod rod 
                                              annotation (Placement(
           transformation(extent={{-28,60},{-8,80}}, rotation=0)));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
               -100,-100},{100,100}}), graphics),
       experiment(StopTime=1.1));
-    Modelica.Mechanics.Translational.Components.Spring spring
+    Modelica.Mechanics.Translational.Components.Spring spring 
       annotation (Placement(transformation(extent={{0,60},{20,80}}, rotation=0)));
     Modelica.Mechanics.Translational.Components.Damper damper(
-                                                   d=10)
+                                                   d=10) 
       annotation (Placement(transformation(extent={{26,60},{46,80}}, rotation=0)));
-    Modelica.Mechanics.Translational.Components.Mass slidingMass1
+    Modelica.Mechanics.Translational.Components.Mass slidingMass1 
       annotation (Placement(transformation(extent={{54,60},{74,80}}, rotation=0)));
-    Modelica.Mechanics.Translational.Components.SpringDamper springDamper
-      annotation (Placement(transformation(extent={{-30,20},{-10,40}}, rotation
-            =0)));
-    Modelica.Mechanics.Translational.Components.Mass slidingMass2
+    Modelica.Mechanics.Translational.Components.SpringDamper springDamper 
+      annotation (Placement(transformation(extent={{-30,20},{-10,40}}, rotation=
+             0)));
+    Modelica.Mechanics.Translational.Components.Mass slidingMass2 
       annotation (Placement(transformation(extent={{0,20},{20,40}}, rotation=0)));
-    Modelica.Mechanics.Translational.Components.ElastoGap elastoGap
+    Modelica.Mechanics.Translational.Components.ElastoGap elastoGap 
       annotation (Placement(transformation(extent={{30,20},{50,40}}, rotation=0)));
-    Modelica.Mechanics.Translational.Components.Mass slidingMass3
+    Modelica.Mechanics.Translational.Components.Mass slidingMass3 
       annotation (Placement(transformation(extent={{60,20},{80,40}}, rotation=0)));
-    Modelica.Mechanics.Translational.Sources.Position position
-      annotation (Placement(transformation(extent={{-68,-20},{-48,0}}, rotation
-            =0)));
+    Modelica.Mechanics.Translational.Sources.Position position 
+      annotation (Placement(transformation(extent={{-68,-20},{-48,0}}, rotation=
+             0)));
     Modelica.Blocks.Sources.Sine sine annotation (Placement(transformation(
             extent={{-100,-20},{-80,0}}, rotation=0)));
-    Modelica.Mechanics.Translational.Components.Mass slidingMass4
-      annotation (Placement(transformation(extent={{-40,-20},{-20,0}}, rotation
-            =0)));
-    Modelica.Mechanics.Translational.Sources.Speed position1
+    Modelica.Mechanics.Translational.Components.Mass slidingMass4 
+      annotation (Placement(transformation(extent={{-40,-20},{-20,0}}, rotation=
+             0)));
+    Modelica.Mechanics.Translational.Sources.Speed position1 
       annotation (Placement(transformation(extent={{-68,-60},{-48,-40}},
             rotation=0)));
     Modelica.Blocks.Sources.Sine sine1 annotation (Placement(transformation(
             extent={{-100,-60},{-80,-40}}, rotation=0)));
-    Modelica.Mechanics.Translational.Components.Mass slidingMass5
+    Modelica.Mechanics.Translational.Components.Mass slidingMass5 
       annotation (Placement(transformation(extent={{-40,-60},{-20,-40}},
             rotation=0)));
-    Modelica.Mechanics.Translational.Sources.Accelerate position2
+    Modelica.Mechanics.Translational.Sources.Accelerate position2 
       annotation (Placement(transformation(extent={{-68,-100},{-48,-80}},
             rotation=0)));
     Modelica.Blocks.Sources.Sine sine2 annotation (Placement(transformation(
             extent={{-100,-100},{-80,-80}}, rotation=0)));
-    Modelica.Mechanics.Translational.Components.Mass slidingMass6
+    Modelica.Mechanics.Translational.Components.Mass slidingMass6 
       annotation (Placement(transformation(extent={{-40,-100},{-20,-80}},
             rotation=0)));
-    Modelica.Mechanics.Translational.Sources.Move position3
+    Modelica.Mechanics.Translational.Sources.Move position3 
       annotation (Placement(transformation(extent={{32,-20},{52,0}}, rotation=0)));
     Modelica.Blocks.Sources.Sine sine3[3] annotation (Placement(transformation(
             extent={{0,-20},{20,0}}, rotation=0)));
-    Modelica.Mechanics.Translational.Components.Mass slidingMass7
+    Modelica.Mechanics.Translational.Components.Mass slidingMass7 
       annotation (Placement(transformation(extent={{60,-20},{80,0}}, rotation=0)));
-    Modelica.Mechanics.Translational.Sources.Force force
-      annotation (Placement(transformation(extent={{-70,20},{-50,40}}, rotation
-            =0)));
-    Modelica.Mechanics.Translational.Components.RelativeStates relativeStates
+    Modelica.Mechanics.Translational.Sources.Force force 
+      annotation (Placement(transformation(extent={{-70,20},{-50,40}}, rotation=
+             0)));
+    Modelica.Mechanics.Translational.Components.RelativeStates relativeStates 
       annotation (Placement(transformation(extent={{-2,82},{18,102}}, rotation=
               0)));
     Modelica.Blocks.Sources.Sine sine4 annotation (Placement(transformation(
@@ -122,7 +122,7 @@ package Translational
         points={{-79,-50},{-70,-50}},
         color={0,0,127},
         smooth=Smooth.None));
-    connect(sine2.y,position2.a_ref)
+    connect(sine2.y,position2.a_ref) 
                                   annotation (Line(
         points={{-79,-90},{-70,-90}},
         color={0,0,127},
