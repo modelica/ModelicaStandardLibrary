@@ -56,8 +56,6 @@ package UsersGuide "User's Guide"
 </ul>
 </html>
 "));
-  equation
-
   end ReleaseNotes;
 
   class Literature "Literature"
@@ -237,7 +235,7 @@ The multiplexer converts a parallel 4 bit signal in a sequential
     model FlipFlop "Pulse Triggered Master Slave Flip-Flop"
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
-      D.Examples.Utilities.JKFF FF 
+      D.Examples.Utilities.JKFF FF
                      annotation (Placement(transformation(extent={{-10,-40},{70,
                 40}}, rotation=0)));
       D.Sources.Clock CLK(period=10)  annotation (Placement(transformation(
@@ -298,13 +296,13 @@ Pulse-triggered master-slave flip-flop.
         t={2,4},
         y0=3)   annotation (Placement(transformation(extent={{-80,-38},{-60,-18}},
               rotation=0)));
-      Digital.Examples.Utilities.HalfAdder Adder(delayTime=0.3) 
+      Digital.Examples.Utilities.HalfAdder Adder(delayTime=0.3)
                             annotation (Placement(transformation(extent={{-40,
                 -40},{40,40}}, rotation=0)));
-      Digital.Converters.LogicToReal s 
+      Digital.Converters.LogicToReal s
                                annotation (Placement(transformation(extent={{60,
                 18},{80,38}}, rotation=0)));
-      Digital.Converters.LogicToReal c 
+      Digital.Converters.LogicToReal c
                                annotation (Placement(transformation(extent={{60,
                 -38},{80,-18}}, rotation=0)));
     equation
@@ -381,13 +379,13 @@ The simulation stop time should be 5 seconds.
 
       Digital.Examples.Utilities.FullAdder Adder1            annotation (Placement(
             transformation(extent={{0,-30},{60,30}}, rotation=0)));
-      Digital.Converters.LogicToReal s 
+      Digital.Converters.LogicToReal s
                                annotation (Placement(transformation(extent={{70,
                 12},{90,32}}, rotation=0)));
-      Digital.Converters.LogicToReal c_out 
+      Digital.Converters.LogicToReal c_out
                                    annotation (Placement(transformation(extent=
                 {{70,-32},{90,-12}}, rotation=0)));
-      Digital.Examples.Utilities.Counter3 Counter 
+      Digital.Examples.Utilities.Counter3 Counter
         annotation (Placement(transformation(extent={{-60,-18},{-20,22}},
               rotation=0)));
       Digital.Sources.Set Enable(x=L.'1') annotation (Placement(transformation(
@@ -395,10 +393,10 @@ The simulation stop time should be 5 seconds.
       Digital.Sources.Clock CLK annotation (Placement(transformation(extent={{
                 -90,-22},{-70,-2}}, rotation=0)));
     equation
-      connect(Adder1.s, s.x[1]) 
+      connect(Adder1.s, s.x[1])
                                annotation (Line(points={{60.3,21},{68,21},{68,
               22},{75,22}}, color={127,0,127}));
-      connect(Adder1.c_out, c_out.x[1]) 
+      connect(Adder1.c_out, c_out.x[1])
                                        annotation (Line(points={{60,-21},{68,
               -21},{68,-22},{75,-22}}, color={127,0,127}));
       connect(CLK.y, Counter.count) annotation (Line(points={{-70,-12},{-60,-12}},
@@ -498,21 +496,21 @@ The simulation stop time should be 10 seconds.
         x={3},
         t={1}) annotation (Placement(transformation(extent={{70,40},{110,80}},
               rotation=0)));
-      Sources.Set Set(x=3) 
+      Sources.Set Set(x=3)
         annotation (Placement(transformation(
             origin={-150,-74},
             extent={{20,20},{-20,-20}},
             rotation=180)));
-      Digital.Examples.Utilities.FullAdder Adder1 
+      Digital.Examples.Utilities.FullAdder Adder1
                                    annotation (Placement(transformation(extent=
                 {{-100,-80},{-60,-40}}, rotation=0)));
-      Digital.Examples.Utilities.FullAdder Adder2 
+      Digital.Examples.Utilities.FullAdder Adder2
                                   annotation (Placement(transformation(extent={
                 {-20,-80},{20,-40}}, rotation=0)));
-      Digital.Examples.Utilities.FullAdder Adder3 
+      Digital.Examples.Utilities.FullAdder Adder3
                                   annotation (Placement(transformation(extent={
                 {60,-80},{100,-40}}, rotation=0)));
-      Digital.Examples.Utilities.FullAdder Adder4 
+      Digital.Examples.Utilities.FullAdder Adder4
                                   annotation (Placement(transformation(extent={
                 {140,-80},{180,-40}}, rotation=0)));
     equation
@@ -611,7 +609,7 @@ The simulation stop time has to be 5s.
                 {-90,8},{-50,48}}, rotation=0)));
       D.Sources.Clock Clock       annotation (Placement(transformation(extent={
                 {-90,-48},{-50,-8}}, rotation=0)));
-      D.Examples.Utilities.Counter3 Counter 
+      D.Examples.Utilities.Counter3 Counter
         annotation (Placement(transformation(extent={{-30,-40},{50,40}},
               rotation=0)));
     equation
@@ -647,7 +645,7 @@ The simulation stop time has to be 5s.
                 {-90,8},{-50,48}}, rotation=0)));
       D.Sources.Clock Clock       annotation (Placement(transformation(extent={
                 {-90,-48},{-50,-8}}, rotation=0)));
-      D.Examples.Utilities.Counter Counter(n=4) 
+      D.Examples.Utilities.Counter Counter(n=4)
         annotation (Placement(transformation(extent={{-30,-40},{50,40}},
               rotation=0)));
       D.Converters.LogicToReal Q0 annotation (Placement(transformation(extent={
@@ -872,7 +870,7 @@ The simulation stop time has to be 5s.
                 extent={{90,60},{110,80}}, rotation=0)));
       D.Interfaces.DigitalOutput qn   annotation (Placement(transformation(
                 extent={{90,-80},{110,-60}}, rotation=0)));
-      D.Delay.TransportDelay TD1(delayTime=delayTime,y0=q0) 
+      D.Delay.TransportDelay TD1(delayTime=delayTime,y0=q0)
           annotation (Placement(transformation(extent={{-60,-64},{-40,-44}},
                 rotation=0)));
     equation
@@ -954,12 +952,12 @@ The simulation stop time has to be 5s.
                 extent={{-110,-80},{-90,-60}}, rotation=0)));
       D.Interfaces.DigitalOutput q annotation (Placement(transformation(extent=
                   {{90,60},{110,80}}, rotation=0)));
-      D.Interfaces.DigitalOutput qn "not Q" 
+      D.Interfaces.DigitalOutput qn "not Q"
         annotation (Placement(transformation(extent={{90,-80},{110,-60}},
                 rotation=0)));
       D.Interfaces.DigitalInput clk       annotation (Placement(transformation(
                 extent={{-110,-10},{-90,10}}, rotation=0)));
-      D.Examples.Utilities.RS RS1(delayTime=delayTime,q0=q0) 
+      D.Examples.Utilities.RS RS1(delayTime=delayTime,q0=q0)
                                         annotation (Placement(transformation(
                 extent={{-10,-40},{70,40}}, rotation=0)));
       D.Basic.And And1       annotation (Placement(transformation(extent={{-70,
@@ -967,11 +965,11 @@ The simulation stop time has to be 5s.
       D.Basic.And And2       annotation (Placement(transformation(extent={{-70,
                   -48},{-30,-8}}, rotation=0)));
     equation
-      connect(And2.y, RS1.r) 
+      connect(And2.y, RS1.r)
                             annotation (Line(
             points={{-30,-28},{-10,-28}},
             color={127,0,127}));
-      connect(And1.y, RS1.s) 
+      connect(And1.y, RS1.s)
                             annotation (Line(
             points={{-30,28},{-10,28}},
             color={127,0,127}));
@@ -1052,32 +1050,32 @@ The simulation stop time has to be 5s.
 
       parameter Modelica.SIunits.Time Tdel=0.01 "delay time";
       parameter Digital.Interfaces.Logic QInit=L.'U' "initial value";
-      Digital.Interfaces.DigitalInput d 
+      Digital.Interfaces.DigitalInput d
                                     annotation (Placement(transformation(extent=
                  {{-110,60},{-90,80}}, rotation=0)));
-      Digital.Interfaces.DigitalOutput q 
+      Digital.Interfaces.DigitalOutput q
                                    annotation (Placement(transformation(extent=
                   {{90,60},{110,80}}, rotation=0)));
-      Digital.Interfaces.DigitalOutput qn "not Q" 
+      Digital.Interfaces.DigitalOutput qn "not Q"
         annotation (Placement(transformation(extent={{90,-80},{110,-60}},
                 rotation=0)));
       Digital.Interfaces.DigitalInput clk annotation (Placement(transformation(
                 extent={{-110,-10},{-90,10}}, rotation=0)));
       D.Examples.Utilities.RSFF RSFF1   annotation (Placement(transformation(
                 extent={{-10,-40},{70,40}}, rotation=0)));
-      Digital.Basic.Not Not1 
+      Digital.Basic.Not Not1
                             annotation (Placement(transformation(extent={{-70,
                   -48},{-30,-8}}, rotation=0)));
     equation
-      connect(RSFF1.q,q) 
+      connect(RSFF1.q,q)
                        annotation (Line(
             points={{70,28},{80,28},{80,70},{100,70}},
             color={127,0,127}));
-      connect(RSFF1.qn,qn) 
+      connect(RSFF1.qn,qn)
                          annotation (Line(
             points={{70,-28},{80,-28},{80,-70},{100,-70}},
             color={127,0,127}));
-      connect(Not1.y, RSFF1.r) 
+      connect(Not1.y, RSFF1.r)
                              annotation (Line(
             points={{-30,-28},{-10,-28}},
             color={127,0,127}));
@@ -1148,17 +1146,17 @@ The simulation stop time has to be 5s.
                  {{-110,60},{-90,80}}, rotation=0)));
       D.Interfaces.DigitalOutput q annotation (Placement(transformation(extent=
                   {{90,60},{110,80}}, rotation=0)));
-      D.Interfaces.DigitalOutput qn "not Q" 
+      D.Interfaces.DigitalOutput qn "not Q"
         annotation (Placement(transformation(extent={{90,-80},{110,-60}},
                 rotation=0)));
       D.Interfaces.DigitalInput clk       annotation (Placement(transformation(
                 extent={{-110,-10},{-90,10}}, rotation=0)));
       D.Interfaces.DigitalInput k   annotation (Placement(transformation(extent=
                  {{-110,-80},{-90,-60}}, rotation=0)));
-        D.Examples.Utilities.RS RS1(delayTime=delayTime,q0=q0) 
+        D.Examples.Utilities.RS RS1(delayTime=delayTime,q0=q0)
                                      annotation (Placement(transformation(
                 extent={{30,-24},{70,16}}, rotation=0)));
-        D.Examples.Utilities.RS RS2(delayTime=delayTime,q0=q0) 
+        D.Examples.Utilities.RS RS2(delayTime=delayTime,q0=q0)
                                      annotation (Placement(transformation(
                 extent={{-44,-20},{-4,20}}, rotation=0)));
         D.Basic.And And1(n=3) annotation (Placement(transformation(extent={{-70,
@@ -1261,42 +1259,42 @@ The simulation stop time has to be 5s.
 
               model HalfAdder "half adder"
                 parameter Real delayTime=0 "delay time";
-                Digital.Interfaces.DigitalInput b 
+                Digital.Interfaces.DigitalInput b
                   annotation (Placement(transformation(extent={{-110,-80},{-90,
                   -60}}, rotation=0)));
-                Digital.Interfaces.DigitalOutput s 
+                Digital.Interfaces.DigitalOutput s
                                      annotation (Placement(transformation(
                 extent={{90,60},{110,80}}, rotation=0)));
-                Digital.Interfaces.DigitalInput a 
+                Digital.Interfaces.DigitalInput a
                   annotation (Placement(transformation(extent={{-110,60},{-90,
                   80}}, rotation=0)));
-                Digital.Interfaces.DigitalOutput c 
+                Digital.Interfaces.DigitalOutput c
                                      annotation (Placement(transformation(
                 extent={{90,-80},{110,-60}}, rotation=0)));
-                Gates.AndGate AND(tLH=delayTime, tHL=delayTime) 
+                Gates.AndGate AND(tLH=delayTime, tHL=delayTime)
                   annotation (Placement(transformation(extent={{-20,-82},{20,
                   -42}}, rotation=0)));
-                Gates.XorGate XOR(tLH=delayTime, tHL=delayTime) 
+                Gates.XorGate XOR(tLH=delayTime, tHL=delayTime)
                   annotation (Placement(transformation(extent={{-20,42},{20,82}},
                 rotation=0)));
 
               equation
-                connect(AND.y, c) 
+                connect(AND.y, c)
                                annotation (Line(points={{20,-62},{60,-62},{60,-70},
                 {100,-70}}, color={127,0,127}));
-                connect(XOR.y, s) 
+                connect(XOR.y, s)
                                annotation (Line(points={{20,62},{60,62},{60,70},
                 {100,70}}, color={127,0,127}));
-                connect(b, AND.x[1]) 
+                connect(b, AND.x[1])
                                   annotation (Line(points={{-100,-70},{-12,-70}},
               color={127,0,127}));
-                connect(b, XOR.x[1]) 
+                connect(b, XOR.x[1])
                                   annotation (Line(points={{-100,-70},{-30,-70},
                 {-30,54},{-12,54}}, color={127,0,127}));
-                connect(a, XOR.x[2]) 
+                connect(a, XOR.x[2])
                                   annotation (Line(points={{-100,70},{-12,70}},
               color={127,0,127}));
-                connect(a, AND.x[2]) 
+                connect(a, AND.x[2])
                                   annotation (Line(points={{-100,70},{-40,70},{
                 -40,-54},{-12,-54}}, color={127,0,127}));
                 annotation (
@@ -1350,33 +1348,33 @@ The simulation stop time has to be 5s.
 
     model FullAdder "adding circuit for binary numbers with input carry bit"
 
-      HalfAdder Adder2(delayTime=0.001) 
+      HalfAdder Adder2(delayTime=0.001)
                                       annotation (Placement(transformation(
                 extent={{10,36},{50,76}}, rotation=0)));
-      HalfAdder Adder1(delayTime=0.001) 
+      HalfAdder Adder1(delayTime=0.001)
                                        annotation (Placement(transformation(
                 extent={{-60,36},{-20,76}}, rotation=0)));
-      Digital.Interfaces.DigitalInput a 
+      Digital.Interfaces.DigitalInput a
         annotation (Placement(transformation(
               origin={-100,70},
               extent={{-10,-10},{10,10}},
               rotation=180)));
-      Digital.Interfaces.DigitalInput b 
+      Digital.Interfaces.DigitalInput b
         annotation (Placement(transformation(
               origin={-100,30},
               extent={{-10,-10},{10,10}},
               rotation=180)));
-      Digital.Interfaces.DigitalInput c_in 
+      Digital.Interfaces.DigitalInput c_in
         annotation (Placement(transformation(
               origin={-100,-70},
               extent={{-10,-10},{10,10}},
               rotation=180)));
-      Digital.Interfaces.DigitalOutput s 
+      Digital.Interfaces.DigitalOutput s
         annotation (Placement(transformation(
               origin={101,70},
               extent={{11,-10},{-11,10}},
               rotation=180)));
-      Digital.Interfaces.DigitalOutput c_out 
+      Digital.Interfaces.DigitalOutput c_out
         annotation (Placement(transformation(
               origin={100,-70},
               extent={{10,-10},{-10,10}},
@@ -1388,11 +1386,11 @@ The simulation stop time has to be 5s.
       connect(c_out, OR.y)   annotation (Line(
             points={{100,-70},{50,-70}},
             color={127,0,127}));
-      connect(Adder2.c, OR.x[2]) 
+      connect(Adder2.c, OR.x[2])
                                annotation (Line(
             points={{50,42},{70,42},{70,-40},{10,-40},{10,-62},{18,-62}},
             color={127,0,127}));
-      connect(Adder2.s, s) 
+      connect(Adder2.s, s)
         annotation (Line(points={{50,70},{101,70}}, color={127,0,127}));
         connect(Adder1.a, a) annotation (Line(points={{-60,70},{-100,70}},
               color={127,0,127}));
@@ -1479,7 +1477,7 @@ The simulation stop time has to be 5s.
     model Adder "Generic N Bit Adder"
         import Modelica.Electrical.Digital;
       parameter Integer n=2 "number of single adders";
-      Digital.Examples.Utilities.FullAdder Adder[n] 
+      Digital.Examples.Utilities.FullAdder Adder[n]
                                    annotation (Placement(transformation(extent=
                   {{-20,-20},{20,20}}, rotation=0)));
       Digital.Interfaces.DigitalInput a[n] annotation (Placement(transformation(
@@ -1559,21 +1557,21 @@ The simulation stop time has to be 5s.
     model Counter3 "3 Bit Counter"
         import D = Modelica.Electrical.Digital;
         import L = Modelica.Electrical.Digital.Interfaces.Logic;
-      D.Interfaces.DigitalInput enable 
+      D.Interfaces.DigitalInput enable
                                      annotation (Placement(transformation(
                 extent={{-110,60},{-90,80}}, rotation=0)));
       D.Interfaces.DigitalOutput q2 annotation (Placement(transformation(extent=
                  {{90,60},{110,80}}, rotation=0)));
-      D.Interfaces.DigitalInput count 
+      D.Interfaces.DigitalInput count
                                      annotation (Placement(transformation(
                 extent={{-110,-80},{-90,-60}}, rotation=0)));
-      D.Examples.Utilities.JKFF FF1 
+      D.Examples.Utilities.JKFF FF1
            annotation (Placement(transformation(extent={{-74,-20},{-34,20}},
                 rotation=0)));
-      D.Examples.Utilities.JKFF FF2 
+      D.Examples.Utilities.JKFF FF2
            annotation (Placement(transformation(extent={{-20,-20},{20,20}},
                 rotation=0)));
-      D.Examples.Utilities.JKFF FF3 
+      D.Examples.Utilities.JKFF FF3
            annotation (Placement(transformation(extent={{34,-20},{74,20}},
                 rotation=0)));
       D.Interfaces.DigitalOutput q1 annotation (Placement(transformation(extent=
@@ -1679,10 +1677,10 @@ The simulation stop time has to be 5s.
       parameter Integer n=3 "number of bits";
       parameter Modelica.SIunits.Time delayTime=0.001 "delay of each JKFF";
       parameter D.Interfaces.Logic q0=L.'0' "initial value";
-      D.Interfaces.DigitalInput enable 
+      D.Interfaces.DigitalInput enable
                                     annotation (Placement(transformation(extent=
                  {{-110,60},{-90,80}}, rotation=0)));
-      D.Interfaces.DigitalInput count 
+      D.Interfaces.DigitalInput count
                                     annotation (Placement(transformation(extent=
                  {{-110,-80},{-90,-60}}, rotation=0)));
       D.Examples.Utilities.JKFF FF[n](each delayTime=delayTime,each q0=q0);
@@ -1798,7 +1796,7 @@ components of the Electrical.Digital library.
         'L' "L  Weak    0",
         'H' "H  Weak    1",
         '-' "-  Don't care")
-      "Logic values and their coding according to IEEE 1164 STD_ULOGIC type" 
+      "Logic values and their coding according to IEEE 1164 STD_ULOGIC type"
           annotation (Documentation(info="<html>
 <p><b>Code Table:</b></p>
 
@@ -1833,7 +1831,7 @@ components of the Electrical.Digital library.
 </html>"));
 
     connector DigitalInput = input DigitalSignal
-      "input DigitalSignal as connector" 
+      "input DigitalSignal as connector"
       annotation (defaultComponentName="x",
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Rectangle(
@@ -1855,7 +1853,7 @@ components of the Electrical.Digital library.
 </html>"));
 
     connector DigitalOutput = output DigitalSignal
-      "output DigitalSignal as connector" 
+      "output DigitalSignal as connector"
       annotation (defaultComponentName="y", Icon(coordinateSystem(
             preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics=
            {Polygon(
@@ -1876,10 +1874,10 @@ components of the Electrical.Digital library.
 
     partial block SISO "Single input, single output"
       import D = Modelica.Electrical.Digital;
-      D.Interfaces.DigitalInput x "Connector of Digital input signal" 
+      D.Interfaces.DigitalInput x "Connector of Digital input signal"
                    annotation (Placement(transformation(extent={{-70,-10},{-50,
                 10}}, rotation=0)));
-      D.Interfaces.DigitalOutput y "Connector of Digital output signal" 
+      D.Interfaces.DigitalOutput y "Connector of Digital output signal"
                     annotation (Placement(transformation(extent={{90,-10},{110,
                 10}}, rotation=0)));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1905,7 +1903,7 @@ components of the Electrical.Digital library.
       D.Interfaces.DigitalInput x[n] "Connector of Digital input signal vector"
                                      annotation (Placement(transformation(
               extent={{-70,-80},{-50,80}}, rotation=0)));
-      D.Interfaces.DigitalOutput y "Connector of Digital output signal" 
+      D.Interfaces.DigitalOutput y "Connector of Digital output signal"
                     annotation (Placement(transformation(extent={{90,-10},{110,
                 10}}, rotation=0)));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{
@@ -2074,8 +2072,8 @@ This package contains interface definitions
 
     equation
       x_delayed = integer(delay(x, delayTime));
-      y = if delayTime > 0 then 
-              (if time >= delayTime then x_delayed else y0) else 
+      y = if delayTime > 0 then
+              (if time >= delayTime then x_delayed else y0) else
                 pre(x);
       annotation (Documentation(info="<HTML>
 <P>
@@ -2667,7 +2665,7 @@ XNor with n input values, without delay.
       extends D.Interfaces.SISO;
       D.Basic.Not G1         annotation (Placement(transformation(extent={{-60,
                 -20},{-20,20}}, rotation=0)));
-      D.Delay.InertialDelaySensitive G2(tLH=tLH, tHL=tHL) 
+      D.Delay.InertialDelaySensitive G2(tLH=tLH, tHL=tHL)
         annotation (Placement(transformation(extent={{20,-20},{60,20}},
               rotation=0)));
     equation
@@ -2675,7 +2673,7 @@ XNor with n input values, without delay.
               100,0}}, color={127,0,127}));
       connect(G1.x, x)   annotation (Line(points={{-52,0},{-60,0}}, color={127,
               0,127}));
-      connect(G1.y, G2.x) 
+      connect(G1.y, G2.x)
         annotation (Line(points={{-20,0},{28,0}}, color={127,0,127}));
       annotation (
         Documentation(info="<HTML>
@@ -2737,11 +2735,11 @@ InvGate with 1 input value, composed by Not and sensitive intertial delay.
         y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}},
               rotation=0)));
     equation
-      connect(x, G1.x) 
+      connect(x, G1.x)
         annotation (Line(points={{-60,0},{-32,0}}, color={127,0,127}));
-      connect(y, G2.y) 
+      connect(y, G2.y)
         annotation (Line(points={{100,0},{60,0}}, color={127,0,127}));
-      connect(G1.y, G2.x) 
+      connect(G1.y, G2.x)
         annotation (Line(points={{0,0},{28,0}}, color={127,0,127}));
       annotation (
         Documentation(info="<HTML>
@@ -2798,11 +2796,11 @@ AndGate with n input values, composed by And and sensitive intertial delay.
         y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}},
               rotation=0)));
     equation
-      connect(x, G1.x) 
+      connect(x, G1.x)
         annotation (Line(points={{-60,0},{-32,0}}, color={127,0,127}));
-      connect(G1.y, G2.x) 
+      connect(G1.y, G2.x)
         annotation (Line(points={{0,0},{28,0}}, color={127,0,127}));
-      connect(G2.y, y) 
+      connect(G2.y, y)
         annotation (Line(points={{60,0},{100,0}}, color={127,0,127}));
       annotation (extent=[0, -20; 40, 20], Diagram(coordinateSystem(
               preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
@@ -2892,11 +2890,11 @@ NandGate with n input values, composed by Nand and sensitive intertial delay.
         y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}},
               rotation=0)));
     equation
-      connect(G1.y, G2.x) 
+      connect(G1.y, G2.x)
         annotation (Line(points={{0,0},{28,0}}, color={127,0,127}));
-      connect(x,G1. x) 
+      connect(x,G1. x)
         annotation (Line(points={{-60,0},{-32,0}}, color={127,0,127}));
-      connect(y, G2.y) 
+      connect(y, G2.y)
         annotation (Line(points={{100,0},{60,0}}, color={127,0,127}));
       annotation (
         Documentation(info="<HTML>
@@ -2953,11 +2951,11 @@ OrGate with n input values, composed by Or and sensitive intertial delay.
         y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}},
               rotation=0)));
     equation
-      connect(G1.y, G2.x) 
+      connect(G1.y, G2.x)
         annotation (Line(points={{0,0},{28,0}}, color={127,0,127}));
-      connect(x, G1.x) 
+      connect(x, G1.x)
         annotation (Line(points={{-60,0},{-32,0}}, color={127,0,127}));
-      connect(y, G2.y) 
+      connect(y, G2.y)
         annotation (Line(points={{100,0},{60,0}}, color={127,0,127}));
       annotation (
         Documentation(info="<HTML>
@@ -3020,11 +3018,11 @@ NorGate with n input values, composed by Nor and sensitive intertial delay.
         y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}},
               rotation=0)));
     equation
-      connect(x, G1.x) 
+      connect(x, G1.x)
         annotation (Line(points={{-60,0},{-32,0}}, color={127,0,127}));
-      connect(G1.y, G2.x) 
+      connect(G1.y, G2.x)
         annotation (Line(points={{0,0},{28,0}}, color={127,0,127}));
-      connect(G2.y, y) 
+      connect(G2.y, y)
         annotation (Line(points={{60,0},{100,0}}, color={127,0,127}));
       annotation (
         Documentation(info="<HTML>
@@ -3081,11 +3079,11 @@ XorGate with n input values, composed by Xor and sensitive intertial delay.
         y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}},
               rotation=0)));
     equation
-      connect(x, G1.x) 
+      connect(x, G1.x)
         annotation (Line(points={{-60,0},{-32,0}}, color={127,0,127}));
-      connect(G2.y, y) 
+      connect(G2.y, y)
         annotation (Line(points={{60,0},{100,0}}, color={127,0,127}));
-      connect(G1.y, G2.x) 
+      connect(G1.y, G2.x)
         annotation (Line(points={{0,0},{28,0}}, color={127,0,127}));
       annotation (
         Documentation(info="<HTML>
@@ -3135,7 +3133,7 @@ XNorGate with n input values, composed by XNor and sensitive intertial delay.
       import D = Modelica.Electrical.Digital;
       extends D.Delay.DelayParams;
       extends D.Interfaces.SISO;
-      D.Delay.InertialDelaySensitive G1(tLH=tLH, tHL=tHL) 
+      D.Delay.InertialDelaySensitive G1(tLH=tLH, tHL=tHL)
         annotation (Placement(transformation(extent={{-30,-20},{10,20}},
               rotation=0)));
     equation
@@ -3220,7 +3218,7 @@ BufGate with 1 input value, composed by Not and sensitive intertial delay.
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
       parameter D.Interfaces.Logic x(start=L.'1') "Logic value to be set";
-      D.Interfaces.DigitalOutput y 
+      D.Interfaces.DigitalOutput y
                     annotation (Placement(transformation(extent={{90,-10},{110,
                 10}}, rotation=0)));
     algorithm
@@ -3293,7 +3291,7 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
         "Logic value before step";
       parameter D.Interfaces.Logic after(start=L.'1') "Logic value after step";
       parameter Real stepTime(start=1) "step time";
-      D.Interfaces.DigitalOutput y 
+      D.Interfaces.DigitalOutput y
                     annotation (Placement(transformation(extent={{90,-10},{110,
                 10}}, rotation=0)));
     algorithm
@@ -3374,7 +3372,7 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
       parameter Real t[size(x, 1)]={1} "vector of corresponding time points";
       parameter D.Interfaces.Logic y0=L.'U' "initial output value";
       final parameter Integer n=size(x, 1) "table size";
-      D.Interfaces.DigitalOutput y 
+      D.Interfaces.DigitalOutput y
                     annotation (Placement(transformation(extent={{90,-10},{110,
                 10}}, rotation=0)));
     algorithm
@@ -3480,7 +3478,7 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
       parameter Integer nperiod(start=-1)
         "Number of periods (< 0 means infinite number of periods)";
       Integer np(start=0, fixed=true);
-      D.Interfaces.DigitalOutput y 
+      D.Interfaces.DigitalOutput y
                     annotation (Placement(transformation(extent={{90,-10},{110,
                 10}}, rotation=0)));
     protected
@@ -3570,7 +3568,7 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
       parameter Real width(
         final min=Modelica.Constants.small,
         final max=100, start=50) "Width of pulses in % of period";
-      D.Interfaces.DigitalOutput y "Connector of Digital output signal" 
+      D.Interfaces.DigitalOutput y "Connector of Digital output signal"
                     annotation (Placement(transformation(extent={{90,-10},{110,
                 10}}, rotation=0)));
     protected
@@ -3652,10 +3650,10 @@ The number of periods is unlimited. The first pulse starts at startTime.
     block LogicToXO1 "Conversion to XO1"
       import D = Modelica.Electrical.Digital;
       import T = Modelica.Electrical.Digital.Tables;
-      D.Interfaces.DigitalInput x[n] 
+      D.Interfaces.DigitalInput x[n]
                         annotation (Placement(transformation(extent={{-60,-10},
                 {-40,10}}, rotation=0)));
-      D.Interfaces.DigitalOutput y[n] 
+      D.Interfaces.DigitalOutput y[n]
                          annotation (Placement(transformation(extent={{40,-10},
                 {60,10}}, rotation=0)));
       parameter Integer n(final min=1, start=1) "signal width";
@@ -3730,10 +3728,10 @@ If the signal width is greater than 1 this conversion is done for each signal.
     block LogicToXO1Z "Conversion to XO1Z"
       import D = Modelica.Electrical.Digital;
       import T = Modelica.Electrical.Digital.Tables;
-      D.Interfaces.DigitalInput x[n] 
+      D.Interfaces.DigitalInput x[n]
                         annotation (Placement(transformation(extent={{-60,-10},
                 {-40,10}}, rotation=0)));
-      D.Interfaces.DigitalOutput y[n] 
+      D.Interfaces.DigitalOutput y[n]
                          annotation (Placement(transformation(extent={{40,-10},
                 {60,10}}, rotation=0)));
       parameter Integer n(final min=1, start=1) "signal width";
@@ -3808,10 +3806,10 @@ If the signal width is greater than 1 this conversion is done for each signal.
     block LogicToUX01 "Conversion to UXO1"
       import D = Modelica.Electrical.Digital;
       import T = Modelica.Electrical.Digital.Tables;
-      D.Interfaces.DigitalInput x[n] 
+      D.Interfaces.DigitalInput x[n]
                         annotation (Placement(transformation(extent={{-60,-10},
                 {-40,10}}, rotation=0)));
-      D.Interfaces.DigitalOutput y[n] 
+      D.Interfaces.DigitalOutput y[n]
                          annotation (Placement(transformation(extent={{40,-10},
                 {60,10}}, rotation=0)));
       parameter Integer n(final min=1, start=1) "signal width";
@@ -3885,11 +3883,11 @@ If the signal width is greater than 1 this conversion is done for each signal.
 
     block BooleanToLogic "Boolean to Logic converter"
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
-      Modelica.Blocks.Interfaces.BooleanInput x[n] 
+      Modelica.Blocks.Interfaces.BooleanInput x[n]
         annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
               rotation=0)));
       parameter Integer n(final min=1, start=1) "signal width";
-      Digital.Interfaces.DigitalOutput y[n] 
+      Digital.Interfaces.DigitalOutput y[n]
         annotation (Placement(transformation(extent={{40,-10},{60,10}},
               rotation=0)));
     equation
@@ -3950,10 +3948,10 @@ If the signal width is greater than 1 this conversion is done for each signal.
 
     block LogicToBoolean "Logic to Boolean converter"
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
-      Digital.Interfaces.DigitalInput x[n] 
+      Digital.Interfaces.DigitalInput x[n]
         annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
               rotation=0)));
-      Modelica.Blocks.Interfaces.BooleanOutput y[n] 
+      Modelica.Blocks.Interfaces.BooleanOutput y[n]
         annotation (Placement(transformation(extent={{40,-10},{60,10}},
               rotation=0)));
       parameter Integer n(final min=1, start=2) "signal width";
@@ -4015,10 +4013,10 @@ If the signal width is greater than 1 this conversion is done for each signal.
 
     block RealToLogic "Real to Logic converter"
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
-      Modelica.Blocks.Interfaces.RealInput x[n] 
+      Modelica.Blocks.Interfaces.RealInput x[n]
         annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
               rotation=0)));
-      Digital.Interfaces.DigitalOutput y[n] 
+      Digital.Interfaces.DigitalOutput y[n]
         annotation (Placement(transformation(extent={{40,-10},{60,10}},
               rotation=0)));
       parameter Integer n(final min=1, start=1) "signal width";
@@ -4032,7 +4030,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
         "output else";
     equation
       for i in 1:n loop
-        y[i] = if x[i] > upper_limit then upper_value else 
+        y[i] = if x[i] > upper_limit then upper_value else
           if x[i] < lower_limit then lower_value else middle_value;
       end for;
       annotation (extent=[40, -10; 60, 10],
@@ -4087,10 +4085,10 @@ If the signal width is greater than 1 this conversion is done for each signal.
 
     block LogicToReal "Logic to Real converter"
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
-      Digital.Interfaces.DigitalInput x[n] 
+      Digital.Interfaces.DigitalInput x[n]
         annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
               rotation=0)));
-      Modelica.Blocks.Interfaces.RealOutput y[n] 
+      Modelica.Blocks.Interfaces.RealOutput y[n]
         annotation (Placement(transformation(extent={{40,-10},{60,10}},
               rotation=0)));
       parameter Integer n(final min=1, start=1) "signal width";
@@ -4105,12 +4103,12 @@ If the signal width is greater than 1 this conversion is done for each signal.
       parameter Real value_m(start=0.5) "value for digital m (Don't care)";
     equation
       for i in 1:n loop
-       y[i]= if x[i] == L.'U' then value_U else 
-                if x[i] == L.'X' then value_X else if 
-          x[i] == L.'0' then value_0 else if x[i] == L.'1' then 
+       y[i]= if x[i] == L.'U' then value_U else
+                if x[i] == L.'X' then value_X else if
+          x[i] == L.'0' then value_0 else if x[i] == L.'1' then
                value_1 else if x[i] == L.
-          'Z' then value_Z else if x[i] == L.'W' then value_W else 
-                if x[i] == L.'L' then value_L else if 
+          'Z' then value_Z else if x[i] == L.'W' then value_W else
+                if x[i] == L.'L' then value_L else if
           x[i] == L.'H' then value_H else value_m;
       end for;
       annotation (Documentation(info="<HTML>

@@ -95,8 +95,6 @@ First version implemented.
 </p>
 </HTML>
 "));
-  equation
-
   end ReleaseNotes;
 
   class Contact "Contact"

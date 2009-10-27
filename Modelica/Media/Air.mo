@@ -173,7 +173,7 @@ This model computes thermodynamic properties of moist air from three independent
       input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state "Thermodynamic state";
     algorithm
-      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T, X=X) else 
+      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T, X=X) else
              ThermodynamicState(p=p,T=T, X=cat(1,X,{1-sum(X)}));
       annotation(smoothOrder=2,
                   Documentation(info="<html>
@@ -189,7 +189,7 @@ The <a href=Modelica://Modelica.Media.Air.MoistAir.ThermodynamicState>thermodyna
       input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state "Thermodynamic state";
     algorithm
-      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T_phX(p,h,X),X=X) else 
+      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T_phX(p,h,X),X=X) else
              ThermodynamicState(p=p,T=T_phX(p,h,X), X=cat(1,X,{1-sum(X)}));
       annotation(smoothOrder=2,
                   Documentation(info="<html>
@@ -205,7 +205,7 @@ The <a href=Modelica://Modelica.Media.Air.MoistAir.ThermodynamicState>thermodyna
       input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state "Thermodynamic state";
     algorithm
-      state := if size(X,1) == nX then ThermodynamicState(p=d*({steam.R,dryair.R}*X)*T,T=T,X=X) else 
+      state := if size(X,1) == nX then ThermodynamicState(p=d*({steam.R,dryair.R}*X)*T,T=T,X=X) else
              ThermodynamicState(p=d*({steam.R,dryair.R}*cat(1,X,{1-sum(X)}))*T,T=T, X=cat(1,X,{1-sum(X)}));
       annotation(smoothOrder=2,
                   Documentation(info="<html>
@@ -871,8 +871,6 @@ Specific internal energy is determined from pressure p, temperature T and compos
       annotation (Documentation(info="<html>
 Derivative function for <a href=Modelica://Modelica.Media.Air.MoistAir.specificInternalEnergy_pTX>specificInternalEnergy_pTX</a>.
 </html>"));
-  equation
-
   end specificInternalEnergy_pTX_der;
 
    redeclare function extends specificEntropy
@@ -1054,7 +1052,7 @@ Thermal conductivity is computed from temperature using a simple polynomial for 
         "Maximum diagram absolute humidity";
       parameter SIunits.Time t=1 "Simulation time";
 
-      final parameter SIunits.Temperature[n_T] T_const={T_min - T_step + i*T_step for i in 
+      final parameter SIunits.Temperature[n_T] T_const={T_min - T_step + i*T_step for i in
               1:n_T} "Constant temperatures";
       final parameter SIunits.SpecificEnthalpy[n_h] h_const={(i-1)*h_step+h_min for i in 1:n_h}
         "Constant enthalpies";

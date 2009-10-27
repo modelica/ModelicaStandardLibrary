@@ -87,8 +87,6 @@ This library has the following main features:
 </ul>
 </HTML>
 "));
-  equation
-
   end Overview;
 
   class GettingStarted "Getting started"

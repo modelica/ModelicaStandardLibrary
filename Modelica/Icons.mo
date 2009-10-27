@@ -47,8 +47,6 @@ package Icons "Library of icons"
 This icon is designed for an <b>information</b> class.
 </p>
 </html>"));
-  equation
-
   end Info;
 
   partial package Library "Icon for library"

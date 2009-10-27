@@ -809,8 +809,6 @@ calls in 0.99 should be changed:
 </pre>
 </HTML>
 "));
-  equation
-
   end Upgrade;
 
   class Literature "Literature"
@@ -947,7 +945,7 @@ model World
   import Modelica.Mechanics.MultiBody.Types;
 
     Interfaces.Frame_b frame_b
-    "Coordinate system fixed in the origin of the world frame" 
+    "Coordinate system fixed in the origin of the world frame"
                                annotation (Placement(transformation(extent={{84,
             -16},{116,16}}, rotation=0)));
 
@@ -962,34 +960,34 @@ model World
   parameter Types.AxisLabel label2="y" "Label of vertical axis in icon";
   parameter Types.GravityTypes gravityType=GravityTypes.UniformGravity
     "Type of gravity field"                                                                                                     annotation (Evaluate=true);
-  parameter SI.Acceleration g=9.81 "Constant gravity acceleration" 
+  parameter SI.Acceleration g=9.81 "Constant gravity acceleration"
     annotation (Dialog(enable=gravityType == GravityTypes.UniformGravity));
   parameter Types.Axis n={0,-1,0}
-    "Direction of gravity resolved in world frame (gravity = g*n/length(n))" 
+    "Direction of gravity resolved in world frame (gravity = g*n/length(n))"
     annotation (Evaluate=true, Dialog(enable=gravityType == Modelica.Mechanics.
           MultiBody.Types.GravityTypes.UniformGravity));
   parameter Real mue(
     unit="m3/s2",
     min=0) = 3.986e14
-    "Gravity field constant (default = field constant of earth)" 
+    "Gravity field constant (default = field constant of earth)"
     annotation (Dialog(enable=gravityType == Types.GravityTypes.PointGravity));
   parameter Boolean driveTrainMechanics3D=true
     "= true, if 3-dim. mechanical effects of Parts.Mounting1D/Rotor1D/BevelGear1D shall be taken into account";
 
   parameter SI.Distance axisLength=nominalLength/2
-    "Length of world axes arrows" 
+    "Length of world axes arrows"
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
   parameter SI.Distance axisDiameter=axisLength/defaultFrameDiameterFraction
-    "Diameter of world axes arrows" 
+    "Diameter of world axes arrows"
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
-  parameter Boolean axisShowLabels=true "= true, if labels shall be shown" 
+  parameter Boolean axisShowLabels=true "= true, if labels shall be shown"
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
   input Types.Color axisColor_x=Modelica.Mechanics.MultiBody.Types.Defaults.FrameColor
-    "Color of x-arrow" 
+    "Color of x-arrow"
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
-  input Types.Color axisColor_y=axisColor_x 
+  input Types.Color axisColor_y=axisColor_x
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
-  input Types.Color axisColor_z=axisColor_x "Color of z-arrow" 
+  input Types.Color axisColor_z=axisColor_x "Color of z-arrow"
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
 
   parameter SI.Position gravityArrowTail[3]={0,0,0}
@@ -1006,7 +1004,7 @@ model World
           "Animation", group=
           "if animateGravity = true and gravityType = UniformGravity",
           enable=enableAnimation and animateGravity and gravityType == GravityTypes.UniformGravity));
-  input Types.Color gravityArrowColor={0,230,0} "Color of gravity arrow" 
+  input Types.Color gravityArrowColor={0,230,0} "Color of gravity arrow"
     annotation (Dialog(tab="Animation", group=
           "if animateGravity = true and gravityType = UniformGravity",
           enable=enableAnimation and animateGravity and gravityType == GravityTypes.UniformGravity));
@@ -1015,7 +1013,7 @@ model World
     annotation (Dialog(tab="Animation", group=
           "if animateGravity = true and gravityType = PointGravity",
           enable=enableAnimation and animateGravity and gravityType == GravityTypes.PointGravity));
-  input Types.Color gravitySphereColor={0,230,0} "Color of gravity sphere" 
+  input Types.Color gravitySphereColor={0,230,0} "Color of gravity sphere"
     annotation (Dialog(tab="Animation", group=
           "if animateGravity = true and gravityType = PointGravity",
           enable=enableAnimation and animateGravity and gravityType == GravityTypes.PointGravity));
@@ -1023,13 +1021,13 @@ model World
   parameter SI.Length nominalLength=1 "\"Nominal\" length of multi-body system"
     annotation (Dialog(tab="Defaults"));
   parameter SI.Length defaultAxisLength=nominalLength/5
-    "Default for length of a frame axis (but not world frame)" 
+    "Default for length of a frame axis (but not world frame)"
     annotation (Dialog(tab="Defaults"));
   parameter SI.Length defaultJointLength=nominalLength/10
-    "Default for the fixed length of a shape representing a joint" 
+    "Default for the fixed length of a shape representing a joint"
     annotation (Dialog(tab="Defaults"));
   parameter SI.Length defaultJointWidth=nominalLength/20
-    "Default for the fixed width of a shape representing a joint" 
+    "Default for the fixed width of a shape representing a joint"
     annotation (Dialog(tab="Defaults"));
   parameter SI.Length defaultForceLength=nominalLength/10
     "Default for the fixed length of a shape representing a force (e.g. damper)"
@@ -1038,25 +1036,25 @@ model World
     "Default for the fixed width of a shape represening a force (e.g. spring, bushing)"
     annotation (Dialog(tab="Defaults"));
   parameter SI.Length defaultBodyDiameter=nominalLength/9
-    "Default for diameter of sphere representing the center of mass of a body" 
+    "Default for diameter of sphere representing the center of mass of a body"
     annotation (Dialog(tab="Defaults"));
   parameter Real defaultWidthFraction=20
     "Default for shape width as a fraction of shape length (e.g., for Parts.FixedTranslation)"
     annotation (Dialog(tab="Defaults"));
   parameter SI.Length defaultArrowDiameter=nominalLength/40
-    "Default for arrow diameter (e.g., of forces, torques, sensors)" 
+    "Default for arrow diameter (e.g., of forces, torques, sensors)"
     annotation (Dialog(tab="Defaults"));
   parameter Real defaultFrameDiameterFraction=40
     "Default for arrow diameter of a coordinate system as a fraction of axis length"
     annotation (Dialog(tab="Defaults"));
   parameter Real defaultSpecularCoefficient(min=0) = 0.7
-    "Default reflection of ambient light (= 0: light is completely absorbed)" 
+    "Default reflection of ambient light (= 0: light is completely absorbed)"
     annotation (Dialog(tab="Defaults"));
   parameter Real defaultN_to_m(unit="N/m", min=0) = 1000
-    "Default scaling of force arrows (length = force/defaultN_to_m)" 
+    "Default scaling of force arrows (length = force/defaultN_to_m)"
     annotation (Dialog(tab="Defaults"));
   parameter Real defaultNm_to_m(unit="N.m/m", min=0) = 1000
-    "Default scaling of torque arrows (length = torque/defaultNm_to_m)" 
+    "Default scaling of torque arrows (length = torque/defaultNm_to_m)"
     annotation (Dialog(tab="Defaults"));
 
   /* The World object can only use the Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape model, but no
@@ -1067,7 +1065,7 @@ model World
   */
 protected
   parameter Integer ndim=if enableAnimation and animateWorld then 1 else 0;
-  parameter Integer ndim2=if enableAnimation and animateWorld and 
+  parameter Integer ndim2=if enableAnimation and animateWorld and
       axisShowLabels then 1 else 0;
 
   // Parameters to define axes
@@ -1231,10 +1229,10 @@ protected
     output SI.Acceleration gravity[3]
       "Gravity acceleration at point r, resolved in world frame";
   algorithm
-    gravity := if gravityType == GravityTypes.UniformGravity then g else 
-               if gravityType == GravityTypes.PointGravity then 
+    gravity := if gravityType == GravityTypes.UniformGravity then g else
+               if gravityType == GravityTypes.PointGravity then
                   -(mue/(r*r))*(r/Modelica.Math.Vectors.length(
-                                                r)) else 
+                                                r)) else
                     zeros(3);
   end gravityAccelerationTypes;
 equation
