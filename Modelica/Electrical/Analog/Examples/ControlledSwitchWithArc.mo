@@ -1,5 +1,6 @@
 within Modelica.Electrical.Analog.Examples;
 model ControlledSwitchWithArc
+  "Comparison of controlled switch models both with and without arc"
 
   annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
             -100},{100,100}}), graphics={Text(

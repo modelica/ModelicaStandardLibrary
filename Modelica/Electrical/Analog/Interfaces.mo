@@ -3,13 +3,9 @@ package Interfaces
   "Connectors and partial models for Analog electrical components"
   extends Modelica.Icons.Library;
   annotation (Documentation(info="<html>
-<p>
-This package contains connectors and interfaces (partial models) for
-analog electrical components.
-</p>
-
-</HTML>
-", revisions="<html>
+<p>This package contains connectors and interfaces (partial models) for analog electrical components. The partial models contain typical combinations of pins, and internal variables which are often used. Furthermode, the thermal heat port is in this package which can be included by inheritance.</p>
+</html>",
+   revisions="<html>
 <dl>
 <dt>
 <b>Main Authors:</b>
@@ -69,6 +65,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
+</html>", info="<html>
+<p>Pin is the basic electric connector. It includes the voltage which consists between the pin and the ground node. The ground node is the node of (any) ground device (Modelica.Electrical.Basic.Ground). Furthermore, the pin includes the current, which is considered to be <b>positive</b> if it is flowing at the pin<b> into the device</b>.</p>
 </html>"));
   end Pin;
 
@@ -393,7 +391,7 @@ on the model behaviour.
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-70,0},{-96,0}}, color={0,0,0}),
+          grid={1,1}), graphics={Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
             Line(points={{70,0},{100,0}}, color={0,0,255})}),
       Documentation(revisions="<html>
 <ul>

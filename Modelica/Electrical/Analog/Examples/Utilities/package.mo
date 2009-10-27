@@ -5,12 +5,9 @@ extends Modelica.Icons.Library2;
 
 annotation (
   Documentation(info="<html>
-<p>
-This package contains utility components used by package Examples.
-</p>
-
-</HTML>
-", revisions="<html>
+<p>This package contains some utility components used by package examples. These components are auxiliary components that should not be used like true MLS components since they are designed the purpose of the examples only, not for common use.</p>
+</html>",
+   revisions="<html>
 <dl>
 <dt>
 <b>Main Authors:</b>

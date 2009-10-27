@@ -5,12 +5,9 @@ package Ideal
   extends Modelica.Icons.Library;
 
   annotation (Documentation(info="<html>
-<p>
-This package contains electrical components with idealized behaviour:
-</p>
-
-</HTML>
-", revisions="<html>
+<p>This package contains electrical components with idealized behaviour. To enable more realistic applications than it is possible with pure realistic behavior some components are improved by additional features. E.g. the switches have resistances for the open or close case which can be parametrized.</p>
+</html>",
+   revisions="<html>
 <dl>
 <dt>
 <b>Main Authors:</b>
@@ -1217,7 +1214,8 @@ behavior is <b> not </b> modelled.
   model IdealTransformer "Ideal transformer core with or without magnetization"
     extends Modelica.Electrical.Analog.Interfaces.TwoPort;
     parameter Real n(start=1) "Turns ratio primary:secondary voltage";
-    parameter Boolean considerMagnetization=false;
+    parameter Boolean considerMagnetization=false
+      "Choice of considering magnetization";
     parameter Modelica.SIunits.Inductance Lm1(start=1)
       "Magnetization inductance w.r.t. primary side" 
       annotation(Dialog(enable=considerMagnetization));
@@ -1422,11 +1420,9 @@ where the constant <i>G</i> is called the gyration conductance.
     extends Interfaces.OnePort;
     annotation (
       Documentation(info="<html>
-<P>
-The model Idle is a simple idle running branch.
-</P>
-</HTML>
-", revisions="<html>
+<p>The model Idle is a simple idle running branch. That means between both pins no current is running. This ideal device is of no influence on the circuit. Therefore, it can be neglected in each case. For purposes of completness this component is part of the MSL, as an opposite of the short cut.</p>
+</html>",
+   revisions="<html>
 <ul>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
@@ -1463,11 +1459,9 @@ The model Idle is a simple idle running branch.
     extends Interfaces.OnePort;
     annotation (
       Documentation(info="<html>
-<P>
-The model Short is a simple short cut branch.
-</P>
-</HTML>
-", revisions="<html>
+<p>The model Short is a simple short cut branch. That means the voltage drop between both pins is zero. This device could be nelected if both pins are combined to one node. Besides connecting the nodes of both pins this device has no further function.</p>
+</html>",
+   revisions="<html>
 <ul>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>

@@ -1,5 +1,6 @@
 within Modelica.Electrical.Analog.Examples;
 model CompareTransformers
+  "Transformer circuit to show the magnetization facilities"
 
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={Text(

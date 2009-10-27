@@ -1,5 +1,5 @@
 within Modelica.Electrical.Analog.Examples;
-model ThyristorBehaviourTest
+model ThyristorBehaviourTest "Thyristor demonstration example"
 
   annotation (Diagram(coordinateSystem(
           preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics),

@@ -12,8 +12,8 @@ model ShowSaturatingInductor
     "Source frequency";
   parameter Modelica.SIunits.Angle phase=Modelica.Constants.pi/2
     "Source voltage phase shift";
-  output Modelica.SIunits.Voltage v "Voltage drop over saturating inductor";
-  output Modelica.SIunits.Current i "Current across saturating inductor";
+  //output Modelica.SIunits.Voltage v "Voltage drop over saturating inductor";
+  //output Modelica.SIunits.Current i "Current across saturating inductor";
   annotation (
     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={Text(
@@ -22,18 +22,19 @@ model ShowSaturatingInductor
           textString="Show Saturating Inductor")}),
     experiment(StopTime=6.2832, Interval=0.01),
     Documentation(info="<html>
-
+<p>This simple circuit uses the saturating inductor, whis has a changing inductivity.</p>
+<p>This circuit should be simulated until 1 s. Compare SaturatingInductance1.p.i with Inductance1.p.i to see the difference between saturating and ideal inductor.</p>
 </html>"));
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1(
     V=U,
     phase=phase,
     freqHz=f) 
     annotation (Placement(transformation(
-        origin={-20,0},
+        origin={-60,-6},
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Ground Ground1 
-    annotation (Placement(transformation(extent={{-30,-30},{-10,-10}}, rotation=
+    annotation (Placement(transformation(extent={{-70,-36},{-50,-16}}, rotation=
            0)));
   Modelica.Electrical.Analog.Basic.SaturatingInductor SaturatingInductance1(
     Lzer=Lzer,
@@ -41,16 +42,28 @@ model ShowSaturatingInductor
     Inom=Inom,
     Linf=Linf) 
     annotation (Placement(transformation(
-        origin={22,6},
+        origin={-20,0},
         extent={{-10,-10},{10,10}},
         rotation=270)));
+  Basic.Inductor Inductance1(L=Lnom) annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=270,
+        origin={20,0})));
 equation
-  v=SaturatingInductance1.v;
-  i=SaturatingInductance1.i;
-  connect(SineVoltage1.n, Ground1.p) annotation (Line(points={{-20,-10},{-20,
-          -10}}, color={0,0,255}));
-  connect(SineVoltage1.n, SaturatingInductance1.n) annotation (Line(points={{-20,-10},
-          {22,-10},{22,-4}},          color={0,0,255}));
-  connect(SaturatingInductance1.p, SineVoltage1.p) annotation (Line(points={{22,16},
-          {22,26},{-20,26},{-20,10}},     color={0,0,255}));
+  //v=SaturatingInductance1.v;
+  //i=SaturatingInductance1.i;
+  connect(SineVoltage1.n, Ground1.p) annotation (Line(points={{-60,-16},{-60,
+          -16}}, color={0,0,255}));
+  connect(SineVoltage1.n, SaturatingInductance1.n) annotation (Line(points={{-60,-16},
+          {-20,-16},{-20,-10}},       color={0,0,255}));
+  connect(SaturatingInductance1.p, SineVoltage1.p) annotation (Line(points={{-20,10},
+          {-20,20},{-60,20},{-60,4}},     color={0,0,255}));
+  connect(Inductance1.p, SineVoltage1.p) annotation (Line(
+      points={{20,10},{20,20},{-60,20},{-60,4}},
+      color={0,0,255},
+      smooth=Smooth.None));
+  connect(Inductance1.n, SineVoltage1.n) annotation (Line(
+      points={{20,-10},{20,-16},{-60,-16}},
+      color={0,0,255},
+      smooth=Smooth.None));
 end ShowSaturatingInductor;

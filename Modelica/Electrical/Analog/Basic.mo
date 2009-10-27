@@ -1,17 +1,13 @@
 within Modelica.Electrical.Analog;
-package Basic
-  "Basic electrical components such as resistor, capacitor, transformer"
+package Basic "Basic electrical components"
 
   extends Modelica.Icons.Library;
 
   annotation (
-Documentation(info="<HTML>
-<p>
-This package contains basic analog electrical components.
-</p>
-
-</HTML>
-", revisions="<html>
+Documentation(info="<html>
+<p>This package contains very basic analog electrical components such as resistor, conductor, condensator, inductor, and the ground (which is needed in each electrical circuit description. Furthermore, controled sources, coupling components, and some improved (but newertheless basic) are in this package.</p>
+</html>",
+   revisions="<html>
 <dl>
 <dt>
 <b>Main Authors:</b>
@@ -28,6 +24,7 @@ Christoph Clau&szlig;
 </dl>
 </html>"));
   model Ground "Ground node"
+
     Interfaces.Pin p annotation (Placement(transformation(
           origin={0,100},
           extent={{10,-10},{-10,10}},
@@ -98,6 +95,7 @@ model Resistor "Ideal linear electrical resistor"
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
   Modelica.SIunits.Resistance R_actual
       "Actual resistance = R*(1 + alpha*(T_heatPort - T_ref))";
+
   annotation (
     Documentation(info="<HTML>
 <P>
@@ -271,6 +269,7 @@ model Conductor "Ideal linear electrical conductor"
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
   Modelica.SIunits.Conductance G_actual
       "Actual conductance = G_ref/(1 + alpha*(T_heatPort - T_ref))";
+
   annotation (
     Documentation(info="<HTML>
 <P>
@@ -529,8 +528,8 @@ The parameters are:
   </dd>
 </dl>
 </html>"),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+              100}}), graphics={
           Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}),
           Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}),
           Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}),
@@ -1723,14 +1722,18 @@ value of Slope is taken into calculation.)
     constant Real Pi=3.141592654;
 
    // power supply
-    final parameter SI.Voltage vcp_abs = abs(vcp);
-    final parameter SI.Voltage vcm_abs = abs(vcm);
+    final parameter SI.Voltage vcp_abs = abs(vcp)
+      "Positive correction value for limiting by p_supply";
+    final parameter SI.Voltage vcm_abs = abs(vcm)
+      "Positive correction value for limiting by msupply";
 
   // input stage
   //  Ib = 0.5*(I1 + I2);
   //  Ios = I1 - I2;
-    final parameter SI.Current I1 =  Ib + Ios/2.0;
-    final parameter SI.Current I2 =  Ib - Ios/2.0;
+    final parameter SI.Current I1 =  Ib + Ios/2.0
+      "Current of internal source I1";
+    final parameter SI.Current I2 =  Ib - Ios/2.0
+      "Current of internal source I2";
 
   // gain stage (difference and common mode)
     final parameter Real Avd0_val = 10.0^(Avd0/20.0) "differential mode gain";
@@ -1738,12 +1741,14 @@ value of Slope is taken into calculation.)
       "common mode gain";
 
   // slew rate stage
-    final parameter SI.VoltageSlope sr_p_val = abs(sr_p);
-    final parameter SI.VoltageSlope sr_m_val = -abs(sr_m);
+    final parameter SI.VoltageSlope sr_p_val =  abs(sr_p)
+      "Value of slew rate for increase";
+    final parameter SI.VoltageSlope sr_m_val = -abs(sr_m)
+      "Negative alue of slew rate for increase";
 
   // output stage
-    final parameter SI.Current Imaxso_val = abs(Imaxso) "orientation out outp";
-    final parameter SI.Current Imaxsi_val = abs(Imaxsi) "orientation into outp";
+    final parameter SI.Current Imaxso_val = abs(Imaxso) "Orientation out outp";
+    final parameter SI.Current Imaxsi_val = abs(Imaxsi) "Orientation into outp";
 
     Modelica.Electrical.Analog.Interfaces.PositivePin p
       "Positive pin of the input port" annotation (Placement(transformation(
@@ -1889,7 +1894,7 @@ Now one of these models, the model \"amp(macro)\" was transferred into Modelica.
     Modelica.SIunits.Current i_out;
 
   // functions
-    function FCNiout_limit
+    function FCNiout_limit "Internal limitation function"
       input SI.Voltage v_source;
       input SI.Voltage v_out;
       input SI.Resistance Rout;
@@ -1906,9 +1911,12 @@ Now one of these models, the model \"amp(macro)\" was transferred into Modelica.
             result := (v_out - v_source)/Rout;
         end if;
         return;
+      annotation (Documentation(info="<html>
+<p>Internal limitation function, designed for OpAmpDetailed, not for purpose of external usage.</p>
+</html>"));
     end FCNiout_limit;
 
-    function FCNq_sum_limit
+    function FCNq_sum_limit "Internal limitation function"
       input SI.Voltage q_sum;
       input SI.Voltage q_sum_ltf;
       input SI.Voltage v_pos;
@@ -1926,6 +1934,9 @@ Now one of these models, the model \"amp(macro)\" was transferred into Modelica.
           result := q_sum;
         end if;
       return;
+      annotation (Documentation(info="<html>
+<p>Internal limitation function, designed for OpAmpDetailed, not for purpose of external usage.</p>
+</html>"));
     end FCNq_sum_limit;
 
   equation

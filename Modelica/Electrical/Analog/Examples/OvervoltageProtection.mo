@@ -1,5 +1,5 @@
 within Modelica.Electrical.Analog.Examples;
-model OvervoltageProtection
+model OvervoltageProtection "Example for zdiodes"
 
  annotation (Diagram(coordinateSystem(
          preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics),

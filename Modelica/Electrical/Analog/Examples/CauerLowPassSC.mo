@@ -37,7 +37,11 @@ model Rn "Negative resistance"
           Line(points={{90,0},{80,0},{80,0}}, color={85,85,255}),
           Line(points={{4,-8},{40,-8},{60,-4}}, color={85,255,85}),
           Line(points={{60,0},{60,-4}}, color={85,255,85}),
-          Line(points={{60,-16},{60,-20},{80,-20}}, color={85,255,85})}));
+          Line(points={{60,-16},{60,-20},{80,-20}}, color={85,255,85})}),
+      Documentation(info="<html>
+<p>This model is a<b> negative</b> resistor without thermal behavior which is described as a switched capacitor model (care for the schematic).</p>
+<p>The clock source is inside the model, its frequency can be chosen by parameter. Also the resistance is a parameter, it has to be <b>positive</b>. The internal (switched) capacitor is parametrized in such a way that the total resistance is independently from the frequency equal to the negative value of the <b>negative</b> resistance parameter.</p>
+</html>"));
 
   Modelica.Electrical.Analog.Basic.Capacitor Capacitor1(C=clock/R) 
     annotation (Placement(transformation(extent={{-20,-20},{20,20}}, rotation=0)));
@@ -111,7 +115,11 @@ model Rp "Positive resistance"
           Text(
             extent={{-60,80},{60,40}},
             lineColor={0,0,255},
-            textString="%name")}));
+            textString="%name")}),
+      Documentation(info="<html>
+<p>This model is a <b>positive</b> resistor without thermal behavior which is described as a switched capacitor model (care for the schematic).</p>
+<p>The clock source is inside the model, its frequency can be chosen by parameter. Also the resistance is a parameter, it has to be <b>positive</b>. The internal (switched) capacitor is parametrized in such a way that the total resistance is independently from the frequency equal to the resistance parameter.</p>
+</html>"));
   parameter Modelica.SIunits.Time clock=1 "Clock";
   parameter Modelica.SIunits.Resistance R(min=Modelica.Constants.eps)=1
       "Resistance";
@@ -128,11 +136,11 @@ model Rp "Positive resistance"
     annotation (Placement(transformation(extent={{40,-10},{60,10}}, rotation=0)));
   Modelica.Electrical.Analog.Basic.Ground Ground1 
     annotation (Placement(transformation(
-          origin={-59,46},
-          extent={{-5,-6},{5,6}},
+          origin={-60,46},
+          extent={{-6,-6},{6,6}},
           rotation=180)));
   Modelica.Electrical.Analog.Basic.Ground Ground2 
-    annotation (Placement(transformation(extent={{56,-44},{66,-32}}, rotation=0)));
+    annotation (Placement(transformation(extent={{54,-44},{66,-32}}, rotation=0)));
   Modelica.Electrical.Analog.Interfaces.NegativePin n1 
     annotation (Placement(transformation(extent={{-112,-10},{-92,10}}, rotation=
              0)));
@@ -147,9 +155,9 @@ equation
           points={{50,8},{50,30},{20,30},{20,60},{11,60}}, color={255,0,255}));
   connect(IdealCommutingSwitch1.control, BooleanPulse1.y) annotation (Line(
           points={{-50,-8},{-50,30},{20,30},{20,60},{11,60}}, color={255,0,255}));
-  connect(Ground1.p, IdealCommutingSwitch1.n2) annotation (Line(points={{-59,40},
-            {-60,40},{-60,1.22465e-015}}, color={0,0,255}));
-  connect(Ground2.p, IdealCommutingSwitch2.n2) annotation (Line(points={{61,-32},
+  connect(Ground1.p, IdealCommutingSwitch1.n2) annotation (Line(points={{-60,40},
+            {-60,1.22465e-015}},          color={0,0,255}));
+  connect(Ground2.p, IdealCommutingSwitch2.n2) annotation (Line(points={{60,-32},
             {60,-32},{60,0}}, color={0,0,255}));
   connect(IdealCommutingSwitch1.n1, n1) annotation (Line(points={{-60,-5},{-99,
             -5},{-99,0},{-102,0}}, color={0,0,255}));
