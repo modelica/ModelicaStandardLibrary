@@ -146,7 +146,7 @@ behavior is <b> not </b> modelled yet. The parameters are not temperature depend
       Documentation(info="
 <HTML>
 <P>
-The simple zener diode is a one port. It consists of the diode itself and an parallel ohmic
+The simple Zener diode is a one port. It consists of the diode itself and an parallel ohmic
 resistance <i>R</i>. The diode formula is:
 </P>
 <PRE>
@@ -159,7 +159,7 @@ continued to avoid overflow.
 </P>
 
 <P>
-The zener diode model permits (in contrast to the simple diode model)
+The Zener diode model permits (in contrast to the simple diode model)
 current in reverse direction if the breakdown voltage Bv (also known zener knee voltage) is exceeded.
 <br> <br>
 <b>Please note:</b>
