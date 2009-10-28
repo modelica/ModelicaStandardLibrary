@@ -4604,12 +4604,14 @@ kappa is defined as - 1/v * der(v,p), with v = 1/d at constant temperature T.
       annotation(Documentation(info="<html></html>"));
     end density_derT_p;
 
-    replaceable partial function density_derX
+    replaceable function density_derX
       "Return density derivative wrt mass fraction"
       extends Modelica.Icons.Function;
       input ThermodynamicState state "thermodynamic state record";
       output Density[nX] dddX "Derivative of density wrt mass fraction";
       annotation(Documentation(info="<html></html>"));
+    algorithm
+     dddX := fill(0,nX);
     end density_derX;
 
     replaceable partial function molarMass
