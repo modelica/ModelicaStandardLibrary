@@ -36,13 +36,13 @@ package CompressibleLiquids "compressible liquid models"
 
   redeclare function extends dynamicViscosity "Dynamic viscosity of water"
   algorithm
-    eta := 0.15;
+    eta := 1.5e-3;
   end dynamicViscosity;
 
   redeclare function extends thermalConductivity
       "Thermal conductivity of water"
   algorithm
-    lambda := 0.1;
+    lambda := 0.572;
   end thermalConductivity;
 
   end LinearColdWater;
@@ -56,13 +56,13 @@ package CompressibleLiquids "compressible liquid models"
 </html>"));
   redeclare function extends dynamicViscosity "Dynamic viscosity of water"
   algorithm
-    eta := 1.0e-3;
+    eta := 8.9e-4;
   end dynamicViscosity;
 
   redeclare function extends thermalConductivity
       "Thermal conductivity of water"
   algorithm
-    lambda := 0.598;
+    lambda := 0.608;
   end thermalConductivity;
   end LinearWater_pT_Ambient;
 

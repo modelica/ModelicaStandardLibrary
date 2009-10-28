@@ -4524,8 +4524,8 @@ This function computes an isentropic state transformation:
 <li> A medium is in a particular state, refState.</li>
 <li> The enhalpy at another state (h_is) shall be computed
      under the assumption that the state transformation from refState to h_is
-     is performed with specific entropy s = 0 and the pressure of state h_is
-     is p_downstream.</li>
+     is performed with a change of specific entropy ds = 0 and the pressure of state h_is
+     is p_downstream and the composition X upstream and downstream is assumed to be the same.</li>
 </ol>
 
 </html>"));
@@ -4543,7 +4543,11 @@ This function computes an isentropic state transformation:
       extends Modelica.Icons.Function;
       input ThermodynamicState state "thermodynamic state record";
       output IsobaricExpansionCoefficient beta "Isobaric expansion coefficient";
-      annotation(Documentation(info="<html></html>"));
+      annotation(Documentation(info="<html>
+<pre>
+beta is defined as  1/v * der(v,T), with v = 1/d, at constant pressure p.
+</pre>
+</html>"));
     end isobaricExpansionCoefficient;
 
     function beta = isobaricExpansionCoefficient
@@ -4554,7 +4558,13 @@ This function computes an isentropic state transformation:
       extends Modelica.Icons.Function;
       input ThermodynamicState state "thermodynamic state record";
       output SI.IsothermalCompressibility kappa "Isothermal compressibility";
-      annotation(Documentation(info="<html></html>"));
+      annotation(Documentation(info="<html>
+<pre>
+
+kappa is defined as - 1/v * der(v,p), with v = 1/d at constant temperature T.
+
+</pre>
+</html>"));
     end isothermalCompressibility;
 
     function kappa = isothermalCompressibility
@@ -4796,7 +4806,7 @@ This function computes an isentropic state transformation:
     type ExtraPropertyFlowRate = Real(unit="kg/s")
       "Type for flow rate of unspecified, mass-specific property";
     type IsobaricExpansionCoefficient = Real (
-        min=1e-8,
+        min=0,
         max=1.0e8,
         unit="1/K")
       "Type for isobaric expansion coefficient with medium specific attributes";
@@ -5087,8 +5097,8 @@ partial package PartialLinearFluid
       "set the thermodynamic state record from p and s (X not needed)"
       algorithm
         state := ThermodynamicState(p=p,
-                                    T=reference_T*cp_const/(s-reference_s -(p-reference_p)*
-                                      (-beta_const/reference_d) - cp_const));
+                                    T=reference_T*cp_const/(cp_const - s+reference_s +(p-reference_p)*
+                                      (-beta_const/reference_d)));
       end setState_psX;
 
       redeclare function extends setState_dTX
@@ -6152,6 +6162,9 @@ This is the most simple incompressible medium model, where
 specific enthalpy h and specific internal energy u are only
 a function of temperature T and all other provided medium
 quantities are assumed to be constant.
+Note that the (small) influence of the pressure term p/d is neglected.
+</p>
+
 </p>
 </HTML>"));
     end BaseProperties;
@@ -6292,7 +6305,11 @@ quantities are assumed to be constant.
       input Temperature T "Temperature";
       input MassFraction X[nX] "Mass fractions";
       output SpecificEnthalpy h "Specific enthalpy";
-      annotation(Documentation(info="<html></html>"));
+      annotation(Documentation(info="<html>
+<p>
+This function computes the specific enthalpy of the fluid, but neglects the (small) influence of the pressure term p/d.
+</p>
+</html>"));
     algorithm
       h := cp_const*(T-T0);
     end specificEnthalpy_pTX;
@@ -6326,6 +6343,11 @@ quantities are assumed to be constant.
     algorithm
     //  u := cv_const*(state.T - T0) - reference_p/d_const;
       u := cv_const*(state.T - T0);
+      annotation (Documentation(info="<html>
+<p>
+This function computes the specific enthalpy of the fluid, but neglects the (small) influence of the pressure term p/d.
+</p>
+</html>"));
     end specificInternalEnergy;
 
     redeclare function extends specificEntropy "Return specific entropy"
@@ -6356,7 +6378,7 @@ quantities are assumed to be constant.
     redeclare function extends isobaricExpansionCoefficient
       "Returns overall the isobaric expansion coefficient beta"
     algorithm
-      beta := 1e-8;
+      beta := 0.0;
     end isobaricExpansionCoefficient;
 
     redeclare function extends isothermalCompressibility
