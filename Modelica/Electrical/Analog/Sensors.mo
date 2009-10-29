@@ -5,12 +5,9 @@ package Sensors "Potential, voltage, current, and power sensors"
 
   annotation (
     Documentation(info="<html>
-<p>
-This package contains potential, voltage, and current sensors.
-</p>
-
-</HTML>
-", revisions="<html>
+<p>This package contains potential, voltage, and current sensors. The sensors can be used to convert voltages or currents into real signal values o be connected to components of the Blocks package. The sensors are designed in such a way that they do not influence the electrical behavior.</p>
+</html>",
+   revisions="<html>
 <dl>
 <dt>
 <b>Main Authors:</b>
@@ -63,7 +60,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-70,0},{-96,0}}, color={0,0,0}),
+          grid={1,1}), graphics={Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
             Line(points={{100,0},{70,0}}, color={0,0,255})}),
       Documentation(revisions="<html>
 <ul>
@@ -71,6 +68,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
+</html>", info="<html>
+<p>The potential sensor converts the voltage of a node (with respect to the ground node) into a real valued signal. It does not influence the current sum at the node which voltage is measured, therefore, the electrical behavior is not influenced by the sensor.</p>
 </html>"));
   equation
     p.i = 0;
@@ -119,6 +118,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
+</html>", info="<html>
+<p>The voltage  sensor converts the voltage between the two connectors into a real valued signal. It does not influence the current sum at the nodes in between the voltage is measured, therefore, the electrical behavior is not influenced by the sensor.</p>
 </html>"));
 
   equation
@@ -173,6 +174,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
+</html>", info="<html>
+<p>The current  sensor converts the current flowing between the two connectors into a real valued signal. The two connectors are in the sensor connected like a short cut. The sensor has to be placed within an electrical connection in series.  It does not influence the current sum at the connected nodes. Therefore, the electrical behavior is not influenced by the sensor.</p>
 </html>"));
 
   equation
@@ -256,9 +259,8 @@ model PowerSensor "Sensor to measure the power"
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics),
-    Documentation(info="<html><p>
-This power sensor measures instantaneous electrical power of a singlephase system and has a separated voltage and current path. The pins of the voltage path are <code>pv</code> and <code>nv</code>, the pins of the current path are <code>pc</code> and <code>nc</code>. The internal resistance of the current path is zero, the internal resistance of the voltage path is infinite.
-</p>
+    Documentation(info="<html>
+<pre>This power sensor measures instantaneous electrical power of a singlephase system and has a separated voltage and current path. The pins of the voltage path are pv and nv, the pins of the current path are pc and nc. The internal resistance of the current path is zero, the internal resistance of the voltage path is infinite.</pre>
 </html>", revisions="<html>
 <ul>
 <li><i> January 12, 2006   </i>
