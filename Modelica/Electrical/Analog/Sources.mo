@@ -5,12 +5,9 @@ package Sources "Time-dependend and controlled voltage and current sources"
 
   annotation (
     Documentation(info="<html>
-<p>
-This package contains time-dependend and controlled voltage and current sources.
-</p>
-
-</HTML>
-", revisions="<html>
+<p>This package contains time-dependend and controlled voltage and current sources. Most of the sources use the behavior modeled in the Modelica.Blocks.Sources package. All sources are ideal in the sense that <b>no</b> internal resistances are included.</p>
+</html>",
+   revisions="<html>
 <dl>
 <dt>
 <b>Main Authors:</b>
@@ -116,6 +113,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
        by Martin Otter<br> initially implemented<br>
        </li>
 </ul>
+</html>", info="<html>
+<p>The signall voltage source is a parameterless converter of real valued signals into a the source voltage. No further effects are modeled. The real valued signal has to be provided by components of the blocks library. It can be regarded as the &QUOT;Opposite&QUOT; of a voltage sensor.</p>
 </html>"));
   equation
     v = p.v - n.v;
@@ -161,6 +160,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
+</html>", info="<html>
+<p>The ConstantVoltage source is a simple source for an ideal constant voltage which is provided by a parameter. There is no internal resistance modeled. If it is used instead of a battery model it is not very realistic: This battery will never be unloaded.</p>
 </html>"));
 
   equation
@@ -263,6 +264,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
+</html>", info="<html>
+<p>This voltage source uses the coresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
 </html>"));
   end StepVoltage;
 
@@ -385,6 +388,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
+</html>", info="<html>
+<p>This voltage source uses the coresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
 </html>"));
   end RampVoltage;
 
@@ -489,6 +494,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
+</html>", info="<html>
+<p>This voltage source uses the coresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
 </html>"));
 
   end SineVoltage;
@@ -621,6 +628,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
+</html>", info="<html>
+<p>This voltage source uses the coresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
 </html>"));
   end ExpSineVoltage;
 
@@ -816,6 +825,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
+</html>", info="<html>
+<p>This voltage source uses the coresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
 </html>"));
   end ExponentialsVoltage;
 
@@ -970,6 +981,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
+</html>", info="<html>
+<p>This voltage source uses the coresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
 </html>"));
   end PulseVoltage;
 
@@ -1094,6 +1107,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
+</html>", info="<html>
+<p>This voltage source uses the coresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
 </html>"));
   end SawToothVoltage;
 
@@ -1284,6 +1299,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
+</html>", info="<html>
+<p>This voltage source uses the coresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
 </html>"));
   end TrapezoidVoltage;
 
@@ -1322,7 +1339,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-20,-30},{-20,90},{80,90},{80,-30},{-20,-30},{-20,0},{
-                80,0},{80,30},{-20,30},{-20,60},{80,60},{80,90},{30,90},{30,-31}},
+                80,0},{80,30},{-20,30},{-20,60},{80,60},{80,90},{30,90},{30,-31}}, 
               color={0,0,0}),
           Text(
             extent={{-77,-42},{-38,-58}},
@@ -1372,37 +1389,19 @@ Modelica in file \"Modelica/package.mo\".</i><br>
             extent={{-81,98},{-31,85}},
             lineColor={160,160,164},
             textString="v = p.v - n.v")}),
-      Documentation(info="<HTML>
-<p>
-This block generates a voltage source by <b>linear interpolation</b> in
-a table. The time points and voltage values are stored in a matrix
-<b>table[i,j]</b>, where the first column table[:,1] contains the
-time points and the second column contains the voltage to be interpolated.
-The table interpolation has the following proporties:
-</p>
-<ul>
+      Documentation(info="<html>
+<p>This voltage source uses the coresponding signal source of the Modelica.Blocks.Sources package.  Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<p><br/>This block generates a voltage source by <b>linear interpolation</b> in a table. The time points and voltage values are stored in a matrix <b>table[i,j]</b>, where the first column table[:,1] contains the time points and the second column contains the voltage to be interpolated. The table interpolation has the following proporties: </p>
+<p><ul>
 <li>The time points need to be <b>monotonically increasing</b>. </li>
-<li><b>Discontinuities</b> are allowed, by providing the same
-    time point twice in the table. </li>
-<li>Values <b>outside</b> of the table range, are computed by
-    <b>extrapolation</b> through the last or first two points of the
-    table.</li>
-<li>If the table has only <b>one row</b>, no interpolation is performed and
-    the voltage value is just returned independantly of the
-    actual time instant, i.e., this is a constant voltage source.</li>
-<li>Via parameters <b>startTime</b> and <b>offset</b> the curve defined
-    by the table can be shifted both in time and in the voltage.
-<li>The table is implemented in a numerically sound way by
-    generating <b>time events</b> at interval boundaries,
-    in order to not integrate over a discontinuous or not differentiable
-    points.
-</li>
-</ul>
-<p>
-Example:
-</p>
-<pre>
-   table = [0  0
+<li><b>Discontinuities</b> are allowed, by providing the same time point twice in the table. </li>
+<li>Values <b>outside</b> of the table range, are computed by <b>extrapolation</b> through the last or first two points of the table.</li>
+<li>If the table has only <b>one row</b>, no interpolation is performed and the voltage value is just returned independantly of the actual time instant, i.e., this is a constant voltage source.</li>
+<li>Via parameters <b>startTime</b> and <b>offset</b> the curve defined by the table can be shifted both in time and in the voltage. </li>
+<li>The table is implemented in a numerically sound way by generating <b>time events</b> at interval boundaries, in order to not integrate over a discontinuous or not differentiable points. </li>
+</ul></p>
+<p>Example: </p>
+<pre>   table = [0  0
             1  0
             1  1
             2  4
@@ -1411,10 +1410,10 @@ Example:
 If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     e.g., time = 1.5, the voltage v =  2.5,
     e.g., time = 2.0, the voltage v =  4.0,
-    e.g., time = 5.0, the voltage v = 23.0 (i.e. extrapolation).
-</pre>
-</HTML>
-", revisions="<html>
+    e.g., time = 5.0, the voltage v = 23.0 (i.e. extrapolation). </pre>
+<p><br/>  Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+</html>",
+   revisions="<html>
 <ul>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
@@ -1477,6 +1476,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
        by Martin Otter<br> initially implemented<br>
        </li>
 </ul>
+</html>", info="<html>
+<p>The signall current source is a parameterless converter of real valued signals into a the source currrent. No further effects are modeled. The real valued signal has to be provided by components of the blocks library. It can be regarded as the &QUOT;Opposite&QUOT; of a current sensor.</p>
 </html>"));
   equation
     v = p.v - n.v;
@@ -1527,6 +1528,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
+</html>", info="<html>
+<p>The ConstantCurrrent source is a simple source for an ideal constant current which is provided by a parameter. There is no internal resistance modeled. No further effects are modeled. Especially, th currend flow will never end.</p>
 </html>"));
   equation
     i = I;
@@ -1628,6 +1631,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
+</html>", info="<html>
+<p>This current source uses the coresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
 </html>"));
   end StepCurrent;
 
@@ -1749,6 +1754,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
+</html>", info="<html>
+<p>This current source uses the coresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
 </html>"));
   end RampCurrent;
 
@@ -1853,6 +1860,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
+</html>", info="<html>
+<p>This current source uses the coresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
 </html>"));
 
   end SineCurrent;
@@ -1985,6 +1994,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
+</html>", info="<html>
+<p>This current source uses the coresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
 </html>"));
   end ExpSineCurrent;
 
@@ -2099,6 +2110,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
+</html>", info="<html>
+<p>This current source uses the coresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
 </html>"));
   end ExponentialsCurrent;
 
@@ -2253,6 +2266,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
+</html>", info="<html>
+<p>This current source uses the coresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
 </html>"));
   end PulseCurrent;
 
@@ -2377,6 +2392,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
+</html>", info="<html>
+<p>This current source uses the coresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
 </html>"));
   end SawToothCurrent;
 
@@ -2567,6 +2584,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
+</html>", info="<html>
+<p>This current source uses the coresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
 </html>"));
   end TrapezoidCurrent;
 
@@ -2605,7 +2624,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-20,-30},{-20,90},{80,90},{80,-30},{-20,-30},{-20,0},{
-                80,0},{80,30},{-20,30},{-20,60},{80,60},{80,90},{30,90},{30,-31}},
+                80,0},{80,30},{-20,30},{-20,60},{80,60},{80,90},{30,90},{30,-31}}, 
               color={0,0,0}),
           Text(
             extent={{-77,-42},{-38,-58}},
@@ -2655,37 +2674,19 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             extent={{-73,75},{-53,95}},
             lineColor={192,192,192},
             textString="i")}),
-      Documentation(info="<HTML>
-<p>
-This block generates a current source by <b>linear interpolation</b> in
-a table. The time points and current values are stored in a matrix
-<b>table[i,j]</b>, where the first column table[:,1] contains the
-time points and the second column contains the current to be interpolated.
-The table interpolation has the following proporties:
-</p>
-<ul>
+      Documentation(info="<html>
+<p>This current source uses the coresponding signal source of the Modelica.Blocks.Sources package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<p><br/>This block generates a current source by <b>linear interpolation</b> in a table. The time points and current values are stored in a matrix <b>table[i,j]</b>, where the first column table[:,1] contains the time points and the second column contains the current to be interpolated. The table interpolation has the following proporties: </p>
+<p><ul>
 <li>The time points need to be <b>monotonically increasing</b>. </li>
-<li><b>Discontinuities</b> are allowed, by providing the same
-    time point twice in the table. </li>
-<li>Values <b>outside</b> of the table range, are computed by
-    <b>extrapolation</b> through the last or first two points of the
-    table.</li>
-<li>If the table has only <b>one row</b>, no interpolation is performed and
-    the current value is just returned independantly of the
-    actual time instant, i.e., this is a constant current source.</li>
-<li>Via parameters <b>startTime</b> and <b>offset</b> the curve defined
-    by the table can be shifted both in time and in the current.
-<li>The table is implemented in a numerically sound way by
-    generating <b>time events</b> at interval boundaries,
-    in order to not integrate over a discontinuous or not differentiable
-    points.
-</li>
-</ul>
-<p>
-Example:
-</p>
-<pre>
-   table = [0  0
+<li><b>Discontinuities</b> are allowed, by providing the same time point twice in the table. </li>
+<li>Values <b>outside</b> of the table range, are computed by <b>extrapolation</b> through the last or first two points of the table.</li>
+<li>If the table has only <b>one row</b>, no interpolation is performed and the current value is just returned independantly of the actual time instant, i.e., this is a constant current source.</li>
+<li>Via parameters <b>startTime</b> and <b>offset</b> the curve defined by the table can be shifted both in time and in the current. </li>
+<li>The table is implemented in a numerically sound way by generating <b>time events</b> at interval boundaries, in order to not integrate over a discontinuous or not differentiable points. </li>
+</ul></p>
+<p>Example: </p>
+<pre>   table = [0  0
             1  0
             1  1
             2  4
@@ -2694,10 +2695,10 @@ Example:
 If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
     e.g., time = 1.5, the current i =  2.5,
     e.g., time = 2.0, the current i =  4.0,
-    e.g., time = 5.0, the current i = 23.0 (i.e. extrapolation).
-</pre>
-</HTML>
-", revisions="<html>
+    e.g., time = 5.0, the current i = 23.0 (i.e. extrapolation). </pre>
+<p><br/> Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+</html>",
+   revisions="<html>
 <ul>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
