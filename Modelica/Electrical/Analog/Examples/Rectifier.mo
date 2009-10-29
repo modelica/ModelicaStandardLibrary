@@ -22,9 +22,11 @@ annotation (
           extent={{-80,90},{80,70}},
           lineColor={0,0,0},
           textString="Rectifier"),
-        Line(points={{-16,18},{-16,2},{-18,6},{-14,6},{-16,2}}, color={0,0,0}),
+        Line(points={{-16,18},{-16,2},{-18,6},{-14,6},{-16,2}}, color={0,0,0}), 
+
         Line(points={{-30,22},{-26,20},{-30,18},{-30,22}}, color={0,0,0}),
-        Line(points={{32,30},{32,-30},{30,-26},{34,-26},{32,-30}}, color={0,0,0}),
+        Line(points={{32,30},{32,-30},{30,-26},{34,-26},{32,-30}}, color={0,0,0}), 
+
         Text(
           extent={{-38,16},{-22,8}},
           lineColor={0,0,0},
@@ -38,25 +40,12 @@ annotation (
           lineColor={0,0,0},
           textString="uDC")}),
   experiment(StopTime=0.1, Interval=1e-005),
-  Documentation(info="<HTML>
-<P>
-The rectifier example shows a B6 diode bridge fed by a three phase sinusoidal voltage, loaded by a DC current.<br>
-DC capacitors start at ideal no-load voltage, thus making easier initial transient.
-</P>
-<P>
-Simulate until T=0.1 s.<br><br>
-Plot in separate windows:<br><br>
-uDC ... DC-voltage<br>
-iAC ... AC-currents 1..3<br>
-uAC ... AC-voltages 1..3 (distorted)<br>
-Try different load currents iDC = 0..approximately 500 A.
-</P>
-<p>
-You may watch Losses (of the whole diode bridge) trying different diode parameters.
-</p>
-
-</HTML>
-", revisions="<html>
+  Documentation(info="<html>
+<p>The rectifier example shows a B6 diode bridge fed by a three phase sinusoidal voltage, loaded by a DC current.</p><p>DC capacitors start at ideal no-load voltage, thus making easier initial transient. </p>
+<p><br/><br/>Simulate until T=0.1 s. </p><p><br/><br/>Plot in separate windows:</p><p><br/><br/>uDC ... DC-voltage</p><p><br/><br/>iAC ... AC-currents 1..3</p><p><br/><br/>uAC ... AC-voltages 1..3 (distorted)</p><p><br/><br/>Try different load currents iDC = 0..approximately 500 A. </p>
+<p>You may watch Losses (of the whole diode bridge) trying different diode parameters. </p>
+</html>",
+   revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>Mai 7, 2004   </i>
