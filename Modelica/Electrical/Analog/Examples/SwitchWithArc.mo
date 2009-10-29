@@ -13,7 +13,9 @@ model SwitchWithArc "Comparison of switch models both with and without arc"
     Documentation(info="<html>
 <p align=\"justify\"><br/><br/>This example is to compare the behaviour of switch models with and without an electric arc taking into consideration.</p>
 <p>Simulate until T=2 s. </p>
-<p><br/><br/>Plot in one windows:</p><p><br/><br/>switch1.i and switch2.i </p><p><br/><br/>The difference in the closing area shows that the simple arc model avoids the suddenly switching. </p>
+<p><br/><br/>Plot in one windows: </p>
+<p><br/><br/>switch1.i and switch2.i </p>
+<p><br/><br/>The difference in the closing area shows that the simple arc model avoids the suddenly switching. </p>
 </html>",
         revisions="<html>
 <ul>
