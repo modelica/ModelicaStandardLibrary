@@ -292,14 +292,9 @@ and the accompanying <b>disclaimer</b>
           import D = Modelica.Electrical.Digital;
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
           annotation (
-            Documentation(info="<HTML>
-<h4>4 to 1 Bit Multiplexer</h4>
-<P>
-The multiplexer converts a parallel 4 bit signal in a sequential
-1 bit stream.
-</P>
-</HTML>
-"),         Icon(coordinateSystem(
+            Documentation(info="<html>
+<p>The multiplexer converts a parallel 4 bit signal in a sequential 1 bit stream. The multiplexer component is composed by basic gates. It can be found in the Utilities subpackage. The example is designed to test and demonstrate the basic gate components.</p>
+</html>"),  Icon(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}},
                 grid={2,2}), graphics={Rectangle(
@@ -375,13 +370,9 @@ The multiplexer converts a parallel 4 bit signal in a sequential
           import D = Modelica.Electrical.Digital;
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
           annotation (
-            Documentation(info="<HTML>
-<h4>FlipFlop</h4>
-<P>
-Pulse-triggered master-slave flip-flop.
-</P>
-</HTML>
-"),         Icon(coordinateSystem(
+            Documentation(info="<html>
+<p>A pulse-triggered master-slave flip-flop is demonstrated. The flipflop component is composed by basic gates. It can be found in the Utilities subpackage. The example is designed to test and demonstrate the basic gate components.</p>
+</html>"),  Icon(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}},
                 grid={2,2}), graphics={Rectangle(
@@ -395,7 +386,7 @@ Pulse-triggered master-slave flip-flop.
                 extent={{-100,-100},{100,100}},
                 grid={2,2}), graphics),
             experiment(StopTime=250));
-          D.Examples.Utilities.JKFF FF
+          D.Examples.Utilities.JKFF FF 
                          annotation (Placement(transformation(extent={{-10,-40},{70,
                     40}}, rotation=0)));
           D.Sources.Clock CLK(period=10)  annotation (Placement(transformation(
@@ -491,13 +482,13 @@ The simulation stop time should be 5 seconds.
             t={2,4},
             y0=3)   annotation (Placement(transformation(extent={{-80,-38},{-60,-18}},
                   rotation=0)));
-          Modelica.Electrical.Digital.Examples.Utilities.HalfAdder Adder(delayTime=0.3)
+          Modelica.Electrical.Digital.Examples.Utilities.HalfAdder Adder(delayTime=0.3) 
                                 annotation (Placement(transformation(extent={{-40,
                     -40},{40,40}}, rotation=0)));
-          Modelica.Electrical.Digital.Converters.LogicToReal s
+          Modelica.Electrical.Digital.Converters.LogicToReal s 
                                    annotation (Placement(transformation(extent={{60,
                     18},{80,38}}, rotation=0)));
-          Modelica.Electrical.Digital.Converters.LogicToReal c
+          Modelica.Electrical.Digital.Converters.LogicToReal c 
                                    annotation (Placement(transformation(extent={{60,
                     -38},{80,-18}}, rotation=0)));
         equation
@@ -561,13 +552,13 @@ The simulation stop time should be 10 seconds.
 
           D.Examples.Utilities.FullAdder Adder1                  annotation (Placement(
                 transformation(extent={{0,-30},{60,30}}, rotation=0)));
-          D.Converters.LogicToReal s
+          D.Converters.LogicToReal s 
                                    annotation (Placement(transformation(extent={{70,
                     12},{90,32}}, rotation=0)));
-          D.Converters.LogicToReal c_out
+          D.Converters.LogicToReal c_out 
                                        annotation (Placement(transformation(extent=
                     {{70,-32},{90,-12}}, rotation=0)));
-          D.Examples.Utilities.Counter3 Counter
+          D.Examples.Utilities.Counter3 Counter 
             annotation (Placement(transformation(extent={{-60,-18},{-20,22}},
                   rotation=0)));
           D.Sources.Set Enable(x=L.'1')       annotation (Placement(transformation(
@@ -575,10 +566,10 @@ The simulation stop time should be 10 seconds.
           D.Sources.Clock CLK       annotation (Placement(transformation(extent={{
                     -90,-22},{-70,-2}}, rotation=0)));
         equation
-          connect(Adder1.s, s.x[1])
+          connect(Adder1.s, s.x[1]) 
                                    annotation (Line(points={{60.3,21},{68,21},{68,
                   22},{75,22}}, color={127,0,127}));
-          connect(Adder1.c_out, c_out.x[1])
+          connect(Adder1.c_out, c_out.x[1]) 
                                            annotation (Line(points={{60,-21},{68,
                   -21},{68,-22},{75,-22}}, color={127,0,127}));
           connect(CLK.y, Counter.count) annotation (Line(points={{-70,-12},{-60,-12}},
@@ -687,21 +678,21 @@ The simulation stop time has to be 5s.
             x={3},
             t={1}) annotation (Placement(transformation(extent={{70,40},{110,80}},
                   rotation=0)));
-          Modelica.Electrical.Digital.Sources.Set Set(x=3)
+          Modelica.Electrical.Digital.Sources.Set Set(x=3) 
             annotation (Placement(transformation(
                 origin={-150,-74},
                 extent={{20,20},{-20,-20}},
                 rotation=180)));
-          Modelica.Electrical.Digital.Examples.Utilities.FullAdder Adder1
+          Modelica.Electrical.Digital.Examples.Utilities.FullAdder Adder1 
                                        annotation (Placement(transformation(extent=
                     {{-100,-80},{-60,-40}}, rotation=0)));
-          Modelica.Electrical.Digital.Examples.Utilities.FullAdder Adder2
+          Modelica.Electrical.Digital.Examples.Utilities.FullAdder Adder2 
                                       annotation (Placement(transformation(extent={
                     {-20,-80},{20,-40}}, rotation=0)));
-          Modelica.Electrical.Digital.Examples.Utilities.FullAdder Adder3
+          Modelica.Electrical.Digital.Examples.Utilities.FullAdder Adder3 
                                       annotation (Placement(transformation(extent={
                     {60,-80},{100,-40}}, rotation=0)));
-          Modelica.Electrical.Digital.Examples.Utilities.FullAdder Adder4
+          Modelica.Electrical.Digital.Examples.Utilities.FullAdder Adder4 
                                       annotation (Placement(transformation(extent={
                     {140,-80},{180,-40}}, rotation=0)));
         equation
@@ -746,10 +737,11 @@ The simulation stop time has to be 5s.
         model Counter3 "3 Bit Counter Example"
           import D = Modelica.Electrical.Digital;
           annotation (
-            Documentation(info="<HTML>
-
-</HTML>
-"),         Icon(coordinateSystem(
+            Documentation(info="<html>
+<p>The three bit counter example is built up by components of the Utilities package which uses components of the Gates library.</p>
+<p>The counter counts the high-low slopes of the clock signal, if the enable signal is set to be true. Otherwise if it is set to zero the counter is not counting.</p>
+<p>Plot Counter.count (clock signal), and Counter.enable, and the output bit signals Counter.q0, Counter.q1, and Counter.q2.</p>
+</html>"),  Icon(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}},
                 grid={2,2}), graphics={Rectangle(
@@ -767,7 +759,7 @@ The simulation stop time has to be 5s.
                     {-90,8},{-50,48}}, rotation=0)));
           D.Sources.Clock Clock       annotation (Placement(transformation(extent={
                     {-90,-48},{-50,-8}}, rotation=0)));
-          D.Examples.Utilities.Counter3 Counter
+          D.Examples.Utilities.Counter3 Counter 
             annotation (Placement(transformation(extent={{-30,-40},{50,40}},
                   rotation=0)));
         equation
@@ -782,10 +774,11 @@ The simulation stop time has to be 5s.
         model Counter "Generic N Bit Counter Example"
           import D = Modelica.Electrical.Digital;
           annotation (
-            Documentation(info="<HTML>
-
-</HTML>
-"),         Icon(coordinateSystem(
+            Documentation(info="<html>
+<p>The counter example is built up by components of the Utilities package which uses components of the Gates library. It demonstrates the generic counter model. The parameter n is the number of counting bits. In this example it is set to 4.</p>
+<p>The counter counts the high-low slopes of the clock signal, if the enable signal is set to be true. Otherwise if it is set to zero the counter is not counting.</p>
+<p>Plot Counter.count (clock signal), and Counter.enable, and the output bit signals Counter.q[0], Counter.q[1], Counter.q[2], and Counter.q[3]</p>
+</html>"),  Icon(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}},
                 grid={2,2}), graphics={Rectangle(
@@ -803,7 +796,7 @@ The simulation stop time has to be 5s.
                     {-90,8},{-50,48}}, rotation=0)));
           D.Sources.Clock Clock       annotation (Placement(transformation(extent={
                     {-90,-48},{-50,-8}}, rotation=0)));
-          D.Examples.Utilities.Counter Counter(n=4)
+          D.Examples.Utilities.Counter Counter(n=4) 
             annotation (Placement(transformation(extent={{-30,-40},{50,40}},
                   rotation=0)));
           D.Converters.LogicToReal Q0 annotation (Placement(transformation(extent={
@@ -836,22 +829,25 @@ The simulation stop time has to be 5s.
           Modelica.Electrical.Digital.Delay.InertialDelaySensitiveVector delay(
             final tHL=1,
             final tLH=2,
-            final n=3)
+            final n=3) 
             annotation (Placement(transformation(extent={{-36,-28},{40,48}})));
-          Modelica.Electrical.Digital.Sources.Table table(x={3,4,3,4,3}, t={0,1,5,7,8})
+          Modelica.Electrical.Digital.Sources.Table table(x={3,4,3,4,3}, t={0,1,5,7,8}) 
             annotation (Placement(transformation(extent={{-96,40},{-76,60}})));
-          Modelica.Electrical.Digital.Sources.Table table1(x={3,4}, t={0,1})
+          Modelica.Electrical.Digital.Sources.Table table1(x={3,4}, t={0,1}) 
             annotation (Placement(transformation(extent={{-96,0},{-76,20}})));
-          Modelica.Electrical.Digital.Sources.Table table2(x={3,4,3}, t={0,1,6})
+          Modelica.Electrical.Digital.Sources.Table table2(x={3,4,3}, t={0,1,6}) 
             annotation (Placement(transformation(extent={{-96,-50},{-76,-30}})));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                    -100},{100,100}}),      graphics), Icon(coordinateSystem(
+                -100},{100,100}}),          graphics), Icon(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics={Rectangle(
               extent={{-80,80},{80,-80}},
               lineColor={127,0,127},
               fillColor={255,213,170},
-              fillPattern=FillPattern.Solid)}));
+              fillPattern=FillPattern.Solid)}),
+        Documentation(info="<html>
+<p>This example is a simple test of the vector valued sensitive delay component. The delay times are chosen different from each other. To examine the rersults plot bothe the input vector x and the output vector y.</p>
+</html>"));
         equation
           connect(table.y, delay.x[1]) annotation (Line(
               points={{-76,50},{-30.68,50},{-30.68,6.13667}},
@@ -892,22 +888,20 @@ The simulation stop time has to be 5s.
             lineColor={255,0,0},
             textString="%name")}),
                                 Documentation(info="<html>
-<p>
-This package contains examples that demonstrate the usage of the
-components of the Electrical.Digital library.
-</p>
+<p>This package contains examples that demonstrate the usage of the components of the Electrical.Digital library. </p>
+<p>The examples are simple to understand. They will show a typical behavior of the components, and they will give hints to users.</p>
 </html>"));
 
         model DFFREG_test "Pulse triggered D-Register-Bank, high active reset"
 
-          Modelica.Electrical.Digital.Sources.Table clock(x={3,4,3,4,3,4,3}, t={0,7,8,10,11,15,16})
+          Modelica.Electrical.Digital.Sources.Table clock(x={3,4,3,4,3,4,3}, t={0,7,8,10,11,15,16}) 
             annotation (Placement(transformation(extent={{-86,-32},{-66,-12}})));
-          Modelica.Electrical.Digital.Sources.Table data_0(x={4,3}, t={0,12})
+          Modelica.Electrical.Digital.Sources.Table data_0(x={4,3}, t={0,12}) 
             annotation (Placement(transformation(extent={{-86,8},{-66,28}})));
-          Modelica.Electrical.Digital.Sources.Table reset(x={3,4,3}, t={0,1,2})
+          Modelica.Electrical.Digital.Sources.Table reset(x={3,4,3}, t={0,1,2}) 
             annotation (Placement(transformation(extent={{-86,-70},{-66,-50}})));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                    -100},{100,100}}),      graphics), Icon(coordinateSystem(
+                -100},{100,100}}),          graphics), Icon(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics={Rectangle(
               extent={{-80,80},{80,-80}},
@@ -915,15 +909,16 @@ components of the Electrical.Digital library.
               fillColor={255,213,170},
               fillPattern=FillPattern.Solid)}),
             experiment(StopTime=25),
-            experimentSetupOutput);
-          Modelica.Electrical.Digital.Sources.Table data_1(t={0,10}, x={8,2})
+            experimentSetupOutput,
+        Documentation(info="<html>
+<p>This example is a simple test of the Registers.DFFREG component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DFFREG component.</p>
+</html>"));
+          Modelica.Electrical.Digital.Sources.Table data_1(t={0,10}, x={8,2}) 
             annotation (Placement(transformation(extent={{-86,40},{-66,60}})));
-          Modelica.Electrical.Digital.Sources.Table data_2(x={8})
-            annotation (Placement(transformation(extent={{-86,74},{-66,94}})));
           Modelica.Electrical.Digital.Registers.DFFREG dFFREG(
             n=2,
             tHL=5,
-            tLH=6)
+            tLH=6) 
             annotation (Placement(transformation(extent={{-24,-26},{70,68}})));
         equation
           connect(clock.y, dFFREG.clock) annotation (Line(
@@ -946,14 +941,14 @@ components of the Electrical.Digital library.
 
         model DFFREGL_test "Pulse triggered D-Register-Bank, low active reset"
 
-          Modelica.Electrical.Digital.Sources.Table clock(x={3,4,3,4,3,4,3}, t={0,7,8,10,11,15,16})
+          Modelica.Electrical.Digital.Sources.Table clock(x={3,4,3,4,3,4,3}, t={0,7,8,10,11,15,16}) 
             annotation (Placement(transformation(extent={{-86,-30},{-66,-10}})));
-          Modelica.Electrical.Digital.Sources.Table data_0(x={4,3}, t={0,12})
+          Modelica.Electrical.Digital.Sources.Table data_0(x={4,3}, t={0,12}) 
             annotation (Placement(transformation(extent={{-88,10},{-68,30}})));
-          Modelica.Electrical.Digital.Sources.Table reset(t={0,1,2}, x={4,3,4})
+          Modelica.Electrical.Digital.Sources.Table reset(t={0,1,2}, x={4,3,4}) 
             annotation (Placement(transformation(extent={{-86,-70},{-66,-50}})));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                    -100},{100,100}}),      graphics), Icon(coordinateSystem(
+                -100},{100,100}}),          graphics), Icon(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics={Rectangle(
               extent={{-80,80},{80,-80}},
@@ -961,15 +956,16 @@ components of the Electrical.Digital library.
               fillColor={255,213,170},
               fillPattern=FillPattern.Solid)}),
             experiment(StopTime=25),
-            experimentSetupOutput);
-          Modelica.Electrical.Digital.Sources.Table data_1(t={0,10}, x={8,2})
+            experimentSetupOutput,
+        Documentation(info="<html>
+<p>This example is a simple test of the Registers.DFFREGL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DFFREGL component.</p>
+</html>"));
+          Modelica.Electrical.Digital.Sources.Table data_1(t={0,10}, x={8,2}) 
             annotation (Placement(transformation(extent={{-86,40},{-66,60}})));
-          Modelica.Electrical.Digital.Sources.Table data_2(x={8})
-            annotation (Placement(transformation(extent={{-86,74},{-66,94}})));
           Modelica.Electrical.Digital.Registers.DFFREGL dFFREGL(
             n=2,
             tHL=5,
-            tLH=6)
+            tLH=6) 
             annotation (Placement(transformation(extent={{-41,-39},{62,65}})));
         equation
           connect(reset.y, dFFREGL.reset) annotation (Line(
@@ -997,14 +993,14 @@ components of the Electrical.Digital library.
         model DFFREGSRH_test
       "Pulse triggered D-Register-Bank, high active set and reset"
 
-          Modelica.Electrical.Digital.Sources.Table clock(x={3,4,3}, t={0,10,11})
+          Modelica.Electrical.Digital.Sources.Table clock(x={3,4,3}, t={0,10,11}) 
             annotation (Placement(transformation(extent={{-86,-32},{-66,-12}})));
-          Modelica.Electrical.Digital.Sources.Table data_0(x={6}, t={0})
+          Modelica.Electrical.Digital.Sources.Table data_0(x={6}, t={0}) 
             annotation (Placement(transformation(extent={{-86,8},{-66,28}})));
-          Modelica.Electrical.Digital.Sources.Table reset(x={3,4,3}, t={0,1,2})
+          Modelica.Electrical.Digital.Sources.Table reset(x={3,4,3}, t={0,1,2}) 
             annotation (Placement(transformation(extent={{-86,-70},{-66,-50}})));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                    -100},{100,100}}),      graphics), Icon(coordinateSystem(
+                -100},{100,100}}),          graphics), Icon(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics={Rectangle(
               extent={{-80,80},{80,-80}},
@@ -1012,15 +1008,18 @@ components of the Electrical.Digital library.
               fillColor={255,213,170},
               fillPattern=FillPattern.Solid)}),
             experiment(StopTime=15),
-            experimentSetupOutput);
-          Modelica.Electrical.Digital.Sources.Table data_1(x={3}, t={0})
+            experimentSetupOutput,
+        Documentation(info="<html>
+<p>This example is a simple test of the Registers.DFFREGSRH component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DFFREGSRH component.</p>
+</html>"));
+          Modelica.Electrical.Digital.Sources.Table data_1(x={3}, t={0}) 
             annotation (Placement(transformation(extent={{-86,40},{-66,60}})));
-          Modelica.Electrical.Digital.Sources.Table set(x={3,4,3}, t={0,5,6})
+          Modelica.Electrical.Digital.Sources.Table set(x={3,4,3}, t={0,5,6}) 
             annotation (Placement(transformation(extent={{-86,74},{-66,94}})));
           Modelica.Electrical.Digital.Registers.DFFREGSRH dFFREGSRH(
             tHL=2,
             tLH=3,
-            n=2)
+            n=2) 
             annotation (Placement(transformation(extent={{-34,-37},{73,71}})));
         equation
           connect(clock.y, dFFREGSRH.clock) annotation (Line(
@@ -1048,14 +1047,14 @@ components of the Electrical.Digital library.
         model DFFREGSRL_test
       "Pulse triggered D-Register-Bank, low active set and reset"
 
-          Modelica.Electrical.Digital.Sources.Table clock(x={3,4,3}, t={0,10,11})
+          Modelica.Electrical.Digital.Sources.Table clock(x={3,4,3}, t={0,10,11}) 
             annotation (Placement(transformation(extent={{-86,-32},{-66,-12}})));
-          Modelica.Electrical.Digital.Sources.Table data_0(x={6}, t={0})
+          Modelica.Electrical.Digital.Sources.Table data_0(x={6}, t={0}) 
             annotation (Placement(transformation(extent={{-86,8},{-66,28}})));
-          Modelica.Electrical.Digital.Sources.Table reset(t={0,1,2}, x={4,3,4})
+          Modelica.Electrical.Digital.Sources.Table reset(t={0,1,2}, x={4,3,4}) 
             annotation (Placement(transformation(extent={{-86,-70},{-66,-50}})));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                    -100},{100,100}}),      graphics), Icon(coordinateSystem(
+                -100},{100,100}}),          graphics), Icon(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics={Rectangle(
               extent={{-80,80},{80,-80}},
@@ -1063,10 +1062,13 @@ components of the Electrical.Digital library.
               fillColor={255,213,170},
               fillPattern=FillPattern.Solid)}),
             experiment(StopTime=15),
-            experimentSetupOutput);
-          Modelica.Electrical.Digital.Sources.Table data_1(x={3}, t={0})
+            experimentSetupOutput,
+        Documentation(info="<html>
+<p>This example is a simple test of the Registers.DFFREGSRL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DFFREGSRL component.</p>
+</html>"));
+          Modelica.Electrical.Digital.Sources.Table data_1(x={3}, t={0}) 
             annotation (Placement(transformation(extent={{-86,40},{-66,60}})));
-          Modelica.Electrical.Digital.Sources.Table set(t={0,5,6}, x={4,3,4})
+          Modelica.Electrical.Digital.Sources.Table set(t={0,5,6}, x={4,3,4}) 
             annotation (Placement(transformation(extent={{-86,74},{-66,94}})));
           Modelica.Electrical.Digital.Registers.DFFREGSRL dFFREGSRL(
             tHL=2,
@@ -1097,14 +1099,14 @@ components of the Electrical.Digital library.
 
         model DLATREG_test "Level sensitive D-Register-Bank, high active reset"
 
-          Modelica.Electrical.Digital.Sources.Table enable(x={3,4,3}, t={0,10,18})
+          Modelica.Electrical.Digital.Sources.Table enable(x={3,4,3}, t={0,10,18}) 
             annotation (Placement(transformation(extent={{-86,-32},{-66,-12}})));
-          Modelica.Electrical.Digital.Sources.Table data_0(x={6,4}, t={0,15})
+          Modelica.Electrical.Digital.Sources.Table data_0(x={6,4}, t={0,15}) 
             annotation (Placement(transformation(extent={{-86,8},{-66,28}})));
-          Modelica.Electrical.Digital.Sources.Table reset(x={3,4,3,4,3}, t={0,1,2,20,21})
+          Modelica.Electrical.Digital.Sources.Table reset(x={3,4,3,4,3}, t={0,1,2,20,21}) 
             annotation (Placement(transformation(extent={{-86,-70},{-66,-50}})));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                    -100},{100,100}}),      graphics), Icon(coordinateSystem(
+                -100},{100,100}}),          graphics), Icon(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics={Rectangle(
               extent={{-80,80},{80,-80}},
@@ -1112,13 +1114,16 @@ components of the Electrical.Digital library.
               fillColor={255,213,170},
               fillPattern=FillPattern.Solid)}),
             experiment(StopTime=25),
-            experimentSetupOutput);
-          Modelica.Electrical.Digital.Sources.Table data_1(x={3,4}, t={0,16})
+            experimentSetupOutput,
+        Documentation(info="<html>
+<p>This example is a simple test of the Registers.DLATREG component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DLATREG component.</p>
+</html>"));
+          Modelica.Electrical.Digital.Sources.Table data_1(x={3,4}, t={0,16}) 
             annotation (Placement(transformation(extent={{-86,40},{-66,60}})));
           Modelica.Electrical.Digital.Registers.DLATREG dLATREG(
             n=2,
             tHL=2,
-            tLH=3)
+            tLH=3) 
             annotation (Placement(transformation(extent={{-45,-50},{84,79}})));
         equation
           connect(reset.y, dLATREG.reset) annotation (Line(
@@ -1142,14 +1147,14 @@ components of the Electrical.Digital library.
 
         model DLATREGL_test "Level sensitive D-Register-Bank, low active reset"
 
-          Modelica.Electrical.Digital.Sources.Table enable(x={3,4,3}, t={0,10,18})
+          Modelica.Electrical.Digital.Sources.Table enable(x={3,4,3}, t={0,10,18}) 
             annotation (Placement(transformation(extent={{-86,-32},{-66,-12}})));
-          Modelica.Electrical.Digital.Sources.Table data_0(x={6,4}, t={0,15})
+          Modelica.Electrical.Digital.Sources.Table data_0(x={6,4}, t={0,15}) 
             annotation (Placement(transformation(extent={{-86,8},{-66,28}})));
-          Modelica.Electrical.Digital.Sources.Table reset(t={0,1,2,20,21}, x={4,3,4,3,4})
+          Modelica.Electrical.Digital.Sources.Table reset(t={0,1,2,20,21}, x={4,3,4,3,4}) 
             annotation (Placement(transformation(extent={{-86,-70},{-66,-50}})));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                    -100},{100,100}}),      graphics), Icon(coordinateSystem(
+                -100},{100,100}}),          graphics), Icon(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics={Rectangle(
               extent={{-80,80},{80,-80}},
@@ -1157,8 +1162,11 @@ components of the Electrical.Digital library.
               fillColor={255,213,170},
               fillPattern=FillPattern.Solid)}),
             experiment(StopTime=25),
-            experimentSetupOutput);
-          Modelica.Electrical.Digital.Sources.Table data_1(x={3,4}, t={0,16})
+            experimentSetupOutput,
+        Documentation(info="<html>
+<p>This example is a simple test of the Registers.DLATREGL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DLATREGL component.</p>
+</html>"));
+          Modelica.Electrical.Digital.Sources.Table data_1(x={3,4}, t={0,16}) 
             annotation (Placement(transformation(extent={{-86,40},{-66,60}})));
           Modelica.Electrical.Digital.Registers.DLATREGL dLATREGL(
             tHL=2,
@@ -1187,14 +1195,14 @@ components of the Electrical.Digital library.
         model DLATREGSRH_test
       "Level sensitive D-Register-Bank, high active set and reset"
 
-          Modelica.Electrical.Digital.Sources.Table enable(x={3,4,3}, t={0,10,18})
+          Modelica.Electrical.Digital.Sources.Table enable(x={3,4,3}, t={0,10,18}) 
             annotation (Placement(transformation(extent={{-86,-32},{-66,-12}})));
-          Modelica.Electrical.Digital.Sources.Table data_0(x={6,4}, t={0,15})
+          Modelica.Electrical.Digital.Sources.Table data_0(x={6,4}, t={0,15}) 
             annotation (Placement(transformation(extent={{-86,8},{-66,28}})));
-          Modelica.Electrical.Digital.Sources.Table reset(x={3,4,3,4,3}, t={0,1,2,20,21})
+          Modelica.Electrical.Digital.Sources.Table reset(x={3,4,3,4,3}, t={0,1,2,20,21}) 
             annotation (Placement(transformation(extent={{-86,-70},{-66,-50}})));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                    -100},{100,100}}),      graphics), Icon(coordinateSystem(
+                -100},{100,100}}),          graphics), Icon(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics={Rectangle(
               extent={{-80,80},{80,-80}},
@@ -1202,10 +1210,13 @@ components of the Electrical.Digital library.
               fillColor={255,213,170},
               fillPattern=FillPattern.Solid)}),
             experiment(StopTime=25),
-            experimentSetupOutput);
-          Modelica.Electrical.Digital.Sources.Table data_1(x={3,4}, t={0,16})
+            experimentSetupOutput,
+        Documentation(info="<html>
+<p>This example is a simple test of the Registers.DLATREGSRH component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DLATREGSRH component.</p>
+</html>"));
+          Modelica.Electrical.Digital.Sources.Table data_1(x={3,4}, t={0,16}) 
             annotation (Placement(transformation(extent={{-86,40},{-66,60}})));
-          Modelica.Electrical.Digital.Sources.Table set(x={3,4,3}, t={0,5,6})
+          Modelica.Electrical.Digital.Sources.Table set(x={3,4,3}, t={0,5,6}) 
             annotation (Placement(transformation(extent={{-86,74},{-66,94}})));
           Modelica.Electrical.Digital.Registers.DLATREGSRH dLATREGSRH(
             tHL=2,
@@ -1243,14 +1254,14 @@ components of the Electrical.Digital library.
         model DLATREGSRL_test
       "Level sensitive D-Register-Bank, low active set and reset"
 
-          Modelica.Electrical.Digital.Sources.Table enable(t={0,10,18}, x={3,4,3})
+          Modelica.Electrical.Digital.Sources.Table enable(t={0,10,18}, x={3,4,3}) 
             annotation (Placement(transformation(extent={{-86,-32},{-66,-12}})));
-          Modelica.Electrical.Digital.Sources.Table data_0(x={6,4}, t={0,15})
+          Modelica.Electrical.Digital.Sources.Table data_0(x={6,4}, t={0,15}) 
             annotation (Placement(transformation(extent={{-86,8},{-66,28}})));
-          Modelica.Electrical.Digital.Sources.Table reset(t={0,1,2,20,21}, x={4,3,4,3,4})
+          Modelica.Electrical.Digital.Sources.Table reset(t={0,1,2,20,21}, x={4,3,4,3,4}) 
             annotation (Placement(transformation(extent={{-86,-70},{-66,-50}})));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                    -100},{100,100}}),      graphics), Icon(coordinateSystem(
+                -100},{100,100}}),          graphics), Icon(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics={Rectangle(
               extent={{-80,80},{80,-80}},
@@ -1258,10 +1269,13 @@ components of the Electrical.Digital library.
               fillColor={255,213,170},
               fillPattern=FillPattern.Solid)}),
             experiment(StopTime=25),
-            experimentSetupOutput);
-          Modelica.Electrical.Digital.Sources.Table data_1(x={3,4}, t={0,16})
+            experimentSetupOutput,
+        Documentation(info="<html>
+<p>This example is a simple test of the Registers.DLATREGSRL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DLATREGSRL component.</p>
+</html>"));
+          Modelica.Electrical.Digital.Sources.Table data_1(x={3,4}, t={0,16}) 
             annotation (Placement(transformation(extent={{-86,40},{-66,60}})));
-          Modelica.Electrical.Digital.Sources.Table set(t={0,5,6}, x={4,3,4})
+          Modelica.Electrical.Digital.Sources.Table set(t={0,5,6}, x={4,3,4}) 
             annotation (Placement(transformation(extent={{-86,74},{-66,94}})));
           Modelica.Electrical.Digital.Registers.DLATREGSRL dLATREGSRL(
             tHL=2,
@@ -1301,9 +1315,10 @@ components of the Electrical.Digital library.
             import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
           annotation (
-            Documentation(info="<HTML>
-</HTML>
-"),         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+            Documentation(info="<html>
+<p>MUX4 is a four bit multiplexer which is built up by And, Not, and Or gates according to the schematic. </p>
+<p>The parameters delayTime and q0 are prepared but<b> not</b> yet used in the component. The MUX4 component uses standard values in its components.</p>
+</html>"),  Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}),
                     graphics),
             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -1477,9 +1492,9 @@ components of the Electrical.Digital library.
             import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
           annotation (
-            Documentation(info="<HTML>
-</HTML>
-"),         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+            Documentation(info="<html>
+<p>RS is a basic component for e.g. the RS (set-reset) flipflop, which is built up by Nor gates according to the schematic. To avoid a numerical loop a small transport delay is inserted which delay time is a parameter of the RS component. Also its initial value can be set by parameter.</p>
+</html>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}),
                     graphics),
             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -1548,7 +1563,7 @@ components of the Electrical.Digital library.
                     extent={{90,60},{110,80}}, rotation=0)));
           D.Interfaces.DigitalOutput qn   annotation (Placement(transformation(
                     extent={{90,-80},{110,-60}}, rotation=0)));
-          D.Delay.TransportDelay TD1(delayTime=delayTime,y0=q0)
+          D.Delay.TransportDelay TD1(delayTime=delayTime,y0=q0) 
               annotation (Placement(transformation(extent={{-60,-64},{-40,-44}},
                     rotation=0)));
         equation
@@ -1575,9 +1590,9 @@ components of the Electrical.Digital library.
             import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
           annotation (
-            Documentation(info="<HTML>
-</HTML>
-"),         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+            Documentation(info="<html>
+<p>Basing on the RS component RSFF is a RS (set-reset) flipflop composed according the schematic. Its parameter delayTime is the delay time of the RS component transport delay, q0 is the initial value of that delay.</p>
+</html>"),  Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}),
                     graphics),
             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -1642,12 +1657,12 @@ components of the Electrical.Digital library.
                     extent={{-110,-80},{-90,-60}}, rotation=0)));
           D.Interfaces.DigitalOutput q annotation (Placement(transformation(extent=
                       {{90,60},{110,80}}, rotation=0)));
-          D.Interfaces.DigitalOutput qn "not Q"
+          D.Interfaces.DigitalOutput qn "not Q" 
             annotation (Placement(transformation(extent={{90,-80},{110,-60}},
                     rotation=0)));
           D.Interfaces.DigitalInput clk       annotation (Placement(transformation(
                     extent={{-110,-10},{-90,10}}, rotation=0)));
-          D.Examples.Utilities.RS RS1(delayTime=delayTime,q0=q0)
+          D.Examples.Utilities.RS RS1(delayTime=delayTime,q0=q0) 
                                             annotation (Placement(transformation(
                     extent={{-10,-40},{70,40}}, rotation=0)));
           D.Basic.And And1       annotation (Placement(transformation(extent={{-70,
@@ -1655,11 +1670,11 @@ components of the Electrical.Digital library.
           D.Basic.And And2       annotation (Placement(transformation(extent={{-70,
                       -48},{-30,-8}}, rotation=0)));
         equation
-          connect(And2.y, RS1.r)
+          connect(And2.y, RS1.r) 
                                 annotation (Line(
                 points={{-30,-28},{-10,-28}},
                 color={127,0,127}));
-          connect(And1.y, RS1.s)
+          connect(And1.y, RS1.s) 
                                 annotation (Line(
                 points={{-30,28},{-10,28}},
                 color={127,0,127}));
@@ -1688,9 +1703,9 @@ components of the Electrical.Digital library.
             import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
           annotation (
-            Documentation(info="<HTML>
-</HTML>
-"),         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+            Documentation(info="<html>
+<p>Basing on the RS component DFF is a D  flipflop composed according the schematic. Its parameter delayTime is the delay time of the RS component transport delay, q0 is the initial value of that delay.</p>
+</html>"),  Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}),
                     graphics),
             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -1746,7 +1761,7 @@ components of the Electrical.Digital library.
                      {{-110,60},{-90,80}}, rotation=0)));
           D.Interfaces.DigitalOutput q annotation (Placement(transformation(extent=
                       {{90,60},{110,80}}, rotation=0)));
-          D.Interfaces.DigitalOutput qn "not Q"
+          D.Interfaces.DigitalOutput qn "not Q" 
             annotation (Placement(transformation(extent={{90,-80},{110,-60}},
                     rotation=0)));
           D.Interfaces.DigitalInput clk       annotation (Placement(transformation(
@@ -1756,15 +1771,15 @@ components of the Electrical.Digital library.
           D.Basic.Not Not1      annotation (Placement(transformation(extent={{-70,
                       -48},{-30,-8}}, rotation=0)));
         equation
-          connect(RSFF1.q,q)
+          connect(RSFF1.q,q) 
                            annotation (Line(
                 points={{70,28},{80,28},{80,70},{100,70}},
                 color={127,0,127}));
-          connect(RSFF1.qn,qn)
+          connect(RSFF1.qn,qn) 
                              annotation (Line(
                 points={{70,-28},{80,-28},{80,-70},{100,-70}},
                 color={127,0,127}));
-          connect(Not1.y, RSFF1.r)
+          connect(Not1.y, RSFF1.r) 
                                  annotation (Line(
                 points={{-30,-28},{-10,-28}},
                 color={127,0,127}));
@@ -1784,9 +1799,9 @@ components of the Electrical.Digital library.
             import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
           annotation (
-            Documentation(info="<HTML>
-</HTML>
-"),         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+            Documentation(info="<html>
+<p>Basing on the RS component JKFF is a J-K-flipflop composed according the schematic. Its parameter delayTime is the delay time of the RS component transport delay, q0 is the initial value of that delay.</p>
+</html>"),  Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}),
                     graphics),
             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -1849,17 +1864,17 @@ components of the Electrical.Digital library.
                      {{-110,60},{-90,80}}, rotation=0)));
           D.Interfaces.DigitalOutput q annotation (Placement(transformation(extent=
                       {{90,60},{110,80}}, rotation=0)));
-          D.Interfaces.DigitalOutput qn "not Q"
+          D.Interfaces.DigitalOutput qn "not Q" 
             annotation (Placement(transformation(extent={{90,-80},{110,-60}},
                     rotation=0)));
           D.Interfaces.DigitalInput clk       annotation (Placement(transformation(
                     extent={{-110,-10},{-90,10}}, rotation=0)));
           D.Interfaces.DigitalInput k   annotation (Placement(transformation(extent=
                      {{-110,-80},{-90,-60}}, rotation=0)));
-            D.Examples.Utilities.RS RS1(delayTime=delayTime,q0=q0)
+            D.Examples.Utilities.RS RS1(delayTime=delayTime,q0=q0) 
                                          annotation (Placement(transformation(
                     extent={{30,-24},{70,16}}, rotation=0)));
-            D.Examples.Utilities.RS RS2(delayTime=delayTime,q0=q0)
+            D.Examples.Utilities.RS RS2(delayTime=delayTime,q0=q0) 
                                          annotation (Placement(transformation(
                     extent={{-44,-20},{-4,20}}, rotation=0)));
             D.Basic.And And1(n=3) annotation (Placement(transformation(extent={{-70,
@@ -1912,10 +1927,10 @@ components of the Electrical.Digital library.
 
                   model HalfAdder "Half adder"
                     parameter Real delayTime=0 "Delay time";
-                    Modelica.Electrical.Digital.Interfaces.DigitalInput b
+                    Modelica.Electrical.Digital.Interfaces.DigitalInput b 
                       annotation (Placement(transformation(extent={{-110,-80},{-90,
                       -60}}, rotation=0)));
-                    Modelica.Electrical.Digital.Interfaces.DigitalOutput s
+                    Modelica.Electrical.Digital.Interfaces.DigitalOutput s 
                                          annotation (Placement(transformation(
                     extent={{90,60},{110,80}}, rotation=0)));
                     annotation (
@@ -1962,40 +1977,73 @@ components of the Electrical.Digital library.
                 points={{60,100},{60,-100}},
                 color={0,0,0},
                 thickness=0.5)}),
-                      Documentation(info=
-                                 "<html>
-
+                      Documentation(info="<html>
+<p>HalfAdder is a two bit adder which is composed by Gates components. </p>
+<p>Its logic behavior is like this: </p>
+<p><b>HalfAdder behavior</b> </p>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
+<td valign=\"top\"><p><h4>input a</h4></p></td>
+<td valign=\"top\"><p><h4>input b</h4></p></td>
+<td valign=\"top\"><p><h4>sum s</h4></p></td>
+<td valign=\"top\"><p><h4>carry c</h4></p></td>
+</tr>
+<tr>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>0</p></td>
+</tr>
+<tr>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>0</p></td>
+</tr>
+<tr>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>0</p></td>
+</tr>
+<tr>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>1</p></td>
+</tr>
+</table>
+<p><br/><br/>The parameter delayTime is the delay time (tLH=tHL) of both the components.</p>
 </html>"));
-                    Modelica.Electrical.Digital.Interfaces.DigitalInput a
+                    Modelica.Electrical.Digital.Interfaces.DigitalInput a 
                       annotation (Placement(transformation(extent={{-110,60},{-90,
                       80}}, rotation=0)));
-                    Modelica.Electrical.Digital.Interfaces.DigitalOutput c
+                    Modelica.Electrical.Digital.Interfaces.DigitalOutput c 
                                          annotation (Placement(transformation(
                     extent={{90,-80},{110,-60}}, rotation=0)));
-                    Modelica.Electrical.Digital.Gates.AndGate AND(tLH=delayTime, tHL=delayTime)
+                    Modelica.Electrical.Digital.Gates.AndGate AND(tLH=delayTime, tHL=delayTime) 
                       annotation (Placement(transformation(extent={{-20,-82},{20,
                       -42}}, rotation=0)));
-                    Modelica.Electrical.Digital.Gates.XorGate XOR(tLH=delayTime, tHL=delayTime)
+                    Modelica.Electrical.Digital.Gates.XorGate XOR(tLH=delayTime, tHL=delayTime) 
                       annotation (Placement(transformation(extent={{-20,42},{20,82}},
                     rotation=0)));
 
                   equation
-                    connect(AND.y, c)
+                    connect(AND.y, c) 
                                    annotation (Line(points={{20,-62},{60,-62},{60,-70},
                     {100,-70}}, color={127,0,127}));
-                    connect(XOR.y, s)
+                    connect(XOR.y, s) 
                                    annotation (Line(points={{20,62},{60,62},{60,70},
                     {100,70}}, color={127,0,127}));
-                    connect(b, AND.x[1])
+                    connect(b, AND.x[1]) 
                                       annotation (Line(points={{-100,-70},{-12,-70}},
                   color={127,0,127}));
-                    connect(b, XOR.x[1])
+                    connect(b, XOR.x[1]) 
                                       annotation (Line(points={{-100,-70},{-30,-70},
                     {-30,54},{-12,54}}, color={127,0,127}));
-                    connect(a, XOR.x[2])
+                    connect(a, XOR.x[2]) 
                                       annotation (Line(points={{-100,70},{-12,70}},
                   color={127,0,127}));
-                    connect(a, AND.x[2])
+                    connect(a, AND.x[2]) 
                                       annotation (Line(points={{-100,70},{-40,70},{
                     -40,-54},{-12,-54}}, color={127,0,127}));
                   end HalfAdder;
@@ -2004,21 +2052,75 @@ components of the Electrical.Digital library.
         "Adding circuit for binary numbers with input carry bit"
 
           annotation (
-            Documentation(info="<HTML>
-<P>
- <pre>
-  <b>a     b     c in     c out     s</b>
-
-         1     1     1     0
-         0     0     0     0
-         1     0     0     1
-         0     1     0     1
- </pre>
-
-
-</P>
-</HTML>
-"),         Icon(coordinateSystem(
+            Documentation(info="<html>
+<p>FullAdder is a two bit adder with additional carry in bit which is composed by Gates components. </p>
+<p>Its logic behavior is like this: </p>
+<p><b>FullAdder behavior</b> </p>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
+<td valign=\"top\"><p><h4>input a</h4></p></td>
+<td valign=\"top\"><p><h4>input b</h4></p></td>
+<td valign=\"top\"><p><h4>input carry c_in</h4></p></td>
+<td valign=\"top\"><p><h4>sum s</h4></p></td>
+<td valign=\"top\"><p><h4>output carry c_out</h4></p></td>
+</tr>
+<tr>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>0</p></td>
+</tr>
+<tr>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>0</p></td>
+</tr>
+<tr>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>0</p></td>
+</tr>
+<tr>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>1</p></td>
+</tr>
+<tr>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>1</p></td>
+</tr>
+<tr>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>1</p></td>
+</tr>
+<tr>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>1</p></td>
+</tr>
+<tr>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>1</p></td>
+</tr>
+</table>
+</html>"),  Icon(coordinateSystem(
                   preserveAspectRatio=true,
                   extent={{-100,-100},{100,100}},
                   grid={2,2}), graphics={
@@ -2084,38 +2186,38 @@ components of the Electrical.Digital library.
                   extent={{-100,-100},{100,100}},
                   grid={2,2}), graphics));
 
-          HalfAdder Adder2(delayTime=0.001)
+          HalfAdder Adder2(delayTime=0.001) 
                                           annotation (Placement(transformation(
                     extent={{10,36},{50,76}}, rotation=0)));
-          HalfAdder Adder1(delayTime=0.001)
+          HalfAdder Adder1(delayTime=0.001) 
                                            annotation (Placement(transformation(
                     extent={{-60,36},{-20,76}}, rotation=0)));
-          Modelica.Electrical.Digital.Interfaces.DigitalInput a
+          Modelica.Electrical.Digital.Interfaces.DigitalInput a 
             annotation (Placement(transformation(
                   origin={-100,70},
                   extent={{-10,-10},{10,10}},
                   rotation=180)));
-          Modelica.Electrical.Digital.Interfaces.DigitalInput b
+          Modelica.Electrical.Digital.Interfaces.DigitalInput b 
             annotation (Placement(transformation(
                   origin={-100,30},
                   extent={{-10,-10},{10,10}},
                   rotation=180)));
-          Modelica.Electrical.Digital.Interfaces.DigitalInput c_in
+          Modelica.Electrical.Digital.Interfaces.DigitalInput c_in 
             annotation (Placement(transformation(
                   origin={-100,-70},
                   extent={{-10,-10},{10,10}},
                   rotation=180)));
-          Modelica.Electrical.Digital.Interfaces.DigitalOutput s
+          Modelica.Electrical.Digital.Interfaces.DigitalOutput s 
             annotation (Placement(transformation(
                   origin={101,70},
                   extent={{11,-10},{-11,10}},
                   rotation=180)));
-          Modelica.Electrical.Digital.Interfaces.DigitalOutput c_out
+          Modelica.Electrical.Digital.Interfaces.DigitalOutput c_out 
             annotation (Placement(transformation(
                   origin={100,-70},
                   extent={{10,-10},{-10,10}},
                   rotation=180)));
-          Modelica.Electrical.Digital.Basic.Or OR
+          Modelica.Electrical.Digital.Basic.Or OR 
                        annotation (Placement(transformation(extent={{10,-90},{50,
                       -50}}, rotation=0)));
         equation
@@ -2123,11 +2225,11 @@ components of the Electrical.Digital library.
           connect(c_out, OR.y)   annotation (Line(
                 points={{100,-70},{50,-70}},
                 color={127,0,127}));
-          connect(Adder2.c, OR.x[2])
+          connect(Adder2.c, OR.x[2]) 
                                    annotation (Line(
                 points={{50,42},{70,42},{70,-40},{10,-40},{10,-62},{18,-62}},
                 color={127,0,127}));
-          connect(Adder2.s, s)
+          connect(Adder2.s, s) 
             annotation (Line(points={{50,70},{101,70}}, color={127,0,127}));
             connect(Adder1.a, a) annotation (Line(points={{-60,70},{-100,70}},
                   color={127,0,127}));
@@ -2145,10 +2247,9 @@ components of the Electrical.Digital library.
             import Modelica.Electrical.Digital;
 
           annotation (
-            Documentation(info="<HTML>
-
-</HTML>
-"),         Icon(coordinateSystem(
+            Documentation(info="<html>
+<p>The Adder is a generic n bit adder which is composed as a chain of FullAdder components. n can be chosen by the user, a and b are the n bit input vectors, s is the sum vector, and c_out is the carry bit of the &QUOT;highes&QUOT; FullAdder.   All components are built up by Gate components. </p>
+</html>"),  Icon(coordinateSystem(
                   preserveAspectRatio=true,
                   extent={{-100,-100},{100,100}},
                   grid={2,2}), graphics={
@@ -2206,22 +2307,22 @@ components of the Electrical.Digital library.
                   extent={{-100,-100},{100,100}},
                   grid={2,2}), graphics));
           parameter Integer n=2 "Number of single adders";
-          Modelica.Electrical.Digital.Examples.Utilities.FullAdder Adder[n]
+          Modelica.Electrical.Digital.Examples.Utilities.FullAdder Adder[n] 
                                        annotation (Placement(transformation(extent=
                       {{-20,-20},{20,20}}, rotation=0)));
-          Modelica.Electrical.Digital.Interfaces.DigitalInput a[n]
+          Modelica.Electrical.Digital.Interfaces.DigitalInput a[n] 
                                                annotation (Placement(transformation(
                     extent={{-110,60},{-90,80}}, rotation=0)));
-          Modelica.Electrical.Digital.Interfaces.DigitalInput b[n]
+          Modelica.Electrical.Digital.Interfaces.DigitalInput b[n] 
                                                annotation (Placement(transformation(
                     extent={{-110,20},{-90,40}}, rotation=0)));
-          Modelica.Electrical.Digital.Interfaces.DigitalInput c_in
+          Modelica.Electrical.Digital.Interfaces.DigitalInput c_in 
                                                annotation (Placement(transformation(
                     extent={{-110,-80},{-90,-60}}, rotation=0)));
-          Modelica.Electrical.Digital.Interfaces.DigitalOutput s[n]
+          Modelica.Electrical.Digital.Interfaces.DigitalOutput s[n] 
                                                 annotation (Placement(
                   transformation(extent={{90,60},{110,80}}, rotation=0)));
-          Modelica.Electrical.Digital.Interfaces.DigitalOutput c_out
+          Modelica.Electrical.Digital.Interfaces.DigitalOutput c_out 
                                                  annotation (Placement(
                   transformation(extent={{90,-80},{110,-60}}, rotation=0)));
         equation
@@ -2242,10 +2343,11 @@ components of the Electrical.Digital library.
             import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
            annotation (
-             Documentation(info="<HTML>
-
-</HTML>
-"),          Diagram(graphics),
+             Documentation(info="<html>
+<p>The Counter3 counts the high-low slopes of the count signal, if the enable signal is set to be true. It is composed by three JK flipflops. q0, q1, and q2 are the bits of the resulting number, where q0 is the lowest, and q2 the highest bit.</p>
+</html>"),   Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}),
+                     graphics),
              Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Rectangle(
@@ -2297,21 +2399,21 @@ components of the Electrical.Digital library.
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="Q1")}));
-          D.Interfaces.DigitalInput enable
+          D.Interfaces.DigitalInput enable 
                                          annotation (Placement(transformation(
                     extent={{-110,60},{-90,80}}, rotation=0)));
           D.Interfaces.DigitalOutput q2 annotation (Placement(transformation(extent=
                      {{90,60},{110,80}}, rotation=0)));
-          D.Interfaces.DigitalInput count
+          D.Interfaces.DigitalInput count 
                                          annotation (Placement(transformation(
                     extent={{-110,-80},{-90,-60}}, rotation=0)));
-          D.Examples.Utilities.JKFF FF1
+          D.Examples.Utilities.JKFF FF1 
                annotation (Placement(transformation(extent={{-74,-20},{-34,20}},
                     rotation=0)));
-          D.Examples.Utilities.JKFF FF2
+          D.Examples.Utilities.JKFF FF2 
                annotation (Placement(transformation(extent={{-20,-20},{20,20}},
                     rotation=0)));
-          D.Examples.Utilities.JKFF FF3
+          D.Examples.Utilities.JKFF FF3 
                annotation (Placement(transformation(extent={{34,-20},{74,20}},
                     rotation=0)));
           D.Interfaces.DigitalOutput q1 annotation (Placement(transformation(extent=
@@ -2370,10 +2472,9 @@ components of the Electrical.Digital library.
             import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
           annotation (
-            Documentation(info="<HTML>
-
-</HTML>
-"),         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+            Documentation(info="<html>
+<p>The Counter is a generic component, which counts the high-low slopes of the count signal, if the enable signal is set to be true. It is composed by  n JK flipflops. q is the resulting number, where q[0] is the lowest, and q[n] the highest bit.</p>
+</html>"),  Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={Rectangle(
                 extent={{90,80},{110,-80}},
                 lineColor={127,0,127},
@@ -2424,10 +2525,10 @@ components of the Electrical.Digital library.
           parameter Integer n=3 "Number of bits";
           parameter Modelica.SIunits.Time delayTime=0.001 "Delay of each JKFF";
           parameter D.Interfaces.Logic q0=L.'0' "Initial value";
-          D.Interfaces.DigitalInput enable
+          D.Interfaces.DigitalInput enable 
                                         annotation (Placement(transformation(extent=
                      {{-110,60},{-90,80}}, rotation=0)));
-          D.Interfaces.DigitalInput count
+          D.Interfaces.DigitalInput count 
                                         annotation (Placement(transformation(extent=
                      {{-110,-80},{-90,-60}}, rotation=0)));
           D.Examples.Utilities.JKFF FF[n](each delayTime=delayTime,each q0=q0);
@@ -2446,15 +2547,12 @@ components of the Electrical.Digital library.
           end for;
         end Counter;
           annotation (Documentation(info="<html>
-<p>
-This package contains utility components used by package Examples.
-</p>
-
+<p>This package contains utility components used by package Examples. Each component is built up hierarchically by components of the Gates package. In this way the Gates components were tested, and their usage is demonstrated.</p>
 </html>"));
       end Utilities;
       end Examples;
 
-      package Interfaces "Connectors for Digital electrical components"
+      package Interfaces "Basic definitions"
 
         type Logic = enumeration(
         'U' "U  Uninitialized",
@@ -2466,7 +2564,7 @@ This package contains utility components used by package Examples.
         'L' "L  Weak    0",
         'H' "H  Weak    1",
         '-' "-  Don't care")
-      "Logic values and their coding according to IEEE 1164 STD_ULOGIC type"
+      "Logic values and their coding according to IEEE 1164 STD_ULOGIC type" 
               annotation (Documentation(info="<html>
 <p><b>Code Table:</b></p>
 
@@ -2522,7 +2620,7 @@ This package contains utility components used by package Examples.
 </html>"));
 
         connector DigitalSignal = Logic
-      "Digital port (both input/output possible)"
+      "Digital port (both input/output possible)" 
           annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}),
                            graphics),
@@ -2530,11 +2628,11 @@ This package contains utility components used by package Examples.
                 extent={{-100,-100},{100,100}}),
                                     graphics),
           Documentation(info="<html>
-
+<p>DigitalSignal is the basic digital connector defintion. A direction (input, output) is not yet defined. DigitalSignal is of type Logic. It can have the logic values (U, X, 0, 1, ...) which are internally coded by integer values by using the enumeration (c.f. the definition of type Logic).</p>
 </html>"));
 
         connector DigitalInput = input DigitalSignal
-      "Input DigitalSignal as connector"
+      "Input DigitalSignal as connector" 
           annotation (defaultComponentName="x",
             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Rectangle(
@@ -2552,11 +2650,11 @@ This package contains utility components used by package Examples.
             fillColor={127,0,127},
             fillPattern=FillPattern.Solid)}),
           Documentation(info="<html>
-
+<p>DigitalInput is the  digital input connector defintion. DigitalInput is of type Logic. It can have the logic values (U, X, 0, 1, ...) which are internally coded by integer values by using the enumeration (c.f. the definition of type Logic).</p>
 </html>"));
 
         connector DigitalOutput = output DigitalSignal
-      "Output DigitalSignal as connector"
+      "Output DigitalSignal as connector" 
           annotation (defaultComponentName="y", Icon(coordinateSystem(
                 preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
           graphics={Polygon(
@@ -2573,14 +2671,17 @@ This package contains utility components used by package Examples.
             fillPattern=FillPattern.Solid), Text(
             extent={{-150,-100},{150,-160}},
             lineColor={127,0,127},
-            textString="%name")}));
+            textString="%name")}),
+      Documentation(info="<html>
+<p>DigitalOutput is the  digital output connector defintion. DigitalOutput  is of type Logic. It can have the logic values (U, X, 0, 1, ...) which are internally coded by integer values by using the enumeration (c.f. the definition of type Logic). The arrow shape symbolizes the signal flow direction.</p>
+</html>"));
 
         partial block SISO "Single input, single output"
           import D = Modelica.Electrical.Digital;
-          D.Interfaces.DigitalInput x "Connector of Digital input signal"
+          D.Interfaces.DigitalInput x "Connector of Digital input signal" 
                        annotation (Placement(transformation(extent={{-70,-10},{-50,
                     10}}, rotation=0)));
-          D.Interfaces.DigitalOutput y "Connector of Digital output signal"
+          D.Interfaces.DigitalOutput y "Connector of Digital output signal" 
                         annotation (Placement(transformation(extent={{90,-10},{110,
                     10}}, rotation=0)));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -2595,7 +2696,7 @@ This package contains utility components used by package Examples.
               fillPattern=FillPattern.Solid), Line(points={{50,0},{92,0}},
                 color={127,0,127})}),
             Documentation(info="<html>
-
+<p>SISO is a partial model for the connection pattern whith <b>s</b>ingle (scalar) digital <b>i</b>nput and <b>s</b>ingle (scalar) digital <b>o</b>utput. Besides the connectors it provides a rectangel for the icon which can be filled in by the component which inherits the SISO model.</p>
 </html>"));
         end SISO;
 
@@ -2604,10 +2705,10 @@ This package contains utility components used by package Examples.
 
           parameter Integer n(final min=2) = 2 "Number of inputs";
           D.Interfaces.DigitalInput x[n]
-        "Connector of Digital input signal vector"
+        "Connector of Digital input signal vector" 
                                          annotation (Placement(transformation(
                   extent={{-70,-80},{-50,80}}, rotation=0)));
-          D.Interfaces.DigitalOutput y "Connector of Digital output signal"
+          D.Interfaces.DigitalOutput y "Connector of Digital output signal" 
                         annotation (Placement(transformation(extent={{90,-10},{110,
                     10}}, rotation=0)));
           annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -2622,7 +2723,7 @@ This package contains utility components used by package Examples.
                 -100},{100,100}}),
                       graphics),
             Documentation(info="<html>
-
+<p>MISO is a partial model for the connection pattern whith <b>m</b>ultiple (vector) digital<b> i</b>nput and <b>s</b>ingle (scalar) digital <b>o</b>utput. Besides the connectors it provides a rectangel for the icon which can be filled in by the component which inherits the MISO model.</p>
 </html>"));
         end MISO;
 
@@ -2652,10 +2753,7 @@ This package contains utility components used by package Examples.
             lineColor={255,0,0},
             textString="%name")}),
                                 Documentation(info="<html>
-<p>
-This package contains interface definitions
-(connectors) digital electrical components.
-</p>
+<p>This package contains basic definitions: Type definitions of Logic and Strength,  interface definitions (connectors) for digital electrical components, and partial models for connection patterns which are often used.</p>
 </html>"),DymolaStoredErrors);
         partial block MIMO "Multiple input - multiple output"
           import D = Modelica.Electrical.Digital;
@@ -2663,11 +2761,11 @@ This package contains interface definitions
           parameter Integer n(final min=1) = 1
         "Number of inputs = Number of outputs";
           D.Interfaces.DigitalInput x[n]
-        "Connector of Digital input signal vector"
+        "Connector of Digital input signal vector" 
                                          annotation (Placement(transformation(
                   extent={{-70,-80},{-50,80}}, rotation=0)));
           D.Interfaces.DigitalOutput y[n]
-        "Connector of Digital output signal vector"
+        "Connector of Digital output signal vector" 
                         annotation (Placement(transformation(extent={{90,-10},{110,
                     10}}, rotation=0)));
           annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -2684,17 +2782,17 @@ This package contains interface definitions
               lineColor={127,33,107},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}),
-              Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                    {100,100}}),
+              Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}),
                       graphics),
             Documentation(info="<html>
-
+<p>MIMO is a partial model for the connection pattern whith <b>m</b>ultiple (vector) digital<b> i</b>nput and <b>m</b>ultiple  (vector) digital <b>o</b>utput. Besides the connectors it provides a rectangel for the icon which can be filled in by the component which inherits the MISO model.</p>
 </html>"));
         end MIMO;
 
       end Interfaces;
 
-      package Tables "Truth tables for all components of package Digital"
+      package Tables "Truth tables"
 
         import D = Modelica.Electrical.Digital;
         import L = Modelica.Electrical.Digital.Interfaces.Logic;
@@ -2815,11 +2913,11 @@ This package contains interface definitions
             lineColor={255,0,0},
             textString="%name")}),
                                 Documentation(info="<html>
-
+<p>Tables contains several logic valued matrixes which are used for quickly calculating the result. Since the logic values are coded internally by the integers 1 ... 9, the code of the input signals can be taken to chose line and column of the matrix element where the result can be found. In this way the tables are used by some components.</p>
 </html>"));
       end Tables;
 
-      package Delay "Transport and inertial delay blocks"
+      package Delay "Delay blocks"
 
         partial block DelayParams "Definition of delay parameters"
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
@@ -2827,7 +2925,7 @@ This package contains interface definitions
           parameter Modelica.SIunits.Time tHL(start=0) "Fall inertial delay";
           parameter L y0=L.'U' "Initial value of output";
           annotation (Documentation(info="<html>
-
+<p>DelayParams is a partial model for providing delay times and inertial values. It is used in components of the package Gates which need the same parameters. The partial model does not have any behavior or equations. </p>
 </html>"));
         end DelayParams;
 
@@ -2845,7 +2943,8 @@ Provide the input as output exactly delayed by <i>Tdel</i>.
 If time less than <i>Tdel</i> the initial value <i>initout</i> holds.
 </P>
 </HTML>
-", revisions =   "<HTML>
+",       revisions=
+                 "<HTML>
 <ul>
 <li><i>   </i>
        by ...<br>
@@ -2867,7 +2966,7 @@ If time less than <i>Tdel</i> the initial value <i>initout</i> holds.
               lineThickness=0.5,
               fillColor={213,170,255},
               fillPattern=FillPattern.Solid),
-            Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}),
+            Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}), 
 
             Line(points={{0,60},{20,60}}, color={0,0,0}),
             Line(points={{10,60},{10,40}}, color={0,0,0}),
@@ -2884,8 +2983,8 @@ If time less than <i>Tdel</i> the initial value <i>initout</i> holds.
 
         equation
           x_delayed = integer(delay(x, delayTime));
-          y = if delayTime > 0 then
-                  (if time >= delayTime then x_delayed else y0) else
+          y = if delayTime > 0 then 
+                  (if time >= delayTime then x_delayed else y0) else 
                     pre(x);
         end TransportDelay;
 
@@ -2907,7 +3006,8 @@ Provides the input as output delayed by <i>Tdel</i> if the input holds its value
 If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
 </P>
 </HTML>
-", revisions =   "<HTML>
+",       revisions=
+                 "<HTML>
 <ul>
 <li><i>   </i>
        by ...<br>
@@ -2934,7 +3034,7 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
               lineThickness=0.5,
               fillColor={213,170,255},
               fillPattern=FillPattern.Solid),
-            Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}),
+            Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}), 
 
             Line(points={{10,60},{10,40}}, color={0,0,0}),
             Line(points={{0,60},{20,60}}, color={0,0,0}),
@@ -3036,7 +3136,7 @@ is used, if it is zero, the input is not delayed.
               lineColor={0,0,0},
               lineThickness=0.5,
               textString="sensitive"),
-            Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}),
+            Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}), 
 
             Line(points={{10,60},{10,40}}, color={0,0,0}),
             Line(points={{0,60},{20,60}}, color={0,0,0})}));
@@ -3081,7 +3181,7 @@ is used, if it is zero, the input is not delayed.
             lineColor={255,0,0},
             textString="%name")}),
                                 Documentation(info="<html>
-
+<p>The Delay package collects the delay blocks which are used in many components. Both transport and inertial delay are offered for scalar connectors. The most advanced component is the sensitive interial delay the delay time of which is chosen in dependency of the signal values. This component is also available for vector valued input.</p>
 </html>"));
 
         model InertialDelaySensitiveVector
@@ -3093,7 +3193,7 @@ is used, if it is zero, the input is not delayed.
           parameter Modelica.SIunits.Time tHL=0 "High->Low delay";
           parameter Modelica.SIunits.Time tLH=0 "Low->High delay";
           parameter Integer n(min=1) = 1 "Data width";
-          D.Interfaces.DigitalInput x[n]
+          D.Interfaces.DigitalInput x[n] 
             annotation (Placement(transformation(extent={{-100,-12},{-76,12}}),
                 iconTransformation(extent={{-100,-15},{-72,14}})));
           D.Interfaces.DigitalOutput y[n] annotation (Placement(transformation(
@@ -3492,7 +3592,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
             lineColor={255,0,0},
             textString="%name")}),
                                 Documentation(info="<html>
-
+<p>Basic contains the basic gates according to standard logic. The components of Basic calculate their results using the corresponding truth tables. They do not contain any delay components.</p>
 </html>"));
       end Basic;
 
@@ -3505,16 +3605,14 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
           extends D.Interfaces.SISO;
           D.Basic.Not G1         annotation (Placement(transformation(extent={{-60,
                     -20},{-20,20}}, rotation=0)));
-          D.Delay.InertialDelaySensitive G2(tLH=tLH, tHL=tHL)
+          D.Delay.InertialDelaySensitive G2(tLH=tLH, tHL=tHL) 
             annotation (Placement(transformation(extent={{20,-20},{60,20}},
                   rotation=0)));
           annotation (
-            Documentation(info="<HTML>
-<P>
-InvGate with 1 input value, composed by Not and sensitive intertial delay.
-</P>
-</HTML>
-", revisions =   "<HTML>
+            Documentation(info="<html>
+<p>The InvGate model has a single valued input, and a single valued output. It is composed by a Basic Not and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and intitial value).</p>
+</html>", revisions=
+                 "<HTML>
 <ul>
 <li><i>   </i>
        by ...<br>
@@ -3560,7 +3658,7 @@ InvGate with 1 input value, composed by Not and sensitive intertial delay.
                   100,0}}, color={127,0,127}));
           connect(G1.x, x)   annotation (Line(points={{-52,0},{-60,0}}, color={127,
                   0,127}));
-          connect(G1.y, G2.x)
+          connect(G1.y, G2.x) 
             annotation (Line(points={{-20,0},{28,0}}, color={127,0,127}));
         end InvGate;
 
@@ -3576,12 +3674,10 @@ InvGate with 1 input value, composed by Not and sensitive intertial delay.
             y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}},
                   rotation=0)));
           annotation (
-            Documentation(info="<HTML>
-<P>
-AndGate with n input values, composed by And and sensitive intertial delay.
-</P>
-</HTML>
-", revisions =   "<HTML>
+            Documentation(info="<html>
+<p>The AndGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic And and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and intitial value).</p>
+</html>", revisions=
+                 "<HTML>
 <ul>
 <li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -3616,11 +3712,11 @@ AndGate with n input values, composed by And and sensitive intertial delay.
                 -100},{100,100}}),
                     graphics));
         equation
-          connect(x, G1.x)
+          connect(x, G1.x) 
             annotation (Line(points={{-60,0},{-32,0}}, color={127,0,127}));
-          connect(y, G2.y)
+          connect(y, G2.y) 
             annotation (Line(points={{100,0},{60,0}}, color={127,0,127}));
-          connect(G1.y, G2.x)
+          connect(G1.y, G2.x) 
             annotation (Line(points={{0,0},{28,0}}, color={127,0,127}));
         end AndGate;
 
@@ -3675,11 +3771,9 @@ AndGate with n input values, composed by And and sensitive intertial delay.
        by Teresa Schlegel<br>
        initially modelled.</li>
 </ul>
-</HTML>",     info="<HTML>
-<P>
-NandGate with n input values, composed by Nand and sensitive intertial delay.
-</P>
-</HTML>"),  Placement(transformation(extent={{0,-20},{40,20}}, rotation=0)));
+</HTML>",     info="<html>
+<p>The NandGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Nand and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and intitial value).</p>
+</html>"),  Placement(transformation(extent={{0,-20},{40,20}}, rotation=0)));
           annotation (
             Documentation(info="<HTML>
 <P>
@@ -3710,11 +3804,11 @@ NandGate with n input values, composed by Nand and sensitive intertial delay.
                 lineColor={0,0,255})),
             Diagram);
         equation
-          connect(x, G1.x)
+          connect(x, G1.x) 
             annotation (Line(points={{-60,0},{-32,0}}, color={127,0,127}));
-          connect(G1.y, G2.x)
+          connect(G1.y, G2.x) 
             annotation (Line(points={{0,0},{28,0}}, color={127,0,127}));
-          connect(G2.y, y)
+          connect(G2.y, y) 
             annotation (Line(points={{60,0},{100,0}}, color={127,0,127}));
         end NandGate;
 
@@ -3730,12 +3824,10 @@ NandGate with n input values, composed by Nand and sensitive intertial delay.
             y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}},
                   rotation=0)));
           annotation (
-            Documentation(info="<HTML>
-<P>
-OrGate with n input values, composed by Or and sensitive intertial delay.
-</P>
-</HTML>
-", revisions =   "<HTML>
+            Documentation(info="<html>
+<p>The OrGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Or and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and intitial value).</p>
+</html>", revisions=
+                 "<HTML>
 <ul>
 <li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -3770,11 +3862,11 @@ OrGate with n input values, composed by Or and sensitive intertial delay.
                 -100},{100,100}}),
                     graphics));
         equation
-          connect(G1.y, G2.x)
+          connect(G1.y, G2.x) 
             annotation (Line(points={{0,0},{28,0}}, color={127,0,127}));
-          connect(x,G1. x)
+          connect(x,G1. x) 
             annotation (Line(points={{-60,0},{-32,0}}, color={127,0,127}));
-          connect(y, G2.y)
+          connect(y, G2.y) 
             annotation (Line(points={{100,0},{60,0}}, color={127,0,127}));
         end OrGate;
 
@@ -3790,12 +3882,10 @@ OrGate with n input values, composed by Or and sensitive intertial delay.
             y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}},
                   rotation=0)));
           annotation (
-            Documentation(info="<HTML>
-<P>
-NorGate with n input values, composed by Nor and sensitive intertial delay.
-</P>
-</HTML>
-", revisions =   "<HTML>
+            Documentation(info="<html>
+<p>The NorGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Nor and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and intitial value). </p>
+</html>", revisions=
+                 "<HTML>
 <ul>
 <li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -3836,11 +3926,11 @@ NorGate with n input values, composed by Nor and sensitive intertial delay.
                 -100},{100,100}}),
                     graphics));
         equation
-          connect(G1.y, G2.x)
+          connect(G1.y, G2.x) 
             annotation (Line(points={{0,0},{28,0}}, color={127,0,127}));
-          connect(x, G1.x)
+          connect(x, G1.x) 
             annotation (Line(points={{-60,0},{-32,0}}, color={127,0,127}));
-          connect(y, G2.y)
+          connect(y, G2.y) 
             annotation (Line(points={{100,0},{60,0}}, color={127,0,127}));
         end NorGate;
 
@@ -3856,12 +3946,10 @@ NorGate with n input values, composed by Nor and sensitive intertial delay.
             y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}},
                   rotation=0)));
           annotation (
-            Documentation(info="<HTML>
-<P>
-XorGate with n input values, composed by Xor and sensitive intertial delay.
-</P>
-</HTML>
-", revisions =   "<HTML>
+            Documentation(info="<html>
+<p>The XorGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Xor and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and intitial value). </p>
+</html>", revisions=
+                 "<HTML>
 <ul>
 <li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -3892,15 +3980,15 @@ XorGate with n input values, composed by Xor and sensitive intertial delay.
               lineColor={0,0,0},
               lineThickness=0.5,
               textString="Gate")}),
-            Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                    {100,100}}),
+            Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}),
                     graphics));
         equation
-          connect(x, G1.x)
+          connect(x, G1.x) 
             annotation (Line(points={{-60,0},{-32,0}}, color={127,0,127}));
-          connect(G1.y, G2.x)
+          connect(G1.y, G2.x) 
             annotation (Line(points={{0,0},{28,0}}, color={127,0,127}));
-          connect(G2.y, y)
+          connect(G2.y, y) 
             annotation (Line(points={{60,0},{100,0}}, color={127,0,127}));
         end XorGate;
 
@@ -3916,12 +4004,10 @@ XorGate with n input values, composed by Xor and sensitive intertial delay.
             y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}},
                   rotation=0)));
           annotation (
-            Documentation(info="<HTML>
-<P>
-XNorGate with n input values, composed by XNor and sensitive intertial delay.
-</P>
-</HTML>
-", revisions =   "<HTML>
+            Documentation(info="<html>
+<p>The XnorGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Xnor and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and intitial value). </p>
+</html>", revisions=
+                 "<HTML>
 <ul>
 <li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -3952,15 +4038,15 @@ XNorGate with n input values, composed by XNor and sensitive intertial delay.
               lineColor={0,0,0},
               lineThickness=0.5,
               textString="Gate")}),
-            Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                    {100,100}}),
+            Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}),
                     graphics));
         equation
-          connect(x, G1.x)
+          connect(x, G1.x) 
             annotation (Line(points={{-60,0},{-32,0}}, color={127,0,127}));
-          connect(G2.y, y)
+          connect(G2.y, y) 
             annotation (Line(points={{60,0},{100,0}}, color={127,0,127}));
-          connect(G1.y, G2.x)
+          connect(G1.y, G2.x) 
             annotation (Line(points={{0,0},{28,0}}, color={127,0,127}));
         end XnorGate;
 
@@ -3969,16 +4055,14 @@ XNorGate with n input values, composed by XNor and sensitive intertial delay.
           import D = Modelica.Electrical.Digital;
           extends D.Delay.DelayParams;
           extends D.Interfaces.SISO;
-          D.Delay.InertialDelaySensitive G1(tLH=tLH, tHL=tHL)
+          D.Delay.InertialDelaySensitive G1(tLH=tLH, tHL=tHL) 
             annotation (Placement(transformation(extent={{-30,-20},{10,20}},
                   rotation=0)));
           annotation (
-            Documentation(info="<HTML>
-<P>
-BufGate with 1 input value, composed by Not and sensitive intertial delay.
-</P>
-</HTML>
-", revisions =   "<HTML>
+            Documentation(info="<html>
+<p>The BufGate model has a single valued input, and a single valued output. It consists of an InertialDelaySensitive only. Its parameters are the delay parameters (rise and fall intertial delay time, and intitial value).</p>
+</html>", revisions=
+                 "<HTML>
 <ul>
 <li><i>   </i>
        by ...<br>
@@ -3987,8 +4071,8 @@ BufGate with 1 input value, composed by Not and sensitive intertial delay.
        by Andre Schneider<br>
        initially modelled.</li>
 </ul>
-</HTML>"),  Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                    {100,100}}),
+</HTML>"),  Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}),
                     graphics),
             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
@@ -4045,7 +4129,7 @@ BufGate with 1 input value, composed by Not and sensitive intertial delay.
             lineColor={255,0,0},
             textString="%name")}),
                                 Documentation(info="<html>
-
+<p>Gates contains the basic gates according to standard logic as they are provided in the Basic package. Additionally they contain an InertialDelaySensitive component They are composed graphically, not using any equations.</p>
 </html>"));
       end Gates;
 
@@ -4055,7 +4139,7 @@ BufGate with 1 input value, composed by Not and sensitive intertial delay.
           import D = Modelica.Electrical.Digital;
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
           parameter D.Interfaces.Logic x(start=L.'1') "Logic value to be set";
-          D.Interfaces.DigitalOutput y
+          D.Interfaces.DigitalOutput y 
                         annotation (Placement(transformation(extent={{90,-10},{110,
                     10}}, rotation=0)));
           annotation (Documentation(info="<HTML>
@@ -4099,24 +4183,24 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                    100}}), graphics={
-                Rectangle(
-                  extent={{-50,100},{50,-100}},
-                  lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={213,255,170},
-                  fillPattern=FillPattern.Solid),
-                Text(
-                  extent={{-50,40},{50,80}},
-                  lineColor={0,0,0},
-                  lineThickness=0.5,
-                  textString="SET"),
-                Text(
-                  extent={{152,-160},{-148,-100}},
-                  lineColor={0,0,255},
-                  textString="%name"),
-                Line(points={{50,0},{90,0}}, color={127,0,127})}));
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                100,100}}), graphics={
+            Rectangle(
+              extent={{-50,100},{50,-100}},
+              lineColor={0,0,0},
+              lineThickness=0.5,
+              fillColor={213,255,170},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-50,40},{50,80}},
+              lineColor={0,0,0},
+              lineThickness=0.5,
+              textString="SET"),
+            Text(
+              extent={{152,-160},{-148,-100}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Line(points={{50,0},{90,0}}, color={127,0,127})}));
         algorithm
           y := x;
         end Set;
@@ -4129,7 +4213,7 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
           parameter D.Interfaces.Logic after(start=L.'1')
         "Logic value after step";
           parameter Real stepTime(start=1) "step time";
-          D.Interfaces.DigitalOutput y
+          D.Interfaces.DigitalOutput y 
                         annotation (Placement(transformation(extent={{90,-10},{110,
                     10}}, rotation=0)));
           annotation (
@@ -4172,22 +4256,22 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
        by Teresa Schlegel<br>
        initially modelled.</li>
 </ul>
-</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                    100,100}}), graphics={
-                Rectangle(
-                  extent={{-50,100},{50,-100}},
-                  lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={213,255,170},
-                  fillPattern=FillPattern.Solid),
-                Text(
-                  extent={{152,-160},{-148,-100}},
-                  lineColor={0,0,255},
-                  textString="%name"),
-                Line(points={{-30,40},{0,40},{0,80},{30,80}}, color={0,0,0}),
-                Line(points={{50,0},{90,0}}, color={127,0,127})}),
-            Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                    {100,100}}),
+</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}), graphics={
+            Rectangle(
+              extent={{-50,100},{50,-100}},
+              lineColor={0,0,0},
+              lineThickness=0.5,
+              fillColor={213,255,170},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{152,-160},{-148,-100}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Line(points={{-30,40},{0,40},{0,80},{30,80}}, color={0,0,0}),
+            Line(points={{50,0},{90,0}}, color={127,0,127})}),
+            Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}),
                     graphics));
         algorithm
           // assert(before >= L.min and before <= L.max, "Parameter is no logic value");
@@ -4210,7 +4294,7 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
         "vector of corresponding time points";
           parameter D.Interfaces.Logic y0=L.'U' "initial output value";
           final parameter Integer n=size(x, 1) "table size";
-          D.Interfaces.DigitalOutput y
+          D.Interfaces.DigitalOutput y 
                         annotation (Placement(transformation(extent={{90,-10},{110,
                     10}}, rotation=0)));
           annotation (
@@ -4279,8 +4363,8 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
             Line(points={{0,80},{0,40}}, color={0,0,0}),
             Line(points={{-30,60},{32,60}}, color={0,0,0}),
             Line(points={{-30,50},{32,50}}, color={0,0,0})}),
-            Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                    {100,100}}),
+            Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}),
                     graphics));
         algorithm
           if initial() then
@@ -4315,7 +4399,7 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
           parameter Integer nperiod(start=-1)
         "Number of periods (< 0 means infinite number of periods)";
           Integer np(start=0, fixed=true);
-          D.Interfaces.DigitalOutput y
+          D.Interfaces.DigitalOutput y 
                         annotation (Placement(transformation(extent={{90,-10},{110,
                     10}}, rotation=0)));
     protected
@@ -4363,22 +4447,22 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                    100}}), graphics={
-                Rectangle(
-                  extent={{-50,100},{50,-100}},
-                  lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={213,255,170},
-                  fillPattern=FillPattern.Solid),
-                Text(
-                  extent={{152,-160},{-148,-100}},
-                  lineColor={0,0,255},
-                  textString="%name"),
-                Line(points={{50,0},{90,0}}, color={127,0,127}),
-                Line(points={{-36,40},{-30,40},{-30,40},{-18,40},{-18,40},{-14,40},
-                      {-14,80},{14,80},{14,40},{14,40},{14,40},{28,40},{30,40},{36,
-                      40}}, color={0,0,0})}));
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                100,100}}), graphics={
+            Rectangle(
+              extent={{-50,100},{50,-100}},
+              lineColor={0,0,0},
+              lineThickness=0.5,
+              fillColor={213,255,170},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{152,-160},{-148,-100}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Line(points={{50,0},{90,0}}, color={127,0,127}),
+            Line(points={{-36,40},{-30,40},{-30,40},{-18,40},{-18,40},{-14,40},
+                  {-14,80},{14,80},{14,40},{14,40},{14,40},{28,40},{30,40},{36,
+                  40}}, color={0,0,0})}));
 
         equation
           sampling = nperiod <> 0 and (nperiod >= pre(np) or nperiod < 0);
@@ -4405,7 +4489,7 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
           parameter Real width(
             final min=Modelica.Constants.small,
             final max=100, start=50) "Width of pulses in % of period";
-          D.Interfaces.DigitalOutput y "Connector of Digital output signal"
+          D.Interfaces.DigitalOutput y "Connector of Digital output signal" 
                         annotation (Placement(transformation(extent={{90,-10},{110,
                     10}}, rotation=0)));
     protected
@@ -4431,22 +4515,22 @@ The number of periods is unlimited. The first pulse starts at startTime.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                    100}}), graphics={
-                Rectangle(
-                  extent={{-50,100},{50,-100}},
-                  lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={213,255,170},
-                  fillPattern=FillPattern.Solid),
-                Text(
-                  extent={{152,-160},{-148,-100}},
-                  lineColor={0,0,255},
-                  textString="%name"),
-                Line(points={{50,0},{90,0}}, color={127,0,127}),
-                Line(points={{-36,40},{-30,40},{-30,80},{-18,80},{-18,40},{-6,40},{
-                      -6,80},{6,80},{6,40},{18,40},{18,80},{30,80},{30,40},{36,40}},
-                    color={0,0,0})}));
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                100,100}}), graphics={
+            Rectangle(
+              extent={{-50,100},{50,-100}},
+              lineColor={0,0,0},
+              lineThickness=0.5,
+              fillColor={213,255,170},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{152,-160},{-148,-100}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Line(points={{50,0},{90,0}}, color={127,0,127}),
+            Line(points={{-36,40},{-30,40},{-30,80},{-18,80},{-18,40},{-6,40},{
+                  -6,80},{6,80},{6,40},{18,40},{18,80},{30,80},{30,40},{36,40}}, 
+                color={0,0,0})}));
         algorithm
           when sample(startTime, period) then
             t_i := time;
@@ -4479,7 +4563,7 @@ The number of periods is unlimited. The first pulse starts at startTime.
             lineColor={255,0,0},
             textString="%name")}),
                                 Documentation(info="<html>
-
+<p>The sources are not taken from Standard Logic. They were added since they turned out to be quite useful, since such sources are often needed. For a better optical overview the colour green was chosen for the sources.</p>
 </html>"));
       end Sources;
 
@@ -4487,10 +4571,10 @@ The number of periods is unlimited. The first pulse starts at startTime.
         block LogicToXO1 "Conversion to XO1"
           import D = Modelica.Electrical.Digital;
           import T = Modelica.Electrical.Digital.Tables;
-          D.Interfaces.DigitalInput x[n]
+          D.Interfaces.DigitalInput x[n] 
                             annotation (Placement(transformation(extent={{-60,-10},
                     {-40,10}}, rotation=0)));
-          D.Interfaces.DigitalOutput y[n]
+          D.Interfaces.DigitalOutput y[n] 
                              annotation (Placement(transformation(extent={{40,-10},
                     {60,10}}, rotation=0)));
           parameter Integer n(final min=1, start=1) "signal width";
@@ -4527,34 +4611,34 @@ If the signal width is greater than 1 this conversion is done for each signal.
        initially modelled.</li>
 </ul>
 </HTML>
-"),         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                    100,100}}), graphics={
-                Text(
-                  extent={{152,-100},{-148,-40}},
-                  lineColor={0,0,255},
-                  textString="%name"),
-                Polygon(
-                  points={{-40,-40},{-40,40},{40,40},{-40,-40}},
-                  lineColor={127,0,127},
-                  fillColor={127,0,127},
-                  fillPattern=FillPattern.Solid),
-                Polygon(
-                  points={{-40,-40},{40,-40},{40,40},{-40,-40}},
-                  lineColor={127,0,127},
-                  lineThickness=0.5,
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),
-                Text(
-                  extent={{0,-20},{40,-40}},
-                  lineColor={0,0,0},
-                  lineThickness=0.5,
-                  textString="X01"),
-                Rectangle(
-                  extent={{-40,40},{40,-40}},
-                  lineColor={0,0,0},
-                  lineThickness=0.5)}),
-            Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                    {100,100}}),
+"),         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}), graphics={
+            Text(
+              extent={{152,-100},{-148,-40}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Polygon(
+              points={{-40,-40},{-40,40},{40,40},{-40,-40}},
+              lineColor={127,0,127},
+              fillColor={127,0,127},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{-40,-40},{40,-40},{40,40},{-40,-40}},
+              lineColor={127,0,127},
+              lineThickness=0.5,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{0,-20},{40,-40}},
+              lineColor={0,0,0},
+              lineThickness=0.5,
+              textString="X01"),
+            Rectangle(
+              extent={{-40,40},{40,-40}},
+              lineColor={0,0,0},
+              lineThickness=0.5)}),
+            Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}),
                     graphics));
         algorithm
           for i in 1:n loop
@@ -4565,10 +4649,10 @@ If the signal width is greater than 1 this conversion is done for each signal.
         block LogicToXO1Z "Conversion to XO1Z"
           import D = Modelica.Electrical.Digital;
           import T = Modelica.Electrical.Digital.Tables;
-          D.Interfaces.DigitalInput x[n]
+          D.Interfaces.DigitalInput x[n] 
                             annotation (Placement(transformation(extent={{-60,-10},
                     {-40,10}}, rotation=0)));
-          D.Interfaces.DigitalOutput y[n]
+          D.Interfaces.DigitalOutput y[n] 
                              annotation (Placement(transformation(extent={{40,-10},
                     {60,10}}, rotation=0)));
           parameter Integer n(final min=1, start=1) "signal width";
@@ -4604,34 +4688,34 @@ If the signal width is greater than 1 this conversion is done for each signal.
        by Christoph Clauss<br>
        initially modelled.</li>
 </ul>
-</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                    100,100}}), graphics={
-                Text(
-                  extent={{152,-100},{-148,-40}},
-                  lineColor={0,0,255},
-                  textString="%name"),
-                Polygon(
-                  points={{-40,-40},{-40,40},{40,40},{-40,-40}},
-                  lineColor={127,0,127},
-                  fillColor={127,0,127},
-                  fillPattern=FillPattern.Solid),
-                Polygon(
-                  points={{-40,-40},{40,-40},{40,40},{-40,-40}},
-                  lineColor={127,0,127},
-                  lineThickness=0.5,
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),
-                Text(
-                  extent={{0,-20},{40,-40}},
-                  lineColor={0,0,0},
-                  lineThickness=0.5,
-                  textString="X01Z"),
-                Rectangle(
-                  extent={{-40,40},{40,-40}},
-                  lineColor={0,0,0},
-                  lineThickness=0.5)}),
-            Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                    {100,100}}),
+</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}), graphics={
+            Text(
+              extent={{152,-100},{-148,-40}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Polygon(
+              points={{-40,-40},{-40,40},{40,40},{-40,-40}},
+              lineColor={127,0,127},
+              fillColor={127,0,127},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{-40,-40},{40,-40},{40,40},{-40,-40}},
+              lineColor={127,0,127},
+              lineThickness=0.5,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{0,-20},{40,-40}},
+              lineColor={0,0,0},
+              lineThickness=0.5,
+              textString="X01Z"),
+            Rectangle(
+              extent={{-40,40},{40,-40}},
+              lineColor={0,0,0},
+              lineThickness=0.5)}),
+            Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}),
                     graphics));
         algorithm
           for i in 1:n loop
@@ -4642,10 +4726,10 @@ If the signal width is greater than 1 this conversion is done for each signal.
         block LogicToUX01 "Conversion to UXO1"
           import D = Modelica.Electrical.Digital;
           import T = Modelica.Electrical.Digital.Tables;
-          D.Interfaces.DigitalInput x[n]
+          D.Interfaces.DigitalInput x[n] 
                             annotation (Placement(transformation(extent={{-60,-10},
                     {-40,10}}, rotation=0)));
-          D.Interfaces.DigitalOutput y[n]
+          D.Interfaces.DigitalOutput y[n] 
                              annotation (Placement(transformation(extent={{40,-10},
                     {60,10}}, rotation=0)));
           parameter Integer n(final min=1, start=1) "signal width";
@@ -4681,34 +4765,34 @@ If the signal width is greater than 1 this conversion is done for each signal.
        by Christoph Clauss<br>
        initially modelled.</li>
 </ul>
-</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                    100,100}}), graphics={
-                Text(
-                  extent={{152,-100},{-148,-40}},
-                  lineColor={0,0,255},
-                  textString="%name"),
-                Polygon(
-                  points={{-40,-40},{-40,40},{40,40},{-40,-40}},
-                  lineColor={127,0,127},
-                  fillColor={127,0,127},
-                  fillPattern=FillPattern.Solid),
-                Polygon(
-                  points={{-40,-40},{40,-40},{40,40},{-40,-40}},
-                  lineColor={127,0,127},
-                  lineThickness=0.5,
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),
-                Text(
-                  extent={{0,-20},{40,-40}},
-                  lineColor={0,0,0},
-                  lineThickness=0.5,
-                  textString="UX01"),
-                Rectangle(
-                  extent={{-40,40},{40,-40}},
-                  lineColor={0,0,0},
-                  lineThickness=0.5)}),
-            Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                    {100,100}}),
+</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}), graphics={
+            Text(
+              extent={{152,-100},{-148,-40}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Polygon(
+              points={{-40,-40},{-40,40},{40,40},{-40,-40}},
+              lineColor={127,0,127},
+              fillColor={127,0,127},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{-40,-40},{40,-40},{40,40},{-40,-40}},
+              lineColor={127,0,127},
+              lineThickness=0.5,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{0,-20},{40,-40}},
+              lineColor={0,0,0},
+              lineThickness=0.5,
+              textString="UX01"),
+            Rectangle(
+              extent={{-40,40},{40,-40}},
+              lineColor={0,0,0},
+              lineThickness=0.5)}),
+            Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}),
                     graphics));
         algorithm
           for i in 1:n loop
@@ -4718,11 +4802,11 @@ If the signal width is greater than 1 this conversion is done for each signal.
 
         block BooleanToLogic "Boolean to Logic converter"
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
-          Modelica.Blocks.Interfaces.BooleanInput x[n]
+          Modelica.Blocks.Interfaces.BooleanInput x[n] 
             annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
                   rotation=0)));
           parameter Integer n(final min=1, start=1) "signal width";
-          Modelica.Electrical.Digital.Interfaces.DigitalOutput y[n]
+          Modelica.Electrical.Digital.Interfaces.DigitalOutput y[n] 
             annotation (Placement(transformation(extent={{40,-10},{60,10}},
                   rotation=0)));
           annotation (extent=[40, -10; 60, 10]);
@@ -4750,28 +4834,28 @@ If the signal width is greater than 1 this conversion is done for each signal.
        initially modelled.</li>
 </ul>
 </HTML>"),  extent=[-60, -10; -40, 10],
-            Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                    100,100}}), graphics={
-                Polygon(
-                  points={{-40,-40},{40,40},{40,-40},{-40,-40}},
-                  lineColor={127,0,127},
-                  fillColor={127,0,127},
-                  fillPattern=FillPattern.Solid),
-                Polygon(
-                  points={{-40,40},{40,40},{-40,-40},{-40,40}},
-                  lineColor={255,0,255},
-                  fillColor={255,0,255},
-                  fillPattern=FillPattern.Solid),
-                Text(
-                  extent={{152,-100},{-148,-40}},
-                  lineColor={0,0,255},
-                  textString="%name"),
-                Rectangle(
-                  extent={{-40,40},{40,-40}},
-                  lineColor={0,0,0},
-                  lineThickness=0.5)}),
-            Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                    100,100}}),
+            Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}), graphics={
+            Polygon(
+              points={{-40,-40},{40,40},{40,-40},{-40,-40}},
+              lineColor={127,0,127},
+              fillColor={127,0,127},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{-40,40},{40,40},{-40,-40},{-40,40}},
+              lineColor={255,0,255},
+              fillColor={255,0,255},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{152,-100},{-148,-40}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Rectangle(
+              extent={{-40,40},{40,-40}},
+              lineColor={0,0,0},
+              lineThickness=0.5)}),
+            Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}),
                     graphics),
             Placement(transformation(extent={{-60,-10},{-40,10}}, rotation=0)));
           annotation (Diagram);
@@ -4783,10 +4867,10 @@ If the signal width is greater than 1 this conversion is done for each signal.
 
         block LogicToBoolean "Logic to Boolean converter"
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
-          Modelica.Electrical.Digital.Interfaces.DigitalInput x[n]
+          Modelica.Electrical.Digital.Interfaces.DigitalInput x[n] 
             annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
                   rotation=0)));
-          Modelica.Blocks.Interfaces.BooleanOutput y[n]
+          Modelica.Blocks.Interfaces.BooleanOutput y[n] 
             annotation (Placement(transformation(extent={{40,-10},{60,10}},
                   rotation=0)));
           parameter Integer n(final min=1, start=2) "signal width";
@@ -4820,26 +4904,26 @@ If the signal width is greater than 1 this conversion is done for each signal.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                    100}}), graphics={
-                Polygon(
-                  points={{-40,40},{40,40},{-40,-40},{-40,40}},
-                  lineColor={127,0,127},
-                  fillColor={127,0,127},
-                  fillPattern=FillPattern.Solid),
-                Text(
-                  extent={{152,-100},{-148,-40}},
-                  lineColor={0,0,255},
-                  textString="%name"),
-                Polygon(
-                  points={{-40,-40},{40,-40},{40,40},{-40,-40}},
-                  lineColor={255,0,255},
-                  fillColor={255,0,255},
-                  fillPattern=FillPattern.Solid),
-                Rectangle(
-                  extent={{-40,40},{40,-40}},
-                  lineColor={0,0,0},
-                  lineThickness=0.5)}));
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                100,100}}), graphics={
+            Polygon(
+              points={{-40,40},{40,40},{-40,-40},{-40,40}},
+              lineColor={127,0,127},
+              fillColor={127,0,127},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{152,-100},{-148,-40}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Polygon(
+              points={{-40,-40},{40,-40},{40,40},{-40,-40}},
+              lineColor={255,0,255},
+              fillColor={255,0,255},
+              fillPattern=FillPattern.Solid),
+            Rectangle(
+              extent={{-40,40},{40,-40}},
+              lineColor={0,0,0},
+              lineThickness=0.5)}));
         equation
           for i in 1:n loop
             y[i] = if x[i] == 4 or x[i] == 8 then true else false;
@@ -4848,10 +4932,10 @@ If the signal width is greater than 1 this conversion is done for each signal.
 
         block RealToLogic "Real to Logic converter"
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
-          Modelica.Blocks.Interfaces.RealInput x[n]
+          Modelica.Blocks.Interfaces.RealInput x[n] 
             annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
                   rotation=0)));
-          Digital.Interfaces.DigitalOutput y[n]
+          Digital.Interfaces.DigitalOutput y[n] 
             annotation (Placement(transformation(extent={{40,-10},{60,10}},
                   rotation=0)));
           parameter Integer n(final min=1, start=1) "signal width";
@@ -4886,41 +4970,41 @@ If the signal width is greater than 1 this conversion is done for each signal.
        initially modelled.</li>
 </ul>
 </HTML>"),  extent=[-60, -10; -40, 10],
-            Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                    100,100}}), graphics={
-                Polygon(
-                  points={{-40,-40},{40,40},{40,-40},{-40,-40}},
-                  lineColor={127,0,127},
-                  fillColor={127,0,127},
-                  fillPattern=FillPattern.Solid),
-                Polygon(points={{-40,40},{40,40},{-40,-40},{-40,40}}, lineColor={0,
-                      0,255}),
-                Text(
-                  extent={{148,-100},{-152,-40}},
-                  lineColor={0,0,255},
-                  textString="%name"),
-                Rectangle(
-                  extent={{-40,40},{40,-40}},
-                  lineColor={0,0,0},
-                  lineThickness=0.5)}),
-            Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                    100,100}}),
+            Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}), graphics={
+            Polygon(
+              points={{-40,-40},{40,40},{40,-40},{-40,-40}},
+              lineColor={127,0,127},
+              fillColor={127,0,127},
+              fillPattern=FillPattern.Solid),
+            Polygon(points={{-40,40},{40,40},{-40,-40},{-40,40}}, lineColor={0,
+                  0,255}),
+            Text(
+              extent={{148,-100},{-152,-40}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Rectangle(
+              extent={{-40,40},{40,-40}},
+              lineColor={0,0,0},
+              lineThickness=0.5)}),
+            Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}),
                     graphics),
             Placement(transformation(extent={{-60,-10},{-40,10}}, rotation=0)));
           annotation (Diagram);
         equation
           for i in 1:n loop
-            y[i] = if x[i] > upper_limit then upper_value else
+            y[i] = if x[i] > upper_limit then upper_value else 
               if x[i] < lower_limit then lower_value else middle_value;
           end for;
         end RealToLogic;
 
         block LogicToReal "Logic to Real converter"
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
-          Modelica.Electrical.Digital.Interfaces.DigitalInput x[n]
+          Modelica.Electrical.Digital.Interfaces.DigitalInput x[n] 
             annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
                   rotation=0)));
-          Modelica.Blocks.Interfaces.RealOutput y[n]
+          Modelica.Blocks.Interfaces.RealOutput y[n] 
             annotation (Placement(transformation(extent={{40,-10},{60,10}},
                   rotation=0)));
           parameter Integer n(final min=1, start=1) "signal width";
@@ -4985,17 +5069,17 @@ The values val... are given by parameters.</P>
               extent={{-40,40},{40,-40}},
               lineColor={0,0,0},
               lineThickness=0.5)}),
-            Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                    {100,100}}),
+            Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}),
                     graphics));
         equation
           for i in 1:n loop
-           y[i]= if x[i] == L.'U' then value_U else
-                    if x[i] == L.'X' then value_X else if
-              x[i] == L.'0' then value_0 else if x[i] == L.'1' then
+           y[i]= if x[i] == L.'U' then value_U else 
+                    if x[i] == L.'X' then value_X else if 
+              x[i] == L.'0' then value_0 else if x[i] == L.'1' then 
                    value_1 else if x[i] == L.
-              'Z' then value_Z else if x[i] == L.'W' then value_W else
-                    if x[i] == L.'L' then value_L else if
+              'Z' then value_Z else if x[i] == L.'W' then value_W else 
+                    if x[i] == L.'L' then value_L else if 
               x[i] == L.'H' then value_H else value_m;
           end for;
         end LogicToReal;
@@ -5026,7 +5110,7 @@ The values val... are given by parameters.</P>
             lineColor={255,0,0},
             textString="%name")}),
                                 Documentation(info="<html>
-
+<p>The Converter BooleanToLogic, LogicToBoolean, RealToLogic, and LogicTo Real components are not standard logic components. They were designed to easily convert from or to Boolean or Real valued signals. The LogicToX01, LogicToX01Z and LogicTo UX01 converters correspond to standard logic functions. They transform 9-valued logic to 3- or 4-valued logic.</p>
 </html>"));
       end Converters;
 
@@ -5042,7 +5126,7 @@ The values val... are given by parameters.</P>
         "output strength";
           parameter Integer n(min=1) = 1 "data width";
 
-          D.Interfaces.DigitalInput reset
+          D.Interfaces.DigitalInput reset 
             annotation (Placement(transformation(extent={{-10,-100},{10,-80}}),
                 iconTransformation(extent={{-10,-100},{10,-80}})));
           D.Interfaces.DigitalInput clock annotation (Placement(transformation(
@@ -5119,49 +5203,49 @@ The values val... are given by parameters.</P>
         next_assign_val := nextstate;
         dataOut := nextstate;
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                    -100},{100,100}}),      graphics), Icon(coordinateSystem(
+                -100},{100,100}}),          graphics), Icon(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-                graphics={
-                Rectangle(
-                  extent={{-50,60},{50,-60}},
-                  lineColor={127,33,107},
-                  lineThickness=0.5,
-                  fillPattern=FillPattern.Solid,
-                  fillColor={255,255,255}),
-                Line(
-                  points={{-70,30},{-50,30}},
-                  color={127,33,107},
-                  thickness=1,
-                  smooth=Smooth.None),
-                Line(
-                  points={{50,30},{76,30}},
-                  color={127,33,107},
-                  thickness=1,
-                  smooth=Smooth.None),
-                Line(
-                  points={{-80,-20},{-50,-20}},
-                  color={127,33,107},
-                  smooth=Smooth.None),
-                Line(
-                  points={{0,-84},{0,-60}},
-                  color={127,33,107},
-                  smooth=Smooth.None),
-                Line(
-                  points={{-50,-8},{-34,-20},{-50,-32}},
-                  color={127,33,107},
-                  smooth=Smooth.None),
-                Text(
-                  extent={{-30,54},{20,8}},
-                  lineColor={127,33,107},
-                  textString="DFFR"),
-                Text(
-                  extent={{-32,-14},{-6,-26}},
-                  lineColor={127,33,107},
-                  textString="clock"),
-                Text(
-                  extent={{-14,-44},{12,-56}},
-                  lineColor={127,33,107},
-                  textString="reset")}),
+            graphics={
+            Rectangle(
+              extent={{-50,60},{50,-60}},
+              lineColor={127,33,107},
+              lineThickness=0.5,
+              fillPattern=FillPattern.Solid,
+              fillColor={255,255,255}),
+            Line(
+              points={{-70,30},{-50,30}},
+              color={127,33,107},
+              thickness=1,
+              smooth=Smooth.None),
+            Line(
+              points={{50,30},{76,30}},
+              color={127,33,107},
+              thickness=1,
+              smooth=Smooth.None),
+            Line(
+              points={{-80,-20},{-50,-20}},
+              color={127,33,107},
+              smooth=Smooth.None),
+            Line(
+              points={{0,-84},{0,-60}},
+              color={127,33,107},
+              smooth=Smooth.None),
+            Line(
+              points={{-50,-8},{-34,-20},{-50,-32}},
+              color={127,33,107},
+              smooth=Smooth.None),
+            Text(
+              extent={{-30,54},{20,8}},
+              lineColor={127,33,107},
+              textString="DFFR"),
+            Text(
+              extent={{-32,-14},{-6,-26}},
+              lineColor={127,33,107},
+              textString="clock"),
+            Text(
+              extent={{-14,-44},{12,-56}},
+              lineColor={127,33,107},
+              textString="reset")}),
             Documentation(info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities<p>
 <p><b>Truth Table for high active reset:</b></p>
@@ -5248,56 +5332,56 @@ Clock transition definitions:
           Modelica.Electrical.Digital.Delay.InertialDelaySensitiveVector delay(
             tHL=tHL,
             tLH=tLH,
-            n=n)
+            n=n) 
             annotation (Placement(transformation(extent={{22,11},{79,69}})));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                    -100},{100,100}}),      graphics), Icon(coordinateSystem(
+                -100},{100,100}}),          graphics), Icon(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-                graphics={
-                Rectangle(
-                  extent={{-50,70},{50,-50}},
-                  lineColor={127,0,127},
-                  lineThickness=0.5,
-                  fillPattern=FillPattern.Solid,
-                  fillColor={255,255,255}),
-                Line(
-                  points={{-86,40},{-50,40}},
-                  color={127,0,127},
-                  thickness=1,
-                  smooth=Smooth.None),
-                Line(
-                  points={{-84,-20},{-50,-20}},
-                  color={127,0,127},
-                  smooth=Smooth.None),
-                Line(
-                  points={{-84,-60},{0,-60},{0,-50}},
-                  color={127,0,127},
-                  smooth=Smooth.None),
-                Line(
-                  points={{50,40},{84,40}},
-                  color={127,0,127},
-                  smooth=Smooth.None,
-                  thickness=1),
-                Line(
-                  points={{-50,-10},{-36,-20},{-50,-30}},
-                  color={127,0,127},
-                  smooth=Smooth.None),
-                Text(
-                  extent={{-32,70},{30,10}},
-                  lineColor={127,33,107},
-                  textString="DFFREG"),
-                Text(
-                  extent={{-14,-34},{12,-46}},
-                  lineColor={127,33,107},
-                  textString="reset"),
-                Text(
-                  extent={{-28,-14},{-2,-26}},
-                  lineColor={127,33,107},
-                  textString="clock"),
-                Text(
-                  extent={{-26,44},{26,2}},
-                  lineColor={127,33,107},
-                  textString="high active")}),
+            graphics={
+            Rectangle(
+              extent={{-50,70},{50,-50}},
+              lineColor={127,0,127},
+              lineThickness=0.5,
+              fillPattern=FillPattern.Solid,
+              fillColor={255,255,255}),
+            Line(
+              points={{-86,40},{-50,40}},
+              color={127,0,127},
+              thickness=1,
+              smooth=Smooth.None),
+            Line(
+              points={{-84,-20},{-50,-20}},
+              color={127,0,127},
+              smooth=Smooth.None),
+            Line(
+              points={{-84,-60},{0,-60},{0,-50}},
+              color={127,0,127},
+              smooth=Smooth.None),
+            Line(
+              points={{50,40},{84,40}},
+              color={127,0,127},
+              smooth=Smooth.None,
+              thickness=1),
+            Line(
+              points={{-50,-10},{-36,-20},{-50,-30}},
+              color={127,0,127},
+              smooth=Smooth.None),
+            Text(
+              extent={{-32,70},{30,10}},
+              lineColor={127,33,107},
+              textString="DFFREG"),
+            Text(
+              extent={{-14,-34},{12,-46}},
+              lineColor={127,33,107},
+              textString="reset"),
+            Text(
+              extent={{-28,-14},{-2,-26}},
+              lineColor={127,33,107},
+              textString="clock"),
+            Text(
+              extent={{-26,44},{26,2}},
+              lineColor={127,33,107},
+              textString="high active")}),
             Documentation(info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd<p>
 <p><b>Truth Table</b></p>
@@ -5341,20 +5425,20 @@ Clock transition definitions:
 </PRE>
 </ul>
 </html>"));
-          D.Interfaces.DigitalInput reset
+          D.Interfaces.DigitalInput reset 
             annotation (Placement(transformation(extent={{-100,-68},{-84,-52}}),
                 iconTransformation(extent={{-100,-68},{-84,-52}})));
-          D.Interfaces.DigitalInput clock
+          D.Interfaces.DigitalInput clock 
             annotation (Placement(transformation(extent={{-100,-28},{-84,-12}})));
-          D.Interfaces.DigitalInput dataIn[n]
+          D.Interfaces.DigitalInput dataIn[n] 
             annotation (Placement(transformation(extent={{-100,32},{-84,48}})));
-          D.Interfaces.DigitalOutput dataOut[n]
+          D.Interfaces.DigitalOutput dataOut[n] 
             annotation (Placement(transformation(extent={{84,32},{100,48}}),
                 iconTransformation(extent={{84,32},{100,48}})));
 
           D.Registers.DFFR dFFR(n=n,
             ResetMap=ResetMap,
-            strength=strength)
+            strength=strength) 
             annotation (Placement(transformation(extent={{-78,-23},{18,74}})));
         equation
           connect(dataOut, dataOut) annotation (Line(
@@ -5436,13 +5520,13 @@ Clock transition definitions:
 </PRE>
 </ul>
 </html>"),         Icon(graphics={Rectangle(
-                  extent={{-30,30},{28,16}},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
-                  pattern=LinePattern.None), Text(
-                  extent={{-28,48},{24,-1}},
-                  lineColor={127,33,107},
-                  textString="low active")}));
+              extent={{-30,30},{28,16}},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid,
+              pattern=LinePattern.None), Text(
+              extent={{-28,48},{24,-1}},
+              lineColor={127,33,107},
+              textString="low active")}));
         end DFFREGL;
 
         model DFFSR "Edge triggered register bank with set and reset"
@@ -5466,9 +5550,9 @@ Clock transition definitions:
         "output strength";
           parameter Integer n(min=1) = 1 "data width";
 
-          D.Interfaces.DigitalInput set
+          D.Interfaces.DigitalInput set 
             annotation (Placement(transformation(extent={{-10,100},{10,80}})));
-          D.Interfaces.DigitalInput reset
+          D.Interfaces.DigitalInput reset 
             annotation (Placement(transformation(extent={{-10,-100},{10,-80}}),
                 iconTransformation(extent={{-10,-100},{10,-80}})));
           D.Interfaces.DigitalInput clock annotation (Placement(transformation(
@@ -5574,57 +5658,57 @@ Clock transition definitions:
         next_assign_val := nextstate;
         dataOut := nextstate;
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                    -100},{100,100}}),      graphics), Icon(coordinateSystem(
+                -100},{100,100}}),          graphics), Icon(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-                graphics={
-                Rectangle(
-                  extent={{-50,60},{50,-60}},
-                  lineColor={127,0,127},
-                  lineThickness=0.5,
-                  fillPattern=FillPattern.Solid,
-                  fillColor={255,255,255}),
-                Line(
-                  points={{-80,30},{-50,30}},
-                  color={127,0,127},
-                  smooth=Smooth.None,
-                  thickness=1),
-                Line(
-                  points={{50,30},{80,30}},
-                  color={127,33,107},
-                  thickness=1,
-                  smooth=Smooth.None),
-                Line(
-                  points={{-80,-20},{-50,-20}},
-                  color={127,33,107},
-                  smooth=Smooth.None),
-                Line(
-                  points={{0,-84},{0,-60}},
-                  color={127,33,107},
-                  smooth=Smooth.None),
-                Line(
-                  points={{-50,-8},{-34,-20},{-50,-32}},
-                  color={127,33,107},
-                  smooth=Smooth.None),
-                Text(
-                  extent={{-36,66},{34,-8}},
-                  lineColor={127,33,107},
-                  textString="DFFSR"),
-                Text(
-                  extent={{-28,-14},{-2,-26}},
-                  lineColor={127,33,107},
-                  textString="clock"),
-                Text(
-                  extent={{-14,-44},{12,-56}},
-                  lineColor={127,33,107},
-                  textString="reset"),
-                Line(
-                  points={{0,80},{0,60}},
-                  color={127,0,127},
-                  smooth=Smooth.None),
-                Text(
-                  extent={{-13,56},{13,44}},
-                  lineColor={127,33,107},
-                  textString="set")}),
+            graphics={
+            Rectangle(
+              extent={{-50,60},{50,-60}},
+              lineColor={127,0,127},
+              lineThickness=0.5,
+              fillPattern=FillPattern.Solid,
+              fillColor={255,255,255}),
+            Line(
+              points={{-80,30},{-50,30}},
+              color={127,0,127},
+              smooth=Smooth.None,
+              thickness=1),
+            Line(
+              points={{50,30},{80,30}},
+              color={127,33,107},
+              thickness=1,
+              smooth=Smooth.None),
+            Line(
+              points={{-80,-20},{-50,-20}},
+              color={127,33,107},
+              smooth=Smooth.None),
+            Line(
+              points={{0,-84},{0,-60}},
+              color={127,33,107},
+              smooth=Smooth.None),
+            Line(
+              points={{-50,-8},{-34,-20},{-50,-32}},
+              color={127,33,107},
+              smooth=Smooth.None),
+            Text(
+              extent={{-36,66},{34,-8}},
+              lineColor={127,33,107},
+              textString="DFFSR"),
+            Text(
+              extent={{-28,-14},{-2,-26}},
+              lineColor={127,33,107},
+              textString="clock"),
+            Text(
+              extent={{-14,-44},{12,-56}},
+              lineColor={127,33,107},
+              textString="reset"),
+            Line(
+              points={{0,80},{0,60}},
+              color={127,0,127},
+              smooth=Smooth.None),
+            Text(
+              extent={{-13,56},{13,44}},
+              lineColor={127,33,107},
+              textString="set")}),
             Documentation(info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd<p>
 <p><b>Truth Table for high active set and reset</b></p>
@@ -5733,64 +5817,64 @@ Clock transition definitions:
           D.Delay.InertialDelaySensitiveVector delay(
             tHL=tHL,
             tLH=tLH,
-            n=n)
+            n=n) 
           annotation (Placement(transformation(extent={{23,12},{79,68}})));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                    -100},{100,100}}),      graphics), Icon(coordinateSystem(
+                -100},{100,100}}),          graphics), Icon(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-                graphics={
-                Rectangle(
-                  extent={{-50,70},{52,-50}},
-                  lineColor={127,0,127},
-                  lineThickness=0.5,
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),
-                Line(
-                  points={{-86,40},{-50,40}},
-                  color={127,0,127},
-                  thickness=1,
-                  smooth=Smooth.None),
-                Line(
-                  points={{-84,-20},{-50,-20}},
-                  color={127,0,127},
-                  smooth=Smooth.None),
-                Line(
-                  points={{52,40},{84,40}},
-                  color={127,0,127},
-                  smooth=Smooth.None,
-                  thickness=1),
-                Line(
-                  points={{-50,-10},{-36,-20},{-50,-30}},
-                  color={127,0,127},
-                  smooth=Smooth.None),
-                Text(
-                  extent={{-44,94},{38,-14}},
-                  lineColor={127,33,107},
-                  textString="DFFREGSR"),
-                Text(
-                  extent={{-14,-32},{12,-44}},
-                  lineColor={127,33,107},
-                  textString="reset"),
-                Text(
-                  extent={{-33,-13},{-7,-25}},
-                  lineColor={127,33,107},
-                  textString="clock"),
-                Line(
-                  points={{-84,80},{0,80},{0,70}},
-                  color={127,0,127},
-                  smooth=Smooth.None),
-                Line(
-                  points={{-84,-60},{0,-60},{0,-50}},
-                  color={127,0,127},
-                  smooth=Smooth.None),
-                Text(
-                  extent={{-14,66},{12,54}},
-                  lineColor={127,33,107},
-                  textString="set"),
-                Text(
-                  extent={{-32,38},{26,10}},
-                  lineColor={127,0,127},
-                  textString="high active")}),
+            graphics={
+            Rectangle(
+              extent={{-50,70},{52,-50}},
+              lineColor={127,0,127},
+              lineThickness=0.5,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(
+              points={{-86,40},{-50,40}},
+              color={127,0,127},
+              thickness=1,
+              smooth=Smooth.None),
+            Line(
+              points={{-84,-20},{-50,-20}},
+              color={127,0,127},
+              smooth=Smooth.None),
+            Line(
+              points={{52,40},{84,40}},
+              color={127,0,127},
+              smooth=Smooth.None,
+              thickness=1),
+            Line(
+              points={{-50,-10},{-36,-20},{-50,-30}},
+              color={127,0,127},
+              smooth=Smooth.None),
+            Text(
+              extent={{-44,94},{38,-14}},
+              lineColor={127,33,107},
+              textString="DFFREGSR"),
+            Text(
+              extent={{-14,-32},{12,-44}},
+              lineColor={127,33,107},
+              textString="reset"),
+            Text(
+              extent={{-33,-13},{-7,-25}},
+              lineColor={127,33,107},
+              textString="clock"),
+            Line(
+              points={{-84,80},{0,80},{0,70}},
+              color={127,0,127},
+              smooth=Smooth.None),
+            Line(
+              points={{-84,-60},{0,-60},{0,-50}},
+              color={127,0,127},
+              smooth=Smooth.None),
+            Text(
+              extent={{-14,66},{12,54}},
+              lineColor={127,33,107},
+              textString="set"),
+            Text(
+              extent={{-32,38},{26,10}},
+              lineColor={127,0,127},
+              textString="high active")}),
             Documentation(info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd<p>
 <p><b>Truth Table</b></p>
@@ -5845,18 +5929,18 @@ Clock transition definitions:
           D.Registers.DFFSR dFFSR(
             strength=strength,
             n=n,
-            ResetSetMap=ResetSetMap)
+            ResetSetMap=ResetSetMap) 
             annotation (Placement(transformation(extent={{-80,-25},{20,75}})));
     public
-          D.Interfaces.DigitalInput set
+          D.Interfaces.DigitalInput set 
             annotation (Placement(transformation(extent={{-100,72},{-84,88}})));
-          D.Interfaces.DigitalInput reset
+          D.Interfaces.DigitalInput reset 
             annotation (Placement(transformation(extent={{-100,-68},{-84,-52}})));
-          D.Interfaces.DigitalInput clock
+          D.Interfaces.DigitalInput clock 
             annotation (Placement(transformation(extent={{-100,-28},{-84,-12}})));
-          D.Interfaces.DigitalInput dataIn[n]
+          D.Interfaces.DigitalInput dataIn[n] 
             annotation (Placement(transformation(extent={{-100,32},{-84,48}})));
-          D.Interfaces.DigitalOutput dataOut[n]
+          D.Interfaces.DigitalOutput dataOut[n] 
             annotation (Placement(transformation(extent={{84,32},{100,48}})));
         equation
           connect(dFFSR.dataOut, delay.x) annotation (Line(
@@ -5896,13 +5980,13 @@ Clock transition definitions:
                 4,2,7,4,4,2,7,4]);
                    // Function selection by [reset, set] reading;
           annotation (Icon(graphics={Rectangle(
-                  extent={{-36,30},{28,16}},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
-                  pattern=LinePattern.None), Text(
-                  extent={{-30,38},{24,12}},
-                  lineColor={127,0,127},
-                  textString="low active")}), Documentation(info="<html>
+              extent={{-36,30},{28,16}},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid,
+              pattern=LinePattern.None), Text(
+              extent={{-30,38},{24,12}},
+              lineColor={127,0,127},
+              textString="low active")}),     Documentation(info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd<p>
 
 <p><b>Truth Table</b></p>
@@ -6032,10 +6116,10 @@ Clock transition definitions:
         "output strength";
           parameter Integer n(min=1) = 1 "data width";
 
-          D.Interfaces.DigitalInput reset
+          D.Interfaces.DigitalInput reset 
             annotation (Placement(transformation(extent={{-10,-100},{10,-80}}),
                 iconTransformation(extent={{-10,-100},{10,-80}})));
-          D.Interfaces.DigitalInput enable
+          D.Interfaces.DigitalInput enable 
                                           annotation (Placement(transformation(
                   extent={{-90,-20},{-70,0}}),  iconTransformation(extent={{-90,-30},
                     {-70,-10}})));
@@ -6113,49 +6197,49 @@ Clock transition definitions:
           next_assign_val := nextstate;
           dataOut := nextstate;
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                    -100},{100,100}}),      graphics), Icon(coordinateSystem(
+                -100},{100,100}}),          graphics), Icon(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-                graphics={
-                Rectangle(
-                  extent={{-50,60},{50,-60}},
-                  lineColor={127,0,127},
-                  lineThickness=0.5,
-                  fillPattern=FillPattern.Solid,
-                  fillColor={255,255,255}),
-                Line(
-                  points={{-80,30},{-50,30}},
-                  color={127,0,127},
-                  smooth=Smooth.None,
-                  thickness=1),
-                Line(
-                  points={{50,30},{80,30}},
-                  color={127,33,107},
-                  thickness=1,
-                  smooth=Smooth.None),
-                Line(
-                  points={{-80,-20},{-50,-20}},
-                  color={127,33,107},
-                  smooth=Smooth.None),
-                Line(
-                  points={{0,-84},{0,-60}},
-                  color={127,33,107},
-                  smooth=Smooth.None),
-                Line(
-                  points={{-50,-8},{-34,-20},{-50,-32}},
-                  color={127,33,107},
-                  smooth=Smooth.None),
-                Text(
-                  extent={{-30,58},{26,2}},
-                  lineColor={127,33,107},
-                  textString="DLATR"),
-                Text(
-                  extent={{-29,-8},{6,-32}},
-                  lineColor={127,33,107},
-                  textString="enable"),
-                Text(
-                  extent={{-14,-44},{12,-56}},
-                  lineColor={127,33,107},
-                  textString="reset")}));
+            graphics={
+            Rectangle(
+              extent={{-50,60},{50,-60}},
+              lineColor={127,0,127},
+              lineThickness=0.5,
+              fillPattern=FillPattern.Solid,
+              fillColor={255,255,255}),
+            Line(
+              points={{-80,30},{-50,30}},
+              color={127,0,127},
+              smooth=Smooth.None,
+              thickness=1),
+            Line(
+              points={{50,30},{80,30}},
+              color={127,33,107},
+              thickness=1,
+              smooth=Smooth.None),
+            Line(
+              points={{-80,-20},{-50,-20}},
+              color={127,33,107},
+              smooth=Smooth.None),
+            Line(
+              points={{0,-84},{0,-60}},
+              color={127,33,107},
+              smooth=Smooth.None),
+            Line(
+              points={{-50,-8},{-34,-20},{-50,-32}},
+              color={127,33,107},
+              smooth=Smooth.None),
+            Text(
+              extent={{-30,58},{26,2}},
+              lineColor={127,33,107},
+              textString="DLATR"),
+            Text(
+              extent={{-29,-8},{6,-32}},
+              lineColor={127,33,107},
+              textString="enable"),
+            Text(
+              extent={{-14,-44},{12,-56}},
+              lineColor={127,33,107},
+              textString="reset")}));
         end DLATR;
 
         model DLATREG "Level sensitive register bank with reset active high"
@@ -6224,68 +6308,68 @@ Clock transition definitions:
           D.Delay.InertialDelaySensitiveVector delay(
             tHL=tHL,
             tLH=tLH,
-            n=n)
+            n=n) 
           annotation (Placement(transformation(extent={{20,12},{76,68}})));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                     -100},{100,100}}),      graphics), Icon(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-                graphics={
-                Rectangle(
-                  extent={{-50,70},{52,-50}},
-                  lineColor={127,0,127},
-                  lineThickness=0.5,
-                  fillPattern=FillPattern.Solid,
-                  fillColor={255,255,255}),
-                Line(
-                  points={{-86,40},{-50,40}},
-                  color={127,0,127},
-                  thickness=1,
-                  smooth=Smooth.None),
-                Line(
-                  points={{-84,-20},{-50,-20}},
-                  color={127,0,127},
-                  smooth=Smooth.None),
-                Line(
-                  points={{52,40},{84,40}},
-                  color={127,0,127},
-                  smooth=Smooth.None,
-                  thickness=1),
-                Line(
-                  points={{-50,-10},{-36,-20},{-50,-30}},
-                  color={127,0,127},
-                  smooth=Smooth.None),
-                Text(
-                  extent={{-32,82},{32,-2}},
-                  lineColor={127,0,127},
-                  textString="DLATREG"),
-                Text(
-                  extent={{-14,-33},{12,-45}},
-                  lineColor={127,33,107},
-                  textString="reset"),
-                Text(
-                  extent={{-33,-7},{-1,-32}},
-                  lineColor={127,33,107},
-                  textString="enable"),
-                Line(
-                  points={{-84,-60},{0,-60},{0,-50}},
-                  color={127,0,127},
-                  smooth=Smooth.None),
-                Text(
-                  extent={{-26,44},{26,2}},
-                  lineColor={127,33,107},
-                  textString="high active")}));
-          D.Interfaces.DigitalInput reset
+            graphics={
+            Rectangle(
+              extent={{-50,70},{52,-50}},
+              lineColor={127,0,127},
+              lineThickness=0.5,
+              fillPattern=FillPattern.Solid,
+              fillColor={255,255,255}),
+            Line(
+              points={{-86,40},{-50,40}},
+              color={127,0,127},
+              thickness=1,
+              smooth=Smooth.None),
+            Line(
+              points={{-84,-20},{-50,-20}},
+              color={127,0,127},
+              smooth=Smooth.None),
+            Line(
+              points={{52,40},{84,40}},
+              color={127,0,127},
+              smooth=Smooth.None,
+              thickness=1),
+            Line(
+              points={{-50,-10},{-36,-20},{-50,-30}},
+              color={127,0,127},
+              smooth=Smooth.None),
+            Text(
+              extent={{-32,82},{32,-2}},
+              lineColor={127,0,127},
+              textString="DLATREG"),
+            Text(
+              extent={{-14,-33},{12,-45}},
+              lineColor={127,33,107},
+              textString="reset"),
+            Text(
+              extent={{-33,-7},{-1,-32}},
+              lineColor={127,33,107},
+              textString="enable"),
+            Line(
+              points={{-84,-60},{0,-60},{0,-50}},
+              color={127,0,127},
+              smooth=Smooth.None),
+            Text(
+              extent={{-26,44},{26,2}},
+              lineColor={127,33,107},
+              textString="high active")}));
+          D.Interfaces.DigitalInput reset 
             annotation (Placement(transformation(extent={{-100,-68},{-84,-52}})));
-          D.Interfaces.DigitalInput enable
+          D.Interfaces.DigitalInput enable 
             annotation (Placement(transformation(extent={{-100,-28},{-84,-12}})));
-          D.Interfaces.DigitalInput dataIn[n]
+          D.Interfaces.DigitalInput dataIn[n] 
             annotation (Placement(transformation(extent={{-100,32},{-84,48}})));
-          D.Interfaces.DigitalOutput dataOut[n]
+          D.Interfaces.DigitalOutput dataOut[n] 
             annotation (Placement(transformation(extent={{84,32},{100,48}}),
                 iconTransformation(extent={{84,32},{100,48}})));
           D.Registers.DLATR dLATR(n=n,
             strength=strength,
-            ResetMap=ResetMap)
+            ResetMap=ResetMap) 
             annotation (Placement(transformation(extent={{-78,-23},{18,74}})));
         equation
 
@@ -6371,13 +6455,13 @@ Clock transition definitions:
               // 4: output := U-0X
 
           annotation (Icon(graphics={Rectangle(
-                  extent={{-28,30},{30,18}},
-                  pattern=LinePattern.None,
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid), Text(
-                  extent={{-26,48},{26,-1}},
-                  lineColor={127,33,107},
-                  textString="low active")}));
+              extent={{-28,30},{30,18}},
+              pattern=LinePattern.None,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid), Text(
+              extent={{-26,48},{26,-1}},
+              lineColor={127,33,107},
+              textString="low active")}));
         end DLATREGL;
 
         model DLATSR "Level sensitive register bank with set and reset"
@@ -6478,12 +6562,12 @@ Clock transition definitions:
         "output strength";
           parameter Integer n(min=1) = 1 "data width";
 
-          D.Interfaces.DigitalInput set
+          D.Interfaces.DigitalInput set 
             annotation (Placement(transformation(extent={{-10,100},{10,80}})));
-          D.Interfaces.DigitalInput reset
+          D.Interfaces.DigitalInput reset 
             annotation (Placement(transformation(extent={{-10,-100},{10,-80}}),
                 iconTransformation(extent={{-10,-100},{10,-80}})));
-          D.Interfaces.DigitalInput enable
+          D.Interfaces.DigitalInput enable 
                                           annotation (Placement(transformation(
                   extent={{-90,-20},{-70,0}}),  iconTransformation(extent={{-90,-30},
                     {-70,-10}})));
@@ -6593,55 +6677,55 @@ Clock transition definitions:
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                     -100},{100,100}}),      graphics), Icon(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-                graphics={
-                Rectangle(
-                  extent={{-50,60},{50,-60}},
-                  lineColor={127,0,127},
-                  lineThickness=0.5,
-                  fillPattern=FillPattern.Solid,
-                  fillColor={255,255,255}),
-                Line(
-                  points={{-80,30},{-50,30}},
-                  color={127,0,127},
-                  smooth=Smooth.None,
-                  thickness=1),
-                Line(
-                  points={{50,30},{80,30}},
-                  color={127,33,107},
-                  thickness=1,
-                  smooth=Smooth.None),
-                Line(
-                  points={{-80,-20},{-50,-20}},
-                  color={127,33,107},
-                  smooth=Smooth.None),
-                Line(
-                  points={{0,-84},{0,-60}},
-                  color={127,33,107},
-                  smooth=Smooth.None),
-                Line(
-                  points={{-50,-8},{-34,-20},{-50,-32}},
-                  color={127,33,107},
-                  smooth=Smooth.None),
-                Text(
-                  extent={{-34,60},{32,-6}},
-                  lineColor={127,33,107},
-                  textString="DLATSR"),
-                Text(
-                  extent={{-29,-8},{5,-30}},
-                  lineColor={127,33,107},
-                  textString="enable"),
-                Text(
-                  extent={{-14,-44},{12,-56}},
-                  lineColor={127,33,107},
-                  textString="reset"),
-                Line(
-                  points={{0,80},{0,60}},
-                  color={127,0,127},
-                  smooth=Smooth.None),
-                Text(
-                  extent={{-13,56},{13,44}},
-                  lineColor={127,33,107},
-                  textString="set")}));
+            graphics={
+            Rectangle(
+              extent={{-50,60},{50,-60}},
+              lineColor={127,0,127},
+              lineThickness=0.5,
+              fillPattern=FillPattern.Solid,
+              fillColor={255,255,255}),
+            Line(
+              points={{-80,30},{-50,30}},
+              color={127,0,127},
+              smooth=Smooth.None,
+              thickness=1),
+            Line(
+              points={{50,30},{80,30}},
+              color={127,33,107},
+              thickness=1,
+              smooth=Smooth.None),
+            Line(
+              points={{-80,-20},{-50,-20}},
+              color={127,33,107},
+              smooth=Smooth.None),
+            Line(
+              points={{0,-84},{0,-60}},
+              color={127,33,107},
+              smooth=Smooth.None),
+            Line(
+              points={{-50,-8},{-34,-20},{-50,-32}},
+              color={127,33,107},
+              smooth=Smooth.None),
+            Text(
+              extent={{-34,60},{32,-6}},
+              lineColor={127,33,107},
+              textString="DLATSR"),
+            Text(
+              extent={{-29,-8},{5,-30}},
+              lineColor={127,33,107},
+              textString="enable"),
+            Text(
+              extent={{-14,-44},{12,-56}},
+              lineColor={127,33,107},
+              textString="reset"),
+            Line(
+              points={{0,80},{0,60}},
+              color={127,0,127},
+              smooth=Smooth.None),
+            Text(
+              extent={{-13,56},{13,44}},
+              lineColor={127,33,107},
+              textString="set")}));
         end DLATSR;
 
         model DLATREGSRH
@@ -6696,7 +6780,7 @@ Clock transition definitions:
 </PRE>
 </ul>
 </html>"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                    -100},{100,100}}), graphics));
+                -100},{100,100}}),     graphics));
           import D = Modelica.Electrical.Digital;
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
           import S = Modelica.Electrical.Digital.Interfaces.Strength;
@@ -6724,78 +6808,78 @@ Clock transition definitions:
           D.Delay.InertialDelaySensitiveVector delay(
             tHL=tHL,
             tLH=tLH,
-            n=n)
+            n=n) 
           annotation (Placement(transformation(extent={{20,12},{76,68}})));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                     -100},{100,100}}),      graphics), Icon(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-                graphics={
-                Rectangle(
-                  extent={{-50,70},{52,-50}},
-                  lineColor={127,0,127},
-                  lineThickness=0.5,
-                  fillPattern=FillPattern.Solid,
-                  fillColor={255,255,255}),
-                Line(
-                  points={{-86,40},{-50,40}},
-                  color={127,0,127},
-                  thickness=1,
-                  smooth=Smooth.None),
-                Line(
-                  points={{-84,-20},{-50,-20}},
-                  color={127,0,127},
-                  smooth=Smooth.None),
-                Line(
-                  points={{52,40},{84,40}},
-                  color={127,0,127},
-                  smooth=Smooth.None,
-                  thickness=1),
-                Line(
-                  points={{-50,-10},{-36,-20},{-50,-30}},
-                  color={127,0,127},
-                  smooth=Smooth.None),
-                Text(
-                  extent={{-46,96},{46,-18}},
-                  lineColor={127,0,127},
-                  textString="DLATREGSR"),
-                Text(
-                  extent={{-14,-32},{14,-45}},
-                  lineColor={127,33,107},
-                  textString="reset"),
-                Text(
-                  extent={{-33,-7},{-1,-32}},
-                  lineColor={127,33,107},
-                  textString="enable"),
-                Line(
-                  points={{-84,80},{0,80},{0,70}},
-                  color={127,0,127},
-                  smooth=Smooth.None),
-                Line(
-                  points={{-84,-60},{0,-60},{0,-50}},
-                  color={127,0,127},
-                  smooth=Smooth.None),
-                Text(
-                  extent={{-14,67},{12,53}},
-                  lineColor={127,33,107},
-                  textString="set"),
-                Text(
-                  extent={{-28,38},{30,10}},
-                  lineColor={127,0,127},
-                  textString="high active")}));
-          D.Interfaces.DigitalInput set
+            graphics={
+            Rectangle(
+              extent={{-50,70},{52,-50}},
+              lineColor={127,0,127},
+              lineThickness=0.5,
+              fillPattern=FillPattern.Solid,
+              fillColor={255,255,255}),
+            Line(
+              points={{-86,40},{-50,40}},
+              color={127,0,127},
+              thickness=1,
+              smooth=Smooth.None),
+            Line(
+              points={{-84,-20},{-50,-20}},
+              color={127,0,127},
+              smooth=Smooth.None),
+            Line(
+              points={{52,40},{84,40}},
+              color={127,0,127},
+              smooth=Smooth.None,
+              thickness=1),
+            Line(
+              points={{-50,-10},{-36,-20},{-50,-30}},
+              color={127,0,127},
+              smooth=Smooth.None),
+            Text(
+              extent={{-46,96},{46,-18}},
+              lineColor={127,0,127},
+              textString="DLATREGSR"),
+            Text(
+              extent={{-14,-32},{14,-45}},
+              lineColor={127,33,107},
+              textString="reset"),
+            Text(
+              extent={{-33,-7},{-1,-32}},
+              lineColor={127,33,107},
+              textString="enable"),
+            Line(
+              points={{-84,80},{0,80},{0,70}},
+              color={127,0,127},
+              smooth=Smooth.None),
+            Line(
+              points={{-84,-60},{0,-60},{0,-50}},
+              color={127,0,127},
+              smooth=Smooth.None),
+            Text(
+              extent={{-14,67},{12,53}},
+              lineColor={127,33,107},
+              textString="set"),
+            Text(
+              extent={{-28,38},{30,10}},
+              lineColor={127,0,127},
+              textString="high active")}));
+          D.Interfaces.DigitalInput set 
             annotation (Placement(transformation(extent={{-100,72},{-84,88}})));
-          D.Interfaces.DigitalInput reset
+          D.Interfaces.DigitalInput reset 
             annotation (Placement(transformation(extent={{-100,-68},{-84,-52}})));
-          D.Interfaces.DigitalInput enable
+          D.Interfaces.DigitalInput enable 
             annotation (Placement(transformation(extent={{-100,-28},{-84,-12}})));
-          D.Interfaces.DigitalInput dataIn[n]
+          D.Interfaces.DigitalInput dataIn[n] 
             annotation (Placement(transformation(extent={{-100,32},{-84,48}})));
-          D.Interfaces.DigitalOutput dataOut[n]
+          D.Interfaces.DigitalOutput dataOut[n] 
             annotation (Placement(transformation(extent={{84,32},{100,48}}),
                 iconTransformation(extent={{84,32},{100,48}})));
           D.Registers.DLATSR dLATSR(n=n,
             ResetSetMap=ResetSetMap,
-            strength=strength)
+            strength=strength) 
             annotation (Placement(transformation(extent={{-78,-23},{18,74}})));
         equation
 
@@ -6890,15 +6974,18 @@ Clock transition definitions:
                 4,2,7,4,4,2,7,4]);
                    // Function selection by [reset, set] reading;
           annotation (Icon(graphics={Rectangle(
-                  extent={{-40,30},{40,16}},
-                  pattern=LinePattern.None,
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid), Text(
-                  extent={{-30,30},{30,16}},
-                  lineColor={127,0,127},
-                  textString="low active")}));
+              extent={{-40,30},{40,16}},
+              pattern=LinePattern.None,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid), Text(
+              extent={{-30,30},{30,16}},
+              lineColor={127,0,127},
+              textString="low active")}));
         end DLATREGSRL;
 
+    annotation (Documentation(info="<html>
+<p>Registers is a collection of flipflops and latches. In the opposite to the Examples.Utilities models the Register models are a series of assignments in the algorithm part of the model. The model text is taken nearly identical from the standard logic text.</p>
+</html>"));
       end Registers;
 end Digital;
 
