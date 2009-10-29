@@ -3,7 +3,7 @@ package Interfaces
   "Connectors and partial models for Analog electrical components"
   extends Modelica.Icons.Library;
   annotation (Documentation(info="<html>
-<p>This package contains connectors and interfaces (partial models) for analog electrical components. The partial models contain typical combinations of pins, and internal variables which are often used. Furthermode, the thermal heat port is in this package which can be included by inheritance.</p>
+<p>This package contains connectors and interfaces (partial models) for analog electrical components. The partial models contain typical combinations of pins, and internal variables which are often used. Furthermode, the thermal heat port is in this package which can be included by inheritance. </p>
 </html>",
    revisions="<html>
 <dl>
@@ -66,7 +66,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
        </li>
 </ul>
 </html>", info="<html>
-<p>Pin is the basic electric connector. It includes the voltage which consists between the pin and the ground node. The ground node is the node of (any) ground device (Modelica.Electrical.Basic.Ground). Furthermore, the pin includes the current, which is considered to be <b>positive</b> if it is flowing at the pin<b> into the device</b>.</p>
+<p>Pin is the basic electric connector. It includes the voltage which consists between the pin and the ground node. The ground node is the node of (any) ground device (Modelica.Electrical.Basic.Ground). Furthermore, the pin includes the current, which is considered to be <b>positive</b> if it is flowing at the pin<b> into the device</b>. </p>
 </html>"));
   end Pin;
 
@@ -74,13 +74,9 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     SI.Voltage v "Potential at the pin";
     flow SI.Current i "Current flowing into the pin";
     annotation (defaultComponentName="pin_p",
-      Documentation(info="<html><p>Connectors PositivePin
-and NegativePin are nearly identical.
-The only difference is that the icons are different in order
-to identify more easily the pins of a component. Usually,
-connector PositivePin is used for the positive and
-connector NegativePin for the negative pin of an electrical
-component.</p></html>", revisions="<html>
+      Documentation(info="<html>
+<p>Connectors PositivePin and NegativePin are nearly identical. The only difference is that the icons are different in order to identify more easily the pins of a component. Usually, connector PositivePin is used for the positive and connector NegativePin for the negative pin of an electrical component. </p>
+</html>",               revisions="<html>
 <ul>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
@@ -108,13 +104,9 @@ component.</p></html>", revisions="<html>
     SI.Voltage v "Potential at the pin";
     flow SI.Current i "Current flowing into the pin";
     annotation (defaultComponentName="pin_n",
-      Documentation(info="<html><p>Connectors PositivePin
-and NegativePin are nearly identical.
-The only difference is that the icons are different in order
-to identify more easily the pins of a component. Usually,
-connector PositivePin is used for the positive and
-connector NegativePin for the negative pin of an electrical
-component.</p></html>", revisions="<html>
+      Documentation(info="<html>
+<p>Connectors PositivePin and NegativePin are nearly identical. The only difference is that the icons are different in order to identify more easily the pins of a component. Usually, connector PositivePin is used for the positive and connector NegativePin for the negative pin of an electrical component. </p>
+</html>",               revisions="<html>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -137,7 +129,7 @@ component.</p></html>", revisions="<html>
             lineColor={0,0,255})}));
   end NegativePin;
 
-  partial model TwoPin "Component with one electrical port"
+  partial model TwoPin "Component with two electrical pins"
     SI.Voltage v "Voltage drop between the two pins (= p.v - n.v)";
     PositivePin p
       "Positive pin Positive pin (potential p.v > n.v for positive voltage drop v)"
@@ -176,6 +168,8 @@ component.</p></html>", revisions="<html>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
+</html>", info="<html>
+<p>TwoPin is a partial model with two pins and one internal variable for the voltage over the two pins. Internal currents are not defined. It is intended to be used in cases where the model which inherits TwoPin is composed by combining other components graphically, not by equations.</p>
 </html>"));
   equation
     v = p.v - n.v;
@@ -192,16 +186,10 @@ component.</p></html>", revisions="<html>
     NegativePin n "Negative pin" annotation (Placement(transformation(extent={{
               110,-10},{90,10}}, rotation=0)));
     annotation (
-      Documentation(info="<HTML>
-<P>
-Superclass of elements which have <b>two</b> electrical pins:
-the positive pin connector <i>p</i>, and the negative pin
-connector <i>n</i>. It is assumed that the current flowing
-into pin p is identical to the current flowing out of pin n.
-This current is provided explicitly as current i.
-</P>
-</HTML>
-", revisions="<html>
+      Documentation(info="<html>
+<p>Superclass of elements which have <b>two</b> electrical pins: the positive pin connector <i>p</i>, and the negative pin connector <i>n</i>. It is assumed that the current flowing into pin p is identical to the current flowing out of pin n. This current is provided explicitly as current i.  </p>
+</html>",
+   revisions="<html>
 <ul>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
@@ -311,7 +299,7 @@ This current is provided explicitly as current i.
        </li>
 </ul>
 </html>", info="<html>
-
+<p>TwoPort is a partial model that consists of two ports. Like OnePort each port has two pins. It is assumed that the current flowing into the positive  pin   is identical to the current flowing out of pin n. This currents of each port are  provided explicitly as currents i1 and i2, the voltages respectively as v1 and v2.</p>
 </html>"));
   equation
     v1 = p1.v - n1.v;
@@ -349,22 +337,13 @@ This current is provided explicitly as current i.
        </li>
 </ul>
 </html>",   info="<html>
-<p>
-This partial model provides a conditional heating port for the connection to a thermal network.
-</p>
-<ul>
-<li> If <b>useHeatPort</b> is set to <b>false</b> (default), no heat port is available, and the thermal
-     loss power flows internally to the ground. In this case, the parameter <b>T</b> specifies
-     the fixed device temperature (the default for T = 20<sup>o</sup>C)</li>.
-<li> If <b>useHeatPort</b> is set to <b>true</b>, a heat port is available.</li>
-</ul>
-
-<p>
-If this model is used, the loss power has to be provided by an equation in the model which inherits from
-ConditionalHeatingPort model (<b>lossPower = ...</b>). As device temperature
-<b>T_heatPort</b> can be used to describe the influence of the device temperature
-on the model behaviour.
-</p>
+<p>This partial model provides a conditional heating port for the connection to a thermal network. </p>
+<p><ul>
+<li>If <b>useHeatPort</b> is set to <b>false</b> (default), no heat port is available, and the thermal loss power flows internally to the ground. In this case, the parameter <b>T</b> specifies the fixed device temperature (the default for T = 20oC) </li>
+<p>. </p>
+<li>If <b>useHeatPort</b> is set to <b>true</b>, a heat port is available. </li>
+</ul></p>
+<p>If this model is used, the loss power has to be provided by an equation in the model which inherits from ConditionalHeatingPort model (<b>lossPower = ...</b>). As device temperature <b>T_heatPort</b> can be used to describe the influence of the device temperature on the model behaviour. </p>
 </html>"));
   end ConditionalHeatPort;
 
@@ -399,6 +378,8 @@ on the model behaviour.
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
+</html>", info="<html>
+<p>The AbsoluteSensor is a partial model for converting values that can be calculated from one pin connector into a real valued signal. The special calculation has to be described in the model which inherits the AbsoluteSensor.  It is often used in sensor devices. To be a true sensor the modeller has to take care that the sensor model does not influence the electrical behavior to be measured.</p>
 </html>"));
 
   end AbsoluteSensor;
@@ -442,6 +423,8 @@ on the model behaviour.
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
+</html>", info="<html>
+<p>The RelaticeSensor is a partial model for converting values that can be calculated from two pin connectors into a real valued signal. The special calculation has to be described in the model which inherits the RelativeSensor.  It is often used in sensor devices. To be a true sensor the modeller has to take care that the sensor model does not influence the electrical behavior to be measured.</p>
 </html>"));
   end RelativeSensor;
 
@@ -482,6 +465,8 @@ on the model behaviour.
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
+</html>", info="<html>
+<p>The VoltageSource partial model prepares voltage sources by providing the pins, and the offset and startTime parameters, which are the same at all voltage sources. The source behavior is taken from Modelica.Blocks signal sources by inheritance and usage of the replacable possibilities.</p>
 </html>"));
   equation
     v = signalSource.y;
@@ -522,6 +507,8 @@ on the model behaviour.
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
+</html>", info="<html>
+<p>The CurrentSource partial model prepares current sources by providing the pins, and the offset and startTime parameters, which are the same at all current sources. The source behavior is taken from Modelica.Blocks signal sources by inheritance and usage of the replacable possibilities.</p>
 </html>"));
   equation
     i = signalSource.y;
