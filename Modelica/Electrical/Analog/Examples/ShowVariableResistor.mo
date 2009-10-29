@@ -21,18 +21,11 @@ model ShowVariableResistor "Simple demo of a VariableResistor model"
   Modelica.Electrical.Analog.Basic.Resistor R5 
   annotation (Placement(transformation(extent={{20,-20},{40,0}}, rotation=0)));
 
-annotation (Documentation(info="<HTML>
-<P>
-It is a simple test circuit for the VariableResistor. The VariableResistor
-sould be compared with R2.
-</P>
-<P>
-Simulate until T=1 s.
-</P>
-<P>
-
-</HTML>
-", revisions="<html>
+annotation (Documentation(info="<html>
+<p>It is a simple test circuit for the VariableResistor. The VariableResistor sould be compared with R2. </p>
+<p>Simulate until T=1 s.  </p>
+</html>",
+   revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>Mai 6, 2004   </i>
