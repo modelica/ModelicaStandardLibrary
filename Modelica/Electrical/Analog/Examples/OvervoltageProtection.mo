@@ -55,16 +55,6 @@ model OvervoltageProtection "Example for Zener diodes"
        extent={{-10,-10},{10,10}},
        rotation=270,
        origin={26,4})));
- Modelica.Electrical.Analog.Semiconductors.ZDiode zDiode_1 
-                       annotation (Placement(transformation(
-       extent={{-10,-10},{10,10}},
-       rotation=90,
-       origin={-20,-10})));
- Modelica.Electrical.Analog.Semiconductors.ZDiode zDiode_2 
-                       annotation (Placement(transformation(
-       extent={{-10,-10},{10,10}},
-       rotation=270,
-       origin={-20,22})));
  Modelica.Electrical.Analog.Basic.Ground ground 
    annotation (Placement(transformation(extent={{-30,-82},{-10,-62}})));
  Modelica.Electrical.Analog.Basic.Capacitor CL(C=1e-7) annotation (Placement(
@@ -72,33 +62,17 @@ model OvervoltageProtection "Example for Zener diodes"
        extent={{-10,-10},{10,10}},
        rotation=270,
        origin={62,4})));
+  Semiconductors.ZDiode zDiode annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=90,
+        origin={-20,-20})));
+  Semiconductors.ZDiode zDiode1 annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=270,
+        origin={-20,22})));
 equation
  connect(sineVoltage.p, Rv.p) annotation (Line(
      points={{-66,16},{-66,42},{-56,42}},
-     color={0,0,255},
-     smooth=Smooth.None));
- connect(Rv.n, zDiode_2.p)    annotation (Line(
-     points={{-36,42},{-20,42},{-20,32}},
-     color={0,0,255},
-     smooth=Smooth.None));
- connect(RL.p, zDiode_2.p)    annotation (Line(
-     points={{26,14},{26,42},{-20,42},{-20,32}},
-     color={0,0,255},
-     smooth=Smooth.None));
- connect(RL.n, zDiode_1.p)    annotation (Line(
-     points={{26,-6},{26,-40},{-20,-40},{-20,-20}},
-     color={0,0,255},
-     smooth=Smooth.None));
- connect(zDiode_1.n, zDiode_2.n)       annotation (Line(
-     points={{-20,0},{-20,6},{-20,12},{-20,12}},
-     color={0,0,255},
-     smooth=Smooth.None));
- connect(sineVoltage.n, zDiode_1.p)    annotation (Line(
-     points={{-66,-4},{-66,-40},{-20,-40},{-20,-20}},
-     color={0,0,255},
-     smooth=Smooth.None));
- connect(ground.p, zDiode_1.p)    annotation (Line(
-     points={{-20,-62},{-20,-20}},
      color={0,0,255},
      smooth=Smooth.None));
  connect(RL.p, CL.p) annotation (Line(
@@ -109,4 +83,28 @@ equation
      points={{26,-6},{62,-6}},
      color={0,0,255},
      smooth=Smooth.None));
+  connect(sineVoltage.n, zDiode.p) annotation (Line(
+      points={{-66,-4},{-66,-30},{-20,-30}},
+      color={0,0,255},
+      smooth=Smooth.None));
+  connect(zDiode.p, ground.p) annotation (Line(
+      points={{-20,-30},{-20,-62}},
+      color={0,0,255},
+      smooth=Smooth.None));
+  connect(zDiode.p, RL.n) annotation (Line(
+      points={{-20,-30},{26,-30},{26,-6}},
+      color={0,0,255},
+      smooth=Smooth.None));
+  connect(zDiode1.p, Rv.n) annotation (Line(
+      points={{-20,32},{-20,42},{-36,42}},
+      color={0,0,255},
+      smooth=Smooth.None));
+  connect(RL.p, Rv.n) annotation (Line(
+      points={{26,14},{26,42},{-36,42}},
+      color={0,0,255},
+      smooth=Smooth.None));
+  connect(zDiode1.n, zDiode.n) annotation (Line(
+      points={{-20,12},{-20,1},{-20,1},{-20,-10}},
+      color={0,0,255},
+      smooth=Smooth.None));
 end OvervoltageProtection;
