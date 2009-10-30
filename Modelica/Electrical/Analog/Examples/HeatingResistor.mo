@@ -21,14 +21,9 @@ annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
           extent={{-94,102},{0,74}},
           textString="HeatingRectifier",
           lineColor={0,0,255})}),
-                                Documentation(info="<HTML>
-<P>
-This is a very simple circuit consisting of a voltage source and a resistor.
-The loss power in the resistor is transported to the environment via its heatPort.
-</P>
-
-</HTML>
-"));
+                                Documentation(info="<html>
+<p>This is a very simple circuit consisting of a voltage source and a resistor. The loss power in the resistor is transported to the environment via its heatPort.  </p>
+</html>"));
   Modelica.Thermal.HeatTransfer.Components.ThermalConductor thermalConductor(G=
         50) 
   annotation (Placement(transformation(
