@@ -18,22 +18,12 @@ annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
           extent={{-94,102},{0,74}},
           textString="HeatingRectifier",
           lineColor={0,0,255})}),
-                                Documentation(info="<HTML>
-<P>
-The heating rectifier shows a heat flow always if the electrical capacitor is loaded.
-</P>
-<P>
-Simulate until T=5 s.
-</P>
-<P>
-Plot in separate windows:<br> <br>
-SineVoltage1.v  and  Capacitor1.p.v <br>
-HeatCapacitor1.port.T and HeatingDiode1.heatPort.T<br>
-HeatingDiode1.heatPort.Q_flow<br>
-</P>
-
-</HTML>
-", revisions="<html>
+                                Documentation(info="<html>
+<p>The heating rectifier shows a heat flow always if the electrical capacitor is loaded. </p>
+<p>Simulate until T=5 s.  </p>
+<p><br/><br/>Plot in separate windows:</p><p><br/><br/>SineVoltage1.v and Capacitor1.p.v </p><p><br/><br/>HeatCapacitor1.port.T and HeatingDiode1.heatPort.T</p><p><br/><br/>HeatingDiode1.heatPort.Q_flow</p>
+</html>",
+   revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>Mai 6, 2004   </i>

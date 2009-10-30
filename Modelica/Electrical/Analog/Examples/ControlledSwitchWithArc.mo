@@ -12,22 +12,9 @@ model ControlledSwitchWithArc
       Interval=0.00025,
       Tolerance=1e-006),
     Documentation(info="<html>
-<P>
-This example is to compare the behaviour of switch models with
-and without an electric arc taking into consideration.<br><br>
-
-</P>
-<P>
-Simulate until T=2 s.
-</P>
-<P>
-Plot in one windows:<br> <br>
-switch1.i and switch2.i <br><br>
-
-The difference in the closing area shows that the simple arc model avoids
-the suddenly switching.
-
-</P>
+<p><br/><br/>This example is to compare the behaviour of switch models with and without an electric arc taking into consideration.</p>
+<p>Simulate until T=2 s.  </p>
+<p><br/><br/>Plot in one windows:</p><p><br/><br/>switch1.i and switch2.i </p><p><br/><br/>The difference in the closing area shows that the simple arc model avoids the suddenly switching. </p>
 </html>",
         revisions="<html>
 <ul>

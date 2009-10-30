@@ -22,23 +22,12 @@ annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={Text(
           extent={{-96,100},{98,60}},
           textString="Characteristic Thyristors",
-          lineColor={0,0,255})}),        Documentation(info="<HTML>
-<P>
-Two examples of thyristors are shown:<br><br>
-the <b>ideal thyristor</b>  <br>
-and the <b>ideal GTO thyristor</b>  with <i>Vknee=5</i>  <br><br>
-</P>
-<P>
-Simulate until T=2 s.
-</P>
-<P>
-Plot in separate windows:<br> <br>
-IdealThyristor1.i and IdealGTOThyristor1.i <br>
-IdealThyristor1.v and IdealGTOThyristor1.v <br>
-</P>
-
-</HTML>
-", revisions="<html>
+          lineColor={0,0,255})}),        Documentation(info="<html>
+<p><br/><br/><br/>Two examples of thyristors are shown: </p><p><br/><br/><br/>the <b>ideal thyristor</b> </p><p><br/><br/><br/>and the <b>ideal GTO thyristor</b> with <i>Vknee=5</i> </p>
+<p>Simulate until T=2 s. </p>
+<p><br/><br/>Plot in separate windows:</p><p><br/><br/>IdealThyristor1.i and IdealGTOThyristor1.i </p><p><br/><br/>IdealThyristor1.v and IdealGTOThyristor1.v </p>
+</html>",
+   revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>Mai 7, 2004   </i>

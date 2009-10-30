@@ -11,21 +11,12 @@ encapsulated model ChuaCircuit "Chua's circuit, ns, V, A"
         extent={{-100,-100},{100,100}},
         grid={1,1}), graphics),
     Documentation(info="<html>
-<p>
- Chua's circuit is the most simple nonlinear circuit which shows chaotic behaviour. The circuit consists of linear basic elements (capacitors, resistor, conductor, inductor), and one nonlinear element, which is called Chua's diode. The chaotic behaviour is simulated.
-<p>
-The simulation end time should be set to 5e4. To get the chaotic behaviour please plot C1.v. Choose C2.v as the independent variable .
-<p>
-<dl>
-<dt>
-<b>Reference:</b>
-<dd>
-Kennedy, M.P.: Three Steps to Chaos - Part I: Evolution. IEEE Transactions on CAS I 40 (1993)10, 640-656
-</dd>
-</dl>
-
-</HTML>
-", revisions="<html>
+<p>Chua&apos;s circuit is the most simple nonlinear circuit which shows chaotic behaviour. The circuit consists of linear basic elements (capacitors, resistor, conductor, inductor), and one nonlinear element, which is called Chua&apos;s diode. The chaotic behaviour is simulated. </p>
+<p>The simulation end time should be set to 5e4. To get the chaotic behaviour please plot C1.v. Choose C2.v as the independent variable . </p>
+<p><b>Reference:</b> </p>
+<p>Kennedy, M.P.: Three Steps to Chaos - Part I: Evolution. IEEE Transactions on CAS I 40 (1993)10, 640-656  </p>
+</html>",
+   revisions="<html>
 <dt>
 <b>Main Authors:</b>
 <dd>
