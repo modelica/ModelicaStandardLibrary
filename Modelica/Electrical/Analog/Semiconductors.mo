@@ -5,27 +5,16 @@ package Semiconductors
   import Modelica.SIunits;
 
   annotation (
-    Documentation(info="
-<HTML>
-<p>
-This package contains semiconductor devices:
-<ul>
+    Documentation(info="<html>
+<p>This package contains semiconductor devices:  </p>
+<p><ul>
 <li>diode</li>
 <li>MOS transistors</li>
 <li>bipolar transistors</li>
-</ul>
-
-All semiconductor devices contain a conditional heat port, which is
-not active by default. If it is active the loss power is calculated
-to be used in a thermal net.
-
-The heating variants of the semiconductor devices are provided to
-use the thermal pot temperature in the electric calculation. That means that for a true thermal electric
-interaction the heating device models have to be used.
-
-</p>
-</HTML>
-", revisions="<html>
+</ul></p>
+<p>All semiconductor devices contain a conditional heat port, which is not active by default. If it is active the loss power is calculated to be used in a thermal net. The heating variants of the semiconductor devices are provided to use the thermal pot temperature in the electric calculation. That means that for a true thermal electric interaction the heating device models have to be used. </p>
+</html>",
+   revisions="<html>
 <dl>
 <dt>
 <b>Main Authors:</b>
@@ -53,26 +42,13 @@ Christoph Clau&szlig;
     parameter SIunits.Resistance R=1.e8 "Parallel ohmic resistance";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
     annotation (
-      Documentation(info="
-<HTML>
-<P>
-The simple diode is a one port. It consists of the diode itself and an parallel ohmic
-resistance <i>R</i>. The diode formula is:
-</P>
-<PRE>
-                v/vt
-  i  =  ids ( e      - 1).
-</PRE>
-<P>
-If the exponent <i>v/vt</i> reaches the limit <i>maxex</i>, the diode characterisic is linearly
-continued to avoid overflow.
-<br> <br>
-<b>Please note:</b>
-In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled yet. The parameters are not temperature dependent.
-</P>
-</HTML>
-", revisions="<html>
+      Documentation(info="<html>
+<p>The simple diode is a one port. It consists of the diode itself and an parallel ohmic resistance <i>R</i>. The diode formula is:  </p>
+<pre>                v/vt
+  i  =  ids ( e      - 1).</pre>
+<p><br/>If the exponent <i>v/vt</i> reaches the limit <i>maxex</i>, the diode characterisic is linearly continued to avoid overflow. </p><p><br/><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled yet. The parameters are not temperature dependent. </p>
+</html>",
+   revisions="<html>
 <ul>
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>
@@ -143,6 +119,16 @@ behavior is <b> not </b> modelled yet. The parameters are not temperature depend
    parameter Real Nbv=0.74 "Breakthrough emission coefficient";
    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
     annotation (
+<<<<<<< .mine
+      Documentation(info="<html>
+<p>The simple zener diode is a one port. It consists of the diode itself and an parallel ohmic resistance <i>R</i>. The diode formula is: </p>
+<pre>                v/Vt                -(v+Bv)/(Nbv*Vt)
+  i  =  Ids ( e      - 1) - Ibv ( e                  ).</pre>
+<p>If the exponent in one of the two branches reaches the limit <i>Maxexp</i>, the diode characterisic is linearly continued to avoid overflow. </p>
+<p><br/>The zener diode model permits (in contrast to the simple diode model) current in reverse direction if the breakdown voltage Bv (also known zener knee voltage) is exceeded.  </p><p><br/><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled yet. The parameters are not temperature dependent. </p>
+</html>",
+   revisions="<html>
+=======
       Documentation(info="
 <HTML>
 <P>
@@ -170,6 +156,7 @@ behavior is <b> not </b> modelled yet. The parameters are not temperature depend
 
 </HTML>
 ", revisions="<html>
+>>>>>>> .r3092
 <ul>
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>
@@ -265,31 +252,13 @@ behavior is <b> not </b> modelled yet. The parameters are not temperature depend
     Real id;
     Real gds;
     annotation (
-      Documentation(info="
-<HTML>
-<P>
-The PMOS model is a simple model of a p-channel metal-oxide semiconductor
-FET. It differs slightly from the device used in the SPICE simulator.
-For more details please care for H. Spiro.
-</P>
-<P>
-The model does not consider capacitances. A high drain-source resistance RDS
-is included to avoid numerical difficulties.
-<br> <br>
-<b>Please note:</b>
-In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled yet. The parameters are not temperature dependent.
-</P>
-<DL>
-<DT><b>References:</b>
-<DD>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag
-  Muenchen Wien 1990.
-</DL>
-<P>
-Some typical parameter sets are:
-</P>
-<PRE>
-  W       L      Beta        Vt       K2       K5       DW         DL
+      Documentation(info="<html>
+<p>The PMOS model is a simple model of a p-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for H. Spiro. </p>
+<p><br/>The model does not consider capacitances. A high drain-source resistance RDS is included to avoid numerical difficulties. </p><p><br/><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled yet. The parameters are not temperature dependent.  </p>
+<dl><dt><b>References:</b> </dt>
+<dd>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag Muenchen Wien 1990. </dd>
+</dl><p>Some typical parameter sets are: </p>
+<pre>  W       L      Beta        Vt       K2       K5       DW         DL
   m       m      A/V^2       V        -        -        m          m
   50.e-6  8.e-6  .0085e-3   -.15     .41      .839    -3.8e-6    -4.0e-6
   20.e-6  6.e-6  .0105e-3  -1.0      .41      .839    -2.5e-6    -2.1e-6
@@ -297,11 +266,9 @@ Some typical parameter sets are:
   30.e-6  5.e-6  .0152e-3   -.69     .104    1.1       -.8e-6     -.4e-6
   30.e-6  5.e-6  .0163e-3   -.69     .104    1.1       -.8e-6     -.4e-6
   30.e-6  5.e-6  .0182e-3   -.69     .086    1.06      -.1e-6     -.6e-6
-  20.e-6  6.e-6  .0074e-3  -1.       .4       .59      0          0
-</PRE>
-
-</HTML>
-", revisions="<html>
+  20.e-6  6.e-6  .0074e-3  -1.       .4       .59      0          0 </pre>
+</html>",
+   revisions="<html>
 <ul>
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>
@@ -407,24 +374,10 @@ Some typical parameter sets are:
     Real id;
     Real gds;
     annotation (
-      Documentation(info="
-<HTML>
-<P>
-The NMos model is a simple model of a n-channel metal-oxide semiconductor
-FET. It differs slightly from the device used in the SPICE simulator.
-For more details please care for H. Spiro.
-</P>
-<P>
-The model does not consider capacitances. A high drain-source resistance RDS
-is included to avoid numerical difficulties.
-<br> <br>
-<b>Please note:</b>
-In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled yet. The parameters are not temperature dependent.
-</P>
-<P>
-<PRE>
-  W       L      Beta        Vt       K2      K5       DW         DL
+      Documentation(info="<html>
+<p>The NMos model is a simple model of a n-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for H. Spiro. </p>
+<p><br/>The model does not consider capacitances. A high drain-source resistance RDS is included to avoid numerical difficulties. </p><p><br/><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled yet. The parameters are not temperature dependent.  </p>
+<pre>  W       L      Beta        Vt       K2      K5       DW         DL
   m       m      A/V^2       V        -       -        m          m
   12.e-6  4.e-6  .062e-3   -4.5      .24     .61     -1.2e-6     -.9e-6      depletion
   60.e-6  3.e-6  .048e-3     .1      .08     .68     -1.2e-6     -.9e-6      enhancement
@@ -443,17 +396,11 @@ behavior is <b> not </b> modelled yet. The parameters are not temperature depend
   12.e-6  4.e-6  .023e-3   -4.5      .29     .6       0          0           depletion
   60.e-6  3.e-6  .022e-3     .1      .11     .65      0          0           enhancement
   12.e-6  4.e-6  .038e-3    -.8      .33     .6       0          0           zero
-  20.e-6  6.e-6  .022e-3     .8     1        .66      0          0
-</PRE>
-
-<P>
-<DL>
-<DT><b>References:</b>
-<DD>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag
-Muenchen Wien 1990.
-</DL>
-</HTML>
-", revisions="<html>
+  20.e-6  6.e-6  .022e-3     .8     1        .66      0          0 </pre>
+<p><b>References:</b> </p>
+<p>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag Muenchen Wien 1990. </p>
+</html>",
+   revisions="<html>
 <ul>
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>
@@ -579,35 +526,16 @@ Muenchen Wien 1990.
     Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" annotation (Placement(
           transformation(extent={{90,-40},{110,-60}}, rotation=0)));
     annotation (
-      Documentation(info="
-<HTML>
-<P>
-This model is a simple model of a bipolar npn junction transistor according
-to Ebers-Moll.
-<br> <br>
-<b>Please note:</b>
-In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled yet. The parameters are not temperature dependent.
-</P>
-<P>
-A typical parameter set is:
-</P>
-<PRE>
-  Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe    Vt
+      Documentation(info="<html>
+<p><br/>This model is a simple model of a bipolar npn junction transistor according to Ebers-Moll. </p><p><br/><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled yet. The parameters are not temperature dependent.  </p>
+<p>A typical parameter set is: </p>
+<pre>  Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe    Vt
   -   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS     V
-  50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15  0.02585
-</PRE>
-
-<P>
-<DL>
-<DT><b>References:</b>
-<DD>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design.
-Van Nostrand Reinhold, New York 1983
-on page 317 ff.
-</DL>
-<P>
-</HTML>
-", revisions="<html>
+  50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15  0.02585 </pre>
+<p><b>References:</b> </p>
+<p>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design. Van Nostrand Reinhold, New York 1983 on page 317 ff. </p>
+</html>",
+   revisions="<html>
 <ul>
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>
@@ -738,34 +666,16 @@ on page 317 ff.
     Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" annotation (Placement(
           transformation(extent={{90,-40},{110,-60}}, rotation=0)));
                                                                       annotation (
-      Documentation(info="
-<HTML>
-<P>
-This model is a simple model of a bipolar pnp junction transistor according
-to Ebers-Moll.
-<br> <br>
-<b>Please note:</b>
-In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled yet. The parameters are not temperature dependent.
-<P>
-A typical parameter set is:
-</P>
-<PRE>
-  Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe    Vt
+      Documentation(info="<html>
+<p><br/>This model is a simple model of a bipolar pnp junction transistor according to Ebers-Moll. </p><p><br/><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled yet. The parameters are not temperature dependent.  </p>
+<p>A typical parameter set is: </p>
+<pre>  Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe    Vt
   -   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS     V
-  50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15  0.02585
-</PRE>
-
-<P>
-<DL>
-<DT><b>References:</b>
-<DD>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design.
-Van Nostrand Reinhold, New York 1983
-on page 317 ff.
-</DL>
-<P>
-</HTML>
-", revisions="<html>
+  50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15  0.02585 </pre>
+<p><b>References:</b> </p>
+<p>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design. Van Nostrand Reinhold, New York 1983 on page 317 ff. </p>
+</html>",
+   revisions="<html>
 <ul>
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>
@@ -873,28 +783,14 @@ on page 317 ff.
           Real auxp;
           Real maxexp=exp(Maxexp);
           annotation (__Dymola_structurallyIncomplete=true,
-            Documentation(info="
-<HTML>
-<P>
-The simple diode is an electrical one port, where a heat port is added, which is
-defined in the Modelica.Thermal library. It consists of the diode itself and an parallel ohmic
-resistance <i>R</i>. The diode formula is:
-</P>
-<PRE>
-                v/vt_t
-  i  =  ids ( e        - 1).
-</PRE>
-where vt_t depends on the temperature of the heat port:
-<PRE>
-  vt_t = k*temp/q
-</PRE>
-<P>
-If the exponent <i>v/vt_t</i> reaches the limit <i>maxex</i>, the diode characterisic is linearly
-continued to avoid overflow.<br>
-The thermal power is calculated by <i>i*v</i>.
-</P>
-</HTML>
-",         revisions="<html>
+            Documentation(info="<html>
+<p>The simple diode is an electrical one port, where a heat port is added, which is defined in the Modelica.Thermal library. It consists of the diode itself and an parallel ohmic resistance <i>R</i>. The diode formula is: </p>
+<pre>                v/vt_t
+  i  =  ids ( e        - 1).</pre>
+<p>where vt_t depends on the temperature of the heat port:  </p>
+<pre>  vt_t = k*temp/q</pre>
+<p>If the exponent <i>v/vt_t</i> reaches the limit <i>maxex</i>, the diode characterisic is linearly continued to avoid overflow.</p><p>The thermal power is calculated by <i>i*v</i>. </p>
+</html>",  revisions="<html>
 <ul>
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>
@@ -996,24 +892,11 @@ The thermal power is calculated by <i>i*v</i>.
           Real vt_t;
           Real k2_t;
           annotation (__Dymola_structurallyIncomplete=true,
-            Documentation(info="
-<HTML>
-<P>
-The NMos model is a simple model of a n-channel metal-oxide semiconductor
-FET. It differs slightly from the device used in the SPICE simulator.
-For more details please care for H. Spiro.
-</P>
-<P>
-A heating port is added for thermal electric simulation. The heating port
-is defined in the Modelica.Thermal library.
-</P>
-<P>
-The model does not consider capacitances. A high drain-source resistance RDS
-is included to avoid numerical difficulties.
-</P>
-<P>
-<PRE>
-  W       L      Beta        Vt       K2      K5       DW         DL
+            Documentation(info="<html>
+<p>The NMos model is a simple model of a n-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for H. Spiro. </p>
+<p>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.  </p>
+<p>The model does not consider capacitances. A high drain-source resistance RDS is included to avoid numerical difficulties. </p>
+<pre>  W       L      Beta        Vt       K2      K5       DW         DL
   m       m      A/V^2       V        -       -        m          m
   12.e-6  4.e-6  .062e-3   -4.5      .24     .61     -1.2e-6     -.9e-6      depletion
   60.e-6  3.e-6  .048e-3     .1      .08     .68     -1.2e-6     -.9e-6      enhancement
@@ -1032,17 +915,10 @@ is included to avoid numerical difficulties.
   12.e-6  4.e-6  .023e-3   -4.5      .29     .6       0          0           depletion
   60.e-6  3.e-6  .022e-3     .1      .11     .65      0          0           enhancement
   12.e-6  4.e-6  .038e-3    -.8      .33     .6       0          0           zero
-  20.e-6  6.e-6  .022e-3     .8     1        .66      0          0
-</PRE>
-<P>
-<DL>
-<DT><b>References:</b>
-<DD>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag
-Muenchen Wien 1990.
-</DL>
-</P>
-</HTML>
-",         revisions="<html>
+  20.e-6  6.e-6  .022e-3     .8     1        .66      0          0</pre>
+<p><b>References:</b> </p>
+<p>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag Muenchen Wien 1990. </p>
+</html>",  revisions="<html>
 <ul>
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>
@@ -1167,31 +1043,14 @@ Muenchen Wien 1990.
           Real vt_t;
           Real k2_t;
           annotation (__Dymola_structurallyIncomplete=true,
-            Documentation(info="
-<HTML>
-<P>
-The PMOS model is a simple model of a p-channel metal-oxide semiconductor
-FET. It differs slightly from the device used in the SPICE simulator.
-For more details please care for H. Spiro.
-</P>
-<P>
-A heating port is added for thermal electric simulation. The heating port
-is defined in the Modelica.Thermal library.
-</P>
-<P>
-The model does not consider capacitances. A high drain-source resistance RDS
-is included to avoid numerical difficulties.
-</P>
-<DL>
-<DT><b>References:</b>
-<DD>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag
-  Muenchen Wien 1990.
-</DL>
-<P>
-Some typical parameter sets are:
-</P>
-<PRE>
-  W       L      Beta        Vt       K2       K5       DW         DL
+            Documentation(info="<html>
+<p>The PMOS model is a simple model of a p-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for H. Spiro. </p>
+<p>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library. </p>
+<p>The model does not consider capacitances. A high drain-source resistance RDS is included to avoid numerical difficulties.  </p>
+<dl><dt><b>References:</b> </dt>
+<dd>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag Muenchen Wien 1990. </dd>
+</dl><p>Some typical parameter sets are: </p>
+<pre>  W       L      Beta        Vt       K2       K5       DW         DL
   m       m      A/V^2       V        -        -        m          m
   50.e-6  8.e-6  .0085e-3   -.15     .41      .839    -3.8e-6    -4.0e-6
   20.e-6  6.e-6  .0105e-3  -1.0      .41      .839    -2.5e-6    -2.1e-6
@@ -1199,11 +1058,8 @@ Some typical parameter sets are:
   30.e-6  5.e-6  .0152e-3   -.69     .104    1.1       -.8e-6     -.4e-6
   30.e-6  5.e-6  .0163e-3   -.69     .104    1.1       -.8e-6     -.4e-6
   30.e-6  5.e-6  .0182e-3   -.69     .086    1.06      -.1e-6     -.6e-6
-  20.e-6  6.e-6  .0074e-3  -1.       .4       .59      0          0
-</PRE>
-</P>
-</HTML>
-",         revisions="<html>
+  20.e-6  6.e-6  .0074e-3  -1.       .4       .59      0          0 </pre>
+</html>",  revisions="<html>
 <ul>
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>
@@ -1355,34 +1211,16 @@ Some typical parameter sets are:
             annotation (Placement(transformation(extent={{90,-40},{110,-60}},
             rotation=0)));
           annotation (__Dymola_structurallyIncomplete=true,
-            Documentation(info="
-<HTML>
-<P>
-This model is a simple model of a bipolar npn junction transistor according
-to Ebers-Moll.
-</P>
-<P>
-A heating port is added for thermal electric simulation. The heating port
-is defined in the Modelica.Thermal library.
-</P>
-<P>
-A typical parameter set is (the parameter Vt is no longer used):
-</P>
-<PRE>
-  Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe
+            Documentation(info="<html>
+<p>This model is a simple model of a bipolar npn junction transistor according to Ebers-Moll. </p>
+<p>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library. </p>
+<p>A typical parameter set is (the parameter Vt is no longer used):  </p>
+<pre>  Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe
   -   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS
-  50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15
-</PRE>
-<P>
-<DL>
-<DT><b>References:</b>
-<DD>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design.
-Van Nostrand Reinhold, New York 1983
-on page 317 ff.
-</DL>
-</P>
-</HTML>
-",         revisions="<html>
+  50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15</pre>
+<p><b>References:</b> </p>
+<p>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design. Van Nostrand Reinhold, New York 1983 on page 317 ff. </p>
+</html>",  revisions="<html>
 <ul>
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>
@@ -1546,32 +1384,16 @@ on page 317 ff.
             annotation (Placement(transformation(extent={{90,-40},{110,-60}},
             rotation=0)));
           annotation (__Dymola_structurallyIncomplete=true,
-            Documentation(info="
-<HTML>
-<P>
-This model is a simple model of a bipolar pnp junction transistor according
-to Ebers-Moll.
-<P>
-A heating port is added for thermal electric simulation. The heating port
-is defined in the Modelica.Thermal library.
-</P>
-<P>
-A typical parameter set is  (the parameter Vt is no longer used):
-</P>
-<PRE>
-  Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe
+            Documentation(info="<html>
+<p>This model is a simple model of a bipolar pnp junction transistor according to Ebers-Moll. </p>
+<p>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library. </p>
+<p>A typical parameter set is (the parameter Vt is no longer used):  </p>
+<pre>  Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe
   -   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS
-  50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15
-</PRE>
-<P>
-<DL>
-<DT><b>References:</b>
-<DD>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design.
-Van Nostrand Reinhold, New York 1983
-on page 317 ff.
-</DL>
-</HTML>
-",         revisions="<html>
+  50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15</pre>
+<p><b>References:</b> </p>
+<p>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design. Van Nostrand Reinhold, New York 1983 on page 317 ff. </p>
+</html>",  revisions="<html>
 <ul>
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>
@@ -1715,21 +1537,11 @@ public
 
    annotation (
      Documentation(info="<html>
-This is a simple thyristor model with three pins: Anode, Cathode and Gate.
-There are three operating modes: <br>
-conducting, blocking and reverse breakthrough. <br>
-</P>
-<p>
-As long as the thyristor is in blocking mode it behaves like a linear resistance Roff=VDRM^2/(VTM*IH). <br>
-But if the voltage between anode and cathode exceeds VDRM or a positive gate current flows for a sufficient time the mode changes to conducting mode. <br>
-The model stays in conducting mode until the anode current falls below the holding current IH. There is no way to switch off the thyristor via the gate. <br>
-If the voltage between anode and cathode is negative, the model represents a diode (parameters Vt, Nbv) with reverse breakthrough voltage VRRM. <br>
-</P>
-<P>
-The dV/dt switch on is not taken into account in this model. The gate circuit is not influenced by the main circuit.
-</p>
-</HTML>
-",  revisions=
+<p><br/>This is a simple thyristor model with three pins: Anode, Cathode and Gate. There are three operating modes: </p><p><br/>conducting, blocking and reverse breakthrough.  </p>
+<p><br/>As long as the thyristor is in blocking mode it behaves like a linear resistance Roff=VDRM^2/(VTM*IH). </p><p><br/>But if the voltage between anode and cathode exceeds VDRM or a positive gate current flows for a sufficient time the mode changes to conducting mode. </p><p><br/>The model stays in conducting mode until the anode current falls below the holding current IH. There is no way to switch off the thyristor via the gate. </p><p><br/>If the voltage between anode and cathode is negative, the model represents a diode (parameters Vt, Nbv) with reverse breakthrough voltage VRRM. </p>
+<p>The dV/dt switch on is not taken into account in this model. The gate circuit is not influenced by the main circuit. </p>
+</html>",
+    revisions=
       "<html>
 <ul>
 <li><i>May 12, 2009   </i>
