@@ -293,19 +293,19 @@ Some typical parameter sets are:
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={1,1}), graphics={
-        Line(points={{-96,-50},{-10,-50}}, color={0,0,255}),
-        Line(points={{-10,-50},{-10,50}}, color={0,0,255}),
-        Line(points={{10,70},{10,29}}, color={0,0,255}),
-        Line(points={{10,20},{10,-21}}, color={0,0,255}),
-        Line(points={{10,-30},{10,-71}}, color={0,0,255}),
-        Line(points={{10,50},{96,50}}, color={0,0,255}),
-        Line(points={{10,0},{96,0}}, color={0,0,255}),
-        Line(points={{10,-50},{96,-50}}, color={0,0,255}),
-        Polygon(
-          points={{60,0},{40,5},{40,-5},{60,0}},
-          fillColor={0,0,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255})}));
+          Line(points={{-96,-50},{-10,-50}}, color={0,0,255}),
+          Line(points={{-10,-50},{-10,50}}, color={0,0,255}),
+          Line(points={{10,70},{10,29}}, color={0,0,255}),
+          Line(points={{10,20},{10,-21}}, color={0,0,255}),
+          Line(points={{10,-30},{10,-71}}, color={0,0,255}),
+          Line(points={{10,50},{96,50}}, color={0,0,255}),
+          Line(points={{10,0},{96,0}}, color={0,0,255}),
+          Line(points={{10,-50},{96,-50}}, color={0,0,255}),
+          Polygon(
+            points={{60,0},{40,5},{40,-5},{60,0}},
+            fillColor={0,0,255},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255})}));
 equation
   //assert (L + dL > 0, "Effective length must be positive");
   //assert (W + dW > 0, "Effective width  must be positive");
@@ -447,19 +447,19 @@ Muenchen Wien 1990.
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={1,1}), graphics={
-        Line(points={{-96,-50},{-10,-50}}, color={0,0,255}),
-        Line(points={{-10,-50},{-10,50}}, color={0,0,255}),
-        Line(points={{10,70},{10,29}}, color={0,0,255}),
-        Line(points={{10,20},{10,-21}}, color={0,0,255}),
-        Line(points={{10,-30},{10,-71}}, color={0,0,255}),
-        Line(points={{10,50},{96,50}}, color={0,0,255}),
-        Line(points={{10,0},{96,0}}, color={0,0,255}),
-        Line(points={{10,-50},{96,-50}}, color={0,0,255}),
-        Polygon(
-          points={{40,0},{60,5},{60,-5},{40,0}},
-          fillColor={0,0,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255})}));
+          Line(points={{-96,-50},{-10,-50}}, color={0,0,255}),
+          Line(points={{-10,-50},{-10,50}}, color={0,0,255}),
+          Line(points={{10,70},{10,29}}, color={0,0,255}),
+          Line(points={{10,20},{10,-21}}, color={0,0,255}),
+          Line(points={{10,-30},{10,-71}}, color={0,0,255}),
+          Line(points={{10,50},{96,50}}, color={0,0,255}),
+          Line(points={{10,0},{96,0}}, color={0,0,255}),
+          Line(points={{10,-50},{96,-50}}, color={0,0,255}),
+          Polygon(
+            points={{40,0},{60,5},{60,-5},{40,0}},
+            fillColor={0,0,255},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255})}));
 equation
   //assert (L + dL > 0, "Effective length must be positive");
   //assert (W + dW > 0, "Effective width  must be positive");
@@ -598,17 +598,17 @@ on page 317 ff.
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
-        Line(points={{-10,40},{-10,-40}}, color={0,0,255}),
-        Line(points={{-10,0},{-100,0}}, color={0,0,255}),
-        Line(points={{30,50},{-10,10}}, color={0,0,255}),
-        Line(points={{-10,-10},{30,-50}}, color={0,0,255}),
-        Line(points={{30,-50},{100,-50}}, color={0,0,255}),
-        Line(points={{100,50},{30,50}}, color={0,0,255}),
-        Polygon(
-          points={{30,-50},{24,-36},{16,-44},{30,-50}},
-          fillColor={0,0,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255})}));
+          Line(points={{-10,40},{-10,-40}}, color={0,0,255}),
+          Line(points={{-10,0},{-100,0}}, color={0,0,255}),
+          Line(points={{30,50},{-10,10}}, color={0,0,255}),
+          Line(points={{-10,-10},{30,-50}}, color={0,0,255}),
+          Line(points={{30,-50},{100,-50}}, color={0,0,255}),
+          Line(points={{100,50},{30,50}}, color={0,0,255}),
+          Polygon(
+            points={{30,-50},{24,-36},{16,-44},{30,-50}},
+            fillColor={0,0,255},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255})}));
 equation
   ExMin = exp(EMin);
   ExMax = exp(EMax);
@@ -636,7 +636,7 @@ equation
   B.i = ibe/Bf + ibc/Br + cbc*der(vbc) + cbe*der(vbe);
   E.i = -B.i - C.i + Ccs*der(C.v);
 
-  LossPower = C.i * C.v + B.i * B.v + E.i * E.v;
+  LossPower = (C.v-E.v)*(ibe-ibc)*qbk + vbc*ibc/Br + vbe*ibe/Bf;
 end NPN;
 
 model PNP "Simple BJT according to Ebers-Moll"
@@ -756,17 +756,17 @@ on page 317 ff.
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={1,1}), graphics={
-        Line(points={{-10,40},{-10,-40}}, color={0,0,255}),
-        Line(points={{-10,0},{-99,0}}, color={0,0,255}),
-        Line(points={{100,50},{30,50}}, color={0,0,255}),
-        Line(points={{30,50},{-10,10}}, color={0,0,255}),
-        Line(points={{-10,-10},{30,-50}}, color={0,0,255}),
-        Line(points={{30,-50},{99,-50}}, color={0,0,255}),
-        Polygon(
-          points={{-10,-10},{5,-17},{-3,-25},{-10,-10}},
-          fillColor={0,0,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255})}));
+          Line(points={{-10,40},{-10,-40}}, color={0,0,255}),
+          Line(points={{-10,0},{-99,0}}, color={0,0,255}),
+          Line(points={{100,50},{30,50}}, color={0,0,255}),
+          Line(points={{30,50},{-10,10}}, color={0,0,255}),
+          Line(points={{-10,-10},{30,-50}}, color={0,0,255}),
+          Line(points={{30,-50},{99,-50}}, color={0,0,255}),
+          Polygon(
+            points={{-10,-10},{5,-17},{-3,-25},{-10,-10}},
+            fillColor={0,0,255},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255})}));
 equation
   ExMin = exp(EMin);
   ExMax = exp(EMax);
@@ -796,7 +796,7 @@ equation
   B.i = -(ibe/Bf + ibc/Br + cbe*der(vbe) + cbc*der(vbc));
   E.i = -B.i - C.i + Ccs*der(C.v);
 
-  LossPower = C.i * C.v + B.i * B.v + E.i * E.v;
+  LossPower = (E.v-C.v)*(ibe-ibc)*qbk + vbc*ibc/Br + vbe*ibe/Bf;
 end PNP;
 
 model HeatingDiode "Simple diode with heating port"
