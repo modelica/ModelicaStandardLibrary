@@ -181,22 +181,11 @@ end Rp;
        initially modelled.</li>
 </ul>
 </html>", info="<html>
-The example CauerLowPassSC is a low-pass-filter of the fifth order. It is realized
-using an switched-capacitor network with operational amplifiers. The voltage source V is the input voltage (step),
-and the OP5.out.v is the filter output voltage. The pulse response is calculated.
-<p>
-This model is identical to the CauerLowPassAnalog example, but inverting. To get the same response
-as that of the CauerLowPassAnalog example, a negative voltage step is used as input.
-<p>
-This model is identical to the CauerLowPassOPV example. But the resistors are realized by
-switched capacitors. There are two such resistors Rp (of value +1), and Rn (of value -1).
-In this models the switching clock source is included. In a typical switched capacitor circuit
-there would be a central clock source.
-<p>
-The simulation end time should be 60. Please plot both V.v (which is the inverted input voltage) and OP5.p.v (output voltage). Compare this result with the CauerLowPassAnalog result.
-<p>
-Due to the recharging of the capacitances after switching the performance of simulation is not as good as in the CauerLowPassOPV example.
-<p>
+<p>The example CauerLowPassSC is a low-pass-filter of the fifth order. It is realized using an switched-capacitor network with operational amplifiers. The voltage source V is the input voltage (step), and the OP5.out.v is the filter output voltage. The pulse response is calculated. </p>
+<p>This model is identical to the CauerLowPassAnalog example, but inverting. To get the same response as that of the CauerLowPassAnalog example, a negative voltage step is used as input. </p>
+<p>This model is identical to the CauerLowPassOPV example. But the resistors are realized by switched capacitors. There are two such resistors Rp (of value +1), and Rn (of value -1). In this models the switching clock source is included. In a typical switched capacitor circuit there would be a central clock source. </p>
+<p>The simulation end time should be 60. Please plot both V.v (which is the inverted input voltage) and OP5.p.v (output voltage). Compare this result with the CauerLowPassAnalog result. </p>
+<p>Due to the recharging of the capacitances after switching the performance of simulation is not as good as in the CauerLowPassOPV example.  </p>
 </html>"),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-250,-200},{250,
             200}}), graphics={
