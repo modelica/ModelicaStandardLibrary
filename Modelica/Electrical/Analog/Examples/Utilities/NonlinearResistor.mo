@@ -33,7 +33,7 @@ model NonlinearResistor "Chua's resistor"
           textString="%name",
           lineColor={0,0,255})}),
     Documentation(info="<html>
-<p>This is the only nonlinear component for Chua&apos;s circuit. It is a piecewise linear resistor with both an inner and an outer range, which includes the inner one. The slopes of both ranges are given by parameters. The resistance caracteristic is continuous. For Chua&apos;s circuit both slopes have to be chosen to be negative.</p>
+<p>This is the only nonlinear component for Chua&apos;s circuit. It is a piecewise linear resistor with both an inner and an outer range, which includes the inner one. The slopes of both ranges are given by parameters. The resistance caracteristic is continuous. For Chua&apos;s circuit both slopes have to be chosen to be negative. </p>
 </html>"));
 
   parameter SI.Conductance Ga "Conductance in inner voltage range";

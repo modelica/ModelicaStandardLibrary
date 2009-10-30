@@ -37,20 +37,11 @@ model Nand "CMOS NAND Gate (see Tietze/Schenk, page 157)"
           textString="y",
           lineColor={0,0,255})}),
     Documentation(info="<html>
-<p>
-The nand gate is a basic CMOS building block. It consists of four CMOS transistors.
-<p>
-<dl>
-<dt>
-<b>Reference:</b>
-<dd>
-Tietze, U.; Schenk, Ch.: Halbleiter-Schaltungstechnik. Springer-Verlag Berlin Heidelberg NewYork 1980, p. 157
-<p>
-</dd>
-</dl>
-
-</HTML>
-", revisions="<html>
+<p>The nand gate is a basic CMOS building block. It consists of four CMOS transistors.  </p>
+<p><b>Reference:</b> </p>
+<p>Tietze, U.; Schenk, Ch.: Halbleiter-Schaltungstechnik. Springer-Verlag Berlin Heidelberg NewYork 1980, p. 157 </p>
+</html>",
+   revisions="<html>
 <dl>
 <dt>
 <b>Main Authors:</b>

@@ -15,7 +15,7 @@ model Transistor "Transistor with resistance an capacitance"
         Line(points={{60,60},{40,60},{-10,10}}, color={0,0,255}),
         Line(points={{-10,-10},{40,-60},{60,-60}}, color={0,0,255})}),
     Documentation(info="<html>
-<p>Since the simple bipolar transistor model does not have base or collector resistances both are added in this component. Additionally, a capacity is added to the base pin. See the schematic for more detailes. In such a way the transistor model can be enhanced to become more common.</p>
+<p>Since the simple bipolar transistor model does not have base or collector resistances both are added in this component. Additionally, a capacity is added to the base pin. See the schematic for more detailes.  In such a way the transistor model can be enhanced to become more common. </p>
 </html>"),
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
             100,100}}), graphics={Text(
