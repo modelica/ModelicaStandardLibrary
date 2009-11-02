@@ -2966,8 +2966,7 @@ If time less than <i>Tdel</i> the initial value <i>initout</i> holds.
               lineThickness=0.5,
               fillColor={213,170,255},
               fillPattern=FillPattern.Solid),
-            Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}), 
-
+            Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}),
             Line(points={{0,60},{20,60}}, color={0,0,0}),
             Line(points={{10,60},{10,40}}, color={0,0,0}),
             Text(
@@ -3034,8 +3033,7 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
               lineThickness=0.5,
               fillColor={213,170,255},
               fillPattern=FillPattern.Solid),
-            Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}), 
-
+            Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}),
             Line(points={{10,60},{10,40}}, color={0,0,0}),
             Line(points={{0,60},{20,60}}, color={0,0,0}),
             Text(
@@ -3136,8 +3134,7 @@ is used, if it is zero, the input is not delayed.
               lineColor={0,0,0},
               lineThickness=0.5,
               textString="sensitive"),
-            Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}), 
-
+            Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}),
             Line(points={{10,60},{10,40}}, color={0,0,0}),
             Line(points={{0,60},{20,60}}, color={0,0,0})}));
 
@@ -4529,7 +4526,7 @@ The number of periods is unlimited. The first pulse starts at startTime.
               textString="%name"),
             Line(points={{50,0},{90,0}}, color={127,0,127}),
             Line(points={{-36,40},{-30,40},{-30,80},{-18,80},{-18,40},{-6,40},{
-                  -6,80},{6,80},{6,40},{18,40},{18,80},{30,80},{30,40},{36,40}}, 
+                  -6,80},{6,80},{6,40},{18,40},{18,80},{30,80},{30,40},{36,40}},
                 color={0,0,0})}));
         algorithm
           when sample(startTime, period) then
@@ -5975,8 +5972,8 @@ Clock transition definitions:
         model DFFREGSRL
       "Edge triggered register bank with low active set and reset"
           extends Digital.Registers.DFFREGSRH(final ResetSetMap=[1,1,1,1,1,1,1,1,1;
-                1,4,2,7,4,4,2,7,4; 1,6,2,3,5,5,2,3,6; 1,5,2,8,6,6,2,8,5; 1,4,2,7,4,
-                4,2,7,4; 1,4,2,7,4,4,2,7,4; 1,6,2,3,5,5,2,3,6; 1,5,2,8,6,6,2,8,5; 1,
+                1,4,2,7,4,4,2,7,4; 1,6,2,3,6,6,2,3,6; 1,5,2,8,5,5,2,8,5; 1,4,2,7,4,
+                4,2,7,4; 1,4,2,7,4,4,2,7,4; 1,6,2,3,6,6,2,3,6; 1,5,2,8,5,5,2,8,5; 1,
                 4,2,7,4,4,2,7,4]);
                    // Function selection by [reset, set] reading;
           annotation (Icon(graphics={Rectangle(
