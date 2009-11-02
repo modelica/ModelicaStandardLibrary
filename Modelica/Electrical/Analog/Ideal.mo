@@ -1090,7 +1090,10 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
           Boolean off(start=true) "Switching state";
   protected
           Real s(final unit="1")
-      "Auxiliary variable: if on then current, if opened then voltage";
+      "Auxiliary variable for actual position on the ideal diode characteristic";
+          /* s = 0: knee point
+     s < 0: below knee point, diode conducting
+     s > 0: above knee point, diode locking */
           constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
           constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
           annotation (

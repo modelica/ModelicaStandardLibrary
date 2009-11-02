@@ -307,8 +307,8 @@ Some typical parameter sets are:
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255})}));
 equation
-  //assert (L + dL > 0, "Effective length must be positive");
-  //assert (W + dW > 0, "Effective width  must be positive");
+  assert( L + dL > 0, "PMOS: Effective length must be positive");
+  assert( W + dW > 0, "PMOS: Effective width  must be positive");
   gds = if (RDS < 1.e-20 and RDS > -1.e-20) then 1.e20 else 1/RDS;
   v = Beta*(W + dW)/(L + dL);
   ud = smooth(0,if (D.v > S.v) then S.v else D.v);
@@ -461,8 +461,8 @@ Muenchen Wien 1990.
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255})}));
 equation
-  //assert (L + dL > 0, "Effective length must be positive");
-  //assert (W + dW > 0, "Effective width  must be positive");
+  assert( L + dL > 0, "NMOS: Effective length must be positive");
+  assert( W + dW > 0, "NMOS: Effective width  must be positive");
   gds = if (RDS < 1.e-20 and RDS > -1.e-20) then 1.e20 else 1/RDS;
   v = Beta*(W + dW)/(L + dL);
   ud = smooth(0,if (D.v < S.v) then S.v else D.v);
@@ -1030,9 +1030,9 @@ end HeatingDiode;
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255})}));
         equation
-          assert(L + dL > 0, "Effective length must be positive");
-          assert(W + dW > 0, "Effective width  must be positive");
-          assert( T_heatPort > 0,"temperature must be positive");
+          assert(L + dL > 0, "Heating NMOS: Effective length must be positive");
+          assert(W + dW > 0, "Heating NMOS: Effective width  must be positive");
+          assert(T_heatPort > 0,"Heating NMOS: Temperature must be positive");
           gds = if (RDS < 1.e-20 and RDS > -1.e-20) then 1.e20 else 1/RDS;
           v = beta_t*(W + dW)/(L + dL);
           ud = smooth(0,if (D.v < S.v) then S.v else D.v);
@@ -1171,9 +1171,9 @@ end HeatingDiode;
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255})}));
         equation
-          assert(L + dL > 0, "Effective length must be positive");
-          assert(W + dW > 0, "Effective width  must be positive");
-          assert( T_heatPort > 0,"temperature must be positive");
+          assert(L + dL > 0, "HeatingPMOS: Effective length must be positive");
+          assert(W + dW > 0, "HeatingPMOS: Effective width  must be positive");
+          assert( T_heatPort > 0,"HeatingPMOS: Temperature must be positive");
           gds = if (RDS < 1.e-20 and RDS > -1.e-20) then 1.e20 else 1/RDS;
           v = beta_t*(W + dW)/(L + dL);
           ud = smooth(0,if (D.v > S.v) then S.v else D.v);
