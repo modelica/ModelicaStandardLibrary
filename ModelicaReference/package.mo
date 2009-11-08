@@ -1,53 +1,5 @@
 within ;
 package ModelicaReference "Modelica Reference"
-annotation (__Dymola_DocumentationClass=true,
-    versionBuild="$Rev$",
-    versionDate="$Date::                            $",
-    Documentation(info="<html>
-<p>
-This package is a reference to Modelica keywords and Modelica builtin
-operators and is based on the
-<a href=\"http://www.modelica.org/documents/ModelicaSpec30.pdf\">Modelica Language Specification version 3.0</a> from Sept. 2007.
-
-
-<dl>
-<dt><b>Main Author:</b></dt>
-<dd><a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian.Schweiger</a><br>
-    Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
-    Institut f&uuml;r Robotik und Mechatronik<br>
-    Postfach 11 16<br>
-    D-82230 Wessling<br>
-    Germany<br>
-    email: <A HREF=\"mailto:Christian.Schweiger@dlr.de\">Christian.Schweiger@dlr.de</A><br></dd>
-</dl>
-
-<p>
-<b>Copyright &copy; 2003-2004, 2008 Modelica Association and DLR.</b>
-</p>
-<p>
-<i>The <b>ModelicaReference</b> package is <b>free</b> software;
-it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b>
-<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
-</p><br>
-</html>", revisions="<html>
-
-<ul>
-<li><i>Jan. 2, 2008</i>
-    by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-    Adapted to Modelica language version 3.0</li>
-
-<li><i>Sept. 30, 2004</i>
-    by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-    Moved the content of \"Functions\" into \"Operators\" and updated
-    \"Operators\" according to Modelica 2.1</li>
-
-<li><i>July 10, 2003</i>
-     by <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
-     Implemented.</li>
-</ul>
-</html>"));
 
 
 package Annotations "Annotations"
@@ -410,13 +362,6 @@ Together with scheme \"Modelica\" the (URI)  fragment specifiers #diagram, #info
 </html>"));
   end Documentation;
 
-  annotation (Documentation(info="<html>
-<p>
-In this package annotations are described.
-Annotations are intended for storing extra information about a model, such as graphics, documentation or versioning. A Modelica tool is free to define and use other annotations, in addition to those defined here. The only requirement is that any tool shall save files with all annotations from this chapter and all vendor-specific annotations intact. To ensure this, annotations must be represented with constructs according to the Modelica grammar. The Modelica language specification defines the semantic meaning if a tool implements any of these annotations.
-</p>
-
-</html>"));
   class DynamicSelect "DynamicSelect"
 
     annotation (Documentation(info="<html>
@@ -846,6 +791,13 @@ When the variable to which this annotation is attached in the declaration cannot
 
 </html>"));
   end unassignedMessage;
+  annotation (Documentation(info="<html>
+<p>
+In this package annotations are described.
+Annotations are intended for storing extra information about a model, such as graphics, documentation or versioning. A Modelica tool is free to define and use other annotations, in addition to those defined here. The only requirement is that any tool shall save files with all annotations from this chapter and all vendor-specific annotations intact. To ensure this, annotations must be represented with constructs according to the Modelica grammar. The Modelica language specification defines the semantic meaning if a tool implements any of these annotations.
+</p>
+
+</html>"));
 end Annotations;
 
 
@@ -1695,25 +1647,6 @@ Mathematica and in MATLAB these are valid expressions):
 
 </html>"));
 end ElementaryOperators;
-  annotation (Documentation(info="<html>
-<p>
-In this chapter <b>operators</b> of Modelica are documented.
-Elementary operators, such as \"+\" or \"-\" are overloaded and
-operate on scalar and array variables. Other operators
-have the same syntax as a
-<a href=\"Modelica://ModelicaReference.Classes.Function\">Modelica function</a>
-call. However, they do not behave as a Modelica function,
-either because the result depends not only on the input arguments but
-also on the status of the simulation (such as \"pre(..)\"), or
-the function operates on input arguments of different types
-(such as \"String(..)\"). Neither of these \"functions\"
-can be defined with a \"standard\" Modelica function and are
-therefore builtin operators of the Modelica language
-(with exception of the basic mathematical functions,
-sin, cos, tan, asin, acos, atan, atan2, sinh, cosh, tanh, exp,
-log, log10 that are provided for convenience as built-in functions).
-</p>
-</html>"));
 
   class Abs "abs"
 
@@ -3487,6 +3420,25 @@ elements equal to zero (ni >= 0).
 </p>
 </html>"));
 end Zeros;
+  annotation (Documentation(info="<html>
+<p>
+In this chapter <b>operators</b> of Modelica are documented.
+Elementary operators, such as \"+\" or \"-\" are overloaded and
+operate on scalar and array variables. Other operators
+have the same syntax as a
+<a href=\"Modelica://ModelicaReference.Classes.Function\">Modelica function</a>
+call. However, they do not behave as a Modelica function,
+either because the result depends not only on the input arguments but
+also on the status of the simulation (such as \"pre(..)\"), or
+the function operates on input arguments of different types
+(such as \"String(..)\"). Neither of these \"functions\"
+can be defined with a \"standard\" Modelica function and are
+therefore builtin operators of the Modelica language
+(with exception of the basic mathematical functions,
+sin, cos, tan, asin, acos, atan, atan2, sinh, cosh, tanh, exp,
+log, log10 that are provided for convenience as built-in functions).
+</p>
+</html>"));
 end Operators;
 
 
@@ -5534,4 +5486,54 @@ and is formally defined as follows</P>
 </html>"));
 end While;
 
+
+annotation (__Dymola_DocumentationClass=true,
+    versionBuild="$Rev$",
+    versionDate="$Date::                            $",
+    Documentation(info="<html>
+<p>
+This package is a reference to Modelica keywords and Modelica builtin
+operators and is based on the
+<a href=\"http://www.modelica.org/documents/ModelicaSpec30.pdf\">Modelica Language Specification version 3.0</a> from Sept. 2007.
+
+
+<dl>
+<dt><b>Main Author:</b></dt>
+<dd><a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian.Schweiger</a><br>
+    Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
+    Institut f&uuml;r Robotik und Mechatronik<br>
+    Postfach 11 16<br>
+    D-82230 Wessling<br>
+    Germany<br>
+    email: <A HREF=\"mailto:Christian.Schweiger@dlr.de\">Christian.Schweiger@dlr.de</A><br></dd>
+</dl>
+
+<p>
+<b>Copyright &copy; 2003-2004, 2008 Modelica Association and DLR.</b>
+</p>
+<p>
+<i>The <b>ModelicaReference</b> package is <b>free</b> software;
+it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the accompanying <b>disclaimer</b>
+<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
+</p><br>
+</html>", revisions="<html>
+
+<ul>
+<li><i>Jan. 2, 2008</i>
+    by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+    Adapted to Modelica language version 3.0</li>
+
+<li><i>Sept. 30, 2004</i>
+    by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+    Moved the content of \"Functions\" into \"Operators\" and updated
+    \"Operators\" according to Modelica 2.1</li>
+
+<li><i>July 10, 2003</i>
+     by <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
+     Implemented.</li>
+</ul>
+</html>"),
+  uses(Modelica(version="3.1")));
 end ModelicaReference;
