@@ -5488,8 +5488,9 @@ end While;
 
 
 annotation (__Dymola_DocumentationClass=true,
-    versionBuild="$Rev$",
-    versionDate="$Date::                            $",
+    versionDate="2009-11-08",
+    dateModified = "2009-11-08 11:21:14Z",
+    revisionId="$Id::                                            $",
     Documentation(info="<html>
 <p>
 This package is a reference to Modelica keywords and Modelica builtin
