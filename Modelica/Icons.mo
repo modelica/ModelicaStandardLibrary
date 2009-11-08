@@ -158,8 +158,6 @@ This icon is designed for an <b>Example package</b>,
 i.e. a package containing executable demo models.
 </p>
 </html>"));
-  equation
-
   end Example;
 
   partial function Function "Icon for a function"
@@ -316,7 +314,6 @@ This icon is designed for a <b>String</b> type.
 This icon is designed for a <b>translational sensor</b> model.
 </p>
 </html>"));
-  equation
 
   end TranslationalSensor;
 
@@ -358,7 +355,6 @@ This icon is designed for a <b>translational sensor</b> model.
 This icon is designed for a <b>rotational sensor</b> model.
 </p>
 </html>"));
-  equation
 
   end RotationalSensor;
 
@@ -406,7 +402,6 @@ This icon is designed for a <b>rotational sensor</b> model.
 This icon is designed for a <b>gearbox</b> model.
 </p>
 </html>"));
-  equation
 
   end GearIcon;
 
@@ -437,8 +432,6 @@ This icon is designed for a <b>gearbox</b> model.
 This icon is designed for an <b>electrical motor</b> model.
 </p>
 </html>"));
-  equation
-
   end MotorIcon;
 
   connector SignalBus "Icon for signal bus"
@@ -627,7 +620,6 @@ for an obsolete model</u> that will be removed from the
 corresponding library in a future release.
 <p>
 </html>"));
-  equation
 
   end ObsoleteModel;
   annotation (

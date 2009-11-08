@@ -2147,8 +2147,6 @@ package Interfaces "Connectors and partial models"
           Documentation(info="<html>
 
 </html>"));
-  equation
-
   end PartialStateGraphIcon;
 
   model CompositeStepState

@@ -100,8 +100,6 @@ which provide simple models for a broad variety of applications.
 </p>
 </html>
 "));
-  equation
-
   end GettingStarted;
 
   package ComponentDefinition "Component definition"
@@ -1600,7 +1598,6 @@ standard library.
 </ul>
 </HTML>
 "));
-  equation
 
   end ReleaseNotes;
 

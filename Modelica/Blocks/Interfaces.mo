@@ -855,8 +855,6 @@ Block that has only the basic icon for an input/output,
 Integer block (no declarations, no equations).
 </p>
 </html>"));
-equation
-
 end IntegerBlockIcon;
 
 partial block IntegerSO "Single Integer Output continuous control block"
@@ -958,7 +956,6 @@ Boolean block (no declarations, no equations) used especially
 in the Blocks.Logical library.
 </p>
 </html>"));
-  equation
 
   end partialBooleanBlockIcon;
 

@@ -88,8 +88,6 @@ The sub-package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Shapes.Leakage\
 
 </html>
 "));
-  equation
-
   end ReluctanceForceCalculation;
 
   class Literature "Literature"
@@ -199,23 +197,23 @@ end UsersGuide;
     model SaturatedInductor
       "Inductor with saturation in the ferromagnetic core"
 
-      Modelica.Magnetic.FluxTubes.Basic.Ground ground_m
+      Modelica.Magnetic.FluxTubes.Basic.Ground ground_m 
         annotation (Placement(transformation(extent={{50,-30},{70,-10}},
             rotation=0)));
       Modelica.Electrical.Analog.Sources.SineVoltage source(
         freqHz=50,
         phase=pi/2,
-        V=230*sqrt(2)) "Voltage applied to inductor"
+        V=230*sqrt(2)) "Voltage applied to inductor" 
                 annotation (Placement(transformation(
           origin={-80,10},
           extent={{-10,-10},{10,10}},
           rotation=270)));
       Modelica.Electrical.Analog.Basic.Resistor r(R=7.5)
-        "Inductor coil resistance"
+        "Inductor coil resistance" 
         annotation (Placement(transformation(extent={{-61,10},{-41,30}},
             rotation=0)));
       Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter coil(
-                                    N=600, i(fixed=true)) "Inductor coil"
+                                    N=600, i(fixed=true)) "Inductor coil" 
         annotation (Placement(transformation(extent={{-30,0},{-10,20}},
             rotation=0)));
       Basic.ConstantReluctance r_mLeak(R_m=1.2e6) "Constant leakage reluctance"
@@ -239,12 +237,12 @@ end UsersGuide;
         nonLinearPermeability=true,
         l=4*0.065,
         material=Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.ElectricSheet.M350_50A())
-        "Reluctance of ferromagnetic inductor core"
+        "Reluctance of ferromagnetic inductor core" 
         annotation (Placement(transformation(
           origin={60,10},
           extent={{-10,-10},{10,10}},
           rotation=270)));
-      Modelica.Electrical.Analog.Basic.Ground ground
+      Modelica.Electrical.Analog.Basic.Ground ground 
         annotation (Placement(transformation(extent={{-90,-30},{-70,-10}},
             rotation=0)));
 
@@ -337,69 +335,69 @@ If the supply voltage has a zero-crossing when applied to the inductor at time t
 
         extends Modelica.Icons.Example;
 
-        Modelica.Electrical.Analog.Basic.Ground pmGround
+        Modelica.Electrical.Analog.Basic.Ground pmGround 
           annotation (Placement(transformation(extent={{-70,-100},{-50,-80}},
               rotation=0)));
         Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator
           pmActuator(x(start=0), material=
               Modelica.Magnetic.FluxTubes.Material.HardMagnetic.PlasticNdFeB())
-          "Moving coil actuator described with permeance model"
+          "Moving coil actuator described with permeance model" 
           annotation (Placement(transformation(extent={{-20,-70},{0,-50}},
               rotation=0)));
         Modelica.Mechanics.Translational.Components.Fixed pmFixedPos(
                                                           s0=0)
-          "Fixed armature position"
+          "Fixed armature position" 
           annotation (Placement(transformation(extent={{10,-70},{30,-50}},
               rotation=0)));
         Modelica.Electrical.Analog.Sources.RampCurrent pmRampCurrent(
           I=-6,
           duration=6,
-          offset=3) "Ideal current source "
+          offset=3) "Ideal current source " 
           annotation (Placement(transformation(
             origin={-60,-60},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-        Modelica.Electrical.Analog.Basic.Ground cGround
+        Modelica.Electrical.Analog.Basic.Ground cGround 
           annotation (Placement(transformation(extent={{-70,-20},{-50,0}},
               rotation=0)));
         Modelica.Mechanics.Translational.Components.Fixed cFixedPos(
                                                          s0=0)
-          "Fixed armature position"
+          "Fixed armature position" 
           annotation (Placement(transformation(extent={{10,10},{30,30}},
               rotation=0)));
         Modelica.Electrical.Analog.Sources.RampCurrent cRampCurrent(
           I=-6,
           duration=6,
-          offset=3) "Ideal current source "
+          offset=3) "Ideal current source " 
           annotation (Placement(transformation(
             origin={-60,20},
             extent={{-10,-10},{10,10}},
             rotation=270)));
         Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator
-          cActuator "Moving coil actuator described with converter constant"
+          cActuator "Moving coil actuator described with converter constant" 
           annotation (Placement(transformation(extent={{-20,10},{0,30}},
               rotation=0)));
         Modelica.Blocks.Tables.CombiTable1Ds comparisonWithFEA(table=[-3,-9.65653;
               -2.5,-8.28587; -2,-6.82002; -1.5,-5.25898; -1,-3.60274; -0.5,-1.85131;
               0,-0.00468; 0.5,1.93714; 1,3.97415; 1.5,6.10636; 2,8.33376; 2.5,
               10.65636; 3,13.07415])
-          "Column 1: current, col. 2: force; mu_rFe=const.=1000 in FEA model"
+          "Column 1: current, col. 2: force; mu_rFe=const.=1000 in FEA model" 
           annotation (Placement(transformation(extent={{40,50},{60,70}},
               rotation=0)));
         Modelica.Electrical.Analog.Sensors.CurrentSensor iSensor
-          "Input value for look-up table with FEA results"
+          "Input value for look-up table with FEA results" 
           annotation (Placement(transformation(extent={{-50,40},{-30,20}},
               rotation=0)));
       equation
-        connect(pmFixedPos.flange,   pmActuator.flange)
+        connect(pmFixedPos.flange,   pmActuator.flange) 
           annotation (Line(points={{20,-60},{0,-60}}, color={0,127,0}));
-        connect(pmRampCurrent.p, pmActuator.p)
+        connect(pmRampCurrent.p, pmActuator.p) 
                                            annotation (Line(points={{-60,-50},{
               -30,-50},{-30,-54},{-20,-54}}, color={0,0,255}));
-        connect(pmActuator.n, pmRampCurrent.n)
+        connect(pmActuator.n, pmRampCurrent.n) 
                                            annotation (Line(points={{-20,-66},{
               -30,-66},{-30,-70},{-60,-70}}, color={0,0,255}));
-        connect(pmGround.p, pmRampCurrent.n)
+        connect(pmGround.p, pmRampCurrent.n) 
                                          annotation (Line(points={{-60,-80},{
               -60,-70}}, color={0,0,255}));
         connect(cGround.p,cRampCurrent. n) annotation (Line(points={{-60,0},{
@@ -445,15 +443,15 @@ Simulation of the force-current characteristics of both converter models with th
 
         extends Modelica.Icons.Example;
 
-        Modelica.Electrical.Analog.Basic.Ground ground
+        Modelica.Electrical.Analog.Basic.Ground ground 
           annotation (Placement(transformation(extent={{-70,-30},{-50,-10}},
               rotation=0)));
         Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator
           actuator(x(start=0), material=
-              Modelica.Magnetic.FluxTubes.Material.HardMagnetic.PlasticNdFeB())
+              Modelica.Magnetic.FluxTubes.Material.HardMagnetic.PlasticNdFeB()) 
           annotation (Placement(transformation(extent={{-30,0},{-10,20}},
               rotation=0)));
-        Modelica.Electrical.Analog.Sources.ConstantCurrent source(I=3)
+        Modelica.Electrical.Analog.Sources.ConstantCurrent source(I=3) 
           annotation (Placement(transformation(
             origin={-60,10},
             extent={{-10,-10},{10,10}},
@@ -465,7 +463,7 @@ Simulation of the force-current characteristics of both converter models with th
           startTime=-4) annotation (Placement(transformation(extent={{70,0},{50,
                 20}}, rotation=0)));
         Modelica.Mechanics.Translational.Sources.Position feedX(
-                                                        exact=true)
+                                                        exact=true) 
           annotation (Placement(transformation(extent={{30,0},{10,20}},
               rotation=0)));
         Modelica.Blocks.Tables.CombiTable1Ds comparisonWithFEA(table=[-0.004,-8.8729,
@@ -522,12 +520,12 @@ Simulation of the force-stroke characteristic of the <a href=\"Modelica://Modeli
 
         extends Modelica.Icons.Example;
 
-        Modelica.Electrical.Analog.Basic.Ground pmGround
+        Modelica.Electrical.Analog.Basic.Ground pmGround 
           annotation (Placement(transformation(extent={{-80,-70},{-60,-50}},
               rotation=0)));
         Modelica.Electrical.Analog.Sources.StepVoltage pmSource(
           startTime=0,
-          V=pmActuator.R*1.5) "Steady state current 1.5A"
+          V=pmActuator.R*1.5) "Steady state current 1.5A" 
           annotation (Placement(transformation(
             origin={-70,-30},
             extent={{-10,-10},{10,10}},
@@ -537,20 +535,20 @@ Simulation of the force-stroke characteristic of the <a href=\"Modelica://Modeli
               start=pmActuator.x_min, fixed=true),
         armature(v(fixed=true)),
         coil(i(fixed=true)))
-          "Moving coil actuator described with permeance model"
+          "Moving coil actuator described with permeance model" 
           annotation (Placement(transformation(extent={{-40,-40},{-20,-20}},
               rotation=0)));
         Modelica.Mechanics.Translational.Components.Mass pmLoad(
                                                             m=0.05)
-          "Load to be moved in addition to the armature mass"
+          "Load to be moved in addition to the armature mass" 
           annotation (Placement(transformation(extent={{0,-40},{20,-20}},
               rotation=0)));
-        Modelica.Electrical.Analog.Basic.Ground cGround
+        Modelica.Electrical.Analog.Basic.Ground cGround 
           annotation (Placement(transformation(extent={{-80,0},{-60,20}},
               rotation=0)));
         Modelica.Electrical.Analog.Sources.StepVoltage cSource(
           startTime=0,
-          V=cActuator.R*1.5) "Steady state current 1.5A"
+          V=cActuator.R*1.5) "Steady state current 1.5A" 
           annotation (Placement(transformation(
             origin={-70,40},
             extent={{-10,-10},{10,10}},
@@ -559,16 +557,16 @@ Simulation of the force-stroke characteristic of the <a href=\"Modelica://Modeli
           cActuator(x(start=cActuator.x_min, fixed=true), armature(v(
                 fixed=true)),
         l(i(start=0, fixed=true)))
-          "Moving coil actuator described with converter constant"
+          "Moving coil actuator described with converter constant" 
           annotation (Placement(transformation(extent={{-40,30},{-20,50}},
               rotation=0)));
         Modelica.Mechanics.Translational.Components.Mass cLoad(
                                                            m=0.05)
-          "Load to be moved in addition to the armature mass"
+          "Load to be moved in addition to the armature mass" 
           annotation (Placement(transformation(extent={{0,30},{20,50}},
               rotation=0)));
       equation
-        connect(pmLoad.flange_a, pmActuator.flange)
+        connect(pmLoad.flange_a, pmActuator.flange) 
           annotation (Line(points={{0,-30},{-20,-30}}, color={0,127,0}));
         connect(cGround.p, cSource.n) annotation (Line(points={{-70,20},{-70,30}},
             color={0,0,255}));
@@ -578,12 +576,12 @@ Simulation of the force-stroke characteristic of the <a href=\"Modelica://Modeli
               50},{-56,46},{-40,46}}, color={0,0,255}));
         connect(cSource.n, cActuator.n)  annotation (Line(points={{-70,30},{-56,
               30},{-56,34},{-40,34}}, color={0,0,255}));
-        connect(pmSource.n, pmGround.p)
+        connect(pmSource.n, pmGround.p) 
           annotation (Line(points={{-70,-40},{-70,-50}}, color={0,0,255}));
-        connect(pmSource.n, pmActuator.n)
+        connect(pmSource.n, pmActuator.n) 
                                         annotation (Line(points={{-70,-40},{-54,
               -40},{-54,-36},{-40,-36}}, color={0,0,255}));
-        connect(pmSource.p, pmActuator.p)
+        connect(pmSource.p, pmActuator.p) 
                                         annotation (Line(points={{-70,-20},{-55,
               -20},{-55,-24},{-40,-24}}, color={0,0,255}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
@@ -669,7 +667,7 @@ Whereas the steady state current is the same in both models, the steady state ac
           Modelica.Magnetic.FluxTubes.Sources.ConstantMagneticPotentialDifference
             mmf_PM(
             final V_m=material.H_cB*l_PM)
-            "Permanent magnet's magnetomotive force"
+            "Permanent magnet's magnetomotive force" 
             annotation (Placement(transformation(
               origin={10,20},
               extent={{-10,-10},{10,10}},
@@ -687,7 +685,7 @@ Whereas the steady state current is the same in both models, the steady state ac
             "Inertia of moving coil + coil carrier; stoppers at end of stroke range"
             annotation (Placement(transformation(extent={{60,-10},{80,10}},
                 rotation=0)));
-          Modelica.Electrical.Analog.Basic.Resistor r(final R=R)
+          Modelica.Electrical.Analog.Basic.Resistor r(final R=R) 
             annotation (Placement(transformation(
               origin={-80,30},
               extent={{-10,-10},{10,10}},
@@ -696,7 +694,7 @@ Whereas the steady state current is the same in both models, the steady state ac
           Basic.Ground ground annotation (Placement(transformation(extent={{30,
                   -38},{50,-18}}, rotation=0)));
           Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter coil(
-                                        final N=N)
+                                        final N=N) 
             annotation (Placement(transformation(
               origin={0,-20},
               extent={{-10,-10},{10,10}},
@@ -708,7 +706,7 @@ Whereas the steady state current is the same in both models, the steady state ac
             final r_i=r_core,
             final r_o=r_core + l_air + l_PM,
             final mu_r=1.05,
-            final useSupport=false)
+            final useSupport=false) 
                              annotation (Placement(transformation(
               origin={-20,0},
               extent={{-10,-10},{10,10}},
@@ -720,7 +718,7 @@ Whereas the steady state current is the same in both models, the steady state ac
             final dlBydx=-1,
             final l=t/2 - x,
             final mu_r=1.05,
-            final useSupport=false)
+            final useSupport=false) 
                              annotation (Placement(transformation(
               origin={30,0},
               extent={{-10,-10},{10,10}},
@@ -744,15 +742,15 @@ Whereas the steady state current is the same in both models, the steady state ac
               rotation=270)));
 
           Modelica.Electrical.Analog.Interfaces.PositivePin p
-            "Electrical connector"
+            "Electrical connector" 
             annotation (Placement(transformation(extent={{-110,50},{-90,70}},
                 rotation=0)));
           Modelica.Electrical.Analog.Interfaces.NegativePin n
-            "Electrical connector"
+            "Electrical connector" 
             annotation (Placement(transformation(extent={{-90,-70},{-110,-50}},
                 rotation=0)));
           Modelica.Mechanics.Translational.Interfaces.Flange_b flange
-            "Flange of component"
+            "Flange of component" 
             annotation (Placement(transformation(extent={{90,-10},{110,10}},
                 rotation=0)));
         equation
@@ -763,7 +761,7 @@ Whereas the steady state current is the same in both models, the steady state ac
             points={{80,0},{100,0}},
             color={0,127,0},
             pattern=LinePattern.None));
-          connect(r.p, p)
+          connect(r.p, p) 
             annotation (Line(points={{-80,40},{-80,60},{-100,60}}, color={0,0,
                 255}));
           connect(armature.flange_a,g_mb. flange) annotation (Line(points={{60,0},{
@@ -886,7 +884,7 @@ Both force components are properly considered with a simple permeance model as s
             "Armature position, alias for flange position";
 
           Modelica.Electrical.Analog.Basic.Resistor r(final R=R)
-            "Coil resistance"
+            "Coil resistance" 
             annotation (Placement(transformation(extent={{-90,50},{-70,70}},
                 rotation=0)));
           Modelica.Magnetic.FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper
@@ -897,28 +895,28 @@ Both force components are properly considered with a simple permeance model as s
             final L=0,
             final c=c,
             final d=d,
-            n=2) "Armature inertia with stoppers at end of stroke range"
+            n=2) "Armature inertia with stoppers at end of stroke range" 
             annotation (Placement(transformation(extent={{60,-10},{80,10}},
                 rotation=0)));
 
           Modelica.Electrical.Analog.Basic.Inductor l(final L=L)
-            "Coil inductance"
+            "Coil inductance" 
             annotation (Placement(transformation(extent={{-60,50},{-40,70}},
                 rotation=0)));
           Modelica.Electrical.Analog.Basic.TranslationalEMF
-            electroTranslationalConverter( final k=k)
+            electroTranslationalConverter( final k=k) 
             annotation (Placement(transformation(extent={{-40,-10},{-20,10}},
                 rotation=0)));
           Modelica.Electrical.Analog.Interfaces.PositivePin p
-            "Electrical connector"
+            "Electrical connector" 
             annotation (Placement(transformation(extent={{-110,50},{-90,70}},
                 rotation=0)));
           Modelica.Electrical.Analog.Interfaces.NegativePin n
-            "Electrical connector"
+            "Electrical connector" 
             annotation (Placement(transformation(extent={{-90,-70},{-110,-50}},
                 rotation=0)));
           Modelica.Mechanics.Translational.Interfaces.Flange_b flange
-            "Flange of component"
+            "Flange of component" 
             annotation (Placement(transformation(extent={{90,-10},{110,10}},
                 rotation=0)));
         equation
@@ -926,7 +924,7 @@ Both force components are properly considered with a simple permeance model as s
 
           connect(r.p, p) annotation (Line(points={{-90,60},{-100,60}}, color={
                 0,0,255}));
-          connect(l.p,r. n)
+          connect(l.p,r. n) 
             annotation (Line(points={{-60,60},{-70,60}}, color={0,0,255}));
           connect(armature.flange_b, flange) annotation (Line(points={{80,0},{
                 85,0},{85,1.16573e-015},{90,1.16573e-015},{90,0},{100,0}},
@@ -935,7 +933,7 @@ Both force components are properly considered with a simple permeance model as s
                {{-40,60},{-30,60},{-30,10}}, color={0,0,255}));
           connect(n, electroTranslationalConverter.n) annotation (Line(points={
                 {-100,-60},{-30,-60},{-30,-10}}, color={0,0,255}));
-          connect(electroTranslationalConverter.flange, armature.flange_a)
+          connect(electroTranslationalConverter.flange, armature.flange_a) 
             annotation (Line(points={{-20,0},{0,0},{0,-6.10623e-016},{20,
                 -6.10623e-016},{20,0},{60,0}}, color={0,127,0}));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=false,
@@ -1031,38 +1029,38 @@ Moving coil actuators are often called electrodynamic actuators and a proportion
           "Prescribed armature position, slow enforced motion from x_max to x_min"
                                annotation (Placement(transformation(extent={{80,
                 -10},{60,10}}, rotation=0)));
-        Modelica.Electrical.Analog.Basic.Ground advancedGround
+        Modelica.Electrical.Analog.Basic.Ground advancedGround 
           annotation (Placement(transformation(extent={{-80,10},{-60,30}},
               rotation=0)));
-        Modelica.Electrical.Analog.Sources.StepVoltage advancedSource(V=v_step)
+        Modelica.Electrical.Analog.Sources.StepVoltage advancedSource(V=v_step) 
           annotation (Placement(transformation(
             origin={-70,50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
         Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid
-          advancedSolenoid
+          advancedSolenoid 
           annotation (Placement(transformation(extent={{-40,40},{-20,60}},
               rotation=0)));
         Modelica.Mechanics.Translational.Sources.Position advancedFeed_x(
-                                                                 f_crit=1000, exact=true)
+                                                                 f_crit=1000, exact=true) 
           annotation (Placement(transformation(
             origin={0,50},
             extent={{-10,-10},{10,10}},
             rotation=180)));
-        Modelica.Electrical.Analog.Basic.Ground simpleGround
+        Modelica.Electrical.Analog.Basic.Ground simpleGround 
           annotation (Placement(transformation(extent={{-80,-90},{-60,-70}},
               rotation=0)));
-        Modelica.Electrical.Analog.Sources.StepVoltage simpleSource(V=v_step)
+        Modelica.Electrical.Analog.Sources.StepVoltage simpleSource(V=v_step) 
           annotation (Placement(transformation(
             origin={-70,-50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
         Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid
-          simpleSolenoid
+          simpleSolenoid 
           annotation (Placement(transformation(extent={{-40,-60},{-20,-40}},
               rotation=0)));
         Modelica.Mechanics.Translational.Sources.Position simpleFeed_x(
-                                                               f_crit=1000, exact=false)
+                                                               f_crit=1000, exact=false) 
           annotation (Placement(transformation(
             origin={0,-50},
             extent={{-10,-10},{10,10}},
@@ -1083,34 +1081,34 @@ Moving coil actuators are often called electrodynamic actuators and a proportion
           annotation (Placement(transformation(extent={{60,60},{80,80}},
               rotation=0)));
       equation
-        connect(advancedGround.p, advancedSource.n)
+        connect(advancedGround.p, advancedSource.n) 
                                       annotation (Line(points={{-70,30},{-70,40}},
             color={0,0,255}));
-        connect(x_set.y, advancedFeed_x.s_ref)
+        connect(x_set.y, advancedFeed_x.s_ref) 
                                        annotation (Line(points={{59,0},{20,0},{
               20,50},{12,50}}, color={0,0,127}));
-        connect(simpleSolenoid.p, simpleSource.p)
+        connect(simpleSolenoid.p, simpleSource.p) 
                                              annotation (Line(points={{-40,-44},
               {-50,-44},{-50,-40},{-70,-40}}, color={0,0,255}));
-        connect(simpleSolenoid.n, simpleSource.n)
+        connect(simpleSolenoid.n, simpleSource.n) 
                                              annotation (Line(points={{-40,-56},
               {-50,-56},{-50,-60},{-70,-60}}, color={0,0,255}));
         connect(simpleSolenoid.flange,simpleFeed_x.flange)   annotation (Line(
             points={{-20,-50},{-10,-50}}, color={0,127,0}));
-        connect(advancedSolenoid.n, advancedSource.n)
+        connect(advancedSolenoid.n, advancedSource.n) 
                                               annotation (Line(points={{-40,44},
               {-50,44},{-50,40},{-70,40}}, color={0,0,255}));
         connect(simpleFeed_x.s_ref, x_set.y)  annotation (Line(points={{12,-50},
               {20,-50},{20,0},{59,0}}, color={0,0,127}));
         connect(x_set.y,comparisonWithFEA. u) annotation (Line(points={{59,0},{
               50,0},{50,70},{58,70}}, color={0,0,127}));
-        connect(advancedFeed_x.flange,   advancedSolenoid.flange)
+        connect(advancedFeed_x.flange,   advancedSolenoid.flange) 
                                                         annotation (Line(points=
              {{-10,50},{-20,50}}, color={0,127,0}));
-        connect(advancedSource.p, advancedSolenoid.p)
+        connect(advancedSource.p, advancedSolenoid.p) 
                                               annotation (Line(points={{-70,60},
               {-50,60},{-50,56},{-40,56}}, color={0,0,255}));
-        connect(simpleGround.p, simpleSource.n)
+        connect(simpleGround.p, simpleSource.n) 
                                         annotation (Line(points={{-70,-70},{-70,
               -60}}, color={0,0,255}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
@@ -1168,38 +1166,38 @@ As mentioned in the description of both magnetic network models, one can tell th
 
         parameter SI.Voltage v_step = 12 "Applied voltage";
 
-        Modelica.Electrical.Analog.Basic.Ground advancedGround
+        Modelica.Electrical.Analog.Basic.Ground advancedGround 
           annotation (Placement(transformation(extent={{-70,-10},{-50,10}},
               rotation=0)));
-        Modelica.Electrical.Analog.Sources.StepVoltage advancedSource(V=v_step)
+        Modelica.Electrical.Analog.Sources.StepVoltage advancedSource(V=v_step) 
           annotation (Placement(transformation(
             origin={-60,30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
         Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid
-          advancedSolenoid(x(fixed=true))
+          advancedSolenoid(x(fixed=true)) 
                          annotation (Placement(transformation(extent={{-20,20},
                 {0,40}}, rotation=0)));
         Modelica.Mechanics.Translational.Components.Mass advancedLoad(
                                                                   m=0.01)
-          "translatory load to be pulled horizontally"
+          "translatory load to be pulled horizontally" 
           annotation (Placement(transformation(extent={{20,20},{40,40}},
               rotation=0)));
-        Modelica.Electrical.Analog.Basic.Ground simpleGround
+        Modelica.Electrical.Analog.Basic.Ground simpleGround 
           annotation (Placement(transformation(extent={{-70,-90},{-50,-70}},
               rotation=0)));
-        Modelica.Electrical.Analog.Sources.StepVoltage simpleSource(V=v_step)
+        Modelica.Electrical.Analog.Sources.StepVoltage simpleSource(V=v_step) 
           annotation (Placement(transformation(
             origin={-60,-50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
         Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid
-          simpleSolenoid(x(fixed=true))
+          simpleSolenoid(x(fixed=true)) 
                        annotation (Placement(transformation(extent={{-20,-60},{
                 0,-40}}, rotation=0)));
         Modelica.Mechanics.Translational.Components.Mass simpleLoad(
                                                                 m=0.01)
-          "translatory load to be pulled horizontally"
+          "translatory load to be pulled horizontally" 
           annotation (Placement(transformation(extent={{20,-60},{40,-40}},
               rotation=0)));
         Modelica.Blocks.Sources.CombiTimeTable comparisonWithFEA(
@@ -1519,25 +1517,25 @@ As mentioned in the description of both magnetic network models, one can tell th
               rotation=0)));
 
       equation
-        connect(advancedGround.p, advancedSource.n)
+        connect(advancedGround.p, advancedSource.n) 
           annotation (Line(points={{-60,10},{-60,20}}, color={0,0,255}));
-        connect(advancedSource.p, advancedSolenoid.p)
+        connect(advancedSource.p, advancedSolenoid.p) 
           annotation (Line(points={{-60,40},{-40,40},{-40,36},{-20,36}}, color=
               {0,0,255}));
-        connect(advancedSolenoid.n, advancedSource.n)
+        connect(advancedSolenoid.n, advancedSource.n) 
           annotation (Line(points={{-20,24},{-40,24},{-40,20},{-60,20}}, color=
               {0,0,255}));
-        connect(advancedSolenoid.flange, advancedLoad.flange_a)
+        connect(advancedSolenoid.flange, advancedLoad.flange_a) 
           annotation (Line(points={{0,30},{20,30}}, color={0,127,0}));
-        connect(simpleGround.p, simpleSource.n)
+        connect(simpleGround.p, simpleSource.n) 
           annotation (Line(points={{-60,-70},{-60,-60}}, color={0,0,255}));
-        connect(simpleSource.p, simpleSolenoid.p)
+        connect(simpleSource.p, simpleSolenoid.p) 
           annotation (Line(points={{-60,-40},{-40,-40},{-40,-44},{-20,-44}},
             color={0,0,255}));
-        connect(simpleSolenoid.n, simpleSource.n)
+        connect(simpleSolenoid.n, simpleSource.n) 
           annotation (Line(points={{-20,-56},{-40,-56},{-40,-60},{-60,-60}},
             color={0,0,255}));
-        connect(simpleSolenoid.flange, simpleLoad.flange_a)
+        connect(simpleSolenoid.flange, simpleLoad.flange_a) 
           annotation (Line(points={{0,-50},{20,-50}}, color={0,127,0}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
                 {{-100,-100},{100,100}}),
@@ -1605,7 +1603,7 @@ The characteristic current drop during pull-in is due to both armature motion an
           parameter Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData
             material=
             Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel.Steel_9SMnPb28()
-            "Ferromagnetic material characteristics"
+            "Ferromagnetic material characteristics" 
             annotation(choicesAllMatching=true, Dialog(group="Material"));
 
         //armature
@@ -1628,18 +1626,18 @@ The characteristic current drop during pull-in is due to both armature motion an
             "Density for calculation of armature mass from geometry";
 
         public
-          Modelica.Magnetic.FluxTubes.Basic.Ground ground
+          Modelica.Magnetic.FluxTubes.Basic.Ground ground 
             annotation (Placement(transformation(extent={{50,10},{70,30}},
                 rotation=0)));
           Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter coil(
                                         final N=N, i(fixed=true))
-            "Electro-magnetic converter"
+            "Electro-magnetic converter" 
             annotation (Placement(transformation(
               origin={0,20},
               extent={{-10,-10},{10,10}},
               rotation=90)));
           Modelica.Electrical.Analog.Basic.Resistor r(final R=R)
-            "Coil resistance"
+            "Coil resistance" 
             annotation (Placement(transformation(extent={{-70,-30},{-50,-10}},
                 rotation=0)));
           Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux
@@ -1649,7 +1647,7 @@ The characteristic current drop during pull-in is due to both armature motion an
             final l=l_yoke - (t_poleBot + t_yokeBot)/2,
             final r_i=r_yokeIn,
             final r_o=r_yokeOut)
-            "Permeance of of hollow cylindric section of ferromagnetic yoke"
+            "Permeance of of hollow cylindric section of ferromagnetic yoke" 
             annotation (Placement(transformation(extent={{-10,80},{10,100}},
                 rotation=0)));
 
@@ -1660,7 +1658,7 @@ The characteristic current drop during pull-in is due to both armature motion an
             final l=l_yoke - (t_yokeBot + t_poleBot)/2 - l_pole - (x_max +
                 x_min)/2,
             final r_i=0,
-            final r_o=r_arm) "Permeance of ferfomagnetic armature"
+            final r_o=r_arm) "Permeance of ferfomagnetic armature" 
             annotation (Placement(transformation(
               origin={16,40},
               extent={{-10,-10},{10,10}},
@@ -1686,7 +1684,7 @@ The characteristic current drop during pull-in is due to both armature motion an
             final l=t_yokeBot,
             final r_i=r_arm + t_airPar,
             final r_o=r_yokeIn)
-            "Permeance of bottom side of ferromagnetic yoke"
+            "Permeance of bottom side of ferromagnetic yoke" 
             annotation (Placement(transformation(
               origin={80,80},
               extent={{-10,-10},{10,10}},
@@ -1699,7 +1697,7 @@ The characteristic current drop during pull-in is due to both armature motion an
             final l=t_yokeBot,
             final r_i=r_arm,
             final r_o=r_arm + t_airPar)
-            "Permeance of parasitic radial air gap due to slide guiding"
+            "Permeance of parasitic radial air gap due to slide guiding" 
             annotation (Placement(transformation(
               origin={80,50},
               extent={{-10,-10},{10,10}},
@@ -1710,7 +1708,7 @@ The characteristic current drop during pull-in is due to both armature motion an
             final r_i=r_arm,
             final r_o=r_yokeIn,
             final nonLinearPermeability=true,
-            final material=material) "Permeance of bottom side of pole"
+            final material=material) "Permeance of bottom side of pole" 
             annotation (Placement(transformation(
               origin={-72,80},
               extent={{-10,-10},{10,10}},
@@ -1722,7 +1720,7 @@ The characteristic current drop during pull-in is due to both armature motion an
             final material=material,
             final l=l_pole,
             final r_i=0,
-            final r_o=r_arm) "Permeance of ferromagnetic pole"
+            final r_o=r_arm) "Permeance of ferromagnetic pole" 
             annotation (Placement(transformation(
               origin={-72,40},
               extent={{10,-10},{-10,10}},
@@ -1738,7 +1736,7 @@ The characteristic current drop during pull-in is due to both armature motion an
             final d=d,
             n=2,
           v(fixed=true))
-            "Inertia of armature and stoppers at end of stroke range"
+            "Inertia of armature and stoppers at end of stroke range" 
                                       annotation (Placement(transformation(
                 extent={{64,-10},{84,10}}, rotation=0)));
           Modelica.Magnetic.FluxTubes.Shapes.Leakage.QuarterCylinder g_mLeak1(
@@ -1770,15 +1768,15 @@ The characteristic current drop during pull-in is due to both armature motion an
               extent={{-10,10},{10,-10}},
               rotation=180)));
           Modelica.Electrical.Analog.Interfaces.PositivePin p
-            "Electrical connector"
+            "Electrical connector" 
             annotation (Placement(transformation(extent={{-110,50},{-90,70}},
                 rotation=0)));
           Modelica.Electrical.Analog.Interfaces.NegativePin n
-            "Electrical connector"
+            "Electrical connector" 
             annotation (Placement(transformation(extent={{-90,-70},{-110,-50}},
                 rotation=0)));
           Modelica.Mechanics.Translational.Interfaces.Flange_b flange
-            "Flange of component"
+            "Flange of component" 
             annotation (Placement(transformation(extent={{90,-10},{110,10}},
                 rotation=0)));
         equation
@@ -1790,7 +1788,7 @@ The characteristic current drop during pull-in is due to both armature motion an
               color={0,127,0}));
           connect(armature.flange_a,g_mAirWork. flange) annotation (Line(points=
                {{64,0},{34,0},{34,52},{-30,52},{-30,40}}, color={0,127,0}));
-          connect(g_mAirWork.flange,g_mLeakWork. flange)
+          connect(g_mAirWork.flange,g_mLeakWork. flange) 
                                                      annotation (Line(points={{
                 -30,40},{-30,52},{34,52},{34,80},{-30,80}}, color={0,127,0}));
           connect(r.n, coil.p) annotation (Line(points={{-50,-20},{-6,-20},{-6,
@@ -1943,17 +1941,17 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
           parameter Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData
             material=
             Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel.Steel_9SMnPb28()
-            "Ferromagnetic material characteristics"
+            "Ferromagnetic material characteristics" 
             annotation(choicesAllMatching=true, Dialog(group="Material"));
 
         //armature
           parameter SI.Radius r_arm = 5e-3 "Armature radius = pole radius" annotation(Dialog(group="Armature and stopper"));
           parameter SI.Length l_arm = 26e-3 "Armature length" annotation(Dialog(group="Armature and stopper"));
           parameter Modelica.SIunits.TranslationalSpringConstant c=
-                1e11 "Spring stiffness between impact partners"
+                1e11 "Spring stiffness between impact partners" 
             annotation(Dialog(group="Armature and stopper"));
           parameter Modelica.SIunits.TranslationalDampingConstant d=
-                400 "Damping coefficient between impact partners"
+                400 "Damping coefficient between impact partners" 
             annotation(Dialog(group="Armature and stopper"));
           parameter SI.Position x_min = 0.25e-3
             "Stopper at minimum armature position"                                     annotation(Dialog(group="Armature and stopper"));
@@ -1972,18 +1970,18 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
             "Density for calculation of armature mass from geometry";
 
         public
-          Modelica.Magnetic.FluxTubes.Basic.Ground ground
+          Modelica.Magnetic.FluxTubes.Basic.Ground ground 
             annotation (Placement(transformation(extent={{42,2},{62,22}},
                 rotation=0)));
           Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter coil1(
                                          final N=N/2, i(fixed=true))
-            "Electro-magnetic conversion in first half of coil"
+            "Electro-magnetic conversion in first half of coil" 
             annotation (Placement(transformation(
               origin={-46,20},
               extent={{-10,-10},{10,10}},
               rotation=90)));
           Modelica.Electrical.Analog.Basic.Resistor r_1(final R=R)
-            "Resistance of first half of coil"
+            "Resistance of first half of coil" 
             annotation (Placement(transformation(extent={{-84,-30},{-64,-10}},
                 rotation=0)));
           Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux
@@ -1993,7 +1991,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
             final r_o=r_yokeOut,
             final nonLinearPermeability=true,
             final material=material)
-            "Permeance of of first half of yoke's hollow cylindric section"
+            "Permeance of of first half of yoke's hollow cylindric section" 
             annotation (Placement(transformation(extent={{-50,70},{-30,90}},
                 rotation=0)));
 
@@ -2003,7 +2001,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
             final l=l_yoke - (t_yokeBot + t_poleBot)/2 - l_pole - (x_max + x_min)/2,
             final r_o=r_arm,
             final nonLinearPermeability=true,
-            final material=material) "Permeance of ferfomagnetic armature"
+            final material=material) "Permeance of ferfomagnetic armature" 
             annotation (Placement(transformation(
               origin={10,30},
               extent={{-10,10},{10,-10}},
@@ -2029,7 +2027,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
             final r_o=r_yokeIn,
             final nonLinearPermeability=true,
             final material=material)
-            "Permeance of bottom side of ferromagnetic yoke"
+            "Permeance of bottom side of ferromagnetic yoke" 
             annotation (Placement(transformation(
               origin={74,70},
               extent={{-10,-10},{10,10}},
@@ -2042,7 +2040,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
             final r_o=r_arm + t_airPar,
             final nonLinearPermeability=false,
             final mu_rConst=1)
-            "Permeance of parasitic radial air gap due to slide guiding"
+            "Permeance of parasitic radial air gap due to slide guiding" 
             annotation (Placement(transformation(
               origin={74,40},
               extent={{-10,-10},{10,10}},
@@ -2053,7 +2051,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
             final r_i=r_arm,
             final r_o=r_yokeIn,
             final nonLinearPermeability=true,
-            final material=material) "Permeance of bottom side of pole"
+            final material=material) "Permeance of bottom side of pole" 
             annotation (Placement(transformation(
               origin={-78,56},
               extent={{-10,-10},{10,10}},
@@ -2064,7 +2062,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
             final l=l_pole,
             final r_o=r_arm,
             final nonLinearPermeability=true,
-            final material=material) "Permeance of ferromagnetic pole"
+            final material=material) "Permeance of ferromagnetic pole" 
             annotation (Placement(transformation(
               origin={-68,30},
               extent={{-10,10},{10,-10}},
@@ -2080,7 +2078,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
             final d=d,
             n=2,
           v(fixed=true))
-            "Inertia of armature and stoppers at end of stroke range"
+            "Inertia of armature and stoppers at end of stroke range" 
                                       annotation (Placement(transformation(
                 extent={{64,-10},{84,10}}, rotation=0)));
           Modelica.Magnetic.FluxTubes.Shapes.Leakage.QuarterCylinder g_mLeak1(
@@ -2101,14 +2099,14 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
               rotation=90)));
           Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter coil2(
             final N=N/2, i(fixed=true))
-            "Electro-magnetic conversion in first half of coil"
+            "Electro-magnetic conversion in first half of coil" 
             annotation (Placement(transformation(
               origin={30,20},
               extent={{-10,-10},{10,10}},
               rotation=90)));
           Modelica.Electrical.Analog.Basic.Capacitor c_par1(final C=C_par, v(start=
                 0, fixed=true))
-            "Parasitic capacitance assigned to first half of coil"
+            "Parasitic capacitance assigned to first half of coil" 
             annotation (Placement(transformation(extent={{-60,-50},{-40,-30}},
                 rotation=0)));
           Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux
@@ -2130,25 +2128,25 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
             r_o=r_yokeOut,
             final nonLinearPermeability=true,
             final material=material)
-            "Permeance of of second half of yoke's hollow cylindric section"
+            "Permeance of of second half of yoke's hollow cylindric section" 
             annotation (Placement(transformation(extent={{20,70},{40,90}},
                 rotation=0)));
 
           Modelica.Electrical.Analog.Basic.Capacitor c_par2(final C=C_par, v(start=
                 0, fixed=true))
-            "Parasitic capacitance assigned to second half of coil"
+            "Parasitic capacitance assigned to second half of coil" 
             annotation (Placement(transformation(extent={{16,-50},{36,-30}},
                 rotation=0)));
           Modelica.Electrical.Analog.Basic.Resistor r_par1(final R=R_par)
-            "Parasitic resistance assigned to first half of coil"
+            "Parasitic resistance assigned to first half of coil" 
             annotation (Placement(transformation(extent={{-84,-50},{-64,-30}},
                 rotation=0)));
           Modelica.Electrical.Analog.Basic.Resistor r_par2(final R=R_par)
-            "Parasitic resistance assigned to second half of coil"
+            "Parasitic resistance assigned to second half of coil" 
             annotation (Placement(transformation(extent={{-8,-50},{12,-30}},
                 rotation=0)));
           Modelica.Electrical.Analog.Basic.Resistor r_2(final R=R)
-            "Resistance of second half of coil"
+            "Resistance of second half of coil" 
             annotation (Placement(transformation(extent={{-8,-30},{12,-10}},
                 rotation=0)));
           Modelica.Magnetic.FluxTubes.Shapes.Leakage.QuarterCylinder g_mLeak3(
@@ -2172,15 +2170,15 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
               extent={{-10,10},{10,-10}},
               rotation=180)));
           Modelica.Electrical.Analog.Interfaces.PositivePin p
-            "Electrical connector"
+            "Electrical connector" 
             annotation (Placement(transformation(extent={{-110,50},{-90,70}},
                 rotation=0)));
           Modelica.Electrical.Analog.Interfaces.NegativePin n
-            "Electrical connector"
+            "Electrical connector" 
             annotation (Placement(transformation(extent={{-90,-70},{-110,-50}},
                 rotation=0)));
           Modelica.Mechanics.Translational.Interfaces.Flange_b flange
-            "Flange of component"
+            "Flange of component" 
             annotation (Placement(transformation(extent={{90,-10},{110,10}},
                 rotation=0)));
         equation
@@ -2190,12 +2188,12 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
           connect(armature.flange_b, flange)     annotation (Line(points={{84,0},
                 {88,0},{88,1.16573e-015},{92,1.16573e-015},{92,0},{100,0}},
               color={0,127,0}));
-          connect(r_par1.n,c_par1. p)
+          connect(r_par1.n,c_par1. p) 
                                    annotation (Line(points={{-64,-40},{-60,-40}},
               color={0,0,255}));
           connect(r_par1.p, r_1.p)      annotation (Line(points={{-84,-40},{-84,
                 -20}}, color={0,0,255}));
-          connect(c_par2.p,r_par2. n)
+          connect(c_par2.p,r_par2. n) 
                                    annotation (Line(points={{16,-40},{12,-40}},
               color={0,0,255}));
           connect(r_par2.p, r_2.p)      annotation (Line(points={{-8,-40},{-8,
@@ -2414,35 +2412,35 @@ The differences between these two models in static behaviour can be analysed and
         Modelica.SIunits.Acceleration a(start=0)
           "Absolute acceleration of components (= der(v))";
         Modelica.Mechanics.Translational.Components.Mass mass(
-                                                          final L=L, final m=m)
+                                                          final L=L, final m=m) 
           annotation (Placement(transformation(extent={{-10,-10},{10,10}},
               rotation=0)));
-        Modelica.Mechanics.Translational.Interfaces.Flange_a flange_a
+        Modelica.Mechanics.Translational.Interfaces.Flange_a flange_a 
           annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
-        Modelica.Mechanics.Translational.Interfaces.Flange_b flange_b
+        Modelica.Mechanics.Translational.Interfaces.Flange_b flange_b 
           annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
         Modelica.Mechanics.Translational.Components.Fixed limit_xMin(
-                                                          s0=x_min)
+                                                          s0=x_min) 
           annotation (Placement(transformation(extent={{-80,-50},{-60,-30}},
               rotation=0)));
         Modelica.Mechanics.Translational.Components.Fixed limit_xMax(
-                                                          s0=x_max)
+                                                          s0=x_max) 
           annotation (Placement(transformation(extent={{60,-50},{80,-30}},
               rotation=0)));
         Modelica.Mechanics.Translational.Components.ElastoGap stopper_xMax(
           final c=c,
           final d=d,
           final n=n,
-          final s_rel0=0)
+          final s_rel0=0) 
           annotation (Placement(transformation(extent={{50,-30},{70,-10}},
               rotation=0)));
         Modelica.Mechanics.Translational.Components.ElastoGap stopper_xMin(
           final c=c,
           final d=d,
           final n=n,
-          final s_rel0=0)
+          final s_rel0=0) 
           annotation (Placement(transformation(extent={{-70,-30},{-50,-10}},
               rotation=0)));
 
@@ -2450,12 +2448,12 @@ The differences between these two models in static behaviour can be analysed and
         mass.s = s;
         mass.v = v;
         mass.a = a;
-        connect(mass.flange_a, stopper_xMin.flange_b)
+        connect(mass.flange_a, stopper_xMin.flange_b) 
           annotation (Line(points={{-10,0},{-40,0},{-40,-20},{-50,-20}}, color=
               {0,127,0}));
-        connect(limit_xMax.flange,  stopper_xMax. flange_b)
+        connect(limit_xMax.flange,  stopper_xMax. flange_b) 
           annotation (Line(points={{70,-40},{70,-20}}, color={0,191,0}));
-        connect(stopper_xMax.flange_a, mass.flange_b)
+        connect(stopper_xMax.flange_a, mass.flange_b) 
           annotation (Line(points={{50,-20},{40,-20},{40,0},{10,0}}, color={0,
               127,0}));
         connect(mass.flange_a, flange_a)         annotation (Line(points={{-10,
@@ -2608,7 +2606,7 @@ In translatory actuators with limited stroke, the armature with its inertia can 
         parameter SI.Diameter d_wireChosen = d_wireCalculated
           "CHOSEN available wire diameter (without insulation)" annotation(Dialog(group="Chosen feasible parameters (optional)"));
 
-        parameter Real N_chosen = N_calculated "CHOSEN number of turns"
+        parameter Real N_chosen = N_calculated "CHOSEN number of turns" 
                                                          annotation(Dialog(group="Chosen feasible parameters (optional)"));
 
         final parameter SI.Area A_wireChosen = pi * d_wireChosen^2 / 4
@@ -2653,7 +2651,7 @@ For manufacturing of a winding, the obtained wire diameter d_wireCalculated must
 
     model Ground "Zero magnetic potential"
 
-      Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort port
+      Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort port 
         annotation (Placement(transformation(extent={{-10,110},{10,90}},
             rotation=-0)));
     equation
@@ -2710,19 +2708,19 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
     model ElectroMagneticConverter "Electro-magnetic energy conversion"
 
       Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort port_p
-        "Positive magnetic port"
+        "Positive magnetic port" 
         annotation (Placement(transformation(extent={{90,50},{110,70}},
             rotation=0)));
       Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort port_n
-        "Negative magnetic port"
+        "Negative magnetic port" 
         annotation (Placement(transformation(extent={{110,-70},{90,-50}},
             rotation=0)));
       Modelica.Electrical.Analog.Interfaces.PositivePin p
-        "Positive electric pin"
+        "Positive electric pin" 
         annotation (Placement(transformation(extent={{-90,50},{-110,70}},
             rotation=0)));
       Modelica.Electrical.Analog.Interfaces.NegativePin n
-        "Negative electric pin"
+        "Negative electric pin" 
         annotation (Placement(transformation(extent={{-110,-70},{-90,-50}},
             rotation=0)));
       SI.Voltage v "Voltage";
@@ -2948,7 +2946,7 @@ This constant reluctance is provided for test purposes and simple magnetic netwo
         "Ratio useful flux/(leakage flux + useful flux) = useful flux/total flux";
 
       input SI.Reluctance R_mUsefulTot
-        "Total reluctance of useful flux path as reference"
+        "Total reluctance of useful flux path as reference" 
          annotation(Dialog(group="Reference reluctance"));
     equation
       (1 - c_usefulFlux) * R_m = c_usefulFlux * R_mUsefulTot;   // Generalized Kirchhoff's current law
@@ -3045,10 +3043,10 @@ Partitioning of a solid conductive cylinder or prism into several hollow cylinde
         parameter SI.Length l( start = 0.01)
           "Axial length (in direction of flux)"   annotation(Dialog(group="Fixed geometry"));
         parameter SI.Radius r_i( start = 0)
-          "Inner radius of hollow cylinder (zero for cylinder)"
+          "Inner radius of hollow cylinder (zero for cylinder)" 
           annotation(Dialog(group="Fixed geometry"));
         parameter SI.Radius r_o( start = 0.01)
-          "Outer radius of (hollow) cylinder"
+          "Outer radius of (hollow) cylinder" 
           annotation(Dialog(group="Fixed geometry"));
 
       equation
@@ -3130,7 +3128,7 @@ For those flux tube sections of a magnetic device that have a nonlinear material
 
         extends Modelica.Magnetic.FluxTubes.Interfaces.PartialFixedShape;
 
-        parameter SI.Length l = 0.01 "Length in direction of flux"
+        parameter SI.Length l = 0.01 "Length in direction of flux" 
                                                   annotation(Dialog(group="Fixed geometry"));
         parameter SI.Length a = 0.01 "Width of rectangular cross-section"                           annotation(Dialog(group="Fixed geometry"));
         parameter SI.Length b = 0.01 "Height of rectangular cross-section" annotation(Dialog(group="Fixed geometry"));
@@ -3182,7 +3180,7 @@ For initial design of magnetic circuits, the relative permeability of possibly n
 
         extends Modelica.Magnetic.FluxTubes.Interfaces.PartialForce;
 
-        SI.Length l = s "Axial length (in direction of flux)"
+        SI.Length l = s "Axial length (in direction of flux)" 
                                                   annotation(Dialog(group="Variable geometry"));
         parameter SI.Radius r_i( start = 0) "Inner radius of (hollow) cylinder";
         parameter SI.Radius r_o( start = 0.01)
@@ -3216,7 +3214,7 @@ Please refer to the enclosing sub-package <a href=\"Modelica://Modelica.Magnetic
 
         extends Modelica.Magnetic.FluxTubes.Interfaces.PartialForce;
 
-        SI.Length l = s "Axial length (orthogonal to direction of flux)"
+        SI.Length l = s "Axial length (orthogonal to direction of flux)" 
                                                   annotation(Dialog(group="Variable geometry"));
         parameter SI.Radius r_i( start = 0.01)
           "Inner radius of hollow cylinder";
@@ -3251,7 +3249,7 @@ Please refer to the enclosing sub-package <a href=\"Modelica://Modelica.Magnetic
 
         extends Modelica.Magnetic.FluxTubes.Interfaces.PartialForce;
 
-        SI.Length l = s "Axial length (in direction of flux)"
+        SI.Length l = s "Axial length (in direction of flux)" 
                                                   annotation(Dialog(group="Variable geometry"));
         parameter SI.Length a( start = 0.01)
           "Width of rectangular cross-section";
@@ -3284,7 +3282,7 @@ Please refer to the enclosing sub-package <a href=\"Modelica://Modelica.Magnetic
 
         extends Modelica.Magnetic.FluxTubes.Interfaces.PartialForce;
 
-        SI.Length l = s "Length in direction of motion (orthogonal to flux)"
+        SI.Length l = s "Length in direction of motion (orthogonal to flux)" 
           annotation(Dialog(group="Variable geometry"));
         parameter SI.Length a( start = 0.01)
           "Width of rectangular cross-section";
@@ -3316,7 +3314,7 @@ Please refer to the enclosing sub-package <a href=\"Modelica://Modelica.Magnetic
         "Leakage flux tube around cylindrical or prismatic poles"
 
         extends Modelica.Magnetic.FluxTubes.Interfaces.PartialForce;
-        SI.Length l = s "Axial length (in direction of flux)"
+        SI.Length l = s "Axial length (in direction of flux)" 
           annotation(Dialog(group="Variable geometry"));
 
         parameter SI.Length w( start = 0.1)
@@ -3542,8 +3540,8 @@ Please refer to the enclosing sub-package <a href=\"Modelica://Modelica.Magnetic
 
       equation
         // [Ro41], p. 139, Eq. (22)
-        G_m = if t <= r_0 then
-              2 * mu_0 * (r_0 + l_g/2) * Modelica.Math.log(1 + 2*t/l_g) else
+        G_m = if t <= r_0 then 
+              2 * mu_0 * (r_0 + l_g/2) * Modelica.Math.log(1 + 2*t/l_g) else 
               2 * mu_0 * (r_0 + l_g/2) * Modelica.Math.log(1 + 2*r_0/l_g);
 
         annotation (__Dymola_Images(Parameters(source="../Images/Magnetic/FluxTubes/Shapes/Leakage/CoaxCylindersEndFaces.png")),
@@ -3616,7 +3614,7 @@ Please refer to the description of  the enclosing package <a href=\"Modelica://M
             B_myMax=1.036,
             c_a=43414,
             c_b=35.8,
-            n=14)
+            n=14) 
           annotation (Documentation(info="<html>
 <p>
 Please refer to the description of  the enclosing package <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
@@ -3630,7 +3628,7 @@ Please refer to the description of  the enclosing package <a href=\"Modelica://M
             B_myMax=1.1,
             c_a=6450,
             c_b=3.65,
-            n=7.7)
+            n=7.7) 
                   annotation (
             Documentation(info="<html>
 <p>
@@ -4109,10 +4107,10 @@ Additional user-specific materials can be defined as needed.
 
       annotation (defaultComponentName = "mag",
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-              100}}),
+                100}}),
          graphics),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-              {100,100}}),
+                {100,100}}),
                 graphics));
     end MagneticPort;
 
@@ -4121,20 +4119,20 @@ Additional user-specific materials can be defined as needed.
 
       annotation (defaultComponentName = "port_p",
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-              100}}), graphics={Rectangle(
-            extent={{-100,100},{100,-100}},
-            lineColor={255,127,0},
-            fillColor={255,127,0},
-            fillPattern=FillPattern.Solid)}),
+                100}}), graphics={Rectangle(
+              extent={{-100,100},{100,-100}},
+              lineColor={255,127,0},
+              fillColor={255,127,0},
+              fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-              {100,100}}), graphics={Text(
-            extent={{-100,160},{-100,100}},
-            lineColor={255,127,0},
-            textString="%name"), Rectangle(
-            extent={{-40,40},{40,-40}},
-            lineColor={255,127,0},
-            fillColor={255,127,0},
-            fillPattern=FillPattern.Solid)}));
+                {100,100}}), graphics={Text(
+              extent={{-100,160},{-100,100}},
+              lineColor={255,127,0},
+              textString="%name"), Rectangle(
+              extent={{-40,40},{40,-40}},
+              lineColor={255,127,0},
+              fillColor={255,127,0},
+              fillPattern=FillPattern.Solid)}));
 
     end PositiveMagneticPort;
 
@@ -4143,20 +4141,20 @@ Additional user-specific materials can be defined as needed.
 
     annotation (defaultComponentName = "port_n",
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-              100}}), graphics={Rectangle(
-            extent={{-100,100},{100,-100}},
-            lineColor={255,127,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid)}),
+                100}}), graphics={Rectangle(
+              extent={{-100,100},{100,-100}},
+              lineColor={255,127,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-              {100,100}}), graphics={Text(
-            extent={{100,160},{100,100}},
-            lineColor={255,127,0},
-            textString="%name"), Rectangle(
-            extent={{-40,40},{40,-40}},
-            lineColor={255,127,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid)}));
+                {100,100}}), graphics={Text(
+              extent={{100,160},{100,100}},
+              lineColor={255,127,0},
+              textString="%name"), Rectangle(
+              extent={{-40,40},{40,-40}},
+              lineColor={255,127,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid)}));
 
     end NegativeMagneticPort;
 
@@ -4164,11 +4162,11 @@ Additional user-specific materials can be defined as needed.
       "Partial component with two magnetic ports p and n for textual programming"
 
       Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort port_p
-        "Positive magnetic port"
+        "Positive magnetic port" 
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
             rotation=0)));
       Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort port_n
-        "Negative magnetic port"
+        "Negative magnetic port" 
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
             rotation=0)));
 
@@ -4193,8 +4191,6 @@ connector port_n.
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics));
-    equation
-
     end PartialTwoPortsElementary;
 
     partial model PartialTwoPorts
@@ -4245,7 +4241,7 @@ This magnetic flux is provided explicitly as flux Phi.
         SI.RelativePermeability mu_r "Relative magnetic permeability";
 
     equation
-      mu_r = if nonLinearPermeability then
+      mu_r = if nonLinearPermeability then 
         Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.mu_rApprox(
             B,
             material.mu_i,
@@ -4296,7 +4292,7 @@ Please refer to the description of  the sub-package <a href=\"Modelica://Modelic
       extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPorts;
 
       parameter Boolean useSupport=false
-        "= true, if support flange enabled, otherwise implicitly grounded"
+        "= true, if support flange enabled, otherwise implicitly grounded" 
           annotation(Evaluate=true, HideResult=true);
 
       parameter SI.RelativePermeability mu_r = 1
@@ -4314,12 +4310,12 @@ Please refer to the description of  the sub-package <a href=\"Modelica://Modelic
         "Derivative of flux tube's varying dimension with respect to armature position; set to +1 or -1";
 
      Modelica.Mechanics.Translational.Interfaces.Flange_b flange
-        "Generated reluctance force at armature position"
+        "Generated reluctance force at armature position" 
       annotation (Placement(transformation(extent={{-10,90},{10,110}}, rotation=
              0)));
      Modelica.Mechanics.Translational.Interfaces.Support support(
-                 s=s_support, f=-flange.f) if
-        useSupport "Support/housing of component"
+                 s=s_support, f=-flange.f) if 
+        useSupport "Support/housing of component" 
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}},
             rotation=0)));
 
@@ -4509,7 +4505,7 @@ For modelling of reluctance actuators with this source component it is assumed t
       "Signal-controlled magnetomotive force"
 
       extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary;
-      Modelica.Blocks.Interfaces.RealInput V_m "Magnetic potential difference"
+      Modelica.Blocks.Interfaces.RealInput V_m "Magnetic potential difference" 
         annotation (Placement(transformation(
           origin={0,90},
           extent={{10,-10},{-10,10}},
@@ -4629,7 +4625,7 @@ Sources of a constant magnetic flux are useful for modelling of permanent magnet
     model SignalMagneticFlux "Signal-controlled magnetic flux source"
 
       extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary;
-      Modelica.Blocks.Interfaces.RealInput Phi "Magnetic flux"
+      Modelica.Blocks.Interfaces.RealInput Phi "Magnetic flux" 
         annotation (Placement(transformation(
           origin={0,90},
           extent={{10,-10},{-10,10}},
@@ -4702,7 +4698,7 @@ This package contains sources of a magnetic potential difference or a magnetic f
     extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary;
 
     Modelica.Blocks.Interfaces.RealOutput V_m
-        "Magnetic potential difference between ports p and n as output signal"
+        "Magnetic potential difference between ports p and n as output signal" 
        annotation (Placement(transformation(
           origin={0,-100},
           extent={{10,-10},{-10,10}},
@@ -4725,24 +4721,24 @@ This package contains sources of a magnetic potential difference or a magnetic f
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Text(
-            extent={{-52,1},{48,-57}},
-            lineColor={0,0,0},
-            textString="V_m"),
-          Line(points={{-70,0},{-90,0}}, color={0,0,0}),
-          Line(points={{70,0},{90,0}}, color={0,0,0}),
-          Line(points={{0,-90},{0,-70}}, color={0,0,0}),
-          Text(
-            extent={{-150,120},{150,80}},
-            textString="%name",
-            lineColor={0,0,255})}),
+            Text(
+              extent={{-52,1},{48,-57}},
+              lineColor={0,0,0},
+              textString="V_m"),
+            Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            Line(points={{70,0},{90,0}}, color={0,0,0}),
+            Line(points={{0,-90},{0,-70}}, color={0,0,0}),
+            Text(
+              extent={{-150,120},{150,80}},
+              textString="%name",
+              lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Line(points={{-70,0},{-100,0}}, color={255,128,0}),
-          Line(points={{70,0},{100,0}}, color={255,128,0}),
-          Line(points={{0,-100},{0,-70}}, color={0,0,0})}));
+            Line(points={{-70,0},{-100,0}}, color={255,128,0}),
+            Line(points={{70,0},{100,0}}, color={255,128,0}),
+            Line(points={{0,-100},{0,-70}}, color={0,0,0})}));
 
   end MagneticPotentialDifferenceSensor;
 
@@ -4751,7 +4747,7 @@ This package contains sources of a magnetic potential difference or a magnetic f
     extends Modelica.Icons.RotationalSensor;
 
     Modelica.Blocks.Interfaces.RealOutput Phi
-        "Magnetic flux from port p to port n as output signal"
+        "Magnetic flux from port p to port n as output signal" 
         annotation (Placement(transformation(
           origin={0,-100},
           extent={{10,-10},{-10,10}},
@@ -4761,45 +4757,21 @@ This package contains sources of a magnetic potential difference or a magnetic f
     Phi = port_p.Phi;
     0 = port_p.Phi + port_n.Phi;
 
-       annotation (extent=[-10, -90; 10, -110],
-        rotation=90,
+        annotation (
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-              {100,100}}), graphics={
-          Line(points={{0,-100},{0,-70}}, color={0,0,0}),
-          Line(points={{-70,0},{-100,0}}, color={255,128,0}),
-          Line(points={{70,0},{100,0}}, color={255,128,0})}),
+                {100,100}}), graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics={
-          Line(points={{0,-100},{0,-70}}, color={0,0,0}),
-          Line(points={{-70,0},{-90,0}}, color={0,0,0}),
-          Line(points={{70,0},{90,0}}, color={0,0,0})}),
-      Placement(transformation(
-          origin={0,-100},
-          extent={{10,-10},{-10,10}},
-          rotation=90)));
-    annotation (
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[2,2],
-        component=[20, 20],
-          scale=0),
-      Window(
-        x=0.23,
-        y=0.07,
-        width=0.6,
-        height=0.6),
-      Icon(Text(
-          extent=[-29, -11; 30, -70],
-          style(color=0),
-          string="Phi"),
-        Line(points=[-70,0; -90,0],   style(color=0)),
-        Text(extent=[-150,120; 150,80],   string="%name"),
-        Line(points=[70,0; 90,0],   style(color=0)),
-        Line(points=[0,-90; 0,-70])),
-      Diagram(
-        Line(points=[-70,0; -100,0],  style(color=0)),
-        Line(points=[70,0; 100,0],  style(color=0)),
-        Line(points=[0,-90; 0,-70])));
+                100,100}}), graphics={
+            Line(points={{0,-100},{0,-70}}, color={0,0,0}),
+            Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            Line(points={{70,0},{90,0}}, color={0,0,0}),
+            Text(extent={{-29,-11},{30,-70}}, textString="Phi"),
+            Text(
+              extent=[-150,120; 150,80],
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(points=[0,-90; 0,-70])}));
+
   end MagneticFluxSensor;
     annotation (Documentation(info="<html>
 <p>
