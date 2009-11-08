@@ -16,8 +16,6 @@ First version of the ModelicaServices library.
 
 </html>
 "));
-equation
-
 end ReleaseNotes;
 
 class ModelicaLicense2 "Modelica License 2"
@@ -650,17 +648,17 @@ model Shape
   output Real Form annotation (HideResult=false);
   public
   output Real rxvisobj[3](each final unit="1")
-      "x-axis unit vector of shape, resolved in world frame" 
+      "x-axis unit vector of shape, resolved in world frame"
     annotation (HideResult=false);
   output Real ryvisobj[3](each final unit="1")
-      "y-axis unit vector of shape, resolved in world frame" 
+      "y-axis unit vector of shape, resolved in world frame"
     annotation (HideResult=false);
   output SI.Position rvisobj[3]
       "position vector from world frame to shape frame, resolved in world frame"
     annotation (HideResult=false);
 
   protected
-  output SI.Length size[3] "{length,width,height} of shape" 
+  output SI.Length size[3] "{length,width,height} of shape"
     annotation (HideResult=false);
   output Real Material annotation (HideResult=false);
   output Real Extra annotation (HideResult=false);
