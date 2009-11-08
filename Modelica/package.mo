@@ -5,7 +5,6 @@ extends Modelica.Icons.Library;
 
 package UsersGuide "User's Guide"
 
-
 class Overview "Overview of Modelica Library"
 
  annotation (Documentation(info="<html>
@@ -646,7 +645,8 @@ that can lead to wrong simulation results):
                         PNP<br>
                         HeatingPNP </td>
       <td valign=\"top\"> LossPower was wrongly calculated.
-      This was corrected (<a href=\"http://trac.modelica.org/Modelica/changeset/2925/Modelica\">changeset:2925</a>).</td>
+      This was corrected (<a href=\"http://trac.modelica.org/Modelica/changeset/2925/Modelica\">changeset:2925</a>,
+<a href=\"https://trac.modelica.org/Modelica/changeset/3115/\">changeset:3115</a>).</td>
   </tr>
 
  <tr><td colspan=\"2\"><b>Fluid.</b></td></tr>
@@ -665,6 +665,59 @@ that can lead to wrong simulation results):
                         New parameter use_heatTransfer added, in order that heat transfer
                         can be switched on (was previously always switched off)
       </td>
+  </tr>
+
+ <tr><td colspan=\"2\"><b>Media.Interfaces.PartialMedium.</b></td></tr>
+  <tr><td valign=\"top\">IsobaricExpansionCoefficient </td>
+      <td valign=\"top\">Changed minimum from 1e-8 to 0. </td>
+  </tr>
+
+  <tr><td colspan=\"2\"><b>Media.Interfaces.PartialLinearMedium.</b></td></tr> 
+  <tr><td valign=\"top\">setState_psX </td>
+      <td valign=\"top\">Wrong equation corrected. </td>
+  </tr>
+  <tr><td valign=\"top\">density_derX </td>
+      <td valign=\"top\">Missing function added. </td>
+  </tr>
+
+
+  <tr><td colspan=\"2\"><b>Media.Interfaces.PartialSimpleMedium.</b></td></tr>
+  <tr><td valign=\"top\"> specificInternalEnergy<br>
+                        specificEntropy<br>
+                        specificGibbsEnergy<br>
+                        specificHelmholtzEnergy<br>
+                        isentropicEnthalpy<br>
+                        isobaricExpansionCoefficient<br>
+                        isothermalCompressibility<br>
+                        density_derp_T<br>
+                        density_derT_p<br>
+                        density_derX<br>
+                        molarMass</td>
+      <td valign=\"top\">Missing functions added. </td>
+  </tr>
+
+
+  <tr><td colspan=\"2\"><b>Media.CompressibleLiquids.LinearColdWater.</b></td></tr>
+  <tr><td valign=\"top\"> dynamicViscosity<br> 
+                        thermalConductivity</td>
+      <td valign=\"top\"> Wrong values corrected (computed from IF97 with reference values) </td>
+  </tr>
+
+  <tr><td colspan=\"2\"><b>Media.CompressibleLiquids.LinearWater_pT_Ambient.</b></td></tr>
+  <tr><td valign=\"top\"> dynamicViscosity<br> 
+                        thermalConductivity</td>
+      <td valign=\"top\"> Missing functions added </td>
+  </tr>
+
+  <tr><td colspan=\"2\"><b>Media.IdealGases.Common.SingleGasNasa.</b></td></tr>
+  <tr><td valign=\"top\"> density_derX</td>
+      <td valign=\"top\"> Wrong equation corrected. </td>
+  </tr>
+
+  <tr><td colspan=\"2\"><b>Media.Water.IF97_Utilities.</b></td></tr>
+  <tr><td valign=\"top\"> waterBaseProp_dT</td>
+      <td valign=\"top\"> Fixed dpT-calculation 
+                        (<a href=\"http://trac.modelica.org/Modelica/ticket/224\">ticket: 224</a>). </td>
   </tr>
 
   <tr><td colspan=\"2\"><b>StateGraph.Examples.Utilities.</b></td></tr>
@@ -1296,7 +1349,6 @@ units are wrong or errors in documentation):
 
 </html>"));
 end Version_3_0_1;
-
 
 class Version_3_0 "Version 3.0 (Feb., 2008)"
 

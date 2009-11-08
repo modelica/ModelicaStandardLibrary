@@ -7260,7 +7260,6 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       aux.x := 0.0;
     elseif (aux.region == 4) then
       aux.p := BaseIF97.Basic.psat(T);
-      aux.dpT := BaseIF97.Basic.dptofT(T);
       d_liq := rhol_T(T);
       d_vap := rhov_T(T);
       h_liq := hl_p(aux.p);
@@ -7279,7 +7278,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
         liq := Common.helmholtzToBoundaryProps(fl);
         vap := Common.helmholtzToBoundaryProps(fv);
       end if;
-      aux.dpT := (vap.s - liq.s)*(if (liq.d <> vap.d) then (vap.s - liq.s)*liq.d*vap.d/(liq.d - vap.d) else BaseIF97.Basic.dptofT(aux.T));
+      aux.dpT := if (liq.d <> vap.d) then (vap.s - liq.s)*liq.d*vap.d/(liq.d - vap.d) else BaseIF97.Basic.dptofT(aux.T);
       aux.s := liq.s + aux.x*(vap.s - liq.s);
       aux.cv := Common.cv2Phase(liq, vap, aux.x, aux.T, aux.p);
       aux.cp := liq.cp + aux.x*(vap.cp - liq.cp);

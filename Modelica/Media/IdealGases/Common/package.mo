@@ -317,7 +317,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
   redeclare function extends density_derX
     "Returns the partial derivative of density with respect to mass fractions at constant pressure and temperature"
   algorithm
-    dddX := fill(0,0);
+    dddX := fill(0,nX);
   end density_derX;
 
   function cp_T
