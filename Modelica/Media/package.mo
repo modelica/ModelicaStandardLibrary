@@ -4604,14 +4604,12 @@ kappa is defined as - 1/v * der(v,p), with v = 1/d at constant temperature T.
       annotation(Documentation(info="<html></html>"));
     end density_derT_p;
 
-    replaceable function density_derX
+    replaceable partial function density_derX
       "Return density derivative wrt mass fraction"
       extends Modelica.Icons.Function;
       input ThermodynamicState state "thermodynamic state record";
       output Density[nX] dddX "Derivative of density wrt mass fraction";
       annotation(Documentation(info="<html></html>"));
-    algorithm
-     dddX := fill(0,nX);
     end density_derX;
 
     replaceable partial function molarMass
@@ -5187,15 +5185,43 @@ partial package PartialLinearFluid
       end isentropicExponent;
 
     redeclare function extends isentropicEnthalpy "Return isentropic enthalpy"
-    protected
-      SpecificEntropy s_upstream = specificEntropy(refState)
-        "specific entropy at component inlet";
-      ThermodynamicState downstreamState "state at downstream location";
+
+    /* Previous wrong equation:
+
+protected 
+  SpecificEntropy s_upstream = specificEntropy(refState) 
+    "specific entropy at component inlet";
+  ThermodynamicState downstreamState "state at downstream location";
+algorithm 
+  downstreamState.p := p_downstream;
+  downstreamState.T := reference_T*cp_const/
+    (s_upstream -reference_s -(p_downstream-reference_p)*(-beta_const/reference_d) - cp_const);
+  h_is := specificEnthalpy(downstreamState);
+*/
     algorithm
-      downstreamState.p := p_downstream;
-      downstreamState.T := reference_T*cp_const/
-        (s_upstream -reference_s -(p_downstream-reference_p)*(-beta_const/reference_d) - cp_const);
-      h_is := specificEnthalpy(downstreamState);
+      /* s := reference_s + (refState.T-reference_T)*cp_const/refState.T +
+                        (refState.p-reference_p)*(-beta_const/reference_d)
+        = reference_s + (state.T-reference_T)*cp_const/state.T +
+                        (p_downstream-reference_p)*(-beta_const/reference_d);
+                        
+      (state.T-reference_T)*cp_const/state.T 
+     = (refState.T-reference_T)*cp_const/refState.T + (refState.p-reference_p)*(-beta_const/reference_d)
+       - (p_downstream-reference_p)*(-beta_const/reference_d)
+     = (refState.T-reference_T)*cp_const/refState.T + (refState.p-p_downstream)*(-beta_const/reference_d)
+     
+     (x - reference_T)/x = k
+     x - reference_T = k*x
+     (1-k)*x = reference_T
+     x = reference_T/(1-k);
+     
+     state.T = reference_T/(1 - ((refState.T-reference_T)*cp_const/refState.T + (refState.p-p_downstream)*(-beta_const/reference_d))/cp_const)
+  */
+
+      h_is :=specificEnthalpy(setState_pTX(
+        p_downstream,
+        reference_T/(1 - ( (refState.T - reference_T)/refState.T +
+                           (refState.p - p_downstream)*(-beta_const/(reference_d*cp_const)))),
+        reference_X));
       annotation (Documentation(info="<html>
 <p>
 A minor approximation is used: the reference density is used instead of the real
@@ -6347,7 +6373,7 @@ This function computes the specific enthalpy of the fluid, but neglects the (sma
       u := cv_const*(state.T - T0);
       annotation (Documentation(info="<html>
 <p>
-This function computes the specific enthalpy of the fluid, but neglects the (small) influence of the pressure term p/d.
+This function computes the specific internal energy of the fluid, but neglects the (small) influence of the pressure term p/d.
 </p>
 </html>"));
     end specificInternalEnergy;
@@ -6558,7 +6584,8 @@ quantities are assumed to be constant.
       extends Modelica.Icons.Function;
       annotation(Documentation(info="<html></html>"));
     algorithm
-      u := (cp_const-R_gas)*(state.T-T0);
+      // u := (cp_const-R_gas)*(state.T-T0);
+      u := cp_const*(state.T-T0) - R_gas*state.T;
     end specificInternalEnergy;
 
     redeclare function extends specificEntropy "Return specific entropy"
@@ -6664,6 +6691,74 @@ quantities are assumed to be constant.
       d := density(setState_phX(p,h,X));
     end density_phX;
 
+    redeclare function extends isentropicEnthalpy "Return isentropic enthalpy"
+    algorithm
+      /*  s = cp_const*log(refState.T/T0) - R_gas*log(refState.p/reference_p)
+          = cp_const*log(state.T/T0) - R_gas*log(p_downstream/reference_p)
+
+        log(state.T) = log(refState.T) +
+                       (R_gas/cp_const)*(log(p_downstream/reference_p) - log(refState.p/reference_p))
+                     = log(refState.T) + (R_gas/cp_const)*log(p_downstream/refState.p)
+                     = log(refState.T) + log( (p_downstream/refState.p)^(R_gas/cp_const) )
+                     = log( refState.T*(p_downstream/refState.p)^(R_gas/cp_const) )
+        state.T = refstate.T*(p_downstream/refstate.p)^(R_gas/cp_const)
+    */
+      h_is := cp_const*(refState.T*(p_downstream/refState.p)^(R_gas/cp_const) - T0);
+    end isentropicEnthalpy;
+
+    redeclare function extends isobaricExpansionCoefficient
+      "Returns overall the isobaric expansion coefficient beta"
+    algorithm
+      /* beta = 1/v * der(v,T), with v = 1/d, at constant pressure p:
+       v = R*T/p
+       der(v,T) = R/p
+       beta = p/(R*T)*R/p
+            = 1/T
+    */
+
+      beta := 1/state.T;
+    end isobaricExpansionCoefficient;
+
+    redeclare function extends isothermalCompressibility
+      "Returns overall the isothermal compressibility factor"
+    algorithm
+      /* kappa = - 1/v * der(v,p), with v = 1/d at constant temperature T.
+       v = R*T/p
+       der(v,T) = -R*T/p^2
+       kappa = p/(R*T)*R*T/p^2
+             = 1/p
+    */
+      kappa := 1/state.p;
+    end isothermalCompressibility;
+
+    redeclare function extends density_derp_T
+      "Returns the partial derivative of density with respect to pressure at constant temperature"
+    algorithm
+      /*  d = p/(R*T)
+        ddpT = 1/(R*T)
+    */
+      ddpT := 1/(R_gas*state.T);
+    end density_derp_T;
+
+    redeclare function extends density_derT_p
+      "Returns the partial derivative of density with respect to temperature at constant pressure"
+    algorithm
+      /*  d = p/(R*T)
+        ddpT = -p/(R*T^2)
+    */
+      ddTp := -state.p/(R_gas*state.T*state.T);
+    end density_derT_p;
+
+    redeclare function extends density_derX
+      "Returns the partial derivative of density with respect to mass fractions at constant pressure and temperature"
+    algorithm
+      dddX := fill(0,nX);
+    end density_derX;
+
+    redeclare function extends molarMass "Returns the molar mass of the medium"
+    algorithm
+      MM := MM_const;
+    end molarMass;
   end PartialSimpleIdealGasMedium;
 
 end Interfaces;
