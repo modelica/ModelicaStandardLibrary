@@ -1,6 +1,7 @@
 within ;
 package ModelicaServices "Models and functions used in the Modelica Standard Library requiring a tool specific implementation"
 
+
 package UsersGuide "Users Guide"
 
   annotation(__Dymola_DocumentationClass=true);
@@ -622,6 +623,7 @@ The design of the Animation.Shape component is from Hilding Elmqvist, Dynasim AB
 end Contact;
 end UsersGuide;
 
+
 annotation (preferredView="info",
 version="1.0",
 versionDate="2009-06-21",
@@ -662,6 +664,7 @@ http://www.Modelica.org/licenses/ModelicaLicense2</a>.
 </html>"),
   uses(Modelica(version="3.1")));
 
+
 package Animation "Models and functions for 3-dim. animation"
 
 model Shape
@@ -687,17 +690,17 @@ model Shape
   output Real Form annotation (HideResult=false);
   public
   output Real rxvisobj[3](each final unit="1")
-      "x-axis unit vector of shape, resolved in world frame"
+      "x-axis unit vector of shape, resolved in world frame" 
     annotation (HideResult=false);
   output Real ryvisobj[3](each final unit="1")
-      "y-axis unit vector of shape, resolved in world frame"
+      "y-axis unit vector of shape, resolved in world frame" 
     annotation (HideResult=false);
   output SI.Position rvisobj[3]
       "position vector from world frame to shape frame, resolved in world frame"
     annotation (HideResult=false);
 
   protected
-  output SI.Length size[3] "{length,width,height} of shape"
+  output SI.Length size[3] "{length,width,height} of shape" 
     annotation (HideResult=false);
   output Real Material annotation (HideResult=false);
   output Real Extra annotation (HideResult=false);
