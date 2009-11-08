@@ -672,9 +672,10 @@ that can lead to wrong simulation results):
       <td valign=\"top\">Changed minimum from 1e-8 to 0. </td>
   </tr>
 
-  <tr><td colspan=\"2\"><b>Media.Interfaces.PartialLinearMedium.</b></td></tr> 
-  <tr><td valign=\"top\">setState_psX </td>
-      <td valign=\"top\">Wrong equation corrected. </td>
+  <tr><td colspan=\"2\"><b>Media.Interfaces.PartialLinearFluid.</b></td></tr> 
+  <tr><td valign=\"top\">setState_psX<br>
+                       isentropicEnthalpy </td>
+      <td valign=\"top\">Wrong equations corrected. </td>
   </tr>
   <tr><td valign=\"top\">density_derX </td>
       <td valign=\"top\">Missing function added. </td>
@@ -696,6 +697,19 @@ that can lead to wrong simulation results):
       <td valign=\"top\">Missing functions added. </td>
   </tr>
 
+
+  <tr><td colspan=\"2\"><b>Media.Interfaces.PartialSimpleIdealGasMedium.</b></td></tr>
+  <tr><td valign=\"top\"> specificInternalEnergy</td>
+      <td valign=\"top\"> wrong equation corrected </td>
+  <tr><td valign=\"top\"> isentropicEnthalpy<br>
+                        isobaricExpansionCoefficient<br>
+                        isothermalCompressibility<br>
+                        density_derp_T<br>
+                        density_derT_p<br>
+                        density_derX<br>
+                        molarMass</td>
+      <td valign=\"top\"> Missing functions added. </td>
+  </tr>
 
   <tr><td colspan=\"2\"><b>Media.CompressibleLiquids.LinearColdWater.</b></td></tr>
   <tr><td valign=\"top\"> dynamicViscosity<br> 
@@ -733,6 +747,8 @@ that can lead to wrong simulation results):
 Additionally, the following (backward compatible and uncritical) bug fixes have been applied:
 </p>
 <ul>
+<li> All class annotations have been moved just before the 'end' keyword of the class,
+     as required from Modelica 3.1.</li>
 <li> Wrong links in html-documentation to other classes and to images have been fixed.</li>
 <li> Removed fillPattern and fillColor attributes from Line annotaion
      (<a href=\"http://trac.modelica.org/Modelica/ticket/155\">ticket:155</a>)</li>
