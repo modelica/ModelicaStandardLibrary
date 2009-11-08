@@ -566,7 +566,7 @@ Muenchen Wien 1990.
     B.i = ibe/Bf + ibc/Br + cbc*der(vbc) + cbe*der(vbe);
     E.i = -B.i - C.i + Ccs*der(C.v);
 
-    LossPower = C.i * C.v + B.i * B.v + E.i * E.v;
+    LossPower = (C.v-E.v)*(ibe-ibc)*qbk + vbc*ibc/Br + vbe*ibe/Bf;
     annotation (
       Documentation(info="
 <HTML>
@@ -727,7 +727,7 @@ on page 317 ff.
     B.i = -(ibe/Bf + ibc/Br + cbe*der(vbe) + cbc*der(vbc));
     E.i = -B.i - C.i + Ccs*der(C.v);
 
-    LossPower = C.i * C.v + B.i * B.v + E.i * E.v;
+    LossPower = (E.v-C.v)*(ibe-ibc)*qbk + vbc*ibc/Br + vbe*ibe/Bf;
                                                                       annotation (
       Documentation(info="
 <HTML>
@@ -1549,7 +1549,7 @@ on page 317 ff.
           B.i = -ieb/bf_t - icb/br_t - ceb*der(veb) - ccb*der(vcb);
           E.i = -B.i - C.i + Ccs*der(C.v);
 
-          LossPower = (vcb*icb/br_t + veb*ieb/bf_t + (icb - ieb)*qbk*(E.v- C.v));
+          LossPower = (vcb*icb/br_t + veb*ieb/bf_t + (icb - ieb)*qbk*(C.v- E.v));
           annotation (__Dymola_structurallyIncomplete=true,
             Documentation(info="
 <HTML>
