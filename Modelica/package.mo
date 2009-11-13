@@ -653,6 +653,7 @@ that can lead to wrong simulation results):
   <tr><td valign=\"top\">Pipes </td>
       <td valign=\"top\"><a href=\"http://trac.modelica.org/Modelica/ticket/215\">ticket:215</a>:
       <ul><li>fix consideration of nParallel>1 for velocity of fluid flow</li>
+          <li>fix consideration of nParallel>1 for transient changes defined by mass, energy and momentum balances</li>
           <li>fix consideration of nNodes in nominal (inverse) flow models</li>
       </ul>
 

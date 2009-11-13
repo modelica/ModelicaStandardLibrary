@@ -352,7 +352,7 @@ Base class for one dimensional flow models. It specializes a PartialTwoPort with
       // distributed volume model
       extends Modelica.Fluid.Interfaces.PartialDistributedVolume(
         final n = nNodes,
-        final fluidVolumes = {crossAreas[i]*lengths[i] for i in 1:n});
+        final fluidVolumes = {crossAreas[i]*lengths[i] for i in 1:n}*nParallel);
 
       // Geometry parameters
       parameter Real nParallel(min=1)=1
@@ -634,14 +634,14 @@ Base class for one dimensional flow models. It specializes a PartialTwoPort with
           statesFM[n+1] = state_b;
           m_flows[2:n+1] = flowModel.m_flows[1:n];
           vsFM[1:n] = vs;
-          vsFM[n+1] = m_flows[n+1]/Medium.density(state_b)/crossAreas[n];
+          vsFM[n+1] = m_flows[n+1]/Medium.density(state_b)/crossAreas[n]/nParallel;
           port_a.p = mediums[1].p;
         elseif modelStructure == ModelStructure.a_vb then
           //nFM = n
           statesFM[1] = state_a;
           statesFM[2:n+1] = mediums[1:n].state;
           m_flows[1:n] = flowModel.m_flows[1:n];
-          vsFM[1] = m_flows[1]/Medium.density(state_a)/crossAreas[1];
+          vsFM[1] = m_flows[1]/Medium.density(state_a)/crossAreas[1]/nParallel;
           vsFM[2:n+1] = vs;
           port_b.p = mediums[n].p;
         elseif modelStructure == ModelStructure.a_v_b then
@@ -650,9 +650,9 @@ Base class for one dimensional flow models. It specializes a PartialTwoPort with
           statesFM[2:n+1] = mediums[1:n].state;
           statesFM[n+2] = state_b;
           m_flows[1:n+1] = flowModel.m_flows[1:n+1];
-          vsFM[1] = m_flows[1]/Medium.density(state_a)/crossAreas[1];
+          vsFM[1] = m_flows[1]/Medium.density(state_a)/crossAreas[1]/nParallel;
           vsFM[2:n+1] = vs;
-          vsFM[n+2] = m_flows[n+1]/Medium.density(state_b)/crossAreas[n];
+          vsFM[n+2] = m_flows[n+1]/Medium.density(state_b)/crossAreas[n]/nParallel;
         else
           assert(true, "Unknown model structure");
         end if;
@@ -1127,7 +1127,7 @@ This also allows for taking into account friction losses with respect to the act
           "= true, if Reynolds numbers are included for plotting" 
                annotation (Evaluate=true, Dialog(group="Diagnostics"));
             SI.ReynoldsNumber[n] Res=Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber(
-                vs/nParallel,
+                vs,
                 rhos,
                 mus,
                 dimensions) if show_Res "Reynolds numbers";
@@ -1174,10 +1174,10 @@ This also allows for taking into account friction losses with respect to the act
               Ib_flows = zeros(n-1);
             end if;
 
-            Fs_p = {0.5*(crossAreas[i]+crossAreas[i+1])*(Medium.pressure(states[i+1])-Medium.pressure(states[i])) for i in 1:n-1};
+            Fs_p = nParallel*{0.5*(crossAreas[i]+crossAreas[i+1])*(Medium.pressure(states[i+1])-Medium.pressure(states[i])) for i in 1:n-1};
 
             // Note: the equation is written for dps_fg instead of Fs_fg to help the translator
-            dps_fg = {Fs_fg[i]*2/(crossAreas[i]+crossAreas[i+1]) for i in 1:n-1};
+            dps_fg = {Fs_fg[i]/nParallel*2/(crossAreas[i]+crossAreas[i+1]) for i in 1:n-1};
 
             annotation (Documentation(info="<html>
 <p>
