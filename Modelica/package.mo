@@ -441,12 +441,13 @@ Additional headings in the html documentation should start with \"h4\".
 In the Modelica package the following conventions are used:
 </p>
 <ol>
-<li> Class and instance names are written in upper and lower case
-  letters, e.g., \"ElectricCurrent\". An underscore is only used
-  at the end of a name to characterize a lower or upper index,
-  e.g., \"pin_a\".<br>&nbsp;</li>
+<li> Class and instance names are usually written in upper and lower case
+  letters, e.g., \"ElectricCurrent\". An underscore may be used in names.
+  However, it has to be taken into account that the last underscore in a 
+  name might indicate that the following characters are rendered as a subscript.
+  Example: \"pin_a\" may be rendered as \"pin<sub>a</sub>\".<br>&nbsp;</li>
 
-<li> <b>Class names</b> start always with an upper case letter.<br>&nbsp;</li>
+<li> <b>Class names</b> start always with an upper case letter, with the exception of functions, that start with a lower case letter.<br>&nbsp;</li>
 
 <li> <b>Instance names</b>, i.e., names of component instances and
   of variables (with the exception of constants),
