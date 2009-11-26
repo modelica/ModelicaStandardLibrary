@@ -2,28 +2,22 @@ within ModelicaTest.Fluid.TestComponents.Machines;
 model TestWaterPumpDCMotor "Test pump with dc motor (startup transient)"
   import Modelica.Fluid;
   extends Modelica.Icons.Example;
-annotation (
-  Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
-            100}}),
-          graphics),
-  experiment(StopTime=8, Tolerance=1e-006),
-  Documentation(info=""));
 
   Modelica.Fluid.Sources.Boundary_pT Source(nPorts=1, redeclare package Medium
       = Modelica.Media.Water.StandardWater,
     T=system.T_ambient,
-    p=100000) 
+    p=100000)
   annotation (Placement(transformation(extent={{-50,-60},{-30,-40}},rotation=0)));
   Modelica.Fluid.Sources.Boundary_pT Sink(nPorts=1,
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     T=system.T_ambient,
     use_p_in=false,
-    p=100000) 
+    p=100000)
   annotation (Placement(transformation(extent={{80,0},{60,20}},  rotation=0)));
   Modelica.Fluid.Machines.Pump pump(
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     m_flow_start=1,
-    redeclare function flowCharacteristic = 
+    redeclare function flowCharacteristic =
         Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.quadraticFlow (
           V_flow_nominal={0,0.001,0.0015}, head_nominal={100,50,0}),
     N_nominal=1500,
@@ -33,16 +27,16 @@ annotation (
   Modelica.Blocks.Sources.Step valveOpening(
     height=-0.5,
     offset=1,
-    startTime=5) 
+    startTime=5)
   annotation (Placement(transformation(extent={{70,40},{50,60}},   rotation=0)));
   Modelica.Fluid.Valves.ValveIncompressible Valve(
-                                             redeclare package Medium = 
+                                             redeclare package Medium =
         Modelica.Media.Water.StandardWater,
     m_flow_nominal=1,
     CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
-    dp_nominal=1000000) 
+    dp_nominal=1000000)
   annotation (Placement(transformation(extent={{31,0},{49,20}},  rotation=0)));
-  inner Modelica.Fluid.System system 
+  inner Modelica.Fluid.System system
                                    annotation (Placement(transformation(extent={{50,-70},
             {70,-50}},         rotation=0)));
   Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet
@@ -64,7 +58,7 @@ annotation (
         extent={{-10,-10},{10,10}},
         rotation=-90,
         origin={-80,40})));
-  Modelica.Electrical.Analog.Basic.Ground ground 
+  Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-90,2},{-70,24}})));
 equation
   connect(Valve.port_b,Sink.ports[1])    annotation (Line(points={{49,10},{60,
@@ -72,7 +66,7 @@ equation
         color={0,127,255}));
   connect(Valve.port_a,pump.port_b)      annotation (Line(points={{31,10},{20,
           10}},                             color={0,127,255}));
-  connect(pump.port_a,Source.ports[1]) 
+  connect(pump.port_a,Source.ports[1])
                                      annotation (Line(points={{-10,10},{-20,10},
           {-20,-50},{-30,-50}},
                               color={0,127,255}));
@@ -96,4 +90,10 @@ equation
       points={{5,25},{5,40},{-30,40}},
       color={0,0,0},
       smooth=Smooth.None));
+annotation (
+  Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
+            100}}),
+          graphics),
+  experiment(StopTime=8, Tolerance=1e-006),
+  Documentation(info=""));
 end TestWaterPumpDCMotor;

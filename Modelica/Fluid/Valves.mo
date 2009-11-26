@@ -349,7 +349,6 @@ it is open.
     by Katja Poschlad (based on ValveLinear).</li>
 </ul>
 </html>"));
-
   end ValveDiscrete;
 
   package BaseClasses
@@ -483,7 +482,6 @@ explained in detail in the
        Adapted from the ThermoPower library.</li>
 </ul>
 </html>"));
-
     end PartialValve;
 
   package ValveCharacteristics "Functions for valve characteristics"

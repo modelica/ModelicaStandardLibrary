@@ -4,12 +4,6 @@ package Interfaces
 
   extends Modelica.Icons.Library;
 
-  annotation ( Documentation(info="<html>
-<p>
-This package contains connectors and partial models (i.e. models
-that are only used to build other models) of the MultiBody library.
-</p>
-</html>"));
 
   connector Frame
     "Coordinate system fixed to the component with one cut-force and cut-torque (no icon)"
@@ -265,6 +259,14 @@ to the FlangeWithBearing connector.
           extent={{-16,-16},{16,16}},
           rotation=90)));
 
+  equation
+    connect(flange, flangeAndFrame.flange) annotation (Line(
+        points={{0,0},{-100,0}},
+        color={0,0,0}));
+    connect(frame, flangeAndFrame.bearingFrame) annotation (Line(
+        points={{0,-100},{0,-40},{-100,-40},{-100,0}},
+        color={0,0,0},
+        thickness=0.5));
     annotation (
       defaultComponentName="adaptor",
       Diagram(coordinateSystem(
@@ -297,14 +299,6 @@ subconnectors of a
 connector.
 </p>
 </html>"));
-  equation
-    connect(flange, flangeAndFrame.flange) annotation (Line(
-        points={{0,0},{-100,0}},
-        color={0,0,0}));
-    connect(frame, flangeAndFrame.bearingFrame) annotation (Line(
-        points={{0,-100},{0,-40},{-100,-40},{-100,0}},
-        color={0,0,0},
-        thickness=0.5));
   end FlangeWithBearingAdaptor;
 
   partial model PartialTwoFrames
@@ -348,7 +342,6 @@ needed and if the two frame connectors should be connected for a correct model.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics));
-
   end PartialTwoFrames;
 
   partial model PartialTwoFramesDoubleSize
@@ -361,6 +354,14 @@ needed and if the two frame connectors should be connected for a correct model.
       "Coordinate system fixed to the component with one cut-force and cut-torque"
       annotation (Placement(transformation(extent={{92,-8},{108,8}})));
 
+
+  protected
+    outer Modelica.Mechanics.MultiBody.World world;
+  equation
+    assert(cardinality(frame_a) > 0,
+      "Connector frame_a of component is not connected");
+    assert(cardinality(frame_b) > 0,
+      "Connector frame_b of component is not connected");
     annotation (
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -389,14 +390,6 @@ larger as usual. This partial model is used by the Joint.Assemblies
 joint aggregation models.
 </p>
 </HTML>"));
-
-  protected
-    outer Modelica.Mechanics.MultiBody.World world;
-  equation
-    assert(cardinality(frame_a) > 0,
-      "Connector frame_a of component is not connected");
-    assert(cardinality(frame_b) > 0,
-      "Connector frame_b of component is not connected");
   end PartialTwoFramesDoubleSize;
 
   partial model PartialOneFrame_a
@@ -456,7 +449,6 @@ needed and if this connector should be connected for a correct model.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics));
-
   end PartialOneFrame_b;
 
   partial model PartialElementaryJoint
@@ -686,6 +678,10 @@ has to be defined. Example:
             rotation=0)));
   protected
     outer Modelica.Mechanics.MultiBody.World world;
+
+  equation
+    assert(cardinality(frame_a) > 0,
+      "Connector frame_a of absolute sensor object is not connected");
     annotation (
       Documentation(info="
 <HTML>
@@ -710,10 +706,6 @@ with the blocks of package Modelica.Blocks.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics));
-
-  equation
-    assert(cardinality(frame_a) > 0,
-      "Connector frame_a of absolute sensor object is not connected");
   end PartialAbsoluteSensor;
 
   partial model PartialRelativeSensor
@@ -733,6 +725,13 @@ with the blocks of package Modelica.Blocks.
           rotation=90)));
   protected
     outer Modelica.Mechanics.MultiBody.World world;
+
+  equation
+    assert(cardinality(frame_a) > 0,
+      "Connector frame_a of relative sensor object is not connected");
+    assert(cardinality(frame_b) > 0,
+      "Connector frame_b of relative sensor object is not connected");
+
     annotation (
       Documentation(info="
 <HTML>
@@ -767,13 +766,6 @@ with the blocks of package Modelica.Blocks.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics));
-
-  equation
-    assert(cardinality(frame_a) > 0,
-      "Connector frame_a of relative sensor object is not connected");
-    assert(cardinality(frame_b) > 0,
-      "Connector frame_b of relative sensor object is not connected");
-
   end PartialRelativeSensor;
 
   partial model PartialVisualizer
@@ -804,6 +796,10 @@ It is used by inheritance from all visualizer objects.
      extends Modelica.Blocks.Interfaces.BlockIcon;
     Interfaces.Frame_resolve frame_resolve
       annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
+  equation
+    Connections.root(frame_resolve.R);
+    frame_resolve.R = Modelica.Mechanics.MultiBody.Frames.nullRotation();
+    frame_resolve.r_0 = zeros(3);
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Text(
             extent={{-74,24},{80,-20}},
@@ -811,9 +807,11 @@ It is used by inheritance from all visualizer objects.
             textString="r = 0")}), Diagram(coordinateSystem(
             preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
           graphics));
-  equation
-    Connections.root(frame_resolve.R);
-    frame_resolve.R = Modelica.Mechanics.MultiBody.Frames.nullRotation();
-    frame_resolve.r_0 = zeros(3);
   end ZeroPosition;
+  annotation ( Documentation(info="<html>
+<p>
+This package contains connectors and partial models (i.e. models
+that are only used to build other models) of the MultiBody library.
+</p>
+</html>"));
 end Interfaces;

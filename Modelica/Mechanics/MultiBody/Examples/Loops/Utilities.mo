@@ -140,65 +140,6 @@ package Utilities "Utility models for Examples.Loops"
         points={{4,-17},{-6,-17},{-6,-29},{22,-29},{22,-36},{14,-36}},
         color={95,95,95},
         thickness=0.5));
-    annotation (
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-150},{100,150}},
-          grid={1,1}), graphics),
-      Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-150},{100,150}},
-          grid={1,1}), graphics={
-          Polygon(
-            points={{-60,-50},{-60,100},{60,100},{60,-52},{100,-52},{100,150},{
-                -100,150},{-100,-50},{-60,-50}},
-            lineColor={0,0,0},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Rectangle(
-            extent={{-58,89},{58,13}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.VerticalCylinder,
-            fillColor={192,192,192}),
-          Rectangle(
-            extent={{-60,81},{60,75}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
-          Rectangle(
-            extent={{-60,67},{60,61}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
-          Rectangle(
-            extent={{-60,55},{60,49}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
-          Polygon(
-            points={{-60,11},{-42,23},{38,23},{56,11},{-60,11}},
-            pattern=LinePattern.None,
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Ellipse(
-            extent={{-6,41},{2,33}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
-          Ellipse(extent={{-40,-129},{40,-49}}, lineColor={192,192,192}),
-          Line(
-            points={{0,-90},{26,-58},{-2,37}},
-            color={0,0,0},
-            thickness=1),
-          Text(
-            extent={{-150,-124},{164,-186}},
-            textString="%name",
-            lineColor={0,0,255}),
-          Line(
-            points={{-100,-90},{100,-91}},
-            color={0,0,0},
-            thickness=0.5)}));
     connect(Rod.frame_a, B1.frame_b) annotation (Line(
         points={{14,-2},{14,-9},{30,-9},{30,-17},{24,-17}},
         color={95,95,95},
@@ -271,6 +212,65 @@ package Utilities "Utility models for Examples.Loops"
         color={95,95,95},
         thickness=0.5));
 
+    annotation (
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-150},{100,150}},
+          grid={1,1}), graphics),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-150},{100,150}},
+          grid={1,1}), graphics={
+          Polygon(
+            points={{-60,-50},{-60,100},{60,100},{60,-52},{100,-52},{100,150},{
+                -100,150},{-100,-50},{-60,-50}},
+            lineColor={0,0,0},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Rectangle(
+            extent={{-58,89},{58,13}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.VerticalCylinder,
+            fillColor={192,192,192}),
+          Rectangle(
+            extent={{-60,81},{60,75}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
+          Rectangle(
+            extent={{-60,67},{60,61}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
+          Rectangle(
+            extent={{-60,55},{60,49}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
+          Polygon(
+            points={{-60,11},{-42,23},{38,23},{56,11},{-60,11}},
+            pattern=LinePattern.None,
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
+          Ellipse(
+            extent={{-6,41},{2,33}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
+          Ellipse(extent={{-40,-129},{40,-49}}, lineColor={192,192,192}),
+          Line(
+            points={{0,-90},{26,-58},{-2,37}},
+            color={0,0,0},
+            thickness=1),
+          Text(
+            extent={{-150,-124},{164,-186}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Line(
+            points={{-100,-90},{100,-91}},
+            color={0,0,0},
+            thickness=0.5)}));
   end Cylinder;
 
   model GasForce "Simple gas force computation for combustion engine"
@@ -295,6 +295,26 @@ package Utilities "Utility models for Examples.Loops"
     SI.Volume V;
     SI.Temperature T;
     SI.Velocity v_rel;
+  protected
+    constant SI.Mass unitMass=1;
+    Modelica.SIunits.Pressure p;
+  equation
+    y = -s_rel/L;
+    x = 1 + s_rel/L;
+    v_rel = der(s_rel);
+
+    press = p/1e5;
+    p = (if v_rel < 0 then (if x < 0.987 then 177.4132*x^4 - 287.2189*x^3 +
+      151.8252*x^2 - 24.9973*x + 2.4 else 2836360*x^4 - 10569296*x^3 + 14761814
+      *x^2 - 9158505*x + 2129670) else (if x > 0.93 then -3929704*x^4 +
+      14748765*x^3 - 20747000*x^2 + 12964477*x - 3036495 else 145.930*x^4 -
+      131.707*x^3 + 17.3438*x^2 + 17.9272*x + 2.4))*1e5;
+
+    f = -1.0E5*press*pi*d^2/4;
+
+    V = k0 + k1*(1 - x);
+    dens = unitMass/V;
+    (p/1e5)*V = k*T;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Rectangle(
@@ -349,26 +369,6 @@ package Utilities "Utility models for Examples.Loops"
             extent={{-100,120},{100,60}},
             textString="%name",
             lineColor={0,0,255})}));
-  protected
-    constant SI.Mass unitMass=1;
-    Modelica.SIunits.Pressure p;
-  equation
-    y = -s_rel/L;
-    x = 1 + s_rel/L;
-    v_rel = der(s_rel);
-
-    press = p/1e5;
-    p = (if v_rel < 0 then (if x < 0.987 then 177.4132*x^4 - 287.2189*x^3 +
-      151.8252*x^2 - 24.9973*x + 2.4 else 2836360*x^4 - 10569296*x^3 + 14761814
-      *x^2 - 9158505*x + 2129670) else (if x > 0.93 then -3929704*x^4 +
-      14748765*x^3 - 20747000*x^2 + 12964477*x - 3036495 else 145.930*x^4 -
-      131.707*x^3 + 17.3438*x^2 + 17.9272*x + 2.4))*1e5;
-
-    f = -1.0E5*press*pi*d^2/4;
-
-    V = k0 + k1*(1 - x);
-    dens = unitMass/V;
-    (p/1e5)*V = k*T;
   end GasForce;
 
   model GasForce2 "Rough approximation of gas force in a cylinder"
@@ -395,6 +395,31 @@ package Utilities "Utility models for Examples.Loops"
     SI.Volume V;
     SI.Temperature T;
     SI.Velocity v_rel;
+
+  protected
+    Modelica.SIunits.SpecificHeatCapacity R_air = Modelica.Constants.R/0.0289651159;
+  equation
+    x = 1 - s_rel/L;
+    v_rel = der(s_rel);
+
+    press = 1.0E5*(if v_rel < 0 then (if x < 0.987 then 177.4132*x^4 - 287.2189*x^3 +
+      151.8252*x^2 - 24.9973*x + 2.4 else 2836360*x^4 - 10569296*x^3 + 14761814
+      *x^2 - 9158505*x + 2129670) else (if x > 0.93 then -3929704*x^4 +
+      14748765*x^3 - 20747000*x^2 + 12964477*x - 3036495 else 145.930*x^4 -
+      131.707*x^3 + 17.3438*x^2 + 17.9272*x + 2.4));
+
+    f = -press*pi*d^2/4;
+
+    V = k0 + k1*(1 - x);
+    dens = press/(R_air*T);
+    press*V = k*T;
+
+    assert(s_rel >= -1.e-12, "flange_b.s - flange_a.s (= " + String(s_rel) +
+                             ") >= 0 required for GasForce component.\n" +
+                             "Most likely, the component has to be flipped.");
+    assert(s_rel <= L + 1.e-12, " flange_b.s - flange_a.s (= " + String(s_rel) +
+                                " <= L (" + String(L) + ") required for GasForce component.\n" +
+                                "Most likely, parameter L is not correct.");
     annotation (Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -467,31 +492,6 @@ where the parameter L is the length
 of the cylinder. If this assumption is not fulfilled, an error occurs.
 </p>
 </html>"));
-
-  protected
-    Modelica.SIunits.SpecificHeatCapacity R_air = Modelica.Constants.R/0.0289651159;
-  equation
-    x = 1 - s_rel/L;
-    v_rel = der(s_rel);
-
-    press = 1.0E5*(if v_rel < 0 then (if x < 0.987 then 177.4132*x^4 - 287.2189*x^3 +
-      151.8252*x^2 - 24.9973*x + 2.4 else 2836360*x^4 - 10569296*x^3 + 14761814
-      *x^2 - 9158505*x + 2129670) else (if x > 0.93 then -3929704*x^4 +
-      14748765*x^3 - 20747000*x^2 + 12964477*x - 3036495 else 145.930*x^4 -
-      131.707*x^3 + 17.3438*x^2 + 17.9272*x + 2.4));
-
-    f = -press*pi*d^2/4;
-
-    V = k0 + k1*(1 - x);
-    dens = press/(R_air*T);
-    press*V = k*T;
-
-    assert(s_rel >= -1.e-12, "flange_b.s - flange_a.s (= " + String(s_rel) +
-                             ") >= 0 required for GasForce component.\n" +
-                             "Most likely, the component has to be flipped.");
-    assert(s_rel <= L + 1.e-12, " flange_b.s - flange_a.s (= " + String(s_rel) +
-                                " <= L (" + String(L) + ") required for GasForce component.\n" +
-                                "Most likely, parameter L is not correct.");
   end GasForce2;
 
   model CylinderBase "One cylinder with analytic handling of kinematic loop"
@@ -623,65 +623,6 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
           origin={-1,70},
           extent={{-10,-10},{10,10}},
           rotation=180)));
-    annotation (
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics),
-      Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
-          Polygon(
-            points={{-60,-61},{-60,64},{60,64},{60,-61},{100,-61},{100,114},{-100,
-                114},{-100,-61},{-60,-61}},
-            lineColor={0,0,0},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Rectangle(
-            extent={{-58,63},{58,-13}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.VerticalCylinder,
-            fillColor={192,192,192}),
-          Rectangle(
-            extent={{-60,55},{60,49}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
-          Rectangle(
-            extent={{-60,41},{60,35}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
-          Rectangle(
-            extent={{-60,29},{60,23}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
-          Polygon(
-            points={{-57,-13},{-39,-1},{41,-1},{59,-13},{-57,-13}},
-            pattern=LinePattern.None,
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Ellipse(
-            extent={{-6,15},{2,7}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
-          Ellipse(extent={{-41,-139},{39,-59}}, lineColor={192,192,192}),
-          Line(
-            points={{-1,-99},{25,-67},{-2,10}},
-            color={0,0,0},
-            thickness=1),
-          Text(
-            extent={{-156,178},{158,116}},
-            textString="%name",
-            lineColor={0,0,255}),
-          Line(
-            points={{-100,-99},{100,-100}},
-            color={0,0,0},
-            thickness=0.5)}));
 
     Modelica.Mechanics.MultiBody.Parts.FixedTranslation Crank(animation=false, r={crankLength,0,0})
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}},
@@ -744,6 +685,65 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
         points={{10,-100},{100,-100}},
         color={95,95,95},
         thickness=0.5));
+    annotation (
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics={
+          Polygon(
+            points={{-60,-61},{-60,64},{60,64},{60,-61},{100,-61},{100,114},{-100,
+                114},{-100,-61},{-60,-61}},
+            lineColor={0,0,0},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Rectangle(
+            extent={{-58,63},{58,-13}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.VerticalCylinder,
+            fillColor={192,192,192}),
+          Rectangle(
+            extent={{-60,55},{60,49}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
+          Rectangle(
+            extent={{-60,41},{60,35}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
+          Rectangle(
+            extent={{-60,29},{60,23}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
+          Polygon(
+            points={{-57,-13},{-39,-1},{41,-1},{59,-13},{-57,-13}},
+            pattern=LinePattern.None,
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
+          Ellipse(
+            extent={{-6,15},{2,7}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
+          Ellipse(extent={{-41,-139},{39,-59}}, lineColor={192,192,192}),
+          Line(
+            points={{-1,-99},{25,-67},{-2,10}},
+            color={0,0,0},
+            thickness=1),
+          Text(
+            extent={{-156,178},{158,116}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Line(
+            points={{-100,-99},{100,-100}},
+            color={0,0,0},
+            thickness=0.5)}));
   end CylinderBase;
 
   model Cylinder_analytic_CAD
@@ -765,16 +765,16 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
           rotation=180)));
   equation
 
-    annotation (                                           Diagram(
-          coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics));
     connect(CrankShape.frame_a, CrankAngle.frame_b)
       annotation (Line(
         points={{-20,-70},{-64,-70}},
         color={95,95,95},
         thickness=0.5));
+    annotation (                                           Diagram(
+          coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics));
   end Cylinder_analytic_CAD;
 
   model EngineV6_analytic "V6 engine with analytic loop handling"
@@ -891,6 +891,25 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
         points={{50,-10},{60,-10}},
         color={95,95,95},
         thickness=0.5));
+    connect(bearing.frame_b, crank.frame_a)
+      annotation (Line(
+        points={{-70,-50},{-50,-50}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(crank.frame_b, cylinder1.crank_a) annotation (Line(
+        points={{-30,-50},{-24,-50},{-24,-26},{-94,-26},{-94,-10},{-90,-10}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(bearing.axis, flange_b) annotation (Line(points={{-80,-60},{-80,-66},
+            {90,-66},{90,0},{110,0}}, color={0,0,0}));
+    connect(frame_a, bearing.frame_a) annotation (Line(
+        points={{0,-101},{0,-81},{-98,-81},{-98,-50},{-90,-50}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(bearing.frame_a, cylinder1.cylinder_a) annotation (Line(
+        points={{-90,-50},{-98,-50},{-98,10},{-90,10}},
+        color={95,95,95},
+        thickness=0.5));
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -911,62 +930,11 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics));
-    connect(bearing.frame_b, crank.frame_a)
-      annotation (Line(
-        points={{-70,-50},{-50,-50}},
-        color={95,95,95},
-        thickness=0.5));
-    connect(crank.frame_b, cylinder1.crank_a) annotation (Line(
-        points={{-30,-50},{-24,-50},{-24,-26},{-94,-26},{-94,-10},{-90,-10}},
-        color={95,95,95},
-        thickness=0.5));
-    connect(bearing.axis, flange_b) annotation (Line(points={{-80,-60},{-80,-66},
-            {90,-66},{90,0},{110,0}}, color={0,0,0}));
-    connect(frame_a, bearing.frame_a) annotation (Line(
-        points={{0,-101},{0,-81},{-98,-81},{-98,-50},{-90,-50}},
-        color={95,95,95},
-        thickness=0.5));
-    connect(bearing.frame_a, cylinder1.cylinder_a) annotation (Line(
-        points={{-90,-50},{-98,-50},{-98,10},{-90,10}},
-        color={95,95,95},
-        thickness=0.5));
   end EngineV6_analytic;
 
   partial model Engine1bBase "Model of one cylinder engine with gas force"
     import SI = Modelica.SIunits;
     extends Modelica.Icons.Example;
-    annotation (
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-120},{150,120}},
-          grid={1,1}), graphics),
-      Documentation(info="<html>
-<p>
-This is a model of the mechanical part of one cylinder of an engine.
-The combustion is not modelled. The \"inertia\" component at the lower
-left part is the output inertia of the engine driving the gearbox.
-The angular velocity of the output inertia has a start value of 10 rad/s
-in order to demonstrate the movement of the engine.
-</p>
-<p>
-The engine is modeled solely by revolute and prismatic joints.
-Since this results in a <b>planar</b> loop there is the well known
-difficulty that the cut-forces perpendicular to the loop cannot be
-uniquely computed, as well as the cut-torques within the plane.
-This ambiguity is resolved by using the option <b>planarCutJoint</b>
-in the <b>Advanced</b> menu of one revolute joint in every planar loop
-(here: joint B1). This option sets the cut-force in direction of the
-axis of rotation, as well as the cut-torques perpendicular to the axis
-of rotation at this joint to zero and makes the problem mathematically
-well-formed.
-</p>
-<p>
-An animation of this example is shown in the figure below.
-</p>
-<p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Loops/Engine.png\" ALT=\"model Examples.Loops.Engine\">
-</p>
-</html>"));
     Modelica.Mechanics.MultiBody.Parts.BodyCylinder Piston(diameter=0.1, r={0,-0.1,0})
       annotation (Placement(transformation(
           origin={120,53},
@@ -1065,5 +1033,37 @@ An animation of this example is shown in the figure below.
         points={{30,-43},{23,-43},{23,-61},{30,-61},{30,-66}},
         color={95,95,95},
         thickness=0.5));
+    annotation (
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-120},{150,120}},
+          grid={1,1}), graphics),
+      Documentation(info="<html>
+<p>
+This is a model of the mechanical part of one cylinder of an engine.
+The combustion is not modelled. The \"inertia\" component at the lower
+left part is the output inertia of the engine driving the gearbox.
+The angular velocity of the output inertia has a start value of 10 rad/s
+in order to demonstrate the movement of the engine.
+</p>
+<p>
+The engine is modeled solely by revolute and prismatic joints.
+Since this results in a <b>planar</b> loop there is the well known
+difficulty that the cut-forces perpendicular to the loop cannot be
+uniquely computed, as well as the cut-torques within the plane.
+This ambiguity is resolved by using the option <b>planarCutJoint</b>
+in the <b>Advanced</b> menu of one revolute joint in every planar loop
+(here: joint B1). This option sets the cut-force in direction of the
+axis of rotation, as well as the cut-torques perpendicular to the axis
+of rotation at this joint to zero and makes the problem mathematically
+well-formed.
+</p>
+<p>
+An animation of this example is shown in the figure below.
+</p>
+<p align=\"center\">
+<IMG SRC=\"../Images/MultiBody/Examples/Loops/Engine.png\" ALT=\"model Examples.Loops.Engine\">
+</p>
+</html>"));
   end Engine1bBase;
 end Utilities;

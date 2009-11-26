@@ -1,14 +1,6 @@
 within Modelica.Mechanics.MultiBody;
 package Types "Constants and types with choices, especially to build menus"
   extends Modelica.Icons.Library;
-  annotation ( Documentation(info="<HTML>
-<p>
-In this package <b>types</b> and <b>constants</b> are defined that are used in the
-MultiBody library. The types have additional annotation choices
-definitions that define the menus to be built up in the graphical
-user interface when the type is used as parameter in a declaration.
-</p>
-</HTML>"));
 
   type Axis = Modelica.Icons.TypeReal[3](each final unit="1")
     "Axis vector with choices for menus"                                      annotation (
@@ -291,12 +283,6 @@ type Init = enumeration(
       PositionVelocityAcceleration);
 
   package Defaults "Default settings of the MultiBody library via constants"
-    annotation ( Documentation(info="<html>
-<p>
-This package contains constants used as default setting
-in the MultiBody library.
-</p>
-</html>"));
     extends Modelica.Icons.Library;
 
     // Color defaults
@@ -343,6 +329,20 @@ in the MultiBody library.
   constant Real Nm_to_m(unit="N.m/m") = 1000
     "Default torque arrow scaling (length = torque/Nm_to_m_default)";
 */
+    annotation ( Documentation(info="<html>
+<p>
+This package contains constants used as default setting
+in the MultiBody library.
+</p>
+</html>"));
   end Defaults;
 
+  annotation ( Documentation(info="<HTML>
+<p>
+In this package <b>types</b> and <b>constants</b> are defined that are used in the
+MultiBody library. The types have additional annotation choices
+definitions that define the menus to be built up in the graphical
+user interface when the type is used as parameter in a declaration.
+</p>
+</HTML>"));
 end Types;

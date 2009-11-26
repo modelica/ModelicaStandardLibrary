@@ -51,9 +51,6 @@ package CompressibleLiquids "compressible liquid models"
     "liquid, linear compressibility water model at 1.01325 bar and 25 degree Celsius"
     extends Modelica.Media.CompressibleLiquids.Common.LinearWater_pT(
                            reference_p = 101325, reference_T = 298.15);
-    annotation (Documentation(info="<html>
-<h4>Water model with linear compressibility at ambient conditions</h4>
-</html>"));
   redeclare function extends dynamicViscosity "Dynamic viscosity of water"
   algorithm
     eta := 8.9e-4;
@@ -64,6 +61,9 @@ package CompressibleLiquids "compressible liquid models"
   algorithm
     lambda := 0.608;
   end thermalConductivity;
+    annotation (Documentation(info="<html>
+<h4>Water model with linear compressibility at ambient conditions</h4>
+</html>"));
   end LinearWater_pT_Ambient;
 
   annotation (Documentation(info="<html>

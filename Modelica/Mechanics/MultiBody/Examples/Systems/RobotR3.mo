@@ -21,22 +21,6 @@ package RobotR3
     parameter SI.AngularAcceleration refAccMax=10
       "Maximum reference acceleration";
 
-    annotation (
-      Documentation(info="<HTML>
-<p>
-With this model one axis of the r3 robot is checked.
-The mechanical structure is replaced by a simple
-load inertia.
-</p>
-</HTML>
-"),   Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics),
-      experiment(StopTime=1.6),
-      __Dymola_Commands(file=
-            "Mechanics/MultiBody/Examples/Systems/oneAxisPlot.mos"
-          "Plot result"));
 
     Components.AxisType1 axis(
       w=5500,
@@ -81,51 +65,27 @@ load inertia.
         points={{-12,30},{-12,29},{-9,29},{-9,10},{20,10}},
         color={255,204,51},
         thickness=0.5));
+    annotation (
+      Documentation(info="<HTML>
+<p>
+With this model one axis of the r3 robot is checked.
+The mechanical structure is replaced by a simple
+load inertia.
+</p>
+</HTML>
+"),   Diagram(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics),
+      experiment(StopTime=1.6),
+      __Dymola_Commands(file=
+            "Mechanics/MultiBody/Examples/Systems/oneAxisPlot.mos"
+          "Plot result"));
   end oneAxis;
 
   model fullRobot
     "6 degree of freedom robot with path planning, controllers, motors, brakes, gears and mechanics"
 
-    annotation (
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={0.5,0.5}), graphics),
-      Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={0.5,0.5}), graphics={
-          Rectangle(
-            extent={{-99.5,100},{100,-100}},
-            lineColor={0,0,0},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Bitmap(extent={{-75.5,98.25},{87,-96.75}}, fileName=
-                "../../../../Images/MultiBody/Examples/Systems/robot_kr15.bmp"),
-          Text(
-            extent={{-111.5,130},{108.5,100}},
-            textString="%name",
-            lineColor={0,0,255}),
-          Text(
-            extent={{-104.5,-104},{115,-128}},
-            lineColor={0,0,0},
-            textString="mLoad=%mLoad")}),
-      experiment(StopTime=2),
-      __Dymola_Commands(
-        file="Mechanics/MultiBody/Examples/Systems/Run.mos" "Simulate",
-        file="Mechanics/MultiBody/Examples/Systems/fullRobotPlot.mos"
-          "Plot result of axis 3 + animate"),
-      Documentation(info="<HTML>
-<p>
-This is a detailed model of the robot. For animation CAD data
-is used. Translate and simulate with the default settings
-(default simulation time = 3 s). Use command script \"Scripts\\ExamplesfullRobotPlot.mos\"
-to plot variables.
-</p>
-<p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Systems/r3_fullRobot.png\" ALT=\"model Examples.Loops.Systems.RobotR3.fullRobot\">
-</p>
-</HTML>"));
 
     import SI = Modelica.SIunits;
 
@@ -385,6 +345,46 @@ to plot variables.
         points={{-80,-10},{-79,-10},{-79,-5},{-65,-5},{-65,35},{-25,35}},
         color={255,204,51},
         thickness=0.5));
+    annotation (
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={0.5,0.5}), graphics),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={0.5,0.5}), graphics={
+          Rectangle(
+            extent={{-99.5,100},{100,-100}},
+            lineColor={0,0,0},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Bitmap(extent={{-75.5,98.25},{87,-96.75}}, fileName=
+                "../../../../Images/MultiBody/Examples/Systems/robot_kr15.bmp"),
+          Text(
+            extent={{-111.5,130},{108.5,100}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Text(
+            extent={{-104.5,-104},{115,-128}},
+            lineColor={0,0,0},
+            textString="mLoad=%mLoad")}),
+      experiment(StopTime=2),
+      __Dymola_Commands(
+        file="Mechanics/MultiBody/Examples/Systems/Run.mos" "Simulate",
+        file="Mechanics/MultiBody/Examples/Systems/fullRobotPlot.mos"
+          "Plot result of axis 3 + animate"),
+      Documentation(info="<HTML>
+<p>
+This is a detailed model of the robot. For animation CAD data
+is used. Translate and simulate with the default settings
+(default simulation time = 3 s). Use command script \"Scripts\\ExamplesfullRobotPlot.mos\"
+to plot variables.
+</p>
+<p align=\"center\">
+<IMG SRC=\"../Images/MultiBody/Examples/Systems/r3_fullRobot.png\" ALT=\"model Examples.Loops.Systems.RobotR3.fullRobot\">
+</p>
+</HTML>"));
   end fullRobot;
   extends Modelica.Icons.Library;
   import SI = Modelica.SIunits;
@@ -471,6 +471,28 @@ the connection to this bus) are defined
         annotation (Placement(transformation(extent={{0,-10},{20,10}}, rotation=
                0)));
 
+
+      Blocks.Logical.TerminateSimulation terminateSimulation(condition=time >= path.endTime
+             + swingTime) annotation (Placement(transformation(extent={{-50,-30},
+                {30,-24}}, rotation=0)));
+    equation
+      connect(path.q, pathToAxis1.q)         annotation (Line(points={{-29,8},{
+              -2,8}}, color={0,0,127}));
+      connect(path.qd, pathToAxis1.qd)         annotation (Line(points={{-29,3},
+              {-2,3}}, color={0,0,127}));
+      connect(path.qdd, pathToAxis1.qdd)         annotation (Line(points={{-29,
+              -3},{-2,-3}}, color={0,0,127}));
+      connect(path.moving, pathToAxis1.moving)             annotation (Line(
+            points={{-29,-8},{-2,-8}}, color={255,0,255}));
+      connect(pathToAxis1.axisControlBus, controlBus.axisControlBus1) annotation (
+        Text(
+          string="%second",
+          index=1,
+          extent=[6,3; 6,3],
+          style(color=0, rgbcolor={0,0,0})), Line(
+          points={{20,0},{100,0}},
+          color={255,204,51},
+          thickness=0.5));
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -543,28 +565,6 @@ motion on the controlBus of the r3 robot.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics));
-
-      Blocks.Logical.TerminateSimulation terminateSimulation(condition=time >= path.endTime
-             + swingTime) annotation (Placement(transformation(extent={{-50,-30},
-                {30,-24}}, rotation=0)));
-    equation
-      connect(path.q, pathToAxis1.q)         annotation (Line(points={{-29,8},{
-              -2,8}}, color={0,0,127}));
-      connect(path.qd, pathToAxis1.qd)         annotation (Line(points={{-29,3},
-              {-2,3}}, color={0,0,127}));
-      connect(path.qdd, pathToAxis1.qdd)         annotation (Line(points={{-29,
-              -3},{-2,-3}}, color={0,0,127}));
-      connect(path.moving, pathToAxis1.moving)             annotation (Line(
-            points={{-29,-8},{-2,-8}}, color={255,0,255}));
-      connect(pathToAxis1.axisControlBus, controlBus.axisControlBus1) annotation (
-        Text(
-          string="%second",
-          index=1,
-          extent=[6,3; 6,3],
-          style(color=0, rgbcolor={0,0,0})), Line(
-          points={{20,0},{100,0}},
-          color={255,204,51},
-          thickness=0.5));
     end PathPlanning1;
 
     model PathPlanning6
@@ -618,78 +618,6 @@ motion on the controlBus of the r3 robot.
         annotation (Placement(transformation(extent={{-10,-80},{10,-60}},
               rotation=0)));
 
-      annotation (
-        Icon(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
-            Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-150,150},{150,110}},
-              textString="%name",
-              lineColor={0,0,255}),
-            Polygon(
-              points={{-80,90},{-88,68},{-72,68},{-80,88},{-80,90}},
-              lineColor={192,192,192},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-80,78},{-80,-82}}, color={192,192,192}),
-            Line(points={{-90,0},{82,0}}, color={192,192,192}),
-            Polygon(
-              points={{90,0},{68,8},{68,-8},{90,0}},
-              lineColor={192,192,192},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-42,55},{29,12}},
-              lineColor={192,192,192},
-              textString="w"),
-            Line(points={{-80,0},{-41,69},{26,69},{58,0}}, color={0,0,0}),
-            Text(
-              extent={{-70,-43},{85,-68}},
-              lineColor={0,0,0},
-              textString="6 axes")}),
-        Documentation(info="<html>
-<p>
-Given
-</p>
-<ul>
-<li> start and end angles of every axis</li>
-<li> maximum speed of every axis </li>
-<li> maximum acceleration of every axis </li>
-</ul>
-
-<p>
-this component computes the fastest movement under the
-given constraints. This means, that:
-</p>
-
-<ol>
-<li> Every axis accelerates with the maximum acceleration
-     until the maximum speed is reached.</li>
-<li> Drives with the maximum speed as long as possible.</li>
-<li> Decelerates with the negative of the maximum acceleration
-     until rest.</li>
-</ol>
-
-<p>
-The acceleration, constant velocity and deceleration
-phase are determined in such a way that the movement
-starts form the start angles and ends at the end angles.
-The output of this block are the computed angles, angular velocities
-and angular acceleration and this information is stored as reference
-motion on the controlBus of the r3 robot.
-</p>
-
-</html>"),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
 
       Blocks.Logical.TerminateSimulation terminateSimulation(condition=time >= path.endTime
              + swingTime) annotation (Placement(transformation(extent={{-50,
@@ -797,6 +725,78 @@ motion on the controlBus of the r3 robot.
           points={{10,-70},{78,-70},{78,-6},{98,-6}},
           color={255,204,51},
           thickness=0.5));
+      annotation (
+        Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics={
+            Rectangle(
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-150,150},{150,110}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Polygon(
+              points={{-80,90},{-88,68},{-72,68},{-80,88},{-80,90}},
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-80,78},{-80,-82}}, color={192,192,192}),
+            Line(points={{-90,0},{82,0}}, color={192,192,192}),
+            Polygon(
+              points={{90,0},{68,8},{68,-8},{90,0}},
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-42,55},{29,12}},
+              lineColor={192,192,192},
+              textString="w"),
+            Line(points={{-80,0},{-41,69},{26,69},{58,0}}, color={0,0,0}),
+            Text(
+              extent={{-70,-43},{85,-68}},
+              lineColor={0,0,0},
+              textString="6 axes")}),
+        Documentation(info="<html>
+<p>
+Given
+</p>
+<ul>
+<li> start and end angles of every axis</li>
+<li> maximum speed of every axis </li>
+<li> maximum acceleration of every axis </li>
+</ul>
+
+<p>
+this component computes the fastest movement under the
+given constraints. This means, that:
+</p>
+
+<ol>
+<li> Every axis accelerates with the maximum acceleration
+     until the maximum speed is reached.</li>
+<li> Drives with the maximum speed as long as possible.</li>
+<li> Decelerates with the negative of the maximum acceleration
+     until rest.</li>
+</ol>
+
+<p>
+The acceleration, constant velocity and deceleration
+phase are determined in such a way that the movement
+starts form the start angles and ends at the end angles.
+The output of this block are the computed angles, angular velocities
+and angular acceleration and this information is stored as reference
+motion on the controlBus of the r3 robot.
+</p>
+
+</html>"),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics));
     end PathPlanning6;
 
     model PathToAxisControlBus "Map path planning to one axis control bus"
@@ -834,41 +834,6 @@ motion on the controlBus of the r3 robot.
       Blocks.Routing.BooleanPassThrough motion_ref_axisUsed
         annotation (Placement(transformation(extent={{-40,-70},{-20,-50}},
               rotation=0)));
-      annotation (defaultComponentName="pathToAxis1",
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2},
-            initialScale=0.1), graphics),
-        Icon(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2},
-            initialScale=0.1), graphics={
-            Text(
-              extent={{-100,98},{-24,68}},
-              lineColor={0,0,0},
-              textString="q"),
-            Text(
-              extent={{-94,46},{-18,16}},
-              lineColor={0,0,0},
-              textString="qd"),
-            Text(
-              extent={{-96,-16},{-20,-46}},
-              lineColor={0,0,0},
-              textString="qdd"),
-            Text(
-              extent={{-2,20},{80,-18}},
-              lineColor={0,0,0},
-              textString="%axisUsed"),
-            Text(
-              extent={{2,52},{76,28}},
-              lineColor={0,0,0},
-              textString="axis"),
-            Text(
-              extent={{-94,-70},{32,-96}},
-              lineColor={0,0,0},
-              textString="moving")}));
     equation
       connect(q_axisUsed.u, q[axisUsed]) annotation (Line(points={{-42,60},{-60,
               60},{-60,80},{-120,80}}, color={0,0,127}));
@@ -906,6 +871,41 @@ motion on the controlBus of the r3 robot.
           extent=[6,3; 6,3],
           style(color=0, rgbcolor={0,0,0})), Line(points={{-19,60},{40,60},{40,
               4},{96,4}}, color={0,0,127}));
+      annotation (defaultComponentName="pathToAxis1",
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2},
+            initialScale=0.1), graphics),
+        Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2},
+            initialScale=0.1), graphics={
+            Text(
+              extent={{-100,98},{-24,68}},
+              lineColor={0,0,0},
+              textString="q"),
+            Text(
+              extent={{-94,46},{-18,16}},
+              lineColor={0,0,0},
+              textString="qd"),
+            Text(
+              extent={{-96,-16},{-20,-46}},
+              lineColor={0,0,0},
+              textString="qdd"),
+            Text(
+              extent={{-2,20},{80,-18}},
+              lineColor={0,0,0},
+              textString="%axisUsed"),
+            Text(
+              extent={{2,52},{76,28}},
+              lineColor={0,0,0},
+              textString="axis"),
+            Text(
+              extent={{-94,-70},{32,-96}},
+              lineColor={0,0,0},
+              textString="moving")}));
     end PathToAxisControlBus;
 
     model GearType1 "Motor inertia and gearbox model for r3 joints 1,2,3 "
@@ -923,6 +923,44 @@ motion on the controlBus of the r3 robot.
       constant SI.AngularVelocity unitAngularVelocity = 1;
       constant SI.Torque unitTorque = 1;
 
+
+      Modelica.Mechanics.Rotational.Components.IdealGear gear(
+                                                   ratio=i, useSupport=false)
+        annotation (Placement(transformation(extent={{50,-10},{70,10}},
+              rotation=0)));
+      Modelica.Mechanics.Rotational.Components.SpringDamper spring(
+                                                        c=c, d=d)
+        annotation (Placement(transformation(extent={{0,-10},{20,10}}, rotation=
+               0)));
+      Modelica.Mechanics.Rotational.Components.BearingFriction bearingFriction(
+                                                                    tau_pos=[0,
+             Rv0/unitTorque; 1, (Rv0 + Rv1*unitAngularVelocity)/unitTorque],
+          useSupport=false)                                                  annotation (Placement(
+            transformation(extent={{-60,-10},{-40,10}}, rotation=0)));
+    equation
+      connect(spring.flange_b, gear.flange_a)
+        annotation (Line(
+          points={{20,0},{50,0}},
+          color={128,128,128},
+          thickness=0.5));
+      connect(bearingFriction.flange_b, spring.flange_a)
+        annotation (Line(
+          points={{-40,0},{0,0}},
+          color={128,128,128},
+          thickness=0.5));
+      connect(gear.flange_b, flange_b)
+        annotation (Line(
+          points={{70,0},{100,0}},
+          color={128,128,128},
+          thickness=0.5));
+      connect(bearingFriction.flange_a, flange_a)
+        annotation (Line(
+          points={{-60,0},{-100,0}},
+          color={128,128,128},
+          thickness=0.5));
+    initial equation
+      spring.w_rel = 0;
+      a_rel = 0;
       annotation (
         Documentation(info="<html>
 <p>
@@ -1002,44 +1040,6 @@ the definition of initial values considerably.
               extent={{-128,26},{-70,18}},
               lineColor={0,0,0},
               textString="flange of motor axis")}));
-
-      Modelica.Mechanics.Rotational.Components.IdealGear gear(
-                                                   ratio=i, useSupport=false)
-        annotation (Placement(transformation(extent={{50,-10},{70,10}},
-              rotation=0)));
-      Modelica.Mechanics.Rotational.Components.SpringDamper spring(
-                                                        c=c, d=d)
-        annotation (Placement(transformation(extent={{0,-10},{20,10}}, rotation=
-               0)));
-      Modelica.Mechanics.Rotational.Components.BearingFriction bearingFriction(
-                                                                    tau_pos=[0,
-             Rv0/unitTorque; 1, (Rv0 + Rv1*unitAngularVelocity)/unitTorque],
-          useSupport=false)                                                  annotation (Placement(
-            transformation(extent={{-60,-10},{-40,10}}, rotation=0)));
-    equation
-      connect(spring.flange_b, gear.flange_a)
-        annotation (Line(
-          points={{20,0},{50,0}},
-          color={128,128,128},
-          thickness=0.5));
-      connect(bearingFriction.flange_b, spring.flange_a)
-        annotation (Line(
-          points={{-40,0},{0,0}},
-          color={128,128,128},
-          thickness=0.5));
-      connect(gear.flange_b, flange_b)
-        annotation (Line(
-          points={{70,0},{100,0}},
-          color={128,128,128},
-          thickness=0.5));
-      connect(bearingFriction.flange_a, flange_a)
-        annotation (Line(
-          points={{-60,0},{-100,0}},
-          color={128,128,128},
-          thickness=0.5));
-    initial equation
-      spring.w_rel = 0;
-      a_rel = 0;
     end GearType1;
 
     model GearType2 "Motor inertia and gearbox model for r3 joints 4,5,6  "
@@ -1050,6 +1050,35 @@ the definition of initial values considerably.
         "Viscous friction coefficient in [Nms/rad] (R=Rv0+Rv1*abs(qd))";
       parameter Real peak=(26.7/21.8)
         "Maximum static friction torque is peak*Rv0 (peak >= 1)";
+
+      constant SI.AngularVelocity unitAngularVelocity = 1;
+      constant SI.Torque unitTorque = 1;
+      Modelica.Mechanics.Rotational.Components.IdealGear gear(
+                                                   ratio=i, useSupport=false)
+        annotation (Placement(transformation(extent={{-28,-10},{-8,10}},
+              rotation=0)));
+      Modelica.Mechanics.Rotational.Components.BearingFriction bearingFriction(
+                                                                    tau_pos=[0,
+             Rv0/unitTorque; 1, (Rv0 + Rv1*unitAngularVelocity)/unitTorque], peak=peak,
+        useSupport=false)
+        annotation (Placement(transformation(extent={{30,-10},{50,10}},
+              rotation=0)));
+    equation
+      connect(gear.flange_b, bearingFriction.flange_a)
+        annotation (Line(
+          points={{-8,0},{30,0}},
+          color={128,128,128},
+          thickness=0.5));
+      connect(bearingFriction.flange_b, flange_b)
+        annotation (Line(
+          points={{50,0},{100,0}},
+          color={128,128,128},
+          thickness=0.5));
+      connect(gear.flange_a, flange_a)
+        annotation (Line(
+          points={{-28,0},{-100,0}},
+          color={128,128,128},
+          thickness=0.5));
       annotation (
         Documentation(info="<html>
 <p>
@@ -1107,35 +1136,6 @@ Default values for all parameters are given for joint 4.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics));
-
-      constant SI.AngularVelocity unitAngularVelocity = 1;
-      constant SI.Torque unitTorque = 1;
-      Modelica.Mechanics.Rotational.Components.IdealGear gear(
-                                                   ratio=i, useSupport=false)
-        annotation (Placement(transformation(extent={{-28,-10},{-8,10}},
-              rotation=0)));
-      Modelica.Mechanics.Rotational.Components.BearingFriction bearingFriction(
-                                                                    tau_pos=[0,
-             Rv0/unitTorque; 1, (Rv0 + Rv1*unitAngularVelocity)/unitTorque], peak=peak,
-        useSupport=false)
-        annotation (Placement(transformation(extent={{30,-10},{50,10}},
-              rotation=0)));
-    equation
-      connect(gear.flange_b, bearingFriction.flange_a)
-        annotation (Line(
-          points={{-8,0},{30,0}},
-          color={128,128,128},
-          thickness=0.5));
-      connect(bearingFriction.flange_b, flange_b)
-        annotation (Line(
-          points={{50,0},{100,0}},
-          color={128,128,128},
-          thickness=0.5));
-      connect(gear.flange_a, flange_a)
-        annotation (Line(
-          points={{-28,0},{-100,0}},
-          color={128,128,128},
-          thickness=0.5));
     end GearType2;
 
     model Motor "Motor model including current controller of r3 motors "
@@ -1147,29 +1147,6 @@ Default values for all parameters are given for joint 4.
       parameter SI.AngularVelocity w_max=315 "Maximum speed of motor";
       parameter SI.Current i_max=9 "Maximum current of motor";
 
-      annotation (
-        Documentation(info="<html>
-<p>
-Default values are given for the motor of joint 1.
-The input of the motor is the desired current
-(the actual current is proportional to the torque
-produced by the motor).
-</p>
-</html>
-"),     Icon(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Text(
-              extent={{0,120},{0,60}},
-              textString="%name",
-              lineColor={0,0,255}), Line(
-              points={{80,-102},{80,-10}},
-              color={255,204,51},
-              thickness=0.5)}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
 
       Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_motor
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
@@ -1354,6 +1331,29 @@ produced by the motor).
           points={{66,0},{70,0}},
           color={0,0,0},
           smooth=Smooth.None));
+      annotation (
+        Documentation(info="<html>
+<p>
+Default values are given for the motor of joint 1.
+The input of the motor is the desired current
+(the actual current is proportional to the torque
+produced by the motor).
+</p>
+</html>
+"),     Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics={Text(
+              extent={{0,120},{0,60}},
+              textString="%name",
+              lineColor={0,0,255}), Line(
+              points={{80,-102},{80,-10}},
+              color={255,204,51},
+              thickness=0.5)}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics));
     end Motor;
 
     model Controller "P-PI cascade controller for one axis"
@@ -1362,6 +1362,54 @@ produced by the motor).
       parameter SI.Time Ts=0.01
         "Time constant of integrator of speed controller";
       parameter Real ratio=1 "Gear ratio of gearbox";
+
+      Modelica.Blocks.Math.Gain gain1(k=ratio)
+        annotation (Placement(transformation(extent={{-70,0},{-50,20}},
+              rotation=0)));
+      Modelica.Blocks.Continuous.PI PI(k=ks, T=Ts)
+        annotation (Placement(transformation(extent={{60,0},{80,20}}, rotation=
+                0)));
+      Modelica.Blocks.Math.Feedback feedback1
+        annotation (Placement(transformation(extent={{-46,0},{-26,20}},
+              rotation=0)));
+      Modelica.Blocks.Math.Gain P(k=kp) annotation (Placement(transformation(
+              extent={{-16,0},{4,20}}, rotation=0)));
+      Modelica.Blocks.Math.Add3 add3(k3=-1) annotation (Placement(
+            transformation(extent={{20,0},{40,20}}, rotation=0)));
+      Modelica.Blocks.Math.Gain gain2(k=ratio)
+        annotation (Placement(transformation(extent={{-60,40},{-40,60}},
+              rotation=0)));
+      Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
+        axisControlBus
+        annotation (Placement(transformation(extent={{-20,-120},{20,-80}},
+              rotation=0)));
+    equation
+      connect(gain1.y, feedback1.u1)
+        annotation (Line(points={{-49,10},{-44,10}}, color={0,0,127}));
+      connect(feedback1.y, P.u)
+        annotation (Line(points={{-27,10},{-18,10}}, color={0,0,127}));
+      connect(P.y, add3.u2) annotation (Line(points={{5,10},{18,10}}, color={0,
+              0,127}));
+      connect(gain2.y, add3.u1)
+        annotation (Line(points={{-39,50},{10,50},{10,18},{18,18}}, color={0,0,
+              127}));
+      connect(add3.y, PI.u)
+        annotation (Line(points={{41,10},{58,10}}, color={0,0,127}));
+      connect(gain2.u, axisControlBus.speed_ref)
+                                      annotation (Line(points={{-62,50},{-90,50},
+              {-90,-100},{0,-100}}, color={0,0,127}));
+      connect(gain1.u, axisControlBus.angle_ref)
+                                      annotation (Line(points={{-72,10},{-80,10},
+              {-80,-100},{0,-100}}, color={0,0,127}));
+      connect(feedback1.u2, axisControlBus.motorAngle)
+                                            annotation (Line(points={{-36,2},{
+              -36,-100},{0,-100}}, color={0,0,127}));
+      connect(add3.u3, axisControlBus.motorSpeed)
+                                       annotation (Line(points={{18,2},{0,2},{0,
+              -100}}, color={0,0,127}));
+      connect(PI.y, axisControlBus.current_ref)
+                                     annotation (Line(points={{81,10},{90,10},{
+              90,-100},{0,-100}}, color={0,0,127}));
       annotation (
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -1414,54 +1462,6 @@ reference signals. All signals are communicated via the
 \"axisControlBus\".
 </p>
 </html>"));
-
-      Modelica.Blocks.Math.Gain gain1(k=ratio)
-        annotation (Placement(transformation(extent={{-70,0},{-50,20}},
-              rotation=0)));
-      Modelica.Blocks.Continuous.PI PI(k=ks, T=Ts)
-        annotation (Placement(transformation(extent={{60,0},{80,20}}, rotation=
-                0)));
-      Modelica.Blocks.Math.Feedback feedback1
-        annotation (Placement(transformation(extent={{-46,0},{-26,20}},
-              rotation=0)));
-      Modelica.Blocks.Math.Gain P(k=kp) annotation (Placement(transformation(
-              extent={{-16,0},{4,20}}, rotation=0)));
-      Modelica.Blocks.Math.Add3 add3(k3=-1) annotation (Placement(
-            transformation(extent={{20,0},{40,20}}, rotation=0)));
-      Modelica.Blocks.Math.Gain gain2(k=ratio)
-        annotation (Placement(transformation(extent={{-60,40},{-40,60}},
-              rotation=0)));
-      Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
-        axisControlBus
-        annotation (Placement(transformation(extent={{-20,-120},{20,-80}},
-              rotation=0)));
-    equation
-      connect(gain1.y, feedback1.u1)
-        annotation (Line(points={{-49,10},{-44,10}}, color={0,0,127}));
-      connect(feedback1.y, P.u)
-        annotation (Line(points={{-27,10},{-18,10}}, color={0,0,127}));
-      connect(P.y, add3.u2) annotation (Line(points={{5,10},{18,10}}, color={0,
-              0,127}));
-      connect(gain2.y, add3.u1)
-        annotation (Line(points={{-39,50},{10,50},{10,18},{18,18}}, color={0,0,
-              127}));
-      connect(add3.y, PI.u)
-        annotation (Line(points={{41,10},{58,10}}, color={0,0,127}));
-      connect(gain2.u, axisControlBus.speed_ref)
-                                      annotation (Line(points={{-62,50},{-90,50},
-              {-90,-100},{0,-100}}, color={0,0,127}));
-      connect(gain1.u, axisControlBus.angle_ref)
-                                      annotation (Line(points={{-72,10},{-80,10},
-              {-80,-100},{0,-100}}, color={0,0,127}));
-      connect(feedback1.u2, axisControlBus.motorAngle)
-                                            annotation (Line(points={{-36,2},{
-              -36,-100},{0,-100}}, color={0,0,127}));
-      connect(add3.u3, axisControlBus.motorSpeed)
-                                       annotation (Line(points={{18,2},{0,2},{0,
-              -100}}, color={0,0,127}));
-      connect(PI.y, axisControlBus.current_ref)
-                                     annotation (Line(points={{81,10},{90,10},{
-              90,-100},{0,-100}}, color={0,0,127}));
     end Controller;
 
     model AxisType1 "Axis model of the r3 joints 1,2,3 "
@@ -1498,39 +1498,6 @@ reference signals. All signals are communicated via the
       parameter Real peak=1
         "Maximum static friction torque is peak*Rv0 (peak >= 1)"
         annotation (Dialog(group="Gear"));
-      annotation (
-        Documentation(info="<HTML>
-<p>
-The axis model consists of the <b>controller</b>, the <b>motor</b> including current
-controller and the <b>gearbox</b> including gear elasticity and bearing friction.
-The only difference to the axis model of joints 4,5,6 (= model axisType2) is
-that elasticity and damping in the gear boxes are not neglected.
-</p>
-<p>
-The input signals of this component are the desired angle and desired angular
-velocity of the joint. The reference signals have to be \"smooth\" (position
-has to be differentiable at least 2 times). Otherwise, the gear elasticity
-leads to significant oscillations.
-</p>
-<p>
-Default values of the parameters are given for the axis of joint 1.
-</p>
-</HTML>
-"),     Icon(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Rectangle(
-              extent={{-100,50},{100,-50}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={160,160,164}), Text(
-              extent={{-150,57},{150,97}},
-              textString="%name",
-              lineColor={0,0,255})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
 
       Modelica.Mechanics.Rotational.Interfaces.Flange_b flange
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
@@ -1634,6 +1601,39 @@ Default values of the parameters are given for the axis of joint 1.
               -50},{80,-50},{80,0},{100,0}}, color={0,0,0}));
       connect(const.y, initializeFlange.a_start) annotation (Line(points={{-54.5,
               -60},{-48,-60},{-48,-58},{-42,-58}},       color={0,0,127}));
+      annotation (
+        Documentation(info="<HTML>
+<p>
+The axis model consists of the <b>controller</b>, the <b>motor</b> including current
+controller and the <b>gearbox</b> including gear elasticity and bearing friction.
+The only difference to the axis model of joints 4,5,6 (= model axisType2) is
+that elasticity and damping in the gear boxes are not neglected.
+</p>
+<p>
+The input signals of this component are the desired angle and desired angular
+velocity of the joint. The reference signals have to be \"smooth\" (position
+has to be differentiable at least 2 times). Otherwise, the gear elasticity
+leads to significant oscillations.
+</p>
+<p>
+Default values of the parameters are given for the axis of joint 1.
+</p>
+</HTML>
+"),     Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics={Rectangle(
+              extent={{-100,50},{100,-50}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={160,160,164}), Text(
+              extent={{-150,57},{150,97}},
+              textString="%name",
+              lineColor={0,0,255})}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics));
     end AxisType2;
 
     model MechanicalStructure
@@ -1649,56 +1649,6 @@ Default values of the parameters are given for the axis of joint 1.
       SI.AngularAcceleration qdd[6] "Joint accelerations";
       SI.Torque tau[6] "Joint driving torques";
       //r0={0,0.351,0},
-      annotation (
-        Documentation(info="<HTML>
-<p>
-This model contains the mechanical components of the r3 robot
-(multibody system).
-</p>
-</HTML>
-"),     Icon(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-200,-200},{200,200}},
-            grid={2,2}), graphics={
-            Rectangle(
-              extent={{-200,200},{200,-200}},
-              lineColor={0,0,0},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-200,280},{200,200}},
-              textString="%name",
-              lineColor={0,0,255}),
-            Text(
-              extent={{-200,-150},{-140,-190}},
-              textString="1",
-              lineColor={0,0,255}),
-            Text(
-              extent={{-200,-30},{-140,-70}},
-              textString="3",
-              lineColor={0,0,255}),
-            Text(
-              extent={{-200,-90},{-140,-130}},
-              textString="2",
-              lineColor={0,0,255}),
-            Text(
-              extent={{-200,90},{-140,50}},
-              textString="5",
-              lineColor={0,0,255}),
-            Text(
-              extent={{-200,28},{-140,-12}},
-              textString="4",
-              lineColor={0,0,255}),
-            Text(
-              extent={{-198,150},{-138,110}},
-              textString="6",
-              lineColor={0,0,255}),
-            Bitmap(extent={{-130,195},{195,-195}}, fileName=
-                  "../../../../Images/MultiBody/Examples/Systems/robot_kr15.bmp")}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-200,-200},{200,200}},
-            grid={2,2}), graphics));
 
       Modelica.Mechanics.Rotational.Interfaces.Flange_a axis1
         annotation (Placement(transformation(extent={{-220,-180},{-200,-160}},
@@ -1983,15 +1933,58 @@ This model contains the mechanical components of the r3 robot
           thickness=0.5));
       connect(r6.axis, axis6)
         annotation (Line(points={{-70,130},{-210,130}}, color={0,0,0}));
+      annotation (
+        Documentation(info="<HTML>
+<p>
+This model contains the mechanical components of the r3 robot
+(multibody system).
+</p>
+</HTML>
+"),     Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-200,-200},{200,200}},
+            grid={2,2}), graphics={
+            Rectangle(
+              extent={{-200,200},{200,-200}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-200,280},{200,200}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-200,-150},{-140,-190}},
+              textString="1",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-200,-30},{-140,-70}},
+              textString="3",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-200,-90},{-140,-130}},
+              textString="2",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-200,90},{-140,50}},
+              textString="5",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-200,28},{-140,-12}},
+              textString="4",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-198,150},{-138,110}},
+              textString="6",
+              lineColor={0,0,255}),
+            Bitmap(extent={{-130,195},{195,-195}}, fileName=
+                  "../../../../Images/MultiBody/Examples/Systems/robot_kr15.bmp")}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-200,-200},{200,200}},
+            grid={2,2}), graphics));
     end MechanicalStructure;
 
-    annotation (Documentation(info="<html>
-<p>
-This library contains the different components
-of the r3 robot. Usually, there is no need to
-use this library directly.
-</p>
-</html>"));
     package InternalConnectors "Internal models that should not be used"
       expandable connector AxisControlBus "Data bus for one robot axis"
         extends
@@ -2046,6 +2039,13 @@ utilized by a user.
 </html>"));
     end InternalConnectors;
 
+    annotation (Documentation(info="<html>
+<p>
+This library contains the different components
+of the r3 robot. Usually, there is no need to
+use this library directly.
+</p>
+</html>"));
   end Components;
 
   annotation (

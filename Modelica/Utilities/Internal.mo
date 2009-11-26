@@ -100,25 +100,6 @@ package FileSystem
     "Internal package with external functions as interface to the file system"
  extends Modelica.Icons.Library;
 
-  annotation (
-Documentation(info="<html>
-<p>
-Package <b>Internal.FileSystem</b> is an internal package that contains
-low level functions as interface to the file system.
-These functions should not be called directly in a scripting
-environment since more convenient functions are provided
-in packages Files and Systems.
-</p>
-<p>
-Note, the functions in this package are direct interfaces to
-functions of POSIX and of the standard C library. Errors
-occuring in these functions are treated by triggering
-a Modelica assert. Therefore, the functions in this package
-return only for a successful operation. Furthermore, the
-representation of a string is hidden by this interface,
-especially if the operating system supports Unicode characters.
-</p>
-</html>"));
 
   function mkdir "Make directory (POSIX: 'mkdir')"
     extends Modelica.Icons.Function;
@@ -197,5 +178,24 @@ function getNumberOfFiles
   annotation(Library="ModelicaExternalC");
 end getNumberOfFiles;
 
+  annotation (
+Documentation(info="<html>
+<p>
+Package <b>Internal.FileSystem</b> is an internal package that contains
+low level functions as interface to the file system.
+These functions should not be called directly in a scripting
+environment since more convenient functions are provided
+in packages Files and Systems.
+</p>
+<p>
+Note, the functions in this package are direct interfaces to
+functions of POSIX and of the standard C library. Errors
+occuring in these functions are treated by triggering
+a Modelica assert. Therefore, the functions in this package
+return only for a successful operation. Furthermore, the
+representation of a string is hidden by this interface,
+especially if the operating system supports Unicode characters.
+</p>
+</html>"));
 end FileSystem;
 end Internal;

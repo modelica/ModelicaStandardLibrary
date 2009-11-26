@@ -23,10 +23,6 @@ protected
   constant Real t2d=1 "dummy unit constant";
   constant Real d2mu=1 "dummy unit constant";
 
-  annotation (experiment(StopTime=3), experimentSetupOutput,
-    Documentation(info="<html>
-
-</html>"));
 equation
   dp = t2p*time - 1;
   rho_a = 0.1 + t2d*time;
@@ -39,4 +35,8 @@ equation
 
   der_m_flow1 = der(m_flow1);
   // der_m_flow2 = der(m_flow2);
+  annotation (experiment(StopTime=3), experimentSetupOutput,
+    Documentation(info="<html>
+
+</html>"));
 end TestPressureLossDerivatives;

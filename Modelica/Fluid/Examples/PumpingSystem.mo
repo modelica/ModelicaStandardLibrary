@@ -95,46 +95,6 @@ model PumpingSystem "Model of a pumping system for drinking water"
     y_start=0)
     annotation (Placement(transformation(extent={{40,60},{60,80}}, rotation=0)));
 
-  annotation (
-    Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-            100,100}},
-        grid={1,1}),
-            graphics),
-    Documentation(info="<html>
-Water is pumped from a source by a pump (fitted with check valves), through a pipe whose outlet is 50 m higher than the source, into a reservoir. The users are represented by an equivalent valve, connected to the reservoir.
-<p>
-The water controller is a simple on-off controller, regulating on the gauge pressure measured at the base of the tower; the output of the controller is the rotational speed of the pump, which is represented by the output of a first-order system. A small but nonzero rotational speed is used to represent the standby state of the pumps, in order to avoid singularities in the flow characteristic.
-<p>
-Simulate for 2000 s. When the valve is opened at time t=200, the pump starts turning on and off to keep the reservoir level around 2 meters, which roughly corresponds to a gauge pressure of 200 mbar
-<p>
-If using Dymola, turn off \"Equidistant time grid\" to avoid numerical errors.
-</p>
-
-<p align=\"center\">
-<img src=\"../Images/Fluid/Examples/PumpingSystem.png\" border=\"1\">
-</p>
-
-</html>", revisions="<html>
-<ul>
-<li><i>Jan 2009</i>
-    by R&uuml;diger Franke:<br>
-       Reduce diameters of pipe and reservoir ports; use separate port for measurement of reservoirPressure, avoiding disturbances due to pressure losses.</li>
-<li><i>1 Oct 2007</i>
-    by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
-       Parameters updated.</li>
-<li><i>2 Nov 2005</i>
-    by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
-       Created.</li>
-</ul>
-</html>"),
-    experiment(
-      StopTime=2000,
-      NumberOfIntervals=5000,
-      Tolerance=1e-006),
-    Icon(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={1,1})));
   inner Modelica.Fluid.System system
                                    annotation (Placement(transformation(extent=
             {{60,-96},{80,-76}}, rotation=0)));
@@ -176,4 +136,44 @@ equation
       points={{-10,-16},{-10,-30},{58,-30}},
       color={0,127,255},
       smooth=Smooth.None));
+  annotation (
+    Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
+            100,100}},
+        grid={1,1}),
+            graphics),
+    Documentation(info="<html>
+Water is pumped from a source by a pump (fitted with check valves), through a pipe whose outlet is 50 m higher than the source, into a reservoir. The users are represented by an equivalent valve, connected to the reservoir.
+<p>
+The water controller is a simple on-off controller, regulating on the gauge pressure measured at the base of the tower; the output of the controller is the rotational speed of the pump, which is represented by the output of a first-order system. A small but nonzero rotational speed is used to represent the standby state of the pumps, in order to avoid singularities in the flow characteristic.
+<p>
+Simulate for 2000 s. When the valve is opened at time t=200, the pump starts turning on and off to keep the reservoir level around 2 meters, which roughly corresponds to a gauge pressure of 200 mbar
+<p>
+If using Dymola, turn off \"Equidistant time grid\" to avoid numerical errors.
+</p>
+
+<p align=\"center\">
+<img src=\"../Images/Fluid/Examples/PumpingSystem.png\" border=\"1\">
+</p>
+
+</html>", revisions="<html>
+<ul>
+<li><i>Jan 2009</i>
+    by R&uuml;diger Franke:<br>
+       Reduce diameters of pipe and reservoir ports; use separate port for measurement of reservoirPressure, avoiding disturbances due to pressure losses.</li>
+<li><i>1 Oct 2007</i>
+    by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
+       Parameters updated.</li>
+<li><i>2 Nov 2005</i>
+    by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
+       Created.</li>
+</ul>
+</html>"),
+    experiment(
+      StopTime=2000,
+      NumberOfIntervals=5000,
+      Tolerance=1e-006),
+    Icon(coordinateSystem(
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
+        grid={1,1})));
 end PumpingSystem;

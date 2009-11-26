@@ -8,6 +8,13 @@ model TestRegRootDerivative
   Real yd;
   Real k1;
   Real k2;
+equation
+  x = time - 1;
+  k1 = 1 + 0.1*time;
+  k2 = 2 + 0.2*time;
+
+  y = (if x >= 0 then k1 else k2)*Modelica.Fluid.Utilities.regRoot(x,x_small);
+  yd = 0 "model does not translate if y=0 is replaced by y=der(y)";
   annotation (experiment(StopTime=2, NumberOfIntervals=5000),
                                       experimentSetupOutput,
     Documentation(info="<html>
@@ -19,11 +26,4 @@ are used. In such a case, the regRoot2(..) function should be used.
 In order to test this behaviour, change the line \"yd=0\" to \"yd = der(y)\".
 </p>
 </html>"));
-equation
-  x = time - 1;
-  k1 = 1 + 0.1*time;
-  k2 = 2 + 0.2*time;
-
-  y = (if x >= 0 then k1 else k2)*Modelica.Fluid.Utilities.regRoot(x,x_small);
-  yd = 0 "model does not translate if y=0 is replaced by y=der(y)";
 end TestRegRootDerivative;

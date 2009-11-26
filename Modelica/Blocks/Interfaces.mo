@@ -4,38 +4,6 @@ package Interfaces
   import Modelica.SIunits;
     extends Modelica.Icons.Library;
 
-    annotation (
-      Documentation(info="<HTML>
-<p>
-This package contains interface definitions for
-<b>continuous</b> input/output blocks with Real,
-Integer and Boolean signals. Furthermore, it contains
-partial models for continuous and discrete blocks.
-</p>
-
-</HTML>
-", revisions="<html>
-<ul>
-<li><i>Oct. 21, 2002</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
-       and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
-       Added several new interfaces. <a href=\"../Documentation/ChangeNotes1.5.html\">Detailed description</a> available.
-<li><i>Oct. 24, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       RealInputSignal renamed to RealInput. RealOutputSignal renamed to
-       output RealOutput. GraphBlock renamed to BlockIcon. SISOreal renamed to
-       SISO. SOreal renamed to SO. I2SOreal renamed to M2SO.
-       SignalGenerator renamed to SignalSource. Introduced the following
-       new models: MIMO, MIMOs, SVcontrol, MVcontrol, DiscreteBlockIcon,
-       DiscreteBlock, DiscreteSISO, DiscreteMIMO, DiscreteMIMOs,
-       BooleanBlockIcon, BooleanSISO, BooleanSignalSource, MI2BooleanMOs.</li>
-<li><i>June 30, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized a first version, based on an existing Dymola library
-       of Dieter Moormann and Hilding Elmqvist.</li>
-</ul>
-</html>
-"));
 
 connector RealInput = input Real "'input Real' as connector"
   annotation (defaultComponentName="u",
@@ -523,8 +491,6 @@ discrete block (no declarations, no equations), e.g.,
 from Blocks.Discrete.
 </p>
 </html>"));
-    equation
-
     end DiscreteBlockIcon;
 
     partial block DiscreteBlock "Base class of discrete control blocks"
@@ -639,6 +605,11 @@ These signals are sampled due to the defined <b>samplePeriod</b> parameter.
       Modelica.Blocks.Interfaces.RealOutput y
       "Continuous scalar actuator output signal"   annotation (Placement(
           transformation(extent={{100,-10},{120,10}}, rotation=0)));
+    equation
+      connect(u_s, sampler_s.u)           annotation (Line(points={{-120,0},{
+            -102,0}}));
+      connect(u_m, sampler_m.u)           annotation (Line(points={{0,-120},{0,
+            -111},{0,-102},{-7.34788e-016,-102}}));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Text(
@@ -662,11 +633,6 @@ The block is designed
 to be used as base class for a corresponding controller.
 </p>
 </html>"));
-    equation
-      connect(u_s, sampler_s.u)           annotation (Line(points={{-120,0},{
-            -102,0}}));
-      connect(u_m, sampler_m.u)           annotation (Line(points={{0,-120},{0,
-            -111},{0,-102},{-7.34788e-016,-102}}));
     end SVdiscrete;
 
     partial block MVdiscrete "Discrete Multi-Variable controller"
@@ -698,6 +664,11 @@ to be used as base class for a corresponding controller.
       Modelica.Blocks.Interfaces.RealOutput y[ny]
       "Continuous actuator output signals"   annotation (Placement(
           transformation(extent={{100,-10},{120,10}}, rotation=0)));
+    equation
+      connect(u_s, sampler_s.u)           annotation (Line(points={{-120,0},{
+            -92,0}}));
+      connect(u_m, sampler_m.u)           annotation (Line(points={{0,-120},{0,
+            -106},{0,-92},{-7.34788e-016,-92}}));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Text(
@@ -725,11 +696,6 @@ The block is designed
 to be used as base class for a corresponding controller.
 </p>
 </html>"));
-    equation
-      connect(u_s, sampler_s.u)           annotation (Line(points={{-120,0},{
-            -92,0}}));
-      connect(u_m, sampler_m.u)           annotation (Line(points={{0,-120},{0,
-            -106},{0,-92},{-7.34788e-016,-92}}));
     end MVdiscrete;
 
     partial block BooleanBlockIcon "Basic graphical layout of Boolean block"
@@ -890,8 +856,6 @@ Block that has only the basic icon for an input/output,
 Integer block (no declarations, no equations).
 </p>
 </html>"));
-equation
-
 end IntegerBlockIcon;
 
 partial block IntegerSO "Single Integer Output continuous control block"
@@ -993,8 +957,6 @@ Boolean block (no declarations, no equations) used especially
 in the Blocks.Logical library.
 </p>
 </html>"));
-  equation
-
   end partialBooleanBlockIcon;
 
   partial block partialBooleanSISO
@@ -1343,6 +1305,8 @@ package Adaptors
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
     RealInput u "Input signal to be send to bus" annotation (Placement(
             transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
+  equation
+    toBus = u;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Rectangle(
@@ -1371,8 +1335,6 @@ for signal buses, see example
 </p>
 </html>
 "));
-  equation
-    toBus = u;
   end SendReal;
 
   block SendBoolean "Obsolete block to send Boolean signal to bus"
@@ -1380,6 +1342,8 @@ for signal buses, see example
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
     BooleanInput u "Input signal to be send to bus" annotation (Placement(
             transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
+  equation
+    toBus = u;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Rectangle(
@@ -1408,8 +1372,6 @@ for signal buses, see example
 </p>
 </html>
 "));
-  equation
-    toBus = u;
   end SendBoolean;
 
   block SendInteger "Obsolete block to send Integer signal to bus"
@@ -1417,6 +1379,8 @@ for signal buses, see example
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
     IntegerInput u "Input signal to be send to bus" annotation (Placement(
             transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
+  equation
+    toBus = u;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Rectangle(
@@ -1444,8 +1408,6 @@ for signal buses, see example
 <a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
 </html>"));
-  equation
-    toBus = u;
   end SendInteger;
 
   block ReceiveReal "Obsolete block to receive Real signal from bus"
@@ -1453,6 +1415,8 @@ for signal buses, see example
             transformation(extent={{-120,-10},{-100,10}}, rotation=0)));
     RealOutput y "Output signal to be received from bus" annotation (Placement(
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
+  equation
+    y = fromBus;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Rectangle(
@@ -1481,8 +1445,6 @@ for signal buses, see example
 <a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
 </html>"));
-  equation
-    y = fromBus;
   end ReceiveReal;
 
   block ReceiveBoolean "Obsolete block to receive Boolean signal from bus"
@@ -1490,6 +1452,8 @@ for signal buses, see example
             transformation(extent={{-120,-10},{-100,10}}, rotation=0)));
     BooleanOutput y "Output signal to be received from bus" annotation (Placement(
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
+  equation
+    y = fromBus;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Rectangle(
@@ -1518,8 +1482,6 @@ for signal buses, see example
 <a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
 </html>"));
-  equation
-    y = fromBus;
   end ReceiveBoolean;
 
   block ReceiveInteger "Obsolete block to receive Integer signal from bus"
@@ -1527,6 +1489,8 @@ for signal buses, see example
             transformation(extent={{-120,-10},{-100,10}}, rotation=0)));
     IntegerOutput y "Output signal to be received from bus" annotation (Placement(
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
+  equation
+    y = fromBus;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Rectangle(
@@ -1556,8 +1520,6 @@ for signal buses, see example
 </p>
 </html>
 "));
-  equation
-    y = fromBus;
   end ReceiveInteger;
 
     annotation (Documentation(info="<html>
@@ -1606,4 +1568,36 @@ converts from one unit into another one.
 </html>"));
 
   end PartialConversionBlock;
+    annotation (
+      Documentation(info="<HTML>
+<p>
+This package contains interface definitions for
+<b>continuous</b> input/output blocks with Real,
+Integer and Boolean signals. Furthermore, it contains
+partial models for continuous and discrete blocks.
+</p>
+
+</HTML>
+", revisions="<html>
+<ul>
+<li><i>Oct. 21, 2002</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
+       and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
+       Added several new interfaces. <a href=\"../Documentation/ChangeNotes1.5.html\">Detailed description</a> available.
+<li><i>Oct. 24, 1999</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+       RealInputSignal renamed to RealInput. RealOutputSignal renamed to
+       output RealOutput. GraphBlock renamed to BlockIcon. SISOreal renamed to
+       SISO. SOreal renamed to SO. I2SOreal renamed to M2SO.
+       SignalGenerator renamed to SignalSource. Introduced the following
+       new models: MIMO, MIMOs, SVcontrol, MVcontrol, DiscreteBlockIcon,
+       DiscreteBlock, DiscreteSISO, DiscreteMIMO, DiscreteMIMOs,
+       BooleanBlockIcon, BooleanSISO, BooleanSignalSource, MI2BooleanMOs.</li>
+<li><i>June 30, 1999</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+       Realized a first version, based on an existing Dymola library
+       of Dieter Moormann and Hilding Elmqvist.</li>
+</ul>
+</html>
+"));
 end Interfaces;

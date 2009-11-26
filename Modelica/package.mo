@@ -5,68 +5,6 @@ extends Modelica.Icons.Library;
 
 package UsersGuide "User's Guide"
 
-annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
-<p>
-Package <b>Modelica</b> is a <b>standardized</b> and <b>pre-defined</b> package
-that is developed together with the Modelica language from the
-Modelica Association, see
-<a href=\"http://www.Modelica.org\">http://www.Modelica.org</a>.
-It is also called <b>Modelica Standard Library</b>.
-It provides constants, types, connectors, partial models and model
-components in various disciplines.
-</p>
-<p>
-This is a short <b>User's Guide</b> for
-the overall library. Some of the main sublibraries have their own
-User's Guides that can be accessed by the following links:
-</p>
-
-<table border=1 cellspacing=0 cellpadding=2>
-<tr><td valign=\"top\"><a href=\"Modelica://Modelica.Electrical.Digital.UsersGuide\">Digital</a>
-   </td>
-   <td valign=\"top\">Library for digital electrical components based on the VHDL standard
-   (2-,3-,4-,9-valued logic)</td>
-</tr>
-
-<tr><td valign=\"top\"><a href=\"Modelica://Modelica.Magnetic.FluxTubes.UsersGuide\">FluxTubes</a>
-    </td>
-   <td valign=\"top\">Library for modelling of electromagnetic devices with lumped magnetic networks</td>
-</tr>
-
-<tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide\">MultiBody</a>
-    </td>
-   <td valign=\"top\">Library to model 3-dimensional mechanical systems</td>
-</tr>
-
-<tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.Rotational.UsersGuide\">Rotational</a>
-    </td>
-   <td valign=\"top\">Library to model 1-dimensional mechanical systems</td>
-</tr>
-
-<tr><td valign=\"top\"><a href=\"Modelica://Modelica.Fluid.UsersGuide\">Fluid</a></td>
-    <td valign=\"top\">Library of 1-dim. thermo-fluid flow models using the Modelica.Media media description</td>
-
-<tr><td valign=\"top\"><a href=\"Modelica://Modelica.Media.UsersGuide\">Media</a>
-    </td>
-   <td valign=\"top\">Library of media property models</td>
-</tr>
-<tr><td valign=\"top\"><a href=\"Modelica://Modelica.SIunits.UsersGuide\">SIunits</a> </td>
-   <td valign=\"top\">Library of type definitions based on SI units according to ISO 31-1992</td>
-</tr>
-
-<tr><td valign=\"top\"><a href=\"Modelica://Modelica.StateGraph.UsersGuide\">StateGraph</a>
-    </td>
-   <td valign=\"top\">Library to model discrete event and reactive systems by hierarchical state machines</td>
-</tr>
-
-
-<tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.UsersGuide\">Utilities</a>
-    </td>
-   <td valign=\"top\">Library of utility functions especially for scripting (Files, Streams, Strings, System)</td>
-</tr>
-</table>
-
-</html>"));
 
 class Overview "Overview of Modelica Library"
 
@@ -443,7 +381,7 @@ In the Modelica package the following conventions are used:
 <ol>
 <li> Class and instance names are usually written in upper and lower case
   letters, e.g., \"ElectricCurrent\". An underscore may be used in names.
-  However, it has to be taken into account that the last underscore in a 
+  However, it has to be taken into account that the last underscore in a
   name might indicate that the following characters are rendered as a subscript.
   Example: \"pin_a\" may be rendered as \"pin<sub>a</sub>\".<br>&nbsp;</li>
 
@@ -1269,19 +1207,6 @@ units are wrong or errors in documentation):
 </html>"));
 end Version_3_0_1;
 
- annotation (Documentation(info="<html>
-
-<p>
-This section summarizes the changes that have been performed
-on the Modelica standard library. Furthermore, it is explained
-<a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.VersionManagement\">here</a>
-how the versions are managed with the subversion management systems.
-This is especially important for maintenance (bug-fix) releases where the
-main version number is not changed.
-</p>
-
-</html>
-"));
 
 class Version_3_0 "Version 3.0 (Feb., 2008)"
 
@@ -4026,6 +3951,19 @@ First official release of the library.
 </html>
 "));
 end Version_1_4;
+ annotation (Documentation(info="<html>
+
+<p>
+This section summarizes the changes that have been performed
+on the Modelica standard library. Furthermore, it is explained
+<a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.VersionManagement\">here</a>
+how the versions are managed with the subversion management systems.
+This is especially important for maintenance (bug-fix) releases where the
+main version number is not changed.
+</p>
+
+</html>
+"));
 end ReleaseNotes;
 
 class ModelicaLicense2 "Modelica License 2"
@@ -4923,6 +4861,68 @@ of the Modelica package (many more people have contributed to the design):
 
 end Contact;
 
+annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
+<p>
+Package <b>Modelica</b> is a <b>standardized</b> and <b>pre-defined</b> package
+that is developed together with the Modelica language from the
+Modelica Association, see
+<a href=\"http://www.Modelica.org\">http://www.Modelica.org</a>.
+It is also called <b>Modelica Standard Library</b>.
+It provides constants, types, connectors, partial models and model
+components in various disciplines.
+</p>
+<p>
+This is a short <b>User's Guide</b> for
+the overall library. Some of the main sublibraries have their own
+User's Guides that can be accessed by the following links:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><td valign=\"top\"><a href=\"Modelica://Modelica.Electrical.Digital.UsersGuide\">Digital</a>
+   </td>
+   <td valign=\"top\">Library for digital electrical components based on the VHDL standard
+   (2-,3-,4-,9-valued logic)</td>
+</tr>
+
+<tr><td valign=\"top\"><a href=\"Modelica://Modelica.Magnetic.FluxTubes.UsersGuide\">FluxTubes</a>
+    </td>
+   <td valign=\"top\">Library for modelling of electromagnetic devices with lumped magnetic networks</td>
+</tr>
+
+<tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide\">MultiBody</a>
+    </td>
+   <td valign=\"top\">Library to model 3-dimensional mechanical systems</td>
+</tr>
+
+<tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.Rotational.UsersGuide\">Rotational</a>
+    </td>
+   <td valign=\"top\">Library to model 1-dimensional mechanical systems</td>
+</tr>
+
+<tr><td valign=\"top\"><a href=\"Modelica://Modelica.Fluid.UsersGuide\">Fluid</a></td>
+    <td valign=\"top\">Library of 1-dim. thermo-fluid flow models using the Modelica.Media media description</td>
+
+<tr><td valign=\"top\"><a href=\"Modelica://Modelica.Media.UsersGuide\">Media</a>
+    </td>
+   <td valign=\"top\">Library of media property models</td>
+</tr>
+<tr><td valign=\"top\"><a href=\"Modelica://Modelica.SIunits.UsersGuide\">SIunits</a> </td>
+   <td valign=\"top\">Library of type definitions based on SI units according to ISO 31-1992</td>
+</tr>
+
+<tr><td valign=\"top\"><a href=\"Modelica://Modelica.StateGraph.UsersGuide\">StateGraph</a>
+    </td>
+   <td valign=\"top\">Library to model discrete event and reactive systems by hierarchical state machines</td>
+</tr>
+
+
+<tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.UsersGuide\">Utilities</a>
+    </td>
+   <td valign=\"top\">Library of utility functions especially for scripting (Files, Streams, Strings, System)</td>
+</tr>
+</table>
+
+</html>"));
 end UsersGuide;
 
 

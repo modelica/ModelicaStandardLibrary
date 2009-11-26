@@ -2,26 +2,11 @@ within Modelica.Blocks;
 package Logical "Library of components with Boolean input and output signals"
     extends Modelica.Icons.Library;
 
-  annotation(Documentation(info="<html>
-<p>
-This package provides blocks with Boolean input and output signals
-to describe logical networks. A typical example for a logical
-network built with package Logical is shown in the next figure:
-</p>
-<p align=\"center\">
-<img src=\"../Images/Blocks/LogicalNetwork1.png\">
-</p>
-
-<p>
-The actual value of Boolean input and/or output signals is displayed
-in the respective block icon as \"circle\", where \"white\" color means
-value <b>false</b> and \"green\" color means value <b>true</b>. These
-values are visualized in a diagram animation.
-</p>
-</html>"));
 
   model And "Logical 'and': y = u1 and u2"
     extends Blocks.Interfaces.partialBooleanSI2SO;
+  equation
+    y = u1 and u2;
     annotation (defaultComponentName="and1",
            Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Text(
@@ -37,12 +22,12 @@ The output is <b>true</b> if all inputs are <b>true</b>, otherwise
 the output is <b>false</b>.
 </p>
 </html>"));
-  equation
-    y = u1 and u2;
   end And;
 
   model Or "Logical 'or': y = u1 or u2"
     extends Blocks.Interfaces.partialBooleanSI2SO;
+  equation
+    y = u1 or u2;
     annotation (defaultComponentName="or1",
            Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Text(
@@ -58,12 +43,12 @@ The output is <b>true</b> if at least one input is <b>true</b>, otherwise
 the output is <b>false</b>.
 </p>
 </html>"));
-  equation
-    y = u1 or u2;
   end Or;
 
   model Xor "Logical 'xor': y = u1 xor u2"
     extends Blocks.Interfaces.partialBooleanSI2SO;
+  equation
+    y =not  ( (u1 and u2) or (not u1 and not u2));
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Text(
             extent={{-90,40},{90,-40}},
@@ -78,12 +63,12 @@ The output is <b>true</b> if exactly one input is <b>true</b>, otherwise
 the output is <b>false</b>.
 </p>
 </html>"));
-  equation
-    y =not  ( (u1 and u2) or (not u1 and not u2));
   end Xor;
 
   model Nor "Logical 'nor': y = not (u1 or u2)"
     extends Blocks.Interfaces.partialBooleanSI2SO;
+  equation
+    y =not  ( u1 or u2);
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Text(
             extent={{-90,40},{90,-40}},
@@ -98,12 +83,12 @@ The output is <b>true</b> if none of the inputs is <b>true</b>, otherwise
 the output is <b>false</b>.
 </p>
 </html>"));
-  equation
-    y =not  ( u1 or u2);
   end Nor;
 
   model Nand "Logical 'nand': y = not (u1 and u2)"
     extends Blocks.Interfaces.partialBooleanSI2SO;
+  equation
+    y =not  ( u1 and u2);
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Text(
             extent={{-90,40},{90,-40}},
@@ -118,13 +103,13 @@ The output is <b>true</b> if at least one input is <b>false</b>, otherwise
 the output is <b>false</b>.
 </p>
 </html>"));
-  equation
-    y =not  ( u1 and u2);
   end Nand;
 
   model Not "Logical 'not': y = not u"
     extends Blocks.Interfaces.partialBooleanSISO;
 
+  equation
+    y =not  u;
     annotation (defaultComponentName="not1",
          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Text(
@@ -140,8 +125,6 @@ The output is <b>true</b> if the input is <b>false</b>, otherwise
 the output is <b>false</b>.
 </p>
 </html>"));
-  equation
-    y =not  u;
   end Not;
 
   model Pre
@@ -151,6 +134,10 @@ the output is <b>false</b>.
       "Start value of pre(u) at initial time";
     extends Blocks.Interfaces.partialBooleanSISO;
 
+  initial equation
+    pre(u) = pre_u_start;
+  equation
+    y = pre(u);
     annotation (defaultComponentName="pre1",
          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Text(
@@ -174,10 +161,6 @@ last \"event iteration\". The \"event iteration\" stops, once both
 values are identical (u = pre(u)).
 </p>
 </html>"));
-  initial equation
-    pre(u) = pre_u_start;
-  equation
-    y = pre(u);
   end Pre;
 
   model Edge "Output y is true, if the input u has a rising edge (y = edge(u))"
@@ -186,6 +169,10 @@ values are identical (u = pre(u)).
       "Start value of pre(u) at initial time";
     extends Blocks.Interfaces.partialBooleanSISO;
 
+  initial equation
+    pre(u) = pre_u_start;
+  equation
+    y = edge(u);
     annotation (defaultComponentName="edge1",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Text(
@@ -202,10 +189,6 @@ from <b>false</b> to <b>true</b>, otherwise
 the output is <b>false</b>.
 </p>
 </html>"));
-  initial equation
-    pre(u) = pre_u_start;
-  equation
-    y = edge(u);
   end Edge;
 
   model FallingEdge
@@ -215,6 +198,12 @@ the output is <b>false</b>.
       "Start value of pre(u) at initial time";
     extends Blocks.Interfaces.partialBooleanSISO;
 
+  protected
+   Boolean not_u=not u;
+  initial equation
+    pre(not_u) =not  pre_u_start;
+  equation
+    y = edge(not_u);
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Text(
             extent={{-90,40},{90,-40}},
@@ -230,12 +219,6 @@ from <b>true</b> to <b>false</b>, otherwise
 the output is <b>false</b>.
 </p>
 </html>"));
-  protected
-   Boolean not_u=not u;
-  initial equation
-    pre(not_u) =not  pre_u_start;
-  equation
-    y = edge(not_u);
   end FallingEdge;
 
   model Change
@@ -245,6 +228,10 @@ the output is <b>false</b>.
       "Start value of pre(u) at initial time";
     extends Blocks.Interfaces.partialBooleanSISO;
 
+  initial equation
+    pre(u) = pre_u_start;
+  equation
+    y = change(u);
     annotation (defaultComponentName="change1",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Text(
@@ -262,15 +249,13 @@ from <b>false</b> to <b>true</b> or a falling edge from
 the output is <b>false</b>.
 </p>
 </html>"));
-  initial equation
-    pre(u) = pre_u_start;
-  equation
-    y = change(u);
   end Change;
 
   block GreaterThreshold
     "Output y is true, if input u is greater than threshold"
     extends Blocks.Interfaces.partialBooleanThresholdComparison;
+  equation
+    y = u > threshold;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Text(
             extent={{-90,-40},{60,40}},
@@ -286,14 +271,14 @@ parameter <b>threshold</b>, otherwise
 the output is <b>false</b>.
 </p>
 </html>"));
-  equation
-    y = u > threshold;
   end GreaterThreshold;
 
   block GreaterEqualThreshold
     "Output y is true, if input u is greater or equal than threshold"
 
     extends Blocks.Interfaces.partialBooleanThresholdComparison;
+  equation
+    y = u >= threshold;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Text(
             extent={{-90,-40},{60,40}},
@@ -309,13 +294,13 @@ parameter <b>threshold</b>, otherwise
 the output is <b>false</b>.
 </p>
 </html>"));
-  equation
-    y = u >= threshold;
   end GreaterEqualThreshold;
 
   block LessThreshold "Output y is true, if input u is less than threshold"
 
     extends Blocks.Interfaces.partialBooleanThresholdComparison;
+  equation
+    y = u < threshold;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Text(
             extent={{-90,-40},{60,40}},
@@ -331,13 +316,13 @@ parameter <b>threshold</b>, otherwise
 the output is <b>false</b>.
 </p>
 </html>"));
-  equation
-    y = u < threshold;
   end LessThreshold;
 
   block LessEqualThreshold
     "Output y is true, if input u is less or equal than threshold"
     extends Blocks.Interfaces.partialBooleanThresholdComparison;
+  equation
+    y = u <= threshold;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Text(
             extent={{-90,-40},{60,40}},
@@ -353,13 +338,14 @@ parameter <b>threshold</b>, otherwise
 the output is <b>false</b>.
 </p>
 </html>"));
-  equation
-    y = u <= threshold;
   end LessEqualThreshold;
 
   block Greater "Output y is true, if input u1 is greater as input u2"
     extends Blocks.Interfaces.partialBooleanComparison;
 
+
+  equation
+    y = u1 > u2;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Ellipse(extent={{32,10},{52,-10}}, lineColor={0,0,255}),
@@ -374,15 +360,15 @@ The output is <b>true</b> if Real input u1 is greater than
 Real input u2, otherwise the output is <b>false</b>.
 </p>
 </html>"));
-
-  equation
-    y = u1 > u2;
   end Greater;
 
   block GreaterEqual
     "Output y is true, if input u1 is greater or equal as input u2"
     extends Blocks.Interfaces.partialBooleanComparison;
 
+
+  equation
+    y = u1 >= u2;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Ellipse(extent={{32,10},{52,-10}}, lineColor={0,0,255}),
@@ -397,14 +383,14 @@ The output is <b>true</b> if Real input u1 is greater than or equal to
 Real input u2, otherwise the output is <b>false</b>.
 </p>
 </html>"));
-
-  equation
-    y = u1 >= u2;
   end GreaterEqual;
 
   block Less "Output y is true, if input u1 is less as input u2"
     extends Blocks.Interfaces.partialBooleanComparison;
 
+
+  equation
+    y = u1 < u2;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Ellipse(extent={{32,10},{52,-10}}, lineColor={0,0,255}),
@@ -419,14 +405,14 @@ The output is <b>true</b> if Real input u1 is less than
 Real input u2, otherwise the output is <b>false</b>.
 </p>
 </html>"));
-
-  equation
-    y = u1 < u2;
   end Less;
 
   block LessEqual "Output y is true, if input u1 is less or equal as input u2"
     extends Blocks.Interfaces.partialBooleanComparison;
 
+
+  equation
+    y = u1 <= u2;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Ellipse(extent={{32,10},{52,-10}}, lineColor={0,0,255}),
@@ -441,9 +427,6 @@ The output is <b>true</b> if Real input u1 is less than or equal to
 Real input u2, otherwise the output is <b>false</b>.
 </p>
 </html>"));
-
-  equation
-    y = u1 <= u2;
   end LessEqual;
 
   block ZeroCrossing "Trigger zero crossing of input u"
@@ -457,6 +440,16 @@ Real input u2, otherwise the output is <b>false</b>.
           extent={{-20,-20},{20,20}},
           rotation=90)));
 
+  protected
+    Boolean disable=not   enable;
+    Boolean u_pos;
+  initial equation
+    pre(u_pos)  = false;
+    pre(enable) = false;
+    pre(disable) =not  pre(enable);
+  equation
+    u_pos = enable and u >= 0;
+    y = change(u_pos) and not edge(enable) and not edge(disable);
     annotation (Documentation(info="<HTML>
 <p>
 The output \"y\" is <b>true</b> at the
@@ -499,21 +492,14 @@ component <i>ModelicaAdditions.Blocks.Discrete.TriggeredSampler</i>.
           Line(points={{6,-59},{6,81}}, color={255,0,255}),
           Line(points={{49,-59},{49,81}}, color={255,0,255}),
           Line(points={{-78,0},{70,0}}, color={255,0,255})}));
-  protected
-    Boolean disable=not   enable;
-    Boolean u_pos;
-  initial equation
-    pre(u_pos)  = false;
-    pre(enable) = false;
-    pre(disable) =not  pre(enable);
-  equation
-    u_pos = enable and u >= 0;
-    y = change(u_pos) and not edge(enable) and not edge(disable);
   end ZeroCrossing;
 
   block LogicalSwitch "Logical Switch"
     extends Blocks.Interfaces.partialBooleanSI3SO;
 
+
+  equation
+    y = if u2 then u1 else u3;
     annotation (
       Documentation(info="<html>
 <p>The LogicalSwitch switches, depending on the
@@ -560,9 +546,6 @@ u1, else it is set equal to u3.</p>
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics));
-
-  equation
-    y = if u2 then u1 else u3;
   end LogicalSwitch;
 
   block Switch "Switch between two Real signals"
@@ -580,6 +563,8 @@ u1, else it is set equal to u3.</p>
                                    annotation (Placement(transformation(extent=
               {{100,-10},{120,10}}, rotation=0)));
 
+  equation
+    y = if u2 then u1 else u3;
     annotation (defaultComponentName="switch1",
       Documentation(info="<html>
 <p>The Logical.Switch switches, depending on the
@@ -626,8 +611,6 @@ u1, else it is set equal to u3.</p>
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics));
-  equation
-    y = if u2 then u1 else u3;
   end Switch;
 
   block Hysteresis "Transform Real to Boolean signal with Hysteresis"
@@ -643,6 +626,10 @@ u1, else it is set equal to u3.</p>
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
 
+  initial equation
+    pre(y) = pre_y_start;
+  equation
+     y = u > uHigh or pre(y) and u >= uLow;
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
@@ -769,10 +756,6 @@ The default value of this parameter is <b>false</b>.
 </p>
 </HTML>
 "));
-  initial equation
-    pre(y) = pre_y_start;
-  equation
-     y = u > uHigh or pre(y) and u >= uLow;
   end Hysteresis;
 
   block OnOffController "On-off controller"
@@ -793,6 +776,10 @@ The default value of this parameter is <b>false</b>.
     parameter Real bandwidth(start=0.1) "Bandwidth around reference signal";
     parameter Boolean pre_y_start = false "Value of pre(y) at initial time";
 
+  initial equation
+    pre(y) = pre_y_start;
+  equation
+    y = pre(y) and (u < reference + bandwidth/2) or (u < reference - bandwidth/2);
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Text(
@@ -817,10 +804,6 @@ the bandwidth and sets the output signal <b>y</b> to <b>false</b> when the input
 signal <b>u</b> exceeds the <b>reference</b> signal plus half of the bandwidth.</p>
 </html>
 "));
-  initial equation
-    pre(y) = pre_y_start;
-  equation
-    y = pre(y) and (u < reference + bandwidth/2) or (u < reference - bandwidth/2);
   end OnOffController;
 
   block TriggeredTrapezoid "Triggered trapezoid generator"
@@ -840,6 +823,30 @@ signal <b>u</b> exceeds the <b>reference</b> signal plus half of the bandwidth.<
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
 
+
+  protected
+    discrete Real endValue "Value of y at time of recent edge";
+    discrete Real rate "Current rising/falling rate";
+    discrete Modelica.SIunits.Time T
+      "Predicted time of output reaching endValue";
+  initial equation
+    /* A start value of y is set, because pre(y) is present
+     to avoid a warning message from the compiler. However,
+     this setting does not have an effect, because y is initialized
+     correctly, before pre(y) is used
+  */
+    pre(y) = 0;
+  equation
+      y = if time < T then endValue - (T - time)*rate else  endValue;
+
+      when {initial(),u,not u} then
+        endValue = if u then offset + amplitude else offset;
+        rate = if u and (rising > 0) then amplitude/rising else
+          if not u and (falling > 0) then -amplitude/falling else 0;
+        T = if u and not (rising > 0) or not u and not (falling
+           > 0) or not abs(amplitude) > 0 or initial() then time else time
+           + (endValue - pre(y))/rate;
+      end when;
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
@@ -985,30 +992,6 @@ during <i>falling</i> to a value of <i>offset</i>.
 handled properly.</p>
 </HTML>
 "));
-
-  protected
-    discrete Real endValue "Value of y at time of recent edge";
-    discrete Real rate "Current rising/falling rate";
-    discrete Modelica.SIunits.Time T
-      "Predicted time of output reaching endValue";
-  initial equation
-    /* A start value of y is set, because pre(y) is present
-     to avoid a warning message from the compiler. However,
-     this setting does not have an effect, because y is initialized
-     correctly, before pre(y) is used
-  */
-    pre(y) = 0;
-  equation
-      y = if time < T then endValue - (T - time)*rate else  endValue;
-
-      when {initial(),u,not u} then
-        endValue = if u then offset + amplitude else offset;
-        rate = if u and (rising > 0) then amplitude/rising else
-          if not u and (falling > 0) then -amplitude/falling else 0;
-        T = if u and not (rising > 0) or not u and not (falling
-           > 0) or not abs(amplitude) > 0 or initial() then time else time
-           + (endValue - pre(y))/rate;
-      end when;
   end TriggeredTrapezoid;
 
   block Timer
@@ -1022,6 +1005,15 @@ handled properly.</p>
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
 
+  protected
+    discrete Modelica.SIunits.Time entryTime "Time instant when u became true";
+  initial equation
+    pre(entryTime) = 0;
+  equation
+    when u then
+      entryTime = time;
+    end when;
+    y = if u then time - entryTime else 0.0;
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
@@ -1078,15 +1070,6 @@ input becomes false.
 </p>
 </HTML>
 "));
-  protected
-    discrete Modelica.SIunits.Time entryTime "Time instant when u became true";
-  initial equation
-    pre(entryTime) = 0;
-  equation
-    when u then
-      entryTime = time;
-    end when;
-    y = if u then time - entryTime else 0.0;
   end Timer;
 
   block TerminateSimulation "Terminate simulation if condition is fullfilled"
@@ -1097,6 +1080,11 @@ input becomes false.
             rotation=0)));
     parameter String terminationText = "... End condition reached"
       "Text that will be displayed when simulation is terminated";
+
+  equation
+    when condition then
+       terminate(terminationText);
+    end when;
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -1141,10 +1129,22 @@ parameter \"terminationText\".
 </p>
 
 </html>"));
-
-  equation
-    when condition then
-       terminate(terminationText);
-    end when;
   end TerminateSimulation;
+  annotation(Documentation(info="<html>
+<p>
+This package provides blocks with Boolean input and output signals
+to describe logical networks. A typical example for a logical
+network built with package Logical is shown in the next figure:
+</p>
+<p align=\"center\">
+<img src=\"../Images/Blocks/LogicalNetwork1.png\">
+</p>
+
+<p>
+The actual value of Boolean input and/or output signals is displayed
+in the respective block icon as \"circle\", where \"white\" color means
+value <b>false</b> and \"green\" color means value <b>true</b>. These
+values are visualized in a diagram animation.
+</p>
+</html>"));
 end Logical;

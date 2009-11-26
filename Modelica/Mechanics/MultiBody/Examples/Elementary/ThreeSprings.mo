@@ -2,26 +2,6 @@ within Modelica.Mechanics.MultiBody.Examples.Elementary;
 model ThreeSprings "3-dim. springs in series and parallel connection"
   extends Modelica.Icons.Example;
   parameter Boolean animation=true "= true, if animation shall be enabled";
-  annotation (
-    experiment(StopTime=10),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics),
-    Documentation(info="<html>
-<p>
-This example demonstrates that <b>3-dimensional line force</b> elements
-(here: Modelica.Mechanics.MultiBody.Forces.Spring elements) can be connected together
-in <b>series</b> without having a body with mass at the
-connection point (as usually required by multi-body programs).
-This is advantageous since stiff systems can be avoided, say, due to
-a stiff spring and a small mass at the connection point.
-</p>
-<p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Elementary/ThreeSprings.png\"
-ALT=\"model Examples.Elementary.ThreeSprings\">
-</p>
-</html>"));
   inner Modelica.Mechanics.MultiBody.World world(animateWorld=animation)
     annotation (Placement(transformation(extent={{-60,20},{-40,40}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.Body body1(
@@ -109,4 +89,24 @@ equation
       points={{30,-28},{30,-21},{30,-21},{30,-14},{30,0},{30,0}},
       color={95,95,95},
       thickness=0.5));
+  annotation (
+    experiment(StopTime=10),
+    Diagram(coordinateSystem(
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
+        grid={2,2}), graphics),
+    Documentation(info="<html>
+<p>
+This example demonstrates that <b>3-dimensional line force</b> elements
+(here: Modelica.Mechanics.MultiBody.Forces.Spring elements) can be connected together
+in <b>series</b> without having a body with mass at the
+connection point (as usually required by multi-body programs).
+This is advantageous since stiff systems can be avoided, say, due to
+a stiff spring and a small mass at the connection point.
+</p>
+<p align=\"center\">
+<IMG SRC=\"../Images/MultiBody/Examples/Elementary/ThreeSprings.png\"
+ALT=\"model Examples.Elementary.ThreeSprings\">
+</p>
+</html>"));
 end ThreeSprings;

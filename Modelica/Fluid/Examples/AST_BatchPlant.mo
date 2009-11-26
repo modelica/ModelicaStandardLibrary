@@ -2,43 +2,6 @@ within Modelica.Fluid.Examples;
 package AST_BatchPlant
   "Model of the experimental batch plant at Process Control Laboratory at University of Dortmund (Prof. Engell)"
 
-  annotation (preferedView="info",Documentation(info="<html>
-<p>
-The process under consideration is an evaporation plant for a
-student lab at the Process Control Laboratory (AST) of the
-University of Dortmund that evaporates a water sodium chloride
-mixture so that a higher concentrated solution is produced.
-The task of the students is to learn how to program the process
-control system. A picture of the batch plant is shown in the figure
-below.
-</p>
-
-<p align=\"center\">
-<img src=\"../Images/Fluid/Examples/AST_BatchPlant1.jpg\" border=\"1\">
-</p>
-
-<p>
-The flow sheet diagram is shown in the next figure.
-</p>
-
-<p align=\"center\">
-<img src=\"../Images/Fluid/Examples/AST_BatchPlant2.png\" border=\"1\">
-</p>
-
-<p>
-Pure water from tank B1 and concentrated sodium chloride
-solution from tank B2 are mixed in a mixing tank B3.
-After buffering in tank B4 the mixture flows to the
-evaporator B5. Here the water sodium chloride mixture
-is evaporated until the desired con-centration is reached.
-The steam is condensed in the condenser K1 and cooled
-afterwards in the cooling tank B6. The concentrated
- solution is also led to a cooling tank B7. The cooled
-fluids are pumped back to the charging vessels by the
-pumps P1 and P2. Be-tween the tanks several valves are
-present that are regulated by a central control system.
-</p>
-</html>"));
 
   model BatchPlant_StandardWater
       extends Modelica.Icons.Example;
@@ -106,19 +69,6 @@ present that are regulated by a central control system.
         waitTime=300))       annotation (Placement(transformation(extent={{60,38},
               {100,78}},      rotation=0)));
 
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-300,
-              -300},{300,300}}),      graphics),
-      experiment(StopTime=3600),
-      __Dymola_Commands(file=
-            "Scripts/Fluid/AST_BatchPlant_StandardWater/plot level.mos"
-          "plot level"),
-      Documentation(info="<html>
-
-<p align=\"center\">
-<img src=\"../Images/Fluid/Examples/BatchPlant_StandardWater.png\" border=\"1\">
-</p>
-
-</html>"));
     Modelica.Fluid.Valves.ValveDiscrete V11(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
@@ -703,6 +653,19 @@ present that are regulated by a central control system.
         points={{-8,99},{-8,20},{-8,20}},
         color={0,127,255},
         smooth=Smooth.None));
+    annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-300,
+              -300},{300,300}}),      graphics),
+      experiment(StopTime=3600),
+      __Dymola_Commands(file=
+            "Scripts/Fluid/AST_BatchPlant_StandardWater/plot level.mos"
+          "plot level"),
+      Documentation(info="<html>
+
+<p align=\"center\">
+<img src=\"../Images/Fluid/Examples/BatchPlant_StandardWater.png\" border=\"1\">
+</p>
+
+</html>"));
   end BatchPlant_StandardWater;
 
   package BaseClasses
@@ -725,6 +688,35 @@ present that are regulated by a central control system.
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
               rotation=0)));
 
+
+    protected
+      discrete Real endValue "Value of y at time of recent edge";
+      discrete Real rate "Current rising/falling rate";
+      discrete Modelica.SIunits.Time T
+        "Predicted time of output reaching endValue";
+    public
+      Modelica.Blocks.Interfaces.BooleanOutput y_high
+        annotation (Placement(transformation(extent={{100,-90},{120,-70}},
+              rotation=0)));
+    initial equation
+      /* A start value of y is set, because pre(y) is present
+     to avoid a warning message from the compiler. However,
+     this setting does not have an effect, because y is initialized
+     correctly, before pre(y) is used
+  */
+      pre(y) = 0;
+    equation
+        y_high = time < T;
+        y = if y_high then endValue - (T - time)*rate else  endValue;
+
+        when {initial(),u,not u} then
+          endValue = if u then offset + amplitude else offset;
+          rate = if u and (rising > 0) then amplitude/rising else
+            if not u and (falling > 0) then -amplitude/falling else 0;
+          T = if u and not (rising > 0) or not u and not (falling
+             > 0) or not abs(amplitude) > 0 or initial() then time else time
+             + (endValue - pre(y))/rate;
+        end when;
       annotation (
         Icon(graphics={
             Line(points={{-60,-70},{-60,-70},{-30,40},{8,40},{40,-70},{40,-70}}),
@@ -882,35 +874,6 @@ during <i>falling</i> to a value of <i>offset</i>.
 handled properly.</p>
 </HTML>
 "));
-
-    protected
-      discrete Real endValue "Value of y at time of recent edge";
-      discrete Real rate "Current rising/falling rate";
-      discrete Modelica.SIunits.Time T
-        "Predicted time of output reaching endValue";
-    public
-      Modelica.Blocks.Interfaces.BooleanOutput y_high
-        annotation (Placement(transformation(extent={{100,-90},{120,-70}},
-              rotation=0)));
-    initial equation
-      /* A start value of y is set, because pre(y) is present
-     to avoid a warning message from the compiler. However,
-     this setting does not have an effect, because y is initialized
-     correctly, before pre(y) is used
-  */
-      pre(y) = 0;
-    equation
-        y_high = time < T;
-        y = if y_high then endValue - (T - time)*rate else  endValue;
-
-        when {initial(),u,not u} then
-          endValue = if u then offset + amplitude else offset;
-          rate = if u and (rising > 0) then amplitude/rising else
-            if not u and (falling > 0) then -amplitude/falling else 0;
-          T = if u and not (rising > 0) or not u and not (falling
-             > 0) or not abs(amplitude) > 0 or initial() then time else time
-             + (endValue - pre(y))/rate;
-        end when;
     end TriggeredTrapezoid;
 
     block setReal "Set output signal to a time varying Real expression"
@@ -1237,6 +1200,12 @@ handled properly.</p>
       else
         assert(false, "Unsupported initialization option");
       end if;
+
+    equation
+      connect(heatPort, heatTransfer.heatPorts[1]) annotation (Line(
+          points={{-200,0},{-87,0},{-87,8.88178e-016},{-74,8.88178e-016}},
+          color={191,0,0},
+          smooth=Smooth.None));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-200,-100},{
                 200,100}}), graphics={
@@ -1295,12 +1264,6 @@ Full steady state initialization is not supported, because the corresponding int
 </HTML>"),
         Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-200,-100},
                 {200,100}}), graphics));
-
-    equation
-      connect(heatPort, heatTransfer.heatPorts[1]) annotation (Line(
-          points={{-200,0},{-87,0},{-87,8.88178e-016},{-74,8.88178e-016}},
-          color={191,0,0},
-          smooth=Smooth.None));
     end TankWith3InletOutletArraysWithEvaporatorCondensor;
 
     model InnerTank
@@ -1354,34 +1317,6 @@ Full steady state initialization is not supported, because the corresponding int
         sensors
         annotation (Placement(transformation(extent={{-280,-40},{-200,40}},
               rotation=0)));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-200,
-                -200},{200,200}}),      graphics),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-200,-200},{
-                200,200}}), graphics={
-            Rectangle(
-              extent={{-200,200},{200,-200}},
-              lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-288,286},{262,208}},
-              lineColor={0,0,255},
-              textString="%name"),
-            Line(points={{-48,0},{0,0}}, color={0,0,0}),
-            Rectangle(extent={{-170,60},{-50,-60}}, lineColor={0,0,0}),
-            Line(points={{0,40},{0,-40}}, color={0,0,0}),
-            Line(points={{0,0},{26,0}}, color={0,0,0}),
-            Polygon(
-              points={{26,10},{50,0},{26,-10},{26,10}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Rectangle(extent={{50,60},{170,-60}}, lineColor={0,0,0}),
-            Polygon(
-              points={{-24,10},{0,0},{-24,-10},{-24,10}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid)}));
       Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.ControllerUtilities.Port_Actuators
         actuators
         annotation (Placement(transformation(extent={{200,-20},{240,20}},
@@ -1600,6 +1535,34 @@ Full steady state initialization is not supported, because the corresponding int
               0}));
       connect(BooleanExpression1.y, TransitionWithSignal1.condition) annotation (Line(
             points={{-13.7,-132},{-2,-132},{-2,-138}}, color={255,0,255}));
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-200,
+                -200},{200,200}}),      graphics),
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-200,-200},{
+                200,200}}), graphics={
+            Rectangle(
+              extent={{-200,200},{200,-200}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-288,286},{262,208}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Line(points={{-48,0},{0,0}}, color={0,0,0}),
+            Rectangle(extent={{-170,60},{-50,-60}}, lineColor={0,0,0}),
+            Line(points={{0,40},{0,-40}}, color={0,0,0}),
+            Line(points={{0,0},{26,0}}, color={0,0,0}),
+            Polygon(
+              points={{26,10},{50,0},{26,-10},{26,10}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Rectangle(extent={{50,60},{170,-60}}, lineColor={0,0,0}),
+            Polygon(
+              points={{-24,10},{0,0},{-24,-10},{-24,10}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid)}));
     end Controller;
 
     package ControllerUtilities
@@ -2051,6 +2014,12 @@ end for;
         der(level) = 0;
       end if;
 
+
+  equation
+      connect(heatPort, heatTransfer.heatPorts[1]) annotation (Line(
+          points={{-100,0},{-87,0},{-87,8.88178e-016},{-74,8.88178e-016}},
+          color={191,0,0},
+          smooth=Smooth.None));
       annotation (defaultComponentName="tank",
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -2142,12 +2111,6 @@ Implemented trace substances and missing equation for outflow of multi substance
             extent={{-100,-100},{100,100}},
             grid={1,1},
             initialScale=0.2), graphics));
-
-  equation
-      connect(heatPort, heatTransfer.heatPorts[1]) annotation (Line(
-          points={{-100,0},{-87,0},{-87,8.88178e-016},{-74,8.88178e-016}},
-          color={191,0,0},
-          smooth=Smooth.None));
   end TankWithTopPorts;
   end BaseClasses;
 
@@ -2178,14 +2141,6 @@ Implemented trace substances and missing equation for outflow of multi substance
         use_m_flow_in=true)
         annotation (Placement(transformation(extent={{-12,42},{8,62}},   rotation=
                0)));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-                -100},{100,100}}),
-                          graphics),
-        experiment(StopTime=100),
-        __Dymola_Commands(file="Scripts/Fluid/OneTank/plot level and port.p.mos"
-            "plot level and port.p", file=
-              "Scripts/Fluid/OneTank/plot level, port.p and port.m_flow.mos"
-            "plot level, port.p and port.m_flow"));
       inner Modelica.Fluid.System system
                             annotation (Placement(transformation(extent={{70,72},
                 {90,92}}, rotation=0)));
@@ -2224,6 +2179,14 @@ Implemented trace substances and missing equation for outflow of multi substance
           points={{-39,70},{-24,70},{-24,60},{-12,60}},
           color={0,0,127},
           smooth=Smooth.None));
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
+                -100},{100,100}}),
+                          graphics),
+        experiment(StopTime=100),
+        __Dymola_Commands(file="Scripts/Fluid/OneTank/plot level and port.p.mos"
+            "plot level and port.p", file=
+              "Scripts/Fluid/OneTank/plot level, port.p and port.m_flow.mos"
+            "plot level, port.p and port.m_flow"));
     end OneTank;
 
     model TwoTanks
@@ -2231,12 +2194,6 @@ Implemented trace substances and missing equation for outflow of multi substance
       extends Modelica.Icons.Example;
       parameter Boolean stiffCharacteristicForEmptyPort=true;
 
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),
-                          graphics),
-        experiment(StopTime=70),
-        __Dymola_Commands(file="Scripts/Fluid/TwoTanks/plot level and port.p.mos"
-            "plot level and port.p"));
       inner Modelica.Fluid.System system
                             annotation (Placement(transformation(extent={{40,62},
                 {60,82}}, rotation=0)));
@@ -2278,6 +2235,12 @@ Implemented trace substances and missing equation for outflow of multi substance
               -20},{-30,-20}}, color={0,127,255}));
       connect(pipe.port_b, tank2.ports[1]) annotation (Line(points={{-10,-20},{20,
               -20},{20,-1}}, color={0,127,255}));
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}),
+                          graphics),
+        experiment(StopTime=70),
+        __Dymola_Commands(file="Scripts/Fluid/TwoTanks/plot level and port.p.mos"
+            "plot level and port.p"));
     end TwoTanks;
 
     model TankWithEmptyingPipe1
@@ -2292,15 +2255,6 @@ Implemented trace substances and missing equation for outflow of multi substance
         m_flow=50,
         T=system.T_ambient)
         annotation (Placement(transformation(extent={{-20,40},{0,60}}, rotation=0)));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),
-                          graphics),
-        experiment(StopTime=35),
-        __Dymola_Commands(file=
-              "Scripts/Fluid/TankWithEmptyingPipe1/plot level and port.p.mos"
-            "plot level and port.p", file=
-              "Scripts/Fluid/TankWithEmptyingPipe1/plot level, port.p and port.m_flow.mos"
-            "plot level, port.p and port.m_flow"));
       inner Modelica.Fluid.System system
                             annotation (Placement(transformation(extent={{-100,60},
                 {-80,80}}, rotation=0)));
@@ -2362,6 +2316,15 @@ Implemented trace substances and missing equation for outflow of multi substance
                                color={0,127,255}));
       connect(pipe.port_a, tank1.ports[2]) annotation (Line(points={{40,0},{40,
               -28},{-18,-28},{-18,-20},{-18,-20},{-18,-21}}, color={0,127,255}));
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}),
+                          graphics),
+        experiment(StopTime=35),
+        __Dymola_Commands(file=
+              "Scripts/Fluid/TankWithEmptyingPipe1/plot level and port.p.mos"
+            "plot level and port.p", file=
+              "Scripts/Fluid/TankWithEmptyingPipe1/plot level, port.p and port.m_flow.mos"
+            "plot level, port.p and port.m_flow"));
     end TankWithEmptyingPipe1;
 
     model TankWithEmptyingPipe2
@@ -2369,13 +2332,6 @@ Implemented trace substances and missing equation for outflow of multi substance
       import Modelica.SIunits.Conversions.from_bar;
       extends Modelica.Icons.Example;
 
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),
-                          graphics),
-        experiment(StopTime=35),
-        __Dymola_Commands(file=
-              "Scripts/Fluid/TankWithEmptyingPipe2/plot level and port.p.mos"
-            "plot level and port.p"));
       inner Modelica.Fluid.System system
                             annotation (Placement(transformation(extent={{-100,60},
                 {-80,80}}, rotation=0)));
@@ -2439,6 +2395,13 @@ Implemented trace substances and missing equation for outflow of multi substance
               -18,-21},{-18,-40},{30,-40},{30,-50}}, color={0,127,255}));
       connect(ambient_fixed1.ports[1], pipe2.port_a) annotation (Line(points={{20,-90},
               {30,-90},{30,-70}}, color={0,127,255}));
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}),
+                          graphics),
+        experiment(StopTime=35),
+        __Dymola_Commands(file=
+              "Scripts/Fluid/TankWithEmptyingPipe2/plot level and port.p.mos"
+            "plot level and port.p"));
     end TankWithEmptyingPipe2;
 
     model TanksWithEmptyingPipe1
@@ -2446,14 +2409,6 @@ Implemented trace substances and missing equation for outflow of multi substance
       import Modelica.SIunits.Conversions.from_bar;
       extends Modelica.Icons.Example;
 
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),
-                          graphics),
-        experiment(StopTime=35),
-        __Dymola_Commands(
-          file=
-              "Scripts/Fluid/TanksWithEmptyingPipe1/plot level, port.p and port.m_flow.mos"
-            "plot level, port.p and port.m_flow"));
       inner Modelica.Fluid.System system
                             annotation (Placement(transformation(extent={{-100,60},
                 {-80,80}}, rotation=0)));
@@ -2548,6 +2503,14 @@ Implemented trace substances and missing equation for outflow of multi substance
               255}));
       connect(pipe3.port_b, tank2.ports[2]) annotation (Line(points={{0,20},{10,
               20},{10,-8},{38,-8},{38,0},{42,0},{42,-1}}, color={0,127,255}));
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}),
+                          graphics),
+        experiment(StopTime=35),
+        __Dymola_Commands(
+          file=
+              "Scripts/Fluid/TanksWithEmptyingPipe1/plot level, port.p and port.m_flow.mos"
+            "plot level, port.p and port.m_flow"));
     end TanksWithEmptyingPipe1;
 
     model TanksWithEmptyingPipe2
@@ -2560,13 +2523,6 @@ Implemented trace substances and missing equation for outflow of multi substance
         Modelica.Media.Interfaces.PartialMedium "Medium in the component"
           annotation (choicesAllMatching = true);
 
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-                -100},{100,100}}),
-                          graphics),
-        experiment(StopTime=300),
-        __Dymola_Commands(file=
-              "Scripts/Fluid/TanksWithEmptyingPipe2/plot level and port.m_flow.mos"
-            "plot level and port.m_flow"));
       inner Modelica.Fluid.System system
                             annotation (Placement(transformation(extent={{-100,60},
                 {-80,80}}, rotation=0)));
@@ -2684,6 +2640,50 @@ Implemented trace substances and missing equation for outflow of multi substance
           points={{6.12323e-016,-12},{0,-12},{0,9},{2.22045e-016,9}},
           color={0,127,255},
           smooth=Smooth.None));
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
+                -100},{100,100}}),
+                          graphics),
+        experiment(StopTime=300),
+        __Dymola_Commands(file=
+              "Scripts/Fluid/TanksWithEmptyingPipe2/plot level and port.m_flow.mos"
+            "plot level and port.m_flow"));
     end TanksWithEmptyingPipe2;
   end Test;
+  annotation (preferedView="info",Documentation(info="<html>
+<p>
+The process under consideration is an evaporation plant for a
+student lab at the Process Control Laboratory (AST) of the
+University of Dortmund that evaporates a water sodium chloride
+mixture so that a higher concentrated solution is produced.
+The task of the students is to learn how to program the process
+control system. A picture of the batch plant is shown in the figure
+below.
+</p>
+
+<p align=\"center\">
+<img src=\"../Images/Fluid/Examples/AST_BatchPlant1.jpg\" border=\"1\">
+</p>
+
+<p>
+The flow sheet diagram is shown in the next figure.
+</p>
+
+<p align=\"center\">
+<img src=\"../Images/Fluid/Examples/AST_BatchPlant2.png\" border=\"1\">
+</p>
+
+<p>
+Pure water from tank B1 and concentrated sodium chloride
+solution from tank B2 are mixed in a mixing tank B3.
+After buffering in tank B4 the mixture flows to the
+evaporator B5. Here the water sodium chloride mixture
+is evaporated until the desired con-centration is reached.
+The steam is condensed in the condenser K1 and cooled
+afterwards in the cooling tank B6. The concentrated
+ solution is also led to a cooling tank B7. The cooled
+fluids are pumped back to the charging vessels by the
+pumps P1 and P2. Be-tween the tanks several valves are
+present that are regulated by a central control system.
+</p>
+</html>"));
 end AST_BatchPlant;

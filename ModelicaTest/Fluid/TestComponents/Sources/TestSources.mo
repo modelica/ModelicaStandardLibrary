@@ -2,90 +2,88 @@ within ModelicaTest.Fluid.TestComponents.Sources;
 model TestSources "Test model for models in source package"
   import Modelica.Fluid;
   package Medium=Modelica.Media.Air.MoistAir(extraPropertiesNames={"CO2"});
-  Modelica.Fluid.Sources.Boundary_pT boundary(redeclare package Medium = 
+  Modelica.Fluid.Sources.Boundary_pT boundary(redeclare package Medium =
                Medium,
     nPorts=1,
     use_C_in=true,
-    use_p_in=true) 
+    use_p_in=true)
     annotation (Placement(transformation(extent={{-50,40},{-30,60}})));
-  Modelica.Fluid.Sources.Boundary_ph boundary1(redeclare package Medium = 
+  Modelica.Fluid.Sources.Boundary_ph boundary1(redeclare package Medium =
                Medium,
     nPorts=1,
     use_p_in=true,
     use_X_in=false,
-    use_C_in=true) 
+    use_C_in=true)
     annotation (Placement(transformation(extent={{-50,0},{-30,20}})));
-  Modelica.Fluid.Sources.MassFlowSource_T boundary2(redeclare package Medium = 
+  Modelica.Fluid.Sources.MassFlowSource_T boundary2(redeclare package Medium =
                Medium,
     use_C_in=true,
     nPorts=1,
-    m_flow=0.1) 
+    m_flow=0.1)
     annotation (Placement(transformation(extent={{-50,-50},{-30,-30}})));
-  Modelica.Fluid.Sources.MassFlowSource_h boundary3(redeclare package Medium = 
+  Modelica.Fluid.Sources.MassFlowSource_h boundary3(redeclare package Medium =
                Medium,
     use_C_in=true,
     nPorts=1,
-    m_flow=0.1) 
+    m_flow=0.1)
     annotation (Placement(transformation(extent={{-50,-90},{-30,-70}})));
-  Modelica.Fluid.Sources.FixedBoundary boundary4(redeclare package Medium = 
-        Medium, nPorts=1) 
+  Modelica.Fluid.Sources.FixedBoundary boundary4(redeclare package Medium =
+        Medium, nPorts=1)
     annotation (Placement(transformation(extent={{80,40},{60,60}})));
-  Modelica.Fluid.Sources.Boundary_pT boundary5(redeclare package Medium = 
-        Medium,     nPorts=1) 
+  Modelica.Fluid.Sources.Boundary_pT boundary5(redeclare package Medium =
+        Medium,     nPorts=1)
                 annotation (Placement(transformation(extent={{80,0},{60,20}})));
   Modelica.Fluid.Sources.Boundary_ph boundary6(nPorts=2, redeclare package
-      Medium =         Medium) 
+      Medium =         Medium)
     annotation (Placement(transformation(extent={{96,-70},{76,-50}})));
   Modelica.Fluid.Pipes.StaticPipe pipe(
     length=1,
     diameter=0.25,
-    redeclare package Medium = Medium) 
+    redeclare package Medium = Medium)
     annotation (Placement(transformation(extent={{-20,40},{0,60}})));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-            -100},{100,100}}), graphics), experiment(StopTime=2));
   Modelica.Fluid.Pipes.StaticPipe pipe1(
     length=1,
     diameter=0.25,
-    redeclare package Medium = Medium) 
+    redeclare package Medium = Medium)
     annotation (Placement(transformation(extent={{0,0},{20,20}})));
   Modelica.Fluid.Pipes.StaticPipe pipe2(
     length=1,
     diameter=0.25,
-    redeclare package Medium = Medium) 
+    redeclare package Medium = Medium)
     annotation (Placement(transformation(extent={{0,-50},{20,-30}})));
   Modelica.Fluid.Pipes.StaticPipe pipe3(
     length=1,
     diameter=0.25,
-    redeclare package Medium = Medium) 
+    redeclare package Medium = Medium)
     annotation (Placement(transformation(extent={{0,-90},{20,-70}})));
-  inner Modelica.Fluid.System system 
+  inner Modelica.Fluid.System system
                                    annotation (Placement(transformation(extent={{60,70},
             {80,90}},          rotation=0)));
   Modelica.Blocks.Sources.Ramp C(duration=1, height=1.519E-3)
-    "substance concentration, raising to 1000 PPM CO2" 
+    "substance concentration, raising to 1000 PPM CO2"
     annotation (Placement(transformation(extent={{-100,40},{-80,60}})));
   Modelica.Blocks.Sources.Ramp P(
     duration=2,
     height=-100,
-    offset=101325 + 50) "Pressure" 
+    offset=101325 + 50) "Pressure"
     annotation (Placement(transformation(extent={{-100,0},{-80,20}})));
   Modelica.Fluid.Sensors.TraceSubstances traceSubstance(redeclare package
-      Medium =         Medium) 
+      Medium =         Medium)
     annotation (Placement(transformation(extent={{0,70},{20,90}})));
   Modelica.Fluid.Sensors.TraceSubstancesTwoPort traceSubstance1(redeclare
-      package Medium = Medium) 
+      package Medium = Medium)
     annotation (Placement(transformation(extent={{22,40},{42,60}})));
   Modelica.Fluid.Sensors.TraceSubstances traceSubstance2(redeclare package
-      Medium =         Medium) 
+      Medium =         Medium)
     annotation (Placement(transformation(extent={{-22,14},{-2,34}})));
   Modelica.Fluid.Sensors.TraceSubstances traceSubstance3(redeclare package
-      Medium =         Medium) 
+      Medium =         Medium)
     annotation (Placement(transformation(extent={{26,-26},{46,-6}})));
   Modelica.Fluid.Sensors.TraceSubstances traceSubstance4(redeclare package
-      Medium =         Medium) 
+      Medium =         Medium)
     annotation (Placement(transformation(extent={{-20,-74},{0,-54}})));
   Modelica.Fluid.Fittings.TeeJunctionIdeal junction(
-                                                  redeclare package Medium = 
+                                                  redeclare package Medium =
         Medium)                             annotation (Placement(
         transformation(extent={{26,-50},{46,-30}}, rotation=0)));
 equation
@@ -169,4 +167,6 @@ equation
       points={{46,-40},{52,-40},{52,-58},{76,-58}},
       color={0,127,255},
       smooth=Smooth.None));
+  annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+            -100},{100,100}}), graphics), experiment(StopTime=2));
 end TestSources;

@@ -9,26 +9,6 @@ model Fourbar1
   output SI.Position j2_s "distance of prismatic joint j2";
   output SI.AngularVelocity j1_w "axis speed of revolute joint j1";
   output SI.Velocity j2_v "axis velocity of prismatic joint j2";
-  annotation (
-    experiment(StopTime=5),
-    Documentation(info="<html>
-<p>
-This is a simple kinematic loop consisting of 6 revolute joints, 1 prismatic joint
-and 4 bars that is often used as basic constructing unit in mechanisms.
-This example demonstrates that usually no particular knowledge
-of the user is needed to handle kinematic loops.
-Just connect the joints and bodies together according
-to the real system. In particular <b>no</b> cut-joints or a spanning tree has
-to be determined. In this case, the initial condition of the angular velocity
-of revolute joint j1 is set to 300 deg/s in order to drive this loop.
-</p>
-<p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Loops/Fourbar1.png\" ALT=\"model Examples.Loops.Fourbar1\">
-</p>
-</html>
-"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-            100,100}}),
-            graphics));
 
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
         transformation(extent={{-100,-80},{-80,-60}}, rotation=0)));
@@ -132,4 +112,24 @@ equation
   j2_s = j2.s;
   j1_w = j1.w;
   j2_v = j2.v;
+  annotation (
+    experiment(StopTime=5),
+    Documentation(info="<html>
+<p>
+This is a simple kinematic loop consisting of 6 revolute joints, 1 prismatic joint
+and 4 bars that is often used as basic constructing unit in mechanisms.
+This example demonstrates that usually no particular knowledge
+of the user is needed to handle kinematic loops.
+Just connect the joints and bodies together according
+to the real system. In particular <b>no</b> cut-joints or a spanning tree has
+to be determined. In this case, the initial condition of the angular velocity
+of revolute joint j1 is set to 300 deg/s in order to drive this loop.
+</p>
+<p align=\"center\">
+<IMG SRC=\"../Images/MultiBody/Examples/Loops/Fourbar1.png\" ALT=\"model Examples.Loops.Fourbar1\">
+</p>
+</html>
+"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+            100,100}}),
+            graphics));
 end Fourbar1;

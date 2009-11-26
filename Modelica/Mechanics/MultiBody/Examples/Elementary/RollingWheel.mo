@@ -15,6 +15,8 @@ model RollingWheel
     annotation (Placement(transformation(extent={{-20,0},{0,20}})));
   inner Modelica.Mechanics.MultiBody.World world(label2="z", n={0,0,-1})
     annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
+  Modelica.Mechanics.MultiBody.Visualizers.Ground ground(length=4)
+    annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
   annotation (
     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}),      graphics),
@@ -22,6 +24,4 @@ model RollingWheel
     Documentation(info="<html>
 
 </html>"));
-  Modelica.Mechanics.MultiBody.Visualizers.Ground ground(length=4)
-    annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
 end RollingWheel;

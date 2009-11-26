@@ -1,5 +1,30 @@
 within ;
 package ModelicaTest "Library to test components of library Modelica "
+
+
+function testAllFunctions "Runs all test cases for functions"
+  import Modelica.Utilities.Streams.print;
+  input String logFile = "ModelicaTestLog.txt"
+    "Filename where the log of all functions is stored";
+  output Boolean ok;
+protected
+  Boolean result;
+  String file;
+algorithm
+  file :=Modelica.Utilities.Files.fullPathName(logFile);
+  print("... testAllFunctions(..) is logged in " + file);
+
+  if file <> "" then
+     Modelica.Utilities.Files.removeFile(file);
+  end if;
+
+  print("--- Test functions of Modelica library", logFile);
+  result := ModelicaTest.Math.Polynomials(logFile);
+  result := ModelicaTest.Math.Matrices(logFile);
+  result := ModelicaTest.Utilities.testAll(logFile);
+  ok := true;
+end testAllFunctions;
+
   annotation (version="1.1", versionDate="2007-10-19", uses(Modelica(version=
           "3.1")),
     Documentation(info="<html>
@@ -39,28 +64,4 @@ and the accompanying <b>disclaimer</b>
 </p>
 </html>"),
   conversion(from(version="1.0", script="ConvertFromModelicaTest_1.0.mos")));
-
-
-function testAllFunctions "Runs all test cases for functions"
-  import Modelica.Utilities.Streams.print;
-  input String logFile = "ModelicaTestLog.txt"
-    "Filename where the log of all functions is stored";
-  output Boolean ok;
-protected
-  Boolean result;
-  String file;
-algorithm
-  file :=Modelica.Utilities.Files.fullPathName(logFile);
-  print("... testAllFunctions(..) is logged in " + file);
-
-  if file <> "" then
-     Modelica.Utilities.Files.removeFile(file);
-  end if;
-
-  print("--- Test functions of Modelica library", logFile);
-  result := ModelicaTest.Math.Polynomials(logFile);
-  result := ModelicaTest.Math.Matrices(logFile);
-  result := ModelicaTest.Utilities.testAll(logFile);
-  ok := true;
-end testAllFunctions;
 end ModelicaTest;

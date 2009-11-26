@@ -83,30 +83,6 @@ model EngineV6
           rotation=0)));
 equation
 
-  annotation (
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-120,-100},{120,100}},
-        grid={1,1}), graphics),
-    Documentation(info="<HTML>
-<p>
-This is a V6 engine with 6 cylinders. It is hierarchically built
-up by using instances of one cylinder. For more details on the
-modeling of one cylinder, see example
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b\">Engine1b</a>.
-An animation of the engine is shown in the figure below.
-</p>
-<p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Loops/EngineV6.png\" ALT=\"model Examples.Loops.EngineV6\">
-</p>
-
-<p>
-Simulate for 5 s, and plot the variables <b>engineSpeed_rpm</b>,
-<b>engineTorque</b>, and <b>filteredEngineTorque</b>. Note, the result file has
-a size of about 50 Mbyte (for 5000 output intervalls).
-</p>
-</HTML>
-"));
   connect(bearing.frame_b, cylinder1.crank_a)
     annotation (Line(
       points={{-70,10},{-50,10}},
@@ -178,4 +154,28 @@ a size of about 50 Mbyte (for 5000 output intervalls).
           -50},{-56,-50}}, color={0,0,127}));
   connect(torqueSensor.flange_a, bearing.axis) annotation (Line(points={{-72,
           -20},{-80,-20},{-80,0}}, color={0,0,0}));
+  annotation (
+    Diagram(coordinateSystem(
+        preserveAspectRatio=true,
+        extent={{-120,-100},{120,100}},
+        grid={1,1}), graphics),
+    Documentation(info="<HTML>
+<p>
+This is a V6 engine with 6 cylinders. It is hierarchically built
+up by using instances of one cylinder. For more details on the
+modeling of one cylinder, see example
+<a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b\">Engine1b</a>.
+An animation of the engine is shown in the figure below.
+</p>
+<p align=\"center\">
+<IMG SRC=\"../Images/MultiBody/Examples/Loops/EngineV6.png\" ALT=\"model Examples.Loops.EngineV6\">
+</p>
+
+<p>
+Simulate for 5 s, and plot the variables <b>engineSpeed_rpm</b>,
+<b>engineTorque</b>, and <b>filteredEngineTorque</b>. Note, the result file has
+a size of about 50 Mbyte (for 5000 output intervalls).
+</p>
+</HTML>
+"));
 end EngineV6;

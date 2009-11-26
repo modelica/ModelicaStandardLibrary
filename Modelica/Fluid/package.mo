@@ -6,19 +6,6 @@ package Fluid "Library of 1-dim. thermo-fluid flow models using the Modelica.Med
 
 package UsersGuide "Users Guide"
 
-  annotation (DocumentationClass=true, Documentation(info="<HTML>
-
-<p>
-Library <b>Modelica.Fluid</b> is a <b>free</b> Modelica package providing components for
-<b>1-dimensional thermo-fluid flow</b> in networks of pipes. A unique feature is that the
-component equations and the media models
-as well as pressure loss and heat transfer correlations are decoupled from each other.
-All components are implemented such that they can be used for
-media from the Modelica.Media library. This means especially that an
-incompressible or compressible medium, a single or a multiple
-substance medium with one or more phases might be used.
-</p>
-</HTML>"));
 
   class Overview "Overview"
 
@@ -101,8 +88,6 @@ This library has the following main features:
 </ul>
 </HTML>
 "));
-  equation
-
   end Overview;
 
   class GettingStarted "Getting started"
@@ -116,36 +101,10 @@ which provide simple models for a broad variety of applications.
 </p>
 </html>
 "));
-  equation
-
   end GettingStarted;
 
   package ComponentDefinition "Component definition"
 
-    annotation (Documentation(info="<html>
-
-<p>
-In this section it is described how the components
-of the Modelica.Fluid library are implemented.
-If you would like to introduce new components either in
-Modelica.Fluid or your own library, you should be aware
-of the issues discussed in this section.
-</p>
-<p>
-This section is partly based on the following paper:
-</p>
-<dl>
-<dt> Elmqvist H., Tummescheit H., and Otter M.:</dt>
-<dd> <b>Object-Oriented Modeling of Thermo-Fluid Systems</b>.
-     Modelica 2003 Conference, Link&ouml;ping, Sweden,
-     pp. 269-286, Nov. 3-4, 2003.
-     Download from:
-     <a href=\"http://www.modelica.org/Conference2003/papers/h40_Elmqvist_fluid.pdf\">http://www.modelica.org/Conference2003/papers/h40_Elmqvist_fluid.pdf</a>
-     </dd>
-</dl>
-Please note that the design of the connectors has been changed with respect to the design presented in that paper.
-</html>
-"));
 
   class FluidConnectors "Fluid connectors"
 
@@ -968,6 +927,30 @@ The pragmatic approach used in Modelica.Fluid.ControlValves is to accept the fac
 "));
   end ValveCharacteristics;
 
+    annotation (Documentation(info="<html>
+
+<p>
+In this section it is described how the components
+of the Modelica.Fluid library are implemented.
+If you would like to introduce new components either in
+Modelica.Fluid or your own library, you should be aware
+of the issues discussed in this section.
+</p>
+<p>
+This section is partly based on the following paper:
+</p>
+<dl>
+<dt> Elmqvist H., Tummescheit H., and Otter M.:</dt>
+<dd> <b>Object-Oriented Modeling of Thermo-Fluid Systems</b>.
+     Modelica 2003 Conference, Link&ouml;ping, Sweden,
+     pp. 269-286, Nov. 3-4, 2003.
+     Download from:
+     <a href=\"http://www.modelica.org/Conference2003/papers/h40_Elmqvist_fluid.pdf\">http://www.modelica.org/Conference2003/papers/h40_Elmqvist_fluid.pdf</a>
+     </dd>
+</dl>
+Please note that the design of the connectors has been changed with respect to the design presented in that paper.
+</html>
+"));
   end ComponentDefinition;
 
   package BuildingSystemModels "Building system models"
@@ -1617,8 +1600,6 @@ standard library.
 </ul>
 </HTML>
 "));
-  equation
-
   end ReleaseNotes;
 
 class Contact "Contact"
@@ -1703,6 +1684,19 @@ and many have contributed.
 
 </html>"));
 end Contact;
+  annotation (DocumentationClass=true, Documentation(info="<HTML>
+
+<p>
+Library <b>Modelica.Fluid</b> is a <b>free</b> Modelica package providing components for
+<b>1-dimensional thermo-fluid flow</b> in networks of pipes. A unique feature is that the
+component equations and the media models
+as well as pressure loss and heat transfer correlations are decoupled from each other.
+All components are implemented such that they can be used for
+media from the Modelica.Media library. This means especially that an
+incompressible or compressible medium, a single or a multiple
+substance medium with one or more phases might be used.
+</p>
+</HTML>"));
 end UsersGuide;
 
 

@@ -1,6 +1,13 @@
 within Modelica.Electrical.Analog.Examples.Utilities;
 model NonlinearResistor "Chua's resistor"
   extends Interfaces.OnePort;
+
+  parameter SI.Conductance Ga "Conductance in inner voltage range";
+  parameter SI.Conductance Gb "Conductance in outer voltage range";
+  parameter SI.Voltage Ve "Inner voltage range limit";
+equation
+  i = if (v < -Ve) then Gb*(v + Ve) - Ga*Ve else if (v > Ve) then Gb*(v - Ve)
+     + Ga*Ve else Ga*v;
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -35,11 +42,4 @@ model NonlinearResistor "Chua's resistor"
     Documentation(info="<html>
 <p>This is the only nonlinear component for Chua&apos;s circuit. It is a piecewise linear resistor with both an inner and an outer range, which includes the inner one. The slopes of both ranges are given by parameters. The resistance caracteristic is continuous. For Chua&apos;s circuit both slopes have to be chosen to be negative. </p>
 </html>"));
-
-  parameter SI.Conductance Ga "Conductance in inner voltage range";
-  parameter SI.Conductance Gb "Conductance in outer voltage range";
-  parameter SI.Voltage Ve "Inner voltage range limit";
-equation
-  i = if (v < -Ve) then Gb*(v + Ve) - Ga*Ve else if (v > Ve) then Gb*(v - Ve)
-     + Ga*Ve else Ga*v;
 end NonlinearResistor;

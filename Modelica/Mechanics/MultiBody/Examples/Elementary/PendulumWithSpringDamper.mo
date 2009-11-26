@@ -2,23 +2,6 @@ within Modelica.Mechanics.MultiBody.Examples.Elementary;
 model PendulumWithSpringDamper "Simple spring/damper/mass system"
   extends Modelica.Icons.Example;
   parameter Boolean animation=true "= true, if animation shall be enabled";
-  annotation (
-    experiment(StopTime=10),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics),
-    Documentation(info="<html>
-<p>
-A body is attached on a revolute and prismatic joint.
-A 3-dim. spring and a 3-dim. damper are connected between the body
-and a point fixed in the world frame:
-</p>
-<p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Elementary/PendulumWithSpringDamper.png\"
-ALT=\"model Examples.Elementary.PendulumWithSpringDamper\">
-</p>
-</html>"));
   inner Modelica.Mechanics.MultiBody.World world(axisLength=0.6)
     annotation (Placement(transformation(extent={{-80,20},{-60,40}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.Body body1(
@@ -93,4 +76,21 @@ equation
       points={{62,30},{40,30}},
       color={95,95,95},
       thickness=0.5));
+  annotation (
+    experiment(StopTime=10),
+    Diagram(coordinateSystem(
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
+        grid={2,2}), graphics),
+    Documentation(info="<html>
+<p>
+A body is attached on a revolute and prismatic joint.
+A 3-dim. spring and a 3-dim. damper are connected between the body
+and a point fixed in the world frame:
+</p>
+<p align=\"center\">
+<IMG SRC=\"../Images/MultiBody/Examples/Elementary/PendulumWithSpringDamper.png\"
+ALT=\"model Examples.Elementary.PendulumWithSpringDamper\">
+</p>
+</html>"));
 end PendulumWithSpringDamper;

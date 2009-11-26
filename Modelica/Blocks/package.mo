@@ -6,89 +6,6 @@ import SI = Modelica.SIunits;
 extends Modelica.Icons.Library2;
 
 
-annotation (
-  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-      graphics={
-      Rectangle(extent={{-32,-6},{16,-35}}, lineColor={0,0,0}),
-      Rectangle(extent={{-32,-56},{16,-85}}, lineColor={0,0,0}),
-      Line(points={{16,-20},{49,-20},{49,-71},{16,-71}}, color={0,0,0}),
-      Line(points={{-32,-72},{-64,-72},{-64,-21},{-32,-21}}, color={0,0,0}),
-      Polygon(
-        points={{16,-71},{29,-67},{29,-74},{16,-71}},
-        lineColor={0,0,0},
-        fillColor={0,0,0},
-        fillPattern=FillPattern.Solid),
-      Polygon(
-        points={{-32,-21},{-46,-17},{-46,-25},{-32,-21}},
-        lineColor={0,0,0},
-        fillColor={0,0,0},
-        fillPattern=FillPattern.Solid)}),
-                          Documentation(info="<html>
-<p>
-This library contains input/output blocks to build up block diagrams.
-</p>
-
-<dl>
-<dt><b>Main Author:</b>
-<dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
-    Deutsches Zentrum f&uuml;r Luft und Raumfahrt e. V. (DLR)<br>
-    Oberpfaffenhofen<br>
-    Postfach 1116<br>
-    D-82230 Wessling<br>
-    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br>
-</dl>
-<p>
-Copyright &copy; 1998-2009, Modelica Association and DLR.
-</p>
-<p>
-<i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b>
-<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
-</p>
-</HTML>
-", revisions="<html>
-<ul>
-<li><i>June 23, 2004</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Introduced new block connectors and adapated all blocks to the new connectors.
-       Included subpackages Continuous, Discrete, Logical, Nonlinear from
-       package ModelicaAdditions.Blocks.
-       Included subpackage ModelicaAdditions.Table in Modelica.Blocks.Sources
-       and in the new package Modelica.Blocks.Tables.
-       Added new blocks to Blocks.Sources and Blocks.Logical.
-       </li>
-<li><i>October 21, 2002</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
-       and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
-       New subpackage Examples, additional components.
-       </li>
-<li><i>June 20, 2000</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> and
-       Michael Tiller:<br>
-       Introduced a replaceable signal type into
-       Blocks.Interfaces.RealInput/RealOutput:
-<pre>
-   replaceable type SignalType = Real
-</pre>
-       in order that the type of the signal of an input/output block
-       can be changed to a physical type, for example:
-<pre>
-   Sine sin1(outPort(redeclare type SignalType=Modelica.SIunits.Torque))
-</pre>
-      </li>
-<li><i>Sept. 18, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Renamed to Blocks. New subpackages Math, Nonlinear.
-       Additional components in subpackages Interfaces, Continuous
-       and Sources. </li>
-<li><i>June 30, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized a first version, based on an existing Dymola library
-       of Dieter Moormann and Hilding Elmqvist.</li>
-</ul>
-</html>"));
-
 
 package Examples
   "Library of examples to demonstrate the usage of package Blocks"
@@ -116,6 +33,55 @@ package Examples
             true, start=0),
       J=1)                                    annotation (Placement(
           transformation(extent={{2,-20},{22,0}}, rotation=0)));
+
+    Modelica.Mechanics.Rotational.Sources.Torque torque
+      annotation (Placement(transformation(extent={{-25,-20},{-5,0}}, rotation=
+              0)));
+    Modelica.Mechanics.Rotational.Components.SpringDamper spring(
+                                                      c=1e4, d=100,
+      stateSelect=StateSelect.prefer,
+      w_rel(fixed=true))
+      annotation (Placement(transformation(extent={{32,-20},{52,0}}, rotation=0)));
+    Modelica.Mechanics.Rotational.Components.Inertia inertia2(
+                                                   J=2)
+      annotation (Placement(transformation(extent={{60,-20},{80,0}}, rotation=0)));
+    Modelica.Blocks.Sources.KinematicPTP kinematicPTP(startTime=0.5, deltaq={
+          driveAngle},
+      qd_max={1},
+      qdd_max={1})     annotation (Placement(transformation(extent={{-92,20},{
+              -72,40}}, rotation=0)));
+    Modelica.Blocks.Continuous.Integrator integrator(initType=Modelica.Blocks.
+          Types.Init.InitialState) annotation (Placement(transformation(extent=
+              {{-63,20},{-43,40}}, rotation=0)));
+    Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor
+      annotation (Placement(transformation(extent={{22,-50},{2,-30}}, rotation=
+              0)));
+    Modelica.Mechanics.Rotational.Sources.ConstantTorque loadTorque(
+                                                            tau_constant=10,
+        useSupport=false)
+      annotation (Placement(transformation(extent={{98,-15},{88,-5}}, rotation=
+              0)));
+  initial equation
+    der(spring.w_rel) = 0;
+  equation
+    connect(spring.flange_b,inertia2. flange_a)
+      annotation (Line(points={{52,-10},{60,-10}}, color={0,0,0}));
+    connect(inertia1.flange_b, spring.flange_a)
+      annotation (Line(points={{22,-10},{32,-10}}, color={0,0,0}));
+    connect(torque.flange, inertia1.flange_a)
+      annotation (Line(points={{-5,-10},{2,-10}}, color={0,0,0}));
+    connect(kinematicPTP.y[1], integrator.u) annotation (Line(points={{-71,30},
+            {-65,30}}, color={0,0,127}));
+    connect(speedSensor.flange, inertia1.flange_b)
+      annotation (Line(points={{22,-40},{22,-10}}, color={0,0,0}));
+    connect(loadTorque.flange, inertia2.flange_b)
+      annotation (Line(points={{88,-10},{80,-10}}, color={0,0,0}));
+    connect(PI.y, torque.tau)  annotation (Line(points={{-35,-10},{-27,-10}},
+          color={0,0,127}));
+    connect(speedSensor.w, PI.u_m)  annotation (Line(points={{1,-40},{-46,-40},
+            {-46,-22}}, color={0,0,127}));
+    connect(integrator.y, PI.u_s)  annotation (Line(points={{-42,30},{-37,30},{
+            -37,11},{-67,11},{-67,-10},{-58,-10}}, color={0,0,127}));
     annotation (
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -204,55 +170,6 @@ is forced back to its limit after a transient phase.
 </p>
 
 </html>"));
-
-    Modelica.Mechanics.Rotational.Sources.Torque torque
-      annotation (Placement(transformation(extent={{-25,-20},{-5,0}}, rotation=
-              0)));
-    Modelica.Mechanics.Rotational.Components.SpringDamper spring(
-                                                      c=1e4, d=100,
-      stateSelect=StateSelect.prefer,
-      w_rel(fixed=true))
-      annotation (Placement(transformation(extent={{32,-20},{52,0}}, rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia2(
-                                                   J=2)
-      annotation (Placement(transformation(extent={{60,-20},{80,0}}, rotation=0)));
-    Modelica.Blocks.Sources.KinematicPTP kinematicPTP(startTime=0.5, deltaq={
-          driveAngle},
-      qd_max={1},
-      qdd_max={1})     annotation (Placement(transformation(extent={{-92,20},{
-              -72,40}}, rotation=0)));
-    Modelica.Blocks.Continuous.Integrator integrator(initType=Modelica.Blocks.
-          Types.Init.InitialState) annotation (Placement(transformation(extent=
-              {{-63,20},{-43,40}}, rotation=0)));
-    Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor
-      annotation (Placement(transformation(extent={{22,-50},{2,-30}}, rotation=
-              0)));
-    Modelica.Mechanics.Rotational.Sources.ConstantTorque loadTorque(
-                                                            tau_constant=10,
-        useSupport=false)
-      annotation (Placement(transformation(extent={{98,-15},{88,-5}}, rotation=
-              0)));
-  initial equation
-    der(spring.w_rel) = 0;
-  equation
-    connect(spring.flange_b,inertia2. flange_a)
-      annotation (Line(points={{52,-10},{60,-10}}, color={0,0,0}));
-    connect(inertia1.flange_b, spring.flange_a)
-      annotation (Line(points={{22,-10},{32,-10}}, color={0,0,0}));
-    connect(torque.flange, inertia1.flange_a)
-      annotation (Line(points={{-5,-10},{2,-10}}, color={0,0,0}));
-    connect(kinematicPTP.y[1], integrator.u) annotation (Line(points={{-71,30},
-            {-65,30}}, color={0,0,127}));
-    connect(speedSensor.flange, inertia1.flange_b)
-      annotation (Line(points={{22,-40},{22,-10}}, color={0,0,0}));
-    connect(loadTorque.flange, inertia2.flange_b)
-      annotation (Line(points={{88,-10},{80,-10}}, color={0,0,0}));
-    connect(PI.y, torque.tau)  annotation (Line(points={{-35,-10},{-27,-10}},
-          color={0,0,127}));
-    connect(speedSensor.w, PI.u_m)  annotation (Line(points={{1,-40},{-46,-40},
-            {-46,-22}}, color={0,0,127}));
-    connect(integrator.y, PI.u_s)  annotation (Line(points={{-42,30},{-37,30},{
-            -37,11},{-67,11},{-67,-10},{-58,-10}}, color={0,0,127}));
   end PID_Controller;
 
   model InverseModel "Demonstrates the construction of an inverse model"
@@ -268,6 +185,46 @@ is forced back to its limit after a transient phase.
       offset=1,
       startTime=0.2)
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+    Math.InverseBlockConstraints inverseBlockConstraints
+      annotation (Placement(transformation(extent={{-10,20},{30,40}})));
+    Continuous.FirstOrder firstOrder2(
+      k=1,
+      T=0.3,
+      initType=Modelica.Blocks.Types.Init.SteadyState)
+      annotation (Placement(transformation(extent={{20,-20},{0,0}})));
+    Math.Feedback feedback
+      annotation (Placement(transformation(extent={{-40,0},{-60,-20}})));
+    Continuous.CriticalDamping criticalDamping(n=1, f=50*sine.freqHz)
+      annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
+  equation
+    connect(firstOrder1.y, inverseBlockConstraints.u2) annotation (Line(
+        points={{-1,30},{-6,30}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(inverseBlockConstraints.y2, firstOrder1.u) annotation (Line(
+        points={{27,30},{22,30}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(firstOrder2.y, feedback.u1) annotation (Line(
+        points={{-1,-10},{-42,-10}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(sine.y, criticalDamping.u) annotation (Line(
+        points={{-59,30},{-42,30}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(criticalDamping.y, inverseBlockConstraints.u1) annotation (Line(
+        points={{-19,30},{-12,30}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(sine.y, feedback.u2) annotation (Line(
+        points={{-59,30},{-50,30},{-50,-2}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(inverseBlockConstraints.y1, firstOrder2.u) annotation (Line(
+        points={{31,30},{40,30},{40,-10},{22,-10}},
+        color={0,0,127},
+        smooth=Smooth.None));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}),      graphics), Documentation(info="<html>
 <p>
@@ -342,46 +299,6 @@ agreement. A typical simulation result is shown in the next figure:
 </p>
 
 </html>"));
-    Math.InverseBlockConstraints inverseBlockConstraints
-      annotation (Placement(transformation(extent={{-10,20},{30,40}})));
-    Continuous.FirstOrder firstOrder2(
-      k=1,
-      T=0.3,
-      initType=Modelica.Blocks.Types.Init.SteadyState)
-      annotation (Placement(transformation(extent={{20,-20},{0,0}})));
-    Math.Feedback feedback
-      annotation (Placement(transformation(extent={{-40,0},{-60,-20}})));
-    Continuous.CriticalDamping criticalDamping(n=1, f=50*sine.freqHz)
-      annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
-  equation
-    connect(firstOrder1.y, inverseBlockConstraints.u2) annotation (Line(
-        points={{-1,30},{-6,30}},
-        color={0,0,127},
-        smooth=Smooth.None));
-    connect(inverseBlockConstraints.y2, firstOrder1.u) annotation (Line(
-        points={{27,30},{22,30}},
-        color={0,0,127},
-        smooth=Smooth.None));
-    connect(firstOrder2.y, feedback.u1) annotation (Line(
-        points={{-1,-10},{-42,-10}},
-        color={0,0,127},
-        smooth=Smooth.None));
-    connect(sine.y, criticalDamping.u) annotation (Line(
-        points={{-59,30},{-42,30}},
-        color={0,0,127},
-        smooth=Smooth.None));
-    connect(criticalDamping.y, inverseBlockConstraints.u1) annotation (Line(
-        points={{-19,30},{-12,30}},
-        color={0,0,127},
-        smooth=Smooth.None));
-    connect(sine.y, feedback.u2) annotation (Line(
-        points={{-59,30},{-50,30},{-50,-2}},
-        color={0,0,127},
-        smooth=Smooth.None));
-    connect(inverseBlockConstraints.y1, firstOrder2.u) annotation (Line(
-        points={{31,30},{40,30},{40,-10},{22,-10}},
-        color={0,0,127},
-        smooth=Smooth.None));
   end InverseModel;
 
      model ShowLogicalSources
@@ -396,6 +313,13 @@ agreement. A typical simulation result is shown in the next figure:
           transformation(extent={{-60,20},{-40,40}}, rotation=0)));
        Sources.BooleanPulse pulse(period=1.5) annotation (Placement(
           transformation(extent={{-60,-20},{-40,0}}, rotation=0)));
+
+      Sources.SampleTrigger sample(
+                          period=0.5) annotation (Placement(transformation(
+            extent={{-60,-60},{-40,-40}}, rotation=0)));
+      Sources.BooleanExpression booleanExpression(
+                                                y=pulse.y and step.y)
+      annotation (Placement(transformation(extent={{20,20},{80,40}}, rotation=0)));
        annotation(Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}),
                           graphics),
@@ -411,13 +335,6 @@ model.
 </p>
 
 </html>"));
-
-      Sources.SampleTrigger sample(
-                          period=0.5) annotation (Placement(transformation(
-            extent={{-60,-60},{-40,-40}}, rotation=0)));
-      Sources.BooleanExpression booleanExpression(
-                                                y=pulse.y and step.y)
-      annotation (Placement(transformation(extent={{20,20},{80,40}}, rotation=0)));
      end ShowLogicalSources;
 
     model LogicalNetwork1 "Demonstrates the usage of logical blocks"
@@ -430,19 +347,6 @@ model.
     Logical.Not Not1 annotation (Placement(transformation(extent={{-40,-20},{
               -20,0}}, rotation=0)));
 
-    annotation(Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}),
-                       graphics),
-        experiment(StopTime=10),
-      Documentation(info="<html>
-<p>
-This example demonstrates a network of logical blocks. Note, that
-the Boolean values of the input and output signals are visualized
-in the diagram animation, by the small \"circles\" close to the connectors.
-If a \"circle\" is \"white\", the signal is <b>false</b>. It a
-\"circle\" is \"green\", the signal is <b>true</b>.
-</p>
-</html>"));
 
     Logical.And And1 annotation (Placement(transformation(extent={{0,-20},{20,0}},
             rotation=0)));
@@ -465,19 +369,73 @@ If a \"circle\" is \"white\", the signal is <b>false</b>. It a
     connect(Or1.y, Pre1.u) annotation (Line(points={{61,30},{68,30},{68,-70},{
             -60,-70},{-60,-50},{-42,-50}}, color={255,0,255}));
 
+    annotation(Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}),
+                       graphics),
+        experiment(StopTime=10),
+      Documentation(info="<html>
+<p>
+This example demonstrates a network of logical blocks. Note, that
+the Boolean values of the input and output signals are visualized
+in the diagram animation, by the small \"circles\" close to the connectors.
+If a \"circle\" is \"white\", the signal is <b>false</b>. It a
+\"circle\" is \"green\", the signal is <b>true</b>.
+</p>
+</html>"));
     end LogicalNetwork1;
 
-  annotation (Documentation(info="<html>
-<p>
-This package contains example models to demonstrate the
-usage of package blocks.
-</p>
-</HTML>
-"));
 
   model BusUsage "Demonstrates the usage of a signal bus"
     extends Modelica.Icons.Example;
 
+  public
+    Modelica.Blocks.Sources.IntegerStep integerStep(
+      height=1,
+      offset=2,
+      startTime=0.5)   annotation (Placement(transformation(extent={{-60,-40},{
+              -40,-20}}, rotation=0)));
+    Modelica.Blocks.Sources.BooleanStep booleanStep(startTime=0.5)
+                                                               annotation (Placement(
+          transformation(extent={{-58,0},{-38,20}}, rotation=0)));
+    Modelica.Blocks.Sources.Sine sine(freqHz=1)
+                                     annotation (Placement(transformation(
+            extent={{-60,40},{-40,60}}, rotation=0)));
+
+    Modelica.Blocks.Examples.BusUsage_Utilities.Part part
+              annotation (Placement(transformation(extent={{-60,-80},{-40,-60}},
+            rotation=0)));
+    Modelica.Blocks.Math.Gain gain(k=1)
+      annotation (Placement(transformation(extent={{-40,70},{-60,90}}, rotation=
+             0)));
+  protected
+    BusUsage_Utilities.Interfaces.ControlBus controlBus
+      annotation (Placement(transformation(
+          origin={30,10},
+          extent={{-20,20},{20,-20}},
+          rotation=90)));
+  equation
+
+    connect(sine.y, controlBus.realSignal1) annotation (Line(
+        points={{-39,50},{12,50},{12,14},{30,14},{30,10}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(booleanStep.y, controlBus.booleanSignal) annotation (Line(
+        points={{-37,10},{30,10}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(integerStep.y, controlBus.integerSignal) annotation (Line(
+        points={{-39,-30},{0,-30},{0,10},{30,10}},
+        color={255,127,0},
+        smooth=Smooth.None));
+    connect(part.subControlBus, controlBus.subControlBus) annotation (Line(
+        points={{-40,-70},{30,-70},{30,10}},
+        color={255,204,51},
+        thickness=0.5,
+        smooth=Smooth.None));
+    connect(gain.u, controlBus.realSignal1) annotation (Line(
+        points={{-38,80},{20,80},{20,10},{30,10}},
+        color={0,0,127},
+        smooth=Smooth.None));
     annotation (Documentation(info="<html>
 <p><b>Signal bus concept</b></p>
 <p>
@@ -593,66 +551,10 @@ just potential signals. The user might still add different signal names.
               -100},{100,100}}),
                    graphics),
       experiment(StopTime=2));
-  public
-    Modelica.Blocks.Sources.IntegerStep integerStep(
-      height=1,
-      offset=2,
-      startTime=0.5)   annotation (Placement(transformation(extent={{-60,-40},{
-              -40,-20}}, rotation=0)));
-    Modelica.Blocks.Sources.BooleanStep booleanStep(startTime=0.5)
-                                                               annotation (Placement(
-          transformation(extent={{-58,0},{-38,20}}, rotation=0)));
-    Modelica.Blocks.Sources.Sine sine(freqHz=1)
-                                     annotation (Placement(transformation(
-            extent={{-60,40},{-40,60}}, rotation=0)));
-
-    Modelica.Blocks.Examples.BusUsage_Utilities.Part part
-              annotation (Placement(transformation(extent={{-60,-80},{-40,-60}},
-            rotation=0)));
-    Modelica.Blocks.Math.Gain gain(k=1)
-      annotation (Placement(transformation(extent={{-40,70},{-60,90}}, rotation=
-             0)));
-  protected
-    BusUsage_Utilities.Interfaces.ControlBus controlBus
-      annotation (Placement(transformation(
-          origin={30,10},
-          extent={{-20,20},{20,-20}},
-          rotation=90)));
-  equation
-
-    connect(sine.y, controlBus.realSignal1) annotation (Line(
-        points={{-39,50},{12,50},{12,14},{30,14},{30,10}},
-        color={0,0,127},
-        smooth=Smooth.None));
-    connect(booleanStep.y, controlBus.booleanSignal) annotation (Line(
-        points={{-37,10},{30,10}},
-        color={255,0,255},
-        smooth=Smooth.None));
-    connect(integerStep.y, controlBus.integerSignal) annotation (Line(
-        points={{-39,-30},{0,-30},{0,10},{30,10}},
-        color={255,127,0},
-        smooth=Smooth.None));
-    connect(part.subControlBus, controlBus.subControlBus) annotation (Line(
-        points={{-40,-70},{30,-70},{30,10}},
-        color={255,204,51},
-        thickness=0.5,
-        smooth=Smooth.None));
-    connect(gain.u, controlBus.realSignal1) annotation (Line(
-        points={{-38,80},{20,80},{20,10},{30,10}},
-        color={0,0,127},
-        smooth=Smooth.None));
   end BusUsage;
 
   package BusUsage_Utilities
     "Utility models and connectors for example Modelica.Blocks.Examples.BusUsage"
-    annotation (Documentation(info="<html>
-<p>
-This package contains utility models and bus definitions needed for the
-<a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
-</p>
-</html>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}),
-                   graphics));
   package Interfaces "Interfaces specialised for this example"
 
       expandable connector ControlBus
@@ -774,26 +676,6 @@ This package contains the bus definitions needed for the
 
    model Part "Component with sub-control bus"
 
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Rectangle(
-              extent={{-100,60},{100,-60}},
-              fillColor={159,159,223},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}), Text(
-              extent={{-106,124},{114,68}},
-              textString="%name",
-              lineColor={0,0,255})}),
-                              Diagram(coordinateSystem(preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}}),
-                                      graphics),
-        Documentation(info="<html>
-<p>
-<p>
-This model is used to demonstrate the bus usage in example
-<a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
-</p>
-</p>
-</html>"));
      Interfaces.SubControlBus subControlBus
        annotation (Placement(transformation(
             origin={100,0},
@@ -814,8 +696,126 @@ This model is used to demonstrate the bus usage in example
           points={{21.3,-20},{60,-20},{60,0},{100,0}},
           color={255,0,255},
           smooth=Smooth.None));
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={Rectangle(
+              extent={{-100,60},{100,-60}},
+              fillColor={159,159,223},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}), Text(
+              extent={{-106,124},{114,68}},
+              textString="%name",
+              lineColor={0,0,255})}),
+                              Diagram(coordinateSystem(preserveAspectRatio=true,
+              extent={{-100,-100},{100,100}}),
+                                      graphics),
+        Documentation(info="<html>
+<p>
+<p>
+This model is used to demonstrate the bus usage in example
+<a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+</p>
+</p>
+</html>"));
    end Part;
 
+    annotation (Documentation(info="<html>
+<p>
+This package contains utility models and bus definitions needed for the
+<a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
+</p>
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}),
+                   graphics));
   end BusUsage_Utilities;
+  annotation (Documentation(info="<html>
+<p>
+This package contains example models to demonstrate the
+usage of package blocks.
+</p>
+</HTML>
+"));
 end Examples;
+
+annotation (
+  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+      graphics={
+      Rectangle(extent={{-32,-6},{16,-35}}, lineColor={0,0,0}),
+      Rectangle(extent={{-32,-56},{16,-85}}, lineColor={0,0,0}),
+      Line(points={{16,-20},{49,-20},{49,-71},{16,-71}}, color={0,0,0}),
+      Line(points={{-32,-72},{-64,-72},{-64,-21},{-32,-21}}, color={0,0,0}),
+      Polygon(
+        points={{16,-71},{29,-67},{29,-74},{16,-71}},
+        lineColor={0,0,0},
+        fillColor={0,0,0},
+        fillPattern=FillPattern.Solid),
+      Polygon(
+        points={{-32,-21},{-46,-17},{-46,-25},{-32,-21}},
+        lineColor={0,0,0},
+        fillColor={0,0,0},
+        fillPattern=FillPattern.Solid)}),
+                          Documentation(info="<html>
+<p>
+This library contains input/output blocks to build up block diagrams.
+</p>
+
+<dl>
+<dt><b>Main Author:</b>
+<dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
+    Deutsches Zentrum f&uuml;r Luft und Raumfahrt e. V. (DLR)<br>
+    Oberpfaffenhofen<br>
+    Postfach 1116<br>
+    D-82230 Wessling<br>
+    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br>
+</dl>
+<p>
+Copyright &copy; 1998-2009, Modelica Association and DLR.
+</p>
+<p>
+<i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the accompanying <b>disclaimer</b>
+<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
+</p>
+</HTML>
+", revisions="<html>
+<ul>
+<li><i>June 23, 2004</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+       Introduced new block connectors and adapated all blocks to the new connectors.
+       Included subpackages Continuous, Discrete, Logical, Nonlinear from
+       package ModelicaAdditions.Blocks.
+       Included subpackage ModelicaAdditions.Table in Modelica.Blocks.Sources
+       and in the new package Modelica.Blocks.Tables.
+       Added new blocks to Blocks.Sources and Blocks.Logical.
+       </li>
+<li><i>October 21, 2002</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
+       and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
+       New subpackage Examples, additional components.
+       </li>
+<li><i>June 20, 2000</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> and
+       Michael Tiller:<br>
+       Introduced a replaceable signal type into
+       Blocks.Interfaces.RealInput/RealOutput:
+<pre>
+   replaceable type SignalType = Real
+</pre>
+       in order that the type of the signal of an input/output block
+       can be changed to a physical type, for example:
+<pre>
+   Sine sin1(outPort(redeclare type SignalType=Modelica.SIunits.Torque))
+</pre>
+      </li>
+<li><i>Sept. 18, 1999</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+       Renamed to Blocks. New subpackages Math, Nonlinear.
+       Additional components in subpackages Interfaces, Continuous
+       and Sources. </li>
+<li><i>June 30, 1999</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+       Realized a first version, based on an existing Dymola library
+       of Dieter Moormann and Hilding Elmqvist.</li>
+</ul>
+</html>"));
 end Blocks;

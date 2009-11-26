@@ -4,129 +4,11 @@ package StateGraph
 
 extends Modelica.Icons.Library2;
 
-annotation (
-  Documentation(info="<html>
-<p>
-Library <b>StateGraph</b> is a <b>free</b> Modelica package providing
-components to model <b>discrete event</b> and <b>reactive</b>
-systems in a convenient
-way. It is based on the JGraphChart method and
-takes advantage of Modelica features for
-the \"action\" language. JGraphChart is a further development of
-Grafcet to include elements of StateCharts that are not present
-in Grafcet/Sequential Function Charts. Therefore, the StateGraph
-library has a similar modeling power as StateCharts but avoids
-some deficiences of StateCharts.
-</p>
-<p>
-For an introduction, have especially a look at:
-</p>
-<ul>
-<li> <a href=\"Modelica://Modelica.StateGraph.UsersGuide\">StateGraph.UsersGuide</a>
-     discusses the most important aspects how to use this library.</li>
-<li> <a href=\"Modelica://Modelica.StateGraph.Examples\">StateGraph.Examples</a>
-     contains examples that demonstrate the usage of this library.</li>
-</ul>
-<p>
-A typical model generated with this library is shown
-in the next figure where on the left hand side a two-tank
-system with a tank controller and on the right hand side the
-top-level part of the tank controller as a StateGraph is shown:
-</p>
-<p>
-<img src=\"../Images/StateGraph/Examples/ControlledTanks1_small.png\">
-<img src=\"../Images/StateGraph/Examples/ControlledTanks2_small.png\">
-</p>
-<p>
-The unique feature of the StateGraph library with respect to JGraphCharts,
-Grafcet, Sequential Function Charts, and StateCharts, is Modelica's
-\"single assignment rule\" that requires that every variable is defined
-by exactly one equation. This leads to a different \"action\" definition
-as in these formalisms. The advantage is that the translator can either
-determine a useful evaluation sequence by equation sorting or
-reports an error if this is not possible, e.g., because a model
-would lead to a non-determinism or to a dead-lock. As a side effect,
-this leads also to simpler and more easier to understand models and
-global variables are no longer needed (whereas in JGraphCharts,
-Grafcet, Sequential Function Charts and StateCharts global variables
-are nearly always needed).
-</p>
-<p>
-The StateGraph library is currently available in a beta release.
-The available components will most likely not be changed for the
-release version. It is planned to improve the convenience of
-building models with the StateGraph library for the release version
-(this may require to introduce some additional annotations).
-It is planned to include the StateGraph library in the
-Modelica standard library.
-It is most useful to combine this libray with the Modelica libraries
-</p>
-<ul>
-<li><b>Modelica.Blocks.Logical</b> that provides
-    components available in PLCs (programmable logic controllers). </li>
-<li><b>UserInteraction</b> that provides components to
-    interactively communicate with models in a running simulation.</li>
-</ul>
-
-<p>
-Copyright &copy; 1998-2009, Modelica Association and DLR
-</p>
-<p>
-<i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b>
-<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
-</p><br>
-
-</HTML>
-"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-            100}}), graphics={
-        Rectangle(extent={{-88,-20},{-50,-54}}, lineColor={0,0,0}),
-        Line(points={{-50,-38},{-24,-38}}, color={0,0,0}),
-        Polygon(
-          points={{-24,-32},{-12,-38},{-24,-44},{-24,-32}},
-          lineColor={0,0,0},
-          fillColor={0,0,0},
-          fillPattern=FillPattern.Solid),
-        Line(points={{-12,-6},{-12,-76}}, color={0,0,0}),
-        Line(points={{-12,-38},{14,-38}}, color={0,0,0}),
-        Polygon(
-          points={{14,-32},{26,-38},{14,-44},{14,-32}},
-          lineColor={0,0,0},
-          fillColor={0,0,0},
-          fillPattern=FillPattern.Solid),
-        Rectangle(extent={{26,-22},{64,-56}}, lineColor={0,0,0})}));
   // illegal use of top-level annotation removed:
   // version="0.87", versionDate="2004-06-23",
 
 package UsersGuide "User's Guide of StateGraph Library"
 
-  annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
-<p>
-Library <b>StateGraph</b> is a <b>free</b> Modelica package providing
-components to model <b>discrete event</b> and <b>reactive</b>
-systems in a convenient
-way. This package contains the <b>User's Guide</b> for
-the library and has the following content:
-</p>
-<ol>
-<li><a href=\"Modelica://Modelica.StateGraph.UsersGuide.OverView\">Overview of library</a>
-     gives an overview of the library.</li>
-<li> <a href=\"Modelica://Modelica.StateGraph.UsersGuide.FirstExample\">A first example</a>
-     demonstrates at hand of a first example how to use this library.</li>
-<li> <a href=\"Modelica://Modelica.StateGraph.UsersGuide.ApplicationExample\">An
-     application example</a> demonstrates varies features at hand of the
-     control of a two tank system.</li>
-<li><a href=\"Modelica://Modelica.StateGraph.UsersGuide.ReleaseNotes\">Release Notes</a>
-    summarizes the differences between different versions of this library.</li>
-<li><a href=\"Modelica://Modelica.StateGraph.UsersGuide.Literature\">Literature</a>
-    provides references that have been used to design and implement this
-    library.</li>
-<li><a href=\"Modelica://Modelica.StateGraph.UsersGuide.Contact\">Contact</a>
-    provides information about the authors of the library as well as
-    acknowledgments.</li>
-</ol>
-</html>"));
 
   class OverView "Overview of library"
 
@@ -631,8 +513,6 @@ Implemented a first version that is provided to other people.
 </p>
 </html>
 "));
-  equation
-
   end ReleaseNotes;
 
   class Literature "Literature"
@@ -708,6 +588,32 @@ The StateGraph library is based on the following references:
 
   end Contact;
 
+  annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
+<p>
+Library <b>StateGraph</b> is a <b>free</b> Modelica package providing
+components to model <b>discrete event</b> and <b>reactive</b>
+systems in a convenient
+way. This package contains the <b>User's Guide</b> for
+the library and has the following content:
+</p>
+<ol>
+<li><a href=\"Modelica://Modelica.StateGraph.UsersGuide.OverView\">Overview of library</a>
+     gives an overview of the library.</li>
+<li> <a href=\"Modelica://Modelica.StateGraph.UsersGuide.FirstExample\">A first example</a>
+     demonstrates at hand of a first example how to use this library.</li>
+<li> <a href=\"Modelica://Modelica.StateGraph.UsersGuide.ApplicationExample\">An
+     application example</a> demonstrates varies features at hand of the
+     control of a two tank system.</li>
+<li><a href=\"Modelica://Modelica.StateGraph.UsersGuide.ReleaseNotes\">Release Notes</a>
+    summarizes the differences between different versions of this library.</li>
+<li><a href=\"Modelica://Modelica.StateGraph.UsersGuide.Literature\">Literature</a>
+    provides references that have been used to design and implement this
+    library.</li>
+<li><a href=\"Modelica://Modelica.StateGraph.UsersGuide.Contact\">Contact</a>
+    provides information about the authors of the library as well as
+    acknowledgments.</li>
+</ol>
+</html>"));
 end UsersGuide;
 
 package Examples
@@ -727,14 +633,6 @@ package Examples
         annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
   equation
 
-    annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}),
-              graphics),
-      experiment(StopTime=5),
-        Documentation(info="<html>
-
-</html>"));
     connect(initialStep.outPort[1], transition1.inPort)
       annotation (Line(points={{-27.5,10},{-14,10}}, color={0,0,0}));
 
@@ -745,6 +643,14 @@ package Examples
     connect(transition2.outPort, initialStep.inPort[1]) annotation (Line(points=
              {{51.5,10},{70,10},{70,32},{-62,32},{-62,10},{-49,10}}, color={0,0,
               0}));
+    annotation (
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}),
+              graphics),
+      experiment(StopTime=5),
+        Documentation(info="<html>
+
+</html>"));
   end FirstExample;
 
   model FirstExample_Variant2
@@ -769,14 +675,6 @@ package Examples
         annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
   equation
 
-    annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}),
-              graphics),
-      experiment(StopTime=5),
-        Documentation(info="<html>
-
-</html>"));
     connect(initialStep.outPort[1], transition1.inPort)
       annotation (Line(points={{-49.5,10},{-36,10}}, color={0,0,0}));
 
@@ -793,6 +691,14 @@ package Examples
     connect(transition2.outPort, initialStep.inPort[1]) annotation (Line(points=
              {{63.5,10},{82,10},{82,32},{-80,32},{-80,10},{-71,10}}, color={0,0,
               0}));
+    annotation (
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}),
+              graphics),
+      experiment(StopTime=5),
+        Documentation(info="<html>
+
+</html>"));
   end FirstExample_Variant2;
 
   model FirstExample_Variant3
@@ -820,14 +726,6 @@ package Examples
         annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
   equation
 
-    annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}),
-              graphics),
-      experiment(StopTime=5),
-        Documentation(info="<html>
-
-</html>"));
     connect(initialStep.outPort[1], transition1.inPort)
       annotation (Line(points={{-49.5,10},{-36,10}}, color={0,0,0}));
 
@@ -842,6 +740,14 @@ package Examples
               0}));
     connect(SetBoolean1.y, transition2.condition) annotation (Line(points={{
               61.6,-30},{66,-30},{66,-2}}, color={255,0,255}));
+    annotation (
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}),
+              graphics),
+      experiment(StopTime=5),
+        Documentation(info="<html>
+
+</html>"));
   end FirstExample_Variant3;
 
   extends Modelica.Icons.Library;
@@ -851,27 +757,6 @@ package Examples
 
     extends Modelica.Icons.Example;
 
-    annotation (
-      Documentation(info="<HTML>
-<p>
-This is an example to demonstrate in which way <b>parallel</b> activities
-can be modelled by a StateGraph. When transition1 fires
-(after 1 second), two branches are executed in parallel.
-After 6 seconds the two branches are synchronized in order to arrive
-at step6.
-</p>
-<p>
-Before simulating the model, try to figure out whether which branch
-of the alternative sequence is executed. Note, that alternatives
-have priorities according to the port index (alternative.split[1]
-has a higher priority to fire as alternative.split[2]).
-</p>
-</HTML>
-"),   Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-160,-160},{160,160}},
-            grid={2,2}), graphics),
-      experiment(StopTime=15));
 
     InitialStep step0 annotation (
           Placement(transformation(extent={{-140,-100},{-120,-80}}, rotation=0)));
@@ -987,6 +872,27 @@ has a higher priority to fire as alternative.split[2]).
               100.5,50},{116,50},{116,77.5},{117.575,77.5}}, color={0,0,0}));
     connect(Parallel1.split[2], step1.inPort[1]) annotation (Line(points={{
               -119.575,-7.5},{-118,-8},{-118,-30},{-11,-30}}, color={0,0,0}));
+    annotation (
+      Documentation(info="<HTML>
+<p>
+This is an example to demonstrate in which way <b>parallel</b> activities
+can be modelled by a StateGraph. When transition1 fires
+(after 1 second), two branches are executed in parallel.
+After 6 seconds the two branches are synchronized in order to arrive
+at step6.
+</p>
+<p>
+Before simulating the model, try to figure out whether which branch
+of the alternative sequence is executed. Note, that alternatives
+have priorities according to the port index (alternative.split[1]
+has a higher priority to fire as alternative.split[2]).
+</p>
+</HTML>
+"),   Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-160,-160},{160,160}},
+            grid={2,2}), graphics),
+      experiment(StopTime=15));
   end ExecutionPaths;
 
   model ShowCompositeStep
@@ -994,18 +900,6 @@ has a higher priority to fire as alternative.split[2]).
 
     extends Modelica.Icons.Example;
 
-    annotation (
-      Documentation(info="<HTML>
-<p>
-This is the same example as \"ExecutionPaths\". The only difference
-is that the alternative paths are included in a \"CompositeStep\".
-</p>
-</HTML>
-"),   Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
-      experiment(StopTime=15));
 
     Utilities.CompositeStep compositeStep
                                      annotation (Placement(transformation(
@@ -1057,6 +951,18 @@ is that the alternative paths are included in a \"CompositeStep\".
               -20},{28.575,-20}}, color={0,0,0}));
     connect(setCondition.y, transition7.condition) annotation (Line(points={{
               -8.5,-80},{0,-80},{0,-72}}, color={255,0,255}));
+    annotation (
+      Documentation(info="<HTML>
+<p>
+This is the same example as \"ExecutionPaths\". The only difference
+is that the alternative paths are included in a \"CompositeStep\".
+</p>
+</HTML>
+"),   Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics),
+      experiment(StopTime=15));
   end ShowCompositeStep;
 
   model ShowExceptions
@@ -1064,22 +970,6 @@ is that the alternative paths are included in a \"CompositeStep\".
 
     extends Modelica.Icons.Example;
 
-    annotation (
-      Documentation(info="<HTML>
-<p>
-CompositeStep \"compositeStep\" is a hierarchical StateGraph consisting of
-two other subgraphs. Whenever component \"compositeStep\" is suspended,
-all steps with in \"compositeStep\" are deactivated. By entering \"compositeStep\"
-via its \"resume\" port, all steps within \"compositeStep\" are activated
-according to their setting before leaving the \"compositeStep\" via its
-\"suspend\" port.
-</p>
-</HTML>
-"),   Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
-      experiment(StopTime=20));
 
     Utilities.CompositeStep1 compositeStep
                                 annotation (Placement(transformation(extent={{
@@ -1125,6 +1015,22 @@ according to their setting before leaving the \"compositeStep\" via its
     connect(transition4.outPort, compositeStep.resume[1])
                                                   annotation (Line(points={{21.5,
               -20},{40,-20},{40,10},{2.5,10},{2.5,24}},  color={0,0,0}));
+    annotation (
+      Documentation(info="<HTML>
+<p>
+CompositeStep \"compositeStep\" is a hierarchical StateGraph consisting of
+two other subgraphs. Whenever component \"compositeStep\" is suspended,
+all steps with in \"compositeStep\" are deactivated. By entering \"compositeStep\"
+via its \"resume\" port, all steps within \"compositeStep\" are activated
+according to their setting before leaving the \"compositeStep\" via its
+\"suspend\" port.
+</p>
+</HTML>
+"),   Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics),
+      experiment(StopTime=20));
   end ShowExceptions;
 
   model ControlledTanks
@@ -1145,49 +1051,6 @@ according to their setting before leaving the \"compositeStep\" via its
         buttonTimeTable={21,100})
       annotation (Placement(transformation(extent={{-90,-40},{-70,-20}},
               rotation=0)));
-    annotation (
-      Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={0.5,0.5}), graphics),
-      experiment(StopTime=100),
-      Documentation(info="<html>
-<p>
-With this example the controller of a tank filling/emptying system
-is demonstrated. This example is from Dressler (2004),
-see <a href=\"Modelica://Modelica.StateGraph.UsersGuide.Literature\">Literature</a>.
-The basic operation is to fill and empty the two tanks:
-</p>
-<ol>
-<li> Valve 1 is opened and tank 1 is filled.</li>
-<li> When tank 1 reaches its fill level limit,
-     valve 1 is closed. </li>
-<li> After a waiting time, valve 2 is
-     opened and the fluid flows from tank 1 into tank 2.</li>
-<li> When tank 1 is empty, valve 2 is closed. </li>
-<li> After a waiting time, valve 3 is opened and
-     the fluid flows out of tank 2</li>
-<li> When tank 3 is empty, valve 3 is closed</liI>
-</ol>
-<p>
-The above \"normal\" process can be influenced by three
-buttons:
-</p>
-<ul>
-<li> Button <b>start</b> starts the above process.
-     When this button is pressed after a \"stop\" or
-     \"shut\" operation, the process operation continues.
-     </li>.
-<li> Button <b>stop</b> stops the above process by
-     closing all valves. Then, the controller waits for
-     further input (either \"start\" or \"shut\" operation).</li>
-<li> Button <b>shut</b> is used to shutdown the process,
-     by emptying at once both tanks. When this is achieved,
-     the process goes back to its start configuration.
-     Clicking on \"start\", restarts the process.</li>
-</ul>
-
-</html>"));
 
     Utilities.Tank tank1 annotation (Placement(transformation(extent={{10,20},{
                 60,70}}, rotation=0)));
@@ -1251,6 +1114,49 @@ buttons:
           color={0,0,0},
           thickness=0.5));
 
+    annotation (
+      Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={0.5,0.5}), graphics),
+      experiment(StopTime=100),
+      Documentation(info="<html>
+<p>
+With this example the controller of a tank filling/emptying system
+is demonstrated. This example is from Dressler (2004),
+see <a href=\"Modelica://Modelica.StateGraph.UsersGuide.Literature\">Literature</a>.
+The basic operation is to fill and empty the two tanks:
+</p>
+<ol>
+<li> Valve 1 is opened and tank 1 is filled.</li>
+<li> When tank 1 reaches its fill level limit,
+     valve 1 is closed. </li>
+<li> After a waiting time, valve 2 is
+     opened and the fluid flows from tank 1 into tank 2.</li>
+<li> When tank 1 is empty, valve 2 is closed. </li>
+<li> After a waiting time, valve 3 is opened and
+     the fluid flows out of tank 2</li>
+<li> When tank 3 is empty, valve 3 is closed</liI>
+</ol>
+<p>
+The above \"normal\" process can be influenced by three
+buttons:
+</p>
+<ul>
+<li> Button <b>start</b> starts the above process.
+     When this button is pressed after a \"stop\" or
+     \"shut\" operation, the process operation continues.
+     </li>.
+<li> Button <b>stop</b> stops the above process by
+     closing all valves. Then, the controller waits for
+     further input (either \"start\" or \"shut\" operation).</li>
+<li> Button <b>shut</b> is used to shutdown the process,
+     by emptying at once both tanks. When this is achieved,
+     the process goes back to its start configuration.
+     Clicking on \"start\", restarts the process.</li>
+</ul>
+
+</html>"));
   end ControlledTanks;
 
   package Utilities "Utility components for the examples"
@@ -1333,48 +1239,6 @@ buttons:
                 rotation=0)));
     equation
 
-      annotation (
-        Diagram(coordinateSystem(
-              preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}},
-              grid={1,1}), graphics={Rectangle(extent={{-100,100},{100,-100}},
-                  lineColor={0,0,0})}),
-        Icon(coordinateSystem(
-              preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}},
-              grid={1,1}), graphics={
-              Text(
-                extent={{-100,68},{-32,54}},
-                lineColor={0,0,0},
-                textString="start"),
-              Text(
-                extent={{-100,6},{-32,-8}},
-                lineColor={0,0,0},
-                textString="stop"),
-              Text(
-                extent={{-100,-54},{-32,-68}},
-                lineColor={0,0,0},
-                textString="shut"),
-              Text(
-                extent={{-94,-82},{-18,-96}},
-                lineColor={0,0,0},
-                textString="level1"),
-              Text(
-                extent={{24,-84},{96,-98}},
-                lineColor={0,0,0},
-                textString="level2"),
-              Text(
-                extent={{31,68},{99,54}},
-                lineColor={0,0,0},
-                textString="valve1"),
-              Text(
-                extent={{33,9},{101,-5}},
-                lineColor={0,0,0},
-                textString="valve2"),
-              Text(
-                extent={{34,-53},{102,-67}},
-                lineColor={0,0,0},
-                textString="valve3")}));
       connect(s1.outPort[1], T1.inPort)
                                      annotation (Line(
             points={{-51.5,40},{-44,40}},
@@ -1423,6 +1287,48 @@ buttons:
       connect(T6.outPort, s1.inPort[2]) annotation (Line(points={{56.5,-50},{70,
                 -50},{70,70},{-84,70},{-84,40},{-74,40},{-73,39.5}}, color={0,0,
                 0}));
+      annotation (
+        Diagram(coordinateSystem(
+              preserveAspectRatio=true,
+              extent={{-100,-100},{100,100}},
+              grid={1,1}), graphics={Rectangle(extent={{-100,100},{100,-100}},
+                  lineColor={0,0,0})}),
+        Icon(coordinateSystem(
+              preserveAspectRatio=true,
+              extent={{-100,-100},{100,100}},
+              grid={1,1}), graphics={
+              Text(
+                extent={{-100,68},{-32,54}},
+                lineColor={0,0,0},
+                textString="start"),
+              Text(
+                extent={{-100,6},{-32,-8}},
+                lineColor={0,0,0},
+                textString="stop"),
+              Text(
+                extent={{-100,-54},{-32,-68}},
+                lineColor={0,0,0},
+                textString="shut"),
+              Text(
+                extent={{-94,-82},{-18,-96}},
+                lineColor={0,0,0},
+                textString="level1"),
+              Text(
+                extent={{24,-84},{96,-98}},
+                lineColor={0,0,0},
+                textString="level2"),
+              Text(
+                extent={{31,68},{99,54}},
+                lineColor={0,0,0},
+                textString="valve1"),
+              Text(
+                extent={{33,9},{101,-5}},
+                lineColor={0,0,0},
+                textString="valve2"),
+              Text(
+                extent={{34,-53},{102,-67}},
+                lineColor={0,0,0},
+                textString="valve3")}));
     end TankController;
 
     model MakeProduct
@@ -1439,9 +1345,6 @@ buttons:
       Modelica.Blocks.Interfaces.RealInput level1
         annotation (Placement(transformation(extent={{-190,-140},{-150,-100}},
                 rotation=0)));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-150,
-                  -150},{150,150}}),
-                          graphics));
       Step fillTank1 annotation (Placement(transformation(extent={{-140,-10},{
                   -120,10}}, rotation=0)));
       Transition T1(condition=level1 > limit)
@@ -1498,6 +1401,9 @@ buttons:
       connect(T4.outPort,emptyTank2.inPort[1])
                                              annotation (Line(points={{93.5,0},
                 {119,0}}, color={0,0,0}));
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-150,
+                  -150},{150,150}}),
+                          graphics));
     end MakeProduct;
 
     connector inflow1
@@ -1565,6 +1471,24 @@ buttons:
     model valve
         "Simple valve model (this is a copy from Isolde Dressler's master thesis project)"
 
+      Modelica.Blocks.Interfaces.BooleanInput valveControl
+        annotation (Placement(transformation(
+              origin={0,-80},
+              extent={{-20,-20},{20,20}},
+              rotation=90)));
+      Modelica.StateGraph.Examples.Utilities.inflow2 inflow1
+                     annotation (Placement(transformation(
+              origin={50,0},
+              extent={{-50,-50},{50,50}},
+              rotation=90)));
+      Modelica.StateGraph.Examples.Utilities.outflow2 outflow1
+                       annotation (Placement(transformation(
+              origin={-50,0},
+              extent={{-50,-50},{50,50}},
+              rotation=90)));
+    equation
+      outflow1.Fo = inflow1.Fi;
+      outflow1.open = valveControl;
       annotation (
         Diagram(coordinateSystem(
               preserveAspectRatio=true,
@@ -1584,24 +1508,6 @@ buttons:
                 lineColor={0,0,255},
                 textString="%name"),
               Line(points={{0,0},{0,-60}}, color={255,0,255})}));
-      Modelica.Blocks.Interfaces.BooleanInput valveControl
-        annotation (Placement(transformation(
-              origin={0,-80},
-              extent={{-20,-20},{20,20}},
-              rotation=90)));
-      Modelica.StateGraph.Examples.Utilities.inflow2 inflow1
-                     annotation (Placement(transformation(
-              origin={50,0},
-              extent={{-50,-50},{50,50}},
-              rotation=90)));
-      Modelica.StateGraph.Examples.Utilities.outflow2 outflow1
-                       annotation (Placement(transformation(
-              origin={-50,0},
-              extent={{-50,-50},{50,50}},
-              rotation=90)));
-    equation
-      outflow1.Fo = inflow1.Fi;
-      outflow1.open = valveControl;
     end valve;
 
     model Tank
@@ -1617,6 +1523,20 @@ buttons:
       Modelica.StateGraph.Examples.Utilities.outflow1 outflow1
                        annotation (Placement(transformation(extent={{55,-50},{
                   65,-40}}, rotation=0)));
+      Real level "Tank level in % of max height";
+      parameter Real A=1 "ground area of tank in m²";
+      parameter Real a=0.2 "area of drain hole in m²";
+      parameter Real hmax=1 "max height of tank in m";
+      constant Real g=Modelica.Constants.g_n;
+    equation
+      der(level) = (inflow1.Fi - outflow1.Fo)/(hmax*A);
+      if outflow1.open then
+        outflow1.Fo = sqrt(max(0,2*g*hmax*level))*a;
+      else
+        outflow1.Fo = 0;
+      end if;
+      levelSensor = level;
+
       annotation (
         Diagram(coordinateSystem(
               preserveAspectRatio=true,
@@ -1643,20 +1563,6 @@ buttons:
                 lineThickness=0.5,
                 fillPattern=FillPattern.HorizontalCylinder,
                 fillColor={191,0,95})}));
-      Real level "Tank level in % of max height";
-      parameter Real A=1 "ground area of tank in m²";
-      parameter Real a=0.2 "area of drain hole in m²";
-      parameter Real hmax=1 "max height of tank in m";
-      constant Real g=Modelica.Constants.g_n;
-    equation
-      der(level) = (inflow1.Fi - outflow1.Fo)/(hmax*A);
-      if outflow1.open then
-        outflow1.Fo = sqrt(max(0,2*g*hmax*level))*a;
-      else
-        outflow1.Fo = 0;
-      end if;
-      levelSensor = level;
-
     end Tank;
 
     model Source
@@ -1666,6 +1572,12 @@ buttons:
                        annotation (Placement(transformation(extent={{-10,-60},{
                   10,-40}}, rotation=0)));
       parameter Real maxflow=1 "maximal flow out of source";
+    equation
+      if outflow1.open then
+        outflow1.Fo = maxflow;
+      else
+        outflow1.Fo = 0;
+      end if;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={Rectangle(
                 extent={{-80,40},{80,-40}},
@@ -1678,20 +1590,11 @@ buttons:
                 lineColor={0,0,255})}), Diagram(coordinateSystem(
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
               graphics));
-    equation
-      if outflow1.open then
-        outflow1.Fo = maxflow;
-      else
-        outflow1.Fo = 0;
-      end if;
     end Source;
 
     model CompositeStep
         "State machine demonstrating a composite step (used in StateGraph.Examples.ShowCompositeStep)"
       extends StateGraph.PartialCompositeStep;
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-150,
-                  -150},{150,150}}),
-                          graphics));
       Transition transition3(enableTimer=true, waitTime=1)
         annotation (                                            Placement(
               transformation(extent={{-64,50},{-44,70}}, rotation=0)));
@@ -1759,6 +1662,9 @@ buttons:
       connect(transition6a.outPort, Alternative1.join[3]) annotation (Line(
               points={{47.5,-60},{60.725,-60},{60.725,-60},{75.42,-60}}, color=
                 {0,0,0}));
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-150,
+                  -150},{150,150}}),
+                          graphics));
     end CompositeStep;
 
     model CompositeStep1
@@ -1774,10 +1680,6 @@ buttons:
                   -120,10}}, rotation=0)));
       Step exitStep annotation (Placement(transformation(extent={{110,-10},{130,
                   10}}, rotation=0)));
-      annotation (            Diagram(coordinateSystem(
-              preserveAspectRatio=true,
-              extent={{-150,-150},{150,150}},
-              grid={1,1}), graphics));
       CompositeStep2 compositeStep11(waitTime=3)
                                            annotation (Placement(transformation(
                 extent={{-20,15},{10,45}}, rotation=0)));
@@ -1825,6 +1727,10 @@ buttons:
               points={{40.5,30},{69.155,30}},  color={0,0,0}));
       connect(transition4.outPort, Alternative1.join[2]) annotation (Line(
               points={{40.5,-30},{69.155,-30}},  color={0,0,0}));
+      annotation (            Diagram(coordinateSystem(
+              preserveAspectRatio=true,
+              extent={{-150,-150},{150,150}},
+              grid={1,1}), graphics));
     end CompositeStep1;
 
     model CompositeStep2
@@ -1837,10 +1743,6 @@ buttons:
                   -120,10}}, rotation=0)));
       Step exitStep annotation (Placement(transformation(extent={{110,-10},{130,
                   10}}, rotation=0)));
-      annotation (            Diagram(coordinateSystem(
-              preserveAspectRatio=true,
-              extent={{-150,-150},{150,150}},
-              grid={1,1}), graphics));
       parameter Temporary.SetRealParameter waitTime=2
           "waiting time in this composite step"
                                             annotation (Placement(
@@ -1854,6 +1756,10 @@ buttons:
         annotation (Line(points={{-119.5,0},{-24,0}}, color={0,0,0}));
       connect(transition.outPort, exitStep.inPort[1])
         annotation (Line(points={{-18.5,0},{109,0}}, color={0,0,0}));
+      annotation (            Diagram(coordinateSystem(
+              preserveAspectRatio=true,
+              extent={{-150,-150},{150,150}},
+              grid={1,1}), graphics));
     end CompositeStep2;
 
   end Utilities;
@@ -2037,9 +1943,6 @@ package Interfaces "Connectors and partial models"
   connector CompositeStepStatePort_in
       "Communication port between a CompositeStep and the ordinary steps within the CompositeStep (suspend/resume are inputs)"
 
-    annotation(Documentation(info="<html>
-
-</html>"));
     input Boolean suspend
         "= true, if suspend transition of CompositeStep fires";
     input Boolean resume "= true, if resume transition of CompositeStep fires";
@@ -2047,6 +1950,9 @@ package Interfaces "Connectors and partial models"
         "Dummy variable in order that connector fulfills restriction of connector"
                                                                                 annotation(HideResult=true);
     flow Real activeSteps "Number of active steps in the CompositeStep";
+    annotation(Documentation(info="<html>
+
+</html>"));
   end CompositeStepStatePort_in;
 
   connector CompositeStepStatePort_out
@@ -2067,9 +1973,6 @@ package Interfaces "Connectors and partial models"
   partial block PartialStep
       "Partial step with one input and one output transition port"
 
-    annotation(Documentation(info="<html>
-
-</html>"));
     parameter Integer nIn(min=0) = 1 "Number of input connections";
     parameter Integer nOut(min=0) = 1 "Number of output connections";
 
@@ -2157,7 +2060,9 @@ package Interfaces "Connectors and partial models"
         outPort[i].reset = false;
       end if;
     end for;
-    annotation(Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+    annotation(Documentation(info="<html>
+
+</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
                        graphics),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
@@ -2246,8 +2151,6 @@ package Interfaces "Connectors and partial models"
           Documentation(info="<html>
 
 </html>"));
-  equation
-
   end PartialStateGraphIcon;
 
   model CompositeStepState
@@ -2256,13 +2159,6 @@ package Interfaces "Connectors and partial models"
     output Boolean suspend = false;
     output Boolean resume =  false;
     CompositeStepStatePort_out subgraphStatePort;
-    annotation (
-      defaultComponentName="stateGraphRoot",
-      defaultComponentPrefixes="inner",
-      missingInnerMessage="A \"stateGraphRoot\" component was automatically introduced.",
-        Documentation(info="<html>
-
-</html>"));
 
   /*
     missingInnerMessage="No \"stateGraphRoot\" component is defined on highest level
@@ -2274,6 +2170,13 @@ top level your model.");
     suspend = subgraphStatePort.suspend;
     resume  = subgraphStatePort.resume;
     subgraphStatePort.activeStepsDummy = 0;
+    annotation (
+      defaultComponentName="stateGraphRoot",
+      defaultComponentPrefixes="inner",
+      missingInnerMessage="A \"stateGraphRoot\" component was automatically introduced.",
+        Documentation(info="<html>
+
+</html>"));
   end CompositeStepState;
     annotation (Documentation(info="<html>
 
@@ -2287,6 +2190,11 @@ block InitialStep "Initial step (= step that is active when simulation starts)"
 
   extends Interfaces.PartialStep;
 
+
+initial equation
+  active = true;
+equation
+  active = localActive;
   annotation (
     Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -2312,11 +2220,6 @@ block InitialStep "Initial step (= step that is active when simulation starts)"
       Documentation(info="<html>
 
 </html>"));
-
-initial equation
-  active = true;
-equation
-  active = localActive;
 end InitialStep;
 
 block InitialStepWithSignal
@@ -2324,6 +2227,16 @@ block InitialStepWithSignal
 
   extends Interfaces.PartialStep;
 
+
+  Modelica.Blocks.Interfaces.BooleanOutput active
+    annotation (Placement(transformation(
+          origin={0,-110},
+          extent={{-10,-10},{10,10}},
+          rotation=270)));
+initial equation
+  active = true;
+equation
+  active = localActive;
   annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Rectangle(extent={{-100,100},{100,-100}},
               lineColor={0,0,0}), Rectangle(extent={{-80,80},{80,-80}},
@@ -2348,16 +2261,6 @@ block InitialStepWithSignal
       Documentation(info="<html>
 
 </html>"));
-
-  Modelica.Blocks.Interfaces.BooleanOutput active
-    annotation (Placement(transformation(
-          origin={0,-110},
-          extent={{-10,-10},{10,10}},
-          rotation=270)));
-initial equation
-  active = true;
-equation
-  active = localActive;
 end InitialStepWithSignal;
 
 block Step "Ordinary step (= step that is not active when simulation starts)"
@@ -2367,6 +2270,11 @@ block Step "Ordinary step (= step that is not active when simulation starts)"
 
   extends Interfaces.PartialStep;
 
+
+initial equation
+  active = false;
+equation
+  active = localActive;
   annotation (
     Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -2388,11 +2296,6 @@ block Step "Ordinary step (= step that is not active when simulation starts)"
       Documentation(info="<html>
 
 </html>"));
-
-initial equation
-  active = false;
-equation
-  active = localActive;
 end Step;
 
 block StepWithSignal
@@ -2400,6 +2303,16 @@ block StepWithSignal
 
   extends Interfaces.PartialStep;
 
+
+  Modelica.Blocks.Interfaces.BooleanOutput active
+    annotation (Placement(transformation(
+          origin={0,-110},
+          extent={{-10,-10},{10,10}},
+          rotation=270)));
+initial equation
+  active = false;
+equation
+  active = localActive;
   annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Rectangle(extent={{-100,100},{100,-100}},
               lineColor={0,0,0})}),
@@ -2422,16 +2335,6 @@ block StepWithSignal
       Documentation(info="<html>
 
 </html>"));
-
-  Modelica.Blocks.Interfaces.BooleanOutput active
-    annotation (Placement(transformation(
-          origin={0,-110},
-          extent={{-10,-10},{10,10}},
-          rotation=270)));
-initial equation
-  active = false;
-equation
-  active = localActive;
 end StepWithSignal;
 
 block Transition
@@ -2541,29 +2444,6 @@ end TransitionWithSignal;
 block Alternative
     "Alternative splitting of execution path (use component between two steps)"
 
-  annotation (
-    Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
-          Line(
-            points={{-80,100},{80,100}},
-            color={0,0,0},
-            pattern=LinePattern.Dot),
-          Line(
-            points={{-80,-100},{80,-100}},
-            color={0,0,0},
-            pattern=LinePattern.Dot),
-          Line(points={{-100,0},{-80,0}}, color={0,0,0}),
-          Line(points={{80,0},{100,0}}, color={0,0,0})}),
-    Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-100,0},{-80,0}}, color={0,0,0}),
-            Line(points={{80,0},{100,0}}, color={0,0,0})}),
-      Documentation(info="<html>
-
-</html>"));
   parameter Integer nBranches(min=1)=2 "Number of alternative branches";
   Interfaces.Transition_in inPort
                             annotation (Placement(transformation(extent={{-106,
@@ -2660,18 +2540,11 @@ equation
   join.occupied = fill(outPort.occupied, nBranches);
   inPort.reset  = StateGraph.Temporary.anyTrue(split.reset);
   outPort.set   = StateGraph.Temporary.anyTrue(join.set);
-end Alternative;
-
-block Parallel
-    "Parallel splitting of execution path (use component between two transitions)"
-
   annotation (
     Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-100,0},{-80,0}}, color={0,0,0}),
-          Line(points={{80,0},{100,0}}, color={0,0,0}),
           Line(
             points={{-80,100},{80,100}},
             color={0,0,0},
@@ -2679,7 +2552,9 @@ block Parallel
           Line(
             points={{-80,-100},{80,-100}},
             color={0,0,0},
-            pattern=LinePattern.Dot)}),
+            pattern=LinePattern.Dot),
+          Line(points={{-100,0},{-80,0}}, color={0,0,0}),
+          Line(points={{80,0},{100,0}}, color={0,0,0})}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -2688,6 +2563,11 @@ block Parallel
       Documentation(info="<html>
 
 </html>"));
+end Alternative;
+
+block Parallel
+    "Parallel splitting of execution path (use component between two transitions)"
+
   parameter Integer nBranches(min=1)=2
       "Number of parallel branches that are executed in parallel";
   Interfaces.Step_in inPort annotation (Placement(transformation(extent={{-106,
@@ -2827,6 +2707,29 @@ equation
   join.reset = fill(outPort.reset, nBranches);
   inPort.occupied   = StateGraph.Temporary.anyTrue(split.occupied);
   outPort.available = StateGraph.Temporary.allTrue(join.available);
+  annotation (
+    Icon(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics={
+          Line(points={{-100,0},{-80,0}}, color={0,0,0}),
+          Line(points={{80,0},{100,0}}, color={0,0,0}),
+          Line(
+            points={{-80,100},{80,100}},
+            color={0,0,0},
+            pattern=LinePattern.Dot),
+          Line(
+            points={{-80,-100},{80,-100}},
+            color={0,0,0},
+            pattern=LinePattern.Dot)}),
+    Diagram(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics={Line(points={{-100,0},{-80,0}}, color={0,0,0}),
+            Line(points={{80,0},{100,0}}, color={0,0,0})}),
+      Documentation(info="<html>
+
+</html>"));
 end Parallel;
 
 partial model PartialCompositeStep
@@ -2860,37 +2763,6 @@ partial model PartialCompositeStep
           extent={{-10,-10},{10,10}},
           rotation=90)));
 
-  annotation (
-    Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-150,-150},{150,150}},
-          grid={1,1}), graphics={
-          Text(
-            extent={{-250,160},{250,200}},
-            textString="%name",
-            lineColor={0,0,255}),
-          Rectangle(
-            extent={{-150,150},{150,-150}},
-            fillColor=DynamicSelect({255,255,255}, if active > 0.5 then {0,255,
-                0} else {255,255,255}),
-            lineColor={0,0,0},
-            fillPattern=FillPattern.Solid),
-          Text(
-            extent={{4,-115},{145,-130}},
-            lineColor={0,0,0},
-            textString="resume"),
-          Text(
-            extent={{-144,-114},{-3,-129}},
-            lineColor={0,0,0},
-            textString="suspend")}),
-    Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-150,-150},{150,150}},
-          grid={1,1}), graphics={Rectangle(extent={{-150,150},{150,-150}},
-              lineColor={0,0,0})}),
-      Documentation(info="<html>
-
-</html>"));
 
   model OuterState
       "Block containing the port that is connected to the outer stateGraphRoot"
@@ -3011,6 +2883,37 @@ It should have only one connection from the outPort to the
 outside to the CompositeStep and one connection from a step
 inside the CompositeStep to the outPort connector.");
 
+  annotation (
+    Icon(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-150,-150},{150,150}},
+          grid={1,1}), graphics={
+          Text(
+            extent={{-250,160},{250,200}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Rectangle(
+            extent={{-150,150},{150,-150}},
+            fillColor=DynamicSelect({255,255,255}, if active > 0.5 then {0,255,
+                0} else {255,255,255}),
+            lineColor={0,0,0},
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{4,-115},{145,-130}},
+            lineColor={0,0,0},
+            textString="resume"),
+          Text(
+            extent={{-144,-114},{-3,-129}},
+            lineColor={0,0,0},
+            textString="suspend")}),
+    Diagram(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-150,-150},{150,150}},
+          grid={1,1}), graphics={Rectangle(extent={{-150,150},{150,-150}},
+              lineColor={0,0,0})}),
+      Documentation(info="<html>
+
+</html>"));
 end PartialCompositeStep;
 
 model StateGraphRoot
@@ -3019,6 +2922,9 @@ model StateGraphRoot
   extends StateGraph.Interfaces.CompositeStepState;
   output Integer activeSteps "Number of active steps within the stategraph";
 
+
+equation
+  activeSteps = -integer(subgraphStatePort.activeSteps);
   annotation (
     defaultComponentName="stateGraphRoot",
     defaultComponentPrefixes="inner",
@@ -3070,9 +2976,6 @@ on highest level a corresponding \"inner\" definition is needed
 and is provided by the StateGraphRoot object.
 </p>
 </html>"));
-
-equation
-  activeSteps = -integer(subgraphStatePort.activeSteps);
 end StateGraphRoot;
 
 package Temporary
@@ -3175,6 +3078,16 @@ value, still requires to go in to the text layer.
         "Reset button to false, if an element of reset becomes true"
       annotation (Dialog(group="Time varying expressions"));
 
+    Modelica.Blocks.Interfaces.BooleanOutput on
+      annotation (                                            Placement(
+            transformation(extent={{100,-10},{120,10}}, rotation=0)));
+    protected
+    Modelica.Blocks.Sources.BooleanTable table(table=buttonTimeTable);
+  algorithm
+    on := table.y;
+    when pre(reset) then
+      on := false;
+    end when;
     annotation (Icon(
           coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}),
@@ -3197,16 +3110,6 @@ value, still requires to go in to the text layer.
         Documentation(info="<html>
 
 </html>"));
-    Modelica.Blocks.Interfaces.BooleanOutput on
-      annotation (                                            Placement(
-            transformation(extent={{100,-10},{120,10}}, rotation=0)));
-    protected
-    Modelica.Blocks.Sources.BooleanTable table(table=buttonTimeTable);
-  algorithm
-    on := table.y;
-    when pre(reset) then
-      on := false;
-    end when;
   end RadioButton;
 
   model NumericValue "Show value of Real input signal dynamically"
@@ -3214,6 +3117,11 @@ value, still requires to go in to the text layer.
         "Number of significant digits to be shown";
     parameter Boolean hideConnector=false
         "= true, if connector is not shown in the dynamic object diagram";
+
+    Modelica.Blocks.Interfaces.RealInput Value "Real value to be shown in icon"
+      annotation (
+      Dialog(enable=hideConnector),
+      Placement(visible=not boolean(hideConnector), transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
@@ -3232,11 +3140,6 @@ value, still requires to go in to the text layer.
         Documentation(info="<html>
 
 </html>"));
-    Modelica.Blocks.Interfaces.RealInput Value "Real value to be shown in icon"
-      annotation (
-      Dialog(enable=hideConnector),
-      Placement(visible=not boolean(hideConnector), transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
-
   end NumericValue;
 
   model IndicatorLamp
@@ -3273,4 +3176,96 @@ UserInteraction library that is currently under development.
 </html>"));
 
 end Temporary;
+annotation (
+  Documentation(info="<html>
+<p>
+Library <b>StateGraph</b> is a <b>free</b> Modelica package providing
+components to model <b>discrete event</b> and <b>reactive</b>
+systems in a convenient
+way. It is based on the JGraphChart method and
+takes advantage of Modelica features for
+the \"action\" language. JGraphChart is a further development of
+Grafcet to include elements of StateCharts that are not present
+in Grafcet/Sequential Function Charts. Therefore, the StateGraph
+library has a similar modeling power as StateCharts but avoids
+some deficiences of StateCharts.
+</p>
+<p>
+For an introduction, have especially a look at:
+</p>
+<ul>
+<li> <a href=\"Modelica://Modelica.StateGraph.UsersGuide\">StateGraph.UsersGuide</a>
+     discusses the most important aspects how to use this library.</li>
+<li> <a href=\"Modelica://Modelica.StateGraph.Examples\">StateGraph.Examples</a>
+     contains examples that demonstrate the usage of this library.</li>
+</ul>
+<p>
+A typical model generated with this library is shown
+in the next figure where on the left hand side a two-tank
+system with a tank controller and on the right hand side the
+top-level part of the tank controller as a StateGraph is shown:
+</p>
+<p>
+<img src=\"../Images/StateGraph/Examples/ControlledTanks1_small.png\">
+<img src=\"../Images/StateGraph/Examples/ControlledTanks2_small.png\">
+</p>
+<p>
+The unique feature of the StateGraph library with respect to JGraphCharts,
+Grafcet, Sequential Function Charts, and StateCharts, is Modelica's
+\"single assignment rule\" that requires that every variable is defined
+by exactly one equation. This leads to a different \"action\" definition
+as in these formalisms. The advantage is that the translator can either
+determine a useful evaluation sequence by equation sorting or
+reports an error if this is not possible, e.g., because a model
+would lead to a non-determinism or to a dead-lock. As a side effect,
+this leads also to simpler and more easier to understand models and
+global variables are no longer needed (whereas in JGraphCharts,
+Grafcet, Sequential Function Charts and StateCharts global variables
+are nearly always needed).
+</p>
+<p>
+The StateGraph library is currently available in a beta release.
+The available components will most likely not be changed for the
+release version. It is planned to improve the convenience of
+building models with the StateGraph library for the release version
+(this may require to introduce some additional annotations).
+It is planned to include the StateGraph library in the
+Modelica standard library.
+It is most useful to combine this libray with the Modelica libraries
+</p>
+<ul>
+<li><b>Modelica.Blocks.Logical</b> that provides
+    components available in PLCs (programmable logic controllers). </li>
+<li><b>UserInteraction</b> that provides components to
+    interactively communicate with models in a running simulation.</li>
+</ul>
+
+<p>
+Copyright &copy; 1998-2009, Modelica Association and DLR
+</p>
+<p>
+<i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the accompanying <b>disclaimer</b>
+<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
+</p><br>
+
+</HTML>
+"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+            100}}), graphics={
+        Rectangle(extent={{-88,-20},{-50,-54}}, lineColor={0,0,0}),
+        Line(points={{-50,-38},{-24,-38}}, color={0,0,0}),
+        Polygon(
+          points={{-24,-32},{-12,-38},{-24,-44},{-24,-32}},
+          lineColor={0,0,0},
+          fillColor={0,0,0},
+          fillPattern=FillPattern.Solid),
+        Line(points={{-12,-6},{-12,-76}}, color={0,0,0}),
+        Line(points={{-12,-38},{14,-38}}, color={0,0,0}),
+        Polygon(
+          points={{14,-32},{26,-38},{14,-44},{14,-32}},
+          lineColor={0,0,0},
+          fillColor={0,0,0},
+          fillPattern=FillPattern.Solid),
+        Rectangle(extent={{26,-22},{64,-56}}, lineColor={0,0,0})}));
 end StateGraph;

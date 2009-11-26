@@ -9,32 +9,6 @@ model Fourbar_analytic
   output SI.Position j2_s "distance of prismatic joint j2";
   output SI.AngularVelocity j1_w "axis speed of revolute joint j1";
   output SI.Velocity j2_v "axis velocity of prismatic joint j2";
-  annotation (
-    experiment(StopTime=5),
-    Documentation(info="<html>
-<p>
-This is a third version of the \"four-bar\" mechanism, see figure:
-</p>
-<p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Loops/Fourbar_analytic.png\" ALT=\"model Examples.Loops.Fourbar_analytic\">
-</p>
-<p>
-In this case
-the three revolute joints on the left top-side and the two revolute
-joints on the right top side have been replaced by the assembly joint
-<b>Joints.Assemblies.JointSSP</b>
-which consists of two spherical joints and one prismatic joint.
-Since JointSSP solves the non-linear constraint equation internally
-analytically, no non-linear equation appears any more and a Modelica
-translator, such as Dymola, can transform the system into state space
-form without solving a system of equations. For more details, see
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">
-MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
-</p>
-</html>"),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-            100,100}}),
-            graphics));
 
   inner Modelica.Mechanics.MultiBody.World world(animateGravity=false)
     annotation (Placement(transformation(extent={{-80,-60},{-60,-40}}, rotation=
@@ -102,4 +76,30 @@ equation
       points={{50,20},{50,48},{16,48},{16,40}},
       color={95,95,95},
       thickness=0.5));
+  annotation (
+    experiment(StopTime=5),
+    Documentation(info="<html>
+<p>
+This is a third version of the \"four-bar\" mechanism, see figure:
+</p>
+<p align=\"center\">
+<IMG SRC=\"../Images/MultiBody/Examples/Loops/Fourbar_analytic.png\" ALT=\"model Examples.Loops.Fourbar_analytic\">
+</p>
+<p>
+In this case
+the three revolute joints on the left top-side and the two revolute
+joints on the right top side have been replaced by the assembly joint
+<b>Joints.Assemblies.JointSSP</b>
+which consists of two spherical joints and one prismatic joint.
+Since JointSSP solves the non-linear constraint equation internally
+analytically, no non-linear equation appears any more and a Modelica
+translator, such as Dymola, can transform the system into state space
+form without solving a system of equations. For more details, see
+<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">
+MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
+</p>
+</html>"),
+    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+            100,100}}),
+            graphics));
 end Fourbar_analytic;

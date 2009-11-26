@@ -3,12 +3,6 @@ model RollingWheelSetDriving
   "Rolling wheel set that is driven by torques driving the wheels"
    extends Modelica.Icons.Example;
 
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-            -100},{100,100}}), graphics),
-    experiment(StopTime=3),
-    Documentation(info="<html>
-
-</html>"));
   Modelica.Mechanics.MultiBody.Visualizers.Ground ground(
                 length=3, groundColor={0,255,0})
     annotation (Placement(transformation(extent={{-20,-60},{0,-40}})));
@@ -100,4 +94,10 @@ equation
       color={95,95,95},
       thickness=0.5,
       smooth=Smooth.None));
+  annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+            -100},{100,100}}), graphics),
+    experiment(StopTime=3),
+    Documentation(info="<html>
+
+</html>"));
 end RollingWheelSetDriving;

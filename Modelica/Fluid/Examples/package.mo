@@ -3,12 +3,12 @@ package Examples "Demonstration of the usage of the library"
 
 
 
+extends Modelica.Icons.Library;
+
 annotation(preferedView="info",
           __Dymola_classOrder={"PumpingSystem", "HeatingSystem", "DrumBoiler", "Tanks", "ControlledTankSystem", "AST_BatchPlant",
     "IncompressibleFluidNetwork", "BranchingDynamicPipes", "HeatExchanger", "TraceSubstances", "InverseParameterization", "Explanatory", "*"},
     Documentation(info="<html>
 
 </html>"));
-
-extends Modelica.Icons.Library;
 end Examples;

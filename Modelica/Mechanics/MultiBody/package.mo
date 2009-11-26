@@ -1,37 +1,5 @@
 within Modelica.Mechanics;
 package MultiBody "Library to model 3-dimensional mechanical systems"
-annotation (
-  Documentation(info="<HTML>
-<p>
-Library <b>MultiBody</b> is a <b>free</b> Modelica package providing
-3-dimensional mechanical components to model in a convenient way
-<b>mechanical systems</b>, such as robots, mechanisms, vehicles.
-Typical animations generated with this library are shown
-in the next figure:
-</p>
-<p>
-<img src=\"../Images/MultiBody/MultiBody.png\">
-</p>
-<p>
-For an introduction, have especially a look at:
-</p>
-<ul>
-<li> <a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide\">MultiBody.UsersGuide</a>
-     discusses the most important aspects how to use this library.</li>
-<li> <a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples\">MultiBody.Examples</a>
-     contains examples that demonstrate the usage of this library.</li>
-</ul>
-
-<p>
-Copyright &copy; 1998-2009, Modelica Association and DLR.
-</p>
-<p>
-<i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b>
-<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
-</p><br>
-</HTML>"));
   // illegal use of top-level annotation removed:
   // version="1.1",
   // versionDate="2004-06-24",
@@ -50,59 +18,9 @@ extends Modelica.Icons.Library;
 
 package UsersGuide "User's Guide of MultiBody Library"
 
-  annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
-<p>
-Library <b>MultiBody</b> is a <b>free</b> Modelica package providing
-3-dimensional mechanical components to model in a convenient way
-<b>mechanical systems</b>, such as robots, mechanisms, vehicles.
-This package contains the User's Guide for the MultiBody library.
-</p>
-<ol>
-<li>
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial\">Tutorial</a>
-gives an introduction into the most important aspects of the library.
-</li>
-<li>
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Upgrade\">Upgrade</a> describes
-  how to upgrade from former versions, especially from the \"old\"
-  ModelicaAdditions.MultiBody library.
-</li>
-
-<li>
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Literature\">Literature</a> provides
-  references that have been used to design and implement this library.
-</li>
-<li>
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Contact\">Contact</a> provides
-  information about the author of the library as well as
-  acknowledgments.
-</li>
-</ol>
-</HTML>"));
 
   package Tutorial "Tutorial"
 
-    annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
-<p>
-This tutorial provides an introduction into the
-MultiBody library.
-</p>
-<ol>
-<li>
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.OverView\">Overview of
-MultiBody library</a> summarizes the most important aspects.
-</li>
-<li>
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.FirstExample\">A first example</a>
-  describes in detail all the steps to build a simple pendulum model.
-</li>
-<li>
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures\">Loop structures</a>
-  explains how to model kinematic loops, especially by analytically
-  solving non-linear equations.
-</li>
-</ol>
-</HTML>"));
 
     class OverView "Overview of MultiBody library"
 
@@ -754,6 +672,27 @@ analytically. There are the following sub-chapters:
 </ol>
 </HTML>"));
     end LoopStructures;
+    annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
+<p>
+This tutorial provides an introduction into the
+MultiBody library.
+</p>
+<ol>
+<li>
+<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.OverView\">Overview of
+MultiBody library</a> summarizes the most important aspects.
+</li>
+<li>
+<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.FirstExample\">A first example</a>
+  describes in detail all the steps to build a simple pendulum model.
+</li>
+<li>
+<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures\">Loop structures</a>
+  explains how to model kinematic loops, especially by analytically
+  solving non-linear equations.
+</li>
+</ol>
+</HTML>"));
   end Tutorial;
 
   class Upgrade "Upgrade from Former Versions"
@@ -872,8 +811,6 @@ calls in 0.99 should be changed:
 </pre>
 </HTML>
 "));
-  equation
-
   end Upgrade;
 
   class Literature "Literature"
@@ -970,6 +907,35 @@ dynamical effects is described in:
 "));
   end Contact;
 
+  annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
+<p>
+Library <b>MultiBody</b> is a <b>free</b> Modelica package providing
+3-dimensional mechanical components to model in a convenient way
+<b>mechanical systems</b>, such as robots, mechanisms, vehicles.
+This package contains the User's Guide for the MultiBody library.
+</p>
+<ol>
+<li>
+<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial\">Tutorial</a>
+gives an introduction into the most important aspects of the library.
+</li>
+<li>
+<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Upgrade\">Upgrade</a> describes
+  how to upgrade from former versions, especially from the \"old\"
+  ModelicaAdditions.MultiBody library.
+</li>
+
+<li>
+<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Literature\">Literature</a> provides
+  references that have been used to design and implement this library.
+</li>
+<li>
+<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Contact\">Contact</a> provides
+  information about the author of the library as well as
+  acknowledgments.
+</li>
+</ol>
+</HTML>"));
 end UsersGuide;
 
 
@@ -981,137 +947,10 @@ model World
   import Modelica.Mechanics.MultiBody.Types;
 
     Interfaces.Frame_b frame_b
-    "Coordinate system fixed in the origin of the world frame" 
+    "Coordinate system fixed in the origin of the world frame"
                                annotation (Placement(transformation(extent={{84,
             -16},{116,16}}, rotation=0)));
 
-  annotation (
-    defaultComponentName="world",
-    defaultComponentPrefixes="inner",
-    missingInnerMessage="No \"world\" component is defined. A default world
-component with the default gravity field will be used
-(g=9.81 in negative y-axis). If this is not desired,
-drag Modelica.Mechanics.MultiBody.World into the top level of your model.",
-    Icon(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={
-        Rectangle(
-          extent={{-100,100},{100,-100}},
-          lineColor={0,0,0},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Line(
-          points={{-100,-118},{-100,61}},
-          color={0,0,0},
-          thickness=0.5),
-        Polygon(
-          points={{-100,100},{-120,60},{-80,60},{-100,100},{-100,100}},
-          lineColor={0,0,0},
-          fillColor={0,0,0},
-          fillPattern=FillPattern.Solid),
-        Line(
-          points={{-119,-100},{59,-100}},
-          color={0,0,0},
-          thickness=0.5),
-        Polygon(
-          points={{99,-100},{59,-80},{59,-120},{99,-100}},
-          lineColor={0,0,0},
-          fillColor={0,0,0},
-          fillPattern=FillPattern.Solid),
-        Text(
-          extent={{-140,165},{140,103}},
-          textString="%name",
-          lineColor={0,0,255}),
-        Text(
-          extent={{95,-113},{144,-162}},
-          lineColor={0,0,0},
-          textString="%label1"),
-        Text(
-          extent={{-170,127},{-119,77}},
-          lineColor={0,0,0},
-          textString="%label2"),
-        Line(points={{-56,78},{-56,-26}}, color={0,0,255}),
-        Polygon(
-          points={{-68,-26},{-56,-66},{-44,-26},{-68,-26}},
-          fillColor={0,0,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Line(points={{2,78},{2,-26}}, color={0,0,255}),
-        Polygon(
-          points={{-10,-26},{2,-66},{14,-26},{-10,-26}},
-          fillColor={0,0,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Line(points={{66,80},{66,-26}}, color={0,0,255}),
-        Polygon(
-          points={{54,-26},{66,-66},{78,-26},{54,-26}},
-          fillColor={0,0,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255})}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics),
-    Documentation(info="<HTML>
-<p>
-Model <b>World</b> represents a global coordinate system fixed in
-ground. This model serves several purposes:
-<ul>
-<li> It is used as <b>inertial system</b> in which
-     the equations of all elements of the MultiBody library
-     are defined.</li>
-<li> It is the world frame of an <b>animation window</b> in which
-     all elements of the MultiBody library are visualized.</li>
-<li> It is used to define the <b>gravity field</b> in which a
-     multi-body model is present. Default is a uniform gravity
-     field where the gravity acceleration vector g is the
-     same at every position. Additionally, a point gravity field
-     can be selected.</li>
-<li> It is used to define <b>default settings</b> of animation properties
-     (e.g. the diameter of a sphere representing by default
-     the center of mass of a body, or the diameters of the cylinders
-     representing a revolute joint).</li>
-<li> It is used to define a <b>visual representation</b> of the
-     world model (= 3 coordinate axes with labels) and of the defined
-     gravity field.<br>
-    <IMG SRC=\"../Images/MultiBody/world.png\" ALT=\"MultiBodys.World\">
-</li>
-</ul>
-<p>
-Since the gravity field function is required from all bodies with mass
-and the default settings of animation properties are required
-from nearly every component, exactly one instance of model World needs
-to be present in every model on the top level. The basic declaration
-needs to be:
-</p>
-<pre>
-    <b>inner</b> Modelica.Mechanics.MultiBody.World world
-</pre>
-<p>
-Note, it must be an <b>inner</b> declaration with instance name <b>world</b>
-in order that this world object can be accessed from all objects in the
-model. When dragging the \"World\" object from the package browser into
-the diagram layer, this declaration is automatically generated
-(this is defined via annotations in model World).
-</p>
-<p>
-All vectors and tensors of a mechanical system are resolved in a
-frame that is local to the corresponding component. Usually,
-if all relative joint coordinates vanish, the local frames
-of all components are parallel to each other, as well as to the
-world frame (this holds as long as a Parts.FixedRotation,
-component is <b>not</b> used). In this \"reference configuration\"
-it is therefore
-alternatively possible to resolve all vectors in the world
-frame, since all frames are parallel to each other.
-This is often very convenient. In order to give some visual
-support in such a situation, in the icon of a World instance
-two axes of the world frame are shown and the labels
-of these axes can be set via parameters.
-</p>
-</HTML>
-"));
 
   parameter Boolean enableAnimation=true
     "= true, if animation of all components is enabled";
@@ -1124,34 +963,34 @@ of these axes can be set via parameters.
   parameter Types.AxisLabel label2="y" "Label of vertical axis in icon";
   parameter Types.GravityTypes gravityType=GravityTypes.UniformGravity
     "Type of gravity field"                                                                                                     annotation (Evaluate=true);
-  parameter SI.Acceleration g=9.81 "Constant gravity acceleration" 
+  parameter SI.Acceleration g=9.81 "Constant gravity acceleration"
     annotation (Dialog(enable=gravityType == GravityTypes.UniformGravity));
   parameter Types.Axis n={0,-1,0}
-    "Direction of gravity resolved in world frame (gravity = g*n/length(n))" 
+    "Direction of gravity resolved in world frame (gravity = g*n/length(n))"
     annotation (Evaluate=true, Dialog(enable=gravityType == Modelica.Mechanics.
           MultiBody.Types.GravityTypes.UniformGravity));
   parameter Real mue(
     unit="m3/s2",
     min=0) = 3.986e14
-    "Gravity field constant (default = field constant of earth)" 
+    "Gravity field constant (default = field constant of earth)"
     annotation (Dialog(enable=gravityType == Types.GravityTypes.PointGravity));
   parameter Boolean driveTrainMechanics3D=true
     "= true, if 3-dim. mechanical effects of Parts.Mounting1D/Rotor1D/BevelGear1D shall be taken into account";
 
   parameter SI.Distance axisLength=nominalLength/2
-    "Length of world axes arrows" 
+    "Length of world axes arrows"
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
   parameter SI.Distance axisDiameter=axisLength/defaultFrameDiameterFraction
-    "Diameter of world axes arrows" 
+    "Diameter of world axes arrows"
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
-  parameter Boolean axisShowLabels=true "= true, if labels shall be shown" 
+  parameter Boolean axisShowLabels=true "= true, if labels shall be shown"
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
   input Types.Color axisColor_x=Modelica.Mechanics.MultiBody.Types.Defaults.FrameColor
-    "Color of x-arrow" 
+    "Color of x-arrow"
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
-  input Types.Color axisColor_y=axisColor_x 
+  input Types.Color axisColor_y=axisColor_x
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
-  input Types.Color axisColor_z=axisColor_x "Color of z-arrow" 
+  input Types.Color axisColor_z=axisColor_x "Color of z-arrow"
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
 
   parameter SI.Position gravityArrowTail[3]={0,0,0}
@@ -1168,7 +1007,7 @@ of these axes can be set via parameters.
           "Animation", group=
           "if animateGravity = true and gravityType = UniformGravity",
           enable=enableAnimation and animateGravity and gravityType == GravityTypes.UniformGravity));
-  input Types.Color gravityArrowColor={0,230,0} "Color of gravity arrow" 
+  input Types.Color gravityArrowColor={0,230,0} "Color of gravity arrow"
     annotation (Dialog(tab="Animation", group=
           "if animateGravity = true and gravityType = UniformGravity",
           enable=enableAnimation and animateGravity and gravityType == GravityTypes.UniformGravity));
@@ -1177,7 +1016,7 @@ of these axes can be set via parameters.
     annotation (Dialog(tab="Animation", group=
           "if animateGravity = true and gravityType = PointGravity",
           enable=enableAnimation and animateGravity and gravityType == GravityTypes.PointGravity));
-  input Types.Color gravitySphereColor={0,230,0} "Color of gravity sphere" 
+  input Types.Color gravitySphereColor={0,230,0} "Color of gravity sphere"
     annotation (Dialog(tab="Animation", group=
           "if animateGravity = true and gravityType = PointGravity",
           enable=enableAnimation and animateGravity and gravityType == GravityTypes.PointGravity));
@@ -1185,13 +1024,13 @@ of these axes can be set via parameters.
   parameter SI.Length nominalLength=1 "\"Nominal\" length of multi-body system"
     annotation (Dialog(tab="Defaults"));
   parameter SI.Length defaultAxisLength=nominalLength/5
-    "Default for length of a frame axis (but not world frame)" 
+    "Default for length of a frame axis (but not world frame)"
     annotation (Dialog(tab="Defaults"));
   parameter SI.Length defaultJointLength=nominalLength/10
-    "Default for the fixed length of a shape representing a joint" 
+    "Default for the fixed length of a shape representing a joint"
     annotation (Dialog(tab="Defaults"));
   parameter SI.Length defaultJointWidth=nominalLength/20
-    "Default for the fixed width of a shape representing a joint" 
+    "Default for the fixed width of a shape representing a joint"
     annotation (Dialog(tab="Defaults"));
   parameter SI.Length defaultForceLength=nominalLength/10
     "Default for the fixed length of a shape representing a force (e.g. damper)"
@@ -1200,25 +1039,25 @@ of these axes can be set via parameters.
     "Default for the fixed width of a shape represening a force (e.g. spring, bushing)"
     annotation (Dialog(tab="Defaults"));
   parameter SI.Length defaultBodyDiameter=nominalLength/9
-    "Default for diameter of sphere representing the center of mass of a body" 
+    "Default for diameter of sphere representing the center of mass of a body"
     annotation (Dialog(tab="Defaults"));
   parameter Real defaultWidthFraction=20
     "Default for shape width as a fraction of shape length (e.g., for Parts.FixedTranslation)"
     annotation (Dialog(tab="Defaults"));
   parameter SI.Length defaultArrowDiameter=nominalLength/40
-    "Default for arrow diameter (e.g., of forces, torques, sensors)" 
+    "Default for arrow diameter (e.g., of forces, torques, sensors)"
     annotation (Dialog(tab="Defaults"));
   parameter Real defaultFrameDiameterFraction=40
     "Default for arrow diameter of a coordinate system as a fraction of axis length"
     annotation (Dialog(tab="Defaults"));
   parameter Real defaultSpecularCoefficient(min=0) = 0.7
-    "Default reflection of ambient light (= 0: light is completely absorbed)" 
+    "Default reflection of ambient light (= 0: light is completely absorbed)"
     annotation (Dialog(tab="Defaults"));
   parameter Real defaultN_to_m(unit="N/m", min=0) = 1000
-    "Default scaling of force arrows (length = force/defaultN_to_m)" 
+    "Default scaling of force arrows (length = force/defaultN_to_m)"
     annotation (Dialog(tab="Defaults"));
   parameter Real defaultNm_to_m(unit="N.m/m", min=0) = 1000
-    "Default scaling of torque arrows (length = torque/defaultNm_to_m)" 
+    "Default scaling of torque arrows (length = torque/defaultNm_to_m)"
     annotation (Dialog(tab="Defaults"));
 
   /* The World object can only use the Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape model, but no
@@ -1229,7 +1068,7 @@ of these axes can be set via parameters.
   */
 protected
   parameter Integer ndim=if enableAnimation and animateWorld then 1 else 0;
-  parameter Integer ndim2=if enableAnimation and animateWorld and 
+  parameter Integer ndim2=if enableAnimation and animateWorld and
       axisShowLabels then 1 else 0;
 
   // Parameters to define axes
@@ -1393,10 +1232,10 @@ protected
     output SI.Acceleration gravity[3]
       "Gravity acceleration at point r, resolved in world frame";
   algorithm
-    gravity := if gravityType == GravityTypes.UniformGravity then g else 
-               if gravityType == GravityTypes.PointGravity then 
+    gravity := if gravityType == GravityTypes.UniformGravity then g else
+               if gravityType == GravityTypes.PointGravity then
                   -(mue/(r*r))*(r/Modelica.Math.Vectors.length(
-                                                r)) else 
+                                                r)) else
                     zeros(3);
   end gravityAccelerationTypes;
 equation
@@ -1407,5 +1246,165 @@ equation
     "Parameter n of World object is wrong (lenght(n) > 0 required)");
   frame_b.r_0 = zeros(3);
   frame_b.R = Frames.nullRotation();
+  annotation (
+    defaultComponentName="world",
+    defaultComponentPrefixes="inner",
+    missingInnerMessage="No \"world\" component is defined. A default world
+component with the default gravity field will be used
+(g=9.81 in negative y-axis). If this is not desired,
+drag Modelica.Mechanics.MultiBody.World into the top level of your model.",
+    Icon(coordinateSystem(
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
+        grid={2,2}), graphics={
+        Rectangle(
+          extent={{-100,100},{100,-100}},
+          lineColor={0,0,0},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid),
+        Line(
+          points={{-100,-118},{-100,61}},
+          color={0,0,0},
+          thickness=0.5),
+        Polygon(
+          points={{-100,100},{-120,60},{-80,60},{-100,100},{-100,100}},
+          lineColor={0,0,0},
+          fillColor={0,0,0},
+          fillPattern=FillPattern.Solid),
+        Line(
+          points={{-119,-100},{59,-100}},
+          color={0,0,0},
+          thickness=0.5),
+        Polygon(
+          points={{99,-100},{59,-80},{59,-120},{99,-100}},
+          lineColor={0,0,0},
+          fillColor={0,0,0},
+          fillPattern=FillPattern.Solid),
+        Text(
+          extent={{-140,165},{140,103}},
+          textString="%name",
+          lineColor={0,0,255}),
+        Text(
+          extent={{95,-113},{144,-162}},
+          lineColor={0,0,0},
+          textString="%label1"),
+        Text(
+          extent={{-170,127},{-119,77}},
+          lineColor={0,0,0},
+          textString="%label2"),
+        Line(points={{-56,78},{-56,-26}}, color={0,0,255}),
+        Polygon(
+          points={{-68,-26},{-56,-66},{-44,-26},{-68,-26}},
+          fillColor={0,0,255},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
+        Line(points={{2,78},{2,-26}}, color={0,0,255}),
+        Polygon(
+          points={{-10,-26},{2,-66},{14,-26},{-10,-26}},
+          fillColor={0,0,255},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
+        Line(points={{66,80},{66,-26}}, color={0,0,255}),
+        Polygon(
+          points={{54,-26},{66,-66},{78,-26},{54,-26}},
+          fillColor={0,0,255},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255})}),
+    Diagram(coordinateSystem(
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
+        grid={2,2}), graphics),
+    Documentation(info="<HTML>
+<p>
+Model <b>World</b> represents a global coordinate system fixed in
+ground. This model serves several purposes:
+<ul>
+<li> It is used as <b>inertial system</b> in which
+     the equations of all elements of the MultiBody library
+     are defined.</li>
+<li> It is the world frame of an <b>animation window</b> in which
+     all elements of the MultiBody library are visualized.</li>
+<li> It is used to define the <b>gravity field</b> in which a
+     multi-body model is present. Default is a uniform gravity
+     field where the gravity acceleration vector g is the
+     same at every position. Additionally, a point gravity field
+     can be selected.</li>
+<li> It is used to define <b>default settings</b> of animation properties
+     (e.g. the diameter of a sphere representing by default
+     the center of mass of a body, or the diameters of the cylinders
+     representing a revolute joint).</li>
+<li> It is used to define a <b>visual representation</b> of the
+     world model (= 3 coordinate axes with labels) and of the defined
+     gravity field.<br>
+    <IMG SRC=\"../Images/MultiBody/world.png\" ALT=\"MultiBodys.World\">
+</li>
+</ul>
+<p>
+Since the gravity field function is required from all bodies with mass
+and the default settings of animation properties are required
+from nearly every component, exactly one instance of model World needs
+to be present in every model on the top level. The basic declaration
+needs to be:
+</p>
+<pre>
+    <b>inner</b> Modelica.Mechanics.MultiBody.World world
+</pre>
+<p>
+Note, it must be an <b>inner</b> declaration with instance name <b>world</b>
+in order that this world object can be accessed from all objects in the
+model. When dragging the \"World\" object from the package browser into
+the diagram layer, this declaration is automatically generated
+(this is defined via annotations in model World).
+</p>
+<p>
+All vectors and tensors of a mechanical system are resolved in a
+frame that is local to the corresponding component. Usually,
+if all relative joint coordinates vanish, the local frames
+of all components are parallel to each other, as well as to the
+world frame (this holds as long as a Parts.FixedRotation,
+component is <b>not</b> used). In this \"reference configuration\"
+it is therefore
+alternatively possible to resolve all vectors in the world
+frame, since all frames are parallel to each other.
+This is often very convenient. In order to give some visual
+support in such a situation, in the icon of a World instance
+two axes of the world frame are shown and the labels
+of these axes can be set via parameters.
+</p>
+</HTML>
+"));
 end World;
+
+annotation (
+  Documentation(info="<HTML>
+<p>
+Library <b>MultiBody</b> is a <b>free</b> Modelica package providing
+3-dimensional mechanical components to model in a convenient way
+<b>mechanical systems</b>, such as robots, mechanisms, vehicles.
+Typical animations generated with this library are shown
+in the next figure:
+</p>
+<p>
+<img src=\"../Images/MultiBody/MultiBody.png\">
+</p>
+<p>
+For an introduction, have especially a look at:
+</p>
+<ul>
+<li> <a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide\">MultiBody.UsersGuide</a>
+     discusses the most important aspects how to use this library.</li>
+<li> <a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples\">MultiBody.Examples</a>
+     contains examples that demonstrate the usage of this library.</li>
+</ul>
+
+<p>
+Copyright &copy; 1998-2009, Modelica Association and DLR.
+</p>
+<p>
+<i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the accompanying <b>disclaimer</b>
+<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
+</p><br>
+</HTML>"));
 end MultiBody;

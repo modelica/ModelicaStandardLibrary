@@ -4,49 +4,6 @@ model Engine1b
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Example;
   extends Utilities.Engine1bBase;
-  annotation (
-    experiment(StopTime=0.5),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-120},{150,120}},
-        grid={1,1}), graphics={
-        Rectangle(
-          extent={{3,117},{88,-23}},
-          lineColor={255,0,0},
-          lineThickness=0.5),
-        Text(
-          extent={{65,-30},{145,-39}},
-          lineColor={255,0,0},
-          lineThickness=0.5,
-          textString="jointRRP in model"),
-        Text(
-          extent={{66,-34},{141,-52}},
-          lineColor={255,0,0},
-          lineThickness=0.5,
-          textString="Loops.Engine1b_analytic")}),
-    Documentation(info="<html>
-<p>
-This is a model of the mechanical part of one cylinder of an engine.
-It is similiar to
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Engine1a#diagram\">Loops.Engine1a</a>.
-The difference is that a simple
-model for the gas force in the cylinder is added and that the
-model is restructured in such a way, that the central part of
-the planar kinematic loop can be easily replaced by the
-assembly joint \"Modelica.Mechanics.MultiBody.Joints.Assemblies.<b>JointRRP</b>\".
-This exchange of the kinematic loop is shown in
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b_analytic#diagram\">Loops.Engine1b_analytic</a>.
-The advantage of using JointRRP is, that the
-non-linear algebraic equation of this loop is solved analytically, and
-not numerically as in this model (Engine1b).
-</p>
-<p>
-An animation of this example is shown in the figure below.
-</p>
-<p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Loops/Engine.png\" ALT=\"model Examples.Loops.Engine\">
-</p>
-</html>"));
   Joints.RevolutePlanarLoopConstraint B2(
     n={1,0,0},
     cylinderLength=0.02,
@@ -111,4 +68,47 @@ equation
       points={{50,-43},{57,-43},{57,-28},{30,-28},{30,-10},{40,-10}},
       color={95,95,95},
       thickness=0.5));
+  annotation (
+    experiment(StopTime=0.5),
+    Diagram(coordinateSystem(
+        preserveAspectRatio=true,
+        extent={{-100,-120},{150,120}},
+        grid={1,1}), graphics={
+        Rectangle(
+          extent={{3,117},{88,-23}},
+          lineColor={255,0,0},
+          lineThickness=0.5),
+        Text(
+          extent={{65,-30},{145,-39}},
+          lineColor={255,0,0},
+          lineThickness=0.5,
+          textString="jointRRP in model"),
+        Text(
+          extent={{66,-34},{141,-52}},
+          lineColor={255,0,0},
+          lineThickness=0.5,
+          textString="Loops.Engine1b_analytic")}),
+    Documentation(info="<html>
+<p>
+This is a model of the mechanical part of one cylinder of an engine.
+It is similiar to
+<a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Engine1a#diagram\">Loops.Engine1a</a>.
+The difference is that a simple
+model for the gas force in the cylinder is added and that the
+model is restructured in such a way, that the central part of
+the planar kinematic loop can be easily replaced by the
+assembly joint \"Modelica.Mechanics.MultiBody.Joints.Assemblies.<b>JointRRP</b>\".
+This exchange of the kinematic loop is shown in
+<a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b_analytic#diagram\">Loops.Engine1b_analytic</a>.
+The advantage of using JointRRP is, that the
+non-linear algebraic equation of this loop is solved analytically, and
+not numerically as in this model (Engine1b).
+</p>
+<p>
+An animation of this example is shown in the figure below.
+</p>
+<p align=\"center\">
+<IMG SRC=\"../Images/MultiBody/Examples/Loops/Engine.png\" ALT=\"model Examples.Loops.Engine\">
+</p>
+</html>"));
 end Engine1b;

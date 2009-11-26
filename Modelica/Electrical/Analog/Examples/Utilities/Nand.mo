@@ -1,78 +1,6 @@
 within Modelica.Electrical.Analog.Examples.Utilities;
 model Nand "CMOS NAND Gate (see Tietze/Schenk, page 157)"
 
-  annotation (
-    Icon(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics={
-        Rectangle(
-          extent={{-50,70},{50,-70}},
-          lineColor={0,0,0},
-          fillColor={192,192,192},
-          fillPattern=FillPattern.Solid),
-        Ellipse(
-          extent={{50,5},{60,-5}},
-          lineColor={0,0,0},
-          pattern=LinePattern.None),
-        Text(
-          extent={{-16,50},{14,20}},
-          lineColor={0,0,0},
-          textString="&"),
-        Line(points={{60,0},{100,0}}, color={0,0,255}),
-        Line(points={{0,70},{0,100}}, color={0,0,255}),
-        Line(points={{-50,50},{-100,50}}, color={0,0,255}),
-        Line(points={{-50,-50},{-100,-50}}, color={0,0,255}),
-        Ellipse(extent={{50,5},{60,-5}}, lineColor={0,0,0}),
-        Text(
-          extent={{-100,34},{-90,24}},
-          textString="x1",
-          lineColor={0,0,255}),
-        Text(
-          extent={{-100,-65},{-90,-75}},
-          textString="x2",
-          lineColor={0,0,255}),
-        Text(
-          extent={{90,-15},{100,-25}},
-          textString="y",
-          lineColor={0,0,255})}),
-    Documentation(info="<html>
-<p>The nand gate is a basic CMOS building block. It consists of four CMOS transistors.  </p>
-<p><b>Reference:</b> </p>
-<p>Tietze, U.; Schenk, Ch.: Halbleiter-Schaltungstechnik. Springer-Verlag Berlin Heidelberg NewYork 1980, p. 157 </p>
-</html>",
-   revisions="<html>
-<dl>
-<dt>
-<b>Main Authors:</b>
-<dd>
-Christoph Clau&szlig;
-    &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
-    Andr&eacute; Schneider
-    &lt;<a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>&gt;<br>
-    Fraunhofer Institute for Integrated Circuits<br>
-    Design Automation Department<br>
-    Zeunerstra&szlig;e 38<br>
-    D-01069 Dresden<br>
-<p>
-<dt>
-<b>Copyright:</b>
-<dd>
-Copyright &copy; 1998-2006, Modelica Association and Fraunhofer-Gesellschaft.<br>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> in the documentation of package
-Modelica in file \"Modelica/package.mo\".</i><br>
-<p>
-</dl>
-</html>"),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics={Text(
-          extent={{-94,93},{-44,70}},
-          lineColor={0,0,255},
-          textString="NAND")}));
   Semiconductors.PMOS TP1(
     W=6.5e-6,
     L=3.1e-6,
@@ -165,4 +93,76 @@ equation
   connect(TP2.D, Vdd) annotation (Line(points={{-20,60},{-20,80},{0,80},{0,100}}));
   connect(C4.p, y) annotation (Line(points={{60,40},{60,50},{80,50},{80,0},{100,
           0}}));
+  annotation (
+    Icon(coordinateSystem(
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
+        grid={1,1}), graphics={
+        Rectangle(
+          extent={{-50,70},{50,-70}},
+          lineColor={0,0,0},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid),
+        Ellipse(
+          extent={{50,5},{60,-5}},
+          lineColor={0,0,0},
+          pattern=LinePattern.None),
+        Text(
+          extent={{-16,50},{14,20}},
+          lineColor={0,0,0},
+          textString="&"),
+        Line(points={{60,0},{100,0}}, color={0,0,255}),
+        Line(points={{0,70},{0,100}}, color={0,0,255}),
+        Line(points={{-50,50},{-100,50}}, color={0,0,255}),
+        Line(points={{-50,-50},{-100,-50}}, color={0,0,255}),
+        Ellipse(extent={{50,5},{60,-5}}, lineColor={0,0,0}),
+        Text(
+          extent={{-100,34},{-90,24}},
+          textString="x1",
+          lineColor={0,0,255}),
+        Text(
+          extent={{-100,-65},{-90,-75}},
+          textString="x2",
+          lineColor={0,0,255}),
+        Text(
+          extent={{90,-15},{100,-25}},
+          textString="y",
+          lineColor={0,0,255})}),
+    Documentation(info="<html>
+<p>The nand gate is a basic CMOS building block. It consists of four CMOS transistors.  </p>
+<p><b>Reference:</b> </p>
+<p>Tietze, U.; Schenk, Ch.: Halbleiter-Schaltungstechnik. Springer-Verlag Berlin Heidelberg NewYork 1980, p. 157 </p>
+</html>",
+   revisions="<html>
+<dl>
+<dt>
+<b>Main Authors:</b>
+<dd>
+Christoph Clau&szlig;
+    &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
+    Andr&eacute; Schneider
+    &lt;<a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>&gt;<br>
+    Fraunhofer Institute for Integrated Circuits<br>
+    Design Automation Department<br>
+    Zeunerstra&szlig;e 38<br>
+    D-01069 Dresden<br>
+<p>
+<dt>
+<b>Copyright:</b>
+<dd>
+Copyright &copy; 1998-2006, Modelica Association and Fraunhofer-Gesellschaft.<br>
+<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the accompanying <b>disclaimer</b> in the documentation of package
+Modelica in file \"Modelica/package.mo\".</i><br>
+<p>
+</dl>
+</html>"),
+    Diagram(coordinateSystem(
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
+        grid={1,1}), graphics={Text(
+          extent={{-94,93},{-44,70}},
+          lineColor={0,0,255},
+          textString="NAND")}));
 end Nand;

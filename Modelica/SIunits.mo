@@ -3,14 +3,6 @@ package SIunits
   "Library of type and unit definitions based on SI units according to ISO 31-1992"
 package UsersGuide "User's Guide of SIunits Library"
 
-  annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
-<p>
-Library <b>SIunits</b> is a <b>free</b> Modelica package providing
-predefined types, such as <i>Mass</i>,
-<i>Length</i>, <i>Time</i>, based on the international standard
-on units.</p>
-
-</HTML>"));
 
   class HowToUseSIunits "How to use SIunits"
 
@@ -219,172 +211,23 @@ in the declaration as in the example at the beginning.
 "));
   end Contact;
 
+  annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
+<p>
+Library <b>SIunits</b> is a <b>free</b> Modelica package providing
+predefined types, such as <i>Mass</i>,
+<i>Length</i>, <i>Time</i>, based on the international standard
+on units.</p>
+
+</HTML>"));
 end UsersGuide;
   extends Modelica.Icons.Library2;
 
-  annotation (
-    Invisible=true,
-    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-            100}}), graphics={Text(
-          extent={{-63,-13},{45,-67}},
-          lineColor={0,0,0},
-          textString="[kg.m2]")}),
-    Documentation(info="<html>
-<p>This package provides predefined types, such as <i>Mass</i>,
-<i>Angle</i>, <i>Time</i>, based on the international standard
-on units, e.g.,
-</p>
-
-<pre>   <b>type</b> Angle = Real(<b>final</b> quantity = \"Angle\",
-                     <b>final</b> unit     = \"rad\",
-                     displayUnit    = \"deg\");
-</pre>
-
-<p>
-as well as conversion functions from non SI-units to SI-units
-and vice versa in subpackage
-<a href=\"Modelica://Modelica.SIunits.Conversions\">Conversions</a>.
-</p>
-
-<p>
-For an introduction how units are used in the Modelica standard library
-with package SIunits, have a look at:
-<a href=\"Modelica://Modelica.SIunits.UsersGuide.HowToUseSIunits\">How to use SIunits</a>.
-</p>
-
-<p>
-Copyright &copy; 1998-2009, Modelica Association and DLR.
-</p>
-<p>
-<i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b>
-<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
-</p>
-
-</html>", revisions="<html>
-<ul>
-<li><i>Dec. 14, 2005</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Add User's Guide and removed \"min\" values for Resistance and Conductance.</li>
-<li><i>October 21, 2002</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
-       and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
-       Added new package <b>Conversions</b>. Corrected typo <i>Wavelenght</i>.</li>
-<li><i>June 6, 2000</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Introduced the following new types<br>
-       type Temperature = ThermodynamicTemperature;<br>
-       types DerDensityByEnthalpy, DerDensityByPressure,
-       DerDensityByTemperature, DerEnthalpyByPressure,
-       DerEnergyByDensity, DerEnergyByPressure<br>
-       Attribute \"final\" removed from min and max values
-       in order that these values can still be changed to narrow
-       the allowed range of values.<br>
-       Quantity=\"Stress\" removed from type \"Stress\", in order
-       that a type \"Stress\" can be connected to a type \"Pressure\".</li>
-<li><i>Oct. 27, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       New types due to electrical library: Transconductance, InversePotential,
-       Damping.</li>
-<li><i>Sept. 18, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Renamed from SIunit to SIunits. Subpackages expanded, i.e., the
-       SIunits package, does no longer contain subpackages.</li>
-<li><i>Aug 12, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Type \"Pressure\" renamed to \"AbsolutePressure\" and introduced a new
-       type \"Pressure\" which does not contain a minimum of zero in order
-       to allow convenient handling of relative pressure. Redefined
-       BulkModulus as an alias to AbsolutePressure instead of Stress, since
-       needed in hydraulics.</li>
-<li><i>June 29, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Bug-fix: Double definition of \"Compressibility\" removed
-       and appropriate \"extends Heat\" clause introduced in
-       package SolidStatePhysics to incorporate ThermodynamicTemperature.</li>
-<li><i>April 8, 1998</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
-       and Astrid Jaschinski:<br>
-       Complete ISO 31 chapters realized.</li>
-<li><i>Nov. 15, 1997</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
-       and <a href=\"http://www.control.lth.se/~hubertus/\">Hubertus Tummescheit</a>:<br>
-       Some chapters realized.</li>
-</ul>
-</html>"),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-            100}}), graphics={
-        Rectangle(
-          extent={{169,86},{349,236}},
-          fillColor={235,235,235},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Polygon(
-          points={{169,236},{189,256},{369,256},{349,236},{169,236}},
-          fillColor={235,235,235},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Polygon(
-          points={{369,256},{369,106},{349,86},{349,236},{369,256}},
-          fillColor={235,235,235},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Text(
-          extent={{179,226},{339,196}},
-          lineColor={160,160,164},
-          textString="Library"),
-        Text(
-          extent={{206,173},{314,119}},
-          lineColor={0,0,0},
-          textString="[kg.m2]"),
-        Text(
-          extent={{163,320},{406,264}},
-          lineColor={255,0,0},
-          textString="Modelica.SIunits")}));
 
   package Conversions
     "Conversion functions to/from non SI units and type definitions of non SI units"
 
     extends Modelica.Icons.Library2;
 
-    annotation (Icon(coordinateSystem(preserveAspectRatio=true,
-                     extent={{-100,-100},{100,100}}), graphics={
-          Text(
-            extent={{-33,-7},{-92,-67}},
-            lineColor={0,0,0},
-            lineThickness=1,
-            textString="°C"),
-          Text(
-            extent={{82,-7},{22,-67}},
-            lineColor={0,0,0},
-            textString="K"),
-          Line(points={{-26,-36},{6,-36}}, color={0,0,0}),
-          Polygon(
-            points={{6,-28},{6,-45},{26,-37},{6,-28}},
-            pattern=LinePattern.None,
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255})}),
-                              Documentation(info="<HTML>
-<p>This package provides conversion functions from the non SI Units
-defined in package Modelica.SIunits.Conversions.NonSIunits to the
-corresponding SI Units defined in package Modelica.SIunits and vice
-versa. It is recommended to use these functions in the following
-way (note, that all functions have one Real input and one Real output
-argument):</p>
-<pre>
-  <b>import</b> SI = Modelica.SIunits;
-  <b>import</b> Modelica.SIunits.Conversions.*;
-     ...
-  <b>parameter</b> SI.Temperature     T   = from_degC(25);   // convert 25 degree Celsius to Kelvin
-  <b>parameter</b> SI.Angle           phi = from_deg(180);   // convert 180 degree to radian
-  <b>parameter</b> SI.AngularVelocity w   = from_rpm(3600);  // convert 3600 revolutions per minutes
-                                                      // to radian per seconds
-</pre>
-
-</HTML>
-"));
 
     package NonSIunits "Type definitions of non SI units"
 
@@ -458,6 +301,8 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Temperature Kelvin "Kelvin value";
       output NonSIunits.Temperature_degC Celsius "Celsius value";
+    algorithm
+      Celsius := Kelvin + Modelica.Constants.T_zero;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -466,14 +311,14 @@ still kept in Modelica.SIunits.</p>
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="°C")}));
-    algorithm
-      Celsius := Kelvin + Modelica.Constants.T_zero;
     end to_degC;
 
     function from_degC "Convert from °Celsius to Kelvin"
       extends ConversionIcon;
       input NonSIunits.Temperature_degC Celsius "Celsius value";
       output Temperature Kelvin "Kelvin value";
+    algorithm
+      Kelvin := Celsius - Modelica.Constants.T_zero;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -482,14 +327,14 @@ still kept in Modelica.SIunits.</p>
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="K")}));
-    algorithm
-      Kelvin := Celsius - Modelica.Constants.T_zero;
     end from_degC;
 
     function to_degF "Convert from Kelvin to °Fahrenheit"
       extends ConversionIcon;
       input Temperature Kelvin "Kelvin value";
       output NonSIunits.Temperature_degF Fahrenheit "Fahrenheit value";
+    algorithm
+      Fahrenheit := (Kelvin + Modelica.Constants.T_zero)*(9/5) + 32;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -498,14 +343,14 @@ still kept in Modelica.SIunits.</p>
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="°F")}));
-    algorithm
-      Fahrenheit := (Kelvin + Modelica.Constants.T_zero)*(9/5) + 32;
     end to_degF;
 
     function from_degF "Convert from °Fahrenheit to Kelvin"
       extends ConversionIcon;
       input NonSIunits.Temperature_degF Fahrenheit "Fahrenheit value";
       output Temperature Kelvin "Kelvin value";
+    algorithm
+      Kelvin := (Fahrenheit - 32)*(5/9) - Modelica.Constants.T_zero;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -514,14 +359,14 @@ still kept in Modelica.SIunits.</p>
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="K")}));
-    algorithm
-      Kelvin := (Fahrenheit - 32)*(5/9) - Modelica.Constants.T_zero;
     end from_degF;
 
     function to_degRk "Convert from Kelvin to °Rankine"
       extends ConversionIcon;
       input Temperature Kelvin "Kelvin value";
       output NonSIunits.Temperature_degRk Rankine "Rankine value";
+    algorithm
+      Rankine := (9/5)*Kelvin;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -530,14 +375,14 @@ still kept in Modelica.SIunits.</p>
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="°Rk")}));
-    algorithm
-      Rankine := (9/5)*Kelvin;
     end to_degRk;
 
     function from_degRk "Convert from °Rankine to Kelvin"
       extends ConversionIcon;
       input NonSIunits.Temperature_degRk Rankine "Rankine value";
       output Temperature Kelvin "Kelvin value";
+    algorithm
+      Kelvin := (5/9)*Rankine;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -546,14 +391,14 @@ still kept in Modelica.SIunits.</p>
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="K")}));
-    algorithm
-      Kelvin := (5/9)*Rankine;
     end from_degRk;
 
     function to_deg "Convert from radian to degree"
       extends ConversionIcon;
       input Angle radian "radian value";
       output NonSIunits.Angle_deg degree "degree value";
+    algorithm
+      degree := (180.0/Modelica.Constants.pi)*radian;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -562,14 +407,14 @@ still kept in Modelica.SIunits.</p>
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="deg")}));
-    algorithm
-      degree := (180.0/Modelica.Constants.pi)*radian;
     end to_deg;
 
     function from_deg "Convert from degree to radian"
       extends ConversionIcon;
       input NonSIunits.Angle_deg degree "degree value";
       output Angle radian "radian value";
+    algorithm
+      radian := (Modelica.Constants.pi/180.0)*degree;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -578,14 +423,14 @@ still kept in Modelica.SIunits.</p>
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="rad")}));
-    algorithm
-      radian := (Modelica.Constants.pi/180.0)*degree;
     end from_deg;
 
     function to_rpm "Convert from radian per second to revolutions per minute"
       extends ConversionIcon;
       input AngularVelocity rs "radian per second value";
       output NonSIunits.AngularVelocity_rpm rpm "revolutions per minute value";
+    algorithm
+      rpm := (30/Modelica.Constants.pi)*rs;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -594,8 +439,6 @@ still kept in Modelica.SIunits.</p>
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="1/min")}));
-    algorithm
-      rpm := (30/Modelica.Constants.pi)*rs;
     end to_rpm;
 
     function from_rpm
@@ -603,6 +446,8 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.AngularVelocity_rpm rpm "revolutions per minute value";
       output AngularVelocity rs "radian per second value";
+    algorithm
+      rs := (Modelica.Constants.pi/30)*rpm;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -611,14 +456,14 @@ still kept in Modelica.SIunits.</p>
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="rad/s")}));
-    algorithm
-      rs := (Modelica.Constants.pi/30)*rpm;
     end from_rpm;
 
     function to_kmh "Convert from metre per second to kilometre per hour"
       extends ConversionIcon;
       input Velocity ms "metre per second value";
       output NonSIunits.Velocity_kmh kmh "kilometre per hour value";
+    algorithm
+      kmh := 3.6*ms;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -627,14 +472,14 @@ still kept in Modelica.SIunits.</p>
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="km/h")}));
-    algorithm
-      kmh := 3.6*ms;
     end to_kmh;
 
     function from_kmh "Convert from kilometre per hour to metre per second"
       extends ConversionIcon;
       input NonSIunits.Velocity_kmh kmh "kilometre per hour value";
       output Velocity ms "metre per second value";
+    algorithm
+      ms := kmh/3.6;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -643,14 +488,14 @@ still kept in Modelica.SIunits.</p>
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="m/s")}));
-    algorithm
-      ms := kmh/3.6;
     end from_kmh;
 
     function to_day "Convert from second to day"
       extends ConversionIcon;
       input Time s "second value";
       output NonSIunits.Time_day day "day value";
+    algorithm
+      day := s/86400;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -659,14 +504,14 @@ still kept in Modelica.SIunits.</p>
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="day")}));
-    algorithm
-      day := s/86400;
     end to_day;
 
     function from_day "Convert from day to second"
       extends ConversionIcon;
       input NonSIunits.Time_day day "day value";
       output Time s "second value";
+    algorithm
+      s := 86400*day;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -675,14 +520,14 @@ still kept in Modelica.SIunits.</p>
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="s")}));
-    algorithm
-      s := 86400*day;
     end from_day;
 
     function to_hour "Convert from second to hour"
       extends ConversionIcon;
       input Time s "second value";
       output NonSIunits.Time_hour hour "hour value";
+    algorithm
+      hour := s/3600;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -691,14 +536,14 @@ still kept in Modelica.SIunits.</p>
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="hour")}));
-    algorithm
-      hour := s/3600;
     end to_hour;
 
     function from_hour "Convert from hour to second"
       extends ConversionIcon;
       input NonSIunits.Time_hour hour "hour value";
       output Time s "second value";
+    algorithm
+      s := 3600*hour;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -707,14 +552,14 @@ still kept in Modelica.SIunits.</p>
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="s")}));
-    algorithm
-      s := 3600*hour;
     end from_hour;
 
     function to_minute "Convert from second to minute"
       extends ConversionIcon;
       input Time s "second value";
       output NonSIunits.Time_minute minute "minute value";
+    algorithm
+      minute := s/60;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -723,14 +568,14 @@ still kept in Modelica.SIunits.</p>
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="minute")}));
-    algorithm
-      minute := s/60;
     end to_minute;
 
     function from_minute "Convert from minute to second"
       extends ConversionIcon;
       input NonSIunits.Time_minute minute "minute value";
       output Time s "second value";
+    algorithm
+      s := 60*minute;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -739,14 +584,14 @@ still kept in Modelica.SIunits.</p>
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="s")}));
-    algorithm
-      s := 60*minute;
     end from_minute;
 
     function to_litre "Convert from cubic metre to litre"
       extends ConversionIcon;
       input Volume m3 "cubic metre value";
       output NonSIunits.Volume_litre litre "litre value";
+    algorithm
+      litre := 1000*m3;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -755,14 +600,14 @@ still kept in Modelica.SIunits.</p>
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="litre")}));
-    algorithm
-      litre := 1000*m3;
     end to_litre;
 
     function from_litre "Convert from litre to cubic metre"
       extends ConversionIcon;
       input NonSIunits.Volume_litre litre "litre value";
       output Volume m3 "cubic metre value";
+    algorithm
+      m3 := litre/1000;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -771,14 +616,14 @@ still kept in Modelica.SIunits.</p>
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="m3")}));
-    algorithm
-      m3 := litre/1000;
     end from_litre;
 
     function to_kWh "Convert from Joule to kilo Watt hour"
       extends ConversionIcon;
       input Energy J "Joule value";
       output NonSIunits.Energy_kWh kWh "kWh value";
+    algorithm
+      kWh := J/3.6e6;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -787,14 +632,14 @@ still kept in Modelica.SIunits.</p>
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="kWh")}));
-    algorithm
-      kWh := J/3.6e6;
     end to_kWh;
 
     function from_kWh "Convert from kilo Watt hour to Joule"
       extends ConversionIcon;
       input NonSIunits.Energy_kWh kWh "kWh value";
       output Energy J "Joule value";
+    algorithm
+      J := 3.6e6*kWh;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -803,14 +648,14 @@ still kept in Modelica.SIunits.</p>
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="J")}));
-    algorithm
-      J := 3.6e6*kWh;
     end from_kWh;
 
     function to_bar "Convert from Pascal to bar"
       extends ConversionIcon;
       input Pressure Pa "Pascal value";
       output NonSIunits.Pressure_bar bar "bar value";
+    algorithm
+      bar := Pa/1e5;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -819,14 +664,14 @@ still kept in Modelica.SIunits.</p>
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="bar")}));
-    algorithm
-      bar := Pa/1e5;
     end to_bar;
 
     function from_bar "Convert from bar to Pascal"
       extends ConversionIcon;
       input NonSIunits.Pressure_bar bar "bar value";
       output Pressure Pa "Pascal value";
+    algorithm
+      Pa := 1e5*bar;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -835,14 +680,14 @@ still kept in Modelica.SIunits.</p>
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="Pa")}));
-    algorithm
-      Pa := 1e5*bar;
     end from_bar;
 
     function to_gps "Convert from kilogram per second to gram per second"
       extends ConversionIcon;
       input MassFlowRate kgps "kg/s value";
       output NonSIunits.MassFlowRate_gps gps "g/s value";
+    algorithm
+      gps := 1000*kgps;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -851,14 +696,14 @@ still kept in Modelica.SIunits.</p>
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="g/s")}));
-    algorithm
-      gps := 1000*kgps;
     end to_gps;
 
     function from_gps "Convert from gram per second to kilogram per second"
       extends ConversionIcon;
       input NonSIunits.MassFlowRate_gps gps "g/s value";
       output MassFlowRate kgps "kg/s value";
+    algorithm
+      kgps := gps/1000;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -867,8 +712,6 @@ still kept in Modelica.SIunits.</p>
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="kg/s")}));
-    algorithm
-      kgps := gps/1000;
     end from_gps;
 
     partial function ConversionIcon "Base icon for conversion functions"
@@ -896,6 +739,8 @@ still kept in Modelica.SIunits.</p>
       input Modelica.SIunits.Frequency f "frequency";
       output Modelica.SIunits.AngularVelocity w "angular velocity";
 
+    algorithm
+      w := 2*Modelica.Constants.pi*f;
       annotation (Icon(graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
@@ -903,14 +748,14 @@ still kept in Modelica.SIunits.</p>
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="1/s")}));
-    algorithm
-      w := 2*Modelica.Constants.pi*f;
     end from_Hz;
 
     function to_Hz "Convert from rad/s to Hz"
       extends Modelica.SIunits.Conversions.ConversionIcon;
       input Modelica.SIunits.AngularVelocity w "angular velocity";
       output Modelica.SIunits.Frequency f "frequency";
+    algorithm
+      f := w/(2*Modelica.Constants.pi);
       annotation (Icon(graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
@@ -918,9 +763,44 @@ still kept in Modelica.SIunits.</p>
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="Hz")}));
-    algorithm
-      f := w/(2*Modelica.Constants.pi);
     end to_Hz;
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true,
+                     extent={{-100,-100},{100,100}}), graphics={
+          Text(
+            extent={{-33,-7},{-92,-67}},
+            lineColor={0,0,0},
+            lineThickness=1,
+            textString="°C"),
+          Text(
+            extent={{82,-7},{22,-67}},
+            lineColor={0,0,0},
+            textString="K"),
+          Line(points={{-26,-36},{6,-36}}, color={0,0,0}),
+          Polygon(
+            points={{6,-28},{6,-45},{26,-37},{6,-28}},
+            pattern=LinePattern.None,
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255})}),
+                              Documentation(info="<HTML>
+<p>This package provides conversion functions from the non SI Units
+defined in package Modelica.SIunits.Conversions.NonSIunits to the
+corresponding SI Units defined in package Modelica.SIunits and vice
+versa. It is recommended to use these functions in the following
+way (note, that all functions have one Real input and one Real output
+argument):</p>
+<pre>
+  <b>import</b> SI = Modelica.SIunits;
+  <b>import</b> Modelica.SIunits.Conversions.*;
+     ...
+  <b>parameter</b> SI.Temperature     T   = from_degC(25);   // convert 25 degree Celsius to Kelvin
+  <b>parameter</b> SI.Angle           phi = from_deg(180);   // convert 180 degree to radian
+  <b>parameter</b> SI.AngularVelocity w   = from_rpm(3600);  // convert 3600 revolutions per minutes
+                                                      // to radian per seconds
+</pre>
+
+</HTML>
+"));
   end Conversions;
 
   // Space and Time (chapter 1 of ISO 31-1992)
@@ -1757,4 +1637,124 @@ still kept in Modelica.SIunits.</p>
           final unit="1");
   type FluxiodQuantum = Real (final quantity="FluxiodQuantum", final unit="Wb");
 
+  annotation (
+    Invisible=true,
+    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+            100}}), graphics={Text(
+          extent={{-63,-13},{45,-67}},
+          lineColor={0,0,0},
+          textString="[kg.m2]")}),
+    Documentation(info="<html>
+<p>This package provides predefined types, such as <i>Mass</i>,
+<i>Angle</i>, <i>Time</i>, based on the international standard
+on units, e.g.,
+</p>
+
+<pre>   <b>type</b> Angle = Real(<b>final</b> quantity = \"Angle\",
+                     <b>final</b> unit     = \"rad\",
+                     displayUnit    = \"deg\");
+</pre>
+
+<p>
+as well as conversion functions from non SI-units to SI-units
+and vice versa in subpackage
+<a href=\"Modelica://Modelica.SIunits.Conversions\">Conversions</a>.
+</p>
+
+<p>
+For an introduction how units are used in the Modelica standard library
+with package SIunits, have a look at:
+<a href=\"Modelica://Modelica.SIunits.UsersGuide.HowToUseSIunits\">How to use SIunits</a>.
+</p>
+
+<p>
+Copyright &copy; 1998-2009, Modelica Association and DLR.
+</p>
+<p>
+<i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the accompanying <b>disclaimer</b>
+<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
+</p>
+
+</html>", revisions="<html>
+<ul>
+<li><i>Dec. 14, 2005</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+       Add User's Guide and removed \"min\" values for Resistance and Conductance.</li>
+<li><i>October 21, 2002</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
+       and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
+       Added new package <b>Conversions</b>. Corrected typo <i>Wavelenght</i>.</li>
+<li><i>June 6, 2000</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+       Introduced the following new types<br>
+       type Temperature = ThermodynamicTemperature;<br>
+       types DerDensityByEnthalpy, DerDensityByPressure,
+       DerDensityByTemperature, DerEnthalpyByPressure,
+       DerEnergyByDensity, DerEnergyByPressure<br>
+       Attribute \"final\" removed from min and max values
+       in order that these values can still be changed to narrow
+       the allowed range of values.<br>
+       Quantity=\"Stress\" removed from type \"Stress\", in order
+       that a type \"Stress\" can be connected to a type \"Pressure\".</li>
+<li><i>Oct. 27, 1999</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+       New types due to electrical library: Transconductance, InversePotential,
+       Damping.</li>
+<li><i>Sept. 18, 1999</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+       Renamed from SIunit to SIunits. Subpackages expanded, i.e., the
+       SIunits package, does no longer contain subpackages.</li>
+<li><i>Aug 12, 1999</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+       Type \"Pressure\" renamed to \"AbsolutePressure\" and introduced a new
+       type \"Pressure\" which does not contain a minimum of zero in order
+       to allow convenient handling of relative pressure. Redefined
+       BulkModulus as an alias to AbsolutePressure instead of Stress, since
+       needed in hydraulics.</li>
+<li><i>June 29, 1999</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+       Bug-fix: Double definition of \"Compressibility\" removed
+       and appropriate \"extends Heat\" clause introduced in
+       package SolidStatePhysics to incorporate ThermodynamicTemperature.</li>
+<li><i>April 8, 1998</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
+       and Astrid Jaschinski:<br>
+       Complete ISO 31 chapters realized.</li>
+<li><i>Nov. 15, 1997</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
+       and <a href=\"http://www.control.lth.se/~hubertus/\">Hubertus Tummescheit</a>:<br>
+       Some chapters realized.</li>
+</ul>
+</html>"),
+    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+            100}}), graphics={
+        Rectangle(
+          extent={{169,86},{349,236}},
+          fillColor={235,235,235},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
+        Polygon(
+          points={{169,236},{189,256},{369,256},{349,236},{169,236}},
+          fillColor={235,235,235},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
+        Polygon(
+          points={{369,256},{369,106},{349,86},{349,236},{369,256}},
+          fillColor={235,235,235},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
+        Text(
+          extent={{179,226},{339,196}},
+          lineColor={160,160,164},
+          textString="Library"),
+        Text(
+          extent={{206,173},{314,119}},
+          lineColor={0,0,0},
+          textString="[kg.m2]"),
+        Text(
+          extent={{163,320},{406,264}},
+          lineColor={255,0,0},
+          textString="Modelica.SIunits")}));
 end SIunits;

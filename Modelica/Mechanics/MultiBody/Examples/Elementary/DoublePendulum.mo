@@ -3,28 +3,6 @@ model DoublePendulum
   "Simple double pendulum with two revolute joints and two bodies"
 
   extends Modelica.Icons.Example;
-  annotation (
-    experiment(StopTime=3),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics),
-    Documentation(info="<html>
-<p>
-This example demonstrates that by using joint and body
-elements animation is automatically available. Also the revolute
-joints are animated. Note, that animation of every component
-can be switched of by setting the first parameter <b>animation</b>
-to <b>false</b> or by setting <b>enableAnimation</b> in the <b>world</b>
-object to <b>false</b> to switch off animation of all components.
-</p>
-
-<table border=0 cellspacing=0 cellpadding=0><tr><td valign=\"top\">
-<IMG SRC=\"../Images/MultiBody/Examples/Elementary/DoublePendulum.png\"
-ALT=\"model Examples.Elementary.DoublePendulum\">
-</td></tr></table>
-
-</HTML>"));
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
         transformation(extent={{-88,0},{-68,20}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Joints.Revolute revolute1(useAxisFlange=true,phi(fixed=true),
@@ -66,4 +44,26 @@ equation
       points={{-68,10},{-48,10}},
       color={95,95,95},
       thickness=0.5));
+  annotation (
+    experiment(StopTime=3),
+    Diagram(coordinateSystem(
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
+        grid={2,2}), graphics),
+    Documentation(info="<html>
+<p>
+This example demonstrates that by using joint and body
+elements animation is automatically available. Also the revolute
+joints are animated. Note, that animation of every component
+can be switched of by setting the first parameter <b>animation</b>
+to <b>false</b> or by setting <b>enableAnimation</b> in the <b>world</b>
+object to <b>false</b> to switch off animation of all components.
+</p>
+
+<table border=0 cellspacing=0 cellpadding=0><tr><td valign=\"top\">
+<IMG SRC=\"../Images/MultiBody/Examples/Elementary/DoublePendulum.png\"
+ALT=\"model Examples.Elementary.DoublePendulum\">
+</td></tr></table>
+
+</HTML>"));
 end DoublePendulum;

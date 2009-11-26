@@ -4,19 +4,17 @@ model TestMultiPortTraceSubstances
   import Modelica.Fluid;
   extends Modelica.Icons.Example;
   package Medium=Modelica.Media.Air.MoistAir(extraPropertiesNames={"CO2"});
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-            -100},{100,100}}), graphics));
   Modelica.Fluid.Sources.Boundary_pT source2(
     redeclare package Medium = Medium,
     X=Medium.X_default,
     nPorts=3,
     p=100000,
-    T=278.15) 
+    T=278.15)
     annotation (Placement(transformation(
         origin={90,-20},
         extent={{-10,-10},{10,10}},
         rotation=180)));
-  inner Modelica.Fluid.System system 
+  inner Modelica.Fluid.System system
     annotation (Placement(transformation(extent={{-100,80},{-80,100}}, rotation=
            0)));
   Modelica.Fluid.Sources.Boundary_pT source1(
@@ -26,21 +24,21 @@ model TestMultiPortTraceSubstances
     use_C_in=true,
     use_X_in=true,
     nPorts=3,
-    p=500000) 
+    p=500000)
     annotation (Placement(transformation(extent={{-68,-28},{-48,-8}},  rotation=
            0)));
   Modelica.Blocks.Sources.Ramp P(
     duration=1,
     height=-40,
-    offset=1E5 + 20) 
+    offset=1E5 + 20)
                 annotation (Placement(transformation(extent={{-100,24},{-80,44}},
           rotation=0)));
   Modelica.Blocks.Sources.Ramp C(duration=1, height=1.519E-3)
-    "substance concentration, raising to 1000 PPM CO2" 
+    "substance concentration, raising to 1000 PPM CO2"
     annotation (Placement(transformation(extent={{-100,-60},{-80,-40}})));
-  Modelica.Blocks.Sources.Constant X(k=0.02) 
+  Modelica.Blocks.Sources.Constant X(k=0.02)
     annotation (Placement(transformation(extent={{-100,-8},{-80,12}})));
-  Modelica.Blocks.Sources.RealExpression X2(y=1 - X.y) "Concentration of X[2]" 
+  Modelica.Blocks.Sources.RealExpression X2(y=1 - X.y) "Concentration of X[2]"
     annotation (Placement(transformation(extent={{-100,-32},{-80,-12}})));
   Modelica.Fluid.Vessels.ClosedVolume volume1(
     redeclare package Medium = Medium,
@@ -59,16 +57,16 @@ model TestMultiPortTraceSubstances
     V=1,
     nPorts=3,
     C_start={1E-4},
-    use_portsData=false) 
+    use_portsData=false)
     annotation (Placement(transformation(extent={{12,-80},{32,-60}})));
   Modelica.Fluid.Sensors.TraceSubstances traceSubstance1(      redeclare
-      package Medium = Medium) 
+      package Medium = Medium)
     annotation (Placement(transformation(extent={{36,24},{56,44}})));
   Modelica.Fluid.Sensors.TraceSubstances traceSubstance2(      redeclare
-      package Medium = Medium) 
+      package Medium = Medium)
     annotation (Placement(transformation(extent={{34,-16},{54,4}})));
   Modelica.Fluid.Sensors.TraceSubstances traceSubstance3(      redeclare
-      package Medium = Medium) 
+      package Medium = Medium)
     annotation (Placement(transformation(extent={{36,-76},{56,-56}})));
   Modelica.Fluid.Pipes.StaticPipe pipe1(
     diameter=0.1,
@@ -84,11 +82,11 @@ model TestMultiPortTraceSubstances
     length=1,
     nParallel=1) annotation (Placement(transformation(extent={{52,-90},{72,-70}})));
   Modelica.Fluid.Fittings.MultiPort multiPort(
-                                       nPorts_b=2, redeclare package Medium = 
+                                       nPorts_b=2, redeclare package Medium =
         Medium)                             annotation (Placement(
         transformation(extent={{-36,-10},{-28,10}},rotation=0)));
   Modelica.Fluid.Sensors.TraceSubstances traceSubstance(redeclare package
-      Medium =         Medium) 
+      Medium =         Medium)
     annotation (Placement(transformation(extent={{-54,18},{-34,38}})));
   Modelica.Fluid.Pipes.StaticPipe pipe4(
     diameter=0.1,
@@ -187,4 +185,6 @@ equation
       points={{4,-80},{19.3333,-80}},
       color={0,127,255},
       smooth=Smooth.None));
+  annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
+            -100},{100,100}}), graphics));
 end TestMultiPortTraceSubstances;

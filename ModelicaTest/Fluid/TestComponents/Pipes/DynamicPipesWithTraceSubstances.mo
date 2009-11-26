@@ -14,22 +14,15 @@ extends Modelica.Icons.Example;
     length=2,
     modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b,
     use_HeatTransfer=true,
-    redeclare model HeatTransfer = 
+    redeclare model HeatTransfer =
         Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.ConstantFlowHeatTransfer
         (alpha0=500),
     p_a_start=100000,
     p_b_start=100000,
-    T_start=280) 
+    T_start=280)
             annotation (Placement(transformation(extent={{-30,68},{-10,88}},
           rotation=0)));
 
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-            -100},{100,100}}), graphics),
-                       experiment(StopTime=20, Tolerance=1e-005),
-    experimentSetupOutput,
-    Documentation(info="<html>
-Test of different dynamic pipe models with trace substances.
-</html>"));
   Modelica.Fluid.Sources.Boundary_pT boundary2(nPorts=1,
     redeclare package Medium = Medium,
     use_p_in=true,
@@ -48,7 +41,7 @@ Test of different dynamic pipe models with trace substances.
     p_b_start=100000,
     T_start=340,
     modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b,
-    p_a_start=100000) 
+    p_a_start=100000)
             annotation (Placement(transformation(extent={{20,54},{40,74}},
           rotation=0)));
 
@@ -62,7 +55,7 @@ Test of different dynamic pipe models with trace substances.
     p_b_start=1.0e5,
     length=0.4,
     modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b,
-    p_a_start=100000) 
+    p_a_start=100000)
             annotation (Placement(transformation(extent={{-82,54},{-62,74}},
           rotation=0)));
 
@@ -72,15 +65,11 @@ Test of different dynamic pipe models with trace substances.
     p=1.5e5)                                                        annotation (Placement(
         transformation(extent={{-108,54},{-88,74}}, rotation=0)));
 
-    annotation (extent=[-90,-86; -70,-66]);
-                                     annotation (points=[-22,42; -2,42; -2,32;
-        7.8,32],
-      style(color=69, rgbcolor={0,127,255}));
   Modelica.Blocks.Sources.Ramp ramp(
     offset=1e5,
     startTime=5,
     duration=0,
-    height=1.0e5) 
+    height=1.0e5)
                 annotation (Placement(transformation(extent={{90,64},{78,76}},
           rotation=0)));
 
@@ -94,11 +83,11 @@ Test of different dynamic pipe models with trace substances.
     p_b_start=100000,
     T_start=360,
     modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b,
-    p_a_start=100000) 
+    p_a_start=100000)
             annotation (Placement(transformation(extent={{-30,38},{-10,58}},
           rotation=0)));
 
-  inner Modelica.Fluid.System system 
+  inner Modelica.Fluid.System system
     annotation (Placement(transformation(extent={{72,-94},{92,-74}}, rotation=0)));
   Modelica.Fluid.Fittings.TeeJunctionVolume junction1(
     redeclare package Medium = Medium,
@@ -118,7 +107,7 @@ Test of different dynamic pipe models with trace substances.
   Modelica.Thermal.HeatTransfer.Sources.FixedHeatFlow[
                                               pipe2.n] heat(each Q_flow=200,
       each alpha=10000,
-      each T_ref=350) 
+      each T_ref=350)
     annotation (Placement(transformation(extent={{-54,80},{-34,100}}, rotation=
             0)));
  Modelica.Fluid.Pipes.DynamicPipe pipe5(
@@ -132,9 +121,9 @@ Test of different dynamic pipe models with trace substances.
     p_a_start=100000,
     p_b_start=100000,
     T_start=280,
-    redeclare model HeatTransfer = 
+    redeclare model HeatTransfer =
         Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.ConstantFlowHeatTransfer
-        (alpha0=500)) 
+        (alpha0=500))
             annotation (Placement(transformation(extent={{-30,10},{-10,30}},
           rotation=0)));
 
@@ -156,7 +145,7 @@ Test of different dynamic pipe models with trace substances.
     p_b_start=100000,
     T_start=340,
     modelStructure=Modelica.Fluid.Types.ModelStructure.av_b,
-    p_a_start=100000) 
+    p_a_start=100000)
             annotation (Placement(transformation(extent={{14,-2},{34,18}},
           rotation=0)));
   Modelica.Fluid.Pipes.DynamicPipe pipe7(
@@ -168,7 +157,7 @@ Test of different dynamic pipe models with trace substances.
     m_flow_start=0.1,
     p_b_start=1.0e5,
     length=0.4,
-    p_a_start=100000) 
+    p_a_start=100000)
             annotation (Placement(transformation(extent={{-74,-2},{-54,18}},
           rotation=0)));
   Modelica.Fluid.Sources.Boundary_pT boundary3(nPorts=1,
@@ -180,7 +169,7 @@ Test of different dynamic pipe models with trace substances.
     offset=1e5,
     startTime=5,
     duration=0,
-    height=1.0e5) 
+    height=1.0e5)
                 annotation (Placement(transformation(extent={{96,8},{84,20}},
           rotation=0)));
   Modelica.Fluid.Pipes.DynamicPipe pipe8(
@@ -192,41 +181,41 @@ Test of different dynamic pipe models with trace substances.
     nNodes=5,
     m_flow_start=0.1,
     p_b_start=1.0e5,
-    p_a_start=100000) 
+    p_a_start=100000)
             annotation (Placement(transformation(extent={{-30,-12},{-10,8}},
           rotation=0)));
   Modelica.Thermal.HeatTransfer.Sources.FixedHeatFlow[
                                               pipe2.n] heat1(each Q_flow=200,
       each alpha=10000,
-      each T_ref=350) 
+      each T_ref=350)
     annotation (Placement(transformation(extent={{-72,22},{-52,42}}, rotation=0)));
   Modelica.Fluid.Sensors.TraceSubstances traceSubstance3(redeclare package
-      Medium =         Medium) 
+      Medium =         Medium)
     annotation (Placement(transformation(extent={{-98,22},{-78,42}})));
   Modelica.Fluid.Sensors.TraceSubstances traceSubstance1(redeclare package
-      Medium =         Medium) 
+      Medium =         Medium)
     annotation (Placement(transformation(extent={{-90,80},{-70,100}})));
   Modelica.Fluid.Sensors.TraceSubstances traceSubstance2(redeclare package
-      Medium =         Medium) 
+      Medium =         Medium)
     annotation (Placement(transformation(extent={{32,80},{52,100}})));
   Modelica.Fluid.Sensors.TraceSubstances traceSubstance4(redeclare package
-      Medium =         Medium) 
+      Medium =         Medium)
     annotation (Placement(transformation(extent={{2,22},{22,42}})));
-  Modelica.Fluid.Fittings.MultiPort multiPort(redeclare package Medium = 
-        Medium, nPorts_b=2) 
+  Modelica.Fluid.Fittings.MultiPort multiPort(redeclare package Medium =
+        Medium, nPorts_b=2)
     annotation (Placement(transformation(extent={{-46,-2},{-38,18}})));
 equation
-  connect(boundary1.ports[1], pipe1.port_a) 
+  connect(boundary1.ports[1], pipe1.port_a)
                                         annotation (Line(
       points={{-88,64},{-82,64}},
       color={0,127,255},
       thickness=0.5));
-  connect(pipe3.port_b, boundary2.ports[1]) 
+  connect(pipe3.port_b, boundary2.ports[1])
                                         annotation (Line(
       points={{40,64},{50,64}},
       color={0,127,255},
       thickness=0.5));
-  connect(heat.port, pipe2.heatPorts) 
+  connect(heat.port, pipe2.heatPorts)
                                      annotation (Line(
       points={{-34,90},{-19.9,90},{-19.9,83.2}},
       color={191,0,0},
@@ -235,7 +224,7 @@ equation
       points={{83.4,14},{76.7,14},{76.7,16},{70,16}},
       color={0,0,127},
       thickness=0.5));
-  connect(boundary3.ports[1], pipe7.port_a) 
+  connect(boundary3.ports[1], pipe7.port_a)
                                         annotation (Line(
       points={{-88,8},{-74,8}},
       color={0,127,255},
@@ -248,12 +237,12 @@ equation
       points={{-10,-2},{2,-2},{2,8},{14,8}},
       color={0,127,255},
       thickness=0.5));
-  connect(pipe6.port_b, boundary4.ports[1]) 
+  connect(pipe6.port_b, boundary4.ports[1])
                                         annotation (Line(
       points={{34,8},{48,8}},
       color={0,127,255},
       thickness=0.5));
-  connect(heat1.port, pipe5.heatPorts) 
+  connect(heat1.port, pipe5.heatPorts)
                                       annotation (Line(
       points={{-52,32},{-19.9,32},{-19.9,25.2}},
       color={191,0,0},
@@ -320,4 +309,13 @@ equation
       points={{-38,6},{-38,8},{-32,8},{-32,-2},{-30,-2}},
       color={0,127,255},
       smooth=Smooth.None));
+  annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
+            -100},{100,100}}), graphics),
+                       experiment(StopTime=20, Tolerance=1e-005),
+    experimentSetupOutput,
+    Documentation(info="<html>
+Test of different dynamic pipe models with trace substances.
+</html>"),      extent=[-90,-86; -70,-66],       points=[-22,42; -2,42; -2,32;
+        7.8,32],
+      style(color=69, rgbcolor={0,127,255}));
 end DynamicPipesWithTraceSubstances;

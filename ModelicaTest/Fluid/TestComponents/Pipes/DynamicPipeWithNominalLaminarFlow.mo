@@ -4,8 +4,6 @@ within ModelicaTest.Fluid.TestComponents.Pipes;
 model DynamicPipeWithNominalLaminarFlow
   "Test NominalLaminarFlow model subject to varying nNodes and nParallel"
   extends Modelica.Icons.Example;
-  annotation (Diagram(coordinateSystem(
-          preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics));
   Modelica.Fluid.Pipes.DynamicPipe pipeN10(
     nParallel=1,
     length=100,
@@ -14,17 +12,17 @@ model DynamicPipeWithNominalLaminarFlow
     h_start=3000e3,
     m_flow_start=1,
     diameter=0.3,
-    redeclare model FlowModel = 
+    redeclare model FlowModel =
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.NominalLaminarFlow (
           dp_nominal=100000, m_flow_nominal=1),
     nNodes=10,
     p_a_start=200000,
-    p_b_start=100000) 
+    p_b_start=100000)
     annotation (Placement(transformation(extent={{-10,30},{10,50}})));
   inner Modelica.Fluid.System system(
     energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial,
     massDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial,
-    momentumDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial) 
+    momentumDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial)
     annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
   Modelica.Fluid.Sources.MassFlowSource_h boundary(
     nPorts=1,
@@ -43,18 +41,18 @@ model DynamicPipeWithNominalLaminarFlow
     h_start=3000e3,
     m_flow_start=1,
     diameter=0.3,
-    redeclare model FlowModel = 
+    redeclare model FlowModel =
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.NominalLaminarFlow (
           dp_nominal=100000, m_flow_nominal=1),
     p_a_start=200000,
     p_b_start=100000,
-    nNodes=20) 
+    nNodes=20)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
   Modelica.Fluid.Sources.MassFlowSource_h boundary2(
     nPorts=1,
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     m_flow=1,
-    h=3000e3) 
+    h=3000e3)
     annotation (Placement(transformation(extent={{-70,-10},{-50,10}})));
   Modelica.Fluid.Sources.FixedBoundary boundary3(
     nPorts=1,
@@ -69,17 +67,17 @@ model DynamicPipeWithNominalLaminarFlow
     diameter=0.3,
     nNodes=10,
     nParallel=10,
-    redeclare model FlowModel = 
+    redeclare model FlowModel =
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.NominalLaminarFlow (
           dp_nominal=100000, m_flow_nominal=10),
     p_a_start=200000,
-    p_b_start=100000) 
+    p_b_start=100000)
     annotation (Placement(transformation(extent={{-10,-50},{10,-30}})));
   Modelica.Fluid.Sources.MassFlowSource_h boundary4(
     nPorts=1,
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     h=3000e3,
-    m_flow=10) 
+    m_flow=10)
     annotation (Placement(transformation(extent={{-70,-50},{-50,-30}})));
   Modelica.Fluid.Sources.FixedBoundary boundary5(
     nPorts=1,
@@ -112,4 +110,6 @@ equation
       points={{10,-40},{50,-40}},
       color={0,127,255},
       smooth=Smooth.None));
+  annotation (Diagram(coordinateSystem(
+          preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics));
 end DynamicPipeWithNominalLaminarFlow;

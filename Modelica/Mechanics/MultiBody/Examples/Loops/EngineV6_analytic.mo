@@ -44,6 +44,19 @@ model EngineV6_analytic
           rotation=0)));
 equation
 
+  connect(world.frame_b, engine.frame_a)
+    annotation (Line(
+      points={{-60,-10},{-20,-10},{-20,-0.2}},
+      color={95,95,95},
+      thickness=0.5));
+  connect(load2.flange, load.flange_b)
+    annotation (Line(points={{70,20},{60,20}}, color={0,0,0}));
+  connect(torqueSensor.flange_a, engine.flange_b)
+    annotation (Line(points={{12,20},{2,20}}, color={0,0,0}));
+  connect(torqueSensor.flange_b, load.flange_a)
+    annotation (Line(points={{32,20},{40,20}}, color={0,0,0}));
+  connect(torqueSensor.tau, filter.u) annotation (Line(points={{14,9},{14,-10},
+          {28,-10}}, color={0,0,127}));
   annotation (
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -75,17 +88,4 @@ a size of about 50 Mbyte (for 5000 output intervalls).
 </p>
 </HTML>
 "));
-  connect(world.frame_b, engine.frame_a)
-    annotation (Line(
-      points={{-60,-10},{-20,-10},{-20,-0.2}},
-      color={95,95,95},
-      thickness=0.5));
-  connect(load2.flange, load.flange_b)
-    annotation (Line(points={{70,20},{60,20}}, color={0,0,0}));
-  connect(torqueSensor.flange_a, engine.flange_b)
-    annotation (Line(points={{12,20},{2,20}}, color={0,0,0}));
-  connect(torqueSensor.flange_b, load.flange_a)
-    annotation (Line(points={{32,20},{40,20}}, color={0,0,0}));
-  connect(torqueSensor.tau, filter.u) annotation (Line(points={{14,9},{14,-10},
-          {28,-10}}, color={0,0,127}));
 end EngineV6_analytic;

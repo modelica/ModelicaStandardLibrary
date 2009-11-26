@@ -3,33 +3,6 @@ model ForceAndTorque "Demonstrate usage of ForceAndTorque element"
   extends Modelica.Icons.Example;
   inner World world(animateGravity=false) annotation (Placement(transformation(
           extent={{-90,30},{-70,50}}, rotation=0)));
-  annotation (
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics),
-    Documentation(info="<HTML>
-In this example the usage of the general force element
-\"<a href=\"Modelica://Modelica.Mechanics.MultiBody.Forces.ForceAndTorque\">ForceAndTorque</a>\"
-is shown. A \"ForceAndTorque\" element is connected
-between a body and a fixed point in the world system. The force and torque
-is defined by the \"Constant\" block. The two vectors are resolved in the
-coordinate system defined by the \"fixedRotation\" component that is
-fixed in the world system:
-</p>
-<p>
-The animation view at time = 0 is shown in the figure below.
-The yellow line is directed from frame_a to frame_b of the
-forceAndTorque component. The green arrow characterizes the
-force acting at the body whereas the green double arrow characterizes
-the torque acting at the body. The lengths of the two vectors
-are proportional to the lengths of the force and torque vectors
-(constant scaling factors are defined as parameters in the
-forceAndTorque component):
-</p>
-<IMG SRC=\"../Images/MultiBody/Examples/Elementary/ForceAndTorque.png\">
-</HTML>
-"));
   Parts.BodyCylinder body(r={1,0,0}) annotation (Placement(transformation(
           extent={{0,30},{20,50}}, rotation=0)));
   Parts.Fixed fixed1(r={0,-0.5,0}, width=0.03)
@@ -102,4 +75,31 @@ equation
       points={{40,1},{40,10},{50,10},{50,28}},
       color={0,0,127},
       smooth=Smooth.None));
+  annotation (
+    Diagram(coordinateSystem(
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
+        grid={1,1}), graphics),
+    Documentation(info="<HTML>
+In this example the usage of the general force element
+\"<a href=\"Modelica://Modelica.Mechanics.MultiBody.Forces.ForceAndTorque\">ForceAndTorque</a>\"
+is shown. A \"ForceAndTorque\" element is connected
+between a body and a fixed point in the world system. The force and torque
+is defined by the \"Constant\" block. The two vectors are resolved in the
+coordinate system defined by the \"fixedRotation\" component that is
+fixed in the world system:
+</p>
+<p>
+The animation view at time = 0 is shown in the figure below.
+The yellow line is directed from frame_a to frame_b of the
+forceAndTorque component. The green arrow characterizes the
+force acting at the body whereas the green double arrow characterizes
+the torque acting at the body. The lengths of the two vectors
+are proportional to the lengths of the force and torque vectors
+(constant scaling factors are defined as parameters in the
+forceAndTorque component):
+</p>
+<IMG SRC=\"../Images/MultiBody/Examples/Elementary/ForceAndTorque.png\">
+</HTML>
+"));
 end ForceAndTorque;

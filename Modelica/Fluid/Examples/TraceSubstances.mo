@@ -179,6 +179,39 @@ concentration of the fresh air.
         points={{-40,-34},{-30,-34},{-30,-2}},
         color={0,127,255},
         smooth=Smooth.None));
+    connect(NumberOfPeople.y[1], gain.u) annotation (Line(
+        points={{-79,-80},{-70,-80}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(gain.y, peopleSource.m_flow_in) annotation (Line(
+        points={{-47,-80},{-38,-80}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(peopleSource.ports[1], volume.ports[3]) annotation (Line(
+        points={{-18,-88},{-8,-88},{-8,-22},{-7.33333,-22}},
+        color={0,127,255},
+        smooth=Smooth.None));
+    connect(traceVolume.C, gainSensor.u)     annotation (Line(
+        points={{21,8},{38,8}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(CO2Set.y, PID.u_s) annotation (Line(
+        points={{-59,50},{-42,50}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(gainSensor.y, PID.u_m)
+                              annotation (Line(
+        points={{61,8},{70,8},{70,30},{-30,30},{-30,38}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(PID.y, gain1.u) annotation (Line(
+        points={{-19,50},{-2,50}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(gain1.y, freshAir.m_flow_in)  annotation (Line(
+        points={{21,50},{30,50},{30,70},{-88,70},{-88,-24},{-60,-24}},
+        color={0,0,127},
+        smooth=Smooth.None));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics),
@@ -219,38 +252,5 @@ and hence its contribution to the volume's energy balance is negligible.
 <img src=\"../Images/Fluid/Examples/RoomCO2WithControls.png\" border=\"1\">
 </p>
 </html>"));
-    connect(NumberOfPeople.y[1], gain.u) annotation (Line(
-        points={{-79,-80},{-70,-80}},
-        color={0,0,127},
-        smooth=Smooth.None));
-    connect(gain.y, peopleSource.m_flow_in) annotation (Line(
-        points={{-47,-80},{-38,-80}},
-        color={0,0,127},
-        smooth=Smooth.None));
-    connect(peopleSource.ports[1], volume.ports[3]) annotation (Line(
-        points={{-18,-88},{-8,-88},{-8,-22},{-7.33333,-22}},
-        color={0,127,255},
-        smooth=Smooth.None));
-    connect(traceVolume.C, gainSensor.u)     annotation (Line(
-        points={{21,8},{38,8}},
-        color={0,0,127},
-        smooth=Smooth.None));
-    connect(CO2Set.y, PID.u_s) annotation (Line(
-        points={{-59,50},{-42,50}},
-        color={0,0,127},
-        smooth=Smooth.None));
-    connect(gainSensor.y, PID.u_m)
-                              annotation (Line(
-        points={{61,8},{70,8},{70,30},{-30,30},{-30,38}},
-        color={0,0,127},
-        smooth=Smooth.None));
-    connect(PID.y, gain1.u) annotation (Line(
-        points={{-19,50},{-2,50}},
-        color={0,0,127},
-        smooth=Smooth.None));
-    connect(gain1.y, freshAir.m_flow_in)  annotation (Line(
-        points={{21,50},{30,50},{30,70},{-88,70},{-88,-24},{-60,-24}},
-        color={0,0,127},
-        smooth=Smooth.None));
   end RoomCO2WithControls;
 end TraceSubstances;

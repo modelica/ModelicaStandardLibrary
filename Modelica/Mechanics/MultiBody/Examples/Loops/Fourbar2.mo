@@ -9,51 +9,6 @@ model Fourbar2
   output SI.Position j2_s "distance of prismatic joint j2";
   output SI.AngularVelocity j1_w "axis speed of revolute joint j1";
   output SI.Velocity j2_v "axis velocity of prismatic joint j2";
-  annotation (
-    experiment(StopTime=5),
-    Documentation(info="<html>
-<p>
-This is a second version of the \"four-bar\" mechanism, see figure:
-</p>
-<p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Loops/Fourbar2.png\" ALT=\"model Examples.Loops.Fourbar2\">
-</p>
-<p>
-In this case
-the three revolute joints on the left top-side and the two revolute
-joints on the right top side have been replaced by the joint <b>UniversalSpherical</b>
-that is a rod connecting a spherical and a universal joint. This joint is defined
-by <b>1 constraint</b> stating that the distance between the two spherical joints is
-constant. Using this joint in a kinematic loop reduces the sizes of
-non-linear algebraic equations. For this loop, only one non-linear
-algebraic system of equations of order 1 remains.
-</p>
-<p>
-At the UniversalSpherical joint an additional frame_ia fixed to the rod
-is present where components can be attached to the connecting rod. In this
-example just a coordinate system is attached to visualize frame_ia (coordinate
-system on the right in blue color).
-</p>
-<p>
-Another feature is that the length of the connecting rod can be
-automatically calculated during <b>initialization</b>. In order to do this,
-another initialization condition has to be given. In this example, the
-initial value of the distance of the prismatic joint j2 has been fixed
-(via the \"Initialization\" menu) and the rod length of joint
-\"UniversalSpherical\" is computed during initialization since parameter
-<b>computeLength</b> = <b>true</b> is set in the joint parameter
-menu. The main advantage is that during initialization no non-linear
-system of equation is solved and therefore initialization always works.
-To be precise, the following trivial non-linear equation is actually solved
-for rodLength:
-</p>
-<pre>
-   rodLength*rodLength = f(angle of revolute joint, distance of prismatic joint)
-</pre>
-</html>"),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-            100,100}}),
-            graphics));
 
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
         transformation(extent={{-80,-80},{-60,-60}}, rotation=0)));
@@ -134,4 +89,49 @@ equation
       points={{-6,60},{-6,49},{-6,49},{-6,38}},
       color={95,95,95},
       thickness=0.5));
+  annotation (
+    experiment(StopTime=5),
+    Documentation(info="<html>
+<p>
+This is a second version of the \"four-bar\" mechanism, see figure:
+</p>
+<p align=\"center\">
+<IMG SRC=\"../Images/MultiBody/Examples/Loops/Fourbar2.png\" ALT=\"model Examples.Loops.Fourbar2\">
+</p>
+<p>
+In this case
+the three revolute joints on the left top-side and the two revolute
+joints on the right top side have been replaced by the joint <b>UniversalSpherical</b>
+that is a rod connecting a spherical and a universal joint. This joint is defined
+by <b>1 constraint</b> stating that the distance between the two spherical joints is
+constant. Using this joint in a kinematic loop reduces the sizes of
+non-linear algebraic equations. For this loop, only one non-linear
+algebraic system of equations of order 1 remains.
+</p>
+<p>
+At the UniversalSpherical joint an additional frame_ia fixed to the rod
+is present where components can be attached to the connecting rod. In this
+example just a coordinate system is attached to visualize frame_ia (coordinate
+system on the right in blue color).
+</p>
+<p>
+Another feature is that the length of the connecting rod can be
+automatically calculated during <b>initialization</b>. In order to do this,
+another initialization condition has to be given. In this example, the
+initial value of the distance of the prismatic joint j2 has been fixed
+(via the \"Initialization\" menu) and the rod length of joint
+\"UniversalSpherical\" is computed during initialization since parameter
+<b>computeLength</b> = <b>true</b> is set in the joint parameter
+menu. The main advantage is that during initialization no non-linear
+system of equation is solved and therefore initialization always works.
+To be precise, the following trivial non-linear equation is actually solved
+for rodLength:
+</p>
+<pre>
+   rodLength*rodLength = f(angle of revolute joint, distance of prismatic joint)
+</pre>
+</html>"),
+    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+            100,100}}),
+            graphics));
 end Fourbar2;

@@ -2,54 +2,6 @@ within ;
 package ObsoleteModelica3
   "Library that contains components from Modelica Standard Library 2.2.2 that have been removed from version 3.0"
 
-  annotation (uses(Modelica(version="3.1")),
-Documentation(info="<html>
-<p>
-This package contains models and blocks from the Modelica Standard Library
-version 2.2.2 that are no longer available in version 3.0.
-The conversion script for version 3.0 changes references in existing
-user models automatically to the models and blocks of package
-ObsoleteModelica3. The user should <b>manually</b> replace all
-references to ObsoleteModelica3 in his/her models to the models
-that are recommended in the documentation of the respective model.
-</p>
-
-<p>
-In most cases, this means that a model with the name
-\"ObsoleteModelica3.XXX\" should be renamed to \"Modelica.XXX\" (version 3.0)
-and then a manual adaptation is needed. For example, a reference to
-ObsoleteModelica3.Mechanics.MultiBody.Sensors.AbsoluteSensor
-should be replaced by
-Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor (version 3.0).
-Since the design of the component has changed (e.g., several
-optional connectors, and no longer one connector where all signals
-are packed together), this requires some changes at the place where
-the model is used (besides the renaming of the underlying class).
-</p>
-
-<p>
-The models in ObsoleteModelica3 are either not according to the Modelica Language
-version 3.0 and higher, or the model was changed to get a better design.
-In all cases, an automatic conversion to the new implementation
-was not feasible, since too complicated.
-</p>
-
-<p>
-In order to easily detect obsolete models and blocks, all of them are specially
-marked in the icon layer with a red box.
-</p>
-
-<p>
-Copyright &copy; 2007-2009, Modelica Association.
-</p>
-<p>
-<i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b>
-<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
-</p>
-
-</html>"));
 
   package Blocks
     "Library of basic input/output control blocks (continuous, discrete, logical, table blocks)"
@@ -89,6 +41,16 @@ Connector with one signal of type Icon (no icon, no input/output prefix).
         RealPort oldReal(final n=1) "Connector of Modelica version 1.6" annotation (Placement(
                 transformation(extent={{-120,-10},{-100,10}}, rotation=0)));
 
+
+        protected
+        connector RealPort "Connector with signals of type Real"
+          parameter Integer n=1 "Dimension of signal vector" annotation (Hide=true);
+          replaceable type SignalType = Real "type of signal";
+          SignalType signal[n] "Real signals" annotation (Hide=true);
+
+        end RealPort;
+      equation
+        newReal = oldReal.signal[1];
         annotation(structurallyIncomplete,
           __Dymola_obsolete="Model is not balanced, so equation check will not work. This model is no longer needed",
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
@@ -118,16 +80,6 @@ This block is only provided for backward compatibility.
 </p>
 </html>
 "));
-
-        protected
-        connector RealPort "Connector with signals of type Real"
-          parameter Integer n=1 "Dimension of signal vector" annotation (Hide=true);
-          replaceable type SignalType = Real "type of signal";
-          SignalType signal[n] "Real signals" annotation (Hide=true);
-
-        end RealPort;
-      equation
-        newReal = oldReal.signal[1];
       end AdaptorReal;
 
       model AdaptorBoolean
@@ -140,6 +92,18 @@ This block is only provided for backward compatibility.
         BooleanPort oldBoolean(final n=1) "Connector of Modelica version 1.6" annotation (Placement(
                 transformation(extent={{-120,-10},{-100,10}}, rotation=0)));
 
+
+        protected
+        connector BooleanPort "Connector with signals of type Boolean"
+          parameter Integer n=1 "Dimension of signal vector" annotation (Hide=true);
+          replaceable type SignalType = Boolean "type of signal";
+          SignalType signal[n] "Boolean signals" annotation (Hide=true);
+
+        end BooleanPort;
+      equation
+
+        newBoolean = oldBoolean.signal[1];
+
         annotation(structurallyIncomplete,
           __Dymola_obsolete="Model is not balanced, so equation check will not work. This model is no longer needed",
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
@@ -169,18 +133,6 @@ This block is only provided for backward compatibility.
 </p>
 </html>
 "));
-
-        protected
-        connector BooleanPort "Connector with signals of type Boolean"
-          parameter Integer n=1 "Dimension of signal vector" annotation (Hide=true);
-          replaceable type SignalType = Boolean "type of signal";
-          SignalType signal[n] "Boolean signals" annotation (Hide=true);
-
-        end BooleanPort;
-      equation
-
-        newBoolean = oldBoolean.signal[1];
-
       end AdaptorBoolean;
 
       model AdaptorInteger
@@ -192,6 +144,18 @@ This block is only provided for backward compatibility.
                 transformation(extent={{100,-10},{120,10}}, rotation=0)));
         IntegerPort oldInteger(final n=1) "Connector of Modelica version 1.6"  annotation (Placement(
                 transformation(extent={{-120,-10},{-100,10}}, rotation=0)));
+
+
+        protected
+        connector IntegerPort "Connector with signals of type Integer"
+          parameter Integer n=1 "Dimension of signal vector" annotation (Hide=true);
+          replaceable type SignalType = Integer "type of signal";
+          SignalType signal[n] "Integer signals" annotation (Hide=true);
+
+        end IntegerPort;
+      equation
+
+        newInteger = oldInteger.signal[1];
 
         annotation(structurallyIncomplete,
           __Dymola_obsolete="Model is not balanced, so equation check will not work. This model is no longer needed",
@@ -222,18 +186,6 @@ This block is only provided for backward compatibility.
 </p>
 </html>
 "));
-
-        protected
-        connector IntegerPort "Connector with signals of type Integer"
-          parameter Integer n=1 "Dimension of signal vector" annotation (Hide=true);
-          replaceable type SignalType = Integer "type of signal";
-          SignalType signal[n] "Integer signals" annotation (Hide=true);
-
-        end IntegerPort;
-      equation
-
-        newInteger = oldInteger.signal[1];
-
       end AdaptorInteger;
       end Adaptors;
     end Interfaces;
@@ -292,6 +244,20 @@ The desired conversion can be selected in the parameter menu
         "Obsolete block. Use instead Modelica.Blocks.Math.InverseBlockConstraints"
         extends Modelica.Blocks.Interfaces.BlockIcon;
         extends ObsoleteModelica3.Icons.ObsoleteBlock;
+            Modelica.Blocks.Interfaces.RealInput u1
+          "Connector of first Real input signal"
+              annotation (                                       layer="icon",
+            Placement(transformation(extent={{-139.742,-19.0044},{-100,20}},
+                rotation=0)));
+            Modelica.Blocks.Interfaces.RealInput u2
+          "Connector of second Real input signal (u1=u2)"
+                                           annotation (
+              layer="icon", Placement(transformation(
+              origin={120,0},
+              extent={{-20,-20},{20,20}},
+              rotation=180)));
+      equation
+            u1 = u2;
             annotation(structurallyIncomplete,
               __Dymola_obsolete="Model is not balanced, i.e., not according to Modelica Language 3.0. Use instead Modelica.Blocks.Math.InverseBlockConstraints",
               Window(
@@ -313,26 +279,25 @@ defined as outputs (e.g. useful for inverse model generation).
                 extent={{-95,50},{95,-50}},
                 lineColor={0,0,127},
                 textString="=")}));
-            Modelica.Blocks.Interfaces.RealInput u1
-          "Connector of first Real input signal"
-              annotation (                                       layer="icon",
-            Placement(transformation(extent={{-139.742,-19.0044},{-100,20}},
-                rotation=0)));
-            Modelica.Blocks.Interfaces.RealInput u2
-          "Connector of second Real input signal (u1=u2)"
-                                           annotation (
-              layer="icon", Placement(transformation(
-              origin={120,0},
-              extent={{-20,-20},{20,20}},
-              rotation=180)));
-      equation
-            u1 = u2;
       end TwoInputs;
 
           block TwoOutputs
         "Obsolete block. Use instead Modelica.Blocks.Math.InverseBlockConstraints"
             extends Modelica.Blocks.Interfaces.BlockIcon;
             extends ObsoleteModelica3.Icons.ObsoleteBlock;
+            output Modelica.Blocks.Interfaces.RealOutput y1
+          "Connector of first Real output signal"
+              annotation (Placement(transformation(extent={{100,-10},{120,10}},
+                rotation=0)));
+            output Modelica.Blocks.Interfaces.RealOutput y2
+          "Connector of second Real output signal (y1=y2)"
+                                                   annotation (Placement(
+              transformation(
+              origin={-110.366,-0.90289},
+              extent={{-10.0005,-10},{10.0005,10}},
+              rotation=180)));
+          equation
+            y1 = y2;
             annotation(structurallyIncomplete,
               __Dymola_obsolete="Model is not balanced, i.e., not according to Modelica Language 3.0. Use instead Modelica.Blocks.Math.InverseBlockConstraints",
               Window(
@@ -355,19 +320,6 @@ This block is used to enable calculation of values preliminary defined as inputs
                 extent={{-95,50},{95,-50}},
                 lineColor={0,0,127},
                 textString="=")}));
-            output Modelica.Blocks.Interfaces.RealOutput y1
-          "Connector of first Real output signal"
-              annotation (Placement(transformation(extent={{100,-10},{120,10}},
-                rotation=0)));
-            output Modelica.Blocks.Interfaces.RealOutput y2
-          "Connector of second Real output signal (y1=y2)"
-                                                   annotation (Placement(
-              transformation(
-              origin={-110.366,-0.90289},
-              extent={{-10.0005,-10},{10.0005,10}},
-              rotation=180)));
-          equation
-            y1 = y2;
           end TwoOutputs;
     end Math;
 
@@ -393,6 +345,24 @@ This block is used to enable calculation of values preliminary defined as inputs
           Modelica.SIunits.Resistance R
             "Resistance = R_ref*(1 + alpha*(heatPort.T - T_ref));";
 
+          Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort annotation (Placement(
+                transformation(
+                origin={0,-100},
+                extent={{10,-10},{-10,10}},
+                rotation=270)));
+        equation
+          v = R*i;
+
+          if cardinality(heatPort) > 0 then
+            R = R_ref*(1 + alpha*(heatPort.T - T_ref));
+            heatPort.Q_flow = -v*i;
+          else
+            /* heatPort is not connected resulting in the
+         implicit equation 'heatPort.Q_flow = 0'
+      */
+            R = R_ref;
+            heatPort.T = T_ref;
+          end if;
           annotation (
             __Dymola_obsolete="Model equations depend on cardinality(..) which will become obsolete in the Modelica language. Use instead Modelica.Electrical.Analog.Basic.HeatingResistor",
             Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
@@ -475,24 +445,6 @@ connectors are set to zero.</p>
        </li>
 </ul>
 </html>"));
-          Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort annotation (Placement(
-                transformation(
-                origin={0,-100},
-                extent={{10,-10},{-10,10}},
-                rotation=270)));
-        equation
-          v = R*i;
-
-          if cardinality(heatPort) > 0 then
-            R = R_ref*(1 + alpha*(heatPort.T - T_ref));
-            heatPort.Q_flow = -v*i;
-          else
-            /* heatPort is not connected resulting in the
-         implicit equation 'heatPort.Q_flow = 0'
-      */
-            R = R_ref;
-            heatPort.T = T_ref;
-          end if;
         end HeatingResistor;
       end Basic;
     end Analog;
@@ -515,8 +467,6 @@ for an obsolete block</u> that will be removed from the
 corresponding library in a future release.
 <p>
 </html>"));
-    equation
-
     end ObsoleteBlock;
 
     partial model ObsoleteModel
@@ -535,8 +485,6 @@ for an obsolete model</u> that will be removed from the
 corresponding library in a future release.
 <p>
 </html>"));
-    equation
-
     end ObsoleteModel;
 
     partial class Enumeration
@@ -602,6 +550,35 @@ This icon is designed for an <b>enumeration</b>
             "Reflection of ambient light (= 0: light is completely absorbed)"
             annotation (Dialog(group="if animation = true", enable=animation));
 
+
+
+        protected
+          SI.Position f_in_m[3]=frame_b.f/N_to_m
+            "Force mapped from N to m for animation";
+          SI.Position t_in_m[3]=frame_b.t/Nm_to_m
+            "Torque mapped from Nm to m for animation";
+          Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow forceArrow(
+            diameter=forceDiameter,
+            color=forceColor,
+            specularCoefficient=specularCoefficient,
+            R=frame_b.R,
+            r=frame_b.r_0,
+            r_tail=f_in_m,
+            r_head=-f_in_m) if world.enableAnimation and animation;
+          Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow
+            torqueArrow(
+            diameter=torqueDiameter,
+            color=torqueColor,
+            specularCoefficient=specularCoefficient,
+            R=frame_b.R,
+            r=frame_b.r_0,
+            r_tail=t_in_m,
+            r_head=-t_in_m) if world.enableAnimation and animation;
+        equation
+          frame_b.f = -Modelica.Mechanics.MultiBody.Frames.resolve2(frame_b.R, load[1
+            :3]);
+          frame_b.t = -Modelica.Mechanics.MultiBody.Frames.resolve2(frame_b.R, load[4
+            :6]);
           annotation (
             __Dymola_obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque",
             preferedView="info",
@@ -688,10 +665,7 @@ This leads to the following animation
 <IMG SRC=\"../Images/MultiBody/Forces/WorldForceAndTorque2.png\">
 </p>
 </HTML>
-"));
-
-          annotation (
-            Coordsys(
+"),         Coordsys(
               extent=[-100, -100; 100, 100],
               grid=[1, 1],
               component=[20, 20]),
@@ -717,34 +691,6 @@ is resolved in the world frame).
                   gradient=0,
                   fillColor=0,
                   fillPattern=1))));
-
-        protected
-          SI.Position f_in_m[3]=frame_b.f/N_to_m
-            "Force mapped from N to m for animation";
-          SI.Position t_in_m[3]=frame_b.t/Nm_to_m
-            "Torque mapped from Nm to m for animation";
-          Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow forceArrow(
-            diameter=forceDiameter,
-            color=forceColor,
-            specularCoefficient=specularCoefficient,
-            R=frame_b.R,
-            r=frame_b.r_0,
-            r_tail=f_in_m,
-            r_head=-f_in_m) if world.enableAnimation and animation;
-          Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow
-            torqueArrow(
-            diameter=torqueDiameter,
-            color=torqueColor,
-            specularCoefficient=specularCoefficient,
-            R=frame_b.R,
-            r=frame_b.r_0,
-            r_tail=t_in_m,
-            r_head=-t_in_m) if world.enableAnimation and animation;
-        equation
-          frame_b.f = -Modelica.Mechanics.MultiBody.Frames.resolve2(frame_b.R, load[1
-            :3]);
-          frame_b.t = -Modelica.Mechanics.MultiBody.Frames.resolve2(frame_b.R, load[4
-            :6]);
         end WorldForceAndTorque;
 
         model FrameForceAndTorque
@@ -783,6 +729,47 @@ is resolved in the world frame).
           input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
             "Reflection of ambient light (= 0: light is completely absorbed)"
             annotation (Dialog(group="if animation = true", enable=animation));
+
+        protected
+          SI.Position f_in_m[3]=frame_b.f/N_to_m
+            "Force mapped from N to m for animation";
+          SI.Position t_in_m[3]=frame_b.t/Nm_to_m
+            "Torque mapped from Nm to m for animation";
+          Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow forceArrow(
+            diameter=forceDiameter,
+            color=forceColor,
+            specularCoefficient=specularCoefficient,
+            R=frame_b.R,
+            r=frame_b.r_0,
+            r_tail=f_in_m,
+            r_head=-f_in_m) if world.enableAnimation and animation;
+          Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow
+            torqueArrow(
+            diameter=torqueDiameter,
+            color=torqueColor,
+            specularCoefficient=specularCoefficient,
+            R=frame_b.R,
+            r=frame_b.r_0,
+            r_tail=t_in_m,
+            r_head=-t_in_m) if world.enableAnimation and animation;
+        equation
+          if cardinality(frame_resolve) == 0 then
+            frame_b.f = -load[1:3];
+            frame_b.t = -load[4:6];
+            frame_resolve.r_0 = zeros(3);
+            frame_resolve.R = Modelica.Mechanics.MultiBody.Frames.nullRotation();
+          else
+            frame_b.f = -Modelica.Mechanics.MultiBody.Frames.resolveRelative(
+                load[1:3],
+                frame_resolve.R,
+                frame_b.R);
+            frame_b.t = -Modelica.Mechanics.MultiBody.Frames.resolveRelative(
+                load[4:6],
+                frame_resolve.R,
+                frame_b.R);
+            frame_resolve.f = zeros(3);
+            frame_resolve.t = zeros(3);
+          end if;
           annotation (
             __Dymola_obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Forces.ForceAndTorque",
             preferedView="info",
@@ -879,9 +866,7 @@ This leads to the following animation
 <IMG SRC=\"../Images/MultiBody/Forces/FrameForceAndTorque2.png\">
 </p>
 </HTML>
-"));
-          annotation (
-            Coordsys(
+"),         Coordsys(
               extent=[-100, -100; 100, 100],
               grid=[1, 1],
               component=[20, 20]),
@@ -907,47 +892,6 @@ is resolved in the world frame).
                   gradient=0,
                   fillColor=0,
                   fillPattern=1))));
-
-        protected
-          SI.Position f_in_m[3]=frame_b.f/N_to_m
-            "Force mapped from N to m for animation";
-          SI.Position t_in_m[3]=frame_b.t/Nm_to_m
-            "Torque mapped from Nm to m for animation";
-          Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow forceArrow(
-            diameter=forceDiameter,
-            color=forceColor,
-            specularCoefficient=specularCoefficient,
-            R=frame_b.R,
-            r=frame_b.r_0,
-            r_tail=f_in_m,
-            r_head=-f_in_m) if world.enableAnimation and animation;
-          Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow
-            torqueArrow(
-            diameter=torqueDiameter,
-            color=torqueColor,
-            specularCoefficient=specularCoefficient,
-            R=frame_b.R,
-            r=frame_b.r_0,
-            r_tail=t_in_m,
-            r_head=-t_in_m) if world.enableAnimation and animation;
-        equation
-          if cardinality(frame_resolve) == 0 then
-            frame_b.f = -load[1:3];
-            frame_b.t = -load[4:6];
-            frame_resolve.r_0 = zeros(3);
-            frame_resolve.R = Modelica.Mechanics.MultiBody.Frames.nullRotation();
-          else
-            frame_b.f = -Modelica.Mechanics.MultiBody.Frames.resolveRelative(
-                load[1:3],
-                frame_resolve.R,
-                frame_b.R);
-            frame_b.t = -Modelica.Mechanics.MultiBody.Frames.resolveRelative(
-                load[4:6],
-                frame_resolve.R,
-                frame_b.R);
-            frame_resolve.f = zeros(3);
-            frame_resolve.t = zeros(3);
-          end if;
         end FrameForceAndTorque;
 
         model ForceAndTorque
@@ -1000,6 +944,65 @@ is resolved in the world frame).
           SI.Force f_b_0[3] "frame_b.f resoved in world frame";
           SI.Torque t_b_0[3] "frame_b.t resoved in world frame";
 
+
+        protected
+          SI.Position f_in_m[3]=frame_b.f/N_to_m
+            "Force mapped from N to m for animation";
+          SI.Position t_in_m[3]=frame_b.t/Nm_to_m
+            "Torque mapped from Nm to m for animation";
+          Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow forceArrow(
+            diameter=forceDiameter,
+            color=forceColor,
+            specularCoefficient=specularCoefficient,
+            R=frame_b.R,
+            r=frame_b.r_0,
+            r_tail=f_in_m,
+            r_head=-f_in_m) if world.enableAnimation and animation;
+          Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow
+            torqueArrow(
+            diameter=torqueDiameter,
+            color=torqueColor,
+            specularCoefficient=specularCoefficient,
+            R=frame_b.R,
+            r=frame_b.r_0,
+            r_tail=t_in_m,
+            r_head=-t_in_m) if world.enableAnimation and animation;
+          Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape
+            connectionLine(
+            shapeType="cylinder",
+            lengthDirection=r_0,
+            widthDirection={0,1,0},
+            length=Modelica.Math.Vectors.length(              r_0),
+            width=connectionLineDiameter,
+            height=connectionLineDiameter,
+            color=connectionLineColor,
+            specularCoefficient=specularCoefficient,
+            r=frame_a.r_0) if world.enableAnimation and animation;
+        equation
+          if cardinality(frame_resolve) == 0 then
+            frame_b.f = -load[1:3];
+            frame_b.t = -load[4:6];
+            f_b_0 = Modelica.Mechanics.MultiBody.Frames.resolve1(frame_b.R, frame_b.f);
+            t_b_0 = Modelica.Mechanics.MultiBody.Frames.resolve1(frame_b.R, frame_b.t);
+            frame_resolve.r_0 = zeros(3);
+            frame_resolve.R = Modelica.Mechanics.MultiBody.Frames.nullRotation();
+          else
+            f_b_0 = -Modelica.Mechanics.MultiBody.Frames.resolve1(frame_resolve.R,
+              load[1:3]);
+            t_b_0 = -Modelica.Mechanics.MultiBody.Frames.resolve1(frame_resolve.R,
+              load[4:6]);
+            frame_b.f = Modelica.Mechanics.MultiBody.Frames.resolve2(frame_b.R, f_b_0);
+            frame_b.t = Modelica.Mechanics.MultiBody.Frames.resolve2(frame_b.R, t_b_0);
+            frame_resolve.f = zeros(3);
+            frame_resolve.t = zeros(3);
+          end if;
+
+          // Force and torque balance
+          r_0 = frame_b.r_0 - frame_a.r_0;
+          zeros(3) = frame_a.f + Modelica.Mechanics.MultiBody.Frames.resolve2(frame_a.R,
+            f_b_0);
+          zeros(3) = frame_a.t + Modelica.Mechanics.MultiBody.Frames.resolve2(frame_a.R,
+            t_b_0 + cross(r_0, f_b_0));
           annotation (
             __Dymola_obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Forces.ForceAndTorque",
             preferedView="info",
@@ -1095,9 +1098,7 @@ clarity this is not shown in the animation):
 <IMG SRC=\"../Images/MultiBody/Forces/ForceAndTorque2.png\">
 </p>
 </HTML>
-"));
-          annotation (
-            Coordsys(
+"),         Coordsys(
               extent=[-100, -100; 100, 100],
               grid=[1, 1],
               component=[20, 20]),
@@ -1123,65 +1124,6 @@ is resolved in the world frame).
                   gradient=0,
                   fillColor=0,
                   fillPattern=1))));
-
-        protected
-          SI.Position f_in_m[3]=frame_b.f/N_to_m
-            "Force mapped from N to m for animation";
-          SI.Position t_in_m[3]=frame_b.t/Nm_to_m
-            "Torque mapped from Nm to m for animation";
-          Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow forceArrow(
-            diameter=forceDiameter,
-            color=forceColor,
-            specularCoefficient=specularCoefficient,
-            R=frame_b.R,
-            r=frame_b.r_0,
-            r_tail=f_in_m,
-            r_head=-f_in_m) if world.enableAnimation and animation;
-          Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow
-            torqueArrow(
-            diameter=torqueDiameter,
-            color=torqueColor,
-            specularCoefficient=specularCoefficient,
-            R=frame_b.R,
-            r=frame_b.r_0,
-            r_tail=t_in_m,
-            r_head=-t_in_m) if world.enableAnimation and animation;
-          Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape
-            connectionLine(
-            shapeType="cylinder",
-            lengthDirection=r_0,
-            widthDirection={0,1,0},
-            length=Modelica.Math.Vectors.length(              r_0),
-            width=connectionLineDiameter,
-            height=connectionLineDiameter,
-            color=connectionLineColor,
-            specularCoefficient=specularCoefficient,
-            r=frame_a.r_0) if world.enableAnimation and animation;
-        equation
-          if cardinality(frame_resolve) == 0 then
-            frame_b.f = -load[1:3];
-            frame_b.t = -load[4:6];
-            f_b_0 = Modelica.Mechanics.MultiBody.Frames.resolve1(frame_b.R, frame_b.f);
-            t_b_0 = Modelica.Mechanics.MultiBody.Frames.resolve1(frame_b.R, frame_b.t);
-            frame_resolve.r_0 = zeros(3);
-            frame_resolve.R = Modelica.Mechanics.MultiBody.Frames.nullRotation();
-          else
-            f_b_0 = -Modelica.Mechanics.MultiBody.Frames.resolve1(frame_resolve.R,
-              load[1:3]);
-            t_b_0 = -Modelica.Mechanics.MultiBody.Frames.resolve1(frame_resolve.R,
-              load[4:6]);
-            frame_b.f = Modelica.Mechanics.MultiBody.Frames.resolve2(frame_b.R, f_b_0);
-            frame_b.t = Modelica.Mechanics.MultiBody.Frames.resolve2(frame_b.R, t_b_0);
-            frame_resolve.f = zeros(3);
-            frame_resolve.t = zeros(3);
-          end if;
-
-          // Force and torque balance
-          r_0 = frame_b.r_0 - frame_a.r_0;
-          zeros(3) = frame_a.f + Modelica.Mechanics.MultiBody.Frames.resolve2(frame_a.R,
-            f_b_0);
-          zeros(3) = frame_a.t + Modelica.Mechanics.MultiBody.Frames.resolve2(frame_a.R,
-            t_b_0 + cross(r_0, f_b_0));
         end ForceAndTorque;
       end Forces;
 
@@ -1205,6 +1147,34 @@ is resolved in the world frame).
                 extent={{-16,-16},{16,16}},
                 rotation=270)));
 
+
+        protected
+          outer Modelica.Mechanics.MultiBody.World world;
+        equation
+          defineBranch(frame_a.R, frame_b.R);
+          assert(cardinality(frame_a) > 0,
+            "Connector frame_a of cut-force/-torque sensor object is not connected");
+          assert(cardinality(frame_b) > 0,
+            "Connector frame_b of cut-force/-torque sensor object is not connected");
+
+          // frame_a and frame_b are identical
+          frame_a.r_0 = frame_b.r_0;
+          frame_a.R = frame_b.R;
+
+          // force and torque balance
+          zeros(3) = frame_a.f + frame_b.f;
+          zeros(3) = frame_a.t + frame_b.t;
+
+          // deduce cut-force
+          if cardinality(frame_resolve) == 1 then
+            // frame_resolve is connected
+            frame_resolve.f = zeros(3);
+            frame_resolve.t = zeros(3);
+          else
+            // frame_resolve is NOT connected
+            frame_resolve.r_0 = zeros(3);
+            frame_resolve.R = Modelica.Mechanics.MultiBody.Frames.nullRotation();
+          end if;
           annotation (
             Window(
               x=0.37,
@@ -1260,34 +1230,6 @@ with the blocks of package Modelica.Blocks.
                   points={{80,0},{80,-100}},
                   color={95,95,95},
                   pattern=LinePattern.Dot)}));
-
-        protected
-          outer Modelica.Mechanics.MultiBody.World world;
-        equation
-          defineBranch(frame_a.R, frame_b.R);
-          assert(cardinality(frame_a) > 0,
-            "Connector frame_a of cut-force/-torque sensor object is not connected");
-          assert(cardinality(frame_b) > 0,
-            "Connector frame_b of cut-force/-torque sensor object is not connected");
-
-          // frame_a and frame_b are identical
-          frame_a.r_0 = frame_b.r_0;
-          frame_a.R = frame_b.R;
-
-          // force and torque balance
-          zeros(3) = frame_a.f + frame_b.f;
-          zeros(3) = frame_a.t + frame_b.t;
-
-          // deduce cut-force
-          if cardinality(frame_resolve) == 1 then
-            // frame_resolve is connected
-            frame_resolve.f = zeros(3);
-            frame_resolve.t = zeros(3);
-          else
-            // frame_resolve is NOT connected
-            frame_resolve.r_0 = zeros(3);
-            frame_resolve.R = Modelica.Mechanics.MultiBody.Frames.nullRotation();
-          end if;
         end PartialCutForceSensor;
       end Interfaces;
 
@@ -1357,120 +1299,6 @@ with the blocks of package Modelica.Blocks.
               "= phi + from_deg(phi_offset) (relative rotation angle between frame_a and frame_b)";
             SI.Torque tau "= axis.tau (driving torque in the axis)";
 
-            annotation (
-              structurallyIncomplete,
-              preferedView="info",
-              __Dymola_obsolete="Obsolete model that is not balanced. Use instead Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint",
-              Window(
-                x=0.05,
-                y=0.09,
-                width=0.65,
-                height=0.69),
-              Icon(coordinateSystem(
-                  preserveAspectRatio=false,
-                  extent={{-100,-100},{100,100}},
-                  grid={1,1}), graphics={
-                  Rectangle(
-                    extent={{-30,10},{10,-10}},
-                    lineColor={0,0,0},
-                    fillColor={192,192,192},
-                    fillPattern=FillPattern.Solid),
-                  Rectangle(
-                    extent={{-100,-60},{-30,60}},
-                    lineColor={0,0,0},
-                    fillPattern=FillPattern.HorizontalCylinder,
-                    fillColor={192,192,192}),
-                  Rectangle(
-                    extent={{30,-60},{100,60}},
-                    lineColor={0,0,0},
-                    fillPattern=FillPattern.HorizontalCylinder,
-                    fillColor={192,192,192}),
-                  Text(extent={{-139,-168},{137,-111}}, textString="%name"),
-                  Rectangle(extent={{-100,60},{-30,-60}}, lineColor={0,0,0}),
-                  Rectangle(extent={{30,60},{100,-60}}, lineColor={0,0,0}),
-                  Text(
-                    extent={{-142,-108},{147,-69}},
-                    lineColor={0,0,0},
-                    textString="n=%n"),
-                  Line(points={{-60,60},{-60,90}}, color={0,0,0}),
-                  Line(points={{-20,70},{-60,70}}, color={0,0,0}),
-                  Line(points={{-20,80},{-20,60}}, color={0,0,0}),
-                  Line(points={{20,80},{20,60}}, color={0,0,0}),
-                  Line(points={{20,70},{41,70}}, color={0,0,0}),
-                  Polygon(
-                    points={{-9,30},{10,30},{30,50},{-29,50},{-9,30}},
-                    lineColor={0,0,0},
-                    fillColor={192,192,192},
-                    fillPattern=FillPattern.Solid),
-                  Polygon(
-                    points={{10,30},{30,50},{30,-51},{10,-31},{10,30}},
-                    lineColor={0,0,0},
-                    fillColor={192,192,192},
-                    fillPattern=FillPattern.Solid),
-                  Rectangle(
-                    extent={{-10,90},{10,50}},
-                    lineColor={0,0,0},
-                    fillPattern=FillPattern.VerticalCylinder,
-                    fillColor={192,192,192})}),
-              Diagram(coordinateSystem(
-                  preserveAspectRatio=false,
-                  extent={{-100,-100},{100,100}},
-                  grid={1,1}), graphics={
-                  Rectangle(
-                    extent={{-100,-60},{-30,60}},
-                    lineColor={0,0,0},
-                    fillPattern=FillPattern.HorizontalCylinder,
-                    fillColor={192,192,192}),
-                  Rectangle(
-                    extent={{-30,10},{10,-10}},
-                    lineColor={0,0,0},
-                    fillColor={192,192,192},
-                    fillPattern=FillPattern.Solid),
-                  Rectangle(
-                    extent={{30,-60},{100,60}},
-                    lineColor={0,0,0},
-                    fillPattern=FillPattern.HorizontalCylinder,
-                    fillColor={192,192,192}),
-                  Line(points={{-60,60},{-60,96}}, color={0,0,0}),
-                  Line(points={{-20,70},{-60,70}}, color={0,0,0}),
-                  Line(points={{-20,80},{-20,60}}, color={0,0,0}),
-                  Line(points={{20,80},{20,60}}, color={0,0,0}),
-                  Line(points={{20,70},{41,70}}, color={0,0,0}),
-                  Polygon(
-                    points={{-9,30},{10,30},{30,50},{-29,50},{-9,30}},
-                    lineColor={0,0,0},
-                    fillColor={192,192,192},
-                    fillPattern=FillPattern.Solid),
-                  Polygon(
-                    points={{10,30},{30,50},{30,-51},{10,-31},{10,30}},
-                    lineColor={0,0,0},
-                    fillColor={192,192,192},
-                    fillPattern=FillPattern.Solid),
-                  Rectangle(
-                    extent={{-10,50},{10,100}},
-                    lineColor={0,0,0},
-                    fillPattern=FillPattern.VerticalCylinder,
-                    fillColor={192,192,192})}),
-              Documentation(info="<HTML>
-<p>
-Joint where frame_b rotates around axis n which is fixed in frame_a.
-The two frames coincide when \"phi + phi_offset = 0\", where
-\"phi_offset\" is a parameter with a zero default
-and \"phi\" is the rotation angle.
-</p>
-<p>
-This variant of the revolute joint is designed to work together
-with a length constraint in a kinematic loop. This means that the
-angle of the revolute joint, phi, is computed such that the
-length constraint is fulfilled.
-</p>
-<p>
-<b>Usually, this joint should not be used by a user of the MultiBody
-library. It is only provided to built-up the Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXYZ
-joints.</b>
-</p>
-</HTML>
-"));
 
           protected
             SI.Position r_a[3]=position_a
@@ -1665,6 +1493,120 @@ position a degree of freedom is lost.
             ksin_angle = -B*C + (if positiveBranch then -A else A)*k2;
 
             angle = Modelica.Math.atan2(ksin_angle, kcos_angle);
+            annotation (
+              structurallyIncomplete,
+              preferedView="info",
+              __Dymola_obsolete="Obsolete model that is not balanced. Use instead Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint",
+              Window(
+                x=0.05,
+                y=0.09,
+                width=0.65,
+                height=0.69),
+              Icon(coordinateSystem(
+                  preserveAspectRatio=false,
+                  extent={{-100,-100},{100,100}},
+                  grid={1,1}), graphics={
+                  Rectangle(
+                    extent={{-30,10},{10,-10}},
+                    lineColor={0,0,0},
+                    fillColor={192,192,192},
+                    fillPattern=FillPattern.Solid),
+                  Rectangle(
+                    extent={{-100,-60},{-30,60}},
+                    lineColor={0,0,0},
+                    fillPattern=FillPattern.HorizontalCylinder,
+                    fillColor={192,192,192}),
+                  Rectangle(
+                    extent={{30,-60},{100,60}},
+                    lineColor={0,0,0},
+                    fillPattern=FillPattern.HorizontalCylinder,
+                    fillColor={192,192,192}),
+                  Text(extent={{-139,-168},{137,-111}}, textString="%name"),
+                  Rectangle(extent={{-100,60},{-30,-60}}, lineColor={0,0,0}),
+                  Rectangle(extent={{30,60},{100,-60}}, lineColor={0,0,0}),
+                  Text(
+                    extent={{-142,-108},{147,-69}},
+                    lineColor={0,0,0},
+                    textString="n=%n"),
+                  Line(points={{-60,60},{-60,90}}, color={0,0,0}),
+                  Line(points={{-20,70},{-60,70}}, color={0,0,0}),
+                  Line(points={{-20,80},{-20,60}}, color={0,0,0}),
+                  Line(points={{20,80},{20,60}}, color={0,0,0}),
+                  Line(points={{20,70},{41,70}}, color={0,0,0}),
+                  Polygon(
+                    points={{-9,30},{10,30},{30,50},{-29,50},{-9,30}},
+                    lineColor={0,0,0},
+                    fillColor={192,192,192},
+                    fillPattern=FillPattern.Solid),
+                  Polygon(
+                    points={{10,30},{30,50},{30,-51},{10,-31},{10,30}},
+                    lineColor={0,0,0},
+                    fillColor={192,192,192},
+                    fillPattern=FillPattern.Solid),
+                  Rectangle(
+                    extent={{-10,90},{10,50}},
+                    lineColor={0,0,0},
+                    fillPattern=FillPattern.VerticalCylinder,
+                    fillColor={192,192,192})}),
+              Diagram(coordinateSystem(
+                  preserveAspectRatio=false,
+                  extent={{-100,-100},{100,100}},
+                  grid={1,1}), graphics={
+                  Rectangle(
+                    extent={{-100,-60},{-30,60}},
+                    lineColor={0,0,0},
+                    fillPattern=FillPattern.HorizontalCylinder,
+                    fillColor={192,192,192}),
+                  Rectangle(
+                    extent={{-30,10},{10,-10}},
+                    lineColor={0,0,0},
+                    fillColor={192,192,192},
+                    fillPattern=FillPattern.Solid),
+                  Rectangle(
+                    extent={{30,-60},{100,60}},
+                    lineColor={0,0,0},
+                    fillPattern=FillPattern.HorizontalCylinder,
+                    fillColor={192,192,192}),
+                  Line(points={{-60,60},{-60,96}}, color={0,0,0}),
+                  Line(points={{-20,70},{-60,70}}, color={0,0,0}),
+                  Line(points={{-20,80},{-20,60}}, color={0,0,0}),
+                  Line(points={{20,80},{20,60}}, color={0,0,0}),
+                  Line(points={{20,70},{41,70}}, color={0,0,0}),
+                  Polygon(
+                    points={{-9,30},{10,30},{30,50},{-29,50},{-9,30}},
+                    lineColor={0,0,0},
+                    fillColor={192,192,192},
+                    fillPattern=FillPattern.Solid),
+                  Polygon(
+                    points={{10,30},{30,50},{30,-51},{10,-31},{10,30}},
+                    lineColor={0,0,0},
+                    fillColor={192,192,192},
+                    fillPattern=FillPattern.Solid),
+                  Rectangle(
+                    extent={{-10,50},{10,100}},
+                    lineColor={0,0,0},
+                    fillPattern=FillPattern.VerticalCylinder,
+                    fillColor={192,192,192})}),
+              Documentation(info="<HTML>
+<p>
+Joint where frame_b rotates around axis n which is fixed in frame_a.
+The two frames coincide when \"phi + phi_offset = 0\", where
+\"phi_offset\" is a parameter with a zero default
+and \"phi\" is the rotation angle.
+</p>
+<p>
+This variant of the revolute joint is designed to work together
+with a length constraint in a kinematic loop. This means that the
+angle of the revolute joint, phi, is computed such that the
+length constraint is fulfilled.
+</p>
+<p>
+<b>Usually, this joint should not be used by a user of the MultiBody
+library. It is only provided to built-up the Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXYZ
+joints.</b>
+</p>
+</HTML>
+"));
           end RevoluteWithLengthConstraint;
 
           model PrismaticWithLengthConstraint
@@ -1733,6 +1675,139 @@ position a degree of freedom is lost.
               "Position vector from frame_a to frame_b resolved in frame_a";
             SI.Force f "= axis.f (driving force in the axis)";
 
+
+          protected
+            SI.Position r_a[3]=position_a
+              "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint";
+            SI.Position r_b[3]=position_b
+              "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint";
+            Modelica.SIunits.Position rbra[3] "= rb - ra";
+            Real B "Coefficient B of equation: s*s + B*s + C = 0";
+            Real C "Coefficient C of equation: s*s + B*s + C = 0";
+            Real k1 "Constant of quadratic equation solution";
+            Real k2 "Constant of quadratic equation solution";
+            Real k1a(start=1);
+            Real k1b;
+
+            Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape box(
+              shapeType="box",
+              color=boxColor,
+              specularCoefficient=specularCoefficient,
+              length=if noEvent(abs(s + s_offset) > 1.e-6) then s + s_offset else 1.e-6,
+              width=boxWidth,
+              height=boxHeight,
+              lengthDirection=e,
+              widthDirection=boxWidthDirection,
+              r=frame_a.r_0,
+              R=frame_a.R) if world.enableAnimation and animation;
+
+            function selectBranch
+              "Determine branch which is closest to initial angle=0"
+              import Modelica.Math.*;
+              input SI.Length L "Length of length constraint";
+              input Real e[3](each final unit="1")
+                "Unit vector along axis of translation, resolved in frame_a (= same in frame_b)";
+              input SI.Position d_guess
+                "Select the configuration such that at initial time |d-d_guess|is minimal (d: distance between origin of frame_a and origin of frame_b)";
+              input SI.Position r_a[3]
+                "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of prismatic joint";
+              input SI.Position r_b[3]
+                "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of prismatic joint";
+              output Boolean positiveBranch "Branch of the initial solution";
+            protected
+              Modelica.SIunits.Position rbra[3] "= rb - ra";
+              Real B "Coefficient B of equation: d*d + B*d + C = 0";
+              Real C "Coefficient C of equation: d*d + B*d + C = 0";
+              Real k1 "Constant of quadratic equation solution";
+              Real k2 "Constant of quadratic equation solution";
+              Real d1 "solution 1 of quadratic equation";
+              Real d2 "solution 2 of quadratic equation";
+            algorithm
+              /* The position vector r_rel from frame_a to frame_b of the length constraint
+       element, resolved in frame_b of the prismatic joint (frame_a and frame_b
+       of the prismatic joint are parallel to each other) is given by:
+          r_rel = d*e + r_b - r_a
+       The length constraint can therefore be formulated as:
+          r_rel*r_rel = L*L
+       with
+          (d*e + r_b - r_a)*(d*e + r_b - r_a)
+                   = d*d + 2*d*e*(r_b - r_a) + (r_b - r_a)*(r_b - r_a)
+       follows
+          (1)  0 = d*d + d*2*e*(r_b - r_a) + (r_b - r_a)*(r_b - r_a) - L*L
+       The vectors r_a, r_b and parameter L are NOT a function of
+       the distance d of the prismatic joint. Therefore, (1) is a quadratic
+       equation in the single unknown "d":
+          (2) d*d + B*d + C = 0
+              with   B = 2*e*(r_b - r_a)
+                     C = (r_b - r_a)*(r_b - r_a) - L*L
+       The solution is
+          (3) d = - B/2 +/- sqrt(B*B/4 - C)
+    */
+              rbra := r_b - r_a;
+              B := 2*(e*rbra);
+              C := rbra*rbra - L*L;
+              k1 := B/2;
+              k2 := sqrt(k1*k1 - C);
+              d1 := -k1 + k2;
+              d2 := -k1 - k2;
+              if abs(d1 - d_guess) <= abs(d2 - d_guess) then
+                positiveBranch := true;
+              else
+                positiveBranch := false;
+              end if;
+            end selectBranch;
+          initial equation
+            positiveBranch = selectBranch(length, e, s_offset + s_guess, r_a, r_b);
+          equation
+            Connections.branch(frame_a.R, frame_b.R);
+            axis.f = f;
+            axis.s = s;
+            bearing.s = 0;
+            distance = s_offset + s;
+
+            // relationships of frame_a and frame_b quantities
+            r_rel_a = e*distance;
+            frame_b.r_0 = frame_a.r_0 + Modelica.Mechanics.MultiBody.Frames.resolve1(
+              frame_a.R, r_rel_a);
+            frame_b.R = frame_a.R;
+            zeros(3) = frame_a.f + frame_b.f;
+            zeros(3) = frame_a.t + frame_b.t + cross(r_rel_a, frame_b.f);
+
+            if axisForceBalance then
+              /* Note, if axisForceBalance is false, the force in the
+       length constraint must be calculated such that the driving
+       force in direction of the translation axis is:
+          axis.f = -e*frame_b.f;
+       If axisForceBalance=true, this equation is provided here.
+       As a consequence, the force in the length constraint will be
+       part of a linear algebraic system of equations (otherwise, it
+       might be possible to remove this force from the linear system).
+    */
+              f = -e*frame_b.f;
+            end if;
+
+            // Compute translational distance (details, see function "selectBranch")
+            rbra = r_b - r_a;
+            B = 2*(e*rbra);
+            C = rbra*rbra - length*length;
+            k1 = B/2;
+            k1a = k1*k1 - C;
+            assert(noEvent(k1a > 1.e-10), "
+Singular position of loop (either no or two analytic solutions;
+the mechanism has lost one-degree-of freedom in this position).
+Try first to use another Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXXX component.
+If this also lead to singular positions, it could be that this
+kinematic loop cannot be solved analytically with a fixed state
+selection. In this case you have to build up the loop with
+basic joints (NO aggregation JointXXX components) and rely on
+dynamic state selection, i.e., during simulation the states will
+be dynamically selected in such a way that in no position a
+degree of freedom is lost.
+");
+            k1b = Modelica.Mechanics.MultiBody.Frames.Internal.maxWithoutEvent(k1a,
+              1.0e-12);
+            k2 = sqrt(k1b);
+            distance = -k1 + (if positiveBranch then k2 else -k2);
             annotation (
               structurallyIncomplete,
               preferedView="info",
@@ -1887,139 +1962,6 @@ joints.</b>
 </p>
 </HTML>
 "));
-
-          protected
-            SI.Position r_a[3]=position_a
-              "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint";
-            SI.Position r_b[3]=position_b
-              "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint";
-            Modelica.SIunits.Position rbra[3] "= rb - ra";
-            Real B "Coefficient B of equation: s*s + B*s + C = 0";
-            Real C "Coefficient C of equation: s*s + B*s + C = 0";
-            Real k1 "Constant of quadratic equation solution";
-            Real k2 "Constant of quadratic equation solution";
-            Real k1a(start=1);
-            Real k1b;
-
-            Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape box(
-              shapeType="box",
-              color=boxColor,
-              specularCoefficient=specularCoefficient,
-              length=if noEvent(abs(s + s_offset) > 1.e-6) then s + s_offset else 1.e-6,
-              width=boxWidth,
-              height=boxHeight,
-              lengthDirection=e,
-              widthDirection=boxWidthDirection,
-              r=frame_a.r_0,
-              R=frame_a.R) if world.enableAnimation and animation;
-
-            function selectBranch
-              "Determine branch which is closest to initial angle=0"
-              import Modelica.Math.*;
-              input SI.Length L "Length of length constraint";
-              input Real e[3](each final unit="1")
-                "Unit vector along axis of translation, resolved in frame_a (= same in frame_b)";
-              input SI.Position d_guess
-                "Select the configuration such that at initial time |d-d_guess|is minimal (d: distance between origin of frame_a and origin of frame_b)";
-              input SI.Position r_a[3]
-                "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of prismatic joint";
-              input SI.Position r_b[3]
-                "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of prismatic joint";
-              output Boolean positiveBranch "Branch of the initial solution";
-            protected
-              Modelica.SIunits.Position rbra[3] "= rb - ra";
-              Real B "Coefficient B of equation: d*d + B*d + C = 0";
-              Real C "Coefficient C of equation: d*d + B*d + C = 0";
-              Real k1 "Constant of quadratic equation solution";
-              Real k2 "Constant of quadratic equation solution";
-              Real d1 "solution 1 of quadratic equation";
-              Real d2 "solution 2 of quadratic equation";
-            algorithm
-              /* The position vector r_rel from frame_a to frame_b of the length constraint
-       element, resolved in frame_b of the prismatic joint (frame_a and frame_b
-       of the prismatic joint are parallel to each other) is given by:
-          r_rel = d*e + r_b - r_a
-       The length constraint can therefore be formulated as:
-          r_rel*r_rel = L*L
-       with
-          (d*e + r_b - r_a)*(d*e + r_b - r_a)
-                   = d*d + 2*d*e*(r_b - r_a) + (r_b - r_a)*(r_b - r_a)
-       follows
-          (1)  0 = d*d + d*2*e*(r_b - r_a) + (r_b - r_a)*(r_b - r_a) - L*L
-       The vectors r_a, r_b and parameter L are NOT a function of
-       the distance d of the prismatic joint. Therefore, (1) is a quadratic
-       equation in the single unknown "d":
-          (2) d*d + B*d + C = 0
-              with   B = 2*e*(r_b - r_a)
-                     C = (r_b - r_a)*(r_b - r_a) - L*L
-       The solution is
-          (3) d = - B/2 +/- sqrt(B*B/4 - C)
-    */
-              rbra := r_b - r_a;
-              B := 2*(e*rbra);
-              C := rbra*rbra - L*L;
-              k1 := B/2;
-              k2 := sqrt(k1*k1 - C);
-              d1 := -k1 + k2;
-              d2 := -k1 - k2;
-              if abs(d1 - d_guess) <= abs(d2 - d_guess) then
-                positiveBranch := true;
-              else
-                positiveBranch := false;
-              end if;
-            end selectBranch;
-          initial equation
-            positiveBranch = selectBranch(length, e, s_offset + s_guess, r_a, r_b);
-          equation
-            Connections.branch(frame_a.R, frame_b.R);
-            axis.f = f;
-            axis.s = s;
-            bearing.s = 0;
-            distance = s_offset + s;
-
-            // relationships of frame_a and frame_b quantities
-            r_rel_a = e*distance;
-            frame_b.r_0 = frame_a.r_0 + Modelica.Mechanics.MultiBody.Frames.resolve1(
-              frame_a.R, r_rel_a);
-            frame_b.R = frame_a.R;
-            zeros(3) = frame_a.f + frame_b.f;
-            zeros(3) = frame_a.t + frame_b.t + cross(r_rel_a, frame_b.f);
-
-            if axisForceBalance then
-              /* Note, if axisForceBalance is false, the force in the
-       length constraint must be calculated such that the driving
-       force in direction of the translation axis is:
-          axis.f = -e*frame_b.f;
-       If axisForceBalance=true, this equation is provided here.
-       As a consequence, the force in the length constraint will be
-       part of a linear algebraic system of equations (otherwise, it
-       might be possible to remove this force from the linear system).
-    */
-              f = -e*frame_b.f;
-            end if;
-
-            // Compute translational distance (details, see function "selectBranch")
-            rbra = r_b - r_a;
-            B = 2*(e*rbra);
-            C = rbra*rbra - length*length;
-            k1 = B/2;
-            k1a = k1*k1 - C;
-            assert(noEvent(k1a > 1.e-10), "
-Singular position of loop (either no or two analytic solutions;
-the mechanism has lost one-degree-of freedom in this position).
-Try first to use another Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXXX component.
-If this also lead to singular positions, it could be that this
-kinematic loop cannot be solved analytically with a fixed state
-selection. In this case you have to build up the loop with
-basic joints (NO aggregation JointXXX components) and rely on
-dynamic state selection, i.e., during simulation the states will
-be dynamically selected in such a way that in no position a
-degree of freedom is lost.
-");
-            k1b = Modelica.Mechanics.MultiBody.Frames.Internal.maxWithoutEvent(k1a,
-              1.0e-12);
-            k2 = sqrt(k1b);
-            distance = -k1 + (if positiveBranch then k2 else -k2);
           end PrismaticWithLengthConstraint;
         end Internal;
       end Joints;
@@ -2076,156 +2018,6 @@ degree of freedom is lost.
             "Reflection of ambient light (= 0: light is completely absorbed)"
             annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
 
-          annotation (
-            __Dymola_obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor",
-            Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics={
-                Text(
-                  extent={{19,109},{150,84}},
-                  lineColor={192,192,192},
-                  textString="resolve"),
-                Line(
-                  points={{-84,0},{-84,84},{0,84},{0,100}},
-                  color={95,95,95},
-                  pattern=LinePattern.Dot),
-                Text(
-                  extent={{-132,52},{-96,27}},
-                  lineColor={128,128,128},
-                  textString="a")}),
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                    -100},{100,100}}), graphics={Line(
-                  points={{-84,0},{-84,82},{0,82},{0,98}},
-                  color={95,95,95},
-                  pattern=LinePattern.Dot)}),
-            Documentation(info="<HTML>
-<p>
-Absolute kinematic quantities of frame_a are
-computed and provided at the output signal connector <b>y</b>
-in packed format in the order
-</p>
-<ol>
-<li> absolute position vector (= r_abs)</li>
-<li> absolute velocity vectory (= v_abs)</li>
-<li> absolute acceleration vector (= a_abs)</li>
-<li> 3 angles to rotate the world frame into frame_a (= angles)</li>
-<li> absolute angular velocity vector (= w_abs)</li>
-<li> absolute angular acceleration vector (= z_abs)</li>
-</ol>
-<p>
-For example, if parameters <b>get_v</b> and <b>get_w</b>
-are <b>true</b> and all other get_XXX parameters are <b>false</b>, then
-y contains 6 elements:
-</p>
-<pre>
- y[1:3] = absolute velocity
- y[4:6] = absolute angular velocity
-</pre>
-<p>
-In the following figure the animation of an AbsoluteSensor
-component is shown. The light blue coordinate system is
-frame_a and the yellow arrow is the animated sensor.
-</p>
-<p align=\"center\">
-<IMG SRC=\"../Modelica/Images/MultiBody/Sensors/AbsoluteSensor.png\">
-</p>
-<p>
-If <b>frame_resolve</b> is connected to another frame, then the
-provided absolute kinematic vectors are resolved in this frame.
-If <b>frame_resolve</b> is <b>not</b> connected then the
-coordinate system in which the relative quantities are
-resolved is defined by parameter <b>resolveInFrame_a</b>.
-If this parameter is <b>true</b>, then the
-provided kinematic vectors are resolved in frame_a of this
-component. Otherwise, the kinematic vectors are resolved in
-the world frame. For example, if frame_resolve is not
-connected and if resolveInFrame_a = <b>false</b>, and
-get_v = <b>true</b>, then
-</p>
-<pre>
-  y = <b>der</b>(frame_a.r) // resolved in world frame
-</pre>
-<p>
-is returned, i.e., the derivative of the distance frame_a.r_0
-from the origin of the world frame to the origin of frame_a,
-resolved in the world frame.
-</p>
-<p>
-Note, the cut-force and the cut-torque in frame_resolve are
-always zero, whether frame_resolve is connected or not.
-</p>
-<p>
-If <b>get_angles</b> = <b>true</b>, the 3 angles to rotate the world
-frame into frame_a along the axes defined by parameter <b>sequence</b>
-are returned. For example, if sequence = {3,1,2} then the world frame is
-rotated around angles[1] along the z-axis, afterwards it is rotated
-around angles[2] along the x-axis, and finally it is rotated around
-angles[3] along the y-axis and is then identical to frame_a.
-The 3 angles are returned in the range
-</p>
-<pre>
-    -<font face=\"Symbol\">p</font> &lt;= angles[i] &lt;= <font face=\"Symbol\">p</font>
-</pre>
-<p>
-There are <b>two solutions</b> for \"angles[1]\" in this range.
-Via parameter <b>guessAngle1</b> (default = 0) the
-returned solution is selected such that |angles[1] - guessAngle1| is
-minimal. The transformation matrix between the world frame and
-frame_a may be in a singular configuration with respect to \"sequence\", i.e.,
-there is an infinite number of angle values leading to the same
-transformation matrix. In this case, the returned solution is
-selected by setting angles[1] = guessAngle1. Then angles[2]
-and angles[3] can be uniquely determined in the above range.
-</p>
-<p>
-Note, that parameter <b>sequence</b> has the restriction that
-only values 1,2,3 can be used and that sequence[1] &ne; sequence[2]
-and sequence[2] &ne; sequence[3]. Often used values are:
-</p>
-<pre>
-  sequence = <b>{1,2,3}</b>  // Cardan angle sequence
-           = <b>{3,1,3}</b>  // Euler angle sequence
-           = <b>{3,2,1}</b>  // Tait-Bryan angle sequence
-</pre>
-<p>
-Exact definition of the returned quantities:
-</p>
-<ol>
-<li>r_abs is vector frame_a.r_0, resolved according to table below.</li>
-<li>v_abs is vector <b>der</b>(frame_a.r_0), resolved according to table below.</li>
-<li>a_abs is vector <b>der</b>(<b>der</b>(frame_a.r_0)), resolved according to
-            table below.</li>
-<li>angles is a vector of 3 angles such that
-    frame_a.R = Frames.axesRotations(sequence, angles).</li>
-<li>w_abs is vector Modelica.Mechanics.MultiBody.Frames.angularVelocity1(frame_a.R, <b>der</b>(frame_a.R)),
-            resolved according to table below.</li>
-<li>z_abs is vector <b>der</b>(w_abs) (= derivative of absolute angular
-            velocity of frame_a with respect to the world frame,
-            resolved according to table below).</li>
-</ol>
-<table border=1 cellspacing=0 cellpadding=2>
-  <tr><th><b><i>frame_resolve is</i></b></th>
-      <th><b><i>resolveInFrame_a =</i></b></th>
-      <th><b><i>vector is resolved in</i></b></th>
-  </tr>
-  <tr><td valign=\"top\">connected</td>
-      <td valign=\"top\">true</td>
-      <td valign=\"top\"><b>frame_resolve</b></td>
-  </tr>
-  <tr><td valign=\"top\">connected</td>
-      <td valign=\"top\">false</td>
-      <td valign=\"top\"><b>frame_resolve</b></td>
-  </tr>
-  <tr><td valign=\"top\">not connected</td>
-      <td valign=\"top\">true</td>
-      <td valign=\"top\"><b>frame_a</b></td>
-  </tr>
-  <tr><td valign=\"top\">not connected</td>
-      <td valign=\"top\">false</td>
-      <td valign=\"top\"><b>world frame</b></td>
-  </tr>
-</table><br>
-</HTML>
-"));
 
         protected
           SI.Position r_abs[3]
@@ -2391,6 +2183,156 @@ Exact definition of the returned quantities:
           if get_z_abs then
             y[i6:i6 + 2] = z_abs;
           end if;
+          annotation (
+            __Dymola_obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor",
+            Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                    {100,100}}), graphics={
+                Text(
+                  extent={{19,109},{150,84}},
+                  lineColor={192,192,192},
+                  textString="resolve"),
+                Line(
+                  points={{-84,0},{-84,84},{0,84},{0,100}},
+                  color={95,95,95},
+                  pattern=LinePattern.Dot),
+                Text(
+                  extent={{-132,52},{-96,27}},
+                  lineColor={128,128,128},
+                  textString="a")}),
+            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                    -100},{100,100}}), graphics={Line(
+                  points={{-84,0},{-84,82},{0,82},{0,98}},
+                  color={95,95,95},
+                  pattern=LinePattern.Dot)}),
+            Documentation(info="<HTML>
+<p>
+Absolute kinematic quantities of frame_a are
+computed and provided at the output signal connector <b>y</b>
+in packed format in the order
+</p>
+<ol>
+<li> absolute position vector (= r_abs)</li>
+<li> absolute velocity vectory (= v_abs)</li>
+<li> absolute acceleration vector (= a_abs)</li>
+<li> 3 angles to rotate the world frame into frame_a (= angles)</li>
+<li> absolute angular velocity vector (= w_abs)</li>
+<li> absolute angular acceleration vector (= z_abs)</li>
+</ol>
+<p>
+For example, if parameters <b>get_v</b> and <b>get_w</b>
+are <b>true</b> and all other get_XXX parameters are <b>false</b>, then
+y contains 6 elements:
+</p>
+<pre>
+ y[1:3] = absolute velocity
+ y[4:6] = absolute angular velocity
+</pre>
+<p>
+In the following figure the animation of an AbsoluteSensor
+component is shown. The light blue coordinate system is
+frame_a and the yellow arrow is the animated sensor.
+</p>
+<p align=\"center\">
+<IMG SRC=\"../Modelica/Images/MultiBody/Sensors/AbsoluteSensor.png\">
+</p>
+<p>
+If <b>frame_resolve</b> is connected to another frame, then the
+provided absolute kinematic vectors are resolved in this frame.
+If <b>frame_resolve</b> is <b>not</b> connected then the
+coordinate system in which the relative quantities are
+resolved is defined by parameter <b>resolveInFrame_a</b>.
+If this parameter is <b>true</b>, then the
+provided kinematic vectors are resolved in frame_a of this
+component. Otherwise, the kinematic vectors are resolved in
+the world frame. For example, if frame_resolve is not
+connected and if resolveInFrame_a = <b>false</b>, and
+get_v = <b>true</b>, then
+</p>
+<pre>
+  y = <b>der</b>(frame_a.r) // resolved in world frame
+</pre>
+<p>
+is returned, i.e., the derivative of the distance frame_a.r_0
+from the origin of the world frame to the origin of frame_a,
+resolved in the world frame.
+</p>
+<p>
+Note, the cut-force and the cut-torque in frame_resolve are
+always zero, whether frame_resolve is connected or not.
+</p>
+<p>
+If <b>get_angles</b> = <b>true</b>, the 3 angles to rotate the world
+frame into frame_a along the axes defined by parameter <b>sequence</b>
+are returned. For example, if sequence = {3,1,2} then the world frame is
+rotated around angles[1] along the z-axis, afterwards it is rotated
+around angles[2] along the x-axis, and finally it is rotated around
+angles[3] along the y-axis and is then identical to frame_a.
+The 3 angles are returned in the range
+</p>
+<pre>
+    -<font face=\"Symbol\">p</font> &lt;= angles[i] &lt;= <font face=\"Symbol\">p</font>
+</pre>
+<p>
+There are <b>two solutions</b> for \"angles[1]\" in this range.
+Via parameter <b>guessAngle1</b> (default = 0) the
+returned solution is selected such that |angles[1] - guessAngle1| is
+minimal. The transformation matrix between the world frame and
+frame_a may be in a singular configuration with respect to \"sequence\", i.e.,
+there is an infinite number of angle values leading to the same
+transformation matrix. In this case, the returned solution is
+selected by setting angles[1] = guessAngle1. Then angles[2]
+and angles[3] can be uniquely determined in the above range.
+</p>
+<p>
+Note, that parameter <b>sequence</b> has the restriction that
+only values 1,2,3 can be used and that sequence[1] &ne; sequence[2]
+and sequence[2] &ne; sequence[3]. Often used values are:
+</p>
+<pre>
+  sequence = <b>{1,2,3}</b>  // Cardan angle sequence
+           = <b>{3,1,3}</b>  // Euler angle sequence
+           = <b>{3,2,1}</b>  // Tait-Bryan angle sequence
+</pre>
+<p>
+Exact definition of the returned quantities:
+</p>
+<ol>
+<li>r_abs is vector frame_a.r_0, resolved according to table below.</li>
+<li>v_abs is vector <b>der</b>(frame_a.r_0), resolved according to table below.</li>
+<li>a_abs is vector <b>der</b>(<b>der</b>(frame_a.r_0)), resolved according to
+            table below.</li>
+<li>angles is a vector of 3 angles such that
+    frame_a.R = Frames.axesRotations(sequence, angles).</li>
+<li>w_abs is vector Modelica.Mechanics.MultiBody.Frames.angularVelocity1(frame_a.R, <b>der</b>(frame_a.R)),
+            resolved according to table below.</li>
+<li>z_abs is vector <b>der</b>(w_abs) (= derivative of absolute angular
+            velocity of frame_a with respect to the world frame,
+            resolved according to table below).</li>
+</ol>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><th><b><i>frame_resolve is</i></b></th>
+      <th><b><i>resolveInFrame_a =</i></b></th>
+      <th><b><i>vector is resolved in</i></b></th>
+  </tr>
+  <tr><td valign=\"top\">connected</td>
+      <td valign=\"top\">true</td>
+      <td valign=\"top\"><b>frame_resolve</b></td>
+  </tr>
+  <tr><td valign=\"top\">connected</td>
+      <td valign=\"top\">false</td>
+      <td valign=\"top\"><b>frame_resolve</b></td>
+  </tr>
+  <tr><td valign=\"top\">not connected</td>
+      <td valign=\"top\">true</td>
+      <td valign=\"top\"><b>frame_a</b></td>
+  </tr>
+  <tr><td valign=\"top\">not connected</td>
+      <td valign=\"top\">false</td>
+      <td valign=\"top\"><b>world frame</b></td>
+  </tr>
+</table><br>
+</HTML>
+"));
         end AbsoluteSensor;
 
         model RelativeSensor
@@ -2482,6 +2424,154 @@ Exact definition of the returned quantities:
             diameter=arrowDiameter,
             color=arrowColor,
             specularCoefficient) if world.enableAnimation and animation;
+        equation
+          if get_angles or get_w_rel or get_z_rel then
+            R_rel = Modelica.Mechanics.MultiBody.Frames.relativeRotation(frame_a.R, frame_b.R);
+          else
+            R_rel = Modelica.Mechanics.MultiBody.Frames.nullRotation();
+          end if;
+
+          if get_angles then
+            angles = Frames.axesRotationsAngles(R_rel, sequence, guessAngle1);
+          else
+            angles = zeros(3);
+          end if;
+
+          if cardinality(frame_resolve) == 1 then
+            // frame_resolve is connected
+            frame_resolve.f = zeros(3);
+            frame_resolve.t = zeros(3);
+
+            if resolveInFrame_a then
+              R_resolve = Frames.relativeRotation(frame_a.R, frame_resolve.R);
+            else
+              R_resolve = Frames.relativeRotation(frame_b.R, frame_resolve.R);
+            end if;
+
+            if get_r_rel or get_v_rel or get_a_rel then
+              if resolveInFrame_a then
+                r_rel_ab = Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
+              else
+                r_rel_ab = Frames.resolve2(frame_b.R, frame_b.r_0 - frame_a.r_0);
+              end if;
+              r_rel = Frames.resolve2(R_resolve, r_rel_ab);
+            else
+              r_rel_ab = zeros(3);
+              r_rel = zeros(3);
+            end if;
+
+            if get_v_rel or get_a_rel then
+              der_r_rel_ab = der(r_rel_ab);
+            else
+              der_r_rel_ab = zeros(3);
+            end if;
+
+            if get_v_rel then
+              v_rel = Frames.resolve2(R_resolve, der_r_rel_ab);
+            else
+              v_rel = zeros(3);
+            end if;
+
+            if get_a_rel then
+              a_rel = Frames.resolve2(R_resolve, der(der_r_rel_ab));
+            else
+              a_rel = zeros(3);
+            end if;
+
+            if get_w_rel or get_z_rel then
+              if resolveInFrame_a then
+                w_rel_ab = Modelica.Mechanics.MultiBody.Frames.angularVelocity1(R_rel);
+              else
+                w_rel_ab = Modelica.Mechanics.MultiBody.Frames.angularVelocity2(R_rel);
+              end if;
+              w_rel = Frames.resolve2(R_resolve, w_rel_ab);
+            else
+              w_rel = zeros(3);
+              w_rel_ab = zeros(3);
+            end if;
+
+            if get_z_rel then
+              z_rel = Frames.resolve2(R_resolve, der(w_rel_ab));
+            else
+              z_rel = zeros(3);
+            end if;
+
+          else
+            // frame_resolve is NOT connected
+            frame_resolve.r_0 = zeros(3);
+            frame_resolve.R = Frames.nullRotation();
+            R_resolve = Frames.nullRotation();
+            r_rel_ab = zeros(3);
+            der_r_rel_ab = zeros(3);
+            w_rel_ab = zeros(3);
+
+            if get_r_rel or get_v_rel or get_a_rel then
+              if resolveInFrame_a then
+                r_rel = Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
+              else
+                r_rel = Frames.resolve2(frame_b.R, frame_b.r_0 - frame_a.r_0);
+              end if;
+            else
+              r_rel = zeros(3);
+            end if;
+
+            if get_v_rel or get_a_rel then
+              v_rel = der(r_rel);
+            else
+              v_rel = zeros(3);
+            end if;
+
+            if get_a_rel then
+              a_rel = der(v_rel);
+            else
+              a_rel = zeros(3);
+            end if;
+
+            if get_w_rel or get_z_rel then
+              if resolveInFrame_a then
+                w_rel = Frames.angularVelocity1(R_rel);
+              else
+                w_rel = Frames.angularVelocity2(R_rel);
+              end if;
+            else
+              w_rel = zeros(3);
+            end if;
+
+            if get_z_rel then
+              z_rel = der(w_rel);
+            else
+              z_rel = zeros(3);
+            end if;
+          end if;
+
+          frame_a.f = zeros(3);
+          frame_a.t = zeros(3);
+          frame_b.f = zeros(3);
+          frame_b.t = zeros(3);
+
+          if get_r_rel then
+            y[i1:i1 + 2] = r_rel;
+          end if;
+
+          if get_v_rel then
+            y[i2:i2 + 2] = v_rel;
+          end if;
+
+          if get_a_rel then
+            y[i3:i3 + 2] = a_rel;
+          end if;
+
+          if get_angles then
+            y[i4:i4 + 2] = angles;
+          end if;
+
+          if get_w_rel then
+            y[i5:i5 + 2] = w_rel;
+          end if;
+
+          if get_z_rel then
+            y[i6:i6 + 2] = z_rel;
+          end if;
           annotation (
             __Dymola_obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Sensors.RelativeSensor",
             Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
@@ -2653,154 +2743,6 @@ and resolved in the following frame
   </tr>
 </table><br>
 </HTML>"));
-        equation
-          if get_angles or get_w_rel or get_z_rel then
-            R_rel = Modelica.Mechanics.MultiBody.Frames.relativeRotation(frame_a.R, frame_b.R);
-          else
-            R_rel = Modelica.Mechanics.MultiBody.Frames.nullRotation();
-          end if;
-
-          if get_angles then
-            angles = Frames.axesRotationsAngles(R_rel, sequence, guessAngle1);
-          else
-            angles = zeros(3);
-          end if;
-
-          if cardinality(frame_resolve) == 1 then
-            // frame_resolve is connected
-            frame_resolve.f = zeros(3);
-            frame_resolve.t = zeros(3);
-
-            if resolveInFrame_a then
-              R_resolve = Frames.relativeRotation(frame_a.R, frame_resolve.R);
-            else
-              R_resolve = Frames.relativeRotation(frame_b.R, frame_resolve.R);
-            end if;
-
-            if get_r_rel or get_v_rel or get_a_rel then
-              if resolveInFrame_a then
-                r_rel_ab = Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
-              else
-                r_rel_ab = Frames.resolve2(frame_b.R, frame_b.r_0 - frame_a.r_0);
-              end if;
-              r_rel = Frames.resolve2(R_resolve, r_rel_ab);
-            else
-              r_rel_ab = zeros(3);
-              r_rel = zeros(3);
-            end if;
-
-            if get_v_rel or get_a_rel then
-              der_r_rel_ab = der(r_rel_ab);
-            else
-              der_r_rel_ab = zeros(3);
-            end if;
-
-            if get_v_rel then
-              v_rel = Frames.resolve2(R_resolve, der_r_rel_ab);
-            else
-              v_rel = zeros(3);
-            end if;
-
-            if get_a_rel then
-              a_rel = Frames.resolve2(R_resolve, der(der_r_rel_ab));
-            else
-              a_rel = zeros(3);
-            end if;
-
-            if get_w_rel or get_z_rel then
-              if resolveInFrame_a then
-                w_rel_ab = Modelica.Mechanics.MultiBody.Frames.angularVelocity1(R_rel);
-              else
-                w_rel_ab = Modelica.Mechanics.MultiBody.Frames.angularVelocity2(R_rel);
-              end if;
-              w_rel = Frames.resolve2(R_resolve, w_rel_ab);
-            else
-              w_rel = zeros(3);
-              w_rel_ab = zeros(3);
-            end if;
-
-            if get_z_rel then
-              z_rel = Frames.resolve2(R_resolve, der(w_rel_ab));
-            else
-              z_rel = zeros(3);
-            end if;
-
-          else
-            // frame_resolve is NOT connected
-            frame_resolve.r_0 = zeros(3);
-            frame_resolve.R = Frames.nullRotation();
-            R_resolve = Frames.nullRotation();
-            r_rel_ab = zeros(3);
-            der_r_rel_ab = zeros(3);
-            w_rel_ab = zeros(3);
-
-            if get_r_rel or get_v_rel or get_a_rel then
-              if resolveInFrame_a then
-                r_rel = Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
-              else
-                r_rel = Frames.resolve2(frame_b.R, frame_b.r_0 - frame_a.r_0);
-              end if;
-            else
-              r_rel = zeros(3);
-            end if;
-
-            if get_v_rel or get_a_rel then
-              v_rel = der(r_rel);
-            else
-              v_rel = zeros(3);
-            end if;
-
-            if get_a_rel then
-              a_rel = der(v_rel);
-            else
-              a_rel = zeros(3);
-            end if;
-
-            if get_w_rel or get_z_rel then
-              if resolveInFrame_a then
-                w_rel = Frames.angularVelocity1(R_rel);
-              else
-                w_rel = Frames.angularVelocity2(R_rel);
-              end if;
-            else
-              w_rel = zeros(3);
-            end if;
-
-            if get_z_rel then
-              z_rel = der(w_rel);
-            else
-              z_rel = zeros(3);
-            end if;
-          end if;
-
-          frame_a.f = zeros(3);
-          frame_a.t = zeros(3);
-          frame_b.f = zeros(3);
-          frame_b.t = zeros(3);
-
-          if get_r_rel then
-            y[i1:i1 + 2] = r_rel;
-          end if;
-
-          if get_v_rel then
-            y[i2:i2 + 2] = v_rel;
-          end if;
-
-          if get_a_rel then
-            y[i3:i3 + 2] = a_rel;
-          end if;
-
-          if get_angles then
-            y[i4:i4 + 2] = angles;
-          end if;
-
-          if get_w_rel then
-            y[i5:i5 + 2] = w_rel;
-          end if;
-
-          if get_z_rel then
-            y[i6:i6 + 2] = z_rel;
-          end if;
         end RelativeSensor;
 
         model CutForceAndTorque
@@ -2848,47 +2790,6 @@ and resolved in the following frame
             "Cut force resolved in frame_a/frame_b or in frame_resolved, if connected";
           SI.Torque torque[3]
             "Cut torque resolved in frame_a/frame_b or in frame_resolved, if connected";
-          annotation (
-            __Dymola_obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque",
-            preferedView="info",
-            Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                    -100},{100,100}}), graphics),
-            Documentation(info="<HTML>
-<p>
-The cut-force and cut-torque acting at the component to which frame_b is
-connected are determined and provided at the output signal connector
-<b>load</b>:
-</p>
-<pre>
-  load[1:3] = frame_a.f;
-  load[4:6] = frame_a.t;
-</pre>
-<p>
-If parameter <b>positiveSign</b> =
-<b>false</b>, the negative cut-force and negative
-cut-torque is provided (= frame_b.f and frame_b.t).
-If <b>frame_resolve</b> is connected to another frame, then the
-cut-force and cut-torque are resolved in frame_resolve.
-If <b>frame_resolve</b> is <b>not</b> connected then the
-coordinate system in which the cut-force and cut-torque is resolved
-is defined by parameter <b>resolveInFrame_a</b>.
-If this parameter is <b>true</b>, then the
-cut-force and cut-torque is resolved in frame_a, otherwise it is
-resolved in the world frame.
-</p>
-<p>
-In the following figure the animation of a CutForceAndTorque
-sensor is shown. The dark blue coordinate system is frame_b,
-and the green arrows are the cut force and the cut torque,
-respectively, acting at frame_b and
-with negative sign at frame_a.
-</p>
-<p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Sensors/CutForceAndTorque.png\">
-</p>
-</HTML>"));
         protected
           outer Modelica.Mechanics.MultiBody.World world;
           parameter Integer csign=if positiveSign then +1 else -1;
@@ -2931,6 +2832,47 @@ with negative sign at frame_a.
 
           load[1:3] = force;
           load[4:6] = torque;
+          annotation (
+            __Dymola_obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque",
+            preferedView="info",
+            Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                    {100,100}}), graphics),
+            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                    -100},{100,100}}), graphics),
+            Documentation(info="<HTML>
+<p>
+The cut-force and cut-torque acting at the component to which frame_b is
+connected are determined and provided at the output signal connector
+<b>load</b>:
+</p>
+<pre>
+  load[1:3] = frame_a.f;
+  load[4:6] = frame_a.t;
+</pre>
+<p>
+If parameter <b>positiveSign</b> =
+<b>false</b>, the negative cut-force and negative
+cut-torque is provided (= frame_b.f and frame_b.t).
+If <b>frame_resolve</b> is connected to another frame, then the
+cut-force and cut-torque are resolved in frame_resolve.
+If <b>frame_resolve</b> is <b>not</b> connected then the
+coordinate system in which the cut-force and cut-torque is resolved
+is defined by parameter <b>resolveInFrame_a</b>.
+If this parameter is <b>true</b>, then the
+cut-force and cut-torque is resolved in frame_a, otherwise it is
+resolved in the world frame.
+</p>
+<p>
+In the following figure the animation of a CutForceAndTorque
+sensor is shown. The dark blue coordinate system is frame_b,
+and the green arrows are the cut force and the cut torque,
+respectively, acting at frame_b and
+with negative sign at frame_a.
+</p>
+<p align=\"center\">
+<IMG SRC=\"../Images/MultiBody/Sensors/CutForceAndTorque.png\">
+</p>
+</HTML>"));
         end CutForceAndTorque;
       end Sensors;
 
@@ -2948,10 +2890,6 @@ with negative sign at frame_a.
         package Init
           "Obsolete type. This is an emulated enumeration for initialization. Initialization is now defined with start/fixed values and appropriate support in the parameter menu"
 
-          annotation (__Dymola_obsolete="This is an emulated enumeration for initialization. Initialization is now defined with start/fixed values and appropriate support in the parameter menu",
-        Documentation(info="<html>
-
-</html>"));
           extends ObsoleteModelica3.Icons.Enumeration;
 
           constant Integer Free=1;
@@ -3013,6 +2951,10 @@ with negative sign at frame_a.
 </html>"));
 
           end Temp;
+          annotation (__Dymola_obsolete="This is an emulated enumeration for initialization. Initialization is now defined with start/fixed values and appropriate support in the parameter menu",
+        Documentation(info="<html>
+
+</html>"));
         end Init;
       end Types;
 
@@ -3038,6 +2980,9 @@ with negative sign at frame_a.
             "(right) driven flange (flange axis directed OUT OF cut plane)"
             annotation (Placement(transformation(extent={{90,-10},{110,10}},
                   rotation=0)));
+        equation
+          flange_a.phi = phi;
+          flange_b.phi = phi;
           annotation (
             Documentation(info="<html>
 <p>
@@ -3056,9 +3001,6 @@ with inertia.
               y=0.3,
               width=0.61,
               height=0.66));
-        equation
-          flange_a.phi = phi;
-          flange_b.phi = phi;
         end Rigid;
 
         partial model Bearing
@@ -3105,16 +3047,6 @@ It is a superclass for the two components TwoFlangesAndBearing and TwoFlangesAnd
           Modelica.SIunits.Angle phi_a;
           Modelica.SIunits.Angle phi_b;
 
-          annotation (
-            __Dymola_obsolete=
-                "The Rotational library has now a new improved design with optional support connectors. Use Modelica.Mechanics.Rotational.Interfaces.PartialXXX instead.",
-          Documentation(info="<html>
-<p>
-This is a 1D rotational component with two flanges and an additional bearing flange.
-It is used e.g. to build up equation-based parts of a drive train.</p>
-
-</HTML>
-"));
         equation
           if cardinality(bearing) == 0 then
             bearing.phi = 0;
@@ -3126,6 +3058,16 @@ It is used e.g. to build up equation-based parts of a drive train.</p>
 
           phi_a = flange_a.phi - bearing.phi;
           phi_b = flange_b.phi - bearing.phi;
+          annotation (
+            __Dymola_obsolete=
+                "The Rotational library has now a new improved design with optional support connectors. Use Modelica.Mechanics.Rotational.Interfaces.PartialXXX instead.",
+          Documentation(info="<html>
+<p>
+This is a 1D rotational component with two flanges and an additional bearing flange.
+It is used e.g. to build up equation-based parts of a drive train.</p>
+
+</HTML>
+"));
         end TwoFlangesAndBearing;
 
         partial model TwoFlangesAndBearingH
@@ -3148,6 +3090,14 @@ It is used e.g. to build up equation-based parts of a drive train.</p>
             extends ObsoleteModelica3.Icons.ObsoleteModel;
             parameter Boolean bearingConnected;
 
+          equation
+            flange_a.phi = flange_b.phi;
+
+            if bearingConnected then
+              0 = flange_a.tau + flange_b.tau;
+            else
+              0 = flange_a.phi;
+            end if;
             annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                       -100},{100,100}}), graphics={Rectangle(
                     extent={{-90,10},{90,-10}},
@@ -3157,14 +3107,6 @@ It is used e.g. to build up equation-based parts of a drive train.</p>
                     extent={{-150,60},{150,20}},
                     textString="%name",
                     lineColor={0,0,255})}));
-          equation
-            flange_a.phi = flange_b.phi;
-
-            if bearingConnected then
-              0 = flange_a.tau + flange_b.tau;
-            else
-              0 = flange_a.phi;
-            end if;
           end Adapter;
         equation
           tau_support = -adapter.flange_b.tau;
@@ -3197,6 +3139,12 @@ of several base components.</p>
             "Bearing at which the reaction torque (i.e., -flange.tau) is acting"
                annotation (Placement(transformation(extent={{-10,-130},{10,-110}},
                   rotation=0)));
+        equation
+          if cardinality(bearing) == 0 then
+            bearing.phi = 0;
+          else
+            bearing.tau = -flange.tau;
+          end if;
           annotation (
             Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics),
@@ -3234,12 +3182,6 @@ of several base components.</p>
 Partial model of torque dependent on speed that accelerates the flange.
 </p>
 </HTML>"));
-        equation
-          if cardinality(bearing) == 0 then
-            bearing.phi = 0;
-          else
-            bearing.tau = -flange.tau;
-          end if;
         end PartialSpeedDependentTorque;
 
         partial model AbsoluteSensor
@@ -3351,14 +3293,6 @@ with the blocks of package Modelica.Blocks.
         "Constants and types with choices, especially to build menus"
         extends Modelica.Icons.Library;
 
-        annotation (preferedView="info", Documentation(info="<HTML>
-<p>
-In this package <b>types</b> and <b>constants</b> are defined that are used
-in library Modelica.Blocks. The types have additional annotation choices
-definitions that define the menus to be built up in the graphical
-user interface when the type is used as parameter in a declaration.
-</p>
-</HTML>"));
 
         package Init
           "Obsolete type. This is an emulated enumeration for initialization. Initialization is now defined with start/fixed values and appropriate support in the parameter menu"
@@ -3454,6 +3388,14 @@ quantities.
 
 </html>"));
         end InitRel;
+        annotation (preferedView="info", Documentation(info="<HTML>
+<p>
+In this package <b>types</b> and <b>constants</b> are defined that are used
+in library Modelica.Blocks. The types have additional annotation choices
+definitions that define the menus to be built up in the graphical
+user interface when the type is used as parameter in a declaration.
+</p>
+</HTML>"));
       end Types;
 
       model GearEfficiency
@@ -3470,6 +3412,13 @@ quantities.
         Boolean driving_a
           "True, if energy is flowing INTO and not out of flange flange_a";
 
+
+      equation
+        phi = phi_a;
+        phi = phi_b;
+        power_a = flange_a.tau*der(phi);
+        driving_a = power_a >= 0;
+        flange_b.tau = -(if driving_a then eta*flange_a.tau else flange_a.tau/eta);
         annotation (
           __Dymola_obsolete=
               "This model can get stuck due when the torque direction varies, use Modelica.Mechanics.Rotational.Components.LossyGear instead.",
@@ -3599,13 +3548,6 @@ from tables of the gear manufacturers.
               Line(points={{0,-40},{-20,-60}}, color={0,0,0}),
               Line(points={{-10,-40},{-30,-60}}, color={0,0,0}),
               Line(points={{-20,-40},{-30,-50}}, color={0,0,0})}));
-
-      equation
-        phi = phi_a;
-        phi = phi_b;
-        power_a = flange_a.tau*der(phi);
-        driving_a = power_a >= 0;
-        flange_b.tau = -(if driving_a then eta*flange_a.tau else flange_a.tau/eta);
       end GearEfficiency;
 
       model Gear
@@ -3629,6 +3571,49 @@ from tables of the gear manufacturers.
           final unit="N.m.s/rad",
           final min=0) = 0 "(relative) gear damping";
         parameter Modelica.SIunits.Angle b(final min=0)=0 "Total backlash";
+
+
+        Modelica.Mechanics.Rotational.Components.IdealGear gearRatio(final
+            ratio =                                                              ratio)
+          annotation (Placement(transformation(extent={{-70,-10},{-50,10}},
+                rotation=0)));
+        ObsoleteModelica3.Mechanics.Rotational.GearEfficiency gearEfficiency(
+                                      final eta=eta)
+          annotation (Placement(transformation(extent={{-30,-10},{-10,10}},
+                rotation=0)));
+        Modelica.Mechanics.Rotational.Components.ElastoBacklash elastoBacklash(
+          final b=b,
+          final c=c,
+          final phi_rel0=0,
+          final d=d) annotation (Placement(transformation(extent={{50,-10},{70,10}},
+                rotation=0)));
+        Modelica.Mechanics.Rotational.Components.BearingFriction
+          bearingFriction(                                                       final
+            tau_pos=friction_pos, final peak=peak)
+          annotation (Placement(transformation(extent={{10,-10},{30,10}}, rotation=
+                  0)));
+      equation
+        connect(flange_a, gearRatio.flange_a)
+          annotation (Line(points={{-100,0},{-70,0}}, color={0,0,0}));
+        connect(gearRatio.flange_b, gearEfficiency.flange_a)
+          annotation (Line(points={{-50,0},{-30,0}}, color={0,0,0}));
+        connect(gearEfficiency.flange_b, bearingFriction.flange_a)
+          annotation (Line(points={{-10,0},{10,0}}, color={0,0,0}));
+        connect(bearingFriction.flange_b, elastoBacklash.flange_a)
+          annotation (Line(points={{30,0},{50,0}}, color={0,0,0}));
+        connect(elastoBacklash.flange_b, flange_b)
+          annotation (Line(points={{70,0},{100,0}}, color={0,0,0}));
+        connect(gearEfficiency.bearing, adapter.flange_b) annotation (Line(points={{-20,-10},
+                {-20,-40},{6.12323e-016,-40},{6.12323e-016,-50}},           color={
+                0,0,0}));
+        connect(bearingFriction.support, adapter.flange_b) annotation (Line(
+            points={{20,-10},{20,-40},{6.12323e-016,-40},{6.12323e-016,-50}},
+            color={0,0,0},
+            smooth=Smooth.None));
+        connect(gearRatio.support, adapter.flange_b) annotation (Line(
+            points={{-60,-10},{-60,-40},{6.12323e-016,-40},{6.12323e-016,-50}},
+            color={0,0,0},
+            smooth=Smooth.None));
 
         annotation (
           __Dymola_obsolete=
@@ -3699,50 +3684,55 @@ to the left and/or the right flange.
                 fillColor={128,128,128},
                 fillPattern=FillPattern.Solid),
               Line(points={{-36,25},{-3,25}}, color={128,128,128})}));
-
-        Modelica.Mechanics.Rotational.Components.IdealGear gearRatio(final
-            ratio =                                                              ratio)
-          annotation (Placement(transformation(extent={{-70,-10},{-50,10}},
-                rotation=0)));
-        ObsoleteModelica3.Mechanics.Rotational.GearEfficiency gearEfficiency(
-                                      final eta=eta)
-          annotation (Placement(transformation(extent={{-30,-10},{-10,10}},
-                rotation=0)));
-        Modelica.Mechanics.Rotational.Components.ElastoBacklash elastoBacklash(
-          final b=b,
-          final c=c,
-          final phi_rel0=0,
-          final d=d) annotation (Placement(transformation(extent={{50,-10},{70,10}},
-                rotation=0)));
-        Modelica.Mechanics.Rotational.Components.BearingFriction
-          bearingFriction(                                                       final
-            tau_pos=friction_pos, final peak=peak)
-          annotation (Placement(transformation(extent={{10,-10},{30,10}}, rotation=
-                  0)));
-      equation
-        connect(flange_a, gearRatio.flange_a)
-          annotation (Line(points={{-100,0},{-70,0}}, color={0,0,0}));
-        connect(gearRatio.flange_b, gearEfficiency.flange_a)
-          annotation (Line(points={{-50,0},{-30,0}}, color={0,0,0}));
-        connect(gearEfficiency.flange_b, bearingFriction.flange_a)
-          annotation (Line(points={{-10,0},{10,0}}, color={0,0,0}));
-        connect(bearingFriction.flange_b, elastoBacklash.flange_a)
-          annotation (Line(points={{30,0},{50,0}}, color={0,0,0}));
-        connect(elastoBacklash.flange_b, flange_b)
-          annotation (Line(points={{70,0},{100,0}}, color={0,0,0}));
-        connect(gearEfficiency.bearing, adapter.flange_b) annotation (Line(points={{-20,-10},
-                {-20,-40},{6.12323e-016,-40},{6.12323e-016,-50}},           color={
-                0,0,0}));
-        connect(bearingFriction.support, adapter.flange_b) annotation (Line(
-            points={{20,-10},{20,-40},{6.12323e-016,-40},{6.12323e-016,-50}},
-            color={0,0,0},
-            smooth=Smooth.None));
-        connect(gearRatio.support, adapter.flange_b) annotation (Line(
-            points={{-60,-10},{-60,-40},{6.12323e-016,-40},{6.12323e-016,-50}},
-            color={0,0,0},
-            smooth=Smooth.None));
-
       end Gear;
     end Rotational;
   end Mechanics;
+  annotation (uses(Modelica(version="3.1")),
+Documentation(info="<html>
+<p>
+This package contains models and blocks from the Modelica Standard Library
+version 2.2.2 that are no longer available in version 3.0.
+The conversion script for version 3.0 changes references in existing
+user models automatically to the models and blocks of package
+ObsoleteModelica3. The user should <b>manually</b> replace all
+references to ObsoleteModelica3 in his/her models to the models
+that are recommended in the documentation of the respective model.
+</p>
+
+<p>
+In most cases, this means that a model with the name
+\"ObsoleteModelica3.XXX\" should be renamed to \"Modelica.XXX\" (version 3.0)
+and then a manual adaptation is needed. For example, a reference to
+ObsoleteModelica3.Mechanics.MultiBody.Sensors.AbsoluteSensor
+should be replaced by
+Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor (version 3.0).
+Since the design of the component has changed (e.g., several
+optional connectors, and no longer one connector where all signals
+are packed together), this requires some changes at the place where
+the model is used (besides the renaming of the underlying class).
+</p>
+
+<p>
+The models in ObsoleteModelica3 are either not according to the Modelica Language
+version 3.0 and higher, or the model was changed to get a better design.
+In all cases, an automatic conversion to the new implementation
+was not feasible, since too complicated.
+</p>
+
+<p>
+In order to easily detect obsolete models and blocks, all of them are specially
+marked in the icon layer with a red box.
+</p>
+
+<p>
+Copyright &copy; 2007-2009, Modelica Association.
+</p>
+<p>
+<i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the accompanying <b>disclaimer</b>
+<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
+</p>
+
+</html>"));
 end ObsoleteModelica3;

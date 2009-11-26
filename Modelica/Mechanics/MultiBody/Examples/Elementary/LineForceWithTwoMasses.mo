@@ -10,60 +10,6 @@ model LineForceWithTwoMasses
     "Difference of cut-forces in rod1 and rod3";
   SI.Force body_f_diff[3]=bodyBox1.frame_b.f - bodyBox2.frame_b.f
     "Difference of cut-forces in bodyBox1 and bodyBox2";
-  annotation (
-    experiment(StopTime=3),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics),
-    Documentation(info="<html>
-<p>
-It is demonstrated how to implement line force components
-that shall have mass properties. Two alternative implementations
-are given:
-</p>
-<ul>
-<li> With
-     <a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS\">JointUPS</a>:<br>
-     Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS is an aggregation
-     of a universal, a prismatic and a spherical joint that approximates
-     a real force component, such as a hydraulic cylinder. At the two
-     frames of the prismatic joint (frame_ia, frame_ib of jointUPS)
-     two bodies are attached. The parameters are selected such that
-     the center of masses of the two bodies are located on the line
-     connecting frame_a and frame_b of the jointUPS component.
-     Both bodies have the same mass and the inertia tensor is set to zero,
-     i.e., the two bodies are treated as point masses.</li>
-<li> With <a href=\"Modelica://Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses\">
-     LineForceWithTwoMasses</a>:<br>
-     Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses is a line force component
-     with the built-in property that two point masses are located
-     on the line on which the line force is acting.
-     The parameters are selected in such a way that the same
-     system as with the jointUPS component is described.</li>
-</ul>
-<p>
-In both cases, a linear 1-dimensional translational damper from the
-Modelica.Mechanics.Translational library is used as
-line force between the two attachment points. Simulate
-this system and plot the differences of the cut forces at both sides
-of the line force component (\"rod_f_diff\" and \"body_f_diff\").
-Both vectors should be zero
-(depending on the choosen relative tolerance of the integration,
-the difference is in the order of 1.e-10 ... 1.e-15).
-</p>
-<p>
-Note, that the implementation with the LineForceWithTwoMasses
-component is simpler and more convenient.
-An animation of this simulation is shown in the figure below.
-The system on the left side in the front is the animation with
-the LineForceWithTwoMasses component whereas the system on the right
-side in the back is the animation with the JointUPS component.
-</p>
-<p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Elementary/LineForceWithTwoMasses2.png\">
-</p>
-</html>"));
 
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
         transformation(extent={{-80,60},{-60,80}}, rotation=0)));
@@ -82,7 +28,6 @@ side in the back is the animation with the JointUPS component.
   Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS jointUPS(nAxis_ia={0.7,1.2,0}, animation=
        true) annotation (Placement(transformation(extent={{0,50},{20,30}},
           rotation=0)));
-  annotation (Diagram);
   Modelica.Mechanics.MultiBody.Parts.Body body1(
     r_CM=0.2*jointUPS.eAxis_ia,
     cylinderDiameter=0.05,
@@ -213,4 +158,58 @@ equation
     annotation (Line(points={{16,-71},{20,-71},{20,-86}}, color={0,191,0}));
   connect(lineForceWithTwoMasses.flange_a, damper2.flange_a)
     annotation (Line(points={{4,-71},{0,-71},{0,-86}}, color={0,191,0}));
+  annotation (
+    experiment(StopTime=3),
+    Diagram(coordinateSystem(
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
+        grid={1,1}), graphics),
+    Documentation(info="<html>
+<p>
+It is demonstrated how to implement line force components
+that shall have mass properties. Two alternative implementations
+are given:
+</p>
+<ul>
+<li> With
+     <a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS\">JointUPS</a>:<br>
+     Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS is an aggregation
+     of a universal, a prismatic and a spherical joint that approximates
+     a real force component, such as a hydraulic cylinder. At the two
+     frames of the prismatic joint (frame_ia, frame_ib of jointUPS)
+     two bodies are attached. The parameters are selected such that
+     the center of masses of the two bodies are located on the line
+     connecting frame_a and frame_b of the jointUPS component.
+     Both bodies have the same mass and the inertia tensor is set to zero,
+     i.e., the two bodies are treated as point masses.</li>
+<li> With <a href=\"Modelica://Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses\">
+     LineForceWithTwoMasses</a>:<br>
+     Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses is a line force component
+     with the built-in property that two point masses are located
+     on the line on which the line force is acting.
+     The parameters are selected in such a way that the same
+     system as with the jointUPS component is described.</li>
+</ul>
+<p>
+In both cases, a linear 1-dimensional translational damper from the
+Modelica.Mechanics.Translational library is used as
+line force between the two attachment points. Simulate
+this system and plot the differences of the cut forces at both sides
+of the line force component (\"rod_f_diff\" and \"body_f_diff\").
+Both vectors should be zero
+(depending on the choosen relative tolerance of the integration,
+the difference is in the order of 1.e-10 ... 1.e-15).
+</p>
+<p>
+Note, that the implementation with the LineForceWithTwoMasses
+component is simpler and more convenient.
+An animation of this simulation is shown in the figure below.
+The system on the left side in the front is the animation with
+the LineForceWithTwoMasses component whereas the system on the right
+side in the back is the animation with the JointUPS component.
+</p>
+<p align=\"center\">
+<IMG SRC=\"../Images/MultiBody/Examples/Elementary/LineForceWithTwoMasses2.png\">
+</p>
+</html>"),    Diagram);
 end LineForceWithTwoMasses;

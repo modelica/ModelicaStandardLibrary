@@ -7,11 +7,6 @@ model TestOnePortSensors1
   parameter Real A_rel = (diameter_a/diameter_b)^2;
   parameter Real zeta =  (1 - A_rel)^2;
 
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-            -100},{100,100}}),
-                      graphics),
-                       experiment(StopTime=25, Algorithm="Dassl"),
-    experimentSetupOutput);
   Modelica.Fluid.Vessels.ClosedVolume volume1(
     V=1e-3,
     use_T_start=false,
@@ -21,7 +16,7 @@ model TestOnePortSensors1
     energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
     massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
     use_portsData=false,
-    p_start=101325) 
+    p_start=101325)
                  annotation (Placement(transformation(extent={{-30,30},{-10,50}},
           rotation=0)));
 
@@ -29,19 +24,19 @@ model TestOnePortSensors1
     m_flow=1,
     h=2e5,
     redeclare package Medium = Medium,
-    use_m_flow_in=true) 
+    use_m_flow_in=true)
                    annotation (Placement(transformation(extent={{-68,30},{-48,
             50}}, rotation=0)));
-  Modelica.Fluid.Sensors.Temperature Tmix1(redeclare package Medium = 
-        Medium) 
+  Modelica.Fluid.Sensors.Temperature Tmix1(redeclare package Medium =
+        Medium)
     annotation (Placement(transformation(extent={{0,60},{20,80}}, rotation=0)));
   Modelica.Fluid.Sources.Boundary_ph sink1( nPorts=1,            redeclare
-      package Medium = 
+      package Medium =
                Medium,
     h=5e4,
-    p=101325) 
+    p=101325)
     annotation (Placement(transformation(extent={{100,30},{80,50}}, rotation=0)));
-  inner Modelica.Fluid.System system 
+  inner Modelica.Fluid.System system
     annotation (Placement(transformation(extent={{-100,-100},{-80,-80}},
           rotation=0)));
   Modelica.Blocks.Sources.Ramp ramp(
@@ -58,7 +53,7 @@ model TestOnePortSensors1
     energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
     massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
     use_portsData=false,
-    p_start=101325) 
+    p_start=101325)
                  annotation (Placement(transformation(extent={{-32,-30},{-12,
             -10}}, rotation=0)));
 
@@ -66,17 +61,17 @@ model TestOnePortSensors1
     m_flow=1,
     h=2e5,
     redeclare package Medium = Medium,
-    use_m_flow_in=true) 
+    use_m_flow_in=true)
                    annotation (Placement(transformation(extent={{-68,-30},{-48,
             -10}}, rotation=0)));
   Modelica.Fluid.Sources.Boundary_ph sink2(nPorts=1,            redeclare
-      package Medium = 
+      package Medium =
                Medium,
     h=5e4,
-    p=101325) 
+    p=101325)
     annotation (Placement(transformation(extent={{100,-30},{80,-10}}, rotation=
             0)));
-  Modelica.Fluid.Sensors.TemperatureTwoPort Tmix2(redeclare package Medium = 
+  Modelica.Fluid.Sensors.TemperatureTwoPort Tmix2(redeclare package Medium =
         Medium) annotation (Placement(transformation(extent={{0,-30},{20,-10}},
           rotation=0)));
   Modelica.Fluid.Fittings.SimpleGenericOrifice orifice1(
@@ -98,7 +93,7 @@ equation
       points={{-79,40},{-76,40},{-76,-12},{-68,-12}},
       color={0,0,127},
       smooth=Smooth.None));
-  connect(orifice1.port_b,sink1.ports[1]) 
+  connect(orifice1.port_b,sink1.ports[1])
                                        annotation (Line(
       points={{60,40},{80,40}},
       color={0,127,255},
@@ -107,7 +102,7 @@ equation
       points={{40,-20},{20,-20}},
       color={0,127,255},
       smooth=Smooth.None));
-  connect(orifice2.port_b,sink2.ports[1]) 
+  connect(orifice2.port_b,sink2.ports[1])
                                        annotation (Line(
       points={{60,-20},{80,-20}},
       color={0,127,255},
@@ -132,4 +127,9 @@ equation
       points={{-20,-30},{-11,-30},{-11,-20},{0,-20}},
       color={0,127,255},
       smooth=Smooth.None));
+  annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+            -100},{100,100}}),
+                      graphics),
+                       experiment(StopTime=25, Algorithm="Dassl"),
+    experimentSetupOutput);
 end TestOnePortSensors1;

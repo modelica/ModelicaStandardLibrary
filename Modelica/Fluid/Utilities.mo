@@ -53,6 +53,9 @@ is negative. It must be positive.
     input Real delta=0.01
       "Range of significant deviation from sqrt(abs(x))*sgn(x)";
     output Real y;
+  algorithm
+    y := x/(x*x+delta*delta)^0.25;
+
     annotation(derivative(zeroDerivative=delta)=Utilities.regRoot_der,
       Documentation(info="<html>
 This function approximates sqrt(abs(x))*sgn(x), such that the derivative is finite and smooth in x=0.
@@ -73,11 +76,7 @@ With the default value of delta=0.01, the difference between sqrt(x) and regRoot
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
        Created. </li>
 </ul>
-</html>"));
-  algorithm
-    y := x/(x*x+delta*delta)^0.25;
-
-  annotation (Documentation(info="<html>
+</html>"),    Documentation(info="<html>
 This function approximates sqrt(x)*sign(x), such that the derivative is finite and smooth in x=0.
 </p>
 <p>
@@ -125,6 +124,9 @@ With the default value of delta=0.01, the difference between sqrt(x) and sqrtReg
     input Real x;
     input Real delta=0.01 "Range of significant deviation from x^2*sgn(x)";
     output Real y;
+  algorithm
+    y := x*sqrt(x*x+delta*delta);
+
     annotation(Documentation(info="<html>
 This function approximates x^2*sgn(x), such that the derivative is non-zero in x=0.
 </p>
@@ -145,11 +147,7 @@ With the default value of delta=0.01, the difference between x^2 and regSquare(x
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
        Created. </li>
 </ul>
-</html>"));
-  algorithm
-    y := x*sqrt(x*x+delta*delta);
-
-  annotation (Documentation(info="<html>
+</html>"),    Documentation(info="<html>
 This function approximates sqrt(x)*sign(x), such that the derivative is finite and smooth in x=0.
 </p>
 <p>
@@ -178,6 +176,9 @@ With the default value of delta=0.01, the difference between sqrt(x) and sqrtReg
     input Real a;
     input Real delta=0.01 "Range of significant deviation from x^a*sgn(x)";
     output Real y;
+  algorithm
+    y := x*(x*x+delta*delta)^((a-1)/2);
+
     annotation(Documentation(info="<html>
 This function approximates abs(x)^a*sign(x), such that the derivative is positive, finite and smooth in x=0.
 </p>
@@ -194,11 +195,7 @@ This function approximates abs(x)^a*sign(x), such that the derivative is positiv
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
        Created. </li>
 </ul>
-</html>"));
-  algorithm
-    y := x*(x*x+delta*delta)^((a-1)/2);
-
-  annotation (Documentation(info="<html>
+</html>"),    Documentation(info="<html>
 This function approximates sqrt(x)*sign(x), such that the derivative is finite and smooth in x=0.
 </p>
 <p>
@@ -232,68 +229,6 @@ With the default value of delta=0.01, the difference between sqrt(x) and sqrtReg
     input Boolean use_yd0 = false "= true, if yd0 shall be used";
     input Real yd0(min=0)=1 "Desired derivative at x=0: dy/dx = yd0";
     output Real y "ordinate value";
-    annotation(smoothOrder=2, Documentation(info="<html>
-<p>
-Approximates the function
-</p>
-<pre>
-   y = <b>if</b> x &ge; 0 <b>then</b> <b>sqrt</b>(k1*x) <b>else</b> -<b>sqrt</b>(k2*<b>abs</b>(x)), with k1, k2 > 0
-</pre>
-<p>
-in such a way that within the region -x_small &le; x &le; x_small,
-the function is described by two polynomials of third order
-(one in the region -x_small .. 0 and one within the region 0 .. x_small)
-such that
-</p>
-<ul>
-<li> The derivative at x=0 is finite. </li>
-<li> The overall function is continuous with a
-     continuous first derivative everywhere.</li>
-<li> If parameter use_yd0 = <b>false</b>, the two polynomials
-     are constructed such that the second derivatives at x=0
-     are identical. If use_yd0 = <b>true</b>, the derivative
-     at x=0 is explicitly provided via the additional argument
-     yd0. If necessary, the derivative yd0 is automatically
-     reduced in order that the polynomials are strict monotonically
-     increasing <i>[Fritsch and Carlson, 1980]</i>.</li>
-</ul>
-<p>
-Typical screenshots for two different configurations
-are shown below. The first one with k1=k2=1:
-</p>
-<p>
-<img src=\"../Images/Fluid/Components/regRoot2_a.png\">
-</p>
-<p>
-and the second one with k1=1 and k2=3:
-</p>
-<p>
-<img src=\"../Images/Fluid/Components/regRoot2_b.png\">
-</p>
-
-<p>
-The (smooth) derivative of the function with
-k1=1, k2=3 is shown in the next figure:
-<p>
-<img src=\"../Images/Fluid/Components/regRoot2_c.png\">
-</p>
-
-<p>
-<b>Literature</b>
-</p>
-
-<dl>
-<dt> Fritsch F.N. and Carlson R.E. (1980):</dt>
-<dd> <b>Monotone piecewise cubic interpolation</b>.
-     SIAM J. Numerc. Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
-</dl>
-</html>", revisions="<html>
-<ul>
-<li><i>Nov., 2005</i>
-    by <a href=\"mailto:Martin.Otter@DLR.de\">Martin Otter</a>:<br>
-    Designed and implemented.</li>
-</ul>
-</html>"));
   protected
     encapsulated function regRoot2_utility
       "Interpolating with two 3-order polynomials with a prescribed derivative at x=0"
@@ -305,7 +240,6 @@ k1=1, k2=3 is shown in the next figure:
        input Boolean use_yd0 "= true, if yd0 shall be used";
        input Real yd0(min=0) "Desired derivative at x=0: dy/dx = yd0";
        output Real y;
-       annotation(smoothOrder=2);
     protected
        Real x2;
        Real xsqrt1;
@@ -388,12 +322,75 @@ k1=1, k2=3 is shown in the next figure:
           y := y1*(if x >= 0 then evaluatePoly3_derivativeAtZero(x/x1,1,1,y1d*x1/y1,y0d*x1/y1) else
                                   evaluatePoly3_derivativeAtZero(x/x1,x2/x1,y2/y1,y2d*x1/y1,y0d*x1/y1));
        end if;
+       annotation(smoothOrder=2);
     end regRoot2_utility;
   algorithm
     y := smooth(2,if x >= x_small then sqrt(k1*x) else
                   if x <= -x_small then -sqrt(k2*abs(x)) else
                   if k1 >= k2 then regRoot2_utility(x,x_small,k1,k2,use_yd0,yd0) else
                                   -regRoot2_utility(-x,x_small,k2,k1,use_yd0,yd0));
+    annotation(smoothOrder=2, Documentation(info="<html>
+<p>
+Approximates the function
+</p>
+<pre>
+   y = <b>if</b> x &ge; 0 <b>then</b> <b>sqrt</b>(k1*x) <b>else</b> -<b>sqrt</b>(k2*<b>abs</b>(x)), with k1, k2 > 0
+</pre>
+<p>
+in such a way that within the region -x_small &le; x &le; x_small,
+the function is described by two polynomials of third order
+(one in the region -x_small .. 0 and one within the region 0 .. x_small)
+such that
+</p>
+<ul>
+<li> The derivative at x=0 is finite. </li>
+<li> The overall function is continuous with a
+     continuous first derivative everywhere.</li>
+<li> If parameter use_yd0 = <b>false</b>, the two polynomials
+     are constructed such that the second derivatives at x=0
+     are identical. If use_yd0 = <b>true</b>, the derivative
+     at x=0 is explicitly provided via the additional argument
+     yd0. If necessary, the derivative yd0 is automatically
+     reduced in order that the polynomials are strict monotonically
+     increasing <i>[Fritsch and Carlson, 1980]</i>.</li>
+</ul>
+<p>
+Typical screenshots for two different configurations
+are shown below. The first one with k1=k2=1:
+</p>
+<p>
+<img src=\"../Images/Fluid/Components/regRoot2_a.png\">
+</p>
+<p>
+and the second one with k1=1 and k2=3:
+</p>
+<p>
+<img src=\"../Images/Fluid/Components/regRoot2_b.png\">
+</p>
+
+<p>
+The (smooth) derivative of the function with
+k1=1, k2=3 is shown in the next figure:
+<p>
+<img src=\"../Images/Fluid/Components/regRoot2_c.png\">
+</p>
+
+<p>
+<b>Literature</b>
+</p>
+
+<dl>
+<dt> Fritsch F.N. and Carlson R.E. (1980):</dt>
+<dd> <b>Monotone piecewise cubic interpolation</b>.
+     SIAM J. Numerc. Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
+</dl>
+</html>", revisions="<html>
+<ul>
+<li><i>Nov., 2005</i>
+    by <a href=\"mailto:Martin.Otter@DLR.de\">Martin Otter</a>:<br>
+    Designed and implemented.</li>
+</ul>
+</html>"));
   end regRoot2;
 
   function regSquare2
@@ -407,6 +404,66 @@ k1=1, k2=3 is shown in the next figure:
     input Boolean use_yd0 = false "= true, if yd0 shall be used";
     input Real yd0(min=0)=1 "Desired derivative at x=0: dy/dx = yd0";
     output Real y "ordinate value";
+  protected
+    encapsulated function regSquare2_utility
+      "Interpolating with two 3-order polynomials with a prescribed derivative at x=0"
+      import Modelica.Fluid.Utilities.evaluatePoly3_derivativeAtZero;
+       input Real x;
+       input Real x1 "approximation of function abs(x) < x1";
+       input Real k1 "y = (if x>=0 then k1 else -k2)*x*|x|; k1 >= k2";
+       input Real k2 "y = (if x>=0 then k1 else -k2)*x*|x|";
+       input Boolean use_yd0 = false "= true, if yd0 shall be used";
+       input Real yd0(min=0)=1 "Desired derivative at x=0: dy/dx = yd0";
+       output Real y;
+    protected
+       Real x2;
+       Real y1;
+       Real y2;
+       Real y1d;
+       Real y2d;
+       Real w;
+       Real w1;
+       Real w2;
+       Real y0d;
+    algorithm
+       // x2 :=-x1*(k2/k1)^2;
+       x2 := -x1;
+       if x <= x2 then
+          y := -k2*x^2;
+       else
+           y1 := k1*x1^2;
+           y2 :=-k2*x2^2;
+          y1d := k1*2*x1;
+          y2d :=-k2*2*x2;
+          if use_yd0 then
+             y0d :=yd0;
+          else
+             /* Determine derivative, such that first and second derivative
+              of left and right polynomial are identical at x=0:
+              see derivation in function regRoot2
+           */
+             w :=x2/x1;
+             y0d := ( (3*y2 - x2*y2d)/w - (3*y1 - x1*y1d)*w) /(2*x1*(1 - w));
+          end if;
+
+          /* Modify derivative y0d, such that the polynomial is
+           monotonically increasing. A sufficient condition is
+             0 <= y0d <= sqrt(5)*k_i*|x_i|
+        */
+          w1 :=sqrt(5)*k1*x1;
+          w2 :=sqrt(5)*k2*abs(x2);
+          y0d :=min(y0d, 0.9*min(w1, w2));
+
+          y := if x >= 0 then evaluatePoly3_derivativeAtZero(x,x1,y1,y1d,y0d) else
+                              evaluatePoly3_derivativeAtZero(x,x2,y2,y2d,y0d);
+       end if;
+       annotation(smoothOrder=2);
+    end regSquare2_utility;
+  algorithm
+    y := smooth(2,if x >= x_small then k1*x^2 else
+                  if x <= -x_small then -k2*x^2 else
+                  if k1 >= k2 then regSquare2_utility(x,x_small,k1,k2,use_yd0,yd0) else
+                                  -regSquare2_utility(-x,x_small,k2,k1,use_yd0,yd0));
     annotation(smoothOrder=2, Documentation(info="<html>
 <p>
 Approximates the function
@@ -467,66 +524,6 @@ k1=1, k2=3 is shown in the next figure:
     Designed and implemented.</li>
 </ul>
 </html>"));
-  protected
-    encapsulated function regSquare2_utility
-      "Interpolating with two 3-order polynomials with a prescribed derivative at x=0"
-      import Modelica.Fluid.Utilities.evaluatePoly3_derivativeAtZero;
-       input Real x;
-       input Real x1 "approximation of function abs(x) < x1";
-       input Real k1 "y = (if x>=0 then k1 else -k2)*x*|x|; k1 >= k2";
-       input Real k2 "y = (if x>=0 then k1 else -k2)*x*|x|";
-       input Boolean use_yd0 = false "= true, if yd0 shall be used";
-       input Real yd0(min=0)=1 "Desired derivative at x=0: dy/dx = yd0";
-       output Real y;
-       annotation(smoothOrder=2);
-    protected
-       Real x2;
-       Real y1;
-       Real y2;
-       Real y1d;
-       Real y2d;
-       Real w;
-       Real w1;
-       Real w2;
-       Real y0d;
-    algorithm
-       // x2 :=-x1*(k2/k1)^2;
-       x2 := -x1;
-       if x <= x2 then
-          y := -k2*x^2;
-       else
-           y1 := k1*x1^2;
-           y2 :=-k2*x2^2;
-          y1d := k1*2*x1;
-          y2d :=-k2*2*x2;
-          if use_yd0 then
-             y0d :=yd0;
-          else
-             /* Determine derivative, such that first and second derivative
-              of left and right polynomial are identical at x=0:
-              see derivation in function regRoot2
-           */
-             w :=x2/x1;
-             y0d := ( (3*y2 - x2*y2d)/w - (3*y1 - x1*y1d)*w) /(2*x1*(1 - w));
-          end if;
-
-          /* Modify derivative y0d, such that the polynomial is
-           monotonically increasing. A sufficient condition is
-             0 <= y0d <= sqrt(5)*k_i*|x_i|
-        */
-          w1 :=sqrt(5)*k1*x1;
-          w2 :=sqrt(5)*k2*abs(x2);
-          y0d :=min(y0d, 0.9*min(w1, w2));
-
-          y := if x >= 0 then evaluatePoly3_derivativeAtZero(x,x1,y1,y1d,y0d) else
-                              evaluatePoly3_derivativeAtZero(x,x2,y2,y2d,y0d);
-       end if;
-    end regSquare2_utility;
-  algorithm
-    y := smooth(2,if x >= x_small then k1*x^2 else
-                  if x <= -x_small then -k2*x^2 else
-                  if k1 >= k2 then regSquare2_utility(x,x_small,k1,k2,use_yd0,yd0) else
-                                  -regSquare2_utility(-x,x_small,k2,k1,use_yd0,yd0));
   end regSquare2;
 
   function regStep
@@ -539,6 +536,10 @@ k1=1, k2=3 is shown in the next figure:
       "Approximation of step for -x_small <= x <= x_small; x_small > 0 required";
     output Real y "Ordinate value to approximate y = if x > 0 then y1 else y2";
     // output Real yd;
+  algorithm
+    y := smooth(1, if x >  x_small then y1 else
+                   if x < -x_small then y2 else
+                   if abs(x_small)>0 then (x/x_small)*((x/x_small)^2 - 3)*(y2-y1)/4 + (y1+y2)/2 else (y1+y2)/2);
     annotation(Documentation(revisions="<html>
 <ul>
 <li><i>April 29, 2008</i>
@@ -549,10 +550,6 @@ k1=1, k2=3 is shown in the next figure:
     Minor modification to cover the limit case <code>x_small -> 0</code> without division by zero.</li>
 </ul>
 </html>"));
-  algorithm
-    y := smooth(1, if x >  x_small then y1 else
-                   if x < -x_small then y2 else
-                   if abs(x_small)>0 then (x/x_small)*((x/x_small)^2 - 3)*(y2-y1)/4 + (y1+y2)/2 else (y1+y2)/2);
   end regStep;
 
   function evaluatePoly3_derivativeAtZero
@@ -564,9 +561,6 @@ k1=1, k2=3 is shown in the next figure:
     input Real y1d "First derivative at y1";
     input Real y0d "First derivative at f(x=0)";
     output Real y;
-    annotation(smoothOrder=3, Documentation(info="<html>
-
-</html>"));
   protected
     Real a1;
     Real a2;
@@ -578,11 +572,11 @@ k1=1, k2=3 is shown in the next figure:
     a3 := y1 - a2 - a1;
     xx := x/x1;
     y  := xx*(a1 + xx*(a2 + xx*a3));
-  end evaluatePoly3_derivativeAtZero;
-
-  annotation (Documentation(info="<html>
+    annotation(smoothOrder=3, Documentation(info="<html>
 
 </html>"));
+  end evaluatePoly3_derivativeAtZero;
+
 
   function regFun3 "Co-monotonic and C1 smooth regularization function"
 
@@ -597,63 +591,6 @@ k1=1, k2=3 is shown in the next figure:
     output Real y "Ordinate value";
     output Real c
       "Slope of linear section between two cubic polynomials or dummy linear section slope if single cubic is used";
-    annotation(smoothOrder=1, Documentation(revisions="<html>
-<ul>
-<li><i>May 2008</i>
-    by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br>
-    Designed and implemented.</li>
-</ul>
-</html>",   info="<html>
-<p>
-Approximates a function in a region between <code>x0</code> and <code>x1</code>
-such that
-</p>
-<ul>
-<li> The overall function is continuous with a
-     continuous first derivative everywhere.</li>
-<li> The function is co-monotone with the given
-     data points.</li>
-</ul>
-<p>
-In this region, a continuation is constructed from the given points
-<code>(x0, y0)</code>, <code>(x1, y1)</code> and the respective
-derivatives. For this purpose, a single polynomial of third order or two
-cubic polynomials with a linear section in between are used <i>[Gasparo
-and Morandi, 1991]</i>. This algorithm was extended with two additional
-conditions to avoid saddle points with zero/infinite derivative that lead to
-integrator step size reduction to zero.
-</p>
-<p>
-This function was developed for pressure loss correlations properly
-addressing the static head on top of the established requirements
-for monotonicity and smoothness. In this case, the present function
-allows to implement the exact solution in the limit of
-<code>x1-x0 -> 0</code> or <code>y1-y0 -> 0</code>.
-</p>
-<p>
-Typical screenshots for two different configurations
-are shown below. The first one illustrates five different settings of <code>xi</code> and <code>yid</code>:
-</p>
-<p>
-<img src=\"../Images/Fluid/Components/regFun3_a.png\">
-</p>
-<p>
-The second graph shows the continous derivative of this regularization function:
-</p>
-<p>
-<img src=\"../Images/Fluid/Components/regFun3_b.png\">
-</p>
-
-<p>
-<b>Literature</b>
-</p>
-
-<dl>
-<dt> Gasparo M. G. and Morandi R. (1991):</dt>
-<dd> <b>Piecewise cubic monotone interpolation with assigned slopes</b>.
-     Computing, Vol. 46, Issue 4, December 1991, pp. 355 - 365.</dd>
-</dl>
-</html>"));
 
   protected
     Real h0 "Width of interval i=0";
@@ -778,6 +715,63 @@ The second graph shows the continous derivative of this regularization function:
       end if;
     end if;
 
+    annotation(smoothOrder=1, Documentation(revisions="<html>
+<ul>
+<li><i>May 2008</i>
+    by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br>
+    Designed and implemented.</li>
+</ul>
+</html>",   info="<html>
+<p>
+Approximates a function in a region between <code>x0</code> and <code>x1</code>
+such that
+</p>
+<ul>
+<li> The overall function is continuous with a
+     continuous first derivative everywhere.</li>
+<li> The function is co-monotone with the given
+     data points.</li>
+</ul>
+<p>
+In this region, a continuation is constructed from the given points
+<code>(x0, y0)</code>, <code>(x1, y1)</code> and the respective
+derivatives. For this purpose, a single polynomial of third order or two
+cubic polynomials with a linear section in between are used <i>[Gasparo
+and Morandi, 1991]</i>. This algorithm was extended with two additional
+conditions to avoid saddle points with zero/infinite derivative that lead to
+integrator step size reduction to zero.
+</p>
+<p>
+This function was developed for pressure loss correlations properly
+addressing the static head on top of the established requirements
+for monotonicity and smoothness. In this case, the present function
+allows to implement the exact solution in the limit of
+<code>x1-x0 -> 0</code> or <code>y1-y0 -> 0</code>.
+</p>
+<p>
+Typical screenshots for two different configurations
+are shown below. The first one illustrates five different settings of <code>xi</code> and <code>yid</code>:
+</p>
+<p>
+<img src=\"../Images/Fluid/Components/regFun3_a.png\">
+</p>
+<p>
+The second graph shows the continous derivative of this regularization function:
+</p>
+<p>
+<img src=\"../Images/Fluid/Components/regFun3_b.png\">
+</p>
+
+<p>
+<b>Literature</b>
+</p>
+
+<dl>
+<dt> Gasparo M. G. and Morandi R. (1991):</dt>
+<dd> <b>Piecewise cubic monotone interpolation with assigned slopes</b>.
+     Computing, Vol. 46, Issue 4, December 1991, pp. 355 - 365.</dd>
+</dl>
+</html>"));
   end regFun3;
 
   function cubicHermite "Evaluate a cubic Hermite spline"
@@ -789,13 +783,6 @@ The second graph shows the continous derivative of this regularization function:
     input Real y1d "Lower gradient";
     input Real y2d "Upper gradient";
     output Real y "Interpolated ordinate value";
-    annotation(smoothOrder=3, Documentation(revisions="<html>
-<ul>
-<li><i>May 2008</i>
-    by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br>
-    Designed and implemented.</li>
-</ul>
-</html>"));
   protected
     Real h "Distance between x1 and x2";
     Real t "abscissa scaled with h, i.e. t=[0..1] within x=[x1..x2]";
@@ -823,6 +810,13 @@ The second graph shows the continous derivative of this regularization function:
       // Degenerate case, x1 and x2 are identical, return step function
       y := (y1 + y2)/2;
     end if;
+    annotation(smoothOrder=3, Documentation(revisions="<html>
+<ul>
+<li><i>May 2008</i>
+    by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br>
+    Designed and implemented.</li>
+</ul>
+</html>"));
   end cubicHermite;
 
   function cubicHermite_withDerivative
@@ -836,13 +830,6 @@ The second graph shows the continous derivative of this regularization function:
     input Real y2d "Upper gradient";
     output Real y "Interpolated ordinate value";
     output Real dy_dx "Derivative dy/dx at abscissa value x";
-    annotation(smoothOrder=3, Documentation(revisions="<html>
-<ul>
-<li><i>May 2008</i>
-    by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br>
-    Designed and implemented.</li>
-</ul>
-</html>"));
   protected
     Real h "Distance between x1 and x2";
     Real t "abscissa scaled with h, i.e. t=[0..1] within x=[x1..x2]";
@@ -884,6 +871,16 @@ The second graph shows the continous derivative of this regularization function:
       y := (y1 + y2)/2;
       dy_dx := sign(y2 - y1)*Modelica.Constants.inf;
     end if;
+    annotation(smoothOrder=3, Documentation(revisions="<html>
+<ul>
+<li><i>May 2008</i>
+    by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br>
+    Designed and implemented.</li>
+</ul>
+</html>"));
   end cubicHermite_withDerivative;
 
+  annotation (Documentation(info="<html>
+
+</html>"));
 end Utilities;

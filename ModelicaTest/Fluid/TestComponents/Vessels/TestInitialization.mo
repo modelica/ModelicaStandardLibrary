@@ -5,12 +5,12 @@ model TestInitialization
   package Medium = Modelica.Media.Air.SimpleAir;
   //package Medium = Modelica.Media.Air.MoistAir;
 
-  Modelica.Fluid.Sources.Boundary_pT sou1(nPorts=1,redeclare package Medium = 
+  Modelica.Fluid.Sources.Boundary_pT sou1(nPorts=1,redeclare package Medium =
         Medium,
     p=101330,
     T=293.15)                                       annotation (Placement(
         transformation(extent={{-90,10},{-70,30}}, rotation=0)));
-  Modelica.Fluid.Sources.Boundary_pT sin1(nPorts=1,redeclare package Medium = 
+  Modelica.Fluid.Sources.Boundary_pT sin1(nPorts=1,redeclare package Medium =
         Medium,
     p=101320,
     T=293.15)                                       annotation (Placement(
@@ -31,9 +31,9 @@ model TestInitialization
     V=0.1,
     nPorts=2,
     portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.25),
-        Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.25)}) 
+        Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.25)})
     annotation (Placement(transformation(extent={{-10,20},{10,40}},rotation=0)));
-  inner Modelica.Fluid.System system 
+  inner Modelica.Fluid.System system
     annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));
 equation
   connect(sou1.ports[1], pipe1.port_a) annotation (Line(
@@ -70,5 +70,4 @@ equation
           lineColor={0,0,255},
           textString="Work-around: Use Medium MoistAir.")}),
                        experiment(StopTime=1));
-
 end TestInitialization;

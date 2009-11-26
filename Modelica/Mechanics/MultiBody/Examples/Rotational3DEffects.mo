@@ -5,49 +5,6 @@ package Rotational3DEffects
     "Demonstrates that a cylindrical body can be replaced by Rotor1D model"
     extends Modelica.Icons.Example;
 
-    annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics),
-      experiment(StopTime=5, Tolerance=1e-008),
-      Documentation(info="<html>
-<p>
-This example consists of a body that is attached to the world system
-with a spherical joint. On this body, a \"rotor\", i.e., a body with rotational
-symmetry is present. Two kinds of models are shown:
-</p>
-
-<ul>
-<li> In the upper part of the diagram layer, only multi-body components are used.</li>
-<li> In the lower part of the diagram layer, the same model is implemented,
-     but by a different modeling of the cylindrical body:
-     The cylindrical body is included, but it is rigidly attached to its mount.
-     This part takes into account the movement of the center of mass and of
-     the inertia tensor of the cylindrical body. Note, since the cylindrical body
-     has rotational symmetry, its center of mass and its inertia tensor is independent
-     of the angle of the inertia and can therefore be rigidly attached to its mount.
-     Additionally, with a \"MultiBody.Parts.Rotor1D\" model, a primarily 1-dim.
-     inertia is included that takes into account the additional effects when the
-     cylindrical body is moving relatively to its mounts</li>
-</ul>
-
-<p>
-The simulation reveals that both the kinematic movement and the reaction forces on the
-environment (object \"world\" and \"fixed\" respectively) are identical for both models.
-</p>
-
-<p>
-A typical usage scenario is to model a complete drive train of a vehicle, including
-the automatic gearbox, with elements of the \"Mechanics.Rotational\" library, but using
-the \"Rotor1D\" model instead of the \"Rotational.Components.Inertia\" component.
-This drive train model can be mounted on a 3-dim. multi-body model of the vehicle.
-Additionally, one rigid body has to be fixed to the vehicle that has the mass, center
-of mass and inertia tensor of the complete drive train. Both models together, give
-exactly the same effect, as if every part of the drive train would have been modelled
-solely with mult-body components. One benefit of this modeling is that the simulation
-is much faster.
-</p>
-
-</html>"));
     inner World world(                             driveTrainMechanics3D=true)
       annotation (Placement(transformation(extent={{-100,20},{-80,40}},
             rotation=0)));
@@ -170,14 +127,53 @@ is much faster.
         color={95,95,95},
         thickness=0.5,
         smooth=Smooth.None));
+    annotation (
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+              100,100}}), graphics),
+      experiment(StopTime=5, Tolerance=1e-008),
+      Documentation(info="<html>
+<p>
+This example consists of a body that is attached to the world system
+with a spherical joint. On this body, a \"rotor\", i.e., a body with rotational
+symmetry is present. Two kinds of models are shown:
+</p>
+
+<ul>
+<li> In the upper part of the diagram layer, only multi-body components are used.</li>
+<li> In the lower part of the diagram layer, the same model is implemented,
+     but by a different modeling of the cylindrical body:
+     The cylindrical body is included, but it is rigidly attached to its mount.
+     This part takes into account the movement of the center of mass and of
+     the inertia tensor of the cylindrical body. Note, since the cylindrical body
+     has rotational symmetry, its center of mass and its inertia tensor is independent
+     of the angle of the inertia and can therefore be rigidly attached to its mount.
+     Additionally, with a \"MultiBody.Parts.Rotor1D\" model, a primarily 1-dim.
+     inertia is included that takes into account the additional effects when the
+     cylindrical body is moving relatively to its mounts</li>
+</ul>
+
+<p>
+The simulation reveals that both the kinematic movement and the reaction forces on the
+environment (object \"world\" and \"fixed\" respectively) are identical for both models.
+</p>
+
+<p>
+A typical usage scenario is to model a complete drive train of a vehicle, including
+the automatic gearbox, with elements of the \"Mechanics.Rotational\" library, but using
+the \"Rotor1D\" model instead of the \"Rotational.Components.Inertia\" component.
+This drive train model can be mounted on a 3-dim. multi-body model of the vehicle.
+Additionally, one rigid body has to be fixed to the vehicle that has the mass, center
+of mass and inertia tensor of the complete drive train. Both models together, give
+exactly the same effect, as if every part of the drive train would have been modelled
+solely with mult-body components. One benefit of this modeling is that the simulation
+is much faster.
+</p>
+
+</html>"));
   end GyroscopicEffects;
 
   model ActuatedDrive
      extends Modelica.Icons.Example;
-    annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics),
-      experiment(StopTime=1.1));
     Parts.BodyShape bodyCylinder(
       r={0.5,0,0},
       m=0,
@@ -270,14 +266,14 @@ is much faster.
         points={{-59,70},{-50,70},{-50,40},{-72,40},{-72,-30},{-34,-30}},
         color={0,0,127},
         smooth=Smooth.None));
+    annotation (
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+              100,100}}), graphics),
+      experiment(StopTime=1.1));
   end ActuatedDrive;
 
   model MovingActuatedDrive
      extends Modelica.Icons.Example;
-    annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-              100,100}}), graphics),
-      experiment(StopTime=1.1));
     Parts.BodyShape bodyCylinder(
       r={0.5,0,0},
       m=0,
@@ -435,14 +431,14 @@ is much faster.
         points={{37,80},{92,80},{92,-10},{0,-10},{0,-26},{16,-26}},
         color={0,0,127},
         smooth=Smooth.None));
+    annotation (
+      Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
+              100,100}}), graphics),
+      experiment(StopTime=1.1));
   end MovingActuatedDrive;
 
   model GearConstraint
      extends Modelica.Icons.Example;
-    annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics),
-      experiment(StopTime=5));
     Joints.GearConstraint gearConstraint(                             ratio=10)
       annotation (Placement(transformation(extent={{34,40},{54,60}}, rotation=0)));
     inner World world(                             driveTrainMechanics3D=true,
@@ -542,6 +538,10 @@ is much faster.
         color={95,95,95},
         thickness=0.5,
         smooth=Smooth.None));
+    annotation (
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+              100,100}}), graphics),
+      experiment(StopTime=5));
   end GearConstraint;
   annotation (Documentation(info="<html>
 <p>

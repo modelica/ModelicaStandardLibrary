@@ -37,6 +37,14 @@ model PointGravityWithPointMasses
         transformation(extent={{0,60},{20,80}}, rotation=0)));
 equation
 
+  connect(spring.frame_a, body3.frame_a) annotation (Line(
+      points={{0,70},{-10,70}},
+      color={95,95,95},
+      thickness=0.5));
+  connect(spring.frame_b, body4.frame_a) annotation (Line(
+      points={{20,70},{30,70}},
+      color={95,95,95},
+      thickness=0.5));
   annotation (
     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}),
@@ -60,12 +68,4 @@ a default value, when the physical system does not provide the equations.
 <IMG SRC=\"../Images/MultiBody/Examples/Elementary/PointGravityWithPointMasses.png\">
 </p>
 </HTML>"));
-  connect(spring.frame_a, body3.frame_a) annotation (Line(
-      points={{0,70},{-10,70}},
-      color={95,95,95},
-      thickness=0.5));
-  connect(spring.frame_b, body4.frame_a) annotation (Line(
-      points={{20,70},{30,70}},
-      color={95,95,95},
-      thickness=0.5));
 end PointGravityWithPointMasses;

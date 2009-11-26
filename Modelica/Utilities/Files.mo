@@ -128,67 +128,6 @@ in the \"name\" directory are printed in sorted order.
 </html>"));
 end list;
   extends Modelica.Icons.Library;
-    annotation (
-Documentation(info="<HTML>
-<p>
-This package contains functions to work with files and directories.
-As a general convention of this package, '/' is used as directory
-separator both for input and output arguments of all functions.
-For example:
-</p>
-<pre>
-   exist(\"Modelica/Mechanics/Rotational.mo\");
-</pre>
-<p>
-The functions provide the mapping to the directory separator of the
-underlying operating system. Note, that on Windows system the usage
-of '\\' as directory separator would be inconvenient, because this
-character is also the escape character in Modelica and C Strings.
-</p>
-<p>
-In the table below an example call to every function is given:
-</p>
-<table border=1 cellspacing=0 cellpadding=2>
-  <tr><th><b><i>Function/type</i></b></th><th><b><i>Description</i></b></th></tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Files.list\">list</a>(name)</td>
-      <td valign=\"top\"> List content of file or of directory.</td>
-  </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Files.copy\">copy</a>(oldName, newName)<br>
-          <a href=\"Modelica://Modelica.Utilities.Files.copy\">copy</a>(oldName, newName, replace=false)</td>
-      <td valign=\"top\"> Generate a copy of a file or of a directory.</td>
-  </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Files.move\">move</a>(oldName, newName)<br>
-          <a href=\"Modelica://Modelica.Utilities.Files.move\">move</a>(oldName, newName, replace=false)</td>
-      <td valign=\"top\"> Move a file or a directory to another place.</td>
-  </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Files.remove\">remove</a>(name)</td>
-      <td valign=\"top\"> Remove file or directory (ignore call, if it does not exist).</td>
-  </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Files.removeFile\">removeFile</a>(name)</td>
-      <td valign=\"top\"> Remove file (ignore call, if it does not exist)</td>
-  </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Files.createDirectory\">createDirectory</a>(name)</td>
-      <td valign=\"top\"> Create directory (if directory already exists, ignore call).</td>
-  </tr>
-  <tr><td valign=\"top\">result = <a href=\"Modelica://Modelica.Utilities.Files.exist\">exist</a>(name)</td>
-      <td valign=\"top\"> Inquire whether file or directory exists.</td>
-  </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Files.assertNew\">assertNew</a>(name,message)</td>
-      <td valign=\"top\"> Trigger an assert, if a file or directory exists.</td>
-  </tr>
-  <tr><td valign=\"top\">fullName = <a href=\"Modelica://Modelica.Utilities.Files.fullPathName\">fullPathName</a>(name)</td>
-      <td valign=\"top\"> Get full path name of file or directory name.</td>
-  </tr>
-  <tr><td valign=\"top\">(directory, name, extension) = <a href=\"Modelica://Modelica.Utilities.Files.splitPathName\">splitPathName</a>(name)</td>
-      <td valign=\"top\"> Split path name in directory, file name kernel, file name extension.</td>
-  </tr>
-  <tr><td valign=\"top\">fileName = <a href=\"Modelica://Modelica.Utilities.Files.temporaryFileName\">temporaryFileName</a>()</td>
-      <td valign=\"top\"> Return arbitrary name of a file that does not exist<br>
-           and is in a directory where access rights allow to <br>
-           write to this file (useful for temporary output of files).</td>
-  </tr>
-</table>
-</HTML>"));
   // illegal use of top-level annotation removed:
   // version="0.8", versionDate="2004-08-24",
 
@@ -644,24 +583,6 @@ function splitPathName
   output String name "Name of the file without the extension";
   output String extension "Extension of the file name. Starts with '.'";
 
-  annotation (Documentation(info="<HTML>
-<h4>Syntax</h4>
-<blockquote><pre>
-(directory, name, extension) = Files.<b>splitPathName</b>(pathName);
-</pre></blockquote>
-<h4>Description</h4>
-<p>
-Function <b>splitPathName</b>(..) splits a path name into its parts.
-</p>
-<h4>Example</h4>
-<pre>
-  (directory, name, extension) = Files.splitPathName(\"C:/user/test/input.txt\")
-
-  -> directory = \"C:/user/test/\"
-     name      = \"input\"
-     extension = \".txt\"
-</pre>
-</HTML>"));
   protected
   Integer lenPath = Strings.length(pathName);
   Integer i = lenPath;
@@ -706,6 +627,24 @@ algorithm
        name :=pathName;
      end if;
    end if;
+  annotation (Documentation(info="<HTML>
+<h4>Syntax</h4>
+<blockquote><pre>
+(directory, name, extension) = Files.<b>splitPathName</b>(pathName);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Function <b>splitPathName</b>(..) splits a path name into its parts.
+</p>
+<h4>Example</h4>
+<pre>
+  (directory, name, extension) = Files.splitPathName(\"C:/user/test/input.txt\")
+
+  -> directory = \"C:/user/test/\"
+     name      = \"input\"
+     extension = \".txt\"
+</pre>
+</HTML>"));
 end splitPathName;
 
 function temporaryFileName
@@ -727,4 +666,65 @@ write to this file (useful for temporary output of files).
 </p>
 </html>"));
 end temporaryFileName;
+    annotation (
+Documentation(info="<HTML>
+<p>
+This package contains functions to work with files and directories.
+As a general convention of this package, '/' is used as directory
+separator both for input and output arguments of all functions.
+For example:
+</p>
+<pre>
+   exist(\"Modelica/Mechanics/Rotational.mo\");
+</pre>
+<p>
+The functions provide the mapping to the directory separator of the
+underlying operating system. Note, that on Windows system the usage
+of '\\' as directory separator would be inconvenient, because this
+character is also the escape character in Modelica and C Strings.
+</p>
+<p>
+In the table below an example call to every function is given:
+</p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><th><b><i>Function/type</i></b></th><th><b><i>Description</i></b></th></tr>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Files.list\">list</a>(name)</td>
+      <td valign=\"top\"> List content of file or of directory.</td>
+  </tr>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Files.copy\">copy</a>(oldName, newName)<br>
+          <a href=\"Modelica://Modelica.Utilities.Files.copy\">copy</a>(oldName, newName, replace=false)</td>
+      <td valign=\"top\"> Generate a copy of a file or of a directory.</td>
+  </tr>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Files.move\">move</a>(oldName, newName)<br>
+          <a href=\"Modelica://Modelica.Utilities.Files.move\">move</a>(oldName, newName, replace=false)</td>
+      <td valign=\"top\"> Move a file or a directory to another place.</td>
+  </tr>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Files.remove\">remove</a>(name)</td>
+      <td valign=\"top\"> Remove file or directory (ignore call, if it does not exist).</td>
+  </tr>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Files.removeFile\">removeFile</a>(name)</td>
+      <td valign=\"top\"> Remove file (ignore call, if it does not exist)</td>
+  </tr>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Files.createDirectory\">createDirectory</a>(name)</td>
+      <td valign=\"top\"> Create directory (if directory already exists, ignore call).</td>
+  </tr>
+  <tr><td valign=\"top\">result = <a href=\"Modelica://Modelica.Utilities.Files.exist\">exist</a>(name)</td>
+      <td valign=\"top\"> Inquire whether file or directory exists.</td>
+  </tr>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Files.assertNew\">assertNew</a>(name,message)</td>
+      <td valign=\"top\"> Trigger an assert, if a file or directory exists.</td>
+  </tr>
+  <tr><td valign=\"top\">fullName = <a href=\"Modelica://Modelica.Utilities.Files.fullPathName\">fullPathName</a>(name)</td>
+      <td valign=\"top\"> Get full path name of file or directory name.</td>
+  </tr>
+  <tr><td valign=\"top\">(directory, name, extension) = <a href=\"Modelica://Modelica.Utilities.Files.splitPathName\">splitPathName</a>(name)</td>
+      <td valign=\"top\"> Split path name in directory, file name kernel, file name extension.</td>
+  </tr>
+  <tr><td valign=\"top\">fileName = <a href=\"Modelica://Modelica.Utilities.Files.temporaryFileName\">temporaryFileName</a>()</td>
+      <td valign=\"top\"> Return arbitrary name of a file that does not exist<br>
+           and is in a directory where access rights allow to <br>
+           write to this file (useful for temporary output of files).</td>
+  </tr>
+</table>
+</HTML>"));
 end Files;

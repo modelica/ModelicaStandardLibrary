@@ -47,108 +47,6 @@ end DataRecord;
 partial package SingleGasNasa
   "Medium model of an ideal gas based on NASA source"
 
-  annotation (
-    Documentation(info="<HTML>
-<p>
-This model calculates medium properties
-for an ideal gas of a single substance, or for an ideal
-gas consisting of several substances where the
-mass fractions are fixed. Independent variables
-are temperature <b>T</b> and pressure <b>p</b>.
-Only density is a function of T and p. All other quantities
-are solely a function of T. The properties
-are valid in the range:
-</p>
-<pre>
-   200 K &le; T &le; 6000 K
-</pre>
-<p>
-The following quantities are always computed:
-</p>
-<table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>Variable</b></td>
-      <td valign=\"top\"><b>Unit</b></td>
-      <td valign=\"top\"><b>Description</b></td></tr>
-  <tr><td valign=\"top\">h</td>
-      <td valign=\"top\">J/kg</td>
-      <td valign=\"top\">specific enthalpy h = h(T)</td></tr>
-  <tr><td valign=\"top\">u</td>
-      <td valign=\"top\">J/kg</td>
-      <td valign=\"top\">specific internal energy u = u(T)</b></td></tr>
-  <tr><td valign=\"top\">d</td>
-      <td valign=\"top\">kg/m^3</td>
-      <td valign=\"top\">density d = d(p,T)</td></tr>
-</table>
-<p>
-For the other variables, see the functions in
-Modelica.Media.IdealGases.Common.SingleGasNasa.
-Note, dynamic viscosity and thermal conductivity are only provided
-for gases that use a data record from Modelica.Media.IdealGases.FluidData.
-Currently these are the following gases:
-</p>
-<pre>
-  Ar
-  C2H2_vinylidene
-  C2H4
-  C2H5OH
-  C2H6
-  C3H6_propylene
-  C3H7OH
-  C3H8
-  C4H8_1_butene
-  C4H9OH
-  C4H10_n_butane
-  C5H10_1_pentene
-  C5H12_n_pentane
-  C6H6
-  C6H12_1_hexene
-  C6H14_n_heptane
-  C7H14_1_heptene
-  C8H10_ethylbenz
-  CH3OH
-  CH4
-  CL2
-  CO
-  CO2
-  F2
-  H2
-  H2O
-  He
-  N2
-  N2O
-  NH3
-  NO
-  O2
-  SO2
-  SO3
-</pre>
-<p>
-<b>Sources for model and literature:</b><br>
-Original Data: Computer program for calculation of complex chemical
-equilibrium compositions and applications. Part 1: Analysis
-Document ID: 19950013764 N (95N20180) File Series: NASA Technical Reports
-Report Number: NASA-RP-1311  E-8017  NAS 1.61:1311
-Authors: Gordon, Sanford (NASA Lewis Research Center)
- Mcbride, Bonnie J. (NASA Lewis Research Center)
-Published: Oct 01, 1994.
-</p>
-<p><b>Known limits of validity:</b></br>
-The data is valid for
-temperatures between 200K and 6000K.  A few of the data sets for
-monatomic gases have a discontinuous 1st derivative at 1000K, but
-this never caused problems so far.
-</p>
-<p>
-This model has been copied from the ThermoFluid library
-and adapted to the Modelica.Media package.
-</p>
-</HTML>"),
-    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-            100}}),
-         graphics),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-            100}}),
-            graphics));
 
   extends Interfaces.PartialPureSubstance(
      ThermoStates = Choices.IndependentVariables.pT,
@@ -156,7 +54,7 @@ and adapted to the Modelica.Media package.
      substanceNames={data.name},
      singleState=false,
      Temperature(min=200, max=6000, start=500, nominal=500),
-     SpecificEnthalpy(start=if referenceChoice==ReferenceEnthalpy.ZeroAt0K then data.H0 else 
+     SpecificEnthalpy(start=if referenceChoice==ReferenceEnthalpy.ZeroAt0K then data.H0 else
         if referenceChoice==ReferenceEnthalpy.UserDefined then h_offset else 0, nominal=1.0e5),
      Density(start=10, nominal=10),
      AbsolutePressure(start=10e5, nominal=10e5));
@@ -429,13 +327,13 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     input IdealGases.Common.DataRecord data "Ideal gas data";
     input SI.Temperature T "Temperature";
     output SI.SpecificHeatCapacity cp "Specific heat capacity at temperature T";
-    annotation (InlineNoEvent=false,smoothOrder=2);
   algorithm
     cp := smooth(0,if T < data.Tlimit then data.R*(1/(T*T)*(data.alow[1] + T*(
       data.alow[2] + T*(1.*data.alow[3] + T*(data.alow[4] + T*(data.alow[5] + T
       *(data.alow[6] + data.alow[7]*T))))))) else data.R*(1/(T*T)*(data.ahigh[1]
        + T*(data.ahigh[2] + T*(1.*data.ahigh[3] + T*(data.ahigh[4] + T*(data.
       ahigh[5] + T*(data.ahigh[6] + data.ahigh[7]*T))))))));
+    annotation (InlineNoEvent=false,smoothOrder=2);
   end cp_T;
 
   function cp_Tlow
@@ -444,11 +342,11 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     input IdealGases.Common.DataRecord data "Ideal gas data";
     input SI.Temperature T "Temperature";
     output SI.SpecificHeatCapacity cp "Specific heat capacity at temperature T";
-    annotation (Inline=false, derivative(zeroDerivative=data) = cp_Tlow_der);
   algorithm
     cp := data.R*(1/(T*T)*(data.alow[1] + T*(
       data.alow[2] + T*(1.*data.alow[3] + T*(data.alow[4] + T*(data.alow[5] + T
       *(data.alow[6] + data.alow[7]*T)))))));
+    annotation (Inline=false, derivative(zeroDerivative=data) = cp_Tlow_der);
   end cp_Tlow;
 
   function cp_Tlow_der
@@ -477,7 +375,6 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     input SI.SpecificEnthalpy h_off=h_offset
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
     output SI.SpecificEnthalpy h "Specific enthalpy at temperature T";
-    annotation (Inline=false,smoothOrder=2);
       //     annotation (InlineNoEvent=false, Inline=false,
       //                 derivative(zeroDerivative=data,
       //                            zeroDerivative=exclEnthForm,
@@ -489,11 +386,12 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
       alow[4] + T*(1/3*data.alow[5] + T*(0.25*data.alow[6] + 0.2*data.alow[7]*T))))))
       /T) else data.R*((-data.ahigh[1] + T*(data.bhigh[1] + data.ahigh[2]*
       Math.log(T) + T*(1.*data.ahigh[3] + T*(0.5*data.ahigh[4] + T*(1/3*data.
-      ahigh[5] + T*(0.25*data.ahigh[6] + 0.2*data.ahigh[7]*T))))))/T)) + (if 
+      ahigh[5] + T*(0.25*data.ahigh[6] + 0.2*data.ahigh[7]*T))))))/T)) + (if
       exclEnthForm then -data.Hf else 0.0) + (if (refChoice
-       == Choices.ReferenceEnthalpy.ZeroAt0K) then data.H0 else 0.0) + (if 
-      refChoice == Choices.ReferenceEnthalpy.UserDefined then h_off else 
+       == Choices.ReferenceEnthalpy.ZeroAt0K) then data.H0 else 0.0) + (if
+      refChoice == Choices.ReferenceEnthalpy.UserDefined then h_off else
             0.0));
+    annotation (Inline=false,smoothOrder=2);
   end h_T;
 
   function h_T_der "derivative function for h_T"
@@ -526,7 +424,6 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     input SI.SpecificEnthalpy h_off=h_offset
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
     output SI.SpecificEnthalpy h "Specific enthalpy at temperature T";
-    annotation(Inline=false,InlineNoEvent=false,smoothOrder=2);
       //     annotation (Inline=false,InlineNoEvent=false, derivative(zeroDerivative=data,
       //                                zeroDerivative=exclEnthForm,
       //                                zeroDerivative=refChoice,
@@ -535,11 +432,12 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     h := data.R*((-data.alow[1] + T*(data.
       blow[1] + data.alow[2]*Math.log(T) + T*(1.*data.alow[3] + T*(0.5*data.
       alow[4] + T*(1/3*data.alow[5] + T*(0.25*data.alow[6] + 0.2*data.alow[7]*T))))))
-      /T) + (if 
+      /T) + (if
       exclEnthForm then -data.Hf else 0.0) + (if (refChoice
-       == Choices.ReferenceEnthalpy.ZeroAt0K) then data.H0 else 0.0) + (if 
-      refChoice == Choices.ReferenceEnthalpy.UserDefined then h_off else 
+       == Choices.ReferenceEnthalpy.ZeroAt0K) then data.H0 else 0.0) + (if
+      refChoice == Choices.ReferenceEnthalpy.UserDefined then h_off else
             0.0);
+    annotation(Inline=false,InlineNoEvent=false,smoothOrder=2);
   end h_Tlow;
 
   function h_Tlow_der "Compute specific enthalpy, low T region; reference is decided by the
@@ -566,7 +464,6 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     input IdealGases.Common.DataRecord data "Ideal gas data";
     input SI.Temperature T "Temperature";
     output SI.SpecificEntropy s "Specific entropy at temperature T";
-    annotation (InlineNoEvent=false,smoothOrder=1);
   algorithm
     s := noEvent(if T < data.Tlimit then data.R*(data.blow[2] - 0.5*data.alow[
       1]/(T*T) - data.alow[2]/T + data.alow[3]*Math.log(T) + T*(
@@ -574,6 +471,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
       7]*T)))) else data.R*(data.bhigh[2] - 0.5*data.ahigh[1]/(T*T) - data.
       ahigh[2]/T + data.ahigh[3]*Math.log(T) + T*(data.ahigh[4]
        + T*(0.5*data.ahigh[5] + T*(1/3*data.ahigh[6] + 0.25*data.ahigh[7]*T)))));
+    annotation (InlineNoEvent=false,smoothOrder=1);
   end s0_T;
 
   function s0_Tlow "Compute specific entropy, low T region"
@@ -581,12 +479,12 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     input IdealGases.Common.DataRecord data "Ideal gas data";
     input SI.Temperature T "Temperature";
     output SI.SpecificEntropy s "Specific entropy at temperature T";
-    annotation (InlineNoEvent=false,smoothOrder=1);
   algorithm
     s := data.R*(data.blow[2] - 0.5*data.alow[
       1]/(T*T) - data.alow[2]/T + data.alow[3]*Math.log(T) + T*(
       data.alow[4] + T*(0.5*data.alow[5] + T*(1/3*data.alow[6] + 0.25*data.alow[
       7]*T))));
+    annotation (InlineNoEvent=false,smoothOrder=1);
   end s0_Tlow;
 
   function dynamicViscosityLowPressure
@@ -600,7 +498,6 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     input DipoleMoment mu "Dipole moment of gas molecule";
     input Real k =  0.0 "Special correction for highly polar substances";
     output SI.DynamicViscosity eta "Dynamic viscosity of gas";
-    annotation (smoothOrder=2);
   protected
     parameter Real Const1_SI=40.785*10^(-9.5)
       "Constant in formula for eta converted to SI units";
@@ -613,7 +510,13 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     Real Tstar "Dimensionless temperature defined by equation below";
     Real Ov "Viscosity collision integral for the gas";
 
-    annotation (Documentation(info="<html>
+  algorithm
+    Tstar := 1.2593*T/Tc;
+    Ov := 1.16145*Tstar^(-0.14874) + 0.52487*exp(-0.7732*Tstar) + 2.16178*exp(-2.43787
+      *Tstar);
+    eta := Const1_SI*Fc*sqrt(M*T)/(Vc^(2/3)*Ov);
+    annotation (smoothOrder=2,
+                Documentation(info="<html>
 <p>
 The used formula are based on the method of Chung et al (1984, 1988) referred to in ref [1] chapter 9.
 The formula 9-4.10 is the one being used. The Formula is given in non-SI units, the follwong onversion constants were used to
@@ -638,15 +541,9 @@ transform the formula to SI units:
 <p>T. Skoglund, Lund, Sweden, 2004-08-31</p>
 
 </html>"));
-  algorithm
-    Tstar := 1.2593*T/Tc;
-    Ov := 1.16145*Tstar^(-0.14874) + 0.52487*exp(-0.7732*Tstar) + 2.16178*exp(-2.43787
-      *Tstar);
-    eta := Const1_SI*Fc*sqrt(M*T)/(Vc^(2/3)*Ov);
   end dynamicViscosityLowPressure;
 
   redeclare replaceable function extends dynamicViscosity "dynamic viscosity"
-    annotation (smoothOrder=2);
   algorithm
     assert(fluidConstants[1].hasCriticalData,
     "Failed to compute dynamicViscosity: For the species \"" + mediumName + "\" no critical data is available.");
@@ -658,6 +555,7 @@ transform the formula to SI units:
                        fluidConstants[1].criticalMolarVolume,
                        fluidConstants[1].acentricFactor,
                        fluidConstants[1].dipoleMoment);
+    annotation (smoothOrder=2);
   end dynamicViscosity;
 
   function thermalConductivityEstimate
@@ -668,11 +566,11 @@ transform the formula to SI units:
     input Integer method(min=1,max=2)=1
       "1: Eucken Method, 2: Modified Eucken Method";
     output ThermalConductivity lambda "Thermal conductivity [W/(m.k)]";
-    annotation (smoothOrder=2);
   algorithm
     lambda := if method == 1 then eta*(Cp - data.R + (9/4)*data.R) else eta*(Cp
        - data.R)*(1.32 + 1.77/((Cp/Modelica.Constants.R) - 1.0));
-    annotation (Documentation(info="<html>
+    annotation (smoothOrder=2,
+                Documentation(info="<html>
 <p>
 This function provides two similar methods for estimating the
 thermal conductivity of polyatomic gases.
@@ -689,12 +587,12 @@ thermal conductivity (lambda) at low temperatures.
   redeclare replaceable function extends thermalConductivity
     "thermal conductivity of gas"
     input Integer method=1 "1: Eucken Method, 2: Modified Eucken Method";
-    annotation (smoothOrder=2);
   algorithm
     assert(fluidConstants[1].hasCriticalData,
     "Failed to compute thermalConductivity: For the species \"" + mediumName + "\" no critical data is available.");
     lambda := thermalConductivityEstimate(specificHeatCapacityCp(state),
       dynamicViscosity(state), method=method);
+    annotation (smoothOrder=2);
   end thermalConductivity;
 
   redeclare function extends molarMass "return the molar mass of the medium"
@@ -757,16 +655,81 @@ thermal conductivity (lambda) at low temperatures.
     T := Internal.solve(s, 200, 6000, p, {1}, data);
   end T_ps;
 
-end SingleGasNasa;
-
-
-partial package MixtureGasNasa
-  "Medium model of a mixture of ideal gases based on NASA source"
-
-  annotation (Documentation(info="<HTML>
+  annotation (
+    Documentation(info="<HTML>
 <p>
-This model calculates the medium properties for single component ideal gases.
+This model calculates medium properties
+for an ideal gas of a single substance, or for an ideal
+gas consisting of several substances where the
+mass fractions are fixed. Independent variables
+are temperature <b>T</b> and pressure <b>p</b>.
+Only density is a function of T and p. All other quantities
+are solely a function of T. The properties
+are valid in the range:
 </p>
+<pre>
+   200 K &le; T &le; 6000 K
+</pre>
+<p>
+The following quantities are always computed:
+</p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign=\"top\"><b>Variable</b></td>
+      <td valign=\"top\"><b>Unit</b></td>
+      <td valign=\"top\"><b>Description</b></td></tr>
+  <tr><td valign=\"top\">h</td>
+      <td valign=\"top\">J/kg</td>
+      <td valign=\"top\">specific enthalpy h = h(T)</td></tr>
+  <tr><td valign=\"top\">u</td>
+      <td valign=\"top\">J/kg</td>
+      <td valign=\"top\">specific internal energy u = u(T)</b></td></tr>
+  <tr><td valign=\"top\">d</td>
+      <td valign=\"top\">kg/m^3</td>
+      <td valign=\"top\">density d = d(p,T)</td></tr>
+</table>
+<p>
+For the other variables, see the functions in
+Modelica.Media.IdealGases.Common.SingleGasNasa.
+Note, dynamic viscosity and thermal conductivity are only provided
+for gases that use a data record from Modelica.Media.IdealGases.FluidData.
+Currently these are the following gases:
+</p>
+<pre>
+  Ar
+  C2H2_vinylidene
+  C2H4
+  C2H5OH
+  C2H6
+  C3H6_propylene
+  C3H7OH
+  C3H8
+  C4H8_1_butene
+  C4H9OH
+  C4H10_n_butane
+  C5H10_1_pentene
+  C5H12_n_pentane
+  C6H6
+  C6H12_1_hexene
+  C6H14_n_heptane
+  C7H14_1_heptene
+  C8H10_ethylbenz
+  CH3OH
+  CH4
+  CL2
+  CO
+  CO2
+  F2
+  H2
+  H2O
+  He
+  N2
+  N2O
+  NH3
+  NO
+  O2
+  SO2
+  SO3
+</pre>
 <p>
 <b>Sources for model and literature:</b><br>
 Original Data: Computer program for calculation of complex chemical
@@ -779,17 +742,27 @@ Published: Oct 01, 1994.
 </p>
 <p><b>Known limits of validity:</b></br>
 The data is valid for
-temperatures between 200 K and 6000 K.  A few of the data sets for
-monatomic gases have a discontinuous 1st derivative at 1000 K, but
+temperatures between 200K and 6000K.  A few of the data sets for
+monatomic gases have a discontinuous 1st derivative at 1000K, but
 this never caused problems so far.
 </p>
 <p>
-This model has been copied from the ThermoFluid library.
-It has been developed by Hubertus Tummescheit.
+This model has been copied from the ThermoFluid library
+and adapted to the Modelica.Media package.
 </p>
-</HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}}),
-                graphics));
+</HTML>"),
+    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+            100}}),
+         graphics),
+    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+            100}}),
+            graphics));
+end SingleGasNasa;
+
+
+partial package MixtureGasNasa
+  "Medium model of a mixture of ideal gases based on NASA source"
+
 
   import Modelica.Math;
   import Modelica.Media.Interfaces.PartialMedium.Choices.ReferenceEnthalpy;
@@ -800,7 +773,7 @@ It has been developed by Hubertus Tummescheit.
      reducedX = false,
      singleState=false,
      reference_X=fill(1/nX,nX),
-     SpecificEnthalpy(start=if referenceChoice==ReferenceEnthalpy.ZeroAt0K then 3e5 else 
+     SpecificEnthalpy(start=if referenceChoice==ReferenceEnthalpy.ZeroAt0K then 3e5 else
         if referenceChoice==ReferenceEnthalpy.UserDefined then h_offset else 0, nominal=1.0e5),
      Density(start=10, nominal=10),
      AbsolutePressure(start=10e5, nominal=10e5),
@@ -861,7 +834,7 @@ required from medium model \""   + mediumName + "\".");
       input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm
-      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T, X=X) else 
+      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T, X=X) else
              ThermodynamicState(p=p,T=T, X=cat(1,X,{1-sum(X)}));
     end setState_pTX;
 
@@ -873,7 +846,7 @@ required from medium model \""   + mediumName + "\".");
       input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm
-      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T_hX(h,X),X=X) else 
+      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T_hX(h,X),X=X) else
              ThermodynamicState(p=p,T=T_hX(h,X), X=cat(1,X,{1-sum(X)}));
     end setState_phX;
 
@@ -885,7 +858,7 @@ required from medium model \""   + mediumName + "\".");
       input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm
-      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T_psX(p,s,X),X=X) else 
+      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T_psX(p,s,X),X=X) else
              ThermodynamicState(p=p,T=T_psX(p,s,X), X=cat(1,X,{1-sum(X)}));
     end setState_psX;
 
@@ -897,7 +870,7 @@ required from medium model \""   + mediumName + "\".");
       input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm
-      state := if size(X,1) == nX then ThermodynamicState(p=d*(data.R*X)*T,T=T,X=X) else 
+      state := if size(X,1) == nX then ThermodynamicState(p=d*(data.R*X)*T,T=T,X=X) else
              ThermodynamicState(p=d*(data.R*cat(1,X,{1-sum(X)}))*T,T=T, X=cat(1,X,{1-sum(X)}));
     end setState_dTX;
 
@@ -943,7 +916,7 @@ required from medium model \""   + mediumName + "\".");
       "Molar fractions";
   algorithm
   s :=  s_TX(state.T, state.X) - sum(state.X[i]*Modelica.Constants.R/MMX[i]*
-      (if state.X[i]<Modelica.Constants.eps then Y[i] else 
+      (if state.X[i]<Modelica.Constants.eps then Y[i] else
       Modelica.Math.log(Y[i]*state.p/reference_p)) for i in 1:nX);
   end specificEntropy;
 
@@ -973,10 +946,10 @@ required from medium model \""   + mediumName + "\".");
      input SI.SpecificEnthalpy h_off=h_offset
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
      output SI.SpecificEnthalpy h "Specific enthalpy at temperature T";
-    annotation(Inline=false,smoothOrder=2);
   algorithm
     h :=(if fixedX then reference_X else X)*
          {SingleGasNasa.h_T(data[i], T, exclEnthForm, refChoice, h_off) for i in 1:nX};
+    annotation(Inline=false,smoothOrder=2);
   end h_TX;
 
   function h_TX_der "Return specific enthalpy derivative"
@@ -993,12 +966,12 @@ required from medium model \""   + mediumName + "\".");
     input Real dT "Temperature derivative";
     input Real dX[nX] "independent mass fraction derivative";
     output Real h_der "Specific enthalpy at temperature T";
-    annotation (InlineNoEvent=false, Inline = false);
   algorithm
-    h_der := if fixedX then 
-      dT*sum((SingleGasNasa.cp_T(data[i], T)*reference_X[i]) for i in 1:nX) else 
+    h_der := if fixedX then
+      dT*sum((SingleGasNasa.cp_T(data[i], T)*reference_X[i]) for i in 1:nX) else
       dT*sum((SingleGasNasa.cp_T(data[i], T)*X[i]) for i in 1:nX)+
       sum((SingleGasNasa.h_T(data[i], T)*dX[i]) for i in 1:nX);
+    annotation (InlineNoEvent=false, Inline = false);
   end h_TX_der;
 
   redeclare function extends gasConstant "Return gasConstant"
@@ -1023,7 +996,7 @@ required from medium model \""   + mediumName + "\".");
     input SI.MoleFraction x[:] "mole fraction of mixture";
     output Real smix "mixing entropy contribution, divided by gas constant";
   algorithm
-    smix := sum(if x[i] > Modelica.Constants.eps then -x[i]*Modelica.Math.log(x[i]) else 
+    smix := sum(if x[i] > Modelica.Constants.eps then -x[i]*Modelica.Math.log(x[i]) else
                      x[i] for i in 1:size(x,1));
   end MixEntropy;
 
@@ -1073,7 +1046,7 @@ required from medium model \""   + mediumName + "\".");
     input Boolean exact = false
       "flag wether exact or approximate version should be used";
   algorithm
-    h_is := if exact then specificEnthalpy_psX(p_downstream,specificEntropy(refState),refState.X) else 
+    h_is := if exact then specificEnthalpy_psX(p_downstream,specificEntropy(refState),refState.X) else
            isentropicEnthalpyApproximation(p_downstream,refState);
   end isentropicEnthalpy;
 
@@ -1084,7 +1057,6 @@ function gasMixtureViscosity
   input MolarMass[:] M "Mole masses";
   input DynamicViscosity[:] eta "Pure component viscosities";
   output DynamicViscosity etam "Viscosity of the mixture";
-  annotation (smoothOrder=2);
   protected
   Real fi[size(yi,1),size(yi,1)];
 algorithm
@@ -1105,7 +1077,10 @@ algorithm
   end for;
   etam := sum(yi[i]*eta[i]/sum(yi[j]*fi[i,j] for j in 1:size(eta,1)) for i in 1:size(eta,1));
 
- annotation (Documentation(info="<html>
+equation
+
+  annotation (smoothOrder=2,
+             Documentation(info="<html>
 
 <p>
 Simplification of the kinetic theory (Chapman and Enskog theory)
@@ -1130,15 +1105,12 @@ and etai&gt;&gt;etaj.<br>
 
 </html>
 "));
-equation
-
 end gasMixtureViscosity;
 
     redeclare replaceable function extends dynamicViscosity
     "Return mixture dynamic viscosity"
   protected
       DynamicViscosity[nX] etaX "component dynamic viscosities";
-      annotation (smoothOrder=2);
     algorithm
       for i in 1:nX loop
     etaX[i] := SingleGasNasa.dynamicViscosityLowPressure(state.T,
@@ -1152,6 +1124,7 @@ end gasMixtureViscosity;
                              fluidConstants[:].molarMass),
                  fluidConstants[:].molarMass,
                  etaX);
+      annotation (smoothOrder=2);
     end dynamicViscosity;
 
   function mixtureViscosityChung
@@ -1191,7 +1164,6 @@ end gasMixtureViscosity;
   Real omegav;
   Real Tmstar;
   Real etam "Mixture viscosity in microP";
-    annotation (smoothOrder=2);
   algorithm
   //combining rules
   for i in 1:n loop
@@ -1226,7 +1198,10 @@ end gasMixtureViscosity;
   omegav := 1.16145*(Tmstar)^(-0.14874) + 0.52487*Math.exp(-0.77320*Tmstar) + 2.16178*Math.exp(-2.43787*Tmstar);
   etam := 26.69*Fcm*(Mm*T)^(1/2)/(sigmam3^(2/3)*omegav);
   etaMixture := etam*1e7;
-  annotation (Documentation(info="<html>
+  equation
+
+    annotation (smoothOrder=2,
+              Documentation(info="<html>
 
 <p>
 Equation to estimate the viscosity of gas mixtures at low pressures.<br>
@@ -1342,8 +1317,6 @@ Fundam., 23: 3 ()1984).<br>
 </p>
 </html>
 "));
-  equation
-
   end mixtureViscosityChung;
 
 function lowPressureThermalConductivity
@@ -1362,7 +1335,6 @@ function lowPressureThermalConductivity
   Real[size(y,1)] Tr "Reduced temperature";
   Real[size(y,1),size(y,1)] A "Mason and Saxena Modification";
   constant Real epsilon =  1.0 "Numerical constant near unity";
-  annotation (smoothOrder=2);
 algorithm
   for i in 1:size(y,1) loop
     gamma[i] := 210*(Tc[i]*M[i]^3/Pc[i]^4)^(1/6);
@@ -1376,7 +1348,10 @@ algorithm
     end for;
   end for;
   lambdam := sum(y[i]*lambda[i]/(sum(y[j]*A[i,j] for j in 1:size(y,1))) for i in 1:size(y,1));
-  annotation (Documentation(info="<html>
+equation
+
+  annotation (smoothOrder=2,
+              Documentation(info="<html>
 
 <p>
 This function applies the Masson and Saxena modification of the
@@ -1395,8 +1370,6 @@ average of the pure component conductivities.
 
 </html>
 "));
-equation
-
 end lowPressureThermalConductivity;
 
     redeclare replaceable function extends thermalConductivity
@@ -1407,7 +1380,6 @@ end lowPressureThermalConductivity;
       ThermalConductivity[nX] lambdaX "component thermal conductivities";
       DynamicViscosity[nX] eta "component thermal dynamic viscosities";
       SpecificHeatCapacity[nX] cp "component heat capacity";
-      annotation (smoothOrder=2);
     algorithm
       for i in 1:nX loop
     assert(fluidConstants[i].hasCriticalData, "Critical data for "+ fluidConstants[i].chemicalFormula +
@@ -1429,6 +1401,7 @@ end lowPressureThermalConductivity;
                            fluidConstants[:].criticalPressure,
                            fluidConstants[:].molarMass,
                            lambdaX);
+      annotation (smoothOrder=2);
     end thermalConductivity;
 
   redeclare function extends isobaricExpansionCoefficient
@@ -1459,10 +1432,10 @@ end lowPressureThermalConductivity;
     extends Modelica.Icons.Function;
     input ThermodynamicState state "thermodynamic state record";
     output Density[nX] dddX "Derivative of density wrt mass fraction";
-    annotation(Documentation(info="<html></html>"));
   algorithm
     dddX := {-state.p/(state.T*gasConstant(state))*molarMass(state)/data[
       i].MM for i in 1:nX};
+    annotation(Documentation(info="<html></html>"));
   end density_derX;
 
   redeclare function extends molarMass "Return molar mass of mixture"
@@ -1522,7 +1495,7 @@ end lowPressureThermalConductivity;
           "Molar fractions";
     algorithm
       y := s_TX(x,Xfull) - sum(Xfull[i]*Modelica.Constants.R/MMX[i]*
-      (if Xfull[i]<Modelica.Constants.eps then Y[i] else 
+      (if Xfull[i]<Modelica.Constants.eps then Y[i] else
       Modelica.Math.log(Y[i]*p/reference_p)) for i in 1:nX);
         // s_TX(x,X)- data[:].R*X*(Modelica.Math.log(p/reference_p)
         //       + MixEntropy(massToMoleFractions(X,data[:].MM)));
@@ -1558,6 +1531,33 @@ end lowPressureThermalConductivity;
 //     d := p/(R*T);
 //   end density_phX;
 
+  annotation (Documentation(info="<HTML>
+<p>
+This model calculates the medium properties for single component ideal gases.
+</p>
+<p>
+<b>Sources for model and literature:</b><br>
+Original Data: Computer program for calculation of complex chemical
+equilibrium compositions and applications. Part 1: Analysis
+Document ID: 19950013764 N (95N20180) File Series: NASA Technical Reports
+Report Number: NASA-RP-1311  E-8017  NAS 1.61:1311
+Authors: Gordon, Sanford (NASA Lewis Research Center)
+ Mcbride, Bonnie J. (NASA Lewis Research Center)
+Published: Oct 01, 1994.
+</p>
+<p><b>Known limits of validity:</b></br>
+The data is valid for
+temperatures between 200 K and 6000 K.  A few of the data sets for
+monatomic gases have a discontinuous 1st derivative at 1000 K, but
+this never caused problems so far.
+</p>
+<p>
+This model has been copied from the ThermoFluid library.
+It has been developed by Hubertus Tummescheit.
+</p>
+</HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+            {100,100}}),
+                graphics));
 end MixtureGasNasa;
 
 

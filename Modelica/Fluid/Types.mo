@@ -1,10 +1,6 @@
 within Modelica.Fluid;
 package Types "Common types for fluid models"
 
-  annotation (preferedView="info",
-              Documentation(info="<html>
-
-</html>"));
 
   type HydraulicConductance =Real (
       final quantity="HydraulicConductance",
@@ -270,6 +266,10 @@ The default option \"av_vb\" cannot be used, if the dynamic pipe is connected to
 ModelStructure.a_vb).
 </p>
 
+
+</html>"));
+  annotation (preferedView="info",
+              Documentation(info="<html>
 
 </html>"));
 end Types;

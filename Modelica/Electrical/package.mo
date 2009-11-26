@@ -13,7 +13,7 @@ especially three phase induction machines such as an asynchronous motor.
 
 </HTML>
 "),
-  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), 
+  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
       graphics={
       Rectangle(extent={{-29,-13},{3,-27}}, lineColor={0,0,0}),
       Line(points={{37,-58},{62,-58}}, color={0,0,0}),

@@ -33,6 +33,25 @@ package Sources "Define fixed or prescribed boundary conditions"
       "Boundary trace substances"
       annotation (Dialog(group = "Only for trace-substance flow", enable=Medium.nC > 0));
 
+
+  equation
+    Modelica.Fluid.Utilities.checkBoundary(Medium.mediumName, Medium.substanceNames,
+                                          Medium.singleState, use_p, X,
+                                          "FixedBoundary");
+    if use_p or Medium.singleState then
+      medium.p = p;
+    else
+      medium.d = d;
+    end if;
+    if use_T then
+      medium.T = T;
+    else
+      medium.h = h;
+    end if;
+
+    medium.Xi = X[1:Medium.nXi];
+
+    ports.C_outflow = fill(C, nPorts);
     annotation (defaultComponentName="boundary",
       Icon(coordinateSystem(
           preserveAspectRatio=false,
@@ -62,33 +81,8 @@ the port into the boundary, the boundary definitions,
 with exception of boundary pressure, do not have an effect.
 </p>
 </html>"));
-
-  equation
-    Modelica.Fluid.Utilities.checkBoundary(Medium.mediumName, Medium.substanceNames,
-                                          Medium.singleState, use_p, X,
-                                          "FixedBoundary");
-    if use_p or Medium.singleState then
-      medium.p = p;
-    else
-      medium.d = d;
-    end if;
-    if use_T then
-      medium.T = T;
-    else
-      medium.h = h;
-    end if;
-
-    medium.Xi = X[1:Medium.nXi];
-
-    ports.C_outflow = fill(C, nPorts);
   end FixedBoundary;
 
-  annotation (Documentation(info="<html>
-<p>
-Package <b>Sources</b> contains generic sources for fluid connectors
-to define fixed or prescribed ambient conditions.
-</p>
-</html>"));
   model Boundary_pT
     "Boundary with prescribed pressure, temperature, composition and trace substances"
     extends Sources.BaseClasses.PartialSource;
@@ -148,6 +142,29 @@ to define fixed or prescribed ambient conditions.
       "Needed to connect to conditional connector";
     Modelica.Blocks.Interfaces.RealInput C_in_internal[Medium.nC]
       "Needed to connect to conditional connector";
+  equation
+    Modelica.Fluid.Utilities.checkBoundary(Medium.mediumName, Medium.substanceNames,
+      Medium.singleState, true, X_in_internal, "Boundary_pT");
+    connect(p_in, p_in_internal);
+    connect(T_in, T_in_internal);
+    connect(X_in, X_in_internal);
+    connect(C_in, C_in_internal);
+    if not use_p_in then
+      p_in_internal = p;
+    end if;
+    if not use_T_in then
+      T_in_internal = T;
+    end if;
+    if not use_X_in then
+      X_in_internal = X;
+    end if;
+    if not use_C_in then
+      C_in_internal = C;
+    end if;
+    medium.p = p_in_internal;
+    medium.T = T_in_internal;
+    medium.Xi = X_in_internal[1:Medium.nXi];
+    ports.C_outflow = fill(C_in_internal, nPorts);
     annotation (defaultComponentName="boundary",
       Icon(coordinateSystem(
           preserveAspectRatio=false,
@@ -222,29 +239,6 @@ with exception of boundary pressure, do not have an effect.
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics));
-  equation
-    Modelica.Fluid.Utilities.checkBoundary(Medium.mediumName, Medium.substanceNames,
-      Medium.singleState, true, X_in_internal, "Boundary_pT");
-    connect(p_in, p_in_internal);
-    connect(T_in, T_in_internal);
-    connect(X_in, X_in_internal);
-    connect(C_in, C_in_internal);
-    if not use_p_in then
-      p_in_internal = p;
-    end if;
-    if not use_T_in then
-      T_in_internal = T;
-    end if;
-    if not use_X_in then
-      X_in_internal = X;
-    end if;
-    if not use_C_in then
-      C_in_internal = C;
-    end if;
-    medium.p = p_in_internal;
-    medium.T = T_in_internal;
-    medium.Xi = X_in_internal[1:Medium.nXi];
-    ports.C_outflow = fill(C_in_internal, nPorts);
   end Boundary_pT;
 
   model Boundary_ph
@@ -297,6 +291,38 @@ with exception of boundary pressure, do not have an effect.
       "Prescribed boundary trace substances"
       annotation (Placement(transformation(extent={{-140,-100},{-100,-60}},
             rotation=0)));
+  protected
+    Modelica.Blocks.Interfaces.RealInput p_in_internal
+      "Needed to connect to conditional connector";
+    Modelica.Blocks.Interfaces.RealInput h_in_internal
+      "Needed to connect to conditional connector";
+    Modelica.Blocks.Interfaces.RealInput X_in_internal[Medium.nX]
+      "Needed to connect to conditional connector";
+    Modelica.Blocks.Interfaces.RealInput C_in_internal[Medium.nC]
+      "Needed to connect to conditional connector";
+  equation
+    Modelica.Fluid.Utilities.checkBoundary(Medium.mediumName, Medium.substanceNames,
+      Medium.singleState, true, X_in_internal, "Boundary_ph");
+    connect(p_in, p_in_internal);
+    connect(h_in, h_in_internal);
+    connect(X_in, X_in_internal);
+    connect(C_in, C_in_internal);
+    if not use_p_in then
+      p_in_internal = p;
+    end if;
+    if not use_h_in then
+      h_in_internal = h;
+    end if;
+    if not use_X_in then
+      X_in_internal = X;
+    end if;
+    if not use_C_in then
+      C_in_internal = C;
+    end if;
+    medium.p = p_in_internal;
+    medium.h = h_in_internal;
+    medium.Xi = X_in_internal[1:Medium.nXi];
+    ports.C_outflow = fill(C_in_internal, nPorts);
     annotation (defaultComponentName="boundary",
       Icon(coordinateSystem(
           preserveAspectRatio=false,
@@ -367,38 +393,6 @@ the port into the boundary, the boundary definitions,
 with exception of boundary pressure, do not have an effect.
 </p>
 </html>"));
-  protected
-    Modelica.Blocks.Interfaces.RealInput p_in_internal
-      "Needed to connect to conditional connector";
-    Modelica.Blocks.Interfaces.RealInput h_in_internal
-      "Needed to connect to conditional connector";
-    Modelica.Blocks.Interfaces.RealInput X_in_internal[Medium.nX]
-      "Needed to connect to conditional connector";
-    Modelica.Blocks.Interfaces.RealInput C_in_internal[Medium.nC]
-      "Needed to connect to conditional connector";
-  equation
-    Modelica.Fluid.Utilities.checkBoundary(Medium.mediumName, Medium.substanceNames,
-      Medium.singleState, true, X_in_internal, "Boundary_ph");
-    connect(p_in, p_in_internal);
-    connect(h_in, h_in_internal);
-    connect(X_in, X_in_internal);
-    connect(C_in, C_in_internal);
-    if not use_p_in then
-      p_in_internal = p;
-    end if;
-    if not use_h_in then
-      h_in_internal = h;
-    end if;
-    if not use_X_in then
-      X_in_internal = X;
-    end if;
-    if not use_C_in then
-      C_in_internal = C;
-    end if;
-    medium.p = p_in_internal;
-    medium.h = h_in_internal;
-    medium.Xi = X_in_internal[1:Medium.nXi];
-    ports.C_outflow = fill(C_in_internal, nPorts);
   end Boundary_ph;
 
   model MassFlowSource_T
@@ -460,6 +454,29 @@ with exception of boundary pressure, do not have an effect.
       "Needed to connect to conditional connector";
     Modelica.Blocks.Interfaces.RealInput C_in_internal[Medium.nC]
       "Needed to connect to conditional connector";
+  equation
+    Utilities.checkBoundary(Medium.mediumName, Medium.substanceNames,
+      Medium.singleState, true, X_in_internal, "MassFlowSource_T");
+    connect(m_flow_in, m_flow_in_internal);
+    connect(T_in, T_in_internal);
+    connect(X_in, X_in_internal);
+    connect(C_in, C_in_internal);
+    if not use_m_flow_in then
+      m_flow_in_internal = m_flow;
+    end if;
+    if not use_T_in then
+      T_in_internal = T;
+    end if;
+    if not use_X_in then
+      X_in_internal = X;
+    end if;
+    if not use_C_in then
+      C_in_internal = C;
+    end if;
+    sum(ports.m_flow) = -m_flow_in_internal;
+    medium.T = T_in_internal;
+    medium.Xi = X_in_internal[1:Medium.nXi];
+    ports.C_outflow = fill(C_in_internal, nPorts);
     annotation (defaultComponentName="boundary",
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -542,29 +559,6 @@ the port into the boundary, the boundary definitions,
 with exception of boundary flow rate, do not have an effect.
 </p>
 </html>"));
-  equation
-    Utilities.checkBoundary(Medium.mediumName, Medium.substanceNames,
-      Medium.singleState, true, X_in_internal, "MassFlowSource_T");
-    connect(m_flow_in, m_flow_in_internal);
-    connect(T_in, T_in_internal);
-    connect(X_in, X_in_internal);
-    connect(C_in, C_in_internal);
-    if not use_m_flow_in then
-      m_flow_in_internal = m_flow;
-    end if;
-    if not use_T_in then
-      T_in_internal = T;
-    end if;
-    if not use_X_in then
-      X_in_internal = X;
-    end if;
-    if not use_C_in then
-      C_in_internal = C;
-    end if;
-    sum(ports.m_flow) = -m_flow_in_internal;
-    medium.T = T_in_internal;
-    medium.Xi = X_in_internal[1:Medium.nXi];
-    ports.C_outflow = fill(C_in_internal, nPorts);
   end MassFlowSource_T;
 
   model MassFlowSource_h
@@ -626,6 +620,29 @@ with exception of boundary flow rate, do not have an effect.
       "Needed to connect to conditional connector";
     Modelica.Blocks.Interfaces.RealInput C_in_internal[Medium.nC]
       "Needed to connect to conditional connector";
+  equation
+    Utilities.checkBoundary(Medium.mediumName, Medium.substanceNames,
+      Medium.singleState, true, X_in_internal, "MassFlowSource_h");
+    connect(m_flow_in, m_flow_in_internal);
+    connect(h_in, h_in_internal);
+    connect(X_in, X_in_internal);
+    connect(C_in, C_in_internal);
+    if not use_m_flow_in then
+      m_flow_in_internal = m_flow;
+    end if;
+    if not use_h_in then
+      h_in_internal = h;
+    end if;
+    if not use_X_in then
+      X_in_internal = X;
+    end if;
+    if not use_C_in then
+      C_in_internal = C;
+    end if;
+    sum(ports.m_flow) = -m_flow_in_internal;
+    medium.h = h_in_internal;
+    medium.Xi = X_in_internal[1:Medium.nXi];
+    ports.C_outflow = fill(C_in_internal, nPorts);
     annotation (defaultComponentName="boundary",
       Icon(coordinateSystem(
           preserveAspectRatio=false,
@@ -708,29 +725,6 @@ the port into the boundary, the boundary definitions,
 with exception of boundary flow rate, do not have an effect.
 </p>
 </html>"));
-  equation
-    Utilities.checkBoundary(Medium.mediumName, Medium.substanceNames,
-      Medium.singleState, true, X_in_internal, "MassFlowSource_h");
-    connect(m_flow_in, m_flow_in_internal);
-    connect(h_in, h_in_internal);
-    connect(X_in, X_in_internal);
-    connect(C_in, C_in_internal);
-    if not use_m_flow_in then
-      m_flow_in_internal = m_flow;
-    end if;
-    if not use_h_in then
-      h_in_internal = h;
-    end if;
-    if not use_X_in then
-      X_in_internal = X;
-    end if;
-    if not use_C_in then
-      C_in_internal = C;
-    end if;
-    sum(ports.m_flow) = -m_flow_in_internal;
-    medium.h = h_in_internal;
-    medium.Xi = X_in_internal[1:Medium.nXi];
-    ports.C_outflow = fill(C_in_internal, nPorts);
   end MassFlowSource_h;
 
   package BaseClasses
@@ -794,4 +788,10 @@ features are:
                 {100,100}}), graphics));
   end PartialSource;
   end BaseClasses;
+  annotation (Documentation(info="<html>
+<p>
+Package <b>Sources</b> contains generic sources for fluid connectors
+to define fixed or prescribed ambient conditions.
+</p>
+</html>"));
 end Sources;

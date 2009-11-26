@@ -2,31 +2,6 @@ within Modelica.Mechanics.MultiBody.Examples.Elementary;
 model SpringDamperSystem "Simple spring/damper/mass system"
   extends Modelica.Icons.Example;
   parameter Boolean animation=true "= true, if animation shall be enabled";
-  annotation (
-    experiment(StopTime=10),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics),
-    Documentation(info="<html>
-<p>
-This example demonstrates:
-</p>
-<ul>
-<li>The animation of spring and damper components</li>
-<li>A body can be freely moving without any connection to a joint.
-    In this case body coordinates are used automatically as
-    states (whenever joints are present, it is first tried to
-    use the generalized coordinates of the joints as states).</li>
-<li>If a body is freely moving, the initial position and velocity of the body
-    can be defined with the \"Initialization\" menu as shown with the
-    body \"body1\" in the left part (click on \"Initialization\").</li>
-</ul>
-<p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Elementary/SpringDamperSystem.png\"
-ALT=\"model Examples.Elementary.SpringDamperSystem\">
-</p>
-</html>"));
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
         transformation(extent={{-80,20},{-60,40}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.Body body1(
@@ -139,4 +114,29 @@ equation
       points={{-6,-20},{-6,-28},{-20,-28},{-20,-40}},
       color={95,95,95},
       thickness=0.5));
+  annotation (
+    experiment(StopTime=10),
+    Diagram(coordinateSystem(
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
+        grid={2,2}), graphics),
+    Documentation(info="<html>
+<p>
+This example demonstrates:
+</p>
+<ul>
+<li>The animation of spring and damper components</li>
+<li>A body can be freely moving without any connection to a joint.
+    In this case body coordinates are used automatically as
+    states (whenever joints are present, it is first tried to
+    use the generalized coordinates of the joints as states).</li>
+<li>If a body is freely moving, the initial position and velocity of the body
+    can be defined with the \"Initialization\" menu as shown with the
+    body \"body1\" in the left part (click on \"Initialization\").</li>
+</ul>
+<p align=\"center\">
+<IMG SRC=\"../Images/MultiBody/Examples/Elementary/SpringDamperSystem.png\"
+ALT=\"model Examples.Elementary.SpringDamperSystem\">
+</p>
+</html>"));
 end SpringDamperSystem;

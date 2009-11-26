@@ -100,6 +100,15 @@ equation
       points={{-29,50},{-25,50},{-25,28.2}},
       color={0,0,127},
       smooth=Smooth.None));
+  connect(pipe2.port_b, sink2.ports[1]) annotation (Line(
+      points={{40,-60},{64,-60}},
+      color={0,127,255},
+      smooth=Smooth.None));
+
+  connect(pump.port_b, pipe2.port_a) annotation (Line(
+      points={{-20,20},{0,20},{0,-60},{20,-60}},
+      color={0,127,255},
+      smooth=Smooth.None));
   annotation (
     __Dymola_Commands(file(ensureSimulated=true)="Scripts/Fluid/InverseParameterization/plotResults.mos"
         "plotResults"),
@@ -137,13 +146,4 @@ to investigate a real controller or with a Pump with rotational shaft to investi
 </p>
 
 </html>"));
-  connect(pipe2.port_b, sink2.ports[1]) annotation (Line(
-      points={{40,-60},{64,-60}},
-      color={0,127,255},
-      smooth=Smooth.None));
-
-  connect(pump.port_b, pipe2.port_a) annotation (Line(
-      points={{-20,20},{0,20},{0,-60},{20,-60}},
-      color={0,127,255},
-      smooth=Smooth.None));
 end InverseParameterization;

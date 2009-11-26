@@ -2,73 +2,6 @@ within Modelica.Utilities;
 package Streams "Read from files and write to files"
   extends Modelica.Icons.Library;
 
-  annotation (
-    Documentation(info="<HTML>
-<h4>Library content</h4>
-<p>
-Package <b>Streams</b> contains functions to input and output strings
-to a message window or on files. Note that a string is interpreted
-and displayed as html text (e.g., with print(..) or error(..))
-if it is enclosed with the Modelica html quotation, e.g.,
-</p>
-<center>
-string = \"&lt;html&gt; first line &lt;br&gt; second line &lt;/html&gt;\".
-</center>
-<p>
-It is a quality of implementation, whether (a) all tags of html are supported
-or only a subset, (b) how html tags are interpreted if the output device
-does not allow to display formatted text.
-</p>
-<p>
-In the table below an example call to every function is given:
-</p>
-<table border=1 cellspacing=0 cellpadding=2>
-  <tr><th><b><i>Function/type</i></b></th><th><b><i>Description</i></b></th></tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Streams.print\">print</a>(string)<br>
-          <a href=\"Modelica://Modelica.Utilities.Streams.print\">print</a>(string,fileName)</td>
-      <td valign=\"top\"> Print string \"string\" or vector of strings to message window or on
-           file \"fileName\".</td>
-  </tr>
-  <tr><td valign=\"top\">stringVector =
-         <a href=\"Modelica://Modelica.Utilities.Streams.readFile\">readFile</a>(fileName)</td>
-      <td valign=\"top\"> Read complete text file and return it as a vector of strings.</td>
-  </tr>
-  <tr><td valign=\"top\">(string, endOfFile) =
-         <a href=\"Modelica://Modelica.Utilities.Streams.readLine\">readLine</a>(fileName, lineNumber)</td>
-      <td valign=\"top\">Returns from the file the content of line lineNumber.</td>
-  </tr>
-  <tr><td valign=\"top\">lines =
-         <a href=\"Modelica://Modelica.Utilities.Streams.countLines\">countLines</a>(fileName)</td>
-      <td valign=\"top\">Returns the number of lines in a file.</td>
-  </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Streams.error\">error</a>(string)</td>
-      <td valign=\"top\"> Print error message \"string\" to message window
-           and cancel all actions</td>
-  </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Streams.close\">close</a>(fileName)</td>
-      <td valign=\"top\"> Close file if it is still open. Ignore call if
-           file is already closed or does not exist. </td>
-  </tr>
-</table>
-<p>
-Use functions <b>scanXXX</b> from package
-<a href=\"Modelica://Modelica.Utilities.Strings\">Strings</a>
-to parse a string.
-</p>
-<p>
-If Real, Integer or Boolean values shall be printed
-or used in an error message, they have to be first converted
-to strings with the builtin operator
-<a href=\"Modelica://ModelicaReference.Operators.string\">String</a>(...).
-Example:
-</p>
-<pre>
-  <b>if</b> x &lt; 0 <b>or</b> x &gt; 1 <b>then</b>
-     Streams.error(\"x (= \" + String(x) + \") has to be in the range 0 .. 1\");
-  <b>end if</b>;
-</pre>
-</HTML>
-"));
 
   function print "Print string to terminal or file"
     extends Modelica.Icons.Function;
@@ -120,6 +53,12 @@ After every call of \"print(..)\" a \"new line\" is printed automatically.
                         caption="Open text file for reading")));
     output String stringVector[countLines(fileName)] "Content of file";
 
+
+  algorithm
+    for i in  1:size(stringVector, 1) loop
+      stringVector[i] := readLine(fileName, i);
+    end for;
+    Streams.close(fileName);
     annotation ( Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -131,12 +70,6 @@ Function <b>readFile</b>(..) opens the given file, reads the complete
 content, closes the file and returns the content as a vector of strings. Lines are separated by LF or CR-LF; the returned strings do not contain the line separators.
 </p>
 </html>"));
-
-  algorithm
-    for i in  1:size(stringVector, 1) loop
-      stringVector[i] := readLine(fileName, i);
-    end for;
-    Streams.close(fileName);
   end readFile;
 
   function readLine
@@ -239,4 +172,71 @@ file is already closed or does not exist.
 </p>
 </html>"));
   end close;
+  annotation (
+    Documentation(info="<HTML>
+<h4>Library content</h4>
+<p>
+Package <b>Streams</b> contains functions to input and output strings
+to a message window or on files. Note that a string is interpreted
+and displayed as html text (e.g., with print(..) or error(..))
+if it is enclosed with the Modelica html quotation, e.g.,
+</p>
+<center>
+string = \"&lt;html&gt; first line &lt;br&gt; second line &lt;/html&gt;\".
+</center>
+<p>
+It is a quality of implementation, whether (a) all tags of html are supported
+or only a subset, (b) how html tags are interpreted if the output device
+does not allow to display formatted text.
+</p>
+<p>
+In the table below an example call to every function is given:
+</p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><th><b><i>Function/type</i></b></th><th><b><i>Description</i></b></th></tr>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Streams.print\">print</a>(string)<br>
+          <a href=\"Modelica://Modelica.Utilities.Streams.print\">print</a>(string,fileName)</td>
+      <td valign=\"top\"> Print string \"string\" or vector of strings to message window or on
+           file \"fileName\".</td>
+  </tr>
+  <tr><td valign=\"top\">stringVector =
+         <a href=\"Modelica://Modelica.Utilities.Streams.readFile\">readFile</a>(fileName)</td>
+      <td valign=\"top\"> Read complete text file and return it as a vector of strings.</td>
+  </tr>
+  <tr><td valign=\"top\">(string, endOfFile) =
+         <a href=\"Modelica://Modelica.Utilities.Streams.readLine\">readLine</a>(fileName, lineNumber)</td>
+      <td valign=\"top\">Returns from the file the content of line lineNumber.</td>
+  </tr>
+  <tr><td valign=\"top\">lines =
+         <a href=\"Modelica://Modelica.Utilities.Streams.countLines\">countLines</a>(fileName)</td>
+      <td valign=\"top\">Returns the number of lines in a file.</td>
+  </tr>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Streams.error\">error</a>(string)</td>
+      <td valign=\"top\"> Print error message \"string\" to message window
+           and cancel all actions</td>
+  </tr>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Utilities.Streams.close\">close</a>(fileName)</td>
+      <td valign=\"top\"> Close file if it is still open. Ignore call if
+           file is already closed or does not exist. </td>
+  </tr>
+</table>
+<p>
+Use functions <b>scanXXX</b> from package
+<a href=\"Modelica://Modelica.Utilities.Strings\">Strings</a>
+to parse a string.
+</p>
+<p>
+If Real, Integer or Boolean values shall be printed
+or used in an error message, they have to be first converted
+to strings with the builtin operator
+<a href=\"Modelica://ModelicaReference.Operators.string\">String</a>(...).
+Example:
+</p>
+<pre>
+  <b>if</b> x &lt; 0 <b>or</b> x &gt; 1 <b>then</b>
+     Streams.error(\"x (= \" + String(x) + \") has to be in the range 0 .. 1\");
+  <b>end if</b>;
+</pre>
+</HTML>
+"));
 end Streams;

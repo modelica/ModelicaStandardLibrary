@@ -4,30 +4,6 @@ package Math "Library of mathematical functions as input/output blocks"
   import Modelica.Blocks.Interfaces;
   extends Modelica.Icons.Library;
 
-  annotation (
-    Documentation(info="
-<HTML>
-<p>
-This package contains basic <b>mathematical operations</b>,
-such as summation and multiplication, and basic <b>mathematical
-functions</b>, such as <b>sqrt</b> and <b>sin</b>, as
-input/output blocks. All blocks of this library can be either
-connected with continuous blocks or with sampled-data blocks.
-</p>
-</HTML>
-", revisions="<html>
-<ul>
-<li><i>October 21, 2002</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
-       and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
-       New blocks added: RealToInteger, IntegerToReal, Max, Min, Edge, BooleanChange, IntegerChange.</li>
-<li><i>August 7, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized (partly based on an existing Dymola library
-       of Dieter Moormann and Hilding Elmqvist).
-</li>
-</ul>
-</html>"));
 
   encapsulated package UnitConversions
     "Conversion blocks to convert between SI and non-SI unit signals"
@@ -39,6 +15,8 @@ connected with continuous blocks or with sampled-data blocks.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="K"), y(
             unit="degC"));
 
+    equation
+      y = SI.Conversions.to_degC(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -53,13 +31,13 @@ This block converts the input signal from Kelvin to °Celsius and returns
 the result as output signal.
 </p>
 </html>"));
-    equation
-      y = SI.Conversions.to_degC(u);
     end To_degC;
 
     block From_degC "Convert from °Celsius to Kelvin"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="degC"),
           y(unit="K"));
+    equation
+      y = SI.Conversions.from_degC(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -74,13 +52,13 @@ This block converts the input signal from °Celsius to Kelvin and returns
 the result as output signal.
 </p>
 </html>"));
-    equation
-      y = SI.Conversions.from_degC(u);
     end From_degC;
 
     block To_degF "Convert from Kelvin to °Fahrenheit"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="K"), y(
             unit="degF"));
+    equation
+      y = SI.Conversions.to_degF(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -95,13 +73,13 @@ This block converts the input signal from Kelvin to °Fahrenheit and returns
 the result as output signal.
 </p>
 </html>"));
-    equation
-      y = SI.Conversions.to_degF(u);
     end To_degF;
 
     block From_degF "Convert from °Fahrenheit to Kelvin"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="degF"),
           y(unit="K"));
+    equation
+      y = SI.Conversions.from_degF(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -116,13 +94,13 @@ This block converts the input signal from °Fahrenheit to Kelvin and returns
 the result as output signal.
 </p>
 </html>"));
-    equation
-      y = SI.Conversions.from_degF(u);
     end From_degF;
 
     block To_degRk "Convert from Kelvin to °Rankine"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="K"), y(
             unit="degRk"));
+    equation
+      y = SI.Conversions.to_degRk(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -137,13 +115,13 @@ This block converts the input signal from Kelvin to °Rankine and returns
 the result as output signal.
 </p>
 </html>"));
-    equation
-      y = SI.Conversions.to_degRk(u);
     end To_degRk;
 
     block From_degRk "Convert from °Rankine to Kelvin"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="degRk"),
           y(unit="K"));
+    equation
+      y = SI.Conversions.from_degRk(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -158,13 +136,13 @@ This block converts the input signal from °Rankine to Kelvin and returns
 the result as output signal.
 </p>
 </html>"));
-    equation
-      y = SI.Conversions.from_degRk(u);
     end From_degRk;
 
     block To_deg "Convert from radian to degree"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="rad"),
           y(unit="deg"));
+    equation
+      y = SI.Conversions.to_deg(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -179,13 +157,13 @@ This block converts the input signal from radian to degree and returns
 the result as output signal.
 </p>
 </html>"));
-    equation
-      y = SI.Conversions.to_deg(u);
     end To_deg;
 
     block From_deg "Convert from degree to radian"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="deg"),
           y(unit="rad"));
+    equation
+      y = SI.Conversions.from_deg(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -200,13 +178,13 @@ This block converts the input signal from degree to radian and returns
 the result as output signal.
 </p>
 </html>"));
-    equation
-      y = SI.Conversions.from_deg(u);
     end From_deg;
 
     block To_rpm "Convert from radian per second to revolutions per minute"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="rad/s"),
           y(unit="1/min"));
+    equation
+      y = SI.Conversions.to_rpm(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{26,82},{-98,50}},
@@ -221,13 +199,13 @@ This block converts the input signal from radian per second to revolutions per m
 the result as output signal.
 </p>
 </html>"));
-    equation
-      y = SI.Conversions.to_rpm(u);
     end To_rpm;
 
     block From_rpm "Convert from revolutions per minute to radian per second"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit=
               "1/min"), y(unit="rad/s"));
+    equation
+      y = SI.Conversions.from_rpm(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{50,84},{-94,56}},
@@ -242,13 +220,13 @@ This block converts the input signal from revolutions per minute to radian per s
 the result as output signal.
 </p>
 </html>"));
-    equation
-      y = SI.Conversions.from_rpm(u);
     end From_rpm;
 
     block To_kmh "Convert from metre per second to kilometre per hour"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="m/s"),
           y(unit="km/h"));
+    equation
+      y = SI.Conversions.to_kmh(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{0,82},{-96,42}},
@@ -263,13 +241,13 @@ This block converts the input signal from metre per second to kilometre per hour
 the result as output signal.
 </p>
 </html>"));
-    equation
-      y = SI.Conversions.to_kmh(u);
     end To_kmh;
 
     block From_kmh "Convert from kilometre per hour to metre per second"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="km/h"),
           y(unit="m/s"));
+    equation
+      y = SI.Conversions.from_kmh(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{26,80},{-96,48}},
@@ -284,13 +262,13 @@ This block converts the input signal from kilometre per hour to metre per second
 the result as output signal.
 </p>
 </html>"));
-    equation
-      y = SI.Conversions.from_kmh(u);
     end From_kmh;
 
     block To_day "Convert from second to day"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="s"), y(
             unit="d"));
+    equation
+      y = SI.Conversions.to_day(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -305,13 +283,13 @@ This block converts the input signal from second to day and returns
 the result as output signal.
 </p>
 </html>"));
-    equation
-      y = SI.Conversions.to_day(u);
     end To_day;
 
     block From_day "Convert from day to second"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="d"), y(
             unit="s"));
+    equation
+      y = SI.Conversions.from_day(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -326,13 +304,13 @@ This block converts the input signal from day to second and returns
 the result as output signal.
 </p>
 </html>"));
-    equation
-      y = SI.Conversions.from_day(u);
     end From_day;
 
     block To_hour "Convert from second to hour"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="s"), y(
             unit="h"));
+    equation
+      y = SI.Conversions.to_hour(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -347,13 +325,13 @@ This block converts the input signal from second to hour and returns
 the result as output signal.
 </p>
 </html>"));
-    equation
-      y = SI.Conversions.to_hour(u);
     end To_hour;
 
     block From_hour "Convert from hour to second"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="h"), y(
             unit="s"));
+    equation
+      y = SI.Conversions.from_hour(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -368,13 +346,13 @@ This block converts the input signal from hour to second and returns
 the result as output signal.
 </p>
 </html>"));
-    equation
-      y = SI.Conversions.from_hour(u);
     end From_hour;
 
     block To_minute "Convert from second to minute"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="s"), y(
             unit="min"));
+    equation
+      y = SI.Conversions.to_minute(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -389,13 +367,13 @@ This block converts the input signal from second to minute and returns
 the result as output signal.
 </p>
 </html>"));
-    equation
-      y = SI.Conversions.to_minute(u);
     end To_minute;
 
     block From_minute "Convert from minute to second"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="min"),
           y(unit="s"));
+    equation
+      y = SI.Conversions.from_minute(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -410,13 +388,13 @@ This block converts the input signal from minute to second and returns
 the result as output signal.
 </p>
 </html>"));
-    equation
-      y = SI.Conversions.from_minute(u);
     end From_minute;
 
     block To_litre "Convert from cubic metre to litre"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="m3"), y(
             unit="l"));
+    equation
+      y = SI.Conversions.to_litre(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -431,13 +409,13 @@ This block converts the input signal from metre to litre and returns
 the result as output signal.
 </p>
 </html>"));
-    equation
-      y = SI.Conversions.to_litre(u);
     end To_litre;
 
     block From_litre "Convert from litre to cubic metre"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="l"), y(
             unit="m3"));
+    equation
+      y = SI.Conversions.from_litre(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -452,13 +430,13 @@ This block converts the input signal from litre to cubic metre and returns
 the result as output signal.
 </p>
 </html>"));
-    equation
-      y = SI.Conversions.from_litre(u);
     end From_litre;
 
     block To_kWh "Convert from Joule to kilo Watt hour"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="J"), y(
             unit="kW.h"));
+    equation
+      y = SI.Conversions.to_kWh(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -473,13 +451,13 @@ This block converts the input signal from Joule to kilo Watt hour and returns
 the result as output signal.
 </p>
 </html>"));
-    equation
-      y = SI.Conversions.to_kWh(u);
     end To_kWh;
 
     block From_kWh "Convert from kilo Watt hour to Joule"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="kW.h"),
           y(unit="J"));
+    equation
+      y = SI.Conversions.from_kWh(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -494,13 +472,13 @@ This block converts the input signal from kilo Watt hour to Joule and returns
 the result as output signal.
 </p>
 </html>"));
-    equation
-      y = SI.Conversions.from_kWh(u);
     end From_kWh;
 
     block To_bar "Convert from Pascal to bar"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="Pa"), y(
             unit="bar"));
+    equation
+      y = SI.Conversions.to_bar(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -515,13 +493,13 @@ This block converts the input signal from Pascal to bar and returns
 the result as output signal.
 </p>
 </html>"));
-    equation
-      y = SI.Conversions.to_bar(u);
     end To_bar;
 
     block From_bar "Convert from bar to Pascal"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="bar"),
           y(unit="Pa"));
+    equation
+      y = SI.Conversions.from_bar(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -536,13 +514,13 @@ This block converts the input signal from bar to Pascal and returns
 the result as output signal.
 </p>
 </html>"));
-    equation
-      y = SI.Conversions.from_bar(u);
     end From_bar;
 
     block To_gps "Convert from kilogram per second to gram per second"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="kg/s"),
           y(unit="g/s"));
+    equation
+      y = SI.Conversions.to_gps(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -557,13 +535,13 @@ This block converts the input signal from kilogram per second to gram per second
 the result as output signal.
 </p>
 </html>"));
-    equation
-      y = SI.Conversions.to_gps(u);
     end To_gps;
 
     block From_gps "Convert from gram per second to kilogram per second"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="g/s"),
           y(unit="kg/s"));
+    equation
+      y = SI.Conversions.from_gps(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
@@ -578,8 +556,6 @@ This block converts the input signal from gram per second to kilogram per second
 the result as output signal.
 </p>
 </html>"));
-    equation
-      y = SI.Conversions.from_gps(u);
     end From_gps;
     annotation (Documentation(info="<html>
 <p>
@@ -614,6 +590,9 @@ All other blocks convert exactly between two different units.
               {-10,10}},       rotation=0,
           origin={170,0}),  iconTransformation(extent={{180,-10},{160,10}})));
 
+  equation
+    u1 = u2;
+    y1 = y2;
     annotation(__Dymola_structurallyIncomplete=true,
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-200,-120},{
               200,120}}),
@@ -648,9 +627,6 @@ instances:
    InverseBlockConstraint invert[3];  // Block to be inverted has 3 input signals
 </pre>
 </html>"));
-  equation
-    u1 = u2;
-    y1 = y2;
   end InverseBlockConstraints;
 
       block Gain "Output the product of a gain value with the input signal"
@@ -663,6 +639,9 @@ instances:
         Interfaces.RealOutput y "Output signal connector"
           annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
+
+      equation
+        y = k*u;
         annotation (
           Documentation(info="
 <HTML>
@@ -704,9 +683,6 @@ input <i>u</i>:
             extent={{-76,38},{0,-34}},
             textString="k",
             lineColor={0,0,255})}));
-
-      equation
-        y = k*u;
       end Gain;
 
       block MatrixGain
@@ -715,6 +691,8 @@ input <i>u</i>:
         parameter Real K[:, :]=[1, 0; 0, 1]
       "Gain matrix which is multiplied with the input";
         extends Interfaces.MIMO(final nin=size(K, 2), final nout=size(K, 1));
+      equation
+        y = K*u;
         annotation (
           Documentation(info="
 <HTML>
@@ -760,13 +738,13 @@ Example:
             extent={{-90,-60},{90,60}},
             lineColor={160,160,164},
             textString="*K")}));
-      equation
-        y = K*u;
       end MatrixGain;
 
       block Sum "Output the sum of the elements of the input vector"
         extends Interfaces.MISO;
         parameter Real k[nin]=ones(nin) "Optional: sum coefficients";
+      equation
+        y = k*u;
         annotation (defaultComponentName="sum1",
           Documentation(info="
 <HTML>
@@ -811,8 +789,6 @@ Example:
             points={{26,42},{-34,42},{6,2},{-34,-38},{26,-38}},
             color={0,0,0},
             thickness=0.25)}));
-      equation
-        y = k*u;
       end Sum;
 
       block Feedback "Output difference between commanded and feedback input"
@@ -826,6 +802,9 @@ Example:
           rotation=90)));
         output Interfaces.RealOutput y annotation (Placement(transformation(
             extent={{80,-10},{100,10}}, rotation=0)));
+
+      equation
+        y = u1 - u2;
         annotation (
           Documentation(info="
 <HTML>
@@ -887,15 +866,15 @@ Example:
             extent={{-12,10},{84,-84}},
             lineColor={0,0,0},
             textString="-")}));
-
-      equation
-        y = u1 - u2;
       end Feedback;
 
       block Add "Output the sum of the two inputs"
         extends Interfaces.SI2SO;
         parameter Real k1=+1 "Gain of upper input";
         parameter Real k2=+1 "Gain of lower input";
+
+      equation
+        y = k1*u1 + k2*u2;
         annotation (
           Documentation(info="
 <HTML>
@@ -1003,9 +982,6 @@ Example:
             extent={{-100,-52},{5,-92}},
             lineColor={0,0,0},
             textString="k2")}));
-
-      equation
-        y = k1*u1 + k2*u2;
       end Add;
 
       block Add3 "Output the sum of the three inputs"
@@ -1026,6 +1002,9 @@ Example:
         output Interfaces.RealOutput y "Connector of Real output signals"
           annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
+
+      equation
+        y = k1*u1 + k2*u2 + k3*u3;
         annotation (
           Documentation(info="
 <HTML>
@@ -1114,13 +1093,13 @@ Example:
             extent={{2,36},{100,-44}},
             lineColor={0,0,0},
             textString="+")}));
-
-      equation
-        y = k1*u1 + k2*u2 + k3*u3;
       end Add3;
 
       block Product "Output product of the two inputs"
         extends Interfaces.SI2SO;
+
+      equation
+        y = u1*u2;
         annotation (
           Documentation(info="
 <HTML>
@@ -1161,13 +1140,13 @@ the two inputs <b>u1</b> and <b>u2</b>:
           Line(points={{-15,25.99},{15,-25.99}}, color={0,0,0}),
           Line(points={{-15,-25.99},{15,25.99}}, color={0,0,0}),
           Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,255})}));
-
-      equation
-        y = u1*u2;
       end Product;
 
       block Division "Output first input divided by second input"
         extends Interfaces.SI2SO;
+
+      equation
+        y = u1/u2;
         annotation (
           Documentation(info="
 <HTML>
@@ -1228,13 +1207,12 @@ the two inputs <b>u1</b> and <b>u2</b>:
           Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,255}),
           Line(points={{-100,60},{-66,60},{-40,30}}, color={0,0,255}),
           Line(points={{-100,-60},{0,-60},{0,-50}}, color={0,0,255})}));
-
-      equation
-        y = u1/u2;
       end Division;
 
       block Abs "Output the absolute value of the input"
         extends Interfaces.SISO;
+      equation
+        y = abs(u);
         annotation (defaultComponentName="abs1",
           Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -1311,12 +1289,12 @@ as <i>absolute value</i> of the input <b>u</b>:
 
 </HTML>
 "));
-      equation
-        y = abs(u);
       end Abs;
 
       block Sign "Output the sign of the input"
         extends Interfaces.SISO;
+      equation
+        y = sign(u);
         annotation (defaultComponentName="sign1",
           Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -1398,12 +1376,13 @@ as <b>sign</b> of the input <b>u</b>:
 
 </HTML>
 "));
-      equation
-        y = sign(u);
       end Sign;
 
       block Sqrt "Output the square root of the input (input >= 0 required)"
         extends Interfaces.SISO;
+
+      equation
+        y = sqrt(u);
         annotation (defaultComponentName="sqrt1",
           Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -1470,13 +1449,12 @@ Otherwise an error occurs.
 
 </HTML>
 "));
-
-      equation
-        y = sqrt(u);
       end Sqrt;
 
       block Sin "Output the sine of the input"
         extends Interfaces.SISO;
+      equation
+        y = Modelica.Math.sin(u);
         annotation (
           Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -1561,12 +1539,13 @@ as <b>sine</b> of the input <b>u</b>:
 
 </HTML>
 "));
-      equation
-        y = Modelica.Math.sin(u);
       end Sin;
 
       block Cos "Output the cosine of the input"
         extends Interfaces.SISO;
+
+      equation
+        y = Modelica.Math.cos(u);
         annotation (
           Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -1651,13 +1630,13 @@ as <b>cos</b> of the input <b>u</b>:
 
 </HTML>
 "));
-
-      equation
-        y = Modelica.Math.cos(u);
       end Cos;
 
       block Tan "Output the tangent of the input"
         extends Interfaces.SISO;
+
+      equation
+        y = Modelica.Math.tan(u);
         annotation (
           Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -1740,13 +1719,13 @@ as <b>tan</b> of the input <b>u</b>:
 
 </HTML>
 "));
-
-      equation
-        y = Modelica.Math.tan(u);
       end Tan;
 
       block Asin "Output the arc sine of the input"
         extends Interfaces.SISO;
+
+      equation
+        y = Modelica.Math.asin(u);
         annotation (
           Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -1836,13 +1815,12 @@ Otherwise an error occurs.
 
 </HTML>
 "));
-
-      equation
-        y = Modelica.Math.asin(u);
       end Asin;
 
       block Acos "Output the arc cosine of the input"
         extends Interfaces.SISO;
+      equation
+        y = Modelica.Math.acos(u);
         annotation (
           Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -1928,12 +1906,12 @@ Otherwise an error occurs.
 
 </HTML>
 "));
-      equation
-        y = Modelica.Math.acos(u);
       end Acos;
 
       block Atan "Output the arc tangent of the input"
         extends Interfaces.SISO;
+      equation
+        y = Modelica.Math.atan(u);
         annotation (
           Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -2020,12 +1998,12 @@ This blocks computes the output <b>y</b> as the
 
 </HTML>
 "));
-      equation
-        y = Modelica.Math.atan(u);
       end Atan;
 
       block Atan2 "Output atan(u1/u2) of the inputs u1 and u2"
         extends Interfaces.SI2SO;
+      equation
+        y = Modelica.Math.atan2(u1, u2);
         annotation (
           Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -2132,12 +2110,13 @@ block <b>Atan</b> gives a solution in the range
 
 </HTML>
 "));
-      equation
-        y = Modelica.Math.atan2(u1, u2);
       end Atan2;
 
       block Sinh "Output the hyperbolic sine of the input"
         extends Interfaces.SISO;
+
+      equation
+        y = Modelica.Math.sinh(u);
         annotation (
           Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -2224,13 +2203,12 @@ This blocks computes the output <b>y</b> as the
 
 </HTML>
 "));
-
-      equation
-        y = Modelica.Math.sinh(u);
       end Sinh;
 
       block Cosh "Output the hyperbolic cosine of the input"
         extends Interfaces.SISO;
+      equation
+        y = Modelica.Math.cosh(u);
         annotation (
           Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -2317,12 +2295,12 @@ This blocks computes the output <b>y</b> as the
 
 </HTML>
 "));
-      equation
-        y = Modelica.Math.cosh(u);
       end Cosh;
 
       block Tanh "Output the hyperbolic tangent of the input"
         extends Interfaces.SISO;
+      equation
+        y = Modelica.Math.tanh(u);
         annotation (
           Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -2409,12 +2387,13 @@ This blocks computes the output <b>y</b> as the
 
 </HTML>
 "));
-      equation
-        y = Modelica.Math.tanh(u);
       end Tanh;
 
       block Exp "Output the exponential (base e) of the input"
         extends Interfaces.SISO;
+
+      equation
+        y = Modelica.Math.exp(u);
         annotation (
           Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -2499,15 +2478,14 @@ This blocks computes the output <b>y</b> as the
 
 </HTML>
 "));
-
-      equation
-        y = Modelica.Math.exp(u);
       end Exp;
 
       block Log
     "Output the natural (base e) logarithm of the input (input > 0 required)"
 
         extends Interfaces.SISO;
+      equation
+        y = Modelica.Math.log(u);
         annotation (
           Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -2598,14 +2576,14 @@ zero or negative.
 
 </HTML>
 "));
-      equation
-        y = Modelica.Math.log(u);
       end Log;
 
       block Log10
     "Output the base 10 logarithm of the input (input > 0 required)"
 
         extends Interfaces.SISO;
+      equation
+        y = Modelica.Math.log10(u);
         annotation (
           Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -2696,12 +2674,20 @@ zero or negative.
 
 </HTML>
 "));
-      equation
-        y = Modelica.Math.log10(u);
       end Log10;
 
   block RealToInteger "Convert Real to Integer signal"
     extends Interfaces.IntegerBlockIcon;
+  public
+    Interfaces.RealInput u "Connector of Real input signal"
+                           annotation (Placement(transformation(extent={{-140,
+              -20},{-100,20}}, rotation=0)));
+    Interfaces.IntegerOutput y "Connector of Integer output signal"
+                               annotation (Placement(transformation(extent={{
+              100,-10},{120,10}}, rotation=0)));
+  equation
+     y = if (u > 0) then integer(floor(u + 0.5)) else
+                         integer(ceil( u - 0.5));
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Text(
@@ -2727,20 +2713,17 @@ as <i>nearest integer value</i> of the input <b>u</b>:
 </pre>
 </html>
 "));
-  public
-    Interfaces.RealInput u "Connector of Real input signal"
-                           annotation (Placement(transformation(extent={{-140,
-              -20},{-100,20}}, rotation=0)));
-    Interfaces.IntegerOutput y "Connector of Integer output signal"
-                               annotation (Placement(transformation(extent={{
-              100,-10},{120,10}}, rotation=0)));
-  equation
-     y = if (u > 0) then integer(floor(u + 0.5)) else
-                         integer(ceil( u - 0.5));
   end RealToInteger;
 
   block IntegerToReal "Convert integer to real signals"
     extends Interfaces.BlockIcon;
+    Interfaces.IntegerInput u "Connector of Integer input signal"
+                                                               annotation (Placement(
+          transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
+    Interfaces.RealOutput y "Connector of Real output signal"  annotation (Placement(
+          transformation(extent={{100,-10},{120,10}}, rotation=0)));
+  equation
+    y = u;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Text(
@@ -2766,13 +2749,6 @@ as <i>Real equivalent</i> of the Integer input <b>u</b>:
 <p>where <b>u</b> is of Integer and <b>y</b> of Real type.</p>
 </html>
 "));
-    Interfaces.IntegerInput u "Connector of Integer input signal"
-                                                               annotation (Placement(
-          transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
-    Interfaces.RealOutput y "Connector of Real output signal"  annotation (Placement(
-          transformation(extent={{100,-10},{120,10}}, rotation=0)));
-  equation
-    y = u;
   end IntegerToReal;
 
   block BooleanToReal "Convert Boolean to Real signal"
@@ -2784,6 +2760,9 @@ as <i>Real equivalent</i> of the Integer input <b>u</b>:
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
 
+
+  equation
+    y = if u then realTrue else realFalse;
     annotation (
       Documentation(info="<html>
 <p>
@@ -2818,9 +2797,6 @@ and <b>realTrue</b> and <b>realFalse</b> are parameters.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics));
-
-  equation
-    y = if u then realTrue else realFalse;
   end BooleanToReal;
 
   block BooleanToInteger "Convert Boolean to Integer signal"
@@ -2832,6 +2808,9 @@ and <b>realTrue</b> and <b>realFalse</b> are parameters.
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
 
+
+  equation
+    y = if u then integerTrue else integerFalse;
     annotation (
       Documentation(info="<html>
 <p>
@@ -2866,9 +2845,6 @@ and <b>integerTrue</b> and <b>integerFalse</b> are parameters.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics));
-
-  equation
-    y = if u then integerTrue else integerFalse;
   end BooleanToInteger;
 
   block RealToBoolean "Convert Real to Boolean signal"
@@ -2879,6 +2855,9 @@ and <b>integerTrue</b> and <b>integerFalse</b> are parameters.
     parameter Real threshold=0.5
       "Output signal y is true, if input u >= threshold";
 
+
+  equation
+    y = u >= threshold;
     annotation (
       Documentation(info="<html>
 <p>
@@ -2915,9 +2894,6 @@ where <b>threshold</b> is a parameter.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics));
-
-  equation
-    y = u >= threshold;
   end RealToBoolean;
 
   block IntegerToBoolean "Convert Integer to Boolean signal"
@@ -2928,6 +2904,9 @@ where <b>threshold</b> is a parameter.
     parameter Integer threshold=1
       "Output signal y is true, if input u >= threshold";
 
+
+  equation
+    y = u >= threshold;
     annotation (
       Documentation(info="<html>
 <p>
@@ -2964,9 +2943,6 @@ where <b>threshold</b> is a parameter.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics));
-
-  equation
-    y = u >= threshold;
   end IntegerToBoolean;
 
   block RectangularToPolar
@@ -2987,6 +2963,10 @@ where <b>threshold</b> is a parameter.
     Modelica.Blocks.Interfaces.RealOutput y_arg "Angle of polar representation"
       annotation (Placement(transformation(extent={{100,-70},{120,-50}},
             rotation=0)));
+
+  equation
+     y_abs = sqrt(u_re*u_re + u_im*u_im);
+     y_arg = Modelica.Math.atan2(u_im, u_re);
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}),
                         graphics),
@@ -3020,10 +3000,6 @@ the angle <code>y_arg</code> of the polar representation of this phasor.
   y_arg = arg(u_re + j*u_im) = atan2(u_im, u_re)
 </pre>
 </html>"));
-
-  equation
-     y_abs = sqrt(u_re*u_re + u_im*u_im);
-     y_arg = Modelica.Math.atan2(u_im, u_re);
   end RectangularToPolar;
 
   block PolarToRectangular
@@ -3043,6 +3019,10 @@ the angle <code>y_arg</code> of the polar representation of this phasor.
       "Imaginary part of rectangular representation"
       annotation (Placement(transformation(extent={{100,-70},{120,-50}},
             rotation=0)));
+
+  equation
+    y_re = u_abs * Modelica.Math.cos(u_arg);
+    y_im = u_abs * Modelica.Math.sin(u_arg);
     annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}),
                         graphics),
@@ -3073,14 +3053,12 @@ This block calculates the components <code>y_re</code> and <code>y_im</code> of 
    y_im = u_abs * sin( u_arg )
 </pre>
 </html>"));
-
-  equation
-    y_re = u_abs * Modelica.Math.cos(u_arg);
-    y_im = u_abs * Modelica.Math.sin(u_arg);
   end PolarToRectangular;
 
   block Max "Pass through the largest signal"
     extends Interfaces.SI2SO;
+  equation
+    y = max(u1, u2);
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Text(
             extent={{-90,36},{90,-36}},
@@ -3095,12 +3073,12 @@ of the two Real inputs <b>u1</b> and <b>u2</b>:
 </pre>
 </html>
 "));
-  equation
-    y = max(u1, u2);
   end Max;
 
   block Min "Pass through the smallest signal"
     extends Interfaces.SI2SO;
+  equation
+     y = min(u1, u2);
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Text(
             extent={{-90,36},{90,-36}},
@@ -3115,12 +3093,12 @@ the two Real inputs <b>u1</b> and <b>u2</b>:
 </pre>
 </html>
 "));
-  equation
-     y = min(u1, u2);
   end Min;
 
   block Edge "Indicates rising edge of boolean signal"
     extends Interfaces.BooleanSISO;
+  equation
+    y = edge(u);
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Text(
             extent={{-90,36},{90,-36}},
@@ -3135,12 +3113,12 @@ when the Boolean input <b>u</b> shows a <i>rising edge</i>:
 </pre>
 </html>
 "));
-  equation
-    y = edge(u);
   end Edge;
 
   block BooleanChange "Indicates boolean signal changing"
     extends Interfaces.BooleanSISO;
+  equation
+    y = change(u);
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Text(
             extent={{-90,36},{90,-36}},
@@ -3156,12 +3134,12 @@ i.e., when the signal changes:
 </pre>
 </html>
 "));
-  equation
-    y = change(u);
   end BooleanChange;
 
   block IntegerChange "Indicates integer signal changing"
     extends Interfaces.IntegerSIBooleanSO;
+  equation
+    y = change(u);
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Text(
             extent={{-90,36},{90,-36}},
@@ -3176,8 +3154,30 @@ Integer input <b>u</b> changes:
 </pre>
 </html>
 "));
-  equation
-    y = change(u);
   end IntegerChange;
 
+  annotation (
+    Documentation(info="
+<HTML>
+<p>
+This package contains basic <b>mathematical operations</b>,
+such as summation and multiplication, and basic <b>mathematical
+functions</b>, such as <b>sqrt</b> and <b>sin</b>, as
+input/output blocks. All blocks of this library can be either
+connected with continuous blocks or with sampled-data blocks.
+</p>
+</HTML>
+", revisions="<html>
+<ul>
+<li><i>October 21, 2002</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
+       and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
+       New blocks added: RealToInteger, IntegerToReal, Max, Min, Edge, BooleanChange, IntegerChange.</li>
+<li><i>August 7, 1999</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+       Realized (partly based on an existing Dymola library
+       of Dieter Moormann and Hilding Elmqvist).
+</li>
+</ul>
+</html>"));
 end Math;

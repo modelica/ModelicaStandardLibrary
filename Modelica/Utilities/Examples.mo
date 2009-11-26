@@ -2,32 +2,6 @@ within Modelica.Utilities;
 package Examples
   "Examples to demonstrate the usage of package Modelica.Utilities"
 
-  annotation (Documentation(info="<html>
-<p>
-This package contains quite involved examples that demonstrate how to
-use the functions of package Modelica.Utilities. In particular
-the following examples are present.
-</p>
-<ul>
-<li> Function <a href=\"Modelica://Modelica.Utilities.Examples.calculator\">calculator</a>
-     is an interpreter to evaluate
-     expressions consisting of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi.
-     For example: calculator(\"1.5*sin(pi/6)\"); <br>&nbsp;</li>
-<li> Function <a href=\"Modelica://Modelica.Utilities.Examples.expression\">expression</a>
-     is the basic function used in \"calculator\" to evaluate an expression.
-     It is useful if the expression interpreter is used in a larger
-     scan operation (such as readRealParameter below).<br>&nbsp;</li>
-<li> Function <a href=\"Modelica://Modelica.Utilities.Examples.readRealParameter\">readRealParameter</a>
-     reads the value of a parameter
-     from file, given the file and the parameter name. The value
-     on file is interpreted with the Examples.expression function
-     and can therefore be an expression.<br>&nbsp;</li>
-<li> Model <a href=\"Modelica://Modelica.Utilities.Examples.readRealParameterModel\">readRealParameterModel</a>
-     is a test model to demonstrate the usage of \"readRealParameter\". The model
-     contains 3 parameters that are read from file \"Modelica.Utilities/data/Examples_readRealParameters.txt\".
-     </li>
-</ul>
-</html>"));
 
   function calculator
     "Interpreter to evaluate simple expressions consisting of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi"
@@ -35,6 +9,13 @@ the following examples are present.
     extends Modelica.Icons.Function;
     input String string "Expression that is evaluated";
     output Real result "Value of expression";
+
+
+  protected
+    Integer nextIndex;
+  algorithm
+    (result,nextIndex) := expression(string, 1);
+    Strings.scanNoToken(string,nextIndex);
 
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
@@ -67,13 +48,6 @@ The following operations are supported (pi=3.14.. is a predefined constant):
   calculator(\"sin(pi/6)\");  // returns 0.5
 </pre></blockquote>
 </html>"));
-
-  protected
-    Integer nextIndex;
-  algorithm
-    (result,nextIndex) := expression(string, 1);
-    Strings.scanNoToken(string,nextIndex);
-
   end calculator;
 
   function expression
@@ -92,78 +66,6 @@ The following operations are supported (pi=3.14.. is a predefined constant):
     output Real result "Value of expression";
     output Integer nextIndex "Index after the scanned expression";
 
-    annotation (Documentation(info="<html>
-<h4>Syntax</h4>
-<blockquote><pre>
-             result = <b>expression</b>(string);
-(result, nextIndex) = <b>expression</b>(string, startIndex=1, message=\"\");
-</pre></blockquote>
-<h4>Description</h4>
-<p>
-This function is nearly the same as Examples.<b>calculator</b>.
-The essential difference is that function \"expression\" might be
-used in other parsing operations: After the expression is
-parsed and evaluated, the function returns with the value
-of the expression as well as the position of the character
-directly after the expression.
-</p>
-<p>
-This function demonstrates how a simple expression calculator
-can be implemented in form of a recursive decent parser
-using basically the Strings.scanToken(..) and scanDelimiters(..)
-function. There are 2 local functions (term, primary) that
-implement the corresponding part of the grammar.
-</p>
-<p>
-The following operations are supported (pi=3.14.. is a predefined constant):
-</p>
-<pre>
-   +, -
-   *, /
-   (expression)
-   sin(expression)
-   cos(expression)
-   tan(expression)
-   sqrt(expression)
-   pi
-</pre>
-<p>
-The optional argument \"startIndex\" defines at which position
-scanning of the expression starts.
-</p>
-<p>
-In case of error,
-the optional argument \"message\" is appended to the error
-message, in order to give additional information where
-the error occured.
-</p>
-<p>
-This function parses the following grammaer
-</p>
-<pre>
-  expression: [ add_op ] term { add_op term }
-  add_op    : \"+\" | \"-\"
-  term      : primary { mul_op primary }
-  mul_op    : \"*\" | \"/\"
-  primary   : UNSIGNED_NUMBER
-              | pi
-              | ( expression )
-              | functionName( expression )
-  function  :   sin
-              | cos
-              | tan
-              | sqrt
-</pre>
-<p>
-Note, in Examples.readRealParameter it is shown, how the expression
-function can be used as part of another scan operation.
-</p>
-<h4>Example</h4>
-<blockquote><pre>
-  expression(\"2+3*(4-1)\");  // returns 11
-  expression(\"sin(pi/6)\");  // returns 0.5
-</pre></blockquote>
-</html>"));
 
   protected
   function term "Evaluate term of an expression"
@@ -275,6 +177,78 @@ function can be used as part of another scan operation.
       end if;
     end while;
 
+    annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+             result = <b>expression</b>(string);
+(result, nextIndex) = <b>expression</b>(string, startIndex=1, message=\"\");
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function is nearly the same as Examples.<b>calculator</b>.
+The essential difference is that function \"expression\" might be
+used in other parsing operations: After the expression is
+parsed and evaluated, the function returns with the value
+of the expression as well as the position of the character
+directly after the expression.
+</p>
+<p>
+This function demonstrates how a simple expression calculator
+can be implemented in form of a recursive decent parser
+using basically the Strings.scanToken(..) and scanDelimiters(..)
+function. There are 2 local functions (term, primary) that
+implement the corresponding part of the grammar.
+</p>
+<p>
+The following operations are supported (pi=3.14.. is a predefined constant):
+</p>
+<pre>
+   +, -
+   *, /
+   (expression)
+   sin(expression)
+   cos(expression)
+   tan(expression)
+   sqrt(expression)
+   pi
+</pre>
+<p>
+The optional argument \"startIndex\" defines at which position
+scanning of the expression starts.
+</p>
+<p>
+In case of error,
+the optional argument \"message\" is appended to the error
+message, in order to give additional information where
+the error occured.
+</p>
+<p>
+This function parses the following grammaer
+</p>
+<pre>
+  expression: [ add_op ] term { add_op term }
+  add_op    : \"+\" | \"-\"
+  term      : primary { mul_op primary }
+  mul_op    : \"*\" | \"/\"
+  primary   : UNSIGNED_NUMBER
+              | pi
+              | ( expression )
+              | functionName( expression )
+  function  :   sin
+              | cos
+              | tan
+              | sqrt
+</pre>
+<p>
+Note, in Examples.readRealParameter it is shown, how the expression
+function can be used as part of another scan operation.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  expression(\"2+3*(4-1)\");  // returns 11
+  expression(\"sin(pi/6)\");  // returns 0.5
+</pre></blockquote>
+</html>"));
   end expression;
 
   function readRealParameter "Read the value of a Real parameter from file"
@@ -286,46 +260,6 @@ function can be used as part of another scan operation.
     input String name "Name of parameter";
     output Real result "Actual value of parameter on file";
 
-    annotation (Documentation(info="<html>
-<h4>Syntax</h4>
-<blockquote><pre>
-result = <b>readRealParameter</b>(fileName, name);
-</pre></blockquote>
-<h4>Description</h4>
-<p>
-This function demonstrates how a function can be implemented
-that reads the value of a parameter from file. The function
-performs the following actions:
-</p>
-<ol>
-<li> It opens file \"fileName\" and reads the lines of the file.</li>
-<li> In every line, Modelica line comments (\"// ... end-of-line\")
-     are skipped </li>
-<li> If a line consists of \"name = expression\" and the \"name\"
-     in this line is identical to the second argument \"name\"
-     of the function call, the expression calculator Examples.expression
-     is used to evaluate the expression after the \"=\" character.
-     The expression can optionally be terminated with a \";\".</li>
-<li> The result of the expression evaluation is returned as
-     the value of the parameter \"name\". </li>
-</ol>
-<h4>Example</h4>
-<p>
-On file \"test.txt\" the following lines might be present:
-</p>
-<blockquote><pre>
-// Motor data
-J        = 2.3     // inertia
-w_rel0   = 1.5*2;  // relative angular velocity
-phi_rel0 = pi/3
-</pre></blockquote>
-<p>
-The function returns the value \"3.0\" when called as:
-</p>
-<blockquote><pre>
-readRealParameter(\"test.txt\", \"w_rel0\")
-</pre></blockquote>
-</html>"));
 
   protected
     String line;
@@ -372,6 +306,46 @@ readRealParameter(\"test.txt\", \"w_rel0\")
        Streams.error("Parameter \"" + name + "\" not found in file \"" + fileName + "\"");
     end if;
 
+    annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+result = <b>readRealParameter</b>(fileName, name);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function demonstrates how a function can be implemented
+that reads the value of a parameter from file. The function
+performs the following actions:
+</p>
+<ol>
+<li> It opens file \"fileName\" and reads the lines of the file.</li>
+<li> In every line, Modelica line comments (\"// ... end-of-line\")
+     are skipped </li>
+<li> If a line consists of \"name = expression\" and the \"name\"
+     in this line is identical to the second argument \"name\"
+     of the function call, the expression calculator Examples.expression
+     is used to evaluate the expression after the \"=\" character.
+     The expression can optionally be terminated with a \";\".</li>
+<li> The result of the expression evaluation is returned as
+     the value of the parameter \"name\". </li>
+</ol>
+<h4>Example</h4>
+<p>
+On file \"test.txt\" the following lines might be present:
+</p>
+<blockquote><pre>
+// Motor data
+J        = 2.3     // inertia
+w_rel0   = 1.5*2;  // relative angular velocity
+phi_rel0 = pi/3
+</pre></blockquote>
+<p>
+The function returns the value \"3.0\" when called as:
+</p>
+<blockquote><pre>
+readRealParameter(\"test.txt\", \"w_rel0\")
+</pre></blockquote>
+</html>"));
   end readRealParameter;
 
   model readRealParameterModel
@@ -398,4 +372,30 @@ from a file.
 </p>
 </html>"));
   end readRealParameterModel;
+  annotation (Documentation(info="<html>
+<p>
+This package contains quite involved examples that demonstrate how to
+use the functions of package Modelica.Utilities. In particular
+the following examples are present.
+</p>
+<ul>
+<li> Function <a href=\"Modelica://Modelica.Utilities.Examples.calculator\">calculator</a>
+     is an interpreter to evaluate
+     expressions consisting of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi.
+     For example: calculator(\"1.5*sin(pi/6)\"); <br>&nbsp;</li>
+<li> Function <a href=\"Modelica://Modelica.Utilities.Examples.expression\">expression</a>
+     is the basic function used in \"calculator\" to evaluate an expression.
+     It is useful if the expression interpreter is used in a larger
+     scan operation (such as readRealParameter below).<br>&nbsp;</li>
+<li> Function <a href=\"Modelica://Modelica.Utilities.Examples.readRealParameter\">readRealParameter</a>
+     reads the value of a parameter
+     from file, given the file and the parameter name. The value
+     on file is interpreted with the Examples.expression function
+     and can therefore be an expression.<br>&nbsp;</li>
+<li> Model <a href=\"Modelica://Modelica.Utilities.Examples.readRealParameterModel\">readRealParameterModel</a>
+     is a test model to demonstrate the usage of \"readRealParameter\". The model
+     contains 3 parameters that are read from file \"Modelica.Utilities/data/Examples_readRealParameters.txt\".
+     </li>
+</ul>
+</html>"));
 end Examples;

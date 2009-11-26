@@ -2,18 +2,13 @@ within ModelicaTest.Fluid.TestComponents.Sensors;
 model TestOnePortSensors2
   import Modelica.Fluid;
   package Medium = Modelica.Media.Water.StandardWater;
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-            -100},{100,100}}),
-                      graphics),
-                       experiment(StopTime=15, Algorithm="Euler"),
-    experimentSetupOutput);
   Modelica.Fluid.Vessels.ClosedVolume MixingVolume1(
     V=1e-3,
     use_T_start=false,
     redeclare package Medium = Medium,
     h_start=1e5,
     nPorts=2,
-    use_portsData=false) 
+    use_portsData=false)
                  annotation (Placement(transformation(extent={{-34,30},{-14,50}},
           rotation=0)));
 
@@ -21,7 +16,7 @@ model TestOnePortSensors2
     m_flow=1,
     h=2e5,
     redeclare package Medium = Medium,
-    use_m_flow_in=true) 
+    use_m_flow_in=true)
                    annotation (Placement(transformation(extent={{-68,30},{-48,
             50}}, rotation=0)));
   Modelica.Fluid.Vessels.ClosedVolume MixingVolume2(
@@ -30,22 +25,22 @@ model TestOnePortSensors2
     redeclare package Medium = Medium,
     h_start=1.5e5,
     nPorts=2,
-    use_portsData=false) 
+    use_portsData=false)
                  annotation (Placement(transformation(extent={{36,30},{56,50}},
           rotation=0)));
   Modelica.Fluid.Sources.Boundary_ph Sink2(nPorts=1,             redeclare
-      package Medium = 
+      package Medium =
                Medium,
     p=101325,
-    h=5e4) 
+    h=5e4)
     annotation (Placement(transformation(extent={{100,30},{80,50}}, rotation=0)));
-  inner Modelica.Fluid.System system 
+  inner Modelica.Fluid.System system
     annotation (Placement(transformation(extent={{-100,-100},{-80,-80}},
           rotation=0)));
   Modelica.Blocks.Sources.Ramp ramp(
     height=2,
     offset=-1,
-    duration=10) 
+    duration=10)
                annotation (Placement(transformation(extent={{-100,30},{-80,50}},
           rotation=0)));
   Modelica.Fluid.Vessels.ClosedVolume MixingVolume3(
@@ -54,14 +49,14 @@ model TestOnePortSensors2
     redeclare package Medium = Medium,
     h_start=1e5,
     nPorts=2,
-    use_portsData=false) 
+    use_portsData=false)
                  annotation (Placement(transformation(extent={{-34,-30},{-14,
             -10}}, rotation=0)));
   Modelica.Fluid.Sources.MassFlowSource_h FlowSource1(nPorts=1,
     m_flow=1,
     h=2e5,
     redeclare package Medium = Medium,
-    use_m_flow_in=true) 
+    use_m_flow_in=true)
                    annotation (Placement(transformation(extent={{-68,-30},{-48,
             -10}}, rotation=0)));
   Modelica.Fluid.Vessels.ClosedVolume MixingVolume4(
@@ -70,17 +65,17 @@ model TestOnePortSensors2
     redeclare package Medium = Medium,
     h_start=1.5e5,
     nPorts=2,
-    use_portsData=false) 
+    use_portsData=false)
                  annotation (Placement(transformation(extent={{36,-30},{56,-10}},
           rotation=0)));
   Modelica.Fluid.Sources.Boundary_ph Sink1(nPorts=1,             redeclare
-      package Medium = 
+      package Medium =
                Medium,
     p=101325,
-    h=5e4) 
+    h=5e4)
     annotation (Placement(transformation(extent={{100,-30},{80,-10}}, rotation=
             0)));
-  Modelica.Fluid.Sensors.TemperatureTwoPort Tmix2(redeclare package Medium = 
+  Modelica.Fluid.Sensors.TemperatureTwoPort Tmix2(redeclare package Medium =
         Medium) annotation (Placement(transformation(extent={{0,-30},{20,-10}},
           rotation=0)));
 equation
@@ -120,4 +115,9 @@ equation
       points={{44,-30},{61,-30},{61,-20},{80,-20}},
       color={0,127,255},
       smooth=Smooth.None));
+  annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
+            -100},{100,100}}),
+                      graphics),
+                       experiment(StopTime=15, Algorithm="Euler"),
+    experimentSetupOutput);
 end TestOnePortSensors2;

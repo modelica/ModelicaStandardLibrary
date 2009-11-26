@@ -1,22 +1,6 @@
 within Modelica.Mechanics.MultiBody.Examples.Elementary;
 model Pendulum "Simple pendulum with one revolute joint and one body"
   extends Modelica.Icons.Example;
-  annotation (
-    experiment(StopTime=5),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics),
-    Documentation(info="<html>
-<p>
-This simple model demonstrates that by just dragging components
-default animation is defined that shows the structure of the
-assembled system.
-<p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Elementary/Pendulum.png\"
-ALT=\"model Examples.Elementary.Pendulum\">
-</p>
-</html>"));
   inner Modelica.Mechanics.MultiBody.World world(gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.
         UniformGravity) annotation (Placement(transformation(extent={{-60,0},{
             -40,20}}, rotation=0)));
@@ -43,4 +27,20 @@ equation
       points={{20,10},{0,10}},
       color={95,95,95},
       thickness=0.5));
+  annotation (
+    experiment(StopTime=5),
+    Diagram(coordinateSystem(
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
+        grid={2,2}), graphics),
+    Documentation(info="<html>
+<p>
+This simple model demonstrates that by just dragging components
+default animation is defined that shows the structure of the
+assembled system.
+<p align=\"center\">
+<IMG SRC=\"../Images/MultiBody/Examples/Elementary/Pendulum.png\"
+ALT=\"model Examples.Elementary.Pendulum\">
+</p>
+</html>"));
 end Pendulum;

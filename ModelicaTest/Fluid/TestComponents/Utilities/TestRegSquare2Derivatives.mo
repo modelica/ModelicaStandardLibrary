@@ -15,8 +15,6 @@ model TestRegSquare2Derivatives "Test whether regSquare2 can be differentiated"
   Real y2;
   Real y2d;
   Real y2dd;
-  annotation (experiment(StopTime=2, NumberOfIntervals=5000),
-                                      experimentSetupOutput);
 equation
   x = time - 1;
 
@@ -35,4 +33,6 @@ equation
   y2 = Modelica.Fluid.Utilities.regSquare2(x,x_small, k1, k2, true, 0.02);
   y2d = der(y2);
   y2dd = der(y2d);
+  annotation (experiment(StopTime=2, NumberOfIntervals=5000),
+                                      experimentSetupOutput);
 end TestRegSquare2Derivatives;

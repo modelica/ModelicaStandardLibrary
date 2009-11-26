@@ -1,14 +1,6 @@
 within Modelica.Utilities;
 package System "Interaction with environment"
   extends Modelica.Icons.Library;
-    annotation (
-Documentation(info="
-<HTML>
-<p>
-This package contains functions to interact with the environment.
-</p>
-</HTML>
-"));
 
 function getWorkDirectory "Get full path name of work directory"
   extends Modelica.Icons.Function;
@@ -75,4 +67,12 @@ function exit "Terminate execution of Modelica environment"
 
   annotation(Library="ModelicaExternalC");
 end exit;
+    annotation (
+Documentation(info="
+<HTML>
+<p>
+This package contains functions to interact with the environment.
+</p>
+</HTML>
+"));
 end System;

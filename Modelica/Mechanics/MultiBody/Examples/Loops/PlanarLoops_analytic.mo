@@ -24,33 +24,6 @@ model PlanarLoops_analytic
   final parameter SI.Length r3a[3]=r3b + rh - r2b
     "Position vector from 'upper left' revolute to 'upper right' revolute joint in the third loop";
 
-  annotation (
-    experiment(StopTime=5),
-    Documentation(info="<html>
-<p>
-It is demonstrated how the Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR joint can be
-used to solve the non-linear equations of coupled planar loops analytically.
-In the mechanism below no non-linear equation occurs any more from the tool
-view, since these equations are solved analytically in the JointRRR joints.
-For more details, see
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">
-MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
-</p>
-
-<p>
-In the following figure the parameter vectors of this example are visualized in the
-animation view.
-</p>
-
-<p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Loops/PlanarLoops2.png\" ALT=\"model Examples.Loops.PlanarLoops2\">
-</p>
-
-</html>"),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics));
 
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
         transformation(extent={{-94,-90},{-74,-70}}, rotation=0)));
@@ -199,4 +172,31 @@ equation
       points={{-70,-10},{-66,-10}},
       color={0,0,0},
       smooth=Smooth.None));
+  annotation (
+    experiment(StopTime=5),
+    Documentation(info="<html>
+<p>
+It is demonstrated how the Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR joint can be
+used to solve the non-linear equations of coupled planar loops analytically.
+In the mechanism below no non-linear equation occurs any more from the tool
+view, since these equations are solved analytically in the JointRRR joints.
+For more details, see
+<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">
+MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
+</p>
+
+<p>
+In the following figure the parameter vectors of this example are visualized in the
+animation view.
+</p>
+
+<p align=\"center\">
+<IMG SRC=\"../Images/MultiBody/Examples/Loops/PlanarLoops2.png\" ALT=\"model Examples.Loops.PlanarLoops2\">
+</p>
+
+</html>"),
+    Diagram(coordinateSystem(
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
+        grid={1,1}), graphics));
 end PlanarLoops_analytic;

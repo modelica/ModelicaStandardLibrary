@@ -3,80 +3,6 @@ package Forces "Components that exert forces and/or torques between frames"
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Library;
 
-  annotation ( Documentation(info="<HTML>
-<p>
-This package contains components that exert forces and torques
-between two frame connectors, e.g., between two parts.
-</p>
-<h4>Content</h4>
-<table border=1 cellspacing=0 cellpadding=2>
-  <tr><th><b><i>Model</i></b></th><th><b><i>Description</i></b></th></tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Forces.WorldForce\">WorldForce</a></td>
-      <td valign=\"top\"> External force acting at the frame to which this component
-           is connected and defined by 3 input signals,
-           that are interpreted as one vector resolved in frame world, frame_b or frame_resolve. <br>
-           <IMG SRC=\"../Images/MultiBody/Forces/ArrowForce.png\"></td>
-  </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Forces.WorldTorque\">WorldTorque</a></td>
-      <td valign=\"top\"> External torque acting at the frame to which this component
-           is connected and defined by 3 input signals,
-           that are interpreted as one vector resolved in frame world, frame_b or frame_resolve. <br>
-           <IMG SRC=\"../Images/MultiBody/Forces/ArrowTorque.png\"></td>
-  </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque\">WorldForceAndTorque</a></td>
-      <td valign=\"top\"> External force and external torque acting at the frame
-           to which this component
-           is connected and defined by 3+3 input signals,
-           that are interpreted as a force and as a torque vector
-           resolved in frame world, frame_b or frame_resolve. <br>
-           <IMG SRC=\"../Images/MultiBody/Forces/ArrowForce.png\"><br>
-           <IMG SRC=\"../Images/MultiBody/Forces/ArrowTorque.png\">
-      </td>
-  </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Forces.Force\">Force</a></td>
-      <td valign=\"top\"> Force acting between two frames defined by 3 input signals
-           resolved in frame world, frame_a, frame_b or in frame_resolve. <br>
-           <IMG SRC=\"../Images/MultiBody/Forces/ArrowForce2.png\"></td>
-  </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Forces.Torque\">Torque</a></td>
-      <td valign=\"top\"> Torque acting between two frames defined by 3 input signals
-           resolved in frame world, frame_a, frame_b or in frame_resolve. <br>
-           <IMG SRC=\"../Images/MultiBody/Forces/ArrowTorque2.png\"></td>
-  </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Forces.ForceAndTorque\">ForceAndTorque</a></td>
-      <td valign=\"top\"> Force and torque acting between two frames defined by 3+3 input signals
-           resolved in frame world, frame_a, frame_b or in frame_resolve. <br>
-           <IMG SRC=\"../Images/MultiBody/Forces/ArrowForce2.png\"><br>
-           <IMG SRC=\"../Images/MultiBody/Forces/ArrowTorque2.png\"></td>
-  </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Forces.LineForceWithMass\">LineForceWithMass</a></td>
-      <td valign=\"top\">  General line force component with an optional point mass
-            on the connection line. The force law can be defined by a
-            component of Modelica.Mechanics.Translational<br>
-           <IMG SRC=\"../Images/MultiBody/Forces/LineForceWithMass.png\"></td>
-  </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses\">LineForceWithTwoMasses</a></td>
-      <td valign=\"top\">  General line force component with two optional point masses
-            on the connection line. The force law can be defined by a
-            component of Modelica.Mechanics.Translational<br>
-           <IMG SRC=\"../Images/MultiBody/Forces/LineForceWithTwoMasses.png\"></td>
-  </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Forces.Spring\">Spring</a></td>
-      <td valign=\"top\"> Linear translational spring with optional mass <br>
-           <IMG SRC=\"../Images/MultiBody/Forces/Spring2.png\"></td>
-  </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Forces.Damper\">Damper</a></td>
-      <td valign=\"top\"> Linear (velocity dependent) damper <br>
-           <IMG SRC=\"../Images/MultiBody/Forces/Damper2.png\"></td>
-  </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Forces.SpringDamperParallel\">SpringDamperParallel</a></td>
-      <td valign=\"top\"> Linear spring and damper in parallel connection </td>
-  </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Forces.SpringDamperSeries\">SpringDamperSeries</a></td>
-      <td valign=\"top\"> Linear spring and damper in series connection </td>
-  </tr>
-</table>
-</HTML>"));
 
   model WorldForce
     "External force acting at frame_b, defined by 3 input signals and resolved in frame world, frame_b or frame_resolve"
@@ -112,6 +38,47 @@ between two frame connectors, e.g., between two parts.
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
 
+
+  protected
+    SI.Position f_in_m[3]=frame_b.f/N_to_m
+      "Force mapped from N to m for animation";
+    Visualizers.Advanced.Arrow arrow(
+      diameter=diameter,
+      color=color,
+      specularCoefficient=specularCoefficient,
+      R=frame_b.R,
+      r=frame_b.r_0,
+      r_tail=f_in_m,
+      r_head=-f_in_m) if world.enableAnimation and animation;
+
+  public
+    Internal.BasicWorldForce basicWorldForce(resolveInFrame=resolveInFrame)
+      annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+  protected
+    Interfaces.ZeroPosition zeroPosition if
+         not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve)
+      annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
+  equation
+    connect(basicWorldForce.frame_b, frame_b) annotation (Line(
+        points={{10,0},{100,0}},
+        color={95,95,95},
+        thickness=0.5,
+        smooth=Smooth.None));
+    connect(basicWorldForce.force, force) annotation (Line(
+        points={{-12,0},{-120,0}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(basicWorldForce.frame_resolve, frame_resolve) annotation (Line(
+        points={{0,-10},{0,-100}},
+        color={95,95,95},
+        pattern=LinePattern.Dot,
+        smooth=Smooth.None));
+    connect(zeroPosition.frame_resolve, basicWorldForce.frame_resolve)
+      annotation (Line(
+        points={{20,-30},{0,-30},{0,-10}},
+        color={95,95,95},
+        pattern=LinePattern.Dot,
+        smooth=Smooth.None));
     annotation (defaultComponentName="force",
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
               100,100}}), graphics),
@@ -202,47 +169,6 @@ This leads to the following animation
 
 </HTML>
 "));
-
-  protected
-    SI.Position f_in_m[3]=frame_b.f/N_to_m
-      "Force mapped from N to m for animation";
-    Visualizers.Advanced.Arrow arrow(
-      diameter=diameter,
-      color=color,
-      specularCoefficient=specularCoefficient,
-      R=frame_b.R,
-      r=frame_b.r_0,
-      r_tail=f_in_m,
-      r_head=-f_in_m) if world.enableAnimation and animation;
-
-  public
-    Internal.BasicWorldForce basicWorldForce(resolveInFrame=resolveInFrame)
-      annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-  protected
-    Interfaces.ZeroPosition zeroPosition if
-         not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve)
-      annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
-  equation
-    connect(basicWorldForce.frame_b, frame_b) annotation (Line(
-        points={{10,0},{100,0}},
-        color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
-    connect(basicWorldForce.force, force) annotation (Line(
-        points={{-12,0},{-120,0}},
-        color={0,0,127},
-        smooth=Smooth.None));
-    connect(basicWorldForce.frame_resolve, frame_resolve) annotation (Line(
-        points={{0,-10},{0,-100}},
-        color={95,95,95},
-        pattern=LinePattern.Dot,
-        smooth=Smooth.None));
-    connect(zeroPosition.frame_resolve, basicWorldForce.frame_resolve)
-      annotation (Line(
-        points={{20,-30},{0,-30},{0,-10}},
-        color={95,95,95},
-        pattern=LinePattern.Dot,
-        smooth=Smooth.None));
   end WorldForce;
 
   model WorldTorque
@@ -279,6 +205,46 @@ This leads to the following animation
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
 
+
+  protected
+    SI.Position t_in_m[3]=frame_b.t/Nm_to_m
+      "Torque mapped from Nm to m for animation";
+    Visualizers.Advanced.DoubleArrow arrow(
+      diameter=diameter,
+      color=color,
+      specularCoefficient=specularCoefficient,
+      R=frame_b.R,
+      r=frame_b.r_0,
+      r_tail=t_in_m,
+      r_head=-t_in_m) if world.enableAnimation and animation;
+  public
+    Internal.BasicWorldTorque basicWorldTorque(resolveInFrame=resolveInFrame)
+      annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+  protected
+    Interfaces.ZeroPosition zeroPosition if
+         not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve)
+      annotation (Placement(transformation(extent={{20,10},{40,30}})));
+  equation
+    connect(basicWorldTorque.frame_b, frame_b) annotation (Line(
+        points={{10,0},{100,0}},
+        color={95,95,95},
+        thickness=0.5,
+        smooth=Smooth.None));
+    connect(basicWorldTorque.torque, torque) annotation (Line(
+        points={{-12,0},{-120,0}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(frame_resolve, basicWorldTorque.frame_resolve) annotation (Line(
+        points={{0,100},{0,10}},
+        color={95,95,95},
+        pattern=LinePattern.Dot,
+        smooth=Smooth.None));
+    connect(zeroPosition.frame_resolve, basicWorldTorque.frame_resolve)
+      annotation (Line(
+        points={{20,20},{0,20},{0,10}},
+        color={95,95,95},
+        pattern=LinePattern.Dot,
+        smooth=Smooth.None));
     annotation (defaultComponentName="torque",
       Documentation(info="<HTML>
 
@@ -376,46 +342,6 @@ This leads to the following animation
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics));
-
-  protected
-    SI.Position t_in_m[3]=frame_b.t/Nm_to_m
-      "Torque mapped from Nm to m for animation";
-    Visualizers.Advanced.DoubleArrow arrow(
-      diameter=diameter,
-      color=color,
-      specularCoefficient=specularCoefficient,
-      R=frame_b.R,
-      r=frame_b.r_0,
-      r_tail=t_in_m,
-      r_head=-t_in_m) if world.enableAnimation and animation;
-  public
-    Internal.BasicWorldTorque basicWorldTorque(resolveInFrame=resolveInFrame)
-      annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-  protected
-    Interfaces.ZeroPosition zeroPosition if
-         not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve)
-      annotation (Placement(transformation(extent={{20,10},{40,30}})));
-  equation
-    connect(basicWorldTorque.frame_b, frame_b) annotation (Line(
-        points={{10,0},{100,0}},
-        color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
-    connect(basicWorldTorque.torque, torque) annotation (Line(
-        points={{-12,0},{-120,0}},
-        color={0,0,127},
-        smooth=Smooth.None));
-    connect(frame_resolve, basicWorldTorque.frame_resolve) annotation (Line(
-        points={{0,100},{0,10}},
-        color={95,95,95},
-        pattern=LinePattern.Dot,
-        smooth=Smooth.None));
-    connect(zeroPosition.frame_resolve, basicWorldTorque.frame_resolve)
-      annotation (Line(
-        points={{20,20},{0,20},{0,10}},
-        color={95,95,95},
-        pattern=LinePattern.Dot,
-        smooth=Smooth.None));
   end WorldTorque;
 
   model WorldForceAndTorque
@@ -466,6 +392,82 @@ This leads to the following animation
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
 
+
+
+  protected
+    SI.Position f_in_m[3]=frame_b.f/N_to_m
+      "Force mapped from N to m for animation";
+    SI.Position t_in_m[3]=frame_b.t/Nm_to_m
+      "Torque mapped from Nm to m for animation";
+    Visualizers.Advanced.Arrow forceArrow(
+      diameter=forceDiameter,
+      color=forceColor,
+      specularCoefficient=specularCoefficient,
+      R=frame_b.R,
+      r=frame_b.r_0,
+      r_tail=f_in_m,
+      r_head=-f_in_m) if world.enableAnimation and animation;
+    Visualizers.Advanced.DoubleArrow torqueArrow(
+      diameter=torqueDiameter,
+      color=torqueColor,
+      specularCoefficient=specularCoefficient,
+      R=frame_b.R,
+      r=frame_b.r_0,
+      r_tail=t_in_m,
+      r_head=-t_in_m) if world.enableAnimation and animation;
+  public
+    Internal.BasicWorldForce basicWorldForce(resolveInFrame=resolveInFrame)
+      annotation (Placement(transformation(extent={{18,-50},{38,-70}})));
+    Internal.BasicWorldTorque basicWorldTorque(resolveInFrame=resolveInFrame)
+      annotation (Placement(transformation(extent={{-10,50},{10,70}})));
+  protected
+    Interfaces.ZeroPosition zeroPosition if
+         not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve)
+      annotation (Placement(transformation(extent={{58,70},{78,90}})));
+  equation
+    connect(basicWorldForce.frame_b, frame_b) annotation (Line(
+        points={{38,-60},{60,-60},{60,0},{100,0}},
+        color={95,95,95},
+        thickness=0.5,
+        smooth=Smooth.None));
+    connect(basicWorldForce.force, force) annotation (Line(
+        points={{16,-60},{-120,-60}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(basicWorldTorque.frame_b, frame_b)
+                                      annotation (Line(
+        points={{10,60},{60,60},{60,0},{100,0}},
+        color={95,95,95},
+        thickness=0.5,
+        smooth=Smooth.None));
+    connect(basicWorldTorque.torque, torque)
+                                    annotation (Line(
+        points={{-12,60},{-120,60}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(basicWorldForce.frame_resolve, frame_resolve) annotation (Line(
+        points={{28,-50},{28,80},{0,80},{0,100}},
+        color={95,95,95},
+        pattern=LinePattern.Dot,
+        smooth=Smooth.None));
+    connect(basicWorldTorque.frame_resolve, frame_resolve)
+                                                  annotation (Line(
+        points={{0,70},{0,100}},
+        color={95,95,95},
+        pattern=LinePattern.Dot,
+        smooth=Smooth.None));
+    connect(zeroPosition.frame_resolve, basicWorldTorque.frame_resolve)
+                                                               annotation (Line(
+        points={{58,80},{0,80},{0,70}},
+        color={95,95,95},
+        pattern=LinePattern.Dot,
+        smooth=Smooth.None));
+    connect(zeroPosition.frame_resolve, basicWorldForce.frame_resolve)
+      annotation (Line(
+        points={{58,80},{40,80},{40,-40},{28,-40},{28,-50}},
+        color={95,95,95},
+        pattern=LinePattern.Dot,
+        smooth=Smooth.None));
     annotation (defaultComponentName="forceAndTorque",
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
               100,100}}), graphics),
@@ -573,10 +575,7 @@ This leads to the following animation
 <IMG SRC=\"../Images/MultiBody/Forces/WorldForceAndTorque2.png\">
 </p>
 </HTML>
-"));
-
-    annotation (
-      Coordsys(
+"),   Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]),
@@ -600,81 +599,6 @@ is resolved in the world frame).
             fillColor=0,
             fillPattern=1),
           lineColor={0,0,255})));
-
-  protected
-    SI.Position f_in_m[3]=frame_b.f/N_to_m
-      "Force mapped from N to m for animation";
-    SI.Position t_in_m[3]=frame_b.t/Nm_to_m
-      "Torque mapped from Nm to m for animation";
-    Visualizers.Advanced.Arrow forceArrow(
-      diameter=forceDiameter,
-      color=forceColor,
-      specularCoefficient=specularCoefficient,
-      R=frame_b.R,
-      r=frame_b.r_0,
-      r_tail=f_in_m,
-      r_head=-f_in_m) if world.enableAnimation and animation;
-    Visualizers.Advanced.DoubleArrow torqueArrow(
-      diameter=torqueDiameter,
-      color=torqueColor,
-      specularCoefficient=specularCoefficient,
-      R=frame_b.R,
-      r=frame_b.r_0,
-      r_tail=t_in_m,
-      r_head=-t_in_m) if world.enableAnimation and animation;
-  public
-    Internal.BasicWorldForce basicWorldForce(resolveInFrame=resolveInFrame)
-      annotation (Placement(transformation(extent={{18,-50},{38,-70}})));
-    Internal.BasicWorldTorque basicWorldTorque(resolveInFrame=resolveInFrame)
-      annotation (Placement(transformation(extent={{-10,50},{10,70}})));
-  protected
-    Interfaces.ZeroPosition zeroPosition if
-         not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve)
-      annotation (Placement(transformation(extent={{58,70},{78,90}})));
-  equation
-    connect(basicWorldForce.frame_b, frame_b) annotation (Line(
-        points={{38,-60},{60,-60},{60,0},{100,0}},
-        color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
-    connect(basicWorldForce.force, force) annotation (Line(
-        points={{16,-60},{-120,-60}},
-        color={0,0,127},
-        smooth=Smooth.None));
-    connect(basicWorldTorque.frame_b, frame_b)
-                                      annotation (Line(
-        points={{10,60},{60,60},{60,0},{100,0}},
-        color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
-    connect(basicWorldTorque.torque, torque)
-                                    annotation (Line(
-        points={{-12,60},{-120,60}},
-        color={0,0,127},
-        smooth=Smooth.None));
-    connect(basicWorldForce.frame_resolve, frame_resolve) annotation (Line(
-        points={{28,-50},{28,80},{0,80},{0,100}},
-        color={95,95,95},
-        pattern=LinePattern.Dot,
-        smooth=Smooth.None));
-    connect(basicWorldTorque.frame_resolve, frame_resolve)
-                                                  annotation (Line(
-        points={{0,70},{0,100}},
-        color={95,95,95},
-        pattern=LinePattern.Dot,
-        smooth=Smooth.None));
-    connect(zeroPosition.frame_resolve, basicWorldTorque.frame_resolve)
-                                                               annotation (Line(
-        points={{58,80},{0,80},{0,70}},
-        color={95,95,95},
-        pattern=LinePattern.Dot,
-        smooth=Smooth.None));
-    connect(zeroPosition.frame_resolve, basicWorldForce.frame_resolve)
-      annotation (Line(
-        points={{58,80},{40,80},{40,-40},{28,-40},{28,-50}},
-        color={95,95,95},
-        pattern=LinePattern.Dot,
-        smooth=Smooth.None));
   end WorldForceAndTorque;
 
   model Force
@@ -717,6 +641,62 @@ is resolved in the world frame).
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
+
+  protected
+    SI.Position f_in_m[3]=frame_b.f/N_to_m
+      "Force mapped from N to m for animation";
+    Visualizers.Advanced.Arrow forceArrow(
+      diameter=forceDiameter,
+      color=forceColor,
+      specularCoefficient=specularCoefficient,
+      R=frame_b.R,
+      r=frame_b.r_0,
+      r_tail=f_in_m,
+      r_head=-f_in_m) if world.enableAnimation and animation;
+    Visualizers.Advanced.Shape connectionLine(
+      shapeType="cylinder",
+      lengthDirection=basicForce.r_0,
+      widthDirection={0,1,0},
+      length=Modelica.Math.Vectors.length(basicForce.r_0),
+      width=connectionLineDiameter,
+      height=connectionLineDiameter,
+      color=connectionLineColor,
+      specularCoefficient=specularCoefficient,
+      r=frame_a.r_0) if world.enableAnimation and animation;
+
+  public
+    MultiBody.Forces.Internal.BasicForce basicForce(resolveInFrame=resolveInFrame)
+      annotation (Placement(transformation(extent={{0,-10},{20,10}})));
+  protected
+    MultiBody.Interfaces.ZeroPosition zeroPosition if
+         not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
+      annotation (Placement(transformation(extent={{40,10},{60,30}})));
+  equation
+    connect(basicForce.frame_a, frame_a) annotation (Line(
+        points={{0,0},{-100,0}},
+        color={95,95,95},
+        thickness=0.5,
+        smooth=Smooth.None));
+    connect(basicForce.frame_b, frame_b) annotation (Line(
+        points={{20,0},{100,0}},
+        color={95,95,95},
+        thickness=0.5,
+        smooth=Smooth.None));
+    connect(force, basicForce.force) annotation (Line(
+        points={{-60,120},{-60,40},{4,40},{4,12}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(basicForce.frame_resolve, frame_resolve) annotation (Line(
+        points={{14,10},{14,40},{40,40},{40,100}},
+        color={95,95,95},
+        pattern=LinePattern.Dot,
+        smooth=Smooth.None));
+    connect(zeroPosition.frame_resolve, basicForce.frame_resolve) annotation (
+        Line(
+        points={{40,20},{27,20},{27,10},{14,10}},
+        color={95,95,95},
+        pattern=LinePattern.Dot,
+        smooth=Smooth.None));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
               100,100}}),
@@ -816,62 +796,6 @@ clarity this is not shown in the animation):
 </p>
 </html>
 "));
-
-  protected
-    SI.Position f_in_m[3]=frame_b.f/N_to_m
-      "Force mapped from N to m for animation";
-    Visualizers.Advanced.Arrow forceArrow(
-      diameter=forceDiameter,
-      color=forceColor,
-      specularCoefficient=specularCoefficient,
-      R=frame_b.R,
-      r=frame_b.r_0,
-      r_tail=f_in_m,
-      r_head=-f_in_m) if world.enableAnimation and animation;
-    Visualizers.Advanced.Shape connectionLine(
-      shapeType="cylinder",
-      lengthDirection=basicForce.r_0,
-      widthDirection={0,1,0},
-      length=Modelica.Math.Vectors.length(basicForce.r_0),
-      width=connectionLineDiameter,
-      height=connectionLineDiameter,
-      color=connectionLineColor,
-      specularCoefficient=specularCoefficient,
-      r=frame_a.r_0) if world.enableAnimation and animation;
-
-  public
-    MultiBody.Forces.Internal.BasicForce basicForce(resolveInFrame=resolveInFrame)
-      annotation (Placement(transformation(extent={{0,-10},{20,10}})));
-  protected
-    MultiBody.Interfaces.ZeroPosition zeroPosition if
-         not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
-      annotation (Placement(transformation(extent={{40,10},{60,30}})));
-  equation
-    connect(basicForce.frame_a, frame_a) annotation (Line(
-        points={{0,0},{-100,0}},
-        color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
-    connect(basicForce.frame_b, frame_b) annotation (Line(
-        points={{20,0},{100,0}},
-        color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
-    connect(force, basicForce.force) annotation (Line(
-        points={{-60,120},{-60,40},{4,40},{4,12}},
-        color={0,0,127},
-        smooth=Smooth.None));
-    connect(basicForce.frame_resolve, frame_resolve) annotation (Line(
-        points={{14,10},{14,40},{40,40},{40,100}},
-        color={95,95,95},
-        pattern=LinePattern.Dot,
-        smooth=Smooth.None));
-    connect(zeroPosition.frame_resolve, basicForce.frame_resolve) annotation (
-        Line(
-        points={{40,20},{27,20},{27,10},{14,10}},
-        color={95,95,95},
-        pattern=LinePattern.Dot,
-        smooth=Smooth.None));
   end Force;
 
   model Torque
@@ -916,6 +840,62 @@ clarity this is not shown in the animation):
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
 
+  protected
+    SI.Position t_in_m[3]=frame_b.t/Nm_to_m
+      "Torque mapped from Nm to m for animation";
+    Visualizers.Advanced.DoubleArrow torqueArrow(
+      diameter=torqueDiameter,
+      color=torqueColor,
+      specularCoefficient=specularCoefficient,
+      R=frame_b.R,
+      r=frame_b.r_0,
+      r_tail=t_in_m,
+      r_head=-t_in_m) if world.enableAnimation and animation;
+    Visualizers.Advanced.Shape connectionLine(
+      shapeType="cylinder",
+      lengthDirection=basicTorque.r_0,
+      widthDirection={0,1,0},
+      length=Modelica.Math.Vectors.length(
+                           basicTorque.r_0),
+      width=connectionLineDiameter,
+      height=connectionLineDiameter,
+      color=connectionLineColor,
+      specularCoefficient=specularCoefficient,
+      r=frame_a.r_0) if world.enableAnimation and animation;
+
+  public
+    Internal.BasicTorque basicTorque(resolveInFrame=resolveInFrame)
+      annotation (Placement(transformation(extent={{-8,-10},{12,10}})));
+  protected
+    Interfaces.ZeroPosition zeroPosition if
+         not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
+      annotation (Placement(transformation(extent={{34,10},{54,30}})));
+  equation
+    connect(basicTorque.frame_a, frame_a) annotation (Line(
+        points={{-8,0},{-100,0}},
+        color={95,95,95},
+        thickness=0.5,
+        smooth=Smooth.None));
+    connect(basicTorque.frame_b, frame_b) annotation (Line(
+        points={{12,0},{100,0}},
+        color={95,95,95},
+        thickness=0.5,
+        smooth=Smooth.None));
+    connect(basicTorque.torque, torque) annotation (Line(
+        points={{-4,12},{-4,60},{-60,60},{-60,120}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(basicTorque.frame_resolve, frame_resolve) annotation (Line(
+        points={{6,10},{6,60},{40,60},{40,100}},
+        color={95,95,95},
+        pattern=LinePattern.Dot,
+        smooth=Smooth.None));
+    connect(zeroPosition.frame_resolve, basicTorque.frame_resolve) annotation (
+        Line(
+        points={{34,20},{20,20},{20,10},{6,10}},
+        color={95,95,95},
+        pattern=LinePattern.Dot,
+        smooth=Smooth.None));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
               100,100}}),
@@ -1017,62 +997,6 @@ clarity this is not shown in the animation):
 </p>
 </HTML>
 "));
-  protected
-    SI.Position t_in_m[3]=frame_b.t/Nm_to_m
-      "Torque mapped from Nm to m for animation";
-    Visualizers.Advanced.DoubleArrow torqueArrow(
-      diameter=torqueDiameter,
-      color=torqueColor,
-      specularCoefficient=specularCoefficient,
-      R=frame_b.R,
-      r=frame_b.r_0,
-      r_tail=t_in_m,
-      r_head=-t_in_m) if world.enableAnimation and animation;
-    Visualizers.Advanced.Shape connectionLine(
-      shapeType="cylinder",
-      lengthDirection=basicTorque.r_0,
-      widthDirection={0,1,0},
-      length=Modelica.Math.Vectors.length(
-                           basicTorque.r_0),
-      width=connectionLineDiameter,
-      height=connectionLineDiameter,
-      color=connectionLineColor,
-      specularCoefficient=specularCoefficient,
-      r=frame_a.r_0) if world.enableAnimation and animation;
-
-  public
-    Internal.BasicTorque basicTorque(resolveInFrame=resolveInFrame)
-      annotation (Placement(transformation(extent={{-8,-10},{12,10}})));
-  protected
-    Interfaces.ZeroPosition zeroPosition if
-         not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
-      annotation (Placement(transformation(extent={{34,10},{54,30}})));
-  equation
-    connect(basicTorque.frame_a, frame_a) annotation (Line(
-        points={{-8,0},{-100,0}},
-        color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
-    connect(basicTorque.frame_b, frame_b) annotation (Line(
-        points={{12,0},{100,0}},
-        color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
-    connect(basicTorque.torque, torque) annotation (Line(
-        points={{-4,12},{-4,60},{-60,60},{-60,120}},
-        color={0,0,127},
-        smooth=Smooth.None));
-    connect(basicTorque.frame_resolve, frame_resolve) annotation (Line(
-        points={{6,10},{6,60},{40,60},{40,100}},
-        color={95,95,95},
-        pattern=LinePattern.Dot,
-        smooth=Smooth.None));
-    connect(zeroPosition.frame_resolve, basicTorque.frame_resolve) annotation (
-        Line(
-        points={{34,20},{20,20},{20,10},{6,10}},
-        color={95,95,95},
-        pattern=LinePattern.Dot,
-        smooth=Smooth.None));
   end Torque;
 
   model ForceAndTorque
@@ -1133,6 +1057,100 @@ clarity this is not shown in the animation):
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
 
+
+  protected
+    SI.Position f_in_m[3]=frame_b.f/N_to_m
+      "Force mapped from N to m for animation";
+    SI.Position t_in_m[3]=frame_b.t/Nm_to_m
+      "Torque mapped from Nm to m for animation";
+    Visualizers.Advanced.Arrow forceArrow(
+      diameter=forceDiameter,
+      color=forceColor,
+      specularCoefficient=specularCoefficient,
+      R=frame_b.R,
+      r=frame_b.r_0,
+      r_tail=f_in_m,
+      r_head=-f_in_m) if world.enableAnimation and animation;
+    Visualizers.Advanced.DoubleArrow torqueArrow(
+      diameter=torqueDiameter,
+      color=torqueColor,
+      specularCoefficient=specularCoefficient,
+      R=frame_b.R,
+      r=frame_b.r_0,
+      r_tail=t_in_m,
+      r_head=-t_in_m) if world.enableAnimation and animation;
+    Visualizers.Advanced.Shape connectionLine(
+      shapeType="cylinder",
+      lengthDirection=basicForce.r_0,
+      widthDirection={0,1,0},
+      length=Modelica.Math.Vectors.length(
+                           basicForce.r_0),
+      width=connectionLineDiameter,
+      height=connectionLineDiameter,
+      color=connectionLineColor,
+      specularCoefficient=specularCoefficient,
+      r=frame_a.r_0) if world.enableAnimation and animation;
+
+  public
+    Internal.BasicForce basicForce(resolveInFrame=resolveInFrame)
+      annotation (Placement(transformation(extent={{-84,-10},{-64,10}})));
+    Internal.BasicTorque basicTorque(resolveInFrame=resolveInFrame)
+      annotation (Placement(transformation(extent={{-4,10},{16,30}})));
+  protected
+    Interfaces.ZeroPosition zeroPosition if
+         not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
+      annotation (Placement(transformation(extent={{20,30},{40,50}})));
+  equation
+    connect(basicForce.frame_a, frame_a) annotation (Line(
+        points={{-84,0},{-100,0}},
+        color={95,95,95},
+        thickness=0.5,
+        smooth=Smooth.None));
+    connect(basicForce.frame_b, frame_b) annotation (Line(
+        points={{-64,0},{100,0}},
+        color={95,95,95},
+        thickness=0.5,
+        smooth=Smooth.None));
+    connect(basicTorque.frame_b, frame_b) annotation (Line(
+        points={{16,20},{68,20},{68,0},{100,0}},
+        color={95,95,95},
+        thickness=0.5,
+        smooth=Smooth.None));
+    connect(basicTorque.frame_a, frame_a) annotation (Line(
+        points={{-4,20},{-90,20},{-90,0},{-100,0}},
+        color={95,95,95},
+        thickness=0.5,
+        smooth=Smooth.None));
+    connect(basicForce.force, force) annotation (Line(
+        points={{-80,12},{-80,120}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(basicTorque.torque, torque) annotation (Line(
+        points={{0,32},{0,120}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(basicTorque.frame_resolve, frame_resolve) annotation (Line(
+        points={{10,30},{10,80},{80,80},{80,100}},
+        color={95,95,95},
+        pattern=LinePattern.Dot,
+        smooth=Smooth.None));
+    connect(basicForce.frame_resolve, frame_resolve) annotation (Line(
+        points={{-70,10},{-70,80},{80,80},{80,100}},
+        color={95,95,95},
+        pattern=LinePattern.Dot,
+        smooth=Smooth.None));
+    connect(zeroPosition.frame_resolve, basicTorque.frame_resolve)  annotation (
+        Line(
+        points={{20,40},{10,40},{10,30}},
+        color={95,95,95},
+        pattern=LinePattern.Dot,
+        smooth=Smooth.None));
+    connect(zeroPosition.frame_resolve, basicForce.frame_resolve) annotation (
+        Line(
+        points={{20,40},{-70,40},{-70,10}},
+        color={95,95,95},
+        pattern=LinePattern.Dot,
+        smooth=Smooth.None));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
               100,100}},
@@ -1258,100 +1276,6 @@ clarity this is not shown in the animation):
 </p>
 </HTML>
 "));
-
-  protected
-    SI.Position f_in_m[3]=frame_b.f/N_to_m
-      "Force mapped from N to m for animation";
-    SI.Position t_in_m[3]=frame_b.t/Nm_to_m
-      "Torque mapped from Nm to m for animation";
-    Visualizers.Advanced.Arrow forceArrow(
-      diameter=forceDiameter,
-      color=forceColor,
-      specularCoefficient=specularCoefficient,
-      R=frame_b.R,
-      r=frame_b.r_0,
-      r_tail=f_in_m,
-      r_head=-f_in_m) if world.enableAnimation and animation;
-    Visualizers.Advanced.DoubleArrow torqueArrow(
-      diameter=torqueDiameter,
-      color=torqueColor,
-      specularCoefficient=specularCoefficient,
-      R=frame_b.R,
-      r=frame_b.r_0,
-      r_tail=t_in_m,
-      r_head=-t_in_m) if world.enableAnimation and animation;
-    Visualizers.Advanced.Shape connectionLine(
-      shapeType="cylinder",
-      lengthDirection=basicForce.r_0,
-      widthDirection={0,1,0},
-      length=Modelica.Math.Vectors.length(
-                           basicForce.r_0),
-      width=connectionLineDiameter,
-      height=connectionLineDiameter,
-      color=connectionLineColor,
-      specularCoefficient=specularCoefficient,
-      r=frame_a.r_0) if world.enableAnimation and animation;
-
-  public
-    Internal.BasicForce basicForce(resolveInFrame=resolveInFrame)
-      annotation (Placement(transformation(extent={{-84,-10},{-64,10}})));
-    Internal.BasicTorque basicTorque(resolveInFrame=resolveInFrame)
-      annotation (Placement(transformation(extent={{-4,10},{16,30}})));
-  protected
-    Interfaces.ZeroPosition zeroPosition if
-         not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
-      annotation (Placement(transformation(extent={{20,30},{40,50}})));
-  equation
-    connect(basicForce.frame_a, frame_a) annotation (Line(
-        points={{-84,0},{-100,0}},
-        color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
-    connect(basicForce.frame_b, frame_b) annotation (Line(
-        points={{-64,0},{100,0}},
-        color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
-    connect(basicTorque.frame_b, frame_b) annotation (Line(
-        points={{16,20},{68,20},{68,0},{100,0}},
-        color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
-    connect(basicTorque.frame_a, frame_a) annotation (Line(
-        points={{-4,20},{-90,20},{-90,0},{-100,0}},
-        color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
-    connect(basicForce.force, force) annotation (Line(
-        points={{-80,12},{-80,120}},
-        color={0,0,127},
-        smooth=Smooth.None));
-    connect(basicTorque.torque, torque) annotation (Line(
-        points={{0,32},{0,120}},
-        color={0,0,127},
-        smooth=Smooth.None));
-    connect(basicTorque.frame_resolve, frame_resolve) annotation (Line(
-        points={{10,30},{10,80},{80,80},{80,100}},
-        color={95,95,95},
-        pattern=LinePattern.Dot,
-        smooth=Smooth.None));
-    connect(basicForce.frame_resolve, frame_resolve) annotation (Line(
-        points={{-70,10},{-70,80},{80,80},{80,100}},
-        color={95,95,95},
-        pattern=LinePattern.Dot,
-        smooth=Smooth.None));
-    connect(zeroPosition.frame_resolve, basicTorque.frame_resolve)  annotation (
-        Line(
-        points={{20,40},{10,40},{10,30}},
-        color={95,95,95},
-        pattern=LinePattern.Dot,
-        smooth=Smooth.None));
-    connect(zeroPosition.frame_resolve, basicForce.frame_resolve) annotation (
-        Line(
-        points={{20,40},{-70,40},{-70,10}},
-        color={95,95,95},
-        pattern=LinePattern.Dot,
-        smooth=Smooth.None));
   end ForceAndTorque;
 
   model LineForceWithMass
@@ -1414,6 +1338,132 @@ clarity this is not shown in the animation):
       "Position vector from frame_a to frame_b resolved in world frame";
     Real e_rel_0[3](each final unit="1")
       "Unit vector in direction from frame_a to frame_b, resolved in world frame";
+
+  protected
+    SI.Force fa "Force from flange_a";
+    SI.Force fb "Force from flange_b";
+    SI.Position r_CM_0[3](stateSelect=StateSelect.avoid)
+      "Position vector from world frame to point mass, resolved in world frame";
+    SI.Velocity v_CM_0[3](stateSelect=StateSelect.avoid)
+      "First derivative of r_CM_0";
+    SI.Acceleration ag_CM_0[3] "der(v_CM_0) - gravityAcceleration";
+
+    Visualizers.Advanced.Shape lineShape(
+      shapeType=lineShapeType,
+      color=lineShapeColor,
+      specularCoefficient=specularCoefficient,
+      length=length,
+      width=lineShapeWidth,
+      height=lineShapeHeight,
+      lengthDirection=e_rel_0,
+      widthDirection=Frames.resolve1(frame_a.R, {0,1,0}),
+      extra=lineShapeExtra,
+      r=frame_a.r_0) if world.enableAnimation and animateLine;
+
+    Visualizers.Advanced.Shape massShape(
+      shapeType="sphere",
+      color=massColor,
+      specularCoefficient=specularCoefficient,
+      length=massDiameter,
+      width=massDiameter,
+      height=massDiameter,
+      lengthDirection=e_rel_0,
+      widthDirection={0,1,0},
+      r_shape=e_rel_0*(length*lengthFraction - massDiameter/2),
+      r=frame_a.r_0) if world.enableAnimation and animateMass and m > 0;
+  equation
+    Connections.potentialRoot(frame_a.R, 100);
+    Connections.potentialRoot(frame_b.R, 100);
+    assert(noEvent(length > s_small), "
+The distance between the origin of frame_a and the origin of frame_b
+of a LineForceWithMass component became smaller as parameter s_small
+(= a small number, defined in the \"Advanced\" menu). The distance is
+set to s_small, although it is smaller, to avoid a division by zero
+when computing the direction of the line force. Possible reasons
+for this situation:
+- At initial time the distance may already be zero: Change the initial
+  positions of the bodies connected by this element.
+- Hardware stops are not modeled or are modeled not stiff enough.
+  Include stops, e.g., stiff springs, or increase the stiffness
+  if already present.
+- Another error in your model may lead to unrealistically large forces
+  and torques that would in reality destroy the stops.
+- The flange_b connector might be defined by a pre-defined motion,
+  e.g., with Modelica.Mechanics.Translational.Position and the
+  predefined flange_b.s is zero or negative.
+");
+
+    // Determine relative position vector between the two frames
+    r_rel_0 = frame_b.r_0 - frame_a.r_0;
+    length = Modelica.Math.Vectors.length(
+                           r_rel_0);
+    flange_a.s = 0;
+    flange_b.s = length;
+    e_rel_0 = r_rel_0/Frames.Internal.maxWithoutEvent(length, s_small);
+
+    // Determine translational flange forces
+    if cardinality(flange_a) > 0 and cardinality(flange_b) > 0 then
+      fa = flange_a.f;
+      fb = flange_b.f;
+    elseif cardinality(flange_a) > 0 and cardinality(flange_b) == 0 then
+      fa = flange_a.f;
+      fb = -fa;
+    elseif cardinality(flange_a) == 0 and cardinality(flange_b) > 0 then
+      fa = -fb;
+      fb = flange_b.f;
+    else
+      fa = 0;
+      fb = 0;
+    end if;
+
+    /* Force and torque balance of point mass
+     - Kinematics for center of mass CM of point mass including gravity
+       r_CM_0 = frame_a.r0 + r_rel_CM_0;
+       v_CM_0 = der(r_CM_0);
+       ag_CM_0 = der(v_CM_0) - world.gravityAcceleration(r_CM_0);
+     - Power balance for the connection line
+       (f1=force on frame_a side, f2=force on frame_b side, h=lengthFraction)
+       0 = f1*va - m*ag_CM*(va+(vb-va)*h) + f2*vb
+         = (f1 - m*ag_CM*(1-h))*va + (f2 - m*ag_CM*h)*vb
+       since va and vb are completely indepedent from other
+       the paranthesis must vanish:
+         f1 := m*ag_CM*(1-h)
+         f2 := m*ag_CM*h
+     - Force balance on frame_a and frame_b finally results in
+         0 = frame_a.f + e_rel_a*fa - f1_a
+         0 = frame_b.f + e_rel_b*fb - f2_b
+       and therefore
+         frame_a.f = -e_rel_a*fa + m*ag_CM_a*(1-h)
+         frame_b.f = -e_rel_b*fb + m*ag_CM_b*h
+  */
+    if m > 0 then
+      r_CM_0 = frame_a.r_0 + r_rel_0*lengthFraction;
+      v_CM_0 = der(r_CM_0);
+      ag_CM_0 = der(v_CM_0) - world.gravityAcceleration(r_CM_0);
+      frame_a.f = Frames.resolve2(frame_a.R, (m*(1 - lengthFraction))*ag_CM_0
+         - e_rel_0*fa);
+      frame_b.f = Frames.resolve2(frame_b.R, (m*lengthFraction)*ag_CM_0 -
+        e_rel_0*fb);
+    else
+      r_CM_0 = zeros(3);
+      v_CM_0 = zeros(3);
+      ag_CM_0 = zeros(3);
+      frame_a.f = -Frames.resolve2(frame_a.R, e_rel_0*fa);
+      frame_b.f = -Frames.resolve2(frame_b.R, e_rel_0*fb);
+    end if;
+
+    // Provide appropriate equations, if direct connections of line forces
+    if Connections.isRoot(frame_a.R) then
+      frame_a.R = Frames.nullRotation();
+    else
+      frame_a.t = zeros(3);
+    end if;
+
+    if Connections.isRoot(frame_b.R) then
+      frame_b.R = Frames.nullRotation();
+    else
+      frame_b.t = zeros(3);
+    end if;
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -1579,132 +1629,6 @@ in this flange connector acts implicitly with opposite sign also
 in the other flange connector.
 </p>
 </html>"));
-
-  protected
-    SI.Force fa "Force from flange_a";
-    SI.Force fb "Force from flange_b";
-    SI.Position r_CM_0[3](stateSelect=StateSelect.avoid)
-      "Position vector from world frame to point mass, resolved in world frame";
-    SI.Velocity v_CM_0[3](stateSelect=StateSelect.avoid)
-      "First derivative of r_CM_0";
-    SI.Acceleration ag_CM_0[3] "der(v_CM_0) - gravityAcceleration";
-
-    Visualizers.Advanced.Shape lineShape(
-      shapeType=lineShapeType,
-      color=lineShapeColor,
-      specularCoefficient=specularCoefficient,
-      length=length,
-      width=lineShapeWidth,
-      height=lineShapeHeight,
-      lengthDirection=e_rel_0,
-      widthDirection=Frames.resolve1(frame_a.R, {0,1,0}),
-      extra=lineShapeExtra,
-      r=frame_a.r_0) if world.enableAnimation and animateLine;
-
-    Visualizers.Advanced.Shape massShape(
-      shapeType="sphere",
-      color=massColor,
-      specularCoefficient=specularCoefficient,
-      length=massDiameter,
-      width=massDiameter,
-      height=massDiameter,
-      lengthDirection=e_rel_0,
-      widthDirection={0,1,0},
-      r_shape=e_rel_0*(length*lengthFraction - massDiameter/2),
-      r=frame_a.r_0) if world.enableAnimation and animateMass and m > 0;
-  equation
-    Connections.potentialRoot(frame_a.R, 100);
-    Connections.potentialRoot(frame_b.R, 100);
-    assert(noEvent(length > s_small), "
-The distance between the origin of frame_a and the origin of frame_b
-of a LineForceWithMass component became smaller as parameter s_small
-(= a small number, defined in the \"Advanced\" menu). The distance is
-set to s_small, although it is smaller, to avoid a division by zero
-when computing the direction of the line force. Possible reasons
-for this situation:
-- At initial time the distance may already be zero: Change the initial
-  positions of the bodies connected by this element.
-- Hardware stops are not modeled or are modeled not stiff enough.
-  Include stops, e.g., stiff springs, or increase the stiffness
-  if already present.
-- Another error in your model may lead to unrealistically large forces
-  and torques that would in reality destroy the stops.
-- The flange_b connector might be defined by a pre-defined motion,
-  e.g., with Modelica.Mechanics.Translational.Position and the
-  predefined flange_b.s is zero or negative.
-");
-
-    // Determine relative position vector between the two frames
-    r_rel_0 = frame_b.r_0 - frame_a.r_0;
-    length = Modelica.Math.Vectors.length(
-                           r_rel_0);
-    flange_a.s = 0;
-    flange_b.s = length;
-    e_rel_0 = r_rel_0/Frames.Internal.maxWithoutEvent(length, s_small);
-
-    // Determine translational flange forces
-    if cardinality(flange_a) > 0 and cardinality(flange_b) > 0 then
-      fa = flange_a.f;
-      fb = flange_b.f;
-    elseif cardinality(flange_a) > 0 and cardinality(flange_b) == 0 then
-      fa = flange_a.f;
-      fb = -fa;
-    elseif cardinality(flange_a) == 0 and cardinality(flange_b) > 0 then
-      fa = -fb;
-      fb = flange_b.f;
-    else
-      fa = 0;
-      fb = 0;
-    end if;
-
-    /* Force and torque balance of point mass
-     - Kinematics for center of mass CM of point mass including gravity
-       r_CM_0 = frame_a.r0 + r_rel_CM_0;
-       v_CM_0 = der(r_CM_0);
-       ag_CM_0 = der(v_CM_0) - world.gravityAcceleration(r_CM_0);
-     - Power balance for the connection line
-       (f1=force on frame_a side, f2=force on frame_b side, h=lengthFraction)
-       0 = f1*va - m*ag_CM*(va+(vb-va)*h) + f2*vb
-         = (f1 - m*ag_CM*(1-h))*va + (f2 - m*ag_CM*h)*vb
-       since va and vb are completely indepedent from other
-       the paranthesis must vanish:
-         f1 := m*ag_CM*(1-h)
-         f2 := m*ag_CM*h
-     - Force balance on frame_a and frame_b finally results in
-         0 = frame_a.f + e_rel_a*fa - f1_a
-         0 = frame_b.f + e_rel_b*fb - f2_b
-       and therefore
-         frame_a.f = -e_rel_a*fa + m*ag_CM_a*(1-h)
-         frame_b.f = -e_rel_b*fb + m*ag_CM_b*h
-  */
-    if m > 0 then
-      r_CM_0 = frame_a.r_0 + r_rel_0*lengthFraction;
-      v_CM_0 = der(r_CM_0);
-      ag_CM_0 = der(v_CM_0) - world.gravityAcceleration(r_CM_0);
-      frame_a.f = Frames.resolve2(frame_a.R, (m*(1 - lengthFraction))*ag_CM_0
-         - e_rel_0*fa);
-      frame_b.f = Frames.resolve2(frame_b.R, (m*lengthFraction)*ag_CM_0 -
-        e_rel_0*fb);
-    else
-      r_CM_0 = zeros(3);
-      v_CM_0 = zeros(3);
-      ag_CM_0 = zeros(3);
-      frame_a.f = -Frames.resolve2(frame_a.R, e_rel_0*fa);
-      frame_b.f = -Frames.resolve2(frame_b.R, e_rel_0*fb);
-    end if;
-
-    // Provide appropriate equations, if direct connections of line forces
-    if Connections.isRoot(frame_a.R) then
-      frame_a.R = Frames.nullRotation();
-    else
-      frame_a.t = zeros(3);
-    end if;
-
-    if Connections.isRoot(frame_b.R) then
-      frame_b.R = Frames.nullRotation();
-    else
-      frame_b.t = zeros(3);
-    end if;
   end LineForceWithMass;
 
   model LineForceWithTwoMasses
@@ -1770,6 +1694,195 @@ for this situation:
       "Position vector from frame_a to frame_b resolved in world frame";
     Real e_rel_0[3](each final unit="1")
       "Unit vector in direction from frame_a to frame_b, resolved in world frame";
+
+  protected
+    SI.Force fa "Force from flange_a";
+    SI.Force fb "Force from flange_b";
+    SI.Position r_CM1_0[3](stateSelect=StateSelect.avoid)
+      "Position vector from world frame to point mass 1, resolved in world frame";
+    SI.Position r_CM2_0[3](stateSelect=StateSelect.avoid)
+      "Position vector from world frame to point mass 2, resolved in world frame";
+    SI.Velocity v_CM1_0[3](stateSelect=StateSelect.avoid)
+      "der(r_CM_1_0) - velocity of point mass 1";
+    SI.Velocity v_CM2_0[3](stateSelect=StateSelect.avoid)
+      "der(r_CM_2_0) - velocity of point mass 2";
+    SI.Acceleration ag_CM1_0[3] "der(v_CM1_0) - gravityAcceleration(r_CM1_0)";
+    SI.Acceleration ag_CM2_0[3] "der(v_CM2_0) - gravityAcceleration(r_CM2_0)";
+    SI.Force aux1_0[3] "Auxiliary force 1";
+    SI.Force aux2_0[3] "Auxiliary force 2";
+
+    input SI.Length cylinderDiameter_b=cylinderDiameter_a*diameterFraction;
+    input SI.Length massDiameter=cylinderDiameter_a*massDiameterFaction;
+    parameter Boolean animateMasses2=world.enableAnimation and animate and animateMasses and m_a > 0 and m_b > 0;
+    Visualizers.Advanced.Shape cylinder_a(
+      shapeType="cylinder",
+      color=color_a,
+      specularCoefficient=specularCoefficient,
+      length=cylinderLength_a,
+      width=cylinderDiameter_a,
+      height=cylinderDiameter_a,
+      lengthDirection=e_rel_0,
+      widthDirection={0,1,0},
+      r=frame_a.r_0) if world.enableAnimation and animate;
+
+    Visualizers.Advanced.Shape cylinder_b(
+      shapeType="cylinder",
+      color=color_b,
+      specularCoefficient=specularCoefficient,
+      length=cylinderLength_b,
+      width=cylinderDiameter_b,
+      height=cylinderDiameter_b,
+      lengthDirection=-e_rel_0,
+      widthDirection={0,1,0},
+      r=frame_b.r_0) if world.enableAnimation and animate;
+
+    Visualizers.Advanced.Shape sphere_a(
+      shapeType="sphere",
+      color=massColor,
+      specularCoefficient=specularCoefficient,
+      length=massDiameter,
+      width=massDiameter,
+      height=massDiameter,
+      lengthDirection=e_rel_0,
+      widthDirection={0,1,0},
+      r_shape=e_rel_0*(L_a - massDiameter/2),
+      r=frame_a.r_0) if animateMasses2;
+
+    Visualizers.Advanced.Shape sphere_b(
+      shapeType="sphere",
+      color=massColor,
+      specularCoefficient=specularCoefficient,
+      length=massDiameter,
+      width=massDiameter,
+      height=massDiameter,
+      lengthDirection=-e_rel_0,
+      widthDirection={0,1,0},
+      r_shape=-e_rel_0*(L_b - massDiameter/2),
+      r=frame_b.r_0) if animateMasses2;
+  equation
+    Connections.potentialRoot(frame_a.R, 100);
+    Connections.potentialRoot(frame_b.R, 100);
+    assert(noEvent(length > s_small), "
+The distance between the origin of frame_a and the origin of frame_b
+of a LineForceWithTwoMasses component became smaller as parameter s_small
+(= a small number, defined in the \"Advanced\" menu). The distance is
+set to s_small, although it is smaller, to avoid a division by zero
+when computing the direction of the line force. Possible reasons
+for this situation:
+- At initial time the distance may already be zero: Change the initial
+  positions of the bodies connected by this element.
+- Hardware stops are not modeled or are modeled not stiff enough.
+  Include stops, e.g., stiff springs, or increase the stiffness
+  if already present.
+- Another error in your model may lead to unrealistically large forces
+  and torques that would in reality destroy the stops.
+- The flange_b connector might be defined by a pre-defined motion,
+  e.g., with Modelica.Mechanics.Translational.Position and the
+  predefined flange_b.s is zero or negative.
+");
+
+    // Determine relative position vector between the two frames
+    r_rel_0 = frame_b.r_0 - frame_a.r_0;
+    length = Modelica.Math.Vectors.length(
+                           r_rel_0);
+    flange_a.s = 0;
+    flange_b.s = length;
+    e_rel_0 = r_rel_0/Frames.Internal.maxWithoutEvent(length, s_small);
+
+    // Determine translational flange forces
+    if cardinality(flange_a) > 0 and cardinality(flange_b) > 0 then
+      fa = flange_a.f;
+      fb = flange_b.f;
+    elseif cardinality(flange_a) > 0 and cardinality(flange_b) == 0 then
+      fa = flange_a.f;
+      fb = -fa;
+    elseif cardinality(flange_a) == 0 and cardinality(flange_b) > 0 then
+      fa = -fb;
+      fb = flange_b.f;
+    else
+      fa = 0;
+      fb = 0;
+    end if;
+
+    /* Force and torque balance of the two point masses
+     - Kinematics for center of masses CM1, CM2 of point masses including gravity
+       (L = length, va = der(frame_a.r_0), vb = der(frame_b.r_0))
+       r_CM1_0 = frame_a.r_0 + e_rel_0*L_a;
+       r_CM2_0 = frame_b.r_0 - e_rel_0*L_b;
+       v_CM1_0 = der(r_CM1_0);
+       v_CM2_0 = der(r_CM2_0);
+       ag_CM1_0 = der(v_CM1_0) - world.gravityAcceleration(r_CM1_0);
+       ag_CM2_0 = der(v_CM2_0) - world.gravityAcceleration(r_CM2_0);
+       der(e_rel_0) = der(r_rel_0/sqrt(r_rel_0*r_rel_0))
+                    = 1/L*(I - e_rel_0*e_rel_0')*der(r_rel_0)
+                    = 1/L*(I - e_rel_0*e_rel_0')*(vb - va)
+       v_CM1_0 = va + L_a/L*(I - e_rel_0*e_rel_0')*(vb - va)
+       v_CM2_0 = vb - L_b/L*(I - e_rel_0*e_rel_0')*(vb - va)
+     - Power balance for the connection line
+       (f1=force on frame_a side, f2=force on frame_b side)
+       0 = f1*va - m_a*ag_CM1*v_CM1 + f2*vb - m_b*ag_CM2*v_CM2
+         = f1*va - m_a*ag_CM1*(va + L_a/L*(I - e_rel*e_rel')*(vb - va)) +
+           f2*vb - m_b*ag_CM2*(vb - L_b/L*(I - e_rel*e_rel')*(vb - va))
+         = (f1 - m_a*ag_CM1*(I - L_a/L*(I - e_rel*e_rel'))
+               - m_b*ag_CM2*(L_b/L*(I - e_rel*e_rel')))*va +
+           (f2 - m_b*ag_CM2*(I - L_b/L*(I - e_rel_0*e_rel_0'))
+               - m_a*ag_CM1*(L_a/L*(I - e_rel*e_rel')))*vb
+         = va*(f1 - m_a*ag_CM1 +
+               (m_a*ag_CM1*L_a/L - m_b*ag_CM2*L_b/L)*(I - e_rel*e_rel')) +
+           vb*(f2 - m_b*ag_CM2 +
+               (m_b*ag_CM2*L_b/L - m_a*ag_CM1*L_a/L)*(I - e_rel*e_rel'))
+       since va and vb are completely independent from other
+       the paranthesis must vanish:
+         f1 := m_a*ag_CM1 - (m_a*ag_CM1*L_a/L - m_b*ag_CM2*L_b/L)*(I - e_rel*e_rel')
+         f2 := m_b*ag_CM2 + (m_a*ag_CM1*L_a/L - m_b*ag_CM2*L_b/L)*(I - e_rel*e_rel')
+       or
+         aux1 := ag_CM1*(m_a*L_a/L) - ag_CM2*(m_b*L_b/L);
+         aux2 := aux1 - (aux1'*e_rel)*e_rel
+         f1 := m_a*ag_CM1 - aux2
+         f2 := m_b*ag_CM2 + aux2
+     - Force balance on frame_a and frame_b finally results in
+         0 = frame_a.f + e_rel_a*fa - f1_a
+         0 = frame_b.f + e_rel_b*fb - f2_b
+       and therefore
+         frame_a.f = -e_rel_a*fa + m_a*ag_CM1 - aux2
+         frame_b.f = -e_rel_b*fb + m_b*ag_CM2 + aux2
+  */
+    if m_a > 0 or m_b > 0 then
+      r_CM1_0 = frame_a.r_0 + e_rel_0*L_a;
+      r_CM2_0 = frame_b.r_0 - e_rel_0*L_b;
+      v_CM1_0 = der(r_CM1_0);
+      v_CM2_0 = der(r_CM2_0);
+      ag_CM1_0 = der(v_CM1_0) - world.gravityAcceleration(r_CM1_0);
+      ag_CM2_0 = der(v_CM2_0) - world.gravityAcceleration(r_CM2_0);
+      aux1_0 = ag_CM1_0*(m_a*L_a/length) - ag_CM2_0*(m_b*L_b/length);
+      aux2_0 = aux1_0 - (aux1_0*e_rel_0)*e_rel_0;
+      frame_a.f = Frames.resolve2(frame_a.R, m_a*ag_CM1_0 - aux2_0 - e_rel_0*fa);
+      frame_b.f = Frames.resolve2(frame_b.R, m_b*ag_CM2_0 + aux2_0 - e_rel_0*fb);
+    else
+      r_CM1_0 = zeros(3);
+      r_CM2_0 = zeros(3);
+      v_CM1_0 = zeros(3);
+      v_CM2_0 = zeros(3);
+      ag_CM1_0 = zeros(3);
+      ag_CM2_0 = zeros(3);
+      aux1_0 = zeros(3);
+      aux2_0 = zeros(3);
+      frame_a.f = -Frames.resolve2(frame_a.R, e_rel_0*fa);
+      frame_b.f = -Frames.resolve2(frame_b.R, e_rel_0*fb);
+    end if;
+
+    // Provide appropriate equations, if direct connections of line forces
+    if Connections.isRoot(frame_a.R) then
+      frame_a.R = Frames.nullRotation();
+    else
+      frame_a.t = zeros(3);
+    end if;
+
+    if Connections.isRoot(frame_b.R) then
+      frame_b.R = Frames.nullRotation();
+    else
+      frame_b.t = zeros(3);
+    end if;
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -1972,195 +2085,6 @@ in this flange connector acts implicitly with opposite sign also
 in the other flange connector.
 </p>
 </html>"));
-
-  protected
-    SI.Force fa "Force from flange_a";
-    SI.Force fb "Force from flange_b";
-    SI.Position r_CM1_0[3](stateSelect=StateSelect.avoid)
-      "Position vector from world frame to point mass 1, resolved in world frame";
-    SI.Position r_CM2_0[3](stateSelect=StateSelect.avoid)
-      "Position vector from world frame to point mass 2, resolved in world frame";
-    SI.Velocity v_CM1_0[3](stateSelect=StateSelect.avoid)
-      "der(r_CM_1_0) - velocity of point mass 1";
-    SI.Velocity v_CM2_0[3](stateSelect=StateSelect.avoid)
-      "der(r_CM_2_0) - velocity of point mass 2";
-    SI.Acceleration ag_CM1_0[3] "der(v_CM1_0) - gravityAcceleration(r_CM1_0)";
-    SI.Acceleration ag_CM2_0[3] "der(v_CM2_0) - gravityAcceleration(r_CM2_0)";
-    SI.Force aux1_0[3] "Auxiliary force 1";
-    SI.Force aux2_0[3] "Auxiliary force 2";
-
-    input SI.Length cylinderDiameter_b=cylinderDiameter_a*diameterFraction;
-    input SI.Length massDiameter=cylinderDiameter_a*massDiameterFaction;
-    parameter Boolean animateMasses2=world.enableAnimation and animate and animateMasses and m_a > 0 and m_b > 0;
-    Visualizers.Advanced.Shape cylinder_a(
-      shapeType="cylinder",
-      color=color_a,
-      specularCoefficient=specularCoefficient,
-      length=cylinderLength_a,
-      width=cylinderDiameter_a,
-      height=cylinderDiameter_a,
-      lengthDirection=e_rel_0,
-      widthDirection={0,1,0},
-      r=frame_a.r_0) if world.enableAnimation and animate;
-
-    Visualizers.Advanced.Shape cylinder_b(
-      shapeType="cylinder",
-      color=color_b,
-      specularCoefficient=specularCoefficient,
-      length=cylinderLength_b,
-      width=cylinderDiameter_b,
-      height=cylinderDiameter_b,
-      lengthDirection=-e_rel_0,
-      widthDirection={0,1,0},
-      r=frame_b.r_0) if world.enableAnimation and animate;
-
-    Visualizers.Advanced.Shape sphere_a(
-      shapeType="sphere",
-      color=massColor,
-      specularCoefficient=specularCoefficient,
-      length=massDiameter,
-      width=massDiameter,
-      height=massDiameter,
-      lengthDirection=e_rel_0,
-      widthDirection={0,1,0},
-      r_shape=e_rel_0*(L_a - massDiameter/2),
-      r=frame_a.r_0) if animateMasses2;
-
-    Visualizers.Advanced.Shape sphere_b(
-      shapeType="sphere",
-      color=massColor,
-      specularCoefficient=specularCoefficient,
-      length=massDiameter,
-      width=massDiameter,
-      height=massDiameter,
-      lengthDirection=-e_rel_0,
-      widthDirection={0,1,0},
-      r_shape=-e_rel_0*(L_b - massDiameter/2),
-      r=frame_b.r_0) if animateMasses2;
-  equation
-    Connections.potentialRoot(frame_a.R, 100);
-    Connections.potentialRoot(frame_b.R, 100);
-    assert(noEvent(length > s_small), "
-The distance between the origin of frame_a and the origin of frame_b
-of a LineForceWithTwoMasses component became smaller as parameter s_small
-(= a small number, defined in the \"Advanced\" menu). The distance is
-set to s_small, although it is smaller, to avoid a division by zero
-when computing the direction of the line force. Possible reasons
-for this situation:
-- At initial time the distance may already be zero: Change the initial
-  positions of the bodies connected by this element.
-- Hardware stops are not modeled or are modeled not stiff enough.
-  Include stops, e.g., stiff springs, or increase the stiffness
-  if already present.
-- Another error in your model may lead to unrealistically large forces
-  and torques that would in reality destroy the stops.
-- The flange_b connector might be defined by a pre-defined motion,
-  e.g., with Modelica.Mechanics.Translational.Position and the
-  predefined flange_b.s is zero or negative.
-");
-
-    // Determine relative position vector between the two frames
-    r_rel_0 = frame_b.r_0 - frame_a.r_0;
-    length = Modelica.Math.Vectors.length(
-                           r_rel_0);
-    flange_a.s = 0;
-    flange_b.s = length;
-    e_rel_0 = r_rel_0/Frames.Internal.maxWithoutEvent(length, s_small);
-
-    // Determine translational flange forces
-    if cardinality(flange_a) > 0 and cardinality(flange_b) > 0 then
-      fa = flange_a.f;
-      fb = flange_b.f;
-    elseif cardinality(flange_a) > 0 and cardinality(flange_b) == 0 then
-      fa = flange_a.f;
-      fb = -fa;
-    elseif cardinality(flange_a) == 0 and cardinality(flange_b) > 0 then
-      fa = -fb;
-      fb = flange_b.f;
-    else
-      fa = 0;
-      fb = 0;
-    end if;
-
-    /* Force and torque balance of the two point masses
-     - Kinematics for center of masses CM1, CM2 of point masses including gravity
-       (L = length, va = der(frame_a.r_0), vb = der(frame_b.r_0))
-       r_CM1_0 = frame_a.r_0 + e_rel_0*L_a;
-       r_CM2_0 = frame_b.r_0 - e_rel_0*L_b;
-       v_CM1_0 = der(r_CM1_0);
-       v_CM2_0 = der(r_CM2_0);
-       ag_CM1_0 = der(v_CM1_0) - world.gravityAcceleration(r_CM1_0);
-       ag_CM2_0 = der(v_CM2_0) - world.gravityAcceleration(r_CM2_0);
-       der(e_rel_0) = der(r_rel_0/sqrt(r_rel_0*r_rel_0))
-                    = 1/L*(I - e_rel_0*e_rel_0')*der(r_rel_0)
-                    = 1/L*(I - e_rel_0*e_rel_0')*(vb - va)
-       v_CM1_0 = va + L_a/L*(I - e_rel_0*e_rel_0')*(vb - va)
-       v_CM2_0 = vb - L_b/L*(I - e_rel_0*e_rel_0')*(vb - va)
-     - Power balance for the connection line
-       (f1=force on frame_a side, f2=force on frame_b side)
-       0 = f1*va - m_a*ag_CM1*v_CM1 + f2*vb - m_b*ag_CM2*v_CM2
-         = f1*va - m_a*ag_CM1*(va + L_a/L*(I - e_rel*e_rel')*(vb - va)) +
-           f2*vb - m_b*ag_CM2*(vb - L_b/L*(I - e_rel*e_rel')*(vb - va))
-         = (f1 - m_a*ag_CM1*(I - L_a/L*(I - e_rel*e_rel'))
-               - m_b*ag_CM2*(L_b/L*(I - e_rel*e_rel')))*va +
-           (f2 - m_b*ag_CM2*(I - L_b/L*(I - e_rel_0*e_rel_0'))
-               - m_a*ag_CM1*(L_a/L*(I - e_rel*e_rel')))*vb
-         = va*(f1 - m_a*ag_CM1 +
-               (m_a*ag_CM1*L_a/L - m_b*ag_CM2*L_b/L)*(I - e_rel*e_rel')) +
-           vb*(f2 - m_b*ag_CM2 +
-               (m_b*ag_CM2*L_b/L - m_a*ag_CM1*L_a/L)*(I - e_rel*e_rel'))
-       since va and vb are completely independent from other
-       the paranthesis must vanish:
-         f1 := m_a*ag_CM1 - (m_a*ag_CM1*L_a/L - m_b*ag_CM2*L_b/L)*(I - e_rel*e_rel')
-         f2 := m_b*ag_CM2 + (m_a*ag_CM1*L_a/L - m_b*ag_CM2*L_b/L)*(I - e_rel*e_rel')
-       or
-         aux1 := ag_CM1*(m_a*L_a/L) - ag_CM2*(m_b*L_b/L);
-         aux2 := aux1 - (aux1'*e_rel)*e_rel
-         f1 := m_a*ag_CM1 - aux2
-         f2 := m_b*ag_CM2 + aux2
-     - Force balance on frame_a and frame_b finally results in
-         0 = frame_a.f + e_rel_a*fa - f1_a
-         0 = frame_b.f + e_rel_b*fb - f2_b
-       and therefore
-         frame_a.f = -e_rel_a*fa + m_a*ag_CM1 - aux2
-         frame_b.f = -e_rel_b*fb + m_b*ag_CM2 + aux2
-  */
-    if m_a > 0 or m_b > 0 then
-      r_CM1_0 = frame_a.r_0 + e_rel_0*L_a;
-      r_CM2_0 = frame_b.r_0 - e_rel_0*L_b;
-      v_CM1_0 = der(r_CM1_0);
-      v_CM2_0 = der(r_CM2_0);
-      ag_CM1_0 = der(v_CM1_0) - world.gravityAcceleration(r_CM1_0);
-      ag_CM2_0 = der(v_CM2_0) - world.gravityAcceleration(r_CM2_0);
-      aux1_0 = ag_CM1_0*(m_a*L_a/length) - ag_CM2_0*(m_b*L_b/length);
-      aux2_0 = aux1_0 - (aux1_0*e_rel_0)*e_rel_0;
-      frame_a.f = Frames.resolve2(frame_a.R, m_a*ag_CM1_0 - aux2_0 - e_rel_0*fa);
-      frame_b.f = Frames.resolve2(frame_b.R, m_b*ag_CM2_0 + aux2_0 - e_rel_0*fb);
-    else
-      r_CM1_0 = zeros(3);
-      r_CM2_0 = zeros(3);
-      v_CM1_0 = zeros(3);
-      v_CM2_0 = zeros(3);
-      ag_CM1_0 = zeros(3);
-      ag_CM2_0 = zeros(3);
-      aux1_0 = zeros(3);
-      aux2_0 = zeros(3);
-      frame_a.f = -Frames.resolve2(frame_a.R, e_rel_0*fa);
-      frame_b.f = -Frames.resolve2(frame_b.R, e_rel_0*fb);
-    end if;
-
-    // Provide appropriate equations, if direct connections of line forces
-    if Connections.isRoot(frame_a.R) then
-      frame_a.R = Frames.nullRotation();
-    else
-      frame_a.t = zeros(3);
-    end if;
-
-    if Connections.isRoot(frame_b.R) then
-      frame_b.R = Frames.nullRotation();
-    else
-      frame_b.t = zeros(3);
-    end if;
   end LineForceWithTwoMasses;
 
   model Spring "Linear translational spring with optional mass"
@@ -2214,6 +2138,22 @@ for this situation:
     Modelica.Mechanics.Translational.Components.Spring spring(
                                                    s_rel0=s_unstretched, c=c)
       annotation (Placement(transformation(extent={{-8,40},{12,60}}, rotation=0)));
+
+  equation
+    connect(lineForce.frame_a, frame_a)
+      annotation (Line(
+        points={{-20,0},{-100,0}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(lineForce.frame_b, frame_b)
+      annotation (Line(
+        points={{20,0},{100,0}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(spring.flange_b, lineForce.flange_b)
+      annotation (Line(points={{12,50},{12,20}}, color={0,191,0}));
+    connect(spring.flange_a, lineForce.flange_a)
+      annotation (Line(points={{-8,50},{-12,50},{-12,20}}, color={0,191,0}));
 
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
@@ -2271,22 +2211,6 @@ spring characterizes the location of the point mass.
 ALT=\"model Examples.Elementary.SpringWithMass\">
 </p>
 </HTML>"));
-  equation
-    connect(lineForce.frame_a, frame_a)
-      annotation (Line(
-        points={{-20,0},{-100,0}},
-        color={95,95,95},
-        thickness=0.5));
-    connect(lineForce.frame_b, frame_b)
-      annotation (Line(
-        points={{20,0},{100,0}},
-        color={95,95,95},
-        thickness=0.5));
-    connect(spring.flange_b, lineForce.flange_b)
-      annotation (Line(points={{12,50},{12,20}}, color={0,191,0}));
-    connect(spring.flange_a, lineForce.flange_a)
-      annotation (Line(points={{-8,50},{-12,50},{-12,20}}, color={0,191,0}));
-
   end Spring;
 
   model Damper "Linear (velocity dependent) damper"
@@ -2311,6 +2235,35 @@ ALT=\"model Examples.Elementary.SpringWithMass\">
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     extends Interfaces.PartialLineForce;
+
+  protected
+    SI.Position r0_b[3]=e_a*noEvent(min(length_a, s));
+    Visualizers.Advanced.Shape shape_a(
+      shapeType="cylinder",
+      color=color_a,
+      specularCoefficient=specularCoefficient,
+      length=noEvent(min(length_a, s)),
+      width=diameter_a,
+      height=diameter_a,
+      lengthDirection=e_a,
+      widthDirection={0,1,0},
+      r=frame_a.r_0,
+      R=frame_a.R) if
+                     world.enableAnimation and animation;
+    Visualizers.Advanced.Shape shape_b(
+      shapeType="cylinder",
+      color=color_b,
+      specularCoefficient=specularCoefficient,
+      length=noEvent(max(s - length_a, 0)),
+      width=diameter_b,
+      height=diameter_b,
+      lengthDirection=e_a,
+      widthDirection={0,1,0},
+      r_shape=r0_b,
+      r=frame_a.r_0,
+      R=frame_a.R) if world.enableAnimation and animation;
+  equation
+    f = d*der(s);
     annotation (
       Documentation(info="<HTML>
 <p>
@@ -2381,35 +2334,6 @@ where a mass is hanging on a damper.
             lineColor={128,128,128},
             fillColor={160,160,164},
             fillPattern=FillPattern.Solid)}));
-
-  protected
-    SI.Position r0_b[3]=e_a*noEvent(min(length_a, s));
-    Visualizers.Advanced.Shape shape_a(
-      shapeType="cylinder",
-      color=color_a,
-      specularCoefficient=specularCoefficient,
-      length=noEvent(min(length_a, s)),
-      width=diameter_a,
-      height=diameter_a,
-      lengthDirection=e_a,
-      widthDirection={0,1,0},
-      r=frame_a.r_0,
-      R=frame_a.R) if
-                     world.enableAnimation and animation;
-    Visualizers.Advanced.Shape shape_b(
-      shapeType="cylinder",
-      color=color_b,
-      specularCoefficient=specularCoefficient,
-      length=noEvent(max(s - length_a, 0)),
-      width=diameter_b,
-      height=diameter_b,
-      lengthDirection=e_a,
-      widthDirection={0,1,0},
-      r_shape=r0_b,
-      r=frame_a.r_0,
-      R=frame_a.R) if world.enableAnimation and animation;
-  equation
-    f = d*der(s);
   end Damper;
 
   model SpringDamperParallel "Linear spring and linear damper in parallel"
@@ -2433,6 +2357,21 @@ where a mass is hanging on a damper.
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     extends Interfaces.PartialLineForce;
+
+  protected
+    Visualizers.Advanced.Shape shape(
+      shapeType="spring",
+      color=color,
+      length=s,
+      width=width,
+      height=coilWidth*2,
+      lengthDirection=e_a,
+      widthDirection={0,1,0},
+      extra=numberOfWindings,
+      r=frame_a.r_0,
+      R=frame_a.R) if world.enableAnimation and animation;
+  equation
+    f = c*(s - s_unstretched) + d*der(s);
     annotation (
       Documentation(info="<HTML>
 <p>
@@ -2512,21 +2451,6 @@ and der(s) is the time derivative of s.
           Line(points={{80,32},{80,-50}}, color={0,0,0}),
           Line(points={{-100,0},{-80,0}}, color={0,0,0}),
           Line(points={{100,0},{80,0}}, color={0,0,0})}));
-
-  protected
-    Visualizers.Advanced.Shape shape(
-      shapeType="spring",
-      color=color,
-      length=s,
-      width=width,
-      height=coilWidth*2,
-      lengthDirection=e_a,
-      widthDirection={0,1,0},
-      extra=numberOfWindings,
-      r=frame_a.r_0,
-      R=frame_a.R) if world.enableAnimation and animation;
-  equation
-    f = c*(s - s_unstretched) + d*der(s);
   end SpringDamperParallel;
 
   model SpringDamperSeries
@@ -2540,6 +2464,10 @@ and der(s) is the time derivative of s.
     SI.Position s_damper(start=s_damper_start, fixed=true)
       "Actual length of damper (frame_a - damper - spring - frame_b)";
     extends Interfaces.PartialLineForce;
+
+  equation
+    f = c*(s - s_unstretched - s_damper);
+    d*der(s_damper) = f;
     annotation (
       Documentation(info="<HTML>
 <p>
@@ -2626,10 +2554,6 @@ force element) and der(s_damper) is the time derivative of s_damper.
             extent={{0,80},{20,100}},
             lineColor={160,160,164},
             textString="s")}));
-
-  equation
-    f = c*(s - s_unstretched - s_damper);
-    d*der(s_damper) = f;
   end SpringDamperSeries;
 
   package Internal "Internal package, should not be used by user"
@@ -2661,6 +2585,34 @@ force element) and der(s_damper) is the time derivative of s_damper.
         "Position vector from origin of frame_a to origin of frame_b resolved in world frame";
       Modelica.SIunits.Force f_b_0[3] "frame_b.f resoved in world frame";
 
+    equation
+      assert(cardinality(frame_resolve) > 0, "Connector frame_resolve must be connected at least once and frame_resolve.r_0/.R must be set");
+      frame_resolve.f = zeros(3);
+      frame_resolve.t = zeros(3);
+
+       if resolveInFrame == ResolveInFrameAB.frame_a then
+          f_b_0     = -Frames.resolve1(frame_a.R, force);
+          frame_b.f =  Frames.resolve2(frame_b.R, f_b_0);
+       elseif resolveInFrame == ResolveInFrameAB.frame_b then
+          f_b_0     = -Frames.resolve1(frame_b.R, force);
+          frame_b.f = -force;
+       elseif resolveInFrame == ResolveInFrameAB.world then
+          f_b_0     = -force;
+          frame_b.f =  Frames.resolve2(frame_b.R, f_b_0);
+       elseif resolveInFrame == ResolveInFrameAB.frame_resolve then
+          f_b_0     = -Frames.resolve1(frame_resolve.R, force);
+          frame_b.f = Frames.resolve2(frame_b.R, f_b_0);
+       else
+          assert(false, "Wrong value for parameter resolveInFrame");
+          f_b_0     = zeros(3);
+          frame_b.f = zeros(3);
+       end if;
+       frame_b.t = zeros(3);
+
+       // Force and torque balance
+       r_0 = frame_b.r_0 - frame_a.r_0;
+       zeros(3) = frame_a.f + Frames.resolve2(frame_a.R, f_b_0);
+       zeros(3) = frame_a.t + Frames.resolve2(frame_a.R, cross(r_0, f_b_0));
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
@@ -2738,34 +2690,6 @@ values from the outside in order that the model remains balanced
 
 </HTML>
 "));
-    equation
-      assert(cardinality(frame_resolve) > 0, "Connector frame_resolve must be connected at least once and frame_resolve.r_0/.R must be set");
-      frame_resolve.f = zeros(3);
-      frame_resolve.t = zeros(3);
-
-       if resolveInFrame == ResolveInFrameAB.frame_a then
-          f_b_0     = -Frames.resolve1(frame_a.R, force);
-          frame_b.f =  Frames.resolve2(frame_b.R, f_b_0);
-       elseif resolveInFrame == ResolveInFrameAB.frame_b then
-          f_b_0     = -Frames.resolve1(frame_b.R, force);
-          frame_b.f = -force;
-       elseif resolveInFrame == ResolveInFrameAB.world then
-          f_b_0     = -force;
-          frame_b.f =  Frames.resolve2(frame_b.R, f_b_0);
-       elseif resolveInFrame == ResolveInFrameAB.frame_resolve then
-          f_b_0     = -Frames.resolve1(frame_resolve.R, force);
-          frame_b.f = Frames.resolve2(frame_b.R, f_b_0);
-       else
-          assert(false, "Wrong value for parameter resolveInFrame");
-          f_b_0     = zeros(3);
-          frame_b.f = zeros(3);
-       end if;
-       frame_b.t = zeros(3);
-
-       // Force and torque balance
-       r_0 = frame_b.r_0 - frame_a.r_0;
-       zeros(3) = frame_a.f + Frames.resolve2(frame_a.R, f_b_0);
-       zeros(3) = frame_a.t + Frames.resolve2(frame_a.R, cross(r_0, f_b_0));
     end BasicForce;
 
     model BasicTorque
@@ -2797,6 +2721,36 @@ values from the outside in order that the model remains balanced
         "Position vector from origin of frame_a to origin of frame_b resolved in world frame";
       SI.Torque t_b_0[3] "frame_b.t resoved in world frame";
 
+
+    equation
+      assert(cardinality(frame_resolve) > 0, "Connector frame_resolve must be connected at least once and frame_resolve.r_0/.R must be set");
+      frame_resolve.f = zeros(3);
+      frame_resolve.t = zeros(3);
+
+      r_0 = frame_b.r_0 - frame_a.r_0;
+      frame_a.f = zeros(3);
+      frame_b.f = zeros(3);
+
+       if resolveInFrame == ResolveInFrameAB.frame_a then
+          t_b_0     = -Frames.resolve1(frame_a.R, torque);
+          frame_b.t =  Frames.resolve2(frame_b.R, t_b_0);
+       elseif resolveInFrame == ResolveInFrameAB.frame_b then
+          t_b_0     = -Frames.resolve1(frame_b.R, torque);
+          frame_b.t = -torque;
+       elseif resolveInFrame == ResolveInFrameAB.world then
+          t_b_0     = -torque;
+          frame_b.t =  Frames.resolve2(frame_b.R, t_b_0);
+       elseif resolveInFrame == ResolveInFrameAB.frame_resolve then
+          t_b_0     = -Frames.resolve1(frame_resolve.R, torque);
+          frame_b.t =  Frames.resolve2(frame_b.R, t_b_0);
+       else
+          assert(false, "Wrong value for parameter resolveInFrame");
+          t_b_0     = zeros(3);
+          frame_b.t = zeros(3);
+       end if;
+
+       // torque balance
+       zeros(3) = frame_a.t + Frames.resolve2(frame_a.R, t_b_0);
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
@@ -2875,36 +2829,6 @@ values from the outside in order that the model remains balanced
 </p>
 </HTML>
 "));
-
-    equation
-      assert(cardinality(frame_resolve) > 0, "Connector frame_resolve must be connected at least once and frame_resolve.r_0/.R must be set");
-      frame_resolve.f = zeros(3);
-      frame_resolve.t = zeros(3);
-
-      r_0 = frame_b.r_0 - frame_a.r_0;
-      frame_a.f = zeros(3);
-      frame_b.f = zeros(3);
-
-       if resolveInFrame == ResolveInFrameAB.frame_a then
-          t_b_0     = -Frames.resolve1(frame_a.R, torque);
-          frame_b.t =  Frames.resolve2(frame_b.R, t_b_0);
-       elseif resolveInFrame == ResolveInFrameAB.frame_b then
-          t_b_0     = -Frames.resolve1(frame_b.R, torque);
-          frame_b.t = -torque;
-       elseif resolveInFrame == ResolveInFrameAB.world then
-          t_b_0     = -torque;
-          frame_b.t =  Frames.resolve2(frame_b.R, t_b_0);
-       elseif resolveInFrame == ResolveInFrameAB.frame_resolve then
-          t_b_0     = -Frames.resolve1(frame_resolve.R, torque);
-          frame_b.t =  Frames.resolve2(frame_b.R, t_b_0);
-       else
-          assert(false, "Wrong value for parameter resolveInFrame");
-          t_b_0     = zeros(3);
-          frame_b.t = zeros(3);
-       end if;
-
-       // torque balance
-       zeros(3) = frame_a.t + Frames.resolve2(frame_a.R, t_b_0);
     end BasicTorque;
 
     model BasicWorldForce
@@ -2930,6 +2854,23 @@ values from the outside in order that the model remains balanced
         Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world
         "Frame in which force is resolved (1: world, 2: frame_b, 3: frame_resolve)";
 
+
+    equation
+       assert(cardinality(frame_resolve) > 0, "Connector frame_resolve must be connected at least once and frame_resolve.r_0/.R must be set");
+       frame_resolve.f = zeros(3);
+       frame_resolve.t = zeros(3);
+
+       if resolveInFrame == ResolveInFrameB.world then
+          frame_b.f = -Frames.resolve2(frame_b.R, force);
+       elseif resolveInFrame == ResolveInFrameB.frame_b then
+          frame_b.f = -force;
+       elseif resolveInFrame == ResolveInFrameB.frame_resolve then
+          frame_b.f = -Frames.resolveRelative(force, frame_resolve.R, frame_b.R);
+       else
+          assert(false, "Wrong value for parameter resolveInFrame");
+          frame_b.f = zeros(3);
+       end if;
+       frame_b.t = zeros(3);
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Polygon(
@@ -2996,23 +2937,6 @@ values from the outside in order that the model remains balanced
 
 </HTML>
 "));
-
-    equation
-       assert(cardinality(frame_resolve) > 0, "Connector frame_resolve must be connected at least once and frame_resolve.r_0/.R must be set");
-       frame_resolve.f = zeros(3);
-       frame_resolve.t = zeros(3);
-
-       if resolveInFrame == ResolveInFrameB.world then
-          frame_b.f = -Frames.resolve2(frame_b.R, force);
-       elseif resolveInFrame == ResolveInFrameB.frame_b then
-          frame_b.f = -force;
-       elseif resolveInFrame == ResolveInFrameB.frame_resolve then
-          frame_b.f = -Frames.resolveRelative(force, frame_resolve.R, frame_b.R);
-       else
-          assert(false, "Wrong value for parameter resolveInFrame");
-          frame_b.f = zeros(3);
-       end if;
-       frame_b.t = zeros(3);
     end BasicWorldForce;
 
     model BasicWorldTorque
@@ -3038,6 +2962,23 @@ values from the outside in order that the model remains balanced
         Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world
         "Frame in which torque is resolved (1: world, 2: frame_b, 3: frame_resolve)";
 
+
+    equation
+       assert(cardinality(frame_resolve) > 0, "Connector frame_resolve must be connected at least once and frame_resolve.r_0/.R must be set");
+       frame_resolve.f = zeros(3);
+       frame_resolve.t = zeros(3);
+
+       if resolveInFrame == ResolveInFrameB.world then
+          frame_b.t = -Frames.resolve2(frame_b.R, torque);
+       elseif resolveInFrame == ResolveInFrameB.frame_b then
+          frame_b.t = -torque;
+       elseif resolveInFrame == ResolveInFrameB.frame_resolve then
+          frame_b.t = -Frames.resolveRelative(torque, frame_resolve.R, frame_b.R);
+       else
+          assert(false, "Wrong value for parameter resolveInFrame");
+          frame_b.t = zeros(3);
+       end if;
+       frame_b.f = zeros(3);
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
@@ -3116,23 +3057,80 @@ values from the outside in order that the model remains balanced
 
 </HTML>
 "));
-
-    equation
-       assert(cardinality(frame_resolve) > 0, "Connector frame_resolve must be connected at least once and frame_resolve.r_0/.R must be set");
-       frame_resolve.f = zeros(3);
-       frame_resolve.t = zeros(3);
-
-       if resolveInFrame == ResolveInFrameB.world then
-          frame_b.t = -Frames.resolve2(frame_b.R, torque);
-       elseif resolveInFrame == ResolveInFrameB.frame_b then
-          frame_b.t = -torque;
-       elseif resolveInFrame == ResolveInFrameB.frame_resolve then
-          frame_b.t = -Frames.resolveRelative(torque, frame_resolve.R, frame_b.R);
-       else
-          assert(false, "Wrong value for parameter resolveInFrame");
-          frame_b.t = zeros(3);
-       end if;
-       frame_b.f = zeros(3);
     end BasicWorldTorque;
   end Internal;
+  annotation ( Documentation(info="<HTML>
+<p>
+This package contains components that exert forces and torques
+between two frame connectors, e.g., between two parts.
+</p>
+<h4>Content</h4>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><th><b><i>Model</i></b></th><th><b><i>Description</i></b></th></tr>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Forces.WorldForce\">WorldForce</a></td>
+      <td valign=\"top\"> External force acting at the frame to which this component
+           is connected and defined by 3 input signals,
+           that are interpreted as one vector resolved in frame world, frame_b or frame_resolve. <br>
+           <IMG SRC=\"../Images/MultiBody/Forces/ArrowForce.png\"></td>
+  </tr>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Forces.WorldTorque\">WorldTorque</a></td>
+      <td valign=\"top\"> External torque acting at the frame to which this component
+           is connected and defined by 3 input signals,
+           that are interpreted as one vector resolved in frame world, frame_b or frame_resolve. <br>
+           <IMG SRC=\"../Images/MultiBody/Forces/ArrowTorque.png\"></td>
+  </tr>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque\">WorldForceAndTorque</a></td>
+      <td valign=\"top\"> External force and external torque acting at the frame
+           to which this component
+           is connected and defined by 3+3 input signals,
+           that are interpreted as a force and as a torque vector
+           resolved in frame world, frame_b or frame_resolve. <br>
+           <IMG SRC=\"../Images/MultiBody/Forces/ArrowForce.png\"><br>
+           <IMG SRC=\"../Images/MultiBody/Forces/ArrowTorque.png\">
+      </td>
+  </tr>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Forces.Force\">Force</a></td>
+      <td valign=\"top\"> Force acting between two frames defined by 3 input signals
+           resolved in frame world, frame_a, frame_b or in frame_resolve. <br>
+           <IMG SRC=\"../Images/MultiBody/Forces/ArrowForce2.png\"></td>
+  </tr>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Forces.Torque\">Torque</a></td>
+      <td valign=\"top\"> Torque acting between two frames defined by 3 input signals
+           resolved in frame world, frame_a, frame_b or in frame_resolve. <br>
+           <IMG SRC=\"../Images/MultiBody/Forces/ArrowTorque2.png\"></td>
+  </tr>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Forces.ForceAndTorque\">ForceAndTorque</a></td>
+      <td valign=\"top\"> Force and torque acting between two frames defined by 3+3 input signals
+           resolved in frame world, frame_a, frame_b or in frame_resolve. <br>
+           <IMG SRC=\"../Images/MultiBody/Forces/ArrowForce2.png\"><br>
+           <IMG SRC=\"../Images/MultiBody/Forces/ArrowTorque2.png\"></td>
+  </tr>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Forces.LineForceWithMass\">LineForceWithMass</a></td>
+      <td valign=\"top\">  General line force component with an optional point mass
+            on the connection line. The force law can be defined by a
+            component of Modelica.Mechanics.Translational<br>
+           <IMG SRC=\"../Images/MultiBody/Forces/LineForceWithMass.png\"></td>
+  </tr>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses\">LineForceWithTwoMasses</a></td>
+      <td valign=\"top\">  General line force component with two optional point masses
+            on the connection line. The force law can be defined by a
+            component of Modelica.Mechanics.Translational<br>
+           <IMG SRC=\"../Images/MultiBody/Forces/LineForceWithTwoMasses.png\"></td>
+  </tr>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Forces.Spring\">Spring</a></td>
+      <td valign=\"top\"> Linear translational spring with optional mass <br>
+           <IMG SRC=\"../Images/MultiBody/Forces/Spring2.png\"></td>
+  </tr>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Forces.Damper\">Damper</a></td>
+      <td valign=\"top\"> Linear (velocity dependent) damper <br>
+           <IMG SRC=\"../Images/MultiBody/Forces/Damper2.png\"></td>
+  </tr>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Forces.SpringDamperParallel\">SpringDamperParallel</a></td>
+      <td valign=\"top\"> Linear spring and damper in parallel connection </td>
+  </tr>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Forces.SpringDamperSeries\">SpringDamperSeries</a></td>
+      <td valign=\"top\"> Linear spring and damper in series connection </td>
+  </tr>
+</table>
+</HTML>"));
 end Forces;

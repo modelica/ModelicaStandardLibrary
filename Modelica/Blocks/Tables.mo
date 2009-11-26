@@ -27,6 +27,49 @@ package Tables
       "smoothness of table interpolation"
     annotation(Dialog(group="table data interpretation"));
     extends Modelica.Blocks.Interfaces.MIMOs(final n=size(columns, 1));
+
+  protected
+    Integer tableID;
+
+    function tableInit
+      "Initialize 1-dim. table defined by matrix (for details see: Modelica/C-Sources/ModelicaTables.h)"
+      input String tableName;
+      input String fileName;
+      input Real table[ :, :];
+      input Modelica.Blocks.Types.Smoothness smoothness;
+      output Integer tableID;
+    external "C" tableID = ModelicaTables_CombiTable1D_init(
+                   tableName, fileName, table, size(table, 1), size(table, 2),
+                   smoothness);
+      annotation(Library="ModelicaExternalC");
+    end tableInit;
+
+    function tableIpo
+      "Interpolate 1-dim. table defined by matrix (for details see: Modelica/C-Sources/ModelicaTables.h)"
+      input Integer tableID;
+      input Integer icol;
+      input Real u;
+      output Real value;
+    external "C" value =
+                       ModelicaTables_CombiTable1D_interpolate(tableID, icol, u);
+      annotation(Library="ModelicaExternalC");
+    end tableIpo;
+  equation
+    if tableOnFile then
+      assert(tableName<>"NoName", "tableOnFile = true and no table name given");
+    end if;
+    if not tableOnFile then
+      assert(size(table,1) > 0 and size(table,2) > 0, "tableOnFile = false and parameter table is an empty matrix");
+    end if;
+
+    for i in 1:n loop
+      y[i] = if not tableOnFile and size(table,1)==1 then
+               table[1, columns[i]] else tableIpo(tableID, columns[i], u[i]);
+    end for;
+    when initial() then
+      tableID=tableInit(if tableOnFile then tableName else "NoName",
+                        if tableOnFile then fileName else "NoName", table, smoothness);
+    end when;
     annotation (
       Documentation(info="<html>
 <p>
@@ -206,6 +249,32 @@ Several matrices may be defined one after another.
             extent={{2,54},{26,42}},
             textString="y[2]",
             lineColor={0,0,255})}));
+  end CombiTable1D;
+
+  model CombiTable1Ds
+    "Table look-up in one dimension (matrix/file) with one input and n outputs"
+
+    import Modelica.Blocks.Types;
+    parameter Boolean tableOnFile=false
+      "true, if table is defined on file or in function usertab"
+      annotation(Dialog(group="table data definition"));
+    parameter Real table[:, :]=fill(0.0,0,2)
+      "table matrix (grid = first column; e.g., table=[0,2])"
+         annotation(Dialog(group="table data definition", enable = not tableOnFile));
+    parameter String tableName="NoName"
+      "table name on file or in function usertab (see docu)"
+         annotation(Dialog(group="table data definition", enable = tableOnFile));
+    parameter String fileName="NoName" "file where matrix is stored"
+         annotation(Dialog(group="table data definition", enable = tableOnFile,
+                           __Dymola_loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
+                           caption="Open file in which table is present")));
+    parameter Integer columns[:]=2:size(table, 2)
+      "columns of table to be interpolated"
+    annotation(Dialog(group="table data interpretation"));
+    parameter Modelica.Blocks.Types.Smoothness smoothness=Types.Smoothness.LinearSegments
+      "smoothness of table interpolation"
+    annotation(Dialog(group="table data interpretation"));
+    extends Modelica.Blocks.Interfaces.SIMO(final nout=size(columns, 1));
 
   protected
     Integer tableID;
@@ -233,6 +302,7 @@ Several matrices may be defined one after another.
                        ModelicaTables_CombiTable1D_interpolate(tableID, icol, u);
       annotation(Library="ModelicaExternalC");
     end tableIpo;
+
   equation
     if tableOnFile then
       assert(tableName<>"NoName", "tableOnFile = true and no table name given");
@@ -241,40 +311,14 @@ Several matrices may be defined one after another.
       assert(size(table,1) > 0 and size(table,2) > 0, "tableOnFile = false and parameter table is an empty matrix");
     end if;
 
-    for i in 1:n loop
+    for i in 1:nout loop
       y[i] = if not tableOnFile and size(table,1)==1 then
-               table[1, columns[i]] else tableIpo(tableID, columns[i], u[i]);
+               table[1, columns[i]] else tableIpo(tableID, columns[i], u);
     end for;
     when initial() then
       tableID=tableInit(if tableOnFile then tableName else "NoName",
                         if tableOnFile then fileName else "NoName", table, smoothness);
     end when;
-  end CombiTable1D;
-
-  model CombiTable1Ds
-    "Table look-up in one dimension (matrix/file) with one input and n outputs"
-
-    import Modelica.Blocks.Types;
-    parameter Boolean tableOnFile=false
-      "true, if table is defined on file or in function usertab"
-      annotation(Dialog(group="table data definition"));
-    parameter Real table[:, :]=fill(0.0,0,2)
-      "table matrix (grid = first column; e.g., table=[0,2])"
-         annotation(Dialog(group="table data definition", enable = not tableOnFile));
-    parameter String tableName="NoName"
-      "table name on file or in function usertab (see docu)"
-         annotation(Dialog(group="table data definition", enable = tableOnFile));
-    parameter String fileName="NoName" "file where matrix is stored"
-         annotation(Dialog(group="table data definition", enable = tableOnFile,
-                           __Dymola_loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
-                           caption="Open file in which table is present")));
-    parameter Integer columns[:]=2:size(table, 2)
-      "columns of table to be interpolated"
-    annotation(Dialog(group="table data interpretation"));
-    parameter Modelica.Blocks.Types.Smoothness smoothness=Types.Smoothness.LinearSegments
-      "smoothness of table interpolation"
-    annotation(Dialog(group="table data interpretation"));
-    extends Modelica.Blocks.Interfaces.SIMO(final nout=size(columns, 1));
     annotation (
       Documentation(info="<html>
 <p>
@@ -454,50 +498,6 @@ Several matrices may be defined one after another.
             extent={{0,-40},{32,-54}},
             textString="columns",
             lineColor={0,0,255})}));
-
-  protected
-    Integer tableID;
-
-    function tableInit
-      "Initialize 1-dim. table defined by matrix (for details see: Modelica/C-Sources/ModelicaTables.h)"
-      input String tableName;
-      input String fileName;
-      input Real table[ :, :];
-      input Modelica.Blocks.Types.Smoothness smoothness;
-      output Integer tableID;
-    external "C" tableID = ModelicaTables_CombiTable1D_init(
-                   tableName, fileName, table, size(table, 1), size(table, 2),
-                   smoothness);
-      annotation(Library="ModelicaExternalC");
-    end tableInit;
-
-    function tableIpo
-      "Interpolate 1-dim. table defined by matrix (for details see: Modelica/C-Sources/ModelicaTables.h)"
-      input Integer tableID;
-      input Integer icol;
-      input Real u;
-      output Real value;
-    external "C" value =
-                       ModelicaTables_CombiTable1D_interpolate(tableID, icol, u);
-      annotation(Library="ModelicaExternalC");
-    end tableIpo;
-
-  equation
-    if tableOnFile then
-      assert(tableName<>"NoName", "tableOnFile = true and no table name given");
-    end if;
-    if not tableOnFile then
-      assert(size(table,1) > 0 and size(table,2) > 0, "tableOnFile = false and parameter table is an empty matrix");
-    end if;
-
-    for i in 1:nout loop
-      y[i] = if not tableOnFile and size(table,1)==1 then
-               table[1, columns[i]] else tableIpo(tableID, columns[i], u);
-    end for;
-    when initial() then
-      tableID=tableInit(if tableOnFile then tableName else "NoName",
-                        if tableOnFile then fileName else "NoName", table, smoothness);
-    end when;
   end CombiTable1Ds;
 
   model CombiTable2D "Table look-up in two dimensions (matrix/file) "
@@ -521,6 +521,47 @@ Several matrices may be defined one after another.
     parameter Modelica.Blocks.Types.Smoothness smoothness=Types.Smoothness.LinearSegments
       "smoothness of table interpolation"
     annotation(Dialog(group="table data interpretation"));
+  protected
+    Integer tableID;
+
+    function tableInit
+      "Initialize 2-dim. table defined by matrix (for details see: Modelica/C-Sources/ModelicaTables.h)"
+
+      input String tableName;
+      input String fileName;
+      input Real table[ :, :];
+      input Modelica.Blocks.Types.Smoothness smoothness;
+      output Integer tableID;
+    external "C" tableID = ModelicaTables_CombiTable2D_init(
+                   tableName, fileName, table, size(table, 1), size(table, 2),
+                   smoothness);
+      annotation(Library="ModelicaExternalC");
+    end tableInit;
+
+    function tableIpo
+      "Interpolate 2-dim. table defined by matrix (for details see: Modelica/C-Sources/ModelicaTables.h)"
+      input Integer tableID;
+      input Real u1;
+      input Real u2;
+      output Real value;
+    external "C" value =
+                       ModelicaTables_CombiTable2D_interpolate(tableID, u1, u2);
+      annotation(Library="ModelicaExternalC");
+    end tableIpo;
+
+  equation
+    if tableOnFile then
+      assert(tableName<>"NoName", "tableOnFile = true and no table name given");
+    end if;
+    if not tableOnFile then
+      assert(size(table,1) > 0 and size(table,2) > 0, "tableOnFile = false and parameter table is an empty matrix");
+    end if;
+
+    y = tableIpo(tableID, u1, u2);
+    when initial() then
+      tableID=tableInit(if tableOnFile then tableName else "NoName",
+                        if tableOnFile then fileName else "NoName", table, smoothness);
+    end when;
     annotation (
       Documentation(info="<html>
 <p>
@@ -727,47 +768,6 @@ and the first row \"table2D_1[1,2:]\" contains the u[2] grid points.
             extent={{-2,12},{32,-22}},
             textString="y",
             lineColor={0,0,255})}));
-  protected
-    Integer tableID;
-
-    function tableInit
-      "Initialize 2-dim. table defined by matrix (for details see: Modelica/C-Sources/ModelicaTables.h)"
-
-      input String tableName;
-      input String fileName;
-      input Real table[ :, :];
-      input Modelica.Blocks.Types.Smoothness smoothness;
-      output Integer tableID;
-    external "C" tableID = ModelicaTables_CombiTable2D_init(
-                   tableName, fileName, table, size(table, 1), size(table, 2),
-                   smoothness);
-      annotation(Library="ModelicaExternalC");
-    end tableInit;
-
-    function tableIpo
-      "Interpolate 2-dim. table defined by matrix (for details see: Modelica/C-Sources/ModelicaTables.h)"
-      input Integer tableID;
-      input Real u1;
-      input Real u2;
-      output Real value;
-    external "C" value =
-                       ModelicaTables_CombiTable2D_interpolate(tableID, u1, u2);
-      annotation(Library="ModelicaExternalC");
-    end tableIpo;
-
-  equation
-    if tableOnFile then
-      assert(tableName<>"NoName", "tableOnFile = true and no table name given");
-    end if;
-    if not tableOnFile then
-      assert(size(table,1) > 0 and size(table,2) > 0, "tableOnFile = false and parameter table is an empty matrix");
-    end if;
-
-    y = tableIpo(tableID, u1, u2);
-    when initial() then
-      tableID=tableInit(if tableOnFile then tableName else "NoName",
-                        if tableOnFile then fileName else "NoName", table, smoothness);
-    end when;
   end CombiTable2D;
   annotation (Documentation(info="<html>
 <p>

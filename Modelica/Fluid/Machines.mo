@@ -262,6 +262,20 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
           extent={{-20,-20},{20,20}},
           rotation=-90,
           origin={0,100})));
+
+  protected
+    Modelica.Blocks.Interfaces.RealInput N_in_internal(unit="1/min")
+      "Needed to connect to conditional connector";
+  equation
+    // Connect statement active only if use_p_in = true
+    connect(N_in, N_in_internal);
+    // Internal connector value when use_p_in = false
+    if not use_N_in then
+      N_in_internal = N_const;
+    end if;
+    // Set N with a lower limit to avoid singularities at zero speed
+    N = max(N_in_internal,1e-3) "Rotational speed";
+
     annotation (defaultComponentName="pump",
       Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
               100}}), graphics={Text(
@@ -282,20 +296,6 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
        Model added to the Fluid library</li>
 </ul>
 </html>"));
-
-  protected
-    Modelica.Blocks.Interfaces.RealInput N_in_internal(unit="1/min")
-      "Needed to connect to conditional connector";
-  equation
-    // Connect statement active only if use_p_in = true
-    connect(N_in, N_in_internal);
-    // Internal connector value when use_p_in = false
-    if not use_N_in then
-      N_in_internal = N_const;
-    end if;
-    // Set N with a lower limit to avoid singularities at zero speed
-    N = max(N_in_internal,1e-3) "Rotational speed";
-
   end PrescribedPump;
 
   package BaseClasses
@@ -572,7 +572,6 @@ provided a two-phase medium model is used.
        Model added to the Fluid library</li>
 </ul>
 </html>"));
-
   end PartialPump;
 
   package PumpCharacteristics "Functions for pump characteristics"

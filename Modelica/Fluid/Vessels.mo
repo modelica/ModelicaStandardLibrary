@@ -187,8 +187,6 @@ Limitation to bottom ports only, added inlet and outlet loss factors.</li>
           extent={{-100,-100},{100,100}},
           grid={1,1},
           initialScale=0.2), graphics));
-equation
-
 end OpenTank;
 
   package BaseClasses
@@ -466,7 +464,6 @@ should be used if these values are needed.
               extent={{-150,110},{150,150}},
               textString="%name",
               lineColor={0,0,255})}));
-
       end PartialLumpedVessel;
 
   package HeatTransfer "HeatTransfer models for vessels"

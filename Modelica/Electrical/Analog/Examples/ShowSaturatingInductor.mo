@@ -14,33 +14,22 @@ model ShowSaturatingInductor
     "Source voltage phase shift";
   //output Modelica.SIunits.Voltage v "Voltage drop over saturating inductor";
   //output Modelica.SIunits.Current i "Current across saturating inductor";
-  annotation (
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-            100}}), graphics={Text(
-          extent={{-80,84},{70,38}},
-          lineColor={0,0,255},
-          textString="Show Saturating Inductor")}),
-    experiment(StopTime=6.2832, Interval=0.01),
-    Documentation(info="<html>
-<p>This simple circuit uses the saturating inductor, whis has a changing inductivity.</p>
-<p>This circuit should be simulated until 1 s. Compare SaturatingInductance1.p.i with Inductance1.p.i to see the difference between saturating and ideal inductor. </p>
-</html>"));
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1(
     V=U,
     phase=phase,
-    freqHz=f) 
+    freqHz=f)
     annotation (Placement(transformation(
         origin={-60,-6},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Electrical.Analog.Basic.Ground Ground1 
+  Modelica.Electrical.Analog.Basic.Ground Ground1
     annotation (Placement(transformation(extent={{-70,-36},{-50,-16}}, rotation=
            0)));
   Modelica.Electrical.Analog.Basic.SaturatingInductor SaturatingInductance1(
     Lzer=Lzer,
     Lnom=Lnom,
     Inom=Inom,
-    Linf=Linf) 
+    Linf=Linf)
     annotation (Placement(transformation(
         origin={-20,0},
         extent={{-10,-10},{10,10}},
@@ -66,4 +55,15 @@ equation
       points={{20,-10},{20,-16},{-60,-16}},
       color={0,0,255},
       smooth=Smooth.None));
+  annotation (
+    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+            100}}), graphics={Text(
+          extent={{-80,84},{70,38}},
+          lineColor={0,0,255},
+          textString="Show Saturating Inductor")}),
+    experiment(StopTime=6.2832, Interval=0.01),
+    Documentation(info="<html>
+<p>This simple circuit uses the saturating inductor, whis has a changing inductivity.</p>
+<p>This circuit should be simulated until 1 s. Compare SaturatingInductance1.p.i with Inductance1.p.i to see the difference between saturating and ideal inductor. </p>
+</html>"));
 end ShowSaturatingInductor;

@@ -2,70 +2,27 @@ within Modelica.Electrical.Analog.Examples;
 model AmplifierWithOpAmpDetailed
   "Simple Amplifier circuit which uses OpAmpDetailed"
 
-  annotation (
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-            100}}), graphics),
-    experiment(
-      StopTime=0.003,
-      NumberOfIntervals=2500,
-      Tolerance=2e-007),
-    Documentation(revisions="<html>
-<ul>
-<li><i>  </i>
-       </li>
-<li><i>Juni 17, 2009   </i>
-       by Susann Wolf<br> realized<br>
-       </li>
-</ul>
-</html>", info="<html>
-<p>With the test circuit AmplifierWithOpAmpDetailed a time domain analysis of the example arrangement with a sinusoidal input voltage (12 V amplitude, frequency 1 kHz) using the operational amplifier model OpAmpDetailed is carried out. The working voltages are 15 V and -15 V.  </p>
-</html>"),
-    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-            100}}), graphics={
-        Rectangle(
-          extent={{-100,-98},{80,52}},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Polygon(
-          points={{-100,52},{-80,72},{100,72},{80,52},{-100,52}},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Polygon(
-          points={{100,72},{100,-78},{80,-98},{80,52},{100,72}},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Text(
-          extent={{-96,5},{77,-47}},
-          lineColor={0,0,255},
-          textString="Example"),
-        Text(
-          extent={{-120,134},{120,75}},
-          lineColor={255,0,0},
-          textString="%name")}));
-  Modelica.Electrical.Analog.Basic.OpAmpDetailed opAmp 
+  Modelica.Electrical.Analog.Basic.OpAmpDetailed opAmp
     annotation (Placement(transformation(extent={{-26,-4},{2,24}})));
-  Modelica.Electrical.Analog.Basic.Resistor resistor(R=10000) 
+  Modelica.Electrical.Analog.Basic.Resistor resistor(R=10000)
     annotation (Placement(transformation(extent={{-74,8},{-56,26}})));
-  Modelica.Electrical.Analog.Basic.Resistor resistor1(R=20000) 
+  Modelica.Electrical.Analog.Basic.Resistor resistor1(R=20000)
     annotation (Placement(transformation(extent={{-22,46},{-4,64}})));
   Modelica.Electrical.Analog.Basic.Resistor resistor2(R=10000) annotation (
       Placement(transformation(
         extent={{-9,-9},{9,9}},
         rotation=270,
         origin={21,-23})));
-  Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(V=12, freqHz=1000) 
+  Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(V=12, freqHz=1000)
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-80,-28})));
-  Modelica.Electrical.Analog.Basic.Ground ground 
+  Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-20,-70},{0,-50}})));
-  Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(V=15) 
+  Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(V=15)
     annotation (Placement(transformation(extent={{48,10},{68,30}})));
-  Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage1(V=-15) 
+  Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage1(V=-15)
     annotation (Placement(transformation(extent={{48,-10},{68,10}})));
 equation
   connect(resistor.n, opAmp.m)       annotation (Line(
@@ -117,4 +74,47 @@ equation
       color={0,0,255},
       smooth=Smooth.None));
 
+  annotation (
+    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+            100}}), graphics),
+    experiment(
+      StopTime=0.003,
+      NumberOfIntervals=2500,
+      Tolerance=2e-007),
+    Documentation(revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i>Juni 17, 2009   </i>
+       by Susann Wolf<br> realized<br>
+       </li>
+</ul>
+</html>", info="<html>
+<p>With the test circuit AmplifierWithOpAmpDetailed a time domain analysis of the example arrangement with a sinusoidal input voltage (12 V amplitude, frequency 1 kHz) using the operational amplifier model OpAmpDetailed is carried out. The working voltages are 15 V and -15 V.  </p>
+</html>"),
+    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+            100}}), graphics={
+        Rectangle(
+          extent={{-100,-98},{80,52}},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
+        Polygon(
+          points={{-100,52},{-80,72},{100,72},{80,52},{-100,52}},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
+        Polygon(
+          points={{100,72},{100,-78},{80,-98},{80,52},{100,72}},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
+        Text(
+          extent={{-96,5},{77,-47}},
+          lineColor={0,0,255},
+          textString="Example"),
+        Text(
+          extent={{-120,134},{120,75}},
+          lineColor={255,0,0},
+          textString="%name")}));
 end AmplifierWithOpAmpDetailed;

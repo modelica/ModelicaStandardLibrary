@@ -2,43 +2,6 @@ within Modelica.Electrical.Analog;
 package Interfaces
   "Connectors and partial models for Analog electrical components"
   extends Modelica.Icons.Library;
-  annotation (Documentation(info="<html>
-<p>This package contains connectors and interfaces (partial models) for analog electrical components. The partial models contain typical combinations of pins, and internal variables which are often used. Furthermode, the thermal heat port is in this package which can be included by inheritance. </p>
-</html>",
-   revisions="<html>
-<dl>
-<dt>
-<b>Main Authors:</b>
-<dd>
-Christoph Clau&szlig;
-    &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
-    Andr&eacute; Schneider
-    &lt;<a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>&gt;<br>
-    Fraunhofer Institute for Integrated Circuits<br>
-    Design Automation Department<br>
-    Zeunerstra&szlig;e 38<br>
-    D-01069 Dresden<br>
-<p>
-<dt>
-</dl>
-
-<b>Copyright:</b>
-<dl>
-<dd>
-Copyright &copy; 1998-2006, Modelica Association and Fraunhofer-Gesellschaft.<br>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> in the documentation of package
-Modelica in file \"Modelica/package.mo\".</i><br>
-<p>
-</dl>
-
-<ul>
-<li><i> 1998</i>
-       by Christoph Clauss<br> initially implemented<br>
-       </li>
-</ul>
-</html>"));
 
   connector Pin "Pin of an electrical component"
     SI.Voltage v "Potential at the pin";
@@ -137,6 +100,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
     NegativePin n "Negative pin" annotation (Placement(transformation(extent={{
               90,-10},{110,10}}, rotation=0)));
+  equation
+    v = p.v - n.v;
     annotation (
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -171,8 +136,6 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 </html>", info="<html>
 <p>TwoPin is a partial model with two pins and one internal variable for the voltage over the two pins. Internal currents are not defined. It is intended to be used in cases where the model which inherits TwoPin is composed by combining other components graphically, not by equations.</p>
 </html>"));
-  equation
-    v = p.v - n.v;
   end TwoPin;
 
   partial model OnePort
@@ -185,6 +148,10 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
     NegativePin n "Negative pin" annotation (Placement(transformation(extent={{
               110,-10},{90,10}}, rotation=0)));
+  equation
+    v = p.v - n.v;
+    0 = p.i + n.i;
+    i = p.i;
     annotation (
       Documentation(info="<html>
 <p>Superclass of elements which have <b>two</b> electrical pins: the positive pin connector <i>p</i>, and the negative pin connector <i>n</i>. It is assumed that the current flowing into pin p is identical to the current flowing out of pin n. This current is provided explicitly as current i.  </p>
@@ -223,10 +190,6 @@ Modelica in file \"Modelica/package.mo\".</i><br>
             extent={{90,45},{110,25}},
             lineColor={160,160,164},
             textString="i")}));
-  equation
-    v = p.v - n.v;
-    0 = p.i + n.i;
-    i = p.i;
   end OnePort;
 
   partial model TwoPort
@@ -247,6 +210,13 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           transformation(extent={{110,40},{90,60}}, rotation=0)));
     NegativePin n2 "Negative pin of the right port" annotation (Placement(
           transformation(extent={{90,-60},{110,-40}}, rotation=0)));
+  equation
+    v1 = p1.v - n1.v;
+    v2 = p2.v - n2.v;
+    0 = p1.i + n1.i;
+    0 = p2.i + n2.i;
+    i1 = p1.i;
+    i2 = p2.i;
     annotation (
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -301,23 +271,16 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 </html>", info="<html>
 <p>TwoPort is a partial model that consists of two ports. Like OnePort each port has two pins. It is assumed that the current flowing into the positive  pin   is identical to the current flowing out of pin n. This currents of each port are  provided explicitly as currents i1 and i2, the voltages respectively as v1 and v2.</p>
 </html>"));
-  equation
-    v1 = p1.v - n1.v;
-    v2 = p2.v - n2.v;
-    0 = p1.i + n1.i;
-    0 = p2.i + n2.i;
-    i1 = p1.i;
-    i2 = p2.i;
   end TwoPort;
 
   partial model ConditionalHeatPort
     "Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network"
 
-    parameter Boolean useHeatPort = false "=true, if HeatPort is enabled" 
+    parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
     annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
     parameter Modelica.SIunits.Temperature T=293.15
       "Fixed device temperature if useHeatPort = false" annotation(Dialog(enable=not useHeatPort));
-    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=T)=T_heatPort, Q_flow=-LossPower) if useHeatPort 
+    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=T)=T_heatPort, Q_flow=-LossPower) if useHeatPort
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
           iconTransformation(extent={{-10,-110},{10,-90}})));
     Modelica.SIunits.Power LossPower
@@ -370,7 +333,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
+          grid={1,1}), graphics={Line(points={{-70,0},{-96,0}}, color={0,0,0}),
             Line(points={{70,0},{100,0}}, color={0,0,255})}),
       Documentation(revisions="<html>
 <ul>
@@ -434,8 +397,10 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     parameter SI.Voltage offset=0 "Voltage offset";
     parameter SI.Time startTime=0 "Time offset";
     replaceable Modelica.Blocks.Interfaces.SignalSource signalSource(
-        final offset = offset, final startTime=startTime) 
+        final offset = offset, final startTime=startTime)
     annotation (Placement(transformation(extent={{70,70},{90,90}}, rotation=0)));
+  equation
+    v = signalSource.y;
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -468,8 +433,6 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 </html>", info="<html>
 <p>The VoltageSource partial model prepares voltage sources by providing the pins, and the offset and startTime parameters, which are the same at all voltage sources. The source behavior is taken from Modelica.Blocks signal sources by inheritance and usage of the replacable possibilities.</p>
 </html>"));
-  equation
-    v = signalSource.y;
   end VoltageSource;
 
   partial model CurrentSource "Interface for current sources"
@@ -479,6 +442,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     replaceable Modelica.Blocks.Interfaces.SignalSource signalSource(
         final offset = offset, final startTime=startTime) annotation (Placement(
           transformation(extent={{70,69},{91,89}}, rotation=0)));
+  equation
+    i = signalSource.y;
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -510,8 +475,43 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 </html>", info="<html>
 <p>The CurrentSource partial model prepares current sources by providing the pins, and the offset and startTime parameters, which are the same at all current sources. The source behavior is taken from Modelica.Blocks signal sources by inheritance and usage of the replacable possibilities.</p>
 </html>"));
-  equation
-    i = signalSource.y;
   end CurrentSource;
 
+  annotation (Documentation(info="<html>
+<p>This package contains connectors and interfaces (partial models) for analog electrical components. The partial models contain typical combinations of pins, and internal variables which are often used. Furthermode, the thermal heat port is in this package which can be included by inheritance. </p>
+</html>",
+   revisions="<html>
+<dl>
+<dt>
+<b>Main Authors:</b>
+<dd>
+Christoph Clau&szlig;
+    &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
+    Andr&eacute; Schneider
+    &lt;<a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>&gt;<br>
+    Fraunhofer Institute for Integrated Circuits<br>
+    Design Automation Department<br>
+    Zeunerstra&szlig;e 38<br>
+    D-01069 Dresden<br>
+<p>
+<dt>
+</dl>
+
+<b>Copyright:</b>
+<dl>
+<dd>
+Copyright &copy; 1998-2006, Modelica Association and Fraunhofer-Gesellschaft.<br>
+<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the accompanying <b>disclaimer</b> in the documentation of package
+Modelica in file \"Modelica/package.mo\".</i><br>
+<p>
+</dl>
+
+<ul>
+<li><i> 1998</i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
 end Interfaces;

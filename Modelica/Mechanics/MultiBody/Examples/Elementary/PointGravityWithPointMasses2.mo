@@ -44,38 +44,6 @@ model PointGravityWithPointMasses2
         extent={{10,-10},{-10,10}},
         rotation=90)));
 
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-            -100},{100,100}}),
-                      graphics),
-    experiment(StopTime=3, Tolerance=1e-006),
-    Documentation(info="<html>
-<p>
-This model demonstrates the usage of model Parts.PointMass in a
-point gravity field. 6 point masses are connected rigidly together.
-Translating such a model results in an error, because point masses do
-not define an orientation object. The example demonstrates that in such
-a case (when the orientation object is not defined by an object that
-is connected to a point mass), a \"MultiBody.Joints.FreeMotion\" joint
-has to be used, to define the the degrees of freedom of this structure.
-</p>
-
-<p>
-In order to demonstrate that this approach is correct, in model
-\"referenceSystem\", the same system is again provided, but this time
-modeled with a generic body (Parts.Body) where the inertia tensor is
-set to zero. In this case, no FreeMotion object is needed because every
-body provides its absolute translational and rotational position and
-velocity as potential states.
-</p>
-
-<p>
-The two systems should move exactly in the same way. The system with the PointMasses
-object visulizes the point masses in \"red\", whereas the \"referenceSystem\" shows
-its bodies in \"blue\".
-<p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Elementary/PointGravityWithPointMasses2.png\">
-</p>
-</html>"));
 
   inner World world(                             gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.PointGravity, mue=
         5)
@@ -135,17 +103,6 @@ model SystemWithStandardBodies
           extent={{10,-10},{-10,10}},
           rotation=90)));
 
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}),
-                      graphics),
-                       Documentation(info="<html>
-<p>
-In order to compare the results of the \"PointMass\" example where
-6 point masses are rigidly connected together, in this comparision model,
-an equivalent system is setup, with the only difference that the
-point masses are replaced by Bodies with zero inertia.
-</p>
-</html>"));
 
 equation
   connect(fixedTranslation1.frame_a, fixedTranslation.frame_a)
@@ -203,6 +160,17 @@ equation
         points={{-40,-10},{-60,-10}},
         color={95,95,95},
         thickness=0.5));
+  annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+              -100},{100,100}}),
+                      graphics),
+                       Documentation(info="<html>
+<p>
+In order to compare the results of the \"PointMass\" example where
+6 point masses are rigidly connected together, in this comparision model,
+an equivalent system is setup, with the only difference that the
+point masses are replaced by Bodies with zero inertia.
+</p>
+</html>"));
 end SystemWithStandardBodies;
 
   SystemWithStandardBodies referenceSystem annotation (Placement(transformation(
@@ -271,4 +239,36 @@ equation
       points={{-20,70},{-10,70},{-10,20},{10,20},{10,0},{0,0}},
       color={95,95,95},
       thickness=0.5));
+  annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
+            -100},{100,100}}),
+                      graphics),
+    experiment(StopTime=3, Tolerance=1e-006),
+    Documentation(info="<html>
+<p>
+This model demonstrates the usage of model Parts.PointMass in a
+point gravity field. 6 point masses are connected rigidly together.
+Translating such a model results in an error, because point masses do
+not define an orientation object. The example demonstrates that in such
+a case (when the orientation object is not defined by an object that
+is connected to a point mass), a \"MultiBody.Joints.FreeMotion\" joint
+has to be used, to define the the degrees of freedom of this structure.
+</p>
+
+<p>
+In order to demonstrate that this approach is correct, in model
+\"referenceSystem\", the same system is again provided, but this time
+modeled with a generic body (Parts.Body) where the inertia tensor is
+set to zero. In this case, no FreeMotion object is needed because every
+body provides its absolute translational and rotational position and
+velocity as potential states.
+</p>
+
+<p>
+The two systems should move exactly in the same way. The system with the PointMasses
+object visulizes the point masses in \"red\", whereas the \"referenceSystem\" shows
+its bodies in \"blue\".
+<p align=\"center\">
+<IMG SRC=\"../Images/MultiBody/Examples/Elementary/PointGravityWithPointMasses2.png\">
+</p>
+</html>"));
 end PointGravityWithPointMasses2;

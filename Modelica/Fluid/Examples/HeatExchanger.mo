@@ -68,15 +68,6 @@ package HeatExchanger "Demo of a heat exchanger model"
       redeclare package Medium = Medium)
                    annotation (Placement(transformation(extent={{-66,-10},{-46,10}},
             rotation=0)));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-              -100},{100,100}}),
-                        graphics),
-                         experiment(StopTime=100, Tolerance=1e-005),
-      Documentation(info="<html>
-<p align=\"center\">
-<img src=\"../Images/Fluid/Examples/HeatExchanger.png\" border=\"1\">
-</p>
-</html>"));
     Modelica.Blocks.Sources.Ramp Ramp1(
       startTime=50,
       duration=5,
@@ -103,6 +94,15 @@ package HeatExchanger "Demo of a heat exchanger model"
         points={{37,2.2},{42,2},{50,2},{50,-18},{62,-18}},
         color={0,127,255},
         smooth=Smooth.None));
+    annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
+              -100},{100,100}}),
+                        graphics),
+                         experiment(StopTime=100, Tolerance=1e-005),
+      Documentation(info="<html>
+<p align=\"center\">
+<img src=\"../Images/Fluid/Examples/HeatExchanger.png\" border=\"1\">
+</p>
+</html>"));
   end HeatExchangerSimulation;
 
   package BaseClasses "Additional models for heat exchangers"
@@ -306,6 +306,51 @@ package HeatExchanger "Demo of a heat exchanger model"
                   annotation (Placement(transformation(extent={{20,88},{-40,28}},
               rotation=0)));
 
+      Modelica.Fluid.Interfaces.FluidPort_b port_b1(redeclare final package
+          Medium =
+            Medium_1) annotation (Placement(transformation(extent={{100,-12},{120,
+                8}}, rotation=0)));
+      Modelica.Fluid.Interfaces.FluidPort_a port_a1(redeclare final package
+          Medium =
+            Medium_1) annotation (Placement(transformation(extent={{-120,-12},{
+                -100,8}}, rotation=0)));
+      Modelica.Fluid.Interfaces.FluidPort_b port_b2(redeclare final package
+          Medium =
+            Medium_2) annotation (Placement(transformation(extent={{-120,36},{
+                -100,56}}, rotation=0)));
+      Modelica.Fluid.Interfaces.FluidPort_a port_a2(redeclare final package
+          Medium =
+            Medium_2) annotation (Placement(transformation(extent={{100,-56},{120,
+                -36}}, rotation=0)));
+
+    equation
+      Q_flow_1 = sum(pipe_1.heatTransfer.Q_flows);
+      Q_flow_2 = sum(pipe_2.heatTransfer.Q_flows);
+      connect(pipe_2.port_b, port_b2) annotation (Line(
+          points={{-40,58},{-76,58},{-76,46},{-110,46}},
+          color={0,127,255},
+          thickness=0.5));
+      connect(pipe_1.port_b, port_b1) annotation (Line(
+          points={{20,-50},{42,-50},{42,-2},{110,-2}},
+          color={0,127,255},
+          thickness=0.5));
+      connect(pipe_1.port_a, port_a1) annotation (Line(
+          points={{-40,-50},{-75.3,-50},{-75.3,-2},{-110,-2}},
+          color={0,127,255},
+          thickness=0.5));
+      connect(pipe_2.port_a, port_a2) annotation (Line(
+          points={{20,58},{65,58},{65,-46},{110,-46}},
+          color={0,127,255},
+          thickness=0.5));
+      connect(wall.heatPort_b, pipe_1.heatPorts) annotation (Line(
+          points={{-10,-8.5},{-10,-36.8},{-9.7,-36.8}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(pipe_2.heatPorts[nNodes:-1:1], wall.heatPort_a[1:nNodes])
+        annotation (Line(
+          points={{-10.3,44.8},{-10.3,31.7},{-10,31.7},{-10,20.5}},
+          color={127,0,0},
+          smooth=Smooth.None));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
                 -100},{100,100}},
             grid={1,1}),  graphics),
@@ -367,51 +412,6 @@ For both fluids geometry parameters, such as heat transfer area and cross sectio
 The flow scheme may be concurrent or counterflow, defined by the respective flow directions of the fluids entering the component.
 The design flow direction with positive m_flow variables is counterflow.
 </html>"));
-      Modelica.Fluid.Interfaces.FluidPort_b port_b1(redeclare final package
-          Medium =
-            Medium_1) annotation (Placement(transformation(extent={{100,-12},{120,
-                8}}, rotation=0)));
-      Modelica.Fluid.Interfaces.FluidPort_a port_a1(redeclare final package
-          Medium =
-            Medium_1) annotation (Placement(transformation(extent={{-120,-12},{
-                -100,8}}, rotation=0)));
-      Modelica.Fluid.Interfaces.FluidPort_b port_b2(redeclare final package
-          Medium =
-            Medium_2) annotation (Placement(transformation(extent={{-120,36},{
-                -100,56}}, rotation=0)));
-      Modelica.Fluid.Interfaces.FluidPort_a port_a2(redeclare final package
-          Medium =
-            Medium_2) annotation (Placement(transformation(extent={{100,-56},{120,
-                -36}}, rotation=0)));
-
-    equation
-      Q_flow_1 = sum(pipe_1.heatTransfer.Q_flows);
-      Q_flow_2 = sum(pipe_2.heatTransfer.Q_flows);
-      connect(pipe_2.port_b, port_b2) annotation (Line(
-          points={{-40,58},{-76,58},{-76,46},{-110,46}},
-          color={0,127,255},
-          thickness=0.5));
-      connect(pipe_1.port_b, port_b1) annotation (Line(
-          points={{20,-50},{42,-50},{42,-2},{110,-2}},
-          color={0,127,255},
-          thickness=0.5));
-      connect(pipe_1.port_a, port_a1) annotation (Line(
-          points={{-40,-50},{-75.3,-50},{-75.3,-2},{-110,-2}},
-          color={0,127,255},
-          thickness=0.5));
-      connect(pipe_2.port_a, port_a2) annotation (Line(
-          points={{20,58},{65,58},{65,-46},{110,-46}},
-          color={0,127,255},
-          thickness=0.5));
-      connect(wall.heatPort_b, pipe_1.heatPorts) annotation (Line(
-          points={{-10,-8.5},{-10,-36.8},{-9.7,-36.8}},
-          color={191,0,0},
-          smooth=Smooth.None));
-      connect(pipe_2.heatPorts[nNodes:-1:1], wall.heatPort_a[1:nNodes])
-        annotation (Line(
-          points={{-10.3,44.8},{-10.3,31.7},{-10,31.7},{-10,20.5}},
-          color={127,0,0},
-          smooth=Smooth.None));
     end BasicHX;
 
     model WallConstProps

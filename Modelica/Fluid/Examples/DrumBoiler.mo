@@ -18,38 +18,6 @@ package DrumBoiler
       massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
       p_start=100000)     annotation (Placement(transformation(extent={{-46,-30},
               {-26,-10}}, rotation=0)));
-    annotation (
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics),
-      Icon(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
-          Rectangle(
-            extent={{-100,100},{100,-100}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Text(
-            extent={{-151,165},{138,102}},
-            lineColor={0,0,255},
-            textString="%name"),
-          Text(
-            extent={{-79,67},{67,21}},
-            lineColor={0,0,0},
-            textString="drum"),
-          Text(
-            extent={{-90,-14},{88,-64}},
-            lineColor={0,0,0},
-            textString="boiler")}),
-      experiment(StopTime=5400),
-      Documentation(info="<html>
-<p align=\"center\">
-<img src=\"../Images/Fluid/Examples/DrumBoiler.png\" border=\"1\">
-</p>
-</html>"));
     Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow furnace
       annotation (Placement(transformation(
           origin={-36,-53},
@@ -186,6 +154,38 @@ package DrumBoiler
         points={{41,-70},{60,-70},{60,-28}},
         color={0,0,127},
         smooth=Smooth.None));
+    annotation (
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics),
+      Icon(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics={
+          Rectangle(
+            extent={{-100,100},{100,-100}},
+            lineColor={0,0,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{-151,165},{138,102}},
+            lineColor={0,0,255},
+            textString="%name"),
+          Text(
+            extent={{-79,67},{67,21}},
+            lineColor={0,0,0},
+            textString="drum"),
+          Text(
+            extent={{-90,-14},{88,-64}},
+            lineColor={0,0,0},
+            textString="boiler")}),
+      experiment(StopTime=5400),
+      Documentation(info="<html>
+<p align=\"center\">
+<img src=\"../Images/Fluid/Examples/DrumBoiler.png\" border=\"1\">
+</p>
+</html>"));
   end DrumBoiler;
 
   package BaseClasses "Additional components for drum boiler example"
@@ -425,8 +425,6 @@ Model of a simple evaporator with two states. The model assumes two-phase equili
 <p>
 References: Astroem, Bell: Drum-boiler dynamics, Automatica 36, 2000, pp.363-378
 </html>"));
-    equation
-
     end EquilibriumDrumBoiler;
   end BaseClasses;
 end DrumBoiler;

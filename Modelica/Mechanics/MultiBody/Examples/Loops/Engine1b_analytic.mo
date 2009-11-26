@@ -4,31 +4,6 @@ model Engine1b_analytic
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Example;
   extends Utilities.Engine1bBase;
-  annotation (
-    experiment(StopTime=0.5),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-120},{150,120}},
-        grid={1,1}), graphics),
-    Documentation(info="<html>
-<p>
-This is the same model as
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b#diagram\">Loops.Engine1b</a>.
-The only difference is that the central part of
-the planar kinematic loop has been replaced by the
-assembly joint \"Modelica.Mechanics.MultiBody.Joints.Assemblies.<b>JointRRP</b>\".
-The advantage of using JointRRP is, that the
-non-linear algebraic equation of this loop is solved analytically, and
-not numerically as in
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b#diagram\">Loops.Engine1b</a>.
-</p>
-<p>
-An animation of this example is shown in the figure below.
-</p>
-<p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Loops/Engine.png\" ALT=\"model Examples.Loops.Engine\">
-</p>
-</html>"));
   Joints.Assemblies.JointRRP jointRRP(
     n_a={1,0,0},
     n_b={0,-1,0},
@@ -60,4 +35,29 @@ equation
       points={{50,38},{80,38},{80,-10},{120,-10},{120,0}},
       color={95,95,95},
       thickness=0.5));
+  annotation (
+    experiment(StopTime=0.5),
+    Diagram(coordinateSystem(
+        preserveAspectRatio=true,
+        extent={{-100,-120},{150,120}},
+        grid={1,1}), graphics),
+    Documentation(info="<html>
+<p>
+This is the same model as
+<a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b#diagram\">Loops.Engine1b</a>.
+The only difference is that the central part of
+the planar kinematic loop has been replaced by the
+assembly joint \"Modelica.Mechanics.MultiBody.Joints.Assemblies.<b>JointRRP</b>\".
+The advantage of using JointRRP is, that the
+non-linear algebraic equation of this loop is solved analytically, and
+not numerically as in
+<a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b#diagram\">Loops.Engine1b</a>.
+</p>
+<p>
+An animation of this example is shown in the figure below.
+</p>
+<p align=\"center\">
+<IMG SRC=\"../Images/MultiBody/Examples/Loops/Engine.png\" ALT=\"model Examples.Loops.Engine\">
+</p>
+</html>"));
 end Engine1b_analytic;
