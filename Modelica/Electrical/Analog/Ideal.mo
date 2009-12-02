@@ -4,7 +4,6 @@ package Ideal
 
   extends Modelica.Icons.Library;
 
-
           model IdealThyristor "Ideal thyristor"
             extends Modelica.Electrical.Analog.Interfaces.OnePort;
             parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
@@ -15,7 +14,7 @@ package Ideal
       "Forward threshold voltage";
             extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
             Boolean off(start=true) "Switching state";
-            Modelica.Blocks.Interfaces.BooleanInput fire
+            Modelica.Blocks.Interfaces.BooleanInput fire 
               annotation (Placement(transformation(
           origin={70,110},
           extent={{-20,-20},{20,20}},
@@ -157,7 +156,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
       "Forward threshold voltage";
             extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
             Boolean off(start=true) "Switching state";
-            Modelica.Blocks.Interfaces.BooleanInput fire
+            Modelica.Blocks.Interfaces.BooleanInput fire 
               annotation (Placement(transformation(
           origin={70,110},
           extent={{-20,-20},{20,20}},
@@ -409,7 +408,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     Interfaces.NegativePin n2 annotation (Placement(transformation(extent={{90,
               -10},{110,10}}, rotation=0)));
     Modelica.Blocks.Interfaces.BooleanInput control
-      "true => p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2  connected"
+      "true => p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2  connected" 
       annotation (Placement(transformation(
           origin={0,80},
           extent={{-20,-20},{20,20}},
@@ -953,10 +952,10 @@ are possible.
           transformation(extent={{-110,40},{-90,60}}, rotation=0)));
     Interfaces.PositivePin out "Output pin" annotation (Placement(
           transformation(extent={{90,-10},{110,10}}, rotation=0)));
-    Interfaces.PositivePin VMax "Positive output voltage limitation"
+    Interfaces.PositivePin VMax "Positive output voltage limitation" 
       annotation (Placement(transformation(extent={{-10,60},{10,80}}, rotation=
               0)));
-    Interfaces.NegativePin VMin "Negative output voltage limitation"
+    Interfaces.NegativePin VMin "Negative output voltage limitation" 
       annotation (Placement(transformation(extent={{-10,-80},{10,-60}},
             rotation=0)));
     SI.Voltage vin "input voltage";
@@ -1191,7 +1190,7 @@ behavior is <b> not </b> modelled.
     parameter Boolean considerMagnetization=false
       "Choice of considering magnetization";
     parameter Modelica.SIunits.Inductance Lm1(start=1)
-      "Magnetization inductance w.r.t. primary side"
+      "Magnetization inductance w.r.t. primary side" 
       annotation(Dialog(enable=considerMagnetization));
   protected
     Modelica.SIunits.Current im1 "Magnetization current w.r.t. primary side";
@@ -1471,7 +1470,7 @@ where the constant <i>G</i> is called the gyration conductance.
 
  model IdealOpeningSwitch "Ideal electrical opener"
    extends Modelica.Electrical.Analog.Interfaces.OnePort;
-   parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
+   parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance" 
        annotation (Placement(transformation(extent={{-56.6667,10},{-10,56.6667}},
             rotation=0)));
    parameter SI.Conductance Goff(final min=0) = 1.E-5
@@ -1565,7 +1564,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     model IdealClosingSwitch "Ideal electrical closer"
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
       parameter SI.Resistance Ron(final min=0) = 1.E-5
-      "Closed switch resistance"
+      "Closed switch resistance" 
          annotation (Placement(transformation(extent={{-56.6667,10},{-10,
               56.6667}}, rotation=0)));
       parameter SI.Conductance Goff(final min=0) = 1.E-5
@@ -1669,7 +1668,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     Interfaces.NegativePin n annotation (Placement(transformation(extent={{90,
               -10},{110,10}}, rotation=0)));
     Interfaces.Pin control
-      "Control pin: control.v > level switch open, otherwise p--n connected"
+      "Control pin: control.v > level switch open, otherwise p--n connected" 
       annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
@@ -1755,7 +1754,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
       parameter SI.Voltage level=0.5 "Switch level" annotation (Placement(
           transformation(extent={{-56.6667,10},{-10,56.6667}}, rotation=0)));
       parameter SI.Resistance Ron(final min=0) = 1.E-5
-      "Closed switch resistance"
+      "Closed switch resistance" 
          annotation (Placement(transformation(extent={{10,10},{56.6667,56.6667}},
             rotation=0)));
       parameter SI.Conductance Goff(final min=0) = 1.E-5
@@ -1767,7 +1766,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
       Modelica.Electrical.Analog.Interfaces.NegativePin n annotation (Placement(
           transformation(extent={{90,-10},{110,10}}, rotation=0)));
       Modelica.Electrical.Analog.Interfaces.Pin control
-      "Control pin: control.v > level switch closed, otherwise switch open"
+      "Control pin: control.v > level switch closed, otherwise switch open" 
         annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
@@ -1857,12 +1856,11 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     parameter Modelica.SIunits.Voltage Vmax=60 "Max. arc voltage";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
     Modelica.Blocks.Interfaces.BooleanInput control
-      "false => p--n connected, true => switch open"
+      "false => p--n connected, true => switch open" 
       annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
           rotation=270)));
-
 
   protected
     Boolean off=control;
@@ -1992,7 +1990,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     parameter Modelica.SIunits.Voltage Vmax=60 "Max. arc voltage";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
     Modelica.Blocks.Interfaces.BooleanInput control
-      "true => p--n connected, false => switch open"
+      "true => p--n connected, false => switch open" 
       annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
@@ -2115,11 +2113,11 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
   model ControlledOpenerWithArc
     "Controlled ideal electrical opener with simple arc model"
 
-    parameter Modelica.SIunits.Voltage level=0.5 "Switch level"
+    parameter Modelica.SIunits.Voltage level=0.5 "Switch level" 
                                                   annotation (Placement(
           transformation(extent={{-56.6667,10},{-10,56.6667}}, rotation=0)));
     parameter Modelica.SIunits.Resistance Ron(final min=0)=1.E-5
-      "Closed switch resistance"
+      "Closed switch resistance" 
        annotation (Placement(transformation(extent={{10,10},{56.6667,56.6667}},
             rotation=0)));
     parameter Modelica.SIunits.Conductance Goff(final min=0)=1.E-5
@@ -2129,14 +2127,14 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     parameter Modelica.SIunits.VoltageSlope dVdt=10E3 "Arc voltage slope";
     parameter Modelica.SIunits.Voltage Vmax=60 "Max. arc voltage";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
-    Modelica.Electrical.Analog.Interfaces.PositivePin p
+    Modelica.Electrical.Analog.Interfaces.PositivePin p 
                              annotation (Placement(transformation(extent={{-110,
               -10},{-90,10}}, rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.NegativePin n
+    Modelica.Electrical.Analog.Interfaces.NegativePin n 
                              annotation (Placement(transformation(extent={{90,
               -10},{110,10}}, rotation=0)));
     Modelica.Electrical.Analog.Interfaces.Pin control
-      "Control pin: control.v > level switch open, otherwise p--n connected"
+      "Control pin: control.v > level switch open, otherwise p--n connected" 
       annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
@@ -2255,11 +2253,11 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     model ControlledCloserWithArc
     "Controlled ideal electrical closer with simple arc model"
 
-      parameter Modelica.SIunits.Voltage level=0.5 "Switch level"
+      parameter Modelica.SIunits.Voltage level=0.5 "Switch level" 
                                                     annotation (Placement(
           transformation(extent={{-56.6667,10},{-10,56.6667}}, rotation=0)));
       parameter Modelica.SIunits.Resistance Ron(final min=0)=1.E-5
-      "Closed switch resistance"
+      "Closed switch resistance" 
          annotation (Placement(transformation(extent={{10,10},{56.6667,56.6667}},
             rotation=0)));
       parameter Modelica.SIunits.Conductance Goff(final min=0)=1.E-5
@@ -2274,7 +2272,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
       Modelica.Electrical.Analog.Interfaces.NegativePin n annotation (Placement(
           transformation(extent={{90,-10},{110,10}}, rotation=0)));
       Modelica.Electrical.Analog.Interfaces.Pin control
-      "Control pin: control.v > level switch closed, otherwise switch open"
+      "Control pin: control.v > level switch closed, otherwise switch open" 
         annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
@@ -2417,4 +2415,149 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 <p>
 </dl>
 </html>"));
+  model IdealTriac "Ideal triac, based on ideal thyristors"
+
+    parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.e-5
+      "Closed triac resistance";
+    parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.e-5
+      "Opened triac conductance";
+    parameter Modelica.SIunits.Voltage Vknee(final min=0, start=0) = 0.8
+      "Threshold voltage for positive and negative phase";
+
+    parameter Modelica.SIunits.Resistance Rdis = 100
+      "Resistance of disturbance elimination";
+    parameter Modelica.SIunits.Capacitance Cdis = 0.005
+      "Capacity of disturbance elimination";
+
+    Modelica.Electrical.Analog.Ideal.IdealThyristor idealThyristor(
+      Ron=Ron,
+      Goff=Goff,
+      Vknee=Vknee) annotation (Placement(transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=0,
+          origin={-10,32})));
+    Modelica.Electrical.Analog.Ideal.IdealThyristor idealThyristor1(
+      Ron=Ron,
+      Goff=Goff,
+      Vknee=Vknee) annotation (Placement(transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=180,
+          origin={-10,-32})));
+    Modelica.Electrical.Analog.Basic.Resistor resistor(R=Rdis) 
+      annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+    Modelica.Electrical.Analog.Basic.Capacitor capacitor(C=Cdis) 
+      annotation (Placement(transformation(extent={{20,-10},{40,10}})));
+    Modelica.Blocks.Interfaces.BooleanInput fire1 "Gate" 
+      annotation (Placement(transformation(extent={{-74,-106},{-46,-78}})));
+    Modelica.Electrical.Analog.Interfaces.NegativePin n "Cathode" 
+      annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+    Modelica.Electrical.Analog.Interfaces.PositivePin p "Anode" 
+      annotation (Placement(transformation(extent={{94,-10},{114,10}})));
+  equation
+
+    connect(idealThyristor.n, capacitor.n) annotation (Line(
+        points={{0,32},{40,32},{40,0}},
+        color={0,0,255},
+        smooth=Smooth.None));
+    connect(capacitor.n, idealThyristor1.p) annotation (Line(
+        points={{40,0},{40,-32},{0,-32}},
+        color={0,0,255},
+        smooth=Smooth.None));
+    connect(idealThyristor1.n, resistor.p) annotation (Line(
+        points={{-20,-32},{-60,-32},{-60,0}},
+        color={0,0,255},
+        smooth=Smooth.None));
+    connect(resistor.p, idealThyristor.p) annotation (Line(
+        points={{-60,0},{-60,32},{-20,32}},
+        color={0,0,255},
+        smooth=Smooth.None));
+    connect(resistor.n, capacitor.p) annotation (Line(
+        points={{-40,0},{20,0}},
+        color={0,0,255},
+        smooth=Smooth.None));
+    connect(idealThyristor1.fire, fire1) annotation (Line(
+        points={{-17,-43},{-17,-92},{-60,-92}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(idealThyristor.fire, fire1) annotation (Line(
+        points={{-3,43},{-3,60},{-80,60},{-80,-92},{-60,-92}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(n, idealThyristor.p) annotation (Line(
+        points={{-100,0},{-90,0},{-90,40},{-20,40},{-20,32}},
+        color={0,0,255},
+        smooth=Smooth.None));
+    connect(idealThyristor1.p, p) annotation (Line(
+        points={{0,-32},{0,-40},{80,-40},{80,0},{104,0}},
+        color={0,0,255},
+        smooth=Smooth.None));
+    annotation (
+      uses(Modelica(version="3.1")),
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+              100}}), graphics={
+          Polygon(
+            points={{-30,0},{-30,-100},{70,-50},{-30,0}},
+            lineColor={0,0,0},
+            smooth=Smooth.None),
+          Polygon(
+            points={{70,100},{70,0},{-30,50},{70,100}},
+            lineColor={0,0,0},
+            smooth=Smooth.None),
+          Line(
+            points={{70,0},{70,-100}},
+            color={0,0,0},
+            smooth=Smooth.None),
+          Line(
+            points={{-30,0},{-30,100}},
+            color={0,0,0},
+            smooth=Smooth.None),
+          Line(
+            points={{-30,0},{-90,0}},
+            color={0,0,0},
+            smooth=Smooth.None),
+          Line(
+            points={{70,0},{110,0}},
+            color={0,0,0},
+            smooth=Smooth.None),
+          Line(
+            points={{-62,-86},{-62,-56},{-30,-44}},
+            color={0,0,0},
+            smooth=Smooth.None),
+          Text(
+            extent={{-102,130},{98,100}},
+            textString="%name",
+            lineColor={0,0,255})}),
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+              100}}), graphics),
+      DymolaStoredErrors,
+      Documentation(info="<html>
+<p>This is an ideal triac model based on an ideal thyristor model. </p>
+<p>Two ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor) are contrarily connected in parallel and additionally eliminated interference with a resistor (Rdis=100) and a capacitor (Cdis=0.005), which are connected in series. </p>
+<p>The electrical component triac (TRIode Alternating Current switch) is, due to whose complex structure, a multifunctional applicable construction unit. The application area of this element is the manipulation of alternating current signals in frequency, voltage and/or current and also general blocking or filtering. However, compared to a thyristor the triac is only applied for substantial lesser currents, what is justified by whose sensitive structure. Generally one is limited to maximal voltages from 800 volt and currents from 40 ampere. For comparison maximal voltages of a thyristor are 8.000 volt and currents 5.000 ampere. </p>
+<p>Structure and functionality: </p>
+<p>Functionality of a triac is in principle the same like functionality of a thyristor, even connecting through of current starting from a certain voltage (knee voltage), but only if the current at anode and cathode is caused by a impulse current in the gate electrode. In case of the triac this process is also possible with reverse polarity, wherefore it is possible to control both half-waves of alternating currents. By means of gate electrodes, which are connected in a triac and why only one gate electrode is necessary, the point of time can be determined, at which the triac lets the alternating current signal pass. Thereby it is possible to affect the phase, at which the alternating current signal is cut. One speaks also of phase-angle control. Also depending on doping and specific structure knee voltage and maximal current carrying are alterable. </p>
+<p>Characteristics: </p>
+<p><ul>
+<li>high switching times between on-state and off state up to activation of the reverse current phase </li>
+<li>gate electrode are activated with (positive) impulse (called thyristor/triac firing), after firing thyristor path holds itself in state of low resistance or conductive state up to holding voltage is fallen below, it follows change to off state and next thyristor path can fire </li>
+<li>in particular by switching of inductive components triacs generate harmonic waves, whose frequency ranges into broadcast sector and could there cause transmission disturbances; therefore triacs have to eliminate interference by inductors and capacitors </li>
+</ul></p>
+<p><br/>Applications:</p>
+<p><ul>
+<li>any stepless exposure (dimmer) </li>
+<li>engine speed adjustment of electric motors </li>
+<li>further applications of phase-angle control (power electronics) </li>
+<li>power packs </li>
+</ul></p>
+<p>As an additional information: this model is based on the Modelica.Electrical.Analog.Ideal.IdealThyristor. </p>
+</html>",
+     revisions="<html>
+<ul>
+<li><i>November 25, 2009   </i> <br>
+
+       by Susann Wolf <br><br>
+       </li>
+</ul>
+</html>"));
+  end IdealTriac;
 end Ideal;

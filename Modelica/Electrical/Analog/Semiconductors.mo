@@ -4,7 +4,6 @@ package Semiconductors
   extends Modelica.Icons.Library;
   import Modelica.SIunits;
 
-
   model Diode "Simple diode"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
     parameter SIunits.Current Ids=1.e-6 "Saturation current";
@@ -94,10 +93,10 @@ package Semiconductors
 
    Real maxexp=exp(Maxexp);
  equation
-    i = smooth(1, if (v>Maxexp*Vt) then
-              Ids*( exp(Maxexp)*(1 + v/Vt - Maxexp)-1) + v/R else
-           if ( (v+Bv)<-Maxexp*(Nbv*Vt)) then
-              -Ids -Ibv* exp(Maxexp)*(1 - (v+Bv)/(Nbv*Vt) - Maxexp) +v/R else
+    i = smooth(1, if (v>Maxexp*Vt) then 
+              Ids*( exp(Maxexp)*(1 + v/Vt - Maxexp)-1) + v/R else 
+           if ( (v+Bv)<-Maxexp*(Nbv*Vt)) then 
+              -Ids -Ibv* exp(Maxexp)*(1 - (v+Bv)/(Nbv*Vt) - Maxexp) +v/R else 
               Ids*(exp(v/Vt)-1) - Ibv*exp(-(v+Bv)/(Nbv*Vt)) + v/R);
     LossPower = v*i;
           annotation (__Dymola_structurallyIncomplete=true,
@@ -508,10 +507,10 @@ equation
   vbe = B.v - E.v;
   qbk = 1 - vbc*Vak;
 
-  ibc = smooth(1,if (vbc/Vt < EMin) then Is*(ExMin*(vbc/Vt - EMin + 1) - 1) + vbc*Gbc else
+  ibc = smooth(1,if (vbc/Vt < EMin) then Is*(ExMin*(vbc/Vt - EMin + 1) - 1) + vbc*Gbc else 
           if (vbc/Vt > EMax) then Is*(ExMax*(vbc/Vt - EMax + 1) - 1) + vbc*
     Gbc else Is*(exp(vbc/Vt) - 1) + vbc*Gbc);
-  ibe = smooth(1,if (vbe/Vt < EMin) then Is*(ExMin*(vbe/Vt - EMin + 1) - 1) + vbe*Gbe else
+  ibe = smooth(1,if (vbe/Vt < EMin) then Is*(ExMin*(vbe/Vt - EMin + 1) - 1) + vbe*Gbe else 
           if (vbe/Vt > EMax) then Is*(ExMax*(vbe/Vt - EMax + 1) - 1) + vbe*
     Gbe else Is*(exp(vbe/Vt) - 1) + vbe*Gbe);
   Capcjc = smooth(1,(if (vbc/Phic > 0) then Cjc*(1 + Mc*vbc/Phic) else Cjc*pow(1 - vbc
@@ -667,11 +666,11 @@ equation
   vbe = E.v - B.v;
   qbk = 1 - vbc*Vak;
 
-  ibc = smooth(1,(if (vbc/Vt < EMin) then Is*(ExMin*(vbc/Vt - EMin + 1) - 1) + vbc*Gbc else
+  ibc = smooth(1,(if (vbc/Vt < EMin) then Is*(ExMin*(vbc/Vt - EMin + 1) - 1) + vbc*Gbc else 
           if (vbc/Vt > EMax) then Is*(ExMax*(vbc/Vt - EMax + 1) - 1) + vbc*
     Gbc else Is*(exp(vbc/Vt) - 1) + vbc*Gbc));
 
-  ibe = smooth(1,(if (vbe/Vt < EMin) then Is*(ExMin*(vbe/Vt - EMin + 1) - 1) + vbe*Gbe else
+  ibe = smooth(1,(if (vbe/Vt < EMin) then Is*(ExMin*(vbe/Vt - EMin + 1) - 1) + vbe*Gbe else 
           if (vbe/Vt > EMax) then Is*(ExMax*(vbe/Vt - EMax + 1) - 1) + vbe*
     Gbe else Is*(exp(vbe/Vt) - 1) + vbe*Gbe));
 
@@ -878,16 +877,16 @@ end HeatingDiode;
 
         model HeatingNMOS "Simple MOS Transistor with heating port"
 
-          Modelica.Electrical.Analog.Interfaces.Pin D "Drain"
+          Modelica.Electrical.Analog.Interfaces.Pin D "Drain" 
             annotation (Placement(transformation(extent={{90,40},{110,60}},
             rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin G "Gate"
+          Modelica.Electrical.Analog.Interfaces.Pin G "Gate" 
             annotation (Placement(transformation(extent={{-90,-40},{-110,-60}},
             rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin S "Source"
+          Modelica.Electrical.Analog.Interfaces.Pin S "Source" 
             annotation (Placement(transformation(extent={{90,-40},{110,-60}},
             rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin B "Bulk"
+          Modelica.Electrical.Analog.Interfaces.Pin B "Bulk" 
             annotation (Placement(transformation(extent={{90,-10},{110,10}},
             rotation=0)));
           parameter Modelica.SIunits.Length W=20.e-6 "Width";
@@ -1029,16 +1028,16 @@ end HeatingDiode;
 
         model HeatingPMOS "Simple PMOS Transistor with heating port"
 
-          Modelica.Electrical.Analog.Interfaces.Pin D "Drain"
+          Modelica.Electrical.Analog.Interfaces.Pin D "Drain" 
             annotation (Placement(transformation(extent={{90,40},{110,60}},
             rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin G "Gate"
+          Modelica.Electrical.Analog.Interfaces.Pin G "Gate" 
             annotation (Placement(transformation(extent={{-90,-40},{-110,-60}},
             rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin S "Source"
+          Modelica.Electrical.Analog.Interfaces.Pin S "Source" 
             annotation (Placement(transformation(extent={{90,-40},{110,-60}},
             rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin B "Bulk"
+          Modelica.Electrical.Analog.Interfaces.Pin B "Bulk" 
             annotation (Placement(transformation(extent={{90,-10},{110,10}},
             rotation=0)));
           parameter Modelica.SIunits.Length W=20.0e-6 "Width";
@@ -1229,13 +1228,13 @@ end HeatingDiode;
           Real hexp;
           Real htempexp;
   public
-          Modelica.Electrical.Analog.Interfaces.Pin C "Collector"
+          Modelica.Electrical.Analog.Interfaces.Pin C "Collector" 
             annotation (Placement(transformation(extent={{90,40},{110,60}},
             rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin B "Base"
+          Modelica.Electrical.Analog.Interfaces.Pin B "Base" 
             annotation (Placement(transformation(extent={{-90,-10},{-110,10}},
             rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin E "Emitter"
+          Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" 
             annotation (Placement(transformation(extent={{90,-40},{110,-60}},
             rotation=0)));
         equation
@@ -1268,12 +1267,12 @@ end HeatingDiode;
           Capcje = smooth(1,(if (vbe/Phie > 0) then Cje*(1 + Me*vbe/Phie) else Cje*pow(1
              - vbe/Phie, -Me)));
           cbc = smooth(1,(if (vbc/(NR*vt_t) < EMin) then Taur*is_t/(NR*vt_t)*ExMin*(vbc/(
-            NR*vt_t) - EMin + 1) + Capcjc else if (vbc/(NR*vt_t) > EMax) then
-            Taur*is_t/(NR*vt_t)*ExMax*(vbc/(NR*vt_t) - EMax + 1) + Capcjc else
+            NR*vt_t) - EMin + 1) + Capcjc else if (vbc/(NR*vt_t) > EMax) then 
+            Taur*is_t/(NR*vt_t)*ExMax*(vbc/(NR*vt_t) - EMax + 1) + Capcjc else 
             Taur*is_t/(NR*vt_t)*exp(vbc/(NR*vt_t)) + Capcjc));
           cbe = smooth(1,(if (vbe/(NF*vt_t) < EMin) then Tauf*is_t/(NF*vt_t)*ExMin*(vbe/(
-            NF*vt_t) - EMin + 1) + Capcje else if (vbe/(NF*vt_t) > EMax) then
-            Tauf*is_t/(NF*vt_t)*ExMax*(vbe/(NF*vt_t) - EMax + 1) + Capcje else
+            NF*vt_t) - EMin + 1) + Capcje else if (vbe/(NF*vt_t) > EMax) then 
+            Tauf*is_t/(NF*vt_t)*ExMax*(vbe/(NF*vt_t) - EMax + 1) + Capcje else 
             Tauf*is_t/(NF*vt_t)*exp(vbe/(NF*vt_t)) + Capcje));
           C.i = (ibe - ibc)*qbk - ibc/br_t - cbc*der(vbc) + Ccs*der(C.v);
           B.i = ibe/bf_t + ibc/br_t + cbc*der(vbc) + cbe*der(vbe);
@@ -1402,13 +1401,13 @@ end HeatingDiode;
           Real hexp;
           Real htempexp;
   public
-          Modelica.Electrical.Analog.Interfaces.Pin C "Collector"
+          Modelica.Electrical.Analog.Interfaces.Pin C "Collector" 
             annotation (Placement(transformation(extent={{90,40},{110,60}},
             rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin B "Base"
+          Modelica.Electrical.Analog.Interfaces.Pin B "Base" 
             annotation (Placement(transformation(extent={{-90,-10},{-110,10}},
             rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin E "Emitter"
+          Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" 
             annotation (Placement(transformation(extent={{90,-40},{110,-60}},
             rotation=0)));
         equation
@@ -1443,12 +1442,12 @@ end HeatingDiode;
           Capcje = smooth(1,(if (veb/Phie > 0) then Cje*(1 + Me*veb/Phie) else Cje*pow(1
              - veb/Phie, -Me)));
           ccb = smooth(1,(if (vcb/(NR*vt_t) < EMin) then Taur*is_t/(NR*vt_t)*ExMin*(vcb/(
-            NR*vt_t) - EMin + 1) + Capcjc else if (vcb/(NR*vt_t) > EMax) then
-            Taur*is_t/(NR*vt_t)*ExMax*(vcb/(NR*vt_t) - EMax + 1) + Capcjc else
+            NR*vt_t) - EMin + 1) + Capcjc else if (vcb/(NR*vt_t) > EMax) then 
+            Taur*is_t/(NR*vt_t)*ExMax*(vcb/(NR*vt_t) - EMax + 1) + Capcjc else 
             Taur*is_t/(NR*vt_t)*exp(vcb/(NR*vt_t)) + Capcjc));
           ceb = smooth(1,(if (veb/(NF*vt_t) < EMin) then Tauf*is_t/(NF*vt_t)*ExMin*(veb/(
-            NF*vt_t) - EMin + 1) + Capcje else if (veb/(NF*vt_t) > EMax) then
-            Tauf*is_t/(NF*vt_t)*ExMax*(veb/(NF*vt_t) - EMax + 1) + Capcje else
+            NF*vt_t) - EMin + 1) + Capcje else if (veb/(NF*vt_t) > EMax) then 
+            Tauf*is_t/(NF*vt_t)*ExMax*(veb/(NF*vt_t) - EMax + 1) + Capcje else 
             Tauf*is_t/(NF*vt_t)*exp(veb/(NF*vt_t)) + Capcje));
           C.i = icb/br_t + ccb*der(vcb) + Ccs*der(C.v) + (icb - ieb)*qbk;
           B.i = -ieb/bf_t - icb/br_t - ceb*der(veb) - ccb*der(vcb);
@@ -1563,7 +1562,6 @@ public
     Real vContot;
     Real vConmain;
 
-
   public
     Modelica.Electrical.Analog.Interfaces.PositivePin Anode annotation (Placement(
           transformation(extent={{-95,-12},{-75,8}}),
@@ -1592,15 +1590,15 @@ public
 
     // Gate and Control voltage
     iGK = Gate.i;
-    vGK = smooth(0,(if vGK < 0.65 then VGT/IGT*iGK else
+    vGK = smooth(0,(if vGK < 0.65 then VGT/IGT*iGK else 
           0.65^2/VGT+iGK*(VGT-0.65)/IGT));
     vContot = vConmain + smooth(0, if iGK < 0.95 * IGT then 0 else if iGK < 0.95*IGT + 1e-3 then 10000*(iGK-0.95*IGT)*vAK else 10* vAK);
     der(vControl)= (vContot - vControl) / (if (vContot - vControl) > 0 then 1.87*TON else 0.638*TOFF);
 
     // Anode-Cathode characteristics
-    Anode.i= smooth(1, if vAK < -VRRM then -VRRM/Roff*exp(-(vAK+VRRM)/(Nbv*Vt)) else
-           if vControl<Voff then vAK/Roff else
-           if vControl<Von then vAK/(sqrt(Ron*Roff)*(Ron/Roff)^((3*((2*vControl-Von-Voff)/(2*(Von-Voff)))-4*((2*vControl-Von-Voff)/(2*(Von-Voff)))^3)/2)) else
+    Anode.i= smooth(1, if vAK < -VRRM then -VRRM/Roff*exp(-(vAK+VRRM)/(Nbv*Vt)) else 
+           if vControl<Voff then vAK/Roff else 
+           if vControl<Von then vAK/(sqrt(Ron*Roff)*(Ron/Roff)^((3*((2*vControl-Von-Voff)/(2*(Von-Voff)))-4*((2*vControl-Von-Voff)/(2*(Von-Voff)))^3)/2)) else 
             vAK/Ron);
 
     // holding effect and forward breakthrough
@@ -1750,4 +1748,133 @@ Christoph Clau&szlig;
 <dt>
 </dl>
 </html>"));
+  model SimpleTriac "Simple triac, based on Semiconductors.Thyristor model"
+
+    parameter Modelica.SIunits.Voltage VDRM(final min=0) = 100
+      "Forward breakthrough voltage";
+    parameter Modelica.SIunits.Voltage VRRM(final min=0) = 100
+      "Reverse breakthrough voltage";
+    parameter Modelica.SIunits.Current IDRM=0.1 "Saturation current";
+    parameter Modelica.SIunits.Voltage VTM= 1.7 "Conducting voltage";
+    parameter Modelica.SIunits.Current IH=6e-3 "Holding current";
+    parameter Modelica.SIunits.Current ITM= 25 "Conducting current";
+
+    parameter Modelica.SIunits.Voltage VGT= 0.7 "Gate trigger voltage";
+    parameter Modelica.SIunits.Current IGT= 5e-3 "Gate trigger current";
+
+    parameter Modelica.SIunits.Time TON = 1e-6 "Switch on time";
+    parameter Modelica.SIunits.Time TOFF = 15e-6 "Switch off time";
+    parameter Modelica.SIunits.Voltage Vt=0.04
+      "Voltage equivalent of temperature (kT/qn)";
+    parameter Real Nbv=0.74 "Reverse Breakthrough emission coefficient";
+
+    Modelica.Electrical.Analog.Interfaces.NegativePin n "Cathode" 
+      annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+    Modelica.Electrical.Analog.Interfaces.PositivePin p "Anode" 
+      annotation (Placement(transformation(extent={{94,-10},{114,10}})));
+    Modelica.Electrical.Analog.Interfaces.PositivePin g "Gate" 
+      annotation (Placement(transformation(extent={{-72,-106},{-52,-86}})));
+    Modelica.Electrical.Analog.Semiconductors.Thyristor thyristor(VDRM=VDRM, VRRM=VRRM) 
+      annotation (Placement(transformation(extent={{-20,30},{0,50}})));
+    Modelica.Electrical.Analog.Semiconductors.Thyristor thyristor1(VDRM=VDRM, VRRM=VRRM) 
+                         annotation (Placement(transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=180,
+          origin={-12,-40})));
+
+    Modelica.Electrical.Analog.Ideal.IdealDiode idealDiode(Vknee=0) 
+      annotation (Placement(transformation(extent={{-40,58},{-20,78}})));
+    Modelica.Electrical.Analog.Ideal.IdealDiode idealDiode1(Vknee=0) annotation (
+        Placement(transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=90,
+          origin={-20,-72})));
+  equation
+    connect(thyristor.Anode, n) annotation (Line(
+        points={{-19,40},{-18,40},{-18,48},{-70,48},{-70,0},{-100,0}},
+        color={0,0,255},
+        smooth=Smooth.None));
+    connect(thyristor1.Anode, p) annotation (Line(
+        points={{-3,-40},{-2,-40},{-2,-60},{80,-60},{80,0},{104,0}},
+        color={0,0,255},
+        smooth=Smooth.None));
+    connect(thyristor1.Anode, thyristor.Cathode) annotation (Line(
+        points={{-3,-40},{-2,-40},{-2,40},{-1,40}},
+        color={0,0,255},
+        smooth=Smooth.None));
+    connect(thyristor1.Cathode, thyristor.Anode) annotation (Line(
+        points={{-21,-40},{-22,-40},{-22,40},{-19,40}},
+        color={0,0,255},
+        smooth=Smooth.None));
+    connect(thyristor.Gate, idealDiode.n) annotation (Line(
+        points={{-3,49},{-3,59.5},{-20,59.5},{-20,68}},
+        color={0,0,255},
+        smooth=Smooth.None));
+    connect(idealDiode.p, g) annotation (Line(
+        points={{-40,68},{-82,68},{-82,-96},{-62,-96}},
+        color={0,0,255},
+        smooth=Smooth.None));
+    connect(idealDiode1.n, thyristor1.Gate) annotation (Line(
+        points={{-20,-62},{-20,-49},{-19,-49}},
+        color={0,0,255},
+        smooth=Smooth.None));
+    connect(idealDiode1.p, g) annotation (Line(
+        points={{-20,-82},{-42,-82},{-42,-96},{-62,-96}},
+        color={0,0,255},
+        smooth=Smooth.None));
+    annotation (
+      uses(Modelica(version="3.1")),
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+              100}}), graphics={
+          Polygon(
+            points={{-30,0},{-30,-100},{70,-50},{-30,0}},
+            lineColor={0,0,0},
+            smooth=Smooth.None),
+          Polygon(
+            points={{70,100},{70,0},{-30,50},{70,100}},
+            lineColor={0,0,0},
+            smooth=Smooth.None),
+          Line(
+            points={{70,0},{70,-100}},
+            color={0,0,0},
+            smooth=Smooth.None),
+          Line(
+            points={{-30,0},{-30,100}},
+            color={0,0,0},
+            smooth=Smooth.None),
+          Line(
+            points={{-30,0},{-90,0}},
+            color={0,0,0},
+            smooth=Smooth.None),
+          Line(
+            points={{70,0},{110,0}},
+            color={0,0,0},
+            smooth=Smooth.None),
+          Line(
+            points={{-62,-86},{-62,-56},{-30,-44}},
+            color={0,0,0},
+            smooth=Smooth.None),
+          Text(
+            extent={{-102,130},{98,100}},
+            textString="%name",
+            lineColor={0,0,255})}),
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+              100}}), graphics),
+      DymolaStoredErrors,
+      Documentation(info="<html>
+<p>This is a simple TRIAC model based on the extended thyristor model Modelica.Electrical.Analog.Semiconductors.Thyristor. </p>
+<p>Two thyristors are contrarily connected in parallel, whereas each transistor is connected with a diode. </p>
+<p>Further information regarding the electrical component TRIAC can be detected in documentation of the ideal TRIAC model. </p>
+<p>As an additional information: this model is based on the Modelica.Electrical.Analog.Semiconductors.Thyristor. </p>
+<p><b>Attention:</b> The model seems to be very sensitive with respect to the choice of some parameters (e.g. VDRM, VRRM). This is caused by the thyristor model. Further investigations are necessary.</p>
+</html>",
+     revisions="<html>
+<ul>
+<li><i>November 25, 2009   </i> <br>
+
+       by Susann Wolf <br><br>
+       </li>
+</ul>
+</html>"));
+  end SimpleTriac;
 end Semiconductors;

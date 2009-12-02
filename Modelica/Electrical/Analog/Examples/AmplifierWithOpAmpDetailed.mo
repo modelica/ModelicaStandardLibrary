@@ -2,27 +2,27 @@ within Modelica.Electrical.Analog.Examples;
 model AmplifierWithOpAmpDetailed
   "Simple Amplifier circuit which uses OpAmpDetailed"
 
-  Modelica.Electrical.Analog.Basic.OpAmpDetailed opAmp
+  Modelica.Electrical.Analog.Basic.OpAmpDetailed opAmp 
     annotation (Placement(transformation(extent={{-26,-4},{2,24}})));
-  Modelica.Electrical.Analog.Basic.Resistor resistor(R=10000)
+  Modelica.Electrical.Analog.Basic.Resistor resistor(R=10000) 
     annotation (Placement(transformation(extent={{-74,8},{-56,26}})));
-  Modelica.Electrical.Analog.Basic.Resistor resistor1(R=20000)
+  Modelica.Electrical.Analog.Basic.Resistor resistor1(R=20000) 
     annotation (Placement(transformation(extent={{-22,46},{-4,64}})));
   Modelica.Electrical.Analog.Basic.Resistor resistor2(R=10000) annotation (
       Placement(transformation(
         extent={{-9,-9},{9,9}},
         rotation=270,
         origin={21,-23})));
-  Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(V=12, freqHz=1000)
+  Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(V=12, freqHz=1000) 
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-80,-28})));
-  Modelica.Electrical.Analog.Basic.Ground ground
+  Modelica.Electrical.Analog.Basic.Ground ground 
     annotation (Placement(transformation(extent={{-20,-70},{0,-50}})));
-  Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(V=15)
+  Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(V=15) 
     annotation (Placement(transformation(extent={{48,10},{68,30}})));
-  Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage1(V=-15)
+  Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage1(V=-15) 
     annotation (Placement(transformation(extent={{48,-10},{68,10}})));
 equation
   connect(resistor.n, opAmp.m)       annotation (Line(

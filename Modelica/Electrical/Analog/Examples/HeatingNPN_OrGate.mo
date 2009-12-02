@@ -4,23 +4,23 @@ model HeatingNPN_OrGate "Heating NPN Or Gate"
   constant Modelica.SIunits.Capacitance CapVal=0;
   constant Modelica.SIunits.Time tauVal=0;
 
-  Modelica.Thermal.HeatTransfer.Components.HeatCapacitor HeatCapacitor1(C=0.1)
+  Modelica.Thermal.HeatTransfer.Components.HeatCapacitor HeatCapacitor1(C=0.1) 
   annotation (Placement(transformation(
         origin={76,-84},
         extent={{-10,-10},{10,10}},
         rotation=180)));
-  Modelica.Thermal.HeatTransfer.Components.ThermalConductor TC1(G=0.01)
+  Modelica.Thermal.HeatTransfer.Components.ThermalConductor TC1(G=0.01) 
   annotation (Placement(transformation(
         origin={90,-50},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Thermal.HeatTransfer.Components.ThermalConductor TC2(G=0.01)
+  Modelica.Thermal.HeatTransfer.Components.ThermalConductor TC2(G=0.01) 
   annotation (Placement(transformation(
         origin={60,-50},
         extent={{-10,-10},{10,10}},
         rotation=270)));
 
-  Modelica.Electrical.Analog.Sources.RampVoltage V(V=6, duration=5)
+  Modelica.Electrical.Analog.Sources.RampVoltage V(V=6, duration=5) 
   annotation (Placement(transformation(
         origin={90,38},
         extent={{-10,-10},{10,10}},
@@ -32,7 +32,7 @@ model HeatingNPN_OrGate "Heating NPN Or Gate"
     width=15,
     falling=5,
     period=50,
-    nperiod=10)
+    nperiod=10) 
               annotation (Placement(transformation(
         origin={-90,18},
         extent={{-10,-10},{10,10}},
@@ -44,47 +44,47 @@ model HeatingNPN_OrGate "Heating NPN Or Gate"
     width=15,
     falling=5,
     period=50,
-    nperiod=10)
+    nperiod=10) 
               annotation (Placement(transformation(
         origin={-50,-42},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Electrical.Analog.Basic.Resistor R1(R=1800)
+  Modelica.Electrical.Analog.Basic.Resistor R1(R=1800) 
   annotation (Placement(transformation(extent={{-90,48},{-70,68}}, rotation=0)));
-  Modelica.Electrical.Analog.Basic.Resistor R2(R=1800)
+  Modelica.Electrical.Analog.Basic.Resistor R2(R=1800) 
   annotation (Placement(transformation(extent={{-36,-22},{-16,-2}}, rotation=0)));
-  Modelica.Electrical.Analog.Basic.Resistor RI(R=40)
+  Modelica.Electrical.Analog.Basic.Resistor RI(R=40) 
   annotation (Placement(transformation(extent={{60,58},{80,78}}, rotation=0)));
-  Modelica.Electrical.Analog.Basic.Ground Gnd
+  Modelica.Electrical.Analog.Basic.Ground Gnd 
   annotation (Placement(transformation(extent={{80,0},{100,20}}, rotation=0)));
-  Modelica.Electrical.Analog.Basic.Ground Gnd1
+  Modelica.Electrical.Analog.Basic.Ground Gnd1 
   annotation (Placement(transformation(extent={{-100,-22},{-80,-2}}, rotation=0)));
-  Modelica.Electrical.Analog.Basic.Ground Gnd2
+  Modelica.Electrical.Analog.Basic.Ground Gnd2 
   annotation (Placement(transformation(extent={{-60,-82},{-40,-62}}, rotation=0)));
-  Modelica.Electrical.Analog.Basic.Ground Gnd3
+  Modelica.Electrical.Analog.Basic.Ground Gnd3 
   annotation (Placement(transformation(extent={{-10,16},{10,36}}, rotation=0)));
-  Modelica.Electrical.Analog.Basic.Ground Gnd4
+  Modelica.Electrical.Analog.Basic.Ground Gnd4 
   annotation (Placement(transformation(extent={{30,-52},{50,-32}}, rotation=0)));
-  Modelica.Electrical.Analog.Basic.Capacitor C1(C=CapVal)
+  Modelica.Electrical.Analog.Basic.Capacitor C1(C=CapVal) 
   annotation (Placement(transformation(
         origin={-70,38},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Electrical.Analog.Basic.Capacitor C2(C=CapVal)
+  Modelica.Electrical.Analog.Basic.Capacitor C2(C=CapVal) 
   annotation (Placement(transformation(
         origin={60,42},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Electrical.Analog.Basic.Capacitor C3(C=CapVal)
+  Modelica.Electrical.Analog.Basic.Capacitor C3(C=CapVal) 
   annotation (Placement(transformation(
         origin={-16,-40},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Electrical.Analog.Basic.Ground Gnd5
+  Modelica.Electrical.Analog.Basic.Ground Gnd5 
   annotation (Placement(transformation(extent={{-26,-76},{-6,-56}}, rotation=0)));
-  Modelica.Electrical.Analog.Basic.Ground Gnd6
+  Modelica.Electrical.Analog.Basic.Ground Gnd6 
   annotation (Placement(transformation(extent={{50,6},{70,26}}, rotation=0)));
-  Modelica.Electrical.Analog.Basic.Ground Gnd7
+  Modelica.Electrical.Analog.Basic.Ground Gnd7 
   annotation (Placement(transformation(extent={{-80,2},{-60,22}}, rotation=0)));
   Semiconductors.HeatingNPN T1(
     Bf=100,
@@ -104,7 +104,7 @@ model HeatingNPN_OrGate "Heating NPN Or Gate"
     Gbe=1.e-12,
     EMax=40,
     vt_t(start=0.01, fixed=false),
-    useHeatPort=true)
+    useHeatPort=true) 
            annotation (Placement(transformation(extent={{-20,48},{0,68}},
           rotation=0)));
   Semiconductors.HeatingNPN T2(
@@ -125,56 +125,56 @@ model HeatingNPN_OrGate "Heating NPN Or Gate"
     Gbe=1.e-12,
     EMax=40,
     vt_t(start=0.01, fixed=false),
-    useHeatPort=true)
+    useHeatPort=true) 
            annotation (Placement(transformation(extent={{20,-22},{40,-2}},
           rotation=0)));
 equation
-  connect(Gnd1.p, V1.n)
+  connect(Gnd1.p, V1.n) 
                       annotation (Line(points={{-90,-2},{-90,8}}));
-  connect(V1.p, R1.p)
+  connect(V1.p, R1.p) 
                     annotation (Line(points={{-90,28},{-90,58}}));
-  connect(RI.n, V.p)
+  connect(RI.n, V.p) 
                    annotation (Line(points={{80,68},{90,68},{90,48}}));
-  connect(Gnd.p, V.n)
+  connect(Gnd.p, V.n) 
                     annotation (Line(points={{90,20},{90,28}}));
-  connect(V2.p, R2.p)
+  connect(V2.p, R2.p) 
   annotation (Line(points={{-50,-32},{-50,-12},{-36,-12}}));
-  connect(Gnd2.p, V2.n)
+  connect(Gnd2.p, V2.n) 
                       annotation (Line(points={{-50,-62},{-50,-52}}));
-  connect(Gnd7.p, C1.n)
+  connect(Gnd7.p, C1.n) 
                       annotation (Line(points={{-70,22},{-70,28}}));
-  connect(C2.p, RI.p)
+  connect(C2.p, RI.p) 
                     annotation (Line(points={{60,52},{60,68}}));
-  connect(Gnd6.p, C2.n)
+  connect(Gnd6.p, C2.n) 
                       annotation (Line(points={{60,26},{60,32}}));
-  connect(C3.p, R2.n)
+  connect(C3.p, R2.n) 
   annotation (Line(points={{-16,-30},{-16,-21},{-16,-21},{-16,-12}}));
-  connect(C1.p, R1.n)
+  connect(C1.p, R1.n) 
                     annotation (Line(points={{-70,48},{-70,58}}));
-  connect(Gnd5.p, C3.n)
+  connect(Gnd5.p, C3.n) 
   annotation (Line(points={{-16,-56},{-16,-53},{-16,-50},{-16,-50}}));
-  connect(T1.B, R1.n)
+  connect(T1.B, R1.n) 
   annotation (Line(points={{-20,58},{-70,58}}, color={0,0,255}));
-  connect(T1.E, Gnd3.p)
+  connect(T1.E, Gnd3.p) 
   annotation (Line(points={{0,53},{0,36}}, color={0,0,255}));
-  connect(RI.p, T1.C)
+  connect(RI.p, T1.C) 
                     annotation (Line(points={{60,68},{30,68},{30,63},{0,63}},
         color={0,0,255}));
-  connect(T2.B, R2.n)
+  connect(T2.B, R2.n) 
   annotation (Line(points={{20,-12},{-16,-12}}, color={0,0,255}));
-  connect(T2.E, Gnd4.p)
+  connect(T2.E, Gnd4.p) 
   annotation (Line(points={{40,-17},{40,-32}}, color={0,0,255}));
-  connect(T2.C, RI.p)
+  connect(T2.C, RI.p) 
   annotation (Line(points={{40,-7},{40,68},{60,68}}, color={0,0,255}));
-  connect(TC1.port_b, HeatCapacitor1.port)
+  connect(TC1.port_b, HeatCapacitor1.port) 
                                          annotation (Line(points={{90,-60},{84,
           -60},{84,-74},{76,-74}}, color={191,0,0}));
-  connect(TC2.port_b, HeatCapacitor1.port)
+  connect(TC2.port_b, HeatCapacitor1.port) 
                                          annotation (Line(points={{60,-60},{68,
           -60},{68,-74},{76,-74}}, color={191,0,0}));
-  connect(TC2.port_a, T2.heatPort)
+  connect(TC2.port_a, T2.heatPort) 
   annotation (Line(points={{60,-40},{60,-22},{30,-22}}, color={191,0,0}));
-  connect(TC1.port_a, T1.heatPort)
+  connect(TC1.port_a, T1.heatPort) 
                                  annotation (Line(points={{90,-40},{90,2},{-10,
           2},{-10,48}}, color={191,0,0}));
 annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,

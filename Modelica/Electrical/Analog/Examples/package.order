@@ -20,3 +20,5 @@ AmplifierWithOpAmpDetailed
 CompareTransformers
 ControlledSwitchWithArc
 Utilities
+SimpleTriacCircuit
+IdealTriacCircuit
