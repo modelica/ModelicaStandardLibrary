@@ -6,8 +6,9 @@
 
 /* Utility functions which can be called by external Modelica functions.
 
-   These functions are defined in Section 12.9.6 of the
-   Modelica Specification 3.0 and 3.1.
+   These functions are defined in section 12.8.6 of the
+   Modelica Specification 3.0 and section 12.9.6 of the
+   Modelica Specification 3.1.
 
    A generic C-implementation of these functions cannot be given,
    because it is tool dependent how strings are output in a
