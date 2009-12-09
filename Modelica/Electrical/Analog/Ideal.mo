@@ -997,7 +997,8 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{-45,-10},{-10,-10},{-10,10},{20,10}}, color={0,0,255}),
+          Line(points={{-45,-10},{-10,-10},{-10,10},{20,10}}, color={0,0,255}), 
+
           Line(points={{0,35},{0,80}}, color={0,0,255}),
           Line(points={{0,-35},{0,-80}}, color={0,0,255}),
           Line(points={{-90,50},{-60,50}}, color={0,0,255}),
@@ -1340,7 +1341,8 @@ where the constant <i>G</i> is called the gyration conductance.
             lineThickness=0.25,
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
-          Line(points={{-90,50},{-40,50},{-40,-50},{-90,-50}}, color={0,0,255}),
+          Line(points={{-90,50},{-40,50},{-40,-50},{-90,-50}}, color={0,0,255}), 
+
           Line(points={{-30,60},{20,60}}, color={0,0,255}),
           Polygon(
             points={{20,63},{30,60},{20,57},{20,63}},
@@ -2560,4 +2562,184 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 </ul>
 </html>"));
   end IdealTriac;
+
+  model AD_Converter "Simple n-bit analog to digital converter"
+    import L = Modelica.Electrical.Digital.Interfaces.Logic;
+    Modelica.Electrical.Analog.Interfaces.PositivePin p
+      "Positive electrical pin (input)" 
+      annotation (Placement(transformation(extent={{-80,60},{-60,80}},
+            rotation=0), iconTransformation(extent={{-80,60},{-60,80}})));
+    Modelica.Electrical.Analog.Interfaces.NegativePin n
+      "Negative electrical pin (input)" 
+      annotation (Placement(transformation(extent={{-80,-80},{-60,-60}},
+            rotation=0), iconTransformation(extent={{-80,-80},{-60,-60}})));
+    Modelica.Electrical.Digital.Interfaces.DigitalOutput y[N] "Digital output" 
+      annotation (Placement(transformation(extent={{60,-10},{80,10}},
+            rotation=0), iconTransformation(extent={{60,-10},{80,10}})));
+      Modelica.Electrical.Digital.Interfaces.DigitalInput trig "Trigger input"  annotation (
+        Placement(transformation(extent={{-10,60},{10,80}}), iconTransformation(
+          extent={{-10,-10},{10,10}},
+          rotation=-90,
+          origin={0,90})));
+    parameter Integer N(final min=1, start = 8)
+      "Resolution in bits - output signal width";
+    parameter Modelica.SIunits.Voltage VRefHigh(start = 10)
+      "High reference voltage";
+    parameter Modelica.SIunits.Voltage VRefLow(final max=VRefHigh, start = 0)
+      "Low reference voltage";
+    parameter Modelica.SIunits.Resistance Rin(start = 10^6) "Input resistance";
+    Integer z;
+    Real u;
+
+  initial equation
+   for i in 1:N loop
+    y[i]=L.'X';
+   end for;
+
+  algorithm
+    when (trig==4 or trig==8) then
+      z:=if u>VRefLow then integer((u-VRefLow)/(VRefHigh-VRefLow)*(2^N - 1) + 0.5) else 0;
+      for i in 1:N loop
+        y[i] :=if mod(z, 2) > 0 then L.'1' else L.'0';
+        z:=div(z, 2);
+      end for;
+    end when;
+  equation
+        p.v - n.v = u;
+        p.i*Rin = u;
+        p.i + n.i = 0 
+    annotation (uses(Modelica(version="3.1")),  Documentation(info="
+<HTML>
+<P>
+Simple analog to digital converter with a variable resolution of n bits.
+It converts the input voltage <code>ppin.v-npin.v</code> to an n-vector of type Logic
+(9-valued logic according to IEEE 1164 STD_ULOGIC). The input resistance between positive and negative pin is determined by <code>Rin</code>. 
+Further effects (like input capacities) have to be modeled outside the converter, since this should be a general model. <\P>
+
+<P>
+The input singnal range (VRefLo,VRefHi) is divided into 2^n-1 equally spaced stages of lenght Vlsb:=(VRefHi-VRefLo)/(2^n-1).
+The output signal is the binary code of <code> k </code> as long as the input voltage takes values in the k-th stage, namely in the range from 
+<code> Vlsb*(k-0.5) </code> to <code> m*(k+0.5) </code>. This is called mid-tread operation. Additionally the output can only change
+its value if the trigger signal <CODE> trig </CODE> of type Logic changes to '1' (forced or weak).
+</P>
+ 
+<P>
+The output vector is a 'little-endian'. i.e. that the first bit y[1] is the least significant one (LSB).
+<\P>
+ 
+<P>
+This is an abstract model of an ADC. Therefore, it can not cover the dynamic behaviour of the converter. 
+Hence the output will change instantaniously when the trigger signal rises. 
+<\P>
+ 
+ 
+</HTML>
+", revisions="<html>
+<ul>
+<li><i> October 13, 2009   </i>
+       by Matthias Franke
+       </li>
+</ul>
+</html>"),   Icon(coordinateSystem(
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics
+          ={
+          Rectangle(extent={{-60,80},{60,-80}}, lineColor={0,0,255}),
+          Polygon(
+            points={{-60,-80},{60,80},{60,-80},{-60,-80}},
+            lineColor={0,0,255},
+            smooth=Smooth.None,
+            fillColor={127,0,127},
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{-60,40},{60,0}},
+            lineColor={0,0,255},
+            textString="%n-bit"),
+          Text(
+            extent={{-60,0},{60,-40}},
+            lineColor={0,0,255},
+            textString="ADC")}),
+      Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
+              100,100}}), graphics));
+    annotation (Documentation(info="<html>
+<pre>Simple analog to digital converter with a variable resolution of N bits. It converts the input voltage p.v-n.v to an N-vector of type Logic (9-valued logic according to IEEE 1164 STD_ULOGIC). The input resistance between positive and negative pin is determined by Rin. Further effects (like input capacities) have to be modeled outside the converter, since this should be a general model. </pre>
+<pre>The input singnal range (VRefLow,VRefHigh) is divided into 2^N-1 equally spaced stages of lenght Vlsb:=(VRefHigh-VRefLow)/(2^N-1). The output signal is the binary code of k as long as the input voltage takes values in the k-th stage, namely in the range from Vlsb*(k-0.5) to m*(k+0.5) . This is called mid-tread operation. Additionally the output can only change its value if the trigger signal trig of type Logic changes to &apos;1&apos; (forced or weak). </pre>
+<p>The output vector is a &apos;little-endian&apos;. i.e. that the first bit y[1] is the least significant one (LSB). </p>
+<p>This is an abstract model of an ADC. Therefore, it can not cover the dynamic behaviour of the converter. Hence the output will change instantaniously when the trigger signal rises. </p>
+</html>"));
+  end AD_Converter;
+
+  model DA_Converter "Simple digital to analog converter"
+    import L = Modelica.Electrical.Digital.Interfaces.Logic;
+    Modelica.Electrical.Digital.Interfaces.DigitalInput trig "Trigger input" annotation (
+        Placement(transformation(extent={{-10,60},{10,80}}), iconTransformation(
+          extent={{-10,-10},{10,10}},
+          rotation=-90,
+          origin={0,90})));
+    Modelica.Electrical.Digital.Interfaces.DigitalInput x[N] "Digital input" 
+      annotation (Placement(transformation(extent={{-80,-10},{-60,10}},
+            rotation=0)));
+    Modelica.Electrical.Analog.Interfaces.PositivePin p
+      "Positive electrical pin (output)" 
+      annotation (Placement(transformation(extent={{60,60},{80,80}},
+            rotation=0), iconTransformation(extent={{60,60},{80,80}})));
+    Modelica.Electrical.Analog.Interfaces.NegativePin n
+      "Negative electrical pin (output)" 
+      annotation (Placement(transformation(extent={{60,-80},{80,-60}},
+            rotation=0), iconTransformation(extent={{60,-80},{80,-60}})));
+
+    Modelica.SIunits.Voltage vout;
+    Real y(start=0);
+    parameter Integer N(final min=1, start = 8)
+      "Resolution - input signal width";
+    parameter Modelica.SIunits.Voltage Vref(start = 10) "Reference voltage";
+
+  algorithm
+     when trig==4 or trig==8 then
+       y:=0;
+       for i in 1:N loop
+         y := if ( x[i] == 4 or x[i] == 8) then  y + 2^(i-1) else y;
+       end for;
+       vout := y*Vref/(2^N - 1);
+     end when;
+
+  equation
+    p.v - n.v = vout;
+    p.i + n.i = 0;
+
+   annotation (uses(Modelica(version="3.1")),  Documentation(info="<html>
+<pre>Simple digital to analog converter with a variable input signal width of N bits. The input signal is an N-vector of type Logic (9-valued logic according to IEEE 1164 STD_ULOGIC). The output voltage of value y </pre>is generated by an ideal voltage source. The output can only change if the trigger signal trig </pre>of type Logic changes to &apos;1&apos; (forced or weak). In this case, the output voltage is calculated in the following way: 
+<pre>       N
+  y = SUM ( x[i]*2^(i-1) )*Vref/(2^N-1),
+      i=1</pre>
+<p>where x[i], i=1,...,N is 1 or 0. and Vref is the reference value. Therefore, the first bit in the input vector x[1] is the least significant one (LSB) and x[N] is the most significant bit (MSB). </p>
+<p>This is an abstract model of a DAC. Hence, it can not cover the dynamic behaviour of the converter. Therefore the output will change instantaniously when the trigger signal rises. </p>
+</html>",
+   revisions="<html>
+<ul>
+<li><i> October 13, 2009   </i>
+       by Matthias Franke
+       </li>
+</ul>
+</html>"),   Icon(coordinateSystem(
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics
+          ={
+          Rectangle(extent={{-60,80},{60,-80}}, lineColor={0,0,255}),
+          Polygon(
+            points={{-60,-80},{60,80},{-60,80},{-60,-80}},
+            lineColor={0,0,255},
+            smooth=Smooth.None,
+            fillColor={127,0,127},
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{-60,40},{60,0}},
+            lineColor={0,0,255},
+            textString="%n-bit"),
+          Text(
+            extent={{-60,0},{60,-40}},
+            lineColor={0,0,255},
+            textString="DAC")}),
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}), graphics));
+
+  end DA_Converter;
 end Ideal;
