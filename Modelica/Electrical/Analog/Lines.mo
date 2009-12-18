@@ -204,7 +204,7 @@ equation
     connect(G[dim_vector_lgc].n,M.p);
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Rectangle(extent={{40,-40},{-40,40}},
+                -100},{100,100}}), graphics={Rectangle(extent={{40,-40},{-40,40}}, 
                 lineColor={0,0,255})}),
                             Diagram(coordinateSystem(preserveAspectRatio=false,
               extent={{-100,-100},{100,100}}),graphics));
@@ -238,7 +238,7 @@ equation
     connect(R[lines].n,n[lines]);
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Rectangle(extent={{20,-40},{-20,40}},
+                -100},{100,100}}), graphics={Rectangle(extent={{20,-40},{-20,40}}, 
                 lineColor={0,0,255})}));
 end segment_last;
 

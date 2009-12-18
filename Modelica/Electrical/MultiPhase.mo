@@ -70,7 +70,8 @@ package MultiPhase "Library for electrical components with 2, 3 or more phases"
       connect(starT1.pin_n,groundT1. p) 
         annotation (Line(points={{-40,-72},{-40,-80}}, color={0,0,255}));
       connect(starT2.pin_n,groundT2. p) 
-        annotation (Line(points={{-20,-72},{-20,-80}}, color={0,0,255}));
+        annotation (Line(points={{-20,-72},{-20,-76},{-20,-76},{-20,-80}},
+                                                       color={0,0,255}));
       connect(starS.plug_p, sineVoltage.plug_n) 
         annotation (Line(points={{-90,-52},{-90,20}}, color={0,0,255}));
       connect(sineVoltage.plug_p, idealTransformer.plug_p1) 
@@ -78,7 +79,8 @@ package MultiPhase "Library for electrical components with 2, 3 or more phases"
       connect(idealTransformer.plug_n1, starT1.plug_p) 
         annotation (Line(points={{-40,0},{-40,-52}}, color={0,0,255}));
       connect(starT2.plug_p, idealTransformer.plug_n2) 
-        annotation (Line(points={{-20,-52},{-20,0}}, color={0,0,255}));
+        annotation (Line(points={{-20,-52},{-20,-26},{-20,-26},{-20,0}},
+                                                     color={0,0,255}));
       connect(idealTransformer.plug_p2, transformerR.plug_p) 
         annotation (Line(points={{-20,20},{0,20}}, color={0,0,255}));
       connect(transformerR.plug_n, transformerL.plug_p) 
@@ -94,7 +96,9 @@ Star-connected voltage source feeds via a Y-Y-transformer with internal impedanc
 Using f=5 Hz LT=3mH defines nominal voltage drop of approximately 10 %.<br>
 Simulate for 1 second (2 periods) and compare voltages and currents of source, transformer and load.
 </p>
-</HTML>"), Diagram(graphics));
+</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}),
+                   graphics));
     end TransformerYY;
 
     model TransformerYD "Test example with multiphase components"
@@ -189,7 +193,9 @@ Star-connected voltage source feeds via a Y-D-transformer with internal impedanc
 Using f=5 Hz LT=3mH defines nominal voltage drop of approximately 10 %.<br>
 Simulate for 1 second (2 periods) and compare voltages and currents of source, transformer and load.
 </p>
-</HTML>"), Diagram(graphics));
+</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}),
+                   graphics));
     end TransformerYD;
 
     model Rectifier "Test example with multiphase components"
@@ -267,7 +273,8 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
       connect(idealDiode1.plug_n, star1.plug_p) 
         annotation (Line(points={{10,30},{10,40}}, color={0,0,255}));
       connect(idealDiode2.plug_p, star2.plug_p) 
-        annotation (Line(points={{10,-30},{10,-40}}, color={0,0,255}));
+        annotation (Line(points={{10,-30},{10,-35},{10,-40},{10,-40}},
+                                                     color={0,0,255}));
       connect(star2.pin_n, loadR.n) 
         annotation (Line(points={{10,-60},{50,-60},{50,-10}}, color={0,0,255}));
       connect(star2.pin_n, cDC2.n) 
@@ -283,7 +290,9 @@ Star-connected voltage source feeds via a line reactor a diode bridge rectifier 
 Using f=5 Hz, simulate for 1 second (2 periods) and compare voltages and currents of source and DC burden,
 neglecting initial transient.
 </p>
-</HTML>"), Diagram(graphics));
+</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}),
+                   graphics));
     end Rectifier;
     annotation (Documentation(info="<HTML>
 <p>
@@ -460,7 +469,9 @@ when used in parallel to another component.
 Connects pin <i>k</i> of plug_p to pin_p, leaving the other pins of plug_p unconnected.
 </p>
 </HTML>"),
-        Diagram(graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics));
     end PlugToPin_p;
 
     model PlugToPin_n "Connect one (negative) Pin"
@@ -505,7 +516,9 @@ Connects pin <i>k</i> of plug_p to pin_p, leaving the other pins of plug_p uncon
 Connects pin <i>k</i> of plug_n to pin_n, leaving the other pins of plug_n unconnected.
 </p>
 </HTML>"),
-        Diagram(graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics));
     end PlugToPin_n;
 
     model Resistor "Ideal linear electrical resistors"
@@ -654,7 +667,9 @@ Contains m conductors (Modelica.Electrical.Analog.Basic.Conductor)
 Contains m capacitors (Modelica.Electrical.Analog.Basic.Capacitor)
 </p>
 </HTML>"),
-        Diagram(graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics));
     end Capacitor;
 
     model Inductor "Ideal linear electrical inductors"
@@ -695,7 +710,9 @@ Contains m capacitors (Modelica.Electrical.Analog.Basic.Capacitor)
 Contains m inductors (Modelica.Electrical.Analog.Basic.Inductor)
 </p>
 </HTML>"),
-        Diagram(graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics));
     end Inductor;
 
     model SaturatingInductor "Simple model of inductors with saturation"
@@ -1020,7 +1037,9 @@ C = Cmin, if 0 &le; C_Port.signal &lt; Cmin, where
 Cmin is a parameter with default value Modelica.Constants.eps.
 </P>
 </HTML>"),
-        Diagram(graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics));
     end VariableCapacitor;
 
     model VariableInductor
@@ -1078,7 +1097,9 @@ L = Lmin, if 0 &le; L_Port.signal &lt; Lmin, where
 Lmin is a parameter with default value Modelica.Constants.eps.
 </P>
 </HTML>"),
-        Diagram(graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics));
     end VariableInductor;
     annotation (Documentation(info="<HTML>
 <p>
@@ -1563,7 +1584,9 @@ Contains m ideal transformers (Modelica.Electrical.Analog.Ideal.IdealTransformer
 Contains m idles (Modelica.Electrical.Analog.Ideal.Idle)
 </p>
 </HTML>"),
-        Diagram(graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics));
     end Idle;
 
     model Short "Multiphase short cut branch"
@@ -1601,7 +1624,9 @@ Contains m idles (Modelica.Electrical.Analog.Ideal.Idle)
 Contains m short cuts (Modelica.Electrical.Analog.Ideal.Short)
 </p>
 </HTML>"),
-        Diagram(graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics));
     end Short;
 
     model IdealOpeningSwitch "Multiphase ideal opener"
@@ -2341,20 +2366,22 @@ thus measuring the m currents <i>i[m]</i> flowing from the m pins of plug_p to t
             color={0,0,255}));
     connect(currentSensor.plug_n, nc) 
       annotation (Line(points={{-30,0},{100,0}}, color={0,0,255}));
-    connect(voltageSensor.plug_p, pv) annotation (Line(points={{6.12303e-016,
+    connect(voltageSensor.plug_p, pv) annotation (Line(points={{6.12323e-016,
               -10},{0,-10},{0,100}}, color={0,0,255}));
-    connect(voltageSensor.plug_n, nv) annotation (Line(points={{-6.12303e-016,
+    connect(voltageSensor.plug_n, nv) annotation (Line(points={{-6.12323e-016,
               -30},{0,-30},{0,-100}}, color={0,0,255}));
     connect(currentSensor.i, product.u2) annotation (Line(points={{-40,-11},{
               -40,-20},{-36,-20},{-36,-28}}, color={0,0,127}));
     connect(product.u1, voltageSensor.v) annotation (Line(points={{-24,-28},{
-              -24,-20},{-11,-20}}, color={0,0,127}));
-    connect(product.y, sum.u) annotation (Line(points={{-30,-51},{-30,-58}},
+              -24,-20},{11,-20}},  color={0,0,127}));
+    connect(product.y, sum.u) annotation (Line(points={{-30,-51},{-30,-54.5},{
+              -30,-54.5},{-30,-58}},
             color={0,0,127}));
     connect(sum.y, power) annotation (Line(points={{-30,-81},{-30,-90},{-80,-90},
               {-80,-110}}, color={0,0,127}));
     annotation (
-      Icon(graphics={
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                100}}), graphics={
             Line(points={{0,100},{0,70}}, color={0,0,255}),
             Line(points={{0,-70},{0,-100}}, color={0,0,255}),
             Line(points={{-80,-100},{-80,0}}, color={0,0,255}),
@@ -2392,7 +2419,9 @@ thus measuring the m currents <i>i[m]</i> flowing from the m pins of plug_p to t
               lineColor={0,0,0},
               textString="P"),
             Line(points={{-100,0},{100,0}}, color={0,0,255})}),
-      Diagram(graphics),
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}),
+              graphics),
       Documentation(info="<html><p>
 This power sensor measures instantaneous electrical power of a multiphase system and has a separated voltage and current path. The plugs of the voltage path are <code>pv</code> and <code>nv</code>, the plugs of the current path are <code>pc</code> and <code>nc</code>. The internal resistance of each current path is zero, the internal resistance of each voltage path is infinite.
 </p></html>"));
@@ -2484,7 +2513,8 @@ This package contains multiphase potential, voltage, and current sensors.
       connect(v, signalVoltage.v) 
         annotation (Line(points={{0,70},{0,7}}, color={0,0,255}));
       annotation (
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Line(points={{-90,0},{-50,0}}, color={0,0,255}),
             Line(points={{50,0},{90,0}}, color={0,0,255}),
             Ellipse(
@@ -2497,9 +2527,7 @@ This package contains multiphase potential, voltage, and current sensors.
               extent={{-150,-110},{150,-50}},
               textString="%name",
               lineColor={0,0,255}),
-            Text(
-              extent={{-100,100},{-20,60}},
-              lineColor={0,0,0}),
+            Text(extent={{-100,100},{-20,60}}, lineColor={0,0,0}),
             Text(
               extent={{20,100},{100,60}},
               lineColor={0,0,0},
@@ -2517,7 +2545,9 @@ This package contains multiphase potential, voltage, and current sensors.
 Contains m signal controlled voltage sources (Modelica.Electrical.Analog.Sources.SignalVoltage)
 </p>
 </HTML>"),
-        Diagram(graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics));
     end SignalVoltage;
 
     model ConstantVoltage "Multiphase constant voltage source"
@@ -2533,7 +2563,8 @@ Contains m signal controlled voltage sources (Modelica.Electrical.Analog.Sources
       connect(constantVoltage.n, plug_n.pin) 
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       annotation (
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Line(points={{-90,0},{-50,0}}, color={0,0,255}),
             Line(points={{50,0},{90,0}}, color={0,0,255}),
             Ellipse(
@@ -2563,7 +2594,9 @@ Contains m signal controlled voltage sources (Modelica.Electrical.Analog.Sources
 Contains m constant voltage sources (Modelica.Electrical.Analog.Sources.ConstantVoltage)
 </p>
 </HTML>"),
-        Diagram(graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics));
     end ConstantVoltage;
 
     model SineVoltage "Multiphase sine voltage source"
@@ -2627,7 +2660,9 @@ Contains m sine voltage sources (Modelica.Electrical.Analog.Sources.SineVoltage)
 with a default phase shift of -(j-1)/m * 2*pi for j in 1:m.
 </p>
 </HTML>"),
-        Diagram(graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics));
     end SineVoltage;
 
     model SignalCurrent "Multiphase sine current source"
@@ -2655,7 +2690,8 @@ with a default phase shift of -(j-1)/m * 2*pi for j in 1:m.
       connect(i, signalCurrent.i) 
         annotation (Line(points={{0,70},{0,7}}, color={0,0,255}));
       annotation (
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Line(points={{-90,0},{-50,0}}, color={0,0,255}),
             Line(points={{50,0},{90,0}}, color={0,0,255}),
             Ellipse(
@@ -2686,7 +2722,9 @@ with a default phase shift of -(j-1)/m * 2*pi for j in 1:m.
 Contains m signal controlled current sources (Modelica.Electrical.Analog.Sources.SignalCurrent)
 </p>
 </HTML>"),
-        Diagram(graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics));
     end SignalCurrent;
 
     model ConstantCurrent "Multiphase constant current source"
@@ -2702,7 +2740,8 @@ Contains m signal controlled current sources (Modelica.Electrical.Analog.Sources
       connect(constantCurrent.n, plug_n.pin) 
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       annotation (
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Line(points={{-90,0},{-50,0}}, color={0,0,255}),
             Line(points={{50,0},{90,0}}, color={0,0,255}),
             Ellipse(
@@ -2729,7 +2768,9 @@ Contains m signal controlled current sources (Modelica.Electrical.Analog.Sources
 Contains m constant current sources (Modelica.Electrical.Analog.Sources.ConstantCurrent)
 </p>
 </HTML>"),
-        Diagram(graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics));
     end ConstantCurrent;
 
     model SineCurrent "Multiphase sine current source"
@@ -2755,7 +2796,8 @@ Contains m constant current sources (Modelica.Electrical.Analog.Sources.Constant
       connect(sineCurrent.n, plug_n.pin) 
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       annotation (
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Line(points={{-90,0},{-50,0}}, color={0,0,255}),
             Line(points={{50,0},{90,0}}, color={0,0,255}),
             Ellipse(
@@ -2789,7 +2831,9 @@ Contains m sine current sources (Modelica.Electrical.Analog.Sources.SineCurrent)
 with a default phase shift of -(j-1)/m * 2*pi for j in 1:m.
 </p>
 </HTML>"),
-        Diagram(graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics));
     end SineCurrent;
     annotation (Documentation(info="<HTML>
 <p>

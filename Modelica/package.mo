@@ -5129,8 +5129,6 @@ For an introduction, have especially a look at:
  summarizes the changes of new versions of this package.</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.Contact\">Contact</a>
   lists the contributors of the Modelica Standard Library.</li>
-<li> <a href=\"Documentation/ModelicaStandardLibrary.pdf\">ModelicaStandardLibrary.pdf</a>
-  is the complete documentation of the library in pdf format.
 <li> The <b>Examples</b> packages in the various libraries, demonstrate
   how to use the components of the corresponding sublibrary.</li>
 </ul>

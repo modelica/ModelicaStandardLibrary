@@ -54,6 +54,7 @@ ideal, i.e., it does not influence the fluid.
 
   equation
     d = Medium.density(Medium.setState_phX(port.p, inStream(port.h_outflow), inStream(port.Xi_outflow)));
+
   annotation (defaultComponentName="density",
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
               100,100}}), graphics),
@@ -74,7 +75,7 @@ ideal, i.e., it does not influence the fluid.
 This component monitors the density of the fluid passing its port.
 The sensor is ideal, i.e. it does not influence the fluid.
 </p>
-<p>If using the one port sensor please read the <a href = Modelica.Fluid.Sensors>Information</a>  first.</p>
+<p>If using the one port sensor please read the <a href = Modelica://Modelica.Fluid.Sensors>Information</a>  first.</p>
 
 </HTML>
 "));
@@ -109,6 +110,7 @@ The sensor is ideal, i.e. it does not influence the fluid.
        rho_a_inflow = d;
        rho_b_inflow = d;
     end if;
+
   annotation (defaultComponentName="density",
     Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
               100,100}},
@@ -143,6 +145,7 @@ The sensor is ideal, i.e. it does not influence the fluid.
 
   equation
     T = Medium.temperature(Medium.setState_phX(port.p, inStream(port.h_outflow), inStream(port.Xi_outflow)));
+
   annotation (defaultComponentName="temperature",
       Documentation(info="<HTML>
 <p>
@@ -150,8 +153,8 @@ This component monitors the temperature of the fluid passing its port.
 The sensor is ideal, i.e. it does not influence the fluid.
 </p>
 </HTML>
-"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics={
+"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={
           Line(points={{0,-70},{0,-100}}, color={0,0,127}),
           Ellipse(
             extent={{-20,-98},{20,-60}},
@@ -165,8 +168,8 @@ The sensor is ideal, i.e. it does not influence the fluid.
             fillColor={191,0,0},
             fillPattern=FillPattern.Solid),
           Polygon(
-            points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},{
-                12,80},{12,40},{-12,40}},
+            points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},{12,
+                80},{12,40},{-12,40}},
             lineColor={0,0,0},
             lineThickness=0.5),
           Line(
@@ -251,9 +254,10 @@ The sensor is ideal, i.e. it does not influence the fluid.
        T_a_inflow = T;
        T_b_inflow = T;
     end if;
+
   annotation (defaultComponentName="temperature",
-    Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-              100,100}},
+    Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
+              100}},
           grid={1,1}),
             graphics),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
@@ -312,9 +316,10 @@ The sensor is ideal, i.e. it does not influence the fluid.
 
   equation
     h_out = inStream(port.h_outflow);
+
   annotation (defaultComponentName="specificEnthalpy",
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics),
+    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}),     graphics),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{0,-70},{0,-100}}, color={0,0,127}),
@@ -358,9 +363,10 @@ The sensor is ideal, i.e. it does not influence the fluid.
     else
        h_out = port_b.h_outflow;
     end if;
+
   annotation (defaultComponentName="specificEnthalpy",
-    Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-              100,100}}), graphics),
+    Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
+              100}}),     graphics),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
           Text(
@@ -390,9 +396,10 @@ The sensor is ideal, i.e. it does not influence the fluid.
 
   equation
     s = Medium.specificEntropy(Medium.setState_phX(port.p, inStream(port.h_outflow), inStream(port.Xi_outflow)));
+
   annotation (defaultComponentName="specificEntropy",
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics),
+    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}),     graphics),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{0,-70},{0,-100}}, color={0,0,127}),
@@ -443,9 +450,10 @@ The sensor is ideal, i.e. it does not influence the fluid.
        s_a_inflow = s;
        s_b_inflow = s;
     end if;
+
   annotation (defaultComponentName="specificEntropy",
-    Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-              100,100}}), graphics),
+    Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
+              100}}),     graphics),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
           Text(
@@ -492,9 +500,10 @@ The sensor is ideal, i.e. it does not influence the fluid.
   equation
     CVec = inStream(port.C_outflow);
     C = CVec[ind];
+
   annotation (defaultComponentName="traceSubstance",
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics),
+    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}),     graphics),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{0,-70},{0,-100}}, color={0,0,127}),
@@ -549,9 +558,10 @@ The sensor is ideal, i.e. it does not influence the fluid.
     else
        C = port_b.C_outflow[ind];
     end if;
+
   annotation (defaultComponentName="traceSubstance",
-    Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-              100,100}}), graphics),
+    Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
+              100}}),     graphics),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
           Text(
@@ -583,9 +593,10 @@ The sensor is ideal, i.e. it does not influence the fluid.
 
   equation
     m_flow = port_a.m_flow;
+
   annotation (
-    Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-              100,100}}), graphics),
+    Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
+              100}}),     graphics),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{70,0},{100,0}}, color={0,128,255}),
@@ -634,9 +645,10 @@ The sensor is ideal, i.e., it does not influence the fluid.
        rho_b_inflow = d;
     end if;
     V_flow = port_a.m_flow/d;
+
   annotation (
-    Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-              100,100}}), graphics),
+    Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
+              100}}),     graphics),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
           Text(

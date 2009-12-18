@@ -47,8 +47,8 @@ equation
   connect(Ground1.p, IdealCommutingSwitch1.n1) annotation (Line(
         points={{-60,-20},{-60,-5}},
         color={0,0,255}));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}),
+  annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+              -100},{100,100}}),
             graphics),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
@@ -142,8 +142,8 @@ equation
             lineColor={0,0,0},
             textString="R=%R"),
           Line(points={{-74,0},{-80,0},{-60,0}}, color={85,255,85}),
-          Line(points={{-80,-20},{-60,-20},{-60,-16},{-40,-10},{-4,-10}}, color=
-               {85,255,85}),
+          Line(points={{-80,-20},{-60,-20},{-60,-16},{-40,-10},{-4,-10}}, color
+              ={85,255,85}),
           Line(points={{4,-10},{40,-10},{60,-16},{60,-20},{80,-20}}, color={85,
                 255,85}),
           Line(points={{80,0},{60,0}}, color={85,255,85}),

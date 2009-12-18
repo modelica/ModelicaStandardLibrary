@@ -78,7 +78,8 @@ equation
           Line(points={{-72,-2},{-60.0698,-12.907},{-49.0698,-12.907}}, color={
                 0,0,127}),
           Polygon(
-            points={{-48.8808,-11},{-48.8808,-15},{-44.8808,-13},{-48.8808,-11}},
+            points={{-48.8808,-11},{-48.8808,-15},{-44.8808,-13},{-48.8808,-11}}, 
+
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,127}),
@@ -166,7 +167,8 @@ equation
           Line(points={{-72,-2},{-60.0698,-12.907},{-49.0698,-12.907}}, color={
                 0,0,255}),
           Polygon(
-            points={{-48.8808,-11},{-48.8808,-15},{-44.8808,-13},{-48.8808,-11}},
+            points={{-48.8808,-11},{-48.8808,-15},{-44.8808,-13},{-48.8808,-11}}, 
+
             lineColor={0,0,255},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
@@ -300,7 +302,8 @@ equation
           Line(points={{-62,-2},{-50.0698,-12.907},{-39.0698,-12.907}}, color={
                 0,0,127}),
           Polygon(
-            points={{-38.8808,-11},{-38.8808,-15},{-34.8808,-13},{-38.8808,-11}},
+            points={{-38.8808,-11},{-38.8808,-15},{-34.8808,-13},{-38.8808,-11}}, 
+
             lineColor={0,0,127},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
@@ -1025,8 +1028,8 @@ Passes a Real signal through without modification.  Enables signals to be read o
             rotation=0)));
   equation
     y = u;
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{
-              -100,-100},{100,100}}),
+    annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+              -100},{100,100}}),
                         graphics),
                          Documentation(info="<html>
 <p>Passes a Boolean signal through without modification.  Enables signals to be read out of one bus, have their name changed and be sent back to a bus.</p>

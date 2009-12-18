@@ -117,7 +117,8 @@ and the accompanying <b>disclaimer</b>
           points={{-2,-38},{2,-46},{8,-56},{14,-64}},
           color={0,0,0},
           thickness=0.5)}),
-    Diagram(graphics={
+    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+            100,100}}), graphics={
         Rectangle(
           extent={{200,162},{380,312}},
           fillColor={235,235,235},

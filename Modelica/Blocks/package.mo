@@ -735,7 +735,7 @@ end Examples;
 
 
 annotation (
-  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), 
       graphics={
       Rectangle(extent={{-32,-6},{16,-35}}, lineColor={0,0,0}),
       Rectangle(extent={{-32,-56},{16,-85}}, lineColor={0,0,0}),

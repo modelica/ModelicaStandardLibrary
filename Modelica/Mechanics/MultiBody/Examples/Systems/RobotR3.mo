@@ -358,7 +358,8 @@ load inertia.
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Bitmap(extent={{-75.5,98.25},{87,-96.75}}, fileName=
-                "../../../../Images/MultiBody/Examples/Systems/robot_kr15.bmp"),
+                "../../../../Images/MultiBody/Examples/Systems/robot_kr15.bmp"), 
+
           Text(
             extent={{-111.5,130},{108.5,100}},
             textString="%name",
@@ -383,6 +384,7 @@ to plot variables.
 <IMG SRC=\"../Images/MultiBody/Examples/Systems/r3_fullRobot.png\" ALT=\"model Examples.Loops.Systems.RobotR3.fullRobot\">
 </p>
 </HTML>"));
+
   end fullRobot;
   extends Modelica.Icons.Library;
   import SI = Modelica.SIunits;
@@ -673,7 +675,7 @@ motion on the controlBus of the r3 robot.
           index=1,
           extent=[6,3; 6,3],
           style(color=0, rgbcolor={0,0,0})), Line(
-          points={{10,80},{80,80},{80,7},{98,7}},
+          points={{10,80},{80,80},{80,0},{100,0}},
           color={255,204,51},
           thickness=0.5));
       connect(pathToAxis2.axisControlBus, controlBus.axisControlBus2) annotation (
@@ -682,7 +684,7 @@ motion on the controlBus of the r3 robot.
           index=1,
           extent=[6,3; 6,3],
           style(color=0, rgbcolor={0,0,0})), Line(
-          points={{10,50},{77,50},{77,5},{97,5}},
+          points={{10,50},{77,50},{77,0},{100,0}},
           color={255,204,51},
           thickness=0.5));
       connect(pathToAxis3.axisControlBus, controlBus.axisControlBus3) annotation (
@@ -691,7 +693,7 @@ motion on the controlBus of the r3 robot.
           index=1,
           extent=[6,3; 6,3],
           style(color=0, rgbcolor={0,0,0})), Line(
-          points={{10,20},{75,20},{75,3},{96,3}},
+          points={{10,20},{75,20},{75,0},{100,0}},
           color={255,204,51},
           thickness=0.5));
       connect(pathToAxis4.axisControlBus, controlBus.axisControlBus4) annotation (
@@ -718,7 +720,7 @@ motion on the controlBus of the r3 robot.
           index=1,
           extent=[6,3; 6,3],
           style(color=0, rgbcolor={0,0,0})), Line(
-          points={{10,-70},{78,-70},{78,-6},{98,-6}},
+          points={{10,-70},{78,-70},{78,0},{100,0}},
           color={255,204,51},
           thickness=0.5));
       annotation (
@@ -866,7 +868,7 @@ motion on the controlBus of the r3 robot.
           index=1,
           extent=[6,3; 6,3],
           style(color=0, rgbcolor={0,0,0})), Line(points={{-19,60},{40,60},{40,
-              4},{96,4}}, color={0,0,127}));
+              0},{100,0}},color={0,0,127}));
       annotation (defaultComponentName="pathToAxis1",
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -990,7 +992,8 @@ the definition of initial values considerably.
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={192,192,192}),
             Polygon(
-              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}},
+              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}}, 
+
               lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={128,128,128}),
@@ -1092,7 +1095,8 @@ Default values for all parameters are given for joint 4.
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={192,192,192}),
             Polygon(
-              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}},
+              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}}, 
+
               lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={128,128,128}),
@@ -1430,7 +1434,8 @@ produced by the motor).
               lineColor={0,0,255},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid),
-            Line(points={{-31,-41},{-78,-41},{-78,39},{-30,39}}, color={0,0,255}),
+            Line(points={{-31,-41},{-78,-41},{-78,39},{-30,39}}, color={0,0,255}), 
+
             Rectangle(
               extent={{-30,-26},{30,-56}},
               fillColor={255,255,255},
@@ -2080,7 +2085,7 @@ The robot model is described in detail in
        Systeme am Beispiel geregelter Roboter. Dissertation,
        Fortschrittberichte VDI, Reihe 20, Nr. 147, VDI-Verlag 1995.
        This report can be downloaded as compressed postscript file
-       from: <a href=\"http://www.robotic.dlr.de/Martin.Otter/publications.html\">http://www.robotic.dlr.de/Martin.Otter/publications.html</a>.
+       from: <a href=\"http://www.robotic.dlr.de/Martin.Otter\">http://www.robotic.dlr.de/Martin.Otter/publications.html</a>.
 </pre>
 <p>
 The path planning is performed in a simple way by using essentially

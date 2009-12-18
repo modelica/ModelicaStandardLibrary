@@ -33,7 +33,7 @@ package Sensors "Potential, voltage, current, and power sensors"
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-70,0},{-96,0}}, color={0,0,0}),
+          grid={1,1}), graphics={Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
             Line(points={{100,0},{70,0}}, color={0,0,255})}),
       Documentation(revisions="<html>
 <ul>

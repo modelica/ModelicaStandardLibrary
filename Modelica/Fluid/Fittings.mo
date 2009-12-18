@@ -268,7 +268,7 @@ model AbruptAdaptor
               100}},
           grid={1,1}), graphics={Rectangle(
             extent=DynamicSelect({{-100,22},{0,-22}}, {{-100,max(0.1, min(1,
-                diameter_a/max(diameter_a, diameter_b)))*60},{0,-max(0.1, min(1,
+                diameter_a/max(diameter_a, diameter_b)))*60},{0,-max(0.1, min(1, 
                 diameter_a/max(diameter_a, diameter_b)))*60}}),
             lineColor={0,0,0},
             fillPattern=FillPattern.HorizontalCylinder,

@@ -156,8 +156,8 @@ and rises between t = 2 and 8 seconds linear to 50 degree C.
 An approppriate simulating time would be 10 seconds.
 </P>
 </HTML>
-"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}),
+"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+                100}}),
             graphics),
         experiment(StopTime=10));
     end ControlledTemperature;
@@ -796,8 +796,8 @@ place from the inner to the outer cylinder):
        e2: Emission value of outer cylinder (0..1)
 </pre>
 </HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={
+"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}), graphics={
             Rectangle(
               extent={{-90,80},{-56,-80}},
               lineColor={0,0,0},
@@ -941,8 +941,8 @@ This model defines a fixed temperature T at its port in Kelvin,
 i.e., it defines a fixed temperature as a boundary condition.
 </p>
 </HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={
+"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-101}},
               lineColor={0,0,0},
@@ -1008,8 +1008,8 @@ an infinite reservoir able to absorb or generate as much energy
 as required to keep the temperature at the specified value.
 </p>
 </HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={
+"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={0,0,0},
@@ -1252,8 +1252,8 @@ in order to simulate temperature dependent losses (which are given an reference 
       T = port.T;
       port.Q_flow = 0;
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}), graphics={
             Ellipse(
               extent={{-20,-98},{20,-60}},
               lineColor={0,0,0},
@@ -1268,8 +1268,8 @@ in order to simulate temperature dependent losses (which are given an reference 
             Line(points={{12,0},{90,0}}, color={0,0,255}),
             Line(points={{-94,0},{-14,0}}, color={191,0,0}),
             Polygon(
-              points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},{
-                  12,80},{12,40},{-12,40}},
+              points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
+                  {12,80},{12,40},{-12,40}},
               lineColor={0,0,0},
               lineThickness=0.5),
             Line(
@@ -1369,8 +1369,8 @@ sensor model.
               extent={{92,-62},{34,-122}},
               lineColor={0,0,0},
               textString="K")}),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}), graphics={
             Line(points={{-90,0},{-70,0},{-70,0}}, color={191,0,0}),
             Line(points={{-98,0},{-70,0},{-70,0}}, color={191,0,0}),
             Line(points={{70,0},{94,0},{94,0}}, color={191,0,0}),
@@ -1405,8 +1405,8 @@ the two ports of this component and is provided as output signal in Kelvin.
       port_a.Q_flow + port_b.Q_flow = 0;
       Q_flow = port_a.Q_flow;
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}), graphics={
             Line(points={{-70,0},{-95,0}}, color={191,0,0}),
             Line(points={{0,-70},{0,-90}}, color={0,0,255}),
             Line(points={{94,0},{69,0}}, color={191,0,0})}),
@@ -1861,7 +1861,8 @@ Example:
     equation
       Kelvin = from_degF(Fahrenheit);
       annotation (
-        Diagram(graphics={
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics={
             Ellipse(
               extent={{-40,40},{40,-40}},
               lineColor={0,0,0},
@@ -1945,7 +1946,8 @@ and provides is as output signal.
               textString="°F"),
             Line(points={{-40,0},{-100,0}}, color={0,0,255}),
             Line(points={{40,0},{100,0}}, color={0,0,255})}),
-        Diagram(graphics={
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics={
             Ellipse(
               extent={{-40,40},{40,-40}},
               lineColor={0,0,0},
@@ -2088,7 +2090,8 @@ an infinite reservoir able to absorb or generate as much energy
 as required to keep the temperature at the specified value.
 </p>
 </HTML>
-"),     Diagram(graphics={
+"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={0,0,0},
@@ -2120,7 +2123,8 @@ as required to keep the temperature at the specified value.
       T = to_degF(port.T);
       port.Q_flow = 0;
       annotation (
-        Diagram(graphics={
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics={
             Ellipse(
               extent={{-20,-98},{20,-60}},
               lineColor={0,0,0},
@@ -2245,7 +2249,8 @@ Example:
     equation
       Kelvin = from_degRk(Rankine);
       annotation (
-        Diagram(graphics={
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics={
             Ellipse(
               extent={{-40,40},{40,-40}},
               lineColor={0,0,0},
@@ -2329,7 +2334,8 @@ and provides them as output signals.
               textString="°Rk"),
             Line(points={{-40,0},{-100,0}}, color={0,0,255}),
             Line(points={{40,0},{100,0}}, color={0,0,255})}),
-        Diagram(graphics={
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics={
             Ellipse(
               extent={{-40,40},{40,-40}},
               lineColor={0,0,0},
@@ -2472,7 +2478,8 @@ an infinite reservoir able to absorb or generate as much energy
 as required to keep the temperature at the specified value.
 </p>
 </HTML>
-"),     Diagram(graphics={
+"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={0,0,0},
@@ -2504,7 +2511,8 @@ as required to keep the temperature at the specified value.
       T = to_degRk(port.T);
       port.Q_flow = 0;
       annotation (
-        Diagram(graphics={
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics={
             Ellipse(
               extent={{-20,-98},{20,-60}},
               lineColor={0,0,0},

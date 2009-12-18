@@ -1049,8 +1049,8 @@ and sequence[2] &ne; sequence[3]. Often used values are:
         smooth=Smooth.None));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics), Icon(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics=
-           {
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics
+          ={
           Line(
             points={{70,0},{100,0}},
             color={0,0,127},
@@ -1198,8 +1198,8 @@ computed as:
         smooth=Smooth.None));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}),                                              graphics), Icon(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics=
-           {
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics
+          ={
           Line(
             points={{70,0},{100,0}},
             color={0,0,127},
@@ -1535,8 +1535,8 @@ computed as:
         smooth=Smooth.None));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics), Icon(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics=
-           {
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics
+          ={
           Line(
             points={{0,-70},{0,-100}},
             color={0,0,127},
@@ -1910,8 +1910,8 @@ and sequence[2] &ne; sequence[3]. Often used values are:
         smooth=Smooth.None));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics), Icon(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics=
-           {
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics
+          ={
           Line(
             points={{0,-70},{0,-100}},
             color={0,0,127},
@@ -2761,8 +2761,8 @@ transformed output vector as \"Real r_out[3]\";
         smooth=Smooth.None));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics), Icon(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics=
-           {
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics
+          ={
           Line(
             points={{0,-70},{0,-100}},
             color={0,0,127},

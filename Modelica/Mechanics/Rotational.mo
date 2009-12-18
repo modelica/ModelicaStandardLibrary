@@ -2303,7 +2303,8 @@ following references, especially (Armstrong and Canudas de Witt 1996):
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid),
             Line(points={{0,90},{80,70},{80,-40},{70,-40}}, color={0,0,127}),
-            Line(points={{0,90},{-80,70},{-80,-40},{-70,-40}}, color={0,0,127}),
+            Line(points={{0,90},{-80,70},{-80,-40},{-70,-40}}, color={0,0,127}), 
+
             Text(
               extent={{-150,-180},{150,-140}},
               textString="%name",
@@ -3515,7 +3516,8 @@ Gearbox.
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={192,192,192}),
             Polygon(
-              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}},
+              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}}, 
+
               lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={128,128,128}),
@@ -3777,7 +3779,9 @@ no rolling resistance. This component defines the kinematic constraint:
         flange.phi = phi_start;
       equation
         flange.tau = 0;
-        annotation (Diagram(graphics));
+        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
+                  {{-100,-100},{100,100}}),
+                            graphics));
       end Set_phi_start;
 
       encapsulated model Set_w_start "Set w_start"
@@ -3794,7 +3798,9 @@ no rolling resistance. This component defines the kinematic constraint:
         der(flange.phi) = w_start;
       equation
         flange.tau = 0;
-        annotation (Diagram(graphics));
+        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
+                  {{-100,-100},{100,100}}),
+                            graphics));
       end Set_w_start;
 
       encapsulated model Set_a_start "Set a_start"
@@ -3814,8 +3820,8 @@ no rolling resistance. This component defines the kinematic constraint:
         der(w) = a_start;
       equation
         flange.tau = 0;
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent=
-                  {{-100,-100},{100,100}}),
+        annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                  -100},{100,100}}),
                             graphics));
       end Set_a_start;
 

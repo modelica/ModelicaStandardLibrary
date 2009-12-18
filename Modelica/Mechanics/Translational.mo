@@ -908,7 +908,8 @@ to see the difference.
             grid={2,2}), graphics={
             Text(
               extent={{-98,-68},{102,-94}},
-              textString="positive force => spool moves in positive direction ",
+              textString="positive force => spool moves in positive direction ", 
+
               lineColor={0,0,255}),
             Text(
               extent={{-32,-46},{38,-62}},
@@ -2249,7 +2250,9 @@ following references, especially (Armstrong and Canudas de Witt 1996):
         flange.s = s_start;
       equation
         flange.f = 0;
-      annotation (Diagram(graphics));
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
+                  -100,-100},{100,100}}),
+                          graphics));
       end Set_s_start;
 
       encapsulated model Set_v_start "Set v_start"
@@ -2266,7 +2269,9 @@ following references, especially (Armstrong and Canudas de Witt 1996):
         der(flange.s) = v_start;
       equation
         flange.f = 0;
-      annotation (Diagram(graphics));
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
+                  -100,-100},{100,100}}),
+                          graphics));
       end Set_v_start;
 
       encapsulated model Set_a_start "Set a_start"
@@ -2284,7 +2289,9 @@ following references, especially (Armstrong and Canudas de Witt 1996):
         der(v) = a_start;
       equation
         flange.f = 0;
-      annotation (Diagram(graphics));
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
+                  -100,-100},{100,100}}),
+                          graphics));
       end Set_a_start;
 
       encapsulated model Set_flange_f "Set flange_f to zero"
@@ -3413,7 +3420,7 @@ blocks of Modelica.Blocks.Source.
         f = -f_nominal*(v/v_nominal);
       end if;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}},
+                -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}}, 
                 color={0,0,255})}), Documentation(info="<HTML>
 <p>
 Model of force, linearly dependent on velocity of flange.<br>
@@ -3553,7 +3560,7 @@ Modelica.Blocks library).
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
               Text(
               extent={{80,-28},{114,-62}},
               lineColor={0,0,0},
@@ -3585,7 +3592,7 @@ Modelica.Blocks library).
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
               Text(
               extent={{80,-28},{111,-61}},
               lineColor={0,0,0},
@@ -3620,7 +3627,7 @@ Modelica.Blocks library).
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
               Text(
               extent={{80,-28},{115,-60}},
               lineColor={0,0,0},
@@ -4286,7 +4293,7 @@ flange is the same. It is used to built up springs, dampers etc.
               points={{50,-90},{20,-80},{20,-100},{50,-90}},
               lineColor={128,128,128},
               fillColor={128,128,128},
-              fillPattern=FillPattern.Solid), Line(points={{-60,-90},{20,-90}},
+              fillPattern=FillPattern.Solid), Line(points={{-60,-90},{20,-90}}, 
                 color={0,0,0})}));
     end PartialCompliant;
 

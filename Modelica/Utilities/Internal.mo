@@ -44,29 +44,29 @@ partial package PartialModelicaServices
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-            Rectangle(
-              extent={{-100,-100},{80,60}},
-              lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Polygon(
-              points={{-100,60},{-80,100},{100,100},{80,60},{-100,60}},
-              lineColor={0,0,255},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),
-            Polygon(
-              points={{100,100},{100,-60},{80,-100},{80,60},{100,100}},
-              lineColor={0,0,255},
-              fillColor={160,160,164},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-100,-100},{80,60}},
-              lineColor={0,0,0},
-              textString="%shapeType"),
-            Text(
-              extent={{-132,160},{128,100}},
-              textString="%name",
-              lineColor={0,0,255})}),
+              Rectangle(
+                extent={{-100,-100},{80,60}},
+                lineColor={0,0,255},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
+              Polygon(
+                points={{-100,60},{-80,100},{100,100},{80,60},{-100,60}},
+                lineColor={0,0,255},
+                fillColor={192,192,192},
+                fillPattern=FillPattern.Solid),
+              Polygon(
+                points={{100,100},{100,-60},{80,-100},{80,60},{100,100}},
+                lineColor={0,0,255},
+                fillColor={160,160,164},
+                fillPattern=FillPattern.Solid),
+              Text(
+                extent={{-100,-100},{80,60}},
+                lineColor={0,0,0},
+                textString="%shapeType"),
+              Text(
+                extent={{-132,160},{128,100}},
+                textString="%name",
+                lineColor={0,0,255})}),
       Documentation(info="<html>
 
 <p>

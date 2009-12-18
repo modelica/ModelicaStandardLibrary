@@ -88,9 +88,7 @@ package Interfaces
           grid={1,1},
           initialScale=0.2), graphics={
           Text(extent={{-75,130},{75,100}}, textString="%name"),
-          Rectangle(
-            extent={{25,-100},{-25,100}},
-            lineColor={0,127,255}),
+          Rectangle(extent={{25,-100},{-25,100}}, lineColor={0,127,255}),
           Ellipse(
             extent={{-25,90},{25,40}},
             lineColor={0,0,0},
@@ -143,9 +141,7 @@ package Interfaces
           grid={1,1},
           initialScale=0.2), graphics={
           Text(extent={{-75,130},{75,100}}, textString="%name"),
-          Rectangle(
-            extent={{-25,100},{25,-100}},
-            lineColor={0,0,0}),
+          Rectangle(extent={{-25,100},{25,-100}}, lineColor={0,0,0}),
           Ellipse(
             extent={{-25,90},{25,40}},
             lineColor={0,0,0},

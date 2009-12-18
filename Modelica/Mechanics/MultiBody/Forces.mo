@@ -930,7 +930,7 @@ clarity this is not shown in the animation):
             pattern=LinePattern.Dot),
           Line(points={{-79,47},{-70,61},{-59,72},{-45,81},{-32,84},{-20,85}},
               color={0,0,0}),
-          Line(points={{77,45},{66,60},{55,69},{49,74},{41,80},{31,84},{20,85}},
+          Line(points={{77,45},{66,60},{55,69},{49,74},{41,80},{31,84},{20,85}}, 
               color={0,0,0})}),
       Documentation(info="<HTML>
 <p>
@@ -1198,7 +1198,7 @@ clarity this is not shown in the animation):
           Line(points={{20,0},{65,0}}, color={0,0,0}),
           Line(points={{-79,47},{-70,61},{-59,72},{-45,81},{-32,84},{-20,85}},
               color={0,0,0}),
-          Line(points={{76,47},{66,60},{55,69},{49,74},{41,80},{31,84},{20,85}},
+          Line(points={{76,47},{66,60},{55,69},{49,74},{41,80},{31,84},{20,85}}, 
               color={0,0,0}),
           Text(
             extent={{-144,124},{-106,102}},
@@ -1504,8 +1504,8 @@ for this situation:
             fillColor={192,192,192}),
           Line(points={{-56,0},{-56,23},{-30,23},{-30,70},{-60,70},{-60,101}},
               color={0,0,0}),
-          Line(points={{55,-1},{55,20},{30,20},{30,70},{60,70},{60,100}}, color=
-               {0,0,0}),
+          Line(points={{55,-1},{55,20},{30,20},{30,70},{60,70},{60,100}}, color
+              ={0,0,0}),
           Line(
             points={{-56,0},{55,-1}},
             color={0,0,0},
@@ -1578,14 +1578,16 @@ for this situation:
             fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Line(points={{-60,0},{-31,0}}, color={0,0,255}),
-          Polygon(points={{-19,0},{-31,3},{-31,-3},{-19,0}}, lineColor={0,0,255}),
+          Polygon(points={{-19,0},{-31,3},{-31,-3},{-19,0}}, lineColor={0,0,255}), 
+
           Line(points={{-60,16},{0,16}}, color={0,0,255}),
           Line(points={{0,0},{0,20}}, color={0,0,255}),
           Text(
             extent={{-43,-8},{-7,-33}},
             lineColor={0,0,0},
             textString="e_rel_0"),
-          Polygon(points={{0,16},{-12,19},{-12,13},{0,16}}, lineColor={0,0,255}),
+          Polygon(points={{0,16},{-12,19},{-12,13},{0,16}}, lineColor={0,0,255}), 
+
           Text(
             extent={{-50,35},{51,26}},
             lineColor={0,0,0},
@@ -2025,7 +2027,8 @@ for this situation:
             fillPattern=FillPattern.Solid),
           Line(points={{29,3},{29,22}}, color={0,0,255}),
           Line(points={{29,16},{60,16}}, color={0,0,255}),
-          Polygon(points={{29,16},{41,19},{41,13},{29,16}}, lineColor={0,0,255}),
+          Polygon(points={{29,16},{41,19},{41,13},{29,16}}, lineColor={0,0,255}), 
+
           Text(
             extent={{15,36},{32,26}},
             lineColor={0,0,0},
@@ -2781,9 +2784,9 @@ values from the outside in order that the model remains balanced
               points={{-60,100},{40,100}},
               color={95,95,95},
               pattern=LinePattern.Dot),
-            Line(points={{-79,47},{-70,61},{-59,72},{-45,81},{-32,84},{-20,85}},
+            Line(points={{-79,47},{-70,61},{-59,72},{-45,81},{-32,84},{-20,85}}, 
                 color={0,0,0}),
-            Line(points={{77,45},{66,60},{55,69},{49,74},{41,80},{31,84},{20,85}},
+            Line(points={{77,45},{66,60},{55,69},{49,74},{41,80},{31,84},{20,85}}, 
                 color={0,0,0})}),
         Documentation(info="<HTML>
 <p>

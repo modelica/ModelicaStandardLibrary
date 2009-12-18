@@ -3403,7 +3403,8 @@ Transformer Yy0
           connect(core.plug_n2, core.plug_p3) 
             annotation (Line(points={{10,4},{10,-4},{10,-4}}, color={0,0,255}));
           connect(core.plug_n1, star1.plug_p) 
-            annotation (Line(points={{-10,-5},{-10,-70}}, color={0,0,255}));
+            annotation (Line(points={{-10,-5},{-10,-37.5},{-10,-70},{-10,-70}},
+                                                          color={0,0,255}));
           connect(core.plug_n3, Rot2.plug_n) 
             annotation (Line(points={{10,-10},{10,-20},{30,-20}}, color={0,0,
                   255}));
@@ -3451,7 +3452,8 @@ Transformer Yy2
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
           connect(core.plug_n1, star1.plug_p) 
-            annotation (Line(points={{-10,-5},{-10,-70}}, color={0,0,255}));
+            annotation (Line(points={{-10,-5},{-10,-37.5},{-10,-70},{-10,-70}},
+                                                          color={0,0,255}));
           connect(core.plug_n2, core.plug_p3) 
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
           connect(core.plug_p2, Rot2.plug_p) 
@@ -3495,7 +3497,8 @@ Transformer Yy4
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
           connect(core.plug_n1, star1.plug_p) 
-            annotation (Line(points={{-10,-5},{-10,-70}}, color={0,0,255}));
+            annotation (Line(points={{-10,-5},{-10,-37.5},{-10,-70},{-10,-70}},
+                                                          color={0,0,255}));
           connect(core.plug_n2, core.plug_p3) 
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
           connect(l2sigma.plug_p, core.plug_n3) 
@@ -3545,7 +3548,8 @@ Transformer Yy6
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
           connect(core.plug_n1, star1.plug_p) 
-            annotation (Line(points={{-10,-5},{-10,-70}}, color={0,0,255}));
+            annotation (Line(points={{-10,-5},{-10,-37.5},{-10,-70},{-10,-70}},
+                                                          color={0,0,255}));
           connect(core.plug_n2, core.plug_p3) 
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
           connect(core.plug_p2, Rot2.plug_n) 
@@ -3594,7 +3598,8 @@ Transformer Yy8
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
           connect(core.plug_n1, star1.plug_p) 
-            annotation (Line(points={{-10,-5},{-10,-70}}, color={0,0,255}));
+            annotation (Line(points={{-10,-5},{-10,-37.5},{-10,-70},{-10,-70}},
+                                                          color={0,0,255}));
           connect(core.plug_n2, core.plug_p3) 
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
           connect(core.plug_n3, Rot2.plug_p) 
@@ -3708,7 +3713,7 @@ Transformer Yd1
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
           connect(core.plug_n1, star1.plug_p) 
-            annotation (Line(points={{-10,-5},{-10,-5},{-10,-70}}, color={0,0,
+            annotation (Line(points={{-10,-5},{-10,-70},{-10,-70}},color={0,0,
                   255}));
           connect(core.plug_n2, core.plug_p3) 
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
@@ -3747,7 +3752,7 @@ Transformer Yd3
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
           connect(core.plug_n1, star1.plug_p) 
-            annotation (Line(points={{-10,-5},{-10,-5},{-10,-70}}, color={0,0,
+            annotation (Line(points={{-10,-5},{-10,-70},{-10,-70}},color={0,0,
                   255}));
           connect(core.plug_n2, core.plug_p3) 
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
@@ -3786,7 +3791,8 @@ Transformer Yd5
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
           connect(core.plug_n1, star1.plug_p) 
-            annotation (Line(points={{-10,-5},{-10,-70}}, color={0,0,255}));
+            annotation (Line(points={{-10,-5},{-10,-37.5},{-10,-70},{-10,-70}},
+                                                          color={0,0,255}));
           connect(core.plug_n2, core.plug_p3) 
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
           connect(core.plug_p2, Delta2.plug_n) 
@@ -3829,7 +3835,8 @@ Transformer Yd7
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
           connect(core.plug_n1, star1.plug_p) 
-            annotation (Line(points={{-10,-5},{-10,-70}}, color={0,0,255}));
+            annotation (Line(points={{-10,-5},{-10,-37.5},{-10,-70},{-10,-70}},
+                                                          color={0,0,255}));
           connect(core.plug_n2, core.plug_p3) 
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
           connect(core.plug_p2, Rot2.plug_n) 
@@ -3867,7 +3874,7 @@ Transformer Yd9
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
           connect(core.plug_n1, star1.plug_p) 
-            annotation (Line(points={{-10,-5},{-10,-5},{-10,-70}}, color={0,0,
+            annotation (Line(points={{-10,-5},{-10,-70},{-10,-70}},color={0,0,
                   255}));
           connect(core.plug_n2, core.plug_p3) 
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
@@ -4014,7 +4021,8 @@ Transformer Yz1
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
           connect(core.plug_n1, star1.plug_p) 
-            annotation (Line(points={{-10,-5},{-10,-70}}, color={0,0,255}));
+            annotation (Line(points={{-10,-5},{-10,-37.5},{-10,-70},{-10,-70}},
+                                                          color={0,0,255}));
           connect(core.plug_p2, Rot21.plug_p) 
             annotation (Line(points={{10,10},{30,10}}, color={0,0,255}));
           connect(core.plug_p3, Rot21.plug_n) 
@@ -4069,7 +4077,7 @@ Transformer Yz3
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
           connect(core.plug_n1, star1.plug_p) 
-            annotation (Line(points={{-10,-5},{-10,-5},{-10,-70}}, color={0,0,
+            annotation (Line(points={{-10,-5},{-10,-70},{-10,-70}},color={0,0,
                   255}));
           connect(core.plug_p2, Rot21.plug_n) 
             annotation (Line(points={{10,10},{30,10}}, color={0,0,255}));
@@ -4077,7 +4085,8 @@ Transformer Yz3
             annotation (Line(points={{10,-4},{20,-4},{20,-10},{30,-10}}, color=
                   {0,0,255}));
           connect(core.plug_n3, star2.plug_p) 
-            annotation (Line(points={{10,-10},{10,-70}}, color={0,0,255}));
+            annotation (Line(points={{10,-10},{10,-40},{10,-70},{10,-70}},
+                                                         color={0,0,255}));
           connect(l2sigma.plug_p, core.plug_n2) 
             annotation (Line(points={{50,0},{50,20},{20,20},{20,4},{10,4}},
                 color={0,0,255}));
@@ -4122,7 +4131,8 @@ Transformer Yz5
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
           connect(core.plug_n1, star1.plug_p) 
-            annotation (Line(points={{-10,-5},{-10,-70}}, color={0,0,255}));
+            annotation (Line(points={{-10,-5},{-10,-37.5},{-10,-70},{-10,-70}},
+                                                          color={0,0,255}));
           connect(core.plug_p2, Rot21.plug_p) 
             annotation (Line(points={{10,10},{30,10}}, color={0,0,255}));
           connect(core.plug_p3, Rot21.plug_n) 
@@ -4132,7 +4142,8 @@ Transformer Yz5
             annotation (Line(points={{50,0},{50,20},{20,20},{20,4},{10,4}},
                 color={0,0,255}));
           connect(core.plug_n3, star2.plug_p) 
-            annotation (Line(points={{10,-10},{10,-70}}, color={0,0,255}));
+            annotation (Line(points={{10,-10},{10,-40},{10,-70},{10,-70}},
+                                                         color={0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yz7
 </html>"),            Diagram(graphics));
@@ -4240,7 +4251,8 @@ Transformer Yz9
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
           connect(core.plug_n1, star1.plug_p) 
-            annotation (Line(points={{-10,-5},{-10,-70}}, color={0,0,255}));
+            annotation (Line(points={{-10,-5},{-10,-37.5},{-10,-70},{-10,-70}},
+                                                          color={0,0,255}));
           connect(core.plug_p2, Rot21.plug_p) 
             annotation (Line(points={{10,10},{30,10}}, color={0,0,255}));
           connect(core.plug_p3, Rot21.plug_n) 
@@ -4373,7 +4385,8 @@ Transformer Dy1
           connect(core.plug_n2, core.plug_p3) 
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
           connect(core.plug_n3, star2.plug_p) 
-            annotation (Line(points={{10,-10},{10,-70}}, color={0,0,255}));
+            annotation (Line(points={{10,-10},{10,-40},{10,-70},{10,-70}},
+                                                         color={0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dy3
 </html>"),            Diagram(graphics));
@@ -4456,7 +4469,8 @@ Transformer Dy5
           connect(core.plug_n2, core.plug_p3) 
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
           connect(core.plug_n3, star2.plug_p) 
-            annotation (Line(points={{10,-10},{10,-70}}, color={0,0,255}));
+            annotation (Line(points={{10,-10},{10,-40},{10,-70},{10,-70}},
+                                                         color={0,0,255}));
           connect(core.plug_p2, Rot2.plug_n) 
             annotation (Line(points={{10,10},{10,20},{30,20}}, color={0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -4541,7 +4555,8 @@ Transformer Dy9
           connect(core.plug_n2, core.plug_p3) 
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
           connect(core.plug_n3, star2.plug_p) 
-            annotation (Line(points={{10,-10},{10,-70}}, color={0,0,255}));
+            annotation (Line(points={{10,-10},{10,-40},{10,-70},{10,-70}},
+                                                         color={0,0,255}));
           connect(core.plug_p2, l2sigma.plug_p) 
             annotation (Line(points={{10,10},{10,20},{50,20},{50,0}}, color={0,
                   0,255}));
@@ -4932,7 +4947,8 @@ Transformer Dz0
             annotation (Line(points={{30,20},{20,20},{20,4},{10,4}}, color={0,0,
                   255}));
           connect(core.plug_n3, star2.plug_p) 
-            annotation (Line(points={{10,-10},{10,-70}}, color={0,0,255}));
+            annotation (Line(points={{10,-10},{10,-40},{10,-70},{10,-70}},
+                                                         color={0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dz2
 </html>"),            Diagram(graphics));
@@ -5026,7 +5042,8 @@ Transformer Dz4
             annotation (Line(points={{10,-4},{20,-4},{20,-10},{30,-10}}, color=
                   {0,0,255}));
           connect(core.plug_n3, star2.plug_p) 
-            annotation (Line(points={{10,-10},{10,-70}}, color={0,0,255}));
+            annotation (Line(points={{10,-10},{10,-40},{10,-70},{10,-70}},
+                                                         color={0,0,255}));
           connect(l2sigma.plug_p, core.plug_n2) 
             annotation (Line(points={{50,0},{50,20},{20,20},{20,4},{10,4}},
                 color={0,0,255}));
@@ -5251,7 +5268,7 @@ and the accompanying <b>disclaimer</b>
        first stable release</li>
   </ul>
 </HTML>"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Ellipse(extent={{-100,30},{20,-90}},
+                -100},{100,100}}), graphics={Ellipse(extent={{-100,30},{20,-90}}, 
                 lineColor={0,0,255}), Ellipse(extent={{-40,30},{80,-90}},
                 lineColor={0,0,255})}));
     end Transformers;
@@ -5895,7 +5912,9 @@ Partial model of transformer core with 3 windings; saturation function flux vers
         im = zeros(m);
         v1 = n12*v2;
         v1 = n13*v3;
-        annotation (defaultComponentName="core", Diagram(graphics),
+        annotation (defaultComponentName="core", Diagram(coordinateSystem(
+                preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+                                                         graphics),
           Documentation(info="<html>
 Ideal transformer with 3 windings: no magnetizing current.
 </html>"));
@@ -6251,10 +6270,11 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
               lineColor={0,0,255},
               textString="P Q"),
             Line(points={{0,-70},{0,-90}}, color={0,0,255}),
-            Line(points={{-10,70},{-10,80},{-50,80},{-50,100}}, color={0,0,255}),
+            Line(points={{-10,70},{-10,80},{-50,80},{-50,100}}, color={0,0,255}), 
+
             Line(points={{10,70},{10,80},{50,80},{50,100}}, color={0,0,255})}),
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),
+          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}),
                   graphics),
         Documentation(info="<HTML>
 3-phase instantaneous voltages (plug_p - plug_nv) and currents (plug_p - plug_ni) are transformed to the corresponding space phasors, <br>
@@ -6677,7 +6697,8 @@ This package contains sensors that are usefull when modelling machines.
                     -20},{-13.33,-17.32},{-6.67,-10},{0,0}}, color={0,0,255}),
               Line(points={{-90,0},{-83.33,10},{-76.67,17.32},{-70,20},{-63.33,
                     17.32},{-56.67,10},{-50,0},{-43.33,-10},{-36.67,-17.32},{-30,
-                    -20},{-23.33,-17.32},{-16.67,-10},{-10,0}}, color={0,0,255}),
+                    -20},{-23.33,-17.32},{-16.67,-10},{-10,0}}, color={0,0,255}), 
+
               Line(points={{-70,0},{-63.33,10},{-56.67,17.32},{-50,20},{-43.33,
                     17.32},{-36.67,10},{-30,0},{-23.33,-10},{-16.67,-17.32},{-10,
                     -20},{-3.33,-17.32},{3.33,-10},{10,0}}, color={0,0,255}),
@@ -6817,11 +6838,11 @@ a ground has to be used where necessary for currents flowing back.
         y = TransformationMatrix *u;
       //u = fill(zero,m) + InverseTransformation*y;
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}),
+          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                  {100,100}}),
                   graphics),
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}}), graphics={
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                  100,100}}), graphics={
               Line(points={{0,0},{80,80},{60,72},{72,60},{80,80}}, color={0,0,
                     255}),
               Line(points={{0,0},{80,-80},{72,-60},{60,-72},{80,-80}}, color={0,
@@ -6831,7 +6852,8 @@ a ground has to be used where necessary for currents flowing back.
                     -20},{-13.33,-17.32},{-6.67,-10},{0,0}}, color={0,0,255}),
               Line(points={{-90,0},{-83.33,10},{-76.67,17.32},{-70,20},{-63.33,
                     17.32},{-56.67,10},{-50,0},{-43.33,-10},{-36.67,-17.32},{-30,
-                    -20},{-23.33,-17.32},{-16.67,-10},{-10,0}}, color={0,0,255}),
+                    -20},{-23.33,-17.32},{-16.67,-10},{-10,0}}, color={0,0,255}), 
+
               Line(points={{-70,0},{-63.33,10},{-56.67,17.32},{-50,20},{-43.33,
                     17.32},{-36.67,10},{-30,0},{-23.33,-10},{-16.67,-17.32},{-10,
                     -20},{-3.33,-17.32},{3.33,-10},{10,0}}, color={0,0,255}),
@@ -6862,11 +6884,11 @@ Transformation of threephase values (voltages or currents) to space phasor and z
       //zero = 1/m*sum(y);
       //u = TransformationMatrix *y;
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}),
+          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                  {100,100}}),
                   graphics),
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}}), graphics={
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                  100,100}}), graphics={
               Line(points={{0,0},{-80,80},{-60,72},{-72,60},{-80,80}}, color={0,
                     0,255}),
               Line(points={{0,0},{-80,-80},{-72,-60},{-60,-72},{-80,-80}},
@@ -6904,11 +6926,11 @@ Transformation of space phasor and zero sequence value to threephase values (vol
         y = RotationMatrix*u;
       //u = InverseRotator*y;
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}),
+          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                  {100,100}}),
                   graphics),
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}}), graphics={
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                  100,100}}), graphics={
               Line(points={{0,0},{0,80},{-10,60},{10,60},{0,80}}, color={0,0,
                     255}),
               Line(points={{0,0},{80,0},{60,10},{60,-10},{80,0}}, color={0,0,
@@ -6958,11 +6980,11 @@ Rotates a space phasor (voltage or current) by the angle provided by the input s
   end if;
 */
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}),
+          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                  {100,100}}),
                   graphics),
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}}), graphics={
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                  100,100}}), graphics={
               Line(points={{-60,60},{-60,-60},{60,-60}}, color={0,0,255}),
               Line(points={{-100,-100},{100,100}}, color={0,0,255}),
               Polygon(points={{26,26},{14,20},{20,14},{26,26}}, lineColor={0,0,
@@ -6989,11 +7011,11 @@ Converts a space phasor from rectangular coordinates to polar coordinates.
       equation
         y = u[1]*{cos(u[2]),sin(u[2])};
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}),
+          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                  {100,100}}),
                   graphics),
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}}), graphics={
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                  100,100}}), graphics={
               Line(points={{-60,60},{-60,-60},{60,-60}}, color={0,0,255}),
               Line(points={{-100,-100},{100,100}}, color={0,0,255}),
               Polygon(points={{26,26},{14,20},{20,14},{26,26}}, lineColor={0,0,
@@ -7461,7 +7483,7 @@ Partial model for induction machine models
                 {100,100}}),
                 graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Line(points={{-50,100},{-20,100},{-20,70}},
+                100,100}}), graphics={Line(points={{-50,100},{-20,100},{-20,70}}, 
                 color={0,0,255}), Line(points={{50,100},{20,100},{20,70}},
                 color={0,0,255})}));
     end PartialBasicInductionMachine;
@@ -7515,7 +7537,7 @@ Partial model for DC machine models.
                 {100,100}}),
                 graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Line(points={{-50,100},{-20,100},{-20,70}},
+                100,100}}), graphics={Line(points={{-50,100},{-20,100},{-20,70}}, 
                 color={0,0,255}), Line(points={{50,100},{20,100},{20,70}},
                 color={0,0,255})}));
     end PartialBasicDCMachine;

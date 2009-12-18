@@ -717,7 +717,8 @@ package AST_BatchPlant
         end when;
       annotation (
         Icon(graphics={
-            Line(points={{-60,-70},{-60,-70},{-30,40},{8,40},{40,-70},{40,-70}}),
+            Line(points={{-60,-70},{-60,-70},{-30,40},{8,40},{40,-70},{40,-70}}), 
+
             Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
             Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
             Polygon(
@@ -730,11 +731,12 @@ package AST_BatchPlant
               lineColor={192,192,192},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),
-            Line(points={{-80,-70},{-60,-70},{-60,24},{8,24},{8,-70},{60,-70}},
+            Line(points={{-80,-70},{-60,-70},{-60,24},{8,24},{8,-70},{60,-70}}, 
                 color={255,0,255})}),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}), graphics={
-            Line(points={{-80,-20},{-60,-20},{-30,40},{8,40},{40,-20},{60,-20}}),
+            Line(points={{-80,-20},{-60,-20},{-30,40},{8,40},{40,-20},{60,-20}}), 
+
             Line(points={{-90,-70},{82,-70}}, color={0,0,0}),
             Line(points={{-80,68},{-80,-80}}, color={0,0,0}),
             Polygon(
@@ -747,7 +749,7 @@ package AST_BatchPlant
               lineColor={0,0,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
-            Line(points={{-80,-68},{-60,-68},{-60,-42},{8,-42},{8,-68},{60,-68}},
+            Line(points={{-80,-68},{-60,-68},{-60,-42},{8,-42},{8,-68},{60,-68}}, 
                 color={255,0,255}),
             Line(
               points={{-60,40},{-60,-42}},
@@ -1218,7 +1220,8 @@ handled properly.</p>
               lineColor={0,0,0},
               fillColor={85,170,255},
               fillPattern=FillPattern.VerticalCylinder),
-            Line(points={{-200,100},{-200,-100},{0,-100},{0,100}}, color={0,0,0}),
+            Line(points={{-200,100},{-200,-100},{0,-100},{0,100}}, color={0,0,0}), 
+
             Text(
               extent={{-200,84},{0,48}},
               lineColor={0,0,255},
@@ -1244,8 +1247,8 @@ handled properly.</p>
               extent={{-195,-38},{-5,-58}},
               lineColor={0,0,0},
               textString=DynamicSelect("%level_start", realString(
-                      level,
-                      1,
+                      level, 
+                      1, 
                       2)))}),
         Documentation(info="<HTML>
 <p>
@@ -2048,8 +2051,8 @@ end for;
               extent={{-95,-39},{95,-59}},
               lineColor={0,0,0},
               textString=DynamicSelect("%level_start", realString(
-                    level,
-                    1,
+                    level, 
+                    1, 
                     2)))}),
         Documentation(info="<HTML>
 <p>

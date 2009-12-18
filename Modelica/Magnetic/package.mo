@@ -12,7 +12,7 @@ electro-magnetic devices.
 
 </html>
 "),
-  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), 
       graphics={
       Ellipse(extent={{-78,-24},{-86,-16}}, lineColor={0,0,0}),
       Line(points={{-64,-20},{-78,-20}}, color={0,0,0}),

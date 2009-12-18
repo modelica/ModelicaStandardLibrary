@@ -220,8 +220,8 @@ package Machines
             visible=use_m_flow_set,
             extent={{-20,108},{170,92}},
             textString="m_flow_set")}),
-      Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-              {100,100}}),graphics),
+      Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
+              100,100}}), graphics),
       Documentation(info="<HTML>
 <p>
 This model describes a centrifugal pump (or a group of <tt>nParallel</tt> pumps)
@@ -282,8 +282,8 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
             visible=use_N_in,
             extent={{14,98},{178,82}},
             textString="N_in [rpm]")}),
-      Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-              {100,100}}),graphics),
+      Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
+              100,100}}), graphics),
       Documentation(info="<HTML>
 <p>This model describes a centrifugal pump (or a group of <tt>nParallel</tt> pumps) with prescribed speed, either fixed or provided by an external signal.
 <p>The model extends <tt>PartialPump</tt>

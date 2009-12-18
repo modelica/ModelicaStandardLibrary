@@ -138,7 +138,8 @@ definition of the colors used in the MultiBody library
             fillColor={0,127,255},
             fillPattern=FillPattern.Solid),
           Polygon(
-            points={{-98,34},{-64,46},{0,30},{74,56},{50,32},{-10,12},{-98,34}},
+            points={{-98,34},{-64,46},{0,30},{74,56},{50,32},{-10,12},{-98,34}}, 
+
             lineColor={255,255,255},
             fillColor={160,160,164},
             fillPattern=FillPattern.Solid),
@@ -784,48 +785,48 @@ with respect to frame_a (vector from the origin of frame_a to the arrow tail).
           thickness=0.5,
           smooth=Smooth.None));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={
-            Polygon(
-              points={{-20,60},{-100,-32},{20,-92},{100,8},{-20,60}},
-              lineColor={0,0,0},
-              smooth=Smooth.None,
-              fillColor={0,255,0},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{2,82},{44,54}},
-              lineColor={0,0,0},
-              textString="z"),
-            Polygon(
-              points={{100,8},{100,-4},{20,-104},{20,-92},{100,8}},
-              lineColor={0,0,0},
-              smooth=Smooth.None,
-              fillColor={0,255,0},
-              fillPattern=FillPattern.Solid),
-            Polygon(
-              points={{-100,-32},{-100,-44},{20,-104},{20,-92},{-100,-32}},
-              lineColor={0,0,0},
-              smooth=Smooth.None,
-              fillColor={0,255,0},
-              fillPattern=FillPattern.Solid),
-            Ellipse(
-              extent={{-11,-7},{-1,-12}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(
-              points={{-6,-10},{-6,88}},
-              color={0,0,0},
-              smooth=Smooth.None),
-            Polygon(
-              points={{-6,102},{-14,72},{2,72},{-6,102}},
-              lineColor={0,0,0},
-              smooth=Smooth.None,
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-146,-96},{154,-136}},
-              textString="%name",
-              lineColor={0,0,255})}),           Diagram(coordinateSystem(
+              -100},{100,100}}), graphics={
+          Polygon(
+            points={{-20,60},{-100,-32},{20,-92},{100,8},{-20,60}},
+            lineColor={0,0,0},
+            smooth=Smooth.None,
+            fillColor={0,255,0},
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{2,82},{44,54}},
+            lineColor={0,0,0},
+            textString="z"),
+          Polygon(
+            points={{100,8},{100,-4},{20,-104},{20,-92},{100,8}},
+            lineColor={0,0,0},
+            smooth=Smooth.None,
+            fillColor={0,255,0},
+            fillPattern=FillPattern.Solid),
+          Polygon(
+            points={{-100,-32},{-100,-44},{20,-104},{20,-92},{-100,-32}},
+            lineColor={0,0,0},
+            smooth=Smooth.None,
+            fillColor={0,255,0},
+            fillPattern=FillPattern.Solid),
+          Ellipse(
+            extent={{-11,-7},{-1,-12}},
+            lineColor={0,0,0},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(
+            points={{-6,-10},{-6,88}},
+            color={0,0,0},
+            smooth=Smooth.None),
+          Polygon(
+            points={{-6,102},{-14,72},{2,72},{-6,102}},
+            lineColor={0,0,0},
+            smooth=Smooth.None,
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{-146,-96},{154,-136}},
+            textString="%name",
+            lineColor={0,0,255})}),             Diagram(coordinateSystem(
               preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics),
         Documentation(info="<html>

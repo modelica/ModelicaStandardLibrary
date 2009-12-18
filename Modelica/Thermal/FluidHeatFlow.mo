@@ -1148,8 +1148,8 @@ the time behaviour depending on coolant flow.
         annotation (
           Documentation(info="<HTML>
 Block generating the sum of two ramps.
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}),
+</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                  {100,100}}),
                   graphics),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
@@ -1166,7 +1166,8 @@ Block generating the sum of two ramps.
                 fillColor={192,192,192},
                 fillPattern=FillPattern.Solid),
               Line(
-                points={{-80,-60},{-50,-60},{-30,60},{10,60},{30,-20},{70,-20}},
+                points={{-80,-60},{-50,-60},{-30,60},{10,60},{30,-20},{70,-20}}, 
+
                 color={0,0,0},
                 fillColor={0,0,0},
                 fillPattern=FillPattern.Solid)}));
@@ -1296,10 +1297,10 @@ leads to neglection of temperature transient cv*m*der(T).
               extent={{-90,20},{90,-20}},
               lineColor={255,0,0},
               fillColor={0,0,255},
-              fillPattern=FillPattern.Solid), Text(extent={{-150,100},{150,40}},
+              fillPattern=FillPattern.Solid), Text(extent={{-150,100},{150,40}}, 
                 textString="%name")}),                          Diagram(
-            coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}),                                             graphics));
+            coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+                100}}),                                                 graphics));
     end IsolatedPipe;
 
     model HeatedPipe "Pipe with heat exchange"
@@ -1336,11 +1337,10 @@ temperature rise defined by storing heat in medium's mass.
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid),
             Text(extent={{-150,100},{150,40}}, textString="%name"),
-            Polygon(
-              points={{-10,-90},{-10,-40},{0,-20},{10,-40},{10,-90},{-10,-90}},
-              lineColor={255,0,0})}),
-                                Diagram(coordinateSystem(preserveAspectRatio=
-                false, extent={{-100,-100},{100,100}}),
+            Polygon(points={{-10,-90},{-10,-40},{0,-20},{10,-40},{10,-90},{-10,
+                  -90}}, lineColor={255,0,0})}),
+                                Diagram(coordinateSystem(preserveAspectRatio=false,
+                       extent={{-100,-100},{100,100}}),
                                         graphics));
     end HeatedPipe;
 
@@ -2079,8 +2079,8 @@ Thermodynamic equations are defined by Partials.FlowSensor.
     annotation (Documentation(info="<HTML>
 H_flowSensor measures the enthalpy flow rate.<br>
 Thermodynamic equations are defined by Partials.FlowSensor.
-</HTML>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{
-                -100,-100},{100,100}}),
+</HTML>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}),
                        graphics),
                  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
@@ -2230,7 +2230,7 @@ Same as FlowPort, but icon allows to differentiate direction of flow.
               extent={{-100,100},{100,-100}},
               lineColor={255,0,0},
               fillColor={255,255,255},
-              fillPattern=FillPattern.Solid), Ellipse(extent={{-98,98},{98,-98}},
+              fillPattern=FillPattern.Solid), Ellipse(extent={{-98,98},{98,-98}}, 
                 lineColor={0,0,255})}),      Diagram(coordinateSystem(
               preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={
@@ -2585,8 +2585,8 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected, b
                 extent={{-150,130},{150,70}},
                 lineColor={0,0,255},
                 textString="%name")}),
-                                Diagram(coordinateSystem(preserveAspectRatio=
-                  false, extent={{-100,-100},{100,100}}),
+                                Diagram(coordinateSystem(preserveAspectRatio=false,
+                         extent={{-100,-100},{100,100}}),
                                         graphics));
       end FlowSensor;
     annotation (Documentation(info="<HTML>
@@ -2696,8 +2696,8 @@ and the accompanying <b>disclaimer</b>
   </ul>
 </HTML>
 "), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={Rectangle(extent={{-60,10},{40,-90}}, lineColor=
-               {255,0,0}), Ellipse(
+              100}}), graphics={Rectangle(extent={{-60,10},{40,-90}}, lineColor
+              ={255,0,0}), Ellipse(
             extent={{-58,8},{38,-88}},
             lineColor={0,0,255},
             fillColor={0,0,255},
@@ -2829,7 +2829,8 @@ and the accompanying <b>disclaimer</b>
           fillColor={255,0,0},
           fillPattern=FillPattern.Solid),
         Polygon(
-          points={{-20,10},{0,-10},{-20,-30},{40,-30},{60,-10},{40,10},{-20,10}},
+          points={{-20,10},{0,-10},{-20,-30},{40,-30},{60,-10},{40,10},{-20,10}}, 
+
           lineColor={255,128,0},
           fillColor={255,128,0},
           fillPattern=FillPattern.Solid)}));

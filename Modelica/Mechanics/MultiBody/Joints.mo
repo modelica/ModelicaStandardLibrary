@@ -3,7 +3,6 @@ package Joints "Components that constrain the motion between two frames"
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Library;
 
-
   model Prismatic
     "Prismatic joint (1 translational degree-of-freedom, 2 potential states, optional axis flange)"
 
@@ -63,7 +62,6 @@ Possible reasons:
       "First derivative of s (relative velocity)";
     SI.Acceleration a(start=0) "Second derivative of s (relative acceleration)";
     SI.Force f "Actuation force in direction of joint axis";
-
 
   protected
     Visualizers.Advanced.Shape box(
@@ -757,7 +755,6 @@ this force is an unknown quantity).
     SI.AngularAcceleration wd(start=0)
       "Second derivative of angle phi (relative angular acceleration)";
 
-
   protected
     Visualizers.Advanced.Shape cylinder(
       shapeType="cylinder",
@@ -911,7 +908,6 @@ vector \"n\" defining the cylinder axis
       "Second derivative of angle phi_a (relative angular acceleration a)";
     SI.AngularAcceleration a_b(start=0)
       "Second derivative of angle phi_b (relative angular acceleration b)";
-
 
   equation
     phi_a = revolute_a.phi;
@@ -1102,7 +1098,6 @@ phi_b.start = 45<sup>o</sup>).
       "Second derivative of s_y (relative acceleration in s_y direction)";
     SI.AngularAcceleration wd(start=0)
       "Second derivative of angle phi (relative angular acceleration)";
-
 
   protected
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
@@ -1628,7 +1623,6 @@ frame_b of the joint.
         Modelica.Mechanics.MultiBody.Frames.axesRotations(sequence_start, angles_start,zeros(3))
       "Orientation object from frame_a to frame_b at initial time";
 
-
   protected
     Visualizers.Advanced.Arrow arrow(
       r_head=r_rel_a,
@@ -1847,7 +1841,8 @@ frame_b of the joint.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(
-            points={{-86,31},{-74,61},{-49,83},{-17,92},{19,88},{40,69},{59,48}},
+            points={{-86,31},{-74,61},{-49,83},{-17,92},{19,88},{40,69},{59,48}}, 
+
             color={160,160,164},
             thickness=0.5),
           Polygon(
@@ -1889,7 +1884,8 @@ frame_b of the joint.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(
-            points={{-86,31},{-74,61},{-49,83},{-17,92},{19,88},{40,69},{59,48}},
+            points={{-86,31},{-74,61},{-49,83},{-17,92},{19,88},{40,69},{59,48}}, 
+
             color={160,160,164},
             thickness=0.5),
           Polygon(
@@ -1997,7 +1993,6 @@ frame_b of the joint.
       "Force acting at frame_b, but without force in rod, resolved in frame_a";
     SI.Power totalPower
       "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
-
 
   protected
     Visualizers.Advanced.Shape shape_rod(
@@ -3147,21 +3142,21 @@ November 3-4, 2003, pp. 149-158</p>
        // Guard against singularity
        assert(abs(e_n_0*e_axis_0) < 0.99, "Wheel lays nearly on the ground (which is a singularity)");
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={
-            Rectangle(
-              extent={{-100,-80},{100,-100}},
-              lineColor={0,0,0},
-              fillColor={175,175,175},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-154,124},{146,84}},
-              lineColor={0,0,255},
-              textString="%name"),
-            Ellipse(
-              extent={{-80,80},{80,-80}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid)}));
+              -100},{100,100}}), graphics={
+          Rectangle(
+            extent={{-100,-80},{100,-100}},
+            lineColor={0,0,0},
+            fillColor={175,175,175},
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{-154,124},{146,84}},
+            lineColor={0,0,255},
+            textString="%name"),
+          Ellipse(
+            extent={{-80,80},{80,-80}},
+            lineColor={0,0,0},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid)}));
     end RollingWheel;
 
     model RollingWheelSet
@@ -3195,7 +3190,6 @@ November 3-4, 2003, pp. 149-158</p>
       "Derivative of theta 1";
       Modelica.SIunits.AngularVelocity der_theta2(start=0, stateSelect=stateSelect)
       "Derivative of theta 2";
-
 
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame1
       "Frame fixed in center point of left wheel (y-axis: along wheel axis, z-Axis: upwards)"
@@ -3315,7 +3309,7 @@ November 3-4, 2003, pp. 149-158</p>
           smooth=Smooth.None));
       connect(prismatic2.frame_b, revolute.frame_a) annotation (Line(
           points={{-34,-50},{-40,-50},{-40,-36},{-6.12323e-016,-36},{
-              -6.12323e-016,-32}},
+            -6.12323e-016,-32}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
@@ -3347,91 +3341,90 @@ November 3-4, 2003, pp. 149-158</p>
           color={0,0,0},
           smooth=Smooth.None));
       annotation (defaultComponentName="wheelSet",Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={
-            Rectangle(
-              extent={{-100,-80},{100,-100}},
-              lineColor={0,0,0},
-              fillColor={175,175,175},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-146,-98},{154,-138}},
-              textString="%name",
-              lineColor={0,0,255}),
-            Ellipse(
-              extent={{42,80},{118,-80}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Rectangle(
-              extent={{-62,2},{64,-6}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Ellipse(
-              extent={{-118,80},{-42,-80}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(
-              points={{86,24},{64,24},{64,10},{56,10}},
-              color={0,0,0},
-              smooth=Smooth.None),
-            Line(
-              points={{86,-24},{64,-24},{64,-12},{56,-12}},
-              color={0,0,0},
-              smooth=Smooth.None),
-            Line(
-              points={{-96,100},{-80,100},{-80,4}},
-              color={0,0,0},
-              smooth=Smooth.None),
-            Line(
-              points={{100,100},{80,100},{80,-2}},
-              color={0,0,0},
-              smooth=Smooth.None),
-            Line(
-              points={{0,72},{0,40},{-20,40},{-20,2}},
-              color={0,0,0},
-              smooth=Smooth.None),
-            Line(
-              points={{0,40},{20,40},{20,2}},
-              color={0,0,0},
-              smooth=Smooth.None)}),
+              -100},{100,100}}), graphics={
+          Rectangle(
+            extent={{-100,-80},{100,-100}},
+            lineColor={0,0,0},
+            fillColor={175,175,175},
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{-146,-98},{154,-138}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Ellipse(
+            extent={{42,80},{118,-80}},
+            lineColor={0,0,0},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Rectangle(
+            extent={{-62,2},{64,-6}},
+            lineColor={0,0,0},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Ellipse(
+            extent={{-118,80},{-42,-80}},
+            lineColor={0,0,0},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(
+            points={{86,24},{64,24},{64,10},{56,10}},
+            color={0,0,0},
+            smooth=Smooth.None),
+          Line(
+            points={{86,-24},{64,-24},{64,-12},{56,-12}},
+            color={0,0,0},
+            smooth=Smooth.None),
+          Line(
+            points={{-96,100},{-80,100},{-80,4}},
+            color={0,0,0},
+            smooth=Smooth.None),
+          Line(
+            points={{100,100},{80,100},{80,-2}},
+            color={0,0,0},
+            smooth=Smooth.None),
+          Line(
+            points={{0,72},{0,40},{-20,40},{-20,2}},
+            color={0,0,0},
+            smooth=Smooth.None),
+          Line(
+            points={{0,40},{20,40},{20,2}},
+            color={0,0,0},
+            smooth=Smooth.None)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={
-            Line(
-              points={{-68,24},{-68,52}},
-              color={0,0,255},
-              smooth=Smooth.None),
-            Polygon(
-              points={{-68,70},{-74,52},{-62,52},{-68,70}},
-              lineColor={0,0,255},
-              smooth=Smooth.None,
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-56,62},{-38,50}},
-              lineColor={0,0,255},
-              textString="x"),
-            Line(
-              points={{-62,30},{-94,30}},
-              color={0,0,255},
-              smooth=Smooth.None),
-            Polygon(
-              points={{-90,36},{-90,24},{-108,30},{-90,36}},
-              lineColor={0,0,255},
-              smooth=Smooth.None,
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-114,50},{-96,38}},
-              lineColor={0,0,255},
-              textString="y")}));
+              {100,100}}), graphics={
+          Line(
+            points={{-68,24},{-68,52}},
+            color={0,0,255},
+            smooth=Smooth.None),
+          Polygon(
+            points={{-68,70},{-74,52},{-62,52},{-68,70}},
+            lineColor={0,0,255},
+            smooth=Smooth.None,
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{-56,62},{-38,50}},
+            lineColor={0,0,255},
+            textString="x"),
+          Line(
+            points={{-62,30},{-94,30}},
+            color={0,0,255},
+            smooth=Smooth.None),
+          Polygon(
+            points={{-90,36},{-90,24},{-108,30},{-90,36}},
+            lineColor={0,0,255},
+            smooth=Smooth.None,
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{-114,50},{-96,38}},
+            lineColor={0,0,255},
+            textString="y")}));
     end RollingWheelSet;
 
   package Assemblies "Joint aggregations for analytic loop handling"
     import SI = Modelica.SIunits;
     extends Modelica.Icons.Library;
-
 
     model JointUPS
       "Universal - prismatic - spherical joint aggregation (no constraints, no potential states)"
@@ -4009,7 +4002,8 @@ component).
               points={{-40,0},{-40,90},{-80,90},{-80,99}},
               color={95,95,95},
               thickness=0.5),
-            Polygon(points={{7,-1},{-5,2},{-5,-4},{7,-1}}, lineColor={0,0,255}),
+            Polygon(points={{7,-1},{-5,2},{-5,-4},{7,-1}}, lineColor={0,0,255}), 
+
             Line(points={{-50,19},{-30,57}}, color={0,0,255}),
             Text(
               extent={{-24,74},{7,53}},
@@ -4076,7 +4070,8 @@ component).
               lineColor={0,0,0},
               textString="nAxis"),
             Line(points={{-61,1},{-2,1}}, color={0,0,255}),
-            Polygon(points={{10,1},{-2,4},{-2,-2},{10,1}}, lineColor={0,0,255}),
+            Polygon(points={{10,1},{-2,4},{-2,-2},{10,1}}, lineColor={0,0,255}), 
+
             Line(
               points={{60,-1},{60,90},{80,90},{80,99}},
               color={95,95,95},
@@ -4237,7 +4232,6 @@ component).
         "Denominator used to compute force in rod connecting universal and spherical joint";
       SI.Force f_rod
         "Constraint force in direction of the rod (positive, if rod is pressed)";
-
 
       Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint
         revolute(
@@ -6005,7 +5999,6 @@ component).
       SI.Power totalPower=jointUSR.totalPower
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
 
-
       JointUSR jointUSR(
         animation=false,
         n1_a=n_a,
@@ -6348,7 +6341,6 @@ are connected by rigid rods.
         "Unit vector along axes of translation of the prismatic joint, resolved in frame_b and frame_ib";
       SI.Power totalPower=jointUSP.totalPower
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
-
 
       JointUSP jointUSP(
         animation=false,
@@ -6783,7 +6775,6 @@ pair of joints\" from Woernle and Hiller is described in:
         "= phi + from_deg(phi_offset) (relative rotation angle between frame_a and frame_b)";
       SI.Torque tau "= axis.tau (driving torque in the axis)";
 
-
     protected
       SI.Position r_a[3]=position_a
         "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint";
@@ -7166,7 +7157,6 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
       SI.Position r_rel_a[3]
         "Position vector from frame_a to frame_b resolved in frame_a";
       SI.Force f "= axis.f (driving force in the axis)";
-
 
     protected
       SI.Position r_a[3]=position_a
@@ -7560,33 +7550,33 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
          zeros(3) = frame_a.f + Frames.resolve2(frame_a.R, f_wheel_0);
          zeros(3) = frame_a.t + Frames.resolve2(frame_a.R, cross(rContact_0, f_wheel_0));
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics={
-              Rectangle(
-                extent={{-100,-60},{100,-80}},
-                lineColor={0,0,0},
-                fillColor={175,175,175},
-                fillPattern=FillPattern.Solid),
-              Text(
-                extent={{-148,-86},{152,-126}},
-                lineColor={0,0,255},
-                textString="%name"),
-              Line(
-                points={{0,-60},{0,4}},
-                color={0,0,0},
-                smooth=Smooth.None,
-                pattern=LinePattern.Dot),
-              Line(
-                visible=lateralSlidingConstraint,
-                points={{-98,-30},{-16,-30}},
-                color={0,0,0},
-                smooth=Smooth.None),
-              Polygon(
-                visible=lateralSlidingConstraint,
-                points={{-40,-16},{-40,-42},{-6,-30},{-40,-16}},
-                lineColor={0,0,0},
-                smooth=Smooth.None,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid)}), Diagram(coordinateSystem(
+                -100},{100,100}}), graphics={
+            Rectangle(
+              extent={{-100,-60},{100,-80}},
+              lineColor={0,0,0},
+              fillColor={175,175,175},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-148,-86},{152,-126}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Line(
+              points={{0,-60},{0,4}},
+              color={0,0,0},
+              smooth=Smooth.None,
+              pattern=LinePattern.Dot),
+            Line(
+              visible=lateralSlidingConstraint,
+              points={{-98,-30},{-16,-30}},
+              color={0,0,0},
+              smooth=Smooth.None),
+            Polygon(
+              visible=lateralSlidingConstraint,
+              points={{-40,-16},{-40,-42},{-6,-30},{-40,-16}},
+              lineColor={0,0,0},
+              smooth=Smooth.None,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid)}),   Diagram(coordinateSystem(
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics));
      end RollingConstraintVerticalWheel;
 

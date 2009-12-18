@@ -12,8 +12,8 @@ package Logical "Library of components with Boolean input and output signals"
             extent={{-90,40},{90,-40}},
             lineColor={0,0,0},
             textString="and")}),
-                              Diagram(coordinateSystem(preserveAspectRatio=
-              false, extent={{-100,-100},{100,100}}),
+                              Diagram(coordinateSystem(preserveAspectRatio=false,
+                     extent={{-100,-100},{100,100}}),
                                       graphics),
       Documentation(info="<html>
 <p>
@@ -33,8 +33,8 @@ the output is <b>false</b>.
             extent={{-90,40},{90,-40}},
             lineColor={0,0,0},
             textString="or")}),
-                              Diagram(coordinateSystem(preserveAspectRatio=
-              false, extent={{-100,-100},{100,100}}),
+                              Diagram(coordinateSystem(preserveAspectRatio=false,
+                     extent={{-100,-100},{100,100}}),
                                       graphics),
       Documentation(info="<html>
 <p>
@@ -53,8 +53,8 @@ the output is <b>false</b>.
             extent={{-90,40},{90,-40}},
             lineColor={0,0,0},
             textString="xor")}),
-                              Diagram(coordinateSystem(preserveAspectRatio=
-              false, extent={{-100,-100},{100,100}}),
+                              Diagram(coordinateSystem(preserveAspectRatio=false,
+                     extent={{-100,-100},{100,100}}),
                                       graphics),
       Documentation(info="<html>
 <p>
@@ -73,8 +73,8 @@ the output is <b>false</b>.
             extent={{-90,40},{90,-40}},
             lineColor={0,0,0},
             textString="nor")}),
-                              Diagram(coordinateSystem(preserveAspectRatio=
-              false, extent={{-100,-100},{100,100}}),
+                              Diagram(coordinateSystem(preserveAspectRatio=false,
+                     extent={{-100,-100},{100,100}}),
                                       graphics),
       Documentation(info="<html>
 <p>
@@ -93,8 +93,8 @@ the output is <b>false</b>.
             extent={{-90,40},{90,-40}},
             lineColor={0,0,0},
             textString="nand")}),
-                              Diagram(coordinateSystem(preserveAspectRatio=
-              false, extent={{-100,-100},{100,100}}),
+                              Diagram(coordinateSystem(preserveAspectRatio=false,
+                     extent={{-100,-100},{100,100}}),
                                       graphics),
       Documentation(info="<html>
 <p>
@@ -790,7 +790,7 @@ The default value of this parameter is <b>false</b>.
           Line(points={{-78,-2},{-6,18},{82,-12}}, color={255,0,0}),
           Line(points={{-78,12},{-6,30},{82,0}}, color={0,0,0}),
           Line(points={{-78,-16},{-6,4},{82,-26}}, color={0,0,0}),
-          Line(points={{-82,-18},{-56,-18},{-56,-40},{64,-40},{64,-20},{90,-20}},
+          Line(points={{-82,-18},{-56,-18},{-56,-40},{64,-40},{64,-20},{90,-20}}, 
               color={255,0,255})}),         Documentation(info="<html>
 <p>The block OnOffController sets the output signal <b>y</b> to <b>true</b> when
 the input signal <b>u</b> falls below the <b>reference</b> signal minus half of
@@ -875,7 +875,7 @@ signal <b>u</b> exceeds the <b>reference</b> signal plus half of the bandwidth.<
             lineColor={0,0,0},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
-          Line(points={{-80,-68},{-60,-68},{-60,-42},{8,-42},{8,-68},{60,-68}},
+          Line(points={{-80,-68},{-60,-68},{-60,-42},{8,-42},{8,-68},{60,-68}}, 
               color={255,0,255}),
           Line(
             points={{-60,40},{-60,-42}},
@@ -1022,7 +1022,7 @@ handled properly.</p>
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
-          Line(points={{-80,-70},{-60,-70},{-60,-26},{38,-26},{38,-70},{66,-70}},
+          Line(points={{-80,-70},{-60,-70},{-60,-26},{38,-26},{38,-70},{66,-70}}, 
               color={255,0,255}),
           Line(points={{-80,0},{-62,0},{40,90},{40,0},{68,0}}, color={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -1039,9 +1039,9 @@ handled properly.</p>
             lineColor={0,0,0},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
-          Line(points={{-80,-68},{-60,-68},{-60,-40},{20,-40},{20,-68},{60,-68}},
+          Line(points={{-80,-68},{-60,-68},{-60,-40},{20,-40},{20,-68},{60,-68}}, 
               color={255,0,255}),
-          Line(points={{-80,-20},{-60,-20},{20,60},{20,-20},{60,-20},{60,-20}},
+          Line(points={{-80,-20},{-60,-20},{20,60},{20,-20},{60,-20},{60,-20}}, 
               color={0,0,255}),
           Text(
             extent={{-88,6},{-54,-4}},

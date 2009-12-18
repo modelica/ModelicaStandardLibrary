@@ -4,7 +4,7 @@ extends Modelica.Icons.Library2;
 
 
 annotation (
-  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), 
       graphics={
       Rectangle(
         extent={{-5,-40},{45,-70}},
