@@ -673,7 +673,7 @@ that can lead to wrong simulation results):
       <td valign=\"top\">Changed minimum from 1e-8 to 0. </td>
   </tr>
 
-  <tr><td colspan=\"2\"><b>Media.Interfaces.PartialLinearFluid.</b></td></tr> 
+  <tr><td colspan=\"2\"><b>Media.Interfaces.PartialLinearFluid.</b></td></tr>
   <tr><td valign=\"top\">setState_psX<br>
                        isentropicEnthalpy </td>
       <td valign=\"top\">Wrong equations corrected. </td>
@@ -713,13 +713,13 @@ that can lead to wrong simulation results):
   </tr>
 
   <tr><td colspan=\"2\"><b>Media.CompressibleLiquids.LinearColdWater.</b></td></tr>
-  <tr><td valign=\"top\"> dynamicViscosity<br> 
+  <tr><td valign=\"top\"> dynamicViscosity<br>
                         thermalConductivity</td>
       <td valign=\"top\"> Wrong values corrected (computed from IF97 with reference values) </td>
   </tr>
 
   <tr><td colspan=\"2\"><b>Media.CompressibleLiquids.LinearWater_pT_Ambient.</b></td></tr>
-  <tr><td valign=\"top\"> dynamicViscosity<br> 
+  <tr><td valign=\"top\"> dynamicViscosity<br>
                         thermalConductivity</td>
       <td valign=\"top\"> Missing functions added </td>
   </tr>
@@ -731,7 +731,7 @@ that can lead to wrong simulation results):
 
   <tr><td colspan=\"2\"><b>Media.Water.IF97_Utilities.</b></td></tr>
   <tr><td valign=\"top\"> waterBaseProp_dT</td>
-      <td valign=\"top\"> Fixed dpT-calculation 
+      <td valign=\"top\"> Fixed dpT-calculation
                         (<a href=\"http://trac.modelica.org/Modelica/ticket/224\">ticket: 224</a>). </td>
   </tr>
 
@@ -5090,7 +5090,7 @@ preferredView="info",
 version="3.1",
 versionBuild=5,
 versionDate="2009-08-14",
-dateModified = "2009-10-08 08:52:38Z",
+dateModified = "2009-12-18 08:49:49Z",
 revisionId="$Id::                                       $",
 conversion(
  noneFromVersion="3.0.1",
