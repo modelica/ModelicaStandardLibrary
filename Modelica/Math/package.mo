@@ -6,10 +6,8 @@ import SI = Modelica.SIunits;
 extends Modelica.Icons.Library2;
 
 
-
 package Vectors "Library of functions operating on vectors"
   extends Modelica.Icons.Library;
-
 
   function isEqual "Determine if two Real vectors are numerically identical"
     extends Modelica.Icons.Function;
@@ -635,7 +633,6 @@ to the original matrix are given, such that
     input Real b[size(A, 1)] "Vector b of A*x = b";
     output Real x[size(b, 1)] "Vector x such that A*x = b";
 
-
   protected
     Integer info;
   algorithm
@@ -690,7 +687,6 @@ i.e., by Gaussian elemination with partial pivoting.
     input Real A[:, size(A, 1)] "Matrix A of A*X = B";
     input Real B[size(A, 1),:] "Matrix B of A*X = B";
     output Real X[size(B, 1), size(B,2)] "Matrix X such that A*X = B";
-
 
   protected
     Integer info;
@@ -753,7 +749,6 @@ i.e., by Gaussian elemination with partial pivoting.
     output Real x[size(A, 2)]
       "Vector x such that min|A*x-b|^2 if size(A,1) >= size(A,2) or min|x|^2 and A*x=b, if size(A,1) < size(A,2)";
 
-
   protected
     Integer info;
     Integer rank;
@@ -799,7 +794,6 @@ the one is selected that minimizes both |x|^2 and |A*x - b|^2.
     input Real B[:,size(A,2)] "subject to B*x=b";
     input Real b[size(B,1)];
     output Real x[size(A,2)] "solution vector";
-
 
   protected
     Integer info;
@@ -858,7 +852,7 @@ has a unique solution.
     output Integer pivots[min(size(A, 1), size(A,2))]
       "pivot indices (used with LU_solve(..))";
     output Integer info "Information";
-    external "FORTRAN 77" dgetrf(size(A, 1), size(A, 2), LU, size(A, 1), pivots, info)
+    external "FORTRAN 77" dgetrf(size(A, 1), size(A, 2), LU, size(A, 1), pivots, info) 
       annotation (Library="Lapack");
 
     annotation ( Documentation(info="<HTML>
@@ -1221,7 +1215,6 @@ called as: <code>(,R,p) = QR(A)</code>.
     output Real eigenvectors[size(A,1), size(A,2)]
       "Real-valued eigenvector matrix";
 
-
   protected
     Integer info;
     // replace with "isPresent(..)" if supported by Dymola
@@ -1303,7 +1296,6 @@ i.e., matrix A has the 3 real eigenvalues -0.618, 8, 1.618.
       "Eigen values from function eigenValues(..) (Re: first column, Im: second column)";
     output Real J[size(eigenValues, 1), size(eigenValues, 1)]
       "Real valued block diagonal matrix with eigen values (Re: 1x1 block, Im: 2x2 block)";
-
 
   protected
     Integer n=size(eigenValues, 1);
@@ -1509,9 +1501,9 @@ to compute the rank of a matrix.
     extends Modelica.Icons.Function;
     input Real A[:, size(A, 1)];
     output Real D[size(A, 1)] "diagonal(D)=T is transformation matrix, such that
-          T*A*inv(T) has smaller condition as A";
+          B = inv(T)*A*T has smaller condition as A";
     output Real B[size(A, 1), size(A, 1)]
-      "Balanced matrix (= diagonal(D)*A*inv(diagonal(D)))";
+      "Balanced matrix (= inv(diagonal(D))*A*diagonal(D) )";
   protected
     Integer na=size(A, 1);
     Integer radix=2 "Radix of exponent representation must be 'radix'
@@ -1528,7 +1520,6 @@ to compute the rank of a matrix.
     /*auxiliary variables*/
 
   algorithm
-
     // B = inv(D)*A*D, so that cond(B)<=cond(A)
     D := ones(na);
     B := A;
@@ -1611,7 +1602,6 @@ which based on the balanc function from EISPACK.
     input Real A[:, size(A, 1)];
     input Real T=1;
     output Real phi[size(A, 1), size(A, 1)] "= exp(A*T)";
-
 
   protected
     parameter Integer nmax=21;
@@ -1770,7 +1760,6 @@ implementation variant used in this function.
     Real Diag[na];
     /*diagonal transformation matrix for balancing*/
 
-
   encapsulated function columnNorm "Returns the column norm of a matrix"
     input Real A[:, :] "Input matrix";
     output Real result=0.0 "1-norm of matrix A";
@@ -1927,7 +1916,6 @@ The Algorithm to calculate psi is taken from
     Boolean done=false;
     Real F[na + 2*nb, na + 2*nb];
 
-
   algorithm
     F := [A, B, zeros(na, nb); zeros(2*nb, na), zeros(2*nb, nb), [identity(nb);
        zeros(nb, nb)]];
@@ -2000,9 +1988,8 @@ is discribed in
       Real Awork[n, n]=A;
       Real work[lwork];
 
-
     external "Fortran 77" dgeev("N", "V", n, Awork, n, eigenReal, eigenImag,
-        eigenVectors, n, eigenVectors, n, work, size(work, 1), info)
+        eigenVectors, n, eigenVectors, n, work, size(work, 1), info) 
         annotation (Library="Lapack");
       annotation (
         Documentation(info="Lapack documentation
@@ -2101,7 +2088,6 @@ is discribed in
       Real work[lwork];
       Real EigenvectorsL[size(A, 1), size(A, 1)]=zeros(size(A, 1), size(A, 1));
 
-
       /*
     external "Fortran 77" dgeev("N", "V", size(A, 1), Awork, size(A, 1),
         EigenReal, EigenImag, EigenvectorsL, size(EigenvectorsL, 1),
@@ -2109,7 +2095,7 @@ is discribed in
 */
     external "Fortran 77" dgeev("N", "N", size(A, 1), Awork, size(A, 1),
         EigenReal, EigenImag, EigenvectorsL, size(EigenvectorsL, 1),
-        EigenvectorsL, size(EigenvectorsL, 1), work, size(work, 1), info)
+        EigenvectorsL, size(EigenvectorsL, 1), work, size(work, 1), info) 
         annotation (Library="Lapack");
 
       annotation (
@@ -2211,7 +2197,7 @@ is discribed in
       Real dummy2[1,1];
 
       external "Fortran 77" dgegv("N", "N", n, Awork, n, Bwork, n, alphaReal, alphaImag, beta,
-                 dummy1, 1, dummy2, 1, work, size(work, 1), info)
+                 dummy1, 1, dummy2, 1, work, size(work, 1), info) 
             annotation (Library="Lapack");
       annotation (Documentation(info="Purpose
 =======
@@ -2602,7 +2588,6 @@ are computed, then only the diagonal blocks will be correct.
       Real Awork[size(A, 1), size(A, 1)]=A;
       Integer ipiv[size(A, 1)];
 
-
     external "FORTRAN 77" dgesv(size(A, 1), size(B, 2), Awork, size(A, 1), ipiv,
          X, size(A, 1), info) annotation (Library="Lapack");
       annotation (
@@ -2661,7 +2646,6 @@ are computed, then only the diagonal blocks will be correct.
     protected
       Real Awork[size(A, 1), size(A, 1)]=A;
       Integer ipiv[size(A, 1)];
-
 
     external "FORTRAN 77" dgesv(size(A, 1), 1, Awork, size(A, 1), ipiv, x, size(
         A, 1), info) annotation (Library="Lapack");
@@ -2794,9 +2778,8 @@ For details of the arguments, see documentation of dgesv.
       Real diagwork[size(diag, 1)]=diag;
       Real subdiagwork[size(subdiag, 1)]=subdiag;
 
-
     external "FORTRAN 77" dgtsv(size(diag, 1), size(B, 2), subdiagwork,
-        diagwork, superdiagwork, X, size(B, 1), info)
+        diagwork, superdiagwork, X, size(B, 1), info) 
         annotation (Library="Lapack");
       annotation (
         Documentation(info="Lapack documentation:
@@ -2862,7 +2845,6 @@ For details of the arguments, see documentation of dgesv.
       Real diagwork[size(diag, 1)]=diag;
       Real subdiagwork[size(subdiag, 1)]=subdiag;
 
-
     external "FORTRAN 77" dgtsv(size(diag, 1), 1, subdiagwork, diagwork,
         superdiagwork, x, size(b, 1), info) annotation (Library="Lapack");
       annotation (
@@ -2885,7 +2867,6 @@ For details of the arguments, see documentation of dgtsv.
     protected
       Real Awork[size(A, 1), size(A, 2)]=A;
       Integer ipiv[n];
-
 
     external "FORTRAN 77" dgbsv(n, kLower, kUpper, size(B, 2), Awork, size(
         Awork, 1), ipiv, X, n, info) annotation (Library="Lapack");
@@ -2970,7 +2951,6 @@ elements of U because of fill-in resulting from the row interchanges."));
       Real Awork[size(A, 1), size(A, 2)]=A;
       Integer ipiv[n];
 
-
     external "FORTRAN 77" dgbsv(n, kLower, kUpper, 1, Awork, size(Awork, 1),
         ipiv, x, n, info) annotation (Library="Lapack");
       annotation (
@@ -2990,9 +2970,8 @@ elements of U because of fill-in resulting from the row interchanges."));
       Integer lwork=5*size(A, 1) + 5*size(A, 2);
       Real work[lwork];
 
-
     external "Fortran 77" dgesvd("A", "A", size(A, 1), size(A, 2), Awork, size(
-        A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info)
+        A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info) 
         annotation (Library="Lapack");
       annotation (
         Documentation(info="Lapack documentation:
@@ -3105,9 +3084,8 @@ elements of U because of fill-in resulting from the row interchanges."));
       Integer lwork=5*size(A, 1) + 5*size(A, 2);
       Real work[lwork];
 
-
     external "Fortran 77" dgesvd("N", "N", size(A, 1), size(A, 2), Awork, size(
-        A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info)
+        A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info) 
         annotation (Library="Lapack");
       annotation (
         Documentation(info="Lapack documentation:
@@ -3217,7 +3195,6 @@ elements of U because of fill-in resulting from the row interchanges."));
       output Integer pivots[min(size(A, 1), size(A, 2))] "Pivot vector";
       output Integer info "Information";
 
-
     external "FORTRAN 77" dgetrf(size(A, 1), size(A, 2), LU, size(A, 1), pivots,
          info) annotation (Library="Lapack");
       annotation (
@@ -3278,7 +3255,6 @@ INFO    (output) INTEGER
         input Integer pivots[size(LU, 1)] "Pivot vector of dgetrf";
         input Real B[size(LU, 1),:] "Right hand side matrix B";
         output Real X[size(B, 1), size(B,2)]=B "Solution matrix X";
-
 
     protected
         Real work[size(LU, 1), size(LU, 1)]=LU;
@@ -3346,7 +3322,6 @@ INFO    (output) INTEGER
       input Integer pivots[size(LU, 1)] "Pivot vector of dgetrf";
       input Real b[size(LU, 1)] "Right hand side vector b";
       output Real x[size(b, 1)]=b;
-
 
     protected
       Real work[size(LU, 1), size(LU, 1)]=LU;
@@ -3550,7 +3525,6 @@ then the jth column of P is the ith canonical unit vector."));
         "The scalar factors of the elementary reflectors of Q";
       output Real Q[size(QR, 1), size(QR, 2)]=QR "Orthogonal matrix Q";
 
-
     protected
       Integer info;
       Integer lwork=min(10, size(QR, 2))*size(QR, 2) "Length of work array";
@@ -3749,7 +3723,6 @@ function sin "Sine"
   input SI.Angle u;
   output Real y;
 
-
 external "C" y = sin(u);
   annotation (
     Icon(coordinateSystem(
@@ -3830,7 +3803,6 @@ function cos "Cosine"
   input SI.Angle u;
   output Real y;
 
-
 external "C" y = cos(u);
   annotation (
     Icon(coordinateSystem(
@@ -3906,7 +3878,6 @@ function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
   extends baseIcon2;
   input SI.Angle u;
   output Real y;
-
 
 external "C" y = tan(u);
   annotation (
@@ -3986,7 +3957,6 @@ function asin "Inverse sine (-1 <= u <= 1)"
   extends baseIcon2;
   input Real u;
   output SI.Angle y;
-
 
 external "C" y = asin(u);
   annotation (
@@ -4068,7 +4038,6 @@ function acos "Inverse cosine (-1 <= u <= 1)"
   input Real u;
   output SI.Angle y;
 
-
 external "C" y = acos(u);
   annotation (
     Icon(coordinateSystem(
@@ -4145,7 +4114,6 @@ function atan "Inverse tangent"
   input Real u;
   output SI.Angle y;
 
-
 external "C" y = atan(u);
   annotation (
     Icon(coordinateSystem(
@@ -4216,7 +4184,6 @@ function atan2 "Four quadrant inverse tangent"
   input Real u1;
   input Real u2;
   output SI.Angle y;
-
 
 external "C" y = atan2(u1, u2);
   annotation (
@@ -4322,7 +4289,6 @@ function atan3
   input Modelica.SIunits.Angle y0=0 "y shall be in the range: -pi < y-y0 < pi";
   output Modelica.SIunits.Angle y;
 
-
 protected
   Real pi = Modelica.Constants.pi;
   Real w;
@@ -4424,7 +4390,6 @@ function sinh "Hyperbolic sine"
   input Real u;
   output Real y;
 
-
 external "C" y = sinh(u);
   annotation (
     Icon(coordinateSystem(
@@ -4506,7 +4471,6 @@ function cosh "Hyperbolic cosine"
   extends baseIcon2;
   input Real u;
   output Real y;
-
 
 external "C" y = cosh(u);
   annotation (
@@ -4590,7 +4554,6 @@ function tanh "Hyperbolic tangent"
   input Real u;
   output Real y;
 
-
 external "C" y = tanh(u);
   annotation (
     Icon(coordinateSystem(
@@ -4660,7 +4623,6 @@ function asinh "Inverse of sinh (area hyperbolic sine)"
   extends Modelica.Math.baseIcon2;
   input Real u;
   output Real y;
-
 
 algorithm
   y :=Modelica.Math.log(u + sqrt(u*u + 1));
@@ -4746,7 +4708,6 @@ function acosh "Inverse of cosh (area hyperbolic cosine)"
   extends Modelica.Math.baseIcon1;
   input Real u;
   output Real y;
-
 
 algorithm
   assert(u>=1.0, "Input argument u (= " + String(u) + ") of acosh(u) must be >= 1.0");
@@ -4842,7 +4803,6 @@ function exp "Exponential, base e"
   input Real u;
   output Real y;
 
-
 external "C" y = exp(u);
   annotation (
     Icon(coordinateSystem(
@@ -4923,7 +4883,6 @@ function log "Natural (base e) logarithm (u shall be > 0)"
   input Real u;
   output Real y;
 
-
 external "C" y = log(u);
   annotation (
     Icon(coordinateSystem(
@@ -4938,7 +4897,7 @@ external "C" y = log(u);
           fillPattern=FillPattern.Solid),
         Line(points={{-80,-80},{-79.2,-50.6},{-78.4,-37},{-77.6,-28},{-76.8,-21.3},
               {-75.2,-11.4},{-72.8,-1.31},{-69.5,8.08},{-64.7,17.9},{-57.5,28},
-              {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}},
+              {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}}, 
             color={0,0,0}),
         Text(
           extent={{-6,-24},{66,-72}},
@@ -5006,7 +4965,6 @@ function log10 "Base 10 logarithm (u shall be > 0)"
   input Real u;
   output Real y;
 
-
 external "C" y = log10(u);
   annotation (
     Icon(coordinateSystem(
@@ -5021,7 +4979,7 @@ external "C" y = log10(u);
           fillPattern=FillPattern.Solid),
         Line(points={{-79.8,-80},{-79.2,-50.6},{-78.4,-37},{-77.6,-28},{-76.8,-21.3},
               {-75.2,-11.4},{-72.8,-1.31},{-69.5,8.08},{-64.7,17.9},{-57.5,28},
-              {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}},
+              {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}}, 
             color={0,0,0}),
         Text(
           extent={{-30,-22},{60,-70}},
@@ -5285,9 +5243,10 @@ algorithm
 </html>"));
 end tempInterpol2;
 
+
 annotation (
   Invisible=true,
-  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), 
       graphics={Text(
         extent={{-59,-9},{42,-56}},
         lineColor={0,0,0},
