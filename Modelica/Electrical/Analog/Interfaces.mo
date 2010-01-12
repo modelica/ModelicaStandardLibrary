@@ -4,8 +4,18 @@ package Interfaces
   extends Modelica.Icons.Library;
 
   connector Pin "Pin of an electrical component"
-    SI.Voltage v "Potential at the pin";
-    flow SI.Current i "Current flowing into the pin";
+    Modelica.SIunits.Voltage v "Potential at the pin" annotation (
+        unassignedMessage="An electrical potential cannot be uniquely calculated.
+The reason could be that
+- a ground object is missing (Modelica.Electrical.Analog.Basic.Ground)
+  to define the zero potential of the electrical circuit, or
+- a connector of an electrical component is not connected.");
+    flow Modelica.SIunits.Current i "Current flowing into the pin" annotation (
+        unassignedMessage="An electrical current cannot be uniquely calculated.
+The reason could be that
+- a ground object is missing (Modelica.Electrical.Analog.Basic.Ground)
+  to define the zero potential of the electrical circuit, or
+- a connector of an electrical component is not connected.");
     annotation (defaultComponentName="pin",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Rectangle(
@@ -34,8 +44,18 @@ package Interfaces
   end Pin;
 
   connector PositivePin "Positive pin of an electric component"
-    SI.Voltage v "Potential at the pin";
-    flow SI.Current i "Current flowing into the pin";
+    Modelica.SIunits.Voltage v "Potential at the pin" annotation (
+        unassignedMessage="An electrical potential cannot be uniquely calculated.
+The reason could be that
+- a ground object is missing (Modelica.Electrical.Analog.Basic.Ground)
+  to define the zero potential of the electrical circuit, or
+- a connector of an electrical component is not connected.");
+    flow Modelica.SIunits.Current i "Current flowing into the pin" annotation (
+        unassignedMessage="An electrical current cannot be uniquely calculated.
+The reason could be that
+- a ground object is missing (Modelica.Electrical.Analog.Basic.Ground)
+  to define the zero potential of the electrical circuit, or
+- a connector of an electrical component is not connected.");
     annotation (defaultComponentName="pin_p",
       Documentation(info="<html>
 <p>Connectors PositivePin and NegativePin are nearly identical. The only difference is that the icons are different in order to identify more easily the pins of a component. Usually, connector PositivePin is used for the positive and connector NegativePin for the negative pin of an electrical component. </p>
@@ -64,8 +84,18 @@ package Interfaces
   end PositivePin;
 
   connector NegativePin "Negative pin of an electric component"
-    SI.Voltage v "Potential at the pin";
-    flow SI.Current i "Current flowing into the pin";
+    Modelica.SIunits.Voltage v "Potential at the pin" annotation (
+        unassignedMessage="An electrical potential cannot be uniquely calculated.
+The reason could be that
+- a ground object is missing (Modelica.Electrical.Analog.Basic.Ground)
+  to define the zero potential of the electrical circuit, or
+- a connector of an electrical component is not connected.");
+    flow Modelica.SIunits.Current i "Current flowing into the pin" annotation (
+        unassignedMessage="An electrical current cannot be uniquely calculated.
+The reason could be that
+- a ground object is missing (Modelica.Electrical.Analog.Basic.Ground)
+  to define the zero potential of the electrical circuit, or
+- a connector of an electrical component is not connected.");
     annotation (defaultComponentName="pin_n",
       Documentation(info="<html>
 <p>Connectors PositivePin and NegativePin are nearly identical. The only difference is that the icons are different in order to identify more easily the pins of a component. Usually, connector PositivePin is used for the positive and connector NegativePin for the negative pin of an electrical component. </p>
@@ -276,11 +306,11 @@ package Interfaces
   partial model ConditionalHeatPort
     "Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network"
 
-    parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
+    parameter Boolean useHeatPort = false "=true, if HeatPort is enabled" 
     annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
     parameter Modelica.SIunits.Temperature T=293.15
       "Fixed device temperature if useHeatPort = false" annotation(Dialog(enable=not useHeatPort));
-    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=T)=T_heatPort, Q_flow=-LossPower) if useHeatPort
+    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=T)=T_heatPort, Q_flow=-LossPower) if useHeatPort 
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
           iconTransformation(extent={{-10,-110},{10,-90}})));
     Modelica.SIunits.Power LossPower
@@ -397,7 +427,7 @@ package Interfaces
     parameter SI.Voltage offset=0 "Voltage offset";
     parameter SI.Time startTime=0 "Time offset";
     replaceable Modelica.Blocks.Interfaces.SignalSource signalSource(
-        final offset = offset, final startTime=startTime)
+        final offset = offset, final startTime=startTime) 
     annotation (Placement(transformation(extent={{70,70},{90,90}}, rotation=0)));
   equation
     v = signalSource.y;
