@@ -4,8 +4,18 @@ package Interfaces
   extends Modelica.Icons.Library;
 
   connector Pin "Pin of an electrical component"
-    SI.Voltage v "Potential at the pin";
-    flow SI.Current i "Current flowing into the pin";
+    Modelica.SIunits.Voltage v "Potential at the pin" annotation (
+        unassignedMessage="An electrical potential cannot be uniquely calculated.
+The reason could be that
+- a ground object is missing (Modelica.Electrical.Analog.Basic.Ground)
+  to define the zero potential of the electrical circuit, or
+- a connector of an electrical component is not connected.");
+    flow Modelica.SIunits.Current i "Current flowing into the pin" annotation (
+        unassignedMessage="An electrical current cannot be uniquely calculated.
+The reason could be that
+- a ground object is missing (Modelica.Electrical.Analog.Basic.Ground)
+  to define the zero potential of the electrical circuit, or
+- a connector of an electrical component is not connected.");
     annotation (defaultComponentName="pin",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Rectangle(
@@ -32,8 +42,18 @@ package Interfaces
   end Pin;
 
   connector PositivePin "Positive pin of an electric component"
-    SI.Voltage v "Potential at the pin";
-    flow SI.Current i "Current flowing into the pin";
+    Modelica.SIunits.Voltage v "Potential at the pin" annotation (
+        unassignedMessage="An electrical potential cannot be uniquely calculated.
+The reason could be that
+- a ground object is missing (Modelica.Electrical.Analog.Basic.Ground)
+  to define the zero potential of the electrical circuit, or
+- a connector of an electrical component is not connected.");
+    flow Modelica.SIunits.Current i "Current flowing into the pin" annotation (
+        unassignedMessage="An electrical current cannot be uniquely calculated.
+The reason could be that
+- a ground object is missing (Modelica.Electrical.Analog.Basic.Ground)
+  to define the zero potential of the electrical circuit, or
+- a connector of an electrical component is not connected.");
     annotation (defaultComponentName="pin_p",
       Documentation(info="<html><p>Connectors PositivePin
 and NegativePin are nearly identical.
@@ -66,8 +86,18 @@ component.</p></html>", revisions="<html>
   end PositivePin;
 
   connector NegativePin "Negative pin of an electric component"
-    SI.Voltage v "Potential at the pin";
-    flow SI.Current i "Current flowing into the pin";
+    Modelica.SIunits.Voltage v "Potential at the pin" annotation (
+        unassignedMessage="An electrical potential cannot be uniquely calculated.
+The reason could be that
+- a ground object is missing (Modelica.Electrical.Analog.Basic.Ground)
+  to define the zero potential of the electrical circuit, or
+- a connector of an electrical component is not connected.");
+    flow Modelica.SIunits.Current i "Current flowing into the pin" annotation (
+        unassignedMessage="An electrical current cannot be uniquely calculated.
+The reason could be that
+- a ground object is missing (Modelica.Electrical.Analog.Basic.Ground)
+  to define the zero potential of the electrical circuit, or
+- a connector of an electrical component is not connected.");
     annotation (defaultComponentName="pin_n",
       Documentation(info="<html><p>Connectors PositivePin
 and NegativePin are nearly identical.
@@ -352,7 +382,7 @@ on the model behaviour.
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
+          grid={1,1}), graphics={Line(points={{-70,0},{-96,0}}, color={0,0,0}),
             Line(points={{70,0},{100,0}}, color={0,0,255})}),
       Documentation(revisions="<html>
 <ul>

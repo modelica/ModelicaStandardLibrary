@@ -5088,7 +5088,7 @@ end UsersGuide;
 annotation (
 preferredView="info",
 version="3.1",
-versionBuild=5,
+versionBuild=6,
 versionDate="2009-08-14",
 dateModified = "2009-12-18 08:49:49Z",
 revisionId="$Id::                                       $",
