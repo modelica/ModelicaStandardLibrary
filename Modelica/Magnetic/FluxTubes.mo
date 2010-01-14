@@ -10,7 +10,6 @@ package FluxTubes
 
 package UsersGuide "User's Guide"
 
-
   class FluxTubeConcept "Flux tube concept"
 
     annotation (Documentation(info="<html>
@@ -247,7 +246,6 @@ end UsersGuide;
         annotation (Placement(transformation(extent={{-90,-30},{-70,-10}},
             rotation=0)));
 
-
     equation
       connect(source.p, r.p)        annotation (Line(points={{-80,20},{-61,20}},
           color={0,0,255}));
@@ -331,7 +329,6 @@ If the supply voltage has a zero-crossing when applied to the inductor at time t
     extends Modelica.Icons.Library;
     package MovingCoilActuator
       "Two translatory electrodynamic actuator models of different modelling depth and their comparison"
-
 
       model ForceCurrentBehaviour
         "Comparison of the force-current characteristics of both converter models with armature blocked at mid-position"
@@ -1581,7 +1578,6 @@ The characteristic current drop during pull-in is due to both armature motion an
 </html>"));
       end ComparisonPullInStroke;
 
-
       package Components "Components to be used in examples"
         model SimpleSolenoid
           "Simple network model of a lifting magnet with planar armature end face"
@@ -1628,7 +1624,6 @@ The characteristic current drop during pull-in is due to both armature motion an
         protected
           parameter SI.Density rho_steel = 7853
             "Density for calculation of armature mass from geometry";
-
 
         public
           Modelica.Magnetic.FluxTubes.Basic.Ground ground
@@ -1973,7 +1968,6 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
         protected
           parameter SI.Density rho_steel = 7853
             "Density for calculation of armature mass from geometry";
-
 
         public
           Modelica.Magnetic.FluxTubes.Basic.Ground ground
@@ -2740,7 +2734,6 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
       SI.MagneticFlux Psi "Flux linkage for information only";
       SI.Inductance L_stat "Static inductance abs(Psi/i) for information only";
 
-
     protected
       Real eps = 100*Modelica.Constants.eps;
     equation
@@ -2909,7 +2902,6 @@ The flux linkage &Psi; and the static inductance L_stat = |&Psi;/i| are calculat
 
       parameter SI.Reluctance R_m(start = 1) "Magnetic reluctance";
 
-
     equation
       V_m = Phi * R_m;
 
@@ -2990,7 +2982,6 @@ This element must <b>not</b> be used <b>for dynamic simulation of</b> electro-ma
 
       final parameter SI.Resistance R = rho * l /A
         "Electrical resistance of eddy current path";
-
 
     equation
       V_m = 1/R * der(Phi); //Magnetic voltage drop in magnetic network due to eddy current
@@ -3195,7 +3186,6 @@ For initial design of magnetic circuits, the relative permeability of possibly n
         parameter SI.Radius r_o( start = 0.01)
           "Outer radius of (hollow) cylinder";
 
-
         SI.MagneticFluxDensity B "Homogeneous flux density";
 
       protected
@@ -3230,7 +3220,6 @@ Please refer to the enclosing sub-package <a href=\"Modelica://Modelica.Magnetic
           "Inner radius of hollow cylinder";
         parameter SI.Radius r_o( start = 0.015)
           "Outer radius of hollow cylinder";
-
 
         SI.MagneticFluxDensity B_avg
           "Average flux density (at arithmetic mean radius)";
@@ -3267,7 +3256,6 @@ Please refer to the enclosing sub-package <a href=\"Modelica://Modelica.Magnetic
         parameter SI.Length b( start = 0.01)
           "Height of rectangular cross-section";
 
-
         SI.MagneticFluxDensity B "Homogeneous flux density";
 
       protected
@@ -3301,7 +3289,6 @@ Please refer to the enclosing sub-package <a href=\"Modelica://Modelica.Magnetic
         parameter SI.Length b( start = 0.01)
           "Height of rectangular cross-section (in flux direction)";
 
-
         SI.MagneticFluxDensity B "Homogeneous flux density";
 
       protected
@@ -3329,7 +3316,6 @@ Please refer to the enclosing sub-package <a href=\"Modelica://Modelica.Magnetic
         extends Modelica.Magnetic.FluxTubes.Interfaces.PartialForce;
         SI.Length l = s "Axial length (in direction of flux)"
           annotation(Dialog(group="Variable geometry"));
-
 
         parameter SI.Length w( start = 0.1)
           "Width orthogonal to flux; mean circumference of flux tube in case of cylindrical poles";
@@ -3386,7 +3372,6 @@ The shapes of the flux tubes defined in this package are rather simple. Only one
     package Leakage
       "Leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1"
 
-
       model QuarterCylinder
         "Leakage flux from one edge to the opposite plane through a quarter cylinder"
 
@@ -3394,7 +3379,6 @@ The shapes of the flux tubes defined in this package are rather simple. Only one
 
         parameter SI.Length l( start = 0.1)
           "Axial length orthogonal to flux (=2*pi*r for cylindrical pole and r>>distance between edge and plane)";
-
 
       equation
         G_m = mu_0 * 0.52 * l;
@@ -3416,7 +3400,6 @@ Please refer to the enclosing sub-package <a href=\"Modelica://Modelica.Magnetic
           "Axial length orthogonal to flux (=2*pi*r for cylindrical pole and r>>r_i)";
         parameter Real ratio( start = 1) "Constant ratio t/r_i";
 
-
       equation
         G_m = 2* mu_0 * l * Modelica.Math.log(1 + ratio) /pi;
 
@@ -3434,7 +3417,6 @@ Please refer to the enclosing sub-package <a href=\"Modelica://Modelica.Magnetic
 
         parameter SI.Length l( start = 0.1)
           "Axial length orthogonal to flux (=2*pi*r for cylindrical pole and r>>distance between edges)";
-
 
       equation
         G_m = mu_0 * 0.26 * l;
@@ -3456,7 +3438,6 @@ Please refer to the enclosing sub-package <a href=\"Modelica://Modelica.Magnetic
           "Axial length orthogonal to flux (=2*pi*r for cylindrical pole and r>>r_i)";
         parameter Real ratio( start = 1) "Constant ratio t/r_i";
 
-
       equation
         G_m = mu_0 * l * Modelica.Math.log(1 + ratio) /pi;
 
@@ -3474,7 +3455,6 @@ Please refer to the enclosing sub-package <a href=\"Modelica://Modelica.Magnetic
         extends Modelica.Magnetic.FluxTubes.Interfaces.PartialLeakage;
 
         parameter SI.Radius r( start = 0.005) "Radius of quarter sphere";
-
 
       equation
         G_m = mu_0 * 0.077 * 2*r;
@@ -3512,7 +3492,6 @@ Please refer to the enclosing sub-package <a href=\"Modelica://Modelica.Magnetic
 
         parameter SI.Radius r( start = 0.01) "Radius of eighth of sphere";
 
-
       equation
         G_m = mu_0 * 0.308 * r;
 
@@ -3530,7 +3509,6 @@ Please refer to the enclosing sub-package <a href=\"Modelica://Modelica.Magnetic
         extends Modelica.Magnetic.FluxTubes.Interfaces.PartialLeakage;
 
         parameter SI.Length t( start = 0.01) "Thickness of sperical shell";
-
 
       equation
         G_m = mu_0 * 0.5 * t;
@@ -3559,7 +3537,6 @@ Please refer to the enclosing sub-package <a href=\"Modelica://Modelica.Magnetic
           "Radial gap length between both cylinders";
         final parameter SI.Length t = r_2 - r_1
           "Radial thickness of outer hollow cylinder";
-
 
       equation
         // [Ro41], p. 139, Eq. (22)
@@ -3978,7 +3955,6 @@ Additional user-specific materials can be defined as needed. This requires deter
 
     extends Modelica.Icons.Library;
 
-
     package HardMagnetic
       "Characteristics of common permanent magnetic materials (temperature dependence considered)"
 
@@ -4124,7 +4100,6 @@ Additional user-specific materials can be defined as needed.
 
   package Interfaces "Interfaces of magnetic network components"
     extends Modelica.Icons.Library;
-
 
     connector MagneticPort "Generic magnetic port"
       SI.MagneticPotentialDifference V_m "Magnetic potential at the port";
@@ -4320,7 +4295,7 @@ Please refer to the description of  the sub-package <a href=\"Modelica://Modelic
         "= true, if support flange enabled, otherwise implicitly grounded"
           annotation(Evaluate=true, HideResult=true);
 
-      parameter SI.RelativePermeability mu_r = 1
+      parameter SI.RelativePermeability mu_r(start = 1)
         "Relative magnetic permeability";
 
       SI.Force F_m "Reluctance force";
@@ -4346,7 +4321,6 @@ Please refer to the description of  the sub-package <a href=\"Modelica://Modelic
 
     protected
       Modelica.SIunits.Length s_support "Absolute position of support flange";
-
 
     equation
       V_m = Phi * R_m;
@@ -4413,7 +4387,6 @@ Please refer to the description of  the sub-package <a href=\"Modelica://Modelic
       SI.Reluctance R_m "Magnetic reluctance";
       SI.Permeance G_m "Magnetic permeance";
 
-
     equation
       V_m = Phi * R_m;
       R_m = 1/G_m;
@@ -4468,14 +4441,12 @@ This package contains connectors for the magnetic domain and partial models for 
     "Sources of different complexity of magnetomotive force and magnetic flux"
     extends Modelica.Icons.Library;
 
-
     model ConstantMagneticPotentialDifference "Constant magnetomotive force"
 
       extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary;
       parameter SI.MagneticPotentialDifference V_m
         "Magnetic potential differnce";
       SI.MagneticFlux Phi "Magnetic flux from port_p to port_n";
-
 
     equation
       V_m = port_p.V_m - port_n.V_m;
@@ -4540,7 +4511,6 @@ For modelling of reluctance actuators with this source component it is assumed t
           extent={{10,-10},{-10,10}},
           rotation=90)));
       SI.MagneticFlux Phi "Magnetic flux from port_p to port_n";
-
 
     equation
       V_m = port_p.V_m - port_n.V_m;
@@ -4607,7 +4577,6 @@ In these cases, the magnetic potential difference or magnetomotive force imposed
       SI.MagneticPotentialDifference V_m
         "Magnetic potential difference between both ports";
 
-
     equation
       V_m = port_p.V_m - port_n.V_m;
       Phi = port_p.Phi;
@@ -4663,7 +4632,6 @@ Sources of a constant magnetic flux are useful for modelling of permanent magnet
           rotation=90)));
       SI.MagneticPotentialDifference V_m
         "Magnetic potential difference between both ports";
-
 
     equation
       V_m = port_p.V_m - port_n.V_m;
