@@ -630,7 +630,23 @@ class Version_3_1_BugFixes "Version 3.1 with bug fixes"
 annotation (Documentation(info="<html>
 <p>
 In this section bug fixes are summarized that have been incorporated
-since the release of version 3.1-build 4.
+for version 3.1-<b>build 6</b>:
+</p>
+
+<blockquote>
+<p>
+An \"unassignedMessage\" annotation was added to the electrical connector variables
+(Modelica.Electrical.Analog.Interfaces.*Pin). If appropriate support in the
+Modelica tool is available, then missing ground objects (Electrical.Analog.Basic.Ground)
+lead to a meaningful error message.
+</p>
+</blockquote>
+
+<hr>
+
+<p>
+In this section bug fixes are summarized that have been incorporated
+for release of version 3.1-<b>build 5</b>.
 </p>
 
 <p><br>
@@ -5090,7 +5106,7 @@ preferredView="info",
 version="3.1",
 versionBuild=6,
 versionDate="2009-08-14",
-dateModified = "2009-12-18 08:49:49Z",
+dateModified = "2010-01-17 20:15:49Z",
 revisionId="$Id::                                       $",
 conversion(
  noneFromVersion="3.0.1",
