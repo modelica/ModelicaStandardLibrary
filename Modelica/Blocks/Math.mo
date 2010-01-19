@@ -10,7 +10,7 @@ package Math "Library of mathematical functions as input/output blocks"
     import SI = Modelica.SIunits;
     import NonSI = Modelica.SIunits.Conversions.NonSIunits;
 
-    block To_degC "Convert from Kelvin to 캜elsius"
+    block To_degC "Convert from Kelvin to 째Celsius"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="K"), y(
             unit="degC"));
 
@@ -23,16 +23,16 @@ package Math "Library of mathematical functions as input/output blocks"
               textString="K"), Text(
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
-              textString="캜")}),
+              textString="째C")}),
                            Documentation(info="<html>
 <p>
-This block converts the input signal from Kelvin to 캜elsius and returns
+This block converts the input signal from Kelvin to 째Celsius and returns
 the result as output signal.
 </p>
 </html>"));
     end To_degC;
 
-    block From_degC "Convert from 캜elsius to Kelvin"
+    block From_degC "Convert from 째Celsius to Kelvin"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="degC"),
           y(unit="K"));
     equation
@@ -41,19 +41,19 @@ the result as output signal.
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
-              textString="캜"), Text(
+              textString="째C"), Text(
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="K")}),
                           Documentation(info="<html>
 <p>
-This block converts the input signal from 캜elsius to Kelvin and returns
+This block converts the input signal from 째Celsius to Kelvin and returns
 the result as output signal.
 </p>
 </html>"));
     end From_degC;
 
-    block To_degF "Convert from Kelvin to 캟ahrenheit"
+    block To_degF "Convert from Kelvin to 째Fahrenheit"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="K"), y(
             unit="degF"));
     equation
@@ -65,16 +65,16 @@ the result as output signal.
               textString="K"), Text(
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
-              textString="캟")}),
+              textString="째F")}),
                            Documentation(info="<html>
 <p>
-This block converts the input signal from Kelvin to 캟ahrenheit and returns
+This block converts the input signal from Kelvin to 째Fahrenheit and returns
 the result as output signal.
 </p>
 </html>"));
     end To_degF;
 
-    block From_degF "Convert from 캟ahrenheit to Kelvin"
+    block From_degF "Convert from 째Fahrenheit to Kelvin"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="degF"),
           y(unit="K"));
     equation
@@ -83,19 +83,19 @@ the result as output signal.
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
-              textString="캟"), Text(
+              textString="째F"), Text(
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="K")}),
                           Documentation(info="<html>
 <p>
-This block converts the input signal from 캟ahrenheit to Kelvin and returns
+This block converts the input signal from 째Fahrenheit to Kelvin and returns
 the result as output signal.
 </p>
 </html>"));
     end From_degF;
 
-    block To_degRk "Convert from Kelvin to 캲ankine"
+    block To_degRk "Convert from Kelvin to 째Rankine"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="K"), y(
             unit="degRk"));
     equation
@@ -107,16 +107,16 @@ the result as output signal.
               textString="K"), Text(
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
-              textString="캲k")}),
+              textString="째Rk")}),
                             Documentation(info="<html>
 <p>
-This block converts the input signal from Kelvin to 캲ankine and returns
+This block converts the input signal from Kelvin to 째Rankine and returns
 the result as output signal.
 </p>
 </html>"));
     end To_degRk;
 
-    block From_degRk "Convert from 캲ankine to Kelvin"
+    block From_degRk "Convert from 째Rankine to Kelvin"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="degRk"),
           y(unit="K"));
     equation
@@ -125,13 +125,13 @@ the result as output signal.
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
-              textString="캲k"), Text(
+              textString="째Rk"), Text(
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="K")}),
                           Documentation(info="<html>
 <p>
-This block converts the input signal from 캲ankine to Kelvin and returns
+This block converts the input signal from 째Rankine to Kelvin and returns
 the result as output signal.
 </p>
 </html>"));

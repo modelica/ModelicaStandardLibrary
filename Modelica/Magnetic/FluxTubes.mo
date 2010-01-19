@@ -2572,7 +2572,7 @@ In translatory actuators with limited stroke, the armature with its inertia can 
         extends Modelica.Icons.Record;
 
         parameter SI.Resistivity rho_20 = 0.0178e-6
-          "Resistivity of conductor material at 20�C (default: Copper)";
+          "Resistivity of conductor material at 20ï¿½C (default: Copper)";
         parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_20=
                                                                       0.0039
           "Temperature coefficient of conductor material's resistivity at 20degC (default: Copper)";
