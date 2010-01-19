@@ -15,7 +15,7 @@ partial package PartialModelicaServices
     parameter Types.ShapeType shapeType="box"
           "Type of shape (box, sphere, cylinder, pipecylinder, cone, pipe, beam, gearwheel, spring)";
     input Frames.Orientation R=Frames.nullRotation()
-          "Orientation object to rotate the world frame into the object frame" 
+          "Orientation object to rotate the world frame into the object frame"
                                                                             annotation(Dialog);
     input SI.Position r[3]={0,0,0}
           "Position vector from origin of world frame to origin of object frame, resolved in world frame"
@@ -24,10 +24,10 @@ partial package PartialModelicaServices
           "Position vector from origin of object frame to shape origin, resolved in object frame"
                                                                                               annotation(Dialog);
     input Real lengthDirection[3](each final unit="1")={1,0,0}
-          "Vector in length direction, resolved in object frame" 
+          "Vector in length direction, resolved in object frame"
                                                               annotation(Dialog);
     input Real widthDirection[3](each final unit="1")={0,1,0}
-          "Vector in width direction, resolved in object frame" 
+          "Vector in width direction, resolved in object frame"
                                                              annotation(Dialog);
     input SI.Length length=0 "Length of visual object"  annotation(Dialog);
     input SI.Length width=0 "Width of visual object"  annotation(Dialog);
@@ -36,7 +36,7 @@ partial package PartialModelicaServices
           "Additional size data for some of the shape types"                             annotation(Dialog);
     input Real color[3]={255,0,0} "Color of shape"               annotation(Dialog);
     input Types.SpecularCoefficient specularCoefficient = 0.7
-          "Reflection of ambient light (= 0: light is completely absorbed)" 
+          "Reflection of ambient light (= 0: light is completely absorbed)"
                                                                         annotation(Dialog);
     // Real rxry[3, 2];
     annotation (

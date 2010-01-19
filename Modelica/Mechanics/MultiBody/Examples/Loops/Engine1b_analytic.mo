@@ -9,7 +9,7 @@ model Engine1b_analytic
     n_b={0,-1,0},
     animation=false,
     rRod1_ia={0,0.2,0},
-    rRod2_ib={0,-0.1,0}) 
+    rRod2_ib={0,-0.1,0})
     annotation (Placement(transformation(
         origin={30,54},
         extent={{-20,20},{20,-20}},

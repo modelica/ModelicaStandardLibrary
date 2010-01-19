@@ -8,9 +8,9 @@ package Forces "Components that exert forces and/or torques between frames"
 
     import SI = Modelica.SIunits;
     extends Interfaces.PartialOneFrame_b;
-    Interfaces.Frame_resolve frame_resolve if 
+    Interfaces.Frame_resolve frame_resolve if
          resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve
-      "The input signals are optionally resolved in this frame" 
+      "The input signals are optionally resolved in this frame"
       annotation (Placement(transformation(
           origin={0,-100},
           extent={{-16,-16},{16,16}},
@@ -26,15 +26,15 @@ package Forces "Components that exert forces and/or torques between frames"
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world
       "Frame in which input force is resolved (1: world, 2: frame_b, 3: frame_resolve)";
     parameter Real N_to_m(unit="N/m") = world.defaultN_to_m
-      "Force arrow scaling (length = force/N_to_m)" 
+      "Force arrow scaling (length = force/N_to_m)"
       annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Diameter diameter=world.defaultArrowDiameter
       "Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
-      "Color of arrow" 
+      "Color of arrow"
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
 
   protected
@@ -50,11 +50,11 @@ package Forces "Components that exert forces and/or torques between frames"
       r_head=-f_in_m) if world.enableAnimation and animation;
 
   public
-    Internal.BasicWorldForce basicWorldForce(resolveInFrame=resolveInFrame) 
+    Internal.BasicWorldForce basicWorldForce(resolveInFrame=resolveInFrame)
       annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
   protected
-    Interfaces.ZeroPosition zeroPosition if 
-         not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve) 
+    Interfaces.ZeroPosition zeroPosition if
+         not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve)
       annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
   equation
     connect(basicWorldForce.frame_b, frame_b) annotation (Line(
@@ -71,7 +71,7 @@ package Forces "Components that exert forces and/or torques between frames"
         color={95,95,95},
         pattern=LinePattern.Dot,
         smooth=Smooth.None));
-    connect(zeroPosition.frame_resolve, basicWorldForce.frame_resolve) 
+    connect(zeroPosition.frame_resolve, basicWorldForce.frame_resolve)
       annotation (Line(
         points={{20,-30},{0,-30},{0,-10}},
         color={95,95,95},
@@ -174,9 +174,9 @@ This leads to the following animation
 
     extends Interfaces.PartialOneFrame_b;
 
-    Interfaces.Frame_resolve frame_resolve if 
+    Interfaces.Frame_resolve frame_resolve if
          resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve
-      "The input signals are optionally resolved in this frame" 
+      "The input signals are optionally resolved in this frame"
       annotation (Placement(transformation(
           origin={0,100},
           extent={{16,-16},{-16,16}},
@@ -192,15 +192,15 @@ This leads to the following animation
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world
       "Frame in which input torque is resolved (1: world, 2: frame_b, 3: frame_resolve)";
     parameter Real Nm_to_m(unit="N.m/m") = world.defaultNm_to_m
-      "Torque arrow scaling (length = torque/Nm_to_m)" 
+      "Torque arrow scaling (length = torque/Nm_to_m)"
       annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Diameter diameter=world.defaultArrowDiameter
       "Diameter of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
-      "Color of arrow" 
+      "Color of arrow"
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
 
   protected
@@ -215,11 +215,11 @@ This leads to the following animation
       r_tail=t_in_m,
       r_head=-t_in_m) if world.enableAnimation and animation;
   public
-    Internal.BasicWorldTorque basicWorldTorque(resolveInFrame=resolveInFrame) 
+    Internal.BasicWorldTorque basicWorldTorque(resolveInFrame=resolveInFrame)
       annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
   protected
-    Interfaces.ZeroPosition zeroPosition if 
-         not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve) 
+    Interfaces.ZeroPosition zeroPosition if
+         not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve)
       annotation (Placement(transformation(extent={{20,10},{40,30}})));
   equation
     connect(basicWorldTorque.frame_b, frame_b) annotation (Line(
@@ -236,7 +236,7 @@ This leads to the following animation
         color={95,95,95},
         pattern=LinePattern.Dot,
         smooth=Smooth.None));
-    connect(zeroPosition.frame_resolve, basicWorldTorque.frame_resolve) 
+    connect(zeroPosition.frame_resolve, basicWorldTorque.frame_resolve)
       annotation (Line(
         points={{20,20},{0,20},{0,10}},
         color={95,95,95},
@@ -347,9 +347,9 @@ This leads to the following animation
     import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
     extends Interfaces.PartialOneFrame_b;
-    Interfaces.Frame_resolve frame_resolve if 
+    Interfaces.Frame_resolve frame_resolve if
          resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve
-      "The input signals are optionally resolved in this frame" 
+      "The input signals are optionally resolved in this frame"
       annotation (Placement(transformation(
           origin={0,100},
           extent={{16,-16},{-16,16}},
@@ -372,21 +372,21 @@ This leads to the following animation
       "Frame in which input force and torque are resolved (1: world, 2: frame_b, 3: frame_resolve)";
 
     parameter Real N_to_m(unit="N/m") = world.defaultN_to_m
-      " Force arrow scaling (length = force/N_to_m)" 
+      " Force arrow scaling (length = force/N_to_m)"
       annotation (Dialog(group="if animation = true", enable=animation));
     parameter Real Nm_to_m(unit="N.m/m") = world.defaultNm_to_m
-      " Torque arrow scaling (length = torque/Nm_to_m)" 
+      " Torque arrow scaling (length = torque/Nm_to_m)"
       annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Diameter forceDiameter=world.defaultArrowDiameter
       " Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Diameter torqueDiameter=forceDiameter " Diameter of torque arrow" 
+    input SI.Diameter torqueDiameter=forceDiameter " Diameter of torque arrow"
                                   annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
       " Color of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
       " Color of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
 
   protected
@@ -411,13 +411,13 @@ This leads to the following animation
       r_tail=t_in_m,
       r_head=-t_in_m) if world.enableAnimation and animation;
   public
-    Internal.BasicWorldForce basicWorldForce(resolveInFrame=resolveInFrame) 
+    Internal.BasicWorldForce basicWorldForce(resolveInFrame=resolveInFrame)
       annotation (Placement(transformation(extent={{18,-50},{38,-70}})));
-    Internal.BasicWorldTorque basicWorldTorque(resolveInFrame=resolveInFrame) 
+    Internal.BasicWorldTorque basicWorldTorque(resolveInFrame=resolveInFrame)
       annotation (Placement(transformation(extent={{-10,50},{10,70}})));
   protected
-    Interfaces.ZeroPosition zeroPosition if 
-         not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve) 
+    Interfaces.ZeroPosition zeroPosition if
+         not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve)
       annotation (Placement(transformation(extent={{58,70},{78,90}})));
   equation
     connect(basicWorldForce.frame_b, frame_b) annotation (Line(
@@ -429,13 +429,13 @@ This leads to the following animation
         points={{16,-60},{-120,-60}},
         color={0,0,127},
         smooth=Smooth.None));
-    connect(basicWorldTorque.frame_b, frame_b) 
+    connect(basicWorldTorque.frame_b, frame_b)
                                       annotation (Line(
         points={{10,60},{60,60},{60,0},{100,0}},
         color={95,95,95},
         thickness=0.5,
         smooth=Smooth.None));
-    connect(basicWorldTorque.torque, torque) 
+    connect(basicWorldTorque.torque, torque)
                                     annotation (Line(
         points={{-12,60},{-120,60}},
         color={0,0,127},
@@ -445,19 +445,19 @@ This leads to the following animation
         color={95,95,95},
         pattern=LinePattern.Dot,
         smooth=Smooth.None));
-    connect(basicWorldTorque.frame_resolve, frame_resolve) 
+    connect(basicWorldTorque.frame_resolve, frame_resolve)
                                                   annotation (Line(
         points={{0,70},{0,100}},
         color={95,95,95},
         pattern=LinePattern.Dot,
         smooth=Smooth.None));
-    connect(zeroPosition.frame_resolve, basicWorldTorque.frame_resolve) 
+    connect(zeroPosition.frame_resolve, basicWorldTorque.frame_resolve)
                                                                annotation (Line(
         points={{58,80},{0,80},{0,70}},
         color={95,95,95},
         pattern=LinePattern.Dot,
         smooth=Smooth.None));
-    connect(zeroPosition.frame_resolve, basicWorldForce.frame_resolve) 
+    connect(zeroPosition.frame_resolve, basicWorldForce.frame_resolve)
       annotation (Line(
         points={{58,80},{40,80},{40,-40},{28,-40},{28,-50}},
         color={95,95,95},
@@ -601,9 +601,9 @@ is resolved in the world frame).
 
     import SI = Modelica.SIunits;
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
-    Interfaces.Frame_resolve frame_resolve if 
+    Interfaces.Frame_resolve frame_resolve if
          resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve
-      "The input signals are optionally resolved in this frame" 
+      "The input signals are optionally resolved in this frame"
       annotation (Placement(transformation(
           origin={40,100},
           extent={{-16,-16},{16,16}},
@@ -621,20 +621,20 @@ is resolved in the world frame).
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_b
       "Frame in which input force is resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
     parameter Real N_to_m(unit="N/m") = world.defaultN_to_m
-      " Force arrow scaling (length = force/N_to_m)" 
+      " Force arrow scaling (length = force/N_to_m)"
       annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Diameter forceDiameter=world.defaultArrowDiameter
       " Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Diameter connectionLineDiameter=forceDiameter
-      " Diameter of line connecting frame_a and frame_b" 
+      " Diameter of line connecting frame_a and frame_b"
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
       " Color of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color connectionLineColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
-      " Color of line connecting frame_a and frame_b" 
+      " Color of line connecting frame_a and frame_b"
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
 
   protected
@@ -660,11 +660,11 @@ is resolved in the world frame).
       r=frame_a.r_0) if world.enableAnimation and animation;
 
   public
-    MultiBody.Forces.Internal.BasicForce basicForce(resolveInFrame=resolveInFrame) 
+    MultiBody.Forces.Internal.BasicForce basicForce(resolveInFrame=resolveInFrame)
       annotation (Placement(transformation(extent={{0,-10},{20,10}})));
   protected
-    MultiBody.Interfaces.ZeroPosition zeroPosition if 
-         not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve) 
+    MultiBody.Interfaces.ZeroPosition zeroPosition if
+         not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
       annotation (Placement(transformation(extent={{40,10},{60,30}})));
   equation
     connect(basicForce.frame_a, frame_a) annotation (Line(
@@ -798,9 +798,9 @@ clarity this is not shown in the animation):
 
     import SI = Modelica.SIunits;
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
-    Interfaces.Frame_resolve frame_resolve if 
+    Interfaces.Frame_resolve frame_resolve if
          resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve
-      "The input signals are optionally resolved in this frame" 
+      "The input signals are optionally resolved in this frame"
       annotation (Placement(transformation(
           origin={40,100},
           extent={{-16,-16},{16,16}},
@@ -819,20 +819,20 @@ clarity this is not shown in the animation):
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_b
       "Frame in which input force is resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
     parameter Real Nm_to_m(unit="N.m/m") = world.defaultNm_to_m
-      " Torque arrow scaling (length = torque/Nm_to_m)" 
+      " Torque arrow scaling (length = torque/Nm_to_m)"
       annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Diameter torqueDiameter=world.defaultArrowDiameter
       " Diameter of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Diameter connectionLineDiameter=torqueDiameter
-      " Diameter of line connecting frame_a and frame_b" 
+      " Diameter of line connecting frame_a and frame_b"
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
       " Color of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color connectionLineColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
-      " Color of line connecting frame_a and frame_b" 
+      " Color of line connecting frame_a and frame_b"
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
 
   protected
@@ -859,11 +859,11 @@ clarity this is not shown in the animation):
       r=frame_a.r_0) if world.enableAnimation and animation;
 
   public
-    Internal.BasicTorque basicTorque(resolveInFrame=resolveInFrame) 
+    Internal.BasicTorque basicTorque(resolveInFrame=resolveInFrame)
       annotation (Placement(transformation(extent={{-8,-10},{12,10}})));
   protected
-    Interfaces.ZeroPosition zeroPosition if 
-         not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve) 
+    Interfaces.ZeroPosition zeroPosition if
+         not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
       annotation (Placement(transformation(extent={{34,10},{54,30}})));
   equation
     connect(basicTorque.frame_a, frame_a) annotation (Line(
@@ -930,7 +930,7 @@ clarity this is not shown in the animation):
             pattern=LinePattern.Dot),
           Line(points={{-79,47},{-70,61},{-59,72},{-45,81},{-32,84},{-20,85}},
               color={0,0,0}),
-          Line(points={{77,45},{66,60},{55,69},{49,74},{41,80},{31,84},{20,85}}, 
+          Line(points={{77,45},{66,60},{55,69},{49,74},{41,80},{31,84},{20,85}},
               color={0,0,0})}),
       Documentation(info="<HTML>
 <p>
@@ -1015,9 +1015,9 @@ clarity this is not shown in the animation):
           origin={0,120},
           extent={{-20,-20},{20,20}},
           rotation=270)));
-    Interfaces.Frame_resolve frame_resolve if 
+    Interfaces.Frame_resolve frame_resolve if
          resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve
-      "The input signals are optionally resolved in this frame" 
+      "The input signals are optionally resolved in this frame"
       annotation (Placement(transformation(
           origin={80,100},
           extent={{-16,-16},{16,16}},
@@ -1029,27 +1029,27 @@ clarity this is not shown in the animation):
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_b
       "Frame in which input force and torque are resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
     parameter Real N_to_m(unit="N/m") = world.defaultN_to_m
-      "Force arrow scaling (length = force/N_to_m)" 
+      "Force arrow scaling (length = force/N_to_m)"
       annotation (Dialog(group="if animation = true", enable=animation));
     parameter Real Nm_to_m(unit="N.m/m") = world.defaultNm_to_m
-      "Torque arrow scaling (length = torque/Nm_to_m)" 
+      "Torque arrow scaling (length = torque/Nm_to_m)"
       annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Diameter forceDiameter=world.defaultArrowDiameter
       "Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Diameter torqueDiameter=forceDiameter " Diameter of torque arrow" 
+    input SI.Diameter torqueDiameter=forceDiameter " Diameter of torque arrow"
                                   annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Diameter connectionLineDiameter=forceDiameter
-      "Diameter of line connecting frame_a and frame_b" 
+      "Diameter of line connecting frame_a and frame_b"
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
       "Color of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
       "Color of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color connectionLineColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
-      "Color of line connecting frame_a and frame_b" 
+      "Color of line connecting frame_a and frame_b"
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
 
   protected
@@ -1086,13 +1086,13 @@ clarity this is not shown in the animation):
       r=frame_a.r_0) if world.enableAnimation and animation;
 
   public
-    Internal.BasicForce basicForce(resolveInFrame=resolveInFrame) 
+    Internal.BasicForce basicForce(resolveInFrame=resolveInFrame)
       annotation (Placement(transformation(extent={{-84,-10},{-64,10}})));
-    Internal.BasicTorque basicTorque(resolveInFrame=resolveInFrame) 
+    Internal.BasicTorque basicTorque(resolveInFrame=resolveInFrame)
       annotation (Placement(transformation(extent={{-4,10},{16,30}})));
   protected
-    Interfaces.ZeroPosition zeroPosition if 
-         not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve) 
+    Interfaces.ZeroPosition zeroPosition if
+         not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
       annotation (Placement(transformation(extent={{20,30},{40,50}})));
   equation
     connect(basicForce.frame_a, frame_a) annotation (Line(
@@ -1198,7 +1198,7 @@ clarity this is not shown in the animation):
           Line(points={{20,0},{65,0}}, color={0,0,0}),
           Line(points={{-79,47},{-70,61},{-59,72},{-45,81},{-32,84},{-20,85}},
               color={0,0,0}),
-          Line(points={{76,47},{66,60},{55,69},{49,74},{41,80},{31,84},{20,85}}, 
+          Line(points={{76,47},{66,60},{55,69},{49,74},{41,80},{31,84},{20,85}},
               color={0,0,0}),
           Text(
             extent={{-144,124},{-106,102}},
@@ -1303,28 +1303,28 @@ clarity this is not shown in the animation):
       max=1) = 0.5
       "Location of point mass with respect to frame_a as a fraction of the distance from frame_a to frame_b";
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation"));
     parameter Types.ShapeType lineShapeType="cylinder"
-      " Type of shape visualizing the line from frame_a to frame_b" 
+      " Type of shape visualizing the line from frame_a to frame_b"
       annotation (Dialog(tab="Animation", group="if animateLine = true", enable=animateLine));
     input SI.Length lineShapeWidth=world.defaultArrowDiameter " Width of shape"
       annotation (Dialog(tab="Animation", group="if animateLine = true", enable=animateLine));
-    input SI.Length lineShapeHeight=lineShapeWidth " Height of shape" 
+    input SI.Length lineShapeHeight=lineShapeWidth " Height of shape"
       annotation (Dialog(tab="Animation", group="if animateLine = true", enable=animateLine));
-    parameter Types.ShapeExtra lineShapeExtra=0.0 " Extra parameter for shape" 
+    parameter Types.ShapeExtra lineShapeExtra=0.0 " Extra parameter for shape"
       annotation (Dialog(tab="Animation", group="if animateLine = true", enable=animateLine));
     input Types.Color lineShapeColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
-      " Color of line shape" 
+      " Color of line shape"
       annotation (Dialog(tab="Animation", group="if animateLine = true", enable=animateLine));
     input Real massDiameter=world.defaultBodyDiameter
-      " Diameter of point mass sphere" 
+      " Diameter of point mass sphere"
       annotation (Dialog(tab="Animation", group="if animateMass = true", enable=animateMass));
     input Types.Color massColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
-      " Color of point mass" 
+      " Color of point mass"
       annotation (Dialog(tab="Animation", group="if animateMass = true", enable=animateMass));
     parameter SI.Position s_small=1.E-10
-      " Prevent zero-division if distance between frame_a and frame_b is zero" 
+      " Prevent zero-division if distance between frame_a and frame_b is zero"
       annotation (Dialog(tab="Advanced"));
     SI.Distance length
       "Distance between the origin of frame_a and the origin of frame_b";
@@ -1578,7 +1578,7 @@ for this situation:
             fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Line(points={{-60,0},{-31,0}}, color={0,0,255}),
-          Polygon(points={{-19,0},{-31,3},{-31,-3},{-19,0}}, lineColor={0,0,255}), 
+          Polygon(points={{-19,0},{-31,3},{-31,-3},{-19,0}}, lineColor={0,0,255}),
 
           Line(points={{-60,16},{0,16}}, color={0,0,255}),
           Line(points={{0,0},{0,20}}, color={0,0,255}),
@@ -1586,7 +1586,7 @@ for this situation:
             extent={{-43,-8},{-7,-33}},
             lineColor={0,0,0},
             textString="e_rel_0"),
-          Polygon(points={{0,16},{-12,19},{-12,13},{0,16}}, lineColor={0,0,255}), 
+          Polygon(points={{0,16},{-12,19},{-12,13},{0,16}}, lineColor={0,0,255}),
 
           Text(
             extent={{-50,35},{51,26}},
@@ -1659,30 +1659,30 @@ in the other flange connector.
     parameter SI.Position L_b=L_a
       "Distance between point mass b and frame_b (positive, if in direction of frame_a)";
     input SI.Diameter cylinderDiameter_a=world.defaultForceWidth
-      " Diameter of cylinder at frame_a" 
+      " Diameter of cylinder at frame_a"
       annotation (Dialog(tab="Animation", group="Cylinder at frame_a if animation = true", enable=animate));
     parameter SI.Length cylinderLength_a=2*L_a " Length of cylinder at frame_a"
       annotation (Dialog(tab="Animation", group="Cylinder at frame_a if animation = true", enable=animate));
-    input Types.Color color_a={155,155,155} " Color of cylinder at frame_a" 
+    input Types.Color color_a={155,155,155} " Color of cylinder at frame_a"
       annotation (Dialog(tab="Animation", group="Cylinder at frame_a if animation = true", enable=animate));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="Cylinder at frame_a if animation = true", enable=animate));
     input Real diameterFraction=0.8
       " Diameter of cylinder at frame_b with respect to diameter of cylinder at frame_a"
       annotation (Dialog(tab="Animation", group="Cylinder at frame_b if animation = true", enable=animate));
     parameter SI.Length cylinderLength_b=2*L_b " Length of cylinder at frame_b"
       annotation (Dialog(tab="Animation", group="Cylinder at frame_b if animation = true", enable=animate));
-    input Types.Color color_b={100,100,100} " Color of cylinder at frame_b" 
+    input Types.Color color_b={100,100,100} " Color of cylinder at frame_b"
       annotation (Dialog(tab="Animation", group="Cylinder at frame_b if animation = true", enable=animate));
     input Real massDiameterFaction=1.7
-      " Diameter of point mass spheres with respect to cylinderDiameter_a" 
+      " Diameter of point mass spheres with respect to cylinderDiameter_a"
       annotation (Dialog(tab="Animation", group="if animation = true and animateMasses = true", enable=animate and animateMasses));
     input Types.Color massColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
-      " Color of point masses" 
+      " Color of point masses"
       annotation (Dialog(tab="Animation", group="if animation = true and animateMasses = true", enable=animate and animateMasses));
     parameter SI.Position s_small=1.E-10
-      " Prevent zero-division if distance between frame_a and frame_b is zero" 
+      " Prevent zero-division if distance between frame_a and frame_b is zero"
       annotation (Dialog(tab="Advanced"));
     SI.Distance length
       "Distance between the origin of frame_a and the origin of frame_b";
@@ -2027,7 +2027,7 @@ for this situation:
             fillPattern=FillPattern.Solid),
           Line(points={{29,3},{29,22}}, color={0,0,255}),
           Line(points={{29,16},{60,16}}, color={0,0,255}),
-          Polygon(points={{29,16},{41,19},{41,13},{29,16}}, lineColor={0,0,255}), 
+          Polygon(points={{29,16},{41,19},{41,13},{29,16}}, lineColor={0,0,255}),
 
           Text(
             extent={{15,36},{32,26}},
@@ -2099,17 +2099,17 @@ in the other flange connector.
       min=0,
       max=1) = 0.5
       "Location of spring mass with respect to frame_a as a fraction of the distance from frame_a to frame_b (=0: at frame_a; =1: at frame_b)";
-    input SI.Distance width=world.defaultForceWidth " Width of spring" 
+    input SI.Distance width=world.defaultForceWidth " Width of spring"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input SI.Distance coilWidth=width/10 " Width of spring coil" 
+    input SI.Distance coilWidth=width/10 " Width of spring coil"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter Integer numberOfWindings=5 " Number of spring windings" 
+    parameter Integer numberOfWindings=5 " Number of spring windings"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.SpringColor
-      " Color of spring" 
+      " Color of spring"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input SIunits.Diameter massDiameter=max(0, (width - 2*coilWidth)*0.9)
       " Diameter of mass point sphere" annotation (Dialog(tab="Animation", group=
@@ -2133,23 +2133,23 @@ in the other flange connector.
       massColor=massColor) annotation (Placement(transformation(extent={{-20,
               -20},{20,20}}, rotation=0)));
     Modelica.Mechanics.Translational.Components.Spring spring(
-                                                   s_rel0=s_unstretched, c=c) 
+                                                   s_rel0=s_unstretched, c=c)
       annotation (Placement(transformation(extent={{-8,40},{12,60}}, rotation=0)));
 
   equation
-    connect(lineForce.frame_a, frame_a) 
+    connect(lineForce.frame_a, frame_a)
       annotation (Line(
         points={{-20,0},{-100,0}},
         color={95,95,95},
         thickness=0.5));
-    connect(lineForce.frame_b, frame_b) 
+    connect(lineForce.frame_b, frame_b)
       annotation (Line(
         points={{20,0},{100,0}},
         color={95,95,95},
         thickness=0.5));
-    connect(spring.flange_b, lineForce.flange_b) 
+    connect(spring.flange_b, lineForce.flange_b)
       annotation (Line(points={{12,50},{12,20}}, color={0,191,0}));
-    connect(spring.flange_a, lineForce.flange_a) 
+    connect(spring.flange_a, lineForce.flange_a)
       annotation (Line(points={{-8,50},{-12,50},{-12,20}}, color={0,191,0}));
 
     annotation (
@@ -2216,20 +2216,20 @@ ALT=\"model Examples.Elementary.SpringWithMass\">
     parameter SI.TranslationalDampingConstant d(final min=0, start = 0)
       "Damping constant";
     parameter SI.Distance length_a=world.defaultForceLength
-      " Length of cylinder at frame_a side" 
+      " Length of cylinder at frame_a side"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input SIunits.Diameter diameter_a=world.defaultForceWidth
-      " Diameter of cylinder at frame_a side" 
+      " Diameter of cylinder at frame_a side"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input SIunits.Diameter diameter_b=0.6*diameter_a
-      " Diameter of cylinder at frame_b side" 
+      " Diameter of cylinder at frame_b side"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.Color color_a={100,100,100} " Color at frame_a" 
+    input Types.Color color_a={100,100,100} " Color at frame_a"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation, colorSelector));
-    input Types.Color color_b={155,155,155} " Color at frame_b" 
+    input Types.Color color_b={155,155,155} " Color at frame_b"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation, colorSelector));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     extends Interfaces.PartialLineForce;
 
@@ -2245,7 +2245,7 @@ ALT=\"model Examples.Elementary.SpringWithMass\">
       lengthDirection=e_a,
       widthDirection={0,1,0},
       r=frame_a.r_0,
-      R=frame_a.R) if 
+      R=frame_a.R) if
                      world.enableAnimation and animation;
     Visualizers.Advanced.Shape shape_b(
       shapeType="cylinder",
@@ -2341,17 +2341,17 @@ where a mass is hanging on a damper.
     parameter SI.Length s_unstretched=0 "Unstretched spring length";
     parameter SI.TranslationalDampingConstant d(final min=0) = 0
       "Damping constant";
-    input SI.Distance width=world.defaultForceWidth " Width of spring" 
+    input SI.Distance width=world.defaultForceWidth " Width of spring"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input SI.Distance coilWidth=width/10 " Width of spring coil" 
+    input SI.Distance coilWidth=width/10 " Width of spring coil"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter Integer numberOfWindings=5 " Number of spring windings" 
+    parameter Integer numberOfWindings=5 " Number of spring windings"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.SpringColor
-      " Color of spring" 
+      " Color of spring"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     extends Interfaces.PartialLineForce;
 
@@ -2561,7 +2561,7 @@ force element) and der(s_damper) is the time derivative of s_damper.
       import Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB;
       extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
       Interfaces.Frame_resolve frame_resolve
-        "The input signals are optionally resolved in this frame" 
+        "The input signals are optionally resolved in this frame"
         annotation (Placement(transformation(
             origin={40,100},
             extent={{-16,-16},{16,16}},
@@ -2696,7 +2696,7 @@ values from the outside in order that the model remains balanced
       import Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB;
       extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
       Interfaces.Frame_resolve frame_resolve
-        "The input signals are optionally resolved in this frame" 
+        "The input signals are optionally resolved in this frame"
         annotation (Placement(transformation(
             origin={40,100},
             extent={{-16,-16},{16,16}},
@@ -2784,9 +2784,9 @@ values from the outside in order that the model remains balanced
               points={{-60,100},{40,100}},
               color={95,95,95},
               pattern=LinePattern.Dot),
-            Line(points={{-79,47},{-70,61},{-59,72},{-45,81},{-32,84},{-20,85}}, 
+            Line(points={{-79,47},{-70,61},{-59,72},{-45,81},{-32,84},{-20,85}},
                 color={0,0,0}),
-            Line(points={{77,45},{66,60},{55,69},{49,74},{41,80},{31,84},{20,85}}, 
+            Line(points={{77,45},{66,60},{55,69},{49,74},{41,80},{31,84},{20,85}},
                 color={0,0,0})}),
         Documentation(info="<HTML>
 <p>
@@ -2834,7 +2834,7 @@ values from the outside in order that the model remains balanced
       import Modelica.Mechanics.MultiBody.Types.ResolveInFrameB;
       extends Interfaces.PartialOneFrame_b;
       Interfaces.Frame_resolve frame_resolve
-        "The input signals are optionally resolved in this frame" 
+        "The input signals are optionally resolved in this frame"
         annotation (Placement(transformation(
             origin={0,-100},
             extent={{-16,-16},{16,16}},
@@ -2941,7 +2941,7 @@ values from the outside in order that the model remains balanced
       import Modelica.Mechanics.MultiBody.Types.ResolveInFrameB;
       extends Interfaces.PartialOneFrame_b;
       Interfaces.Frame_resolve frame_resolve
-        "The input signals are optionally resolved in this frame" 
+        "The input signals are optionally resolved in this frame"
         annotation (Placement(transformation(
             origin={0,100},
             extent={{16,-16},{-16,16}},

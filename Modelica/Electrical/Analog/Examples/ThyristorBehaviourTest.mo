@@ -1,10 +1,10 @@
 within Modelica.Electrical.Analog.Examples;
 model ThyristorBehaviourTest
 
-  Modelica.Electrical.Analog.Basic.Ground ground 
+  Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{18,-40},{38,-20}})));
   Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(          V=30, freqHz=
-        10000) 
+        10000)
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
@@ -22,7 +22,7 @@ model ThyristorBehaviourTest
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={-8,70})));
-  Modelica.Electrical.Analog.Semiconductors.Thyristor thyristor_v4_1 
+  Modelica.Electrical.Analog.Semiconductors.Thyristor thyristor_v4_1
     annotation (Placement(transformation(extent={{-44,30},{-24,50}})));
   Modelica.Electrical.Analog.Basic.Inductor inductor(L=2e-6) annotation (
       Placement(transformation(

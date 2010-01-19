@@ -464,7 +464,7 @@ and/or a division by zero will occur.
     else
       angle_1a := Modelica.Math.atan2(A, -B);
       angle_1b := Modelica.Math.atan2(-A, B);
-      angles[1] := if abs(angle_1a - guessAngle1) <= abs(angle_1b - guessAngle1) then 
+      angles[1] := if abs(angle_1a - guessAngle1) <= abs(angle_1b - guessAngle1) then
               angle_1a else angle_1b;
     end if;
     T_1a := TransformationMatrices.planarRotation(e1_1, angles[1]);

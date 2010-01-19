@@ -78,7 +78,7 @@ equation
           Line(points={{-72,-2},{-60.0698,-12.907},{-49.0698,-12.907}}, color={
                 0,0,127}),
           Polygon(
-            points={{-48.8808,-11},{-48.8808,-15},{-44.8808,-13},{-48.8808,-11}}, 
+            points={{-48.8808,-11},{-48.8808,-15},{-44.8808,-13},{-48.8808,-11}},
 
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
@@ -167,7 +167,7 @@ equation
           Line(points={{-72,-2},{-60.0698,-12.907},{-49.0698,-12.907}}, color={
                 0,0,255}),
           Polygon(
-            points={{-48.8808,-11},{-48.8808,-15},{-44.8808,-13},{-48.8808,-11}}, 
+            points={{-48.8808,-11},{-48.8808,-15},{-44.8808,-13},{-48.8808,-11}},
 
             lineColor={0,0,255},
             fillColor={255,255,255},
@@ -272,7 +272,7 @@ equation
 
   end when;
 
-  y = if not allowOutOfRange or index > 0 and index <= nin then 
+  y = if not allowOutOfRange or index > 0 and index <= nin then
               k*u else outOfRangeValue;
   annotation (Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -302,7 +302,7 @@ equation
           Line(points={{-62,-2},{-50.0698,-12.907},{-39.0698,-12.907}}, color={
                 0,0,127}),
           Polygon(
-            points={{-38.8808,-11},{-38.8808,-15},{-34.8808,-13},{-38.8808,-11}}, 
+            points={{-38.8808,-11},{-38.8808,-15},{-34.8808,-13},{-38.8808,-11}},
 
             lineColor={0,0,127},
             fillColor={255,255,255},
@@ -979,10 +979,10 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
 
     extends Modelica.Blocks.Interfaces.BlockIcon;
 
-    Modelica.Blocks.Interfaces.RealInput u "Input signal" 
+    Modelica.Blocks.Interfaces.RealInput u "Input signal"
       annotation (HideResult=true, Placement(transformation(extent={{-140,-20},{-100,
               20}}, rotation=0)));
-    Modelica.Blocks.Interfaces.RealOutput y "Output signal" 
+    Modelica.Blocks.Interfaces.RealOutput y "Output signal"
       annotation (HideResult=true, Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
   equation
@@ -1000,10 +1000,10 @@ Passes a Real signal through without modification.  Enables signals to be read o
   model IntegerPassThrough "Pass a Integer signal through without modification"
     extends Modelica.Blocks.Interfaces.IntegerBlockIcon;
 
-    Modelica.Blocks.Interfaces.IntegerInput u "Input signal" 
+    Modelica.Blocks.Interfaces.IntegerInput u "Input signal"
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
-    Modelica.Blocks.Interfaces.IntegerOutput y "Output signal" 
+    Modelica.Blocks.Interfaces.IntegerOutput y "Output signal"
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
   equation
@@ -1020,10 +1020,10 @@ Passes a Real signal through without modification.  Enables signals to be read o
   model BooleanPassThrough "Pass a Boolean signal through without modification"
     extends Modelica.Blocks.Interfaces.BooleanBlockIcon;
 
-    Modelica.Blocks.Interfaces.BooleanInput u "Input signal" 
+    Modelica.Blocks.Interfaces.BooleanInput u "Input signal"
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
-    Modelica.Blocks.Interfaces.BooleanOutput y "Output signal" 
+    Modelica.Blocks.Interfaces.BooleanOutput y "Output signal"
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
   equation

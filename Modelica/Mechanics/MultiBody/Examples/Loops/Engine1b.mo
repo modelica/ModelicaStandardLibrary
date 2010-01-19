@@ -12,21 +12,21 @@ model Engine1b
   Modelica.Mechanics.MultiBody.Joints.Revolute B1(
     n={1,0,0},
     cylinderLength=0.02,
-    cylinderDiameter=0.05) 
+    cylinderDiameter=0.05)
                          annotation (Placement(transformation(extent={{40,-20},
             {60,0}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Joints.Prismatic Cylinder(useAxisFlange=true,
-    boxWidth=0.02, n={0,-1,0}) 
+    boxWidth=0.02, n={0,-1,0})
                    annotation (Placement(transformation(
         origin={50,97},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Parts.FixedTranslation Rod1(r={0,0.2,0}, animation=false) 
+  Parts.FixedTranslation Rod1(r={0,0.2,0}, animation=false)
     annotation (Placement(transformation(
         origin={70,10},
         extent={{-10,-10},{10,10}},
         rotation=90)));
-  Parts.FixedTranslation Rod3(r={0,-0.1,0}, animation=false) 
+  Parts.FixedTranslation Rod3(r={0,-0.1,0}, animation=false)
     annotation (Placement(transformation(
         origin={50,58},
         extent={{10,-10},{-10,10}},

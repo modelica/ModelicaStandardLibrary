@@ -35,7 +35,7 @@ function list "List content of file or directory"
      String directory2;
   algorithm
      // Construct directory with a trailing "/"
-     directory2 := if Strings.substring(directory,lenDirectory,lenDirectory) == "/" then 
+     directory2 := if Strings.substring(directory,lenDirectory,lenDirectory) == "/" then
                       directory else directory + "/";
 
      // Distinguish directories and files
@@ -164,9 +164,9 @@ function copy "Generate a copy of a file or of a directory"
 
   Integer lenOldName = Strings.length(oldName);
   Integer lenNewName = Strings.length(newName);
-  String oldName2 = if Strings.substring(oldName,lenOldName,lenOldName) == "/" then 
+  String oldName2 = if Strings.substring(oldName,lenOldName,lenOldName) == "/" then
                        Strings.substring(oldName,1,lenOldName-1) else oldName;
-  String newName2 = if Strings.substring(newName,lenNewName,lenNewName) == "/" then 
+  String newName2 = if Strings.substring(newName,lenNewName,lenNewName) == "/" then
                        Strings.substring(newName,1,lenNewName-1) else newName;
   Types.FileType oldFileType = Modelica.Utilities.Internal.FileSystem.stat(
                                              oldName2);
@@ -180,7 +180,7 @@ algorithm
                                  newName2);
      if newFileType == Types.FileType.NoFile then
         createDirectory(newName2);
-     elseif newFileType == Types.FileType.RegularFile or 
+     elseif newFileType == Types.FileType.RegularFile or
             newFileType == Types.FileType.SpecialFile then
         if replace then
            Files.removeFile(newName2);
@@ -305,7 +305,7 @@ function remove "Remove file or directory (ignore call, if it does not exist)"
      Integer lenName = Strings.length(name);
      String fileNames[nNames];
      // remove an optional trailing "/"
-     String name2 = if Strings.substring(name,lenName,lenName) == "/" then 
+     String name2 = if Strings.substring(name,lenName,lenName) == "/" then
                        Strings.substring(name,lenName-1,lenName-1) else name;
   algorithm
      fileNames :=Modelica.Utilities.Internal.FileSystem.readDirectory(
@@ -321,7 +321,7 @@ function remove "Remove file or directory (ignore call, if it does not exist)"
   Types.FileType fileType=Modelica.Utilities.Internal.FileSystem.stat(
                                         fullName);
 algorithm
-  if fileType == Types.FileType.RegularFile or 
+  if fileType == Types.FileType.RegularFile or
      fileType == Types.FileType.SpecialFile then
      Modelica.Utilities.Internal.FileSystem.removeFile(
                          fullName);
@@ -398,7 +398,7 @@ function createDirectory
      Types.FileType fileType = Modelica.Utilities.Internal.FileSystem.stat(
                                              directoryName);
   algorithm
-     if fileType == Types.FileType.RegularFile or 
+     if fileType == Types.FileType.RegularFile or
         fileType == Types.FileType.SpecialFile then
         Streams.error("Directory \"" + directoryName + "\" cannot be created\n" +
                       "because this is an existing file.");

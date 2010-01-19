@@ -13,10 +13,10 @@ package Types "Common types for fluid models"
         "DynamicFreeInitial -- Dynamic balance, Initial guess value",
       FixedInitial "FixedInitial -- Dynamic balance, Initial value fixed",
       SteadyStateInitial
-        "SteadyStateInitial -- Dynamic balance, Steady state initial with guess value", 
+        "SteadyStateInitial -- Dynamic balance, Steady state initial with guess value",
 
       SteadyState "SteadyState -- Steady state balance, Initial guess value")
-    "Enumeration to define definition of balance equations" 
+    "Enumeration to define definition of balance equations"
   annotation (Documentation(info="<html>
 <p>
 Enumeration to define the formulation of balance equations
@@ -213,7 +213,7 @@ make the simulation of your model faster.
       a_v_b "a_v_b: port_a - flow model - volume - flow model - port_b",
       av_b "av_b: port_a - volume - flow model - port_b",
       a_vb "a_vb: port_a - flow model - volume - port_b")
-    "Enumeration with choices for model structure in distributed pipe model" 
+    "Enumeration with choices for model structure in distributed pipe model"
     annotation (Documentation(info="<html>
 
 <p>

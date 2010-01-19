@@ -60,12 +60,12 @@ explained in detail in the
     "Valve for possibly vaporizing (almost) incompressible fluids, accounts for choked flow conditions"
     import Modelica.Fluid.Types.CvTypes;
     extends BaseClasses.PartialValve(
-      redeclare replaceable package Medium = 
+      redeclare replaceable package Medium =
           Modelica.Media.Water.WaterIF97_ph                                    constrainedby
         Modelica.Media.Interfaces.PartialTwoPhaseMedium);
     parameter Real Fl_nominal=0.9 "Liquid pressure recovery factor";
-    replaceable function FlCharacteristic = 
-        Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.one 
+    replaceable function FlCharacteristic =
+        Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.one
       constrainedby
       Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.baseFun
       "Pressure recovery characteristic";
@@ -85,7 +85,7 @@ explained in detail in the
     p_sat = Medium.saturationPressure(T_in);
     Ff = 0.96 - 0.28*sqrt(p_sat/Medium.fluidConstants[1].criticalPressure);
     Fl = Fl_nominal*FlCharacteristic(opening);
-    dpEff = if p_out < (1 - Fl^2)*p_in + Ff*Fl^2*p_sat then 
+    dpEff = if p_out < (1 - Fl^2)*p_in + Ff*Fl^2*p_sat then
               Fl^2*(p_in - Ff*p_sat) else dp
       "Effective pressure drop, accounting for possible choked conditions";
     // m_flow = valveCharacteristic(opening)*Av*sqrt(d)*sqrt(dpEff);
@@ -134,11 +134,11 @@ explained in detail in the
     "Valve for compressible fluids, accounts for choked flow conditions"
     extends BaseClasses.PartialValve;
     import Modelica.Fluid.Types.CvTypes;
-    parameter Medium.AbsolutePressure p_nominal "Nominal inlet pressure" 
+    parameter Medium.AbsolutePressure p_nominal "Nominal inlet pressure"
     annotation(Dialog(group="Nominal operating point"));
     parameter Real Fxt_full=0.5 "Fk*xt critical ratio at full opening";
-    replaceable function xtCharacteristic = 
-        Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.one 
+    replaceable function xtCharacteristic =
+        Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.one
       constrainedby
       Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.baseFun
       "Critical ratio characteristic";
@@ -231,7 +231,7 @@ explained in detail in the
     final parameter Types.HydraulicConductance k = m_flow_nominal/dp_nominal
       "Hydraulic conductance at full opening";
     Modelica.Blocks.Interfaces.RealInput opening(min=0,max=1)
-      "=1: completely open, =0: completely closed" 
+      "=1: completely open, =0: completely closed"
     annotation (Placement(transformation(
           origin={0,90},
           extent={{-20,-20},{20,20}},
@@ -297,7 +297,7 @@ a simple model of a variable pressure loss is needed.</p>
       "Nominal mass flowrate at full opening=1";
     final parameter Types.HydraulicConductance k = m_flow_nominal/dp_nominal
       "Hydraulic conductance at full opening=1";
-    Modelica.Blocks.Interfaces.BooleanInput open 
+    Modelica.Blocks.Interfaces.BooleanInput open
     annotation (Placement(transformation(
           origin={0,80},
           extent={{-20,-20},{20,20}},
@@ -363,37 +363,37 @@ it is open.
         m_flow_start = m_flow_nominal,
         m_flow_small = system.m_flow_small);
 
-      parameter CvTypes CvData=CvTypes.OpPoint "Selection of flow coefficient" 
+      parameter CvTypes CvData=CvTypes.OpPoint "Selection of flow coefficient"
        annotation(Dialog(group = "Flow Coefficient"));
       parameter SI.Area Av(
         fixed=if CvData == CvTypes.Av then true else false,
         start=m_flow_nominal/(sqrt(rho_nominal*dp_nominal))*valveCharacteristic(
-            opening_nominal)) = 0 "Av (metric) flow coefficient" 
+            opening_nominal)) = 0 "Av (metric) flow coefficient"
        annotation(Dialog(group = "Flow Coefficient",
                          enable = (CvData==Modelica.Fluid.Types.CvTypes.Av)));
-      parameter Real Kv = 0 "Kv (metric) flow coefficient [m3/h]" 
+      parameter Real Kv = 0 "Kv (metric) flow coefficient [m3/h]"
       annotation(Dialog(group = "Flow Coefficient",
                         enable = (CvData==CvTypes.Kv)));
-      parameter Real Cv = 0 "Cv (US) flow coefficient [USG/min]" 
+      parameter Real Cv = 0 "Cv (US) flow coefficient [USG/min]"
       annotation(Dialog(group = "Flow Coefficient",
                         enable = (CvData==CvTypes.Cv)));
-      parameter SI.Pressure dp_nominal "Nominal pressure drop" 
+      parameter SI.Pressure dp_nominal "Nominal pressure drop"
       annotation(Dialog(group="Nominal operating point"));
-      parameter Medium.MassFlowRate m_flow_nominal "Nominal mass flowrate" 
+      parameter Medium.MassFlowRate m_flow_nominal "Nominal mass flowrate"
       annotation(Dialog(group="Nominal operating point"));
       parameter Medium.Density rho_nominal=Medium.density_pTX(Medium.p_default, Medium.T_default, Medium.X_default)
-        "Nominal inlet density" 
+        "Nominal inlet density"
       annotation(Dialog(group="Nominal operating point"));
-      parameter Real opening_nominal=1 "Nominal opening" 
+      parameter Real opening_nominal=1 "Nominal opening"
       annotation(Dialog(group="Nominal operating point"));
-      parameter Boolean checkValve=false "Reverse flow stopped" 
+      parameter Boolean checkValve=false "Reverse flow stopped"
         annotation(Dialog(tab="Assumptions"));
 
-      replaceable function valveCharacteristic = 
-          Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.linear 
+      replaceable function valveCharacteristic =
+          Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.linear
         constrainedby
         Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.baseFun
-        "Inherent flow characteristic" 
+        "Inherent flow characteristic"
         annotation(choicesAllMatching=true);
 
       parameter SI.Pressure dp_small=system.dp_small
@@ -403,7 +403,7 @@ it is open.
       constant SI.Area Cv2Av = 24.0e-6 "Conversion factor";
 
       Modelica.Blocks.Interfaces.RealInput opening(min=0, max=1)
-        "Valve position in the range 0-1" 
+        "Valve position in the range 0-1"
                                        annotation (Placement(transformation(
             origin={0,90},
             extent={{-20,-20},{20,20}},
@@ -436,7 +436,7 @@ it is open.
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid),
             Polygon(
-              points={{-100,50},{100,-50},{100,50},{0,0},{-100,-50},{-100,50}}, 
+              points={{-100,50},{100,-50},{100,50},{0,0},{-100,-50},{-100,50}},
 
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
@@ -517,7 +517,7 @@ explained in detail in the
       input Real rangeability = 20 "Rangeability";
       input Real delta = 0.01;
     algorithm
-      rc := if pos > delta then rangeability^(pos-1) else 
+      rc := if pos > delta then rangeability^(pos-1) else
               pos/delta*rangeability^(delta-1);
       annotation (Documentation(info="<html>
 This characteristic is such that the relative change of the flow coefficient is proportional to the change in the opening position:

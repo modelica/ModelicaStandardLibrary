@@ -319,15 +319,15 @@ With the default value of delta=0.01, the difference between sqrt(x) and sqrtReg
            y_new = y/y1
            x_new = x/x1
         */
-          y := y1*(if x >= 0 then evaluatePoly3_derivativeAtZero(x/x1,1,1,y1d*x1/y1,y0d*x1/y1) else 
+          y := y1*(if x >= 0 then evaluatePoly3_derivativeAtZero(x/x1,1,1,y1d*x1/y1,y0d*x1/y1) else
                                   evaluatePoly3_derivativeAtZero(x/x1,x2/x1,y2/y1,y2d*x1/y1,y0d*x1/y1));
        end if;
        annotation(smoothOrder=2);
     end regRoot2_utility;
   algorithm
-    y := smooth(2,if x >= x_small then sqrt(k1*x) else 
-                  if x <= -x_small then -sqrt(k2*abs(x)) else 
-                  if k1 >= k2 then regRoot2_utility(x,x_small,k1,k2,use_yd0,yd0) else 
+    y := smooth(2,if x >= x_small then sqrt(k1*x) else
+                  if x <= -x_small then -sqrt(k2*abs(x)) else
+                  if k1 >= k2 then regRoot2_utility(x,x_small,k1,k2,use_yd0,yd0) else
                                   -regRoot2_utility(-x,x_small,k2,k1,use_yd0,yd0));
     annotation(smoothOrder=2, Documentation(info="<html>
 <p>
@@ -454,15 +454,15 @@ k1=1, k2=3 is shown in the next figure:
           w2 :=sqrt(5)*k2*abs(x2);
           y0d :=min(y0d, 0.9*min(w1, w2));
 
-          y := if x >= 0 then evaluatePoly3_derivativeAtZero(x,x1,y1,y1d,y0d) else 
+          y := if x >= 0 then evaluatePoly3_derivativeAtZero(x,x1,y1,y1d,y0d) else
                               evaluatePoly3_derivativeAtZero(x,x2,y2,y2d,y0d);
        end if;
        annotation(smoothOrder=2);
     end regSquare2_utility;
   algorithm
-    y := smooth(2,if x >= x_small then k1*x^2 else 
-                  if x <= -x_small then -k2*x^2 else 
-                  if k1 >= k2 then regSquare2_utility(x,x_small,k1,k2,use_yd0,yd0) else 
+    y := smooth(2,if x >= x_small then k1*x^2 else
+                  if x <= -x_small then -k2*x^2 else
+                  if k1 >= k2 then regSquare2_utility(x,x_small,k1,k2,use_yd0,yd0) else
                                   -regSquare2_utility(-x,x_small,k2,k1,use_yd0,yd0));
     annotation(smoothOrder=2, Documentation(info="<html>
 <p>
@@ -537,8 +537,8 @@ k1=1, k2=3 is shown in the next figure:
     output Real y "Ordinate value to approximate y = if x > 0 then y1 else y2";
     // output Real yd;
   algorithm
-    y := smooth(1, if x >  x_small then y1 else 
-                   if x < -x_small then y2 else 
+    y := smooth(1, if x >  x_small then y1 else
+                   if x < -x_small then y2 else
                    if abs(x_small)>0 then (x/x_small)*((x/x_small)^2 - 3)*(y2-y1)/4 + (y1+y2)/2 else (y1+y2)/2);
     annotation(Documentation(revisions="<html>
 <ul>

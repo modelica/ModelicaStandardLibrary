@@ -2,7 +2,7 @@ within Modelica.Mechanics.MultiBody.Examples.Elementary;
 model PendulumWithSpringDamper "Simple spring/damper/mass system"
   extends Modelica.Icons.Example;
   parameter Boolean animation=true "= true, if animation shall be enabled";
-  inner Modelica.Mechanics.MultiBody.World world(axisLength=0.6) 
+  inner Modelica.Mechanics.MultiBody.World world(axisLength=0.6)
     annotation (Placement(transformation(extent={{-80,20},{-60,40}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.Body body1(
     m=1,
@@ -16,7 +16,7 @@ model PendulumWithSpringDamper "Simple spring/damper/mass system"
         origin={72,30},
         extent={{10,-10},{-10,10}},
         rotation=180)));
-  Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar1(animation=animation, r={0.3,0,0}) 
+  Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar1(animation=animation, r={0.3,0,0})
     annotation (Placement(transformation(extent={{-46,20},{-26,40}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Forces.Spring spring1(
     coilWidth=0.01,
@@ -37,20 +37,20 @@ model PendulumWithSpringDamper "Simple spring/damper/mass system"
     boxWidth=0.04,
     boxColor={255,65,65},
     s(fixed=true, start=0.5),
-    v(fixed=true)) 
+    v(fixed=true))
     annotation (Placement(transformation(extent={{20,20},{40,40}}, rotation=0)));
 equation
-  connect(world.frame_b, bar1.frame_a) 
+  connect(world.frame_b, bar1.frame_a)
     annotation (Line(
       points={{-60,30},{-46,30}},
       color={95,95,95},
       thickness=0.5));
-  connect(revolute.frame_a, bar1.frame_b) 
+  connect(revolute.frame_a, bar1.frame_b)
     annotation (Line(
       points={{-12,30},{-26,30}},
       color={95,95,95},
       thickness=0.5));
-  connect(prismatic.frame_a, revolute.frame_b) 
+  connect(prismatic.frame_a, revolute.frame_b)
     annotation (Line(
       points={{20,30},{8,30}},
       color={95,95,95},
@@ -71,7 +71,7 @@ equation
       points={{20,-36},{44,-36},{44,30},{40,30}},
       color={95,95,95},
       thickness=0.5));
-  connect(body1.frame_a, prismatic.frame_b) 
+  connect(body1.frame_a, prismatic.frame_b)
     annotation (Line(
       points={{62,30},{40,30}},
       color={95,95,95},

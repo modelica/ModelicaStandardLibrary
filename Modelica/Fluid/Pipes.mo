@@ -9,13 +9,13 @@ package Pipes "Devices for conveying fluid"
 
     // Initialization
     parameter Medium.AbsolutePressure p_a_start=system.p_start
-      "Start value of pressure at port a" 
+      "Start value of pressure at port a"
       annotation(Dialog(tab = "Initialization"));
     parameter Medium.AbsolutePressure p_b_start=p_a_start
-      "Start value of pressure at port b" 
+      "Start value of pressure at port b"
       annotation(Dialog(tab = "Initialization"));
     parameter Medium.MassFlowRate m_flow_start = system.m_flow_start
-      "Start value for mass flow rate" 
+      "Start value for mass flow rate"
        annotation(Evaluate=true, Dialog(tab = "Initialization"));
 
     FlowModel flowModel(
@@ -36,7 +36,7 @@ package Pipes "Devices for conveying fluid"
             final dimensions={4*crossArea/perimeter, 4*crossArea/perimeter},
             final roughnesses={roughness, roughness},
             final dheights={height_ab},
-            final g=system.g) "Flow model" 
+            final g=system.g) "Flow model"
        annotation (Placement(transformation(extent={{-38,-18},{38,18}},rotation=0)));
   equation
     // Mass balance
@@ -89,14 +89,14 @@ or other flow models without storage, are directly connected.
 
     // extending PartialTwoPortFlow
     extends BaseClasses.PartialTwoPortFlow(
-      final lengths=if n == 1 then 
-                        {length} else 
-                    if modelStructure == ModelStructure.av_vb then 
-                        cat(1, {length/(n-1)/2}, fill(length/(n-1), n-2), {length/(n-1)/2}) else 
-                    if modelStructure == ModelStructure.av_b then 
-                        cat(1, {length/n/2}, fill(length*(1-1/n/2)/(n-1), n-1)) else 
-                    if modelStructure == ModelStructure.a_vb then 
-                        cat(1, fill(length*(1-1/n/2)/(n-1), n-1), {length/n/2}) else 
+      final lengths=if n == 1 then
+                        {length} else
+                    if modelStructure == ModelStructure.av_vb then
+                        cat(1, {length/(n-1)/2}, fill(length/(n-1), n-2), {length/(n-1)/2}) else
+                    if modelStructure == ModelStructure.av_b then
+                        cat(1, {length/n/2}, fill(length*(1-1/n/2)/(n-1), n-1)) else
+                    if modelStructure == ModelStructure.a_vb then
+                        cat(1, fill(length*(1-1/n/2)/(n-1), n-1), {length/n/2}) else
                         fill(length/n, n),
       final crossAreas=fill(crossArea, n),
       final dimensions=fill(4*crossArea/perimeter, n),
@@ -105,15 +105,15 @@ or other flow models without storage, are directly connected.
 
     // Wall heat transfer
     parameter Boolean use_HeatTransfer = false
-      "= true to use the HeatTransfer model" 
+      "= true to use the HeatTransfer model"
         annotation (Dialog(tab="Assumptions", group="Heat transfer"));
-    replaceable model HeatTransfer = 
-        Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.IdealFlowHeatTransfer 
+    replaceable model HeatTransfer =
+        Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.IdealFlowHeatTransfer
       constrainedby
       Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer
-      "Wall heat transfer" 
+      "Wall heat transfer"
         annotation (Dialog(tab="Assumptions", group="Heat transfer",enable=use_HeatTransfer),choicesAllMatching=true);
-    Interfaces.HeatPorts_a[nNodes] heatPorts if use_HeatTransfer 
+    Interfaces.HeatPorts_a[nNodes] heatPorts if use_HeatTransfer
       annotation (Placement(transformation(extent={{-10,45},{10,65}}), iconTransformation(extent={{-30,36},
               {32,52}})));
 
@@ -127,7 +127,7 @@ or other flow models without storage, are directly connected.
       final roughnesses=roughnesses,
       final states=mediums.state,
       final vs = vs,
-      final use_k = use_HeatTransfer) "Heat transfer model" 
+      final use_k = use_HeatTransfer) "Heat transfer model"
         annotation (Placement(transformation(extent={{-36,19},{-14,41}}, rotation=0)));
     final parameter Real[n] dxs = lengths/sum(lengths);
   equation
@@ -159,7 +159,7 @@ or other flow models without storage, are directly connected.
       end if;
     end if;
 
-    connect(heatPorts, heatTransfer.heatPorts) 
+    connect(heatPorts, heatTransfer.heatPorts)
       annotation (Line(points={{0,55},{0,54},{-24,54},{-24,37.7},{-25,37.7}},
                                                color={191,0,0}));
     annotation (defaultComponentName="pipe",
@@ -282,36 +282,36 @@ The intended use is for complex networks of pipes and other flow devices, like v
       // Geometry
 
       // Note: define nParallel as Real to support inverse calculations
-      parameter Real nParallel(min=1)=1 "Number of identical parallel pipes" 
+      parameter Real nParallel(min=1)=1 "Number of identical parallel pipes"
         annotation(Dialog(group="Geometry"));
-      parameter SI.Length length "Length" 
+      parameter SI.Length length "Length"
         annotation(Dialog(tab="General", group="Geometry"));
       parameter Boolean isCircular=true
-        "= true if cross sectional area is circular" 
+        "= true if cross sectional area is circular"
         annotation (Evaluate, Dialog(tab="General", group="Geometry"));
-      parameter SI.Diameter diameter "Diameter of circular pipe" 
+      parameter SI.Diameter diameter "Diameter of circular pipe"
         annotation(Dialog(group="Geometry", enable=isCircular));
       parameter SI.Area crossArea=Modelica.Constants.pi*diameter*diameter/4
-        "Inner cross section area" 
+        "Inner cross section area"
         annotation(Dialog(tab="General", group="Geometry", enable=not isCircular));
       parameter SI.Length perimeter=Modelica.Constants.pi*diameter
-        "Inner perimeter" 
+        "Inner perimeter"
         annotation(Dialog(tab="General", group="Geometry", enable=not isCircular));
       parameter SI.Height roughness=2.5e-5
-        "Average height of surface asperities (default: smooth steel pipe)" 
+        "Average height of surface asperities (default: smooth steel pipe)"
           annotation(Dialog(group="Geometry"));
       final parameter SI.Volume V=crossArea*length*nParallel "volume size";
 
       // Static head
-      parameter SI.Length height_ab=0 "Height(port_b) - Height(port_a)" 
+      parameter SI.Length height_ab=0 "Height(port_b) - Height(port_a)"
           annotation(Dialog(group="Static head"));
 
       // Pressure loss
-      replaceable model FlowModel = 
-        Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow 
+      replaceable model FlowModel =
+        Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow
         constrainedby
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel
-        "Wall friction, gravity, momentum flow" 
+        "Wall friction, gravity, momentum flow"
           annotation(Dialog(group="Pressure loss"), choicesAllMatching=true);
 
     equation
@@ -356,43 +356,43 @@ Base class for one dimensional flow models. It specializes a PartialTwoPort with
 
       // Geometry parameters
       parameter Real nParallel(min=1)=1
-        "Number of identical parallel flow devices" 
+        "Number of identical parallel flow devices"
         annotation(Dialog(group="Geometry"));
-      parameter SI.Length[n] lengths "lengths of flow segments" 
+      parameter SI.Length[n] lengths "lengths of flow segments"
         annotation(Dialog(group="Geometry"));
-      parameter SI.Area[n] crossAreas "cross flow areas of flow segments" 
+      parameter SI.Area[n] crossAreas "cross flow areas of flow segments"
         annotation(Dialog(group="Geometry"));
-      parameter SI.Length[n] dimensions "hydraulic diameters of flow segments" 
+      parameter SI.Length[n] dimensions "hydraulic diameters of flow segments"
         annotation(Dialog(group="Geometry"));
       parameter SI.Height[n] roughnesses
-        "Average heights of surface asperities" 
+        "Average heights of surface asperities"
         annotation(Dialog(group="Geometry"));
 
       // Static head
       parameter SI.Length[n] dheights=zeros(n)
-        "Differences in heigths of flow segments" 
+        "Differences in heigths of flow segments"
           annotation(Dialog(group="Static head"), Evaluate=true);
 
       // Assumptions
       parameter Types.Dynamics momentumDynamics=system.momentumDynamics
-        "Formulation of momentum balances" 
+        "Formulation of momentum balances"
         annotation(Evaluate=true, Dialog(tab = "Assumptions", group="Dynamics"));
 
       // Initialization
       parameter Medium.MassFlowRate m_flow_start = system.m_flow_start
-        "Start value for mass flow rate" 
+        "Start value for mass flow rate"
          annotation(Evaluate=true, Dialog(tab = "Initialization"));
 
       // Discretization
-      parameter Integer nNodes(min=1)=2 "Number of discrete flow volumes" 
+      parameter Integer nNodes(min=1)=2 "Number of discrete flow volumes"
         annotation(Dialog(tab="Advanced"),Evaluate=true);
 
       parameter Types.ModelStructure modelStructure=Types.ModelStructure.av_vb
-        "Determines whether flow or volume models are present at the ports" 
+        "Determines whether flow or volume models are present at the ports"
         annotation(Dialog(tab="Advanced"), Evaluate=true);
 
       parameter Boolean useLumpedPressure=false
-        "=true to lump pressure states together" 
+        "=true to lump pressure states together"
         annotation(Dialog(tab="Advanced"),Evaluate=true);
       final parameter Integer nFM=if useLumpedPressure then nFMLumped else nFMDistributed
         "number of flow models in flowModel";
@@ -414,11 +414,11 @@ Base class for one dimensional flow models. It specializes a PartialTwoPort with
         "state vector for flowModel model";
 
       // Pressure loss model
-      replaceable model FlowModel = 
-        Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow 
+      replaceable model FlowModel =
+        Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow
         constrainedby
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel
-        "Wall friction, gravity, momentum flow" 
+        "Wall friction, gravity, momentum flow"
           annotation(Dialog(group="Pressure loss"), choicesAllMatching=true);
       FlowModel flowModel(
               redeclare final package Medium = Medium,
@@ -436,7 +436,7 @@ Base class for one dimensional flow models. It specializes a PartialTwoPort with
               final dimensions=dimensionsFM,
               final roughnesses=roughnessesFM,
               final dheights=dheightsFM,
-              final g=system.g) "Flow model" 
+              final g=system.g) "Flow model"
          annotation (Placement(transformation(extent={{-77,-38},{75,-20}},rotation=0)));
 
       // Flow quantities
@@ -1042,11 +1042,11 @@ This also allows for taking into account friction losses with respect to the act
             // Internal interface
             // (not exposed to GUI; needs to be hard coded when using this model
             //
-            replaceable package Medium = 
+            replaceable package Medium =
               Modelica.Media.Interfaces.PartialMedium "Medium in the component"
                 annotation(Dialog(tab="Internal Interface",enable=false));
 
-            parameter Integer n=2 "Number of discrete flow volumes" 
+            parameter Integer n=2 "Number of discrete flow volumes"
               annotation(Dialog(tab="Internal Interface",enable=false));
 
             // Inputs
@@ -1057,7 +1057,7 @@ This also allows for taking into account friction losses with respect to the act
 
             // Geometry parameters and inputs
             parameter Real nParallel
-          "number of identical parallel flow devices" 
+          "number of identical parallel flow devices"
                annotation(Dialog(tab="Internal Interface",enable=false,group="Geometry"));
 
             input SI.Area[n] crossAreas
@@ -1072,7 +1072,7 @@ This also allows for taking into account friction losses with respect to the act
           "Height(states[2:n]) - Height(states[1:n-1])";
 
             parameter SI.Acceleration g=system.g
-          "Constant gravity acceleration" 
+          "Constant gravity acceleration"
               annotation(Dialog(tab="Internal Interface",enable=false,group="Static head"));
 
             // Assumptions
@@ -1080,18 +1080,18 @@ This also allows for taking into account friction losses with respect to the act
           "= true to allow flow reversal, false restricts to design direction (states[1] -> states[n+1])"
               annotation(Dialog(tab="Internal Interface",enable=false,group="Assumptions"), Evaluate=true);
             parameter Modelica.Fluid.Types.Dynamics momentumDynamics=system.momentumDynamics
-          "Formulation of momentum balance" 
+          "Formulation of momentum balance"
               annotation(Dialog(tab="Internal Interface",enable=false,group = "Assumptions"), Evaluate=true);
 
             // Initialization
             parameter Medium.MassFlowRate m_flow_start=system.m_flow_start
-          "Start value of mass flow rates" 
+          "Start value of mass flow rates"
               annotation(Dialog(tab="Internal Interface",enable=false,group = "Initialization"));
             parameter Medium.AbsolutePressure p_a_start
-          "Start value for p[1] at design inflow" 
+          "Start value for p[1] at design inflow"
               annotation(Dialog(tab="Internal Interface",enable=false,group = "Initialization"));
             parameter Medium.AbsolutePressure p_b_start
-          "Start value for p[n+1] at design outflow" 
+          "Start value for p[n+1] at design outflow"
               annotation(Dialog(tab="Internal Interface",enable=false,group = "Initialization"));
 
             //
@@ -1124,7 +1124,7 @@ This also allows for taking into account friction losses with respect to the act
             parameter SI.ReynoldsNumber Re_turbulent = 4000
           "Start of turbulent regime, depending on type of flow device";
             parameter Boolean show_Res = false
-          "= true, if Reynolds numbers are included for plotting" 
+          "= true, if Reynolds numbers are included for plotting"
                annotation (Evaluate=true, Dialog(group="Diagnostics"));
             SI.ReynoldsNumber[n] Res=Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber(
                 vs,
@@ -1132,18 +1132,18 @@ This also allows for taking into account friction losses with respect to the act
                 mus,
                 dimensions) if show_Res "Reynolds numbers";
             Medium.MassFlowRate[n-1] m_flows_turbulent=
-                {nParallel*(Modelica.Constants.pi/4)*0.5*(dimensions[i] + dimensions[i+1])*mus_act[i]*Re_turbulent for i in 1:n-1} if 
+                {nParallel*(Modelica.Constants.pi/4)*0.5*(dimensions[i] + dimensions[i+1])*mus_act[i]*Re_turbulent for i in 1:n-1} if
                    show_Res "Start of turbulent flow";
       protected
             parameter Boolean use_rho_nominal = false
-          "= true, if rho_nominal is used, otherwise computed from medium" 
+          "= true, if rho_nominal is used, otherwise computed from medium"
                annotation(Dialog(group="Advanced"), Evaluate=true);
             parameter SI.Density rho_nominal = Medium.density_pTX(Medium.p_default, Medium.T_default, Medium.X_default)
-          "Nominal density (e.g. rho_liquidWater = 995, rho_air = 1.2)" 
+          "Nominal density (e.g. rho_liquidWater = 995, rho_air = 1.2)"
               annotation(Dialog(group="Advanced", enable=use_rho_nominal));
 
             parameter Boolean use_mu_nominal = false
-          "= true, if mu_nominal is used, otherwise computed from medium" 
+          "= true, if mu_nominal is used, otherwise computed from medium"
                annotation(Dialog(group="Advanced"), Evaluate=true);
             parameter SI.DynamicViscosity mu_nominal = Medium.dynamicViscosity(
                                                            Medium.setState_pTX(
@@ -1263,11 +1263,11 @@ specified nominal values for given geometry parameters <tt>crossAreas</tt>, <tt>
           Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel(
            final Re_turbulent=4000);
 
-            replaceable package WallFriction = 
-              Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed 
+            replaceable package WallFriction =
+              Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed
                 constrainedby
           Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction
-          "Wall friction model" 
+          "Wall friction model"
                 annotation(Dialog(group="Wall friction"), choicesAllMatching=true,__Dymola_editButton=false);
 
             input SI.Length[n-1] pathLengths_internal
@@ -1279,7 +1279,7 @@ specified nominal values for given geometry parameters <tt>crossAreas</tt>, <tt>
             parameter SI.MassFlowRate m_flow_nominal
           "Mass flow rate for dp_nominal (for nominal models)";
             parameter Boolean from_dp = momentumDynamics >= Types.Dynamics.SteadyStateInitial
-          " = true, use m_flow = f(dp), otherwise dp = f(m_flow)" 
+          " = true, use m_flow = f(dp), otherwise dp = f(m_flow)"
               annotation (Evaluate=true);
             parameter SI.AbsolutePressure dp_small = system.dp_small
           "Within regularization if |dp| < dp_small (may be wider for large discontinuities in static head)"
@@ -1290,13 +1290,13 @@ specified nominal values for given geometry parameters <tt>crossAreas</tt>, <tt>
 
             final parameter Boolean constantPressureLossCoefficient=
                use_rho_nominal and (use_mu_nominal or not WallFriction.use_mu)
-          "= true if the pressure loss does not depend on fluid states" 
+          "= true if the pressure loss does not depend on fluid states"
                annotation(Evaluate=true);
             final parameter Boolean continuousFlowReversal=
                (not useUpstreamScheme)
                or constantPressureLossCoefficient
                or not allowFlowReversal
-          "= true if the pressure loss is continuous around zero flow" 
+          "= true if the pressure loss is continuous around zero flow"
                annotation(Evaluate=true);
 
             SI.Length[n-1] diameters = 0.5*(dimensions[1:n-1] + dimensions[2:n])
@@ -1421,7 +1421,7 @@ simulation and/or might give a more robust simulation.
         "NominalTurbulentPipeFlow: Quadratic turbulent pressure loss for nominal values"
             extends
           Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialGenericPipeFlow(
-          redeclare package WallFriction = 
+          redeclare package WallFriction =
               Modelica.Fluid.Pipes.BaseClasses.WallFriction.QuadraticTurbulent,
           use_mu_nominal=not show_Res,
           pathLengths_internal=pathLengths_nominal,
@@ -1437,7 +1437,7 @@ simulation and/or might give a more robust simulation.
 
             // Reynolds Number
             Medium.AbsolutePressure[n-1] dps_fg_turbulent=
-                {(mus_act[i]*diameters[i]*pi/4)^2*Re_turbulent^2/(ks_inv[i]*rhos_act[i]) for i in 1:n-1} if 
+                {(mus_act[i]*diameters[i]*pi/4)^2*Re_turbulent^2/(ks_inv[i]*rhos_act[i]) for i in 1:n-1} if
                    show_Res "Start of turbulent flow";
 
           equation
@@ -1498,7 +1498,7 @@ and can be related to <tt>m_flow_small</tt> and <tt>dp_small</tt>.
         "TurbulentPipeFlow: Pipe wall friction in the quadratic turbulent regime (simple characteristic, mu not used)"
            extends
           Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialGenericPipeFlow(
-          redeclare package WallFriction = 
+          redeclare package WallFriction =
               Modelica.Fluid.Pipes.BaseClasses.WallFriction.QuadraticTurbulent,
           use_mu_nominal=not show_Res,
           pathLengths_internal=pathLengths,
@@ -1522,7 +1522,7 @@ The turbulent pressure loss correlation might be useful to optimize models that 
         "DetailedPipeFlow: Pipe wall friction in the laminar and turbulent regime (detailed characteristic)"
            extends
           Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialGenericPipeFlow(
-          redeclare package WallFriction = 
+          redeclare package WallFriction =
               Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed,
           pathLengths_internal=pathLengths,
           dp_nominal=1e3*dp_small,
@@ -1597,7 +1597,7 @@ b has the same sign of the change of density.</p>
       input SI.Velocity[n] vs "Mean velocities of fluid flow in segments";
 
       // Geometry parameters and inputs for flow heat transfer
-      parameter Real nParallel "number of identical parallel flow devices" 
+      parameter Real nParallel "number of identical parallel flow devices"
          annotation(Dialog(tab="Internal Interface",enable=false,group="Geometry"));
       input SI.Length[n] lengths "Lengths along flow path";
       input SI.Length[n] dimensions
@@ -2635,11 +2635,11 @@ Laminar region:
           assert(roughness > 1.e-10,
             "roughness > 0 required for quadratic turbulent wall friction characteristic");
 
-          m_flow_a := if dp_grav_a<dp_grav_b then 
-            Internal.m_flow_of_dp_fric(dp_grav_b - dp_grav_a, rho_a, rho_b, mu_a, mu_b, length, diameter,  Re1, Re2, Delta)+m_flow_small else 
+          m_flow_a := if dp_grav_a<dp_grav_b then
+            Internal.m_flow_of_dp_fric(dp_grav_b - dp_grav_a, rho_a, rho_b, mu_a, mu_b, length, diameter,  Re1, Re2, Delta)+m_flow_small else
             m_flow_small;
-          m_flow_b := if dp_grav_a<dp_grav_b then 
-            Internal.m_flow_of_dp_fric(dp_grav_a - dp_grav_b, rho_a, rho_b, mu_a, mu_b, length, diameter,  Re1, Re2, Delta)-m_flow_small else 
+          m_flow_b := if dp_grav_a<dp_grav_b then
+            Internal.m_flow_of_dp_fric(dp_grav_a - dp_grav_b, rho_a, rho_b, mu_a, mu_b, length, diameter,  Re1, Re2, Delta)-m_flow_small else
             -m_flow_small;
 
           if m_flow>=m_flow_a then
@@ -3007,8 +3007,8 @@ identical to laminar wall friction.
 
           // Determine Re, lambda2 and pressure drop
           Re :=(4/pi)*abs(m_flow)/(diameter*mu);
-          lambda2 := if Re <= Re1 then 64*Re else 
-                    (if Re >= Re2 then 0.25*(Re/Math.log10(Delta/3.7 + 5.74/Re^0.9))^2 else 
+          lambda2 := if Re <= Re1 then 64*Re else
+                    (if Re >= Re2 then 0.25*(Re/Math.log10(Delta/3.7 + 5.74/Re^0.9))^2 else
                      interpolateInRegion2(Re, Re1, Re2, Delta));
           dp :=length*mu*mu/(2*rho*diameter*diameter*diameter)*
                (if m_flow >= 0 then lambda2 else -lambda2);
@@ -3112,11 +3112,11 @@ identical to laminar wall friction.
           Real ddp_dm_flow_zero;
 
         algorithm
-          m_flow_a := if dp_grav_a<dp_grav_b then 
-            Internal.m_flow_of_dp_fric(dp_grav_b - dp_grav_a, rho_a, rho_b, mu_a, mu_b, length, diameter, Re1, Re2, Delta)+m_flow_small else 
+          m_flow_a := if dp_grav_a<dp_grav_b then
+            Internal.m_flow_of_dp_fric(dp_grav_b - dp_grav_a, rho_a, rho_b, mu_a, mu_b, length, diameter, Re1, Re2, Delta)+m_flow_small else
             m_flow_small;
-          m_flow_b := if dp_grav_a<dp_grav_b then 
-            Internal.m_flow_of_dp_fric(dp_grav_a - dp_grav_b, rho_a, rho_b, mu_a, mu_b, length, diameter, Re1, Re2, Delta)-m_flow_small else 
+          m_flow_b := if dp_grav_a<dp_grav_b then
+            Internal.m_flow_of_dp_fric(dp_grav_a - dp_grav_b, rho_a, rho_b, mu_a, mu_b, length, diameter, Re1, Re2, Delta)-m_flow_small else
             -m_flow_small;
 
           if m_flow>=m_flow_a then
@@ -3408,18 +3408,18 @@ b has the same sign of the change of density.</p>
         "Pressure loss in pipe due to wall friction and gravity (only for test purposes; if needed use Pipes.StaticPipe instead)"
         extends Modelica.Fluid.Interfaces.PartialTwoPortTransport;
 
-        replaceable package WallFriction = 
-          Modelica.Fluid.Pipes.BaseClasses.WallFriction.QuadraticTurbulent 
+        replaceable package WallFriction =
+          Modelica.Fluid.Pipes.BaseClasses.WallFriction.QuadraticTurbulent
           constrainedby
           Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction
           "Characteristic of wall friction"  annotation(choicesAllMatching=true);
 
         parameter SI.Length length "Length of pipe";
         parameter SI.Diameter diameter "Inner (hydraulic) diameter of pipe";
-        parameter SI.Length height_ab = 0.0 "Height(port_b) - Height(port_a)" 
+        parameter SI.Length height_ab = 0.0 "Height(port_b) - Height(port_a)"
                                                                            annotation(Evaluate=true);
         parameter SI.Length roughness(min=0) = 2.5e-5
-          "Absolute roughness of pipe (default = smooth steel pipe)" 
+          "Absolute roughness of pipe (default = smooth steel pipe)"
             annotation(Dialog(enable=WallFriction.use_roughness));
 
         parameter Boolean use_nominal = false
@@ -3431,26 +3431,26 @@ b has the same sign of the change of density.</p>
           "Nominal dynamic viscosity (e.g. mu_liquidWater = 1e-3, mu_air = 1.8e-5)"
                                                                                   annotation(Dialog(enable=use_nominal));
         parameter SI.Density rho_nominal = Medium.density_pTX(Medium.p_default, Medium.T_default, Medium.X_default)
-          "Nominal density (e.g. rho_liquidWater = 995, rho_air = 1.2)" 
+          "Nominal density (e.g. rho_liquidWater = 995, rho_air = 1.2)"
                                                                    annotation(Dialog(enable=use_nominal));
 
         parameter Boolean show_Re = false
-          "= true, if Reynolds number is included for plotting" 
+          "= true, if Reynolds number is included for plotting"
            annotation (Evaluate=true, Dialog(tab="Advanced"));
         parameter Boolean from_dp=true
-          " = true, use m_flow = f(dp), otherwise dp = f(m_flow)" 
+          " = true, use m_flow = f(dp), otherwise dp = f(m_flow)"
           annotation (Evaluate=true, Dialog(tab="Advanced"));
         parameter SI.AbsolutePressure dp_small = system.dp_small
           "Within regularization if |dp| < dp_small (may be wider for large discontinuities in static head)"
           annotation(Dialog(tab="Advanced", enable=from_dp and WallFriction.use_dp_small));
         SI.ReynoldsNumber Re = Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber_m_flow(
-                                                               m_flow, noEvent(if m_flow>0 then mu_a else mu_b), diameter) if 
+                                                               m_flow, noEvent(if m_flow>0 then mu_a else mu_b), diameter) if
              show_Re "Reynolds number of pipe flow";
 
       protected
-        SI.DynamicViscosity mu_a = if not WallFriction.use_mu then 1.e-10 else 
+        SI.DynamicViscosity mu_a = if not WallFriction.use_mu then 1.e-10 else
                                     (if use_nominal then mu_nominal else Medium.dynamicViscosity(state_a));
-        SI.DynamicViscosity mu_b = if not WallFriction.use_mu then 1.e-10 else 
+        SI.DynamicViscosity mu_b = if not WallFriction.use_mu then 1.e-10 else
                                     (if use_nominal then mu_nominal else Medium.dynamicViscosity(state_b));
         SI.Density rho_a = if use_nominal then rho_nominal else Medium.density(state_a);
         SI.Density rho_b = if use_nominal then rho_nominal else Medium.density(state_b);

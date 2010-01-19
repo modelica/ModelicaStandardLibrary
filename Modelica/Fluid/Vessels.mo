@@ -63,15 +63,15 @@ model OpenTank "Simple tank with inlet/outlet ports"
 
   // Ambient
   parameter Medium.AbsolutePressure p_ambient=system.p_ambient
-      "Tank surface pressure" 
+      "Tank surface pressure"
     annotation(Dialog(tab = "Assumptions", group = "Ambient"));
   parameter Medium.Temperature T_ambient=system.T_ambient
-      "Tank surface Temperature" 
+      "Tank surface Temperature"
     annotation(Dialog(tab = "Assumptions", group = "Ambient"));
 
   // Initialization
   parameter SI.Height level_start(min=0) = 0.5*height
-      "Start value of tank level" 
+      "Start value of tank level"
     annotation(Dialog(tab="Initialization"));
 
   // Mass and energy balance, ports
@@ -136,8 +136,8 @@ initial equation
             extent={{-95,-24},{95,-44}},
             lineColor={0,0,0},
             textString=DynamicSelect("%level_start", realString(
-                level, 
-                1, 
+                level,
+                1,
                 2)))}),
       Documentation(info="<HTML>
 <p>
@@ -198,23 +198,23 @@ end OpenTank;
         extends Modelica.Fluid.Interfaces.PartialLumpedVolume;
 
         // Port definitions
-        parameter Integer nPorts=0 "Number of ports" 
+        parameter Integer nPorts=0 "Number of ports"
           annotation(Evaluate=true, Dialog(__Dymola_connectorSizing=true, tab="General",group="Ports"));
         VesselFluidPorts_b ports[nPorts](redeclare each package Medium = Medium)
-        "Fluid inlets and outlets" 
+        "Fluid inlets and outlets"
           annotation (Placement(transformation(extent={{-40,-10},{40,10}},
             origin={0,-100})));
 
         // Port properties
         parameter Boolean use_portsData=true
-        "= false to neglect pressure loss and kinetic energy" 
+        "= false to neglect pressure loss and kinetic energy"
           annotation(Evaluate=true, Dialog(tab="General",group="Ports"));
         parameter Modelica.Fluid.Vessels.BaseClasses.VesselPortsData[nPorts]
-        portsData if   use_portsData "Data of inlet/outlet ports" 
+        portsData if   use_portsData "Data of inlet/outlet ports"
           annotation(Dialog(tab="General",group="Ports",enable= use_portsData));
 
         parameter SI.MassFlowRate m_flow_small(min=0) = system.m_flow_small
-        "Regularization range at zero mass flow rate" 
+        "Regularization range at zero mass flow rate"
           annotation(Dialog(tab="Advanced", group="Port properties", enable=stiffCharacteristicForEmptyPort));
       /*
   parameter Medium.AbsolutePressure dp_small = system.dp_small
@@ -231,24 +231,24 @@ end OpenTank;
 
         // Heat transfer through boundary
         parameter Boolean use_HeatTransfer = false
-        "= true to use the HeatTransfer model" 
+        "= true to use the HeatTransfer model"
             annotation (Dialog(tab="Assumptions", group="Heat transfer"));
-        replaceable model HeatTransfer = 
-            Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer 
+        replaceable model HeatTransfer =
+            Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer
           constrainedby
         Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransfer
-        "Wall heat transfer" 
+        "Wall heat transfer"
             annotation (Dialog(tab="Assumptions", group="Heat transfer",enable=use_HeatTransfer),choicesAllMatching=true);
         HeatTransfer heatTransfer(
           redeclare final package Medium = Medium,
           final n=1,
           final states = {medium.state},
-          final use_k = use_HeatTransfer) 
+          final use_k = use_HeatTransfer)
             annotation (Placement(transformation(
               extent={{-10,-10},{30,30}},
               rotation=90,
               origin={-50,-10})));
-        Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if use_HeatTransfer 
+        Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if use_HeatTransfer
           annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
 
         // Conservation of kinetic energy

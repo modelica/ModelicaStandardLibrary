@@ -8,23 +8,23 @@ package Tables
     "Table look-up in one dimension (matrix/file) with n inputs and n outputs "
     import Modelica.Blocks.Types;
     parameter Boolean tableOnFile=false
-      "true, if table is defined on file or in function usertab" 
+      "true, if table is defined on file or in function usertab"
       annotation(Dialog(group="table data definition"));
     parameter Real table[:, :]=fill(0.0,0,2)
-      "table matrix (grid = first column; e.g., table=[0,2])" 
+      "table matrix (grid = first column; e.g., table=[0,2])"
          annotation(Dialog(group="table data definition", enable = not tableOnFile));
     parameter String tableName="NoName"
-      "table name on file or in function usertab (see docu)" 
+      "table name on file or in function usertab (see docu)"
          annotation(Dialog(group="table data definition", enable = tableOnFile));
-    parameter String fileName="NoName" "file where matrix is stored" 
+    parameter String fileName="NoName" "file where matrix is stored"
          annotation(Dialog(group="table data definition", enable = tableOnFile,
                            __Dymola_loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
                            caption="Open file in which table is present")));
     parameter Integer columns[:]=2:size(table, 2)
-      "columns of table to be interpolated" 
+      "columns of table to be interpolated"
     annotation(Dialog(group="table data interpretation"));
     parameter Modelica.Blocks.Types.Smoothness smoothness=Types.Smoothness.LinearSegments
-      "smoothness of table interpolation" 
+      "smoothness of table interpolation"
     annotation(Dialog(group="table data interpretation"));
     extends Modelica.Blocks.Interfaces.MIMOs(final n=size(columns, 1));
 
@@ -50,7 +50,7 @@ package Tables
       input Integer icol;
       input Real u;
       output Real value;
-    external "C" value = 
+    external "C" value =
                        ModelicaTables_CombiTable1D_interpolate(tableID, icol, u);
       annotation(Library="ModelicaExternalC");
     end tableIpo;
@@ -63,7 +63,7 @@ package Tables
     end if;
 
     for i in 1:n loop
-      y[i] = if not tableOnFile and size(table,1)==1 then 
+      y[i] = if not tableOnFile and size(table,1)==1 then
                table[1, columns[i]] else tableIpo(tableID, columns[i], u[i]);
     end for;
     when initial() then
@@ -256,23 +256,23 @@ Several matrices may be defined one after another.
 
     import Modelica.Blocks.Types;
     parameter Boolean tableOnFile=false
-      "true, if table is defined on file or in function usertab" 
+      "true, if table is defined on file or in function usertab"
       annotation(Dialog(group="table data definition"));
     parameter Real table[:, :]=fill(0.0,0,2)
-      "table matrix (grid = first column; e.g., table=[0,2])" 
+      "table matrix (grid = first column; e.g., table=[0,2])"
          annotation(Dialog(group="table data definition", enable = not tableOnFile));
     parameter String tableName="NoName"
-      "table name on file or in function usertab (see docu)" 
+      "table name on file or in function usertab (see docu)"
          annotation(Dialog(group="table data definition", enable = tableOnFile));
-    parameter String fileName="NoName" "file where matrix is stored" 
+    parameter String fileName="NoName" "file where matrix is stored"
          annotation(Dialog(group="table data definition", enable = tableOnFile,
                            __Dymola_loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
                            caption="Open file in which table is present")));
     parameter Integer columns[:]=2:size(table, 2)
-      "columns of table to be interpolated" 
+      "columns of table to be interpolated"
     annotation(Dialog(group="table data interpretation"));
     parameter Modelica.Blocks.Types.Smoothness smoothness=Types.Smoothness.LinearSegments
-      "smoothness of table interpolation" 
+      "smoothness of table interpolation"
     annotation(Dialog(group="table data interpretation"));
     extends Modelica.Blocks.Interfaces.SIMO(final nout=size(columns, 1));
 
@@ -298,7 +298,7 @@ Several matrices may be defined one after another.
       input Integer icol;
       input Real u;
       output Real value;
-    external "C" value = 
+    external "C" value =
                        ModelicaTables_CombiTable1D_interpolate(tableID, icol, u);
       annotation(Library="ModelicaExternalC");
     end tableIpo;
@@ -312,7 +312,7 @@ Several matrices may be defined one after another.
     end if;
 
     for i in 1:nout loop
-      y[i] = if not tableOnFile and size(table,1)==1 then 
+      y[i] = if not tableOnFile and size(table,1)==1 then
                table[1, columns[i]] else tableIpo(tableID, columns[i], u);
     end for;
     when initial() then
@@ -506,20 +506,20 @@ Several matrices may be defined one after another.
     extends Modelica.Blocks.Interfaces.SI2SO;
 
     parameter Boolean tableOnFile=false
-      "true, if table is defined on file or in function usertab" 
+      "true, if table is defined on file or in function usertab"
       annotation(Dialog(group="table data definition"));
     parameter Real table[:, :]=fill(0.0,0,2)
       "table matrix (grid u1 = first column, grid u2 = first row; e.g. table=[0,0;0,1])"
          annotation(Dialog(group="table data definition", enable = not tableOnFile));
     parameter String tableName="NoName"
-      "table name on file or in function usertab (see docu)" 
+      "table name on file or in function usertab (see docu)"
          annotation(Dialog(group="table data definition", enable = tableOnFile));
-    parameter String fileName="NoName" "file where matrix is stored" 
+    parameter String fileName="NoName" "file where matrix is stored"
          annotation(Dialog(group="table data definition", enable = tableOnFile,
                            __Dymola_loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
                            caption="Open file in which table is present")));
     parameter Modelica.Blocks.Types.Smoothness smoothness=Types.Smoothness.LinearSegments
-      "smoothness of table interpolation" 
+      "smoothness of table interpolation"
     annotation(Dialog(group="table data interpretation"));
   protected
     Integer tableID;
@@ -544,7 +544,7 @@ Several matrices may be defined one after another.
       input Real u1;
       input Real u2;
       output Real value;
-    external "C" value = 
+    external "C" value =
                        ModelicaTables_CombiTable2D_interpolate(tableID, u1, u2);
       annotation(Library="ModelicaExternalC");
     end tableIpo;

@@ -72,22 +72,22 @@ package Incompressible
       "true if table tableViscosity is present";
     constant Boolean hasVaporPressure = not (size(tableVaporPressure,1)==0)
       "true if table tableVaporPressure is present";
-    final constant Real invTK[neta] = if size(tableViscosity,1) > 0 then 
+    final constant Real invTK[neta] = if size(tableViscosity,1) > 0 then
         invertTemp(tableViscosity[:,1],TinK) else fill(0,0);
-    final constant Real poly_rho[:] = if hasDensity then 
-                                         Poly.fitting(tableDensity[:,1],tableDensity[:,2],npol) else 
+    final constant Real poly_rho[:] = if hasDensity then
+                                         Poly.fitting(tableDensity[:,1],tableDensity[:,2],npol) else
                                            zeros(npol+1) annotation(__Dymola_keepConstant = true);
-    final constant Real poly_Cp[:] = if hasHeatCapacity then 
-                                         Poly.fitting(tableHeatCapacity[:,1],tableHeatCapacity[:,2],npol) else 
+    final constant Real poly_Cp[:] = if hasHeatCapacity then
+                                         Poly.fitting(tableHeatCapacity[:,1],tableHeatCapacity[:,2],npol) else
                                            zeros(npol+1) annotation(__Dymola_keepConstant = true);
-    final constant Real poly_eta[:] = if hasViscosity then 
-                                         Poly.fitting(invTK, Math.log(tableViscosity[:,2]),npol) else 
+    final constant Real poly_eta[:] = if hasViscosity then
+                                         Poly.fitting(invTK, Math.log(tableViscosity[:,2]),npol) else
                                            zeros(npol+1) annotation(__Dymola_keepConstant = true);
-    final constant Real poly_pVap[:] = if hasVaporPressure then 
-                                         Poly.fitting(tableVaporPressure[:,1],tableVaporPressure[:,2],npol) else 
+    final constant Real poly_pVap[:] = if hasVaporPressure then
+                                         Poly.fitting(tableVaporPressure[:,1],tableVaporPressure[:,2],npol) else
                                             zeros(npol+1) annotation(__Dymola_keepConstant= true);
-    final constant Real poly_lam[:] = if size(tableConductivity,1)>0 then 
-                                         Poly.fitting(tableConductivity[:,1],tableConductivity[:,2],npol) else 
+    final constant Real poly_lam[:] = if size(tableConductivity,1)>0 then
+                                         Poly.fitting(tableConductivity[:,1],tableConductivity[:,2],npol) else
                                            zeros(npol+1) annotation(__Dymola_keepConstant = true);
     function invertTemp "function to invert temperatures"
       input Real[:] table "table temperature data";
@@ -261,8 +261,8 @@ which is only exactly true for a fluid with constant density d=d0.
       input Temperature T "temperature";
       output SpecificEntropy s "specific entropy";
     algorithm
-      s := s0 + (if TinK then 
-        Poly.integralValue(poly_Cp[1:npol],T, T0) else 
+      s := s0 + (if TinK then
+        Poly.integralValue(poly_Cp[1:npol],T, T0) else
         Poly.integralValue(poly_Cp[1:npol],Cv.to_degC(T),Cv.to_degC(T0)))
         + Modelica.Math.log(T/T0)*
         Poly.evaluate(poly_Cp,if TinK then 0 else Modelica.Constants.T_zero);
@@ -287,7 +287,7 @@ which is only exactly true for a fluid with constant density d=d0.
       input SI.Temperature T "Temperature";
       output SI.SpecificEnthalpy h "Specific enthalpy at p, T";
     algorithm
-      h :=h0 + Poly.integralValue(poly_Cp, if TinK then T else Cv.to_degC(T), if TinK then 
+      h :=h0 + Poly.integralValue(poly_Cp, if TinK then T else Cv.to_degC(T), if TinK then
       T0 else Cv.to_degC(T0));
      annotation(derivative=h_T_der);
     end h_T;
@@ -312,8 +312,8 @@ which is only exactly true for a fluid with constant density d=d0.
         "include or neglect density derivative dependence of enthalpy" annotation(Evaluate);
       output SI.SpecificEnthalpy h "Specific enthalpy at p, T";
     algorithm
-      h :=h0 + Poly.integralValue(poly_Cp, if TinK then T else Cv.to_degC(T), if TinK then 
-      T0 else Cv.to_degC(T0)) + (p - reference_p)/Poly.evaluate(poly_rho, if TinK then 
+      h :=h0 + Poly.integralValue(poly_Cp, if TinK then T else Cv.to_degC(T), if TinK then
+      T0 else Cv.to_degC(T0)) + (p - reference_p)/Poly.evaluate(poly_rho, if TinK then
               T else Cv.to_degC(T))
         *(if densityOfT then (1 + T/Poly.evaluate(poly_rho, if TinK then T else Cv.to_degC(T))
       *Poly.derivativeValue(poly_rho,if TinK then T else Cv.to_degC(T))) else 1.0);

@@ -18,7 +18,7 @@ model Fourbar1
     phi(fixed=true),
     w(displayUnit="deg/s",
       start=5.235987755982989,
-      fixed=true)) 
+      fixed=true))
                  annotation (Placement(transformation(extent={{-54,-40},{-34,
             -20}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Joints.Prismatic j2(
@@ -26,19 +26,19 @@ model Fourbar1
     s(start=-0.2),
     boxWidth=0.05) annotation (Placement(transformation(extent={{10,-80},{30,
             -60}}, rotation=0)));
-  Modelica.Mechanics.MultiBody.Parts.BodyCylinder b1(r={0,0.5,0.1}, diameter=0.05) 
+  Modelica.Mechanics.MultiBody.Parts.BodyCylinder b1(r={0,0.5,0.1}, diameter=0.05)
     annotation (Placement(transformation(
         origin={-30,2},
         extent={{-10,-10},{10,10}},
         rotation=90)));
-  Modelica.Mechanics.MultiBody.Parts.BodyCylinder b2(r={0,0.2,0}, diameter=0.05) 
+  Modelica.Mechanics.MultiBody.Parts.BodyCylinder b2(r={0,0.2,0}, diameter=0.05)
     annotation (Placement(transformation(
         origin={50,-50},
         extent={{-10,-10},{10,10}},
         rotation=90)));
-  Modelica.Mechanics.MultiBody.Parts.BodyCylinder b3(r={-1,0.3,0.1}, diameter=0.05) 
+  Modelica.Mechanics.MultiBody.Parts.BodyCylinder b3(r={-1,0.3,0.1}, diameter=0.05)
     annotation (Placement(transformation(extent={{38,20},{18,40}}, rotation=0)));
-  Modelica.Mechanics.MultiBody.Joints.Revolute rev(n={0,1,0}) 
+  Modelica.Mechanics.MultiBody.Joints.Revolute rev(n={0,1,0})
     annotation (Placement(transformation(
         origin={50,-22},
         extent={{-10,-10},{10,10}},
@@ -51,7 +51,7 @@ model Fourbar1
         transformation(extent={{-32,60},{-12,80}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Joints.Revolute j5(n={0,0,1}) annotation (Placement(
         transformation(extent={{0,70},{20,90}}, rotation=0)));
-  Modelica.Mechanics.MultiBody.Parts.FixedTranslation b0(animation=false, r={1.2,0,0}) 
+  Modelica.Mechanics.MultiBody.Parts.FixedTranslation b0(animation=false, r={1.2,0,0})
     annotation (Placement(transformation(extent={{-40,-80},{-20,-60}}, rotation=
            0)));
 equation
@@ -63,12 +63,12 @@ equation
       points={{-34,-30},{-30,-30},{-30,-8}},
       color={95,95,95},
       thickness=0.5));
-  connect(rev.frame_a, b2.frame_b) 
+  connect(rev.frame_a, b2.frame_b)
     annotation (Line(
       points={{50,-32},{50,-40}},
       color={95,95,95},
       thickness=0.5));
-  connect(rev.frame_b, rev1.frame_a) 
+  connect(rev.frame_b, rev1.frame_a)
     annotation (Line(
       points={{50,-12},{50,10},{60,10}},
       color={95,95,95},
@@ -89,7 +89,7 @@ equation
       points={{-40,50},{-34,50},{-42,70},{-32,70}},
       color={95,95,95},
       thickness=0.5));
-  connect(j4.frame_b, j5.frame_a) 
+  connect(j4.frame_b, j5.frame_a)
     annotation (Line(
       points={{-12,70},{0,70},{0,80}},
       color={95,95,95},
@@ -98,12 +98,12 @@ equation
       points={{20,80},{30,80},{30,54},{4,54},{4,30},{18,30}},
       color={95,95,95},
       thickness=0.5));
-  connect(b0.frame_a, world.frame_b) 
+  connect(b0.frame_a, world.frame_b)
     annotation (Line(
       points={{-40,-70},{-80,-70}},
       color={95,95,95},
       thickness=0.5));
-  connect(b0.frame_b, j2.frame_a) 
+  connect(b0.frame_b, j2.frame_a)
     annotation (Line(
       points={{-20,-70},{10,-70}},
       color={95,95,95},

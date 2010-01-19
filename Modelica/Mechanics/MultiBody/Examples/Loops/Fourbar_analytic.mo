@@ -10,7 +10,7 @@ model Fourbar_analytic
   output SI.AngularVelocity j1_w "axis speed of revolute joint j1";
   output SI.Velocity j2_v "axis velocity of prismatic joint j2";
 
-  inner Modelica.Mechanics.MultiBody.World world(animateGravity=false) 
+  inner Modelica.Mechanics.MultiBody.World world(animateGravity=false)
     annotation (Placement(transformation(extent={{-80,-60},{-60,-40}}, rotation=
            0)));
   Modelica.Mechanics.MultiBody.Joints.Revolute j1(useAxisFlange=true,
@@ -19,15 +19,15 @@ model Fourbar_analytic
     phi(fixed=true),
     w(displayUnit="deg/s",
       start=5.235987755982989,
-      fixed=true)) 
+      fixed=true))
                  annotation (Placement(transformation(extent={{-54,-40},{-34,
             -20}}, rotation=0)));
-  Modelica.Mechanics.MultiBody.Parts.BodyCylinder b1(r={0,0.5,0.1}, diameter=0.05) 
+  Modelica.Mechanics.MultiBody.Parts.BodyCylinder b1(r={0,0.5,0.1}, diameter=0.05)
     annotation (Placement(transformation(
         origin={-30,-8},
         extent={{-10,-10},{10,10}},
         rotation=90)));
-  Modelica.Mechanics.MultiBody.Parts.FixedTranslation b3(r={1.2,0,0}, animation=false) 
+  Modelica.Mechanics.MultiBody.Parts.FixedTranslation b3(r={1.2,0,0}, animation=false)
     annotation (Placement(transformation(extent={{-32,-60},{-12,-40}}, rotation=
            0)));
   Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP jointSSP(
@@ -59,7 +59,7 @@ equation
       points={{-54,-30},{-60,-30},{-60,-50}},
       color={95,95,95},
       thickness=0.5));
-  connect(b3.frame_a, world.frame_b) 
+  connect(b3.frame_a, world.frame_b)
     annotation (Line(
       points={{-32,-50},{-60,-50}},
       color={95,95,95},

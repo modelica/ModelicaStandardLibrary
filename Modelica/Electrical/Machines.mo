@@ -20,10 +20,10 @@ package Machines "Library for electric machines"
         "nominal load speed";
       parameter Modelica.SIunits.Inertia JLoad=0.29 "load's moment of inertia";
       Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
-        aimc 
+        aimc
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
               rotation=0)));
-      Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor 
+      Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor
         annotation (Placement(transformation(
             origin={0,0},
             extent={{-10,10},{10,-10}},
@@ -31,29 +31,29 @@ package Machines "Library for electric machines"
       Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
         final m=m,
         freqHz=fill(fNominal, m),
-        V=fill(sqrt(2/3)*VNominal, m)) 
+        V=fill(sqrt(2/3)*VNominal, m))
         annotation (Placement(transformation(
             origin={0,60},
             extent={{10,-10},{-10,10}},
             rotation=270)));
-      Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) 
+      Modelica.Electrical.MultiPhase.Basic.Star star(final m=m)
         annotation (Placement(transformation(extent={{-50,80},{-70,100}},
               rotation=0)));
-      Modelica.Electrical.Analog.Basic.Ground ground 
+      Modelica.Electrical.Analog.Basic.Ground ground
         annotation (Placement(transformation(
             origin={-90,90},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Blocks.Sources.BooleanStep booleanStep[m](each startTime=tStart1) 
+      Modelica.Blocks.Sources.BooleanStep booleanStep[m](each startTime=tStart1)
         annotation (Placement(transformation(extent={{-80,30},{-60,50}},
               rotation=0)));
-      Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch idealCloser(final m=m) 
+      Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch idealCloser(final m=m)
         annotation (Placement(transformation(
             origin={0,30},
             extent={{-10,10},{10,-10}},
             rotation=270)));
       Modelica.Mechanics.Rotational.Components.Inertia loadInertia(
-                                                        J=JLoad) 
+                                                        J=JLoad)
         annotation (Placement(transformation(extent={{40,-50},{60,-30}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
@@ -61,25 +61,25 @@ package Machines "Library for electric machines"
         w_nominal=wLoad,
         TorqueDirection=false,
         tau_nominal=-TLoad,
-        useSupport=false) 
+        useSupport=false)
         annotation (Placement(transformation(extent={{90,-50},{70,-30}},
               rotation=0)));
       Machines.Utilities.TerminalBox TerminalBox1(
-        terminalConnection="D") 
+        terminalConnection="D")
         annotation (Placement(transformation(extent={{-20,-30},{0,-10}},
               rotation=0)));
     equation
-      connect(star.pin_n, ground.p) 
+      connect(star.pin_n, ground.p)
         annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
-      connect(sineVoltage.plug_n, star.plug_p) 
+      connect(sineVoltage.plug_n, star.plug_p)
         annotation (Line(points={{1.83697e-015,70},{1.83697e-015,90},{-50,90}},
             color={0,0,255}));
-      connect(sineVoltage.plug_p, idealCloser.plug_p) 
+      connect(sineVoltage.plug_p, idealCloser.plug_p)
         annotation (Line(points={{-1.83697e-015,50},{0,48},{1.22461e-015,46},{
               1.83697e-015,46},{1.83697e-015,40}}, color={0,0,255}));
       connect(booleanStep.y, idealCloser.control)   annotation (Line(points={{
               -59,40},{-20,40},{-20,30},{-7,30}}, color={255,0,255}));
-      connect(idealCloser.plug_n, currentQuasiRMSSensor.plug_p) 
+      connect(idealCloser.plug_n, currentQuasiRMSSensor.plug_p)
                                                              annotation (Line(
           points={{-1.83697e-015,20},{-1.83697e-015,17},{1.83697e-015,17},{
               1.83697e-015,10}},
@@ -92,7 +92,7 @@ package Machines "Library for electric machines"
           points={{-4,-30},{-4,-30}},
           color={0,0,255},
           smooth=Smooth.None));
-      connect(TerminalBox1.plugSupply, currentQuasiRMSSensor.plug_n) 
+      connect(TerminalBox1.plugSupply, currentQuasiRMSSensor.plug_n)
                                                                  annotation (Line(
           points={{-10,-28},{-10,-20},{-1.83697e-015,-20},{-1.83697e-015,-10}},
           color={0,0,255},
@@ -139,10 +139,10 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         "nominal load speed";
       parameter Modelica.SIunits.Inertia JLoad=0.29 "load's moment of inertia";
       Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
-        aimc 
+        aimc
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
               rotation=0)));
-      Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor 
+      Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor
         annotation (Placement(transformation(
             origin={0,0},
             extent={{-10,10},{10,-10}},
@@ -150,24 +150,24 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
       Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
         final m=m,
         freqHz=fill(fNominal, m),
-        V=fill(sqrt(2/3)*VNominal, m)) 
+        V=fill(sqrt(2/3)*VNominal, m))
         annotation (Placement(transformation(
             origin={0,60},
             extent={{10,-10},{-10,10}},
             rotation=270)));
-      Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) 
+      Modelica.Electrical.MultiPhase.Basic.Star star(final m=m)
         annotation (Placement(transformation(extent={{-50,80},{-70,100}},
               rotation=0)));
-      Modelica.Electrical.Analog.Basic.Ground ground 
+      Modelica.Electrical.Analog.Basic.Ground ground
         annotation (Placement(transformation(
             origin={-90,90},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Blocks.Sources.BooleanStep booleanStep[m](each startTime=tStart1) 
+      Modelica.Blocks.Sources.BooleanStep booleanStep[m](each startTime=tStart1)
         annotation (Placement(transformation(extent={{-80,30},{-60,50}},
               rotation=0)));
       Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch idealCloser(
-          final m=m) 
+          final m=m)
         annotation (Placement(transformation(
             origin={0,30},
             extent={{-10,10},{10,-10}},
@@ -175,11 +175,11 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
       Machines.Utilities.SwitchYD switchYD  annotation (Placement(
             transformation(extent={{-20,-30},{0,-10}}, rotation=0)));
       Modelica.Blocks.Sources.BooleanStep booleanStepYD[m](each startTime=
-            tStart2) 
+            tStart2)
         annotation (Placement(transformation(extent={{-80,-30},{-60,-10}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Components.Inertia loadInertia(
-                                                        J=JLoad) 
+                                                        J=JLoad)
         annotation (Placement(transformation(extent={{40,-50},{60,-30}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
@@ -187,25 +187,25 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         w_nominal=wLoad,
         TorqueDirection=false,
         tau_nominal=-TLoad,
-        useSupport=false) 
+        useSupport=false)
         annotation (Placement(transformation(extent={{90,-50},{70,-30}},
               rotation=0)));
     equation
-      connect(star.pin_n, ground.p) 
+      connect(star.pin_n, ground.p)
         annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
-      connect(sineVoltage.plug_n, star.plug_p) 
+      connect(sineVoltage.plug_n, star.plug_p)
         annotation (Line(points={{1.83697e-015,70},{1.83697e-015,90},{-50,90}},
             color={0,0,255}));
-      connect(sineVoltage.plug_p, idealCloser.plug_p) 
+      connect(sineVoltage.plug_p, idealCloser.plug_p)
         annotation (Line(points={{-1.83697e-015,50},{0,48},{1.22461e-015,46},{
               1.83697e-015,46},{1.83697e-015,40}}, color={0,0,255}));
-      connect(loadInertia.flange_b, quadraticLoadTorque.flange) 
+      connect(loadInertia.flange_b, quadraticLoadTorque.flange)
         annotation (Line(points={{60,-40},{70,-40}}, color={0,0,0}));
       connect(booleanStep.y, idealCloser.control)   annotation (Line(points={{
               -59,40},{-20,40},{-20,30},{-7,30}}, color={255,0,255}));
       connect(booleanStepYD.y, switchYD.control) annotation (Line(points={{-59,
               -20},{-21,-20}}, color={255,0,255}));
-      connect(idealCloser.plug_n, currentQuasiRMSSensor.plug_p) 
+      connect(idealCloser.plug_n, currentQuasiRMSSensor.plug_p)
                                                              annotation (Line(
           points={{-1.83697e-015,20},{-1.83697e-015,18},{1.83697e-015,18},{
               1.83697e-015,10}},
@@ -218,7 +218,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           points={{-4,-30},{-4,-30}},
           color={0,0,255},
           smooth=Smooth.None));
-      connect(switchYD.plugSupply, currentQuasiRMSSensor.plug_n) 
+      connect(switchYD.plugSupply, currentQuasiRMSSensor.plug_n)
                                                               annotation (Line(
           points={{-10,-10},{-1.83697e-015,-10}},
           color={0,0,255},
@@ -259,10 +259,10 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         "nominal load speed";
       parameter Modelica.SIunits.Inertia JLoad=0.29 "load's moment of inertia";
 
-      Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing aims 
+      Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing aims
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
               rotation=0)));
-      Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor 
+      Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor
         annotation (Placement(transformation(
             origin={0,0},
             extent={{-10,10},{10,-10}},
@@ -270,55 +270,55 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
       Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
         final m=m,
         freqHz=fill(fNominal, m),
-        V=fill(sqrt(2/3)*VNominal, m)) 
+        V=fill(sqrt(2/3)*VNominal, m))
         annotation (Placement(transformation(
             origin={0,60},
             extent={{10,-10},{-10,10}},
             rotation=270)));
-      Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) 
+      Modelica.Electrical.MultiPhase.Basic.Star star(final m=m)
         annotation (Placement(transformation(extent={{-50,80},{-70,100}},
               rotation=0)));
-      Modelica.Electrical.Analog.Basic.Ground ground 
+      Modelica.Electrical.Analog.Basic.Ground ground
         annotation (Placement(transformation(
             origin={-90,90},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Blocks.Sources.BooleanStep booleanStep[m](each startTime=tStart1) 
+      Modelica.Blocks.Sources.BooleanStep booleanStep[m](each startTime=tStart1)
         annotation (Placement(transformation(extent={{-80,30},{-60,50}},
               rotation=0)));
       Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch idealCloser(
-          final m=m) 
+          final m=m)
         annotation (Placement(transformation(
             origin={0,30},
             extent={{-10,10},{10,-10}},
             rotation=270)));
-      Modelica.Electrical.MultiPhase.Basic.Star starRotor(final m=m) 
+      Modelica.Electrical.MultiPhase.Basic.Star starRotor(final m=m)
         annotation (Placement(transformation(extent={{-50,-100},{-70,-80}},
               rotation=0)));
-      Modelica.Electrical.Analog.Basic.Ground groundRotor 
+      Modelica.Electrical.Analog.Basic.Ground groundRotor
         annotation (Placement(transformation(
             origin={-90,-90},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch
-        idealCommutingSwitch(m=m) 
+        idealCommutingSwitch(m=m)
         annotation (Placement(transformation(
             origin={-40,-40},
             extent={{-10,10},{10,-10}},
             rotation=270)));
       Modelica.Electrical.MultiPhase.Basic.Resistor rotorResistor(m=m, R=fill(
-            Rstart, m)) 
+            Rstart, m))
         annotation (Placement(transformation(extent={{-50,-80},{-70,-60}},
               rotation=0)));
-      Modelica.Electrical.MultiPhase.Basic.Star starRotorResistor(final m=m) 
+      Modelica.Electrical.MultiPhase.Basic.Star starRotorResistor(final m=m)
         annotation (Placement(transformation(extent={{-80,-80},{-100,-60}},
               rotation=0)));
       Modelica.Blocks.Sources.BooleanStep booleanStepRotor[m](each startTime=
-            tStart2) 
+            tStart2)
         annotation (Placement(transformation(extent={{-80,-50},{-60,-30}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Components.Inertia loadInertia(
-                                                        J=JLoad) 
+                                                        J=JLoad)
         annotation (Placement(transformation(extent={{40,-50},{60,-30}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
@@ -326,51 +326,51 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         w_nominal=wLoad,
         TorqueDirection=false,
         tau_nominal=-TLoad,
-        useSupport=false) 
+        useSupport=false)
         annotation (Placement(transformation(extent={{90,-50},{70,-30}},
               rotation=0)));
-      Machines.Utilities.TerminalBox terminalBox(terminalConnection="D") 
+      Machines.Utilities.TerminalBox terminalBox(terminalConnection="D")
         annotation (Placement(transformation(extent={{-20,-30},{0,-10}},
               rotation=0)));
     equation
-      connect(star.pin_n, ground.p) 
+      connect(star.pin_n, ground.p)
         annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
-      connect(sineVoltage.plug_n, star.plug_p) 
+      connect(sineVoltage.plug_n, star.plug_p)
         annotation (Line(points={{1.83697e-015,70},{1.83697e-015,90},{-50,90}},
             color={0,0,255}));
-      connect(sineVoltage.plug_p, idealCloser.plug_p) 
+      connect(sineVoltage.plug_p, idealCloser.plug_p)
         annotation (Line(points={{-1.83697e-015,50},{0,48},{1.22461e-015,46},{
               1.83697e-015,46},{1.83697e-015,40}}, color={0,0,255}));
-      connect(starRotor.pin_n, groundRotor.p) 
+      connect(starRotor.pin_n, groundRotor.p)
         annotation (Line(points={{-70,-90},{-80,-90}}, color={0,0,255}));
-      connect(starRotorResistor.plug_p, rotorResistor.plug_n) 
+      connect(starRotorResistor.plug_p, rotorResistor.plug_n)
                                               annotation (Line(
           points={{-80,-70},{-70,-70}},
           color={0,0,255}));
-      connect(rotorResistor.plug_p, idealCommutingSwitch.plug_n1) 
+      connect(rotorResistor.plug_p, idealCommutingSwitch.plug_n1)
                                                                annotation (Line(
           points={{-50,-70},{-45,-70},{-45,-50}},
           color={0,0,255}));
-      connect(aims.plug_rn, starRotor.plug_p) 
+      connect(aims.plug_rn, starRotor.plug_p)
                                             annotation (Line(points={{-20,-46},
               {-20,-90},{-50,-90}}, color={0,0,255}));
       connect(idealCommutingSwitch.plug_n2, aims.plug_rn)    annotation (Line(
             points={{-40,-50},{-28,-50},{-28,-46},{-20,-46}}, color={0,0,255}));
-      connect(loadInertia.flange_b, quadraticLoadTorque.flange) 
+      connect(loadInertia.flange_b, quadraticLoadTorque.flange)
         annotation (Line(points={{60,-40},{70,-40}}, color={0,0,0}));
       connect(idealCommutingSwitch.plug_p, aims.plug_rp)    annotation (Line(
             points={{-40,-30},{-30,-30},{-30,-34},{-20,-34}}, color={0,0,255}));
       connect(booleanStep.y, idealCloser.control)   annotation (Line(points={{
               -59,40},{-20,40},{-20,30},{-7,30}}, color={255,0,255}));
-      connect(booleanStepRotor.y, idealCommutingSwitch.control) 
+      connect(booleanStepRotor.y, idealCommutingSwitch.control)
                                                              annotation (Line(
             points={{-59,-40},{-48,-40}}, color={255,0,255}));
-      connect(idealCloser.plug_n, currentQuasiRMSSensor.plug_p) 
+      connect(idealCloser.plug_n, currentQuasiRMSSensor.plug_p)
                                                              annotation (Line(
           points={{-1.83697e-015,20},{-1.83697e-015,16},{1.83697e-015,16},{
               1.83697e-015,10}},
           color={0,0,255}));
-      connect(terminalBox.plugSupply, currentQuasiRMSSensor.plug_n) 
+      connect(terminalBox.plugSupply, currentQuasiRMSSensor.plug_n)
                                                                  annotation (Line(
           points={{-10,-28},{-10,-20},{-1.83697e-015,-20},{-1.83697e-015,-10}},
           color={0,0,255},
@@ -421,15 +421,15 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
       parameter Modelica.SIunits.Inertia JLoad=0.29 "load's moment of inertia";
 
       Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
-        aimc 
+        aimc
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
               rotation=0)));
-      Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor 
+      Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor
         annotation (Placement(transformation(
             origin={0,0},
             extent={{-10,10},{10,-10}},
             rotation=270)));
-      Modelica.Blocks.Sources.Ramp ramp(height=f, duration=tRamp) 
+      Modelica.Blocks.Sources.Ramp ramp(height=f, duration=tRamp)
         annotation (Placement(transformation(extent={{-80,50},{-60,70}},
               rotation=0)));
       Machines.Utilities.VfController vfController(
@@ -438,49 +438,49 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
         fNominal=fNominal) annotation (Placement(transformation(extent={{-40,50},
                 {-20,70}}, rotation=0)));
       Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltage(final m=
-            m) 
+            m)
         annotation (Placement(transformation(
             origin={0,60},
             extent={{10,-10},{-10,10}},
             rotation=270)));
-      Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) 
+      Modelica.Electrical.MultiPhase.Basic.Star star(final m=m)
         annotation (Placement(transformation(extent={{-50,80},{-70,100}},
               rotation=0)));
-      Modelica.Electrical.Analog.Basic.Ground ground 
+      Modelica.Electrical.Analog.Basic.Ground ground
         annotation (Placement(transformation(
             origin={-90,90},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Mechanics.Rotational.Components.Inertia loadInertia(
-                                                        J=JLoad) 
+                                                        J=JLoad)
         annotation (Placement(transformation(extent={{40,-50},{60,-30}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Sources.TorqueStep loadTorqueStep(
                                                               startTime=tStep,
           stepTorque=-TLoad,
-        useSupport=false) 
+        useSupport=false)
                     annotation (Placement(transformation(extent={{90,-50},{70,
                 -30}}, rotation=0)));
-      Machines.Utilities.TerminalBox terminalBox 
+      Machines.Utilities.TerminalBox terminalBox
                                          annotation (Placement(transformation(
               extent={{-20,-30},{0,-10}}, rotation=0)));
     equation
-      connect(signalVoltage.plug_n, star.plug_p) 
+      connect(signalVoltage.plug_n, star.plug_p)
         annotation (Line(points={{1.83697e-015,70},{1.83697e-015,90},{-50,90}},
             color={0,0,255}));
-      connect(star.pin_n, ground.p) 
+      connect(star.pin_n, ground.p)
         annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
       connect(ramp.y, vfController.u)   annotation (Line(points={{-59,60},{-42,
               60}}, color={0,0,255}));
       connect(vfController.y, signalVoltage.v)   annotation (Line(points={{-19,60},
               {7,60}},      color={0,0,255}));
-      connect(loadTorqueStep.flange, loadInertia.flange_b) 
+      connect(loadTorqueStep.flange, loadInertia.flange_b)
         annotation (Line(points={{70,-40},{60,-40}}, color={0,0,0}));
-      connect(signalVoltage.plug_p, currentQuasiRMSSensor.plug_p) 
+      connect(signalVoltage.plug_p, currentQuasiRMSSensor.plug_p)
                                                                annotation (Line(
             points={{-1.83697e-015,50},{-1.83697e-015,40},{6.12303e-016,40},{
               6.12303e-016,10},{1.83697e-015,10}}, color={0,0,255}));
-      connect(terminalBox.plugSupply, currentQuasiRMSSensor.plug_n) 
+      connect(terminalBox.plugSupply, currentQuasiRMSSensor.plug_n)
                                                                  annotation (Line(
           points={{-10,-28},{-10,-20},{0,-20},{0,-10},{-1.83697e-015,-10}},
           color={0,0,255},
@@ -531,20 +531,20 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
       parameter Modelica.SIunits.Inertia JLoad=0.29 "load's moment of inertia";
 
       Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor
-        smr 
+        smr
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
               rotation=0)));
-      Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor 
+      Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor
         annotation (Placement(transformation(
             origin={0,30},
             extent={{-10,10},{10,-10}},
             rotation=270)));
-      Machines.Sensors.RotorDisplacementAngle rotorDisplacementAngle(p=smr.p) 
+      Machines.Sensors.RotorDisplacementAngle rotorDisplacementAngle(p=smr.p)
         annotation (Placement(transformation(
             origin={20,-40},
             extent={{10,-10},{-10,10}},
             rotation=90)));
-      Modelica.Blocks.Sources.Ramp ramp(height=f, duration=tRamp) 
+      Modelica.Blocks.Sources.Ramp ramp(height=f, duration=tRamp)
         annotation (Placement(transformation(extent={{-80,50},{-60,70}},
               rotation=0)));
       Machines.Utilities.VfController vfController(
@@ -553,45 +553,45 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         fNominal=fNominal) annotation (Placement(transformation(extent={{-40,50},
                 {-20,70}}, rotation=0)));
       Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltage(final m=
-            m) 
+            m)
         annotation (Placement(transformation(
             origin={0,60},
             extent={{10,-10},{-10,10}},
             rotation=270)));
-      Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) 
+      Modelica.Electrical.MultiPhase.Basic.Star star(final m=m)
         annotation (Placement(transformation(extent={{-50,80},{-70,100}},
               rotation=0)));
-      Modelica.Electrical.Analog.Basic.Ground ground 
+      Modelica.Electrical.Analog.Basic.Ground ground
         annotation (Placement(transformation(
             origin={-90,90},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Mechanics.Rotational.Components.Inertia loadInertia(
-                                                        J=JLoad) 
+                                                        J=JLoad)
         annotation (Placement(transformation(extent={{40,-50},{60,-30}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Sources.TorqueStep loadTorqueStep(
                                                               startTime=tStep,
           stepTorque=-TLoad,
-        useSupport=false) 
+        useSupport=false)
                     annotation (Placement(transformation(extent={{90,-50},{70,
                 -30}}, rotation=0)));
-      Machines.Utilities.TerminalBox terminalBox 
+      Machines.Utilities.TerminalBox terminalBox
                                          annotation (Placement(transformation(
               extent={{-20,-30},{0,-10}}, rotation=0)));
     equation
-      connect(signalVoltage.plug_n, star.plug_p) 
+      connect(signalVoltage.plug_n, star.plug_p)
         annotation (Line(points={{1.83697e-015,70},{1.83697e-015,90},{-50,90}},
             color={0,0,255}));
-      connect(star.pin_n, ground.p) 
+      connect(star.pin_n, ground.p)
         annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
-      connect(ramp.y, vfController.u) 
+      connect(ramp.y, vfController.u)
         annotation (Line(points={{-59,60},{-42,60}}, color={0,0,255}));
-      connect(vfController.y, signalVoltage.v) 
+      connect(vfController.y, signalVoltage.v)
         annotation (Line(points={{-19,60},{7,60}},  color={0,0,255}));
-      connect(loadInertia.flange_b, loadTorqueStep.flange) 
+      connect(loadInertia.flange_b, loadTorqueStep.flange)
         annotation (Line(points={{60,-40},{70,-40}}, color={0,0,0}));
-      connect(currentQuasiRMSSensor.plug_p, signalVoltage.plug_p) 
+      connect(currentQuasiRMSSensor.plug_p, signalVoltage.plug_p)
                                                                annotation (Line(
             points={{1.83697e-015,40},{1.83697e-015,42.5},{6.12303e-016,42.5},{
               6.12303e-016,50},{-1.83697e-015,50}},color={0,0,255}));
@@ -599,7 +599,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
             points={{-16,-30},{-16,-20},{26,-20},{26,-30}}, color={0,0,255}));
       connect(smr.plug_sp, rotorDisplacementAngle.plug_p)    annotation (Line(
             points={{-4,-30},{14,-30}}, color={0,0,255}));
-      connect(terminalBox.plugSupply, currentQuasiRMSSensor.plug_n) 
+      connect(terminalBox.plugSupply, currentQuasiRMSSensor.plug_n)
                                                                  annotation (Line(
           points={{-10,-28},{-10,0},{-1.83697e-015,0},{-1.83697e-015,20}},
           color={0,0,255},
@@ -655,69 +655,69 @@ Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
       parameter Modelica.SIunits.Inertia JLoad=0.29 "load's moment of inertia";
 
       Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet
-        smpm 
+        smpm
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
               rotation=0)));
-      Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor 
+      Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor
         annotation (Placement(transformation(
             origin={0,30},
             extent={{-10,10},{10,-10}},
             rotation=270)));
-      Machines.Sensors.RotorDisplacementAngle rotorDisplacementAngle(p=smpm.p) 
+      Machines.Sensors.RotorDisplacementAngle rotorDisplacementAngle(p=smpm.p)
         annotation (Placement(transformation(
             origin={20,-40},
             extent={{-10,10},{10,-10}},
             rotation=270)));
-      Modelica.Blocks.Sources.Ramp ramp(height=f, duration=tRamp) 
+      Modelica.Blocks.Sources.Ramp ramp(height=f, duration=tRamp)
         annotation (Placement(transformation(extent={{-80,50},{-60,70}},
               rotation=0)));
       Machines.Utilities.VfController vfController(
         final m=m,
         VNominal=VNominal,
         fNominal=fNominal,
-        BasePhase=+Modelica.Constants.pi/2) 
+        BasePhase=+Modelica.Constants.pi/2)
         annotation (Placement(transformation(extent={{-40,50},{-20,70}},
               rotation=0)));
       Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltage(final m=
-            m) 
+            m)
         annotation (Placement(transformation(
             origin={0,60},
             extent={{10,-10},{-10,10}},
             rotation=270)));
-      Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) 
+      Modelica.Electrical.MultiPhase.Basic.Star star(final m=m)
         annotation (Placement(transformation(extent={{-50,80},{-70,100}},
               rotation=0)));
-      Modelica.Electrical.Analog.Basic.Ground ground 
+      Modelica.Electrical.Analog.Basic.Ground ground
         annotation (Placement(transformation(
             origin={-90,90},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Mechanics.Rotational.Components.Inertia loadInertia(
-                                                        J=JLoad) 
+                                                        J=JLoad)
         annotation (Placement(transformation(extent={{40,-50},{60,-30}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Sources.TorqueStep loadTorqueStep(
                                                               startTime=tStep,
           stepTorque=-TLoad,
-        useSupport=false) 
+        useSupport=false)
                     annotation (Placement(transformation(extent={{90,-50},{70,
                 -30}}, rotation=0)));
-      Machines.Utilities.TerminalBox terminalBox 
+      Machines.Utilities.TerminalBox terminalBox
                                          annotation (Placement(transformation(
               extent={{-20,-30},{0,-10}}, rotation=0)));
     equation
-      connect(signalVoltage.plug_n, star.plug_p) 
+      connect(signalVoltage.plug_n, star.plug_p)
         annotation (Line(points={{1.83697e-015,70},{1.83697e-015,90},{-50,90}},
             color={0,0,255}));
-      connect(star.pin_n, ground.p) 
+      connect(star.pin_n, ground.p)
         annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
-      connect(ramp.y, vfController.u) 
+      connect(ramp.y, vfController.u)
         annotation (Line(points={{-59,60},{-42,60}}, color={0,0,255}));
-      connect(vfController.y, signalVoltage.v) 
+      connect(vfController.y, signalVoltage.v)
         annotation (Line(points={{-19,60},{7,60}},  color={0,0,255}));
-      connect(loadInertia.flange_b, loadTorqueStep.flange) 
+      connect(loadInertia.flange_b, loadTorqueStep.flange)
         annotation (Line(points={{60,-40},{70,-40}}, color={0,0,0}));
-      connect(signalVoltage.plug_p, currentQuasiRMSSensor.plug_p) 
+      connect(signalVoltage.plug_p, currentQuasiRMSSensor.plug_p)
                                                                annotation (Line(
             points={{-1.83697e-015,50},{0,50},{0,40},{1.83697e-015,40}},color={
               0,0,255}));
@@ -725,7 +725,7 @@ Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
             points={{26,-30},{26,-20},{-16,-20},{-16,-30}}, color={0,0,255}));
       connect(rotorDisplacementAngle.plug_p, smpm.plug_sp)    annotation (Line(
             points={{14,-30},{-4,-30}}, color={0,0,255}));
-      connect(terminalBox.plugSupply, currentQuasiRMSSensor.plug_n) 
+      connect(terminalBox.plugSupply, currentQuasiRMSSensor.plug_n)
                                                                  annotation (Line(
           points={{-10,-28},{-10,0},{-1.83697e-015,0},{-1.83697e-015,20}},
           color={0,0,255},
@@ -785,33 +785,33 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
         "initial rotor displacement angle";
       Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited
         smee(
-          useSupport=true, phiMechanical(start=-(Modelica.Constants.pi +gamma0)/smee.p, fixed=true)) 
+          useSupport=true, phiMechanical(start=-(Modelica.Constants.pi +gamma0)/smee.p, fixed=true))
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
               rotation=0)));
       Machines.Sensors.RotorDisplacementAngle rotorDisplacementAngle(p=smee.p,
-          useSupport=true) 
+          useSupport=true)
         annotation (Placement(transformation(
             origin={20,-40},
             extent={{-10,10},{10,-10}},
             rotation=270)));
-      Modelica.Electrical.Analog.Basic.Ground groundExcitation 
+      Modelica.Electrical.Analog.Basic.Ground groundExcitation
         annotation (Placement(transformation(
             origin={-90,-50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Mechanics.Rotational.Sources.ConstantSpeed constantSpeed(
-                                                                final w_fixed=wActual) 
+                                                                final w_fixed=wActual)
         annotation (Placement(transformation(extent={{90,-50},{70,-30}},
               rotation=0)));
-      Sensors.MechanicalPowerSensor mechanicalPowerSensor(useSupport=true) 
+      Sensors.MechanicalPowerSensor mechanicalPowerSensor(useSupport=true)
         annotation (Placement(transformation(extent={{40,-50},{60,-30}},
               rotation=0)));
-      Sensors.ElectricalPowerSensor electricalPowerSensor 
+      Sensors.ElectricalPowerSensor electricalPowerSensor
         annotation (Placement(transformation(
             origin={0,60},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor 
+      Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor
         annotation (Placement(transformation(
             origin={0,30},
             extent={{-10,10},{10,-10}},
@@ -819,13 +819,13 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
       Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
         final m=m,
         final V=fill(VNominal*sqrt(2), m),
-        final freqHz=fill(fNominal, m)) 
+        final freqHz=fill(fNominal, m))
         annotation (Placement(transformation(extent={{-20,80},{-40,100}},
               rotation=0)));
-      Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) 
+      Modelica.Electrical.MultiPhase.Basic.Star star(final m=m)
         annotation (Placement(transformation(extent={{-50,80},{-70,100}},
               rotation=0)));
-      Modelica.Electrical.Analog.Basic.Ground ground 
+      Modelica.Electrical.Analog.Basic.Ground ground
         annotation (Placement(transformation(
             origin={-90,90},
             extent={{-10,-10},{10,10}},
@@ -837,29 +837,29 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
             origin={-50,-40},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Machines.Utilities.TerminalBox terminalBox 
+      Machines.Utilities.TerminalBox terminalBox
                                          annotation (Placement(transformation(
               extent={{-20,-30},{0,-10}}, rotation=0)));
-      Modelica.Mechanics.Rotational.Components.Fixed fixed 
+      Modelica.Mechanics.Rotational.Components.Fixed fixed
         annotation (Placement(transformation(extent={{70,-70},{90,-50}})));
     equation
       connect(rotorDisplacementAngle.plug_n, smee.plug_sn)    annotation (Line(
             points={{26,-30},{26,-20},{-16,-20},{-16,-30}}, color={0,0,255}));
       connect(rotorDisplacementAngle.plug_p, smee.plug_sp)    annotation (Line(
             points={{14,-30},{-4,-30}}, color={0,0,255}));
-      connect(star.pin_n, ground.p) 
+      connect(star.pin_n, ground.p)
         annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
       connect(star.plug_p, sineVoltage.plug_n)   annotation (Line(points={{-50,
               90},{-40,90}}, color={0,0,255}));
-      connect(electricalPowerSensor.plug_ni, currentQuasiRMSSensor.plug_p) 
+      connect(electricalPowerSensor.plug_ni, currentQuasiRMSSensor.plug_p)
         annotation (Line(points={{-1.83697e-015,50},{1.76911e-022,46},{
               1.83697e-015,46},{1.83697e-015,40}}, color={0,0,255}));
-      connect(mechanicalPowerSensor.flange_b, constantSpeed.flange) 
+      connect(mechanicalPowerSensor.flange_b, constantSpeed.flange)
         annotation (Line(points={{60,-40},{70,-40}}, color={0,0,0}));
       connect(sineVoltage.plug_p, electricalPowerSensor.plug_p)   annotation (Line(
             points={{-20,90},{1.83697e-015,90},{1.83697e-015,70}},   color={0,0,
               255}));
-      connect(rampCurrent.p, groundExcitation.p) 
+      connect(rampCurrent.p, groundExcitation.p)
                                          annotation (Line(points={{-50,-50},{
               -80,-50}}, color={0,0,255}));
       connect(rampCurrent.p, smee.pin_en)    annotation (Line(points={{-50,-50},
@@ -868,7 +868,7 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
               {-40,-30},{-40,-34},{-20,-34}}, color={0,0,255}));
       connect(electricalPowerSensor.plug_nv, smee.plug_sn)   annotation (Line(
             points={{-10,60},{-16,60},{-16,-30}}, color={0,0,255}));
-      connect(terminalBox.plugSupply, currentQuasiRMSSensor.plug_n) 
+      connect(terminalBox.plugSupply, currentQuasiRMSSensor.plug_n)
                                                                  annotation (Line(
           points={{-10,-28},{-10,0},{-1.83697e-015,0},{-1.83697e-015,20}},
           color={0,0,255},
@@ -937,31 +937,31 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
       parameter Modelica.SIunits.Time tStep=1.5 "time of load torque step";
       parameter Modelica.SIunits.Inertia JLoad=0.15 "load's moment of inertia";
 
-      Machines.BasicMachines.DCMachines.DC_PermanentMagnet dcpm 
+      Machines.BasicMachines.DCMachines.DC_PermanentMagnet dcpm
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
               rotation=0)));
       Modelica.Blocks.Sources.Ramp ramp(
         duration=tRamp,
         height=Va,
-        startTime=tStart) 
+        startTime=tStart)
         annotation (Placement(transformation(extent={{-80,60},{-60,80}},
               rotation=0)));
-      Modelica.Electrical.Analog.Sources.SignalVoltage signalVoltage 
+      Modelica.Electrical.Analog.Sources.SignalVoltage signalVoltage
         annotation (Placement(transformation(extent={{0,30},{-20,50}}, rotation=
                0)));
-      Modelica.Electrical.Analog.Basic.Ground ground 
+      Modelica.Electrical.Analog.Basic.Ground ground
         annotation (Placement(transformation(
             origin={-70,40},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Mechanics.Rotational.Components.Inertia loadInertia(
-                                                        J=JLoad) 
+                                                        J=JLoad)
         annotation (Placement(transformation(extent={{40,-50},{60,-30}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Sources.TorqueStep loadTorqueStep(
                                                               startTime=tStep,
           stepTorque=-TLoad,
-        useSupport=false) 
+        useSupport=false)
                     annotation (Placement(transformation(extent={{90,-50},{70,
                 -30}}, rotation=0)));
     equation
@@ -973,7 +973,7 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
               -60,40}}, color={0,0,255}));
       connect(dcpm.pin_an, signalVoltage.n)   annotation (Line(points={{-16,-30},
               {-16,-20},{-20,-20},{-20,40}}, color={0,0,255}));
-      connect(loadInertia.flange_b, loadTorqueStep.flange) 
+      connect(loadInertia.flange_b, loadTorqueStep.flange)
         annotation (Line(points={{60,-40},{70,-40}}, color={0,0,0}));
       connect(dcpm.flange, loadInertia.flange_a) annotation (Line(
           points={{0,-40},{40,-40}},
@@ -1009,41 +1009,41 @@ Default machine parameters of model <i>DC_PermanentMagnet</i> are used.
       parameter Modelica.SIunits.Time tStep=1.5 "time of load torque step";
       parameter Modelica.SIunits.Inertia JLoad=0.15 "load's moment of inertia";
 
-      Machines.BasicMachines.DCMachines.DC_ElectricalExcited dcee 
+      Machines.BasicMachines.DCMachines.DC_ElectricalExcited dcee
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
               rotation=0)));
       Modelica.Blocks.Sources.Ramp ramp(
         duration=tRamp,
         height=Va,
-        startTime=tStart) 
+        startTime=tStart)
         annotation (Placement(transformation(extent={{-80,60},{-60,80}},
               rotation=0)));
-      Modelica.Electrical.Analog.Sources.SignalVoltage signalVoltage 
+      Modelica.Electrical.Analog.Sources.SignalVoltage signalVoltage
         annotation (Placement(transformation(extent={{0,30},{-20,50}}, rotation=
                0)));
-      Modelica.Electrical.Analog.Basic.Ground ground 
+      Modelica.Electrical.Analog.Basic.Ground ground
         annotation (Placement(transformation(
             origin={-70,40},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(V=Ve) 
+      Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(V=Ve)
         annotation (Placement(transformation(
             origin={-40,-40},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Electrical.Analog.Basic.Ground groundExcitation 
+      Modelica.Electrical.Analog.Basic.Ground groundExcitation
         annotation (Placement(transformation(
             origin={-70,-50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Mechanics.Rotational.Components.Inertia loadInertia(
-                                                        J=JLoad) 
+                                                        J=JLoad)
         annotation (Placement(transformation(extent={{40,-50},{60,-30}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Sources.TorqueStep loadTorqueStep(
                                                               startTime=tStep,
           stepTorque=-TLoad,
-        useSupport=false) 
+        useSupport=false)
                     annotation (Placement(transformation(extent={{90,-50},{70,
                 -30}}, rotation=0)));
     equation
@@ -1055,14 +1055,14 @@ Default machine parameters of model <i>DC_PermanentMagnet</i> are used.
               -60,40}}, color={0,0,255}));
       connect(dcee.pin_an, ground.p)   annotation (Line(points={{-16,-30},{-16,
               -20},{-20,-20},{-20,40},{-60,40}}, color={0,0,255}));
-      connect(constantVoltage.n, groundExcitation.p) 
+      connect(constantVoltage.n, groundExcitation.p)
                                              annotation (Line(points={{-40,-50},
               {-60,-50}}, color={0,0,255}));
       connect(dcee.pin_ep, constantVoltage.p)   annotation (Line(points={{-20,
               -34},{-30,-34},{-30,-30},{-40,-30}}, color={0,0,255}));
       connect(dcee.pin_en, constantVoltage.n)   annotation (Line(points={{-20,
               -46},{-30,-46},{-30,-50},{-40,-50}}, color={0,0,255}));
-      connect(loadInertia.flange_b, loadTorqueStep.flange) 
+      connect(loadInertia.flange_b, loadTorqueStep.flange)
         annotation (Line(points={{60,-40},{70,-40}}, color={0,0,0}));
       connect(dcee.flange, loadInertia.flange_a) annotation (Line(
           points={{0,-40},{40,-40}},
@@ -1099,25 +1099,25 @@ Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
         "nominal load speed";
       parameter Modelica.SIunits.Inertia JLoad=0.15 "load's moment of inertia";
 
-      Machines.BasicMachines.DCMachines.DC_SeriesExcited dcse 
+      Machines.BasicMachines.DCMachines.DC_SeriesExcited dcse
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
               rotation=0)));
       Modelica.Blocks.Sources.Ramp ramp(
         duration=tRamp,
         height=Va,
-        startTime=tStart) 
+        startTime=tStart)
         annotation (Placement(transformation(extent={{-80,60},{-60,80}},
               rotation=0)));
-      Modelica.Electrical.Analog.Sources.SignalVoltage signalVoltage 
+      Modelica.Electrical.Analog.Sources.SignalVoltage signalVoltage
         annotation (Placement(transformation(extent={{0,30},{-20,50}}, rotation=
                0)));
-      Modelica.Electrical.Analog.Basic.Ground ground 
+      Modelica.Electrical.Analog.Basic.Ground ground
         annotation (Placement(transformation(
             origin={-70,40},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Mechanics.Rotational.Components.Inertia loadInertia(
-                                                        J=JLoad) 
+                                                        J=JLoad)
         annotation (Placement(transformation(extent={{40,-50},{60,-30}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
@@ -1125,7 +1125,7 @@ Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
         w_nominal=wLoad,
         TorqueDirection=false,
         tau_nominal=-TLoad,
-        useSupport=false) 
+        useSupport=false)
         annotation (Placement(transformation(extent={{90,-50},{70,-30}},
               rotation=0)));
     equation
@@ -1135,7 +1135,7 @@ Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
               0,-20},{-4,-20},{-4,-30}}, color={0,0,255}));
       connect(signalVoltage.n, ground.p)   annotation (Line(points={{-20,40},{
               -60,40}}, color={0,0,255}));
-      connect(loadInertia.flange_b, quadraticLoadTorque.flange) 
+      connect(loadInertia.flange_b, quadraticLoadTorque.flange)
         annotation (Line(points={{60,-40},{70,-40}}, color={0,0,0}));
       connect(dcse.pin_an, dcse.pin_ep)   annotation (Line(points={{-16,-30},{
               -20,-30},{-20,-34}}, color={0,0,255}));
@@ -1168,75 +1168,75 @@ Default machine parameters of model <i>DC_SeriesExcited</i> are used.
       extends Modelica.Icons.Example;
       parameter Modelica.SIunits.Resistance RL[3]=fill(1/3,3) "Load resistance";
       Modelica.Electrical.MultiPhase.Sources.SineVoltage source(freqHz=fill(50, 3),
-          V=fill(sqrt(2/3)*100, 3)) 
+          V=fill(sqrt(2/3)*100, 3))
         annotation (Placement(transformation(
             origin={-90,-10},
             extent={{-10,10},{10,-10}},
             rotation=270)));
-      Modelica.Electrical.MultiPhase.Basic.Star starS 
+      Modelica.Electrical.MultiPhase.Basic.Star starS
         annotation (Placement(transformation(
             origin={-90,-40},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Electrical.Analog.Basic.Ground groundS 
+      Modelica.Electrical.Analog.Basic.Ground groundS
         annotation (Placement(transformation(extent={{-100,-80},{-80,-60}},
               rotation=0)));
-      Sensors.ElectricalPowerSensor electricalPowerSensorS 
+      Sensors.ElectricalPowerSensor electricalPowerSensorS
         annotation (Placement(transformation(extent={{-90,0},{-70,20}},
               rotation=0)));
-      Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensorS 
+      Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensorS
         annotation (Placement(transformation(extent={{-60,20},{-40,0}},
               rotation=0)));
-      Machines.Sensors.VoltageQuasiRMSSensor voltageQuasiRMSSensorS 
+      Machines.Sensors.VoltageQuasiRMSSensor voltageQuasiRMSSensorS
         annotation (Placement(transformation(
             origin={-40,-10},
             extent={{-10,10},{10,-10}},
             rotation=270)));
-      Modelica.Electrical.MultiPhase.Basic.Delta deltaS 
+      Modelica.Electrical.MultiPhase.Basic.Delta deltaS
         annotation (Placement(transformation(
             origin={-40,-30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Electrical.Analog.Basic.Resistor earth(R=1e6) 
+      Modelica.Electrical.Analog.Basic.Resistor earth(R=1e6)
         annotation (Placement(transformation(
             origin={0,-40},
             extent={{-10,10},{10,-10}},
             rotation=270)));
-      Modelica.Electrical.Analog.Basic.Ground groundT 
+      Modelica.Electrical.Analog.Basic.Ground groundT
         annotation (Placement(transformation(extent={{-10,-80},{10,-60}},
               rotation=0)));
-      Machines.Sensors.VoltageQuasiRMSSensor voltageRMSSensorL 
+      Machines.Sensors.VoltageQuasiRMSSensor voltageRMSSensorL
         annotation (Placement(transformation(
             origin={40,-10},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Electrical.MultiPhase.Basic.Delta deltaL 
+      Modelica.Electrical.MultiPhase.Basic.Delta deltaL
         annotation (Placement(transformation(
             origin={40,-30},
             extent={{-10,10},{10,-10}},
             rotation=270)));
-      Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensorL 
+      Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensorL
         annotation (Placement(transformation(extent={{40,20},{60,0}}, rotation=
                 0)));
-      Sensors.ElectricalPowerSensor electricalPowerSensorL 
+      Sensors.ElectricalPowerSensor electricalPowerSensorL
         annotation (Placement(transformation(extent={{70,0},{90,20}}, rotation=
                 0)));
-      Modelica.Electrical.MultiPhase.Basic.Resistor load(R=RL) 
+      Modelica.Electrical.MultiPhase.Basic.Resistor load(R=RL)
         annotation (Placement(transformation(
             origin={90,-10},
             extent={{-10,10},{10,-10}},
             rotation=270)));
-      Modelica.Electrical.MultiPhase.Basic.Star starL 
+      Modelica.Electrical.MultiPhase.Basic.Star starL
         annotation (Placement(transformation(
             origin={90,-40},
             extent={{-10,10},{10,-10}},
             rotation=270)));
-      Modelica.Electrical.Analog.Basic.Ground groundL 
+      Modelica.Electrical.Analog.Basic.Ground groundL
         annotation (Placement(transformation(extent={{80,-80},{100,-60}},
               rotation=0)));
       Machines.Utilities.TransformerData transformerData(
         C1=Modelica.Utilities.Strings.substring(transformer.VectorGroup,1,1),
-        C2=Modelica.Utilities.Strings.substring(transformer.VectorGroup,2,2)) 
+        C2=Modelica.Utilities.Strings.substring(transformer.VectorGroup,2,2))
                                               annotation (Placement(
             transformation(extent={{-10,40},{10,60}}, rotation=0)));
       BasicMachines.Transformers.Yd.Yd01 transformer(
@@ -1247,53 +1247,53 @@ Default machine parameters of model <i>DC_SeriesExcited</i> are used.
         L2sigma=transformerData.L2sigma) annotation (Placement(transformation(
               extent={{-20,-10},{20,30}}, rotation=0)));
     equation
-      connect(starS.pin_n, groundS.p) 
+      connect(starS.pin_n, groundS.p)
         annotation (Line(points={{-90,-50},{-90,-60}}, color={0,0,255}));
-      connect(source.plug_n, starS.plug_p) 
+      connect(source.plug_n, starS.plug_p)
         annotation (Line(points={{-90,-20},{-90,-30}}, color={0,0,255}));
-      connect(starL.pin_n, groundL.p) 
+      connect(starL.pin_n, groundL.p)
         annotation (Line(points={{90,-50},{90,-60}}, color={0,0,255}));
-      connect(load.plug_n, starL.plug_p) 
+      connect(load.plug_n, starL.plug_p)
         annotation (Line(points={{90,-20},{90,-30}}, color={0,0,255}));
-      connect(earth.n, groundT.p) 
+      connect(earth.n, groundT.p)
         annotation (Line(points={{-1.83697e-015,-50},{0,-50},{0,-60}}, color={0,
               0,255}));
-      connect(electricalPowerSensorS.plug_nv, starS.plug_p) 
+      connect(electricalPowerSensorS.plug_nv, starS.plug_p)
         annotation (Line(points={{-80,0},{-80,-30},{-90,-30}}, color={0,0,255}));
-      connect(source.plug_p, electricalPowerSensorS.plug_p) 
+      connect(source.plug_p, electricalPowerSensorS.plug_p)
         annotation (Line(points={{-90,-1.77636e-015},{-90,10}},
                                                     color={0,0,255}));
-      connect(electricalPowerSensorS.plug_ni, currentQuasiRMSSensorS.plug_p) 
+      connect(electricalPowerSensorS.plug_ni, currentQuasiRMSSensorS.plug_p)
         annotation (Line(points={{-70,10},{-60,10}}, color={0,0,255}));
-      connect(currentQuasiRMSSensorL.plug_n, electricalPowerSensorL.plug_p) 
+      connect(currentQuasiRMSSensorL.plug_n, electricalPowerSensorL.plug_p)
         annotation (Line(points={{60,10},{70,10}}, color={0,0,255}));
-      connect(electricalPowerSensorL.plug_ni, load.plug_p) 
+      connect(electricalPowerSensorL.plug_ni, load.plug_p)
         annotation (Line(points={{90,10},{90,-1.77636e-015}},
                                                   color={0,0,255}));
-      connect(currentQuasiRMSSensorS.plug_n, voltageQuasiRMSSensorS.plug_p) 
+      connect(currentQuasiRMSSensorS.plug_n, voltageQuasiRMSSensorS.plug_p)
         annotation (Line(points={{-40,10},{-40,-1.77636e-015}},
                                                     color={0,0,255}));
-      connect(currentQuasiRMSSensorL.plug_p, voltageRMSSensorL.plug_p) 
+      connect(currentQuasiRMSSensorL.plug_p, voltageRMSSensorL.plug_p)
         annotation (Line(points={{40,10},{40,0}}, color={0,0,255}));
-      connect(electricalPowerSensorL.plug_nv, starL.plug_p) 
+      connect(electricalPowerSensorL.plug_nv, starL.plug_p)
         annotation (Line(points={{80,0},{80,-30},{90,-30}}, color={0,0,255}));
-      connect(voltageQuasiRMSSensorS.plug_n, deltaS.plug_p) 
+      connect(voltageQuasiRMSSensorS.plug_n, deltaS.plug_p)
         annotation (Line(points={{-40,-20},{-40,-20}}, color={0,0,255}));
-      connect(deltaL.plug_p, voltageRMSSensorL.plug_n) 
+      connect(deltaL.plug_p, voltageRMSSensorL.plug_n)
         annotation (Line(points={{40,-20},{40,-20}}, color={0,0,255}));
-      connect(deltaS.plug_n, voltageQuasiRMSSensorS.plug_p) 
+      connect(deltaS.plug_n, voltageQuasiRMSSensorS.plug_p)
         annotation (Line(points={{-40,-40},{-50,-40},{-50,-1.77636e-015},{-40,
               -1.77636e-015}},                                         color={0,
               0,255}));
-      connect(deltaL.plug_n, voltageRMSSensorL.plug_p) 
+      connect(deltaL.plug_n, voltageRMSSensorL.plug_p)
         annotation (Line(points={{40,-40},{50,-40},{50,0},{40,0}}, color={0,0,
               255}));
-      connect(currentQuasiRMSSensorS.plug_n, transformer.plug1) 
+      connect(currentQuasiRMSSensorS.plug_n, transformer.plug1)
                                                            annotation (Line(
           points={{-40,10},{-20,10}},
           color={0,0,255},
           smooth=Smooth.None));
-      connect(transformer.plug2, currentQuasiRMSSensorL.plug_p) 
+      connect(transformer.plug2, currentQuasiRMSSensorL.plug_p)
                                                            annotation (Line(
           points={{20,10},{40,10}},
           color={0,0,255},
@@ -1329,57 +1329,57 @@ even though the source's or load's starpoint are grounded; you may use a reasona
             origin={-90,-10},
             extent={{-10,10},{10,-10}},
             rotation=270)));
-      Modelica.Electrical.MultiPhase.Basic.Star starAC(m=m) 
+      Modelica.Electrical.MultiPhase.Basic.Star starAC(m=m)
         annotation (Placement(transformation(
             origin={-90,-40},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Electrical.Analog.Basic.Ground groundAC 
+      Modelica.Electrical.Analog.Basic.Ground groundAC
         annotation (Placement(transformation(extent={{-100,-80},{-80,-60}},
               rotation=0)));
       Modelica.Electrical.MultiPhase.Sensors.CurrentSensor
-        currentQuasiRMSSensor 
+        currentQuasiRMSSensor
         annotation (Placement(transformation(extent={{-80,-10},{-60,10}},
               rotation=0)));
-      Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode1(m=m) 
+      Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode1(m=m)
         annotation (Placement(transformation(
             origin={-20,60},
             extent={{-10,10},{10,-10}},
             rotation=90)));
-      Modelica.Electrical.MultiPhase.Basic.Star star1(m=m) 
+      Modelica.Electrical.MultiPhase.Basic.Star star1(m=m)
         annotation (Placement(transformation(
             origin={0,70},
             extent={{10,10},{-10,-10}},
             rotation=180)));
-      Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode2(m=m) 
+      Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode2(m=m)
         annotation (Placement(transformation(
             origin={-20,20},
             extent={{-10,10},{10,-10}},
             rotation=90)));
-      Modelica.Electrical.MultiPhase.Basic.Star star2(m=m) 
+      Modelica.Electrical.MultiPhase.Basic.Star star2(m=m)
         annotation (Placement(transformation(extent={{-10,0},{10,20}}, rotation=
                0)));
-      Modelica.Electrical.Analog.Basic.Resistor load(R=RL) 
+      Modelica.Electrical.Analog.Basic.Resistor load(R=RL)
         annotation (Placement(transformation(
             origin={50,0},
             extent={{-10,10},{10,-10}},
             rotation=270)));
-      Modelica.Electrical.Analog.Basic.Capacitor cDC1(C=2*C, v(start=VC0/2)) 
+      Modelica.Electrical.Analog.Basic.Capacitor cDC1(C=2*C, v(start=VC0/2))
         annotation (Placement(transformation(
             origin={70,20},
             extent={{-10,10},{10,-10}},
             rotation=270)));
-      Modelica.Electrical.Analog.Basic.Capacitor cDC2(C=2*C, v(start=VC0/2)) 
+      Modelica.Electrical.Analog.Basic.Capacitor cDC2(C=2*C, v(start=VC0/2))
         annotation (Placement(transformation(
             origin={70,-20},
             extent={{-10,10},{10,-10}},
             rotation=270)));
-      Modelica.Electrical.Analog.Basic.Ground groundDC 
+      Modelica.Electrical.Analog.Basic.Ground groundDC
         annotation (Placement(transformation(extent={{80,-20},{100,0}},
               rotation=0)));
       Machines.Utilities.TransformerData transformerData1(
         C1=Modelica.Utilities.Strings.substring(transformer1.VectorGroup,1,1),
-        C2=Modelica.Utilities.Strings.substring(transformer1.VectorGroup,2,2)) 
+        C2=Modelica.Utilities.Strings.substring(transformer1.VectorGroup,2,2))
                                                annotation (Placement(
             transformation(extent={{-60,60},{-40,80}}, rotation=0)));
       BasicMachines.Transformers.Dy.Dy01 transformer1(
@@ -1390,33 +1390,33 @@ even though the source's or load's starpoint are grounded; you may use a reasona
         L2sigma=transformerData1.L2sigma) annotation (Placement(transformation(
               extent={{-50,30},{-30,50}}, rotation=0)));
     equation
-      connect(cDC1.n, cDC2.p) 
+      connect(cDC1.n, cDC2.p)
         annotation (Line(points={{70,10},{70,-10}}, color={0,0,255}));
-      connect(cDC1.n, groundDC.p) 
+      connect(cDC1.n, groundDC.p)
         annotation (Line(points={{70,10},{70,0},{90,0}}, color={0,0,255}));
-      connect(starAC.plug_p, source.plug_n) 
+      connect(starAC.plug_p, source.plug_n)
         annotation (Line(points={{-90,-30},{-90,-20}}, color={0,0,255}));
-      connect(diode1.plug_n, star1.plug_p) 
+      connect(diode1.plug_n, star1.plug_p)
         annotation (Line(points={{-20,70},{-10,70}}, color={0,0,255}));
-      connect(diode2.plug_p, star2.plug_p) 
+      connect(diode2.plug_p, star2.plug_p)
         annotation (Line(points={{-20,10},{-10,10}}, color={0,0,255}));
-      connect(diode2.plug_n, diode1.plug_p) 
+      connect(diode2.plug_n, diode1.plug_p)
         annotation (Line(points={{-20,30},{-20,50}}, color={0,0,255}));
-      connect(starAC.pin_n, groundAC.p) 
+      connect(starAC.pin_n, groundAC.p)
         annotation (Line(points={{-90,-50},{-90,-60}}, color={0,0,255}));
-      connect(source.plug_p, currentQuasiRMSSensor.plug_p) 
+      connect(source.plug_p, currentQuasiRMSSensor.plug_p)
         annotation (Line(points={{-90,-1.77636e-015},{-85,-1.77636e-015},{-85,0},
               {-80,0}},                            color={0,0,255}));
-      connect(load.p, cDC1.p) 
+      connect(load.p, cDC1.p)
         annotation (Line(points={{50,10},{50,30},{70,30}}, color={0,0,255}));
-      connect(load.n, cDC2.n) 
+      connect(load.n, cDC2.n)
         annotation (Line(points={{50,-10},{50,-30},{70,-30}}, color={0,0,255}));
-      connect(star1.pin_n, cDC1.p) 
+      connect(star1.pin_n, cDC1.p)
         annotation (Line(points={{10,70},{70,70},{70,30}}, color={0,0,255}));
-      connect(star2.pin_n, cDC2.n) 
+      connect(star2.pin_n, cDC2.n)
         annotation (Line(points={{10,10},{20,10},{20,-70},{70,-70},{70,-30}},
             color={0,0,255}));
-      connect(transformer1.plug1, currentQuasiRMSSensor.plug_n) 
+      connect(transformer1.plug1, currentQuasiRMSSensor.plug_n)
                                                         annotation (Line(
           points={{-50,40},{-60,40},{-60,0}},
           color={0,0,255},
@@ -1439,20 +1439,20 @@ neglecting initial transient.
     model Rectifier12pulse "12-pulse rectifier with 2 transformers"
       extends Modelica.Icons.Example;
       extends Machines.Examples.Rectifier6pulse(RL=0.2);
-      Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode3(m=m) 
+      Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode3(m=m)
         annotation (Placement(transformation(
             origin={-20,-20},
             extent={{-10,10},{10,-10}},
             rotation=90)));
-      Modelica.Electrical.MultiPhase.Basic.Star star3(m=m) 
+      Modelica.Electrical.MultiPhase.Basic.Star star3(m=m)
         annotation (Placement(transformation(extent={{-10,0},{10,-20}},
               rotation=0)));
-      Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode4(m=m) 
+      Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode4(m=m)
         annotation (Placement(transformation(
             origin={-20,-60},
             extent={{-10,10},{10,-10}},
             rotation=90)));
-      Modelica.Electrical.MultiPhase.Basic.Star star4(m=m) 
+      Modelica.Electrical.MultiPhase.Basic.Star star4(m=m)
         annotation (Placement(transformation(extent={{-10,-60},{10,-80}},
               rotation=0)));
       BasicMachines.Transformers.Dd.Dd00 transformer2(
@@ -1464,19 +1464,19 @@ neglecting initial transient.
               extent={{-50,-50},{-30,-30}}, rotation=0)));
       Machines.Utilities.TransformerData transformerData2(
         C1=Modelica.Utilities.Strings.substring(transformer2.VectorGroup,1,1),
-        C2=Modelica.Utilities.Strings.substring(transformer2.VectorGroup,2,2)) 
+        C2=Modelica.Utilities.Strings.substring(transformer2.VectorGroup,2,2))
                                                annotation (Placement(
             transformation(extent={{-60,-80},{-40,-60}}, rotation=0)));
     equation
-      connect(diode3.plug_n, star3.plug_p) 
+      connect(diode3.plug_n, star3.plug_p)
         annotation (Line(points={{-20,-10},{-10,-10}}, color={0,0,255}));
-      connect(diode4.plug_p, star4.plug_p) 
+      connect(diode4.plug_p, star4.plug_p)
         annotation (Line(points={{-20,-70},{-10,-70}}, color={0,0,255}));
-      connect(diode4.plug_n, diode3.plug_p) 
+      connect(diode4.plug_n, diode3.plug_p)
         annotation (Line(points={{-20,-50},{-20,-30}}, color={0,0,255}));
-      connect(star4.pin_n, cDC2.n) 
+      connect(star4.pin_n, cDC2.n)
         annotation (Line(points={{10,-70},{70,-70},{70,-30}}, color={0,0,255}));
-      connect(star3.pin_n, cDC1.p) 
+      connect(star3.pin_n, cDC1.p)
         annotation (Line(points={{10,-10},{18,-10},{18,-8},{22,-8},{22,-10},{30,
               -10},{30,70},{70,70},{70,30}}, color={0,0,255}));
       connect(transformer2.plug2, diode4.plug_n) annotation (Line(
@@ -1518,105 +1518,105 @@ neglecting initial transient.
       parameter Modelica.SIunits.Inertia JLoad=0.29 "load's moment of inertia";
 
       Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
-        aimc(useSupport=true) 
+        aimc(useSupport=true)
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
               rotation=0)));
       Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(freqHz=
-            fNominal, V=sqrt(2)*VNominal) 
+            fNominal, V=sqrt(2)*VNominal)
         annotation (Placement(transformation(extent={{-50,100},{-70,80}},
               rotation=0)));
-      Modelica.Electrical.Analog.Basic.Ground ground 
+      Modelica.Electrical.Analog.Basic.Ground ground
         annotation (Placement(transformation(
             origin={-90,90},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Blocks.Sources.BooleanStep booleanStep(startTime=tStart1) 
+      Modelica.Blocks.Sources.BooleanStep booleanStep(startTime=tStart1)
         annotation (Placement(transformation(extent={{-50,60},{-30,80}},
               rotation=0)));
-      Modelica.Electrical.Analog.Ideal.IdealClosingSwitch idealCloser 
+      Modelica.Electrical.Analog.Ideal.IdealClosingSwitch idealCloser
         annotation (Placement(transformation(
             origin={-20,90},
             extent={{10,-10},{-10,10}},
             rotation=180)));
       Modelica.Mechanics.Rotational.Components.Inertia loadInertia(
-                                                        J=JLoad) 
+                                                        J=JLoad)
         annotation (Placement(transformation(extent={{40,-50},{60,-30}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
         quadraticLoadTorque(
         w_nominal=wLoad,
         TorqueDirection=false,
-        tau_nominal=-TLoad) 
+        tau_nominal=-TLoad)
         annotation (Placement(transformation(extent={{90,-50},{70,-30}},
               rotation=0)));
       Machines.Utilities.TerminalBox TerminalBox1(
-                                         terminalConnection="D") 
+                                         terminalConnection="D")
         annotation (Placement(transformation(extent={{-20,-30},{0,-10}},
               rotation=0)));
-      Modelica.Electrical.MultiPhase.Basic.PlugToPin_p plugToPin_p3(m=m, k=3) 
+      Modelica.Electrical.MultiPhase.Basic.PlugToPin_p plugToPin_p3(m=m, k=3)
         annotation (Placement(transformation(
             origin={-30,-10},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Modelica.Electrical.MultiPhase.Basic.PlugToPin_p plugToPin_p2(m=m, k=2) 
+      Modelica.Electrical.MultiPhase.Basic.PlugToPin_p plugToPin_p2(m=m, k=2)
         annotation (Placement(transformation(
             origin={-10,-10},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Modelica.Electrical.MultiPhase.Basic.PlugToPin_p plugToPin_p1(m=m, k=1) 
+      Modelica.Electrical.MultiPhase.Basic.PlugToPin_p plugToPin_p1(m=m, k=1)
         annotation (Placement(transformation(
             origin={10,-10},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Modelica.Electrical.Analog.Basic.Capacitor cRun(C=Cr) 
+      Modelica.Electrical.Analog.Basic.Capacitor cRun(C=Cr)
         annotation (Placement(transformation(
             origin={10,20},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Electrical.Analog.Basic.Capacitor cStart(C=Cs) 
+      Modelica.Electrical.Analog.Basic.Capacitor cStart(C=Cs)
         annotation (Placement(transformation(
             origin={30,20},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch idealOpener 
+      Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch idealOpener
         annotation (Placement(transformation(
             origin={30,50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Blocks.Logical.GreaterThreshold greaterThreshold(threshold=
-        wSwitch) 
+        wSwitch)
         annotation (Placement(transformation(
             origin={50,20},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Modelica.Mechanics.Rotational.Components.Fixed fixed 
+      Modelica.Mechanics.Rotational.Components.Fixed fixed
         annotation (Placement(transformation(extent={{70,-70},{90,-50}})));
-      Modelica.Mechanics.Rotational.Sensors.RelSpeedSensor relSpeedSensor 
+      Modelica.Mechanics.Rotational.Sensors.RelSpeedSensor relSpeedSensor
                                                                  annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={20,-50})));
     equation
-      connect(ground.p, sineVoltage.n) 
+      connect(ground.p, sineVoltage.n)
         annotation (Line(points={{-80,90},{-70,90}}, color={0,0,255}));
-      connect(sineVoltage.p, idealCloser.p) 
+      connect(sineVoltage.p, idealCloser.p)
         annotation (Line(points={{-50,90},{-30,90}}, color={0,0,255}));
       connect(booleanStep.y, idealCloser.control)  annotation (Line(points={{
               -29,70},{-20,70},{-20,83}}, color={255,0,255}));
       connect(plugToPin_p3.pin_p, sineVoltage.n)  annotation (Line(points={{-30,
               -8},{-70,-8},{-70,90}}, color={0,0,255}));
-      connect(idealCloser.n, plugToPin_p2.pin_p) 
+      connect(idealCloser.n, plugToPin_p2.pin_p)
         annotation (Line(points={{-10,90},{-10,-8}}, color={0,0,255}));
-      connect(cRun.n, plugToPin_p1.pin_p) 
+      connect(cRun.n, plugToPin_p1.pin_p)
         annotation (Line(points={{10,10},{10,-8}}, color={0,0,255}));
-      connect(loadInertia.flange_b, quadraticLoadTorque.flange) 
+      connect(loadInertia.flange_b, quadraticLoadTorque.flange)
         annotation (Line(points={{60,-40},{70,-40}}, color={0,0,0}));
       connect(cRun.p, idealCloser.n)       annotation (Line(points={{10,30},{10,
               90},{-10,90}}, color={0,0,255}));
       connect(plugToPin_p1.pin_p,cStart. n)     annotation (Line(points={{10,-8},
               {30,-8},{30,10}}, color={0,0,255}));
-      connect(idealOpener.n, cStart.p) 
+      connect(idealOpener.n, cStart.p)
         annotation (Line(points={{30,40},{30,37.5},{30,37.5},{30,35},{30,30},{
               30,30}},                             color={0,0,255}));
       connect(idealOpener.p, idealCloser.n)   annotation (Line(points={{30,60},
@@ -1740,28 +1740,28 @@ This package contains test examples of electric machines.
           final idq_sr = airGapS.i_sr,
           final idq_rs = airGapS.i_rs,
           final idq_rr = airGapS.i_rr);
-        Components.AirGapS airGapS(            final p=p, final m=3, final Lm=Lm) 
+        Components.AirGapS airGapS(            final p=p, final m=3, final Lm=Lm)
           annotation (Placement(transformation(
               origin={0,0},
               extent={{-10,-10},{10,10}},
               rotation=270)));
         parameter Modelica.SIunits.Inductance Lm(start=3*sqrt(1 - 0.0667)/(2*pi*fsNominal))
-          "main field inductance" 
+          "main field inductance"
            annotation(Dialog(group="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lrsigma(start=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal))
-          "rotor stray inductance (equivalent three phase winding)" 
+          "rotor stray inductance (equivalent three phase winding)"
            annotation(Dialog(group="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Resistance Rr(start=0.04)
-          "warm rotor resistance (equivalent three phase winding)" 
+          "warm rotor resistance (equivalent three phase winding)"
            annotation(Dialog(group="Nominal resistances and inductances"));
         Machines.BasicMachines.Components.SquirrelCage squirrelCageR(final
-            Lrsigma = Lrsigma, final Rr=Rr) 
+            Lrsigma = Lrsigma, final Rr=Rr)
           annotation (Placement(transformation(
               origin={0,-30},
               extent={{-10,-10},{10,10}},
               rotation=270)));
       equation
-        connect(airGapS.spacePhasor_r, squirrelCageR.spacePhasor_r) 
+        connect(airGapS.spacePhasor_r, squirrelCageR.spacePhasor_r)
           annotation (Line(points={{10,-10},{10,-12.5},{10,-12.5},{10,-15},{10,
                 -20},{10,-20}},                        color={0,0,255}));
         connect(spacePhasorS.spacePhasor, airGapS.spacePhasor_s) annotation (Line(
@@ -1876,30 +1876,30 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           final idq_sr = airGapS.i_sr,
           final idq_rs = airGapS.i_rs,
           final idq_rr = airGapS.i_rr);
-        Components.AirGapS airGapS(final p=p, final m=3, final Lm=Lm) 
+        Components.AirGapS airGapS(final p=p, final m=3, final Lm=Lm)
           annotation (Placement(transformation(
               origin={0,0},
               extent={{-10,-10},{10,10}},
               rotation=270)));
         parameter Modelica.SIunits.Inductance Lm(start=3*sqrt(1 - 0.0667)/(2*pi*fsNominal))
-          "main field inductance" 
+          "main field inductance"
            annotation(Dialog(group="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lrsigma(start=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal))
-          "rotor stray inductance per phase" 
+          "rotor stray inductance per phase"
            annotation(Dialog(group="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Resistance Rr(start=0.04)
-          "warm rotor resistance per phase" 
+          "warm rotor resistance per phase"
            annotation(Dialog(group="Nominal resistances and inductances"));
         parameter Boolean useTurnsRatio(start=true)
           "use turnsRatio or calculate from locked-rotor voltage?";
         parameter Real turnsRatio(final min=Modelica.Constants.small, start=1)
-          "(ws*xis) / (wr*xir)" 
+          "(ws*xis) / (wr*xir)"
           annotation(Dialog(enable=useTurnsRatio));
         parameter Modelica.SIunits.Voltage VsNominal(start=100)
-          "nominal stator voltage per phase" 
+          "nominal stator voltage per phase"
           annotation(Dialog(enable=not useTurnsRatio));
         parameter Modelica.SIunits.Voltage VrLockedRotor(start=100*(2*pi*fsNominal*Lm)/sqrt(Rs^2+(2*pi*fsNominal*(Lm+Lssigma))^2))
-          "locked-rotor voltage per phase" 
+          "locked-rotor voltage per phase"
           annotation(Dialog(enable=not useTurnsRatio));
         output Modelica.SIunits.Current i_0_r(stateSelect=StateSelect.prefer) = spacePhasorR.zero.i
           "rotor zero-sequence current";
@@ -1908,16 +1908,16 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         output Modelica.SIunits.Current ir[m] = plug_rp.pin.i
           "rotor instantaneous currents";
       protected
-        final parameter Real internalTurnsRatio=if useTurnsRatio then turnsRatio else 
+        final parameter Real internalTurnsRatio=if useTurnsRatio then turnsRatio else
           VsNominal/VrLockedRotor*(2*pi*fsNominal*Lm)/sqrt(Rs^2+(2*pi*fsNominal*(Lm+Lssigma))^2);
       public
         Machines.SpacePhasors.Components.SpacePhasor spacePhasorR(final
-            turnsRatio =                                                           internalTurnsRatio) 
+            turnsRatio =                                                           internalTurnsRatio)
           annotation (Placement(transformation(
               origin={0,-30},
               extent={{-10,10},{10,-10}},
               rotation=90)));
-        Modelica.Electrical.MultiPhase.Basic.Inductor lrsigma(final m=m, final L=fill(Lrsigma, m)) 
+        Modelica.Electrical.MultiPhase.Basic.Inductor lrsigma(final m=m, final L=fill(Lrsigma, m))
           annotation (Placement(transformation(extent={{30,-90},{10,-70}},
                 rotation=0)));
         Modelica.Electrical.MultiPhase.Basic.Resistor rr(
@@ -1926,17 +1926,17 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           final T_ref=fill(293.15,m),
           final alpha=zeros(m),
           final useHeatPort=false,
-          final T=rr.T_ref) 
+          final T=rr.T_ref)
           annotation (Placement(transformation(extent={{60,-90},{40,-70}},
                 rotation=0)));
-        Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_rp(final m=m) 
+        Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_rp(final m=m)
           annotation (Placement(transformation(extent={{-110,70},{-90,50}},
                 rotation=0)));
-        Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_rn(final m=m) 
+        Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_rn(final m=m)
           annotation (Placement(transformation(extent={{-110,-50},{-90,-70}},
                 rotation=0)));
       equation
-        connect(rr.plug_n, lrsigma.plug_p) 
+        connect(rr.plug_n, lrsigma.plug_p)
           annotation (Line(points={{40,-80},{30,-80}}, color={0,0,255}));
         connect(rr.plug_p, plug_rp)        annotation (Line(points={{60,-80},{
                 60,-90},{-80,-90},{-80,60},{-100,60}}, color={0,0,255}));
@@ -1944,7 +1944,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             points={{-10,-20},{-10,-14},{6.12323e-016,-14},{6.12323e-016,-20}},
             color={0,0,255}));
 
-        connect(airGapS.spacePhasor_r, spacePhasorR.spacePhasor) 
+        connect(airGapS.spacePhasor_r, spacePhasorR.spacePhasor)
           annotation (Line(points={{10,-10},{10,-15},{10,-15},{10,-20}},
                                                        color={0,0,255}));
         connect(spacePhasorS.spacePhasor, airGapS.spacePhasor_s) annotation (Line(
@@ -2129,34 +2129,34 @@ These models use package SpacePhasors.
             final idq_sr = airGapR.i_sr,
             final idq_rs = airGapR.i_rs,
             final idq_rr = airGapR.i_rr);
-        Components.AirGapR airGapR(            final p=p, final m=3, final Lmd=Lmd, final Lmq=Lmq) 
+        Components.AirGapR airGapR(            final p=p, final m=3, final Lmd=Lmd, final Lmq=Lmq)
           annotation (Placement(transformation(
               origin={0,0},
               extent={{-10,-10},{10,10}},
               rotation=270)));
         parameter Modelica.SIunits.Voltage VsOpenCircuit(start=112.3)
-          "open circuit RMS voltage per phase @ fNominal" 
+          "open circuit RMS voltage per phase @ fNominal"
            annotation(Dialog(group="Excitation"));
         parameter Modelica.SIunits.Inductance Lmd(start=0.3/(2*pi*fsNominal))
-          "main field inductance in d-axis" 
+          "main field inductance in d-axis"
            annotation(Dialog(group="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lmq(start=0.3/(2*pi*fsNominal))
-          "main field inductance in q-axis" 
+          "main field inductance in q-axis"
            annotation(Dialog(group="Nominal resistances and inductances"));
         parameter Boolean useDamperCage(start = true)
-          "enable / disable damper cage" 
+          "enable / disable damper cage"
           annotation(Dialog(group = "DamperCage"));
         parameter Modelica.SIunits.Inductance Lrsigmad(start=0.05/(2*pi*fsNominal))
-          "damper stray inductance in d-axis" 
+          "damper stray inductance in d-axis"
           annotation(Dialog(group = "DamperCage", enable = useDamperCage));
         parameter Modelica.SIunits.Inductance Lrsigmaq=Lrsigmad
-          "damper stray inductance in q-axis" 
+          "damper stray inductance in q-axis"
           annotation(Dialog(group = "DamperCage", enable = useDamperCage));
         parameter Modelica.SIunits.Resistance Rrd(start=0.04)
-          "warm damper resistance in d-axis" 
+          "warm damper resistance in d-axis"
           annotation(Dialog(group = "DamperCage", enable = useDamperCage));
         parameter Modelica.SIunits.Resistance Rrq=Rrd
-          "warm damper resistance in q-axis" 
+          "warm damper resistance in q-axis"
           annotation(Dialog(group = "DamperCage", enable = useDamperCage));
         output Modelica.SIunits.Current idq_dr[2](each stateSelect=StateSelect.prefer)=
           damperCage.spacePhasor_r.i_ if useDamperCage
@@ -2165,7 +2165,7 @@ These models use package SpacePhasors.
         final parameter Modelica.SIunits.Current Ie=sqrt(2)*VsOpenCircuit/(Lmd*2*pi*fsNominal)
           "equivalent excitation current";
       public
-        Machines.BasicMachines.Components.PermanentMagnet permanentMagnet(Ie=Ie) 
+        Machines.BasicMachines.Components.PermanentMagnet permanentMagnet(Ie=Ie)
           annotation (Placement(transformation(
               origin={0,-60},
               extent={{-10,-10},{10,10}},
@@ -2174,7 +2174,7 @@ These models use package SpacePhasors.
           final Lrsigmad=Lrsigmad,
           final Lrsigmaq=Lrsigmaq,
           final Rrd=Rrd,
-          final Rrq=Rrq) if useDamperCage 
+          final Rrq=Rrq) if useDamperCage
           annotation (Placement(transformation(
               origin={0,-30},
               extent={{-10,-10},{10,10}},
@@ -2183,7 +2183,7 @@ These models use package SpacePhasors.
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r) annotation (Line(
               points={{10,-10},{10,-12.5},{10,-12.5},{10,-15},{10,-20},{10,-20}},
                                           color={0,0,255}));
-        connect(airGapR.spacePhasor_r, permanentMagnet.spacePhasor_r) 
+        connect(airGapR.spacePhasor_r, permanentMagnet.spacePhasor_r)
           annotation (Line(points={{10,-10},{20,-10},{20,-50},{10,-50}}, color=
                 {0,0,255}));
         connect(spacePhasorS.spacePhasor, airGapR.spacePhasor_s) annotation (Line(
@@ -2343,43 +2343,43 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             final idq_sr = airGapR.i_sr,
             final idq_rs = airGapR.i_rs,
             final idq_rr = airGapR.i_rr);
-        Components.AirGapR airGapR(            final p=p, final m=3, final Lmd=Lmd, final Lmq=Lmq) 
+        Components.AirGapR airGapR(            final p=p, final m=3, final Lmd=Lmd, final Lmq=Lmq)
           annotation (Placement(transformation(
               origin={0,0},
               extent={{-10,-10},{10,10}},
               rotation=270)));
         parameter Modelica.SIunits.Inductance Lmd(start=1.5/(2*pi*fsNominal))
-          "main field inductance in d-axis" 
+          "main field inductance in d-axis"
            annotation(Dialog(group="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lmq(start=1.5/(2*pi*fsNominal))
-          "main field inductance in q-axis" 
+          "main field inductance in q-axis"
            annotation(Dialog(group="Nominal resistances and inductances"));
         parameter Boolean useDamperCage(start = true)
-          "enable / disable damper cage" 
+          "enable / disable damper cage"
           annotation(Dialog(group = "DamperCage"));
         parameter Modelica.SIunits.Inductance Lrsigmad(start=0.05/(2*pi*fsNominal))
-          "damper stray inductance in d-axis" 
+          "damper stray inductance in d-axis"
           annotation(Dialog(group = "DamperCage", enable = useDamperCage));
         parameter Modelica.SIunits.Inductance Lrsigmaq=Lrsigmad
-          "damper stray inductance in q-axis" 
+          "damper stray inductance in q-axis"
           annotation(Dialog(group = "DamperCage", enable = useDamperCage));
         parameter Modelica.SIunits.Resistance Rrd(start=0.04)
-          "warm damper resistance in d-axis" 
+          "warm damper resistance in d-axis"
           annotation(Dialog(group = "DamperCage", enable = useDamperCage));
         parameter Modelica.SIunits.Resistance Rrq=Rrd
-          "warm damper resistance in q-axis" 
+          "warm damper resistance in q-axis"
           annotation(Dialog(group = "DamperCage", enable = useDamperCage));
         parameter Modelica.SIunits.Voltage VsNominal(start=100)
-          "nominal stator RMS voltage per phase" 
+          "nominal stator RMS voltage per phase"
            annotation(Dialog(group="Excitation"));
         parameter Modelica.SIunits.Current IeOpenCircuit(start=10)
-          "open circuit excitation current @ nominal voltage and frequency" 
+          "open circuit excitation current @ nominal voltage and frequency"
            annotation(Dialog(group="Excitation"));
         parameter Modelica.SIunits.Resistance Re(start=2.5)
-          "warm excitation resistance" 
+          "warm excitation resistance"
            annotation(Dialog(group="Excitation"));
         parameter Real sigmae(min=0, max=1, start=0.025)
-          "stray fraction of total excitation inductance" 
+          "stray fraction of total excitation inductance"
            annotation(Dialog(group="Excitation"));
         output Modelica.SIunits.Current idq_dr[2](each stateSelect=StateSelect.prefer)=
           damperCage.spacePhasor_r.i_ if useDamperCage
@@ -2396,13 +2396,13 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           final Lrsigmad=Lrsigmad,
           final Lrsigmaq=Lrsigmaq,
           final Rrd=Rrd,
-          final Rrq=Rrq) if useDamperCage 
+          final Rrq=Rrq) if useDamperCage
           annotation (Placement(transformation(
               origin={0,-30},
               extent={{-10,-10},{10,10}},
               rotation=270)));
         Components.ElectricalExcitation electricalExcitation(final turnsRatio=
-              turnsRatio) 
+              turnsRatio)
           annotation (Placement(transformation(
               origin={0,-60},
               extent={{10,10},{-10,-10}},
@@ -2412,18 +2412,18 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           final T_ref=293.15,
           final alpha=0,
           final useHeatPort=false,
-          final T=re.T_ref) 
+          final T=re.T_ref)
           annotation (Placement(transformation(
               origin={50,-80},
               extent={{-10,10},{10,-10}},
               rotation=180)));
-        Modelica.Electrical.Analog.Basic.Inductor lesigma(final L=Lesigma) 
+        Modelica.Electrical.Analog.Basic.Inductor lesigma(final L=Lesigma)
           annotation (Placement(transformation(extent={{30,-90},{10,-70}},
                 rotation=0)));
-        Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep 
+        Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep
           annotation (Placement(transformation(extent={{-110,70},{-90,50}},
                 rotation=0)));
-        Modelica.Electrical.Analog.Interfaces.NegativePin pin_en 
+        Modelica.Electrical.Analog.Interfaces.NegativePin pin_en
           annotation (Placement(transformation(extent={{-90,-50},{-110,-70}},
                 rotation=0)));
 
@@ -2432,15 +2432,15 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
                 {-70,-70},{-70,-60},{-100,-60}},          color={0,0,255}));
         connect(pin_ep, re.p) annotation (Line(points={{-100,60},{-80,60},{-80,
                 -90},{60,-90},{60,-80}}, color={0,0,255}));
-        connect(lesigma.p, re.n) 
+        connect(lesigma.p, re.n)
           annotation (Line(points={{30,-80},{40,-80}}, color={0,0,255}));
-        connect(lesigma.n, electricalExcitation.pin_ep) 
+        connect(lesigma.n, electricalExcitation.pin_ep)
           annotation (Line(points={{10,-80},{10,-75},{10,-70},{10,-70}},
                                                        color={0,0,255}));
-        connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r) 
+        connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r)
           annotation (Line(points={{10,-10},{10,-12.5},{10,-12.5},{10,-15},{10,
                 -20},{10,-20}},                        color={0,0,255}));
-        connect(airGapR.spacePhasor_r, electricalExcitation.spacePhasor_r) 
+        connect(airGapR.spacePhasor_r, electricalExcitation.spacePhasor_r)
           annotation (Line(points={{10,-10},{20,-10},{20,-50},{10,-50}}, color=
                 {0,0,255}));
         connect(spacePhasorS.spacePhasor, airGapR.spacePhasor_s) annotation (Line(
@@ -2617,43 +2617,43 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             final idq_sr = airGapR.i_sr,
             final idq_rs = airGapR.i_rs,
             final idq_rr = airGapR.i_rr);
-        Components.AirGapR airGapR(            final p=p, final m=3, final Lmd=Lmd, final Lmq=Lmq) 
+        Components.AirGapR airGapR(            final p=p, final m=3, final Lmd=Lmd, final Lmq=Lmq)
           annotation (Placement(transformation(
               origin={0,0},
               extent={{-10,-10},{10,10}},
               rotation=270)));
         parameter Modelica.SIunits.Inductance Lmd(start=2.9/(2*pi*fsNominal))
-          "main field inductance in d-axis" 
+          "main field inductance in d-axis"
            annotation(Dialog(group="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lmq(start=0.9/(2*pi*fsNominal))
-          "main field inductance in q-axis" 
+          "main field inductance in q-axis"
            annotation(Dialog(group="Nominal resistances and inductances"));
         parameter Boolean useDamperCage(start = true)
-          "enable / disable damper cage" 
+          "enable / disable damper cage"
           annotation(Dialog(group = "DamperCage"));
         parameter Modelica.SIunits.Inductance Lrsigmad(start=0.05/(2*pi*fsNominal))
-          "damper stray inductance in d-axis" 
+          "damper stray inductance in d-axis"
           annotation(Dialog(group = "DamperCage", enable = useDamperCage));
         parameter Modelica.SIunits.Inductance Lrsigmaq=Lrsigmad
-          "damper stray inductance in q-axis" 
+          "damper stray inductance in q-axis"
           annotation(Dialog(group = "DamperCage", enable = useDamperCage));
         parameter Modelica.SIunits.Resistance Rrd(start=0.04)
-          "warm damper resistance in d-axis" 
+          "warm damper resistance in d-axis"
           annotation(Dialog(group = "DamperCage", enable = useDamperCage));
         parameter Modelica.SIunits.Resistance Rrq=Rrd
-          "warm damper resistance in q-axis" 
+          "warm damper resistance in q-axis"
           annotation(Dialog(group = "DamperCage", enable = useDamperCage));
         Components.DamperCage damperCage(
           final Lrsigmad=Lrsigmad,
           final Lrsigmaq=Lrsigmaq,
           final Rrd=Rrd,
-          final Rrq=Rrq) if useDamperCage 
+          final Rrq=Rrq) if useDamperCage
           annotation (Placement(transformation(
               origin={0,-30},
               extent={{-10,-10},{10,10}},
               rotation=270)));
       equation
-        connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r) 
+        connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r)
           annotation (Line(points={{10,-10},{10,-12.5},{10,-12.5},{10,-15},{10,
                 -20},{10,-20}},                        color={0,0,255}));
         connect(spacePhasorS.spacePhasor, airGapR.spacePhasor_s) annotation (Line(
@@ -2864,29 +2864,29 @@ These models use package SpacePhasors.
       model DC_PermanentMagnet "Permanent magnet DC machine"
         extends Machines.Interfaces.PartialBasicDCMachine(
         final turnsRatio=(VaNominal-Ra*IaNominal)/(wNominal*Le*IeNominal));
-        Components.AirGapDC airGapDC(final turnsRatio=turnsRatio, final Le=Le) 
+        Components.AirGapDC airGapDC(final turnsRatio=turnsRatio, final Le=Le)
                                      annotation (Placement(transformation(
               origin={0,0},
               extent={{-10,-10},{10,10}},
               rotation=270)));
       protected
         final parameter Modelica.SIunits.Inductance Le(start=1)
-          "total field excitation inductance" 
+          "total field excitation inductance"
            annotation(Dialog(group="Excitation"));
         constant Modelica.SIunits.Current IeNominal=1
           "equivalent excitation current";
       public
-        Modelica.Electrical.Analog.Basic.Ground eGround 
+        Modelica.Electrical.Analog.Basic.Ground eGround
           annotation (Placement(transformation(extent={{-20,-70},{0,-50}},
                 rotation=0)));
-        Modelica.Electrical.Analog.Sources.ConstantCurrent ie(I=IeNominal) 
+        Modelica.Electrical.Analog.Sources.ConstantCurrent ie(I=IeNominal)
           annotation (Placement(transformation(
               origin={10,-40},
               extent={{-10,-10},{10,10}},
               rotation=90)));
       equation
         assert(VaNominal > Ra*IaNominal, "VaNominal has to be > Ra*IaNominal");
-        connect(eGround.p, ie.p) 
+        connect(eGround.p, ie.p)
           annotation (Line(points={{-10,-50},{10,-50}}, color={0,0,255}));
         connect(airGapDC.pin_ep, ie.n) annotation (Line(points={{10,-10},{10,
                 -20},{10,-20},{10,-30}},
@@ -2980,19 +2980,19 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
         "Electrical shunt/separate excited linear DC machine"
         extends Machines.Interfaces.PartialBasicDCMachine(
           final turnsRatio=(VaNominal-Ra*IaNominal)/(wNominal*Le*IeNominal));
-        Components.AirGapDC airGapDC(final turnsRatio=turnsRatio, final Le=Le) 
+        Components.AirGapDC airGapDC(final turnsRatio=turnsRatio, final Le=Le)
                                      annotation (Placement(transformation(
               origin={0,0},
               extent={{-10,-10},{10,10}},
               rotation=270)));
         parameter Modelica.SIunits.Current IeNominal(start=1)
-          "nominal excitation current" 
+          "nominal excitation current"
            annotation(Dialog(group="Excitation"));
         parameter Modelica.SIunits.Resistance Re(start=100)
-          "warm field excitation resistance" 
+          "warm field excitation resistance"
            annotation(Dialog(group="Excitation"));
         parameter Modelica.SIunits.Inductance Le(start=1)
-          "total field excitation inductance" 
+          "total field excitation inductance"
            annotation(Dialog(group="Excitation"));
         output Modelica.SIunits.Voltage ve = pin_ep.v-pin_en.v
           "Field excitation voltage";
@@ -3003,15 +3003,15 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
           final T_ref=293.15,
           final alpha=0,
           final useHeatPort=false,
-          final T=re.T_ref) 
+          final T=re.T_ref)
           annotation (Placement(transformation(
               origin={-50,-40},
               extent={{10,10},{-10,-10}},
               rotation=180)));
-        Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep 
+        Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep
           annotation (Placement(transformation(extent={{-110,70},{-90,50}},
                 rotation=0)));
-        Modelica.Electrical.Analog.Interfaces.NegativePin pin_en 
+        Modelica.Electrical.Analog.Interfaces.NegativePin pin_en
           annotation (Placement(transformation(extent={{-90,-50},{-110,-70}},
                 rotation=0)));
 
@@ -3134,16 +3134,16 @@ Armature current does not cover excitation current of a shunt excitation; in thi
       model DC_SeriesExcited "Series excited linear DC machine"
         extends Machines.Interfaces.PartialBasicDCMachine(wNominal(start=1410*2*pi/60),
           final turnsRatio=(VaNominal-(Ra+Re)*IaNominal)/(wNominal*Le*IaNominal));
-        Components.AirGapDC airGapDC(final turnsRatio=turnsRatio, final Le=Le) 
+        Components.AirGapDC airGapDC(final turnsRatio=turnsRatio, final Le=Le)
                                      annotation (Placement(transformation(
               origin={0,0},
               extent={{-10,-10},{10,10}},
               rotation=270)));
         parameter Modelica.SIunits.Resistance Re(start=0.01)
-          "warm field excitation resistance" 
+          "warm field excitation resistance"
            annotation(Dialog(group="Excitation"));
         parameter Modelica.SIunits.Inductance Le(start=0.0005)
-          "total field excitation inductance" 
+          "total field excitation inductance"
            annotation(Dialog(group="Excitation"));
         output Modelica.SIunits.Voltage ve = pin_ep.v-pin_en.v
           "Field excitation voltage";
@@ -3154,15 +3154,15 @@ Armature current does not cover excitation current of a shunt excitation; in thi
           final T_ref=293.15,
           final alpha=0,
           final useHeatPort=false,
-          final T=re.T_ref) 
+          final T=re.T_ref)
           annotation (Placement(transformation(
               origin={-50,-40},
               extent={{10,10},{-10,-10}},
               rotation=180)));
-        Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep 
+        Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep
           annotation (Placement(transformation(extent={{-110,70},{-90,50}},
                 rotation=0)));
-        Modelica.Electrical.Analog.Interfaces.NegativePin pin_en 
+        Modelica.Electrical.Analog.Interfaces.NegativePin pin_en
           annotation (Placement(transformation(extent={{-90,-50},{-110,-70}},
                 rotation=0)));
       equation
@@ -3321,41 +3321,41 @@ This package contains models of DC machines:
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Yy00");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}},
                   rotation=0)));
         equation
-          connect(star1.pin_n, starpoint1) 
+          connect(star1.pin_n, starpoint1)
             annotation (Line(points={{-10,-90},{-10,-100},{-50,-100}}, color={0,
                   0,255}));
-          connect(star2.pin_n, starpoint2) 
+          connect(star2.pin_n, starpoint2)
             annotation (Line(points={{10,-90},{10,-100},{50,-100}}, color={0,0,
                   255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
-          connect(core.plug_n1, star1.plug_p) 
+          connect(core.plug_n1, star1.plug_p)
             annotation (Line(points={{-10,-5},{-10,-37.5},{-10,-70},{-10,-70}},
                                                           color={0,0,255}));
-          connect(core.plug_n2, core.plug_p3) 
+          connect(core.plug_n2, core.plug_p3)
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
-          connect(core.plug_p2, l2sigma.plug_p) 
+          connect(core.plug_p2, l2sigma.plug_p)
             annotation (Line(points={{10,10},{10,20},{50,20},{50,0}}, color={0,
                   0,255}));
-          connect(core.plug_n3, star2.plug_p) 
+          connect(core.plug_n3, star2.plug_p)
             annotation (Line(points={{10,-10},{10,-70},{10,-70}}, color={0,0,
                   255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -3369,46 +3369,46 @@ Transformer Yy0
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Yy02");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m)
             annotation (Placement(transformation(extent={{50,-30},{30,-10}},
                   rotation=0)));
         equation
-          connect(star1.pin_n, starpoint1) 
+          connect(star1.pin_n, starpoint1)
             annotation (Line(points={{-10,-90},{-10,-100},{-50,-100}}, color={0,
                   0,255}));
-          connect(star2.pin_n, starpoint2) 
+          connect(star2.pin_n, starpoint2)
             annotation (Line(points={{10,-90},{10,-100},{50,-100}}, color={0,0,
                   255}));
-          connect(l2sigma.plug_p, Rot2.plug_p) 
+          connect(l2sigma.plug_p, Rot2.plug_p)
             annotation (Line(points={{50,0},{50,-20}}, color={0,0,255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
-          connect(core.plug_n2, core.plug_p3) 
+          connect(core.plug_n2, core.plug_p3)
             annotation (Line(points={{10,4},{10,-4},{10,-4}}, color={0,0,255}));
-          connect(core.plug_n1, star1.plug_p) 
+          connect(core.plug_n1, star1.plug_p)
             annotation (Line(points={{-10,-5},{-10,-37.5},{-10,-70},{-10,-70}},
                                                           color={0,0,255}));
-          connect(core.plug_n3, Rot2.plug_n) 
+          connect(core.plug_n3, Rot2.plug_n)
             annotation (Line(points={{10,-10},{10,-20},{30,-20}}, color={0,0,
                   255}));
-          connect(core.plug_p2, star2.plug_p) 
+          connect(core.plug_p2, star2.plug_p)
             annotation (Line(points={{10,10},{20,10},{20,-70},{10,-70}}, color=
                   {0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -3420,45 +3420,45 @@ Transformer Yy2
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Yy04");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m)
             annotation (Placement(transformation(extent={{30,10},{50,30}},
                   rotation=0)));
         equation
-          connect(star1.pin_n, starpoint1) 
+          connect(star1.pin_n, starpoint1)
             annotation (Line(points={{-10,-90},{-10,-100},{-50,-100}}, color={0,
                   0,255}));
-          connect(star2.pin_n, starpoint2) 
+          connect(star2.pin_n, starpoint2)
             annotation (Line(points={{10,-90},{10,-100},{50,-100}}, color={0,0,
                   255}));
-          connect(Rot2.plug_n, l2sigma.plug_p) 
+          connect(Rot2.plug_n, l2sigma.plug_p)
             annotation (Line(points={{50,20},{50,0}}, color={0,0,255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
-          connect(core.plug_n1, star1.plug_p) 
+          connect(core.plug_n1, star1.plug_p)
             annotation (Line(points={{-10,-5},{-10,-37.5},{-10,-70},{-10,-70}},
                                                           color={0,0,255}));
-          connect(core.plug_n2, core.plug_p3) 
+          connect(core.plug_n2, core.plug_p3)
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
-          connect(core.plug_p2, Rot2.plug_p) 
+          connect(core.plug_p2, Rot2.plug_p)
             annotation (Line(points={{10,10},{10,20},{30,20}}, color={0,0,255}));
-          connect(core.plug_n3, star2.plug_p) 
+          connect(core.plug_n3, star2.plug_p)
             annotation (Line(points={{10,-10},{10,-70},{10,-70}}, color={0,0,
                   255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -3470,41 +3470,41 @@ Transformer Yy4
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Yy06");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}},
                   rotation=0)));
         equation
-          connect(star1.pin_n, starpoint1) 
+          connect(star1.pin_n, starpoint1)
             annotation (Line(points={{-10,-90},{-10,-100},{-50,-100}}, color={0,
                   0,255}));
-          connect(star2.pin_n, starpoint2) 
+          connect(star2.pin_n, starpoint2)
             annotation (Line(points={{10,-90},{10,-100},{50,-100}}, color={0,0,
                   255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
-          connect(core.plug_n1, star1.plug_p) 
+          connect(core.plug_n1, star1.plug_p)
             annotation (Line(points={{-10,-5},{-10,-37.5},{-10,-70},{-10,-70}},
                                                           color={0,0,255}));
-          connect(core.plug_n2, core.plug_p3) 
+          connect(core.plug_n2, core.plug_p3)
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
-          connect(l2sigma.plug_p, core.plug_n3) 
+          connect(l2sigma.plug_p, core.plug_n3)
             annotation (Line(points={{50,0},{50,-20},{10,-20},{10,-10}}, color=
                   {0,0,255}));
-          connect(core.plug_p2, star2.plug_p) 
+          connect(core.plug_p2, star2.plug_p)
             annotation (Line(points={{10,10},{20,10},{20,-70},{10,-70}}, color=
                   {0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -3516,45 +3516,45 @@ Transformer Yy6
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Yy08");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m)
             annotation (Placement(transformation(extent={{50,10},{30,30}},
                   rotation=0)));
         equation
-          connect(star1.pin_n, starpoint1) 
+          connect(star1.pin_n, starpoint1)
             annotation (Line(points={{-10,-90},{-10,-100},{-50,-100}}, color={0,
                   0,255}));
-          connect(star2.pin_n, starpoint2) 
+          connect(star2.pin_n, starpoint2)
             annotation (Line(points={{10,-90},{10,-100},{50,-100}}, color={0,0,
                   255}));
-          connect(Rot2.plug_p, l2sigma.plug_p) 
+          connect(Rot2.plug_p, l2sigma.plug_p)
             annotation (Line(points={{50,20},{50,0}}, color={0,0,255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
-          connect(core.plug_n1, star1.plug_p) 
+          connect(core.plug_n1, star1.plug_p)
             annotation (Line(points={{-10,-5},{-10,-37.5},{-10,-70},{-10,-70}},
                                                           color={0,0,255}));
-          connect(core.plug_n2, core.plug_p3) 
+          connect(core.plug_n2, core.plug_p3)
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
-          connect(core.plug_p2, Rot2.plug_n) 
+          connect(core.plug_p2, Rot2.plug_n)
             annotation (Line(points={{10,10},{10,20},{30,20}}, color={0,0,255}));
-          connect(core.plug_n3, star2.plug_p) 
+          connect(core.plug_n3, star2.plug_p)
             annotation (Line(points={{10,-10},{10,-70},{10,-70},{10,-70}},
                 color={0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -3566,46 +3566,46 @@ Transformer Yy8
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Yy10");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m)
             annotation (Placement(transformation(extent={{30,-30},{50,-10}},
                   rotation=0)));
         equation
-          connect(star1.pin_n, starpoint1) 
+          connect(star1.pin_n, starpoint1)
             annotation (Line(points={{-10,-90},{-10,-100},{-50,-100}}, color={0,
                   0,255}));
-          connect(star2.pin_n, starpoint2) 
+          connect(star2.pin_n, starpoint2)
             annotation (Line(points={{10,-90},{10,-100},{50,-100}}, color={0,0,
                   255}));
-          connect(l2sigma.plug_p, Rot2.plug_n) 
+          connect(l2sigma.plug_p, Rot2.plug_n)
             annotation (Line(points={{50,0},{50,-20}}, color={0,0,255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
-          connect(core.plug_n1, star1.plug_p) 
+          connect(core.plug_n1, star1.plug_p)
             annotation (Line(points={{-10,-5},{-10,-37.5},{-10,-70},{-10,-70}},
                                                           color={0,0,255}));
-          connect(core.plug_n2, core.plug_p3) 
+          connect(core.plug_n2, core.plug_p3)
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
-          connect(core.plug_n3, Rot2.plug_p) 
+          connect(core.plug_n3, Rot2.plug_p)
             annotation (Line(points={{10,-10},{10,-20},{30,-20}}, color={0,0,
                   255}));
-          connect(core.plug_p2, star2.plug_p) 
+          connect(core.plug_p2, star2.plug_p)
             annotation (Line(points={{10,10},{20,10},{20,-70},{10,-70}}, color=
                   {0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -3647,35 +3647,35 @@ This package contains transformers primary Y connected / secondary y connected i
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Yd01");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m)
             annotation (Placement(transformation(extent={{50,-30},{30,-10}},
                   rotation=0)));
         equation
-          connect(star1.pin_n, starpoint1) 
+          connect(star1.pin_n, starpoint1)
             annotation (Line(points={{-10,-90},{-10,-100},{-50,-100}}, color={0,
                   0,255}));
-          connect(Delta2.plug_p, r2.plug_n) 
+          connect(Delta2.plug_p, r2.plug_n)
             annotation (Line(points={{50,-20},{90,-20},{90,0}}, color={0,0,255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
-          connect(core.plug_n1, star1.plug_p) 
+          connect(core.plug_n1, star1.plug_p)
             annotation (Line(points={{-10,-5},{-10,-70},{-10,-70}},color={0,0,
                   255}));
-          connect(core.plug_n2, core.plug_p3) 
+          connect(core.plug_n2, core.plug_p3)
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
-          connect(core.plug_n3, Delta2.plug_n) 
+          connect(core.plug_n3, Delta2.plug_n)
             annotation (Line(points={{10,-10},{10,-20},{30,-20}}, color={0,0,
                   255}));
-          connect(core.plug_p2, l2sigma.plug_p) 
+          connect(core.plug_p2, l2sigma.plug_p)
             annotation (Line(points={{10,10},{10,20},{50,20},{50,0}}, color={0,
                   0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -3687,39 +3687,39 @@ Transformer Yd1
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Yd03");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m)
             annotation (Placement(transformation(extent={{30,10},{50,30}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m)
             annotation (Placement(transformation(extent={{50,-30},{30,-10}},
                   rotation=0)));
         equation
-          connect(star1.pin_n, starpoint1) 
+          connect(star1.pin_n, starpoint1)
             annotation (Line(points={{-10,-90},{-10,-100},{-50,-100}}, color={0,
                   0,255}));
-          connect(Delta2.plug_n, r2.plug_n) 
+          connect(Delta2.plug_n, r2.plug_n)
             annotation (Line(points={{50,20},{90,20},{90,0}}, color={0,0,255}));
-          connect(l2sigma.plug_p, Rot2.plug_p) 
+          connect(l2sigma.plug_p, Rot2.plug_p)
             annotation (Line(points={{50,0},{50,-20}}, color={0,0,255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
-          connect(core.plug_n1, star1.plug_p) 
+          connect(core.plug_n1, star1.plug_p)
             annotation (Line(points={{-10,-5},{-10,-70},{-10,-70}},color={0,0,
                   255}));
-          connect(core.plug_n2, core.plug_p3) 
+          connect(core.plug_n2, core.plug_p3)
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
-          connect(core.plug_p2, Delta2.plug_p) 
+          connect(core.plug_p2, Delta2.plug_p)
             annotation (Line(points={{10,10},{10,20},{30,20}}, color={0,0,255}));
-          connect(core.plug_n3, Rot2.plug_n) 
+          connect(core.plug_n3, Rot2.plug_n)
             annotation (Line(points={{10,-10},{10,-20},{30,-20}}, color={0,0,
                   255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -3731,35 +3731,35 @@ Transformer Yd3
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Yd05");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m)
             annotation (Placement(transformation(extent={{30,10},{50,30}},
                   rotation=0)));
         equation
-          connect(star1.pin_n, starpoint1) 
+          connect(star1.pin_n, starpoint1)
             annotation (Line(points={{-10,-90},{-10,-100},{-50,-100}}, color={0,
                   0,255}));
-          connect(Delta2.plug_n, r2.plug_n) 
+          connect(Delta2.plug_n, r2.plug_n)
             annotation (Line(points={{50,20},{90,20},{90,0}}, color={0,0,255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
-          connect(core.plug_n1, star1.plug_p) 
+          connect(core.plug_n1, star1.plug_p)
             annotation (Line(points={{-10,-5},{-10,-70},{-10,-70}},color={0,0,
                   255}));
-          connect(core.plug_n2, core.plug_p3) 
+          connect(core.plug_n2, core.plug_p3)
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
-          connect(core.plug_n3, l2sigma.plug_p) 
+          connect(core.plug_n3, l2sigma.plug_p)
             annotation (Line(points={{10,-10},{10,-20},{50,-20},{50,0}}, color=
                   {0,0,255}));
-          connect(core.plug_p2, Delta2.plug_p) 
+          connect(core.plug_p2, Delta2.plug_p)
             annotation (Line(points={{10,10},{10,20},{30,20}}, color={0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yd5
@@ -3770,34 +3770,34 @@ Transformer Yd5
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Yd07");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m)
             annotation (Placement(transformation(extent={{50,10},{30,30}},
                   rotation=0)));
         equation
-          connect(star1.pin_n, starpoint1) 
+          connect(star1.pin_n, starpoint1)
             annotation (Line(points={{-10,-90},{-10,-100},{-50,-100}}, color={0,
                   0,255}));
-          connect(Delta2.plug_p, r2.plug_n) 
+          connect(Delta2.plug_p, r2.plug_n)
             annotation (Line(points={{50,20},{90,20},{90,0}}, color={0,0,255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
-          connect(core.plug_n1, star1.plug_p) 
+          connect(core.plug_n1, star1.plug_p)
             annotation (Line(points={{-10,-5},{-10,-37.5},{-10,-70},{-10,-70}},
                                                           color={0,0,255}));
-          connect(core.plug_n2, core.plug_p3) 
+          connect(core.plug_n2, core.plug_p3)
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
-          connect(core.plug_p2, Delta2.plug_n) 
+          connect(core.plug_p2, Delta2.plug_n)
             annotation (Line(points={{10,10},{10,20},{30,20}}, color={0,0,255}));
-          connect(l2sigma.plug_p, core.plug_n3) 
+          connect(l2sigma.plug_p, core.plug_n3)
             annotation (Line(points={{50,0},{50,-20},{10,-20},{10,-10}}, color=
                   {0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -3809,39 +3809,39 @@ Transformer Yd7
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Yd09");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m)
             annotation (Placement(transformation(extent={{30,-30},{50,-10}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m)
             annotation (Placement(transformation(extent={{50,10},{30,30}},
                   rotation=0)));
         equation
-          connect(star1.pin_n, starpoint1) 
+          connect(star1.pin_n, starpoint1)
             annotation (Line(points={{-10,-90},{-10,-100},{-50,-100}}, color={0,
                   0,255}));
-          connect(Rot2.plug_p, l2sigma.plug_p) 
+          connect(Rot2.plug_p, l2sigma.plug_p)
             annotation (Line(points={{50,20},{50,0}}, color={0,0,255}));
-          connect(Delta2.plug_n, r2.plug_n) 
+          connect(Delta2.plug_n, r2.plug_n)
             annotation (Line(points={{50,-20},{90,-20},{90,0}}, color={0,0,255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
-          connect(core.plug_n1, star1.plug_p) 
+          connect(core.plug_n1, star1.plug_p)
             annotation (Line(points={{-10,-5},{-10,-37.5},{-10,-70},{-10,-70}},
                                                           color={0,0,255}));
-          connect(core.plug_n2, core.plug_p3) 
+          connect(core.plug_n2, core.plug_p3)
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
-          connect(core.plug_p2, Rot2.plug_n) 
+          connect(core.plug_p2, Rot2.plug_n)
             annotation (Line(points={{10,10},{10,20},{30,20}}, color={0,0,255}));
-          connect(core.plug_n3, Delta2.plug_p) 
+          connect(core.plug_n3, Delta2.plug_p)
             annotation (Line(points={{10,-10},{10,-20},{30,-20}}, color={0,0,
                   255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -3853,35 +3853,35 @@ Transformer Yd9
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Yd11");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m)
             annotation (Placement(transformation(extent={{30,-30},{50,-10}},
                   rotation=0)));
         equation
-          connect(star1.pin_n, starpoint1) 
+          connect(star1.pin_n, starpoint1)
             annotation (Line(points={{-10,-90},{-10,-100},{-50,-100}}, color={0,
                   0,255}));
-          connect(Delta2.plug_n, r2.plug_n) 
+          connect(Delta2.plug_n, r2.plug_n)
             annotation (Line(points={{50,-20},{90,-20},{90,0}}, color={0,0,255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
-          connect(core.plug_n1, star1.plug_p) 
+          connect(core.plug_n1, star1.plug_p)
             annotation (Line(points={{-10,-5},{-10,-70},{-10,-70}},color={0,0,
                   255}));
-          connect(core.plug_n2, core.plug_p3) 
+          connect(core.plug_n2, core.plug_p3)
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
-          connect(core.plug_n3, Delta2.plug_p) 
+          connect(core.plug_n3, Delta2.plug_p)
             annotation (Line(points={{10,-10},{10,-20},{30,-20}}, color={0,0,
                   255}));
-          connect(core.plug_p2, l2sigma.plug_p) 
+          connect(core.plug_p2, l2sigma.plug_p)
             annotation (Line(points={{10,10},{10,20},{50,20},{50,0}}, color={0,
                   0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -3923,56 +3923,56 @@ This package contains transformers primary Y connected / secondary d connected i
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Yz01");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m)
             annotation (Placement(transformation(
                 origin={30,0},
                 extent={{-10,10},{10,-10}},
                 rotation=90)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot22(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Rot22(final m=m)
             annotation (Placement(transformation(
                 origin={40,20},
                 extent={{-10,10},{10,-10}},
                 rotation=180)));
         equation
-          connect(star1.pin_n, starpoint1) 
+          connect(star1.pin_n, starpoint1)
             annotation (Line(points={{-10,-90},{-10,-100},{-50,-100}}, color={0,
                   0,255}));
-          connect(star2.pin_n,starpoint2) 
+          connect(star2.pin_n,starpoint2)
             annotation (Line(points={{10,-90},{10,-100},{50,-100}}, color={0,0,
                   255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
-          connect(core.plug_n1, star1.plug_p) 
+          connect(core.plug_n1, star1.plug_p)
             annotation (Line(points={{-10,-5},{-10,-70},{-10,-70}}, color={0,0,
                   255}));
-          connect(core.plug_p2, Rot21.plug_n) 
+          connect(core.plug_p2, Rot21.plug_n)
             annotation (Line(points={{10,10},{30,10}}, color={0,0,255}));
-          connect(core.plug_p3, Rot21.plug_p) 
+          connect(core.plug_p3, Rot21.plug_p)
             annotation (Line(points={{10,-4},{20,-4},{20,-10},{30,-10}}, color=
                   {0,0,255}));
           connect(l2sigma.plug_p, Rot22.plug_p) annotation (Line(points={{50,0},
                   {50,20}}, color={0,0,255}));
-          connect(Rot22.plug_n, core.plug_n2) 
+          connect(Rot22.plug_n, core.plug_n2)
             annotation (Line(points={{30,20},{20,20},{20,4},{10,4}}, color={0,0,
                   255}));
-          connect(core.plug_n3, star2.plug_p) 
+          connect(core.plug_n3, star2.plug_p)
             annotation (Line(points={{10,-10},{10,-70},{10,-70}}, color={0,0,
                   255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -3984,56 +3984,56 @@ Transformer Yz1
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Yz03");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m)
             annotation (Placement(transformation(
                 origin={30,0},
                 extent={{10,-10},{-10,10}},
                 rotation=90)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot22(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Rot22(final m=m)
             annotation (Placement(transformation(
                 origin={40,20},
                 extent={{-10,10},{10,-10}},
                 rotation=180)));
         equation
-          connect(star1.pin_n, starpoint1) 
+          connect(star1.pin_n, starpoint1)
             annotation (Line(points={{-10,-90},{-10,-100},{-50,-100}}, color={0,
                   0,255}));
-          connect(star2.pin_n,starpoint2) 
+          connect(star2.pin_n,starpoint2)
             annotation (Line(points={{10,-90},{10,-100},{50,-100}}, color={0,0,
                   255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
-          connect(core.plug_n1, star1.plug_p) 
+          connect(core.plug_n1, star1.plug_p)
             annotation (Line(points={{-10,-5},{-10,-37.5},{-10,-70},{-10,-70}},
                                                           color={0,0,255}));
-          connect(core.plug_p2, Rot21.plug_p) 
+          connect(core.plug_p2, Rot21.plug_p)
             annotation (Line(points={{10,10},{30,10}}, color={0,0,255}));
-          connect(core.plug_p3, Rot21.plug_n) 
+          connect(core.plug_p3, Rot21.plug_n)
             annotation (Line(points={{10,-4},{20,-4},{20,-10},{30,-10}}, color=
                   {0,0,255}));
-          connect(l2sigma.plug_p, Rot22.plug_p) 
+          connect(l2sigma.plug_p, Rot22.plug_p)
             annotation (Line(points={{50,0},{50,20}}, color={0,0,255}));
-          connect(Rot22.plug_n, core.plug_n2) 
+          connect(Rot22.plug_n, core.plug_n2)
             annotation (Line(points={{30,20},{20,20},{20,4},{10,4}}, color={0,0,
                   255}));
-          connect(core.plug_n3, star2.plug_p) 
+          connect(core.plug_n3, star2.plug_p)
             annotation (Line(points={{10,-10},{10,-70},{10,-70}}, color={0,0,
                   255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -4045,49 +4045,49 @@ Transformer Yz3
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Yz05");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m)
             annotation (Placement(transformation(
                 origin={30,0},
                 extent={{-10,10},{10,-10}},
                 rotation=90)));
         equation
-          connect(star1.pin_n, starpoint1) 
+          connect(star1.pin_n, starpoint1)
             annotation (Line(points={{-10,-90},{-10,-100},{-50,-100}}, color={0,
                   0,255}));
-          connect(star2.pin_n,starpoint2) 
+          connect(star2.pin_n,starpoint2)
             annotation (Line(points={{10,-90},{10,-100},{50,-100}}, color={0,0,
                   255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
-          connect(core.plug_n1, star1.plug_p) 
+          connect(core.plug_n1, star1.plug_p)
             annotation (Line(points={{-10,-5},{-10,-70},{-10,-70}},color={0,0,
                   255}));
-          connect(core.plug_p2, Rot21.plug_n) 
+          connect(core.plug_p2, Rot21.plug_n)
             annotation (Line(points={{10,10},{30,10}}, color={0,0,255}));
-          connect(core.plug_p3, Rot21.plug_p) 
+          connect(core.plug_p3, Rot21.plug_p)
             annotation (Line(points={{10,-4},{20,-4},{20,-10},{30,-10}}, color=
                   {0,0,255}));
-          connect(core.plug_n3, star2.plug_p) 
+          connect(core.plug_n3, star2.plug_p)
             annotation (Line(points={{10,-10},{10,-40},{10,-70},{10,-70}},
                                                          color={0,0,255}));
-          connect(l2sigma.plug_p, core.plug_n2) 
+          connect(l2sigma.plug_p, core.plug_n2)
             annotation (Line(points={{50,0},{50,20},{20,20},{20,4},{10,4}},
                 color={0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -4099,49 +4099,49 @@ Transformer Yz5
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Yz07");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m)
             annotation (Placement(transformation(
                 origin={30,0},
                 extent={{10,-10},{-10,10}},
                 rotation=90)));
         equation
-          connect(star1.pin_n, starpoint1) 
+          connect(star1.pin_n, starpoint1)
             annotation (Line(points={{-10,-90},{-10,-100},{-50,-100}}, color={0,
                   0,255}));
-          connect(star2.pin_n,starpoint2) 
+          connect(star2.pin_n,starpoint2)
             annotation (Line(points={{10,-90},{10,-100},{50,-100}}, color={0,0,
                   255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
-          connect(core.plug_n1, star1.plug_p) 
+          connect(core.plug_n1, star1.plug_p)
             annotation (Line(points={{-10,-5},{-10,-37.5},{-10,-70},{-10,-70}},
                                                           color={0,0,255}));
-          connect(core.plug_p2, Rot21.plug_p) 
+          connect(core.plug_p2, Rot21.plug_p)
             annotation (Line(points={{10,10},{30,10}}, color={0,0,255}));
-          connect(core.plug_p3, Rot21.plug_n) 
+          connect(core.plug_p3, Rot21.plug_n)
             annotation (Line(points={{10,-4},{20,-4},{20,-10},{30,-10}}, color=
                   {0,0,255}));
-          connect(l2sigma.plug_p, core.plug_n2) 
+          connect(l2sigma.plug_p, core.plug_n2)
             annotation (Line(points={{50,0},{50,20},{20,20},{20,4},{10,4}},
                 color={0,0,255}));
-          connect(core.plug_n3, star2.plug_p) 
+          connect(core.plug_n3, star2.plug_p)
             annotation (Line(points={{10,-10},{10,-40},{10,-70},{10,-70}},
                                                          color={0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -4153,56 +4153,56 @@ Transformer Yz7
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Yz09");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m)
             annotation (Placement(transformation(
                 origin={30,0},
                 extent={{-10,10},{10,-10}},
                 rotation=90)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot22(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Rot22(final m=m)
             annotation (Placement(transformation(
                 origin={40,20},
                 extent={{10,10},{-10,-10}},
                 rotation=180)));
         equation
-          connect(star1.pin_n, starpoint1) 
+          connect(star1.pin_n, starpoint1)
             annotation (Line(points={{-10,-90},{-10,-100},{-50,-100}}, color={0,
                   0,255}));
-          connect(star2.pin_n,starpoint2) 
+          connect(star2.pin_n,starpoint2)
             annotation (Line(points={{10,-90},{10,-100},{50,-100}}, color={0,0,
                   255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
-          connect(core.plug_n1, star1.plug_p) 
+          connect(core.plug_n1, star1.plug_p)
             annotation (Line(points={{-10,-5},{-10,-70},{-10,-70}}, color={0,0,
                   255}));
-          connect(core.plug_p2, Rot21.plug_n) 
+          connect(core.plug_p2, Rot21.plug_n)
             annotation (Line(points={{10,10},{30,10}}, color={0,0,255}));
-          connect(core.plug_p3, Rot21.plug_p) 
+          connect(core.plug_p3, Rot21.plug_p)
             annotation (Line(points={{10,-4},{20,-4},{20,-10},{30,-10}}, color=
                   {0,0,255}));
-          connect(core.plug_n3, star2.plug_p) 
+          connect(core.plug_n3, star2.plug_p)
             annotation (Line(points={{10,-10},{10,-70},{10,-70}}, color={0,0,
                   255}));
-          connect(l2sigma.plug_p, Rot22.plug_n) 
+          connect(l2sigma.plug_p, Rot22.plug_n)
             annotation (Line(points={{50,0},{50,20},{50,20}}, color={0,0,255}));
-          connect(Rot22.plug_p, core.plug_n2) 
+          connect(Rot22.plug_p, core.plug_n2)
             annotation (Line(points={{30,20},{20,20},{20,4},{10,4}}, color={0,0,
                   255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -4214,56 +4214,56 @@ Transformer Yz9
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Yz11");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m)
             annotation (Placement(transformation(
                 origin={30,0},
                 extent={{10,-10},{-10,10}},
                 rotation=90)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot22(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Rot22(final m=m)
             annotation (Placement(transformation(
                 origin={40,20},
                 extent={{10,10},{-10,-10}},
                 rotation=180)));
         equation
-          connect(star1.pin_n, starpoint1) 
+          connect(star1.pin_n, starpoint1)
             annotation (Line(points={{-10,-90},{-10,-100},{-50,-100}}, color={0,
                   0,255}));
-          connect(star2.pin_n,starpoint2) 
+          connect(star2.pin_n,starpoint2)
             annotation (Line(points={{10,-90},{10,-100},{50,-100}}, color={0,0,
                   255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
-          connect(core.plug_n1, star1.plug_p) 
+          connect(core.plug_n1, star1.plug_p)
             annotation (Line(points={{-10,-5},{-10,-37.5},{-10,-70},{-10,-70}},
                                                           color={0,0,255}));
-          connect(core.plug_p2, Rot21.plug_p) 
+          connect(core.plug_p2, Rot21.plug_p)
             annotation (Line(points={{10,10},{30,10}}, color={0,0,255}));
-          connect(core.plug_p3, Rot21.plug_n) 
+          connect(core.plug_p3, Rot21.plug_n)
             annotation (Line(points={{10,-4},{20,-4},{20,-10},{30,-10}}, color=
                   {0,0,255}));
-          connect(l2sigma.plug_p, Rot22.plug_n) 
+          connect(l2sigma.plug_p, Rot22.plug_n)
             annotation (Line(points={{50,0},{50,20}}, color={0,0,255}));
-          connect(Rot22.plug_p, core.plug_n2) 
+          connect(Rot22.plug_p, core.plug_n2)
             annotation (Line(points={{30,20},{20,20},{20,4},{10,4}}, color={0,0,
                   255}));
-          connect(core.plug_n3, star2.plug_p) 
+          connect(core.plug_n3, star2.plug_p)
             annotation (Line(points={{10,-10},{10,-70},{10,-70}}, color={0,0,
                   255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -4305,41 +4305,41 @@ This package contains transformers primary Y connected / secondary zig-zag conne
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Dy01");
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m)
             annotation (Placement(transformation(extent={{50,-30},{30,-10}},
                   rotation=0)));
         equation
-          connect(star2.pin_n, starpoint2) 
+          connect(star2.pin_n, starpoint2)
             annotation (Line(points={{10,-90},{10,-100},{50,-100}}, color={0,0,
                   255}));
-          connect(l2sigma.plug_p, Rot2.plug_p) 
+          connect(l2sigma.plug_p, Rot2.plug_p)
             annotation (Line(points={{50,0},{50,-20}}, color={0,0,255}));
-          connect(Delta1.plug_p, r1.plug_p) 
+          connect(Delta1.plug_p, r1.plug_p)
             annotation (Line(points={{-50,-20},{-90,-20},{-90,0}}, color={0,0,
                   255}));
-          connect(Delta1.plug_n, core.plug_n1) 
+          connect(Delta1.plug_n, core.plug_n1)
             annotation (Line(points={{-30,-20},{-10,-20},{-10,-5}}, color={0,0,
                   255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
-          connect(core.plug_n2, core.plug_p3) 
+          connect(core.plug_n2, core.plug_p3)
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
-          connect(core.plug_n3, Rot2.plug_n) 
+          connect(core.plug_n3, Rot2.plug_n)
             annotation (Line(points={{10,-10},{10,-20},{30,-20}}, color={0,0,
                   255}));
-          connect(core.plug_p2, star2.plug_p) 
+          connect(core.plug_p2, star2.plug_p)
             annotation (Line(points={{10,10},{20,10},{20,-70},{10,-70}}, color=
                   {0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -4351,40 +4351,40 @@ Transformer Dy1
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Dy03");
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m)
             annotation (Placement(transformation(extent={{30,10},{50,30}},
                   rotation=0)));
         equation
-          connect(star2.pin_n, starpoint2) 
+          connect(star2.pin_n, starpoint2)
             annotation (Line(points={{10,-90},{10,-100},{50,-100}}, color={0,0,
                   255}));
-          connect(Rot2.plug_n, l2sigma.plug_p) 
+          connect(Rot2.plug_n, l2sigma.plug_p)
             annotation (Line(points={{50,20},{50,0}}, color={0,0,255}));
-          connect(Delta1.plug_p, r1.plug_p) 
+          connect(Delta1.plug_p, r1.plug_p)
             annotation (Line(points={{-50,-20},{-90,-20},{-90,0}}, color={0,0,
                   255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
-          connect(Delta1.plug_n, core.plug_n1) 
+          connect(Delta1.plug_n, core.plug_n1)
             annotation (Line(points={{-30,-20},{-10,-20},{-10,-5}}, color={0,0,
                   255}));
-          connect(core.plug_p2, Rot2.plug_p) 
+          connect(core.plug_p2, Rot2.plug_p)
             annotation (Line(points={{10,10},{10,20},{30,20}}, color={0,0,255}));
-          connect(core.plug_n2, core.plug_p3) 
+          connect(core.plug_n2, core.plug_p3)
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
-          connect(core.plug_n3, star2.plug_p) 
+          connect(core.plug_n3, star2.plug_p)
             annotation (Line(points={{10,-10},{10,-40},{10,-70},{10,-70}},
                                                          color={0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -4396,36 +4396,36 @@ Transformer Dy3
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Dy05");
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}},
                   rotation=0)));
         equation
-          connect(star2.pin_n, starpoint2) 
+          connect(star2.pin_n, starpoint2)
             annotation (Line(points={{10,-90},{10,-100},{50,-100}}, color={0,0,
                   255}));
-          connect(Delta1.plug_p, r1.plug_p) 
+          connect(Delta1.plug_p, r1.plug_p)
             annotation (Line(points={{-50,-20},{-90,-20},{-90,0}}, color={0,0,
                   255}));
-          connect(Delta1.plug_n, core.plug_n1) 
+          connect(Delta1.plug_n, core.plug_n1)
             annotation (Line(points={{-30,-20},{-10,-20},{-10,-5}}, color={0,0,
                   255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
-          connect(core.plug_n2, core.plug_p3) 
+          connect(core.plug_n2, core.plug_p3)
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
-          connect(l2sigma.plug_p, core.plug_n3) 
+          connect(l2sigma.plug_p, core.plug_n3)
             annotation (Line(points={{50,0},{50,-20},{10,-20},{10,-10}}, color=
                   {0,0,255}));
-          connect(core.plug_p2, star2.plug_p) 
+          connect(core.plug_p2, star2.plug_p)
             annotation (Line(points={{10,10},{20,10},{20,-70},{10,-70}}, color=
                   {0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -4437,41 +4437,41 @@ Transformer Dy5
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Dy07");
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m)
             annotation (Placement(transformation(extent={{50,10},{30,30}},
                   rotation=0)));
         equation
-          connect(star2.pin_n, starpoint2) 
+          connect(star2.pin_n, starpoint2)
             annotation (Line(points={{10,-90},{10,-100},{50,-100}}, color={0,0,
                   255}));
-          connect(r1.plug_p, Delta1.plug_p) 
+          connect(r1.plug_p, Delta1.plug_p)
             annotation (Line(points={{-90,0},{-90,-20},{-50,-20}}, color={0,0,
                   255}));
-          connect(Rot2.plug_p, l2sigma.plug_p) 
+          connect(Rot2.plug_p, l2sigma.plug_p)
             annotation (Line(points={{50,20},{50,0}}, color={0,0,255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
-          connect(Delta1.plug_n, core.plug_n1) 
+          connect(Delta1.plug_n, core.plug_n1)
             annotation (Line(points={{-30,-20},{-10,-20},{-10,-5}}, color={0,0,
                   255}));
-          connect(core.plug_n2, core.plug_p3) 
+          connect(core.plug_n2, core.plug_p3)
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
-          connect(core.plug_n3, star2.plug_p) 
+          connect(core.plug_n3, star2.plug_p)
             annotation (Line(points={{10,-10},{10,-40},{10,-70},{10,-70}},
                                                          color={0,0,255}));
-          connect(core.plug_p2, Rot2.plug_n) 
+          connect(core.plug_p2, Rot2.plug_n)
             annotation (Line(points={{10,10},{10,20},{30,20}}, color={0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dy7
@@ -4482,41 +4482,41 @@ Transformer Dy7
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Dy09");
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m)
             annotation (Placement(transformation(extent={{30,-30},{50,-10}},
                   rotation=0)));
         equation
-          connect(star2.pin_n, starpoint2) 
+          connect(star2.pin_n, starpoint2)
             annotation (Line(points={{10,-90},{10,-100},{50,-100}}, color={0,0,
                   255}));
-          connect(r1.plug_p, Delta1.plug_p) 
+          connect(r1.plug_p, Delta1.plug_p)
             annotation (Line(points={{-90,0},{-90,-20},{-50,-20}}, color={0,0,
                   255}));
-          connect(l2sigma.plug_p, Rot2.plug_n) 
+          connect(l2sigma.plug_p, Rot2.plug_n)
             annotation (Line(points={{50,0},{50,-20}}, color={0,0,255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5},{-10,5}},
                 color={0,0,255}));
-          connect(Delta1.plug_n, core.plug_n1) 
+          connect(Delta1.plug_n, core.plug_n1)
             annotation (Line(points={{-30,-20},{-10,-20},{-10,-5}}, color={0,0,
                   255}));
-          connect(core.plug_n2, core.plug_p3) 
+          connect(core.plug_n2, core.plug_p3)
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
-          connect(core.plug_n3, Rot2.plug_p) 
+          connect(core.plug_n3, Rot2.plug_p)
             annotation (Line(points={{10,-10},{10,-20},{30,-20}}, color={0,0,
                   255}));
-          connect(core.plug_p2, star2.plug_p) 
+          connect(core.plug_p2, star2.plug_p)
             annotation (Line(points={{10,10},{20,10},{20,-70},{10,-70}}, color=
                   {0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -4528,36 +4528,36 @@ Transformer Dy9
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Dy11");
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}},
                   rotation=0)));
         equation
-          connect(star2.pin_n, starpoint2) 
+          connect(star2.pin_n, starpoint2)
             annotation (Line(points={{10,-90},{10,-100},{50,-100}}, color={0,0,
                   255}));
-          connect(r1.plug_p, Delta1.plug_p) 
+          connect(r1.plug_p, Delta1.plug_p)
             annotation (Line(points={{-90,0},{-90,-20},{-50,-20}}, color={0,0,
                   255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
-          connect(Delta1.plug_n, core.plug_n1) 
+          connect(Delta1.plug_n, core.plug_n1)
             annotation (Line(points={{-30,-20},{-10,-20},{-10,-5}}, color={0,0,
                   255}));
-          connect(core.plug_n2, core.plug_p3) 
+          connect(core.plug_n2, core.plug_p3)
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
-          connect(core.plug_n3, star2.plug_p) 
+          connect(core.plug_n3, star2.plug_p)
             annotation (Line(points={{10,-10},{10,-40},{10,-70},{10,-70}},
                                                          color={0,0,255}));
-          connect(core.plug_p2, l2sigma.plug_p) 
+          connect(core.plug_p2, l2sigma.plug_p)
             annotation (Line(points={{10,10},{10,20},{50,20},{50,0}}, color={0,
                   0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -4599,30 +4599,30 @@ This package contains transformers primary D connected / secondary y connected i
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Dd00");
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m)
             annotation (Placement(transformation(extent={{50,-30},{30,-10}},
                   rotation=0)));
         equation
-          connect(r1.plug_p, Delta1.plug_p) 
+          connect(r1.plug_p, Delta1.plug_p)
             annotation (Line(points={{-90,0},{-90,-20},{-50,-20}}, color={0,0,
                   255}));
-          connect(Delta2.plug_p, r2.plug_n) 
+          connect(Delta2.plug_p, r2.plug_n)
             annotation (Line(points={{50,-20},{90,-20},{90,0}}, color={0,0,255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
-          connect(Delta1.plug_n, core.plug_n1) 
+          connect(Delta1.plug_n, core.plug_n1)
             annotation (Line(points={{-30,-20},{-10,-20},{-10,-5}}, color={0,0,
                   255}));
-          connect(core.plug_n2, core.plug_p3) 
+          connect(core.plug_n2, core.plug_p3)
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
-          connect(core.plug_p2, l2sigma.plug_p) 
+          connect(core.plug_p2, l2sigma.plug_p)
             annotation (Line(points={{10,10},{10,20},{50,20},{50,0}}, color={0,
                   0,255}));
-          connect(core.plug_n3, Delta2.plug_n) 
+          connect(core.plug_n3, Delta2.plug_n)
             annotation (Line(points={{10,-10},{10,-20},{30,-20}}, color={0,0,
                   255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -4634,34 +4634,34 @@ Transformer Dd0
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Dd02");
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m)
             annotation (Placement(transformation(extent={{30,10},{50,30}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m)
             annotation (Placement(transformation(extent={{50,-30},{30,-10}},
                   rotation=0)));
         equation
-          connect(r1.plug_p, Delta1.plug_p) 
+          connect(r1.plug_p, Delta1.plug_p)
             annotation (Line(points={{-90,0},{-90,-20},{-50,-20}}, color={0,0,
                   255}));
-          connect(Delta2.plug_n, r2.plug_n) 
+          connect(Delta2.plug_n, r2.plug_n)
             annotation (Line(points={{50,20},{90,20},{90,0}}, color={0,0,255}));
-          connect(l2sigma.plug_p, Rot2.plug_p) 
+          connect(l2sigma.plug_p, Rot2.plug_p)
             annotation (Line(points={{50,0},{50,-20}}, color={0,0,255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
-          connect(Delta1.plug_n, core.plug_n1) 
+          connect(Delta1.plug_n, core.plug_n1)
             annotation (Line(points={{-30,-20},{-10,-20},{-10,-5}}, color={0,0,
                   255}));
-          connect(core.plug_n2, core.plug_p3) 
+          connect(core.plug_n2, core.plug_p3)
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
-          connect(core.plug_p2, Delta2.plug_p) 
+          connect(core.plug_p2, Delta2.plug_p)
             annotation (Line(points={{10,10},{10,20},{30,20}}, color={0,0,255}));
-          connect(core.plug_n3, Rot2.plug_n) 
+          connect(core.plug_n3, Rot2.plug_n)
             annotation (Line(points={{10,-10},{10,-20},{30,-20}}, color={0,0,
                   255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -4673,30 +4673,30 @@ Transformer Dd2
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Dd04");
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m)
             annotation (Placement(transformation(extent={{30,10},{50,30}},
                   rotation=0)));
         equation
-          connect(r1.plug_p, Delta1.plug_p) 
+          connect(r1.plug_p, Delta1.plug_p)
             annotation (Line(points={{-90,0},{-90,-20},{-50,-20}}, color={0,0,
                   255}));
-          connect(Delta2.plug_n, r2.plug_n) 
+          connect(Delta2.plug_n, r2.plug_n)
             annotation (Line(points={{50,20},{90,20},{90,0}}, color={0,0,255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
-          connect(Delta1.plug_n, core.plug_n1) 
+          connect(Delta1.plug_n, core.plug_n1)
             annotation (Line(points={{-30,-20},{-10,-20},{-10,-5}}, color={0,0,
                   255}));
-          connect(core.plug_n2, core.plug_p3) 
+          connect(core.plug_n2, core.plug_p3)
             annotation (Line(points={{10,4},{10,1},{10,1},{10,-4}}, color={0,0,
                   255}));
-          connect(core.plug_p2, Delta2.plug_p) 
+          connect(core.plug_p2, Delta2.plug_p)
             annotation (Line(points={{10,10},{10,20},{30,20}}, color={0,0,255}));
-          connect(core.plug_n3, l2sigma.plug_p) 
+          connect(core.plug_n3, l2sigma.plug_p)
             annotation (Line(points={{10,-10},{10,-20},{50,-20},{50,0}}, color=
                   {0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -4708,29 +4708,29 @@ Transformer Dd4
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Dd06");
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m)
             annotation (Placement(transformation(extent={{50,10},{30,30}},
                   rotation=0)));
         equation
-          connect(Delta2.plug_p, r2.plug_n) 
+          connect(Delta2.plug_p, r2.plug_n)
             annotation (Line(points={{50,20},{90,20},{90,0}}, color={0,0,255}));
-          connect(Delta1.plug_p, r1.plug_p) 
+          connect(Delta1.plug_p, r1.plug_p)
             annotation (Line(points={{-50,-20},{-90,-20},{-90,0}}, color={0,0,
                   255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
-          connect(Delta1.plug_n, core.plug_n1) 
+          connect(Delta1.plug_n, core.plug_n1)
             annotation (Line(points={{-30,-20},{-10,-20},{-10,-5}}, color={0,0,
                   255}));
-          connect(core.plug_n2, core.plug_p3) 
+          connect(core.plug_n2, core.plug_p3)
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
-          connect(Delta2.plug_n, core.plug_p2) 
+          connect(Delta2.plug_n, core.plug_p2)
             annotation (Line(points={{30,20},{10,20},{10,10}}, color={0,0,255}));
-          connect(core.plug_n3, l2sigma.plug_p) 
+          connect(core.plug_n3, l2sigma.plug_p)
             annotation (Line(points={{10,-10},{10,-20},{50,-20},{50,0}}, color=
                   {0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -4742,34 +4742,34 @@ Transformer Dd6
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Dd08");
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m)
             annotation (Placement(transformation(extent={{50,10},{30,30}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m)
             annotation (Placement(transformation(extent={{30,-30},{50,-10}},
                   rotation=0)));
         equation
-          connect(r1.plug_p, Delta1.plug_p) 
+          connect(r1.plug_p, Delta1.plug_p)
             annotation (Line(points={{-90,0},{-90,-20},{-50,-20}}, color={0,0,
                   255}));
-          connect(Delta2.plug_n, r2.plug_n) 
+          connect(Delta2.plug_n, r2.plug_n)
             annotation (Line(points={{50,-20},{90,-20},{90,0}}, color={0,0,255}));
-          connect(Rot2.plug_p, l2sigma.plug_p) 
+          connect(Rot2.plug_p, l2sigma.plug_p)
             annotation (Line(points={{50,20},{50,0}}, color={0,0,255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
-          connect(core.plug_n1, Delta1.plug_n) 
+          connect(core.plug_n1, Delta1.plug_n)
             annotation (Line(points={{-10,-5},{-10,-20},{-30,-20}}, color={0,0,
                   255}));
-          connect(core.plug_n2, core.plug_p3) 
+          connect(core.plug_n2, core.plug_p3)
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
-          connect(core.plug_p2, Rot2.plug_n) 
+          connect(core.plug_p2, Rot2.plug_n)
             annotation (Line(points={{10,10},{10,20},{30,20}}, color={0,0,255}));
-          connect(core.plug_n3, Delta2.plug_p) 
+          connect(core.plug_n3, Delta2.plug_p)
             annotation (Line(points={{10,-10},{10,-20},{30,-20}}, color={0,0,
                   255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -4781,30 +4781,30 @@ Transformer Dd8
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Dd10");
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m)
             annotation (Placement(transformation(extent={{30,-30},{50,-10}},
                   rotation=0)));
         equation
-          connect(r1.plug_p, Delta1.plug_p) 
+          connect(r1.plug_p, Delta1.plug_p)
             annotation (Line(points={{-90,0},{-90,-20},{-50,-20}}, color={0,0,
                   255}));
-          connect(Delta2.plug_n, r2.plug_n) 
+          connect(Delta2.plug_n, r2.plug_n)
             annotation (Line(points={{50,-20},{90,-20},{90,0}}, color={0,0,255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
-          connect(Delta1.plug_n, core.plug_n1) 
+          connect(Delta1.plug_n, core.plug_n1)
             annotation (Line(points={{-30,-20},{-10,-20},{-10,-5}}, color={0,0,
                   255}));
-          connect(core.plug_n2, core.plug_p3) 
+          connect(core.plug_n2, core.plug_p3)
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
-          connect(core.plug_p2, l2sigma.plug_p) 
+          connect(core.plug_p2, l2sigma.plug_p)
             annotation (Line(points={{10,10},{10,20},{50,20},{50,0}}, color={0,
                   0,255}));
-          connect(core.plug_n3, Delta2.plug_p) 
+          connect(core.plug_n3, Delta2.plug_p)
             annotation (Line(points={{10,-10},{10,-20},{30,-20}}, color={0,0,
                   255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -4846,51 +4846,51 @@ This package contains transformers primary D connected / secondary d connected i
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Dz00");
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m)
             annotation (Placement(transformation(
                 origin={30,0},
                 extent={{-10,10},{10,-10}},
                 rotation=90)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot22(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Rot22(final m=m)
             annotation (Placement(transformation(
                 origin={40,20},
                 extent={{-10,10},{10,-10}},
                 rotation=180)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}},
                   rotation=0)));
         equation
-          connect(star2.pin_n,starpoint2) 
+          connect(star2.pin_n,starpoint2)
             annotation (Line(points={{10,-90},{10,-100},{50,-100}}, color={0,0,
                   255}));
-          connect(r1.plug_p, Delta1.plug_p) 
+          connect(r1.plug_p, Delta1.plug_p)
             annotation (Line(points={{-90,0},{-90,-20},{-50,-20}}, color={0,0,
                   255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5},{-10,5}},
                 color={0,0,255}));
-          connect(Delta1.plug_n, core.plug_n1) 
+          connect(Delta1.plug_n, core.plug_n1)
             annotation (Line(points={{-30,-20},{-10,-20},{-10,-5}}, color={0,0,
                   255}));
-          connect(core.plug_p2, Rot21.plug_n) 
+          connect(core.plug_p2, Rot21.plug_n)
             annotation (Line(points={{10,10},{30,10}}, color={0,0,255}));
-          connect(core.plug_p3, Rot21.plug_p) 
+          connect(core.plug_p3, Rot21.plug_p)
             annotation (Line(points={{10,-4},{20,-4},{20,-10},{30,-10}}, color=
                   {0,0,255}));
-          connect(l2sigma.plug_p, Rot22.plug_p) 
+          connect(l2sigma.plug_p, Rot22.plug_p)
             annotation (Line(points={{50,0},{50,20}}, color={0,0,255}));
-          connect(Rot22.plug_n, core.plug_n2) 
+          connect(Rot22.plug_n, core.plug_n2)
             annotation (Line(points={{30,20},{20,20},{20,4},{10,4}}, color={0,0,
                   255}));
-          connect(core.plug_n3, star2.plug_p) 
+          connect(core.plug_n3, star2.plug_p)
             annotation (Line(points={{10,-10},{10,-70},{10,-70}}, color={0,0,
                   255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -4902,51 +4902,51 @@ Transformer Dz0
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Dz02");
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m)
             annotation (Placement(transformation(
                 origin={30,0},
                 extent={{10,-10},{-10,10}},
                 rotation=90)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot22(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Rot22(final m=m)
             annotation (Placement(transformation(
                 origin={40,20},
                 extent={{-10,10},{10,-10}},
                 rotation=180)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}},
                   rotation=0)));
         equation
-          connect(star2.pin_n,starpoint2) 
+          connect(star2.pin_n,starpoint2)
             annotation (Line(points={{10,-90},{10,-100},{50,-100}}, color={0,0,
                   255}));
-          connect(r1.plug_p, Delta1.plug_p) 
+          connect(r1.plug_p, Delta1.plug_p)
             annotation (Line(points={{-90,0},{-90,-20},{-50,-20}}, color={0,0,
                   255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
-          connect(Delta1.plug_n, core.plug_n1) 
+          connect(Delta1.plug_n, core.plug_n1)
             annotation (Line(points={{-30,-20},{-10,-20},{-10,-5}}, color={0,0,
                   255}));
-          connect(core.plug_p2, Rot21.plug_p) 
+          connect(core.plug_p2, Rot21.plug_p)
             annotation (Line(points={{10,10},{30,10}}, color={0,0,255}));
-          connect(core.plug_p3, Rot21.plug_n) 
+          connect(core.plug_p3, Rot21.plug_n)
             annotation (Line(points={{10,-4},{20,-4},{20,-10},{30,-10}}, color=
                   {0,0,255}));
-          connect(l2sigma.plug_p, Rot22.plug_p) 
+          connect(l2sigma.plug_p, Rot22.plug_p)
             annotation (Line(points={{50,0},{50,20}}, color={0,0,255}));
-          connect(Rot22.plug_n, core.plug_n2) 
+          connect(Rot22.plug_n, core.plug_n2)
             annotation (Line(points={{30,20},{20,20},{20,4},{10,4}}, color={0,0,
                   255}));
-          connect(core.plug_n3, star2.plug_p) 
+          connect(core.plug_n3, star2.plug_p)
             annotation (Line(points={{10,-10},{10,-40},{10,-70},{10,-70}},
                                                          color={0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -4958,44 +4958,44 @@ Transformer Dz2
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Dz04");
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m)
             annotation (Placement(transformation(
                 origin={30,0},
                 extent={{-10,10},{10,-10}},
                 rotation=90)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}},
                   rotation=0)));
         equation
-          connect(star2.pin_n,starpoint2) 
+          connect(star2.pin_n,starpoint2)
             annotation (Line(points={{10,-90},{10,-100},{50,-100}}, color={0,0,
                   255}));
-          connect(r1.plug_p, Delta1.plug_p) 
+          connect(r1.plug_p, Delta1.plug_p)
             annotation (Line(points={{-90,0},{-90,-20},{-50,-20}}, color={0,0,
                   255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
-          connect(Delta1.plug_n, core.plug_n1) 
+          connect(Delta1.plug_n, core.plug_n1)
             annotation (Line(points={{-30,-20},{-10,-20},{-10,-5}}, color={0,0,
                   255}));
-          connect(core.plug_p2, Rot21.plug_n) 
+          connect(core.plug_p2, Rot21.plug_n)
             annotation (Line(points={{10,10},{30,10}}, color={0,0,255}));
-          connect(core.plug_p3, Rot21.plug_p) 
+          connect(core.plug_p3, Rot21.plug_p)
             annotation (Line(points={{10,-4},{20,-4},{20,-10},{30,-10}}, color=
                   {0,0,255}));
-          connect(l2sigma.plug_p, core.plug_n2) 
+          connect(l2sigma.plug_p, core.plug_n2)
             annotation (Line(points={{50,0},{50,20},{20,20},{20,4},{10,4}},
                 color={0,0,255}));
-          connect(core.plug_n3, star2.plug_p) 
+          connect(core.plug_n3, star2.plug_p)
             annotation (Line(points={{10,-10},{10,-70},{10,-70}}, color={0,0,
                   255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -5007,44 +5007,44 @@ Transformer Dz4
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Dz06");
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m)
             annotation (Placement(transformation(
                 origin={30,0},
                 extent={{10,-10},{-10,10}},
                 rotation=90)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}},
                   rotation=0)));
         equation
-          connect(star2.pin_n,starpoint2) 
+          connect(star2.pin_n,starpoint2)
             annotation (Line(points={{10,-90},{10,-100},{50,-100}}, color={0,0,
                   255}));
-          connect(r1.plug_p, Delta1.plug_p) 
+          connect(r1.plug_p, Delta1.plug_p)
             annotation (Line(points={{-90,0},{-90,-20},{-50,-20}}, color={0,0,
                   255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
-          connect(Delta1.plug_n, core.plug_n1) 
+          connect(Delta1.plug_n, core.plug_n1)
             annotation (Line(points={{-30,-20},{-10,-20},{-10,-5}}, color={0,0,
                   255}));
-          connect(core.plug_p2, Rot21.plug_p) 
+          connect(core.plug_p2, Rot21.plug_p)
             annotation (Line(points={{10,10},{30,10}}, color={0,0,255}));
-          connect(core.plug_p3, Rot21.plug_n) 
+          connect(core.plug_p3, Rot21.plug_n)
             annotation (Line(points={{10,-4},{20,-4},{20,-10},{30,-10}}, color=
                   {0,0,255}));
-          connect(core.plug_n3, star2.plug_p) 
+          connect(core.plug_n3, star2.plug_p)
             annotation (Line(points={{10,-10},{10,-40},{10,-70},{10,-70}},
                                                          color={0,0,255}));
-          connect(l2sigma.plug_p, core.plug_n2) 
+          connect(l2sigma.plug_p, core.plug_n2)
             annotation (Line(points={{50,0},{50,20},{20,20},{20,4},{10,4}},
                 color={0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -5056,51 +5056,51 @@ Transformer Dz6
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Dz08");
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m)
             annotation (Placement(transformation(
                 origin={30,0},
                 extent={{-10,10},{10,-10}},
                 rotation=90)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot22(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Rot22(final m=m)
             annotation (Placement(transformation(
                 origin={40,20},
                 extent={{10,10},{-10,-10}},
                 rotation=180)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}},
                   rotation=0)));
         equation
-          connect(star2.pin_n,starpoint2) 
+          connect(star2.pin_n,starpoint2)
             annotation (Line(points={{10,-90},{10,-100},{50,-100}}, color={0,0,
                   255}));
-          connect(r1.plug_p, Delta1.plug_p) 
+          connect(r1.plug_p, Delta1.plug_p)
             annotation (Line(points={{-90,0},{-90,-20},{-50,-20}}, color={0,0,
                   255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5},{-10,5}},
                 color={0,0,255}));
-          connect(Delta1.plug_n, core.plug_n1) 
+          connect(Delta1.plug_n, core.plug_n1)
             annotation (Line(points={{-30,-20},{-10,-20},{-10,-5}}, color={0,0,
                   255}));
-          connect(core.plug_p2, Rot21.plug_n) 
+          connect(core.plug_p2, Rot21.plug_n)
             annotation (Line(points={{10,10},{30,10}}, color={0,0,255}));
-          connect(core.plug_p3, Rot21.plug_p) 
+          connect(core.plug_p3, Rot21.plug_p)
             annotation (Line(points={{10,-4},{20,-4},{20,-10},{30,-10}}, color=
                   {0,0,255}));
-          connect(core.plug_n3, star2.plug_p) 
+          connect(core.plug_n3, star2.plug_p)
             annotation (Line(points={{10,-10},{10,-70},{10,-70}}, color={0,0,
                   255}));
-          connect(l2sigma.plug_p, Rot22.plug_n) 
+          connect(l2sigma.plug_p, Rot22.plug_n)
             annotation (Line(points={{50,0},{50,20},{50,20}}, color={0,0,255}));
-          connect(Rot22.plug_p, core.plug_n2) 
+          connect(Rot22.plug_p, core.plug_n2)
             annotation (Line(points={{30,20},{20,20},{20,4},{10,4}}, color={0,0,
                   255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -5112,51 +5112,51 @@ Transformer Dz8
 
           extends Machines.BasicMachines.Components.BasicTransformer(final
               VectorGroup =                                                            "Dz10");
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2 
+          Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}},
                   rotation=0)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m)
             annotation (Placement(transformation(
                 origin={30,0},
                 extent={{10,-10},{-10,10}},
                 rotation=90)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot22(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Rot22(final m=m)
             annotation (Placement(transformation(
                 origin={40,20},
                 extent={{10,10},{-10,-10}},
                 rotation=180)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m) 
+          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}},
                   rotation=0)));
         equation
-          connect(star2.pin_n,starpoint2) 
+          connect(star2.pin_n,starpoint2)
             annotation (Line(points={{10,-90},{10,-100},{50,-100}}, color={0,0,
                   255}));
-          connect(r1.plug_p, Delta1.plug_p) 
+          connect(r1.plug_p, Delta1.plug_p)
             annotation (Line(points={{-90,0},{-90,-20},{-50,-20}}, color={0,0,
                   255}));
-          connect(l1sigma.plug_n, core.plug_p1) 
+          connect(l1sigma.plug_n, core.plug_p1)
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
-          connect(Delta1.plug_n, core.plug_n1) 
+          connect(Delta1.plug_n, core.plug_n1)
             annotation (Line(points={{-30,-20},{-10,-20},{-10,-5}}, color={0,0,
                   255}));
-          connect(core.plug_p2, Rot21.plug_p) 
+          connect(core.plug_p2, Rot21.plug_p)
             annotation (Line(points={{10,10},{30,10}}, color={0,0,255}));
-          connect(core.plug_p3, Rot21.plug_n) 
+          connect(core.plug_p3, Rot21.plug_n)
             annotation (Line(points={{10,-4},{20,-4},{20,-10},{30,-10}}, color=
                   {0,0,255}));
-          connect(core.plug_n3, star2.plug_p) 
+          connect(core.plug_n3, star2.plug_p)
             annotation (Line(points={{10,-10},{10,-70},{10,-70}}, color={0,0,
                   255}));
-          connect(l2sigma.plug_p, Rot22.plug_n) 
+          connect(l2sigma.plug_p, Rot22.plug_n)
             annotation (Line(points={{50,0},{50,20}}, color={0,0,255}));
-          connect(Rot22.plug_p, core.plug_n2) 
+          connect(Rot22.plug_p, core.plug_n2)
             annotation (Line(points={{30,20},{20,20},{20,4},{10,4}}, color={0,0,
                   255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
@@ -5268,7 +5268,7 @@ and the accompanying <b>disclaimer</b>
        first stable release</li>
   </ul>
 </HTML>"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Ellipse(extent={{-100,30},{20,-90}}, 
+                -100},{100,100}}), graphics={Ellipse(extent={{-100,30},{20,-90}},
                 lineColor={0,0,255}), Ellipse(extent={{-40,30},{80,-90}},
                 lineColor={0,0,255})}));
     end Transformers;
@@ -5295,17 +5295,17 @@ and the accompanying <b>disclaimer</b>
           "Magnetizing flux phasor with respect to the rotor fixed frame";
         Real RotationMatrix[2,2] "matrix of rotation from rotor to stator";
       public
-        Modelica.Mechanics.Rotational.Interfaces.Flange_a flange 
+        Modelica.Mechanics.Rotational.Interfaces.Flange_a flange
           annotation (Placement(transformation(extent={{-10,110},{10,90}},
                 rotation=0)));
         Modelica.Mechanics.Rotational.Interfaces.Flange_a support
-          "support at which the reaction torque is acting" 
+          "support at which the reaction torque is acting"
              annotation (Placement(transformation(extent={{-10,-110},{10,-90}},
                 rotation=0)));
-        Machines.Interfaces.SpacePhasor spacePhasor_s 
+        Machines.Interfaces.SpacePhasor spacePhasor_s
           annotation (Placement(transformation(extent={{-110,90},{-90,110}},
                 rotation=0)));
-        Machines.Interfaces.SpacePhasor spacePhasor_r 
+        Machines.Interfaces.SpacePhasor spacePhasor_r
           annotation (Placement(transformation(extent={{90,90},{110,110}},
                 rotation=0)));
       equation
@@ -5423,7 +5423,7 @@ Model of the airgap in rotor-fixed coordinate system, using only equations.
           "rotor stray inductance per phase translated to stator";
         parameter Modelica.SIunits.Resistance Rr
           "warm rotor resistance per phase translated to stator";
-        Machines.Interfaces.SpacePhasor spacePhasor_r 
+        Machines.Interfaces.SpacePhasor spacePhasor_r
           annotation (Placement(transformation(extent={{-110,90},{-90,110}},
                 rotation=0)));
       equation
@@ -5473,7 +5473,7 @@ Model of a squirrel cage / damper cage in two axis.
           "warm resistance in d-axis per phase translated to stator";
         parameter Modelica.SIunits.Resistance Rrq
           "warm resistance in q-axis per phase translated to stator";
-        Machines.Interfaces.SpacePhasor spacePhasor_r 
+        Machines.Interfaces.SpacePhasor spacePhasor_r
           annotation (Placement(transformation(extent={{-110,90},{-90,110}},
                 rotation=0)));
 
@@ -5531,13 +5531,13 @@ Model of an unsymmetrical damper cage cage in two axis.
           "stator current / excitation current";
         Modelica.SIunits.Current ie "excitation current";
         Modelica.SIunits.Voltage ve "excitation voltage";
-        Machines.Interfaces.SpacePhasor spacePhasor_r 
+        Machines.Interfaces.SpacePhasor spacePhasor_r
           annotation (Placement(transformation(extent={{-110,90},{-90,110}},
                 rotation=0)));
-        Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep 
+        Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep
           annotation (Placement(transformation(extent={{90,110},{110,90}},
                 rotation=0)));
-        Modelica.Electrical.Analog.Interfaces.NegativePin pin_en 
+        Modelica.Electrical.Analog.Interfaces.NegativePin pin_en
           annotation (Placement(transformation(extent={{110,-110},{90,-90}},
                 rotation=0)));
       equation
@@ -5577,7 +5577,7 @@ Model of an electrical excitation, converting excitation to space phasor.
 
       model PermanentMagnet "Permanent magnet excitation"
         parameter Modelica.SIunits.Current Ie "equivalent excitation current";
-        Machines.Interfaces.SpacePhasor spacePhasor_r 
+        Machines.Interfaces.SpacePhasor spacePhasor_r
           annotation (Placement(transformation(extent={{-110,90},{-90,110}},
                 rotation=0)));
       equation
@@ -5639,23 +5639,23 @@ Model of a permanent magnet excitation, characterized by an equivalent excitatio
         Modelica.SIunits.Voltage vai "Induced armature voltage";
         Modelica.SIunits.Current ia "Armature current";
         output Modelica.SIunits.Torque tauElectrical;
-        Modelica.Mechanics.Rotational.Interfaces.Flange_a flange 
+        Modelica.Mechanics.Rotational.Interfaces.Flange_a flange
           annotation (Placement(transformation(extent={{-10,110},{10,90}},
                 rotation=0)));
         Modelica.Mechanics.Rotational.Interfaces.Flange_a support
-          "support at which the reaction torque is acting" 
+          "support at which the reaction torque is acting"
              annotation (Placement(transformation(extent={{-10,-110},{10,-90}},
                 rotation=0)));
-        Modelica.Electrical.Analog.Interfaces.PositivePin pin_ap 
+        Modelica.Electrical.Analog.Interfaces.PositivePin pin_ap
           annotation (Placement(transformation(extent={{-110,110},{-90,90}},
                 rotation=0)));
-        Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep 
+        Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep
           annotation (Placement(transformation(extent={{90,110},{110,90}},
                 rotation=0)));
-        Modelica.Electrical.Analog.Interfaces.NegativePin pin_an 
+        Modelica.Electrical.Analog.Interfaces.NegativePin pin_an
           annotation (Placement(transformation(extent={{-110,-110},{-90,-90}},
                 rotation=0)));
-        Modelica.Electrical.Analog.Interfaces.NegativePin pin_en 
+        Modelica.Electrical.Analog.Interfaces.NegativePin pin_en
           annotation (Placement(transformation(extent={{90,-110},{110,-90}},
                 rotation=0)));
       equation
@@ -5771,9 +5771,9 @@ Induced armature voltage is calculated from flux times angular velocity.
           final T_ref=fill(293.15,m),
           final alpha=zeros(m),
           final useHeatPort=false,
-          final T=r1.T_ref) 
+          final T=r1.T_ref)
           annotation (Placement(transformation(extent={{-90,-10},{-70,10}}, rotation=0)));
-        Modelica.Electrical.MultiPhase.Basic.Inductor l1sigma(final m=m, final L=fill(L1sigma, m)) 
+        Modelica.Electrical.MultiPhase.Basic.Inductor l1sigma(final m=m, final L=fill(L1sigma, m))
           annotation (Placement(transformation(extent={{-70,-10},{-50,10}},
                 rotation=0)));
         Modelica.Electrical.MultiPhase.Basic.Resistor r2(
@@ -5781,26 +5781,26 @@ Induced armature voltage is calculated from flux times angular velocity.
           final R=fill(R2,m),
           final T_ref=fill(293.15,m),
           final alpha=zeros(m),
-          final T=r2.T_ref) 
+          final T=r2.T_ref)
           annotation (Placement(transformation(extent={{70,-10},{90,10}},
                 rotation=0)));
-        Modelica.Electrical.MultiPhase.Basic.Inductor l2sigma(final m=m, final L=fill(L2sigma, m)) 
+        Modelica.Electrical.MultiPhase.Basic.Inductor l2sigma(final m=m, final L=fill(L2sigma, m))
           annotation (Placement(transformation(extent={{50,-10},{70,10}},
                 rotation=0)));
         IdealCore core(
           final m=m,
           final n12=ni,
-          final n13=ni) 
+          final n13=ni)
           annotation (Placement(transformation(extent={{-10,-10},{10,10}},
                 rotation=0)));
       equation
-        connect(r1.plug_n,l1sigma. plug_p) 
+        connect(r1.plug_n,l1sigma. plug_p)
           annotation (Line(points={{-70,0},{-70,0}}, color={0,0,255}));
-        connect(l2sigma.plug_n,r2. plug_p) 
+        connect(l2sigma.plug_n,r2. plug_p)
           annotation (Line(points={{70,0},{70,0}}, color={0,0,255}));
-        connect(plug1, r1.plug_p) 
+        connect(plug1, r1.plug_p)
           annotation (Line(points={{-100,0},{-90,0}}, color={0,0,255}));
-        connect(r2.plug_n, plug2) 
+        connect(r2.plug_n, plug2)
           annotation (Line(points={{90,0},{100,0}}, color={0,0,255}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}),
@@ -6041,39 +6041,39 @@ The induction machine models use package SpacePhasors.
 
     model VoltageQuasiRMSSensor "Length of spcae phasor -> RMS voltage"
       constant Integer m(final min=1) = 3 "Number of phases";
-      Modelica.Blocks.Interfaces.RealOutput V 
+      Modelica.Blocks.Interfaces.RealOutput V
         annotation (Placement(transformation(
             origin={0,-110},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m) 
+      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
-      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n(final m=m) 
+      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n(final m=m)
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
-      Modelica.Electrical.MultiPhase.Sensors.VoltageSensor VoltageSensor1(final m=m) 
+      Modelica.Electrical.MultiPhase.Sensors.VoltageSensor VoltageSensor1(final m=m)
         annotation (Placement(transformation(extent={{-10,40},{10,60}},
               rotation=0)));
-      Modelica.Blocks.Math.Gain Gain1(final k=1/sqrt(2)) 
+      Modelica.Blocks.Math.Gain Gain1(final k=1/sqrt(2))
         annotation (Placement(transformation(
             origin={0,-70},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Machines.SpacePhasors.Blocks.ToSpacePhasor ToSpacePhasor1 
+      Machines.SpacePhasors.Blocks.ToSpacePhasor ToSpacePhasor1
         annotation (Placement(transformation(
             origin={0,10},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Machines.SpacePhasors.Blocks.ToPolar ToPolar1 
+      Machines.SpacePhasors.Blocks.ToPolar ToPolar1
         annotation (Placement(transformation(
             origin={0,-30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
     equation
-      connect(plug_p, VoltageSensor1.plug_p) 
+      connect(plug_p, VoltageSensor1.plug_p)
         annotation (Line(points={{-100,0},{-100,50},{-10,50}}, color={0,0,255}));
-      connect(VoltageSensor1.plug_n, plug_n) 
+      connect(VoltageSensor1.plug_n, plug_n)
         annotation (Line(points={{10,50},{100,50},{100,0}}, color={0,0,255}));
       connect(VoltageSensor1.v, ToSpacePhasor1.u) annotation (Line(points={{0,39},{
               0,22},{2.20436e-015,22}},       color={0,0,255}));
@@ -6125,39 +6125,39 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
 
     model CurrentQuasiRMSSensor "Length of spcae phasor -> RMS current"
       constant Integer m(final min=1) = 3 "Number of phases";
-      Modelica.Blocks.Interfaces.RealOutput I 
+      Modelica.Blocks.Interfaces.RealOutput I
         annotation (Placement(transformation(
             origin={0,-110},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m) 
+      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
-      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n(final m=m) 
+      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n(final m=m)
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
-      Modelica.Electrical.MultiPhase.Sensors.CurrentSensor CurrentSensor1(final m=m) 
+      Modelica.Electrical.MultiPhase.Sensors.CurrentSensor CurrentSensor1(final m=m)
         annotation (Placement(transformation(extent={{-10,40},{10,60}},
               rotation=0)));
-      Modelica.Blocks.Math.Gain Gain1(final k=1/sqrt(2)) 
+      Modelica.Blocks.Math.Gain Gain1(final k=1/sqrt(2))
         annotation (Placement(transformation(
             origin={0,-70},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Machines.SpacePhasors.Blocks.ToSpacePhasor ToSpacePhasor1 
+      Machines.SpacePhasors.Blocks.ToSpacePhasor ToSpacePhasor1
         annotation (Placement(transformation(
             origin={0,10},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Machines.SpacePhasors.Blocks.ToPolar ToPolar1 
+      Machines.SpacePhasors.Blocks.ToPolar ToPolar1
         annotation (Placement(transformation(
             origin={0,-30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
     equation
-      connect(plug_p, CurrentSensor1.plug_p) 
+      connect(plug_p, CurrentSensor1.plug_p)
         annotation (Line(points={{-100,0},{-100,50},{-10,50}}, color={0,0,255}));
-      connect(CurrentSensor1.plug_n, plug_n) 
+      connect(CurrentSensor1.plug_n, plug_n)
         annotation (Line(points={{10,50},{100,50},{100,0}}, color={0,0,255}));
       connect(CurrentSensor1.i, ToSpacePhasor1.u) annotation (Line(points={{0,39},{
               0,22},{2.20436e-015,22}},       color={0,0,255}));
@@ -6209,23 +6209,23 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
 
     model ElectricalPowerSensor "Instantaneous power from spcae phasors"
       constant Integer m(final min=1) = 3 "Number of phases";
-      Modelica.Blocks.Interfaces.RealOutput P 
+      Modelica.Blocks.Interfaces.RealOutput P
         annotation (Placement(transformation(
             origin={-50,110},
             extent={{10,-10},{-10,10}},
             rotation=270)));
-      Modelica.Blocks.Interfaces.RealOutput Q 
+      Modelica.Blocks.Interfaces.RealOutput Q
         annotation (Placement(transformation(
             origin={50,110},
             extent={{10,-10},{-10,10}},
             rotation=270)));
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m) 
+      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
-      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_ni(final m=m) 
+      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_ni(final m=m)
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
-      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_nv(final m=m) 
+      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_nv(final m=m)
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}},
               rotation=0)));
 
@@ -6270,7 +6270,7 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
               lineColor={0,0,255},
               textString="P Q"),
             Line(points={{0,-70},{0,-90}}, color={0,0,255}),
-            Line(points={{-10,70},{-10,80},{-50,80},{-50,100}}, color={0,0,255}), 
+            Line(points={{-10,70},{-10,80},{-50,80},{-50,100}}, color={0,0,255}),
 
             Line(points={{10,70},{10,80},{50,80},{50,100}}, color={0,0,255})}),
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -6286,40 +6286,40 @@ Q = giving in stationary state reactive power.<br>
 
     model MechanicalPowerSensor "Mechanical power = torque x speed"
       extends Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges;
-      parameter Boolean useSupport=false "use support or fixed housing" 
+      parameter Boolean useSupport=false "use support or fixed housing"
         annotation(Evaluate=true);
-      Modelica.Blocks.Interfaces.RealOutput P 
+      Modelica.Blocks.Interfaces.RealOutput P
         annotation (Placement(transformation(
             origin={0,110},
             extent={{10,-10},{-10,10}},
             rotation=270)));
-      Modelica.Mechanics.Rotational.Sensors.TorqueSensor torqueSensor 
+      Modelica.Mechanics.Rotational.Sensors.TorqueSensor torqueSensor
         annotation (Placement(transformation(extent={{20,-10},{40,10}},
               rotation=0)));
-      Modelica.Blocks.Math.Product product 
+      Modelica.Blocks.Math.Product product
         annotation (Placement(transformation(
             origin={0,30},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Modelica.Mechanics.Rotational.Sensors.RelSpeedSensor relSpeedSensor 
+      Modelica.Mechanics.Rotational.Sensors.RelSpeedSensor relSpeedSensor
                                                                  annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={-30,-30})));
-      Modelica.Mechanics.Rotational.Components.Fixed fixed if 
-                                                            (not useSupport) 
+      Modelica.Mechanics.Rotational.Components.Fixed fixed if
+                                                            (not useSupport)
         annotation (Placement(transformation(extent={{-40,-100},{-20,-80}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Interfaces.Flange_a support if          useSupport
-        "support at which the reaction torque is acting" 
+        "support at which the reaction torque is acting"
            annotation (Placement(transformation(extent={{-10,-110},{10,-90}},
               rotation=0)));
     equation
-      connect(flange_a, torqueSensor.flange_a) 
+      connect(flange_a, torqueSensor.flange_a)
         annotation (Line(points={{-100,0},{-70,0},{-40,0},{20,0}},
                                                    color={0,0,0}));
-      connect(torqueSensor.flange_b, flange_b) 
+      connect(torqueSensor.flange_b, flange_b)
         annotation (Line(points={{40,0},{100,0}}, color={0,0,0}));
       connect(product.y, P)  annotation (Line(points={{6.73556e-016,41},{
               6.73556e-016,52},{0,52},{0,110}},        color={0,0,255}));
@@ -6414,54 +6414,54 @@ Calculates (mechanical) power from torque times angular speed.
     model RotorDisplacementAngle "Rotor lagging angle"
       constant Integer m=3 "number of phases";
       parameter Integer p(min=1) "number of pole pairs";
-      parameter Boolean useSupport=false "use support or fixed housing" 
+      parameter Boolean useSupport=false "use support or fixed housing"
         annotation(Evaluate=true);
-      Modelica.Blocks.Interfaces.RealOutput rotorDisplacementAngle 
+      Modelica.Blocks.Interfaces.RealOutput rotorDisplacementAngle
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
               rotation=0)));
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m) 
+      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
         annotation (Placement(transformation(extent={{-110,50},{-90,70}},
               rotation=0)));
-      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n(final m=m) 
+      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n(final m=m)
         annotation (Placement(transformation(extent={{-110,-70},{-90,-50}},
               rotation=0)));
-      Modelica.Electrical.MultiPhase.Sensors.VoltageSensor VoltageSensor1(final m=m) 
+      Modelica.Electrical.MultiPhase.Sensors.VoltageSensor VoltageSensor1(final m=m)
         annotation (Placement(transformation(
             origin={-80,-10},
             extent={{10,-10},{-10,10}},
             rotation=90)));
-      Machines.SpacePhasors.Blocks.ToSpacePhasor ToSpacePhasorVS 
+      Machines.SpacePhasors.Blocks.ToSpacePhasor ToSpacePhasorVS
         annotation (Placement(transformation(extent={{-60,-20},{-40,0}},
               rotation=0)));
-      Modelica.Mechanics.Rotational.Interfaces.Flange_a flange 
+      Modelica.Mechanics.Rotational.Interfaces.Flange_a flange
         annotation (Placement(transformation(extent={{-10,90},{10,110}},
               rotation=0)));
-      Modelica.Mechanics.Rotational.Sensors.RelAngleSensor relativeAngleSensor 
+      Modelica.Mechanics.Rotational.Sensors.RelAngleSensor relativeAngleSensor
         annotation (Placement(transformation(extent={{40,70},{20,90}}, rotation=
                0)));
-      Modelica.Blocks.Sources.Constant constant_(final k=Modelica.Constants.pi/2) 
+      Modelica.Blocks.Sources.Constant constant_(final k=Modelica.Constants.pi/2)
         annotation (Placement(transformation(extent={{-50,30},{-30,50}},
               rotation=0)));
-      Modelica.Blocks.Math.Add add(final k2=1, final k1=p) 
+      Modelica.Blocks.Math.Add add(final k2=1, final k1=p)
         annotation (Placement(transformation(
             origin={-10,20},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Machines.SpacePhasors.Blocks.Rotator rotatorVS2R 
+      Machines.SpacePhasors.Blocks.Rotator rotatorVS2R
         annotation (Placement(transformation(extent={{-20,0},{0,-20}}, rotation=
                0)));
-      Machines.SpacePhasors.Blocks.ToPolar ToPolarVSR 
+      Machines.SpacePhasors.Blocks.ToPolar ToPolarVSR
         annotation (Placement(transformation(extent={{20,-20},{40,0}}, rotation=
                0)));
       Modelica.Blocks.Routing.DeMultiplex2 deMultiplex2(final n1=1,
            final n2=1) annotation (Placement(transformation(extent={{60,-20},{
                 80,0}}, rotation=0)));
       Modelica.Mechanics.Rotational.Interfaces.Flange_a support if useSupport
-        "support at which the reaction torque is acting" 
+        "support at which the reaction torque is acting"
            annotation (Placement(transformation(extent={{90,90},{110,110}},
               rotation=0)));
-      Modelica.Mechanics.Rotational.Components.Fixed fixed if 
-                                                   (not useSupport) 
+      Modelica.Mechanics.Rotational.Components.Fixed fixed if
+                                                   (not useSupport)
         annotation (Placement(transformation(extent={{90,70},{110,90}},
               rotation=0)));
     equation
@@ -6472,21 +6472,21 @@ Calculates (mechanical) power from torque times angular speed.
             color={0,0,255}));
       connect(ToSpacePhasorVS.y, rotatorVS2R.u) annotation (Line(points={{-39,
               -10},{-22,-10}}, color={0,0,255}));
-      connect(rotatorVS2R.y, ToPolarVSR.u) 
+      connect(rotatorVS2R.y, ToPolarVSR.u)
         annotation (Line(points={{1,-10},{18,-10}}, color={0,0,255}));
-      connect(ToPolarVSR.y, deMultiplex2.u) 
+      connect(ToPolarVSR.y, deMultiplex2.u)
         annotation (Line(points={{41,-10},{58,-10}}, color={0,0,255}));
       connect(plug_p, VoltageSensor1.plug_p) annotation (Line(points={{-100,60},
               {-80,60},{-80,0}}, color={0,0,255}));
       connect(plug_n, VoltageSensor1.plug_n) annotation (Line(points={{-100,-60},
               {-80,-60},{-80,-20}}, color={0,0,255}));
-      connect(VoltageSensor1.v, ToSpacePhasorVS.u) 
+      connect(VoltageSensor1.v, ToSpacePhasorVS.u)
         annotation (Line(points={{-69,-10},{-62,-10}}, color={0,0,255}));
       connect(deMultiplex2.y2[1], rotorDisplacementAngle) annotation (Line(
             points={{81,-16},{90,-16},{90,0},{110,0}}, color={0,0,255}));
       connect(relativeAngleSensor.phi_rel, add.u1) annotation (Line(points={{30,69},
               {30,40},{-4,40},{-4,32}},     color={0,0,255}));
-      connect(relativeAngleSensor.flange_b, flange) 
+      connect(relativeAngleSensor.flange_b, flange)
                                                    annotation (Line(points={{20,
               80},{0,80},{0,100}}, color={0,0,0}));
       connect(relativeAngleSensor.flange_a, support) annotation (Line(
@@ -6651,19 +6651,19 @@ This package contains sensors that are usefull when modelling machines.
         parameter Real InverseTransformation[m, 2]=
           {{cos(-(k - 1)/m*2*pi), -sin(-(k - 1)/m*2*pi)} for k in 1:m};
       public
-        Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m) 
+        Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
           annotation (Placement(transformation(extent={{-110,90},{-90,110}},
                 rotation=0)));
-        Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n(final m=m) 
+        Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n(final m=m)
           annotation (Placement(transformation(extent={{-110,-110},{-90,-90}},
                 rotation=0)));
-        Modelica.Electrical.Analog.Interfaces.PositivePin zero 
+        Modelica.Electrical.Analog.Interfaces.PositivePin zero
           annotation (Placement(transformation(extent={{90,-10},{110,10}},
                 rotation=0)));
-        Modelica.Electrical.Analog.Interfaces.NegativePin ground 
+        Modelica.Electrical.Analog.Interfaces.NegativePin ground
           annotation (Placement(transformation(extent={{90,-110},{110,-90}},
                 rotation=0)));
-        Modelica.Electrical.Analog.Basic.Ground gnd 
+        Modelica.Electrical.Analog.Basic.Ground gnd
           annotation (Placement(transformation(extent={{60,-110},{80,-90}},
                 rotation=0)));
 
@@ -6697,7 +6697,7 @@ This package contains sensors that are usefull when modelling machines.
                     -20},{-13.33,-17.32},{-6.67,-10},{0,0}}, color={0,0,255}),
               Line(points={{-90,0},{-83.33,10},{-76.67,17.32},{-70,20},{-63.33,
                     17.32},{-56.67,10},{-50,0},{-43.33,-10},{-36.67,-17.32},{-30,
-                    -20},{-23.33,-17.32},{-16.67,-10},{-10,0}}, color={0,0,255}), 
+                    -20},{-23.33,-17.32},{-16.67,-10},{-10,0}}, color={0,0,255}),
 
               Line(points={{-70,0},{-63.33,10},{-56.67,17.32},{-50,20},{-43.33,
                     17.32},{-36.67,10},{-30,0},{-23.33,-10},{-16.67,-17.32},{-10,
@@ -6736,7 +6736,7 @@ Zero-sequence voltage and current are present at pin zero. An additional zero-se
               transformation(extent={{-110,90},{-90,110}}, rotation=0)));
         Interfaces.SpacePhasor spacePhasor_b annotation (Placement(
               transformation(extent={{90,90},{110,110}}, rotation=0)));
-        Modelica.Blocks.Interfaces.RealInput angle 
+        Modelica.Blocks.Interfaces.RealInput angle
           annotation (Placement(transformation(
               origin={0,-120},
               extent={{-20,-20},{20,20}},
@@ -6829,7 +6829,7 @@ a ground has to be used where necessary for currents flowing back.
         parameter Real InverseTransformation[m, 2]=
           {{cos(-(k - 1)/m*2*pi), -sin(-(k - 1)/m*2*pi)} for k in 1:m};
       public
-        Modelica.Blocks.Interfaces.RealOutput zero 
+        Modelica.Blocks.Interfaces.RealOutput zero
           annotation (Placement(transformation(extent={{100,-70},{120,-90}},
                 rotation=0)));
 
@@ -6852,7 +6852,7 @@ a ground has to be used where necessary for currents flowing back.
                     -20},{-13.33,-17.32},{-6.67,-10},{0,0}}, color={0,0,255}),
               Line(points={{-90,0},{-83.33,10},{-76.67,17.32},{-70,20},{-63.33,
                     17.32},{-56.67,10},{-50,0},{-43.33,-10},{-36.67,-17.32},{-30,
-                    -20},{-23.33,-17.32},{-16.67,-10},{-10,0}}, color={0,0,255}), 
+                    -20},{-23.33,-17.32},{-16.67,-10},{-10,0}}, color={0,0,255}),
 
               Line(points={{-70,0},{-63.33,10},{-56.67,17.32},{-50,20},{-43.33,
                     17.32},{-36.67,10},{-30,0},{-23.33,-10},{-16.67,-17.32},{-10,
@@ -6876,7 +6876,7 @@ Transformation of threephase values (voltages or currents) to space phasor and z
         parameter Real InverseTransformation[m, 2]=
           {{cos(-(k - 1)/m*2*pi), -sin(-(k - 1)/m*2*pi)} for k in 1:m};
       public
-        Modelica.Blocks.Interfaces.RealInput zero 
+        Modelica.Blocks.Interfaces.RealInput zero
           annotation (Placement(transformation(extent={{-140,-60},{-100,-100}},
                 rotation=0)));
       equation
@@ -6917,7 +6917,7 @@ Transformation of space phasor and zero sequence value to threephase values (vol
         Real RotationMatrix[2,2] = {{+cos(-angle),-sin(-angle)},{+sin(-angle),+cos(-angle)}};
       //Real InverseRotator[2,2] = {{+cos(+angle),-sin(+angle)},{+sin(+angle),+cos(+angle)}};
       public
-        Modelica.Blocks.Interfaces.RealInput angle 
+        Modelica.Blocks.Interfaces.RealInput angle
           annotation (Placement(transformation(
               origin={0,-120},
               extent={{-20,-20},{20,20}},
@@ -7274,10 +7274,10 @@ Connector for Space Phasors:
       constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
       parameter Modelica.SIunits.Inertia Jr "rotor's moment of inertia";
       parameter Boolean useSupport=false
-        "enable / disable (=fixed stator) support" 
+        "enable / disable (=fixed stator) support"
         annotation(Evaluate=true);
       parameter Modelica.SIunits.Inertia Js(start=Jr)
-        "stator's moment of inertia" 
+        "stator's moment of inertia"
         annotation(Dialog(enable=useSupport));
       output Modelica.SIunits.Angle phiMechanical = flange.phi-internalSupport.phi
         "mechanical angle of rotor against stator";
@@ -7286,36 +7286,36 @@ Connector for Space Phasors:
       output Modelica.SIunits.Torque tauElectrical = inertiaRotor.flange_a.tau
         "electromagnetic torque";
       output Modelica.SIunits.Torque tauShaft = -flange.tau "shaft torque";
-      Modelica.Mechanics.Rotational.Interfaces.Flange_a flange 
+      Modelica.Mechanics.Rotational.Interfaces.Flange_a flange
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
-      Modelica.Mechanics.Rotational.Components.Inertia inertiaRotor(final J=Jr) 
+      Modelica.Mechanics.Rotational.Components.Inertia inertiaRotor(final J=Jr)
         annotation (Placement(transformation(
             origin={70,0},
             extent={{10,10},{-10,-10}},
             rotation=180)));
       Modelica.Mechanics.Rotational.Interfaces.Flange_a support if useSupport
-        "support at which the reaction torque is acting" 
+        "support at which the reaction torque is acting"
            annotation (Placement(transformation(extent={{90,-110},{110,-90}},
               rotation=0)));
-      Modelica.Mechanics.Rotational.Components.Inertia inertiaStator(final J=Js) if useSupport 
+      Modelica.Mechanics.Rotational.Components.Inertia inertiaStator(final J=Js) if useSupport
         annotation (Placement(transformation(
             origin={70,-100},
             extent={{10,10},{-10,-10}},
             rotation=180)));
-      Modelica.Mechanics.Rotational.Components.Fixed fixed if  (not useSupport) 
+      Modelica.Mechanics.Rotational.Components.Fixed fixed if  (not useSupport)
         annotation (Placement(transformation(extent={{30,-110},{50,-90}},
               rotation=0)));
     protected
-      Mechanics.Rotational.Interfaces.Support internalSupport 
+      Mechanics.Rotational.Interfaces.Support internalSupport
         annotation (Placement(transformation(extent={{16,-104},{24,-96}},
               rotation=0)));
     equation
-      connect(inertiaRotor.flange_b, flange) 
+      connect(inertiaRotor.flange_b, flange)
                                             annotation (Line(points={{80,
               -1.22465e-015},{92,-1.22465e-015},{92,0},{100,0}},
                                                                color={0,0,0}));
-      connect(inertiaStator.flange_b, support) 
+      connect(inertiaStator.flange_b, support)
         annotation (Line(points={{80,-100},{100,-100}}, color={0,0,0}));
       connect(internalSupport, inertiaStator.flange_a) annotation (Line(
           points={{20,-100},{20,-96},{50,-96},{50,-100},{60,-100}},
@@ -7413,10 +7413,10 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
       parameter Modelica.SIunits.Frequency fsNominal(start=50)
         "nominal frequency";
       parameter Modelica.SIunits.Resistance Rs(start=0.03)
-        "warm stator resistance per phase" 
+        "warm stator resistance per phase"
          annotation(Dialog(group="Nominal resistances and inductances"));
       parameter Modelica.SIunits.Inductance Lssigma(start=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal))
-        "stator stray inductance per phase" 
+        "stator stray inductance per phase"
          annotation(Dialog(group="Nominal resistances and inductances"));
       output Modelica.SIunits.Voltage vs[m] = plug_sp.pin.v - plug_sn.pin.v
         "stator instantaneous voltages";
@@ -7433,10 +7433,10 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
         "rotor space phasor current / stator fixed frame";
       input Modelica.SIunits.Current idq_rr[2](each stateSelect=StateSelect.prefer)
         "rotor space phasor current / rotor fixed frame";
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_sp(final m=m) 
+      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_sp(final m=m)
         annotation (Placement(transformation(extent={{50,90},{70,110}},
               rotation=0)));
-      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_sn(final m=m) 
+      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_sn(final m=m)
         annotation (Placement(transformation(extent={{-70,90},{-50,110}},
               rotation=0)));
       Modelica.Electrical.MultiPhase.Basic.Resistor rs(
@@ -7445,13 +7445,13 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
         final T_ref=fill(293.15,m),
         final alpha=zeros(m),
         final useHeatPort=false,
-        final T=rs.T_ref) 
+        final T=rs.T_ref)
         annotation (Placement(transformation(extent={{60,50},{40,70}}, rotation=
                0)));
-      Modelica.Electrical.MultiPhase.Basic.Inductor lssigma(final m=m, final L=fill(Lssigma, m)) 
+      Modelica.Electrical.MultiPhase.Basic.Inductor lssigma(final m=m, final L=fill(Lssigma, m))
         annotation (Placement(transformation(extent={{30,50},{10,70}}, rotation=
                0)));
-      SpacePhasors.Components.SpacePhasor spacePhasorS(final turnsRatio=1) 
+      SpacePhasors.Components.SpacePhasor spacePhasorS(final turnsRatio=1)
         annotation (Placement(transformation(
             origin={0,30},
             extent={{10,10},{-10,-10}},
@@ -7483,7 +7483,7 @@ Partial model for induction machine models
                 {100,100}}),
                 graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Line(points={{-50,100},{-20,100},{-20,70}}, 
+                100,100}}), graphics={Line(points={{-50,100},{-20,100},{-20,70}},
                 color={0,0,255}), Line(points={{50,100},{20,100},{20,70}},
                 color={0,0,255})}));
     end PartialBasicInductionMachine;
@@ -7491,28 +7491,28 @@ Partial model for induction machine models
     partial model PartialBasicDCMachine "Partial model for DC machine"
       extends PartialBasicMachine(Jr(start=0.15));
       parameter Modelica.SIunits.Voltage VaNominal(start=100)
-        "nominal armature voltage" 
+        "nominal armature voltage"
          annotation(Dialog(group="Nominal parameters"));
       parameter Modelica.SIunits.Current IaNominal(start=100)
-        "nominal armature current" 
+        "nominal armature current"
          annotation(Dialog(group="Nominal parameters"));
       parameter Modelica.SIunits.AngularVelocity wNominal(displayUnit="1/min", start=1425*2*pi/60)
-        "nominal speed" 
+        "nominal speed"
          annotation(Dialog(group="Nominal parameters"));
       parameter Modelica.SIunits.Resistance Ra(start=0.05)
-        "warm armature resistance" 
+        "warm armature resistance"
          annotation(Dialog(group="Nominal resistances and inductances"));
       parameter Modelica.SIunits.Inductance La(start=0.0015)
-        "armature inductance" 
+        "armature inductance"
          annotation(Dialog(group="Nominal resistances and inductances"));
       parameter Real turnsRatio
         "ratio of armature turns over number of turns of the excitation winding";
       output Modelica.SIunits.Voltage va = pin_ap.v-pin_an.v "armature voltage";
       output Modelica.SIunits.Current ia = pin_ap.i "armature current";
-      Modelica.Electrical.Analog.Interfaces.PositivePin pin_ap 
+      Modelica.Electrical.Analog.Interfaces.PositivePin pin_ap
         annotation (Placement(transformation(extent={{50,110},{70,90}},
               rotation=0)));
-      Modelica.Electrical.Analog.Interfaces.NegativePin pin_an 
+      Modelica.Electrical.Analog.Interfaces.NegativePin pin_an
         annotation (Placement(transformation(extent={{-70,110},{-50,90}},
               rotation=0)));
       Modelica.Electrical.Analog.Basic.Resistor ra(
@@ -7520,15 +7520,15 @@ Partial model for induction machine models
         final T_ref=293.15,
         final alpha=0,
         final useHeatPort=false,
-        final T=ra.T_ref) 
+        final T=ra.T_ref)
         annotation (Placement(transformation(extent={{60,50},{40,70}}, rotation=0)));
-      Modelica.Electrical.Analog.Basic.Inductor la(final L=La) 
+      Modelica.Electrical.Analog.Basic.Inductor la(final L=La)
         annotation (Placement(transformation(extent={{30,50},{10,70}}, rotation=
                0)));
     equation
-      connect(la.p,ra. n) 
+      connect(la.p,ra. n)
         annotation (Line(points={{30,60},{40,60}}, color={0,0,255}));
-      connect(pin_ap,ra. p) 
+      connect(pin_ap,ra. p)
         annotation (Line(points={{60,100},{60,60}}, color={0,0,255}));
       annotation (Documentation(info="<HTML>
 Partial model for DC machine models.
@@ -7537,7 +7537,7 @@ Partial model for DC machine models.
                 {100,100}}),
                 graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Line(points={{-50,100},{-20,100},{-20,70}}, 
+                100,100}}), graphics={Line(points={{-50,100},{-20,100},{-20,70}},
                 color={0,0,255}), Line(points={{50,100},{20,100},{20,70}},
                 color={0,0,255})}));
     end PartialBasicDCMachine;
@@ -7636,33 +7636,33 @@ Phase shifts between sine-waves may be choosen by the user; default values are <
 
     model SwitchYD "Y-D-switch"
       constant Integer m=3 "number of phases";
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plugSupply(final m=m) 
+      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plugSupply(final m=m)
         annotation (Placement(transformation(extent={{-10,90},{10,110}},
               rotation=0)));
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_sp(final m=m) 
+      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_sp(final m=m)
         annotation (Placement(transformation(extent={{50,-90},{70,-110}},
               rotation=0)));
-      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_sn(final m=m) 
+      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_sn(final m=m)
         annotation (Placement(transformation(extent={{-70,-90},{-50,-110}},
               rotation=0)));
-      Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) 
+      Modelica.Electrical.MultiPhase.Basic.Star star(final m=m)
         annotation (Placement(transformation(extent={{20,-50},{40,-30}},
               rotation=0)));
-      Modelica.Electrical.MultiPhase.Basic.Delta delta(final m=m) 
+      Modelica.Electrical.MultiPhase.Basic.Delta delta(final m=m)
         annotation (Placement(transformation(extent={{40,-80},{20,-60}},
               rotation=0)));
       Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch
-        idealCommutingSwitch(                                                        final m=m) 
+        idealCommutingSwitch(                                                        final m=m)
         annotation (Placement(transformation(extent={{-10,-70},{10,-50}},
               rotation=0)));
-      Modelica.Blocks.Interfaces.BooleanInput control[m] 
+      Modelica.Blocks.Interfaces.BooleanInput control[m]
         annotation (Placement(transformation(extent={{-120,-10},{-100,10}},
               rotation=0)));
     equation
-      connect(delta.plug_p, plugSupply) 
+      connect(delta.plug_p, plugSupply)
                                     annotation (Line(points={{40,-70},{60,-70},
               {60,100},{0,100}}, color={0,0,255}));
-      connect(delta.plug_p, plug_sp) 
+      connect(delta.plug_p, plug_sp)
                                     annotation (Line(points={{40,-70},{60,-70},
               {60,-100}}, color={0,0,255}));
       connect(idealCommutingSwitch.plug_n2, delta.plug_n) annotation (Line(
@@ -7703,31 +7703,31 @@ If <i>control</i> is true, plug_sp and plug_sn are delta connected and they are 
 
     model TerminalBox "terminal box Y/D-connection"
       constant Integer m=3 "number of phases";
-      parameter String terminalConnection(start="Y") "choose Y=star/D=delta" 
+      parameter String terminalConnection(start="Y") "choose Y=star/D=delta"
         annotation(choices(choice="Y" "Star connection",choice="D"
             "Delta connection"));
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_sp(final m=m) 
+      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_sp(final m=m)
         annotation (Placement(transformation(extent={{50,-90},{70,-110}},
               rotation=0)));
-      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_sn(final m=m) 
+      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_sn(final m=m)
         annotation (Placement(transformation(extent={{-70,-90},{-50,-110}},
               rotation=0)));
-      Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) if (terminalConnection<>"D") 
+      Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) if (terminalConnection<>"D")
         annotation (Placement(transformation(
             origin={-70,-80},
             extent={{-10,10},{10,-10}},
             rotation=180)));
-      Modelica.Electrical.MultiPhase.Basic.Delta delta(final m=m) if (terminalConnection=="D") 
+      Modelica.Electrical.MultiPhase.Basic.Delta delta(final m=m) if (terminalConnection=="D")
         annotation (Placement(transformation(extent={{-20,-70},{-40,-50}},
               rotation=0)));
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plugSupply(final m=m) 
+      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plugSupply(final m=m)
         annotation (Placement(transformation(extent={{-10,-70},{10,-90}},
               rotation=0)));
-      Modelica.Electrical.Analog.Interfaces.NegativePin starpoint if (terminalConnection<>"D") 
+      Modelica.Electrical.Analog.Interfaces.NegativePin starpoint if (terminalConnection<>"D")
         annotation (Placement(transformation(extent={{-100,-90},{-80,-70}},
               rotation=0)));
     equation
-      connect(plug_sn, star.plug_p) 
+      connect(plug_sn, star.plug_p)
         annotation (Line(points={{-60,-100},{-60,-80}}, color={0,0,255}));
       connect(plug_sn, delta.plug_n)        annotation (Line(points={{-60,-100},
               {-40,-100},{-40,-60}}, color={0,0,255}));
@@ -7761,12 +7761,12 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
     parameter Modelica.SIunits.Frequency f(start=50) "nominal frequency";
     parameter Modelica.SIunits.Voltage V1(start=100)
         "primary nominal line-to-line voltage (RMS)";
-    parameter String C1(start="Y") "choose primary connection" 
+    parameter String C1(start="Y") "choose primary connection"
       annotation(choices(choice="Y" "Star connection",
                          choice="D" "Delta connection"));
     parameter Modelica.SIunits.Voltage V2(start=100)
         "secondary open circuit line-to-line voltage (RMS) @ primary nominal voltage";
-    parameter String C2(start="y") "choose secondary connection" 
+    parameter String C2(start="y") "choose secondary connection"
       annotation(choices(choice="y" "Star connection",
                          choice="d" "Delta connection",
                          choice="z" "zig-zag connection"));
@@ -7778,7 +7778,7 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
         "short-circuit (copper) losses";
 
     parameter Real n = V1/V2
-        "primary voltage (line-to-line) / secondary voltage (line-to-line)" 
+        "primary voltage (line-to-line) / secondary voltage (line-to-line)"
       annotation(Dialog(tab="Result", enable = false));
     final parameter Modelica.SIunits.Voltage V1ph = V1/(if C1=="D" then 1 else sqrt(3))
         "primary phase voltage (RMS)";
@@ -7791,18 +7791,18 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
     final parameter Modelica.SIunits.Impedance Z1ph = 0.5*v_sc*V1ph/I1ph
         "primary impedance per phase";
     parameter Modelica.SIunits.Resistance R1= 0.5*P_sc/(3*I1ph^2)
-        "warm primary resistance per phase" 
+        "warm primary resistance per phase"
       annotation(Dialog(tab="Result", enable = false));
     parameter Modelica.SIunits.Inductance L1sigma= sqrt(Z1ph^2-R1^2)/(2*Modelica.Constants.pi*f)
-        "primary stray inductance per phase" 
+        "primary stray inductance per phase"
       annotation(Dialog(tab="Result", enable = false));
     final parameter Modelica.SIunits.Impedance Z2ph = 0.5*v_sc*V2ph/I2ph
         "secondary impedance per phase";
     parameter Modelica.SIunits.Resistance R2= 0.5*P_sc/(3*I2ph^2)
-        "warm secondary resistance per phase" 
+        "warm secondary resistance per phase"
       annotation(Dialog(tab="Result", enable = false));
     parameter Modelica.SIunits.Inductance L2sigma= sqrt(Z2ph^2-R2^2)/(2*Modelica.Constants.pi*f)
-        "secondary stray inductance per phase" 
+        "secondary stray inductance per phase"
       annotation(Dialog(tab="Result", enable = false));
   end TransformerData;
 

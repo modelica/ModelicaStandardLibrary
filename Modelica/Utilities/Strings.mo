@@ -26,7 +26,7 @@ Returns the number of characters of \"string\".
     input Integer endIndex(min=1) "Character position of substring end";
     output String result
       "String containing substring string[startIndex:endIndex]";
-  external "C" result = 
+  external "C" result =
                       ModelicaStrings_substring(string,startIndex,endIndex);
     annotation (Library="ModelicaExternalC",
   Documentation(info="<html>
@@ -296,8 +296,8 @@ If \"searchString\" is not found, a value of \"0\" is returned.
     while i > 0 loop
        i_found := find(string, searchString, i, caseSensitive);
        if i_found > 0 then
-          result := if i_found == 1 then 
-                       replaceString else 
+          result := if i_found == 1 then
+                       replaceString else
                        result + (if i_found-1<i then "" else substring(string, i, i_found-1)) + replaceString;
           i := i_found + lenSearchString;
           if i > lenString then

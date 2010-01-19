@@ -572,19 +572,19 @@ All other blocks convert exactly between two different units.
   block InverseBlockConstraints
     "Construct inverse model by requiring that two inputs and two outputs are identical (replaces the previously, unbalanced, TwoInputs and TwoOutputs blocks)"
 
-    Modelica.Blocks.Interfaces.RealInput u1 "Input signal 1 (u1 = u2)" 
+    Modelica.Blocks.Interfaces.RealInput u1 "Input signal 1 (u1 = u2)"
                             annotation (Placement(transformation(extent={{-240,
               -20},{-200,20}}, rotation=0), iconTransformation(extent={{-240,-20},
               {-200,20}})));
-    Modelica.Blocks.Interfaces.RealInput u2 "Input signal 2 (u1 = u2)" 
+    Modelica.Blocks.Interfaces.RealInput u2 "Input signal 2 (u1 = u2)"
                             annotation (Placement(transformation(extent={{-140,
               -20},{-180,20}}, rotation=0), iconTransformation(extent={{-140,-20},
               {-180,20}})));
-    Modelica.Blocks.Interfaces.RealOutput y1 "Output signal 1 (y1 = y2)" 
+    Modelica.Blocks.Interfaces.RealOutput y1 "Output signal 1 (y1 = y2)"
                              annotation (Placement(transformation(extent={{200,-10},
               {220,10}},      rotation=0), iconTransformation(extent={{200,-10},{
               220,10}})));
-    Modelica.Blocks.Interfaces.RealOutput y2 "Output signal 2 (y2 = y2)" 
+    Modelica.Blocks.Interfaces.RealOutput y2 "Output signal 2 (y2 = y2)"
                              annotation (Placement(transformation(extent={{10,-10},
               {-10,10}},       rotation=0,
           origin={170,0}),  iconTransformation(extent={{180,-10},{160,10}})));
@@ -632,10 +632,10 @@ instances:
 
         parameter Real k(start=1) "Gain value multiplied with input signal";
   public
-        Interfaces.RealInput u "Input signal connector" 
+        Interfaces.RealInput u "Input signal connector"
           annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
-        Interfaces.RealOutput y "Output signal connector" 
+        Interfaces.RealOutput y "Output signal connector"
           annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
 
@@ -794,7 +794,7 @@ Example:
 
         input Interfaces.RealInput u1 annotation (Placement(transformation(
             extent={{-100,-20},{-60,20}}, rotation=0)));
-        input Interfaces.RealInput u2 
+        input Interfaces.RealInput u2
           annotation (Placement(transformation(
           origin={0,-80},
           extent={{-20,-20},{20,20}},
@@ -989,16 +989,16 @@ Example:
         parameter Real k1=+1 "Gain of upper input";
         parameter Real k2=+1 "Gain of middle input";
         parameter Real k3=+1 "Gain of lower input";
-        input Interfaces.RealInput u1 "Connector 1 of Real input signals" 
+        input Interfaces.RealInput u1 "Connector 1 of Real input signals"
           annotation (Placement(transformation(extent={{-140,60},{-100,100}},
             rotation=0)));
-        input Interfaces.RealInput u2 "Connector 2 of Real input signals" 
+        input Interfaces.RealInput u2 "Connector 2 of Real input signals"
           annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
-        input Interfaces.RealInput u3 "Connector 3 of Real input signals" 
+        input Interfaces.RealInput u3 "Connector 3 of Real input signals"
           annotation (Placement(transformation(extent={{-140,-100},{-100,-60}},
             rotation=0)));
-        output Interfaces.RealOutput y "Connector of Real output signals" 
+        output Interfaces.RealOutput y "Connector of Real output signals"
           annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
 
@@ -1650,7 +1650,7 @@ as <b>cos</b> of the input <b>u</b>:
           Line(points={{-80,-80},{-78.4,-68.4},{-76.8,-59.7},{-74.4,-50},{-71.2,
                 -40.9},{-67.1,-33},{-60.7,-24.8},{-51.1,-17.2},{-35.8,-9.98},{-4.42,
                 -1.07},{33.4,9.12},{49.4,16.2},{59.1,23.2},{65.5,30.6},{70.4,
-                39.1},{73.6,47.4},{76,56.1},{77.6,63.8},{80,80}}, color={0,0,0}), 
+                39.1},{73.6,47.4},{76,56.1},{77.6,63.8},{80,80}}, color={0,0,0}),
 
           Line(points={{-90,0},{68,0}}, color={192,192,192}),
           Polygon(
@@ -1699,7 +1699,7 @@ as <b>cos</b> of the input <b>u</b>:
           Line(points={{-80,-80},{-78.4,-68.4},{-76.8,-59.7},{-74.4,-50},{-71.2,
                 -40.9},{-67.1,-33},{-60.7,-24.8},{-51.1,-17.2},{-35.8,-9.98},{-4.42,
                 -1.07},{33.4,9.12},{49.4,16.2},{59.1,23.2},{65.5,30.6},{70.4,
-                39.1},{73.6,47.4},{76,56.1},{77.6,63.8},{80,80}}, color={0,0,0}), 
+                39.1},{73.6,47.4},{76,56.1},{77.6,63.8},{80,80}}, color={0,0,0}),
 
           Text(
             extent={{70,-6},{94,-26}},
@@ -2437,7 +2437,7 @@ This blocks computes the output <b>y</b> as the
             fillPattern=FillPattern.Solid),
           Line(points={{-100,-80.3976},{84,-80.3976}}, color={192,192,192}),
           Polygon(
-            points={{100,-80.3976},{84,-74.3976},{84,-86.3976},{100,-80.3976}}, 
+            points={{100,-80.3976},{84,-74.3976},{84,-86.3976},{100,-80.3976}},
 
             lineColor={192,192,192},
             fillColor={192,192,192},
@@ -2501,7 +2501,7 @@ This blocks computes the output <b>y</b> as the
             fillPattern=FillPattern.Solid),
           Line(points={{-80,-80},{-79.2,-50.6},{-78.4,-37},{-77.6,-28},{-76.8,-21.3},
                 {-75.2,-11.4},{-72.8,-1.31},{-69.5,8.08},{-64.7,17.9},{-57.5,28},
-                {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}}, 
+                {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}},
               color={0,0,0}),
           Line(points={{-90,0},{68,0}}, color={192,192,192}),
           Polygon(
@@ -2537,7 +2537,7 @@ This blocks computes the output <b>y</b> as the
             fillPattern=FillPattern.Solid),
           Line(points={{-80,-80},{-79.2,-50.6},{-78.4,-37},{-77.6,-28},{-76.8,-21.3},
                 {-75.2,-11.4},{-72.8,-1.31},{-69.5,8.08},{-64.7,17.9},{-57.5,28},
-                {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}}, 
+                {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}},
               color={0,0,0}),
           Text(
             extent={{-105,72},{-85,88}},
@@ -2681,14 +2681,14 @@ zero or negative.
   block RealToInteger "Convert Real to Integer signal"
     extends Interfaces.IntegerBlockIcon;
   public
-    Interfaces.RealInput u "Connector of Real input signal" 
+    Interfaces.RealInput u "Connector of Real input signal"
                            annotation (Placement(transformation(extent={{-140,
               -20},{-100,20}}, rotation=0)));
-    Interfaces.IntegerOutput y "Connector of Integer output signal" 
+    Interfaces.IntegerOutput y "Connector of Integer output signal"
                                annotation (Placement(transformation(extent={{
               100,-10},{120,10}}, rotation=0)));
   equation
-     y = if (u > 0) then integer(floor(u + 0.5)) else 
+     y = if (u > 0) then integer(floor(u + 0.5)) else
                          integer(ceil( u - 0.5));
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
@@ -2719,7 +2719,7 @@ as <i>nearest integer value</i> of the input <b>u</b>:
 
   block IntegerToReal "Convert integer to real signals"
     extends Interfaces.BlockIcon;
-    Interfaces.IntegerInput u "Connector of Integer input signal" 
+    Interfaces.IntegerInput u "Connector of Integer input signal"
                                                                annotation (Placement(
           transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
     Interfaces.RealOutput y "Connector of Real output signal"  annotation (Placement(
@@ -2758,7 +2758,7 @@ as <i>Real equivalent</i> of the Integer input <b>u</b>:
     parameter Real realTrue=1.0 "Output signal for true Boolean input";
     parameter Real realFalse=0.0 "Output signal for false Boolean input";
 
-    Blocks.Interfaces.RealOutput y "Connector of Real output signal" 
+    Blocks.Interfaces.RealOutput y "Connector of Real output signal"
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
 
@@ -2805,7 +2805,7 @@ and <b>realTrue</b> and <b>realFalse</b> are parameters.
     parameter Integer integerTrue=1 "Output signal for true Boolean input";
     parameter Integer integerFalse=0 "Output signal for false Boolean input";
 
-    Blocks.Interfaces.IntegerOutput y "Connector of Integer output signal" 
+    Blocks.Interfaces.IntegerOutput y "Connector of Integer output signal"
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
 
@@ -2947,15 +2947,15 @@ where <b>threshold</b> is a parameter.
     "Convert rectangular coordinates to polar coordinates"
     extends Modelica.Blocks.Interfaces.BlockIcon;
     Modelica.Blocks.Interfaces.RealInput u_re
-      "Real part of rectangular representation" 
+      "Real part of rectangular representation"
       annotation (Placement(transformation(extent={{-140,40},{-100,80}},
             rotation=0)));
     Modelica.Blocks.Interfaces.RealInput u_im
-      "Imaginary part of rectangular representation" 
+      "Imaginary part of rectangular representation"
       annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
             rotation=0)));
     Modelica.Blocks.Interfaces.RealOutput y_abs
-      "Length of polar representation" 
+      "Length of polar representation"
       annotation (Placement(transformation(extent={{100,50},{120,70}},
             rotation=0)));
     Modelica.Blocks.Interfaces.RealOutput y_arg "Angle of polar representation"
@@ -3006,15 +3006,15 @@ the angle <code>y_arg</code> of the polar representation of this phasor.
     Modelica.Blocks.Interfaces.RealInput u_abs "Length of polar representation"
       annotation (Placement(transformation(extent={{-140,40},{-100,80}},
             rotation=0)));
-    Modelica.Blocks.Interfaces.RealInput u_arg "Angle of polar representation" 
+    Modelica.Blocks.Interfaces.RealInput u_arg "Angle of polar representation"
       annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
             rotation=0)));
     Modelica.Blocks.Interfaces.RealOutput y_re
-      "Real part of rectangular representation" 
+      "Real part of rectangular representation"
       annotation (Placement(transformation(extent={{100,50},{120,70}},
             rotation=0)));
     Modelica.Blocks.Interfaces.RealOutput y_im
-      "Imaginary part of rectangular representation" 
+      "Imaginary part of rectangular representation"
       annotation (Placement(transformation(extent={{100,-70},{120,-50}},
             rotation=0)));
 

@@ -350,7 +350,7 @@ readRealParameter(\"test.txt\", \"w_rel0\")
     extends Modelica.Icons.Example;
 
     parameter String file = "Modelica/Utilities/data/Examples_readRealParameters.txt"
-      "File on which data is present" 
+      "File on which data is present"
           annotation(Dialog(__Dymola_loadSelector(filter="Text files (*.txt)",
                         caption="Open text file to read parameters of the form \"name = value\"")));
     parameter SI.Inertia J =              readRealParameter(file, "J")

@@ -11,7 +11,7 @@ package Sources "Time-dependend and controlled voltage and current sources"
     Interfaces.NegativePin n annotation (Placement(transformation(extent={{110,
               -10},{90,10}}, rotation=0)));
     Modelica.Blocks.Interfaces.RealInput v
-      "Voltage between pin p and n (= p.v - n.v) as input signal" 
+      "Voltage between pin p and n (= p.v - n.v) as input signal"
        annotation (Placement(transformation(
           origin={0,70},
           extent={{-20,-20},{20,20}},
@@ -142,7 +142,7 @@ package Sources "Time-dependend and controlled voltage and current sources"
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-70,-70},{0,-70},{0,70},{69,70}}, 
+          grid={1,1}), graphics={Line(points={{-70,-70},{0,-70},{0,70},{69,70}},
               color={192,192,192})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -372,7 +372,7 @@ package Sources "Time-dependend and controlled voltage and current sources"
                 {-44.2,58.1},{-39.3,65.2},{-34.3,69.2},{-29.4,69.8},{-24.5,67},
                 {-19.6,61},{-14.6,52},{-9,38.6},{-1.98,18.6},{12.79,-26.9},{
                 19.1,-44},{24.8,-56.2},{29.7,-64},{34.6,-68.6},{39.5,-70},{44.5,
-                -67.9},{49.4,-62.5},{54.3,-54.1},{59.9,-41.3},{67,-21.7},{74,0}}, 
+                -67.9},{49.4,-62.5},{54.3,-54.1},{59.9,-41.3},{67,-21.7},{74,0}},
               color={192,192,192})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1289,7 +1289,7 @@ package Sources "Time-dependend and controlled voltage and current sources"
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-20,-30},{-20,90},{80,90},{80,-30},{-20,-30},{-20,0},{
-                80,0},{80,30},{-20,30},{-20,60},{80,60},{80,90},{30,90},{30,-31}}, 
+                80,0},{80,30},{-20,30},{-20,60},{80,60},{80,90},{30,90},{30,-31}},
               color={0,0,0}),
           Text(
             extent={{-77,-42},{-38,-58}},
@@ -1399,7 +1399,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               -10},{90,10}}, rotation=0)));
     SI.Voltage v "Voltage drop between the two pins (= p.v - n.v)";
     Modelica.Blocks.Interfaces.RealInput i
-      "Current flowing from pin p to pin n as input signal" 
+      "Current flowing from pin p to pin n as input signal"
        annotation (Placement(transformation(
           origin={0,70},
           extent={{-20,-20},{20,20}},
@@ -1736,7 +1736,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
                 {-48.2,58.1},{-43.3,65.2},{-38.3,69.2},{-33.4,69.8},{-28.5,67},
                 {-23.6,61},{-18.6,52},{-13,38.6},{-5.98,18.6},{8.79,-26.9},{
                 15.1,-44},{20.8,-56.2},{25.7,-64},{30.6,-68.6},{35.5,-70},{40.5,
-                -67.9},{45.4,-62.5},{50.3,-54.1},{55.9,-41.3},{63,-21.7},{70,0}}, 
+                -67.9},{45.4,-62.5},{50.3,-54.1},{55.9,-41.3},{63,-21.7},{70,0}},
               color={192,192,192})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -2572,7 +2572,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-20,-30},{-20,90},{80,90},{80,-30},{-20,-30},{-20,0},{
-                80,0},{80,30},{-20,30},{-20,60},{80,60},{80,90},{30,90},{30,-31}}, 
+                80,0},{80,30},{-20,30},{-20,60},{80,60},{80,90},{30,90},{30,-31}},
               color={0,0,0}),
           Text(
             extent={{-77,-42},{-38,-58}},

@@ -316,11 +316,11 @@ This current is provided explicitly as current i.
   partial model ConditionalHeatPort
     "Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network"
 
-    parameter Boolean useHeatPort = false "=true, if HeatPort is enabled" 
+    parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
     annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
     parameter Modelica.SIunits.Temperature T=293.15
       "Fixed device temperature if useHeatPort = false" annotation(Dialog(enable=not useHeatPort));
-    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=T)=T_heatPort, Q_flow=-LossPower) if useHeatPort 
+    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=T)=T_heatPort, Q_flow=-LossPower) if useHeatPort
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
           iconTransformation(extent={{-10,-110},{10,-90}})));
     Modelica.SIunits.Power LossPower
@@ -442,7 +442,7 @@ on the model behaviour.
     parameter SI.Voltage offset=0 "Voltage offset";
     parameter SI.Time startTime=0 "Time offset";
     replaceable Modelica.Blocks.Interfaces.SignalSource signalSource(
-        final offset = offset, final startTime=startTime) 
+        final offset = offset, final startTime=startTime)
     annotation (Placement(transformation(extent={{70,70},{90,90}}, rotation=0)));
   equation
     v = signalSource.y;

@@ -5,14 +5,14 @@ package Explanatory
   model MeasuringTemperature "Differences between using one port with
    and without explicit junction model and two port sensors for fluid temperature meassuring"
      extends Modelica.Icons.Example;
-    Modelica.Fluid.Sensors.Temperature T_onePort(redeclare package Medium = 
-          Modelica.Media.Water.StandardWater) 
+    Modelica.Fluid.Sensors.Temperature T_onePort(redeclare package Medium =
+          Modelica.Media.Water.StandardWater)
       annotation (Placement(transformation(extent={{-20,40},{0,60}}, rotation=0)));
     Modelica.Fluid.Sensors.TemperatureTwoPort T_twoPort(redeclare package
-        Medium = 
-          Modelica.Media.Water.StandardWater) 
+        Medium =
+          Modelica.Media.Water.StandardWater)
       annotation (Placement(transformation(extent={{-20,0},{0,-20}}, rotation=0)));
-    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial) 
+    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
                                         annotation (Placement(transformation(
             extent={{-100,56},{-80,76}},    rotation=0)));
     Modelica.Fluid.Vessels.OpenTank openTankCold2(nPorts=1,
@@ -61,11 +61,11 @@ package Explanatory
       use_m_flow_in=true,
       T=323.15)                       annotation (Placement(transformation(extent=
              {{-60,-20},{-40,0}}, rotation=0)));
-    Modelica.Blocks.Sources.Sine sine(freqHz=1) 
+    Modelica.Blocks.Sources.Sine sine(freqHz=1)
                                       annotation (Placement(transformation(extent=
              {{-100,10},{-80,30}}, rotation=0)));
-    Modelica.Fluid.Sensors.Temperature T_junction(redeclare package Medium = 
-          Modelica.Media.Water.StandardWater) 
+    Modelica.Fluid.Sensors.Temperature T_junction(redeclare package Medium =
+          Modelica.Media.Water.StandardWater)
       annotation (Placement(transformation(extent={{-20,-80},{0,-60}}, rotation=0)));
     Modelica.Fluid.Vessels.OpenTank openTankCold3(nPorts=1,
       redeclare package Medium = Modelica.Media.Water.StandardWater,
@@ -91,8 +91,8 @@ package Explanatory
              {{-60,-90},{-40,-70}}, rotation=0)));
     Modelica.Fluid.Fittings.TeeJunctionIdeal junctionIdeal(
                                                          redeclare package
-        Medium = 
-          Modelica.Media.Water.StandardWater) 
+        Medium =
+          Modelica.Media.Water.StandardWater)
       annotation (Placement(transformation(extent={{20,-90},{40,-70}}, rotation=0)));
   equation
     connect(mFlow2.ports[1], T_twoPort.port_a)             annotation (Line(
@@ -165,9 +165,9 @@ how the temperature is measured:
 </blockquote>
 
 <p>
-A pre-defined mass flow rate is present so that fluid flows from the reservoir to the 
+A pre-defined mass flow rate is present so that fluid flows from the reservoir to the
 tanks and after 0.5 s the mass flows from the tanks to the reservoir.
-The reservoir has a temperature of 50<sup>0</sup>C whereas the tanks have an 
+The reservoir has a temperature of 50<sup>0</sup>C whereas the tanks have an
 initial temperatur of 20<sup>0</sup>C and of 80<sup>0</sup>C. The initial height of the
 tanks is made in such a form that fluid always flows out of the cold tank.
 When the fluid flows from the reservoir to the tanks, then it mixes with the
@@ -180,7 +180,7 @@ from the two tanks first mixes and the flows to the reservoir.
 A one-port sensor measures the <em>mixing</em> temperature at a connection point.
 Therefore T_onePort.T (the blue curve in the figure below) is the
 temperature of the mixing point.
-A two-port sensor measures the temperature at the <em>upstream</em> side. 
+A two-port sensor measures the temperature at the <em>upstream</em> side.
 Therefore T_twoPort.T (the red curve in the figure below which is identical
 to the green curve) shows first the temperature of the reservoir and then
 the mixing temperature when fluid flows from the tanks to the reservoir.
@@ -203,48 +203,48 @@ present as for T_twoPort.T.
     Modelica.Fluid.Sources.Boundary_pT leftBoundary1(
       redeclare package Medium = Modelica.Media.Water.StandardWaterOnePhase,
       nPorts=1,
-      p=100000) 
+      p=100000)
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
     Modelica.Fluid.Sources.Boundary_pT rightBoundary1(
       redeclare package Medium = Modelica.Media.Water.StandardWaterOnePhase,
       nPorts=1,
-      p=110000) 
+      p=110000)
       annotation (Placement(transformation(extent={{80,20},{60,40}})));
     Modelica.Fluid.Fittings.AbruptAdaptor suddenExpansion1(
       diameter_a=0.1,
       diameter_b=0.2,
       redeclare package Medium = Modelica.Media.Water.StandardWaterOnePhase,
       show_totalPressures=true,
-      show_portVelocities=true) 
+      show_portVelocities=true)
       annotation (Placement(transformation(extent={{-12,20},{8,40}})));
     Modelica.Fluid.Sources.Boundary_pT leftBoundary2(
       redeclare package Medium = Modelica.Media.Water.StandardWaterOnePhase,
       nPorts=1,
-      p=100000) 
+      p=100000)
       annotation (Placement(transformation(extent={{-90,-40},{-70,-20}})));
     Modelica.Fluid.Sources.Boundary_pT rightBoundary2(
       redeclare package Medium = Modelica.Media.Water.StandardWaterOnePhase,
       nPorts=1,
-      p=110000) 
+      p=110000)
       annotation (Placement(transformation(extent={{90,-40},{70,-20}})));
     Modelica.Fluid.Fittings.AbruptAdaptor suddenExpansion2(
       diameter_a=0.1,
       diameter_b=0.2,
       redeclare package Medium = Modelica.Media.Water.StandardWaterOnePhase,
       show_totalPressures=true,
-      show_portVelocities=true) 
+      show_portVelocities=true)
       annotation (Placement(transformation(extent={{-10,-40},{10,-20}})));
     Modelica.Fluid.Fittings.AbruptAdaptor leftAdaptor(
       diameter_a=0.1,
       redeclare package Medium = Modelica.Media.Water.StandardWaterOnePhase,
-      diameter_b=Modelica.Constants.inf) 
+      diameter_b=Modelica.Constants.inf)
       annotation (Placement(transformation(extent={{-40,-40},{-60,-20}})));
     Modelica.Fluid.Fittings.AbruptAdaptor rightAdaptor(
       redeclare package Medium = Modelica.Media.Water.StandardWaterOnePhase,
       diameter_a=0.2,
-      diameter_b=Modelica.Constants.inf) 
+      diameter_b=Modelica.Constants.inf)
       annotation (Placement(transformation(extent={{40,-40},{60,-20}})));
-    inner System system 
+    inner System system
       annotation (Placement(transformation(extent={{-92,56},{-72,76}})));
   equation
     connect(leftBoundary1.ports[1], suddenExpansion1.port_a) annotation (Line(

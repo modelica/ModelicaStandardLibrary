@@ -2,7 +2,7 @@ within Modelica.Mechanics.MultiBody.Examples.Elementary;
 model ThreeSprings "3-dim. springs in series and parallel connection"
   extends Modelica.Icons.Example;
   parameter Boolean animation=true "= true, if animation shall be enabled";
-  inner Modelica.Mechanics.MultiBody.World world(animateWorld=animation) 
+  inner Modelica.Mechanics.MultiBody.World world(animateWorld=animation)
     annotation (Placement(transformation(extent={{-60,20},{-40,40}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.Body body1(
     animation=animation,
@@ -19,7 +19,7 @@ model ThreeSprings "3-dim. springs in series and parallel connection"
         origin={30,-70},
         extent={{-10,10},{10,-10}},
         rotation=270)));
-  Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar1(animation=animation, r={0.3,0,0}) 
+  Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar1(animation=animation, r={0.3,0,0})
     annotation (Placement(transformation(extent={{-20,20},{0,40}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Forces.Spring spring1(
     lineForce(r_rel_0(start={-0.2,-0.2,0.2})),
@@ -32,7 +32,7 @@ model ThreeSprings "3-dim. springs in series and parallel connection"
         origin={30,10},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar2(animation=animation, r={0,0,0.3}) 
+  Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar2(animation=animation, r={0,0,0.3})
     annotation (Placement(transformation(
         origin={-30,-10},
         extent={{10,-10},{-10,10}},
@@ -56,7 +56,7 @@ model ThreeSprings "3-dim. springs in series and parallel connection"
     animation=animation) annotation (Placement(transformation(extent={{-20,-42},
             {0,-22}}, rotation=0)));
 equation
-  connect(world.frame_b, bar1.frame_a) 
+  connect(world.frame_b, bar1.frame_a)
     annotation (Line(
       points={{-40,30},{-20,30}},
       color={95,95,95},
@@ -65,7 +65,7 @@ equation
       points={{-40,30},{-30,30},{-30,0}},
       color={95,95,95},
       thickness=0.5));
-  connect(bar1.frame_b, spring1.frame_a) 
+  connect(bar1.frame_b, spring1.frame_a)
     annotation (Line(
       points={{0,30},{30,30},{30,20}},
       color={95,95,95},
@@ -74,17 +74,17 @@ equation
       points={{-30,-20},{-30,-32},{-20,-32}},
       color={95,95,95},
       thickness=0.5));
-  connect(spring2.frame_b, body1.frame_a) 
+  connect(spring2.frame_b, body1.frame_a)
     annotation (Line(
       points={{30,-48},{30,-60},{30,-60}},
       color={0,0,0},
       thickness=0.5));
-  connect(spring3.frame_b, spring1.frame_b) 
+  connect(spring3.frame_b, spring1.frame_b)
     annotation (Line(
       points={{0,-32},{30,-14},{30,0}},
       color={95,95,95},
       thickness=0.5));
-  connect(spring2.frame_a, spring1.frame_b) 
+  connect(spring2.frame_a, spring1.frame_b)
     annotation (Line(
       points={{30,-28},{30,-21},{30,-21},{30,-14},{30,0},{30,0}},
       color={95,95,95},

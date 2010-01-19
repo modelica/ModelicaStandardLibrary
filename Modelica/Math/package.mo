@@ -852,7 +852,7 @@ has a unique solution.
     output Integer pivots[min(size(A, 1), size(A,2))]
       "pivot indices (used with LU_solve(..))";
     output Integer info "Information";
-    external "FORTRAN 77" dgetrf(size(A, 1), size(A, 2), LU, size(A, 1), pivots, info) 
+    external "FORTRAN 77" dgetrf(size(A, 1), size(A, 2), LU, size(A, 1), pivots, info)
       annotation (Library="Lapack");
 
     annotation ( Documentation(info="<HTML>
@@ -1989,7 +1989,7 @@ is discribed in
       Real work[lwork];
 
     external "Fortran 77" dgeev("N", "V", n, Awork, n, eigenReal, eigenImag,
-        eigenVectors, n, eigenVectors, n, work, size(work, 1), info) 
+        eigenVectors, n, eigenVectors, n, work, size(work, 1), info)
         annotation (Library="Lapack");
       annotation (
         Documentation(info="Lapack documentation
@@ -2095,7 +2095,7 @@ is discribed in
 */
     external "Fortran 77" dgeev("N", "N", size(A, 1), Awork, size(A, 1),
         EigenReal, EigenImag, EigenvectorsL, size(EigenvectorsL, 1),
-        EigenvectorsL, size(EigenvectorsL, 1), work, size(work, 1), info) 
+        EigenvectorsL, size(EigenvectorsL, 1), work, size(work, 1), info)
         annotation (Library="Lapack");
 
       annotation (
@@ -2197,7 +2197,7 @@ is discribed in
       Real dummy2[1,1];
 
       external "Fortran 77" dgegv("N", "N", n, Awork, n, Bwork, n, alphaReal, alphaImag, beta,
-                 dummy1, 1, dummy2, 1, work, size(work, 1), info) 
+                 dummy1, 1, dummy2, 1, work, size(work, 1), info)
             annotation (Library="Lapack");
       annotation (Documentation(info="Purpose
 =======
@@ -2779,7 +2779,7 @@ For details of the arguments, see documentation of dgesv.
       Real subdiagwork[size(subdiag, 1)]=subdiag;
 
     external "FORTRAN 77" dgtsv(size(diag, 1), size(B, 2), subdiagwork,
-        diagwork, superdiagwork, X, size(B, 1), info) 
+        diagwork, superdiagwork, X, size(B, 1), info)
         annotation (Library="Lapack");
       annotation (
         Documentation(info="Lapack documentation:
@@ -2971,7 +2971,7 @@ elements of U because of fill-in resulting from the row interchanges."));
       Real work[lwork];
 
     external "Fortran 77" dgesvd("A", "A", size(A, 1), size(A, 2), Awork, size(
-        A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info) 
+        A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info)
         annotation (Library="Lapack");
       annotation (
         Documentation(info="Lapack documentation:
@@ -3085,7 +3085,7 @@ elements of U because of fill-in resulting from the row interchanges."));
       Real work[lwork];
 
     external "Fortran 77" dgesvd("N", "N", size(A, 1), size(A, 2), Awork, size(
-        A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info) 
+        A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info)
         annotation (Library="Lapack");
       annotation (
         Documentation(info="Lapack documentation:
@@ -4897,7 +4897,7 @@ external "C" y = log(u);
           fillPattern=FillPattern.Solid),
         Line(points={{-80,-80},{-79.2,-50.6},{-78.4,-37},{-77.6,-28},{-76.8,-21.3},
               {-75.2,-11.4},{-72.8,-1.31},{-69.5,8.08},{-64.7,17.9},{-57.5,28},
-              {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}}, 
+              {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}},
             color={0,0,0}),
         Text(
           extent={{-6,-24},{66,-72}},
@@ -4916,7 +4916,7 @@ external "C" y = log(u);
         Line(
           points={{-78,-80},{-77.2,-50.6},{-76.4,-37},{-75.6,-28},{-74.8,-21.3},
               {-73.2,-11.4},{-70.8,-1.31},{-67.5,8.08},{-62.7,17.9},{-55.5,28},
-              {-45,38.1},{-29.8,48.1},{-8.1,58},{24.1,68},{70.7,78.1},{82,80}}, 
+              {-45,38.1},{-29.8,48.1},{-8.1,58},{24.1,68},{70.7,78.1},{82,80}},
 
           color={0,0,255},
           thickness=0.5),
@@ -4980,7 +4980,7 @@ external "C" y = log10(u);
           fillPattern=FillPattern.Solid),
         Line(points={{-79.8,-80},{-79.2,-50.6},{-78.4,-37},{-77.6,-28},{-76.8,-21.3},
               {-75.2,-11.4},{-72.8,-1.31},{-69.5,8.08},{-64.7,17.9},{-57.5,28},
-              {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}}, 
+              {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}},
             color={0,0,0}),
         Text(
           extent={{-30,-22},{60,-70}},
@@ -4999,7 +4999,7 @@ external "C" y = log10(u);
         Line(
           points={{-77.8,-80},{-77.2,-50.6},{-76.4,-37},{-75.6,-28},{-74.8,-21.3},
               {-73.2,-11.4},{-70.8,-1.31},{-67.5,8.08},{-62.7,17.9},{-55.5,28},
-              {-45,38.1},{-29.8,48.1},{-8.1,58},{24.1,68},{70.7,78.1},{82,80}}, 
+              {-45,38.1},{-29.8,48.1},{-8.1,58},{24.1,68},{70.7,78.1},{82,80}},
 
           color={0,0,255},
           thickness=0.5),
@@ -5064,7 +5064,7 @@ partial function baseIcon1
           extent={{-150,150},{150,110}},
           textString="%name",
           lineColor={0,0,255})}),                          Diagram(
-        coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), 
+        coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
         graphics={
         Line(points={{-80,80},{-88,80}}, color={95,95,95}),
         Line(points={{-80,-80},{-88,-80}}, color={95,95,95}),
@@ -5250,7 +5250,7 @@ end tempInterpol2;
 
 annotation (
   Invisible=true,
-  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), 
+  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
       graphics={Text(
         extent={{-59,-9},{42,-56}},
         lineColor={0,0,0},

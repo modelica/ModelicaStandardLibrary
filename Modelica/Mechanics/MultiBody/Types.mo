@@ -33,7 +33,7 @@ package Types "Constants and types with choices, especially to build menus"
       choice={3,2,1} "{3,2,1}"));
 
   type Color = Modelica.Icons.TypeInteger[3] (each min=0, each max=255)
-    "RGB representation of color (will be improved with a color editor)" 
+    "RGB representation of color (will be improved with a color editor)"
     annotation (
       Dialog(colorSelector),
       choices(
@@ -61,7 +61,7 @@ Note, r g, b are given in the range 0 .. 255.
 </p>
 </html>"));
   type SpecularCoefficient = Modelica.Icons.TypeReal
-    "Reflection of ambient light (= 0: light is completely absorbed)" 
+    "Reflection of ambient light (= 0: light is completely absorbed)"
        annotation ( min=0,
          choices(choice=0 "\"0.0 (dull)\"",choice=0.7 "\"0.7 (medium)\"", choice=1
         "\"1.0 (glossy)\""),
@@ -127,7 +127,7 @@ that references the DXF file.
 </p>
 </html>"));
   type ShapeExtra = Modelica.Icons.TypeReal
-    "Reflection of ambient light (= 0: light is completely absorbed)" 
+    "Reflection of ambient light (= 0: light is completely absorbed)"
        annotation ( min=0,
     Documentation(info="<html>
 <p>
@@ -256,7 +256,7 @@ variable <b>extra</b> is used as instance name:
       NoGravity "No gravity field",
       UniformGravity "Uniform gravity field",
       PointGravity "Point gravity field")
-    "Enumeration defining the type of the gravity field" 
+    "Enumeration defining the type of the gravity field"
       annotation (Documentation(info="<html>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><b>Types.GravityTypes.</b></th><th><b>Meaning</b></th></tr>
