@@ -4609,7 +4609,7 @@ The following library officers are currently assigned:
 </tr>
 
 <tr><td valign=\"top\"> Magnetic.FluxTubes </td>
-   <td valign=\"top\"> Thomas Bödrich, Dresden, Germany<br>
+   <td valign=\"top\"> Thomas BÃ¶drich, Dresden, Germany<br>
                                (Dresden University of Technology,<br>
                                Institute of Electromechanical and Electronic Design)
 </td>
@@ -4686,7 +4686,7 @@ of the Modelica package (many more people have contributed to the design):
    <td valign=\"top\"> Modelica.Mechanics.Translational </td>
 </tr>
 
-<tr><td valign=\"top\"><b>Thomas Bödrich</b> </td
+<tr><td valign=\"top\"><b>Thomas BÃ¶drich</b> </td
    <td valign=\"top\"> Dresden University of Technology, Germany</td>
    <td valign=\"top\"> Modelica.Magnetic.FluxTubes </td>
 
@@ -4990,7 +4990,7 @@ that are directly usable (= number of public, non-partial classes).
 
 <p>
 <b>Licensed by the Modelica Association under the Modelica License 2</b><br>
-Copyright &copy; 1998-2009, ABB, arsenal research, T.&nbsp;Bödrich, DLR, Dynasim, Fraunhofer, Modelon,
+Copyright &copy; 1998-2009, ABB, arsenal research, T.&nbsp;BÃ¶drich, DLR, Dynasim, Fraunhofer, Modelon,
 TU Hamburg-Harburg, Politecnico di Milano.
 </p>
 

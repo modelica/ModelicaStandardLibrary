@@ -1467,7 +1467,7 @@ to port_b.
 
     extends Modelica.Icons.Library2;
 
-    model ToKelvin "Conversion block from 캜elsius to Kelvin"
+    model ToKelvin "Conversion block from 째Celsius to Kelvin"
       Modelica.Blocks.Interfaces.RealInput Celsius
          annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
@@ -1489,7 +1489,7 @@ to port_b.
               extent={{-40,-50},{-99,-99}},
               lineColor={0,0,0},
               lineThickness=1,
-              textString="캜"),
+              textString="째C"),
             Text(
               extent={{100,-47},{44,-100}},
               lineColor={0,0,0},
@@ -1512,7 +1512,7 @@ to port_b.
               extent={{-31,-39},{-111,-119}},
               lineColor={0,0,0},
               lineThickness=1,
-              textString="캜"),
+              textString="째C"),
             Line(points={{-41,0},{-100,0}}, color={0,0,255}),
             Line(points={{100,0},{40,0}}, color={0,0,255}),
             Text(
@@ -1528,7 +1528,7 @@ and provide is as output signal.
 "));
     end ToKelvin;
 
-    model FromKelvin "Conversion from Kelvin to 캜elsius"
+    model FromKelvin "Conversion from Kelvin to 째Celsius"
       Modelica.Blocks.Interfaces.RealInput Kelvin
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
@@ -1558,7 +1558,7 @@ and provide is as output signal.
             Text(
               extent={{110,-39},{30,-119}},
               lineColor={0,0,0},
-              textString="캜"),
+              textString="째C"),
             Line(points={{-40,0},{-100,0}}, color={0,0,255}),
             Line(points={{40,0},{100,0}}, color={0,0,255})}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -1577,7 +1577,7 @@ and provide is as output signal.
             Text(
               extent={{100,-40},{30,-100}},
               lineColor={0,0,0},
-              textString="캜"),
+              textString="째C"),
             Line(points={{-100,0},{-40,0}}, color={0,0,255}),
             Line(points={{40,0},{100,0}}, color={0,0,255})}),
         Documentation(info="<HTML>
@@ -1613,7 +1613,7 @@ and provides is as output signal.
             Text(
               extent={{0,0},{-100,-100}},
               lineColor={0,0,0},
-              textString="캜"),
+              textString="째C"),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
               lineColor={191,0,0},
@@ -1648,7 +1648,7 @@ i.e., it defines a fixed temperature as a boundary condition.
             Text(
               extent={{0,0},{-100,-100}},
               lineColor={0,0,0},
-              textString="캜"),
+              textString="째C"),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
               lineColor={191,0,0},
@@ -1657,7 +1657,7 @@ i.e., it defines a fixed temperature as a boundary condition.
     end FixedTemperature;
 
     model PrescribedTemperature
-      "Variable temperature boundary condition in 캜elsius"
+      "Variable temperature boundary condition in 째Celsius"
 
       Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{
                 90,-10},{110,10}}, rotation=0)));
@@ -1681,7 +1681,7 @@ i.e., it defines a fixed temperature as a boundary condition.
             Text(
               extent={{0,0},{-100,-100}},
               lineColor={0,0,0},
-              textString="캜"),
+              textString="째C"),
             Text(
               extent={{-122,163},{118,103}},
               textString="%name",
@@ -1719,7 +1719,7 @@ as required to keep the temperature at the specified value.
             Text(
               extent={{0,0},{-100,-100}},
               lineColor={0,0,0},
-              textString="캜"),
+              textString="째C"),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
               lineColor={191,0,0},
@@ -1727,7 +1727,7 @@ as required to keep the temperature at the specified value.
               fillPattern=FillPattern.Solid)}));
     end PrescribedTemperature;
 
-    model TemperatureSensor "Absolute temperature sensor in 캜elsius"
+    model TemperatureSensor "Absolute temperature sensor in 째Celsius"
 
       Modelica.Blocks.Interfaces.RealOutput T annotation (Placement(
             transformation(extent={{90,-10},{110,10}}, rotation=0)));
@@ -1771,7 +1771,7 @@ as required to keep the temperature at the specified value.
             Text(
               extent={{102,-22},{60,-74}},
               lineColor={0,0,0},
-              textString="캜")}),
+              textString="째C")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(
@@ -1806,7 +1806,7 @@ as required to keep the temperature at the specified value.
             Text(
               extent={{126,-20},{26,-120}},
               lineColor={0,0,0},
-              textString="캜"),
+              textString="째C"),
             Text(
               extent={{-132,144},{108,84}},
               textString="%name",
@@ -1845,14 +1845,14 @@ Example:
               100}}), graphics={Text(
             extent={{38,10},{-62,-90}},
             lineColor={0,0,0},
-            textString="캜")}));
+            textString="째C")}));
   end Celsius;
 
   package Fahrenheit "Components with Fahrenheit input and/or output"
 
     extends Modelica.Icons.Library2;
 
-    model ToKelvin "Conversion block from 캟ahrenheit to Kelvin"
+    model ToKelvin "Conversion block from 째Fahrenheit to Kelvin"
       Modelica.Blocks.Interfaces.RealInput Fahrenheit annotation (Placement(
             transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
       Modelica.Blocks.Interfaces.RealOutput Kelvin
@@ -1872,7 +1872,7 @@ Example:
               extent={{-40,-50},{-99,-99}},
               lineColor={0,0,0},
               lineThickness=1,
-              textString="캟"),
+              textString="째F"),
             Text(
               extent={{100,-47},{44,-100}},
               lineColor={0,0,0},
@@ -1895,7 +1895,7 @@ Example:
               extent={{-31,-39},{-111,-119}},
               lineColor={0,0,0},
               lineThickness=1,
-              textString="캟"),
+              textString="째F"),
             Line(points={{-41,0},{-100,0}}, color={0,0,255}),
             Line(points={{100,0},{40,0}}, color={0,0,255}),
             Text(
@@ -1911,7 +1911,7 @@ and provides is as output signal.
 "));
     end ToKelvin;
 
-    model FromKelvin "Conversion from Kelvin to 캟ahrenheit"
+    model FromKelvin "Conversion from Kelvin to 째Fahrenheit"
       parameter Integer n=1 "Number of inputs (= number of outputs)";
       Modelica.Blocks.Interfaces.RealInput Kelvin
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
@@ -1942,7 +1942,7 @@ and provides is as output signal.
             Text(
               extent={{110,-39},{30,-119}},
               lineColor={0,0,0},
-              textString="캟"),
+              textString="째F"),
             Line(points={{-40,0},{-100,0}}, color={0,0,255}),
             Line(points={{40,0},{100,0}}, color={0,0,255})}),
         Diagram(graphics={
@@ -1960,7 +1960,7 @@ and provides is as output signal.
             Text(
               extent={{100,-40},{30,-100}},
               lineColor={0,0,0},
-              textString="캟"),
+              textString="째F"),
             Line(points={{-100,0},{-40,0}}, color={0,0,255}),
             Line(points={{40,0},{100,0}}, color={0,0,255})}),
         Documentation(info="<HTML>
@@ -1973,7 +1973,7 @@ and provides them as output signals.
     end FromKelvin;
 
     model FixedTemperature
-      "Fixed temperature boundary condition in 캟ahrenheit"
+      "Fixed temperature boundary condition in 째Fahrenheit"
       parameter Modelica.SIunits.Conversions.NonSIunits.Temperature_degF T
         "Fixed Temperature at the port";
       Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{
@@ -1996,7 +1996,7 @@ and provides them as output signals.
             Text(
               extent={{0,0},{-100,-100}},
               lineColor={0,0,0},
-              textString="캟"),
+              textString="째F"),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
               lineColor={191,0,0},
@@ -2031,7 +2031,7 @@ i.e., it defines a fixed temperature as a boundary condition.
             Text(
               extent={{0,0},{-100,-100}},
               lineColor={0,0,0},
-              textString="캟"),
+              textString="째F"),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
               lineColor={191,0,0},
@@ -2040,7 +2040,7 @@ i.e., it defines a fixed temperature as a boundary condition.
     end FixedTemperature;
 
     model PrescribedTemperature
-      "Variable temperature boundary condition in 캟ahrenheit"
+      "Variable temperature boundary condition in 째Fahrenheit"
 
       Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{
                 90,-10},{110,10}}, rotation=0)));
@@ -2065,7 +2065,7 @@ i.e., it defines a fixed temperature as a boundary condition.
             Text(
               extent={{0,0},{-100,-100}},
               lineColor={0,0,0},
-              textString="캟"),
+              textString="째F"),
             Text(
               extent={{-122,163},{118,103}},
               textString="%name",
@@ -2102,7 +2102,7 @@ as required to keep the temperature at the specified value.
             Text(
               extent={{0,0},{-100,-100}},
               lineColor={0,0,0},
-              textString="캟"),
+              textString="째F"),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
               lineColor={191,0,0},
@@ -2110,7 +2110,7 @@ as required to keep the temperature at the specified value.
               fillPattern=FillPattern.Solid)}));
     end PrescribedTemperature;
 
-    model TemperatureSensor "Absolute temperature sensor in 캟ahrenheit"
+    model TemperatureSensor "Absolute temperature sensor in 째Fahrenheit"
 
       Modelica.Blocks.Interfaces.RealOutput T annotation (Placement(
             transformation(extent={{90,-10},{110,10}}, rotation=0)));
@@ -2153,7 +2153,7 @@ as required to keep the temperature at the specified value.
             Text(
               extent={{102,-22},{60,-74}},
               lineColor={0,0,0},
-              textString="캟")}),
+              textString="째F")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(
@@ -2188,7 +2188,7 @@ as required to keep the temperature at the specified value.
             Text(
               extent={{126,-20},{26,-120}},
               lineColor={0,0,0},
-              textString="캟"),
+              textString="째F"),
             Text(
               extent={{-132,144},{108,84}},
               textString="%name",
@@ -2227,14 +2227,14 @@ Example:
               100}}), graphics={Text(
             extent={{40,10},{-60,-90}},
             lineColor={0,0,0},
-            textString="캟")}));
+            textString="째F")}));
   end Fahrenheit;
 
   package Rankine "Components with Rankine input and/or output"
 
     extends Modelica.Icons.Library2;
 
-    model ToKelvin "Conversion block from 캲ankine to Kelvin"
+    model ToKelvin "Conversion block from 째Rankine to Kelvin"
       parameter Integer n=1 "Number of inputs (= number of outputs)";
       Modelica.Blocks.Interfaces.RealInput Rankine
        annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
@@ -2256,7 +2256,7 @@ Example:
               extent={{-40,-50},{-99,-99}},
               lineColor={0,0,0},
               lineThickness=1,
-              textString="캲k"),
+              textString="째Rk"),
             Text(
               extent={{100,-47},{44,-100}},
               lineColor={0,0,0},
@@ -2279,7 +2279,7 @@ Example:
               extent={{-31,-39},{-111,-119}},
               lineColor={0,0,0},
               lineThickness=1,
-              textString="캲k"),
+              textString="째Rk"),
             Line(points={{-41,0},{-100,0}}, color={0,0,255}),
             Line(points={{100,0},{40,0}}, color={0,0,255}),
             Text(
@@ -2295,7 +2295,7 @@ and provides them as output signals.
 "));
     end ToKelvin;
 
-    model FromKelvin "Conversion from Kelvin to 캲ankine"
+    model FromKelvin "Conversion from Kelvin to 째Rankine"
       parameter Integer n=1 "Number of inputs (= number of outputs)";
       Modelica.Blocks.Interfaces.RealInput Kelvin
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
@@ -2326,7 +2326,7 @@ and provides them as output signals.
             Text(
               extent={{110,-39},{30,-119}},
               lineColor={0,0,0},
-              textString="캲k"),
+              textString="째Rk"),
             Line(points={{-40,0},{-100,0}}, color={0,0,255}),
             Line(points={{40,0},{100,0}}, color={0,0,255})}),
         Diagram(graphics={
@@ -2344,7 +2344,7 @@ and provides them as output signals.
             Text(
               extent={{100,-40},{30,-100}},
               lineColor={0,0,0},
-              textString="캲k"),
+              textString="째Rk"),
             Line(points={{-100,0},{-40,0}}, color={0,0,255}),
             Line(points={{40,0},{100,0}}, color={0,0,255})}),
         Documentation(info="<HTML>
@@ -2356,7 +2356,7 @@ and provides them as output signals.
 "));
     end FromKelvin;
 
-    model FixedTemperature "Fixed temperature boundary condition in 캲ankine"
+    model FixedTemperature "Fixed temperature boundary condition in 째Rankine"
 
       parameter Modelica.SIunits.Conversions.NonSIunits.Temperature_degRk T
         "Fixed Temperature at the port";
@@ -2380,7 +2380,7 @@ and provides them as output signals.
             Text(
               extent={{0,0},{-100,-100}},
               lineColor={0,0,0},
-              textString="캲k"),
+              textString="째Rk"),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
               lineColor={191,0,0},
@@ -2415,7 +2415,7 @@ This model defines a fixed temperature T at its port in degree Rankine,
             Text(
               extent={{0,0},{-100,-100}},
               lineColor={0,0,0},
-              textString="캲k"),
+              textString="째Rk"),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
               lineColor={191,0,0},
@@ -2424,7 +2424,7 @@ This model defines a fixed temperature T at its port in degree Rankine,
     end FixedTemperature;
 
     model PrescribedTemperature
-      "Variable temperature boundary condition in 캲ankine"
+      "Variable temperature boundary condition in 째Rankine"
 
       Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{
                 90,-10},{110,10}}, rotation=0)));
@@ -2449,7 +2449,7 @@ This model defines a fixed temperature T at its port in degree Rankine,
             Text(
               extent={{0,0},{-100,-100}},
               lineColor={0,0,0},
-              textString="캲k"),
+              textString="째Rk"),
             Text(
               extent={{-122,163},{118,103}},
               textString="%name",
@@ -2486,7 +2486,7 @@ as required to keep the temperature at the specified value.
             Text(
               extent={{0,0},{-100,-100}},
               lineColor={0,0,0},
-              textString="캲k"),
+              textString="째Rk"),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
               lineColor={191,0,0},
@@ -2494,7 +2494,7 @@ as required to keep the temperature at the specified value.
               fillPattern=FillPattern.Solid)}));
     end PrescribedTemperature;
 
-    model TemperatureSensor "Absolute temperature sensor in 캲ankine"
+    model TemperatureSensor "Absolute temperature sensor in 째Rankine"
 
       Modelica.Blocks.Interfaces.RealOutput T annotation (Placement(
             transformation(extent={{90,-10},{110,10}}, rotation=0)));
@@ -2537,7 +2537,7 @@ as required to keep the temperature at the specified value.
             Text(
               extent={{102,-22},{60,-74}},
               lineColor={0,0,0},
-              textString="캲k")}),
+              textString="째Rk")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(
@@ -2572,7 +2572,7 @@ as required to keep the temperature at the specified value.
             Text(
               extent={{126,-20},{26,-120}},
               lineColor={0,0,0},
-              textString="캲k"),
+              textString="째Rk"),
             Text(
               extent={{-132,144},{108,84}},
               textString="%name",
@@ -2611,7 +2611,7 @@ Example:
               100}}), graphics={Text(
             extent={{40,10},{-60,-90}},
             lineColor={0,0,0},
-            textString="캲k")}));
+            textString="째Rk")}));
   end Rankine;
 
   package Interfaces "Connectors and partial models"

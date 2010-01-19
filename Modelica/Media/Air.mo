@@ -480,11 +480,11 @@ Derivative function of <a href=Modelica://Modelica.Media.Air.MoistAir.saturation
     /*r0 := 1e3*(2501.0145 - (T - 273.15)*(2.3853 + (T - 273.15)*(0.002969 - (T
       - 273.15)*(7.5293e-5 + (T - 273.15)*4.6084e-7))));*/
    //katrin: replaced by linear correlation, simpler and more accurate in the entire region
-   //source VDI-Waermeatlas, linear inter- and extrapolation between values for 0.01캜 and 40캜.
+   //source VDI-Waermeatlas, linear inter- and extrapolation between values for 0.01째C and 40째C.
    r0:=(2405900-2500500)/(40-0)*(T-273.16)+2500500;
      annotation(smoothOrder=2,
                   Documentation(info="<html>
-Enthalpy of vaporization of water is computed from temperature in the region of 0 to 130 캜.
+Enthalpy of vaporization of water is computed from temperature in the region of 0 to 130 째C.
 </html>"));
    end enthalpyOfVaporization;
 
@@ -1116,7 +1116,7 @@ Thermal conductivity is computed from temperature using a simple polynomial for 
 
       annotation (experiment(StopTime=1), Documentation(info="<html>
 <p>This model produces psychrometric data from the moist air model in this library to be plotted in charts. The two most common chart varieties are the Mollier Diagram and the Psycrometric Chart. The first is widely used in some European countries while the second is more common in the Anglo-American world. Specific enthalpy is plotted over absolute humidity in the Mollier Diagram, it is the other way round in the Psychrometric Chart.<br>
-It must be noted that the relationship of both axis variables is not right-angled, the absolute humidity follows a slope which equals the enthalpy of vaporization at 0캜. For better reading and in oder to reduce the fog region the humidity axis is rotated to obtain a right-angled plot. Both charts usually contain additional information as isochores or auxiliary scales for e.g. heat ratios. Those information are omitted in this model and the charts below. Other important features of psychrometric chart data are that all mass specific variables (like absolute humidity, specific enthalpy etc.) are expressed in terms of kg dry air and that their baseline of 0 enthalpy is found at 0캜 and zero humidity. </p>
+It must be noted that the relationship of both axis variables is not right-angled, the absolute humidity follows a slope which equals the enthalpy of vaporization at 0째C. For better reading and in oder to reduce the fog region the humidity axis is rotated to obtain a right-angled plot. Both charts usually contain additional information as isochores or auxiliary scales for e.g. heat ratios. Those information are omitted in this model and the charts below. Other important features of psychrometric chart data are that all mass specific variables (like absolute humidity, specific enthalpy etc.) are expressed in terms of kg dry air and that their baseline of 0 enthalpy is found at 0째C and zero humidity. </p>
 
 <p><img src=\"../../Modelica/Images/Media/Air/Mollier.png\">
 <img src=\"../../Modelica/Images/Media/Air/PsycroChart.png\"></p>
@@ -1140,7 +1140,7 @@ The governing assumptions in this model are:</p>
 <li>the perfect gas law applies</li>
 <li>water volume other than that of steam is neglected</li></ul>
 <p>All extensive properties are expressed in terms of the total mass in order to comply with other media in this libary. However, for moist air it is rather common to express the absolute humidity in terms of mass of dry air only, which has advantages when working with charts. In addition, care must be taken, when working with mass fractions with respect to total mass, that all properties refer to the same water content when being used in mathematical operations (which is always the case if based on dry air only). Therefore two absolute humidities are computed in the <b>BaseProperties</b> model: <b>X</b> denotes the absolute humidity in terms of the total mass while <b>x</b> denotes the absolute humitity per unit mass of dry air. In addition, the relative humidity <b>phi</b> is also computed.</p>
-<p>At the triple point temperature of water of 0.01캜 or 273.16 K and a relative humidity greater than 1 fog may be present as liquid and as ice resulting in a specific enthalpy somewhere between those of the two isotherms for solid and liquid fog, respectively. For numerical reasons a coexisting mixture of 50% solid and 50% liquid fog is assumed in the fog region at the triple point in this model.
+<p>At the triple point temperature of water of 0.01째C or 273.16 K and a relative humidity greater than 1 fog may be present as liquid and as ice resulting in a specific enthalpy somewhere between those of the two isotherms for solid and liquid fog, respectively. For numerical reasons a coexisting mixture of 50% solid and 50% liquid fog is assumed in the fog region at the triple point in this model.
 
 <h4>Range of validity</h4>
 <p>From the assumptions mentioned above it follows that the <b>pressure</b> should be in the region around <b>atmospheric</b> conditions or below (a few bars may still be fine though). Additionally a very high water content at low temperatures would yield incorrect densities, because the volume of the liquid or solid phase would not be negligible anymore. The model does not provide information on limits for water drop size in the fog region or transport information for the actual condensation or evaporation process in combination with surfaces. All excess water which is not in its vapour state is assumed to be still present in the air regarding its energy but not in terms of its spatial extent.<br><br>
