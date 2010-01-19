@@ -17,19 +17,19 @@ model ShowSaturatingInductor
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1(
     V=U,
     phase=phase,
-    freqHz=f) 
+    freqHz=f)
     annotation (Placement(transformation(
         origin={-60,-6},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Electrical.Analog.Basic.Ground Ground1 
+  Modelica.Electrical.Analog.Basic.Ground Ground1
     annotation (Placement(transformation(extent={{-70,-36},{-50,-16}}, rotation=
            0)));
   Modelica.Electrical.Analog.Basic.SaturatingInductor SaturatingInductance1(
     Lzer=Lzer,
     Lnom=Lnom,
     Inom=Inom,
-    Linf=Linf) 
+    Linf=Linf)
     annotation (Placement(transformation(
         origin={-20,0},
         extent={{-10,-10},{10,10}},

@@ -1,21 +1,21 @@
 within Modelica.Electrical.Analog.Examples;
 model SimpleTriacCircuit "Simple triac test circuit"
 
-  Modelica.Electrical.Analog.Basic.Ground ground 
+  Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-30,-40},{-10,-20}})));
-  Modelica.Electrical.Analog.Basic.Inductor L(L=2e-6) 
+  Modelica.Electrical.Analog.Basic.Inductor L(L=2e-6)
     annotation (Placement(transformation(extent={{10,60},{30,80}})));
   Modelica.Electrical.Analog.Basic.Resistor R(R=10)         annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={40,48})));
-  Modelica.Electrical.Analog.Sources.SineVoltage V(V=30, freqHz=10000) 
+  Modelica.Electrical.Analog.Sources.SineVoltage V(V=30, freqHz=10000)
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={40,2})));
-  Modelica.Electrical.Analog.Semiconductors.SimpleTriac simpleTriac(VDRM=400, VRRM=400) 
+  Modelica.Electrical.Analog.Semiconductors.SimpleTriac simpleTriac(VDRM=400, VRRM=400)
                           annotation (Placement(transformation(
         extent={{-13,-13},{11,11}},
         rotation=270,
@@ -24,7 +24,7 @@ model SimpleTriacCircuit "Simple triac test circuit"
     I=0.005,
     width=10,
     startTime=0.00002,
-    period=0.00005) 
+    period=0.00005)
                 annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
