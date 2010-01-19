@@ -1524,8 +1524,8 @@ buttons:
                        annotation (Placement(transformation(extent={{55,-50},{
                   65,-40}}, rotation=0)));
       Real level "Tank level in % of max height";
-      parameter Real A=1 "ground area of tank in mÂ²";
-      parameter Real a=0.2 "area of drain hole in mÂ²";
+      parameter Real A=1 "ground area of tank in m²";
+      parameter Real a=0.2 "area of drain hole in m²";
       parameter Real hmax=1 "max height of tank in m";
       constant Real g=Modelica.Constants.g_n;
     equation

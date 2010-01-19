@@ -5853,8 +5853,8 @@ be taken from <a href=\"Documentation/IF97documentation/IF97.pdf\">IF97.pdf</a> 
 and Steam / Zustandsgr&ouml;&szlig;en von Wasser und Wasserdampf / IAPWS-IF97.
 Springer-Verlag, Berlin, 1998.
 <P>[2] <I>Wagner, W., Cooper, J. R., Dittmann, A., Kijima,
-J., Kretzschmar, H.-J., Kruse, A., Mareï¿½ R., Oguchi, K., Sato, H., St&ouml;cker,
-I., ï¿½fner, O., Takaishi, Y., Tanishita, I., Tr&uuml;benbach, J., and Willkommen,
+J., Kretzschmar, H.-J., Kruse, A., Mare&#353; R., Oguchi, K., Sato, H., St&ouml;cker,
+I., &#352;ifner, O., Takaishi, Y., Tanishita, I., Tr&uuml;benbach, J., and Willkommen,
 Th.</I> The IAPWS Industrial Formulation 1997 for the Thermodynamic Properties
 of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (2000), 150 - 182.
 <p>

@@ -4870,9 +4870,9 @@ If the signal width is greater than 1 this conversion is done for each signal.
         "value for digital Z (High Impedance)";
           parameter Real value_W(start=0.5)
         "value for digital W (Weak    Unknown)";
-          parameter Real value_L(start=0) "value for digital L (Weak    0)";
-          parameter Real value_H(start=1) "value for digital H (Weak    1)";
-          parameter Real value_m(start=0.5) "value for digital m (Don´t care)";
+          parameter Real value_L(start=0) "value for digital L (Weak 0)";
+          parameter Real value_H(start=1) "value for digital H (Weak 1)";
+          parameter Real value_m(start=0.5) "value for digital m (Do not care)";
         equation
           for i in 1:n loop
            y[i]= if x[i] == L.'U' then value_U else
