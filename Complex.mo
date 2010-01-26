@@ -1,4 +1,4 @@
-within ;
+within  ;
 record Complex "Complex number with overloaded operators"
   extends Modelica.Icons.Record;
   Real re "Real part of complex number" annotation(Dialog);
