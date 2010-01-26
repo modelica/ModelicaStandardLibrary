@@ -1,6 +1,5 @@
-within  ;
+within ;
 record Complex "Complex number with overloaded operators"
-  extends Modelica.Icons.Record;
   Real re "Real part of complex number" annotation(Dialog);
   Real im "Imaginary part of complex number" annotation(Dialog);
 
@@ -122,5 +121,15 @@ end '^';
 versionBuild=1,
 versionDate="2010-01-26",
 dateModified = "2010-01-26 19:32:58Z",
-revisionId="$Id::                                       $");
+revisionId="$Id::                                       $",
+    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+            100}}), graphics={Rectangle(
+          extent={{-100,100},{100,-100}},
+          lineColor={0,0,0},
+          fillColor={181,181,181},
+          fillPattern=FillPattern.Solid), Text(
+          extent={{-94,94},{94,-94}},
+          lineColor={0,0,0},
+          textString="C")}),
+    uses(Modelica(version="3.1")));
 end Complex;
