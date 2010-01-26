@@ -118,5 +118,9 @@ end '^';
     //    end toString;
   end 'String';
 
-  annotation (uses(Modelica(version="3.1")));
+  annotation (version="1.0",
+versionBuild=1,
+versionDate="2010-01-26",
+dateModified = "2010-01-26 19:32:58Z",
+revisionId="$Id::                                       $");
 end Complex;
