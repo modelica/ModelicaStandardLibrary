@@ -45,6 +45,9 @@ package Constants
   final constant NonSI.Temperature_degC T_zero=-273.15
     "Absolute zero temperature";
 
+  // Complex constants
+  final constant Complex j = Complex(0,1) "Imaginary unit";
+
   annotation (
     Documentation(info="<html>
 <p>
