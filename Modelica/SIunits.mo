@@ -3,7 +3,6 @@ package SIunits
   "Library of type and unit definitions based on SI units according to ISO 31-1992"
 package UsersGuide "User's Guide of SIunits Library"
 
-
   class HowToUseSIunits "How to use SIunits"
 
     annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
@@ -114,6 +113,17 @@ the user has to define its own types or use the attributes directly
 in the declaration as in the example at the beginning.
 </p>
 
+<p>
+<b>Complex units</b> are also included in Modelica.SIunits. A complex unit is declared as:
+<pre>
+  <b>model</b> QuasiStationaryMachine
+    <b>parameter</b> Modelica.SIunits.ComplexPower SNominal = Complex(10000,4400) 
+       \"Nominal complex power\";
+   ...
+   <b>end</b> QuasiStationaryMachine;
+</pre>
+</p>
+
 </html>"));
 
   end HowToUseSIunits;
@@ -222,12 +232,10 @@ on units.</p>
 end UsersGuide;
   extends Modelica.Icons.Library2;
 
-
   package Conversions
     "Conversion functions to/from non SI units and type definitions of non SI units"
 
     extends Modelica.Icons.Library2;
-
 
     package NonSIunits "Type definitions of non SI units"
 
@@ -1636,6 +1644,76 @@ argument):</p>
   type LandauGinzburgParameter = Real (final quantity="LandauGinzburgParameter",
           final unit="1");
   type FluxiodQuantum = Real (final quantity="FluxiodQuantum", final unit="Wb");
+  record ComplexCurrent = 
+    Complex(redeclare Modelica.SIunits.Current re,
+            redeclare Modelica.SIunits.Current im) "Complex electrical current";
+  record ComplexCurrentSlope = 
+    Complex(redeclare Modelica.SIunits.CurrentSlope re,
+            redeclare Modelica.SIunits.CurrentSlope im) "Complex current slope";
+  record ComplexCurrentDensity = 
+    Complex(redeclare Modelica.SIunits.CurrentDensity re,
+            redeclare Modelica.SIunits.CurrentDensity im)
+    "Complex electrical current density";
+  record ComplexElectricPotential = 
+    Complex(redeclare Modelica.SIunits.ElectricPotential re,
+            redeclare Modelica.SIunits.ElectricPotential im)
+    "Complex electric potential";
+  record ComplexPotentialDifference = 
+    Complex(redeclare Modelica.SIunits.PotentialDifference re,
+            redeclare Modelica.SIunits.PotentialDifference im)
+    "Complex electric potential difference";
+  record ComplexVoltage = 
+    Complex(redeclare Modelica.SIunits.Voltage re,
+            redeclare Modelica.SIunits.Voltage im) "Complex electrical voltage";
+  record ComplexVoltageSlope = 
+    Complex(redeclare Modelica.SIunits.VoltageSlope re,
+            redeclare Modelica.SIunits.VoltageSlope im) "Complex voltage slope";
+  record ComplexElectricFieldStrength = 
+    Complex(redeclare Modelica.SIunits.ElectricFieldStrength re,
+            redeclare Modelica.SIunits.ElectricFieldStrength im)
+    "Complex electric field strength";
+  record ComplexElectricFluxDensity = 
+    Complex(redeclare Modelica.SIunits.ElectricFluxDensity re,
+            redeclare Modelica.SIunits.ElectricFluxDensity im)
+    "Complex electric flux density";
+  record ComplexElectricFlux = 
+    Complex(redeclare Modelica.SIunits.ElectricFlux re,
+            redeclare Modelica.SIunits.ElectricFlux im) "Complex electric flux";
+  record ComplexMagneticFieldStrength = 
+    Complex(redeclare Modelica.SIunits.MagneticFieldStrength re,
+            redeclare Modelica.SIunits.MagneticFieldStrength im)
+    "Complex magnetic field strength";
+  record ComplexMagneticPotential = 
+    Complex(redeclare Modelica.SIunits.MagneticPotential re,
+            redeclare Modelica.SIunits.MagneticPotential im)
+    "Complex magnetic potential";
+  record ComplexMagneticPotentialDifference = 
+    Complex(redeclare Modelica.SIunits.MagneticPotentialDifference re,
+            redeclare Modelica.SIunits.MagneticPotentialDifference im)
+    "Complex magnetic potential difference";
+  record ComplexMagnetomotiveForce = 
+    Complex(redeclare Modelica.SIunits.MagnetomotiveForce re,
+            redeclare Modelica.SIunits.MagnetomotiveForce im)
+    "Complex magneto motive force";
+  record ComplexMagneticFluxDensity = 
+    Complex(redeclare Modelica.SIunits.MagneticFluxDensity re,
+            redeclare Modelica.SIunits.MagneticFluxDensity im)
+    "Complex magnetic flux density";
+  record ComplexMagneticFlux = 
+    Complex(redeclare Modelica.SIunits.MagneticFlux re,
+            redeclare Modelica.SIunits.MagneticFlux im) "Complex magnetic flux";
+  record ComplexImpedance = 
+    Complex(redeclare Modelica.SIunits.Resistance re,
+            redeclare Modelica.SIunits.Reactance im)
+    "Complex electrical impedance";
+  record ComplexAdmittance = 
+    Complex(redeclare Modelica.SIunits.Conductance re,
+            redeclare Modelica.SIunits.Susceptance im)
+    "Complex electrical impedance";
+  record ComplexPower = 
+    Complex(redeclare Modelica.SIunits.ActivePower re,
+            redeclare Modelica.SIunits.ReactivePower im)
+    "Complex electrical power";
 
   annotation (
     Invisible=true,
@@ -1668,7 +1746,7 @@ with package SIunits, have a look at:
 </p>
 
 <p>
-Copyright &copy; 1998-2009, Modelica Association and DLR.
+Copyright &copy; 1998-2010, Modelica Association and DLR.
 </p>
 <p>
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -1678,55 +1756,18 @@ and the accompanying <b>disclaimer</b>
 </p>
 
 </html>", revisions="<html>
-<ul>
-<li><i>Dec. 14, 2005</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Add User's Guide and removed \"min\" values for Resistance and Conductance.</li>
-<li><i>October 21, 2002</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
-       and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
-       Added new package <b>Conversions</b>. Corrected typo <i>Wavelenght</i>.</li>
-<li><i>June 6, 2000</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Introduced the following new types<br>
-       type Temperature = ThermodynamicTemperature;<br>
-       types DerDensityByEnthalpy, DerDensityByPressure,
-       DerDensityByTemperature, DerEnthalpyByPressure,
-       DerEnergyByDensity, DerEnergyByPressure<br>
-       Attribute \"final\" removed from min and max values
-       in order that these values can still be changed to narrow
-       the allowed range of values.<br>
-       Quantity=\"Stress\" removed from type \"Stress\", in order
-       that a type \"Stress\" can be connected to a type \"Pressure\".</li>
-<li><i>Oct. 27, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       New types due to electrical library: Transconductance, InversePotential,
-       Damping.</li>
-<li><i>Sept. 18, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Renamed from SIunit to SIunits. Subpackages expanded, i.e., the
-       SIunits package, does no longer contain subpackages.</li>
-<li><i>Aug 12, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Type \"Pressure\" renamed to \"AbsolutePressure\" and introduced a new
-       type \"Pressure\" which does not contain a minimum of zero in order
-       to allow convenient handling of relative pressure. Redefined
-       BulkModulus as an alias to AbsolutePressure instead of Stress, since
-       needed in hydraulics.</li>
-<li><i>June 29, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Bug-fix: Double definition of \"Compressibility\" removed
-       and appropriate \"extends Heat\" clause introduced in
-       package SolidStatePhysics to incorporate ThermodynamicTemperature.</li>
-<li><i>April 8, 1998</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
-       and Astrid Jaschinski:<br>
-       Complete ISO 31 chapters realized.</li>
-<li><i>Nov. 15, 1997</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
-       and <a href=\"http://www.control.lth.se/~hubertus/\">Hubertus Tummescheit</a>:<br>
-       Some chapters realized.</li>
-</ul>
+<p><ul>
+<li><i>Jan. 27, 2010</i> by Christian Kral:<br/>Added complex units.</li>
+<li><i>Dec. 14, 2005</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>Add User&apos;s Guide and removed &QUOT;min&QUOT; values for Resistance and Conductance.</li>
+<li><i>October 21, 2002</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br/>Added new package <b>Conversions</b>. Corrected typo <i>Wavelenght</i>.</li>
+<li><i>June 6, 2000</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>Introduced the following new types<br/>type Temperature = ThermodynamicTemperature;<br/>types DerDensityByEnthalpy, DerDensityByPressure, DerDensityByTemperature, DerEnthalpyByPressure, DerEnergyByDensity, DerEnergyByPressure<br/>Attribute &QUOT;final&QUOT; removed from min and max values in order that these values can still be changed to narrow the allowed range of values.<br/>Quantity=&QUOT;Stress&QUOT; removed from type &QUOT;Stress&QUOT;, in order that a type &QUOT;Stress&QUOT; can be connected to a type &QUOT;Pressure&QUOT;.</li>
+<li><i>Oct. 27, 1999</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>New types due to electrical library: Transconductance, InversePotential, Damping.</li>
+<li><i>Sept. 18, 1999</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>Renamed from SIunit to SIunits. Subpackages expanded, i.e., the SIunits package, does no longer contain subpackages.</li>
+<li><i>Aug 12, 1999</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>Type &QUOT;Pressure&QUOT; renamed to &QUOT;AbsolutePressure&QUOT; and introduced a new type &QUOT;Pressure&QUOT; which does not contain a minimum of zero in order to allow convenient handling of relative pressure. Redefined BulkModulus as an alias to AbsolutePressure instead of Stress, since needed in hydraulics.</li>
+<li><i>June 29, 1999</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>Bug-fix: Double definition of &QUOT;Compressibility&QUOT; removed and appropriate &QUOT;extends Heat&QUOT; clause introduced in package SolidStatePhysics to incorporate ThermodynamicTemperature.</li>
+<li><i>April 8, 1998</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> and Astrid Jaschinski:<br/>Complete ISO 31 chapters realized.</li>
+<li><i>Nov. 15, 1997</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> and <a href=\"http://www.control.lth.se/~hubertus/\">Hubertus Tummescheit</a>:<br/>Some chapters realized.</li>
+</ul></p>
 </html>"),
     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={
