@@ -107,7 +107,7 @@ end length;
 
 function normalize
       "Return normalized complex vector such that length = 1 and prevent zero-division for zero vector"
-      import Modelica.ComplexConstants.j;
+  import Modelica.Constants.j;
   input Complex v[:] "Vector";
   input Real eps = 100*Modelica.Constants.eps "if |v| < eps then result = v";
   output Complex result[size(v, 1)] "Input vector v normalized to length=1";
