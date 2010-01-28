@@ -2,21 +2,6 @@ within Modelica;
 package ComplexBlocks
   "Library of basic input/output control blocks (continuous, discrete, logical, table blocks)"
 extends Modelica.Icons.Library2;
- annotation (Icon(graphics={
-      Rectangle(extent={{-32,-6},{16,-35}}, lineColor={0,0,0}),
-      Polygon(
-        points={{-32,-21},{-46,-17},{-46,-25},{-32,-21}},
-        lineColor={0,0,0},
-        fillColor={0,0,0},
-        fillPattern=FillPattern.Solid),
-      Line(points={{-32,-72},{-64,-72},{-64,-21},{-32,-21}}, color={0,0,0}),
-      Rectangle(extent={{-32,-56},{16,-85}}, lineColor={0,0,0}),
-      Polygon(
-        points={{16,-71},{29,-67},{29,-74},{16,-71}},
-        lineColor={0,0,0},
-        fillColor={0,0,0},
-        fillPattern=FillPattern.Solid),
-      Line(points={{16,-20},{49,-20},{49,-71},{16,-71}}, color={0,0,0})}));
 
   package Interfaces
     "Library of connectors and partial models for input/output blocks"
@@ -213,7 +198,8 @@ All vectors have the same number of elements.
       end ComplexMI2MO;
   end Interfaces;
 
-  package Math "Library of mathematical functions as input/output blocks"
+  package ComplexMath
+    "Library of mathematical functions as input/output blocks"
     extends Modelica.Icons.Library;
 
         block Gain "Output the product of a gain value with the input signal"
@@ -518,24 +504,6 @@ Example:
               textString="k2")}));
         end Add;
 
-    annotation (
-      Documentation(info="
-<HTML>
-<p>
-This package contains basic <b>mathematical operations</b>,
-such as summation and multiplication, and basic <b>mathematical
-functions</b>, such as <b>sqrt</b> and <b>sin</b>, as
-input/output blocks. All blocks of this library can be either
-connected with continuous blocks or with sampled-data blocks.
-</p>
-</HTML>
-",   revisions="<html>
-<ul>
-<li><i>January 28, 2010</i>
-       by <a href=\"http://www.haumer.at/\">Anton Haumer</a>
-</li>
-</ul>
-</html>"));
         block Add3 "Output the sum of the three inputs"
           extends Blocks.Interfaces.BlockIcon;
 
@@ -1841,5 +1809,38 @@ zero or negative.
 </HTML>
 "));
         end Log;
-  end Math;
+    annotation (
+      Documentation(info="
+<HTML>
+<p>
+This package contains basic <b>mathematical operations</b>,
+such as summation and multiplication, and basic <b>mathematical
+functions</b>, such as <b>sqrt</b> and <b>sin</b>, as
+input/output blocks. All blocks of this library can be either
+connected with continuous blocks or with sampled-data blocks.
+</p>
+</HTML>
+",   revisions="<html>
+<ul>
+<li><i>January 28, 2010</i>
+       by <a href=\"http://www.haumer.at/\">Anton Haumer</a>
+</li>
+</ul>
+</html>"));
+  end ComplexMath;
+ annotation (Icon(graphics={
+      Rectangle(extent={{-32,-6},{16,-35}}, lineColor={0,0,0}),
+      Polygon(
+        points={{-32,-21},{-46,-17},{-46,-25},{-32,-21}},
+        lineColor={0,0,0},
+        fillColor={0,0,0},
+        fillPattern=FillPattern.Solid),
+      Line(points={{-32,-72},{-64,-72},{-64,-21},{-32,-21}}, color={0,0,0}),
+      Rectangle(extent={{-32,-56},{16,-85}}, lineColor={0,0,0}),
+      Polygon(
+        points={{16,-71},{29,-67},{29,-74},{16,-71}},
+        lineColor={0,0,0},
+        fillColor={0,0,0},
+        fillPattern=FillPattern.Solid),
+      Line(points={{16,-20},{49,-20},{49,-71},{16,-71}}, color={0,0,0})}));
 end ComplexBlocks;
