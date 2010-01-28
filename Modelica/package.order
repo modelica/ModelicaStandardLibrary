@@ -1,5 +1,6 @@
 UsersGuide
 Blocks
+ComplexBlocks
 StateGraph
 Electrical
 Magnetic
@@ -11,7 +12,5 @@ Math
 ComplexMath
 Utilities
 Constants
-ComplexConstants
 Icons
 SIunits
-ComplexSIunits
