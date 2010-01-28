@@ -296,10 +296,8 @@ end Vectors;
   function sin "Sine of complex number"
     input Complex c1 "Complex number";
     output Complex c2 "sin(c1)";
-
   algorithm
-     c2 := (exp(Complex(-c1.im, +c1.re)) - exp(Complex(+c1.im, -c1.re)))/
-      Complex(0, 2);
+     c2 := (exp(Complex(-c1.im, +c1.re)) - exp(Complex(+c1.im, -c1.re)))/Complex(0, 2);
     annotation(Inline=true);
   end sin;
 
@@ -307,54 +305,43 @@ end Vectors;
     input Complex c1 "Complex number";
     output Complex c2 "= cos(c1)";
   algorithm
-   c2 := (exp(Complex(-c1.im, +c1.re)) + exp(Complex(+c1.im, -c1.re)))/2;
+    c2 := (exp(Complex(-c1.im, +c1.re)) + exp(Complex(+c1.im, -c1.re)))/2;
     annotation(Inline=true);
   end cos;
 
   function tan "Tangent of complex number"
     input Complex c1 "Complex number";
     output Complex c2 "= tan(c1)";
-
   algorithm
     c2 := sin(c1)/cos(c1);
+    annotation(Inline=true);
   end tan;
 
   function asin "Arc-sine of complex number"
-    import Modelica.ComplexConstants.j;
+    import Modelica.Constants.j;
     input Complex c1 "Complex number";
     output Complex c2 "arc_sin(c1)";
   algorithm
     c2 := -j*log(j*c1 + 'sqrt'(1 - c1*c1));
-    annotation ( Documentation(info="<html>
-<p>Branch cut is on the real axis: <tt>z = x + j*y, x &lt; -1 and x &gt; +1, y = 0</tt>.</p>
-</html>"));
+    annotation(Inline=true);
   end asin;
 
   function acos "Arc-cosine of complex number"
-    import Modelica.ComplexConstants.j;
+    import Modelica.Constants.j;
     input Complex c1 "Complex number";
     output Complex c2 "= arc_cos(c1)";
   algorithm
     c2 := -j*log(c1 + j*'sqrt'(1 - c1*c1));
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}),   graphics),
-                                     Documentation(info="<html>
-<p>Branch cut is on the real axis: <tt>z = x + j*y, x &lt; -1 and x &gt; +1, y = 0</tt>.</p>
-</html>"));
+    annotation(Inline=true);
   end acos;
 
   function atan "Arc-tangent of complex number"
-    import Modelica.ComplexConstants.j;
+    import Modelica.Constants.j;
     input Complex c1 "Complex number";
     output Complex c2 "= arc_tan(c1)";
-
   algorithm
     c2 := 0.5*j*log((j + c1)/(j - c1));
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}),   graphics),
-                                     Documentation(info="<html>
-<p>Branch cut is on the imaginary axis: <tt>z = x + j*y, x = 0, y &lt; -1 and y &gt; +1</tt>.</p>
-</html>"));
+    annotation(Inline=true);
   end atan;
 
   function sinh "Hyperbolic-sine of complex number"
@@ -362,9 +349,7 @@ end Vectors;
     output Complex c2 "sinh(c1)";
   algorithm
     c2 := Complex(Math.sinh(c1.re)*Math.cos(c1.im), Math.cosh(c1.re)*Math.sin(c1.im));
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}),
-                           graphics));
+    annotation(Inline=true);
   end sinh;
 
   function cosh "Hyperbolic-cosine of complex number"
@@ -372,9 +357,7 @@ end Vectors;
     output Complex c2 "= cosh(c1)";
   algorithm
     c2 := Complex(Math.cosh(c1.re)*Math.cos(c1.im), Math.sinh(c1.re)*Math.sin(c1.im));
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}),
-                           graphics));
+    annotation(Inline=true);
   end cosh;
 
   function tanh "Hyperbolic-tangent of complex number"
@@ -382,9 +365,7 @@ end Vectors;
     output Complex c2 "= tanh(c1)";
   algorithm
     c2 := sinh(c1)/cosh(c1);
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}),
-                           graphics));
+    annotation(Inline=true);
   end tanh;
 
   function asinh "Area-hyperbolic-sine of complex number"
@@ -392,11 +373,7 @@ end Vectors;
     output Complex c2 "ar_sinh(c1)";
   algorithm
     c2 := log(c1 + 'sqrt'(c1*c1 + 1));
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}),
-                           graphics),Documentation(info="<html>
-<p>Branch cut is on the imaginary axis: <tt>z = x + j*y, x = 0, y &lt; -1 and y &gt; +1</tt>.</p>
-</html>"));
+    annotation(Inline=true);
   end asinh;
 
   function acosh "Area-hyperbolic-cosine of complex number"
@@ -404,12 +381,7 @@ end Vectors;
     output Complex c2 "= ar_cosh(c1)";
   algorithm
     c2 := log(c1 + (c1 + 1)*'sqrt'((c1 - 1)/(c1 + 1)));
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}),
-                           graphics),Documentation(info="<html>
-<p>Branch cut is on the real axis: <tt>z = x + j*y, x &lt; +1, y = 0</tt>.</p>
-</html>"));
-
+    annotation(Inline=true);
   end acosh;
 
   function atanh "Area-hyperbolic-tangent of complex number"
@@ -417,18 +389,14 @@ end Vectors;
     output Complex c2 "= ar_tanh(c1)";
   algorithm
     c2 := 0.5*log((1 + c1)/(1 - c1));
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}),
-                           graphics),Documentation(info="<html>
-<p>Branch cut is on the real axis: <tt>z = x + j*y, x &lt; -1 and x &gt; +1, y = 0</tt>.</p>
-</html>"));
+    annotation(Inline=true);
   end atanh;
 
   function exp "Exponential of complex number"
     input Complex c1 "Complex number";
     output Complex c2 "= exp(c1)";
   algorithm
-     c2 := Complex(Math.exp(c1.re)*Math.cos(c1.im), Math.exp(c1.re)*Math.sin(c1.im));
+    c2 := Complex(Math.exp(c1.re)*Math.cos(c1.im), Math.exp(c1.re)*Math.sin(c1.im));
     annotation(Inline=true);
   end exp;
 
@@ -440,46 +408,25 @@ end Vectors;
     annotation(Inline=true);
   end log;
 
-function 'abs' "Absolute value of complex number"
-  input Complex c "Complex number";
-  output Real result "= abs(c)";
-algorithm
-  result := (c.re^2 + c.im^2)^0.5; //changed from sqrt
-
-  annotation(Inline=true);
-end 'abs';
+  function 'abs' "Absolute value of complex number"
+    input Complex c "Complex number";
+    output Real result "= abs(c)";
+  algorithm
+    result := (c.re^2 + c.im^2)^0.5; //changed from sqrt
+    annotation(Inline=true);
+  end 'abs';
 
   function arg "Phase angle of complex number"
     input Complex c "Complex number";
     input Modelica.SIunits.Angle phi0=0
       "phase angle phi shall be in the range: -pi < phi-phi0 < pi";
     output Modelica.SIunits.Angle phi "= phase angle of c";
-
   algorithm
     phi := Modelica.Math.atan3(
         c.im,
         c.re,
         phi0);
-    annotation (Documentation(info="<html>
-<h4><font color=\"#008000\">Syntax</font></h4>
-<blockquote><pre>
-   <b>arg</b>(c);
-   <b>arg</b>(c, phi0=0);
-</pre></blockquote>
-<h4><font color=\"#008000\">Description</font></h4>
-<p>
-The function call \"<code><b>arg</b>(c)</code>\" returns the
-phase angle phi of the Complex number c in the range
--pi &lt; phi &lt; pi.<br>
-The function call \"<code><b>arg</b>(c,phi0)</code>\" returns the
-phase angle phi of the Complex number c in the range
--pi &lt; phi - phi0 &lt; pi.
-</p>
-<h4><font color=\"#008000\">Example</font></h4>
-<blockquote><pre>
-  <b>arg</b>( Complex(1,0.5), 4*pi );  // = 4*pi+pi/4 = 13.351...
-</pre></blockquote>
-</html>"),     Inline=true);
+    annotation(Inline=true);
   end arg;
 
   function conj "Conjugate of complex number"
@@ -510,64 +457,59 @@ phase angle phi of the Complex number c in the range
     input Complex c1 "Complex number";
     output Complex c2 "= sqrt(c1)";
   algorithm
-    c2 := Complex(sqrt('abs'(c1))*Math.cos(arg(c1)/2), sqrt(
-              'abs'(c1))*Math.sin(arg(c1)/2));
+    c2 := Complex(sqrt('abs'(c1))*Math.cos(arg(c1)/2), sqrt('abs'(c1))*Math.sin(arg(c1)/2));
     annotation(Inline=true);
   end 'sqrt';
 
-function 'max' "Return maximum element of complex vector"
-  input Complex v[:] "Vector";
-  output Complex result "Element of v with largest absolute value";
-  output Integer index "v[index] has the largest absolute value";
+  function 'max' "Return maximum element of complex vector"
+    input Complex v[:] "Vector";
+    output Complex result "Element of v with largest absolute value";
+    output Integer index "v[index] has the largest absolute value";
   protected
-  Real absv_i;
-  Real absres;
-algorithm
-  if size(v,1) > 0 then
-     absres := 'abs'(v[1]);
-     index  := 1;
-     for i in 2:size(v,1) loop
+    Real absv_i;
+    Real absres;
+  algorithm
+    if size(v,1) > 0 then
+      absres := 'abs'(v[1]);
+      index  := 1;
+      for i in 2:size(v,1) loop
         absv_i := 'abs'(v[i]);
         if absv_i > absres then
-           absres := absv_i;
-           index := i;
+          absres := absv_i;
+          index := i;
         end if;
-     end for;
-     result :=v[index];
-  else
-     result := Complex(0);
-     index  := 0;
-  end if;
+      end for;
+      result :=v[index];
+    else
+      result := Complex(0);
+      index  := 0;
+    end if;
+  end 'max';
 
-  annotation (Documentation(info="<html>
- 
-</html>"));
-end 'max';
-
-function 'min' "Return minium element of complex vector"
-  input Complex v[:] "Vector";
-  output Complex result "Element of v with smallest absolute value";
-  output Integer index "v[index] has the smallest absolute value";
+  function 'min' "Return minium element of complex vector"
+    input Complex v[:] "Vector";
+    output Complex result "Element of v with smallest absolute value";
+    output Integer index "v[index] has the smallest absolute value";
   protected
-  Real absv_i;
-  Real absres;
-algorithm
-  if size(v,1) > 0 then
-    absres := 'abs'(v[1]);
-    index  := 1;
-    for i in 2:size(v,1) loop
-      absv_i := 'abs'(v[i]);
-      if absv_i < absres then
-         absres := absv_i;
-         index := i;
-      end if;
-    end for;
-    result :=v[index];
-  else
-    result :=  Complex(0);
-    index  := 0;
-  end if;
-end 'min';
+    Real absv_i;
+    Real absres;
+  algorithm
+    if size(v,1) > 0 then
+      absres := 'abs'(v[1]);
+      index  := 1;
+      for i in 2:size(v,1) loop
+        absv_i := 'abs'(v[i]);
+        if absv_i < absres then
+          absres := absv_i;
+          index := i;
+        end if;
+      end for;
+      result :=v[index];
+    else
+      result := Complex(0);
+      index  := 0;
+    end if;
+  end 'min';
 
   annotation (Icon(graphics={Text(
           extent={{-94,-14},{72,-56}},
