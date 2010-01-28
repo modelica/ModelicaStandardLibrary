@@ -10,6 +10,7 @@ record Complex "Complex number with overloaded operators"
       input Real im=0 "Imaginary part of complex number";
       output Complex result(re=re, im=im) "Complex number";
     algorithm
+
       annotation(Inline=true);
     end fromReal;
   end 'constructor';
@@ -35,6 +36,39 @@ record Complex "Complex number with overloaded operators"
     end subtract;
   end '-';
 
+  encapsulated operator '*'
+    function multiply "Multiply two complex numbers"
+      import Complex;
+      input Complex c1 "Complex number 1";
+      input Complex c2 "Complex number 2";
+      output Complex c3 "= c1*c2";
+    algorithm
+      c3 := Complex(c1.re*c2.re - c1.im*c2.im, c1.re*c2.im + c1.im*c2.re);
+
+    annotation(Inline=true);
+    end multiply;
+
+  function scalarProduct "Scalar product conj(c1)*c2 of two complex vectors"
+    import Complex;
+    input Complex c1[:] "Vector of Complex numbers 1";
+    input Complex c2[size(c1,1)] "Vector of Complex numbers 2";
+    output Complex c3 "= conj(c1)*c2";
+  algorithm
+    c3 :=Complex(0);
+    for i in 1:size(c1,1) loop
+       c3 :=c3 + c1[i]*c2[i];
+       /*
+     c3 :=Complex(c3.re + c1[i].re*c2[i].re + c1[i].im*c2[i].im,
+                  c3.im + c1[i].re*c2[i].im - c1[i].im*c2[i].re);
+     */
+    end for;
+
+    annotation (Documentation(info="<html>
+</html>"));
+  end scalarProduct;
+
+  end '*';
+
   encapsulated operator function '+' "Add two complex numbers"
     import Complex;
     input Complex c1 "Complex number 1";
@@ -45,23 +79,13 @@ record Complex "Complex number with overloaded operators"
     annotation(Inline=true);
   end '+';
 
-  encapsulated operator function '*' "Multiply two complex numbers"
-    import Complex;
-    input Complex c1 "Complex number 1";
-    input Complex c2 "Complex number 2";
-    output Complex c3 "= c1*c2";
-  algorithm
-    c3 := Complex(c1.re*c2.re - c1.im*c2.im, c1.re*c2.im + c1.im*c2.re);
-    annotation(Inline=true);
-  end '*';
-
   encapsulated operator function '/' "Divide two complex numbers"
     import Complex;
     input Complex c1 "Complex number 1";
     input Complex c2 "Complex number 2";
     output Complex c3 "= c1/c2";
   algorithm
-    c3 := Complex((+c1.re*c2.re + c1.im*c2.im)/(c2.re*c2.re + c2.im*c2.im), 
+    c3 := Complex((+c1.re*c2.re + c1.im*c2.im)/(c2.re*c2.re + c2.im*c2.im),
                   (-c1.re*c2.im + c1.im*c2.re)/(c2.re*c2.re + c2.im*c2.im));
     annotation(Inline=true);
   end '/';
@@ -95,7 +119,7 @@ record Complex "Complex number with overloaded operators"
   encapsulated operator function 'String'
     "Transform Complex number into a String representation"
     import Complex;
-    input Complex c 
+    input Complex c
       "Complex number to be transformed in a String representation";
     input String name="j"
       "Name of variable representing sqrt(-1) in the string";
@@ -121,12 +145,11 @@ versionDate="2010-01-26",
 dateModified = "2010-01-26 19:32:58Z",
 revisionId="$Id::                                       $",
 Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), 
-graphics={Rectangle(
+        graphics={Rectangle(
           extent={{-100,100},{100,-100}},
           lineColor={0,0,0},
           fillColor={181,181,181},
-          fillPattern=FillPattern.Solid), 
-          Text(
+          fillPattern=FillPattern.Solid), Text(
           extent={{-94,94},{94,-94}},
           lineColor={0,0,0},
           textString="C")}),
