@@ -204,7 +204,7 @@ All vectors have the same number of elements.
 
         block Gain "Output the product of a gain value with the input signal"
 
-          parameter Complex k(start=Complex(1,0))
+          parameter Complex k(re(start=1), im(start=0))
         "Gain value multiplied with input signal";
     public
           Interfaces.ComplexInput u "Input signal connector" 
@@ -215,7 +215,8 @@ All vectors have the same number of elements.
               rotation=0)));
 
         equation
-          y = k*u;
+        //y = k*u;
+          y = Complex.'*'.multiply(k, u);
           annotation (
             Documentation(info="
 <HTML>
@@ -264,7 +265,8 @@ input <i>u</i>:
           parameter Complex k[nin]=fill(Complex(1,0), nin)
         "Optional: sum coefficients";
         equation
-          y = k*u;
+        //y = k*u;
+          y = Complex.'*'.scalarProduct(k, u);
           annotation (defaultComponentName="sum1",
             Documentation(info="
 <HTML>
@@ -324,7 +326,8 @@ Example:
               extent={{80,-10},{100,10}}, rotation=0)));
 
         equation
-          y = u1 - u2;
+        //y = u1 - u2;
+          y = Complex.'-'.subtract(u1, u2);
           annotation (
             Documentation(info="
 <HTML>
@@ -394,7 +397,8 @@ Example:
           parameter Complex k2=Complex(1,0) "Gain of lower input";
 
         equation
-          y = k1*u1 + k2*u2;
+        //y = k1*u1 + k2*u2;
+          y = Complex.'*'.multiply(k1, u2) + Complex.'*'.multiply(k2, u2);
           annotation (
             Documentation(info="
 <HTML>
@@ -524,7 +528,8 @@ Example:
               rotation=0)));
 
         equation
-          y = k1*u1 + k2*u2 + k3*u3;
+        //y = k1*u1 + k2*u2 + k3*u3;
+          y = Complex.'*'.multiply(k1, u2) + Complex.'*'.multiply(k2, u2) + Complex.'*'.multiply(k3, u3);
           annotation (
             Documentation(info="
 <HTML>
@@ -619,7 +624,8 @@ Example:
           extends Interfaces.ComplexSI2SO;
 
         equation
-          y = u1*u2;
+        //y = u1*u2;
+          y = Complex.'*'.multiply(u1,u2);
           annotation (
             Documentation(info="
 <HTML>
@@ -666,7 +672,8 @@ the two inputs <b>u1</b> and <b>u2</b>:
           extends Interfaces.ComplexSI2SO;
 
         equation
-          y = u1/u2;
+        //y = u1/u2;
+          y = Complex.'/'(u1, u2);
           annotation (
             Documentation(info="
 <HTML>

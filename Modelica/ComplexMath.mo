@@ -511,6 +511,26 @@ end Vectors;
     end if;
   end 'min';
 
+  function 'sum' "Return sum of complex vector"
+    input Complex v[:] "Vector";
+    output Complex result "Complex sum of vector elements";
+  algorithm
+    result:=Complex(0);
+    for i in 1:size(v,1) loop
+      result:=result + v[i];
+    end for;
+  end 'sum';
+
+  function product "Return product of complex vector"
+    input Complex v[:] "Vector";
+    output Complex result "Complex product of vector elements";
+  algorithm
+    result:=Complex(1);
+    for i in 1:size(v,1) loop
+      result:=result * v[i];
+    end for;
+  end product;
+
   annotation (Icon(graphics={Text(
           extent={{-94,-14},{72,-56}},
           lineColor={0,0,0},
