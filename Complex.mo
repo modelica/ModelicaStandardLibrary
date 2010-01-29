@@ -48,24 +48,23 @@ record Complex "Complex number with overloaded operators"
     annotation(Inline=true);
     end multiply;
 
-  function scalarProduct "Scalar product conj(c1)*c2 of two complex vectors"
-    import Complex;
-    input Complex c1[:] "Vector of Complex numbers 1";
-    input Complex c2[size(c1,1)] "Vector of Complex numbers 2";
-    output Complex c3 "= conj(c1)*c2";
-  algorithm
-    c3 :=Complex(0);
-    for i in 1:size(c1,1) loop
-       c3 :=c3 + c1[i]*c2[i];
-       /*
-     c3 :=Complex(c3.re + c1[i].re*c2[i].re + c1[i].im*c2[i].im,
-                  c3.im + c1[i].re*c2[i].im - c1[i].im*c2[i].re);
-     */
-    end for;
+    function scalarProduct "Scalar product c1*c2 of two complex vectors"
+      import Complex;
+      input Complex c1[:] "Vector of Complex numbers 1";
+      input Complex c2[size(c1,1)] "Vector of Complex numbers 2";
+      output Complex c3 "= c1*c2";
+    algorithm
+      c3 :=Complex(0);
+      for i in 1:size(c1,1) loop
+         c3 :=c3 + c1[i]*c2[i];
+         /*
+       c3 :=Complex(c3.re + c1[i].re*c2[i].re - c1[i].im*c2[i].im,
+                    c3.im + c1[i].re*c2[i].im + c1[i].im*c2[i].re);
+       */
+      end for;
 
-    annotation (Documentation(info="<html>
-</html>"));
-  end scalarProduct;
+    annotation(Inline=true);
+    end scalarProduct;
 
   end '*';
 
@@ -144,7 +143,7 @@ versionBuild=1,
 versionDate="2010-01-26",
 dateModified = "2010-01-26 19:32:58Z",
 revisionId="$Id::                                       $",
-Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), 
+Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
         graphics={Rectangle(
           extent={{-100,100},{100,-100}},
           lineColor={0,0,0},
