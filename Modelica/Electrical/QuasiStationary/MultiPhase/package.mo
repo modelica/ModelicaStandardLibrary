@@ -23,12 +23,12 @@ package MultiPhase
                                      Documentation(info="<html>
 <p>This package hosts models for quasi stationary multi phase circuits. 
 Quasi stationary theory can be found in 
-[<a href=\"Modelica://Modelica_QuasiStationary.UsersGuide.References\">Vaske1973</a>]
+[<a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">Vaske1973</a>]
 and other
-<a href=\"Modelica://Modelica_QuasiStationary.UsersGuide.References\">references</a>.
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
 </p>
 <h4>See also</h4>
-<a href=\"Modelica://Modelica_QuasiStationary.SinglePhase\">SinglePhase</a>
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase\">SinglePhase</a>
  
 </html>"));
 end MultiPhase;

@@ -12,7 +12,7 @@ model PowerSensor
   Interfaces.NegativePlug voltageN 
     annotation (Placement(transformation(extent={{-10,-110},{10,-90}}, rotation=
            0)));
-  Blocks.Interfaces.ComplexOutput y 
+  Modelica.ComplexBlocks.Interfaces.ComplexOutput y 
     annotation (Placement(transformation(
         origin={-80,-110},
         extent={{-10,-10},{10,10}},
@@ -34,46 +34,46 @@ model PowerSensor
         rotation=90)));
   SinglePhase.Sensors.PowerSensor powerSensor[m] 
     annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
-  Blocks.Sum sum(final nin=m) 
+  Modelica.ComplexBlocks.ComplexMath.Sum sum(final nin=m) 
     annotation (Placement(transformation(
         origin={-80,-70},
         extent={{-10,-10},{10,10}},
         rotation=270)));
 equation
   connect(plugToPinsCurrentP.plug_p, currentP) 
-    annotation (Line(points={{-72,6.10623e-016},{-79,6.10623e-016},{-79,
-          1.16573e-015},{-86,1.16573e-015},{-86,5.55112e-016},{-100,
-          5.55112e-016}}, color={85,170,255}));
+    annotation (Line(points={{-72,0},{-79,0},{-79,1.16573e-015},{-86,1.16573e-015},
+          {-86,0},{-100,0}},
+                          color={85,170,255}));
   connect(currentN, plugToPinsCurrentN.plug_n) 
-    annotation (Line(points={{100,5.55112e-016},{93,5.55112e-016},{93,
-          1.16573e-015},{86,1.16573e-015},{86,6.10623e-016},{72,6.10623e-016}},
+    annotation (Line(points={{100,0},{93,0},{93,1.16573e-015},{86,1.16573e-015},
+          {86,0},{72,0}},
         color={85,170,255}));
-  connect(voltageP, plugToPinsVoltageP.plug_p) annotation (Line(points={{
-          5.55112e-016,100},{5.55112e-016,86},{0,72},{9.78005e-016,72}}, color=
+  connect(voltageP, plugToPinsVoltageP.plug_p) annotation (Line(points={{0,100},
+          {0,100},{0,72},{3.67394e-016,72}},                             color=
           {85,170,255}));
-  connect(plugToPinsVoltageN.plug_n, voltageN) annotation (Line(points={{
-          -3.7714e-016,-72},{5.55112e-016,-72},{5.55112e-016,-100}}, color={85,
+  connect(plugToPinsVoltageN.plug_n, voltageN) annotation (Line(points={{-1.22465e-016,
+          -72},{0,-72},{0,-100}},                                    color={85,
           170,255}));
   connect(plugToPinsCurrentP.pin_p, powerSensor.currentP) 
-    annotation (Line(points={{-68,6.10623e-016},{-53.5,6.10623e-016},{-53.5,
-          1.22125e-015},{-39,1.22125e-015},{-39,6.10623e-016},{-10,6.10623e-016}},
+    annotation (Line(points={{-68,0},{-53.5,0},{-53.5,1.22125e-015},{-39,1.22125e-015},
+          {-39,0},{-10,0}},
         color={85,170,255}));
   connect(powerSensor.currentN, plugToPinsCurrentN.pin_n) 
-    annotation (Line(points={{10,6.10623e-016},{24.5,6.10623e-016},{24.5,
-          1.22125e-015},{39,1.22125e-015},{39,6.10623e-016},{68,6.10623e-016}},
+    annotation (Line(points={{10,0},{24.5,0},{24.5,1.22125e-015},{39,1.22125e-015},
+          {39,0},{68,0}},
         color={85,170,255}));
   connect(powerSensor.voltageP, plugToPinsVoltageP.pin_p) annotation (Line(
-        points={{6.10623e-016,10},{6.10623e-016,39},{0,68},{2.43241e-016,68}},
+        points={{0,10},{0,10},{0,68},{-3.67394e-016,68}},
         color={85,170,255}));
   connect(powerSensor.voltageN, plugToPinsVoltageN.pin_n) annotation (Line(
-        points={{6.10623e-016,-10},{6.10623e-016,-39},{0,-68},{-6.22061e-016,
-          -68}}, color={85,170,255}));
+        points={{0,-10},{0,-10},{0,-68},{1.22465e-016,-68}},
+                 color={85,170,255}));
   connect(powerSensor.y, sum.u) annotation (Line(points={{-8,-11},{-8,-40},{-80,
           -40},{-80,-58}}, color={85,170,255}));
   connect(sum.y, y) annotation (Line(points={{-80,-81},{-80,-110}}, color={85,
           170,255}));
-  connect(currentP, currentP) annotation (Line(points={{-100,5.55112e-016},{
-          -100,5.55112e-016},{-100,5.55112e-016}}, color={85,170,255}));
+  connect(currentP, currentP) annotation (Line(points={{-100,0},{-100,0},{-100,0}},
+                                                   color={85,170,255}));
   annotation (Diagram(graphics),
                        Icon(graphics={
         Ellipse(
@@ -110,16 +110,16 @@ equation
 
 <p>
 This sensor can be used to measure <i>m</i> complex apparent power values, using <i>m</i> 
-<a href=\"Modelica://Modelica_QuasiStationary.SinglePhase.Sensors.PowerSensor\">single phase PowerSensors</a>.
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PowerSensor\">single phase PowerSensors</a>.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<a href=\"Modelica://Modelica_QuasiStationary.SinglePhase.Sensors.PowerSensor\">SinglePhase.PowerSensor</a>, 
-<a href=\"Modelica://Modelica_QuasiStationary.MultiPhase.Sensors.PotentialSensor\">PotentialSensor</a>, 
-<a href=\"Modelica://Modelica_QuasiStationary.MultiPhase.Sensors.VoltageSensor\">VoltageSensor</a>, 
-<a href=\"Modelica://Modelica_QuasiStationary.MultiPhase.Sensors.CurrentSensor\">CurrentSensor</a>
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PowerSensor\">SinglePhase.PowerSensor</a>, 
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PotentialSensor\">PotentialSensor</a>, 
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageSensor\">VoltageSensor</a>, 
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentSensor\">CurrentSensor</a>
 </p>
 
 </html>"));

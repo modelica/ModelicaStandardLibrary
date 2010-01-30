@@ -22,7 +22,7 @@ connector PositivePin "Positive connector"
 
 <p>
 The positive pin is based on <a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Pin\">Pin</a>. 
-Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angluar velocity of the quasi stationary voltage and current. The symbol is also designed such way to look different than the <a href=\"Modelica://Modelica_QuasiStationary.SinglePhase.Interfaces.NegativePin\">negative pin</a>.
+Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angluar velocity of the quasi stationary voltage and current. The symbol is also designed such way to look different than the <a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin\">negative pin</a>.
 </p>
 
 <h4>See also</h4>

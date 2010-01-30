@@ -5,9 +5,8 @@ package QuasiStationary "Library for quasi-stationary electrical singlephase and
   extends Modelica.Icons.Library2;
 
 
-    annotation (uses(Modelica(version="3.1")),
-                version="1",
-                versionDate="2009-XX-XX",
+    annotation (version="1",
+                versionDate="2010-01-30",
                 preferedView="info", Documentation(info="<HTML>
 <p>
 <dl>
@@ -45,7 +44,7 @@ Copyright &copy; 2009 Anton Haumer &amp; Christian Kral.
     <tr>
       <td valign=\"top\">1.0.0</td>
       <td valign=\"top\">XXX</td>
-      <td valign=\"top\">2009-XX-XX</td>
+      <td valign=\"top\">2010-01-30</td>
       <td valign=\"top\">A. Haumer<br>C. Kral</td>
       <td valign=\"top\"></td>
     </tr>

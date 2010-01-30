@@ -78,8 +78,8 @@ equation
     annotation (Line(points={{-50,10},{-40,10}}, color={85,170,255}));
   connect(powerSensor.voltageP, powerSensor.currentP) annotation (Line(points={
           {-60,20},{-70,20},{-70,10}}, color={85,170,255}));
-  connect(powerSensor.voltageN, star.plug_p) annotation (Line(points={{-60,
-          -5.55112e-016},{-60,-40},{-80,-40}}, color={85,170,255}));
+  connect(powerSensor.voltageN, star.plug_p) annotation (Line(points={{-60,0},{
+          -60,-40},{-80,-40}},                 color={85,170,255}));
   connect(currentSensor.plug_n, plugToPin_p2.plug_p) 
     annotation (Line(points={{-20,10},{-2,10}}, color={85,170,255}));
   connect(currentSensor.plug_n, plugToPin_p3.plug_p) annotation (Line(points={{

@@ -14,8 +14,7 @@ equation
   plug_n.reference.gamma = pin_n.reference.gamma;
   pin_n.v = plug_n.pin[k].v;
   for j in 1:m loop
-    plug_n.pin[j].i.re = if j == k then -pin_n.i.re else 0;
-    plug_n.pin[j].i.im = if j == k then -pin_n.i.im else 0;
+    plug_n.pin[j].i = if j == k then -pin_n.i else Complex(0);
   end for;
   annotation (Icon(graphics={
         Rectangle(
@@ -41,9 +40,9 @@ Connects the single phase (negative) pin <i>k</i> of the multi phase (negative) 
 </p>
 <h4>See also</h4>
 <p>
-<a href=Modelica://Modelica_QuasiStationary.MultiPhase.Basic.PlugToPin_p>PlugToPin_p</a>,
-<a href=Modelica://Modelica_QuasiStationary.MultiPhase.Basic.PlugToPins_p>PlutToPins_p</a>,
-<a href=Modelica://Modelica_QuasiStationary.MultiPhase.Basic.PlugToPins_n>PlugToPins_n</a>
+<a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_p>PlugToPin_p</a>,
+<a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p>PlutToPins_p</a>,
+<a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n>PlugToPins_n</a>
 </p> 
 </html>"));
 end PlugToPin_n;

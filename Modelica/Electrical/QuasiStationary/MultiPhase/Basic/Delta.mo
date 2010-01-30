@@ -20,12 +20,12 @@ equation
     end if;
   end for;
   connect(plug_p, plugToPins_p.plug_p) 
-    annotation (Line(points={{-100,5.55112e-016},{-93,5.55112e-016},{-93,
-          1.16573e-015},{-86,1.16573e-015},{-86,6.10623e-016},{-72,6.10623e-016}},
+    annotation (Line(points={{-100,0},{-93,0},{-93,1.16573e-015},{-86,1.16573e-015},
+          {-86,0},{-72,0}},
         color={85,170,255}));
   connect(plugToPins_n.plug_n, plug_n) 
-    annotation (Line(points={{72,6.10623e-016},{79,6.10623e-016},{79,
-          1.16573e-015},{86,1.16573e-015},{86,5.55112e-016},{100,5.55112e-016}},
+    annotation (Line(points={{72,0},{79,0},{79,1.16573e-015},{86,1.16573e-015},
+          {86,0},{100,0}},
         color={85,170,255}));
   annotation (Icon(graphics={
         Text(
@@ -48,7 +48,7 @@ Delta (polygon) connection of a multi phase circuit.
 </p>
 <h4>See also</h4>
 <p>
-<a href=Modelica://Modelica_QuasiStationary.MultiPhase.Basic.Star>Star</a>
+<a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star>Star</a>
 </p> 
 </html>"));
 end Delta;

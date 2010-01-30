@@ -6,7 +6,7 @@ partial model AbsoluteSensor "Partial potential sensor"
   PositivePlug plug_p(final m=m) 
     annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
            0)));
-  Blocks.Interfaces.ComplexOutput y[m] 
+  Modelica.ComplexBlocks.Interfaces.ComplexOutput y[m] 
     annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=
             0)));
   Basic.PlugToPins_p plugToPins_p(final m=m) 
@@ -15,8 +15,8 @@ partial model AbsoluteSensor "Partial potential sensor"
 equation
   connect(plug_p, plugToPins_p.plug_p) 
       annotation (Line(
-      points={{-100,5.55112e-016},{-93,5.55112e-016},{-93,1.16573e-015},{-86,
-          1.16573e-015},{-86,6.10623e-016},{-72,6.10623e-016}},
+      points={{-100,0},{-93,0},{-93,1.16573e-015},{-86,1.16573e-015},{-86,0},{-72,
+          0}},
       color={85,170,255},
       smooth=Smooth.None));
   annotation (Diagram(graphics),
@@ -42,15 +42,15 @@ equation
 
 <p>
 The absolute sensor partial model relies on the a 
-<a href=\"Modelica://Modelica_QuasiStationary.MultiPhase.Interfaces.PositivePlug\">positive plug</a> to measure the complex potential. Additionally this model contains a proper icon and a definition of the angular velocity. 
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug\">positive plug</a> to measure the complex potential. Additionally this model contains a proper icon and a definition of the angular velocity. 
 </p>
 
 <h4>See also</h4>
 
 <p>
-<a href=\"Modelica://Modelica_QuasiStationary.MultiPhase.Interfaces.RelativeSensor\">RelativeSensor</a>,
-<a href=\"Modelica://Modelica_QuasiStationary.SinglePhase.Interfaces.AbsoluteSensor\">SinglePhase.Interfaces.AbsoluteSensor</a>,
-<a href=\"Modelica://Modelica_QuasiStationary.SinglePhase.Interfaces.RelativeSensor\">SinglePhase.Interfaces.RelativeSensor</a>
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.RelativeSensor\">RelativeSensor</a>,
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.AbsoluteSensor\">SinglePhase.Interfaces.AbsoluteSensor</a>,
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.RelativeSensor\">SinglePhase.Interfaces.RelativeSensor</a>
 </p>
 
 </html>"));

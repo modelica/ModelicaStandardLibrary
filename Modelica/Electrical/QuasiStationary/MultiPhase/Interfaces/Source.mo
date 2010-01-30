@@ -22,17 +22,17 @@ partial model Source "Partial voltage / current source"
   Documentation(info="<html>
 <p>
 The source partial model relies on the 
-<a href=\"Modelica://Modelica_QuasiStationary.MultiPhase.Interfaces.TwoPlug\">TwoPlug</a> and contains a proper icon. 
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug\">TwoPlug</a> and contains a proper icon. 
 </p>
 
 <h4>See also</h4>
 
 <p>
-<a href=\"Modelica://Modelica_QuasiStationary.MultiPhase.Sources.VoltageSource\">VoltageSource</a>,
-<a href=\"Modelica://Modelica_QuasiStationary.MultiPhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
-<a href=\"Modelica://Modelica_QuasiStationary.MultiPhase.Sources.CurrentSource\">CurrentSource</a>,
-<a href=\"Modelica://Modelica_QuasiStationary.MutliPhase.Sources.VariableCurrentSource\">VariableCurrentSource</a>,
-<a href=\"Modelica://Modelica_QuasiStationary.SinglePhase.Interfaces.Source\">SinglePhase.Interfaces.Source</a>.
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource\">VoltageSource</a>,
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource\">CurrentSource</a>,
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.MutliPhase.Sources.VariableCurrentSource\">VariableCurrentSource</a>,
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Source\">SinglePhase.Interfaces.Source</a>.
 </p>
 </html>"));
 end Source;

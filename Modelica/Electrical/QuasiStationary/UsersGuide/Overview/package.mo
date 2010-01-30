@@ -4,7 +4,7 @@ package Overview "Overview"
 
   annotation (Documentation(info="<html>
 <p>
-The <a href=\"Modelica://Modelica_QuasiStationary\">Modelica_QuasiStationary</a>
+The <a href=\"Modelica://Modelica.Electrical.QuasiStationary\">Modelica.Electrical.QuasiStationary</a>
 library addresses the analysis of electrical circuits with purely sinusoidal 
 voltages and currents. The main characteristics of the library are:
 </p>
@@ -22,22 +22,22 @@ voltages and currents. The main characteristics of the library are:
       since it propagated through the connector. 
       Therefore, independent circuits of different frequencies can be modeled in one model.</li>
   <li>The connectors contain the real and the imaginary part of the voltage and the current 
-      <a href=\"Modelica://Modelica_QuasiStationary.UsersGuide.Phasor\">RMS phasors</a></li>
+      <a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Phasor\">RMS phasors</a></li>
  
 </ul>
  
 <p>
 The main intention of this library is the modeling of quasi stationary behavior 
 of single and multi phase 
-<a href=\"Modelica://Modelica_QuasiStationary.UsersGuide.ACCircuit\">AC circuits</a>
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.ACCircuit\">AC circuits</a>
 with fixed and variable frequency. Quasi stationary theory and applications can be 
 found in 
-[<a href=\"Modelica://Modelica_QuasiStationary.UsersGuide.References\">Dorf1993</a>],
-[<a href=\"Modelica://Modelica_QuasiStationary.UsersGuide.References\">Burton1994</a>],
-[<a href=\"Modelica://Modelica_QuasiStationary.UsersGuide.References\">Landolt1936</a>],
-[<a href=\"Modelica://Modelica_QuasiStationary.UsersGuide.References\">Philippow1967</a>],
-[<a href=\"Modelica://Modelica_QuasiStationary.UsersGuide.References\">Weyh1967</a>],
-[<a href=\"Modelica://Modelica_QuasiStationary.UsersGuide.References\">Vaske1973</a>].
+[<a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">Dorf1993</a>],
+[<a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">Burton1994</a>],
+[<a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">Landolt1936</a>],
+[<a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">Philippow1967</a>],
+[<a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">Weyh1967</a>],
+[<a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">Vaske1973</a>].
 </p>
  
  

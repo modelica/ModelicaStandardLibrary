@@ -9,7 +9,7 @@ model VariableVoltageSource
         origin={40,100},
         extent={{-20,-20},{20,20}},
         rotation=270)));
-  Blocks.Interfaces.ComplexInput V[m] 
+  Modelica.ComplexBlocks.Interfaces.ComplexInput V[m] 
     annotation (Placement(transformation(
         origin={-40,100},
         extent={{-20,-20},{20,20}},
@@ -20,11 +20,11 @@ equation
       annotation (Line(points={{40,100},{40,60},{4,60},{4,10}}, color={0,0,127}));
   end for;
   connect(plugToPins_p.pin_p, variableVoltageSource.pin_p) 
-    annotation (Line(points={{-68,6.10623e-016},{-53.5,6.10623e-016},{-53.5,
-          1.22125e-015},{-39,1.22125e-015},{-39,0},{-10,0}}, color={85,170,255}));
+    annotation (Line(points={{-68,0},{-53.5,0},{-53.5,1.22125e-015},{-39,1.22125e-015},
+          {-39,0},{-10,0}},                                  color={85,170,255}));
   connect(variableVoltageSource.pin_n, plugToPins_n.pin_n) 
-    annotation (Line(points={{10,6.10623e-016},{39,6.10623e-016},{39,
-          7.44522e-016},{68,7.44522e-016}}, color={85,170,255}));
+    annotation (Line(points={{10,0},{39,0},{39,2.44929e-016},{68,2.44929e-016}},
+                                            color={85,170,255}));
   connect(V, variableVoltageSource.V) 
     annotation (Line(points={{-40,100},{-40,60},{-4,60},{-4,10}}, color={85,170,
           255}));
@@ -46,16 +46,16 @@ equation
 This model describes <i>m</i> variable voltage sources, with <i>m</i> complex signal inputs, 
 specifying the complex voltages by the complex RMS voltage components. 
 Additionally, the frequency of the voltage source is defined by a real signal input. 
-<i>m</i> <a href=\"Modelica://Modelica_QuasiStationary.SinglePhase.Sources.VariableVoltageSource\">single phase VariableVoltageSources</a> are used.
+<i>m</i> <a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableVoltageSource\">single phase VariableVoltageSources</a> are used.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<a href=\"Modelica://Modelica_QuasiStationary.SinglePhase.Sources.VoltageSource\">SinglePhase.VoltageSource</a>,
-<a href=\"Modelica://Modelica_QuasiStationary.MultiPhase.Sources.VoltageSource\">VoltageSource</a>, 
-<a href=\"Modelica://Modelica_QuasiStationary.MultiPhase.Sources.CurrentSource\">CurrentSource</a>,
-<a href=\"Modelica://Modelica_QuasiStationary.MultiPhase.Sources.VariableCurrentSource\">VariableCurrentSource</a>
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource\">SinglePhase.VoltageSource</a>,
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource\">VoltageSource</a>, 
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource\">CurrentSource</a>,
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource\">VariableCurrentSource</a>
 </p>
 </html>"));
 end VariableVoltageSource;

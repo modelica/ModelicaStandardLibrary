@@ -65,7 +65,7 @@ model BalancingDelta "Balancing an unsymmetrical delta-connected load"
         origin={70,-10},
         extent={{-10,-10},{10,10}},
         rotation=90)));
-  Blocks.ComplexToPolar complexToPolar[m] 
+  Modelica.ComplexBlocks.ComplexMath.ComplexToPolar complexToPolar[m] 
     annotation (Placement(transformation(
         origin={-20,-20},
         extent={{-10,-10},{10,10}},
@@ -81,8 +81,8 @@ equation
           {-60,10},{-60,20},{-50,20}}, color={85,170,255}));
   connect(powerSensor.currentN, currentSensor.plug_p) 
     annotation (Line(points={{-40,10},{-30,10}}, color={85,170,255}));
-  connect(powerSensor.voltageN, star.plug_p) annotation (Line(points={{-50,
-          -5.55112e-016},{-50,-40},{-70,-40}}, color={85,170,255}));
+  connect(powerSensor.voltageN, star.plug_p) annotation (Line(points={{-50,0},{-50,
+          -40},{-70,-40}},                     color={85,170,255}));
   connect(currentSensor.plug_n, plugToPin_p2.plug_p) 
     annotation (Line(points={{-10,10},{18,10}}, color={85,170,255}));
   connect(currentSensor.plug_n, plugToPin_p1.plug_p) annotation (Line(points={{
@@ -95,8 +95,8 @@ equation
           52},{40,42}}, color={85,170,255}));
   connect(capacitor.pin_n, plugToPin_p2.pin_p) annotation (Line(points={{40,22},
           {40,10},{22,10}}, color={85,170,255}));
-  connect(plugToPin_p2.pin_p, currentSensor23.pin_p) annotation (Line(points={{
-          22,10},{40,10},{40,2}}, color={85,170,255}));
+  connect(plugToPin_p2.pin_p, currentSensor23.pin_p) annotation (Line(points={{22,10},
+          {40,10},{40,2}},        color={85,170,255}));
   connect(currentSensor23.pin_n, inductor.pin_p) annotation (Line(points={{40,
           -18},{40,-28}}, color={85,170,255}));
   connect(inductor.pin_n, plugToPin_p3.pin_p) annotation (Line(points={{40,-48},
@@ -104,11 +104,13 @@ equation
   connect(plugToPin_p1.pin_p, resistor.pin_n) annotation (Line(points={{24,80},
           {70,80},{70,40}}, color={85,170,255}));
   connect(resistor.pin_p, currentSensor31.pin_n) 
-    annotation (Line(points={{70,20},{70,5.55112e-016}}, color={85,170,255}));
+    annotation (Line(points={{70,20},{70,0}},            color={85,170,255}));
   connect(currentSensor31.pin_p, plugToPin_p3.pin_p) annotation (Line(points={{
           70,-20},{70,-60},{22,-60}}, color={85,170,255}));
-  connect(currentSensor.y, complexToPolar.u) annotation (Line(points={{-20,-1},
-          {-20,-1},{-20,-10},{-20,-10}}, color={85,170,255}));
+  connect(currentSensor.y, complexToPolar.c) annotation (Line(
+      points={{-20,-1},{-20,-4.5},{-20,-8},{-20,-8}},
+      color={85,170,255},
+      smooth=Smooth.None));
   annotation (Diagram(graphics={Text(
           extent={{-100,-80},{100,-100}},
           lineColor={0,0,255},

@@ -13,8 +13,8 @@ equation
     connect(plugToPins_p.pin_p[j], pin_n);
   end for;
   connect(plug_p, plugToPins_p.plug_p) 
-    annotation (Line(points={{-100,5.55112e-016},{-93,5.55112e-016},{-93,
-          1.16573e-015},{-86,1.16573e-015},{-86,0},{-72,0}}, color={85,170,255}));
+    annotation (Line(points={{-100,0},{-93,0},{-93,1.16573e-015},{-86,1.16573e-015},
+          {-86,0},{-72,0}},                                  color={85,170,255}));
   annotation (Icon(graphics={
         Text(extent={{-150,60},{150,120}}, textString=
                                               "%name"),
@@ -42,7 +42,7 @@ Star (wye) connection of a multi phase circuit. The potentials at the star point
 </p>
 <h4>See also</h4>
 <p>
-<a href=Modelica://Modelica_QuasiStationary.MultiPhase.Basic.Delta>Delta</a>
+<a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Delta>Delta</a>
 </p> 
 </html>"));
 end Star;

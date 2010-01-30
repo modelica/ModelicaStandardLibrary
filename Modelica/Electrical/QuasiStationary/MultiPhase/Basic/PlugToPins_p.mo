@@ -11,8 +11,7 @@ equation
     Connections.branch(plug_p.reference, pin_p[j].reference);
     plug_p.reference.gamma = pin_p[j].reference.gamma;
     plug_p.pin[j].v = pin_p[j].v;
-    plug_p.pin[j].i.re = -pin_p[j].i.re;
-    plug_p.pin[j].i.im = -pin_p[j].i.im;
+    plug_p.pin[j].i = -pin_p[j].i;
   end for;
   annotation (Icon(graphics={
         Rectangle(
@@ -33,9 +32,9 @@ Connects all <i>m</i> single phase (positive) pins of the multi phase (positive)
 </p>
 <h4>See also</h4>
 <p>
-<a href=Modelica://Modelica_QuasiStationary.MultiPhase.Basic.PlugToPin_p>PlugToPin_p</a>,
-<a href=Modelica://Modelica_QuasiStationary.MultiPhase.Basic.PlugToPin_n>PlugToPin_n</a>,
-<a href=Modelica://Modelica_QuasiStationary.MultiPhase.Basic.PlugToPins_n>PlugToPins_n</a>
+<a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_p>PlugToPin_p</a>,
+<a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_n>PlugToPin_n</a>,
+<a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n>PlugToPins_n</a>
 </p> 
 </html>"));
 end PlugToPins_p;
