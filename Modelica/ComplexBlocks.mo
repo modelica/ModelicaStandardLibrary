@@ -1816,6 +1816,150 @@ zero or negative.
 </HTML>
 "));
         end Log;
+
+    block RealToComplex "Converts cartesian representation to complex"
+      extends Modelica.ComplexBlocks.Interfaces.ComplexSO;
+      Blocks.Interfaces.RealInput re  annotation (Placement(transformation(extent={{
+                -130,40},{-90,80}}), iconTransformation(extent={{-140,40},{-100,80}})));
+      Blocks.Interfaces.RealInput im  annotation (Placement(transformation(extent={{
+                -130,-80},{-90,-40}}), iconTransformation(extent={{-140,-80},{-100,-40}})));
+    equation
+      y=Complex(re,im);
+      annotation (Diagram(graphics), Icon(graphics={
+            Text(
+              extent={{-100,80},{-20,40}},
+              lineColor={0,0,127},
+              fillColor={85,170,255},
+              fillPattern=FillPattern.Solid,
+              textString="re"),
+            Text(
+              extent={{-100,-40},{-20,-80}},
+              lineColor={0,0,127},
+              fillColor={85,170,255},
+              fillPattern=FillPattern.Solid,
+              textString="im"),
+            Polygon(
+              points={{20,0},{0,20},{0,10},{-30,10},{-30,-10},{0,-10},{0,-20},{20,0}},
+              lineColor={0,128,255},
+              fillColor={85,170,255},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{20,60},{100,-60}},
+              lineColor={0,128,255},
+              fillColor={85,170,255},
+              fillPattern=FillPattern.Solid,
+              textString="C")}));
+    end RealToComplex;
+
+    block PolarToComplex "Converts polar representation to complex"
+      extends Modelica.ComplexBlocks.Interfaces.ComplexSO;
+      Blocks.Interfaces.RealInput len annotation (Placement(transformation(extent={{
+                -130,40},{-90,80}}), iconTransformation(extent={{-140,40},{-100,80}})));
+      Blocks.Interfaces.RealInput phi annotation (Placement(transformation(extent={{
+                -130,-80},{-90,-40}}), iconTransformation(extent={{-140,-80},{-100,-40}})));
+    equation
+      y=Complex(len*cos(phi),len*sin(phi));
+      annotation (Diagram(graphics), Icon(graphics={
+            Text(
+              extent={{-100,80},{-20,40}},
+              lineColor={0,0,127},
+              fillColor={85,170,255},
+              fillPattern=FillPattern.Solid,
+              textString="len"),
+            Text(
+              extent={{-100,-40},{-20,-80}},
+              lineColor={0,0,127},
+              fillColor={85,170,255},
+              fillPattern=FillPattern.Solid,
+              textString="phi"),
+            Polygon(
+              points={{20,0},{0,20},{0,10},{-30,10},{-30,-10},{0,-10},{0,-20},{20,0}},
+              lineColor={0,128,255},
+              fillColor={85,170,255},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{20,60},{100,-60}},
+              lineColor={0,128,255},
+              fillColor={85,170,255},
+              fillPattern=FillPattern.Solid,
+              textString="C")}));
+    end PolarToComplex;
+
+    block ComplexToReal "Converts complex to cartesian representation"
+      extends Modelica.Blocks.Interfaces.BlockIcon;
+      Blocks.Interfaces.RealOutput re  annotation (Placement(transformation(extent={{100,40},
+                {140,80}}),          iconTransformation(extent={{100,40},{140,80}})));
+      Blocks.Interfaces.RealOutput im  annotation (Placement(transformation(extent={{100,-80},
+                {140,-40}}),           iconTransformation(extent={{100,-80},{140,-40}})));
+      Interfaces.ComplexInput u 
+        annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+    equation
+      re=u.re;
+      im=u.im;
+      annotation (Diagram(graphics), Icon(graphics={
+            Text(
+              extent={{20,80},{100,40}},
+              lineColor={0,0,127},
+              fillColor={85,170,255},
+              fillPattern=FillPattern.Solid,
+              textString="re"),
+            Text(
+              extent={{20,-40},{100,-80}},
+              lineColor={0,0,127},
+              fillColor={85,170,255},
+              fillPattern=FillPattern.Solid,
+              textString="im"),
+            Polygon(
+              points={{40,0},{20,20},{20,10},{-10,10},{-10,-10},{20,-10},{20,-20},{40,
+                  0}},
+              lineColor={0,128,255},
+              fillColor={85,170,255},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-100,60},{-20,-60}},
+              lineColor={0,128,255},
+              fillColor={85,170,255},
+              fillPattern=FillPattern.Solid,
+              textString="C")}));
+    end ComplexToReal;
+
+    block ComplexToPolar "Converts complex to polar representation"
+      extends Modelica.Blocks.Interfaces.BlockIcon;
+      Blocks.Interfaces.RealOutput len annotation (Placement(transformation(extent={{100,40},
+                {140,80}}),          iconTransformation(extent={{100,40},{140,80}})));
+      Blocks.Interfaces.RealOutput phi annotation (Placement(transformation(extent={{100,-80},
+                {140,-40}}),           iconTransformation(extent={{100,-80},{140,-40}})));
+      Interfaces.ComplexInput u 
+        annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+    equation
+      len=(u.re^2 + u.im^2)^0.5;
+      phi=Modelica.Math.atan2(u.im,u.re);
+      annotation (Diagram(graphics), Icon(graphics={
+            Text(
+              extent={{20,80},{100,40}},
+              lineColor={0,0,127},
+              fillColor={85,170,255},
+              fillPattern=FillPattern.Solid,
+              textString="len"),
+            Text(
+              extent={{20,-40},{100,-80}},
+              lineColor={0,0,127},
+              fillColor={85,170,255},
+              fillPattern=FillPattern.Solid,
+              textString="phi"),
+            Polygon(
+              points={{40,0},{20,20},{20,10},{-10,10},{-10,-10},{20,-10},{20,-20},{40,
+                  0}},
+              lineColor={0,128,255},
+              fillColor={85,170,255},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-100,60},{-20,-60}},
+              lineColor={0,128,255},
+              fillColor={85,170,255},
+              fillPattern=FillPattern.Solid,
+              textString="C")}));
+    end ComplexToPolar;
     annotation (
       Documentation(info="
 <HTML>
@@ -1834,149 +1978,6 @@ connected with continuous blocks or with sampled-data blocks.
 </li>
 </ul>
 </html>"));
-    block RealToComplex "Converts cartesian representation to complex"
-      extends Modelica.ComplexBlocks.Interfaces.ComplexSO;
-      Blocks.Interfaces.RealInput re  annotation (Placement(transformation(extent={{
-                -130,40},{-90,80}}), iconTransformation(extent={{-140,40},{-100,80}})));
-      Blocks.Interfaces.RealInput im  annotation (Placement(transformation(extent={{
-                -130,-80},{-90,-40}}), iconTransformation(extent={{-140,-80},{-100,-40}})));
-      annotation (Diagram(graphics), Icon(graphics={
-            Text(
-              extent={{-100,80},{-20,40}},
-              lineColor={0,0,127},
-              fillColor={85,170,255},
-              fillPattern=FillPattern.Solid,
-              textString="re"),
-            Text(
-              extent={{-100,-40},{-20,-80}},
-              lineColor={0,0,127},
-              fillColor={85,170,255},
-              fillPattern=FillPattern.Solid,
-              textString="im"),
-            Polygon(
-              points={{20,0},{0,20},{0,10},{-30,10},{-30,-10},{0,-10},{0,-20},{20,0}},
-              lineColor={0,128,255},
-              fillColor={85,170,255},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{20,60},{100,-60}},
-              lineColor={0,128,255},
-              fillColor={85,170,255},
-              fillPattern=FillPattern.Solid,
-              textString="C")}));
-    equation
-      y=Complex(re,im);
-    end RealToComplex;
-
-    block PolarToComplex "Converts polar representation to complex"
-      extends Modelica.ComplexBlocks.Interfaces.ComplexSO;
-      Blocks.Interfaces.RealInput len annotation (Placement(transformation(extent={{
-                -130,40},{-90,80}}), iconTransformation(extent={{-140,40},{-100,80}})));
-      Blocks.Interfaces.RealInput phi annotation (Placement(transformation(extent={{
-                -130,-80},{-90,-40}}), iconTransformation(extent={{-140,-80},{-100,-40}})));
-      annotation (Diagram(graphics), Icon(graphics={
-            Text(
-              extent={{-100,80},{-20,40}},
-              lineColor={0,0,127},
-              fillColor={85,170,255},
-              fillPattern=FillPattern.Solid,
-              textString="len"),
-            Text(
-              extent={{-100,-40},{-20,-80}},
-              lineColor={0,0,127},
-              fillColor={85,170,255},
-              fillPattern=FillPattern.Solid,
-              textString="phi"),
-            Polygon(
-              points={{20,0},{0,20},{0,10},{-30,10},{-30,-10},{0,-10},{0,-20},{20,0}},
-              lineColor={0,128,255},
-              fillColor={85,170,255},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{20,60},{100,-60}},
-              lineColor={0,128,255},
-              fillColor={85,170,255},
-              fillPattern=FillPattern.Solid,
-              textString="C")}));
-    equation
-      y=Complex(len*cos(phi),len*sin(phi));
-    end PolarToComplex;
-
-    block ComplexToReal "Converts complex to cartesian representation"
-      extends Modelica.Blocks.Interfaces.BlockIcon;
-      Blocks.Interfaces.RealOutput re  annotation (Placement(transformation(extent={{100,40},
-                {140,80}}),          iconTransformation(extent={{100,40},{140,80}})));
-      Blocks.Interfaces.RealOutput im  annotation (Placement(transformation(extent={{100,-80},
-                {140,-40}}),           iconTransformation(extent={{100,-80},{140,-40}})));
-      Interfaces.ComplexInput c 
-        annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-      annotation (Diagram(graphics), Icon(graphics={
-            Text(
-              extent={{20,80},{100,40}},
-              lineColor={0,0,127},
-              fillColor={85,170,255},
-              fillPattern=FillPattern.Solid,
-              textString="re"),
-            Text(
-              extent={{20,-40},{100,-80}},
-              lineColor={0,0,127},
-              fillColor={85,170,255},
-              fillPattern=FillPattern.Solid,
-              textString="im"),
-            Polygon(
-              points={{40,0},{20,20},{20,10},{-10,10},{-10,-10},{20,-10},{20,-20},{40,
-                  0}},
-              lineColor={0,128,255},
-              fillColor={85,170,255},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-100,60},{-20,-60}},
-              lineColor={0,128,255},
-              fillColor={85,170,255},
-              fillPattern=FillPattern.Solid,
-              textString="C")}));
-    equation
-      re=c.re;
-      im=c.im;
-    end ComplexToReal;
-
-    block ComplexToPolar "Converts complex to polar representation"
-      extends Modelica.Blocks.Interfaces.BlockIcon;
-      Blocks.Interfaces.RealOutput len annotation (Placement(transformation(extent={{100,40},
-                {140,80}}),          iconTransformation(extent={{100,40},{140,80}})));
-      Blocks.Interfaces.RealOutput phi annotation (Placement(transformation(extent={{100,-80},
-                {140,-40}}),           iconTransformation(extent={{100,-80},{140,-40}})));
-      Interfaces.ComplexInput c 
-        annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-      annotation (Diagram(graphics), Icon(graphics={
-            Text(
-              extent={{20,80},{100,40}},
-              lineColor={0,0,127},
-              fillColor={85,170,255},
-              fillPattern=FillPattern.Solid,
-              textString="len"),
-            Text(
-              extent={{20,-40},{100,-80}},
-              lineColor={0,0,127},
-              fillColor={85,170,255},
-              fillPattern=FillPattern.Solid,
-              textString="phi"),
-            Polygon(
-              points={{40,0},{20,20},{20,10},{-10,10},{-10,-10},{20,-10},{20,-20},{40,
-                  0}},
-              lineColor={0,128,255},
-              fillColor={85,170,255},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-100,60},{-20,-60}},
-              lineColor={0,128,255},
-              fillColor={85,170,255},
-              fillPattern=FillPattern.Solid,
-              textString="C")}));
-    equation
-      len=(c.re^2 + c.im^2)^0.5;
-      phi=Modelica.Math.atan2(c.im,c.re);
-    end ComplexToPolar;
   end ComplexMath;
  annotation (Icon(graphics={
       Rectangle(extent={{-32,-6},{16,-35}}, lineColor={0,0,0}),
