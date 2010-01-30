@@ -78,8 +78,7 @@ function length "Return length of a complex vector"
   output Real result "Length of vector v";
 
 algorithm
-  result := sqrt(sum(v[i].re^2 + v[i].im^2 for i in 1:size(v,1)));
-
+  result := sqrt(sum({v[i].re^2 + v[i].im^2 for i in 1:size(v,1)}));
   annotation (Documentation(info="<html>
 <h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre>
@@ -156,15 +155,15 @@ possible.
 </html>"));
 end normalize;
 
-    function reverse "Reverse vector elements (e.g. v[1] becomes last element)"
-    extends Modelica.Icons.Function;
+function reverse "Reverse vector elements (e.g. v[1] becomes last element)"
+extends Modelica.Icons.Function;
 
-    input Complex v[:] "Vector";
-    output Complex result[size(v, 1)] "Elements of vector v in reversed order";
+  input Complex v[:] "Vector";
+  output Complex result[size(v, 1)] "Elements of vector v in reversed order";
 
-    algorithm
-    result := {v[end-i+1] for i in 1:size(v,1)};
-    annotation (Inline=true, Documentation(info="<html>
+algorithm
+  result := {v[end-i+1] for i in 1:size(v,1)};
+annotation (Inline=true, Documentation(info="<html>
 <p><h4>Syntax</h4></p>
 <blockquote><pre>Vectors.<b>reverse</b>(v);</pre></blockquote>
 <p><h4>Description</h4></p>
@@ -172,7 +171,7 @@ end normalize;
 <p><h4>Example</h4></p>
 <blockquote><pre>  <b>reverse</b>({1,2,3,4});  // = {4,3,2,1}</pre></blockquote>
 </html>"));
-    end reverse;
+end reverse;
 
 function sort "Sort elements of complex vector"
   input Complex v[:] "Vector to be sorted";
@@ -520,7 +519,7 @@ end Vectors;
     end if;
   end 'min';
 
-  function sum "Return sum of complex vector"
+  function 'sum' "Return sum of complex vector"
     input Complex v[:] "Vector";
     output Complex result "Complex sum of vector elements";
   algorithm
@@ -528,9 +527,9 @@ end Vectors;
     for i in 1:size(v,1) loop
       result:=result + v[i];
     end for;
-  end sum;
+  end 'sum';
 
-  function product "Return product of complex vector"
+  function 'product' "Return product of complex vector"
     input Complex v[:] "Vector";
     output Complex result "Complex product of vector elements";
   algorithm
@@ -538,7 +537,7 @@ end Vectors;
     for i in 1:size(v,1) loop
       result:=result * v[i];
     end for;
-  end product;
+  end 'product';
 
   annotation (Icon(graphics={Text(
           extent={{-94,-14},{72,-56}},
