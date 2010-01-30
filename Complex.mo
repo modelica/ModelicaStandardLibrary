@@ -144,13 +144,11 @@ versionDate="2010-01-26",
 dateModified = "2010-01-26 19:32:58Z",
 revisionId="$Id::                                       $",
 Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-        graphics={Rectangle(
-          extent={{-100,100},{100,-100}},
-          lineColor={0,0,0},
-          fillColor={181,181,181},
-          fillPattern=FillPattern.Solid), Text(
-          extent={{-94,94},{94,-94}},
-          lineColor={0,0,0},
-          textString="C")}),
+        graphics={                        Text(
+          extent={{-100,70},{40,-70}},
+          lineColor={85,170,255},
+          textString="C",
+          fillColor={85,170,255},
+          fillPattern=FillPattern.Solid)}),
 uses(Modelica(version="3.1")));
 end Complex;
