@@ -141,6 +141,10 @@ algorithm
   Ref:=1;
   assert(abs(Ref-Res)<epsilon, "imag failed");
 
+  res:=Modelica.ComplexMath.fromPolar(sqrt(2),Modelica.Constants.pi/4);
+  ref:=Complex(1,1);
+  assert(abs(Ref-Res)<epsilon, "fromPolar failed");
+
   c1:=Complex(1,1);
   res:=Modelica.ComplexMath.'sqrt'(c1);
   ref:=Complex(+1.09868411346781,+0.455089860562227);
