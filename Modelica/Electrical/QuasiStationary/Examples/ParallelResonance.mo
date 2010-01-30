@@ -78,13 +78,13 @@ equation
                          color={85,170,255}));
   connect(phi.y, polarToComplex.phi) annotation (Line(points={{-40,-39},{-40,
           -32},{-54,-32},{-54,-22}},color={0,0,127}));
-  connect(voltageSensor.y, complexToPolar.c) annotation (Line(
-      points={{61,20},{68,20}},
-      color={85,170,255},
-      smooth=Smooth.None));
   connect(I.y, polarToComplex.len) annotation (Line(
       points={{-80,-39},{-80,-32},{-66,-32},{-66,-22}},
       color={0,0,127},
       smooth=Smooth.None));
   annotation (Diagram(graphics));
+  connect(voltageSensor.y, complexToPolar.u) annotation (Line(
+      points={{61,20},{68,20}},
+      color={85,170,255},
+      smooth=Smooth.None));
 end ParallelResonance;

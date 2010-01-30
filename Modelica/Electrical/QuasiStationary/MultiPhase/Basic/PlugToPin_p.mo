@@ -32,7 +32,7 @@ equation
         Text(
           extent={{-100,-60},{100,-100}},
           lineColor={0,0,0},
-          textString=                         "k = %k")}),
+          textString =                        "k = %k")}),
                                             Diagram(graphics),
   Documentation(info="<html>
 <p>

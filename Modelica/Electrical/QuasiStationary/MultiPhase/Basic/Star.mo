@@ -33,7 +33,7 @@ equation
         Text(
           extent={{-100,-110},{100,-70}},
           lineColor={0,0,0},
-          textString=                            "m=%m"),
+          textString =                           "m=%m"),
         Line(points={{-90,0},{-40,0}}, color={0,0,255}),
         Line(points={{80,0},{90,0}}, color={0,0,255})}),              Diagram(graphics),
   Documentation(info="<html>

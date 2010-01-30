@@ -12,15 +12,15 @@ model TestConversionBlock "Test the conversion blocks"
           extent={{0,-10},{20,10}}, rotation=0)));
 equation
   connect(phi.y, polarToComplex.phi) annotation (Line(points={{-59,-20},{-50,
-          -20},{-50,-4},{-46,-4},{-46,-6},{-42,-6}},
+          -20},{-50,-6},{-46,-6},{-42,-6}},
                                   color={0,0,127}));
   connect(rms.y, polarToComplex.len) annotation (Line(
       points={{-59,20},{-50,20},{-50,6},{-42,6}},
       color={0,0,127},
       smooth=Smooth.None));
-  connect(polarToComplex.y, complexToReal.c) annotation (Line(
+  annotation (Diagram(graphics));
+  connect(polarToComplex.y, complexToReal.u) annotation (Line(
       points={{-19,0},{-2,0}},
       color={85,170,255},
       smooth=Smooth.None));
-  annotation (Diagram(graphics));
 end TestConversionBlock;

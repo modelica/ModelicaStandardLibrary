@@ -107,13 +107,13 @@ equation
     annotation (Line(points={{70,20},{70,0}},            color={85,170,255}));
   connect(currentSensor31.pin_p, plugToPin_p3.pin_p) annotation (Line(points={{
           70,-20},{70,-60},{22,-60}}, color={85,170,255}));
-  connect(currentSensor.y, complexToPolar.c) annotation (Line(
-      points={{-20,-1},{-20,-4.5},{-20,-8},{-20,-8}},
-      color={85,170,255},
-      smooth=Smooth.None));
   annotation (Diagram(graphics={Text(
           extent={{-100,-80},{100,-100}},
           lineColor={0,0,255},
           textString=
             "L and C are choosen such way that the 3 source currents are balanced")}));
+  connect(currentSensor.y, complexToPolar.u) annotation (Line(
+      points={{-20,-1},{-20,-4.5},{-20,-8},{-20,-8}},
+      color={85,170,255},
+      smooth=Smooth.None));
 end BalancingDelta;

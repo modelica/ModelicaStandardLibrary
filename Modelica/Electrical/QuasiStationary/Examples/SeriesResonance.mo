@@ -72,9 +72,9 @@ equation
       points={{-40,39},{-40,30},{-54,30},{-54,22}},
       color={0,0,127},
       smooth=Smooth.None));
-  connect(currentSensor.y, complexToPolar.c) annotation (Line(
+  annotation (Diagram(graphics));
+  connect(currentSensor.y, complexToPolar.u) annotation (Line(
       points={{-10,11},{-10,18}},
       color={85,170,255},
       smooth=Smooth.None));
-  annotation (Diagram(graphics));
 end SeriesResonance;
