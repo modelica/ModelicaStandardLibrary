@@ -82,9 +82,9 @@ equation
       points={{-80,-39},{-80,-32},{-66,-32},{-66,-22}},
       color={0,0,127},
       smooth=Smooth.None));
-  annotation (Diagram(graphics));
   connect(voltageSensor.y, complexToPolar.u) annotation (Line(
       points={{61,20},{68,20}},
       color={85,170,255},
       smooth=Smooth.None));
+  annotation (Diagram(graphics));
 end ParallelResonance;
