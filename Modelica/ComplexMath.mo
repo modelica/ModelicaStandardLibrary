@@ -453,6 +453,15 @@ end Vectors;
     annotation(Inline=true);
   end imag;
 
+  function fromPolar "Complex from polar representation"
+    input Real len "abs of complex";
+    input Modelica.SIunits.Angle phi "arg of complex";
+    output Complex c "= len*cos(phi) + j*len*sin(phi)";
+  algorithm
+    c := Complex(len*Modelica.Math.cos(phi), len*Modelica.Math.sin(phi));
+    annotation(Inline=true);
+  end fromPolar;
+
   function 'sqrt' "Square root of complex number"
     input Complex c1 "Complex number";
     output Complex c2 "= sqrt(c1)";
@@ -511,7 +520,7 @@ end Vectors;
     end if;
   end 'min';
 
-  function 'sum' "Return sum of complex vector"
+  function sum "Return sum of complex vector"
     input Complex v[:] "Vector";
     output Complex result "Complex sum of vector elements";
   algorithm
@@ -519,7 +528,7 @@ end Vectors;
     for i in 1:size(v,1) loop
       result:=result + v[i];
     end for;
-  end 'sum';
+  end sum;
 
   function product "Return product of complex vector"
     input Complex v[:] "Vector";
