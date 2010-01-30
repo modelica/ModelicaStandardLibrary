@@ -1,7 +1,37 @@
 within Modelica;
 package ComplexBlocks
-  "Library of basic input/output control blocks (continuous, discrete, logical, table blocks)"
+  "Library of basic input/output control blocks with Complex signals"
 extends Modelica.Icons.Library2;
+
+  package Examples
+    "Library of examples to demonstrate the usage of package Blocks"
+
+    model TestConversionBlock "Test the conversion blocks"
+      extends Modelica.Icons.Example;
+      Modelica.Blocks.Sources.Ramp len(duration=1, offset=1E-6) 
+        annotation (Placement(transformation(extent={{-80,10},{-60,30}}, rotation=0)));
+      Modelica.Blocks.Sources.Ramp phi(height=4*Modelica.Constants.pi, duration=1) 
+        annotation (Placement(transformation(extent={{-80,-30},{-60,-10}}, rotation=
+               0)));
+      Modelica.ComplexBlocks.ComplexMath.PolarToComplex polarToComplex annotation (Placement(transformation(
+              extent={{-40,-10},{-20,10}}, rotation=0)));
+      Modelica.ComplexBlocks.ComplexMath.ComplexToReal complexToReal annotation (Placement(transformation(
+              extent={{0,-10},{20,10}}, rotation=0)));
+    equation
+      connect(phi.y, polarToComplex.phi) annotation (Line(points={{-59,-20},{-50,
+              -20},{-50,-6},{-46,-6},{-42,-6}},
+                                      color={0,0,127}));
+      connect(len.y, polarToComplex.len) annotation (Line(
+          points={{-59,20},{-50,20},{-50,6},{-42,6}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(polarToComplex.y, complexToReal.u) annotation (Line(
+          points={{-19,0},{-2,0}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      annotation (Diagram(graphics));
+    end TestConversionBlock;
+  end Examples;
 
   package Interfaces
     "Library of connectors and partial models for input/output blocks"
@@ -196,6 +226,22 @@ All vectors have the same number of elements.
 </p>
 </html>"));
       end ComplexMI2MO;
+
+      partial block ComplexSignalSource
+      "Base class for continuous signal source"
+        extends ComplexBlocks.Interfaces.ComplexSO;
+        parameter Complex offset=Complex(0) "Offset of output signal y";
+        parameter SIunits.Time startTime=0
+        "Output y = offset for time < startTime";
+      annotation (Documentation(info="<html>
+<p>
+Basic block for Complex sources.
+This component has one continuous Complex output signal y
+and two parameters (offset, startTime) to shift the
+generated signal.
+</p>
+</html>"));
+      end ComplexSignalSource;
   end Interfaces;
 
   package ComplexMath
@@ -1979,6 +2025,234 @@ connected with continuous blocks or with sampled-data blocks.
 </ul>
 </html>"));
   end ComplexMath;
+
+  package Sources "Library of signal source blocks generating Complex signals"
+  extends Modelica.Icons.Library;
+
+    block ComplexExpression
+      "Set output signal to a time varying Complex expression"
+
+      Modelica.ComplexBlocks.Interfaces.ComplexOutput y=Complex(0)
+        "Value of Complex output" 
+        annotation (                            Dialog(group=
+              "Time varying output signal"), Placement(transformation(extent={{
+                100,-10},{120,10}}, rotation=0)));
+
+      annotation (
+        Icon(coordinateSystem(
+            preserveAspectRatio=false,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics={
+            Rectangle(
+              extent={{-100,40},{100,-40}},
+              lineColor={0,0,0},
+              fillColor={235,235,235},
+              fillPattern=FillPattern.Solid,
+              borderPattern=BorderPattern.Raised),
+            Text(
+              extent={{-96,15},{96,-15}},
+              lineColor={0,0,0},
+              textString="%y"),
+            Text(
+              extent={{-150,90},{140,50}},
+              textString="%name",
+              lineColor={0,0,255})}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics),
+        Documentation(info="<html>
+<p>
+The (time varying) Complex output signal of this block can be defined in its
+parameter menu via variable <b>y</b>. The purpose is to support the
+easy definition of Complex expressions in a block diagram.
+Note, that \"time\" is a built-in variable that is always
+accessible and represents the \"model time\" and that
+Variable <b>y</b> is both a variable and a connector.
+</p>
+</html>"));
+
+    end ComplexExpression;
+
+        block ComplexConstant "Generate constant signal of type Complex"
+          parameter Complex k(re(start=1),im(start=0)) "Constant output value";
+          extends Modelica.ComplexBlocks.Interfaces.ComplexSO;
+
+        equation
+          y = k;
+          annotation (defaultComponentName="const",
+            Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics={
+            Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
+            Polygon(
+              points={{-80,90},{-88,68},{-72,68},{-80,90}},
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
+            Polygon(
+              points={{90,-70},{68,-62},{68,-78},{90,-70}},
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-80,0},{80,0}}, color={0,0,0}),
+            Text(
+              extent={{-150,-150},{150,-110}},
+              lineColor={0,0,0},
+              textString="k=%k")}),
+            Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics={
+            Polygon(
+              points={{-80,90},{-86,68},{-74,68},{-80,90}},
+              lineColor={95,95,95},
+              fillColor={95,95,95},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-80,68},{-80,-80}}, color={95,95,95}),
+            Line(
+              points={{-80,0},{80,0}},
+              color={0,0,255},
+              thickness=0.5),
+            Line(points={{-90,-70},{82,-70}}, color={95,95,95}),
+            Polygon(
+              points={{90,-70},{68,-64},{68,-76},{90,-70}},
+              lineColor={95,95,95},
+              fillColor={95,95,95},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-83,92},{-30,74}},
+              lineColor={0,0,0},
+              textString="y"),
+            Text(
+              extent={{70,-80},{94,-100}},
+              lineColor={0,0,0},
+              textString="time"),
+            Text(
+              extent={{-101,8},{-81,-12}},
+              lineColor={0,0,0},
+              textString="k")}),
+        Documentation(info="<html>
+<p>
+The Complex output y is a constant signal:
+</p>
+
+<p>
+<img src=\"../Images/Blocks/Sources/Constant.png\">
+</p>
+</html>"));
+        end ComplexConstant;
+
+        block ComplexStep "Generate step signal of type Complex"
+          parameter Complex height=Complex(1) "Height of step";
+          extends ComplexBlocks.Interfaces.ComplexSignalSource;
+
+        equation
+          y = offset + (if time < startTime then Complex(0) else height);
+          annotation (
+            Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics={
+            Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
+            Polygon(
+              points={{-80,90},{-88,68},{-72,68},{-80,90}},
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
+            Polygon(
+              points={{90,-70},{68,-62},{68,-78},{90,-70}},
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-80,-70},{0,-70},{0,50},{80,50}}, color={0,0,0}),
+            Text(
+              extent={{-150,-150},{150,-110}},
+              lineColor={0,0,0},
+              textString="startTime=%startTime")}),
+            Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics={
+            Polygon(
+              points={{-80,90},{-86,68},{-74,68},{-80,90}},
+              lineColor={95,95,95},
+              fillColor={95,95,95},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-80,68},{-80,-80}}, color={95,95,95}),
+            Line(
+              points={{-80,-18},{0,-18},{0,50},{80,50}},
+              color={0,0,255},
+              thickness=0.5),
+            Line(points={{-90,-70},{82,-70}}, color={95,95,95}),
+            Polygon(
+              points={{90,-70},{68,-64},{68,-76},{90,-70}},
+              lineColor={95,95,95},
+              fillColor={95,95,95},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{70,-80},{94,-100}},
+              lineColor={0,0,0},
+              textString="time"),
+            Text(
+              extent={{-21,-72},{25,-90}},
+              lineColor={0,0,0},
+              textString="startTime"),
+            Line(points={{0,-17},{0,-71}}, color={95,95,95}),
+            Text(
+              extent={{-68,-36},{-22,-54}},
+              lineColor={0,0,0},
+              textString="offset"),
+            Line(points={{-13,50},{-13,-17}}, color={95,95,95}),
+            Polygon(
+              points={{2,50},{-19,50},{2,50}},
+              lineColor={95,95,95},
+              fillColor={95,95,95},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{-13,-17},{-16,-4},{-10,-4},{-13,-17},{-13,-17}},
+              lineColor={95,95,95},
+              fillColor={95,95,95},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{-13,50},{-16,37},{-9,37},{-13,50}},
+              lineColor={95,95,95},
+              fillColor={95,95,95},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-68,26},{-22,8}},
+              lineColor={0,0,0},
+              textString="height"),
+            Polygon(
+              points={{-13,-69},{-16,-56},{-10,-56},{-13,-69},{-13,-69}},
+              lineColor={95,95,95},
+              fillColor={95,95,95},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-13,-18},{-13,-70}}, color={95,95,95}),
+            Polygon(
+              points={{-13,-18},{-16,-31},{-9,-31},{-13,-18}},
+              lineColor={95,95,95},
+              fillColor={95,95,95},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-72,100},{-31,80}},
+              lineColor={0,0,0},
+              textString="y")}),
+        Documentation(info="<html>
+<p>
+The Complex output y is a step signal (of real and imaginary part):
+</p>
+
+<p>
+<img src=\"../Images/Blocks/Sources/Step.png\">
+</p>
+
+</html>"));
+        end ComplexStep;
+  end Sources;
  annotation (Icon(graphics={
       Rectangle(extent={{-32,-6},{16,-35}}, lineColor={0,0,0}),
       Polygon(
