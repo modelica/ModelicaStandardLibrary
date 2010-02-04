@@ -4,10 +4,10 @@ model PlugToPin_p "Connect one (positive) pin"
   parameter Integer k(
     final min=1,
     final max=m) = 1 "phase index";
-  Interfaces.PositivePlug plug_p(final m=m) 
+  Interfaces.PositivePlug plug_p(final m=m)
     annotation (Placement(transformation(extent={{-30,-10},{-10,10}}, rotation=
             0)));
-  SinglePhase.Interfaces.PositivePin pin_p 
+  SinglePhase.Interfaces.PositivePin pin_p
     annotation (Placement(transformation(extent={{10,-10},{30,10}}, rotation=0)));
 equation
   Connections.branch(plug_p.reference, pin_p.reference);
@@ -36,13 +36,13 @@ equation
                                             Diagram(graphics),
   Documentation(info="<html>
 <p>
-Connects the single phase (positive) pin <i>k</i> of the multi phase (positive) plug to a single phase (positive) pin. 
+Connects the single phase (positive) pin <i>k</i> of the multi phase (positive) plug to a single phase (positive) pin.
 </p>
 <h4>See also</h4>
 <p>
 <a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_n>PlugToPin_n</a>,
 <a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p>PlutToPins_p</a>,
 <a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n>PlugToPins_n</a>
-</p> 
+</p>
 </html>"));
 end PlugToPin_p;

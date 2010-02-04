@@ -1,5 +1,5 @@
 within Modelica.Electrical.QuasiStationary.MultiPhase;
-package Sensors 
+package Sensors
   extends Modelica.Icons.Library2;
 
 

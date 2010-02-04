@@ -1,5 +1,5 @@
 within Modelica.Electrical.QuasiStationary.SinglePhase;
-package Ideal 
+package Ideal
   extends Modelica.Icons.Library2;
 
 

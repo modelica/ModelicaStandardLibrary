@@ -2,7 +2,7 @@ within Modelica.Electrical.QuasiStationary.SinglePhase.Basic;
 model VariableCapacitor "Singlephase variable capacitor"
   extends Interfaces.OnePort;
   import Modelica.Constants.j;
-  Modelica.Blocks.Interfaces.RealInput C 
+  Modelica.Blocks.Interfaces.RealInput C
     annotation (Placement(transformation(
         origin={0,110},
         extent={{-20,-20},{20,20}},
@@ -40,12 +40,12 @@ The abstraction of a variable capacitor at quasi stationary operation assumes:<b
 
 <h4>See also</h4>
 <p>
-<a href=Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Resistor>Resistor</a>, 
-<a href=Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Conductor>Conductor</a>, 
-<a href=Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor>Capacitor</a>, 
-<a href=Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor>Inductor</a>, 
-<a href=Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor>Variable resistor</a>, 
-<a href=Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor>Variable conductor</a>, 
+<a href=Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Resistor>Resistor</a>,
+<a href=Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Conductor>Conductor</a>,
+<a href=Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor>Capacitor</a>,
+<a href=Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor>Inductor</a>,
+<a href=Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor>Variable resistor</a>,
+<a href=Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor>Variable conductor</a>,
 <a href=Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableInductor>Variable inductor</a>
 </p>
 </html>"));

@@ -6,10 +6,10 @@ equation
   annotation (Diagram(graphics),
                        Documentation(info="<html>
 <p>
-This partial model is based on <a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.TwoPin\">TwoPin</a> and 
-additionally considers the complex current balance of the  
+This partial model is based on <a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.TwoPin\">TwoPin</a> and
+additionally considers the complex current balance of the
 <a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">positive</a> and the
-<a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin\">negative pin</a>. 
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin\">negative pin</a>.
 This model is intended to be used with textual representation of user models.
 </p>
 

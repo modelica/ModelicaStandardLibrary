@@ -3,17 +3,17 @@ partial model AbsoluteSensor "Partial potential sensor"
   extends Modelica.Icons.RotationalSensor;
   parameter Integer m(min=1) = 3 "number of phases";
   Modelica.SIunits.AngularVelocity omega = der(plug_p.reference.gamma);
-  PositivePlug plug_p(final m=m) 
+  PositivePlug plug_p(final m=m)
     annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
            0)));
-  Modelica.ComplexBlocks.Interfaces.ComplexOutput y[m] 
+  Modelica.ComplexBlocks.Interfaces.ComplexOutput y[m]
     annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=
             0)));
-  Basic.PlugToPins_p plugToPins_p(final m=m) 
+  Basic.PlugToPins_p plugToPins_p(final m=m)
     annotation (Placement(transformation(extent={{-80,-10},{-60,10}}, rotation=
             0)));
 equation
-  connect(plug_p, plugToPins_p.plug_p) 
+  connect(plug_p, plugToPins_p.plug_p)
       annotation (Line(
       points={{-100,0},{-93,0},{-93,1.16573e-015},{-86,1.16573e-015},{-86,0},{-72,
           0}},
@@ -41,8 +41,8 @@ equation
   Documentation(info="<html>
 
 <p>
-The absolute sensor partial model relies on the a 
-<a href=\"Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug\">positive plug</a> to measure the complex potential. Additionally this model contains a proper icon and a definition of the angular velocity. 
+The absolute sensor partial model relies on the a
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug\">positive plug</a> to measure the complex potential. Additionally this model contains a proper icon and a definition of the angular velocity.
 </p>
 
 <h4>See also</h4>

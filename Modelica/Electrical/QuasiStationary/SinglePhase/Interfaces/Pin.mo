@@ -6,7 +6,7 @@ connector Pin "Basic connector"
 <p>
 The potential of this connector is the complex voltage and the flow variable is the complex current.
 The <a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">positive</a> and
-<a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin\">negative pin</a> are 
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin\">negative pin</a> are
 derived from this base connector.
 </p>
 

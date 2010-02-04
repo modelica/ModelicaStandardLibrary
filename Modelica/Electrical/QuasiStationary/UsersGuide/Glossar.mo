@@ -5,15 +5,15 @@ class Glossar
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr>
     <th>Abbreviation</th>
-    <th>Comment</th> 
+    <th>Comment</th>
   </tr>
   <tr>
-    <td>AC</td> 
-    <td>alternating current</td> 
+    <td>AC</td>
+    <td>alternating current</td>
   </tr>
   <tr>
     <td>RMS</td>
-    <td>root mean square</td> 
+    <td>root mean square</td>
   </tr>
 </table>
 </html>"));

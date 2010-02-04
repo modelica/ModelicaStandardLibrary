@@ -2,7 +2,7 @@ within Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces;
 partial model RelativeSensor "Partial voltage / current sensor"
   extends Modelica.Icons.RotationalSensor;
   extends TwoPlug;
-  Modelica.ComplexBlocks.Interfaces.ComplexOutput y[m] 
+  Modelica.ComplexBlocks.Interfaces.ComplexOutput y[m]
     annotation (Placement(transformation(
         origin={0,-110},
         extent={{-10,-10},{10,10}},
@@ -29,8 +29,8 @@ partial model RelativeSensor "Partial voltage / current sensor"
                "m=%m")}),
   Documentation(info="<html>
 <p>
-The relative sensor partial model relies on the 
-<a href=\"Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug\">TwoPlug</a> to measure the complex voltages, currents or power. Additionally this model contains a proper icon and a definition of the angular velocity. 
+The relative sensor partial model relies on the
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug\">TwoPlug</a> to measure the complex voltages, currents or power. Additionally this model contains a proper icon and a definition of the angular velocity.
 </p>
 
 <h4>See also</h4>

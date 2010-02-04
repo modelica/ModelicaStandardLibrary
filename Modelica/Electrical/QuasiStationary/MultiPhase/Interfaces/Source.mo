@@ -21,8 +21,8 @@ partial model Source "Partial voltage / current source"
                "m=%m")}),          Diagram(graphics),
   Documentation(info="<html>
 <p>
-The source partial model relies on the 
-<a href=\"Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug\">TwoPlug</a> and contains a proper icon. 
+The source partial model relies on the
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug\">TwoPlug</a> and contains a proper icon.
 </p>
 
 <h4>See also</h4>

@@ -3,10 +3,10 @@ partial model TwoPin "Two pins"
   Modelica.SIunits.ComplexVoltage v;
   Modelica.SIunits.ComplexCurrent i;
   Modelica.SIunits.AngularVelocity omega = der(pin_p.reference.gamma);
-  QuasiStationary.SinglePhase.Interfaces.PositivePin pin_p "Positive pin" 
+  QuasiStationary.SinglePhase.Interfaces.PositivePin pin_p "Positive pin"
     annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
            0)));
-  QuasiStationary.SinglePhase.Interfaces.NegativePin pin_n "Negative pin" 
+  QuasiStationary.SinglePhase.Interfaces.NegativePin pin_n "Negative pin"
     annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
 equation
   Connections.branch(pin_p.reference, pin_n.reference);

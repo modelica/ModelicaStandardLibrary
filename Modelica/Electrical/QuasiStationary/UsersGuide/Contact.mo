@@ -2,9 +2,9 @@ within Modelica.Electrical.QuasiStationary.UsersGuide;
 class Contact
 
   annotation (Documentation(info="<html>
- 
+
 <p>This package is developed an maintained by the following contributors</p>
- 
+
   <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
       <th></th>
@@ -34,6 +34,6 @@ class Contact
       </td>
     </tr>
   </table>
- 
+
 </html>"));
 end Contact;

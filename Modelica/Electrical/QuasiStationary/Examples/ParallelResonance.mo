@@ -1,12 +1,12 @@
 within Modelica.Electrical.QuasiStationary.Examples;
 model ParallelResonance "Parallel resonance circuit"
   extends Modelica.Icons.Example;
-  Modelica.Blocks.Sources.Constant I 
+  Modelica.Blocks.Sources.Constant I
     annotation (Placement(transformation(
         origin={-80,-50},
         extent={{-10,-10},{10,10}},
         rotation=90)));
-  Modelica.Blocks.Sources.Constant phi(k=0) 
+  Modelica.Blocks.Sources.Constant phi(k=0)
     annotation (Placement(transformation(
         origin={-40,-50},
         extent={{-10,-10},{10,10}},
@@ -18,34 +18,34 @@ model ParallelResonance "Parallel resonance circuit"
         origin={-60,50},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  SinglePhase.Sources.VariableCurrentSource currentSource 
+  SinglePhase.Sources.VariableCurrentSource currentSource
     annotation (Placement(transformation(
         origin={-30,20},
         extent={{10,10},{-10,-10}},
         rotation=270)));
-  SinglePhase.Basic.Ground ground 
+  SinglePhase.Basic.Ground ground
     annotation (Placement(transformation(extent={{-40,-20},{-20,0}}, rotation=0)));
-  SinglePhase.Basic.Resistor resistor(R_ref=10) 
+  SinglePhase.Basic.Resistor resistor(R_ref=10)
     annotation (Placement(transformation(
         origin={-10,20},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  SinglePhase.Basic.Inductor inductor(L=1/(2*Modelica.Constants.pi)) 
+  SinglePhase.Basic.Inductor inductor(L=1/(2*Modelica.Constants.pi))
     annotation (Placement(transformation(
         origin={10,20},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  SinglePhase.Basic.Capacitor capacitor(C=1/(2*Modelica.Constants.pi)) 
+  SinglePhase.Basic.Capacitor capacitor(C=1/(2*Modelica.Constants.pi))
     annotation (Placement(transformation(
         origin={30,20},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  SinglePhase.Sensors.VoltageSensor voltageSensor 
+  SinglePhase.Sensors.VoltageSensor voltageSensor
                                       annotation (Placement(transformation(
         origin={50,20},
         extent={{10,-10},{-10,10}},
         rotation=90)));
-  Modelica.ComplexBlocks.ComplexMath.PolarToComplex polarToComplex 
+  Modelica.ComplexBlocks.ComplexMath.PolarToComplex polarToComplex
     annotation (Placement(transformation(
         origin={-60,-10},
         extent={{-10,-10},{10,10}},

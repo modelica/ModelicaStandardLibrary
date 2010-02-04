@@ -117,7 +117,7 @@ in the declaration as in the example at the beginning.
 <b>Complex units</b> are also included in Modelica.SIunits. A complex unit is declared as:
 <pre>
   <b>model</b> QuasiStationaryMachine
-    <b>parameter</b> Modelica.SIunits.ComplexPower SNominal = Complex(10000,4400) 
+    <b>parameter</b> Modelica.SIunits.ComplexPower SNominal = Complex(10000,4400)
        \"Nominal complex power\";
    ...
    <b>end</b> QuasiStationaryMachine;
@@ -1645,73 +1645,73 @@ argument):</p>
   type LandauGinzburgParameter = Real (final quantity="LandauGinzburgParameter",
           final unit="1");
   type FluxiodQuantum = Real (final quantity="FluxiodQuantum", final unit="Wb");
-  record ComplexCurrent = 
+  record ComplexCurrent =
     Complex(redeclare Modelica.SIunits.Current re,
             redeclare Modelica.SIunits.Current im) "Complex electrical current";
-  record ComplexCurrentSlope = 
+  record ComplexCurrentSlope =
     Complex(redeclare Modelica.SIunits.CurrentSlope re,
             redeclare Modelica.SIunits.CurrentSlope im) "Complex current slope";
-  record ComplexCurrentDensity = 
+  record ComplexCurrentDensity =
     Complex(redeclare Modelica.SIunits.CurrentDensity re,
             redeclare Modelica.SIunits.CurrentDensity im)
     "Complex electrical current density";
-  record ComplexElectricPotential = 
+  record ComplexElectricPotential =
     Complex(redeclare Modelica.SIunits.ElectricPotential re,
             redeclare Modelica.SIunits.ElectricPotential im)
     "Complex electric potential";
-  record ComplexPotentialDifference = 
+  record ComplexPotentialDifference =
     Complex(redeclare Modelica.SIunits.PotentialDifference re,
             redeclare Modelica.SIunits.PotentialDifference im)
     "Complex electric potential difference";
-  record ComplexVoltage = 
+  record ComplexVoltage =
     Complex(redeclare Modelica.SIunits.Voltage re,
             redeclare Modelica.SIunits.Voltage im) "Complex electrical voltage";
-  record ComplexVoltageSlope = 
+  record ComplexVoltageSlope =
     Complex(redeclare Modelica.SIunits.VoltageSlope re,
             redeclare Modelica.SIunits.VoltageSlope im) "Complex voltage slope";
-  record ComplexElectricFieldStrength = 
+  record ComplexElectricFieldStrength =
     Complex(redeclare Modelica.SIunits.ElectricFieldStrength re,
             redeclare Modelica.SIunits.ElectricFieldStrength im)
     "Complex electric field strength";
-  record ComplexElectricFluxDensity = 
+  record ComplexElectricFluxDensity =
     Complex(redeclare Modelica.SIunits.ElectricFluxDensity re,
             redeclare Modelica.SIunits.ElectricFluxDensity im)
     "Complex electric flux density";
-  record ComplexElectricFlux = 
+  record ComplexElectricFlux =
     Complex(redeclare Modelica.SIunits.ElectricFlux re,
             redeclare Modelica.SIunits.ElectricFlux im) "Complex electric flux";
-  record ComplexMagneticFieldStrength = 
+  record ComplexMagneticFieldStrength =
     Complex(redeclare Modelica.SIunits.MagneticFieldStrength re,
             redeclare Modelica.SIunits.MagneticFieldStrength im)
     "Complex magnetic field strength";
-  record ComplexMagneticPotential = 
+  record ComplexMagneticPotential =
     Complex(redeclare Modelica.SIunits.MagneticPotential re,
             redeclare Modelica.SIunits.MagneticPotential im)
     "Complex magnetic potential";
-  record ComplexMagneticPotentialDifference = 
+  record ComplexMagneticPotentialDifference =
     Complex(redeclare Modelica.SIunits.MagneticPotentialDifference re,
             redeclare Modelica.SIunits.MagneticPotentialDifference im)
     "Complex magnetic potential difference";
-  record ComplexMagnetomotiveForce = 
+  record ComplexMagnetomotiveForce =
     Complex(redeclare Modelica.SIunits.MagnetomotiveForce re,
             redeclare Modelica.SIunits.MagnetomotiveForce im)
     "Complex magneto motive force";
-  record ComplexMagneticFluxDensity = 
+  record ComplexMagneticFluxDensity =
     Complex(redeclare Modelica.SIunits.MagneticFluxDensity re,
             redeclare Modelica.SIunits.MagneticFluxDensity im)
     "Complex magnetic flux density";
-  record ComplexMagneticFlux = 
+  record ComplexMagneticFlux =
     Complex(redeclare Modelica.SIunits.MagneticFlux re,
             redeclare Modelica.SIunits.MagneticFlux im) "Complex magnetic flux";
-  record ComplexImpedance = 
+  record ComplexImpedance =
     Complex(redeclare Modelica.SIunits.Resistance re,
             redeclare Modelica.SIunits.Reactance im)
     "Complex electrical impedance";
-  record ComplexAdmittance = 
+  record ComplexAdmittance =
     Complex(redeclare Modelica.SIunits.Conductance re,
             redeclare Modelica.SIunits.Susceptance im)
     "Complex electrical impedance";
-  record ComplexPower = 
+  record ComplexPower =
     Complex(redeclare Modelica.SIunits.ActivePower re,
             redeclare Modelica.SIunits.ReactivePower im)
     "Complex electrical power";

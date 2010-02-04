@@ -1,19 +1,19 @@
 within Modelica.Electrical.QuasiStationary.SinglePhase.Sensors;
 model PowerSensor "Power sensor"
   import Modelica.ComplexMath.conj;
-  QuasiStationary.SinglePhase.Interfaces.PositivePin currentP 
+  QuasiStationary.SinglePhase.Interfaces.PositivePin currentP
     annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
            0)));
-  QuasiStationary.SinglePhase.Interfaces.NegativePin currentN 
+  QuasiStationary.SinglePhase.Interfaces.NegativePin currentN
     annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
-  QuasiStationary.SinglePhase.Interfaces.PositivePin voltageP 
+  QuasiStationary.SinglePhase.Interfaces.PositivePin voltageP
     annotation (Placement(transformation(extent={{-10,90},{10,110}}, rotation=0)));
-  QuasiStationary.SinglePhase.Interfaces.NegativePin voltageN 
+  QuasiStationary.SinglePhase.Interfaces.NegativePin voltageN
     annotation (Placement(transformation(extent={{-10,-110},{10,-90}}, rotation=
            0)));
   output Modelica.SIunits.ComplexCurrent i;
   output Modelica.SIunits.ComplexVoltage v;
-  Modelica.ComplexBlocks.Interfaces.ComplexOutput y 
+  Modelica.ComplexBlocks.Interfaces.ComplexOutput y
     annotation (Placement(transformation(
         origin={-80,-110},
         extent={{-10,-10},{10,10}},

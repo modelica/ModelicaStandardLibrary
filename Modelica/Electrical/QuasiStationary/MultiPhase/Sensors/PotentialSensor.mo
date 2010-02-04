@@ -1,7 +1,7 @@
 within Modelica.Electrical.QuasiStationary.MultiPhase.Sensors;
 model PotentialSensor
   extends Interfaces.AbsoluteSensor;
-  SinglePhase.Sensors.PotentialSensor potentialSensor[m] 
+  SinglePhase.Sensors.PotentialSensor potentialSensor[m]
     annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
 equation
 
@@ -20,16 +20,16 @@ equation
   Documentation(info="<html>
 
 <p>
-This sensor can be used to measure <i>m</i> complex potentials, using <i>m</i> 
+This sensor can be used to measure <i>m</i> complex potentials, using <i>m</i>
 <a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PotentialSensor\">single phase PotentialSensors</a>.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PotentialSensor\">SinglePhase.PotentialSensor</a>, 
-<a href=\"Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageSensor\">VoltageSensor</a>, 
-<a href=\"Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentSensor\">CurrentSensor</a>, 
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PotentialSensor\">SinglePhase.PotentialSensor</a>,
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageSensor\">VoltageSensor</a>,
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentSensor\">CurrentSensor</a>,
 <a href=\"Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor\">PowerSensor</a>
 </p>
 

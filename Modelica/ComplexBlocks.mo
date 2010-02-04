@@ -8,9 +8,9 @@ extends Modelica.Icons.Library2;
 
     model TestConversionBlock "Test the conversion blocks"
       extends Modelica.Icons.Example;
-      Modelica.Blocks.Sources.Ramp len(duration=1, offset=1E-6) 
+      Modelica.Blocks.Sources.Ramp len(duration=1, offset=1E-6)
         annotation (Placement(transformation(extent={{-80,10},{-60,30}}, rotation=0)));
-      Modelica.Blocks.Sources.Ramp phi(height=4*Modelica.Constants.pi, duration=1) 
+      Modelica.Blocks.Sources.Ramp phi(height=4*Modelica.Constants.pi, duration=1)
         annotation (Placement(transformation(extent={{-80,-30},{-60,-10}}, rotation=
                0)));
       Modelica.ComplexBlocks.ComplexMath.PolarToComplex polarToComplex annotation (Placement(transformation(
@@ -37,7 +37,7 @@ extends Modelica.Icons.Library2;
     "Library of connectors and partial models for input/output blocks"
     extends Modelica.Icons.Library;
 
-  connector ComplexInput = input Complex "'input Complex' as connector" 
+  connector ComplexInput = input Complex "'input Complex' as connector"
     annotation (defaultComponentName="u",
     Icon(graphics={Polygon(
             points={{-100,100},{100,0},{-100,-100},{-100,100}},
@@ -62,7 +62,7 @@ Connector with one input signal of type Complex.
 </p>
 </html>"));
 
-  connector ComplexOutput = output Complex "'output Complex' as connector" 
+  connector ComplexOutput = output Complex "'output Complex' as connector"
     annotation (defaultComponentName="y",
     Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -91,7 +91,7 @@ Connector with one output signal of type Complex.
 
       partial block ComplexSO "Single Output continuous control block"
         extends Blocks.Interfaces.BlockIcon;
-        ComplexOutput y "Connector of Complex output signal" 
+        ComplexOutput y "Connector of Complex output signal"
           annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
         annotation (Documentation(info="<html>
 <p>
@@ -103,7 +103,7 @@ Block has one continuous Complex output signal.
       partial block ComplexMO "Multiple Output continuous control block"
         extends Blocks.Interfaces.BlockIcon;
         parameter Integer nout(min=1) = 1 "Number of outputs";
-        ComplexOutput y[nout] "Connector of Complex output signals" 
+        ComplexOutput y[nout] "Connector of Complex output signals"
           annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
         annotation (Documentation(info="<html>
 <p>
@@ -115,9 +115,9 @@ Block has one continuous Complex output signal vector.
       partial block ComplexSISO
       "Single Input Single Output continuous control block"
         extends Blocks.Interfaces.BlockIcon;
-        ComplexInput u "Connector of Complex input signal" 
+        ComplexInput u "Connector of Complex input signal"
           annotation (Placement(transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
-        ComplexOutput y "Connector of Complex output signal" 
+        ComplexOutput y "Connector of Complex output signal"
           annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
         annotation (Documentation(info="<html>
 <p>
@@ -129,11 +129,11 @@ Block has one continuous Complex input and one continuous Complex output signal.
       partial block ComplexSI2SO
       "2 Single Input / 1 Single Output continuous control block"
         extends Blocks.Interfaces.BlockIcon;
-        ComplexInput u1 "Connector of Complex input signal 1" 
+        ComplexInput u1 "Connector of Complex input signal 1"
           annotation (Placement(transformation(extent={{-140,40},{-100,80}}, rotation=0)));
-        ComplexInput u2 "Connector of Complex input signal 2" 
+        ComplexInput u2 "Connector of Complex input signal 2"
           annotation (Placement(transformation(extent={{-140,-80},{-100,-40}}, rotation=0)));
-        ComplexOutput y "Connector of Complex output signal" 
+        ComplexOutput y "Connector of Complex output signal"
           annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
         annotation (Documentation(info="<html>
 <p>
@@ -147,9 +147,9 @@ continuous Complex output signal y.
       "Single Input Multiple Output continuous control block"
         extends Blocks.Interfaces.BlockIcon;
         parameter Integer nout=1 "Number of outputs";
-        ComplexInput u "Connector of Complex input signal" 
+        ComplexInput u "Connector of Complex input signal"
           annotation (Placement(transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
-        ComplexOutput y[nout] "Connector of Complex output signals" 
+        ComplexOutput y[nout] "Connector of Complex output signals"
           annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
         annotation (Documentation(info="<html>
 <p>
@@ -163,9 +163,9 @@ vector of continuous Complex output signals.
       "Multiple Input Single Output continuous control block"
         extends Blocks.Interfaces.BlockIcon;
         parameter Integer nin=1 "Number of inputs";
-        ComplexInput u[nin] "Connector of Complex input signals" 
+        ComplexInput u[nin] "Connector of Complex input signals"
           annotation (Placement(transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
-        ComplexOutput y "Connector of Complex output signal" 
+        ComplexOutput y "Connector of Complex output signal"
           annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
         annotation (Documentation(info="<html>
 <p>
@@ -180,9 +180,9 @@ one continuous Complex output signal.
         extends Blocks.Interfaces.BlockIcon;
         parameter Integer nin=1 "Number of inputs";
         parameter Integer nout=1 "Number of outputs";
-        ComplexInput u[nin] "Connector of Complex input signals" 
+        ComplexInput u[nin] "Connector of Complex input signals"
           annotation (Placement(transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
-        ComplexOutput y[nout] "Connector of Complex output signals" 
+        ComplexOutput y[nout] "Connector of Complex output signals"
           annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
         annotation (Documentation(info="<html>
 <p>
@@ -196,9 +196,9 @@ The signal sizes of the input and output vector may be different.
       "Multiple Input Multiple Output continuous control block with same number of inputs and outputs"
         extends Blocks.Interfaces.BlockIcon;
         parameter Integer n=1 "Number of inputs (= number of outputs)";
-        ComplexInput u[n] "Connector of Complex input signals" 
+        ComplexInput u[n] "Connector of Complex input signals"
           annotation (Placement(transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
-        ComplexOutput y[n] "Connector of Complex output signals" 
+        ComplexOutput y[n] "Connector of Complex output signals"
           annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
         annotation (Documentation(info="<html>
 <p>
@@ -212,11 +212,11 @@ where the signal sizes of the input and output vector are identical.
       "2 Multiple Input / Multiple Output continuous control block"
         extends Blocks.Interfaces.BlockIcon;
         parameter Integer n=1 "Dimension of input and output vectors.";
-        ComplexInput u1[n] "Connector 1 of Complex input signals" 
+        ComplexInput u1[n] "Connector 1 of Complex input signals"
           annotation (Placement(transformation(extent={{-140,40},{-100,80}}, rotation=0)));
-        ComplexInput u2[n] "Connector 2 of Complex input signals" 
+        ComplexInput u2[n] "Connector 2 of Complex input signals"
           annotation (Placement(transformation(extent={{-140,-80},{-100,-40}}, rotation=0)));
-        ComplexOutput y[n] "Connector of Complex output signals" 
+        ComplexOutput y[n] "Connector of Complex output signals"
           annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
         annotation (Documentation(info="<html>
 <p>
@@ -253,10 +253,10 @@ generated signal.
           parameter Complex k(re(start=1), im(start=0))
         "Gain value multiplied with input signal";
     public
-          Interfaces.ComplexInput u "Input signal connector" 
+          Interfaces.ComplexInput u "Input signal connector"
             annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
-          Interfaces.ComplexOutput y "Output signal connector" 
+          Interfaces.ComplexOutput y "Output signal connector"
             annotation (Placement(transformation(extent={{100,-10},{120,10}},
               rotation=0)));
 
@@ -363,7 +363,7 @@ Example:
 
           Interfaces.ComplexInput u1 annotation (Placement(transformation(
               extent={{-100,-20},{-60,20}}, rotation=0)));
-          Interfaces.ComplexInput u2 
+          Interfaces.ComplexInput u2
             annotation (Placement(transformation(
             origin={0,-80},
             extent={{-20,-20},{20,20}},
@@ -560,16 +560,16 @@ Example:
           parameter Complex k1=Complex(1,0) "Gain of upper input";
           parameter Complex k2=Complex(1,0) "Gain of middle input";
           parameter Complex k3=Complex(1,0) "Gain of lower input";
-          Interfaces.ComplexInput u1 "Connector 1 of Complex input signals" 
+          Interfaces.ComplexInput u1 "Connector 1 of Complex input signals"
             annotation (Placement(transformation(extent={{-140,60},{-100,100}},
               rotation=0)));
-          Interfaces.ComplexInput u2 "Connector 2 of Complex input signals" 
+          Interfaces.ComplexInput u2 "Connector 2 of Complex input signals"
             annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
-          Interfaces.ComplexInput u3 "Connector 3 of Complex input signals" 
+          Interfaces.ComplexInput u3 "Connector 3 of Complex input signals"
             annotation (Placement(transformation(extent={{-140,-100},{-100,-60}},
               rotation=0)));
-          Interfaces.ComplexOutput y "Connector of Complex output signals" 
+          Interfaces.ComplexOutput y "Connector of Complex output signals"
             annotation (Placement(transformation(extent={{100,-10},{120,10}},
               rotation=0)));
 
@@ -1937,7 +1937,7 @@ zero or negative.
                 {140,80}}),          iconTransformation(extent={{100,40},{140,80}})));
       Blocks.Interfaces.RealOutput im  annotation (Placement(transformation(extent={{100,-80},
                 {140,-40}}),           iconTransformation(extent={{100,-80},{140,-40}})));
-      Interfaces.ComplexInput u 
+      Interfaces.ComplexInput u
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
     equation
       re=u.re;
@@ -1975,7 +1975,7 @@ zero or negative.
                 {140,80}}),          iconTransformation(extent={{100,40},{140,80}})));
       Blocks.Interfaces.RealOutput phi annotation (Placement(transformation(extent={{100,-80},
                 {140,-40}}),           iconTransformation(extent={{100,-80},{140,-40}})));
-      Interfaces.ComplexInput u 
+      Interfaces.ComplexInput u
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
     equation
       len=(u.re^2 + u.im^2)^0.5;
@@ -2033,7 +2033,7 @@ connected with continuous blocks or with sampled-data blocks.
       "Set output signal to a time varying Complex expression"
 
       Modelica.ComplexBlocks.Interfaces.ComplexOutput y=Complex(0)
-        "Value of Complex output" 
+        "Value of Complex output"
         annotation (                            Dialog(group=
               "Time varying output signal"), Placement(transformation(extent={{
                 100,-10},{120,10}}, rotation=0)));

@@ -1,9 +1,9 @@
 within Modelica.Electrical.QuasiStationary.Examples;
 model TestConversionBlock "Test the conversion blocks"
   extends Modelica.Icons.Example;
-  Modelica.Blocks.Sources.Ramp rms(duration=1, offset=1E-6) 
+  Modelica.Blocks.Sources.Ramp rms(duration=1, offset=1E-6)
     annotation (Placement(transformation(extent={{-80,10},{-60,30}}, rotation=0)));
-  Modelica.Blocks.Sources.Ramp phi(height=4*Modelica.Constants.pi, duration=1) 
+  Modelica.Blocks.Sources.Ramp phi(height=4*Modelica.Constants.pi, duration=1)
     annotation (Placement(transformation(extent={{-80,-30},{-60,-10}}, rotation=
            0)));
   Modelica.ComplexBlocks.ComplexMath.PolarToComplex polarToComplex annotation (Placement(transformation(

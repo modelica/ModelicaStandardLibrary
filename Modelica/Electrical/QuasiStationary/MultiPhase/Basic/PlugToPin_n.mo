@@ -4,10 +4,10 @@ model PlugToPin_n "Connect one (negative) pin"
   parameter Integer k(
     final min=1,
     final max=m) = 1 "phase index";
-  Interfaces.NegativePlug plug_n(final m=m) 
+  Interfaces.NegativePlug plug_n(final m=m)
     annotation (Placement(transformation(extent={{-30,-10},{-10,10}}, rotation=
             0)));
-  SinglePhase.Interfaces.NegativePin pin_n 
+  SinglePhase.Interfaces.NegativePin pin_n
     annotation (Placement(transformation(extent={{10,-10},{30,10}}, rotation=0)));
 equation
   Connections.branch(plug_n.reference, pin_n.reference);
@@ -36,13 +36,13 @@ equation
                                             Diagram(graphics),
   Documentation(info="<html>
 <p>
-Connects the single phase (negative) pin <i>k</i> of the multi phase (negative) plug to a single phase (negative) pin. 
+Connects the single phase (negative) pin <i>k</i> of the multi phase (negative) plug to a single phase (negative) pin.
 </p>
 <h4>See also</h4>
 <p>
 <a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_p>PlugToPin_p</a>,
 <a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p>PlutToPins_p</a>,
 <a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n>PlugToPins_n</a>
-</p> 
+</p>
 </html>"));
 end PlugToPin_n;

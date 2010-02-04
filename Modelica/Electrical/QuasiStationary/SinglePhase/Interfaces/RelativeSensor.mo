@@ -21,8 +21,8 @@ partial model RelativeSensor "Partial voltage / current sensor"
         Line(points={{0,-70},{0,-80},{0,-90},{0,-100}}, color={85,170,255})}),
   Documentation(info="<html>
 <p>
-The relative sensor partial model relies on the 
-<a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort\">OnePort</a> to measure the complex voltage, current or power. Additionally this model contains a proper icon and a definition of the angular velocity. 
+The relative sensor partial model relies on the
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort\">OnePort</a> to measure the complex voltage, current or power. Additionally this model contains a proper icon and a definition of the angular velocity.
 </p>
 
 <h4>See also</h4>

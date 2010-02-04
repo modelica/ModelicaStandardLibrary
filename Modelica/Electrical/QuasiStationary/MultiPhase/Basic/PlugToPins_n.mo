@@ -1,10 +1,10 @@
 within Modelica.Electrical.QuasiStationary.MultiPhase.Basic;
 model PlugToPins_n "Connect all (negative) pins"
   parameter Integer m(final min=1) = 3 "number of phases";
-  Interfaces.NegativePlug plug_n(final m=m) 
+  Interfaces.NegativePlug plug_n(final m=m)
     annotation (Placement(transformation(extent={{-30,-10},{-10,10}}, rotation=
             0)));
-  SinglePhase.Interfaces.NegativePin pin_n[m] 
+  SinglePhase.Interfaces.NegativePin pin_n[m]
     annotation (Placement(transformation(extent={{10,-10},{30,10}}, rotation=0)));
 equation
   for j in 1:m loop
@@ -28,13 +28,13 @@ equation
                                             "%name")}),Diagram(graphics),
   Documentation(info="<html>
 <p>
-Connects all <i>m</i> single phase (negative) pins of the multi phase (negative) plug to an array of <i>m</i> single phase (negative) pins. 
+Connects all <i>m</i> single phase (negative) pins of the multi phase (negative) plug to an array of <i>m</i> single phase (negative) pins.
 </p>
 <h4>See also</h4>
 <p>
 <a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_p>PlugToPin_p</a>,
 <a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_n>PlugToPin_n</a>,
 <a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p>PlugToPins_p</a>
-</p> 
+</p>
 </html>"));
 end PlugToPins_n;

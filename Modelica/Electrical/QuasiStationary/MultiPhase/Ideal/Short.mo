@@ -23,7 +23,7 @@ annotation (
         Line(points={{91,0},{-90,0}})}),
   Documentation(info="<html>
 <p>
-This model describes <i>m</m> simple short branches considering the complex voltages <i><u>v</u></i> = 0; 
+This model describes <i>m</m> simple short branches considering the complex voltages <i><u>v</u></i> = 0;
 it uses <i>m</i> <a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.Short\">single phase short branches</a>.
 </p>
 

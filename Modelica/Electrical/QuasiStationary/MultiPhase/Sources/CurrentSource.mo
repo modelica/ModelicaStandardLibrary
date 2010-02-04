@@ -9,10 +9,10 @@ model CurrentSource
   SinglePhase.Sources.CurrentSource currentSource[m](
     each final f=f,
     final phi=phi,
-    final I=I) 
+    final I=I)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
 equation
-  connect(plugToPins_p.pin_p,currentSource. pin_p) 
+  connect(plugToPins_p.pin_p,currentSource. pin_p)
     annotation (Line(points={{-68,0},{-10,0}}, color={85,170,255}));
   connect(currentSource.pin_n, plugToPins_n.pin_n) annotation (Line(points={{10,0},{
           39,0},{39,2.44929e-016},{68,2.44929e-016}},     color={85,170,255}));
@@ -27,7 +27,7 @@ equation
   Documentation(info="<html>
 
 <p>
-This model describes <i>m</i> constant current sources, specifying the complex currents by the RMS currents and the phase shifts. 
+This model describes <i>m</i> constant current sources, specifying the complex currents by the RMS currents and the phase shifts.
 <i>m</i> <a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.CurrentSource\">single phase CurrentSources</a> are used.
 </p>
 
@@ -36,7 +36,7 @@ This model describes <i>m</i> constant current sources, specifying the complex c
 <p>
 <a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.CurrentSource\">SinglePhase.CurrentSource</a>,
 <a href=\"Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource\">VoltageSource</a>,
-<a href=\"Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>, 
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
 <a href=\"Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource\">VariableCurrentSource</a>
 </p>
 </html>"));

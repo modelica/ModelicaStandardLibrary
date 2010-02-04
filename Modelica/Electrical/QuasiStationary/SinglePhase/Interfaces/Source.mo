@@ -15,8 +15,8 @@ equation
         Line(points={{50,0},{90,0}}, color={0,0,0})}),               Diagram(graphics),
   Documentation(info="<html>
 <p>
-The source partial model relies on the 
-<a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort\">OnePort</a> and contains a proper icon. 
+The source partial model relies on the
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort\">OnePort</a> and contains a proper icon.
 </p>
 
 <h4>See also</h4>

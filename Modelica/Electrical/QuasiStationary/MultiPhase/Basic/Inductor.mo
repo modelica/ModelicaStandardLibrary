@@ -2,7 +2,7 @@ within Modelica.Electrical.QuasiStationary.MultiPhase.Basic;
 model Inductor "Multiphase linear inductor"
   extends Interfaces.TwoPlug;
   parameter Modelica.SIunits.Inductance L[m](start=fill(1,m));
-  SinglePhase.Basic.Inductor inductor[m](final L=L) 
+  SinglePhase.Basic.Inductor inductor[m](final L=L)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
 equation
 
@@ -36,19 +36,19 @@ equation
   Documentation(info="<html>
 <p>
 The linear inductor connects the complex voltages <i><u>v</u></i> with the complex
-currents <i><u>i</u></i> by <i><u>i</u>*j*&omega;*L = <u>v</u></i>, 
+currents <i><u>i</u></i> by <i><u>i</u>*j*&omega;*L = <u>v</u></i>,
 using <i>m</i> <a href=Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor>single phase Inductors</a>.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor>Inductor</a>, 
-<a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor>Resistor</a>, 
-<a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor>Conductor</a>, 
-<a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor>Capacitor</a>, 
-<a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor>Variable resistor</a>, 
-<a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor>Variable conductor</a>, 
-<a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor>Variable capacitor</a>, 
+<a href=Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor>Inductor</a>,
+<a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor>Resistor</a>,
+<a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor>Conductor</a>,
+<a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor>Capacitor</a>,
+<a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor>Variable resistor</a>,
+<a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor>Variable conductor</a>,
+<a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor>Variable capacitor</a>,
 <a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor>Variable inductor</a>
 </p>
 </html>"));

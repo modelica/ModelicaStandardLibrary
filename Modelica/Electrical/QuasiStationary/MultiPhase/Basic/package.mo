@@ -1,5 +1,5 @@
 within Modelica.Electrical.QuasiStationary.MultiPhase;
-package Basic 
+package Basic
   extends Modelica.Icons.Library2;
 
 

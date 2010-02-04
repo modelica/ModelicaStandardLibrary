@@ -28,8 +28,8 @@ Vectors.<b>norm</b>(v,p=2);   // 1 &le; p &le; &#8734;
 <h4><font color=\"#008000\">Description</font></h4>
 <p>
 The function call \"<code>Vectors.<b>norm</b>(v)</code>\" returns the
-<b>Euclidean norm</b> \"<code>sqrt(v*v)</code>\" of vector v. 
-With the optional 
+<b>Euclidean norm</b> \"<code>sqrt(v*v)</code>\" of vector v.
+With the optional
 second argument \"p\", any other p-norm can be computed:
 </p>
 <center>
@@ -87,7 +87,7 @@ Vectors.<b>length</b>(v);
 <h4><font color=\"#008000\">Description</font></h4>
 <p>
 The function call \"<code>Vectors.<b>length</b>(v)</code>\" returns the
-<b>Euclidean length</b> \"<code>sqrt(v*v)</code>\" of vector v. 
+<b>Euclidean length</b> \"<code>sqrt(v*v)</code>\" of vector v.
 The function call is equivalent to Vectors.norm(v). The advantage of
 length(v) over norm(v)\"is that function length(..) is implemented
 in one statement and therefore the function is usually automatically
@@ -131,13 +131,13 @@ Vectors.<b>normalize</b>(v,eps=100*Modelica.Constants.eps);
 <h4><font color=\"#008000\">Description</font></h4>
 <p>
 The function call \"<code>Vectors.<b>normalize</b>(v)</code>\" returns the
-<b>unit vector</b> \"<code>v/length(v)</code>\" of vector v. 
-If length(v) is close to zero (more precisely, if length(v) &lt; eps), 
+<b>unit vector</b> \"<code>v/length(v)</code>\" of vector v.
+If length(v) is close to zero (more precisely, if length(v) &lt; eps),
 v is returned in order to avoid
 a division by zero. For many applications this is useful, because
 often the unit vector <b>e</b> = <b>v</b>/length(<b>v</b>) is used to compute
-a vector x*<b>e</b>, where the scalar x is in the order of length(<b>v</b>), 
-i.e., x*<b>e</b> is small, when length(<b>v</b>) is small and then 
+a vector x*<b>e</b>, where the scalar x is in the order of length(<b>v</b>),
+i.e., x*<b>e</b> is small, when length(<b>v</b>) is small and then
 it is fine to replace <b>e</b> by <b>v</b> to avoid a division by zero.
 </p>
 <p>
@@ -205,14 +205,14 @@ algorithm
            k2 := j + gap + 1;
            if sortFrequency then
               if ascending then
-                 swap := abs(sorted_v[k1].im) >  abs(sorted_v[k2].im) or 
-                         abs(sorted_v[k1].im) == abs(sorted_v[k2].im) and 
-                         (sorted_v[k1].re  > sorted_v[k2].re or 
+                 swap := abs(sorted_v[k1].im) >  abs(sorted_v[k2].im) or
+                         abs(sorted_v[k1].im) == abs(sorted_v[k2].im) and
+                         (sorted_v[k1].re  > sorted_v[k2].re or
                           sorted_v[k1].re  == sorted_v[k2].re and sorted_v[k1].im < sorted_v[k2].im);
               else
-                 swap := abs(sorted_v[k1].im) <  abs(sorted_v[k2].im) or 
-                         abs(sorted_v[k1].im) == abs(sorted_v[k2].im) and 
-                         (sorted_v[k1].re  < sorted_v[k2].re or 
+                 swap := abs(sorted_v[k1].im) <  abs(sorted_v[k2].im) or
+                         abs(sorted_v[k1].im) == abs(sorted_v[k2].im) and
+                         (sorted_v[k1].re  < sorted_v[k2].re or
                           sorted_v[k1].re  == sorted_v[k2].re and sorted_v[k1].im < sorted_v[k2].im);
               end if;
            else
@@ -239,14 +239,14 @@ algorithm
               k2 := j + gap + 1;
               if sortFrequency then
                  if ascending then
-                    swap := abs(sorted_v[k1].im) >  abs(sorted_v[k2].im) or 
-                            abs(sorted_v[k1].im) == abs(sorted_v[k2].im) and 
-                            (sorted_v[k1].re  > sorted_v[k2].re or 
+                    swap := abs(sorted_v[k1].im) >  abs(sorted_v[k2].im) or
+                            abs(sorted_v[k1].im) == abs(sorted_v[k2].im) and
+                            (sorted_v[k1].re  > sorted_v[k2].re or
                              sorted_v[k1].re  == sorted_v[k2].re and sorted_v[k1].im < sorted_v[k2].im);
                  else
-                    swap := abs(sorted_v[k1].im) <  abs(sorted_v[k2].im) or 
-                            abs(sorted_v[k1].im) == abs(sorted_v[k2].im) and 
-                            (sorted_v[k1].re  < sorted_v[k2].re or 
+                    swap := abs(sorted_v[k1].im) <  abs(sorted_v[k2].im) or
+                            abs(sorted_v[k1].im) == abs(sorted_v[k2].im) and
+                            (sorted_v[k1].re  < sorted_v[k2].re or
                              sorted_v[k1].re  == sorted_v[k2].re and sorted_v[k1].im < sorted_v[k2].im);
                  end if;
               else

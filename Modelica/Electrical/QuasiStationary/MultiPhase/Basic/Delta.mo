@@ -1,10 +1,10 @@
 within Modelica.Electrical.QuasiStationary.MultiPhase.Basic;
 model Delta "Delta (polygon) connection"
   parameter Integer m(final min=2) = 3 "number of phases";
-  Interfaces.PositivePlug plug_p(final m=m) 
+  Interfaces.PositivePlug plug_p(final m=m)
     annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
            0)));
-  Interfaces.NegativePlug plug_n(final m=m) 
+  Interfaces.NegativePlug plug_n(final m=m)
     annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
 
   PlugToPins_p plugToPins_p annotation (Placement(transformation(extent={{-80,
@@ -19,11 +19,11 @@ equation
       connect(plugToPins_p.pin_p[j], plugToPins_n.pin_n[1]);
     end if;
   end for;
-  connect(plug_p, plugToPins_p.plug_p) 
+  connect(plug_p, plugToPins_p.plug_p)
     annotation (Line(points={{-100,0},{-93,0},{-93,1.16573e-015},{-86,1.16573e-015},
           {-86,0},{-72,0}},
         color={85,170,255}));
-  connect(plugToPins_n.plug_n, plug_n) 
+  connect(plugToPins_n.plug_n, plug_n)
     annotation (Line(points={{72,0},{79,0},{79,1.16573e-015},{86,1.16573e-015},
           {86,0},{100,0}},
         color={85,170,255}));
@@ -44,11 +44,11 @@ equation
         Line(points={{80,0},{90,0}}, color={0,0,255})}),              Diagram(graphics),
   Documentation(info="<html>
 <p>
-Delta (polygon) connection of a multi phase circuit. 
+Delta (polygon) connection of a multi phase circuit.
 </p>
 <h4>See also</h4>
 <p>
 <a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star>Star</a>
-</p> 
+</p>
 </html>"));
 end Delta;

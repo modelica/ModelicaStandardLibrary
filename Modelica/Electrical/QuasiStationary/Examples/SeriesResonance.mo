@@ -1,12 +1,12 @@
 within Modelica.Electrical.QuasiStationary.Examples;
 model SeriesResonance "Series resonance circuit"
   extends Modelica.Icons.Example;
-  Modelica.Blocks.Sources.Constant V 
+  Modelica.Blocks.Sources.Constant V
     annotation (Placement(transformation(
         origin={-40,50},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Blocks.Sources.Constant phi(k=0) 
+  Modelica.Blocks.Sources.Constant phi(k=0)
     annotation (Placement(transformation(
         origin={-80,50},
         extent={{-10,-10},{10,10}},
@@ -18,29 +18,29 @@ model SeriesResonance "Series resonance circuit"
         origin={-60,-50},
         extent={{-10,-10},{10,10}},
         rotation=90)));
-  SinglePhase.Sources.VariableVoltageSource voltageSource 
+  SinglePhase.Sources.VariableVoltageSource voltageSource
     annotation (Placement(transformation(
         origin={-30,-20},
         extent={{-10,10},{10,-10}},
         rotation=270)));
-  SinglePhase.Basic.Ground ground 
+  SinglePhase.Basic.Ground ground
     annotation (Placement(transformation(extent={{-40,-60},{-20,-40}}, rotation=
            0)));
-  SinglePhase.Basic.Resistor resistor(R_ref=0.1) 
+  SinglePhase.Basic.Resistor resistor(R_ref=0.1)
     annotation (Placement(transformation(extent={{10,-10},{30,10}}, rotation=0)));
-  SinglePhase.Basic.Inductor inductor(L=1/(2*Modelica.Constants.pi)) 
+  SinglePhase.Basic.Inductor inductor(L=1/(2*Modelica.Constants.pi))
     annotation (Placement(transformation(extent={{40,-10},{60,10}}, rotation=0)));
-  SinglePhase.Basic.Capacitor capacitor(C=1/(2*Modelica.Constants.pi)) 
+  SinglePhase.Basic.Capacitor capacitor(C=1/(2*Modelica.Constants.pi))
     annotation (Placement(transformation(extent={{70,-10},{90,10}}, rotation=0)));
-  SinglePhase.Sensors.CurrentSensor currentSensor 
+  SinglePhase.Sensors.CurrentSensor currentSensor
                                       annotation (Placement(transformation(
           extent={{-20,10},{0,-10}}, rotation=0)));
-  Modelica.ComplexBlocks.ComplexMath.PolarToComplex polarToComplex 
+  Modelica.ComplexBlocks.ComplexMath.PolarToComplex polarToComplex
     annotation (Placement(transformation(
         origin={-60,10},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.ComplexBlocks.ComplexMath.ComplexToPolar complexToPolar 
+  Modelica.ComplexBlocks.ComplexMath.ComplexToPolar complexToPolar
     annotation (Placement(transformation(
         origin={-10,30},
         extent={{-10,-10},{10,10}},
@@ -55,13 +55,13 @@ equation
                                      color={85,170,255}));
   connect(voltageSource.pin_p, currentSensor.pin_p) annotation (Line(points={{-30,-10},
           {-30,0},{-20,0}},      color={85,170,255}));
-  connect(currentSensor.pin_n, resistor.pin_p) 
+  connect(currentSensor.pin_n, resistor.pin_p)
     annotation (Line(points={{0,0},{2.5,0},{2.5,-3.36456e-022},{5,-3.36456e-022},
           {5,0},{10,0}}, color={85,170,255}));
-  connect(resistor.pin_n, inductor.pin_p) 
+  connect(resistor.pin_n, inductor.pin_p)
     annotation (Line(points={{30,0},{32.5,0},{32.5,1.22125e-015},{35,1.22125e-015},
           {35,0},{40,0}}, color={85,170,255}));
-  connect(inductor.pin_n, capacitor.pin_p) 
+  connect(inductor.pin_n, capacitor.pin_p)
     annotation (Line(points={{60,0},{62.5,0},{62.5,1.22125e-015},{65,1.22125e-015},
           {65,0},{70,0}}, color={85,170,255}));
   connect(capacitor.pin_n, ground.pin) annotation (Line(points={{90,0},{90,-40},

@@ -9,7 +9,7 @@ package SinglePhase "Single phase AC components"
         lineColor={0,0,0},
         fillPattern=FillPattern.HorizontalCylinder,
         fillColor={0,0,255})}),      Documentation(info="<html>
-<p>This package hosts models for quasi stationary single phase circuits. 
+<p>This package hosts models for quasi stationary single phase circuits.
 Quasi stationary theory for single phase circuits can be found in the
 <a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
 </p>

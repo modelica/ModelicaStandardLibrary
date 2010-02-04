@@ -6,7 +6,7 @@ model VariableResistor "Multiphase variable resistor"
   parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref[m]=zeros(m)
     "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
   extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(final mh=m, T=T_ref);
-  Modelica.Blocks.Interfaces.RealInput R_ref[m] 
+  Modelica.Blocks.Interfaces.RealInput R_ref[m]
     annotation (Placement(transformation(
         origin={0,110},
         extent={{-20,-20},{20,20}},
@@ -19,11 +19,11 @@ model VariableResistor "Multiphase variable resistor"
           rotation=0)));
 equation
 
-  connect(variableResistor.pin_p, plugToPins_p.pin_p) 
+  connect(variableResistor.pin_p, plugToPins_p.pin_p)
     annotation (Line(points={{-10,0},{-24.5,0},{-24.5,1.22125e-015},{-39,1.22125e-015},
           {-39,0},{-68,0}},
         color={85,170,255}));
-  connect(variableResistor.pin_n, plugToPins_n.pin_n) 
+  connect(variableResistor.pin_n, plugToPins_n.pin_n)
     annotation (Line(points={{10,0},{39,0},{39,2.44929e-016},{68,2.44929e-016}},
                                             color={85,170,255}));
   connect(variableResistor.heatPort, heatPort) annotation (Line(
@@ -57,26 +57,26 @@ equation
   Documentation(info="<html>
 <p>
 The linear resistor connects the complex voltages <i><u>v</u></i> with the complex
-currents <i><u>i</u></i> by <i><u>i</u>*R = <u>v</u></i>, 
-using <i>m</i> <a href=Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor>single phase variable Resistors</a>. 
+currents <i><u>i</u></i> by <i><u>i</u>*R = <u>v</u></i>,
+using <i>m</i> <a href=Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor>single phase variable Resistors</a>.
 The resistances <i>R</i> are given as <i>m</i> input signals.
 </p>
 
 <p>
-The resistor model also has <i>m</i> optional 
-<a href=\"Modelica://Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort\">conditional heat ports</a>. 
+The resistor model also has <i>m</i> optional
+<a href=\"Modelica://Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort\">conditional heat ports</a>.
 A linear temperature dependency of the resistances for enabled heat ports is also taken into account.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor>VariableResistor</a>, 
-<a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor>Resistor</a>, 
-<a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor>Conductor</a>, 
-<a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor>Capacitor</a>, 
-<a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor>Inductor</a>, 
-<a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor>Variable conductor</a>, 
-<a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor>Variable capacitor</a>, 
+<a href=Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor>VariableResistor</a>,
+<a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor>Resistor</a>,
+<a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor>Conductor</a>,
+<a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor>Capacitor</a>,
+<a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor>Inductor</a>,
+<a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor>Variable conductor</a>,
+<a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor>Variable capacitor</a>,
 <a href=Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor>Variable inductor</a>
 </p>
 </html>"));

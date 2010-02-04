@@ -1,5 +1,5 @@
 within Modelica.Electrical.QuasiStationary;
-package MultiPhase 
+package MultiPhase
   extends Modelica.Icons.Library2;
 
 
@@ -21,14 +21,14 @@ package MultiPhase
         fillColor={0,0,255},
         fillPattern=FillPattern.Solid)}),
                                      Documentation(info="<html>
-<p>This package hosts models for quasi stationary multi phase circuits. 
-Quasi stationary theory can be found in 
+<p>This package hosts models for quasi stationary multi phase circuits.
+Quasi stationary theory can be found in
 [<a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">Vaske1973</a>]
 and other
 <a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
 </p>
 <h4>See also</h4>
 <a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase\">SinglePhase</a>
- 
+
 </html>"));
 end MultiPhase;

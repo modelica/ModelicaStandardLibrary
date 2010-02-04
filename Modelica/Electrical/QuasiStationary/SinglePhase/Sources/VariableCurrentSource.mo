@@ -1,12 +1,12 @@
 within Modelica.Electrical.QuasiStationary.SinglePhase.Sources;
 model VariableCurrentSource "Variable AC current"
   extends QuasiStationary.SinglePhase.Interfaces.Source;
-  Modelica.Blocks.Interfaces.RealInput f 
+  Modelica.Blocks.Interfaces.RealInput f
     annotation (Placement(transformation(
         origin={40,100},
         extent={{-20,-20},{20,20}},
         rotation=270)));
-  Modelica.ComplexBlocks.Interfaces.ComplexInput I 
+  Modelica.ComplexBlocks.Interfaces.ComplexInput I
     annotation (Placement(transformation(
         origin={-40,100},
         extent={{-20,-20},{20,20}},
@@ -26,7 +26,7 @@ equation
   Documentation(info="<html>
 
 <p>
-This is a current source with a complex signal input, specifying the complex current by the complex RMS current components. 
+This is a current source with a complex signal input, specifying the complex current by the complex RMS current components.
 Additionally, the frequency of the voltage source is defined by a real signal input.
 </p>
 

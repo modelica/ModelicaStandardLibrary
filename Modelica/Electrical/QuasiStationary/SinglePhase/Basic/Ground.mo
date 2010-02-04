@@ -1,7 +1,7 @@
 within Modelica.Electrical.QuasiStationary.SinglePhase.Basic;
 model Ground "Electrical ground"
 
-  QuasiStationary.SinglePhase.Interfaces.PositivePin pin 
+  QuasiStationary.SinglePhase.Interfaces.PositivePin pin
     annotation (Placement(transformation(extent={{-10,90},{10,110}}, rotation=0)));
 equation
   pin.v = Complex(0);
@@ -14,11 +14,11 @@ equation
                                             "%name")}),Diagram(graphics),
     Documentation(info="<html>
 <p>
-Ground of a single phase circuit. The potential at the ground node is zero. 
+Ground of a single phase circuit. The potential at the ground node is zero.
 Every electrical circuit, e.g. a series resonance
 <a href=\"Modelica://Modelica.Electrical.QuasiStationary.Examples.SeriesResonance\">
-          example</a>, has to contain at least one ground object. 
+          example</a>, has to contain at least one ground object.
 </p>
- 
+
 </html>"));
 end Ground;
