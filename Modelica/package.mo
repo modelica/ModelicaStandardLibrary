@@ -5,7 +5,6 @@ extends Modelica.Icons.Library;
 
 package UsersGuide "User's Guide"
 
-
 class Overview "Overview of Modelica Library"
 
  annotation (Documentation(info="<html>
@@ -1206,7 +1205,6 @@ units are wrong or errors in documentation):
 
 </html>"));
 end Version_3_0_1;
-
 
 class Version_3_0 "Version 3.0 (Feb., 2008)"
 
@@ -4990,7 +4988,7 @@ that are directly usable (= number of public, non-partial classes).
 
 <p>
 <b>Licensed by the Modelica Association under the Modelica License 2</b><br>
-Copyright &copy; 1998-2009, ABB, arsenal research, T.&nbsp;B&ouml;drich, DLR, Dynasim, Fraunhofer, Modelon,
+Copyright &copy; 1998-2009, ABB, AIT, T.&nbsp;B&ouml;drich, DLR, Dynasim, Fraunhofer, Modelon,
 TU Hamburg-Harburg, Politecnico di Milano.
 </p>
 
