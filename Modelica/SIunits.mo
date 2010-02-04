@@ -972,6 +972,7 @@ argument):</p>
       final quantity="ThermodynamicTemperature",
       final unit="K",
       min = 0,
+      start = 288.15,
       displayUnit="degC")
     "Absolute temperature (use type TemperatureDifference for relative temperatures)"
                                                                                                         annotation(__Dymola_absoluteValue=true);
