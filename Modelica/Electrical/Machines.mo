@@ -1211,7 +1211,7 @@ even though the source's or load's starpoint are grounded; you may use a reasona
       connect(load.plug_n, starL.plug_p) 
         annotation (points=[90,-20; 90,-30], style(color=3, rgbcolor={0,0,255}));
       connect(earth.n,ground. p) 
-        annotation (points=[-6.12323e-016,-50; 0,-50; 0,-60],style(color=3, rgbcolor={0,0,255}));
+        annotation (points=[-6.12303e-016,-50; 0,-50; 0,-60],style(color=3, rgbcolor={0,0,255}));
       connect(electricalPowerSensorS.plug_nv, starS.plug_p) 
         annotation (points=[-80,0; -80,-30; -90,-30],   style(color=3, rgbcolor={0,0,255}));
       connect(source.plug_p, electricalPowerSensorS.plug_p) 
@@ -1878,7 +1878,7 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
         parameter String C2="y" "Choose secondary connection" 
           annotation(choices(choice="y" "Star connection",
                              choice="d" "Delta connection",
-                             choice="z" "zig-zag connection"));
+                             choice="z" "Zig-zag connection"));
         parameter Modelica.SIunits.ApparentPower SNominal=30E3 
           "Nominal apparent power";
         parameter Real v_sc(final min=0, final max=1)=0.05 
@@ -2212,7 +2212,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color=3,
             rgbcolor={0,0,255},
             smooth=0));
-        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20;
+        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20; 
               -10,14; -6.12303e-016,14; -6.12303e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
@@ -2281,8 +2281,10 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         Modelica.Electrical.MultiPhase.Basic.Resistor rr(final m=m, final R=fill(Rr, m)) 
           annotation (extent=[60,-90; 40,-70]);
         Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_rp(final m=m) 
+          "positive rotor plug" 
           annotation (extent=[-110,70; -90,50]);
         Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_rn(final m=m) 
+          "negative rotor plug" 
           annotation (extent=[-110,-50; -90,-70]);
         annotation (defaultComponentName="AIMS",
           Documentation(info="<HTML>
@@ -2396,7 +2398,7 @@ TurnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<
           annotation (points=[40,-80; 30,-80],   style(color=3));
         connect(rr.plug_p, plug_rp)        annotation (points=[60,-80; 60,-90;
               -80,-90; -80,60; -100,60],  style(color=3, rgbcolor={0,0,255}));
-        connect(spacePhasorR.ground, spacePhasorR.zero) annotation (points=[-10,-20;
+        connect(spacePhasorR.ground, spacePhasorR.zero) annotation (points=[-10,-20; 
               -10,-14; -6.12303e-016,-14; -6.12303e-016,-20],      style(
             color=3,
             rgbcolor={0,0,255},
@@ -2443,7 +2445,7 @@ TurnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<
             color=3,
             rgbcolor={0,0,255},
             smooth=0));
-        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20;
+        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20; 
               -10,14; -6.12303e-016,14; -6.12303e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
@@ -2574,7 +2576,7 @@ These models use package SpacePhasors.
       public 
         Components.AirGapR airGapR(            final p=p, final m=3, final Lmd=Lmd, final Lmq=Lmq) 
           annotation (extent=[-10,-10; 10,10], rotation=-90);
-        Components.PermanentMagnet permanentMagnet(Ie=Ie) 
+        Components.PermanentMagnet permanentMagnet(final Ie=Ie) 
           annotation (extent=[-10, -70; 10, -50], rotation=-90);
         Components.DamperCage damperCage(
           final Lrsigma=Lrsigma,
@@ -2764,7 +2766,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color=3,
             rgbcolor={0,0,255},
             smooth=0));
-        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20;
+        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20; 
               -10,14; -6.12303e-016,14; -6.12303e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
@@ -2852,8 +2854,10 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         Modelica.Electrical.Analog.Basic.Inductor lesigma(final L=Lesigma) 
           annotation (extent=[30,-90; 10,-70]);
         Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep 
+          "positive excitation pin" 
           annotation (extent=[-110,70; -90,50]);
         Modelica.Electrical.Analog.Interfaces.NegativePin pin_en 
+          "negative excitation pin" 
           annotation (extent=[-90,-50; -110,-70]);
         annotation (defaultComponentName="SMEE",
           Diagram,
@@ -3060,7 +3064,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color=3,
             rgbcolor={0,0,255},
             smooth=0));
-        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20;
+        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20; 
               -10,14; -6.12303e-016,14; -6.12303e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
@@ -3286,7 +3290,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color=3,
             rgbcolor={0,0,255},
             smooth=0));
-        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20;
+        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20; 
               -10,14; -6.12303e-016,14; -6.12303e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
@@ -3507,8 +3511,10 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
         Modelica.Electrical.Analog.Basic.Resistor re(final R=Re) 
           annotation (extent=[-40,-30; -60,-50], rotation=180);
         Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep 
+          "positive excitation pin" 
           annotation (extent=[-110,70; -90,50]);
         Modelica.Electrical.Analog.Interfaces.NegativePin pin_en 
+          "negative excitation pin" 
           annotation (extent=[-90,-50; -110,-70]);
         annotation (defaultComponentName="DCEE",
           Diagram,
@@ -3668,8 +3674,10 @@ Armature current does not cover excitation current of a shunt excitation; in thi
         Modelica.Electrical.Analog.Basic.Resistor re(final R=Re) 
           annotation (extent=[-40,-30; -60,-50], rotation=180);
         Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep 
+          "positive series excitation pin" 
           annotation (extent=[-110,70; -90,50]);
         Modelica.Electrical.Analog.Interfaces.NegativePin pin_en 
+          "negative series excitation pin" 
           annotation (extent=[-90,-50; -110,-70]);
         annotation (defaultComponentName="DCSE",
           Diagram,
@@ -3903,7 +3911,8 @@ This package contains transformers primary Y connected / secondary y connected i
           
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yy0
-</html>"));
+</html>"), 
+            Diagram);
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Yy00");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
@@ -5082,7 +5091,8 @@ This package contains transformers primary D connected / secondary d connected i
           
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dz0
-</html>"));
+</html>"), 
+            Diagram);
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Dz00");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
@@ -5819,8 +5829,10 @@ Induced armature voltage is calculated from flux times angular velocity.
         constant String C2 = Modelica.Utilities.Strings.substring(VectorGroup,2,2);
         parameter Real ni=n*(if C2=="z" then sqrt(3) else 2)*(if C2=="d" then 1 else sqrt(3))/(if C1=="D" then 1 else sqrt(3));
       public 
-        Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug1(final m=m) annotation (extent=[-110, -10; -90, 10]);
-        Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug2(final m=m) annotation (extent=[90, -10; 110, 10]);
+        Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug1(final m=m) 
+          "primary plug"                                                        annotation (extent=[-110, -10; -90, 10]);
+        Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug2(final m=m) 
+          "secondary plug"                                                      annotation (extent=[90, -10; 110, 10]);
         Modelica.Electrical.MultiPhase.Basic.Resistor r1(final m=m, final R=fill(R1,m)) 
           annotation (extent=[-90,-10; -70,10]);
         Modelica.Electrical.MultiPhase.Basic.Inductor l1sigma(final m=m, final L=fill(L1sigma, m)) 
@@ -6377,7 +6389,16 @@ Otherwise, the sensor's support has to be connected to the machine's support.
   package SpacePhasors "Library with space phasor-models" 
     extends Modelica.Icons.Library2;
     annotation (Documentation(info="<HTML>
+<p>
 This package contains components, blocks and functions to utilize space phasor theory.
+</p>
+<p>
+Space phasors are defined as vectors of length = 2, 
+the first element representing the real part and the second element representing the imaginary part of the space phasor.
+</p>
+<p>
+You may have a look at a short summary of space phasor theory at <a href=\"http://www.haumer.at/refimg/SpacePhasors.pdf\">http://www.haumer.at/refimg/SpacePhasors.pdf</a>
+</p>
 </HTML>", revisions="<HTML>
 <dl>
   <dt><b>Main Authors:</b></dt>
@@ -6601,6 +6622,10 @@ This package contains space phasor transformation blocks for use in controllers:
 <li>ToPolar: Converts a space phasor from rectangular coordinates to polar coordinates</li>
 <li>FromPolar: Converts a space phasor from polar coordinates to rectangular coordinates</li>
 </ul>
+<p>
+Space phasors are defined as vectors of length = 2, 
+the first element representing the real part and the second element representing the imaginary part of the space phasor.
+</p>
 </HTML>", revisions="<HTML>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -6825,6 +6850,10 @@ This package contains space phasor transformation functions for use in calculati
 <li>ToPolar: Converts a space phasor from rectangular coordinates to polar coordinates</li>
 <li>FromPolar: Converts a space phasor from polar coordinates to rectangular coordinates</li>
 </ul>
+<p>
+Space phasors are defined as vectors of length = 2, 
+the first element representing the real part and the second element representing the imaginary part of the space phasor.
+</p>
 </HTML>", revisions="<HTML>
 <dl>
   <dt><b>Main Authors:</b></dt>
@@ -6992,8 +7021,8 @@ This package contains the space phasor connector and partial models for machine 
             fillPattern=1))));
     
     connector SpacePhasor "Connector for Space Phasors" 
-      Modelica.SIunits.Voltage v_[2];
-      flow Modelica.SIunits.Current i_[2];
+      Modelica.SIunits.Voltage v_[2] "1=real, 2=imaginary";
+      flow Modelica.SIunits.Current i_[2] "1=real, 2=imaginary";
       annotation (Diagram(Polygon(points=[0,100; -100,0; 0,-100; 100,0; 0,100],
               style(
               color=3,
@@ -7039,7 +7068,7 @@ Connector for Space Phasors:
       output Modelica.SIunits.Torque tau_electrical = inertiaRotor.flange_a.tau 
         "electromagnetic torque";
       output Modelica.SIunits.Torque tau_shaft = -flange_a.tau "shaft torque";
-      Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a 
+      Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a "shaft" 
         annotation (extent=[90,-10; 110,10]);
       Modelica.Mechanics.Rotational.Inertia inertiaRotor(final J=J_Rotor) 
         annotation (extent=[80,10; 60,-10],   rotation=-180);
@@ -7134,8 +7163,10 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
       output Modelica.SIunits.Current is[m] = plug_sp.pin.i 
         "stator instantaneous currents";
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_sp(final m=m) 
+        "positive stator plug" 
         annotation (extent=[50,90; 70,110]);
       Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_sn(final m=m) 
+        "negative stator plug" 
         annotation (extent=[-70,90; -50,110]);
       annotation (Documentation(info="<HTML>
 Partial model for induction machine models
@@ -7158,8 +7189,10 @@ Partial model for DC machine models.
                   0,255})), Line(points=[50,100; 20,100; 20,70], style(color=3,
                 rgbcolor={0,0,255}))));
       Modelica.Electrical.Analog.Interfaces.PositivePin pin_ap 
+        "positive armature pin" 
         annotation (extent=[50,110; 70,90]);
       Modelica.Electrical.Analog.Interfaces.NegativePin pin_an 
+        "negative armature pin" 
         annotation (extent=[-70,110; -50,90]);
     end PartialBasicDCMachine;
     
