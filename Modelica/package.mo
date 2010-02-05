@@ -1,8 +1,7 @@
 within ;
 package Modelica "Modelica Standard Library (Version 3.1)"
 extends Modelica.Icons.Library;
-
-
+ 
 package UsersGuide "User's Guide"
 
 class Overview "Overview of Modelica Library"
