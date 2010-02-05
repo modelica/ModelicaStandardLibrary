@@ -2387,10 +2387,12 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         Modelica.Electrical.Analog.Basic.Inductor lesigma(final L=Lesigma) 
           annotation (Placement(transformation(extent={{30,-90},{10,-70}},
                 rotation=0)));
-        Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep 
+        Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep
+          "positive excitation pin" 
           annotation (Placement(transformation(extent={{-110,70},{-90,50}},
                 rotation=0)));
-        Modelica.Electrical.Analog.Interfaces.NegativePin pin_en 
+        Modelica.Electrical.Analog.Interfaces.NegativePin pin_en
+          "negative excitation pin" 
           annotation (Placement(transformation(extent={{-90,-50},{-110,-70}},
                 rotation=0)));
 
