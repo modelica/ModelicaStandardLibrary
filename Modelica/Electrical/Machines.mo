@@ -238,9 +238,9 @@ At start time tStart three phase voltage is supplied to the asynchronous inducti
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
 Simulate for 1.5 seconds and plot (versus time):
 <ul>
-<li>CurrentRMSSensor1.I: stator current RMS</li>
-<li>AIMC1.rpmMechanical: motor's speed</li>
-<li>AIMC1.tauElectrical: motor's torque</li>
+<li>currentQuasiRMSSensor.I: stator current RMS</li>
+<li>aimc.wMechanical: motor's speed</li>
+<li>aimc.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
 </HTML>"));
@@ -356,9 +356,9 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
 At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage, first star-connected, then delta-connetced; the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
 Simulate for 2.5 seconds and plot (versus time):
 <ul>
-<li>CurrentRMSSensor1.I: stator current RMS</li>
-<li>AIMC1.rpmMechanical: motor's speed</li>
-<li>AIMC1.tauElectrical: motor's torque</li>
+<li>currentQuasiRMSSensor.I: stator current RMS</li>
+<li>aimc.wMechanical: motor's speed</li>
+<li>aimc.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
 </HTML>"));
@@ -478,9 +478,9 @@ the machine starts from standstill, accelerating inertias against load torque qu
 using a starting resistance. At time tStart2 external rotor resistance is shortened, finally reaching nominal speed.<br>
 Simulate for 1.5 seconds and plot (versus time):
 <ul>
-<li>CurrentRMSSensor1.I: stator current RMS</li>
-<li>AIMS1.rpmMechanical: motor's speed</li>
-<li>AIMS1.tauElectrical: motor's torque</li>
+<li>currentQuasiRMSSensor.I: stator current RMS</li>
+<li>aims.wMechanical: motor's speed</li>
+<li>aims.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SlipRing</i> are used.
 </HTML>"));
@@ -533,7 +533,7 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
       Machines.Utilities.TerminalBox terminalBox(terminalConnection="D") 
         annotation (Placement(transformation(extent={{-20,-30},{0,-10}},
               rotation=0)));
-      Utilities.SwitchedRheostat switchedRheostat(RStart=Rstart, tStart=tStart2)
+      Utilities.SwitchedRheostat switchedRheostat(RStart=Rstart, tStart=tStart2) 
         annotation (Placement(transformation(extent={{-50,-50},{-30,-30}})));
     equation
       connect(star.pin_n, ground.p) 
@@ -604,9 +604,9 @@ Frequency is raised by a ramp, causing the asynchronous induction machine with s
 and accelerating inertias.<br>At time tStep a load step is applied.<br>
 Simulate for 1.5 seconds and plot (versus time):
 <ul>
-<li>CurrentRMSSensor1.I: stator current RMS</li>
-<li>AIMC1.rpmMechanical: motor's speed</li>
-<li>AIMC1.tauElectrical: motor's torque</li>
+<li>currentQuasiRMSSensor.I: stator current RMS</li>
+<li>aimc.wMechanical: motor's speed</li>
+<li>aimc.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
 </HTML>"));
@@ -632,7 +632,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
             m) 
         annotation (Placement(transformation(
             origin={0,60},
-            extent={{10,-10},{-10,10}},
+            extent={{10,10},{-10,-10}},
             rotation=270)));
       Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) 
         annotation (Placement(transformation(extent={{-50,80},{-70,100}},
@@ -664,7 +664,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
       connect(ramp.y, vfController.u)   annotation (Line(points={{-59,60},{-42,
               60}}, color={0,0,255}));
       connect(vfController.y, signalVoltage.v)   annotation (Line(points={{-19,60},
-              {7,60}},      color={0,0,255}));
+              {-7,60}},     color={0,0,255}));
       connect(loadTorqueStep.flange, loadInertia.flange_b) 
         annotation (Line(points={{70,-40},{60,-40}}, color={0,0,0}));
       connect(signalVoltage.plug_p, currentQuasiRMSSensor.plug_p) 
@@ -714,10 +714,10 @@ Frequency is raised by a ramp, causing the reluctance machine to start,
 and accelerating inertias.<br>At time tStep a load step is applied.<br>
 Simulate for 1.5 seconds and plot (versus time):
 <ul>
-<li>CurrentRMSSensor1.I: stator current RMS</li>
-<li>SMRD1.rpmMechanical: motor's speed</li>
-<li>SMRD1.tauElectrical: motor's torque</li>
-<li>RotorDisplacementAngle.rotorDisplacementAngle: rotor displacement angle</li>
+<li>currentQuasiRMSSensor.I: stator current RMS</li>
+<li>smr.wMechanical: motor's speed</li>
+<li>smr.tauElectrical: motor's torque</li>
+<li>rotorDisplacementAngle.rotorDisplacementAngle: rotor displacement angle</li>
 </ul>
 Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
 </HTML>"));
@@ -748,7 +748,7 @@ Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
             m) 
         annotation (Placement(transformation(
             origin={0,60},
-            extent={{10,-10},{-10,10}},
+            extent={{10,10},{-10,-10}},
             rotation=270)));
       Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) 
         annotation (Placement(transformation(extent={{-50,80},{-70,100}},
@@ -780,7 +780,7 @@ Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
       connect(ramp.y, vfController.u) 
         annotation (Line(points={{-59,60},{-42,60}}, color={0,0,255}));
       connect(vfController.y, signalVoltage.v) 
-        annotation (Line(points={{-19,60},{7,60}},  color={0,0,255}));
+        annotation (Line(points={{-19,60},{-7,60}}, color={0,0,255}));
       connect(loadInertia.flange_b, loadTorqueStep.flange) 
         annotation (Line(points={{60,-40},{70,-40}}, color={0,0,0}));
       connect(currentQuasiRMSSensor.plug_p, signalVoltage.plug_p) 
@@ -838,10 +838,10 @@ Frequency is raised by a ramp, causing the permanent magnet synchronous inductio
 and accelerating inertias.<br>At time tStep a load step is applied.<br>
 Simulate for 1.5 seconds and plot (versus time):
 <ul>
-<li>CurrentRMSSensor1.I: stator current RMS</li>
-<li>PMSMD1.rpmMechanical: motor's speed</li>
-<li>PMSMD1.tauElectrical: motor's torque</li>
-<li>RotorDisplacementAngle.rotorDisplacementAngle: rotor displacement angle</li>
+<li>currentQuasiRMSSensor.I: stator current RMS</li>
+<li>smpm.wMechanical: motor's speed</li>
+<li>smpm.tauElectrical: motor's torque</li>
+<li>rotorDisplacementAngle.rotorDisplacementAngle: rotor displacement angle</li>
 </ul>
 Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
 <p>
@@ -877,7 +877,7 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
             m) 
         annotation (Placement(transformation(
             origin={0,60},
-            extent={{10,-10},{-10,10}},
+            extent={{10,10},{-10,-10}},
             rotation=270)));
       Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) 
         annotation (Placement(transformation(extent={{-50,80},{-70,100}},
@@ -909,7 +909,7 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
       connect(ramp.y, vfController.u) 
         annotation (Line(points={{-59,60},{-42,60}}, color={0,0,255}));
       connect(vfController.y, signalVoltage.v) 
-        annotation (Line(points={{-19,60},{7,60}},  color={0,0,255}));
+        annotation (Line(points={{-19,60},{-7,60}}, color={0,0,255}));
       connect(loadInertia.flange_b, loadTorqueStep.flange) 
         annotation (Line(points={{60,-40},{70,-40}}, color={0,0,0}));
       connect(signalVoltage.plug_p, currentQuasiRMSSensor.plug_p) 
@@ -968,11 +968,11 @@ Since speed is slightly smaller than synchronous speed corresponding to mains fr
 rotor angle is very slowly increased. This allows to see several charactersistics dependent on rotor angle.
 Simulate for 30 seconds and plot (versus RotorDisplacementAngle1.rotorDisplacementAngle):
 <ul>
-<li>SMEED1.tauElectrical</li>
-<li>CurrentRMSSensor1.I</li>
-<li>ElectricalPowerSensor1.P</li>
-<li>ElectricalPowerSensor1.Q</li>
-<li>MechanicalPowerSensor1.P</li>
+<li>smee.tauElectrical</li>
+<li>currentQuasiRMSSensor.I</li>
+<li>electricalPowerSensor.P</li>
+<li>electricalPowerSensor.Q</li>
+<li>mechanicalPowerSensor.P</li>
 </ul>
 Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
 </HTML>"));
@@ -1120,9 +1120,9 @@ A voltage ramp is applied to the armature, causing the DC machine to start,
 and accelerating inertias.<br>At time tStep a load step is applied.<br>
 Simulate for 2 seconds and plot (versus time):
 <ul>
-<li>DCPM1.ia: armature current</li>
-<li>DCPM1.rpmMechanical: motor's speed</li>
-<li>DCPM1.tauElectrical: motor's torque</li>
+<li>dcpm.ia: armature current</li>
+<li>dcpm.wMechanical: motor's speed</li>
+<li>dcpm.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>DC_PermanentMagnet</i> are used.
 </HTML>"));
@@ -1192,10 +1192,10 @@ A voltage ramp is applied to the armature, causing the DC machine to start,
 and accelerating inertias.<br>At time tStep a load step is applied.<br>
 Simulate for 2 seconds and plot (versus time):
 <ul>
-<li>DCEE1.ia: armature current</li>
-<li>DCEE1.rpmMechanical: motor's speed</li>
-<li>DCEE1.tauElectrical: motor's torque</li>
-<li>DCEE1.ie: excitation current</li>
+<li>dcee.ia: armature current</li>
+<li>dcee.wMechanical: motor's speed</li>
+<li>dcee.tauElectrical: motor's torque</li>
+<li>dcee.ie: excitation current</li>
 </ul>
 Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
 </HTML>"));
@@ -1282,9 +1282,9 @@ A voltage ramp is applied to the armature, causing the DC machine to start,
 and accelerating inertiasagainst load torque quadratic dependent on speed, finally reaching nominal speed.<br>
 Simulate for 2 seconds and plot (versus time):
 <ul>
-<li>DCSE1.ia: armature current</li>
-<li>DCSE1.rpmMechanical: motor's speed</li>
-<li>DCSE1.tauElectrical: motor's torque</li>
+<li>dcse.ia: armature current</li>
+<li>dcse.wMechanical: motor's speed</li>
+<li>dcse.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>DC_SeriesExcited</i> are used.
 </HTML>"));
