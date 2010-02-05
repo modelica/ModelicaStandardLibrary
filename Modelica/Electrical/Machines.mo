@@ -1894,10 +1894,12 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           final T=rr.T_ref) 
           annotation (Placement(transformation(extent={{60,-90},{40,-70}},
                 rotation=0)));
-        Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_rp(final m=m) 
+        Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_rp(final m=m)
+          "positive rotor plug" 
           annotation (Placement(transformation(extent={{-110,70},{-90,50}},
                 rotation=0)));
-        Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_rn(final m=m) 
+        Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_rn(final m=m)
+          "negative rotor plug" 
           annotation (Placement(transformation(extent={{-110,-50},{-90,-70}},
                 rotation=0)));
       equation
@@ -2130,7 +2132,7 @@ These models use package SpacePhasors.
         final parameter Modelica.SIunits.Current Ie=sqrt(2)*VsOpenCircuit/(Lmd*2*pi*fsNominal)
           "equivalent excitation current";
       public
-        Machines.BasicMachines.Components.PermanentMagnet permanentMagnet(Ie=Ie) 
+        Machines.BasicMachines.Components.PermanentMagnet permanentMagnet(final Ie=Ie) 
           annotation (Placement(transformation(
               origin={0,-60},
               extent={{-10,-10},{10,10}},
@@ -2973,10 +2975,12 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
               origin={-50,-40},
               extent={{10,10},{-10,-10}},
               rotation=180)));
-        Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep 
+        Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep
+          "positive excitation pin" 
           annotation (Placement(transformation(extent={{-110,70},{-90,50}},
                 rotation=0)));
-        Modelica.Electrical.Analog.Interfaces.NegativePin pin_en 
+        Modelica.Electrical.Analog.Interfaces.NegativePin pin_en
+          "negative excitation pin" 
           annotation (Placement(transformation(extent={{-90,-50},{-110,-70}},
                 rotation=0)));
 
@@ -3124,10 +3128,12 @@ Armature current does not cover excitation current of a shunt excitation; in thi
               origin={-50,-40},
               extent={{10,10},{-10,-10}},
               rotation=180)));
-        Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep 
+        Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep
+          "positive series excitation pin" 
           annotation (Placement(transformation(extent={{-110,70},{-90,50}},
                 rotation=0)));
-        Modelica.Electrical.Analog.Interfaces.NegativePin pin_en 
+        Modelica.Electrical.Analog.Interfaces.NegativePin pin_en
+          "negative series excitation pin" 
           annotation (Placement(transformation(extent={{-90,-50},{-110,-70}},
                 rotation=0)));
       equation
@@ -5726,9 +5732,11 @@ Induced armature voltage is calculated from flux times angular velocity.
         constant String C2 = Modelica.Utilities.Strings.substring(VectorGroup,2,2);
         parameter Real ni=n*(if C2=="z" then sqrt(3) else 2)*(if C2=="d" then 1 else sqrt(3))/(if C1=="D" then 1 else sqrt(3));
       public
-        Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug1(final m=m) annotation (Placement(
+        Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug1(final m=m)
+          "primary plug"                                                        annotation (Placement(
               transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
-        Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug2(final m=m) annotation (Placement(
+        Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug2(final m=m)
+          "secondary plug"                                                      annotation (Placement(
               transformation(extent={{90,-10},{110,10}}, rotation=0)));
         Modelica.Electrical.MultiPhase.Basic.Resistor r1(
           final m=m,
@@ -7007,6 +7015,10 @@ This package contains space phasor transformation blocks for use in controllers:
 <li>ToPolar: Converts a space phasor from rectangular coordinates to polar coordinates</li>
 <li>FromPolar: Converts a space phasor from polar coordinates to rectangular coordinates</li>
 </ul>
+<p>
+Space phasors are defined as vectors of length = 2, 
+the first element representing the real part and the second element representing the imaginary part of the space phasor.
+</p>
 </HTML>", revisions="<HTML>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -7137,6 +7149,10 @@ This package contains space phasor transformation functions for use in calculati
 <li>ToPolar: Converts a space phasor from rectangular coordinates to polar coordinates</li>
 <li>FromPolar: Converts a space phasor from polar coordinates to rectangular coordinates</li>
 </ul>
+<p>
+Space phasors are defined as vectors of length = 2, 
+the first element representing the real part and the second element representing the imaginary part of the space phasor.
+</p>
 </HTML>", revisions="<HTML>
 <dl>
   <dt><b>Main Authors:</b></dt>
@@ -7166,7 +7182,16 @@ This package contains space phasor transformation functions for use in calculati
 </HTML>"));
     end Functions;
     annotation (Documentation(info="<HTML>
+<p>
 This package contains components, blocks and functions to utilize space phasor theory.
+</p>
+<p>
+Space phasors are defined as vectors of length = 2, 
+the first element representing the real part and the second element representing the imaginary part of the space phasor.
+</p>
+<p>
+You may have a look at a short summary of space phasor theory at <a href=\"http://www.haumer.at/refimg/SpacePhasors.pdf\">http://www.haumer.at/refimg/SpacePhasors.pdf</a>
+</p>
 </HTML>", revisions="<HTML>
 <dl>
   <dt><b>Main Authors:</b></dt>
@@ -7206,8 +7231,8 @@ This package contains components, blocks and functions to utilize space phasor t
     extends Modelica.Icons.Library2;
 
     connector SpacePhasor "Connector for Space Phasors"
-      Modelica.SIunits.Voltage v_[2];
-      flow Modelica.SIunits.Current i_[2];
+      Modelica.SIunits.Voltage v_[2] "1=real, 2=imaginary part";
+      flow Modelica.SIunits.Current i_[2] "1=real, 2=imaginary part";
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Polygon(
               points={{0,100},{-100,0},{0,-100},{100,0},{0,100}},
@@ -7248,7 +7273,7 @@ Connector for Space Phasors:
       output Modelica.SIunits.Torque tauElectrical = inertiaRotor.flange_a.tau
         "electromagnetic torque";
       output Modelica.SIunits.Torque tauShaft = -flange.tau "shaft torque";
-      Modelica.Mechanics.Rotational.Interfaces.Flange_a flange 
+      Modelica.Mechanics.Rotational.Interfaces.Flange_a flange "shaft" 
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Components.Inertia inertiaRotor(final J=Jr) 
@@ -7395,10 +7420,12 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
         "rotor space phasor current / stator fixed frame";
       input Modelica.SIunits.Current idq_rr[2](each stateSelect=StateSelect.prefer)
         "rotor space phasor current / rotor fixed frame";
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_sp(final m=m) 
+      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_sp(final m=m)
+        "positive stator plug" 
         annotation (Placement(transformation(extent={{50,90},{70,110}},
               rotation=0)));
-      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_sn(final m=m) 
+      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_sn(final m=m)
+        "negative stator plug" 
         annotation (Placement(transformation(extent={{-70,90},{-50,110}},
               rotation=0)));
       Modelica.Electrical.MultiPhase.Basic.Resistor rs(
@@ -7471,10 +7498,12 @@ Partial model for induction machine models
         "ratio of armature turns over number of turns of the excitation winding";
       output Modelica.SIunits.Voltage va = pin_ap.v-pin_an.v "armature voltage";
       output Modelica.SIunits.Current ia = pin_ap.i "armature current";
-      Modelica.Electrical.Analog.Interfaces.PositivePin pin_ap 
+      Modelica.Electrical.Analog.Interfaces.PositivePin pin_ap
+        "positive armature pin" 
         annotation (Placement(transformation(extent={{50,110},{70,90}},
               rotation=0)));
-      Modelica.Electrical.Analog.Interfaces.NegativePin pin_an 
+      Modelica.Electrical.Analog.Interfaces.NegativePin pin_an
+        "negative armature pin" 
         annotation (Placement(transformation(extent={{-70,110},{-50,90}},
               rotation=0)));
       Modelica.Electrical.Analog.Basic.Resistor ra(
@@ -7598,13 +7627,16 @@ Phase shifts between sine-waves may be choosen by the user; default values are <
 
     model SwitchYD "Y-D-switch"
       constant Integer m=3 "number of phases";
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plugSupply(final m=m) 
+      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plugSupply(final m=m)
+        "to grid" 
         annotation (Placement(transformation(extent={{-10,90},{10,110}},
               rotation=0)));
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_sp(final m=m) 
+      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_sp(final m=m)
+        "to positive stator plug" 
         annotation (Placement(transformation(extent={{50,-90},{70,-110}},
               rotation=0)));
-      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_sn(final m=m) 
+      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_sn(final m=m)
+        "to negative stator plug" 
         annotation (Placement(transformation(extent={{-70,-90},{-50,-110}},
               rotation=0)));
       Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) 
@@ -7668,10 +7700,12 @@ If <i>control</i> is true, plug_sp and plug_sn are delta connected and they are 
       parameter String terminalConnection(start="Y") "choose Y=star/D=delta" 
         annotation(choices(choice="Y" "Star connection",choice="D"
             "Delta connection"));
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_sp(final m=m) 
+      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_sp(final m=m)
+        "to positive stator plug" 
         annotation (Placement(transformation(extent={{50,-90},{70,-110}},
               rotation=0)));
-      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_sn(final m=m) 
+      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_sn(final m=m)
+        "to negative stator plug" 
         annotation (Placement(transformation(extent={{-70,-90},{-50,-110}},
               rotation=0)));
       Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) if (terminalConnection<>"D") 
@@ -7682,7 +7716,8 @@ If <i>control</i> is true, plug_sp and plug_sn are delta connected and they are 
       Modelica.Electrical.MultiPhase.Basic.Delta delta(final m=m) if (terminalConnection=="D") 
         annotation (Placement(transformation(extent={{-20,-70},{-40,-50}},
               rotation=0)));
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plugSupply(final m=m) 
+      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plugSupply(final m=m)
+        "to grid" 
         annotation (Placement(transformation(extent={{-10,-70},{10,-90}},
               rotation=0)));
       Modelica.Electrical.Analog.Interfaces.NegativePin starpoint if (terminalConnection<>"D") 
@@ -7720,9 +7755,11 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
 
     model SwitchedRheostat "Rheostat which is shortened after a given time"
       constant Integer m= 3 "Number of phases";
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m) 
+      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
+        "to positive rotor plug" 
         annotation (Placement(transformation(extent={{90,70},{110,50}}, rotation=0)));
-      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n(final m=m) 
+      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n(final m=m)
+        "to negative rotor plug" 
         annotation (Placement(transformation(extent={{90,-50},{110,-70}}, rotation=0)));
       parameter Modelica.SIunits.Resistance RStart "Starting resistance";
       parameter Modelica.SIunits.Time tStart
@@ -7808,9 +7845,11 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
 
     model RampedRheostat "Rheostat with linearly decreasing resistance"
       constant Integer m= 3 "Number of phases";
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m) 
+      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
+        "to positive rotor plug" 
         annotation (Placement(transformation(extent={{90,70},{110,50}}, rotation=0)));
-      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n(final m=m) 
+      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n(final m=m)
+        "to negative rotor plug" 
         annotation (Placement(transformation(extent={{90,-50},{110,-70}}, rotation=0)));
       parameter Modelica.SIunits.Resistance RStart "Starting resistance";
       parameter Modelica.SIunits.Time tStart
@@ -7902,7 +7941,7 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
     parameter String C2(start="y") "choose secondary connection" 
       annotation(choices(choice="y" "Star connection",
                          choice="d" "Delta connection",
-                         choice="z" "zig-zag connection"));
+                         choice="z" "Zig-zag connection"));
     parameter Modelica.SIunits.ApparentPower SNominal(start=30E3)
         "nominal apparent power";
     parameter Real v_sc(final min=0, final max=1, start=0.05)
