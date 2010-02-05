@@ -1,57 +1,19 @@
 within Modelica.Electrical.Analog.Examples;
 model AD_DA_conversion "Conversion circuit"
   parameter Integer N=7 "Digital signal width";
-  Modelica.Electrical.Analog.Ideal.AD_Converter aD_Converter(N=N)
+  Modelica.Electrical.Analog.Ideal.AD_Converter aD_Converter(N=N) 
     annotation (Placement(transformation(extent={{-14,-10},{12,16}})));
-  annotation (uses(Modelica(version="3.1")), Diagram(coordinateSystem(
-          preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics),
-    experiment(StopTime=0.2),
-    experimentSetupOutput,
-    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-            100}}), graphics={
-        Rectangle(
-          extent={{-100,-100},{80,50}},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Polygon(
-          points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Polygon(
-          points={{100,70},{100,-80},{80,-100},{80,50},{100,70}},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Text(
-          extent={{-96,3},{77,-49}},
-          lineColor={0,0,255},
-          textString="Example"),
-        Text(
-          extent={{-120,132},{120,73}},
-          lineColor={255,0,0},
-          textString="%name")}),
-    Documentation(info="<html>
-<p>The simple converter circuit converts an analog sine signal into a N-bit (by default a 4 bit) logic signal, which is converted backward into an analog signal. </p>
-<p>Simulate to 0.2 s.</p>
-<p>Compare the input voltage (aD_Converter.p.v) with the output voltage (dA_Converter.p.v). By changeing N the influence of the digital signal width can be studied. Otherwise the trigger  frequency pulse.period can be changed to see its influence.</p>
-</html>", revisions="<html>
-<p><ul>
-<li><i>October 13, 2009  </i>by Matthias Franke </li>
-</ul></p>
-</html>"));
   Modelica.Electrical.Digital.Sources.Pulse pulse(
     pulse=Modelica.Electrical.Digital.Interfaces.Logic.'1',
     quiet=Modelica.Electrical.Digital.Interfaces.Logic.'0',
     nperiod=-1,
     width=1,
     period=0.001,
-    startTime=0)
+    startTime=0) 
              annotation (Placement(transformation(extent={{-32,32},{-12,52}})));
-  Modelica.Electrical.Analog.Ideal.DA_Converter dA_Converter(N=N)
+  Modelica.Electrical.Analog.Ideal.DA_Converter dA_Converter(N=N) 
     annotation (Placement(transformation(extent={{18,-10},{44,16}})));
-  Modelica.Electrical.Analog.Basic.Ground ground
+  Modelica.Electrical.Analog.Basic.Ground ground 
     annotation (Placement(transformation(extent={{44,-40},{64,-20}})));
   Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(
     V=5,
@@ -60,7 +22,7 @@ model AD_DA_conversion "Conversion circuit"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-80,4})));
-  Modelica.Electrical.Analog.Basic.Resistor resistor(R=1)
+  Modelica.Electrical.Analog.Basic.Resistor resistor(R=1) 
     annotation (Placement(transformation(extent={{-28,68},{-8,88}})));
 equation
   connect(pulse.y, aD_Converter.trig) annotation (Line(
@@ -99,4 +61,42 @@ equation
       points={{40.1,-6.1},{54,-6.1},{54,-20}},
       color={0,0,255},
       smooth=Smooth.None));
+  annotation (uses(Modelica(version="3.1")), Diagram(coordinateSystem(
+          preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics),
+    experiment(StopTime=0.2),
+    experimentSetupOutput,
+    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+            100}}), graphics={
+        Rectangle(
+          extent={{-100,-100},{80,50}},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
+        Polygon(
+          points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
+        Polygon(
+          points={{100,70},{100,-80},{80,-100},{80,50},{100,70}},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
+        Text(
+          extent={{-96,3},{77,-49}},
+          lineColor={0,0,255},
+          textString="Example"),
+        Text(
+          extent={{-120,132},{120,73}},
+          lineColor={255,0,0},
+          textString="%name")}),
+    Documentation(info="<html>
+<p>The simple converter circuit converts an analog sine signal into a N-bit (by default a 4 bit) logic signal, which is converted backward into an analog signal. </p>
+<p>Simulate to 0.2 s.</p>
+<p>Compare the input voltage (aD_Converter.p.v) with the output voltage (dA_Converter.p.v). By changeing N the influence of the digital signal width can be studied. Otherwise the trigger  frequency pulse.period can be changed to see its influence.</p>
+</html>", revisions="<html>
+<p><ul>
+<li><i>October 13, 2009  </i>by Matthias Franke </li>
+</ul></p>
+</html>"));
 end AD_DA_conversion;

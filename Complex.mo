@@ -149,6 +149,5 @@ Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})
           lineColor={85,170,255},
           textString="C",
           fillColor={85,170,255},
-          fillPattern=FillPattern.Solid)}),
-uses(Modelica(version="3.1")));
+          fillPattern=FillPattern.Solid)}));
 end Complex;
