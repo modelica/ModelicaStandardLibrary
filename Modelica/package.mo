@@ -22,7 +22,7 @@ Modelica Association, see
 It is also called <b>Modelica Standard Library</b>.
 It provides model components in many domains that are based on
 standardized interface definitions. Some typical examples are shown
-in the next figure:
+in the next figure: 
 </p>
 
 <p>
