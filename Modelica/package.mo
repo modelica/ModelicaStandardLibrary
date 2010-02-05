@@ -8,7 +8,7 @@ class Overview "Overview of Modelica Library"
 
  annotation (Documentation(info="<html>
 <p>
-The Modelica Standard Library consists of the following
+The Modelica Standard Library consists of the following 
 main sub-libraries:
 </p>
 
