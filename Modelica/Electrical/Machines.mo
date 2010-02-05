@@ -46,7 +46,7 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2008, Modelica Association and Anton Haumer.
+Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.
 </p>
 <p>
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
