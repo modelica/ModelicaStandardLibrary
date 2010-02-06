@@ -3,7 +3,6 @@ package Sources "Time-dependend and controlled voltage and current sources"
 
   extends Modelica.Icons.Library;
 
-
   model SignalVoltage
     "Generic voltage source using the input signal as source voltage"
 

@@ -50,13 +50,16 @@ equation
   connect(inductor1.n,resistor1. p) annotation (Line(points={{60,40},{80,40},
           {80,30}}, color={0,0,255}));
   connect(resistor1.n,ground1. p)
-    annotation (Line(points={{80,10},{80,0},{30,0}}, color={0,0,255}));
+    annotation (Line(points={{80,10},{80,5.55112e-16},{30,5.55112e-16}},
+                                                     color={0,0,255}));
   connect(constantVoltage1.n,ground1. p)
-    annotation (Line(points={{-20,10},{-20,0},{30,0}}, color={0,0,255}));
+    annotation (Line(points={{-20,10},{-20,5.55112e-16},{30,5.55112e-16}},
+                                                       color={0,0,255}));
   connect(switch1.n,inductor1. p)
     annotation (Line(points={{20,40},{40,40}}, color={0,0,255}));
   connect(constantVoltage1.p,switch1. p) annotation (Line(points={{-20,30},{-20,
-          40},{0,40}},     color={0,0,255}));
+          40},{-5.55112e-16,40}},
+                           color={0,0,255}));
   connect(inductor2.n,resistor2. p) annotation (Line(points={{60,-40},{80,-40},
           {80,-50}}, color={0,0,255}));
   connect(resistor2.n,ground2. p)
@@ -66,13 +69,14 @@ equation
   connect(switch2.n,inductor2. p)
     annotation (Line(points={{20,-40},{40,-40}}, color={0,0,255}));
   connect(constantVoltage2.p,switch2. p) annotation (Line(points={{-20,-50},{
-          -20,-40},{0,-40}}, color={0,0,255}));
+          -20,-40},{-5.55112e-16,-40}},
+                             color={0,0,255}));
   connect(sineVoltage.p, switch1.control) annotation (Line(
-      points={{-70,0},{-40,0},{-40,50},{10,50}},
+      points={{-70,5.55112e-16},{-40,5.55112e-16},{-40,50},{10,50}},
       color={0,0,255},
       smooth=Smooth.None));
   connect(sineVoltage.p, switch2.control) annotation (Line(
-      points={{-70,0},{-40,0},{-40,-30},{10,-30}},
+      points={{-70,5.55112e-16},{-40,5.55112e-16},{-40,-30},{10,-30}},
       color={0,0,255},
       smooth=Smooth.None));
   connect(sineVoltage.n, ground.p) annotation (Line(
@@ -89,9 +93,12 @@ equation
       Interval=0.00025,
       Tolerance=1e-006),
     Documentation(info="<html>
-<p><br/><br/>This example is to compare the behaviour of switch models with and without an electric arc taking into consideration.</p>
-<p>Simulate until T=2 s.  </p>
-<p><br/><br/>Plot in one windows:</p><p><br/><br/>switch1.i and switch2.i </p><p><br/><br/>The difference in the closing area shows that the simple arc model avoids the suddenly switching. </p>
+<p>This example is to compare the behaviour of switch models with and without an electric arc taking into consideration.</p>
+<p><ul>
+<li>Simulate until T=2 s. </li>
+<li>Plot in one window: <code>switch1.i</code> and <code>switch2.i</code> </li>
+</ul></p>
+<p>The difference in the closing area shows that the simple arc model avoids the suddenly switching. </p>
 </html>",
         revisions="<html>
 <ul>

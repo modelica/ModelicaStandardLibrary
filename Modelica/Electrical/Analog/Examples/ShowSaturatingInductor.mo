@@ -63,7 +63,7 @@ equation
           textString="Show Saturating Inductor")}),
     experiment(StopTime=6.2832, Interval=0.01),
     Documentation(info="<html>
-<p>This simple circuit uses the saturating inductor, whis has a changing inductivity.</p>
-<p>This circuit should be simulated until 1 s. Compare SaturatingInductance1.p.i with Inductance1.p.i to see the difference between saturating and ideal inductor. </p>
+<p>This simple circuit uses the saturating inductor which has a changing inductivity.</p>
+<p>This circuit should be simulated until 1 s. Compare <code>SaturatingInductance1.p.i</code> with <code>Inductance1.p.i</code> to see the difference between saturating and ideal inductor. </p>
 </html>"));
 end ShowSaturatingInductor;

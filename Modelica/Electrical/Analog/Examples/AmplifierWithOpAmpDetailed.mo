@@ -58,15 +58,15 @@ equation
       color={0,0,255},
       smooth=Smooth.None));
   connect(opAmp.m_supply, constantVoltage1.p)       annotation (Line(
-      points={{-12,-0.36},{18,-0.36},{18,0},{48,0}},
+      points={{-12,-0.36},{18,-0.36},{18,6.10623e-16},{48,6.10623e-16}},
       color={0,0,255},
       smooth=Smooth.None));
   connect(constantVoltage.n, constantVoltage1.n) annotation (Line(
-      points={{68,20},{80,20},{80,0},{68,0}},
+      points={{68,20},{80,20},{80,6.10623e-16},{68,6.10623e-16}},
       color={0,0,255},
       smooth=Smooth.None));
   connect(constantVoltage1.n, ground.p) annotation (Line(
-      points={{68,0},{80,0},{80,-46},{-10,-46},{-10,-50}},
+      points={{68,6.10623e-16},{80,6.10623e-16},{80,-46},{-10,-46},{-10,-50}},
       color={0,0,255},
       smooth=Smooth.None));
   connect(opAmp.outp, resistor2.p)       annotation (Line(

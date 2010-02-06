@@ -1635,7 +1635,6 @@ end M_Transformer;
       "Negative output voltage limitation" annotation (Placement(transformation(
             extent={{-9,-83},{9,-65}},   rotation=0)));
 
-
   // power supply
     SI.Voltage v_pos;
     SI.Voltage v_neg;

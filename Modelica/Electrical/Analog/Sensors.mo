@@ -3,7 +3,6 @@ package Sensors "Potential, voltage, current, and power sensors"
 
   extends Modelica.Icons.Library;
 
-
   model PotentialSensor "Sensor to measure the potential"
     extends Modelica.Icons.RotationalSensor;
 

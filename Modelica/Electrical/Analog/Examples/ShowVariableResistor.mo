@@ -34,12 +34,14 @@ model ShowVariableResistor "Simple demo of a VariableResistor model"
 equation
   connect(R1.n, R2.p)             annotation (Line(points={{-40,50},{-20,50}},
         color={0,0,255}));
-  connect(R2.n, R3.p)             annotation (Line(points={{0,50},{20,50}},
+  connect(R2.n, R3.p)             annotation (Line(points={{5.55112e-16,50},{20,
+          50}},
         color={0,0,255}));
   connect(R4.n, VariableResistor.p)       annotation (Line(points={{-40,-10},{
           -20,-10}}, color={0,0,255}));
-  connect(VariableResistor.n, R5.p)       annotation (Line(points={{0,-10},{20,
-          -10}}, color={0,0,255}));
+  connect(VariableResistor.n, R5.p)       annotation (Line(points={{5.55112e-16,
+          -10},{20,-10}},
+                 color={0,0,255}));
   connect(R3.n, Ground2.p)      annotation (Line(points={{40,50},{70,50},{70,
           -20}}, color={0,0,255}));
   connect(Ground2.p, R5.n)      annotation (Line(points={{70,-20},{70,-10},{40,

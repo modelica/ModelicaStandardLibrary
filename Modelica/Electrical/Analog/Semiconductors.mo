@@ -1721,33 +1721,7 @@ public
             pattern=LinePattern.Dot,
             textString="IH")}));
   end Thyristor;
-  annotation (
-    Documentation(info="<html>
-<p>This package contains semiconductor devices:  </p>
-<p><ul>
-<li>diode</li>
-<li>MOS transistors</li>
-<li>bipolar transistors</li>
-</ul></p>
-<p>All semiconductor devices contain a conditional heat port, which is not active by default. If it is active the loss power is calculated to be used in a thermal net. The heating variants of the semiconductor devices are provided to use the thermal pot temperature in the electric calculation. That means that for a true thermal electric interaction the heating device models have to be used. </p>
-</html>",
-   revisions="<html>
-<dl>
-<dt>
-<b>Main Authors:</b>
-<dd>
-Christoph Clau&szlig;
-    &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
-    Andr&eacute; Schneider
-    &lt;<a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>&gt;<br>
-    Fraunhofer Institute for Integrated Circuits<br>
-    Design Automation Department<br>
-    Zeunerstra&szlig;e 38<br>
-    D-01069 Dresden<br>
-<p>
-<dt>
-</dl>
-</html>"));
+
   model SimpleTriac "Simple triac, based on Semiconductors.Thyristor model"
 
     parameter Modelica.SIunits.Voltage VDRM(final min=0) = 100
@@ -1877,4 +1851,31 @@ Christoph Clau&szlig;
 </ul>
 </html>"));
   end SimpleTriac;
+  annotation (
+    Documentation(info="<html>
+<p>This package contains semiconductor devices:  </p>
+<p><ul>
+<li>diode</li>
+<li>MOS transistors</li>
+<li>bipolar transistors</li>
+</ul></p>
+<p>All semiconductor devices contain a conditional heat port, which is not active by default. If it is active the loss power is calculated to be used in a thermal net. The heating variants of the semiconductor devices are provided to use the thermal pot temperature in the electric calculation. That means that for a true thermal electric interaction the heating device models have to be used. </p>
+</html>",
+   revisions="<html>
+<dl>
+<dt>
+<b>Main Authors:</b>
+<dd>
+Christoph Clau&szlig;
+    &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
+    Andr&eacute; Schneider
+    &lt;<a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>&gt;<br>
+    Fraunhofer Institute for Integrated Circuits<br>
+    Design Automation Department<br>
+    Zeunerstra&szlig;e 38<br>
+    D-01069 Dresden<br>
+<p>
+<dt>
+</dl>
+</html>"));
 end Semiconductors;

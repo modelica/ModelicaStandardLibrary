@@ -130,16 +130,16 @@ equation
     annotation (Line(points={{80,-30},{80,-40}}, color={0,0,255}));
   connect(ground11.p, basicTransformer.n1) annotation (Line(points={{-80,20},
           {-10,20},{-10,45}}, color={0,0,255}));
-  connect(basicTransformer.n2, ground12.p) annotation (Line(points={{10,45},{
-          10,20},{80,20}}, color={0,0,255}));
+  connect(basicTransformer.n2, ground12.p) annotation (Line(points={{10,45},{10,
+          20},{80,20}},    color={0,0,255}));
   connect(basicTransformer.p1, resistor11.n) annotation (Line(points={{-10,55},
           {-10,60},{-60,60}}, color={0,0,255}));
-  connect(basicTransformer.p2, resistor12.p) annotation (Line(points={{10,55},
-          {10,60},{60,60}}, color={0,0,255}));
+  connect(basicTransformer.p2, resistor12.p) annotation (Line(points={{10,55},{
+          10,60},{60,60}},  color={0,0,255}));
   connect(ground21.p, idealTransformer.n1) annotation (Line(points={{-80,-70},
           {-10,-70},{-10,-45}}, color={0,0,255}));
-  connect(ground22.p, idealTransformer.n2) annotation (Line(points={{80,-70},
-          {10,-70},{10,-45}}, color={0,0,255}));
+  connect(ground22.p, idealTransformer.n2) annotation (Line(points={{80,-70},{
+          10,-70},{10,-45}},  color={0,0,255}));
   connect(idealTransformer.p1, inductor21.n) annotation (Line(points={{-10,
           -35},{-10,-30},{-30,-30}}, color={0,0,255}));
   connect(idealTransformer.p2, inductor22.p) annotation (Line(points={{10,-35},

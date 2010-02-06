@@ -1,7 +1,7 @@
 within Modelica.Electrical.Analog.Examples;
 model AD_DA_conversion "Conversion circuit"
   parameter Integer N=7 "Digital signal width";
-  Modelica.Electrical.Analog.Ideal.AD_Converter aD_Converter(N=N) 
+  Modelica.Electrical.Analog.Ideal.AD_Converter aD_Converter(N=N)
     annotation (Placement(transformation(extent={{-14,-10},{12,16}})));
   Modelica.Electrical.Digital.Sources.Pulse pulse(
     pulse=Modelica.Electrical.Digital.Interfaces.Logic.'1',
@@ -9,11 +9,11 @@ model AD_DA_conversion "Conversion circuit"
     nperiod=-1,
     width=1,
     period=0.001,
-    startTime=0) 
+    startTime=0)
              annotation (Placement(transformation(extent={{-32,32},{-12,52}})));
-  Modelica.Electrical.Analog.Ideal.DA_Converter dA_Converter(N=N) 
+  Modelica.Electrical.Analog.Ideal.DA_Converter dA_Converter(N=N)
     annotation (Placement(transformation(extent={{18,-10},{44,16}})));
-  Modelica.Electrical.Analog.Basic.Ground ground 
+  Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{44,-40},{64,-20}})));
   Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(
     V=5,
@@ -22,7 +22,7 @@ model AD_DA_conversion "Conversion circuit"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-80,4})));
-  Modelica.Electrical.Analog.Basic.Resistor resistor(R=1) 
+  Modelica.Electrical.Analog.Basic.Resistor resistor(R=1)
     annotation (Placement(transformation(extent={{-28,68},{-8,88}})));
 equation
   connect(pulse.y, aD_Converter.trig) annotation (Line(
@@ -50,7 +50,7 @@ equation
       color={127,0,127},
       smooth=Smooth.None));
   connect(aD_Converter.y, dA_Converter.x) annotation (Line(
-      points={{8.1,3},{21.9,3}},
+      points={{8.1,3},{11.55,3},{11.55,3},{15,3},{15,3},{21.9,3}},
       color={127,0,127},
       smooth=Smooth.None));
   connect(dA_Converter.p, resistor.n) annotation (Line(
@@ -92,8 +92,10 @@ equation
           textString="%name")}),
     Documentation(info="<html>
 <p>The simple converter circuit converts an analog sine signal into a N-bit (by default a 4 bit) logic signal, which is converted backward into an analog signal. </p>
-<p>Simulate to 0.2 s.</p>
-<p>Compare the input voltage (aD_Converter.p.v) with the output voltage (dA_Converter.p.v). By changeing N the influence of the digital signal width can be studied. Otherwise the trigger  frequency pulse.period can be changed to see its influence.</p>
+<p><ul>
+<li>Simulate for 0.2 s.</li>
+</ul></p>
+<p>Compare the input voltage (aD_Converter.p.v) with the output voltage (dA_Converter.p.v). By changeing N the influence of the digital signal width can be studied. Otherwise the trigger frequency pulse.period can be changed to see its influence.</p>
 </html>", revisions="<html>
 <p><ul>
 <li><i>October 13, 2009  </i>by Matthias Franke </li>

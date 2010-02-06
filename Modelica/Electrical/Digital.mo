@@ -3,7 +3,6 @@ package Digital
   "Library for digital electrical components based on the VHDL standard with 9-valued logic and conversion to 2-,3-,4-valued logic"
     package UsersGuide "User's Guide"
 
-
       class ReleaseNotes "Release notes"
 
         annotation (Documentation(info="<html>
@@ -151,7 +150,6 @@ the library and has the following content:
 </ol>
 </html>"));
     end UsersGuide;
-
 
       package Examples
     "Examples that demonstrate the usage of the Digital electrical components"
@@ -1152,7 +1150,6 @@ The simulation stop time has to be 5s.
             import D = Modelica.Electrical.Digital;
             import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
-
           parameter Modelica.SIunits.Time delayTime=0.001 "Delay time";
           parameter D.Interfaces.Logic q0=L.'0' "Initial value";
             D.Interfaces.DigitalInput d0 annotation (Placement(transformation(
@@ -1427,7 +1424,6 @@ The simulation stop time has to be 5s.
             import D = Modelica.Electrical.Digital;
             import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
-
           parameter Modelica.SIunits.Time delayTime=0.01 "Delay time";
           parameter D.Interfaces.Logic q0=L.'U' "Initial value";
           D.Interfaces.DigitalInput s   annotation (Placement(transformation(extent=
@@ -1540,7 +1536,6 @@ The simulation stop time has to be 5s.
             import D = Modelica.Electrical.Digital;
             import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
-
           parameter Modelica.SIunits.Time Tdel=0.01 "Delay time";
           parameter L QInit=L.'U' "Initial value";
           D.Interfaces.DigitalInput d   annotation (Placement(transformation(extent=
@@ -1635,7 +1630,6 @@ The simulation stop time has to be 5s.
         model JKFF "JK FlipFlop"
             import D = Modelica.Electrical.Digital;
             import L = Modelica.Electrical.Digital.Interfaces.Logic;
-
 
           parameter Modelica.SIunits.Time delayTime=0.001 "Delay time";
           parameter D.Interfaces.Logic q0=L.'0' "Initial value";
@@ -1879,7 +1873,6 @@ The simulation stop time has to be 5s.
 
         model FullAdder
         "Adding circuit for binary numbers with input carry bit"
-
 
           HalfAdder Adder2(delayTime=0.001)
                                           annotation (Placement(transformation(
@@ -5894,7 +5887,6 @@ Clock transition definitions:
 
         model DLATR "Level sensitive register bank with reset"
 
-
           import D = Modelica.Electrical.Digital;
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
           import S = Modelica.Electrical.Digital.Interfaces.Strength;
@@ -6253,7 +6245,6 @@ Clock transition definitions:
         end DLATREG;
 
         model DLATREGL "Level sensitive register bank with reset active low"
-
 
           extends DLATREG(final ResetMap = {1, 4, 2, 3, 4, 4, 2, 3, 4});
               // Function selection by [reset] reading

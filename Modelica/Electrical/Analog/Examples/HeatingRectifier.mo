@@ -35,10 +35,12 @@ equation
   connect(Capacitor1.n, G.p)
   annotation (Line(points={{40,50},{40,20},{-70,20}}, color={0,0,255}));
   connect(HeatingDiode1.n, Capacitor1.p)
-  annotation (Line(points={{0,50},{20,50}}, color={0,0,255}));
+  annotation (Line(points={{5.55112e-16,50},{20,50}},
+                                            color={0,0,255}));
   connect(HeatingDiode1.heatPort, ThermalConductor1.port_a)
                                                           annotation (Line(
-        points={{-10,40},{-10,20},{-10,0},{-10,0}},   color={191,0,0}));
+        points={{-10,40},{-10,20},{-10,5.55112e-16},{-10,5.55112e-16}},
+                                                      color={191,0,0}));
   connect(ThermalConductor1.port_b, HeatCapacitor1.port)
                                                        annotation (Line(points={{-10,-20},
           {-10,-25.75},{-10,-40},{-10,-40}},

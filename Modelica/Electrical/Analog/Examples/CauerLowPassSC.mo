@@ -29,20 +29,25 @@ model Rn "Negative resistance"
     annotation (Placement(transformation(extent={{90,-8},{110,12}}, rotation=0)));
 equation
   connect(IdealCommutingSwitch1.p,Capacitor1. p) annotation (Line(points={{-40,
-            -1.22465e-015},{-42,-1.22465e-015},{-44,0},{-20,0}}, color={0,0,255}));
+            -7.25006e-16},{-42,-7.25006e-16},{-44,0},{-20,1.22125e-15}},
+                                                                 color={0,0,255}));
   connect(Capacitor1.n,IdealCommutingSwitch2. p)
-    annotation (Line(points={{20,0},{40,0}}, color={0,0,255}));
+    annotation (Line(points={{20,1.22125e-15},{25,1.22125e-15},{25,1.83187e-15},
+            {30,1.83187e-15},{30,6.10623e-16},{40,6.10623e-16}},
+                                             color={0,0,255}));
   connect(IdealCommutingSwitch2.control,BooleanPulse1. y) annotation (Line(
           points={{50,8},{50,30},{20,30},{20,60},{11,60}}, color={255,0,255}));
   connect(IdealCommutingSwitch1.control,BooleanPulse1. y) annotation (Line(
           points={{-50,-8},{-50,30},{20,30},{20,60},{11,60}}, color={255,0,255}));
   connect(Ground2.p,IdealCommutingSwitch2. n2) annotation (Line(points={{60,-20},
-            {60,0}}, color={0,0,255}));
+            {60,6.10623e-16}},
+                     color={0,0,255}));
   connect(IdealCommutingSwitch2.n1,n2)  annotation (Line(
         points={{60,5},{80,5},{80,2},{100,2}},
         color={0,0,255}));
   connect(n1, IdealCommutingSwitch1.n2) annotation (Line(
-        points={{-102,0},{-81,0},{-81,1.22465e-015},{-60,1.22465e-015}},
+        points={{-102,5.55112e-16},{-81,5.55112e-16},{-81,1.72421e-15},{-60,
+            1.72421e-15}},
         color={0,0,255}));
   connect(Ground1.p, IdealCommutingSwitch1.n1) annotation (Line(
         points={{-60,-20},{-60,-5}},
@@ -113,19 +118,24 @@ model Rp "Positive resistance"
     annotation (Placement(transformation(extent={{90,-8},{110,12}}, rotation=0)));
 equation
   connect(IdealCommutingSwitch1.p, Capacitor1.p) annotation (Line(points={{-40,
-            -1.22465e-015},{-42,-1.22465e-015},{-44,0},{-20,0}}, color={0,0,255}));
+            -7.25006e-16},{-42,-7.25006e-16},{-44,0},{-20,1.22125e-15}},
+                                                                 color={0,0,255}));
   connect(Capacitor1.n, IdealCommutingSwitch2.p)
-    annotation (Line(points={{20,0},{40,0}}, color={0,0,255}));
+    annotation (Line(points={{20,1.22125e-15},{25,1.22125e-15},{25,1.83187e-15},
+            {30,1.83187e-15},{30,6.10623e-16},{40,6.10623e-16}},
+                                             color={0,0,255}));
   connect(IdealCommutingSwitch2.control, BooleanPulse1.y) annotation (Line(
           points={{50,8},{50,30},{20,30},{20,60},{11,60}}, color={255,0,255}));
   connect(IdealCommutingSwitch1.control, BooleanPulse1.y) annotation (Line(
           points={{-50,-8},{-50,30},{20,30},{20,60},{11,60}}, color={255,0,255}));
   connect(Ground1.p, IdealCommutingSwitch1.n2) annotation (Line(points={{-60,40},
-            {-60,1.22465e-015}},          color={0,0,255}));
+            {-60,1.72421e-15}},           color={0,0,255}));
   connect(Ground2.p, IdealCommutingSwitch2.n2) annotation (Line(points={{60,-32},
-            {60,-32},{60,0}}, color={0,0,255}));
+            {60,6.10623e-16},{60,6.10623e-16}},
+                              color={0,0,255}));
   connect(IdealCommutingSwitch1.n1, n1) annotation (Line(points={{-60,-5},{-99,
-            -5},{-99,0},{-102,0}}, color={0,0,255}));
+            -5},{-99,5.55112e-16},{-102,5.55112e-16}},
+                                   color={0,0,255}));
   connect(IdealCommutingSwitch2.n1, n2) annotation (Line(
         points={{60,5},{80,5},{80,2},{100,2}},
         color={0,0,255}));
