@@ -1895,7 +1895,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           annotation (Placement(transformation(extent={{60,-90},{40,-70}},
                 rotation=0)));
         Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_rp(final m=m)
-          "psoitive rotor plug" 
+          "positive rotor plug" 
           annotation (Placement(transformation(extent={{-110,70},{-90,50}},
                 rotation=0)));
         Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_rn(final m=m)
@@ -3132,7 +3132,7 @@ Armature current does not cover excitation current of a shunt excitation; in thi
               rotation=180)));
         Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep
           "positive series excitation pin" 
-          annotation (Placement(transformation(extent={{-112,70},{-92,50}},
+          annotation (Placement(transformation(extent={{-110,70},{-90,50}},
                 rotation=0)));
         Modelica.Electrical.Analog.Interfaces.NegativePin pin_en
           "negative series excitation pin" 
@@ -3141,7 +3141,7 @@ Armature current does not cover excitation current of a shunt excitation; in thi
       equation
         assert(VaNominal > (Ra+Re)*IaNominal, "VaNominal has to be > (Ra+Re)*IaNominal");
         connect(re.p, pin_ep) annotation (Line(points={{-60,-40},{-80,-40},{-80,
-                60},{-102,60}}, color={0,0,255}));
+                60},{-100,60}}, color={0,0,255}));
         connect(pin_en, airGapDC.pin_en) annotation (Line(points={{-100,-60},{
                 -10,-60},{-10,-10}}, color={0,0,255}));
         connect(re.n, airGapDC.pin_ep) annotation (Line(points={{-40,-40},{10,

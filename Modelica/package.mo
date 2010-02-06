@@ -9,7 +9,7 @@ class Overview "Overview of Modelica Library"
  annotation (Documentation(info="<html>
 <p>
 The Modelica Standard Library consists of the following 
-main sub-libraries:
+main sub-libraries: 
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
