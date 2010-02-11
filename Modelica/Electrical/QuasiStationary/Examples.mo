@@ -57,8 +57,8 @@ package Examples "Test examples"
             -24}}, color={0,0,127}));
     connect(polarToComplex.y, voltageSource.V) annotation (Line(points={{-60,-1},
             {-60,-16},{-40,-16}},color={85,170,255}));
-    connect(ground.pin, voltageSource.pin_n) annotation (Line(points={{-30,-40},{
-            -30,-35},{-30,-30},{-30,-30}},
+    connect(ground.pin, voltageSource.pin_n) annotation (Line(points={{-30,-40},
+            {-30,-35},{-30,-30},{-30,-30}},
                                        color={85,170,255}));
     connect(voltageSource.pin_p, currentSensor.pin_p) annotation (Line(points={{-30,-10},
             {-30,0},{-20,0}},      color={85,170,255}));
@@ -83,7 +83,12 @@ package Examples "Test examples"
         points={{-10,11},{-10,18}},
         color={85,170,255},
         smooth=Smooth.None));
-    annotation (Diagram(graphics));
+    annotation (Diagram(graphics), Documentation(info="<html>
+<p>
+The frequency of the voltage source is varied by a ramp. 
+Plot length and angle of the current phasor, i.e. complexToPolar.len and .phi, versis time resp. frequency.
+</p>
+</html>"));
   end SeriesResonance;
 
   model ParallelResonance "Parallel resonance circuit"
@@ -152,10 +157,11 @@ package Examples "Test examples"
             {-30,40},{30,40},{30,30}}, color={85,170,255}));
     connect(currentSource.pin_n, voltageSensor.pin_p) annotation (Line(points={{-30,30},
             {-30,40},{50,40},{50,30}},     color={85,170,255}));
-    connect(currentSource.pin_p, ground.pin) annotation (Line(points={{-30,10},{
-            -30,5},{-30,0}},                color={85,170,255}));
-    connect(resistor.pin_n, ground.pin) annotation (Line(points={{-10,10},{-10,0},
-            {-30,0}}, color={85,170,255}));
+    connect(currentSource.pin_p, ground.pin) annotation (Line(points={{-30,10},
+            {-30,5},{-30,0}},               color={85,170,255}));
+    connect(resistor.pin_n, ground.pin) annotation (Line(points={{-10,10},{-10,
+            0},{-30,0}},
+                      color={85,170,255}));
     connect(inductor.pin_n, ground.pin) annotation (Line(points={{10,10},{10,0},{-30,
             0}}, color={85,170,255}));
     connect(capacitor.pin_n, ground.pin) annotation (Line(points={{30,10},{30,0},
@@ -177,11 +183,15 @@ package Examples "Test examples"
         points={{61,20},{68,20}},
         color={85,170,255},
         smooth=Smooth.None));
-    annotation (Diagram(graphics));
+    annotation (Diagram(graphics), Documentation(info="<html>
+<p>
+The frequency of the current source is varied by a ramp. 
+Plot length and angle of the voltage phasor, i.e. complexToPolar.len and .phi, versis time resp. frequency.
+</p>
+</html>"));
   end ParallelResonance;
 
   model BalancingStar "Balancing an unsymmetrical star-connected load"
-  //P.Vaske, Berechnung von Drehstromschaltungen, Teubner 1973, Seite 42, Beispiel 18
     extends Modelica.Icons.Example;
     parameter Integer m=3;
     parameter Modelica.SIunits.Voltage V = 100;
@@ -304,15 +314,18 @@ package Examples "Test examples"
       annotation (Line(points={{80,-60},{-20,-60}}, color={85,170,255}));
     connect(currentSensor0.pin_n, star.pin_n) annotation (Line(points={{-40,-60},
             {-80,-60}}, color={85,170,255}));
-    annotation (Diagram(graphics={Text(
-            extent={{-100,-80},{100,-100}},
-            lineColor={0,0,255},
-            textString=
-                 "L and C are choosen such way that the neutral current is 0")}));
+    annotation (Diagram(graphics), Documentation(info="<html>
+<p>
+For the unsymmetrical load (resistor, capacitor and inductor) the parameters inductance L and capacitance C 
+are choosen such way that the neutral current (see currentSensor0) is zero.
+</p>
+<p>
+P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase circuits), Teubner 1973, page 42, example 18
+</p>
+</html>"));
   end BalancingStar;
 
   model BalancingDelta "Balancing an unsymmetrical delta-connected load"
-  //P.Vaske, Berechnung von Drehstromschaltungen, Teubner 1973, Seite 43, Beispiel 23
     extends Modelica.Icons.Example;
     parameter Integer m=3;
     parameter Modelica.SIunits.Voltage V_LL = 100;
@@ -436,11 +449,15 @@ package Examples "Test examples"
         points={{-20,-1},{-20,-4.5},{-20,-8},{-20,-8}},
         color={85,170,255},
         smooth=Smooth.None));
-    annotation (Diagram(graphics={Text(
-            extent={{-100,-80},{100,-100}},
-            lineColor={0,0,255},
-            textString=
-              "L and C are choosen such way that the 3 source currents are balanced")}));
+    annotation (Diagram(graphics), Documentation(info="<html>
+<p>
+For the unsymmetrical load (resistor, capacitor and inductor) the parameters inductance L and capacitance C 
+are choosen such way that the magnitudes of the three phase currents (see currentSensor12, currentSensor23, currentSensor31) are equal.
+</p>
+<p>
+P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase circuits), Teubner 1973, page 43, example 23
+</p>
+</html>"));
   end BalancingDelta;
   annotation (Icon(graphics={Ellipse(extent={{-80,44},{60,-96}}, lineColor={95,
             95,95}), Polygon(

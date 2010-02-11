@@ -479,7 +479,7 @@ The abstraction of a variable inductor at quasi stationary operation assumes:<br
           fillPattern=FillPattern.Solid)}));
   end Basic;
 
-  package Ideal
+  package Ideal "Ideal components for AC singlephase models"
     extends Modelica.Icons.Library2;
 
     model Idle "Idle branch"

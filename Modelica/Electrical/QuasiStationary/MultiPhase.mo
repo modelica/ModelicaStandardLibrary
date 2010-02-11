@@ -2,7 +2,7 @@ within Modelica.Electrical.QuasiStationary;
 package MultiPhase
   extends Modelica.Icons.Library2;
 
-  package Basic
+  package Basic "Basic components for AC multiphase models"
     extends Modelica.Icons.Library2;
 
     model Star "Star connection"
@@ -40,7 +40,7 @@ package MultiPhase
             Text(
               extent={{-100,-110},{100,-70}},
               lineColor={0,0,0},
-              textString=                            "m=%m"),
+              textString =                           "m=%m"),
             Line(points={{-90,0},{-40,0}}, color={0,0,255}),
             Line(points={{80,0},{90,0}}, color={0,0,255})}),              Diagram(graphics),
       Documentation(info="<html>
@@ -86,7 +86,7 @@ Star (wye) connection of a multi phase circuit. The potentials at the star point
             Text(
               extent={{-150,60},{150,120}},
               lineColor={0,0,255},
-              textString=                         "%name"),
+              textString =                        "%name"),
             Line(
               points={{-40,68},{-40,-70},{79,0},{-40,68},{-40,67}},
               color={0,0,255},
@@ -94,7 +94,7 @@ Star (wye) connection of a multi phase circuit. The potentials at the star point
             Text(
               extent={{-100,-110},{100,-70}},
               lineColor={0,0,0},
-              textString=                            "m=%m"),
+              textString =                           "m=%m"),
             Line(points={{-90,0},{-40,0}}, color={0,0,255}),
             Line(points={{80,0},{90,0}}, color={0,0,255})}),              Diagram(graphics),
       Documentation(info="<html>
@@ -142,7 +142,7 @@ Delta (polygon) connection of a multi phase circuit.
             Text(
               extent={{-100,-60},{100,-100}},
               lineColor={0,0,0},
-              textString=                         "k = %k")}),
+              textString =                        "k = %k")}),
                                                 Diagram(graphics),
       Documentation(info="<html>
 <p>
@@ -191,7 +191,7 @@ Connects the single phase (positive) pin <i>k</i> of the multi phase (positive) 
             Text(
               extent={{-100,-60},{100,-100}},
               lineColor={0,0,0},
-              textString=                         "k = %k")}),
+              textString =                        "k = %k")}),
                                                 Diagram(graphics),
       Documentation(info="<html>
 <p>
@@ -846,7 +846,7 @@ The inductances <i>L</i> are given as <i>m</i> input signals.
           fillPattern=FillPattern.Solid)}));
   end Basic;
 
-  package Ideal
+  package Ideal "Ideal components for AC multiphase models"
     extends Modelica.Icons.Library2;
 
     model Idle "Idle branch"
@@ -931,7 +931,7 @@ it uses <i>m</i> <a href=\"Modelica://Modelica.Electrical.QuasiStationary.Single
         Line(points={{30,-60},{80,-60}})}));
   end Ideal;
 
-  package Interfaces
+  package Interfaces "Interfaces for AC multiphase models"
     extends Modelica.Icons.Library2;
 
     connector Plug "Basic multiphase plug"
@@ -1238,7 +1238,7 @@ The source partial model relies on the
           fillPattern=FillPattern.Solid)}));
   end Interfaces;
 
-  package Sensors
+  package Sensors "AC multiphase sensors"
     extends Modelica.Icons.Library2;
 
     model PotentialSensor
@@ -1513,7 +1513,7 @@ This sensor can be used to measure <i>m</i> complex apparent power values, using
           fillPattern=FillPattern.Solid)}));
   end Sensors;
 
-  package Sources
+  package Sources "AC multiphase sources"
     extends Modelica.Icons.Library2;
 
     model VoltageSource

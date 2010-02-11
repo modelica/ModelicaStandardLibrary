@@ -5,9 +5,11 @@ package QuasiStationary "Library for quasi-stationary electrical singlephase and
   extends Modelica.Icons.Library2;
 
 
-    annotation (version="1",
-                versionDate="2010-01-30",
-                preferedView="info", Documentation(info="<HTML>
+
+
+
+
+    annotation (preferedView="info", Documentation(info="<HTML>
 <p>
 <dl>
   <dt><b>Main Authors:</b></dt>
@@ -30,7 +32,7 @@ package QuasiStationary "Library for quasi-stationary electrical singlephase and
 </dl>
 </p>
 <p>
-Copyright &copy; 2009 Anton Haumer &amp; Christian Kral.
+Copyright &copy; 2010 Anton Haumer &amp; Christian Kral.
 </p>
 </HTML>", revisions="<HTML>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -43,17 +45,16 @@ Copyright &copy; 2009 Anton Haumer &amp; Christian Kral.
     </tr>
     <tr>
       <td valign=\"top\">1.0.0</td>
-      <td valign=\"top\">XXX</td>
+      <td valign=\"top\"> </td>
       <td valign=\"top\">2010-01-30</td>
       <td valign=\"top\">A. Haumer<br>C. Kral</td>
       <td valign=\"top\"></td>
     </tr>
-</table>>
+</table>
 </HTML>"),     Icon(graphics={Line(points={{-90,-20},{-78.7,14.2},{-71.5,33.1},{
               -65.1,46.4},{-59.4,54.6},{-53.8,59.1},{-48.2,59.8},{-42.6,56.6},{-36.9,
               49.7},{-31.3,39.4},{-24.9,24.1},{-16.83,1.2},{0.1,-50.8},{7.3,-70.2},
               {13.7,-84.2},{19.3,-93.1},{25,-98.4},{30.6,-100},{36.2,-97.6},{41.9,
               -91.5},{47.5,-81.9},{53.9,-67.2},{62,-44.8},{70,-20}}, color={0,0,
-              0})}),
-    conversion(noneFromVersion="0.9.X"));
+              0})}));
 end QuasiStationary;
