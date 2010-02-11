@@ -1809,8 +1809,7 @@ where the different effects are visualized:
             Text(
               extent={{0,120},{0,60}},
               textString="%name",
-              lineColor={0,0,255})}),
-        uses(Modelica(version="2.2.2")));
+              lineColor={0,0,255})}));
     end ElastoGap;
 
     model SupportFriction "Coulomb friction in support"

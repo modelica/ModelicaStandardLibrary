@@ -6954,7 +6954,6 @@ and the accompanying <b>disclaimer</b>
         Text(
           extent={{-90,40},{70,10}},
           lineColor={160,160,164},
-          textString="Library")}),
-        uses(Modelica(version="3.1")));
+          textString="Library")}));
 end Digital;
 

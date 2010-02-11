@@ -1797,8 +1797,7 @@ public
         color={0,0,255},
         smooth=Smooth.None));
     annotation (
-      uses(Modelica(version="3.1")),
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+	Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Polygon(
             points={{-30,0},{-30,-100},{70,-50},{-30,0}},

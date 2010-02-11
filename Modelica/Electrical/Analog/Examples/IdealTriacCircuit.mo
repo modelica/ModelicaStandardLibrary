@@ -40,7 +40,7 @@ equation
       points={{11.2,21.04},{0,21.04},{0,8},{-5.2,8}},
       color={255,0,255},
       smooth=Smooth.None));
-  annotation (uses(Modelica(version="3.1")), Diagram(coordinateSystem(
+  annotation (Diagram(coordinateSystem(
           preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics),
     experiment(StopTime=2),
     experimentSetupOutput,
