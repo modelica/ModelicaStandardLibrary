@@ -106,7 +106,7 @@ end length;
 
 function normalize
       "Return normalized complex vector such that length = 1 and prevent zero-division for zero vector"
-  import Modelica.Constants.j;
+    import Modelica.Constants.j;
   input Complex v[:] "Vector";
   input Real eps = 100*Modelica.Constants.eps "if |v| < eps then result = v";
   output Complex result[size(v, 1)] "Input vector v normalized to length=1";
@@ -205,14 +205,14 @@ algorithm
            k2 := j + gap + 1;
            if sortFrequency then
               if ascending then
-                 swap := abs(sorted_v[k1].im) >  abs(sorted_v[k2].im) or
-                         abs(sorted_v[k1].im) == abs(sorted_v[k2].im) and
-                         (sorted_v[k1].re  > sorted_v[k2].re or
+                 swap := abs(sorted_v[k1].im) >  abs(sorted_v[k2].im) or 
+                         abs(sorted_v[k1].im) == abs(sorted_v[k2].im) and 
+                         (sorted_v[k1].re  > sorted_v[k2].re or 
                           sorted_v[k1].re  == sorted_v[k2].re and sorted_v[k1].im < sorted_v[k2].im);
               else
-                 swap := abs(sorted_v[k1].im) <  abs(sorted_v[k2].im) or
-                         abs(sorted_v[k1].im) == abs(sorted_v[k2].im) and
-                         (sorted_v[k1].re  < sorted_v[k2].re or
+                 swap := abs(sorted_v[k1].im) <  abs(sorted_v[k2].im) or 
+                         abs(sorted_v[k1].im) == abs(sorted_v[k2].im) and 
+                         (sorted_v[k1].re  < sorted_v[k2].re or 
                           sorted_v[k1].re  == sorted_v[k2].re and sorted_v[k1].im < sorted_v[k2].im);
               end if;
            else
@@ -239,14 +239,14 @@ algorithm
               k2 := j + gap + 1;
               if sortFrequency then
                  if ascending then
-                    swap := abs(sorted_v[k1].im) >  abs(sorted_v[k2].im) or
-                            abs(sorted_v[k1].im) == abs(sorted_v[k2].im) and
-                            (sorted_v[k1].re  > sorted_v[k2].re or
+                    swap := abs(sorted_v[k1].im) >  abs(sorted_v[k2].im) or 
+                            abs(sorted_v[k1].im) == abs(sorted_v[k2].im) and 
+                            (sorted_v[k1].re  > sorted_v[k2].re or 
                              sorted_v[k1].re  == sorted_v[k2].re and sorted_v[k1].im < sorted_v[k2].im);
                  else
-                    swap := abs(sorted_v[k1].im) <  abs(sorted_v[k2].im) or
-                            abs(sorted_v[k1].im) == abs(sorted_v[k2].im) and
-                            (sorted_v[k1].re  < sorted_v[k2].re or
+                    swap := abs(sorted_v[k1].im) <  abs(sorted_v[k2].im) or 
+                            abs(sorted_v[k1].im) == abs(sorted_v[k2].im) and 
+                            (sorted_v[k1].re  < sorted_v[k2].re or 
                              sorted_v[k1].re  == sorted_v[k2].re and sorted_v[k1].im < sorted_v[k2].im);
                  end if;
               else
@@ -289,6 +289,9 @@ to the original vector are given, such that sorted_v = v[indices].
 </HTML>"));
 end sort;
 
+  annotation(Documentation(info="<html>
+<p>This library hosts the definition of functions working on vectors of Complex numbers.</p>
+</html>"));
 end Vectors;
   extends Icons.Library2;
 
@@ -297,7 +300,9 @@ end Vectors;
     output Complex c2 "sin(c1)";
   algorithm
      c2 := (exp(Complex(-c1.im, +c1.re)) - exp(Complex(+c1.im, -c1.re)))/Complex(0, 2);
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<p>This function returns the Complex sine of the Complex input.</p>
+</html>"));
   end sin;
 
   function cos "Cosine of complex number"
@@ -305,7 +310,9 @@ end Vectors;
     output Complex c2 "= cos(c1)";
   algorithm
     c2 := (exp(Complex(-c1.im, +c1.re)) + exp(Complex(+c1.im, -c1.re)))/2;
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<p>This function returns the Complex cosine of the Complex input.</p>
+</html>"));
   end cos;
 
   function tan "Tangent of complex number"
@@ -313,7 +320,9 @@ end Vectors;
     output Complex c2 "= tan(c1)";
   algorithm
     c2 := sin(c1)/cos(c1);
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<p>This function returns the Complex tangent of the Complex input.</p>
+</html>"));
   end tan;
 
   function asin "Arc-sine of complex number"
@@ -322,7 +331,9 @@ end Vectors;
     output Complex c2 "arc_sin(c1)";
   algorithm
     c2 := -j*log(j*c1 + 'sqrt'(1 - c1*c1));
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<p>This function returns the inverse Complex sine of the Complex input.</p>
+</html>"));
   end asin;
 
   function acos "Arc-cosine of complex number"
@@ -331,7 +342,9 @@ end Vectors;
     output Complex c2 "= arc_cos(c1)";
   algorithm
     c2 := -j*log(c1 + j*'sqrt'(1 - c1*c1));
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<p>This function returns the inverse Complex cosine of the Complex input.</p>
+</html>"));
   end acos;
 
   function atan "Arc-tangent of complex number"
@@ -340,7 +353,9 @@ end Vectors;
     output Complex c2 "= arc_tan(c1)";
   algorithm
     c2 := 0.5*j*log((j + c1)/(j - c1));
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<p>This function returns the inverse Complex tangent of the Complex input.</p>
+</html>"));
   end atan;
 
   function sinh "Hyperbolic-sine of complex number"
@@ -348,7 +363,9 @@ end Vectors;
     output Complex c2 "sinh(c1)";
   algorithm
     c2 := Complex(Math.sinh(c1.re)*Math.cos(c1.im), Math.cosh(c1.re)*Math.sin(c1.im));
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<p>This function returns the Complex hyperbolic sine of the Complex input.</p>
+</html>"));
   end sinh;
 
   function cosh "Hyperbolic-cosine of complex number"
@@ -356,7 +373,9 @@ end Vectors;
     output Complex c2 "= cosh(c1)";
   algorithm
     c2 := Complex(Math.cosh(c1.re)*Math.cos(c1.im), Math.sinh(c1.re)*Math.sin(c1.im));
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<p>This function returns the Complex hyperbolic cosine of the Complex input.</p>
+</html>"));
   end cosh;
 
   function tanh "Hyperbolic-tangent of complex number"
@@ -364,7 +383,9 @@ end Vectors;
     output Complex c2 "= tanh(c1)";
   algorithm
     c2 := sinh(c1)/cosh(c1);
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<p>This function returns the Complex hyperbolic tangent of the Complex input.</p>
+</html>"));
   end tanh;
 
   function asinh "Area-hyperbolic-sine of complex number"
@@ -372,7 +393,9 @@ end Vectors;
     output Complex c2 "ar_sinh(c1)";
   algorithm
     c2 := log(c1 + 'sqrt'(c1*c1 + 1));
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<p>This function returns the inverse Complex hyperbolic sine of the Complex input.</p>
+</html>"));
   end asinh;
 
   function acosh "Area-hyperbolic-cosine of complex number"
@@ -380,7 +403,9 @@ end Vectors;
     output Complex c2 "= ar_cosh(c1)";
   algorithm
     c2 := log(c1 + (c1 + 1)*'sqrt'((c1 - 1)/(c1 + 1)));
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<p>This function returns the inverse Complex hyperbolic cosine of the Complex input.</p>
+</html>"));
   end acosh;
 
   function atanh "Area-hyperbolic-tangent of complex number"
@@ -388,7 +413,9 @@ end Vectors;
     output Complex c2 "= ar_tanh(c1)";
   algorithm
     c2 := 0.5*log((1 + c1)/(1 - c1));
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<p>This function returns the inverse Complex hyperbolic tangent of the Complex input.</p>
+</html>"));
   end atanh;
 
   function exp "Exponential of complex number"
@@ -396,7 +423,9 @@ end Vectors;
     output Complex c2 "= exp(c1)";
   algorithm
     c2 := Complex(Math.exp(c1.re)*Math.cos(c1.im), Math.exp(c1.re)*Math.sin(c1.im));
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<p>This function returns the Complex natural exponential of the Complex input.</p>
+</html>"));
   end exp;
 
   function log "Logarithm of complex number"
@@ -404,7 +433,9 @@ end Vectors;
     output Complex c2 "= log(c1)";
   algorithm
     c2 := Complex(Modelica.Math.log('abs'(c1)), arg(c1));
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<p>This function returns the Complex natural logarithm of the Complex input.</p>
+</html>"));
   end log;
 
   function 'abs' "Absolute value of complex number"
@@ -412,7 +443,9 @@ end Vectors;
     output Real result "= abs(c)";
   algorithm
     result := (c.re^2 + c.im^2)^0.5; //changed from sqrt
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<p>This function returns the Real absolute of the Complex input, i.e. it's length.</p>
+</html>"));
   end 'abs';
 
   function arg "Phase angle of complex number"
@@ -425,7 +458,9 @@ end Vectors;
         c.im,
         c.re,
         phi0);
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<p>This function returns the Real argument of the Complex input, i.e. it's angle.</p>
+</html>"));
   end arg;
 
   function conj "Conjugate of complex number"
@@ -433,7 +468,9 @@ end Vectors;
     output Complex c2 "= c1.re - j*c1.im";
   algorithm
     c2 := Complex(c1.re, -c1.im);
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<p>This function returns the Complex conjugate of the Complex input.</p>
+</html>"));
   end conj;
 
   function real "Real part of complex number"
@@ -441,7 +478,9 @@ end Vectors;
     output Real r "= c.re ";
   algorithm
     r := c.re;
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<p>This function returns the real part of the Complex input.</p>
+</html>"));
   end real;
 
   function imag "Imaginary part of complex number"
@@ -449,7 +488,9 @@ end Vectors;
     output Real r "= c.im ";
   algorithm
     r := c.im;
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<p>This function returns the imaginary part of the Complex input.</p>
+</html>"));
   end imag;
 
   function fromPolar "Complex from polar representation"
@@ -458,7 +499,9 @@ end Vectors;
     output Complex c "= len*cos(phi) + j*len*sin(phi)";
   algorithm
     c := Complex(len*Modelica.Math.cos(phi), len*Modelica.Math.sin(phi));
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<p>This function constructs a Complex number from it's length (absolute) and angle (argument).</p>
+</html>"));
   end fromPolar;
 
   function 'sqrt' "Square root of complex number"
@@ -466,7 +509,9 @@ end Vectors;
     output Complex c2 "= sqrt(c1)";
   algorithm
     c2 := Complex(sqrt('abs'(c1))*Math.cos(arg(c1)/2), sqrt('abs'(c1))*Math.sin(arg(c1)/2));
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<p>This function returns the Complex square root of the Complex input.</p>
+</html>"));
   end 'sqrt';
 
   function 'max' "Return maximum element of complex vector"
@@ -492,6 +537,9 @@ end Vectors;
       result := Complex(0);
       index  := 0;
     end if;
+    annotation(Documentation(info="<html>
+<p>This function returns the largest element of the Complex input vector, defined by the Complex absolute.</p>
+</html>"));
   end 'max';
 
   function 'min' "Return minium element of complex vector"
@@ -517,6 +565,9 @@ end Vectors;
       result := Complex(0);
       index  := 0;
     end if;
+    annotation(Documentation(info="<html>
+<p>This function returns the smallest element of the Complex input vector, defined by the Complex absolute.</p>
+</html>"));
   end 'min';
 
   function 'sum' "Return sum of complex vector"
@@ -527,6 +578,9 @@ end Vectors;
     for i in 1:size(v,1) loop
       result:=result + v[i];
     end for;
+    annotation(Documentation(info="<html>
+<p>This function returns the Complex sum of the Complex input vector</p>
+</html>"));
   end 'sum';
 
   function 'product' "Return product of complex vector"
@@ -537,9 +591,15 @@ end Vectors;
     for i in 1:size(v,1) loop
       result:=result * v[i];
     end for;
+    annotation(Documentation(info="<html>
+<p>This function returns the Complex product of the Complex input vector</p>
+</html>"));
   end 'product';
 
-  annotation (Icon(graphics={Text(
+  annotation (Documentation(info="<html>
+<p>This library hosts the definition of Complex mathematical functions.</p>
+<p>It depends on the implementation of Complex.</p>
+</html>"), Icon(graphics={Text(
           extent={{-94,-14},{72,-56}},
           lineColor={0,0,0},
           textString="f(x+j*y)")}));

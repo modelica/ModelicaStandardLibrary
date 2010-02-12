@@ -3,16 +3,21 @@ record Complex "Complex number with overloaded operators"
   Real re "Real part of complex number" annotation(Dialog);
   Real im "Imaginary part of complex number" annotation(Dialog);
 
-  encapsulated operator 'constructor'
-    function fromReal
+  encapsulated operator 'constructor' "Constructor"
+    function fromReal "Construct Complex from Real"
       import Complex;
       input Real re "Real part of complex number";
       input Real im=0 "Imaginary part of complex number";
       output Complex result(re=re, im=im) "Complex number";
     algorithm
 
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+<p>This function returns a Complex number defined by real part <i>re</i> and optional imaginary part <i>im</im> (default=0).</p>
+</html>"));
     end fromReal;
+    annotation(Documentation(info="<html>
+<p>Here the constructor operator(s) is/are defined.</p>
+</html>"));
   end 'constructor';
 
   encapsulated operator '-' "Unary and binary minus"
@@ -22,7 +27,9 @@ record Complex "Complex number with overloaded operators"
       output Complex c2 "= -c1";
     algorithm
       c2 := Complex(-c1.re, -c1.im);
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+<p>This function returns the binary minus of the given Complex number.</p>
+</html>"));
     end negate;
 
     function subtract "Subtract two complex numbers"
@@ -32,11 +39,16 @@ record Complex "Complex number with overloaded operators"
       output Complex c3 "= c1 - c2";
     algorithm
       c3 := Complex(c1.re - c2.re, c1.im - c2.im);
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+<p>This function returns the difference of two given Complex numbers.</p>
+</html>"));
     end subtract;
+    annotation(Documentation(info="<html>
+<p>Here the unary and binary minus operator(s) is/are defined.</p>
+</html>"));
   end '-';
 
-  encapsulated operator '*'
+  encapsulated operator '*' "Multiplication"
     function multiply "Multiply two complex numbers"
       import Complex;
       input Complex c1 "Complex number 1";
@@ -45,7 +57,9 @@ record Complex "Complex number with overloaded operators"
     algorithm
       c3 := Complex(c1.re*c2.re - c1.im*c2.im, c1.re*c2.im + c1.im*c2.re);
 
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<p>This function returns the product of two given Complex numbers.</p>
+</html>"));
     end multiply;
 
     function scalarProduct "Scalar product c1*c2 of two complex vectors"
@@ -63,9 +77,13 @@ record Complex "Complex number with overloaded operators"
        */
       end for;
 
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<p>This function returns the scalar product of two given arrays of Complex numbers.</p>
+</html>"));
     end scalarProduct;
-
+    annotation(Documentation(info="<html>
+<p>Here the multiplication operator(s) is/are defined.</p>
+</html>"));
   end '*';
 
   encapsulated operator function '+' "Add two complex numbers"
@@ -75,7 +93,9 @@ record Complex "Complex number with overloaded operators"
     output Complex c3 "= c1 + c2";
   algorithm
     c3 := Complex(c1.re + c2.re, c1.im + c2.im);
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<p>This function returns the sum of two given Complex numbers.</p>
+</html>"));
   end '+';
 
   encapsulated operator function '/' "Divide two complex numbers"
@@ -86,7 +106,9 @@ record Complex "Complex number with overloaded operators"
   algorithm
     c3 := Complex((+c1.re*c2.re + c1.im*c2.im)/(c2.re*c2.re + c2.im*c2.im),
                   (-c1.re*c2.im + c1.im*c2.re)/(c2.re*c2.re + c2.im*c2.im));
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<p>This function returns the quotient of two given Complex numbers.</p>
+</html>"));
   end '/';
 
   encapsulated operator function '^' "Complex power of complex number"
@@ -101,7 +123,9 @@ record Complex "Complex number with overloaded operators"
     Real im=lnz*c2.im + phi*c2.re;
   algorithm
     c3 := Complex(exp(re)*cos(im), exp(re)*sin(im));
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<p>This function returns the given Complex numbers c1 to the power of the Complex number c2.</p>
+</html>"));
   end '^';
 
   encapsulated operator function '=='
@@ -112,7 +136,9 @@ record Complex "Complex number with overloaded operators"
     output Boolean result "c1 == c2";
   algorithm
     result := c1.re == c2.re and c1.im == c2.im;
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<p>This function tests whether two given Complex numbers are equal.</p>
+</html>"));
   end '==';
 
   encapsulated operator function 'String'
@@ -135,7 +161,9 @@ record Complex "Complex number with overloaded operators"
       end if;
       s := s + String(abs(c.im), significantDigits=significantDigits) + "*" + name;
     end if;
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<p>This function converts a given Complex number to String representation.</p>
+</html>"));
   end 'String';
 
 annotation (version="1.0",
@@ -143,11 +171,15 @@ versionBuild=1,
 versionDate="2010-01-26",
 dateModified = "2010-01-26 19:32:58Z",
 revisionId="$Id::                                       $",
+Documentation(info="<html>
+<p>Complex number defined as a record containing real and imaginary part, utilizing operator overloading.</p>
+</html>"),
 Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
         graphics={                        Text(
           extent={{-100,70},{40,-70}},
           lineColor={85,170,255},
           textString="C",
           fillColor={85,170,255},
-          fillPattern=FillPattern.Solid)}));
+          fillPattern=FillPattern.Solid)}),
+    uses(Modelica(version="3.1")));
 end Complex;
