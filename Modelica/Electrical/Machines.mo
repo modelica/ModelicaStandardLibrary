@@ -6497,9 +6497,14 @@ Ideal transformer with 3 windings: no magnetizing current.
 </html>"));
       end IdealCore;
 
-      partial model BasicTransformer
+      partial model BasicTransformer "Partial model of threephase transformer"
         extends Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer;
       //dummy will be removed when conversion script is applicable
+        annotation (Documentation(info="<html>
+Partialmodel of a threephase transformer, containing primary and secondary resistances and stray inductances, as well as the iron core.
+Circuit layout (vector group) of primary and secondary windings have to be defined.<br>
+Exactly the same as Interfaces.PartialBasicTransformer, included for compatibility reasons.
+</html>"));
       end BasicTransformer;
 
       annotation (Documentation(info="<HTML>
@@ -7847,7 +7852,8 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
   package Thermal "Library with models for connecting thermal models"
     extends Modelica.Icons.Library2;
 
-    type Alpha20=Modelica.SIunits.LinearTemperatureCoefficient 
+    type Alpha20=Modelica.SIunits.LinearTemperatureCoefficient
+      "Linear temperature coefficient with choices" 
       annotation(choices(
         choice=Modelica.Electrical.Machines.Thermal.Constants.alpha20Aluminium
           "Aluminium",
@@ -7855,10 +7861,14 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
         choice=Modelica.Electrical.Machines.Thermal.Constants.alpha20Bronze "Bronze",
         choice=Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper "Copper"));
     package Constants "Material Constants"
-      constant Modelica.SIunits.LinearExpansionCoefficient alpha20Aluminium=4.000e-3;
-      constant Modelica.SIunits.LinearExpansionCoefficient alpha20Brass =   1.100e-3;
-      constant Modelica.SIunits.LinearExpansionCoefficient alpha20Bronze =  0.800e-3;
-      constant Modelica.SIunits.LinearExpansionCoefficient alpha20Copper =  3.920e-3;
+      constant Modelica.SIunits.LinearTemperatureCoefficient alpha20Aluminium=4.000e-3
+        "Aluminium";
+      constant Modelica.SIunits.LinearTemperatureCoefficient alpha20Brass =    1.100e-3 "Brass";
+      constant Modelica.SIunits.LinearTemperatureCoefficient alpha20Bronze =  0.800e-3 "Bronze";
+      constant Modelica.SIunits.LinearTemperatureCoefficient alpha20Copper =  3.920e-3 "Copper";
+      annotation(Documentation(info="<HTML>
+Material constants, especially linear temperature coefficients of commonly used conductor materials
+</HTML>"));
     end Constants;
 
     function convertAlpha
@@ -7971,8 +7981,10 @@ where <code>RRef</code> is the resistance at the reference temperature <code>TRe
                 lineColor={0,0,0},
                 fillColor={95,95,95},
                 fillPattern=FillPattern.Solid,
-                textString="AIMC")}),
-                                    Diagram(graphics));
+                textString="AIMC")}), Diagram(graphics), Documentation(info="<HTML>
+Thermal ambient for asynchronous induction machines with squirrel cage to prescribe winding temperatures either constant or via signal connectors. 
+Additionally, all losses = heat flows are recorded.
+</HTML>"));
       end ThermalAmbientAIMC;
 
       model ThermalAmbientAIMS
@@ -8038,9 +8050,14 @@ where <code>RRef</code> is the resistance at the reference temperature <code>TRe
                 lineColor={0,0,0},
                 fillColor={95,95,95},
                 fillPattern=FillPattern.Solid,
-                textString="AIMS")}),
-                                    Diagram(graphics));
+                textString="AIMS")}), Diagram(graphics), Documentation(info="<HTML>
+Thermal ambient for asynchronous induction machines with slipring rotor to prescribe winding temperatures either constant or via signal connectors. 
+Additionally, all losses = heat flows are recorded.
+</HTML>"));
       end ThermalAmbientAIMS;
+    annotation(Documentation(info="<HTML>
+Thermal parts for asynchronous induction machines
+</HTML>"));
     end AsynchronousInductionMachines;
 
     package SynchronousInductionMachines
@@ -8108,8 +8125,10 @@ where <code>RRef</code> is the resistance at the reference temperature <code>TRe
                 lineColor={0,0,0},
                 fillColor={95,95,95},
                 fillPattern=FillPattern.Solid,
-                textString="SMPM")}),
-                                    Diagram(graphics));
+                textString="SMPM")}), Diagram(graphics), Documentation(info="<HTML>
+Thermal ambient for synchronous induction machines with permanent magnets to prescribe winding temperatures either constant or via signal connectors. 
+Additionally, all losses = heat flows are recorded.
+</HTML>"));
       end ThermalAmbientSMPM;
 
       model ThermalAmbientSMEE
@@ -8207,7 +8226,10 @@ where <code>RRef</code> is the resistance at the reference temperature <code>TRe
                 lineColor={0,0,0},
                 fillColor={95,95,95},
                 fillPattern=FillPattern.Solid,
-                textString="SMEE")}),Diagram(graphics));
+                textString="SMEE")}),Diagram(graphics), Documentation(info="<HTML>
+Thermal ambient for synchronous induction machines with electrical excitation to prescribe winding temperatures either constant or via signal connectors. 
+Additionally, all losses = heat flows are recorded.
+</HTML>"));
       end ThermalAmbientSMEE;
 
       model ThermalAmbientSMR
@@ -8261,8 +8283,14 @@ where <code>RRef</code> is the resistance at the reference temperature <code>TRe
                 lineColor={0,0,0},
                 fillColor={95,95,95},
                 fillPattern=FillPattern.Solid,
-                textString="SMR")}),Diagram(graphics));
+                textString="SMR")}), Diagram(graphics), Documentation(info="<HTML>
+Thermal ambient for synchronous induction machines with reluctance rotor to prescribe winding temperatures either constant or via signal connectors. 
+Additionally, all losses = heat flows are recorded.
+</HTML>"));
       end ThermalAmbientSMR;
+    annotation(Documentation(info="<HTML>
+Thermal parts for synchronous induction machines
+</HTML>"));
     end SynchronousInductionMachines;
 
     package DCMachines "Thermal parts of DC machines"
@@ -8294,8 +8322,10 @@ where <code>RRef</code> is the resistance at the reference temperature <code>TRe
                 lineColor={0,0,0},
                 fillColor={95,95,95},
                 fillPattern=FillPattern.Solid,
-                textString="DCPM")}),
-                                    Diagram(graphics));
+                textString="DCPM")}), Diagram(graphics), Documentation(info="<HTML>
+Thermal ambient for DC machines with permanent magnets to prescribe winding temperatures either constant or via signal connectors. 
+Additionally, all losses = heat flows are recorded.
+</HTML>"));
       end ThermalAmbientDCPM;
 
       model ThermalAmbientDCEE
@@ -8346,8 +8376,10 @@ where <code>RRef</code> is the resistance at the reference temperature <code>TRe
                 lineColor={0,0,0},
                 fillColor={95,95,95},
                 fillPattern=FillPattern.Solid,
-                textString="DCEE")}),
-                                    Diagram(graphics));
+                textString="DCEE")}), Diagram(graphics), Documentation(info="<HTML>
+Thermal ambient for DC machines with electrical (shunt) excitation to prescribe winding temperatures either constant or via signal connectors. 
+Additionally, all losses = heat flows are recorded.
+</HTML>"));
       end ThermalAmbientDCEE;
 
       model ThermalAmbientDCSE
@@ -8399,9 +8431,14 @@ where <code>RRef</code> is the resistance at the reference temperature <code>TRe
                 lineColor={0,0,0},
                 fillColor={95,95,95},
                 fillPattern=FillPattern.Solid,
-                textString="DCSE")}),
-                                    Diagram(graphics));
+                textString="DCSE")}), Diagram(graphics), Documentation(info="<HTML>
+Thermal ambient for DC machines with serial excitation to prescribe winding temperatures either constant or via signal connectors. 
+Additionally, all losses = heat flows are recorded.
+</HTML>"));
       end ThermalAmbientDCSE;
+    annotation(Documentation(info="<HTML>
+Thermal parts for DC machines
+</HTML>"));
     end DCMachines;
 
     model ThermalAmbientTransformer "Thermal ambient for transformers"
@@ -8533,14 +8570,18 @@ where <code>RRef</code> is the resistance at the reference temperature <code>TRe
               lineColor={0,0,0},
               fillColor={95,95,95},
               fillPattern=FillPattern.Solid,
-              textString="Trafo")}),
-                                  Diagram(graphics));
+              textString="Trafo")}), Diagram(graphics), Documentation(info="<HTML>
+Thermal ambient for transformers to prescribe winding temperatures either constant or via signal connectors. 
+Additionally, all losses = heat flows are recorded.
+</HTML>"));
     end ThermalAmbientTransformer;
     annotation (Icon(graphics={             Ellipse(
             extent={{-86,50},{64,-100}},
             lineColor={191,0,0},
             fillColor={191,0,0},
-            fillPattern=FillPattern.Solid)}));
+            fillPattern=FillPattern.Solid)}), Documentation(info="<HTML>
+to be added
+</HTML>"));
   end Thermal;
 
   package Interfaces "SpacePhasor connector and PartialMachines"
@@ -8861,7 +8902,9 @@ Partial model for induction machine models
               extent={{-80,80},{80,-80}},
               lineColor={191,0,0},
               fillColor={191,0,0},
-              fillPattern=FillPattern.Solid)}));
+              fillPattern=FillPattern.Solid)}), Documentation(info="<HTML>
+Partial thermal port for induction machines
+</HTML>"));
     end PartialThermalPortInductionMachines;
 
     partial model PartialThermalAmbientInductionMachines
@@ -8970,7 +9013,9 @@ Partial model for induction machine models
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid,
               origin={0,68},
-              rotation=90)}),     Diagram(graphics));
+              rotation=90)}),     Diagram(graphics), Documentation(info="<HTML>
+Partial thermal ambient for induction machines
+</HTML>"));
     end PartialThermalAmbientInductionMachines;
 
     partial model PartialBasicDCMachine "Partial model for DC machine"
@@ -9100,7 +9145,9 @@ Partial model for DC machine models.
               extent={{-82,80},{78,-80}},
               lineColor={191,0,0},
               fillColor={191,0,0},
-              fillPattern=FillPattern.Solid)}));
+              fillPattern=FillPattern.Solid)}), Documentation(info="<HTML>
+Partial thermal port for DC machines
+</HTML>"));
     end PartialThermalPortDCMachines;
 
     partial model PartialThermalAmbientDCMachines
@@ -9210,11 +9257,13 @@ Partial model for DC machine models.
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid,
               origin={0,68},
-              rotation=90)}),     Diagram(graphics));
+              rotation=90)}),     Diagram(graphics), Documentation(info="<HTML>
+Partial thermal ambient for induction machines
+</HTML>"));
     end PartialThermalAmbientDCMachines;
 
     package AsynchronousInductionMachines
-      "Thermal parts of asynchronous induction machines"
+      "Thermal ports of asynchronous induction machines"
       extends Icons.Library;
       connector ThermalPortAIMC
         "Thermal port of asynchronous induction machine with squirrel cage"
@@ -9224,7 +9273,9 @@ Partial model for DC machine models.
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_r
           "Heat port of rotor (squirrel cage)" 
           annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
-        annotation (Diagram(graphics),            Icon(graphics));
+        annotation (Diagram(graphics),            Icon(graphics), Documentation(info="<HTML>
+Thermal port for asnychronous induction machine with squirrel cage
+</HTML>"));
       end ThermalPortAIMC;
 
       connector ThermalPortAIMS
@@ -9238,12 +9289,17 @@ Partial model for DC machine models.
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_brush
           "Heat port of (optional) brush losses" 
           annotation (Placement(transformation(extent={{-10,30},{10,50}})));
-        annotation (Diagram(graphics),            Icon(graphics));
+        annotation (Diagram(graphics),            Icon(graphics), Documentation(info="<HTML>
+Thermal port for asnychronous induction machine with slipring rotor
+</HTML>"));
       end ThermalPortAIMS;
+    annotation(Documentation(info="<HTML>
+Thermal ports for asynchronous induction machines
+</HTML>"));
     end AsynchronousInductionMachines;
 
     package SynchronousInductionMachines
-      "Thermal parts of synchronous induction machines"
+      "Thermal ports of synchronous induction machines"
       extends Icons.Library;
       connector ThermalPortSMPM
         "Thermal port of synchronous induction machine with permanent magnets"
@@ -9259,7 +9315,9 @@ Partial model for DC machine models.
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_pm
           "Heat port of permanent magnets" 
           annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
-        annotation (Diagram(graphics), Icon(graphics));
+        annotation (Diagram(graphics), Icon(graphics), Documentation(info="<HTML>
+Thermal port for snychronous induction machine with permanent magnets
+</HTML>"));
       end ThermalPortSMPM;
 
       connector ThermalPortSMEE
@@ -9279,7 +9337,9 @@ Partial model for DC machine models.
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_brush
           "Heat port of (optional) brush losses" 
           annotation (Placement(transformation(extent={{-10,30},{10,50}})));
-        annotation (Diagram(graphics), Icon(graphics));
+        annotation (Diagram(graphics), Icon(graphics), Documentation(info="<HTML>
+Thermal port for snychronous induction machine with electrical excitation
+</HTML>"));
       end ThermalPortSMEE;
 
       connector ThermalPortSMR
@@ -9293,11 +9353,16 @@ Partial model for DC machine models.
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_r if useDamperCage
           "Heat port of damper cage (optional)" 
           annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
-        annotation (Diagram(graphics), Icon(graphics));
+        annotation (Diagram(graphics), Icon(graphics), Documentation(info="<HTML>
+Thermal port for snychronous induction machine with reluctance rotor
+</HTML>"));
       end ThermalPortSMR;
+    annotation(Documentation(info="<HTML>
+Thermal ports for synchronous induction machines
+</HTML>"));
     end SynchronousInductionMachines;
 
-    package DCMachines "Thermal parts of DC machines"
+    package DCMachines "Thermal ports of DC machines"
       extends Icons.Library;
       connector ThermalPortDCPM
         "Thermal port of DC machine with permanent magnets"
@@ -9307,7 +9372,9 @@ Partial model for DC machine models.
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_pm
           "Heat port of permanent magnets" 
           annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
-        annotation (Diagram(graphics), Icon(graphics));
+        annotation (Diagram(graphics), Icon(graphics), Documentation(info="<HTML>
+Thermal port for DC machine with permanent magnets
+</HTML>"));
       end ThermalPortDCPM;
 
       connector ThermalPortDCEE
@@ -9318,7 +9385,9 @@ Partial model for DC machine models.
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_e
           "Heat port of (shunt) excitation" 
           annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
-        annotation (Diagram(graphics), Icon(graphics));
+        annotation (Diagram(graphics), Icon(graphics), Documentation(info="<HTML>
+Thermal port for DC machine with electrical (shunt) excitation
+</HTML>"));
       end ThermalPortDCEE;
 
       connector ThermalPortDCSE
@@ -9329,8 +9398,13 @@ Partial model for DC machine models.
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_se
           "Heat port of series excitation" 
           annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
-        annotation (Diagram(graphics), Icon(graphics));
+        annotation (Diagram(graphics), Icon(graphics), Documentation(info="<HTML>
+Thermal port for DC machine with serial excitation
+</HTML>"));
       end ThermalPortDCSE;
+    annotation(Documentation(info="<HTML>
+Thermal ports for DC machines
+</HTML>"));
     end DCMachines;
 
     partial model PartialBasicTransformer
@@ -9508,7 +9582,10 @@ Circuit layout (vector group) of primary and secondary windings have to be defin
               extent={{-80,80},{80,-80}},
               lineColor={191,0,0},
               fillColor={191,0,0},
-              fillPattern=FillPattern.Solid)}));
+              fillPattern=FillPattern.Solid)}),
+               Documentation(info="<HTML>
+Thermal port for transformers
+</HTML>"));
     end ThermalPortTransformer;
     annotation (Documentation(info="<HTML>
 This package contains the space phasor connector and partial models for machine models.
