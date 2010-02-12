@@ -3020,8 +3020,7 @@ Modelica.Constants.eps).
       mode = if ideal then Free else (if (pre(mode) == Forward or startForward)
          and w_a > 0 then Forward else if (pre(mode) == Backward or startBackward)
          and w_a < 0 then Backward else Stuck);
-      annotation (^
-        Documentation(info="<HTML>
+      annotation (Documentation(info="<HTML>
 <p>
 This component models the gear ratio and the <b>losses</b> of
 a standard gear box in a <b>reliable</b> way including the stuck phases
