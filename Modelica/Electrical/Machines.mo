@@ -10,15 +10,15 @@ package Machines "Library for electric machines"
     model AIMC_DOL
       "Test example 1: AsynchronousInductionMachineSquirrelCage direct-on-line"
       extends Modelica.Icons.Example;
-      constant Integer m=3 "number of phases";
+      constant Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage VNominal=100
-        "nominal RMS voltage per phase";
-      parameter Modelica.SIunits.Frequency fNominal=50 "nominal frequency";
-      parameter Modelica.SIunits.Time tStart1=0.1 "start time";
-      parameter Modelica.SIunits.Torque TLoad=161.4 "nominal load torque";
+        "Nominal RMS voltage per phase";
+      parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
+      parameter Modelica.SIunits.Time tStart1=0.1 "Start time";
+      parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";
       parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")=1440.45*2*Modelica.Constants.pi/60
-        "nominal load speed";
-      parameter Modelica.SIunits.Inertia JLoad=0.29 "load's moment of inertia";
+        "Nominal load speed";
+      parameter Modelica.SIunits.Inertia JLoad=0.29 "Load's moment of inertia";
       Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
         aimc 
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
@@ -75,14 +75,14 @@ package Machines "Library for electric machines"
         annotation (Line(points={{1.83697e-015,70},{1.83697e-015,90},{-50,90}},
             color={0,0,255}));
       connect(sineVoltage.plug_p, idealCloser.plug_p) 
-        annotation (Line(points={{-1.83697e-015,50},{0,48},{1.22461e-015,46},{
-              1.83697e-015,46},{1.83697e-015,40}}, color={0,0,255}));
+        annotation (Line(points={{-1.83697e-015,50},{0,48},{1.22461e-015,46},{1.83697e-015,
+              46},{1.83697e-015,40}},              color={0,0,255}));
       connect(booleanStep.y, idealCloser.control)   annotation (Line(points={{
               -59,40},{-20,40},{-20,30},{-7,30}}, color={255,0,255}));
       connect(idealCloser.plug_n, currentQuasiRMSSensor.plug_p) 
                                                              annotation (Line(
-          points={{-1.83697e-015,20},{-1.83697e-015,17},{1.83697e-015,17},{
-              1.83697e-015,10}},
+          points={{-1.83697e-015,20},{-1.83697e-015,17},{1.83697e-015,17},{1.83697e-015,
+              10}},
           color={0,0,255}));
       connect(TerminalBox1.plug_sn, aimc.plug_sn)  annotation (Line(
           points={{-16,-30},{-16,-30}},
@@ -126,18 +126,18 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
     end AIMC_DOL;
 
     model AIMC_YD
-      "Test example 2: AsynchronousInductionMachineSquirrelCage Y-D"
+      "Test example 2a: AsynchronousInductionMachineSquirrelCage Y-D"
       extends Modelica.Icons.Example;
-      constant Integer m=3 "number of phases";
+      constant Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage VNominal=100
-        "nominal RMS voltage per phase";
-      parameter Modelica.SIunits.Frequency fNominal=50 "nominal frequency";
-      parameter Modelica.SIunits.Time tStart1=0.1 "start time";
-      parameter Modelica.SIunits.Time tStart2=2.0 "2nd start time";
-      parameter Modelica.SIunits.Torque TLoad=161.4 "nominal load torque";
+        "Nominal RMS voltage per phase";
+      parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
+      parameter Modelica.SIunits.Time tStart1=0.1 "Start time";
+      parameter Modelica.SIunits.Time tStart2=2.0 "Start time from Y to D";
+      parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";
       parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")=1440.45*2*Modelica.Constants.pi/60
-        "nominal load speed";
-      parameter Modelica.SIunits.Inertia JLoad=0.29 "load's moment of inertia";
+        "Nominal load speed";
+      parameter Modelica.SIunits.Inertia JLoad=0.29 "Load's moment of inertia";
       Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
         aimc 
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
@@ -197,8 +197,8 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         annotation (Line(points={{1.83697e-015,70},{1.83697e-015,90},{-50,90}},
             color={0,0,255}));
       connect(sineVoltage.plug_p, idealCloser.plug_p) 
-        annotation (Line(points={{-1.83697e-015,50},{0,48},{1.22461e-015,46},{
-              1.83697e-015,46},{1.83697e-015,40}}, color={0,0,255}));
+        annotation (Line(points={{-1.83697e-015,50},{0,48},{1.22461e-015,46},{1.83697e-015,
+              46},{1.83697e-015,40}},              color={0,0,255}));
       connect(loadInertia.flange_b, quadraticLoadTorque.flange) 
         annotation (Line(points={{60,-40},{70,-40}}, color={0,0,0}));
       connect(booleanStep.y, idealCloser.control)   annotation (Line(points={{
@@ -207,8 +207,8 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
               -20},{-21,-20}}, color={255,0,255}));
       connect(idealCloser.plug_n, currentQuasiRMSSensor.plug_p) 
                                                              annotation (Line(
-          points={{-1.83697e-015,20},{-1.83697e-015,18},{1.83697e-015,18},{
-              1.83697e-015,10}},
+          points={{-1.83697e-015,20},{-1.83697e-015,18},{1.83697e-015,18},{1.83697e-015,
+              10}},
           color={0,0,255}));
       connect(switchYD.plug_sn, aimc.plug_sn)   annotation (Line(
           points={{-16,-30},{-16,-30}},
@@ -233,7 +233,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
                 graphics),
         experiment(StopTime=2.5, Interval=0.001),
         Documentation(info="<HTML>
-<b>2nd Test example: Asynchronous induction machine with squirrel cage - Y-D starting</b><br>
+<b>2nd/a Test example: Asynchronous induction machine with squirrel cage - Y-D starting</b><br>
 At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage, first star-connected, then delta-connetced; the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
 Simulate for 2.5 seconds and plot (versus time):
 <ul>
@@ -245,19 +245,200 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
 </HTML>"));
     end AIMC_YD;
 
+    model AIMC_Transformer
+      "Test example 2b: AsynchronousInductionMachineSquirrelCage transformer starting"
+      extends Modelica.Icons.Example;
+      constant Integer m=3 "Number of phases";
+      parameter Modelica.SIunits.Voltage VNominal=100
+        "Nominal RMS voltage per phase";
+      parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
+      parameter Modelica.SIunits.Time tStart1=0.1 "Start time";
+      parameter Modelica.SIunits.Time tStart2=2.0
+        "Start time of bypass transformer";
+      parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";
+      parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")=1440.45*2*Modelica.Constants.pi/60
+        "Nominal load speed";
+      parameter Modelica.SIunits.Inertia JLoad=0.29 "Load's moment of inertia";
+      Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
+        aimc 
+        annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
+              rotation=0)));
+      Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor 
+        annotation (Placement(transformation(
+            origin={0,80},
+            extent={{-10,10},{10,-10}},
+            rotation=270)));
+      Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+        final m=m,
+        freqHz=fill(fNominal, m),
+        V=fill(sqrt(2/3)*VNominal, m)) 
+        annotation (Placement(transformation(
+            origin={-30,90},
+            extent={{10,10},{-10,-10}},
+            rotation=0)));
+      Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) 
+        annotation (Placement(transformation(extent={{-50,80},{-70,100}},
+              rotation=0)));
+      Modelica.Electrical.Analog.Basic.Ground ground 
+        annotation (Placement(transformation(
+            origin={-90,90},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      Blocks.Sources.BooleanStep booleanStep1[m](each startTime=tStart1) 
+        annotation (Placement(transformation(extent={{-60,40},{-40,60}},
+              rotation=0)));
+      MultiPhase.Ideal.IdealClosingSwitch idealCloser(final m=m) 
+        annotation (Placement(transformation(
+            origin={0,50},
+            extent={{-10,10},{10,-10}},
+            rotation=270)));
+      BasicMachines.Transformers.Yy.Yy00 transformer(
+        n=transformerData.n,
+        R1=transformerData.R1,
+        L1sigma=transformerData.L1sigma,
+        R2=transformerData.R2,
+        L2sigma=transformerData.L2sigma) annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={-20,30})));
+      Modelica.Electrical.Analog.Basic.Ground ground2 
+        annotation (Placement(transformation(
+            origin={-50,20},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      Utilities.TransformerData transformerData(
+        f=fNominal,
+        V1=VNominal,
+        C1=Modelica.Utilities.Strings.substring(
+            transformer.VectorGroup, 1, 1),
+        V2=VNominal/sqrt(3),
+        C2=Modelica.Utilities.Strings.substring(
+            transformer.VectorGroup, 2, 2),
+        SNominal=50E3,
+        v_sc=0.06,
+        P_sc=500)    annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+      Modelica.Blocks.Sources.BooleanStep booleanStep2[m](each startTime=tStart2) 
+        annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
+              rotation=0)));
+      MultiPhase.Ideal.IdealCommutingSwitch idealCommutingSwitch(final m=m) 
+        annotation (Placement(transformation(
+            origin={0,0},
+            extent={{10,10},{-10,-10}},
+            rotation=270)));
+      Modelica.Mechanics.Rotational.Components.Inertia loadInertia(J=JLoad) 
+        annotation (Placement(transformation(extent={{40,-50},{60,-30}},
+              rotation=0)));
+      Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
+        quadraticLoadTorque(
+        w_nominal=wLoad,
+        TorqueDirection=false,
+        tau_nominal=-TLoad,
+        useSupport=false) 
+        annotation (Placement(transformation(extent={{90,-50},{70,-30}},
+              rotation=0)));
+      Machines.Utilities.TerminalBox TerminalBox1(
+        terminalConnection="D") 
+        annotation (Placement(transformation(extent={{-20,-30},{0,-10}},
+              rotation=0)));
+    equation
+      connect(star.pin_n, ground.p) 
+        annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
+      connect(TerminalBox1.plug_sn, aimc.plug_sn)  annotation (Line(
+          points={{-16,-30},{-16,-30}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(TerminalBox1.plug_sp, aimc.plug_sp)  annotation (Line(
+          points={{-4,-30},{-4,-30}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(loadInertia.flange_b, quadraticLoadTorque.flange) annotation (
+          Line(
+          points={{60,-40},{70,-40}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(aimc.flange, loadInertia.flange_a) annotation (Line(
+          points={{0,-40},{40,-40}},
+          color={0,0,0},
+          smooth=Smooth.None));
+
+      connect(star.plug_p, sineVoltage.plug_n) annotation (Line(
+          points={{-50,90},{-40,90}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(booleanStep2.y, idealCommutingSwitch.control) 
+                                                           annotation (Line(
+          points={{-39,0},{-14,0},{-14,1.46958e-015},{-8,1.46958e-015}},
+          color={255,0,255},
+          smooth=Smooth.None));
+      connect(transformer.starpoint2, ground2.p) annotation (Line(
+          points={{-30,25},{-30,20},{-40,20}},
+          color={0,0,255},
+          smooth=Smooth.None));
+
+      connect(idealCommutingSwitch.plug_p, TerminalBox1.plugSupply) annotation (
+          Line(
+          points={{-1.83697e-015,-10},{-10,-10},{-10,-28}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(transformer.plug2, idealCommutingSwitch.plug_n1) annotation (Line(
+          points={{-20,20},{-5,20},{-5,10}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(sineVoltage.plug_p, currentQuasiRMSSensor.plug_p) annotation (Line(
+          points={{-20,90},{1.83697e-015,90}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(booleanStep1.y, idealCloser.control) annotation (Line(
+          points={{-39,50},{-7,50}},
+          color={255,0,255},
+          smooth=Smooth.None));
+      connect(currentQuasiRMSSensor.plug_n, idealCloser.plug_p) annotation (Line(
+          points={{-1.83697e-015,70},{-1.83697e-015,65},{1.83697e-015,65},{
+              1.83697e-015,60}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(transformer.plug1, idealCloser.plug_n) annotation (Line(
+          points={{-20,40},{-1.83697e-015,40}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(idealCloser.plug_n, idealCommutingSwitch.plug_n2) annotation (Line(
+          points={{-1.83697e-015,40},{1.83697e-015,40},{1.83697e-015,10}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      annotation (
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+                100}}),
+                graphics),
+        experiment(StopTime=2.5, Interval=0.001),
+        Documentation(info="<HTML>
+<b>2nd/b Test example: Asynchronous induction machine with squirrel cage - transformer starting</b><br>
+At start time tStart1 three phase voltage is supplied to the asynchronous induction machine with squirrel cage via the transformer;
+the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed;
+at start time tStart2 the machine is fed directly from the voltage source, finally reaching nominal speed.<br>
+Simulate for 2.5 seconds and plot (versus time):
+<ul>
+<li>currentQuasiRMSSensor.I: stator current RMS</li>
+<li>aimc.wMechanical: motor's speed</li>
+<li>aimc.tauElectrical: motor's torque</li>
+</ul>
+Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
+</HTML>"));
+    end AIMC_Transformer;
+
     model AIMS_Start "Test example 3: AsynchronousInductionMachineSlipRing"
       extends Modelica.Icons.Example;
-      constant Integer m=3 "number of phases";
+      constant Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage VNominal=100
-        "nominal RMS voltage per phase";
-      parameter Modelica.SIunits.Frequency fNominal=50 "nominal frequency";
-      parameter Modelica.SIunits.Time tStart1=0.1 "1st start time";
-      parameter Modelica.SIunits.Resistance Rstart=0.16 "starting resistance";
-      parameter Modelica.SIunits.Time tStart2=1.0 "2nd start time";
-      parameter Modelica.SIunits.Torque TLoad=161.4 "nominal load torque";
+        "Nominal RMS voltage per phase";
+      parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
+      parameter Modelica.SIunits.Time tStart1=0.1 "Start time";
+      parameter Modelica.SIunits.Resistance Rstart=0.16 "Starting resistance";
+      parameter Modelica.SIunits.Time tStart2=1.0
+        "Start time of shorting starting resistance";
+      parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";
       parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")=1440.45*2*Modelica.Constants.pi/60
-        "nominal load speed";
-      parameter Modelica.SIunits.Inertia JLoad=0.29 "load's moment of inertia";
+        "Nominal load speed";
+      parameter Modelica.SIunits.Inertia JLoad=0.29 "Load's moment of inertia";
 
       Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing aims 
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
@@ -375,15 +556,15 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
     model AIMC_Inverter
       "Test example 4: AsynchronousInductionMachineSquirrelCage with inverter"
       extends Modelica.Icons.Example;
-      constant Integer m=3 "number of phases";
+      constant Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage VNominal=100
-        "nominal RMS voltage per phase";
-      parameter Modelica.SIunits.Frequency fNominal=50 "nominal frequency";
-      parameter Modelica.SIunits.Frequency f=50 "actual frequency";
-      parameter Modelica.SIunits.Time tRamp=1 "frequency ramp";
-      parameter Modelica.SIunits.Torque TLoad=161.4 "nominal load torque";
-      parameter Modelica.SIunits.Time tStep=1.2 "time of load torque step";
-      parameter Modelica.SIunits.Inertia JLoad=0.29 "load's moment of inertia";
+        "Nominal RMS voltage per phase";
+      parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
+      parameter Modelica.SIunits.Frequency f=50 "Actual frequency";
+      parameter Modelica.SIunits.Time tRamp=1 "Frequency ramp";
+      parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";
+      parameter Modelica.SIunits.Time tStep=1.2 "Time of load torque step";
+      parameter Modelica.SIunits.Inertia JLoad=0.29 "Load's moment of inertia";
 
       Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
         aimc 
@@ -485,15 +666,15 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
     model SMR_Inverter
       "Test example 5: SynchronousInductionMachineReluctanceRotor with inverter"
       extends Modelica.Icons.Example;
-      constant Integer m=3 "number of phases";
+      constant Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage VNominal=100
-        "nominal RMS voltage per phase";
-      parameter Modelica.SIunits.Frequency fNominal=50 "nominal frequency";
-      parameter Modelica.SIunits.Frequency f=50 "actual frequency";
-      parameter Modelica.SIunits.Time tRamp=1 "frequency ramp";
-      parameter Modelica.SIunits.Torque TLoad=46 "nominal load torque";
-      parameter Modelica.SIunits.Time tStep=1.2 "time of load torque step";
-      parameter Modelica.SIunits.Inertia JLoad=0.29 "load's moment of inertia";
+        "Nominal RMS voltage per phase";
+      parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
+      parameter Modelica.SIunits.Frequency f=50 "Actual frequency";
+      parameter Modelica.SIunits.Time tRamp=1 "Frequency ramp";
+      parameter Modelica.SIunits.Torque TLoad=46 "Nominal load torque";
+      parameter Modelica.SIunits.Time tStep=1.2 "Time of load torque step";
+      parameter Modelica.SIunits.Inertia JLoad=0.29 "Load's moment of inertia";
 
       Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor
         smr 
@@ -609,15 +790,15 @@ Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
     model SMPM_Inverter
       "Test example 6: PermanentMagnetSynchronousInductionMachine with inverter"
       extends Modelica.Icons.Example;
-      constant Integer m=3 "number of phases";
+      constant Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage VNominal=100
-        "nominal RMS voltage per phase";
-      parameter Modelica.SIunits.Frequency fNominal=50 "nominal frequency";
-      parameter Modelica.SIunits.Frequency f=50 "actual frequency";
-      parameter Modelica.SIunits.Time tRamp=1 "frequency ramp";
-      parameter Modelica.SIunits.Torque TLoad=181.4 "nominal load torque";
-      parameter Modelica.SIunits.Time tStep=1.2 "time of load torque step";
-      parameter Modelica.SIunits.Inertia JLoad=0.29 "load's moment of inertia";
+        "Nominal RMS voltage per phase";
+      parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
+      parameter Modelica.SIunits.Frequency f=50 "Actual frequency";
+      parameter Modelica.SIunits.Time tRamp=1 "Frequency ramp";
+      parameter Modelica.SIunits.Torque TLoad=181.4 "Nominal load torque";
+      parameter Modelica.SIunits.Time tStep=1.2 "Time of load torque step";
+      parameter Modelica.SIunits.Inertia JLoad=0.29 "Load's moment of inertia";
 
       Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet
         smpm 
@@ -738,16 +919,16 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
     model SMEE_Generator
       "Test example 7: ElectricalExcitedSynchronousInductionMachine as Generator"
       extends Modelica.Icons.Example;
-      constant Integer m=3 "number of phases";
+      constant Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage VNominal=100
-        "nominal RMS voltage per phase";
-      parameter Modelica.SIunits.Frequency fNominal=50 "nominal frequency";
+        "Nominal RMS voltage per phase";
+      parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
       parameter Modelica.SIunits.AngularVelocity wActual(displayUnit="1/min")=1499*2*Modelica.Constants.pi/60
-        "actual speed";
-      parameter Modelica.SIunits.Current Ie = 19 "excitation current";
-      parameter Modelica.SIunits.Current Ie0 = 10 "initial excitation current";
+        "Actual speed";
+      parameter Modelica.SIunits.Current Ie = 19 "Excitation current";
+      parameter Modelica.SIunits.Current Ie0 = 10 "Initial excitation current";
       parameter Modelica.SIunits.Angle gamma0(displayUnit="deg")=0
-        "initial rotor displacement angle";
+        "Initial rotor displacement angle";
       Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited
         smee(
           useSupport=true, phiMechanical(start=-(Modelica.Constants.pi +gamma0)/smee.p, fixed=true)) 
@@ -895,12 +1076,13 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
     model DCPM_Start
       "Test example 8: DC with permanent magnet starting with voltage ramp"
       extends Modelica.Icons.Example;
-      parameter Modelica.SIunits.Voltage Va=100 "actual armature voltage";
-      parameter Modelica.SIunits.Time tStart=0.2 "armature voltage ramp";
-      parameter Modelica.SIunits.Time tRamp=0.8 "armature voltage ramp";
-      parameter Modelica.SIunits.Torque TLoad=63.66 "nominal load torque";
-      parameter Modelica.SIunits.Time tStep=1.5 "time of load torque step";
-      parameter Modelica.SIunits.Inertia JLoad=0.15 "load's moment of inertia";
+      parameter Modelica.SIunits.Voltage Va=100 "Actual armature voltage";
+      parameter Modelica.SIunits.Time tStart=0.2
+        "Start of armature voltage ramp";
+      parameter Modelica.SIunits.Time tRamp=0.8 "Armature voltage ramp";
+      parameter Modelica.SIunits.Torque TLoad=63.66 "Nominal load torque";
+      parameter Modelica.SIunits.Time tStep=1.5 "Time of load torque step";
+      parameter Modelica.SIunits.Inertia JLoad=0.15 "Load's moment of inertia";
 
       Machines.BasicMachines.DCMachines.DC_PermanentMagnet dcpm 
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
@@ -966,13 +1148,14 @@ Default machine parameters of model <i>DC_PermanentMagnet</i> are used.
     model DCEE_Start
       "Test example 9: DC with electrical ecxitation starting with voltage ramp"
       extends Modelica.Icons.Example;
-      parameter Modelica.SIunits.Voltage Va=100 "actual armature voltage";
-      parameter Modelica.SIunits.Time tStart=0.2 "armature voltage ramp";
-      parameter Modelica.SIunits.Time tRamp=0.8 "armature voltage ramp";
-      parameter Modelica.SIunits.Voltage Ve=100 "actual excitation voltage";
-      parameter Modelica.SIunits.Torque TLoad=63.66 "nominal load torque";
-      parameter Modelica.SIunits.Time tStep=1.5 "time of load torque step";
-      parameter Modelica.SIunits.Inertia JLoad=0.15 "load's moment of inertia";
+      parameter Modelica.SIunits.Voltage Va=100 "Actual armature voltage";
+      parameter Modelica.SIunits.Time tStart=0.2
+        "Start of armature voltage ramp";
+      parameter Modelica.SIunits.Time tRamp=0.8 "Armature voltage ramp";
+      parameter Modelica.SIunits.Voltage Ve=100 "Actual excitation voltage";
+      parameter Modelica.SIunits.Torque TLoad=63.66 "Nominal load torque";
+      parameter Modelica.SIunits.Time tStep=1.5 "Time of load torque step";
+      parameter Modelica.SIunits.Inertia JLoad=0.15 "Load's moment of inertia";
 
       Machines.BasicMachines.DCMachines.DC_ElectricalExcited dcee 
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
@@ -1056,13 +1239,14 @@ Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
     model DCSE_Start
       "Test example 10: DC with serial excitation starting with voltage ramp"
       extends Modelica.Icons.Example;
-      parameter Modelica.SIunits.Voltage Va=100 "actual armature voltage";
-      parameter Modelica.SIunits.Time tStart=0.2 "armature voltage ramp";
-      parameter Modelica.SIunits.Time tRamp=0.8 "armature voltage ramp";
-      parameter Modelica.SIunits.Torque TLoad=63.66 "nominal load torque";
+      parameter Modelica.SIunits.Voltage Va=100 "Actual armature voltage";
+      parameter Modelica.SIunits.Time tStart=0.2
+        "Start of armature voltage ramp";
+      parameter Modelica.SIunits.Time tRamp=0.8 "Armature voltage ramp";
+      parameter Modelica.SIunits.Torque TLoad=63.66 "Nominal load torque";
       parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")=1410*2*Modelica.Constants.pi/60
-        "nominal load speed";
-      parameter Modelica.SIunits.Inertia JLoad=0.15 "load's moment of inertia";
+        "Nominal load speed";
+      parameter Modelica.SIunits.Inertia JLoad=0.15 "Load's moment of inertia";
 
       Machines.BasicMachines.DCMachines.DC_SeriesExcited dcse 
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
@@ -1128,6 +1312,215 @@ Simulate for 2 seconds and plot (versus time):
 Default machine parameters of model <i>DC_SeriesExcited</i> are used.
 </HTML>"));
     end DCSE_Start;
+
+    model DC_Comparison
+      "Test example 11: Compare torque-speed characteristic of DC motors"
+      extends Modelica.Icons.Example;
+      parameter Modelica.SIunits.Voltage Va=100 "Actual armature voltage";
+      parameter Modelica.SIunits.Voltage Ve=100 "Actual excitation voltage";
+      parameter Modelica.SIunits.AngularVelocity w0=Modelica.SIunits.Conversions.from_rpm(1500)
+        "No-load speed";
+      parameter Modelica.SIunits.Torque TLoad=63.66 "Nominal load torque";
+      parameter Modelica.SIunits.Time tStart=0.5
+        "Start ofload torque ramp ramp";
+      parameter Modelica.SIunits.Time tRamp=2.0 "Load torque ramp";
+      parameter Modelica.SIunits.Inertia JLoad=0.15 "Load's moment of inertia";
+
+      Machines.BasicMachines.DCMachines.DC_ElectricalExcited dcee(wMechanical(start=
+             w0, fixed=true), ie(start=1, fixed=true)) 
+        annotation (Placement(transformation(extent={{-20,-10},{0,10}},
+              rotation=0)));
+      Analog.Sources.ConstantVoltage armatureVoltage(V=Va) 
+        annotation (Placement(transformation(extent={{10,-10},{-10,10}},
+                                                                       rotation=90,
+            origin={-80,70})));
+      Modelica.Electrical.Analog.Basic.Ground groundArmature 
+        annotation (Placement(transformation(
+            origin={-80,40},
+            extent={{-10,-10},{10,10}},
+            rotation=0)));
+      Modelica.Electrical.Analog.Sources.ConstantVoltage excitationVoltage(V=Ve) 
+        annotation (Placement(transformation(
+            origin={-80,-50},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      Modelica.Electrical.Analog.Basic.Ground groundExcitation 
+        annotation (Placement(transformation(
+            origin={-80,-80},
+            extent={{-10,-10},{10,10}},
+            rotation=0)));
+      Modelica.Mechanics.Rotational.Components.Inertia loadInertia1(J=JLoad) 
+        annotation (Placement(transformation(extent={{10,-10},{30,10}},
+              rotation=0)));
+      Mechanics.Rotational.Sources.Torque loadTorque1(useSupport=false) 
+        annotation (Placement(transformation(extent={{60,-10},{40,10}}, rotation=0)));
+      Blocks.Sources.Ramp ramp(
+        startTime=tStart,
+        height=-TLoad,
+        duration=tRamp,
+        offset=0) annotation (Placement(transformation(extent={{100,-10},{80,10}})));
+    equation
+      connect(loadInertia1.flange_b, loadTorque1.flange) 
+        annotation (Line(points={{30,0},{30,0},{40,0}},
+                                                     color={0,0,0}));
+      connect(dcee.flange, loadInertia1.flange_a) 
+                                                 annotation (Line(
+          points={{0,0},{10,0}},
+          color={0,0,0},
+          smooth=Smooth.None));
+
+      connect(ramp.y, loadTorque1.tau) 
+                                      annotation (Line(
+          points={{79,0},{62,0}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(armatureVoltage.n, groundArmature.p) annotation (Line(
+          points={{-80,60},{-80,50}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(excitationVoltage.n, groundExcitation.p) annotation (Line(
+          points={{-80,-60},{-80,-70}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(armatureVoltage.p, dcee.pin_ap) annotation (Line(
+          points={{-80,80},{-30,80},{-30,20},{-4,20},{-4,10}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(armatureVoltage.n, dcee.pin_an) annotation (Line(
+          points={{-80,60},{-40,60},{-40,10},{-16,10}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(excitationVoltage.p, dcee.pin_ep) annotation (Line(
+          points={{-80,-40},{-60,-40},{-60,6},{-20,6}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(excitationVoltage.n, dcee.pin_en) annotation (Line(
+          points={{-80,-60},{-50,-60},{-50,-6},{-20,-6}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      annotation (
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}),
+                graphics),
+        experiment(StopTime=3, Interval=0.001),
+        Documentation(info="<HTML>
+<b>11th Test example: Compare characteristic of DC motors</b><br>
+The motors are started at no-load speed, then a load ramp is applied.<br>
+Simulate for 3 seconds and plot (versus time):
+<ul>
+<li>dcxx.ia: armature current</li>
+<li>dcxx.wMechanical: motor's speed</li>
+<li>dcxx.tauElectrical: motor's torque</li>
+</ul>
+Default machine parameters are used.
+</HTML>"),
+        experimentSetupOutput);
+    end DC_Comparison;
+
+    model DCPM_Temperature
+      "Test example 12: Investigate temperature dependecy of a DCPM motor"
+      extends Modelica.Icons.Example;
+      parameter Modelica.SIunits.Voltage Va=100 "Actual armature voltage";
+      parameter Modelica.SIunits.Voltage Ve=100 "Actual excitation voltage";
+      parameter Modelica.SIunits.AngularVelocity w0=Modelica.SIunits.Conversions.from_rpm(1500)
+        "No-load speed";
+      parameter Modelica.SIunits.Torque TLoad=63.66 "Nominal load torque";
+      parameter Modelica.SIunits.Inertia JLoad=0.15 "Load's moment of inertia";
+
+      BasicMachines.DCMachines.DC_PermanentMagnet dcpm(           wMechanical(start=
+             w0, fixed=true),
+        Alpha20a(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper,
+        useThermalPort=true,
+        TaNominal=353.15,
+        TaRef=353.15) 
+        annotation (Placement(transformation(extent={{-20,-10},{0,10}},
+              rotation=0)));
+
+      Analog.Sources.ConstantVoltage armatureVoltage(V=Va) 
+        annotation (Placement(transformation(extent={{10,-10},{-10,10}},
+                                                                       rotation=90,
+            origin={-80,70})));
+      Modelica.Electrical.Analog.Basic.Ground groundArmature 
+        annotation (Placement(transformation(
+            origin={-80,40},
+            extent={{-10,-10},{10,10}},
+            rotation=0)));
+      Modelica.Mechanics.Rotational.Components.Inertia loadInertia(J=JLoad) 
+        annotation (Placement(transformation(extent={{10,-10},{30,10}},
+              rotation=0)));
+      Mechanics.Rotational.Sources.TorqueStep loadTorque(
+        useSupport=false,
+        stepTorque=-TLoad,
+        offsetTorque=0,
+        startTime=0.1) 
+        annotation (Placement(transformation(extent={{60,-10},{40,10}}, rotation=0)));
+      Thermal.DCMachines.ThermalAmbientDCPM thermalAmbientDCPM(useTemperatureInputs=true) 
+        annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
+      Blocks.Sources.Exponentials exponential(
+        offset=293.15,
+        outMax=60,
+        riseTime=3600,
+        riseTimeConst=0.5,
+        fallTimeConst=0.5,
+        startTime=0.1) 
+        annotation (Placement(transformation(extent={{-60,-60},{-40,-40}})));
+    equation
+      connect(loadInertia.flange_b, loadTorque.flange) 
+        annotation (Line(points={{30,0},{30,0},{40,0}},
+                                                     color={0,0,0}));
+      connect(dcpm.flange, loadInertia.flange_a) annotation (Line(
+          points={{0,0},{10,0}},
+          color={0,0,0},
+          smooth=Smooth.None));
+
+      connect(armatureVoltage.n, groundArmature.p) annotation (Line(
+          points={{-80,60},{-80,50}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(armatureVoltage.p,dcpm. pin_ap) annotation (Line(
+          points={{-80,80},{-4,80},{-4,10}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(armatureVoltage.n,dcpm. pin_an) annotation (Line(
+          points={{-80,60},{-16,60},{-16,10}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(dcpm.thermalPort, thermalAmbientDCPM.thermalPort) annotation (Line(
+          points={{-10,-10},{-10,-20}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(thermalAmbientDCPM.T_a, exponential.y) 
+                                              annotation (Line(
+          points={{-18,-40},{-18,-50},{-39,-50}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      annotation (
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+                100}}),
+                graphics),
+        experiment(StopTime=3, Interval=0.001),
+        Documentation(info="<HTML>
+<b>12th Test example: Investigate influence of armature temperature on a DCPM motor</b><br>
+The motor are starts at no-load speed, then a load step is applied.<br>
+Beginning with the load step, the armature temperature rises exponentially from 20 degC to 80 degC.<br>
+Simulate for 3 seconds and plot (versus time):
+<ul>
+<li>dcpm.ia: armature current</li>
+<li>dcpm.wMechanical: motor's speed</li>
+<li>dcpm.tauElectrical: motor's torque</li>
+<li>thermalAmbientDCPM.Q_flow_a: motor's armature losses</li>
+</ul>
+Default machine parameters are used, but:
+<ul>
+<li>The aramture winding material is set to Copper.</li>
+<li>Armature reference temperature is set to 80 degC.</li>
+<li>Nominal armature temperature is set to 80 degC.</li>
+</ul>
+So the machine is at the beginning in cold condition, ending in warm condition 
+(with the same armature resistance as the unmodified machine).
+</HTML>"),
+        experimentSetupOutput);
+    end DCPM_Temperature;
 
     model TransformerTestbench "Transformer Testbench"
       extends Modelica.Icons.Example;
@@ -1466,21 +1859,21 @@ neglecting initial transient.
     model AIMC_Steinmetz
       "AsynchronousInductionMachineSquirrelCage Steinmetz-connection"
       extends Modelica.Icons.Example;
-      constant Integer m=3 "number of phases";
+      constant Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage VNominal=100
-        "nominal RMS voltage per phase";
-      parameter Modelica.SIunits.Frequency fNominal=50 "nominal frequency";
-      parameter Modelica.SIunits.Time tStart1=0.1 "start time";
+        "Nominal RMS voltage per phase";
+      parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
+      parameter Modelica.SIunits.Time tStart1=0.1 "Start time";
       parameter Modelica.SIunits.Capacitance Cr=0.0035
-        "motor's running capacitor";
+        "Motor's running capacitor";
       parameter Modelica.SIunits.Capacitance Cs=5*Cr
-        "motor's (additional) starting capacitor";
+        "Motor's (additional) starting capacitor";
       parameter Modelica.SIunits.AngularVelocity wSwitch(displayUnit="1/min")=1350*2*Modelica.Constants.pi/60
-        "speed for switching off the starting capacitor";
-      parameter Modelica.SIunits.Torque TLoad=2/3*161.4 "nominal load torque";
+        "Speed for switching off the starting capacitor";
+      parameter Modelica.SIunits.Torque TLoad=2/3*161.4 "Nominal load torque";
       parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")=1462.5*2*Modelica.Constants.pi/60
-        "nominal load speed";
-      parameter Modelica.SIunits.Inertia JLoad=0.29 "load's moment of inertia";
+        "Nominal load speed";
+      parameter Modelica.SIunits.Inertia JLoad=0.29 "Load's moment of inertia";
 
       Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
         aimc(useSupport=true) 
@@ -1681,6 +2074,8 @@ This package contains test examples of electric machines.
        new example for electrical excited synchronous induction machine</li>
   <li> v1.6.1 2004/11/22 Anton Haumer<br>
        introduced Utilities.TerminalBox</li>
+  <li> v2.1.2 2010/02/09 Anton Haumer<br>
+       included new Examples (AIMC_Transformer, DC_Comparison)</li>
   </ul>
 </HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Ellipse(extent={{-80,44},{60,-96}},
@@ -1704,44 +2099,72 @@ This package contains test examples of electric machines.
           final idq_ss = airGapS.i_ss,
           final idq_sr = airGapS.i_sr,
           final idq_rs = airGapS.i_rs,
-          final idq_rr = airGapS.i_rr);
+          final idq_rr = airGapS.i_rr,
+          redeclare final
+            Modelica.Electrical.Machines.Thermal.AsynchronousInductionMachines.ThermalAmbientAIMC
+            thermalAmbient(final Tr=TrOperational),
+          redeclare final
+            Modelica.Electrical.Machines.Interfaces.AsynchronousInductionMachines.ThermalPortAIMC
+            thermalPort,
+          redeclare final
+            Modelica.Electrical.Machines.Interfaces.AsynchronousInductionMachines.ThermalPortAIMC
+            internalThermalPort);
         Components.AirGapS airGapS(            final p=p, final m=3, final Lm=Lm) 
           annotation (Placement(transformation(
               origin={0,0},
               extent={{-10,-10},{10,10}},
               rotation=270)));
         parameter Modelica.SIunits.Inductance Lm(start=3*sqrt(1 - 0.0667)/(2*pi*fsNominal))
-          "main field inductance" 
-           annotation(Dialog(group="Nominal resistances and inductances"));
+          "Main field inductance" 
+           annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lrsigma(start=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal))
-          "rotor stray inductance (equivalent three phase winding)" 
-           annotation(Dialog(group="Nominal resistances and inductances"));
+          "Rotor stray inductance (equivalent three phase winding)" 
+           annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Resistance Rr(start=0.04)
-          "warm rotor resistance (equivalent three phase winding)" 
-           annotation(Dialog(group="Nominal resistances and inductances"));
-        Machines.BasicMachines.Components.SquirrelCage squirrelCageR(final
-            Lrsigma = Lrsigma, final Rr=Rr) 
+          "Rotor resistance (equivalent three phase winding) at TRef" 
+           annotation(Dialog(tab="Nominal resistances and inductances"));
+        parameter Modelica.SIunits.Temperature TrRef(start=293.15)
+          "Reference temperature of rotor resistance" 
+           annotation(Dialog(tab="Nominal resistances and inductances"));
+        parameter Modelica.Electrical.Machines.Thermal.Alpha20 Alpha20r(start=0)
+          "Temperature coefficient of rotor resistance at 20 degC" 
+           annotation(Dialog(tab="Nominal resistances and inductances"));
+        parameter Modelica.SIunits.Temperature TrOperational(start=293.15)
+          "Operational temperature of rotor resistance" 
+           annotation(Dialog(group="Operational temperatures", enable=not useThermalPort));
+        Machines.BasicMachines.Components.SquirrelCage squirrelCageR(
+          final Lrsigma=Lrsigma,
+          final Rr=Rr,
+          final useHeatPort=true,
+          final T_ref=TrRef,
+          final T=TrRef,
+          final alpha=Modelica.Electrical.Machines.Thermal.convertAlpha(Alpha20r, TrRef)) 
           annotation (Placement(transformation(
               origin={0,-30},
               extent={{-10,-10},{10,10}},
               rotation=270)));
       equation
         connect(airGapS.spacePhasor_r, squirrelCageR.spacePhasor_r) 
-          annotation (Line(points={{10,-10},{10,-12.5},{10,-12.5},{10,-15},{10,
-                -20},{10,-20}},                        color={0,0,255}));
+          annotation (Line(points={{10,-10},{10,-20},{10,-20}},
+                                                       color={0,0,255}));
         connect(spacePhasorS.spacePhasor, airGapS.spacePhasor_s) annotation (Line(
-            points={{10,20},{10,15},{10,10},{10,10}},
+            points={{10,20},{10,20},{10,10},{10,10}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(airGapS.support, internalSupport) annotation (Line(
-            points={{-10,1.83697e-015},{-56,1.83697e-015},{-56,0},{-90,0},{-90,
-                -100},{20,-100}},
+            points={{-10,1.83697e-015},{-10,0},{-40,0},{-40,-90},{60,-90},{60,
+                -100}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(airGapS.flange, inertiaRotor.flange_a) annotation (Line(
-            points={{10,-1.83697e-015},{36,-1.83697e-015},{36,1.22465e-015},{60,
+            points={{10,-1.83697e-015},{36,-1.83697e-015},{36,1.22465e-015},{70,
                 1.22465e-015}},
             color={0,0,0},
+            smooth=Smooth.None));
+        connect(squirrelCageR.heatPort, internalThermalPort.heatPort_r) 
+          annotation (Line(
+            points={{-10,-30},{-10,-50},{0,-50},{0,-80}},
+            color={191,0,0},
             smooth=Smooth.None));
         annotation (defaultComponentName="aimc",
           Documentation(info="<HTML>
@@ -1840,38 +2263,56 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           final idq_ss = airGapS.i_ss,
           final idq_sr = airGapS.i_sr,
           final idq_rs = airGapS.i_rs,
-          final idq_rr = airGapS.i_rr);
+          final idq_rr = airGapS.i_rr,
+          redeclare final
+            Modelica.Electrical.Machines.Thermal.AsynchronousInductionMachines.ThermalAmbientAIMS
+            thermalAmbient(final Tr=TrOperational),
+          redeclare final
+            Modelica.Electrical.Machines.Interfaces.AsynchronousInductionMachines.ThermalPortAIMS
+            thermalPort,
+          redeclare final
+            Modelica.Electrical.Machines.Interfaces.AsynchronousInductionMachines.ThermalPortAIMS
+            internalThermalPort);
         Components.AirGapS airGapS(final p=p, final m=3, final Lm=Lm) 
           annotation (Placement(transformation(
               origin={0,0},
               extent={{-10,-10},{10,10}},
               rotation=270)));
         parameter Modelica.SIunits.Inductance Lm(start=3*sqrt(1 - 0.0667)/(2*pi*fsNominal))
-          "main field inductance" 
-           annotation(Dialog(group="Nominal resistances and inductances"));
+          "Main field inductance" 
+           annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lrsigma(start=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal))
-          "rotor stray inductance per phase" 
-           annotation(Dialog(group="Nominal resistances and inductances"));
+          "Rotor stray inductance per phase" 
+           annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Resistance Rr(start=0.04)
-          "warm rotor resistance per phase" 
-           annotation(Dialog(group="Nominal resistances and inductances"));
+          "Rotor resistance per phase at TRef" 
+           annotation(Dialog(tab="Nominal resistances and inductances"));
+        parameter Modelica.SIunits.Temperature TrRef(start=293.15)
+          "Reference temperature of rotor resistance" 
+           annotation(Dialog(tab="Nominal resistances and inductances"));
+        parameter Modelica.Electrical.Machines.Thermal.Alpha20 Alpha20r(start=0)
+          "Temperature coefficient of rotor resistance at 20 degC" 
+           annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Boolean useTurnsRatio(start=true)
-          "use turnsRatio or calculate from locked-rotor voltage?";
+          "Use turnsRatio or calculate from locked-rotor voltage?";
         parameter Real turnsRatio(final min=Modelica.Constants.small, start=1)
           "Effective number of stator turns / effective number of rotor turns" 
           annotation(Dialog(enable=useTurnsRatio));
         parameter Modelica.SIunits.Voltage VsNominal(start=100)
-          "nominal stator voltage per phase" 
+          "Nominal stator voltage per phase" 
           annotation(Dialog(enable=not useTurnsRatio));
         parameter Modelica.SIunits.Voltage VrLockedRotor(start=100*(2*pi*fsNominal*Lm)/sqrt(Rs^2+(2*pi*fsNominal*(Lm+Lssigma))^2))
-          "locked-rotor voltage per phase" 
+          "Locked-rotor voltage per phase" 
           annotation(Dialog(enable=not useTurnsRatio));
+        parameter Modelica.SIunits.Temperature TrOperational(start=293.15)
+          "Operational temperature of rotor resistance" 
+           annotation(Dialog(group="Operational temperatures", enable=not useThermalPort));
         output Modelica.SIunits.Current i_0_r(stateSelect=StateSelect.prefer) = spacePhasorR.zero.i
-          "rotor zero-sequence current";
+          "Rotor zero-sequence current";
         output Modelica.SIunits.Voltage vr[m] = plug_rp.pin.v - plug_rn.pin.v
-          "rotor instantaneous voltages";
+          "Rotor instantaneous voltages";
         output Modelica.SIunits.Current ir[m] = plug_rp.pin.i
-          "rotor instantaneous currents";
+          "Rotor instantaneous currents";
       protected
         final parameter Real internalTurnsRatio=if useTurnsRatio then turnsRatio else 
           VsNominal/VrLockedRotor*(2*pi*fsNominal*Lm)/sqrt(Rs^2+(2*pi*fsNominal*(Lm+Lssigma))^2);
@@ -1883,30 +2324,31 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
               extent={{-10,10},{10,-10}},
               rotation=90)));
         Modelica.Electrical.MultiPhase.Basic.Inductor lrsigma(final m=m, final L=fill(Lrsigma, m)) 
-          annotation (Placement(transformation(extent={{30,-90},{10,-70}},
+          annotation (Placement(transformation(extent={{30,-70},{10,-50}},
                 rotation=0)));
         Modelica.Electrical.MultiPhase.Basic.Resistor rr(
           final m=m,
           final R=fill(Rr, m),
-          final T_ref=fill(293.15,m),
-          final alpha=zeros(m),
-          final useHeatPort=false,
-          final T=rr.T_ref) 
-          annotation (Placement(transformation(extent={{60,-90},{40,-70}},
+          final T_ref=fill(TrRef,m),
+          final alpha=fill(Modelica.Electrical.Machines.Thermal.convertAlpha(
+                                                Alpha20r, TrRef), m),
+          final useHeatPort=true,
+          final T=fill(TrRef,m)) 
+          annotation (Placement(transformation(extent={{50,-50},{30,-70}},
                 rotation=0)));
         Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_rp(final m=m)
-          "positive rotor plug" 
+          "Positive rotor plug" 
           annotation (Placement(transformation(extent={{-110,70},{-90,50}},
                 rotation=0)));
         Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_rn(final m=m)
-          "negative rotor plug" 
+          "Negative rotor plug" 
           annotation (Placement(transformation(extent={{-110,-50},{-90,-70}},
                 rotation=0)));
       equation
         connect(rr.plug_n, lrsigma.plug_p) 
-          annotation (Line(points={{40,-80},{30,-80}}, color={0,0,255}));
-        connect(rr.plug_p, plug_rp)        annotation (Line(points={{60,-80},{
-                60,-90},{-80,-90},{-80,60},{-100,60}}, color={0,0,255}));
+          annotation (Line(points={{30,-60},{30,-60}}, color={0,0,255}));
+        connect(rr.plug_p, plug_rp)        annotation (Line(points={{50,-60},{
+                50,-70},{-80,-70},{-80,60},{-100,60}}, color={0,0,255}));
         connect(spacePhasorR.ground, spacePhasorR.zero) annotation (Line(
             points={{-10,-20},{-10,-14},{6.12323e-016,-14},{6.12323e-016,-20}},
             color={0,0,255}));
@@ -1915,26 +2357,31 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           annotation (Line(points={{10,-10},{10,-15},{10,-15},{10,-20}},
                                                        color={0,0,255}));
         connect(spacePhasorS.spacePhasor, airGapS.spacePhasor_s) annotation (Line(
-            points={{10,20},{10,15},{10,10},{10,10}},
+            points={{10,20},{10,20},{10,10},{10,10}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(airGapS.support, internalSupport) annotation (Line(
-            points={{-10,1.83697e-015},{-90,1.83697e-015},{-90,-100},{20,-100}},
+            points={{-10,1.83697e-015},{-40,1.83697e-015},{-40,-90},{60,-90},{
+                60,-100}},
             color={0,0,0},
             smooth=Smooth.None));
 
         connect(airGapS.flange, inertiaRotor.flange_a) annotation (Line(
-            points={{10,-1.83697e-015},{34,-1.83697e-015},{34,1.22465e-015},{60,
+            points={{10,-1.83697e-015},{34,-1.83697e-015},{34,1.22465e-015},{70,
                 1.22465e-015}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(lrsigma.plug_n, spacePhasorR.plug_p) annotation (Line(
-            points={{10,-80},{10,-40}},
+            points={{10,-60},{10,-40}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(spacePhasorR.plug_n, plug_rn) annotation (Line(
             points={{-10,-40},{-10,-60},{-100,-60}},
             color={0,0,255},
+            smooth=Smooth.None));
+        connect(rr.heatPort, internalThermalPort.heatPort_r) annotation (Line(
+            points={{40,-50},{60,-50},{60,-80},{0,-80}},
+            color={191,0,0},
             smooth=Smooth.None));
         annotation (defaultComponentName="aims",
           Documentation(info="<HTML>
@@ -2081,6 +2528,8 @@ These models use package SpacePhasors.
        to ease the implementation of a 3D-frame in a future release</li>
   <li> v1.6.3 2005/11/25 Anton Haumer<br>
        easier parametrisation of SlipRing model</li>
+  <li> v2.2.0 2011/02/10 Anton Haumer<br>
+       conditional ThermalPort for all machines</li>
   </ul>
 </HTML>"));
     end AsynchronousInductionMachines;
@@ -2095,81 +2544,108 @@ These models use package SpacePhasors.
             final idq_ss = airGapR.i_ss,
             final idq_sr = airGapR.i_sr,
             final idq_rs = airGapR.i_rs,
-            final idq_rr = airGapR.i_rr);
-        Components.AirGapR airGapR(            final p=p, final m=3, final Lmd=Lmd, final Lmq=Lmq) 
+            final idq_rr = airGapR.i_rr,
+          redeclare final
+            Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMPM
+            thermalAmbient(final useDamperCage = useDamperCage, final Tr=TrOperational),
+          redeclare final
+            Modelica.Electrical.Machines.Interfaces.SynchronousInductionMachines.ThermalPortSMPM
+            thermalPort(final useDamperCage = useDamperCage),
+          redeclare final
+            Modelica.Electrical.Machines.Interfaces.SynchronousInductionMachines.ThermalPortSMPM
+            internalThermalPort(final useDamperCage = useDamperCage));
+        Components.AirGapR airGapR(final p=p, final m=3, final Lmd=Lmd, final Lmq=Lmq) 
           annotation (Placement(transformation(
               origin={0,0},
               extent={{-10,-10},{10,10}},
               rotation=270)));
+        parameter Modelica.SIunits.Temperature TrOperational(start=293.15)
+          "Operational temperature of (optional) damper cage" 
+           annotation(Dialog(group="Operational temperatures", enable=not useThermalPort and useDamperCage));
         parameter Modelica.SIunits.Voltage VsOpenCircuit(start=112.3)
-          "open circuit RMS voltage per phase @ fNominal" 
-           annotation(Dialog(group="Excitation"));
+          "Open circuit RMS voltage per phase @ fsNominal";
         parameter Modelica.SIunits.Inductance Lmd(start=0.3/(2*pi*fsNominal))
-          "main field inductance in d-axis" 
-           annotation(Dialog(group="Nominal resistances and inductances"));
+          "Main field inductance in d-axis" 
+           annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lmq(start=0.3/(2*pi*fsNominal))
-          "main field inductance in q-axis" 
-           annotation(Dialog(group="Nominal resistances and inductances"));
+          "Main field inductance in q-axis" 
+           annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Boolean useDamperCage(start = true)
-          "enable / disable damper cage" 
-          annotation(Dialog(group = "DamperCage"));
+          "Enable / disable damper cage" 
+          annotation(Evaluate=true, Dialog(tab="Nominal resistances and inductances", group = "DamperCage"));
         parameter Modelica.SIunits.Inductance Lrsigmad(start=0.05/(2*pi*fsNominal))
-          "damper stray inductance in d-axis" 
-          annotation(Dialog(group = "DamperCage", enable = useDamperCage));
+          "Damper stray inductance in d-axis" 
+          annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
         parameter Modelica.SIunits.Inductance Lrsigmaq=Lrsigmad
-          "damper stray inductance in q-axis" 
-          annotation(Dialog(group = "DamperCage", enable = useDamperCage));
+          "Damper stray inductance in q-axis" 
+          annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
         parameter Modelica.SIunits.Resistance Rrd(start=0.04)
-          "warm damper resistance in d-axis" 
-          annotation(Dialog(group = "DamperCage", enable = useDamperCage));
+          "Damper resistance in d-axis at TRef" 
+          annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
         parameter Modelica.SIunits.Resistance Rrq=Rrd
-          "warm damper resistance in q-axis" 
-          annotation(Dialog(group = "DamperCage", enable = useDamperCage));
+          "Damper resistance in q-axis at TRef" 
+          annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
+        parameter Modelica.SIunits.Temperature TrRef(start=293.15)
+          "Reference temperature of damper resistances in d- and q-axis" 
+          annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
+        parameter Modelica.Electrical.Machines.Thermal.Alpha20 Alpha20r(start=0)
+          "Temperature coefficient of damper resistances in d- and q-axis" 
+          annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
         output Modelica.SIunits.Current idq_dr[2](each stateSelect=StateSelect.prefer)=
           damperCage.spacePhasor_r.i_ if useDamperCage
-          "damper space phasor current / rotor fixed frame";
+          "Damper space phasor current / rotor fixed frame";
       protected
         final parameter Modelica.SIunits.Current Ie=sqrt(2)*VsOpenCircuit/(Lmd*2*pi*fsNominal)
-          "equivalent excitation current";
+          "Equivalent excitation current";
       public
         Machines.BasicMachines.Components.PermanentMagnet permanentMagnet(final Ie=Ie) 
           annotation (Placement(transformation(
-              origin={0,-60},
+              origin={0,-50},
               extent={{-10,-10},{10,10}},
               rotation=270)));
         Components.DamperCage damperCage(
           final Lrsigmad=Lrsigmad,
           final Lrsigmaq=Lrsigmaq,
           final Rrd=Rrd,
-          final Rrq=Rrq) if useDamperCage 
+          final Rrq=Rrq,
+          final T_ref=TrRef,
+          final alpha=Modelica.Electrical.Machines.Thermal.convertAlpha(
+                                           Alpha20r, TrRef),
+          final useHeatPort=true,
+          final T=TrRef) if useDamperCage 
           annotation (Placement(transformation(
               origin={0,-30},
               extent={{-10,-10},{10,10}},
               rotation=270)));
       equation
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r) annotation (Line(
-              points={{10,-10},{10,-12.5},{10,-12.5},{10,-15},{10,-20},{10,-20}},
+              points={{10,-10},{10,-14},{10,-20},{10,-20}},
                                           color={0,0,255}));
         connect(airGapR.spacePhasor_r, permanentMagnet.spacePhasor_r) 
-          annotation (Line(points={{10,-10},{20,-10},{20,-50},{10,-50}}, color=
+          annotation (Line(points={{10,-10},{20,-10},{20,-40},{10,-40}}, color=
                 {0,0,255}));
         connect(spacePhasorS.spacePhasor, airGapR.spacePhasor_s) annotation (Line(
             points={{10,20},{10,15},{10,10},{10,10}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(airGapR.support, internalSupport) annotation (Line(
-            points={{-10,1.83697e-015},{-90,1.83697e-015},{-90,-100},{20,-100}},
+            points={{-10,1.83697e-015},{-40,1.83697e-015},{-40,-90},{60,-90},{
+                60,-100}},
             color={0,0,0},
             smooth=Smooth.None));
 
         connect(airGapR.flange, inertiaRotor.flange_a) annotation (Line(
-            points={{10,-1.83697e-015},{35,-1.83697e-015},{35,1.22465e-015},{60,
+            points={{10,-1.83697e-015},{35,-1.83697e-015},{35,1.22465e-015},{70,
                 1.22465e-015}},
             color={0,0,0},
             smooth=Smooth.None));
+        connect(damperCage.heatPort, internalThermalPort.heatPort_r) annotation (Line(
+            points={{-10,-30},{60,-30},{60,-80},{0,-80}},
+            color={191,0,0},
+            smooth=Smooth.None));
         annotation (defaultComponentName="smpm",
-          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-                  -100},{100,100}}),
+          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
+                  100}}),
                   graphics),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
@@ -2309,126 +2785,164 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             final idq_ss = airGapR.i_ss,
             final idq_sr = airGapR.i_sr,
             final idq_rs = airGapR.i_rs,
-            final idq_rr = airGapR.i_rr);
+            final idq_rr = airGapR.i_rr,
+          redeclare final
+            Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMEE
+            thermalAmbient(final useDamperCage = useDamperCage, final Te=TeOperational, final Tr=TrOperational),
+          redeclare final
+            Modelica.Electrical.Machines.Interfaces.SynchronousInductionMachines.ThermalPortSMEE
+            thermalPort(final useDamperCage = useDamperCage),
+          redeclare final
+            Modelica.Electrical.Machines.Interfaces.SynchronousInductionMachines.ThermalPortSMEE
+            internalThermalPort(final useDamperCage = useDamperCage));
         Components.AirGapR airGapR(            final p=p, final m=3, final Lmd=Lmd, final Lmq=Lmq) 
           annotation (Placement(transformation(
               origin={0,0},
               extent={{-10,-10},{10,10}},
               rotation=270)));
+        parameter Modelica.SIunits.Temperature TrOperational(start=293.15)
+          "Operational temperature of (optional) damper cage" 
+           annotation(Dialog(group="Operational temperatures", enable=not useThermalPort and useDamperCage));
         parameter Modelica.SIunits.Inductance Lmd(start=1.5/(2*pi*fsNominal))
-          "main field inductance in d-axis" 
-           annotation(Dialog(group="Nominal resistances and inductances"));
+          "Main field inductance in d-axis" 
+           annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lmq(start=1.5/(2*pi*fsNominal))
-          "main field inductance in q-axis" 
-           annotation(Dialog(group="Nominal resistances and inductances"));
+          "Main field inductance in q-axis" 
+           annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Boolean useDamperCage(start = true)
-          "enable / disable damper cage" 
-          annotation(Dialog(group = "DamperCage"));
+          "Enable / disable damper cage" 
+          annotation(Evaluate=true, Dialog(tab="Nominal resistances and inductances", group = "DamperCage"));
         parameter Modelica.SIunits.Inductance Lrsigmad(start=0.05/(2*pi*fsNominal))
-          "damper stray inductance in d-axis" 
-          annotation(Dialog(group = "DamperCage", enable = useDamperCage));
+          "Damper stray inductance in d-axis" 
+          annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
         parameter Modelica.SIunits.Inductance Lrsigmaq=Lrsigmad
-          "damper stray inductance in q-axis" 
-          annotation(Dialog(group = "DamperCage", enable = useDamperCage));
+          "Damper stray inductance in q-axis" 
+          annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
         parameter Modelica.SIunits.Resistance Rrd(start=0.04)
-          "warm damper resistance in d-axis" 
-          annotation(Dialog(group = "DamperCage", enable = useDamperCage));
+          "Damper resistance in d-axis at TRef" 
+          annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
         parameter Modelica.SIunits.Resistance Rrq=Rrd
-          "warm damper resistance in q-axis" 
-          annotation(Dialog(group = "DamperCage", enable = useDamperCage));
+          "Damper resistance in q-axis at TRef" 
+          annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
+        parameter Modelica.SIunits.Temperature TrRef(start=293.15)
+          "Reference temperature of damper resistances in d- and q-axis" 
+          annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
+        parameter Modelica.Electrical.Machines.Thermal.Alpha20 Alpha20r(start=0)
+          "Temperature coefficient of damper resistances in d- and q-axis" 
+          annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
         parameter Modelica.SIunits.Voltage VsNominal(start=100)
-          "nominal stator RMS voltage per phase" 
-           annotation(Dialog(group="Excitation"));
+          "Nominal stator RMS voltage per phase" 
+           annotation(Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Current IeOpenCircuit(start=10)
-          "open circuit excitation current @ nominal voltage and frequency" 
-           annotation(Dialog(group="Excitation"));
+          "Open circuit excitation current @ nominal voltage and frequency" 
+           annotation(Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Resistance Re(start=2.5)
-          "warm excitation resistance" 
-           annotation(Dialog(group="Excitation"));
+          "Excitation resistance at TRef" 
+           annotation(Dialog(tab="Excitation"));
+        parameter Modelica.SIunits.Temperature TeRef(start=293.15)
+          "Reference temperture of excitation resistance" 
+           annotation(Dialog(tab="Excitation"));
+        parameter Modelica.Electrical.Machines.Thermal.Alpha20 Alpha20e(start=0)
+          "Temperature coefficient of excitation resistance" 
+           annotation(Dialog(tab="Excitation"));
         parameter Real sigmae(min=0, max=1, start=0.025)
-          "stray fraction of total excitation inductance" 
-           annotation(Dialog(group="Excitation"));
+          "Stray fraction of total excitation inductance" 
+           annotation(Dialog(tab="Excitation"));
+        parameter Modelica.SIunits.Temperature TeOperational(start=293.15)
+          "Operational excitation temperature" 
+           annotation(Dialog(group="Operational temperatures", enable=not useThermalPort));
         output Modelica.SIunits.Current idq_dr[2](each stateSelect=StateSelect.prefer)=
           damperCage.spacePhasor_r.i_ if useDamperCage
-          "damper space phasor current / rotor fixed frame";
+          "Damper space phasor current / rotor fixed frame";
         output Modelica.SIunits.Voltage ve = pin_ep.v-pin_en.v
-          "excitation voltage";
-        output Modelica.SIunits.Current ie = pin_ep.i "excitation current";
+          "Excitation voltage";
+        output Modelica.SIunits.Current ie = pin_ep.i "Excitation current";
       protected
         final parameter Real turnsRatio = sqrt(2)*VsNominal/(2*pi*fsNominal*Lmd*IeOpenCircuit)
-          "stator current / excitation current";
+          "Stator current / excitation current";
         final parameter Modelica.SIunits.Inductance Lesigma = Lmd*turnsRatio^2*3/2 * sigmae/(1-sigmae);
       public
         Components.DamperCage damperCage(
           final Lrsigmad=Lrsigmad,
           final Lrsigmaq=Lrsigmaq,
           final Rrd=Rrd,
-          final Rrq=Rrq) if useDamperCage 
+          final Rrq=Rrq,
+          final T_ref=TrRef,
+          final alpha=Modelica.Electrical.Machines.Thermal.convertAlpha(Alpha20r, TrRef),
+          final useHeatPort=true,
+          final T=TrRef) if useDamperCage 
           annotation (Placement(transformation(
               origin={0,-30},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Components.ElectricalExcitation electricalExcitation(final turnsRatio=
-              turnsRatio) 
+        Components.ElectricalExcitation electricalExcitation(final turnsRatio=turnsRatio) 
           annotation (Placement(transformation(
-              origin={0,-60},
+              origin={0,-50},
               extent={{10,10},{-10,-10}},
               rotation=90)));
         Modelica.Electrical.Analog.Basic.Resistor re(
           final R=Re,
-          final T_ref=293.15,
-          final alpha=0,
-          final useHeatPort=false,
-          final T=re.T_ref) 
+          final T_ref=TeRef,
+          final alpha=Modelica.Electrical.Machines.Thermal.convertAlpha(Alpha20e, TeRef),
+          final useHeatPort=true,
+          final T=TeRef) 
           annotation (Placement(transformation(
-              origin={50,-80},
-              extent={{-10,10},{10,-10}},
+              origin={40,-60},
+              extent={{-10,-10},{10,10}},
               rotation=180)));
         Modelica.Electrical.Analog.Basic.Inductor lesigma(final L=Lesigma) 
-          annotation (Placement(transformation(extent={{30,-90},{10,-70}},
+          annotation (Placement(transformation(extent={{30,-70},{10,-50}},
                 rotation=0)));
         Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep
-          "positive excitation pin" 
+          "Positive excitation pin" 
           annotation (Placement(transformation(extent={{-110,70},{-90,50}},
                 rotation=0)));
         Modelica.Electrical.Analog.Interfaces.NegativePin pin_en
-          "negative excitation pin" 
+          "Negative excitation pin" 
           annotation (Placement(transformation(extent={{-90,-50},{-110,-70}},
                 rotation=0)));
 
       equation
-        connect(electricalExcitation.pin_en, pin_en) annotation (Line(points={{-10,-70},
-                {-70,-70},{-70,-60},{-100,-60}},          color={0,0,255}));
-        connect(pin_ep, re.p) annotation (Line(points={{-100,60},{-80,60},{-80,
-                -90},{60,-90},{60,-80}}, color={0,0,255}));
+        connect(electricalExcitation.pin_en, pin_en) annotation (Line(points={{-10,-60},
+                {-70,-60},{-100,-60}},                    color={0,0,255}));
+        connect(pin_ep, re.p) annotation (Line(points={{-100,60},{-80,60},{-80,-70},{50,
+                -70},{50,-60}},          color={0,0,255}));
         connect(lesigma.p, re.n) 
-          annotation (Line(points={{30,-80},{40,-80}}, color={0,0,255}));
+          annotation (Line(points={{30,-60},{30,-60}}, color={0,0,255}));
         connect(lesigma.n, electricalExcitation.pin_ep) 
-          annotation (Line(points={{10,-80},{10,-75},{10,-70},{10,-70}},
+          annotation (Line(points={{10,-60},{14,-60},{10,-60}},
                                                        color={0,0,255}));
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r) 
-          annotation (Line(points={{10,-10},{10,-12.5},{10,-12.5},{10,-15},{10,
-                -20},{10,-20}},                        color={0,0,255}));
+          annotation (Line(points={{10,-10},{10,-20},{10,-20}},
+                                                       color={0,0,255}));
         connect(airGapR.spacePhasor_r, electricalExcitation.spacePhasor_r) 
-          annotation (Line(points={{10,-10},{20,-10},{20,-50},{10,-50}}, color=
+          annotation (Line(points={{10,-10},{20,-10},{20,-40},{10,-40}}, color=
                 {0,0,255}));
         connect(spacePhasorS.spacePhasor, airGapR.spacePhasor_s) annotation (Line(
             points={{10,20},{10,15},{10,10},{10,10}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(airGapR.support, internalSupport) annotation (Line(
-            points={{-10,1.83697e-015},{-46,1.83697e-015},{-46,0},{-90,0},{-90,
-                -100},{20,-100}},
+            points={{-10,1.83697e-015},{-10,0},{-40,0},{-40,-90},{60,-90},{60,
+                -100}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(airGapR.flange, inertiaRotor.flange_a) annotation (Line(
-            points={{10,-1.83697e-015},{35,-1.83697e-015},{35,1.22465e-015},{60,
+            points={{10,-1.83697e-015},{35,-1.83697e-015},{35,1.22465e-015},{70,
                 1.22465e-015}},
             color={0,0,0},
             smooth=Smooth.None));
+        connect(re.heatPort, internalThermalPort.heatPort_e) annotation (Line(
+            points={{40,-50},{60,-50},{60,-80},{0,-80}},
+            color={191,0,0},
+            smooth=Smooth.None));
+        connect(damperCage.heatPort, internalThermalPort.heatPort_r) annotation (Line(
+            points={{-10,-30},{60,-30},{60,-80},{0,-80}},
+            color={191,0,0},
+            smooth=Smooth.None));
         annotation (defaultComponentName="smee",
-          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-                  -100},{100,100}}),
+          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
+                  100}}),
                   graphics),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
@@ -2585,63 +3099,90 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             final idq_ss = airGapR.i_ss,
             final idq_sr = airGapR.i_sr,
             final idq_rs = airGapR.i_rs,
-            final idq_rr = airGapR.i_rr);
-        Components.AirGapR airGapR(            final p=p, final m=3, final Lmd=Lmd, final Lmq=Lmq) 
+            final idq_rr = airGapR.i_rr,
+          redeclare final
+            Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMR
+            thermalAmbient(final useDamperCage = useDamperCage, final Tr=TrOperational),
+          redeclare final
+            Modelica.Electrical.Machines.Interfaces.SynchronousInductionMachines.ThermalPortSMR
+            thermalPort(final useDamperCage = useDamperCage),
+          redeclare final
+            Modelica.Electrical.Machines.Interfaces.SynchronousInductionMachines.ThermalPortSMR
+            internalThermalPort(final useDamperCage = useDamperCage));
+        Components.AirGapR airGapR(final p=p, final m=3, final Lmd=Lmd, final Lmq=Lmq) 
           annotation (Placement(transformation(
               origin={0,0},
               extent={{-10,-10},{10,10}},
               rotation=270)));
+        parameter Modelica.SIunits.Temperature TrOperational(start=293.15)
+          "Operational temperature of (optional) damper cage" 
+           annotation(Dialog(group="Operational temperatures", enable=not useThermalPort and useDamperCage));
         parameter Modelica.SIunits.Inductance Lmd(start=2.9/(2*pi*fsNominal))
-          "main field inductance in d-axis" 
-           annotation(Dialog(group="Nominal resistances and inductances"));
+          "Main field inductance in d-axis" 
+           annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lmq(start=0.9/(2*pi*fsNominal))
-          "main field inductance in q-axis" 
-           annotation(Dialog(group="Nominal resistances and inductances"));
+          "Main field inductance in q-axis" 
+           annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Boolean useDamperCage(start = true)
-          "enable / disable damper cage" 
-          annotation(Dialog(group = "DamperCage"));
+          "Enable / disable damper cage" 
+          annotation(Evaluate=true, Dialog(tab="Nominal resistances and inductances", group = "DamperCage"));
         parameter Modelica.SIunits.Inductance Lrsigmad(start=0.05/(2*pi*fsNominal))
-          "damper stray inductance in d-axis" 
-          annotation(Dialog(group = "DamperCage", enable = useDamperCage));
+          "Damper stray inductance in d-axis" 
+          annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
         parameter Modelica.SIunits.Inductance Lrsigmaq=Lrsigmad
-          "damper stray inductance in q-axis" 
-          annotation(Dialog(group = "DamperCage", enable = useDamperCage));
+          "Damper stray inductance in q-axis" 
+          annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
         parameter Modelica.SIunits.Resistance Rrd(start=0.04)
-          "warm damper resistance in d-axis" 
-          annotation(Dialog(group = "DamperCage", enable = useDamperCage));
+          "Damper resistance in d-axis at TRef" 
+          annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
         parameter Modelica.SIunits.Resistance Rrq=Rrd
-          "warm damper resistance in q-axis" 
-          annotation(Dialog(group = "DamperCage", enable = useDamperCage));
+          "Damper resistance in q-axis at TRef" 
+          annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
+        parameter Modelica.SIunits.Temperature TrRef(start=293.15)
+          "Reference temperature of damper resistances in d- and q-axis" 
+          annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
+        parameter Modelica.Electrical.Machines.Thermal.Alpha20 Alpha20r(start=0)
+          "Temperature coefficient of damper resistances in d- and q-axis" 
+          annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
         Components.DamperCage damperCage(
           final Lrsigmad=Lrsigmad,
           final Lrsigmaq=Lrsigmaq,
           final Rrd=Rrd,
-          final Rrq=Rrq) if useDamperCage 
+          final Rrq=Rrq,
+          final T_ref=TrRef,
+          final alpha=Modelica.Electrical.Machines.Thermal.convertAlpha(Alpha20r, TrRef),
+          final useHeatPort=true,
+          final T=TrRef) if useDamperCage 
           annotation (Placement(transformation(
               origin={0,-30},
               extent={{-10,-10},{10,10}},
               rotation=270)));
       equation
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r) 
-          annotation (Line(points={{10,-10},{10,-12.5},{10,-12.5},{10,-15},{10,
-                -20},{10,-20}},                        color={0,0,255}));
+          annotation (Line(points={{10,-10},{10,-12.5},{10,-20},{10,-20}},
+                                                       color={0,0,255}));
         connect(spacePhasorS.spacePhasor, airGapR.spacePhasor_s) annotation (Line(
-            points={{10,20},{10,15},{10,10},{10,10}},
+            points={{10,20},{10,10},{10,10}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(airGapR.support, internalSupport) annotation (Line(
-            points={{-10,1.83697e-015},{-90,1.83697e-015},{-90,-100},{20,-100}},
+            points={{-10,1.83697e-015},{-40,1.83697e-015},{-40,-90},{60,-90},{
+                60,-100}},
             color={0,0,0},
             smooth=Smooth.None));
 
         connect(airGapR.flange, inertiaRotor.flange_a) annotation (Line(
-            points={{10,-1.83697e-015},{34,-1.83697e-015},{34,1.22465e-015},{60,
+            points={{10,-1.83697e-015},{34,-1.83697e-015},{34,1.22465e-015},{70,
                 1.22465e-015}},
             color={0,0,0},
             smooth=Smooth.None));
+        connect(damperCage.heatPort, internalThermalPort.heatPort_r) annotation (Line(
+            points={{-10,-30},{60,-30},{60,-80},{0,-80}},
+            color={191,0,0},
+            smooth=Smooth.None));
         annotation (defaultComponentName="smr",
-          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-                  -100},{100,100}}),
+          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
+                  100}}),
                   graphics),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
@@ -2823,6 +3364,8 @@ These models use package SpacePhasors.
        selectable DamperCage for Synchronous Machines</li>
   <li> v1.7.1 2006/02/06 Anton Haumer<br>
        changed some naming of synchronous machines, not affecting existing models</li>
+  <li> v2.2.0 2011/02/10 Anton Haumer<br>
+       conditional ThermalPort for all machines</li>
   </ul>
 </HTML>"));
     end SynchronousInductionMachines;
@@ -2832,36 +3375,48 @@ These models use package SpacePhasors.
 
       model DC_PermanentMagnet "Permanent magnet DC machine"
         extends Machines.Interfaces.PartialBasicDCMachine(
-        final turnsRatio=(VaNominal-Ra*IaNominal)/(wNominal*Le*IeNominal));
+        final turnsRatio=ViNominal/(wNominal*Le*IeNominal),
+          redeclare final
+            Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCPM
+            thermalAmbient,
+          redeclare final
+            Modelica.Electrical.Machines.Interfaces.DCMachines.ThermalPortDCPM
+            thermalPort,
+          redeclare final
+            Modelica.Electrical.Machines.Interfaces.DCMachines.ThermalPortDCPM
+            internalThermalPort);
         Components.AirGapDC airGapDC(final turnsRatio=turnsRatio, final Le=Le) 
                                      annotation (Placement(transformation(
               origin={0,0},
               extent={{-10,-10},{10,10}},
               rotation=270)));
       protected
+        final parameter Modelica.SIunits.Voltage ViNominal=
+          VaNominal - Modelica.Electrical.Machines.Thermal.convertResistance(Ra,TaRef,Alpha20a,TaNominal)*IaNominal
+          "Nominal induced voltage";
         final parameter Modelica.SIunits.Inductance Le(start=1)
-          "total field excitation inductance" 
+          "Total field excitation inductance" 
            annotation(Dialog(group="Excitation"));
         constant Modelica.SIunits.Current IeNominal=1
-          "equivalent excitation current";
+          "Equivalent excitation current";
       public
         Modelica.Electrical.Analog.Basic.Ground eGround 
-          annotation (Placement(transformation(extent={{-20,-70},{0,-50}},
+          annotation (Placement(transformation(extent={{-20,-60},{0,-40}},
                 rotation=0)));
         Modelica.Electrical.Analog.Sources.ConstantCurrent ie(I=IeNominal) 
           annotation (Placement(transformation(
-              origin={10,-40},
+              origin={10,-30},
               extent={{-10,-10},{10,10}},
               rotation=90)));
       equation
-        assert(VaNominal > Ra*IaNominal, "VaNominal has to be > Ra*IaNominal");
+        assert(ViNominal > Modelica.Constants.eps, "VaNominal has to be > Ra*IaNominal");
         connect(eGround.p, ie.p) 
-          annotation (Line(points={{-10,-50},{10,-50}}, color={0,0,255}));
+          annotation (Line(points={{-10,-40},{10,-40}}, color={0,0,255}));
         connect(airGapDC.pin_ep, ie.n) annotation (Line(points={{10,-10},{10,
-                -20},{10,-20},{10,-30}},
+                -20},{10,-20}},
                        color={0,0,255}));
         connect(airGapDC.pin_en, eGround.p) annotation (Line(points={{-10,-10},
-                {-10,-30},{-10,-30},{-10,-50}},
+                {-10,-20},{-10,-40}},
                             color={0,0,255}));
         connect(airGapDC.pin_ap, la.n) annotation (Line(
             points={{10,10},{10,35},{10,35},{10,60}},
@@ -2872,18 +3427,19 @@ These models use package SpacePhasors.
             color={0,0,255},
             smooth=Smooth.None));
         connect(airGapDC.support, internalSupport) annotation (Line(
-            points={{-10,1.83697e-015},{-90,1.83697e-015},{-90,-100},{20,-100}},
+            points={{-10,1.83697e-015},{-26,0},{-40,0},{-40,-90},{60,-90},{60,
+                -100}},
             color={0,0,0},
             smooth=Smooth.None));
 
         connect(airGapDC.flange, inertiaRotor.flange_a) annotation (Line(
-            points={{10,-1.83697e-015},{36,-1.83697e-015},{36,1.22465e-015},{60,
+            points={{10,-1.83697e-015},{36,-1.83697e-015},{36,1.22465e-015},{70,
                 1.22465e-015}},
             color={0,0,0},
             smooth=Smooth.None));
         annotation (defaultComponentName="dcpm",
-          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-                  -100},{100,100}}),
+          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
+                  100}}),
                   graphics),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={Rectangle(
@@ -2948,52 +3504,74 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
       model DC_ElectricalExcited
         "Electrical shunt/separate excited linear DC machine"
         extends Machines.Interfaces.PartialBasicDCMachine(
-          final turnsRatio=(VaNominal-Ra*IaNominal)/(wNominal*Le*IeNominal));
+          final turnsRatio=ViNominal/(wNominal*Le*IeNominal),
+          redeclare final
+            Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCEE
+            thermalAmbient(final Te=TeOperational),
+          redeclare final
+            Modelica.Electrical.Machines.Interfaces.DCMachines.ThermalPortDCEE
+            thermalPort,
+          redeclare final
+            Modelica.Electrical.Machines.Interfaces.DCMachines.ThermalPortDCEE
+            internalThermalPort);
         Components.AirGapDC airGapDC(final turnsRatio=turnsRatio, final Le=Le) 
                                      annotation (Placement(transformation(
               origin={0,0},
               extent={{-10,-10},{10,10}},
               rotation=270)));
         parameter Modelica.SIunits.Current IeNominal(start=1)
-          "nominal excitation current" 
-           annotation(Dialog(group="Excitation"));
+          "Nominal excitation current" 
+           annotation(Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Resistance Re(start=100)
-          "warm field excitation resistance" 
-           annotation(Dialog(group="Excitation"));
+          "Field excitation resistance at TRef" 
+           annotation(Dialog(tab="Excitation"));
+        parameter Modelica.SIunits.Temperature TeRef(start=293.15)
+          "Reference temperture of excitation resistance" 
+           annotation(Dialog(tab="Excitation"));
+        parameter Modelica.Electrical.Machines.Thermal.Alpha20 Alpha20e(start=0)
+          "Temperature coefficient of excitation resistance" 
+           annotation(Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Inductance Le(start=1)
-          "total field excitation inductance" 
-           annotation(Dialog(group="Excitation"));
+          "Total field excitation inductance" 
+           annotation(Dialog(tab="Excitation"));
+        parameter Modelica.SIunits.Temperature TeOperational(start=293.15)
+          "Operational (shunt) excitation temperature" 
+           annotation(Dialog(group="Operational temperatures", enable=not useThermalPort));
         output Modelica.SIunits.Voltage ve = pin_ep.v-pin_en.v
           "Field excitation voltage";
         output Modelica.SIunits.Current ie = pin_ep.i
           "Field excitation current";
         Modelica.Electrical.Analog.Basic.Resistor re(
           final R=Re,
-          final T_ref=293.15,
-          final alpha=0,
-          final useHeatPort=false,
-          final T=re.T_ref) 
+          final T_ref=TeRef,
+          final alpha=Modelica.Electrical.Machines.Thermal.convertAlpha(Alpha20e, TeRef),
+          final useHeatPort=true,
+          final T=TeRef) 
           annotation (Placement(transformation(
-              origin={-50,-40},
-              extent={{10,10},{-10,-10}},
+              origin={20,-20},
+              extent={{-10,10},{10,-10}},
               rotation=180)));
         Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep
-          "positive excitation pin" 
+          "Positive excitation pin" 
           annotation (Placement(transformation(extent={{-110,70},{-90,50}},
                 rotation=0)));
         Modelica.Electrical.Analog.Interfaces.NegativePin pin_en
-          "negative excitation pin" 
+          "Negative excitation pin" 
           annotation (Placement(transformation(extent={{-90,-50},{-110,-70}},
                 rotation=0)));
-
+      protected
+        final parameter Modelica.SIunits.Voltage ViNominal=
+          VaNominal - Modelica.Electrical.Machines.Thermal.convertResistance(Ra,TaRef,Alpha20a,TaNominal)*IaNominal
+          "Nominal induced voltage";
       equation
-        assert(VaNominal > Ra*IaNominal, "VaNominal has to be > Ra*IaNominal");
-        connect(re.p, pin_ep) annotation (Line(points={{-60,-40},{-80,-40},{-80,
-                60},{-100,60}}, color={0,0,255}));
+        assert(ViNominal > Modelica.Constants.eps, "VaNominal has to be > Ra*IaNominal");
+        connect(re.p, pin_ep) annotation (Line(points={{30,-20},{30,-20},{30,
+                -40},{-80,-40},{-80,60},{-100,60}},
+                                color={0,0,255}));
         connect(pin_en, airGapDC.pin_en) annotation (Line(points={{-100,-60},{
                 -10,-60},{-10,-10}}, color={0,0,255}));
-        connect(re.n, airGapDC.pin_ep) annotation (Line(points={{-40,-40},{10,
-                -40},{10,-10}}, color={0,0,255}));
+        connect(re.n, airGapDC.pin_ep) annotation (Line(points={{10,-20},{10,
+                -10},{10,-10}}, color={0,0,255}));
         connect(airGapDC.pin_ap, la.n) annotation (Line(
             points={{10,10},{10,35},{10,35},{10,60}},
             color={0,0,255},
@@ -3003,14 +3581,18 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
             color={0,0,255},
             smooth=Smooth.None));
         connect(airGapDC.support, internalSupport) annotation (Line(
-            points={{-10,1.83697e-015},{-46,1.83697e-015},{-46,0},{-90,0},{-90,
-                -100},{20,-100}},
+            points={{-10,1.83697e-015},{-10,0},{-40,0},{-40,-90},{60,-90},{60,
+                -100}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(airGapDC.flange, inertiaRotor.flange_a) annotation (Line(
-            points={{10,-1.83697e-015},{35,-1.83697e-015},{35,1.22465e-015},{60,
+            points={{10,-1.83697e-015},{35,-1.83697e-015},{35,1.22465e-015},{70,
                 1.22465e-015}},
             color={0,0,0},
+            smooth=Smooth.None));
+        connect(re.heatPort, internalThermalPort.heatPort_e) annotation (Line(
+            points={{20,-30},{20,-80},{0,-80}},
+            color={191,0,0},
             smooth=Smooth.None));
         annotation (defaultComponentName="dcee",
           Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
@@ -3104,48 +3686,76 @@ Armature current does not cover excitation current of a shunt excitation; in thi
 
       model DC_SeriesExcited "Series excited linear DC machine"
         extends Machines.Interfaces.PartialBasicDCMachine(wNominal(start=1410*2*pi/60),
-          final turnsRatio=(VaNominal-(Ra+Re)*IaNominal)/(wNominal*Le*IaNominal));
+          final turnsRatio=ViNominal/(wNominal*Le*IaNominal),
+          redeclare final
+            Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCSE
+            thermalAmbient(                                         final Tse=TeOperational),
+          redeclare final
+            Modelica.Electrical.Machines.Interfaces.DCMachines.ThermalPortDCSE
+            thermalPort,
+          redeclare final
+            Modelica.Electrical.Machines.Interfaces.DCMachines.ThermalPortDCSE
+            internalThermalPort);
         Components.AirGapDC airGapDC(final turnsRatio=turnsRatio, final Le=Le) 
                                      annotation (Placement(transformation(
               origin={0,0},
               extent={{-10,-10},{10,10}},
               rotation=270)));
         parameter Modelica.SIunits.Resistance Re(start=0.01)
-          "warm field excitation resistance" 
-           annotation(Dialog(group="Excitation"));
+          "Series excitation resistance at TRef" 
+           annotation(Dialog(tab="Excitation"));
+        parameter Modelica.SIunits.Temperature TeRef(start=293.15)
+          "Reference temperture of excitation resistance" 
+           annotation(Dialog(tab="Excitation"));
+        parameter Modelica.Electrical.Machines.Thermal.Alpha20 Alpha20e(start=0)
+          "Temperature coefficient of excitation resistance" 
+           annotation(Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Inductance Le(start=0.0005)
-          "total field excitation inductance" 
-           annotation(Dialog(group="Excitation"));
+          "Total field excitation inductance" 
+           annotation(Dialog(tab="Excitation"));
+        parameter Modelica.SIunits.Temperature TeNominal(start=293.15)
+          "Nominal armature temperature" 
+           annotation(Dialog(tab="Nominal parameters"));
+        parameter Modelica.SIunits.Temperature TeOperational(start=293.15)
+          "Operational series excitation temperature" 
+           annotation(Dialog(group="Operational temperatures", enable=not useThermalPort));
         output Modelica.SIunits.Voltage ve = pin_ep.v-pin_en.v
           "Field excitation voltage";
         output Modelica.SIunits.Current ie = pin_ep.i
           "Field excitation current";
         Modelica.Electrical.Analog.Basic.Resistor re(
           final R=Re,
-          final T_ref=293.15,
-          final alpha=0,
-          final useHeatPort=false,
-          final T=re.T_ref) 
+          final T_ref=TeRef,
+          final alpha=Modelica.Electrical.Machines.Thermal.convertAlpha(Alpha20e, TeRef),
+          final useHeatPort=true,
+          final T=TeRef) 
           annotation (Placement(transformation(
-              origin={-50,-40},
-              extent={{10,10},{-10,-10}},
+              origin={20,-20},
+              extent={{-10,10},{10,-10}},
               rotation=180)));
         Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep
-          "positive series excitation pin" 
+          "Positive series excitation pin" 
           annotation (Placement(transformation(extent={{-110,70},{-90,50}},
                 rotation=0)));
         Modelica.Electrical.Analog.Interfaces.NegativePin pin_en
-          "negative series excitation pin" 
+          "Negative series excitation pin" 
           annotation (Placement(transformation(extent={{-90,-50},{-110,-70}},
                 rotation=0)));
+      protected
+        final parameter Modelica.SIunits.Voltage ViNominal=
+        VaNominal - (Modelica.Electrical.Machines.Thermal.convertResistance(Ra,TaRef,Alpha20a,TaNominal) +
+                     Modelica.Electrical.Machines.Thermal.convertResistance(Re,TeRef,Alpha20e,TeNominal))*IaNominal
+          "Nominal induced voltage";
       equation
-        assert(VaNominal > (Ra+Re)*IaNominal, "VaNominal has to be > (Ra+Re)*IaNominal");
-        connect(re.p, pin_ep) annotation (Line(points={{-60,-40},{-80,-40},{-80,
-                60},{-100,60}}, color={0,0,255}));
+        assert(ViNominal > Modelica.Constants.eps, "VaNominal has to be > (Ra+Re)*IaNominal");
+        connect(re.p, pin_ep) annotation (Line(points={{30,-20},{30,-20},{30,-40},{-80,
+                -40},{-80,60},{-100,60}},
+                                color={0,0,255}));
         connect(pin_en, airGapDC.pin_en) annotation (Line(points={{-100,-60},{
                 -10,-60},{-10,-10}}, color={0,0,255}));
-        connect(re.n, airGapDC.pin_ep) annotation (Line(points={{-40,-40},{10,
-                -40},{10,-10}}, color={0,0,255}));
+        connect(re.n, airGapDC.pin_ep) annotation (Line(points={{10,-20},{10,
+                -15},{10,-10},{10,-10}},
+                                color={0,0,255}));
         connect(airGapDC.pin_ap, la.n) annotation (Line(
             points={{10,10},{10,35},{10,35},{10,60}},
             color={0,0,255},
@@ -3155,18 +3765,22 @@ Armature current does not cover excitation current of a shunt excitation; in thi
             color={0,0,255},
             smooth=Smooth.None));
         connect(airGapDC.support, internalSupport) annotation (Line(
-            points={{-10,1.83697e-015},{-46,1.83697e-015},{-46,0},{-90,0},{-90,
-                -100},{20,-100}},
+            points={{-10,1.83697e-015},{-10,0},{-40,0},{-40,-90},{60,-90},{60,
+                -100}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(airGapDC.flange, inertiaRotor.flange_a) annotation (Line(
-            points={{10,-1.83697e-015},{36,-1.83697e-015},{36,1.22465e-015},{60,
+            points={{10,-1.83697e-015},{36,-1.83697e-015},{36,1.22465e-015},{70,
                 1.22465e-015}},
             color={0,0,0},
             smooth=Smooth.None));
+        connect(re.heatPort, internalThermalPort.heatPort_se) annotation (Line(
+            points={{20,-30},{20,-80},{0,-80}},
+            color={191,0,0},
+            smooth=Smooth.None));
         annotation (defaultComponentName="dcse",
-          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-                  -100},{100,100}}),
+          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
+                  100}}),
                   graphics),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
@@ -3250,7 +3864,8 @@ This package contains models of DC machines:
 <li>DC_SeriesExcited: DC machine with series excitation</li>
 </ul>
 </HTML>
-", revisions="<HTML>
+",     revisions=
+             "<HTML>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -3278,22 +3893,23 @@ This package contains models of DC machines:
   <li> v1.4   2004/11/11 Anton Haumer<br>
        removed mechanical flange support<br>
        to ease the implementation of a 3D-frame in a future release</li>
+  <li> v2.2.0 2011/02/10 Anton Haumer<br>
+       conditional ThermalPort for all machines</li>
   </ul>
 </HTML>"));
     end DCMachines;
 
     package Transformers "Library for technical 3phase transformers"
       extends Modelica.Icons.Library2;
-      // illegal use of top-level annotation removed:
-      // version="1.0.0", versionDate="2006-11-20",
 
       package Yy "Transformers: primary Y / secondary y"
         extends Modelica.Icons.Library2;
 
         model Yy00 "Transformer Yy0"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Yy00");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Yy00");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -3340,8 +3956,9 @@ Transformer Yy0
 
         model Yy02 "Transformer Yy2"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Yy02");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Yy02");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -3391,8 +4008,9 @@ Transformer Yy2
 
         model Yy04 "Transformer Yy4"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Yy04");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Yy04");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -3441,8 +4059,9 @@ Transformer Yy4
 
         model Yy06 "Transformer Yy6"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Yy06");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+           final VectorGroup="Yy06");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -3487,8 +4106,9 @@ Transformer Yy6
 
         model Yy08 "Transformer Yy8"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Yy08");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Yy08");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -3537,8 +4157,9 @@ Transformer Yy8
 
         model Yy10 "Transformer Yy10"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Yy10");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Yy10");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -3618,8 +4239,9 @@ This package contains transformers primary Y connected / secondary y connected i
 
         model Yd01 "Transformer Yd1"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Yd01");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Yd01");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -3658,8 +4280,9 @@ Transformer Yd1
 
         model Yd03 "Transformer Yd3"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Yd03");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Yd03");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -3702,8 +4325,9 @@ Transformer Yd3
 
         model Yd05 "Transformer Yd5"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Yd05");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Yd05");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -3741,8 +4365,9 @@ Transformer Yd5
 
         model Yd07 "Transformer Yd7"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Yd07");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Yd07");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -3780,8 +4405,9 @@ Transformer Yd7
 
         model Yd09 "Transformer Yd9"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Yd09");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Yd09");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -3824,8 +4450,9 @@ Transformer Yd9
 
         model Yd11 "Transformer Yd11"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Yd11");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Yd11");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -3894,8 +4521,9 @@ This package contains transformers primary Y connected / secondary d connected i
 
         model Yz01 "Transformer Yz1"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Yz01");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Yz01");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -3955,8 +4583,9 @@ Transformer Yz1
 
         model Yz03 "Transformer Yz3"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Yz03");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Yz03");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -4016,8 +4645,9 @@ Transformer Yz3
 
         model Yz05 "Transformer Yz5"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Yz05");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Yz05");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -4070,8 +4700,9 @@ Transformer Yz5
 
         model Yz07 "Transformer Yz7"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Yz07");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Yz07");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -4124,8 +4755,9 @@ Transformer Yz7
 
         model Yz09 "Transformer Yz9"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Yz09");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Yz09");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -4185,8 +4817,9 @@ Transformer Yz9
 
         model Yz11 "Transformer Yz11"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Yz11");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Yz11");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -4276,8 +4909,9 @@ This package contains transformers primary Y connected / secondary zig-zag conne
 
         model Dy01 "Transformer Dy1"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Dy01");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Dy01");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
             annotation (Placement(transformation(
                 origin={10,-80},
@@ -4322,8 +4956,9 @@ Transformer Dy1
 
         model Dy03 "Transformer Dy3"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Dy03");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Dy03");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
             annotation (Placement(transformation(
                 origin={10,-80},
@@ -4367,8 +5002,9 @@ Transformer Dy3
 
         model Dy05 "Transformer Dy5"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Dy05");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Dy05");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
             annotation (Placement(transformation(
                 origin={10,-80},
@@ -4408,8 +5044,9 @@ Transformer Dy5
 
         model Dy07 "Transformer Dy7"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Dy07");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Dy07");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
             annotation (Placement(transformation(
                 origin={10,-80},
@@ -4453,8 +5090,9 @@ Transformer Dy7
 
         model Dy09 "Transformer Dy9"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Dy09");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Dy09");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
             annotation (Placement(transformation(
                 origin={10,-80},
@@ -4499,8 +5137,9 @@ Transformer Dy9
 
         model Dy11 "Transformer Dy11"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Dy11");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Dy11");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
             annotation (Placement(transformation(
                 origin={10,-80},
@@ -4570,8 +5209,9 @@ This package contains transformers primary D connected / secondary y connected i
 
         model Dd00 "Transformer Dd0"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Dd00");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Dd00");
           Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m) 
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}},
                   rotation=0)));
@@ -4605,8 +5245,9 @@ Transformer Dd0
 
         model Dd02 "Transformer Dd2"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Dd02");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Dd02");
           Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m) 
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}},
                   rotation=0)));
@@ -4644,8 +5285,9 @@ Transformer Dd2
 
         model Dd04 "Transformer Dd4"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Dd04");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Dd04");
           Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m) 
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}},
                   rotation=0)));
@@ -4679,8 +5321,9 @@ Transformer Dd4
 
         model Dd06 "Transformer Dd6"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Dd06");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Dd06");
           Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m) 
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}},
                   rotation=0)));
@@ -4713,8 +5356,9 @@ Transformer Dd6
 
         model Dd08 "Transformer Dd8"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Dd08");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Dd08");
           Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m) 
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}},
                   rotation=0)));
@@ -4752,8 +5396,9 @@ Transformer Dd8
 
         model Dd10 "Transformer Dd10"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Dd10");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Dd10");
           Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m) 
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}},
                   rotation=0)));
@@ -4817,8 +5462,9 @@ This package contains transformers primary D connected / secondary d connected i
 
         model Dz00 "Transformer Dz0"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Dz00");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Dz00");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
             annotation (Placement(transformation(
                 origin={10,-80},
@@ -4873,8 +5519,9 @@ Transformer Dz0
 
         model Dz02 "Transformer Dz2"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Dz02");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Dz02");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
             annotation (Placement(transformation(
                 origin={10,-80},
@@ -4929,8 +5576,9 @@ Transformer Dz2
 
         model Dz04 "Transformer Dz4"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Dz04");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Dz04");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
             annotation (Placement(transformation(
                 origin={10,-80},
@@ -4978,8 +5626,9 @@ Transformer Dz4
 
         model Dz06 "Transformer Dz6"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Dz06");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Dz06");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
             annotation (Placement(transformation(
                 origin={10,-80},
@@ -5027,8 +5676,9 @@ Transformer Dz6
 
         model Dz08 "Transformer Dz8"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Dz08");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Dz08");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
             annotation (Placement(transformation(
                 origin={10,-80},
@@ -5083,8 +5733,9 @@ Transformer Dz8
 
         model Dz10 "Transformer Dz10"
 
-          extends Machines.BasicMachines.Components.BasicTransformer(final
-              VectorGroup =                                                            "Dz10");
+          extends
+            Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer(
+            final VectorGroup="Dz10");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
             annotation (Placement(transformation(
                 origin={10,-80},
@@ -5239,6 +5890,8 @@ and the accompanying <b>disclaimer</b>
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer<br>
        first stable release</li>
+  <li> v2.2.0 2011/02/10 Anton Haumer<br>
+       conditional ThermalPort for all machines</li>
   </ul>
 </HTML>"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Ellipse(extent={{-100,30},{20,-90}},
@@ -5250,8 +5903,8 @@ and the accompanying <b>disclaimer</b>
       extends Modelica.Icons.Library;
 
       partial model PartialAirGap "Partial airgap model"
-        parameter Integer m=3 "number of phases";
-        parameter Integer p(min=1) "number of pole pairs";
+        parameter Integer m=3 "Number of phases";
+        parameter Integer p(min=1) "Number of pole pairs";
         output Modelica.SIunits.Torque tauElectrical;
         Modelica.SIunits.Angle gamma "Rotor displacement angle";
         Modelica.SIunits.Current i_ss[2]
@@ -5266,13 +5919,13 @@ and the accompanying <b>disclaimer</b>
           "Magnetizing flux phasor with respect to the stator fixed frame";
         Modelica.SIunits.MagneticFlux psi_mr[2]
           "Magnetizing flux phasor with respect to the rotor fixed frame";
-        Real RotationMatrix[2,2] "matrix of rotation from rotor to stator";
+        Real RotationMatrix[2,2] "Matrix of rotation from rotor to stator";
       public
         Modelica.Mechanics.Rotational.Interfaces.Flange_a flange 
           annotation (Placement(transformation(extent={{-10,110},{10,90}},
                 rotation=0)));
         Modelica.Mechanics.Rotational.Interfaces.Flange_a support
-          "support at which the reaction torque is acting" 
+          "Support at which the reaction torque is acting" 
              annotation (Placement(transformation(extent={{-10,-110},{10,-90}},
                 rotation=0)));
         Machines.Interfaces.SpacePhasor spacePhasor_s 
@@ -5324,13 +5977,13 @@ Partial model of the airgap, using only equations.
       end PartialAirGap;
 
       model AirGapS "Airgap in stator-fixed coordinate system"
-        parameter Modelica.SIunits.Inductance Lm "main field inductance";
+        parameter Modelica.SIunits.Inductance Lm "Main field inductance";
         extends PartialAirGap;
         Modelica.SIunits.Current i_ms[2]
           "Magnetizing current space phasor with respect to the stator fixed frame";
       protected
         parameter Modelica.SIunits.Inductance L[2,2]={{Lm,0},{0,Lm}}
-          "inductance matrix";
+          "Inductance matrix";
       equation
         // Magnetizing current with respect to the stator reference frame
         i_ms = i_ss + i_rs;
@@ -5357,15 +6010,15 @@ Model of the airgap in stator-fixed coordinate system, using only equations.
 
       model AirGapR "Airgap in rotor-fixed coordinate system"
         parameter Modelica.SIunits.Inductance Lmd
-          "main field inductance d-axis";
+          "Main field inductance d-axis";
         parameter Modelica.SIunits.Inductance Lmq
-          "main field inductance q-axis";
+          "Main field inductance q-axis";
         extends PartialAirGap;
         Modelica.SIunits.Current i_mr[2]
           "Magnetizing current space phasor with respect to the rotor fixed frame";
       protected
         parameter Modelica.SIunits.Inductance L[2,2]={{Lmd,0},{0,Lmq}}
-          "inductance matrix";
+          "Inductance matrix";
       equation
         // Magnetizing current with respect to the rotor reference frame
         i_mr = i_sr + i_rr;
@@ -5393,14 +6046,24 @@ Model of the airgap in rotor-fixed coordinate system, using only equations.
 
       model SquirrelCage "Squirrel Cage"
         parameter Modelica.SIunits.Inductance Lrsigma
-          "rotor stray inductance per phase translated to stator";
+          "Rotor stray inductance per phase translated to stator";
         parameter Modelica.SIunits.Resistance Rr
-          "warm rotor resistance per phase translated to stator";
-        Machines.Interfaces.SpacePhasor spacePhasor_r 
+          "Rotor resistance per phase translated to stator at T_ref";
+        parameter Modelica.SIunits.Temperature T_ref=293.15
+          "Reference temperature";
+        parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
+          "Temperature coefficient of resistance at T_ref";
+        extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
+        Modelica.SIunits.Resistance Rr_actual
+          "Actual resistance = Rr*(1 + alpha*(T_heatPort - T_ref))";
+        Interfaces.SpacePhasor spacePhasor_r 
           annotation (Placement(transformation(extent={{-110,90},{-90,110}},
                 rotation=0)));
       equation
-        spacePhasor_r.v_ = Rr * spacePhasor_r.i_ + Lrsigma * der(spacePhasor_r.i_);
+        assert((1 + alpha*(T_heatPort - T_ref)) >= Modelica.Constants.eps, "Temperature outside scope of model!");
+        Rr_actual = Rr*(1 + alpha*(T_heatPort - T_ref));
+        spacePhasor_r.v_ = Rr_actual*spacePhasor_r.i_ + Lrsigma*der(spacePhasor_r.i_);
+        LossPower = Rr_actual*(spacePhasor_r.i_[1]*spacePhasor_r.i_[1] + spacePhasor_r.i_[2]*spacePhasor_r.i_[2]);
         annotation (
           Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}),
@@ -5433,28 +6096,48 @@ Model of the airgap in rotor-fixed coordinate system, using only equations.
                 textString="%name"),
               Line(points={{-100,90},{-100,60}}, color={0,0,255})}),
           Documentation(info="<HTML>
-Model of a squirrel cage / damper cage in two axis.
+<p>
+Model of a squirrel cage / symmetrical damper cage in two axis.
+</p>
+<p>
+The squirrel cage has an optional (conditional) HeatPort, 
+which can be enabled or disabled by the Boolean parameter useHeatPort. 
+Temperatures of both axis are the same, both losses are added. 
+Material properties alpha of both axis are the same.
+</p>
 </HTML>"));
       end SquirrelCage;
 
       model DamperCage "Squirrel Cage"
         parameter Modelica.SIunits.Inductance Lrsigmad
-          "stray inductance in d-axis per phase translated to stator";
+          "Stray inductance in d-axis per phase translated to stator";
         parameter Modelica.SIunits.Inductance Lrsigmaq
-          "stray inductance in q-axis per phase translated to stator";
+          "Stray inductance in q-axis per phase translated to stator";
         parameter Modelica.SIunits.Resistance Rrd
-          "warm resistance in d-axis per phase translated to stator";
+          "Resistance in d-axis per phase translated to stator at T_ref";
         parameter Modelica.SIunits.Resistance Rrq
-          "warm resistance in q-axis per phase translated to stator";
+          "Resistance in q-axis per phase translated to stator at T_ref";
+        parameter Modelica.SIunits.Temperature T_ref=293.15
+          "Reference temperature of both resistances in d- and q-axis";
+        parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
+          "Temperature coefficient of both resistances in d- and q-axis at T_ref";
+        extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
+        Modelica.SIunits.Resistance Rrd_actual
+          "Actual resistance = Rrd*(1 + alpha*(T_heatPort - T_ref))";
+        Modelica.SIunits.Resistance Rrq_actual
+          "Actual resistance = Rrq*(1 + alpha*(T_heatPort - T_ref))";
         Machines.Interfaces.SpacePhasor spacePhasor_r 
           annotation (Placement(transformation(extent={{-110,90},{-90,110}},
                 rotation=0)));
-
       equation
-        spacePhasor_r.v_[1] = Rrd * spacePhasor_r.i_[1] + Lrsigmad * der(spacePhasor_r.i_[1]);
-        spacePhasor_r.v_[2] = Rrq * spacePhasor_r.i_[2] + Lrsigmaq * der(spacePhasor_r.i_[2]);
+        assert((1 + alpha*(T_heatPort - T_ref)) >= Modelica.Constants.eps, "Temperature outside scope of model!");
+        Rrd_actual = Rrd*(1 + alpha*(T_heatPort - T_ref));
+        Rrq_actual = Rrq*(1 + alpha*(T_heatPort - T_ref));
+        spacePhasor_r.v_[1] = Rrd_actual * spacePhasor_r.i_[1] + Lrsigmad * der(spacePhasor_r.i_[1]);
+        spacePhasor_r.v_[2] = Rrq_actual * spacePhasor_r.i_[2] + Lrsigmaq * der(spacePhasor_r.i_[2]);
+        LossPower = Rrd_actual*spacePhasor_r.i_[1]*spacePhasor_r.i_[1] + Rrq_actual*spacePhasor_r.i_[2]*spacePhasor_r.i_[2];
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
                   -100},{100,100}}),
                   graphics),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -5495,15 +6178,24 @@ Model of a squirrel cage / damper cage in two axis.
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid)}),
           Documentation(info="<HTML>
-Model of an unsymmetrical damper cage cage in two axis.
+<p>
+Model of an usymmetrical damper cage in two axis.
+</p>
+<p>
+The damper cage has an optional (conditional) HeatPort, 
+which can be enabled or disabled by the Boolean parameter useHeatPort. 
+Temperatures of both axis are the same, both losses are added. 
+Material properties alpha can be set differently for both d- and q-axis, 
+although reference temperature for both resistances is the same.
+</p>
 </HTML>"));
       end DamperCage;
 
       model ElectricalExcitation "Electrical excitation"
         parameter Real turnsRatio(start=1)
-          "stator current / excitation current";
-        Modelica.SIunits.Current ie "excitation current";
-        Modelica.SIunits.Voltage ve "excitation voltage";
+          "Ratio stator current / excitation current";
+        Modelica.SIunits.Current ie "Excitation current";
+        Modelica.SIunits.Voltage ve "Excitation voltage";
         Machines.Interfaces.SpacePhasor spacePhasor_r 
           annotation (Placement(transformation(extent={{-110,90},{-90,110}},
                 rotation=0)));
@@ -5549,7 +6241,7 @@ Model of an electrical excitation, converting excitation to space phasor.
       end ElectricalExcitation;
 
       model PermanentMagnet "Permanent magnet excitation"
-        parameter Modelica.SIunits.Current Ie "equivalent excitation current";
+        parameter Modelica.SIunits.Current Ie "Equivalent excitation current";
         Machines.Interfaces.SpacePhasor spacePhasor_r 
           annotation (Placement(transformation(extent={{-110,90},{-90,110}},
                 rotation=0)));
@@ -5603,7 +6295,7 @@ Model of a permanent magnet excitation, characterized by an equivalent excitatio
 
       partial model PartialAirGapDC "Partial airgap model of a DC machine"
         parameter Real turnsRatio
-          "ratio of armature turns over number of turns of the excitation winding";
+          "Ratio of armature turns over number of turns of the excitation winding";
         Modelica.SIunits.AngularVelocity w "Angluar velocity";
         Modelica.SIunits.Voltage vei
           "Voltage drop across field excitation inductance";
@@ -5616,7 +6308,7 @@ Model of a permanent magnet excitation, characterized by an equivalent excitatio
           annotation (Placement(transformation(extent={{-10,110},{10,90}},
                 rotation=0)));
         Modelica.Mechanics.Rotational.Interfaces.Flange_a support
-          "support at which the reaction torque is acting" 
+          "Support at which the reaction torque is acting" 
              annotation (Placement(transformation(extent={{-10,-110},{10,-90}},
                 rotation=0)));
         Modelica.Electrical.Analog.Interfaces.PositivePin pin_ap 
@@ -5692,7 +6384,7 @@ Induced armature voltage is calculated from flux times angular velocity.
 
       model AirGapDC "Linear airgap model of a DC machine"
         extends PartialAirGapDC;
-        parameter Modelica.SIunits.Inductance Le "excitation inductance";
+        parameter Modelica.SIunits.Inductance Le "Excitation inductance";
       equation
         // excitation flux: linearly dependent on excitation current
         psi_e = Le * ie;
@@ -5712,101 +6404,11 @@ Induced armature voltage is calculated from flux times angular velocity.
 </HTML>"));
       end AirGapDC;
 
-      partial model BasicTransformer "Partial model of threephase transformer"
-        constant Integer m(min=1) = 3 "Number of phases";
-        constant String VectorGroup="Yy00";
-        parameter Real n(start=1)
-          "primary voltage (line-to-line) / secondary voltage (line-to-line)";
-        parameter Modelica.SIunits.Resistance R1(start=5E-3/(if C1=="D" then 1 else 3))
-          "warm primary resistance per phase";
-        parameter Modelica.SIunits.Inductance L1sigma(start=78E-6/(if C1=="D" then 1 else 3))
-          "primary stray inductance per phase";
-        parameter Modelica.SIunits.Resistance R2(start=5E-3/(if C2=="d" then 1 else 3))
-          "warm secondary resistance per phase";
-        parameter Modelica.SIunits.Inductance L2sigma(start=78E-6/(if C2=="d" then 1 else 3))
-          "secondary stray inductance per phase";
-        output Modelica.SIunits.Voltage v1[m]=plug1.pin.v "Primary voltage";
-        output Modelica.SIunits.Current i1[m]=plug1.pin.i "Primary current";
-        output Modelica.SIunits.Voltage v2[m]=plug2.pin.v "Secondary voltage";
-        output Modelica.SIunits.Current i2[m]=plug2.pin.i "Secondary current";
-      protected
-        constant String C1 = Modelica.Utilities.Strings.substring(VectorGroup,1,1);
-        constant String C2 = Modelica.Utilities.Strings.substring(VectorGroup,2,2);
-        parameter Real ni=n*(if C2=="z" then sqrt(3) else 2)*(if C2=="d" then 1 else sqrt(3))/(if C1=="D" then 1 else sqrt(3));
-      public
-        Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug1(final m=m)
-          "primary plug"                                                        annotation (Placement(
-              transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
-        Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug2(final m=m)
-          "secondary plug"                                                      annotation (Placement(
-              transformation(extent={{90,-10},{110,10}}, rotation=0)));
-        Modelica.Electrical.MultiPhase.Basic.Resistor r1(
-          final m=m,
-          final R=fill(R1,m),
-          final T_ref=fill(293.15,m),
-          final alpha=zeros(m),
-          final useHeatPort=false,
-          final T=r1.T_ref) 
-          annotation (Placement(transformation(extent={{-90,-10},{-70,10}}, rotation=0)));
-        Modelica.Electrical.MultiPhase.Basic.Inductor l1sigma(final m=m, final L=fill(L1sigma, m)) 
-          annotation (Placement(transformation(extent={{-70,-10},{-50,10}},
-                rotation=0)));
-        Modelica.Electrical.MultiPhase.Basic.Resistor r2(
-          final m=m,
-          final R=fill(R2,m),
-          final T_ref=fill(293.15,m),
-          final alpha=zeros(m),
-          final T=r2.T_ref) 
-          annotation (Placement(transformation(extent={{70,-10},{90,10}},
-                rotation=0)));
-        Modelica.Electrical.MultiPhase.Basic.Inductor l2sigma(final m=m, final L=fill(L2sigma, m)) 
-          annotation (Placement(transformation(extent={{50,-10},{70,10}},
-                rotation=0)));
-        IdealCore core(
-          final m=m,
-          final n12=ni,
-          final n13=ni) 
-          annotation (Placement(transformation(extent={{-10,-10},{10,10}},
-                rotation=0)));
-      equation
-        connect(r1.plug_n,l1sigma. plug_p) 
-          annotation (Line(points={{-70,0},{-70,0}}, color={0,0,255}));
-        connect(l2sigma.plug_n,r2. plug_p) 
-          annotation (Line(points={{70,0},{70,0}}, color={0,0,255}));
-        connect(plug1, r1.plug_p) 
-          annotation (Line(points={{-100,0},{-90,0}}, color={0,0,255}));
-        connect(r2.plug_n, plug2) 
-          annotation (Line(points={{90,0},{100,0}}, color={0,0,255}));
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}),
-                            graphics),
-                             Icon(coordinateSystem(preserveAspectRatio=true,
-                extent={{-100,-100},{100,100}}), graphics={
-              Ellipse(extent={{-90,60},{30,-60}}, lineColor={0,0,255}),
-              Ellipse(extent={{-30,60},{90,-60}}, lineColor={0,0,255}),
-              Text(
-                extent={{0,100},{0,60}},
-                lineColor={0,0,255},
-                textString="%name"),
-              Text(
-                extent={{0,40},{0,-40}},
-                lineColor={0,0,255},
-                textString="%VectorGroup"),
-              Text(
-                extent={{0,-60},{0,-100}},
-                lineColor={0,0,255},
-                textString="n=%n")}),
-          Documentation(info="<html>
-Partialmodel of a threephase transformer, containing primary and secondary resistances and stray inductances, as well as the iron core.
-Circuit layout (vector group) of primary and secondary windings have to be defined.
-</html>"));
-      end BasicTransformer;
-
       partial model PartialCore
         "Partial model of transformer core with 3 windings"
-        parameter Integer m(final min=1) = 3 "number of phases";
-        parameter Real n12(start=1) "turns ratio 1:2";
-        parameter Real n13(start=1) "turns ratio 1:3";
+        parameter Integer m(final min=1) = 3 "Number of phases";
+        parameter Real n12(start=1) "Turns ratio 1:2";
+        parameter Real n13(start=1) "Turns ratio 1:3";
         Modelica.SIunits.Voltage v1[m] = plug_p1.pin.v  - plug_n1.pin.v;
         Modelica.SIunits.Current i1[m] = plug_p1.pin.i;
         Modelica.SIunits.Voltage v2[m] = plug_p2.pin.v  - plug_n2.pin.v;
@@ -5895,6 +6497,11 @@ Ideal transformer with 3 windings: no magnetizing current.
 </html>"));
       end IdealCore;
 
+      partial model BasicTransformer
+        extends Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer;
+      //dummy will be removed when conversion script is applicable
+      end BasicTransformer;
+
       annotation (Documentation(info="<HTML>
 This package contains components for modeling electrical machines, specially threephase induction machines, based on space phasor theory.
 These models use package SpacePhasors.
@@ -5924,6 +6531,10 @@ These models use package SpacePhasors.
        added electrical excitation</li>
   <li> v1.53 Beta 2005/10/14 Anton Haumer<br>
        introduced unsymmetrical DamperCage for Synchronous Machines</li>
+  <li> v2.1.3 2010/02/10 Anton Haumer<br>
+       prepared conditionalHeatPort of SquirrelCage and DamperCage</li>
+  <li> v2.2.0 2011/02/10 Anton Haumer<br>
+       conditional ThermalPort for all machines</li>
   </ul>
 </HTML>"));
     end Components;
@@ -5980,6 +6591,10 @@ The induction machine models use package SpacePhasors.
        easier parametrisation of AsynchronousInductionMachines.AIM_SlipRing model</li>
   <li> v1.7.1 2006/02/06 Anton Haumer<br>
        changed some naming of synchronous machines, not affecting existing models</li>
+  <li> v2.1.3 2010/02/10 Anton Haumer<br>
+       prepared conditionalHeatPort of SquirrelCage and DamperCage</li>
+  <li> v2.2.0 2011/02/10 Anton Haumer<br>
+       conditional ThermalPort for all machines</li>
   </ul>
 </HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
@@ -6014,7 +6629,7 @@ The induction machine models use package SpacePhasors.
   package Sensors "Sensors for machine modelling"
    extends Modelica.Icons.Library2;
 
-    model VoltageQuasiRMSSensor "Length of spcae phasor -> RMS voltage"
+    model VoltageQuasiRMSSensor "Length of space phasor -> RMS voltage"
       constant Integer m(final min=1) = 3 "Number of phases";
       Modelica.Blocks.Interfaces.RealOutput V 
         annotation (Placement(transformation(
@@ -6098,7 +6713,7 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
 </HTML>"));
     end VoltageQuasiRMSSensor;
 
-    model CurrentQuasiRMSSensor "Length of spcae phasor -> RMS current"
+    model CurrentQuasiRMSSensor "Length of space phasor -> RMS current"
       constant Integer m(final min=1) = 3 "Number of phases";
       Modelica.Blocks.Interfaces.RealOutput I 
         annotation (Placement(transformation(
@@ -6182,7 +6797,7 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
 </HTML>"));
     end CurrentQuasiRMSSensor;
 
-    model ElectricalPowerSensor "Instantaneous power from spcae phasors"
+    model ElectricalPowerSensor "Instantaneous power from space phasors"
       constant Integer m(final min=1) = 3 "Number of phases";
       Modelica.Blocks.Interfaces.RealOutput P 
         annotation (Placement(transformation(
@@ -6260,7 +6875,7 @@ Q = giving in stationary state reactive power.<br>
 
     model MechanicalPowerSensor "Mechanical power = torque x speed"
       extends Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges;
-      parameter Boolean useSupport=false "use support or fixed housing" 
+      parameter Boolean useSupport=false "Use support or fixed housing" 
         annotation(Evaluate=true);
       Modelica.Blocks.Interfaces.RealOutput P 
         annotation (Placement(transformation(
@@ -6286,7 +6901,7 @@ Q = giving in stationary state reactive power.<br>
         annotation (Placement(transformation(extent={{-40,-100},{-20,-80}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Interfaces.Flange_a support if          useSupport
-        "support at which the reaction torque is acting" 
+        "Support at which the reaction torque is acting" 
            annotation (Placement(transformation(extent={{-10,-110},{10,-90}},
               rotation=0)));
     equation
@@ -6386,9 +7001,9 @@ Calculates (mechanical) power from torque times angular speed.
     end MechanicalPowerSensor;
 
     model RotorDisplacementAngle "Rotor lagging angle"
-      constant Integer m=3 "number of phases";
-      parameter Integer p(min=1) "number of pole pairs";
-      parameter Boolean useSupport=false "use support or fixed housing" 
+      constant Integer m=3 "Number of phases";
+      parameter Integer p(min=1) "Number of pole pairs";
+      parameter Boolean useSupport=false "Use support or fixed housing" 
         annotation(Evaluate=true);
       Modelica.Blocks.Interfaces.RealOutput rotorDisplacementAngle 
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
@@ -6614,11 +7229,11 @@ This package contains sensors that are usefull when modelling machines.
 
       model SpacePhasor
         "Physical transformation: three phase <-> space phasors"
-        constant Integer m=3 "number of phases";
+        constant Integer m=3 "Number of phases";
         constant Real pi=Modelica.Constants.pi;
-        parameter Real turnsRatio=1;
-        Modelica.SIunits.Voltage v[m] "instantaneous phase voltages";
-        Modelica.SIunits.Current i[m] "instantaneous phase currents";
+        parameter Real turnsRatio=1 "Turns ratio";
+        Modelica.SIunits.Voltage v[m] "Instantaneous phase voltages";
+        Modelica.SIunits.Current i[m] "Instantaneous phase currents";
       protected
         parameter Real TransformationMatrix[ 2, m]=2/m*
           {{cos(+(k - 1)/m*2*pi) for k in 1:m}, {+sin(+(k - 1)/m*2*pi) for k in 1:m}};
@@ -6794,7 +7409,7 @@ a ground has to be used where necessary for currents flowing back.
 
       block ToSpacePhasor "Conversion: three phase -> space phasor"
         extends Modelica.Blocks.Interfaces.MIMO(final nin=m, final nout=2);
-        constant Integer m=3 "number of phases";
+        constant Integer m=3 "Number of phases";
         constant Real pi=Modelica.Constants.pi;
       protected
         parameter Real TransformationMatrix[ 2, m]=2/m*
@@ -6840,7 +7455,7 @@ Transformation of threephase values (voltages or currents) to space phasor and z
 
       block FromSpacePhasor "Conversion: space phasor -> three phase"
         extends Modelica.Blocks.Interfaces.MIMO(final nin=2, final nout=m);
-        constant Integer m=3 "number of phases";
+        constant Integer m=3 "Number of phases";
         constant Real pi=Modelica.Constants.pi;
       protected
         parameter Real TransformationMatrix[ 2, m]=2/m*
@@ -7051,7 +7666,7 @@ the first element representing the real part and the second element representing
 
       function ToSpacePhasor "Conversion: three phase -> space phasor"
         extends Modelica.Icons.Function;
-        constant Integer m=3 "number of phases";
+        constant Integer m=3 "Number of phases";
         constant Real pi=Modelica.Constants.pi;
         input Real x[3];
         output Real y[2];
@@ -7062,7 +7677,7 @@ the first element representing the real part and the second element representing
           y := y + 2/m*{+cos((k - 1)/m*2*pi), +sin(+(k - 1)/m*2*pi)}*x[k];
         end for;
         y0 := 1/m*sum(x);
-        annotation (Documentation(info="<HTML>
+        annotation (Inline=true, Documentation(info="<HTML>
 Transformation of three phase values (voltages or currents) to space phasor and zero sequence value:<br>
 y[k] = X0 + {cos(-(k - 1)/m*2*pi),-sin(-(k - 1)/m*2*pi) * X[Re,Im]<br>
 were y designates three phase values, X[Re,Im] designates the space phasor and X0 designates the zero sequence system.
@@ -7071,7 +7686,7 @@ were y designates three phase values, X[Re,Im] designates the space phasor and X
 
       function FromSpacePhasor "Conversion: space phasor -> three phase"
         extends Modelica.Icons.Function;
-        constant Integer m=3 "number of phases";
+        constant Integer m=3 "Number of phases";
         constant Real pi=Modelica.Constants.pi;
         input Real x[2];
         input Real x0;
@@ -7080,7 +7695,7 @@ were y designates three phase values, X[Re,Im] designates the space phasor and X
         for k in 1:m loop
           y[k] := x0 + {cos(-(k - 1)/m*2*pi),-sin(-(k - 1)/m*2*pi)}*x;
         end for;
-        annotation (Documentation(info="<HTML>
+        annotation (Inline=true, Documentation(info="<HTML>
 Transformation of space phasor and zero sequence value to three phase values (voltages or currents):<br>
 Y0 = sum(x[k])/m<br>
 Y[Re,Im] = sum(2/m*{cos((k - 1)/m*2*pi),sin((k - 1)/m*2*pi)}*x[k])<br>
@@ -7097,7 +7712,7 @@ were x designates three phase values, Y[Re,Im] designates the space phasor and Y
         Real RotationMatrix[2,2] = {{+cos(-angle),-sin(-angle)},{+sin(-angle),+cos(-angle)}};
       algorithm
         y := RotationMatrix*x;
-        annotation (Documentation(info="<HTML>
+        annotation (Inline=true, Documentation(info="<HTML>
 Rotates a space phasor (voltage or current) by the angle provided by input argument \"angle\" from one coordinate system into another:<br>
 y[Re,Im] := {{+cos(-angle),-sin(-angle)},{+sin(-angle),+cos(-angle)}}*x[Re,Im]<br>
 where y[Re,Im] designates the space phasor in the new coordinate system (twisted by angle against old coordinate system) and y[Re,Im] designates the space phasor in the old coordinate system.
@@ -7124,7 +7739,7 @@ where y[Re,Im] designates the space phasor in the new coordinate system (twisted
     end if;
   end if;
 */
-        annotation (Documentation(info="<HTML>
+        annotation (Inline=true, Documentation(info="<HTML>
 Converts a space phasor from rectangular coordinates to polar coordinates, providing angle=0 for {0,0}.
 </HTML>"));
       end ToPolar;
@@ -7138,7 +7753,7 @@ Converts a space phasor from rectangular coordinates to polar coordinates, provi
         output Real x[2];
       algorithm
         x := absolute*{cos(angle),sin(angle)};
-        annotation (Documentation(info="<HTML>
+        annotation (Inline=true, Documentation(info="<HTML>
 Converts a space phasor from polar coordinates to rectangular coordinates.
 </HTML>"));
       end FromPolar;
@@ -7229,6 +7844,705 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
             thickness=0.5)}));
   end SpacePhasors;
 
+  package Thermal "Library with models for connecting thermal models"
+    extends Modelica.Icons.Library2;
+
+    type Alpha20=Modelica.SIunits.LinearTemperatureCoefficient 
+      annotation(choices(
+        choice=Modelica.Electrical.Machines.Thermal.Constants.alpha20Aluminium
+          "Aluminium",
+        choice=Modelica.Electrical.Machines.Thermal.Constants.alpha20Brass "Brass",
+        choice=Modelica.Electrical.Machines.Thermal.Constants.alpha20Bronze "Bronze",
+        choice=Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper "Copper"));
+    package Constants "Material Constants"
+      constant Modelica.SIunits.LinearExpansionCoefficient alpha20Aluminium=4.000e-3;
+      constant Modelica.SIunits.LinearExpansionCoefficient alpha20Brass =   1.100e-3;
+      constant Modelica.SIunits.LinearExpansionCoefficient alpha20Bronze =  0.800e-3;
+      constant Modelica.SIunits.LinearExpansionCoefficient alpha20Copper =  3.920e-3;
+    end Constants;
+
+    function convertAlpha
+      "Converts alpha from standard temperature (default 20 degC) to a given reference temperature"
+      extends Modelica.Icons.Function;
+      input Modelica.SIunits.LinearTemperatureCoefficient alpha0
+        "Temperature coefficient at standard temperature (default: 20 degC)";
+      input Modelica.SIunits.Temperature TRef "Reference temperature";
+      input Modelica.SIunits.Temperature T0=293.15
+        "Standard temperature (default: 20 degC)";
+      output Modelica.SIunits.LinearTemperatureCoefficient alphaRef
+        "Temperature coefficient at TRef";
+    algorithm
+      alphaRef :=  alpha0 / (1 + alpha0*(TRef - T0));
+      annotation(Inline=true, Documentation(info="<html>
+<p>
+From the temperature coefficient <code>alpha0</code> at standard temperature <code>T0</code> (default 20 degC = 293.15 K) 
+the parameter <code>alphaRef</code> at <code>TRef</code> is calculated:
+</p>
+<pre>
+                        alpha0
+  alphaRef = --------------------------
+              1 + alpha0 * (TRef - T0)
+</pre>
+</html>"));
+    end convertAlpha;
+
+    function convertResistance
+      "Converts resistance from reference temperature to an actual temperature"
+      extends Modelica.Icons.Function;
+      input Modelica.SIunits.Resistance RRef "Resistance at TRef";
+      input Modelica.SIunits.Temperature TRef "Reference temperature";
+      input Modelica.SIunits.LinearTemperatureCoefficient alpha20
+        "Temperature coefficient at 20 degC";
+      input Modelica.SIunits.Temperature T "Actual temperature";
+      output Modelica.SIunits.Resistance R "Actual resistance at T";
+    algorithm
+      R :=  RRef * (1 + Modelica.Electrical.Machines.Thermal.convertAlpha(alpha20, TRef)*(T - TRef));
+      annotation(Inline=true, Documentation(info="<html>
+<p>
+From the temperature coefficient <code>alpha20</code> at 20 degC (equals to 293.15 K) the parameter <code>alphaRef</code> at <code>TRef</code>
+</p>
+<pre>
+                        alpha20
+  alphaRef = -------------------------------
+              1 + alpha20 * (TRef - 293.15)
+</pre>
+<p>
+is determined; using this value, actual resistance <code>R</code> with respect to the actual temperature <code>T</code> is calculated by
+</p>
+<pre>
+   R
+  ------ = 1 + alphaRef * (T - TRef)
+   RRef
+</pre>
+<p>
+where <code>RRef</code> is the resistance at the reference temperature <code>TRef</code>.
+</p>
+</html>"));
+    end convertResistance;
+
+    package AsynchronousInductionMachines
+      "Thermal parts of asynchronous induction machines"
+      extends Icons.Library;
+      model ThermalAmbientAIMC
+        "Thermal ambient for asynchronous induction machine with squirrel cage"
+        extends
+          Modelica.Electrical.Machines.Interfaces.PartialThermalAmbientInductionMachines(
+           redeclare final
+            Modelica.Electrical.Machines.Interfaces.AsynchronousInductionMachines.ThermalPortAIMC
+            thermalPort);
+        parameter Modelica.SIunits.Temperature Tr(start=TDefault)
+          "Temperature of rotor (squirrel cage)" 
+          annotation(Dialog(enable=not useTemperatureInputs));
+        output Modelica.SIunits.HeatFlowRate Q_flow_r = temperature_r.port.Q_flow
+          "Heat flow rate of rotor (squirrel cage)";
+        output Modelica.SIunits.HeatFlowRate Q_flow_total=
+          Q_flow_s + Q_flow_r + Q_flow_core + Q_flow_stray + Q_flow_friction;
+        Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature
+          temperature_r 
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={-50,30})));
+        Blocks.Interfaces.RealInput T_r if useTemperatureInputs
+          "Temperature of squirrel cage"                        annotation (Placement(transformation(
+              extent={{-20,-20},{20,20}},
+              rotation=90,
+              origin={80,-100})));
+        Blocks.Sources.Constant constT_r(final k=Tr) if not useTemperatureInputs annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={-50,-10})));
+      equation
+        connect(constT_r.y, temperature_r.T)  annotation (Line(
+            points={{-50,1},{-50,18}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(temperature_r.port, thermalPort.heatPort_r) annotation (Line(
+            points={{-50,40},{-50,100},{0,100}},
+            color={191,0,0},
+            smooth=Smooth.None));
+        connect(T_r, temperature_r.T) annotation (Line(
+            points={{80,-100},{80,8},{-50,8},{-50,18}},
+            color={0,0,127},
+            smooth=Smooth.None));
+      annotation (Icon(graphics={
+              Text(
+                extent={{-100,-20},{100,-80}},
+                lineColor={0,0,0},
+                fillColor={95,95,95},
+                fillPattern=FillPattern.Solid,
+                textString="AIMC")}),
+                                    Diagram(graphics));
+      end ThermalAmbientAIMC;
+
+      model ThermalAmbientAIMS
+        "Thermal ambient for asynchronous induction machine with slipring"
+        extends
+          Modelica.Electrical.Machines.Interfaces.PartialThermalAmbientInductionMachines(
+           redeclare final
+            Modelica.Electrical.Machines.Interfaces.AsynchronousInductionMachines.ThermalPortAIMS
+            thermalPort);
+        parameter Modelica.SIunits.Temperature Tr(start=TDefault)
+          "Temperature of rotor windings" 
+          annotation(Dialog(enable=not useTemperatureInputs));
+        output Modelica.SIunits.HeatFlowRate Q_flow_r = temperature_r.port.Q_flow
+          "Heat flow rate of rotor (squirrel cage)";
+        output Modelica.SIunits.HeatFlowRate Q_flow_total=
+          Q_flow_s + Q_flow_r + Q_flow_core + Q_flow_stray + Q_flow_friction;
+        Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature
+          temperature_r 
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={-50,30})));
+        Blocks.Interfaces.RealInput T_r if useTemperatureInputs
+          "Temperature of rotor windings"                       annotation (Placement(transformation(
+              extent={{-20,-20},{20,20}},
+              rotation=90,
+              origin={80,-100})));
+        Blocks.Sources.Constant constT_r(final k=Tr) if not useTemperatureInputs annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={-50,-10})));
+        Modelica.Thermal.HeatTransfer.Components.ThermalCollector
+          thermalCollectorRotor(m=thermalPort.m) 
+          annotation (Placement(transformation(extent={{-60,60},{-40,80}})));
+        Modelica.Thermal.HeatTransfer.Sources.FixedTemperature
+          temperature_brush(                                                     final T=TDefault) 
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={0,50})));
+      equation
+        connect(constT_r.y, temperature_r.T)  annotation (Line(
+            points={{-50,1},{-50,18}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(thermalCollectorRotor.port_b, temperature_r.port) annotation (Line(
+            points={{-50,60},{-50,40}},
+            color={191,0,0},
+            smooth=Smooth.None));
+        connect(thermalCollectorRotor.port_a, thermalPort.heatPort_r) annotation (
+            Line(
+            points={{-50,80},{-50,100},{0,100}},
+            color={191,0,0},
+            smooth=Smooth.None));
+        connect(temperature_brush.port, thermalPort.heatPort_brush) annotation (
+           Line(
+            points={{6.12323e-016,60},{0,60},{0,100}},
+            color={191,0,0},
+            smooth=Smooth.None));
+       annotation (Icon(graphics={
+              Text(
+                extent={{-100,-20},{100,-80}},
+                lineColor={0,0,0},
+                fillColor={95,95,95},
+                fillPattern=FillPattern.Solid,
+                textString="AIMS")}),
+                                    Diagram(graphics));
+      end ThermalAmbientAIMS;
+    end AsynchronousInductionMachines;
+
+    package SynchronousInductionMachines
+      "Thermal parts of synchronous induction machines"
+      extends Icons.Library;
+      model ThermalAmbientSMPM
+        "Thermal ambient for synchronous induction machine with permanent magnets"
+        parameter Boolean useDamperCage(start = true)
+          "Enable / disable damper cage" 
+          annotation(Evaluate=true);
+        extends
+          Modelica.Electrical.Machines.Interfaces.PartialThermalAmbientInductionMachines(
+           redeclare final
+            Modelica.Electrical.Machines.Interfaces.SynchronousInductionMachines.ThermalPortSMPM
+            thermalPort(final useDamperCage = useDamperCage));
+        parameter Modelica.SIunits.Temperature Tr(start=TDefault)
+          "Temperature of damper cage (optional)" 
+          annotation(Dialog(enable=(not useTemperatureInputs and useDamperCage)));
+        output Modelica.SIunits.HeatFlowRate Q_flow_r = temperature_r.port.Q_flow
+          "Heat flow rate of damper cage (optional)";
+        output Modelica.SIunits.HeatFlowRate Q_flow_pm = temperature_pm.port.Q_flow
+          "Heat flow rate of permanent magnets";
+        output Modelica.SIunits.HeatFlowRate Q_flow_total=
+          Q_flow_s + Q_flow_r + Q_flow_pm + Q_flow_core + Q_flow_stray + Q_flow_friction;
+        Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature
+          temperature_r 
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={-50,30})));
+        Blocks.Interfaces.RealInput T_r if (useTemperatureInputs and useDamperCage)
+          "Temperature of damper cage (optional)"  annotation (Placement(transformation(
+              extent={{-20,-20},{20,20}},
+              rotation=90,
+              origin={80,-100})));
+        Blocks.Sources.Constant constT_r(final k=if useDamperCage then Tr else TDefault) if (not useTemperatureInputs or not useDamperCage) annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={-50,-10})));
+        Modelica.Thermal.HeatTransfer.Sources.FixedTemperature temperature_pm(final T=TDefault) 
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={-20,30})));
+      equation
+        connect(constT_r.y, temperature_r.T)  annotation (Line(
+            points={{-50,1},{-50,18}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(temperature_r.port, thermalPort.heatPort_r) annotation (Line(
+            points={{-50,40},{-50,100},{0,100}},
+            color={191,0,0},
+            smooth=Smooth.None));
+        connect(T_r, temperature_r.T) annotation (Line(
+            points={{80,-100},{80,10},{-50,10},{-50,18}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(temperature_pm.port, thermalPort.heatPort_pm) annotation (Line(
+            points={{-20,40},{-20,100},{0,100}},
+            color={191,0,0},
+            smooth=Smooth.None));
+      annotation (Icon(graphics={
+              Text(
+                extent={{-100,-20},{100,-80}},
+                lineColor={0,0,0},
+                fillColor={95,95,95},
+                fillPattern=FillPattern.Solid,
+                textString="SMPM")}),
+                                    Diagram(graphics));
+      end ThermalAmbientSMPM;
+
+      model ThermalAmbientSMEE
+        "Thermal ambient for synchronous induction machine with electrical excitation"
+        parameter Boolean useDamperCage(start = true)
+          "Enable / disable damper cage" 
+          annotation(Evaluate=true);
+        extends
+          Modelica.Electrical.Machines.Interfaces.PartialThermalAmbientInductionMachines(
+           redeclare final
+            Modelica.Electrical.Machines.Interfaces.SynchronousInductionMachines.ThermalPortSMEE
+            thermalPort(final useDamperCage = useDamperCage));
+        parameter Modelica.SIunits.Temperature Tr(start=TDefault)
+          "Temperature of damper cage (optional)" 
+          annotation(Dialog(enable=(not useTemperatureInputs and useDamperCage)));
+        parameter Modelica.SIunits.Temperature Te(start=TDefault)
+          "Temperature of excitation" 
+          annotation(Dialog(enable=not useTemperatureInputs));
+        output Modelica.SIunits.HeatFlowRate Q_flow_r = temperature_r.port.Q_flow
+          "Heat flow rate of damper cage (optional)";
+        output Modelica.SIunits.HeatFlowRate Q_flow_e = temperature_e.port.Q_flow
+          "Heat flow rate of excitation";
+        output Modelica.SIunits.HeatFlowRate Q_flow_total=
+          Q_flow_s + Q_flow_r + Q_flow_e + Q_flow_core + Q_flow_stray + Q_flow_friction;
+        Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature
+          temperature_r 
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={-50,30})));
+        Blocks.Interfaces.RealInput T_r if (useTemperatureInputs and useDamperCage)
+          "Temperature of damper cage (optional)"                                   annotation (Placement(transformation(
+              extent={{-20,-20},{20,20}},
+              rotation=90,
+              origin={80,-100})));
+        Blocks.Sources.Constant constT_r(final k=if useDamperCage then Tr else TDefault) if (not useTemperatureInputs or not useDamperCage) annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={-50,-10})));
+        Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature
+          temperature_e 
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={-20,30})));
+        Blocks.Interfaces.RealInput T_e if useTemperatureInputs
+          "Temperature of excitation"   annotation (Placement(transformation(
+              extent={{-20,-20},{20,20}},
+              rotation=90,
+              origin={0,-100})));
+        Blocks.Sources.Constant constT_e(final k=Te) if not useTemperatureInputs 
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={-20,-10})));
+        Modelica.Thermal.HeatTransfer.Sources.FixedTemperature
+          temperature_brush(                                                     final T=TDefault) 
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={0,50})));
+      equation
+        connect(constT_r.y, temperature_r.T)  annotation (Line(
+            points={{-50,1},{-50,18}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(temperature_r.port, thermalPort.heatPort_r) annotation (Line(
+            points={{-50,40},{-50,100},{0,100}},
+            color={191,0,0},
+            smooth=Smooth.None));
+        connect(T_r, temperature_r.T) annotation (Line(
+            points={{80,-100},{80,10},{-50,10},{-50,18}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(constT_e.y, temperature_e.T) annotation (Line(
+            points={{-20,1},{-20,18}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(T_e, temperature_e.T) annotation (Line(
+            points={{0,-100},{0,6},{-20,6},{-20,18}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(temperature_e.port, thermalPort.heatPort_e) annotation (Line(
+            points={{-20,40},{-20,100},{0,100}},
+            color={191,0,0},
+            smooth=Smooth.None));
+        connect(temperature_brush.port, thermalPort.heatPort_brush) annotation (
+           Line(
+            points={{6.12323e-016,60},{0,60},{0,100},{0,100}},
+            color={191,0,0},
+            smooth=Smooth.None));
+      annotation (Icon(graphics={
+              Text(
+                extent={{-100,-20},{100,-80}},
+                lineColor={0,0,0},
+                fillColor={95,95,95},
+                fillPattern=FillPattern.Solid,
+                textString="SMEE")}),Diagram(graphics));
+      end ThermalAmbientSMEE;
+
+      model ThermalAmbientSMR
+        "Thermal ambient for synchronous induction machine with reluctance rotor"
+        parameter Boolean useDamperCage(start = true)
+          "Enable / disable damper cage" 
+          annotation(Evaluate=true);
+        extends
+          Modelica.Electrical.Machines.Interfaces.PartialThermalAmbientInductionMachines(
+           redeclare final
+            Modelica.Electrical.Machines.Interfaces.SynchronousInductionMachines.ThermalPortSMR
+            thermalPort(final useDamperCage = useDamperCage));
+        parameter Modelica.SIunits.Temperature Tr(start=TDefault)
+          "Temperature of damper cage (optional)" 
+          annotation(Dialog(enable=(not useTemperatureInputs and useDamperCage)));
+        output Modelica.SIunits.HeatFlowRate Q_flow_r = temperature_r.port.Q_flow
+          "Heat flow rate of damper cage (optional))";
+        output Modelica.SIunits.HeatFlowRate Q_flow_total=
+          Q_flow_s + Q_flow_r + Q_flow_core + Q_flow_stray + Q_flow_friction;
+        Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature
+          temperature_r 
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={-50,30})));
+        Blocks.Interfaces.RealInput T_r if (useTemperatureInputs and useDamperCage)
+          "Temperature of damper cage (optional)"                                   annotation (Placement(transformation(
+              extent={{-20,-20},{20,20}},
+              rotation=90,
+              origin={80,-100})));
+        Blocks.Sources.Constant constT_r(final k=if useDamperCage then Tr else TDefault) if (not useTemperatureInputs or not useDamperCage) annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={-50,-10})));
+      equation
+        connect(constT_r.y, temperature_r.T)  annotation (Line(
+            points={{-50,1},{-50,18}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(temperature_r.port, thermalPort.heatPort_r) annotation (Line(
+            points={{-50,40},{-50,100},{0,100}},
+            color={191,0,0},
+            smooth=Smooth.None));
+        connect(T_r, temperature_r.T) annotation (Line(
+            points={{80,-100},{80,10},{-50,10},{-50,18}},
+            color={0,0,127},
+            smooth=Smooth.None));
+      annotation (Icon(graphics={
+              Text(
+                extent={{-100,-20},{100,-80}},
+                lineColor={0,0,0},
+                fillColor={95,95,95},
+                fillPattern=FillPattern.Solid,
+                textString="SMR")}),Diagram(graphics));
+      end ThermalAmbientSMR;
+    end SynchronousInductionMachines;
+
+    package DCMachines "Thermal parts of DC machines"
+      extends Icons.Library;
+      model ThermalAmbientDCPM
+        "Thermal ambient for DC machine with permanent magnets"
+        extends
+          Modelica.Electrical.Machines.Interfaces.PartialThermalAmbientDCMachines(
+           redeclare final
+            Modelica.Electrical.Machines.Interfaces.DCMachines.ThermalPortDCPM
+            thermalPort);
+        output Modelica.SIunits.HeatFlowRate Q_flow_pm = temperature_pm.port.Q_flow
+          "Heat flow rate of permanent magnets";
+        output Modelica.SIunits.HeatFlowRate Q_flow_total=
+          Q_flow_a + Q_flow_pm + Q_flow_core + Q_flow_stray + Q_flow_friction + Q_flow_brush;
+        Modelica.Thermal.HeatTransfer.Sources.FixedTemperature temperature_pm(final T=TDefault) 
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={-20,30})));
+      equation
+        connect(temperature_pm.port, thermalPort.heatPort_pm) annotation (Line(
+            points={{-20,40},{-20,100},{0,100}},
+            color={191,0,0},
+            smooth=Smooth.None));
+      annotation (Icon(graphics={
+              Text(
+                extent={{-100,-20},{100,-80}},
+                lineColor={0,0,0},
+                fillColor={95,95,95},
+                fillPattern=FillPattern.Solid,
+                textString="DCPM")}),
+                                    Diagram(graphics));
+      end ThermalAmbientDCPM;
+
+      model ThermalAmbientDCEE
+        "Thermal ambient for DC machine with electrical excitation"
+        extends
+          Modelica.Electrical.Machines.Interfaces.PartialThermalAmbientDCMachines(
+           redeclare final
+            Modelica.Electrical.Machines.Interfaces.DCMachines.ThermalPortDCEE
+            thermalPort);
+        parameter Modelica.SIunits.Temperature Te(start=TDefault)
+          "Temperature of (shunt) excitation" 
+          annotation(Dialog(enable=not useTemperatureInputs));
+        output Modelica.SIunits.HeatFlowRate Q_flow_e = temperature_e.port.Q_flow
+          "Heat flow rate of (shunt) excitation";
+        output Modelica.SIunits.HeatFlowRate Q_flow_total=
+          Q_flow_a + Q_flow_e + Q_flow_core + Q_flow_stray + Q_flow_friction + Q_flow_brush;
+        Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature
+          temperature_e 
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={-20,30})));
+        Modelica.Blocks.Sources.Constant constT_e(final k=Te) if not useTemperatureInputs annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={-20,-10})));
+        Modelica.Blocks.Interfaces.RealInput T_e if useTemperatureInputs
+          "Temperature of (shunt) excitation"            annotation (Placement(transformation(
+              extent={{-20,-20},{20,20}},
+              rotation=90,
+              origin={0,-100})));
+      equation
+        connect(temperature_e.port, thermalPort.heatPort_e) annotation (Line(
+            points={{-20,40},{-20,100},{0,100}},
+            color={191,0,0},
+            smooth=Smooth.None));
+        connect(constT_e.y, temperature_e.T) annotation (Line(
+            points={{-20,1},{-20,18}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(T_e, temperature_e.T) annotation (Line(
+            points={{0,-100},{0,-60},{-40,-60},{-40,8},{-20,8},{-20,18}},
+            color={0,0,127},
+            smooth=Smooth.None));
+      annotation (Icon(graphics={
+              Text(
+                extent={{-100,-20},{100,-80}},
+                lineColor={0,0,0},
+                fillColor={95,95,95},
+                fillPattern=FillPattern.Solid,
+                textString="DCEE")}),
+                                    Diagram(graphics));
+      end ThermalAmbientDCEE;
+
+      model ThermalAmbientDCSE
+        "Thermal ambient for DC machine with series excitation"
+        extends
+          Modelica.Electrical.Machines.Interfaces.PartialThermalAmbientDCMachines(
+           redeclare final
+            Modelica.Electrical.Machines.Interfaces.DCMachines.ThermalPortDCSE
+            thermalPort);
+        parameter Modelica.SIunits.Temperature Tse(start=TDefault)
+          "Temperature of series excitation" 
+          annotation(Dialog(enable=not useTemperatureInputs));
+        output Modelica.SIunits.HeatFlowRate Q_flow_se = temperature_se.port.Q_flow
+          "Heat flow rate of series excitation";
+        output Modelica.SIunits.HeatFlowRate Q_flow_total=
+          Q_flow_a + Q_flow_se + Q_flow_core + Q_flow_stray + Q_flow_friction + Q_flow_brush;
+        Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature
+          temperature_se 
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={-50,30})));
+        Modelica.Blocks.Sources.Constant constT_se(final k=Tse) if not useTemperatureInputs annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={-50,-10})));
+        Modelica.Blocks.Interfaces.RealInput T_se if useTemperatureInputs
+          "Temperature of series excitation"             annotation (Placement(transformation(
+              extent={{-20,-20},{20,20}},
+              rotation=90,
+              origin={-40,-100})));
+      equation
+        connect(constT_se.y, temperature_se.T) 
+                                             annotation (Line(
+            points={{-50,1},{-50,18}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(T_se, temperature_se.T) annotation (Line(
+            points={{-40,-100},{-40,-60},{-70,-60},{-70,8},{-50,8},{-50,18}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(temperature_se.port, thermalPort.heatPort_se) annotation (Line(
+            points={{-50,40},{-50,100},{0,100}},
+            color={191,0,0},
+            smooth=Smooth.None));
+      annotation (Icon(graphics={
+              Text(
+                extent={{-100,-20},{100,-80}},
+                lineColor={0,0,0},
+                fillColor={95,95,95},
+                fillPattern=FillPattern.Solid,
+                textString="DCSE")}),
+                                    Diagram(graphics));
+      end ThermalAmbientDCSE;
+    end DCMachines;
+
+    model ThermalAmbientTransformer "Thermal ambient for transformers"
+      parameter Boolean useTemperatureInputs=false
+        "If true, temperature inputs are used; else, temperatures are constant"
+        annotation(Evaluate=true);
+      constant Modelica.SIunits.Temperature TDefault=293.15
+        "Default temperature";
+      parameter Modelica.SIunits.Temperature T1(start=TDefault)
+        "Temperature of primary windings" 
+        annotation(Dialog(enable=not useTemperatureInputs));
+      parameter Modelica.SIunits.Temperature T2(start=TDefault)
+        "Temperature of secondary windings" 
+        annotation(Dialog(enable=not useTemperatureInputs));
+      output Modelica.SIunits.HeatFlowRate Q_flow_1 = temperature_1.port.Q_flow
+        "Heat flow rate of primary windings";
+      output Modelica.SIunits.HeatFlowRate Q_flow_2 = temperature_2.port.Q_flow
+        "Heat flow rate of secondary windings";
+      output Modelica.SIunits.HeatFlowRate Q_flow_core = temperature_core.port.Q_flow
+        "Heat flow rate of core losses";
+      output Modelica.SIunits.HeatFlowRate Q_flow_total=Q_flow_1 + Q_flow_2 + Q_flow_core;
+      Interfaces.ThermalPortTransformer thermalPort 
+        annotation (Placement(transformation(extent={{-10,90},{10,110}})));
+      Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature temperature_1
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={-80,30})));
+      Modelica.Blocks.Sources.Constant constT_1(final k=T1) if 
+                                                      not useTemperatureInputs annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={-80,-10})));
+      Modelica.Blocks.Interfaces.RealInput T_1 if 
+                                         useTemperatureInputs
+        "Temperature of primary windings"                     annotation (Placement(transformation(
+            extent={{-20,-20},{20,20}},
+            rotation=90,
+            origin={-80,-100})));
+      Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature temperature_2
+        annotation (Placement(transformation(
+            extent={{-10,10},{10,-10}},
+            rotation=90,
+            origin={80,30})));
+      Modelica.Blocks.Sources.Constant constT_2(final k=T1) if 
+                                                      not useTemperatureInputs annotation (Placement(transformation(
+            extent={{-10,10},{10,-10}},
+            rotation=90,
+            origin={80,-10})));
+      Modelica.Blocks.Interfaces.RealInput T_2 if 
+                                         useTemperatureInputs
+        "Temperature of secondary windings"                   annotation (Placement(transformation(
+            extent={{-20,20},{20,-20}},
+            rotation=90,
+            origin={80,-100})));
+      Modelica.Thermal.HeatTransfer.Sources.FixedTemperature temperature_core(final T=
+            TDefault) 
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={0,30})));
+      Modelica.Thermal.HeatTransfer.Components.ThermalCollector
+        thermalCollector1(                                                        m=
+           thermalPort.m) 
+        annotation (Placement(transformation(extent={{-90,60},{-70,80}})));
+      Modelica.Thermal.HeatTransfer.Components.ThermalCollector
+        thermalCollector2(                                                        m=
+           thermalPort.m) 
+        annotation (Placement(transformation(extent={{70,60},{90,80}})));
+    equation
+      connect(T_1,temperature_1. T)           annotation (Line(
+          points={{-80,-100},{-80,-60},{-100,-60},{-100,8},{-80,8},{-80,18}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(constT_1.y, temperature_1.T) annotation (Line(
+          points={{-80,1},{-80,18}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(T_2,temperature_2. T)           annotation (Line(
+          points={{80,-100},{80,-60},{100,-60},{100,8},{80,8},{80,18}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(constT_2.y, temperature_2.T) annotation (Line(
+          points={{80,1},{80,18}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(temperature_core.port, thermalPort.heatPort_core) annotation (Line(
+          points={{6.12323e-016,40},{0,40},{0,100}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(thermalCollector1.port_b, temperature_1.port) annotation (Line(
+          points={{-80,60},{-80,40}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(thermalCollector2.port_b, temperature_2.port) annotation (Line(
+          points={{80,60},{80,40}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(thermalCollector1.port_a, thermalPort.heatPort_1) annotation (Line(
+          points={{-80,80},{-80,100},{0,100}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(thermalCollector2.port_a, thermalPort.heatPort_2) annotation (Line(
+          points={{80,80},{80,100},{0,100}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      annotation (Icon(graphics={
+            Rectangle(
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              pattern=LinePattern.None,
+              fillColor={159,159,223},
+              fillPattern=FillPattern.Backward),
+            Line(
+              points={{-14,-8.26327e-016},{54,0}},
+              color={191,0,0},
+              thickness=0.5,
+              origin={0,-6},
+              rotation=90),
+            Polygon(
+              points={{-20,-20},{-20,20},{20,0},{-20,-20}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid,
+              origin={0,68},
+              rotation=90),
+            Text(
+              extent={{-100,-20},{100,-80}},
+              lineColor={0,0,0},
+              fillColor={95,95,95},
+              fillPattern=FillPattern.Solid,
+              textString="Trafo")}),
+                                  Diagram(graphics));
+    end ThermalAmbientTransformer;
+    annotation (Icon(graphics={             Ellipse(
+            extent={{-86,50},{64,-100}},
+            lineColor={191,0,0},
+            fillColor={191,0,0},
+            fillPattern=FillPattern.Solid)}));
+  end Thermal;
+
   package Interfaces "SpacePhasor connector and PartialMachines"
     extends Modelica.Icons.Library2;
 
@@ -7261,57 +8575,61 @@ Connector for Space Phasors:
 
     partial model PartialBasicMachine "Partial model for all machines"
       constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
-      parameter Modelica.SIunits.Inertia Jr "rotor's moment of inertia";
+      parameter Modelica.SIunits.Inertia Jr "Rotor's moment of inertia";
       parameter Boolean useSupport=false
-        "enable / disable (=fixed stator) support" 
+        "Enable / disable (=fixed stator) support" 
         annotation(Evaluate=true);
       parameter Modelica.SIunits.Inertia Js(start=Jr)
-        "stator's moment of inertia" 
+        "Stator's moment of inertia" 
         annotation(Dialog(enable=useSupport));
+      parameter Boolean useThermalPort=false
+        "Enable / disable (=fixed temperatures) thermal port" 
+        annotation(Evaluate=true);
       output Modelica.SIunits.Angle phiMechanical = flange.phi-internalSupport.phi
-        "mechanical angle of rotor against stator";
+        "Mechanical angle of rotor against stator";
       output Modelica.SIunits.AngularVelocity wMechanical(displayUnit="1/min") = der(phiMechanical)
-        "mechanical angular velocity of rotor against stator";
+        "Mechanical angular velocity of rotor against stator";
       output Modelica.SIunits.Torque tauElectrical = inertiaRotor.flange_a.tau
-        "electromagnetic torque";
-      output Modelica.SIunits.Torque tauShaft = -flange.tau "shaft torque";
-      Modelica.Mechanics.Rotational.Interfaces.Flange_a flange "shaft" 
+        "Electromagnetic torque";
+      output Modelica.SIunits.Torque tauShaft = -flange.tau "Shaft torque";
+      Modelica.Mechanics.Rotational.Interfaces.Flange_a flange "Shaft" 
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Components.Inertia inertiaRotor(final J=Jr) 
         annotation (Placement(transformation(
-            origin={70,0},
+            origin={80,0},
             extent={{10,10},{-10,-10}},
             rotation=180)));
       Modelica.Mechanics.Rotational.Interfaces.Flange_a support if useSupport
-        "support at which the reaction torque is acting" 
+        "Support at which the reaction torque is acting" 
            annotation (Placement(transformation(extent={{90,-110},{110,-90}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Components.Inertia inertiaStator(final J=Js) if useSupport 
         annotation (Placement(transformation(
-            origin={70,-100},
+            origin={80,-100},
             extent={{10,10},{-10,-10}},
             rotation=180)));
       Modelica.Mechanics.Rotational.Components.Fixed fixed if  (not useSupport) 
-        annotation (Placement(transformation(extent={{30,-110},{50,-90}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+              rotation=180,
+            origin={70,-90})));
     protected
       Mechanics.Rotational.Interfaces.Support internalSupport 
-        annotation (Placement(transformation(extent={{16,-104},{24,-96}},
+        annotation (Placement(transformation(extent={{56,-104},{64,-96}},
               rotation=0)));
     equation
       connect(inertiaRotor.flange_b, flange) 
-                                            annotation (Line(points={{80,
+                                            annotation (Line(points={{90,
               -1.22465e-015},{92,-1.22465e-015},{92,0},{100,0}},
                                                                color={0,0,0}));
       connect(inertiaStator.flange_b, support) 
-        annotation (Line(points={{80,-100},{100,-100}}, color={0,0,0}));
-      connect(internalSupport, inertiaStator.flange_a) annotation (Line(
-          points={{20,-100},{20,-96},{50,-96},{50,-100},{60,-100}},
+        annotation (Line(points={{90,-100},{100,-100}}, color={0,0,0}));
+      connect(internalSupport, fixed.flange) annotation (Line(
+          points={{60,-100},{60,-90},{70,-90}},
           color={0,0,0},
           smooth=Smooth.None));
-      connect(internalSupport, fixed.flange) annotation (Line(
-          points={{20,-100},{40,-100}},
+      connect(internalSupport, inertiaStator.flange_a) annotation (Line(
+          points={{60,-100},{70,-100}},
           color={0,0,0},
           smooth=Smooth.None));
       annotation (
@@ -7397,46 +8715,55 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
     partial model PartialBasicInductionMachine
       "Partial model for induction machine"
       extends PartialBasicMachine(Jr(start=0.29));
-      constant Integer m=3 "number of phases";
-      parameter Integer p(min=1, start=2) "number of pole pairs (Integer)";
+      constant Integer m=3 "Number of phases";
+      parameter Integer p(min=1, start=2) "Number of pole pairs (Integer)";
       parameter Modelica.SIunits.Frequency fsNominal(start=50)
-        "nominal frequency";
+        "Nominal frequency";
+      parameter Modelica.SIunits.Temperature TsOperational(start=293.15)
+        "Operational temperature of stator resistance" 
+         annotation(Dialog(group="Operational temperatures", enable=not useThermalPort));
       parameter Modelica.SIunits.Resistance Rs(start=0.03)
-        "warm stator resistance per phase" 
-         annotation(Dialog(group="Nominal resistances and inductances"));
+        "Stator resistance per phase at TRef" 
+         annotation(Dialog(tab="Nominal resistances and inductances"));
+      parameter Modelica.SIunits.Temperature TsRef(start=293.15)
+        "Reference temperature of stator resistance" 
+         annotation(Dialog(tab="Nominal resistances and inductances"));
+      parameter Modelica.Electrical.Machines.Thermal.Alpha20 Alpha20s(start=0)
+        "Temperature coefficient of stator resistance at 20 degC" 
+         annotation(Dialog(tab="Nominal resistances and inductances"));
       parameter Modelica.SIunits.Inductance Lssigma(start=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal))
-        "stator stray inductance per phase" 
-         annotation(Dialog(group="Nominal resistances and inductances"));
+        "Stator stray inductance per phase" 
+         annotation(Dialog(tab="Nominal resistances and inductances"));
       output Modelica.SIunits.Voltage vs[m] = plug_sp.pin.v - plug_sn.pin.v
-        "stator instantaneous voltages";
+        "Stator instantaneous voltages";
       output Modelica.SIunits.Current is[m] = plug_sp.pin.i
-        "stator instantaneous currents";
+        "Stator instantaneous currents";
       output Modelica.SIunits.Current i_0_s( stateSelect=StateSelect.prefer) = spacePhasorS.zero.i
-        "stator zero-sequence current";
+        "Stator zero-sequence current";
     // to be defined in model that extends from this partial (since airgap isn't included here)
       input Modelica.SIunits.Current idq_ss[2]
-        "stator space phasor current / stator fixed frame";
+        "Stator space phasor current / stator fixed frame";
       input Modelica.SIunits.Current idq_sr[2](each stateSelect=StateSelect.prefer)
-        "stator space phasor current / rotor fixed frame";
+        "Stator space phasor current / rotor fixed frame";
       input Modelica.SIunits.Current idq_rs[2]
-        "rotor space phasor current / stator fixed frame";
+        "Rotor space phasor current / stator fixed frame";
       input Modelica.SIunits.Current idq_rr[2](each stateSelect=StateSelect.prefer)
-        "rotor space phasor current / rotor fixed frame";
+        "Rotor space phasor current / rotor fixed frame";
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_sp(final m=m)
-        "positive stator plug" 
+        "Positive stator plug" 
         annotation (Placement(transformation(extent={{50,90},{70,110}},
               rotation=0)));
       Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_sn(final m=m)
-        "negative stator plug" 
+        "Negative stator plug" 
         annotation (Placement(transformation(extent={{-70,90},{-50,110}},
               rotation=0)));
       Modelica.Electrical.MultiPhase.Basic.Resistor rs(
         final m=m,
         final R=fill(Rs, m),
-        final T_ref=fill(293.15,m),
-        final alpha=zeros(m),
-        final useHeatPort=false,
-        final T=rs.T_ref) 
+        final T_ref=fill(TsRef, m),
+        final alpha=fill(Modelica.Electrical.Machines.Thermal.convertAlpha(Alpha20s, TsRef), m),
+        final useHeatPort=true,
+        final T=fill(TsRef,m)) 
         annotation (Placement(transformation(extent={{60,50},{40,70}}, rotation=
                0)));
       Modelica.Electrical.MultiPhase.Basic.Inductor lssigma(final m=m, final L=fill(Lssigma, m)) 
@@ -7447,6 +8774,16 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
             origin={0,30},
             extent={{10,10},{-10,-10}},
             rotation=90)));
+      replaceable PartialThermalPortInductionMachines thermalPort if useThermalPort 
+        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+      replaceable PartialThermalAmbientInductionMachines thermalAmbient(
+        final useTemperatureInputs=false, final Ts=TsOperational) if not useThermalPort annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={-30,-80})));
+    protected
+      replaceable PartialThermalPortInductionMachines internalThermalPort 
+        annotation (Placement(transformation(extent={{-4,-84},{4,-76}})));
     equation
       connect(plug_sp, rs.plug_p) annotation (Line(
           points={{60,100},{60,60}},
@@ -7467,6 +8804,18 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
       connect(spacePhasorS.ground,spacePhasorS. zero) annotation (Line(
           points={{-10,20},{-10,14},{-6.12323e-016,14},{-6.12323e-016,20}},
           color={0,0,255}));
+      connect(thermalPort, internalThermalPort) annotation (Line(
+          points={{0,-100},{0,-80}},
+          color={199,0,0},
+          smooth=Smooth.None));
+      connect(thermalAmbient.thermalPort, internalThermalPort) annotation (Line(
+          points={{-20,-80},{0,-80}},
+          color={199,0,0},
+          smooth=Smooth.None));
+      connect(rs.heatPort, internalThermalPort.heatPort_s) annotation (Line(
+          points={{50,50},{60,50},{60,-80},{0,-80}},
+          color={191,0,0},
+          smooth=Smooth.None));
       annotation (Documentation(info="<HTML>
 Partial model for induction machine models
 </HTML>"),
@@ -7479,55 +8828,236 @@ Partial model for induction machine models
                 color={0,0,255})}));
     end PartialBasicInductionMachine;
 
+    partial connector PartialThermalPortInductionMachines
+      "Partial thermal port of induction machines"
+      constant Integer m=3 "Number of phases";
+
+      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_s[m]
+        "Heat port of stator windings" 
+        annotation (Placement(transformation(extent={{-20,10},{0,30}})));
+      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_core
+        "Heat port of (optional) core losses" 
+        annotation (Placement(transformation(extent={{0,10},{20,30}})));
+      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_stray
+        "Heat port of (optional) stray losses" 
+        annotation (Placement(transformation(extent={{0,-10},{20,10}})));
+      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_friction
+        "Heat port of (optional) friction losses" 
+        annotation (Placement(transformation(extent={{0,-30},{20,-10}})));
+      annotation (Diagram(graphics={                           Rectangle(
+              extent={{-60,60},{60,-60}},
+              lineColor={199,0,0},
+              fillColor={95,95,95},
+              fillPattern=FillPattern.Solid),
+                                    Ellipse(
+              extent={{-50,50},{50,-50}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid)}), Icon(graphics={Rectangle(
+              extent={{-110,110},{110,-110}},
+              lineColor={199,0,0},
+              fillColor={95,95,95},
+              fillPattern=FillPattern.Solid), Ellipse(
+              extent={{-80,80},{80,-80}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid)}));
+    end PartialThermalPortInductionMachines;
+
+    partial model PartialThermalAmbientInductionMachines
+      "Partial thermal ambient for induction machines"
+      parameter Boolean useTemperatureInputs=false
+        "If true, temperature inputs are used; else, temperatures are constant"
+        annotation(Evaluate=true);
+      constant Modelica.SIunits.Temperature TDefault=293.15
+        "Default temperature";
+      parameter Modelica.SIunits.Temperature Ts(start=TDefault)
+        "Temperature of stator windings" 
+        annotation(Dialog(enable=not useTemperatureInputs));
+      output Modelica.SIunits.HeatFlowRate Q_flow_s = temperature_s.port.Q_flow
+        "Heat flow rate of stator windings";
+      output Modelica.SIunits.HeatFlowRate Q_flow_core = temperature_core.port.Q_flow
+        "Heat flow rate of core losses";
+      output Modelica.SIunits.HeatFlowRate Q_flow_stray = temperature_stray.port.Q_flow
+        "Heat flow rate of stray load losses";
+      output Modelica.SIunits.HeatFlowRate Q_flow_friction = temperature_friction.port.Q_flow
+        "Heat flow rate of friction losses";
+      replaceable Interfaces.PartialThermalPortInductionMachines thermalPort 
+        annotation (Placement(transformation(extent={{-10,90},{10,110}})));
+      Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature temperature_s
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={-80,30})));
+      Modelica.Thermal.HeatTransfer.Sources.FixedTemperature temperature_core(final T=TDefault) 
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={20,30})));
+      Modelica.Thermal.HeatTransfer.Sources.FixedTemperature temperature_stray(final T=TDefault) 
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={50,30})));
+      Modelica.Thermal.HeatTransfer.Sources.FixedTemperature
+        temperature_friction(                                                     final T=TDefault) 
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={80,30})));
+      Blocks.Interfaces.RealInput T_s if useTemperatureInputs
+        "Temperature of stator windings"                      annotation (Placement(transformation(
+            extent={{-20,-20},{20,20}},
+            rotation=90,
+            origin={-80,-100})));
+      Blocks.Sources.Constant constT_s(final k=Ts) if not useTemperatureInputs annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={-80,-10})));
+      Modelica.Thermal.HeatTransfer.Components.ThermalCollector
+        thermalCollectorStator(m=thermalPort.m) 
+        annotation (Placement(transformation(extent={{-90,60},{-70,80}})));
+    equation
+      connect(constT_s.y, temperature_s.T)           annotation (Line(
+          points={{-80,1},{-80,18}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(T_s, temperature_s.T)           annotation (Line(
+          points={{-80,-100},{-80,-60},{-100,-60},{-100,8},{-80,8},{-80,18}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(temperature_core.port, thermalPort.heatPort_core) 
+        annotation (Line(
+          points={{20,40},{20,100},{0,100}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(temperature_stray.port, thermalPort.heatPort_stray) 
+        annotation (Line(
+          points={{50,40},{50,100},{0,100}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(temperature_friction.port, thermalPort.heatPort_friction) 
+        annotation (Line(
+          points={{80,40},{80,100},{0,100}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(thermalCollectorStator.port_b, temperature_s.port) annotation (
+          Line(
+          points={{-80,60},{-80,40}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(thermalCollectorStator.port_a, thermalPort.heatPort_s) 
+        annotation (Line(
+          points={{-80,80},{-80,100},{0,100}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      annotation (Icon(graphics={
+            Rectangle(
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              pattern=LinePattern.None,
+              fillColor={159,159,223},
+              fillPattern=FillPattern.Backward),
+            Line(
+              points={{-14,-8.26327e-016},{54,0}},
+              color={191,0,0},
+              thickness=0.5,
+              origin={0,-6},
+              rotation=90),
+            Polygon(
+              points={{-20,-20},{-20,20},{20,0},{-20,-20}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid,
+              origin={0,68},
+              rotation=90)}),     Diagram(graphics));
+    end PartialThermalAmbientInductionMachines;
+
     partial model PartialBasicDCMachine "Partial model for DC machine"
       extends PartialBasicMachine(Jr(start=0.15));
+      parameter Modelica.SIunits.Temperature TaOperational(start=293.15)
+        "Operational armature temperature" 
+         annotation(Dialog(group="Operational temperatures", enable=not useThermalPort));
       parameter Modelica.SIunits.Voltage VaNominal(start=100)
-        "nominal armature voltage" 
-         annotation(Dialog(group="Nominal parameters"));
+        "Nominal armature voltage" 
+         annotation(Dialog(tab="Nominal parameters"));
       parameter Modelica.SIunits.Current IaNominal(start=100)
-        "nominal armature current" 
-         annotation(Dialog(group="Nominal parameters"));
+        "Nominal armature current" 
+         annotation(Dialog(tab="Nominal parameters"));
       parameter Modelica.SIunits.AngularVelocity wNominal(displayUnit="1/min", start=1425*2*pi/60)
-        "nominal speed" 
-         annotation(Dialog(group="Nominal parameters"));
+        "Nominal speed" 
+         annotation(Dialog(tab="Nominal parameters"));
+      parameter Modelica.SIunits.Temperature TaNominal(start=293.15)
+        "Nominal armature temperature" 
+         annotation(Dialog(tab="Nominal parameters"));
       parameter Modelica.SIunits.Resistance Ra(start=0.05)
-        "warm armature resistance" 
-         annotation(Dialog(group="Nominal resistances and inductances"));
+        "Armature resistance at TRef" 
+         annotation(Dialog(tab="Nominal resistances and inductances"));
+      parameter Modelica.SIunits.Temperature TaRef(start=293.15)
+        "Reference temperture of armature resistance" 
+         annotation(Dialog(tab="Nominal resistances and inductances"));
+      parameter Modelica.Electrical.Machines.Thermal.Alpha20 Alpha20a(start=0)
+        "Temperature coefficient of armature resistance" 
+         annotation(Dialog(tab="Nominal resistances and inductances"));
       parameter Modelica.SIunits.Inductance La(start=0.0015)
-        "armature inductance" 
-         annotation(Dialog(group="Nominal resistances and inductances"));
+        "Armature inductance" 
+         annotation(Dialog(tab="Nominal resistances and inductances"));
       parameter Real turnsRatio
-        "ratio of armature turns over number of turns of the excitation winding";
-      output Modelica.SIunits.Voltage va = pin_ap.v-pin_an.v "armature voltage";
-      output Modelica.SIunits.Current ia = pin_ap.i "armature current";
+        "Ratio of armature turns over number of turns of the excitation winding";
+      output Modelica.SIunits.Voltage va = pin_ap.v-pin_an.v "Armature voltage";
+      output Modelica.SIunits.Current ia = pin_ap.i "Armature current";
       Modelica.Electrical.Analog.Interfaces.PositivePin pin_ap
-        "positive armature pin" 
+        "Positive armature pin" 
         annotation (Placement(transformation(extent={{50,110},{70,90}},
               rotation=0)));
       Modelica.Electrical.Analog.Interfaces.NegativePin pin_an
-        "negative armature pin" 
+        "Negative armature pin" 
         annotation (Placement(transformation(extent={{-70,110},{-50,90}},
               rotation=0)));
       Modelica.Electrical.Analog.Basic.Resistor ra(
         final R=Ra,
-        final T_ref=293.15,
-        final alpha=0,
-        final useHeatPort=false,
-        final T=ra.T_ref) 
+        final T_ref=TaRef,
+        final alpha=Modelica.Electrical.Machines.Thermal.convertAlpha(
+                                         Alpha20a, TaRef),
+        final useHeatPort=true,
+        final T=TaRef) 
         annotation (Placement(transformation(extent={{60,50},{40,70}}, rotation=0)));
       Modelica.Electrical.Analog.Basic.Inductor la(final L=La) 
         annotation (Placement(transformation(extent={{30,50},{10,70}}, rotation=
                0)));
+
+      replaceable PartialThermalPortDCMachines thermalPort if useThermalPort 
+        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+      replaceable PartialThermalAmbientDCMachines thermalAmbient(
+        final useTemperatureInputs=false, final Ta=TaOperational) if not useThermalPort annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={-30,-80})));
+    protected
+      replaceable PartialThermalPortDCMachines internalThermalPort 
+        annotation (Placement(transformation(extent={{-4,-84},{4,-76}})));
     equation
       connect(la.p,ra. n) 
         annotation (Line(points={{30,60},{40,60}}, color={0,0,255}));
       connect(pin_ap,ra. p) 
         annotation (Line(points={{60,100},{60,60}}, color={0,0,255}));
+      connect(thermalPort, internalThermalPort) annotation (Line(
+          points={{0,-100},{0,-80}},
+          color={199,0,0},
+          smooth=Smooth.None));
+      connect(thermalAmbient.thermalPort, internalThermalPort) annotation (Line(
+          points={{-20,-80},{0,-80}},
+          color={199,0,0},
+          smooth=Smooth.None));
+      connect(ra.heatPort, internalThermalPort.heatPort_a) annotation (Line(
+          points={{50,50},{50,-80},{0,-80}},
+          color={191,0,0},
+          smooth=Smooth.None));
       annotation (Documentation(info="<HTML>
 Partial model for DC machine models.
 </HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+                100}}),
                 graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{-50,100},{-20,100},{-20,70}},
@@ -7535,6 +9065,451 @@ Partial model for DC machine models.
                 color={0,0,255})}));
     end PartialBasicDCMachine;
 
+    partial connector PartialThermalPortDCMachines
+      "Partial thermal port of DC machines"
+
+      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_a
+        "Heat port of armature" 
+        annotation (Placement(transformation(extent={{-20,10},{0,30}})));
+      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_core
+        "Heat port of (optional) core losses" 
+        annotation (Placement(transformation(extent={{0,10},{20,30}})));
+      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_stray
+        "Heat port of (optional) stray losses" 
+        annotation (Placement(transformation(extent={{0,-10},{20,10}})));
+      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_friction
+        "Heat port of (optional) friction losses" 
+        annotation (Placement(transformation(extent={{0,-30},{20,-10}})));
+      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_brush
+        "Heat port of (optional) brush losses" 
+        annotation (Placement(transformation(extent={{-10,30},{10,50}})));
+      annotation (Diagram(graphics={                           Rectangle(
+              extent={{-60,60},{60,-60}},
+              lineColor={199,0,0},
+              fillColor={95,95,95},
+              fillPattern=FillPattern.Solid),
+                                    Ellipse(
+              extent={{-50,50},{50,-50}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid)}), Icon(graphics={Rectangle(
+              extent={{-110,110},{110,-110}},
+              lineColor={199,0,0},
+              fillColor={95,95,95},
+              fillPattern=FillPattern.Solid), Ellipse(
+              extent={{-82,80},{78,-80}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid)}));
+    end PartialThermalPortDCMachines;
+
+    partial model PartialThermalAmbientDCMachines
+      "Partial thermal ambient for DC machines"
+      parameter Boolean useTemperatureInputs=false
+        "If true, temperature inputs are used; else, temperatures are constant"
+        annotation(Evaluate=true);
+      constant Modelica.SIunits.Temperature TDefault=293.15
+        "Default temperature";
+      parameter Modelica.SIunits.Temperature Ta(start=TDefault)
+        "Temperature of armature" 
+        annotation(Dialog(enable=not useTemperatureInputs));
+      output Modelica.SIunits.HeatFlowRate Q_flow_a = temperature_a.port.Q_flow
+        "Heat flow rate of armature";
+      output Modelica.SIunits.HeatFlowRate Q_flow_core = temperature_core.port.Q_flow
+        "Heat flow rate of core losses";
+      output Modelica.SIunits.HeatFlowRate Q_flow_stray = temperature_stray.port.Q_flow
+        "Heat flow rate of stray load losses";
+      output Modelica.SIunits.HeatFlowRate Q_flow_friction = temperature_friction.port.Q_flow
+        "Heat flow rate of friction losses";
+       output Modelica.SIunits.HeatFlowRate Q_flow_brush = temperature_brush.port.Q_flow
+        "Heat flow rate of brushes";
+      replaceable Interfaces.PartialThermalPortDCMachines thermalPort 
+        annotation (Placement(transformation(extent={{-10,90},{10,110}})));
+      Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature temperature_a
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={-80,30})));
+      Modelica.Thermal.HeatTransfer.Sources.FixedTemperature temperature_core(final T=TDefault) 
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={40,30})));
+      Modelica.Thermal.HeatTransfer.Sources.FixedTemperature temperature_stray(final T=TDefault) 
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={60,10})));
+      Modelica.Thermal.HeatTransfer.Sources.FixedTemperature
+        temperature_friction(                                                     final T=TDefault) 
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={80,30})));
+      Blocks.Interfaces.RealInput T_a if useTemperatureInputs
+        "Temperature of armature"                      annotation (Placement(transformation(
+            extent={{-20,-20},{20,20}},
+            rotation=90,
+            origin={-80,-100})));
+      Blocks.Sources.Constant constT_a(final k=Ta) if not useTemperatureInputs annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={-80,-10})));
+      Modelica.Thermal.HeatTransfer.Sources.FixedTemperature temperature_brush(final T=TDefault) 
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={20,10})));
+    equation
+
+      connect(constT_a.y, temperature_a.T) annotation (Line(
+          points={{-80,1},{-80,18}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(T_a, temperature_a.T) annotation (Line(
+          points={{-80,-100},{-80,-60},{-100,-60},{-100,8},{-80,8},{-80,18}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(temperature_a.port, thermalPort.heatPort_a) annotation (Line(
+          points={{-80,40},{-80,100},{0,100}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(temperature_brush.port, thermalPort.heatPort_brush) annotation (Line(
+          points={{20,20},{20,100},{0,100}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(temperature_core.port, thermalPort.heatPort_core) annotation (Line(
+          points={{40,40},{40,100},{0,100}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(temperature_stray.port, thermalPort.heatPort_stray) annotation (Line(
+          points={{60,20},{60,100},{0,100}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(temperature_friction.port, thermalPort.heatPort_friction) annotation (
+         Line(
+          points={{80,40},{80,100},{0,100}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      annotation (Icon(graphics={
+            Rectangle(
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              pattern=LinePattern.None,
+              fillColor={159,159,223},
+              fillPattern=FillPattern.Backward),
+            Line(
+              points={{-14,-8.26327e-016},{54,0}},
+              color={191,0,0},
+              thickness=0.5,
+              origin={0,-6},
+              rotation=90),
+            Polygon(
+              points={{-20,-20},{-20,20},{20,0},{-20,-20}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid,
+              origin={0,68},
+              rotation=90)}),     Diagram(graphics));
+    end PartialThermalAmbientDCMachines;
+
+    package AsynchronousInductionMachines
+      "Thermal parts of asynchronous induction machines"
+      extends Icons.Library;
+      connector ThermalPortAIMC
+        "Thermal port of asynchronous induction machine with squirrel cage"
+        extends
+          Modelica.Electrical.Machines.Interfaces.PartialThermalPortInductionMachines;
+
+        Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_r
+          "Heat port of rotor (squirrel cage)" 
+          annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
+        annotation (Diagram(graphics),            Icon(graphics));
+      end ThermalPortAIMC;
+
+      connector ThermalPortAIMS
+        "Thermal port of asynchronous induction machine with slipring"
+        extends
+          Modelica.Electrical.Machines.Interfaces.PartialThermalPortInductionMachines;
+
+        Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_r[m]
+          "Heat port of rotor windings" 
+          annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
+        Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_brush
+          "Heat port of (optional) brush losses" 
+          annotation (Placement(transformation(extent={{-10,30},{10,50}})));
+        annotation (Diagram(graphics),            Icon(graphics));
+      end ThermalPortAIMS;
+    end AsynchronousInductionMachines;
+
+    package SynchronousInductionMachines
+      "Thermal parts of synchronous induction machines"
+      extends Icons.Library;
+      connector ThermalPortSMPM
+        "Thermal port of synchronous induction machine with permanent magnets"
+        extends
+          Modelica.Electrical.Machines.Interfaces.PartialThermalPortInductionMachines;
+        parameter Boolean useDamperCage(start = true)
+          "Enable / disable damper cage" 
+          annotation(Evaluate=true);
+
+        Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_r if useDamperCage
+          "Heat port of damper cage (optional)" 
+          annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
+        Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_pm
+          "Heat port of permanent magnets" 
+          annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
+        annotation (Diagram(graphics), Icon(graphics));
+      end ThermalPortSMPM;
+
+      connector ThermalPortSMEE
+        "Thermal port of synchronous induction machine with electrical excitation"
+        extends
+          Modelica.Electrical.Machines.Interfaces.PartialThermalPortInductionMachines;
+        parameter Boolean useDamperCage(start = true)
+          "Enable / disable damper cage" 
+          annotation(Evaluate=true);
+
+        Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_r if useDamperCage
+          "Heat port of damper cage (optional)" 
+          annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
+        Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_e
+          "Heat port of excitation" 
+          annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
+        Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_brush
+          "Heat port of (optional) brush losses" 
+          annotation (Placement(transformation(extent={{-10,30},{10,50}})));
+        annotation (Diagram(graphics), Icon(graphics));
+      end ThermalPortSMEE;
+
+      connector ThermalPortSMR
+        "Thermal port of synchronous induction machine with reluctance rotor"
+        extends
+          Modelica.Electrical.Machines.Interfaces.PartialThermalPortInductionMachines;
+        parameter Boolean useDamperCage(start = true)
+          "Enable / disable damper cage" 
+          annotation(Evaluate=true);
+
+        Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_r if useDamperCage
+          "Heat port of damper cage (optional)" 
+          annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
+        annotation (Diagram(graphics), Icon(graphics));
+      end ThermalPortSMR;
+    end SynchronousInductionMachines;
+
+    package DCMachines "Thermal parts of DC machines"
+      extends Icons.Library;
+      connector ThermalPortDCPM
+        "Thermal port of DC machine with permanent magnets"
+        extends
+          Modelica.Electrical.Machines.Interfaces.PartialThermalPortDCMachines;
+
+        Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_pm
+          "Heat port of permanent magnets" 
+          annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
+        annotation (Diagram(graphics), Icon(graphics));
+      end ThermalPortDCPM;
+
+      connector ThermalPortDCEE
+        "Thermal port of DC machine with electrical excitation"
+        extends
+          Modelica.Electrical.Machines.Interfaces.PartialThermalPortDCMachines;
+
+        Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_e
+          "Heat port of (shunt) excitation" 
+          annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
+        annotation (Diagram(graphics), Icon(graphics));
+      end ThermalPortDCEE;
+
+      connector ThermalPortDCSE
+        "Thermal port of DC machine with series excitation"
+        extends
+          Modelica.Electrical.Machines.Interfaces.PartialThermalPortDCMachines;
+
+        Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_se
+          "Heat port of series excitation" 
+          annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
+        annotation (Diagram(graphics), Icon(graphics));
+      end ThermalPortDCSE;
+    end DCMachines;
+
+    partial model PartialBasicTransformer
+      "Partial model of threephase transformer"
+      constant Integer m(min=1) = 3 "Number of phases";
+      constant String VectorGroup="Yy00";
+      parameter Real n(start=1)
+        "Ratio primary voltage (line-to-line) / secondary voltage (line-to-line)";
+      parameter Modelica.SIunits.Resistance R1(start=5E-3/(if C1=="D" then 1 else 3))
+        "Primary resistance per phase at TRef" 
+         annotation(Dialog(tab="Nominal resistances and inductances"));
+      parameter Modelica.SIunits.Temperature T1Ref(start=293.15)
+        "Reference temperature of primary resistance" 
+         annotation(Dialog(tab="Nominal resistances and inductances"));
+      parameter Modelica.Electrical.Machines.Thermal.Alpha20 Alpha20_1(start=0)
+        "Temperature coefficient of primary resistance at 20 degC" 
+         annotation(Dialog(tab="Nominal resistances and inductances"));
+      parameter Modelica.SIunits.Inductance L1sigma(start=78E-6/(if C1=="D" then 1 else 3))
+        "Primary stray inductance per phase" 
+         annotation(Dialog(tab="Nominal resistances and inductances"));
+      parameter Modelica.SIunits.Resistance R2(start=5E-3/(if C2=="d" then 1 else 3))
+        "Secondary resistance per phase at TRef" 
+         annotation(Dialog(tab="Nominal resistances and inductances"));
+      parameter Modelica.SIunits.Temperature T2Ref(start=293.15)
+        "Reference temperature of secondary resistance" 
+         annotation(Dialog(tab="Nominal resistances and inductances"));
+      parameter Modelica.Electrical.Machines.Thermal.Alpha20 Alpha20_2(start=0)
+        "Temperature coefficient of secondary resistance at 20 degC" 
+         annotation(Dialog(tab="Nominal resistances and inductances"));
+      parameter Modelica.SIunits.Inductance L2sigma(start=78E-6/(if C2=="d" then 1 else 3))
+        "Secondary stray inductance per phase" 
+         annotation(Dialog(tab="Nominal resistances and inductances"));
+      parameter Boolean useThermalPort=false
+        "Enable / disable (=fixed temperatures) thermal port" 
+        annotation(Evaluate=true);
+      parameter Modelica.SIunits.Temperature T1Operational(start=293.15)
+        "Operational temperature of primary resistance" 
+         annotation(Dialog(group="Operational temperatures", enable=not useThermalPort));
+      parameter Modelica.SIunits.Temperature T2Operational(start=293.15)
+        "Operational temperature of secondary resistance" 
+         annotation(Dialog(group="Operational temperatures", enable=not useThermalPort));
+      output Modelica.SIunits.Voltage v1[m]=plug1.pin.v "Primary voltage";
+      output Modelica.SIunits.Current i1[m]=plug1.pin.i "Primary current";
+      output Modelica.SIunits.Voltage v2[m]=plug2.pin.v "Secondary voltage";
+      output Modelica.SIunits.Current i2[m]=plug2.pin.i "Secondary current";
+    protected
+      constant String C1 = Modelica.Utilities.Strings.substring(VectorGroup,1,1);
+      constant String C2 = Modelica.Utilities.Strings.substring(VectorGroup,2,2);
+      parameter Real ni=n*(if C2=="z" then sqrt(3) else 2)*(if C2=="d" then 1 else sqrt(3))/(if C1=="D" then 1 else sqrt(3));
+    public
+      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug1(final m=m)
+        "Primary plug"                                                        annotation (Placement(
+            transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
+      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug2(final m=m)
+        "Secondary plug"                                                      annotation (Placement(
+            transformation(extent={{90,-10},{110,10}}, rotation=0)));
+      Modelica.Electrical.MultiPhase.Basic.Resistor r1(
+        final m=m,
+        final R=fill(R1,m),
+        final T_ref=fill(T1Ref,m),
+        final alpha=fill(Modelica.Electrical.Machines.Thermal.convertAlpha(Alpha20_1, T1Ref), m),
+        final useHeatPort=true,
+        final T=fill(T1Ref,m)) 
+        annotation (Placement(transformation(extent={{-90,10},{-70,-10}}, rotation=0)));
+      Modelica.Electrical.MultiPhase.Basic.Inductor l1sigma(final m=m, final L=fill(L1sigma, m)) 
+        annotation (Placement(transformation(extent={{-70,-10},{-50,10}},
+              rotation=0)));
+      Modelica.Electrical.MultiPhase.Basic.Resistor r2(
+        final m=m,
+        final R=fill(R2,m),
+        final T_ref=fill(T2Ref,m),
+        final alpha=fill(Modelica.Electrical.Machines.Thermal.convertAlpha(Alpha20_2, T2Ref), m),
+        final useHeatPort=true,
+        final T=fill(T2Ref,m)) 
+        annotation (Placement(transformation(extent={{70,10},{90,-10}},
+              rotation=0)));
+      Modelica.Electrical.MultiPhase.Basic.Inductor l2sigma(final m=m, final L=fill(L2sigma, m)) 
+        annotation (Placement(transformation(extent={{50,-10},{70,10}},
+              rotation=0)));
+      BasicMachines.Components.IdealCore core(
+        final m=m,
+        final n12=ni,
+        final n13=ni) 
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+              rotation=0)));
+      Interfaces.ThermalPortTransformer thermalPort if useThermalPort 
+        annotation (Placement(transformation(extent={{-10,90},{10,110}})));
+      Thermal.ThermalAmbientTransformer thermalAmbient(final
+          useTemperatureInputs =                                                  false,
+        final T1=T1Operational,
+        final T2=T2Operational) if not useThermalPort 
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={-30,80})));
+    protected
+      Interfaces.ThermalPortTransformer internalThermalPort 
+        annotation (Placement(transformation(extent={{-4,76},{4,84}})));
+    equation
+      connect(r1.plug_n,l1sigma. plug_p) 
+        annotation (Line(points={{-70,0},{-70,0}}, color={0,0,255}));
+      connect(l2sigma.plug_n,r2. plug_p) 
+        annotation (Line(points={{70,0},{70,0}}, color={0,0,255}));
+      connect(plug1, r1.plug_p) 
+        annotation (Line(points={{-100,0},{-90,0}}, color={0,0,255}));
+      connect(r2.plug_n, plug2) 
+        annotation (Line(points={{90,0},{100,0}}, color={0,0,255}));
+      connect(thermalPort, internalThermalPort) annotation (Line(
+          points={{0,100},{0,80}},
+          color={199,0,0},
+          smooth=Smooth.None));
+      connect(thermalAmbient.thermalPort, internalThermalPort) annotation (Line(
+          points={{-20,80},{0,80}},
+          color={199,0,0},
+          smooth=Smooth.None));
+      connect(r1.heatPort, internalThermalPort.heatPort_1) annotation (Line(
+          points={{-80,10},{-80,60},{0,60},{0,80}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(r2.heatPort, internalThermalPort.heatPort_2) annotation (Line(
+          points={{80,10},{80,60},{0,60},{0,80}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}),
+                          graphics),
+                           Icon(coordinateSystem(preserveAspectRatio=true,
+              extent={{-100,-100},{100,100}}), graphics={
+            Ellipse(extent={{-90,60},{30,-60}}, lineColor={0,0,255}),
+            Ellipse(extent={{-30,60},{90,-60}}, lineColor={0,0,255}),
+            Text(
+              extent={{0,100},{0,60}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Text(
+              extent={{0,40},{0,-40}},
+              lineColor={0,0,255},
+              textString="%VectorGroup"),
+            Text(
+              extent={{0,-60},{0,-100}},
+              lineColor={0,0,255},
+              textString="n=%n")}),
+        Documentation(info="<html>
+Partialmodel of a threephase transformer, containing primary and secondary resistances and stray inductances, as well as the iron core.
+Circuit layout (vector group) of primary and secondary windings have to be defined.
+</html>"));
+    end PartialBasicTransformer;
+
+    connector ThermalPortTransformer "Thermal port of transformers"
+      constant Integer m=3 "number of phases";
+
+      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_1[m]
+        "Heat port of primary windings" 
+        annotation (Placement(transformation(extent={{-20,10},{0,30}})));
+      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_2[m]
+        "Heat port of secondary windings" 
+        annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
+      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_core
+        "Heat port of (optional) core losses" 
+        annotation (Placement(transformation(extent={{0,-10},{20,10}})));
+      annotation (Diagram(graphics={                           Rectangle(
+              extent={{-60,60},{60,-60}},
+              lineColor={199,0,0},
+              fillColor={95,95,95},
+              fillPattern=FillPattern.Solid),
+                                    Ellipse(
+              extent={{-50,50},{50,-50}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid)}), Icon(graphics={Rectangle(
+              extent={{-110,110},{110,-110}},
+              lineColor={199,0,0},
+              fillColor={95,95,95},
+              fillPattern=FillPattern.Solid), Ellipse(
+              extent={{-80,80},{80,-80}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid)}));
+    end ThermalPortTransformer;
     annotation (Documentation(info="<HTML>
 This package contains the space phasor connector and partial models for machine models.
 </HTML>", revisions="<HTML>
@@ -7566,6 +9541,8 @@ This package contains the space phasor connector and partial models for machine 
        to ease the implementation of a 3D-frame in a future release</li>
   <li> v1.51 Beta 2005/02/01 Anton Haumer<br>
        changed parameter polePairs to Integer</li>
+  <li> v2.2.0 2011/02/10 Anton Haumer<br>
+       conditional ThermalPort for all machines</li>
   </ul>
 </HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Polygon(
@@ -7581,12 +9558,12 @@ This package contains the space phasor connector and partial models for machine 
     block VfController "Voltage-Frequency-Controller"
       extends Modelica.Blocks.Interfaces.SIMO(final nout=m);
       constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
-      parameter Integer m=3 "number of phases";
+      parameter Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage VNominal
-        "nominal RMS voltage per phase";
-      parameter Modelica.SIunits.Frequency fNominal "nominal frequency";
-      parameter Modelica.SIunits.Angle BasePhase=0 "common phase shift";
-      output Modelica.SIunits.Angle x(start=0, fixed=true) "integrator state";
+        "Nominal RMS voltage per phase";
+      parameter Modelica.SIunits.Frequency fNominal "Nominal frequency";
+      parameter Modelica.SIunits.Angle BasePhase=0 "Common phase shift";
+      output Modelica.SIunits.Angle x(start=0, fixed=true) "Integrator state";
       output Modelica.SIunits.Voltage amplitude;
     equation
     //amplitude = sqrt(2)*VNominal*min(abs(u)/fNominal, 1);
@@ -7628,17 +9605,17 @@ Phase shifts between sine-waves may be choosen by the user; default values are <
     end VfController;
 
     model SwitchYD "Y-D-switch"
-      constant Integer m=3 "number of phases";
+      constant Integer m=3 "Number of phases";
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plugSupply(final m=m)
-        "to grid" 
+        "To grid" 
         annotation (Placement(transformation(extent={{-10,90},{10,110}},
               rotation=0)));
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_sp(final m=m)
-        "to positive stator plug" 
+        "To positive stator plug" 
         annotation (Placement(transformation(extent={{50,-90},{70,-110}},
               rotation=0)));
       Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_sn(final m=m)
-        "to negative stator plug" 
+        "To negative stator plug" 
         annotation (Placement(transformation(extent={{-70,-90},{-50,-110}},
               rotation=0)));
       Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) 
@@ -7697,17 +9674,17 @@ If <i>control</i> is true, plug_sp and plug_sn are delta connected and they are 
 </HTML>"));
     end SwitchYD;
 
-    model TerminalBox "terminal box Y/D-connection"
-      constant Integer m=3 "number of phases";
-      parameter String terminalConnection(start="Y") "choose Y=star/D=delta" 
+    model TerminalBox "Terminal box Y/D-connection"
+      constant Integer m=3 "Number of phases";
+      parameter String terminalConnection(start="Y") "Choose Y=star/D=delta" 
         annotation(choices(choice="Y" "Star connection",choice="D"
             "Delta connection"));
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_sp(final m=m)
-        "to positive stator plug" 
+        "To positive stator plug" 
         annotation (Placement(transformation(extent={{50,-90},{70,-110}},
               rotation=0)));
       Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_sn(final m=m)
-        "to negative stator plug" 
+        "To negative stator plug" 
         annotation (Placement(transformation(extent={{-70,-90},{-50,-110}},
               rotation=0)));
       Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) if (terminalConnection<>"D") 
@@ -7719,7 +9696,7 @@ If <i>control</i> is true, plug_sp and plug_sn are delta connected and they are 
         annotation (Placement(transformation(extent={{-20,-70},{-40,-50}},
               rotation=0)));
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plugSupply(final m=m)
-        "to grid" 
+        "To grid" 
         annotation (Placement(transformation(extent={{-10,-70},{10,-90}},
               rotation=0)));
       Modelica.Electrical.Analog.Interfaces.NegativePin starpoint if (terminalConnection<>"D") 
@@ -7758,10 +9735,10 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
     model SwitchedRheostat "Rheostat which is shortened after a given time"
       constant Integer m= 3 "Number of phases";
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
-        "to positive rotor plug" 
+        "To positive rotor plug" 
         annotation (Placement(transformation(extent={{90,70},{110,50}}, rotation=0)));
       Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n(final m=m)
-        "to negative rotor plug" 
+        "To negative rotor plug" 
         annotation (Placement(transformation(extent={{90,-50},{110,-70}}, rotation=0)));
       parameter Modelica.SIunits.Resistance RStart "Starting resistance";
       parameter Modelica.SIunits.Time tStart
@@ -7842,16 +9819,19 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
             Line(points={{10,-80},{70,-80}}, color={0,0,255}),
             Line(points={{40,-60},{40,-80}}, color={0,0,255}),
             Line(points={{20,-90},{60,-90}}, color={0,0,255}),
-            Line(points={{30,-100},{50,-100}}, color={0,0,255})}));
+            Line(points={{30,-100},{50,-100}}, color={0,0,255})}), Documentation(info="<HTML>
+<p>Switched rheostat, used for starting asynchronous induction motors with slipring rotor:</p>
+<p>The external rotor resistance <code>RStart</code> is shortened at time <code>tStart</code>.</p>
+</HTML>"));
     end SwitchedRheostat;
 
     model RampedRheostat "Rheostat with linearly decreasing resistance"
       constant Integer m= 3 "Number of phases";
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
-        "to positive rotor plug" 
+        "To positive rotor plug" 
         annotation (Placement(transformation(extent={{90,70},{110,50}}, rotation=0)));
       Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n(final m=m)
-        "to negative rotor plug" 
+        "To negative rotor plug" 
         annotation (Placement(transformation(extent={{90,-50},{110,-70}}, rotation=0)));
       parameter Modelica.SIunits.Resistance RStart "Starting resistance";
       parameter Modelica.SIunits.Time tStart
@@ -7927,57 +9907,64 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Line(points={{-10,0},{10,0}}, color={0,0,255}),
-            Line(points={{20,0},{26,0}}, color={0,0,255})}));
+            Line(points={{20,0},{26,0}}, color={0,0,255})}), Documentation(info="<HTML>
+<p>Ramped rheostat, used for starting asynchronous induction motors with slipring rotor:</p>
+<p>The external rotor resistance <code>RStart</code> is reduced to zero,  
+starting at time <code>tStart</code> with a linear ramp <code>tRamp</code>.</p>
+</HTML>"));
     end RampedRheostat;
 
   record TransformerData "Calculates Impedances from nominal values"
     extends Modelica.Icons.Record;
-    parameter Modelica.SIunits.Frequency f(start=50) "nominal frequency";
+    parameter Modelica.SIunits.Frequency f(start=50) "Nominal frequency";
     parameter Modelica.SIunits.Voltage V1(start=100)
-        "primary nominal line-to-line voltage (RMS)";
-    parameter String C1(start="Y") "choose primary connection" 
+        "Primary nominal line-to-line voltage (RMS)";
+    parameter String C1(start="Y") "Choose primary connection" 
       annotation(choices(choice="Y" "Star connection",
                          choice="D" "Delta connection"));
     parameter Modelica.SIunits.Voltage V2(start=100)
-        "secondary open circuit line-to-line voltage (RMS) @ primary nominal voltage";
-    parameter String C2(start="y") "choose secondary connection" 
+        "Secondary open circuit line-to-line voltage (RMS) @ primary nominal voltage";
+    parameter String C2(start="y") "Choose secondary connection" 
       annotation(choices(choice="y" "Star connection",
                          choice="d" "Delta connection",
                          choice="z" "Zig-zag connection"));
     parameter Modelica.SIunits.ApparentPower SNominal(start=30E3)
-        "nominal apparent power";
+        "Nominal apparent power";
     parameter Real v_sc(final min=0, final max=1, start=0.05)
-        "impedance voltage drop pu";
+        "Impedance voltage drop pu";
     parameter Modelica.SIunits.Power P_sc(start=300)
-        "short-circuit (copper) losses";
+        "Short-circuit (copper) losses";
 
     parameter Real n = V1/V2
-        "primary voltage (line-to-line) / secondary voltage (line-to-line)" 
+        "Ratio primary voltage (line-to-line) / secondary voltage (line-to-line)"
       annotation(Dialog(tab="Result", enable = false));
     final parameter Modelica.SIunits.Voltage V1ph = V1/(if C1=="D" then 1 else sqrt(3))
-        "primary phase voltage (RMS)";
+        "Primary phase voltage (RMS)";
     final parameter Modelica.SIunits.Current I1ph = SNominal/(3*V1ph)
-        "primary phase current (RMS)";
+        "Primary phase current (RMS)";
     final parameter Modelica.SIunits.Voltage V2ph = V2/(if C2=="d" then 1 else sqrt(3))
-        "secondary phase voltage (RMS)";
+        "Secondary phase voltage (RMS)";
     final parameter Modelica.SIunits.Current I2ph = SNominal/(3*V2ph)
-        "secondary phase current (RMS)";
+        "Secondary phase current (RMS)";
     final parameter Modelica.SIunits.Impedance Z1ph = 0.5*v_sc*V1ph/I1ph
-        "primary impedance per phase";
+        "Primary impedance per phase";
     parameter Modelica.SIunits.Resistance R1= 0.5*P_sc/(3*I1ph^2)
-        "warm primary resistance per phase" 
+        "Warm primary resistance per phase" 
       annotation(Dialog(tab="Result", enable = false));
     parameter Modelica.SIunits.Inductance L1sigma= sqrt(Z1ph^2-R1^2)/(2*Modelica.Constants.pi*f)
-        "primary stray inductance per phase" 
+        "Primary stray inductance per phase" 
       annotation(Dialog(tab="Result", enable = false));
     final parameter Modelica.SIunits.Impedance Z2ph = 0.5*v_sc*V2ph/I2ph
-        "secondary impedance per phase";
+        "Secondary impedance per phase";
     parameter Modelica.SIunits.Resistance R2= 0.5*P_sc/(3*I2ph^2)
-        "warm secondary resistance per phase" 
+        "Warm secondary resistance per phase" 
       annotation(Dialog(tab="Result", enable = false));
     parameter Modelica.SIunits.Inductance L2sigma= sqrt(Z2ph^2-R2^2)/(2*Modelica.Constants.pi*f)
-        "secondary stray inductance per phase" 
+        "Secondary stray inductance per phase" 
       annotation(Dialog(tab="Result", enable = false));
+    annotation(Documentation(info="<HTML>
+<p>The parameters of the transformer models are calculated from parameters normally given in a technical description.</p>
+</HTML>"));
   end TransformerData;
 
     annotation (Documentation(info="<HTML>
@@ -8022,7 +10009,9 @@ This package contains components to model electrical machines:
 <li>BasicMachines: basic machine models</li>
 <li>Sensors: sensors, usefull when modelling machines</li>
 <li>SpacePhasors: an independent library for using space phasors</li>
+<li>Thermal: Couple machine models with simple thermal models</li>
 <li>Interfaces: Space phasor connector and partial machine models</li>
+<li>Utilities: Useful models used in Examples</li>
 </ul>
 <b>Limitations and assumptions:</b>
 <ul>
@@ -8148,6 +10137,12 @@ and the accompanying <b>disclaimer</b>
        set all useHeatPort=false</li>
   <li> v2.1.1 2010/02/05 Anton Haumer<br>
        included Utilities.rheostats (designed by Christian Kral)</li>
+  <li> v2.1.2 2010/02/09 Anton Haumer<br>
+       included new Examples (AIMC_Transformer, DC_Comparison)</li>
+  <li> v2.1.3 2010/02/10 Anton Haumer<br>
+       prepared conditionalHeatPort of SquirrelCage and DamperCage</li>
+  <li> v2.2.0 2011/02/10 Anton Haumer<br>
+       conditional ThermalPort for all machines</li>
   </ul>
 </HTML>"),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
