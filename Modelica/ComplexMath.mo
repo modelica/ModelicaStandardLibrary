@@ -205,14 +205,14 @@ algorithm
            k2 := j + gap + 1;
            if sortFrequency then
               if ascending then
-                 swap := abs(sorted_v[k1].im) >  abs(sorted_v[k2].im) or 
-                         abs(sorted_v[k1].im) == abs(sorted_v[k2].im) and 
-                         (sorted_v[k1].re  > sorted_v[k2].re or 
+                 swap := abs(sorted_v[k1].im) >  abs(sorted_v[k2].im) or
+                         abs(sorted_v[k1].im) == abs(sorted_v[k2].im) and
+                         (sorted_v[k1].re  > sorted_v[k2].re or
                           sorted_v[k1].re  == sorted_v[k2].re and sorted_v[k1].im < sorted_v[k2].im);
               else
-                 swap := abs(sorted_v[k1].im) <  abs(sorted_v[k2].im) or 
-                         abs(sorted_v[k1].im) == abs(sorted_v[k2].im) and 
-                         (sorted_v[k1].re  < sorted_v[k2].re or 
+                 swap := abs(sorted_v[k1].im) <  abs(sorted_v[k2].im) or
+                         abs(sorted_v[k1].im) == abs(sorted_v[k2].im) and
+                         (sorted_v[k1].re  < sorted_v[k2].re or
                           sorted_v[k1].re  == sorted_v[k2].re and sorted_v[k1].im < sorted_v[k2].im);
               end if;
            else
@@ -239,14 +239,14 @@ algorithm
               k2 := j + gap + 1;
               if sortFrequency then
                  if ascending then
-                    swap := abs(sorted_v[k1].im) >  abs(sorted_v[k2].im) or 
-                            abs(sorted_v[k1].im) == abs(sorted_v[k2].im) and 
-                            (sorted_v[k1].re  > sorted_v[k2].re or 
+                    swap := abs(sorted_v[k1].im) >  abs(sorted_v[k2].im) or
+                            abs(sorted_v[k1].im) == abs(sorted_v[k2].im) and
+                            (sorted_v[k1].re  > sorted_v[k2].re or
                              sorted_v[k1].re  == sorted_v[k2].re and sorted_v[k1].im < sorted_v[k2].im);
                  else
-                    swap := abs(sorted_v[k1].im) <  abs(sorted_v[k2].im) or 
-                            abs(sorted_v[k1].im) == abs(sorted_v[k2].im) and 
-                            (sorted_v[k1].re  < sorted_v[k2].re or 
+                    swap := abs(sorted_v[k1].im) <  abs(sorted_v[k2].im) or
+                            abs(sorted_v[k1].im) == abs(sorted_v[k2].im) and
+                            (sorted_v[k1].re  < sorted_v[k2].re or
                              sorted_v[k1].re  == sorted_v[k2].re and sorted_v[k1].im < sorted_v[k2].im);
                  end if;
               else
@@ -451,7 +451,7 @@ end Vectors;
   function arg "Phase angle of complex number"
     input Complex c "Complex number";
     input Modelica.SIunits.Angle phi0=0
-      "phase angle phi shall be in the range: -pi < phi-phi0 < pi";
+      "Phase angle phi shall be in the range: -pi < phi-phi0 < pi";
     output Modelica.SIunits.Angle phi "= phase angle of c";
   algorithm
     phi := Modelica.Math.atan3(
