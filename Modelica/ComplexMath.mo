@@ -444,7 +444,7 @@ end Vectors;
     annotation(Inline=true);
   end real;
 
-  function imag "imaginary part of complex number"
+  function imag "Imaginary part of complex number"
     input Complex c "Complex number";
     output Real r "= c.im ";
   algorithm
