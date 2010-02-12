@@ -353,14 +353,15 @@ found in
 
   class ReleaseNotes "Release notes"
 
-    annotation (Documentation(revisions="<html>
+    annotation (Documentation(info="<html>
+</html>",   revisions="<html>
 <h4>Version 1.0.0</h4>
 
 <p>First official release</p>
 </html>"));
   end ReleaseNotes;
 
-  class References
+  class References "References"
 
     annotation (Documentation(info="<html>
 
@@ -419,7 +420,7 @@ found in
 </html>"));
   end References;
 
-  class Contact
+  class Contact "Authors' contact"
 
     annotation (Documentation(info="<html>
 
@@ -458,7 +459,7 @@ found in
 </html>"));
   end Contact;
 
-  class Glossar
+  class Glossar "Glossar"
 
     annotation (Documentation(info="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -477,5 +478,6 @@ found in
 </table>
 </html>"));
   end Glossar;
-  annotation (DocumentationClass=true);
+  annotation (DocumentationClass=true, Documentation(info="<html>
+</html>"));
 end UsersGuide;

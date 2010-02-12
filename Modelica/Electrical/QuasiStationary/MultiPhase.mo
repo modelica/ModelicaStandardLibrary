@@ -1,12 +1,12 @@
 within Modelica.Electrical.QuasiStationary;
-package MultiPhase
+package MultiPhase "Multiphase AC components"
   extends Modelica.Icons.Library2;
 
   package Basic "Basic components for AC multiphase models"
     extends Modelica.Icons.Library2;
 
     model Star "Star connection"
-      parameter Integer m(final min=1) = 3 "number of phases";
+      parameter Integer m(final min=1) = 3 "Number of phases";
       Interfaces.PositivePlug plug_p(final m=m) 
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
                0)));
@@ -55,7 +55,7 @@ Star (wye) connection of a multi phase circuit. The potentials at the star point
     end Star;
 
     model Delta "Delta (polygon) connection"
-      parameter Integer m(final min=2) = 3 "number of phases";
+      parameter Integer m(final min=2) = 3 "Number of phases";
       Interfaces.PositivePlug plug_p(final m=m) 
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
                0)));
@@ -109,10 +109,10 @@ Delta (polygon) connection of a multi phase circuit.
     end Delta;
 
     model PlugToPin_p "Connect one (positive) pin"
-      parameter Integer m(final min=1) = 3 "number of phases";
+      parameter Integer m(final min=1) = 3 "Number of phases";
       parameter Integer k(
         final min=1,
-        final max=m) = 1 "phase index";
+        final max=m) = 1 "Phase index";
       Interfaces.PositivePlug plug_p(final m=m) 
         annotation (Placement(transformation(extent={{-30,-10},{-10,10}}, rotation=
                 0)));
@@ -158,10 +158,10 @@ Connects the single phase (positive) pin <i>k</i> of the multi phase (positive) 
     end PlugToPin_p;
 
     model PlugToPin_n "Connect one (negative) pin"
-      parameter Integer m(final min=1) = 3 "number of phases";
+      parameter Integer m(final min=1) = 3 "Number of phases";
       parameter Integer k(
         final min=1,
-        final max=m) = 1 "phase index";
+        final max=m) = 1 "Phase index";
       Interfaces.NegativePlug plug_n(final m=m) 
         annotation (Placement(transformation(extent={{-30,-10},{-10,10}}, rotation=
                 0)));
@@ -290,7 +290,8 @@ Connects all <i>m</i> single phase (negative) pins of the multi phase (negative)
 
     model Resistor "Multiphase linear resistor"
       extends Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Resistance R_ref[m](start=fill(1,m));
+      parameter Modelica.SIunits.Resistance R_ref[m](start=fill(1,m))
+        "Reference resistances at T_ref";
       parameter Modelica.SIunits.Temperature T_ref[m]=fill(293.15,m)
         "Reference temperatures";
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref[m]=zeros(m)
@@ -310,8 +311,8 @@ Connects all <i>m</i> single phase (negative) pins of the multi phase (negative)
               {-39,0},{-10,0}},
             color={85,170,255}));
       connect(resistor.pin_n, plugToPins_n.pin_n) 
-        annotation (Line(points={{10,0},{39,0},{39,2.44929e-016},{68,2.44929e-016}},
-                                                color={85,170,255}));
+        annotation (Line(points={{10,0},{39,0},{39,2.44929e-016},{68,
+              2.44929e-016}},                   color={85,170,255}));
       connect(resistor.heatPort, heatPort) 
         annotation (Line(points={{0,-10},{0,-32.5},{1.16573e-015,-32.5},{1.16573e-015,
               -55},{0,-55},{0,-100}},
@@ -363,7 +364,8 @@ A linear temperature dependency of the resistances for enabled heat ports is als
 
     model Conductor "Multiphase linear conductor"
       extends Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Conductance G_ref[m](start=fill(1,m));
+      parameter Modelica.SIunits.Conductance G_ref[m](start=fill(1,m))
+        "Reference conductances at T_ref";
       parameter Modelica.SIunits.Temperature T_ref[m]=fill(293.15,m)
         "Reference temperatures";
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref[m]=zeros(m)
@@ -383,8 +385,8 @@ A linear temperature dependency of the resistances for enabled heat ports is als
               {-39,0},{-10,0}},
             color={85,170,255}));
       connect(conductor.pin_n, plugToPins_n.pin_n) 
-        annotation (Line(points={{10,0},{39,0},{39,2.44929e-016},{68,2.44929e-016}},
-                                                color={85,170,255}));
+        annotation (Line(points={{10,0},{39,0},{39,2.44929e-016},{68,
+              2.44929e-016}},                   color={85,170,255}));
       connect(conductor.heatPort, heatPort) 
         annotation (Line(points={{0,-10},{0,-32.5},{1.16573e-015,-32.5},{1.16573e-015,
               -55},{0,-55},{0,-100}},
@@ -433,7 +435,8 @@ A linear temperature dependency of the conductances for enabled heat ports is al
 
     model Capacitor "Multiphase linear capacitor"
       extends Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Capacitance C[m](start=fill(1,m));
+      parameter Modelica.SIunits.Capacitance C[m](start=fill(1,m))
+        "Capacitances";
       Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor capacitor[
                                             m](final C=C) 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
@@ -443,8 +446,8 @@ A linear temperature dependency of the conductances for enabled heat ports is al
               {-39,0},{-10,0}},
             color={85,170,255}));
       connect(capacitor.pin_n, plugToPins_n.pin_n) 
-        annotation (Line(points={{10,0},{39,0},{39,2.44929e-016},{68,2.44929e-016}},
-                                                color={85,170,255}));
+        annotation (Line(points={{10,0},{39,0},{39,2.44929e-016},{68,
+              2.44929e-016}},                   color={85,170,255}));
       annotation (Icon(graphics={
             Text(extent={{100,60},{-100,100}}, textString=
                                                    "%name"),
@@ -487,7 +490,7 @@ using <i>m</i> <a href=Modelica://Modelica.Electrical.QuasiStationary.SinglePhas
 
     model Inductor "Multiphase linear inductor"
       extends Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Inductance L[m](start=fill(1,m));
+      parameter Modelica.SIunits.Inductance L[m](start=fill(1,m)) "Inductances";
       Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor inductor[
                                           m](final L=L) 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
@@ -843,7 +846,16 @@ The inductances <i>L</i> are given as <i>m</i> input signals.
           extent={{-80,-10},{60,-70}},
           lineColor={0,0,255},
           fillColor={255,255,255},
-          fillPattern=FillPattern.Solid)}));
+          fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+<p>This package hosts basic models for quasi stationary multiphase circuits.
+Quasi stationary theory can be found in the
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
+</p>
+<h4>See also</h4>
+
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic\">SinglePhase.Basic</a>
+
+</html>"));
   end Basic;
 
   package Ideal "Ideal components for AC multiphase models"
@@ -928,7 +940,16 @@ it uses <i>m</i> <a href=\"Modelica://Modelica.Electrical.QuasiStationary.Single
         Ellipse(extent={{-54,-56},{-46,-64}}),
         Line(points={{-47,-58},{30,-10}}),
         Line(points={{30,-40},{30,-60}}),
-        Line(points={{30,-60},{80,-60}})}));
+        Line(points={{30,-60},{80,-60}})}), Documentation(info="<html>
+<p>This package hosts ideal models for quasi stationary multiphase circuits.
+Quasi stationary theory can be found in the
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
+</p>
+<h4>See also</h4>
+
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Ideal\">SinglePhase.Ideal</a>
+
+</html>"));
   end Ideal;
 
   package Interfaces "Interfaces for AC multiphase models"
@@ -1036,7 +1057,7 @@ Additionally the reference angle is specified in the connector. The time derivat
     end NegativePlug;
 
     partial model TwoPlug "Two plugs with pin-adapter"
-      parameter Integer m(min=1) = 3 "number of phases";
+      parameter Integer m(min=1) = 3 "Number of phases";
       Modelica.SIunits.ComplexVoltage v[m];
       Modelica.SIunits.ComplexCurrent i[m];
       Modelica.SIunits.AngularVelocity omega = der(plug_p.reference.gamma);
@@ -1061,8 +1082,8 @@ Additionally the reference angle is specified in the connector. The time derivat
               {-86,0},{-72,0}},
             color={85,170,255}));
       connect(plugToPins_n.plug_n, plug_n) 
-        annotation (Line(points={{72,-2.44929e-016},{86,-2.44929e-016},{86,0},{100,
-              0}},                               color={85,170,255}));
+        annotation (Line(points={{72,-2.44929e-016},{86,-2.44929e-016},{86,0},{
+              100,0}},                           color={85,170,255}));
       annotation (Diagram(graphics),
                            Documentation(info="<html>
 <p>
@@ -1510,19 +1531,28 @@ This sensor can be used to measure <i>m</i> complex apparent power values, using
           extent={{-15,-35},{-5,-45}},
           lineColor={0,0,0},
           fillColor={0,0,0},
-          fillPattern=FillPattern.Solid)}));
+          fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+<p>This package hosts sensors for quasi stationary multiphase circuits.
+Quasi stationary theory can be found in the
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
+</p>
+<h4>See also</h4>
+
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors\">SinglePhase.Sensors</a>
+
+</html>"));
   end Sensors;
 
   package Sources "AC multiphase sources"
     extends Modelica.Icons.Library2;
 
-    model VoltageSource
+    model VoltageSource "Constant multiphase AC voltage"
       extends Interfaces.Source;
-      parameter Modelica.SIunits.Frequency f(start=1) "frequency of the source";
+      parameter Modelica.SIunits.Frequency f(start=1) "Frequency of the source";
       parameter Modelica.SIunits.Voltage V[m](start=fill(1,m))
         "RMS voltage of the source";
       parameter Modelica.SIunits.Angle phi[m]={0 - (j-1)*2*pi/m for j in 1:m}
-        "phase shift of the source";
+        "Phase shift of the source";
       Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource
         voltageSource[                                m](
         each final f=f,
@@ -1566,7 +1596,7 @@ This model describes <i>m</i> constant voltage sources, specifying the complex v
 </html>"));
     end VoltageSource;
 
-    model VariableVoltageSource
+    model VariableVoltageSource "Variable multiphase AC voltage"
       extends Interfaces.Source;
       Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableVoltageSource
         variableVoltageSource[m] 
@@ -1590,8 +1620,8 @@ This model describes <i>m</i> constant voltage sources, specifying the complex v
         annotation (Line(points={{-68,0},{-53.5,0},{-53.5,1.22125e-015},{-39,1.22125e-015},
               {-39,0},{-10,0}},                                  color={85,170,255}));
       connect(variableVoltageSource.pin_n, plugToPins_n.pin_n) 
-        annotation (Line(points={{10,0},{39,0},{39,2.44929e-016},{68,2.44929e-016}},
-                                                color={85,170,255}));
+        annotation (Line(points={{10,0},{39,0},{39,2.44929e-016},{68,
+              2.44929e-016}},                   color={85,170,255}));
       connect(V, variableVoltageSource.V) 
         annotation (Line(points={{-40,100},{-40,60},{-4,60},{-4,10}}, color={85,170,
               255}));
@@ -1627,13 +1657,13 @@ Additionally, the frequency of the voltage source is defined by a real signal in
 </html>"));
     end VariableVoltageSource;
 
-    model CurrentSource
+    model CurrentSource "Constant multiphase AC current"
       extends Interfaces.Source;
-      parameter Modelica.SIunits.Frequency f(start=1) "frequency of the source";
+      parameter Modelica.SIunits.Frequency f(start=1) "Frequency of the source";
       parameter Modelica.SIunits.Current I[m](start=fill(1,m))
         "RMS current of the source";
       parameter Modelica.SIunits.Angle phi[m]={0 - (j-1)*2*pi/m for j in 1:m}
-        "phase shift of the source";
+        "Phase shift of the source";
       Modelica.Electrical.QuasiStationary.SinglePhase.Sources.CurrentSource
         currentSource[                                m](
         each final f=f,
@@ -1671,7 +1701,7 @@ This model describes <i>m</i> constant current sources, specifying the complex c
 </html>"));
     end CurrentSource;
 
-    model VariableCurrentSource
+    model VariableCurrentSource "Variable multiphase AC current"
       extends Interfaces.Source;
       Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableCurrentSource
         variableCurrentSource[m] 
@@ -1696,8 +1726,8 @@ This model describes <i>m</i> constant current sources, specifying the complex c
               {-39,0},{-10,0}},
             color={85,170,255}));
       connect(variableCurrentSource.pin_n, plugToPins_n.pin_n) 
-        annotation (Line(points={{10,0},{39,0},{39,2.44929e-016},{68,2.44929e-016}},
-                                                color={85,170,255}));
+        annotation (Line(points={{10,0},{39,0},{39,2.44929e-016},{68,
+              2.44929e-016}},                   color={85,170,255}));
       connect(I, variableCurrentSource.I) annotation (Line(points={{-40,100},{-40,
               60},{-4,60},{-4,10}}, color={85,170,255}));
       annotation (Icon(graphics={
@@ -1735,7 +1765,16 @@ Additionally, the frequency of the current source is defined by a real signal in
           lineColor={0,0,255},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid),
-        Line(points={{40,-40},{80,-40}})}));
+        Line(points={{40,-40},{80,-40}})}), Documentation(info="<html>
+<p>This package hosts sources for quasi stationary multiphase circuits.
+Quasi stationary theory can be found in the
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
+</p>
+<h4>See also</h4>
+
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources\">SinglePhase.Sources</a>
+
+</html>"));
   end Sources;
   annotation (Icon(graphics={
       Ellipse(extent={{-60,10},{40,-90}}, lineColor={0,0,255}),

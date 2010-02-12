@@ -193,12 +193,14 @@ Plot length and angle of the voltage phasor, i.e. complexToPolar.len and .phi, v
 
   model BalancingStar "Balancing an unsymmetrical star-connected load"
     extends Modelica.Icons.Example;
-    parameter Integer m=3;
-    parameter Modelica.SIunits.Voltage V = 100;
-    parameter Modelica.SIunits.Frequency f = 50;
-    parameter Modelica.SIunits.Resistance R = 10;
-    parameter Modelica.SIunits.Inductance L = (R*sqrt(3))/(2*Modelica.Constants.pi*f);
-    parameter Modelica.SIunits.Capacitance C = 1/(R*sqrt(3))/(2*Modelica.Constants.pi*f);
+    parameter Integer m=3 "Number of phases";
+    parameter Modelica.SIunits.Voltage V = 100 "Source Voltage";
+    parameter Modelica.SIunits.Frequency f = 50 "Source frequency";
+    parameter Modelica.SIunits.Resistance R = 10 "Load resistance";
+    parameter Modelica.SIunits.Inductance L = (R*sqrt(3))/(2*Modelica.Constants.pi*f)
+      "Load inductance";
+    parameter Modelica.SIunits.Capacitance C = 1/(R*sqrt(3))/(2*Modelica.Constants.pi*f)
+      "Load capacitance";
     Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource
       voltageSource(
       m=m,
@@ -327,12 +329,14 @@ P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase c
 
   model BalancingDelta "Balancing an unsymmetrical delta-connected load"
     extends Modelica.Icons.Example;
-    parameter Integer m=3;
-    parameter Modelica.SIunits.Voltage V_LL = 100;
-    parameter Modelica.SIunits.Frequency f = 50;
-    parameter Modelica.SIunits.Resistance R = 10;
-    parameter Modelica.SIunits.Inductance L = (R*sqrt(3))/(2*Modelica.Constants.pi*f);
-    parameter Modelica.SIunits.Capacitance C = 1/(R*sqrt(3))/(2*Modelica.Constants.pi*f);
+    parameter Integer m=3 "Number of phases";
+    parameter Modelica.SIunits.Voltage V_LL = 100 "Source voltage line-to-line";
+    parameter Modelica.SIunits.Frequency f = 50 "Source frequency";
+    parameter Modelica.SIunits.Resistance R = 10 "Load resistance";
+    parameter Modelica.SIunits.Inductance L = (R*sqrt(3))/(2*Modelica.Constants.pi*f)
+      "Load inductance";
+    parameter Modelica.SIunits.Capacitance C = 1/(R*sqrt(3))/(2*Modelica.Constants.pi*f)
+      "Load capacitance";
     Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource
       voltageSource(
       m=m,
@@ -459,7 +463,9 @@ P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase c
 </p>
 </html>"));
   end BalancingDelta;
-  annotation (Icon(graphics={Ellipse(extent={{-80,44},{60,-96}}, lineColor={95,
+  annotation (Documentation(info="<html>
+Examples to demonstrate the usage of quasistationary electric components.
+</html>"), Icon(graphics={Ellipse(extent={{-80,44},{60,-96}}, lineColor={95,
             95,95}), Polygon(
         points={{-40,36},{-40,-88},{60,-26},{-40,36}},
         lineColor={95,95,95},

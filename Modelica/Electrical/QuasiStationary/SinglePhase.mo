@@ -33,7 +33,8 @@ Every electrical circuit, e.g. a series resonance
       extends Interfaces.OnePort;
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.conj;
-      parameter Modelica.SIunits.Resistance R_ref(start=1);
+      parameter Modelica.SIunits.Resistance R_ref(start=1)
+        "Reference resistance at T_ref";
       parameter Modelica.SIunits.Temperature T_ref=293.15
         "Reference temperature";
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0
@@ -89,7 +90,8 @@ A linear temperature dependency of the resistance for an enabled heat port is al
       extends Interfaces.OnePort;
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.conj;
-      parameter Modelica.SIunits.Conductance G_ref(start=1);
+      parameter Modelica.SIunits.Conductance G_ref(start=1)
+        "Reference conductance at T_ref";
       parameter Modelica.SIunits.Temperature T_ref=293.15
         "Reference temperature";
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0
@@ -145,7 +147,7 @@ A linear temperature dependency of the resistance for an enabled heat port is al
     model Capacitor "Singlephase linear capacitor"
       extends Interfaces.OnePort;
       import Modelica.Constants.j;
-      parameter Modelica.SIunits.Capacitance C(start=1);
+      parameter Modelica.SIunits.Capacitance C(start=1) "Capacitance";
     equation
       i = j*omega*C*v;
       annotation (Icon(graphics={
@@ -188,7 +190,7 @@ The capacitance <i>C</i> is allowed to be positive, zero, or negative.
     model Inductor "Singlephase linear inductor"
       extends Interfaces.OnePort;
       import Modelica.Constants.j;
-      parameter Modelica.SIunits.Inductance L(start=1);
+      parameter Modelica.SIunits.Inductance L(start=1) "Inductance";
     equation
       v = j*omega*L*i;
       annotation (Icon(graphics={
@@ -476,7 +478,16 @@ The abstraction of a variable inductor at quasi stationary operation assumes:<br
           extent={{-80,-10},{60,-70}},
           lineColor={0,0,255},
           fillColor={255,255,255},
-          fillPattern=FillPattern.Solid)}));
+          fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+<p>This package hosts basic models for quasi stationary single phase circuits.
+Quasi stationary theory for single phase circuits can be found in the
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
+</p>
+<h4>See also</h4>
+
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic\">MultiPhase.Basic</a>
+
+</html>"));
   end Basic;
 
   package Ideal "Ideal components for AC singlephase models"
@@ -550,7 +561,16 @@ This model is a simple short cut branch considering the complex voltage <i><u>v<
         Line(points={{-100,-60},{-54,-60}}),
         Line(points={{-47,-58},{30,-10}}),
         Line(points={{30,-60},{80,-60}}),
-        Line(points={{30,-40},{30,-60}})}));
+        Line(points={{30,-40},{30,-60}})}), Documentation(info="<html>
+<p>This package hosts ideal models for quasi stationary single phase circuits.
+Quasi stationary theory for single phase circuits can be found in the
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
+</p>
+<h4>See also</h4>
+
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Ideal\">MultiPhase.Ideal</a>
+
+</html>"));
   end Ideal;
 
   package Interfaces "Interfaces for AC singlephase models"
@@ -1015,7 +1035,16 @@ This sensor can be used to measure the complex apparent power.
           fillColor={0,0,0},
           fillPattern=FillPattern.Solid),
         Line(points={{15,0},{5,-14}}, color={0,0,0}),
-        Line(points={{30,-15},{16,-25}}, color={0,0,0})}));
+        Line(points={{30,-15},{16,-25}}, color={0,0,0})}), Documentation(info="<html>
+<p>This package hosts sensors for quasi stationary single phase circuits.
+Quasi stationary theory for single phase circuits can be found in the
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
+</p>
+<h4>See also</h4>
+
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors\">MultiPhase.Sensors</a>
+
+</html>"));
   end Sensors;
 
   package Sources "AC singlephase sources"
@@ -1181,11 +1210,15 @@ Additionally, the frequency of the voltage source is defined by a real signal in
           lineColor={0,0,255},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid),
-        Line(points={{40,-40},{80,-40}})}),
-                                        Documentation(info="<html>
-<p>
-This package contains voltage and current sources.
+        Line(points={{40,-40},{80,-40}})}), Documentation(info="<html>
+<p>This package hosts sources for quasi stationary single phase circuits.
+Quasi stationary theory for single phase circuits can be found in the
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
 </p>
+<h4>See also</h4>
+
+<a href=\"Modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources\">MultiPhase.Sources</a>
+
 </html>"));
   end Sources;
   annotation (Icon(graphics={Rectangle(extent={{-60,10},{40,-90}}, lineColor={0,
