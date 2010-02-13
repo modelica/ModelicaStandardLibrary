@@ -1501,7 +1501,7 @@ Default machine parameters are used.
         experiment(StopTime=3, Interval=0.001),
         Documentation(info="<HTML>
 <b>12th Test example: Investigate influence of armature temperature on a DCPM motor</b><br>
-The motor are starts at no-load speed, then a load step is applied.<br>
+The motor starts at no-load speed, then a load step is applied.<br>
 Beginning with the load step, the armature temperature rises exponentially from 20 degC to 80 degC.<br>
 Simulate for 3 seconds and plot (versus time):
 <ul>
@@ -1512,7 +1512,7 @@ Simulate for 3 seconds and plot (versus time):
 </ul>
 Default machine parameters are used, but:
 <ul>
-<li>The aramture winding material is set to Copper.</li>
+<li>The aramature winding material is set to Copper.</li>
 <li>Armature reference temperature is set to 80 degC.</li>
 <li>Nominal armature temperature is set to 80 degC.</li>
 </ul>
@@ -1521,6 +1521,395 @@ So the machine is at the beginning in cold condition, ending in warm condition
 </HTML>"),
         experimentSetupOutput);
     end DCPM_Temperature;
+
+    model DCPM_Cooling "Test example 13: Cooling of a DCPM motor"
+      import Modelica;
+      extends Modelica.Icons.Example;
+      parameter Modelica.SIunits.Voltage Va=100 "Actual armature voltage";
+      parameter Modelica.SIunits.Voltage Ve=100 "Actual excitation voltage";
+      parameter Modelica.SIunits.AngularVelocity w0=Modelica.SIunits.Conversions.from_rpm(1500)
+        "No-load speed";
+      parameter Modelica.SIunits.Torque TLoad=63.66 "Nominal load torque";
+      parameter Modelica.SIunits.Inertia JLoad=0.15 "Load's moment of inertia";
+      parameter Modelica.SIunits.Temperature TAmbient=293.15
+        "Ambient temperature";
+      parameter Modelica.SIunits.HeatCapacity Ca=20 "Armature's heat capacity";
+      parameter Modelica.SIunits.HeatCapacity Cc=50 "Core's heat capacity";
+      parameter Modelica.SIunits.ThermalConductance G_armature_core=2*dcpm.Ra*dcpm.IaNominal^2/(dcmp.TaNominal-293.15-5)
+        "Heat conductance armature - core";
+      parameter Modelica.SIunits.ThermalConductance G_core_cooling=2*dcpm.Ra*dcpm.IaNominal^2/(dcmp.TaNominal-293.15-5)
+        "Heat conductance core - cooling";
+      parameter Modelica.SIunits.VolumeFlowRate CoolantFlow=50 "Coolant flow";
+      Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet
+        dcpm(
+        wMechanical(start=w0, fixed=true),
+        Alpha20a(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper,
+        useThermalPort=true,
+        TaNominal=353.15,
+        TaRef=353.15) 
+        annotation (Placement(transformation(extent={{-20,20},{0,40}},
+              rotation=0)));
+
+      Modelica.Electrical.Analog.Sources.ConstantVoltage armatureVoltage(V=Va) 
+        annotation (Placement(transformation(extent={{10,-10},{-10,10}},
+                                                                       rotation=90,
+            origin={-80,70})));
+      Modelica.Electrical.Analog.Basic.Ground groundArmature 
+        annotation (Placement(transformation(
+            origin={-80,40},
+            extent={{-10,-10},{10,10}},
+            rotation=0)));
+      Modelica.Mechanics.Rotational.Components.Inertia loadInertia(J=JLoad) 
+        annotation (Placement(transformation(extent={{10,20},{30,40}},
+              rotation=0)));
+      Modelica.Mechanics.Rotational.Sources.Torque loadTorque(
+        useSupport=false) 
+        annotation (Placement(transformation(extent={{60,20},{40,40}},  rotation=0)));
+      Modelica.Blocks.Sources.Pulse pulse(
+        amplitude=-1.5*TLoad,
+        offset=0,
+        period=1) 
+        annotation (Placement(transformation(extent={{90,20},{70,40}})));
+      Modelica.Thermal.HeatTransfer.Components.HeatCapacitor armature(C=Ca, T(start=
+             TAmbient, fixed=true))                                              annotation (
+         Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=180,
+            origin={-50,-40})));
+      Modelica.Thermal.HeatTransfer.Components.ThermalConductor armatureCore(G=
+            G_armature_core) 
+        annotation (Placement(transformation(extent={{-40,-40},{-20,-20}})));
+      Modelica.Thermal.HeatTransfer.Components.HeatCapacitor core(C=Cc, T(start=
+              TAmbient, fixed=true)) 
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=180,
+            origin={-10,-40})));
+      Modelica.Thermal.HeatTransfer.Components.ThermalConductor coreCooling(G=
+            G_core_cooling) 
+        annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
+      Modelica.Thermal.FluidHeatFlow.Sources.Ambient inlet(
+          constantAmbientTemperature=TAmbient) 
+        annotation (Placement(transformation(extent={{-10,-80},{-30,-60}})));
+      Modelica.Thermal.FluidHeatFlow.Sources.VolumeFlow volumeFlow(
+                               T0=TAmbient, constantVolumeFlow=CoolantFlow) 
+             annotation (Placement(transformation(extent={{0,-80},{20,-60}})));
+      Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe cooling(tapT=0.5, T0=
+            TAmbient) 
+        annotation (Placement(transformation(extent={{30,-60},{50,-80}})));
+      Modelica.Thermal.FluidHeatFlow.Sources.Ambient outlet(
+          constantAmbientTemperature=TAmbient) 
+        annotation (Placement(transformation(extent={{60,-80},{80,-60}})));
+      Modelica.Thermal.HeatTransfer.Sources.FixedTemperature fixedTemperature(T=
+            TAmbient) 
+        annotation (Placement(transformation(extent={{42,-10},{22,10}})));
+    protected
+      Modelica.Electrical.Machines.Interfaces.DCMachines.ThermalPortDCPM
+        thermalPort 
+        annotation (Placement(transformation(extent={{-14,-4},{-6,4}})));
+    equation
+      connect(loadInertia.flange_b, loadTorque.flange) 
+        annotation (Line(points={{30,30},{30,30},{40,30}},
+                                                     color={0,0,0}));
+      connect(dcpm.flange, loadInertia.flange_a) annotation (Line(
+          points={{0,30},{10,30}},
+          color={0,0,0},
+          smooth=Smooth.None));
+
+      connect(armatureVoltage.n, groundArmature.p) annotation (Line(
+          points={{-80,60},{-80,50}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(armatureVoltage.p,dcpm. pin_ap) annotation (Line(
+          points={{-80,80},{-4,80},{-4,40}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(armatureVoltage.n,dcpm. pin_an) annotation (Line(
+          points={{-80,60},{-16,60},{-16,40}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(armature.port, armatureCore.port_a)           annotation (Line(
+          points={{-50,-30},{-40,-30}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(armatureCore.port_b, core.port)               annotation (Line(
+          points={{-20,-30},{-10,-30}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(core.port, coreCooling.port_a)                 annotation (Line(
+          points={{-10,-30},{0,-30}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(pulse.y, loadTorque.tau) annotation (Line(
+          points={{69,30},{62,30}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(coreCooling.port_b, cooling.heatPort)          annotation (Line(
+          points={{20,-30},{40,-30},{40,-60}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(cooling.flowPort_b, outlet.flowPort)      annotation (Line(
+          points={{50,-70},{60,-70}},
+          color={255,0,0},
+          smooth=Smooth.None));
+      connect(inlet.flowPort, volumeFlow.flowPort_a)   annotation (Line(
+          points={{-10,-70},{0,-70}},
+          color={255,0,0},
+          smooth=Smooth.None));
+      connect(volumeFlow.flowPort_b, cooling.flowPort_a)    annotation (Line(
+          points={{20,-70},{30,-70}},
+          color={255,0,0},
+          smooth=Smooth.None));
+      connect(dcpm.thermalPort, thermalPort)  annotation (Line(
+          points={{-10,20},{-10,0}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(fixedTemperature.port, thermalPort.heatPort_stray)  annotation (Line(
+          points={{22,0},{-10,0}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(fixedTemperature.port, thermalPort.heatPort_friction)  annotation (
+          Line(
+          points={{22,0},{-10,0}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(fixedTemperature.port, thermalPort.heatPort_brush)  annotation (Line(
+          points={{22,0},{-10,0}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(fixedTemperature.port, thermalPort.heatPort_pm)  annotation (Line(
+          points={{22,0},{-10,0}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(armature.port, thermalPort.heatPort_a)  annotation (Line(
+          points={{-50,-30},{-50,0},{-10,0}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(core.port, thermalPort.heatPort_core)  annotation (Line(
+          points={{-10,-30},{-10,-15},{-10,-15},{-10,0}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      annotation (
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+                100}}),
+                graphics),
+        experiment(StopTime=25, Interval=0.001),
+        Documentation(info="<HTML>
+<b>Cooling test example: Demonstrate cooling of a DCPM motor</b><br>
+The motor starts at no-load speed, then load pulses are applied.<br>
+The cooling circuit consists of armature's thermal capacitance, 
+a thermal conductance between armature and core, core's thermal capacitance and 
+a thermal conductance between core and coolant. 
+The coolant flow circuit consists of inlet, volume flow, a pipe connected to the core and the outlet.<br>
+<b>Please note:</b>
+<ul>
+<li>All unused heat ports of the thermal port (i.e. without loss sources in the machine: brush, stray, friction, permanent magnet) have to be connected to a constant temperature source.</li>
+<li>The thermal capacitances (i.e. time constants) are unusual small to provide short simulation time!</li>
+<li>The coolant is a theoretical coolant with specific mass = 1 kg/m3 and cp = 1 J/kg.K.</li>
+<li>The thermal conductances as well as the coolant flow are parametrized such way, that:<li>
+</ul>
+<ol>
+<li>the total coolant's temperature rise is 10 K (over coolant inlet)</li>
+<li>the core's temperature rise is 27.5 K (over coolant's average temperature between inlet and outlet)</li>
+<li>the armature's temperature rise is 55 K (over coolant's average temperature between inlet and outlet)</li>
+</ol>
+Simulate for 25 seconds and plot (versus time):
+<ul>
+<li>armature.T: armature temperature</li>
+<li>coore.T: core temperature</li>
+<li>cooling.T: coolant temperature (between inlet and outlet)</li>
+</ul>
+Therefore the armature temperature would reach nominal armature temperature at constant nominal load.<br>
+Default machine parameters are used, but:
+<ul>
+<li>The aramature winding material is set to Copper.</li>
+<li>Armature reference temperature is set to 80 degC.</li>
+<li>Nominal armature temperature is set to 80 degC.</li>
+</ul>
+</HTML>"));
+    end DCPM_Cooling;
+
+    model AIMC_Steinmetz
+      "AsynchronousInductionMachineSquirrelCage Steinmetz-connection"
+      extends Modelica.Icons.Example;
+      constant Integer m=3 "Number of phases";
+      parameter Modelica.SIunits.Voltage VNominal=100
+        "Nominal RMS voltage per phase";
+      parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
+      parameter Modelica.SIunits.Time tStart1=0.1 "Start time";
+      parameter Modelica.SIunits.Capacitance Cr=0.0035
+        "Motor's running capacitor";
+      parameter Modelica.SIunits.Capacitance Cs=5*Cr
+        "Motor's (additional) starting capacitor";
+      parameter Modelica.SIunits.AngularVelocity wSwitch(displayUnit="1/min")=1350*2*Modelica.Constants.pi/60
+        "Speed for switching off the starting capacitor";
+      parameter Modelica.SIunits.Torque TLoad=2/3*161.4 "Nominal load torque";
+      parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")=1462.5*2*Modelica.Constants.pi/60
+        "Nominal load speed";
+      parameter Modelica.SIunits.Inertia JLoad=0.29 "Load's moment of inertia";
+
+      Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
+        aimc(useSupport=true) 
+        annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
+              rotation=0)));
+      Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(freqHz=
+            fNominal, V=sqrt(2)*VNominal) 
+        annotation (Placement(transformation(extent={{-50,100},{-70,80}},
+              rotation=0)));
+      Modelica.Electrical.Analog.Basic.Ground ground 
+        annotation (Placement(transformation(
+            origin={-90,90},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      Modelica.Blocks.Sources.BooleanStep booleanStep(startTime=tStart1) 
+        annotation (Placement(transformation(extent={{-50,60},{-30,80}},
+              rotation=0)));
+      Modelica.Electrical.Analog.Ideal.IdealClosingSwitch idealCloser 
+        annotation (Placement(transformation(
+            origin={-20,90},
+            extent={{10,-10},{-10,10}},
+            rotation=180)));
+      Modelica.Mechanics.Rotational.Components.Inertia loadInertia(
+                                                        J=JLoad) 
+        annotation (Placement(transformation(extent={{40,-50},{60,-30}},
+              rotation=0)));
+      Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
+        quadraticLoadTorque(
+        w_nominal=wLoad,
+        TorqueDirection=false,
+        tau_nominal=-TLoad) 
+        annotation (Placement(transformation(extent={{90,-50},{70,-30}},
+              rotation=0)));
+      Machines.Utilities.TerminalBox TerminalBox1(
+                                         terminalConnection="D") 
+        annotation (Placement(transformation(extent={{-20,-30},{0,-10}},
+              rotation=0)));
+      Modelica.Electrical.MultiPhase.Basic.PlugToPin_p plugToPin_p3(m=m, k=3) 
+        annotation (Placement(transformation(
+            origin={-30,-10},
+            extent={{-10,-10},{10,10}},
+            rotation=90)));
+      Modelica.Electrical.MultiPhase.Basic.PlugToPin_p plugToPin_p2(m=m, k=2) 
+        annotation (Placement(transformation(
+            origin={-10,-10},
+            extent={{-10,-10},{10,10}},
+            rotation=90)));
+      Modelica.Electrical.MultiPhase.Basic.PlugToPin_p plugToPin_p1(m=m, k=1) 
+        annotation (Placement(transformation(
+            origin={10,-10},
+            extent={{-10,-10},{10,10}},
+            rotation=90)));
+      Modelica.Electrical.Analog.Basic.Capacitor cRun(C=Cr) 
+        annotation (Placement(transformation(
+            origin={10,20},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      Modelica.Electrical.Analog.Basic.Capacitor cStart(C=Cs) 
+        annotation (Placement(transformation(
+            origin={30,20},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch idealOpener 
+        annotation (Placement(transformation(
+            origin={30,50},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      Modelica.Blocks.Logical.GreaterThreshold greaterThreshold(threshold=
+        wSwitch) 
+        annotation (Placement(transformation(
+            origin={50,20},
+            extent={{-10,-10},{10,10}},
+            rotation=90)));
+      Modelica.Mechanics.Rotational.Components.Fixed fixed 
+        annotation (Placement(transformation(extent={{70,-70},{90,-50}})));
+      Modelica.Mechanics.Rotational.Sensors.RelSpeedSensor relSpeedSensor 
+                                                                 annotation (
+          Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={20,-50})));
+    equation
+      connect(ground.p, sineVoltage.n) 
+        annotation (Line(points={{-80,90},{-70,90}}, color={0,0,255}));
+      connect(sineVoltage.p, idealCloser.p) 
+        annotation (Line(points={{-50,90},{-30,90}}, color={0,0,255}));
+      connect(booleanStep.y, idealCloser.control)  annotation (Line(points={{
+              -29,70},{-20,70},{-20,83}}, color={255,0,255}));
+      connect(plugToPin_p3.pin_p, sineVoltage.n)  annotation (Line(points={{-30,
+              -8},{-70,-8},{-70,90}}, color={0,0,255}));
+      connect(idealCloser.n, plugToPin_p2.pin_p) 
+        annotation (Line(points={{-10,90},{-10,-8}}, color={0,0,255}));
+      connect(cRun.n, plugToPin_p1.pin_p) 
+        annotation (Line(points={{10,10},{10,-8}}, color={0,0,255}));
+      connect(loadInertia.flange_b, quadraticLoadTorque.flange) 
+        annotation (Line(points={{60,-40},{70,-40}}, color={0,0,0}));
+      connect(cRun.p, idealCloser.n)       annotation (Line(points={{10,30},{10,
+              90},{-10,90}}, color={0,0,255}));
+      connect(plugToPin_p1.pin_p,cStart. n)     annotation (Line(points={{10,-8},
+              {30,-8},{30,10}}, color={0,0,255}));
+      connect(idealOpener.n, cStart.p) 
+        annotation (Line(points={{30,40},{30,37.5},{30,37.5},{30,35},{30,30},{
+              30,30}},                             color={0,0,255}));
+      connect(idealOpener.p, idealCloser.n)   annotation (Line(points={{30,60},
+              {30,90},{-10,90}}, color={0,0,255}));
+      connect(greaterThreshold.y, idealOpener.control)  annotation (Line(points=
+             {{50,31},{50,50},{37,50}}, color={255,0,255}));
+      connect(TerminalBox1.plug_sn, aimc.plug_sn)  annotation (Line(
+          points={{-16,-30},{-16,-30}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(TerminalBox1.plug_sp, aimc.plug_sp)  annotation (Line(
+          points={{-4,-30},{-4,-30}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(TerminalBox1.plugSupply, plugToPin_p2.plug_p) annotation (Line(
+          points={{-10,-28},{-10,-12}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(TerminalBox1.plugSupply, plugToPin_p3.plug_p) annotation (Line(
+          points={{-10,-28},{-10,-20},{-30,-20},{-30,-12}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(TerminalBox1.plugSupply, plugToPin_p1.plug_p) annotation (Line(
+          points={{-10,-28},{-10,-20},{10,-20},{10,-12}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(quadraticLoadTorque.support, fixed.flange) annotation (Line(
+          points={{80,-50},{80,-60}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(relSpeedSensor.flange_a, fixed.flange) annotation (Line(
+          points={{20,-60},{80,-60}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(relSpeedSensor.w_rel, greaterThreshold.u) annotation (Line(
+          points={{31,-50},{30,-50},{30,-20},{50,-20},{50,8}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(aimc.support, fixed.flange) annotation (Line(
+          points={{0,-50},{0,-60},{80,-60}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(aimc.flange, relSpeedSensor.flange_b) annotation (Line(
+          points={{0,-40},{20,-40}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(aimc.flange, loadInertia.flange_a) annotation (Line(
+          points={{0,-40},{40,-40}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      annotation (
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}),
+                graphics),
+        experiment(StopTime=1.5, Interval=0.001),
+        Documentation(info="<HTML>
+<b>Asynchronous induction machine with squirrel cage - Steinmetz-connection</b><br>
+At start time tStart single phase voltage is supplied to the asynchronous induction machine with squirrel cage;
+the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
+Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
+</HTML>"));
+    end AIMC_Steinmetz;
 
     model TransformerTestbench "Transformer Testbench"
       extends Modelica.Icons.Example;
@@ -1855,188 +2244,6 @@ neglecting initial transient.
                    graphics),
         experiment(StopTime=0.1));
     end Rectifier12pulse;
-
-    model AIMC_Steinmetz
-      "AsynchronousInductionMachineSquirrelCage Steinmetz-connection"
-      extends Modelica.Icons.Example;
-      constant Integer m=3 "Number of phases";
-      parameter Modelica.SIunits.Voltage VNominal=100
-        "Nominal RMS voltage per phase";
-      parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
-      parameter Modelica.SIunits.Time tStart1=0.1 "Start time";
-      parameter Modelica.SIunits.Capacitance Cr=0.0035
-        "Motor's running capacitor";
-      parameter Modelica.SIunits.Capacitance Cs=5*Cr
-        "Motor's (additional) starting capacitor";
-      parameter Modelica.SIunits.AngularVelocity wSwitch(displayUnit="1/min")=1350*2*Modelica.Constants.pi/60
-        "Speed for switching off the starting capacitor";
-      parameter Modelica.SIunits.Torque TLoad=2/3*161.4 "Nominal load torque";
-      parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")=1462.5*2*Modelica.Constants.pi/60
-        "Nominal load speed";
-      parameter Modelica.SIunits.Inertia JLoad=0.29 "Load's moment of inertia";
-
-      Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
-        aimc(useSupport=true) 
-        annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
-              rotation=0)));
-      Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(freqHz=
-            fNominal, V=sqrt(2)*VNominal) 
-        annotation (Placement(transformation(extent={{-50,100},{-70,80}},
-              rotation=0)));
-      Modelica.Electrical.Analog.Basic.Ground ground 
-        annotation (Placement(transformation(
-            origin={-90,90},
-            extent={{-10,-10},{10,10}},
-            rotation=270)));
-      Modelica.Blocks.Sources.BooleanStep booleanStep(startTime=tStart1) 
-        annotation (Placement(transformation(extent={{-50,60},{-30,80}},
-              rotation=0)));
-      Modelica.Electrical.Analog.Ideal.IdealClosingSwitch idealCloser 
-        annotation (Placement(transformation(
-            origin={-20,90},
-            extent={{10,-10},{-10,10}},
-            rotation=180)));
-      Modelica.Mechanics.Rotational.Components.Inertia loadInertia(
-                                                        J=JLoad) 
-        annotation (Placement(transformation(extent={{40,-50},{60,-30}},
-              rotation=0)));
-      Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
-        quadraticLoadTorque(
-        w_nominal=wLoad,
-        TorqueDirection=false,
-        tau_nominal=-TLoad) 
-        annotation (Placement(transformation(extent={{90,-50},{70,-30}},
-              rotation=0)));
-      Machines.Utilities.TerminalBox TerminalBox1(
-                                         terminalConnection="D") 
-        annotation (Placement(transformation(extent={{-20,-30},{0,-10}},
-              rotation=0)));
-      Modelica.Electrical.MultiPhase.Basic.PlugToPin_p plugToPin_p3(m=m, k=3) 
-        annotation (Placement(transformation(
-            origin={-30,-10},
-            extent={{-10,-10},{10,10}},
-            rotation=90)));
-      Modelica.Electrical.MultiPhase.Basic.PlugToPin_p plugToPin_p2(m=m, k=2) 
-        annotation (Placement(transformation(
-            origin={-10,-10},
-            extent={{-10,-10},{10,10}},
-            rotation=90)));
-      Modelica.Electrical.MultiPhase.Basic.PlugToPin_p plugToPin_p1(m=m, k=1) 
-        annotation (Placement(transformation(
-            origin={10,-10},
-            extent={{-10,-10},{10,10}},
-            rotation=90)));
-      Modelica.Electrical.Analog.Basic.Capacitor cRun(C=Cr) 
-        annotation (Placement(transformation(
-            origin={10,20},
-            extent={{-10,-10},{10,10}},
-            rotation=270)));
-      Modelica.Electrical.Analog.Basic.Capacitor cStart(C=Cs) 
-        annotation (Placement(transformation(
-            origin={30,20},
-            extent={{-10,-10},{10,10}},
-            rotation=270)));
-      Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch idealOpener 
-        annotation (Placement(transformation(
-            origin={30,50},
-            extent={{-10,-10},{10,10}},
-            rotation=270)));
-      Modelica.Blocks.Logical.GreaterThreshold greaterThreshold(threshold=
-        wSwitch) 
-        annotation (Placement(transformation(
-            origin={50,20},
-            extent={{-10,-10},{10,10}},
-            rotation=90)));
-      Modelica.Mechanics.Rotational.Components.Fixed fixed 
-        annotation (Placement(transformation(extent={{70,-70},{90,-50}})));
-      Modelica.Mechanics.Rotational.Sensors.RelSpeedSensor relSpeedSensor 
-                                                                 annotation (
-          Placement(transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=90,
-            origin={20,-50})));
-    equation
-      connect(ground.p, sineVoltage.n) 
-        annotation (Line(points={{-80,90},{-70,90}}, color={0,0,255}));
-      connect(sineVoltage.p, idealCloser.p) 
-        annotation (Line(points={{-50,90},{-30,90}}, color={0,0,255}));
-      connect(booleanStep.y, idealCloser.control)  annotation (Line(points={{
-              -29,70},{-20,70},{-20,83}}, color={255,0,255}));
-      connect(plugToPin_p3.pin_p, sineVoltage.n)  annotation (Line(points={{-30,
-              -8},{-70,-8},{-70,90}}, color={0,0,255}));
-      connect(idealCloser.n, plugToPin_p2.pin_p) 
-        annotation (Line(points={{-10,90},{-10,-8}}, color={0,0,255}));
-      connect(cRun.n, plugToPin_p1.pin_p) 
-        annotation (Line(points={{10,10},{10,-8}}, color={0,0,255}));
-      connect(loadInertia.flange_b, quadraticLoadTorque.flange) 
-        annotation (Line(points={{60,-40},{70,-40}}, color={0,0,0}));
-      connect(cRun.p, idealCloser.n)       annotation (Line(points={{10,30},{10,
-              90},{-10,90}}, color={0,0,255}));
-      connect(plugToPin_p1.pin_p,cStart. n)     annotation (Line(points={{10,-8},
-              {30,-8},{30,10}}, color={0,0,255}));
-      connect(idealOpener.n, cStart.p) 
-        annotation (Line(points={{30,40},{30,37.5},{30,37.5},{30,35},{30,30},{
-              30,30}},                             color={0,0,255}));
-      connect(idealOpener.p, idealCloser.n)   annotation (Line(points={{30,60},
-              {30,90},{-10,90}}, color={0,0,255}));
-      connect(greaterThreshold.y, idealOpener.control)  annotation (Line(points=
-             {{50,31},{50,50},{37,50}}, color={255,0,255}));
-      connect(TerminalBox1.plug_sn, aimc.plug_sn)  annotation (Line(
-          points={{-16,-30},{-16,-30}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(TerminalBox1.plug_sp, aimc.plug_sp)  annotation (Line(
-          points={{-4,-30},{-4,-30}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(TerminalBox1.plugSupply, plugToPin_p2.plug_p) annotation (Line(
-          points={{-10,-28},{-10,-12}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(TerminalBox1.plugSupply, plugToPin_p3.plug_p) annotation (Line(
-          points={{-10,-28},{-10,-20},{-30,-20},{-30,-12}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(TerminalBox1.plugSupply, plugToPin_p1.plug_p) annotation (Line(
-          points={{-10,-28},{-10,-20},{10,-20},{10,-12}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(quadraticLoadTorque.support, fixed.flange) annotation (Line(
-          points={{80,-50},{80,-60}},
-          color={0,0,0},
-          smooth=Smooth.None));
-      connect(relSpeedSensor.flange_a, fixed.flange) annotation (Line(
-          points={{20,-60},{80,-60}},
-          color={0,0,0},
-          smooth=Smooth.None));
-      connect(relSpeedSensor.w_rel, greaterThreshold.u) annotation (Line(
-          points={{31,-50},{30,-50},{30,-20},{50,-20},{50,8}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      connect(aimc.support, fixed.flange) annotation (Line(
-          points={{0,-50},{0,-60},{80,-60}},
-          color={0,0,0},
-          smooth=Smooth.None));
-      connect(aimc.flange, relSpeedSensor.flange_b) annotation (Line(
-          points={{0,-40},{20,-40}},
-          color={0,0,0},
-          smooth=Smooth.None));
-      connect(aimc.flange, loadInertia.flange_a) annotation (Line(
-          points={{0,-40},{40,-40}},
-          color={0,0,0},
-          smooth=Smooth.None));
-      annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),
-                graphics),
-        experiment(StopTime=1.5, Interval=0.001),
-        Documentation(info="<HTML>
-<b>Asynchronous induction machine with squirrel cage - Steinmetz-connection</b><br>
-At start time tStart single phase voltage is supplied to the asynchronous induction machine with squirrel cage;
-the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
-Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</HTML>"));
-    end AIMC_Steinmetz;
 
     annotation (Documentation(info="<HTML>
 This package contains test examples of electric machines.
