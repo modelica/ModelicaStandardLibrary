@@ -1535,9 +1535,17 @@ So the machine is at the beginning in cold condition, ending in warm condition
         "Ambient temperature";
       parameter Modelica.SIunits.HeatCapacity Ca=20 "Armature's heat capacity";
       parameter Modelica.SIunits.HeatCapacity Cc=50 "Core's heat capacity";
-      parameter Modelica.SIunits.ThermalConductance G_armature_core=2*dcpm.Ra*dcpm.IaNominal^2/(dcmp.TaNominal-293.15-5)
+      final parameter Modelica.SIunits.Power Losses=dcpm.Ra*dcpm.IaNominal^2
+        "Nominal Losses";
+      final parameter Modelica.SIunits.Temperature T0=293.15
+        "Reference temperature 20 degC";
+      final parameter Modelica.SIunits.TemperatureDifference dTCoolant=10
+        "Coolant's temperature rise";
+      final parameter Modelica.SIunits.TemperatureDifference dTArmature=dcpm.TaNominal-T0-dTCoolant/2
+        "Armature's temperature rise over coolant";
+      parameter Modelica.SIunits.ThermalConductance G_armature_core=2*Losses/dTArmature
         "Heat conductance armature - core";
-      parameter Modelica.SIunits.ThermalConductance G_core_cooling=2*dcpm.Ra*dcpm.IaNominal^2/(dcmp.TaNominal-293.15-5)
+      parameter Modelica.SIunits.ThermalConductance G_core_cooling=2*Losses/dTArmature
         "Heat conductance core - cooling";
       parameter Modelica.SIunits.VolumeFlowRate CoolantFlow=50 "Coolant flow";
       Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet
@@ -1717,7 +1725,7 @@ Simulate for 25 seconds and plot (versus time):
 <ul>
 <li>armature.T: armature temperature</li>
 <li>coore.T: core temperature</li>
-<li>cooling.T: coolant temperature (between inlet and outlet)</li>
+<li>cooling.T: coolant temperature at outlet</li>
 </ul>
 Therefore the armature temperature would reach nominal armature temperature at constant nominal load.<br>
 Default machine parameters are used, but:
