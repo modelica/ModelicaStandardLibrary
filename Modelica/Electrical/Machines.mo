@@ -2218,11 +2218,27 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 </tr>
 <tr>
 <td valign=\"top\">stator resistance</td>
-<td valign=\"top\">0.03</td><td valign=\"top\">Ohm per phase in warm condition</td>
+<td valign=\"top\">0.03</td><td valign=\"top\">Ohm per phase at reference temperature</td>
+</tr>
+<tr>
+<td valign=\"top\">reference temperature TsRef</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+</tr>
+<tr>
+<td valign=\"top\">temperature coefficient Alpha20s </td>
+<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
 <td valign=\"top\">rotor resistance</td>
-<td valign=\"top\">0.04</td><td valign=\"top\">Ohm in warm condition</td>
+<td valign=\"top\">0.04</td><td valign=\"top\">Ohm at reference temperature</td>
+</tr>
+<tr>
+<td valign=\"top\">reference temperature TrRef</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+</tr>
+<tr>
+<td valign=\"top\">temperature coefficient Alpha20r </td>
+<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
 <td valign=\"top\">stator reactance Xs</td>
@@ -2237,7 +2253,15 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td valign=\"top\">0.0667</td><td valign=\"top\"> </td>
 </tr>
 <tr>
-<td valign=\"top\">These values give the following inductances, <br>assuming equal stator and rotor stray inductances:</td>
+<td valign=\"top\">stator operational temperature TsOperational</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+</tr>
+<tr>
+<td valign=\"top\">rotor operational temperature TrOperational</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+</tr>
+<tr>
+<td valign=\"top\">These values give the following inductances:</td>
 <td valign=\"top\"> </td><td valign=\"top\"> </td>
 </tr>
 <tr>
@@ -2435,11 +2459,27 @@ Resistance and stray inductance of stator and rotor are modeled directly in stat
 </tr>
 <tr>
 <td valign=\"top\">stator resistance</td>
-<td valign=\"top\">0.03</td><td valign=\"top\">Ohm per phase in warm condition</td>
+<td valign=\"top\">0.03</td><td valign=\"top\">Ohm per phase at reference temperature</td>
+</tr>
+<tr>
+<td valign=\"top\">reference temperature TsRef</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+</tr>
+<tr>
+<td valign=\"top\">temperature coefficient Alpha20s </td>
+<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
 <td valign=\"top\">rotor resistance</td>
-<td valign=\"top\">0.04</td><td valign=\"top\">Ohm per phase in warm condition</td>
+<td valign=\"top\">0.04</td><td valign=\"top\">Ohm per phase at reference temperature</td>
+</tr>
+<tr>
+<td valign=\"top\">reference temperature TrRef</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+</tr>
+<tr>
+<td valign=\"top\">temperature coefficient Alpha20r </td>
+<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
 <td valign=\"top\">stator reactance Xs</td>
@@ -2456,6 +2496,14 @@ Resistance and stray inductance of stator and rotor are modeled directly in stat
 <tr>
 <td valign=\"top\">turnsRatio</td>
 <td valign=\"top\">1</td><td valign=\"top\">effective ratio of stator and rotor current</td>
+</tr>
+<tr>
+<td valign=\"top\">stator operational temperature TsOperational</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+</tr>
+<tr>
+<td valign=\"top\">rotor operational temperature TrOperational</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
 </tr>
 <tr>
 <td valign=\"top\">These values give the following inductances:</td>
@@ -2720,7 +2768,15 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 </tr>
 <tr>
 <td valign=\"top\">stator resistance</td>
-<td valign=\"top\">0.03</td><td valign=\"top\">Ohm per phase in warm condition</td>
+<td valign=\"top\">0.03</td><td valign=\"top\">Ohm per phase at reference temperature</td>
+</tr>
+<tr>
+<td valign=\"top\">reference temperature TsRef</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+</tr>
+<tr>
+<td valign=\"top\">temperature coefficient Alpha20s </td>
+<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
 <td valign=\"top\">stator reactance Xd</td>
@@ -2736,11 +2792,19 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 </tr>
 <tr>
 <td valign=\"top\">damper resistance in d-axis</td>
-<td valign=\"top\">0.04</td><td valign=\"top\">Ohm in warm condition</td>
+<td valign=\"top\">0.04</td><td valign=\"top\">Ohm at reference temperature</td>
 </tr>
 <tr>
 <td valign=\"top\">damper resistance in q-axis</td>
 <td valign=\"top\">same as d-axis</td><td valign=\"top\"> </td>
+</tr>
+<tr>
+<td valign=\"top\">reference temperature TrRef</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+</tr>
+<tr>
+<td valign=\"top\">temperature coefficient Alpha20r </td>
+<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
 <td valign=\"top\">damper stray reactance in d-axis XDds</td>
@@ -2749,6 +2813,14 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <tr>
 <td valign=\"top\">damper stray reactance in q-axis XDqs</td>
 <td valign=\"top\">same as d-axis</td><td valign=\"top\"> </td>
+</tr>
+<tr>
+<td valign=\"top\">stator operational temperature TsOperational</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+</tr>
+<tr>
+<td valign=\"top\">damper operational temperature TrOperational</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
 </tr>
 <tr>
 <td valign=\"top\">These values give the following inductances:</td>
@@ -3026,7 +3098,15 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 </tr>
 <tr>
 <td valign=\"top\">stator resistance</td>
-<td valign=\"top\">0.03</td><td valign=\"top\">Ohm per phase in warm condition</td>
+<td valign=\"top\">0.03</td><td valign=\"top\">Ohm per phase at reference temperature</td>
+</tr>
+<tr>
+<td valign=\"top\">reference temperature TsRef</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+</tr>
+<tr>
+<td valign=\"top\">temperature coefficient Alpha20s </td>
+<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
 <td valign=\"top\">stator reactance Xd</td>
@@ -3046,11 +3126,19 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 </tr>
 <tr>
 <td valign=\"top\">damper resistance in d-axis</td>
-<td valign=\"top\">0.04</td><td valign=\"top\">Ohm in warm condition</td>
+<td valign=\"top\">0.04</td><td valign=\"top\">Ohm at reference temperature</td>
 </tr>
 <tr>
 <td valign=\"top\">damper resistance in q-axis</td>
 <td valign=\"top\">same as d-axis</td><td valign=\"top\"> </td>
+</tr>
+<tr>
+<td valign=\"top\">reference temperature TrRef</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+</tr>
+<tr>
+<td valign=\"top\">temperature coefficient Alpha20r </td>
+<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
 <td valign=\"top\">damper stray reactance in d-axis XDds</td>
@@ -3061,8 +3149,32 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td valign=\"top\">same as d-axis</td><td valign=\"top\"> </td>
 </tr>
 <tr>
+<td valign=\"top\">excitation resistance</td>
+<td valign=\"top\">2.5</td><td valign=\"top\">Ohm at reference temperature</td>
+</tr>
+<tr>
+<td valign=\"top\">reference temperature TeRef</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+</tr>
+<tr>
+<td valign=\"top\">temperature coefficient Alpha20e </td>
+<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
+</tr>
+<tr>
 <td valign=\"top\">excitation stray inductance</td>
 <td valign=\"top\">2.5</td><td valign=\"top\">% of total excitation inductance</td>
+</tr>
+<tr>
+<td valign=\"top\">stator operational temperature TsOperational</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+</tr>
+<tr>
+<td valign=\"top\">damper operational temperature TrOperational</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+</tr>
+<tr>
+<td valign=\"top\">excitation operational temperature TeOperational</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
 </tr>
 <tr>
 <td valign=\"top\">These values give the following inductances:</td>
@@ -3249,15 +3361,31 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 </tr>
 <tr>
 <td valign=\"top\">stator resistance</td>
-<td valign=\"top\">0.03</td><td valign=\"top\">Ohm per phase in warm condition</td>
+<td valign=\"top\">0.03</td><td valign=\"top\">Ohm per phase at reference temperature</td>
+</tr>
+<tr>
+<td valign=\"top\">reference temperature TsRef</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+</tr>
+<tr>
+<td valign=\"top\">temperature coefficient Alpha20s </td>
+<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
 <td valign=\"top\">rotor resistance in d-axis</td>
-<td valign=\"top\">0.04</td><td valign=\"top\">Ohm in warm condition</td>
+<td valign=\"top\">0.04</td><td valign=\"top\">Ohm at reference temperature</td>
 </tr>
 <tr>
 <td valign=\"top\">rotor resistance in q-axis</td>
 <td valign=\"top\">same as d-axis</td><td valign=\"top\"> </td>
+</tr>
+<tr>
+<td valign=\"top\">reference temperature TrRef</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+</tr>
+<tr>
+<td valign=\"top\">temperature coefficient Alpha20r </td>
+<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
 <td valign=\"top\">stator reactance Xsd in d-axis</td>
@@ -3278,6 +3406,14 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <tr>
 <td valign=\"top\">rotor stray reactance in q-axis Xrqs</td>
 <td valign=\"top\">same as d-axis</td><td valign=\"top\"> </td>
+</tr>
+<tr>
+<td valign=\"top\">stator operational temperature TsOperational</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+</tr>
+<tr>
+<td valign=\"top\">damper operational temperature TrOperational</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
 </tr>
 <tr>
 <td valign=\"top\">These values give the following inductances:</td>
@@ -3490,11 +3626,27 @@ Armature resistance and inductance are modeled directly after the armature pins,
 </tr>
 <tr>
 <td valign=\"top\">armature resistance</td>
-<td valign=\"top\">0.05</td><td valign=\"top\">Ohm in warm condition</td>
+<td valign=\"top\">0.05</td><td valign=\"top\">Ohm at reference temperature</td>
+</tr>
+<tr>
+<td valign=\"top\">reference temperature TaRef</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+</tr>
+<tr>
+<td valign=\"top\">temperature coefficient Alpha20a </td>
+<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
 <td valign=\"top\">armature inductance</td>
 <td valign=\"top\">0.0015</td><td valign=\"top\">H</td>
+</tr>
+<tr>
+<td valign=\"top\">armature nominal temperature TaNominal</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+</tr>
+<tr>
+<td valign=\"top\">armature operational temperature TaOperational</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
 </tr>
 </table>
 Armature resistance resp. inductance include resistance resp. inductance of commutating pole winding and compensation windig, if present.
@@ -3655,7 +3807,15 @@ Shunt or separate excitation is defined by the user's external circuit.
 </tr>
 <tr>
 <td valign=\"top\">armature resistance</td>
-<td valign=\"top\">0.05</td><td valign=\"top\">Ohm in warm condition</td>
+<td valign=\"top\">0.05</td><td valign=\"top\">Ohm at reference temperature</td>
+</tr>
+<tr>
+<td valign=\"top\">reference temperature TaRef</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+</tr>
+<tr>
+<td valign=\"top\">temperature coefficient Alpha20a </td>
+<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
 <td valign=\"top\">armature inductance</td>
@@ -3671,11 +3831,31 @@ Shunt or separate excitation is defined by the user's external circuit.
 </tr>
 <tr>
 <td valign=\"top\">excitation resistance</td>
-<td valign=\"top\">100</td><td valign=\"top\">Ohm in warm condition</td>
+<td valign=\"top\">100</td><td valign=\"top\">Ohm at reference temperature</td>
+</tr>
+<tr>
+<td valign=\"top\">reference temperature TeRef</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+</tr>
+<tr>
+<td valign=\"top\">temperature coefficient Alpha20e </td>
+<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
 <td valign=\"top\">excitation inductance</td>
 <td valign=\"top\">1</td><td valign=\"top\">H</td>
+</tr>
+<tr>
+<td valign=\"top\">armature nominal temperature TaNominal</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+</tr>
+<tr>
+<td valign=\"top\">armature operational temperature TaOperational</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+</tr>
+<tr>
+<td valign=\"top\">(shunt) excitation operational temperature TeOperational</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
 </tr>
 </table>
 Armature resistance resp. inductance include resistance resp. inductance of commutating pole winding and
@@ -3833,7 +4013,15 @@ Series excitation has to be connected by the user's external circuit.
 </tr>
 <tr>
 <td valign=\"top\">armature resistance</td>
-<td valign=\"top\">0.05</td><td valign=\"top\">Ohm in warm condition</td>
+<td valign=\"top\">0.05</td><td valign=\"top\">Ohm at reference temperature</td>
+</tr>
+<tr>
+<td valign=\"top\">reference temperature TaRef</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+</tr>
+<tr>
+<td valign=\"top\">temperature coefficient Alpha20a </td>
+<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
 <td valign=\"top\">armature inductance</td>
@@ -3841,11 +4029,35 @@ Series excitation has to be connected by the user's external circuit.
 </tr>
 <tr>
 <td valign=\"top\">excitation resistance</td>
-<td valign=\"top\">0.01</td><td valign=\"top\">Ohm in warm condition</td>
+<td valign=\"top\">0.01</td><td valign=\"top\">Ohm at reference temperature</td>
+</tr>
+<tr>
+<td valign=\"top\">reference temperature TeRef</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+</tr>
+<tr>
+<td valign=\"top\">temperature coefficient Alpha20e</td>
+<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
 <td valign=\"top\">excitation inductance</td>
 <td valign=\"top\">0.0005</td><td valign=\"top\">H</td>
+</tr>
+<tr>
+<td valign=\"top\">armature nominal temperature TaNominal</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+</tr>
+<tr>
+<td valign=\"top\">series excitation nominal temperature TeNominal</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+</tr>
+<tr>
+<td valign=\"top\">armature operational temperature TaOperational</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+</tr>
+<tr>
+<td valign=\"top\">series excitation operational temperature TeOperational</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
 </tr>
 </table>
 Armature resistance resp. inductance include resistance resp. inductance of commutating pole winding and
@@ -3949,6 +4161,8 @@ This package contains models of DC machines:
                   255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yy0
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(coordinateSystem(preserveAspectRatio=true,
                   extent={{-100,-100},{100,100}}),
                               graphics));
@@ -4003,6 +4217,8 @@ Transformer Yy0
                   {0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yy2
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Yy02;
 
@@ -4054,6 +4270,8 @@ Transformer Yy2
                   255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yy4
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Yy04;
 
@@ -4101,6 +4319,8 @@ Transformer Yy4
                   {0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yy6
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Yy06;
 
@@ -4152,6 +4372,8 @@ Transformer Yy6
                 color={0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yy8
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Yy08;
 
@@ -4204,6 +4426,8 @@ Transformer Yy8
                   {0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yy10
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Yy10;
         annotation (Documentation(info="<HTML>
@@ -4275,6 +4499,8 @@ This package contains transformers primary Y connected / secondary y connected i
                   0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yd1
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Yd01;
 
@@ -4320,6 +4546,8 @@ Transformer Yd1
                   255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yd3
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Yd03;
 
@@ -4360,6 +4588,8 @@ Transformer Yd3
             annotation (Line(points={{10,10},{10,20},{30,20}}, color={0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yd5
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Yd05;
 
@@ -4400,6 +4630,8 @@ Transformer Yd5
                   {0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yd7
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Yd07;
 
@@ -4445,6 +4677,8 @@ Transformer Yd7
                   255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yd9
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Yd09;
 
@@ -4486,6 +4720,8 @@ Transformer Yd9
                   0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yd11
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Yd11;
         annotation (Documentation(info="<HTML>
@@ -4578,6 +4814,8 @@ This package contains transformers primary Y connected / secondary d connected i
                   255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yz1
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Yz01;
 
@@ -4640,6 +4878,8 @@ Transformer Yz1
                   255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yz3
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Yz03;
 
@@ -4695,6 +4935,8 @@ Transformer Yz3
                 color={0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yz5
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Yz05;
 
@@ -4750,6 +4992,8 @@ Transformer Yz5
                                                          color={0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yz7
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Yz07;
 
@@ -4812,6 +5056,8 @@ Transformer Yz7
                   255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yz9
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Yz09;
 
@@ -4874,6 +5120,8 @@ Transformer Yz9
                   255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yz11
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Yz11;
         annotation (Documentation(info="<HTML>
@@ -4951,6 +5199,8 @@ This package contains transformers primary Y connected / secondary zig-zag conne
                   {0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dy1
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Dy01;
 
@@ -4997,6 +5247,8 @@ Transformer Dy1
                                                          color={0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dy3
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Dy03;
 
@@ -5039,6 +5291,8 @@ Transformer Dy3
                   {0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dy5
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Dy05;
 
@@ -5085,6 +5339,8 @@ Transformer Dy5
             annotation (Line(points={{10,10},{10,20},{30,20}}, color={0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dy7
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Dy07;
 
@@ -5132,6 +5388,8 @@ Transformer Dy7
                   {0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dy9
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Dy09;
 
@@ -5174,6 +5432,8 @@ Transformer Dy9
                   0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dy11
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Dy11;
         annotation (Documentation(info="<HTML>
@@ -5240,6 +5500,8 @@ This package contains transformers primary D connected / secondary y connected i
                   255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dd0
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Dd00;
 
@@ -5280,6 +5542,8 @@ Transformer Dd0
                   255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dd2
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Dd02;
 
@@ -5316,6 +5580,8 @@ Transformer Dd2
                   {0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dd4
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Dd04;
 
@@ -5351,6 +5617,8 @@ Transformer Dd4
                   {0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dd6
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Dd06;
 
@@ -5391,6 +5659,8 @@ Transformer Dd6
                   255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dd8
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Dd08;
 
@@ -5427,6 +5697,8 @@ Transformer Dd8
                   255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dd10
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Dd10;
         annotation (Documentation(info="<HTML>
@@ -5514,6 +5786,8 @@ This package contains transformers primary D connected / secondary d connected i
                   255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dz0
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Dz00;
 
@@ -5571,6 +5845,8 @@ Transformer Dz0
                                                          color={0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dz2
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Dz02;
 
@@ -5621,6 +5897,8 @@ Transformer Dz2
                   255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dz4
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Dz04;
 
@@ -5671,6 +5949,8 @@ Transformer Dz4
                 color={0,0,255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dz6
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Dz06;
 
@@ -5728,6 +6008,8 @@ Transformer Dz6
                   255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dz8
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Dz08;
 
@@ -5785,6 +6067,8 @@ Transformer Dz8
                   255}));
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dz10
+<br>Typical parameters see:
+<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(graphics));
         end Dz10;
         annotation (Documentation(info="<HTML>
@@ -9550,6 +9834,81 @@ Thermal ports for DC machines
         Documentation(info="<html>
 Partialmodel of a threephase transformer, containing primary and secondary resistances and stray inductances, as well as the iron core.
 Circuit layout (vector group) of primary and secondary windings have to be defined.
+<br><b>Default values for transformer's parameters (a realistic example) are:</b><br>
+<table>
+<tr>
+<td valign=\"top\">turns ratio n</td>
+<td valign=\"top\">1</td><td valign=\"top\"> </td>
+</tr>
+<tr>
+<td valign=\"top\">nominal frequency fNominal</td>
+<td valign=\"top\">50</td><td valign=\"top\">Hz</td>
+</tr>
+<tr>
+<td valign=\"top\">nominal voltage per phase</td>
+<td valign=\"top\">100</td><td valign=\"top\">V RMS</td>
+</tr>
+<tr>
+<td valign=\"top\">nominal current per phase</td>
+<td valign=\"top\">100</td><td valign=\"top\">A RMS</td>
+</tr>
+<tr>
+<td valign=\"top\">nominal apparent power</td>
+<td valign=\"top\">30</td><td valign=\"top\">kVA</td>
+</tr>
+<tr>
+<td valign=\"top\">primary resistance R1</td>
+<td valign=\"top\">0.005</td><td valign=\"top\">Ohm per phase at reference temperature</td>
+</tr>
+<tr>
+<td valign=\"top\">reference temperature T1Ref</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+</tr>
+<tr>
+<td valign=\"top\">temperature coefficient Alpha20_1 </td>
+<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
+</tr>
+<tr>
+<td valign=\"top\">primary stray inductance L1sigma</td>
+<td valign=\"top\">78E-6</td><td valign=\"top\">H per phase</td>
+</tr>
+<tr>
+<td valign=\"top\">secondary resistance R2</td>
+<td valign=\"top\">0.005</td><td valign=\"top\">Ohm per phase at reference temperature</td>
+</tr>
+<tr>
+<td valign=\"top\">reference temperature T2Ref</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+</tr>
+<tr>
+<td valign=\"top\">temperature coefficient Alpha20_2 </td>
+<td valign=\"top\">0</td><td valign=\"top\">1/K</td>
+</tr>
+<tr>
+<td valign=\"top\">secondary stray inductance L2sigma</td>
+<td valign=\"top\">78E-6</td><td valign=\"top\">H per phase</td>
+</tr>
+<tr>
+<td valign=\"top\">operational temperature T1Operational</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+</tr>
+<tr>
+<td valign=\"top\">operational temperature T2Operational</td>
+<td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
+</tr>
+<tr>
+<td valign=\"top\">These values give the operational parameters:</td>
+<td valign=\"top\"> </td><td valign=\"top\"> </td>
+</tr>
+<tr>
+<td valign=\"top\">nominal voltage drop</td>
+<td valign=\"top\">0.05</td><td valign=\"top\">p.u.</td>
+</tr>
+<tr>
+<td valign=\"top\">nominal copper losses</td>
+<td valign=\"top\">300</td><td valign=\"top\">W</td>
+</tr>
+</table>
 </html>"));
     end PartialBasicTransformer;
 
