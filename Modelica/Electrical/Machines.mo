@@ -1430,7 +1430,7 @@ Default machine parameters are used.
 
       BasicMachines.DCMachines.DC_PermanentMagnet dcpm(           wMechanical(start=
              w0, fixed=true),
-        Alpha20a(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper,
+        alpha20a(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper,
         useThermalPort=true,
         TaNominal=353.15,
         TaRef=353.15) 
@@ -1552,7 +1552,7 @@ So the machine is at the beginning in cold condition, ending in warm condition
       Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet
         dcpm(
         wMechanical(start=w0, fixed=true),
-        Alpha20a(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper,
+        alpha20a(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper,
         useThermalPort=true,
         TaNominal=353.15,
         TaRef=353.15) 
@@ -2342,7 +2342,7 @@ This package contains test examples of electric machines.
         parameter Modelica.SIunits.Temperature TrRef(start=293.15)
           "Reference temperature of rotor resistance" 
            annotation(Dialog(tab="Nominal resistances and inductances"));
-        parameter Modelica.Electrical.Machines.Thermal.Alpha20 Alpha20r(start=0)
+        parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20r(start=0)
           "Temperature coefficient of rotor resistance at 20 degC" 
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Temperature TrOperational(start=293.15)
@@ -2354,7 +2354,7 @@ This package contains test examples of electric machines.
           final useHeatPort=true,
           final T_ref=TrRef,
           final T=TrRef,
-          final alpha=Modelica.Electrical.Machines.Thermal.convertAlpha(Alpha20r, TrRef)) 
+          final alpha=Modelica.Electrical.Machines.Thermal.convertAlpha(alpha20r, TrRef)) 
           annotation (Placement(transformation(
               origin={0,-30},
               extent={{-10,-10},{10,10}},
@@ -2441,7 +2441,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient Alpha20s </td>
+<td valign=\"top\">temperature coefficient alpha20s </td>
 <td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
@@ -2453,7 +2453,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient Alpha20r </td>
+<td valign=\"top\">temperature coefficient alpha20r </td>
 <td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
@@ -2530,7 +2530,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         parameter Modelica.SIunits.Temperature TrRef(start=293.15)
           "Reference temperature of rotor resistance" 
            annotation(Dialog(tab="Nominal resistances and inductances"));
-        parameter Modelica.Electrical.Machines.Thermal.Alpha20 Alpha20r(start=0)
+        parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20r(start=0)
           "Temperature coefficient of rotor resistance at 20 degC" 
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Boolean useTurnsRatio(start=true)
@@ -2571,7 +2571,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           final R=fill(Rr, m),
           final T_ref=fill(TrRef,m),
           final alpha=fill(Modelica.Electrical.Machines.Thermal.convertAlpha(
-                                                Alpha20r, TrRef), m),
+                                                alpha20r, TrRef), m),
           final useHeatPort=true,
           final T=fill(TrRef,m)) 
           annotation (Placement(transformation(extent={{50,-50},{30,-70}},
@@ -2682,7 +2682,7 @@ Resistance and stray inductance of stator and rotor are modeled directly in stat
 <td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient Alpha20s </td>
+<td valign=\"top\">temperature coefficient alpha20s </td>
 <td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
@@ -2694,7 +2694,7 @@ Resistance and stray inductance of stator and rotor are modeled directly in stat
 <td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient Alpha20r </td>
+<td valign=\"top\">temperature coefficient alpha20r </td>
 <td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
@@ -2852,7 +2852,7 @@ These models use package SpacePhasors.
         parameter Modelica.SIunits.Temperature TrRef(start=293.15)
           "Reference temperature of damper resistances in d- and q-axis" 
           annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
-        parameter Modelica.Electrical.Machines.Thermal.Alpha20 Alpha20r(start=0)
+        parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20r(start=0)
           "Temperature coefficient of damper resistances in d- and q-axis" 
           annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
         output Modelica.SIunits.Current idq_dr[2](each stateSelect=StateSelect.prefer)=
@@ -2874,7 +2874,7 @@ These models use package SpacePhasors.
           final Rrq=Rrq,
           final T_ref=TrRef,
           final alpha=Modelica.Electrical.Machines.Thermal.convertAlpha(
-                                           Alpha20r, TrRef),
+                                           alpha20r, TrRef),
           final useHeatPort=true,
           final T=TrRef) if useDamperCage 
           annotation (Placement(transformation(
@@ -2991,7 +2991,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient Alpha20s </td>
+<td valign=\"top\">temperature coefficient alpha20s </td>
 <td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
@@ -3019,7 +3019,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient Alpha20r </td>
+<td valign=\"top\">temperature coefficient alpha20r </td>
 <td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
@@ -3115,7 +3115,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         parameter Modelica.SIunits.Temperature TrRef(start=293.15)
           "Reference temperature of damper resistances in d- and q-axis" 
           annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
-        parameter Modelica.Electrical.Machines.Thermal.Alpha20 Alpha20r(start=0)
+        parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20r(start=0)
           "Temperature coefficient of damper resistances in d- and q-axis" 
           annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
         parameter Modelica.SIunits.Voltage VsNominal(start=100)
@@ -3130,7 +3130,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         parameter Modelica.SIunits.Temperature TeRef(start=293.15)
           "Reference temperture of excitation resistance" 
            annotation(Dialog(tab="Excitation"));
-        parameter Modelica.Electrical.Machines.Thermal.Alpha20 Alpha20e(start=0)
+        parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20e(start=0)
           "Temperature coefficient of excitation resistance" 
            annotation(Dialog(tab="Excitation"));
         parameter Real sigmae(min=0, max=1, start=0.025)
@@ -3156,7 +3156,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           final Rrd=Rrd,
           final Rrq=Rrq,
           final T_ref=TrRef,
-          final alpha=Modelica.Electrical.Machines.Thermal.convertAlpha(Alpha20r, TrRef),
+          final alpha=Modelica.Electrical.Machines.Thermal.convertAlpha(alpha20r, TrRef),
           final useHeatPort=true,
           final T=TrRef) if useDamperCage 
           annotation (Placement(transformation(
@@ -3171,7 +3171,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         Modelica.Electrical.Analog.Basic.Resistor re(
           final R=Re,
           final T_ref=TeRef,
-          final alpha=Modelica.Electrical.Machines.Thermal.convertAlpha(Alpha20e, TeRef),
+          final alpha=Modelica.Electrical.Machines.Thermal.convertAlpha(alpha20e, TeRef),
           final useHeatPort=true,
           final T=TeRef) 
           annotation (Placement(transformation(
@@ -3321,7 +3321,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient Alpha20s </td>
+<td valign=\"top\">temperature coefficient alpha20s </td>
 <td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
@@ -3353,7 +3353,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient Alpha20r </td>
+<td valign=\"top\">temperature coefficient alpha20r </td>
 <td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
@@ -3373,7 +3373,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient Alpha20e </td>
+<td valign=\"top\">temperature coefficient alpha20e </td>
 <td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
@@ -3469,7 +3469,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         parameter Modelica.SIunits.Temperature TrRef(start=293.15)
           "Reference temperature of damper resistances in d- and q-axis" 
           annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
-        parameter Modelica.Electrical.Machines.Thermal.Alpha20 Alpha20r(start=0)
+        parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20r(start=0)
           "Temperature coefficient of damper resistances in d- and q-axis" 
           annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
         Components.DamperCage damperCage(
@@ -3478,7 +3478,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           final Rrd=Rrd,
           final Rrq=Rrq,
           final T_ref=TrRef,
-          final alpha=Modelica.Electrical.Machines.Thermal.convertAlpha(Alpha20r, TrRef),
+          final alpha=Modelica.Electrical.Machines.Thermal.convertAlpha(alpha20r, TrRef),
           final useHeatPort=true,
           final T=TrRef) if useDamperCage 
           annotation (Placement(transformation(
@@ -3584,7 +3584,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient Alpha20s </td>
+<td valign=\"top\">temperature coefficient alpha20s </td>
 <td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
@@ -3600,7 +3600,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient Alpha20r </td>
+<td valign=\"top\">temperature coefficient alpha20r </td>
 <td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
@@ -3744,9 +3744,9 @@ These models use package SpacePhasors.
               rotation=270)));
       protected
         final parameter Modelica.SIunits.Voltage ViNominal=
-          VaNominal - Modelica.Electrical.Machines.Thermal.convertResistance(Ra,TaRef,Alpha20a,TaNominal)*IaNominal
+          VaNominal - Modelica.Electrical.Machines.Thermal.convertResistance(Ra,TaRef,alpha20a,TaNominal)*IaNominal
           "Nominal induced voltage";
-        final parameter Modelica.SIunits.Inductance Le(start=1)
+        final parameter Modelica.SIunits.Inductance Le=1
           "Total field excitation inductance" 
            annotation(Dialog(group="Excitation"));
         constant Modelica.SIunits.Current IeNominal=1
@@ -3765,7 +3765,7 @@ These models use package SpacePhasors.
         connect(eGround.p, ie.p) 
           annotation (Line(points={{-10,-40},{10,-40}}, color={0,0,255}));
         connect(airGapDC.pin_ep, ie.n) annotation (Line(points={{10,-10},{10,
-                -20},{10,-20}},
+                -15},{10,-15},{10,-20}},
                        color={0,0,255}));
         connect(airGapDC.pin_en, eGround.p) annotation (Line(points={{-10,-10},
                 {-10,-20},{-10,-40}},
@@ -3775,7 +3775,7 @@ These models use package SpacePhasors.
             color={0,0,255},
             smooth=Smooth.None));
         connect(airGapDC.pin_an, pin_an) annotation (Line(
-            points={{-10,10},{-12,10},{-12,60},{-60,60},{-60,100}},
+            points={{-10,10},{-10,60},{-60,60},{-60,100}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(airGapDC.support, internalSupport) annotation (Line(
@@ -3849,7 +3849,7 @@ Armature resistance and inductance are modeled directly after the armature pins,
 <td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient Alpha20a </td>
+<td valign=\"top\">temperature coefficient alpha20a </td>
 <td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
@@ -3896,7 +3896,7 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
         parameter Modelica.SIunits.Temperature TeRef(start=293.15)
           "Reference temperture of excitation resistance" 
            annotation(Dialog(tab="Excitation"));
-        parameter Modelica.Electrical.Machines.Thermal.Alpha20 Alpha20e(start=0)
+        parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20e(start=0)
           "Temperature coefficient of excitation resistance" 
            annotation(Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Inductance Le(start=1)
@@ -3912,7 +3912,7 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
         Modelica.Electrical.Analog.Basic.Resistor re(
           final R=Re,
           final T_ref=TeRef,
-          final alpha=Modelica.Electrical.Machines.Thermal.convertAlpha(Alpha20e, TeRef),
+          final alpha=Modelica.Electrical.Machines.Thermal.convertAlpha(alpha20e, TeRef),
           final useHeatPort=true,
           final T=TeRef) 
           annotation (Placement(transformation(
@@ -3929,7 +3929,7 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
                 rotation=0)));
       protected
         final parameter Modelica.SIunits.Voltage ViNominal=
-          VaNominal - Modelica.Electrical.Machines.Thermal.convertResistance(Ra,TaRef,Alpha20a,TaNominal)*IaNominal
+          VaNominal - Modelica.Electrical.Machines.Thermal.convertResistance(Ra,TaRef,alpha20a,TaNominal)*IaNominal
           "Nominal induced voltage";
       equation
         assert(ViNominal > Modelica.Constants.eps, "VaNominal has to be > Ra*IaNominal");
@@ -4030,7 +4030,7 @@ Shunt or separate excitation is defined by the user's external circuit.
 <td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient Alpha20a </td>
+<td valign=\"top\">temperature coefficient alpha20a </td>
 <td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
@@ -4054,7 +4054,7 @@ Shunt or separate excitation is defined by the user's external circuit.
 <td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient Alpha20e </td>
+<td valign=\"top\">temperature coefficient alpha20e </td>
 <td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
@@ -4085,7 +4085,7 @@ Armature current does not cover excitation current of a shunt excitation; in thi
           final turnsRatio=ViNominal/(wNominal*Le*IaNominal),
           redeclare final
             Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCSE
-            thermalAmbient(                                         final Tse=TeOperational),
+            thermalAmbient(final Tse=TeOperational),
           redeclare final
             Modelica.Electrical.Machines.Interfaces.DCMachines.ThermalPortDCSE
             thermalPort,
@@ -4103,7 +4103,7 @@ Armature current does not cover excitation current of a shunt excitation; in thi
         parameter Modelica.SIunits.Temperature TeRef(start=293.15)
           "Reference temperture of excitation resistance" 
            annotation(Dialog(tab="Excitation"));
-        parameter Modelica.Electrical.Machines.Thermal.Alpha20 Alpha20e(start=0)
+        parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20e(start=0)
           "Temperature coefficient of excitation resistance" 
            annotation(Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Inductance Le(start=0.0005)
@@ -4122,7 +4122,7 @@ Armature current does not cover excitation current of a shunt excitation; in thi
         Modelica.Electrical.Analog.Basic.Resistor re(
           final R=Re,
           final T_ref=TeRef,
-          final alpha=Modelica.Electrical.Machines.Thermal.convertAlpha(Alpha20e, TeRef),
+          final alpha=Modelica.Electrical.Machines.Thermal.convertAlpha(alpha20e, TeRef),
           final useHeatPort=true,
           final T=TeRef) 
           annotation (Placement(transformation(
@@ -4139,8 +4139,8 @@ Armature current does not cover excitation current of a shunt excitation; in thi
                 rotation=0)));
       protected
         final parameter Modelica.SIunits.Voltage ViNominal=
-        VaNominal - (Modelica.Electrical.Machines.Thermal.convertResistance(Ra,TaRef,Alpha20a,TaNominal) +
-                     Modelica.Electrical.Machines.Thermal.convertResistance(Re,TeRef,Alpha20e,TeNominal))*IaNominal
+        VaNominal - (Modelica.Electrical.Machines.Thermal.convertResistance(Ra,TaRef,alpha20a,TaNominal) +
+                     Modelica.Electrical.Machines.Thermal.convertResistance(Re,TeRef,alpha20e,TeNominal))*IaNominal
           "Nominal induced voltage";
       equation
         assert(ViNominal > Modelica.Constants.eps, "VaNominal has to be > (Ra+Re)*IaNominal");
@@ -4150,8 +4150,7 @@ Armature current does not cover excitation current of a shunt excitation; in thi
         connect(pin_en, airGapDC.pin_en) annotation (Line(points={{-100,-60},{
                 -10,-60},{-10,-10}}, color={0,0,255}));
         connect(re.n, airGapDC.pin_ep) annotation (Line(points={{10,-20},{10,
-                -15},{10,-10},{10,-10}},
-                                color={0,0,255}));
+                -10},{10,-10}}, color={0,0,255}));
         connect(airGapDC.pin_ap, la.n) annotation (Line(
             points={{10,10},{10,35},{10,35},{10,60}},
             color={0,0,255},
@@ -4236,7 +4235,7 @@ Series excitation has to be connected by the user's external circuit.
 <td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient Alpha20a </td>
+<td valign=\"top\">temperature coefficient alpha20a </td>
 <td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
@@ -4252,7 +4251,7 @@ Series excitation has to be connected by the user's external circuit.
 <td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient Alpha20e</td>
+<td valign=\"top\">temperature coefficient alpha20e</td>
 <td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
@@ -9392,7 +9391,7 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
       parameter Modelica.SIunits.Temperature TsRef(start=293.15)
         "Reference temperature of stator resistance" 
          annotation(Dialog(tab="Nominal resistances and inductances"));
-      parameter Modelica.Electrical.Machines.Thermal.Alpha20 Alpha20s(start=0)
+      parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20s(start=0)
         "Temperature coefficient of stator resistance at 20 degC" 
          annotation(Dialog(tab="Nominal resistances and inductances"));
       parameter Modelica.SIunits.Inductance Lssigma(start=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal))
@@ -9425,7 +9424,7 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
         final m=m,
         final R=fill(Rs, m),
         final T_ref=fill(TsRef, m),
-        final alpha=fill(Modelica.Electrical.Machines.Thermal.convertAlpha(Alpha20s, TsRef), m),
+        final alpha=fill(Modelica.Electrical.Machines.Thermal.convertAlpha(alpha20s, TsRef), m),
         final useHeatPort=true,
         final T=fill(TsRef,m)) 
         annotation (Placement(transformation(extent={{60,50},{40,70}}, rotation=
@@ -9664,7 +9663,7 @@ Partial thermal ambient for induction machines
       parameter Modelica.SIunits.Temperature TaRef(start=293.15)
         "Reference temperture of armature resistance" 
          annotation(Dialog(tab="Nominal resistances and inductances"));
-      parameter Modelica.Electrical.Machines.Thermal.Alpha20 Alpha20a(start=0)
+      parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20a(start=0)
         "Temperature coefficient of armature resistance" 
          annotation(Dialog(tab="Nominal resistances and inductances"));
       parameter Modelica.SIunits.Inductance La(start=0.0015)
@@ -9686,7 +9685,7 @@ Partial thermal ambient for induction machines
         final R=Ra,
         final T_ref=TaRef,
         final alpha=Modelica.Electrical.Machines.Thermal.convertAlpha(
-                                         Alpha20a, TaRef),
+                                         alpha20a, TaRef),
         final useHeatPort=true,
         final T=TaRef) 
         annotation (Placement(transformation(extent={{60,50},{40,70}}, rotation=0)));
@@ -10042,7 +10041,7 @@ Thermal ports for DC machines
       parameter Modelica.SIunits.Temperature T1Ref(start=293.15)
         "Reference temperature of primary resistance" 
          annotation(Dialog(tab="Nominal resistances and inductances"));
-      parameter Modelica.Electrical.Machines.Thermal.Alpha20 Alpha20_1(start=0)
+      parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20_1(start=0)
         "Temperature coefficient of primary resistance at 20 degC" 
          annotation(Dialog(tab="Nominal resistances and inductances"));
       parameter Modelica.SIunits.Inductance L1sigma(start=78E-6/(if C1=="D" then 1 else 3))
@@ -10054,7 +10053,7 @@ Thermal ports for DC machines
       parameter Modelica.SIunits.Temperature T2Ref(start=293.15)
         "Reference temperature of secondary resistance" 
          annotation(Dialog(tab="Nominal resistances and inductances"));
-      parameter Modelica.Electrical.Machines.Thermal.Alpha20 Alpha20_2(start=0)
+      parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20_2(start=0)
         "Temperature coefficient of secondary resistance at 20 degC" 
          annotation(Dialog(tab="Nominal resistances and inductances"));
       parameter Modelica.SIunits.Inductance L2sigma(start=78E-6/(if C2=="d" then 1 else 3))
@@ -10088,7 +10087,7 @@ Thermal ports for DC machines
         final m=m,
         final R=fill(R1,m),
         final T_ref=fill(T1Ref,m),
-        final alpha=fill(Modelica.Electrical.Machines.Thermal.convertAlpha(Alpha20_1, T1Ref), m),
+        final alpha=fill(Modelica.Electrical.Machines.Thermal.convertAlpha(alpha20_1, T1Ref), m),
         final useHeatPort=true,
         final T=fill(T1Ref,m)) 
         annotation (Placement(transformation(extent={{-90,10},{-70,-10}}, rotation=0)));
@@ -10099,7 +10098,7 @@ Thermal ports for DC machines
         final m=m,
         final R=fill(R2,m),
         final T_ref=fill(T2Ref,m),
-        final alpha=fill(Modelica.Electrical.Machines.Thermal.convertAlpha(Alpha20_2, T2Ref), m),
+        final alpha=fill(Modelica.Electrical.Machines.Thermal.convertAlpha(alpha20_2, T2Ref), m),
         final useHeatPort=true,
         final T=fill(T2Ref,m)) 
         annotation (Placement(transformation(extent={{70,10},{90,-10}},
@@ -10204,7 +10203,7 @@ Circuit layout (vector group) of primary and secondary windings have to be defin
 <td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient Alpha20_1 </td>
+<td valign=\"top\">temperature coefficient alpha20_1 </td>
 <td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
@@ -10220,7 +10219,7 @@ Circuit layout (vector group) of primary and secondary windings have to be defin
 <td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
 </tr>
 <tr>
-<td valign=\"top\">temperature coefficient Alpha20_2 </td>
+<td valign=\"top\">temperature coefficient alpha20_2 </td>
 <td valign=\"top\">0</td><td valign=\"top\">1/K</td>
 </tr>
 <tr>
