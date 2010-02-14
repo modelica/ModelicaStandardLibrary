@@ -9203,6 +9203,12 @@ In sub-package <a href=Modelica://Modelica.Electrical.Machines.Thermal.Constants
 <li><code>heatPort2[m]</code>: m=3 heatPorts for the m=3 secondary phases</li>
 <li><code>heatPort_core</code>: iron core losses (not yet connected/implemented)</li>
 </ul>
+</HTML>",   revisions="<HTML>
+  <ul>
+  <li> v2.2.0 2011/02/10 Anton Haumer<br>
+       first stable release of this subpackage:<br>
+       conditional ThermalPort for all machines</li>
+  </ul>
 </HTML>"));
   end Thermal;
 
