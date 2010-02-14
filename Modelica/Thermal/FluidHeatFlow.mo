@@ -1594,7 +1594,7 @@ and the accompanying <b>disclaimer</b>
 
     model Ambient "Ambient with constant properties"
 
-      extends Interfaces.Partials.Ambient;
+      extends Interfaces.Partials.Ambient(flowPort(final p=pAmbient),final T=TAmbient);
       parameter Boolean usePressureInput=false
         "Enable / disable pressure input" 
         annotation(Evaluate=true);
@@ -1625,8 +1625,6 @@ and the accompanying <b>disclaimer</b>
       Modelica.Blocks.Interfaces.RealInput TAmbient 
         annotation (Placement(transformation(extent={{62,-62},{58,-58}})));
     equation
-      flowPort.p = pAmbient;
-      T = TAmbient;
       connect(ambientPressure, pAmbient) annotation (Line(
           points={{100,70},{60,70},{60,60}},
           color={0,0,127},
@@ -2397,8 +2395,8 @@ Parameter 0 &lt; tapT &lt; 1 defines temperature of heatPort between medium's in
         parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
           "Ambient medium" 
           annotation(__Dymola_choicesAllMatching=true);
-        output Modelica.SIunits.Temperature T "Outlet temperature of medium";
-        output Modelica.SIunits.Temperature T_port=flowPort.h/medium.cp
+        input Modelica.SIunits.Temperature T "Outlet temperature of medium";
+        Modelica.SIunits.Temperature T_port=flowPort.h/medium.cp
           "Temperature at flowPort_a";
       protected
         Modelica.SIunits.SpecificEnthalpy h = medium.cp*T;
