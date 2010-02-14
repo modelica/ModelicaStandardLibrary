@@ -320,7 +320,8 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
       Modelica.Blocks.Sources.BooleanStep booleanStep2[m](each startTime=tStart2) 
         annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
               rotation=0)));
-      MultiPhase.Ideal.IdealCommutingSwitch idealCommutingSwitch(final m=m) 
+      MultiPhase.Ideal.IdealCommutingSwitch idealCommutingSwitch(final m=m, Goff=
+            fill(5E-4, m)) 
         annotation (Placement(transformation(
             origin={0,0},
             extent={{10,10},{-10,-10}},
@@ -7755,10 +7756,6 @@ This package contains sensors that are usefull when modelling machines.
         Modelica.Electrical.Analog.Interfaces.NegativePin ground 
           annotation (Placement(transformation(extent={{90,-110},{110,-90}},
                 rotation=0)));
-        Modelica.Electrical.Analog.Basic.Ground gnd 
-          annotation (Placement(transformation(extent={{60,-110},{80,-90}},
-                rotation=0)));
-
         Interfaces.SpacePhasor spacePhasor annotation (Placement(transformation(
                 extent={{90,90},{110,110}}, rotation=0)));
       equation
@@ -7771,9 +7768,7 @@ This package contains sensors that are usefull when modelling machines.
         -zero.i = 1/m*sum(i);
         -spacePhasor.i_ = TransformationMatrix *i;
       //-i  = fill(zero.i,m) + InverseTransformation*spacePhasor.i_;
-        connect(gnd.p, ground) annotation (Line(
-            points={{70,-90},{100,-90},{100,-100}},
-            color={0,0,255}));
+        ground.v = 0;
         annotation (
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}),

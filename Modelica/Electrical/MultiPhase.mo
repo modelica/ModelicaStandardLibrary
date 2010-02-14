@@ -340,8 +340,9 @@ This package contains test examples of analog electrical multiphase circuits.
 
     equation
       for j in 1:m loop
-        connect(plug_p.pin[j],pin_n);
+        plug_p.pin[j].v = pin_n.v;
       end for;
+      sum(plug_p.pin.i) + pin_n.i = 0;
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Text(
@@ -386,9 +387,11 @@ Connects all pins of plug_p to pin_n, thus establishing a so-called star-connect
     equation
       for j in 1:m loop
         if j<m then
-          connect(plug_n.pin[j],plug_p.pin [j+1]);
+          plug_n.pin[j].v = plug_p.pin[j+1].v;
+          plug_n.pin[j].i + plug_p.pin[j+1].i = 0;
         else
-          connect(plug_n.pin[j],plug_p.pin [1]);
+          plug_n.pin[j].v = plug_p.pin[1].v;
+          plug_n.pin[j].i + plug_p.pin[1].i = 0;
         end if;
       end for;
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
