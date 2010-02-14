@@ -3894,7 +3894,7 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
           "Field excitation resistance at TRef" 
            annotation(Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Temperature TeRef(start=293.15)
-          "Reference temperture of excitation resistance" 
+          "Reference temperature of excitation resistance" 
            annotation(Dialog(tab="Excitation"));
         parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20e(start=0)
           "Temperature coefficient of excitation resistance" 
@@ -4101,7 +4101,7 @@ Armature current does not cover excitation current of a shunt excitation; in thi
           "Series excitation resistance at TRef" 
            annotation(Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Temperature TeRef(start=293.15)
-          "Reference temperture of excitation resistance" 
+          "Reference temperature of excitation resistance" 
            annotation(Dialog(tab="Excitation"));
         parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20e(start=0)
           "Temperature coefficient of excitation resistance" 
@@ -6902,6 +6902,141 @@ Induced armature voltage is calculated from flux times angular velocity.
 </HTML>"));
       end AirGapDC;
 
+      partial model PartialAirGapDCcompound
+        "Partial airgap model of a DC compound machine"
+        parameter Real turnsRatio
+          "Ratio of armature turns over number of turns of the (shunt) excitation winding";
+        parameter Real excitationTurnsRatio
+          "Ratio of series excitation turns over number of turns of the (shunt) excitation winding";
+        Modelica.SIunits.AngularVelocity w "Angluar velocity";
+        Modelica.SIunits.Voltage vei
+          "Voltage drop across (shunt) excitation inductance";
+        Modelica.SIunits.Current ie "Shunt excitation current";
+        Modelica.SIunits.Voltage vsei
+          "Voltage drop across series excitation inductance";
+        Modelica.SIunits.Current ise "Series excitation current";
+        Modelica.SIunits.MagneticFlux psi_e
+          "Total excitation flux w.r.t. (shunt) excitation";
+        Modelica.SIunits.Voltage vai "Induced armature voltage";
+        Modelica.SIunits.Current ia "Armature current";
+        output Modelica.SIunits.Torque tauElectrical;
+        Modelica.Mechanics.Rotational.Interfaces.Flange_a flange 
+          annotation (Placement(transformation(extent={{-10,110},{10,90}},
+                rotation=0)));
+        Modelica.Mechanics.Rotational.Interfaces.Flange_a support
+          "Support at which the reaction torque is acting" 
+             annotation (Placement(transformation(extent={{-10,-110},{10,-90}},
+                rotation=0)));
+        Modelica.Electrical.Analog.Interfaces.PositivePin pin_ap 
+          annotation (Placement(transformation(extent={{-110,110},{-90,90}},
+                rotation=0)));
+        Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep 
+          annotation (Placement(transformation(extent={{90,110},{110,90}},
+                rotation=0)));
+        Modelica.Electrical.Analog.Interfaces.NegativePin pin_an 
+          annotation (Placement(transformation(extent={{-110,-110},{-90,-90}},
+                rotation=0)));
+        Modelica.Electrical.Analog.Interfaces.NegativePin pin_en 
+          annotation (Placement(transformation(extent={{90,10},{110,30}},
+                rotation=0)));
+        Modelica.Electrical.Analog.Interfaces.PositivePin pin_sep 
+          annotation (Placement(transformation(extent={{90,-10},{110,-30}},
+                rotation=0)));
+        Modelica.Electrical.Analog.Interfaces.NegativePin pin_sen 
+          annotation (Placement(transformation(extent={{90,-110},{110,-90}},
+                rotation=0)));
+      equation
+        // armature pins
+        vai = pin_ap.v - pin_an.v;
+        ia = + pin_ap.i;
+        ia = - pin_an.i;
+        // (shunt) excitation pins
+        vei = pin_ep.v - pin_en.v;
+        ie = + pin_ep.i;
+        ie = - pin_en.i;
+        // series excitation pins
+        vsei = pin_sep.v - pin_sen.v;
+        ise = + pin_sep.i;
+        ise = - pin_sen.i;
+        // induced voltage across field excitation inductance
+        vei = der(psi_e);
+        vsei = der(psi_e)/excitationTurnsRatio;
+        // mechanical speed
+        w = der(flange.phi)-der(support.phi);
+        // induced armature voltage
+        vai = turnsRatio * psi_e * w;
+        // electrical torque (ia is perpendicular to flux)
+        tauElectrical = turnsRatio * psi_e * ia;
+        flange.tau = -tauElectrical;
+        support.tau = tauElectrical;
+        annotation (
+          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                  {100,100}}),
+                  graphics),
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                  100,100}}), graphics={
+              Ellipse(
+                extent={{-90,90},{90,-92}},
+                lineColor={0,0,255},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
+              Ellipse(
+                extent={{-80,80},{80,-80}},
+                lineColor={0,0,255},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
+              Rectangle(
+                extent={{-10,90},{10,-80}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.VerticalCylinder,
+                fillColor={128,128,128}),
+              Text(
+                extent={{0,90},{80,10}},
+                lineColor={0,0,0},
+                textString="E"),
+              Text(
+                extent={{-150,-100},{150,-160}},
+                lineColor={0,0,255},
+                textString="%name"),
+              Text(
+                extent={{-80,40},{0,-40}},
+                lineColor={0,0,0},
+                textString="A"),
+              Text(
+                extent={{0,0},{80,-80}},
+                lineColor={0,0,0},
+                textString="S")}),
+          Documentation(info="<HTML>
+Linear model of the airgap (without saturation effects) of a DC compound machine, using only equations.<br>
+Induced excitation voltage is calculated from der(flux), where flux is defined by excitation inductance times excitation current.<br>
+Induced armature voltage is calculated from flux times angular velocity.
+</HTML>"));
+      end PartialAirGapDCcompound;
+
+      model AirGapDCcompound "Linear airgap model of a DC compound machine"
+        extends PartialAirGapDCcompound;
+        parameter Modelica.SIunits.Inductance Le "Shunt excitation inductance";
+        parameter Modelica.SIunits.Inductance Lse
+          "Series Excitation inductance";
+      equation
+        // excitation flux: linearly dependent on excitation current
+        psi_e = Le * ie + Lse * ise / turnsRatio;
+        annotation (defaultComponentName="airGap",
+          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                  {100,100}}),
+                  graphics),
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                  100,100}}), graphics={Text(
+                extent={{-150,-100},{150,-160}},
+                lineColor={0,0,255},
+                textString="%name")}),
+          Documentation(info="<HTML>
+Linear model of the airgap (without saturation effects) of a DC compound machine, using only equations.<br>
+Induced excitation voltage is calculated from der(flux), where flux is defined by excitation inductance times excitation current.<br>
+Induced armature voltage is calculated from flux times angular velocity.
+</HTML>"));
+      end AirGapDCcompound;
+
       partial model PartialCore
         "Partial model of transformer core with 3 windings"
         parameter Integer m(final min=1) = 3 "Number of phases";
@@ -8928,6 +9063,94 @@ Thermal ambient for DC machines with serial excitation to prescribe winding temp
 Additionally, all losses = heat flows are recorded.
 </HTML>"));
       end ThermalAmbientDCSE;
+
+      model ThermalAmbientDCCE
+        "Thermal ambient for DC machine with compound excitation"
+        import Modelica;
+        extends
+          Modelica.Electrical.Machines.Interfaces.PartialThermalAmbientDCMachines(
+           redeclare final
+            Modelica.Electrical.Machines.Interfaces.DCMachines.ThermalPortDCCE
+            thermalPort);
+        parameter Modelica.SIunits.Temperature Te(start=TDefault)
+          "Temperature of (shunt) excitation" 
+          annotation(Dialog(enable=not useTemperatureInputs));
+         parameter Modelica.SIunits.Temperature Tse(start=TDefault)
+          "Temperature of series excitation" 
+          annotation(Dialog(enable=not useTemperatureInputs));
+        output Modelica.SIunits.HeatFlowRate Q_flow_e = temperature_e.port.Q_flow
+          "Heat flow rate of (shunt) excitation";
+        output Modelica.SIunits.HeatFlowRate Q_flow_se = temperature_se.port.Q_flow
+          "Heat flow rate of series excitation";
+        output Modelica.SIunits.HeatFlowRate Q_flow_total=
+          Q_flow_a + Q_flow_e + Q_flow_se + Q_flow_core + Q_flow_stray + Q_flow_friction + Q_flow_brush;
+        Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature
+          temperature_e 
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={-20,30})));
+        Modelica.Blocks.Sources.Constant constT_e(final k=Te) if not useTemperatureInputs annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={-20,-10})));
+        Modelica.Blocks.Interfaces.RealInput T_e if useTemperatureInputs
+          "Temperature of (shunt) excitation"            annotation (Placement(transformation(
+              extent={{-20,-20},{20,20}},
+              rotation=90,
+              origin={0,-100})));
+        Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature
+          temperature_se 
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={-50,30})));
+        Modelica.Blocks.Sources.Constant constT_se(final k=Tse) if not useTemperatureInputs annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={-50,-10})));
+        Modelica.Blocks.Interfaces.RealInput T_se if useTemperatureInputs
+          "Temperature of series excitation"             annotation (Placement(transformation(
+              extent={{-20,-20},{20,20}},
+              rotation=90,
+              origin={-40,-100})));
+      equation
+        connect(temperature_e.port, thermalPort.heatPort_e) annotation (Line(
+            points={{-20,40},{-20,100},{0,100}},
+            color={191,0,0},
+            smooth=Smooth.None));
+        connect(constT_e.y, temperature_e.T) annotation (Line(
+            points={{-20,1},{-20,18}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(T_e, temperature_e.T) annotation (Line(
+            points={{0,-100},{0,-60},{-40,-60},{-40,8},{-20,8},{-20,18}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(constT_se.y,temperature_se. T) 
+                                             annotation (Line(
+            points={{-50,1},{-50,18}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(T_se,temperature_se. T) annotation (Line(
+            points={{-40,-100},{-40,-60},{-70,-60},{-70,8},{-50,8},{-50,18}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(temperature_se.port, thermalPort.heatPort_se) annotation (Line(
+            points={{-50,40},{-50,100},{0,100}},
+            color={191,0,0},
+            smooth=Smooth.None));
+      annotation (Icon(graphics={
+              Text(
+                extent={{-100,-20},{100,-80}},
+                lineColor={0,0,0},
+                fillColor={95,95,95},
+                fillPattern=FillPattern.Solid,
+                textString="DCCE")}), Diagram(graphics), Documentation(info="<HTML>
+Thermal ambient for DC machines with compound excitation to prescribe winding temperatures either constant or via signal connectors. 
+Additionally, all losses = heat flows are recorded.
+</HTML>"));
+      end ThermalAmbientDCCE;
     annotation(Documentation(info="<HTML>
 Thermal parts for DC machines
 </HTML>"));
@@ -9191,6 +9414,16 @@ In sub-package <a href=Modelica://Modelica.Electrical.Machines.Thermal.Constants
 <h5><a href=Modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited>DC machine with serial excitation</a></h5>
 <ul>
 <li><code>heatPort_a</code>: armature losses</li>
+<li><code>heatPort_se</code>: electrical series excitation</li>
+<li><code>heatPort_brush</code>: brush losses (not yet connected/implemented)</li>
+<li><code>heatPort_core</code>: iron core losses (not yet connected/implemented)</li>
+<li><code>heatPort_stray</code>: stray load losses (not yet connected/implemented)</li>
+<li><code>heatPort_friction</code>: friction losses (not yet connected/implemented)</li>
+</ul>
+<h5><!--<a href=Modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_Compound>-->DC machine with compound excitation (not yet implemented)<!--</a>--></h5>
+<ul>
+<li><code>heatPort_a</code>: armature losses</li>
+<li><code>heatPort_e</code>: electrical (shunt) excitation</li>
 <li><code>heatPort_se</code>: electrical series excitation</li>
 <li><code>heatPort_brush</code>: brush losses (not yet connected/implemented)</li>
 <li><code>heatPort_core</code>: iron core losses (not yet connected/implemented)</li>
@@ -9667,7 +9900,7 @@ Partial thermal ambient for induction machines
         "Armature resistance at TRef" 
          annotation(Dialog(tab="Nominal resistances and inductances"));
       parameter Modelica.SIunits.Temperature TaRef(start=293.15)
-        "Reference temperture of armature resistance" 
+        "Reference temperature of armature resistance" 
          annotation(Dialog(tab="Nominal resistances and inductances"));
       parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20a(start=0)
         "Temperature coefficient of armature resistance" 
@@ -10030,6 +10263,23 @@ Thermal port for DC machine with electrical (shunt) excitation
 Thermal port for DC machine with serial excitation
 </HTML>"));
       end ThermalPortDCSE;
+
+      connector ThermalPortDCCE
+        "Thermal port of DC machine with compound excitation"
+        import Modelica;
+        extends
+          Modelica.Electrical.Machines.Interfaces.PartialThermalPortDCMachines;
+
+        Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_e
+          "Heat port of (shunt) excitation" 
+          annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
+        Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_se
+          "Heat port of series excitation" 
+          annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
+        annotation (Diagram(graphics), Icon(graphics), Documentation(info="<HTML>
+Thermal port for DC machine with compound excitation
+</HTML>"));
+      end ThermalPortDCCE;
     annotation(Documentation(info="<HTML>
 Thermal ports for DC machines
 </HTML>"));
