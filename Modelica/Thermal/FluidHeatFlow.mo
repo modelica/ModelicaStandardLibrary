@@ -1594,7 +1594,7 @@ and the accompanying <b>disclaimer</b>
 
     model Ambient "Ambient with constant properties"
 
-      extends Interfaces.Partials.Ambient(flowPort(final p=pAmbient),final T=TAmbient);
+      extends Interfaces.Partials.Ambient;
       parameter Boolean usePressureInput=false
         "Enable / disable pressure input" 
         annotation(Evaluate=true);
@@ -1607,40 +1607,24 @@ and the accompanying <b>disclaimer</b>
       parameter Modelica.SIunits.Temperature constantAmbientTemperature(start=293.15, displayUnit="degC")
         "Ambient temperature" 
         annotation(Dialog(enable=not useTemperatureInput));
-      Modelica.Blocks.Interfaces.RealInput ambientPressure if usePressureInput 
+      Modelica.Blocks.Interfaces.RealInput ambientPressure=pAmbient if usePressureInput 
         annotation (Placement(transformation(extent={{110,60},{90,80}},
               rotation=0)));
-      Modelica.Blocks.Interfaces.RealInput ambientTemperature if useTemperatureInput 
+      Modelica.Blocks.Interfaces.RealInput ambientTemperature=TAmbient if useTemperatureInput 
         annotation (Placement(transformation(extent={{110,-60},{90,-80}},
               rotation=0)));
     protected
-      Modelica.Blocks.Sources.Constant constPressure(final k=
-            constantAmbientPressure) if not usePressureInput 
-        annotation (Placement(transformation(extent={{100,40},{80,60}})));
-      Modelica.Blocks.Interfaces.RealInput pAmbient 
-        annotation (Placement(transformation(extent={{62,58},{58,62}})));
-      Modelica.Blocks.Sources.Constant constTemperature(final k=
-            constantAmbientTemperature) if not useTemperatureInput 
-        annotation (Placement(transformation(extent={{100,-60},{80,-40}})));
-      Modelica.Blocks.Interfaces.RealInput TAmbient 
-        annotation (Placement(transformation(extent={{62,-62},{58,-58}})));
+      Modelica.SIunits.Pressure pAmbient;
+      Modelica.SIunits.Temperature TAmbient;
     equation
-      connect(ambientPressure, pAmbient) annotation (Line(
-          points={{100,70},{60,70},{60,60}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      connect(ambientTemperature, TAmbient) annotation (Line(
-          points={{100,-70},{60,-70},{60,-60}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      connect(constPressure.y, pAmbient) annotation (Line(
-          points={{79,50},{60,50},{60,60}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      connect(constTemperature.y, TAmbient) annotation (Line(
-          points={{79,-50},{60,-50},{60,-60}},
-          color={0,0,127},
-          smooth=Smooth.None));
+      if not usePressureInput then
+        pAmbient = constantAmbientPressure;
+      end if;
+      if not useTemperatureInput then
+        TAmbient = constantAmbientTemperature;
+      end if;
+      flowPort.p = pAmbient;
+      T = TAmbient;
     annotation (Documentation(info="<HTML>
 (Infinite) ambient with constant pressure and temperature.<br>
 Thermodynamic equations are defined by Partials.Ambient.
@@ -1701,33 +1685,19 @@ Coolant's mass flow, temperature and enthalpy flow are not affected.<br>
       parameter Modelica.SIunits.VolumeFlowRate constantVolumeFlow(start=1)
         "Volume flow rate" 
         annotation(Dialog(enable=not useVolumeFlowInput));
-      Modelica.Blocks.Interfaces.RealInput volumeFlow if useVolumeFlowInput 
+      Modelica.Blocks.Interfaces.RealInput volumeFlow=internalVolumeFlow if useVolumeFlowInput 
         annotation (Placement(transformation(
             origin={0,100},
             extent={{-10,-10},{10,10}},
             rotation=270)));
     protected
-      Modelica.Blocks.Sources.Constant constVolumeFlow(final k=constantVolumeFlow) if 
-           not useVolumeFlowInput 
-        annotation (Placement(transformation(extent={{10,-10},{-10,10}},
-            rotation=90,
-            origin={30,90})));
-      Modelica.Blocks.Interfaces.RealInput internalVolumeFlow annotation (Placement(
-            transformation(
-            extent={{-2,-2},{2,2}},
-            rotation=270,
-            origin={0,60})));
+      Modelica.SIunits.VolumeFlowRate internalVolumeFlow;
     equation
+      if not useVolumeFlowInput then
+        internalVolumeFlow = constantVolumeFlow;
+      end if;
       Q_flow = 0;
       V_flow = internalVolumeFlow;
-      connect(volumeFlow, internalVolumeFlow) annotation (Line(
-          points={{0,100},{0,60}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      connect(constVolumeFlow.y, internalVolumeFlow) annotation (Line(
-          points={{30,79},{30,60},{0,60}},
-          color={0,0,127},
-          smooth=Smooth.None));
     annotation (Documentation(info="<HTML>
 Fan resp. pump with constant volume flow rate. Pressure increase is the response of the whole system.
 Coolant's temperature and enthalpy flow are not affected.<br>
@@ -1768,36 +1738,19 @@ Thermodynamic equations are defined by Partials.TwoPort.
       parameter Modelica.SIunits.Pressure constantPressureIncrease(start=1)
         "Pressure increase" 
         annotation(Dialog(enable=not usePressureIncreaseInput));
-      Modelica.Blocks.Interfaces.RealInput pressureIncrease if usePressureIncreaseInput 
+      Modelica.Blocks.Interfaces.RealInput pressureIncrease=internalPressureIncrease if usePressureIncreaseInput 
         annotation (Placement(transformation(
             origin={0,100},
             extent={{-10,-10},{10,10}},
             rotation=270)));
     protected
-      Modelica.Blocks.Sources.Constant constPressureIncrease(final k=
-            constantPressureIncrease) if not usePressureIncreaseInput 
-        annotation (Placement(transformation(extent={{10,-10},{-10,10}},
-            rotation=90,
-            origin={30,90})));
-      Modelica.Blocks.Interfaces.RealInput internalPressureIncrease 
-        annotation (Placement(
-            transformation(
-            extent={{-2,-2},{2,2}},
-            rotation=270,
-            origin={0,60})));
+      Modelica.SIunits.Pressure internalPressureIncrease;
     equation
+      if not usePressureIncreaseInput then
+        internalPressureIncrease = constantPressureIncrease;
+      end if;
       Q_flow = 0;
       dp = -internalPressureIncrease;
-      connect(pressureIncrease, internalPressureIncrease) 
-          annotation (Line(
-          points={{0,100},{0,60}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      connect(constPressureIncrease.y, internalPressureIncrease) 
-          annotation (Line(
-          points={{30,79},{30,60},{0,60}},
-          color={0,0,127},
-          smooth=Smooth.None));
     annotation (Documentation(info="<HTML>
 Fan resp. pump with constant pressure increase. Mass resp. volume flow is the response of the whole system.
 Coolant's temperature and enthalpy flow are not affected.<br>
@@ -2395,8 +2348,8 @@ Parameter 0 &lt; tapT &lt; 1 defines temperature of heatPort between medium's in
         parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
           "Ambient medium" 
           annotation(__Dymola_choicesAllMatching=true);
-        input Modelica.SIunits.Temperature T "Outlet temperature of medium";
-        Modelica.SIunits.Temperature T_port=flowPort.h/medium.cp
+        output Modelica.SIunits.Temperature T "Outlet temperature of medium";
+        output Modelica.SIunits.Temperature T_port=flowPort.h/medium.cp
           "Temperature at flowPort_a";
       protected
         Modelica.SIunits.SpecificEnthalpy h = medium.cp*T;
