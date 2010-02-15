@@ -21,7 +21,7 @@ equation
         Text(
           extent={{0,60},{0,100}},
           lineColor={255,128,0},
-          textString=                          "%name"),
+          textString =                         "%name"),
         Text(
           extent={{0,-70},{0,-110}},
           lineColor={0,0,0},

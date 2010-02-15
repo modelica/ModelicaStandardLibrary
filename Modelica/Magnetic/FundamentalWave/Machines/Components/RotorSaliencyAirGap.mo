@@ -58,67 +58,67 @@ model RotorSaliencyAirGap "Air gap model with rotor saliency"
   // Modelica.SIunits.Torque tauTemp "Electrical torque";
   Modelica.SIunits.Angle gamma "Electrical angle between rotor and stator";
 
+  Complex rotator "Equivalent vector representation of windingAngle";
+
 equation
   // Stator flux into positive stator port
-  port_sp.Phi.re = Phi_ss.re;
-  port_sp.Phi.im = Phi_ss.im;
+  port_sp.Phi = Phi_ss;
   // Balance of stator flux
-  port_sp.Phi.re + port_sn.Phi.re = 0;
-  port_sp.Phi.im + port_sn.Phi.im = 0;
+  port_sp.Phi + port_sn.Phi = Complex(0,0);
 
   // Rotor flux into positive rotor port
-  port_rp.Phi.re = Phi_rr.re;
-  port_rp.Phi.im = Phi_rr.im;
+  port_rp.Phi = Phi_rr;
   // Balance of rotor flux
-  port_rp.Phi.re + port_rn.Phi.re = 0;
-  port_rp.Phi.im + port_rn.Phi.im = 0;
+  port_rp.Phi + port_rn.Phi = Complex(0,0);
 
   // Magneto motive force of stator
-  port_sp.V_m.re - port_sn.V_m.re = V_mss.re;
-  port_sp.V_m.im - port_sn.V_m.im = V_mss.im;
+  port_sp.V_m - port_sn.V_m = V_mss;
 
   // Magneto motive force of stator
-  port_rp.V_m.re - port_rn.V_m.re = V_mrr.re;
-  port_rp.V_m.im - port_rn.V_m.im = V_mrr.im;
+  port_rp.V_m - port_rn.V_m = V_mrr;
 
-  // Transformation of fluxes between stator and rotor fixed frame
-  // -- Phi_rs.re = + Phi_rr.re * cos(gamma) - Phi_rr.im * sin(gamma);
-  // -- Phi_rs.im = + Phi_rr.re * sin(gamma) + Phi_rr.im * cos(gamma);
+  // Transformation of fluxes between stator and rotor fixed frame, if wanted
+  // Phi_rs.re = + Phi_rr.re * cos(gamma) - Phi_rr.im * sin(gamma);
+  // Phi_rs.im = + Phi_rr.re * sin(gamma) + Phi_rr.im * cos(gamma);
+  // Alternative transformation
   // Phi_rr.re = + Phi_rs.re * cos(gamma) + Phi_rs.im * sin(gamma);
   // Phi_rr.im = - Phi_rs.re * sin(gamma) + Phi_rs.im * cos(gamma);
 
   // Transformed stator flux is not needed
-  Phi_sr.re = + Phi_ss.re * cos(gamma) + Phi_ss.im * sin(gamma);
-  Phi_sr.im = - Phi_ss.re * sin(gamma) + Phi_ss.im * cos(gamma);
+  // Phi_sr.re = + Phi_ss.re * cos(gamma) + Phi_ss.im * sin(gamma);
+  // Phi_sr.im = - Phi_ss.re * sin(gamma) + Phi_ss.im * cos(gamma);
+  Phi_sr = Phi_ss * Modelica.ComplexMath.conj(rotator);
+  // Alternative transformation
   // Phi_ss.re = + Phi_sr.re * cos(gamma) - Phi_sr.im * sin(gamma);
   // Phi_ss.im = + Phi_sr.re * sin(gamma) + Phi_sr.im * cos(gamma);
 
   // Local balance of flux w.r.t. the rotor fixed frame
-  0 = Phi_sr.re + Phi_rr.re;
-  0 = Phi_sr.im + Phi_rr.im;
+  Phi_sr + Phi_rr = Complex(0,0);
 
   // Transformation of magnetic potential difference between stator and rotor fixed frame
   // V_mrs.re = + V_mrr.re * cos(gamma) - V_mrr.im * sin(gamma);
   // V_mrs.im = + V_mrr.re * sin(gamma) + V_mrr.im * cos(gamma);
   // V_mrr.re = + V_mrs.re * cos(gamma) + V_mrs.im * sin(gamma);
   // V_mrr.im = - V_mrs.re * sin(gamma) + V_mrs.im * cos(gamma);
-  V_msr.re = + V_mss.re * cos(gamma) + V_mss.im * sin(gamma);
-  V_msr.im = - V_mss.re * sin(gamma) + V_mss.im * cos(gamma);
+  // V_msr.re = + V_mss.re * cos(gamma) + V_mss.im * sin(gamma);
+  // V_msr.im = - V_mss.re * sin(gamma) + V_mss.im * cos(gamma);
+  V_msr = V_mss * Modelica.ComplexMath.conj(rotator);
   // V_msr.re = + V_mss.re * cos(gamma) + V_mss.im * sin(gamma);
   // V_msr.im = - V_mss.re * sin(gamma) + V_mss.im * cos(gamma);
 
   // Local balance of maganeto motive force
-  (pi/2) * (V_mrr.re - V_msr.re) = Phi_rr.re*R_m.d;
-  (pi/2) * (V_mrr.im - V_msr.im) = Phi_rr.im*R_m.q;
+  (pi/2.0) * (V_mrr.re - V_msr.re) = Phi_rr.re*R_m.d;
+  (pi/2.0) * (V_mrr.im - V_msr.im) = Phi_rr.im*R_m.q;
 
   // Torque
-  tauElectrical = - (pi*p/2)*(Phi_ss.re * V_mss.im - Phi_ss.im * V_mss.re);
+  tauElectrical = - (pi*p/2.0)*(Phi_ss.re * V_mss.im - Phi_ss.im * V_mss.re);
 
   flange_a.tau = tauElectrical;
   support.tau = -tauElectrical;
 
   // Electrical angle between stator and rotor
   gamma = p*(flange_a.phi-support.phi);
+  rotator = Modelica.ComplexMath.exp(Complex(0,gamma));
 
   annotation (Diagram(graphics),
                        Icon(graphics={

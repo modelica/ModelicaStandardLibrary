@@ -3,13 +3,13 @@ model Short "Salient reluctance"
   extends Interfaces.PartialTwoPortElementary;
 
 equation
-  connect(port_p, port_n) annotation (Line(points={{-100,5.55112e-16},{-1,
-          5.55112e-16},{-1,5.55112e-16},{100,5.55112e-16}}, color={255,128,0}));
+  connect(port_p, port_n) annotation (Line(points={{-100,0},{-1,0},{-1,0},{100,
+          0}},                                              color={255,128,0}));
   annotation (Icon(graphics={
         Text(
           extent={{0,60},{0,100}},
           lineColor={255,128,0},
-          textString=                          "%name"),
+          textString =                         "%name"),
         Rectangle(
           extent={{-100,40},{100,-40}},
           lineColor={255,255,255},

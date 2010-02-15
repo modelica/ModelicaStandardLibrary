@@ -129,13 +129,13 @@ equation
   connect(rotorAngleE.plug_p,smeeE. plug_sp)  annotation (Line(points={{14,-40},
           {-4,-40}}, color={0,0,255}));
   connect(rotorAngleE.flange,smeeE.flange) 
-    annotation (Line(points={{10,-50},{5.55112e-16,-50}}, color={0,0,0}));
+    annotation (Line(points={{10,-50},{0,-50}},           color={0,0,0}));
   connect(star.pin_n, ground.p) 
     annotation (Line(points={{-70,80},{-80,80}}, color={0,0,255}));
   connect(star.plug_p, sineVoltage.plug_n)   annotation (Line(points={{-50,80},
           {-40,80}}, color={0,0,255}));
   connect(smeeE.flange,  mechanicalPowerSensorE. flange_a) 
-    annotation (Line(points={{5.55112e-16,-50},{40,-50}}, color={0,0,0}));
+    annotation (Line(points={{0,-50},{40,-50}},           color={0,0,0}));
   connect(mechanicalPowerSensorE.flange_b,constantSpeedE. flange) 
     annotation (Line(points={{60,-50},{70,-50}}, color={0,0,0}));
   connect(rampCurrentE.p,groundE. p) annotation (Line(points={{-50,-60},{-78,
@@ -153,18 +153,17 @@ equation
   connect(rotorAngleM.plug_p, smeeM.plug_sp)  annotation (Line(points={{14,20},
           {-4,20}}, color={0,0,255}));
   connect(rotorAngleM.flange,smeeM.flange) 
-    annotation (Line(points={{10,10},{5,10},{5,10},{5.55112e-16,10}},
+    annotation (Line(points={{10,10},{5,10},{5,10},{0,10}},
                                                         color={0,0,0}));
   connect(smeeM.flange,   mechanicalPowerSensorM.flange_a) 
-    annotation (Line(points={{5.55112e-16,10},{40,10}}, color={0,0,0}));
+    annotation (Line(points={{0,10},{40,10}},           color={0,0,0}));
   connect(mechanicalPowerSensorM.flange_b, constantSpeedM.flange) 
     annotation (Line(points={{60,10},{70,10}}, color={0,0,0}));
-  connect(rampCurrentM.p, groundM.p) annotation (Line(points={{-50,-5.55112e-16},
-          {-58,0},{-64,5.56792e-16},{-64,-1.22629e-15},{-78,-1.22629e-15}},
-                                                                        color={
+  connect(rampCurrentM.p, groundM.p) annotation (Line(points={{-50,0},{-58,0},{
+          -64,5.56792e-016},{-64,-1.83697e-015},{-78,-1.83697e-015}},   color={
           0,0,255}));
-  connect(rampCurrentM.p, smeeM.pin_en)  annotation (Line(points={{-50,
-          -5.55112e-16},{-40,-5.55112e-16},{-40,4},{-20,4}}, color={0,0,255}));
+  connect(rampCurrentM.p, smeeM.pin_en)  annotation (Line(points={{-50,0},{-40,
+          0},{-40,4},{-20,4}},                               color={0,0,255}));
   connect(rampCurrentM.n, smeeM.pin_ep)  annotation (Line(points={{-50,20},{-40,
           20},{-40,16},{-20,16}}, color={0,0,255}));
   connect(smeeM.plug_sn,terminalBoxM.plug_sn)               annotation (Line(

@@ -129,11 +129,12 @@ equation
   connect(star.pin_n, ground.p) 
     annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
   connect(sineVoltage.plug_n, star.plug_p) 
-    annotation (Line(points={{1.33731e-15,70},{1.33731e-15,90},{-50,90}},
+    annotation (Line(points={{1.83697e-015,70},{1.83697e-015,90},{-50,90}},
         color={0,0,255}));
   connect(sineVoltage.plug_p, idealCloser.plug_p) 
-    annotation (Line(points={{-2.33651e-15,50},{0,48},{1.22461e-15,46},{
-          2.33651e-15,46},{2.33651e-15,40}}, color={0,0,255}));
+    annotation (Line(points={{-1.83697e-015,50},{0,48},{1.22461e-015,46},{
+          1.83697e-015,46},{1.83697e-015,40}},
+                                             color={0,0,255}));
   connect(loadInertiaElectricalE.flange_b, quadraticLoadTorqueElectricalE.
     flange) 
     annotation (Line(points={{70,-50},{80,-50}}, color={0,0,0}));
@@ -144,7 +145,7 @@ equation
           30},{-7,30}}, color={255,0,255}));
   connect(idealCloser.plug_n, currentRMSsensorElectricalE.plug_p) 
                                                          annotation (Line(
-        points={{-1.33731e-15,20},{-1.33731e-15,10},{30,10},{30,5.55112e-16}},
+        points={{-1.83697e-015,20},{-1.83697e-015,10},{30,10},{30,-1.77636e-015}},
         color={0,0,255}));
   connect(terminalBoxElectrical.plug_sn,             aimsE.plug_sn) 
                                                            annotation (Line(
@@ -178,8 +179,8 @@ equation
         points={{-30,-20},{-30,-29},{-30,-29},{-30,-38}},
                                       color={0,0,255}));
   connect(currentRMSsensorM.plug_p, idealCloser.plug_n) 
-                                                       annotation (Line(points={{-30,
-          5.55112e-16},{-30,10},{-1.33731e-15,10},{-1.33731e-15,20}},
+                                                       annotation (Line(points={{-30,0},
+          {-30,10},{-1.83697e-015,10},{-1.83697e-015,20}},
         color={0,0,255}));
   connect(aimsM.plug_rp, rheostatM.plug_p) 
                                          annotation (Line(points={{-20,-44},{-20,

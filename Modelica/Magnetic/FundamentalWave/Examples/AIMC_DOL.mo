@@ -111,7 +111,7 @@ equation
   connect(star.pin_n, ground.p) 
     annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
   connect(sineVoltage.plug_n, star.plug_p) 
-    annotation (Line(points={{1.33731e-15,70},{1.33731e-15,90},{-50,90}},
+    annotation (Line(points={{1.83697e-015,70},{1.83697e-015,90},{-50,90}},
         color={0,0,255}));
   connect(aimcM.flange,   loadInertiaM.flange_a) 
     annotation (Line(points={{10,-40},{10,-40},{40,-40}},
@@ -124,8 +124,8 @@ equation
   connect(terminalBoxM.plug_sp,             aimcM.plug_sp) 
     annotation (Line(points={{6,-30},{6,-30}}, color={0,0,255}));
   connect(terminalBoxM.plugSupply, currentRMSsensorM.plug_n) 
-    annotation (Line(points={{6.10623e-16,-28},{-1.33731e-15,-28},{-1.33731e-15,
-          -10}}, color={0,0,255}));
+    annotation (Line(points={{0,-28},{-1.83697e-015,-28},{-1.83697e-015,-10}},
+                 color={0,0,255}));
   connect(aimcE.flange,   loadInertiaE.flange_a) 
     annotation (Line(points={{10,-80},{10,-80},{40,-80}},
                                                  color={0,0,0}));
@@ -138,18 +138,18 @@ equation
     annotation (Line(points={{6,-70},{6,-70},{6,-70}},
                                                color={0,0,255}));
   connect(currentRMSsensorE.plug_p, currentRMSsensorM.plug_p) 
-    annotation (Line(points={{-20,10},{2.33651e-15,10},{2.33651e-15,10}},
+    annotation (Line(points={{-20,10},{1.83697e-015,10},{1.83697e-015,10}},
                             color={0,0,255}));
   connect(currentRMSsensorE.plug_n,terminalBoxE.plugSupply) 
-    annotation (Line(points={{-20,-10},{-20,-60},{6.10623e-16,-60},{6.10623e-16,
-          -68}}, color={0,0,255}));
+    annotation (Line(points={{-20,-10},{-20,-60},{0,-60},{0,-68}},
+                 color={0,0,255}));
 
   connect(sineVoltage.plug_p, idealCloser.plug_p) annotation (Line(
-      points={{-2.33651e-15,50},{2.33651e-15,50},{2.33651e-15,40}},
+      points={{-1.83697e-015,50},{1.83697e-015,50},{1.83697e-015,40}},
       color={0,0,255},
       smooth=Smooth.None));
   connect(idealCloser.plug_n, currentRMSsensorM.plug_p) annotation (Line(
-      points={{-1.33731e-15,20},{2.33651e-15,20},{2.33651e-15,10}},
+      points={{-1.83697e-015,20},{1.83697e-015,20},{1.83697e-015,10}},
       color={0,0,255},
       smooth=Smooth.None));
   connect(booleanStep.y, idealCloser.control) annotation (Line(

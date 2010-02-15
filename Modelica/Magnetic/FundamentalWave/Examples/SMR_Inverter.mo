@@ -122,7 +122,7 @@ model SMR_Inverter "Starting of synchronous reluctance machine with inverter"
     annotation (Placement(transformation(extent={{80,-80},{60,-60}}, rotation=0)));
 equation
   connect(signalVoltage.plug_n, star.plug_p) 
-    annotation (Line(points={{1.33731e-15,70},{1.33731e-15,90},{-50,90}},
+    annotation (Line(points={{1.83697e-015,70},{1.83697e-015,90},{-50,90}},
         color={0,0,255}));
   connect(star.pin_n, ground.p) 
     annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
@@ -139,7 +139,7 @@ equation
   connect(smrE.plug_sp,rotorAngleE. plug_p)  annotation (Line(points={{-14,-60},
           {4,-60}}, color={0,0,255}));
   connect(smrE.flange,  rotorAngleE. flange) 
-    annotation (Line(points={{-10,-70},{-5.55112e-16,-70}}, color={0,0,0}));
+    annotation (Line(points={{-10,-70},{0,-70}},            color={0,0,0}));
   connect(terminalBoxE.plug_sp,            smrE. plug_sp)  annotation (Line(
         points={{-14,-60},{-14,-60}}, color={0,0,255}));
   connect(terminalBoxE.plug_sn,            smrE. plug_sn)  annotation (Line(
@@ -150,26 +150,26 @@ equation
           -10},{30,-10}}, color={0,0,0}));
   connect(loadInertiaM.flange_b, torqueStepM.flange) 
     annotation (Line(points={{50,-10},{60,-10}}, color={0,0,0}));
-  connect(smrM.plug_sn, rotorAngleM.plug_n)  annotation (Line(points={{-26,
-          5.55112e-16},{-26,8},{16,8},{16,1.8735e-16}},  color={0,0,255}));
-  connect(smrM.plug_sp, rotorAngleM.plug_p)  annotation (Line(points={{-14,
-          5.55112e-16},{-4,5.55112e-16},{-4,9.22873e-16},{4,9.22873e-16}},
-                                                                         color=
+  connect(smrM.plug_sn, rotorAngleM.plug_n)  annotation (Line(points={{-26,0},{
+          -26,8},{16,8},{16,0}},                         color={0,0,255}));
+  connect(smrM.plug_sp, rotorAngleM.plug_p)  annotation (Line(points={{-14,0},{
+          -4,0},{-4,0},{4,0}},                                           color=
           {0,0,255}));
   connect(smrM.flange,   rotorAngleM.flange) 
-    annotation (Line(points={{-10,-10},{-5.55112e-16,-10}}, color={0,0,0}));
+    annotation (Line(points={{-10,-10},{0,-10}},            color={0,0,0}));
   connect(terminalBoxM.plug_sp,             smrM.plug_sp)  annotation (Line(
-        points={{-14,-5.55112e-16},{-14,5.55112e-16}}, color={0,0,255}));
+        points={{-14,0},{-14,0}},                      color={0,0,255}));
   connect(terminalBoxM.plug_sn,             smrM.plug_sn)  annotation (Line(
-        points={{-26,-5.55112e-16},{-26,5.55112e-16}}, color={0,0,255}));
+        points={{-26,0},{-26,0}},                      color={0,0,255}));
   connect(currentRMSsensorM.plug_n,terminalBoxM.plugSupply)  annotation (Line(
         points={{-20,20},{-20,11},{-20,2},{-20,2}},
                                    color={0,0,255}));
   connect(signalVoltage.plug_p, currentRMSsensorM.plug_p) annotation (Line(
-        points={{-2.33651e-15,50},{-2.33651e-15,40},{-20,40}},
+        points={{-1.83697e-015,50},{-1.83697e-015,40},{-20,40}},
                                                              color={0,0,255}));
   connect(signalVoltage.plug_p, currentRMSsensorE.plug_p) annotation (Line(
-        points={{-2.33651e-15,50},{0,50},{0,40},{-60,40}},color={0,0,255}));
+        points={{-1.83697e-015,50},{0,50},{0,40},{-60,40}},
+                                                          color={0,0,255}));
 
   annotation (
     Diagram(graphics),

@@ -34,16 +34,16 @@ model SinglePhaseElectroMagneticConverter
     "Complex magnetic potential difference";
   Modelica.SIunits.ComplexMagneticFlux Phi "Complex magnetic flux";
 
+  final parameter Complex rotator = Modelica.ComplexMath.exp(Complex(0,windingAngle))
+    "Equivalent vector representation of windingAngle";
+
 equation
   // Complex magnetic flux into positive port
-  port_p.Phi.re = Phi.re;
-  port_p.Phi.im = Phi.im;
+  port_p.Phi = Phi;
 
   // Complex magnetic potential difference
-  port_p.V_m.re - port_n.V_m.re = V_m.re;
-  port_p.V_m.im - port_n.V_m.im = V_m.im;
-  port_p.Phi.re + port_n.Phi.re = 0;
-  port_p.Phi.im + port_n.Phi.im = 0;
+  port_p.V_m - port_n.V_m = V_m;
+  port_p.Phi + port_n.Phi = Complex(0,0);
 
   // Voltage equation
   v = pin_p.v - pin_n.v;
@@ -54,11 +54,13 @@ equation
 
   // Complex magnetic potential difference from currents, number
   // of turns and angles of winding axis
-  V_m.re = (2/pi) * effectiveTurns*cos(windingAngle)*i;
-  V_m.im = (2/pi) * effectiveTurns*sin(windingAngle)*i;
+  // V_m.re = (2/pi) * effectiveTurns*cos(windingAngle)*i;
+  // V_m.im = (2/pi) * effectiveTurns*sin(windingAngle)*i;
+  V_m = (2.0/pi) * effectiveTurns*rotator*i;
 
   // Induced voltages from complex magnetic flux, number of turns
   // and angles of winding axis
+  // -v = effectiveTurns*real(rotator*Complex(der(Phi.re),der(Phi.im));
   -v = effectiveTurns*cos(windingAngle)*der(Phi.re)
      + effectiveTurns*sin(windingAngle)*der(Phi.im);
 

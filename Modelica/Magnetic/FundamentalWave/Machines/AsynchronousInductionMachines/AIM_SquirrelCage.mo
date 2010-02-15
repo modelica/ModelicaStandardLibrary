@@ -47,7 +47,7 @@ public
     annotation (Placement(transformation(extent={{-40,0},{-20,20}}, rotation=0)));
 equation
   connect(airGap.port_rp, rotorCageWinding.port_p) annotation (Line(
-      points={{10,-10},{10,-40}},
+      points={{10,-10},{10,-25},{10,-25},{10,-40}},
       color={255,128,0},
       smooth=Smooth.None));
   connect(airGap.port_rn, rotorCageWinding.port_n) annotation (Line(
@@ -56,10 +56,10 @@ equation
       smooth=Smooth.None));
 
   connect(airGap.support, internalSupport)         annotation (Line(points={{-10,
-          2.33651e-15},{-10,2.33651e-15},{-60,0},{-60,-100},{20,-100}},
+          1.83697e-015},{-10,2.33651e-015},{-60,0},{-60,-100},{20,-100}},
                                                         color={0,0,0}));
   connect(airGap.flange_a, inertiaRotor.flange_a)         annotation (Line(
-        points={{10,-1.33731e-15},{10,0},{60,0},{60,7.25006e-16}},
+        points={{10,-1.83697e-015},{10,0},{60,0},{60,1.22465e-015}},
                                                          color={0,0,0}));
   connect(statorWinding.port_n,airGap. port_sn) annotation (Line(points={{-10,20},
           {-10,17.5},{-10,10},{-10,10}},                     color={255,128,0}));

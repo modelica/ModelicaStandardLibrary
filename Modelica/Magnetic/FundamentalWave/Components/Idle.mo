@@ -7,7 +7,7 @@ equation
         Text(
           extent={{0,60},{0,100}},
           lineColor={255,128,0},
-          textString=                          "%name"),
+          textString =                         "%name"),
         Rectangle(
           extent={{-100,40},{100,-40}},
           lineColor={255,255,255},

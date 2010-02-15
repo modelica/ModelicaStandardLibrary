@@ -52,11 +52,11 @@ equation
   i = resistor.i;
 
   connect(port_p, winding.port_p)                            annotation (Line(
-        points={{-100,5.55112e-16},{-55,5.55112e-16},{-55,1.16747e-15},{-10,
-          1.16747e-15}}, color={255,128,0}));
+        points={{-100,0},{-55,0},{-55,0},{-10,0}},
+                         color={255,128,0}));
   connect(winding.port_n, port_n)                            annotation (Line(
-        points={{10,-5.72459e-17},{58,-5.72459e-17},{58,5.55112e-16},{100,
-          5.55112e-16}}, color={255,128,0}));
+        points={{10,0},{58,0},{58,0},{100,0}},
+                         color={255,128,0}));
   connect(ground.p,star. pin_n) annotation (Line(points={{60,-80},{50,-80}},
         color={0,0,255}));
   connect(strayInductor.plug_n, resistor.plug_p) 
@@ -116,7 +116,7 @@ equation
         Text(
           extent={{0,100},{0,140}},
           lineColor={0,0,255},
-          textString=                          "%name")}),
+          textString =                         "%name")}),
     Documentation(info="<html>
 <p>
 <img src=\"../Images/Magnetic/FundamentalWave/Machines/Components/rotorcage.png\">

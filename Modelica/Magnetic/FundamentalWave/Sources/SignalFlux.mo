@@ -13,16 +13,13 @@ model SignalFlux "Source of constant magnetic flux"
 
 equation
   // Flux into positive port
-  port_p.V_m.re - port_n.V_m.re = V_m.re;
-  port_p.V_m.im - port_n.V_m.im = V_m.im;
+  port_p.V_m - port_n.V_m = V_m;
 
   // Magneto motive force
-  port_p.Phi.re = Phi.re;
-  port_p.Phi.im = Phi.im;
+  port_p.Phi = Phi;
 
   // Local flux balance
-  port_p.Phi.re + port_n.Phi.re = 0;
-  port_p.Phi.im + port_n.Phi.im = 0;
+  port_p.Phi + port_n.Phi = Complex(0,0);
 
   annotation (Diagram(graphics),
                        Icon(graphics={

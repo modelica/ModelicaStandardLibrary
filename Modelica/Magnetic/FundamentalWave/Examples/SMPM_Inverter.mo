@@ -127,7 +127,7 @@ model SMPM_Inverter
     annotation (Placement(transformation(extent={{90,-72},{70,-52}}, rotation=0)));
 equation
   connect(signalVoltage.plug_n, star.plug_p) 
-    annotation (Line(points={{1.33731e-15,70},{1.33731e-15,90},{-50,90}},
+    annotation (Line(points={{1.83697e-015,70},{1.83697e-015,90},{-50,90}},
         color={0,0,255}));
   connect(star.pin_n, ground.p) 
     annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
@@ -138,26 +138,26 @@ equation
   connect(loadInertiaM.flange_b, torqueStepM.flange) 
     annotation (Line(points={{60,-10},{70,-10}}, color={0,0,0}));
   connect(signalVoltage.plug_p,currentRMSsensorM. plug_p)  annotation (Line(
-        points={{-2.33651e-15,50},{0,50},{0,40},{2.33651e-15,40}},color={0,0,
+        points={{-1.83697e-015,50},{0,50},{0,40},{1.83697e-015,40}},
+                                                                  color={0,0,
           255}));
   connect(rotorAngleM.plug_n, smpmM.plug_sn)  annotation (Line(points={{26,
-          -5.47305e-16},{26,6},{-16,6},{-16,5.55112e-16}},
-                                                         color={0,0,255}));
-  connect(rotorAngleM.plug_p, smpmM.plug_sp)  annotation (Line(points={{14,
-          1.65753e-15},{10,0},{6,1.47798e-15},{6,5.55112e-16},{-4,5.55112e-16}},
+          -3.55271e-015},{26,6},{-16,6},{-16,0}},        color={0,0,255}));
+  connect(rotorAngleM.plug_p, smpmM.plug_sp)  annotation (Line(points={{14,0},{
+          10,0},{6,1.47798e-015},{6,0},{-4,0}},
         color={0,0,255}));
   connect(rotorAngleM.flange,smpmM.flange) 
-    annotation (Line(points={{10,-10},{5,-10},{5,-10},{5.55112e-16,-10}},
+    annotation (Line(points={{10,-10},{5,-10},{5,-10},{0,-10}},
                                                           color={0,0,0}));
   connect(smpmM.flange,   loadInertiaM.flange_a) 
-    annotation (Line(points={{5.55112e-16,-10},{40,-10}}, color={0,0,0}));
+    annotation (Line(points={{0,-10},{40,-10}},           color={0,0,0}));
   connect(terminalBoxM.plug_sn,             smpmM.plug_sn)  annotation (Line(
-        points={{-16,-5.55112e-16},{-16,5.55112e-16}}, color={0,0,255}));
+        points={{-16,0},{-16,0}},                      color={0,0,255}));
   connect(terminalBoxM.plug_sp,             smpmM.plug_sp)  annotation (Line(
-        points={{-4,-5.55112e-16},{-4,-2.77556e-16},{-4,-2.77556e-16},{-4,
-          -2.43843e-22},{-4,5.55112e-16},{-4,5.55112e-16}}, color={0,0,255}));
+        points={{-4,0},{-4,-2.77556e-016},{-4,-2.77556e-016},{-4,-2.43843e-022},
+          {-4,0},{-4,0}},                                   color={0,0,255}));
   connect(terminalBoxM.plugSupply,currentRMSsensorM. plug_n) annotation (Line(
-        points={{-10,2},{-10,20},{-1.33731e-15,20}}, color={0,0,255}));
+        points={{-10,2},{-10,20},{-1.83697e-015,20}},color={0,0,255}));
   connect(loadInertiaE.flange_b, torqueStepE.flange) 
     annotation (Line(points={{60,-62},{70,-62}}, color={0,0,0}));
   connect(rotorAngleE.plug_n, smpmE.plug_sn)  annotation (Line(points={{26,-52},
@@ -165,16 +165,16 @@ equation
   connect(rotorAngleE.plug_p, smpmE.plug_sp)  annotation (Line(points={{14,-52},
           {-4,-52}}, color={0,0,255}));
   connect(rotorAngleE.flange,smpmE.flange) 
-    annotation (Line(points={{10,-62},{5.55112e-16,-62}}, color={0,0,0}));
+    annotation (Line(points={{10,-62},{0,-62}},           color={0,0,0}));
   connect(smpmE.flange,   loadInertiaE.flange_a) 
-    annotation (Line(points={{5.55112e-16,-62},{40,-62}}, color={0,0,0}));
+    annotation (Line(points={{0,-62},{40,-62}},           color={0,0,0}));
   connect(terminalBoxE.plug_sn,             smpmE.plug_sn)  annotation (Line(
         points={{-16,-52},{-16,-52}}, color={0,0,255}));
   connect(terminalBoxE.plug_sp,             smpmE.plug_sp)  annotation (Line(
         points={{-4,-52},{-4,-52}}, color={0,0,255}));
 
   connect(currentRMSsensorE.plug_p, currentRMSsensorM.plug_p)  annotation (Line(
-        points={{-40,40},{2.33651e-15,40}}, color={0,0,255}));
+        points={{-40,40},{1.83697e-015,40}},color={0,0,255}));
   connect(currentRMSsensorE.plug_n,terminalBoxE.plugSupply)   annotation (Line(
         points={{-40,20},{-40,-40},{-10,-40},{-10,-50}}, color={0,0,255}));
   annotation (

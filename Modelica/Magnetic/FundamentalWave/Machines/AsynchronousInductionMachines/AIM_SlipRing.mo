@@ -72,10 +72,10 @@ public
 equation
 
   connect(airGap.support, internalSupport)         annotation (Line(points={{-10,
-          2.33651e-15},{-10,0},{-60,0},{-60,-100},{20,-100}},
+          1.83697e-015},{-10,0},{-60,0},{-60,-100},{20,-100}},
                                                         color={0,0,0}));
   connect(airGap.flange_a, inertiaRotor.flange_a)         annotation (Line(
-        points={{10,-1.33731e-15},{10,0},{60,0},{60,7.25006e-16}},
+        points={{10,-1.83697e-015},{10,0},{60,0},{60,1.22465e-015}},
                                                          color={0,0,0}));
   connect(airGap.port_rn, rotorWinding.port_n)      annotation (Line(points={{-10,-10},
           {-10,-11},{-10,-14},{-10,-20}},                             color={
