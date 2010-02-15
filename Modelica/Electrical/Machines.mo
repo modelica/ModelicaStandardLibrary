@@ -2357,7 +2357,9 @@ This package contains test examples of electric machines.
         parameter Modelica.SIunits.Temperature TrRef(start=293.15)
           "Reference temperature of rotor resistance" 
            annotation(Dialog(tab="Nominal resistances and inductances"));
-        parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20r(start=0)
+        parameter
+          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+          alpha20r(start=0)
           "Temperature coefficient of rotor resistance at 20 degC" 
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Temperature TrOperational(start=293.15)
@@ -2545,7 +2547,9 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         parameter Modelica.SIunits.Temperature TrRef(start=293.15)
           "Reference temperature of rotor resistance" 
            annotation(Dialog(tab="Nominal resistances and inductances"));
-        parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20r(start=0)
+        parameter
+          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+          alpha20r(start=0)
           "Temperature coefficient of rotor resistance at 20 degC" 
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Boolean useTurnsRatio(start=true)
@@ -2871,7 +2875,9 @@ These models use package SpacePhasors.
         parameter Modelica.SIunits.Temperature TrRef(start=293.15)
           "Reference temperature of damper resistances in d- and q-axis" 
           annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
-        parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20r(start=0)
+        parameter
+          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+          alpha20r(start=0)
           "Temperature coefficient of damper resistances in d- and q-axis" 
           annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
         output Modelica.SIunits.Current idq_dr[2](each stateSelect=StateSelect.prefer)=
@@ -3134,7 +3140,9 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         parameter Modelica.SIunits.Temperature TrRef(start=293.15)
           "Reference temperature of damper resistances in d- and q-axis" 
           annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
-        parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20r(start=0)
+        parameter
+          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+          alpha20r(start=0)
           "Temperature coefficient of damper resistances in d- and q-axis" 
           annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
         parameter Modelica.SIunits.Voltage VsNominal(start=100)
@@ -3149,8 +3157,9 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         parameter Modelica.SIunits.Temperature TeRef(start=293.15)
           "Reference temperture of excitation resistance" 
            annotation(Dialog(tab="Excitation"));
-        parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20e(start=0)
-          "Temperature coefficient of excitation resistance" 
+        parameter
+          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+          alpha20e(start=0) "Temperature coefficient of excitation resistance" 
            annotation(Dialog(tab="Excitation"));
         parameter Real sigmae(min=0, max=0.99, start=0.025)
           "Stray fraction of total excitation inductance" 
@@ -3493,7 +3502,9 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         parameter Modelica.SIunits.Temperature TrRef(start=293.15)
           "Reference temperature of damper resistances in d- and q-axis" 
           annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
-        parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20r(start=0)
+        parameter
+          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+          alpha20r(start=0)
           "Temperature coefficient of damper resistances in d- and q-axis" 
           annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
         Components.DamperCage damperCage(
@@ -3920,8 +3931,9 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
         parameter Modelica.SIunits.Temperature TeRef(start=293.15)
           "Reference temperature of excitation resistance" 
            annotation(Dialog(tab="Excitation"));
-        parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20e(start=0)
-          "Temperature coefficient of excitation resistance" 
+        parameter
+          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+          alpha20e(start=0) "Temperature coefficient of excitation resistance" 
            annotation(Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Inductance Le(start=1)
           "Total field excitation inductance" 
@@ -4144,8 +4156,9 @@ Armature current does not cover excitation current of a shunt excitation; in thi
         parameter Modelica.SIunits.Temperature TeRef(start=293.15)
           "Reference temperature of excitation resistance" 
            annotation(Dialog(tab="Excitation"));
-        parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20e(start=0)
-          "Temperature coefficient of excitation resistance" 
+        parameter
+          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+          alpha20e(start=0) "Temperature coefficient of excitation resistance" 
            annotation(Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Inductance Le(start=0.0005)
           "Total field excitation inductance" 
@@ -8463,15 +8476,20 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
   package Thermal "Library with models for connecting thermal models"
     extends Modelica.Icons.Library2;
 
-    type Alpha20=Modelica.SIunits.LinearTemperatureCoefficient
+    type LinearTemperatureCoefficient20 = 
+        Modelica.SIunits.LinearTemperatureCoefficient
       "Linear temperature coefficient with choices" 
       annotation(choices(
+        choice=Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero
+          "Not temperature dependent",
         choice=Modelica.Electrical.Machines.Thermal.Constants.alpha20Aluminium
           "Aluminium",
         choice=Modelica.Electrical.Machines.Thermal.Constants.alpha20Brass "Brass",
         choice=Modelica.Electrical.Machines.Thermal.Constants.alpha20Bronze "Bronze",
         choice=Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper "Copper"));
     package Constants "Material Constants"
+      constant Modelica.SIunits.LinearTemperatureCoefficient alpha20Zero=0
+        "Not temperature dependent";
       constant Modelica.SIunits.LinearTemperatureCoefficient alpha20Aluminium=4.000e-3
         "Aluminium";
       constant Modelica.SIunits.LinearTemperatureCoefficient alpha20Brass =    1.100e-3 "Brass";
@@ -8483,26 +8501,26 @@ Material constants, especially linear temperature coefficients of commonly used 
     end Constants;
 
     function convertAlpha
-      "Converts alpha from standard temperature (default 20 degC) to a given reference temperature"
+      "Converts alpha from temperature 1 (default 20 degC) to temperature 2"
       extends Modelica.Icons.Function;
-      input Modelica.SIunits.LinearTemperatureCoefficient alpha0
-        "Temperature coefficient at standard temperature (default: 20 degC)";
-      input Modelica.SIunits.Temperature TRef "Reference temperature";
-      input Modelica.SIunits.Temperature T0=293.15
-        "Standard temperature (default: 20 degC)";
-      output Modelica.SIunits.LinearTemperatureCoefficient alphaRef
+      input Modelica.SIunits.LinearTemperatureCoefficient alpha1
+        "Temperature coefficient at temperature 1 (default: 20 degC)";
+      input Modelica.SIunits.Temperature T2 "Temperature 2";
+      input Modelica.SIunits.Temperature T1=293.15
+        "Temperature 1 (default: 20 degC)";
+      output Modelica.SIunits.LinearTemperatureCoefficient alpha2
         "Temperature coefficient at TRef";
     algorithm
-      alphaRef :=  alpha0 / (1 + alpha0*(TRef - T0));
+      alpha2 :=  alpha1 / (1 + alpha1*(T2 - T1));
       annotation(Inline=true, Documentation(info="<html>
 <p>
-From the temperature coefficient <code>alpha0</code> at standard temperature <code>T0</code> (default 20 degC = 293.15 K) 
-the parameter <code>alphaRef</code> at <code>TRef</code> is calculated:
+From the temperature coefficient <code>alpha1</code> at temperature <code>T1</code> (default 20 degC = 293.15 K) 
+the temperature coefficient <code>alpha2</code> at temperature <code>T2</code> is calculated:
 </p>
 <pre>
-                        alpha0
-  alphaRef = --------------------------
-              1 + alpha0 * (TRef - T0)
+                alpha1
+  alpha2 = ------------------------
+            1 + alpha1 * (T2 - T1)
 </pre>
 </html>"));
     end convertAlpha;
@@ -9614,7 +9632,9 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
       parameter Modelica.SIunits.Temperature TsRef(start=293.15)
         "Reference temperature of stator resistance" 
          annotation(Dialog(tab="Nominal resistances and inductances"));
-      parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20s(start=0)
+      parameter
+        Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+        alpha20s(start=0)
         "Temperature coefficient of stator resistance at 20 degC" 
          annotation(Dialog(tab="Nominal resistances and inductances"));
       parameter Modelica.SIunits.Inductance Lssigma(start=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal))
@@ -9886,8 +9906,9 @@ Partial thermal ambient for induction machines
       parameter Modelica.SIunits.Temperature TaRef(start=293.15)
         "Reference temperature of armature resistance" 
          annotation(Dialog(tab="Nominal resistances and inductances"));
-      parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20a(start=0)
-        "Temperature coefficient of armature resistance" 
+      parameter
+        Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+        alpha20a(start=0) "Temperature coefficient of armature resistance" 
          annotation(Dialog(tab="Nominal resistances and inductances"));
       parameter Modelica.SIunits.Inductance La(start=0.0015)
         "Armature inductance" 
@@ -10281,7 +10302,9 @@ Thermal ports for DC machines
       parameter Modelica.SIunits.Temperature T1Ref(start=293.15)
         "Reference temperature of primary resistance" 
          annotation(Dialog(tab="Nominal resistances and inductances"));
-      parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20_1(start=0)
+      parameter
+        Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+        alpha20_1(start=0)
         "Temperature coefficient of primary resistance at 20 degC" 
          annotation(Dialog(tab="Nominal resistances and inductances"));
       parameter Modelica.SIunits.Inductance L1sigma(start=78E-6/(if C1=="D" then 1 else 3))
@@ -10293,7 +10316,9 @@ Thermal ports for DC machines
       parameter Modelica.SIunits.Temperature T2Ref(start=293.15)
         "Reference temperature of secondary resistance" 
          annotation(Dialog(tab="Nominal resistances and inductances"));
-      parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20_2(start=0)
+      parameter
+        Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+        alpha20_2(start=0)
         "Temperature coefficient of secondary resistance at 20 degC" 
          annotation(Dialog(tab="Nominal resistances and inductances"));
       parameter Modelica.SIunits.Inductance L2sigma(start=78E-6/(if C2=="d" then 1 else 3))
