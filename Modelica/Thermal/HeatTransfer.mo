@@ -844,13 +844,6 @@ place from the inner to the outer cylinder):
                 -100},{100,100}}), graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
-            Polygon(
-              points={{-10,-90},{-10,0},{-100,90},{-80,90},{0,20},{80,90},{100,
-                  90},{10,0},{10,-90},{-10,-90}},
-              lineColor={95,95,95},
-              smooth=Smooth.None,
-              fillColor={175,175,175},
-              fillPattern=FillPattern.Solid),
             Text(
               extent={{-100,-20},{100,-80}},
               textString="%name",
@@ -858,7 +851,32 @@ place from the inner to the outer cylinder):
             Text(
               extent={{-100,80},{100,40}},
               lineColor={0,0,255},
-              textString="m=%m")}),
+              textString="m=%m"),
+            Line(
+              points={{0,90},{0,40}},
+              color={181,0,0},
+              smooth=Smooth.None),
+            Rectangle(
+              extent={{-60,40},{60,30}},
+              lineColor={181,0,0},
+              fillColor={181,0,0},
+              fillPattern=FillPattern.Solid),
+            Line(
+              points={{-60,30},{0,-30},{0,-90}},
+              color={181,0,0},
+              smooth=Smooth.None),
+            Line(
+              points={{0,-30},{-20,30}},
+              color={181,0,0},
+              smooth=Smooth.None),
+            Line(
+              points={{0,-30},{20,30}},
+              color={181,0,0},
+              smooth=Smooth.None),
+            Line(
+              points={{0,-30},{60,30}},
+              color={181,0,0},
+              smooth=Smooth.None)}),
         Documentation(info="<html>
 <p>
 This is a model to collect the heat flows from <i>m</i> heatports to one single heatport.
