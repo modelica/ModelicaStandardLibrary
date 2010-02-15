@@ -3761,8 +3761,8 @@ These models use package SpacePhasors.
           redeclare final
             Modelica.Electrical.Machines.Interfaces.DCMachines.ThermalPortDCPM
             internalThermalPort);
-        Components.AirGapDC airGapDC(final turnsRatio=turnsRatio, final Le=Le) 
-                                     annotation (Placement(transformation(
+        Components.AirGapDC airGapDC(final turnsRatio=turnsRatio, final Le=Le,
+          final quasiStationary=false)     annotation (Placement(transformation(
               origin={0,0},
               extent={{-10,-10},{10,10}},
               rotation=270)));
@@ -3789,7 +3789,7 @@ These models use package SpacePhasors.
         connect(eGround.p, ie.p) 
           annotation (Line(points={{-10,-40},{10,-40}}, color={0,0,255}));
         connect(airGapDC.pin_ep, ie.n) annotation (Line(points={{10,-10},{10,
-                -15},{10,-15},{10,-20}},
+                -15},{10,-20}},
                        color={0,0,255}));
         connect(airGapDC.pin_en, eGround.p) annotation (Line(points={{-10,-10},
                 {-10,-20},{-10,-40}},
@@ -3906,8 +3906,8 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
           redeclare final
             Modelica.Electrical.Machines.Interfaces.DCMachines.ThermalPortDCEE
             internalThermalPort);
-        Components.AirGapDC airGapDC(final turnsRatio=turnsRatio, final Le=Lme) 
-                                     annotation (Placement(transformation(
+        Components.AirGapDC airGapDC(final turnsRatio=turnsRatio, final Le=Lme,
+          final quasiStationary=false)     annotation (Placement(transformation(
               origin={0,0},
               extent={{-10,-10},{10,10}},
               rotation=270)));
@@ -3946,7 +3946,8 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
               origin={20,-20},
               extent={{-10,-10},{10,10}},
               rotation=180)));
-        Modelica.Electrical.Analog.Basic.Inductor lesigma(final L=Lesigma) 
+        Components.InductorDC lesigma(final L=Lesigma,
+            final quasiStationary=false) 
           annotation (Placement(transformation(extent={{10,-50},{30,-30}})));
         Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep
           "Positive excitation pin" 
@@ -3970,7 +3971,8 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
         connect(pin_en, airGapDC.pin_en) annotation (Line(points={{-100,-60},{
                 -10,-60},{-10,-10}}, color={0,0,255}));
         connect(re.n, airGapDC.pin_ep) annotation (Line(points={{10,-20},{10,
-                -10},{10,-10}}, color={0,0,255}));
+                -15},{10,-10},{10,-10}},
+                                color={0,0,255}));
         connect(airGapDC.pin_ap, la.n) annotation (Line(
             points={{10,10},{10,35},{10,35},{10,60}},
             color={0,0,255},
@@ -4131,8 +4133,8 @@ Armature current does not cover excitation current of a shunt excitation; in thi
           redeclare final
             Modelica.Electrical.Machines.Interfaces.DCMachines.ThermalPortDCSE
             internalThermalPort);
-        Components.AirGapDC airGapDC(final turnsRatio=turnsRatio, final Le=Lme) 
-                                     annotation (Placement(transformation(
+        Components.AirGapDC airGapDC(final turnsRatio=turnsRatio, final Le=Lme,
+          final quasiStationary=false)     annotation (Placement(transformation(
               origin={0,0},
               extent={{-10,-10},{10,10}},
               rotation=270)));
@@ -4171,7 +4173,8 @@ Armature current does not cover excitation current of a shunt excitation; in thi
               origin={20,-20},
               extent={{-10,-10},{10,10}},
               rotation=180)));
-        Modelica.Electrical.Analog.Basic.Inductor lesigma(final L=Lesigma) 
+        Components.InductorDC lesigma(final L=Lesigma,
+            final quasiStationary=false) 
           annotation (Placement(transformation(extent={{10,-50},{30,-30}})));
         Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep
           "Positive series excitation pin" 
@@ -4196,8 +4199,7 @@ Armature current does not cover excitation current of a shunt excitation; in thi
         connect(pin_en, airGapDC.pin_en) annotation (Line(points={{-100,-60},{
                 -10,-60},{-10,-10}}, color={0,0,255}));
         connect(re.n, airGapDC.pin_ep) annotation (Line(points={{10,-20},{10,
-                -16},{10,-10},{10,-10}},
-                                color={0,0,255}));
+                -10},{10,-10}}, color={0,0,255}));
         connect(airGapDC.pin_ap, la.n) annotation (Line(
             points={{10,10},{10,35},{10,35},{10,60}},
             color={0,0,255},
@@ -6846,7 +6848,68 @@ Model of a permanent magnet excitation, characterized by an equivalent excitatio
 </HTML>"));
       end PermanentMagnet;
 
+      model InductorDC
+        "Ideal linear electrical inductor for electrical DC machines"
+        extends Analog.Interfaces.OnePort;
+        parameter Modelica.SIunits.Inductance L(start=1) "Inductance";
+        parameter Boolean quasiStationary(start=false)
+          "No electrical transients if true" 
+          annotation(Evaluate=true);
+      equation
+        v = if quasiStationary then 0 else L*der(i);
+        annotation (
+          Documentation(info="<html>
+<p>The linear inductor connects the branch voltage <i>v</i> with the branch current <i>i</i> by <i>v = L * di/dt</i>. 
+If <code>quasiStationary == false</code>, the electrical transients are neglected, i.e. the voltage drop is zero.</p>
+</html>"),Icon(coordinateSystem(
+              preserveAspectRatio=true,
+              extent={{-100,-100},{100,100}},
+              grid={2,2}), graphics={
+              Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}),
+              Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}),
+              Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}),
+              Ellipse(extent={{30,-15},{60,15}}, lineColor={0,0,255}),
+              Rectangle(
+                extent={{-60,-30},{60,0}},
+                lineColor={255,255,255},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
+              Line(points={{60,0},{90,0}}, color={0,0,255}),
+              Line(points={{-90,0},{-60,0}}, color={0,0,255}),
+              Text(
+                extent={{-138,-60},{144,-94}},
+                lineColor={0,0,0},
+                textString="L=%L"),
+              Text(
+                extent={{-152,79},{148,39}},
+                textString="%name",
+                lineColor={0,0,255}),
+              Rectangle(visible=quasiStationary,
+                extent={{-60,20},{60,-20}},
+                lineColor={0,0,255},
+                fillColor={85,170,255},
+                fillPattern=FillPattern.Solid)}),
+          Diagram(coordinateSystem(
+              preserveAspectRatio=true,
+              extent={{-100,-100},{100,100}},
+              grid={2,2}), graphics={
+              Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}),
+              Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}),
+              Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}),
+              Ellipse(extent={{30,-15},{60,15}}, lineColor={0,0,255}),
+              Rectangle(
+                extent={{-60,-30},{60,0}},
+                lineColor={255,255,255},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
+              Line(points={{60,0},{96,0}}, color={0,0,255}),
+              Line(points={{-96,0},{-60,0}}, color={0,0,255})}));
+      end InductorDC;
+
       partial model PartialAirGapDC "Partial airgap model of a DC machine"
+        parameter Boolean quasiStationary(start=false)
+          "No electrical transients if true" 
+          annotation(Evaluate=true);
         parameter Real turnsRatio
           "Ratio of armature turns over number of turns of the excitation winding";
         Modelica.SIunits.AngularVelocity w "Angluar velocity";
@@ -6886,7 +6949,7 @@ Model of a permanent magnet excitation, characterized by an equivalent excitatio
         ie = + pin_ep.i;
         ie = - pin_en.i;
         // induced voltage across field excitation inductance
-        vei = der(psi_e);
+        vei = if quasiStationary then 0 else der(psi_e);
         // mechanical speed
         w = der(flange.phi)-der(support.phi);
         // induced armature voltage
@@ -6930,7 +6993,8 @@ Model of a permanent magnet excitation, characterized by an equivalent excitatio
                 textString="A")}),
           Documentation(info="<HTML>
 Linear model of the airgap (without saturation effects) of a DC machine, using only equations.<br>
-Induced excitation voltage is calculated from der(flux), where flux is defined by excitation inductance times excitation current.<br>
+Induced excitation voltage is calculated from der(flux), where flux is defined by excitation inductance times excitation current. 
+If <code>quasiStationary == false</code>, the electrical transients are neglected, i.e. the induced excitation voltage is zero.<br>
 Induced armature voltage is calculated from flux times angular velocity.
 </HTML>"));
       end PartialAirGapDC;
@@ -9843,12 +9907,12 @@ Partial thermal ambient for induction machines
       Modelica.Electrical.Analog.Basic.Resistor ra(
         final R=Ra,
         final T_ref=TaRef,
-        final alpha=Modelica.Electrical.Machines.Thermal.convertAlpha(
-                                         alpha20a, TaRef),
+        final alpha=Modelica.Electrical.Machines.Thermal.convertAlpha(alpha20a, TaRef),
         final useHeatPort=true,
         final T=TaRef) 
         annotation (Placement(transformation(extent={{60,50},{40,70}}, rotation=0)));
-      Modelica.Electrical.Analog.Basic.Inductor la(final L=La) 
+      BasicMachines.Components.InductorDC la(final L=La, final quasiStationary=
+                          false) 
         annotation (Placement(transformation(extent={{30,50},{10,70}}, rotation=
                0)));
 
