@@ -75,14 +75,14 @@ package Machines "Library for electric machines"
         annotation (Line(points={{1.83697e-015,70},{1.83697e-015,90},{-50,90}},
             color={0,0,255}));
       connect(sineVoltage.plug_p, idealCloser.plug_p) 
-        annotation (Line(points={{-1.83697e-015,50},{0,48},{1.22461e-015,46},{1.83697e-015,
-              46},{1.83697e-015,40}},              color={0,0,255}));
+        annotation (Line(points={{-1.83697e-015,50},{0,48},{1.22461e-015,46},{
+              1.83697e-015,46},{1.83697e-015,40}}, color={0,0,255}));
       connect(booleanStep.y, idealCloser.control)   annotation (Line(points={{
               -59,40},{-20,40},{-20,30},{-7,30}}, color={255,0,255}));
       connect(idealCloser.plug_n, currentQuasiRMSSensor.plug_p) 
                                                              annotation (Line(
-          points={{-1.83697e-015,20},{-1.83697e-015,17},{1.83697e-015,17},{1.83697e-015,
-              10}},
+          points={{-1.83697e-015,20},{-1.83697e-015,17},{1.83697e-015,17},{
+              1.83697e-015,10}},
           color={0,0,255}));
       connect(TerminalBox1.plug_sn, aimc.plug_sn)  annotation (Line(
           points={{-16,-30},{-16,-30}},
@@ -197,8 +197,8 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         annotation (Line(points={{1.83697e-015,70},{1.83697e-015,90},{-50,90}},
             color={0,0,255}));
       connect(sineVoltage.plug_p, idealCloser.plug_p) 
-        annotation (Line(points={{-1.83697e-015,50},{0,48},{1.22461e-015,46},{1.83697e-015,
-              46},{1.83697e-015,40}},              color={0,0,255}));
+        annotation (Line(points={{-1.83697e-015,50},{0,48},{1.22461e-015,46},{
+              1.83697e-015,46},{1.83697e-015,40}}, color={0,0,255}));
       connect(loadInertia.flange_b, quadraticLoadTorque.flange) 
         annotation (Line(points={{60,-40},{70,-40}}, color={0,0,0}));
       connect(booleanStep.y, idealCloser.control)   annotation (Line(points={{
@@ -207,8 +207,8 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
               -20},{-21,-20}}, color={255,0,255}));
       connect(idealCloser.plug_n, currentQuasiRMSSensor.plug_p) 
                                                              annotation (Line(
-          points={{-1.83697e-015,20},{-1.83697e-015,18},{1.83697e-015,18},{1.83697e-015,
-              10}},
+          points={{-1.83697e-015,20},{-1.83697e-015,18},{1.83697e-015,18},{
+              1.83697e-015,10}},
           color={0,0,255}));
       connect(switchYD.plug_sn, aimc.plug_sn)   annotation (Line(
           points={{-16,-30},{-16,-30}},
@@ -1241,9 +1241,9 @@ Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
       "Test example 10: DC with serial excitation starting with voltage ramp"
       extends Modelica.Icons.Example;
       parameter Modelica.SIunits.Voltage Va=100 "Actual armature voltage";
-      parameter Modelica.SIunits.Time tStart=0.2
+      parameter Modelica.SIunits.Time tStart=0.1
         "Start of armature voltage ramp";
-      parameter Modelica.SIunits.Time tRamp=0.8 "Armature voltage ramp";
+      parameter Modelica.SIunits.Time tRamp=0.9 "Armature voltage ramp";
       parameter Modelica.SIunits.Torque TLoad=63.66 "Nominal load torque";
       parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")=1410*2*Modelica.Constants.pi/60
         "Nominal load speed";
@@ -1254,12 +1254,13 @@ Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
               rotation=0)));
       Modelica.Blocks.Sources.Ramp ramp(
         duration=tRamp,
-        height=Va,
-        startTime=tStart) 
-        annotation (Placement(transformation(extent={{-80,60},{-60,80}},
+        startTime=tStart,
+        height=-1,
+        offset=1) 
+        annotation (Placement(transformation(extent={{60,0},{40,20}},
               rotation=0)));
-      Modelica.Electrical.Analog.Sources.SignalVoltage signalVoltage 
-        annotation (Placement(transformation(extent={{0,30},{-20,50}}, rotation=
+      Analog.Sources.ConstantVoltage constantVoltage(V=Va) 
+        annotation (Placement(transformation(extent={{0,50},{-20,30}}, rotation=
                0)));
       Modelica.Electrical.Analog.Basic.Ground ground 
         annotation (Placement(transformation(
@@ -1278,22 +1279,36 @@ Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
         useSupport=false) 
         annotation (Placement(transformation(extent={{90,-50},{70,-30}},
               rotation=0)));
+      Analog.Basic.VariableResistor variableResistor annotation (Placement(
+            transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={0,10})));
     equation
-      connect(ramp.y, signalVoltage.v)   annotation (Line(points={{-59,70},{-10,
-              70},{-10,47}}, color={0,0,255}));
-      connect(signalVoltage.p, dcse.pin_ap)   annotation (Line(points={{0,40},{
-              0,-20},{-4,-20},{-4,-30}}, color={0,0,255}));
-      connect(signalVoltage.n, ground.p)   annotation (Line(points={{-20,40},{
+      connect(constantVoltage.n, ground.p) annotation (Line(points={{-20,40},{
               -60,40}}, color={0,0,255}));
       connect(loadInertia.flange_b, quadraticLoadTorque.flange) 
         annotation (Line(points={{60,-40},{70,-40}}, color={0,0,0}));
       connect(dcse.pin_an, dcse.pin_ep)   annotation (Line(points={{-16,-30},{
               -20,-30},{-20,-34}}, color={0,0,255}));
-      connect(dcse.pin_en, signalVoltage.n)   annotation (Line(points={{-20,-46},
+      connect(dcse.pin_en, constantVoltage.n) annotation (Line(points={{-20,-46},
               {-30,-46},{-30,-20},{-20,-20},{-20,40}}, color={0,0,255}));
       connect(dcse.flange, loadInertia.flange_a) annotation (Line(
           points={{0,-40},{40,-40}},
           color={0,0,0},
+          smooth=Smooth.None));
+      connect(constantVoltage.p, variableResistor.p) 
+                                                   annotation (Line(
+          points={{0,40},{0,20},{1.83697e-015,20}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(variableResistor.n, dcse.pin_ap) annotation (Line(
+          points={{-1.83697e-015,0},{0,0},{0,-20},{-4,-20},{-4,-30}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(ramp.y, variableResistor.R) annotation (Line(
+          points={{39,10},{25,10},{25,10},{11,10}},
+          color={0,0,127},
           smooth=Smooth.None));
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -1301,9 +1316,9 @@ Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
                 graphics),
         experiment(StopTime=2, Interval=0.001),
         Documentation(info="<HTML>
-<b>10th Test example: Series excited DC machine started with an armature voltage ramp</b><br>
-A voltage ramp is applied to the armature, causing the DC machine to start,
-and accelerating inertiasagainst load torque quadratic dependent on speed, finally reaching nominal speed.<br>
+<b>10th Test example: Series excited DC machine started with a series resistor</b><br>
+At constant source voltage, a series resistor limiting the armature current, is reduced according to a ramp, causing the DC machine to start,
+and accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
 Simulate for 2 seconds and plot (versus time):
 <ul>
 <li>dcse.ia: armature current</li>
@@ -2379,7 +2394,7 @@ This package contains test examples of electric machines.
             smooth=Smooth.None));
         connect(squirrelCageR.heatPort, internalThermalPort.heatPort_r) 
           annotation (Line(
-            points={{-10,-30},{-10,-50},{0,-50},{0,-80}},
+            points={{-10,-30},{50,-30},{50,-80},{0,-80}},
             color={191,0,0},
             smooth=Smooth.None));
         annotation (defaultComponentName="aimc",
@@ -2564,7 +2579,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
               extent={{-10,10},{10,-10}},
               rotation=90)));
         Modelica.Electrical.MultiPhase.Basic.Inductor lrsigma(final m=m, final L=fill(Lrsigma, m)) 
-          annotation (Placement(transformation(extent={{30,-70},{10,-50}},
+          annotation (Placement(transformation(extent={{20,-80},{40,-60}},
                 rotation=0)));
         Modelica.Electrical.MultiPhase.Basic.Resistor rr(
           final m=m,
@@ -2574,7 +2589,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
                                                 alpha20r, TrRef), m),
           final useHeatPort=true,
           final T=fill(TrRef,m)) 
-          annotation (Placement(transformation(extent={{50,-50},{30,-70}},
+          annotation (Placement(transformation(extent={{40,-40},{20,-60}},
                 rotation=0)));
         Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_rp(final m=m)
           "Positive rotor plug" 
@@ -2585,10 +2600,6 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           annotation (Placement(transformation(extent={{-110,-50},{-90,-70}},
                 rotation=0)));
       equation
-        connect(rr.plug_n, lrsigma.plug_p) 
-          annotation (Line(points={{30,-60},{30,-60}}, color={0,0,255}));
-        connect(rr.plug_p, plug_rp)        annotation (Line(points={{50,-60},{
-                50,-70},{-80,-70},{-80,60},{-100,60}}, color={0,0,255}));
         connect(spacePhasorR.ground, spacePhasorR.zero) annotation (Line(
             points={{-10,-20},{-10,-14},{6.12323e-016,-14},{6.12323e-016,-20}},
             color={0,0,255}));
@@ -2611,17 +2622,25 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
                 1.22465e-015}},
             color={0,0,0},
             smooth=Smooth.None));
-        connect(lrsigma.plug_n, spacePhasorR.plug_p) annotation (Line(
-            points={{10,-60},{10,-40}},
-            color={0,0,255},
-            smooth=Smooth.None));
         connect(spacePhasorR.plug_n, plug_rn) annotation (Line(
             points={{-10,-40},{-10,-60},{-100,-60}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(rr.heatPort, internalThermalPort.heatPort_r) annotation (Line(
-            points={{40,-50},{60,-50},{60,-80},{0,-80}},
+            points={{30,-40},{50,-40},{50,-80},{0,-80}},
             color={191,0,0},
+            smooth=Smooth.None));
+        connect(rr.plug_n, spacePhasorR.plug_p) annotation (Line(
+            points={{20,-50},{10,-50},{10,-40}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(rr.plug_p, lrsigma.plug_n) annotation (Line(
+            points={{40,-50},{40,-70}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(lrsigma.plug_p, plug_rp) annotation (Line(
+            points={{20,-70},{-80,-70},{-80,60},{-100,60}},
+            color={0,0,255},
             smooth=Smooth.None));
         annotation (defaultComponentName="aims",
           Documentation(info="<HTML>
@@ -2904,7 +2923,7 @@ These models use package SpacePhasors.
             color={0,0,0},
             smooth=Smooth.None));
         connect(damperCage.heatPort, internalThermalPort.heatPort_r) annotation (Line(
-            points={{-10,-30},{60,-30},{60,-80},{0,-80}},
+            points={{-10,-30},{50,-30},{50,-80},{0,-80}},
             color={191,0,0},
             smooth=Smooth.None));
         annotation (defaultComponentName="smpm",
@@ -3133,7 +3152,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20e(start=0)
           "Temperature coefficient of excitation resistance" 
            annotation(Dialog(tab="Excitation"));
-        parameter Real sigmae(min=0, max=1, start=0.025)
+        parameter Real sigmae(min=0, max=0.99, start=0.025)
           "Stray fraction of total excitation inductance" 
            annotation(Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Temperature TeOperational(start=293.15)
@@ -3175,11 +3194,11 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           final useHeatPort=true,
           final T=TeRef) 
           annotation (Placement(transformation(
-              origin={40,-60},
+              origin={30,-60},
               extent={{-10,-10},{10,10}},
               rotation=180)));
         Modelica.Electrical.Analog.Basic.Inductor lesigma(final L=Lesigma) 
-          annotation (Placement(transformation(extent={{30,-70},{10,-50}},
+          annotation (Placement(transformation(extent={{20,-80},{40,-60}},
                 rotation=0)));
         Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep
           "Positive excitation pin" 
@@ -3193,13 +3212,6 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
       equation
         connect(electricalExcitation.pin_en, pin_en) annotation (Line(points={{-10,-60},
                 {-70,-60},{-100,-60}},                    color={0,0,255}));
-        connect(pin_ep, re.p) annotation (Line(points={{-100,60},{-80,60},{-80,-70},{50,
-                -70},{50,-60}},          color={0,0,255}));
-        connect(lesigma.p, re.n) 
-          annotation (Line(points={{30,-60},{30,-60}}, color={0,0,255}));
-        connect(lesigma.n, electricalExcitation.pin_ep) 
-          annotation (Line(points={{10,-60},{14,-60},{10,-60}},
-                                                       color={0,0,255}));
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r) 
           annotation (Line(points={{10,-10},{10,-20},{10,-20}},
                                                        color={0,0,255}));
@@ -3221,16 +3233,28 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color={0,0,0},
             smooth=Smooth.None));
         connect(re.heatPort, internalThermalPort.heatPort_e) annotation (Line(
-            points={{40,-50},{60,-50},{60,-80},{0,-80}},
+            points={{30,-50},{50,-50},{50,-80},{0,-80}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(damperCage.heatPort, internalThermalPort.heatPort_r) annotation (Line(
-            points={{-10,-30},{60,-30},{60,-80},{0,-80}},
+            points={{-10,-30},{50,-30},{50,-80},{0,-80}},
             color={191,0,0},
             smooth=Smooth.None));
+        connect(electricalExcitation.pin_ep, re.n) annotation (Line(
+            points={{10,-60},{20,-60}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(re.p, lesigma.n) annotation (Line(
+            points={{40,-60},{40,-70}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(lesigma.p, pin_ep) annotation (Line(
+            points={{20,-70},{-80,-70},{-80,60},{-100,60}},
+            color={0,0,255},
+            smooth=Smooth.None));
         annotation (defaultComponentName="smee",
-          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
-                  100}}),
+          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
+                  -100},{100,100}}),
                   graphics),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
@@ -3505,7 +3529,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color={0,0,0},
             smooth=Smooth.None));
         connect(damperCage.heatPort, internalThermalPort.heatPort_r) annotation (Line(
-            points={{-10,-30},{60,-30},{60,-80},{0,-80}},
+            points={{-10,-30},{50,-30},{50,-80},{0,-80}},
             color={191,0,0},
             smooth=Smooth.None));
         annotation (defaultComponentName="smr",
@@ -3872,7 +3896,7 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
       model DC_ElectricalExcited
         "Electrical shunt/separate excited linear DC machine"
         extends Machines.Interfaces.PartialBasicDCMachine(
-          final turnsRatio=ViNominal/(wNominal*Le*IeNominal),
+          final turnsRatio=ViNominal/(wNominal*Lme*IeNominal),
           redeclare final
             Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCEE
             thermalAmbient(final Te=TeOperational),
@@ -3882,7 +3906,7 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
           redeclare final
             Modelica.Electrical.Machines.Interfaces.DCMachines.ThermalPortDCEE
             internalThermalPort);
-        Components.AirGapDC airGapDC(final turnsRatio=turnsRatio, final Le=Le) 
+        Components.AirGapDC airGapDC(final turnsRatio=turnsRatio, final Le=Lme) 
                                      annotation (Placement(transformation(
               origin={0,0},
               extent={{-10,-10},{10,10}},
@@ -3902,6 +3926,9 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
         parameter Modelica.SIunits.Inductance Le(start=1)
           "Total field excitation inductance" 
            annotation(Dialog(tab="Excitation"));
+        parameter Real sigmae(min=0, max=0.99, start=0)
+          "Stray fraction of total excitation inductance" 
+           annotation(Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Temperature TeOperational(start=293.15)
           "Operational (shunt) excitation temperature" 
            annotation(Dialog(group="Operational temperatures", enable=not useThermalPort));
@@ -3917,8 +3944,10 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
           final T=TeRef) 
           annotation (Placement(transformation(
               origin={20,-20},
-              extent={{-10,10},{10,-10}},
+              extent={{-10,-10},{10,10}},
               rotation=180)));
+        Modelica.Electrical.Analog.Basic.Inductor lesigma(final L=Lesigma) 
+          annotation (Placement(transformation(extent={{10,-50},{30,-30}})));
         Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep
           "Positive excitation pin" 
           annotation (Placement(transformation(extent={{-110,70},{-90,50}},
@@ -3928,14 +3957,16 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
           annotation (Placement(transformation(extent={{-90,-50},{-110,-70}},
                 rotation=0)));
       protected
+        final parameter Modelica.SIunits.Inductance Lme = Le*(1 - sigmae)
+          "Main part of excitation inductance";
+        final parameter Modelica.SIunits.Inductance Lesigma = Le*sigmae
+          "Stray part of excitation inductance" 
+          annotation(Evaluate=true);
         final parameter Modelica.SIunits.Voltage ViNominal=
           VaNominal - Modelica.Electrical.Machines.Thermal.convertResistance(Ra,TaRef,alpha20a,TaNominal)*IaNominal
           "Nominal induced voltage";
       equation
         assert(ViNominal > Modelica.Constants.eps, "VaNominal has to be > Ra*IaNominal");
-        connect(re.p, pin_ep) annotation (Line(points={{30,-20},{30,-20},{30,
-                -40},{-80,-40},{-80,60},{-100,60}},
-                                color={0,0,255}));
         connect(pin_en, airGapDC.pin_en) annotation (Line(points={{-100,-60},{
                 -10,-60},{-10,-10}}, color={0,0,255}));
         connect(re.n, airGapDC.pin_ep) annotation (Line(points={{10,-20},{10,
@@ -3959,12 +3990,20 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
             color={0,0,0},
             smooth=Smooth.None));
         connect(re.heatPort, internalThermalPort.heatPort_e) annotation (Line(
-            points={{20,-30},{20,-80},{0,-80}},
+            points={{20,-10},{50,-10},{50,-80},{0,-80}},
             color={191,0,0},
             smooth=Smooth.None));
+        connect(re.p, lesigma.n) annotation (Line(
+            points={{30,-20},{30,-40}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(lesigma.p, pin_ep) annotation (Line(
+            points={{10,-40},{-80,-40},{-80,60},{-100,60}},
+            color={0,0,255},
+            smooth=Smooth.None));
         annotation (defaultComponentName="dcee",
-          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-                  -100},{100,100}}),
+          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
+                  100}}),
                   graphics),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
@@ -4082,7 +4121,7 @@ Armature current does not cover excitation current of a shunt excitation; in thi
 
       model DC_SeriesExcited "Series excited linear DC machine"
         extends Machines.Interfaces.PartialBasicDCMachine(wNominal(start=1410*2*pi/60),
-          final turnsRatio=ViNominal/(wNominal*Le*IaNominal),
+          final turnsRatio=ViNominal/(wNominal*Lme*IaNominal),
           redeclare final
             Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCSE
             thermalAmbient(final Tse=TeOperational),
@@ -4092,7 +4131,7 @@ Armature current does not cover excitation current of a shunt excitation; in thi
           redeclare final
             Modelica.Electrical.Machines.Interfaces.DCMachines.ThermalPortDCSE
             internalThermalPort);
-        Components.AirGapDC airGapDC(final turnsRatio=turnsRatio, final Le=Le) 
+        Components.AirGapDC airGapDC(final turnsRatio=turnsRatio, final Le=Lme) 
                                      annotation (Placement(transformation(
               origin={0,0},
               extent={{-10,-10},{10,10}},
@@ -4108,6 +4147,9 @@ Armature current does not cover excitation current of a shunt excitation; in thi
            annotation(Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Inductance Le(start=0.0005)
           "Total field excitation inductance" 
+           annotation(Dialog(tab="Excitation"));
+        parameter Real sigmae(min=0, max=0.99, start=0)
+          "Stray fraction of total excitation inductance" 
            annotation(Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Temperature TeNominal(start=293.15)
           "Nominal armature temperature" 
@@ -4127,8 +4169,10 @@ Armature current does not cover excitation current of a shunt excitation; in thi
           final T=TeRef) 
           annotation (Placement(transformation(
               origin={20,-20},
-              extent={{-10,10},{10,-10}},
+              extent={{-10,-10},{10,10}},
               rotation=180)));
+        Modelica.Electrical.Analog.Basic.Inductor lesigma(final L=Lesigma) 
+          annotation (Placement(transformation(extent={{10,-50},{30,-30}})));
         Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep
           "Positive series excitation pin" 
           annotation (Placement(transformation(extent={{-110,70},{-90,50}},
@@ -4138,19 +4182,22 @@ Armature current does not cover excitation current of a shunt excitation; in thi
           annotation (Placement(transformation(extent={{-90,-50},{-110,-70}},
                 rotation=0)));
       protected
+        final parameter Modelica.SIunits.Inductance Lme = Le*(1 - sigmae)
+          "Main part of excitation inductance";
+        final parameter Modelica.SIunits.Inductance Lesigma = Le*sigmae
+          "Stray part of excitation inductance" 
+          annotation(Evaluate=true);
         final parameter Modelica.SIunits.Voltage ViNominal=
         VaNominal - (Modelica.Electrical.Machines.Thermal.convertResistance(Ra,TaRef,alpha20a,TaNominal) +
                      Modelica.Electrical.Machines.Thermal.convertResistance(Re,TeRef,alpha20e,TeNominal))*IaNominal
           "Nominal induced voltage";
       equation
         assert(ViNominal > Modelica.Constants.eps, "VaNominal has to be > (Ra+Re)*IaNominal");
-        connect(re.p, pin_ep) annotation (Line(points={{30,-20},{30,-20},{30,-40},{-80,
-                -40},{-80,60},{-100,60}},
-                                color={0,0,255}));
         connect(pin_en, airGapDC.pin_en) annotation (Line(points={{-100,-60},{
                 -10,-60},{-10,-10}}, color={0,0,255}));
         connect(re.n, airGapDC.pin_ep) annotation (Line(points={{10,-20},{10,
-                -10},{10,-10}}, color={0,0,255}));
+                -16},{10,-10},{10,-10}},
+                                color={0,0,255}));
         connect(airGapDC.pin_ap, la.n) annotation (Line(
             points={{10,10},{10,35},{10,35},{10,60}},
             color={0,0,255},
@@ -4170,12 +4217,20 @@ Armature current does not cover excitation current of a shunt excitation; in thi
             color={0,0,0},
             smooth=Smooth.None));
         connect(re.heatPort, internalThermalPort.heatPort_se) annotation (Line(
-            points={{20,-30},{20,-80},{0,-80}},
+            points={{20,-10},{50,-10},{50,-80},{0,-80}},
             color={191,0,0},
             smooth=Smooth.None));
+        connect(re.p, lesigma.n) annotation (Line(
+            points={{30,-20},{30,-40}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(lesigma.p, pin_ep) annotation (Line(
+            points={{10,-40},{-80,-40},{-80,60},{-100,60}},
+            color={0,0,255},
+            smooth=Smooth.None));
         annotation (defaultComponentName="dcse",
-          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
-                  100}}),
+          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
+                  -100},{100,100}}),
                   graphics),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
@@ -6902,141 +6957,6 @@ Induced armature voltage is calculated from flux times angular velocity.
 </HTML>"));
       end AirGapDC;
 
-      partial model PartialAirGapDCcompound
-        "Partial airgap model of a DC compound machine"
-        parameter Real turnsRatio
-          "Ratio of armature turns over number of turns of the (shunt) excitation winding";
-        parameter Real excitationTurnsRatio
-          "Ratio of series excitation turns over number of turns of the (shunt) excitation winding";
-        Modelica.SIunits.AngularVelocity w "Angluar velocity";
-        Modelica.SIunits.Voltage vei
-          "Voltage drop across (shunt) excitation inductance";
-        Modelica.SIunits.Current ie "Shunt excitation current";
-        Modelica.SIunits.Voltage vsei
-          "Voltage drop across series excitation inductance";
-        Modelica.SIunits.Current ise "Series excitation current";
-        Modelica.SIunits.MagneticFlux psi_e
-          "Total excitation flux w.r.t. (shunt) excitation";
-        Modelica.SIunits.Voltage vai "Induced armature voltage";
-        Modelica.SIunits.Current ia "Armature current";
-        output Modelica.SIunits.Torque tauElectrical;
-        Modelica.Mechanics.Rotational.Interfaces.Flange_a flange 
-          annotation (Placement(transformation(extent={{-10,110},{10,90}},
-                rotation=0)));
-        Modelica.Mechanics.Rotational.Interfaces.Flange_a support
-          "Support at which the reaction torque is acting" 
-             annotation (Placement(transformation(extent={{-10,-110},{10,-90}},
-                rotation=0)));
-        Modelica.Electrical.Analog.Interfaces.PositivePin pin_ap 
-          annotation (Placement(transformation(extent={{-110,110},{-90,90}},
-                rotation=0)));
-        Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep 
-          annotation (Placement(transformation(extent={{90,110},{110,90}},
-                rotation=0)));
-        Modelica.Electrical.Analog.Interfaces.NegativePin pin_an 
-          annotation (Placement(transformation(extent={{-110,-110},{-90,-90}},
-                rotation=0)));
-        Modelica.Electrical.Analog.Interfaces.NegativePin pin_en 
-          annotation (Placement(transformation(extent={{90,10},{110,30}},
-                rotation=0)));
-        Modelica.Electrical.Analog.Interfaces.PositivePin pin_sep 
-          annotation (Placement(transformation(extent={{90,-10},{110,-30}},
-                rotation=0)));
-        Modelica.Electrical.Analog.Interfaces.NegativePin pin_sen 
-          annotation (Placement(transformation(extent={{90,-110},{110,-90}},
-                rotation=0)));
-      equation
-        // armature pins
-        vai = pin_ap.v - pin_an.v;
-        ia = + pin_ap.i;
-        ia = - pin_an.i;
-        // (shunt) excitation pins
-        vei = pin_ep.v - pin_en.v;
-        ie = + pin_ep.i;
-        ie = - pin_en.i;
-        // series excitation pins
-        vsei = pin_sep.v - pin_sen.v;
-        ise = + pin_sep.i;
-        ise = - pin_sen.i;
-        // induced voltage across field excitation inductance
-        vei = der(psi_e);
-        vsei = der(psi_e)/excitationTurnsRatio;
-        // mechanical speed
-        w = der(flange.phi)-der(support.phi);
-        // induced armature voltage
-        vai = turnsRatio * psi_e * w;
-        // electrical torque (ia is perpendicular to flux)
-        tauElectrical = turnsRatio * psi_e * ia;
-        flange.tau = -tauElectrical;
-        support.tau = tauElectrical;
-        annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}}),
-                  graphics),
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                  100,100}}), graphics={
-              Ellipse(
-                extent={{-90,90},{90,-92}},
-                lineColor={0,0,255},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{-80,80},{80,-80}},
-                lineColor={0,0,255},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Rectangle(
-                extent={{-10,90},{10,-80}},
-                lineColor={0,0,0},
-                fillPattern=FillPattern.VerticalCylinder,
-                fillColor={128,128,128}),
-              Text(
-                extent={{0,90},{80,10}},
-                lineColor={0,0,0},
-                textString="E"),
-              Text(
-                extent={{-150,-100},{150,-160}},
-                lineColor={0,0,255},
-                textString="%name"),
-              Text(
-                extent={{-80,40},{0,-40}},
-                lineColor={0,0,0},
-                textString="A"),
-              Text(
-                extent={{0,0},{80,-80}},
-                lineColor={0,0,0},
-                textString="S")}),
-          Documentation(info="<HTML>
-Linear model of the airgap (without saturation effects) of a DC compound machine, using only equations.<br>
-Induced excitation voltage is calculated from der(flux), where flux is defined by excitation inductance times excitation current.<br>
-Induced armature voltage is calculated from flux times angular velocity.
-</HTML>"));
-      end PartialAirGapDCcompound;
-
-      model AirGapDCcompound "Linear airgap model of a DC compound machine"
-        extends PartialAirGapDCcompound;
-        parameter Modelica.SIunits.Inductance Le "Shunt excitation inductance";
-        parameter Modelica.SIunits.Inductance Lse
-          "Series Excitation inductance";
-      equation
-        // excitation flux: linearly dependent on excitation current
-        psi_e = Le * ie + Lse * ise / turnsRatio;
-        annotation (defaultComponentName="airGap",
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}}),
-                  graphics),
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                  100,100}}), graphics={Text(
-                extent={{-150,-100},{150,-160}},
-                lineColor={0,0,255},
-                textString="%name")}),
-          Documentation(info="<HTML>
-Linear model of the airgap (without saturation effects) of a DC compound machine, using only equations.<br>
-Induced excitation voltage is calculated from der(flux), where flux is defined by excitation inductance times excitation current.<br>
-Induced armature voltage is calculated from flux times angular velocity.
-</HTML>"));
-      end AirGapDCcompound;
-
       partial model PartialCore
         "Partial model of transformer core with 3 windings"
         parameter Integer m(final min=1) = 3 "Number of phases";
@@ -9514,7 +9434,7 @@ Connector for Space Phasors:
       Modelica.Mechanics.Rotational.Components.Fixed fixed if  (not useSupport) 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
               rotation=180,
-            origin={70,-90})));
+            origin={90,-90})));
     protected
       Mechanics.Rotational.Interfaces.Support internalSupport 
         annotation (Placement(transformation(extent={{56,-104},{64,-96}},
@@ -9527,7 +9447,7 @@ Connector for Space Phasors:
       connect(inertiaStator.flange_b, support) 
         annotation (Line(points={{90,-100},{100,-100}}, color={0,0,0}));
       connect(internalSupport, fixed.flange) annotation (Line(
-          points={{60,-100},{60,-90},{70,-90}},
+          points={{60,-100},{60,-90},{90,-90}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(internalSupport, inertiaStator.flange_a) annotation (Line(
@@ -9715,7 +9635,7 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
           color={199,0,0},
           smooth=Smooth.None));
       connect(rs.heatPort, internalThermalPort.heatPort_s) annotation (Line(
-          points={{50,50},{60,50},{60,-80},{0,-80}},
+          points={{50,50},{50,-80},{0,-80}},
           color={191,0,0},
           smooth=Smooth.None));
       annotation (Documentation(info="<HTML>
@@ -9966,8 +9886,8 @@ Partial model for DC machine models.
                 100}}),
                 graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Line(points={{-50,100},{-20,100},{-20,70}},
-                color={0,0,255}), Line(points={{50,100},{20,100},{20,70}},
+                100,100}}), graphics={Line(points={{-60,100},{-60,70},{-40,70}},
+                color={0,0,255}), Line(points={{60,100},{60,70},{40,70}},
                 color={0,0,255})}));
     end PartialBasicDCMachine;
 
