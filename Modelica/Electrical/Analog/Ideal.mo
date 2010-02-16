@@ -2584,7 +2584,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 Simple analog to digital converter with a variable resolution of n bits.
 It converts the input voltage <code>ppin.v-npin.v</code> to an n-vector of type Logic
 (9-valued logic according to IEEE 1164 STD_ULOGIC). The input resistance between positive and negative pin is determined by <code>Rin</code>.
-Further effects (like input capacities) have to be modeled outside the converter, since this should be a general model. <\P>
+Further effects (like input capacities) have to be modeled outside the converter, since this should be a general model. </P>
 
 <P>
 The input singnal range (VRefLo,VRefHi) is divided into 2^n-1 equally spaced stages of lenght Vlsb:=(VRefHi-VRefLo)/(2^n-1).
@@ -2595,12 +2595,12 @@ its value if the trigger signal <CODE> trig </CODE> of type Logic changes to '1'
 
 <P>
 The output vector is a 'little-endian'. i.e. that the first bit y[1] is the least significant one (LSB).
-<\P>
+</P>
 
 <P>
 This is an abstract model of an ADC. Therefore, it can not cover the dynamic behaviour of the converter.
 Hence the output will change instantaniously when the trigger signal rises.
-<\P>
+</P>
 
 
 </HTML>
