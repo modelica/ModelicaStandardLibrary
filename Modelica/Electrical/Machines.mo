@@ -10553,20 +10553,77 @@ Thermal ports for DC machines
                           graphics),
                            Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={
-            Ellipse(extent={{-90,60},{30,-60}}, lineColor={0,0,255}),
-            Ellipse(extent={{-30,60},{90,-60}}, lineColor={0,0,255}),
             Text(
               extent={{0,100},{0,60}},
               lineColor={0,0,255},
               textString="%name"),
             Text(
-              extent={{0,40},{0,-40}},
-              lineColor={0,0,255},
-              textString="%VectorGroup"),
-            Text(
               extent={{0,-60},{0,-100}},
               lineColor={0,0,255},
-              textString="n=%n")}),
+              textString="%VectorGroup"),
+            Polygon(
+              points={{-70,60},{-50,40},{-50,-40},{-70,-60},{-70,60}},
+              lineColor={0,0,0},
+              smooth=Smooth.None,
+              fillColor={135,135,135},
+              fillPattern=FillPattern.VerticalCylinder),
+            Polygon(
+              points={{70,60},{50,40},{50,-40},{70,-60},{70,60}},
+              lineColor={0,0,0},
+              smooth=Smooth.None,
+              fillColor={135,135,135},
+              fillPattern=FillPattern.VerticalCylinder),
+            Polygon(
+              points={{0,50},{-10,40},{-10,-40},{0,-50},{10,-40},{10,40},{0,50}}, 
+
+              lineColor={0,0,0},
+              fillPattern=FillPattern.VerticalCylinder,
+              smooth=Smooth.None,
+              fillColor={135,135,135}),
+            Polygon(
+              points={{-70,60},{70,60},{50,40},{10,40},{0,50},{-10,40},{-50,40},
+                  {-70,60}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.VerticalCylinder,
+              smooth=Smooth.None,
+              fillColor={135,135,135}),
+            Polygon(
+              points={{-70,-60},{70,-60},{50,-40},{10,-40},{0,-50},{-10,-40},{
+                  -50,-40},{-70,-60}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.VerticalCylinder,
+              smooth=Smooth.None,
+              fillColor={135,135,135}),
+            Rectangle(
+              extent={{-78,36},{-42,-36}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.VerticalCylinder,
+              fillColor={255,128,0}),
+            Rectangle(
+              extent={{-84,28},{-36,-28}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.VerticalCylinder,
+              fillColor={255,170,85}),
+            Rectangle(
+              extent={{-18,36},{18,-36}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.VerticalCylinder,
+              fillColor={255,128,0}),
+            Rectangle(
+              extent={{-24,28},{24,-28}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.VerticalCylinder,
+              fillColor={255,170,85}),
+            Rectangle(
+              extent={{42,36},{78,-36}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.VerticalCylinder,
+              fillColor={255,128,0}),
+            Rectangle(
+              extent={{36,28},{84,-28}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.VerticalCylinder,
+              fillColor={255,170,85})}),
         Documentation(info="<html>
 Partialmodel of a threephase transformer, containing primary and secondary resistances and stray inductances, as well as the iron core.
 Circuit layout (vector group) of primary and secondary windings have to be defined.
