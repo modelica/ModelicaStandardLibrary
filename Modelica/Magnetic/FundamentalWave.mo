@@ -404,7 +404,6 @@ For more details see the <a href=Modelica.Magnetic.FundamentalWave.UsersGuide.Co
           color={255,0,255},
           smooth=Smooth.None));
       annotation (
-        Diagram(graphics),
         experiment(
           StopTime=1.5,
           Interval=0.0002,
@@ -625,7 +624,6 @@ Simulate for 1.5 seconds and plot (versus time):
               -44}},     color={0,0,255}));
 
       annotation (
-        Diagram(graphics),
         experiment(
           StopTime=1.5,
           Interval=0.001,
@@ -836,7 +834,6 @@ Simulate for 1.5 seconds and plot (versus time):
       connect(currentRMSsensorE.plug_n,terminalBoxE.plugSupply)   annotation (Line(
             points={{-40,20},{-40,-40},{-10,-40},{-10,-50}}, color={0,0,255}));
       annotation (
-        Diagram(graphics),
         experiment(
           StopTime=4,
           Interval=0.0005,
@@ -1051,7 +1048,6 @@ and accelerate the inertias.</p>
               {{-20,80},{-10,80},{-10,22}}, color={0,0,255}));
 
       annotation (
-        Diagram(graphics),
         experiment(
           StopTime=30,
           Interval=0.005,
@@ -1258,7 +1254,6 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
                                                               color={0,0,255}));
 
       annotation (
-        Diagram(graphics),
         experiment(
           StopTime=1.5,
           Interval=0.001,
@@ -1576,8 +1571,7 @@ The voltage <img src=\"../Images/Magnetic/FundamentalWave/v.png\"> induced in th
               + effectiveTurns[k]*sin(windingAngle[k])*der(Phi.im);
       end for;
 
-      annotation (Diagram(graphics),
-                           Icon(graphics={
+      annotation (         Icon(graphics={
             Ellipse(
               extent={{-60,60},{58,0}},
               lineColor={0,0,255},
@@ -1712,8 +1706,7 @@ This is a simple short cut branch.
 <a href=\"Modelica.Magnetic.FundamentalWave.Components.Idle\">Idle</a>
 </p>
 
-</html>"),
-        Diagram(graphics));
+</html>"));
     end Short;
     annotation (DymolaStoredErrors, Documentation(info="<html>
 <p>Basic components of the FundamentalWave library for modeling magnetic circuits. Machine specific components are
@@ -1797,8 +1790,7 @@ located at <a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.Compo
             points={{0,-40},{-40,-40},{-40,-90}},
             color={191,0,0},
             smooth=Smooth.None));
-        annotation (Diagram(graphics),
-                             Icon(graphics),
+        annotation (         Icon(graphics),
         Documentation(info="<html>
 <p>
 Resistances and stray inductances of the machine refer to the stator phases. The symmetry of the stator and rotor is assumed. Only losses in stator and rotor resistances are taken into account.
@@ -1910,8 +1902,7 @@ Resistances and stray inductances of the machine refer to the stator phases. The
             points={{-10,-30},{-40,-30},{-40,-90}},
             color={191,0,0},
             smooth=Smooth.None));
-        annotation (Diagram(graphics),
-                             Icon(graphics={Line(points={{-100,50},{-100,20},{-60,20}},
+        annotation (         Icon(graphics={Line(points={{-100,50},{-100,20},{-60,20}},
                   color={0,0,255}), Line(points={{-100,-50},{-100,-20},{-60,-20}},
                   color={0,0,255})}),
         Documentation(info="<html>
@@ -2063,8 +2054,7 @@ Resistances and stray inductances of the machine always refer to either stator o
             points={{0,-60},{-40,-60},{-40,-90}},
             color={191,0,0},
             smooth=Smooth.None));
-        annotation (Diagram(graphics),
-                             Icon(graphics={
+        annotation (         Icon(graphics={
               Rectangle(
                 extent={{-130,10},{-100,-10}},
                 lineColor={0,0,0},
@@ -2252,8 +2242,7 @@ Resistances and stray inductances of the machine refer to the stator phases. The
             color={191,0,0},
             smooth=Smooth.None));
 
-        annotation (Diagram(graphics),
-                             Icon(graphics={
+        annotation (         Icon(graphics={
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255}),
               Line(points={{-100,50},{-100,20},{-130,20},{-130,-4}}, color={0,0,255}),
               Line(points={{-130,-4},{-129,1},{-125,5},{-120,6},{-115,5},{-111,1},{
@@ -2378,8 +2367,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
             points={{50,-40},{50,-60},{-40,-60},{-40,-90}},
             color={191,0,0},
             smooth=Smooth.None));
-        annotation (Diagram(graphics),
-                             Icon(graphics={
+        annotation (         Icon(graphics={
               Rectangle(extent={{-130,10},{-100,-10}}, lineColor={0,0,0}),
               Rectangle(extent={{-100,10},{-70,-10}}, lineColor={0,0,0}),
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255})}),
@@ -2516,7 +2504,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
                 fillColor={255,128,0},
                 fillPattern=FillPattern.Solid,
                 textString=
-                     "%name")}),  Diagram(graphics),
+                     "%name")}),
         Documentation(info="<html>
 <p>
 The single phase winding consists of a
@@ -2651,7 +2639,7 @@ The single phase winding consists of a
                 fillColor={255,128,0},
                 fillPattern=FillPattern.Solid,
                 textString=
-                     "%name")}),  Diagram(graphics),
+                     "%name")}),
         Documentation(info="<html>
 <p>
 The symmetrical multi phase winding consists of a symmetrical winding
@@ -2795,8 +2783,7 @@ The symmetrical multi phase winding consists of a symmetrical winding
         gamma = p*(flange_a.phi-support.phi);
         rotator = Modelica.ComplexMath.exp(Complex(0,gamma));
 
-        annotation (Diagram(graphics),
-                             Icon(graphics={
+        annotation (         Icon(graphics={
               Ellipse(
                 extent={{-100,100},{100,-100}},
                 lineColor={0,0,0},
@@ -2976,8 +2963,7 @@ according to the following figure.
             points={{-60,-100},{0,-100}},
             color={191,0,0},
             smooth=Smooth.None));
-        annotation (Diagram(graphics),
-                             Icon(graphics={
+        annotation (         Icon(graphics={
               Ellipse(
                 extent={{-80,80},{80,-80}},
                 lineColor={0,0,0},
@@ -3145,8 +3131,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
             points={{-30,-70},{-60,-70}},
             color={191,0,0},
             smooth=Smooth.None));
-        annotation (Diagram(graphics),
-                             Icon(graphics={
+        annotation (         Icon(graphics={
               Ellipse(
                 extent={{-80,80},{80,-80}},
                 lineColor={0,0,0},
@@ -3273,8 +3258,7 @@ for electric machines.
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0,0);
 
-      annotation (Diagram(graphics),
-                           Icon(graphics={
+      annotation (         Icon(graphics={
             Text(
               extent={{-80,-20},{-80,-40}},
               lineColor={255,128,0},
@@ -3330,8 +3314,7 @@ Source of constant magneto motive force.
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0,0);
 
-      annotation (Diagram(graphics),
-                           Icon(graphics={
+      annotation (         Icon(graphics={
             Text(
               extent={{80,-20},{80,-40}},
               lineColor={255,128,0},
@@ -3380,8 +3363,7 @@ Source of magneto motive force with complex signal input.
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0,0);
 
-      annotation (Diagram(graphics),
-                           Icon(graphics={
+      annotation (         Icon(graphics={
             Ellipse(
               extent={{-50,-50},{50,50}},
               lineColor={255,127,0},
@@ -3434,8 +3416,7 @@ Source of constant magnetic flux.
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0,0);
 
-      annotation (Diagram(graphics),
-                           Icon(graphics={
+      annotation (         Icon(graphics={
             Ellipse(
               extent={{-50,-50},{50,50}},
               lineColor={255,127,0},

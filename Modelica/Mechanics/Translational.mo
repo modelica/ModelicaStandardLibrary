@@ -2256,7 +2256,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
         flange.s = s_start;
       equation
         flange.f = 0;
-      annotation (Diagram(graphics));
+
       end Set_s_start;
 
       encapsulated model Set_v_start "Set v_start"
@@ -2273,7 +2273,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
         der(flange.s) = v_start;
       equation
         flange.f = 0;
-      annotation (Diagram(graphics));
+
       end Set_v_start;
 
       encapsulated model Set_a_start "Set a_start"
@@ -2291,7 +2291,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
         der(v) = a_start;
       equation
         flange.f = 0;
-      annotation (Diagram(graphics));
+
       end Set_a_start;
 
       encapsulated model Set_flange_f "Set flange_f to zero"

@@ -4676,7 +4676,7 @@ Transformer Yy0
 Transformer Yy2
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Yy02;
 
         model Yy04 "Transformer Yy4"
@@ -4728,7 +4728,7 @@ Transformer Yy2
 Transformer Yy4
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Yy04;
 
         model Yy06 "Transformer Yy6"
@@ -4776,7 +4776,7 @@ Transformer Yy4
 Transformer Yy6
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Yy06;
 
         model Yy08 "Transformer Yy8"
@@ -4828,7 +4828,7 @@ Transformer Yy6
 Transformer Yy8
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Yy08;
 
         model Yy10 "Transformer Yy10"
@@ -4881,7 +4881,7 @@ Transformer Yy8
 Transformer Yy10
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Yy10;
         annotation (Documentation(info="<HTML>
 This package contains transformers primary Y connected / secondary y connected in all possbile vector groups.
@@ -4953,7 +4953,7 @@ This package contains transformers primary Y connected / secondary y connected i
 Transformer Yd1
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Yd01;
 
         model Yd03 "Transformer Yd3"
@@ -4999,7 +4999,7 @@ Transformer Yd1
 Transformer Yd3
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Yd03;
 
         model Yd05 "Transformer Yd5"
@@ -5040,7 +5040,7 @@ Transformer Yd3
 Transformer Yd5
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Yd05;
 
         model Yd07 "Transformer Yd7"
@@ -5081,7 +5081,7 @@ Transformer Yd5
 Transformer Yd7
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Yd07;
 
         model Yd09 "Transformer Yd9"
@@ -5127,7 +5127,7 @@ Transformer Yd7
 Transformer Yd9
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Yd09;
 
         model Yd11 "Transformer Yd11"
@@ -5169,7 +5169,7 @@ Transformer Yd9
 Transformer Yd11
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Yd11;
         annotation (Documentation(info="<HTML>
 This package contains transformers primary Y connected / secondary d connected in all possbile vector groups.
@@ -5262,7 +5262,7 @@ This package contains transformers primary Y connected / secondary d connected i
 Transformer Yz1
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Yz01;
 
         model Yz03 "Transformer Yz3"
@@ -5325,7 +5325,7 @@ Transformer Yz1
 Transformer Yz3
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Yz03;
 
         model Yz05 "Transformer Yz5"
@@ -5381,7 +5381,7 @@ Transformer Yz3
 Transformer Yz5
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Yz05;
 
         model Yz07 "Transformer Yz7"
@@ -5437,7 +5437,7 @@ Transformer Yz5
 Transformer Yz7
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Yz07;
 
         model Yz09 "Transformer Yz9"
@@ -5500,7 +5500,7 @@ Transformer Yz7
 Transformer Yz9
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Yz09;
 
         model Yz11 "Transformer Yz11"
@@ -5563,7 +5563,7 @@ Transformer Yz9
 Transformer Yz11
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Yz11;
         annotation (Documentation(info="<HTML>
 This package contains transformers primary Y connected / secondary zig-zag connected in all possbile vector groups.
@@ -5641,7 +5641,7 @@ This package contains transformers primary Y connected / secondary zig-zag conne
 Transformer Dy1
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Dy01;
 
         model Dy03 "Transformer Dy3"
@@ -5688,7 +5688,7 @@ Transformer Dy1
 Transformer Dy3
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Dy03;
 
         model Dy05 "Transformer Dy5"
@@ -5731,7 +5731,7 @@ Transformer Dy3
 Transformer Dy5
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Dy05;
 
         model Dy07 "Transformer Dy7"
@@ -5778,7 +5778,7 @@ Transformer Dy5
 Transformer Dy7
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Dy07;
 
         model Dy09 "Transformer Dy9"
@@ -5826,7 +5826,7 @@ Transformer Dy7
 Transformer Dy9
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Dy09;
 
         model Dy11 "Transformer Dy11"
@@ -5869,7 +5869,7 @@ Transformer Dy9
 Transformer Dy11
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Dy11;
         annotation (Documentation(info="<HTML>
 This package contains transformers primary D connected / secondary y connected in all possbile vector groups.
@@ -5936,7 +5936,7 @@ This package contains transformers primary D connected / secondary y connected i
 Transformer Dd0
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Dd00;
 
         model Dd02 "Transformer Dd2"
@@ -5977,7 +5977,7 @@ Transformer Dd0
 Transformer Dd2
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Dd02;
 
         model Dd04 "Transformer Dd4"
@@ -6014,7 +6014,7 @@ Transformer Dd2
 Transformer Dd4
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Dd04;
 
         model Dd06 "Transformer Dd6"
@@ -6050,7 +6050,7 @@ Transformer Dd4
 Transformer Dd6
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Dd06;
 
         model Dd08 "Transformer Dd8"
@@ -6091,7 +6091,7 @@ Transformer Dd6
 Transformer Dd8
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Dd08;
 
         model Dd10 "Transformer Dd10"
@@ -6128,7 +6128,7 @@ Transformer Dd8
 Transformer Dd10
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Dd10;
         annotation (Documentation(info="<HTML>
 This package contains transformers primary D connected / secondary d connected in all possbile vector groups.
@@ -6216,7 +6216,7 @@ This package contains transformers primary D connected / secondary d connected i
 Transformer Dz0
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Dz00;
 
         model Dz02 "Transformer Dz2"
@@ -6274,7 +6274,7 @@ Transformer Dz0
 Transformer Dz2
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Dz02;
 
         model Dz04 "Transformer Dz4"
@@ -6325,7 +6325,7 @@ Transformer Dz2
 Transformer Dz4
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Dz04;
 
         model Dz06 "Transformer Dz6"
@@ -6376,7 +6376,7 @@ Transformer Dz4
 Transformer Dz6
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Dz06;
 
         model Dz08 "Transformer Dz8"
@@ -6434,7 +6434,7 @@ Transformer Dz6
 Transformer Dz8
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Dz08;
 
         model Dz10 "Transformer Dz10"
@@ -6492,7 +6492,7 @@ Transformer Dz8
 Transformer Dz10
 <br>Typical parameters see:
 <a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
-</html>"),            Diagram(graphics));
+</html>"));
         end Dz10;
         annotation (Documentation(info="<HTML>
 This package contains transformers primary D connected / secondary d connected in all possbile vector groups.
@@ -8751,7 +8751,7 @@ where <code>RRef</code> is the resistance at the reference temperature <code>TRe
                 lineColor={0,0,0},
                 fillColor={95,95,95},
                 fillPattern=FillPattern.Solid,
-                textString="AIMC")}), Diagram(graphics), Documentation(info="<HTML>
+                textString="AIMC")}),  Documentation(info="<HTML>
 Thermal ambient for asynchronous induction machines with squirrel cage to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
 </HTML>"));
@@ -8819,7 +8819,7 @@ Additionally, all losses = heat flows are recorded.
                 lineColor={0,0,0},
                 fillColor={95,95,95},
                 fillPattern=FillPattern.Solid,
-                textString="AIMS")}), Diagram(graphics), Documentation(info="<HTML>
+                textString="AIMS")}),  Documentation(info="<HTML>
 Thermal ambient for asynchronous induction machines with slipring rotor to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
 </HTML>"));
@@ -8893,7 +8893,7 @@ Thermal parts for asynchronous induction machines
                 lineColor={0,0,0},
                 fillColor={95,95,95},
                 fillPattern=FillPattern.Solid,
-                textString="SMPM")}), Diagram(graphics), Documentation(info="<HTML>
+                textString="SMPM")}),  Documentation(info="<HTML>
 Thermal ambient for synchronous induction machines with permanent magnets to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
 </HTML>"));
@@ -8993,7 +8993,7 @@ Additionally, all losses = heat flows are recorded.
                 lineColor={0,0,0},
                 fillColor={95,95,95},
                 fillPattern=FillPattern.Solid,
-                textString="SMEE")}),Diagram(graphics), Documentation(info="<HTML>
+                textString="SMEE")}), Documentation(info="<HTML>
 Thermal ambient for synchronous induction machines with electrical excitation to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
 </HTML>"));
@@ -9049,7 +9049,7 @@ Additionally, all losses = heat flows are recorded.
                 lineColor={0,0,0},
                 fillColor={95,95,95},
                 fillPattern=FillPattern.Solid,
-                textString="SMR")}), Diagram(graphics), Documentation(info="<HTML>
+                textString="SMR")}),  Documentation(info="<HTML>
 Thermal ambient for synchronous induction machines with reluctance rotor to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
 </HTML>"));
@@ -9086,7 +9086,7 @@ Thermal parts for synchronous induction machines
                 lineColor={0,0,0},
                 fillColor={95,95,95},
                 fillPattern=FillPattern.Solid,
-                textString="DCPM")}), Diagram(graphics), Documentation(info="<HTML>
+                textString="DCPM")}),  Documentation(info="<HTML>
 Thermal ambient for DC machines with permanent magnets to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
 </HTML>"));
@@ -9138,7 +9138,7 @@ Additionally, all losses = heat flows are recorded.
                 lineColor={0,0,0},
                 fillColor={95,95,95},
                 fillPattern=FillPattern.Solid,
-                textString="DCEE")}), Diagram(graphics), Documentation(info="<HTML>
+                textString="DCEE")}),  Documentation(info="<HTML>
 Thermal ambient for DC machines with electrical (shunt) excitation to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
 </HTML>"));
@@ -9191,7 +9191,7 @@ Additionally, all losses = heat flows are recorded.
                 lineColor={0,0,0},
                 fillColor={95,95,95},
                 fillPattern=FillPattern.Solid,
-                textString="DCSE")}), Diagram(graphics), Documentation(info="<HTML>
+                textString="DCSE")}),  Documentation(info="<HTML>
 Thermal ambient for DC machines with serial excitation to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
 </HTML>"));
@@ -9276,7 +9276,7 @@ Additionally, all losses = heat flows are recorded.
                 lineColor={0,0,0},
                 fillColor={95,95,95},
                 fillPattern=FillPattern.Solid,
-                textString="DCCE")}), Diagram(graphics), Documentation(info="<HTML>
+                textString="DCCE")}),  Documentation(info="<HTML>
 Thermal ambient for DC machines with compound excitation to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
 </HTML>"));
@@ -9415,7 +9415,7 @@ Thermal parts for DC machines
               lineColor={0,0,0},
               fillColor={95,95,95},
               fillPattern=FillPattern.Solid,
-              textString="Trafo")}), Diagram(graphics), Documentation(info="<HTML>
+              textString="Trafo")}),  Documentation(info="<HTML>
 Thermal ambient for transformers to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
 </HTML>"));
@@ -10006,7 +10006,7 @@ Partial thermal port for induction machines
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid,
               origin={0,68},
-              rotation=90)}),     Diagram(graphics), Documentation(info="<HTML>
+              rotation=90)}),      Documentation(info="<HTML>
 Partial thermal ambient for induction machines
 </HTML>"));
     end PartialThermalAmbientInductionMachines;
@@ -10268,7 +10268,7 @@ Partial thermal port for DC machines
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid,
               origin={0,68},
-              rotation=90)}),     Diagram(graphics), Documentation(info="<HTML>
+              rotation=90)}),      Documentation(info="<HTML>
 Partial thermal ambient for induction machines
 </HTML>"));
     end PartialThermalAmbientDCMachines;
@@ -10283,7 +10283,7 @@ Partial thermal ambient for induction machines
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_r
           "Heat port of rotor (squirrel cage)" 
           annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
-        annotation (Diagram(graphics),            Icon(graphics), Documentation(info="<HTML>
+        annotation (            Icon(graphics), Documentation(info="<HTML>
 Thermal port for asnychronous induction machine with squirrel cage
 </HTML>"));
       end ThermalPortAIMC;
@@ -10298,7 +10298,7 @@ Thermal port for asnychronous induction machine with squirrel cage
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_brush
           "Heat port of (optional) brush losses" 
           annotation (Placement(transformation(extent={{-10,30},{10,50}})));
-        annotation (Diagram(graphics),            Icon(graphics), Documentation(info="<HTML>
+        annotation (            Icon(graphics), Documentation(info="<HTML>
 Thermal port for asnychronous induction machine with slipring rotor
 </HTML>"));
       end ThermalPortAIMS;
@@ -10323,7 +10323,7 @@ Thermal ports for asynchronous induction machines
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_pm
           "Heat port of permanent magnets" 
           annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
-        annotation (Diagram(graphics), Icon(graphics), Documentation(info="<HTML>
+        annotation ( Icon(graphics), Documentation(info="<HTML>
 Thermal port for snychronous induction machine with permanent magnets
 </HTML>"));
       end ThermalPortSMPM;
@@ -10344,7 +10344,7 @@ Thermal port for snychronous induction machine with permanent magnets
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_brush
           "Heat port of (optional) brush losses" 
           annotation (Placement(transformation(extent={{-10,30},{10,50}})));
-        annotation (Diagram(graphics), Icon(graphics), Documentation(info="<HTML>
+        annotation ( Icon(graphics), Documentation(info="<HTML>
 Thermal port for snychronous induction machine with electrical excitation
 </HTML>"));
       end ThermalPortSMEE;
@@ -10359,7 +10359,7 @@ Thermal port for snychronous induction machine with electrical excitation
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_r if useDamperCage
           "Heat port of damper cage (optional)" 
           annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
-        annotation (Diagram(graphics), Icon(graphics), Documentation(info="<HTML>
+        annotation ( Icon(graphics), Documentation(info="<HTML>
 Thermal port for snychronous induction machine with reluctance rotor
 </HTML>"));
       end ThermalPortSMR;
@@ -10377,7 +10377,7 @@ Thermal ports for synchronous induction machines
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_pm
           "Heat port of permanent magnets" 
           annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
-        annotation (Diagram(graphics), Icon(graphics), Documentation(info="<HTML>
+        annotation ( Icon(graphics), Documentation(info="<HTML>
 Thermal port for DC machine with permanent magnets
 </HTML>"));
       end ThermalPortDCPM;
@@ -10389,7 +10389,7 @@ Thermal port for DC machine with permanent magnets
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_e
           "Heat port of (shunt) excitation" 
           annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
-        annotation (Diagram(graphics), Icon(graphics), Documentation(info="<HTML>
+        annotation ( Icon(graphics), Documentation(info="<HTML>
 Thermal port for DC machine with electrical (shunt) excitation
 </HTML>"));
       end ThermalPortDCEE;
@@ -10401,7 +10401,7 @@ Thermal port for DC machine with electrical (shunt) excitation
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_se
           "Heat port of series excitation" 
           annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
-        annotation (Diagram(graphics), Icon(graphics), Documentation(info="<HTML>
+        annotation ( Icon(graphics), Documentation(info="<HTML>
 Thermal port for DC machine with serial excitation
 </HTML>"));
       end ThermalPortDCSE;
@@ -10416,7 +10416,7 @@ Thermal port for DC machine with serial excitation
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort_se
           "Heat port of series excitation" 
           annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
-        annotation (Diagram(graphics), Icon(graphics), Documentation(info="<HTML>
+        annotation ( Icon(graphics), Documentation(info="<HTML>
 Thermal port for DC machine with compound excitation
 </HTML>"));
       end ThermalPortDCCE;
@@ -11030,8 +11030,7 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
           points={{-39,20},{32,20}},
           color={255,0,255},
           smooth=Smooth.None));
-      annotation (Diagram(graphics),
-                           Icon(graphics={
+      annotation (         Icon(graphics={
             Rectangle(
               extent={{26,40},{54,-40}},
               lineColor={0,0,255},
@@ -11105,8 +11104,7 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
           points={{-40,-60},{-60,-60}},
           color={0,0,255},
           smooth=Smooth.None));
-      annotation (Diagram(graphics),
-                           Icon(graphics={
+      annotation (         Icon(graphics={
             Rectangle(
               extent={{26,40},{54,-40}},
               lineColor={0,0,255},

@@ -83,7 +83,7 @@ package Examples "Test examples"
         points={{-10,11},{-10,18}},
         color={85,170,255},
         smooth=Smooth.None));
-    annotation (Diagram(graphics), Documentation(info="<html>
+    annotation ( Documentation(info="<html>
 <p>
 The frequency of the voltage source is varied by a ramp.
 Plot length and angle of the current phasor, i.e. complexToPolar.len and .phi, versis time resp. frequency.
@@ -183,7 +183,7 @@ Plot length and angle of the current phasor, i.e. complexToPolar.len and .phi, v
         points={{61,20},{68,20}},
         color={85,170,255},
         smooth=Smooth.None));
-    annotation (Diagram(graphics), Documentation(info="<html>
+    annotation ( Documentation(info="<html>
 <p>
 The frequency of the current source is varied by a ramp.
 Plot length and angle of the voltage phasor, i.e. complexToPolar.len and .phi, versis time resp. frequency.
@@ -316,7 +316,7 @@ Plot length and angle of the voltage phasor, i.e. complexToPolar.len and .phi, v
       annotation (Line(points={{80,-60},{-20,-60}}, color={85,170,255}));
     connect(currentSensor0.pin_n, star.pin_n) annotation (Line(points={{-40,-60},
             {-80,-60}}, color={85,170,255}));
-    annotation (Diagram(graphics), Documentation(info="<html>
+    annotation ( Documentation(info="<html>
 <p>
 For the unsymmetrical load (resistor, capacitor and inductor) the parameters inductance L and capacitance C
 are choosen such way that the neutral current (see currentSensor0) is zero.
@@ -453,7 +453,7 @@ P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase c
         points={{-20,-1},{-20,-4.5},{-20,-8},{-20,-8}},
         color={85,170,255},
         smooth=Smooth.None));
-    annotation (Diagram(graphics), Documentation(info="<html>
+    annotation ( Documentation(info="<html>
 <p>
 For the unsymmetrical load (resistor, capacitor and inductor) the parameters inductance L and capacitance C
 are choosen such way that the magnitudes of the three phase currents (see currentSensor12, currentSensor23, currentSensor31) are equal.

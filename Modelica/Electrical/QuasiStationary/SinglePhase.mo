@@ -17,7 +17,7 @@ package SinglePhase "Single phase AC components"
             Line(points={{-20,10},{20,10}}),
             Line(points={{0,90},{0,50}}),
             Text(extent={{100,-40},{-100,0}}, textString=
-                                                "%name")}),Diagram(graphics),
+                                                "%name")}),
         Documentation(info="<html>
 <p>
 Ground of a single phase circuit. The potential at the ground node is zero.
@@ -59,7 +59,6 @@ Every electrical circuit, e.g. a series resonance
               fillPattern=FillPattern.Solid),
             Text(extent={{100,-80},{-100,-40}}, textString=
                                                   "R=%R_ref")}),
-          Diagram(graphics),
         Documentation(info="<html>
 <p>
 The linear resistor connects the complex voltage <i><u>v</u></i> with the complex
@@ -116,7 +115,6 @@ A linear temperature dependency of the resistance for an enabled heat port is al
               fillPattern=FillPattern.Solid),
             Text(extent={{100,-80},{-100,-40}}, textString=
                                                   "G=%G_ref")}),
-                                                          Diagram(graphics),
         Documentation(info="<html>
 
 <p>
@@ -165,7 +163,6 @@ A linear temperature dependency of the resistance for an enabled heat port is al
             Line(points={{14,0},{90,0}}),
             Text(extent={{100,-80},{-100,-40}}, textString=
                                                   "C=%C")}),
-                                      Diagram(graphics),
         Documentation(info="<html>
 
 <p>
@@ -209,7 +206,6 @@ The capacitance <i>C</i> is allowed to be positive, zero, or negative.
             Line(points={{-90,0},{-60,0}}),
             Text(extent={{100,-80},{-100,-40}}, textString=
                                                   "L=%L")}),
-                                        Diagram(graphics),
         Documentation(info="<html>
 
 <p>
@@ -266,7 +262,6 @@ The Inductance <i>L</i> is allowed to be positive, zero, or negative.
               points={{0,90},{0,30}},
               color={0,0,255},
               smooth=Smooth.None)}),
-                           Diagram(graphics),
         Documentation(info="<html>
 
 <p>
@@ -340,7 +335,6 @@ A linear temperature dependency of the resistance for an enabled heat port is al
               points={{0,90},{0,30}},
               color={0,0,255},
               smooth=Smooth.None)}),
-                           Diagram(graphics),
         Documentation(info="<html>
 
 <p>
@@ -392,7 +386,6 @@ A linear temperature dependency of the resistance for an enabled heat port is al
             Line(points={{-90,0},{-14,0}}),
             Line(points={{14,0},{90,0}}),
             Line(points={{0,90},{0,30}}, color={0,0,255})}),
-          Diagram(graphics),
         Documentation(info="<html>
 
 <p>
@@ -445,7 +438,6 @@ The abstraction of a variable capacitor at quasi stationary operation assumes:<b
             Line(points={{60,0},{90,0}}),
             Line(points={{-90,0},{-60,0}}),
             Line(points={{0,90},{0,8}}, color={0,0,255})}),
-          Diagram(graphics),
         Documentation(info="<html>
 
 <p>
@@ -508,7 +500,6 @@ Quasi stationary theory for single phase circuits can be found in the
             Line(points={{91,0},{40,0}}),
             Text(extent={{-100,100},{100,70}}, textString=
                                                    "%name")}),
-        Diagram(graphics),
         Window(
           x=0.36,
           y=0.16,
@@ -691,8 +682,7 @@ Additionally the reference angle is specified in the connector. The time derivat
       pin_p.reference.gamma = pin_n.reference.gamma;
       i = pin_p.i;
       v = pin_p.v - pin_n.v;
-      annotation (Diagram(graphics),
-                           Documentation(info="<html>
+      annotation (         Documentation(info="<html>
 <p>
 This partial model uses a <a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">positive</a>
 and <a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin\">negative pin</a> and defines the complex voltage difference as well as the complex current (into the positive pin). Additionally, the angular velocity of the quasi stationary system is explicitely defined as variable. This model is mainly intended to be used with graphical representation of user models.
@@ -712,8 +702,7 @@ and <a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfa
       extends TwoPin;
     equation
       pin_p.i + pin_n.i = Complex(0);
-      annotation (Diagram(graphics),
-                           Documentation(info="<html>
+      annotation (         Documentation(info="<html>
 <p>
 This partial model is based on <a href=\"Modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.TwoPin\">TwoPin</a> and
 additionally considers the complex current balance of the
@@ -742,8 +731,7 @@ This model is intended to be used with textual representation of user models.
                {{100,-10},{120,10}}, rotation=0)));
     equation
       pin.i = Complex(0);
-      annotation (Diagram(graphics),
-                           Icon(graphics={
+      annotation (         Icon(graphics={
             Line(points={{-70,0},{-94,0}}, color={0,0,0}),
             Text(
               extent={{-100,100},{100,70}},
@@ -779,8 +767,7 @@ The absolute sensor partial model provides a single
             origin={0,-110},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      annotation (Diagram(graphics),
-                           Icon(graphics={
+      annotation (         Icon(graphics={
             Line(points={{-70,0},{-94,0}}, color={0,0,0}),
             Line(points={{70,0},{94,0}}, color={0,0,0}),
             Text(
@@ -825,7 +812,7 @@ The relative sensor partial model relies on the
             Text(extent={{100,-100},{-100,-60}}, textString=
                                                    "%name"),
             Line(points={{-90,0},{-50,0}}, color={0,0,0}),
-            Line(points={{50,0},{90,0}}, color={0,0,0})}),               Diagram(graphics),
+            Line(points={{50,0},{90,0}}, color={0,0,0})}),
       Documentation(info="<html>
 <p>
 The source partial model relies on the
@@ -864,7 +851,7 @@ The source partial model relies on the
               extent={{-29,-11},{30,-70}},
               lineColor={0,0,0},
               textString=
-                   "V")}),    Diagram(graphics),
+                   "V")}),
       Documentation(info="<html>
 
 <p>
@@ -891,7 +878,7 @@ This sensor can be used to measure the complex potential.
               extent={{-29,-11},{30,-70}},
               lineColor={0,0,0},
               textString=
-                   "V")}),    Diagram(graphics),
+                   "V")}),
       Documentation(info="<html>
 <p>
 This sensor can be used to measure the complex voltage.
@@ -917,7 +904,7 @@ This sensor can be used to measure the complex voltage.
               extent={{-29,-11},{30,-70}},
               lineColor={0,0,0},
               textString=
-                   "I")}),    Diagram(graphics),
+                   "I")}),
       Documentation(info="<html>
 <p>
 This sensor can be used to measure the complex current.
@@ -966,8 +953,7 @@ This sensor can be used to measure the complex current.
       v = voltageP.v - voltageN.v;
     //P + j*Q = v * conj(i);
       y = v*conj(i);
-      annotation (Diagram(graphics),
-                           Icon(graphics={
+      annotation (         Icon(graphics={
             Ellipse(
               extent={{-70,70},{70,-70}},
               lineColor={0,0,0},
@@ -1113,7 +1099,6 @@ This is a constant voltage source, specifying the complex voltage by the RMS vol
               textString=
                       "-"),
             Line(points={{50,0},{-50,0}}, color={0,0,0})}),
-          Diagram(graphics),
         Documentation(info="<html>
 
 <p>
@@ -1186,7 +1171,6 @@ This is a constant current source, specifying the complex current by the RMS cur
               lineColor={0,0,255},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid)}),
-          Diagram(graphics),
       Documentation(info="<html>
 
 <p>

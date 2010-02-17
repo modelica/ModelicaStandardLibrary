@@ -623,7 +623,7 @@ constructed by the signals connected to this bus.
                   extent={{-20,2},{22,-2}},
                   lineColor={255,204,51},
                   lineThickness=0.5)}),
-            Diagram(graphics),
+
             Documentation(info="<html>
 <p>
 This connector is used to show default signals that might be added

@@ -29,7 +29,7 @@ extends Modelica.Icons.Library2;
           points={{-19,0},{-2,0}},
           color={85,170,255},
           smooth=Smooth.None));
-      annotation (Diagram(graphics), Documentation(info="<html>
+      annotation ( Documentation(info="<html>
 <p>A Complex signal is defined by its length and angle, both linearly rising with time.
 Plotting the imaginary part versus the real part, you will see an Archimedean spiral.</p>
 </html>"));
@@ -1880,7 +1880,7 @@ zero or negative.
                 -130,-80},{-90,-40}}), iconTransformation(extent={{-140,-80},{-100,-40}})));
     equation
       y=Complex(re,im);
-      annotation (Diagram(graphics), Icon(graphics={
+      annotation ( Icon(graphics={
             Text(
               extent={{-100,80},{-20,40}},
               lineColor={0,0,127},
@@ -1916,7 +1916,7 @@ zero or negative.
                 -130,-80},{-90,-40}}), iconTransformation(extent={{-140,-80},{-100,-40}})));
     equation
       y=Complex(len*cos(phi),len*sin(phi));
-      annotation (Diagram(graphics), Icon(graphics={
+      annotation ( Icon(graphics={
             Text(
               extent={{-100,80},{-20,40}},
               lineColor={0,0,127},
@@ -1955,7 +1955,7 @@ zero or negative.
     equation
       re=u.re;
       im=u.im;
-      annotation (Diagram(graphics), Icon(graphics={
+      annotation ( Icon(graphics={
             Text(
               extent={{20,80},{100,40}},
               lineColor={0,0,127},
@@ -1995,7 +1995,7 @@ zero or negative.
     equation
       len=(u.re^2 + u.im^2)^0.5;
       phi=Modelica.Math.atan2(u.im,u.re);
-      annotation (Diagram(graphics), Icon(graphics={
+      annotation ( Icon(graphics={
             Text(
               extent={{20,80},{100,40}},
               lineColor={0,0,127},

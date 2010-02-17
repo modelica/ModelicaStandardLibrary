@@ -3765,7 +3765,7 @@ no rolling resistance. This component defines the kinematic constraint:
         flange.phi = phi_start;
       equation
         flange.tau = 0;
-        annotation (Diagram(graphics));
+
       end Set_phi_start;
 
       encapsulated model Set_w_start "Set w_start"
@@ -3782,7 +3782,7 @@ no rolling resistance. This component defines the kinematic constraint:
         der(flange.phi) = w_start;
       equation
         flange.tau = 0;
-        annotation (Diagram(graphics));
+
       end Set_w_start;
 
       encapsulated model Set_a_start "Set a_start"

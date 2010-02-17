@@ -3,7 +3,6 @@ package Sensors
   "Ideal sensor components to extract signals from a fluid connector"
   extends Modelica.Fluid.Icons.VariantLibrary;
 
-
   model Pressure "Ideal pressure sensor"
     extends Sensors.BaseClasses.PartialAbsoluteSensor;
     extends Modelica.Icons.RotationalSensor;
@@ -716,7 +715,6 @@ The sensor is ideal, i.e. it does not influence the fluid.
             smooth=Smooth.None,
             fillColor={0,128,255},
             fillPattern=FillPattern.Solid)}),
-      Diagram(graphics),
       Documentation(info="<HTML>
 <p>
 The relative pressure \"port_a.p - port_b.p\" is determined between
@@ -788,7 +786,6 @@ through the sensor is allowed.
             smooth=Smooth.None,
             fillColor={0,128,255},
             fillPattern=FillPattern.Solid)}),
-      Diagram(graphics),
       Documentation(info="<HTML>
 <p>
 The relative temperature \"T(port_a) - T(port_b)\" is determined between
@@ -1041,7 +1038,6 @@ as signal.
     partial model PartialFlowSensor
       "Partial component to model sensors that measure flow properties"
       extends Modelica.Fluid.Interfaces.PartialTwoPort;
-
 
     equation
       // mass balance

@@ -3358,7 +3358,7 @@ no mass or energy is stored in the pipe.
           annotation (Line(points={{-9,10},{10,10}}, color={0,127,255}));
         connect(shortPipe1.port_b, ambient.port)
           annotation (Line(points={{57,10},{71,10}}, color={0,127,255}));
-        annotation (Diagram(graphics),
+        annotation (
                              Documentation(info="<html>
 
 </html>"));

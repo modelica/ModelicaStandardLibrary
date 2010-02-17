@@ -94,7 +94,7 @@ Star-connected voltage source feeds via a Y-Y-transformer with internal impedanc
 Using f=5 Hz LT=3mH defines nominal voltage drop of approximately 10 %.<br>
 Simulate for 1 second (2 periods) and compare voltages and currents of source, transformer and load.
 </p>
-</HTML>"), Diagram(graphics));
+</HTML>"));
     end TransformerYY;
 
     model TransformerYD "Test example with multiphase components"
@@ -189,7 +189,7 @@ Star-connected voltage source feeds via a Y-D-transformer with internal impedanc
 Using f=5 Hz LT=3mH defines nominal voltage drop of approximately 10 %.<br>
 Simulate for 1 second (2 periods) and compare voltages and currents of source, transformer and load.
 </p>
-</HTML>"), Diagram(graphics));
+</HTML>"));
     end TransformerYD;
 
     model Rectifier "Test example with multiphase components"
@@ -283,7 +283,7 @@ Star-connected voltage source feeds via a line reactor a diode bridge rectifier 
 Using f=5 Hz, simulate for 1 second (2 periods) and compare voltages and currents of source and DC burden,
 neglecting initial transient.
 </p>
-</HTML>"), Diagram(graphics));
+</HTML>"));
     end Rectifier;
     annotation (Documentation(info="<HTML>
 <p>
@@ -462,8 +462,7 @@ when used in parallel to another component.
 <p>
 Connects pin <i>k</i> of plug_p to pin_p, leaving the other pins of plug_p unconnected.
 </p>
-</HTML>"),
-        Diagram(graphics));
+</HTML>"));
     end PlugToPin_p;
 
     model PlugToPin_n "Connect one (negative) Pin"
@@ -507,8 +506,7 @@ Connects pin <i>k</i> of plug_p to pin_p, leaving the other pins of plug_p uncon
 <p>
 Connects pin <i>k</i> of plug_n to pin_n, leaving the other pins of plug_n unconnected.
 </p>
-</HTML>"),
-        Diagram(graphics));
+</HTML>"));
     end PlugToPin_n;
 
     model PlugToPins_p "Connect all (positive) Pins"
@@ -551,8 +549,7 @@ Connects pin <i>k</i> of plug_n to pin_n, leaving the other pins of plug_n uncon
 <p>
 Connects all pins of plug_p to the pin array pin_p.
 </p>
-</HTML>"),
-        Diagram(graphics));
+</HTML>"));
     end PlugToPins_p;
 
     model PlugToPins_n "Connect all (negative) Pins"
@@ -594,8 +591,7 @@ Connects all pins of plug_p to the pin array pin_p.
 <p>
 Connects all pins of plug_n to the pin array pin_n.
 </p>
-</HTML>"),
-        Diagram(graphics));
+</HTML>"));
     end PlugToPins_n;
 
     model Resistor "Ideal linear electrical resistors"
@@ -743,8 +739,7 @@ Contains m conductors (Modelica.Electrical.Analog.Basic.Conductor)
 <p>
 Contains m capacitors (Modelica.Electrical.Analog.Basic.Capacitor)
 </p>
-</HTML>"),
-        Diagram(graphics));
+</HTML>"));
     end Capacitor;
 
     model Inductor "Ideal linear electrical inductors"
@@ -784,8 +779,7 @@ Contains m capacitors (Modelica.Electrical.Analog.Basic.Capacitor)
 <p>
 Contains m inductors (Modelica.Electrical.Analog.Basic.Inductor)
 </p>
-</HTML>"),
-        Diagram(graphics));
+</HTML>"));
     end Inductor;
 
     model SaturatingInductor "Simple model of inductors with saturation"
@@ -1109,8 +1103,7 @@ assertion is raised. To avoid a variable index system,<br>
 C = Cmin, if 0 &le; C_Port.signal &lt; Cmin, where
 Cmin is a parameter with default value Modelica.Constants.eps.
 </P>
-</HTML>"),
-        Diagram(graphics));
+</HTML>"));
     end VariableCapacitor;
 
     model VariableInductor
@@ -1167,8 +1160,7 @@ assertion is raised. To avoid a variable index system,<br>
 L = Lmin, if 0 &le; L_Port.signal &lt; Lmin, where
 Lmin is a parameter with default value Modelica.Constants.eps.
 </P>
-</HTML>"),
-        Diagram(graphics));
+</HTML>"));
     end VariableInductor;
     annotation (Documentation(info="<HTML>
 <p>
@@ -1653,8 +1645,7 @@ Contains m ideal transformers (Modelica.Electrical.Analog.Ideal.IdealTransformer
 <p>
 Contains m idles (Modelica.Electrical.Analog.Ideal.Idle)
 </p>
-</HTML>"),
-        Diagram(graphics));
+</HTML>"));
     end Idle;
 
     model Short "Multiphase short cut branch"
@@ -1691,8 +1682,7 @@ Contains m idles (Modelica.Electrical.Analog.Ideal.Idle)
 <p>
 Contains m short cuts (Modelica.Electrical.Analog.Ideal.Short)
 </p>
-</HTML>"),
-        Diagram(graphics));
+</HTML>"));
     end Short;
 
     model IdealOpeningSwitch "Multiphase ideal opener"
@@ -2276,8 +2266,7 @@ electrical multiphase components, based on Modelica.Electrical.Analog.
 Contains m potential sensors (Modelica.Electrical.Analog.Sensors.PotentialSensor),
 thus measuring the m potentials <i>phi[m]</i> of the m pins of plug_p.
 </p>
-</HTML>"),
-        Diagram(graphics));
+</HTML>"));
     end PotentialSensor;
 
     model VoltageSensor "Multiphase voltage sensor"
@@ -2329,8 +2318,7 @@ thus measuring the m potentials <i>phi[m]</i> of the m pins of plug_p.
 Contains m voltage sensors (Modelica.Electrical.Analog.Sensors.VoltageSensor),
 thus measuring the m potential differences <i>v[m]</i> between the m pins of plug_p and plug_n.
 </p>
-</HTML>"),
-        Diagram(graphics));
+</HTML>"));
     end VoltageSensor;
 
     model CurrentSensor "Multiphase current sensor"
@@ -2382,8 +2370,7 @@ thus measuring the m potential differences <i>v[m]</i> between the m pins of plu
 Contains m current sensors (Modelica.Electrical.Analog.Sensors.CurrentSensor),
 thus measuring the m currents <i>i[m]</i> flowing from the m pins of plug_p to the m pins of plug_n.
 </p>
-</HTML>"),
-        Diagram(graphics));
+</HTML>"));
     end CurrentSensor;
 
   model PowerSensor "Multiphase instantaneous power sensor"
@@ -2483,7 +2470,6 @@ thus measuring the m currents <i>i[m]</i> flowing from the m pins of plug_p to t
               lineColor={0,0,0},
               textString="P"),
             Line(points={{-100,0},{100,0}}, color={0,0,255})}),
-      Diagram(graphics),
       Documentation(info="<html><p>
 This power sensor measures instantaneous electrical power of a multiphase system and has a separated voltage and current path. The plugs of the voltage path are <code>pv</code> and <code>nv</code>, the plugs of the current path are <code>pc</code> and <code>nc</code>. The internal resistance of each current path is zero, the internal resistance of each voltage path is infinite.
 </p></html>"));
@@ -2607,8 +2593,7 @@ This package contains multiphase potential, voltage, and current sensors.
 <p>
 Contains m signal controlled voltage sources (Modelica.Electrical.Analog.Sources.SignalVoltage)
 </p>
-</HTML>"),
-        Diagram(graphics));
+</HTML>"));
     end SignalVoltage;
 
     model ConstantVoltage "Multiphase constant voltage source"
@@ -2653,8 +2638,7 @@ Contains m signal controlled voltage sources (Modelica.Electrical.Analog.Sources
 <p>
 Contains m constant voltage sources (Modelica.Electrical.Analog.Sources.ConstantVoltage)
 </p>
-</HTML>"),
-        Diagram(graphics));
+</HTML>"));
     end ConstantVoltage;
 
     model SineVoltage "Multiphase sine voltage source"
@@ -2717,8 +2701,7 @@ Contains m constant voltage sources (Modelica.Electrical.Analog.Sources.Constant
 Contains m sine voltage sources (Modelica.Electrical.Analog.Sources.SineVoltage)
 with a default phase shift of -(j-1)/m * 2*pi for j in 1:m.
 </p>
-</HTML>"),
-        Diagram(graphics));
+</HTML>"));
     end SineVoltage;
 
     model SignalCurrent "Multiphase sine current source"
@@ -2776,8 +2759,7 @@ with a default phase shift of -(j-1)/m * 2*pi for j in 1:m.
 <p>
 Contains m signal controlled current sources (Modelica.Electrical.Analog.Sources.SignalCurrent)
 </p>
-</HTML>"),
-        Diagram(graphics));
+</HTML>"));
     end SignalCurrent;
 
     model ConstantCurrent "Multiphase constant current source"
@@ -2819,8 +2801,7 @@ Contains m signal controlled current sources (Modelica.Electrical.Analog.Sources
 <p>
 Contains m constant current sources (Modelica.Electrical.Analog.Sources.ConstantCurrent)
 </p>
-</HTML>"),
-        Diagram(graphics));
+</HTML>"));
     end ConstantCurrent;
 
     model SineCurrent "Multiphase sine current source"
@@ -2879,8 +2860,7 @@ Contains m constant current sources (Modelica.Electrical.Analog.Sources.Constant
 Contains m sine current sources (Modelica.Electrical.Analog.Sources.SineCurrent)
 with a default phase shift of -(j-1)/m * 2*pi for j in 1:m.
 </p>
-</HTML>"),
-        Diagram(graphics));
+</HTML>"));
     end SineCurrent;
     annotation (Documentation(info="<HTML>
 <p>

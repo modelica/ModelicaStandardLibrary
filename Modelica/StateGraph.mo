@@ -3136,7 +3136,7 @@ value, still requires to go in to the text layer.
                     1,
                     integer(precision))),
               lineColor={0,0,255})}),
-        Diagram(graphics),
+
         Documentation(info="<html>
 
 </html>"));
@@ -3159,7 +3159,7 @@ value, still requires to go in to the text layer.
               fillPattern=FillPattern.Sphere), Text(
               extent={{-150,150},{150,110}},
               textString="%name",
-              lineColor={0,0,255})}),                        Diagram(graphics),
+              lineColor={0,0,255})}),
         Documentation(info="<html>
 
 </html>"));
