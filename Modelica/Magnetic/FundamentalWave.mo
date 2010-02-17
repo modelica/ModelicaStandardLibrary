@@ -123,6 +123,57 @@ Based on an original idea of Michael Beuschel this library was developed. The au
 "));
     end Contact;
 
+    class ReleaseNotes "Release Notes"
+
+      annotation (Documentation(info="<html>
+
+<h5>Version 1.2.0, 2010-02-17</h5>
+
+<ul>
+<li>Renamed Machines to BasicMachines</li>
+<li>Updated dependencies due to renamed class 
+<a href=\"Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20\">LinearTemperatureCoefficient20</a>
+<li>Added release notes in User's Guide</li>
+</ul>
+
+<h5>Version 1.1.0, 2010-02-15</h5>
+
+<ul>
+<li>Added thermal connectors and temperature dependent resistances</li>
+</ul>
+
+<h5>Version 1.0.0, 2010-02-04</h5>
+
+<ul>
+<li>Integrated the libray into the MSL</li>
+</ul>
+
+<h5>Version 0.4.0, 2009-10-29</h5>
+
+<ul>
+<li>Corrected bug in magnetic potential calculation</li>
+</ul>
+
+<h5>Version 0.3.0, 2009-10-28</h5>
+
+<ul>
+<li>Renamed number of turns and winding angles</li>
+</ul>
+
+<h5>Version 0.2.0, 2009-10-20</h5>
+
+<ul>
+<li>Added idle model</li>
+</ul>
+
+<h5>Version 0.1.0, 2009-07-22</h5>
+
+<ul>
+<li>First version based on the concept of the FluxTubes library and the Magnetics library of Michael Beuschel</li>
+</ul>
+</html>"));
+    end ReleaseNotes;
+
     class References "References"
 
       annotation (Documentation(info="<html>
@@ -176,8 +227,8 @@ Based on an original idea of Michael Beuschel this library was developed. The au
     annotation (DocumentationClass=true, Documentation(info="<html>
 
 <p>
-This library contains components for modelling of electromagnetic fundamental wave models for the application in 
-<a href=Modelica.Magnetic.FundamentalWave.Machines>electric machines</a>. This library is an alternative approach to the <a href=\"Modelica.Electrical.Machines\">Modelica.Electrical.Machines</a> library. A great advantage of this library is the strict object orientation of the electrical and magnetic components that the electric machines models are composed of. From a didactic point of view this library is very beneficial for students in the field of electrical engineering.
+This library contains components for modelling of electromagnetic fundamental wave models for the application in three phase 
+<a href=Modelica.Magnetic.FundamentalWave.Machines>electric machines</a>. DC machines are (currently) not included in this library. The FundamentalWave library is an alternative approach to the <a href=\"Modelica.Electrical.Machines\">Modelica.Electrical.Machines</a> library. A great advantage of this library is the strict object orientation of the electrical and magnetic components that the electric machines models are composed of. From a didactic point of view this library is very beneficial for students in the field of electrical engineering.
 </p>
 
 <p>
@@ -240,7 +291,8 @@ For more details see the <a href=Modelica.Magnetic.FundamentalWave.UsersGuide.Co
         terminalConnection="D") 
         annotation (Placement(transformation(extent={{-10,-30},{10,-10}}, rotation=
                 0)));
-      Machines.AsynchronousInductionMachines.AIM_SquirrelCage aimcM(
+      Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
+        aimcM(
         p=p,
         Rs=Rs,
         Lssigma=Lssigma,
@@ -482,7 +534,8 @@ Simulate for 1.5 seconds and plot (versus time):
                   "D") 
         annotation (Placement(transformation(extent={{-20,-40},{-40,-20}}, rotation=
                0)));
-      Machines.AsynchronousInductionMachines.AIM_SlipRing aimsM(
+      Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing
+        aimsM(
         Rs=Rs,
         Lssigma=Lssigma,
         Lm=Lm,
@@ -662,7 +715,8 @@ Simulate for 1.5 seconds and plot (versus time):
             rotation=270)));
       Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxM 
         annotation (Placement(transformation(extent={{-20,0},{0,20}}, rotation=0)));
-      Machines.SynchronousInductionMachines.SM_PermanentMagnet smpmM(
+      Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet
+        smpmM(
         Rs=Rs,
         Lssigma=Lssigma,
         Lmd=Lmd,
@@ -858,7 +912,8 @@ and accelerate the inertias.</p>
         annotation (Placement(transformation(extent={{-20,70},{-40,90}}, rotation=0)));
       Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxM 
         annotation (Placement(transformation(extent={{-20,20},{0,40}}, rotation=0)));
-      Machines.SynchronousInductionMachines.SM_ElectricalExcited smeeM(
+      Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited
+        smeeM(
         phiMechanical(start=-(Modelica.Constants.pi +
               Modelica.SIunits.Conversions.from_deg(gamma0))/p),
         Rs=Rs,
@@ -1083,7 +1138,8 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
             rotation=270)));
       Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxM 
         annotation (Placement(transformation(extent={{-30,0},{-10,20}}, rotation=0)));
-      Machines.SynchronousInductionMachines.SM_ReluctanceRotor smrM(
+      Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor
+        smrM(
         p=p,
         Rs=Rs,
         Lssigma=Lssigma,
@@ -1639,7 +1695,7 @@ This is a simple idle running branch.
             Text(
               extent={{0,60},{0,100}},
               lineColor={255,128,0},
-              textString =                         "%name"),
+              textString=                          "%name"),
             Rectangle(
               extent={{-100,40},{100,-40}},
               lineColor={255,255,255},
@@ -1665,7 +1721,7 @@ located at <a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.Compo
 </html>"));
   end Components;
 
-  package Machines
+  package BasicMachines
     "Machine components and modelsElectric machine models based on FundamentalWave package"
 
     package AsynchronousInductionMachines "Asynchronous inductioin machines"
@@ -1700,14 +1756,16 @@ located at <a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.Compo
         parameter Modelica.SIunits.Temperature TrRef(start=293.15)
           "Reference temperature of rotor resistance" 
            annotation(Dialog(tab="Nominal resistances and inductances"));
-        parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20r(start=0)
+        parameter
+          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+          alpha20r(                                                                            start=0)
           "Temperature coefficient of rotor resistance at 20 degC" 
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Temperature TrOperational(start=293.15)
           "Operational temperature of rotor resistance" 
            annotation(Dialog(group="Operational temperatures", enable=not useThermalPort));
 
-        Modelica.Magnetic.FundamentalWave.Machines.Components.SymmetricMultiPhaseCageWinding
+        Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding
           rotorCageWinding(
           final Lsigma=Lrsigma,
           final m=m,
@@ -1720,18 +1778,6 @@ located at <a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.Compo
           "Symmetric rotor cage winding including resistances and stray inductances"
           annotation (Placement(transformation(extent={{10,-40},{-10,-20}}, rotation=0)));
 
-        annotation (Diagram(graphics),
-                             Icon(graphics),
-        Documentation(info="<html>
-<p>
-Resistances and stray inductances of the machine refer to the stator phases. The symmetry of the stator and rotor is assumed. Only losses in stator and rotor resistances are taken into account. 
-</p>
-
-<h4>See also</h4>
-<p>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.AsynchronousInductionMachines.AIM_SlipRing\">AIM_SlipRing</a>,
-</p>
-</html>"));
       equation
         connect(airGap.port_rn, rotorCageWinding.port_n) annotation (Line(
             points={{-10,-10},{-10,-20},{-10,-20},{-10,-30}},
@@ -1751,6 +1797,18 @@ Resistances and stray inductances of the machine refer to the stator phases. The
             points={{0,-40},{-40,-40},{-40,-90}},
             color={191,0,0},
             smooth=Smooth.None));
+        annotation (Diagram(graphics),
+                             Icon(graphics),
+        Documentation(info="<html>
+<p>
+Resistances and stray inductances of the machine refer to the stator phases. The symmetry of the stator and rotor is assumed. Only losses in stator and rotor resistances are taken into account. 
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.AsynchronousInductionMachines.AIM_SlipRing\">AIM_SlipRing</a>,
+</p>
+</html>"));
       end AIM_SquirrelCage;
 
       model AIM_SlipRing "Asynchronous induction machine with slip ring rotor"
@@ -1787,7 +1845,9 @@ Resistances and stray inductances of the machine refer to the stator phases. The
         parameter Modelica.SIunits.Temperature TrRef(start=293.15)
           "Reference temperature of rotor resistance" 
            annotation(Dialog(tab="Nominal resistances and inductances"));
-        parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20r(start=0)
+        parameter
+          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+          alpha20r(                                                                            start=0)
           "Temperature coefficient of rotor resistance at 20 degC" 
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Temperature TrOperational(start=293.15)
@@ -1811,7 +1871,7 @@ Resistances and stray inductances of the machine refer to the stator phases. The
         final parameter Real internalTurnsRatio=if useTurnsRatio then TurnsRatio else 
           VsNominal/VrLockedRotor*(2*pi*fsNominal*Lm)/sqrt(Rs^2+(2*pi*fsNominal*(Lm+Lssigma))^2);
       public
-        Modelica.Magnetic.FundamentalWave.Machines.Components.SymmetricMultiPhaseWinding
+        Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding
           rotorWinding(
           final m=3,
           final Lsigma=Lrsigma,
@@ -1832,20 +1892,6 @@ Resistances and stray inductances of the machine refer to the stator phases. The
                 -60},{-100,-60}}, color={0,0,255}));
         connect(rotorWinding.plug_p, plug_rp) annotation (Line(points={{10,-40},{10,-50},
                 {-80,-50},{-80,60},{-100,60}},      color={0,0,255}));
-        annotation (Diagram(graphics),
-                             Icon(graphics={Line(points={{-100,50},{-100,20},{-60,20}},
-                  color={0,0,255}), Line(points={{-100,-50},{-100,-20},{-60,-20}},
-                  color={0,0,255})}),
-        Documentation(info="<html>
-<p>
-Resistances and stray inductances of the machine always refer to either stator or rotor phases. The symmetry of the stator and rotor is assumed. Only losses in stator and rotor resistances are taken into account. 
-</p>
-
-<h4>See also</h4>
-<p>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.AsynchronousInductionMachines.AIM_SquirrelCage\">AIM_SquirrelCage</a>,
-</p>
-</html>"));
         connect(airGap.port_rn, rotorWinding.port_n) annotation (Line(
             points={{-10,-10},{-10,-15},{-10,-15},{-10,-20}},
             color={255,128,0},
@@ -1864,6 +1910,20 @@ Resistances and stray inductances of the machine always refer to either stator o
             points={{-10,-30},{-40,-30},{-40,-90}},
             color={191,0,0},
             smooth=Smooth.None));
+        annotation (Diagram(graphics),
+                             Icon(graphics={Line(points={{-100,50},{-100,20},{-60,20}},
+                  color={0,0,255}), Line(points={{-100,-50},{-100,-20},{-60,-20}},
+                  color={0,0,255})}),
+        Documentation(info="<html>
+<p>
+Resistances and stray inductances of the machine always refer to either stator or rotor phases. The symmetry of the stator and rotor is assumed. Only losses in stator and rotor resistances are taken into account. 
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.AsynchronousInductionMachines.AIM_SquirrelCage\">AIM_SquirrelCage</a>,
+</p>
+</html>"));
       end AIM_SlipRing;
     annotation (Documentation(info="<html>
 <p>This package provides squirrel cage and slip ring induction machine models.</p>
@@ -1923,7 +1983,9 @@ Resistances and stray inductances of the machine always refer to either stator o
         parameter Modelica.SIunits.Temperature TrRef(start=293.15)
           "Reference temperature of damper resistances in d- and q-axis" 
           annotation(Dialog(tab="Nominal resistances and inductances",group = "Damper cage",enable = useDamperCage));
-        parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20r(start=0)
+        parameter
+          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+          alpha20r(                                                                            start=0)
           "Temperature coefficient of damper resistances in d- and q-axis" 
           annotation(Dialog(tab="Nominal resistances and inductances",group = "Damper cage", enable = useDamperCage));
 
@@ -1952,7 +2014,7 @@ Resistances and stray inductances of the machine always refer to either stator o
               origin={0,-30},
               extent={{-10,-10},{10,10}},
               rotation=180)));
-        Modelica.Magnetic.FundamentalWave.Machines.Components.SaliencyCageWinding
+        Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding
           rotorCage(
           final RRef(d=Rrd, q=Rrq),
           final Lsigma(d=Lrsigmad, q=Lrsigmaq),
@@ -1980,6 +2042,27 @@ Resistances and stray inductances of the machine always refer to either stator o
         connect(permanentMagnet.port_p, rotorCage.port_p) 
                                                  annotation (Line(points={{30,-30},
                 {30,-50},{10,-50}},color={255,128,0}));
+        connect(airGap.port_rn, short.port_n) annotation (Line(
+            points={{-10,-10},{-10,-20},{-10,-20},{-10,-30}},
+            color={255,128,0},
+            smooth=Smooth.None));
+        connect(airGap.port_rn, rotorCage.port_n) annotation (Line(
+            points={{-10,-10},{-10,-30},{-10,-30},{-10,-50}},
+            color={255,128,0},
+            smooth=Smooth.None));
+        connect(airGap.port_rp, permanentMagnet.port_n) annotation (Line(
+            points={{10,-10},{20,-10},{20,-10},{30,-10}},
+            color={255,128,0},
+            smooth=Smooth.None));
+        connect(statorWinding.heatPort, internalThermalPort.heatPort_s) annotation (
+            Line(
+            points={{-10,30},{-40,30},{-40,-90}},
+            color={191,0,0},
+            smooth=Smooth.None));
+        connect(rotorCage.heatPort, internalThermalPort.heatPort_r) annotation (Line(
+            points={{0,-60},{-40,-60},{-40,-90}},
+            color={191,0,0},
+            smooth=Smooth.None));
         annotation (Diagram(graphics),
                              Icon(graphics={
               Rectangle(
@@ -2006,27 +2089,6 @@ Resistances and stray inductances of the machine refer to the stator phases. The
    SM_ReluctanceRotor</a>,
 </p>
 </html>"));
-        connect(airGap.port_rn, short.port_n) annotation (Line(
-            points={{-10,-10},{-10,-20},{-10,-20},{-10,-30}},
-            color={255,128,0},
-            smooth=Smooth.None));
-        connect(airGap.port_rn, rotorCage.port_n) annotation (Line(
-            points={{-10,-10},{-10,-30},{-10,-30},{-10,-50}},
-            color={255,128,0},
-            smooth=Smooth.None));
-        connect(airGap.port_rp, permanentMagnet.port_n) annotation (Line(
-            points={{10,-10},{20,-10},{20,-10},{30,-10}},
-            color={255,128,0},
-            smooth=Smooth.None));
-        connect(statorWinding.heatPort, internalThermalPort.heatPort_s) annotation (
-            Line(
-            points={{-10,30},{-40,30},{-40,-90}},
-            color={191,0,0},
-            smooth=Smooth.None));
-        connect(rotorCage.heatPort, internalThermalPort.heatPort_r) annotation (Line(
-            points={{0,-60},{-40,-60},{-40,-90}},
-            color={191,0,0},
-            smooth=Smooth.None));
       end SM_PermanentMagnet;
 
       model SM_ElectricalExcited
@@ -2072,7 +2134,9 @@ Resistances and stray inductances of the machine refer to the stator phases. The
         parameter Modelica.SIunits.Temperature TrRef(start=293.15)
           "Reference temperature of damper resistances in d- and q-axis" 
           annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
-        parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20r(start=0)
+        parameter
+          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+          alpha20r(                                                                            start=0)
           "Temperature coefficient of damper resistances in d- and q-axis" 
           annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
 
@@ -2097,7 +2161,9 @@ Resistances and stray inductances of the machine refer to the stator phases. The
         parameter Modelica.SIunits.Temperature TeRef(start=293.15)
           "Reference temperture of excitation resistance" 
            annotation(Dialog(tab="Excitation"));
-        parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20e(start=0)
+        parameter
+          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+          alpha20e(                                                                            start=0)
           "Temperature coefficient of excitation resistance" 
            annotation(Dialog(tab="Excitation"));
         parameter Real sigmae(min=0, max=1)=0.025
@@ -2121,7 +2187,7 @@ Resistances and stray inductances of the machine refer to the stator phases. The
               origin={10,-40},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        FundamentalWave.Machines.Components.SaliencyCageWinding rotorCage(
+        Components.SaliencyCageWinding rotorCage(
           final Lsigma(d=Lrsigmad, q=Lrsigmaq),
           final effectiveTurns=sqrt(3.0/2.0)*effectiveStatorTurns,
           final useHeatPort=true,
@@ -2132,8 +2198,7 @@ Resistances and stray inductances of the machine refer to the stator phases. The
           "Symmetric rotor cage winding including resistances and stray inductances"
           annotation (Placement(transformation(extent={{10,-10},{-10,10}},   rotation=90,
               origin={40,-40})));
-        FundamentalWave.Machines.Components.SinglePhaseWinding
-          excitationWinding(
+        Components.SinglePhaseWinding excitationWinding(
           final windingAngle=0,
           final RRef=Re,
           final Lsigma=Lesigma,
@@ -2211,7 +2276,6 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
    SM_ReluctanceRotor</a>,
 </p>
 </html>"));
-
       end SM_ElectricalExcited;
 
       model SM_ReluctanceRotor "Reluctance machine with optional damper cage"
@@ -2261,7 +2325,9 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
         parameter Modelica.SIunits.Temperature TrRef(start=293.15)
           "Reference temperature of damper resistances in d- and q-axis" 
           annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
-        parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20r(start=0)
+        parameter
+          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+          alpha20r(                                                                            start=0)
           "Temperature coefficient of damper resistances in d- and q-axis" 
           annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
         Modelica.Magnetic.FundamentalWave.Components.Ground groundR
@@ -2273,7 +2339,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
               origin={10,-40},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Modelica.Magnetic.FundamentalWave.Machines.Components.SaliencyCageWinding
+        Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding
           rotorCage(
           final RRef(d=Rrd, q=Rrq),
           final Lsigma(d=Lrsigmad, q=Lrsigmaq),
@@ -2281,11 +2347,37 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
           final useHeatPort=true,
           final TRef=TrRef,
           final alpha20=alpha20r,
-          final TOperational=TrOperational) if                        useDamperCage
+          final TOperational=TrOperational) if useDamperCage
           "Symmetric rotor cage winding including resistances and stray inductances"
           annotation (Placement(transformation(extent={{10,-10},{-10,10}},  rotation=90, origin={40,-40})));
       equation
 
+        connect(airGap.port_rn, short.port_n) annotation (Line(
+            points={{-10,-10},{-10,-50},{10,-50}},
+            color={255,128,0},
+            smooth=Smooth.None));
+        connect(airGap.port_rn, rotorCage.port_n) annotation (Line(
+            points={{-10,-10},{-10,-50},{40,-50}},
+            color={255,128,0},
+            smooth=Smooth.None));
+        connect(airGap.port_rp, short.port_p) annotation (Line(
+            points={{10,-10},{10,-15},{10,-15},{10,-20},{10,-30},{10,-30}},
+            color={255,128,0},
+            smooth=Smooth.None));
+        connect(airGap.port_rp, rotorCage.port_p) annotation (Line(
+            points={{10,-10},{10,-30},{40,-30}},
+            color={255,128,0},
+            smooth=Smooth.None));
+        connect(statorWinding.heatPort, internalThermalPort.heatPort_s) 
+          annotation (Line(
+            points={{-10,30},{-40,30},{-40,-90}},
+            color={191,0,0},
+            smooth=Smooth.None));
+        connect(rotorCage.heatPort, internalThermalPort.heatPort_r) annotation (
+           Line(
+            points={{50,-40},{50,-60},{-40,-60},{-40,-90}},
+            color={191,0,0},
+            smooth=Smooth.None));
         annotation (Diagram(graphics),
                              Icon(graphics={
               Rectangle(extent={{-130,10},{-100,-10}}, lineColor={0,0,0}),
@@ -2304,32 +2396,6 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
    SM_PermanentMagnet</a>,
 </p>
 </html>"));
-        connect(airGap.port_rn, short.port_n) annotation (Line(
-            points={{-10,-10},{-10,-50},{10,-50}},
-            color={255,128,0},
-            smooth=Smooth.None));
-        connect(airGap.port_rn, rotorCage.port_n) annotation (Line(
-            points={{-10,-10},{-10,-50},{40,-50}},
-            color={255,128,0},
-            smooth=Smooth.None));
-        connect(airGap.port_rp, short.port_p) annotation (Line(
-            points={{10,-10},{10,-15},{10,-15},{10,-20},{10,-30},{10,-30}},
-            color={255,128,0},
-            smooth=Smooth.None));
-        connect(airGap.port_rp, rotorCage.port_p) annotation (Line(
-            points={{10,-10},{10,-30},{40,-30}},
-            color={255,128,0},
-            smooth=Smooth.None));
-        connect(statorWinding.heatPort, internalThermalPort.heatPort_s)
-          annotation (Line(
-            points={{-10,30},{-40,30},{-40,-90}},
-            color={191,0,0},
-            smooth=Smooth.None));
-        connect(rotorCage.heatPort, internalThermalPort.heatPort_r) annotation
-          (Line(
-            points={{50,-40},{50,-60},{-40,-60},{-40,-90}},
-            color={191,0,0},
-            smooth=Smooth.None));
       end SM_ReluctanceRotor;
     annotation (Documentation(info="<html>
 <p>This package contains various synchronous induction machine models.</p>
@@ -2364,7 +2430,9 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
           "Winding resistance per phase at TRef";
         parameter Modelica.SIunits.Temperature TRef(start=293.15)
           "Reference temperature of winding";
-        parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20(start=0)
+        parameter
+          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+          alpha20(                                                                            start=0)
           "Temperature coefficient of winding at 20 degC";
         final parameter Modelica.SIunits.LinearTemperatureCoefficient alphaRef=
           Modelica.Electrical.Machines.Thermal.convertAlpha(alpha20,TRef,293.15);
@@ -2424,6 +2492,10 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
           annotation (Line(points={{10,10},{10,100},{100,100}}, color={255,128,0}));
         connect(electroMagneticConverter.port_n, port_n) 
           annotation (Line(points={{10,-10},{10,-100},{100,-100}}, color={255,128,0}));
+        connect(heatPort, resistor.heatPort) annotation (Line(
+            points={{0,-100},{0,-60},{40,-60},{40,70},{0,70}},
+            color={191,0,0},
+            smooth=Smooth.None));
         annotation (Icon(graphics={
               Rectangle(
                 extent={{-100,60},{100,-60}},
@@ -2463,10 +2535,6 @@ The single phase winding consists of a
 <a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
 </html>"));
-        connect(heatPort, resistor.heatPort) annotation (Line(
-            points={{0,-100},{0,-60},{40,-60},{40,70},{0,70}},
-            color={191,0,0},
-            smooth=Smooth.None));
       end SinglePhaseWinding;
 
       model SymmetricMultiPhaseWinding
@@ -2501,7 +2569,9 @@ The single phase winding consists of a
           "Winding resistance per phase at TRef";
         parameter Modelica.SIunits.Temperature TRef(start=293.15)
           "Reference temperature of winding";
-        parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20(start=0)
+        parameter
+          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+          alpha20(                                                                            start=0)
           "Temperature coefficient of winding at 20 degC";
         final parameter Modelica.SIunits.LinearTemperatureCoefficient alphaRef=
           Modelica.Electrical.Machines.Thermal.convertAlpha(alpha20,TRef,293.15);
@@ -2557,6 +2627,10 @@ The single phase winding consists of a
         connect(electroMagneticConverter.port_n, port_n) 
           annotation (Line(points={{10,-10},{10,-100},{100,-100}},
             color={255,128,0}));
+        connect(resistor.heatPort, heatPort) annotation (Line(
+            points={{0,70},{40,70},{40,-60},{0,-60},{0,-100}},
+            color={191,0,0},
+            smooth=Smooth.None));
         annotation (Icon(graphics={
               Rectangle(
                 extent={{-100,60},{100,-60}},
@@ -2596,10 +2670,6 @@ The symmetrical multi phase winding consists of a symmetrical winding
 <a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
 </html>"));
-        connect(resistor.heatPort, heatPort) annotation (Line(
-            points={{0,70},{40,70},{40,-60},{0,-60},{0,-100}},
-            color={191,0,0},
-            smooth=Smooth.None));
       end SymmetricMultiPhaseWinding;
 
       model RotorSaliencyAirGap "Air gap model with rotor saliency"
@@ -2811,7 +2881,9 @@ according to the following figure.
           "Winding resistance per phase at TRef";
         parameter Modelica.SIunits.Temperature TRef(start=293.15)
           "Reference temperature of winding";
-        parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20(start=0)
+        parameter
+          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+          alpha20(                                                                            start=0)
           "Temperature coefficient of winding at 20 degC";
         final parameter Modelica.SIunits.LinearTemperatureCoefficient alphaRef=
           Modelica.Electrical.Machines.Thermal.convertAlpha(alpha20,TRef,293.15);
@@ -2896,6 +2968,14 @@ according to the following figure.
             points={{30,-80},{20,-80},{20,-20},{10,-20}},
             color={0,0,255},
             smooth=Smooth.None));
+        connect(thermalCollector.port_a, resistor.heatPort) annotation (Line(
+            points={{-60,-80},{-60,-70},{-30,-70}},
+            color={191,0,0},
+            smooth=Smooth.None));
+        connect(thermalCollector.port_b, heatPort) annotation (Line(
+            points={{-60,-100},{0,-100}},
+            color={191,0,0},
+            smooth=Smooth.None));
         annotation (Diagram(graphics),
                              Icon(graphics={
               Ellipse(
@@ -2938,7 +3018,7 @@ according to the following figure.
               Text(
                 extent={{0,100},{0,140}},
                 lineColor={0,0,255},
-                textString =                         "%name")}),
+                textString=                          "%name")}),
           Documentation(info="<html>
 <p>
 <img src=\"../Images/Magnetic/FundamentalWave/Machines/Components/rotorcage.png\">
@@ -2956,14 +3036,6 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
 <a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
 </html>"));
-        connect(thermalCollector.port_a, resistor.heatPort) annotation (Line(
-            points={{-60,-80},{-60,-70},{-30,-70}},
-            color={191,0,0},
-            smooth=Smooth.None));
-        connect(thermalCollector.port_b, heatPort) annotation (Line(
-            points={{-60,-100},{0,-100}},
-            color={191,0,0},
-            smooth=Smooth.None));
       end SymmetricMultiPhaseCageWinding;
 
       model SaliencyCageWinding "Rotor cage with saliency in d- and q-axis"
@@ -2978,7 +3050,9 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
               start=1), q(start=1)) "Salient cage resistance";
         parameter Modelica.SIunits.Temperature TRef(start=293.15)
           "Reference temperature of winding";
-        parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20(start=0)
+        parameter
+          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+          alpha20(                                                                            start=0)
           "Temperature coefficient of winding at 20 degC";
         final parameter Modelica.SIunits.LinearTemperatureCoefficient alphaRef=
           Modelica.Electrical.Machines.Thermal.convertAlpha(alpha20,TRef,293.15);
@@ -3063,6 +3137,14 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
             points={{-20,-20},{-10,-20}},
             color={0,0,255},
             smooth=Smooth.None));
+        connect(thermalCollector.port_b,heatPort)  annotation (Line(
+            points={{-60,-90},{-60,-100},{0,-100}},
+            color={191,0,0},
+            smooth=Smooth.None));
+        connect(resistor.heatPort, thermalCollector.port_a) annotation (Line(
+            points={{-30,-70},{-60,-70}},
+            color={191,0,0},
+            smooth=Smooth.None));
         annotation (Diagram(graphics),
                              Icon(graphics={
               Ellipse(
@@ -3105,7 +3187,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
               Text(
                 extent={{0,100},{0,140}},
                 lineColor={0,0,255},
-                textString =                         "%name")}),
+                textString=                          "%name")}),
           Documentation(info="<html>
 
 <p>
@@ -3121,14 +3203,6 @@ The salient cage model is a two axis model with two phases. The electro magnetic
 <a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
 </html>"));
-        connect(thermalCollector.port_b,heatPort)  annotation (Line(
-            points={{-60,-90},{-60,-100},{0,-100}},
-            color={191,0,0},
-            smooth=Smooth.None));
-        connect(resistor.heatPort, thermalCollector.port_a) annotation (Line(
-            points={{-30,-70},{-60,-70}},
-            color={191,0,0},
-            smooth=Smooth.None));
       end SaliencyCageWinding;
     annotation (Documentation(info="<html>
 <p>
@@ -3177,7 +3251,7 @@ This package contains electric machine models and
 for electric machines.
 </p>
 </html>"));
-  end Machines;
+  end BasicMachines;
 
   package Sources "Sources"
 
@@ -3616,7 +3690,9 @@ Negative magnetic <a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Interfa
       parameter Modelica.SIunits.Temperature TsRef(start=293.15)
         "Reference temperature of stator resistance" 
          annotation(Dialog(tab="Nominal resistances and inductances"));
-      parameter Modelica.Electrical.Machines.Thermal.Alpha20 alpha20s(start=0)
+      parameter
+        Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+        alpha20s(                                                                            start=0)
         "Temperature coefficient of stator resistance at 20 degC" 
          annotation(Dialog(tab="Nominal resistances and inductances"));
       parameter Real effectiveStatorTurns = 1
@@ -3673,7 +3749,7 @@ Negative magnetic <a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Interfa
         final m=m) 
         annotation (Placement(transformation(extent={{-70,90},{-50,110}},
               rotation=0)));
-      Modelica.Magnetic.FundamentalWave.Machines.Components.SymmetricMultiPhaseWinding
+      Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding
         statorWinding(
         final useHeatPort=true,
         final m=m,
@@ -3711,7 +3787,8 @@ Negative magnetic <a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Interfa
       Components.Ground groundS "Ground of stator magnetic circuit" 
         annotation (Placement(transformation(extent={{-40,0},{-20,20}}, rotation=0)));
     public
-      Machines.Components.RotorSaliencyAirGap airGap(
+      Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap
+        airGap(
         final p=p, final L0=L0) 
         annotation (Placement(transformation(
             origin={0,0},
@@ -3729,6 +3806,52 @@ Negative magnetic <a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Interfa
           points={{60,100},{60,60},{10,60},{10,40}},
           color={0,0,255},
           smooth=Smooth.None));
+      connect(thermalPort,internalThermalPort)  annotation (Line(
+          points={{0,-100},{0,-90},{-40,-90}},
+          color={199,0,0},
+          smooth=Smooth.None));
+      connect(thermalAmbient.thermalPort,internalThermalPort)  annotation (Line(
+          points={{-60,-90},{-40,-90}},
+          color={199,0,0},
+          smooth=Smooth.None));
+      connect(inertiaRotor.flange_b, flange) 
+                                            annotation (Line(points={{90,
+              -1.22465e-015},{102,-1.22465e-015},{102,0},{100,0}},
+                                                               color={0,0,0}));
+      connect(internalSupport, inertiaStator.flange_a) annotation (Line(
+          points={{60,-100},{70,-100}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(internalSupport, fixed.flange) annotation (Line(
+          points={{60,-100},{60,-90},{70,-90}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(inertiaStator.flange_b, support) 
+        annotation (Line(points={{90,-100},{90,-100},{100,-100}},
+                                                        color={0,0,0}));
+      connect(groundS.port_p, statorWinding.port_n) annotation (Line(
+          points={{-30,20},{-10,20}},
+          color={255,128,0},
+          smooth=Smooth.None));
+      connect(statorWinding.port_n,airGap. port_sn) annotation (Line(points={{-10,20},
+              {-10,17.5},{-10,10},{-10,10}},                     color={255,128,0}));
+      connect(statorWinding.port_p,airGap. port_sp) annotation (Line(points={{10,20},
+              {10,17.5},{10,10},{10,10}},
+                                        color={255,128,0}));
+      connect(airGap.flange_a, inertiaRotor.flange_a) annotation (Line(
+          points={{10,-1.83697e-015},{40,-1.83697e-015},{40,1.22465e-015},{70,
+              1.22465e-015}},
+          color={0,0,0},
+          smooth=Smooth.None));
+
+      connect(airGap.support, internalSupport) annotation (Line(
+          points={{-10,1.83697e-015},{-60,1.83697e-015},{-60,-68},{60,-68},{60,
+              -100}},
+          color={0,0,0},
+          smooth=Smooth.None));
+
+      connect(groundR.port_p,airGap. port_rn)         annotation (Line(points={{-30,-10},
+              {-20,-10},{-20,-10},{-10,-10}},    color={255,128,0}));
       annotation (Documentation(info="<HTML>
 Partial model for induction machine models
 </HTML>"),
@@ -3800,52 +3923,6 @@ Partial model for induction machine models
               points={{120,-100},{110,-120}},
               color={0,0,0},
               smooth=Smooth.None)}));
-      connect(thermalPort,internalThermalPort)  annotation (Line(
-          points={{0,-100},{0,-90},{-40,-90}},
-          color={199,0,0},
-          smooth=Smooth.None));
-      connect(thermalAmbient.thermalPort,internalThermalPort)  annotation (Line(
-          points={{-60,-90},{-40,-90}},
-          color={199,0,0},
-          smooth=Smooth.None));
-      connect(inertiaRotor.flange_b, flange) 
-                                            annotation (Line(points={{90,
-              -1.22465e-015},{102,-1.22465e-015},{102,0},{100,0}},
-                                                               color={0,0,0}));
-      connect(internalSupport, inertiaStator.flange_a) annotation (Line(
-          points={{60,-100},{70,-100}},
-          color={0,0,0},
-          smooth=Smooth.None));
-      connect(internalSupport, fixed.flange) annotation (Line(
-          points={{60,-100},{60,-90},{70,-90}},
-          color={0,0,0},
-          smooth=Smooth.None));
-      connect(inertiaStator.flange_b, support) 
-        annotation (Line(points={{90,-100},{90,-100},{100,-100}},
-                                                        color={0,0,0}));
-      connect(groundS.port_p, statorWinding.port_n) annotation (Line(
-          points={{-30,20},{-10,20}},
-          color={255,128,0},
-          smooth=Smooth.None));
-      connect(statorWinding.port_n,airGap. port_sn) annotation (Line(points={{-10,20},
-              {-10,17.5},{-10,10},{-10,10}},                     color={255,128,0}));
-      connect(statorWinding.port_p,airGap. port_sp) annotation (Line(points={{10,20},
-              {10,17.5},{10,10},{10,10}},
-                                        color={255,128,0}));
-      connect(airGap.flange_a, inertiaRotor.flange_a) annotation (Line(
-          points={{10,-1.83697e-015},{40,-1.83697e-015},{40,1.22465e-015},{70,
-              1.22465e-015}},
-          color={0,0,0},
-          smooth=Smooth.None));
-
-      connect(airGap.support, internalSupport) annotation (Line(
-          points={{-10,1.83697e-015},{-60,1.83697e-015},{-60,-68},{60,-68},{60,
-              -100}},
-          color={0,0,0},
-          smooth=Smooth.None));
-
-      connect(groundR.port_p,airGap. port_rn)         annotation (Line(points={{-30,-10},
-              {-20,-10},{-20,-10},{-10,-10}},    color={255,128,0}));
     end PartialBasicInductionMachine;
 
     partial model PartialTwoPort "Two magnetic ports for textual modeling"
@@ -4065,6 +4142,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 </thead>
 <tbody>
 
+<tr><td>1.2.0</td>  <td>2010-02-17</td>  <td>C. Kral</td>  <td>Renamed Machines to BasicMachines and updated references to Electrical.Machines</td></tr>
 <tr><td>1.1.0</td>  <td>2010-02-15</td>  <td>C. Kral</td>  <td>Added thermal connectors and temperature dependent resistances</td></tr>
 <tr><td>1.0.0</td>  <td>2010-02-04</td>  <td>C. Kral</td>  <td>Integrated the libray into the MSL</td></tr>
 <tr><td>0.4.0</td>  <td>2009-10-29</td>  <td>C. Kral<br>A.&nbsp;Haumer</td>  <td>Corrected bug in magnetic potential calculation</td></tr>
