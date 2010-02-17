@@ -4924,6 +4924,18 @@ User's Guides that can be accessed by the following links:
 end UsersGuide;
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 annotation (
 preferredView="info",
 version="3.1",
@@ -4938,7 +4950,6 @@ conversion(
  from(version="2.2", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos"),
  from(version="2.2.1", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos"),
  from(version="2.2.2", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos")),
-uses(Complex(version="1.0")),
 __Dymola_classOrder={"UsersGuide","Blocks","StateGraph","Electrical","Magnetic","Mechanics","Fluid","Media","Thermal",
       "Math","Utilities","Constants", "Icons", "SIunits"},
 Settings(NewStateSelection=true),
@@ -4989,7 +5000,7 @@ that are directly usable (= number of public, non-partial classes).
 
 <p>
 <b>Licensed by the Modelica Association under the Modelica License 2</b><br>
-Copyright &copy; 1998-2009, ABB, AIT, T.&nbsp;B&ouml;drich, DLR, Dynasim, Fraunhofer, Modelon,
+Copyright &copy; 1998-2010, ABB, AIT, T.&nbsp;B&ouml;drich, DLR, Dynasim, Fraunhofer, A.Haumer, Modelon,
 TU Hamburg-Harburg, Politecnico di Milano.
 </p>
 

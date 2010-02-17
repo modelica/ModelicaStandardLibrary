@@ -2956,17 +2956,25 @@ Further development:
 </p>
 <dl>
 <p>
-  <dt><b>Main Author:</b></dt>
+  <dt><b>Main Authors:</b></dt>
   <dd>
+  <p>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
+  </p>
+  <p>
+  Dr.Christian Kral<br>
+  Austrian Institute of Technology <a href=\"http://www.ait.ac.at/\">AIT</a><br>
+  Giefinggasse 2<br>
+  A-1210 Vienna, Austria
+  </p>
   </dd>
 </p>
 </dl>
 <p>
-Copyright &copy; 1998-2005, Modelica Association and Anton Haumer.
+Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and AIT.
 </p>
 <p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified

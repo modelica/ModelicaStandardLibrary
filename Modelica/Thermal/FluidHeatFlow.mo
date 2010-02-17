@@ -2703,15 +2703,14 @@ Outlet temperature is defined by variable T of the corresponding component.</li>
   </p>
   <p>
   Dr.Christian Kral<br>
-  &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
-  <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
+  Austrian Institute of Technology <a href=\"http://www.ait.ac.at/\">AIT</a><br>
   Giefinggasse 2<br>
   A-1210 Vienna, Austria
   </p>
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2009, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and AIT.
 </p>
 <p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
