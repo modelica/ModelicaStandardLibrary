@@ -4054,12 +4054,14 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
           final useHeatPort=true,
           final T=TeRef) 
           annotation (Placement(transformation(
-              origin={20,-20},
-              extent={{-10,-10},{10,10}},
-              rotation=180)));
+              origin={-80,40},
+              extent={{10,-10},{-10,10}},
+              rotation=90)));
         Components.InductorDC lesigma(final L=Lesigma, final quasiStationary=
               quasiStationary) 
-          annotation (Placement(transformation(extent={{10,-50},{30,-30}})));
+          annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={-80,10})));
         Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep
           "Positive excitation pin" 
           annotation (Placement(transformation(extent={{-110,70},{-90,50}},
@@ -4081,8 +4083,6 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
         assert(ViNominal > Modelica.Constants.eps, "VaNominal has to be > Ra*IaNominal");
         connect(pin_en, airGapDC.pin_en) annotation (Line(points={{-100,-60},{
                 -10,-60},{-10,-10}}, color={0,0,255}));
-        connect(re.n, airGapDC.pin_ep) annotation (Line(points={{10,-20},{10,
-                -10},{10,-10}}, color={0,0,255}));
         connect(airGapDC.pin_ap, la.n) annotation (Line(
             points={{10,10},{10,35},{10,35},{10,60}},
             color={0,0,255},
@@ -4102,20 +4102,24 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
             color={0,0,0},
             smooth=Smooth.None));
         connect(re.heatPort, internalThermalPort.heatPort_e) annotation (Line(
-            points={{20,-10},{50,-10},{50,-80},{0,-80}},
+            points={{-70,40},{50,40},{50,-80},{0,-80}},
             color={191,0,0},
             smooth=Smooth.None));
-        connect(re.p, lesigma.n) annotation (Line(
-            points={{30,-20},{30,-40}},
+        connect(re.p, pin_ep) annotation (Line(
+            points={{-80,50},{-80,60},{-100,60}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(lesigma.p, pin_ep) annotation (Line(
-            points={{10,-40},{-80,-40},{-80,60},{-100,60}},
+        connect(re.n, lesigma.p) annotation (Line(
+            points={{-80,30},{-80,20}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(lesigma.n, airGapDC.pin_ep) annotation (Line(
+            points={{-80,0},{-80,-20},{10,-20},{10,-10}},
             color={0,0,255},
             smooth=Smooth.None));
         annotation (defaultComponentName="dcee",
-          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
-                  100}}),
+          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
+                  -100},{100,100}}),
                   graphics),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
@@ -4262,7 +4266,7 @@ Armature current does not cover excitation current of a shunt excitation; in thi
           "Stray fraction of total excitation inductance" 
            annotation(Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Temperature TeNominal(start=293.15)
-          "Nominal armature temperature" 
+          "Nominal series excitation temperature" 
            annotation(Dialog(tab="Nominal parameters"));
         parameter Modelica.SIunits.Temperature TeOperational(start=293.15)
           "Operational series excitation temperature" 
@@ -4278,12 +4282,14 @@ Armature current does not cover excitation current of a shunt excitation; in thi
           final useHeatPort=true,
           final T=TeRef) 
           annotation (Placement(transformation(
-              origin={20,-20},
-              extent={{-10,-10},{10,10}},
-              rotation=180)));
+              origin={-80,40},
+              extent={{-10,10},{10,-10}},
+              rotation=270)));
         Components.InductorDC lesigma(final L=Lesigma, final quasiStationary=
               quasiStationary) 
-          annotation (Placement(transformation(extent={{10,-50},{30,-30}})));
+          annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={-80,10})));
         Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep
           "Positive series excitation pin" 
           annotation (Placement(transformation(extent={{-110,70},{-90,50}},
@@ -4306,9 +4312,6 @@ Armature current does not cover excitation current of a shunt excitation; in thi
         assert(ViNominal > Modelica.Constants.eps, "VaNominal has to be > (Ra+Re)*IaNominal");
         connect(pin_en, airGapDC.pin_en) annotation (Line(points={{-100,-60},{
                 -10,-60},{-10,-10}}, color={0,0,255}));
-        connect(re.n, airGapDC.pin_ep) annotation (Line(points={{10,-20},{10,
-                -15},{10,-10},{10,-10}},
-                                color={0,0,255}));
         connect(airGapDC.pin_ap, la.n) annotation (Line(
             points={{10,10},{10,35},{10,35},{10,60}},
             color={0,0,255},
@@ -4328,20 +4331,24 @@ Armature current does not cover excitation current of a shunt excitation; in thi
             color={0,0,0},
             smooth=Smooth.None));
         connect(re.heatPort, internalThermalPort.heatPort_se) annotation (Line(
-            points={{20,-10},{50,-10},{50,-80},{0,-80}},
+            points={{-70,40},{50,40},{50,-80},{0,-80}},
             color={191,0,0},
             smooth=Smooth.None));
-        connect(re.p, lesigma.n) annotation (Line(
-            points={{30,-20},{30,-40}},
+        connect(pin_ep, re.p) annotation (Line(
+            points={{-100,60},{-80,60},{-80,50}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(lesigma.p, pin_ep) annotation (Line(
-            points={{10,-40},{-80,-40},{-80,60},{-100,60}},
+        connect(re.n, lesigma.p) annotation (Line(
+            points={{-80,30},{-80,20},{-80,20}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(lesigma.n, airGapDC.pin_ep) annotation (Line(
+            points={{-80,0},{-80,-20},{10,-20},{10,-10}},
             color={0,0,255},
             smooth=Smooth.None));
         annotation (defaultComponentName="dcse",
-          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-                  -100},{100,100}}),
+          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
+                  100}}),
                   graphics),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
@@ -4495,9 +4502,9 @@ This package contains models of DC machines:
     package QuasiStationaryDCMachines "Models of quasistationary DC machines"
       extends Modelica.Icons.Library;
 
-      model DC_PermanentMagnet "Quasistaionary permanent magnet DC machine"
-        extends Machines.BasicMachines.DCMachines.DC_PermanentMagnet(
-            final quasiStationary = true);
+      model DC_PermanentMagnet "Quasistationary permanent magnet DC machine"
+        extends Machines.BasicMachines.DCMachines.DC_PermanentMagnet(final
+            quasiStationary =                                                                true);
         annotation (defaultComponentName="dcpm",
           Documentation(info="<HTML>
 <b>Quasistaionary model of a DC Machine with permanent magnets.</b><br>
@@ -4508,9 +4515,9 @@ the only difference is that electrical transients are neglected.
       end DC_PermanentMagnet;
 
       model DC_ElectricalExcited
-        "Quasistaionary electrical shunt/separate excited linear DC machine"
-        extends Machines.BasicMachines.DCMachines.DC_ElectricalExcited(
-            final quasiStationary = true);
+        "Quasistationary electrical shunt/separate excited linear DC machine"
+        extends Machines.BasicMachines.DCMachines.DC_ElectricalExcited(final
+            quasiStationary =                                                                  true);
         annotation (defaultComponentName="dcee",
           Documentation(info="<HTML>
 <b>Quasistaionary model of a DC Machine with electrical shunt or separate excitation.</b><br>
@@ -4520,9 +4527,9 @@ the only difference is that electrical transients are neglected.
 </HTML>"));
       end DC_ElectricalExcited;
 
-      model DC_SeriesExcited "Quasistaionary series excited linear DC machine"
-        extends Machines.BasicMachines.DCMachines.DC_SeriesExcited(
-            final quasiStationary = true);
+      model DC_SeriesExcited "Quasistationary series excited linear DC machine"
+        extends Machines.BasicMachines.DCMachines.DC_SeriesExcited(final
+            quasiStationary =                                                              true);
         annotation (defaultComponentName="dcse",
           Documentation(info="<HTML>
 <b>Quasistaionary model of a DC Machine with Series excitation.</b><br>
@@ -6600,9 +6607,70 @@ and the accompanying <b>disclaimer</b>
        conditional ThermalPort for all machines</li>
   </ul>
 </HTML>"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Ellipse(extent={{-100,30},{20,-90}},
-                lineColor={0,0,255}), Ellipse(extent={{-40,30},{80,-90}},
-                lineColor={0,0,255})}));
+                -100},{100,100}}), graphics={
+            Polygon(
+              points={{-80,34},{-60,14},{-60,-66},{-80,-86},{-80,34}},
+              lineColor={0,0,0},
+              smooth=Smooth.None,
+              fillColor={135,135,135},
+              fillPattern=FillPattern.VerticalCylinder),
+            Polygon(
+              points={{60,34},{40,14},{40,-66},{60,-86},{60,34}},
+              lineColor={0,0,0},
+              smooth=Smooth.None,
+              fillColor={135,135,135},
+              fillPattern=FillPattern.VerticalCylinder),
+            Polygon(
+              points={{-10,24},{-20,14},{-20,-66},{-10,-76},{0,-66},{0,14},{-10,
+                  24}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.VerticalCylinder,
+              smooth=Smooth.None,
+              fillColor={135,135,135}),
+            Polygon(
+              points={{-80,34},{60,34},{40,14},{0,14},{-10,24},{-20,14},{-60,14},
+                  {-80,34}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.VerticalCylinder,
+              smooth=Smooth.None,
+              fillColor={135,135,135}),
+            Polygon(
+              points={{-80,-86},{60,-86},{40,-66},{0,-66},{-10,-76},{-20,-66},{
+                  -60,-66},{-80,-86}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.VerticalCylinder,
+              smooth=Smooth.None,
+              fillColor={135,135,135}),
+            Rectangle(
+              extent={{-88,10},{-52,-62}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.VerticalCylinder,
+              fillColor={255,128,0}),
+            Rectangle(
+              extent={{-94,2},{-46,-54}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.VerticalCylinder,
+              fillColor={255,170,85}),
+            Rectangle(
+              extent={{-28,10},{8,-62}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.VerticalCylinder,
+              fillColor={255,128,0}),
+            Rectangle(
+              extent={{-34,2},{14,-54}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.VerticalCylinder,
+              fillColor={255,170,85}),
+            Rectangle(
+              extent={{32,10},{68,-62}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.VerticalCylinder,
+              fillColor={255,128,0}),
+            Rectangle(
+              extent={{26,2},{74,-54}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.VerticalCylinder,
+              fillColor={255,170,85})}));
     end Transformers;
 
     package Components "Machine components like AirGaps"
@@ -7176,6 +7244,64 @@ Induced excitation voltage is calculated from der(flux), where flux is defined b
 Induced armature voltage is calculated from flux times angular velocity.
 </HTML>"));
       end AirGapDC;
+
+      model CompoundDCExcitation "Compound excitation = shunt + series"
+        parameter Real excitationTurnsRatio
+          "Ratio of series excitation turns over shunt excitation turns";
+        Modelica.SIunits.Voltage v = pin_p.v - pin_n.v;
+        Modelica.SIunits.Current i = pin_p.i;
+        Modelica.SIunits.Voltage ve = pin_ep.v - pin_en.v;
+        Modelica.SIunits.Current ie = pin_ep.i;
+        Modelica.SIunits.Voltage vse = pin_sep.v - pin_sen.v;
+        Modelica.SIunits.Current ise = pin_sep.i;
+        Analog.Interfaces.PositivePin pin_p "Positive pin to airgap" 
+          annotation (Placement(transformation(extent={{90,110},{110,90}})));
+        Analog.Interfaces.NegativePin pin_n "Negative pin to airgap" 
+          annotation (Placement(transformation(extent={{-110,110},{-90,90}})));
+        Analog.Interfaces.PositivePin pin_ep "Positive pin to shunt excitation"
+          annotation (Placement(transformation(extent={{90,-108},{110,-88}})));
+        Analog.Interfaces.NegativePin pin_en "Negative pin to shunt excitation"
+          annotation (Placement(transformation(extent={{10,-110},{30,-90}})));
+        Analog.Interfaces.PositivePin pin_sep
+          "Positive pin to series excitation" 
+          annotation (Placement(transformation(extent={{-30,-110},{-10,-90}})));
+        Analog.Interfaces.NegativePin pin_sen
+          "Negative pin to series excitation" 
+          annotation (Placement(transformation(extent={{-110,-110},{-90,-90}})));
+      equation
+      //current balances
+        pin_p.i + pin_n.i = 0;
+        pin_ep.i + pin_en.i = 0;
+        pin_sep.i + pin_sen.i = 0;
+      //compound currents
+        -i = ie + excitationTurnsRatio*ise;
+      //induced voltages
+        ve = v;
+        vse = v/excitationTurnsRatio;
+        annotation (Icon(graphics={
+          Polygon(
+            points={{-60,-40},{-40,-40},{0,4},{40,-40},{60,-40},{10,20},{10,60},
+                    {20,60},{0,80},{-20,60},{-10,60},{-10,20},{-60,-40}},
+            lineColor={0,0,255},
+            smooth=Smooth.None,
+            fillColor={0,0,255},
+            fillPattern=FillPattern.Solid),
+          Text(extent={{-80,-40},{-40,-80}},
+            lineColor={0,0,255},
+            fillColor={0,0,255},
+            fillPattern=FillPattern.Solid,
+            textString="S"),
+          Text(extent={{40,-40},{80,-80}},
+            lineColor={0,0,255},
+            fillColor={0,0,255},
+            fillPattern=FillPattern.Solid,
+            textString="E")}),
+           Documentation(info="<HTML>
+Model to compound the shunt excitation current and the series excitation current to the total excitation current w.r.t shunt excitation. 
+This model is intended to be placed between shunt and series excitation pins and the airgap; 
+the connection to airgap has to be grounded at one point.
+</HTML>"));
+      end CompoundDCExcitation;
 
       partial model PartialCore
         "Partial model of transformer core with 3 windings"
