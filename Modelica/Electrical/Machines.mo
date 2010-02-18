@@ -3866,7 +3866,8 @@ These models use package SpacePhasors.
 
       model DC_PermanentMagnet "Permanent magnet DC machine"
         extends Machines.Interfaces.PartialBasicDCMachine(
-        final turnsRatio=ViNominal/(wNominal*Le*IeNominal),
+          final ViNominal = VaNominal - Machines.Thermal.convertResistance(Ra,TaRef,alpha20a,TaNominal)*IaNominal,
+          final psi_eNominal = Le*IeNominal,
           redeclare final Machines.Thermal.DCMachines.ThermalAmbientDCPM
             thermalAmbient,
           redeclare final Machines.Interfaces.DCMachines.ThermalPortDCPM
@@ -3875,20 +3876,10 @@ These models use package SpacePhasors.
             internalThermalPort);
         Components.AirGapDC airGapDC(final turnsRatio=turnsRatio, final Le=Le,
           final quasiStationary=quasiStationary) 
-                                           annotation (Placement(transformation(
+          annotation (Placement(transformation(
               origin={0,0},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-      protected
-        final parameter Modelica.SIunits.Voltage ViNominal=
-          VaNominal - Machines.Thermal.convertResistance(Ra,TaRef,alpha20a,TaNominal)*IaNominal
-          "Nominal induced voltage";
-        final parameter Modelica.SIunits.Inductance Le=1
-          "Total field excitation inductance" 
-           annotation(Dialog(group="Excitation"));
-        constant Modelica.SIunits.Current IeNominal=1
-          "Equivalent excitation current";
-      public
         Modelica.Electrical.Analog.Basic.Ground eGround 
           annotation (Placement(transformation(extent={{-20,-60},{0,-40}},
                 rotation=0)));
@@ -3897,8 +3888,11 @@ These models use package SpacePhasors.
               origin={10,-30},
               extent={{-10,-10},{10,10}},
               rotation=90)));
+      protected
+        constant Modelica.SIunits.Inductance Le=1 "Field excitation inductance";
+        constant Modelica.SIunits.Current IeNominal=1
+          "Equivalent excitation current";
       equation
-        assert(ViNominal > Modelica.Constants.eps, "VaNominal has to be > Ra*IaNominal");
         connect(eGround.p, ie.p) 
           annotation (Line(points={{-10,-40},{10,-40}}, color={0,0,255}));
         connect(airGapDC.pin_ep, ie.n) annotation (Line(points={{10,-10},{10,
@@ -4009,19 +4003,14 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
       model DC_ElectricalExcited
         "Electrical shunt/separate excited linear DC machine"
         extends Machines.Interfaces.PartialBasicDCMachine(
-          final turnsRatio=ViNominal/(wNominal*Lme*IeNominal),
+          final ViNominal = VaNominal - Machines.Thermal.convertResistance(Ra,TaRef,alpha20a,TaNominal)*IaNominal,
+          final psi_eNominal = Lme*IeNominal,
           redeclare final Machines.Thermal.DCMachines.ThermalAmbientDCEE
             thermalAmbient(final Te=TeOperational),
           redeclare final Machines.Interfaces.DCMachines.ThermalPortDCEE
             thermalPort,
           redeclare final Machines.Interfaces.DCMachines.ThermalPortDCEE
             internalThermalPort);
-        Components.AirGapDC airGapDC(final turnsRatio=turnsRatio, final Le=Lme,
-          final quasiStationary=quasiStationary) 
-                                           annotation (Placement(transformation(
-              origin={0,0},
-              extent={{-10,-10},{10,10}},
-              rotation=270)));
         parameter Modelica.SIunits.Current IeNominal(start=1)
           "Nominal excitation current" 
            annotation(Dialog(tab="Excitation"));
@@ -4047,6 +4036,20 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
           "Field excitation voltage";
         output Modelica.SIunits.Current ie = pin_ep.i
           "Field excitation current";
+        Components.AirGapDC airGapDC(final turnsRatio=turnsRatio, final Le=Lme,
+          final quasiStationary=quasiStationary) 
+          annotation (Placement(transformation(
+              origin={0,0},
+              extent={{-10,-10},{10,10}},
+              rotation=270)));
+        Analog.Basic.Ground ground 
+          annotation (Placement(transformation(extent={{-30,-30},{-10,-10}})));
+        Components.CompoundDCExcitation compoundDCExcitation(final
+            excitationTurnsRatio=1) 
+          annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
+        Analog.Basic.Ground groundSE 
+          annotation (Placement(transformation(extent={{-30,-50},{-10,-30}})));
+
         Modelica.Electrical.Analog.Basic.Resistor re(
           final R=Re,
           final T_ref=TeRef,
@@ -4076,13 +4079,7 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
         final parameter Modelica.SIunits.Inductance Lesigma = Le*sigmae
           "Stray part of excitation inductance" 
           annotation(Evaluate=true);
-        final parameter Modelica.SIunits.Voltage ViNominal=
-          VaNominal - Machines.Thermal.convertResistance(Ra,TaRef,alpha20a,TaNominal)*IaNominal
-          "Nominal induced voltage";
       equation
-        assert(ViNominal > Modelica.Constants.eps, "VaNominal has to be > Ra*IaNominal");
-        connect(pin_en, airGapDC.pin_en) annotation (Line(points={{-100,-60},{
-                -10,-60},{-10,-10}}, color={0,0,255}));
         connect(airGapDC.pin_ap, la.n) annotation (Line(
             points={{10,10},{10,35},{10,35},{10,60}},
             color={0,0,255},
@@ -4113,8 +4110,28 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
             points={{-80,30},{-80,20}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(lesigma.n, airGapDC.pin_ep) annotation (Line(
-            points={{-80,0},{-80,-20},{10,-20},{10,-10}},
+        connect(ground.p, airGapDC.pin_en) annotation (Line(
+            points={{-20,-10},{-15,-10},{-15,-10},{-10,-10}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(airGapDC.pin_en, compoundDCExcitation.pin_n) annotation (Line(
+            points={{-10,-10},{-10,-10}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(airGapDC.pin_ep, compoundDCExcitation.pin_p) annotation (Line(
+            points={{10,-10},{10,-10}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(groundSE.p, compoundDCExcitation.pin_sen) annotation (Line(
+            points={{-20,-30},{-10,-30}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(pin_en, compoundDCExcitation.pin_en) annotation (Line(
+            points={{-100,-60},{2,-60},{2,-30}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(compoundDCExcitation.pin_ep, lesigma.n) annotation (Line(
+            points={{10,-29.8},{10,-40},{-80,-40},{-80,0}},
             color={0,0,255},
             smooth=Smooth.None));
         annotation (defaultComponentName="dcee",
@@ -4217,6 +4234,10 @@ Shunt or separate excitation is defined by the user's external circuit.
 <td valign=\"top\">1</td><td valign=\"top\">H</td>
 </tr>
 <tr>
+<td valign=\"top\">stray part of excitation inductance</td>
+<td valign=\"top\">0</td><td valign=\"top\"> </td>
+</tr>
+<tr>
 <td valign=\"top\">armature nominal temperature TaNominal</td>
 <td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
 </tr>
@@ -4237,19 +4258,15 @@ Armature current does not cover excitation current of a shunt excitation; in thi
 
       model DC_SeriesExcited "Series excited linear DC machine"
         extends Machines.Interfaces.PartialBasicDCMachine(wNominal(start=1410*2*pi/60),
-          final turnsRatio=ViNominal/(wNominal*Lme*IaNominal),
+          final ViNominal = VaNominal - (Machines.Thermal.convertResistance(Ra,TaRef,alpha20a,TaNominal) +
+                                         Machines.Thermal.convertResistance(Re,TeRef,alpha20e,TeNominal))*IaNominal,
+          final psi_eNominal = Lme*IaNominal,
           redeclare final Machines.Thermal.DCMachines.ThermalAmbientDCSE
             thermalAmbient(final Tse=TeOperational),
           redeclare final Machines.Interfaces.DCMachines.ThermalPortDCSE
             thermalPort,
           redeclare final Machines.Interfaces.DCMachines.ThermalPortDCSE
             internalThermalPort);
-        Components.AirGapDC airGapDC(final turnsRatio=turnsRatio, final Le=Lme,
-          final quasiStationary=quasiStationary) 
-                                           annotation (Placement(transformation(
-              origin={0,0},
-              extent={{-10,-10},{10,10}},
-              rotation=270)));
         parameter Modelica.SIunits.Resistance Re(start=0.01)
           "Series excitation resistance at TRef" 
            annotation(Dialog(tab="Excitation"));
@@ -4275,6 +4292,19 @@ Armature current does not cover excitation current of a shunt excitation; in thi
           "Field excitation voltage";
         output Modelica.SIunits.Current ie = pin_ep.i
           "Field excitation current";
+        Components.AirGapDC airGapDC(final turnsRatio=turnsRatio, final Le=Lme,
+          final quasiStationary=quasiStationary) 
+          annotation (Placement(transformation(
+              origin={0,0},
+              extent={{-10,-10},{10,10}},
+              rotation=270)));
+        Components.CompoundDCExcitation compoundDCExcitation(final
+            excitationTurnsRatio=1) 
+          annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
+        Analog.Basic.Ground ground 
+          annotation (Placement(transformation(extent={{-30,-30},{-10,-10}})));
+        Analog.Basic.Ground groundE 
+          annotation (Placement(transformation(extent={{0,-60},{20,-40}})));
         Modelica.Electrical.Analog.Basic.Resistor re(
           final R=Re,
           final T_ref=TeRef,
@@ -4304,14 +4334,7 @@ Armature current does not cover excitation current of a shunt excitation; in thi
         final parameter Modelica.SIunits.Inductance Lesigma = Le*sigmae
           "Stray part of excitation inductance" 
           annotation(Evaluate=true);
-        final parameter Modelica.SIunits.Voltage ViNominal=
-        VaNominal - (Machines.Thermal.convertResistance(Ra,TaRef,alpha20a,TaNominal) +
-                     Machines.Thermal.convertResistance(Re,TeRef,alpha20e,TeNominal))*IaNominal
-          "Nominal induced voltage";
       equation
-        assert(ViNominal > Modelica.Constants.eps, "VaNominal has to be > (Ra+Re)*IaNominal");
-        connect(pin_en, airGapDC.pin_en) annotation (Line(points={{-100,-60},{
-                -10,-60},{-10,-10}}, color={0,0,255}));
         connect(airGapDC.pin_ap, la.n) annotation (Line(
             points={{10,10},{10,35},{10,35},{10,60}},
             color={0,0,255},
@@ -4326,7 +4349,7 @@ Armature current does not cover excitation current of a shunt excitation; in thi
             color={0,0,0},
             smooth=Smooth.None));
         connect(airGapDC.flange, inertiaRotor.flange_a) annotation (Line(
-            points={{10,-1.83697e-015},{36,-1.83697e-015},{36,1.22465e-015},{70,
+            points={{10,-1.83697e-015},{32,-1.83697e-015},{36,1.22465e-015},{70,
                 1.22465e-015}},
             color={0,0,0},
             smooth=Smooth.None));
@@ -4342,13 +4365,33 @@ Armature current does not cover excitation current of a shunt excitation; in thi
             points={{-80,30},{-80,20},{-80,20}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(lesigma.n, airGapDC.pin_ep) annotation (Line(
-            points={{-80,0},{-80,-20},{10,-20},{10,-10}},
+        connect(airGapDC.pin_en, compoundDCExcitation.pin_n) annotation (Line(
+            points={{-10,-10},{-10,-10}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(compoundDCExcitation.pin_p, airGapDC.pin_ep) annotation (Line(
+            points={{10,-10},{10,-10}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(airGapDC.pin_en, ground.p) annotation (Line(
+            points={{-10,-10},{-15,-10},{-15,-10},{-20,-10}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(compoundDCExcitation.pin_sen, pin_en) annotation (Line(
+            points={{-10,-30},{-10,-60},{-100,-60}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(compoundDCExcitation.pin_sep, lesigma.n) annotation (Line(
+            points={{-2,-30},{-2,-40},{-80,-40},{-80,0}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(compoundDCExcitation.pin_en, groundE.p) annotation (Line(
+            points={{2,-30},{2,-40},{10,-40}},
             color={0,0,255},
             smooth=Smooth.None));
         annotation (defaultComponentName="dcse",
-          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
-                  100}}),
+          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
+                  -100},{100,100}}),
                   graphics),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
@@ -4430,6 +4473,10 @@ Series excitation has to be connected by the user's external circuit.
 <tr>
 <td valign=\"top\">excitation inductance</td>
 <td valign=\"top\">0.0005</td><td valign=\"top\">H</td>
+</tr>
+<tr>
+<td valign=\"top\">stray part of excitation inductance</td>
+<td valign=\"top\">0</td><td valign=\"top\"> </td>
 </tr>
 <tr>
 <td valign=\"top\">armature nominal temperature TaNominal</td>
@@ -10166,8 +10213,6 @@ Partial thermal ambient for induction machines
       parameter Modelica.SIunits.Inductance La(start=0.0015)
         "Armature inductance" 
          annotation(Dialog(tab="Nominal resistances and inductances"));
-      parameter Real turnsRatio
-        "Ratio of armature turns over number of turns of the excitation winding";
       output Modelica.SIunits.Voltage va = pin_ap.v-pin_an.v "Armature voltage";
       output Modelica.SIunits.Current ia = pin_ap.i "Armature current";
       Modelica.Electrical.Analog.Interfaces.PositivePin pin_ap
@@ -10200,9 +10245,15 @@ Partial thermal ambient for induction machines
     protected
       constant Boolean quasiStationary=false "No electrical transients if true"
         annotation(Evaluate=true);
+      parameter Modelica.SIunits.Voltage ViNominal "Nominal induced Voltage";
+      parameter Modelica.SIunits.MagneticFlux psi_eNominal
+        "Nominal magnetic flux";
+      parameter Real turnsRatio = ViNominal/(wNominal*psi_eNominal)
+        "Ratio of armature turns over number of turns of the excitation winding";
       replaceable PartialThermalPortDCMachines internalThermalPort 
         annotation (Placement(transformation(extent={{-4,-84},{4,-76}})));
     equation
+      assert(ViNominal > Modelica.Constants.eps, "VaNominal has to be > (Ra[+Rse])*IaNominal");
       connect(la.p,ra. n) 
         annotation (Line(points={{30,60},{40,60}}, color={0,0,255}));
       connect(pin_ap,ra. p) 
