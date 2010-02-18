@@ -3867,14 +3867,14 @@ These models use package SpacePhasors.
       model DC_PermanentMagnet "Permanent magnet DC machine"
         extends Machines.Interfaces.PartialBasicDCMachine(
           final ViNominal = VaNominal - Machines.Thermal.convertResistance(Ra,TaRef,alpha20a,TaNominal)*IaNominal,
-          final psi_eNominal = Le*IeNominal,
+          final psi_eNominal = Lme*IeNominal,
           redeclare final Machines.Thermal.DCMachines.ThermalAmbientDCPM
             thermalAmbient,
           redeclare final Machines.Interfaces.DCMachines.ThermalPortDCPM
             thermalPort,
           redeclare final Machines.Interfaces.DCMachines.ThermalPortDCPM
             internalThermalPort);
-        Components.AirGapDC airGapDC(final turnsRatio=turnsRatio, final Le=Le,
+        Components.AirGapDC airGapDC(final turnsRatio=turnsRatio, final Le=Lme,
           final quasiStationary=quasiStationary) 
           annotation (Placement(transformation(
               origin={0,0},
@@ -3889,7 +3889,8 @@ These models use package SpacePhasors.
               extent={{-10,-10},{10,10}},
               rotation=90)));
       protected
-        constant Modelica.SIunits.Inductance Le=1 "Field excitation inductance";
+        constant Modelica.SIunits.Inductance Lme=1
+          "Field excitation inductance";
         constant Modelica.SIunits.Current IeNominal=1
           "Equivalent excitation current";
       equation
@@ -4115,11 +4116,11 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
             color={0,0,255},
             smooth=Smooth.None));
         connect(airGapDC.pin_en, compoundDCExcitation.pin_n) annotation (Line(
-            points={{-10,-10},{-10,-10}},
+            points={{-10,-10},{-10,-10},{-10,-10},{-10,-10}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(airGapDC.pin_ep, compoundDCExcitation.pin_p) annotation (Line(
-            points={{10,-10},{10,-10}},
+            points={{10,-10},{10,-10},{10,-10},{10,-10}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(groundSE.p, compoundDCExcitation.pin_sen) annotation (Line(
@@ -4260,7 +4261,7 @@ Armature current does not cover excitation current of a shunt excitation; in thi
         extends Machines.Interfaces.PartialBasicDCMachine(wNominal(start=1410*2*pi/60),
           final ViNominal = VaNominal - (Machines.Thermal.convertResistance(Ra,TaRef,alpha20a,TaNominal) +
                                          Machines.Thermal.convertResistance(Re,TeRef,alpha20e,TeNominal))*IaNominal,
-          final psi_eNominal = Lme*IaNominal,
+          final psi_eNominal = Lme*abs(IaNominal),
           redeclare final Machines.Thermal.DCMachines.ThermalAmbientDCSE
             thermalAmbient(final Tse=TeOperational),
           redeclare final Machines.Interfaces.DCMachines.ThermalPortDCSE
@@ -4366,11 +4367,11 @@ Armature current does not cover excitation current of a shunt excitation; in thi
             color={0,0,255},
             smooth=Smooth.None));
         connect(airGapDC.pin_en, compoundDCExcitation.pin_n) annotation (Line(
-            points={{-10,-10},{-10,-10}},
+            points={{-10,-10},{-10,-10},{-10,-10},{-10,-10}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(compoundDCExcitation.pin_p, airGapDC.pin_ep) annotation (Line(
-            points={{10,-10},{10,-10}},
+            points={{10,-10},{10,-10},{10,-10},{10,-10}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(airGapDC.pin_en, ground.p) annotation (Line(
@@ -10193,7 +10194,7 @@ Partial thermal ambient for induction machines
         "Nominal armature voltage" 
          annotation(Dialog(tab="Nominal parameters"));
       parameter Modelica.SIunits.Current IaNominal(start=100)
-        "Nominal armature current" 
+        "Nominal armature current (>0..Motor, <0..Generator)" 
          annotation(Dialog(tab="Nominal parameters"));
       parameter Modelica.SIunits.AngularVelocity wNominal(displayUnit="1/min", start=1425*2*pi/60)
         "Nominal speed" 
