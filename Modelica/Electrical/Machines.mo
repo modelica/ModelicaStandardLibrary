@@ -7325,7 +7325,7 @@ Induced armature voltage is calculated from flux times angular velocity.
         -i = ie + excitationTurnsRatio*ise;
       //induced voltages
         ve = v;
-        vse = v/excitationTurnsRatio;
+        vse = v*excitationTurnsRatio;
         annotation (Icon(graphics={
           Polygon(
             points={{-60,-40},{-40,-40},{0,4},{40,-40},{60,-40},{10,20},{10,60},
