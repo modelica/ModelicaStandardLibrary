@@ -1,23 +1,23 @@
 within Modelica.Electrical.Analog.Examples;
 model IdealTriacCircuit "Ideal triac test circuit"
 
-  Modelica.Electrical.Analog.Basic.Ground ground
+  Modelica.Electrical.Analog.Basic.Ground ground 
     annotation (Placement(transformation(extent={{-12,-40},{8,-20}})));
   Modelica.Electrical.Analog.Basic.Resistor R(R=20)         annotation (
       Placement(transformation(
         extent={{-10,-10},{12,12}},
         rotation=0,
         origin={-44,32})));
-  Modelica.Electrical.Analog.Sources.SineVoltage V(V=5, freqHz=2)
+  Modelica.Electrical.Analog.Sources.SineVoltage V(V=5, freqHz=2) 
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-42,-20})));
   Modelica.Blocks.Sources.BooleanPulse booleanPulse(width=50,
     period=0.25,
-    startTime=0.1)
+    startTime=0.1) 
     annotation (Placement(transformation(extent={{-22,0},{-6,16}})));
- Modelica.Electrical.Analog.Ideal.IdealTriac idealTriac
+ Modelica.Electrical.Analog.Ideal.IdealTriac idealTriac 
     annotation (Placement(transformation(extent={{6,20},{32,46}})));
 equation
   connect(V.n, ground.p)            annotation (Line(

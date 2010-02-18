@@ -1,7 +1,7 @@
 within Modelica.Electrical.Analog.Examples;
 model AD_DA_conversion "Conversion circuit"
   parameter Integer N=7 "Digital signal width";
-  Modelica.Electrical.Analog.Ideal.AD_Converter aD_Converter(N=N)
+  Modelica.Electrical.Analog.Ideal.AD_Converter aD_Converter(N=N) 
     annotation (Placement(transformation(extent={{-14,-10},{12,16}})));
   Modelica.Electrical.Digital.Sources.Pulse pulse(
     pulse=Modelica.Electrical.Digital.Interfaces.Logic.'1',
@@ -9,11 +9,11 @@ model AD_DA_conversion "Conversion circuit"
     nperiod=-1,
     width=1,
     period=0.001,
-    startTime=0)
+    startTime=0) 
              annotation (Placement(transformation(extent={{-32,32},{-12,52}})));
-  Modelica.Electrical.Analog.Ideal.DA_Converter dA_Converter(N=N)
+  Modelica.Electrical.Analog.Ideal.DA_Converter dA_Converter(N=N) 
     annotation (Placement(transformation(extent={{18,-10},{44,16}})));
-  Modelica.Electrical.Analog.Basic.Ground ground
+  Modelica.Electrical.Analog.Basic.Ground ground 
     annotation (Placement(transformation(extent={{44,-40},{64,-20}})));
   Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(
     V=5,
@@ -22,7 +22,7 @@ model AD_DA_conversion "Conversion circuit"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-80,4})));
-  Modelica.Electrical.Analog.Basic.Resistor resistor(R=1)
+  Modelica.Electrical.Analog.Basic.Resistor resistor(R=1) 
     annotation (Placement(transformation(extent={{-28,68},{-8,88}})));
 equation
   connect(pulse.y, aD_Converter.trig) annotation (Line(
