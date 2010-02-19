@@ -301,7 +301,7 @@ for rodLength:
 <pre>
    rodLength*rodLength = f(angle of revolute joint, distance of prismatic joint)
 </pre>
-</html>"),
+</html>")
         );
     end SphericalAndUniversal;
 
@@ -522,7 +522,7 @@ initial value of the distance of the prismatic joint j2 has been fixed
 <b>computeLength</b> = <b>true</b> is set in the joint parameter
 menu (this sets \"fixed=false\" on parameter \"length\").
 </p>
-</html>"),
+</html>")
         );
     end UniversalSpherical;
 
@@ -640,7 +640,7 @@ initial value of the distance of the prismatic joint j2 has been fixed
 <b>computeLength</b> = <b>true</b> is set in the joint parameter
 menu (this sets \"fixed=false\" on parameter \"length\").
 </p>
-</html>"),
+</html>")
         );
     end UniversalSpherical_2;
 
@@ -906,7 +906,7 @@ initial value of the distance of the prismatic joint j2 has been fixed
 <b>computeLength</b> = <b>true</b> is set in the joint parameter
 menu (this sets \"fixed=false\" on parameter \"length\").
 </p>
-</html>"),
+</html>")
         );
     end JointSSR;
 
@@ -1010,7 +1010,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
               {38,38},{38,44},{52,44},{52,40}}, color={0,191,0}));
       annotation (
         experiment(StopTime=5),
-        Documentation(info=""),
+        Documentation(info="")
         );
     end JointUSP;
   end FourbarVariants;
@@ -1104,7 +1104,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
           thickness=0.5));
       connect(Constant1.y,FrameTorque1.torque)
         annotation (Line(points={{73,-32},{60,-32}}, color={0,0,255}));
-      annotation (experiment(StopTime=1.1),
+      annotation (experiment(StopTime=1.1)
                   );
     end AngularVelocity;
   end Frames;
@@ -4812,7 +4812,7 @@ often possible to use the FreeMotion joint such that the singularity
           points={{40,-90},{60,-90}},
           color={0,0,0},
           thickness=0.5));
-      annotation (experiment(StopTime=1.1),
+      annotation (experiment(StopTime=1.1)
                   );
     end CutForce;
 
@@ -5056,7 +5056,7 @@ often possible to use the FreeMotion joint such that the singularity
           points={{40,-90},{60,-90}},
           color={0,0,0},
           thickness=0.5));
-      annotation (experiment(StopTime=1.1),
+      annotation (experiment(StopTime=1.1)
                   );
     end CutTorque;
 
@@ -5300,7 +5300,7 @@ often possible to use the FreeMotion joint such that the singularity
           points={{40,-90},{60,-90}},
           color={0,0,0},
           thickness=0.5));
-      annotation (experiment(StopTime=1.1),
+      annotation (experiment(StopTime=1.1)
                   );
     end CutForceAndTorque1;
 
@@ -5491,7 +5491,7 @@ often possible to use the FreeMotion joint such that the singularity
           points={{40,-90},{60,-90}},
           color={0,0,0},
           thickness=0.5));
-      annotation (experiment(StopTime=1.1),
+      annotation (experiment(StopTime=1.1)
                   );
     end CutForceAndTorque2;
 
