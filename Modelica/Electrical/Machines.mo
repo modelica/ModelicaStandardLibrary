@@ -10251,7 +10251,9 @@ Partial thermal ambient for induction machines
           smooth=Smooth.None));
       annotation (Documentation(info="<HTML>
 Partial model for DC machine models.
-</HTML>"));
+</HTML>"), Icon(graphics={            Line(points={{-40,70},{-60,70},{-60,90}},
+                color={0,0,255}), Line(points={{40,70},{60,70},{60,90}},
+                color={0,0,255})}));
     end PartialBasicDCMachine;
 
     partial connector PartialThermalPortDCMachines
