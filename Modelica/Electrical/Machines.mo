@@ -1242,9 +1242,8 @@ Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
       "Test example 10: DC with serial excitation starting with voltage ramp"
       extends Modelica.Icons.Example2;
       parameter Modelica.SIunits.Voltage Va=100 "Actual armature voltage";
-      parameter Modelica.SIunits.Time tStart=0.1
-        "Start of armature voltage ramp";
-      parameter Modelica.SIunits.Time tRamp=0.9 "Armature voltage ramp";
+      parameter Modelica.SIunits.Time tStart=0.1 "Start of resistance ramp";
+      parameter Modelica.SIunits.Time tRamp=0.9 "Resistance ramp";
       parameter Modelica.SIunits.Torque TLoad=63.66 "Nominal load torque";
       parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")=1410*2*Modelica.Constants.pi/60
         "Nominal load speed";
@@ -1330,8 +1329,102 @@ Default machine parameters of model <i>DC_SeriesExcited</i> are used.
 </HTML>"));
     end DCSE_Start;
 
+    model DCSE_SinglePhase
+      "Test example 11: DC with serial excitation starting with voltage ramp"
+      extends Modelica.Icons.Example2;
+      parameter Modelica.SIunits.Voltage Va=100 "Actual armature voltage RMS";
+      parameter Modelica.SIunits.Time tStart=0.1 "Start of resistance ramp";
+      parameter Modelica.SIunits.Time tRamp=0.9 "Resistance ramp";
+      parameter Modelica.SIunits.Torque TLoad=63.66 "Nominal load torque";
+      parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")=1410*2*Modelica.Constants.pi/60
+        "Nominal load speed";
+      parameter Modelica.SIunits.Inertia JLoad=0.15 "Load's moment of inertia";
+
+      Machines.BasicMachines.DCMachines.DC_SeriesExcited dcse
+        annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
+              rotation=0)));
+      Modelica.Blocks.Sources.Ramp ramp(
+        duration=tRamp,
+        startTime=tStart,
+        height=-1,
+        offset=1)
+        annotation (Placement(transformation(extent={{60,0},{40,20}},
+              rotation=0)));
+      Analog.Sources.SineVoltage constantVoltage(V=sqrt(2)*Va, freqHz=50)
+        annotation (Placement(transformation(extent={{0,50},{-20,30}}, rotation=
+               0)));
+      Modelica.Electrical.Analog.Basic.Ground ground
+        annotation (Placement(transformation(
+            origin={-70,40},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      Modelica.Mechanics.Rotational.Components.Inertia loadInertia(
+                                                        J=JLoad)
+        annotation (Placement(transformation(extent={{40,-50},{60,-30}},
+              rotation=0)));
+      Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
+        quadraticLoadTorque(
+        w_nominal=wLoad,
+        TorqueDirection=false,
+        tau_nominal=-TLoad,
+        useSupport=false)
+        annotation (Placement(transformation(extent={{90,-50},{70,-30}},
+              rotation=0)));
+      Modelica.Electrical.Analog.Basic.VariableResistor variableResistor annotation (Placement(
+            transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={0,10})));
+    equation
+      connect(constantVoltage.n, ground.p) annotation (Line(points={{-20,40},{
+              -60,40}}, color={0,0,255}));
+      connect(loadInertia.flange_b, quadraticLoadTorque.flange)
+        annotation (Line(points={{60,-40},{70,-40}}, color={0,0,0}));
+      connect(dcse.pin_an, dcse.pin_ep)   annotation (Line(points={{-16,-30},{
+              -20,-30},{-20,-34}}, color={0,0,255}));
+      connect(dcse.pin_en, constantVoltage.n) annotation (Line(points={{-20,-46},
+              {-30,-46},{-30,-20},{-20,-20},{-20,40}}, color={0,0,255}));
+      connect(dcse.flange, loadInertia.flange_a) annotation (Line(
+          points={{0,-40},{40,-40}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(constantVoltage.p, variableResistor.p)
+                                                   annotation (Line(
+          points={{0,40},{0,20},{1.83697e-015,20}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(variableResistor.n, dcse.pin_ap) annotation (Line(
+          points={{-1.83697e-015,0},{0,0},{0,-20},{-4,-20},{-4,-30}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(ramp.y, variableResistor.R) annotation (Line(
+          points={{39,10},{25,10},{25,10},{11,10}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      annotation (
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}),
+                graphics),
+        experiment(StopTime=2, Interval=0.0005),
+        Documentation(info="<HTML>
+<b>11th Test example: Series excited DC machine at singlephase AC voltage started with a series resistor</b><br>
+At sinusoidal source voltage, a series resistor limiting the armature current, is reduced according to a ramp, causing the DC machine to start,
+and accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
+Simulate for 2 seconds and plot (versus time):
+<ul>
+<li>dcse.ia: armature current</li>
+<li>dcse.wMechanical: motor's speed</li>
+<li>dcse.tauElectrical: motor's torque</li>
+</ul>
+Default machine parameters of model <i>DC_SeriesExcited</i> are used.<br>
+<b>Note:</b><br>
+Since both the field and the armature current are sinusoidal, the waveform of the torque is the square of sine.
+Due to the additional inductive voltage drops, output of the motor is lower, compared to the same motor (DCSE_Start) at DC voltage.
+</HTML>"));
+    end DCSE_SinglePhase;
+
     model DC_Comparison
-      "Test example 11: Compare torque-speed characteristic of DC motors"
+      "Test example 12: Compare torque-speed characteristic of DC motors"
       extends Modelica.Icons.Example2;
       parameter Modelica.SIunits.Voltage Va=100 "Actual armature voltage";
       parameter Modelica.SIunits.Voltage Ve=100 "Actual excitation voltage";
@@ -1421,7 +1514,7 @@ Default machine parameters of model <i>DC_SeriesExcited</i> are used.
                 graphics),
         experiment(StopTime=3, Interval=0.001),
         Documentation(info="<HTML>
-<b>11th Test example: Compare characteristic of DC motors</b><br>
+<b>12th Test example: Compare characteristic of DC motors</b><br>
 The motors are started at no-load speed, then a load ramp is applied.<br>
 Simulate for 3 seconds and plot (versus time):
 <ul>
@@ -1435,7 +1528,7 @@ Default machine parameters are used.
     end DC_Comparison;
 
     model DCPM_Temperature
-      "Test example 12: Investigate temperature dependecy of a DCPM motor"
+      "Test example 13: Investigate temperature dependecy of a DCPM motor"
       extends Modelica.Icons.Example2;
       parameter Modelica.SIunits.Voltage Va=100 "Actual armature voltage";
       parameter Modelica.SIunits.Voltage Ve=100 "Actual excitation voltage";
@@ -1517,7 +1610,7 @@ Default machine parameters are used.
                 graphics),
         experiment(StopTime=3, Interval=0.001),
         Documentation(info="<HTML>
-<b>12th Test example: Investigate influence of armature temperature on a DCPM motor</b><br>
+<b>13th Test example: Investigate influence of armature temperature on a DCPM motor</b><br>
 The motor starts at no-load speed, then a load step is applied.<br>
 Beginning with the load step, the armature temperature rises exponentially from 20 degC to 80 degC.<br>
 Simulate for 3 seconds and plot (versus time):
@@ -1539,7 +1632,7 @@ So the machine is at the beginning in cold condition, ending in warm condition
         experimentSetupOutput);
     end DCPM_Temperature;
 
-    model DCPM_Cooling "Test example 13: Cooling of a DCPM motor"
+    model DCPM_Cooling "Test example 14: Cooling of a DCPM motor"
       extends Modelica.Icons.Example2;
       parameter Modelica.SIunits.Voltage Va=100 "Actual armature voltage";
       parameter Modelica.SIunits.Voltage Ve=100 "Actual excitation voltage";
@@ -1717,7 +1810,7 @@ So the machine is at the beginning in cold condition, ending in warm condition
                 graphics),
         experiment(StopTime=25, Interval=0.001),
         Documentation(info="<HTML>
-<b>Cooling test example: Demonstrate cooling of a DCPM motor</b><br>
+<b>14th Test example: Demonstrate cooling of a DCPM motor</b><br>
 The motor starts at no-load speed, then load pulses are applied.<br>
 The cooling circuit consists of armature's thermal capacitance,
 a thermal conductance between armature and core, core's thermal capacitance and
@@ -1752,7 +1845,7 @@ Default machine parameters are used, but:
     end DCPM_Cooling;
 
     model DCPM_QuasiStationary
-      "Test example 14: Compare DCPM motors transient - quasistationary"
+      "Test example 15: Compare DCPM motors transient - quasistationary"
       extends Modelica.Icons.Example2;
       parameter Modelica.SIunits.Voltage Va=100 "Actual armature voltage";
       parameter Modelica.SIunits.Voltage Ve=100 "Actual excitation voltage";
@@ -1848,7 +1941,7 @@ Default machine parameters are used, but:
                 graphics),
         experiment(StopTime=2, Interval=0.001),
         Documentation(info="<HTML>
-<b>Test example: Compare DCPM motors transient and quasistationary</b><br>
+<b>15th Test example: Compare DCPM motors transient and quasistationary</b><br>
 The motors start at no-load speed, then load pulses are applied.<br>
 Simulate for 2 seconds and plot (versus time):
 <ul>
@@ -2318,7 +2411,6 @@ neglecting initial transient.
     end Rectifier6pulse;
 
     model Rectifier12pulse "12-pulse rectifier with 2 transformers"
-      extends Modelica.Icons.Example;
       extends Machines.Examples.Rectifier6pulse(RL=0.2);
       Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode3(m=m)
         annotation (Placement(transformation(
@@ -10999,34 +11091,34 @@ This icon is designed for a <b>fundamentalwave machine</b> model.
               fillColor={135,135,135}),
             Rectangle(
               extent={{-78,36},{-42,-36}},
-              lineColor={0,0,0},
+              lineColor={128,0,255},
               fillPattern=FillPattern.VerticalCylinder,
-              fillColor={0,0,255}),
+              fillColor={128,0,255}),
             Rectangle(
               extent={{-84,28},{-36,-28}},
-              lineColor={0,0,0},
+              lineColor={0,128,255},
               fillPattern=FillPattern.VerticalCylinder,
-              fillColor={170,170,255}),
+              fillColor={0,128,255}),
             Rectangle(
               extent={{-18,36},{18,-36}},
-              lineColor={0,0,0},
+              lineColor={128,0,255},
               fillPattern=FillPattern.VerticalCylinder,
-              fillColor={0,0,255}),
+              fillColor={128,0,255}),
             Rectangle(
               extent={{-24,28},{24,-28}},
-              lineColor={0,0,0},
+              lineColor={0,128,255},
               fillPattern=FillPattern.VerticalCylinder,
-              fillColor={170,170,255}),
+              fillColor={0,128,255}),
             Rectangle(
               extent={{42,36},{78,-36}},
-              lineColor={0,0,0},
+              lineColor={128,0,255},
               fillPattern=FillPattern.VerticalCylinder,
-              fillColor={0,0,255}),
+              fillColor={128,0,255}),
             Rectangle(
               extent={{36,28},{84,-28}},
-              lineColor={0,0,0},
+              lineColor={0,128,255},
               fillPattern=FillPattern.VerticalCylinder,
-              fillColor={170,170,255})}), Documentation(info="<html>
+              fillColor={0,128,255})}),   Documentation(info="<html>
 <p>
 This icon is designed for a <b>transient transformer</b> model.
 </p>
@@ -11070,32 +11162,32 @@ This icon is designed for a <b>transient transformer</b> model.
               fillColor={135,135,135}),
             Rectangle(
               extent={{-78,36},{-42,-36}},
-              lineColor={0,0,0},
+              lineColor={213,170,255},
               fillPattern=FillPattern.VerticalCylinder,
-              fillColor={0,128,255}),
+              fillColor={213,170,255}),
             Rectangle(
               extent={{-84,28},{-36,-28}},
-              lineColor={0,0,0},
+              lineColor={170,213,255},
               fillPattern=FillPattern.VerticalCylinder,
               fillColor={170,213,255}),
             Rectangle(
               extent={{-18,36},{18,-36}},
-              lineColor={0,0,0},
+              lineColor={213,170,255},
               fillPattern=FillPattern.VerticalCylinder,
-              fillColor={0,128,255}),
+              fillColor={213,170,255}),
             Rectangle(
               extent={{-24,28},{24,-28}},
-              lineColor={0,0,0},
+              lineColor={170,213,255},
               fillPattern=FillPattern.VerticalCylinder,
               fillColor={170,213,255}),
             Rectangle(
               extent={{42,36},{78,-36}},
-              lineColor={0,0,0},
+              lineColor={213,170,255},
               fillPattern=FillPattern.VerticalCylinder,
-              fillColor={0,128,255}),
+              fillColor={213,170,255}),
             Rectangle(
               extent={{36,28},{84,-28}},
-              lineColor={0,0,0},
+              lineColor={170,213,255},
               fillPattern=FillPattern.VerticalCylinder,
               fillColor={170,213,255})}), Documentation(info="<html>
 <p>
