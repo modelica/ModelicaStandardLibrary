@@ -55,13 +55,12 @@ extends Modelica.Icons.Library2;
     annotation (Documentation(info="<html>
 <p><h4><font color=\"#008000\">Translation of SPICE3 netlists to Modelica </font></h4></p>
 <p>Since SPICE3 netlists are avaliable for nearly every electrical circuit a desirable feature would be to translate SPICE3 netlists to Modelica. With the help of the example of an inverter circuits a possible way of the translation will be explained.</p>
-<p>&nbsp; </p>
 <table cellspacing=\"0\" cellpadding=\"0\" border=\"1\"><tr>
-<td valign=\"top\"><p><font style=\"font-size: 9pt; \">inverter</font> </p><p><font style=\"font-size: 9pt; \">&nbsp;</font> </p><p><font style=\"font-size: 9pt; \">Mp1 11 1 13 11 MPmos </font></p><p><font style=\"font-size: 9pt; \">Mp2 11 13 2 11 MPmos</font> </p><p><font style=\"font-size: 9pt; \">Mn1 13 1 0 0 MNmos </font></p><p><font style=\"font-size: 9pt; \">Mn2 2 13 0 0 MNmos </font></p><p><font style=\"font-size: 9pt; \">&nbsp;</font> </p><p><font style=\"font-size: 9pt; \">&nbsp;</font> </p><p><font style=\"font-size: 9pt; \">Vgate 1 0 PULSE(0 5 2s 1s)</font> </p><p><font style=\"font-size: 9pt; \">Vdrain 11 0 PULSE(0 5 0s 1s)</font> </p><p><font style=\"font-size: 9pt; \">&nbsp;</font> </p><p><font style=\"font-size: 9pt; \">&nbsp;</font> </p><p><font style=\"font-size: 9pt; \">.model MPmos PMOS (gamma=0.37)</font> </p><p><font style=\"font-size: 9pt; \">.model MNmos NMOS (gamma=0.37 lambda=0.02)</font> </p><p><font style=\"font-size: 9pt; \">&nbsp;</font> </p><p><font style=\"font-size: 9pt; \">.tran 0.01 5</font> </p><p><font style=\"font-size: 9pt; \">&nbsp;</font> </p><p><font style=\"font-size: 9pt; \">.end</font> </p></td>
-<td valign=\"top\"><p><font style=\"font-size: 9pt; \">model inverter</font> </p><p><font style=\"font-size: 9pt; \">&nbsp; Spice3.Basic.Ground g;</font> </p><p><font style=\"font-size: 9pt; \">&nbsp; Spice3&hellip;M Mp1(mtype=true, M(GAMMA=0.37)); </font></p><p><font style=\"font-size: 9pt; \">&nbsp; Spice3&hellip;M Mp2(mtype=true, M(GAMMA=0.37));</font> </p><p><font style=\"font-size: 9pt; \">&nbsp; Spice3&hellip;M Mn1(M(LAMBDA=0.02, GAMMA=0.37));</font> </p><p><font style=\"font-size: 9pt; \">&nbsp; Spice3&hellip;M Mn2(M(LAMBDA=0.02, GAMMA=0.37));</font> </p><p><font style=\"font-size: 9pt; \">&nbsp;&nbsp;Spice3&hellip;V_pulse vdrain(V1=0, V2=5, TD=0, TR=1);</font> </p><p><font style=\"font-size: 9pt; \">&nbsp;&nbsp;Spice3.Interfaces.Pin p_in, p_out;</font> </p><p><font style=\"font-size: 9pt; \">protected </font></p><p><font style=\"font-size: 9pt; \">&nbsp; Spice3.Interfaces.Pin n0, n1, n2, n11, n13;</font> </p><p><font style=\"font-size: 9pt; \">equation </font></p><p><font style=\"font-size: 9pt; \">&nbsp; connect(p_in, n1);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; connect(p_out, n2);</font> </p><p><font style=\"font-size: 9pt; \">&nbsp; connect(g.p, n0);</font> </p><p><font style=\"font-size: 9pt; \">&nbsp; connect(vdrain.n,n0); &nbsp;&nbsp;&nbsp;connect(vdrain.p,n11);</font> </p><p><font style=\"font-size: 9pt; \">&nbsp; connect(Mp1.B,n11);&nbsp;&nbsp;&nbsp;&nbsp; connect(Mp1.D, n11);</font> </p><p><font style=\"font-size: 9pt; \">&nbsp; connect(Mp1.G, n1);&nbsp;&nbsp;&nbsp; &nbsp;connect(Mp1.S, n13);</font> </p><p><font style=\"font-size: 9pt; \">&nbsp; connect(Mp2.B,n11);&nbsp;&nbsp;&nbsp;&nbsp; connect(Mp2.D, n11);</font> </p><p><font style=\"font-size: 9pt; \">&nbsp; connect(Mp2.G, n13);&nbsp;&nbsp;&nbsp; connect(Mp2.S, n2);</font> </p><p><font style=\"font-size: 9pt; \">&nbsp; connect(Mn1.B,n0);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; connect(Mn1.D, n13);</font> </p><p><font style=\"font-size: 9pt; \">&nbsp; connect(Mn1.G, n1);&nbsp;&nbsp;&nbsp;&nbsp; connect(Mn1.S, n0);</font> </p><p><font style=\"font-size: 9pt; \">&nbsp; connect(Mn2.B,n0);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; connect(Mn2.D, n2);</font> </p><p><font style=\"font-size: 9pt; \">&nbsp; connect(Mn2.G, n13);&nbsp;&nbsp;&nbsp; connect(Mn2.S, n0);</font> </p><p><font style=\"font-size: 9pt; \">end inverter;</font> </p></td>
+<td valign=\"top\"><p><font style=\"font-size: 9pt; \">i</font>nverter </p><p>&nbsp; </p><p>Mp1 11 1 13 11 MPmos </p><p>Mp2 11 13 2 11 MPmos </p><p>Mn1 13 1 0 0 MNmos </p><p>Mn2 2 13 0 0 MNmos </p><p>&nbsp; </p><p>&nbsp; </p><p>Vgate 1 0 PULSE(0 5 2s 1s) </p><p>Vdrain 11 0 PULSE(0 5 0s 1s) </p><p>&nbsp; </p><p>&nbsp; </p><p>.model MPmos PMOS (gamma=0.37) </p><p>.model MNmos NMOS (gamma=0.37 lambda=0.02) </p><p>&nbsp; </p><p>.tran 0.01 5 </p><p>&nbsp; </p><p>.end </p></td>
+<td valign=\"top\"><p>model inverter </p><p>&nbsp; Spice3.Basic.Ground g; </p><p>&nbsp; Spice3&hellip;M Mp1(mtype=true, M(GAMMA=0.37)); </p><p>&nbsp; Spice3&hellip;M Mp2(mtype=true, M(GAMMA=0.37)); </p><p>&nbsp; Spice3&hellip;M Mn1(M(LAMBDA=0.02, GAMMA=0.37)); </p><p>&nbsp; Spice3&hellip;M Mn2(p(LAMBDA=0.02, GAMMA=0.37)); </p><p>&nbsp;&nbsp;Spice3&hellip;V_pulse vdrain(V1=0, V2=5, TD=0, TR=1);</p><p>Spice3...V_pulse vdrain(V1=0, V2=5, TD=0, TR=1);</p><p><font style=\"font-size: 9pt; \">&nbsp; </font>Spice3.Interfaces.Pin p_in, p_out; </p><p>protected </p><p>&nbsp; Spice3.Interfaces.Pin n0, n1, n2, n11, n13; </p><p>equation </p><p>&nbsp; connect(p_in, n1);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; connect(p_out, n2); </p><p>&nbsp; connect(g.p, n0); </p><p>&nbsp; connect(vdrain.n,n0); &nbsp;&nbsp;&nbsp;connect(vdrain.p,n11); </p><p>&nbsp; connect(Mp1.B,n11);&nbsp;&nbsp;&nbsp;&nbsp; connect(Mp1.D, n11); </p><p>&nbsp; connect(Mp1.G, n1);&nbsp;&nbsp;&nbsp; &nbsp;connect(Mp1.S, n13); </p><p>&nbsp; connect(Mp2.B,n11);&nbsp;&nbsp;&nbsp;&nbsp; connect(Mp2.D, n11); </p><p>&nbsp; connect(Mp2.G, n13);&nbsp;&nbsp;&nbsp; connect(Mp2.S, n2); </p><p>&nbsp; connect(Mn1.B,n0);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; connect(Mn1.D, n13); </p><p>&nbsp; connect(Mn1.G, n1);&nbsp;&nbsp;&nbsp;&nbsp; connect(Mn1.S, n0); </p><p>&nbsp; connect(Mn2.B,n0);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; connect(Mn2.D, n2); </p><p>&nbsp; connect(Mn2.G, n13);&nbsp;&nbsp;&nbsp; connect(Mn2.S, n0); </p><p>end inverter; </p></td>
 </tr>
 </table>
-<p><br/><br/>Table1: Translation of the SPICE3 netlist (left side) to Modelica (right side) </p>
+<p><br/><br/><br/><br/>Table1: Translation of the SPICE3 netlist (left side) to Modelica (right side) </p>
 <p>Given is a SPICE3 netlist that contains two nverter circuits. This netlist should be translated to Modelica in which the input voltage of the first inverter (node number 1) and the</p>
 <p>output voltage of the second (node number 2)later will be connected with the surrounding circuit. The following steps are necessary:</p>
 <p><ol>
@@ -3680,39 +3679,39 @@ VN- -&GT; name.pc[N-1]
                       annotation(Evaluate=true);
     final parameter Spice3.Repository.Mosfet.Mosfet m=
           Spice3.Repository.Mos2.Mos2RenameParameters_dev(
-            modelcard, 
-            mtype, 
-            W, 
-            L, 
-            AD, 
-            AS, 
-            PD, 
-            PS, 
-            NRD, 
-            NRS, 
-            OFF, 
-            IC, 
+            modelcard,
+            mtype,
+            W,
+            L,
+            AD,
+            AS,
+            PD,
+            PS,
+            NRD,
+            NRS,
+            OFF,
+            IC,
             TEMP) 
                 annotation(Evaluate=true);
     final parameter Integer m_type = if (m.m_bPMOS > 0.5) then -1 else 1;
     final parameter Spice3.Repository.Mos2.Mos2ModelLineVariables vp=
           Spice3.Repository.Mos2.Mos2ModelLineParamsInitEquations(
-            p, 
-            C, 
+            p,
+            C,
             m_type);
     final parameter Spice3.Repository.Mos2.Mos2Calc c1=
           Spice3.Repository.Mos.Mos2CalcInitEquations(
-            p, 
-            C, 
-            vp, 
+            p,
+            C,
+            vp,
             m);
     final parameter Spice3.Repository.Mos2.Mos2Calc c2=
           Spice3.Repository.Mos.Mos2CalcCalcTempDependencies(
-            p, 
-            C, 
-            vp, 
-            m, 
-            c1, 
+            p,
+            C,
+            vp,
+            m,
+            c1,
             m_type);
     Mos.DEVqmeyer qm;
     Spice3.Repository.Mos.CurrrentsCapacitances cc;
@@ -3748,13 +3747,13 @@ VN- -&GT; name.pc[N-1]
     vGS = G.v - S.v;
 
       (cc,qm) = Spice3.Repository.Mos.Mos2CalcNoBypassCode(
-          m, 
-          m_type, 
-          c2, 
-          p, 
-          C, 
-          vp, 
-          m_bInit, 
+          m,
+          m_type,
+          c2,
+          p,
+          C,
+          vp,
+          m_bInit,
           {G.v,B.v,Din,Sin});
 
     // drain- and sourceresistances
@@ -3866,10 +3865,10 @@ VN- -&GT; name.pc[N-1]
       constant Spice3.Repository.SpiceConstants Con "General SPICE constants";
       final parameter Spice3.Repository.Bjt3.Bjt p1=
           Bjt3.BjtRenameParameters_dev(
-              AREA, 
-              OFF, 
-              IC_VBE, 
-              IC_VCE, 
+              AREA,
+              OFF,
+              IC_VBE,
+              IC_VCE,
               SENS_AREA) 
                    annotation(Evaluate=true);
       final parameter Spice3.Repository.Model.Model m=
@@ -3878,14 +3877,14 @@ VN- -&GT; name.pc[N-1]
           Bjt3.BjtModelLineInitEquations(p);
       final parameter Spice3.Repository.Bjt3.Bjt3Calc c=
           Bjt3.Bjt3CalcTempDependencies(
-              p1, 
-              p, 
-              m, 
+              p1,
+              p,
+              m,
               vl);
       final parameter Spice3.Repository.Bjt3.BjtVariables v=
           Bjt3.BjtInitEquations(
-              p1, 
-              p, 
+              p1,
+              p,
               vl);
 
       constant Boolean m_bInit = false;
@@ -4066,10 +4065,10 @@ VN- -&GT; name.pc[N-1]
      //Diode.DiodeModelLineVariables vp;
      final parameter Spice3.Repository.Diode.DiodeParams dp=
           Spice3.Repository.Diode.DiodeRenameParameters_dev(
-             TEMP, 
-             AREA, 
-             IC, 
-             OFF, 
+             TEMP,
+             AREA,
+             IC,
+             OFF,
              SENS_AREA) 
                       annotation(Evaluate=true);
      final parameter Spice3.Repository.Model.Model m=
@@ -4079,9 +4078,9 @@ VN- -&GT; name.pc[N-1]
           Spice3.Repository.Diode.DiodeInitEquations(param);
      final parameter Spice3.Repository.Diode.DiodeCalc c2=
           Spice3.Repository.Diode.DiodeCalcTempDependencies(
-             param, 
-             dp, 
-             m, 
+             param,
+             dp,
+             m,
              c1);
      constant Boolean m_mbInit = false;
 
@@ -4096,11 +4095,11 @@ VN- -&GT; name.pc[N-1]
    // vp:=Diode.DiodeModelLineInitEquations(p);
 
       (cc,m_dCap) = Spice3.Repository.Diode.DiodeNoBypassCode(
-           param, 
-           dp, 
-           c2, 
-           m, 
-           m_mbInit, 
+           param,
+           dp,
+           c2,
+           m,
+           m_mbInit,
            {pin,n.v});
              //{der(pin),der(n.v)}
      //current through capacitance
@@ -4180,15 +4179,15 @@ VN- -&GT; name.pc[N-1]
       parameter Spice3.Repository.modelcardR modelcard "Resistor modelcard";
       Spice3.Repository.SpiceConstants C;
       final parameter Spice3.Repository.R_semiconductor.ResistorModelLineParams
-        lp=Spice3.Repository.R_semiconductor.ResistorRenameParameters(modelcard, 
+        lp=Spice3.Repository.R_semiconductor.ResistorRenameParameters(modelcard,
           C);
       final parameter Spice3.Repository.R_semiconductor.ResistorParams rp=
           Spice3.Repository.R_semiconductor.ResistorRenameParameters_dev(
-              R, 
-              W, 
-              L, 
-              TEMP, 
-              SENS_AREA, 
+              R,
+              W,
+              L,
+              TEMP,
+              SENS_AREA,
               C);
 
         Spice3.Repository.R_semiconductor.ResistorVariables vp;
@@ -4197,10 +4196,10 @@ VN- -&GT; name.pc[N-1]
       vp := Spice3.Repository.R_semiconductor.ResistorInitEquations(rp, lp);
 
       (vp.m_dConduct,vp.m_dCond_dTemp) := Spice3.Repository.Equation.RESdepTemp(
-            vp.m_dResist, 
-            rp.m_dTemp, 
-            lp.m_dTnom, 
-            lp.m_dTC1, 
+            vp.m_dResist,
+            rp.m_dTemp,
+            lp.m_dTnom,
+            lp.m_dTC1,
             lp.m_dTC2);
 
      i :=vp.m_dConduct*v;
@@ -5199,13 +5198,13 @@ C++   }} */
 } */
 
         (capout,charge) := Spice3.Repository.Equation.JunctionCap(
-              capin, 
-              voltage, 
-              depcap, 
-              mj, 
-              phij, 
-              f1, 
-              f2, 
+              capin,
+              voltage,
+              depcap,
+              mj,
+              phij,
+              f1,
+              f2,
               f3);
       capout := capout + transittime * conduct;
       charge := charge + transittime * current;
@@ -9326,8 +9325,8 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
           intern.m_transconductanceIsGiven := if          (ex.KP > -1e40) then 1 else 0;
           intern.m_transconductance := if         (ex.KP > -1e40) then ex.KP else 2e-5;
 
-        intern.m_tnom := if (ex.TNOM > -1e40) then ex.TNOM + Spice3.Repository.SpiceConstants.CONSTCtoK
-           else 300.15;
+        intern.m_tnom := if (ex.TNOM > -1e40) then ex.TNOM + Spice3.Repository.SpiceConstants.CONSTCtoK else 
+                300.15;
 
                         // °C parameter measurement temperature (default 27)
 
@@ -9787,39 +9786,39 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
 
         (out_c.m_tJctPot,out_c.m_tJctCap) :=
           Spice3.Repository.Equation.JunctionParamDepTempSPICE3(
-                in_p.m_junctionPot, 
-                in_p.m_junctionCap, 
-                in_p.m_gradingCoeff, 
-                in_m.m_dTemp, 
+                in_p.m_junctionPot,
+                in_p.m_junctionCap,
+                in_p.m_gradingCoeff,
+                in_m.m_dTemp,
                 in_p.m_nomTemp);
         out_c.m_tJctCap := in_dp.m_area * out_c.m_tJctCap;
         (out_c.m_tF1,out_c.m_f2,out_c.m_f3) :=
           Spice3.Repository.Equation.JunctionCapCoeffs(
-                in_p.m_gradingCoeff, 
-                in_p.m_depletionCapCoeff, 
+                in_p.m_gradingCoeff,
+                in_p.m_depletionCapCoeff,
                 out_c.m_tJctPot);
 
         out_c.m_tSatCur :=
           Spice3.Repository.Equation.SaturationCurDepTempSPICE3(
-                in_p.m_satCur, 
-                in_m.m_dTemp, 
-                in_p.m_nomTemp, 
-                in_p.m_emissionCoeff, 
-                in_p.m_activationEnergy, 
+                in_p.m_satCur,
+                in_m.m_dTemp,
+                in_p.m_nomTemp,
+                in_p.m_emissionCoeff,
+                in_p.m_activationEnergy,
                 in_p.m_saturationCurrentExp);
         out_c.m_tVcrit := Spice3.Repository.Equation.JunctionVCrit(
-                in_m.m_dTemp, 
-                in_p.m_emissionCoeff, 
+                in_m.m_dTemp,
+                in_p.m_emissionCoeff,
                 out_c.m_tSatCur);
         out_c.m_dVte := in_m.m_dTemp*Spice3.Repository.SpiceConstants.CONSTKoverQ
           *in_p.m_emissionCoeff;
         if (in_v.m_pBvIsGiven > 0.5) then
           out_c.m_tBrkdwnV :=
             Spice3.Repository.Equation.JunctionVoltage23_SPICE3(
-                  in_p.m_breakdownVoltage, 
-                  in_p.m_breakdownCurrent, 
-                  out_c.m_tSatCur, 
-                  in_m.m_dTemp, 
+                  in_p.m_breakdownVoltage,
+                  in_p.m_breakdownCurrent,
+                  out_c.m_tSatCur,
+                  in_m.m_dTemp,
                   in_p.m_emissionCoeff);
         end if;
         out_c.m_tSatCur := in_dp.m_area * out_c.m_tSatCur;
@@ -9895,17 +9894,17 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
 
         if (in_p.m_pBvIsGiven > 0.5) then
           (out_cc.m_dCurrent,m_dCond) := Spice3.Repository.Equation.Junction3(
-                  m_dPNVoltage, 
-                  in_m.m_dTemp, 
-                  in_p.m_emissionCoeff, 
-                  in_c.m_tSatCur, 
+                  m_dPNVoltage,
+                  in_m.m_dTemp,
+                  in_p.m_emissionCoeff,
+                  in_c.m_tSatCur,
                   in_c.m_tBrkdwnV);
         else
           (out_cc.m_dCurrent,m_dCond,guck1) :=
             Spice3.Repository.Equation.Junction2(
-                  m_dPNVoltage, 
-                  in_m.m_dTemp, 
-                  in_p.m_emissionCoeff, 
+                  m_dPNVoltage,
+                  in_m.m_dTemp,
+                  in_p.m_emissionCoeff,
                   in_c.m_tSatCur);
         end if;
 
@@ -9926,16 +9925,16 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
        //////////////////////////////////////////////////////////////////////
        // charge storage elements
         (m_dCap,m_dCharge) := Spice3.Repository.Equation.JunctionCapTransTime(
-                in_c.m_tJctCap, 
-                m_dPNVoltage, 
-                in_c.m_tJctPot*in_p.m_depletionCapCoeff, 
-                in_p.m_gradingCoeff, 
-                in_p.m_junctionPot, 
-                in_c.m_tF1, 
-                in_c.m_f2, 
-                in_c.m_f3, 
-                in_p.m_transitTime, 
-                m_dCond, 
+                in_c.m_tJctCap,
+                m_dPNVoltage,
+                in_c.m_tJctPot*in_p.m_depletionCapCoeff,
+                in_p.m_gradingCoeff,
+                in_p.m_junctionPot,
+                in_c.m_tF1,
+                in_c.m_f2,
+                in_c.m_f3,
+                in_p.m_transitTime,
+                m_dCond,
                 m_dCurrent);
       //  out_cc.m_dCapCurrent :=if (in_m_mbInit) then 0.0 else m_dCap*(in_m_pVoltageValuesDot[1]-in_m_pVoltageValuesDot[2]);
 
@@ -10104,8 +10103,8 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
 
         intern.m_dDefW := ex.DEFW;
         intern.m_dNarrow := ex.NARROW;
-        intern.m_dTnom := if (ex.TNOM > -1e40) then ex.TNOM + Spice3.Repository.SpiceRoot.SPICEcircuitCONST.CONSTCtoK
-           else 300.15;
+        intern.m_dTnom := if (ex.TNOM > -1e40) then ex.TNOM + Spice3.Repository.SpiceRoot.SPICEcircuitCONST.CONSTCtoK else 
+                300.15;
 
       end ResistorRenameParameters;
 
@@ -10137,8 +10136,8 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
          intern.m_dLength := if 
                               (L > -1e40) then L else 0;
          intern.m_bSensResist := SENS_AREA;
-        intern.m_dTemp := if (TEMP > -1e40) then TEMP + Spice3.Repository.SpiceRoot.SPICEcircuitCONST.CONSTCtoK
-           else 300.15;
+        intern.m_dTemp := if (TEMP > -1e40) then TEMP + Spice3.Repository.SpiceRoot.SPICEcircuitCONST.CONSTCtoK else 
+                300.15;
 
       end ResistorRenameParameters_dev;
 
@@ -10177,9 +10176,9 @@ void Resistor::InitEquations()
                 end if;
 
             (out.m_dResist) := Spice3.Repository.Equation.ResDepGeom(
-                    in_p2.m_dRsh, 
-                    out.m_dWidth, 
-                    in_p.m_dLength, 
+                    in_p2.m_dRsh,
+                    out.m_dWidth,
+                    in_p.m_dLength,
                     in_p2.m_dNarrow);
              else
                   out.m_dResist :=1000;
@@ -10754,13 +10753,13 @@ C++} */
         out_c.m_tBCcap := out_c.m_tBCcap * in_p3.m_area;
         (out_c.m_tF1c,out_c.m_f2c,out_c.m_f3c) :=
           Spice3.Repository.Equation.JunctionCapCoeffs(
-                in_p.m_junctionExpBC, 
-                in_p.m_depletionCapCoeff, 
+                in_p.m_junctionExpBC,
+                in_p.m_depletionCapCoeff,
                 out_c.m_tBCpot);
         (out_c.m_tF1e,out_c.m_f2e,out_c.m_f3e) :=
           Spice3.Repository.Equation.JunctionCapCoeffs(
-                in_p.m_junctionExpBE, 
-                in_p.m_depletionCapCoeff, 
+                in_p.m_junctionExpBE,
+                in_p.m_depletionCapCoeff,
                 out_c.m_tBEpot);
 
       end Bjt3CalcTempDependencies;
@@ -10929,28 +10928,28 @@ C++} */
         //////////////////////////////////////////////////////////////////////
         // junction current
         (cbe,gbe,dummy1) := Spice3.Repository.Equation.Junction2(
-                vbe, 
-                in_m.m_dTemp, 
-                in_p.m_emissionCoeffF, 
+                vbe,
+                in_m.m_dTemp,
+                in_p.m_emissionCoeffF,
                 in_c.m_tSatCur);
         dummy := dummy1;
         out_cc.iBE   := in_p.m_type * cbe / in_c.m_tBetaF;
         (cben,gben,dummy1) := Spice3.Repository.Equation.Junction2(
-                vbe, 
-                in_m.m_dTemp, 
-                in_p.m_leakBEemissionCoeff, 
+                vbe,
+                in_m.m_dTemp,
+                in_p.m_leakBEemissionCoeff,
                 in_c.m_tBEleakCur);
         out_cc.iBEN  := in_p.m_type * cben;
         (cbc,gbc,dummy1) := Spice3.Repository.Equation.Junction2(
-                vbc, 
-                in_m.m_dTemp, 
-                in_p.m_emissionCoeffR, 
+                vbc,
+                in_m.m_dTemp,
+                in_p.m_emissionCoeffR,
                 in_c.m_tSatCur);
         out_cc.iBC   := in_p.m_type * cbc / in_c.m_tBetaR;
         (cbcn,gbcn,dummy1) := Spice3.Repository.Equation.Junction2(
-                vbc, 
-                in_m.m_dTemp, 
-                in_p.m_leakBCemissionCoeff, 
+                vbc,
+                in_m.m_dTemp,
+                in_p.m_leakBCemissionCoeff,
                 in_c.m_tBCleakCur);
         out_cc.iBCN  := in_p.m_type * cbcn;
         cjbe         := cbe / in_c.m_tBetaF + cben;
@@ -11182,42 +11181,42 @@ C++} */
           captt := in_p.m_transitTimeF * (arg3 - cbe * dqbdvc) / qb;
         end if;
         (capbe,chargebe) := Spice3.Repository.Equation.JunctionCapTransTime(
-                in_c.m_tBEcap, 
-                vbe, 
-                in_c.m_tDepCapBE, 
-                in_p.m_junctionExpBE, 
-                in_c.m_tBEpot, 
-                in_c.m_tF1e, 
-                in_c.m_f2e, 
-                in_c.m_f3e, 
-                in_p.m_transitTimeF, 
-                gbe, 
+                in_c.m_tBEcap,
+                vbe,
+                in_c.m_tDepCapBE,
+                in_p.m_junctionExpBE,
+                in_c.m_tBEpot,
+                in_c.m_tF1e,
+                in_c.m_f2e,
+                in_c.m_f3e,
+                in_p.m_transitTimeF,
+                gbe,
                 cbe);
       //  out_cc.capbe := if (in_m_bInit) then 0.0 else capbe*(in_m_pVoltageValuesDot[5]-in_m_pVoltageValuesDot[6]);
         out_cc.iXX        := 0; // ? in_p.m_type * chargebe
         aux1 := in_c.m_tBCcap*in_p.m_baseFractionBCcap;
         (capbc,chargebc) := Spice3.Repository.Equation.JunctionCapTransTime(
-                aux1, 
-                vbc, 
-                in_c.m_tDepCapBC, 
-                in_p.m_junctionExpBC, 
-                in_c.m_tBCpot, 
-                in_c.m_tF1c, 
-                in_c.m_f2c, 
-                in_c.m_f3c, 
-                in_p.m_transitTimeR, 
-                gbc, 
+                aux1,
+                vbc,
+                in_c.m_tDepCapBC,
+                in_p.m_junctionExpBC,
+                in_c.m_tBCpot,
+                in_c.m_tF1c,
+                in_c.m_f2c,
+                in_c.m_f3c,
+                in_p.m_transitTimeR,
+                gbc,
                 cbc);
         //out_cc.capbc      := if (in_m_bInit) then 0.0 else capbc*(in_m_pVoltageValuesDot[5]-in_m_pVoltageValuesDot[4]);
         aux2:= in_c.m_tBCcap*(1. - in_p.m_baseFractionBCcap);
         (capbx,chargebx) := Spice3.Repository.Equation.JunctionCap(
-                aux2, 
-                vbx, 
-                in_c.m_tDepCapBC, 
-                in_p.m_junctionExpBC, 
-                in_c.m_tBCpot, 
-                in_c.m_tF1c, 
-                in_c.m_f2c, 
+                aux2,
+                vbx,
+                in_c.m_tDepCapBC,
+                in_p.m_junctionExpBC,
+                in_c.m_tBCpot,
+                in_c.m_tF1c,
+                in_c.m_f2c,
                 in_c.m_f3c);
        // out_cc.capbx      := if (in_m_bInit) then 0.0 else capbx*(in_m_pVoltageValuesDot[2]-in_m_pVoltageValuesDot[4]);
 
