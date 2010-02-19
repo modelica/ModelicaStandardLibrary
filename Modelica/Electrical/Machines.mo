@@ -64,8 +64,7 @@ package Machines "Library for electric machines"
         useSupport=false)
         annotation (Placement(transformation(extent={{90,-50},{70,-30}},
               rotation=0)));
-      Machines.Utilities.TerminalBox TerminalBox1(
-        terminalConnection="D")
+      Machines.Utilities.TerminalBox terminalBox(terminalConnection="D")
         annotation (Placement(transformation(extent={{-20,-30},{0,-10}},
               rotation=0)));
     equation
@@ -84,15 +83,15 @@ package Machines "Library for electric machines"
           points={{-1.83697e-015,20},{-1.83697e-015,17},{1.83697e-015,17},{
               1.83697e-015,10}},
           color={0,0,255}));
-      connect(TerminalBox1.plug_sn, aimc.plug_sn)  annotation (Line(
+      connect(terminalBox.plug_sn, aimc.plug_sn)   annotation (Line(
           points={{-16,-30},{-16,-30}},
           color={0,0,255},
           smooth=Smooth.None));
-      connect(TerminalBox1.plug_sp, aimc.plug_sp)  annotation (Line(
+      connect(terminalBox.plug_sp, aimc.plug_sp)   annotation (Line(
           points={{-4,-30},{-4,-30}},
           color={0,0,255},
           smooth=Smooth.None));
-      connect(TerminalBox1.plugSupply, currentQuasiRMSSensor.plug_n)
+      connect(terminalBox.plugSupply, currentQuasiRMSSensor.plug_n)
                                                                  annotation (Line(
           points={{-10,-28},{-10,-20},{-1.83697e-015,-20},{-1.83697e-015,-10}},
           color={0,0,255},
@@ -321,8 +320,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
               rotation=0)));
       Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch
-        idealCommutingSwitch(                                                        final m=m, Goff=
-            fill(5E-4, m))
+        idealCommutingSwitch(final m=m, Goff=fill(5E-4, m))
         annotation (Placement(transformation(
             origin={0,0},
             extent={{10,10},{-10,-10}},
@@ -338,18 +336,17 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         useSupport=false)
         annotation (Placement(transformation(extent={{90,-50},{70,-30}},
               rotation=0)));
-      Machines.Utilities.TerminalBox TerminalBox1(
-        terminalConnection="D")
+      Machines.Utilities.TerminalBox terminalBox(terminalConnection="D")
         annotation (Placement(transformation(extent={{-20,-30},{0,-10}},
               rotation=0)));
     equation
       connect(star.pin_n, ground.p)
         annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
-      connect(TerminalBox1.plug_sn, aimc.plug_sn)  annotation (Line(
+      connect(terminalBox.plug_sn, aimc.plug_sn)   annotation (Line(
           points={{-16,-30},{-16,-30}},
           color={0,0,255},
           smooth=Smooth.None));
-      connect(TerminalBox1.plug_sp, aimc.plug_sp)  annotation (Line(
+      connect(terminalBox.plug_sp, aimc.plug_sp)   annotation (Line(
           points={{-4,-30},{-4,-30}},
           color={0,0,255},
           smooth=Smooth.None));
@@ -377,7 +374,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           color={0,0,255},
           smooth=Smooth.None));
 
-      connect(idealCommutingSwitch.plug_p, TerminalBox1.plugSupply) annotation (
+      connect(idealCommutingSwitch.plug_p, terminalBox.plugSupply)  annotation (
           Line(
           points={{-1.83697e-015,-10},{-10,-10},{-10,-28}},
           color={0,0,255},
@@ -609,7 +606,7 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
         useSupport=false)
                     annotation (Placement(transformation(extent={{90,-50},{70,
                 -30}}, rotation=0)));
-      Machines.Utilities.TerminalBox terminalBox
+      Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y")
                                          annotation (Placement(transformation(
               extent={{-20,-30},{0,-10}}, rotation=0)));
     equation
@@ -724,7 +721,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         useSupport=false)
                     annotation (Placement(transformation(extent={{90,-50},{70,
                 -30}}, rotation=0)));
-      Machines.Utilities.TerminalBox terminalBox
+      Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y")
                                          annotation (Placement(transformation(
               extent={{-20,-30},{0,-10}}, rotation=0)));
     equation
@@ -850,7 +847,7 @@ Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
         useSupport=false)
                     annotation (Placement(transformation(extent={{90,-50},{70,
                 -30}}, rotation=0)));
-      Machines.Utilities.TerminalBox terminalBox
+      Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y")
                                          annotation (Placement(transformation(
               extent={{-20,-30},{0,-10}}, rotation=0)));
     equation
@@ -985,7 +982,7 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
             origin={-50,-40},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Machines.Utilities.TerminalBox terminalBox
+      Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y")
                                          annotation (Placement(transformation(
               extent={{-20,-30},{0,-10}}, rotation=0)));
       Modelica.Mechanics.Rotational.Components.Fixed fixed
@@ -2311,8 +2308,7 @@ even though the source's or load's starpoint are grounded; you may use a reasona
       Modelica.Electrical.Analog.Basic.Ground groundAC
         annotation (Placement(transformation(extent={{-100,-80},{-80,-60}},
               rotation=0)));
-      Modelica.Electrical.MultiPhase.Sensors.CurrentSensor
-        currentQuasiRMSSensor
+      Modelica.Electrical.MultiPhase.Sensors.CurrentSensor currentSensor(m=m)
         annotation (Placement(transformation(extent={{-80,-10},{-60,10}},
               rotation=0)));
       Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode1(m=m)
@@ -2378,7 +2374,7 @@ even though the source's or load's starpoint are grounded; you may use a reasona
         annotation (Line(points={{-20,30},{-20,50}}, color={0,0,255}));
       connect(starAC.pin_n, groundAC.p)
         annotation (Line(points={{-90,-50},{-90,-60}}, color={0,0,255}));
-      connect(source.plug_p, currentQuasiRMSSensor.plug_p)
+      connect(source.plug_p, currentSensor.plug_p)
         annotation (Line(points={{-90,-1.77636e-015},{-85,-1.77636e-015},{-85,0},
               {-80,0}},                            color={0,0,255}));
       connect(load.p, cDC1.p)
@@ -2390,8 +2386,7 @@ even though the source's or load's starpoint are grounded; you may use a reasona
       connect(star2.pin_n, cDC2.n)
         annotation (Line(points={{10,10},{20,10},{20,-70},{70,-70},{70,-30}},
             color={0,0,255}));
-      connect(transformer1.plug1, currentQuasiRMSSensor.plug_n)
-                                                        annotation (Line(
+      connect(transformer1.plug1, currentSensor.plug_n) annotation (Line(
           points={{-50,40},{-60,40},{-60,0}},
           color={0,0,255},
           smooth=Smooth.None));
