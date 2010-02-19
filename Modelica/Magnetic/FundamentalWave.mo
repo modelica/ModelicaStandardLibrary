@@ -241,7 +241,7 @@ For more details see the <a href=Modelica.Magnetic.FundamentalWave.UsersGuide.Co
 
     model AIMC_DOL
       "Direct on line start of asynchronous induction machine with squirrel cage"
-      extends Modelica.Icons.Example;
+      extends Modelica.Icons.Example2;
 
       constant Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage VsNominal=100
@@ -431,7 +431,7 @@ Simulate for 1.5 seconds and plot (versus time):
 
     model AIMS_start
       "Starting of asynchronous induction machine with slip rings"
-      extends Modelica.Icons.Example;
+      extends Modelica.Icons.Example2;
 
       constant Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage VsNominal=100
@@ -570,8 +570,9 @@ Simulate for 1.5 seconds and plot (versus time):
         annotation (Line(points={{1.83697e-015,70},{1.83697e-015,90},{-50,90}},
             color={0,0,255}));
       connect(sineVoltage.plug_p, idealCloser.plug_p)
-        annotation (Line(points={{-1.83697e-015,50},{0,48},{1.22461e-015,46},{1.83697e-015,
-              46},{1.83697e-015,40}},            color={0,0,255}));
+        annotation (Line(points={{-1.83697e-015,50},{0,48},{1.22461e-015,46},{
+              1.83697e-015,46},{1.83697e-015,40}},
+                                                 color={0,0,255}));
       connect(loadInertiaElectricalE.flange_b, quadraticLoadTorqueElectricalE.
         flange)
         annotation (Line(points={{70,-50},{80,-50}}, color={0,0,0}));
@@ -582,7 +583,8 @@ Simulate for 1.5 seconds and plot (versus time):
               30},{-7,30}}, color={255,0,255}));
       connect(idealCloser.plug_n, currentRMSsensorElectricalE.plug_p)
                                                              annotation (Line(
-            points={{-1.83697e-015,20},{-1.83697e-015,10},{30,10},{30,-1.77636e-015}},
+            points={{-1.83697e-015,20},{-1.83697e-015,10},{30,10},{30,
+              -1.77636e-015}},
             color={0,0,255}));
       connect(terminalBoxElectrical.plug_sn,             aimsE.plug_sn)
                                                                annotation (Line(
@@ -651,7 +653,7 @@ Simulate for 1.5 seconds and plot (versus time):
 
     model SMPM_Inverter
       "Starting of permanent magnet synchronous machine with inverter"
-      extends Modelica.Icons.Example;
+      extends Modelica.Icons.Example2;
 
       constant Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage VsNominal=100
@@ -798,8 +800,8 @@ Simulate for 1.5 seconds and plot (versus time):
             points={{-1.83697e-015,50},{0,50},{0,40},{1.83697e-015,40}},
                                                                       color={0,0,
               255}));
-      connect(rotorAngleM.plug_n, smpmM.plug_sn)  annotation (Line(points={{26,-3.55271e-015},
-              {26,6},{-16,6},{-16,0}},                       color={0,0,255}));
+      connect(rotorAngleM.plug_n, smpmM.plug_sn)  annotation (Line(points={{26,
+              -3.55271e-015},{26,6},{-16,6},{-16,0}},        color={0,0,255}));
       connect(rotorAngleM.plug_p, smpmM.plug_sp)  annotation (Line(points={{14,0},{
               10,0},{6,1.47798e-015},{6,0},{-4,0}},
             color={0,0,255}));
@@ -863,7 +865,7 @@ and accelerate the inertias.</p>
 
     model SMEE_Gen
       "Electrical excited synchronous machine operating as generator"
-      extends Modelica.Icons.Example;
+      extends Modelica.Icons.Example2;
 
       constant Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage VsNominal=100
@@ -1075,7 +1077,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
 
     model SMR_Inverter
       "Starting of synchronous reluctance machine with inverter"
-      extends Modelica.Icons.Example;
+      extends Modelica.Icons.Example2;
 
       constant Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage VsNominal=100
@@ -3004,7 +3006,7 @@ according to the following figure.
               Text(
                 extent={{0,100},{0,140}},
                 lineColor={0,0,255},
-                textString=                          "%name")}),
+                textString =                         "%name")}),
           Documentation(info="<html>
 <p>
 <img src=\"../Images/Magnetic/FundamentalWave/Machines/Components/rotorcage.png\">
@@ -3645,6 +3647,7 @@ Negative magnetic <a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Interfa
 
     partial model PartialBasicInductionMachine
       "Partial model for induction machine"
+      extends Modelica.Electrical.Machines.Icons.FundamentalWaveMachineIcon;
       constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
       constant Integer m=3 "Number of phases";
 
@@ -3849,32 +3852,6 @@ Partial model for induction machine models
                                       Line(points={{-50,100},{-20,100},{-20,70}},
                 color={0,0,255}), Line(points={{50,100},{20,100},{20,70}},
                 color={0,0,255}),
-            Rectangle(
-              extent={{-40,60},{80,-60}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={255,128,0}),
-            Rectangle(
-              extent={{-40,70},{40,50}},
-              lineColor={95,95,95},
-              fillColor={95,95,95},
-              fillPattern=FillPattern.Solid),
-            Polygon(
-              points={{-50,-90},{-40,-90},{-10,-20},{40,-20},{70,-90},{80,-90},{80,-100},
-                  {-50,-100},{-50,-90}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Rectangle(
-              extent={{-40,60},{-60,-60}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={128,128,128}),
-            Rectangle(
-              extent={{80,10},{100,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={95,95,95}),
             Text(
               extent={{-150,-120},{150,-180}},
               lineColor={0,0,255},
@@ -4122,7 +4099,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <tr><td>Version</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
 </thead>
 <tbody>
-
+<tr><td>1.2.1</td>  <td>2010-02-19</td>  <td>A. Haumer</td>  <td>Machine Icon based on Modelica.Electrical.Machines.Icons</td></tr>
 <tr><td>1.2.0</td>  <td>2010-02-17</td>  <td>C. Kral</td>  <td>Renamed Machines to BasicMachines and updated references to Electrical.Machines</td></tr>
 <tr><td>1.1.0</td>  <td>2010-02-15</td>  <td>C. Kral</td>  <td>Added thermal connectors and temperature dependent resistances</td></tr>
 <tr><td>1.0.0</td>  <td>2010-02-04</td>  <td>C. Kral</td>  <td>Integrated the libray into the MSL</td></tr>

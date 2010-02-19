@@ -1,7 +1,6 @@
 within Modelica;
 package Icons "Library of icons"
 
-
   partial model Info "Icon for an information class"
 
     annotation (
@@ -160,6 +159,34 @@ i.e. a package containing executable demo models.
 </p>
 </html>"));
   end Example;
+
+  partial model Example2 "Icon for an example model"
+
+    annotation (             Icon(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={2,2}), graphics={
+          Text(
+            extent={{0,120},{0,80}},
+            lineColor={255,0,0},
+            textString="%name"),
+          Ellipse(
+            extent={{-80,80},{80,-80}},
+            lineColor={95,95,95},
+            fillColor={135,135,135},
+            fillPattern=FillPattern.Solid),
+          Polygon(
+            points={{-40,66},{76,0},{-40,-66},{-40,66}},
+            lineColor={95,95,95},
+            smooth=Smooth.None,
+            fillPattern=FillPattern.Solid,
+            fillColor={215,215,215})}),
+      Documentation(info="<html>
+<p>
+This icon is designed for an <b>Example</b>, i.e. an executable demo model.
+</p>
+</html>"));
+  end Example2;
 
   partial function Function "Icon for a function"
 

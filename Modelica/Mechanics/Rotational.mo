@@ -427,9 +427,7 @@ end UsersGuide;
 
     model First "First example: simple drive train"
       import SI = Modelica.SIunits;
-
-      extends Modelica.Icons.Example;
-
+      extends Modelica.Icons.Example2;
       parameter Modelica.SIunits.Torque amplitude=10
         "Amplitude of driving torque";
       parameter SI.Frequency freqHz=5 "Frequency of driving torque";
@@ -514,9 +512,7 @@ in the housing on one side via component Fixed.</p>
     model FirstGrounded
       "First example: simple drive train with grounded elments"
       import SI = Modelica.SIunits;
-
-      extends Modelica.Icons.Example;
-
+      extends Modelica.Icons.Example2;
       parameter Modelica.SIunits.Torque amplitude=10
         "Amplitude of driving torque";
       parameter SI.Frequency freqHz=5 "Frequency of driving torque";
@@ -596,11 +592,8 @@ in the housing on one side via component Fixed.</p>
     model Friction "Drive train with clutch and brake"
       import Modelica.Constants.pi;
       import SI = Modelica.SIunits;
-
-      extends Modelica.Icons.Example;
-
+      extends Modelica.Icons.Example2;
       parameter SI.Time startTime=0.5 "Start time of step";
-
       output SI.Torque tMotor = torque.tau "Driving torque of inertia3";
       output SI.Torque tClutch = clutch.tau "Friction torque of clutch";
       output SI.Torque tBrake = brake.tau "Friction torque of brake";
@@ -727,11 +720,8 @@ values (defined already in the model):</p>
     end Friction;
 
     model CoupledClutches "Drive train with 3 dynamically coupled clutches"
-
       import SI = Modelica.SIunits;
-
-      extends Modelica.Icons.Example;
-
+      extends Modelica.Icons.Example2;
       parameter SI.Frequency freqHz=0.2
         "Frequency of sine function to invoke clutch1";
       parameter SI.Time T2=0.4 "Time when clutch2 is invoked";
@@ -856,10 +846,8 @@ locked, forward sliding.</p>
 
     model LossyGearDemo1
       "Example to show that gear efficiency may lead to stuck motion"
-
       import SI = Modelica.SIunits;
-
-      extends Modelica.Icons.Example;
+      extends Modelica.Icons.Example2;
       SI.Power PowerLoss=
         gear.flange_a.tau*der(gear.flange_a.phi) + gear.flange_b.tau*der(gear.flange_b.phi)
         "Power lost in the gear";
@@ -941,10 +929,8 @@ gear.mode  :  1 = forward rolling
 
     model LossyGearDemo2
       "Example to show combination of LossyGear and BearingFriction"
-
       import SI = Modelica.SIunits;
-
-      extends Modelica.Icons.Example;
+      extends Modelica.Icons.Example2;
       SI.Power PowerLoss=
         gear.flange_a.tau*der(gear.flange_a.phi) + gear.flange_b.tau*der(gear.flange_b.phi)
         "Power lost in the gear";
@@ -1043,7 +1029,7 @@ as component LossyGear includes the functionality of component BearingFriction
     end LossyGearDemo2;
 
     model ElasticBearing "Example to show possible usage of support flange"
-      extends Modelica.Icons.Example;
+      extends Modelica.Icons.Example2;
       Rotational.Components.Inertia shaft(        phi(fixed=true, start=0), w(
             fixed=true),
         J=1)
@@ -1119,7 +1105,7 @@ Simulate for about 10 seconds and plot the angular velocities of the inertias <t
     end ElasticBearing;
 
     model Backlash "Example to demonstrate backlash"
-      extends Modelica.Icons.Example;
+      extends Modelica.Icons.Example2;
       Rotational.Components.Fixed fixed1
         annotation (Placement(transformation(extent={{-50,50},{-30,70}})));
       Rotational.Components.SpringDamper springDamper(c=20E3, d=50,
@@ -1179,7 +1165,7 @@ also that the damping torque does not lead to unphysical pulling torques
     end Backlash;
 
     model RollingWheel "Demonstrate coupling Rotational - Translational"
-      extends Modelica.Icons.Example;
+      extends Modelica.Icons.Example2;
       Rotational.Components.IdealRollingWheel idealRollingWheel(radius=1)
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
       Rotational.Components.Inertia inertia(J=1)

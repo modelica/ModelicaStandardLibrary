@@ -9,7 +9,7 @@ package Translational
     extends Modelica.Icons.Library;
 
     model SignConvention "Examples for the used sign conventions."
-      extends Modelica.Icons.Example;
+      extends Modelica.Icons.Example2;
       Translational.Components.Mass mass1(L=1,
         s(fixed=true),
         v(fixed=true),
@@ -114,7 +114,7 @@ the two other examples).
 
     model InitialConditions "Setting of initial conditions"
 
-      extends Modelica.Icons.Example;
+      extends Modelica.Icons.Example2;
 
       Translational.Components.Fixed fixed2(        s0=1)
                                        annotation (Placement(transformation(
@@ -235,7 +235,7 @@ combination). In this case the system is not at rest.
 
     model WhyArrows "Use of arrows in Mechanics.Translational"
 
-      extends Modelica.Icons.Example;
+      extends Modelica.Icons.Example2;
 
       Translational.Components.Fixed fixed
                                  annotation (Placement(transformation(extent={{
@@ -357,7 +357,7 @@ problems.
 
     model Accelerate "Use of model accelerate."
 
-      extends Modelica.Icons.Example;
+      extends Modelica.Icons.Example2;
       Translational.Sources.Accelerate accelerate
                                            annotation (Placement(transformation(
               extent={{-40,20},{-20,40}}, rotation=0)));
@@ -389,7 +389,7 @@ with a predefined acceleration.
 
     model Damper "Use of damper models."
 
-      extends Modelica.Icons.Example;
+      extends Modelica.Icons.Example2;
 
       Translational.Components.Mass mass1(
         L=1,
@@ -465,7 +465,7 @@ Demonstrate usage of damper components in different variants.
 
     model Oscillator "Oscillator demonstrates the use of initial conditions."
 
-      extends Modelica.Icons.Example;
+      extends Modelica.Icons.Example2;
 
       Translational.Components.Mass mass1(
         L=1,
@@ -566,7 +566,7 @@ If damping is added the amplitudes are bounded.
 
     model Sensors "Sensors for translational systems."
 
-      extends Modelica.Icons.Example;
+      extends Modelica.Icons.Example2;
 
       Translational.Sensors.ForceSensor forceSensor  annotation (Placement(
             transformation(extent={{-20,40},{0,60}}, rotation=0)));
@@ -646,7 +646,7 @@ to see the difference.
     end Sensors;
 
     model Friction "Use of model Stop"
-      extends Modelica.Icons.Example;
+      extends Modelica.Icons.Example2;
       Modelica.Mechanics.Translational.Components.MassWithStopAndFriction stop1
         (                                      L=1,
         s(fixed=true),
@@ -771,7 +771,7 @@ to see the difference.
 
     model PreLoad "Preload of a spool using ElastoGap models."
 
-      extends Modelica.Icons.Example;
+      extends Modelica.Icons.Example2;
 
       Translational.Components.ElastoGap innerContactA(
         c=1000e3,
@@ -952,7 +952,7 @@ Spool position s as a function of working force f.
     end PreLoad;
 
     model ElastoGap "Demonstrate usgae of ElastoGap"
-    extends Modelica.Icons.Example;
+    extends Modelica.Icons.Example2;
       Components.Fixed fixed
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
       Components.Rod rod1(L=2)
@@ -1054,7 +1054,7 @@ mass2 moves freely as long as -0.5 m &lt; s &lt; +0.5 m.
     end ElastoGap;
 
     model Brake "Demonstrate braking of a translational moving mass"
-      extends Modelica.Icons.Example;
+      extends Modelica.Icons.Example2;
 
       Modelica.Mechanics.Translational.Components.Brake brake(fn_max=1, useSupport=
             false)

@@ -7,7 +7,7 @@ package SinglePhase "Single phase AC components"
 
     model Ground "Electrical ground"
 
-      Interfaces.PositivePin pin 
+      Interfaces.PositivePin pin
         annotation (Placement(transformation(extent={{-10,90},{10,110}}, rotation=0)));
     equation
       pin.v = Complex(0);
@@ -238,7 +238,7 @@ The Inductance <i>L</i> is allowed to be positive, zero, or negative.
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
       Modelica.SIunits.Resistance R_actual
         "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
-      Modelica.Blocks.Interfaces.RealInput R_ref 
+      Modelica.Blocks.Interfaces.RealInput R_ref
         annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
@@ -311,7 +311,7 @@ A linear temperature dependency of the resistance for an enabled heat port is al
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
       Modelica.SIunits.Conductance G_actual
         "Conductance = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
-      Modelica.Blocks.Interfaces.RealInput G_ref 
+      Modelica.Blocks.Interfaces.RealInput G_ref
         annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
@@ -365,7 +365,7 @@ A linear temperature dependency of the resistance for an enabled heat port is al
     model VariableCapacitor "Singlephase variable capacitor"
       extends Interfaces.OnePort;
       import Modelica.Constants.j;
-      Modelica.Blocks.Interfaces.RealInput C 
+      Modelica.Blocks.Interfaces.RealInput C
         annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
@@ -416,7 +416,7 @@ The abstraction of a variable capacitor at quasi stationary operation assumes:<b
     model VariableInductor "Singlephase variable inductor"
       extends Interfaces.OnePort;
       import Modelica.Constants.j;
-      Modelica.Blocks.Interfaces.RealInput L 
+      Modelica.Blocks.Interfaces.RealInput L
         annotation (Placement(transformation(
             origin={0,108},
             extent={{-20,-20},{20,20}},
@@ -672,10 +672,10 @@ Additionally the reference angle is specified in the connector. The time derivat
       Modelica.SIunits.ComplexVoltage v;
       Modelica.SIunits.ComplexCurrent i;
       Modelica.SIunits.AngularVelocity omega = der(pin_p.reference.gamma);
-      PositivePin pin_p "Positive pin" 
+      PositivePin pin_p "Positive pin"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
                0)));
-      NegativePin pin_n "Negative pin" 
+      NegativePin pin_n "Negative pin"
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
     equation
       Connections.branch(pin_p.reference, pin_n.reference);
@@ -724,7 +724,7 @@ This model is intended to be used with textual representation of user models.
     partial model AbsoluteSensor "Partial potential sensor"
       extends Modelica.Icons.RotationalSensor;
       Modelica.SIunits.AngularVelocity omega = der(pin.reference.gamma);
-      PositivePin pin "Pin" 
+      PositivePin pin "Pin"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
                0)));
       Modelica.ComplexBlocks.Interfaces.ComplexOutput y annotation (Placement(transformation(extent=
@@ -923,19 +923,19 @@ This sensor can be used to measure the complex current.
 
     model PowerSensor "Power sensor"
       import Modelica.ComplexMath.conj;
-      Interfaces.PositivePin currentP 
+      Interfaces.PositivePin currentP
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
                0)));
-      Interfaces.NegativePin currentN 
+      Interfaces.NegativePin currentN
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
-      Interfaces.PositivePin voltageP 
+      Interfaces.PositivePin voltageP
         annotation (Placement(transformation(extent={{-10,90},{10,110}}, rotation=0)));
-      Interfaces.NegativePin voltageN 
+      Interfaces.NegativePin voltageN
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}}, rotation=
                0)));
       output Modelica.SIunits.ComplexCurrent i;
       output Modelica.SIunits.ComplexVoltage v;
-      Modelica.ComplexBlocks.Interfaces.ComplexOutput y 
+      Modelica.ComplexBlocks.Interfaces.ComplexOutput y
         annotation (Placement(transformation(
             origin={-80,-110},
             extent={{-10,-10},{10,10}},
@@ -1074,12 +1074,12 @@ This is a constant voltage source, specifying the complex voltage by the RMS vol
 
     model VariableVoltageSource "Variable AC voltage"
       extends Interfaces.Source;
-      Modelica.Blocks.Interfaces.RealInput f 
+      Modelica.Blocks.Interfaces.RealInput f
         annotation (Placement(transformation(
             origin={40,100},
             extent={{-20,-20},{20,20}},
             rotation=270)));
-      Modelica.ComplexBlocks.Interfaces.ComplexInput V 
+      Modelica.ComplexBlocks.Interfaces.ComplexInput V
         annotation (Placement(transformation(
             origin={-40,100},
             extent={{-20,-20},{20,20}},
@@ -1150,12 +1150,12 @@ This is a constant current source, specifying the complex current by the RMS cur
 
     model VariableCurrentSource "Variable AC current"
       extends Interfaces.Source;
-      Modelica.Blocks.Interfaces.RealInput f 
+      Modelica.Blocks.Interfaces.RealInput f
         annotation (Placement(transformation(
             origin={40,100},
             extent={{-20,-20},{20,20}},
             rotation=270)));
-      Modelica.ComplexBlocks.Interfaces.ComplexInput I 
+      Modelica.ComplexBlocks.Interfaces.ComplexInput I
         annotation (Placement(transformation(
             origin={-40,100},
             extent={{-20,-20},{20,20}},

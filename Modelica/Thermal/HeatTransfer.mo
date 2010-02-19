@@ -10,7 +10,7 @@ package HeatTransfer
     extends Modelica.Icons.Library2;
 
     model TwoMasses "Simple conduction demo"
-      extends Modelica.Icons.Example;
+      extends Modelica.Icons.Example2;
       parameter Modelica.SIunits.Temperature T_final_K(fixed=false)
         "Projected final temperature";
       HeatTransfer.Components.HeatCapacitor mass1(
@@ -59,7 +59,7 @@ Tsensor1.T, Tsensor2.T, T_final_degC
     end TwoMasses;
 
     model ControlledTemperature "Control temperature of a resistor"
-      extends Modelica.Icons.Example;
+      extends Modelica.Icons.Example2;
       parameter Modelica.SIunits.Temperature TAmb(displayUnit="degC") = 293.15
         "Ambient Temperature";
       parameter Modelica.SIunits.TemperatureDifference TDif = 2
@@ -163,7 +163,7 @@ An approppriate simulating time would be 10 seconds.
     end ControlledTemperature;
 
     model Motor "Second order thermal model of a motor"
-      extends Modelica.Icons.Example;
+      extends Modelica.Icons.Example2;
       parameter Modelica.SIunits.Temperature TAmb(displayUnit="degC") = 293.15
         "Ambient temperature";
 

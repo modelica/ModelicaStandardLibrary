@@ -7,7 +7,7 @@ extends Modelica.Icons.Library2;
     "Library of examples to demonstrate the usage of package Blocks"
 
     model TestConversionBlock "Test the conversion blocks"
-      extends Modelica.Icons.Example;
+      extends Modelica.Icons.Example2;
       Modelica.Blocks.Sources.Ramp len(duration=1, offset=1E-6)
         annotation (Placement(transformation(extent={{-80,10},{-60,30}}, rotation=0)));
       Modelica.Blocks.Sources.Ramp phi(height=4*Modelica.Constants.pi, duration=1)
