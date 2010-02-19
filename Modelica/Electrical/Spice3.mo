@@ -53,7 +53,6 @@ extends Modelica.Icons.Library2;
   class Spicenetlist "SPICE3 netlists"
 
     annotation (Documentation(info="<html>
-<p>dw </p>
 <p><h4><font color=\"#008000\">Translation of SPICE3 netlists to Modelica </font></h4></p>
 <p>Since SPICE3 netlists are avaliable for nearly every electrical circuit a desirable feature would be to translate SPICE3 netlists to Modelica. With the help of the example of an inverter circuits a possible way of the translation will be explained.</p>
 <p>
