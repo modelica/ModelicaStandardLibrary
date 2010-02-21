@@ -1387,7 +1387,7 @@ Grounding of the complex magnetic potential. Each magnetic circuit has to be gro
             Text(
               extent={{0,60},{0,100}},
               lineColor={255,128,0},
-              textString =                         "%name"),
+              textString=                          "%name"),
             Text(
               extent={{0,-70},{0,-110}},
               lineColor={0,0,0},
@@ -1699,7 +1699,7 @@ The voltages <img src=\"../Images/Magnetic/FundamentalWave/v_k.png\"> induced in
             Text(
               extent={{0,60},{0,100}},
               lineColor={255,128,0},
-              textString =                         "%name"),
+              textString=                          "%name"),
             Rectangle(
               extent={{-100,40},{100,-40}},
               lineColor={255,255,255},
@@ -1736,7 +1736,7 @@ This is a simple idle running branch.
             Text(
               extent={{0,60},{0,100}},
               lineColor={255,128,0},
-              textString =                         "%name"),
+              textString=                          "%name"),
             Rectangle(
               extent={{-100,40},{100,-40}},
               lineColor={255,255,255},
@@ -1786,10 +1786,10 @@ located at <a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.Compo
 
         parameter Modelica.SIunits.Inductance Lm(start=3*sqrt(1 - 0.0667)/(2*pi*fsNominal))
           "Main field inductance"
-           annotation(Dialog(group="Nominal resistances and inductances"));
+           annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lrsigma(start=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal))
           "Rotor leakage inductance w.r.t. stator side"
-           annotation(Dialog(group="Nominal resistances and inductances"));
+           annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Resistance Rr(start=0.04)
           "Rotor resistance w.r.t. stator side"
            annotation(Dialog(tab="Nominal resistances and inductances"));
@@ -3231,7 +3231,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
               Text(
                 extent={{0,100},{0,140}},
                 lineColor={0,0,255},
-                textString =                         "%name")}),
+                textString=                          "%name")}),
           Documentation(info="<html>
 
 <p>
