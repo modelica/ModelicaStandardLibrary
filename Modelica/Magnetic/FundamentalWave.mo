@@ -1732,7 +1732,7 @@ This is a simple idle running branch.
             Text(
               extent={{0,60},{0,100}},
               lineColor={255,128,0},
-              textString =                         "%name"),
+              textString=                          "%name"),
             Rectangle(
               extent={{-100,40},{100,-40}},
               lineColor={255,255,255},
@@ -1882,7 +1882,7 @@ Resistances and stray inductances of the machine refer to the stator phases. The
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter
           Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
-          alpha20r(                                                                            start=0)
+          alpha20r(start=0)
           "Temperature coefficient of rotor resistance at 20 degC"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Temperature TrOperational(start=293.15)
@@ -1901,6 +1901,10 @@ Resistances and stray inductances of the machine refer to the stator phases. The
           (2*pi*fsNominal*Lm)/sqrt(Rs^2+(2*pi*fsNominal*(Lm+Lssigma))^2)
           "Locked rotor voltage per phase"
           annotation(Dialog(enable=not useTurnsRatio));
+        output Modelica.SIunits.Voltage vr[m] = plug_rp.pin.v - plug_rn.pin.v
+          "Rotor instantaneous voltages";
+        output Modelica.SIunits.Current ir[m](each stateSelect=StateSelect.prefer) = plug_rp.pin.i
+          "Rotor instantaneous currents";
 
       protected
         final parameter Real internalTurnsRatio=if useTurnsRatio then TurnsRatio else
@@ -2920,8 +2924,7 @@ according to the following figure.
           "Reference temperature of winding";
         parameter
           Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
-          alpha20(                                                                            start=0)
-          "Temperature coefficient of winding at 20 degC";
+          alpha20(start=0) "Temperature coefficient of winding at 20 degC";
         final parameter Modelica.SIunits.LinearTemperatureCoefficient alphaRef=
           Modelica.Electrical.Machines.Thermal.convertAlpha(alpha20,TRef,293.15);
         parameter Modelica.SIunits.Temperature TOperational(start=293.15)
@@ -2931,7 +2934,8 @@ according to the following figure.
         parameter Modelica.SIunits.Inductance Lsigma "Cage stray inductance";
         parameter Real effectiveTurns = 1 "Effective number of turns";
 
-        Modelica.SIunits.Current i[m] "Cage currents";
+        Modelica.SIunits.Current i[m](each stateSelect=StateSelect.prefer)
+          "Cage currents";
 
         Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
           winding(
@@ -3054,7 +3058,7 @@ according to the following figure.
               Text(
                 extent={{0,100},{0,140}},
                 lineColor={0,0,255},
-                textString =                         "%name")}),
+                textString=                          "%name")}),
           Documentation(info="<html>
 <p>
 <img src=\"../Images/Magnetic/FundamentalWave/Machines/Components/rotorcage.png\">
@@ -3088,8 +3092,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
           "Reference temperature of winding";
         parameter
           Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
-          alpha20(                                                                            start=0)
-          "Temperature coefficient of winding at 20 degC";
+          alpha20(start=0) "Temperature coefficient of winding at 20 degC";
         final parameter Modelica.SIunits.LinearTemperatureCoefficient alphaRef=
           Modelica.Electrical.Machines.Thermal.convertAlpha(alpha20,TRef,293.15);
         parameter Modelica.SIunits.Temperature TOperational(start=293.15)
@@ -3100,7 +3103,9 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
           Lsigma(d(start=1), q(start=1)) "Salient cage stray inductance";
         parameter Real effectiveTurns = 1 "Effective number of turns";
 
-        Modelica.Magnetic.FundamentalWave.Types.SalientCurrent i "Cage current";
+        Modelica.Magnetic.FundamentalWave.Types.SalientCurrent i(
+          d(stateSelect=StateSelect.prefer), q(stateSelect=StateSelect.prefer))
+          "Cage current";
 
         Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
           winding(
@@ -3222,7 +3227,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
               Text(
                 extent={{0,100},{0,140}},
                 lineColor={0,0,255},
-                textString =                         "%name")}),
+                textString=                          "%name")}),
           Documentation(info="<html>
 
 <p>
@@ -3843,6 +3848,7 @@ This model is mainly used to extend from in order build more complex - equation 
         "Stator instantaneous voltages";
       output Modelica.SIunits.Current is[m] = plug_sp.pin.i
         "Stator instantaneous currents";
+      output Modelica.SIunits.Current is0(stateSelect=StateSelect.prefer) = 1/m*sum(is);
 
       Modelica.Mechanics.Rotational.Interfaces.Flange_a flange "Shaft"
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
