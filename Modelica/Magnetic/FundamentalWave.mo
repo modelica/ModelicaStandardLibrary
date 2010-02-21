@@ -1125,12 +1125,12 @@ and accelerate the inertias.</p>
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={0,30})));
-      Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxM
+      Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxM(
+          terminalConnection="Y")
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
                                                                        rotation=0)));
       Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited
         smeeM(
-        phiMechanical(start=-(Modelica.Constants.pi + Modelica.SIunits.Conversions.from_deg(gamma0))/p),
         Rs=Rs,
         Lssigma=Lssigma,
         Lmd=Lmd,
@@ -1141,7 +1141,9 @@ and accelerate the inertias.</p>
         Rrq=Rrq,
         alpha20s(displayUnit="1/K"),
         alpha20r(displayUnit="1/K"),
-        alpha20e(displayUnit="1/K"))
+        alpha20e(displayUnit="1/K"),
+        phiMechanical(start=-(Modelica.Constants.pi +
+              Modelica.SIunits.Conversions.from_deg(gamma0))/p, fixed=true))
         annotation (Placement(transformation(extent={{-10,-30},{10,-10}},
                                                                       rotation=0)));
       Modelica.Electrical.Analog.Sources.RampCurrent rampCurrentM(
@@ -1175,11 +1177,11 @@ and accelerate the inertias.</p>
             extent={{-10,10},{10,-10}},
             rotation=270,
             origin={-60,30})));
-      Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxE
+      Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxE(
+          terminalConnection="Y")
         annotation (Placement(transformation(extent={{-10,-70},{10,-50}},rotation=0)));
       Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited
         smeeE(
-        phiMechanical(start=-(Modelica.Constants.pi + Modelica.SIunits.Conversions.from_deg(gamma0))/p),
         Rs=Rs,
         Lssigma=Lssigma,
         Lmd=Lmd,
@@ -1191,7 +1193,9 @@ and accelerate the inertias.</p>
         Rrq=Rrq,
         alpha20s(displayUnit="1/K"),
         alpha20r(displayUnit="1/K"),
-        alpha20e(displayUnit="1/K"))
+        alpha20e(displayUnit="1/K"),
+        phiMechanical(start=-(Modelica.Constants.pi +
+              Modelica.SIunits.Conversions.from_deg(gamma0))/p, fixed=true))
         annotation (Placement(transformation(extent={{-10,-90},{10,-70}},rotation=0)));
       Modelica.Electrical.Analog.Sources.RampCurrent rampCurrentE(
         duration=0.1,
@@ -1383,7 +1387,7 @@ Grounding of the complex magnetic potential. Each magnetic circuit has to be gro
             Text(
               extent={{0,60},{0,100}},
               lineColor={255,128,0},
-              textString=                          "%name"),
+              textString =                         "%name"),
             Text(
               extent={{0,-70},{0,-110}},
               lineColor={0,0,0},
@@ -1695,7 +1699,7 @@ The voltages <img src=\"../Images/Magnetic/FundamentalWave/v_k.png\"> induced in
             Text(
               extent={{0,60},{0,100}},
               lineColor={255,128,0},
-              textString=                          "%name"),
+              textString =                         "%name"),
             Rectangle(
               extent={{-100,40},{100,-40}},
               lineColor={255,255,255},
@@ -1732,7 +1736,7 @@ This is a simple idle running branch.
             Text(
               extent={{0,60},{0,100}},
               lineColor={255,128,0},
-              textString=                          "%name"),
+              textString =                         "%name"),
             Rectangle(
               extent={{-100,40},{100,-40}},
               lineColor={255,255,255},
@@ -2474,8 +2478,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
           "Reference temperature of winding";
         parameter
           Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
-          alpha20(                                                                            start=0)
-          "Temperature coefficient of winding at 20 degC";
+          alpha20(start=0) "Temperature coefficient of winding at 20 degC";
         final parameter Modelica.SIunits.LinearTemperatureCoefficient alphaRef=
           Modelica.Electrical.Machines.Thermal.convertAlpha(alpha20,TRef,293.15);
         parameter Modelica.SIunits.Temperature TOperational(start=293.15)
@@ -2613,8 +2616,7 @@ The single phase winding consists of a
           "Reference temperature of winding";
         parameter
           Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
-          alpha20(                                                                            start=0)
-          "Temperature coefficient of winding at 20 degC";
+          alpha20(start=0) "Temperature coefficient of winding at 20 degC";
         final parameter Modelica.SIunits.LinearTemperatureCoefficient alphaRef=
           Modelica.Electrical.Machines.Thermal.convertAlpha(alpha20,TRef,293.15);
         parameter Modelica.SIunits.Temperature TOperational(start=293.15)
@@ -2744,14 +2746,15 @@ The symmetrical multi phase winding consists of a symmetrical winding
 
         parameter Integer p "Number of pole pairs";
         parameter Modelica.Magnetic.FundamentalWave.Types.SalientInductance L0(
-            d(start=1), q(start=1))
+          d(start=1), q(start=1))
           "Salient inductance of a single unchorded coil w.r.t. the fundamental wave";
         final parameter
-          Modelica.Magnetic.FundamentalWave.Types.SalientReluctance R_m(d=1/L0.d,
-            q=1/L0.q) "Reluctance of the air gap model";
+          Modelica.Magnetic.FundamentalWave.Types.SalientReluctance R_m(
+          d=1/L0.d, q=1/L0.q) "Reluctance of the air gap model";
 
         // Stator magnetic quantities
-        Modelica.SIunits.ComplexMagneticPotentialDifference V_mss
+        Modelica.SIunits.ComplexMagneticPotentialDifference V_mss(
+          re(stateSelect=StateSelect.avoid), im(stateSelect=StateSelect.avoid))
           "Complex magnetic potential difference of stator w.r.t. stator reference frame";
         Modelica.SIunits.ComplexMagneticPotentialDifference V_msr
           "Complex magnetic potential difference of stator w.r.t. rotor reference frame";
@@ -2760,7 +2763,8 @@ The symmetrical multi phase winding consists of a symmetrical winding
         // Modelica.SIunits.ComplexMagneticPotentialDifference V_mrs
         //   "Complex magnetic potential difference of rotor w.r.t. stator reference frame";
 
-        Modelica.SIunits.ComplexMagneticFlux Phi_ss
+        Modelica.SIunits.ComplexMagneticFlux Phi_ss(
+          re(stateSelect=StateSelect.avoid), im(stateSelect=StateSelect.avoid))
           "Complex magnetic potential difference of stator w.r.t. stator reference frame";
         Modelica.SIunits.ComplexMagneticFlux Phi_sr
           "Complex magnetic potential difference of stator w.r.t. rotor reference frame";
@@ -3246,12 +3250,24 @@ The salient cage model is a two axis model with two phases. The electro magnetic
       end SaliencyCageWinding;
 
       model StateSelectorCurrent "Select transformed currents as states"
-        parameter Integer m=3 "Number of phases";
-        parameter Integer p "Number of polepairs";
-        Modelica.SIunits.Current i[m] = plug_p.pin.i;
-        Modelica.SIunits.Angle gamma = p*(flange.phi - support.phi);
-        Modelica.SIunits.Current i0(stateSelect=StateSelect.prefer);
-
+        import Modelica.Constants.pi;
+        parameter Integer m(final min=3)=3 "Number of phases";
+        parameter Integer p "Number of pole pairs";
+        final parameter Integer np = integer((m-1)/2) "Number of space phasors";
+        Modelica.SIunits.Current i[m](each stateSelect=StateSelect.avoid) = plug_p.pin.i;
+        Modelica.SIunits.Current i0(stateSelect=StateSelect.prefer) = 1/sqrt(m)*sum(i)
+          "Zero system";
+        Modelica.SIunits.Current i00(stateSelect=StateSelect.prefer)=
+          1/sqrt(m)*sum({i[2*l-1] - i[2*l] for l in 1:integer(m/2)}) if m==2*integer(m/2)
+          "Second zero system, if present (m even)";
+        Modelica.SIunits.ComplexCurrent iss[np](
+          each re(stateSelect=StateSelect.avoid), each im(stateSelect=StateSelect.avoid))
+          "Current space phasors w.r.t. stator fixed frame";
+        Modelica.SIunits.ComplexCurrent isr[np](
+          each re(stateSelect=StateSelect.prefer), each im(stateSelect=StateSelect.prefer))
+          "Current space phasors w.r.t. rotor fixed frame";
+        Modelica.SIunits.Angle gamma = p*(flange.phi - support.phi)
+          "Electrical angle between rotor and stator";
         Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
           annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
         Electrical.MultiPhase.Interfaces.NegativePlug plug_n(final m=m)
@@ -3266,14 +3282,23 @@ The salient cage model is a two axis model with two phases. The electro magnetic
         plug_p.pin.v - plug_n.pin.v = zeros(m);
         flange.tau = 0;
         support.tau = 0;
-      //transformations
-        i0 = 1/m*sum(i);
+      //space phasor transformations
+        for k in 1:np loop
+          iss[k].re = 1/sqrt(m)*sum({cos(k*(l-1)*2*pi/m)*i[l] for l in 1:m});
+          iss[k].im = 1/sqrt(m)*sum({sin(k*(l-1)*2*pi/m)*i[l] for l in 1:m});
+          isr[k] = iss[k]*Modelica.ComplexMath.conj(Modelica.ComplexMath.exp(Complex(0,gamma)));
+        end for;
         annotation (Diagram(graphics), Icon(graphics={Rectangle(extent={{-90,90},{90,-90}},
                   lineColor={0,0,255}), Text(
                 extent={{-80,80},{80,-80}},
                 lineColor={0,0,255},
                 textString="S")}),
           Documentation(info="<html>
+<p>
+Transforms instantaneous currents into space phasors and zero system currents,
+setting stateSelect modifiers in order to choose states with small derivatives,
+i.e. w.r.t. rotor fixed frame.
+</p>
 </html>"));
       end StateSelectorCurrent;
     annotation (Documentation(info="<html>
@@ -3854,7 +3879,7 @@ This model is mainly used to extend from in order build more complex - equation 
          annotation(Dialog(tab="Nominal resistances and inductances"));
       parameter
         Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
-        alpha20s(                                                                            start=0)
+        alpha20s(start=0)
         "Temperature coefficient of stator resistance at 20 degC"
          annotation(Dialog(tab="Nominal resistances and inductances"));
       parameter Real effectiveStatorTurns = 1
@@ -3995,10 +4020,9 @@ This model is mainly used to extend from in order build more complex - equation 
           color={255,128,0},
           smooth=Smooth.None));
       connect(statorWinding.port_n,airGap. port_sn) annotation (Line(points={{-10,20},
-              {-10,17.5},{-10,10},{-10,10}},                     color={255,128,0}));
+              {-10,10},{-10,10}},                                color={255,128,0}));
       connect(statorWinding.port_p,airGap. port_sp) annotation (Line(points={{10,20},
-              {10,17.5},{10,10},{10,10}},
-                                        color={255,128,0}));
+              {10,10},{10,10}},         color={255,128,0}));
       connect(airGap.flange_a, inertiaRotor.flange_a) annotation (Line(
           points={{10,-1.83697e-015},{40,-1.83697e-015},{40,1.22465e-015},{70,
               1.22465e-015}},
