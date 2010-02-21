@@ -3351,7 +3351,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           "Reference temperture of excitation resistance"
            annotation(Dialog(tab="Excitation"));
         parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20e(
-                   start=0) "Temperature coefficient of excitation resistance"
+          start=0) "Temperature coefficient of excitation resistance"
            annotation(Dialog(tab="Excitation"));
         parameter Real sigmae(min=0, max=0.99, start=0.025)
           "Stray fraction of total excitation inductance"
@@ -3583,7 +3583,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 </tr>
 <tr>
 <td valign=\"top\">damper stray reactance in d-axis XDds</td>
-<td valign=\"top\">0.1</td><td valign=\"top\">Ohm</td>
+<td valign=\"top\">0.05</td><td valign=\"top\">Ohm</td>
 </tr>
 <tr>
 <td valign=\"top\">damper stray reactance in q-axis XDqs</td>
@@ -3843,7 +3843,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 </tr>
 <tr>
 <td valign=\"top\">rotor stray reactance in d-axis Xrds</td>
-<td valign=\"top\">0.1</td><td valign=\"top\">Ohm per phase</td>
+<td valign=\"top\">0.05</td><td valign=\"top\">Ohm per phase</td>
 </tr>
 <tr>
 <td valign=\"top\">rotor stray reactance in q-axis Xrqs</td>
