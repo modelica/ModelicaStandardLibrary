@@ -503,8 +503,8 @@ Simulate for 1.5 seconds and plot (versus time):
                0)));
       Electrical.Machines.Utilities.SwitchedRheostat rheostatM(
           RStart=RStart, tStart=tRheostat)
-                                    annotation (Placement(transformation(extent={{-30,-30},
-                {-10,-10}},      rotation=0)));
+                                    annotation (Placement(transformation(extent={{-40,-30},
+                {-20,-10}},      rotation=0)));
       Modelica.Mechanics.Rotational.Components.Inertia loadInertiaM(J=J_Load)
         annotation (Placement(transformation(extent={{50,-30},{70,-10}},   rotation=
                0)));
@@ -517,7 +517,7 @@ Simulate for 1.5 seconds and plot (versus time):
         annotation (Placement(transformation(extent={{100,-30},{80,-10}},
               rotation=0)));
       Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor
-        currentRMSsensorElectricalE
+        currentRMSsensorE
         annotation (Placement(transformation(
             origin={-60,30},
             extent={{-10,-10},{10,10}},
@@ -536,9 +536,9 @@ Simulate for 1.5 seconds and plot (versus time):
         alpha20s(displayUnit="1/K"),
         alpha20r(displayUnit="1/K"))
         annotation (Placement(transformation(extent={{-10,-90},{10,-70}},rotation=0)));
-      Electrical.Machines.Utilities.SwitchedRheostat rheostatElectricalE(
-        RStart=RStart, tStart=tRheostat)
-       annotation (Placement(transformation(extent={{-30,-90},{-10,-70}}, rotation=0)));
+      Electrical.Machines.Utilities.SwitchedRheostat rheostatE(RStart=RStart,
+          tStart=tRheostat)
+       annotation (Placement(transformation(extent={{-40,-90},{-20,-70}}, rotation=0)));
       Modelica.Mechanics.Rotational.Components.Inertia loadInertiaE(J=J_Load)
         annotation (Placement(transformation(extent={{50,-90},{70,-70}}, rotation=0)));
       Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
@@ -564,12 +564,12 @@ Simulate for 1.5 seconds and plot (versus time):
             points={{-6,-70},{-6,-70}}, color={0,0,255}));
       connect(terminalBoxE.plug_sp, aimsE.plug_sp)             annotation (Line(
             points={{6,-70},{6,-70}},   color={0,0,255}));
-      connect(rheostatElectricalE.plug_p, aimsE.plug_rp)
-                                                       annotation (Line(points={{-10,-74},
-              {-10,-74}},     color={0,0,255}));
-      connect(rheostatElectricalE.plug_n, aimsE.plug_rn)
-                                                       annotation (Line(points={{-10,-86},
-              {-10,-86}},     color={0,0,255}));
+      connect(rheostatE.plug_p, aimsE.plug_rp)         annotation (Line(points={{-20,-74},
+              {-18,-74},{-10,-74}},
+                              color={0,0,255}));
+      connect(rheostatE.plug_n, aimsE.plug_rn)         annotation (Line(points={{-20,-86},
+              {-18,-86},{-10,-86}},
+                              color={0,0,255}));
       connect(loadInertiaM.flange_b, quadraticLoadTorqueM.flange)
         annotation (Line(points={{70,-20},{70,-20},{80,-20}},
                                                        color={0,0,0}));
@@ -588,16 +588,29 @@ Simulate for 1.5 seconds and plot (versus time):
           color={0,0,255},
           smooth=Smooth.None));
       connect(rheostatM.plug_p, aimsM.plug_rp) annotation (Line(
-          points={{-10,-14},{-10,-14}},
+          points={{-20,-14},{-10,-14}},
           color={0,0,255},
           smooth=Smooth.None));
       connect(rheostatM.plug_n, aimsM.plug_rn) annotation (Line(
-          points={{-10,-26},{-10,-26}},
+          points={{-20,-26},{-10,-26}},
           color={0,0,255},
           smooth=Smooth.None));
-      connect(currentRMSsensorElectricalE.plug_n, terminalBoxE.plugSupply)
+      connect(currentRMSsensorE.plug_n, terminalBoxE.plugSupply)
         annotation (Line(
           points={{-60,20},{-60,-60},{0,-60},{0,-68}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(idealCloser.plug_n, currentRMSsensorM.plug_p) annotation (Line(
+          points={{-1.83697e-015,50},{1.83697e-015,50},{1.83697e-015,40}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(currentRMSsensorE.plug_p, idealCloser.plug_n)
+        annotation (Line(
+          points={{-60,40},{-1.83697e-015,40},{-1.83697e-015,50}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(idealCloser.plug_p, sineVoltage.plug_p) annotation (Line(
+          points={{1.83697e-015,70},{0,70},{0,90},{-20,90}},
           color={0,0,255},
           smooth=Smooth.None));
       annotation (
@@ -625,19 +638,6 @@ Simulate for 1.5 seconds and plot (versus time):
 </ul>
 </HTML>"),
         Diagram(graphics));
-      connect(idealCloser.plug_n, currentRMSsensorM.plug_p) annotation (Line(
-          points={{-1.83697e-015,50},{1.83697e-015,50},{1.83697e-015,40}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(currentRMSsensorElectricalE.plug_p, idealCloser.plug_n)
-        annotation (Line(
-          points={{-60,40},{-1.83697e-015,40},{-1.83697e-015,50}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(idealCloser.plug_p, sineVoltage.plug_p) annotation (Line(
-          points={{1.83697e-015,70},{0,70},{0,90},{-20,90}},
-          color={0,0,255},
-          smooth=Smooth.None));
     end AIMS_Start;
 
     model SMR_Inverter
@@ -1733,7 +1733,7 @@ This is a simple idle running branch.
             Text(
               extent={{0,60},{0,100}},
               lineColor={255,128,0},
-              textString =                         "%name"),
+              textString=                          "%name"),
             Rectangle(
               extent={{-100,40},{100,-40}},
               lineColor={255,255,255},
@@ -3053,7 +3053,7 @@ according to the following figure.
               Text(
                 extent={{0,100},{0,140}},
                 lineColor={0,0,255},
-                textString =                         "%name")}),
+                textString=                          "%name")}),
           Documentation(info="<html>
 <p>
 <img src=\"../Images/Magnetic/FundamentalWave/Machines/Components/rotorcage.png\">
@@ -3222,7 +3222,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
               Text(
                 extent={{0,100},{0,140}},
                 lineColor={0,0,255},
-                textString =                         "%name")}),
+                textString=                          "%name")}),
           Documentation(info="<html>
 
 <p>
