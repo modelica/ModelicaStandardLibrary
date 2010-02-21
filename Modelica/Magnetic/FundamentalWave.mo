@@ -496,11 +496,9 @@ Simulate for 1.5 seconds and plot (versus time):
         Lm=Lm,
         Lrsigma=Lrsigma,
         Rr=Rr,
-        p=p,
-        TurnsRatio=0.7,
-      useTurnsRatio=true,
         alpha20s(displayUnit="1/K"),
-        alpha20r(displayUnit="1/K"))
+        alpha20r(displayUnit="1/K"),
+        p=p)
         annotation (Placement(transformation(extent={{-10,-30},{10,-10}},  rotation=
                0)));
       Electrical.Machines.Utilities.SwitchedRheostat rheostatM(
@@ -530,14 +528,11 @@ Simulate for 1.5 seconds and plot (versus time):
       Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing
         aimsE(
         p=p,
-        fsNominal=fsNominal,
         Rs=Rs,
         Lssigma=Lssigma,
         Lm=Lm,
         Lrsigma=Lrsigma,
         Rr=Rr,
-        turnsRatio=0.7,
-        useTurnsRatio=true,
         alpha20s(displayUnit="1/K"),
         alpha20r(displayUnit="1/K"))
         annotation (Placement(transformation(extent={{-10,-90},{10,-70}},rotation=0)));
@@ -559,9 +554,6 @@ Simulate for 1.5 seconds and plot (versus time):
       connect(sineVoltage.plug_n, star.plug_p)
         annotation (Line(points={{-40,90},{-40,90},{-50,90}},
             color={0,0,255}));
-      connect(sineVoltage.plug_p, idealCloser.plug_p)
-        annotation (Line(points={{-20,90},{-20,90},{0,90},{1.22461e-015,40},{
-              1.83697e-015,70}},                 color={0,0,255}));
       connect(loadInertiaE.flange_b, quadraticLoadTorqueE.flange)
         annotation (Line(points={{70,-80},{80,-80}}, color={0,0,0}));
       connect(aimsE.flange, loadInertiaE.flange_a)   annotation (Line(points={{10,-80},
@@ -589,10 +581,6 @@ Simulate for 1.5 seconds and plot (versus time):
       connect(terminalBoxM.plug_sn, aimsM.plug_sn)           annotation (Line(
             points={{-6,-10},{-6,-10}},   color={0,0,255}));
 
-      connect(idealCloser.plug_n, currentRMSsensorM.plug_p) annotation (Line(
-          points={{-1.83697e-015,50},{1.83697e-015,50},{1.83697e-015,40}},
-          color={0,0,255},
-          smooth=Smooth.None));
       connect(currentRMSsensorM.plug_n, terminalBoxM.plugSupply)
                                                                 annotation (
           Line(
@@ -605,11 +593,6 @@ Simulate for 1.5 seconds and plot (versus time):
           smooth=Smooth.None));
       connect(rheostatM.plug_n, aimsM.plug_rn) annotation (Line(
           points={{-10,-26},{-10,-26}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(currentRMSsensorElectricalE.plug_p, idealCloser.plug_n)
-        annotation (Line(
-          points={{-60,40},{0,40},{0,50},{-1.83697e-015,50}},
           color={0,0,255},
           smooth=Smooth.None));
       connect(currentRMSsensorElectricalE.plug_n, terminalBoxE.plugSupply)
@@ -642,6 +625,19 @@ Simulate for 1.5 seconds and plot (versus time):
 </ul>
 </HTML>"),
         Diagram(graphics));
+      connect(idealCloser.plug_n, currentRMSsensorM.plug_p) annotation (Line(
+          points={{-1.83697e-015,50},{1.83697e-015,50},{1.83697e-015,40}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(currentRMSsensorElectricalE.plug_p, idealCloser.plug_n)
+        annotation (Line(
+          points={{-60,40},{-1.83697e-015,40},{-1.83697e-015,50}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(idealCloser.plug_p, sineVoltage.plug_p) annotation (Line(
+          points={{1.83697e-015,70},{0,70},{0,90},{-20,90}},
+          color={0,0,255},
+          smooth=Smooth.None));
     end AIMS_Start;
 
     model SMR_Inverter
@@ -661,19 +657,20 @@ Simulate for 1.5 seconds and plot (versus time):
       parameter Integer p = 2 "Number of pole pairs";
       parameter Modelica.SIunits.Resistance Rs=0.03
         "Warm stator resistance per phase";
-      parameter Modelica.SIunits.Inductance Lssigma=3*(1 - sqrt(1 - 0.0667))/(2*Modelica.Constants.pi*fsNominal)
+      parameter Modelica.SIunits.Inductance Lssigma=0.1/(2*Modelica.Constants.pi*fsNominal)
         "Stator stray inductance per phase";
-      parameter Modelica.SIunits.Inductance Lmd=3*sqrt(1 - 0.0667)/(2*Modelica.Constants.pi*fsNominal)
-        "Main field inductance";
-      parameter Modelica.SIunits.Inductance Lmq=0.8*Lmd "Main field inductance";
-      parameter Modelica.SIunits.Inductance Lrsigmad=3*(1 - sqrt(1 - 0.0667))/(2*Modelica.Constants.pi*fsNominal)
-        "Rotor stray inductance (equivalent three phase winding)";
-      parameter Modelica.SIunits.Inductance Lrsigmaq=0.8*Lrsigmad
-        "Rotor stray inductance (equivalent three phase winding)";
+      parameter Modelica.SIunits.Inductance Lmd=2.9/(2*Modelica.Constants.pi*fsNominal)
+        "Main field inductance in d-axis";
+      parameter Modelica.SIunits.Inductance Lmq=0.9/(2*Modelica.Constants.pi*fsNominal)
+        "Main field inductance in q-axis";
+      parameter Modelica.SIunits.Inductance Lrsigmad=0.05/(2*Modelica.Constants.pi*fsNominal)
+        "Damper stray inductance (equivalent three phase winding) d-axis";
+      parameter Modelica.SIunits.Inductance Lrsigmaq=Lrsigmad
+        "Damper stray inductance (equivalent three phase winding) q-axis)";
       parameter Modelica.SIunits.Resistance Rrd=0.04
-        "Warm rotor resistance (equivalent three phase winding)";
-      parameter Modelica.SIunits.Resistance Rrq=0.8*Rrd
-        "Warm rotor resistance (equivalent three phase winding)";
+        "Warm damper resistance (equivalent three phase winding) d-axis";
+      parameter Modelica.SIunits.Resistance Rrq=Rrd
+        "Warm damper resistance (equivalent three phase winding) q-axis)";
 
       Modelica.Electrical.Analog.Basic.Ground ground
         annotation (Placement(transformation(
@@ -868,25 +865,26 @@ Simulate for 1.5 seconds and plot (versus time):
       parameter Modelica.SIunits.Frequency f=50 "Actual frequency";
       parameter Modelica.SIunits.Time tRamp=1 "Frequency ramp";
       parameter Modelica.SIunits.Torque T_Load=181.4 "Nominal load torque";
-      parameter Modelica.SIunits.Time tStep=2 "Time of load torque step";
+      parameter Modelica.SIunits.Time tStep=1.2 "Time of load torque step";
       parameter Modelica.SIunits.Inertia J_Load=0.29 "Load inertia";
 
       parameter Integer p = 2 "Number of pole pairs";
       parameter Modelica.SIunits.Resistance Rs=0.03
         "Warm stator resistance per phase";
-      parameter Modelica.SIunits.Inductance Lssigma=3*(1 - sqrt(1 - 0.0667))/(2*Modelica.Constants.pi*fsNominal)
+      parameter Modelica.SIunits.Inductance Lssigma=0.1/(2*Modelica.Constants.pi*fsNominal)
         "Stator stray inductance per phase";
-      parameter Modelica.SIunits.Inductance Lmd=3*sqrt(1 - 0.0667)/(2*Modelica.Constants.pi*fsNominal)
-        "Main field inductance";
-      parameter Modelica.SIunits.Inductance Lmq=1.0*Lmd "Main field inductance";
-      parameter Modelica.SIunits.Inductance Lrsigmad=3*(1 - sqrt(1 - 0.0667))/(2*Modelica.Constants.pi*fsNominal)
-        "Rotor stray inductance (equivalent three phase winding)";
-      parameter Modelica.SIunits.Inductance Lrsigmaq=0.8*Lrsigmad
-        "Rotor stray inductance (equivalent three phase winding)";
+      parameter Modelica.SIunits.Inductance Lmd=0.3/(2*Modelica.Constants.pi*fsNominal)
+        "Main field inductance in d-axis";
+      parameter Modelica.SIunits.Inductance Lmq=0.3/(2*Modelica.Constants.pi*fsNominal)
+        "Main field inductance in q-axis";
+      parameter Modelica.SIunits.Inductance Lrsigmad=0.05/(2*Modelica.Constants.pi*fsNominal)
+        "Damper stray inductance (equivalent three phase winding) d-axis";
+      parameter Modelica.SIunits.Inductance Lrsigmaq=Lrsigmad
+        "Damper stray inductance (equivalent three phase winding) dq-axis";
       parameter Modelica.SIunits.Resistance Rrd=0.04
-        "Warm rotor resistance (equivalent three phase winding)";
-      parameter Modelica.SIunits.Resistance Rrq=1.0*Rrd
-        "Warm rotor resistance (equivalent three phase winding)";
+        "Warm damper resistance (equivalent three phase winding) d-axis";
+      parameter Modelica.SIunits.Resistance Rrq=Rrd
+        "Warm damper resistance (equivalent three phase winding) q-axis";
 
       Modelica.Electrical.Analog.Basic.Ground ground
         annotation (Placement(transformation(
@@ -933,7 +931,6 @@ Simulate for 1.5 seconds and plot (versus time):
         Lrsigmaq=Lrsigmaq,
         Rrd=Rrd,
         Rrq=Rrq,
-        useDamperCage=true,
         p=p,
         alpha20s(displayUnit="1/K"),
         alpha20r(displayUnit="1/K"))
@@ -974,7 +971,6 @@ Simulate for 1.5 seconds and plot (versus time):
         Lrsigmaq=Lrsigmaq,
         Rrd=Rrd,
         Rrq=Rrq,
-        useDamperCage=true,
         p=p,
         alpha20s(displayUnit="1/K"),
         alpha20r(displayUnit="1/K"))
@@ -1047,9 +1043,9 @@ Simulate for 1.5 seconds and plot (versus time):
           smooth=Smooth.None));
       annotation (
         experiment(
-          StopTime=4,
+          StopTime=1.5,
           Interval=0.0005,
-          Tolerance=1e-05),
+          Tolerance=1e-005),
         experimentSetupOutput(doublePrecision=true),
         Documentation(info="<HTML>
 <h4>Permanent magnet synchronous induction machine fed by an ideal inverter</h4>
@@ -1093,19 +1089,20 @@ and accelerate the inertias.</p>
       parameter Integer p = 2 "Number of pole pairs";
       parameter Modelica.SIunits.Resistance Rs=0.03
         "Warm stator resistance per phase";
-      parameter Modelica.SIunits.Inductance Lssigma=3*(1 - sqrt(1 - 0.0667))/(2*Modelica.Constants.pi*fsNominal)
+      parameter Modelica.SIunits.Inductance Lssigma=0.1/(2*Modelica.Constants.pi*fsNominal)
         "Stator stray inductance per phase";
-      parameter Modelica.SIunits.Inductance Lmd=3*sqrt(1 - 0.0667)/(2*Modelica.Constants.pi*fsNominal)
-        "Main field inductance";
-      parameter Modelica.SIunits.Inductance Lmq=0.8*Lmd "Main field inductance";
-      parameter Modelica.SIunits.Inductance Lrsigmad=3*(1 - sqrt(1 - 0.0667))/(2*Modelica.Constants.pi*fsNominal)
-        "Rotor stray inductance (equivalent three phase winding)";
-      parameter Modelica.SIunits.Inductance Lrsigmaq=0.8*Lrsigmad
-        "Rotor stray inductance (equivalent three phase winding)";
+      parameter Modelica.SIunits.Inductance Lmd=1.5/(2*Modelica.Constants.pi*fsNominal)
+        "Main field inductance in d-axis";
+      parameter Modelica.SIunits.Inductance Lmq=1.5/(2*Modelica.Constants.pi*fsNominal)
+        "Main field inductance in q-axis";
+      parameter Modelica.SIunits.Inductance Lrsigmad=0.05/(2*Modelica.Constants.pi*fsNominal)
+        "Damper stray inductance (equivalent three phase winding) d-axis";
+      parameter Modelica.SIunits.Inductance Lrsigmaq=Lrsigmad
+        "Damper stray inductance (equivalent three phase winding) q-axis";
       parameter Modelica.SIunits.Resistance Rrd=0.04
-        "Warm rotor resistance (equivalent three phase winding)";
-      parameter Modelica.SIunits.Resistance Rrq=0.8*Rrd
-        "Warm rotor resistance (equivalent three phase winding)";
+        "Warm damper resistance (equivalent three phase winding) d-axis";
+      parameter Modelica.SIunits.Resistance Rrq=Rrd
+        "Warm damper resistance (equivalent three phase winding) q-axis";
 
       Modelica.Electrical.MultiPhase.Basic.Star star(
         final m=m)
@@ -1387,7 +1384,7 @@ Grounding of the complex magnetic potential. Each magnetic circuit has to be gro
             Text(
               extent={{0,60},{0,100}},
               lineColor={255,128,0},
-              textString =                         "%name"),
+              textString=                          "%name"),
             Text(
               extent={{0,-70},{0,-110}},
               lineColor={0,0,0},
@@ -1699,7 +1696,7 @@ The voltages <img src=\"../Images/Magnetic/FundamentalWave/v_k.png\"> induced in
             Text(
               extent={{0,60},{0,100}},
               lineColor={255,128,0},
-              textString =                         "%name"),
+              textString=                          "%name"),
             Rectangle(
               extent={{-100,40},{100,-40}},
               lineColor={255,255,255},
@@ -1893,16 +1890,15 @@ Resistances and stray inductances of the machine refer to the stator phases. The
           "Operational temperature of rotor resistance"
            annotation(Dialog(group="Operational temperatures", enable=not useThermalPort));
 
-        parameter Boolean useTurnsRatio=true
+        parameter Boolean useTurnsRatio(start=true)
           "Use TurnsRatio or calculate from locked-rotor voltage?";
-        parameter Real TurnsRatio(final min=Modelica.Constants.small)=1
+        parameter Real TurnsRatio(final min=Modelica.Constants.small, start=1)
           "Effective number of stator turns / effective number of rotor turns"
           annotation(Dialog(enable=useTurnsRatio));
-        parameter Modelica.SIunits.Voltage VsNominal=100
+        parameter Modelica.SIunits.Voltage VsNominal(start=100)
           "Nominal stator voltage per phase"
           annotation(Dialog(enable=not useTurnsRatio));
-        parameter Modelica.SIunits.Voltage VrLockedRotor=100*
-          (2*pi*fsNominal*Lm)/sqrt(Rs^2+(2*pi*fsNominal*(Lm+Lssigma))^2)
+        parameter Modelica.SIunits.Voltage VrLockedRotor(start=100*(2*pi*fsNominal*Lm)/sqrt(Rs^2+(2*pi*fsNominal*(Lm+Lssigma))^2))
           "Locked rotor voltage per phase"
           annotation(Dialog(enable=not useTurnsRatio));
         output Modelica.SIunits.Voltage vr[m] = plug_rp.pin.v - plug_rn.pin.v
@@ -2008,7 +2004,8 @@ Resistances and stray inductances of the machine always refer to either stator o
            annotation(Dialog(tab="Nominal resistances and inductances"));
 
         // Rotor cage parameters
-        parameter Boolean useDamperCage = true "Enable/disable damper cage"
+        parameter Boolean useDamperCage(start=true)
+          "Enable/disable damper cage"
            annotation(Dialog(tab="Nominal resistances and inductances",group="Damper cage"));
         parameter Modelica.SIunits.Inductance Lrsigmad(start=0.05/(2*pi*fsNominal))
           "Rotor leakage inductance, d-axis, w.r.t. stator side"
@@ -2032,8 +2029,7 @@ Resistances and stray inductances of the machine always refer to either stator o
           annotation(Dialog(tab="Nominal resistances and inductances",group = "Damper cage", enable = useDamperCage));
 
         parameter Modelica.SIunits.Voltage VsOpenCircuit(start=112.3)
-          "Open circuit RMS voltage per phase @ fsNominal"
-           annotation(Dialog(group="Excitation"));
+          "Open circuit RMS voltage per phase @ fsNominal";
 
         parameter Modelica.SIunits.Temperature TrOperational(start=293.15)
           "Operational temperature of (optional) damper cage"
@@ -2161,7 +2157,8 @@ Resistances and stray inductances of the machine refer to the stator phases. The
            annotation(Dialog(tab="Nominal resistances and inductances"));
 
         // Rotor cage parameters
-        parameter Boolean useDamperCage = true "Enable/disable damper cage"
+        parameter Boolean useDamperCage(start=true)
+          "Enable/disable damper cage"
           annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage"));
         parameter Modelica.SIunits.Inductance Lrsigmad(start=0.05/(2*pi*fsNominal))
           "Rotor leakage inductance, d-axis, w.r.t. stator side"
@@ -2193,13 +2190,13 @@ Resistances and stray inductances of the machine refer to the stator phases. The
            annotation(Dialog(group="Operational temperatures", enable=not useThermalPort));
 
         // Excitaiton parameters
-        parameter Modelica.SIunits.Voltage VsNominal=100
+        parameter Modelica.SIunits.Voltage VsNominal(start=100)
           "Nominal stator voltage"
            annotation(Dialog(tab="Excitation"));
-        parameter Modelica.SIunits.Current Ie0=10
-          "No-load excitation current @ nominal voltage and frequency"
+        parameter Modelica.SIunits.Current IeOpenCircuit(start=10)
+          "Open circuit excitation current @ nominal voltage and frequency"
            annotation(Dialog(tab="Excitation"));
-        parameter Modelica.SIunits.Resistance Re=2.5
+        parameter Modelica.SIunits.Resistance Re(start=2.5)
           "Warm excitation resistance"
            annotation(Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Temperature TeRef(start=293.15)
@@ -2207,21 +2204,18 @@ Resistances and stray inductances of the machine refer to the stator phases. The
            annotation(Dialog(tab="Excitation"));
         parameter
           Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
-          alpha20e(                                                                            start=0)
-          "Temperature coefficient of excitation resistance"
+          alpha20e(start=0) "Temperature coefficient of excitation resistance"
            annotation(Dialog(tab="Excitation"));
-        parameter Real sigmae(min=0, max=1)=0.025
+        parameter Real sigmae(min=0, max=1, start=0.025)
           "Stray fraction of total excitation inductance"
            annotation(Dialog(tab="Excitation"));
         output Modelica.SIunits.Voltage ve = pin_ep.v-pin_en.v
           "Excitation voltage";
         output Modelica.SIunits.Current ie = pin_ep.i "Excitation current";
       protected
-        final parameter Real turnsRatio=
-          sqrt(2)*VsNominal/(2*pi*fsNominal*Lmd*Ie0)
+        final parameter Real turnsRatio = sqrt(2)*VsNominal/(2*pi*fsNominal*Lmd*IeOpenCircuit)
           "Stator current / excitation current";
-        final parameter Modelica.SIunits.Inductance Lesigma=
-           Lmd*turnsRatio^2*3/2 * sigmae/(1-sigmae)
+        final parameter Modelica.SIunits.Inductance Lesigma = Lmd*turnsRatio^2*3/2 * sigmae/(1-sigmae)
           "Leakage inductance of the excitation winding";
 
       public
@@ -2346,12 +2340,13 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
         parameter Modelica.SIunits.Inductance Lmd(start=2.9/(2*pi*fsNominal))
           "Main field inductance, d-axis"
            annotation(Dialog(tab="Nominal resistances and inductances"));
-        parameter Modelica.SIunits.Inductance Lmq(start=2.9/(2*pi*fsNominal))
+        parameter Modelica.SIunits.Inductance Lmq(start=0.9/(2*pi*fsNominal))
           "Main field inductance, q-axis"
            annotation(Dialog(tab="Nominal resistances and inductances"));
 
         // Rotor cage parameters
-        parameter Boolean useDamperCage = true "Enable/disable damper cage"
+        parameter Boolean useDamperCage(start=true)
+          "Enable/disable damper cage"
           annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage"));
         parameter Modelica.SIunits.Inductance Lrsigmad(start=0.05/(2*pi*fsNominal))
           "Rotor leakage inductance, d-axis, w.r.t. stator side"
@@ -3058,7 +3053,7 @@ according to the following figure.
               Text(
                 extent={{0,100},{0,140}},
                 lineColor={0,0,255},
-                textString=                          "%name")}),
+                textString =                         "%name")}),
           Documentation(info="<html>
 <p>
 <img src=\"../Images/Magnetic/FundamentalWave/Machines/Components/rotorcage.png\">
@@ -3227,7 +3222,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
               Text(
                 extent={{0,100},{0,140}},
                 lineColor={0,0,255},
-                textString=                          "%name")}),
+                textString =                         "%name")}),
           Documentation(info="<html>
 
 <p>
