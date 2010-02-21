@@ -1794,7 +1794,7 @@ located at <a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.Compo
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter
           Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
-          alpha20r(                                                                            start=0)
+          alpha20r(start=0)
           "Temperature coefficient of rotor resistance at 20 degC"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Temperature TrOperational(start=293.15)
@@ -2023,7 +2023,7 @@ Resistances and stray inductances of the machine always refer to either stator o
           annotation(Dialog(tab="Nominal resistances and inductances",group = "Damper cage",enable = useDamperCage));
         parameter
           Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
-          alpha20r(                                                                            start=0)
+          alpha20r(start=0)
           "Temperature coefficient of damper resistances in d- and q-axis"
           annotation(Dialog(tab="Nominal resistances and inductances",group = "Damper cage", enable = useDamperCage));
 
@@ -2180,7 +2180,7 @@ Resistances and stray inductances of the machine refer to the stator phases. The
           annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
         parameter
           Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
-          alpha20r(                                                                            start=0)
+          alpha20r(start=0)
           "Temperature coefficient of damper resistances in d- and q-axis"
           annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
 
@@ -2370,7 +2370,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
           annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
         parameter
           Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
-          alpha20r(                                                                            start=0)
+          alpha20r(start=0)
           "Temperature coefficient of damper resistances in d- and q-axis"
           annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
         Modelica.Magnetic.FundamentalWave.Components.Ground groundR
@@ -3058,7 +3058,7 @@ according to the following figure.
               Text(
                 extent={{0,100},{0,140}},
                 lineColor={0,0,255},
-                textString=                          "%name")}),
+                textString =                         "%name")}),
           Documentation(info="<html>
 <p>
 <img src=\"../Images/Magnetic/FundamentalWave/Machines/Components/rotorcage.png\">
@@ -3227,7 +3227,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
               Text(
                 extent={{0,100},{0,140}},
                 lineColor={0,0,255},
-                textString=                          "%name")}),
+                textString =                         "%name")}),
           Documentation(info="<html>
 
 <p>
@@ -3244,6 +3244,38 @@ The salient cage model is a two axis model with two phases. The electro magnetic
 </p>
 </html>"));
       end SaliencyCageWinding;
+
+      model StateSelectorCurrent "Select transformed currents as states"
+        parameter Integer m=3 "Number of phases";
+        parameter Integer p "Number of polepairs";
+        Modelica.SIunits.Current i[m] = plug_p.pin.i;
+        Modelica.SIunits.Angle gamma = p*(flange.phi - support.phi);
+        Modelica.SIunits.Current i0(stateSelect=StateSelect.prefer);
+
+        Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
+          annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+        Electrical.MultiPhase.Interfaces.NegativePlug plug_n(final m=m)
+          annotation (Placement(transformation(extent={{90,-10},{110,10}})));
+        Mechanics.Rotational.Interfaces.Flange_a flange
+          annotation (Placement(transformation(extent={{-110,-110},{-90,-90}})));
+        Mechanics.Rotational.Interfaces.Flange_b support
+          annotation (Placement(transformation(extent={{90,-110},{110,-90}})));
+      equation
+      //balance equations
+        plug_p.pin.i + plug_n.pin.i = zeros(m);
+        plug_p.pin.v - plug_n.pin.v = zeros(m);
+        flange.tau = 0;
+        support.tau = 0;
+      //transformations
+        i0 = 1/m*sum(i);
+        annotation (Diagram(graphics), Icon(graphics={Rectangle(extent={{-90,90},{90,-90}},
+                  lineColor={0,0,255}), Text(
+                extent={{-80,80},{80,-80}},
+                lineColor={0,0,255},
+                textString="S")}),
+          Documentation(info="<html>
+</html>"));
+      end StateSelectorCurrent;
     annotation (Documentation(info="<html>
 <p>
 This package contains components for
@@ -3848,7 +3880,6 @@ This model is mainly used to extend from in order build more complex - equation 
         "Stator instantaneous voltages";
       output Modelica.SIunits.Current is[m] = plug_sp.pin.i
         "Stator instantaneous currents";
-      output Modelica.SIunits.Current is0(stateSelect=StateSelect.prefer) = 1/m*sum(is);
 
       Modelica.Mechanics.Rotational.Interfaces.Flange_a flange "Shaft"
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
@@ -3880,6 +3911,9 @@ This model is mainly used to extend from in order build more complex - equation 
         final m=m)
         annotation (Placement(transformation(extent={{-70,90},{-50,110}},
               rotation=0)));
+      BasicMachines.Components.StateSelectorCurrent stateSelectorCurrent(final m=m,
+          final p=p)
+        annotation (Placement(transformation(extent={{40,50},{20,70}})));
       Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding
         statorWinding(
         final useHeatPort=true,
@@ -3933,10 +3967,6 @@ This model is mainly used to extend from in order build more complex - equation 
           points={{-10,40},{-10,60},{-60,60},{-60,100}},
           color={0,0,255},
           smooth=Smooth.None));
-      connect(plug_sp, statorWinding.plug_p) annotation (Line(
-          points={{60,100},{60,60},{10,60},{10,40}},
-          color={0,0,255},
-          smooth=Smooth.None));
       connect(thermalPort,internalThermalPort)  annotation (Line(
           points={{0,-100},{0,-90},{-40,-90}},
           color={199,0,0},
@@ -3983,6 +4013,22 @@ This model is mainly used to extend from in order build more complex - equation 
 
       connect(groundR.port_p,airGap. port_rn)         annotation (Line(points={{-30,-10},
               {-20,-10},{-20,-10},{-10,-10}},    color={255,128,0}));
+      connect(plug_sp, stateSelectorCurrent.plug_p) annotation (Line(
+          points={{60,100},{60,60},{40,60}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(stateSelectorCurrent.plug_n, statorWinding.plug_p) annotation (Line(
+          points={{20,60},{10,60},{10,40}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(stateSelectorCurrent.support, airGap.support) annotation (Line(
+          points={{20,50},{-20,50},{-20,1.83697e-015},{-10,1.83697e-015}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(stateSelectorCurrent.flange, airGap.flange_a) annotation (Line(
+          points={{40,50},{40,40},{20,40},{20,-1.83697e-015},{10,-1.83697e-015}},
+          color={0,0,0},
+          smooth=Smooth.None));
       annotation (Documentation(info="<HTML>
 Partial model for induction machine models
 </HTML>"),
