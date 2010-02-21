@@ -1387,7 +1387,7 @@ Grounding of the complex magnetic potential. Each magnetic circuit has to be gro
             Text(
               extent={{0,60},{0,100}},
               lineColor={255,128,0},
-              textString=                          "%name"),
+              textString =                         "%name"),
             Text(
               extent={{0,-70},{0,-110}},
               lineColor={0,0,0},
@@ -1699,7 +1699,7 @@ The voltages <img src=\"../Images/Magnetic/FundamentalWave/v_k.png\"> induced in
             Text(
               extent={{0,60},{0,100}},
               lineColor={255,128,0},
-              textString=                          "%name"),
+              textString =                         "%name"),
             Rectangle(
               extent={{-100,40},{100,-40}},
               lineColor={255,255,255},
@@ -1736,7 +1736,7 @@ This is a simple idle running branch.
             Text(
               extent={{0,60},{0,100}},
               lineColor={255,128,0},
-              textString=                          "%name"),
+              textString =                         "%name"),
             Rectangle(
               extent={{-100,40},{100,-40}},
               lineColor={255,255,255},
@@ -2087,29 +2087,25 @@ Resistances and stray inductances of the machine always refer to either stator o
             points={{40,-40},{40,-80},{-40,-80},{-40,-90}},
             color={191,0,0},
             smooth=Smooth.None));
-        connect(short.port_p, rotorCage.port_p) annotation (Line(
-            points={{10,-30},{30,-30}},
+        connect(permanentMagnet.port_p, airGap.port_rn) annotation (Line(
+            points={{-10,-30},{-10,-25},{-10,-25},{-10,-20},{-10,-10},{-10,-10}},
             color={255,128,0},
             smooth=Smooth.None));
-        connect(short.port_n, rotorCage.port_n) annotation (Line(
-            points={{10,-50},{30,-50}},
-            color={255,128,0},
-            smooth=Smooth.None));
-        connect(short.port_p, airGap.port_rp) annotation (Line(
-            points={{10,-30},{10,-25},{10,-25},{10,-20},{10,-10},{10,-10}},
-            color={255,128,0},
-            smooth=Smooth.None));
-        connect(airGap.port_rn, permanentMagnet.port_p) annotation (Line(
-            points={{-10,-10},{-10,-15.5},{-10,-15.5},{-10,-21},{-10,-30},{-10,
-                -30}},
-            color={255,128,0},
-            smooth=Smooth.None));
+
         connect(permanentMagnet.port_n, short.port_n) annotation (Line(
             points={{-10,-50},{10,-50}},
             color={255,128,0},
             smooth=Smooth.None));
         connect(permanentMagnet.port_n, rotorCage.port_n) annotation (Line(
             points={{-10,-50},{30,-50}},
+            color={255,128,0},
+            smooth=Smooth.None));
+        connect(short.port_p, airGap.port_rp) annotation (Line(
+            points={{10,-30},{10,-25},{10,-25},{10,-20},{10,-10},{10,-10}},
+            color={255,128,0},
+            smooth=Smooth.None));
+        connect(rotorCage.port_p, airGap.port_rp) annotation (Line(
+            points={{30,-30},{10,-30},{10,-10}},
             color={255,128,0},
             smooth=Smooth.None));
         annotation (         Icon(graphics={
@@ -3062,7 +3058,7 @@ according to the following figure.
               Text(
                 extent={{0,100},{0,140}},
                 lineColor={0,0,255},
-                textString =                         "%name")}),
+                textString=                          "%name")}),
           Documentation(info="<html>
 <p>
 <img src=\"../Images/Magnetic/FundamentalWave/Machines/Components/rotorcage.png\">
