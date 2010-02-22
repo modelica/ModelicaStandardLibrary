@@ -3046,7 +3046,7 @@ according to the following figure.
               Text(
                 extent={{0,100},{0,140}},
                 lineColor={0,0,255},
-                textString=                          "%name")}),
+                textString =                         "%name")}),
           Documentation(info="<html>
 <p>
 <img src=\"../Images/Magnetic/FundamentalWave/Machines/Components/rotorcage.png\">
@@ -3215,7 +3215,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
               Text(
                 extent={{0,100},{0,140}},
                 lineColor={0,0,255},
-                textString=                          "%name")}),
+                textString =                         "%name")}),
           Documentation(info="<html>
 
 <p>
@@ -3233,58 +3233,6 @@ The salient cage model is a two axis model with two phases. The electro magnetic
 </html>"));
       end SaliencyCageWinding;
 
-      model StateSelectorCurrent "Select transformed currents as states"
-        import Modelica.Constants.pi;
-        parameter Integer m(final min=3)=3 "Number of phases";
-        parameter Integer p "Number of pole pairs";
-        final parameter Integer np = integer((m-1)/2) "Number of space phasors";
-        Modelica.SIunits.Current i[m](each stateSelect=StateSelect.avoid) = plug_p.pin.i;
-        Modelica.SIunits.Current i0(stateSelect=StateSelect.prefer) = 1/sqrt(m)*sum(i)
-          "Zero system";
-        Modelica.SIunits.Current i00(stateSelect=StateSelect.prefer)=
-          1/sqrt(m)*sum({i[2*l-1] - i[2*l] for l in 1:integer(m/2)}) if m==2*integer(m/2)
-          "Second zero system, if present (m even)";
-        Modelica.SIunits.ComplexCurrent iss[np](
-          each re(stateSelect=StateSelect.avoid), each im(stateSelect=StateSelect.avoid))
-          "Current space phasors w.r.t. stator fixed frame";
-        Modelica.SIunits.ComplexCurrent isr[np](
-          each re(stateSelect=StateSelect.prefer), each im(stateSelect=StateSelect.prefer))
-          "Current space phasors w.r.t. rotor fixed frame";
-        Modelica.SIunits.Angle gamma = p*(flange.phi - support.phi)
-          "Electrical angle between rotor and stator";
-        Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
-          annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-        Electrical.MultiPhase.Interfaces.NegativePlug plug_n(final m=m)
-          annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-        Mechanics.Rotational.Interfaces.Flange_a flange
-          annotation (Placement(transformation(extent={{-110,-110},{-90,-90}})));
-        Mechanics.Rotational.Interfaces.Flange_b support
-          annotation (Placement(transformation(extent={{90,-110},{110,-90}})));
-      equation
-      //balance equations
-        plug_p.pin.i + plug_n.pin.i = zeros(m);
-        plug_p.pin.v - plug_n.pin.v = zeros(m);
-        flange.tau = 0;
-        support.tau = 0;
-      //space phasor transformations
-        for k in 1:np loop
-          iss[k].re = 1/sqrt(m)*sum({cos(k*(l-1)*2*pi/m)*i[l] for l in 1:m});
-          iss[k].im = 1/sqrt(m)*sum({sin(k*(l-1)*2*pi/m)*i[l] for l in 1:m});
-          isr[k] = iss[k]*Modelica.ComplexMath.conj(Modelica.ComplexMath.exp(Complex(0,gamma)));
-        end for;
-        annotation (Icon(graphics={Rectangle(extent={{-90,90},{90,-90}},
-                  lineColor={0,0,255}), Text(
-                extent={{-80,80},{80,-80}},
-                lineColor={0,0,255},
-                textString="S")}),
-          Documentation(info="<html>
-<p>
-Transforms instantaneous currents into space phasors and zero system currents,
-setting stateSelect modifiers in order to choose states with small derivatives,
-i.e. w.r.t. rotor fixed frame.
-</p>
-</html>"));
-      end StateSelectorCurrent;
     annotation (Documentation(info="<html>
 <p>
 This package contains components for
@@ -3920,9 +3868,6 @@ This model is mainly used to extend from in order build more complex - equation 
         final m=m)
         annotation (Placement(transformation(extent={{-70,90},{-50,110}},
               rotation=0)));
-      BasicMachines.Components.StateSelectorCurrent stateSelectorCurrent(final m=m,
-          final p=p)
-        annotation (Placement(transformation(extent={{40,60},{20,80}})));
       Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding
         statorWinding(
         final useHeatPort=true,
@@ -3960,7 +3905,6 @@ This model is mainly used to extend from in order build more complex - equation 
     public
       Components.Ground groundS "Ground of stator magnetic circuit"
         annotation (Placement(transformation(extent={{-40,30},{-20,10}},rotation=0)));
-    public
       Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap
         airGap(
         final p=p, final L0=L0)
@@ -3971,6 +3915,11 @@ This model is mainly used to extend from in order build more complex - equation 
       Components.Ground groundR "Ground of rotor magnetic circuit"
         annotation (Placement(transformation(extent={{-40,-30},{-20,-10}}, rotation=
                0)));
+      StateSelector stateSelector(
+        final mp=m,
+        final xi=is,
+        final gamma=p*phiMechanical)
+        annotation (Placement(transformation(extent={{-10,80},{10,100}})));
     equation
       connect(statorWinding.plug_n, plug_sn) annotation (Line(
           points={{-10,50},{-10,70},{-60,70},{-60,100}},
@@ -4015,22 +3964,6 @@ This model is mainly used to extend from in order build more complex - equation 
 
       connect(groundR.port_p,airGap. port_rn)         annotation (Line(points={{-30,-10},
               {-20,-10},{-20,-10},{-10,-10}},    color={255,128,0}));
-      connect(plug_sp, stateSelectorCurrent.plug_p) annotation (Line(
-          points={{60,100},{60,70},{40,70}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(stateSelectorCurrent.plug_n, statorWinding.plug_p) annotation (Line(
-          points={{20,70},{10,70},{10,50}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(stateSelectorCurrent.support, airGap.support) annotation (Line(
-          points={{20,60},{-20,60},{-20,1.83697e-015},{-10,1.83697e-015}},
-          color={0,0,0},
-          smooth=Smooth.None));
-      connect(stateSelectorCurrent.flange, airGap.flange_a) annotation (Line(
-          points={{40,60},{40,50},{20,50},{20,-1.83697e-015},{10,-1.83697e-015}},
-          color={0,0,0},
-          smooth=Smooth.None));
       connect(statorWinding.heatPort, internalThermalPort.heatPort_s)
         annotation (Line(
           points={{-10,40},{-40,40},{-40,-90}},
@@ -4040,11 +3973,15 @@ This model is mainly used to extend from in order build more complex - equation 
           points={{-30,10},{-20,10},{-20,10},{-10,10}},
           color={255,128,0},
           smooth=Smooth.None));
+      connect(statorWinding.plug_p, plug_sp) annotation (Line(
+          points={{10,50},{10,70},{60,70},{60,100}},
+          color={0,0,255},
+          smooth=Smooth.None));
       annotation (Documentation(info="<HTML>
 Partial model for induction machine models
 </HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+                100}}),
                 graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
@@ -4086,6 +4023,50 @@ Partial model for induction machine models
               color={0,0,0},
               smooth=Smooth.None)}));
     end PartialBasicInductionMachine;
+
+    model StateSelector
+      "Transform instantaneous values to space phasors and select states"
+      import Modelica.Constants.pi;
+      parameter Integer mp(min=3)=3 "Number of phases";
+      input Real xi[mp](each stateSelect=StateSelect.avoid)
+        "Instantaneous values"
+        annotation(Dialog);
+      input Modelica.SIunits.Angle gamma "Angle of rotation"
+        annotation(Dialog);
+      Real x0(stateSelect=StateSelect.prefer) = 1/sqrt(mp)*sum(xi)
+        "Zero system";
+      Real x00(stateSelect=StateSelect.prefer)= 1/sqrt(mp)*sum(
+        {xi[2*l-1] - xi[2*l] for l in 1:integer(mp/2)}) if mp==2*integer(mp/2)
+        "Second zero system, if present (mp even)";
+      final parameter Integer np = integer((mp-1)/2) "Number of space phasors";
+      Complex xf[np](each re(stateSelect=StateSelect.avoid), each im(stateSelect=StateSelect.avoid))
+        "Space phasors w.r.t. fixed frame";
+      Complex xr[np](each re(stateSelect=StateSelect.prefer), each im(stateSelect=StateSelect.prefer))
+        "Space phasors w.r.t. rotating frame";
+    equation
+    //space phasor transformations
+      for k in 1:np loop
+        xf[k].re = 1/sqrt(mp)*sum({cos(k*(l-1)*2*pi/mp)*xi[l] for l in 1:mp});
+        xf[k].im = 1/sqrt(mp)*sum({sin(k*(l-1)*2*pi/mp)*xi[l] for l in 1:mp});
+        xr[k] = xf[k]*Modelica.ComplexMath.conj(Modelica.ComplexMath.exp(Complex(0,gamma)));
+      end for;
+      annotation (Documentation(info="<html>
+<p>
+Transforms instantaneous values into space phasors and zero system currents,
+rotates space phasors and sets stateSelect modifiers in order to choose states w.r.t. rotating frame,
+i.e. with small derivatives.
+</p>
+</html>"), Icon(graphics={
+            Ellipse(
+              extent={{-40,40},{40,-40}},
+              lineColor={0,255,255},
+              fillColor={0,255,255},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-40,40},{40,-40}},
+              textString="S",
+              lineColor={0,0,255})}));
+    end StateSelector;
 
   annotation (Documentation(info="<html>
 <p>
