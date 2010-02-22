@@ -422,8 +422,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <li><code>aimcM|E.wMechanical</code>: machine speed</li>
 <li><code>aimcM|E.tauElectrical</code>: machine torque</li>
 </ul>
-</HTML>"),
-        Diagram(graphics));
+</HTML>"));
     end AIMC_DOL;
 
     model AIMS_Start
@@ -636,8 +635,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <li><code>aimsM/E.wMechanical</code>: machine speed</li>
 <li><code>aimsM|E.tauElectrical</code>: machine torque</li>
 </ul>
-</HTML>"),
-        Diagram(graphics));
+</HTML>"));
     end AIMS_Start;
 
     model SMR_Inverter
@@ -850,8 +848,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <li><code>smrM|E.tauElectrical</code>: machine torque</li>
 <li><code>rotorAngleM|R.rotorDisplacementAngle</code>: rotor displacement angle</li>
 </ul>
-</HTML>"),
-        Diagram(graphics));
+</HTML>"));
     end SMR_Inverter;
 
     model SMPM_Inverter
@@ -1066,8 +1063,7 @@ and accelerate the inertias.</p>
 <li><code>pmsmM|E.tauElectrical</code>: machine torque</li>
 <li><code>rotorAnglepmsmM|E.rotorDisplacementAngle</code>: rotor displacement angle</li>
 </ul>
-</HTML>"),
-        Diagram(graphics));
+</HTML>"));
     end SMPM_Inverter;
 
     model SMEE_Generator
@@ -1322,8 +1318,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
 <li><code>speedM|E.tauElectrical</code>: machine torque</li>
 <li><code>mechanicalPowerSensorM|E.P</code>: mechanical power</li>
 </ul>
-</HTML>"),
-        Diagram(graphics));
+</HTML>"));
     end SMEE_Generator;
 
     annotation (Documentation(info="<html>
@@ -1384,7 +1379,7 @@ Grounding of the complex magnetic potential. Each magnetic circuit has to be gro
             Text(
               extent={{0,60},{0,100}},
               lineColor={255,128,0},
-              textString=                          "%name"),
+              textString =                         "%name"),
             Text(
               extent={{0,-70},{0,-110}},
               lineColor={0,0,0},
@@ -1696,7 +1691,7 @@ The voltages <img src=\"../Images/Magnetic/FundamentalWave/v_k.png\"> induced in
             Text(
               extent={{0,60},{0,100}},
               lineColor={255,128,0},
-              textString=                          "%name"),
+              textString =                         "%name"),
             Rectangle(
               extent={{-100,40},{100,-40}},
               lineColor={255,255,255},
@@ -1733,7 +1728,7 @@ This is a simple idle running branch.
             Text(
               extent={{0,60},{0,100}},
               lineColor={255,128,0},
-              textString=                          "%name"),
+              textString =                         "%name"),
             Rectangle(
               extent={{-100,40},{100,-40}},
               lineColor={255,255,255},
@@ -1824,15 +1819,14 @@ located at <a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.Compo
             points={{10,-10},{10,-20},{10,-20},{10,-30}},
             color={255,128,0},
             smooth=Smooth.None));
-        connect(statorWinding.heatPort, internalThermalPort.heatPort_s) annotation (
-            Line(
-            points={{-10,30},{-40,30},{-40,-90}},
-            color={191,0,0},
-            smooth=Smooth.None));
         connect(rotorCageWinding.heatPort, internalThermalPort.heatPort_r)
           annotation (Line(
             points={{0,-40},{-40,-40},{-40,-90}},
             color={191,0,0},
+            smooth=Smooth.None));
+        connect(statorWinding.port_p, airGap.port_sp) annotation (Line(
+            points={{10,30},{10,25},{10,25},{10,20},{10,10},{10,10}},
+            color={255,128,0},
             smooth=Smooth.None));
         annotation (         Icon(graphics),
         Documentation(info="<html>
@@ -1922,32 +1916,33 @@ Resistances and stray inductances of the machine refer to the stator phases. The
           final alpha20=alpha20r)
           "Symmetric rotor winding including resistances and stray inductances"
           annotation (Placement(transformation(
-              origin={0,-30},
+              origin={0,-40},
               extent={{-10,10},{10,-10}},
               rotation=90)));
       equation
 
-        connect(rotorWinding.plug_n, plug_rn) annotation (Line(points={{-10,-40},{-10,
-                -60},{-100,-60}}, color={0,0,255}));
-        connect(rotorWinding.plug_p, plug_rp) annotation (Line(points={{10,-40},{10,-50},
-                {-80,-50},{-80,60},{-100,60}},      color={0,0,255}));
+        connect(rotorWinding.plug_n, plug_rn) annotation (Line(points={{-10,-50},
+                {-10,-50},{-100,-50},{-100,-60}},
+                                  color={0,0,255}));
+        connect(rotorWinding.plug_p, plug_rp) annotation (Line(points={{10,-50},
+                {10,-60},{-80,-60},{-80,60},{-100,60}},
+                                                    color={0,0,255}));
+        connect(rotorWinding.heatPort, internalThermalPort.heatPort_r) annotation (
+            Line(
+            points={{-10,-40},{-40,-40},{-40,-90}},
+            color={191,0,0},
+            smooth=Smooth.None));
+        connect(statorWinding.port_p, airGap.port_sp) annotation (Line(
+            points={{10,30},{10,24.5},{10,24.5},{10,19},{10,10},{10,10}},
+            color={255,128,0},
+            smooth=Smooth.None));
         connect(airGap.port_rn, rotorWinding.port_n) annotation (Line(
-            points={{-10,-10},{-10,-15},{-10,-15},{-10,-20}},
+            points={{-10,-10},{-10,-20},{-10,-20},{-10,-30}},
             color={255,128,0},
             smooth=Smooth.None));
         connect(airGap.port_rp, rotorWinding.port_p) annotation (Line(
-            points={{10,-10},{10,-15},{10,-15},{10,-20}},
+            points={{10,-10},{10,-20},{10,-20},{10,-30}},
             color={255,128,0},
-            smooth=Smooth.None));
-        connect(statorWinding.heatPort, internalThermalPort.heatPort_s) annotation (
-            Line(
-            points={{-10,30},{-40,30},{-40,-90}},
-            color={191,0,0},
-            smooth=Smooth.None));
-        connect(rotorWinding.heatPort, internalThermalPort.heatPort_r) annotation (
-            Line(
-            points={{-10,-30},{-40,-30},{-40,-90}},
-            color={191,0,0},
             smooth=Smooth.None));
         annotation (         Icon(graphics={Line(points={{-100,50},{-100,20},{-60,20}},
                   color={0,0,255}), Line(points={{-100,-50},{-100,-20},{-60,-20}},
@@ -1961,7 +1956,7 @@ Resistances and stray inductances of the machine always refer to either stator o
 <p>
 <a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.AsynchronousInductionMachines.AIM_SquirrelCage\">AIM_SquirrelCage</a>,
 </p>
-</html>"),Diagram(graphics));
+</html>"));
       end AIM_SlipRing;
     annotation (Documentation(info="<html>
 <p>This package provides squirrel cage and slip ring induction machine models.</p>
@@ -2074,11 +2069,6 @@ Resistances and stray inductances of the machine always refer to either stator o
               rotation=270)));
       equation
 
-        connect(statorWinding.heatPort, internalThermalPort.heatPort_s) annotation (
-            Line(
-            points={{-10,30},{-40,30},{-40,-90}},
-            color={191,0,0},
-            smooth=Smooth.None));
         connect(rotorCage.heatPort, internalThermalPort.heatPort_r) annotation (Line(
             points={{40,-40},{40,-80},{-40,-80},{-40,-90}},
             color={191,0,0},
@@ -2102,6 +2092,10 @@ Resistances and stray inductances of the machine always refer to either stator o
             smooth=Smooth.None));
         connect(rotorCage.port_p, airGap.port_rp) annotation (Line(
             points={{30,-30},{10,-30},{10,-10}},
+            color={255,128,0},
+            smooth=Smooth.None));
+        connect(statorWinding.port_p, airGap.port_sp) annotation (Line(
+            points={{10,30},{10,25},{10,25},{10,20},{10,10},{10,10}},
             color={255,128,0},
             smooth=Smooth.None));
         annotation (         Icon(graphics={
@@ -2128,7 +2122,7 @@ Resistances and stray inductances of the machine refer to the stator phases. The
 <a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.SynchronousInductionMachines.SM_ReluctanceRotor\">
    SM_ReluctanceRotor</a>,
 </p>
-</html>"),Diagram(graphics));
+</html>"));
       end SM_PermanentMagnet;
 
       model SM_ElectricalExcited
@@ -2260,9 +2254,10 @@ Resistances and stray inductances of the machine refer to the stator phases. The
         connect(excitationWinding.port_n, rotorCage.port_n)
           annotation (Line(points={{-10,-50},{-10,-50},{30,-50}}, color={255,128,0}));
         connect(pin_en, excitationWinding.pin_n)
-          annotation (Line(points={{-100,-60},{-30,-60},{-30,-50}},  color={0,0,255}));
+          annotation (Line(points={{-100,-60},{-100,-60},{-100,-50},{-30,-50}},
+                                                                     color={0,0,255}));
         connect(excitationWinding.pin_p, pin_ep)
-          annotation (Line(points={{-30,-30},{-80,-30},{-80,60},{-100,60}},     color={0,0,255}));
+          annotation (Line(points={{-30,-30},{-100,-30},{-100,60}},             color={0,0,255}));
         connect(airGap.port_rn, excitationWinding.port_p) annotation (Line(
             points={{-10,-10},{-10,-20},{-10,-20},{-10,-30}},
             color={255,128,0},
@@ -2279,17 +2274,16 @@ Resistances and stray inductances of the machine refer to the stator phases. The
             points={{40,-40},{40,-80},{-40,-80},{-40,-90}},
             color={191,0,0},
             smooth=Smooth.None));
-        connect(statorWinding.heatPort, internalThermalPort.heatPort_s) annotation (
-            Line(
-            points={{-10,30},{-40,30},{-40,-90}},
-            color={191,0,0},
-            smooth=Smooth.None));
         connect(excitationWinding.heatPort, internalThermalPort.heatPort_e)
           annotation (Line(
             points={{-20,-50},{-20,-80},{-40,-80},{-40,-90}},
             color={191,0,0},
             smooth=Smooth.None));
 
+        connect(statorWinding.port_p, airGap.port_sp) annotation (Line(
+            points={{10,30},{10,25},{10,25},{10,20},{10,20},{10,10}},
+            color={255,128,0},
+            smooth=Smooth.None));
         annotation (         Icon(graphics={
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255}),
               Line(points={{-100,50},{-100,20},{-130,20},{-130,-4}}, color={0,0,255}),
@@ -2406,15 +2400,14 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
             points={{10,-10},{10,-30},{30,-30}},
             color={255,128,0},
             smooth=Smooth.None));
-        connect(statorWinding.heatPort, internalThermalPort.heatPort_s)
-          annotation (Line(
-            points={{-10,30},{-40,30},{-40,-90}},
-            color={191,0,0},
-            smooth=Smooth.None));
         connect(rotorCage.heatPort, internalThermalPort.heatPort_r) annotation (
            Line(
             points={{40,-40},{40,-80},{-40,-80},{-40,-90}},
             color={191,0,0},
+            smooth=Smooth.None));
+        connect(statorWinding.port_p, airGap.port_sp) annotation (Line(
+            points={{10,30},{10,25},{10,25},{10,20},{10,20},{10,10}},
+            color={255,128,0},
             smooth=Smooth.None));
         annotation (         Icon(graphics={
               Rectangle(extent={{-130,10},{-100,-10}}, lineColor={0,0,0}),
@@ -3279,7 +3272,7 @@ The salient cage model is a two axis model with two phases. The electro magnetic
           iss[k].im = 1/sqrt(m)*sum({sin(k*(l-1)*2*pi/m)*i[l] for l in 1:m});
           isr[k] = iss[k]*Modelica.ComplexMath.conj(Modelica.ComplexMath.exp(Complex(0,gamma)));
         end for;
-        annotation (Diagram(graphics), Icon(graphics={Rectangle(extent={{-90,90},{90,-90}},
+        annotation (Icon(graphics={Rectangle(extent={{-90,90},{90,-90}},
                   lineColor={0,0,255}), Text(
                 extent={{-80,80},{80,-80}},
                 lineColor={0,0,255},
@@ -3929,7 +3922,7 @@ This model is mainly used to extend from in order build more complex - equation 
               rotation=0)));
       BasicMachines.Components.StateSelectorCurrent stateSelectorCurrent(final m=m,
           final p=p)
-        annotation (Placement(transformation(extent={{40,50},{20,70}})));
+        annotation (Placement(transformation(extent={{40,60},{20,80}})));
       Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding
         statorWinding(
         final useHeatPort=true,
@@ -3942,7 +3935,7 @@ This model is mainly used to extend from in order build more complex - equation 
         final alpha20=alpha20s)
         "Symmetric stator winding including resistances and stray inductances"
         annotation (Placement(transformation(
-            origin={0,30},
+            origin={0,40},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       replaceable
@@ -3966,7 +3959,7 @@ This model is mainly used to extend from in order build more complex - equation 
               rotation=0)));
     public
       Components.Ground groundS "Ground of stator magnetic circuit"
-        annotation (Placement(transformation(extent={{-40,0},{-20,20}}, rotation=0)));
+        annotation (Placement(transformation(extent={{-40,30},{-20,10}},rotation=0)));
     public
       Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap
         airGap(
@@ -3980,7 +3973,7 @@ This model is mainly used to extend from in order build more complex - equation 
                0)));
     equation
       connect(statorWinding.plug_n, plug_sn) annotation (Line(
-          points={{-10,40},{-10,60},{-60,60},{-60,100}},
+          points={{-10,50},{-10,70},{-60,70},{-60,100}},
           color={0,0,255},
           smooth=Smooth.None));
       connect(thermalPort,internalThermalPort)  annotation (Line(
@@ -4006,14 +3999,8 @@ This model is mainly used to extend from in order build more complex - equation 
       connect(inertiaStator.flange_b, support)
         annotation (Line(points={{90,-100},{90,-100},{100,-100}},
                                                         color={0,0,0}));
-      connect(groundS.port_p, statorWinding.port_n) annotation (Line(
-          points={{-30,20},{-10,20}},
-          color={255,128,0},
-          smooth=Smooth.None));
-      connect(statorWinding.port_n,airGap. port_sn) annotation (Line(points={{-10,20},
+      connect(statorWinding.port_n,airGap. port_sn) annotation (Line(points={{-10,30},
               {-10,10},{-10,10}},                                color={255,128,0}));
-      connect(statorWinding.port_p,airGap. port_sp) annotation (Line(points={{10,20},
-              {10,10},{10,10}},         color={255,128,0}));
       connect(airGap.flange_a, inertiaRotor.flange_a) annotation (Line(
           points={{10,-1.83697e-015},{40,-1.83697e-015},{40,1.22465e-015},{70,
               1.22465e-015}},
@@ -4029,26 +4016,35 @@ This model is mainly used to extend from in order build more complex - equation 
       connect(groundR.port_p,airGap. port_rn)         annotation (Line(points={{-30,-10},
               {-20,-10},{-20,-10},{-10,-10}},    color={255,128,0}));
       connect(plug_sp, stateSelectorCurrent.plug_p) annotation (Line(
-          points={{60,100},{60,60},{40,60}},
+          points={{60,100},{60,70},{40,70}},
           color={0,0,255},
           smooth=Smooth.None));
       connect(stateSelectorCurrent.plug_n, statorWinding.plug_p) annotation (Line(
-          points={{20,60},{10,60},{10,40}},
+          points={{20,70},{10,70},{10,50}},
           color={0,0,255},
           smooth=Smooth.None));
       connect(stateSelectorCurrent.support, airGap.support) annotation (Line(
-          points={{20,50},{-20,50},{-20,1.83697e-015},{-10,1.83697e-015}},
+          points={{20,60},{-20,60},{-20,1.83697e-015},{-10,1.83697e-015}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(stateSelectorCurrent.flange, airGap.flange_a) annotation (Line(
-          points={{40,50},{40,40},{20,40},{20,-1.83697e-015},{10,-1.83697e-015}},
+          points={{40,60},{40,50},{20,50},{20,-1.83697e-015},{10,-1.83697e-015}},
           color={0,0,0},
+          smooth=Smooth.None));
+      connect(statorWinding.heatPort, internalThermalPort.heatPort_s)
+        annotation (Line(
+          points={{-10,40},{-40,40},{-40,-90}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(groundS.port_p, airGap.port_sn) annotation (Line(
+          points={{-30,10},{-20,10},{-20,10},{-10,10}},
+          color={255,128,0},
           smooth=Smooth.None));
       annotation (Documentation(info="<HTML>
 Partial model for induction machine models
 </HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                100}}),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}),
                 graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
