@@ -308,7 +308,9 @@ For more details see the <a href=Modelica.Magnetic.FundamentalWave.UsersGuide.Co
         Lrsigma=Lrsigma,
         Rr=Rr,
         alpha20s(displayUnit="1/K"),
-        alpha20r(displayUnit="1/K"))
+        alpha20r(displayUnit="1/K"),
+        stateSelectorS(x0StateSelect=StateSelect.prefer, xrStateSelect=
+              StateSelect.prefer))
         annotation (Placement(transformation(extent={{-10,-30},{10,-10}}, rotation=
                 0)));
       Modelica.Mechanics.Rotational.Components.Inertia loadInertiaM(
@@ -497,7 +499,11 @@ Simulate for 1.5 seconds and plot (versus time):
         Rr=Rr,
         alpha20s(displayUnit="1/K"),
         alpha20r(displayUnit="1/K"),
-        p=p)
+        p=p,
+        stateSelectorS(x0StateSelect=StateSelect.prefer, xrStateSelect=
+              StateSelect.prefer),
+        stateSelectorR(x0StateSelect=StateSelect.prefer, xrStateSelect=
+              StateSelect.prefer))
         annotation (Placement(transformation(extent={{-10,-30},{10,-10}},  rotation=
                0)));
       Electrical.Machines.Utilities.SwitchedRheostat rheostatM(
@@ -713,7 +719,9 @@ Simulate for 1.5 seconds and plot (versus time):
         Rrd=Rrd,
         Rrq=Rrq,
         alpha20s(displayUnit="1/K"),
-        alpha20r(displayUnit="1/K"))
+        alpha20r(displayUnit="1/K"),
+        stateSelectorS(x0StateSelect=StateSelect.prefer, xrStateSelect=
+              StateSelect.prefer))
         annotation (Placement(transformation(extent={{-10,-30},{10,-10}},rotation=0)));
       Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorAngleM(
         p=p)
@@ -930,7 +938,9 @@ Simulate for 1.5 seconds and plot (versus time):
         Rrq=Rrq,
         p=p,
         alpha20s(displayUnit="1/K"),
-        alpha20r(displayUnit="1/K"))
+        alpha20r(displayUnit="1/K"),
+        stateSelectorS(x0StateSelect=StateSelect.prefer, xrStateSelect=
+              StateSelect.prefer))
         annotation (Placement(transformation(extent={{-10,-30},{10,-10}},
                                                                        rotation=0)));
       Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorAngleM(
@@ -1136,7 +1146,8 @@ and accelerate the inertias.</p>
         alpha20r(displayUnit="1/K"),
         alpha20e(displayUnit="1/K"),
         phiMechanical(start=-(Modelica.Constants.pi +
-              Modelica.SIunits.Conversions.from_deg(gamma0))/p, fixed=true))
+              Modelica.SIunits.Conversions.from_deg(gamma0))/p, fixed=true),
+        stateSelectorS(x0StateSelect=StateSelect.prefer, xrStateSelect=StateSelect.prefer))
         annotation (Placement(transformation(extent={{-10,-30},{10,-10}},
                                                                       rotation=0)));
       Modelica.Electrical.Analog.Sources.RampCurrent rampCurrentM(
@@ -1379,7 +1390,7 @@ Grounding of the complex magnetic potential. Each magnetic circuit has to be gro
             Text(
               extent={{0,60},{0,100}},
               lineColor={255,128,0},
-              textString =                         "%name"),
+              textString=                          "%name"),
             Text(
               extent={{0,-70},{0,-110}},
               lineColor={0,0,0},
@@ -1691,7 +1702,7 @@ The voltages <img src=\"../Images/Magnetic/FundamentalWave/v_k.png\"> induced in
             Text(
               extent={{0,60},{0,100}},
               lineColor={255,128,0},
-              textString =                         "%name"),
+              textString=                          "%name"),
             Rectangle(
               extent={{-100,40},{100,-40}},
               lineColor={255,255,255},
@@ -1728,7 +1739,7 @@ This is a simple idle running branch.
             Text(
               extent={{0,60},{0,100}},
               lineColor={255,128,0},
-              textString =                         "%name"),
+              textString=                          "%name"),
             Rectangle(
               extent={{-100,40},{100,-40}},
               lineColor={255,255,255},
@@ -1897,7 +1908,7 @@ Resistances and stray inductances of the machine refer to the stator phases. The
           annotation(Dialog(enable=not useTurnsRatio));
         output Modelica.SIunits.Voltage vr[m] = plug_rp.pin.v - plug_rn.pin.v
           "Rotor instantaneous voltages";
-        output Modelica.SIunits.Current ir[m](each stateSelect=StateSelect.prefer) = plug_rp.pin.i
+        output Modelica.SIunits.Current ir[m] = plug_rp.pin.i
           "Rotor instantaneous currents";
 
       protected
@@ -1919,6 +1930,13 @@ Resistances and stray inductances of the machine refer to the stator phases. The
               origin={0,-40},
               extent={{-10,10},{10,-10}},
               rotation=90)));
+        Interfaces.StateSelector stateSelectorR(
+          final mp=m,
+          final xi=ir,
+          final gamma=0)
+          annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={-90,0})));
       equation
 
         connect(rotorWinding.plug_n, plug_rn) annotation (Line(points={{-10,-50},
@@ -2737,8 +2755,7 @@ The symmetrical multi phase winding consists of a symmetrical winding
           d=1/L0.d, q=1/L0.q) "Reluctance of the air gap model";
 
         // Stator magnetic quantities
-        Modelica.SIunits.ComplexMagneticPotentialDifference V_mss(
-          re(stateSelect=StateSelect.avoid), im(stateSelect=StateSelect.avoid))
+        Modelica.SIunits.ComplexMagneticPotentialDifference V_mss
           "Complex magnetic potential difference of stator w.r.t. stator reference frame";
         Modelica.SIunits.ComplexMagneticPotentialDifference V_msr
           "Complex magnetic potential difference of stator w.r.t. rotor reference frame";
@@ -2747,8 +2764,7 @@ The symmetrical multi phase winding consists of a symmetrical winding
         // Modelica.SIunits.ComplexMagneticPotentialDifference V_mrs
         //   "Complex magnetic potential difference of rotor w.r.t. stator reference frame";
 
-        Modelica.SIunits.ComplexMagneticFlux Phi_ss(
-          re(stateSelect=StateSelect.avoid), im(stateSelect=StateSelect.avoid))
+        Modelica.SIunits.ComplexMagneticFlux Phi_ss
           "Complex magnetic potential difference of stator w.r.t. stator reference frame";
         Modelica.SIunits.ComplexMagneticFlux Phi_sr
           "Complex magnetic potential difference of stator w.r.t. rotor reference frame";
@@ -2922,7 +2938,7 @@ according to the following figure.
         parameter Modelica.SIunits.Inductance Lsigma "Cage stray inductance";
         parameter Real effectiveTurns = 1 "Effective number of turns";
 
-        Modelica.SIunits.Current i[m](each stateSelect=StateSelect.prefer)
+        Modelica.SIunits.Current i[m](each stateSelect=StateSelect.always)
           "Cage currents";
 
         Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
@@ -3046,7 +3062,7 @@ according to the following figure.
               Text(
                 extent={{0,100},{0,140}},
                 lineColor={0,0,255},
-                textString =                         "%name")}),
+                textString=                          "%name")}),
           Documentation(info="<html>
 <p>
 <img src=\"../Images/Magnetic/FundamentalWave/Machines/Components/rotorcage.png\">
@@ -3092,7 +3108,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
         parameter Real effectiveTurns = 1 "Effective number of turns";
 
         Modelica.Magnetic.FundamentalWave.Types.SalientCurrent i(
-          d(stateSelect=StateSelect.prefer), q(stateSelect=StateSelect.prefer))
+          d(stateSelect=StateSelect.always), q(stateSelect=StateSelect.always))
           "Cage current";
 
         Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
@@ -3215,7 +3231,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
               Text(
                 extent={{0,100},{0,140}},
                 lineColor={0,0,255},
-                textString =                         "%name")}),
+                textString=                          "%name")}),
           Documentation(info="<html>
 
 <p>
@@ -3915,7 +3931,7 @@ This model is mainly used to extend from in order build more complex - equation 
       Components.Ground groundR "Ground of rotor magnetic circuit"
         annotation (Placement(transformation(extent={{-40,-30},{-20,-10}}, rotation=
                0)));
-      StateSelector stateSelector(
+      StateSelector stateSelectorS(
         final mp=m,
         final xi=is,
         final gamma=p*phiMechanical)
@@ -4028,20 +4044,23 @@ Partial model for induction machine models
       "Transform instantaneous values to space phasors and select states"
       import Modelica.Constants.pi;
       parameter Integer mp(min=3)=3 "Number of phases";
-      input Real xi[mp](each stateSelect=StateSelect.avoid)
+      input Real xi[mp](each stateSelect=StateSelect.never)
         "Instantaneous values"
         annotation(Dialog);
       input Modelica.SIunits.Angle gamma "Angle of rotation"
         annotation(Dialog);
-      Real x0(stateSelect=StateSelect.prefer) = 1/sqrt(mp)*sum(xi)
-        "Zero system";
-      Real x00(stateSelect=StateSelect.prefer)= 1/sqrt(mp)*sum(
+      parameter StateSelect x0StateSelect=StateSelect.prefer
+        "Priority to use zero systems as states";
+      parameter StateSelect xrStateSelect=StateSelect.prefer
+        "Priority to use space phasors w.r.t. rotating frame as states";
+      Real x0(stateSelect=x0StateSelect) = 1/sqrt(mp)*sum(xi) "Zero system";
+      Real x00(stateSelect=x0StateSelect)= 1/sqrt(mp)*sum(
         {xi[2*l-1] - xi[2*l] for l in 1:integer(mp/2)}) if mp==2*integer(mp/2)
         "Second zero system, if present (mp even)";
       final parameter Integer np = integer((mp-1)/2) "Number of space phasors";
-      Complex xf[np](each re(stateSelect=StateSelect.avoid), each im(stateSelect=StateSelect.avoid))
+      Complex xf[np](each re(stateSelect=StateSelect.never), each im(stateSelect=StateSelect.never))
         "Space phasors w.r.t. fixed frame";
-      Complex xr[np](each re(stateSelect=StateSelect.prefer), each im(stateSelect=StateSelect.prefer))
+      Complex xr[np](each re(stateSelect=xrStateSelect), each im(stateSelect=xrStateSelect))
         "Space phasors w.r.t. rotating frame";
     equation
     //space phasor transformations
@@ -4058,14 +4077,18 @@ i.e. with small derivatives.
 </p>
 </html>"), Icon(graphics={
             Ellipse(
-              extent={{-40,40},{40,-40}},
+              extent={{-60,60},{60,-60}},
               lineColor={0,255,255},
               fillColor={0,255,255},
               fillPattern=FillPattern.Solid),
             Text(
-              extent={{-40,40},{40,-40}},
+              extent={{-60,60},{60,-60}},
               textString="S",
-              lineColor={0,0,255})}));
+              lineColor={0,0,255}),
+            Text(
+              extent={{0,-60},{0,-100}},
+              lineColor={0,0,255},
+              textString="%name")}));
     end StateSelector;
 
   annotation (Documentation(info="<html>
