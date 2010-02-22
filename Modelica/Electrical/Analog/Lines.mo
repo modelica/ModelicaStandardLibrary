@@ -132,10 +132,10 @@ model segment "Multiple line segment model"
   parameter Integer lines(final min=1)=3 "Number of lines";
   parameter Integer dim_vector_lgc=div(lines*(lines+1),2)
         "Length of the vectors for l, g, c";
-  Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin" 
+  Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin"
               annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
             rotation=0)));
-  Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin" 
+  Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
               annotation (Placement(transformation(extent={{40,-10},{60,10}},
             rotation=0)));
 
@@ -189,10 +189,10 @@ end segment;
 
 model segment_last "Multiple line last segment model"
 
-  Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin" 
+  Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin"
               annotation (Placement(transformation(extent={{-40,-10},{-20,10}},
             rotation=0)));
-  Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin" 
+  Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
               annotation (Placement(transformation(extent={{20,-10},{40,10}},
             rotation=0)));
   parameter Integer lines(final min=1)=3 "Number of lines";
@@ -241,10 +241,10 @@ end segment_last;
     lines=lines,
     Rl=r*length/(2*N),
     Ll=l*length/(2*N));
-  Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin" 
+  Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin"
               annotation (Placement(transformation(extent={{-100,-80},{-80,80}},
           rotation=0)));
-  Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin" 
+  Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
               annotation (Placement(transformation(extent={{80,-80},{100,80}},
           rotation=0)));
 

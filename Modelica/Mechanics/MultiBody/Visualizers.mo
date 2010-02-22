@@ -2,7 +2,6 @@ within Modelica.Mechanics.MultiBody;
 package Visualizers "3-dimensional visual objects used for animation"
   extends Modelica.Icons.Library;
 
-
   model FixedShape
     "Animation shape of a part with fixed shape type and dynamically varying shape definition"
     import SI = Modelica.SIunits;
@@ -206,7 +205,6 @@ definition of the colors used in the MultiBody library
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
-
 
   protected
     outer MultiBody.World world;
@@ -629,7 +627,6 @@ parameter menu.
       r=frame_a.r_0,
       R=frame_a.R) if world.enableAnimation and animation;
 
-
   equation
     frame_a.f = zeros(3);
     frame_a.t = zeros(3);
@@ -974,7 +971,6 @@ library (will be replaced by a color editor).
         "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)"
                                                                                                             annotation(Dialog);
 
-
     protected
       outer Modelica.Mechanics.MultiBody.World world;
       SI.Length length=Modelica.Math.Vectors.length(
@@ -1123,7 +1119,11 @@ implement simpler to use graphical components.
 The following shapes are supported via
 parameter <b>shapeType</b> (e.g., shapeType=\"box\"):<br>&nbsp;
 </p>
+
+<p>
 <IMG SRC=\"../Images/MultiBody/Shape.png\" ALT=\"model Visualizers.FixedShape\">
+</p>
+
 <p>&nbsp;<br>
 The dark blue arrows in the figure above are directed along
 variable <b>lengthDirection</b>. The light blue arrows are directed
@@ -1132,7 +1132,7 @@ in the figure represent frame_a of the Shape component.
 </p>
 <p>
 Additionally, external shapes are specified as DXF-files
-(only 3-dim.Face is supported). External shapes must be named \"1\", \"2\"
+(only 3-dim. Face is supported). External shapes must be named \"1\", \"2\"
 etc.. The corresponding definitions should be in files \"1.dxf\",
 \"2.dxf\" etc.Since the DXF-files contain color and dimensions for
 the individual faces, the corresponding information in the model
@@ -1177,13 +1177,13 @@ according to:
 </table>
 
 <p>
-Parameter <b>color</b> is an Integer vector with 3 elements,
+Parameter <b>color</b> is a Real vector with 3 elements,
 {r, g, b}, and specifies the color of the shape.
 {r,g,b} are the \"red\", \"green\" and \"blue\" color parts.
 Note, r g, b are given in the range 0 .. 255.
 The predefined type <b>MultiBody.Types.Color</b> contains
 a menu definition of the colors used in the MultiBody
-library (will be replaced by a color editor).
+library.
 </p>
 
 <p>
@@ -1271,7 +1271,6 @@ since they all have frame connectors).
       input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Reflection of ambient light (= 0: light is completely absorbed)"
         annotation (Dialog(group="if animation = true", enable=animation));
-
 
     protected
       Lines x_label(

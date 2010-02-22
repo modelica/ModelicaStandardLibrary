@@ -599,10 +599,10 @@ model M_Transformer "Generic transformer with free number of inductors"
   public
   parameter Modelica.SIunits.Inductance L[dimL]={1,0.1,0.2,2,0.3,3}
       "inductances and coupling inductances";
-  Modelica.Electrical.Analog.Interfaces.PositivePin p[N] "Positive pin" 
+  Modelica.Electrical.Analog.Interfaces.PositivePin p[N] "Positive pin"
               annotation (extent=[-80,-40; -62,40], Placement(transformation(
           extent={{-80,-40},{-62,40}}, rotation=0)));
-  Modelica.Electrical.Analog.Interfaces.NegativePin n[N] "Negative pin" 
+  Modelica.Electrical.Analog.Interfaces.NegativePin n[N] "Negative pin"
               annotation (extent=[62,-40; 80,40], Placement(transformation(
           extent={{62,-40},{80,40}}, rotation=0)));
 
@@ -612,7 +612,7 @@ model M_Transformer "Generic transformer with free number of inductors"
 algorithm
   for s in 1:N loop
      for z in 1:N loop
-       Lm[z,s]:= if (z>=s) then L[(s-1)*N+z-div((s-1)*s,2)] else 
+       Lm[z,s]:= if (z>=s) then L[(s-1)*N+z-div((s-1)*s,2)] else
                  Lm[s,z];
      end for;
   end for;
@@ -897,7 +897,7 @@ end M_Transformer;
 
   model EMF "Electromotoric force (electric/mechanic transformer)"
     parameter Boolean useSupport=false
-      "= true, if support flange enabled, otherwise implicitly grounded" 
+      "= true, if support flange enabled, otherwise implicitly grounded"
         annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
     parameter SI.ElectricalTorqueConstant k(start=1)
       "Transformation coefficient";
@@ -914,15 +914,15 @@ end M_Transformer;
           origin={0,-100},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    Modelica.Mechanics.Rotational.Interfaces.Flange_b flange 
+    Modelica.Mechanics.Rotational.Interfaces.Flange_b flange
       annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
     Mechanics.Rotational.Interfaces.Support support if useSupport
-      "Support/housing of emf shaft" 
+      "Support/housing of emf shaft"
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
   protected
-    Mechanics.Rotational.Components.Fixed fixed if not useSupport 
+    Mechanics.Rotational.Components.Fixed fixed if not useSupport
       annotation (Placement(transformation(extent={{-90,-20},{-70,0}})));
-    Mechanics.Rotational.Interfaces.InternalSupport internalSupport(tau=-flange.tau) 
+    Mechanics.Rotational.Interfaces.InternalSupport internalSupport(tau=-flange.tau)
       annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
   equation
     v = p.v - n.v;
@@ -1034,7 +1034,7 @@ end M_Transformer;
 
   model TranslationalEMF "Electromotoric force (electric/mechanic transformer)"
     parameter Boolean useSupport=false
-      "= true, if support flange enabled, otherwise implicitly grounded" 
+      "= true, if support flange enabled, otherwise implicitly grounded"
       annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
     parameter Modelica.SIunits.ElectricalForceConstant k(start=1)
       "Transformation coefficient";
@@ -1044,25 +1044,25 @@ end M_Transformer;
     Modelica.SIunits.Position s "Position of flange relative to support";
     Modelica.SIunits.Velocity vel "Velocity of flange relative to support";
 
-    Modelica.Electrical.Analog.Interfaces.PositivePin p 
+    Modelica.Electrical.Analog.Interfaces.PositivePin p
       annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    Modelica.Electrical.Analog.Interfaces.NegativePin n 
+    Modelica.Electrical.Analog.Interfaces.NegativePin n
       annotation (Placement(transformation(
           origin={0,-100},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    Modelica.Mechanics.Translational.Interfaces.Flange_b flange 
+    Modelica.Mechanics.Translational.Interfaces.Flange_b flange
        annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
     Modelica.Mechanics.Translational.Interfaces.Support support if useSupport
-      "Support/housing" 
+      "Support/housing"
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
   protected
-    Modelica.Mechanics.Translational.Components.Fixed fixed if not useSupport 
+    Modelica.Mechanics.Translational.Components.Fixed fixed if not useSupport
       annotation (Placement(transformation(extent={{-90,-20},{-70,0}})));
-    Modelica.Mechanics.Translational.Interfaces.InternalSupport internalSupport(f=-flange.f) 
+    Modelica.Mechanics.Translational.Interfaces.InternalSupport internalSupport(f=-flange.f)
       annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
   equation
     v = p.v - n.v;
@@ -1454,7 +1454,7 @@ end M_Transformer;
     Modelica.Electrical.Analog.Interfaces.NegativePin in_n
       "Negative pin of the input port" annotation (Placement(transformation(
             extent={{-90,40},{-110,60}}, rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.PositivePin out "Output pin" 
+    Modelica.Electrical.Analog.Interfaces.PositivePin out "Output pin"
       annotation (Placement(transformation(extent={{110,-10},{90,10}}, rotation=
              0)));
     Modelica.Electrical.Analog.Interfaces.PositivePin VMax
@@ -1625,7 +1625,7 @@ end M_Transformer;
     Modelica.Electrical.Analog.Interfaces.NegativePin m
       "Negative pin of the input port" annotation (Placement(transformation(
             extent={{-90,40},{-111,61}}, rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.PositivePin outp "Output pin" 
+    Modelica.Electrical.Analog.Interfaces.PositivePin outp "Output pin"
       annotation (Placement(transformation(extent={{110,-10},{90,10}}, rotation=
              0)));
     Modelica.Electrical.Analog.Interfaces.PositivePin p_supply
@@ -1763,8 +1763,8 @@ end M_Transformer;
 
      der(x) = (q_fp1 - v_source)/Ts;
      der(v_source) = smooth(0,noEvent(
-     if der(x) > sr_p_val then sr_p_val else 
-     if der(x) < sr_m_val then sr_m_val else 
+     if der(x) > sr_p_val then sr_p_val else
+     if der(x) < sr_m_val then sr_m_val else
         der(x)));
 
   // output stage
@@ -1864,7 +1864,7 @@ end M_Transformer;
         extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
         Modelica.SIunits.Resistance R_actual
       "Actual resistance = R*(1 + alpha*(T_heatPort - T_ref))";
-        Modelica.Blocks.Interfaces.RealInput R 
+        Modelica.Blocks.Interfaces.RealInput R
           annotation (Placement(transformation(
         origin={0,110},
         extent={{-20,-20},{20,20}},
@@ -1934,7 +1934,7 @@ end M_Transformer;
         extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
         Modelica.SIunits.Conductance G_actual
       "Actual conductance = G/(1 + alpha*(T_heatPort - T_ref))";
-        Modelica.Blocks.Interfaces.RealInput G 
+        Modelica.Blocks.Interfaces.RealInput G
           annotation (Placement(transformation(
         origin={0,110},
         extent={{-20,-20},{20,20}},
@@ -1994,7 +1994,7 @@ end M_Transformer;
         model VariableCapacitor
     "Ideal linear electrical capacitor with variable capacitance"
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
-          Modelica.Blocks.Interfaces.RealInput C 
+          Modelica.Blocks.Interfaces.RealInput C
             annotation (Placement(transformation(
           origin={0,110},
           extent={{-20,-20},{20,20}},
@@ -2059,7 +2059,7 @@ end M_Transformer;
     "Ideal linear electrical inductor with variable inductance"
 
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
-          Modelica.Blocks.Interfaces.RealInput L 
+          Modelica.Blocks.Interfaces.RealInput L
             annotation (Placement(transformation(
           origin={0,108},
           extent={{-20,-20},{20,20}},

@@ -11,7 +11,7 @@ package Sources "Time-dependend and controlled voltage and current sources"
     Interfaces.NegativePin n annotation (Placement(transformation(extent={{110,
               -10},{90,10}}, rotation=0)));
     Modelica.Blocks.Interfaces.RealInput v
-      "Voltage between pin p and n (= p.v - n.v) as input signal" 
+      "Voltage between pin p and n (= p.v - n.v) as input signal"
        annotation (Placement(transformation(
           origin={0,70},
           extent={{-20,-20},{20,20}},
@@ -1401,7 +1401,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               -10},{90,10}}, rotation=0)));
     SI.Voltage v "Voltage drop between the two pins (= p.v - n.v)";
     Modelica.Blocks.Interfaces.RealInput i
-      "Current flowing from pin p to pin n as input signal" 
+      "Current flowing from pin p to pin n as input signal"
        annotation (Placement(transformation(
           origin={0,70},
           extent={{-20,-20},{20,20}},

@@ -4,7 +4,6 @@ package ModelicaServices "Models and functions used in the Modelica Standard Lib
 
 package UsersGuide "Users Guide"
 
-
 class ReleaseNotes "Release notes"
 
   annotation (Documentation(info="<html>
@@ -622,7 +621,6 @@ end Contact;
 end UsersGuide;
 
 
-
 package Animation "Models and functions for 3-dim. animation"
 
 model Shape
@@ -709,17 +707,45 @@ equation
             textString="%name",
             lineColor={0,0,255})}),
     Documentation(info="<html>
-
 <p>
-This model is documented at
+The interface of this model is documented at
 <a href=\"Modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape</a>.
 </p>
 
+<p>
+The default implementation of this model is for Dymola. Here, the following data is stored on the
+result file (using Dymola specific functions \"PackShape\" and \"PackMaterial\" to pack data
+on a Real number):
+</p>
+
+<pre>
+  Real Form         // shapeType coded on Real
+  Real rxvisobj[3]  // x-axis unit vector of shape, resolved in world frame
+  Real ryvisobj[3]  // y-axis unit vector of shape, resolved in world frame
+  Real rvisobj [3]  // Position vector from world frame to shape frame, resolved in world frame
+  Real size    [3]  // {length,width,height} of shape
+  Real Material     // color and specularCoefficient packed on Real
+  Real Extra        // \"extra\" variable of shape
+</pre>
+
+<p>
+It is then assumed that the program reading the result file recognizes that a 3-dim. visualizer
+object is defined (via variable \"Form\" and the possible values for Forms) and then visualizes
+the shape according to the follow-up data.
+</p>
+
+<p>
+Other tools may provide a totally different implementation. For example, the \"DLR Visualization\" library
+basically has one C-function call to get a unique \"id\" of the shape and with a second C-function call,
+the input variables of the \"shape\" are passed via a network protocol to an online renderer that also stores the
+visualization data on persistent storage.
+</p>
 
 </html>
 "));
 end Shape;
 end Animation;
+
 
 annotation (preferredView="info",
 version="1.0",
