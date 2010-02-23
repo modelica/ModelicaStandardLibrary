@@ -10,13 +10,9 @@ extends Modelica.Icons.Library2;
 
     annotation (Documentation(info="<html>
 <p><h4><font color=\"#008000\">Overview of Spice3 library</font></h4></p>
-<p><h4>Information</h4></p>
 <p><br/>The Spice3 library is a Modelica library that contains some models of the Berkeley SPICE3 analog simulator. </p>
 <p><br/><u>General information about the analog simulator SPICE3 </u></p>
-<p>SPICE (Simulation Program with Integrated Circuit Emphasis) is a simulator for analog electrical circuits. It was developed as one of the first analog simulators in the university of Berkeley in 1970.</p>
-<p>SPICE-netlists, which contain the circuit that shall be simulated, are one of &nbsp;the de-facto-standard up to now. For nearly every electrical circuit a SPICE-netlist exists. Today the actual version of SPICE is SPICE3e/SPICE3f.</p>
-<p>SPICE contains basic elements (resistor, inductor, capacitor), sources and semiconductor devices (diode, bipolar transistors, junction field effect transistors, MOS-field effect transistors) as well as models of lines.</p>
-<p>Out of this offered pool of elements, the circuits that shall be simulated are build in the form of SPICE-netlists. </p>
+<p>SPICE (Simulation Program with Integrated Circuit Emphasis) is a simulator for analog electrical circuits. It was developed as one of the first analog simulators in the university of Berkeley in 1970. SPICE-netlists, which contain the circuit that shall be simulated, are one of &nbsp;the de-facto-standard up to now. For nearly every electrical circuit a SPICE-netlist exists. Today the actual version of SPICE is SPICE3e/SPICE3f. SPICE contains basic elements (resistor, inductor, capacitor), sources and semiconductor devices (diode, bipolar transistors, junction field effect transistors, MOS-field effect transistors) as well as models of lines. Out of this offered pool of elements, the circuits that shall be simulated are build in the form of SPICE-netlists. </p>
 <p><br/><u>The Spice3-library for Modelica</u></p>
 <p>The Spice3 library was extraced from orinial SPICE3 C++ code. To be sure the Modelica models are correct the simulation results were compared to SPICE3.</p>
 <p>The Spice3-library was built in accordance to the model structure in SPICE. It contains the following packages:</p>
@@ -29,7 +25,7 @@ extends Modelica.Icons.Library2;
 <li>Interfaces</li>
 <li>Repository (functions and data neede to model the semiconductor devices)<br/></li>
 </ul></p>
-<p>Since the semiconductor models, especially MOS and BJT, are very complex models, many functions, data and parameters were needed for their description. Therefore a special Package Repository was created that contains all thel functions and records with data and parameters that are needed for the semiconductor models. It is not necessary that a user of the library works inside this package,so is not for user access.The package Additionals is also a special one. It is not part of the original SPICE3 models. Nevertheless it contains useful models/features like the polynomial sources of SPICE2 that are often used.</p>
+<p>Since the semiconductor models, especially MOS and BJT, are very complex models, many functions, data and parameters were needed for their description. Therefore a special Package Repository was created that contains all thel functions and records with data and parameters that are needed for the semiconductor models. It is not necessary that a user of the library works inside this package,so is not for user access.The package Additionals is also a special one. It is not part of the original SPICE3 models. Nevertheless it contains useful models/features like the polynomial sources of SPICE2 that are often used.<b></p><p></b></p>
 </html>", revisions="<html>
 </html>"));
   end Overview;
@@ -37,7 +33,6 @@ extends Modelica.Icons.Library2;
   class useofsemiconductors "Use of Semiconductors"
 
     annotation (Documentation(info="<html>
-<p><h4><font color=\"#008000\">Use of Semiconductors</font></h4></p>
 <p>Within the semiconductor devices SPICE3 differentiates between technology parameters and device parameters. Device parameters can be chosen for every single model instance, e.g. the channel length of a transistor. Technology parameters which are specified in a model card (.model) are adjustable for more than one element simultaneously, e.g. the type of transistors. As usualy done in Modelica the parameters of the modelcard can be set in a parameter list. </p>
 <p>To parametrice more than one model two ways are possible:</p>
 <p><ol>
@@ -102,7 +97,7 @@ extends Modelica.Icons.Library2;
 </table>
 <caption>Table1: Translation of the SPICE3 netlist (left side) to Modelica (right side)</caption>
 </p>
-<p>Given is a SPICE3 netlist that contains two nverter circuits. This netlist should be translated to Modelica in which the input voltage of the first inverter (node number 1) and the</p>
+<p>Given is a SPICE3 netlist that contains two inverter circuits. This netlist should be translated to Modelica in which the input voltage of the first inverter (node number 1) and the</p>
 <p>output voltage of the second (node number 2)later will be connected with the surrounding circuit. The following steps are necessary:</p>
 <p><ol>
 <li>A name for the Modelica model has to be chosen. It could be taken from the first line of the SPICE3 netlist.</li>
@@ -116,25 +111,77 @@ extends Modelica.Icons.Library2;
 </html>"));
   end Spicenetlist;
 
+  class NamingPrinciple "Naming principle"
+
+    annotation (Documentation(info="<html>
+<p>In SPICE3 we have a predefined model pool. Each model device has got a code letter (e.g. resistor - R). In analogy to the SPICE3 models the models of the Spice3 library also got the according code letter in their names. The following examples shows the relationship:</p>
+<p>A typical SPICE3 line could be: </p>
+<p><b>C</b>1 3 2 1pF</p>
+<p>The first letter is the code letter (here <b>C</b>). It specifies the type of the model component (here capacitance). To see the analogy to the SPICE3 models in the Spice3 library the transformed capacitance has got the name <b>C</b>_Capacitance. According to that naming rule the components of the Spice3 library have the following names (the first letter is the code letter that has to be used in SPICE3):</p>
+<p><ul>
+<li>R_Resistor</li>
+<li>C_Capacitance</li>
+<li>L_Inductor</li>
+<li>E_VCV, E_VCV_POLY</li>
+<li>G_VCC, G_VCC_POLY</li>
+<li>H_CCV, H_CCV_POLY</li>
+<li>F_CCC, F_CCC_POLY</li>
+<li>M_PMOS</li>
+<li>M_NMOS</li>
+<li>Q_NPNBJT</li>
+<li>Q_PNPBJT</li>
+<li>D_Diode</li>
+<li>V_constant, I_constant</li>
+<li>V_sin, I_sin</li>
+<li>V_exp, I_exp</li>
+<li>V_pulse, I_pulse</li>
+<li>V_pwl, I_pwl</li>
+<li>V_sffm, I_sffm<br/><b><br/></b></li>
+</ul></p>
+</html>", revisions="<html>
+</html>"));
+  end NamingPrinciple;
+
   class Literature "Literature"
 
     annotation (Documentation(info="<html>
-<p>The following books and articles have been useful for the implementation of the Spice3 library. </p>
-<p><h4>Books</h4></p>
-<dl><dt><a name=\"ref_\">A</a>ntognetti, P.; Massobrio, G.(1988): </dt>
-<dl><dt><blockquote><b> Semiconductor Device Modeling with SPICE. </b>McGraw-Hill Book Company, USA</blockquote></dt>
-<dl><dt>Connelly, A.; Choi, P.(1992):</dt>
-<dl><dt><blockquote><b>Macromodeling with SPICE.</b> Prentice-Hall, New Jersey, USA</blockquote></dt>
-<dl><dt>Johnson, B.; Quarles, T.; Newton, A. R.; Pederson, D. O.; Sangiovanni-Vincentelli, A. (1991):</dt>
-<dl><dt><blockquote><b>SPICE3 Version 3e User's Manual. </b>University of Berkeley, Department of Electrical Engineering and Computer Sciences, USA</blockquote></dt>
-<blockquote><a href=\"http://bear.cwru.edu/eecs_cad/man_spice3.pdf\">SPICE3 users manual</a> </blockquote>
-<dl><dt>Kielkowski, R.(1994):</dt>
-<dl><dt><blockquote><b>Inside SPICE - Overcoming the obstacles of circuit simulation.</b> McGraw-Hill, USA</blockquote></dt>
-<p><h4>Articles</h4></p>
-<dl><dt>B&ouml;hme, S.; Majetta, K.; Clauss, C.; Schneider, P.(2009): </dt>
-<dl><dt><blockquote><b>Spice3 Modelica Library.</b> Modelica Conference, Como, Italy</blockquote> </dt>
-</dl></html>",
-          revisions="<html>
+
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+<tr>
+<td valign=\"top\">[Böhme2009]</td>
+<td valign=\"top\">S. B&ouml;hme, K. Majetta, C. Clauss, P. Schneider,
+\"Spice3 Modelica Library,\"
+<i>7th Modelica Conference</i>,
+Como, Italy (2009)</td>
+</tr>
+<tr>
+<td valign=\"top\">[Antognetti1988]</td>
+<td valign=\"top\">P. Antognetti, G. Massobrio, 
+<i>Semiconductor Device Modeling with SPICE.</i>,
+McGraw-Hill Book Company, USA, 1988</td>
+</tr>
+<tr>
+<td valign=\"top\">[Connelly1992]</td>
+<td valign=\"top\">A. Connelly, A, P. Choi, 
+<i>Macromodeling with SPICE.</i>,
+Prentice-Hall, New Jersey, USA (1992)</td>
+</tr>
+<tr>
+<td valign=\"top\">[Johnson1991]</td>
+<td valign=\"top\">B. Johnson, T. Quarles, A.R. Newton, D. O. Pederson, A. Sangiovanni-Vincentelli, 
+<i>SPICE3 Version 3e User's Manual.</i>,
+University of Berkeley, Department of Electrical Engineering and Computer Sciences, USA (1991)</td>
+</tr>
+<tr>
+<td valign=\"top\">[Kielkowski1994]</td>
+<td valign=\"top\">R. Kielkowski, 
+<i>Inside SPICE - Overcoming the obstacles of circuit simulation.</i>,
+McGraw-Hill, USA (1994)</td></br>
+<td valign=\"top\"><a href=\"http://bear.cwru.edu/eecs_cad/man_spice3.pdf\">SPICE3 users manual</a></td>
+</tr>
+</table>
+</html>", revisions="<html>
 </html>"));
   end Literature;
 
@@ -207,15 +254,15 @@ extends Modelica.Icons.Library2;
           RD=0,
           RS=0,
           CBD=0,
-          CBS=0))
+          CBS=0)) 
         annotation (Placement(transformation(extent={{-14,8},{6,28}})));
       Spice3.Semiconductors.M_NMOS MN(modelcard(
           RD=0,
           RS=0,
           CBD=0,
-          CBS=0))
+          CBS=0)) 
         annotation (Placement(transformation(extent={{-14,-34},{6,-14}})));
-      Spice3.Basic.Ground ground
+      Spice3.Basic.Ground ground 
         annotation (Placement(transformation(extent={{-14,-60},{6,-40}})));
       Spice3.Sources.V_pulse vin(
         V2=5,
@@ -325,26 +372,26 @@ extends Modelica.Icons.Library2;
       parameter Spice3.Semiconductors.modelcardMOS MNmos(GAMMA=0.37, LAMBDA=
             0.02) "specified modelcardMOS for MNmos";
                                              //instance of record modelcardMOS
-      Spice3.Semiconductors.M_PMOS mp1(modelcard=MPmos)
+      Spice3.Semiconductors.M_PMOS mp1(modelcard=MPmos) 
                 annotation (Placement(transformation(extent={{-38,20},{-18,40}},
               rotation=0)));
-      Spice3.Semiconductors.M_NMOS mn1(modelcard=MNmos)
+      Spice3.Semiconductors.M_NMOS mn1(modelcard=MNmos) 
                 annotation (Placement(transformation(extent={{-38,-30},{-18,-10}},
               rotation=0)));
-      Spice3.Semiconductors.M_PMOS mp2(modelcard=MPmos)
+      Spice3.Semiconductors.M_PMOS mp2(modelcard=MPmos) 
                 annotation (Placement(transformation(extent={{2,20},{22,40}},
               rotation=0)));
-      Spice3.Semiconductors.M_NMOS mn2(modelcard=MNmos)
+      Spice3.Semiconductors.M_NMOS mn2(modelcard=MNmos) 
                 annotation (Placement(transformation(extent={{2,-30},{22,-10}},
               rotation=0)));
     //--------------------------------------------------------------------------------------------------------------
 
-      Spice3.Basic.C_Capacitor c1(C=1e-5)
+      Spice3.Basic.C_Capacitor c1(C=1e-5) 
         annotation (Placement(transformation(
             origin={-8,-30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Spice3.Basic.C_Capacitor c2(C=1e-5)
+      Spice3.Basic.C_Capacitor c2(C=1e-5) 
         annotation (Placement(transformation(
             origin={34,-30},
             extent={{-10,-10},{10,10}},
@@ -365,9 +412,9 @@ extends Modelica.Icons.Library2;
       connect(mp1.B, mp1.D) annotation (Line(points={{-18,30},{-18,40},{-28,
               40}},
             color={0,0,255}));
-      connect(mn1.S, ground.p)
+      connect(mn1.S, ground.p) 
         annotation (Line(points={{-28,-30},{-28,-60}}, color={0,0,255}));
-      connect(mp1.S, mn1.D)
+      connect(mp1.S, mn1.D) 
         annotation (Line(points={{-28,20},{-28,-10}}, color={0,0,255}));
       connect(mn1.G, mp1.G) annotation (Line(points={{-38,-20.1},{-38,29.9}},
             color={0,0,255}));
@@ -378,7 +425,7 @@ extends Modelica.Icons.Library2;
             color={0,0,255}));
       connect(mn2.S, ground.p) annotation (Line(points={{12,-30},{12,-60},{-28,
               -60}}, color={0,0,255}));
-      connect(mp2.S, mn2.D)
+      connect(mp2.S, mn2.D) 
         annotation (Line(points={{12,20},{12,-10}}, color={0,0,255}));
       connect(mn2.G, mp2.G) annotation (Line(points={{2,-20.1},{2,29.9}},
             color={0,0,255}));
@@ -487,12 +534,12 @@ extends Modelica.Icons.Library2;
               rotation=0)));
     //--------------------------------------------------------------------------------------------------------------
 
-      Spice3.Basic.C_Capacitor c1(C=1e-5)
+      Spice3.Basic.C_Capacitor c1(C=1e-5) 
         annotation (Placement(transformation(
             origin={-10,-30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Spice3.Basic.C_Capacitor c2(C=1e-5)
+      Spice3.Basic.C_Capacitor c2(C=1e-5) 
         annotation (Placement(transformation(
             origin={32,-30},
             extent={{-10,-10},{10,10}},
@@ -512,9 +559,9 @@ extends Modelica.Icons.Library2;
     equation
       connect(mp1.B, mp1.D) annotation (Line(points={{-20,30},{-20,40},{-30,40}},
             color={0,0,255}));
-      connect(mn1.S, ground.p)
+      connect(mn1.S, ground.p) 
         annotation (Line(points={{-30,-30},{-30,-60}}, color={0,0,255}));
-      connect(mp1.S, mn1.D)
+      connect(mp1.S, mn1.D) 
         annotation (Line(points={{-30,20},{-30,-10}}, color={0,0,255}));
       connect(mn1.G, mp1.G) annotation (Line(points={{-40,-20.1},{-40,29.9}},
             color={0,0,255}));
@@ -524,7 +571,7 @@ extends Modelica.Icons.Library2;
             color={0,0,255}));
       connect(mn2.S, ground.p) annotation (Line(points={{10,-30},{10,-60},{-30,-60}},
                      color={0,0,255}));
-      connect(mp2.S, mn2.D)
+      connect(mp2.S, mn2.D) 
         annotation (Line(points={{10,20},{10,-10}}, color={0,0,255}));
       connect(mn2.G, mp2.G) annotation (Line(points={{0,-20.1},{0,29.9}},
             color={0,0,255}));
@@ -616,46 +663,46 @@ extends Modelica.Icons.Library2;
       parameter Spice3.Semiconductors.modelcardMOS modn
         "provate NMOS modelcard";
 
-      Spice3.Semiconductors.M_PMOS mp1(modelcard=modp)
+      Spice3.Semiconductors.M_PMOS mp1(modelcard=modp) 
                 annotation (Placement(transformation(extent={{-74,20},{-54,40}},
               rotation=0)));
-      Spice3.Semiconductors.M_NMOS mn1(modelcard=modn)
+      Spice3.Semiconductors.M_NMOS mn1(modelcard=modn) 
                 annotation (Placement(transformation(extent={{-74,-30},{-54,-10}},
               rotation=0)));
-      Spice3.Semiconductors.M_PMOS mp2(modelcard=modp)
+      Spice3.Semiconductors.M_PMOS mp2(modelcard=modp) 
                 annotation (Placement(transformation(extent={{-34,20},{-14,40}},
               rotation=0)));
-      Spice3.Semiconductors.M_NMOS mn2(modelcard=modn)
+      Spice3.Semiconductors.M_NMOS mn2(modelcard=modn) 
                 annotation (Placement(transformation(extent={{-34,-30},{-14,-10}},
               rotation=0)));
-      Spice3.Semiconductors.M_PMOS mp3(modelcard=modp)
+      Spice3.Semiconductors.M_PMOS mp3(modelcard=modp) 
                 annotation (Placement(transformation(extent={{6,20},{26,40}},
               rotation=0)));
-      Spice3.Semiconductors.M_PMOS mp4(modelcard=modn)
+      Spice3.Semiconductors.M_PMOS mp4(modelcard=modn) 
                 annotation (Placement(transformation(extent={{46,20},{66,40}},
               rotation=0)));
-      Spice3.Semiconductors.M_NMOS mn3(modelcard=modp)
+      Spice3.Semiconductors.M_NMOS mn3(modelcard=modp) 
                 annotation (Placement(transformation(extent={{6,-30},{26,-10}},
               rotation=0)));
-      Spice3.Semiconductors.M_NMOS mn4(modelcard=modn)
+      Spice3.Semiconductors.M_NMOS mn4(modelcard=modn) 
                 annotation (Placement(transformation(extent={{46,-30},{66,-10}},
               rotation=0)));
-      Spice3.Basic.C_Capacitor c1(C=10e-6)
+      Spice3.Basic.C_Capacitor c1(C=10e-6) 
         annotation (Placement(transformation(
             origin={-44,-30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Spice3.Basic.C_Capacitor c2(C=10e-6)
+      Spice3.Basic.C_Capacitor c2(C=10e-6) 
         annotation (Placement(transformation(
             origin={-2,-30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Spice3.Basic.C_Capacitor c3(C=10e-6)
+      Spice3.Basic.C_Capacitor c3(C=10e-6) 
         annotation (Placement(transformation(
             origin={36,-30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Spice3.Basic.C_Capacitor c4(C=10e-6)
+      Spice3.Basic.C_Capacitor c4(C=10e-6) 
         annotation (Placement(transformation(
             origin={76,-30},
             extent={{-10,-10},{10,10}},
@@ -676,9 +723,9 @@ extends Modelica.Icons.Library2;
       connect(mp1.B, mp1.D) annotation (Line(points={{-54,30},{-54,40},{-64,
               40}},
             color={0,0,255}));
-      connect(mn1.S, ground.p)
+      connect(mn1.S, ground.p) 
         annotation (Line(points={{-64,-30},{-64,-60}}, color={0,0,255}));
-      connect(mp1.S, mn1.D)
+      connect(mp1.S, mn1.D) 
         annotation (Line(points={{-64,20},{-64,-10}}, color={0,0,255}));
       connect(mn1.G, mp1.G) annotation (Line(points={{-74,-20.1},{-74,29.9}},
             color={0,0,255}));
@@ -691,7 +738,7 @@ extends Modelica.Icons.Library2;
       connect(mn2.S, ground.p) annotation (Line(points={{-24,-30},{-24,-60},{
               -64,-60}},
                      color={0,0,255}));
-      connect(mp2.S, mn2.D)
+      connect(mp2.S, mn2.D) 
         annotation (Line(points={{-24,20},{-24,-10}},
                                                     color={0,0,255}));
       connect(mn2.G, mp2.G) annotation (Line(points={{-34,-20.1},{-34,29.9}},
@@ -719,9 +766,9 @@ extends Modelica.Icons.Library2;
             color={0,0,255}));
       connect(mp4.B, mp4.D) annotation (Line(points={{66,30},{66,40},{56,40}},
                     color={0,0,255}));
-      connect(mp3.S, mn3.D)
+      connect(mp3.S, mn3.D) 
         annotation (Line(points={{16,20},{16,-10}}, color={0,0,255}));
-      connect(mp4.S, mn4.D)
+      connect(mp4.S, mn4.D) 
         annotation (Line(points={{56,20},{56,-10}},   color={0,0,255}));
       connect(mn3.S, ground.p) annotation (Line(points={{16,-30},{16,-60},{-64,
               -60}}, color={0,0,255}));
@@ -820,7 +867,7 @@ extends Modelica.Icons.Library2;
         W=1e-5,
         modelcard(PHI=0.7))               annotation (Placement(transformation(
               extent={{-22,24},{-2,44}},  rotation=0)));
-      Spice3.Semiconductors.M_PMOS m_PMOS1(modelcard(PHI=0.7))
+      Spice3.Semiconductors.M_PMOS m_PMOS1(modelcard(PHI=0.7)) 
                                            annotation (Placement(transformation(
               extent={{24,24},{44,44}},rotation=0)));
       Spice3.Semiconductors.M_NMOS m_NMOS annotation (Placement(transformation(
@@ -861,7 +908,7 @@ extends Modelica.Icons.Library2;
               {34,44}}, color={0,0,255}));
       connect(v_constant.p, m_PMOS1.D) annotation (Line(points={{62,44},{62,44},
               {34,44}}, color={0,0,255}));
-      connect(m_PMOS1.D, m_PMOS.D)
+      connect(m_PMOS1.D, m_PMOS.D) 
         annotation (Line(points={{34,44},{-12,44}}, color={0,0,255}));
       connect(m_PMOS.G, m_NMOS1.G) annotation (Line(points={{-22,33.9},{-22,
               16},{-24,16},{-24,-0.1}},
@@ -880,14 +927,14 @@ extends Modelica.Icons.Library2;
               30,-80}},color={0,0,255}));
       connect(m_NMOS.S, ground.p) annotation (Line(points={{-14,-44},{-14,-80},
               {30,-80}},color={0,0,255}));
-      connect(m_NMOS1.B, m_NMOS.B)
+      connect(m_NMOS1.B, m_NMOS.B) 
         annotation (Line(points={{-4,0},{-4,-34}},   color={0,0,255}));
       connect(m_NMOS.B, m_NMOS.S) annotation (Line(points={{-4,-34},{-4,-44},
               {-14,-44}}, color={0,0,255}));
-      connect(m_NMOS1.S, m_NMOS.D)
+      connect(m_NMOS1.S, m_NMOS.D) 
         annotation (Line(points={{-14,-10},{-14,-24}},
                                                     color={0,0,255}));
-      connect(m_PMOS.S, m_NMOS1.D)
+      connect(m_PMOS.S, m_NMOS1.D) 
         annotation (Line(points={{-12,24},{-12,18},{-14,18},{-14,10}},
                                                      color={0,0,255}));
       connect(m_PMOS1.S, m_NMOS1.D) annotation (Line(points={{34,24},{34,10},
@@ -1048,7 +1095,7 @@ extends Modelica.Icons.Library2;
               {-29,33.9},{-16,33.9}}, color={0,0,255}));
       connect(vin1.n, ground.p)    annotation (Line(points={{-42,14},{-64,14},{
               -64,-80},{38,-80}},color={0,0,255}));
-      connect(m_PMOS.S, m_PMOS1.D)
+      connect(m_PMOS.S, m_PMOS1.D) 
         annotation (Line(points={{-6,24},{-6,14}},   color={0,0,255}));
       connect(m_PMOS1.S, m_NMOS.D) annotation (Line(points={{-6,-6},{-6,-24}},
             color={0,0,255}));
@@ -1145,35 +1192,35 @@ extends Modelica.Icons.Library2;
 
     model Graetz "Graetz rectifier circuit"
 
-      Spice3.Semiconductors.D_DIODE D1(modelcarddiode(CJO=1e-7))
+      Spice3.Semiconductors.D_DIODE D1(modelcarddiode(CJO=1e-7)) 
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=0,
             origin={0,14})));
-      Spice3.Semiconductors.D_DIODE D3(modelcarddiode(CJO=1e-7))
+      Spice3.Semiconductors.D_DIODE D3(modelcarddiode(CJO=1e-7)) 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
             rotation=270,
             origin={20,-8})));
-      Spice3.Semiconductors.D_DIODE D4(modelcarddiode(CJO=1e-7))
+      Spice3.Semiconductors.D_DIODE D4(modelcarddiode(CJO=1e-7)) 
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=0,
             origin={1,-30})));
-      Spice3.Semiconductors.D_DIODE D2(modelcarddiode(CJO=1e-7))
+      Spice3.Semiconductors.D_DIODE D2(modelcarddiode(CJO=1e-7)) 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-20,-8})));
-      Spice3.Semiconductors.R_Resistor r_out(R=10)
+      Spice3.Semiconductors.R_Resistor r_out(R=10) 
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={42,-7})));
-      Spice3.Sources.V_sin v_sin(VA=10, FREQ=200)
+      Spice3.Sources.V_sin v_sin(VA=10, FREQ=200) 
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-44,-8})));
-      Spice3.Basic.Ground ground
+      Spice3.Basic.Ground ground 
         annotation (Placement(transformation(extent={{-30,-60},{-10,-40}})));
     equation
       connect(D1.n, D3.p) annotation (Line(
@@ -1257,9 +1304,9 @@ extends Modelica.Icons.Library2;
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={-36,20})));
-      Spice3.Basic.C_Capacitor c(C=1e-7)
+      Spice3.Basic.C_Capacitor c(C=1e-7) 
         annotation (Placement(transformation(extent={{-32,0},{-12,20}})));
-      Spice3.Basic.C_Capacitor c1(C=1e-7)
+      Spice3.Basic.C_Capacitor c1(C=1e-7) 
         annotation (Placement(transformation(extent={{24,0},{44,20}})));
       Spice3.Basic.R_Resistor r1(R=22000) annotation (Placement(
             transformation(
@@ -1276,16 +1323,16 @@ extends Modelica.Icons.Library2;
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={50,20})));
-      Spice3.Semiconductors.Q_NPNBJT T1(mod(CJE=1e-9, CJC=1e-9))
+      Spice3.Semiconductors.Q_NPNBJT T1(mod(CJE=1e-9, CJC=1e-9)) 
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=180,
             origin={-30,-24})));
-      Spice3.Semiconductors.Q_NPNBJT T2(mod(CJE=1e-9, CJC=1e-9))
+      Spice3.Semiconductors.Q_NPNBJT T2(mod(CJE=1e-9, CJC=1e-9)) 
         annotation (Placement(transformation(extent={{30,-40},{50,-20}})));
-      Spice3.Basic.Ground ground1
+      Spice3.Basic.Ground ground1 
         annotation (Placement(transformation(extent={{-78,-34},{-58,-14}})));
-      Spice3.Basic.Ground ground2
+      Spice3.Basic.Ground ground2 
         annotation (Placement(transformation(extent={{50,-60},{70,-40}})));
       Spice3.Basic.R_Resistor r4(R=10000)         annotation (
           Placement(transformation(
@@ -2145,8 +2192,8 @@ is translated to Modelica:<br>
       parameter SI.Time TAU2=1 "Fall time constant";
 
     equation
-    v = V1 + (if (time < TD1) then 0 else if (time < (TD2)) then
-              (V2-V1)*(1 - Modelica.Math.exp(-(time - TD1)/TAU1)) else
+    v = V1 + (if (time < TD1) then 0 else if (time < (TD2)) then 
+              (V2-V1)*(1 - Modelica.Math.exp(-(time - TD1)/TAU1)) else 
               (V2-V1)*(1 - Modelica.Math.exp(-(time - TD1)/TAU1)) +
               (V1-V2)*(1 - Modelica.Math.exp(-(time - TD2)/TAU2)));
       annotation (
@@ -2231,7 +2278,7 @@ is translated to Modelica:<br>
       end when;
       v = V1 + (if (time < TD or counter2 == 0 or time >= T0 +
         T_falling) then 0 else if (time < T0 + T_rising) then (time - T0)*
-        (V2-V1)/T_rising else if (time < T0 + T_width) then V2-V1 else
+        (V2-V1)/T_rising else if (time < T0 + T_width) then V2-V1 else 
         (T0 + T_falling - time)*(V2-V1)/(T_falling - T_width));
 
       annotation (
@@ -2583,8 +2630,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
       parameter SI.Time TD2=2 "Fall delay time";
       parameter SI.Time TAU2=1 "Fall time constant";
     equation
-    i = I1 + (if (time < TD1) then 0 else if (time < (TD2)) then
-              (I2-I1)*(1 - Modelica.Math.exp(-(time - TD1)/TAU1)) else
+    i = I1 + (if (time < TD1) then 0 else if (time < (TD2)) then 
+              (I2-I1)*(1 - Modelica.Math.exp(-(time - TD1)/TAU1)) else 
               (I2-I1)*(1 - Modelica.Math.exp(-(time - TD1)/TAU1)) +
               (I1-I2)*(1 - Modelica.Math.exp(-(time - TD2)/TAU2)));
       annotation (
@@ -2665,7 +2712,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
       end when;
       i = I1 + (if (time < TD or counter2 == 0 or time >= T0 +
         T_falling) then 0 else if (time < T0 + T_rising) then (time - T0)*
-        (I2-I1)/T_rising else if (time < T0 + T_width) then I2-I1 else
+        (I2-I1)/T_rising else if (time < T0 + T_width) then I2-I1 else 
         (T0 + T_falling - time)*(I2-I1)/(T_falling - T_width));
 
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
@@ -3025,13 +3072,13 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
             transformation(extent={{110,40},{90,60}}, rotation=0),
             iconTransformation(extent={{110,40},{90,60}})));
       Modelica.Electrical.Analog.Interfaces.NegativePin n
-        "Negative pin of the controlled (normally right) port"
+        "Negative pin of the controlled (normally right) port" 
                                                       annotation (Placement(
             transformation(extent={{90,-60},{110,-40}}, rotation=0),
             iconTransformation(extent={{90,-60},{110,-40}})));
 
       Modelica.Electrical.Analog.Interfaces.PositivePin pc[2*N]
-        "Pin vector of controlling pins (normally left)"
+        "Pin vector of controlling pins (normally left)" 
             annotation (Placement(transformation(
               extent={{-90,-80},{-70,80}}, rotation=0), iconTransformation(extent={
                 {-90,-80},{-70,80}})));
@@ -3127,7 +3174,7 @@ P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...})</pre>
             iconTransformation(extent={{90,-60},{110,-40}})));
 
       Modelica.Electrical.Analog.Interfaces.PositivePin pc[2*N]
-        "Pin vector of controlling pins"
+        "Pin vector of controlling pins" 
             annotation (Placement(transformation(
               extent={{-90,-80},{-70,80}}, rotation=0), iconTransformation(extent={
                 {-90,-80},{-70,80}})));
@@ -3222,7 +3269,7 @@ P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...}) </pre>
             iconTransformation(extent={{90,-60},{110,-40}})));
 
       Modelica.Electrical.Analog.Interfaces.PositivePin pc[2*N]
-        "Pin vector of controlling pins"
+        "Pin vector of controlling pins" 
             annotation (Placement(transformation(
               extent={{-90,-80},{-70,80}}, rotation=0), iconTransformation(extent={
                 {-90,-80},{-70,80}})));
@@ -3327,7 +3374,7 @@ VN- -&GT; name.pc[N-1]
             iconTransformation(extent={{90,-60},{110,-40}})));
 
       Modelica.Electrical.Analog.Interfaces.PositivePin pc[2*N]
-        "Pin vector of controlling pins"
+        "Pin vector of controlling pins" 
             annotation (Placement(transformation(
               extent={{-90,-80},{-70,80}}, rotation=0), iconTransformation(extent={
                 {-90,-80},{-70,80}})));
@@ -3486,20 +3533,24 @@ VN- -&GT; name.pc[N-1]
     Modelica.Electrical.Analog.Interfaces.PositivePin B "bulk node" annotation (Placement(transformation(
               extent={{90,-10},{110,10}}, rotation=0)));
 
-    parameter Real mtype(start = 0) "MOSFET type: 0 - N channel, 1 - P channel";
-    parameter Real L = 1e-4 "m, Length";
-    parameter Real W = 1e-4 "m, Width";
-    parameter Real AD = 0 "m*m, Area of the drain diffusion";
-    parameter Real AS = 0 "m*m, Area of the source diffusion";
-    parameter Real PD = 0 "m, Perimeter of the drain junction";
-    parameter Real PS = 0 "m, Perimeter of the source junction";
+    parameter Integer mtype(start = 0)
+        "MOSFET type: 0 - N channel, 1 - P channel";
+    parameter Modelica.SIunits.Length L =  1e-4 "m, Length";
+    parameter Modelica.SIunits.Length W =  1e-4 "m, Width";
+    parameter Modelica.SIunits.Area AD = 0 "m*m, Area of the drain diffusion";
+    parameter Modelica.SIunits.Area AS = 0 "m*m, Area of the source diffusion";
+    parameter Modelica.SIunits.Length PD =  0
+        "m, Perimeter of the drain junction";
+    parameter Modelica.SIunits.Length PS =  0
+        "m, Perimeter of the source junction";
     parameter Real NRD = 1 "Number of squares of the drain diffusions";
     parameter Real NRS = 1 "Number of squares of the source diffusions";
-    parameter Real OFF = 0
+    parameter Integer OFF = 0
         "Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet";
-    parameter Real IC( start = -1e40)
+    parameter Modelica.SIunits.Voltage IC( start = -1e40)
         "v, Initial condition values, not implemented yet";                                  //default 0
-    parameter Real TEMP = 27 "°C, Operating temperature of the device";
+    parameter Modelica.SIunits.Temp_C TEMP = 27
+        "°C, Operating temperature of the device";
 
     parameter Repository.modelcardMOS modelcard "MOSFET modelcard" annotation(Evaluate=true);
     Repository.SpiceConstants C;
@@ -3625,27 +3676,33 @@ VN- -&GT; name.pc[N-1]
 
      record modelcardMOS "Record with technological parameters (.model)"
       //parameter Real LEVEL=1 "Model index";
-       parameter Real VTO=-1e40 "V, Zero-bias threshold voltage, default 0";
+       parameter Modelica.SIunits.Voltage VTO=-1e40
+        "V, Zero-bias threshold voltage, default 0";
        parameter Real KP=-1e40
         "A/(V*V), Transconductance parameter, default 2e-5";
-       parameter Real GAMMA=-1e40 "V, Bulk threshold parameter, default 0";
-       parameter Real PHI=-1e40 "V, Surface potential, default 0.6";
+       parameter Modelica.SIunits.Voltage GAMMA=-1e40
+        "V, Bulk threshold parameter, default 0";
+       parameter Modelica.SIunits.Voltage PHI=-1e40
+        "V, Surface potential, default 0.6";
        parameter Real LAMBDA=0 "1/V, Channel-length modulation, default 0";
-       parameter Real RD=-1e40 "Ohm, Drain ohmic resistance, default 0";
-       parameter Real RS=-1e40 "Ohm, Source ohmic resistance, default 0";
-       parameter Real CBD=-1e40
+       parameter Modelica.SIunits.Resistance RD=-1e40
+        "Ohm, Drain ohmic resistance, default 0";
+       parameter Modelica.SIunits.Resistance RS=-1e40
+        "Ohm, Source ohmic resistance, default 0";
+       parameter Modelica.SIunits.Capacitance CBD=-1e40
         "F, Zero-bias B-D junction capacitance, default 0";
-       parameter Real CBS=-1e40
+       parameter Modelica.SIunits.Capacitance CBS=-1e40
         "F, Zero-bias B-S junction capacitance, default 0";
-       parameter Real IS=1.e-14 "A, Bulk junction saturation current";
-       parameter Real PB=0.8 "V, Bulk junction potential";
+       parameter Modelica.SIunits.Current IS=1.e-14
+        "A, Bulk junction saturation current";
+       parameter Modelica.SIunits.Voltage PB=0.8 "V, Bulk junction potential";
        parameter Real CGSO=0.0
         "F/m, Gate-source overlap capacitance per meter channel width";
        parameter Real CGDO=0.0
         "F/m, Gate-drain overlap capacitance per meter channel width";
        parameter Real CGBO=0.0
         "F/m, Gate-bulk overlap capacitance per meter channel width";
-       parameter Real RSH=0.0
+       parameter Modelica.SIunits.Resistance RSH=0.0
         "Ohm, Drain and source diffusion sheet resistance";
        parameter Real CJ=0.0
         "F/(m*m), Zero-bias bulk junction bottom cap. per sq-meter of junction area";
@@ -3655,18 +3712,19 @@ VN- -&GT; name.pc[N-1]
        parameter Real MJSW=0.5 "Bulk junction sidewall grading coefficient";
        parameter Real JS=0.0
         "A/(m*m), Bulk junction saturation current per sq-meter of junction area";
-       parameter Real TOX=-1e40 "m, Oxide thickness, default 1e-7";
+       parameter Modelica.SIunits.Length TOX=-1e40
+        "m, Oxide thickness, default 1e-7";
        parameter Real NSUB=-1e40 "Substrate doping, default 0";
        parameter Real NSS=0.0 "1/(cm*cm), Surface state density";
        parameter Real TPG=1.0
         "Type of gate material: +1 opp. to substrate, -1 same as substrate, 0 Al gate";
-       parameter Real LD=0.0 "m, Lateral diffusion";
+       parameter Modelica.SIunits.Length LD=0.0 "m, Lateral diffusion";
        parameter Real UO=600 "(cm*cm)/(Vs), Surface mobility";
        parameter Real KF=0 "Flicker noise coefficient";
        parameter Real AF=1.0 "Flicker noise exponent";
        parameter Real FC=0.5
         "Coefficient for forward-bias depletion capacitance formula";
-       parameter Real TNOM=-1e40
+       parameter Modelica.SIunits.Temp_C TNOM=-1e40
         "degree C, Parameter measurement temperature, default 27";
        constant Integer LEVEL=1 "Model level: Shichman-Hodges";
      equation
@@ -3678,16 +3736,16 @@ VN- -&GT; name.pc[N-1]
 
   model MOS2 "Metal-Oxide Semiconductor Field-Effect Transistor"
 
-    Modelica.Electrical.Analog.Interfaces.PositivePin G "gate node"
+    Modelica.Electrical.Analog.Interfaces.PositivePin G "gate node" 
                                           annotation (Placement(transformation(
               extent={{-110,-12},{-90,10}}, rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.PositivePin D "drain node"
+    Modelica.Electrical.Analog.Interfaces.PositivePin D "drain node" 
                                            annotation (Placement(transformation(
               extent={{-10,90},{10,110}}, rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.NegativePin S "source node"
+    Modelica.Electrical.Analog.Interfaces.NegativePin S "source node" 
                                             annotation (Placement(
             transformation(extent={{-10,-110},{10,-90}}, rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.PositivePin B "bulk node"
+    Modelica.Electrical.Analog.Interfaces.PositivePin B "bulk node" 
                                           annotation (Placement(transformation(
               extent={{90,-10},{110,10}}, rotation=0)));
 
@@ -3711,12 +3769,12 @@ VN- -&GT; name.pc[N-1]
     Real MOScapgs = qm.qm_capgs;
     Real MOScapgb = qm.qm_capgb;
 
-    parameter Spice3.Repository.modelcardMOS2 modelcard "MOSFET modelcard"
+    parameter Spice3.Repository.modelcardMOS2 modelcard "MOSFET modelcard" 
                 annotation(Evaluate=true);
     constant Spice3.Repository.SpiceConstants C
         "General constants of SPICE simulator";
     final parameter Spice3.Repository.Mos2.Mos2ModelLineParams p=
-          Spice3.Repository.Mos2.Mos2RenameParameters(modelcard, C)
+          Spice3.Repository.Mos2.Mos2RenameParameters(modelcard, C) 
                       annotation(Evaluate=true);
     final parameter Spice3.Repository.Mosfet.Mosfet m=
           Spice3.Repository.Mos2.Mos2RenameParameters_dev(
@@ -3732,7 +3790,7 @@ VN- -&GT; name.pc[N-1]
             NRS,
             OFF,
             IC,
-            TEMP)
+            TEMP) 
                 annotation(Evaluate=true);
     final parameter Integer m_type = if (m.m_bPMOS > 0.5) then -1 else 1;
     final parameter Spice3.Repository.Mos2.Mos2ModelLineVariables vp=
@@ -3875,24 +3933,25 @@ VN- -&GT; name.pc[N-1]
 
     model BJT "Bipolar junction transistor"
 
-      Modelica.Electrical.Analog.Interfaces.PositivePin B "Base node"
+      Modelica.Electrical.Analog.Interfaces.PositivePin B "Base node" 
         annotation (Placement(transformation(extent={{-108,-10},{-88,10}}),
             iconTransformation(extent={{-106,-10},{-86,10}})));
-      Modelica.Electrical.Analog.Interfaces.PositivePin C "Collector node"
+      Modelica.Electrical.Analog.Interfaces.PositivePin C "Collector node" 
         annotation (Placement(transformation(extent={{10,88},{30,108}}),
             iconTransformation(extent={{20,90},{40,110}})));
-      Modelica.Electrical.Analog.Interfaces.NegativePin E "Emitter node"
+      Modelica.Electrical.Analog.Interfaces.NegativePin E "Emitter node" 
         annotation (Placement(transformation(extent={{10,-108},{30,-88}}),
             iconTransformation(extent={{20,-110},{40,-90}})));
 
       parameter Real AREA = 1.0 "Area factor";
       parameter Boolean OFF = false
         "Optional initial condition: false - IC not used, true - IC used, not implemented yet";
-      parameter Real IC_VCE( start = -1e40)
+      parameter Modelica.SIunits.Voltage IC_VCE( start = -1e40)
         "v, Initial condition value (VBE, not implemented yet";                    //default 0
-      parameter Real IC_VBE( start = -1e40)
+      parameter Modelica.SIunits.Voltage IC_VBE( start = -1e40)
         "v, Initial condition value (VBC, not implemented yet";                    //default 0
-      parameter Real TEMP = 27 "°C, Operating temperature of the device";
+      parameter Modelica.SIunits.Temp_C TEMP = 27
+        "°C, Operating temperature of the device";
       parameter Boolean SENS_AREA = false
         "Flag to request sensitivity WRT area, not implemented yet";
 
@@ -3910,7 +3969,7 @@ VN- -&GT; name.pc[N-1]
               OFF,
               IC_VBE,
               IC_VCE,
-              SENS_AREA)
+              SENS_AREA) 
                    annotation(Evaluate=true);
       final parameter Spice3.Repository.Model.Model m=
           Bjt3.BjtRenameParameters_dev_Temp(TEMP)                                                                          annotation(Evaluate=true);
@@ -4110,10 +4169,10 @@ VN- -&GT; name.pc[N-1]
              AREA,
              IC,
              OFF,
-             SENS_AREA)
+             SENS_AREA) 
                       annotation(Evaluate=true);
      final parameter Spice3.Repository.Model.Model m=
-          Spice3.Repository.Diode.DiodeRenameParameters_dev_temp(TEMP)
+          Spice3.Repository.Diode.DiodeRenameParameters_dev_temp(TEMP) 
                  annotation(Evaluate=true);
      final parameter Spice3.Repository.Diode.DiodeVariables c1=
           Spice3.Repository.Diode.DiodeInitEquations(param);
@@ -6206,9 +6265,9 @@ C++            (m_pParameters->m_sheetResistance * m_pDevice->m_drainSquares);*/
   end if;
 */
 
-         out_c.m_drainResistance := if
-                                      (in_p.m_drainResistanceIsGiven > 0.5) then
-             in_p.m_drainResistance else
+         out_c.m_drainResistance := if 
+                                      (in_p.m_drainResistanceIsGiven > 0.5) then 
+             in_p.m_drainResistance else 
              in_p.m_sheetResistance * in_m.m_drainSquares;
 
       /*   if (m_pParameters->m_sourceResistanceValue->IsGiven())
@@ -6229,8 +6288,8 @@ C++         1 / (m_pParameters->m_sheetResistance * m_pDevice->m_sourceSquares);
   end if;
 */
 
-      out_c.m_sourceResistance := if  (in_p.m_sourceResistanceIsGiven > 0.5) then
-             in_p.m_sourceResistance else
+      out_c.m_sourceResistance := if  (in_p.m_sourceResistanceIsGiven > 0.5) then 
+             in_p.m_sourceResistance else 
              in_p.m_sheetResistance * in_m.m_sourceSquares;
 
       /*   m_lEff     = m_pDevice->m_len - 2 * m_pParameters->m_latDiff;
@@ -6935,8 +6994,8 @@ C++      if (m_pParameters->m_sheetResistance != 0)
 C++         m_drainConductance = 1 /
 C++            (m_pParameters->m_sheetResistance * m_pDevice->m_drainSquares);*/
 
-       out_c.m_drainResistance := if  (in_p.m_drainResistanceIsGiven > 0.5) then
-             in_p.m_drainResistance else
+       out_c.m_drainResistance := if  (in_p.m_drainResistanceIsGiven > 0.5) then 
+             in_p.m_drainResistance else 
              in_p.m_sheetResistance * in_m.m_drainSquares;
 
       // if
@@ -6968,8 +7027,8 @@ C++         1 / (m_pParameters->m_sheetResistance * m_pDevice->m_sourceSquares);
         //   out_c.m_sourceConductance := 1 / (in_p.m_sheetResistance * in_m.m_sourceSquares);
         // end if;
 
-      out_c.m_sourceResistance := if  (in_p.m_sourceResistanceIsGiven > 0.5) then
-             in_p.m_sourceResistance else
+      out_c.m_sourceResistance := if  (in_p.m_sourceResistanceIsGiven > 0.5) then 
+             in_p.m_sourceResistance else 
              in_p.m_sheetResistance * in_m.m_sourceSquares;
 
       /*   m_lEff     = m_pDevice->m_len - 2 * m_pParameters->m_latDiff;
@@ -7670,7 +7729,7 @@ C++         m_transconductance = m_surfaceMobility * m_oxideCapFactor * 1e-4; //
 */
 
         if (not (in_p.m_oxideThicknessIsGiven > 0.5) or in_p.m_oxideThickness == 0) then
-          if
+          if 
             (in_p.m_oxideThickness == 0) then
             out_v.m_oxideCapFactor := 0;
           end if;
@@ -7903,16 +7962,16 @@ C++   }
 
           //intern.m_drainResistance := ex.RD;         // Ohm drain ohmic resistance (default 0)
 
-          intern.m_drainResistanceIsGiven := if
+          intern.m_drainResistanceIsGiven := if 
                                                (ex.RD > -1e40) then 1 else 0;
-          intern.m_drainResistance := if
+          intern.m_drainResistance := if 
                                        (ex.RD > -1e40) then ex.RD else 0;
 
         //  intern.m_sourceResistance := ex.RS;        // Ohm source ohmic resistance (default 0)
 
-           intern.m_sourceResistanceIsGiven := if
+           intern.m_sourceResistanceIsGiven := if 
                                                (ex.RS > -1e40) then 1 else 0;
-          intern.m_sourceResistance := if
+          intern.m_sourceResistance := if 
                                        (ex.RS > -1e40) then ex.RS else 0;
 
         //  intern.m_transconductance := ex.KP;        // A/(V*V) transconductance parameter (default 2e-5)
@@ -7949,7 +8008,7 @@ C++   }
         "renames the external parameters (e.g. RD) into the internal names (e.g. m_drainResistance)"
         input Spice3.Repository.modelcardMOS ex;
        // input Spice3.Attempt_1_konstanten_parameter_inArbeit.SpiceConstants con;
-        input Real mtype;
+        input Integer mtype;
         input Real W;
         input Real L;
         input Real AD;
@@ -7958,7 +8017,7 @@ C++   }
         input Real PS;
         input Real NRD;
         input Real NRS;
-        input Real OFF;
+        input Integer OFF;
         input Real IC;
         input Real TEMP;
 
@@ -9349,16 +9408,16 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
 
           //intern.m_drainResistance := ex.RD;         // Ohm drain ohmic resistance (default 0)
 
-          intern.m_drainResistanceIsGiven := if
+          intern.m_drainResistanceIsGiven := if 
                                                (ex.RD > -1e40) then 1 else 0;
-          intern.m_drainResistance := if
+          intern.m_drainResistance := if 
                                        (ex.RD > -1e40) then ex.RD else 0;
 
         //  intern.m_sourceResistance := ex.RS;        // Ohm source ohmic resistance (default 0)
 
-           intern.m_sourceResistanceIsGiven := if
+           intern.m_sourceResistanceIsGiven := if 
                                                (ex.RS > -1e40) then 1 else 0;
-          intern.m_sourceResistance := if
+          intern.m_sourceResistance := if 
                                        (ex.RS > -1e40) then ex.RS else 0;
 
         //  intern.m_transconductance := ex.KP;        // A/(V*V) transconductance parameter (default 2e-5)
@@ -9366,7 +9425,7 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
           intern.m_transconductanceIsGiven := if          (ex.KP > -1e40) then 1 else 0;
           intern.m_transconductance := if         (ex.KP > -1e40) then ex.KP else 2e-5;
 
-        intern.m_tnom := if (ex.TNOM > -1e40) then ex.TNOM + Spice3.Repository.SpiceConstants.CONSTCtoK else
+        intern.m_tnom := if (ex.TNOM > -1e40) then ex.TNOM + Spice3.Repository.SpiceConstants.CONSTCtoK else 
                 300.15;
 
                         // °C parameter measurement temperature (default 27)
@@ -10062,7 +10121,7 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
         dev.m_area := AREA;
 
         dev.m_pIcIsGiven := if (IC > -1e40) then 1 else 0;
-        dev.m_dIC := if
+        dev.m_dIC := if 
                        (IC > -1e40) then IC else 0;
         dev.m_bOff := OFF;
         dev.m_bSensArea := SENS_AREA;
@@ -10144,7 +10203,7 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
 
         intern.m_dDefW := ex.DEFW;
         intern.m_dNarrow := ex.NARROW;
-        intern.m_dTnom := if (ex.TNOM > -1e40) then ex.TNOM + Spice3.Repository.SpiceRoot.SPICEcircuitCONST.CONSTCtoK else
+        intern.m_dTnom := if (ex.TNOM > -1e40) then ex.TNOM + Spice3.Repository.SpiceRoot.SPICEcircuitCONST.CONSTCtoK else 
                 300.15;
 
       end ResistorRenameParameters;
@@ -10162,22 +10221,22 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
        output ResistorParams intern;
 
       algorithm
-         intern.m_dResIsGiven := if
+         intern.m_dResIsGiven := if 
                                    (R > -1e40) then 1 else 0;
-         intern.m_dResist := if
+         intern.m_dResist := if 
                                (R > -1e40) then R else 0;
 
-         intern.m_dWidthIsGiven := if
+         intern.m_dWidthIsGiven := if 
                                      (W >-1e40) then 1 else 0;
-         intern.m_dWidth := if
+         intern.m_dWidth := if 
                               (W > -1e40) then W else 0;
 
-         intern.m_dLengthIsGiven := if
+         intern.m_dLengthIsGiven := if 
                                      (L >-1e40) then 1 else 0;
-         intern.m_dLength := if
+         intern.m_dLength := if 
                               (L > -1e40) then L else 0;
          intern.m_bSensResist := SENS_AREA;
-        intern.m_dTemp := if (TEMP > -1e40) then TEMP + Spice3.Repository.SpiceRoot.SPICEcircuitCONST.CONSTCtoK else
+        intern.m_dTemp := if (TEMP > -1e40) then TEMP + Spice3.Repository.SpiceRoot.SPICEcircuitCONST.CONSTCtoK else 
                 300.15;
 
       end ResistorRenameParameters_dev;
@@ -10225,7 +10284,7 @@ void Resistor::InitEquations()
                   out.m_dResist :=1000;
              end if;
         end if;
-        if
+        if 
           (in_p.m_dResist < 1e-12) and (in_p.m_dResIsGiven > 0.5) then
             out.m_dResist :=1e-12;
         end if;
@@ -10428,7 +10487,7 @@ void Resistor::InitEquations()
    xfc  = log( 1 - m_depletionCapCoeff);
 }  */
 
-        out_v.m_type := if
+        out_v.m_type := if 
                           (in_p.m_bPNP) then -1 else 1;
 
         if ( not (in_p.m_leakBEcurrentIsGiven > 0.5) and (in_p.m_c2IsGiven > 0.5)) then
@@ -11394,7 +11453,7 @@ C++} */
         intern.m_leakBEemissionCoeff := ex.NE;
 
         intern.m_leakBEcurrentIsGiven := if (ex.ISE > -1e40) then 1 else 0;
-        intern.m_leakBEcurrent := if
+        intern.m_leakBEcurrent := if 
                                     (ex.ISE > -1e40) then ex.ISE else 0;
 
         intern.m_c2IsGiven := if (ex.C2 > -1e40) then 1 else 0;
