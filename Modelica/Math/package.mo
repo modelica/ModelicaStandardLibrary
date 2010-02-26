@@ -891,7 +891,7 @@ more convenient to just use the function
 <p>
 The optional third (Integer) output argument has the following meaning:
 <table border=0 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\">info = 0:</td
+  <tr><td valign=\"top\">info = 0:</td>
       <td valign=\"top\">successful exit</td></tr>
   <tr><td valign=\"top\">info &gt; 0:</td>
       <td valign=\"top\">if info = i, U[i,i] is exactly zero. The factorization
