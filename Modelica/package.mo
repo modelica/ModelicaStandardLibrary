@@ -600,7 +600,7 @@ Incorporation of bug fixes (subversion \"commit\") shall be performed in the fol
              versionBuild = 3,
              dateModified = \"2009-08-28 07:40:19Z\",
              revisionId   = \"$I&#8203;d::                                       $\")</pre>
-     The \"revisionId\" field is a bit special though. If written like in the example above it will be automaticaly
+     The \"revisionId\" field is a bit special though. If written like in the example above it will be automatically
      expanded to:
 	<pre>             revisionId   = \"$I&#8203;d:: package.mo 2879 2009-08-28 07:40:19Z #$\"</pre>
      by the subversion checkout procedure.</li>
