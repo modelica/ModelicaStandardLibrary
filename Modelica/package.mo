@@ -2,6 +2,7 @@ within ;
 package Modelica "Modelica Standard Library (Version 3.1)"
 extends Modelica.Icons.Library;
 
+
 package UsersGuide "User's Guide"
 
 class Overview "Overview of Modelica Library"
@@ -4541,323 +4542,188 @@ end ModelicaLicense2;
 class Contact "Contact"
 
  annotation (Documentation(info="<html>
-
-<dl>
-<dt>The Modelica Standard Library (this Modelica package)
- is developed by many people from different organizations (see list below).
- It is licensed under the
- <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica License 2</a>
- by:<br>&nbsp;</dt>
-<dd>Modelica Association<br>
- (Ideella F&ouml;reningar 822003-8858 in Link&ouml;ping) <br>
- c/o PELAB, IDA, Link&ouml;pings Universitet<br>
- S-58183 Link&ouml;ping<br>
- Sweden<br>
- email: <a href=\"mailto:Board@Modelica.org\">Board@Modelica.org</a><br>
- web: <a href=\"http://www.Modelica.org\">http://www.Modelica.org</a><br>&nbsp;<br>&nbsp;</dd>
+<dl><dt>The Modelica Standard Library (this Modelica package) is developed by many people from different organizations (see list below). It is licensed under the <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica License 2</a> by:</dt>
+<dl><dt>&nbsp;</dt>
+<dd>Modelica Association</dd>
+<dd>(Ideella F&ouml;reningar 822003-8858 in Link&ouml;ping)</dd>
+<dd>c/o PELAB, IDA, Link&ouml;pings Universitet</dd>
+<dd>S-58183 Link&ouml;ping</dd>
+<dd>Sweden</dd>
+<dd>email: <a href=\"mailto:Board@Modelica.org\">Board@Modelica.org</a></dd>
+<dd>web: <a href=\"http://www.Modelica.org\">http://www.Modelica.org</a></dd>
+<dd>&nbsp;&nbsp;</dd>
+<dl><dt>The development of this Modelica package is organized by:</dt>
+<dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a></dd>
+<dd>Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)</dd>
+<dd>Institut f&uuml;r Robotik und Mechatronik</dd>
+<dd>Abteilung f&uuml;r Systemdynamik und Regelungstechnik</dd>
+<dd>Postfach 1116</dd>
+<dd>D-82230 Wessling</dd>
+<dd>Germany</dd>
+<dd>email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a></dd>
 </dl>
-
-<dl>
-<dt>The development of this Modelica package is organized by<br>&nbsp;</dt>
-<dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
- Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
- Institut f&uuml;r Robotik und Mechatronik<br>
- Abteilung f&uuml;r Systemdynamik und Regelungstechnik<br>
- Postfach 1116<br>
- D-82230 Wessling<br>
- Germany<br>
- email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br></dd>
-</dl>
-
-<p>
-Since end of 2007, the development of the sublibraries of package Modelica
-is organized by personal and/or organizational <b>library officers</b> assigned by the
-Modelica Association. They are responsible for the maintenance and
-for the further organization of the development. Other persons may
-also contribute, but the final decision for library improvements and/or changes
-is performed by the responsible library officer(s). In order that a new
-sublibrary or a new version of a sublibrary is ready to be released,
-the responsible library officers report the changes to the members of
-the Modelica Association and the library is made available for beta testing to
-interested parties before a final decision. A new release of a sublibrary
-is formally decided by voting of the Modelica Association members.
-</p>
-
-<p>
-The following library officers are currently assigned:
-</p>
-
-<table border=1 cellspacing=0 cellpadding=2>
-<tr><td valign=\"top\"><b>Sublibraries</b> </td>
-   <td valign=\"top\"><b>Library officers</b></td>
+<p>Since end of 2007, the development of the sublibraries of package Modelica is organized by personal and/or organizational <b>library officers</b> assigned by the Modelica Association. They are responsible for the maintenance and for the further organization of the development. Other persons may also contribute, but the final decision for library improvements and/or changes is performed by the responsible library officer(s). In order that a new sublibrary or a new version of a sublibrary is ready to be released, the responsible library officers report the changes to the members of the Modelica Association and the library is made available for beta testing to interested parties before a final decision. A new release of a sublibrary is formally decided by voting of the Modelica Association members.</p>
+<p>The following library officers are currently assigned:</p>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
+<td valign=\"top\"><p><h4>Sublibraries</h4></p></td>
+<td valign=\"top\"><p><h4>Library officers</h4></p></td>
 </tr>
-
-<tr><td valign=\"top\"> Blocks <br> Constants </td>
-   <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
-        (Martin Otter)</td>
+<tr>
+<td valign=\"top\"><p>Blocks</p><p>Constants</p></td>
+<td valign=\"top\"><p>DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany (Martin Otter)</p></td>
 </tr>
-
-<tr><td valign=\"top\"> Electrical.Analog, <br> Electrical.Digital </td>
-   <td valign=\"top\"> Fraunhofer Institute for Integrated Circuits, Dresden, Germany<br>
-      (Christoph Clauss)</td>
+<tr>
+<td valign=\"top\"><p>Electrical.Analog,</p><p>Electrical.Digital</p></td>
+<td valign=\"top\"><p>Fraunhofer Institute for Integrated Circuits, Dresden, Germany (Christoph Clauss)</p></td>
 </tr>
-
-<tr><td valign=\"top\"> Electrical.Machines<br>
-      Electrical.MultiPhase </td>
-   <td valign=\"top\"> Anton Haumer, Consultant, St.Andrae-Woerdern, Austria, and<br>
-      arsenal research, Vienna, Austria (Christian Kral)</td>
+<tr>
+<td valign=\"top\"><p>Electrical.Machines</p><p>Electrical.MultiPhase</p></td>
+<td valign=\"top\"><p>Anton Haumer, Consultant, St.Andrae-Woerdern, Austria, and</p><p>Austrian Institute of Technology, AIT, Vienna, Austria (Christian Kral)</p></td>
 </tr>
-
-<tr><td valign=\"top\"> Magnetic.FluxTubes </td>
-   <td valign=\"top\"> Thomas B&ouml;drich, Dresden, Germany<br>
-                               (Dresden University of Technology,<br>
-                               Institute of Electromechanical and Electronic Design)
-</td>
+<tr>
+<td valign=\"top\"><p>Magnetic.FluxTubes</p></td>
+<td valign=\"top\"><p>Thomas B&ouml;drich, Dresden, Germany</p><p>(Dresden University of Technology,</p><p>Institute of Electromechanical and Electronic Design)</p></td>
 </tr>
-
-<tr><td valign=\"top\"> Fluid </td>
-   <td valign=\"top\"> Politecnico di Milano (Francesco Casella), and<br>
-                            R&uuml;diger Franke (ABB)</td>
+<tr>
+<td valign=\"top\"><p>Fluid</p></td>
+<td valign=\"top\"><p>Politecnico di Milano (Francesco Casella), and</p><p>R&uuml;diger Franke (ABB)</p></td>
 </tr>
-
-<tr><td valign=\"top\"> Icons </td>
-   <td valign=\"top\"> Modelon AB, Lund, Sweden (Johan Andreasson) </td>
+<tr>
+<td valign=\"top\"><p>Icons</p></td>
+<td valign=\"top\"><p>Modelon AB, Lund, Sweden (Johan Andreasson)</p></td>
 </tr>
-
-<tr><td valign=\"top\"> Math </td>
-   <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
-      (Martin Otter)</td>
+<tr>
+<td valign=\"top\"><p>Math</p></td>
+<td valign=\"top\"><p>DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany (Martin Otter)</p></td>
 </tr>
-
-<tr><td valign=\"top\"> Mechanics.MultiBody </td>
-   <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
-      (Martin Otter),<br>
-       Modelon AB, Lund, Sweden (Johan Andreasson) </td>
+<tr>
+<td valign=\"top\"><p>Mechanics.MultiBody</p></td>
+<td valign=\"top\"><p>DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany (Martin Otter),</p><p>Modelon AB, Lund, Sweden (Johan Andreasson)</p></td>
 </tr>
-
-<tr><td valign=\"top\"> Mechanics.Rotational </td>
-   <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
-      (Martin Otter)<br>
-      Anton Haumer, Consultant, St.Andrae-Woerdern, Austria,<br>
-      arsenal research, Vienna, Austria (Christian Kral),<br>
-      Modelon AB, Lund, Sweden (Johan Andreasson)</td>
+<tr>
+<td valign=\"top\"><p>Mechanics.Rotational</p></td>
+<td valign=\"top\"><p>DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany (Martin Otter)</p><p>Anton Haumer, Consultant, St.Andrae-Woerdern, Austria,</p><p>Austrian Institute of Technology, AIT, Vienna, Austria (Christian Kral),</p><p>Modelon AB, Lund, Sweden (Johan Andreasson)</p></td>
 </tr>
-
-<tr><td valign=\"top\"> Mechanics.Translational </td>
-   <td valign=\"top\"> Anton Haumer, Consultant, St.Andrae-Woerdern, Austria,<br>
-      arsenal research, Vienna, Austria (Christian Kral), <br>
-      DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
-      (Martin Otter)<br>
-       Modelon AB, Lund, Sweden (Johan Andreasson)</td>
+<tr>
+<td valign=\"top\"><p>Mechanics.Translational</p></td>
+<td valign=\"top\"><p>Anton Haumer, Consultant, St.Andrae-Woerdern, Austria,</p><p>Austrian Institute of Technology, AIT, Vienna, Austria (Christian Kral),</p><p>DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany (Martin Otter)</p><p>Modelon AB, Lund, Sweden (Johan Andreasson)</p></td>
 </tr>
-
-
-<tr><td valign=\"top\"> Media </td>
-   <td valign=\"top\"> Modelon AB, Lund, Sweden (Hubertus Tummescheit) </td>
+<tr>
+<td valign=\"top\"><p>Media</p></td>
+<td valign=\"top\"><p>Modelon AB, Lund, Sweden (Hubertus Tummescheit)</p></td>
 </tr>
-
-<tr><td valign=\"top\"> SIunits <br>
-      StateGraph </td>
-   <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
-      (Martin Otter)</td>
+<tr>
+<td valign=\"top\"><p>SIunits</p><p>StateGraph</p></td>
+<td valign=\"top\"><p>DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany (Martin Otter)</p></td>
 </tr>
-
-<tr><td valign=\"top\"> Thermal.FluidHeatFlow <br>
-      Thermal.HeatTransfer </td>
-   <td valign=\"top\"> Anton Haumer, Consultant, St.Andrae-Woerdern, Austria, and<br>
-      arsenal research, Vienna, Austria (Christian Kral)</td>
-
-<tr><td valign=\"top\"> Utilities </td>
-   <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
-      (Martin Otter)<br>
-      Dynasim AB, Lund, Sweden (Hans Olsson)</td>
+<tr>
+<td valign=\"top\"><p>Thermal.FluidHeatFlow</p><p>Thermal.HeatTransfer</p></td>
+<td valign=\"top\"><p>Anton Haumer, Consultant, St.Andrae-Woerdern, Austria, and</p><p>Austrian Institute of Technology, AIT, Vienna, Austria (Christian Kral)</p></td>
+</tr>
+<tr>
+<td valign=\"top\"><p>Utilities</p></td>
+<td valign=\"top\"><p>DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany (Martin Otter)</p><p>Dynasim AB, Lund, Sweden (Hans Olsson)</p></td>
 </tr>
 </table>
-
-
-<p>
-The following people have directly contributed to the implementation
-of the Modelica package (many more people have contributed to the design):
-</p>
-
-<table border=1 cellspacing=0 cellpadding=2>
-<tr><td valign=\"top\"><b>Peter Beater</b> </td
-   <td valign=\"top\"> University of Paderborn, Germany</td>
-   <td valign=\"top\"> Modelica.Mechanics.Translational </td>
+<p><br/><br/><br/><br/>The following people have directly contributed to the implementation of the Modelica package (many more people have contributed to the design):</p>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
+<td valign=\"top\"><p><b>Peter Beater</b></p><p>University of Paderborn, Germany</p></td>
+<td valign=\"top\"><p>Modelica.Mechanics.Translational</p></td>
 </tr>
-
-<tr><td valign=\"top\"><b>Thomas B&ouml;drich</b> </td
-   <td valign=\"top\"> Dresden University of Technology, Germany</td>
-   <td valign=\"top\"> Modelica.Magnetic.FluxTubes </td>
-
-
-<tr><td valign=\"top\"><b>Dag Br&uuml;ck</b> </td
-   <td valign=\"top\"> Dynasim AB, Lund, Sweden</td>
-   <td valign=\"top\"> Modelica.Utilities</td>
+<tr>
+<td valign=\"top\"><p><b>Thomas B&ouml;drich</b></p><p>Dresden University of Technology, Germany</p></td>
+<td valign=\"top\"><p>Modelica.Magnetic.FluxTubes</p></td>
 </tr>
-
-<tr><td valign=\"top\"><b>Francesco Casella</b> </td
-   <td valign=\"top\"> Politecnico di Milano, Milano, Italy</td>
-   <td valign=\"top\"> Modelica.Fluid<br>
-                            Modelica.Media</td>
+<tr>
+<td valign=\"top\"><p><b>Dag Br&uuml;ck</b></p><p>Dynasim AB, Lund, Sweden</p></td>
+<td valign=\"top\"><p>Modelica.Utilities</p></td>
 </tr>
-
-<tr><td valign=\"top\"><b>Christoph Clauss</b> </td
-   <td valign=\"top\"> Fraunhofer Institute for Integrated Circuits,<br> Dresden, Germany</td>
-   <td valign=\"top\"> Modelica.Electrical.Analog<br>
-     Modelica.Electrical.Digital</td>
+<tr>
+<td valign=\"top\"><p><b>Francesco Casella</b></p><p>Politecnico di Milano, Milano, Italy</p></td>
+<td valign=\"top\"><p>Modelica.Fluid</p><p>Modelica.Media</p></td>
 </tr>
-
-<tr><td valign=\"top\"><b>Jonas Eborn</b> </td
-   <td valign=\"top\"> Modelon AB, Lund, Sweden</td>
-   <td valign=\"top\"> Modelica.Media</td>
+<tr>
+<td valign=\"top\"><p><b>Christoph Clauss</b></p><p>Fraunhofer Institute for Integrated Circuits,</p><p>Dresden, Germany</p></td>
+<td valign=\"top\"><p>Modelica.Electrical.Analog</p><p>Modelica.Electrical.Digital</p></td>
 </tr>
-
-<tr><td valign=\"top\"><b>Hilding Elmqvist</b> </td
-   <td valign=\"top\"> Dynasim AB, Lund, Sweden</td>
-   <td valign=\"top\"> Modelica.Mechanics.MultiBody<br>
-                   Modelica.Fluid<br>
-     Modelica.Media<br>
-     Modelica.StateGraph<br>
-     Modelica.Utilities<br>
-     Conversion from 1.6 to 2.0</td>
+<tr>
+<td valign=\"top\"><p><b>Jonas Eborn</b></p><p>Modelon AB, Lund, Sweden</p></td>
+<td valign=\"top\"><p>Modelica.Media</p></td>
 </tr>
-
-<tr><td valign=\"top\"><b>R&uuml;diger Franke</b> </td
-   <td valign=\"top\"> ABB Corporate Research,<br>Ladenburg, German</td>
-   <td valign=\"top\"> Modelica.Fluid<br>
-                            Modelica.Media</td>
+<tr>
+<td valign=\"top\"><p><b>Hilding Elmqvist</b></p><p>Dynasim AB, Lund, Sweden</p></td>
+<td valign=\"top\"><p>Modelica.Mechanics.MultiBody</p><p>Modelica.Fluid</p><p>Modelica.Media</p><p>Modelica.StateGraph</p><p>Modelica.Utilities</p><p>Conversion from 1.6 to 2.0</p></td>
 </tr>
-
-<tr><td valign=\"top\"><b>Manuel Gr&auml;ber</b> </td
-   <td valign=\"top\"> Institut f&uuml;r Thermodynamik, <br>
-     Technische Universit&auml;t Braunschweig, <br>
-     Germany</td>
-   <td valign=\"top\"> Modelica.Fluid</td>
+<tr>
+<td valign=\"top\"><p><b>R&uuml;diger Franke</b></p><p>ABB Corporate Research,</p><p>Ladenburg, German</p></td>
+<td valign=\"top\"><p>Modelica.Fluid</p><p>Modelica.Media</p></td>
 </tr>
-
-<tr><td valign=\"top\"><b>Anton Haumer</b> </td
-   <td valign=\"top\"> Consultant, St.Andrae-Woerdern,<br>Austria</td>
-   <td valign=\"top\"> Modelica.Electrical.Machines<br>
-     Modelica.Electrical.Multiphase<br>
-     Modelica.Mechanics.Rotational<br>
-     Modelica.Mechanics.Translational<br>
-     Modelica.Thermal.FluidHeatFlow<br>
-     Modelica.Thermal.HeatTransfer<br>
-     Conversion from 1.6 to 2.0<br>
-     Conversion from 2.2 to 3.0</td>
+<tr>
+<td valign=\"top\"><p><b>Manuel Gr&auml;ber</b></p><p>Institut f&uuml;r Thermodynamik,</p><p>Technische Universit&auml;t Braunschweig,</p><p>Germany</p></td>
+<td valign=\"top\"><p>Modelica.Fluid</p></td>
 </tr>
-
-<tr><td valign=\"top\"><b>Hans-Dieter Joos</b> </td
-   <td valign=\"top\"> Institute of Robotics and Mechatronics<br>
-     DLR, German Aerospace Center, <br>
-     Oberpfaffenhofen, Germany</td>
-   <td valign=\"top\"> Modelica.Math.Matrices</td>
+<tr>
+<td valign=\"top\"><p><b>Anton Haumer</b></p><p>Consultant, St.Andrae-Woerdern,</p><p>Austria</p></td>
+<td valign=\"top\"><p>Modelica.Electrical.Machines</p><p>Modelica.Electrical.Multiphase</p><p>Modelica.Mechanics.Rotational</p><p>Modelica.Mechanics.Translational</p><p>Modelica.Thermal.FluidHeatFlow</p><p>Modelica.Thermal.HeatTransfer</p><p>Conversion from 1.6 to 2.0</p><p>Conversion from 2.2 to 3.0</p></td>
 </tr>
-
-<tr><td valign=\"top\"><b>Christian Kral</b> </td
-   <td valign=\"top\"> arsenal research, Vienna, Austria</td>
-   <td valign=\"top\"> Modelica.Electrical.Machines<br>
-     Modelica.Thermal.FluidHeatFlow</td>
+<tr>
+<td valign=\"top\"><p><b>Hans-Dieter Joos</b></p><p>Institute of Robotics and Mechatronics</p><p>DLR, German Aerospace Center,</p><p>Oberpfaffenhofen, Germany</p></td>
+<td valign=\"top\"><p>Modelica.Math.Matrices</p></td>
 </tr>
-
-<tr><td valign=\"top\"><b>Sven Erik Mattsson</b> </td
-   <td valign=\"top\"> Dynasim AB, Lund, Sweden</td>
-   <td valign=\"top\"> Modelica.Mechanics.MultiBody</td>
+<tr>
+<td valign=\"top\"><p><b>Christian Kral</b></p><p>arsenal research, Vienna, Austria</p></td>
+<td valign=\"top\"><p>Modelica.Electrical.Machines</p><p>Modelica.Thermal.FluidHeatFlow</p></td>
 </tr>
-<tr><td valign=\"top\"><b>Hans Olsson</b> </td
-   <td valign=\"top\"> Dynasim AB, Lund, Sweden</td>
-   <td valign=\"top\"> Modelica.Blocks<br>
-     Modelica.Math.Matrices<br>
-     Modelica.Utilities<br>
-     Conversion from 1.6 to 2.0<br>
-     Conversion from 2.2 to 3.0</td>
+<tr>
+<td valign=\"top\"><p><b>Sven Erik Mattsson</b></p><p>Dynasim AB, Lund, Sweden</p></td>
+<td valign=\"top\"><p>Modelica.Mechanics.MultiBody</p></td>
 </tr>
-
-<tr><td valign=\"top\"><b>Martin Otter</b> </td
-   <td valign=\"top\"> Institute of Robotics and Mechatronics<br>
-     DLR, German Aerospace Center, <br>
-     Oberpfaffenhofen, Germany</td>
-   <td valign=\"top\"> Modelica.Blocks<br>
-                   Modelica.Fluid<br>
-     Modelica.Mechanics.MultiBody<br>
-     Modelica.Mechanics.Rotational<br>
-     Modelica.Mechanics.Translational<br>
-     Modelica.Math<br>
-     Modelica.Media<br>
-     Modelica.SIunits<br>
-     Modelica.StateGraph<br>
-     Modelica.Thermal.HeatTransfer<br>
-     Modelica.Utilities<br>
-     ModelicaReference<br>
-     Conversion from 1.6 to 2.0<br>
-     Conversion from 2.2 to 3.0</td>
+<tr>
+<td valign=\"top\"><p><b>Hans Olsson</b></p><p>Dynasim AB, Lund, Sweden</p></td>
+<td valign=\"top\"><p>Modelica.Blocks</p><p>Modelica.Math.Matrices</p><p>Modelica.Utilities</p><p>Conversion from 1.6 to 2.0</p><p>Conversion from 2.2 to 3.0</p></td>
 </tr>
-
-<tr><td valign=\"top\"><b>Katrin Pr&ouml;l&szlig;</b> </td
-   <td valign=\"top\"> Modelon AB, Lund, Sweden<br>
-                            until 2008:<br>
-                            Department of Technical Thermodynamics,<br>
-     Technical University Hamburg-Harburg,<br>Germany</td>
-   <td valign=\"top\"> Modelica.Fluid<br>
-                            Modelica.Media</td>
+<tr>
+<td valign=\"top\"><p><b>Martin Otter</b></p><p>Institute of Robotics and Mechatronics</p><p>DLR, German Aerospace Center,</p><p>Oberpfaffenhofen, Germany</p></td>
+<td valign=\"top\"><p>Modelica.Blocks</p><p>Modelica.Fluid</p><p>Modelica.Mechanics.MultiBody</p><p>Modelica.Mechanics.Rotational</p><p>Modelica.Mechanics.Translational</p><p>Modelica.Math</p><p>Modelica.Media</p><p>Modelica.SIunits</p><p>Modelica.StateGraph</p><p>Modelica.Thermal.HeatTransfer</p><p>Modelica.Utilities</p><p>ModelicaReference</p><p>Conversion from 1.6 to 2.0</p><p>Conversion from 2.2 to 3.0</p></td>
 </tr>
-
-<tr><td valign=\"top\"><b>Christoph C. Richter</b> </td
-   <td valign=\"top\"> Institut f&uuml;r Thermodynamik, <br>
-     Technische Universit&auml;t Braunschweig, <br>
-     Germany</td>
-   <td valign=\"top\"> Modelica.Fluid<br>
-                            Modelica.Media</td>
+<tr>
+<td valign=\"top\"><p><b>Katrin Pr&ouml;l&szlig;</b></p><p>Modelon AB, Lund, Sweden</p><p>until 2008:</p><p>Department of Technical Thermodynamics,</p><p>Technical University Hamburg-Harburg,</p><p>Germany</p></td>
+<td valign=\"top\"><p>Modelica.Fluid</p><p>Modelica.Media</p></td>
 </tr>
-
-<tr><td valign=\"top\"><b>Andr&eacute; Schneider</b> </td
-   <td valign=\"top\"> Fraunhofer Institute for Integrated Circuits,<br> Dresden, Germany</td>
-   <td valign=\"top\"> Modelica.Electrical.Analog<br>
-     Modelica.Electrical.Digital</td>
+<tr>
+<td valign=\"top\"><p><b>Christoph C. Richter</b></p><p>Institut f&uuml;r Thermodynamik,</p><p>Technische Universit&auml;t Braunschweig,</p><p>Germany</p></td>
+<td valign=\"top\"><p>Modelica.Fluid</p><p>Modelica.Media</p></td>
 </tr>
-<tr><td valign=\"top\"><b>Christian Schweiger</b> </td
-   <td valign=\"top\"> Until 2006:<br>
-     Institute of Robotics and Mechatronics,<br>
-     DLR, German Aerospace Center,<br>
-     Oberpfaffenhofen, Germany</td>
-   <td valign=\"top\"> Modelica.Mechanics.Rotational<br>
-     ModelicaReference<br>
-     Conversion from 1.6 to 2.0</td>
+<tr>
+<td valign=\"top\"><p><b>Andr&eacute; Schneider</b></p><p>Fraunhofer Institute for Integrated Circuits,</p><p>Dresden, Germany</p></td>
+<td valign=\"top\"><p>Modelica.Electrical.Analog</p><p>Modelica.Electrical.Digital</p></td>
 </tr>
-
-<tr><td valign=\"top\"><b>Michael Sielemann</b> </td
-   <td valign=\"top\"> Institute of Robotics and Mechatronics<br>
-     DLR, German Aerospace Center, <br>
-     Oberpfaffenhofen, Germany</td>
-   <td valign=\"top\"> Modelica.Fluid</td>
+<tr>
+<td valign=\"top\"><p><b>Christian Schweiger</b></p><p>Until 2006:</p><p>Institute of Robotics and Mechatronics,</p><p>DLR, German Aerospace Center,</p><p>Oberpfaffenhofen, Germany</p></td>
+<td valign=\"top\"><p>Modelica.Mechanics.Rotational</p><p>ModelicaReference</p><p>Conversion from 1.6 to 2.0</p></td>
 </tr>
-
-<tr><td valign=\"top\"><b>Michael Tiller</b> </td
-   <td valign=\"top\"> Emmeskay, Inc., Dearborn, MI, U.S.A, <br>
-     (previously Ford Motor Company, Dearborn) </td>
-   <td valign=\"top\"> Modelica.Media<br>
-     Modelica.Thermal.HeatTransfer</td>
+<tr>
+<td valign=\"top\"><p><b>Michael Sielemann</b></p><p>Institute of Robotics and Mechatronics</p><p>DLR, German Aerospace Center,</p><p>Oberpfaffenhofen, Germany</p></td>
+<td valign=\"top\"><p>Modelica.Fluid</p></td>
 </tr>
-<tr><td valign=\"top\"><b>Hubertus Tummescheit</b> </td
-   <td valign=\"top\"> Modelon AB, Lund, Sweden </td>
-   <td valign=\"top\"> Modelica.Media<br>
-     Modelica.Thermal.HeatTransfer</td>
+<tr>
+<td valign=\"top\"><p><b>Michael Tiller</b></p><p>Emmeskay, Inc., Dearborn, MI, U.S.A,</p><p>(previously Ford Motor Company, Dearborn)</p></td>
+<td valign=\"top\"><p>Modelica.Media</p><p>Modelica.Thermal.HeatTransfer</p></td>
 </tr>
-<tr><td valign=\"top\"><b>Nico Walter</b> </td
-   <td valign=\"top\"> Master thesis at HTWK Leipzig<br>
-     (Prof. R. M&uuml;ller) and<br>
-     DLR Oberpfaffenhofen, Germany</td>
-   <td valign=\"top\"> Modelica.Math.Matrices</td>
+<tr>
+<td valign=\"top\"><p><b>Hubertus Tummescheit</b></p><p>Modelon AB, Lund, Sweden</p></td>
+<td valign=\"top\"><p>Modelica.Media</p><p>Modelica.Thermal.HeatTransfer</p></td>
 </tr>
-
-<tr><td valign=\"top\"><b>Manuel Wetter</b> </td
-   <td valign=\"top\"> Lawrence Berkeley National Laboratory; U.S.A</td>
-   <td valign=\"top\"> Modelica.Fluid</td>
+<tr>
+<td valign=\"top\"><p><b>Nico Walter</b></p><p>Master thesis at HTWK Leipzig</p><p>(Prof. R. M&uuml;ller) and</p><p>DLR Oberpfaffenhofen, Germany</p></td>
+<td valign=\"top\"><p>Modelica.Math.Matrices</p></td>
+</tr>
+<tr>
+<td valign=\"top\"><p><b>Manuel Wetter</b></p><p>Lawrence Berkeley National Laboratory; U.S.A</p></td>
+<td valign=\"top\"><p>Modelica.Fluid</p></td>
 </tr>
 </table>
-</html>
-"));
+</html>"));
 
 end Contact;
 
@@ -4924,6 +4790,7 @@ User's Guides that can be accessed by the following links:
 
 </html>"));
 end UsersGuide;
+
 
 annotation (
 preferredView="info",
