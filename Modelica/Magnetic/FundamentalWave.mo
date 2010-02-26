@@ -127,6 +127,15 @@ Based on an original idea of Michael Beuschel this library was developed. The au
 
       annotation (Documentation(info="<html>
 
+<h5>Version 1.3.0, 2010-02-26</h5>
+
+<ul>
+<li>Changed some icon references</li>
+<li>Added state selections for the machine models</li>
+<li>Restructured partial machine model</li>
+<li>Added copyright information</li>
+</ul>
+
 <h5>Version 1.2.0, 2010-02-17</h5>
 
 <ul>
@@ -1739,7 +1748,7 @@ This is a simple idle running branch.
             Text(
               extent={{0,60},{0,100}},
               lineColor={255,128,0},
-              textString =                         "%name"),
+              textString=                          "%name"),
             Rectangle(
               extent={{-100,40},{100,-40}},
               lineColor={255,255,255},
@@ -3070,7 +3079,7 @@ according to the following figure.
               Text(
                 extent={{0,100},{0,140}},
                 lineColor={0,0,255},
-                textString =                         "%name")}),
+                textString=                          "%name")}),
           Documentation(info="<html>
 <p>
 <img src=\"../Images/Magnetic/FundamentalWave/Machines/Components/rotorcage.png\">
@@ -3240,7 +3249,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
               Text(
                 extent={{0,100},{0,140}},
                 lineColor={0,0,255},
-                textString =                         "%name")}),
+                textString=                          "%name")}),
           Documentation(info="<html>
 
 <p>
@@ -4227,7 +4236,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <tr><td>Version</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
 </thead>
 <tbody>
-<tr><td>1.2.1</td>  <td>2010-02-19</td>  <td>A. Haumer</td>  <td>Machine Icon based on Modelica.Electrical.Machines.Icons</td></tr>
+<tr><td>1.3.0</td>  <td>2010-02-26</td>  <td>A. Haumer<br>C. Kral</td>  <td>New state selection, icons and copyright included</td></tr>
 <tr><td>1.2.0</td>  <td>2010-02-17</td>  <td>C. Kral</td>  <td>Renamed Machines to BasicMachines and updated references to Electrical.Machines</td></tr>
 <tr><td>1.1.0</td>  <td>2010-02-15</td>  <td>C. Kral</td>  <td>Added thermal connectors and temperature dependent resistances</td></tr>
 <tr><td>1.0.0</td>  <td>2010-02-04</td>  <td>C. Kral</td>  <td>Integrated the libray into the MSL</td></tr>
@@ -4237,6 +4246,22 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <tr><td>0.1.0</td>  <td>2009-07-22</td>  <td>C. Kral</td>  <td>First version based on the concept of the FluxTubes library and the Magnetics library of Michael Beuschel</td></tr>
 </tbody>
 </table>
+</p>
+</html>", info="<html>
+<p>
+Copyright (C) 2009-2010, <a href=\"Modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Christian Kral</a> and 
+<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Anton Haumer</a>
+</p>
+
+<p>
+<i>This Modelica package is <b>free</b> software and
+the use is completely at <b>your own risk</b>;
+it can be redistributed and/or modified under the terms of the
+Modelica license 2, see the 
+<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">license conditions</a>
+(including the disclaimer of warranty) or at
+<a href=\"http://www.Modelica.org/licenses/ModelicaLicense2\">
+http://www.Modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
 </html>"));
 end FundamentalWave;
