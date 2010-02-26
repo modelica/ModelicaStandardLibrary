@@ -254,15 +254,15 @@ McGraw-Hill, USA (1994)</td></br>
           RD=0,
           RS=0,
           CBD=0,
-          CBS=0)) 
+          CBS=0))
         annotation (Placement(transformation(extent={{-14,8},{6,28}})));
       Spice3.Semiconductors.M_NMOS MN(modelcard(
           RD=0,
           RS=0,
           CBD=0,
-          CBS=0)) 
+          CBS=0))
         annotation (Placement(transformation(extent={{-14,-34},{6,-14}})));
-      Spice3.Basic.Ground ground 
+      Spice3.Basic.Ground ground
         annotation (Placement(transformation(extent={{-14,-60},{6,-40}})));
       Spice3.Sources.V_pulse vin(
         V2=5,
@@ -372,26 +372,26 @@ McGraw-Hill, USA (1994)</td></br>
       parameter Spice3.Semiconductors.modelcardMOS MNmos(GAMMA=0.37, LAMBDA=
             0.02) "specified modelcardMOS for MNmos";
                                              //instance of record modelcardMOS
-      Spice3.Semiconductors.M_PMOS mp1(modelcard=MPmos) 
+      Spice3.Semiconductors.M_PMOS mp1(modelcard=MPmos)
                 annotation (Placement(transformation(extent={{-38,20},{-18,40}},
               rotation=0)));
-      Spice3.Semiconductors.M_NMOS mn1(modelcard=MNmos) 
+      Spice3.Semiconductors.M_NMOS mn1(modelcard=MNmos)
                 annotation (Placement(transformation(extent={{-38,-30},{-18,-10}},
               rotation=0)));
-      Spice3.Semiconductors.M_PMOS mp2(modelcard=MPmos) 
+      Spice3.Semiconductors.M_PMOS mp2(modelcard=MPmos)
                 annotation (Placement(transformation(extent={{2,20},{22,40}},
               rotation=0)));
-      Spice3.Semiconductors.M_NMOS mn2(modelcard=MNmos) 
+      Spice3.Semiconductors.M_NMOS mn2(modelcard=MNmos)
                 annotation (Placement(transformation(extent={{2,-30},{22,-10}},
               rotation=0)));
     //--------------------------------------------------------------------------------------------------------------
 
-      Spice3.Basic.C_Capacitor c1(C=1e-5) 
+      Spice3.Basic.C_Capacitor c1(C=1e-5)
         annotation (Placement(transformation(
             origin={-8,-30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Spice3.Basic.C_Capacitor c2(C=1e-5) 
+      Spice3.Basic.C_Capacitor c2(C=1e-5)
         annotation (Placement(transformation(
             origin={34,-30},
             extent={{-10,-10},{10,10}},
@@ -412,9 +412,9 @@ McGraw-Hill, USA (1994)</td></br>
       connect(mp1.B, mp1.D) annotation (Line(points={{-18,30},{-18,40},{-28,
               40}},
             color={0,0,255}));
-      connect(mn1.S, ground.p) 
+      connect(mn1.S, ground.p)
         annotation (Line(points={{-28,-30},{-28,-60}}, color={0,0,255}));
-      connect(mp1.S, mn1.D) 
+      connect(mp1.S, mn1.D)
         annotation (Line(points={{-28,20},{-28,-10}}, color={0,0,255}));
       connect(mn1.G, mp1.G) annotation (Line(points={{-38,-20.1},{-38,29.9}},
             color={0,0,255}));
@@ -425,7 +425,7 @@ McGraw-Hill, USA (1994)</td></br>
             color={0,0,255}));
       connect(mn2.S, ground.p) annotation (Line(points={{12,-30},{12,-60},{-28,
               -60}}, color={0,0,255}));
-      connect(mp2.S, mn2.D) 
+      connect(mp2.S, mn2.D)
         annotation (Line(points={{12,20},{12,-10}}, color={0,0,255}));
       connect(mn2.G, mp2.G) annotation (Line(points={{2,-20.1},{2,29.9}},
             color={0,0,255}));
@@ -534,12 +534,12 @@ McGraw-Hill, USA (1994)</td></br>
               rotation=0)));
     //--------------------------------------------------------------------------------------------------------------
 
-      Spice3.Basic.C_Capacitor c1(C=1e-5) 
+      Spice3.Basic.C_Capacitor c1(C=1e-5)
         annotation (Placement(transformation(
             origin={-10,-30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Spice3.Basic.C_Capacitor c2(C=1e-5) 
+      Spice3.Basic.C_Capacitor c2(C=1e-5)
         annotation (Placement(transformation(
             origin={32,-30},
             extent={{-10,-10},{10,10}},
@@ -559,9 +559,9 @@ McGraw-Hill, USA (1994)</td></br>
     equation
       connect(mp1.B, mp1.D) annotation (Line(points={{-20,30},{-20,40},{-30,40}},
             color={0,0,255}));
-      connect(mn1.S, ground.p) 
+      connect(mn1.S, ground.p)
         annotation (Line(points={{-30,-30},{-30,-60}}, color={0,0,255}));
-      connect(mp1.S, mn1.D) 
+      connect(mp1.S, mn1.D)
         annotation (Line(points={{-30,20},{-30,-10}}, color={0,0,255}));
       connect(mn1.G, mp1.G) annotation (Line(points={{-40,-20.1},{-40,29.9}},
             color={0,0,255}));
@@ -571,7 +571,7 @@ McGraw-Hill, USA (1994)</td></br>
             color={0,0,255}));
       connect(mn2.S, ground.p) annotation (Line(points={{10,-30},{10,-60},{-30,-60}},
                      color={0,0,255}));
-      connect(mp2.S, mn2.D) 
+      connect(mp2.S, mn2.D)
         annotation (Line(points={{10,20},{10,-10}}, color={0,0,255}));
       connect(mn2.G, mp2.G) annotation (Line(points={{0,-20.1},{0,29.9}},
             color={0,0,255}));
@@ -663,46 +663,46 @@ McGraw-Hill, USA (1994)</td></br>
       parameter Spice3.Semiconductors.modelcardMOS modn
         "provate NMOS modelcard";
 
-      Spice3.Semiconductors.M_PMOS mp1(modelcard=modp) 
+      Spice3.Semiconductors.M_PMOS mp1(modelcard=modp)
                 annotation (Placement(transformation(extent={{-74,20},{-54,40}},
               rotation=0)));
-      Spice3.Semiconductors.M_NMOS mn1(modelcard=modn) 
+      Spice3.Semiconductors.M_NMOS mn1(modelcard=modn)
                 annotation (Placement(transformation(extent={{-74,-30},{-54,-10}},
               rotation=0)));
-      Spice3.Semiconductors.M_PMOS mp2(modelcard=modp) 
+      Spice3.Semiconductors.M_PMOS mp2(modelcard=modp)
                 annotation (Placement(transformation(extent={{-34,20},{-14,40}},
               rotation=0)));
-      Spice3.Semiconductors.M_NMOS mn2(modelcard=modn) 
+      Spice3.Semiconductors.M_NMOS mn2(modelcard=modn)
                 annotation (Placement(transformation(extent={{-34,-30},{-14,-10}},
               rotation=0)));
-      Spice3.Semiconductors.M_PMOS mp3(modelcard=modp) 
+      Spice3.Semiconductors.M_PMOS mp3(modelcard=modp)
                 annotation (Placement(transformation(extent={{6,20},{26,40}},
               rotation=0)));
-      Spice3.Semiconductors.M_PMOS mp4(modelcard=modn) 
+      Spice3.Semiconductors.M_PMOS mp4(modelcard=modn)
                 annotation (Placement(transformation(extent={{46,20},{66,40}},
               rotation=0)));
-      Spice3.Semiconductors.M_NMOS mn3(modelcard=modp) 
+      Spice3.Semiconductors.M_NMOS mn3(modelcard=modp)
                 annotation (Placement(transformation(extent={{6,-30},{26,-10}},
               rotation=0)));
-      Spice3.Semiconductors.M_NMOS mn4(modelcard=modn) 
+      Spice3.Semiconductors.M_NMOS mn4(modelcard=modn)
                 annotation (Placement(transformation(extent={{46,-30},{66,-10}},
               rotation=0)));
-      Spice3.Basic.C_Capacitor c1(C=10e-6) 
+      Spice3.Basic.C_Capacitor c1(C=10e-6)
         annotation (Placement(transformation(
             origin={-44,-30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Spice3.Basic.C_Capacitor c2(C=10e-6) 
+      Spice3.Basic.C_Capacitor c2(C=10e-6)
         annotation (Placement(transformation(
             origin={-2,-30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Spice3.Basic.C_Capacitor c3(C=10e-6) 
+      Spice3.Basic.C_Capacitor c3(C=10e-6)
         annotation (Placement(transformation(
             origin={36,-30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Spice3.Basic.C_Capacitor c4(C=10e-6) 
+      Spice3.Basic.C_Capacitor c4(C=10e-6)
         annotation (Placement(transformation(
             origin={76,-30},
             extent={{-10,-10},{10,10}},
@@ -723,9 +723,9 @@ McGraw-Hill, USA (1994)</td></br>
       connect(mp1.B, mp1.D) annotation (Line(points={{-54,30},{-54,40},{-64,
               40}},
             color={0,0,255}));
-      connect(mn1.S, ground.p) 
+      connect(mn1.S, ground.p)
         annotation (Line(points={{-64,-30},{-64,-60}}, color={0,0,255}));
-      connect(mp1.S, mn1.D) 
+      connect(mp1.S, mn1.D)
         annotation (Line(points={{-64,20},{-64,-10}}, color={0,0,255}));
       connect(mn1.G, mp1.G) annotation (Line(points={{-74,-20.1},{-74,29.9}},
             color={0,0,255}));
@@ -738,7 +738,7 @@ McGraw-Hill, USA (1994)</td></br>
       connect(mn2.S, ground.p) annotation (Line(points={{-24,-30},{-24,-60},{
               -64,-60}},
                      color={0,0,255}));
-      connect(mp2.S, mn2.D) 
+      connect(mp2.S, mn2.D)
         annotation (Line(points={{-24,20},{-24,-10}},
                                                     color={0,0,255}));
       connect(mn2.G, mp2.G) annotation (Line(points={{-34,-20.1},{-34,29.9}},
@@ -766,9 +766,9 @@ McGraw-Hill, USA (1994)</td></br>
             color={0,0,255}));
       connect(mp4.B, mp4.D) annotation (Line(points={{66,30},{66,40},{56,40}},
                     color={0,0,255}));
-      connect(mp3.S, mn3.D) 
+      connect(mp3.S, mn3.D)
         annotation (Line(points={{16,20},{16,-10}}, color={0,0,255}));
-      connect(mp4.S, mn4.D) 
+      connect(mp4.S, mn4.D)
         annotation (Line(points={{56,20},{56,-10}},   color={0,0,255}));
       connect(mn3.S, ground.p) annotation (Line(points={{16,-30},{16,-60},{-64,
               -60}}, color={0,0,255}));
@@ -867,7 +867,7 @@ McGraw-Hill, USA (1994)</td></br>
         W=1e-5,
         modelcard(PHI=0.7))               annotation (Placement(transformation(
               extent={{-22,24},{-2,44}},  rotation=0)));
-      Spice3.Semiconductors.M_PMOS m_PMOS1(modelcard(PHI=0.7)) 
+      Spice3.Semiconductors.M_PMOS m_PMOS1(modelcard(PHI=0.7))
                                            annotation (Placement(transformation(
               extent={{24,24},{44,44}},rotation=0)));
       Spice3.Semiconductors.M_NMOS m_NMOS annotation (Placement(transformation(
@@ -908,7 +908,7 @@ McGraw-Hill, USA (1994)</td></br>
               {34,44}}, color={0,0,255}));
       connect(v_constant.p, m_PMOS1.D) annotation (Line(points={{62,44},{62,44},
               {34,44}}, color={0,0,255}));
-      connect(m_PMOS1.D, m_PMOS.D) 
+      connect(m_PMOS1.D, m_PMOS.D)
         annotation (Line(points={{34,44},{-12,44}}, color={0,0,255}));
       connect(m_PMOS.G, m_NMOS1.G) annotation (Line(points={{-22,33.9},{-22,
               16},{-24,16},{-24,-0.1}},
@@ -927,14 +927,14 @@ McGraw-Hill, USA (1994)</td></br>
               30,-80}},color={0,0,255}));
       connect(m_NMOS.S, ground.p) annotation (Line(points={{-14,-44},{-14,-80},
               {30,-80}},color={0,0,255}));
-      connect(m_NMOS1.B, m_NMOS.B) 
+      connect(m_NMOS1.B, m_NMOS.B)
         annotation (Line(points={{-4,0},{-4,-34}},   color={0,0,255}));
       connect(m_NMOS.B, m_NMOS.S) annotation (Line(points={{-4,-34},{-4,-44},
               {-14,-44}}, color={0,0,255}));
-      connect(m_NMOS1.S, m_NMOS.D) 
+      connect(m_NMOS1.S, m_NMOS.D)
         annotation (Line(points={{-14,-10},{-14,-24}},
                                                     color={0,0,255}));
-      connect(m_PMOS.S, m_NMOS1.D) 
+      connect(m_PMOS.S, m_NMOS1.D)
         annotation (Line(points={{-12,24},{-12,18},{-14,18},{-14,10}},
                                                      color={0,0,255}));
       connect(m_PMOS1.S, m_NMOS1.D) annotation (Line(points={{34,24},{34,10},
@@ -1095,7 +1095,7 @@ McGraw-Hill, USA (1994)</td></br>
               {-29,33.9},{-16,33.9}}, color={0,0,255}));
       connect(vin1.n, ground.p)    annotation (Line(points={{-42,14},{-64,14},{
               -64,-80},{38,-80}},color={0,0,255}));
-      connect(m_PMOS.S, m_PMOS1.D) 
+      connect(m_PMOS.S, m_PMOS1.D)
         annotation (Line(points={{-6,24},{-6,14}},   color={0,0,255}));
       connect(m_PMOS1.S, m_NMOS.D) annotation (Line(points={{-6,-6},{-6,-24}},
             color={0,0,255}));
@@ -1192,35 +1192,35 @@ McGraw-Hill, USA (1994)</td></br>
 
     model Graetz "Graetz rectifier circuit"
 
-      Spice3.Semiconductors.D_DIODE D1(modelcarddiode(CJO=1e-7)) 
+      Spice3.Semiconductors.D_DIODE D1(modelcarddiode(CJO=1e-7))
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=0,
             origin={0,14})));
-      Spice3.Semiconductors.D_DIODE D3(modelcarddiode(CJO=1e-7)) 
+      Spice3.Semiconductors.D_DIODE D3(modelcarddiode(CJO=1e-7))
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
             rotation=270,
             origin={20,-8})));
-      Spice3.Semiconductors.D_DIODE D4(modelcarddiode(CJO=1e-7)) 
+      Spice3.Semiconductors.D_DIODE D4(modelcarddiode(CJO=1e-7))
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=0,
             origin={1,-30})));
-      Spice3.Semiconductors.D_DIODE D2(modelcarddiode(CJO=1e-7)) 
+      Spice3.Semiconductors.D_DIODE D2(modelcarddiode(CJO=1e-7))
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-20,-8})));
-      Spice3.Semiconductors.R_Resistor r_out(R=10) 
+      Spice3.Semiconductors.R_Resistor r_out(R=10)
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={42,-7})));
-      Spice3.Sources.V_sin v_sin(VA=10, FREQ=200) 
+      Spice3.Sources.V_sin v_sin(VA=10, FREQ=200)
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-44,-8})));
-      Spice3.Basic.Ground ground 
+      Spice3.Basic.Ground ground
         annotation (Placement(transformation(extent={{-30,-60},{-10,-40}})));
     equation
       connect(D1.n, D3.p) annotation (Line(
@@ -1304,9 +1304,9 @@ McGraw-Hill, USA (1994)</td></br>
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={-36,20})));
-      Spice3.Basic.C_Capacitor c(C=1e-7) 
+      Spice3.Basic.C_Capacitor c(C=1e-7)
         annotation (Placement(transformation(extent={{-32,0},{-12,20}})));
-      Spice3.Basic.C_Capacitor c1(C=1e-7) 
+      Spice3.Basic.C_Capacitor c1(C=1e-7)
         annotation (Placement(transformation(extent={{24,0},{44,20}})));
       Spice3.Basic.R_Resistor r1(R=22000) annotation (Placement(
             transformation(
@@ -1323,16 +1323,16 @@ McGraw-Hill, USA (1994)</td></br>
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={50,20})));
-      Spice3.Semiconductors.Q_NPNBJT T1(mod(CJE=1e-9, CJC=1e-9)) 
+      Spice3.Semiconductors.Q_NPNBJT T1(mod(CJE=1e-9, CJC=1e-9))
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=180,
             origin={-30,-24})));
-      Spice3.Semiconductors.Q_NPNBJT T2(mod(CJE=1e-9, CJC=1e-9)) 
+      Spice3.Semiconductors.Q_NPNBJT T2(mod(CJE=1e-9, CJC=1e-9))
         annotation (Placement(transformation(extent={{30,-40},{50,-20}})));
-      Spice3.Basic.Ground ground1 
+      Spice3.Basic.Ground ground1
         annotation (Placement(transformation(extent={{-78,-34},{-58,-14}})));
-      Spice3.Basic.Ground ground2 
+      Spice3.Basic.Ground ground2
         annotation (Placement(transformation(extent={{50,-60},{70,-40}})));
       Spice3.Basic.R_Resistor r4(R=10000)         annotation (
           Placement(transformation(
@@ -2192,8 +2192,8 @@ is translated to Modelica:<br>
       parameter SI.Time TAU2=1 "Fall time constant";
 
     equation
-    v = V1 + (if (time < TD1) then 0 else if (time < (TD2)) then 
-              (V2-V1)*(1 - Modelica.Math.exp(-(time - TD1)/TAU1)) else 
+    v = V1 + (if (time < TD1) then 0 else if (time < (TD2)) then
+              (V2-V1)*(1 - Modelica.Math.exp(-(time - TD1)/TAU1)) else
               (V2-V1)*(1 - Modelica.Math.exp(-(time - TD1)/TAU1)) +
               (V1-V2)*(1 - Modelica.Math.exp(-(time - TD2)/TAU2)));
       annotation (
@@ -2278,7 +2278,7 @@ is translated to Modelica:<br>
       end when;
       v = V1 + (if (time < TD or counter2 == 0 or time >= T0 +
         T_falling) then 0 else if (time < T0 + T_rising) then (time - T0)*
-        (V2-V1)/T_rising else if (time < T0 + T_width) then V2-V1 else 
+        (V2-V1)/T_rising else if (time < T0 + T_width) then V2-V1 else
         (T0 + T_falling - time)*(V2-V1)/(T_falling - T_width));
 
       annotation (
@@ -2630,8 +2630,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
       parameter SI.Time TD2=2 "Fall delay time";
       parameter SI.Time TAU2=1 "Fall time constant";
     equation
-    i = I1 + (if (time < TD1) then 0 else if (time < (TD2)) then 
-              (I2-I1)*(1 - Modelica.Math.exp(-(time - TD1)/TAU1)) else 
+    i = I1 + (if (time < TD1) then 0 else if (time < (TD2)) then
+              (I2-I1)*(1 - Modelica.Math.exp(-(time - TD1)/TAU1)) else
               (I2-I1)*(1 - Modelica.Math.exp(-(time - TD1)/TAU1)) +
               (I1-I2)*(1 - Modelica.Math.exp(-(time - TD2)/TAU2)));
       annotation (
@@ -2712,7 +2712,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
       end when;
       i = I1 + (if (time < TD or counter2 == 0 or time >= T0 +
         T_falling) then 0 else if (time < T0 + T_rising) then (time - T0)*
-        (I2-I1)/T_rising else if (time < T0 + T_width) then I2-I1 else 
+        (I2-I1)/T_rising else if (time < T0 + T_width) then I2-I1 else
         (T0 + T_falling - time)*(I2-I1)/(T_falling - T_width));
 
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
@@ -3062,7 +3062,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
     end poly;
 
     model E_VCV_POLY
-      "polynomial voltage controlled voltage source, like SPICE2 or PSPICE"
+      "polynomial voltage controlled voltage source, like SPICE2"
 
       parameter Integer N(final min=1) = 1 "number of controlling voltages";
       parameter Real coeff[:] = {1} "coefficients of polynomial";
@@ -3072,13 +3072,13 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
             transformation(extent={{110,40},{90,60}}, rotation=0),
             iconTransformation(extent={{110,40},{90,60}})));
       Modelica.Electrical.Analog.Interfaces.NegativePin n
-        "Negative pin of the controlled (normally right) port" 
+        "Negative pin of the controlled (normally right) port"
                                                       annotation (Placement(
             transformation(extent={{90,-60},{110,-40}}, rotation=0),
             iconTransformation(extent={{90,-60},{110,-40}})));
 
       Modelica.Electrical.Analog.Interfaces.PositivePin pc[2*N]
-        "Pin vector of controlling pins (normally left)" 
+        "Pin vector of controlling pins (normally left)"
             annotation (Placement(transformation(
               extent={{-90,-80},{-70,80}}, rotation=0), iconTransformation(extent={
                 {-90,-80},{-70,80}})));
@@ -3159,7 +3159,7 @@ P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...})</pre>
     end E_VCV_POLY;
 
     model G_VCC_POLY
-      "polynomial voltage controlled current source, like SPICE2 or PSPICE"
+      "polynomial voltage controlled current source, like SPICE2"
 
       parameter Integer N(final min=1) = 1 "number of controlling voltages";
       parameter Real coeff[:] = {1} "coefficients of polynomial";
@@ -3174,7 +3174,7 @@ P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...})</pre>
             iconTransformation(extent={{90,-60},{110,-40}})));
 
       Modelica.Electrical.Analog.Interfaces.PositivePin pc[2*N]
-        "Pin vector of controlling pins" 
+        "Pin vector of controlling pins"
             annotation (Placement(transformation(
               extent={{-90,-80},{-70,80}}, rotation=0), iconTransformation(extent={
                 {-90,-80},{-70,80}})));
@@ -3254,7 +3254,7 @@ P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...}) </pre>
     end G_VCC_POLY;
 
     model H_CCV_POLY
-      "polynomial current controlled voltage source, like SPICE2 or PSPICE"
+      "polynomial current controlled voltage source, like SPICE2"
 
       parameter Integer N(final min=1) = 1 "number of controlling voltages";
       parameter Real coeff[:] = {1} "coefficients of polynomial";
@@ -3269,7 +3269,7 @@ P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...}) </pre>
             iconTransformation(extent={{90,-60},{110,-40}})));
 
       Modelica.Electrical.Analog.Interfaces.PositivePin pc[2*N]
-        "Pin vector of controlling pins" 
+        "Pin vector of controlling pins"
             annotation (Placement(transformation(
               extent={{-90,-80},{-70,80}}, rotation=0), iconTransformation(extent={
                 {-90,-80},{-70,80}})));
@@ -3359,7 +3359,7 @@ VN- -&GT; name.pc[N-1]
     end H_CCV_POLY;
 
     model F_CCC_POLY
-      "polynomial current controlled current source, like SPICE2 or PSPICE"
+      "polynomial current controlled current source, like SPICE2"
 
       parameter Integer N(final min=1) = 1 "number of controlling voltages";
       parameter Real coeff[:] = {1} "coefficients of polynomial";
@@ -3374,7 +3374,7 @@ VN- -&GT; name.pc[N-1]
             iconTransformation(extent={{90,-60},{110,-40}})));
 
       Modelica.Electrical.Analog.Interfaces.PositivePin pc[2*N]
-        "Pin vector of controlling pins" 
+        "Pin vector of controlling pins"
             annotation (Placement(transformation(
               extent={{-90,-80},{-70,80}}, rotation=0), iconTransformation(extent={
                 {-90,-80},{-70,80}})));
@@ -3736,16 +3736,16 @@ VN- -&GT; name.pc[N-1]
 
   model MOS2 "Metal-Oxide Semiconductor Field-Effect Transistor"
 
-    Modelica.Electrical.Analog.Interfaces.PositivePin G "gate node" 
+    Modelica.Electrical.Analog.Interfaces.PositivePin G "gate node"
                                           annotation (Placement(transformation(
               extent={{-110,-12},{-90,10}}, rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.PositivePin D "drain node" 
+    Modelica.Electrical.Analog.Interfaces.PositivePin D "drain node"
                                            annotation (Placement(transformation(
               extent={{-10,90},{10,110}}, rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.NegativePin S "source node" 
+    Modelica.Electrical.Analog.Interfaces.NegativePin S "source node"
                                             annotation (Placement(
             transformation(extent={{-10,-110},{10,-90}}, rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.PositivePin B "bulk node" 
+    Modelica.Electrical.Analog.Interfaces.PositivePin B "bulk node"
                                           annotation (Placement(transformation(
               extent={{90,-10},{110,10}}, rotation=0)));
 
@@ -3764,17 +3764,16 @@ VN- -&GT; name.pc[N-1]
         "v, Initial condition values, not implemented yet";                                  //default 0
     parameter Real TEMP = 27 "°C, Operating temperature of the device";
 
-  //  Real dummy_toplevel;
     Real MOScapgd = qm.qm_capgd;
     Real MOScapgs = qm.qm_capgs;
     Real MOScapgb = qm.qm_capgb;
 
-    parameter Spice3.Repository.modelcardMOS2 modelcard "MOSFET modelcard" 
+    parameter Spice3.Repository.modelcardMOS2 modelcard "MOSFET modelcard"
                 annotation(Evaluate=true);
     constant Spice3.Repository.SpiceConstants C
         "General constants of SPICE simulator";
     final parameter Spice3.Repository.Mos2.Mos2ModelLineParams p=
-          Spice3.Repository.Mos2.Mos2RenameParameters(modelcard, C) 
+          Spice3.Repository.Mos2.Mos2RenameParameters(modelcard, C)
                       annotation(Evaluate=true);
     final parameter Spice3.Repository.Mosfet.Mosfet m=
           Spice3.Repository.Mos2.Mos2RenameParameters_dev(
@@ -3790,7 +3789,7 @@ VN- -&GT; name.pc[N-1]
             NRS,
             OFF,
             IC,
-            TEMP) 
+            TEMP)
                 annotation(Evaluate=true);
     final parameter Integer m_type = if (m.m_bPMOS > 0.5) then -1 else 1;
     final parameter Spice3.Repository.Mos2.Mos2ModelLineVariables vp=
@@ -3823,8 +3822,6 @@ VN- -&GT; name.pc[N-1]
     Real irs;
     Real ibdgmin;
     Real ibsgmin;
-   // Real spannung;
-   // Real derspannung;
 
     Real icBD;
     Real icBS;
@@ -3872,8 +3869,6 @@ VN- -&GT; name.pc[N-1]
     icqmGB = qm.qm_capgb*(der(G.v) - der(B.v));//
     icqmGS = qm.qm_capgs*(der(G.v) - der(Sin));//
     icqmGD = qm.qm_capgd*(der(G.v) - der(Din));//
-   //  spannung = G.v - Din;
-   //  derspannung = der(spannung);
 
     // currents
     // --------
@@ -3933,13 +3928,13 @@ VN- -&GT; name.pc[N-1]
 
     model BJT "Bipolar junction transistor"
 
-      Modelica.Electrical.Analog.Interfaces.PositivePin B "Base node" 
+      Modelica.Electrical.Analog.Interfaces.PositivePin B "Base node"
         annotation (Placement(transformation(extent={{-108,-10},{-88,10}}),
             iconTransformation(extent={{-106,-10},{-86,10}})));
-      Modelica.Electrical.Analog.Interfaces.PositivePin C "Collector node" 
+      Modelica.Electrical.Analog.Interfaces.PositivePin C "Collector node"
         annotation (Placement(transformation(extent={{10,88},{30,108}}),
             iconTransformation(extent={{20,90},{40,110}})));
-      Modelica.Electrical.Analog.Interfaces.NegativePin E "Emitter node" 
+      Modelica.Electrical.Analog.Interfaces.NegativePin E "Emitter node"
         annotation (Placement(transformation(extent={{10,-108},{30,-88}}),
             iconTransformation(extent={{20,-110},{40,-90}})));
 
@@ -3969,7 +3964,7 @@ VN- -&GT; name.pc[N-1]
               OFF,
               IC_VBE,
               IC_VCE,
-              SENS_AREA) 
+              SENS_AREA)
                    annotation(Evaluate=true);
       final parameter Spice3.Repository.Model.Model m=
           Bjt3.BjtRenameParameters_dev_Temp(TEMP)                                                                          annotation(Evaluate=true);
@@ -4089,10 +4084,12 @@ VN- -&GT; name.pc[N-1]
       parameter Real NE = 1.5 "B-E leakage emission coefficient ";
                                              //m_leakBEemissionCoeff
       parameter Real ISE = -1e40
-        "A, B-E leakage saturation current, default = 0"; //m_leakBEcurrent,
+        "A, B-E leakage saturation current, default = 0";
+                                                          //m_leakBEcurrent,
       constant Real C2 =  -1e40 "Obsolete parameter name, , default = 0"; //m_c2
       parameter Real ISC = -1e40
-        "A, B-C leakage saturation current, default = 0";  //m_leakBCcurrent
+        "A, B-C leakage saturation current, default = 0";
+                                                           //m_leakBCcurrent
       constant Real C4 =  -1e40 "Obsolete parameter name, default = 0"; //m_c4
       parameter Real BR = 1.0 "Ideal maximum reverse beta"; //m_betaR
       parameter Real NR = 1.0 "Reverse current emission coefficient "; //m_emissionCoeffR
@@ -4169,10 +4166,10 @@ VN- -&GT; name.pc[N-1]
              AREA,
              IC,
              OFF,
-             SENS_AREA) 
+             SENS_AREA)
                       annotation(Evaluate=true);
      final parameter Spice3.Repository.Model.Model m=
-          Spice3.Repository.Diode.DiodeRenameParameters_dev_temp(TEMP) 
+          Spice3.Repository.Diode.DiodeRenameParameters_dev_temp(TEMP)
                  annotation(Evaluate=true);
      final parameter Spice3.Repository.Diode.DiodeVariables c1=
           Spice3.Repository.Diode.DiodeInitEquations(param);
@@ -4541,8 +4538,7 @@ C++   Model* device, const double& vb, const double& ivb,
 C++   const double& satcur, const double& temp, const double& ncoeff)
 C++ {
 C++   double vt  = CONSTKoverQ * temp;
-C++   // eigentlich sollte immer vte verwendet werden, ansonsten wird der
-C++   // Durchbruchpunkt falsch bestimmt, aber SPICE-Kompatibilitaet!
+C++   // normally vte should be used otherwise the breakpoint is calculated wrong, but SPICE3 compability!
 C++   // double vte = vt * ncoeff;
 C++   double v23 = vb;
 C++   double cbv = ivb;
@@ -5001,7 +4997,6 @@ C++   }} */
 
       output Real capout;
       output Real charge;
-    //  output Real guck;    //added by K.Majetta 21.08.08
 
       protected
       Real arg;
@@ -5102,8 +5097,7 @@ C++   }} */
     algorithm
     /* {
    double vt  = CONSTKoverQ * temp;
-   // eigentlich sollte immer vte verwendet werden, ansonsten wird der
-   // Durchbruchpunkt falsch bestimmt, aber SPICE-Kompatibilitaet!
+   //normally vte should be used otherwise the breakpoint is calculated wrong, but SPICE3 compability!
    // double vte = vt * ncoeff;
    double v23 = vb;
    double cbv = ivb;
@@ -5131,8 +5125,7 @@ C++   }} */
 } */
 
         vt := Spice3.Repository.SpiceConstants.CONSTKoverQ*temp;
-      // eigentlich sollte immer vte verwendet werden, ansonsten wird der
-      // Durchbruchpunkt falsch bestimmt, aber SPICE-Kompatibilitaet!
+      // normally vte should be used otherwise the breakpoint is calculated wrong, but SPICE3 compability!
       // double vte = vt * ncoeff;
       v23 := vb;
       cbv := ivb;
@@ -5540,9 +5533,9 @@ SpiceRoot::SpiceRoot() :
         m_bInOutDebug( false), m_bJacobiDebug( false),
         m_bStructureDebug( false), m_bHistoryDebug( false),
         m_bEquationDebug( false),
-        m_bAnyDebug( false),                        // von Herrn Leitner voreingestellter Wert!!!
+        m_bAnyDebug( false),                        
                 m_bAskForCont( false),
-        m_bParamDebug( true),                        // Slz, 17.04. 2002
+        m_bParamDebug( true),                        
         m_dDebugEnd( 1e38),m_dDebugStart( 0.),
                 m_pStream( NULL),
 #endif
@@ -6219,8 +6212,8 @@ SpiceRoot::SpiceRoot() :
         Real cGD( start = 0);
         Real cBS( start = 0);
         Real cBD( start = 0);
-        Real m_capgd;          //added by K. Majetta on 080606
-        Real test;              //added by K.Majetta on 080821
+        Real m_capgd;
+        Real test;
 
       end CurrrentsCapacitances;
 
@@ -6265,9 +6258,9 @@ C++            (m_pParameters->m_sheetResistance * m_pDevice->m_drainSquares);*/
   end if;
 */
 
-         out_c.m_drainResistance := if 
-                                      (in_p.m_drainResistanceIsGiven > 0.5) then 
-             in_p.m_drainResistance else 
+         out_c.m_drainResistance := if
+                                      (in_p.m_drainResistanceIsGiven > 0.5) then
+             in_p.m_drainResistance else
              in_p.m_sheetResistance * in_m.m_drainSquares;
 
       /*   if (m_pParameters->m_sourceResistanceValue->IsGiven())
@@ -6288,14 +6281,12 @@ C++         1 / (m_pParameters->m_sheetResistance * m_pDevice->m_sourceSquares);
   end if;
 */
 
-      out_c.m_sourceResistance := if  (in_p.m_sourceResistanceIsGiven > 0.5) then 
-             in_p.m_sourceResistance else 
+      out_c.m_sourceResistance := if  (in_p.m_sourceResistanceIsGiven > 0.5) then
+             in_p.m_sourceResistance else
              in_p.m_sheetResistance * in_m.m_sourceSquares;
 
       /*   m_lEff     = m_pDevice->m_len - 2 * m_pParameters->m_latDiff;
-   // frank bergmann, 130900
-   // abfrage auf zu kleinen wert - setzen auf vernuenftigen
-   // brachte probleme bei einsatz unter windows
+   
    if (F_Abs( m_lEff) < 1e-18)
       m_lEff = 1e-6;
    m_capGSovl = m_pParameters->m_gateSourceOverlapCapFactor * m_pDevice->m_width;
@@ -6546,7 +6537,7 @@ C++   } */
         Real cur;
         Integer n;
         DEVqmeyer qm;
-        DEVqmeyer in_qm;  // muss hier wieder raus
+        DEVqmeyer in_qm;
         Mos1.Mos1Calc int_c;
 
         Real zzz;
@@ -6622,7 +6613,7 @@ C++   }
 C++
 C++   double vgb = m_vgs - m_vbs; */
 
-      /***** in C nachsehen ****
+      /*
 C++  if ( not SpiceRoot.UseInitialConditions() and not in_m.m_off) then
 C++       //not int_c.m_vds and not int_c.m_vgs and not int_c.m_vbs and
 C++    int_c.m_vbs := -1;
@@ -6848,7 +6839,7 @@ C++   m_pDevice->SetHistoryValue( MOSvgd, vgd); */
         qm.qm_vgb := vgb;
         qm.qm_vgd := vgd;
 
-        //C++ neue qmeyer-Parameter fuer naechsten Rechenschritt ablegen
+        //C++ store new qmeyer parameter for next solution step
       //C++  out_qm := qm;
 
       /* m_pDevice->InsertCapacitance(
@@ -6994,8 +6985,8 @@ C++      if (m_pParameters->m_sheetResistance != 0)
 C++         m_drainConductance = 1 /
 C++            (m_pParameters->m_sheetResistance * m_pDevice->m_drainSquares);*/
 
-       out_c.m_drainResistance := if  (in_p.m_drainResistanceIsGiven > 0.5) then 
-             in_p.m_drainResistance else 
+       out_c.m_drainResistance := if  (in_p.m_drainResistanceIsGiven > 0.5) then
+             in_p.m_drainResistance else
              in_p.m_sheetResistance * in_m.m_drainSquares;
 
       // if
@@ -7027,14 +7018,12 @@ C++         1 / (m_pParameters->m_sheetResistance * m_pDevice->m_sourceSquares);
         //   out_c.m_sourceConductance := 1 / (in_p.m_sheetResistance * in_m.m_sourceSquares);
         // end if;
 
-      out_c.m_sourceResistance := if  (in_p.m_sourceResistanceIsGiven > 0.5) then 
-             in_p.m_sourceResistance else 
+      out_c.m_sourceResistance := if  (in_p.m_sourceResistanceIsGiven > 0.5) then
+             in_p.m_sourceResistance else
              in_p.m_sheetResistance * in_m.m_sourceSquares;
 
       /*   m_lEff     = m_pDevice->m_len - 2 * m_pParameters->m_latDiff;
-   // frank bergmann, 130900
-   // abfrage auf zu kleinen wert - setzen auf vernuenftigen
-   // brachte probleme bei einsatz unter windows
+ 
    if (F_Abs( m_lEff) < 1e-18)
       m_lEff = 1e-6;
    m_capGSovl = m_pParameters->m_gateSourceOverlapCapFactor * m_pDevice->m_width;
@@ -7270,7 +7259,7 @@ C++   } */
         input Mos2.Mos2ModelLineParams in_p;
         input SpiceConstants in_C;
         input Mos2.Mos2ModelLineVariables in_vp;
-        //input DEVqmeyer in_qm;                 // qmeyer-Parameter vom letzten Schritt
+        //input DEVqmeyer in_qm;                 // qmeyer parameters pf the last step
         input Boolean in_m_bInit;
         input Real[4] in_m_pVoltageValues; /* gate bulk drain source */
 
@@ -7285,7 +7274,7 @@ C++   } */
         Real cur;
         Integer n;
 
-        DEVqmeyer in_qm;  // muss hier wieder raus
+        DEVqmeyer in_qm;
         Mos2.Mos2Calc int_c;
         Mosfet.Mosfet int_m;
 
@@ -7362,8 +7351,6 @@ C++   }
 C++
 C++   double vgb = m_vgs - m_vbs; */
 
-      /***** eigentlich muss die folgende Stelle so aussehen: ****/
-      //if (not(int_c.m_vds) and  not(int_c.m_vgs) and not(int_c.m_vbs) and not (SpiceRoot.UseInitialConditions()) and  not(in_m.m_off)) then
         if (int_c.m_vds<>0 and  int_c.m_vgs<>0 and int_c.m_vbs<>0 and not (SpiceRoot.UseInitialConditions()) and  (in_m.m_off<>0)) then
           int_c.m_vbs := -1;
           int_c.m_vgs := in_m_type * int_c.m_tVto;
@@ -7588,7 +7575,7 @@ C++   m_pDevice->SetHistoryValue( MOSvgd, vgd); */
         qm.qm_vgb := vgb;
         qm.qm_vgd := vgd;
 
-        //C++ neue qmeyer-Parameter fuer naechsten Rechenschritt ablegen
+        //C++ store new qmeyer parameters for next solution step
       //C++  out_qm := qm;
 
       /* m_pDevice->InsertCapacitance(
@@ -7598,9 +7585,9 @@ C++      G, SP, m_capgs, m_pModel->m_type * m_qgs, m_pModel->m_type * m_vgs);
 C++   m_pDevice->InsertCapacitance(
 C++      G, B , m_capgb, m_pModel->m_type * m_qgb, m_pModel->m_type * vgb);} */
 
-        out_cc.cGB := if (in_m_bInit) then -1e40 else int_c.m_capgb;//+qm.qm_capgb;  //statt 1e-15 eigentlich 0
-        out_cc.cGD := if (in_m_bInit) then -1e40 else out_cc.m_capgd;//+qm.qm_capgd;  //statt 1e-15 eigentlich 0
-        out_cc.cGS := if (in_m_bInit) then -1e40 else int_c.m_capgs;//+qm.qm_capgs;  //statt 1e-15 eigentlich 0
+        out_cc.cGB := if (in_m_bInit) then -1e40 else int_c.m_capgb;//+qm.qm_capgb;  //actually zero has to be used instead of 1e-15
+        out_cc.cGD := if (in_m_bInit) then -1e40 else out_cc.m_capgd;//+qm.qm_capgd;  //actually zero has to be used instead of 1e-15
+        out_cc.cGS := if (in_m_bInit) then -1e40 else int_c.m_capgs;//+qm.qm_capgs;  //actually zero has to be used instead of 1e-15
 
       end Mos2CalcNoBypassCode;
     end Mos;
@@ -7670,7 +7657,7 @@ C++      G, B , m_capgb, m_pModel->m_type * m_qgb, m_pModel->m_type * vgb);} */
         egfet1 := 1.16 - (7.02e-4*in_p.m_tnom*in_p.m_tnom)/(in_p.m_tnom + 1108);
 
       /*//
-   if ((!m_oxideThicknessValue->IsGiven())||(m_oxideThickness == 0)) - Spice3f4; aber dort default-Value: 1.0e-07
+   if ((!m_oxideThicknessValue->IsGiven())||(m_oxideThickness == 0)) - Spice3f4; default-Value: 1.0e-07
    if (m_oxideThickness == 0)
       m_oxideCapFactor = 0;
    else
@@ -7729,7 +7716,7 @@ C++         m_transconductance = m_surfaceMobility * m_oxideCapFactor * 1e-4; //
 */
 
         if (not (in_p.m_oxideThicknessIsGiven > 0.5) or in_p.m_oxideThickness == 0) then
-          if 
+          if
             (in_p.m_oxideThickness == 0) then
             out_v.m_oxideCapFactor := 0;
           end if;
@@ -7913,7 +7900,7 @@ C++   }
       algorithm
         // from MosModelLinesParams
 
-         intern.m_oxideCapFactor := 0;              // not available in modelcard parameters????
+         intern.m_oxideCapFactor := 0;
 
          //intern.m_vt0 := ex.VTO;                    // V zero-bias threshold voltage (default 0)
 
@@ -7962,16 +7949,16 @@ C++   }
 
           //intern.m_drainResistance := ex.RD;         // Ohm drain ohmic resistance (default 0)
 
-          intern.m_drainResistanceIsGiven := if 
+          intern.m_drainResistanceIsGiven := if
                                                (ex.RD > -1e40) then 1 else 0;
-          intern.m_drainResistance := if 
+          intern.m_drainResistance := if
                                        (ex.RD > -1e40) then ex.RD else 0;
 
         //  intern.m_sourceResistance := ex.RS;        // Ohm source ohmic resistance (default 0)
 
-           intern.m_sourceResistanceIsGiven := if 
+           intern.m_sourceResistanceIsGiven := if
                                                (ex.RS > -1e40) then 1 else 0;
-          intern.m_sourceResistance := if 
+          intern.m_sourceResistance := if
                                        (ex.RS > -1e40) then ex.RS else 0;
 
         //  intern.m_transconductance := ex.KP;        // A/(V*V) transconductance parameter (default 2e-5)
@@ -8131,7 +8118,7 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
         input Integer in_m_type;
 
         output Mos2ModelLineVariables out_v;
-        //output Real dummy;
+
       protected
         Real vtnom;
         Real fermis;
@@ -8209,7 +8196,7 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
       }
       else
       {
-//       NsubNiEx( m_pModel, m_substrateDoping, 1.45e10).print();
+       NsubNiEx( m_pModel, m_substrateDoping, 1.45e10).print();
                  ConflictToxNsubEx( m_pModel, m_oxideThickness, m_substrateDoping, 1.45e10).print();
          m_substrateDoping = 0.;
       }
@@ -8256,7 +8243,7 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
           out_v.m_bulkCapFactor := sqrt( in_C.EPSSIL * in_C.CHARGE * out_v.m_substrateDoping
                                     * 1e6 /(2 * in_p.m_bulkJctPotential));
         end if;
-      //  dummy:=out_v.m_gamma;
+
       end Mos2ModelLineParamsInitEquations;
 
       function DrainCur
@@ -8439,7 +8426,7 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
 
       /* vt = m_pDevice->CONSTKoverQ * GetTemperature(); */
 
-        vt := in_C.CONSTKoverQ * in_C.REFTEMP;// * GetTemperature();      //GetTemperature noch nicht implementiert 090107
+        vt := in_C.CONSTKoverQ * in_C.REFTEMP;// * GetTemperature();      //GetTemperature not yet implemented 90107
 
       /*   // compute some useful quantities
    phiMinVbs = m_tPhi - vbs;
@@ -9408,16 +9395,16 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
 
           //intern.m_drainResistance := ex.RD;         // Ohm drain ohmic resistance (default 0)
 
-          intern.m_drainResistanceIsGiven := if 
+          intern.m_drainResistanceIsGiven := if
                                                (ex.RD > -1e40) then 1 else 0;
-          intern.m_drainResistance := if 
+          intern.m_drainResistance := if
                                        (ex.RD > -1e40) then ex.RD else 0;
 
         //  intern.m_sourceResistance := ex.RS;        // Ohm source ohmic resistance (default 0)
 
-           intern.m_sourceResistanceIsGiven := if 
+           intern.m_sourceResistanceIsGiven := if
                                                (ex.RS > -1e40) then 1 else 0;
-          intern.m_sourceResistance := if 
+          intern.m_sourceResistance := if
                                        (ex.RS > -1e40) then ex.RS else 0;
 
         //  intern.m_transconductance := ex.KP;        // A/(V*V) transconductance parameter (default 2e-5)
@@ -9425,7 +9412,7 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
           intern.m_transconductanceIsGiven := if          (ex.KP > -1e40) then 1 else 0;
           intern.m_transconductance := if         (ex.KP > -1e40) then ex.KP else 2e-5;
 
-        intern.m_tnom := if (ex.TNOM > -1e40) then ex.TNOM + Spice3.Repository.SpiceConstants.CONSTCtoK else 
+        intern.m_tnom := if (ex.TNOM > -1e40) then ex.TNOM + Spice3.Repository.SpiceConstants.CONSTCtoK else
                 300.15;
 
                         // °C parameter measurement temperature (default 27)
@@ -9696,12 +9683,11 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
         // Boolean m_dUnusedSensValue5(start = false); // "SENS_PH", sensitivity of ac phase
         // Boolean m_dUnusedSensValue6(start = false); // "SENS_CPIX", ac sensitivity
 
-      //werden by additional values berechnet, möglichweiße nicht wichtig für funktionalität der diode
         // Real m_dResVoltage(start = 0.0);            // "Vr"
         // Real m_dResCond(start = 0.0);               // "Gr"
         // Real m_dResCurrent(start = 0.0);            // "Ir"
 
-        // stehen in DiodeCalc
+        // available in DiodeCalc
       /*  Real m_tJctPot(start = 0.0);
   Real m_tJctCap(start = 0.0);
   Real m_tDepCap(start = 0.0);
@@ -9719,7 +9705,6 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
 
         Real m_pBvIsGiven;
 
-      //zusätzliche ausgabewerte, die möglicherweiße keinen einfluss auf unktion der diode haben
         // Real m_dResVoltage;
         // Real m_dResCond;
         // Real m_dResCurrent;
@@ -9807,7 +9792,7 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
 
       algorithm
       /* {
-//        Testen Value of BV (Durchbruchsspannung auf sinnvollen numerischen Wert       -  St.Scholz,27.09.2001
+     
 
 //        Ex_Param_BvIsGiven(this,"BV",(int)(m_pModel->m_pBvValue->IsGiven())).print();
 
@@ -9835,7 +9820,7 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
        out_v.m_pBvIsGiven := in_p.m_pBvIsGiven;
         if (out_v.m_pBvIsGiven > 0.5) then
           if (in_p.m_breakdownVoltage > 1.0e+100) then
-            out_v.m_pBvIsGiven := 1.0e-41; // auf false setzen!
+            out_v.m_pBvIsGiven := 1.0e-41; // set to false
           end if;
         end if;
 
@@ -9937,7 +9922,7 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
        // input Real[2] in_m_pVoltageValuesDot; /* DPP, DN */
 
         output CurrentsCapacitances out_cc;
-        // output Real guck1;                      //EDIT by K.Majetta
+
         output Real m_dCap;
       protected
         Real guck1;
@@ -10121,7 +10106,7 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
         dev.m_area := AREA;
 
         dev.m_pIcIsGiven := if (IC > -1e40) then 1 else 0;
-        dev.m_dIC := if 
+        dev.m_dIC := if
                        (IC > -1e40) then IC else 0;
         dev.m_bOff := OFF;
         dev.m_bSensArea := SENS_AREA;
@@ -10203,7 +10188,7 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
 
         intern.m_dDefW := ex.DEFW;
         intern.m_dNarrow := ex.NARROW;
-        intern.m_dTnom := if (ex.TNOM > -1e40) then ex.TNOM + Spice3.Repository.SpiceRoot.SPICEcircuitCONST.CONSTCtoK else 
+        intern.m_dTnom := if (ex.TNOM > -1e40) then ex.TNOM + Spice3.Repository.SpiceRoot.SPICEcircuitCONST.CONSTCtoK else
                 300.15;
 
       end ResistorRenameParameters;
@@ -10221,22 +10206,22 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
        output ResistorParams intern;
 
       algorithm
-         intern.m_dResIsGiven := if 
+         intern.m_dResIsGiven := if
                                    (R > -1e40) then 1 else 0;
-         intern.m_dResist := if 
+         intern.m_dResist := if
                                (R > -1e40) then R else 0;
 
-         intern.m_dWidthIsGiven := if 
+         intern.m_dWidthIsGiven := if
                                      (W >-1e40) then 1 else 0;
-         intern.m_dWidth := if 
+         intern.m_dWidth := if
                               (W > -1e40) then W else 0;
 
-         intern.m_dLengthIsGiven := if 
+         intern.m_dLengthIsGiven := if
                                      (L >-1e40) then 1 else 0;
-         intern.m_dLength := if 
+         intern.m_dLength := if
                               (L > -1e40) then L else 0;
          intern.m_bSensResist := SENS_AREA;
-        intern.m_dTemp := if (TEMP > -1e40) then TEMP + Spice3.Repository.SpiceRoot.SPICEcircuitCONST.CONSTCtoK else 
+        intern.m_dTemp := if (TEMP > -1e40) then TEMP + Spice3.Repository.SpiceRoot.SPICEcircuitCONST.CONSTCtoK else
                 300.15;
 
       end ResistorRenameParameters_dev;
@@ -10284,7 +10269,7 @@ void Resistor::InitEquations()
                   out.m_dResist :=1000;
              end if;
         end if;
-        if 
+        if
           (in_p.m_dResist < 1e-12) and (in_p.m_dResIsGiven > 0.5) then
             out.m_dResist :=1e-12;
         end if;
@@ -10487,7 +10472,7 @@ void Resistor::InitEquations()
    xfc  = log( 1 - m_depletionCapCoeff);
 }  */
 
-        out_v.m_type := if 
+        out_v.m_type := if
                           (in_p.m_bPNP) then -1 else 1;
 
         if ( not (in_p.m_leakBEcurrentIsGiven > 0.5) and (in_p.m_c2IsGiven > 0.5)) then
@@ -10640,11 +10625,11 @@ void Resistor::InitEquations()
 
       record CurrentsCapacitances
 
-        Real iBE( start = 0.0);  //Strom durch Diode dE1 (idealer Anteil)
-        Real iBEN( start = 0.0); //Strom durch Diode dE2 (nicht idealer Anteil)
-        Real iBC( start = 0.0); //Strom durch Diode dC1 (idealer Anteil)
-        Real iBCN( start = 0.0); //Strom durch Diode dC2 (nicht idealer Anteil)
-        Real iCC( start = 0.0);  //Kanalstrom
+        Real iBE( start = 0.0);  //current through diode dE1 (ideal part)
+        Real iBEN( start = 0.0); //current through diode dE2 (non ideal part)
+        Real iBC( start = 0.0); //current through diode dC1 (ideal part)
+        Real iBCN( start = 0.0); //current through diode dC2 (non ideal part)
+        Real iCC( start = 0.0);  //channel current
         Real capbc( start = 0.0);
         Real capbe( start = 0.0);
         Real capbx( start = 0.0);
@@ -10735,7 +10720,7 @@ C++   double bfactor      = exp(ratlog * m_pModel->m_betaExp);
 C++   double pbo = (m_pModel->m_potentialBE - pbfact) / fact1;
 C++   double gmaold = (m_pModel->m_potentialBE - pbo) / pbo; */
 
-      //statt der eigentlichen Funktion "GetTemperature", wird hier m_dTemp verwendet (vorerst)
+      //instead of the function "GetTemperature", here m_dTemp is used temporarily
 
         fact1 := in_p.m_tnom/Spice3.Repository.SpiceConstants.REFTEMP;
       //  vt := GetTemperature()*Spice3.Repository.SpiceConstants.CONSTKoverQ;
@@ -11386,12 +11371,12 @@ C++} */
         Real sarg;
 
       algorithm
-        // Bjt3 hat nur 6 Anschlüsse, deshalb neuer Vektor VoltageValues
+        // Bjt3 has got only 6 pins, therefore new vector VoltageValues
         for i in 1:3 loop
           bjt3_VoltageValues[i] := in_m_pVoltageValues[i];
         end for;
         for i in 4:6 loop
-          bjt3_VoltageValues[i] := in_m_pVoltageValues[i];      //muss eigentlich sein: bjt3_VoltageValues[i] := in_m_pVoltageValues[i+1]; wegen "S" Anschluss
+          bjt3_VoltageValues[i] := in_m_pVoltageValues[i];
         end for;
 
       //   for i in 1:6 loop
@@ -11423,7 +11408,7 @@ C++} */
                      in_m_bInit);//bjt3_VoltageValuesDot
         capcs    := 0;
         chargecs := 0;
-        vcs      := in_p.m_type * (0- in_m_pVoltageValues[4]); // ( Subst,  ColP);  -->eigentlich: vcs      := in_p.m_type * (in_m_pVoltageValues[4] - in_m_pVoltageValues[5]);
+        vcs      := in_p.m_type * (0- in_m_pVoltageValues[4]); // ( Subst,  ColP);
         if (vcs < 0) then
           arg      := 1 - vcs / in_p.m_potentialSubstrate;
           sarg     := exp( -in_p.m_exponentialSubstrate * Modelica.Math.log( arg));
@@ -11435,7 +11420,7 @@ C++} */
           chargecs := vcs * in_v.m_CScap *(1+in_p.m_exponentialSubstrate*vcs/
                                        (2*in_p.m_potentialSubstrate));
         end if;
-       // out_cc.capcs :=  if (in_m_bInit) then 0.0 else capcs*(0-in_m_pVoltageValuesDot[4]);  //-->eigentlich (in_m_pVoltageValuesDot[4]-in_m_pVoltageValuesDot[5])
+       // out_cc.capcs :=  if (in_m_bInit) then 0.0 else capcs*(0-in_m_pVoltageValuesDot[4]);
 
       end BjtNoBypassCode;
 
@@ -11453,7 +11438,7 @@ C++} */
         intern.m_leakBEemissionCoeff := ex.NE;
 
         intern.m_leakBEcurrentIsGiven := if (ex.ISE > -1e40) then 1 else 0;
-        intern.m_leakBEcurrent := if 
+        intern.m_leakBEcurrent := if
                                     (ex.ISE > -1e40) then ex.ISE else 0;
 
         intern.m_c2IsGiven := if (ex.C2 > -1e40) then 1 else 0;
