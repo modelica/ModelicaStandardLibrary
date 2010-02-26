@@ -7656,8 +7656,8 @@ C++      G, B , m_capgb, m_pModel->m_type * m_qgb, m_pModel->m_type * vgb);} */
         vtnom  := in_p.m_tnom*SpiceRoot.SPICEcircuitCONST.CONSTKoverQ;
         egfet1 := 1.16 - (7.02e-4*in_p.m_tnom*in_p.m_tnom)/(in_p.m_tnom + 1108);
 
-      /*//
-   if ((!m_oxideThicknessValue->IsGiven())||(m_oxideThickness == 0)) - Spice3f4; default-Value: 1.0e-07
+      /*
+   if ((!m_oxideThicknessValue->IsGiven())||(m_oxideThickness == 0)) // Spice3f4; default-Value: 1.0e-07
    if (m_oxideThickness == 0)
       m_oxideCapFactor = 0;
    else
@@ -7705,7 +7705,7 @@ C++      G, B , m_capgb, m_pModel->m_type * m_qgb, m_pModel->m_type * vgb);} */
       }
    }
 }*/
-        /*//   if ((!m_oxideThicknessValue->IsGiven())||(m_oxideThickness == 0)) - Spice3f4; aber dort default-Value: 1.0e-07
+        /*   if ((!m_oxideThicknessValue->IsGiven())||(m_oxideThickness == 0)) - Spice3f4; aber dort default-Value: 1.0e-07
 C++   if (m_oxideThickness == 0)
 C++      m_oxideCapFactor = 0;
 C++   else
