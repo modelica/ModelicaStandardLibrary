@@ -2,7 +2,6 @@ within ;
 package Modelica "Modelica Standard Library (Version 3.1)"
 extends Modelica.Icons.Library;
 
-
 package UsersGuide "User's Guide"
 
 class Overview "Overview of Modelica Library"
@@ -592,15 +591,18 @@ Incorporation of bug fixes (subversion \"commit\") shall be performed in the fol
          description of the bug fix under
          Modelica.UsersGuide.ReleaseNotes.Version_&lt;release-number&gt;_BugFixes.</li>
 <li> Annotations \"version\" and \"versionDate\" must <u>not</u> be changed in a maintenance release.</li>
-<li> Every change to the maintenance branch requires changing the
-     \"versionBuild\" number (incrementing it by one), as well as the \"revisionId\".
-     The latter one is automatically done once a commit of file Modelica\\package.mo
-     is performed. Example:
+<li> Every change to the maintenance branch requires changing the \"versionBuild\" number (incrementing it by one),
+     as well as the \"dateModified\" field.<br>
+     Example:
          <pre>  annotation(version      = \"3.1\",
              versionDate  = \"2009-06-22\",
              versionBuild = 3,
-             dateModified = \"2009-06-21 08:13:18Z\",
-             revisionId   = \"$Id::                                       $\").</pre></li>
+             dateModified = \"2009-08-28 07:40:19Z\",
+             revisionId   = \"$I&#8203;d::                                       $\")</pre>
+     The \"revisionId\" field is a bit special though. If written like in the example above it will be automaticaly
+     expanded to:
+	<pre>             revisionId   = \"$I&#8203;d:: package.mo 2879 2009-08-28 07:40:19Z #$\"</pre>
+     by the subversion checkout procedure.</li>
 <li> If time does not permit, a vendor makes the bug fix in its local version
          and then has to include it in the maintenance version. It would be best to make these
          changes at a new branch in order to get a unique release number.</li>
@@ -4922,19 +4924,6 @@ User's Guides that can be accessed by the following links:
 
 </html>"));
 end UsersGuide;
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 annotation (
 preferredView="info",
