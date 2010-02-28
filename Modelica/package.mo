@@ -587,7 +587,8 @@ Incorporation of bug fixes (subversion \"commit\") shall be performed in the fol
 <li> It is up to the library developer, whether he opens a new branch for
          testing and then merges it with the \"head\" maintenance branch or not.</li>
 <li> Every change to the maintenance branch has to be done at the development
-         branch (see above) as well.</li>
+         branch (see above) as well. One exception are pure changes to the
+         \"versionBuild\" annotation as these have no meaning in the development trunk.</li>
 <li> Every change to the maintenance branch requires introducing a
          description of the bug fix under
          Modelica.UsersGuide.ReleaseNotes.Version_&lt;release-number&gt;_BugFixes.</li>
