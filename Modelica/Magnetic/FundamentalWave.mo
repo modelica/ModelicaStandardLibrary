@@ -117,7 +117,10 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br></dd>
 <h4>Acknowledgements</h4>
 
 <p>
-Based on an original idea of Michael Beuschel this library was developed. The authors of the FundamentalWave library would like to thank Michael Beuschel for contributing his source code to this library.
+Based on an original idea of Michael Beuschel this library was developed 
+[<a href=\"Modelica.Magnetic.FundamentalWave.UsersGuide.References\">Beuschel00</a>]. 
+The authors of the FundamentalWave library would like to thank Michael Beuschel 
+for contributing his source code to this library.
 </p>
 </html>
 "));
@@ -178,7 +181,8 @@ Based on an original idea of Michael Beuschel this library was developed. The au
 <h5>Version 0.1.0, 2009-07-22</h5>
 
 <ul>
-<li>First version based on the concept of the FluxTubes library and the Magnetics library of Michael Beuschel</li>
+<li>First version based on the concept of the FluxTubes library and the Magnetics library of Michael Beuschel 
+[<a href=\"Modelica.Magnetic.FundamentalWave.UsersGuide.References\">Beuschel00</a>]</li>
 </ul>
 </html>"));
     end ReleaseNotes;
@@ -189,6 +193,15 @@ Based on an original idea of Michael Beuschel this library was developed. The au
 <h4>References</h4>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+    <tr>
+      <td valign=\"top\">[Beuschel00]</td>
+      <td valign=\"top\">M. Beuschel,
+        &quot;<a href=\"http://www.modelica.org/events/workshop2000/proceedings/Beuschel.pdf\">
+        A uniform approach for modelling electrical machines</a>,&quot;
+        <i>Modelica Workshop</i>,
+        pp. 101-108, October 23-24, 2000.</td>
+    </tr>
+
     <tr>
       <td valign=\"top\">[Eckhardt82]</td>
       <td valign=\"top\">H. Eckhardt,
