@@ -3131,10 +3131,10 @@ value, still requires to go in to the text layer.
               fillPattern=FillPattern.Solid,
               borderPattern=BorderPattern.Raised), Text(
               extent={{-90,-46},{90,34}},
-              textString=DynamicSelect(" ", realString(
+              textString=DynamicSelect(" ", String(
                     Value,
-                    1,
-                    integer(precision))),
+                    minimumLength=1,
+                    significantDigits=integer(precision))),
               lineColor={0,0,255})}),
 
         Documentation(info="<html>

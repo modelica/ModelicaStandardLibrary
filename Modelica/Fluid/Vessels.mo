@@ -135,10 +135,10 @@ initial equation
           Text(
             extent={{-95,-24},{95,-44}},
             lineColor={0,0,0},
-            textString=DynamicSelect("%level_start", realString(
+            textString=DynamicSelect("%level_start", String(
                 level,
-                1,
-                2)))}),
+                minimumLength=1,
+                significantDigits=2)))}),
       Documentation(info="<HTML>
 <p>
 Model of a tank that is open to the ambient at the fixed pressure

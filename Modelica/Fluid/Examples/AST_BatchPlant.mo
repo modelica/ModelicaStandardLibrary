@@ -1245,10 +1245,11 @@ handled properly.</p>
             Text(
               extent={{-195,-38},{-5,-58}},
               lineColor={0,0,0},
-              textString=DynamicSelect("%level_start", realString(
+              textString=DynamicSelect("%level_start", String(
                       level,
-                      1,
-                      2)))}),
+                      minimumLenght=1,
+                      significantDigits=2)))}),
+
         Documentation(info="<HTML>
 <p>
 <p>This tank has the same geometric variables as TankWith3InletOutletArrays plus the feature of a HeatPort and the possibility of evaporation.
@@ -2050,10 +2051,10 @@ end for;
             Text(
               extent={{-95,-39},{95,-59}},
               lineColor={0,0,0},
-              textString=DynamicSelect("%level_start", realString(
+              textString=DynamicSelect("%level_start", String(
                     level,
-                    1,
-                    2)))}),
+                    minimumLength=1,
+                    significantDigits=2)))}),
         Documentation(info="<HTML>
 <p>
 Model of a tank that is open to the environment at the fixed pressure
