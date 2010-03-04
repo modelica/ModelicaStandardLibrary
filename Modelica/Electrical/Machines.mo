@@ -1081,7 +1081,7 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
 An electrically excited synchronous generator is connected to the grid and driven with constant speed.
 Since speed is slightly smaller than synchronous speed corresponding to mains frequency,
 rotor angle is very slowly increased. This allows to see several charactersistics dependent on rotor angle.
-Simulate for 30 seconds and plot (versus RotorDisplacementAngle1.rotorDisplacementAngle):
+Simulate for 30 seconds and plot (versus rotorDisplacementAngle.rotorDisplacementAngle):
 <ul>
 <li>smee.tauElectrical</li>
 <li>currentQuasiRMSSensor.I</li>
@@ -1849,7 +1849,7 @@ The coolant flow circuit consists of inlet, volume flow, a pipe connected to the
 Simulate for 25 seconds and plot (versus time):
 <ul>
 <li>armature.T: armature temperature</li>
-<li>coore.T: core temperature</li>
+<li>core.T: core temperature</li>
 <li>cooling.T: coolant temperature at outlet</li>
 </ul>
 Therefore the armature temperature would reach nominal armature temperature at constant nominal load.<br>
