@@ -3548,7 +3548,7 @@ VN- -&GT; name.pc[N-1]
     parameter Integer OFF = 0
         "Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet";
     parameter Modelica.SIunits.Voltage IC( start = -1e40)
-        "v, Initial condition values, not implemented yet";                                  //default 0
+        "v, Initial condition values, not implemented yet";
     parameter Modelica.SIunits.Temp_C TEMP = 27
         "°C, Operating temperature of the device";
 
@@ -3586,7 +3586,7 @@ VN- -&GT; name.pc[N-1]
           m,
           c1,
           m_type);
-  //  Mos.DEVqmeyer qm;
+
     Mos.CurrrentsCapacitances cc;
 
     constant Boolean m_bInit = false;
@@ -3862,13 +3862,13 @@ VN- -&GT; name.pc[N-1]
 
     icBD = cc.cBD * (der(B.v) - der(Din));
     icBS = cc.cBS * (der(B.v) - der(Sin));
-    icGB = cc.cGB * (der(G.v) - der(B.v));//
-    icGD = cc.cGD * (der(G.v) - der(Din));//
-    icGS = cc.cGS * (der(G.v) - der(Sin));//
+    icGB = cc.cGB * (der(G.v) - der(B.v));
+    icGD = cc.cGD * (der(G.v) - der(Din));
+    icGS = cc.cGS * (der(G.v) - der(Sin));
 
-    icqmGB = qm.qm_capgb*(der(G.v) - der(B.v));//
-    icqmGS = qm.qm_capgs*(der(G.v) - der(Sin));//
-    icqmGD = qm.qm_capgd*(der(G.v) - der(Din));//
+    icqmGB = qm.qm_capgb*(der(G.v) - der(B.v));
+    icqmGS = qm.qm_capgs*(der(G.v) - der(Sin));
+    icqmGD = qm.qm_capgd*(der(G.v) - der(Din));
 
     // currents
     // --------
@@ -3952,9 +3952,6 @@ VN- -&GT; name.pc[N-1]
 
       parameter Spice3.Repository.modelcardBJT mod "BJT modelcard"                            annotation(Evaluate=true);
 
-      Real dummy;
-
-      //Spice3_dynamisch_komplett_Bjt.Repository.Bjt3.Bjt3 p3;
       final parameter Spice3.Repository.Bjt3.BjtModelLineParams p=
           Bjt3.BjtRenameParameters(mod, Con)                                                                        annotation(Evaluate=true);
       constant Spice3.Repository.SpiceConstants Con "General SPICE constants";
@@ -4003,13 +4000,11 @@ VN- -&GT; name.pc[N-1]
       Modelica.SIunits.Voltage vBC "Base - collector voltage";
 
     equation
-     //(p1,m) =  Bjt3.BjtRenameParameters_dev(AREA, OFF, IC_VBE, IC_VCE, SENS_AREA, TEMP);
-
       vBE = B.v - E.v;
       vCE = C.v - E.v;
       vBC = B.v - C.v;
 
-       (cc,dummy,capbe,capbc,capbx) = Bjt3.BjtNoBypassCode(
+       (cc,capbe,capbc,capbx) = Bjt3.BjtNoBypassCode(
              m,
              p1,
              p,
@@ -4033,7 +4028,7 @@ VN- -&GT; name.pc[N-1]
         ibegmin = SpiceConstants.CKTgmin * (Bin - Ein);
         C.i = irc;
         E.i = ire;
-        B.i = irb + cc.capbx;// + icBX;
+        B.i = irb + cc.capbx;
        // //current sum at inner nodes
         0 =  ibcgmin + irc -cc.iCC + cc.iBCN + cc.iBC + icapbc + icapbx;  //current sum for inner node Cin
         0 =  ibegmin + ire + cc.iCC + cc.iBEN + cc.iBE + icapbe;          //current sum for inner node Ein
@@ -4159,7 +4154,6 @@ VN- -&GT; name.pc[N-1]
      Spice3.Repository.SpiceConstants C;
      final parameter Spice3.Repository.Diode.DiodeModelLineParams param=
           Spice3.Repository.Diode.DiodeRenameParameters(modelcarddiode, C);
-     //Diode.DiodeModelLineVariables vp;
      final parameter Spice3.Repository.Diode.DiodeParams dp=
           Spice3.Repository.Diode.DiodeRenameParameters_dev(
              TEMP,
@@ -4189,8 +4183,6 @@ VN- -&GT; name.pc[N-1]
      Real igmin;
 
    equation
-   // vp:=Diode.DiodeModelLineInitEquations(p);
-
       (cc,m_dCap) = Spice3.Repository.Diode.DiodeNoBypassCode(
            param,
            dp,
@@ -4198,7 +4190,7 @@ VN- -&GT; name.pc[N-1]
            m,
            m_mbInit,
            {pin,n.v});
-             //{der(pin),der(n.v)}
+
      //current through capacitance
      icap = if (m_mbInit) then 0.0 else m_dCap*(der(pin)-der(n.v));
      //resistance
@@ -4240,7 +4232,6 @@ VN- -&GT; name.pc[N-1]
    end DIODE;
 
    record modelcardDIODE
-   // parameter Boolean D;  //Diode model
     parameter Real IS=1e-14 "A, Saturation Current";
     parameter Real RS=0.0 "Ohm, Ohmic resistance";
     parameter Real N=1.0 "Emission coefficient";
@@ -4377,321 +4368,8 @@ VN- -&GT; name.pc[N-1]
      end SpiceConstants;
 
   package Equation
-    /*
-C++  double Model::RESdepTemp(
-C++   double& dCond_dTemp,
-C++   const double& resist, const double& temp, const double& tnom,
-C++   const double& tc1, const double& tc2) const
-{
-C++   double difference = temp - tnom;
-C++   double factor     = 1.0 + tc1 * difference + tc2 * difference * difference;
-C++   double conduct    = 1.0 / (resist * factor);
-C++   dCond_dTemp = (tc1 + 2 * tc2 * difference) * conduct * conduct;
-C++   return conduct;
-C++}
 
-C++  double Model::ResDepGeom(
-C++   const double& rsh,
-C++   const double& width, const double& length, const double& narrow)
-C++  {
-C++  #ifdef SML_DEBUG
-C++ //    if (m_bEquationDebug)
-C++ //    cout << "   ResDepGeom: rsh=" << rsh << ", w=" << width << ", l="
-C++ //         << length << ", narrow=" << narrow << ", -> R="
-C++ //         << rsh * (length - narrow) / (width - narrow) << "\n";
-C++ #endif
-C++   return rsh * (length - narrow) / (width - narrow);
-C++ }
-
-C++ ////////////////////////////////////////////////////////////////////////////////
-
-C++ double Model::CapDepGeom(
-C++   const double& cap0, const double& capsw0,
-C++   const double& width, const double& length, const double& narrow)
-C++ {
-C++  #ifdef SML_DEBUG
-C++ //    if (m_bEquationDebug)
-C++ //    cout << "   CapDepGeom: c0=" << cap0 << ", csw0=" << capsw0 << ", w="
-C++ //         << width << ", l=" << length << ", narrow=" << narrow << ", -> C="
-C++ //         << cap0 * (width - narrow) * (length - narrow)
-C++ //       + capsw0 * 2 * ((length - narrow) + (width - narrow)) << "\n";
-C++ #endif
-C++   return cap0 * (width - narrow) * (length - narrow)
-C++      + capsw0 * 2 * ((length - narrow) + (width - narrow));
-C++ }
-
-
-C++ double Model::JunctionCapDepTemp(
-C++   const double& cap0, const double& mcoeff,
-C++   const double& phi0, const double& temp, const double& tnom)
-C++ {
-C++   return
-C++      cap0 * exp( mcoeff * log( phi0 / JunctionPotDepTemp( phi0, temp, tnom)));
-C++ }
-
-
-
-C++ ////////////////////////////////////////////////////////////////////////////////
-
-C++ static const double max_exp      = 50.;
-C++ static const double max_current  = 1.e4;
-
-C++ void Model::Junction2(
-C++   double& current, double& cond,
-C++   const double& voltage, const double& temp, const double& ncoeff,
-C++   const double& satcur)
-C++ {
-C++   if (satcur > 1e-101)
-C++   {
-C++      double vte          = CONSTKoverQ * temp * ncoeff;
-C++      double max_exponent = log( max_current / satcur);
-C++          max_exponent = F_Min( max_exp, max_exponent);
-C++      if (voltage >= max_exponent * vte)
-C++          {
-C++         double evd = exp( max_exponent);
-C++         cond       = satcur * evd / vte;
-C++             current    = satcur * (evd - 1) + cond * (voltage - max_exponent * vte);
-C++          }
-C++          else if (voltage >= -5 * vte)
-C++          {
-C++         double evd = exp( voltage / vte);
-C++         current    = satcur * (evd - 1) + CKTgmin * voltage;
-C++         cond       = satcur * evd / vte + CKTgmin;
-C++          }
-C++      else
-C++          {
-C++         double arg = 3 * vte / (voltage * CONSTe);
-C++         arg        = arg * arg * arg;
-C++         current    = -1 * satcur * (1 + arg) + CKTgmin * voltage;
-C++         cond       = satcur * 3 * arg / voltage + CKTgmin;
-C++          }
-C++   }
-C++   else
-C++   {
-C++           current = 0.;
-C++           cond = 0.;
-C++   }
-C++ }
-
-C++ void Model::Junction2_SPICE3_BSIM(
-C++   double& current, double& cond, const double& voltage,
-C++   const double& satcur)
-C++ {
-C++   if (satcur > 1e-101)
-C++   {
-C++      double max_exponent = log( max_current / satcur);
-C++          max_exponent = F_Min( max_exp, max_exponent);
-C++      if (voltage <= 0.0 )
-C++      {
-C++         cond = satcur / CONSTvt0 + CKTgmin;
-C++         current = cond * voltage ;
-C++      }
-C++      else if (voltage >= max_exponent * CONSTvt0)
-C++      {
-C++         double evd = exp( max_exponent);
-C++             cond       = satcur * evd / CONSTvt0;
-C++         current    = satcur * (evd - 1) + cond * (voltage - max_exponent * CONSTvt0);
-C++      }
-C++      else
-C++      {
-C++         double evbs = exp(voltage/CONSTvt0);
-C++         cond = satcur * evbs/CONSTvt0 + CKTgmin;
-C++         current = satcur * (evbs-1) + CKTgmin * voltage ;
-C++      }
-C++   }
-C++   else
-C++   {
-C++           current = 0.;
-C++           cond = 0.;
-C++   }
-C++ }
-
-C++ double Model::JunctionVoltage23(
-C++   Model* device, const double& vb, const double& ivb,
-C++   const double& satcur, const double& temp, const double& ncoeff)
-C++ {
-C++   double vte = CONSTKoverQ * temp * ncoeff;
-C++   double v23 = -1 * vb + vte * log( (ivb - CKTgmin * vb) / satcur);
-
-C++   double arg = (3 * vte / CONSTe / v23);
-C++   double tol  = CKTreltol * ivb + CKTabstol;
-C++   if (satcur * arg * arg * arg > tol)
-C++   {
-C++      // fehler: strom am uebergang zu gross
-C++      v23 = - 3 * vte / CONSTe / exp( log( tol) / 3.0);
-C++      //       CEM_JunctionBreakDownV4(
-C++      //          device, -1 * satcur * exp(( v23 - vb ) / vte ) + CKTgmin * vb).print();
-C++   }
-C++
-C++   if (v23 > - 3 * vte)
-C++   {
-C++      // fehler: kein sperrbereich
-C++      v23 = - 3 * vte;
-C++      //       CEM_JunctionBreakDownV3(
-C++      //          device, -1 * satcur * exp(( v23 - vb ) / vte ) + CKTgmin * vb).print();
-C++   }
-C++   return v23;
-C++ }
-
-C++  double Model::JunctionVoltage23_SPICE3(
-C++   Model* device, const double& vb, const double& ivb,
-C++   const double& satcur, const double& temp, const double& ncoeff)
-C++ {
-C++   double vt  = CONSTKoverQ * temp;
-C++   // normally vte should be used otherwise the breakpoint is calculated wrong, but SPICE3 compability!
-C++   // double vte = vt * ncoeff;
-C++   double v23 = vb;
-C++   double cbv = ivb;
-
-C++   if (cbv < satcur * vb / vt)
-C++   {
-C++      cbv = satcur * vb / vt;
-C++      CEM_JunctionBreakDownV1( device, cbv).print();
-C++   }
-C++   else
-C++   {
-C++      double tol  = CKTreltol * cbv;
-C++      v23  = vb - vt * log( 1 + cbv / satcur);
-C++      for(int iter = 0 ; iter < 25 ; iter++)
-C++      {
-C++         v23 = vb - vt * log( cbv / satcur + 1 - v23 / vt);
-C++         if (fabs( satcur *
-C++                   ( exp(( vb - v23) / vt) - 1 + v23 / vt) - cbv) <= tol)
-C++            return v23;
-C++      }
-C++      CEM_JunctionBreakDownV2(
-C++         device, v23, satcur * ( exp(( vb - v23) / vt) - 1 + v23 / vt)).print();
-C++   }
-C++   return v23;
-C++   }
-
-C++   void Model::Junction3(
-C++   double& current, double& cond,
-C++   const double& voltage, const double& temp, const double& ncoeff,
-C++   const double& satcur, const double& v23)
-C++ {
-C++   if (satcur > 1e-101)
-C++   {
-C++      double vte = CONSTKoverQ * temp * ncoeff;
-C++      double max_exponent = log( max_current / satcur);
-C++          max_exponent = F_Min( max_exp, max_exponent);
-C++      if (voltage >= max_exponent * vte)
-C++      {
-C++         double evd = exp( max_exponent);
-C++             cond       = satcur * evd / vte;
-C++         current    = satcur * (evd - 1) + cond * (voltage - max_exponent * vte);
-C++      }
-C++      else if (voltage >= -3 * vte)
-C++      {
-C++         double evd = exp( voltage / vte );
-C++         current    = satcur * (evd - 1) + CKTgmin * voltage;
-C++         cond       = satcur * evd / vte + CKTgmin;
-C++      }
-C++      else if(voltage >= -v23)
-C++      {
-C++         double arg = 3 * vte / (voltage * CONSTe);
-C++         arg        = arg * arg * arg;
-C++         current    = -1. * satcur * (1 + arg) + CKTgmin * voltage;
-C++         cond       = satcur * 3 * arg / voltage + CKTgmin;
-C++      }
-      else
-          {
-                  double vr = -( v23 + voltage );
-                  if (vr > max_exponent * vte)
-                  {
-              double evd = exp( max_exponent);
-                  cond       = satcur * evd / vte;
-              current    = -1. * (satcur * (evd - 1) + cond * (vr - max_exponent * vte));
-                  }
-              else
-                  {
-             double evrev = exp( vr / vte );
-             current      = -1. * satcur * evrev + CKTgmin * voltage;
-             cond         = satcur * evrev / vte + CKTgmin;
-                  }
-          }
-   }
-   else
-   {
-           current = 0.;
-           cond = 0.;
-   }
-}
-
-
-////////////////////////////////////////////////////////////////////////////////
-
-void Model::JunctionCapTransTime(
-   double& capout, double& charge,
-   const double& capin,
-   const double& voltage, const double& depcap, const double& mj,
-   const double& phij, const double& f1, const double& f2, const double& f3,
-   const double& transittime, const double& conduct, const double& current)
-{
-   JunctionCap( capout, charge, capin, voltage, depcap, mj, phij, f1, f2, f3);
-   capout += transittime * conduct;
-   charge += transittime * current;
-}
-
-void Model::JunctionCapBSIM(
-   double& capout, double& charge, const double& capin,
-   const double& voltage, const double& mj, const double& phij)
-{
-   if( voltage < 0 ) {
-      double arg = 1 - voltage / phij;
-      double sarg = exp(-mj*log(arg));
-      charge = phij * capin * (1-arg*sarg)/(1-mj);
-      capout = capin * sarg;
-   } else {
-      charge = voltage * capin + voltage * voltage * (capin * mj * 0.5 / phij);
-      capout = capin + voltage * (capin * mj / phij);
-   }
-}
-
-////////////////////////////////////////////////////////////////////////////////
-
-
-
-double Model::SaturationCurDepTemp(
-   const double& satcur0,
-   const double& temp, const double& tnom, const double& emissioncoeff,
-   const double& satcurexp)
-{
-   double vt            = CONSTKoverQ * temp;
-   double energygaptnom = EnergyGap_dep_Temp( temp);
-   double energygaptemp = EnergyGap_dep_Temp( tnom);
-   return satcur0
-      * exp(
-         (temp / tnom * energygaptnom - energygaptemp) / (emissioncoeff * vt)
-         + satcurexp / emissioncoeff * log( temp / tnom));
-}
-
-double Model::SaturationCurDepTempSPICE3(
-   const double& satcur0,
-   const double& temp, const double& tnom, const double& emissioncoeff,
-   const double& energygap, const double& satcurexp)
-{
-   double vt = CONSTKoverQ * temp;
-   double vte= emissioncoeff * vt;
-   return satcur0 * exp( ((temp / tnom) - 1) * energygap / vte
-                         + satcurexp / emissioncoeff * log( temp / tnom) );
-}
-
-double Model::SaturationCurDepTempSPICE3JFET(
-   const double& satcur0,
-   const double& temp, const double& tnom)
-{
-   double vt = CONSTKoverQ * temp;
-   return satcur0  * exp( (temp / tnom - 1) * 1.11 / vt);
-}
-
-
-////// end of file /////////////////////////////////////////////////////////////
-*/
       function EnergyGap_dep_Temp
-      /* double EnergyGap_dep_Temp(
-   const double& temp, const double& gap0 = 1.16,
-   const double& coeff1 = 7.02e-4, const double& coeff2 = 1108.); */
 
         input Real temp;
         input Real gap0 =   1.16;
@@ -4701,15 +4379,11 @@ double Model::SaturationCurDepTempSPICE3JFET(
         output Real ret;
 
       algorithm
-      /*  return gap0 - (coeff1 * temp * temp) / (temp + coeff2); */
-
         ret := gap0 - (coeff1 * temp * temp) / (temp + coeff2);
 
       end EnergyGap_dep_Temp;
 
       function JunctionPotDepTemp
-      /* double Model::JunctionPotDepTemp(
-   const double& phi0, const double& temp, const double& tnom) */
 
         input Real phi0;
         input Real temp;
@@ -4723,11 +4397,6 @@ double Model::SaturationCurDepTempSPICE3JFET(
         Real vt;
 
       algorithm
-      /* double phibtemp = EnergyGap_dep_Temp( temp);
-   double phibtnom = EnergyGap_dep_Temp( tnom);
-   double vt       = CONSTKoverQ * temp;
-   return (phi0 - phibtnom) * temp / tnom + phibtemp + vt * 3 * log( tnom / temp); */
-
         phibtemp := EnergyGap_dep_Temp( temp);
         phibtnom := EnergyGap_dep_Temp( tnom);
         vt       := SpiceRoot.SPICEcircuitCONST.CONSTKoverQ * temp;
@@ -4736,8 +4405,6 @@ double Model::SaturationCurDepTempSPICE3JFET(
       end JunctionPotDepTemp;
 
       function SaturationCurDepTempSPICE3MOSFET
-      /* double Model::SaturationCurDepTempSPICE3MOSFET(
-   const double& satcur0, const double& temp, const double& tnom) */
 
         input Real satcur0;
         input Real temp;
@@ -4752,12 +4419,6 @@ double Model::SaturationCurDepTempSPICE3JFET(
         Real energygaptemp;
 
       algorithm
-      /* double vt            = CONSTKoverQ * temp;
-   double vtnom         = CONSTKoverQ * tnom;
-   double energygaptnom = EnergyGap_dep_Temp( tnom);
-   double energygaptemp = EnergyGap_dep_Temp( temp);
-   return satcur0  * exp( energygaptnom / vtnom - energygaptemp / vt); */
-
         vt            := SpiceRoot.SPICEcircuitCONST.CONSTKoverQ * temp;
         vtnom         := SpiceRoot.SPICEcircuitCONST.CONSTKoverQ * tnom;
         energygaptnom := EnergyGap_dep_Temp( tnom);
@@ -4767,8 +4428,6 @@ double Model::SaturationCurDepTempSPICE3JFET(
       end SaturationCurDepTempSPICE3MOSFET;
 
       function JunctionVCrit
-      /* double Model::JunctionVCrit(
-   const double& temp, const double& ncoeff, const double& satcur) */
 
         input Real temp;
         input Real ncoeff;
@@ -4780,13 +4439,6 @@ double Model::SaturationCurDepTempSPICE3JFET(
         Real vte;
 
       algorithm
-      /* double vte = CONSTKoverQ * temp * ncoeff;
-   double ret = vte * log( vte / (CONSTroot2 * satcur));
-   if (ret > 1e10)
-      return 1e10;
-   else
-      return ret; */
-
         vte := SpiceRoot.SPICEcircuitCONST.CONSTKoverQ * temp * ncoeff;
         ret := vte * Modelica.Math.log( vte / (sqrt(2) * satcur));
         ret := if ( ret > 1e10) then  1e10 else ret;
@@ -4794,10 +4446,6 @@ double Model::SaturationCurDepTempSPICE3JFET(
       end JunctionVCrit;
 
       function JunctionParamDepTempSPICE3
-      /* void Model::JunctionParamDepTempSPICE3(
-   double& junctionpot, double& jucntioncap,
-   const double& phi0, const double& cap0, const double& mcoeff,
-   const double& temp, const double& tnom) */
 
         input Real phi0;
         input Real cap0;
@@ -4824,26 +4472,6 @@ double Model::SaturationCurDepTempSPICE3JFET(
         Real gmanew;
 
       algorithm
-      /* double phibtemp = EnergyGap_dep_Temp( temp);
-   double phibtnom = EnergyGap_dep_Temp( tnom);
-   double vt       = CONSTKoverQ * temp;
-   double vtnom = CONSTKoverQ * tnom;
-   double arg = -phibtemp/(2*CONSTboltz*temp) +
-      1.1150877/(CONSTboltz*(REFTEMP+REFTEMP));
-   double fact2 = temp/REFTEMP;
-   double pbfact = -2*vt*(1.5*log(fact2)+CHARGE*arg);
-   double arg1 = -phibtnom/(CONSTboltz*2*tnom) +
-      1.1150877/(2*CONSTboltz*REFTEMP);
-   double fact1 = tnom/REFTEMP;
-   double pbfact1 = -2 * vtnom*(1.5*log(fact1)+CHARGE*arg1);
-   double pbo = (phi0-pbfact1)/fact1;
-   junctionpot = pbfact+fact2*pbo;
-   double gmaold = (phi0 -pbo)/pbo;
-   double gmanew = (junctionpot-pbo)/pbo;
-   jucntioncap   = cap0 /
-      (1+mcoeff* (400e-6*(tnom-REFTEMP)-gmaold) ) *
-      (1+mcoeff* (400e-6*(temp-REFTEMP)-gmanew) ); */
-
         phibtemp    := EnergyGap_dep_Temp( temp);
         phibtnom    := EnergyGap_dep_Temp( tnom);
         vt          := SpiceRoot.SPICEcircuitCONST.CONSTKoverQ * temp;
@@ -4867,9 +4495,6 @@ double Model::SaturationCurDepTempSPICE3JFET(
       end JunctionParamDepTempSPICE3;
 
       function JunctionCapCoeffs
-      /* void Model::JunctionCapCoeffs(
-   double& f1, double& f2, double& f3,
-   const double& mj, const double& fc, const double& phij) */
 
         input Real mj;
         input Real fc;
@@ -4883,11 +4508,6 @@ double Model::SaturationCurDepTempSPICE3JFET(
         Real xfc;
 
       algorithm
-      /* double xfc = log(1 - fc);
-   f1 = phij * (1 - exp(( 1 - mj ) * xfc)) / (1 - mj);
-   f2 = exp(( 1 + mj) * xfc);
-   f3 = 1 - fc * (1 + mj); */
-
         xfc := Modelica.Math.log(1 - fc);
         f1  := phij * (1 - exp(( 1 - mj)  * xfc)) / (1 - mj);
         f2  := exp(( 1 + mj) * xfc);
@@ -4896,10 +4516,6 @@ double Model::SaturationCurDepTempSPICE3JFET(
       end JunctionCapCoeffs;
 
     function Junction2_SPICE3_MOSFET
-    /* void Model::Junction2_SPICE3_MOSFET(
-   double& current, double& cond,
-   const double& voltage, const double& temp, const double& ncoeff,
-   const double& satcur) */
 
       input Real current;
       input Real cond;
@@ -4920,36 +4536,6 @@ double Model::SaturationCurDepTempSPICE3JFET(
       constant Real max_current = 1.e4;
 
     algorithm
-    /*{if (satcur > 1e-101)
-C++   {
-C++      double vte = CONSTKoverQ * temp * ncoeff;
-C++      double max_exponent = log( max_current / satcur);
-C++          max_exponent = F_Min( max_exp, max_exponent);
-C++      if(voltage <= 0)
-C++      {
-C++         cond    = satcur/vte;
-C++         current = cond * voltage;
-C++         cond    += CKTgmin;
-C++      }
-C++      else if (voltage >= max_exponent * vte)
-C++      {
-C++         double evd = exp( max_exponent);
-C++             cond       = satcur * evd / vte;
-C++         current    = satcur * (evd - 1) + cond * (voltage - max_exponent * vte);
-C++      }
-C++      else
-C++      {
-C++         double evbd = exp( voltage / vte);
-C++         cond    = satcur*evbd/vte + CKTgmin;
-C++         current = satcur *(evbd-1);
-C++      }
-C++   }
-C++   else
-C++   {
-C++           current = 0.;
-C++           cond = 0.;
-C++   }} */
-
       out_current := current;
       out_cond := cond;
       if (satcur > 1e-101) then
@@ -4980,11 +4566,6 @@ C++   }} */
     end Junction2_SPICE3_MOSFET;
 
     function JunctionCap
-    /* void Model::JunctionCap(
-   double& capout, double& charge,
-   const double& capin,
-   const double& voltage, const double& depcap, const double& mj,
-   const double& phij, const double& f1, const double& f2, const double& f3) */
 
       input Real capin;
       input Real voltage;
@@ -5004,26 +4585,6 @@ C++   }} */
       Real czof2;
 
     algorithm
-    /*{if (voltage < depcap)
-   {
-      double arg = 1 - voltage / phij;
-      double sarg;
-      if (mj == .5)
-         sarg = 1 / sqrt( arg);
-      else
-         sarg = exp( -1 * mj * log( arg));
-      capout = capin * sarg;
-      charge = phij * (capin * (1 - arg * sarg) / (1 - mj));
-   }
-   else
-   {
-      double czof2 = capin / f2;
-      capout = czof2 * (f3 + mj * voltage / phij);
-      charge = capin * f1 + czof2 *
-         (f3 * (voltage - depcap) + (mj / (phij + phij)) *
-          (voltage * voltage - depcap * depcap));
-   }} */
-
       if (voltage < depcap) then
         arg  := 1 - (voltage / phij);
         if (mj == 0.5) then
@@ -5042,10 +4603,6 @@ C++   }} */
     end JunctionCap;
 
     function SaturationCurDepTempSPICE3
-    /* double Model::SaturationCurDepTempSPICE3(
-   const double& satcur0,
-   const double& temp, const double& tnom, const double& emissioncoeff,
-   const double& energygap, const double& satcurexp) */
 
       input Real satcur0;
       input Real temp;
@@ -5061,14 +4618,7 @@ C++   }} */
       Real vte;
 
     algorithm
-    /* {
-   double vt = CONSTKoverQ * temp;
-   double vte= emissioncoeff * vt;
-   return satcur0 * exp( ((temp / tnom) - 1) * energygap / vte
-                         + satcurexp / emissioncoeff * log( temp / tnom) );
-} */
-
-        vt := Spice3.Repository.SpiceConstants.CONSTKoverQ*temp;
+      vt := Spice3.Repository.SpiceConstants.CONSTKoverQ*temp;
       vte := emissioncoeff * vt;
       ret := satcur0 * exp( ((temp / tnom) - 1) * energygap / vte
              + satcurexp / emissioncoeff * Modelica.Math.log( temp / tnom));
@@ -5076,9 +4626,6 @@ C++   }} */
     end SaturationCurDepTempSPICE3;
 
     function JunctionVoltage23_SPICE3
-    /* double Model::JunctionVoltage23_SPICE3(
-   Model* device, const double& vb, const double& ivb,
-   const double& satcur, const double& temp, const double& ncoeff) */
 
       input Real vb;
       input Real ivb;
@@ -5095,38 +4642,7 @@ C++   }} */
       Integer iter;
 
     algorithm
-    /* {
-   double vt  = CONSTKoverQ * temp;
-   //normally vte should be used otherwise the breakpoint is calculated wrong, but SPICE3 compability!
-   // double vte = vt * ncoeff;
-   double v23 = vb;
-   double cbv = ivb;
-
-   if (cbv < satcur * vb / vt)
-   {
-      cbv = satcur * vb / vt;
-      CEM_JunctionBreakDownV1( device, cbv).print();
-   }
-   else
-   {
-      double tol  = CKTreltol * cbv;
-      v23  = vb - vt * log( 1 + cbv / satcur);
-      for(int iter = 0 ; iter < 25 ; iter++)
-      {
-         v23 = vb - vt * log( cbv / satcur + 1 - v23 / vt);
-         if (fabs( satcur *
-                   ( exp(( vb - v23) / vt) - 1 + v23 / vt) - cbv) <= tol)
-            return v23;
-      }
-      CEM_JunctionBreakDownV2(
-         device, v23, satcur * ( exp(( vb - v23) / vt) - 1 + v23 / vt)).print();
-   }
-   return v23;
-} */
-
-        vt := Spice3.Repository.SpiceConstants.CONSTKoverQ*temp;
-      // normally vte should be used otherwise the breakpoint is calculated wrong, but SPICE3 compability!
-      // double vte = vt * ncoeff;
+      vt := Spice3.Repository.SpiceConstants.CONSTKoverQ*temp;
       v23 := vb;
       cbv := ivb;
 
@@ -5138,7 +4654,6 @@ C++   }} */
         for iter in 0:24 loop
           v23 := vb - vt * Modelica.Math.log( cbv / satcur + 1 - v23 / vt);
           if (abs( satcur * ( exp(( vb - v23) / vt) - 1 + v23 / vt) - cbv) <= tol) then
-    //        break;
 
           end if;
         end for;
@@ -5147,10 +4662,6 @@ C++   }} */
     end JunctionVoltage23_SPICE3;
 
     function Junction3
-    /* void Model::Junction3(
-   double& current, double& cond,
-   const double& voltage, const double& temp, const double& ncoeff,
-   const double& satcur, const double& v23) */
 
       input Real voltage;
       input Real temp;
@@ -5172,55 +4683,6 @@ C++   }} */
       Real vr;
 
     algorithm
-    /*{
-   if (satcur > 1e-101)
-   {
-      double vte = CONSTKoverQ * temp * ncoeff;
-      double max_exponent = log( max_current / satcur);
-          max_exponent = F_Min( max_exp, max_exponent);
-      if (voltage >= max_exponent * vte)
-      {
-         double evd = exp( max_exponent);
-             cond       = satcur * evd / vte;
-         current    = satcur * (evd - 1) + cond * (voltage - max_exponent * vte);
-      }
-      else if (voltage >= -3 * vte)
-      {
-         double evd = exp( voltage / vte );
-         current    = satcur * (evd - 1) + CKTgmin * voltage;
-         cond       = satcur * evd / vte + CKTgmin;
-      }
-      else if(voltage >= -v23)
-      {
-         double arg = 3 * vte / (voltage * CONSTe);
-         arg        = arg * arg * arg;
-         current    = -1. * satcur * (1 + arg) + CKTgmin * voltage;
-         cond       = satcur * 3 * arg / voltage + CKTgmin;
-      }
-      else
-          {
-                  double vr = -( v23 + voltage );
-                  if (vr > max_exponent * vte)
-                  {
-              double evd = exp( max_exponent);
-                  cond       = satcur * evd / vte;
-              current    = -1. * (satcur * (evd - 1) + cond * (vr - max_exponent * vte));
-                  }
-              else
-                  {
-             double evrev = exp( vr / vte );
-             current      = -1. * satcur * evrev + CKTgmin * voltage;
-             cond         = satcur * evrev / vte + CKTgmin;
-                  }
-          }
-   }
-   else
-   {
-           current = 0.;
-           cond = 0.;
-   }
-} */
-
       if (satcur > 1.0e-101) then
           vte := Spice3.Repository.SpiceConstants.CONSTKoverQ*temp*ncoeff;
         max_exponent := Modelica.Math.log( max_current / satcur);
@@ -5261,12 +4723,6 @@ C++   }} */
     end Junction3;
 
     function JunctionCapTransTime
-    /* void Model::JunctionCapTransTime(
-   double& capout, double& charge,
-   const double& capin,
-   const double& voltage, const double& depcap, const double& mj,
-   const double& phij, const double& f1, const double& f2, const double& f3,
-   const double& transittime, const double& conduct, const double& current) */
 
       input Real capin;
       input Real voltage;
@@ -5284,12 +4740,6 @@ C++   }} */
       output Real charge;
 
     algorithm
-    /* {
-   JunctionCap( capout, charge, capin, voltage, depcap, mj, phij, f1, f2, f3);
-   capout += transittime * conduct;
-   charge += transittime * current;
-} */
-
         (capout,charge) := Spice3.Repository.Equation.JunctionCap(
               capin,
               voltage,
@@ -5305,10 +4755,6 @@ C++   }} */
     end JunctionCapTransTime;
 
     function Junction2
-    /* void Model::Junction2(
-   double& current, double& cond,
-   const double& voltage, const double& temp, const double& ncoeff,
-   const double& satcur) */
 
       input Real voltage;
       input Real temp;
@@ -5317,7 +4763,6 @@ C++   }} */
 
       output Real current;
       output Real cond;
-      output Real guck1;
 
       protected
       constant Real max_exp = 50.0;
@@ -5328,39 +4773,6 @@ C++   }} */
       Real arg;
 
     algorithm
-    /*{
-   if (satcur > 1e-101)
-   {
-      double vte          = CONSTKoverQ * temp * ncoeff;
-      double max_exponent = log( max_current / satcur);
-          max_exponent = F_Min( max_exp, max_exponent);
-      if (voltage >= max_exponent * vte)
-          {
-         double evd = exp( max_exponent);
-         cond       = satcur * evd / vte;
-             current    = satcur * (evd - 1) + cond * (voltage - max_exponent * vte);
-          }
-          else if (voltage >= -5 * vte)
-          {
-         double evd = exp( voltage / vte);
-         current    = satcur * (evd - 1) + CKTgmin * voltage;
-         cond       = satcur * evd / vte + CKTgmin;
-          }
-      else
-          {
-         double arg = 3 * vte / (voltage * CONSTe);
-         arg        = arg * arg * arg;
-         current    = -1 * satcur * (1 + arg) + CKTgmin * voltage;
-         cond       = satcur * 3 * arg / voltage + CKTgmin;
-          }
-   }
-   else
-   {
-           current = 0.;
-           cond = 0.;
-   }
-} */
-
       if (satcur > 1.0e-101) then
           vte := Spice3.Repository.SpiceConstants.CONSTKoverQ*temp*ncoeff;
         max_exponent := Modelica.Math.log( max_current / satcur);
@@ -5369,7 +4781,7 @@ C++   }} */
           evd     := exp( max_exponent);
           cond    := satcur * evd / vte;
           current := satcur * (evd - 1) + cond * (voltage - max_exponent * vte);
-          guck1:=temp;                                                              //EDIT by K.Majetta
+
         elseif (voltage >= -5 * vte) then
           evd     := exp( voltage / vte);
             current := satcur*(evd - 1) + Spice3.Repository.SpiceConstants.CKTgmin
@@ -5390,20 +4802,7 @@ C++   }} */
     end Junction2;
 
     function RESdepTemp
-     /*
-double Model::RESdepTemp(
-   double& dCond_dTemp,
-   const double& resist, const double& temp, const double& tnom,
-   const double& tc1, const double& tc2) const
-{
-   double difference = temp - tnom;
-   double factor     = 1.0 + tc1 * difference + tc2 * difference * difference;
-   double conduct    = 1.0 / (resist * factor);
-   dCond_dTemp = (tc1 + 2 * tc2 * difference) * conduct * conduct;
-   return conduct;
-}
 
-*/
     input Real resist;
     input Real temp;
     input Real tnom;
@@ -5425,18 +4824,6 @@ double Model::RESdepTemp(
     end RESdepTemp;
 
     function ResDepGeom
-    /*double Model::ResDepGeom(
-   const double& rsh,
-   const double& width, const double& length, const double& narrow)
-{
-#ifdef SML_DEBUG
-//    if (m_bEquationDebug)
-//    cout << "   ResDepGeom: rsh=" << rsh << ", w=" << width << ", l="
-//         << length << ", narrow=" << narrow << ", -> R="
-//         << rsh * (length - narrow) / (width - narrow) << "\n";
-#endif
-   return rsh * (length - narrow) / (width - narrow);
-}*/
 
     input Real rsh;
     input Real width;
@@ -5453,8 +4840,6 @@ double Model::RESdepTemp(
     package SpiceRoot
 
       record SPICEcircuitCONST
-        /* aus SpiceRoot.h uebernommen */
-        // assuming silicon - make definition for epsilon of silicon
 
          constant Real EPSSIL =     (11.7 * 8.854214871e-12);
          constant Real EPSOX =      3.453133e-11;
@@ -5462,41 +4847,6 @@ double Model::RESdepTemp(
         constant Real CONSTCtoK =  (273.15);
          constant Real CONSTboltz = (1.3806226e-23);
         constant Real REFTEMP =    300.15;  /* 27 degrees C */
-
-        /*SPICEcircuitConst::SPICEcircuitConst()
-  // assign again - there are compilers that produce errors otherways
-  CONSTroot2 = sqrt(2.0);
-  CONSTe     = exp((double)1.0);
-  double SPICEcircuitConst::CONSTroot2 = sqrt(2.0);
-  double SPICEcircuitConst::CONSTvt0 = CONSTboltz * (27 */
-                                                                /* deg c */
-                                                                           /* + CONSTCtoK ) / CHARGE;
-  double SPICEcircuitConst::CONSTKoverQ = CONSTboltz / CHARGE;
-  double SPICEcircuitConst::CONSTe = ::exp((double)1.0);
-
-  // options
-  double SPICEcircuitConst::CKTgmin         = 1e-12;
-  double SPICEcircuitConst::CKTnomTemp      = 300.15;
-  double SPICEcircuitConst::CKTtemp         = 300.15;
-  double SPICEcircuitConst::CKTdefaultMosAD = 0.0;
-  double SPICEcircuitConst::CKTdefaultMosAS = 0.0;
-  double SPICEcircuitConst::CKTdefaultMosL  = 100e-6;
-  double SPICEcircuitConst::CKTdefaultMosW  = 100e-6;
-  double SPICEcircuitConst::CKTreltol       = 1e-10;  // changed: was 1e-3
-  double SPICEcircuitConst::CKTabstol       = 1e-15;  // changed: was 1e-12
-  double SPICEcircuitConst::CKTvolttol      = 1e-10; // changed: was 1e-6
-  double SPICEcircuitConst::CKTtemptol      = 1e-3; // changed: was 1e-6
-  bool   SPICEcircuitConst::CKTtryToCompact = false;
-  bool   SPICEcircuitConst::CKTbadMOS3      = false;
-
-  // tran parameters
-  double SPICEcircuitConst::TRANtstep     = 1e-9;
-  double SPICEcircuitConst::TRANtstop     = 1;
-  double SPICEcircuitConst::TRANtstart    = 0;
-  double SPICEcircuitConst::TRANtmax      = 1e-9;
-  bool SPICEcircuitConst::TRANuseinitcond = false;  */
-
-        /* SPICEcircuitConst::SPICEcircuitConst() */
 
         constant Real CONSTroot2 =  sqrt(2.0);
         constant Real CONSTvt0 =    CONSTboltz * (27 + CONSTCtoK)  / CHARGE; // deg c
@@ -5521,55 +4871,13 @@ double Model::RESdepTemp(
 
       record SpiceRoot
 
-      /* bool SpiceRoot::m_bInit         = false;
-bool SpiceRoot::m_bDC           = false;
-#ifdef DEMO
-int SpiceRoot::m_nNumberOfInstances = 0;
-#endif
-
-SpiceRoot::SpiceRoot() :
-#ifdef SML_DEBUG
-        m_nCallCount( 0), m_nCalcCount( 0),
-        m_bInOutDebug( false), m_bJacobiDebug( false),
-        m_bStructureDebug( false), m_bHistoryDebug( false),
-        m_bEquationDebug( false),
-        m_bAnyDebug( false),                        
-                m_bAskForCont( false),
-        m_bParamDebug( true),                        
-        m_dDebugEnd( 1e38),m_dDebugStart( 0.),
-                m_pStream( NULL),
-#endif
-        m_nNoOfNode( 0), m_nLastExternNode( 0),
-        m_pVoltageValues( NULL),
-        m_pCurrentValues( NULL), m_pResJacobi( NULL), m_pCapJacobi( NULL),
-#ifndef NO_HISTORY
-        m_pHistoryTimes( NULL), m_pHistoryValues( NULL),
-        m_nNumberOfHistoryValues( 0), m_nNumberOfHistoryTimePoints( 0),
-        m_dHistorySize( 0.), m_nHistoryBlockSize( 5), m_bHistoryByTime( false),
-        m_bHistoryAllValues( false),
-#endif
-        m_bFirstCalc( true)
-{
-#ifdef DEMO
-   if (++m_nNumberOfInstances > 10)
-      throw DemoException();
-#endif }  */
-
-      //  Boolean m_bInit(            start = false);
-      //  Integer m_nNoOfNode(        start = 0);
-      //  Real[6] m_pVoltageValues(   start = zeros(6));
-      //  Real[6] m_pVoltageValuesDot(start = zeros(6));
         Real[6] m_pCurrentValues(   start = zeros(6));
         Real[36] m_pResJacobi(      start = zeros(36));
         Real[36] m_pCapJacobi(      start = zeros(36));
-      //  Integer m_nLastExternNode = 0;
-      //  Boolean m_bDC =   false;
-      //  Boolean m_bFirstCalc = true;
 
       end SpiceRoot;
 
       function UseInitialConditions
-      /* virtual bool UseInitialConditions() const { return false; }; */
 
         output Boolean ret;
 
@@ -5579,7 +4887,6 @@ SpiceRoot::SpiceRoot() :
       end UseInitialConditions;
 
       function InitJunctionVoltages
-      /* virtual bool InitJunctionVoltages() const { return false; }; */
 
         output Boolean ret;
       algorithm
@@ -5589,18 +4896,12 @@ SpiceRoot::SpiceRoot() :
       end InitJunctionVoltages;
 
       function LimitJunctionVoltage
-      /* double SpiceRoot::LimitJunctionVoltage(
-   const double& voltage, const double& vt,
-   const double& vcrit,
-   const bool& backwardleading, const double& bv)*/
 
         input Real voltage;
 
         output Real ret;
 
       algorithm
-      /*{return voltage;} */
-
         ret := voltage;
 
       end LimitJunctionVoltage;
@@ -5609,23 +4910,6 @@ SpiceRoot::SpiceRoot() :
     package Model
 
     record Model
-    /* Model::Model( const String& modelname, const String& elemname)
-        : m_dTemp( CKTnomTemp ), m_sModelName( modelname),
-          m_sElementName( elemname),
-          m_pNodeNumber( NULL),
-          m_bCalcTemp( false), m_bSetup( false),
-          m_pDotModel( NULL),
-          m_nNumberOfVoltageSource( 1), m_nNumberOfInductances( 1),
-          m_pParameters( NULL), m_pValues( NULL),
-          m_pLevelValue( NULL), m_bNeedLevelFirst( false)
-{
-   m_sModelName.to_upper();
-   AddParameter( "TEMP", m_dTemp, CKTnomTemp)->SetOffset( CONSTCtoK);// Device Temperature
-} */
-
-    //  Integer m_pNodeNumber = 0;
-    //  Boolean m_bCalcTemp( start = false);
-    //  Boolean m_bSetup =      false;
 
       Real m_dTemp( start = SpiceRoot.SPICEcircuitCONST.CKTnomTemp); // TEMP, Device Temperature
     end Model;
@@ -5635,42 +4919,8 @@ SpiceRoot::SpiceRoot() :
     package Mosfet
       record Mosfet
         extends Model.Model;
-      /*      Mosfet_Model_Line* m_pModel;
-      double m_len;                   // the length of the channel region
-      Value *m_lenValue;
-      double m_width;                   // the width of the channel region
-      Value *m_widthValue;
-      double m_drainArea;           // the area of the drain diffusion
-      Value *m_drainAreaValue;
-      double m_sourceArea;          // the area of the source diffusion
-      Value *m_sourceAreaValue;
-      double m_drainSquares;        // the length of the drain in squares
-      Value *m_drainSquaresValue;
-      double m_sourceSquares;       // the length of the source in squares
-      Value *m_sourceSquaresValue;
-      double m_drainPerimiter;
-      Value *m_drainPerimiterValue;
-      double m_sourcePerimiter;
-      Value *m_sourcePerimiterValue;
-      bool m_off;  // non-zero to indicate device is off for dc analysis
-      double m_dICVDS;
-      Value* m_ICVDSValue;
-      double m_dICVGS;
-      Value* m_ICVGSValue;
-      double m_dICVBS;
-      Value* m_ICVBSValue;
-   private:
-      MosfetCalc* m_pCalculation;
-      bool   m_bNMOS;
-      Value* m_pNMOSValue;
-      bool   m_bPMOS;
-      Value* m_pPMOSValue;
-      int    m_nLevel; */
 
-        /* param_sub_section: General Mosfet Parameters */
-      //  Real m_len(             start = SpiceRoot.SPICEcircuitCONST.CKTdefaultMosL);  // L, length of channel region
         Real m_len(             start = 1e-4);  // L, length of channel region
-      //  Real m_width(           start = SpiceRoot.SPICEcircuitCONST.CKTdefaultMosW);  // W, width of channel region
         Real m_width(           start = 1e-4);  // W, width of channel region
         Real m_drainArea(       start = SpiceRoot.SPICEcircuitCONST.CKTdefaultMosAD); // AD, area of drain diffusion
         Real m_sourceArea(      start = SpiceRoot.SPICEcircuitCONST.CKTdefaultMosAS); // AS, area of source diffusion
@@ -5688,70 +4938,9 @@ SpiceRoot::SpiceRoot() :
         Real m_bPMOS(        start = 0);    // P type MOSfet model
         Integer m_nLevel(       start = 1);
 
-      //  Real m_lenValue =             m_len;
-      //  Real m_widthValue =           m_width;
-      //  Real m_drainAreaValue =       m_drainArea;
-      //  Real m_sourceAreaValue =      m_sourceArea;
-      //  Real m_drainSquaresValue =    m_drainSquares;
-      //  Real m_sourceSquaresValue =   m_sourceSquares;
-      //  Real m_drainPerimiterValue =  m_drainPerimiter;
-      //  Real m_sourcePerimiterValue = m_sourcePerimiter;
-      //  Real m_ICVDSValue =           m_dICVDS;
-      //  Real m_ICVGSValue =           m_dICVGS;
-      //  Real m_ICVBSValue =           m_dICVBS;
-      //  Boolean m_bNMOS =       true;          // N type MOSfet model
-      //  Boolean m_pNMOSValue =  m_bNMOS;
-      //  Boolean m_pPMOSValue =  m_bPMOS;
-      //  Integer m_pLevel =      1;             // Level
-      //  Integer m_nLevelValue = m_pLevel;      // Level
-
-      /* Mosfet::Mosfet( const String& elementname)
-         : Model( "MOSFET", elementname), m_pModel( NULL)
-{
-   // param_sub_section: General Mosfet Parameters
-   m_lenValue   = AddParameter( "L", m_len, CKTdefaultMosL);  // length
-   m_widthValue = AddParameter( "W", m_width, CKTdefaultMosW);  // width
-   m_drainAreaValue       = AddParameter( "AD", m_drainArea, CKTdefaultMosAD);  // Drain area
-   m_sourceAreaValue      = AddParameter( "AS", m_sourceArea, CKTdefaultMosAS);  // Source Area
-   m_drainPerimiterValue  = AddParameter( "PD", m_drainPerimiter, 0.0);  // Drain perimeter
-   m_sourcePerimiterValue = AddParameter( "PS", m_sourcePerimiter, 0.0);  // Source perimeter
-   m_drainSquaresValue    = AddParameter( "NRD", m_drainSquares, 1.0);  // Drain squares
-   m_sourceSquaresValue   = AddParameter( "NRS", m_sourceSquares, 1.0); // Source squares
-
-   m_ICVDSValue = AddParameter( "IC_VDS", m_dICVDS, 0.0)->Alias( "IC_1")->Alias( "IC"); // Initial D-S voltage
-   m_ICVGSValue = AddParameter( "IC_VGS", m_dICVGS, 0.0)->Alias( "IC_2"); // Initial G-S voltage
-   m_ICVBSValue = AddParameter( "IC_VBS", m_dICVBS, 0.0)->Alias( "IC_3"); // Initial B-S voltage
-
-   AddParameter( "OFF", m_off, false); // Device initially off
-
-   m_pNMOSValue = AddParameter( "NMOS", m_bNMOS, true); // N type MOSfet model
-   m_pPMOSValue = AddParameter( "PMOS", m_bPMOS, false); // P type MOSfet model
-   m_pLevelValue = new IntValue( *this, "LEVEL", m_nLevel, 1, false); //
-   m_pCalculation = NULL;
-*/
-
       end Mosfet;
 
       record MosfetModelLineParams
-       //  extends SpiceRoot.SPICEcircuitCONST;
-      /*    double m_jctSatCurDensity;    // input - use tSatCurDens
-        double m_sheetResistance;
-        double m_bulkJctPotential;    // input - use tBulkPot
-        double m_bulkJctBotGradingCoeff;
-        double m_bulkJctSideGradingCoeff;
-        double m_oxideThickness;       // unit: micron
-        double m_gateSourceOverlapCapFactor;
-        double m_gateDrainOverlapCapFactor;
-        double m_gateBulkOverlapCapFactor;
-        double m_fNcoef;
-        double m_fNexp;
-        Value* m_oxideThicknessValue;
-        Value* m_mjswValue;
-        Value* m_pbValue;
-        Value* m_cgsoValue;
-        Value* m_cgdoValue;
-        Value* m_cgboValue;
-        Mosfet_Model_Line* m_pModel;*/
 
          Real m_jctSatCurDensity(           start = 0.0); // JS, Bulk jct. sat. current density, input - use tSatCurDens
          Real m_sheetResistance(            start = 0.0); // RSH, Sheet resistance
@@ -5766,91 +4955,15 @@ SpiceRoot::SpiceRoot() :
          Real m_fNcoef(                     start = 0.0); // KF, Flicker noise coefficient
          Real m_fNexp(                      start = 1.0); // AF, Flicker noise exponent
 
-      //  Real m_oxideThicknessValue = m_oxideThickness;   // TOX, Oxide thickness
-      //  Real m_mjswValue = m_bulkJctSideGradingCoeff;    // Side grading coefficient
-      //  Real m_pbValue =   m_bulkJctPotential;           // Bulk junction potential
-      //  Real m_cgsoValue = m_gateSourceOverlapCapFactor; // CGS0, Gate-source overlap cap
-      //  Real m_cgdoValue = m_gateDrainOverlapCapFactor;  // CGD0, Gate-drain overlap cap
-      //  Real m_cgboValue = m_gateBulkOverlapCapFactor;   // CGB0, Gate-bulk overlap cap
-
-      /*MosfetModelLineParams::MosfetModelLineParams( Mosfet_Model_Line* model)
-        : SPICEcircuitConst(),
-          m_pModel( model)
-  {
-   */
-         /* param_sub_section: General Mosfet Parameters */
-                                                           /*
-     m_pModel->AddParameter( "RSH", m_sheetResistance, 0.0); // Sheet resistance
-     m_oxideThicknessValue = m_pModel->AddParameter( "TOX", m_oxideThickness, 0.0); // Oxide thickness
-     m_pModel->AddParameter( "JS", m_jctSatCurDensity, 0.0); // Bulk jct. sat. current density
-     m_pbValue = m_pModel->AddParameter( "PB", m_bulkJctPotential, .8);  // Bulk junction potential
-     m_pModel->AddParameter( "MJ", m_bulkJctBotGradingCoeff, .5); // Bottom grading coefficient
-     m_mjswValue = m_pModel->AddParameter( "MJSW", m_bulkJctSideGradingCoeff, .5); // Side grading coefficient
-     m_cgsoValue = m_pModel->AddParameter( "CGSO", m_gateSourceOverlapCapFactor, 0.)->Alias( "CGS0"); // Gate-source overlap cap.
-     m_cgdoValue = m_pModel->AddParameter( "CGDO", m_gateDrainOverlapCapFactor, 0.)->Alias( "CGD0");// Gate-drain overlap cap
-     m_cgboValue = m_pModel->AddParameter( "CGBO", m_gateBulkOverlapCapFactor, 0.)->Alias( "CGB0");// Gate-bulk overlap cap.
-     m_pModel->AddParameter( "KF", m_fNcoef, 0.0); // Flicker noise coefficient
-     m_pModel->AddParameter( "AF", m_fNexp, 1.0);  // Flicker noise exponent
-
-     m_gateDrainOverlapCapFactor  = 0.0;
-     m_gateSourceOverlapCapFactor = 0.0;
-     m_gateBulkOverlapCapFactor   = 0.0;
-  }*/
-
       end MosfetModelLineParams;
 
       record Mosfet_Model_Line
-        /*
-     Mosfet_Model_Line::Mosfet_Model_Line(
-       int    m_nLevel;
-       int    m_type;                    // device type : 1 = n,  -1 = p
-       bool   m_bNMOS;
-       bool   m_bPMOS;
-       AddParameter( "NMOS", m_bNMOS, true);  // N type MOSfet model
-       AddParameter( "PMOS", m_bPMOS, false); // P type MOSfet model
-       m_pLevelValue = AddParameter( "LEVEL", m_nLevel, 1); //
-       m_bNeedLevelFirst = true;
-  */
+
         Integer m_type(   start = 1);     // device type : 1 = n,  -1 = p
 
       end Mosfet_Model_Line;
 
       record MosfetCalc
-      /*MosfetCalc::MosfetCalc(
-   Mosfet* device, Mosfet_Model_Line* model, const MosfetModelLineParams* params)
-        : m_pDevice( device), m_pModel( model), m_pParameters( params)
-{
-   m_pDevice->AddValue( "Vds", m_vds);   // Drain-Source voltage
-   m_pDevice->AddValue( "Vgs", m_vgs);   // Gate-Source voltage
-   m_pDevice->AddValue( "Vbs", m_vbs);   // Bulk-Source voltage
-   m_pDevice->AddValue( "Ibs", m_cbs);   // B-S junction current
-   m_pDevice->AddValue( "Gbs", m_gbs);   // Bulk-Source conductance
-   m_pDevice->AddValue( "Ibd", m_cbd);   // B-D junction current
-   m_pDevice->AddValue( "Gbd", m_gbd);   // Bulk-Drain conductance
-   m_pDevice->AddValue( "Ids", m_cdrain);//
-   m_pDevice->AddValue( "Gds", m_gds);   // Drain-Source conductance
-   m_pDevice->AddValue( "Gm", m_gm);     // Transconductance
-   m_pDevice->AddValue( "Gmbs", m_gmbs); // Bulk-Source transconductance
-   m_pDevice->AddValue( "Cbsb", m_capbsb);
-   m_pDevice->AddValue( "Qbsb", m_chargebsb);
-   m_pDevice->AddValue( "Cbss", m_capbss);
-   m_pDevice->AddValue( "Qbss", m_chargebss);
-   m_pDevice->AddValue( "Cbdb", m_capbdb);
-   m_pDevice->AddValue( "Qbdb", m_chargebdb);
-   m_pDevice->AddValue( "Cbds", m_capbds);
-   m_pDevice->AddValue( "Qbds", m_chargebds);
-   m_pDevice->AddValue( "Gs", m_sourceConductance);
-   m_pDevice->AddValue( "Gd", m_drainConductance);
-   m_pDevice->AddValue( "Beta", m_Beta);
-   m_pDevice->AddValue( "Cgso", m_capGSovl);// Gate-source overlap cap.
-   m_pDevice->AddValue( "Cgdo", m_capGDovl);// Gate-drain overlap cap
-   m_pDevice->AddValue( "Cgbo", m_capGBovl);// Gate-bulk overlap cap.
-   m_pDevice->AddValue( "Cox", m_capOx);
-   m_pDevice->AddValue( "Von", m_von); // Turn-on voltage
-   m_pDevice->AddValue( "Vdsat", m_vdsat);
-   m_pDevice->AddValue( "Mode", m_mode);
-   m_mode = 1;
-}*/
 
         Real m_vds;               // Vds,  Drain-Source voltage
         Real m_vgs;               // Vgs, Gate-Source voltage
@@ -5873,8 +4986,6 @@ SpiceRoot::SpiceRoot() :
         Real m_chargebds;         // Qbds
         Real m_sourceResistance;  // Rs
         Real m_drainResistance;   // Rd
-        //Real m_sourceConductance; //Gs
-        //Real m_drainConductance;  //Gd
         Real m_Beta;              // Beta
         Real m_capGSovl;          // Cgso, Gate-source overlap cap.
         Real m_capGDovl;          // Cgdo, Gate-drain overlap cap
@@ -5886,42 +4997,9 @@ SpiceRoot::SpiceRoot() :
 
         Real m_lEff;
 
-      /*      double m_sourceConductance;   //conductance of source(or 0):set in setup
-      double m_drainConductance;    //conductance of drain(or 0):set in setup
-      int m_mode;               // device mode : 1 = normal, -1 = inverse
-      double m_Beta;
-      double m_lEff;
-      double m_capGSovl;
-      double m_capGDovl;
-      double m_capGBovl;
-      double m_capOx;
-      double m_von;
-      double m_vdsat;
-
-      double m_vds;
-      double m_vgs;
-      double m_vbs;
-      double m_cbs;
-      double m_gbs;
-      double m_cbd;
-      double m_gbd;
-      double m_gds;
-      double m_gm;
-      double m_gmbs;
-      double m_cdrain;
-      double m_capbsb;
-      double m_chargebsb;
-      double m_capbss;
-      double m_chargebss;
-      double m_capbdb;
-      double m_chargebdb;
-      double m_capbds;
-      double m_chargebds;  */
-
       end MosfetCalc;
 
       function MosfetInitEquations
-      /* void Mosfet::InitEquations() */
 
         input Mosfet in_m;
 
@@ -5929,19 +5007,6 @@ SpiceRoot::SpiceRoot() :
 
       algorithm
         out_m := in_m;
-      /*{if (!m_pModel)
-   {
-      DefineDotModel();
-      m_pModel->Init();
-   }
-   if (!m_pCalculation)
-      SetDotModel( m_pModel, true);
-   if (m_drainSquares  == 0)
-      m_drainSquares  = 1.;
-   if (m_sourceSquares == 0)
-      m_sourceSquares = 1.;
-   m_pCalculation->InitEquations();
-  }  */
 
         if (out_m.m_drainSquares == 0) then
           out_m.m_drainSquares  := 1.;
@@ -5953,24 +5018,18 @@ SpiceRoot::SpiceRoot() :
       end MosfetInitEquations;
 
       function Mosfet_Model_LineInitEquations
-      /* void Mosfet_Model_Line::InitEquations() */
 
         input Mosfet in_m;
 
         output Mosfet_Model_Line out_ml;
 
       algorithm
-      /*{m_type = m_bPMOS ? PMOS : NMOS;
-   GetParameterPtr()->InitEquations();
-  } */
-
         out_ml.m_type := if (in_m.m_bPMOS > 0.5) then -1 else 1;
         // -1: PMOS ; 1: NMOS
 
       end Mosfet_Model_LineInitEquations;
 
       function GetNumberOfElectricalPins
-      /* virtual int GetNumberOfElectricalPins() const { return 4; }; */
 
         output Integer ret;
 
@@ -5985,60 +5044,18 @@ SpiceRoot::SpiceRoot() :
       record MosModelLineParams
         extends Mosfet.MosfetModelLineParams;
 
-      /* class MosModelLineParams : public MosfetModelLineParams
-{
-   protected:
-      double m_oxideCapFactor;
-      double m_vt0;                 // input - use tVto
-      double m_capBD;                   // input - use tCbd
-      double m_capBS;                   // input - use tCbs
-      double m_bulkCapFactor;       // input - use tCj
-      double m_sideWallCapFactor;   // input - use tCjsw
-      double m_fwdCapDepCoeff;
-      double m_phi;                 // input - use tPhi
-      double m_gamma;
-      double m_lambda;
-      double m_substrateDoping;
-      double m_gateType;
-      double m_surfaceStateDensity;
-      double m_surfaceMobility;     // input - use tSurfMob
-      double m_latDiff;
-      double m_jctSatCur;           // input - use tSatCur
-      double m_drainResistance;
-      double m_sourceResistance;
-      double m_transconductance;    // input - use tTransconductance
-      double m_tnom;                // temperature at which parameters measured
-
-      Value* m_jctSatCurValue;
-      Value* m_drainResistanceValue;
-      Value* m_sourceResistanceValue;
-      Value* m_transconductanceValue;
-      Value* m_vt0Value;
-      Value* m_capBDValue;
-      Value* m_capBSValue;
-      Value* m_bulkCapFactorValue;
-      Value* m_phiValue;
-      Value* m_gammaValue;
-      Value* m_substrateDopingValue;
-      Value* m_gateTypeValue;
-      Value* m_surfaceStateDensityValue;
-      Value* m_surfaceMobilityValue;
-      Value* m_sideWallCapFactorValue;
-      Value* m_tnomValue;
-};*/
-
          Real m_oxideCapFactor(      start = 0.0);
-         Real m_vt0(                 start = 0.0);    // VTO, Threshold voltage           // input - use tVto
+         Real m_vt0(                 start = 0.0);    // VTO, Threshold voltage
          Real m_vtOIsGiven;
-         Real m_capBD(               start = 0.0);    // CBD, B-D junction capacitance    // input - use tCbd
+         Real m_capBD(               start = 0.0);    // CBD, B-D junction capacitance
          Real m_capBDIsGiven;
-         Real m_capBS(               start = 0.0);    // CBS, B-S junction capacitance    // input - use tCbs
+         Real m_capBS(               start = 0.0);    // CBS, B-S junction capacitance
          Real m_capBSIsGiven;
-         Real m_bulkCapFactor(       start = 0.0);    // CJ, Bottom junction cap per area // input - use tCj
+         Real m_bulkCapFactor(       start = 0.0);    // CJ, Bottom junction cap per area
          Real m_bulkCapFactorIsGiven;
-         Real m_sideWallCapFactor(   start = 0.0);    // CJSW, Side grading coefficient   // input - use tCjsw
+         Real m_sideWallCapFactor(   start = 0.0);    // CJSW, Side grading coefficient
          Real m_fwdCapDepCoeff(      start = 0.5);    // FC, Forward bias jct. fit parm.
-         Real m_phi(                 start = 0.6);    // PHI, Surface potential           // input - use tPhi
+         Real m_phi(                 start = 0.6);    // PHI, Surface potential
          Real m_phiIsGiven;
          Real m_gamma(               start = 0.0);    // GAMMA, Bulk threshold parameter
          Real m_gammaIsGiven;
@@ -6047,9 +5064,9 @@ SpiceRoot::SpiceRoot() :
          Real m_substrateDopingIsGiven;
          Real m_gateType(            start = 1.0);    // TPG, Gate type
          Real m_surfaceStateDensity( start = 0.0);    // NSS, Gate type
-         Real m_surfaceMobility(     start = 600.0);  // UO, Surface mobility             // input - use tSurfMob
+         Real m_surfaceMobility(     start = 600.0);  // UO, Surface mobility
          Real m_latDiff(             start = 0.0);    // LD, Lateral diffusion
-         Real m_jctSatCur(           start = 1.0e-14);// IS, Bulk junction sat. current   // input - use tSatCur
+         Real m_jctSatCur(           start = 1.0e-14);// IS, Bulk junction sat. current
          Real m_drainResistance(     start = 0);      // RD, Drain ohmic resistance
          Real m_drainResistanceIsGiven;
          Real m_sourceResistance(    start = 0);      // RS, Source ohmic resistance
@@ -6058,47 +5075,6 @@ SpiceRoot::SpiceRoot() :
          Real m_transconductanceIsGiven;
          Real m_tnom(                start=SpiceConstants.CKTnomTemp);                        // TNOM, Parameter measurement temperature
 
-      //  Real m_jctSatCurValue =           m_jctSatCur;           // IS, Bulk junction sat. current
-      //  Real m_drainResistanceValue =     m_drainResistance;     // RD, Drain ohmic resistance
-      //  Real m_sourceResistanceValue =    m_sourceResistance;    // RS, Source ohmic resistance
-      //  Real m_transconductanceValue;
-      //  Real m_vt0Value =                 m_vt0;                 // VTO, Threshold voltage
-      //  Real m_capBDValue =               m_capBD;               // CBD, B-D junction capacitance
-      //  Real m_capBSValue =               m_capBS;               // CBS, B-S junction capacitance
-      //  Real m_bulkCapFactorValue =       m_bulkCapFactor;       // CJ, Bottom junction cap per area
-      //  Real m_phiValue =                 m_phi;                 // PHI, Surface potential
-      //  Real m_gammaValue =               m_gamma;               // GAMMA, Bulk threshold parameter
-      //  Real m_substrateDopingValue =     m_substrateDoping;     // NSUB, Substrate doping
-      //  Real m_gateTypeValue =            m_gateType;            // TPG, Gate type
-      //  Real m_surfaceStateDensityValue = m_surfaceStateDensity; // NSS, Gate type
-      //  Real m_surfaceMobilityValue =     m_surfaceMobility;     // UO, Surface mobility
-      //  Real m_sideWallCapFactorValue =   m_sideWallCapFactor;   // CJSW, Side grading coefficient
-      //  Real m_tnomValue =                m_tnom;                // TNOM, Parameter measurement temperature
-
-      /* MosModelLineParams::MosModelLineParams( Mosfet_Model_Line* model)
-        : MosfetModelLineParams( model)
-{
-   m_tnomValue = m_pModel->AddParameter( "TNOM", m_tnom, CKTnomTemp)->SetOffset( CONSTCtoK);   // Parameter measurement temperature
-   m_vt0Value = m_pModel->AddParameter( "VTO", m_vt0, 0.0)->Alias( "VT0");                     // Threshold voltage
-   m_substrateDopingValue = m_pModel->AddParameter( "NSUB", m_substrateDoping, 0.0);           // Substrate doping
-   m_surfaceStateDensityValue = m_pModel->AddParameter( "NSS", m_surfaceStateDensity, 0.0);    // Gate type
-   m_pModel->AddParameter( "LD", m_latDiff, 0.0);                                              //Lateral diffusion
-   m_jctSatCurValue = m_pModel->AddParameter( "IS", m_jctSatCur, 1e-14);                       // Bulk junction sat. current
-   m_gammaValue           = m_pModel->AddParameter( "GAMMA", m_gamma, 0.0);                    // Bulk threshold parameter
-   m_surfaceMobilityValue = m_pModel->AddParameter( "UO", m_surfaceMobility, 600.0)->Alias( "U0"); // Surface mobility
-   m_gateTypeValue        = m_pModel->AddParameter( "TPG", m_gateType, 1.0);                   // Gate type
-   m_drainResistanceValue = m_pModel->AddParameter( "RD", m_drainResistance, 0.0);             // Drain ohmic resistance
-   m_sourceResistanceValue = m_pModel->AddParameter( "RS", m_sourceResistance, 0.0);           // Source ohmic resistance
-
-   m_capBDValue = m_pModel->AddParameter( "CBD", m_capBD, 0.0);                                // B-D junction capacitance
-   m_capBSValue = m_pModel->AddParameter( "CBS", m_capBS, 0.0);                                // B-S junction capacitance
-   m_bulkCapFactorValue = m_pModel->AddParameter( "CJ", m_bulkCapFactor, 0.0);                 // Bottom junction cap per area
-   m_sideWallCapFactorValue = m_pModel->AddParameter( "CJSW", m_sideWallCapFactor, 0.0);       // Side grading coefficient
-   m_phiValue = m_pModel->AddParameter( "PHI", m_phi, .6);                                     // Surface potential
-   m_pModel->AddParameter( "FC", m_fwdCapDepCoeff, .5);                                        // Forward bias jct. fit parm.
-
-   m_oxideCapFactor             = 0.0;
-}*/
       end MosModelLineParams;
 
       record MosModelLineVariables
@@ -6114,46 +5090,7 @@ SpiceRoot::SpiceRoot() :
       record MosCalc
         extends Mosfet.MosfetCalc;
 
-      /* MosCalc::MosCalc(
-   Mosfet* device, Mosfet_Model_Line* model, const MosModelLineParams* params)
-        : MosfetCalc( device, model, params),
-          m_pParameters( params)
-{
-   m_tTransconductance = 0.; // any value ...
-   m_tSurfMob          = 0.;
-   m_tPhi              = 0.7;
-   m_tVto              = 1.;
-   m_tSatCurDens       = 0.;
-   m_tDrainSatCur      = 0.;
-   m_tSourceSatCur     = 0.;
-   m_tCBDb             = 0.;
-   m_tCBDs             = 0.;
-   m_tCBSb             = 0.;
-   m_tCBSs             = 0.;
-   m_tCj               = 0.;
-   m_tCjsw             = 0.;
-   m_tBulkPot          = 0.7;
-   m_tDepCap           = 0.35;
-   m_tVbi              = 1.;
-   m_VBScrit           = .7;
-   m_VBDcrit           = 0.7;
-   m_f1b               = 0.;
-   m_f2b               = 0.;
-   m_f3b               = 0.;
-   m_f1s               = 0.;
-   m_f2s               = 0.;
-   m_f3s               = 0.;
-   m_dVt               = 0.;
-
-   m_capgd = 0.;
-   m_capgs = 0.;
-   m_capgb = 0.;
-   m_qgs = 0.;
-   m_qgd = 0.;
-   m_qgb = 0.;
-}  */
-
-        Real m_tTransconductance( start = 0.); // any value ...
+        Real m_tTransconductance( start = 0.);
         Real m_tSurfMob( start = 0.);
         Real m_tPhi( start = 0.7);
         Real m_tVto( start = 1.);
@@ -6218,7 +5155,6 @@ SpiceRoot::SpiceRoot() :
       end CurrrentsCapacitances;
 
       function MosCalcInitEquations
-      /* void MosCalc::InitEquations() */
 
         input Mos1.Mos1ModelLineParams in_p;
         input SpiceConstants in_C;
@@ -6228,73 +5164,14 @@ SpiceRoot::SpiceRoot() :
         output Mos1.Mos1Calc out_c;
 
       algorithm
-      /* {if (m_pDevice->m_len - 2 * m_pParameters->m_latDiff <= 0)
-      NegativeLEffEx(
-         m_pDevice, m_pDevice->m_len - 2 * m_pParameters->m_latDiff).print();*/
-
-      //  if (in_m.m_len - 2 * in_p.m_latDiff <= 0) then
-      //    NegativeLEffEx(m_pDevice, m_pDevice->m_len - 2 * m_pParameters->m_latDiff).print();
-      //  end if;
-
-      /*
-C++   if (m_pParameters->m_drainResistanceValue->IsGiven())
-C++   {
-C++      if (m_pParameters->m_drainResistance != 0)
-C++         m_drainConductance = 1 / m_pParameters->m_drainResistance;
-C++   }
-C++   else
-C++      if (m_pParameters->m_sheetResistance != 0)
-C++         m_drainConductance = 1 /
-C++            (m_pParameters->m_sheetResistance * m_pDevice->m_drainSquares);*/
-      /*
-  if (in_p.m_drainResistance > 0) then  // if (in_p.m_drainResistanceValue->IsGiven()) then
-    if (in_p.m_drainResistance <> 0) then
-      out_c.m_drainConductance := 1 / in_p.m_drainResistance;
-    end if;
-  else
-    if (in_p.m_sheetResistance <> 0) then
-      out_c.m_drainConductance := 1 / (in_p.m_sheetResistance * in_m.m_drainSquares);
-    end if;
-  end if;
-*/
-
          out_c.m_drainResistance := if
                                       (in_p.m_drainResistanceIsGiven > 0.5) then
              in_p.m_drainResistance else
              in_p.m_sheetResistance * in_m.m_drainSquares;
 
-      /*   if (m_pParameters->m_sourceResistanceValue->IsGiven())
-C++   {
-C++      if (m_pParameters->m_sourceResistance != 0)
-C++         m_sourceConductance = 1 / m_pParameters->m_sourceResistance;
-C++   }
-C++   else if (m_pParameters->m_sheetResistance != 0)
-C++      m_sourceConductance =
-C++         1 / (m_pParameters->m_sheetResistance * m_pDevice->m_sourceSquares);*/
-      /*
-  if (in_p.m_sourceResistance > 0) then // if (in_p.m_sourceResistanceValue->IsGiven()) then
-    if (in_p.m_sourceResistance <> 0) then
-      out_c.m_sourceConductance := 1 / in_p.m_sourceResistance;
-    end if;
-  elseif (in_p.m_sheetResistance <> 0) then
-    out_c.m_sourceConductance := 1 / (in_p.m_sheetResistance * in_m.m_sourceSquares);
-  end if;
-*/
-
-      out_c.m_sourceResistance := if  (in_p.m_sourceResistanceIsGiven > 0.5) then
+         out_c.m_sourceResistance := if  (in_p.m_sourceResistanceIsGiven > 0.5) then
              in_p.m_sourceResistance else
              in_p.m_sheetResistance * in_m.m_sourceSquares;
-
-      /*   m_lEff     = m_pDevice->m_len - 2 * m_pParameters->m_latDiff;
-   
-   if (F_Abs( m_lEff) < 1e-18)
-      m_lEff = 1e-6;
-   m_capGSovl = m_pParameters->m_gateSourceOverlapCapFactor * m_pDevice->m_width;
-   m_capGDovl = m_pParameters->m_gateDrainOverlapCapFactor * m_pDevice->m_width;
-   m_capGBovl = m_pParameters->m_gateBulkOverlapCapFactor * m_lEff;
-   m_capOx    = m_pParameters->m_oxideCapFactor * m_lEff * m_pDevice->m_width;
-   m_pDevice->InitHistory( MOSlastStore);
-}  */
 
         out_c.m_lEff := in_m.m_len - 2 * in_p.m_latDiff;
 
@@ -6306,12 +5183,10 @@ C++         1 / (m_pParameters->m_sheetResistance * m_pDevice->m_sourceSquares);
 
         out_c.m_capGBovl := in_p.m_gateBulkOverlapCapFactor * out_c.m_lEff;
         out_c.m_capOx    := in_vp.m_oxideCapFactor * out_c.m_lEff * in_m.m_width;
-        //m_pDevice->InitHistory( MOSlastStore);
 
       end MosCalcInitEquations;
 
       function MosCalcCalcTempDependencies
-      /* void MosCalc::CalcTempDependencies() */
 
         input Mos1.Mos1ModelLineParams in_p;
         input SpiceConstants in_C;
@@ -6322,7 +5197,6 @@ C++         1 / (m_pParameters->m_sheetResistance * m_pDevice->m_sourceSquares);
 
         output Mos1.Mos1Calc out_c;
 
-      /* double dummy, ratio, ratio4; */
       protected
          Real dummy;
          Real ratio;
@@ -6330,11 +5204,6 @@ C++         1 / (m_pParameters->m_sheetResistance * m_pDevice->m_sourceSquares);
 
       algorithm
         out_c := in_c;
-      /*   double ratio   = m_pDevice->m_dTemp / m_pParameters->m_tnom;
-   double ratio4  = ratio * sqrt(ratio);
-   m_tTransconductance = m_pParameters->m_transconductance / ratio4;
-   m_Beta = m_tTransconductance * m_pDevice->m_width / m_lEff;
-   m_tSurfMob          = m_pParameters->m_surfaceMobility / ratio4;*/
 
         ratio                     := in_m.m_dTemp / in_p.m_tnom;
         ratio4                    := ratio * sqrt(ratio);
@@ -6343,55 +5212,17 @@ C++         1 / (m_pParameters->m_sheetResistance * m_pDevice->m_sourceSquares);
 
         out_c.m_tSurfMob          := in_p.m_surfaceMobility / ratio4;
 
-      /*  m_tPhi = m_pDevice->JunctionPotDepTemp(
-      m_pParameters->m_phi, m_pDevice->m_dTemp, m_pParameters->m_tnom); */
-
         out_c.m_tPhi := Equation.JunctionPotDepTemp(in_vp.m_phi, in_m.m_dTemp, in_p.m_tnom);
-
-      /*  m_tVbi =  m_pParameters->m_vt0 - m_pModel->m_type *
-      (m_pParameters->m_gamma * sqrt(m_pParameters->m_phi)) + .5 *
-      (m_pDevice->EnergyGap_dep_Temp( m_pParameters->m_tnom) -
-       m_pDevice->EnergyGap_dep_Temp( m_pDevice->m_dTemp))
-      + m_pModel->m_type * .5 * (m_tPhi - m_pParameters->m_phi);
-  m_tVto = m_tVbi +
-      m_pModel->m_type * m_pParameters->m_gamma * sqrt(m_tPhi); */
 
         out_c.m_tVbi := in_vp.m_vt0 - in_m_type * (in_vp.m_gamma * sqrt(in_vp.m_phi)) +.5  *
                         (Equation.EnergyGap_dep_Temp( in_p.m_tnom) - Equation.EnergyGap_dep_Temp( in_m.m_dTemp))
                         + in_m_type *.5  * (out_c.m_tPhi - in_vp.m_phi);
         out_c.m_tVto := out_c.m_tVbi + in_m_type * in_vp.m_gamma * sqrt(out_c.m_tPhi);
 
-      /*  m_tBulkPot = m_pDevice->JunctionPotDepTemp(
-      m_pParameters->m_bulkJctPotential,
-      m_pDevice->m_dTemp, m_pParameters->m_tnom);
-  m_tDepCap  = m_pParameters->m_fwdCapDepCoeff * m_tBulkPot; */
-
         out_c.m_tBulkPot := Equation.JunctionPotDepTemp(in_p.m_bulkJctPotential,in_m.m_dTemp, in_p.m_tnom);
         out_c.m_tDepCap  := in_p.m_fwdCapDepCoeff * out_c.m_tBulkPot;
 
-      /*   if ((m_pParameters->m_jctSatCurDensity == 0.) ||
-       (m_pDevice->m_sourceArea == 0.) ||
-       (m_pDevice->m_drainArea == 0.))
-   {
-      m_tDrainSatCur = m_pDevice->SaturationCurDepTempSPICE3MOSFET(
-         m_pParameters->m_jctSatCur, m_pDevice->m_dTemp,
-         m_pParameters->m_tnom);
-      m_tSourceSatCur = m_tDrainSatCur;
-      m_VBScrit = m_pDevice->JunctionVCrit( m_pDevice->m_dTemp, 1., m_tSourceSatCur);
-      m_VBDcrit = m_VBScrit;
-   }
-   else
-   {
-      m_tSatCurDens = m_pDevice->SaturationCurDepTempSPICE3MOSFET(
-         m_pParameters->m_jctSatCurDensity, m_pDevice->m_dTemp,
-         m_pParameters->m_tnom);
-      m_tDrainSatCur = m_tSatCurDens * m_pDevice->m_drainArea;
-      m_tSourceSatCur = m_tSatCurDens * m_pDevice->m_sourceArea;
-      m_VBScrit = m_pDevice->JunctionVCrit( m_pDevice->m_dTemp, 1., m_tSourceSatCur);
-      m_VBDcrit = m_pDevice->JunctionVCrit( m_pDevice->m_dTemp, 1., m_tDrainSatCur);
-   } */
-
-        if (in_p.m_jctSatCurDensity == 0. or in_m.m_sourceArea == 0. or in_m.m_drainArea == 0.) then
+       if (in_p.m_jctSatCurDensity == 0. or in_m.m_sourceArea == 0. or in_m.m_drainArea == 0.) then
           out_c.m_tDrainSatCur  := Equation.SaturationCurDepTempSPICE3MOSFET(
                                    in_p.m_jctSatCur, in_m.m_dTemp, in_p.m_tnom);
           out_c.m_tSourceSatCur := out_c.m_tDrainSatCur;
@@ -6406,33 +5237,6 @@ C++         1 / (m_pParameters->m_sheetResistance * m_pDevice->m_sourceSquares);
           out_c.m_VBDcrit       := Equation.JunctionVCrit( in_m.m_dTemp, 1., out_c.m_tDrainSatCur);
         end if;
 
-      /*   if (!m_pParameters->m_capBDValue->IsGiven() || !m_pParameters->m_capBSValue->IsGiven())
-C++   {
-C++      m_pDevice->JunctionParamDepTempSPICE3(
-C++         dummy, m_tCj, m_pParameters->m_bulkJctPotential,
-C++         m_pParameters->m_bulkCapFactor,
-C++         m_pParameters->m_bulkJctBotGradingCoeff,
-C++         m_pDevice->m_dTemp, m_pParameters->m_tnom);
-C++      m_pDevice->JunctionParamDepTempSPICE3(
-C++         dummy, m_tCjsw, m_pParameters->m_bulkJctPotential,
-C++         m_pParameters->m_sideWallCapFactor,
-C++         m_pParameters->m_bulkJctSideGradingCoeff,
-C++         m_pDevice->m_dTemp, m_pParameters->m_tnom);
-C++      //       m_tCj = JunctionCapDepTemp(
-C++      //          m_pParameters->m_bulkCapFactor, m_pParameters->m_bulkJctBotGradingCoeff,
-C++      //          m_pParameters->m_bulkJctPotential,
-C++      //          m_pDevice->m_dTemp, m_pParameters->m_tnom);
-C++      //       m_tCjsw = JunctionCapDepTemp(
-C++      //          m_pParameters->m_sideWallCapFactor,
-C++      //          m_pParameters->m_bulkJctSideGradingCoeff,
-C++      //          m_pParameters->m_bulkJctPotential,
-C++      //          m_pDevice->m_dTemp, m_pParameters->m_tnom);
-C++     m_pDevice->JunctionCapCoeffs(
-C++         m_f1s, m_f2s, m_f3s, m_pParameters->m_bulkJctSideGradingCoeff,
-C++         m_pParameters->m_fwdCapDepCoeff, m_tBulkPot);
-C++   } */
-
-      //  if ( not in_p.m_capBDValue->IsGiven() or not in_p.m_capBSValue->IsGiven())
         if ( not (in_p.m_capBDIsGiven > 0.5) or not (in_p.m_capBSIsGiven > 0.5)) then
           (dummy, out_c.m_tCj)   := Equation.JunctionParamDepTempSPICE3(
                                     in_p.m_bulkJctPotential, in_p.m_bulkCapFactor,
@@ -6444,25 +5248,6 @@ C++   } */
                                     in_p.m_bulkJctSideGradingCoeff, in_p.m_fwdCapDepCoeff, out_c.m_tBulkPot);
         end if;
 
-      /* if (m_pParameters->m_capBDValue->IsGiven())
-C++   {
-C++      m_pDevice->JunctionParamDepTempSPICE3(
-C++         dummy, m_tCBDb, m_pParameters->m_bulkJctPotential,
-C++         m_pParameters->m_capBD, m_pParameters->m_bulkJctBotGradingCoeff,
-C++         m_pDevice->m_dTemp, m_pParameters->m_tnom);
-C++      //       m_tCBDb = JunctionCapDepTemp(
-C++      //          m_pParameters->m_capBD, m_pParameters->m_bulkJctBotGradingCoeff,
-C++      //          m_pParameters->m_bulkJctPotential,
-C++      //          m_pDevice->m_dTemp, m_pParameters->m_tnom);
-C++      m_tCBDs = 0.0;
-C++   }
-C++   else
-C++   {
-C++      m_tCBDb = m_tCj * m_pDevice->m_drainArea;
-C++      m_tCBDs = m_tCjsw * m_pDevice->m_drainPerimiter;
-C++   } */
-
-      //  if (m_pParameters->m_capBDValue->IsGiven())
         if (in_p.m_capBDIsGiven > 0.5) then
           (dummy, out_c.m_tCBDb) := Equation.JunctionParamDepTempSPICE3(
                                     in_p.m_bulkJctPotential, in_p.m_capBD,
@@ -6473,30 +5258,6 @@ C++   } */
           out_c.m_tCBDs := out_c.m_tCjsw * in_m.m_drainPerimiter;
         end if;
 
-      /*   if (m_pParameters->m_capBSValue->IsGiven())
-C++   {
-C++      m_pDevice->JunctionParamDepTempSPICE3(
-C++         dummy, m_tCBSb, m_pParameters->m_bulkJctPotential,
-C++         m_pParameters->m_capBS, m_pParameters->m_bulkJctBotGradingCoeff,
-C++         m_pDevice->m_dTemp, m_pParameters->m_tnom);
-C++      //       m_tCBSb = JunctionCapDepTemp(
-C++      //          m_pParameters->m_capBS, m_pParameters->m_bulkJctBotGradingCoeff,
-C++      //          m_pParameters->m_bulkJctPotential,
-C++      //          m_pDevice->m_dTemp, m_pParameters->m_tnom);
-C++      m_tCBSs = 0.0;
-C++   }
-C++   else
-C++   {
-C++      m_tCBSb = m_tCj * m_pDevice->m_sourceArea;
-C++      m_tCBSs = m_tCjsw * m_pDevice->m_sourcePerimiter;
-C++   }
-C++   m_pDevice->JunctionCapCoeffs(
-C++      m_f1b, m_f2b, m_f3b, m_pParameters->m_bulkJctBotGradingCoeff,
-C++      m_pParameters->m_fwdCapDepCoeff, m_tBulkPot);
-C++   m_dVt   = m_pDevice->m_dTemp * m_pDevice->CONSTKoverQ;
-C++   } */
-
-      //  if (m_pParameters->m_capBSValue->IsGiven())
         if (in_p.m_capBSIsGiven > 0.5) then
           (dummy, out_c.m_tCBSb) := Equation.JunctionParamDepTempSPICE3(
                                     in_p.m_bulkJctPotential, in_p.m_capBS,
@@ -6514,7 +5275,6 @@ C++   } */
       end MosCalcCalcTempDependencies;
 
       function MosCalcNoBypassCode
-      /* void MosCalc::NoBypassCode() */
 
         input Mosfet.Mosfet in_m;
         input Integer in_m_type;
@@ -6522,13 +5282,10 @@ C++   } */
         input Mos1.Mos1ModelLineParams in_p;
         input SpiceConstants in_C;
         input Mos.MosModelLineVariables in_vp;
-        //input DEVqmeyer in_qm;                 // qmeyer-Parameter vom letzten Schritt
         input Boolean in_m_bInit;
         input Real[4] in_m_pVoltageValues; /* gate bulk drain source */
 
         output CurrrentsCapacitances out_cc;
-
-      //  output DEVqmeyer out_qm;
 
       protected
         Real vbd;
@@ -6545,33 +5302,9 @@ C++   } */
       algorithm
         int_c := in_c;
 
-      /*{m_vds = m_pModel->m_type * m_pDevice->GetVoltage( DP, SP);
-   m_vgs = m_pModel->m_type * m_pDevice->GetVoltage( G , SP);
-   m_vbs = m_pModel->m_type * m_pDevice->GetVoltage( B , SP); */
-
         int_c.m_vgs := in_m_type * (in_m_pVoltageValues[1] - in_m_pVoltageValues[4]); // ( G , SP)
         int_c.m_vbs := in_m_type * (in_m_pVoltageValues[2] - in_m_pVoltageValues[4]); // ( B , SP)
         int_c.m_vds := in_m_type * (in_m_pVoltageValues[3] - in_m_pVoltageValues[4]); // ( DP, SP)
-
-      /* if (m_pDevice->UseInitialConditions() && m_pDevice->m_ICVBSValue->IsGiven())
-C++      m_vbs = m_pModel->m_type * m_pDevice->m_dICVBS;
-C++   else if (m_pDevice->InitJunctionVoltages())
-C++      if (m_pDevice->m_off)
-C++         m_vbs = 0.;
-C++      else
-C++         m_vbs = m_VBScrit;
-C++   if (m_pDevice->UseInitialConditions() && m_pDevice->m_ICVDSValue->IsGiven())
-C++      m_vds = m_pModel->m_type * m_pDevice->m_dICVDS;
-C++   else if (m_pDevice->InitJunctionVoltages())
-C++      if (m_pDevice->m_off)
-C++         m_vds = 0.;
-C++      else
-C++         m_vds = m_VBDcrit - m_VBScrit;
-C++   if (m_pDevice->UseInitialConditions() && m_pDevice->m_ICVGSValue->IsGiven())
-C++      m_vgs = m_pModel->m_type * m_pDevice->m_dICVGS;
-C++   else if (m_pDevice->InitJunctionVoltages())
-C++      if (m_pDevice->m_off)
-C++         m_vgs = 0.; */
 
         if ( SpiceRoot.UseInitialConditions())    and (in_m.m_dICVBSIsGiven >0.5) then
           int_c.m_vbs := in_m_type * in_m.m_dICVBS;
@@ -6591,67 +5324,16 @@ C++         m_vgs = 0.; */
           end if;
         end if;
 
-      /* if (!m_vds && !m_vgs && !m_vbs && !m_pDevice->UseInitialConditions() &&
-C++       !m_pDevice->m_off)
-C++   {
-C++      m_vbs = -1;
-C++      m_vgs = m_pModel->m_type * m_tVto;
-C++      m_vds = 0;
-C++   }
-
-C++   double vbd = m_vbs - m_vds;
-C++   double vgd = m_vgs - m_vds;
-
-C++   if (m_vds >= 0)
-C++   {
-C++      m_vbs = m_pDevice->LimitJunctionVoltage( m_vbs, m_dVt, m_VBScrit);
-C++      vbd = m_vbs-m_vds;
-C++   } else {
-C++      vbd = m_pDevice->LimitJunctionVoltage( vbd, m_dVt, m_VBDcrit);
-C++      m_vbs = vbd + m_vds;
-C++   }
-C++
-C++   double vgb = m_vgs - m_vbs; */
-
-      /*
-C++  if ( not SpiceRoot.UseInitialConditions() and not in_m.m_off) then
-C++       //not int_c.m_vds and not int_c.m_vgs and not int_c.m_vbs and
-C++    int_c.m_vbs := -1;
-C++    int_c.m_vgs := in_m_type * int_c.m_tVto;
-C++    int_c.m_vds := 0;
-C++  end if;
-C++*/
-
         vbd := int_c.m_vbs - int_c.m_vds;
         vgd := int_c.m_vgs - int_c.m_vds;
 
         if ( int_c.m_vds >= 0) then
-      //    int_c.m_vbs := SpiceRoot.LimitJunctionVoltage(int_c.m_vbs);
           vbd         := int_c.m_vbs - int_c.m_vds;
         else
-      //    vbd         := SpiceRoot.LimitJunctionVoltage(vbd);
-          int_c.m_vbs := vbd + int_c.m_vds;
+            int_c.m_vbs := vbd + int_c.m_vds;
         end if;
 
         vgb := int_c.m_vgs - int_c.m_vbs;
-
-      /*   //////////////////////////////////////////////////////////////////////
-C++   // resistances
-C++   m_pDevice->InternConductance( D, DP, m_drainConductance);
-C++   m_pDevice->InternConductance( S, SP, m_sourceConductance); */
-
-      /*   //////////////////////////////////////////////////////////////////////
-C++   // bulk-source and bulk-drain diodes here we just
-C++   // evaluate the ideal diode current and the
-C++   // corresponding derivative (conductance).
-C++   // m_pDevice->Junction2( cbd, gbd, vbd, m_pDevice->m_dTemp, 1., m_tDrainSatCur);
-C++   m_pDevice->Junction2_SPICE3_MOSFET( m_cbd, m_gbd, vbd, m_pDevice->m_dTemp, 1., m_tDrainSatCur);
-C++   m_pDevice->InsertConductance(
-C++      B, DP, m_gbd, m_pModel->m_type * m_cbd, m_pModel->m_type * vbd);
-C++   //    Junction2( cbs, gbs, vbs, m_pDevice->m_dTemp, 1., m_tSourceSatCur);
-C++   m_pDevice->Junction2_SPICE3_MOSFET( m_cbs, m_gbs, m_vbs, m_pDevice->m_dTemp, 1., m_tSourceSatCur);
-C++   m_pDevice->InsertConductance(
-C++      B, SP, m_gbs, m_pModel->m_type * m_cbs, m_pModel->m_type * m_vbs); */
 
          (int_c.m_cbd, int_c.m_gbd) := Equation.Junction2_SPICE3_MOSFET( int_c.m_cbd, int_c.m_gbd, vbd,
                                        in_m.m_dTemp, 1., int_c.m_tDrainSatCur);
@@ -6660,30 +5342,7 @@ C++      B, SP, m_gbs, m_pModel->m_type * m_cbs, m_pModel->m_type * m_vbs); */
                                        in_m.m_dTemp, 1., int_c.m_tSourceSatCur);
          out_cc.iBS                 := in_m_type * int_c.m_cbs;
 
-      /*   //////////////////////////////////////////////////////////////////////
-C++   // now to determine whether the user was able to
-C++   // correctly identify the source and drain of his
-C++   // device
-C++   if (m_vds >= 0)
-C++      m_mode =  1; // normal mode
-C++   else
-C++      m_mode = -1; // inverse mode */
-
         int_c.m_mode := if (int_c.m_vds >= 0) then 1 else -1; // 1: normal mode, -1: inverse mode
-
-      /*   //////////////////////////////////////////////////////////////////////
-C++   // this block of code evaluates the drain
-C++   // current and its derivatives
-C++   if (m_mode == 1)
-C++      // Let the actual instance calculate the values
-C++      DrainCur( m_vbs, m_vgs, m_vds, m_cdrain, m_gm, m_gmbs, m_gds);
-C++   else
-C++      DrainCur( vbd, vgd, -m_vds, m_cdrain, m_gm, m_gmbs, m_gds);
-C++   m_pDevice->InsertNonChargeCurrent(
-C++      DP, SP, m_pModel->m_type * m_cdrain * m_mode,
-C++      DP, SP, m_gds, m_pModel->m_type * m_vds,
-C++      G, m_mode == 1 ? SP : DP, m_mode * m_gm, m_pModel->m_type * (m_mode == 1 ? m_vgs : vgd),
-      B, m_mode == 1 ? SP : DP, m_mode * m_gmbs, m_pModel->m_type * (m_mode == 1 ? m_vbs : vbd)); */
 
         if (int_c.m_mode == 1) then
 
@@ -6696,39 +5355,6 @@ C++      G, m_mode == 1 ? SP : DP, m_mode * m_gm, m_pModel->m_type * (m_mode == 
         out_cc.idrain := in_m_type * int_c.m_cdrain * int_c.m_mode;
 
         zzz := int_c.m_cdrain;
-        // out_cc.idrain := zzz; //in_m_pVoltageValues[3]; //int_c.m_vds;
-
-      /*   //////////////////////////////////////////////////////////////////////
-C++   // now we do the hard part of the bulk-drain and bulk-source diode -
-C++   // we evaluate the non-linear capacitance and charge
-C++   m_capbss    = 0.0;
-C++   m_chargebss = 0.0;
-C++   m_capbds    = 0.0;
-C++   m_chargebds = 0.0;
-C++   m_pDevice->JunctionCap(
-C++      m_capbsb, m_chargebsb, m_tCBSb, m_vbs, m_tDepCap,
-C++      m_pParameters->m_bulkJctBotGradingCoeff, m_tBulkPot,
-C++      m_f1b, m_f2b, m_f3b);
-C++   m_pDevice->JunctionCap(
-C++      m_capbdb, m_chargebdb, m_tCBDb, vbd, m_tDepCap,
-C++      m_pParameters->m_bulkJctBotGradingCoeff, m_tBulkPot,
-C++      m_f1b, m_f2b, m_f3b);
-C++   if (!m_pParameters->m_capBSValue->IsGiven())
-C++      m_pDevice->JunctionCap(
-C++         m_capbss, m_chargebss, m_tCBSs, m_vbs, m_tDepCap,
-C++         m_pParameters->m_bulkJctSideGradingCoeff, m_tBulkPot,
-C++         m_f1s, m_f2s, m_f3s);
-C++   if (!m_pParameters->m_capBDValue->IsGiven())
-C++      m_pDevice->JunctionCap(
-C++         m_capbds, m_chargebds, m_tCBDs, vbd, m_tDepCap,
-C++         m_pParameters->m_bulkJctSideGradingCoeff, m_tBulkPot,
-C++         m_f1s, m_f2s, m_f3s);
-C++   m_pDevice->InsertCapacitance(
-C++      B, SP, m_capbsb + m_capbss, m_pModel->m_type * (m_chargebsb + m_chargebss),
-C++      m_pModel->m_type * m_vbs);
-C++   m_pDevice->InsertCapacitance(
-C++      B, DP, m_capbdb + m_capbds, m_pModel->m_type * (m_chargebdb + m_chargebds),
-C++      m_pModel->m_type * vbd); */
 
         int_c.m_capbss    := 0.0;
         int_c.m_chargebss := 0.0;
@@ -6744,14 +5370,13 @@ C++      m_pModel->m_type * vbd); */
                in_p.m_bulkJctBotGradingCoeff, int_c.m_tBulkPot,
                int_c.m_f1b, int_c.m_f2b, int_c.m_f3b);
 
-      //  if ( not in_p.m_capBSIsValue->IsGiven()) then
         if ( not (in_p.m_capBSIsGiven > 0.5)) then
           (int_c.m_capbss, int_c.m_chargebss) := Equation.JunctionCap(
                int_c.m_tCBSs,int_c. m_vbs, int_c.m_tDepCap,
                in_p.m_bulkJctSideGradingCoeff, int_c.m_tBulkPot,
                int_c.m_f1s, int_c.m_f2s, int_c.m_f3s);
         end if;
-      //  if (not in_p.m_capBDValue->IsGiven()) then
+
         if (not (in_p.m_capBDIsGiven > 0.5)) then
           (int_c.m_capbds, int_c.m_chargebds) := Equation.JunctionCap(
                int_c.m_tCBDs, vbd, int_c.m_tDepCap,
@@ -6759,52 +5384,15 @@ C++      m_pModel->m_type * vbd); */
                int_c.m_f1s, int_c.m_f2s, int_c.m_f3s);
         end if;
 
-      //   m_pDevice->InsertCapacitance(
-      //      B, SP, m_capbsb + m_capbss, m_pModel->m_type * (m_chargebsb + m_chargebss),
-      //      m_pModel->m_type * m_vbs);
-        out_cc.cBS := if (in_m_bInit) then 1e-15 else (int_c.m_capbsb + int_c.m_capbss); //statt 1e-15 eigentlich 0
+        out_cc.cBS := if (in_m_bInit) then 1e-15 else (int_c.m_capbsb + int_c.m_capbss);
 
-      //   m_pDevice->InsertCapacitance(
-      //      B, DP, m_capbdb + m_capbds, m_pModel->m_type * (m_chargebdb + m_chargebds),
-      //      m_pModel->m_type * vbd); */
-        out_cc.cBD := if (in_m_bInit) then 1e-15 else (int_c.m_capbdb + int_c.m_capbds);  //statt 1e-15 eigentlich 0
-
-      /*   //////////////////////////////////////////////////////////////////////
-C++   // Last we have to calculate the gate capacitances
-C++   // calculate meyer's capacitors
-C++   // new cmeyer - this just evaluates at the current time,
-C++   // expects you to remember values from previous time returns 1/2 of
-C++   // non-constant portion of capacitance you must add in the other half
-C++   // from previous time and the constant part
-C++   if (m_mode > 0)
-C++      DEVqmeyer( m_vgs, vgd, vgb, MOScapgs, MOScapgd, MOScapgb);
-C++   else
-C++      DEVqmeyer( vgd, m_vgs, vgb, MOScapgd, MOScapgs, MOScapgb); */
-
+        out_cc.cBD := if (in_m_bInit) then 1e-15 else (int_c.m_capbdb + int_c.m_capbds);
         if (int_c.m_mode > 0) then
           qm := MosCalcDEVqmeyer( int_c.m_vgs, vgd, vgb, int_c);
         else
           qm := MosCalcDEVqmeyer( vgd, int_c.m_vgs, vgb, int_c);
         end if;
         in_qm := qm;
-      /* if (m_pDevice->m_bInit)
-C++   {
-C++      m_capgd = 2 * m_pDevice->GetHistoryValue( MOScapgd, 0) + m_capGDovl;
-C++      m_capgs = 2 * m_pDevice->GetHistoryValue( MOScapgs, 0) + m_capGSovl;
-C++      m_capgb = 2 * m_pDevice->GetHistoryValue( MOScapgb, 0) + m_capGBovl;
-C++      m_qgs   = m_capgs * m_vgs;
-C++      m_qgb   = m_capgb * vgb;
-C++      m_qgd   = m_capgd * vgd;
-C++   }
-C++   else
-C++   {
-C++      m_capgd = m_pDevice->GetHistoryValue( MOScapgd, 0) + m_pDevice->GetHistoryValue( MOScapgd) + m_capGDovl;
-C++      m_capgs = m_pDevice->GetHistoryValue( MOScapgs, 0) + m_pDevice->GetHistoryValue( MOScapgs) + m_capGSovl;
-C++      m_capgb = m_pDevice->GetHistoryValue( MOScapgb, 0) + m_pDevice->GetHistoryValue( MOScapgb) + m_capGBovl;
-C++      m_qgs   = (m_vgs - m_pDevice->GetHistoryValue( MOSvgs)) * m_capgs + m_pDevice->GetHistoryValue( MOSqgs);
-C++      m_qgb   = (vgb - m_pDevice->GetHistoryValue( MOSvgb)) * m_capgb + m_pDevice->GetHistoryValue( MOSqgb);
-C++      m_qgd   = (vgd - m_pDevice->GetHistoryValue( MOSvgd)) * m_capgd + m_pDevice->GetHistoryValue( MOSqgd);
-C++   } */
 
         if (in_m_bInit) then
           int_c.m_capgd := 2 * qm.qm_capgd + int_c.m_capGDovl;
@@ -6825,13 +5413,6 @@ C++   } */
 
           out_cc.m_capgd := int_c.m_capgd;
 
-      /* m_pDevice->SetHistoryValue( MOSqgs, m_qgs);
-C++   m_pDevice->SetHistoryValue( MOSqgb, m_qgb);
-C++   m_pDevice->SetHistoryValue( MOSqgd, m_qgd);
-C++   m_pDevice->SetHistoryValue( MOSvgs, m_vgs);
-C++   m_pDevice->SetHistoryValue( MOSvgb, vgb);
-C++   m_pDevice->SetHistoryValue( MOSvgd, vgd); */
-
         qm.qm_qgs := int_c.m_qgs;
         qm.qm_qgb := int_c.m_qgb;
         qm.qm_qgd := int_c.m_qgd;
@@ -6839,32 +5420,13 @@ C++   m_pDevice->SetHistoryValue( MOSvgd, vgd); */
         qm.qm_vgb := vgb;
         qm.qm_vgd := vgd;
 
-        //C++ store new qmeyer parameter for next solution step
-      //C++  out_qm := qm;
-
-      /* m_pDevice->InsertCapacitance(
-C++      G, DP, m_capgd, m_pModel->m_type * m_qgd, m_pModel->m_type * vgd);
-C++   m_pDevice->InsertCapacitance(
-C++      G, SP, m_capgs, m_pModel->m_type * m_qgs, m_pModel->m_type * m_vgs);
-C++   m_pDevice->InsertCapacitance(
-C++      G, B , m_capgb, m_pModel->m_type * m_qgb, m_pModel->m_type * vgb);} */
-
-        out_cc.cGB := if (in_m_bInit) then -1e40 else int_c.m_capgb;  //statt 1e-15 eigentlich 0
-        out_cc.cGD := if (in_m_bInit) then -1e40 else int_c.m_capgd;  //statt 1e-15 eigentlich 0
-        out_cc.cGS := if (in_m_bInit) then -1e40 else int_c.m_capgs;  //statt 1e-15 eigentlich 0
+        out_cc.cGB := if (in_m_bInit) then -1e40 else int_c.m_capgb;
+        out_cc.cGD := if (in_m_bInit) then -1e40 else int_c.m_capgd;
+        out_cc.cGS := if (in_m_bInit) then -1e40 else int_c.m_capgs;
 
       end MosCalcNoBypassCode;
 
       function MosCalcDEVqmeyer
-      /* // Compute the MOS overlap capacitances as functions of the
-   //  device terminal voltages
-   void MosCalc::DEVqmeyer(
-   double vgs,    // initial voltage gate-source
-   double vgd,    // initial voltage gate-drain
-   double vgb,    // initial voltage gate-bulk
-   int NrCapGs,   // non-constant portion of g-s overlap capacitance
-   int NrCapGd,   // non-constant portion of g-d overlap capacitance
-   int NrCapGb    // non-constant portion of g-b overlap capacitance ) */
 
         input Real vgs;
         input Real vgd;
@@ -6881,49 +5443,6 @@ C++      G, B , m_capgb, m_pModel->m_type * m_qgb, m_pModel->m_type * vgb);} */
         Real vgst;
 
       algorithm
-      /*{double vds;    // Drain-Source voltage
-   double vddif;
-   double vddif1;
-   double vddif2;
-   double vgst;
-   vgst = vgs - m_von;
-   if (vgst <= -m_tPhi)
-   {
-      m_pDevice->SetHistoryValue( NrCapGb, m_capOx / 2.);
-      m_pDevice->SetHistoryValue( NrCapGs, 0.);
-      m_pDevice->SetHistoryValue( NrCapGd, 0.);
-   }
-   else if (vgst <= -m_tPhi / 2.)
-   {
-      m_pDevice->SetHistoryValue( NrCapGb, -vgst * m_capOx / (2. * m_tPhi));
-      m_pDevice->SetHistoryValue( NrCapGs, 0.);
-      m_pDevice->SetHistoryValue( NrCapGd, 0.);
-   }
-   else if (vgst <= 0.)
-   {
-      m_pDevice->SetHistoryValue( NrCapGb, -vgst * m_capOx / (2. * m_tPhi));
-      m_pDevice->SetHistoryValue( NrCapGs, vgst * m_capOx / (1.5 * m_tPhi) + m_capOx / 3.);
-      m_pDevice->SetHistoryValue( NrCapGd, 0.);
-   }
-   else
-   {
-      vds = vgs - vgd;
-      if (m_vdsat <= vds)
-      {
-         m_pDevice->SetHistoryValue( NrCapGs, m_capOx / 3.);
-         m_pDevice->SetHistoryValue( NrCapGd, 0.);
-         m_pDevice->SetHistoryValue( NrCapGb, 0.);
-      }
-      else
-      {
-         vddif  = 2.0 * m_vdsat - vds;
-         vddif1 = m_vdsat - vds; //-1.0e-12
-         vddif2 = vddif * vddif;
-         m_pDevice->SetHistoryValue( NrCapGd, m_capOx * (1. - m_vdsat  * m_vdsat  / vddif2) / 3.);
-         m_pDevice->SetHistoryValue( NrCapGs, m_capOx * (1. - vddif1 * vddif1 / vddif2) / 3.);
-         m_pDevice->SetHistoryValue( NrCapGb, 0.);
-      }   }}  */
-
         vgst := vgs - in_c.m_von;
         if (vgst <= -in_c.m_tPhi) then
           out_qm.qm_capgb := in_c.m_capOx / 2.;
@@ -6945,7 +5464,7 @@ C++      G, B , m_capgb, m_pModel->m_type * m_qgb, m_pModel->m_type * vgb);} */
             out_qm.qm_capgb := 0.;
           else
             vddif  := 2.0 * in_c.m_vdsat - vds;
-            vddif1 := in_c.m_vdsat - vds; //-1.0e-12
+            vddif1 := in_c.m_vdsat - vds;
             vddif2 := vddif * vddif;
             out_qm.qm_capgd := in_c.m_capOx * (1. - in_c.m_vdsat  * in_c.m_vdsat  / vddif2) / 3.;
             out_qm.qm_capgs := in_c.m_capOx * (1. - vddif1 * vddif1 / vddif2) / 3.;
@@ -6956,7 +5475,6 @@ C++      G, B , m_capgb, m_pModel->m_type * m_qgb, m_pModel->m_type * vgb);} */
       end MosCalcDEVqmeyer;
 
       function Mos2CalcInitEquations
-      /* void MosCalc::InitEquations() */
 
         input Mos2.Mos2ModelLineParams in_p;
         input SpiceConstants in_C;
@@ -6966,72 +5484,13 @@ C++      G, B , m_capgb, m_pModel->m_type * m_qgb, m_pModel->m_type * vgb);} */
         output Mos2.Mos2Calc out_c;
 
       algorithm
-      /* {if (m_pDevice->m_len - 2 * m_pParameters->m_latDiff <= 0)
-      NegativeLEffEx(
-         m_pDevice, m_pDevice->m_len - 2 * m_pParameters->m_latDiff).print();*/
-
-      //  if (in_m.m_len - 2 * in_p.m_latDiff <= 0) then
-      //    NegativeLEffEx(m_pDevice, m_pDevice->m_len - 2 * m_pParameters->m_latDiff).print();
-      //  end if;
-
-      /*
-C++   if (m_pParameters->m_drainResistanceValue->IsGiven())
-C++   {
-C++      if (m_pParameters->m_drainResistance != 0)
-C++         m_drainConductance = 1 / m_pParameters->m_drainResistance;
-C++   }
-C++   else
-C++      if (m_pParameters->m_sheetResistance != 0)
-C++         m_drainConductance = 1 /
-C++            (m_pParameters->m_sheetResistance * m_pDevice->m_drainSquares);*/
-
        out_c.m_drainResistance := if  (in_p.m_drainResistanceIsGiven > 0.5) then
              in_p.m_drainResistance else
              in_p.m_sheetResistance * in_m.m_drainSquares;
 
-      // if
-      //   (in_p.m_drainResistanceIsGiven > 0.5) then
-      //   if
-      //     (in_p.m_drainResistance <> 0) then
-      //     out_c.m_drainConductance :=1/in_p.m_drainResistance;
-      //   end if;
-      // else
-      //   if (in_p.m_sheetResistance <>0) then
-      //      out_c.m_drainConductance :=1/in_p.m_sheetResistance*in_m.m_drainSquares;
-      //   end if;
-      // end if;
-
-      /*   if (m_pParameters->m_sourceResistanceValue->IsGiven())
-C++   {
-C++      if (m_pParameters->m_sourceResistance != 0)
-C++         m_sourceConductance = 1 / m_pParameters->m_sourceResistance;
-C++   }
-C++   else if (m_pParameters->m_sheetResistance != 0)
-C++      m_sourceConductance =
-C++         1 / (m_pParameters->m_sheetResistance * m_pDevice->m_sourceSquares);*/
-      //
-        // if (in_p.m_sourceResistanceIsGiven > 0.5) then
-        //   if (in_p.m_sourceResistance <> 0) then
-        //     out_c.m_sourceConductance := 1 / in_p.m_sourceResistance;
-        //   end if;
-        // elseif (in_p.m_sheetResistance <> 0) then
-        //   out_c.m_sourceConductance := 1 / (in_p.m_sheetResistance * in_m.m_sourceSquares);
-        // end if;
-
       out_c.m_sourceResistance := if  (in_p.m_sourceResistanceIsGiven > 0.5) then
              in_p.m_sourceResistance else
              in_p.m_sheetResistance * in_m.m_sourceSquares;
-
-      /*   m_lEff     = m_pDevice->m_len - 2 * m_pParameters->m_latDiff;
- 
-   if (F_Abs( m_lEff) < 1e-18)
-      m_lEff = 1e-6;
-   m_capGSovl = m_pParameters->m_gateSourceOverlapCapFactor * m_pDevice->m_width;
-   m_capGDovl = m_pParameters->m_gateDrainOverlapCapFactor * m_pDevice->m_width;
-   m_capGBovl = m_pParameters->m_gateBulkOverlapCapFactor * m_lEff;
-   m_capOx    = m_pParameters->m_oxideCapFactor * m_lEff * m_pDevice->m_width;
-   m_pDevice->InitHistory( MOSlastStore);
-}  */
 
         out_c.m_lEff := in_m.m_len - 2 * in_p.m_latDiff;
 
@@ -7043,12 +5502,10 @@ C++         1 / (m_pParameters->m_sheetResistance * m_pDevice->m_sourceSquares);
         out_c.m_capGBovl := in_p.m_gateBulkOverlapCapFactor * out_c.m_lEff;
 
         out_c.m_capOx    := in_vp.m_oxideCapFactor * out_c.m_lEff * in_m.m_width;
-        //m_pDevice->InitHistory( MOSlastStore);
 
       end Mos2CalcInitEquations;
 
       function Mos2CalcCalcTempDependencies
-      /* void MosCalc::CalcTempDependencies() */
 
         input Mos2.Mos2ModelLineParams in_p;
         input SpiceConstants in_C;
@@ -7059,7 +5516,6 @@ C++         1 / (m_pParameters->m_sheetResistance * m_pDevice->m_sourceSquares);
 
         output Mos2.Mos2Calc out_c;
 
-      /* double dummy, ratio, ratio4; */
       protected
          Real dummy;
          Real ratio;
@@ -7067,11 +5523,6 @@ C++         1 / (m_pParameters->m_sheetResistance * m_pDevice->m_sourceSquares);
 
       algorithm
         out_c := in_c;
-      /*   double ratio   = m_pDevice->m_dTemp / m_pParameters->m_tnom;
-   double ratio4  = ratio * sqrt(ratio);
-   m_tTransconductance = m_pParameters->m_transconductance / ratio4;
-   m_Beta = m_tTransconductance * m_pDevice->m_width / m_lEff;
-   m_tSurfMob          = m_pParameters->m_surfaceMobility / ratio4;*/
 
         ratio                     := in_m.m_dTemp / in_p.m_tnom;
         ratio4                    := ratio * sqrt(ratio);
@@ -7080,53 +5531,15 @@ C++         1 / (m_pParameters->m_sheetResistance * m_pDevice->m_sourceSquares);
 
         out_c.m_tSurfMob          := in_p.m_surfaceMobility / ratio4;
 
-      /*  m_tPhi = m_pDevice->JunctionPotDepTemp(
-      m_pParameters->m_phi, m_pDevice->m_dTemp, m_pParameters->m_tnom); */
-
         out_c.m_tPhi := Equation.JunctionPotDepTemp(in_vp.m_phi, in_m.m_dTemp, in_p.m_tnom);
-
-      /*  m_tVbi =  m_pParameters->m_vt0 - m_pModel->m_type *
-      (m_pParameters->m_gamma * sqrt(m_pParameters->m_phi)) + .5 *
-      (m_pDevice->EnergyGap_dep_Temp( m_pParameters->m_tnom) -
-       m_pDevice->EnergyGap_dep_Temp( m_pDevice->m_dTemp))
-      + m_pModel->m_type * .5 * (m_tPhi - m_pParameters->m_phi);
-  m_tVto = m_tVbi +
-      m_pModel->m_type * m_pParameters->m_gamma * sqrt(m_tPhi); */
 
         out_c.m_tVbi := in_vp.m_vt0 - in_m_type * (in_vp.m_gamma * sqrt(in_vp.m_phi)) +.5  *
                         (Equation.EnergyGap_dep_Temp( in_p.m_tnom) - Equation.EnergyGap_dep_Temp( in_m.m_dTemp))
                         + in_m_type *.5  * (out_c.m_tPhi - in_vp.m_phi);
         out_c.m_tVto := out_c.m_tVbi + in_m_type * in_vp.m_gamma * sqrt(out_c.m_tPhi);
 
-      /*  m_tBulkPot = m_pDevice->JunctionPotDepTemp(
-      m_pParameters->m_bulkJctPotential,
-      m_pDevice->m_dTemp, m_pParameters->m_tnom);
-  m_tDepCap  = m_pParameters->m_fwdCapDepCoeff * m_tBulkPot; */
-
         out_c.m_tBulkPot := Equation.JunctionPotDepTemp(in_p.m_bulkJctPotential,in_m.m_dTemp, in_p.m_tnom);
         out_c.m_tDepCap  := in_p.m_fwdCapDepCoeff * out_c.m_tBulkPot;
-
-      /*   if ((m_pParameters->m_jctSatCurDensity == 0.) ||
-       (m_pDevice->m_sourceArea == 0.) ||
-       (m_pDevice->m_drainArea == 0.))
-   {
-      m_tDrainSatCur = m_pDevice->SaturationCurDepTempSPICE3MOSFET(
-         m_pParameters->m_jctSatCur, m_pDevice->m_dTemp,
-         m_pParameters->m_tnom);
-      m_tSourceSatCur = m_tDrainSatCur;
-      m_VBScrit = m_pDevice->JunctionVCrit( m_pDevice->m_dTemp, 1., m_tSourceSatCur);
-      m_VBDcrit = m_VBScrit;
-   }
-   else
-   {
-      m_tSatCurDens = m_pDevice->SaturationCurDepTempSPICE3MOSFET(
-         m_pParameters->m_jctSatCurDensity, m_pDevice->m_dTemp,
-         m_pParameters->m_tnom);
-      m_tDrainSatCur = m_tSatCurDens * m_pDevice->m_drainArea;
-      m_tSourceSatCur = m_tSatCurDens * m_pDevice->m_sourceArea;
-      m_VBScrit = m_pDevice->JunctionVCrit( m_pDevice->m_dTemp, 1., m_tSourceSatCur);
-      m_VBDcrit = m_pDevice->JunctionVCrit( m_pDevice->m_dTemp, 1., m_tDrainSatCur);
-   } */
 
         if (in_p.m_jctSatCurDensity == 0. or in_m.m_sourceArea == 0. or in_m.m_drainArea == 0.) then
           out_c.m_tDrainSatCur  := Equation.SaturationCurDepTempSPICE3MOSFET(
@@ -7143,33 +5556,6 @@ C++         1 / (m_pParameters->m_sheetResistance * m_pDevice->m_sourceSquares);
           out_c.m_VBDcrit       := Equation.JunctionVCrit( in_m.m_dTemp, 1., out_c.m_tDrainSatCur);
         end if;
 
-      /*   if (!m_pParameters->m_capBDValue->IsGiven() || !m_pParameters->m_capBSValue->IsGiven())
-C++   {
-C++      m_pDevice->JunctionParamDepTempSPICE3(
-C++         dummy, m_tCj, m_pParameters->m_bulkJctPotential,
-C++         m_pParameters->m_bulkCapFactor,
-C++         m_pParameters->m_bulkJctBotGradingCoeff,
-C++         m_pDevice->m_dTemp, m_pParameters->m_tnom);
-C++      m_pDevice->JunctionParamDepTempSPICE3(
-C++         dummy, m_tCjsw, m_pParameters->m_bulkJctPotential,
-C++         m_pParameters->m_sideWallCapFactor,
-C++         m_pParameters->m_bulkJctSideGradingCoeff,
-C++         m_pDevice->m_dTemp, m_pParameters->m_tnom);
-C++      //       m_tCj = JunctionCapDepTemp(
-C++      //          m_pParameters->m_bulkCapFactor, m_pParameters->m_bulkJctBotGradingCoeff,
-C++      //          m_pParameters->m_bulkJctPotential,
-C++      //          m_pDevice->m_dTemp, m_pParameters->m_tnom);
-C++      //       m_tCjsw = JunctionCapDepTemp(
-C++      //          m_pParameters->m_sideWallCapFactor,
-C++      //          m_pParameters->m_bulkJctSideGradingCoeff,
-C++      //          m_pParameters->m_bulkJctPotential,
-C++      //          m_pDevice->m_dTemp, m_pParameters->m_tnom);
-C++     m_pDevice->JunctionCapCoeffs(
-C++         m_f1s, m_f2s, m_f3s, m_pParameters->m_bulkJctSideGradingCoeff,
-C++         m_pParameters->m_fwdCapDepCoeff, m_tBulkPot);
-C++   } */
-
-      //  if ( not in_p.m_capBDValue->IsGiven() or not in_p.m_capBSValue->IsGiven())
         if ( not (in_p.m_capBDIsGiven > 0.5) or not (in_p.m_capBSIsGiven > 0.5)) then
           (dummy, out_c.m_tCj)   := Equation.JunctionParamDepTempSPICE3(
                                     in_p.m_bulkJctPotential, in_p.m_bulkCapFactor,
@@ -7181,25 +5567,6 @@ C++   } */
                                     in_p.m_bulkJctSideGradingCoeff, in_p.m_fwdCapDepCoeff, out_c.m_tBulkPot);
         end if;
 
-      /* if (m_pParameters->m_capBDValue->IsGiven())
-C++   {
-C++      m_pDevice->JunctionParamDepTempSPICE3(
-C++         dummy, m_tCBDb, m_pParameters->m_bulkJctPotential,
-C++         m_pParameters->m_capBD, m_pParameters->m_bulkJctBotGradingCoeff,
-C++         m_pDevice->m_dTemp, m_pParameters->m_tnom);
-C++      //       m_tCBDb = JunctionCapDepTemp(
-C++      //          m_pParameters->m_capBD, m_pParameters->m_bulkJctBotGradingCoeff,
-C++      //          m_pParameters->m_bulkJctPotential,
-C++      //          m_pDevice->m_dTemp, m_pParameters->m_tnom);
-C++      m_tCBDs = 0.0;
-C++   }
-C++   else
-C++   {
-C++      m_tCBDb = m_tCj * m_pDevice->m_drainArea;
-C++      m_tCBDs = m_tCjsw * m_pDevice->m_drainPerimiter;
-C++   } */
-
-      //  if (m_pParameters->m_capBDValue->IsGiven())
         if (in_p.m_capBDIsGiven > 0.5) then
           (dummy, out_c.m_tCBDb) := Equation.JunctionParamDepTempSPICE3(
                                     in_p.m_bulkJctPotential, in_p.m_capBD,
@@ -7210,30 +5577,6 @@ C++   } */
           out_c.m_tCBDs := out_c.m_tCjsw * in_m.m_drainPerimiter;
         end if;
 
-      /*   if (m_pParameters->m_capBSValue->IsGiven())
-C++   {
-C++      m_pDevice->JunctionParamDepTempSPICE3(
-C++         dummy, m_tCBSb, m_pParameters->m_bulkJctPotential,
-C++         m_pParameters->m_capBS, m_pParameters->m_bulkJctBotGradingCoeff,
-C++         m_pDevice->m_dTemp, m_pParameters->m_tnom);
-C++      //       m_tCBSb = JunctionCapDepTemp(
-C++      //          m_pParameters->m_capBS, m_pParameters->m_bulkJctBotGradingCoeff,
-C++      //          m_pParameters->m_bulkJctPotential,
-C++      //          m_pDevice->m_dTemp, m_pParameters->m_tnom);
-C++      m_tCBSs = 0.0;
-C++   }
-C++   else
-C++   {
-C++      m_tCBSb = m_tCj * m_pDevice->m_sourceArea;
-C++      m_tCBSs = m_tCjsw * m_pDevice->m_sourcePerimiter;
-C++   }
-C++   m_pDevice->JunctionCapCoeffs(
-C++      m_f1b, m_f2b, m_f3b, m_pParameters->m_bulkJctBotGradingCoeff,
-C++      m_pParameters->m_fwdCapDepCoeff, m_tBulkPot);
-C++   m_dVt   = m_pDevice->m_dTemp * m_pDevice->CONSTKoverQ;
-C++   } */
-
-      //  if (m_pParameters->m_capBSValue->IsGiven())
         if (in_p.m_capBSIsGiven > 0.5) then
           (dummy, out_c.m_tCBSb) := Equation.JunctionParamDepTempSPICE3(
                                     in_p.m_bulkJctPotential, in_p.m_capBS,
@@ -7251,7 +5594,6 @@ C++   } */
       end Mos2CalcCalcTempDependencies;
 
       function Mos2CalcNoBypassCode
-      /* void MosCalc::NoBypassCode() */
 
         input Mosfet.Mosfet in_m;
         input Integer in_m_type;
@@ -7259,7 +5601,6 @@ C++   } */
         input Mos2.Mos2ModelLineParams in_p;
         input SpiceConstants in_C;
         input Mos2.Mos2ModelLineVariables in_vp;
-        //input DEVqmeyer in_qm;                 // qmeyer parameters pf the last step
         input Boolean in_m_bInit;
         input Real[4] in_m_pVoltageValues; /* gate bulk drain source */
 
@@ -7283,33 +5624,9 @@ C++   } */
       algorithm
         int_c := in_c;
 
-      /*{m_vds = m_pModel->m_type * m_pDevice->GetVoltage( DP, SP);
-   m_vgs = m_pModel->m_type * m_pDevice->GetVoltage( G , SP);
-   m_vbs = m_pModel->m_type * m_pDevice->GetVoltage( B , SP); */
-
         int_c.m_vgs := in_m_type * (in_m_pVoltageValues[1] - in_m_pVoltageValues[4]); // ( G , SP)
         int_c.m_vbs := in_m_type * (in_m_pVoltageValues[2] - in_m_pVoltageValues[4]); // ( B , SP)
         int_c.m_vds := in_m_type * (in_m_pVoltageValues[3] - in_m_pVoltageValues[4]); // ( DP, SP)
-
-      /* if (m_pDevice->UseInitialConditions() && m_pDevice->m_ICVBSValue->IsGiven())
-C++      m_vbs = m_pModel->m_type * m_pDevice->m_dICVBS;
-C++   else if (m_pDevice->InitJunctionVoltages())
-C++      if (m_pDevice->m_off)
-C++         m_vbs = 0.;
-C++      else
-C++         m_vbs = m_VBScrit;
-C++   if (m_pDevice->UseInitialConditions() && m_pDevice->m_ICVDSValue->IsGiven())
-C++      m_vds = m_pModel->m_type * m_pDevice->m_dICVDS;
-C++   else if (m_pDevice->InitJunctionVoltages())
-C++      if (m_pDevice->m_off)
-C++         m_vds = 0.;
-C++      else
-C++         m_vds = m_VBDcrit - m_VBScrit;
-C++   if (m_pDevice->UseInitialConditions() && m_pDevice->m_ICVGSValue->IsGiven())
-C++      m_vgs = m_pModel->m_type * m_pDevice->m_dICVGS;
-C++   else if (m_pDevice->InitJunctionVoltages())
-C++      if (m_pDevice->m_off)
-C++         m_vgs = 0.; */
 
         if ( SpiceRoot.UseInitialConditions())    and (in_m.m_dICVBSIsGiven >0.5) then
           int_c.m_vbs := in_m_type * in_m.m_dICVBS;
@@ -7328,28 +5645,6 @@ C++         m_vgs = 0.; */
             int_c.m_vgs := 0.;
           end if;
         end if;
-
-      /* if (!m_vds && !m_vgs && !m_vbs && !m_pDevice->UseInitialConditions() &&
-C++       !m_pDevice->m_off)
-C++   {
-C++      m_vbs = -1;
-C++      m_vgs = m_pModel->m_type * m_tVto;
-C++      m_vds = 0;
-C++   }
-
-C++   double vbd = m_vbs - m_vds;
-C++   double vgd = m_vgs - m_vds;
-
-C++   if (m_vds >= 0)
-C++   {
-C++      m_vbs = m_pDevice->LimitJunctionVoltage( m_vbs, m_dVt, m_VBScrit);
-C++      vbd = m_vbs-m_vds;
-C++   } else {
-C++      vbd = m_pDevice->LimitJunctionVoltage( vbd, m_dVt, m_VBDcrit);
-C++      m_vbs = vbd + m_vds;
-C++   }
-C++
-C++   double vgb = m_vgs - m_vbs; */
 
         if (int_c.m_vds<>0 and  int_c.m_vgs<>0 and int_c.m_vbs<>0 and not (SpiceRoot.UseInitialConditions()) and  (in_m.m_off<>0)) then
           int_c.m_vbs := -1;
@@ -7370,24 +5665,6 @@ C++   double vgb = m_vgs - m_vbs; */
 
         vgb := int_c.m_vgs - int_c.m_vbs;
 
-      /*   //////////////////////////////////////////////////////////////////////
-C++   // resistances
-C++   m_pDevice->InternConductance( D, DP, m_drainConductance);
-C++   m_pDevice->InternConductance( S, SP, m_sourceConductance); */
-
-      /*   //////////////////////////////////////////////////////////////////////
-C++   // bulk-source and bulk-drain diodes here we just
-C++   // evaluate the ideal diode current and the
-C++   // corresponding derivative (conductance).
-C++   // m_pDevice->Junction2( cbd, gbd, vbd, m_pDevice->m_dTemp, 1., m_tDrainSatCur);
-C++   m_pDevice->Junction2_SPICE3_MOSFET( m_cbd, m_gbd, vbd, m_pDevice->m_dTemp, 1., m_tDrainSatCur);
-C++   m_pDevice->InsertConductance(
-C++      B, DP, m_gbd, m_pModel->m_type * m_cbd, m_pModel->m_type * vbd);
-C++   //    Junction2( cbs, gbs, vbs, m_pDevice->m_dTemp, 1., m_tSourceSatCur);
-C++   m_pDevice->Junction2_SPICE3_MOSFET( m_cbs, m_gbs, m_vbs, m_pDevice->m_dTemp, 1., m_tSourceSatCur);
-C++   m_pDevice->InsertConductance(
-C++      B, SP, m_gbs, m_pModel->m_type * m_cbs, m_pModel->m_type * m_vbs); */
-
          (int_c.m_cbd, int_c.m_gbd) := Equation.Junction2_SPICE3_MOSFET( int_c.m_cbd, int_c.m_gbd, vbd,
                                        in_m.m_dTemp, 1., int_c.m_tDrainSatCur);
          out_cc.iBD                 := in_m_type * int_c.m_cbd;
@@ -7395,30 +5672,7 @@ C++      B, SP, m_gbs, m_pModel->m_type * m_cbs, m_pModel->m_type * m_vbs); */
                                        in_m.m_dTemp, 1., int_c.m_tSourceSatCur);
          out_cc.iBS                 := in_m_type * int_c.m_cbs;
 
-      /*   //////////////////////////////////////////////////////////////////////
-C++   // now to determine whether the user was able to
-C++   // correctly identify the source and drain of his
-C++   // device
-C++   if (m_vds >= 0)
-C++      m_mode =  1; // normal mode
-C++   else
-C++      m_mode = -1; // inverse mode */
-
         int_c.m_mode := if (int_c.m_vds >= 0) then 1 else -1; // 1: normal mode, -1: inverse mode
-
-      /*   //////////////////////////////////////////////////////////////////////
-C++   // this block of code evaluates the drain
-C++   // current and its derivatives
-C++   if (m_mode == 1)
-C++      // Let the actual instance calculate the values
-C++      DrainCur( m_vbs, m_vgs, m_vds, m_cdrain, m_gm, m_gmbs, m_gds);
-C++   else
-C++      DrainCur( vbd, vgd, -m_vds, m_cdrain, m_gm, m_gmbs, m_gds);
-C++   m_pDevice->InsertNonChargeCurrent(
-C++      DP, SP, m_pModel->m_type * m_cdrain * m_mode,
-C++      DP, SP, m_gds, m_pModel->m_type * m_vds,
-C++      G, m_mode == 1 ? SP : DP, m_mode * m_gm, m_pModel->m_type * (m_mode == 1 ? m_vgs : vgd),
-      B, m_mode == 1 ? SP : DP, m_mode * m_gmbs, m_pModel->m_type * (m_mode == 1 ? m_vbs : vbd)); */
 
         if (int_c.m_mode == 1) then
 
@@ -7431,39 +5685,6 @@ C++      G, m_mode == 1 ? SP : DP, m_mode * m_gm, m_pModel->m_type * (m_mode == 
         out_cc.idrain := in_m_type * int_c.m_cdrain * int_c.m_mode;
 
         zzz := int_c.m_cdrain;
-        // out_cc.idrain := zzz; //in_m_pVoltageValues[3]; //int_c.m_vds;
-
-      /*   //////////////////////////////////////////////////////////////////////
-C++   // now we do the hard part of the bulk-drain and bulk-source diode -
-C++   // we evaluate the non-linear capacitance and charge
-C++   m_capbss    = 0.0;
-C++   m_chargebss = 0.0;
-C++   m_capbds    = 0.0;
-C++   m_chargebds = 0.0;
-C++   m_pDevice->JunctionCap(
-C++      m_capbsb, m_chargebsb, m_tCBSb, m_vbs, m_tDepCap,
-C++      m_pParameters->m_bulkJctBotGradingCoeff, m_tBulkPot,
-C++      m_f1b, m_f2b, m_f3b);
-C++   m_pDevice->JunctionCap(
-C++      m_capbdb, m_chargebdb, m_tCBDb, vbd, m_tDepCap,
-C++      m_pParameters->m_bulkJctBotGradingCoeff, m_tBulkPot,
-C++      m_f1b, m_f2b, m_f3b);
-C++   if (!m_pParameters->m_capBSValue->IsGiven())
-C++      m_pDevice->JunctionCap(
-C++         m_capbss, m_chargebss, m_tCBSs, m_vbs, m_tDepCap,
-C++         m_pParameters->m_bulkJctSideGradingCoeff, m_tBulkPot,
-C++         m_f1s, m_f2s, m_f3s);
-C++   if (!m_pParameters->m_capBDValue->IsGiven())
-C++      m_pDevice->JunctionCap(
-C++         m_capbds, m_chargebds, m_tCBDs, vbd, m_tDepCap,
-C++         m_pParameters->m_bulkJctSideGradingCoeff, m_tBulkPot,
-C++         m_f1s, m_f2s, m_f3s);
-C++   m_pDevice->InsertCapacitance(
-C++      B, SP, m_capbsb + m_capbss, m_pModel->m_type * (m_chargebsb + m_chargebss),
-C++      m_pModel->m_type * m_vbs);
-C++   m_pDevice->InsertCapacitance(
-C++      B, DP, m_capbdb + m_capbds, m_pModel->m_type * (m_chargebdb + m_chargebds),
-C++      m_pModel->m_type * vbd); */
 
         int_c.m_capbss    := 0.0;
         int_c.m_chargebss := 0.0;
@@ -7479,14 +5700,13 @@ C++      m_pModel->m_type * vbd); */
                in_p.m_bulkJctBotGradingCoeff, int_c.m_tBulkPot,
                int_c.m_f1b, int_c.m_f2b, int_c.m_f3b);
 
-      //  if ( not in_p.m_capBSIsValue->IsGiven()) then
         if ( not (in_p.m_capBSIsGiven > 0.5)) then
           (int_c.m_capbss, int_c.m_chargebss) := Equation.JunctionCap(
                int_c.m_tCBSs,int_c. m_vbs, int_c.m_tDepCap,
                in_p.m_bulkJctSideGradingCoeff, int_c.m_tBulkPot,
                int_c.m_f1s, int_c.m_f2s, int_c.m_f3s);
         end if;
-      //  if (not in_p.m_capBDValue->IsGiven()) then
+
         if (not (in_p.m_capBDIsGiven > 0.5)) then
           (int_c.m_capbds, int_c.m_chargebds) := Equation.JunctionCap(
                int_c.m_tCBDs, vbd, int_c.m_tDepCap,
@@ -7494,27 +5714,9 @@ C++      m_pModel->m_type * vbd); */
                int_c.m_f1s, int_c.m_f2s, int_c.m_f3s);
         end if;
 
-      //   m_pDevice->InsertCapacitance(
-      //      B, SP, m_capbsb + m_capbss, m_pModel->m_type * (m_chargebsb + m_chargebss),
-      //      m_pModel->m_type * m_vbs);
-        out_cc.cBS := if (in_m_bInit) then 1e-15 else (int_c.m_capbsb + int_c.m_capbss); //statt 1e-15 eigentlich 0
+        out_cc.cBS := if (in_m_bInit) then 1e-15 else (int_c.m_capbsb + int_c.m_capbss);
 
-      //   m_pDevice->InsertCapacitance(
-      //      B, DP, m_capbdb + m_capbds, m_pModel->m_type * (m_chargebdb + m_chargebds),
-      //      m_pModel->m_type * vbd); */
-        out_cc.cBD := if (in_m_bInit) then 1e-15 else (int_c.m_capbdb + int_c.m_capbds);  //statt 1e-15 eigentlich 0
-
-      /*   //////////////////////////////////////////////////////////////////////
-C++   // Last we have to calculate the gate capacitances
-C++   // calculate meyer's capacitors
-C++   // new cmeyer - this just evaluates at the current time,
-C++   // expects you to remember values from previous time returns 1/2 of
-C++   // non-constant portion of capacitance you must add in the other half
-C++   // from previous time and the constant part
-C++   if (m_mode > 0)
-C++      DEVqmeyer( m_vgs, vgd, vgb, MOScapgs, MOScapgd, MOScapgb);
-C++   else
-C++      DEVqmeyer( vgd, m_vgs, vgb, MOScapgd, MOScapgs, MOScapgb); */
+        out_cc.cBD := if (in_m_bInit) then 1e-15 else (int_c.m_capbdb + int_c.m_capbds);
 
         if (int_c.m_mode > 0) then
           qm := MosCalcDEVqmeyer( int_c.m_vgs, vgd, vgb, int_c);
@@ -7522,24 +5724,6 @@ C++      DEVqmeyer( vgd, m_vgs, vgb, MOScapgd, MOScapgs, MOScapgb); */
           qm := MosCalcDEVqmeyer( vgd, int_c.m_vgs, vgb, int_c);
         end if;
         in_qm := qm;
-      /* if (m_pDevice->m_bInit)
-C++   {
-C++      m_capgd = 2 * m_pDevice->GetHistoryValue( MOScapgd, 0) + m_capGDovl;
-C++      m_capgs = 2 * m_pDevice->GetHistoryValue( MOScapgs, 0) + m_capGSovl;
-C++      m_capgb = 2 * m_pDevice->GetHistoryValue( MOScapgb, 0) + m_capGBovl;
-C++      m_qgs   = m_capgs * m_vgs;
-C++      m_qgb   = m_capgb * vgb;
-C++      m_qgd   = m_capgd * vgd;
-C++   }
-C++   else
-C++   {
-C++      m_capgd = m_pDevice->GetHistoryValue( MOScapgd, 0) + m_pDevice->GetHistoryValue( MOScapgd) + m_capGDovl;
-C++      m_capgs = m_pDevice->GetHistoryValue( MOScapgs, 0) + m_pDevice->GetHistoryValue( MOScapgs) + m_capGSovl;
-C++      m_capgb = m_pDevice->GetHistoryValue( MOScapgb, 0) + m_pDevice->GetHistoryValue( MOScapgb) + m_capGBovl;
-C++      m_qgs   = (m_vgs - m_pDevice->GetHistoryValue( MOSvgs)) * m_capgs + m_pDevice->GetHistoryValue( MOSqgs);
-C++      m_qgb   = (vgb - m_pDevice->GetHistoryValue( MOSvgb)) * m_capgb + m_pDevice->GetHistoryValue( MOSqgb);
-C++      m_qgd   = (vgd - m_pDevice->GetHistoryValue( MOSvgd)) * m_capgd + m_pDevice->GetHistoryValue( MOSqgd);
-C++   } */
 
         if (in_m_bInit) then
           int_c.m_capgd := 2 * qm.qm_capgd + int_c.m_capGDovl;
@@ -7561,13 +5745,6 @@ C++   } */
 
           out_cc.m_capgd := int_c.m_capgd;
 
-      /* m_pDevice->SetHistoryValue( MOSqgs, m_qgs);
-C++   m_pDevice->SetHistoryValue( MOSqgb, m_qgb);
-C++   m_pDevice->SetHistoryValue( MOSqgd, m_qgd);
-C++   m_pDevice->SetHistoryValue( MOSvgs, m_vgs);
-C++   m_pDevice->SetHistoryValue( MOSvgb, vgb);
-C++   m_pDevice->SetHistoryValue( MOSvgd, vgd); */
-
         qm.qm_qgs := int_c.m_qgs;
         qm.qm_qgb := int_c.m_qgb;
         qm.qm_qgd := int_c.m_qgd;
@@ -7575,19 +5752,9 @@ C++   m_pDevice->SetHistoryValue( MOSvgd, vgd); */
         qm.qm_vgb := vgb;
         qm.qm_vgd := vgd;
 
-        //C++ store new qmeyer parameters for next solution step
-      //C++  out_qm := qm;
-
-      /* m_pDevice->InsertCapacitance(
-C++      G, DP, m_capgd, m_pModel->m_type * m_qgd, m_pModel->m_type * vgd);
-C++   m_pDevice->InsertCapacitance(
-C++      G, SP, m_capgs, m_pModel->m_type * m_qgs, m_pModel->m_type * m_vgs);
-C++   m_pDevice->InsertCapacitance(
-C++      G, B , m_capgb, m_pModel->m_type * m_qgb, m_pModel->m_type * vgb);} */
-
-        out_cc.cGB := if (in_m_bInit) then -1e40 else int_c.m_capgb;//+qm.qm_capgb;  //actually zero has to be used instead of 1e-15
-        out_cc.cGD := if (in_m_bInit) then -1e40 else out_cc.m_capgd;//+qm.qm_capgd;  //actually zero has to be used instead of 1e-15
-        out_cc.cGS := if (in_m_bInit) then -1e40 else int_c.m_capgs;//+qm.qm_capgs;  //actually zero has to be used instead of 1e-15
+        out_cc.cGB := if (in_m_bInit) then -1e40 else int_c.m_capgb;
+        out_cc.cGD := if (in_m_bInit) then -1e40 else out_cc.m_capgd;
+        out_cc.cGS := if (in_m_bInit) then -1e40 else int_c.m_capgs;
 
       end Mos2CalcNoBypassCode;
     end Mos;
@@ -7597,36 +5764,15 @@ C++      G, B , m_capgb, m_pModel->m_type * m_qgb, m_pModel->m_type * vgb);} */
         extends Mos.MosModelLineParams(
          m_lambda( start = 0.0),
          m_transconductance( start = 2.0e-5));
-         // LAMBDA, Channel length modulation
-         // KP, Transconductance parameter
 
-      /*Mos1ModelLineParams::Mos1ModelLineParams( Mosfet_Model_Line* model)
-        : MosModelLineParams( model)
-{
-   m_pModel->AddParameter( "LAMBDA", m_lambda, 0.0);         // Channel length modulation
-   m_transconductanceValue = m_pModel->AddParameter( "KP", m_transconductance, 2e-5); //Transconductance parameter
-}*/
       end Mos1ModelLineParams;
 
       record Mos1Calc
         extends Mos.MosCalc;
 
-      /* Mos1Calc::Mos1Calc(
-   Mosfet* device, Mosfet_Model_Line* model, const Mos1ModelLineParams* params)
-        : MosCalc( device, model, params),
-          m_pParameters( params)
-{} */
-
       end Mos1Calc;
 
       function Mos1ModelLineParamsInitEquations
-      /* void Mos1ModelLineParams::InitEquations()
-{ // some double's to make the source better readable
-   double vtnom;
-   double fermis, fermig;
-   double wkfng, wkfngs;
-   double egfet1;
-   double vfb;*/
 
         input Mos1ModelLineParams in_p;
         input SpiceConstants in_C;
@@ -7649,71 +5795,9 @@ C++      G, B , m_capgb, m_pModel->m_type * m_qgb, m_pModel->m_type * vgb);} */
         out_v.m_phi              := in_p.m_phi;
         out_v.m_gamma            := in_p.m_gamma;
         out_v.m_vt0              := in_p.m_vt0;
-      /*   //    MosModelLineParams::InitEquations();
-   vtnom = m_tnom * CONSTKoverQ;
-   egfet1 = 1.16 - (7.02e-4 * m_tnom * m_tnom) / (m_tnom + 1108);*/
 
         vtnom  := in_p.m_tnom*SpiceRoot.SPICEcircuitCONST.CONSTKoverQ;
         egfet1 := 1.16 - (7.02e-4*in_p.m_tnom*in_p.m_tnom)/(in_p.m_tnom + 1108);
-
-      /*
-   if ((!m_oxideThicknessValue->IsGiven())||(m_oxideThickness == 0)) // Spice3f4; default-Value: 1.0e-07
-   if (m_oxideThickness == 0)
-      m_oxideCapFactor = 0;
-   else
-   {
-      m_oxideCapFactor = 3.9 * 8.854214871e-12 / m_oxideThickness;
-      if (!m_transconductanceValue->IsGiven())
-         m_transconductance = m_surfaceMobility * m_oxideCapFactor * 1e-4; // (m**2/cm**2)
-
-      if (m_substrateDopingValue->IsGiven())
-      {
-         if (m_substrateDoping * 1e6  > 1.45e16) // (cm**3/m**3)
-         {
-            if (!m_phiValue->IsGiven())
-            {
-               m_phi = 2 * vtnom * log(m_substrateDoping * 1e6 / 1.45e16); //  (cm**3/m**3)
-               m_phi = F_Max(.1, m_phi);
-            }
-            fermis = m_pModel->m_type * .5 * m_phi;
-            wkfng = 3.2;
-            if (m_gateType != 0)
-            {
-               fermig = m_pModel->m_type * m_gateType * .5 * egfet1;
-               wkfng = 3.25 + .5 * egfet1 - fermig;
-            }
-            wkfngs = wkfng - (3.25 + .5 * egfet1 + fermis);
-
-            if (!m_gammaValue->IsGiven())
-               m_gamma =
-                  sqrt(2 * 11.70 * 8.854214871e-12 * CHARGE * m_substrateDoping *
-                       1e6 ) / m_oxideCapFactor; // (cm**3/m**3)
-
-            if (!m_vt0Value->IsGiven())
-            {
-               vfb   = wkfngs - m_surfaceStateDensity * 1e4
-                  * CHARGE / m_oxideCapFactor; //  (cm**2/m**2)
-               m_vt0 = vfb + m_pModel->m_type * (m_gamma * sqrt(m_phi) + m_phi);
-            }
-         }
-         else
-         {
-//            NsubNiEx( m_pModel, m_substrateDoping, 1.45e10).print();
-                        ConflictToxNsubEx( m_pModel, m_oxideThickness, m_substrateDoping, 1.45e10).print();
-            m_substrateDoping = 0.;
-         }
-      }
-   }
-}*/
-        /*   if ((!m_oxideThicknessValue->IsGiven())||(m_oxideThickness == 0)) - Spice3f4; aber dort default-Value: 1.0e-07
-C++   if (m_oxideThickness == 0)
-C++      m_oxideCapFactor = 0;
-C++   else
-C++   {
-C++      m_oxideCapFactor = 3.9 * 8.854214871e-12 / m_oxideThickness;
-C++      if (!m_transconductanceValue->IsGiven())
-C++         m_transconductance = m_surfaceMobility * m_oxideCapFactor * 1e-4; // (m**2/cm**2)
-*/
 
         if (not (in_p.m_oxideThicknessIsGiven > 0.5) or in_p.m_oxideThickness == 0) then
           if
@@ -7722,8 +5806,6 @@ C++         m_transconductance = m_surfaceMobility * m_oxideCapFactor * 1e-4; //
           end if;
         else
           out_v.m_oxideCapFactor := 3.9 * 8.854214871e-12 / in_p.m_oxideThickness;
-
-      //  out_v.m_oxideCapFactor := if (in_p.m_oxideThickness == 0) then 0 else 3.9 * 8.854214871e-12 / in_p.m_oxideThickness;
 
           if (out_v.m_oxideCapFactor <> 0) then
 
@@ -7750,10 +5832,7 @@ C++         m_transconductance = m_surfaceMobility * m_oxideCapFactor * 1e-4; //
                 if (not (in_p.m_vtOIsGiven > 0.5)) then
                   vfb         := wkfngs - in_p.m_surfaceStateDensity * 1e4 * SpiceRoot.SPICEcircuitCONST.CHARGE / out_v.m_oxideCapFactor; // (cm**2/m**2)
                   out_v.m_vt0 := vfb + in_m_type * (out_v.m_gamma * sqrt(out_v.m_phi) + out_v.m_phi);
-                  //            else
-                  //              //ConflictToxNsubEx( m_pModel, m_oxideThickness, m_substrateDoping, 1.45e10).print();
-                  //              out_v.m_substrateDoping :=  0.;
-                end if;
+                 end if;
               end if;
             end if;
           end if;
@@ -7761,8 +5840,7 @@ C++         m_transconductance = m_surfaceMobility * m_oxideCapFactor * 1e-4; //
       end Mos1ModelLineParamsInitEquations;
 
       function DrainCur
-      /*   double vb, double vg, double vds,
-   double &cdrain, double &gm, double &gmbs, double &gds)  */
+
         input Real vb;
         input Real vg;
         input Real vds;
@@ -7775,7 +5853,6 @@ C++         m_transconductance = m_surfaceMobility * m_oxideCapFactor * 1e-4; //
 
         output Mos1Calc out_c;
 
-      /* double arg, betap, sarg, vgst; */
       protected
         Real arg;
         Real betap;
@@ -7785,17 +5862,6 @@ C++         m_transconductance = m_surfaceMobility * m_oxideCapFactor * 1e-4; //
       algorithm
         out_c := in_c;
 
-      /*
-C++   if (vb <= 0)
-C++      sarg = sqrt( m_tPhi - vb);
-C++   else
-C++   {
-C++      sarg = sqrt( m_tPhi);
-C++      sarg = sarg - vb / (sarg + sarg);
-C++      sarg = F_Max( 0., sarg);
-C++   }
-*/
-
          if (vb <= 0) then
             sarg := sqrt( out_c.m_tPhi - vb);
          else
@@ -7804,51 +5870,11 @@ C++   }
             sarg := max( 0., sarg);
          end if;
 
-      /*
-C++   m_von   = (m_tVbi * m_pModel->m_type) + m_pParameters->m_gamma * sarg;
-C++   vgst    = vg - m_von;
-C++   m_vdsat = F_Max( vgst, 0.);
-C++   if (sarg <= 0)
-C++      arg = 0;
-C++   else
-C++      arg  = m_pParameters->m_gamma / (sarg + sarg);
-*/
          out_c.m_von   := (out_c.m_tVbi * in_m_type) + in_vp.m_gamma * sarg;
          vgst          := vg - out_c.m_von;
          out_c.m_vdsat := max( vgst, 0.);
          arg           := if (sarg <= 0) then 0 else in_vp.m_gamma / (sarg + sarg);
-      /*
-C++
-C++   if (vgst <= 0)
-C++   {
-C++      // cutoff region
-C++      cdrain = 0;
-C++      gm     = 0;
-C++      gds    = 0;
-C++      gmbs   = 0;
-C++   }
-C++   else
-C++   {
-C++      betap = m_Beta * (1 + m_pParameters->m_lambda * vds);
-C++      if (vgst <= vds)
-C++      {
-C++         // saturation region
-C++         cdrain = betap * vgst * vgst * .5;
-C++         gm     = betap * vgst;
-C++         gds    = m_pParameters->m_lambda * m_Beta * vgst * vgst * .5;
-C++         gmbs   = gm * arg;
-C++      }
-C++      else
-C++      {
-C++         // linear region
-C++         cdrain = betap * vds * (vgst - .5 * vds);
-C++         gm     = betap * vds;
-C++         gds    = betap * (vgst - vds) +
-C++            m_pParameters->m_lambda * m_Beta * vds * (vgst - .5 * vds);
-C++         gmbs   = gm * arg;
-C++      }
-C++   }
-*/
+
          if (vgst <= 0) then
             /* cutoff region */
             out_c.m_cdrain := 0;
@@ -7882,18 +5908,6 @@ C++   }
 
         input Spice3.Repository.modelcardMOS ex;
         input Spice3.Repository.SpiceConstants con;
-        // input Boolean mtype;
-        // input Real W;
-        // input Real L;
-        // input Real AD;
-        // input Real AS;
-        // input Real PD;
-        // input Real PS;
-        // input Real NRD;
-        // input Real NRS;
-        // input Boolean OFF;
-        // input Real IC;
-       // input Real TEMP;
 
         output Mos.MosModelLineParams intern;
 
@@ -7902,41 +5916,28 @@ C++   }
 
          intern.m_oxideCapFactor := 0;
 
-         //intern.m_vt0 := ex.VTO;                    // V zero-bias threshold voltage (default 0)
-
           intern.m_vtOIsGiven := if          (ex.VTO > -1e40) then 1 else 0;
           intern.m_vt0 := if         (ex.VTO > -1e40) then ex.VTO else 0;
-
-          //intern.m_capBD := ex.CBD;                  // F zero-bias B-D junction capacitance (default 0)
 
           intern.m_capBDIsGiven := if          (ex.CBD > -1e40) then 1 else 0;
           intern.m_capBD := if         (ex.CBD > -1e40) then ex.CBD else 0;
 
-         // intern.m_capBS := ex.CBS;                  // F zero-bias B-S junction capacitance (default 0)
-
           intern.m_capBSIsGiven := if          (ex.CBS > -1e40) then 1 else 0;
           intern.m_capBS := if         (ex.CBS > -1e40) then ex.CBS else 0;
 
-        //  intern.m_bulkCapFactor := ex.CJ;           // F/(m*m) zero-bias bulk junction bottom cap. per sq-meter of junction area (default 0)
-
-          intern.m_bulkCapFactorIsGiven := if          (ex.CJ > -1e40) then 1 else 0;
+            intern.m_bulkCapFactorIsGiven := if          (ex.CJ > -1e40) then 1 else 0;
           intern.m_bulkCapFactor := if         (ex.CJ > -1e40) then ex.CJ else 0;
 
           intern.m_sideWallCapFactor := ex.CJSW;     // F/m zero-bias junction sidewall cap. per meter of junction perimeter (default 0)
           intern.m_fwdCapDepCoeff := ex.FC;          // coefficient for forward-bias depletion capacitance formula (default 0.5)
-      //  intern.m_phi := ex.PHI;                    // V surface potential (default 0.6)
 
           intern.m_phiIsGiven := if          (ex.PHI > -1e40) then 1 else 0;
           intern.m_phi := if         (ex.PHI > -1e40) then ex.PHI else 0.6;
 
-       //  intern.m_gamma := ex.GAMMA;                // V bulk threshold parameter (default 0)
-
-          intern.m_gammaIsGiven := if          (ex.GAMMA > -1e40) then 1 else 0;
+           intern.m_gammaIsGiven := if          (ex.GAMMA > -1e40) then 1 else 0;
           intern.m_gamma := if         (ex.GAMMA > -1e40) then ex.GAMMA else 0;
 
           intern.m_lambda := ex.LAMBDA;              // 1/V channel-length modulation (default 0)
-
-      //  intern.m_substrateDoping := ex.NSUB;       // substrate doping (default 0)
 
           intern.m_substrateDopingIsGiven := if          (ex.NSUB > -1e40) then 1 else 0;
           intern.m_substrateDoping := if         (ex.NSUB > -1e40) then ex.NSUB else 0;
@@ -7947,38 +5948,28 @@ C++   }
           intern.m_latDiff := ex.LD;                 // m lateral diffusion (default 0)
           intern.m_jctSatCur := ex.IS;               // A bulk junction saturation current (defaul 1e-14)
 
-          //intern.m_drainResistance := ex.RD;         // Ohm drain ohmic resistance (default 0)
-
           intern.m_drainResistanceIsGiven := if
                                                (ex.RD > -1e40) then 1 else 0;
           intern.m_drainResistance := if
                                        (ex.RD > -1e40) then ex.RD else 0;
 
-        //  intern.m_sourceResistance := ex.RS;        // Ohm source ohmic resistance (default 0)
-
-           intern.m_sourceResistanceIsGiven := if
+          intern.m_sourceResistanceIsGiven := if
                                                (ex.RS > -1e40) then 1 else 0;
           intern.m_sourceResistance := if
                                        (ex.RS > -1e40) then ex.RS else 0;
 
-        //  intern.m_transconductance := ex.KP;        // A/(V*V) transconductance parameter (default 2e-5)
-
           intern.m_transconductanceIsGiven := if          (ex.KP > -1e40) then 1 else 0;
           intern.m_transconductance := if         (ex.KP > -1e40) then ex.KP else 2e-5;
 
-      //    intern.m_tnom := ex.TNOM;
           intern.m_tnom := if (ex.TNOM > -1e40) then ex.TNOM + SpiceRoot.SPICEcircuitCONST.CONSTCtoK else 300.15;
 
                         // °C parameter measurement temperature (default 27)
 
-      // from MosfetModelLinesParams
          intern.m_jctSatCurDensity := ex.JS;             // A/(m*m) bulk junction saturation current per sq-meter of junction area (default 0)
          intern.m_sheetResistance := ex.RSH;             // Ohm drain and source diffusion sheet resistance (default 0)
          intern.m_bulkJctPotential := ex.PB;             // V bulk junction potential (default 0.8)
          intern.m_bulkJctBotGradingCoeff := ex.MJ;       // bulk junction bottom grading coeff. (default 0.5)
          intern.m_bulkJctSideGradingCoeff := ex.MJSW;    // bulk junction sidewall grading coeff. (default 0.5)
-
-      // intern.m_oxideThickness := ex.TOX;              // m oxide thickness (default 1e-7)
 
          intern.m_oxideThicknessIsGiven := if          (ex.TOX > -1e40) then 1 else 0;
           intern.m_oxideThickness := if         (ex.TOX > -1e40) then ex.TOX else 0;
@@ -7994,7 +5985,6 @@ C++   }
       function Mos1RenameParameters_dev
         "renames the external parameters (e.g. RD) into the internal names (e.g. m_drainResistance)"
         input Spice3.Repository.modelcardMOS ex;
-       // input Spice3.Attempt_1_konstanten_parameter_inArbeit.SpiceConstants con;
         input Integer mtype;
         input Real W;
         input Real L;
@@ -8012,9 +6002,7 @@ C++   }
 
       algorithm
       /*device parameters*/
-       //  Real m_len(             start = SpiceRoot.SPICEcircuitCONST.CKTdefaultMosL);  // L, length of channel region
         dev.m_len := L;               // L, length of channel region
-      //  Real m_width(           start = SpiceRoot.SPICEcircuitCONST.CKTdefaultMosW);  // W, width of channel region
         dev.m_width := W;             // W, width of channel region
         dev.m_drainArea := AD;        // AD, area of drain diffusion
         dev.m_sourceArea := AS;       // AS, area of source diffusion
@@ -8022,17 +6010,12 @@ C++   }
         dev.m_sourceSquares := NRS;   // NRS, length of source in squares
         dev.m_drainPerimiter := PD;   // PD, Drain perimeter;
         dev.m_sourcePerimiter := PS;  // PS, Source perimeter
-      //  dev.m_dICVDS := IC;     // IC_VDS, Initial D-S voltage;
 
           dev.m_dICVDSIsGiven := if          (IC > -1e40) then 1 else 0;
           dev.m_dICVDS := if         (IC > -1e40) then IC else 0;
 
-      //  dev.m_dICVGS := 1;     // IC_VGS, Initial G-S voltage;
-
           dev.m_dICVGSIsGiven := if          (IC > -1e40) then 1 else 0;
           dev.m_dICVGS := if         (IC > -1e40) then IC else 0;
-
-      //  dev.m_dICVBS := 2;     // IC_VBS, Initial B-S voltage;
 
           dev.m_dICVBSIsGiven := if          (IC > -1e40) then 1 else 0;
           dev.m_dICVBS := if         (IC > -1e40) then IC else 0;
@@ -8052,8 +6035,6 @@ C++   }
           m_transconductance(start=2.0e-5),
           m_bulkJctSideGradingCoeff(start=0.33),
           m_oxideThickness(start=1.0e-7));
-        // Channel length modulation
-        // Transconductance parameter
 
         Real m_narrowFactor( start = 0.0);              // DELTA, Width effect on threshold
         Real m_critFieldExp( start = 0.0);              // UEXP, Crit. field exp for mob. deg
@@ -8063,24 +6044,6 @@ C++   }
         Real m_channelCharge( start = 1.0);             // NEFF, Total channel charge coeff
         Real m_fastSurfaceStateDensity( start = 0.0);   // NFS, Fast surface state density
 
-      /*
-Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
-        : MosModelLineParams( model)
-{
-   m_pModel->AddParameter( "LAMBDA", m_lambda, 0.0);   // Channel length modulation
-   m_narrowFactorValue = m_pModel->AddParameter( "DELTA", m_narrowFactor, 0.); // Width effect on threshold
-   m_transconductanceValue = m_pModel->AddParameter( "KP", m_transconductance, 2e-5); // Transconductance parameter
-   m_pModel->AddParameter( "UEXP", m_critFieldExp, 0.); // Crit. field exp for mob. deg
-   m_pModel->AddParameter( "UCRIT", m_critField, 1e4); //Crit. field for mob. degradation
-   m_pModel->AddParameter( "VMAX", m_maxDriftVel, 0.);// Maximum carrier drift velocity
-   m_pModel->AddParameter( "XJ", m_junctionDepth, 0.);// Junction depth
-   m_pModel->AddParameter( "NEFF", m_channelCharge, 1.);// Total channel charge coeff
-   m_pModel->AddParameter( "NFS", m_fastSurfaceStateDensity, 0.);// Fast surface state density
-
-   m_oxideThickness          = 1e-7;
-   m_bulkJctSideGradingCoeff = .33;
-}
-*/
       end Mos2ModelLineParams;
 
       record Mos2ModelLineVariables
@@ -8095,23 +6058,9 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
       record Mos2Calc
         extends Spice3.Repository.Mos.MosCalc;
 
-      /* Mos2Calc::Mos2Calc(
-   Mosfet* device, Mosfet_Model_Line* model, const Mos2ModelLineParams* params)
-        : MosCalc( device, model, params), m_pParameters( params)
-{} */
-
       end Mos2Calc;
 
       function Mos2ModelLineParamsInitEquations
-      /* void Mos2ModelLineParams::InitEquations()
-{  */
-           /* some double's to make the source better readable */
-                                                                 /*
-   double vtnom;
-   double fermis, fermig;
-   double wkfng, wkfngs;
-   double egfet1;
-   double vfb; */
 
         input Mos2ModelLineParams in_p;
         input Spice3.Repository.SpiceConstants in_C;
@@ -8137,70 +6086,13 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
         out_v.m_substrateDoping  := in_p.m_substrateDoping;
         out_v.m_bulkCapFactor    := in_p.m_bulkCapFactor;
 
-      /*   //    MosModelLineParams::InitEquations();
-   vtnom = m_tnom * CONSTKoverQ;
-   egfet1 = 1.16 - (7.02e-4 * m_tnom * m_tnom) / (m_tnom + 1108);
-   m_oxideCapFactor = 3.9 * 8.854214871e-12 / m_oxideThickness; */
-
         vtnom                  := in_p.m_tnom * in_C.CONSTKoverQ;
         egfet1                 := 1.16 - (7.02e-4 * in_p.m_tnom * in_p.m_tnom) / (in_p.m_tnom + 1108);
         out_v.m_oxideCapFactor := 3.9 * 8.854214871e-12 / in_p.m_oxideThickness;
 
-      /*   if(!m_transconductanceValue->IsGiven())
-      m_transconductance = m_surfaceMobility * 1e-4 */
-                                                            /*(m**2/cm**2) */
-                                                                             /* * m_oxideCapFactor; */
-
         if ( not (in_p.m_transconductanceIsGiven > 0.5)) then
           out_v.m_transconductance := in_p.m_surfaceMobility * 1.0e-4 * out_v.m_oxideCapFactor;
         end if;
-
-      /*   if(m_substrateDopingValue->IsGiven())
-   {
-      if(m_substrateDoping * 1e6 */
-                                         /*(cm**3/m**3)*/
-                                                         /* > 1.45e16)
-      {
-         if(!m_phiValue->IsGiven())
-         {
-            m_phi = 2 * vtnom * log( m_substrateDoping * 1e6 */
-                                                                     /*(cm**3/m**3)*/
-                                                                                     /* / 1.45e16);
-            m_phi = F_Max( .1, m_phi);
-         }
-         fermis = m_pModel->m_type * .5 * m_phi;
-         wkfng = 3.2;
-         if(m_gateType != 0)
-         {
-            fermig = m_pModel->m_type * m_gateType * .5 * egfet1;
-            wkfng = 3.25 + .5 * egfet1 - fermig;
-         }
-         wkfngs = wkfng - (3.25 + .5 * egfet1 + fermis);
-         if(!m_gammaValue->IsGiven())
-            m_gamma = sqrt(2 * 11.70 * 8.854214871e-12 * CHARGE * m_substrateDoping
-                           * 1e6 */
-                                         /*(cm**3/m**3)*/
-                                                         /*) / m_oxideCapFactor;
-         if(!m_vt0Value->IsGiven())
-         {
-            vfb   = wkfngs - m_surfaceStateDensity * 1e4 */
-                                                                 /*(cm**2/m**2)*/
-                                                                                 /* * CHARGE / m_oxideCapFactor;
-            m_vt0 = vfb + m_pModel->m_type * (m_gamma * sqrt(m_phi)+ m_phi);
-         }
-         else
-            vfb = m_vt0 - m_pModel->m_type * (m_gamma * sqrt(m_phi) + m_phi);
-         m_xd = sqrt( (EPSSIL + EPSSIL) / (CHARGE * m_substrateDoping * 1e6 */
-                                                                                    /*(cm**3/m**3)*/
-                                                                                                    /*));
-      }
-      else
-      {
-       NsubNiEx( m_pModel, m_substrateDoping, 1.45e10).print();
-                 ConflictToxNsubEx( m_pModel, m_oxideThickness, m_substrateDoping, 1.45e10).print();
-         m_substrateDoping = 0.;
-      }
-   } */
 
         if  (in_p.m_substrateDopingIsGiven > 0.5) then
           if ( out_v.m_substrateDoping * 1.0e6 > 1.45e16) then
@@ -8231,14 +6123,6 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
           end if;
         end if;
 
-      /*   if(!m_bulkCapFactorValue->IsGiven())
-      m_bulkCapFactor = sqrt( EPSSIL * CHARGE * m_substrateDoping
-                              * 1e6 */
-                                            /*cm**3/m**3*/
-                                                          /* /(2 * m_bulkJctPotential));
-}
-*/
-
         if ( not (in_p.m_bulkCapFactorIsGiven > 0.5)) then
           out_v.m_bulkCapFactor := sqrt( in_C.EPSSIL * in_C.CHARGE * out_v.m_substrateDoping
                                     * 1e6 /(2 * in_p.m_bulkJctPotential));
@@ -8247,8 +6131,6 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
       end Mos2ModelLineParamsInitEquations;
 
       function DrainCur
-      /* double vbs, double vgs, double vds,
-   double &cdrain, double &gm, double &gmbs, double &gds) */
 
          input Real vbs;
          input Real vgs;
@@ -8263,38 +6145,6 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
 
          output Mos2Calc out_c;
          output Real test_gamma;
-      /* { double vt;      // K * T / Q
-   double beta1;
-   double dsrgdb;
-   double d2sdb2;
-   double sphi = 0., sphi3 = 1.;    // square root of phi
-   double barg,   sarg,   bsarg = 0.,  sarg3;
-   double d2bdb2;
-   double factor;
-   double dbrgdb;
-   double eta;
-   double vbin,   vth;
-   double dgddb2, dgddvb, dgdvds;
-   double gamasd, gammad;
-   double xn   = 1.;
-   double argg = 0.;
-   double vgst,   vgsx;
-   double dgdvbs;
-   double body,   bodys = 0.;
-   double gdbdv;
-   double dodvbs, dodvds = 0.;
-   double dxndvd = 0., dxndvb = 0.;
-   double dudvgs, dudvds, dudvbs;
-   double ufact,  ueff;
-   double dsdvgs, dsdvbs;
-   double dbsrdb;
-   double gdbdvs = 0.;
-   double dldvgs, dldvds, dldvbs;
-   double clfact;
-   double xleff,  deltal;
-   double xwb,    xld;
-   double xlamda = m_pParameters->m_lambda;
-   double phiMinVbs; */
 
       protected
         Real vt;      // K * T / Q
@@ -8424,47 +6274,8 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
       algorithm
          out_c := in_c;
 
-      /* vt = m_pDevice->CONSTKoverQ * GetTemperature(); */
+        vt := in_C.CONSTKoverQ * in_C.REFTEMP;
 
-        vt := in_C.CONSTKoverQ * in_C.REFTEMP;// * GetTemperature();      //GetTemperature not yet implemented 90107
-
-      /*   // compute some useful quantities
-   phiMinVbs = m_tPhi - vbs;
-   if (vbs <= 0.0)
-   {
-      sarg   = sqrt( phiMinVbs);
-      dsrgdb = -0.5 / sarg;
-      d2sdb2 = 0.5 * dsrgdb / phiMinVbs;
-   }
-   else
-   {
-      double tmp;
-
-      sphi   = sqrt( m_tPhi);
-      sphi3  = m_tPhi * sphi;
-      sarg   = sphi / (1.0 + 0.5 * vbs / m_tPhi);
-      tmp    = sarg / sphi3;
-      dsrgdb = -0.5 * sarg * tmp;
-      d2sdb2 = -dsrgdb * tmp;
-   }
-
-   if ((vds-vbs) >= 0)
-   {
-      barg   = sqrt( phiMinVbs + vds);
-      dbrgdb = -0.5 / barg;
-      d2bdb2 = 0.5 * dbrgdb / (phiMinVbs + vds);
-   }
-   else
-   {
-      double tmp;
-
-      barg   = sphi / (1.0 + 0.5 * (vbs - vds) / m_tPhi);
-      tmp    = barg / sphi3;
-      dbrgdb = -0.5 * barg * tmp;
-      d2bdb2 = -dbrgdb * tmp;
-   } */
-
-        // compute some useful quantities
         phiMinVbs := out_c.m_tPhi - vbs;
         if ( vbs <= 0.0) then
           sarg   := sqrt( phiMinVbs);
@@ -8490,93 +6301,14 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
           d2bdb2 := -dbrgdb * tmp;
         end if;
 
-      /*   // calculate threshold voltage (von)
-   // narrow-channel effect
-   // XXX constant per device
-   factor = 0.125 * m_pParameters->m_narrowFactor * 2.0 * M_PI*EPSSIL
-      / m_capOx * m_lEff;
-   // XXX constant per device
-   eta    = 1.0 + factor;
-   vbin   = m_tVbi * m_pModel->m_type + factor * phiMinVbs;
-   if ((m_pParameters->m_gamma > 0.0) || (m_pParameters->m_substrateDoping > 0.0))
-   {
-      double argss, argsd, args = 0., argd = 0., argxs = 0., argxd = 0.;
-      double dbargs, dbargd, dbxws, dbxwd;
-      double xwd, xws;
-
-      xwd = m_pParameters->m_xd * barg;
-      xws = m_pParameters->m_xd * sarg;
-
-      // short-channel effect with vds .ne. 0.0
-      argss  = 0.0;
-      argsd  = 0.0;
-      dbargs = 0.0;
-      dbargd = 0.0;
-      dgdvds = 0.0;
-      dgddb2 = 0.0;
-      if (m_pParameters->m_junctionDepth > 0)
-      {
-         double tmp;
-
-         tmp   = 2.0 / m_pParameters->m_junctionDepth;
-         argxs = 1.0 + xws * tmp;
-         argxd = 1.0 + xwd * tmp;
-         args  = sqrt( argxs);
-         argd  = sqrt( argxd);
-         tmp   = .5 * m_pParameters->m_junctionDepth / m_lEff;
-         argss = tmp * (args - 1.0);
-         argsd = tmp * (argd - 1.0);
-      }
-      gamasd = m_pParameters->m_gamma * (1.0 - argss - argsd);
-      dbxwd  = m_pParameters->m_xd * dbrgdb;
-      dbxws  = m_pParameters->m_xd * dsrgdb;
-      if (m_pParameters->m_junctionDepth > 0)
-      {
-         double daddb2, dasdb2, tmp;
-
-         tmp    = 0.5 / m_lEff;
-         dbargs = tmp * dbxws / args;
-         dbargd = tmp * dbxwd / argd;
-         dasdb2 = -m_pParameters->m_xd
-            * (d2sdb2 + dsrgdb * dsrgdb * m_pParameters->m_xd
-               / (m_pParameters->m_junctionDepth * argxs))
-            / (m_lEff * args);
-         daddb2 = -m_pParameters->m_xd
-            * (d2bdb2 + dbrgdb * dbrgdb * m_pParameters->m_xd
-               / (m_pParameters->m_junctionDepth * argxd))
-            / (m_lEff * argd);
-         dgddb2 = -0.5 * m_pParameters->m_gamma * (dasdb2 + daddb2);
-      }
-      dgddvb = -m_pParameters->m_gamma * (dbargs + dbargd);
-      if (m_pParameters->m_junctionDepth > 0)
-      {
-         double ddxwd;
-
-         ddxwd  = -dbxwd;
-         dgdvds = -m_pParameters->m_gamma * 0.5 * ddxwd / (m_lEff * argd);
-      }
-   }
-   else
-   {
-      gamasd = m_pParameters->m_gamma;
-      gammad = m_pParameters->m_gamma;
-      dgddvb = 0.0;
-      dgdvds = 0.0;
-      dgddb2 = 0.0;
-   } */
-
-        // calculate threshold voltage (von)
-        // narrow-channel effect
-        // XXX constant per device
         factor := 0.125 * in_p.m_narrowFactor * 2.0 * Modelica.Constants.pi*in_C.EPSSIL / out_c.m_capOx * out_c.m_lEff;
-        // XXX constant per device
+
         eta    := 1.0 + factor;
-        vbin   := out_c.m_tVbi * in_m_type + factor * phiMinVbs;  //in_m_type + factor * phiMinVbs;
+        vbin   := out_c.m_tVbi * in_m_type + factor * phiMinVbs;
         if ( (in_vp.m_gamma > 0.0) or (in_vp.m_substrateDoping > 0.0)) then
           xwd := in_vp.m_xd * barg;
           xws := in_vp.m_xd * sarg;
 
-          // short-channel effect with vds .ne. 0.0
           argss  := 0.0;
           argsd  := 0.0;
           dbargs := 0.0;
@@ -8620,42 +6352,11 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
           dgddb2 := 0.0;
         end if;
 
-      /*   m_von   = vbin + gamasd * sarg;
-   vth   = m_von;
-   m_vdsat = 0.0;
-   if (m_pParameters->m_fastSurfaceStateDensity != 0.0 && m_capOx != 0.0)
-   {
-      double cfs, cdonco, tmp;
-
-      // XXX constant per model
-      cfs    = CHARGE * m_pParameters->m_fastSurfaceStateDensity * 1e4; //(cm**2/m**2)
-      cdonco = -(gamasd * dsrgdb + dgddvb * sarg) + factor;
-      xn     = 1.0 + cfs / m_capOx * m_pDevice->m_width * m_lEff + cdonco;
-      tmp    = vt * xn;
-      m_von    = m_von + tmp;
-      argg   = 1.0 / tmp;
-      vgst   = vgs - m_von;
-   }
-   else
-   {
-      vgst = vgs - m_von;
-      if (vgs <= m_von)
-      {
-         // cutoff region
-         gds    = 0.0;
-         cdrain = 0.0;
-         gm     = 0.0;
-         gmbs   = 0.0;
-         return;
-      }
-   } */
-
         out_c.m_von   := vbin + gamasd * sarg;
         vth           := out_c.m_von;
         out_c.m_vdsat := 0.0;
         if ( in_p.m_fastSurfaceStateDensity <> 0.0 and out_c.m_capOx <> 0.0) then
-          // XXX constant per model
-          cfs          := in_C.CHARGE * in_p.m_fastSurfaceStateDensity * 1.0e4; //(cm**2/m**2)
+          cfs          := in_C.CHARGE * in_p.m_fastSurfaceStateDensity * 1.0e4;
           cdonco       := -(gamasd * dsrgdb + dgddvb * sarg) + factor;
           xn           := 1.0 + cfs / out_c.m_capOx * in_m.m_width * out_c.m_lEff + cdonco;
           tmp          := vt * xn;
@@ -8674,26 +6375,7 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
           end if;
         end if;
 
-      /*   // compute some more useful quantities
-   sarg3  = sarg * sarg * sarg;
-   // XXX constant per model
-   gammad = gamasd;
-   dgdvbs = dgddvb;
-   body   = barg * barg * barg - sarg3;
-   gdbdv  = 2.0 * gammad * (barg * barg * dbrgdb - sarg * sarg * dsrgdb);
-   dodvbs = -factor + dgdvbs * sarg + gammad * dsrgdb;
-
-   if ((m_pParameters->m_fastSurfaceStateDensity != 0.0) && (m_capOx != 0.0))
-   {
-      dxndvb = 2.0 * dgdvbs * dsrgdb + gammad * d2sdb2 + dgddb2 * sarg;
-      dodvbs = dodvbs + vt * dxndvb;
-      dxndvd = dgdvds * dsrgdb;
-      dodvds = dgdvds * sarg + vt * dxndvd;
-   } */
-
-        // compute some more useful quantities
         sarg3  := sarg * sarg * sarg;
-        // XXX constant per model
         gammad := gamasd;
         dgdvbs := dgddvb;
         body   := barg * barg * barg - sarg3;
@@ -8707,31 +6389,9 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
           dodvds := dgdvds * sarg + vt * dxndvd;
         end if;
 
-      /*   // evaluate effective mobility and its derivatives
-   ufact  = 1.0;
-   ueff   = m_pParameters->m_surfaceMobility * 1e-4; // (m**2/cm**)
-   dudvgs = 0.0;
-   dudvds = 0.0;
-   dudvbs = 0.0;
-   if (m_capOx > 0.0)
-   {
-      double tmp;
-
-      tmp = m_pParameters->m_critField * EPSSIL * 100 // cm/m
-         / m_pParameters->m_oxideCapFactor;
-      if (vgst > tmp)
-      {
-         ufact  = exp( m_pParameters->m_critFieldExp * log( tmp / vgst));
-         ueff   = m_pParameters->m_surfaceMobility * 1e-4 * ufact; // (m**2/cm**2)
-         dudvgs = -ufact * m_pParameters->m_critFieldExp / vgst;
-         dudvds = 0.0;
-         dudvbs = m_pParameters->m_critFieldExp * ufact * dodvbs / vgst;
-      }
-   } */
-
         // evaluate effective mobility and its derivatives
         ufact  := 1.0;
-        ueff   := in_p.m_surfaceMobility * 1e-4; // (m**2/cm**)
+        ueff   := in_p.m_surfaceMobility * 1e-4;
         dudvgs := 0.0;
         dudvds := 0.0;
         dudvbs := 0.0;
@@ -8739,54 +6399,12 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
           tmp := in_p.m_critField * in_C.EPSSIL * 100 / in_vp.m_oxideCapFactor;
           if (vgst > tmp) then
             ufact  := exp( in_p.m_critFieldExp * Modelica.Math.log( tmp / vgst));
-            ueff   := in_p.m_surfaceMobility * 1.0e-4 * ufact; // (m**2/cm**2)
+            ueff   := in_p.m_surfaceMobility * 1.0e-4 * ufact;
             dudvgs := -ufact * in_p.m_critFieldExp / vgst;
             dudvds := 0.0;
             dudvbs := in_p.m_critFieldExp * ufact * dodvbs / vgst;
           end if;
         end if;
-
-      /*   // evaluate saturation voltage and its derivatives according to
-   // grove-frohman equation
-   vgsx   = vgs;
-   gammad = gamasd / eta;
-   dgdvbs = dgddvb;
-   if (m_pParameters->m_fastSurfaceStateDensity != 0 && m_capOx != 0)
-   {
-      vgsx = F_Max( vgs, m_von);
-   }
-
-   if (gammad > 0)
-   {
-      double argv, gammd2;
-
-      gammd2 = gammad * gammad;
-      argv   = (vgsx - vbin) / eta + phiMinVbs;
-      if (argv <= 0.0)
-      {
-         m_vdsat  = 0.0;
-         dsdvgs = 0.0;
-         dsdvbs = 0.0;
-      }
-      else
-      {
-         double arg;
-
-         arg    = sqrt( 1.0 + 4.0 * argv / gammd2);
-         m_vdsat  = (vgsx - vbin) / eta + gammd2 * (1.0 - arg) / 2.0;
-         m_vdsat  = F_Max( m_vdsat, 0.0);
-         dsdvgs = (1.0 - 1.0 / arg) / eta;
-         dsdvbs = (gammad * (1.0 - arg) + 2.0 * argv / (gammad * arg))
-            / eta * dgdvbs + 1.0 / arg + factor * dsdvgs;
-      }
-   }
-   else
-   {
-      m_vdsat  = (vgsx - vbin) / eta;
-      m_vdsat  = F_Max( m_vdsat, 0.0);
-      dsdvgs = 1.0;
-      dsdvbs = 0.0;
-   } */
 
         // evaluate saturation voltage and its derivatives according to
         // grove-frohman equation
@@ -8817,93 +6435,6 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
           dsdvgs        := 1.0;
           dsdvbs        := 0.0;
         end if;
-
-      /*   if (m_pParameters->m_maxDriftVel > 0)
-   {
-      // evaluate saturation voltage and its derivatives
-      // according to baum's theory of scattering velocity
-      // saturation
-      double y3, xvalid = 0.;
-      double sig1[ 4];
-      double sig2[ 4];
-      double a4[ 4],b4[ 4], x4[ 8], poly4[ 8], delta4, tmp;
-      int j, iknt = 0, i, jknt = 0;
-
-      double v1 = (vgsx - vbin) / eta + phiMinVbs;
-      double v2 = phiMinVbs;
-      double xv = m_pParameters->m_maxDriftVel * m_lEff / ueff;
-      double a1 = gammad / 0.75;
-      double b1 = -2.0 * (v1 + xv);
-      double c1 = -2.0 * gammad * xv;
-      double d1 = 2.0 * v1 * (v2 + xv) - v2 * v2 - 4.0 / 3.0 * gammad * sarg3;
-      double b2 = a1 * c1 - 4.0 * d1;
-      double r1 = -b1 * b1 / 3.0 + b2;
-      double s1 = 2.0 * b1 * b1 * -b1 / 27.0 + b1 * b2 / 3.0
-         + -d1 * (a1 * a1 - 4.0 * b1) - c1 * c1;
-      double s2 = s1 * s1;
-      double p1  = s2 / 4.0 + r1 * r1 * r1 / 27.0;
-      double p0 = F_Abs( p1);
-      double p2 = sqrt( p0);
-      double a3, b3;
-
-      sig1[0] = 1.0; sig1[1] = -1.0; sig1[2] =  1.0; sig1[3] = -1.0;
-      sig2[0] = 1.0; sig2[1] =  1.0; sig2[2] = -1.0; sig2[3] = -1.0;
-
-      if (p1 < 0)
-      {
-         y3 = 2.0 * exp( log( sqrt( s2 / 4.0 + p0)) / 3.0)
-            * cos( atan( -2.0 * p2 / s1) / 3.0) + b1 / 3.0;
-      }
-      else
-      {
-         y3 =  exp( log( F_Abs( -s1 / 2.0 + p2)) / 3.0)
-            + exp( log( F_Abs( -s1 / 2.0 - p2)) / 3.0)
-            + b1 / 3.0;
-      }
-
-      a3 = sqrt( a1 * a1 / 4.0 - b1 + y3);
-      b3 = sqrt( y3 * y3 / 4.0 - d1);
-
-      for( i = 1; i<=4; i++)
-      {
-         a4[i-1] = a1/2.0+sig1[i-1]*a3;
-         b4[i-1] = y3/2.0+sig2[i-1]*b3;
-         delta4 = a4[i-1]*a4[i-1]/4.0-b4[i-1];
-         if (delta4 >= 0)
-         {
-            iknt = iknt+1;
-            tmp = sqrt(delta4);
-            x4[iknt-1] = -a4[i-1]/2.0+tmp;
-            iknt = iknt+1;
-            x4[iknt-1] = -a4[i-1]/2.0-tmp;
-         }
-      }
-      jknt = 0;
-      for(j = 1;j<=iknt;j++)
-      {
-         if (x4[j-1] > 0)
-         {
-            // XXX implement this sanely
-            poly4[j-1] = x4[j-1]*x4[j-1]*x4[j-1]*x4[j-1]+a1*x4[j-1]*
-               x4[j-1]*x4[j-1];
-            poly4[j-1] = poly4[j-1]+b1*x4[j-1]*x4[j-1]+c1*x4[j-1]+d1;
-            if (F_Abs(poly4[j-1]) <= 1.0e-6)
-            {
-               jknt = jknt+1;
-               if (jknt <= 1)
-               {
-                  xvalid = x4[j-1];
-               }
-               if (x4[j-1] <= xvalid) xvalid = x4[j-1];
-            }
-         }
-      }
-
-      if (jknt > 0)
-      {
-         m_vdsat = xvalid * xvalid - phiMinVbs;
-      }
-   } */
 
         if (in_p.m_maxDriftVel > 0) then
           // evaluate saturation voltage and its derivatives
@@ -8960,7 +6491,6 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
           jknt := 0;
           for j in 1:iknt loop
             if (x4[j] > 0) then
-              // XXX implement this sanely
               poly4[j] := x4[j]*x4[j]*x4[j]*x4[j]+a1*x4[j]*x4[j]*x4[j];
               poly4[j] := poly4[j]+b1*x4[j]*x4[j]+c1*x4[j]+d1;
               if (abs(poly4[j]) <= 1.0e-6) then
@@ -8979,79 +6509,6 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
             out_c.m_vdsat := xvalid * xvalid - phiMinVbs;
           end if;
         end if;
-
-      /*   // evaluate effective channel length and its derivatives
-   dldvgs = 0.0;
-   dldvds = 0.0;
-   dldvbs = 0.0;
-   if (vds != 0.0)
-   {
-      gammad = gamasd;
-      if ((vbs - m_vdsat) <= 0)
-      {
-         bsarg  = sqrt(m_vdsat + phiMinVbs);
-         dbsrdb = -0.5 / bsarg;
-      }
-      else
-      {
-         bsarg  = sphi / (1.0 + 0.5 * (vbs - m_vdsat) / m_tPhi);
-         dbsrdb = -0.5 * bsarg * bsarg / sphi3;
-      }
-      bodys  = bsarg * bsarg * bsarg - sarg3;
-      gdbdvs = 2.0 * gammad * (bsarg * bsarg * dbsrdb - sarg * sarg * dsrgdb);
-      if (m_pParameters->m_maxDriftVel <= 0)
-      {
-         if ((m_pParameters->m_substrateDoping != 0.0) && (xlamda <= 0.0))
-         {
-            double sargv, argv, arg, dldsat, xlfact;
-
-            argv   = (vds - m_vdsat) / 4.0;
-            sargv  = sqrt(1.0 + argv * argv);
-            arg    = sqrt(argv + sargv);
-            xlfact = m_pParameters->m_xd / (m_lEff * vds);
-            xlamda = xlfact * arg;
-            dldsat = vds * xlamda / (8.0 * sargv);
-
-            dldvgs = dldsat * dsdvgs;
-            dldvds = -xlamda + dldsat;
-            dldvbs = dldsat * dsdvbs;
-         }
-
-      }
-      else
-      {
-         double argv, xdv, xlv, vqchan, dqdsat, vl, dfunds, dfundg, dfundb;
-
-         argv   = (vgsx - vbin) / eta - m_vdsat;
-         xdv    = m_pParameters->m_xd / sqrt(m_pParameters->m_channelCharge);
-         xlv    = m_pParameters->m_maxDriftVel * xdv / (2.0 * ueff);
-         vqchan = argv - gammad * bsarg;
-         dqdsat = -1.0 + gammad * dbsrdb;
-         vl     = m_pParameters->m_maxDriftVel * m_lEff;
-         dfunds = vl * dqdsat - ueff * vqchan;
-         dfundg = (vl - ueff * m_vdsat) / eta;
-         dfundb = -vl * (1.0 + dqdsat - factor / eta) + ueff *
-            (gdbdvs - dgdvbs * bodys / 1.5) / eta;
-         dsdvgs = -dfundg / dfunds;
-         dsdvbs = -dfundb / dfunds;
-         if ((m_pParameters->m_substrateDoping != 0.0) && (xlamda <= 0.0))
-         {
-            double dldsat, argv, xlfact, xls;
-
-            argv   = vds - m_vdsat;
-            argv   = F_Max(argv,0.0);
-            xls    = sqrt(xlv * xlv + argv);
-            dldsat = xdv / (2.0 * xls);
-            xlfact = xdv / (m_lEff * vds);
-            xlamda = xlfact * (xls - xlv);
-            dldsat = dldsat / m_lEff;
-
-            dldvgs = dldsat * dsdvgs;
-            dldvds = -xlamda + dldsat;
-            dldvbs = dldsat * dsdvbs;
-         }
-      }
-   } */
 
         // evaluate effective channel length and its derivatives
         dldvgs := 0.0;
@@ -9110,27 +6567,6 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
           end if;
         end if;
 
-      /*   // limit channel shortening at punch-through
-   xwb    = m_pParameters->m_xd * sqrt( m_tBulkPot);
-   xld    = m_lEff - xwb;
-   clfact = 1.0 - xlamda * vds;
-   dldvds = -xlamda - dldvds;
-   xleff  = m_lEff * clfact;
-   deltal = xlamda * vds * m_lEff;
-   if (m_pParameters->m_substrateDoping == 0.0)
-      xwb = 0.25e-6;
-   if (xleff < xwb)
-   {
-      double dfact;
-
-      xleff  = xwb / (1.0 + (deltal - xld) / xwb);
-      clfact = xleff / m_lEff;
-      dfact  = xleff * xleff / (xwb * xwb);
-      dldvgs = dfact * dldvgs;
-      dldvds = dfact * dldvds;
-      dldvbs = dfact * dldvbs;
-   } */
-
         // limit channel shortening at punch-through
         xwb    :=in_vp.m_xd*sqrt(out_c.m_tBulkPot);
         xld    :=out_c.m_lEff - xwb;
@@ -9149,27 +6585,6 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
           dldvds := dfact * dldvds;
           dldvbs := dfact * dldvbs;
         end if;
-
-      /*   // evaluate effective beta (effective kp)
-   beta1 = m_Beta * ufact / clfact;
-
-   // test for mode of operation and branch appropriately
-   gammad = gamasd;
-   dgdvbs = dgddvb;
-   if (vds <= 1.0e-10)
-   {
-      if (vgs <= m_von)
-         if ((m_pParameters->m_fastSurfaceStateDensity == 0.0) || (m_capOx == 0.0))
-            gds = 0.0;
-         else
-            gds = beta1 * (m_von - vbin - gammad * sarg) * exp(argg * (vgs - m_von));
-      else
-         gds = beta1 * (vgs - vbin - gammad * sarg);
-      cdrain = 0.0;
-      gm     = 0.0;
-      gmbs   = 0.0;
-      return;
-   } */
 
         // evaluate effective beta (effective kp)
         beta1 := out_c.m_Beta * ufact / clfact;
@@ -9192,78 +6607,6 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
           out_c.m_gmbs   :=0.0;
           return;
         end if;
-
-      /*   if (vgs <= m_von)
-   {
-      // subthreshold region
-      double vdson, cdson, gdson, didvds, gmw, gbson, expg, tmp;
-
-      if (m_vdsat <= 0)
-      {
-         gds    = 0.0;
-         if (vgs > vth)
-            return;
-         cdrain = 0.0;
-         gm     = 0.0;
-         gmbs   = 0.0;
-         return;
-      }
-      vdson = F_Min(m_vdsat,vds);
-      if (vds > m_vdsat)
-      {
-         barg   = bsarg;
-         dbrgdb = dbsrdb;
-         body   = bodys;
-         gdbdv  = gdbdvs;
-      }
-      cdson   = beta1 * ((m_von - vbin - eta * vdson * 0.5) * vdson - gammad * body / 1.5);
-      didvds  = beta1 * (m_von - vbin - eta * vdson - gammad * barg);
-      gdson   = -cdson * dldvds / clfact - beta1 * dgdvds * body / 1.5;
-      if (vds < m_vdsat)
-         gdson = gdson + didvds;
-      gbson   = -cdson * dldvbs / clfact + beta1 *
-         (dodvbs * vdson + factor * vdson - dgdvbs * body / 1.5 - gdbdv);
-      if (vds > m_vdsat)
-         gbson = gbson + didvds * dsdvbs;
-      expg   = exp(argg * (vgs - m_von));
-      cdrain = cdson * expg;
-      gmw    = cdrain * argg;
-      gm     = gmw;
-      if (vds > m_vdsat)
-         gm = gmw + didvds * dsdvgs * expg;
-      tmp    = gmw * (vgs - m_von) / xn;
-      gds    = gdson * expg - gm * dodvds - tmp * dxndvd;
-      gmbs   = gbson * expg - gm * dodvbs - tmp * dxndvb;
-   }
-   else if (vds <= m_vdsat)
-   {
-      // linear region
-      double arg;
-
-      cdrain = beta1 * ((vgs - vbin - eta * vds / 2.0) * vds - gammad * body / 1.5);
-      arg    = cdrain * (dudvgs / ufact - dldvgs / clfact);
-      gm     = arg + beta1 * vds;
-      arg    = cdrain * (dudvds / ufact - dldvds / clfact);
-      gds    = arg + beta1 * (vgs - vbin - eta *
-                              vds - gammad * barg - dgdvds * body / 1.5);
-      arg    = cdrain * (dudvbs / ufact - dldvbs / clfact);
-      gmbs   = arg - beta1 * (gdbdv + dgdvbs * body / 1.5 - factor * vds);
-   }
-   else
-   {
-      // saturation region
-      double arg;
-
-      cdrain = beta1 * ((vgs - vbin - eta *
-                         m_vdsat / 2.0) * m_vdsat - gammad * bodys / 1.5);
-      arg     = cdrain * (dudvgs / ufact - dldvgs / clfact);
-      gm     = arg + beta1 * m_vdsat
-         + beta1 * (vgs - vbin - eta * m_vdsat - gammad * bsarg) * dsdvgs;
-      gds    = -cdrain * dldvds / clfact - beta1 * dgdvds * bodys / 1.5;
-      arg     = cdrain * (dudvbs / ufact - dldvbs / clfact);
-      gmbs   = arg - beta1 * (gdbdvs + dgdvbs * bodys / 1.5 - factor * m_vdsat)
-         + beta1 *  (vgs - vbin - eta * m_vdsat - gammad * bsarg) * dsdvbs;
-   } */
 
         if (vgs <= out_c.m_von) then
           // subthreshold region
@@ -9350,19 +6693,13 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
 
        // from MosModelLinesParams
 
-         intern.m_oxideCapFactor := 0;              // not available in modelcard parameters????
-
-         //intern.m_vt0 := ex.VTO;                    // V zero-bias threshold voltage (default 0)
+         intern.m_oxideCapFactor := 0;
 
           intern.m_vtOIsGiven := if          (ex.VTO > -1e40) then 1 else 0;
           intern.m_vt0 := if         (ex.VTO > -1e40) then ex.VTO else 0;
 
-          //intern.m_capBD := ex.CBD;                  // F zero-bias B-D junction capacitance (default 0)
-
           intern.m_capBDIsGiven := if          (ex.CBD > -1e40) then 1 else 0;
           intern.m_capBD := if         (ex.CBD > -1e40) then ex.CBD else 0;
-
-         // intern.m_capBS := ex.CBS;                  // F zero-bias B-S junction capacitance (default 0)
 
           intern.m_capBSIsGiven := if          (ex.CBS > -1e40) then 1 else 0;
           intern.m_capBS := if         (ex.CBS > -1e40) then ex.CBS else 0;
@@ -9370,19 +6707,14 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
           intern.m_bulkCapFactor := ex.CJ;           // F/(m*m) zero-bias bulk junction bottom cap. per sq-meter of junction area (default 0)
           intern.m_sideWallCapFactor := ex.CJSW;     // F/m zero-bias junction sidewall cap. per meter of junction perimeter (default 0)
           intern.m_fwdCapDepCoeff := ex.FC;          // coefficient for forward-bias depletion capacitance formula (default 0.5)
-      //  intern.m_phi := ex.PHI;                    // V surface potential (default 0.6)
 
           intern.m_phiIsGiven := if          (ex.PHI > -1e40) then 1 else 0;
           intern.m_phi := if         (ex.PHI > -1e40) then ex.PHI else 0.6;
-
-       //  intern.m_gamma := ex.GAMMA;                // V bulk threshold parameter (default 0)
 
           intern.m_gammaIsGiven := if          (ex.GAMMA > -1e40) then 1 else 0;
           intern.m_gamma := if         (ex.GAMMA > -1e40) then ex.GAMMA else 0;
 
           intern.m_lambda := ex.LAMBDA;              // 1/V channel-length modulation (default 0)
-
-      //  intern.m_substrateDoping := ex.NSUB;       // substrate doping (default 0)
 
           intern.m_substrateDopingIsGiven := if          (ex.NSUB > -1e40) then 1 else 0;
           intern.m_substrateDoping := if         (ex.NSUB > -1e40) then ex.NSUB else 0;
@@ -9393,21 +6725,15 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
           intern.m_latDiff := ex.LD;                 // m lateral diffusion (default 0)
           intern.m_jctSatCur := ex.IS;               // A bulk junction saturation current (defaul 1e-14)
 
-          //intern.m_drainResistance := ex.RD;         // Ohm drain ohmic resistance (default 0)
-
           intern.m_drainResistanceIsGiven := if
                                                (ex.RD > -1e40) then 1 else 0;
           intern.m_drainResistance := if
                                        (ex.RD > -1e40) then ex.RD else 0;
 
-        //  intern.m_sourceResistance := ex.RS;        // Ohm source ohmic resistance (default 0)
-
-           intern.m_sourceResistanceIsGiven := if
+                intern.m_sourceResistanceIsGiven := if
                                                (ex.RS > -1e40) then 1 else 0;
           intern.m_sourceResistance := if
                                        (ex.RS > -1e40) then ex.RS else 0;
-
-        //  intern.m_transconductance := ex.KP;        // A/(V*V) transconductance parameter (default 2e-5)
 
           intern.m_transconductanceIsGiven := if          (ex.KP > -1e40) then 1 else 0;
           intern.m_transconductance := if         (ex.KP > -1e40) then ex.KP else 2e-5;
@@ -9435,33 +6761,11 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
          intern.m_fNcoef := ex.KF;                       // flicker-noise coefficient (default 0)
          intern.m_fNexp := ex.AF;                        // flicker-noise exponent (default 1)
 
-      //ajustable parameters not yet used in MOS1
-      /*
- parameter Real LEVEL=1 "";
- parameter Real TF=0 "?? ideal forward transit time";
-  parameter Real NFS=0.0 "?? fast surface state density";
- parameter Real XJ=0.0 "?? metallurgiecal junction depth";
- parameter Real UCRIT=1.e4
-    "?? critical field for mobility degradation (MOS2 only)";
- parameter Real UEXP=0.0
-    "?? critical field exponent in mobility degradation (MOS2 only)";
- parameter Real UTRA=0.0
-    "?? transverse field coeff(mobility) (deleted for MOS2)";
- parameter Real VMAX=0.0 "?? maximum drift velocity of carries";
- parameter Real NEFF=1.0
-    "?? total channel charge (fixed and mobile) coefficient (MOS2 only)";
- parameter Real DELTA=0.0 "width effect on theshold voltage";
- parameter Real THETA=0.0 "1/V mobility modulation (MOS3 only)";
- parameter Real ETA=0.0 "static feedback (MOS3 only)";
- parameter Real KAPPA=0.2 "saturation field factor (MOS3 only)";
-
-*/
       end Mos2RenameParameters;
 
       function Mos2RenameParameters_dev
         "renames the external parameters (e.g. RD) into the internal names (e.g. m_drainResistance)"
         input Spice3.Repository.modelcardMOS2 ex;
-       // input Spice3.Attempt_1_konstanten_parameter_inArbeit.SpiceConstants con;
         input Real mtype;
         input Real W;
         input Real L;
@@ -9479,9 +6783,7 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
 
       algorithm
       /*device parameters*/
-       //  Real m_len(             start = SpiceRoot.SPICEcircuitCONST.CKTdefaultMosL);  // L, length of channel region
         dev.m_len := L;               // L, length of channel region
-      //  Real m_width(           start = SpiceRoot.SPICEcircuitCONST.CKTdefaultMosW);  // W, width of channel region
         dev.m_width := W;             // W, width of channel region
         dev.m_drainArea := AD;        // AD, area of drain diffusion
         dev.m_sourceArea := AS;       // AS, area of source diffusion
@@ -9489,17 +6791,12 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
         dev.m_sourceSquares := NRS;   // NRS, length of source in squares
         dev.m_drainPerimiter := PD;   // PD, Drain perimeter;
         dev.m_sourcePerimiter := PS;  // PS, Source perimeter
-      //  dev.m_dICVDS := IC;     // IC_VDS, Initial D-S voltage;
 
           dev.m_dICVDSIsGiven := if          (IC > -1e40) then 1 else 0;
           dev.m_dICVDS := if         (IC > -1e40) then IC else 0;
 
-      //  dev.m_dICVGS := 1;     // IC_VGS, Initial G-S voltage;
-
           dev.m_dICVGSIsGiven := if          (IC > -1e40) then 1 else 0;
           dev.m_dICVGS := if         (IC > -1e40) then IC else 0;
-
-      //  dev.m_dICVBS := 2;     // IC_VBS, Initial B-S voltage;
 
           dev.m_dICVBSIsGiven := if          (IC > -1e40) then 1 else 0;
           dev.m_dICVBS := if         (IC > -1e40) then IC else 0;
@@ -9515,64 +6812,6 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
     package Diode
       record DiodeModelLineParams
 
-      /* Diode_Model_Line::Diode_Model_Line( const String& elementname)
-   //     Diode Models
-
-   //     The dc characteristics of the diode are  determined  by
-   //     the  parameters IS and N.An  ohmic  resistance, RS, is
-   //     included.Charge storage effects are modeled by  a  transit
-   //     time,TT, and a nonlinear depletion layer capacitance which
-   //     is determined by the parameters CJO, VJ, and  M.The temperature
-   //     dependence of the saturation current is defined by
-   //     the parameters EG, the  energy and XTI, the saturation
-   //     current  temperature exponent.  Reverse breakdown is modeled
-   //     by an exponential increase in the reverse diode current  and
-   //     is  determined  by  the parameters BV and IBV (both of which
-   //     are positive numbers).
-
-   // <pre>            name   parameter                        units   default    example    area</br>
-
-   //       1    IS     saturation current               A       1.0E-14    1.0E-14    *
-   //       2    RS     ohmic resistance                 Ohm     0          10         *
-   //       3    N      emission coefficient             -       1          1.0
-   //       4    TT     transit-time                     sec     0          0.1Ns
-   //       5    CJO    zero-bias junction capacitance   F       0          2PF        *
-   //       6    VJ     junction potential               V       1          0.6
-   //       7    M      grading coefficient              -       0.5        0.5
-   //       8    EG     activation energy                eV      1.11       1.11 Si
-   //                                                                       0.69 Sbd
-   //                                                                       0.67 Ge
-   //       9    XTI    saturation-current temp. exp     -       3.0        3.0 jn
-   //                                                                       2.0 Sbd
-   //      10    KF     flicker noise coefficient        -       0
-   //      11    AF     flicker noise exponent           -       1
-   //      12    FC     coefficient for forward-bias     -       0.5
-   //                   depletion capacitance formula
-   //      13    BV     reverse breakdown voltage        V       infinite   40.0
-   //      14    IBV    current at breakdown voltage     A       1.0E-3</pre>
-
-         : DotModel( "DIODE .MODEL", elementname)
-{
-   AddParameter( "D", m_bD, true);                       // Diode model
-   AddParameter( "IS", m_satCur, 1e-14);                 // Saturation current
-   AddParameter( "RS", m_resist, 0.0);                   // Ohmic resistance
-   AddParameter( "N", m_emissionCoeff, 1.0);             // Emission Coefficient
-   AddParameter( "TT", m_transitTime, 0.0);              // Transit Time
-   AddParameter( "CJO", m_junctionCap, 0.0)->Alias( "CJ0"); // Junction capacitance
-   AddParameter( "VJ", m_junctionPot, 1.0);              // Junction potential
-   AddParameter( "M", m_gradingCoeff, 0.5);              // Grading coefficient
-   AddParameter( "EG", m_activationEnergy, 1.11);        // Activation energy
-   AddParameter( "XTI", m_saturationCurrentExp, 3.0);    // Saturation current temperature exp.
-   AddParameter( "FC", m_depletionCapCoeff, 0.5);        // Forward bias junction fit parameter
-   m_pBvValue = AddParameter( "BV", m_breakdownVoltage, 0.0); // Reverse breakdown voltage
-   AddParameter( "IBV", m_breakdownCurrent, 1e-3);       // Current at reverse breakdown voltage
-   AddParameter( "TNOM", m_nomTemp, CKTnomTemp)->SetOffset( CONSTCtoK); // Parameter measurement temperature
-   AddParameter( "KF", m_fNcoef, 0.0);                   // flicker noise coefficient
-   AddParameter( "AF", m_fNexp, 1.0);                    // flicker noise exponent
-   AddValue( "G", m_conductance)->Alias( "COND");        // Ohmic conductance
-} */
-
-       // Boolean m_bD( start = true);                        // "D", Diode model
         Real m_satCur( start = 1.0e-14);                    // "IS", Saturation current
         Real m_resist( start = 0.0);                        // "RS", Ohmic resistance
         Real m_emissionCoeff( start = 1.0);                 // "N", Emission Coefficient
@@ -9604,111 +6843,18 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
       end DiodeModelLineVariables;
 
       record DiodeParams
-      /* Diode::Diode( const String& elementname)
-   //      Junction Diodes
-
-   //      General form: <pre>
-   //      DN+ N- NAME &lt;AREA&gt; &lt;OFF&gt; &lt;IC=VD&gt;
-   //      </pre>Examples:<pre>
-   //      D BRIDGE 2 10 DIODE1
-   //      D CLMP 3 7 DMOD 3.0 IC=0.2
-   //      </pre>N+ and N- are the positive and negative nodes,  respectively.
-   //      NAME is the model name, AREA is the area factor,
-   //      and OFF  indicates an (optional) starting  condition  on  the
-   //      device  for  dc  analysis.  If the area factor is omitted, a
-   //      value of 1.0 is assumed.  The (optional)  initial  condition
-   //      specification  using IC = VD is intended for use with the IC
-   //      option on the other than the quiescent operating point.
-        : Model( "Diode", elementname), m_pModel( NULL)
-{
-   AddParameter( "AREA", m_area, 1.0);               // Area factor
-   AddParameter( "OFF", m_bOff, false);              // Initially off
-   m_pIcValue = AddParameter( "IC", m_dIC, 0.0);     // Initial device voltage
-   AddParameter( "SENS_AREA", m_bSensArea, false);   // flag to request sensitivity WRT area
-   AddParameter( "D", m_bD, true);                   // Diode model
-
-   AddValue( "VD", m_dPNVoltage);                    // Diode voltage
-   AddValue( "ID", m_dCurrent)->Alias( "C");         // Diode current
-   AddValue( "GD", m_dCond);                         // Diode conductance
-   AddValue( "CHARGE", m_dCharge);                   // Diode capacitor charge
-   AddValue( "CD", m_dCap);                          // Diode capacitance
-   AddValue( "CAPCUR", m_dCapCurrent);               // Diode capacitor current
-   AddValue( "P", m_dPower);                         // Diode Power
-   AddValue( "SENS_DC",   m_dUnusedSensValue, false); // dc sensitivity
-   AddValue( "SENS_REAL", m_dUnusedSensValue, false); // dc sens. and real part of ac sensitivity
-   AddValue( "SENS_IMAG", m_dUnusedSensValue, false); // imag part of ac sensitivity
-   AddValue( "SENS_MAG",  m_dUnusedSensValue, false); // sensitivity of ac magnitude
-   AddValue( "SENS_PH",   m_dUnusedSensValue, false); // sensitivity of ac phase
-   AddValue( "SENS_CPIX", m_dUnusedSensValue, false); // ac sensitivity
-   AddValue( "Vr", m_dResVoltage);
-   AddValue( "Gr", m_dResCond);
-   AddValue( "Ir", m_dResCurrent);
-
-   m_dResCurrent = 0.;
-   m_dResVoltage = 0.;
-   m_dResCond    = 0.;
-
-   m_tJctPot    = 0.0;
-   m_tJctCap    = 0.0;
-   m_tDepCap    = 0.0;
-   m_tSatCur    = 0.0;
-   m_tVcrit     = 0.0;
-   m_tF1        = 0.0;
-   m_tBrkdwnV   = 0.0;
-   m_f2                 = 0.0;
-   m_f3                 = 0.0;
-   m_dVte               = 0.0;
-} */
 
         Real m_area(start = 1.0);                   // "AREA", Area factor
         Boolean m_bOff(start = false);              // "OFF", Initially off
         Real m_dIC(start = 0.0);                    // "IC", Initial device voltage
         Real m_pIcIsGiven;
         Boolean m_bSensArea(start = false);         // "SENS_AREA", flag to request sensitivity WRT area
-       // Boolean m_bD(start = true);                 // "D", Diode model
 
-      //Ausgabeparameter
-
-        // Real m_dPNVoltage;                          // "VD", Diode voltage
-        // Real m_dCurrent;                            // "ID", Diode current
-        // Real m_dCond;                               // "GD", Diode conductance
-        // Real m_dCharge;                             // "CHARGE", Diode capacitor charge
-        // Real m_dCap;                                // "CD", Diode capacitance
-        // Real m_dCapCurrent;                         // "CAPCUR", Diode capacitor current
-        // Real m_dPower;                              // "P", Diode Power
-        // Boolean m_dUnusedSensValue1(start = false); // "SENS_DC", dc sensitivity
-        // Boolean m_dUnusedSensValue2(start = false); // "SENS_REAL", dc sens. and real part of ac sensitivity
-        // Boolean m_dUnusedSensValue3(start = false); // "SENS_IMAG", imag part of ac sensitivity
-        // Boolean m_dUnusedSensValue4(start = false); // "SENS_MAG", sensitivity of ac magnitude
-        // Boolean m_dUnusedSensValue5(start = false); // "SENS_PH", sensitivity of ac phase
-        // Boolean m_dUnusedSensValue6(start = false); // "SENS_CPIX", ac sensitivity
-
-        // Real m_dResVoltage(start = 0.0);            // "Vr"
-        // Real m_dResCond(start = 0.0);               // "Gr"
-        // Real m_dResCurrent(start = 0.0);            // "Ir"
-
-        // available in DiodeCalc
-      /*  Real m_tJctPot(start = 0.0);
-  Real m_tJctCap(start = 0.0);
-  Real m_tDepCap(start = 0.0);
-  Real m_tSatCur(start = 0.0);
-  Real m_tVcrit(start = 0.0);
-  Real m_tF1(start = 0.0);
-  Real m_tBrkdwnV(start = 0.0);
-  Real m_f2(start = 0.0);
-  Real m_f3(start = 0.0);
-  Real m_dVte(start = 0.0);
-*/
       end DiodeParams;
 
       record DiodeVariables
 
         Real m_pBvIsGiven;
-
-        // Real m_dResVoltage;
-        // Real m_dResCond;
-        // Real m_dResCurrent;
-        // Real m_dPower;
 
       end DiodeVariables;
 
@@ -9729,43 +6875,16 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
       record CurrentsCapacitances
 
         Real m_dCurrent;
-      //  Real m_dCapCurrent;
 
       end CurrentsCapacitances;
 
       function DiodeModelLineInitEquations
-      /* void Diode_Model_Line::InitEquations() */
 
         input DiodeModelLineParams in_p;
 
         output DiodeModelLineVariables out_v;
 
       algorithm
-      /*{// limit grading coeff to max of .9
-   if (m_gradingCoeff > .9)
-   {
-      Ex_Param_MaxLimit( this, "M", m_gradingCoeff, .9);       // Grading coefficient
-      m_gradingCoeff = .9;
-   }
-   // limit activation energy to min of .1
-   if (m_activationEnergy < .1)
-   {
-      Ex_Param_MinLimit( this, "EG", m_activationEnergy, .1);    // Activation energy
-      m_activationEnergy = .1;
-   }
-   // limit depletion cap coeff to max of .95
-   if (m_depletionCapCoeff > .95)
-   {
-      Ex_Param_MaxLimit( this, "FC", m_depletionCapCoeff, .95); // Forward bias junction fit parameter
-      m_depletionCapCoeff = .95;
-   }
-
-   if (m_resist == 0.0)
-      m_conductance = 0.0;
-   else
-      m_conductance = 1.0 / m_resist;
-}*/
-
         // limit grading coeff to max of .9
         if (in_p.m_gradingCoeff > 0.9) then
           out_v.m_gradingCoeff := 0.9;
@@ -9784,39 +6903,12 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
       end DiodeModelLineInitEquations;
 
       function DiodeInitEquations
-      /* void Diode::InitEquations() */
 
         input DiodeModelLineParams in_p;
 
         output DiodeVariables out_v;
 
       algorithm
-      /* {
-     
-
-//        Ex_Param_BvIsGiven(this,"BV",(int)(m_pModel->m_pBvValue->IsGiven())).print();
-
-        if (m_pModel->m_pBvValue->IsGiven())
-                if (m_pModel->m_breakdownVoltage>1.0e+100)
-                {
-#ifdef SML_DEBUG
-                        Ex_Param_BvToLarge(this,"BV",m_pModel->m_breakdownVoltage).print();
-#endif
-                        m_pModel->m_pBvValue->SetIsGivenFalse();
-//                        Ex_Param_BvIsGiven(this,"BV",(m_pModel->m_pBvValue->IsGiven())).print();
-                }
-                else
-                {
-                        if (m_pModel->m_breakdownVoltage<1.0e+00)
-                        {
-                                Ex_Param_BvToSmall(this,"BV",m_pModel->m_breakdownVoltage).print();
-                        }
-//                        else
-//                        {
-//                                Ex_Param_Bv(this,"BV",m_pModel->m_breakdownVoltage).print();
-//                        }
-                }
-} */
        out_v.m_pBvIsGiven := in_p.m_pBvIsGiven;
         if (out_v.m_pBvIsGiven > 0.5) then
           if (in_p.m_breakdownVoltage > 1.0e+100) then
@@ -9827,7 +6919,6 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
       end DiodeInitEquations;
 
       function DiodeCalcTempDependencies
-      /* void Diode::CalcTempDependencies() */
 
         input DiodeModelLineParams in_p;
         input DiodeParams in_dp;
@@ -9837,38 +6928,6 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
         output DiodeCalc out_c;
 
       algorithm
-      /*{if (!m_pModel)
-      DefineDotModel();
-
-   // theoretisch korrekt waere: (aber wg. SPICE-Kompatibilitaet):
-   //    m_tJctPot = JunctionPotDepTemp(
-   //       m_pModel->m_junctionPot, m_dTemp, m_pModel->m_nomTemp);
-   //    m_tJctCap = m_area * JunctionCapDepTemp(
-   //       m_pModel->m_junctionCap, m_pModel->m_gradingCoeff,
-   //       m_pModel->m_junctionPot, m_dTemp, m_pModel->m_nomTemp);
-   JunctionParamDepTempSPICE3(
-      m_tJctPot, m_tJctCap,
-      m_pModel->m_junctionPot, m_pModel->m_junctionCap, m_pModel->m_gradingCoeff,
-      m_dTemp, m_pModel->m_nomTemp);
-   m_tJctCap = m_area * m_tJctCap;
-   JunctionCapCoeffs(
-      m_tF1, m_f2, m_f3, m_pModel->m_gradingCoeff,
-      m_pModel->m_depletionCapCoeff, m_tJctPot);
-
-   m_tSatCur = SaturationCurDepTempSPICE3(
-      m_pModel->m_satCur, m_dTemp, m_pModel->m_nomTemp,
-      m_pModel->m_emissionCoeff,
-      m_pModel->m_activationEnergy,
-      m_pModel->m_saturationCurrentExp);
-   m_tVcrit = JunctionVCrit( m_dTemp, m_pModel->m_emissionCoeff, m_tSatCur);
-   m_dVte   = m_dTemp * CONSTKoverQ * m_pModel->m_emissionCoeff;
-   if (m_pModel->m_pBvValue->IsGiven())
-      m_tBrkdwnV = JunctionVoltage23_SPICE3(
-         this, m_pModel->m_breakdownVoltage, m_pModel->m_breakdownCurrent,
-         m_tSatCur, m_dTemp, m_pModel->m_emissionCoeff);
-   m_tSatCur = m_area * m_tSatCur;
-} */
-
         (out_c.m_tJctPot,out_c.m_tJctCap) :=
           Spice3.Repository.Equation.JunctionParamDepTempSPICE3(
                 in_p.m_junctionPot,
@@ -9911,7 +6970,6 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
       end DiodeCalcTempDependencies;
 
       function DiodeNoBypassCode
-      /* void Diode::NoBypassCode() */
 
         input DiodeModelLineParams in_p;
         input DiodeParams in_dp;
@@ -9919,7 +6977,6 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
         input Spice3.Repository.Model.Model in_m;
         input Boolean in_m_mbInit;
         input Real[2] in_m_pVoltageValues; /* DPP, DN */
-       // input Real[2] in_m_pVoltageValuesDot; /* DPP, DN */
 
         output CurrentsCapacitances out_cc;
 
@@ -9929,28 +6986,10 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
         Real m_dPNVoltage;
         Real m_dCurrent;
         Real m_dCond;
-       // Real m_dCap;
         Real m_dCharge;
         Real m_dCapCurrent;
 
       algorithm
-      /*{
-//        Ausgabe, ob Parameter "BV" für diese Diode gesetzt!!!
-//        Ex_Param_BvIsGiven(this,"BV",(int)(m_pModel->m_pBvValue->IsGiven())).print();
-
-   m_dPNVoltage = GetVoltage( DPP, DN);
-
-   if (UseInitialConditions() && m_pIcValue->IsGiven())
-      m_dPNVoltage = m_dIC;
-   else if (InitJunctionVoltages())
-      if (m_bOff)
-         m_dPNVoltage = 0.;
-      else
-         m_dPNVoltage = m_tVcrit;
-
-   m_dPNVoltage = LimitJunctionVoltage(
-      m_dPNVoltage, m_dVte, m_tVcrit, m_pModel->m_pBvValue->IsGiven(), m_tBrkdwnV); */
-
         m_dPNVoltage := in_m_pVoltageValues[1] - in_m_pVoltageValues[2]; /*GetVoltage(DPP, DN)*/
 
         if (Spice3.Repository.SpiceRoot.UseInitialConditions() and in_dp.m_pIcIsGiven > 0.5) then
@@ -9963,20 +7002,6 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
           end if;
         end if;
 
-      /* //////////////////////////////////////////////////////////////////////
-   // resistance
-   InternConductance( DP, DPP, m_pModel->m_conductance * m_area);
-
-   //////////////////////////////////////////////////////////////////////
-   // junction current
-   if (m_pModel->m_pBvValue->IsGiven())
-      Junction3(
-         m_dCurrent, m_dCond, m_dPNVoltage, m_dTemp, m_pModel->m_emissionCoeff, m_tSatCur, m_tBrkdwnV);
-   else
-      Junction2(
-         m_dCurrent, m_dCond, m_dPNVoltage, m_dTemp, m_pModel->m_emissionCoeff, m_tSatCur);
-   InsertConductance( DPP, DN, m_dCond, m_dCurrent, m_dPNVoltage); */
-
         if (in_p.m_pBvIsGiven > 0.5) then
           (out_cc.m_dCurrent,m_dCond) := Spice3.Repository.Equation.Junction3(
                   m_dPNVoltage,
@@ -9985,7 +7010,7 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
                   in_c.m_tSatCur,
                   in_c.m_tBrkdwnV);
         else
-          (out_cc.m_dCurrent,m_dCond,guck1) :=
+          (out_cc.m_dCurrent,m_dCond) :=
             Spice3.Repository.Equation.Junction2(
                   m_dPNVoltage,
                   in_m.m_dTemp,
@@ -9993,22 +7018,6 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
                   in_c.m_tSatCur);
         end if;
 
-      /* //////////////////////////////////////////////////////////////////////
-   // charge storage elements
-   JunctionCapTransTime(
-      m_dCap, m_dCharge, m_tJctCap, m_dPNVoltage, m_tJctPot * m_pModel->m_depletionCapCoeff,
-      m_pModel->m_gradingCoeff, m_pModel->m_junctionPot, m_tF1, m_f2, m_f3,
-      m_pModel->m_transitTime, m_dCond, m_dCurrent);
-   // korrekt waere: (wieder mal Kompatibilitaet ...)
-   //    JunctionCapTransTime(
-   //       m_dCap, m_dCharge, m_tJctCap, m_dPNVoltage, m_tJctPot * m_pModel->m_depletionCapCoeff,
-   //       m_pModel->m_gradingCoeff, m_tJctPot, m_tF1, m_f2, m_f3,
-   //       m_pModel->m_transitTime, m_dCond, m_dCurrent);
-   m_dCapCurrent = InsertCapacitance( DPP, DN, m_dCap, m_dCharge, m_dPNVoltage);
-} */
-
-       //////////////////////////////////////////////////////////////////////
-       // charge storage elements
         (m_dCap,m_dCharge) := Spice3.Repository.Equation.JunctionCapTransTime(
                 in_c.m_tJctCap,
                 m_dPNVoltage,
@@ -10021,12 +7030,11 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
                 in_p.m_transitTime,
                 m_dCond,
                 m_dCurrent);
-      //  out_cc.m_dCapCurrent :=if (in_m_mbInit) then 0.0 else m_dCap*(in_m_pVoltageValuesDot[1]-in_m_pVoltageValuesDot[2]);
 
       end DiodeNoBypassCode;
 
       function DiodeCalcAdditionalValues
-      /* void Diode::CalcAdditionalValues() */
+
         input DiodeVariables in_v;
         input DiodeModelLineParams in_p;
         input DiodeParams in_dp;
@@ -10036,19 +7044,6 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
 
       algorithm
         out_v := in_v;
-
-      // /*{
-      //    m_dResVoltage = GetVoltage( DP, DPP);
-      //    m_dResCond    = m_pModel->m_conductance * m_area;
-      //    m_dResCurrent = m_dResVoltage * m_dResCond;
-      //
-      //    m_dPower = m_dPNVoltage * m_dCurrent;
-      // } */
-      //auskommentiert kristin
-      //   out_v.m_dResVoltage := in_m_pVoltageValues[1] - in_m_pVoltageValues[2];
-      //   out_v.m_dResCond    := in_p.m_conductance * in_dp.m_area;
-      //   out_v.m_dResCurrent := out_v.m_dResVoltage * out_v.m_dResCond;
-      //   out_v.m_dPower      := in_dp.m_dPNVoltage * in_dp.m_dCurrent;
 
       end DiodeCalcAdditionalValues;
 
@@ -10061,8 +7056,6 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
         output Spice3.Repository.Diode.DiodeModelLineParams intern;
 
       algorithm
-        // from DiodeModelLinesParams
-
          intern.m_satCur := ex.IS;
          intern.m_resist:=ex.RS;
          intern.m_emissionCoeff := ex.N;
@@ -10078,10 +7071,8 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
          intern.m_pBvIsGiven := if (ex.BV > -1e40) then 1 else 0;
          intern.m_breakdownVoltage := if (ex.BV > -1e40) then ex.BV else 0;
 
-         //assert(ex.BV >= 0, "Breakthrough voltage BV must be not be negative");
-
          intern.m_breakdownCurrent := ex.IBV;
-        intern.m_nomTemp := ex.TNOM + Spice3.Repository.SpiceConstants.CONSTCtoK;
+         intern.m_nomTemp := ex.TNOM + Spice3.Repository.SpiceConstants.CONSTCtoK;
          intern.m_fNcoef := ex.KF;
          intern.m_fNexp := ex.AF;
 
@@ -10091,8 +7082,7 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
 
       function DiodeRenameParameters_dev
        // "renames the external parameters (e.g. RD) into the internal names (e.g. m_drainResistance)"
-      //  input Spice3_diode.Repository.modelcardMOS ex;
-       // input Spice3.Attempt_1_konstanten_parameter_inArbeit.SpiceConstants con;
+
         input Real TEMP;
         input Real AREA;
         input Real IC;
@@ -10115,8 +7105,7 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
 
       function DiodeRenameParameters_dev_temp
        // "renames the external parameters (e.g. RD) into the internal names (e.g. m_drainResistance)"
-      //  input Spice3_diode.Repository.modelcardMOS ex;
-       // input Spice3.Attempt_1_konstanten_parameter_inArbeit.SpiceConstants con;
+
         input Real TEMP;
         output Spice3.Repository.Model.Model dev_temp;
 
@@ -10128,11 +7117,7 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
 
     package R_semiconductor
       record ResistorParams
-      /*    m_pResValue   = AddParameter( "R", m_dResist, 1000.);      // Device is a resistor model
-   m_pWidthValue = AddParameter( "W", m_dWidth, 0.);          // Width
-   AddParameter( "L", m_dLength, 0.);                         // Length
-   AddParameter( "SENS_RESIST", m_bSensResist, false);        // flag to request sensitivity WRT resistance
-   */
+
           Real m_dResist( start=1000) "Device is a resistor model";
           Real m_dResIsGiven;
           Real m_dWidth( start=0) "Width";
@@ -10155,13 +7140,6 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
           Real m_dNarrow "Narrowing of resistor";
           Real m_dTnom "Parameter measurement temperature";
 
-         /*AddParameter( "R", m_bR, true);                            // Device is a resistor model
-   AddParameter( "TC1", m_dTC1, 0.0);                         // First order temp, coefficient
-   AddParameter( "TC2", m_dTC2, 0.0);                         // Second order temp, coefficient
-   AddParameter( "RSH", m_dRsh, 0.0);                         // Sheet resistance
-   AddParameter( "DEFW", m_dDefW, 10e-6);                     // Default device width
-   AddParameter( "NARROW", m_dNarrow, 0.0);                   // Narrowing of resistor
-   AddParameter( "TNOM", m_dTnom, CKTnomTemp)->SetOffset( CONSTCtoK);// Parameter measurement temperature*/
       end ResistorModelLineParams;
 
       record ResistorVariables
@@ -10231,27 +7209,6 @@ Mos2ModelLineParams::Mos2ModelLineParams( Mosfet_Model_Line* model)
        input Spice3.Repository.R_semiconductor.ResistorModelLineParams in_p2;
        output ResistorVariables out;
 
-      /*
-void Resistor::InitEquations()
-{
-   if (!m_pResValue->IsGiven())
-
-      if (m_pModel && (F_Abs(m_dLength)>1e-18) && (F_Abs(m_pModel->m_dRsh)>1e-25))
-      {
-         if (!m_pWidthValue->IsGiven())
-            m_dWidth = m_pModel->m_dDefW;
-         m_dResist   = ResDepGeom(
-            m_pModel->m_dRsh, m_dWidth, m_dLength, m_pModel->m_dNarrow);
-      }
-      else
-         Ex_Param_WarnDefault( this, "R", F_String( m_dResist)).print();
-   if (m_dResist < 1e-12)
-   {
-      Ex_Param_MinLimit( this, "R", m_dResist, 1e-12).print();
-      m_dResist = 1e-12;
-   }
-}
- */
       algorithm
       out.m_dWidth := in_p.m_dWidth;
         if ( in_p.m_dResIsGiven < 0.5) then
@@ -10284,13 +7241,12 @@ void Resistor::InitEquations()
     package Bjt3
       record BjtModelLineParams
 
-        //String m_type( start = "NPN");
          Real m_type( start = 1);             // device type : 1 = n,  -1 = p
 
          Boolean m_bNPN( start = true);            // "NPN", NPN type device
          Boolean m_bPNP( start = false);           // "PNP", PNP type device
         Real m_tnom( start=Spice3.Repository.SpiceConstants.CKTnomTemp);
-                                                         // "TNOM", Parameter measurement temperature
+                                                  // "TNOM", Parameter measurement temperature
         Real m_satCur( start = 1.0e-16);          // "IS", Saturation Current
         Real m_betaF( start = 100.0);             // "BF", Ideal forward beta
         Real m_emissionCoeffF(  start = 1.0);      // "NF", Forward emission coefficient
@@ -10348,66 +7304,6 @@ void Resistor::InitEquations()
         Real m_invEarlyVoltR( start = 0.0);
         Real m_invRollOffR( start = 0.0);
 
-      /* Bjt_Model_Line::Bjt_Model_Line( const String& elementname)
-        : DotModel( "BJT .MODEL", elementname)
-{
-   AddParameter( "NPN", m_bNPN, true);         // NPN type device
-   AddParameter( "PNP", m_bPNP, false);        // PNP type device
-   AddParameter( "TNOM", m_tnom, CKTnomTemp)->SetOffset( CONSTCtoK); // Parameter measurement temperature
-   AddParameter( "IS", m_satCur, 1e-16);       // Saturation Current
-   AddParameter( "BF", m_betaF, 100.);         // Ideal forward beta
-   AddParameter( "NF", m_emissionCoeffF, 1.);  // Forward emission coefficient
-   AddParameter( "NE", m_leakBEemissionCoeff, 1.5); // B-E leakage emission coefficient
-   m_leakBEcurrentValue = AddParameter( "ISE", m_leakBEcurrent, 0.);// B-E leakage saturation current
-   m_c2Value            = AddParameter( "C2", m_c2, 0.);// Obsolete parameter name
-   m_leakBCcurrentValue = AddParameter( "ISC", m_leakBCcurrent, 0.);// B-C leakage saturation current
-   m_c4Value            = AddParameter( "C4", m_c4, 0.);// Obsolete parameter name
-   AddParameter( "BR", m_betaR, 1.); // Ideal reverse beta
-   AddParameter( "NR", m_emissionCoeffR, 1.); // Reverse emission coefficient
-   AddParameter( "NC", m_leakBCemissionCoeff, 2.);// B-C leakage emission coefficient
-   AddParameter( "VAF", m_earlyVoltF, 0.)->Alias( "VA");// Forward Early voltage
-   AddParameter( "IKF", m_rollOffF, 0.)->Alias( "IK");// Forward beta roll-off corner current
-   AddParameter( "VAR", m_earlyVoltR, 0.)->Alias( "VB");// Reverse Early voltage
-   AddParameter( "IKR", m_rollOffR, 0.);// reverse beta roll-off corner current
-   AddParameter( "RE", m_emitterResist, 0.);// Emitter resistance
-   AddParameter( "RC", m_collectorResist, 0.);// Collector resistance
-   AddParameter( "IRB", m_baseCurrentHalfResist, 0.);// Current for base resistance=(rb+rbm)/2
-   AddParameter( "RB", m_baseResist, 0.);// Zero bias base resistance
-   m_minBaseResistValue = AddParameter( "RBM", m_minBaseResist, 0.); // Minimum base resistance
-   AddParameter( "CJE", m_depletionCapBE, 0.);// Zero bias B-E depletion capacitance
-   AddParameter( "VJE", m_potentialBE, .75)->Alias( "PE");// B-E built in potential
-   AddParameter( "MJE", m_junctionExpBE, .33)->Alias( "ME");// B-E built in potential
-   AddParameter( "TF", m_transitTimeF, 0.);// Ideal forward transit time
-   AddParameter( "XTF", m_transitTimeBiasCoeffF, 0.);// Coefficient for bias dependence of TF
-   AddParameter( "ITF", m_transitTimeHighCurrentF, 0.);// High current dependence of TF
-   AddParameter( "VTF", m_transitTimeFVBC, 0.);// Voltage giving VBC dependence of TF
-   AddParameter( "PTF", m_excessPhase, 0.);// Excess phase
-   AddParameter( "CJC", m_depletionCapBC, 0.);// Zero bias B-C depletion capacitance
-   AddParameter( "VJC", m_potentialBC, .75)->Alias( "PC");// B-C built in potential
-   AddParameter( "MJC", m_junctionExpBC, .33)->Alias( "MC");// B-C junction grading coefficient
-   AddParameter( "XCJC", m_baseFractionBCcap, 1.);// Fraction of B-C cap to internal base
-   AddParameter( "TR", m_transitTimeR, 0.);// Ideal reverse transit time
-   AddParameter( "CJS", m_capCS, 0.)->Alias( "CCS");// Zero bias C-S capacitance
-   AddParameter( "VJS", m_potentialSubstrate, .75)->Alias( "PS");// Zero bias C-S capacitance
-   AddParameter( "MJS", m_exponentialSubstrate, 0.)->Alias( "MS");// Substrate junction grading coefficient
-   AddParameter( "XTB", m_betaExp, 0.);// Forward and reverse beta temp. exp.
-   AddParameter( "EG", m_energyGap, 1.11);// Energy gap for IS temp. dependency
-   AddParameter( "XTI", m_tempExpIS, 3.);// Temp. exponent for IS
-   AddParameter( "KF", m_fNcoef, 0.);// Flicker Noise Coefficient
-   AddParameter( "AF", m_fNexp, 1.);// Flicker Noise Exponent
-   AddParameter( "FC", m_depletionCapCoeff, .5);// Forward bias junction fit parameter
-
-   m_collectorConduct     = 0.;
-   m_emitterConduct       = 0.;
-   m_transitTimeVBCFactor = 0.;
-   m_excessPhaseFactor    = 0.;
-   m_type                 = NPN;
-   m_invEarlyVoltF        = 0.;
-   m_invRollOffF          = 0.;
-   m_invEarlyVoltR        = 0.;
-   m_invRollOffR          = 0.;
-}
-*/
       end BjtModelLineParams;
 
       record BjtModelLineVariables
@@ -10429,7 +7325,6 @@ void Resistor::InitEquations()
       end BjtModelLineVariables;
 
       function BjtModelLineInitEquations
-      /* void Bjt_Model_Line::InitEquations() */
 
         input BjtModelLineParams in_p;
 
@@ -10439,39 +7334,6 @@ void Resistor::InitEquations()
         Real xfc;
 
       algorithm
-      /* { m_type = m_bPNP ? PNP : NPN;
-
-   double xfc;
-
-   if ((!m_leakBEcurrentValue->IsGiven()) && (m_c2Value->IsGiven()))
-      m_leakBEcurrent = m_c2 * m_satCur;
-   if ((!m_leakBCcurrentValue->IsGiven()) && (m_c4Value->IsGiven()))
-      m_leakBCcurrent = m_c4 * m_satCur;
-   if (!m_minBaseResistValue->IsGiven())
-      m_minBaseResist = m_baseResist;
-   if (m_earlyVoltF != 0)
-      m_invEarlyVoltF = 1 / m_earlyVoltF;
-   if (m_rollOffF != 0)
-      m_invRollOffF = 1 / m_rollOffF;
-   if (m_earlyVoltR != 0)
-      m_invEarlyVoltR = 1 / m_earlyVoltR;
-   if (m_rollOffR != 0)
-      m_invRollOffR = 1 / m_rollOffR;
-   if (m_collectorResist != 0)
-      m_collectorConduct = 1 / m_collectorResist;
-   if (m_emitterResist != 0)
-      m_emitterConduct = 1 / m_emitterResist;
-   if (m_transitTimeFVBC != 0)
-      m_transitTimeVBCFactor =1 / (m_transitTimeFVBC * 1.44);
-   m_excessPhaseFactor = (m_excessPhase / (180.0 / M_PI)) * m_transitTimeF;
-   if (m_depletionCapCoeff > .9999)
-   {
-      Ex_Param_MaxLimit( this, "FC", m_depletionCapCoeff, .9999);
-      m_depletionCapCoeff = .9999;
-   }
-   xfc  = log( 1 - m_depletionCapCoeff);
-}  */
-
         out_v.m_type := if
                           (in_p.m_bPNP) then -1 else 1;
 
@@ -10513,81 +7375,18 @@ void Resistor::InitEquations()
 
       record Bjt3
         extends Model.Model;
-      /* Bjt3::Bjt3( const String& elementname)
-        : Model( "Bjt", elementname), m_pModel( NULL)
-{
-   Col          = 1;
-   Base         = 2;
-   Emit         = 3;
-   ColP         = 4;
-   BaseP        = 5;
-   EmitP        = 6;
 
-   AddParameter( "AREA", m_area, 1.);
-   AddParameter( "OFF", m_bOff, false);
-   m_bICvbeValue = AddParameter( "IC_VBE", m_dICvbe, 0.0)->Alias( "IC_1")->Alias( "IC");
-   m_bICvceValue = AddParameter( "IC_VCE", m_dICvce, 0.0)->Alias( "IC_2");
-   AddParameter( "SENS_AREA", m_bSensArea, false);
-
-   m_tSatCur = 0.;  // temperature adjusted saturation current
-   m_tBetaF = 1.;   // temperature adjusted forward beta
-   m_tBetaR        = 1.;   // temperature adjusted reverse beta
-   m_tBEleakCur    = 1.e-14;   // temperature adjusted B-E leakage current
-   m_tBCleakCur  = 1.e-14;   // temperature adjusted B-C leakage current
-   m_tBEcap      = 0.;   // temperature adjusted B-E capacitance
-   m_tBEpot      = .7;   // temperature adjusted B-E potential
-   m_tBCcap      = 0.;   // temperature adjusted intern B-C capacitance
-   m_tBCpot      = .7;   // temperature adjusted B-C potential
-   m_CScap       = 0.;    // C-S capacitance
-   m_tDepCapBC     = .7;  // temperature adjusted join point in diode curve
-   m_tDepCapBE     = .7;  // temperature adjusted join point in diode curve
-   m_tVcrit    = .7;   // temperature adjusted critical voltage
-   m_dVt         = .025;
-
-   m_transitTimeHighCurrentF = 0.;
-   m_invRollOffF             = 0.;
-   m_invRollOffR             = 0.;
-
-   m_tF1c         = 0.;      // temperature adjusted polynomial coefficient
-   m_tF1e         = 0.;      // temperature adjusted polynomial coefficient
-   m_f2c          = 0.;      // temperature adjusted polynomial coefficient
-   m_f2e          = 0.;      // temperature adjusted polynomial coefficient
-   m_f3c          = 0.;      // temperature adjusted polynomial coefficient
-   m_f3e          = 0.;      // temperature adjusted polynomial coefficient
-} */
        Real m_area(  start = 1.0);           // "AREA"
        Boolean m_bOff(  start = false);      // "OFF"
        Real m_dICvbe( start = 0.0);         // "IC_VBE"
-       Real m_bICvbeIsGiven( start = 0.0);  // Startwert wie m_dICvbe
+       Real m_bICvbeIsGiven( start = 0.0);
        Real m_dICvce( start = 0.0);         // "IC_VCE"
-       Real m_bICvceIsGiven( start = 0.0);  // Startwert wie m_dICvce
+       Real m_bICvceIsGiven( start = 0.0);
        Boolean m_bSensArea( start = false);  // "SENS_AREA"
 
-       //  Real m_tSatCur( start = 0.0);        // temperature adjusted saturation current
-       //  Real m_tBetaF( start = 1.0);         // temperature adjusted forward beta
-       //  Real m_tBetaR( start = 1.0);         // temperature adjusted reverse beta
-       //  Real m_tBEleakCur( start = 1.0e-14); // temperature adjusted B-E leakage current
-       //  Real m_tBCleakCur( start = 1.0e-14); // temperature adjusted B-C leakage current
-       //  Real m_tBEcap( start = 0.0);         // temperature adjusted B-E capacitance
-       //  Real m_tBEpot( start = 0.7);         // temperature adjusted B-E potential
-       //  Real m_tBCcap( start = 0.0);         // temperature adjusted intern B-C capacitance
-       //  Real m_tBCpot( start = 0.7);         // temperature adjusted B-C potential
-       //  Real m_CScap( start = 0.0);          // C-S capacitance
-       //  Real m_tDepCapBC( start = 0.7);      // temperature adjusted join point in diode curve
-       //  Real m_tDepCapBE( start = 0.7);      // temperature adjusted join point in diode curve
-       //  Real m_tVcrit( start = 0.7);         // temperature adjusted critical voltage
-       //  Real m_dVt( start = 0.025);
-
-         Real m_transitTimeHighCurrentF(start = 0.0);
-         Real m_invRollOffF( start = 0);
-         Real m_invRollOffR( start = 0);
-
-       //  Real m_tF1c( start = 0.0);           // temperature adjusted polynomial coefficient
-       //  Real m_tF1e( start = 0.0);           // temperature adjusted polynomial coefficient
-       //  Real m_f2c( start = 0.0);            // temperature adjusted polynomial coefficient
-       //  Real m_f2e( start = 0.0);            // temperature adjusted polynomial coefficient
-       //  Real m_f3c( start = 0.0);            // temperature adjusted polynomial coefficient
-       //  Real m_f3e( start = 0.0);            // temperature adjusted polynomial coefficient
+        Real m_transitTimeHighCurrentF(start = 0.0);
+        Real m_invRollOffF( start = 0);
+        Real m_invRollOffR( start = 0);
 
       end Bjt3;
 
@@ -10639,7 +7438,6 @@ void Resistor::InitEquations()
       end CurrentsCapacitances;
 
       function Bjt3InitEquations
-      /* void Bjt3::InitEquations() */
 
         input Bjt3 in_p;
         input BjtModelLineParams in_pml;
@@ -10647,38 +7445,19 @@ void Resistor::InitEquations()
         output Bjt3Variables out_v;
 
       algorithm
-      /* {
-   if (!m_pModel)
-      DefineDotModel();
-
-   // calculate the parameters that depend on the area factor
-   m_transitTimeHighCurrentF = m_pModel->m_transitTimeHighCurrentF * m_area;
-   m_invRollOffF             = m_pModel->m_invRollOffF / m_area;
-   m_invRollOffR             = m_pModel->m_invRollOffR / m_area;
-
-   if (m_pModel->m_excessPhaseFactor != 0)
-      InitHistory( 1, 2);
-} */
-
         // calculate the parameters that depend on the area factor
         out_v.m_transitTimeHighCurrentF := in_pml.m_transitTimeHighCurrentF * in_p.m_area;
         out_v.m_invRollOffF             := in_vl.m_invRollOffF / in_p.m_area;
         out_v.m_invRollOffR             := in_vl.m_invRollOffR / in_p.m_area;
 
-      //  if (m_pModel->m_excessPhaseFactor != 0)
-      //    InitHistory( 1, 2);
-      //  end if;
-
       end Bjt3InitEquations;
 
       function Bjt3CalcTempDependencies
-      /* void Bjt3::CalcTempDependencies() */
 
         input Bjt3 in_p3;
         input BjtModelLineParams in_p;
         input Model.Model m;
         input BjtModelLineVariables in_vl;
-      //  input Model.Model in_m;
 
         output Bjt3Calc out_c;
 
@@ -10698,89 +7477,26 @@ void Resistor::InitEquations()
         Real bfactor;
         Real pbo;
         Real gmaold;
-       // Real m_dTemp = SpiceRoot.SPICEcircuitCONST.CKTnomTemp;
       algorithm
-      /* {
-C++   if (!m_pModel)
-C++      DefineDotModel();
-C++   double xfc, gmanew;
-C++   double fact1 = m_pModel->m_tnom / REFTEMP;
-C++   double vt     = GetTemperature() * CONSTKoverQ;
-C++   double fact2  = GetTemperature() / REFTEMP;
-C++   double egfet  = 1.16 - (7.02e-4 * GetTemperature() * GetTemperature()) / (GetTemperature() + 1108);
-C++   double arg    = -egfet / (2 * CONSTboltz * GetTemperature()) + 1.1150877 / (CONSTboltz * (REFTEMP + REFTEMP));
-C++   double pbfact = -2 * vt * (1.5 * log( fact2) + CHARGE * arg);
-
-C++   double ratlog       = log( GetTemperature() / m_pModel->m_tnom);
-C++   double ratio1       = GetTemperature() / m_pModel->m_tnom - 1;
-C++   double factlog      = ratio1 * m_pModel->m_energyGap / vt + m_pModel->m_tempExpIS * ratlog;
-C++   double factor       = exp( factlog);
-C++   double bfactor      = exp(ratlog * m_pModel->m_betaExp);
-
-C++   double pbo = (m_pModel->m_potentialBE - pbfact) / fact1;
-C++   double gmaold = (m_pModel->m_potentialBE - pbo) / pbo; */
-
-      //instead of the function "GetTemperature", here m_dTemp is used temporarily
 
         fact1 := in_p.m_tnom/Spice3.Repository.SpiceConstants.REFTEMP;
-      //  vt := GetTemperature()*Spice3.Repository.SpiceConstants.CONSTKoverQ;
         vt := m.m_dTemp*Spice3.Repository.SpiceConstants.CONSTKoverQ;
-      //  fact2 := GetTemperature()/Spice3.Repository.SpiceConstants.REFTEMP;
         fact2 := m.m_dTemp/Spice3.Repository.SpiceConstants.REFTEMP;
-      //  egfet  := 1.16 - (7.02e-4 * GetTemperature() * GetTemperature()) / (GetTemperature() + 1108);
+
         egfet  := 1.16 - (7.02e-4 * m.m_dTemp * m.m_dTemp) / (m.m_dTemp + 1108);
-      //  arg := -egfet/(2*Spice3.Repository.SpiceConstants.CONSTboltz*GetTemperature()) + 1.1150877/(Spice3.Repository.SpiceConstants.CONSTboltz
-      //    *(Spice3.Repository.SpiceConstants.REFTEMP + Spice3.Repository.SpiceConstants.REFTEMP));
+
         arg := -egfet/(2*Spice3.Repository.SpiceConstants.CONSTboltz*m.m_dTemp) + 1.1150877/(Spice3.Repository.SpiceConstants.CONSTboltz
           *(Spice3.Repository.SpiceConstants.REFTEMP + Spice3.Repository.SpiceConstants.REFTEMP));
         pbfact := -2*vt*(1.5*Modelica.Math.log(fact2) + Spice3.Repository.SpiceConstants.CHARGE
           *arg);
 
-      //  ratlog  := log( GetTemperature() / in_p.m_tnom);
         ratlog  := Modelica.Math.log( m.m_dTemp / in_p.m_tnom);
-      //  ratio1  := GetTemperature() / in_p.m_tnom - 1;
         ratio1  := m.m_dTemp / in_p.m_tnom - 1;
-      //  factlog  = ratio1 * m_pModel->m_energyGap / vt + m_pModel->m_tempExpIS * ratlog;
         factlog := ratio1 * in_p.m_energyGap / vt + in_p.m_tempExpIS * ratlog;
-      //factor  = exp( factlog);
         factor  := exp( factlog);
         bfactor := exp(ratlog * in_p.m_betaExp);
-
         pbo    := (in_p.m_potentialBE - pbfact) / fact1;
         gmaold := (in_p.m_potentialBE - pbo) / pbo;
-
-      /* m_tSatCur    = m_pModel->m_satCur * factor * m_area;
-C++   m_tBetaF     = m_pModel->m_betaF * bfactor;
-C++   m_tBetaR     = m_pModel->m_betaR * bfactor;
-C++   m_tBEleakCur = m_pModel->m_leakBEcurrent * exp(factlog / m_pModel->m_leakBEemissionCoeff) / bfactor
-C++      * m_area;
-C++   m_tBCleakCur = m_pModel->m_leakBCcurrent * exp(factlog / m_pModel->m_leakBCemissionCoeff) / bfactor
-C++      * m_area;
-
-C++   m_tBEcap = m_pModel->m_depletionCapBE
-C++      / (1 + m_pModel->m_junctionExpBE * (4e-4 * (m_pModel->m_tnom - REFTEMP) - gmaold));
-C++   m_tBEpot = fact2 * pbo + pbfact;
-C++
-C++   gmanew = (m_tBEpot - pbo) / pbo;
-
-C++   m_tBEcap *= 1 + m_pModel->m_junctionExpBE * (4e-4 * (GetTemperature() - REFTEMP) - gmanew);
-
-C++   pbo = (m_pModel->m_potentialBC - pbfact) / fact1;
-C++   gmaold = (m_pModel->m_potentialBC - pbo) / pbo;
-
-C++   m_tBCcap = m_pModel->m_depletionCapBC
-C++      / (1 + m_pModel->m_junctionExpBC * (4e-4 * (m_pModel->m_tnom - REFTEMP) - gmaold));
-C++   m_tBCpot = fact2 * pbo + pbfact;
-
-C++   gmanew = (m_tBCpot - pbo) / pbo;
-
-C++   m_tBCcap *= 1 + m_pModel->m_junctionExpBC * (4e-4 * (GetTemperature() - REFTEMP) - gmanew);
-
-C++   m_tDepCapBE = m_pModel->m_depletionCapCoeff * m_tBEpot;
-C++   m_tDepCapBC = m_pModel->m_depletionCapCoeff * m_tBCpot;
-C++   xfc  = log( 1 - m_pModel->m_depletionCapCoeff);
-C++   m_tVcrit = vt * log(vt / (CONSTroot2 * m_pModel->m_satCur));
-C++   m_dVt      = vt; */
 
         out_c.m_tSatCur    := in_p.m_satCur * factor * in_p3.m_area;
         out_c.m_tBetaF     := in_p.m_betaF * bfactor;
@@ -10796,8 +7512,6 @@ C++   m_dVt      = vt; */
 
         gmanew := (out_c.m_tBEpot - pbo) / pbo;
 
-      //  out_c.m_tBEcap := out_c.m_tBEcap*(1 + in_p.m_junctionExpBE*(4e-4*(
-      //    GetTemperature() - Spice3.Repository.SpiceConstants.REFTEMP) - gmanew));
         out_c.m_tBEcap := out_c.m_tBEcap*(1 + in_p.m_junctionExpBE*(4e-4*(m.m_dTemp - Spice3.Repository.SpiceConstants.REFTEMP)
            - gmanew));
 
@@ -10810,8 +7524,6 @@ C++   m_dVt      = vt; */
 
         gmanew := (out_c.m_tBCpot - pbo) / pbo;
 
-      //  out_c.m_tBCcap := out_c.m_tBCcap*(1 + in_p.m_junctionExpBC*(4e-4*(
-      //    GetTemperature() - Spice3.Repository.SpiceConstants.REFTEMP) - gmanew));
         out_c.m_tBCcap := out_c.m_tBCcap*(1 + in_p.m_junctionExpBC*(4e-4*(m.m_dTemp - Spice3.Repository.SpiceConstants.REFTEMP)
            - gmanew));
 
@@ -10821,17 +7533,6 @@ C++   m_dVt      = vt; */
         out_c.m_tVcrit := vt*Modelica.Math.log(vt/(Spice3.Repository.SpiceConstants.CONSTroot2
           *in_p.m_satCur));
         out_c.m_dVt       := vt;
-
-      /* // calculate the parameters that depend on the area factor
-C++   m_tBEcap *= m_area;
-C++   m_tBCcap *= m_area;
-C++   JunctionCapCoeffs(
-C++      m_tF1c, m_f2c, m_f3c, m_pModel->m_junctionExpBC,
-C++     m_pModel->m_depletionCapCoeff, m_tBCpot);
-C++   JunctionCapCoeffs(
-C++      m_tF1e, m_f2e, m_f3e, m_pModel->m_junctionExpBE,
-C++      m_pModel->m_depletionCapCoeff, m_tBEpot);
-C++} */
 
         // calculate the parameters that depend on the area factor
         out_c.m_tBEcap := out_c.m_tBEcap * in_p3.m_area;
@@ -10850,7 +7551,6 @@ C++} */
       end Bjt3CalcTempDependencies;
 
       function Bjt3NoBypassCode
-      /* void Bjt3::NoBypassCode() */
 
         input Spice3.Repository.Model.Model in_m;
         input Bjt in_p3;
@@ -10858,11 +7558,10 @@ C++} */
         input Bjt3Calc in_c;
         input BjtModelLineVariables in_vl;
         input Real[6] in_m_pVoltageValues; /* 1 Col; 2 Base; 3 Emit; 4 ColP; 5 BaseP; 6 EmitP */
-        //input Real[6] in_m_pVoltageValuesDot; /* 1 Col; 2 Base; 3 Emit; 4 ColP; 5 BaseP; 6 EmitP */
         input Boolean in_m_bInit;
 
         output CurrentsCapacitances out_cc;
-        output Real dummy;
+
         output Real capbe;
         output Real capbc;
         output Real capbx;
@@ -10909,54 +7608,17 @@ C++} */
         Real go;
         Real gm;
         Real captt;
-       // Real capbe;
         Real chargebe;
-       // Real capbc;
         Real chargebc;
-       // Real capbx;
         Real chargebx;
         Real argtf;
         Real exponent;
         Real temp;
 
-        Real dummy1;
         Real aux1;
         Real aux2;
 
       algorithm
-      /*{double vce = m_pModel->m_type * GetVoltage( ColP, EmitP);
-   double vbe = m_pModel->m_type * GetVoltage( BaseP, EmitP);
-   double vbx = m_pModel->m_type * GetVoltage( Base, ColP);
-
-   if (UseInitialConditions())
-   {
-      if (m_bICvbeValue->IsGiven())
-         vbe = m_pModel->m_type * m_dICvbe;
-      if (m_bICvceValue->IsGiven())
-         vce = m_pModel->m_type * m_dICvce;
-      vbx = vbe - vce;
-   }
-   else if (InitJunctionVoltages())
-   {
-      if (m_bOff)
-      {
-         vbe = 0.;
-         vce = 0.;
-         vbx = 0.;
-      }
-      else
-      {
-         vbe = m_tVcrit;
-         vce = vbe;
-         vbx = 0.;
-      }
-   }
-
-   double vbc = vbe - vce;
-
-   vbe = LimitJunctionVoltage( vbe, m_dVt, m_tVcrit);
-   vbc = LimitJunctionVoltage( vbc, m_dVt, m_tVcrit); */
-
         vce := in_p.m_type * (in_m_pVoltageValues[4] - in_m_pVoltageValues[6]); // ( ColP, EmitP);
         vbe := in_p.m_type * (in_m_pVoltageValues[5] - in_m_pVoltageValues[6]); // ( BaseP, EmitP);
         vbx := in_p.m_type * (in_m_pVoltageValues[2] - in_m_pVoltageValues[4]); // ( Base, ColP);
@@ -10983,55 +7645,27 @@ C++} */
 
         vbc := vbe - vce;
 
-      /* //////////////////////////////////////////////////////////////////////
-   // junction current
-   double gbe, cbe, gbc, cbc, gben, cben, gbcn, cbcn;
-   Junction2(
-      cbe, gbe, vbe, m_dTemp, m_pModel->m_emissionCoeffF, m_tSatCur);
-   InsertConductance(
-      BaseP, EmitP, gbe / m_tBetaF,
-      m_pModel->m_type * cbe / m_tBetaF,
-      m_pModel->m_type * vbe);
-   Junction2(
-      cben, gben, vbe, m_dTemp, m_pModel->m_leakBEemissionCoeff, m_tBEleakCur);
-   InsertConductance(
-      BaseP, EmitP, gben, m_pModel->m_type * cben, m_pModel->m_type * vbe);
-   Junction2(
-      cbc, gbc, vbc, m_dTemp, m_pModel->m_emissionCoeffR, m_tSatCur);
-   InsertConductance(
-      BaseP, ColP, gbc / m_tBetaR,
-      m_pModel->m_type * cbc / m_tBetaR,
-      m_pModel->m_type * vbc);
-   Junction2(
-      cbcn, gbcn, vbc, m_dTemp, m_pModel->m_leakBCemissionCoeff, m_tBCleakCur);
-   InsertConductance(
-      BaseP, ColP, gbcn, m_pModel->m_type * cbcn, m_pModel->m_type * vbc);
-
-   double cjbe = cbe / m_tBetaF + cben;
-   double cjbc = cbc / m_tBetaR + cbcn; */
-
-        //////////////////////////////////////////////////////////////////////
-        // junction current
-        (cbe,gbe,dummy1) := Spice3.Repository.Equation.Junction2(
+          // junction current
+        (cbe,gbe) := Spice3.Repository.Equation.Junction2(
                 vbe,
                 in_m.m_dTemp,
                 in_p.m_emissionCoeffF,
                 in_c.m_tSatCur);
-        dummy := dummy1;
+
         out_cc.iBE   := in_p.m_type * cbe / in_c.m_tBetaF;
-        (cben,gben,dummy1) := Spice3.Repository.Equation.Junction2(
+        (cben,gben) := Spice3.Repository.Equation.Junction2(
                 vbe,
                 in_m.m_dTemp,
                 in_p.m_leakBEemissionCoeff,
                 in_c.m_tBEleakCur);
         out_cc.iBEN  := in_p.m_type * cben;
-        (cbc,gbc,dummy1) := Spice3.Repository.Equation.Junction2(
+        (cbc,gbc) := Spice3.Repository.Equation.Junction2(
                 vbc,
                 in_m.m_dTemp,
                 in_p.m_emissionCoeffR,
                 in_c.m_tSatCur);
         out_cc.iBC   := in_p.m_type * cbc / in_c.m_tBetaR;
-        (cbcn,gbcn,dummy1) := Spice3.Repository.Equation.Junction2(
+        (cbcn,gbcn) := Spice3.Repository.Equation.Junction2(
                 vbc,
                 in_m.m_dTemp,
                 in_p.m_leakBCemissionCoeff,
@@ -11040,27 +7674,6 @@ C++} */
         cjbe         := cbe / in_c.m_tBetaF + cben;
         cjbc         := cbc / in_c.m_tBetaR + cbcn;
 
-      /* //////////////////////////////////////////////////////////////////////
-   // determine base charge terms
-   double dqbdve, dqbdvc, qb;
-   double q1 = 1. /
-      (1. - m_pModel->m_invEarlyVoltF * vbc - m_pModel->m_invEarlyVoltR * vbe);
-   if (m_invRollOffF == 0 && m_invRollOffR == 0) {
-      qb = q1;
-      dqbdve = q1*qb*m_pModel->m_invEarlyVoltR;
-      dqbdvc = q1*qb*m_pModel->m_invEarlyVoltF;
-   } else {
-      double q2=m_invRollOffF*cbe+m_invRollOffR*cbc;
-      double arg=F_Max( 0., 1+4*q2);
-      double sqarg=1;
-      if(arg != 0)
-         sqarg=sqrt(arg);
-      qb=q1*(1+sqarg)/2;
-      dqbdve=q1*(qb*m_pModel->m_invEarlyVoltR+m_invRollOffF*gbe/sqarg);
-      dqbdvc=q1*(qb*m_pModel->m_invEarlyVoltF+m_invRollOffR*gbc/sqarg);
-   } */
-
-        //////////////////////////////////////////////////////////////////////
         // determine base charge terms
         q1 := 1.0/(1.0 - in_p.m_invEarlyVoltF * vbc - in_p.m_invEarlyVoltR * vbe);
         if (in_vl.m_invRollOffF == 0 and in_vl.m_invRollOffR == 0) then
@@ -11079,35 +7692,6 @@ C++} */
           dqbdvc := q1*(qb*in_p.m_invEarlyVoltF + in_vl.m_invRollOffR*gbc/sqarg);
         end if;
 
-      /* //////////////////////////////////////////////////////////////////////
-   // determine dc incremental conductances - Weil's approximation
-   double cc = 0., cex = cbe, gex = gbe;
-   double time = GetTime();
-   if ((m_pModel->m_excessPhaseFactor != 0) && (time > 0.0))
-   {
-      double step     = GetHistoryTimeStep( 0);
-      double laststep = GetHistoryTimeStep( 1);
-      double bcex0    = GetHistoryValue( 0, 1);
-      double bcex1    = GetHistoryValue( 0, 2);
-      if( bcex1 == 0.0)
-      {
-         bcex0 = bcex1 = cbe / qb;
-         SetHistoryValue( 0, bcex0);
-      }
-      double arg1  = step / m_pModel->m_excessPhaseFactor;
-      double arg2  = 3 * arg1;
-      arg1  = arg2 * arg1;
-      double denom = 1 + arg1 + arg2;
-      double arg3  = arg1 / denom;
-      cc = (bcex0 * (1 + step / laststep + arg2) - bcex1 * step / laststep)
-         / denom;
-      cex = cbe * arg3;
-      gex = gbe * arg3;
-      SetHistoryValue( 0, cc + cex / qb);
-   }
-   cc=cc+(cex-cbc)/qb; */
-
-        //////////////////////////////////////////////////////////////////////
         // determine dc incremental conductances - Weil's approximation
         cc    := 0.0;
         cex   := cbe;
@@ -11121,7 +7705,7 @@ C++} */
           if ( bcex1 == 0.0) then
                bcex1 := cbe / qb;
                bcex0 := bcex1;
-      //         SetHistoryValue( 0, bcex0);
+
           end if;
           arg1  := step / in_vl.m_excessPhaseFactor;
           arg2  := 3 * arg1;
@@ -11132,31 +7716,10 @@ C++} */
                    bcex1 * step / laststep) / denom;
           cex   := cbe * arg3;
           gex   := gbe * arg3;
-      //    SetHistoryValue( 0, cc + cex / qb);
+
         end if;
         cc := cc+(cex-cbc)/qb;
 
-      /* //////////////////////////////////////////////////////////////////////
-   // resistances
-   InternConductance( Col,   ColP, m_pModel->m_collectorConduct * m_area);
-   InternConductance( Emit, EmitP, m_pModel->m_emitterConduct * m_area);
-
-   double rbpr = m_pModel->m_minBaseResist / m_area;
-   double rbpi = m_pModel->m_baseResist / m_area-rbpr;
-   double gx = rbpr + rbpi / qb;
-   double xjrb = m_pModel->m_baseCurrentHalfResist * m_area;
-   if (xjrb != 0)
-   {
-      double arg1 = F_Max ((cjbe + cjbc) / xjrb, 1e-9);
-      double arg2 = (-1 + sqrt (1 + 14.59025 * arg1)) / 2.4317 / sqrt (arg1);
-      arg1 = tan(arg2);
-      gx   = rbpr + 3 * rbpi * (arg1-arg2) / arg2 / arg1 / arg1;
-   }
-   if (gx != 0)
-      gx = 1 / gx;
-   InternConductance( Base, BaseP, gx); */
-
-        //////////////////////////////////////////////////////////////////////
         // resistances
         rbpr := in_vl.m_minBaseResist / in_p3.m_area;
         rbpi := in_p.m_baseResist / in_p3.m_area-rbpr;
@@ -11172,75 +7735,11 @@ C++} */
           gx := 1 / gx;
         end if;
 
-      /* //////////////////////////////////////////////////////////////////////
-   // determine dc incremental conductances
-   double go = (gbc+(cex-cbc)*dqbdvc/qb)/qb;
-   double gm = (gex-(cex-cbc)*dqbdve/qb)/qb-go;
-   InsertNonChargeCurrent(
-      ColP, EmitP, m_pModel->m_type * cc,
-      BaseP, ColP, -go, m_pModel->m_type * vbc,
-      BaseP, EmitP, gm+go, m_pModel->m_type * vbe); */
-
-        //////////////////////////////////////////////////////////////////////
         // determine dc incremental conductances
         go := (gbc+(cex-cbc)*dqbdvc/qb)/qb;
         gm := (gex-(cex-cbc)*dqbdve/qb)/qb-go;
         out_cc.iCC := in_p.m_type * cc;
 
-      /* //////////////////////////////////////////////////////////////////////
-   // charge storage elements and transit time calculation
-   double captt = 0.0, capbe, chargebe, capbc, chargebc, capbx, chargebx;
-   if (m_pModel->m_transitTimeF != 0.0 && vbe > 0.0)
-   {
-      double argtf = 0.0;
-      double arg2  = 0.0;
-      double arg3  = 0.0;
-      if (m_pModel->m_transitTimeBiasCoeffF != 0.0)
-      {
-         argtf = m_pModel->m_transitTimeBiasCoeffF;
-         if (m_pModel->m_transitTimeVBCFactor != 0.0)
-                 {
-                        double exponent = F_Min( 50., vbc * m_pModel->m_transitTimeVBCFactor);
-            argtf = argtf * exp( exponent);
-                 }
-         arg2 = argtf;
-         if(m_transitTimeHighCurrentF != 0)
-         {
-            double temp = cbe / (cbe + m_transitTimeHighCurrentF);
-            argtf = argtf * temp * temp;
-            arg2 = argtf * (3-temp-temp);
-         }
-         arg3 = cbe * argtf * m_pModel->m_transitTimeVBCFactor;
-      }
-      cbe   = cbe * (1 + argtf) / qb;
-      gbe   = (gbe * (1 + arg2) - cbe * dqbdve) / qb;
-      captt = m_pModel->m_transitTimeF * (arg3 - cbe * dqbdvc) / qb;
-   }
-   JunctionCapTransTime(
-      capbe, chargebe, m_tBEcap, vbe, m_tDepCapBE,
-      m_pModel->m_junctionExpBE, m_tBEpot, m_tF1e, m_f2e, m_f3e,
-      m_pModel->m_transitTimeF, gbe, cbe);
-   InsertChargeCurrent(
-      BaseP, EmitP, m_pModel->m_type * chargebe,
-      BaseP, EmitP, capbe, m_pModel->m_type * vbe,
-      BaseP, ColP, captt, m_pModel->m_type * vbc);
-
-   JunctionCapTransTime(
-      capbc, chargebc, m_tBCcap * m_pModel->m_baseFractionBCcap,
-      vbc, m_tDepCapBC,
-      m_pModel->m_junctionExpBC, m_tBCpot, m_tF1c, m_f2c, m_f3c,
-      m_pModel->m_transitTimeR, gbc, cbc);
-   InsertCapacitance(
-      BaseP, ColP, capbc, m_pModel->m_type * chargebc, m_pModel->m_type * vbc);
-   JunctionCap(
-      capbx, chargebx, m_tBCcap * (1. - m_pModel->m_baseFractionBCcap),
-      vbx, m_tDepCapBC,
-      m_pModel->m_junctionExpBC, m_tBCpot, m_tF1c, m_f2c, m_f3c);
-   InsertCapacitance(
-      Base, ColP, capbx, m_pModel->m_type * chargebx, m_pModel->m_type * vbx);
-} */
-
-        //////////////////////////////////////////////////////////////////////
         // charge storage elements and transit time calculation
         captt := 0.0;
         if (in_p.m_transitTimeF <> 0.0 and vbe > 0.0) then
@@ -11277,8 +7776,8 @@ C++} */
                 in_p.m_transitTimeF,
                 gbe,
                 cbe);
-      //  out_cc.capbe := if (in_m_bInit) then 0.0 else capbe*(in_m_pVoltageValuesDot[5]-in_m_pVoltageValuesDot[6]);
-        out_cc.iXX        := 0; // ? in_p.m_type * chargebe
+
+        out_cc.iXX        := 0;
         aux1 := in_c.m_tBCcap*in_p.m_baseFractionBCcap;
         (capbc,chargebc) := Spice3.Repository.Equation.JunctionCapTransTime(
                 aux1,
@@ -11292,7 +7791,7 @@ C++} */
                 in_p.m_transitTimeR,
                 gbc,
                 cbc);
-        //out_cc.capbc      := if (in_m_bInit) then 0.0 else capbc*(in_m_pVoltageValuesDot[5]-in_m_pVoltageValuesDot[4]);
+
         aux2:= in_c.m_tBCcap*(1. - in_p.m_baseFractionBCcap);
         (capbx,chargebx) := Spice3.Repository.Equation.JunctionCap(
                 aux2,
@@ -11303,7 +7802,6 @@ C++} */
                 in_c.m_tF1c,
                 in_c.m_f2c,
                 in_c.m_f3c);
-       // out_cc.capbx      := if (in_m_bInit) then 0.0 else capbx*(in_m_pVoltageValuesDot[2]-in_m_pVoltageValuesDot[4]);
 
       end Bjt3NoBypassCode;
 
@@ -11319,7 +7817,6 @@ C++} */
       end BjtVariables;
 
       function BjtInitEquations
-      /* void Bjt::InitEquations() */
 
         input Bjt in_p;
         input BjtModelLineParams in_pml;
@@ -11330,11 +7827,6 @@ C++} */
         Bjt3Variables v3;
 
       algorithm
-      /*{Bjt3::InitEquations();
-   // calculate the parameters that depend on the area factor
-   m_CScap = m_pModel->m_capCS * m_area;
-} */
-
         v3 := Bjt3InitEquations(in_p, in_pml, in_vl);
         // calculate the parameters that depend on the area factor
         out_v.m_CScap := in_pml.m_capCS * in_p.m_area;
@@ -11342,7 +7834,6 @@ C++} */
       end BjtInitEquations;
 
       function BjtNoBypassCode
-      /* void Bjt::NoBypassCode() */
 
         input Spice3.Repository.Model.Model in_m;
         input Bjt3 in_p3;
@@ -11351,18 +7842,16 @@ C++} */
         input BjtVariables in_v;
         input BjtModelLineVariables in_vl;
         input Real[6] in_m_pVoltageValues; /* 1 Col; 2 Base; 3 Emit; 4 Subst; 5 ColP; 6 BaseP; 7 EmitP */
-        //input Real[6] in_m_pVoltageValuesDot; /* 1 Col; 2 Base; 3 Emit; 4 Subst; 5 ColP; 6 BaseP; 7 EmitP */
 
         input Boolean in_m_bInit;
 
         output CurrentsCapacitances out_cc;
-        output Real dummy;
+
         output Real capbe;
         output Real capbc;
         output Real capbx;
       protected
         Real[6] bjt3_VoltageValues; /* 1 Col; 2 Base; 3 Emit; 4 ColP; 5 BaseP; 6 EmitP */
-        //Real[6] bjt3_VoltageValuesDot; /* 1 Col; 2 Base; 3 Emit; 4 ColP; 5 BaseP; 6 EmitP */
         Integer i;
         Real capcs;
         Real chargecs;
@@ -11379,32 +7868,7 @@ C++} */
           bjt3_VoltageValues[i] := in_m_pVoltageValues[i];
         end for;
 
-      //   for i in 1:6 loop
-      //     bjt3_VoltageValuesDot[i] := in_m_pVoltageValuesDot[i];
-      //   end for;
-      /*{Bjt3::NoBypassCode();
-   double capcs = 0, chargecs = 0;
-   double vcs = m_pModel->m_type * GetVoltage( Subst,  ColP);
-   if (vcs < 0)
-   {
-      double arg  = 1 - vcs / m_pModel->m_potentialSubstrate;
-      double sarg = exp( -m_pModel->m_exponentialSubstrate * log( arg));
-      capcs    = m_CScap * sarg;
-      chargecs = m_pModel->m_potentialSubstrate * m_CScap *
-         (1-arg*sarg)/(1-m_pModel->m_exponentialSubstrate);
-   }
-   else
-   {
-      capcs = m_CScap *
-         (1 + m_pModel->m_exponentialSubstrate * vcs / m_pModel->m_potentialSubstrate);
-      chargecs = vcs * m_CScap *(1+m_pModel->m_exponentialSubstrate*vcs/
-                                 (2*m_pModel->m_potentialSubstrate));
-   }
-   InsertCapacitance(
-      Subst,  ColP, capcs, m_pModel->m_type * chargecs, m_pModel->m_type * vcs);
-} */
-
-        (out_cc, dummy, capbe, capbc, capbx)   := Bjt3NoBypassCode(in_m, in_p3, in_p, in_c, in_vl, bjt3_VoltageValues,
+        (out_cc, capbe, capbc, capbx)   := Bjt3NoBypassCode(in_m, in_p3, in_p, in_c, in_vl, bjt3_VoltageValues,
                      in_m_bInit);//bjt3_VoltageValuesDot
         capcs    := 0;
         chargecs := 0;
@@ -11420,7 +7884,6 @@ C++} */
           chargecs := vcs * in_v.m_CScap *(1+in_p.m_exponentialSubstrate*vcs/
                                        (2*in_p.m_potentialSubstrate));
         end if;
-       // out_cc.capcs :=  if (in_m_bInit) then 0.0 else capcs*(0-in_m_pVoltageValuesDot[4]);
 
       end BjtNoBypassCode;
 
@@ -11496,20 +7959,10 @@ C++} */
        input Real IC_VBE;
        input Real IC_VCE;
        input Boolean SENS_AREA;
-      // input Real TEMP;
 
        output Bjt3 dev;
-      // output Model.Model m;
+
       algorithm
-
-       // parameter Real m_area(  start = 1.0);           // "AREA"
-      // parameter Boolean m_bOff(  start = false);      // "OFF"
-      // parameter Real m_dICvbe( start = 0.0);         // "IC_VBE"
-      // parameter Real m_bICvbeIsGiven( start = 0.0);  // Startwert wie m_dICvbe
-      // parameter Real m_dICvce( start = 0.0);         // "IC_VCE"
-      // parameter Real m_bICvceIsGiven( start = 0.0);  // Startwert wie m_dICvce
-      // parameter Boolean m_bSensArea( start = false);  // "SENS_AREA"
-
         dev.m_area := AREA;
         dev.m_bOff := OFF;
 
@@ -11520,14 +7973,12 @@ C++} */
         dev.m_dICvce := if (IC_VCE > -1e40) then IC_VCE else 0;
 
         dev.m_bSensArea := SENS_AREA;
-       // m.m_dTemp :=TEMP + SpiceRoot.SPICEcircuitCONST.CONSTCtoK;
 
       end BjtRenameParameters_dev;
 
       function BjtRenameParameters_dev_Temp
        input Real TEMP;
 
-      // output Bjt3 dev;
       output Model.Model m;
       algorithm
 
