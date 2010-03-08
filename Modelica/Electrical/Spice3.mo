@@ -3791,6 +3791,7 @@ VN- -&GT; name.pc[N-1]
 
       annotation (Documentation(info="<html>
 <p>Modelcard parameters for MOSFET model, both N and P channel, LEVEL 1: Shichman-Hodges</p>
+<p><br/>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>"));
      end ModelcardMOS;
 
@@ -3986,6 +3987,7 @@ VN- -&GT; name.pc[N-1]
 
       annotation (Documentation(info="<html>
 <p>Modelcard parameters for MOSFET model, both N and P channel, LEVEL 2</p>
+<p><br/>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>"));
      end ModelcardMOS2;
 
@@ -4017,7 +4019,8 @@ VN- -&GT; name.pc[N-1]
 
       final parameter Spice3.Repository.Bjt3.BjtModelLineParams p=
           Bjt3.BjtRenameParameters(mod, Con) "Model line parameters"                                                                       annotation(Evaluate=true);
-      constant Spice3.Repository.SpiceConstants Con "General SPICE constants";
+      constant Spice3.Repository.SpiceConstants Con
+        "General constants of SPICE simulator";
       final parameter Spice3.Repository.Bjt3.Bjt p1=
           Bjt3.BjtRenameParameters_dev(
               AREA,
@@ -4198,6 +4201,7 @@ VN- -&GT; name.pc[N-1]
 
       annotation (Documentation(info="<html>
 <p>Modelcard parameters for BJT model, both PNP and NPN</p>
+<p><br/>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>"));
     end ModelcardBJT;
 
@@ -4209,35 +4213,38 @@ VN- -&GT; name.pc[N-1]
      parameter Boolean OFF = false
         "Optional initial condition: false - IC not used, true - IC used, not implemented yet";
      parameter Real IC( start = -1e40)
-        "v, Initial condition value (VD, not implemented yet";                   //default 0
-     parameter Real TEMP = 27 "°C, Operating temperature of the device";
+        "In v, Initial condition value (VD, not implemented yet";                   //default 0
+     parameter Real TEMP = 27 "In °C, Operating temperature of the device";
      parameter Boolean SENS_AREA( start = false)
         "Flag to request sensitivity WRT area, not implemented yet";
 
      parameter Spice3.Repository.ModelcardDIODE modelcarddiode
         "DIODE modelcard"                                                         annotation(Evaluate=true);
-     Spice3.Repository.SpiceConstants C;
+     Spice3.Repository.SpiceConstants C "General constants of SPICE simulator";
      final parameter Spice3.Repository.Diode.DiodeModelLineParams param=
-          Spice3.Repository.Diode.DiodeRenameParameters(modelcarddiode, C);
+          Spice3.Repository.Diode.DiodeRenameParameters(modelcarddiode, C)
+        "Model line parameters";
      final parameter Spice3.Repository.Diode.DiodeParams dp=
           Spice3.Repository.Diode.DiodeRenameParameters_dev(
              TEMP,
              AREA,
              IC,
              OFF,
-             SENS_AREA)
+             SENS_AREA) "Renamed parameters"
                       annotation(Evaluate=true);
      final parameter Spice3.Repository.Model.Model m=
           Spice3.Repository.Diode.DiodeRenameParameters_dev_temp(TEMP)
+        "Renamed parameters"
                  annotation(Evaluate=true);
      final parameter Spice3.Repository.Diode.DiodeVariables c1=
-          Spice3.Repository.Diode.DiodeInitEquations(param);
+          Spice3.Repository.Diode.DiodeInitEquations(param)
+        "Precalculated values";
      final parameter Spice3.Repository.Diode.DiodeCalc c2=
           Spice3.Repository.Diode.DiodeCalcTempDependencies(
              param,
              dp,
              m,
-             c1);
+             c1) "Precalculated values";
      constant Boolean m_mbInit = false;
 
      Spice3.Repository.Diode.CurrentsCapacitances cc;
@@ -4297,44 +4304,45 @@ VN- -&GT; name.pc[N-1]
 </html>"));
    end DIODE;
 
-   record ModelcardDIODE
-    parameter Real IS=1e-14 "A, Saturation Current";
-    parameter Real RS=0.0 "Ohm, Ohmic resistance";
+   record ModelcardDIODE "Record with technological parameters (.model)"
+    parameter Real IS=1e-14 "In A, Saturation Current";
+    parameter Real RS=0.0 "In Ohm, Ohmic resistance";
     parameter Real N=1.0 "Emission coefficient";
-    parameter Real TT=0.0 "s, Transit time";
-    parameter Real CJO=0.0 "F, Junction capacitance";
-    parameter Real VJ=1.0 "V, Junction Potential";
+    parameter Real TT=0.0 "In s, Transit time";
+    parameter Real CJO=0.0 "In F, Junction capacitance";
+    parameter Real VJ=1.0 "In V, Junction Potential";
     parameter Real M=0.5 "Grading coefficient";
-    parameter Real EG=1.11 "eV, Activation Energy";
+    parameter Real EG=1.11 "In eV, Activation Energy";
     parameter Real XTI=3.0 "Saturation current temperature exponent";
     parameter Real FC=0.5 "Forward bias junction fit parameter";
-    parameter Real BV=-1e40 "V, Reverse breakdown voltage, default infinity";
+    parameter Real BV=-1e40 "In V, Reverse breakdown voltage, default infinity";
     parameter Real IBV=1e-3 "Am Current at reverse breakdown voltage";
-    parameter Real TNOM=27 "degree C, Parameter measurement temperature";
+    parameter Real TNOM=27 "In degree C, Parameter measurement temperature";
     parameter Real KF=0.0 "Flicker noise coefficient";
     parameter Real AF=1.0 "Flicker noise exponent";
-    parameter Real G=0 "S, Ohmic conductance";
+    parameter Real G=0 "In S, Ohmic conductance";
      annotation (Documentation(info="<html>
 <p>Modelcard parameters for DIODE model</p>
+<p><br/>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>"));
    end ModelcardDIODE;
 
-    model R_SEMI
+    model R_SEMI "Semiconductor resistor"
 
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
       parameter SI.Resistance R= -1e40
         "Resistance, if specified, geometrical information is overwritten";
-      parameter Real TEMP = -1e40 "°C, Temperature of resistor";
-      parameter Real L = -1e40 "m, lenght of the resistor";
+      parameter Real TEMP = -1e40 "In °C, Temperature of resistor";
+      parameter Real L = -1e40 "In m, lenght of the resistor";
       parameter Real W = -1e40
-        "m, width of the resistor, default DEFW (modelcard)";
+        "In m, width of the resistor, default DEFW (modelcard)";
       parameter Boolean SENS_AREA= false
-        "parameter for sensitivity analyses, not implemented yet";
+        "Parameter for sensitivity analyses, not implemented yet";
       parameter Spice3.Repository.ModelcardR modelcard "Resistor modelcard";
-      Spice3.Repository.SpiceConstants C;
+      Spice3.Repository.SpiceConstants C "General constants of SPICE simulator";
       final parameter Spice3.Repository.R_semiconductor.ResistorModelLineParams
         lp=Spice3.Repository.R_semiconductor.ResistorRenameParameters(modelcard,
-          C);
+          C) "Model Line Parameters";
       final parameter Spice3.Repository.R_semiconductor.ResistorParams rp=
           Spice3.Repository.R_semiconductor.ResistorRenameParameters_dev(
               R,
@@ -4342,7 +4350,7 @@ VN- -&GT; name.pc[N-1]
               L,
               TEMP,
               SENS_AREA,
-              C);
+              C) "Renamed parameters";
 
         Spice3.Repository.R_semiconductor.ResistorVariables vp;
 
@@ -4389,30 +4397,32 @@ VN- -&GT; name.pc[N-1]
 </html>"));
     end R_SEMI;
 
-    record ModelcardR
-     parameter Real TC1 = 0.0 "Ohm/°C, First order temperature coefficient";
+    record ModelcardR "Record with technological parameters (.model)"
+     parameter Real TC1 = 0.0 "In Ohm/°C, First order temperature coefficient";
      parameter Real TC2 = 0.0
-        "Ohm/(°C*°C), Second2 order temperature coefficient";
-     parameter Real RSH = -1e40 "Ohm/Area Sheet resistance";
+        "In Ohm/(°C*°C), Second2 order temperature coefficient";
+     parameter Real RSH = -1e40 "In Ohm/Area Sheet resistance";
      parameter Real TNOM = -1e40
-        "°C, Parameter measurement temperature, default 27";
-     parameter Real DEFW = 1e-5 "m, Default device width";
-     parameter Real NARROW = 0 "m, Narrowing of resistor due to side etching";
+        "In °C, Parameter measurement temperature, default 27";
+     parameter Real DEFW = 1e-5 "In m, Default device width";
+     parameter Real NARROW = 0
+        "In m, Narrowing of resistor due to side etching";
       annotation (Documentation(info="<html>
 <p>Modelcard parameters for semiconductor resistance model</p>
+<p><br/>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>"));
     end ModelcardR;
 
-     record SpiceConstants
+     record SpiceConstants "General constants of SPICE simulator"
        constant Real EPSSIL =     (11.7 * 8.854214871e-12);
        constant Real EPSOX =      3.453133e-11;
        constant Real CHARGE =     (1.6021918e-19);
        constant Real CONSTCtoK =  (273.15);
        constant Real CONSTboltz = (1.3806226e-23);
-       constant Real REFTEMP =    300.15;  /* 27 degrees C */
+       constant Real REFTEMP =    300.15;  /* 27 °C */
 
        constant Real CONSTroot2 =  sqrt(2.0);
-       constant Real CONSTvt0 =    CONSTboltz * (27 + CONSTCtoK)  / CHARGE; // deg c
+       constant Real CONSTvt0 =    CONSTboltz * (27 + CONSTCtoK)  / CHARGE; // °C
        constant Real CONSTKoverQ = CONSTboltz / CHARGE;
        constant Real CONSTe =      exp(1.0);
 
@@ -4431,12 +4441,13 @@ VN- -&GT; name.pc[N-1]
        constant Real CKTtemptol =      1e-3;
       annotation (Documentation(info="<html>
 <p>General constants used by SPICE</p>
+<p><br/>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>"));
      end SpiceConstants;
 
-  package Equation
+  package Equation "Equations for semiconductor calculation"
 
-      function EnergyGap_dep_Temp
+      function EnergyGap_dep_Temp "Temperature dependency of energy gap"
 
         input Real temp;
         input Real gap0 =   1.16;
@@ -4448,9 +4459,13 @@ VN- -&GT; name.pc[N-1]
       algorithm
         ret := gap0 - (coeff1 * temp * temp) / (temp + coeff2);
 
+        annotation (Documentation(info="<html>
+<p>This internal function calculates the temperature dependent energy gap based on the actual temperature, and two coefficients given as input to the function.</p>
+</html>"));
       end EnergyGap_dep_Temp;
 
       function JunctionPotDepTemp
+        "Temperature dependency of junction potential"
 
         input Real phi0;
         input Real temp;
@@ -4469,9 +4484,13 @@ VN- -&GT; name.pc[N-1]
         vt       := SpiceRoot.SPICEcircuitCONST.CONSTKoverQ * temp;
         ret := (phi0 - phibtnom) * temp / tnom + phibtemp + vt * 3 * Modelica.Math.log( tnom / temp);
 
+        annotation (Documentation(info="<html>
+<p>This internal function calculates the temperature dependent junction potential based on the actual and the nominal temperature.</p>
+</html>"));
       end JunctionPotDepTemp;
 
       function SaturationCurDepTempSPICE3MOSFET
+        "Temperature dependency of saturation current"
 
         input Real satcur0;
         input Real temp;
@@ -4492,9 +4511,12 @@ VN- -&GT; name.pc[N-1]
         energygaptemp := EnergyGap_dep_Temp( temp);
         ret           := satcur0  * exp( energygaptnom / vtnom - energygaptemp / vt);
 
+        annotation (Documentation(info="<html>
+<p>This internal function calculates the temperature dependent saturation current based on the actual and the nominal temperature.</p>
+</html>"));
       end SaturationCurDepTempSPICE3MOSFET;
 
-      function JunctionVCrit
+      function JunctionVCrit "Voltage limitation"
 
         input Real temp;
         input Real ncoeff;
@@ -4510,9 +4532,13 @@ VN- -&GT; name.pc[N-1]
         ret := vte * Modelica.Math.log( vte / (sqrt(2) * satcur));
         ret := if ( ret > 1e10) then  1e10 else ret;
 
+        annotation (Documentation(info="<html>
+<p>This internal function limits the junction voltage. If it increases 1.e10, it is hold to be constant at that value.</p>
+</html>"));
       end JunctionVCrit;
 
       function JunctionParamDepTempSPICE3
+        "Temperature dependency of junction parameters"
 
         input Real phi0;
         input Real cap0;
@@ -4559,9 +4585,12 @@ VN- -&GT; name.pc[N-1]
                        (1+mcoeff* (400e-6*(tnom-SpiceRoot.SPICEcircuitCONST.REFTEMP)-gmaold))  *
                        (1+mcoeff* (400e-6*(temp-SpiceRoot.SPICEcircuitCONST.REFTEMP)-gmanew));
 
+        annotation (Documentation(info="<html>
+<p>This internal function calculates several temperature dependent junction parameters based on the actual and the nominal temperature.</p>
+</html>"));
       end JunctionParamDepTempSPICE3;
 
-      function JunctionCapCoeffs
+      function JunctionCapCoeffs "Coefficient calculation"
 
         input Real mj;
         input Real fc;
@@ -4580,9 +4609,13 @@ VN- -&GT; name.pc[N-1]
         f2  := exp(( 1 + mj) * xfc);
         f3  := 1 - fc * (1 + mj);
 
+        annotation (Documentation(info="<html>
+<p>This internal auxiliary function calculates some coefficients which are necessary for the calculation of junction capacities.</p>
+</html>"));
       end JunctionCapCoeffs;
 
     function Junction2_SPICE3_MOSFET
+        "Junction current and conductance calculation"
 
       input Real current;
       input Real cond;
@@ -4630,9 +4663,12 @@ VN- -&GT; name.pc[N-1]
         out_cond    := 0.;
       end if;
 
+      annotation (Documentation(info="<html>
+<p>This internal function calculates both the junction current and the junction conductance dependent from the given voltage.</p>
+</html>"));
     end Junction2_SPICE3_MOSFET;
 
-    function JunctionCap
+    function JunctionCap "Junction capacity"
 
       input Real capin;
       input Real voltage;
@@ -4667,9 +4703,14 @@ VN- -&GT; name.pc[N-1]
         charge := capin * f1 + czof2 *
                   (f3 * (voltage - depcap) + (mj / (2*phij)) * (voltage^2 - depcap^2));
       end if;
+
+      annotation (Documentation(info="<html>
+<p>This internal function calculates the charge and the capacitance of the junction capacity dependent from the given voltage.</p>
+</html>"));
     end JunctionCap;
 
     function SaturationCurDepTempSPICE3
+        "Temperature dependency of saturation current"
 
       input Real satcur0;
       input Real temp;
@@ -4690,9 +4731,12 @@ VN- -&GT; name.pc[N-1]
       ret := satcur0 * exp( ((temp / tnom) - 1) * energygap / vte
              + satcurexp / emissioncoeff * Modelica.Math.log( temp / tnom));
 
+      annotation (Documentation(info="<html>
+<p>This internal function calculates the temperature dependent saturation current based on the actual and the nominal temperature.</p>
+</html>"));
     end SaturationCurDepTempSPICE3;
 
-    function JunctionVoltage23_SPICE3
+    function JunctionVoltage23_SPICE3 "Junction Voltage"
 
       input Real vb;
       input Real ivb;
@@ -4726,9 +4770,12 @@ VN- -&GT; name.pc[N-1]
         end for;
       end if;
 
+      annotation (Documentation(info="<html>
+<p>This internal function calculates the junction voltage based on the actual temperature, voltage and saturation current.</p>
+</html>"));
     end JunctionVoltage23_SPICE3;
 
-    function Junction3
+    function Junction3 "Junction current and conductance calculation"
 
       input Real voltage;
       input Real temp;
@@ -4787,9 +4834,13 @@ VN- -&GT; name.pc[N-1]
         cond    := 0.0;
       end if;
 
+      annotation (Documentation(info="<html>
+<p>This internal function calculates both the junction current and the junction conductance dependent from the given voltage.</p>
+</html>"));
     end Junction3;
 
     function JunctionCapTransTime
+        "junction capacitance transittime calculation"
 
       input Real capin;
       input Real voltage;
@@ -4819,9 +4870,12 @@ VN- -&GT; name.pc[N-1]
       capout := capout + transittime * conduct;
       charge := charge + transittime * current;
 
+      annotation (Documentation(info="<html>
+<p>This internal function calculates the capacitance and the charge dependent on the transittime.</p>
+</html>"));
     end JunctionCapTransTime;
 
-    function Junction2
+    function Junction2 "Junction current and conductance calculation"
 
       input Real voltage;
       input Real temp;
@@ -4866,9 +4920,12 @@ VN- -&GT; name.pc[N-1]
         cond    := 0.0;
       end if;
 
+      annotation (Documentation(info="<html>
+<p>This internal function calculates both the junction current and the junction conductance dependent from the given voltage.</p>
+</html>"));
     end Junction2;
 
-    function RESdepTemp
+    function RESdepTemp "temperature dependent conductance"
 
     input Real resist;
     input Real temp;
@@ -4888,9 +4945,13 @@ VN- -&GT; name.pc[N-1]
       factor := 1.0 + tc1 * difference + tc2 * difference * difference;
       conduct := 1.0 /(resist * factor);
       dCond_dTemp := (tc1 + 2 * tc2 * difference) * conduct * conduct;
+
+      annotation (Documentation(info="<html>
+<p>This internal function calculates the conductance in dependency from the temperature. </p>
+</html>"));
     end RESdepTemp;
 
-    function ResDepGeom
+    function ResDepGeom "Resistance dependent from width and narrow"
 
     input Real rsh;
     input Real width;
@@ -4901,12 +4962,19 @@ VN- -&GT; name.pc[N-1]
 
     algorithm
       out :=rsh*(length - narrow)/(width - narrow);
+
+      annotation (Documentation(info="<html>
+<p>This internal function calculates the resistance in dependency from the geometrical values (width, narrow) and resistivity.</p>
+</html>"));
     end ResDepGeom;
+      annotation (Documentation(info="<html>
+<p>The package Equation contains functions that are needed to model the semiconductor models. Some of these functions are used by several semiconductor models.</p>
+</html>"));
   end Equation;
 
-    package SpiceRoot
+    package SpiceRoot "Basic records and functions"
 
-      record SPICEcircuitCONST
+      record SPICEcircuitCONST "SPICE3 Constants"
 
          constant Real EPSSIL =     (11.7 * 8.854214871e-12);
          constant Real EPSOX =      3.453133e-11;
@@ -4934,14 +5002,20 @@ VN- -&GT; name.pc[N-1]
         constant Real CKTvolttol =      1e-10;
         constant Real CKTtemptol =      1e-3;
 
+        annotation (Documentation(info="<html>
+<p>The package SPICEcircuitCONST contains several constants that are given in SPICE3.</p>
+</html>"));
       end SPICEcircuitCONST;
 
-      record SpiceRoot
+      record SpiceRoot "Data for insertion to matrices"
 
         Real[6] m_pCurrentValues(   start = zeros(6));
         Real[36] m_pResJacobi(      start = zeros(36));
         Real[36] m_pCapJacobi(      start = zeros(36));
 
+        annotation (Documentation(info="<html>
+<p>This data are to collect intermediate results to be inserted into SPICE-like matrices for linear ssystems of equations.</p>
+</html>"));
       end SpiceRoot;
 
       function UseInitialConditions
@@ -4951,18 +5025,24 @@ VN- -&GT; name.pc[N-1]
       algorithm
         ret := false;
 
+        annotation (Documentation(info="<html>
+<p>This function UseInitialConditions appoints wether the initial conditions that are given in the description are used or not.</p>
+</html>"));
       end UseInitialConditions;
 
-      function InitJunctionVoltages
+      function InitJunctionVoltages "Choice of junction voltage handling"
 
         output Boolean ret;
       algorithm
 
         ret := false;
 
+        annotation (Documentation(info="<html>
+<p>This internal function is provided to choose the junction voltage handling which is at the current library version fixed to false.</p>
+</html>"));
       end InitJunctionVoltages;
 
-      function LimitJunctionVoltage
+      function LimitJunctionVoltage "Limitation of junction voltage"
 
         input Real voltage;
 
@@ -4971,102 +5051,141 @@ VN- -&GT; name.pc[N-1]
       algorithm
         ret := voltage;
 
+        annotation (Documentation(info="<html>
+<p>This internal function is provided to limit the junction voltage which is at the current library version fixed to false.</p>
+</html>"));
       end LimitJunctionVoltage;
+      annotation (Documentation(info="<html>
+<p>The package SpiceRoot contains basic records and functions that are needed in SPICE3.</p>
+</html>"));
     end SpiceRoot;
 
-    package Model
+    package Model "Device Temperature"
 
-    record Model
+    record Model "Device Temperature"
 
-      Real m_dTemp( start = SpiceRoot.SPICEcircuitCONST.CKTnomTemp); // TEMP, Device Temperature
+      Real m_dTemp( start = SpiceRoot.SPICEcircuitCONST.CKTnomTemp)
+          "TEMP, Device Temperature";
+        annotation (Documentation(info="<html>
+<p>The record Model includes the device temperture which has a default value of 27&deg;C.</p>
+</html>"));
     end Model;
 
+      annotation (Documentation(info="<html>
+<p>The package Model contains the record Model that includes the device temperature.</p>
+</html>"));
     end Model;
 
-    package Mosfet
-      record Mosfet
+    package Mosfet "Functions and records for Mosfets"
+      record Mosfet "Record for Mosfet parameters"
         extends Model.Model;
 
-        Real m_len(             start = 1e-4);  // L, length of channel region
-        Real m_width(           start = 1e-4);  // W, width of channel region
-        Real m_drainArea(       start = SpiceRoot.SPICEcircuitCONST.CKTdefaultMosAD); // AD, area of drain diffusion
-        Real m_sourceArea(      start = SpiceRoot.SPICEcircuitCONST.CKTdefaultMosAS); // AS, area of source diffusion
-        Real m_drainSquares(    start = 1.0);                               // NRD, length of drain in squares
-        Real m_sourceSquares(   start = 1.0);                               // NRS, length of source in squares
-        Real m_drainPerimiter(  start = 0.0);                               // PD, Drain perimeter;
-        Real m_sourcePerimiter( start = 0.0);                               // PS, Source perimeter
-        Real m_dICVDS(          start = 0.0);                               // IC_VDS, Initial D-S voltage;
-        Real m_dICVDSIsGiven;
-        Real m_dICVGS(          start = 0.0);                               // IC_VGS, Initial G-S voltage;
-        Real m_dICVGSIsGiven;
-        Real m_dICVBS(          start = 0.0);                               // IC_VBS, Initial B-S voltage;
-        Real m_dICVBSIsGiven;
-        Real m_off(          start = 0);    // Device initially off  // non-zero to indicate device is off for dc analysis
-        Real m_bPMOS(        start = 0);    // P type MOSfet model
-        Integer m_nLevel(       start = 1);
+        Real m_len(             start = 1e-4) "L, length of channel region";
+        Real m_width(           start = 1e-4) "W, width of channel region";
+        Real m_drainArea(       start = SpiceRoot.SPICEcircuitCONST.CKTdefaultMosAD)
+          "AD, area of drain diffusion";
+        Real m_sourceArea(      start = SpiceRoot.SPICEcircuitCONST.CKTdefaultMosAS)
+          "AS, area of source diffusion";
+        Real m_drainSquares(    start = 1.0) "NRD, length of drain in squares";
+        Real m_sourceSquares(   start = 1.0) "NRS, length of source in squares";
+        Real m_drainPerimiter(  start = 0.0) "PD, Drain perimeter";
+        Real m_sourcePerimiter( start = 0.0) "PS, Source perimeter";
+        Real m_dICVDS(          start = 0.0) "IC_VDS, Initial D-S voltage";
+        Real m_dICVDSIsGiven "IC_VDS, IsGivenValue";
+        Real m_dICVGS(          start = 0.0) "IC_VGS, Initial G-S voltage";
+        Real m_dICVGSIsGiven "IC_VGS, IsGivenValue";
+        Real m_dICVBS(          start = 0.0) "IC_VBS, Initial B-S voltage";
+        Real m_dICVBSIsGiven "IC_VBS, IsGivenValue";
+        Real m_off(          start = 0)
+          "Device initially off, non-zero to indicate device is off for dc analysis";
+        Real m_bPMOS(        start = 0) "P type MOSfet model";
+        Integer m_nLevel(       start = 1) "MOS model level";
 
+        annotation (Documentation(info="<html>
+<p>This record Mosfet contains parameters that are used for all types of Mosfet transistors in SPICE3.</p>
+</html>"));
       end Mosfet;
 
-      record MosfetModelLineParams
+      record MosfetModelLineParams "Record for Mosfet model line parameters"
 
-         Real m_jctSatCurDensity(           start = 0.0); // JS, Bulk jct. sat. current density, input - use tSatCurDens
-         Real m_sheetResistance(            start = 0.0); // RSH, Sheet resistance
-         Real m_bulkJctPotential(           start = 0.8); // PB, Bulk junction potential, input - use tBulkPot
-         Real m_bulkJctBotGradingCoeff(     start = 0.5); // MJ, Bottom grading coefficient
-         Real m_bulkJctSideGradingCoeff(    start = 0.5); // MJSW, Side grading coefficient;
-         Real m_oxideThickness(             start = 1.0e-7); // TOX, Oxide thickness unit: micron
-         Real m_oxideThicknessIsGiven;
-         Real m_gateSourceOverlapCapFactor( start= 0.0); // CGS0, Gate-source overlap cap
-         Real m_gateDrainOverlapCapFactor( start= 0.0); // CGD0, Gate-drain overlap cap
-         Real m_gateBulkOverlapCapFactor( start= 0.0); // CGB0, Gate-bulk overlap cap
-         Real m_fNcoef(                     start = 0.0); // KF, Flicker noise coefficient
-         Real m_fNexp(                      start = 1.0); // AF, Flicker noise exponent
+         Real m_jctSatCurDensity(           start = 0.0)
+          "JS, Bulk jct. sat. current density, input - use tSatCurDens";
+         Real m_sheetResistance(            start = 0.0)
+          "RSH, Sheet resistance";
+         Real m_bulkJctPotential(           start = 0.8)
+          "PB, Bulk junction potential, input - use tBulkPot";
+         Real m_bulkJctBotGradingCoeff(     start = 0.5)
+          "MJ, Bottom grading coefficient";
+         Real m_bulkJctSideGradingCoeff(    start = 0.5)
+          "MJSW, Side grading coefficient";
+         Real m_oxideThickness(             start = 1.0e-7)
+          "TOX, Oxide thickness unit: micron";
+         Real m_oxideThicknessIsGiven "TOX, IsGiven value";
+         Real m_gateSourceOverlapCapFactor( start= 0.0)
+          "CGS0, Gate-source overlap cap";
+         Real m_gateDrainOverlapCapFactor( start= 0.0)
+          " CGD0, Gate-drain overlap cap";
+         Real m_gateBulkOverlapCapFactor( start= 0.0)
+          "CGB0, Gate-bulk overlap cap";
+         Real m_fNcoef(                     start = 0.0)
+          "KF, Flicker noise coefficient";
+         Real m_fNexp(                      start = 1.0)
+          "AF, Flicker noise exponent";
 
+        annotation (Documentation(info="<html>
+<p>This record MosfetModelLineParams contains the model line parameters that are used for all kinds of mosfet transistors in SPICE3.</p>
+</html>"));
       end MosfetModelLineParams;
 
-      record Mosfet_Model_Line
+      record Mosfet_Model_Line "Type of the transistor"
 
-        Integer m_type(   start = 1);     // device type : 1 = n,  -1 = p
+        Integer m_type(   start = 1) "device type : 1 = n,  -1 = p";
 
+        annotation (Documentation(info="<html>
+<p>This record contains only one variable and it provides the information on the transistor type (pmos or nmos).</p>
+</html>"));
       end Mosfet_Model_Line;
 
-      record MosfetCalc
+      record MosfetCalc "Mosfet Variables"
 
-        Real m_vds;               // Vds,  Drain-Source voltage
-        Real m_vgs;               // Vgs, Gate-Source voltage
-        Real m_vbs;               // Vbs, Bulk-Source voltage
-        Real m_cbs;               // Ibs, B-S junction current
-        Real m_gbs;               // Gbs, Bulk-Source conductance
-        Real m_cbd;               // Ibd, B-D junction current
-        Real m_gbd;               // Gbd, Bulk-Drain conductance
-        Real m_cdrain;            // Ids
-        Real m_gds;               // Gds, Drain-Source conductance
-        Real m_gm;                // Gm, Transconductance
-        Real m_gmbs;              // Gmbs, Bulk-Source transconductance
-        Real m_capbsb;            // Cbsb
-        Real m_chargebsb;         // Qbsb
-        Real m_capbss;            // Cbss
-        Real m_chargebss;         // Qbss
-        Real m_capbdb;            // Cbdb
-        Real m_chargebdb;         // Qbdb
-        Real m_capbds;            // Cbds
-        Real m_chargebds;         // Qbds
-        Real m_sourceResistance;  // Rs
-        Real m_drainResistance;   // Rd
-        Real m_Beta;              // Beta
-        Real m_capGSovl;          // Cgso, Gate-source overlap cap.
-        Real m_capGDovl;          // Cgdo, Gate-drain overlap cap
-        Real m_capGBovl;          // Cgbo, Gate-bulk overlap cap.
-        Real m_capOx;             // Cox
-        Real m_von;               // Von, Turn-on voltage
-        Real m_vdsat;             // Vdsat
-        Integer m_mode(start = 1);// Mode
+        Real m_vds "Vds,  Drain-Source voltage";
+        Real m_vgs "Vgs, Gate-Source voltage";
+        Real m_vbs "Vbs, Bulk-Source voltage";
+        Real m_cbs "Ibs, B-S junction current";
+        Real m_gbs "Gbs, Bulk-Source conductance";
+        Real m_cbd "Ibd, B-D junction current";
+        Real m_gbd "Gbd, Bulk-Drain conductance";
+        Real m_cdrain "Ids";
+        Real m_gds "Gds, Drain-Source conductance";
+        Real m_gm "Gm, Transconductance";
+        Real m_gmbs "Gmbs, Bulk-Source transconductance";
+        Real m_capbsb "Cbsb";
+        Real m_chargebsb "Qbsb";
+        Real m_capbss "Cbss";
+        Real m_chargebss "Qbss";
+        Real m_capbdb "Cbdb";
+        Real m_chargebdb "Qbdb";
+        Real m_capbds "Cbds";
+        Real m_chargebds "Qbds";
+        Real m_sourceResistance "Rs";
+        Real m_drainResistance "Rd";
+        Real m_Beta "Beta";
+        Real m_capGSovl "Cgso, Gate-source overlap cap.";
+        Real m_capGDovl "Cgdo, Gate-drain overlap cap.";
+        Real m_capGBovl "Cgbo, Gate-bulk overlap cap.";
+        Real m_capOx "Cox";
+        Real m_von "Von, Turn-on voltage";
+        Real m_vdsat "Vdsat";
+        Integer m_mode(start = 1) "Mode";
 
         Real m_lEff;
 
+        annotation (Documentation(info="<html>
+<p>This record MosfetCalc contains variables that are neede for calculation within modeling the semiconductor models.</p>
+</html>"));
       end MosfetCalc;
 
-      function MosfetInitEquations
+      function MosfetInitEquations "MOSFET initial precalculations"
 
         input Mosfet in_m;
 
@@ -5082,9 +5201,12 @@ VN- -&GT; name.pc[N-1]
           out_m.m_sourceSquares := 1.;
         end if;
 
+        annotation (Documentation(info="<html>
+<p>This function initially precalculats some values for transistor area which can be used for all transistor models.</p>
+</html>"));
       end MosfetInitEquations;
 
-      function Mosfet_Model_LineInitEquations
+      function Mosfet_Model_LineInitEquations "Type transscription"
 
         input Mosfet in_m;
 
@@ -5094,21 +5216,31 @@ VN- -&GT; name.pc[N-1]
         out_ml.m_type := if (in_m.m_bPMOS > 0.5) then -1 else 1;
         // -1: PMOS ; 1: NMOS
 
+        annotation (Documentation(info="<html>
+<p>In this function during the initialization phase the transistor type is transscibed to another parameter for further usage.</p>
+</html>"));
       end Mosfet_Model_LineInitEquations;
 
-      function GetNumberOfElectricalPins
+      function GetNumberOfElectricalPins "Number of Pins"
 
         output Integer ret;
 
       algorithm
         ret := 4;
+        annotation (Documentation(info="<html>
+<p>This function GetNumberOfElectricalPins identifies the number of elecrtical pins. At the current library version it is fixed to 4.</p>
+</html>"));
       end GetNumberOfElectricalPins;
 
+      annotation (Documentation(info="<html>
+<p>The package Mosfet contains all functions and records that are used for all types of Mosfet transistors in SPICE3.</p>
+</html>"));
     end Mosfet;
 
-    package Mos
+    package Mos "Records and functions for Mosfets level 1,2,3,6"
 
       record MosModelLineParams
+        "Record for Mosfet model line parameters (for level 1, 2, 3 and 6)"
         extends Mosfet.MosfetModelLineParams;
 
          Real m_oxideCapFactor(      start = 0.0);
@@ -5142,6 +5274,9 @@ VN- -&GT; name.pc[N-1]
          Real m_transconductanceIsGiven;
          Real m_tnom(                start=SpiceConstants.CKTnomTemp);                        // TNOM, Parameter measurement temperature
 
+        annotation (Documentation(info="<html>
+<p>This record MosModelLineParams contains the model line parameters that are used for the mosfet transistors level 1, 2, 3 and 6 in SPICE3.</p>
+</html>"));
       end MosModelLineParams;
 
       record MosModelLineVariables
@@ -5827,6 +5962,9 @@ VN- -&GT; name.pc[N-1]
         out_cc.cGS := if (in_m_bInit) then -1e40 else int_c.m_capgs;
 
       end Mos2CalcNoBypassCode;
+      annotation (Documentation(info="<html>
+<p>This package Mos contains functions and record with data fot the mosfet models leven 1, 2, 3 and 6.</p>
+</html>"));
     end Mos;
 
     package Mos1
