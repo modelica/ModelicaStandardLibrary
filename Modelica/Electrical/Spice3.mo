@@ -3756,21 +3756,21 @@ VN- -&GT; name.pc[N-1]
        parameter Modelica.SIunits.Current IS=1.e-14
         "Bulk junction saturation current";
        parameter Modelica.SIunits.Voltage PB=0.8 "Bulk junction potential";
-       parameter Real CGSO=0.0
+       parameter Modelica.SIunits.Permittivity CGSO=0.0
         "In F/m, Gate-source overlap capacitance per meter channel width";
-       parameter Real CGDO=0.0
+       parameter Modelica.SIunits.Permittivity CGDO=0.0
         "In F/m, Gate-drain overlap capacitance per meter channel width";
-       parameter Real CGBO=0.0
+       parameter Modelica.SIunits.Permittivity CGBO=0.0
         "In F/m, Gate-bulk overlap capacitance per meter channel width";
        parameter Modelica.SIunits.Resistance RSH=0.0
         "Drain and source diffusion sheet resistance";
        parameter Real CJ=0.0
         "In F/(m*m), Zero-bias bulk junction bottom cap. per sq-meter of junction area";
        parameter Real MJ=0.5 "Bulk junction bottom grading coefficient";
-       parameter Real CJSW=0.0
+       parameter Modelica.SIunits.Permittivity CJSW=0.0
         "In F/m, Zero-bias junction sidewall cap. per meter of junction perimeter";
        parameter Real MJSW=0.5 "Bulk junction sidewall grading coefficient";
-       parameter Real JS=0.0
+       parameter Modelica.SIunits.CurrentDensity JS=0.0
         "In A/(m*m), Bulk junction saturation current per sq-meter of junction area";
        parameter Modelica.SIunits.Length TOX=-1e40
         "Oxide thickness, default 1e-7";
@@ -4138,65 +4138,77 @@ VN- -&GT; name.pc[N-1]
       //String m_type( start = "NPN");
 
       parameter Real TBJT( start = 1) "Type of transistor (NPN=1, PNP=-1)";  //1=NPN, -1=PNP
-      parameter Real TNOM = -1e40
-        "In deg C, Parameter measurement temperature, default 27";
-      parameter Real IS = 1e-16 "In A, Transport saturation current"; // m_satCur
+      parameter Modelica.SIunits.Temp_C TNOM = -1e40
+        "Parameter measurement temperature, default 27";
+      parameter Modelica.SIunits.Current IS = 1e-16
+        "Transport saturation current";                                             // m_satCur
       parameter Real BF = 100.00 "Ideal maximum forward beta F"; //m_beta
       parameter Real NF = 1.0 "Forward current emission coefficientF"; //m_emissionCoeff
       parameter Real NE = 1.5 "B-E leakage emission coefficient ";
                                              //m_leakBEemissionCoeff
-      parameter Real ISE = -1e40
-        "In A, B-E leakage saturation current, default = 0";
+      parameter Modelica.SIunits.Current ISE = -1e40
+        "B-E leakage saturation current, default = 0";
                                                           //m_leakBEcurrent,
-      constant Real C2 =  -1e40 "Obsolete parameter name, , default = 0"; //m_c2
-      parameter Real ISC = -1e40
-        "In A, B-C leakage saturation current, default = 0";
-                                                           //m_leakBCcurrent
-      constant Real C4 =  -1e40 "Obsolete parameter name, default = 0"; //m_c4
-      parameter Real BR = 1.0 "Ideal maximum reverse beta"; //m_betaR
-      parameter Real NR = 1.0 "Reverse current emission coefficient "; //m_emissionCoeffR
+      constant Real C2 =  -1e40 "Obsolete parameter name, , default = 0";
+      parameter Modelica.SIunits.Current ISC = -1e40
+        "B-C leakage saturation current, default = 0";
+
+      constant Real C4 =  -1e40 "Obsolete parameter name, default = 0";
+      parameter Real BR = 1.0 "Ideal maximum reverse beta";
+      parameter Real NR = 1.0 "Reverse current emission coefficient ";
       parameter Real NC = 2.0 "B-C leakage emission coefficient";
-                                            // m_leakBCemissionCoef
-      parameter Real VAF = 0.0 "In V, Forward Early voltage"; // m_earlyVoltF
-      parameter Real IKF = 0.0 "In A, Forward beta roll-off corner current"; //m_rollOffF
-      parameter Real VAR = 0.0 "In V, Reverse Early voltage"; // m_earlyVoltR
-      parameter Real IKR = 0.0 "In A, Reverse beta roll-off corner current"; // m_rollOffR
-      parameter Real RE = 0.0 "In Ohm, Emitter resistance"; // m_emitterResist
-      parameter Real RC = 0.0 "In Ohm, Collector resistance"; // m_collectorResist
-      parameter Real IRB = 0.0 "In A, Current for base resistance = (rb+rbm)/2";
-                                                       //m_baseCurrentHalfResist
-      parameter Real RB = 0.0 "In Ohm, Zero bias base resistance"; // m_baseResist
-      parameter Real RBM = -1e40
-        "In Ohm, Minimum base resistance, default = 0.0";
-      parameter Real CJE = 0.0 "In Farad, Zero bias B-E depletion capacitance";
-                                                      // m_depletionCapBE
-      parameter Real VJE = 0.75 "In V, B-E built in potential"; // m_potentialBE
-      parameter Real MJE = 0.33 "B-E junction exponential faktor"; // m_junctionExpBE
-      parameter Real TF = 0.0 "In sec, Ideal forward transit time"; // m_transitTimeF
+
+      parameter Modelica.SIunits.Voltage VAF = 0.0 "Forward Early voltage";
+      parameter Modelica.SIunits.Current IKF = 0.0
+        "Forward beta roll-off corner current";
+      parameter Modelica.SIunits.Voltage VAR = 0.0 "Reverse Early voltage";
+      parameter Modelica.SIunits.Current IKR = 0.0
+        "Reverse beta roll-off corner current";
+      parameter Modelica.SIunits.Resistance RE = 0.0 "Emitter resistance";
+      parameter Modelica.SIunits.Resistance RC = 0.0 "Collector resistance";
+      parameter Modelica.SIunits.Current IRB = 0.0
+        "Current for base resistance = (rb+rbm)/2";
+
+      parameter Modelica.SIunits.Resistance RB = 0.0
+        "Zero bias base resistance";
+      parameter Modelica.SIunits.Resistance RBM = -1e40
+        "Minimum base resistance, default = 0.0";
+      parameter Modelica.SIunits.Capacitance CJE = 0.0
+        "Zero bias B-E depletion capacitance";
+
+      parameter Modelica.SIunits.Voltage VJE = 0.75 "B-E built in potential";
+      parameter Real MJE = 0.33 "B-E junction exponential faktor";
+      parameter Modelica.SIunits.Time TF = 0.0 "Ideal forward transit time";
       parameter Real XTF = 0.0 "Coefficient for bias dependence of TF ";
-                                                  //m_transitTimeBiasCoeffF
-      parameter Real ITF = 0.0 "In A, High current dependence of TF,";
-                                             // m_transitTimeHighCurrentF
-      parameter Real VTF = 0.0 "In V, Voltage giving VBC dependence of TF";
-                                                  // m_transitTimeFVBC
-      parameter Real PTF = 0.0 "In deg, Excess phase at freq=1/(TF*2*Pi) Hz"; //m_excessPhase
-      parameter Real CJC = 0.0 "In F, Zero bias B-C depletion capacitance";
-                                                  //m_depletionCapBC
-      parameter Real VJC = 0.75 "In V, B-C built in potential"; // m_potentialBC
-      parameter Real MJC = 0.33 "B-C junction grading coefficient"; // m_junctionExpBC
+
+      parameter Modelica.SIunits.Current ITF = 0.0
+        "High current dependence of TF,";
+
+      parameter Modelica.SIunits.Voltage VTF = 0.0
+        "Voltage giving VBC dependence of TF";
+
+      parameter Modelica.SIunits.Temp_C PTF = 0.0
+        "Excess phase at freq=1/(TF*2*Pi) Hz";
+      parameter Modelica.SIunits.Capacitance CJC = 0.0
+        "Zero bias B-C depletion capacitance";
+
+      parameter Modelica.SIunits.Voltage VJC = 0.75 " B-C built in potential";
+      parameter Real MJC = 0.33 "B-C junction grading coefficient";
       parameter Real XCJC = 1.0 "Fraction of B-C cap to internal base";
-                                                // m_baseFractionBCcap
-      parameter Real TR = 0.0 "In sec, Ideal reverse transit time"; // m_transitTimeR
-      parameter Real CJS = 0.0 "In F, Zero bias C-S capacitance "; //m_capCS
-      parameter Real VJS = 0.75 "In V, Substrate junction built-in potential "; //m_potentialSubstrate
+
+      parameter Modelica.SIunits.Time TR = 0.0 "Ideal reverse transit time";
+      parameter Modelica.SIunits.Capacitance CJS = 0.0
+        "In F, Zero bias C-S capacitance ";
+      parameter Modelica.SIunits.Voltage VJS = 0.75
+        "In V, Substrate junction built-in potential ";
       parameter Real MJS = 0.0 "Substrate junction grading coefficient ";
-                                                   //m_exponentialSubstrate
-      parameter Real XTB = 0.0 "Forward and reverse beta temperature exponent "; //m_betaExp
+
+      parameter Real XTB = 0.0 "Forward and reverse beta temperature exponent ";
       parameter Real EG = 1.11
-        "In eV, Energy gap for IS temperature effect on IS ";                        //m_energyGap
-      parameter Real XTI = 3.0 "Temperature exponent for IS"; // m_tempExpIS
-      parameter Real KF = 0.0 "Flicker Noise Coefficient "; //m_fNcoef
-      parameter Real AF = 1.0 "Flicker Noise Exponent "; //m_fNexp
+        "In eV, Energy gap for IS temperature effect on IS ";
+      parameter Real XTI = 3.0 "Temperature exponent for IS";
+      parameter Real KF = 0.0 "Flicker Noise Coefficient ";
+      parameter Real AF = 1.0 "Flicker Noise Exponent ";
       parameter Real FC = 0.5 "Forward bias junction fit parameter";
 
       annotation (Documentation(info="<html>
