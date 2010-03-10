@@ -3111,8 +3111,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
       end for;
 
       v := na;
-      //assert(na>ia, "poly: function does not suppert coefficients");
-      annotation (Documentation(info="<html>
+     annotation (Documentation(info="<html>
 <p>Function needed for polynomial interpolation of POLY controlled sources:</p>
 <p><ul>
 <li>E_VCV_POLY</li>
@@ -3144,7 +3143,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
             annotation (Placement(transformation(
               extent={{-90,-80},{-70,80}}, rotation=0), iconTransformation(extent={
                 {-90,-80},{-70,80}})));
-    //protected
+
       Real control[N];
     equation
       p.i + n.i = 0;
@@ -3240,7 +3239,7 @@ P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...})</pre>
             annotation (Placement(transformation(
               extent={{-90,-80},{-70,80}}, rotation=0), iconTransformation(extent={
                 {-90,-80},{-70,80}})));
-    //protected
+
       Real control[N];
     equation
       p.i + n.i = 0;
@@ -3335,7 +3334,7 @@ P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...}) </pre>
             annotation (Placement(transformation(
               extent={{-90,-80},{-70,80}}, rotation=0), iconTransformation(extent={
                 {-90,-80},{-70,80}})));
-    //protected
+
       Real control[N];
     equation
       p.i + n.i = 0;
@@ -3440,7 +3439,7 @@ VN- -&GT; name.pc[N-1]
             annotation (Placement(transformation(
               extent={{-90,-80},{-70,80}}, rotation=0), iconTransformation(extent={
                 {-90,-80},{-70,80}})));
-    //protected
+
       Real control[N];
     equation
       p.i + n.i = 0;
@@ -3742,7 +3741,7 @@ VN- -&GT; name.pc[N-1]
   end MOS;
 
      record ModelcardMOS "Record with technological parameters (.model)"
-      //parameter Real LEVEL=1 "Model index";
+
        parameter Modelica.SIunits.Voltage VTO=-1e40
         "Zero-bias threshold voltage, default 0";
        parameter Real KP=-1e40
@@ -3829,7 +3828,7 @@ VN- -&GT; name.pc[N-1]
     parameter Real OFF = 0
         "Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet";
     parameter Real IC( start = -1e40)
-        "In A, Initial condition values, not implemented yet";                                  //default 0
+        "In A, Initial condition values, not implemented yet";
     parameter Real TEMP = 27 "In deg C, Operating temperature of the device";
 
     Real MOScapgd = qm.qm_capgd;
@@ -4014,9 +4013,9 @@ VN- -&GT; name.pc[N-1]
       parameter Boolean OFF = false
         "Optional initial condition: false - IC not used, true - IC used, not implemented yet";
       parameter Modelica.SIunits.Voltage IC_VCE( start = -1e40)
-        "In v, Initial condition value (VBE, not implemented yet";                    //default 0
+        "In v, Initial condition value (VBE, not implemented yet";
       parameter Modelica.SIunits.Voltage IC_VBE( start = -1e40)
-        "In v, Initial condition value (VBC, not implemented yet";                    //default 0
+        "In v, Initial condition value (VBC, not implemented yet";
       parameter Modelica.SIunits.Temp_C TEMP = 27
         "In deg C, Operating temperature of the device";
       parameter Boolean SENS_AREA = false
@@ -4088,9 +4087,9 @@ VN- -&GT; name.pc[N-1]
              m_bInit);
 
           //currents through capacitances
-         icapbe = if (m_bInit) then 0.0 else capbe*(der(Binternal) - der(Einternal));//in_m_pVoltageValuesDot[5]-in_m_pVoltageValuesDot[6]);
-         icapbc = if (m_bInit) then 0.0 else capbc*(der(Binternal) - der(Cinternal));//in_m_pVoltageValuesDot[5]-in_m_pVoltageValuesDot[4]);
-         icapbx = if (m_bInit) then 0.0 else capbx*(der(B.v) - der(Cinternal));//in_m_pVoltageValuesDot[2]-in_m_pVoltageValuesDot[4]);
+         icapbe = if (m_bInit) then 0.0 else capbe*(der(Binternal) - der(Einternal));
+         icapbc = if (m_bInit) then 0.0 else capbc*(der(Binternal) - der(Cinternal));
+         icapbx = if (m_bInit) then 0.0 else capbx*(der(B.v) - der(Cinternal));
          //Resistances
          irc * p.m_collectorResist = (C.v - Cinternal);
          ire * p.m_emitterResist = (E.v -Einternal);
@@ -4102,7 +4101,7 @@ VN- -&GT; name.pc[N-1]
         C.i = irc;
         E.i = ire;
         B.i = irb + cc.capbx;
-       // //current sum at inner nodes
+        //current sum at inner nodes
         0 =  ibcgmin + irc -cc.iCC + cc.iBCN + cc.iBC + icapbc + icapbx;  //current sum for inner node Cinternal
         0 =  ibegmin + ire + cc.iCC + cc.iBEN + cc.iBE + icapbe;          //current sum for inner node Einternal
         0 = - ibcgmin - ibegmin + irb - cc.iBC - cc.iBE - cc.iBCN - cc.iBEN -icapbc - icapbe; //current sum for inner node Binternal
@@ -4142,9 +4141,8 @@ VN- -&GT; name.pc[N-1]
     end BJT;
 
     record ModelcardBJT "Record with technological parameters (.model)"
-      //String m_type( start = "NPN");
 
-      parameter Real TBJT( start = 1) "Type of transistor (NPN=1, PNP=-1)";  //1=NPN, -1=PNP
+      parameter Real TBJT( start = 1) "Type of transistor (NPN=1, PNP=-1)";
       parameter Modelica.SIunits.Temp_C TNOM = -1e40
         "Parameter measurement temperature, default 27";
       parameter Modelica.SIunits.Current IS = 1e-16
@@ -4232,7 +4230,7 @@ VN- -&GT; name.pc[N-1]
      parameter Boolean OFF = false
         "Optional initial condition: false - IC not used, true - IC used, not implemented yet";
      parameter Real IC( start = -1e40)
-        "In v, Initial condition value (VD, not implemented yet";                   //default 0
+        "In v, Initial condition value (VD, not implemented yet";
      parameter Real TEMP = 27 "In deg C, Operating temperature of the device";
      parameter Boolean SENS_AREA( start = false)
         "Flag to request sensitivity WRT area, not implemented yet";
@@ -7065,8 +7063,6 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
 
         intern.m_tnom := if (ex.TNOM > -1e40) then ex.TNOM + Spice3.Repository.SpiceConstants.CONSTCtoK else
                 300.15;
-
-                        //Parameter measurement temperature (default 27 deg C)
 
          intern.m_jctSatCurDensity := ex.JS;             // A/(m*m) bulk junction saturation current per sq-meter of junction area (default 0)
          intern.m_sheetResistance := ex.RSH;             // Ohm drain and source diffusion sheet resistance (default 0)
