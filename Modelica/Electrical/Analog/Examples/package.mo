@@ -5,7 +5,7 @@ extends Modelica.Icons.Library2;
 
 annotation (
   Documentation(info="<html>
-<p>This package contains examples that demonstrate the usage of the components of the Electrical.Analog library. </p>
+<p>This package contains examples that demonstrate the usage of the components of the Electrical.Analog library.</p>
 <p>The examples are simple to understand. They will show a typical behavior of the components, and they will give hints to users.</p>
 </html>",
    revisions="<html>

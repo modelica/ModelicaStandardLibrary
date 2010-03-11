@@ -6,7 +6,7 @@ extends Modelica.Icons.Library;
 annotation (
   __Dymola_classOrder={"Common", "SingleGases", "MixtureGases"},
 Documentation(info="<HTML>
-<p>This package contains data for the 1241 ideal gases from </p>
+<p>This package contains data for the 1241 ideal gases from</p>
 <blockquote>
   <p>McBride B.J., Zehe M.J., and Gordon S. (2002): <b>NASA Glenn Coefficients
   for Calculating Thermodynamic Properties of Individual Species</b>. NASA
@@ -41,7 +41,7 @@ the data from a commercial or public data base. A public source of the needed da
 <a href=\"modelica://Modelica.Media.IdealGases.MixtureGases\">IdealGases.MixtureGases</a> has to be created, building an array of data records for cp and an array of (partly) user-defined fluidContants records.</li>
 </ul>
 </ol>
-<p>Note that many properties can computed for the full set of 1241 gases listed below, but due to the missing viscosity and thermal conductivity functions, no fully Modelica.Media-compliant media can be defined. </p>
+<p>Note that many properties can computed for the full set of 1241 gases listed below, but due to the missing viscosity and thermal conductivity functions, no fully Modelica.Media-compliant media can be defined.</p>
 </p>
 <p>
 Data records for heat capacity, specific enthalpy and specific entropy exist for the following substances and ions:

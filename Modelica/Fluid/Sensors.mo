@@ -1084,7 +1084,7 @@ model the time constant of the sensor).
 </p>
 
 <p align = justify>For the thermodynamic state variables temperature, specific entalpy, specific entropy and density
-the fluid library provides two different types of sensors: <b>regular one port</b> and <b>two port</b> sensors. </p>
+the fluid library provides two different types of sensors: <b>regular one port</b> and <b>two port</b> sensors.</p>
 
 <ul>
 <li>

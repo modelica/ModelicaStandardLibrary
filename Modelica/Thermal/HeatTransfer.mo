@@ -2890,7 +2890,7 @@ Hubertus Tummescheit, Lund Institute of Technology, Lund, Sweden.
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern, Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
-  </p>
+</p>
   </dd>
 </dl>
 <p><b>Copyright &copy; 2001-2009, Modelica Association, Michael Tiller and DLR.</b></p>

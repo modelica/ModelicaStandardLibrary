@@ -1871,7 +1871,7 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosing
             Line(points={{40,20},{40,0}}, color={0,0,255}),
             Line(points={{40,50},{32,34},{48,30},{40,20}}, color={255,0,0})}),
         Documentation(info="<html>
-<p>Contains m opening switches with arc (Modelica.Electrical.Analog.Ideal.OpenerWithArc). </p>
+<p>Contains m opening switches with arc (Modelica.Electrical.Analog.Ideal.OpenerWithArc).</p>
 </html>"),
         Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
                 {100,100}}),
@@ -1939,7 +1939,7 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosing
               textString="%m"),
             Line(points={{40,50},{32,24},{48,28},{40,0}}, color={255,0,0})}),
         Documentation(info="<html>
-<p>Contains m closing switches with arc (Modelica.Electrical.Analog.Ideal.CloserWithArc). </p>
+<p>Contains m closing switches with arc (Modelica.Electrical.Analog.Ideal.CloserWithArc).</p>
 </html>"),
         Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
                 {100,100}}),
@@ -2946,13 +2946,13 @@ Further development:
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
-  </p>
+</p>
   <p>
   Dr.Christian Kral<br>
   Austrian Institute of Technology <a href=\"http://www.ait.ac.at/\">AIT</a><br>
   Giefinggasse 2<br>
   A-1210 Vienna, Austria
-  </p>
+</p>
   </dd>
 </p>
 </dl>

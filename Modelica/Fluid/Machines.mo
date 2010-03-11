@@ -89,7 +89,7 @@ package Machines
   <li>piston stroke given by the flange position s</li>
   <li>clearance (volume at flang position = 0)</li>
 </ul>
-<p>Losses are neglected. The shaft power is completely converted into mechanical work on the fluid. </p>
+<p>Losses are neglected. The shaft power is completely converted into mechanical work on the fluid.</p>
 
 <p> The flange position has to be equal or greater than zero. Otherwise the simulation stops. The force of the flange results from the pressure difference between medium and ambient pressure and the cross sectional piston area. For using the component, a top level instance of the ambient model with the inner attribute is needed.</p>
 <p> The pressure at both fluid ports equals the medium pressure in the volume. No suction nor discharge valve is included in the model.</p>

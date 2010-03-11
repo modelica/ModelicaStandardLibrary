@@ -1688,7 +1688,7 @@ or
 what calculates M as the exponential of matrix A.
 </p>
 <p><b>Algorithmic details:</b></p>
-<p>The algorithm is taken from </p>
+<p>The algorithm is taken from</p>
 <dl>
 <dt>H. D. Joos, G. Gruebel:
 <dd><b>RASP'91 Regulator Analysis and Synthesis Programs</b><br>
@@ -1825,7 +1825,7 @@ exponential <b>&Phi;</b>=e^(AT):
 <b>&Phi;</b> is calculated through <b>&Phi;</b> = I + A*<b>&Psi;</b>, so A may be singular. <b>&Gamma;</b> is
 simple <b>&Psi;</b>*B.
 </p>
-<p>The algorithm runs in the following steps: </p>
+<p>The algorithm runs in the following steps:</p>
 <ol>
   <li>Balancing</li>
   <li>Scaling</li>

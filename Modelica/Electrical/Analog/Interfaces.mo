@@ -39,7 +39,7 @@ The reason could be that
        </li>
 </ul>
 </html>", info="<html>
-<p>Pin is the basic electric connector. It includes the voltage which consists between the pin and the ground node. The ground node is the node of (any) ground device (Modelica.Electrical.Basic.Ground). Furthermore, the pin includes the current, which is considered to be <b>positive</b> if it is flowing at the pin<b> into the device</b>. </p>
+<p>Pin is the basic electric connector. It includes the voltage which consists between the pin and the ground node. The ground node is the node of (any) ground device (Modelica.Electrical.Basic.Ground). Furthermore, the pin includes the current, which is considered to be <b>positive</b> if it is flowing at the pin<b> into the device</b>.</p>
 </html>"));
   end Pin;
 
@@ -58,7 +58,7 @@ The reason could be that
 - a connector of an electrical component is not connected.");
     annotation (defaultComponentName="pin_p",
       Documentation(info="<html>
-<p>Connectors PositivePin and NegativePin are nearly identical. The only difference is that the icons are different in order to identify more easily the pins of a component. Usually, connector PositivePin is used for the positive and connector NegativePin for the negative pin of an electrical component. </p>
+<p>Connectors PositivePin and NegativePin are nearly identical. The only difference is that the icons are different in order to identify more easily the pins of a component. Usually, connector PositivePin is used for the positive and connector NegativePin for the negative pin of an electrical component.</p>
 </html>",               revisions="<html>
 <ul>
 <li><i> 1998   </i>
@@ -98,7 +98,7 @@ The reason could be that
 - a connector of an electrical component is not connected.");
     annotation (defaultComponentName="pin_n",
       Documentation(info="<html>
-<p>Connectors PositivePin and NegativePin are nearly identical. The only difference is that the icons are different in order to identify more easily the pins of a component. Usually, connector PositivePin is used for the positive and connector NegativePin for the negative pin of an electrical component. </p>
+<p>Connectors PositivePin and NegativePin are nearly identical. The only difference is that the icons are different in order to identify more easily the pins of a component. Usually, connector PositivePin is used for the positive and connector NegativePin for the negative pin of an electrical component.</p>
 </html>",               revisions="<html>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
@@ -184,7 +184,7 @@ The reason could be that
     i = p.i;
     annotation (
       Documentation(info="<html>
-<p>Superclass of elements which have <b>two</b> electrical pins: the positive pin connector <i>p</i>, and the negative pin connector <i>n</i>. It is assumed that the current flowing into pin p is identical to the current flowing out of pin n. This current is provided explicitly as current i.  </p>
+<p>Superclass of elements which have <b>two</b> electrical pins: the positive pin connector <i>p</i>, and the negative pin connector <i>n</i>. It is assumed that the current flowing into pin p is identical to the current flowing out of pin n. This current is provided explicitly as current i.</p>
 </html>",
    revisions="<html>
 <ul>
@@ -330,13 +330,13 @@ The reason could be that
        </li>
 </ul>
 </html>",   info="<html>
-<p>This partial model provides a conditional heating port for the connection to a thermal network. </p>
+<p>This partial model provides a conditional heating port for the connection to a thermal network.</p>
 <p><ul>
 <li>If <b>useHeatPort</b> is set to <b>false</b> (default), no heat port is available, and the thermal loss power flows internally to the ground. In this case, the parameter <b>T</b> specifies the fixed device temperature (the default for T = 20oC) </li>
-<p>. </p>
+<p>.</p>
 <li>If <b>useHeatPort</b> is set to <b>true</b>, a heat port is available. </li>
 </ul></p>
-<p>If this model is used, the loss power has to be provided by an equation in the model which inherits from ConditionalHeatingPort model (<b>lossPower = ...</b>). As device temperature <b>T_heatPort</b> can be used to describe the influence of the device temperature on the model behaviour. </p>
+<p>If this model is used, the loss power has to be provided by an equation in the model which inherits from ConditionalHeatingPort model (<b>lossPower = ...</b>). As device temperature <b>T_heatPort</b> can be used to describe the influence of the device temperature on the model behaviour.</p>
 </html>"));
   end ConditionalHeatPort;
 
@@ -508,7 +508,7 @@ The reason could be that
   end CurrentSource;
 
   annotation (Documentation(info="<html>
-<p>This package contains connectors and interfaces (partial models) for analog electrical components. The partial models contain typical combinations of pins, and internal variables which are often used. Furthermode, the thermal heat port is in this package which can be included by inheritance. </p>
+<p>This package contains connectors and interfaces (partial models) for analog electrical components. The partial models contain typical combinations of pins, and internal variables which are often used. Furthermode, the thermal heat port is in this package which can be included by inheritance.</p>
 </html>",
    revisions="<html>
 <dl>

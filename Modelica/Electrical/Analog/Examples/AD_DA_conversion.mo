@@ -91,7 +91,7 @@ equation
           lineColor={255,0,0},
           textString="%name")}),
     Documentation(info="<html>
-<p>The simple converter circuit converts an analog sine signal into a N-bit (by default a 4 bit) logic signal, which is converted backward into an analog signal. </p>
+<p>The simple converter circuit converts an analog sine signal into a N-bit (by default a 4 bit) logic signal, which is converted backward into an analog signal.</p>
 <p><ul>
 <li>Simulate for 0.2 s.</li>
 </ul></p>

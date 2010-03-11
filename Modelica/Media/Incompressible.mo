@@ -141,7 +141,7 @@ modeled incompressible.
 but have both T and p as inputs for fully correct properties. The error of using only T-dependent
 properties is small, therefore a Boolean flag enthalpyOfT exists. If it is true, the
 enumeration Choices.independentVariables  is set to  Choices.independentVariables.T otherwise
-it is set to Choices.independentVariables.pT. </p>
+it is set to Choices.independentVariables.pT.</p>
 <p>
 Enthalpy is never a function of T only (h = h(T) + (p-reference_p)/d), but the
 error is also small and non-linear systems can be avoided. In particular,
@@ -641,7 +641,7 @@ of density and heat capacity as functions of temperature.
 but have both T and p as inputs for fully correct properties. The error of using only T-dependent
 properties is small, therefore a Boolean flag enthalpyOfT exists. If it is true, the
 enumeration Choices.independentVariables  is set to  Choices.independentVariables.T otherwise
-it is set to Choices.independentVariables.pT. </p>
+it is set to Choices.independentVariables.pT.</p>
 
 <h4>Using the package TableBased</h4>
 <p>

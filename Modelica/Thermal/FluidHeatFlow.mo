@@ -1179,14 +1179,14 @@ This package contains utility components used for the test examples.<br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern, Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
-  </p>
+</p>
   <p>
   Dr.Christian Kral<br>
   &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
   <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
   Giefinggasse 2<br>
   A-1210 Vienna, Austria
-  </p>
+</p>
   </dd>
 </dl>
 <p>
@@ -1225,14 +1225,14 @@ This package contains test examples:
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern, Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
-  </p>
+</p>
   <p>
   Dr.Christian Kral<br>
   &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
   <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
   Giefinggasse 2<br>
   A-1210 Vienna, Austria
-  </p>
+</p>
   </dd>
 </dl>
 <p>
@@ -1439,14 +1439,14 @@ Thermodynamic equations are defined in partial models (package Partials).<br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern, Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
-  </p>
+</p>
   <p>
   Dr.Christian Kral<br>
   &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
   <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
   Giefinggasse 2<br>
   A-1210 Vienna, Austria
-  </p>
+</p>
   </dd>
 </dl>
 <p>
@@ -1548,14 +1548,14 @@ This package contains definitions of medium properties.<br>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern, Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
-  </p>
+</p>
   <p>
   Dr.Christian Kral<br>
   &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
   <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
   Giefinggasse 2<br>
   A-1210 Vienna, Austria
-  </p>
+</p>
   </dd>
 </dl>
 <p>
@@ -1872,14 +1872,14 @@ All fans / pumps are considered without losses, they do not change enthalpy flow
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern, Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
-  </p>
+</p>
   <p>
   Dr.Christian Kral<br>
   &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
   <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
   Giefinggasse 2<br>
   A-1210 Vienna, Austria
-  </p>
+</p>
   </dd>
 </dl>
 <p>
@@ -2060,14 +2060,14 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern, Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
-  </p>
+</p>
   <p>
   Dr.Christian Kral<br>
   &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
   <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
   Giefinggasse 2<br>
   A-1210 Vienna, Austria
-  </p>
+</p>
   </dd>
 </dl>
 <p>
@@ -2548,14 +2548,14 @@ This package contains partial models, defining in a very compact way the basic t
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern, Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
-  </p>
+</p>
   <p>
   Dr.Christian Kral<br>
   &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
   <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
   Giefinggasse 2<br>
   A-1210 Vienna, Austria
-  </p>
+</p>
   </dd>
 </dl>
 <p>
@@ -2607,14 +2607,14 @@ This package contains connectors and partial models:
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern, Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
-  </p>
+</p>
   <p>
   Dr.Christian Kral<br>
   &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
   <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
   Giefinggasse 2<br>
   A-1210 Vienna, Austria
-  </p>
+</p>
   </dd>
 </dl>
 <p>
@@ -2698,13 +2698,13 @@ Outlet temperature is defined by variable T of the corresponding component.</li>
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern, Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
-  </p>
+</p>
   <p>
   Dr.Christian Kral<br>
   Austrian Institute of Technology <a href=\"http://www.ait.ac.at/\">AIT</a><br>
   Giefinggasse 2<br>
   A-1210 Vienna, Austria
-  </p>
+</p>
   </dd>
 </dl>
 <p>

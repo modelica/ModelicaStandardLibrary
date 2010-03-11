@@ -71,7 +71,7 @@ equation
          preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics),
    experiment(StopTime=0.4),
    Documentation(info="<html>
-<p>This example is a simple circuit for overvoltage protection. If the voltage zDiode_1.n.v is too high, the Diode zDiode_2 breaks through and the voltage gets down.</p><p>The simulation end time should be set to 0.4. To get the typical behaviour please plot sineVoltage.p.v, RL.p.v, zDiode_2.n.v and zDiode_1.n.i.  </p>
+<p>This example is a simple circuit for overvoltage protection. If the voltage zDiode_1.n.v is too high, the Diode zDiode_2 breaks through and the voltage gets down.</p><p>The simulation end time should be set to 0.4. To get the typical behaviour please plot sineVoltage.p.v, RL.p.v, zDiode_2.n.v and zDiode_1.n.i.</p>
 </html>",revisions="<html>
 <ul>
 <li><i>February 02, 2009</i>

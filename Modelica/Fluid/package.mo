@@ -109,10 +109,10 @@ which provide simple models for a broad variety of applications.
     annotation (Documentation(info="<html>
 <p>
 In this section the design of the fluid connectors is
-explained. </p>
+explained.</p>
 <p>Fluid connectors represent the points in a device (e.g. the
 flanges) through which a fluid can flow into or out of the component, carrying its
-thermodynamic properties; these flanges are assumed to be fixed in space. </p>
+thermodynamic properties; these flanges are assumed to be fixed in space.</p>
 <p>
 A major design goal is that components can be arbitrarily
 connected and that the important balance equations are automatically

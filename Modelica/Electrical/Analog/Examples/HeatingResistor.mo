@@ -50,7 +50,7 @@ annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
           textString="HeatingRectifier",
           lineColor={0,0,255})}),
                                 Documentation(info="<html>
-<p>This is a very simple circuit consisting of a voltage source and a resistor. The loss power in the resistor is transported to the environment via its heatPort.  </p>
+<p>This is a very simple circuit consisting of a voltage source and a resistor. The loss power in the resistor is transported to the environment via its heatPort.</p>
 </html>"),  Documentation(info="<HTML>
 <P>
 The heating rectifier shows a heat flow always if the electrical capacitor is loaded.

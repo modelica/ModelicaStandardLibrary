@@ -73,7 +73,7 @@ equation
        </li>
 </ul>
 </html>", info="<html>
-<p>The simple TRIAC example shows how the SimpleTriac is used within an alternating current circuit. </p>
+<p>The simple TRIAC example shows how the SimpleTriac is used within an alternating current circuit.</p>
 <p>The TRIAC is not conductiong until the Gate input g becomes positive. Then it becomes &QUOT;conducting&QUOT;. If the TRIAC voltage changes its direction, the TRIAC becomes blocking. Due to the antiparallel connection of the internal two thyristors the same behavior is repeated in the negative half-wave.</p>
 <p>Simulate until 0.001 seconds. Display V.p.v (input voltage), simpleTriac.g.i  (gate input), and both simplelTriac.n.v and simpleTriac.n.i, which demonstrate the TRIAC behavior.</p>
 </html>"),

@@ -6468,7 +6468,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
           IN_con, IN_var) else MIN;
         annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
                     Documentation(info="<html>
-<p>Calculation of local <b>two phase</b> heat transfer coefficient <b>kc_2ph </b>for (horizontal/vertical) <b>boiling</b> or (horizontal) <b>condensation</b> for an overall flow regime. </p>
+<p>Calculation of local <b>two phase</b> heat transfer coefficient <b>kc_2ph </b>for (horizontal/vertical) <b>boiling</b> or (horizontal) <b>condensation</b> for an overall flow regime.</p>
 
 <p><h4><font color=\"#ef9b13\">Restriction</font></h4></p>
 <p>
@@ -6480,10 +6480,10 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 </p>
 
 <p><h4><font color=\"#ef9b13\">Geometry </font></h4></p>
-<p><img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/pic_straightPipe.png\"/> </p>
+<p><img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/pic_straightPipe.png\"/></p>
 
-<p><b><font style=\"color: #ef9b13; \">Calculation</font></b> </p>
-<p><b>Boiling in a horizontal pipe (target = 1):</b> </p>
+<p><b><font style=\"color: #ef9b13; \">Calculation</font></b></p>
+<p><b>Boiling in a horizontal pipe (target = 1):</b></p>
 <p>
 The local two phase heat transfer coefficient <b> kc_2ph </b> during boiling in a <b>horizontal</b> straight pipe for an overall regime is calculated according to <i>[Gungor/Winterton 1986, p.354, eq. 2]</i> :
 </p>
@@ -6517,7 +6517,7 @@ with
 </table>
 </p>
 
-<p><b>Boiling in a vertical pipe (target = 2):</b> </p>
+<p><b>Boiling in a vertical pipe (target = 2):</b></p>
 <p>
 The local two phase heat transfer coefficient <b> kc_2ph </b> during boiling in a <b>vertical</b> straight pipe for an overall regime is calculated out of the correlations for boiling in a horizontal straight pipe, where the horizontal correction factors <b> E_fc_hor,S_nb_hor</b> are unity.
 </p>
@@ -6525,7 +6525,7 @@ The local two phase heat transfer coefficient <b> kc_2ph </b> during boiling in 
 Please note that the correlations named above are not valid for subcooled boiling due to a different driving temperature for nucleate boiling and forced convection. At subcooled boiling there is no enhancement factor (no vapour generation) but the suppression factor remains effective.
 </p>
 
-<p><b>Condensation in a horizontal pipe (target = 3):</b> </p>
+<p><b>Condensation in a horizontal pipe (target = 3):</b></p>
 <p>
 The local two phase heat transfer coefficient <b> kc_2ph </b> during condensation in a <b>horizontal</b> straight pipe for an overall regime is calculated according to <i>[Shah 1979, p.548, eq. 8]</i> :
 </p>
@@ -6565,28 +6565,28 @@ with
 </p>
 
 <p><h4><font color=\"#ef9b13\">Verification</font></h4></p>
-<p>The local two phase heat transfer coefficient <b>kc_2ph </b> during for horizontal and vertical boiling as well as for horizontal condensation is shown for a straight pipe in the figures below. </p>
+<p>The local two phase heat transfer coefficient <b>kc_2ph </b> during for horizontal and vertical boiling as well as for horizontal condensation is shown for a straight pipe in the figures below.</p>
 
-<p><b>Boiling in a horizontal pipe (target = 1):</b> </p>
+<p><b>Boiling in a horizontal pipe (target = 1):</b></p>
 <p>
 Here the validation of the two phase heat transfer coefficient is shown for boiling in a horizontal straight pipe.
 </p>
-<p><img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/straightPipe/fig_kc_twoPhaseOverall_KC_4.png\"/> </p>
+<p><img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/straightPipe/fig_kc_twoPhaseOverall_KC_4.png\"/></p>
 
-<p>The two phase heat transfer coefficient (<b>kc_2ph </b>) w.r.t. <i>Gungor/Winterton</i> is shown in dependence of the mass flow rate quality (<b>x_flow </b>) for different mass flow rate densities (<b>mdot_A </b>). The validation has been done with measurement results from <i>Kattan/Thome</i> for R134a as medium. </p>
+<p>The two phase heat transfer coefficient (<b>kc_2ph </b>) w.r.t. <i>Gungor/Winterton</i> is shown in dependence of the mass flow rate quality (<b>x_flow </b>) for different mass flow rate densities (<b>mdot_A </b>). The validation has been done with measurement results from <i>Kattan/Thome</i> for R134a as medium.</p>
 <p>
 The two phase heat transfer coefficient increases with increasing mass flow rate quality up to a maximum value. After that there is a rapid decrease of (<b>kc_2ph </b>) with increasing (<b>x_flow </b>). This can be explained with a partial dryout of the pipe wall for a high mass flow rate quality.
 </p>
 
-<p><b>Condensation in a horizontal pipe (target = 3):</b> </p>
+<p><b>Condensation in a horizontal pipe (target = 3):</b></p>
 <p>
 Here the validation of the two phase heat transfer coefficient is shown for condensation in a horizontal straight pipe.
 </p>
-<p><img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/straightPipe/fig_kc_twoPhaseOverall_KC_2.png\"/> </p>
+<p><img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/straightPipe/fig_kc_twoPhaseOverall_KC_2.png\"/></p>
 
-<p>The two phase heat transfer coefficient (<b>kc_2ph </b>) w.r.t. <i>Shah</i> is shown in dependence of the mass flow rate quality (<b>x_flow </b>) for different mass flow rate densities (<b>mdot_A </b>). The validation has been done with measurement results from <i>Dobson/Chato</i> for R134a as medium. </p>
+<p>The two phase heat transfer coefficient (<b>kc_2ph </b>) w.r.t. <i>Shah</i> is shown in dependence of the mass flow rate quality (<b>x_flow </b>) for different mass flow rate densities (<b>mdot_A </b>). The validation has been done with measurement results from <i>Dobson/Chato</i> for R134a as medium.</p>
 
-<p><b><font style=\"color: #ef9b13; \">References</font></b> </p>
+<p><b><font style=\"color: #ef9b13; \">References</font></b></p>
 <dl><dt>Bejan,A.: </dt>
 <dd><b>Heat transfer handbook</b>. Wiley, 2003. </dd>
 <dl><dt>M.K. Dobson and J.C. Chato: </dt>
@@ -12159,14 +12159,14 @@ The darcy friction factor <b> lambda_FRI </b> of straight pipes for the laminar 
 
      <p>
      with
-     </p>
+  </p>
 
      <p>
      <table>
      <tr><td><b> lambda_FRI     </b></td><td> as darcy friction factor [-],</td></tr>
      <tr><td><b> Re             </b></td><td> as Reynolds number [-].</td></tr>
      </table>
-     </p>
+  </p>
 
  </li>
 </ul>
@@ -12318,13 +12318,13 @@ The darcy friction factor <b> lambda_FRI </b> of straight pipes for the laminar 
 
      <p>
      with
-     </p>
+  </p>
 
      <p>
      <table>
      <tr><td><b> Re     </b></td><td> as Reynolds number [-].</td></tr>
      </table>
-     </p>
+  </p>
 
  </li>
 </ul>

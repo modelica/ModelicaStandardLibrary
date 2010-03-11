@@ -2556,7 +2556,7 @@ f = F_Coulomb + F_prop * v + F_Stribeck * exp (-fexp * v)</i> </ul><br>
 <br><br>
 The distance between the left and the right connector is given by parameter L.
 The position of the center of gravity, coordinate s, is in the middle between
-the two flanges. </p>
+the two flanges.</p>
 <p>
 There are hard stops at smax and smin, i. e. if <i><uL>
 flange_a.s &gt;= smin
@@ -2572,7 +2572,7 @@ force exceeds a threshold value, called the maximum static friction force, compu
 </i> </ul>
 <font color=\"#ff0000\"> <b>This requires the states Stop.s and Stop.v</b> </font>. If these states are eliminated during the index reduction
 the model will not work. To avoid this any inertias should be connected via springs
-to the Stop element, other sliding masses, dampers or hydraulic chambers must be avoided. </p>
+to the Stop element, other sliding masses, dampers or hydraulic chambers must be avoided.</p>
 <p>For more details of the used friction model see the following reference: <br> <br>
 Beater P. (1999): <DD><a href=\"http://www.springer.de/cgi-bin/search_book.pl?isbn=3-540-65444-5\">
 Entwurf hydraulischer Maschinen</a>. Springer Verlag Berlin Heidelberg New York.</DL></P>
@@ -3987,17 +3987,17 @@ The following variables are transported through this connector:
               fillColor={0,127,0},
               fillPattern=FillPattern.Solid)}),
         Documentation(info="<html>
-<p>This is a connector for 1-dim. rotational mechanical systems and models the support or housing of a shaft. The following variables are defined in this connector: </p>
+<p>This is a connector for 1-dim. rotational mechanical systems and models the support or housing of a shaft. The following variables are defined in this connector:</p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
 <td valign=\"top\"><p><h4>s</h4></p></td>
-<td valign=\"top\"><p>Absolute psotion of the support/housing in [m] </p></td>
+<td valign=\"top\"><p>Absolute psotion of the support/housing in [m]</p></td>
 </tr>
 <tr>
 <td valign=\"top\"><p><h4>f</h4></p></td>
-<td valign=\"top\"><p>Reaction force in the support/housing in [N] </p></td>
+<td valign=\"top\"><p>Reaction force in the support/housing in [N]</p></td>
 </tr>
 </table>
-<p><br/>The support connector is usually defined as conditional connector. It is most convenient to utilize it </p>
+<p><br/>The support connector is usually defined as conditional connector. It is most convenient to utilize it</p>
 <p><ul>
 <li>For models to be build graphically (i.e. the model is build up by drag-and-drop from elementary components):<br/><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialOneFlangeAndSupport\">PartialOneFlangeAndSupport</a>,<br/><a href=\"Modelica://Modelica.Mechanics.Translational.Interfaces.PartialTwoFlangesAndSupport\">PartialTwoFlangesAndSupport</a>, <br/>&nbsp; </li>
 <li>For models to be build textually (i.e. elementary models):<br/><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport\">PartialElementaryOneFlangeAndSupport</a>,<br/><a href=\"Modelica://Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport\">PartialElementaryTwoFlangesAndSupport</a>,<br/><a href=\"Modelica://Modelica.Mechanics.Translational.Interfaces.PartialElementaryRotationalToTranslational\">PartialElementaryRotationalToTranslational</a>. </li>
@@ -4672,18 +4672,18 @@ connector is not connected).
       extends
         Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational;
       annotation (Documentation(info="<html>
-<p>This is a 1-dim. rotational component with </p>
+<p>This is a 1-dim. rotational component with</p>
 <p><ul>
 <li>one rotational flange, </li>
 <li>one rotational support/housing, </li>
 <li>one translational flange, and </li>
 <li>one translatinal support/housing </li>
 </ul></p>
-<p>This model is used to build up elementary components of a drive train transforming rotational into translational motion with equations in the text layer. </p>
+<p>This model is used to build up elementary components of a drive train transforming rotational into translational motion with equations in the text layer.</p>
 <p>If <i>useSupportR=true</i>, the rotational support connector is conditionally enabled and needs to be connected.</p>
 <p>If <i>useSupportR=false</i>, the rotational support connector is conditionally disabled and instead the rotational part is internally fixed to ground.</p>
 <p>If <i>useSupportT=true</i>, the translational support connector is conditionally enabled and needs to be connected.</p>
-<p>If <i>useSupportT=false</i>, the translational support connector is conditionally disabled and instead the translational part is internally fixed to ground. </p>
+<p>If <i>useSupportT=false</i>, the translational support connector is conditionally disabled and instead the translational part is internally fixed to ground.</p>
 </html>"));
     end PartialElementaryRotationalToTranslational;
 
@@ -4982,7 +4982,7 @@ stuck mode.
 the movement of the mass is limited by a stop at smax or smin.
 <font color=\"#ff0000\"> <b>This requires the states Stop.s and Stop.v</b> </font>. If these states are eliminated during the index reduction
 the model will not work. To avoid this any inertias should be connected via springs
-to the Stop element, other sliding masses, dampers or hydraulic chambers must be avoided. </p>
+to the Stop element, other sliding masses, dampers or hydraulic chambers must be avoided.</p>
 <p>
 In the <i>icon</i> of every component an <i>arrow</i> is displayed in grey
 color. This arrow characterizes the coordinate system in which the vectors

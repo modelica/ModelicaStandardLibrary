@@ -15,7 +15,7 @@ package QuasiStationary "Library for quasi-stationary electrical singlephase and
   <a href=\"http://www.haumer.at/\">Technical Consulting &amp; Electrical Engineering</a><br>
   A-3423 St.Andrae-Woerdern, Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
-  </p>
+</p>
   <p>
   Dr. Christian Kral<br>
   <a href=\"http://www.ait.ac.at/\">Austrian Institute of Technology, AIT</a><br>
@@ -23,7 +23,7 @@ package QuasiStationary "Library for quasi-stationary electrical singlephase and
   Giefinggasse 2<br>
   A-1210 Vienna, Austria<br>
   email: <a href=\"mailto:christian.kral@ait.ac.at\">christian.kral@ait.ac.at</a>
-  </p>
+</p>
   </dd>
 </dl>
 </p>

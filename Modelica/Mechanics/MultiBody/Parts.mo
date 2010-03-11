@@ -2065,7 +2065,7 @@ appear, if the vector of the carrier body's angular velocity is not parallel
 to the vector of the rotor's axis. The axis of rotation of the rotor is defined by
 the parameter <tt>n</tt>, which has to be given in the local coordinate system
 of <tt>frame_a</tt>. The default animation of this component is
-shown in the figure below. </p>
+shown in the figure below.</p>
       <IMG src=\"modelica://Modelica/Images/MultiBody/Parts/Rotor1D.png\" ALT=\"model Parts.Rotor1D\">
 <p>This component is a replacement for
 <a href=\"modelica://Modelica.Mechanics.Rotational.Components.Inertia\">Modelica.Mechanics.Rotational.Components.Inertia</a>
@@ -2194,7 +2194,7 @@ appear, if the vector of the carrier body's angular velocity is not parallel
 to the vector of the rotor's axis. The axis of rotation of the rotor is defined by
 the parameter <tt>n</tt>, which has to be given in the local coordinate system
 of <tt>frame_a</tt>. The default animation of this component is
-shown in the figure below. </p>
+shown in the figure below.</p>
       <IMG src=\"modelica://Modelica/Images/MultiBody/Parts/Rotor1D.png\" ALT=\"model Parts.Rotor1D\">
 <p>This component is a replacement for
 <a href=\"modelica://Modelica.Mechanics.Rotational.Components.Inertia\">Modelica.Mechanics.Rotational.Components.Inertia</a>

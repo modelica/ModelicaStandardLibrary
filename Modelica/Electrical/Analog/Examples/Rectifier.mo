@@ -193,9 +193,9 @@ annotation (
           textString="uDC")}),
   experiment(StopTime=0.1, Interval=1e-005),
   Documentation(info="<html>
-<p>The rectifier example shows a B6 diode bridge fed by a three phase sinusoidal voltage, loaded by a DC current.</p><p>DC capacitors start at ideal no-load voltage, thus making easier initial transient. </p>
-<p><br/><br/>Simulate until T=0.1 s. </p><p><br/><br/>Plot in separate windows:</p><p><br/><br/>uDC ... DC-voltage</p><p><br/><br/>iAC ... AC-currents 1..3</p><p><br/><br/>uAC ... AC-voltages 1..3 (distorted)</p><p><br/><br/>Try different load currents iDC = 0..approximately 500 A. </p>
-<p>You may watch Losses (of the whole diode bridge) trying different diode parameters. </p>
+<p>The rectifier example shows a B6 diode bridge fed by a three phase sinusoidal voltage, loaded by a DC current.</p><p>DC capacitors start at ideal no-load voltage, thus making easier initial transient.</p>
+<p><br/><br/>Simulate until T=0.1 s.</p><p><br/><br/>Plot in separate windows:</p><p><br/><br/>uDC ... DC-voltage</p><p><br/><br/>iAC ... AC-currents 1..3</p><p><br/><br/>uAC ... AC-voltages 1..3 (distorted)</p><p><br/><br/>Try different load currents iDC = 0..approximately 500 A.</p>
+<p>You may watch Losses (of the whole diode bridge) trying different diode parameters.</p>
 </html>",
    revisions="<html>
 <p><b>Release Notes:</b></p>

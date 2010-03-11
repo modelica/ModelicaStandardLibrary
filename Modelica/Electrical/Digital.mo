@@ -1242,7 +1242,7 @@ The simulation stop time has to be 5s.
                 color={127,0,127}));
           annotation (
             Documentation(info="<html>
-<p>MUX4 is a four bit multiplexer which is built up by And, Not, and Or gates according to the schematic. </p>
+<p>MUX4 is a four bit multiplexer which is built up by And, Not, and Or gates according to the schematic.</p>
 <p>The parameters delayTime and q0 are prepared but<b> not</b> yet used in the component. The MUX4 component uses standard values in its components.</p>
 </html>"),  Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}),
@@ -1833,9 +1833,9 @@ The simulation stop time has to be 5s.
                                   color={0,0,0},
                                   thickness=0.5)}),
                       Documentation(info="<html>
-<p>HalfAdder is a two bit adder which is composed by Gates components. </p>
-<p>Its logic behavior is like this: </p>
-<p><b>HalfAdder behavior</b> </p>
+<p>HalfAdder is a two bit adder which is composed by Gates components.</p>
+<p>Its logic behavior is like this:</p>
+<p><b>HalfAdder behavior</b></p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
 <td valign=\"top\"><p><h4>input a</h4></p></td>
 <td valign=\"top\"><p><h4>input b</h4></p></td>
@@ -1931,9 +1931,9 @@ The simulation stop time has to be 5s.
                     42},{10,42}}, color={127,0,127}));
           annotation (
             Documentation(info="<html>
-<p>FullAdder is a two bit adder with additional carry in bit which is composed by Gates components. </p>
-<p>Its logic behavior is like this: </p>
-<p><b>FullAdder behavior</b> </p>
+<p>FullAdder is a two bit adder with additional carry in bit which is composed by Gates components.</p>
+<p>Its logic behavior is like this:</p>
+<p><b>FullAdder behavior</b></p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
 <td valign=\"top\"><p><h4>input a</h4></p></td>
 <td valign=\"top\"><p><h4>input b</h4></p></td>
@@ -2100,7 +2100,7 @@ The simulation stop time has to be 5s.
           connect(Adder[n].c_out,c_out);
           annotation (
             Documentation(info="<html>
-<p>The Adder is a generic n bit adder which is composed as a chain of FullAdder components. n can be chosen by the user, a and b are the n bit input vectors, s is the sum vector, and c_out is the carry bit of the &QUOT;highes&QUOT; FullAdder.   All components are built up by Gate components. </p>
+<p>The Adder is a generic n bit adder which is composed as a chain of FullAdder components. n can be chosen by the user, a and b are the n bit input vectors, s is the sum vector, and c_out is the carry bit of the &QUOT;highes&QUOT; FullAdder.   All components are built up by Gate components.</p>
 </html>"),  Icon(coordinateSystem(
                   preserveAspectRatio=true,
                   extent={{-100,-100},{100,100}},
@@ -2398,7 +2398,7 @@ The simulation stop time has to be 5s.
             lineColor={255,0,0},
             textString="%name")}),
                                 Documentation(info="<html>
-<p>This package contains examples that demonstrate the usage of the components of the Electrical.Digital library. </p>
+<p>This package contains examples that demonstrate the usage of the components of the Electrical.Digital library.</p>
 <p>The examples are simple to understand. They will show a typical behavior of the components, and they will give hints to users.</p>
 </html>"));
       end Examples;
@@ -2776,7 +2776,7 @@ The simulation stop time has to be 5s.
           parameter Modelica.SIunits.Time tHL(start=0) "Fall inertial delay";
           parameter L y0=L.'U' "Initial value of output";
           annotation (Documentation(info="<html>
-<p>DelayParams is a partial model for providing delay times and inertial values. It is used in components of the package Gates which need the same parameters. The partial model does not have any behavior or equations. </p>
+<p>DelayParams is a partial model for providing delay times and inertial values. It is used in components of the package Gates which need the same parameters. The partial model does not have any behavior or equations.</p>
 </html>"));
         end DelayParams;
 
@@ -3118,7 +3118,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
           y = pre(auxiliary);
           annotation (
             Documentation(info="<html>
-<p>Not component with 1 input value, without delay. </p>
+<p>Not component with 1 input value, without delay.</p>
 <p>According to the standard logic not table (Tables.NotTable) the output value is calculated.</p>
 <p>To avoid loops in the numerical treatment, the pre operator is applied to the output.</p>
 </html>",  revisions=
@@ -3167,7 +3167,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
           y = pre(auxiliary[n]);
           annotation (
             Documentation(info="<html>
-<p>And component with multiple input values and one output. </p>
+<p>And component with multiple input values and one output.</p>
 <p>According to the standard logic and table (Tables.AndTable) the output value is calculated.</p>
 <p>To avoid loops in the numerical treatment, the pre operator is applied to the output.</p>
 </html>",  revisions=
@@ -3208,7 +3208,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
           y = pre(D.Tables.NotTable[auxiliary[n]]);
           annotation (
             Documentation(info="<html>
-<p>Nand component with multiple input values and one output. </p>
+<p>Nand component with multiple input values and one output.</p>
 <p>According to the standard logic and table (Tables.AndTable) an intermediate value is calculated, to which the not table (Tables.NotTable) is applied.</p>
 <p>To avoid loops in the numerical treatment, the pre operator is applied to the output.</p>
 </html>",  revisions=
@@ -3257,7 +3257,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
           y = pre(auxiliary[n]);
           annotation (
             Documentation(info="<html>
-<p>Or component with multiple input values and one output. </p>
+<p>Or component with multiple input values and one output.</p>
 <p>According to the standard logic or table (Tables.OrTable) the output value is calculated.</p>
 <p>To avoid loops in the numerical treatment, the pre operator is applied to the output.</p>
 </html>",  revisions=
@@ -3298,7 +3298,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
           y = pre(D.Tables.NotTable[auxiliary[n]]);
           annotation (
             Documentation(info="<html>
-<p>Nor component with multiple input values and one output. </p>
+<p>Nor component with multiple input values and one output.</p>
 <p>According to the standard logic or table (Tables.OrTable) an intermediate value is calculated, to which the not table (Tables.NotTable) is applied.</p>
 <p>To avoid loops in the numerical treatment, the pre operator is applied to the output.</p>
 </html>",  revisions=
@@ -3347,7 +3347,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
           y = pre(auxiliary[n]);
           annotation (
             Documentation(info="<html>
-<p>Xor component with multiple input values and one output. </p>
+<p>Xor component with multiple input values and one output.</p>
 <p>According to the standard logic xor table (Tables.XorTable) the output value is calculated.</p>
 <p>To avoid loops in the numerical treatment, the pre operator is applied to the output.</p>
 </html>",  revisions=
@@ -3388,7 +3388,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
           y = pre(D.Tables.NotTable[auxiliary[n]]);
           annotation (
             Documentation(info="<html>
-<p>Xnor component with multiple input values and one output. </p>
+<p>Xnor component with multiple input values and one output.</p>
 <p>According to the standard logic xor table (Tables.XorTable)an intermediate value is calculated, to which the not table (Tables.NotTable) is applied.</p>
 <p>To avoid loops in the numerical treatment, the pre operator is applied to the output.</p>
 </html>",  revisions=
@@ -3737,7 +3737,7 @@ NandGate with n input values, composed by Nand and sensitive intertial delay.
             annotation (Line(points={{100,0},{60,0}}, color={127,0,127}));
           annotation (
             Documentation(info="<html>
-<p>The NorGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Nor and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and intitial value). </p>
+<p>The NorGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Nor and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and intitial value).</p>
 </html>", revisions=
                  "<HTML>
 <ul>
@@ -3801,7 +3801,7 @@ NandGate with n input values, composed by Nand and sensitive intertial delay.
             annotation (Line(points={{60,0},{100,0}}, color={127,0,127}));
           annotation (
             Documentation(info="<html>
-<p>The XorGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Xor and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and intitial value). </p>
+<p>The XorGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Xor and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and intitial value).</p>
 </html>", revisions=
                  "<HTML>
 <ul>
@@ -3859,7 +3859,7 @@ NandGate with n input values, composed by Nand and sensitive intertial delay.
             annotation (Line(points={{0,0},{28,0}}, color={127,0,127}));
           annotation (
             Documentation(info="<html>
-<p>The XnorGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Xnor and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and intitial value). </p>
+<p>The XnorGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Xnor and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and intitial value).</p>
 </html>", revisions=
                  "<HTML>
 <ul>

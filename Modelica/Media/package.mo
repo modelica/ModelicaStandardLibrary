@@ -704,7 +704,7 @@ The record FluidConstants that is defined in PartialMedium contains the followin
 
 <p> This record is extended in the partial packages further down the hierarchy (such as
 PartialTwoPhaseMedium or PartialMixtureMedium) and may contain some or all of the following
-elements </p>
+elements</p>
 
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td valign=\"top\">Temperature</td>
@@ -1412,7 +1412,7 @@ It is also possible to change the default min, max, nominal, and start
 attributes of Medium-defined types (see TemplateMedium).</p>
 <p>
 All other package constants, such as nX, nXi, nS, are automatically set
-by the declarations of the base package Interfaces.PartialMedium. </p>
+by the declarations of the base package Interfaces.PartialMedium.</p>
 <p>
 The second step is to provide an implementation to the BaseProperties model,
 partially defined in the base class Interfaces.PartialMedium. In the case of
@@ -1429,7 +1429,7 @@ of the ThermodynamicState record. Subsequently, equations must be added to
 BaseProperties in order that the instance of that record inside BaseProperties
 (named \"state\") is kept updated. For example, assume that all additional
 properties can be computed as a function of p and T. Then, ThermodynamicState
-should be redclared as follows: </p>
+should be redclared as follows:</p>
 <p><pre>
   <b>redeclare replaceable record</b> ThermodynamicState
     AbsolutePressure p \"Absolute pressure of medium\";
@@ -1489,7 +1489,7 @@ value of reducedX, and provide the corresponding implementation.</p>
 <p>If fixedX is left modifiable, then the implementation should also handle the
 case fixedX = true properly.</p>
 <p>Fluid connectors should always use composition vectors of size Xi, such as
-in the Modelica_Fluid library: </p>
+in the Modelica_Fluid library:</p>
 <p><pre>
 <b>connector</b> FluidPort
   <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium;
@@ -1971,7 +1971,7 @@ TemplateMedium package is given here:
 
     annotation (Documentation(info="<HTML>
 <h4>Version included in Modelica 3.0</h4>
-<p> See top-level release notes for MSL. </p>
+<p> See top-level release notes for MSL.</p>
 <h4>Version 1.0, 2005-03-01</h4>
 <p>
 Many improvements in the library, e.g., providing mixtures
@@ -4146,7 +4146,7 @@ Model <b>BaseProperties</b> is a model within package <b>PartialMedium</b>
 and contains the <b>declarations</b> of the minimum number of
 variables that every medium model is supposed to support.
 A specific medium inherits from model <b>BaseProperties</b> and provides
-the equations for the basic properties. </p>
+the equations for the basic properties.</p>
 <p>
 The BaseProperties model contains the following <b>7+nXi variables</b>
 (nXi is the number of independent mass fractions defined in package
@@ -4189,7 +4189,7 @@ set all the variables within the ThermodynamicState record state.</p>
 <p>
 If standardOrderComponents=true, the full composition vector X[nX]
 is determined by the equations contained in this base class, depending
-on the independent mass fraction vector Xi[nXi]. </p>
+on the independent mass fraction vector Xi[nXi].</p>
 <p>Additional <b>2 + nXi</b> equations will have to be provided
 when using the BaseProperties model, in order to fully specify the
 thermodynamic conditions. The input connector qualifier applied to
@@ -4199,7 +4199,7 @@ Please note that this doesn't mean that the additional equations
 should be connection equations, nor that exactly those variables
 should be supplied, in order to complete the model.
 For further information, see the Modelica.Media User's guide, and
-Section 4.7 (Balanced Models) of the Modelica 3.0 specification. </p>
+Section 4.7 (Balanced Models) of the Modelica 3.0 specification.</p>
 </html>"));
     end BaseProperties;
 
@@ -4803,7 +4803,7 @@ kappa is defined as - 1/v * der(v,p), with v = 1/d at constant temperature T.
 
       annotation (Documentation(info="<html>
 <h2>Enumerations and data types for all types of fluids</h2>
-<p>Note: Reference enthalpy might have to be extended with enthalpy of formation. </p>
+<p>Note: Reference enthalpy might have to be extended with enthalpy of formation.</p>
 </html>"));
     end Choices;
 
@@ -6924,7 +6924,7 @@ protected
                               and by all models defining the dynamic states for the conservation
                               of mass and energy. Thus it is a good choice as a restricting class
                               for any medium model or dynamic state model.
-                              </p>
+                           </p>
                               </HTML>
                               "));
     end ThermoBaseVars;
@@ -7031,7 +7031,7 @@ protected
         A base class for medium property models which work with most of the
         versions of dynamic states that are available in the ThermoFluid
         library. Currently used by all ideal gas models.
-        </p>
+     </p>
         </HTML>
         "));
     end ThermoProperties;
@@ -8438,7 +8438,7 @@ provide a package in the following way:
       <p>Package Modelica.Media.Common provides records and functions shared by many of the property sub-packages.
       High accuracy fluid property models share a lot of common structure, even if the actual models are different.
       Common data structures and computations shared by these property models are collected in this library.
-      </p>
+   </p>
 
 </HTML>
 ", revisions="<html>

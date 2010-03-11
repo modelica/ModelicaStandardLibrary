@@ -13,7 +13,7 @@ package Basic "Basic electrical components"
     p.v = 0;
     annotation (
       Documentation(info="<html>
-<p>Ground of an electrical circuit. The potential at the ground node is zero. Every electrical circuit has to contain at least one ground object.  </p>
+<p>Ground of an electrical circuit. The potential at the ground node is zero. Every electrical circuit has to contain at least one ground object.</p>
 </html>",
    revisions="<html>
 <ul>
@@ -79,7 +79,7 @@ equation
   LossPower = v*i;
   annotation (
     Documentation(info="<html>
-<p>The linear resistor connects the branch voltage <i>v</i> with the branch current <i>i</i> by <i>i*R = v</i>. The Resistance <i>R</i> is allowed to be positive, zero, or negative.  </p>
+<p>The linear resistor connects the branch voltage <i>v</i> with the branch current <i>i</i> by <i>i*R = v</i>. The Resistance <i>R</i> is allowed to be positive, zero, or negative.</p>
 </html>",
  revisions="<html>
 <ul>
@@ -195,10 +195,10 @@ end Resistor;
             textString="%name",
             lineColor={0,0,255})}),
       Documentation(info="<html>
-<p>This is a model for an electrical resistor where the generated heat is dissipated to the environment via connector <b>heatPort</b> and where the resistance R is temperature dependent according to the following equation: </p>
+<p>This is a model for an electrical resistor where the generated heat is dissipated to the environment via connector <b>heatPort</b> and where the resistance R is temperature dependent according to the following equation:</p>
 <pre>    R = R_ref*(1 + alpha*(heatPort.T - T_ref))</pre>
-<p><b>alpha</b> is the <b>temperature coefficient of resistance</b>, which is often abbreviated as <b>TCR</b>. In resistor catalogues, it is usually defined as <b>X [ppm/K]</b> (parts per million, similarly to per centage) meaning <b>X*1.e-6 [1/K]</b>. Resistors are available for 1 .. 7000 ppm/K, i.e., alpha = 1e-6 .. 7e-3 1/K; </p>
-<p>Via parameter <b>useHeatPort</b> the heatPort connector can be enabled and disabled (default = enabled). If it is disabled, the generated heat is transported implicitly to an internal temperature source with a fixed temperature of T_ref.</p><p>If the heatPort connector is enabled, it must be connected. </p>
+<p><b>alpha</b> is the <b>temperature coefficient of resistance</b>, which is often abbreviated as <b>TCR</b>. In resistor catalogues, it is usually defined as <b>X [ppm/K]</b> (parts per million, similarly to per centage) meaning <b>X*1.e-6 [1/K]</b>. Resistors are available for 1 .. 7000 ppm/K, i.e., alpha = 1e-6 .. 7e-3 1/K;</p>
+<p>Via parameter <b>useHeatPort</b> the heatPort connector can be enabled and disabled (default = enabled). If it is disabled, the generated heat is transported implicitly to an internal temperature source with a fixed temperature of T_ref.</p><p>If the heatPort connector is enabled, it must be connected.</p>
 </html>",
      revisions="<html>
 <ul>
@@ -233,7 +233,7 @@ equation
   LossPower = v*i;
   annotation (
     Documentation(info="<html>
-<p>The linear conductor connects the branch voltage <i>v</i> with the branch current <i>i</i> by <i>i = v*G</i>. The Conductance <i>G</i> is allowed to be positive, zero, or negative.  </p>
+<p>The linear conductor connects the branch voltage <i>v</i> with the branch current <i>i</i> by <i>i = v*G</i>. The Conductance <i>G</i> is allowed to be positive, zero, or negative.</p>
 </html>",
  revisions="<html>
 <ul>
@@ -296,7 +296,7 @@ end Conductor;
     i = C*der(v);
     annotation (
       Documentation(info="<html>
-<p>The linear capacitor connects the branch voltage <i>v</i> with the branch current <i>i</i> by <i>i = C * dv/dt</i>. The Capacitance <i>C</i> is allowed to be positive, zero, or negative.  </p>
+<p>The linear capacitor connects the branch voltage <i>v</i> with the branch current <i>i</i> by <i>i = C * dv/dt</i>. The Capacitance <i>C</i> is allowed to be positive, zero, or negative.</p>
 </html>",
    revisions="<html>
 <ul>
@@ -350,7 +350,7 @@ end Conductor;
     L*der(i) = v;
     annotation (
       Documentation(info="<html>
-<p>The linear inductor connects the branch voltage <i>v</i> with the branch current <i>i</i> by <i>v = L * di/dt</i>. The Inductance <i>L</i> is allowed to be positive, zero, or negative.  </p>
+<p>The linear inductor connects the branch voltage <i>v</i> with the branch current <i>i</i> by <i>v = L * di/dt</i>. The Inductance <i>L</i> is allowed to be positive, zero, or negative.</p>
 </html>",
    revisions="<html>
 <ul>
@@ -448,7 +448,7 @@ end Conductor;
             extent={{-148,91},{152,51}},
             textString="%name",
             lineColor={0,0,255})}),                         Documentation(info="<html>
-<p>This model approximates the behaviour of an inductor with the influence of saturation, i.e. the value of the inductance depends on the current flowing through the inductor. The inductance decreases as current increases. </p><p>The parameters are: </p>
+<p>This model approximates the behaviour of an inductor with the influence of saturation, i.e. the value of the inductance depends on the current flowing through the inductor. The inductance decreases as current increases.</p><p>The parameters are:</p>
 <p><ul>
 <li>Inom...nominal current</li>
 <li>Lnom...nominal inductance at nominal current</li>
@@ -506,11 +506,11 @@ end Conductor;
     v2 = M*der(i1) + L2*der(i2);
     annotation (
       Documentation(info="<html>
-<p>The transformer is a two port. The left port voltage <i>v1</i>, left port current <i>i1</i>, right port voltage <i>v2</i> and right port current <i>i2</i> are connected by the following relation: </p>
+<p>The transformer is a two port. The left port voltage <i>v1</i>, left port current <i>i1</i>, right port voltage <i>v2</i> and right port current <i>i2</i> are connected by the following relation:</p>
 <pre>         | v1 |         | L1   M  |  | i1&apos; |
          |    |    =    |         |  |     |
          | v2 |         | M    L2 |  | i2&apos; |</pre>
-<p><i>L1</i>, <i>L2</i>, and <i>M</i> are the primary, secondary, and coupling inductances respectively. </p>
+<p><i>L1</i>, <i>L2</i>, and <i>M</i> are the primary, secondary, and coupling inductances respectively.</p>
 </html>",
    revisions="<html>
 <ul>
@@ -753,7 +753,7 @@ equation
           extent={{-100,-100},{100,100}}),
                                     graphics),
 Documentation(info="<html>
-<p><br/><br/><br/><br/>The model <i>M_Transformer </i>is a model of a transformer with the posibility to choose the number of inductors. Inside the model, an inductance matrix is built based on the inductance of the inductors and the coupling inductances between the inductors given as a parameter vector from the user of the model. </p><p><br/><br/><br/><br/>An example shows that approach: </p><p><br/><br/><br/><br/>The user chooses a model with <b>three</b> inductors, that means the parameter <i><b>N </b></i>has to be <b>3</b>. Then he has to specify the inductances of the three inductors and the three coupling inductances. The coupling inductances are no real existing devices, but effects that occur between two inductors. The inductivities (main diagonal of the inductance matrix) and the coupling inductivities have to be specified in the parameter vector <i>L </i>. The length <i>dimL </i>of the parameter vector is calculated as follows: <i><b>dimL=(N*(N+1))/2 </b></i></p><p><br/><br/><br/><br/>The following example shows how the parameter vector is used to fill in the inductance matrix. For example: To specify the inductance matrix of a three inductances transformer (<i> N=3 </i>), e.g.</p>
+<p><br/><br/><br/><br/>The model <i>M_Transformer </i>is a model of a transformer with the posibility to choose the number of inductors. Inside the model, an inductance matrix is built based on the inductance of the inductors and the coupling inductances between the inductors given as a parameter vector from the user of the model.</p><p><br/><br/><br/><br/>An example shows that approach:</p><p><br/><br/><br/><br/>The user chooses a model with <b>three</b> inductors, that means the parameter <i><b>N </b></i>has to be <b>3</b>. Then he has to specify the inductances of the three inductors and the three coupling inductances. The coupling inductances are no real existing devices, but effects that occur between two inductors. The inductivities (main diagonal of the inductance matrix) and the coupling inductivities have to be specified in the parameter vector <i>L </i>. The length <i>dimL </i>of the parameter vector is calculated as follows: <i><b>dimL=(N*(N+1))/2 </b></i></p><p><br/><br/><br/><br/>The following example shows how the parameter vector is used to fill in the inductance matrix. For example: To specify the inductance matrix of a three inductances transformer (<i> N=3 </i>), e.g.</p>
 <table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
 <td></td>
 <td></td>
@@ -776,7 +776,7 @@ Documentation(info="<html>
 <td><p>3</p></td>
 </tr>
 </table>
-<p><br/><br/>the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1))/2=(3*(3+1))/2=6</i>. The parameter vector must be filled like this: <i>L=[1,0.1,0.2,2,0.3,3] </i>. </p><p><br/><br/>Inside the model, two loops are used to fill the inductance matrix to guarantee that it is filled in a symmetric way. </p>
+<p><br/><br/>the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1))/2=(3*(3+1))/2=6</i>. The parameter vector must be filled like this: <i>L=[1,0.1,0.2,2,0.3,3] </i>.</p><p><br/><br/>Inside the model, two loops are used to fill the inductance matrix to guarantee that it is filled in a symmetric way.</p>
 </html>",
         revisions="
 <html>
@@ -800,10 +800,10 @@ end M_Transformer;
     i2 = -G1*v1;
     annotation (
       Documentation(info="<html>
-<p>A gyrator is a two-port element defined by the following equations:  </p>
+<p>A gyrator is a two-port element defined by the following equations:</p>
 <pre>    i1 =  G2 * v2
     i2 = -G1 * v1</pre>
-<p>where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance. </p>
+<p>where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.</p>
 </html>",
    revisions="<html>
 <ul>
@@ -1021,7 +1021,7 @@ end M_Transformer;
           Line(points={{8,-79},{18,-79}}, color={192,192,192}),
           Line(points={{14,80},{14,70}}, color={192,192,192})}),
       Documentation(info="<html>
-<p>EMF transforms electrical energy into rotational mechanical energy. It is used as basic building block of an electrical motor. The mechanical connector flange can be connected to elements of the Modelica.Mechanics.Rotational library. flange.tau is the cut-torque, flange.phi is the angle at the rotational connection.  </p>
+<p>EMF transforms electrical energy into rotational mechanical energy. It is used as basic building block of an electrical motor. The mechanical connector flange can be connected to elements of the Modelica.Mechanics.Rotational library. flange.tau is the cut-torque, flange.phi is the angle at the rotational connection.</p>
 </html>",
    revisions="<html>
 <ul>
@@ -1188,7 +1188,7 @@ end M_Transformer;
         width=0.65,
         height=0.66),
       Documentation(info="<html>
-<p>EMF transforms electrical energy into translational mechanical energy. It is used as basic building block of an electrical linear motor. The mechanical connector flange can be connected to elements of the Modelica.Mechanics.Translational library. flange.f is the cut-force, flange.s is the distance at the translational connection.  </p>
+<p>EMF transforms electrical energy into translational mechanical energy. It is used as basic building block of an electrical linear motor. The mechanical connector flange can be connected to elements of the Modelica.Mechanics.Translational library. flange.f is the cut-force, flange.s is the distance at the translational connection.</p>
 </html>",
    revisions="<html>
 <ul>
@@ -1210,9 +1210,9 @@ end M_Transformer;
     i1 = 0;
     annotation (
       Documentation(info="<html>
-<p>The linear voltage-controlled voltage source is a TwoPort. The right port voltage v2 is controlled by the left port voltage v1 via </p>
+<p>The linear voltage-controlled voltage source is a TwoPort. The right port voltage v2 is controlled by the left port voltage v1 via</p>
 <pre>    v2 = v1 * gain. </pre>
-<p>The left port current is zero. Any voltage gain can be chosen. </p>
+<p>The left port current is zero. Any voltage gain can be chosen.</p>
 </html>",
    revisions="<html>
 <ul>
@@ -1269,9 +1269,9 @@ end M_Transformer;
     i1 = 0;
     annotation (
       Documentation(info="<html>
-<p>The linear voltage-controlled current source is a TwoPort. The right port current i2 is controlled by the left port voltage v1 via </p>
+<p>The linear voltage-controlled current source is a TwoPort. The right port current i2 is controlled by the left port voltage v1 via</p>
 <pre>    i2 = v1 * transConductance. </pre>
-<p>The left port current is zero. Any transConductance can be chosen. </p>
+<p>The left port current is zero. Any transConductance can be chosen.</p>
 </html>",
    revisions="<html>
 <ul>
@@ -1334,9 +1334,9 @@ end M_Transformer;
     v1 = 0;
     annotation (
       Documentation(info="<html>
-<p>The linear current-controlled voltage source is a TwoPort. The right port voltage v2 is controlled by the left port current i1 via </p>
+<p>The linear current-controlled voltage source is a TwoPort. The right port voltage v2 is controlled by the left port current i1 via</p>
 <pre>    v2 = i1 * transResistance. </pre>
-<p>The left port voltage is zero. Any transResistance can be chosen. </p>
+<p>The left port voltage is zero. Any transResistance can be chosen.</p>
 </html>",
    revisions="<html>
 <ul>
@@ -1392,9 +1392,9 @@ end M_Transformer;
     v1 = 0;
     annotation (
       Documentation(info="<html>
-<p>The linear current-controlled current source is a TwoPort. The right port current i2 is controlled by the left port current i1 via </p>
+<p>The linear current-controlled current source is a TwoPort. The right port current i2 is controlled by the left port current i1 via</p>
 <pre>    i2 = i1 * gain. </pre>
-<p>The left port voltage is zero. Any current gain can be chosen. </p>
+<p>The left port voltage is zero. Any current gain can be chosen.</p>
 </html>",
    revisions="<html>
 <ul>
@@ -1479,7 +1479,7 @@ end M_Transformer;
        < 0) then -f*vin else f*vin)));
     annotation (
       Documentation(info="<html>
-<p>The OpAmp is a simle nonideal model with a smooth out.v = f(vin) characteristic, where &QUOT;vin = in_p.v - in_n.v&QUOT;. The characteristic is limited by VMax.v and VMin.v. Its slope at vin=0 is the parameter Slope, which must be positive. (Therefore, the absolute value of Slope is taken into calculation.)  </p>
+<p>The OpAmp is a simle nonideal model with a smooth out.v = f(vin) characteristic, where &QUOT;vin = in_p.v - in_n.v&QUOT;. The characteristic is limited by VMax.v and VMin.v. Its slope at vin=0 is the parameter Slope, which must be positive. (Therefore, the absolute value of Slope is taken into calculation.)</p>
 </html>",
    revisions="<html>
 <ul>
@@ -1690,7 +1690,7 @@ end M_Transformer;
         end if;
         return;
       annotation (Documentation(info="<html>
-<p>Internal limitation function, designed for OpAmpDetailed, not for purpose of external usage. </p>
+<p>Internal limitation function, designed for OpAmpDetailed, not for purpose of external usage.</p>
 </html>"));
     end FCNiout_limit;
 
@@ -1713,7 +1713,7 @@ end M_Transformer;
         end if;
       return;
       annotation (Documentation(info="<html>
-<p>Internal limitation function, designed for OpAmpDetailed, not for purpose of external usage. </p>
+<p>Internal limitation function, designed for OpAmpDetailed, not for purpose of external usage.</p>
 </html>"));
     end FCNq_sum_limit;
 
@@ -1782,8 +1782,8 @@ end M_Transformer;
 
     annotation (
       Documentation(info="<html>
-<p>The OpAmpDetailed model is a general operational amplifier model. The emphasis is on separating each important data sheet parameter into a sub-circuit independent of the other parameters. The model is broken down into five functional stages <b>input</b>, <b>frequency response</b>, <b>gain</b>, <b>slew rate</b> and an <b>output</b> stage. Each stage contains data sheet parameters to be modeled. This partitioning and the modelling of the separate submodels are based on the description in <b>[CP92]</b>.  </p>
-<p>Using <b>[CP92]</b> Joachim Haase (Fraunhofer Institute for Integrated Circuits, Design Automation Division) transfered 2001 operational amplifier models into VHDL-AMS. Now one of these models, the model &QUOT;amp(macro)&QUOT; was transferred into Modelica. </p>
+<p>The OpAmpDetailed model is a general operational amplifier model. The emphasis is on separating each important data sheet parameter into a sub-circuit independent of the other parameters. The model is broken down into five functional stages <b>input</b>, <b>frequency response</b>, <b>gain</b>, <b>slew rate</b> and an <b>output</b> stage. Each stage contains data sheet parameters to be modeled. This partitioning and the modelling of the separate submodels are based on the description in <b>[CP92]</b>.</p>
+<p>Using <b>[CP92]</b> Joachim Haase (Fraunhofer Institute for Integrated Circuits, Design Automation Division) transfered 2001 operational amplifier models into VHDL-AMS. Now one of these models, the model &QUOT;amp(macro)&QUOT; was transferred into Modelica.</p>
 <dl><dt><b>Reference:</b> </dt>
 <dd><b>[CP92]</b> Conelly, J.A.; Choi, P.: Macromodelling with SPICE. Englewood Cliffs: Prentice-Hall, 1992 </dd>
 </dl></html>",
@@ -1876,9 +1876,9 @@ end M_Transformer;
         LossPower = v*i;
         annotation (
           Documentation(info="<html>
-<p><br/>The linear resistor connects the branch voltage <i>v</i> with the branch current <i>i</i> by  </p><p><br/><i><b>i*R = v</b></i> </p>
-<p>The Resistance <i>R</i> is given as input signal. </p>
-<p><br/><b>Attention!!!</b></p><p><br/>It is recommended that the R signal should not cross the zero value. Otherwise depending on the surrounding circuit the probability of singularities is high. </p>
+<p><br/>The linear resistor connects the branch voltage <i>v</i> with the branch current <i>i</i> by</p><p><br/><i><b>i*R = v</b></i></p>
+<p>The Resistance <i>R</i> is given as input signal.</p>
+<p><br/><b>Attention!!!</b></p><p><br/>It is recommended that the R signal should not cross the zero value. Otherwise depending on the surrounding circuit the probability of singularities is high.</p>
 </html>",revisions="<html>
 <ul>
 <li><i> August 07, 2009   </i>
@@ -1946,9 +1946,9 @@ end M_Transformer;
         LossPower = v*i;
         annotation (
           Documentation(info="<html>
-<p><br/>The linear conductor connects the branch voltage <i>v</i> with the branch current <i>i</i> by  </p><p><br/><i><b>i = G*v</b></i> </p>
-<p>The Conductance <i>G</i> is given as input signal. </p>
-<p><br/><b>Attention!!!</b></p><p><br/>It is recommended that the G signal should not cross the zero value. Otherwise depending on the surrounding circuit the probability of singularities is high. </p>
+<p><br/>The linear conductor connects the branch voltage <i>v</i> with the branch current <i>i</i> by</p><p><br/><i><b>i = G*v</b></i></p>
+<p>The Conductance <i>G</i> is given as input signal.</p>
+<p><br/><b>Attention!!!</b></p><p><br/>It is recommended that the G signal should not cross the zero value. Otherwise depending on the surrounding circuit the probability of singularities is high.</p>
 </html>",revisions="<html>
 <ul>
 <li><i> August 07, 2009   </i>
@@ -2010,9 +2010,9 @@ end M_Transformer;
           i = der(Q);
           annotation (
             Documentation(info="<html>
-<p><br/>The linear capacitor connects the branch voltage <i>v</i> with the branch current <i>i</i> by  </p><p><br/><i><b>i = dQ/dt</b></i> with <i><b>Q = C * v</b></i><b> </b>. </p>
-<p>The capacitance <i>C</i> is given as input signal. </p>
-<p>It is required that C &ge; 0, otherwise an assertion is raised. To avoid a variable index system,</p><p>C = Cmin, if 0 &le; C &LT; Cmin, where Cmin is a parameter with default value Modelica.Constants.eps. </p>
+<p><br/>The linear capacitor connects the branch voltage <i>v</i> with the branch current <i>i</i> by</p><p><br/><i><b>i = dQ/dt</b></i> with <i><b>Q = C * v</b></i><b> </b>.</p>
+<p>The capacitance <i>C</i> is given as input signal.</p>
+<p>It is required that C &ge; 0, otherwise an assertion is raised. To avoid a variable index system,</p><p>C = Cmin, if 0 &le; C &LT; Cmin, where Cmin is a parameter with default value Modelica.Constants.eps.</p>
 </html>",  revisions=
              "<html>
 <ul>
@@ -2075,9 +2075,9 @@ end M_Transformer;
           v = der(Psi);
           annotation (
             Documentation(info="<html>
-<p><br/>The linear inductor connects the branch voltage <i>v</i> with the branch current <i>i</i> by  </p><p><br/><i><b>v = d Psi/dt </b></i>with <i><b>Psi = L * i </b></i>. </p>
-<p>The inductance <i>L</i> is as input signal. </p>
-<p>It is required that L &ge; 0, otherwise an assertion is raised. To avoid a variable index system,</p><p>L = Lmin, if 0 &le; L &LT; Lmin, where Lmin is a parameter with default value Modelica.Constants.eps. </p>
+<p><br/>The linear inductor connects the branch voltage <i>v</i> with the branch current <i>i</i> by</p><p><br/><i><b>v = d Psi/dt </b></i>with <i><b>Psi = L * i </b></i>.</p>
+<p>The inductance <i>L</i> is as input signal.</p>
+<p>It is required that L &ge; 0, otherwise an assertion is raised. To avoid a variable index system,</p><p>L = Lmin, if 0 &le; L &LT; Lmin, where Lmin is a parameter with default value Modelica.Constants.eps.</p>
 </html>",  revisions=
              "<html>
 <ul>
@@ -2124,7 +2124,7 @@ end M_Transformer;
 
   annotation (
 Documentation(info="<html>
-<p>This package contains very basic analog electrical components such as resistor, conductor, condensator, inductor, and the ground (which is needed in each electrical circuit description. Furthermore, controled sources, coupling components, and some improved (but newertheless basic) are in this package. </p>
+<p>This package contains very basic analog electrical components such as resistor, conductor, condensator, inductor, and the ground (which is needed in each electrical circuit description. Furthermore, controled sources, coupling components, and some improved (but newertheless basic) are in this package.</p>
 </html>",
    revisions="<html>
 <dl>

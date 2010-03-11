@@ -10,9 +10,9 @@ extends Modelica.Icons.Library2;
 
     annotation (Documentation(info="<html>
 <p><h4><font color=\"#008000\">Overview of Spice3 library</font></h4></p>
-<p><br/>The Spice3 library is a Modelica library that contains some models of the Berkeley SPICE3 analog simulator. </p>
+<p><br/>The Spice3 library is a Modelica library that contains some models of the Berkeley SPICE3 analog simulator.</p>
 <p><br/><u>General information about the analog simulator SPICE3 </u></p>
-<p>SPICE (Simulation Program with Integrated Circuit Emphasis) is a simulator for analog electrical circuits. It was developed as one of the first analog simulators in the university of Berkeley in 1970. SPICE-netlists, which contain the circuit that shall be simulated, are a de-facto-standard up to now. For nearly every electrical circuit a SPICE-netlist exists. Today the actual version of SPICE is SPICE3e/SPICE3f. SPICE contains basic elements (resistor, inductor, capacitor), sources and semiconductor devices (diode, bipolar transistors, junction field effect transistors, MOS-field effect transistors) as well as models of lines. Out of this offered pool of elements, the circuits that shall be simulated are build in form of SPICE-netlists. </p>
+<p>SPICE (Simulation Program with Integrated Circuit Emphasis) is a simulator for analog electrical circuits. It was developed as one of the first analog simulators in the university of Berkeley in 1970. SPICE-netlists, which contain the circuit that shall be simulated, are a de-facto-standard up to now. For nearly every electrical circuit a SPICE-netlist exists. Today the actual version of SPICE is SPICE3e/SPICE3f. SPICE contains basic elements (resistor, inductor, capacitor), sources and semiconductor devices (diode, bipolar transistors, junction field effect transistors, MOS-field effect transistors) as well as models of lines. Out of this offered pool of elements, the circuits that shall be simulated are build in form of SPICE-netlists.</p>
 <p><br/><u>The Spice3-library for Modelica</u></p>
 <p>The Spice3 library was extraced from orinial SPICE3 C++ code. To be sure the Modelica models are correct the simulation results were compared to SPICE3.</p>
 <p>The Spice3-library was built in accordance to the model structure in SPICE. It contains the following packages:</p>
@@ -33,7 +33,7 @@ extends Modelica.Icons.Library2;
   class Useofsemiconductors "Use of Semiconductors"
 
     annotation (Documentation(info="<html>
-<p>Within the semiconductor devices SPICE3 differentiates between technology parameters and device parameters. Device parameters can be chosen for every single model instance, e.g. the channel length of a transistor. Technology parameters which are specified in a model card (.model) are adjustable for more than one element simultaneously, e.g. the type of transistors. As usualy done in Modelica the parameters of the modelcard can be set in a parameter list. </p>
+<p>Within the semiconductor devices SPICE3 differentiates between technology parameters and device parameters. Device parameters can be chosen for every single model instance, e.g. the channel length of a transistor. Technology parameters which are specified in a model card (.model) are adjustable for more than one element simultaneously, e.g. the type of transistors. As usualy done in Modelica the parameters of the modelcard can be set in a parameter list.</p>
 <p>To parametrice more than one model two ways are possible:</p>
 <p><ol>
 <li>Apart record:<br/>For each transistor in the circuit a record with the technologieparameters is made available as an instance of the record modelcardMOS. In the example<br/>&QUOT;inverterApartRecord&QUOT; this way is explained more in detail.</li>
@@ -68,16 +68,16 @@ extends Modelica.Icons.Library2;
 <p>.tran 0.01 5</p>
 <p><br/><br/></p>
 <p>.end</p></code></td>
-<td valign=\"top\"><code><p>model inverter </p>
+<td valign=\"top\"><code><p>model inverter</p>
 <p>&nbsp; Spice3.Basic.Ground g;</p>
 <p>&nbsp; Spice3&hellip;M Mp1(mtype=true, M(GAMMA=0.37));</p>
 <p>&nbsp; Spice3&hellip;M Mp2(mtype=true, M(GAMMA=0.37));</p>
 <p>&nbsp; Spice3&hellip;M Mn1(M(LAMBDA=0.02, GAMMA=0.37));</p>
-<p>&nbsp; Spice3&hellip;M Mn2(p(LAMBDA=0.02, GAMMA=0.37)); </p>
+<p>&nbsp; Spice3&hellip;M Mn2(p(LAMBDA=0.02, GAMMA=0.37));</p>
 <p>&nbsp; Spice3&hellip;V_pulse vdrain(V1=0, V2=5, TD=0, TR=1);</p>
 <p>&nbsp; Spice3&hellip;V_pulse vdrain(V1=0, V2=5, TD=0, TR=1);</p>
 <p>&nbsp; Spice3.Interfaces.Pin p_in, p_out;</p>
-<p>protected </p>
+<p>protected</p>
 <p>&nbsp; Spice3.Interfaces.Pin n0, n1, n2, n11, n13;</p>
 <p>equation</p>
 <p>&nbsp; connect(p_in, n1);&nbsp;&nbsp;&nbsp;connect(p_out, n2);</p>
@@ -87,7 +87,7 @@ extends Modelica.Icons.Library2;
 <p>&nbsp; connect(Mp1.G, n1);&nbsp;&nbsp;&nbsp;connect(Mp1.S, n13);</p>
 <p>&nbsp; connect(Mp2.B,n11);&nbsp;&nbsp;&nbsp;connect(Mp2.D, n11);</p>
 <p>&nbsp; connect(Mp2.G, n13);&nbsp;&nbsp;&nbsp;connect(Mp2.S, n2);</p>
-<p>&nbsp; connect(Mn1.B,n0);&nbsp;&nbsp;&nbsp;connect(Mn1.D, n13); </p>
+<p>&nbsp; connect(Mn1.B,n0);&nbsp;&nbsp;&nbsp;connect(Mn1.D, n13);</p>
 <p>&nbsp; connect(Mn1.G, n1);&nbsp;&nbsp;&nbsp;connect(Mn1.S, n0);</p>
 <p>&nbsp; connect(Mn2.B,n0);&nbsp;&nbsp;&nbsp;connect(Mn2.D, n2);</p>
 <p>&nbsp; connect(Mn2.G, n13);&nbsp;&nbsp;&nbsp;connect(Mn2.S, n0);</p>
@@ -115,7 +115,7 @@ extends Modelica.Icons.Library2;
 
     annotation (Documentation(info="<html>
 <p>In SPICE3 we have a predefined model pool. Each model device has got a code letter (e.g. resistor - R). In analogy to the SPICE3 models the models of the Spice3 library also got the according code letter in their names. The following examples shows the relationship:</p>
-<p>A typical SPICE3 line could be: </p>
+<p>A typical SPICE3 line could be:</p>
 <p><b>C</b>1 3 2 1pF</p>
 <p>The first letter is the code letter (here <b>C</b>). It specifies the type of the model component (here capacitance). To see the analogy to the SPICE3 models in the Spice3 library the transformed capacitance has got the name <b>C</b>_Capacitance. According to that naming rule the components of the Spice3 library have the following names (the first letter is the code letter that has to be used in SPICE3):</p>
 <p><ul>
@@ -186,11 +186,11 @@ extends Modelica.Icons.Library2;
   class ReleaseNotes "Release notes"
 
     annotation (Documentation(info="<html>
-<p>This section summarizes the changes that have been performed on the Spice3 library. </p>
+<p>This section summarizes the changes that have been performed on the Spice3 library.</p>
 <p><ul>
 <li>Version 1.0 (2010-02-18): first version of the library was released</li>
 </ul></p>
-<p> </p>
+<p></p>
 </html>",
    revisions="<html>
 </html>"));
@@ -229,8 +229,8 @@ extends Modelica.Icons.Library2;
   end Contact;
 
   annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
-<p>Package Spice3 is a <b>free</b> Modelica package </p>
-<p>This is a short <b>User&apos;s Guide</b> for the overall library. </p>
+<p>Package Spice3 is a <b>free</b> Modelica package</p>
+<p>This is a short <b>User&apos;s Guide</b> for the overall library.</p>
 </html>",   revisions="<html>
 <p><ul>
 <li><i>Feb 2010 </i>by Kristin Majetta initially written</li>
@@ -348,7 +348,7 @@ extends Modelica.Icons.Library2;
           Tolerance=1e-007),
         experimentSetupOutput,
         Documentation(info="<html>
-<p>An inverter is an electrical circuit that consists of a PMOS and a NMOS transistor. Its task is to turn the input voltage from high potential to low potential or the other way round. </p>
+<p>An inverter is an electrical circuit that consists of a PMOS and a NMOS transistor. Its task is to turn the input voltage from high potential to low potential or the other way round.</p>
 <p>Simulate until 1.e-11 s. Display the input voltage Vin.p.v as well as the output voltage mp.S.v. It shows that the input voltage is inverted.</p>
 </html>", revisions="<html>
 <p><ul>
@@ -490,11 +490,11 @@ extends Modelica.Icons.Library2;
         experiment(StopTime=5),
         experimentSetupOutput,
         Documentation(info="<html>
-<p>An inverter is an electrical circuit that consists of a PMOS and a NMOS. Its task is to turn the input voltage from high potential to low potential or the other way round. This circuit<i> InverterApartModel</i> contains two inverters. The input voltage of the first inverter is nearly equal to the output voltage of the second inverter. Capacities cause some differences. </p>
-<p>To see the typical behavior of the circuit the input voltages and the output voltages should be plotted. Besides that it can be interesting to watch the outputvoltage of the first inverter. Simulated until t=5s. </p>
+<p>An inverter is an electrical circuit that consists of a PMOS and a NMOS. Its task is to turn the input voltage from high potential to low potential or the other way round. This circuit<i> InverterApartModel</i> contains two inverters. The input voltage of the first inverter is nearly equal to the output voltage of the second inverter. Capacities cause some differences.</p>
+<p>To see the typical behavior of the circuit the input voltages and the output voltages should be plotted. Besides that it can be interesting to watch the outputvoltage of the first inverter. Simulated until t=5s.</p>
 <p>Input voltages: vin.p.v and v.p.v</p>
-<p>Output voltage of the first inverter: mn1.ND.v </p>
-<p>Output voltage of the second Inverter: mn2.ND.v </p>
+<p>Output voltage of the first inverter: mn1.ND.v</p>
+<p>Output voltage of the second Inverter: mn2.ND.v</p>
 <p>This example shows one posibility to make the record of the technology parameters avaliable for more than one transistor. For each transistor in the circuit a record with the technology parameters is made avaliable as an instance of the record modelcardMOS. In this circuit we need two different records for technology parameters, one for PMOS (MPmos) and one for NMOS (MNmos). This instances of the record for the technology parameters were made avaliable for every transistor as one of theirs parameters (Spice3.Repository.MOS mn1(mtype=0, modelcard=MNmos).</p>
 </html>", revisions="<html>
 <p><ul>
@@ -643,12 +643,12 @@ extends Modelica.Icons.Library2;
         experimentSetupOutput,
         DymolaStoredErrors,
         Documentation(info="<html>
-<p>An inverter is an electrical circuit that consists of a PMOS and a NMOS. Its task is to turn the input voltage from high potential to low potential or the other way round. This circuit<i> InverterExtendedModel</i> contains two inverters. The input voltage of the first inverter is nearly equal to the output voltage of the second inverter. Capacities cause some differences. </p>
-<p>To see the typical behavior of the circuit the input voltages and the output voltages should be plotted. Besides that it can be interesting to watch the outputvoltage of the first inverter. Simulated until t=5s. </p>
+<p>An inverter is an electrical circuit that consists of a PMOS and a NMOS. Its task is to turn the input voltage from high potential to low potential or the other way round. This circuit<i> InverterExtendedModel</i> contains two inverters. The input voltage of the first inverter is nearly equal to the output voltage of the second inverter. Capacities cause some differences.</p>
+<p>To see the typical behavior of the circuit the input voltages and the output voltages should be plotted. Besides that it can be interesting to watch the outputvoltage of the first inverter. Simulated until t=5s.</p>
 <p>Input voltages: vin.p.v and v.p.v</p>
-<p>Output voltage of the first inverter: mn1.ND.v </p>
-<p>Output voltage of the second Inverter: mn2.ND.v </p>
-<p>This example shows one posibility to make the record of the technology parameters avaliable for more than one transistor. For each set of technology parameters an apart model has to be defined (in this example: MPmos ans MNmos). Inside the model definition the technology parameters are appointed (Spice3.Semiconductors.modelcardMOS M(GAMMA=0.37, LAMBDA=0.02)). Every model extends a transistor. In this process the required technologieparameters are specified (extends Spice3.Repository.MOS(final mtype=1, modelcard=M). To make transistors available in the circuit instances of the defined models are applied (MPmos mp1; MNmos mn1; MPmos mp2; MNmos mn2;). </p>
+<p>Output voltage of the first inverter: mn1.ND.v</p>
+<p>Output voltage of the second Inverter: mn2.ND.v</p>
+<p>This example shows one posibility to make the record of the technology parameters avaliable for more than one transistor. For each set of technology parameters an apart model has to be defined (in this example: MPmos ans MNmos). Inside the model definition the technology parameters are appointed (Spice3.Semiconductors.modelcardMOS M(GAMMA=0.37, LAMBDA=0.02)). Every model extends a transistor. In this process the required technologieparameters are specified (extends Spice3.Repository.MOS(final mtype=1, modelcard=M). To make transistors available in the circuit instances of the defined models are applied (MPmos mp1; MNmos mn1; MPmos mp2; MNmos mn2;).</p>
 </html>", revisions="<html>
 <p><ul>
 <li><i>April 2009 </i>by Kristin Majetta initially implemented</li>
@@ -853,8 +853,8 @@ extends Modelica.Icons.Library2;
         experiment(StopTime=5),
         experimentSetupOutput,
         Documentation(info="<html>
-<p>This circuit that contains four inverter was designed to show the functionality of the MOS transistor models. To see the behavior of the circuit the output voltages of each inverter should be displayed (mp1.NS.v, mp2.NS.v, mp3.NS.v, mp4.NS.v). The output voltages of the second an fourth inverter and the inputvoltage of the first inverter have the same potential. The output voltages of the first and third inverter have the opposite potential compared with inverter 2 and 4. </p>
-<p>Simulate until t=5s. The outputvalues should be: mp1.NS.v, mp2.NS.v, mp3.NS.v, mp4.NS.v and vgate.p.v </p>
+<p>This circuit that contains four inverter was designed to show the functionality of the MOS transistor models. To see the behavior of the circuit the output voltages of each inverter should be displayed (mp1.NS.v, mp2.NS.v, mp3.NS.v, mp4.NS.v). The output voltages of the second an fourth inverter and the inputvoltage of the first inverter have the same potential. The output voltages of the first and third inverter have the opposite potential compared with inverter 2 and 4.</p>
+<p>Simulate until t=5s. The outputvalues should be: mp1.NS.v, mp2.NS.v, mp3.NS.v, mp4.NS.v and vgate.p.v</p>
 </html>", revisions="<html>
 <p><ul>
 <li><i>April 2009 </i>by Kristin Majetta initially implemented</li>
@@ -972,8 +972,8 @@ extends Modelica.Icons.Library2;
               lineColor={255,0,0},
               textString="%name")}),
         Documentation(info="<html>
-<p>In nearly every electronic the basic circuit &QUOT;nand&QUOT; are used. A nand contains two PMOS and two NMOS. The faulty wiring can be seen in the graphical mode. If and only if the two input voltages have high potential, the output voltage has low potential, otherwise the output voltage has high potential. </p>
-<p>Nand truth table (1 means true, it is represented by the 5V voltage): </p>
+<p>In nearly every electronic the basic circuit &QUOT;nand&QUOT; are used. A nand contains two PMOS and two NMOS. The faulty wiring can be seen in the graphical mode. If and only if the two input voltages have high potential, the output voltage has low potential, otherwise the output voltage has high potential.</p>
+<p>Nand truth table (1 means true, it is represented by the 5V voltage):</p>
 <table cellspacing=\"2\" cellpadding=\"0\" border=\"1\"><tr>
 <td><p>input voltage vin1</p></td>
 <td><p>input voltage vin2</p></td>
@@ -1000,7 +1000,7 @@ extends Modelica.Icons.Library2;
 <td><p>0</p></td>
 </tr>
 </table>
-<p><br/><br/><br/><br/><br/>Simulate until t=2e-7s. Display the two input voltages vin1.p.v and vin2.p.v and the output voltage mNMOS1.ND.v, which becomes zero only if both input values are high. </p>
+<p><br/><br/><br/><br/><br/>Simulate until t=2e-7s. Display the two input voltages vin1.p.v and vin2.p.v and the output voltage mNMOS1.ND.v, which becomes zero only if both input values are high.</p>
 </html>", revisions="<html>
 <p><ul>
 <li><i>May 2009 </i>by Kristin Majetta initially implemented</li>
@@ -1153,8 +1153,8 @@ extends Modelica.Icons.Library2;
               lineColor={255,0,0},
               textString="%name")}),
         Documentation(info="<html>
-<p>In nearly every electronic the basic circuit &QUOT;nor&QUOT; is used. A nor contains two PMOS and two NMOS. The faulty wiring can be seen in the graphical mode. If and only if the two inputvoltages have low potential, the outputvoltage has high potential, otherwise the outputvoltage has low potential. </p>
-<p>Nor truth table (1 means true, it is represented by the 5V voltage): </p>
+<p>In nearly every electronic the basic circuit &QUOT;nor&QUOT; is used. A nor contains two PMOS and two NMOS. The faulty wiring can be seen in the graphical mode. If and only if the two inputvoltages have low potential, the outputvoltage has high potential, otherwise the outputvoltage has low potential.</p>
+<p>Nor truth table (1 means true, it is represented by the 5V voltage):</p>
 <table cellspacing=\"2\" cellpadding=\"0\" border=\"1\"><tr>
 <td><p>input voltage vin1</p></td>
 <td><p>input voltage vin2</p></td>
@@ -1181,7 +1181,7 @@ extends Modelica.Icons.Library2;
 <td><p>0</p></td>
 </tr>
 </table>
-<p><br/><br/><br/><br/><br/>Simulate until t=5s. Display the two input voltages vin1.p.v and vin2.p.v and the output voltage mPMOS1.NS.v. </p>
+<p><br/><br/><br/><br/><br/>Simulate until t=5s. Display the two input voltages vin1.p.v and vin2.p.v and the output voltage mPMOS1.NS.v.</p>
 <p>The output value in the example shows a behaviour &QUOT;near&QUOT; the one of the truth table, since the capacitances are huge. Therefore loading is not finished before the next input changes.</p>
 </html>", revisions="<html>
 <p><ul>
@@ -1633,7 +1633,7 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
       L*der(iinternal) = v;
       annotation (
         Documentation(info="<html>
-<p>The linear inductor connects the branch voltage <i>v</i> with the branch current <i>i</i> by <i>v = L * di/dt</i>. The inductance <i>L</i> is allowed to be positive, zero, or negative. </p>
+<p>The linear inductor connects the branch voltage <i>v</i> with the branch current <i>i</i> by <i>v = L * di/dt</i>. The inductance <i>L</i> is allowed to be positive, zero, or negative.</p>
 </html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=false,
@@ -1808,22 +1808,22 @@ is translated to Modelica:<br>
       v1 = 0;
       annotation (
         Documentation(info="<html>
-<p>The linear current-controlled voltage source is a TwoPort. The &QUOT;right&QUOT; port voltage at pin 2 (=p2.v) is controlled by the &QUOT;left&QUOT; port current at pin p1(=p1.i) via </p>
+<p>The linear current-controlled voltage source is a TwoPort. The &QUOT;right&QUOT; port voltage at pin 2 (=p2.v) is controlled by the &QUOT;left&QUOT; port current at pin p1(=p1.i) via</p>
 <pre>    p2.v = p1.i * transResistance.</pre>
-<p>The controlling port voltage is zero. Any transResistance can be chosen. </p>
-<p>The corresponding SPICE description </p>
+<p>The controlling port voltage is zero. Any transResistance can be chosen.</p>
+<p>The corresponding SPICE description</p>
 <pre>    Hname N+ N- VNAM VALUE</pre>
 <p><br/>is translated to Modelica:</p>
 <pre>    Hname -&GT; Spice3.Basic.H_CCV Hname
     (Hname is the name of the Modelica instance)
     N+ -&GT; p2.v
     N- -&GT; n2.v  </pre>
-<p>The voltage source VNAM has the two nodes NV+ and NV-: </p>
+<p>The voltage source VNAM has the two nodes NV+ and NV-:</p>
 <pre>                   VNAM VN+ VN- VALUE_V</pre>
-<p>The current through VNAM hast to be led through the CCV.</p><p>Therefore VNAM has to be disconnected and an additional</p><p>node NV_AD has to be added. </p>
+<p>The current through VNAM hast to be led through the CCV.</p><p>Therefore VNAM has to be disconnected and an additional</p><p>node NV_AD has to be added.</p>
 <pre>    NV_AD -&GT; p1.i
     NV- -&GT; n1.i</pre>
-<p>On this way the current, that flows through the voltage source VNAM, flows through the CCV. </p>
+<p>On this way the current, that flows through the voltage source VNAM, flows through the CCV.</p>
 <pre>
     VALUE -&GT; transResistance </pre>
 </html>"),
@@ -1865,24 +1865,24 @@ is translated to Modelica:<br>
       v1 = 0;
       annotation (
         Documentation(info="<html>
-<p>The linear current-controlled current source is a TwoPort. The &QUOT;right&QUOT; port current at pin 2 (=p2.i) is controlled by the &QUOT;left&QUOT; port current at pin p1(=p1.i) via </p>
+<p>The linear current-controlled current source is a TwoPort. The &QUOT;right&QUOT; port current at pin 2 (=p2.i) is controlled by the &QUOT;left&QUOT; port current at pin p1(=p1.i) via</p>
 <pre>    p2.i = p1.i * gain.</pre>
-<p>The controlling port voltage is zero. Any current gain can be chosen. </p>
-<p>The corresponding SPICE description </p>
+<p>The controlling port voltage is zero. Any current gain can be chosen.</p>
+<p>The corresponding SPICE description</p>
 <pre>    Fname N+ N- VNAM VALUE</pre>
 <p><br/>is translated to Modelica:</p>
 <pre>    Fname -&GT; Spice3.Basic.F_CCC Fname
     (Fname is the name of the Modelica instance)
     N+ -&GT; p2.i
     N- -&GT; n2.i  </pre>
-<p>The voltage source VNAM has the two nodes NV+ and NV-: </p>
+<p>The voltage source VNAM has the two nodes NV+ and NV-:</p>
 <pre>                   VNAM NV+ NV- VALUE_V</pre>
 <p>The current through VNAM hast to be led through the CCC.</p>
 <p>Therefore VNAM has to be disconnected and an additional</p>
-<p>node NV_AD has to be added. </p>
+<p>node NV_AD has to be added.</p>
 <pre>    NV_AD -&GT; p1.i
     NV- -&GT; n1.i</pre>
-<p>On this way the current, that flows through the voltage source VNAM, flows through the CCC. </p>
+<p>On this way the current, that flows through the voltage source VNAM, flows through the CCC.</p>
 <pre>    VALUE -&GT; gain </pre>
 </html>"),
         Icon(coordinateSystem(
@@ -1925,7 +1925,7 @@ is translated to Modelica:<br>
          library=1,
          autolayout=1),
   Documentation(info="<html>
-<p>This Package contains the basic components of the SPICE3 models. The first letter of the </p><p>name of the component shows the SPICE name, e.g. <b>R</b>_Resistor: <b>R</b> is the SPICE-name of the component </p><p>resistor which is used in SPICE-Netlists. </p>
+<p>This Package contains the basic components of the SPICE3 models. The first letter of the</p><p>name of the component shows the SPICE name, e.g. <b>R</b>_Resistor: <b>R</b> is the SPICE-name of the component</p><p>resistor which is used in SPICE-Netlists.</p>
 </html>",
      revisions="<html>
 <dl>
@@ -1958,9 +1958,9 @@ is translated to Modelica:<br>
               lineColor={0,0,255},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid)}), Documentation(info="<html>
-<p>The model M_PMOS is a P channel MOSFET transistor with fixed level 1: Shichman-Hodges model </p>
-<p><br/>The models from the package Semiconductors accesses to the package Repository where all functions, </p>
-<p>records and data are stored and modeled that are neede for the semiconductor models. </p>
+<p>The model M_PMOS is a P channel MOSFET transistor with fixed level 1: Shichman-Hodges model</p>
+<p><br/>The models from the package Semiconductors accesses to the package Repository where all functions,</p>
+<p>records and data are stored and modeled that are neede for the semiconductor models.</p>
 <p>The package Semiconductors is for user access but not the package Repository.</p>
 </html>", revisions="<html>
 <p><ul>
@@ -1980,8 +1980,8 @@ is translated to Modelica:<br>
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>The model M_NMOS is a N channel MOSFET transistor with fixed level 1: Shichman-Hodges model</p>
-<p><br/>The models from the package Semiconductors accesses to the package Repository where all functions, </p>
-<p>records and data are stored and modeled that are neede for the semiconductor models. </p>
+<p><br/>The models from the package Semiconductors accesses to the package Repository where all functions,</p>
+<p>records and data are stored and modeled that are neede for the semiconductor models.</p>
 <p>The package Semiconductors is for user access but not the package Repository.</p>
 </html>", revisions="<html>
 <p><ul>
@@ -2012,8 +2012,8 @@ is translated to Modelica:<br>
             graphics),
         Documentation(info="<html>
 <p>The model Q_NPNBJT is a NPN bipolar junction transistor model: Modified Gummel-Poon.</p>
-<p><br/>The models from the package Semiconductors accesses to the package Repository where all functions, </p>
-<p>records and data are stored and modeled that are neede for the semiconductor models. </p>
+<p><br/>The models from the package Semiconductors accesses to the package Repository where all functions,</p>
+<p>records and data are stored and modeled that are neede for the semiconductor models.</p>
 <p>The package Semiconductors is for user access but not the package Repository.</p>
 </html>", revisions="<html>
 <p><ul>
@@ -2037,8 +2037,8 @@ is translated to Modelica:<br>
             graphics),
         Documentation(info="<html>
 <p>The model Q_PNPBJT is a PNP bipolar junction transistor model: Modified Gummel-Poon.</p>
-<p><br/>The models from the package Semiconductors accesses to the package Repository where all functions, </p>
-<p>records and data are stored and modeled that are neede for the semiconductor models. </p>
+<p><br/>The models from the package Semiconductors accesses to the package Repository where all functions,</p>
+<p>records and data are stored and modeled that are neede for the semiconductor models.</p>
 <p>The package Semiconductors is for user access but not the package Repository.</p>
 </html>", revisions="<html>
 <p><ul>
@@ -2068,8 +2068,8 @@ is translated to Modelica:<br>
        DymolaStoredErrors,
         Documentation(info="<html>
 <p>The model D_DIODE is a Junction diode model</p>
-<p><br/>The models from the package Semiconductors accesses to the package Repository where all functions, </p>
-<p>records and data are stored and modeled that are neede for the semiconductor models. </p>
+<p><br/>The models from the package Semiconductors accesses to the package Repository where all functions,</p>
+<p>records and data are stored and modeled that are neede for the semiconductor models.</p>
 <p>The package Semiconductors is for user access but not the package Repository.</p>
 </html>", revisions="<html>
 <p><ul>
@@ -2097,8 +2097,8 @@ is translated to Modelica:<br>
                 -100},{100,100}}),      graphics),
         Documentation(info="<html>
 <p>The model R_Resistor is a Semiconductor resistor model.</p>
-<p><br/>The models from the package Semiconductors accesses to the package Repository where all functions, </p>
-<p>records and data are stored and modeled that are neede for the semiconductor models. </p>
+<p><br/>The models from the package Semiconductors accesses to the package Repository where all functions,</p>
+<p>records and data are stored and modeled that are neede for the semiconductor models.</p>
 <p>The package Semiconductors is for user access but not the package Repository.</p>
 </html>", revisions="<html>
 <p><ul>
@@ -2164,8 +2164,8 @@ is translated to Modelica:<br>
             grid={1,1}), graphics),
         Documentation(revisions="<html>
 </html>", info="<html>
-<p>The V_constant source is a  source is a simple constant voltage source for an ideal constant voltage which is provided by a parameter. </p>
-<p> </p>
+<p>The V_constant source is a  source is a simple constant voltage source for an ideal constant voltage which is provided by a parameter.</p>
+<p></p>
 </html>"));
     end V_constant;
 
@@ -2480,7 +2480,7 @@ is translated to Modelica:<br>
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics),
         Documentation(info="<html>
-<p>This model generates a voltage by <b>linear interpolation</b> in a given table. The time points and voltage values are stored in a matrix <b>table[i,j]</b>, where the first column table[:,1] contains the time points and the second column contains the voltage to be interpolated. The table interpolation has the following proporties: </p>
+<p>This model generates a voltage by <b>linear interpolation</b> in a given table. The time points and voltage values are stored in a matrix <b>table[i,j]</b>, where the first column table[:,1] contains the time points and the second column contains the voltage to be interpolated. The table interpolation has the following proporties:</p>
 <p><ul>
 <li>The time points need to be <b>monotonically increasing</b>. </li>
 <li><b>Discontinuities</b> are allowed, by providing the same time point twice in the table. </li>
@@ -2489,7 +2489,7 @@ is translated to Modelica:<br>
 <li>Via parameters <b>startTime</b> and <b>offset</b> the curve defined by the table can be shifted both in time and in the voltage. </li>
 <li>The table is implemented in a numerically sound way by generating <b>time events</b> at interval boundaries, in order to not integrate over a discontinuous or not differentiable points. </li>
 </ul></p>
-<p>Example: </p>
+<p>Example:</p>
 <pre>   table = [0  0
             1  0
             1  1
@@ -2499,7 +2499,7 @@ is translated to Modelica:<br>
 If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     e.g., time = 1.5, the voltage v =  2.5,
     e.g., time = 2.0, the voltage v =  4.0,
-<p><code>    e.g., time = 5.0, the voltage v = 23.0 (i.e. extrapolation).</code> </p>
+<p><code>    e.g., time = 5.0, the voltage v = 23.0 (i.e. extrapolation).</code></p>
 </html>",
        revisions="<html>
 </html>"));
@@ -2902,7 +2902,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics),
         Documentation(info="<html>
-<p>This model generates a current  by <b>linear interpolation</b> in a given table. The time points and current values are stored in a matrix <b>table[i,j]</b>, where the first column table[:,1] contains the time points and the second column contains the current to be interpolated. The table interpolation has the following proporties: </p>
+<p>This model generates a current  by <b>linear interpolation</b> in a given table. The time points and current values are stored in a matrix <b>table[i,j]</b>, where the first column table[:,1] contains the time points and the second column contains the current to be interpolated. The table interpolation has the following proporties:</p>
 <p><ul>
 <li>The time points need to be <b>monotonically increasing</b>. </li>
 <li><b>Discontinuities</b> are allowed, by providing the same time point twice in the table. </li>
@@ -2911,7 +2911,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 <li>Via parameters <b>startTime</b> and <b>offset</b> the curve defined by the table can be shifted both in time and in the current. </li>
 <li>The table is implemented in a numerically sound way by generating <b>time events</b> at interval boundaries, in order to not integrate over a discontinuous or not differentiable points. </li>
 </ul></p>
-<p>Example: </p>
+<p>Example:</p>
 <pre>   table = [0  0
             1  0
             1  1
@@ -2921,7 +2921,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
     e.g., time = 1.5, the current i =  2.5,
     e.g., time = 2.0, the current i =  4.0,
-<p><code>    e.g., time = 5.0, the current i = 23.0 (i.e. extrapolation).</code> </p>
+<p><code>    e.g., time = 5.0, the current i = 23.0 (i.e. extrapolation).</code></p>
 </html>",
        revisions="<html>
 </html>"));
@@ -2995,7 +2995,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
         height=0.60,
         library=1,
         autolayout=1),Documentation(info="<html>
-<p>This package contains the SPICE sources. </p>
+<p>This package contains the SPICE sources.</p>
 <p><b>Note:</b> There are differences between SPICE3 and Modelica concerning the default values of the parameter. Therefore it is recommended to specify <b>all</b> parameters of the source.</p>
 </html>", revisions="<html>
 <p><ul>
@@ -3170,10 +3170,10 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
                         graphics),
         Documentation(info="<html>
 <p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivates.</p>
-<p>Nonlinear voltage controlled voltage source. The &QUOT;right&QUOT; port voltage between pin p2 and n2 (=p2.v - n2.v) is controlled by the &QUOT;left&QUOT; port vector of voltages at the pin vector pc[:] via </p>
+<p>Nonlinear voltage controlled voltage source. The &QUOT;right&QUOT; port voltage between pin p2 and n2 (=p2.v - n2.v) is controlled by the &QUOT;left&QUOT; port vector of voltages at the pin vector pc[:] via</p>
 <pre>    p2.v - n2.v = f(pc[2].v - pc[1].v, pc[4].v - pc[3].v,...)</pre>
-<p>The controlling port (left) current vector is zero. </p>
-<p>f is a polynomial in N variables s1...sN of the following form with M+1 coefficients a0, a1, a2,...aM. </p>
+<p>The controlling port (left) current vector is zero.</p>
+<p>f is a polynomial in N variables s1...sN of the following form with M+1 coefficients a0, a1, a2,...aM.</p>
 <pre>f = a0 +
     a1s1 + a2s2 + ... + aNsN +
     a(N+1)s1&sup2; + a(N+2)s1s2 + ... + a(.)s1sN +
@@ -3186,9 +3186,9 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
     ... +
     a(.)sN&sup3; + ... </pre>
 <p><br/><br/>The Coefficients a(.) are counted in this order. Reaching M, the particular sum is canceled.</p><p><br/><br/>In connection with the VCV, s1...sN are the voltages of the controlling side: s1=pc[2].v - pc[1].v, s2=pc[4].v - pc[3].v, s3=...</p>
-<p>The corresponding SPICE description of the VCV polynomial source is the following: </p>
+<p>The corresponding SPICE description of the VCV polynomial source is the following:</p>
 <pre>    Ename A1 A2 POLY(N) E11 E21 ... E1N E2N P0 P1...</pre>
-<p>where Ename is the name of the instance, A1 and A2 are the nodes between them the controlled voltage is gripped, </p><p>N is the number of the controlling voltages, E11 E12 ... E1N E2N are pairs of nodes between them the controlling voltages</p><p>are gripped, and P0, P1... are the coefficients that are called a0, a1, ... aM in the description of the polynomial f above. </p>
+<p>where Ename is the name of the instance, A1 and A2 are the nodes between them the controlled voltage is gripped,</p><p>N is the number of the controlling voltages, E11 E12 ... E1N E2N are pairs of nodes between them the controlling voltages</p><p>are gripped, and P0, P1... are the coefficients that are called a0, a1, ... aM in the description of the polynomial f above.</p>
 <p>To describe the SPICE line in Modelica, the following explanation would be useful:</p>
 <pre>Ename -&GT; E_VCV_POLY name
 A1, A2 -&GT; pins name.p2, name.p1
@@ -3266,10 +3266,10 @@ P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...})</pre>
                         graphics),
         Documentation(info="<html>
 <p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivates.</p>
-<p>Nonlinear voltage controlled current source. The right port current at pin p2 (=p2.i) is controlled by the left port vector of voltages at the pin vector pc[:] via </p>
+<p>Nonlinear voltage controlled current source. The right port current at pin p2 (=p2.i) is controlled by the left port vector of voltages at the pin vector pc[:] via</p>
 <pre>    p2.i = f(pc[2].v - pc[1].v, pc[4].v - pc[3].v,...)</pre>
-<p>The controlling port (left) current vector is zero. </p>
-<p>f is a polynomial in N variables s1...sN of the following form with M+1 coefficients a0, a1, a2,...aM. </p>
+<p>The controlling port (left) current vector is zero.</p>
+<p>f is a polynomial in N variables s1...sN of the following form with M+1 coefficients a0, a1, a2,...aM.</p>
 <pre>f = a0 +
     a1s1 + a2s2 + ... + aNsN +
     a(N+1)s1&sup2; + a(N+2)s1s2 + ... + a(.)s1sN +
@@ -3281,9 +3281,9 @@ P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...})</pre>
     a(.)s1s2&sup2; + a(.)s1s2s3 + ... + a(.)s1s2sN +
     ... +
     a(.)sN&sup3; + ... </pre>
-<p><br/><br/>The Coefficients a(.) are counted in this order. Reaching M, the particular sum is canceled.</p><p><br/><br/>In connection with the VCC, s1...sN are the voltages of the controlling side: s1=pc[2].v - pc[1].v, s2=pc[4].v - pc[3].v, s3=...</p><p><br/><br/>The corresponding SPICE description of the VCC polynomial source is the following: </p>
+<p><br/><br/>The Coefficients a(.) are counted in this order. Reaching M, the particular sum is canceled.</p><p><br/><br/>In connection with the VCC, s1...sN are the voltages of the controlling side: s1=pc[2].v - pc[1].v, s2=pc[4].v - pc[3].v, s3=...</p><p><br/><br/>The corresponding SPICE description of the VCC polynomial source is the following:</p>
 <pre>    Gname A1 A2 POLY(N) E11 E21 ... E1N E2N P0 P1...</pre>
-<p>where Gname is the name of the instance, A1 and A2 are the nodes between them the current source is arranged, whose current is calculated, </p><p>N is the number of the controlling voltages, E11 E12 ... E1N E2N are pairs of nodes between them the controlling voltages</p><p>are gripped, and P0, P1... are the coefficients that are called a0, a1, ... aM in the description of the polynomial f above. </p>
+<p>where Gname is the name of the instance, A1 and A2 are the nodes between them the current source is arranged, whose current is calculated,</p><p>N is the number of the controlling voltages, E11 E12 ... E1N E2N are pairs of nodes between them the controlling voltages</p><p>are gripped, and P0, P1... are the coefficients that are called a0, a1, ... aM in the description of the polynomial f above.</p>
 <p><br/>To describe the SPICE line in Modelica, the following explanation would be useful:</p>
 <pre>Gname -&GT; G_VCC_POLY name
 A1, A2 -&GT; pins name.p2, name.p1
@@ -3362,12 +3362,12 @@ P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...}) </pre>
                         graphics),
         Documentation(info="<html>
 <p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivates.</p>
-<p>Nonlinear current controlled voltage source. The right port voltage between pin p2 and n2 (=p2.v - n2.v) is controlled by the left port vector of currents at pin pc (=pc.i) via </p>
+<p>Nonlinear current controlled voltage source. The right port voltage between pin p2 and n2 (=p2.v - n2.v) is controlled by the left port vector of currents at pin pc (=pc.i) via</p>
 <pre>    p2.v - n2.v = f(pc[2].i, pc[4].i,...)</pre>
-<p>The controlling port (left) current vector is zero. </p>
-<p>The corresponding SPICE description </p>
+<p>The controlling port (left) current vector is zero.</p>
+<p>The corresponding SPICE description</p>
 <pre>    Hname A1 A2 POLY(N) V1...VN P0 P1...</pre>
-<p>f is a polynomial in N variables s1...sN of the following form with M+1 coefficients a0, a1, a2,...aM. </p>
+<p>f is a polynomial in N variables s1...sN of the following form with M+1 coefficients a0, a1, a2,...aM.</p>
 <pre>f = a0 +
     a1s1 + a2s2 + ... + aNsN +
     a(N+1)s1&sup2; + a(N+2)s1s2 + ... + a(.)s1sN +
@@ -3379,26 +3379,26 @@ P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...}) </pre>
     a(.)s1s2&sup2; + a(.)s1s2s3 + ... + a(.)s1s2sN +
     ... +
     a(.)sN&sup3; + ... </pre>
-<p><br/><br/>The Coefficients a(.) are counted in this order. Reaching M, the particular sum is canceled.</p><p><br/><br/>In Modelica the controlling pins have to be connected to the CCV in that way, that the required currents flow through the according pins of the CCV:</p><p><br/><br/>s1 = pc[2].i, s2 = pc[4].i, s3 = pc[6].i,...</p><p><br/><br/>The pairs pc[1].i and pc[2].i, pc[3].i and pc[4].i...form ports with pc[2].i + pc[1].i = 0, pc[4].i + pc[3].i = 0, ...</p><p><br/><br/>The corresponding SPICE description of the CCV polynomial source is the following: </p>
+<p><br/><br/>The Coefficients a(.) are counted in this order. Reaching M, the particular sum is canceled.</p><p><br/><br/>In Modelica the controlling pins have to be connected to the CCV in that way, that the required currents flow through the according pins of the CCV:</p><p><br/><br/>s1 = pc[2].i, s2 = pc[4].i, s3 = pc[6].i,...</p><p><br/><br/>The pairs pc[1].i and pc[2].i, pc[3].i and pc[4].i...form ports with pc[2].i + pc[1].i = 0, pc[4].i + pc[3].i = 0, ...</p><p><br/><br/>The corresponding SPICE description of the CCV polynomial source is the following:</p>
 <pre>    Hname A1 A2 POLY(N) V1...VN P0 P1...</pre>
-<p>where Hname is the name of the instance, A1 and A2 are the nodes between them the controlled voltage is gripped. </p><p>N is the number of the controlling currents, V1...VN are the voltage sources, that are necessary in SPICE to supply the controlling currents,</p><p>and P0, P1... are the coefficients that are called a0, a1, ... aM in the description of the polynomial f above. </p>
+<p>where Hname is the name of the instance, A1 and A2 are the nodes between them the controlled voltage is gripped.</p><p>N is the number of the controlling currents, V1...VN are the voltage sources, that are necessary in SPICE to supply the controlling currents,</p><p>and P0, P1... are the coefficients that are called a0, a1, ... aM in the description of the polynomial f above.</p>
 <p><br/>To describe the SPICE line in Modelica, the following explanation would be useful:</p>
 <pre>Hname -&GT; H_CCV_POLY name
 A1, A2 -&GT; pins name.p2, name.p1
 N -&GT; parameter N</pre>
-<p>V1 (...VN) is declared in SPICE: </p>
+<p>V1 (...VN) is declared in SPICE:</p>
 <pre>   V1 V1+ V1- type of voltage source (constant, pulse, sin...)</pre>
-<p>In Modelica the currents through V1...VN has to be led throught the CCV. Therefore V1...VN have to be disconnected and additional nodes </p>
+<p>In Modelica the currents through V1...VN has to be led throught the CCV. Therefore V1...VN have to be disconnected and additional nodes</p>
 <pre>   V1_AD...VN_AD</pre>
 <p>have to be added. In the case, that the SPICE source is</p>
 <pre>   V1 n+ n- 0,</pre>
-<p>this source can be eliminated. </p>
+<p>this source can be eliminated.</p>
 <pre>V1_AD -&GT; name.pc[2]
 V1- -&GT; name.pc[1]
 ...
 VN_AD -&GT; name.pc[N]
 VN- -&GT; name.pc[N-1]
-<p><code>P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...}) </code> </p>
+<p><code>P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...}) </code></p>
 </html>", revisions="<html>
 <p><ul>
 <li><i>Sept 2008 </i>by Kristin Majetta <br/>initially implemented</li>
@@ -3467,10 +3467,10 @@ VN- -&GT; name.pc[N-1]
                         graphics),
         Documentation(info="<html>
 <p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivates.</p>
-<p>Nonlinear current controlled current source. The &QUOT;right&QUOT; port current at pin p2 (=p2.i) is controlled by the &QUOT;left&QUOT; port vector of currents at pin pc[:] via </p>
+<p>Nonlinear current controlled current source. The &QUOT;right&QUOT; port current at pin p2 (=p2.i) is controlled by the &QUOT;left&QUOT; port vector of currents at pin pc[:] via</p>
 <pre>    p2.i = f(pc[2].i, pc[4].i,...)</pre>
-<p>The controlling port (left) voltage is zero for each pair: pc[2].v - pc[1].v = 0, ...</p><p>Furthermore the currents of each pair are pc[2].i + pc[1].i = 0, ... </p>
-<p>f is a polynomial in N variables s1...sN of the following form with M+1 coefficients a0, a1, a2,...aM. </p>
+<p>The controlling port (left) voltage is zero for each pair: pc[2].v - pc[1].v = 0, ...</p><p>Furthermore the currents of each pair are pc[2].i + pc[1].i = 0, ...</p>
+<p>f is a polynomial in N variables s1...sN of the following form with M+1 coefficients a0, a1, a2,...aM.</p>
 <pre>f = a0 +
     a1s1 + a2s2 + ... + aNsN +
     a(N+1)s1&sup2; + a(N+2)s1s2 + ... + a(.)s1sN +
@@ -3482,26 +3482,26 @@ VN- -&GT; name.pc[N-1]
     a(.)s1s2&sup2; + a(.)s1s2s3 + ... + a(.)s1s2sN +
     ... +
     a(.)sN&sup3; + ... </pre>
-<p><br/><br/>The Coefficients a(.) are counted in this order. Reaching M, the particular sum is canceled.</p><p><br/><br/>In Modelica the controlling pins have to be connected to the CCC in that way, that the required currents flow through the according pins of the CCC:</p><p><br/><br/>s1=pc[2].i, s2=pc[4].i, s3=pc[6].i,...</p><p><br/><br/>The pairs pc[1].i and pc[2].i, pc[3].i and pc[4].i...form ports with pc[2].i + pc[1].i = 0, pc[4].i + pc[3].i = 0, ...</p><p><br/><br/>The corresponding SPICE description of the CCC polynomial source is the following: </p>
+<p><br/><br/>The Coefficients a(.) are counted in this order. Reaching M, the particular sum is canceled.</p><p><br/><br/>In Modelica the controlling pins have to be connected to the CCC in that way, that the required currents flow through the according pins of the CCC:</p><p><br/><br/>s1=pc[2].i, s2=pc[4].i, s3=pc[6].i,...</p><p><br/><br/>The pairs pc[1].i and pc[2].i, pc[3].i and pc[4].i...form ports with pc[2].i + pc[1].i = 0, pc[4].i + pc[3].i = 0, ...</p><p><br/><br/>The corresponding SPICE description of the CCC polynomial source is the following:</p>
 <pre>    Fname A1 A2 POLY(N) V1...VN P0 P1...</pre>
-<p>where Fname is the name of the instance, A1 and A2 are the nodes between them the current source is arranged, whose current is calculated. </p><p>N is the number of the controlling currents, V1...VN are the voltage sources, that are necessary in SPICE to supply the controlling currents,</p><p>and P0, P1... are the coefficients that are called a0, a1, ... aM in the description of the polynomial f above. </p>
+<p>where Fname is the name of the instance, A1 and A2 are the nodes between them the current source is arranged, whose current is calculated.</p><p>N is the number of the controlling currents, V1...VN are the voltage sources, that are necessary in SPICE to supply the controlling currents,</p><p>and P0, P1... are the coefficients that are called a0, a1, ... aM in the description of the polynomial f above.</p>
 <p><br/>To describe the SPICE line in Modelica, the following explanation would be useful:</p>
 <pre>Fname -&GT; F_CCC_POLY name
 A1, A2 -&GT; pins name.p2, name.p1
 N -&GT; parameter N</pre>
-<p>V1 (...VN) is declared in SPICE: </p>
+<p>V1 (...VN) is declared in SPICE:</p>
 <pre>   V1 V1+ V1- type of voltage source (constant, pulse, sin...)</pre>
-<p>In Modelica the currents through V1...VN has to be led throught the CCC. Therefore V1...VN have to be disconnected and additional nodes </p>
+<p>In Modelica the currents through V1...VN has to be led throught the CCC. Therefore V1...VN have to be disconnected and additional nodes</p>
 <pre>   V1_AD...VN_AD</pre>
-<p>have to be added. In the case, that the SPICE source is </p>
+<p>have to be added. In the case, that the SPICE source is</p>
 <pre>   V1 n+ n- 0,</pre>
-<p>this source can be eliminated. </p>
+<p>this source can be eliminated.</p>
 <pre>V1_AD -&GT; name.pc[2]
 V1- -&GT; name.pc[1]
 ...
 VN_AD -&GT; name.pc[N]
 VN- -&GT; name.pc[N-1]
-<p><code>P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...}) </code> </p>
+<p><code>P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...}) </code></p>
 </html>", revisions="<html>
 <p><ul>
 <li><i>Sept 2008 </i>by Kristin Majetta <br/>initially implemented</li>
@@ -4902,7 +4902,7 @@ VN- -&GT; name.pc[N-1]
       dCond_dTemp := (tc1 + 2 * tc2 * difference) * conduct * conduct;
 
       annotation (Documentation(info="<html>
-<p>This internal function calculates the conductance in dependency from the temperature. </p>
+<p>This internal function calculates the conductance in dependency from the temperature.</p>
 </html>"));
     end resDepTemp;
 
@@ -8387,7 +8387,7 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
 </html>"));
     end Bjt3;
     annotation (Documentation(info="<html>
-<p>This package contains all function, parameters and data of semiconductor models, that are transformed from SPICE3 into Modelica. The models of the package semiconductors access to repository models. This package should not be used via direct access by a user of the Spice-Library for Modelica. It is restricted to the development. </p>
+<p>This package contains all function, parameters and data of semiconductor models, that are transformed from SPICE3 into Modelica. The models of the package semiconductors access to repository models. This package should not be used via direct access by a user of the Spice-Library for Modelica. It is restricted to the development.</p>
 </html>"));
   end Repository;
 
@@ -8399,7 +8399,7 @@ annotation(preferedView="info", Window(
     library=1,
     autolayout=1),
   Documentation(info="<html>
-<p>This package contains models of the Berkeley SPICE3 simulator (R, C, L, controlled and independent sources, semiconductor device models). The semiconductor models are transferred from the SPICE3 code, up to now </p>
+<p>This package contains models of the Berkeley SPICE3 simulator (R, C, L, controlled and independent sources, semiconductor device models). The semiconductor models are transferred from the SPICE3 code, up to now</p>
 <p><ul>
 <li>MOSFET Level 1 </li>
 <li>Bipolar junction transistor, </li>
@@ -8421,7 +8421,7 @@ annotation(preferedView="info", Window(
 <li>tests</li>
 <li>not supported analyse types (AC, DCTransfer, ...)</li>
 </ul></p>
-<p><br/><br/><b>Copyright:</b> </p>
+<p><br/><br/><b>Copyright:</b></p>
 <p><br/><br/>Copyright &copy; 1998-2010, Modelica Association and Fraunhofer-Gesellschaft.</p>
 <p><i>The Modelica package is </i><i><b>free</b></i><i> software; it can be redistributed and/or modified </i></p>
 <p>under the terms of the <i><b>Modelica license</b></i><i>, see the license conditions and the </i></p>

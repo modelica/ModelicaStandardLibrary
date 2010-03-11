@@ -12061,13 +12061,13 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
   Technical Consulting &amp; Electrical Engineering<br>
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
-  </p>
+</p>
   <p>
   Dr.Christian Kral<br>
   Austrian Institute of Technology <a href=\"http://www.ait.ac.at/\">AIT</a><br>
   Giefinggasse 2<br>
   A-1210 Vienna, Austria
-  </p>
+</p>
   </dd>
 </dl>
 <p>
