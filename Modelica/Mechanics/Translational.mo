@@ -222,7 +222,7 @@ combination). In this case the system is not at rest.
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Images/Translational/Fig.translational.examples.InitialConditions.png>\"
+<IMG src=\"modelica://Modelica/Images/Translational/Fig.translational.examples.InitialConditions.png\">
 </p>
 
 
@@ -928,15 +928,15 @@ Drawing of spool.
 </p>
 
 <p>
-<<IMG SRC=../Images/Translational/PreLoad.png>
+<IMG src=\"modelica://Modelica/Images/Translational/PreLoad.png\">
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Images/Translational/PreLoad3.png>\"
+<IMG src=\"modelica://Modelica/Images/Translational/PreLoad3.png\">
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Images/Translational/PreLoad4.png>\"
+<IMG src=\"modelica://Modelica/Images/Translational/PreLoad4.png\">
 </p>
 
 <p>
@@ -944,7 +944,7 @@ Spool position s as a function of working force f.
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Images/Translational/PreLoad2.png>\"
+<IMG src=\"modelica://Modelica/Images/Translational/PreLoad2.png\">
 </p>
 </html>
 
@@ -2552,7 +2552,7 @@ The surface is fixed and there is friction between sliding mass and surface.
 The frictional force f is given for positive velocity v by:</P>
 <i><uL>
 f = F_Coulomb + F_prop * v + F_Stribeck * exp (-fexp * v)</i> </ul><br>
-<IMG src=\"modelica://Modelica/Images/Translational/Stribeck.png>\"
+<IMG src=\"modelica://Modelica/Images/Translational/Stribeck.png\">
 <br><br>
 The distance between the left and the right connector is given by parameter L.
 The position of the center of gravity, coordinate s, is in the middle between
