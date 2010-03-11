@@ -4498,43 +4498,43 @@ kappa is defined as - 1/v * der(v,p), with v = 1/d at constant temperature T.
 
     // explicit derivative functions for finite element models
     replaceable partial function density_derp_h
-      "Return density derivative wrt pressure at const specific enthalpy"
+      "Return density derivative w.r.t. pressure at const specific enthalpy"
       extends Modelica.Icons.Function;
       input ThermodynamicState state "thermodynamic state record";
-      output DerDensityByPressure ddph "Density derivative wrt pressure";
+      output DerDensityByPressure ddph "Density derivative w.r.t. pressure";
       annotation(Documentation(info="<html></html>"));
     end density_derp_h;
 
     replaceable partial function density_derh_p
-      "Return density derivative wrt specific enthalpy at constant pressure"
+      "Return density derivative w.r.t. specific enthalpy at constant pressure"
       extends Modelica.Icons.Function;
       input ThermodynamicState state "thermodynamic state record";
       output DerDensityByEnthalpy ddhp
-        "Density derivative wrt specific enthalpy";
+        "Density derivative w.r.t. specific enthalpy";
       annotation(Documentation(info="<html></html>"));
     end density_derh_p;
 
     replaceable partial function density_derp_T
-      "Return density derivative wrt pressure at const temperature"
+      "Return density derivative w.r.t. pressure at const temperature"
       extends Modelica.Icons.Function;
       input ThermodynamicState state "thermodynamic state record";
-      output DerDensityByPressure ddpT "Density derivative wrt pressure";
+      output DerDensityByPressure ddpT "Density derivative w.r.t. pressure";
       annotation(Documentation(info="<html></html>"));
     end density_derp_T;
 
     replaceable partial function density_derT_p
-      "Return density derivative wrt temperature at constant pressure"
+      "Return density derivative w.r.t. temperature at constant pressure"
       extends Modelica.Icons.Function;
       input ThermodynamicState state "thermodynamic state record";
-      output DerDensityByTemperature ddTp "Density derivative wrt temperature";
+      output DerDensityByTemperature ddTp "Density derivative w.r.t. temperature";
       annotation(Documentation(info="<html></html>"));
     end density_derT_p;
 
     replaceable partial function density_derX
-      "Return density derivative wrt mass fraction"
+      "Return density derivative w.r.t. mass fraction"
       extends Modelica.Icons.Function;
       input ThermodynamicState state "thermodynamic state record";
-      output Density[nX] dddX "Derivative of density wrt mass fraction";
+      output Density[nX] dddX "Derivative of density w.r.t. mass fraction";
       annotation(Documentation(info="<html></html>"));
     end density_derX;
 
@@ -5182,7 +5182,7 @@ one, which would require a numeric solution.
       end isobaricExpansionCoefficient;
 
       redeclare function extends density_derp_h
-      "Return density derivative wrt pressure at const specific enthalpy"
+      "Return density derivative w.r.t. pressure at const specific enthalpy"
       algorithm
         ddph := if constantJacobian then kappa_const*reference_d +
           (beta_const*(1-reference_T*beta_const))/cp_const else
@@ -5191,21 +5191,21 @@ one, which would require a numeric solution.
       end density_derp_h;
 
       redeclare function extends density_derh_p
-      "Return density derivative wrt specific enthalpy at constant pressure"
+      "Return density derivative w.r.t. specific enthalpy at constant pressure"
       algorithm
       ddhp := if constantJacobian then -beta_const*reference_d/cp_const else
               -beta_const*density(state)/cp_const;
       end density_derh_p;
 
       redeclare function extends density_derp_T
-      "Return density derivative wrt pressure at const temperature"
+      "Return density derivative w.r.t. pressure at const temperature"
       algorithm
         ddpT := if constantJacobian then kappa_const*reference_d else
               kappa_const*density(state);
       end density_derp_T;
 
       redeclare function extends density_derT_p
-      "Return density derivative wrt temperature at constant pressure"
+      "Return density derivative w.r.t. temperature at constant pressure"
       algorithm
         ddTp := if constantJacobian then -beta_const*reference_d else
              -beta_const*density(state);
@@ -7027,7 +7027,7 @@ protected
         min=SEMIN,
         max=SEMAX,
         nominal=SENOM)
-        "derivative of total enthalpy wrt component mass at constant T";
+        "derivative of total enthalpy w.r.t. component mass at constant T";
       Real dpT "derivative of pressure w.r.t. temperature";
       Real dpZ[nspecies] "derivative of pressure w.r.t. moles";
       annotation (Documentation(info="<HTML>
@@ -7208,7 +7208,7 @@ critical pressure.
 
     //   record GibbsDerivs
 
-      //     "derivatives of dimensionless Gibbs-function w.r.t dimensionless pressure and temperature"
+      //     "derivatives of dimensionless Gibbs-function w.r.t. dimensionless pressure and temperature"
     //     extends Modelica.Icons.Record;
     //     Real pi "dimensionless pressure";
     //     Real tau "dimensionless temperature";
@@ -7216,13 +7216,13 @@ critical pressure.
     //     Real gpi "derivative of g w.r.t. pi";
     //     Real gpipi "2nd derivative of g w.r.t. pi";
     //     Real gtau "derivative of g w.r.t. tau";
-    //     Real gtautau "2nd derivative of g w.r.t tau";
+    //     Real gtautau "2nd derivative of g w.r.t. tau";
     //     Real gtaupi "mixed derivative of g w.r.t. pi and tau";
     //   end GibbsDerivs;
 
     //   record HelmholtzDerivs
 
-      //     "derivatives of dimensionless Helmholtz-function w.r.t dimensionless pressuredensity and temperature"
+      //     "derivatives of dimensionless Helmholtz-function w.r.t. dimensionless pressuredensity and temperature"
     //     extends Modelica.Icons.Record;
     //     Real delta "dimensionless density";
     //     Real tau "dimensionless temperature";
@@ -7547,7 +7547,7 @@ public
       "thermodynamic base properties on the boiling curve";
     PhaseBoundaryProperties vap
       "thermodynamic base properties on the dew curve";
-    Real dpT(unit="Pa/K") "derivative of saturation pressure wrt temperature";
+    Real dpT(unit="Pa/K") "derivative of saturation pressure w.r.t. temperature";
     SI.MassFraction x "vapour mass fraction";
   end SaturationProperties;
 
@@ -7560,7 +7560,7 @@ public
     SI.Density dv "Vapour density";
     SI.SpecificEnthalpy hl "Liquid specific enthalpy";
     SI.SpecificEnthalpy hv "Vapour specific enthalpy";
-    Real dTp "derivative of temperature wrt saturation pressure";
+    Real dTp "derivative of temperature w.r.t. saturation pressure";
     Real ddldp "derivative of density along boiling curve";
     Real ddvdp "derivative of density along dew curve";
     Real dhldp "derivative of specific enthalpy along boiling curve";
@@ -7580,8 +7580,8 @@ public
     SI.SpecificHeatCapacity cv "specific heat capacity";
     SI.Density rho "density";
     SI.SpecificEntropy s "specific entropy";
-    DerPressureByTemperature pt "derivative of pressure wrt temperature";
-    DerPressureByDensity pd "derivative of pressure wrt density";
+    DerPressureByTemperature pt "derivative of pressure w.r.t. temperature";
+    DerPressureByDensity pd "derivative of pressure w.r.t. density";
     Real vt "derivative of specific volume w.r.t. temperature";
     Real vp "derivative of specific volume w.r.t. pressure";
     Real x "dryness fraction";
@@ -7601,15 +7601,15 @@ public
     SI.SpecificHeatCapacity cp "heat capacity at constant pressure";
     SI.SpecificHeatCapacity cv "heat capacity at constant volume";
     DerPressureByTemperature dpT "dp/dT derivative of saturation curve";
-    DerPressureByTemperature pt "derivative of pressure wrt temperature";
-    DerPressureByDensity pd "derivative of pressure wrt density";
+    DerPressureByTemperature pt "derivative of pressure w.r.t. temperature";
+    DerPressureByDensity pd "derivative of pressure w.r.t. density";
     Real vt(unit="m3/(kg.K)")
       "derivative of specific volume w.r.t. temperature";
     Real vp(unit="m3/(kg.Pa)") "derivative of specific volume w.r.t. pressure";
   end IF97PhaseBoundaryProperties;
 
   record GibbsDerivs
-    "derivatives of dimensionless Gibbs-function w.r.t dimensionless pressure and temperature"
+    "derivatives of dimensionless Gibbs-function w.r.t. dimensionless pressure and temperature"
 
     extends Modelica.Icons.Record;
     SI.Pressure p "pressure";
@@ -7621,12 +7621,12 @@ public
     Real gpi(unit="1") "derivative of g w.r.t. pi";
     Real gpipi(unit="1") "2nd derivative of g w.r.t. pi";
     Real gtau(unit="1") "derivative of g w.r.t. tau";
-    Real gtautau(unit="1") "2nd derivative of g w.r.t tau";
+    Real gtautau(unit="1") "2nd derivative of g w.r.t. tau";
     Real gtaupi(unit="1") "mixed derivative of g w.r.t. pi and tau";
   end GibbsDerivs;
 
   record HelmholtzDerivs
-    "derivatives of dimensionless Helmholtz-function w.r.t dimensionless pressuredensity and temperature"
+    "derivatives of dimensionless Helmholtz-function w.r.t. dimensionless pressuredensity and temperature"
     extends Modelica.Icons.Record;
     SI.Density d "density";
     SI.Temperature T "temperature";
@@ -7664,8 +7664,8 @@ public
     SI.SpecificEntropy s "specific entropy";
     SI.SpecificHeatCapacity cp "heat capacity at constant pressure";
     SI.SpecificHeatCapacity cv "heat capacity at constant volume";
-    DerPressureByTemperature pt "derivative of pressure wrt temperature";
-    DerPressureByDensity pd "derivative of pressure wrt density";
+    DerPressureByTemperature pt "derivative of pressure w.r.t. temperature";
+    DerPressureByDensity pd "derivative of pressure w.r.t. density";
   end PhaseBoundaryProperties;
 
   record NewtonDerivatives_ph
@@ -7824,7 +7824,7 @@ of differentiation.
 </p>
 
 <pre>
-Example 1: Get the derivative of specific entropy s wrt Temperature at
+Example 1: Get the derivative of specific entropy s w.r.t. Temperature at
 constant specific volume (btw identical to constant density)
 constant volume  --> last letter v
 Temperature      --> second letter T

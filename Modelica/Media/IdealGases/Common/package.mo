@@ -1429,7 +1429,7 @@ end lowPressureThermalConductivity;
   redeclare function density_derX "Return density derivative by mass fraction"
     extends Modelica.Icons.Function;
     input ThermodynamicState state "thermodynamic state record";
-    output Density[nX] dddX "Derivative of density wrt mass fraction";
+    output Density[nX] dddX "Derivative of density w.r.t. mass fraction";
   algorithm
     dddX := {-state.p/(state.T*gasConstant(state))*molarMass(state)/data[
       i].MM for i in 1:nX};

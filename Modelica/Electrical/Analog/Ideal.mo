@@ -1194,7 +1194,7 @@ behavior is <b> not </b> modelled.
       annotation(Dialog(enable=considerMagnetization));
   protected
     Modelica.SIunits.Current im1 "Magnetization current w.r.t. primary side";
-    Modelica.SIunits.MagneticFlux psim1 "Magnetic flux w.r.t primary side";
+    Modelica.SIunits.MagneticFlux psim1 "Magnetic flux w.r.t. primary side";
   equation
     im1 = i1 + i2/n;
     if considerMagnetization then

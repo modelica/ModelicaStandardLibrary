@@ -1552,7 +1552,7 @@ the chosen fluid flow and heat transfer situations (targets) is shown in the fig
    <li> Target 3: Undeveloped fluid flow and heat transfer from one side of the gap
    <li> Target 4: Undeveloped fluid flow and heat transfer from both sides of the gap
 
-The verification for all targets is shown in the following figure w.r.t the reference:
+The verification for all targets is shown in the following figure w.r.t. the reference:
 <p>
 <img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/channel/fig_channel_kc_evenGapOverall.png\">
 </p>
@@ -6825,7 +6825,7 @@ The pressure loss calculation for curved bend is further documented for the inco
         SI.ReynoldsNumber Re=max(Re_min, 4*abs(m_flow)/(PI*IN_con.d_hyd*IN_var.eta))
           "Reynolds number";
 
-        //mass flow rate boundaries for w.r.t flow regimes
+        //mass flow rate boundaries for w.r.t. flow regimes
         SI.MassFlowRate m_flow_smooth=Re_min*PI*IN_con.d_hyd*IN_var.eta/4;
 
         //SOURCE_1: p.357, diag. 6-1, sec. 2 / p.336, sec. 15 (turbulent regime + hydraulically rough):
@@ -7181,7 +7181,7 @@ symbolic / numeric approach for solving differential-algebraic equation systems.
         TYP.LocalResistanceCoefficient zeta_LOC_sharp_turb=max(MIN, A1*B1*C1)
           "Local resistance coefficient for turbulent regime (Re > Re_turb_max)";
 
-        //SOURCE_1: p.357, diag. 6-1: pressure loss boundaries for w.r.t flow regimes
+        //SOURCE_1: p.357, diag. 6-1: pressure loss boundaries for w.r.t. flow regimes
         //IN_con.R_0/d_hyd <=3
         SI.AbsolutePressure dp_lam_max=(zeta_LOC_sharp_turb + A2/Re_lam_leave)*IN_var.rho
             /2*(Re_lam_leave*IN_var.eta/(IN_var.rho*d_hyd))^2
@@ -7222,7 +7222,7 @@ symbolic / numeric approach for solving differential-algebraic equation systems.
             zeta_LOC_sharp_turb)))
           "Mean velocity in turbulent regime with independence on pressure loss coefficient (Re > Re_turb_max)";
 
-        //mean velocity under smooth conditions w.r.t flow regime
+        //mean velocity under smooth conditions w.r.t. flow regime
         SI.Velocity v_smooth=if dp < dp_lam_max then v_lam else if dp < dp_turb_min then
                   SMOOTH(
             dp_lam_max,
@@ -7713,7 +7713,7 @@ The pressure loss calculation for edged bend is further documented for the incom
         TYP.LocalResistanceCoefficient zeta_LOC=max(MIN, 0.95*sin(PI/180*delta/2)^2
              + 2.05*sin(PI/180*delta/2)^4) "Local resistance coefficient";
 
-        //SOURCE_1: p.344, sec. 39/29: Correction w.r.t effect of Reynolds number in laminar regime
+        //SOURCE_1: p.344, sec. 39/29: Correction w.r.t. effect of Reynolds number in laminar regime
         Real B=0.0292*(delta)^2 + 1.1995*delta
           "Coefficient considering effect of Reynolds number in laminar regime";
         Real exp=1 "Exponent for Reynolds number correction in laminar regime";
@@ -7740,7 +7740,7 @@ The pressure loss calculation for edged bend is further documented for the incom
             lambda_FRI_smooth))) else 1
           "Correction factor for surface roughness";
 
-        //SOURCE_2: p.208, diag. 9.3: Correction w.r.t effect of Reynolds number
+        //SOURCE_2: p.208, diag. 9.3: Correction w.r.t. effect of Reynolds number
         Real CF_Re=SMOOTH(
             Re_min,
             Re_lam_leave,
@@ -7875,7 +7875,7 @@ Note that the Darcy friction factor for a smooth surface <b> lambda_FRI_smooth <
 </p>
 
 <p>
-The correction for surface roughness through <b> CF_Fri </b> is used only in the turbulent regime, where the fluid flow is influenced by surface asperities not covered by a laminar boundary layer. Here the correction according to friction starts at <b> Re &ge; Re_lam_leave </b> according to <i>[Idelchik 2006, p. 336, sec. 15]</i>. Here the end of the laminar regime is restricted to a Reynolds number smaller than 2e3 w.r.t <i>[VDI, p. Lac 6, fig. 16]</i>.
+The correction for surface roughness through <b> CF_Fri </b> is used only in the turbulent regime, where the fluid flow is influenced by surface asperities not covered by a laminar boundary layer. Here the correction according to friction starts at <b> Re &ge; Re_lam_leave </b> according to <i>[Idelchik 2006, p. 336, sec. 15]</i>. Here the end of the laminar regime is restricted to a Reynolds number smaller than 2e3 w.r.t. <i>[VDI, p. Lac 6, fig. 16]</i>.
 </p>
 
 <p>
@@ -8055,7 +8055,7 @@ The pressure loss in dependence of the mass flow rate of water is shown for diff
         TYP.LocalResistanceCoefficient zeta_LOC=max(MIN, 0.95*sin(PI/180*delta/2)^2
              + 2.05*sin(PI/180*delta/2)^4) "Local resistance coefficient";
 
-        //SOURCE_1: p.344, sec. 39/29: Correction w.r.t effect of Reynolds number in laminar regime
+        //SOURCE_1: p.344, sec. 39/29: Correction w.r.t. effect of Reynolds number in laminar regime
         Real B=0.0292*(delta)^2 + 1.1995*delta
           "Coefficient considering effect of Reynolds number on zeta_TOT";
         Real exp=1 "Exponent for Reynolds number correction in laminar regime";
@@ -8069,7 +8069,7 @@ The pressure loss in dependence of the mass flow rate of water is shown for diff
             *v_lam^(pow)
           "Maximum pressure loss in laminar regime (Re < Re_lam_leave)";
 
-        //mean velocity under smooth conditions w.r.t flow regime
+        //mean velocity under smooth conditions w.r.t. flow regime
         SI.Velocity v_smooth=if abs(dp) > dp_lam then (2*abs(dp))^0.5*(A*C1*zeta_LOC*
             IN_var.rho)^(-0.5) else (2*(d_hyd/IN_var.eta)^exp/(A*C1*zeta_LOC*B*(
             IN_var.rho)^(1 - exp)))^(1/pow)*
@@ -8219,7 +8219,7 @@ Note that the Darcy friction factor for a smooth surface <b> lambda_FRI_smooth <
 </p>
 
 <p>
-The correction for surface roughness through <b> CF_Fri </b> is used only in the turbulent regime, where the fluid flow is influenced by surface asperities not covered by a laminar boundary layer. Here the correction according to friction starts at <b> Re &ge; Re_lam_leave </b> according to <i>[Idelchik 2006, p. 336, sec. 15]</i>. Here the end of the laminar regime is restricted to a Reynolds number smaller than 2e3 w.r.t <i>[VDI, p. Lac 6, fig. 16]</i>.
+The correction for surface roughness through <b> CF_Fri </b> is used only in the turbulent regime, where the fluid flow is influenced by surface asperities not covered by a laminar boundary layer. Here the correction according to friction starts at <b> Re &ge; Re_lam_leave </b> according to <i>[Idelchik 2006, p. 336, sec. 15]</i>. Here the end of the laminar regime is restricted to a Reynolds number smaller than 2e3 w.r.t. <i>[VDI, p. Lac 6, fig. 16]</i>.
 </p>
 
 <p>
@@ -18421,7 +18421,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
             "true == A_cross_total = 2*A_cross_branch | false == A_cross_total > 2*A_cross_branch"
             annotation (Dialog(group="T-junction"));
           Boolean velocity_reference_branches=true
-            "true == pressure loss coefficents w.r.t. velocity in each passage | false == w.r.t velocity in total passage"
+            "true == pressure loss coefficents w.r.t. velocity in each passage | false == w.r.t. velocity in total passage"
             annotation (Dialog(group="T-junction"));
 
           Integer alpha=90 "Angle of branching" annotation (Dialog(group="T-junction"));

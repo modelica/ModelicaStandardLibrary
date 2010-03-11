@@ -7681,7 +7681,7 @@ Induced armature voltage is calculated from flux times angular velocity.
             fillPattern=FillPattern.Solid,
             textString="E")}),
            Documentation(info="<HTML>
-Model to compound the shunt excitation current and the series excitation current to the total excitation current w.r.t shunt excitation.
+Model to compound the shunt excitation current and the series excitation current to the total excitation current w.r.t. shunt excitation.
 This model is intended to be placed between shunt and series excitation pins and the airgap;
 the connection to airgap has to be grounded at one point.
 </HTML>"));
