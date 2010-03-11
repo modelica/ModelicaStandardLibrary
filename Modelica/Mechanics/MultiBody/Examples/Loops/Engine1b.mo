@@ -108,7 +108,7 @@ not numerically as in this model (Engine1b).
 An animation of this example is shown in the figure below.
 </p>
 <p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Loops/Engine.png\" ALT=\"model Examples.Loops.Engine\">
+<IMG src=\"modelica://Modelica/Images/MultiBody/Examples/Loops/Engine.png\" ALT=\"model Examples.Loops.Engine\">
 </p>
 </html>"));
 end Engine1b;

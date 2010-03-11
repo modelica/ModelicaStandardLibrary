@@ -57,7 +57,7 @@ not numerically as in
 An animation of this example is shown in the figure below.
 </p>
 <p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Loops/Engine.png\" ALT=\"model Examples.Loops.Engine\">
+<IMG src=\"modelica://Modelica/Images/MultiBody/Examples/Loops/Engine.png\" ALT=\"model Examples.Loops.Engine\">
 </p>
 </html>"));
 end Engine1b_analytic;

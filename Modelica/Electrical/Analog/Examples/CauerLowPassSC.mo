@@ -57,7 +57,7 @@ equation
             graphics),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Bitmap(extent={{-62,6},{-62,14}}, fileName=""),
+          Bitmap(extent={{-62,6},{-62,14}}, fileName="modelica://Modelica/"),
           Rectangle(
             extent={{-80,32},{80,-30}},
             pattern=LinePattern.None,
@@ -144,7 +144,7 @@ equation
                                                      graphics),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Bitmap(extent={{-62,4},{-62,12}}, fileName=""),
+          Bitmap(extent={{-62,4},{-62,12}}, fileName="modelica://Modelica/"),
           Rectangle(
             extent={{-80,30},{80,-32}},
             pattern=LinePattern.None,

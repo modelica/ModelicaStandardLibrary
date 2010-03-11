@@ -83,7 +83,7 @@ equation
 This is a third version of the \"four-bar\" mechanism, see figure:
 </p>
 <p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Loops/Fourbar_analytic.png\" ALT=\"model Examples.Loops.Fourbar_analytic\">
+<IMG src=\"modelica://Modelica/Images/MultiBody/Examples/Loops/Fourbar_analytic.png\" ALT=\"model Examples.Loops.Fourbar_analytic\">
 </p>
 <p>
 In this case

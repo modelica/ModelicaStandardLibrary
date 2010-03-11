@@ -15915,7 +15915,7 @@ within &infin; > y > -1/e.  The relative deviation of this approximation for lam
 </p>
 
 <p>
-<img src=\"../pictures/utilities/LambertW_deviation.png\">
+<img src=\"modelica://Modelica/pictures/utilities/LambertW_deviation.png\">
 </p>
 
 <p>
@@ -17424,8 +17424,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics), Diagram(coordinateSystem(
-                  preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics=
-                 {
+                  preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                 Rectangle(
                   extent={{-100,60},{100,-60}},
                   lineColor={0,0,0},
@@ -17535,8 +17534,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics), Diagram(coordinateSystem(
-                  preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics=
-                 {
+                  preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                 Rectangle(
                   extent={{-100,60},{100,-60}},
                   lineColor={0,0,0},

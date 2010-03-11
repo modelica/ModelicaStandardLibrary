@@ -240,7 +240,7 @@ Pressure dynamics becomes present with a compressible medium model (e.g. Standar
 </p>
 
 <p align=\"center\">
-<img src=\"../Images/Fluid/Examples/IncompressibleFluidNetwork.png\" border=\"1\">
+<img src=\"modelica://Modelica/Images/Fluid/Examples/IncompressibleFluidNetwork.png\" border=\"1\">
 </p>
 
 </html>"),

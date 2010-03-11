@@ -149,7 +149,7 @@ derivative would be a dirac impulse.
 </p>
 
 <p align=\"center\">
-<img src=\"../Images/Fluid/Examples/BranchingDynamicPipes.png\" border=\"1\">
+<img src=\"modelica://Modelica/Images/Fluid/Examples/BranchingDynamicPipes.png\" border=\"1\">
 </p>
 </html>"),    Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
             -100},{100,100}}),

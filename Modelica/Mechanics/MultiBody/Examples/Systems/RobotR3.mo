@@ -358,7 +358,7 @@ load inertia.
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Bitmap(extent={{-75.5,98.25},{87,-96.75}}, fileName=
-                "../../../../Images/MultiBody/Examples/Systems/robot_kr15.bmp"),
+                "modelica://Modelica/Images/MultiBody/Examples/Systems/robot_kr15.bmp"),
           Text(
             extent={{-111.5,130},{108.5,100}},
             textString="%name",
@@ -380,7 +380,7 @@ is used. Translate and simulate with the default settings
 to plot variables.
 </p>
 <p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Systems/r3_fullRobot.png\" ALT=\"model Examples.Loops.Systems.RobotR3.fullRobot\">
+<IMG src=\"modelica://Modelica/Images/MultiBody/Examples/Systems/r3_fullRobot.png\" ALT=\"model Examples.Loops.Systems.RobotR3.fullRobot\">
 </p>
 </HTML>"));
   end fullRobot;
@@ -1972,7 +1972,7 @@ This model contains the mechanical components of the r3 robot
               textString="6",
               lineColor={0,0,255}),
             Bitmap(extent={{-130,195},{195,-195}}, fileName=
-                  "../../../../Images/MultiBody/Examples/Systems/robot_kr15.bmp")}),
+                  "modelica://Modelica/Images/MultiBody/Examples/Systems/robot_kr15.bmp")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-200,-200},{200,200}},
@@ -2052,7 +2052,7 @@ models individually before composing them together.
 Furthermore, it is shown how CAD data can be used
 for animation.
 </p>
-<IMG SRC=\"../Images/MultiBody/Examples/Systems/robot_kr15.bmp\"
+<IMG src=\"modelica://Modelica/Images/MultiBody/Examples/Systems/robot_kr15.bmp\"
 ALT=\"model Examples.Systems.RobotR3\">
 <p>
 The following models are available:

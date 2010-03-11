@@ -96,7 +96,7 @@ equation
 This is a second version of the \"four-bar\" mechanism, see figure:
 </p>
 <p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Loops/Fourbar2.png\" ALT=\"model Examples.Loops.Fourbar2\">
+<IMG src=\"modelica://Modelica/Images/MultiBody/Examples/Loops/Fourbar2.png\" ALT=\"model Examples.Loops.Fourbar2\">
 </p>
 <p>
 In this case

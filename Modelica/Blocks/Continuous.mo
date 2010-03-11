@@ -1616,7 +1616,7 @@ different orders are shown in the next figure:
 </p>
 
 <p>
-<img src=\"../Images/Blocks/Butterworth.png\">
+<img src=\"modelica://Modelica/Images/Blocks/Butterworth.png\">
 </p>
 
 <p>
@@ -1765,11 +1765,11 @@ The critical damping filter is defined as
 </pre>
 
 <p>
-<img src=\"../Images/Blocks/CriticalDampingNormalized.png\">
+<img src=\"modelica://Modelica/Images/Blocks/CriticalDampingNormalized.png\">
 </p>
 
 <p>
-<img src=\"../Images/Blocks/CriticalDampingNonNormalized.png\">
+<img src=\"modelica://Modelica/Images/Blocks/CriticalDampingNonNormalized.png\">
 </p>
 
 </html>

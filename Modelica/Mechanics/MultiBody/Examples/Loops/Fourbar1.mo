@@ -126,7 +126,7 @@ to be determined. In this case, the initial condition of the angular velocity
 of revolute joint j1 is set to 300 deg/s in order to drive this loop.
 </p>
 <p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Loops/Fourbar1.png\" ALT=\"model Examples.Loops.Fourbar1\">
+<IMG src=\"modelica://Modelica/Images/MultiBody/Examples/Loops/Fourbar1.png\" ALT=\"model Examples.Loops.Fourbar1\">
 </p>
 </html>
 "), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{

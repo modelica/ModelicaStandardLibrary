@@ -661,7 +661,7 @@ package AST_BatchPlant
       Documentation(info="<html>
 
 <p align=\"center\">
-<img src=\"../Images/Fluid/Examples/BatchPlant_StandardWater.png\" border=\"1\">
+<img src=\"modelica://Modelica/Images/Fluid/Examples/BatchPlant_StandardWater.png\" border=\"1\">
 </p>
 
 </html>"));
@@ -2658,7 +2658,7 @@ below.
 </p>
 
 <p align=\"center\">
-<img src=\"../Images/Fluid/Examples/AST_BatchPlant1.jpg\" border=\"1\">
+<img src=\"modelica://Modelica/Images/Fluid/Examples/AST_BatchPlant1.jpg\" border=\"1\">
 </p>
 
 <p>
@@ -2666,7 +2666,7 @@ The flow sheet diagram is shown in the next figure.
 </p>
 
 <p align=\"center\">
-<img src=\"../Images/Fluid/Examples/AST_BatchPlant2.png\" border=\"1\">
+<img src=\"modelica://Modelica/Images/Fluid/Examples/AST_BatchPlant2.png\" border=\"1\">
 </p>
 
 <p>

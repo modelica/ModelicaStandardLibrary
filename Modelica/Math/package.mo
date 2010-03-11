@@ -97,7 +97,7 @@ With the optional
 second argument \"p\", any other p-norm can be computed:
 </p>
 <center>
-<IMG SRC=\"../Images/Math/vectorNorm.png\" ALT=\"function Vectors.norm\">
+<IMG src=\"modelica://Modelica/Images/Math/vectorNorm.png\" ALT=\"function Vectors.norm\">
 </center>
 <p>
 Besides the Euclidean norm (p=2), also the 1-norm and the
@@ -3792,7 +3792,7 @@ This function returns y = sin(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 
 <p>
-<img src=\"../Images/Math/sin.png\">
+<img src=\"modelica://Modelica/Images/Math/sin.png\">
 </p>
 </html>"), Library="ModelicaExternalC");
 end sin;
@@ -3868,7 +3868,7 @@ This function returns y = cos(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 
 <p>
-<img src=\"../Images/Math/cos.png\">
+<img src=\"modelica://Modelica/Images/Math/cos.png\">
 </p>
 </html>"), Library="ModelicaExternalC");
 end cos;
@@ -3947,7 +3947,7 @@ This function returns y = tan(u), with -&infin; &lt; u &lt; &infin;
 </p>
 
 <p>
-<img src=\"../Images/Math/tan.png\">
+<img src=\"modelica://Modelica/Images/Math/tan.png\">
 </p>
 </html>"), Library="ModelicaExternalC");
 end tan;
@@ -4027,7 +4027,7 @@ This function returns y = asin(u), with -1 &le; u &le; +1:
 </p>
 
 <p>
-<img src=\"../Images/Math/asin.png\">
+<img src=\"modelica://Modelica/Images/Math/asin.png\">
 </p>
 </html>"), Library="ModelicaExternalC");
 end asin;
@@ -4103,7 +4103,7 @@ This function returns y = acos(u), with -1 &le; u &le; +1:
 </p>
 
 <p>
-<img src=\"../Images/Math/acos.png\">
+<img src=\"modelica://Modelica/Images/Math/acos.png\">
 </p>
 </html>"), Library="ModelicaExternalC");
 end acos;
@@ -4173,7 +4173,7 @@ This function returns y = atan(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 
 <p>
-<img src=\"../Images/Math/atan.png\">
+<img src=\"modelica://Modelica/Images/Math/atan.png\">
 </p>
 </html>"), Library="ModelicaExternalC");
 end atan;
@@ -4272,7 +4272,7 @@ u1 = sin(y) and u2 = cos(y):
 </p>
 
 <p>
-<img src=\"../Images/Math/atan2.png\">
+<img src=\"modelica://Modelica/Images/Math/atan2.png\">
 </p>
 
 </HTML>
@@ -4377,7 +4377,7 @@ shall be returned:
 </p>
 
 <p>
-<img src=\"../Images/Math/atan3.png\">
+<img src=\"modelica://Modelica/Images/Math/atan3.png\">
 </p>
 
 </HTML>
@@ -4461,7 +4461,7 @@ This function returns y = sinh(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 
 <p>
-<img src=\"../Images/Math/sinh.png\">
+<img src=\"modelica://Modelica/Images/Math/sinh.png\">
 </p>
 </html>"), Library="ModelicaExternalC");
 end sinh;
@@ -4543,7 +4543,7 @@ This function returns y = cosh(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 
 <p>
-<img src=\"../Images/Math/cosh.png\">
+<img src=\"modelica://Modelica/Images/Math/cosh.png\">
 </p>
 </html>"), Library="ModelicaExternalC");
 end cosh;
@@ -4613,7 +4613,7 @@ This function returns y = tanh(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 
 <p>
-<img src=\"../Images/Math/tanh.png\">
+<img src=\"modelica://Modelica/Images/Math/tanh.png\">
 </p>
 </html>"), Library="ModelicaExternalC");
 end tanh;
@@ -4697,7 +4697,7 @@ asinh(u) (-&infin; &lt; u &lt; &infin;):
 </p>
 
 <p>
-<img src=\"../Images/Math/asinh.png\">
+<img src=\"modelica://Modelica/Images/Math/asinh.png\">
 </p>
 </html>"));
 end asinh;
@@ -4792,7 +4792,7 @@ can become close to 1:
 </p>
 
 <p>
-<img src=\"../Images/Math/acosh.png\">
+<img src=\"modelica://Modelica/Images/Math/acosh.png\">
 </p>
 </html>"));
 end acosh;
@@ -4872,7 +4872,7 @@ This function returns y = exp(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 
 <p>
-<img src=\"../Images/Math/exp.png\">
+<img src=\"modelica://Modelica/Images/Math/exp.png\">
 </p>
 </html>"), Library="ModelicaExternalC");
 end exp;
@@ -4954,7 +4954,7 @@ with u &gt; 0:
 </p>
 
 <p>
-<img src=\"../Images/Math/log.png\">
+<img src=\"modelica://Modelica/Images/Math/log.png\">
 </p>
 </html>"), Library="ModelicaExternalC");
 end log;
@@ -5036,7 +5036,7 @@ with u &gt; 0:
 </p>
 
 <p>
-<img src=\"../Images/Math/log10.png\">
+<img src=\"modelica://Modelica/Images/Math/log10.png\">
 </p>
 </html>"), Library="ModelicaExternalC");
 end log10;

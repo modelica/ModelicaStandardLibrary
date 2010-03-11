@@ -142,7 +142,7 @@ to investigate a real controller or with a Pump with rotational shaft to investi
 </p>
 
 <p align=\"center\">
-<img src=\"../Images/Fluid/Examples/InverseParametrization.png\" border=\"1\">
+<img src=\"modelica://Modelica/Images/Fluid/Examples/InverseParametrization.png\" border=\"1\">
 </p>
 
 </html>"));

@@ -418,7 +418,7 @@ component is shown. The light blue coordinate system is
 frame_a and the yellow arrow is the animated sensor.
 </p>
 <p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Sensors/AbsoluteSensor.png\">
+<IMG src=\"modelica://Modelica/Images/MultiBody/Sensors/AbsoluteSensor.png\">
 </p>
 
 <p>
@@ -922,7 +922,7 @@ frame_a, the dark blue coordinate system is frame_b, and
 the yellow arrow is the animated sensor.
 </p>
 <p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Sensors/RelativeSensor.png\">
+<IMG src=\"modelica://Modelica/Images/MultiBody/Sensors/RelativeSensor.png\">
 </p>
 <p>
 Note, derivatives
@@ -1049,8 +1049,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
         smooth=Smooth.None));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics), Icon(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics=
-           {
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{70,0},{100,0}},
             color={0,0,127},
@@ -1198,8 +1197,7 @@ computed as:
         smooth=Smooth.None));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}),                                              graphics), Icon(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics=
-           {
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{70,0},{100,0}},
             color={0,0,127},
@@ -1535,8 +1533,7 @@ computed as:
         smooth=Smooth.None));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics), Icon(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics=
-           {
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{0,-70},{0,-100}},
             color={0,0,127},
@@ -1910,8 +1907,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
         smooth=Smooth.None));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics), Icon(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics=
-           {
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{0,-70},{0,-100}},
             color={0,0,127},
@@ -2067,7 +2063,7 @@ frame_a, the dark blue coordinate system is frame_b, and
 the yellow arrow is the animated sensor.
 </p>
 <p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Sensors/Distance.png\">
+<IMG src=\"modelica://Modelica/Images/MultiBody/Sensors/Distance.png\">
 </p>
 <p>
 If the distance is smaller as parameter <b>s_small</b> (in the \"advanced\" menu),
@@ -2211,7 +2207,7 @@ and the green arrow is the cut force acting at frame_b and
 with negative sign at frame_a.
 </p>
 <p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Sensors/CutForce.png\">
+<IMG src=\"modelica://Modelica/Images/MultiBody/Sensors/CutForce.png\">
 </p>
 </HTML>"));
   end CutForce;
@@ -2340,7 +2336,7 @@ and the green arrow is the cut torque acting at frame_b and
 with negative sign at frame_a.
 </p>
 <p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Sensors/CutTorque.png\">
+<IMG src=\"modelica://Modelica/Images/MultiBody/Sensors/CutTorque.png\">
 </p>
 </HTML>"));
   end CutTorque;
@@ -2526,7 +2522,7 @@ respectively, acting at frame_b and
 with negative sign at frame_a.
 </p>
 <p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Sensors/CutForceAndTorque.png\">
+<IMG src=\"modelica://Modelica/Images/MultiBody/Sensors/CutForceAndTorque.png\">
 </p>
 </HTML>"));
   end CutForceAndTorque;
@@ -2761,8 +2757,7 @@ transformed output vector as \"Real r_out[3]\";
         smooth=Smooth.None));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics), Icon(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics=
-           {
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{0,-70},{0,-100}},
             color={0,0,127},

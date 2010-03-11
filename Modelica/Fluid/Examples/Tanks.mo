@@ -103,7 +103,7 @@ package Tanks "Library demonstrating the usage of the tank model"
       Documentation(info="<html>
 
 <p align=\"center\">
-<img src=\"../Images/Fluid/Examples/ThreeTanks.png\" border=\"1\">
+<img src=\"modelica://Modelica/Images/Fluid/Examples/ThreeTanks.png\" border=\"1\">
 </p>
 
 </html>"));
@@ -247,7 +247,7 @@ simulation accuracy could be increased in order to avoid errors.
 </p>
 
 <p align=\"center\">
-<img src=\"../Images/Fluid/Examples/TanksWithOverflow.png\" border=\"1\">
+<img src=\"modelica://Modelica/Images/Fluid/Examples/TanksWithOverflow.png\" border=\"1\">
 </p>
 
 </html>"));
@@ -311,7 +311,7 @@ simulation accuracy could be increased in order to avoid errors.
       Documentation(info="<html>
 
 <p align=\"center\">
-<img src=\"../Images/Fluid/Examples/EmptyTanks.png\" border=\"1\">
+<img src=\"modelica://Modelica/Images/Fluid/Examples/EmptyTanks.png\" border=\"1\">
 </p>
 </html>"));
   end EmptyTanks;

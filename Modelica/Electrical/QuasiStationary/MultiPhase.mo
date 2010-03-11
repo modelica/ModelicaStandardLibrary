@@ -40,7 +40,7 @@ package MultiPhase "Multiphase AC components"
             Text(
               extent={{-100,-110},{100,-70}},
               lineColor={0,0,0},
-              textString=                            "m=%m"),
+              textString =                           "m=%m"),
             Line(points={{-90,0},{-40,0}}, color={0,0,255}),
             Line(points={{80,0},{90,0}}, color={0,0,255})}),
       Documentation(info="<html>
@@ -86,7 +86,7 @@ Star (wye) connection of a multi phase circuit. The potentials at the star point
             Text(
               extent={{-150,60},{150,120}},
               lineColor={0,0,255},
-              textString=                         "%name"),
+              textString =                        "%name"),
             Line(
               points={{-40,68},{-40,-70},{79,0},{-40,68},{-40,67}},
               color={0,0,255},
@@ -94,7 +94,7 @@ Star (wye) connection of a multi phase circuit. The potentials at the star point
             Text(
               extent={{-100,-110},{100,-70}},
               lineColor={0,0,0},
-              textString=                            "m=%m"),
+              textString =                           "m=%m"),
             Line(points={{-90,0},{-40,0}}, color={0,0,255}),
             Line(points={{80,0},{90,0}}, color={0,0,255})}),
       Documentation(info="<html>
@@ -142,7 +142,7 @@ Delta (polygon) connection of a multi phase circuit.
             Text(
               extent={{-100,-60},{100,-100}},
               lineColor={0,0,0},
-              textString=                         "k = %k")}),
+              textString =                        "k = %k")}),
       Documentation(info="<html>
 <p>
 Connects the single phase (positive) pin <i>k</i> of the multi phase (positive) plug to a single phase (positive) pin.
@@ -190,7 +190,7 @@ Connects the single phase (positive) pin <i>k</i> of the multi phase (positive) 
             Text(
               extent={{-100,-60},{100,-100}},
               lineColor={0,0,0},
-              textString=                         "k = %k")}),
+              textString =                        "k = %k")}),
       Documentation(info="<html>
 <p>
 Connects the single phase (negative) pin <i>k</i> of the multi phase (negative) plug to a single phase (negative) pin.

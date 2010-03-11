@@ -238,7 +238,7 @@ could be additionally introduced to model the fitting between the heater and the
 </p>
 
 <p align=\"center\">
-<img src=\"../Images/Fluid/Examples/HeatingSystem.png\" border=\"1\">
+<img src=\"modelica://Modelica/Images/Fluid/Examples/HeatingSystem.png\" border=\"1\">
 </p>
 
 </html>

@@ -190,7 +190,7 @@ animation view.
 </p>
 
 <p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Loops/PlanarLoops2.png\" ALT=\"model Examples.Loops.PlanarLoops2\">
+<IMG src=\"modelica://Modelica/Images/MultiBody/Examples/Loops/PlanarLoops2.png\" ALT=\"model Examples.Loops.PlanarLoops2\">
 </p>
 
 </html>"),

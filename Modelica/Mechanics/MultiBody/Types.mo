@@ -77,7 +77,7 @@ are shown for a cylinder:
 </p>
 
 <p>
-<img src=\"../Images/MultiBody/Visualizers/SpecularCoefficient.png\"
+<img src=\"modelica://Modelica/Images/MultiBody/Visualizers/SpecularCoefficient.png\"
 </p>
 </html>"));
   type ShapeType = Modelica.Icons.TypeString
@@ -108,7 +108,7 @@ visual object as parameter String. Usually, \"shapeType\" is used
 as instance name. The following
 values for shapeType are possible, e.g., shapeType=\"box\":
 </p>
-<IMG SRC=\"../Images/MultiBody/Shape.png\" ALT=\"model Visualizers.FixedShape\">
+<IMG src=\"modelica://Modelica/Images/MultiBody/Shape.png\" ALT=\"model Visualizers.FixedShape\">
 <p>&nbsp;<br>
 The dark blue arrows in the figure above are directed along
 variable <b>lengthDirection</b>. The light blue arrows are directed

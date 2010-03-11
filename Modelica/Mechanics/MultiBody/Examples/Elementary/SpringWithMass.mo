@@ -42,7 +42,7 @@ In the animation, this point mass is represented by a small,
 light blue, sphere.
 </p>
 <p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Elementary/SpringWithMass.png\"
+<IMG src=\"modelica://Modelica/Images/MultiBody/Examples/Elementary/SpringWithMass.png\"
 ALT=\"model Examples.Elementary.SpringWithMass\">
 </p>
 </html>"));

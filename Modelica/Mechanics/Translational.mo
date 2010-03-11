@@ -222,7 +222,7 @@ combination). In this case the system is not at rest.
 </p>
 
 <p>
-<IMG SRC=../Images/Translational/Fig.translational.examples.InitialConditions.png>
+<IMG src=\"modelica://Modelica/Images/Translational/Fig.translational.examples.InitialConditions.png>\"
 </p>
 
 
@@ -932,11 +932,11 @@ Drawing of spool.
 </p>
 
 <p>
-<IMG SRC=../Images/Translational/PreLoad3.png>
+<IMG src=\"modelica://Modelica/Images/Translational/PreLoad3.png>\"
 </p>
 
 <p>
-<IMG SRC=../Images/Translational/PreLoad4.png>
+<IMG src=\"modelica://Modelica/Images/Translational/PreLoad4.png>\"
 </p>
 
 <p>
@@ -944,7 +944,7 @@ Spool position s as a function of working force f.
 </p>
 
 <p>
-<IMG SRC=../Images/Translational/PreLoad2.png>
+<IMG src=\"modelica://Modelica/Images/Translational/PreLoad2.png>\"
 </p>
 </html>
 
@@ -1721,7 +1721,7 @@ where the different effects are visualized:
 </ol>
 
 <p align=\"center\">
-<img src=\"../Images/Translational/ElastoGap1.png\">
+<img src=\"modelica://Modelica/Images/Translational/ElastoGap1.png\">
 </p>
 </html>"),        Diagram(coordinateSystem(
           preserveAspectRatio=false,
@@ -2552,7 +2552,7 @@ The surface is fixed and there is friction between sliding mass and surface.
 The frictional force f is given for positive velocity v by:</P>
 <i><uL>
 f = F_Coulomb + F_prop * v + F_Stribeck * exp (-fexp * v)</i> </ul><br>
-<IMG SRC=../Images/Translational/Stribeck.png>
+<IMG src=\"modelica://Modelica/Images/Translational/Stribeck.png>\"
 <br><br>
 The distance between the left and the right connector is given by parameter L.
 The position of the center of gravity, coordinate s, is in the middle between
@@ -2805,7 +2805,7 @@ in the following way:
 <p>
 An example is given in the next figure
 </p>
-<IMG SRC=\"../Images/Translational/relativeStates2.png\" ALT=\"relativeStates2\">
+<IMG src=\"modelica://Modelica/Images/Translational/relativeStates2.png\" ALT=\"relativeStates2\">
 <p>
 Here, the relative position and the relative velocity between
 the two masses are used as state variables. Additionally, the

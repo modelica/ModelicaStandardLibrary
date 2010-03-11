@@ -66,7 +66,7 @@ that cannot be changed during simulation.
 The following shapes are currently supported via
 parameter <b>shapeType</b> (e.g., shapeType=\"box\"):<br>&nbsp;
 </p>
-<IMG SRC=\"../Images/MultiBody/Shape.png\" ALT=\"model Visualizers.FixedShape\">
+<IMG src=\"modelica://Modelica/Images/MultiBody/Shape.png\" ALT=\"model Visualizers.FixedShape\">
 <p>&nbsp;<br>
 The dark blue arrows in the figure above are directed along
 variable <b>lengthDirection</b>. The light blue arrows are directed
@@ -289,7 +289,7 @@ that cannot be changed during simulation.
 The following shapes are currently supported via
 parameter <b>shapeType</b> (e.g., shapeType=\"box\"):<br>&nbsp;
 </p>
-<IMG SRC=\"../Images/MultiBody/Shape.png\" ALT=\"model Visualizers.FixedShape2\">
+<IMG src=\"modelica://Modelica/Images/MultiBody/Shape.png\" ALT=\"model Visualizers.FixedShape2\">
 <p>&nbsp;<br>
 The dark blue arrows in the figure above are directed along
 variable <b>lengthDirection</b>. The light blue arrows are directed
@@ -355,7 +355,7 @@ frame_a and frame_b are shown. The origin of frame_b
 with respect to frame_a is specified via parameter
 vector <b>r</b>.
 </p>
-<IMG SRC=\"../Images/MultiBody/FixedTranslation.png\" ALT=\"Parts.FixedTranslation\">
+<IMG src=\"modelica://Modelica/Images/MultiBody/FixedTranslation.png\" ALT=\"Parts.FixedTranslation\">
 </HTML>
 "));
   end FixedShape2;
@@ -558,7 +558,7 @@ its coordinate system <b>frame_a</b> together with appropriate axes
 labels. A typical example is shown in the following figure:
 <br>&nbsp;
 </p>
-<IMG SRC=\"../Images/MultiBody/FixedFrame.png\" ALT=\"model Visualizers.FixedFrame\">
+<IMG src=\"modelica://Modelica/Images/MultiBody/FixedFrame.png\" ALT=\"model Visualizers.FixedFrame\">
 <p>
 The sizes of the axes, the axes colors and the specular coefficient
 (= reflection factor for
@@ -661,7 +661,7 @@ Model <b>FixedArrow</b> defines an arrow that is
 shown at the location of its frame_a.
 <br>&nbsp;
 </p>
-<IMG SRC=\"../Images/MultiBody/Visualizers/Arrow.png\" ALT=\"model Visualizers.FixedArrow\">
+<IMG src=\"modelica://Modelica/Images/MultiBody/Visualizers/Arrow.png\" ALT=\"model Visualizers.FixedArrow\">
 <p>
 The direction of the arrow specified with vector
 <b>n</b> is with respect to frame_a, i.e., the local frame to which the
@@ -744,7 +744,7 @@ position vector from the tail to the head of the arrow,
 resolved in frame_a, is defined via the signal vector of
 the connector <b>r_head</b> (Real r_head[3]):<br>&nbsp;
 </p>
-<IMG SRC=\"../Images/MultiBody/Visualizers/Arrow.png\" ALT=\"model Visualizers.SignalArrow\">
+<IMG src=\"modelica://Modelica/Images/MultiBody/Visualizers/Arrow.png\" ALT=\"model Visualizers.SignalArrow\">
 <p>
 The tail of the arrow is defined with parameter <b>r_tail</b>
 with respect to frame_a (vector from the origin of frame_a to the arrow tail).
@@ -903,7 +903,7 @@ This shape visualizes the x-y plane by a box
 Model <b>Arrow</b> defines an arrow that is dynamically
 visualized at the defined location (see variables below).
 </p>
-<IMG SRC=\"../Images/MultiBody/Visualizers/Arrow.png\" ALT=\"model Visualizers.Advanced.Arrow\">
+<IMG src=\"modelica://Modelica/Images/MultiBody/Visualizers/Arrow.png\" ALT=\"model Visualizers.Advanced.Arrow\">
 <p>
 The variables under heading <b>Parameters</b> below
 are declared as (time varying) <b>input</b> variables.
@@ -1046,7 +1046,7 @@ library (will be replaced by a color editor).
 Model <b>DoubleArrow</b> defines a double arrow that is dynamically
 visualized at the defined location (see variables below).
 </p>
-<IMG SRC=\"../Images/MultiBody/Visualizers/DoubleArrow.png\" ALT=\"model Visualizers.Advanced.DoubleArrow\">
+<IMG src=\"modelica://Modelica/Images/MultiBody/Visualizers/DoubleArrow.png\" ALT=\"model Visualizers.Advanced.DoubleArrow\">
 <p>
 The variables under heading <b>Parameters</b> below
 are declared as (time varying) <b>input</b> variables.
@@ -1121,7 +1121,7 @@ parameter <b>shapeType</b> (e.g., shapeType=\"box\"):<br>&nbsp;
 </p>
 
 <p>
-<IMG SRC=\"../Images/MultiBody/Shape.png\" ALT=\"model Visualizers.FixedShape\">
+<IMG src=\"modelica://Modelica/Images/MultiBody/Shape.png\" ALT=\"model Visualizers.FixedShape\">
 </p>
 
 <p>&nbsp;<br>
@@ -1216,18 +1216,18 @@ since they all have frame connectors).
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow\">Arrow</a></td>
       <td valign=\"top\">Visualizing an arrow where all parts of the arrow can vary dynamically:<br>
-      <IMG SRC=\"../Images/MultiBody/Visualizers/Arrow.png\" ALT=\"model Visualizers.Advanced.Arrow\">
+      <IMG src=\"modelica://Modelica/Images/MultiBody/Visualizers/Arrow.png\" ALT=\"model Visualizers.Advanced.Arrow\">
       </td>
   </tr>
   <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow\">DoubleArrow</a></td>
       <td valign=\"top\">Visualizing a double arrow where all parts of the arrow can vary dynamically:<br>
-      <IMG SRC=\"../Images/MultiBody/Visualizers/DoubleArrow.png\" ALT=\"model Visualizers.Advanced.DoubleArrow\">
+      <IMG src=\"modelica://Modelica/Images/MultiBody/Visualizers/DoubleArrow.png\" ALT=\"model Visualizers.Advanced.DoubleArrow\">
       </td>
   </tr>
   <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Shape</a></td>
       <td valign=\"top\">Animation shape of a part with dynamically varying sizes.
       The following shape types are supported:<br>&nbsp;<br>
-      <IMG SRC=\"../Images/MultiBody/FixedShape.png\" ALT=\"model Visualizers.Advanced.Shape\">
+      <IMG src=\"modelica://Modelica/Images/MultiBody/FixedShape.png\" ALT=\"model Visualizers.Advanced.Shape\">
       </td>
   </tr>
 </table>
@@ -1329,7 +1329,7 @@ is represented by a cylinder. This allows to define simple shaped
 3-dimensional characters. An example is shown in the
 following figure:<br>&nbsp;
 </p>
-<IMG SRC=\"../Images/MultiBody/FixedLines.png\" ALT=\"model Visualizers.FixedLines\">
+<IMG src=\"modelica://Modelica/Images/MultiBody/FixedLines.png\" ALT=\"model Visualizers.FixedLines\">
 <p>&nbsp;<br>
 The two letters \"x\" and \"y\" are constructed with 4 lines
 by providing the following data for parameter <b>lines</b>
@@ -1445,7 +1445,7 @@ is represented by a cylinder. This allows, e.g., to define simple shaped
 it is more convenient to use model <b>Visualizers.FixedLines</b>.
 An example for dynamic lines is shown in the following figure:<br>&nbsp;
 </p>
-<IMG SRC=\"../Images/MultiBody/FixedLines.png\" ALT=\"model Visualizers.FixedLines\">
+<IMG src=\"modelica://Modelica/Images/MultiBody/FixedLines.png\" ALT=\"model Visualizers.FixedLines\">
 <p>&nbsp;<br>
 The two letters \"x\" and \"y\" are constructed with 4 lines
 by providing the following data for input variable <b>lines</b>
@@ -1490,12 +1490,12 @@ animation features of the MultiBody library.
       <td valign=\"top\">Animation shape of a part with fixed sizes. FixedShape2 has additionally
           a frame_b for easier connection to further visual objects.
           The following shape types are supported:<br>&nbsp;<br>
-      <IMG SRC=\"../Images/MultiBody/FixedShape.png\" ALT=\"model Visualizers.FixedShape\">
+      <IMG src=\"modelica://Modelica/Images/MultiBody/FixedShape.png\" ALT=\"model Visualizers.FixedShape\">
       </td>
   </tr>
   <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.FixedFrame\">FixedFrame</a></td>
       <td valign=\"top\">Visualizing a coordinate system including axes labels with fixed sizes:<br>
-      <IMG SRC=\"../Images/MultiBody/FixedFrame2.png\"
+      <IMG src=\"modelica://Modelica/Images/MultiBody/FixedFrame2.png\"
        ALT=\"model Visualizers.FixedFrame\">
       </td>
   </tr>
@@ -1505,7 +1505,7 @@ animation features of the MultiBody library.
       a fixed sized arrow, model \"SignalArrow\" provides
       an arrow with dynamically varying length that is defined
       by an input signal vector:<br>
-      <IMG SRC=\"../Images/MultiBody/Visualizers/Arrow.png\" \">
+      <IMG src=\"modelica://Modelica/Images/MultiBody/Visualizers/Arrow.png\" \">
       </td>
   </tr>
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced\">Advanced</a></td>

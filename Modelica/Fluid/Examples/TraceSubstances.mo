@@ -79,7 +79,7 @@ concentration of the fresh air.
 </p>
 
 <p align=\"center\">
-<img src=\"../Images/Fluid/Examples/RoomCO2.png\" border=\"1\">
+<img src=\"modelica://Modelica/Images/Fluid/Examples/RoomCO2.png\" border=\"1\">
 </p>
 
 </html>"),
@@ -249,7 +249,7 @@ and hence its contribution to the volume's energy balance is negligible.
 </p>
 
 <p align=\"center\">
-<img src=\"../Images/Fluid/Examples/RoomCO2WithControls.png\" border=\"1\">
+<img src=\"modelica://Modelica/Images/Fluid/Examples/RoomCO2WithControls.png\" border=\"1\">
 </p>
 </html>"));
   end RoomCO2WithControls;

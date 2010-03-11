@@ -65,7 +65,7 @@ These are the two cases where the rotation is automatically set to
 a default value, when the physical system does not provide the equations.
 </p>
 <p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Elementary/PointGravityWithPointMasses.png\">
+<IMG src=\"modelica://Modelica/Images/MultiBody/Examples/Elementary/PointGravityWithPointMasses.png\">
 </p>
 </HTML>"));
 end PointGravityWithPointMasses;

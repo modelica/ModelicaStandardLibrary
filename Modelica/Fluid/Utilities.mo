@@ -359,20 +359,20 @@ Typical screenshots for two different configurations
 are shown below. The first one with k1=k2=1:
 </p>
 <p>
-<img src=\"../Images/Fluid/Components/regRoot2_a.png\">
+<img src=\"modelica://Modelica/Images/Fluid/Components/regRoot2_a.png\">
 </p>
 <p>
 and the second one with k1=1 and k2=3:
 </p>
 <p>
-<img src=\"../Images/Fluid/Components/regRoot2_b.png\">
+<img src=\"modelica://Modelica/Images/Fluid/Components/regRoot2_b.png\">
 </p>
 
 <p>
 The (smooth) derivative of the function with
 k1=1, k2=3 is shown in the next figure:
 <p>
-<img src=\"../Images/Fluid/Components/regRoot2_c.png\">
+<img src=\"modelica://Modelica/Images/Fluid/Components/regRoot2_c.png\">
 </p>
 
 <p>
@@ -496,7 +496,7 @@ such that
 A typical screenshot for k1=1, k2=3 is shown in the next figure:
 </p>
 <p>
-<img src=\"../Images/Fluid/Components/regSquare2_b.png\">
+<img src=\"modelica://Modelica/Images/Fluid/Components/regSquare2_b.png\">
 </p>
 
 <p>
@@ -505,7 +505,7 @@ k1=1, k2=3 is shown in the next figure:
 </p>
 
 <p>
-<img src=\"../Images/Fluid/Components/regSquare2_c.png\">
+<img src=\"modelica://Modelica/Images/Fluid/Components/regSquare2_c.png\">
 </p>
 
 <p>
@@ -752,13 +752,13 @@ Typical screenshots for two different configurations
 are shown below. The first one illustrates five different settings of <code>xi</code> and <code>yid</code>:
 </p>
 <p>
-<img src=\"../Images/Fluid/Components/regFun3_a.png\">
+<img src=\"modelica://Modelica/Images/Fluid/Components/regFun3_a.png\">
 </p>
 <p>
 The second graph shows the continous derivative of this regularization function:
 </p>
 <p>
-<img src=\"../Images/Fluid/Components/regFun3_b.png\">
+<img src=\"modelica://Modelica/Images/Fluid/Components/regFun3_b.png\">
 </p>
 
 <p>

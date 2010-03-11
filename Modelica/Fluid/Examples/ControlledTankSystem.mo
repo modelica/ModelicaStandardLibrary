@@ -222,7 +222,7 @@ This example is based on
 </dl>
 
 <p align=\"center\">
-<img src=\"../Images/Fluid/Examples/ControlledTanks.png\" border=\"1\">
+<img src=\"modelica://Modelica/Images/Fluid/Examples/ControlledTanks.png\" border=\"1\">
 </p>
 
 </html>"),

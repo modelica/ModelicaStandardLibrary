@@ -2,7 +2,6 @@ within ;
 package ObsoleteModelica3
   "Library that contains components from Modelica Standard Library 2.2.2 that have been removed from version 3.0"
 
-
   package Blocks
     "Library of basic input/output control blocks (continuous, discrete, logical, table blocks)"
     package Interfaces
@@ -40,7 +39,6 @@ Connector with one signal of type Icon (no icon, no input/output prefix).
               Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
         RealPort oldReal(final n=1) "Connector of Modelica version 1.6" annotation (Placement(
                 transformation(extent={{-120,-10},{-100,10}}, rotation=0)));
-
 
         protected
         connector RealPort "Connector with signals of type Real"
@@ -91,7 +89,6 @@ This block is only provided for backward compatibility.
                 transformation(extent={{100,-10},{120,10}}, rotation=0)));
         BooleanPort oldBoolean(final n=1) "Connector of Modelica version 1.6" annotation (Placement(
                 transformation(extent={{-120,-10},{-100,10}}, rotation=0)));
-
 
         protected
         connector BooleanPort "Connector with signals of type Boolean"
@@ -144,7 +141,6 @@ This block is only provided for backward compatibility.
                 transformation(extent={{100,-10},{120,10}}, rotation=0)));
         IntegerPort oldInteger(final n=1) "Connector of Modelica version 1.6"  annotation (Placement(
                 transformation(extent={{-120,-10},{-100,10}}, rotation=0)));
-
 
         protected
         connector IntegerPort "Connector with signals of type Integer"
@@ -233,7 +229,7 @@ The desired conversion can be selected in the parameter menu
 </p>
 
 <p>
-<img src=\"../Modelica/Images/Blocks/ConvertAllUnits.png\">
+<img src=\"modelica://ObsoleteModelica3/Modelica/Images/Blocks/ConvertAllUnits.png\">
 </p>
 
 </html>"));
@@ -550,8 +546,6 @@ This icon is designed for an <b>enumeration</b>
             "Reflection of ambient light (= 0: light is completely absorbed)"
             annotation (Dialog(group="if animation = true", enable=animation));
 
-
-
         protected
           SI.Position f_in_m[3]=frame_b.f/N_to_m
             "Force mapped from N to m for animation";
@@ -656,13 +650,13 @@ An example how to use this model is given in the
 following figure:
 </p>
 <p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Forces/WorldForceAndTorque1.png\">
+<IMG src=\"modelica://ObsoleteModelica3/Images/MultiBody/Forces/WorldForceAndTorque1.png\">
 </p>
 <p>
 This leads to the following animation
 </p>
 <p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Forces/WorldForceAndTorque2.png\">
+<IMG src=\"modelica://ObsoleteModelica3/Images/MultiBody/Forces/WorldForceAndTorque2.png\">
 </p>
 </HTML>
 "),         Coordsys(
@@ -857,13 +851,13 @@ An example how to use this model is given in the
 following figure:
 </p>
 <p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Forces/FrameForceAndTorque1.png\">
+<IMG src=\"modelica://ObsoleteModelica3/Images/MultiBody/Forces/FrameForceAndTorque1.png\">
 </p>
 <p>
 This leads to the following animation
 </p>
 <p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Forces/FrameForceAndTorque2.png\">
+<IMG src=\"modelica://ObsoleteModelica3/Images/MultiBody/Forces/FrameForceAndTorque2.png\">
 </p>
 </HTML>
 "),         Coordsys(
@@ -943,7 +937,6 @@ is resolved in the world frame).
             "Position vector from origin of frame_a to origin of frame_b resolved in world frame";
           SI.Force f_b_0[3] "frame_b.f resoved in world frame";
           SI.Torque t_b_0[3] "frame_b.t resoved in world frame";
-
 
         protected
           SI.Position f_in_m[3]=frame_b.f/N_to_m
@@ -1084,7 +1077,7 @@ An example how to use this model is given in the
 following figure:
 </p>
 <p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Forces/ForceAndTorque1.png\">
+<IMG src=\"modelica://ObsoleteModelica3/Images/MultiBody/Forces/ForceAndTorque1.png\">
 </p>
 <p>
 This leads to the following animation (the yellow cylinder
@@ -1095,7 +1088,7 @@ also on the opposite side of this cylinder, but for
 clarity this is not shown in the animation):
 </p>
 <p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Forces/ForceAndTorque2.png\">
+<IMG src=\"modelica://ObsoleteModelica3/Images/MultiBody/Forces/ForceAndTorque2.png\">
 </p>
 </HTML>
 "),         Coordsys(
@@ -1146,7 +1139,6 @@ is resolved in the world frame).
                 origin={80,-100},
                 extent={{-16,-16},{16,16}},
                 rotation=270)));
-
 
         protected
           outer Modelica.Mechanics.MultiBody.World world;
@@ -1298,7 +1290,6 @@ with the blocks of package Modelica.Blocks.
             SI.Angle angle
               "= phi + from_deg(phi_offset) (relative rotation angle between frame_a and frame_b)";
             SI.Torque tau "= axis.tau (driving torque in the axis)";
-
 
           protected
             SI.Position r_a[3]=position_a
@@ -1675,7 +1666,6 @@ joints.</b>
               "Position vector from frame_a to frame_b resolved in frame_a";
             SI.Force f "= axis.f (driving force in the axis)";
 
-
           protected
             SI.Position r_a[3]=position_a
               "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint";
@@ -2018,7 +2008,6 @@ joints.</b>
             "Reflection of ambient light (= 0: light is completely absorbed)"
             annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
 
-
         protected
           SI.Position r_abs[3]
             "Dummy or position vector from origin of the world frame to origin of frame_a (resolved in frame_resolve, frame_a or world frame)";
@@ -2233,7 +2222,7 @@ component is shown. The light blue coordinate system is
 frame_a and the yellow arrow is the animated sensor.
 </p>
 <p align=\"center\">
-<IMG SRC=\"../Modelica/Images/MultiBody/Sensors/AbsoluteSensor.png\">
+<IMG src=\"modelica://ObsoleteModelica3/Modelica/Images/MultiBody/Sensors/AbsoluteSensor.png\">
 </p>
 <p>
 If <b>frame_resolve</b> is connected to another frame, then the
@@ -2618,7 +2607,7 @@ frame_a, the dark blue coordinate system is frame_b, and
 the yellow arrow is the animated sensor.
 </p>
 <p align=\"center\">
-<IMG SRC=\"../Modelica/Images/MultiBody/Sensors/RelativeSensor.png\">
+<IMG src=\"modelica://ObsoleteModelica3/Modelica/Images/MultiBody/Sensors/RelativeSensor.png\">
 </p>
 <p>
 If parameter <b>resolveInFrame_a</b> = <b>true</b>, then the
@@ -2870,7 +2859,7 @@ respectively, acting at frame_b and
 with negative sign at frame_a.
 </p>
 <p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Sensors/CutForceAndTorque.png\">
+<IMG src=\"modelica://ObsoleteModelica3/Images/MultiBody/Sensors/CutForceAndTorque.png\">
 </p>
 </HTML>"));
         end CutForceAndTorque;
@@ -3293,7 +3282,6 @@ with the blocks of package Modelica.Blocks.
         "Constants and types with choices, especially to build menus"
         extends Modelica.Icons.Library;
 
-
         package Init
           "Obsolete type. This is an emulated enumeration for initialization. Initialization is now defined with start/fixed values and appropriate support in the parameter menu"
           extends ObsoleteModelica3.Icons.Enumeration;
@@ -3411,7 +3399,6 @@ user interface when the type is used as parameter in a declaration.
         Modelica.SIunits.Power power_a "Energy flowing into flange_a (= power)";
         Boolean driving_a
           "True, if energy is flowing INTO and not out of flange flange_a";
-
 
       equation
         phi = phi_a;
@@ -3571,7 +3558,6 @@ from tables of the gear manufacturers.
           final unit="N.m.s/rad",
           final min=0) = 0 "(relative) gear damping";
         parameter Modelica.SIunits.Angle b(final min=0)=0 "Total backlash";
-
 
         Modelica.Mechanics.Rotational.Components.IdealGear gearRatio(final
             ratio =                                                              ratio)

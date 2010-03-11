@@ -159,7 +159,7 @@ object to <b>false</b> to switch off animation of all components.
 </p>
 
 <p align=\"center\">
-<IMG SRC=\"../Images/Examples/Elementary/DoublePendulum.png\"
+<IMG src=\"modelica://ModelicaTest/Images/Examples/Elementary/DoublePendulum.png\"
 ALT=\"model Examples.Elementary.DoublePendulum\">
 </p>
 
@@ -267,7 +267,7 @@ ALT=\"model Examples.Elementary.DoublePendulum\">
 This is a second version of the \"four-bar\" mechanism, see figure:
 </p>
 <p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Loops/Fourbar2.png\" ALT=\"model Examples.Loops.Fourbar2\">
+<IMG src=\"modelica://ModelicaTest/Images/MultiBody/Examples/Loops/Fourbar2.png\" ALT=\"model Examples.Loops.Fourbar2\">
 </p>
 <p>
 In this case
@@ -301,8 +301,7 @@ for rodLength:
 <pre>
    rodLength*rodLength = f(angle of revolute joint, distance of prismatic joint)
 </pre>
-</html>")
-        );
+</html>"));
     end SphericalAndUniversal;
 
     encapsulated model SphericalSpherical
@@ -522,8 +521,7 @@ initial value of the distance of the prismatic joint j2 has been fixed
 <b>computeLength</b> = <b>true</b> is set in the joint parameter
 menu (this sets \"fixed=false\" on parameter \"length\").
 </p>
-</html>")
-        );
+</html>"));
     end UniversalSpherical;
 
     encapsulated model UniversalSpherical_2
@@ -640,8 +638,7 @@ initial value of the distance of the prismatic joint j2 has been fixed
 <b>computeLength</b> = <b>true</b> is set in the joint parameter
 menu (this sets \"fixed=false\" on parameter \"length\").
 </p>
-</html>")
-        );
+</html>"));
     end UniversalSpherical_2;
 
     encapsulated model JointUSR
@@ -906,8 +903,7 @@ initial value of the distance of the prismatic joint j2 has been fixed
 <b>computeLength</b> = <b>true</b> is set in the joint parameter
 menu (this sets \"fixed=false\" on parameter \"length\").
 </p>
-</html>")
-        );
+</html>"));
     end JointSSR;
 
     encapsulated model JointUSP
@@ -1010,8 +1006,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
               {38,38},{38,44},{52,44},{52,40}}, color={0,191,0}));
       annotation (
         experiment(StopTime=5),
-        Documentation(info="")
-        );
+        Documentation(info=""));
     end JointUSP;
   end FourbarVariants;
 
@@ -1104,8 +1099,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
           thickness=0.5));
       connect(Constant1.y,FrameTorque1.torque)
         annotation (Line(points={{73,-32},{60,-32}}, color={0,0,255}));
-      annotation (experiment(StopTime=1.1)
-                  );
+      annotation (experiment(StopTime=1.1));
     end AngularVelocity;
   end Frames;
 
@@ -1976,7 +1970,7 @@ is a default line force element with a point mass to approximate the mass proper
 component):
 </p>
 <p align=\"center\">
-<IMG SRC=\"../Images/Examples/Elementary/ForceWithMasses.png\"
+<IMG src=\"modelica://ModelicaTest/Images/Examples/Elementary/ForceWithMasses.png\"
 ALT=\"model Examples.Elementary.ForceWithMasses\">
 </p>
 <p>
@@ -2550,8 +2544,7 @@ a linear damper is connected here.
           points={{10,0},{12,0},{12,30},{0,30}},
           color={0,0,0},
           thickness=0.5));
-      annotation (
-                  experiment(StopTime=1.1));
+      annotation (experiment(StopTime=1.1));
     end Prismatic;
 
     model Cylindrical
@@ -2693,8 +2686,7 @@ a linear damper is connected here.
           points={{-24,30},{-24,30},{-24,56},{-48,56},{-48,70},{-34,70}},
           color={0,0,0},
           thickness=0.5));
-      annotation (
-                  experiment(StopTime=1.1));
+      annotation (experiment(StopTime=1.1));
     end Universal;
 
     model Planar
@@ -2828,8 +2820,7 @@ a linear damper is connected here.
           points={{10,0},{12,0},{12,30},{-2,30}},
           color={0,0,0},
           thickness=0.5));
-      annotation (
-                  experiment(StopTime=1.1));
+      annotation (experiment(StopTime=1.1));
     end Spherical;
 
     model FreeMotion
@@ -2911,8 +2902,7 @@ a linear damper is connected here.
         annotation (Line(points={{0,30},{20,30}}, color={0,0,0}));
       connect(Prismatic1.frame_b, Fixed1.frame_b)
         annotation (Line(points={{40,30},{60,30}}, color={0,0,0}));
-      annotation (
-                  experiment(StopTime=1.1));
+      annotation (experiment(StopTime=1.1));
     end SphericalSpherical;
 
     model JointUSP
@@ -3230,8 +3220,7 @@ a linear damper is connected here.
           points={{-10,76},{-10,76},{-10,40}},
           color={0,0,0},
           thickness=0.5));
-      annotation (
-                  experiment(StopTime=1.1));
+      annotation (experiment(StopTime=1.1));
     end JointRRR;
 
     model JointRRP
@@ -3304,8 +3293,7 @@ a linear damper is connected here.
           points={{-10,40},{-10,55.5},{-20,55.5},{-20,70}},
           color={0,0,0},
           thickness=0.5));
-      annotation (
-                  experiment(StopTime=1.1));
+      annotation (experiment(StopTime=1.1));
     end JointRRP;
 
     model JointSSP
@@ -3352,8 +3340,7 @@ a linear damper is connected here.
               -10},{56,-10},{56,58},{-2,58},{-2,40}}, color={0,0,0}));
       connect(prism.frame_a, jointSSP.frame_b)
         annotation (Line(points={{0,-50},{10,-50},{10,30},{0,30}}, color={0,0,0}));
-      annotation (
-                  experiment(StopTime=1.1));
+      annotation (experiment(StopTime=1.1));
     end JointSSP;
 
   end Joints;
@@ -3756,7 +3743,6 @@ often possible to use the FreeMotion joint such that the singularity
             thickness=0.5,
             smooth=Smooth.None));
         annotation (
-
           experiment(StopTime=5, Tolerance=1e-008));
       end Rotor1D_1;
 
@@ -3855,7 +3841,6 @@ often possible to use the FreeMotion joint such that the singularity
             color={0,0,127},
             smooth=Smooth.None));
         annotation (
-
           experiment(StopTime=1.1));
       end Rotor1D_2;
 
@@ -4024,7 +4009,6 @@ often possible to use the FreeMotion joint such that the singularity
             color={0,0,127},
             smooth=Smooth.None));
         annotation (
-
           experiment(StopTime=1.1));
       end Rotor1D_3;
 
@@ -4135,7 +4119,6 @@ often possible to use the FreeMotion joint such that the singularity
             thickness=0.5,
             smooth=Smooth.None));
         annotation (
-
           experiment(StopTime=5),
           experimentSetupOutput);
       end GearConstraint;
@@ -4479,7 +4462,6 @@ often possible to use the FreeMotion joint such that the singularity
           color={0,0,0},
           thickness=0.5));
       annotation (
-
         experiment(StopTime=2));
     end RelativeSensor;
 
@@ -4621,7 +4603,6 @@ often possible to use the FreeMotion joint such that the singularity
           color={0,0,0},
           thickness=0.5));
       annotation (
-
         experiment(
           StopTime=0.5,
           NumberOfIntervals=50000,
@@ -4812,8 +4793,7 @@ often possible to use the FreeMotion joint such that the singularity
           points={{40,-90},{60,-90}},
           color={0,0,0},
           thickness=0.5));
-      annotation (experiment(StopTime=1.1)
-                  );
+      annotation (experiment(StopTime=1.1));
     end CutForce;
 
     model CutForce2
@@ -4866,8 +4846,7 @@ often possible to use the FreeMotion joint such that the singularity
           points={{50,20},{50,14},{28,14},{28,-10},{20,-10}},
           color={0,0,0},
           thickness=0.5));
-      annotation (
-                  experiment(StopTime=1.1));
+      annotation (experiment(StopTime=1.1));
     end CutForce2;
 
     model CutTorque
@@ -5056,8 +5035,7 @@ often possible to use the FreeMotion joint such that the singularity
           points={{40,-90},{60,-90}},
           color={0,0,0},
           thickness=0.5));
-      annotation (experiment(StopTime=1.1)
-                  );
+      annotation (experiment(StopTime=1.1));
     end CutTorque;
 
     model CutTorque2
@@ -5110,8 +5088,7 @@ often possible to use the FreeMotion joint such that the singularity
           points={{50,20},{50,14},{28,14},{28,-10},{20,-10}},
           color={0,0,0},
           thickness=0.5));
-      annotation (
-                  experiment(StopTime=1.1));
+      annotation (experiment(StopTime=1.1));
     end CutTorque2;
 
     model CutForceAndTorque1
@@ -5300,8 +5277,7 @@ often possible to use the FreeMotion joint such that the singularity
           points={{40,-90},{60,-90}},
           color={0,0,0},
           thickness=0.5));
-      annotation (experiment(StopTime=1.1)
-                  );
+      annotation (experiment(StopTime=1.1));
     end CutForceAndTorque1;
 
     model CutForceAndTorque2
@@ -5491,8 +5467,7 @@ often possible to use the FreeMotion joint such that the singularity
           points={{40,-90},{60,-90}},
           color={0,0,0},
           thickness=0.5));
-      annotation (experiment(StopTime=1.1)
-                  );
+      annotation (experiment(StopTime=1.1));
     end CutForceAndTorque2;
 
     model CutForceAndTorque3

@@ -14,7 +14,7 @@ The purely sinusoidal voltage
 <p>
 <IMG
  BORDER=\"0\"
- SRC=\"../Images/Electrical/QuasiStationary/UsersGuide/Overview/Introduction/img1.png\"
+ src=\"modelica://Modelica/Images/Electrical/QuasiStationary/UsersGuide/Overview/Introduction/img1.png\"
  ALT=\"
 v=\\sqrt{2}V_{\\mathrm{RMS}}\\cos(\\omega t+\\varphi_{v})\">
 </p>
@@ -27,7 +27,7 @@ in the time domain can be represented by a complex
 <p>
 <IMG
  BORDER=\"0\"
- SRC=\"../Images/Electrical/QuasiStationary/UsersGuide/Overview/Introduction/img2.png\"
+ src=\"modelica://Modelica/Images/Electrical/QuasiStationary/UsersGuide/Overview/Introduction/img2.png\"
  ALT=\"
 \\underline{v}=V_{\\mathrm{RMS}}e^{j\\varphi_{v}}.\">
 </p>
@@ -38,7 +38,7 @@ phasor the following relationship applies:</p>
 <p>
 <IMG
  BORDER=\"0\"
- SRC=\"../Images/Electrical/QuasiStationary/UsersGuide/Overview/Introduction/img3.png\"
+ src=\"modelica://Modelica/Images/Electrical/QuasiStationary/UsersGuide/Overview/Introduction/img3.png\"
  ALT=\"\\begin{displaymath}
 v=\\mathrm{Re}(\\sqrt{2}\\underline{v}e^{j\\omega t})\\end{displaymath}\">
 </p>
@@ -50,7 +50,7 @@ This equation is also illustrated in Fig. 1.
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <tr>
     <td>
-      <img src=\"../Images/Electrical/QuasiStationary/UsersGuide/Overview/Introduction/phasor_voltage.png\">
+      <img src=\"modelica://Modelica/Images/Electrical/QuasiStationary/UsersGuide/Overview/Introduction/phasor_voltage.png\">
     </td>
   </tr>
   <caption align=\"bottom\">Fig. 1: Relationship between voltage phasor and time domain voltage</caption>
@@ -91,7 +91,7 @@ the voltage drops across the resistor, the inductor and the capacitor should be 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <tr>
     <td>
-      <img src=\"../Images/Electrical/QuasiStationary/UsersGuide/Overview/ACCircuit/resonance_circuit.png\">
+      <img src=\"modelica://Modelica/Images/Electrical/QuasiStationary/UsersGuide/Overview/ACCircuit/resonance_circuit.png\">
     </td>
   </tr>
   <caption align=\"bottom\">Fig. 1: Series AC circuit of a resistor and an inductor at variable frequency</caption>
@@ -104,7 +104,7 @@ The voltage drop across the resistor
 <p>
 <IMG
  BORDER=\"0\"
- SRC=\"../Images/Electrical/QuasiStationary/UsersGuide/Overview/ACCircuit/img1.png\"
+ src=\"modelica://Modelica/Images/Electrical/QuasiStationary/UsersGuide/Overview/ACCircuit/img1.png\"
  ALT=\"
 \\underline{v}_{r}=R\\underline{i}\">
 </p>
@@ -116,7 +116,7 @@ and the inductor
 <p>
 <IMG
  BORDER=\"0\"
- SRC=\"../Images/Electrical/QuasiStationary/UsersGuide/Overview/ACCircuit/img2.png\"
+ src=\"modelica://Modelica/Images/Electrical/QuasiStationary/UsersGuide/Overview/ACCircuit/img2.png\"
  ALT=\"
 \\underline{v}_{l}=j\\omega L\\underline{i}\">
 </p>
@@ -128,7 +128,7 @@ and the capacitor
 <p>
 <IMG
  BORDER=\"0\"
- SRC=\"../Images/Electrical/QuasiStationary/UsersGuide/Overview/ACCircuit/img3.png\"
+ src=\"modelica://Modelica/Images/Electrical/QuasiStationary/UsersGuide/Overview/ACCircuit/img3.png\"
  ALT=\"
 \\underline{v}_{l}=j\\omega L\\underline{i}\">
 </p>
@@ -140,7 +140,7 @@ add up to the total voltage
 <p>
 <IMG
  BORDER=\"0\"
- SRC=\"../Images/Electrical/QuasiStationary/UsersGuide/Overview/ACCircuit/img4.png\"
+ src=\"modelica://Modelica/Images/Electrical/QuasiStationary/UsersGuide/Overview/ACCircuit/img4.png\"
  ALT=\"
 \\underline{v}=\\underline{v}_{r}+\\underline{v}_{l}\">
 </p>
@@ -152,7 +152,7 @@ as illustraed in the phasor diagram of Fig. 2.
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <tr>
     <td>
-      <img src=\"../Images/Electrical/QuasiStationary/UsersGuide/Overview/ACCircuit/phasor_diagram.png\">
+      <img src=\"modelica://Modelica/Images/Electrical/QuasiStationary/UsersGuide/Overview/ACCircuit/phasor_diagram.png\">
     </td>
   </tr>
   <caption align=\"bottom\">Fig. 2: Phasor diagram of a resistor and inductance series connection</caption>
@@ -161,7 +161,7 @@ as illustraed in the phasor diagram of Fig. 2.
 <p>Due to the series connection of the resistor, inductor and capacitor, the three currents are all equal:</p>
 
 <IMG BORDER=\"0\"
- SRC=\"../Images/Electrical/QuasiStationary/UsersGuide/Overview/ACCircuit/img5.png\">
+ src=\"modelica://Modelica/Images/Electrical/QuasiStationary/UsersGuide/Overview/ACCircuit/img5.png\">
 </p>
 
 
@@ -197,15 +197,15 @@ will be investigated.
 The instantaneous voltage and current are in phase:
 </p>
 <p>
-<IMG BORDER=\"0\"  SRC=\"../Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/v_r.png\"> <br>
-<IMG BORDER=\"0\"  SRC=\"../Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/i_r.png\">
+<IMG BORDER=\"0\"  src=\"modelica://Modelica/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/v_r.png\"> <br>
+<IMG BORDER=\"0\"  src=\"modelica://Modelica/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/i_r.png\">
 </p>
 
 <p>
 Therefore, the instantaneous power is
 </p>
 <p>
-<IMG BORDER=\"0\"  SRC=\"../Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_r.png\">
+<IMG BORDER=\"0\"  src=\"modelica://Modelica/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_r.png\">
 </p>
 
 <p>A graphical representation of these equations is depicted in Fig. 1</p>
@@ -213,7 +213,7 @@ Therefore, the instantaneous power is
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <tr>
     <td>
-      <img src=\"../Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_resistor.png\">
+      <img src=\"modelica://Modelica/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_resistor.png\">
     </td>
   </tr>
   <caption align=\"bottom\">Fig. 1: Instantaneous voltage, current of power of a resistor</caption>
@@ -221,7 +221,7 @@ Therefore, the instantaneous power is
 
 <p>Real power of the resistor is the average of instantaneous power:</p>
 <p>
-<IMG BORDER=\"0\"  SRC=\"../Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/p_r.png\">
+<IMG BORDER=\"0\"  src=\"modelica://Modelica/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/p_r.png\">
 </p>
 
 
@@ -231,15 +231,15 @@ Therefore, the instantaneous power is
 The instantaneous voltage leads the current by a quarter of the period:
 </p>
 <p>
-<IMG BORDER=\"0\"  SRC=\"../Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/v_l.png\"> <br>
-<IMG BORDER=\"0\"  SRC=\"../Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/i_l.png\">
+<IMG BORDER=\"0\"  src=\"modelica://Modelica/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/v_l.png\"> <br>
+<IMG BORDER=\"0\"  src=\"modelica://Modelica/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/i_l.png\">
 </p>
 
 <p>
 Therefore, the instantaneous power is
 </p>
 <p>
-<IMG BORDER=\"0\"  SRC=\"../Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_l.png\">
+<IMG BORDER=\"0\"  src=\"modelica://Modelica/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_l.png\">
 </p>
 
 <p>A graphical representation of these equations is depicted in Fig. 2</p>
@@ -247,7 +247,7 @@ Therefore, the instantaneous power is
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <tr>
     <td>
-      <img src=\"../Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_inductor.png\">
+      <img src=\"modelica://Modelica/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_inductor.png\">
     </td>
   </tr>
   <caption align=\"bottom\">Fig. 2: Instantaneous voltage, current of power of an inductor</caption>
@@ -255,7 +255,7 @@ Therefore, the instantaneous power is
 
 <p>Reqactive power of the inductor is:</p>
 <p>
-<IMG BORDER=\"0\"  SRC=\"../Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/q_l.png\">
+<IMG BORDER=\"0\"  src=\"modelica://Modelica/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/q_l.png\">
 </p>
 
 <h5>Power of a capacitor</h5>
@@ -264,15 +264,15 @@ Therefore, the instantaneous power is
 The instantaneous voltage lags the current by a quarter of the period:
 </p>
 <p>
-<IMG BORDER=\"0\"  SRC=\"../Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/v_c.png\"> <br>
-<IMG BORDER=\"0\"  SRC=\"../Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/i_c.png\">
+<IMG BORDER=\"0\"  src=\"modelica://Modelica/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/v_c.png\"> <br>
+<IMG BORDER=\"0\"  src=\"modelica://Modelica/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/i_c.png\">
 </p>
 
 <p>
 Therefore, the instantaneous power is
 </p>
 <p>
-<IMG BORDER=\"0\"  SRC=\"../Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_c.png\">
+<IMG BORDER=\"0\"  src=\"modelica://Modelica/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_c.png\">
 </p>
 
 <p>A graphical representation of these equations is depicted in Fig. 3</p>
@@ -280,7 +280,7 @@ Therefore, the instantaneous power is
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <tr>
     <td>
-      <img src=\"../Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_capacitor.png\">
+      <img src=\"modelica://Modelica/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_capacitor.png\">
     </td>
   </tr>
   <caption align=\"bottom\">Fig. 3: Instantaneous voltage, current of power of a capacitor</caption>
@@ -288,14 +288,14 @@ Therefore, the instantaneous power is
 
 <p>Reqactive power of the capacitor is:</p>
 <p>
-<IMG BORDER=\"0\"  SRC=\"../Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/q_c.png\">
+<IMG BORDER=\"0\"  src=\"modelica://Modelica/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/q_c.png\">
 </p>
 
 <h5>Complex apparent power</h5>
 
 <p>For an arbitrary component with two pins, real and reactive power can be determined by the complex phasors:</p>
 <p>
-<IMG BORDER=\"0\"  SRC=\"../Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/s.png\">
+<IMG BORDER=\"0\"  src=\"modelica://Modelica/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/s.png\">
 </p>
 
 <p>

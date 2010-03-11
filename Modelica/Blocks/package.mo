@@ -152,8 +152,8 @@ In the following figure, results of a typical simulation are shown:
 </p>
 
 <p>
-<img src=\"../Images/Blocks/PID_controller.png\"><br>
-<img src=\"../Images/Blocks/PID_controller2.png\">
+<img src=\"modelica://Modelica/Images/Blocks/PID_controller.png\"><br>
+<img src=\"modelica://Modelica/Images/Blocks/PID_controller2.png\">
 </p>
 
 <p>
@@ -269,7 +269,7 @@ of this example:
 </p>
 
 <p>
-<img src=\"../Images/Blocks/InverseModelSchematic.png\">
+<img src=\"modelica://Modelica/Images/Blocks/InverseModelSchematic.png\">
 </p>
 
 <p>
@@ -294,7 +294,7 @@ agreement. A typical simulation result is shown in the next figure:
 </p>
 
 <p>
-<img src=\"../Images/Blocks/InverseModel.png\">
+<img src=\"modelica://Modelica/Images/Blocks/InverseModel.png\">
 </p>
 
 </html>"));
@@ -452,7 +452,7 @@ at hand of this model (Modelica.Blocks.Examples.BusUsage):
 </p>
 
 <p align=\"center\">
-<img src=\"../Images/Blocks/BusUsage.png\">
+<img src=\"modelica://Modelica/Images/Blocks/BusUsage.png\">
 </p>
 
 <ul>
@@ -499,7 +499,7 @@ menu pops-up in Dymola:
 </p>
 
 <p align=\"center\">
-<img src=\"../Images/Blocks/BusUsage2.png\">
+<img src=\"modelica://Modelica/Images/Blocks/BusUsage2.png\">
 </p>
 
 <p>
@@ -537,7 +537,7 @@ Consequently, when connecting now from \"sine.y\" to \"controlBus\", the menu
 looks differently:
 </p>
 <p align=\"center\">
-<img src=\"../Images/Blocks/BusUsage3.png\">
+<img src=\"modelica://Modelica/Images/Blocks/BusUsage3.png\">
 </p>
 <p>
 Note, even if the signals from \"Internal.StandardControlBus\" are listed, these are

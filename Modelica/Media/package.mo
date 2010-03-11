@@ -131,7 +131,7 @@ is defined that the tool should display a selection box with
 all loaded packages that inherit from PartialMedium. An example
 is given in the next figure:
 </p>
-<IMG SRC=\"../Images/Media/UsersGuide/mediumMenu.png\" ALT=\"medium selection menu\">
+<IMG src=\"modelica://Modelica/Images/Media/UsersGuide/mediumMenu.png\" ALT=\"medium selection menu\">
 <p>
 A selected medium model leads, e.g., to the following equation:
 </p>
@@ -1565,7 +1565,7 @@ derived from the partial differential equations along the
 flow direction of a pipe:
 </p>
 
-<IMG SRC=\"../Images/Media/UsersGuide/BalanceEquations1.png\">
+<IMG src=\"modelica://Modelica/Images/Media/UsersGuide/BalanceEquations1.png\">
 
 <p>
 Note, F<sub>F</sub> is the fanning friction factor.
@@ -1573,7 +1573,7 @@ The energy balance can be given in different forms.
 Usually, it is given as:
 </p>
 
-<IMG SRC=\"../Images/Media/UsersGuide/EnergyBalance1.png\">
+<IMG src=\"modelica://Modelica/Images/Media/UsersGuide/EnergyBalance1.png\">
 
 <p>
 This form describes the change of the internal energy, kinetic
@@ -1584,7 +1584,7 @@ balance above, results in the following alternative form
 of the energy balance:
 </p>
 
-<IMG SRC=\"../Images/Media/UsersGuide/EnergyBalance2.png\">
+<IMG src=\"modelica://Modelica/Images/Media/UsersGuide/EnergyBalance2.png\">
 
 <p>
 This form has the advantage that the kinetic and potential
@@ -4526,7 +4526,8 @@ kappa is defined as - 1/v * der(v,p), with v = 1/d at constant temperature T.
       "Return density derivative w.r.t. temperature at constant pressure"
       extends Modelica.Icons.Function;
       input ThermodynamicState state "thermodynamic state record";
-      output DerDensityByTemperature ddTp "Density derivative w.r.t. temperature";
+      output DerDensityByTemperature ddTp
+        "Density derivative w.r.t. temperature";
       annotation(Documentation(info="<html></html>"));
     end density_derT_p;
 
@@ -7547,7 +7548,8 @@ public
       "thermodynamic base properties on the boiling curve";
     PhaseBoundaryProperties vap
       "thermodynamic base properties on the dew curve";
-    Real dpT(unit="Pa/K") "derivative of saturation pressure w.r.t. temperature";
+    Real dpT(unit="Pa/K")
+      "derivative of saturation pressure w.r.t. temperature";
     SI.MassFraction x "vapour mass fraction";
   end SaturationProperties;
 

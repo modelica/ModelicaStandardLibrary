@@ -1130,7 +1130,7 @@ to describe logical networks. A typical example for a logical
 network built with package Logical is shown in the next figure:
 </p>
 <p align=\"center\">
-<img src=\"../Images/Blocks/LogicalNetwork1.png\">
+<img src=\"modelica://Modelica/Images/Blocks/LogicalNetwork1.png\">
 </p>
 
 <p>
