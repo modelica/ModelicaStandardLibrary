@@ -26,7 +26,7 @@ algorithm
 end testAllFunctions;
 
   annotation (version="1.1", versionDate="2007-10-19", uses(Modelica(version=
-          "3.1")),
+          "3.2")),
     Documentation(info="<html>
 <p>
 This library provides models and functions to test components of

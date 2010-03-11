@@ -4795,12 +4795,13 @@ end UsersGuide;
 
 annotation (
 preferredView="info",
-version="3.1",
-versionBuild=3,
-versionDate="2009-08-14",
-dateModified = "2009-08-26 19:32:58Z",
+version="3.2",
+versionBuild=0,
+versionDate="2010-03-15",
+dateModified = "2010-03-15 00:00:00Z",
 revisionId="$Id::                                       $",
 conversion(
+ noneFromVersion="3.1",
  noneFromVersion="3.0.1",
  noneFromVersion="3.0",
  from(version="2.1", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos"),

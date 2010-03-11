@@ -785,5 +785,5 @@ http://www.Modelica.org/licenses/ModelicaLicense2</a>.
 </p>
 
 </html>"),
-  uses(Modelica(version="3.1")));
+  uses(Modelica(version="3.2")));
 end ModelicaServices;
