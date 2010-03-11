@@ -2673,7 +2673,6 @@ href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.Cha
                         IN_var,
                         dp);
 
-            annotation (Diagram(graphics));
           end OverallFlowModel;
 
           record PressureLossInput_con
@@ -3659,7 +3658,6 @@ href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.Str
                         IN_var,
                         dp);
 
-            annotation (Diagram(graphics));
           end LaminarFlowModel;
 
           record PressureLossInput_con "Input record for dp_laminar"
@@ -3763,7 +3761,6 @@ href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.Str
                         IN_var,
                         dp);
 
-            annotation (Diagram(graphics));
           end OverallFlowModel;
 
           record PressureLossInput_con "Input record for dp_overall"
@@ -3894,7 +3891,6 @@ as thermo-hydraulic framework.
                         IN_var,
                         dp);
 
-            annotation (Diagram(graphics));
           end TurbulentFlowModel;
         end Turbulent;
       end StraightPipe;
@@ -4010,7 +4006,6 @@ href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.Val
                         IN_var,
                         dp);
 
-            annotation (Diagram(graphics));
           end OverallFlowModel;
 
           record PressureLossInput_con
