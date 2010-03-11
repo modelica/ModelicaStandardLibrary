@@ -4,8 +4,6 @@ within Modelica.Thermal;
 package FluidHeatFlow
   "Simple components for 1-dimensional incompressible thermo-fluid flow models"
   extends Modelica.Icons.Library2;
-  // illegal use of top-level annotation removed:
-  // version="1.6.6", versionDate="2007-11-12",
 
   package Examples
     "Examples that demonstrate the usage of the FluidHeatFlow components"

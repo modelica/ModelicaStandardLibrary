@@ -357,9 +357,6 @@ package Matrices "Library of functions operating on matrices"
 
   extends Modelica.Icons.Library;
 
-    // illegal use of top-level annotation removed:
-    // version="0.8.1", versionDate="2004-08-21",
-
   function isEqual "Compare whether two Real matrices are identical"
     extends Modelica.Icons.Function;
     input Real M1[:, :] "First matrix";

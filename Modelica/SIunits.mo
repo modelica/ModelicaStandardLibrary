@@ -1840,6 +1840,5 @@ and the accompanying <b>disclaimer</b>
         Text(
           extent={{163,320},{406,264}},
           lineColor={255,0,0},
-          textString="Modelica.SIunits")}),
-    uses(Modelica(version="3.1")));
+          textString="Modelica.SIunits")}));
 end SIunits;

@@ -1,14 +1,5 @@
 within Modelica.Mechanics;
 package MultiBody "Library to model 3-dimensional mechanical systems"
-  // illegal use of top-level annotation removed:
-  // version="1.1",
-  // versionDate="2004-06-24",
-  // conversion(
-  //  from(version="0.96", script="Scripts/ConvertTo_0.98.mos"),
-  //  from(version="0.97", script="Scripts/ConvertTo_0.98.mos"),
-  //  from(version="0.98", script="Scripts/ConvertTo_1.0.mos"),
-  //  from(version="0.99", script="Scripts/ConvertTo_1.0.mos"),
-  //  from(version="0.99 Beta", script="Scripts/ConvertTo_1.0.mos")),
 
 import SI = Modelica.SIunits;
 

@@ -2,10 +2,6 @@ within Modelica;
 package Utilities "Library of utility functions dedicated to scripting (operating on files, streams, strings, system)"
   extends Modelica.Icons.Library;
 
-    // illegal use of top-level annotation removed:
-    //  version="1.0", versionDate="2004-10-01",
-
-
 package UsersGuide "User's Guide of Utilities Library"
 
   class ImplementationNotes "Implementation Notes"

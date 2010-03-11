@@ -4,9 +4,6 @@ package StateGraph
 
 extends Modelica.Icons.Library2;
 
-  // illegal use of top-level annotation removed:
-  // version="0.87", versionDate="2004-06-23",
-
 package UsersGuide "User's Guide of StateGraph Library"
 
   class OverView "Overview of library"

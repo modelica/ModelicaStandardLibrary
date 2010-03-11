@@ -3,12 +3,6 @@ package Media "Library of media property models"
 extends Modelica.Icons.Library;
 import SI = Modelica.SIunits;
 
-  // illegal use of top-level annotation removed:
-  // version="1.0", versionDate="2005-03-01",
-  // illegal use of top-level annotation removed:
-  // conversion(from(version="0.795", script="../ConvertFromModelica.Media_0.795.mos"))
-
-
 package UsersGuide "User's Guide of Media Library"
 
   package MediumUsage "Medium usage"

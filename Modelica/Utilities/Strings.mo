@@ -136,9 +136,6 @@ optionally ignoring case.
   end isEqual;
   extends Modelica.Icons.Library;
 
-  // illegal use of top-level annotation removed:
-  // version="1.0", versionDate="2004-10-01",
-
   function count "Count the number of non-overlapping occurrences of a string"
     extends Modelica.Icons.Function;
     input String string "String that is analyzed";

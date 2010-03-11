@@ -128,8 +128,6 @@ in the \"name\" directory are printed in sorted order.
 </html>"));
 end list;
   extends Modelica.Icons.Library;
-  // illegal use of top-level annotation removed:
-  // version="0.8", versionDate="2004-08-24",
 
 function copy "Generate a copy of a file or of a directory"
   extends Modelica.Icons.Function;
