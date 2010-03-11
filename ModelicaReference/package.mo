@@ -5488,9 +5488,10 @@ end While;
 
 
 annotation (__Dymola_DocumentationClass=true,
-    versionBuild="$Rev$",
-    versionDate="$Date::                            $",
-    Documentation(info="<html>
+	    versionBuild=1,
+	    versionDate="2010-03-15",
+	    revisionId="$Id::                                       $",
+	    Documentation(info="<html>
 <p>
 This package is a reference to Modelica keywords and Modelica builtin
 operators and is based on the
@@ -5535,5 +5536,5 @@ and the accompanying <b>disclaimer</b>
      Implemented.</li>
 </ul>
 </html>"),
-  uses(Modelica(version="3.1")));
+  uses(Modelica(version="3.2")));
 end ModelicaReference;
