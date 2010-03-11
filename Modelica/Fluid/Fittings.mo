@@ -9,7 +9,7 @@ package Fittings
 
       parameter
         Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_con
-        data "Bend data"
+        geometry "Bend data"
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
 
       Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_var
@@ -18,10 +18,9 @@ package Fittings
 
     equation
       m_flow = PressureLoss.BaseClasses.Bend.CurvedBend.massFlowRate_dp(
-        data,
+        geometry,
         mediumProperties,
         dp);
-
     end CurvedBend;
   end Bends;
 
