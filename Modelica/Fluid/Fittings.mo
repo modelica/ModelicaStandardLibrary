@@ -1,6 +1,30 @@
 within Modelica.Fluid;
 package Fittings
   "Adaptors for connections of fluid components and the regulation of fluid flow"
+  package Bends "Flow models for bends"
+    extends Modelica.Fluid.Icons.VariantLibrary;
+    model CurvedBend "Curved bend flow model"
+      extends Modelica.Fluid.Fittings.BaseClasses.PartialPressureLoss;
+      extends Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.Bend_i;
+
+      parameter
+        Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_con
+        data "Bend data"
+          annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+
+      Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_var
+        mediumProperties(final eta=eta, final rho=rho) "Properties of medium"
+        annotation (Placement(transformation(extent={{-46,20},{-26,40}})));
+
+    equation
+      m_flow = PressureLoss.BaseClasses.Bend.CurvedBend.massFlowRate_dp(
+        data,
+        mediumProperties,
+        dp);
+
+    end CurvedBend;
+  end Bends;
+
   package HeatTransfer "Fittings for heat transfer"
   extends Modelica.Fluid.Dissipation.Utilities.Icons.VariantLibrary;
 
@@ -5706,6 +5730,87 @@ where
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics));
     end PartialTeeJunction;
+
+    partial model PartialPressureLoss
+      "Base flow model for pressure loss functions"
+      import SI = Modelica.SIunits;
+
+      //interfaces
+      extends Modelica.Fluid.Interfaces.PartialTwoPortTransport;
+
+      //fluid properties
+      parameter Boolean use_nominal=false
+        "= true, if eta_nominal and rho_nominal are used, otherwise computed from medium"
+        annotation (Evaluate=true, Dialog(group="Fluid properties"));
+      parameter SI.DynamicViscosity eta_nominal=Medium.dynamicViscosity(
+          Medium.setState_pTX(
+          Medium.p_default,
+          Medium.T_default,
+          Medium.X_default))
+        "Nominal dynamic viscosity (e.g. eta_liquidWater = 1e-3, eta_air = 1.8e-5)"
+        annotation (Dialog(enable=use_nominal, group="Fluid properties"));
+      parameter SI.Density rho_nominal=Medium.density_pTX(
+          Medium.p_default,
+          Medium.T_default,
+          Medium.X_default)
+        "Nominal density (e.g. d_liquidWater = 995, d_air = 1.2)"
+        annotation (Dialog(enable=use_nominal, group="Fluid properties"));
+
+      // Operational conditions
+      parameter Boolean from_dp=true
+        "= true, use m_flow = f(dp) else dp = f(m_flow)"
+        annotation (Evaluate=true, Dialog(tab="Advanced"));
+      parameter Medium.AbsolutePressure dp_small=system.dp_small
+        "Default small pressure drop for regularization of laminar and zero flow"
+        annotation (Dialog(tab="Advanced"));
+
+      Medium.ThermodynamicState state
+        "Upstream medium state for computation of pressure loss characteristics (smoothed around zero flow with state_a and state_b)";
+      SI.Density rho
+        "Upstream density (smoothed around zero flow with state_a and state_b)";
+      SI.DynamicViscosity eta
+        "Upstream dynamic viscosity (smoothed around zero flow with state_a and state_b)";
+
+    equation
+      //isenthalpic state transformation (no storage and no loss of energy)
+      port_a.h_outflow = inStream(port_b.h_outflow);
+      port_b.h_outflow = inStream(port_a.h_outflow);
+
+      // Upstream properties for pressure loss characteristic calculation
+      if allowFlowReversal then
+        if from_dp then
+          state = Medium.setSmoothState(
+            dp,
+            state_a,
+            state_b,
+            dp_small);
+        else
+          state = Medium.setSmoothState(
+            m_flow,
+            state_a,
+            state_b,
+            m_flow_small);
+        end if;
+      else
+        state = state_a;
+      end if;
+
+      if use_nominal then
+         rho = rho_nominal;
+         eta = eta_nominal;
+      else
+         rho = Medium.density(state);
+         eta = Medium.dynamicViscosity(state);
+      end if;
+
+      annotation (Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics), Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics));
+    end PartialPressureLoss;
   end BaseClasses;
   annotation (Documentation(info="<html>
 

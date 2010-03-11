@@ -15095,7 +15095,8 @@ This record is used as <b> input record </b> for the pressure loss function <a h
 
             import PI = Modelica.Constants.pi;
             import MIN = Modelica.Constants.eps;
-            import SMOOTH = Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower;
+            import SMOOTH =
+              Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower;
 
             //choices
             input Modelica.Fluid.Dissipation.Utilities.Types.Roughness
@@ -15707,7 +15708,8 @@ The heterogeneous approaches are analytically derived by minimising the momentum
             //SOURCE_1: Bejan,A.: HEAT TRANSFER HANDBOOK, Wiley, 2003.
             //SOURCE_2: Gungor, K.E. and R.H.S. Winterton: A general correlation for flow boiling in tubes and annuli, Int.J. Heat Mass Transfer, Vol.29, p.351-358, 1986.
 
-            import SMOOTH = Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
+            import SMOOTH =
+              Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
 
             //records
             input
@@ -18479,23 +18481,23 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
 
     package Types "Package for types"
     extends Modelica.Icons.Library;
-      type DarcyFrictionFactor = Real (
+      type DarcyFrictionFactor = Modelica.Icons.TypeReal (
           final quantity=
               "Darcy friction factor | lambda_fri = zeta_fri / (length/diameter)",
           final unit="1",
           min=0,
           max=1111);
-      type FrictionalResistanceCoefficient = Real (
+      type FrictionalResistanceCoefficient = Modelica.Icons.TypeReal (
           final quantity="Frictional resistance coefficient | zeta_fri",
           final unit="1",
           min=0,
           max=1111);
-      type LocalResistanceCoefficient = Real (
+      type LocalResistanceCoefficient = Modelica.Icons.TypeReal (
           final quantity="Local resistance coefficient | zeta_loc",
           final unit="1",
           min=0,
           max=1111);
-      type PressureLossCoefficient = Real (
+      type PressureLossCoefficient = Modelica.Icons.TypeReal (
           final quantity="Pressure loss coefficient | zeta_tot = zeta_loc + zeta_fri",
           final unit="1",
           min=0,
