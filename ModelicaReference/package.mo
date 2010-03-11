@@ -349,14 +349,14 @@ Annotations for documentation
 The \"Documentation\" annotation can contain the \"info\" annotation giving a textual description, the \"revisions\" annotation giving a list of revisions and other annotations defined by a tool [The \"revisions\" documentation may be omitted in printed documentation]. How the tool interprets the information in \"Documentation\" is unspecified. Within a string of the \"Documentation\" annotation, the tags &lt;HTML&gt; and &lt;/HTML&gt; or &lt;html&gt; and &lt;/html&gt; define optionally begin and end of content that is HTML encoded. Links to Modelica classes may be defined with the HTML link command using scheme \"Modelica\", e.g.,
 </p>
 
-<pre>    &lt;a href=\"Modelica://MultiBody.Tutorial\"&gt;MultiBody.Tutorial&lt;/a&gt;
+<pre>    &lt;a href=\"modelica://MultiBody.Tutorial\"&gt;MultiBody.Tutorial&lt;/a&gt;
 </pre>
 
 <p>
 Together with scheme \"Modelica\" the (URI)  fragment specifiers #diagram, #info, #text, #icon may be used to reference different layers. Example:
 </p>
 
-<pre>   &lt;a href=\"Modelica://MultiBody.Joints.Revolute#info\"&gt;Revolute&lt;/a&gt;
+<pre>   &lt;a href=\"modelica://MultiBody.Joints.Revolute#info\"&gt;Revolute&lt;/a&gt;
 </pre>
 
 </html>"));
@@ -3426,7 +3426,7 @@ In this chapter <b>operators</b> of Modelica are documented.
 Elementary operators, such as \"+\" or \"-\" are overloaded and
 operate on scalar and array variables. Other operators
 have the same syntax as a
-<a href=\"Modelica://ModelicaReference.Classes.Function\">Modelica function</a>
+<a href=\"modelica://ModelicaReference.Classes.Function\">Modelica function</a>
 call. However, they do not behave as a Modelica function,
 either because the result depends not only on the input arguments but
 also on the status of the simulation (such as \"pre(..)\"), or
@@ -5516,7 +5516,7 @@ operators and is based on the
 it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b>
-<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
+<a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
 </p><br>
 </html>", revisions="<html>
 

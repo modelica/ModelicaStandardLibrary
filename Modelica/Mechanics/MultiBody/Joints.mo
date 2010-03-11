@@ -187,7 +187,7 @@ Optionally, two additional 1-dimensional mechanical flanges
 flange \"support\" represents the bearing) can be enabled via
 parameter <b>useAxisFlange</b>. The enabled axis flange can be
 driven with elements of the
-<a href=\"Modelica://Modelica.Mechanics.Translational\">Modelica.Mechanics.Translational</a>
+<a href=\"modelica://Modelica.Mechanics.Translational\">Modelica.Mechanics.Translational</a>
 library.
 
 </p>
@@ -470,7 +470,7 @@ Optionally, two additional 1-dimensional mechanical flanges
 flange \"support\" represents the bearing) can be enabled via
 parameter <b>useAxisFlange</b>. The enabled axis flange can be
 driven with elements of the
-<a href=\"Modelica://Modelica.Mechanics.Rotational\">Modelica.Mechanics.Rotational</a>
+<a href=\"modelica://Modelica.Mechanics.Rotational\">Modelica.Mechanics.Rotational</a>
 library.
 
 </p>
@@ -6605,7 +6605,7 @@ This requires to solve a <b>non-linear system of equations</b> which
 is performed <b>analytically</b> (i.e., when a mathematical
 solution exists, it is computed efficiently and reliably).
 A detailed description how to use these joints is provided in
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
+<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
 </p>
 <p>
 The assembly joints in this package are named <b>JointXYZ</b> where
@@ -6627,41 +6627,41 @@ of a universal, a spherical and a revolute joint.
 <h4>Content</h4>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><b><i>Model</i></b></th><th><b><i>Description</i></b></th></tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS\">JointUPS</a></td>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS\">JointUPS</a></td>
       <td valign=\"top\"> Universal - prismatic - spherical joint aggregation<br>
      <img src=\"../Images/MultiBody/Joints/JointUPS.png\">
       </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSR\">JointUSR</a></td>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSR\">JointUSR</a></td>
       <td valign=\"top\"> Universal - spherical - revolute joint aggregation<br>
      <img src=\"../Images/MultiBody/Joints/JointUSR.png\">
       </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP\">JointUSP</a></td>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP\">JointUSP</a></td>
       <td valign=\"top\"> Universal - spherical - prismatic joint aggregation<br>
      <img src=\"../Images/MultiBody/Joints/JointUSP.png\">
       </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSR\">JointSSR</a></td>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSR\">JointSSR</a></td>
       <td valign=\"top\"> Spherical - spherical - revolute joint aggregation
            with an optional mass point at the rod connecting
            the two spherical joints<br>
      <img src=\"../Images/MultiBody/Joints/JointSSR.png\">
       </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP\">JointSSP</a></td>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP\">JointSSP</a></td>
       <td valign=\"top\"> Spherical - spherical - prismatic joint aggregation
            with an optional mass point at the rod connecting
            the two spherical joints<br>
      <img src=\"../Images/MultiBody/Joints/JointSSP.png\">
       </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR\">JointRRR</a></td>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR\">JointRRR</a></td>
       <td valign=\"top\"> Revolute - revolute - revolute joint aggregation for planar loops<br>
      <img src=\"../Images/MultiBody/Joints/JointRRR.png\">
       </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRP\">JointRRP</a></td>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRP\">JointRRP</a></td>
       <td valign=\"top\"> Revolute - revolute - prismatic joint aggregation for planar loops<br>
      <img src=\"../Images/MultiBody/Joints/JointRRP.png\">
       </td>
@@ -7600,60 +7600,60 @@ solved, i.e., robustly and efficiently).
 <h4>Content</h4>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><b><i>Model</i></b></th><th><b><i>Description</i></b></th></tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.Prismatic\">Prismatic</a>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Prismatic\">Prismatic</a>
       <td valign=\"top\">Prismatic joint and actuated prismatic joint
           (1 translational degree-of-freedom, 2 potential states)<br>
       <IMG SRC=\"../Images/MultiBody/Joints/Prismatic.png\">
       </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.Revolute\">Revolute</a>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Revolute\">Revolute</a>
  </td>
       <td valign=\"top\">Revolute and actuated revolute joint
           (1 rotational degree-of-freedom, 2 potential states)<br>
       <IMG SRC=\"../Images/MultiBody/Joints/Revolute.png\">
       </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.Cylindrical\">Cylindrical</a></td>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Cylindrical\">Cylindrical</a></td>
       <td valign=\"top\">Cylindrical joint (2 degrees-of-freedom, 4 potential states)<br>
       <IMG SRC=\"../Images/MultiBody/Joints/Cylindrical.png\">
       </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.Universal\">Universal</a></td>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Universal\">Universal</a></td>
       <td valign=\"top\">Universal joint (2 degrees-of-freedom, 4 potential states)<br>
       <IMG SRC=\"../Images/MultiBody/Joints/Universal.png\">
       </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.Planar\">Planar</a></td>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Planar\">Planar</a></td>
       <td valign=\"top\">Planar joint (3 degrees-of-freedom, 6 potential states)<br>
       <IMG SRC=\"../Images/MultiBody/Joints/Planar.png\">
       </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.Spherical\">Spherical</a></td>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Spherical\">Spherical</a></td>
       <td valign=\"top\">Spherical joint (3 constraints and no potential states, or 3 degrees-of-freedom and 3 states)<br>
       <IMG SRC=\"../Images/MultiBody/Joints/Spherical.png\">
       </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.FreeMotion\">FreeMotion</a></td>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.FreeMotion\">FreeMotion</a></td>
       <td valign=\"top\">Free motion joint (6 degrees-of-freedom, 12 potential states)<br>
       <IMG SRC=\"../Images/MultiBody/Joints/FreeMotion.png\">
       </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.SphericalSpherical\">SphericalSpherical</a></td>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.SphericalSpherical\">SphericalSpherical</a></td>
       <td valign=\"top\">Spherical - spherical joint aggregation (1 constraint,
           no potential states) with an optional point mass in the middle<br>
       <IMG SRC=\"../Images/MultiBody/Joints/SphericalSpherical.png\">
       </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.UniversalSpherical\">UniversalSpherical</a></td>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.UniversalSpherical\">UniversalSpherical</a></td>
       <td valign=\"top\">Universal - spherical joint aggregation (1 constraint, no potential states)<br>
       <IMG SRC=\"../Images/MultiBody/Joints/UniversalSpherical.png\">
       </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.GearConstraint\">GearConstraint</a></td>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.GearConstraint\">GearConstraint</a></td>
       <td valign=\"top\">Ideal 3-dim. gearbox (arbitrary shaft directions)
       </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies\">MultiBody.Joints.Assemblies</a></td>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies\">MultiBody.Joints.Assemblies</a></td>
       <td valign=\"top\"><b>Package</b> of joint aggregations for analytic loop handling.
       </td>
   </tr>

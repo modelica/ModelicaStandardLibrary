@@ -180,7 +180,7 @@ used to solve the non-linear equations of coupled planar loops analytically.
 In the mechanism below no non-linear equation occurs any more from the tool
 view, since these equations are solved analytically in the JointRRR joints.
 For more details, see
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">
+<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">
 MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
 </p>
 

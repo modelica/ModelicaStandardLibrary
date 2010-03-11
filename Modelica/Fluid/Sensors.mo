@@ -1097,7 +1097,7 @@ Moreover the obtained result is restricted to the value flowing into port_a if a
 </ul>
 
 <p>
-<a href=\"Modelica://Modelica.Fluid.Examples.Explanatory.MeasuringTemperature\">Modelica.Fluid.Examples.Explanatory.MeasuringTemperature</a>
+<a href=\"modelica://Modelica.Fluid.Examples.Explanatory.MeasuringTemperature\">Modelica.Fluid.Examples.Explanatory.MeasuringTemperature</a>
 demonstrates the differences between one- and two-port sensor at hand of a
 simple example.
 </p>

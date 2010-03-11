@@ -709,7 +709,7 @@ equation
     Documentation(info="<html>
 <p>
 The interface of this model is documented at
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape</a>.
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape</a>.
 </p>
 
 <p>
@@ -760,10 +760,10 @@ These are:
 </p>
 
 <ul>
-<li> <a href=\"Modelica://ModelicaServices.Animation.Shape\">ModelicaServices.Animation.Shape</a>.
+<li> <a href=\"modelica://ModelicaServices.Animation.Shape\">ModelicaServices.Animation.Shape</a>.
      provides a 3-dim. visualization of
      mechanical objects. It is used in
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape</a>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape</a>
      via inheritance.</li>
 </ul>
 
@@ -778,7 +778,7 @@ the use is completely at <u>your own risk</u>;
 it can be redistributed and/or modified under the terms of the
 Modelica license 2, see the license conditions (including the
 disclaimer of warranty)
-<a href=\"Modelica://ModelicaServices.UsersGuide.ModelicaLicense2\">here</a></u>
+<a href=\"modelica://ModelicaServices.UsersGuide.ModelicaLicense2\">here</a></u>
 or at
 <a href=\"http://www.Modelica.org/licenses/ModelicaLicense2\">
 http://www.Modelica.org/licenses/ModelicaLicense2</a>.

@@ -82,7 +82,7 @@ equation
         grid={1,1}), graphics),
     Documentation(info="<HTML>
 In this example the usage of the general force element
-\"<a href=\"Modelica://Modelica.Mechanics.MultiBody.Forces.ForceAndTorque\">ForceAndTorque</a>\"
+\"<a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.ForceAndTorque\">ForceAndTorque</a>\"
 is shown. A \"ForceAndTorque\" element is connected
 between a body and a fixed point in the world system. The force and torque
 is defined by the \"Constant\" block. The two vectors are resolved in the

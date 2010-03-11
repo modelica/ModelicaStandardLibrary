@@ -613,7 +613,7 @@ Exchange input and ouput signals of a block, i.e., the previous
 block inputs become block outputs and the previous block outputs become
 block inputs. This block is used to construct inverse models.
 Its usage is demonstrated in example:
-<a href=\"Modelica://Modelica.Blocks.Examples.InverseModel\">Modelica.Blocks.Examples.InverseModel</a>.
+<a href=\"modelica://Modelica.Blocks.Examples.InverseModel\">Modelica.Blocks.Examples.InverseModel</a>.
 </p>
 
 <p>

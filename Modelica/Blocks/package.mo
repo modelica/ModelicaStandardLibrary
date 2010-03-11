@@ -326,7 +326,7 @@ agreement. A typical simulation result is shown in the next figure:
       Documentation(info="<html>
 <p>
 This simple example demonstrates the logical sources in
-<a href=\"Modelica://Modelica.Blocks.Sources\">Modelica.Blocks.Sources</a> and demonstrate
+<a href=\"modelica://Modelica.Blocks.Sources\">Modelica.Blocks.Sources</a> and demonstrate
 their diagram animation (see \"small circle\" close to the output connector).
 The \"booleanExpression\" source shows how a logical expression can be defined
 in its parameter menu refering to variables available on this level of the
@@ -469,10 +469,10 @@ at hand of this model (Modelica.Blocks.Examples.BusUsage):
 
 <p>
 The control and sub-control bus icons are provided within Modelica.Icons.
-In <a href=\"Modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces\">Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces</a>
+In <a href=\"modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces\">Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces</a>
 the buses for this example are defined. Both the \"ControlBus\" and the \"SubControlBus\" are
 <b>expandable</b> connectors that do not define any variable. For example,
-<a href=\"Modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.ControlBus#text\">Interfaces.ControlBus</a>
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.ControlBus#text\">Interfaces.ControlBus</a>
 is defined as:
 </p>
 <pre>  <b>expandable connector</b> ControlBus
@@ -515,7 +515,7 @@ is generated and the \"controlBus\" contains the new signal \"realSignal1\". Mod
 may give more support in order to list potential signals for a connection.
 For example, in Dymola all variables are listed in the menu that are contained in
 connectors which are derived by inheritance from \"controlBus\". Therefore, in
-<a href=\"Modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.InternalConnectors\">BusUsage_Utilities.Interfaces.InternalConnectors</a>
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.InternalConnectors\">BusUsage_Utilities.Interfaces.InternalConnectors</a>
 the expected implementation of the \"ControlBus\" and of the \"SubControlBus\" are given.
 For example \"Internal.ControlBus\" is defined as:
 </p>
@@ -571,7 +571,7 @@ just potential signals. The user might still add different signal names.
 <p>
 This connector defines the \"expandable connector\" ControlBus that
 is used as bus in the
-<a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
 Note, this connector is \"empty\". When using it, the actual content is
 constructed by the signals connected to this bus.
 </p>
@@ -593,7 +593,7 @@ constructed by the signals connected to this bus.
 <p>
 This connector defines the \"expandable connector\" SubControlBus that
 is used as sub-bus in the
-<a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
 Note, this connector is \"empty\". When using it, the actual content is
 constructed by the signals connected to this bus.
 </p>
@@ -624,7 +624,7 @@ constructed by the signals connected to this bus.
 <p>
 This connector is used to show default signals that might be added
 to the
-<a href=\"Modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.ControlBus\">ControlBus</a>.
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.ControlBus\">ControlBus</a>.
 </p>
 </html>"));
 
@@ -647,14 +647,14 @@ to the
 <p>
 This connector is used to show default signals that might be added
 to the
-<a href=\"Modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.SubControlBus\">SubControlBus</a>.
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.SubControlBus\">SubControlBus</a>.
 </p>
 </html>"));
         end StandardSubControlBus;
         annotation (Documentation(info="<html>
 <p>
 This package contains the \"actual\" default bus definitions needed for the
-<a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
 The bus definitions in this package are the default definitions shown in the
 bus menu when connecting a signal to an expandable connector (here: ControlBus
 or SubControlBus). Usually, the connectors of this package should not be
@@ -665,7 +665,7 @@ utilized by a user.
       annotation (Documentation(info="<html>
 <p>
 This package contains the bus definitions needed for the
-<a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
 </p>
 </html>"));
   end Interfaces;
@@ -708,7 +708,7 @@ This package contains the bus definitions needed for the
 <p>
 <p>
 This model is used to demonstrate the bus usage in example
-<a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
 </p>
 </html>"));
@@ -717,7 +717,7 @@ This model is used to demonstrate the bus usage in example
     annotation (Documentation(info="<html>
 <p>
 This package contains utility models and bus definitions needed for the
-<a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
 </p>
 </html>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}),
@@ -771,7 +771,7 @@ Copyright &copy; 1998-2009, Modelica Association and DLR.
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b>
-<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
+<a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
 </p>
 </HTML>
 ", revisions="<html>

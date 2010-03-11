@@ -135,17 +135,17 @@ The User's Guide has currently the following chapters:
 </p>
 <ol>
 <li>
-<a href=\"Modelica://Modelica.Utilities.UsersGuide.ReleaseNotes\">Release Notes</a>
+<a href=\"modelica://Modelica.Utilities.UsersGuide.ReleaseNotes\">Release Notes</a>
   summarizes the differences between different versions of this
   library.
 </li>
 <li>
-<a href=\"Modelica://Modelica.Utilities.UsersGuide.ImplementationNotes\">ImplementationNotes</a>
+<a href=\"modelica://Modelica.Utilities.UsersGuide.ImplementationNotes\">ImplementationNotes</a>
   describes design decisions for this library especially for
   Modelica tool vendors.
 </li>
 <li>
-<a href=\"Modelica://Modelica.Utilities.UsersGuide.Contact\">Contact</a> provides
+<a href=\"modelica://Modelica.Utilities.UsersGuide.Contact\">Contact</a> provides
   information about the authors of the library as well as acknowledgments.
 </li>
 </ol>
@@ -173,24 +173,24 @@ to file or copy, move and remove files.
 For an introduction, have especially a look at:
 </p>
 <ul>
-<li> <a href=\"Modelica://Modelica.Utilities.UsersGuide\">Modelica.Utilities.User's Guide</a>
+<li> <a href=\"modelica://Modelica.Utilities.UsersGuide\">Modelica.Utilities.User's Guide</a>
      discusses the most important aspects of this library.</li>
-<li> <a href=\"Modelica://Modelica.Utilities.Examples\">Modelica.Utilities.Examples</a>
+<li> <a href=\"modelica://Modelica.Utilities.Examples\">Modelica.Utilities.Examples</a>
      contains examples that demonstrate the usage of this library.</li>
 </ul>
 <p>
 The following main sublibraries are available:
 </p>
 <ul>
-<li> <a href=\"Modelica://Modelica.Utilities.Files\">Files</a>
+<li> <a href=\"modelica://Modelica.Utilities.Files\">Files</a>
      provides functions to operate on files and directories, e.g.,
      to copy, move, remove files.</li>
-<li> <a href=\"Modelica://Modelica.Utilities.Streams\">Streams</a>
+<li> <a href=\"modelica://Modelica.Utilities.Streams\">Streams</a>
      provides functions to read from files and write to files.</li>
-<li> <a href=\"Modelica://Modelica.Utilities.Strings\">Strings</a>
+<li> <a href=\"modelica://Modelica.Utilities.Strings\">Strings</a>
      provides functions to operate on strings. E.g.
      substring, find, replace, sort, scanToken.</li>
-<li> <a href=\"Modelica://Modelica.Utilities.System\">System</a>
+<li> <a href=\"modelica://Modelica.Utilities.System\">System</a>
      provides functions to interact with the environment.
      E.g., get or set the working directory or environment
      variables and to send a command to the default shell.</li>
@@ -203,7 +203,7 @@ Copyright &copy; 1998-2009, Modelica Association, DLR and Dynasim.
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b>
-<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
+<a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
 </p><br>
 </html>
 "));

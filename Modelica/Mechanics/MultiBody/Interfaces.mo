@@ -230,7 +230,7 @@ This hierarchical connector models a 1-dim. rotational flange
 connector and its optional bearing defined by a 3-dim. frame connector.
 If a connection to the subconnectors should be clearly visible,
 connect first an  instance of
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.Interfaces.FlangeWithBearingAdaptor\">FlangeWithBearingAdaptor</a>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Interfaces.FlangeWithBearingAdaptor\">FlangeWithBearingAdaptor</a>
 to the FlangeWithBearing connector.
 </p>
 </html>"));
@@ -294,7 +294,7 @@ to the FlangeWithBearing connector.
 <p>
 Adaptor object to make a more visible connection to the flange and frame
 subconnectors of a
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.Interfaces.FlangeWithBearing\">FlangeWithBearing</a>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Interfaces.FlangeWithBearing\">FlangeWithBearing</a>
 connector.
 </p>
 </html>"));

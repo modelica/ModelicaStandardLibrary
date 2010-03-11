@@ -1330,7 +1330,7 @@ backward compatibility.
 <p>
 It is much more convenient and more powerful to use \"expandable connectors\"
 for signal buses, see example
-<a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
 </html>
 "));
@@ -1367,7 +1367,7 @@ backward compatibility.
 <p>
 It is much more convenient and more powerful to use \"expandable connectors\"
 for signal buses, see example
-<a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
 </html>
 "));
@@ -1404,7 +1404,7 @@ backward compatibility.
 <p>
 It is much more convenient and more powerful to use \"expandable connectors\"
 for signal buses, see example
-<a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
 </html>"));
   end SendInteger;
@@ -1441,7 +1441,7 @@ backward compatibility.
 <p>
 It is much more convenient and more powerful to use \"expandable connectors\"
 for signal buses, see example
-<a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
 </html>"));
   end ReceiveReal;
@@ -1478,7 +1478,7 @@ backward compatibility.
 <p>
 It is much more convenient and more powerful to use \"expandable connectors\"
 for signal buses, see example
-<a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
 </html>"));
   end ReceiveBoolean;
@@ -1515,7 +1515,7 @@ backward compatibility.
 <p>
 It is much more convenient and more powerful to use \"expandable connectors\"
 for signal buses, see example
-<a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
 </html>
 "));
@@ -1527,7 +1527,7 @@ The components of this package should no longer be used.
 They are only provided for backward compatibility.
 It is much more convenient and more powerful to use \"expandable connectors\"
 for signal buses, see example
-<a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
 </html>"));
 end Adaptors;

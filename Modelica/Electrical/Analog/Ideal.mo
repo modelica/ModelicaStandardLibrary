@@ -1234,7 +1234,7 @@ Due to this equations, the DC offset of secondary voltages and currents decremen
 </p>
 <p>
 Taking primary <code>L1sigma</code> and secondary <code>L2ssigma</code> leakage inductances into account,
-compared with the <a href=\"Modelica://Modelica.Electrical.Analog.Basic.Transformer/\">basic transformer</a>
+compared with the <a href=\"modelica://Modelica.Electrical.Analog.Basic.Transformer/\">basic transformer</a>
 the following parameter conversion can be applied (which leads to identical results):
 </p>
 <pre><code>
@@ -1931,7 +1931,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
             fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
 <p>
-This model is an extension to the <a href=\"Modelica://Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch\">IdealOpeningSwitch</a>.
+This model is an extension to the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch\">IdealOpeningSwitch</a>.
 </p>
 <p>
 The basic model interupts the current through the switch in an infinitesimal time span.
@@ -2065,7 +2065,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
             fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
 <p>
-This model is an extension to the <a href=\"Modelica://Modelica.Electrical.Analog.Ideal.IdealClosingSwitch\">IdealClosingSwitch</a>.
+This model is an extension to the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealClosingSwitch\">IdealClosingSwitch</a>.
 </p>
 <p>
 The basic model interupts the current through the switch in an infinitesimal time span.
@@ -2176,7 +2176,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 <HTML>
 
 <p>
-This model is an extension to the <a href=\"Modelica://Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch\">IdealOpeningSwitch</a>.
+This model is an extension to the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch\">IdealOpeningSwitch</a>.
 </p>
 
 
@@ -2315,7 +2315,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 <HTML>
 
 <p>
-This model is an extension to the <a href=\"Modelica://Modelica.Electrical.Analog.Ideal.IdealClosingSwitch\">IdealClosingSwitch</a>.
+This model is an extension to the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealClosingSwitch\">IdealClosingSwitch</a>.
 </p>
 
 

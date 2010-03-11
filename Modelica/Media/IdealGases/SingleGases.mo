@@ -354,7 +354,7 @@ package SingleGases "Media models of ideal gases from NASA tables"
 This package contains medium
 models for the following 37 gases
 (see also the description in
-<a href=\"Modelica://Modelica.Media.IdealGases\">Modelica.Media.IdealGases</a>):
+<a href=\"modelica://Modelica.Media.IdealGases\">Modelica.Media.IdealGases</a>):
 </p>
 <pre>
 Argon             Methane          Methanol       Carbon Monoxide  Carbon Dioxide

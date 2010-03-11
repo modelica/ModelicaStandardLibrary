@@ -108,7 +108,7 @@ support torque is enabled or disabled. If it is enabled, it must be connected.
 If it is disabled, it must not be connected.
 Enabled support flanges offer, e.g., the possibility to model gearboxes mounted on
 the ground via spring-damper-systems (cf. example
-<a href=\"Modelica://Modelica.Mechanics.Rotational.Examples.ElasticBearing\">ElasticBearing</a>).
+<a href=\"modelica://Modelica.Mechanics.Rotational.Examples.ElasticBearing\">ElasticBearing</a>).
 </p>
 
 <p><IMG SRC=\"../Images/Rotational/bearing.png\" ALT=\"bearing\"></p>
@@ -199,14 +199,14 @@ which are defined in sublibrary Interfaces:
 <table BORDER=1 CELLSPACING=0 CELLPADDING=2>
 <tr><th>Name</th><th>Description</th></tr>
 <tr>
-  <td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialCompliant\">PartialCompliant</a>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialCompliant\">PartialCompliant</a>
   </td>
   <td valign=\"top\">Compliant connection of two rotational 1-dim. flanges
                    (used for force laws such as a spring or a damper).</td>
 </tr>
 
 <tr>
-  <td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates\">PartialCompliantWithRelativeStates</a>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates\">PartialCompliantWithRelativeStates</a>
   </td>
   <td valign=\"top\"> Same as \"PartialCompliant\", but relative angle and relative speed are
                     defined as preferred states. Use this partial model if the force law
@@ -219,7 +219,7 @@ which are defined in sublibrary Interfaces:
 
 
 <tr>
-  <td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2\">PartialElementaryTwoFlangesAndSupport2</a>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2\">PartialElementaryTwoFlangesAndSupport2</a>
 </td>
   <td valign=\"top\"> Partial model for a 1-dim. rotational gear consisting of the flange of
                     an input shaft, the flange of an output shaft and the support.
@@ -227,28 +227,28 @@ which are defined in sublibrary Interfaces:
 </tr>
 
 <tr>
-  <td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialTorque\">PartialTorque</a>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialTorque\">PartialTorque</a>
 </td>
   <td valign=\"top\"> Partial model of a torque acting at the flange (accelerates the flange).
   </td>
 </tr>
 
 <tr>
-  <td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges\">PartialTwoFlanges</a>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges\">PartialTwoFlanges</a>
 </td>
   <td valign=\"top\">General connection of two rotational 1-dim. flanges.
   </td>
 </tr>
 
 <tr>
-  <td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor\">PartialAbsoluteSensor</a>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor\">PartialAbsoluteSensor</a>
 </td>
   <td valign=\"top\">Measure absolute flange variables.
   </td>
 </tr>
 
 <tr>
-  <td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor\">PartialRelativeSensor</a>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor\">PartialRelativeSensor</a>
 </td>
   <td valign=\"top\">Measure relative flange variables.
   </td>
@@ -1793,7 +1793,7 @@ is always limited by the absolute value of the spring torque: |tau_d| &le; |tau_
 
 <p>
 In the next figure, a typical simulation with the ElastoBacklash model is shown
-(<a href=\"Modelica://Modelica.Mechanics.Rotational.Examples.Backlash\">Examples.Backlash</a>)
+(<a href=\"modelica://Modelica.Mechanics.Rotational.Examples.Backlash\">Examples.Backlash</a>)
 where the different effects are visualized:
 </p>
 
@@ -5138,7 +5138,7 @@ Flange_a and Flange_b are completely identical. There is only a difference
 in the icons, in order to easier identify a flange variable in a diagram.
 For a discussion on the actual direction of the cut-torque tau and
 of the rotation angle, see section
-<a href=\"Modelica://Modelica.Mechanics.Rotational.UsersGuide.SignConventions\">Sign Conventions</a>
+<a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.SignConventions\">Sign Conventions</a>
 in the user's guide of Rotational.
 </p>
 
@@ -5199,7 +5199,7 @@ Flange_a and Flange_b are completely identical. There is only a difference
 in the icons, in order to easier identify a flange variable in a diagram.
 For a discussion on the actual direction of the cut-torque tau and
 of the rotation angle, see section
-<a href=\"Modelica://Modelica.Mechanics.Rotational.UsersGuide.SignConventions\">Sign Conventions</a>
+<a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.SignConventions\">Sign Conventions</a>
 in the user's guide of Rotational.
 </p>
 
@@ -5262,17 +5262,17 @@ It is most convenient to utilize it
 <ul>
 <li> For models to be build graphically (i.e. the model is build up by drag-and-drop
      from elementary components):<br>
-     <a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialOneFlangeAndSupport\">
+     <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialOneFlangeAndSupport\">
      PartialOneFlangeAndSupport</a>,<br>
-     <a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlangesAndSupport\">
+     <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlangesAndSupport\">
      PartialTwoFlangesAndSupport</a>, <br> &nbsp; </li>
 
 <li> For models to be build textually (i.e. elementary models):<br>
-     <a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport\">
+     <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport\">
      PartialElementaryOneFlangeAndSupport</a>,<br>
-     <a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport\">
+     <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport\">
      PartialElementaryTwoFlangesAndSupport</a>,<br>
-     <a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational\">
+     <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational\">
      PartialElementaryRotationalToTranslational</a>.</li>
 </ul>
 
@@ -5361,11 +5361,11 @@ utilized via the partial models:
 </p>
 
 <blockquote>
-<a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport\">
+<a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport\">
 PartialElementaryOneFlangeAndSupport</a>,<br>
-<a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport\">
+<a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport\">
 PartialElementaryTwoFlangesAndSupport</a>,<br>
-<a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational\">
+<a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational\">
 PartialElementaryRotationalToTranslational</a>.</li>
 </blockquote>
 
@@ -6354,9 +6354,9 @@ in the next figure:
 For an introduction, have especially a look at:
 </p>
 <ul>
-<li> <a href=\"Modelica://Modelica.Mechanics.Rotational.UsersGuide\">Rotational.UsersGuide</a>
+<li> <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide\">Rotational.UsersGuide</a>
      discusses the most important aspects how to use this library.</li>
-<li> <a href=\"Modelica://Modelica.Mechanics.Rotational.Examples\">Rotational.Examples</a>
+<li> <a href=\"modelica://Modelica.Mechanics.Rotational.Examples\">Rotational.Examples</a>
      contains examples that demonstrate the usage of this library.</li>
 </ul>
 
@@ -6375,7 +6375,7 @@ Copyright &copy; 1998-2009, Modelica Association and DLR.
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b>
-<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
+<a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
 </p><br>
 </html>
 ", revisions=""),

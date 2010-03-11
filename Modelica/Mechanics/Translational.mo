@@ -1625,7 +1625,7 @@ if a positive force is acting on the element and no other force balances this fo
 <p>
 A linear spring damper combination that can lift off.
 The component can be connected between a sliding mass and the housing (model
-<a href=\"Modelica://Modelica.Mechanics.Translational.Components.Fixed\">Fixed</a>),
+<a href=\"modelica://Modelica.Mechanics.Translational.Components.Fixed\">Fixed</a>),
 to describe the contact of a sliding mass with the housing.
 </p>
 
@@ -1706,7 +1706,7 @@ is always continuous, especially around the start of the penetration at s_rel = 
 
 <p>
 In the next figure, a typical simulation with the ElastoGap model is shown
-(<a href=\"Modelica://Modelica.Mechanics.Translational.Examples.ElastoGap\">Examples.ElastoGap</a>)
+(<a href=\"modelica://Modelica.Mechanics.Translational.Examples.ElastoGap\">Examples.ElastoGap</a>)
 where the different effects are visualized:
 </p>
 
@@ -3999,8 +3999,8 @@ The following variables are transported through this connector:
 </table>
 <p><br/>The support connector is usually defined as conditional connector. It is most convenient to utilize it </p>
 <p><ul>
-<li>For models to be build graphically (i.e. the model is build up by drag-and-drop from elementary components):<br/><a href=\"Modelica://Modelica.Mechanics.Translational.Interfaces.PartialOneFlangeAndSupport\">PartialOneFlangeAndSupport</a>,<br/><a href=\"Modelica://Modelica.Mechanics.Translational.Interfaces.PartialTwoFlangesAndSupport\">PartialTwoFlangesAndSupport</a>, <br/>&nbsp; </li>
-<li>For models to be build textually (i.e. elementary models):<br/><a href=\"Modelica://Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport\">PartialElementaryOneFlangeAndSupport</a>,<br/><a href=\"Modelica://Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport\">PartialElementaryTwoFlangesAndSupport</a>,<br/><a href=\"Modelica://Modelica.Mechanics.Translational.Interfaces.PartialElementaryRotationalToTranslational\">PartialElementaryRotationalToTranslational</a>. </li>
+<li>For models to be build graphically (i.e. the model is build up by drag-and-drop from elementary components):<br/><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialOneFlangeAndSupport\">PartialOneFlangeAndSupport</a>,<br/><a href=\"Modelica://Modelica.Mechanics.Translational.Interfaces.PartialTwoFlangesAndSupport\">PartialTwoFlangesAndSupport</a>, <br/>&nbsp; </li>
+<li>For models to be build textually (i.e. elementary models):<br/><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport\">PartialElementaryOneFlangeAndSupport</a>,<br/><a href=\"Modelica://Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport\">PartialElementaryTwoFlangesAndSupport</a>,<br/><a href=\"Modelica://Modelica.Mechanics.Translational.Interfaces.PartialElementaryRotationalToTranslational\">PartialElementaryRotationalToTranslational</a>. </li>
 </ul></p>
 </html>"));
     end Support;
@@ -4049,11 +4049,11 @@ utilized via the partial models:
 </p>
 
 <blockquote>
-<a href=\"Modelica://Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport\">
+<a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport\">
 PartialElementaryOneFlangeAndSupport</a>,<br>
-<a href=\"Modelica://Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport\">
+<a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport\">
 PartialElementaryTwoFlangesAndSupport</a>,<br>
-<a href=\"Modelica://Modelica.Mechanics.Translational.Interfaces.PartialElementaryRotationalToTranslational\">
+<a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialElementaryRotationalToTranslational\">
 PartialElementaryRotationalToTranslational</a>.</li>
 </blockquote>
 
@@ -5059,7 +5059,7 @@ Copyright &copy; 1998-2009, Modelica Association, Anton Haumer and Universit&aum
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b>
-<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
+<a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
 </p><br>
 
 </HTML>

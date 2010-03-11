@@ -69,7 +69,7 @@ Thermal conductivity is computed from temperature using a second order polynomia
     annotation ( Documentation(info="<HTML>
       <IMG SRC=\"../Images/Media/IdealGases/SingleGases/Air.png\"></HTML>"),
                 Documentation(info="<html>
-Ideal gas medium model for dry air based on the package <a href=Modelica://Modelica.Media.IdealGases>IdealGases</a> with additional functions for dynamic viscosity and thermal conductivity in a limited temperature range.
+Ideal gas medium model for dry air based on the package <a href=modelica://Modelica.Media.IdealGases>IdealGases</a> with additional functions for dynamic viscosity and thermal conductivity in a limited temperature range.
 </html>"));
   end DryAirNasa;
 
@@ -161,7 +161,7 @@ required from medium model \""       + mediumName + "\".");
       x_water = Xi[Water]/max(X_air,100*Constants.eps);
       phi = p/p_steam_sat*Xi[Water]/(Xi[Water] + k_mair*X_air);
       annotation(Documentation(info="<html>
-This model computes thermodynamic properties of moist air from three independent (thermodynamic or/and numerical) state variables. Preferred numerical states are temperature T, pressure p and the reduced composition vector Xi, which contains the water mass fraction only. As an EOS the <b>ideal gas law</b> is used and associated restrictions apply. The model can also be used in the <b>fog region</b>, when moisture is present in its liquid state. However, it is assumed that the liquid water volume is negligible compared to that of the gas phase. Computation of thermal properties is based on property data of <a href=Modelica://Modelica.Media.Air.DryAirNasa> dry air</a> and water (source: VDI-W&auml;rmeatlas), respectively. Besides the standard thermodynamic variables <b>absolute and relative humidity</b>, x_water and phi, respectively, are given by the model. Upper case X denotes absolute humidity with respect to mass of moist air while absolute humidity with respect to mass of dry air only is denoted by a lower case x throughout the model. See <a href=Modelica://Modelica.Media.Air.MoistAir>package description</a> for further information.
+This model computes thermodynamic properties of moist air from three independent (thermodynamic or/and numerical) state variables. Preferred numerical states are temperature T, pressure p and the reduced composition vector Xi, which contains the water mass fraction only. As an EOS the <b>ideal gas law</b> is used and associated restrictions apply. The model can also be used in the <b>fog region</b>, when moisture is present in its liquid state. However, it is assumed that the liquid water volume is negligible compared to that of the gas phase. Computation of thermal properties is based on property data of <a href=modelica://Modelica.Media.Air.DryAirNasa> dry air</a> and water (source: VDI-W&auml;rmeatlas), respectively. Besides the standard thermodynamic variables <b>absolute and relative humidity</b>, x_water and phi, respectively, are given by the model. Upper case X denotes absolute humidity with respect to mass of moist air while absolute humidity with respect to mass of dry air only is denoted by a lower case x throughout the model. See <a href=Modelica://Modelica.Media.Air.MoistAir>package description</a> for further information.
 </html>"));
     end BaseProperties;
 
@@ -177,7 +177,7 @@ This model computes thermodynamic properties of moist air from three independent
              ThermodynamicState(p=p,T=T, X=cat(1,X,{1-sum(X)}));
       annotation(smoothOrder=2,
                   Documentation(info="<html>
-The <a href=Modelica://Modelica.Media.Air.MoistAir.ThermodynamicState>thermodynamic state record</a> is computed from pressure p, temperature T and composition X.
+The <a href=modelica://Modelica.Media.Air.MoistAir.ThermodynamicState>thermodynamic state record</a> is computed from pressure p, temperature T and composition X.
 </html>"));
     end setState_pTX;
 
@@ -193,7 +193,7 @@ The <a href=Modelica://Modelica.Media.Air.MoistAir.ThermodynamicState>thermodyna
              ThermodynamicState(p=p,T=T_phX(p,h,X), X=cat(1,X,{1-sum(X)}));
       annotation(smoothOrder=2,
                   Documentation(info="<html>
-The <a href=Modelica://Modelica.Media.Air.MoistAir.ThermodynamicState>thermodynamic state record</a> is computed from pressure p, specific enthalpy h and composition X.
+The <a href=modelica://Modelica.Media.Air.MoistAir.ThermodynamicState>thermodynamic state record</a> is computed from pressure p, specific enthalpy h and composition X.
 </html>"));
     end setState_phX;
 
@@ -209,7 +209,7 @@ The <a href=Modelica://Modelica.Media.Air.MoistAir.ThermodynamicState>thermodyna
              ThermodynamicState(p=d*({steam.R,dryair.R}*cat(1,X,{1-sum(X)}))*T,T=T, X=cat(1,X,{1-sum(X)}));
       annotation(smoothOrder=2,
                   Documentation(info="<html>
-The <a href=Modelica://Modelica.Media.Air.MoistAir.ThermodynamicState>thermodynamic state record</a> is computed from density d, temperature T and composition X.
+The <a href=modelica://Modelica.Media.Air.MoistAir.ThermodynamicState>thermodynamic state record</a> is computed from density d, temperature T and composition X.
 </html>"));
     end setState_dTX;
 
@@ -326,7 +326,7 @@ Relative humidity is computed from the thermodynamic state record with 1.0 as th
       R := dryair.R*(1-state.X[Water]) + steam.R*state.X[Water];
       annotation(smoothOrder=2,
                   Documentation(info="<html>
-The ideal gas constant for moist air is computed from <a href=Modelica://Modelica.Media.Air.MoistAir.ThermodynamicState>thermodynamic state</a> assuming that all water is in the gas phase.
+The ideal gas constant for moist air is computed from <a href=modelica://Modelica.Media.Air.MoistAir.ThermodynamicState>thermodynamic state</a> assuming that all water is in the gas phase.
 </html>"));
     end gasConstant;
 
@@ -370,7 +370,7 @@ Saturation pressure of water above the triple point temperature is computed from
 
       annotation(Inline=false,smoothOrder=5,
         Documentation(info="<html>
-Derivative function of <a href=Modelica://Modelica.Media.Air.MoistAir.saturationPressureLiquid>saturationPressureLiquid</a>
+Derivative function of <a href=modelica://Modelica.Media.Air.MoistAir.saturationPressureLiquid>saturationPressureLiquid</a>
 </html>"));
     end saturationPressureLiquid_der;
 
@@ -401,7 +401,7 @@ Sublimation pressure of water below the triple point temperature is computed fro
       psat_der:=611.657*Math.exp(22.5159*(1.0 - 273.16/Tsat))*22.5159*273.16*dTsat/Tsat/Tsat;
       annotation(Inline=false,smoothOrder=5,
         Documentation(info="<html>
-Derivative function of <a href=Modelica://Modelica.Media.Air.MoistAir.sublimationPressureIce>saturationPressureIce</a>
+Derivative function of <a href=modelica://Modelica.Media.Air.MoistAir.sublimationPressureIce>saturationPressureIce</a>
 </html>"));
     end sublimationPressureIce_der;
 
@@ -413,7 +413,7 @@ Derivative function of <a href=Modelica://Modelica.Media.Air.MoistAir.sublimatio
       annotation(Inline=false,smoothOrder=5,derivative=saturationPressure_der,
         Documentation(info="<html>
 Saturation pressure of water in the liquid and the solid region is computed using an Antoine-type correlation. It's range of validity is between 223.16 and 373.16 K. Outside of these limits a (less accurate) result is returned. Functions for the
-<a href=Modelica://Modelica.Media.Air.MoistAir.sublimationPressureIce>solid</a> and the <a href=\"Modelica://Modelica.Media.Air.MoistAir.saturationPressureLiquid\"> liquid</a> region, respectively, are combined using the first derivative continuous <a href=Modelica://Modelica.Media.Air.MoistAir.Utilities.spliceFunction>spliceFunction</a>.
+<a href=modelica://Modelica.Media.Air.MoistAir.sublimationPressureIce>solid</a> and the <a href=\"Modelica://Modelica.Media.Air.MoistAir.saturationPressureLiquid\"> liquid</a> region, respectively, are combined using the first derivative continuous <a href=Modelica://Modelica.Media.Air.MoistAir.Utilities.spliceFunction>spliceFunction</a>.
 </html>"));
     end saturationPressure;
 
@@ -436,7 +436,7 @@ Saturation pressure of water in the liquid and the solid region is computed usin
         0);
       annotation(Inline=false,smoothOrder=5,
         Documentation(info="<html>
-Derivative function of <a href=Modelica://Modelica.Media.Air.MoistAir.saturationPressure>saturationPressure</a>
+Derivative function of <a href=modelica://Modelica.Media.Air.MoistAir.saturationPressure>saturationPressure</a>
 </html>"));
     end saturationPressure_der;
 
@@ -469,7 +469,7 @@ Derivative function of <a href=Modelica://Modelica.Media.Air.MoistAir.saturation
     algorithm
       T:=Internal.solve(p, T_min, T_max);
       annotation (Documentation(info="<html>
- Computes saturation temperature from (partial) pressure via numerical inversion of the function <a href=Modelica://Modelica.Media.Air.MoistAir.saturationPressure>saturationPressure</a>. Therefore additional inputs are required (or the defaults are used) for upper and lower temperature bounds.
+ Computes saturation temperature from (partial) pressure via numerical inversion of the function <a href=modelica://Modelica.Media.Air.MoistAir.saturationPressure>saturationPressure</a>. Therefore additional inputs are required (or the defaults are used) for upper and lower temperature bounds.
 </html>"));
     end saturationTemperature;
 
@@ -510,7 +510,7 @@ The specific heat capacity of water (liquid and solid) is calculated using a
         - 0.25*(T - 273.15)*(1.3819e-6 + 0.2*(T - 273.15)*7.3221e-9))));
      annotation(Inline=false,smoothOrder=5,
         Documentation(info="<html>
-Specific enthalpy of liquid water is computed from temperature using a polynomial approach. Kept for compatibility reasons, better use <a href=Modelica://Modelica.Media.Air.MoistAir.enthalpyOfWater>enthalpyOfWater</a> instead.
+Specific enthalpy of liquid water is computed from temperature using a polynomial approach. Kept for compatibility reasons, better use <a href=modelica://Modelica.Media.Air.MoistAir.enthalpyOfWater>enthalpyOfWater</a> instead.
 </html>"));
    end enthalpyOfLiquid;
 
@@ -522,7 +522,7 @@ Specific enthalpy of liquid water is computed from temperature using a polynomia
           + SingleGasNasa.h_Tlow(data=dryair, T=T, refChoice=3, h_off=25104.684)*(1.0-X[Water]);
      annotation(Inline=false,smoothOrder=5,
         Documentation(info="<html>
-Specific enthalpy of moist air is computed from temperature, provided all water is in the gaseous state. The first entry in the composition vector X must be the mass fraction of steam. For a function that also covers the fog region please refer to <a href=Modelica://Modelica.Media.Air.MoistAir.h_pTX>h_pTX</a>.
+Specific enthalpy of moist air is computed from temperature, provided all water is in the gaseous state. The first entry in the composition vector X must be the mass fraction of steam. For a function that also covers the fog region please refer to <a href=modelica://Modelica.Media.Air.MoistAir.h_pTX>h_pTX</a>.
 </html>"));
    end enthalpyOfGas;
 
@@ -583,7 +583,7 @@ Pressure is assumed to be around 1 bar. This function is usually used to determi
     //h:=Utilities.spliceFunction(4200*(T-273.15),2050*(T-273.15)-333000,T-273.16,0.1);
     dh:=Utilities.spliceFunction_der(4200*(T-273.15),2050*(T-273.15)-333000,T-273.16,0.1,4200*dT,2050*dT,dT,0);
       annotation (Documentation(info="<html>
-Derivative function for <a href=Modelica://Modelica.Media.Air.MoistAir.enthalpyOfWater>enthalpyOfWater</a>.
+Derivative function for <a href=modelica://Modelica.Media.Air.MoistAir.enthalpyOfWater>enthalpyOfWater</a>.
 
 </html>"));
   end enthalpyOfWater_der;
@@ -639,7 +639,7 @@ Temperature is returned from the thermodynamic state record input as a simple as
   algorithm
     T := Internal.solve(h, 240, 400, p, X[1:nXi], steam);
       annotation (Documentation(info="<html>
-Temperature is computed from pressure, specific enthalpy and composition via numerical inversion of function <a href=Modelica://Modelica.Media.Air.MoistAir.h_pTX>h_pTX</a>.
+Temperature is computed from pressure, specific enthalpy and composition via numerical inversion of function <a href=modelica://Modelica.Media.Air.MoistAir.h_pTX>h_pTX</a>.
 </html>"));
   end T_phX;
 
@@ -746,7 +746,7 @@ Specific enthalpy of moist air is computed from pressure, temperature and compos
 
     annotation(Inline=false,smoothOrder=1,
         Documentation(info="<html>
-Derivative function for <a href=Modelica://Modelica.Media.Air.MoistAir.h_pTX>h_pTX</a>.
+Derivative function for <a href=modelica://Modelica.Media.Air.MoistAir.h_pTX>h_pTX</a>.
 </html>"));
   end h_pTX_der;
 
@@ -869,7 +869,7 @@ Specific internal energy is determined from pressure p, temperature T and compos
            X_liquid*enthalpyOfWater_der(T=T, dT=dT) +
            dX_liq*enthalpyOfWater(T) - dR_gas*T-R_gas*dT;
       annotation (Documentation(info="<html>
-Derivative function for <a href=Modelica://Modelica.Media.Air.MoistAir.specificInternalEnergy_pTX>specificInternalEnergy_pTX</a>.
+Derivative function for <a href=modelica://Modelica.Media.Air.MoistAir.specificInternalEnergy_pTX>specificInternalEnergy_pTX</a>.
 </html>"));
   end specificInternalEnergy_pTX_der;
 
@@ -1122,7 +1122,7 @@ It must be noted that the relationship of both axis variables is not right-angle
 <p>
 <b>Legend:</b> blue - constant specific enthalpy, red - constant temperature, black - constant relative humidity</p>
 
-<p>The model provides data for lines of constant specific enthalpy, temperature and relative humidity in a Mollier Diagram or Psychrometric Chart as they were used for the figures above. For limitations and ranges of validity please refer to the <a href=Modelica://Modelica.Media.Air.MoistAir>MoistAir package description</a>. Absolute humidity <b>x</b> is increased with time in this model. The specific enthalpies adjusted for plotting are then obtained from:</p>
+<p>The model provides data for lines of constant specific enthalpy, temperature and relative humidity in a Mollier Diagram or Psychrometric Chart as they were used for the figures above. For limitations and ranges of validity please refer to the <a href=modelica://Modelica.Media.Air.MoistAir>MoistAir package description</a>. Absolute humidity <b>x</b> is increased with time in this model. The specific enthalpies adjusted for plotting are then obtained from:</p>
 <ul>
 <li><b>y_h</b>: constant specific enthalpy</li>
 <li><b>y_T</b>: constant temperature</li>
@@ -1149,7 +1149,7 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>240 
 <p>Several additional functions that are not needed to describe the thermodynamic system, but are required to model transport processes, like heat and mass transfer, may be called. They usually neglect the moisture influence unless otherwise stated.</p>
 
 <h4>Application</h4>
-<p>The model's main area of application is all processes that involve moist air cooling under near atmospheric pressure with possible moisture condensation. This is the case in all domestic and industrial air conditioning applications. Another large domain of moist air applications covers all processes that deal with dehydration of bulk material using air as a transport medium. Engineering tasks involving moist air are often performed (or at least visualized) by using charts that contain all relevant thermodynamic data for a moist air system. These so called psychrometric charts can be generated from the medium properties in this package. The model <a href=\"Modelica://Modelica.Media.Air.MoistAir.PsychrometricData\">PsychrometricData</a> may be used for this purpose in order to obtain data for figures like those below (the plotting itself is not part of the model though).</p>
+<p>The model's main area of application is all processes that involve moist air cooling under near atmospheric pressure with possible moisture condensation. This is the case in all domestic and industrial air conditioning applications. Another large domain of moist air applications covers all processes that deal with dehydration of bulk material using air as a transport medium. Engineering tasks involving moist air are often performed (or at least visualized) by using charts that contain all relevant thermodynamic data for a moist air system. These so called psychrometric charts can be generated from the medium properties in this package. The model <a href=\"modelica://Modelica.Media.Air.MoistAir.PsychrometricData\">PsychrometricData</a> may be used for this purpose in order to obtain data for figures like those below (the plotting itself is not part of the model though).</p>
 
 <p><img src=\"../../Modelica/Images/Media/Air/Mollier.png\">
 <img src=\"../../Modelica/Images/Media/Air/PsycroChart.png\"></p>

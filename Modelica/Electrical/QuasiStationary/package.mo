@@ -34,7 +34,7 @@ Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and AIT.
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b>
-<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
+<a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
 </p>
 </HTML>", revisions="<HTML>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">

@@ -45,7 +45,7 @@ the gain <i>k</i>:
 <p>
 It might be difficult to initialize the integrator in steady state.
 This is discussed in the description of package
-<a href=\"Modelica://Modelica.Blocks.Continuous#info\">Continuous</a>.
+<a href=\"modelica://Modelica.Blocks.Continuous#info\">Continuous</a>.
 </p>
 
 </html>
@@ -140,7 +140,7 @@ the integral away from the bounds.
 <p>
 It might be difficult to initialize the integrator in steady state.
 This is discussed in the description of package
-<a href=\"Modelica://Modelica.Blocks.Continuous#info\">Continuous</a>.
+<a href=\"modelica://Modelica.Blocks.Continuous#info\">Continuous</a>.
 </p>
 
 <p>
@@ -602,7 +602,7 @@ Example:
 It might be difficult to initialize the PI component in steady state
 due to the integrator part.
 This is discussed in the description of package
-<a href=\"Modelica://Modelica.Blocks.Continuous#info\">Continuous</a>.
+<a href=\"modelica://Modelica.Blocks.Continuous#info\">Continuous</a>.
 </p>
 
 </HTML>
@@ -762,9 +762,9 @@ block LimPID.
 The PID block can be initialized in different
 ways controlled by parameter <b>initType</b>. The possible
 values of initType are defined in
-<a href=\"Modelica://Modelica.Blocks.Types.InitPID\">Modelica.Blocks.Types.InitPID</a>.
+<a href=\"modelica://Modelica.Blocks.Types.InitPID\">Modelica.Blocks.Types.InitPID</a>.
 This type is identical to
-<a href=\"Modelica://Modelica.Blocks.Types.Init\">Types.Init</a>,
+<a href=\"modelica://Modelica.Blocks.Types.Init\">Types.Init</a>,
 with the only exception that the additional option
 <b>DoNotUse_InitialIntegratorState</b> is added for
 backward compatibility reasons (= integrator is initialized with
@@ -1041,7 +1041,7 @@ Via parameter <b>controllerType</b> either <b>P</b>, <b>PI</b>, <b>PD</b>,
 or <b>PID</b> can be selected. If, e.g., PI is selected, all components belonging to the
 D-part are removed from the block (via conditional declarations).
 The example model
-<a href=\"Modelica://Modelica.Blocks.Examples.PID_Controller\">Modelica.Blocks.Examples.PID_Controller</a>
+<a href=\"modelica://Modelica.Blocks.Examples.PID_Controller\">Modelica.Blocks.Examples.PID_Controller</a>
 demonstrates the usage of this controller.
 Several practical aspects of PID controller design are incorporated
 according to chapter 3 of the book:
@@ -1112,9 +1112,9 @@ together) and using the following strategy:
 This block can be initialized in different
 ways controlled by parameter <b>initType</b>. The possible
 values of initType are defined in
-<a href=\"Modelica://Modelica.Blocks.Types.InitPID\">Modelica.Blocks.Types.InitPID</a>.
+<a href=\"modelica://Modelica.Blocks.Types.InitPID\">Modelica.Blocks.Types.InitPID</a>.
 This type is identical to
-<a href=\"Modelica://Modelica.Blocks.Types.Init\">Types.Init</a>,
+<a href=\"modelica://Modelica.Blocks.Types.Init\">Types.Init</a>,
 with the only exception that the additional option
 <b>DoNotUse_InitialIntegratorState</b> is added for
 backward compatibility reasons (= integrator is initialized with
@@ -1787,7 +1787,7 @@ described by differential equations.
 All blocks of this package can be initialized in different
 ways controlled by parameter <b>initType</b>. The possible
 values of initType are defined in
-<a href=\"Modelica://Modelica.Blocks.Types.Init\">Modelica.Blocks.Types.Init</a>:
+<a href=\"modelica://Modelica.Blocks.Types.Init\">Modelica.Blocks.Types.Init</a>:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>

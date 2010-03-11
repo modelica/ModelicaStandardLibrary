@@ -810,7 +810,7 @@ energy, which makes all medium properties pure functions of temperature.</li>
 The default setting for both these flags is true, which enables the simulation tool
 to choose temperature as the only medium state and avoids non-linear equation
 systems, see the section about
-<a href=\"Modelica://Modelica.Media.UsersGuide.MediumDefinition.StaticStateSelection\">Static
+<a href=\"modelica://Modelica.Media.UsersGuide.MediumDefinition.StaticStateSelection\">Static
 state selection</a> in the Modelica.Media User's Guide.
 
 </p>
@@ -819,18 +819,18 @@ state selection</a> in the Modelica.Media User's Guide.
 Currently, the package contains the following parts:
 </p>
 <ol>
-<li> <a href=\"Modelica://Modelica.Media.Incompressible.TableBased\">
+<li> <a href=\"modelica://Modelica.Media.Incompressible.TableBased\">
       Table based medium models</a></li>
-<li> <a href=\"Modelica://Modelica.Media.Incompressible.Examples\">
+<li> <a href=\"modelica://Modelica.Media.Incompressible.Examples\">
       Example medium models</a></li>
 </ol>
 
 <p>
 A few examples are given in the Examples package. The model
-<a href=\"Modelica://Modelica.Media.Incompressible.Examples.Glycol47\">
+<a href=\"modelica://Modelica.Media.Incompressible.Examples.Glycol47\">
 Examples.Glycol47</a> shows how the medium models can be used. For more
 realistic examples of how to implement volume models with medium properties
-look in the <a href=\"Modelica://Modelica.Media.UsersGuide.MediumUsage\">Medium
+look in the <a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage\">Medium
 usage section</a> of the User's Guide.
 </p>
 

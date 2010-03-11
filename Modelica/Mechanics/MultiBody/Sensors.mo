@@ -2056,7 +2056,7 @@ output signal connector <b>distance</b>. This
 distance is always positive. <b>Derivatives</b> of this
 signal can be easily obtained by connecting the
 block
-<a href=\"Modelica://Modelica.Blocks.Continuous.Der\">Modelica.Blocks.Continuous.Der</a>
+<a href=\"modelica://Modelica.Blocks.Continuous.Der\">Modelica.Blocks.Continuous.Der</a>
 to \"distance\" (this block performs analytic differentiation
 of the input signal using the der(..) operator).
 </p>

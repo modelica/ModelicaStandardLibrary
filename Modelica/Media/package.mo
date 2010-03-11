@@ -88,7 +88,7 @@ In a component, the most basic usage of a medium model is as follows
 <p>
 The second way is to use the setState_XXX functions to compute the thermodynamic state
 record from which all other thermodynamic state variables can be computed (see
-<a href=\"Modelica://Modelica.Media.UsersGuide.MediumDefinition.BasicDefinition\">
+<a href=\"modelica://Modelica.Media.UsersGuide.MediumDefinition.BasicDefinition\">
 Basic definition of medium</a> for further details on ThermodynamicState). The setState_XXX functions
 accept either X or Xi (see explanation below) and will decide internally which of these two compositions
 is provided by the user. The four fundamental setState_XXX functions are provided in PartialMedium
@@ -241,7 +241,7 @@ port that fulfill the mass and energy balance and on a different grid components
 fulfill the momentum balance. A balance volume component, called junction
 volume below, should be primarily implemented in the following way
 (see also the implementation in
-<a href=\"Modelica://Modelica.Media.Examples.Tests.Components.PortVolume\">
+<a href=\"modelica://Modelica.Media.Examples.Tests.Components.PortVolume\">
 Modelica.Media.Examples.Tests.Components.PortVolume</a>):
 </p>
 <pre>
@@ -355,7 +355,7 @@ other port. Since no mass or energy is stored, no differential
 equations for thermodynamic variables are present. A component model of this type
 has therefore usually the following structure
 (see also the implementation in
-<a href=\"Modelica://Modelica.Media.Examples.Tests.Components.ShortPipe\">
+<a href=\"modelica://Modelica.Media.Examples.Tests.Components.ShortPipe\">
 Modelica.Media.Examples.Tests.Components.ShortPipe</a>):
 </p>
 <pre>
@@ -408,7 +408,7 @@ The <b>semiLinear</b>(..) operator is basically defined as:
 that is, it computes the enthalpy flow rate either from the port_a or
 from the port_b properties, depending on flow direction. The exact
 details of this operator are given in
-<a href=\"Modelica://ModelicaReference.Operators.SemiLinear\">
+<a href=\"modelica://ModelicaReference.Operators.SemiLinear\">
 ModelicaReference.Operators.SemiLinear</a>. Especially, rules
 are defined in the Modelica specification that m_flow = 0 can be treated
 in a \"meaningful way\". Especially, if n fluid components (such as pipes)
@@ -451,7 +451,7 @@ In some cases additional medium properties are needed.
 A component that needs these optional properties has to call
 one of the functions listed in the following table. They are
 defined as partial functions within package
-<a href=\"Modelica://Modelica.Media.Interfaces.PartialMedium\">PartialMedium</a>,
+<a href=\"modelica://Modelica.Media.Interfaces.PartialMedium\">PartialMedium</a>,
 and then (optionally) implemented in actual medium packages.
 If a component calls such an optional function and the
 medium package does not provide a new implementation for this
@@ -818,7 +818,7 @@ elements </p>
       annotation (Documentation(info="<HTML>
 <p>
 Models for media which can exist in one-phase or two-phase conditions inherit
-from <a href=\"Modelica://Modelica.Media.Interfaces.PartialTwoPhaseMedium\">
+from <a href=\"modelica://Modelica.Media.Interfaces.PartialTwoPhaseMedium\">
 Modelica.Media.Interfaces.PartialTwoPhaseMedium</a>
 (which inherits from PartialMedium). The basic usage of these
 media models is the same as described in the previous sections. However, additional
@@ -1106,26 +1106,26 @@ exist:
 Content:
 </p>
 <ol>
-<li> <a href=\"Modelica://Modelica.Media.UsersGuide.MediumUsage.BasicUsage\">
+<li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.BasicUsage\">
       Basic usage of medium model</a></li>
-<li> <a href=\"Modelica://Modelica.Media.UsersGuide.MediumUsage.BalanceVolume\">
+<li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.BalanceVolume\">
       Medium model for a balance volume</a></li>
-<li> <a href=\"Modelica://Modelica.Media.UsersGuide.MediumUsage.ShortPipe\">
+<li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.ShortPipe\">
       Medium model for a pressure loss</a></li>
-<li> <a href=\"Modelica://Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">
+<li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">
      Optional medium properties</a></li>
-<li> <a href=\"Modelica://Modelica.Media.UsersGuide.MediumUsage.Constants\">
+<li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.Constants\">
      Constants provided by medium model</a></li>
-<li> <a href=\"Modelica://Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
+<li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
      Two-phase media</a></li>
-<li> <a href=\"Modelica://Modelica.Media.UsersGuide.MediumUsage.Initialization\">
+<li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.Initialization\">
      Initialization</a></li>
 </ol>
 
 <p>
 A good demonstration how to use the media from Modelica.Media is
 given in package Modelica.Media.Examples.Tests. Under
-<a href=\"Modelica://Modelica.Media.Examples.Tests.Components\">
+<a href=\"modelica://Modelica.Media.Examples.Tests.Components\">
 Tests.Components</a> the most basic components of a Fluid library
 are defined. Under Tests.MediaTestModels these basic components are used to test
 all media models with some very simple piping networks.
@@ -1394,7 +1394,7 @@ of the graphical user interface.</p>
       annotation (Documentation(info="<HTML>
 <p>
 Let's now walk through the definition of a new medium model. Please refer to
-<a href=\"Modelica://Modelica.Media.Interfaces.TemplateMedium\">
+<a href=\"modelica://Modelica.Media.Interfaces.TemplateMedium\">
 Modelica.Media.Interfaces.TemplateMedium</a> to obtain a template of the new
 medium model code. For the moment being, consider a single-substance medium
 model.
@@ -1511,9 +1511,9 @@ in the Modelica_Fluid library: </p>
 </pre></p>
 <p>
 For further details, refer to the implementation of
-<a href=\"Modelica://Modelica.Media.IdealGases.Common.MixtureGasNasa\">
+<a href=\"modelica://Modelica.Media.IdealGases.Common.MixtureGasNasa\">
       MixtureGasNasa model</a> and
-<a href=\"Modelica://Modelica.Media.Air.MoistAir\">
+<a href=\"modelica://Modelica.Media.Air.MoistAir\">
       MoistAir model</a>.
 </p>
 </HTML>
@@ -1947,7 +1947,7 @@ properties. Of course, more tests should be performed.
     annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
 <p>
 If a new medium model shall be introduced, copy package
-<a href=\"Modelica://Modelica.Media.Interfaces.TemplateMedium\">
+<a href=\"modelica://Modelica.Media.Interfaces.TemplateMedium\">
 Modelica.Media.Interfaces.TemplateMedium</a> to the desired
 location, remove the
 \"partial\" keyword from the package and provide
@@ -1957,17 +1957,17 @@ A more detailed description for the different parts of the
 TemplateMedium package is given here:
 </p>
 <ol>
-<li> <a href=\"Modelica://Modelica.Media.UsersGuide.MediumDefinition.BasicStructure\">
+<li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumDefinition.BasicStructure\">
       Basic structure of medium interface</a></li>
-<li> <a href=\"Modelica://Modelica.Media.UsersGuide.MediumDefinition.BasicDefinition\">
+<li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumDefinition.BasicDefinition\">
       Basic definition of medium model</a></li>
-<li> <a href=\"Modelica://Modelica.Media.UsersGuide.MediumDefinition.MultipleSubstances\">
+<li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumDefinition.MultipleSubstances\">
       Multiple Substances</a></li>
-<li> <a href=\"Modelica://Modelica.Media.UsersGuide.MediumDefinition.SpecificEnthalpyAsFunction\">
+<li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumDefinition.SpecificEnthalpyAsFunction\">
       Specific enthalpy as function</a></li>
-<li> <a href=\"Modelica://Modelica.Media.UsersGuide.MediumDefinition.StaticStateSelection\">
+<li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumDefinition.StaticStateSelection\">
       Static State Selection</a></li>
-<li> <a href=\"Modelica://Modelica.Media.UsersGuide.MediumDefinition.TestOfMedium\">
+<li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumDefinition.TestOfMedium\">
       Test of medium model</a></li>
 </ol>
 </HTML>"));
@@ -2020,12 +2020,12 @@ for the Modelica'2003 conference (for evaluation).
 <li>All functions will have derivatives to enable analytic Jacobians.</li>
 <li>Mole-fraction based media for process applications</li>
 </ul>
-<p>For further information on the upcoming version, please contact the <a href=\"Modelica://Modelica.Media.UsersGuide.Contact\">Author</a></p>
+<p>For further information on the upcoming version, please contact the <a href=\"modelica://Modelica.Media.UsersGuide.Contact\">Author</a></p>
 
 <h4>Forward compatibility</h4>
 <p> In order to simplify transition to the upcoming version of
 Modelica.Media for Modelica 3.1, a new enumeration has been
-introduced:  <a href=\"Modelica://Modelica.Media.Interfaces.PartialMedium.Choices.IndependentVariables\">IndependentVariables</a> with the
+introduced:  <a href=\"modelica://Modelica.Media.Interfaces.PartialMedium.Choices.IndependentVariables\">IndependentVariables</a> with the
 entries ph, pT, pTX, phX and dTX. Users are advised to use this enumeration to determine the independent variables of a medium. If they are going to use the function based interface of the current Modelica.Media (and not use the BaseProperties from Modelica.Media), they should not have any trouble using the next version without any need for changes in their code.</p>
 
 </html>"));
@@ -2122,7 +2122,7 @@ main features:
      generate as efficient code as a traditional
      (coupled) definition. This feature is described in more
      detail in section
-     <a href=\"Modelica://Modelica.Media.UsersGuide.MediumDefinition.StaticStateSelection\">Static State Selection</a>.</li>
+     <a href=\"modelica://Modelica.Media.UsersGuide.MediumDefinition.StaticStateSelection\">Static State Selection</a>.</li>
 <li> Optional variables, such as dynamic viscosity, are only computed if
      needed in the corresponding component.</li>
 <li> The independent variables of a medium model do not
@@ -2146,18 +2146,18 @@ main features:
 This User's Guide has the following main parts:
 </p>
 <ul>
-<li> <a href=\"Modelica://Modelica.Media.UsersGuide.MediumUsage\">Medium usage</a>
+<li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage\">Medium usage</a>
      describes how to use a medium model from
      this library in a component model.</li>
-<li> <a href=\"Modelica://Modelica.Media.UsersGuide.MediumDefinition\">Medium definition</a>
+<li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumDefinition\">Medium definition</a>
      describes how a new fluid medium
      model has to be implemented.</li>
-<li> <a href=\"Modelica://Modelica.Media.UsersGuide.ReleaseNotes\">ReleaseNotes</a>
+<li> <a href=\"modelica://Modelica.Media.UsersGuide.ReleaseNotes\">ReleaseNotes</a>
      summarizes the changes of the library releases.</li>
-<li><a href=\"Modelica://Modelica.Media.UsersGuide.Future\">Future</a>
+<li><a href=\"modelica://Modelica.Media.UsersGuide.Future\">Future</a>
     provides information about the upcoming version 3.1 of Modelica.Media and
     some changes to this version to enable forward compatibility.</li>
-<li><a href=\"Modelica://Modelica.Media.UsersGuide.Contact\">Contact</a>
+<li><a href=\"modelica://Modelica.Media.UsersGuide.Contact\">Contact</a>
     provides information about the authors of the library as well as
     acknowledgements.</li>
 </ul>
@@ -4821,7 +4821,7 @@ are defined that every medium is supposed to support
 inherits from <b>PartialMedium</b> and provides the
 equations for the medium. The details of this package
 are described in
-<a href=\"Modelica://Modelica.Media.UsersGuide\">Modelica.Media.UsersGuide</a>.
+<a href=\"modelica://Modelica.Media.UsersGuide\">Modelica.Media.UsersGuide</a>.
 </p>
 </html>
 ", revisions="<html>
@@ -8470,40 +8470,40 @@ end Common;
 annotation (
   Documentation(info="<HTML>
 <p>
-This library contains <a href=\"Modelica://Modelica.Media.Interfaces\">interface</a>
+This library contains <a href=\"modelica://Modelica.Media.Interfaces\">interface</a>
 definitions for media and the following <b>property</b> models for
 single and multiple substance fluids with one and multiple phases:
 </p>
 <ul>
-<li> <a href=\"Modelica://Modelica.Media.IdealGases\">Ideal gases:</a><br>
+<li> <a href=\"modelica://Modelica.Media.IdealGases\">Ideal gases:</a><br>
      1241 high precision gas models based on the
      NASA Glenn coefficients, plus ideal gas mixture models based
      on the same data.</li>
-<li> <a href=\"Modelica://Modelica.Media.Water\">Water models:</a><br>
+<li> <a href=\"modelica://Modelica.Media.Water\">Water models:</a><br>
      ConstantPropertyLiquidWater, WaterIF97 (high precision
      water model according to the IAPWS/IF97 standard)</li>
-<li> <a href=\"Modelica://Modelica.Media.Air\">Air models:</a><br>
+<li> <a href=\"modelica://Modelica.Media.Air\">Air models:</a><br>
      SimpleAir, DryAirNasa, and MoistAir</li>
-<li> <a href=\"Modelica://Modelica.Media.Incompressible\">
+<li> <a href=\"modelica://Modelica.Media.Incompressible\">
      Incompressible media:</a><br>
      TableBased incompressible fluid models (properties are defined by tables rho(T),
      HeatCapacity_cp(T), etc.)</li>
-<li> <a href=\"Modelica://Modelica.Media.CompressibleLiquids\">
+<li> <a href=\"modelica://Modelica.Media.CompressibleLiquids\">
      Compressible liquids:</a><br>
      Simple liquid models with linear compressibility</li>
 </ul>
 <p>
 The following parts are useful, when newly starting with this library:
 <ul>
-<li> <a href=\"Modelica://Modelica.Media.UsersGuide\">Modelica.Media.UsersGuide</a>.</li>
-<li> <a href=\"Modelica://Modelica.Media.UsersGuide.MediumUsage\">Modelica.Media.UsersGuide.MediumUsage</a>
+<li> <a href=\"modelica://Modelica.Media.UsersGuide\">Modelica.Media.UsersGuide</a>.</li>
+<li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage\">Modelica.Media.UsersGuide.MediumUsage</a>
      describes how to use a medium model in a component model.</li>
-<li> <a href=\"Modelica://Modelica.Media.UsersGuide.MediumDefinition\">
+<li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumDefinition\">
      Modelica.Media.UsersGuide.MediumDefinition</a>
      describes how a new fluid medium model has to be implemented.</li>
-<li> <a href=\"Modelica://Modelica.Media.UsersGuide.ReleaseNotes\">Modelica.Media.UsersGuide.ReleaseNotes</a>
+<li> <a href=\"modelica://Modelica.Media.UsersGuide.ReleaseNotes\">Modelica.Media.UsersGuide.ReleaseNotes</a>
      summarizes the changes of the library releases.</li>
-<li> <a href=\"Modelica://Modelica.Media.Examples\">Modelica.Media.Examples</a>
+<li> <a href=\"modelica://Modelica.Media.Examples\">Modelica.Media.Examples</a>
      contains examples that demonstrate the usage of this library.</li>
 </ul>
 <p>
@@ -8513,7 +8513,7 @@ Copyright &copy; 1998-2009, Modelica Association.
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b>
-<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
+<a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
 </p><br>
 </HTML>"));
 end Media;

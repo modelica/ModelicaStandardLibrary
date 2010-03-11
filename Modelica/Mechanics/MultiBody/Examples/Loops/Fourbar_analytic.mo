@@ -95,7 +95,7 @@ Since JointSSP solves the non-linear constraint equation internally
 analytically, no non-linear equation appears any more and a Modelica
 translator, such as Dymola, can transform the system into state space
 form without solving a system of equations. For more details, see
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">
+<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">
 MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
 </p>
 </html>"),

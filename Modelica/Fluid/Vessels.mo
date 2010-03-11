@@ -41,7 +41,7 @@ Ideal heat transfer is assumed per default; the thermal port temperature is equa
 <p>
 If <code>use_portsData=true</code>, the port pressures represent the pressures just after the outlet (or just before the inlet) in the attached pipe.
 The hydraulic resistances <tt>portsData.zeta_in</tt> and <tt>portsData.zeta_out</tt> determine the dissipative pressure drop between volume and port depending on
-the direction of mass flow. See <a href=\"Modelica://Modelica.Fluid.Vessels.BaseClasses.VesselPortsData\">VesselPortsData</a> and <i>[Idelchik, Handbook of Hydraulic Resistance, 2004]</i>.
+the direction of mass flow. See <a href=\"modelica://Modelica.Fluid.Vessels.BaseClasses.VesselPortsData\">VesselPortsData</a> and <i>[Idelchik, Handbook of Hydraulic Resistance, 2004]</i>.
 </p>
 </html>"),
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
@@ -157,7 +157,7 @@ The following assumptions are made:
 <p>
 The port pressures represent the pressures just after the outlet (or just before the inlet) in the attached pipe.
 The hydraulic resistances <tt>portsData.zeta_in</tt> and <tt>portsData.zeta_out</tt> determine the dissipative pressure drop between tank and port depending on
-the direction of mass flow. See <a href=\"Modelica://Modelica.Fluid.Vessels.BaseClasses.VesselPortsData\">VesselPortsData</a> and <i>[Idelchik, Handbook of Hydraulic Resistance, 2004]</i>.
+the direction of mass flow. See <a href=\"modelica://Modelica.Fluid.Vessels.BaseClasses.VesselPortsData\">VesselPortsData</a> and <i>[Idelchik, Handbook of Hydraulic Resistance, 2004]</i>.
 </p>
 <p>
 With the setting <tt>use_portsData=false</tt>, the port pressure represents the static head

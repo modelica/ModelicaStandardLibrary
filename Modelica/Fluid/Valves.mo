@@ -43,7 +43,7 @@ It can also be used with gases, provided that the pressure drop is lower than 0.
 <p>
 The treatment of parameters <b>Kv</b> and <b>Cv</b> is
 explained in detail in the
-<a href=\"Modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">User's Guide</a>.
+<a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">User's Guide</a>.
 </p>
 
 </html>",
@@ -117,7 +117,7 @@ explained in detail in the
 <p>
 The treatment of parameters <b>Kv</b> and <b>Cv</b> is
 explained in detail in the
-<a href=\"Modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">User's Guide</a>.
+<a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">User's Guide</a>.
 </p>
 
 </HTML>",
@@ -209,7 +209,7 @@ explained in detail in the
 <p>
 The treatment of parameters <b>Kv</b> and <b>Cv</b> is
 explained in detail in the
-<a href=\"Modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">User's Guide</a>.
+<a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">User's Guide</a>.
 </p>
 
 </HTML>",
@@ -472,7 +472,7 @@ from inlet to outlet are neglected in the energy balance. </p>
 <p>
 The treatment of parameters <b>Kv</b> and <b>Cv</b> is
 explained in detail in the
-<a href=\"Modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">User's Guide</a>.
+<a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">User's Guide</a>.
 </p>
 
 </HTML>", revisions="<html>

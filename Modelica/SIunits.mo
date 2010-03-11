@@ -1779,13 +1779,13 @@ on units, e.g.,
 <p>
 as well as conversion functions from non SI-units to SI-units
 and vice versa in subpackage
-<a href=\"Modelica://Modelica.SIunits.Conversions\">Conversions</a>.
+<a href=\"modelica://Modelica.SIunits.Conversions\">Conversions</a>.
 </p>
 
 <p>
 For an introduction how units are used in the Modelica standard library
 with package SIunits, have a look at:
-<a href=\"Modelica://Modelica.SIunits.UsersGuide.HowToUseSIunits\">How to use SIunits</a>.
+<a href=\"modelica://Modelica.SIunits.UsersGuide.HowToUseSIunits\">How to use SIunits</a>.
 </p>
 
 <p>
@@ -1795,7 +1795,7 @@ Copyright &copy; 1998-2010, Modelica Association and DLR.
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b>
-<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
+<a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
 </p>
 
 </html>", revisions="<html>

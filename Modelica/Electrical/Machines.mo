@@ -4891,7 +4891,7 @@ This package contains models of DC machines:
           Documentation(info="<HTML>
 <b>Quasistaionary model of a DC Machine with permanent magnets.</b><br>
 This model is fully compatible with the
-<a href=Modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet>transient machine model of a DC machine with permanent magnets</a>;
+<a href=modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet>transient machine model of a DC machine with permanent magnets</a>;
 the only difference is that electrical transients are neglected.
 </HTML>"));
       end DC_PermanentMagnet;
@@ -4905,7 +4905,7 @@ the only difference is that electrical transients are neglected.
           Documentation(info="<HTML>
 <b>Quasistaionary model of a DC Machine with electrical shunt or separate excitation.</b><br>
 This model is fully compatible with the
-<a href=Modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited>transient machine model of a DC machine with electrical shunt or separate excitation</a>;
+<a href=modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited>transient machine model of a DC machine with electrical shunt or separate excitation</a>;
 the only difference is that electrical transients are neglected.
 </HTML>"));
       end DC_ElectricalExcited;
@@ -4918,7 +4918,7 @@ the only difference is that electrical transients are neglected.
           Documentation(info="<HTML>
 <b>Quasistaionary model of a DC Machine with Series excitation.</b><br>
 This model is fully compatible with the
-<a href=Modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited>transient machine model of a DC machine with with series excitation</a>;
+<a href=modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited>transient machine model of a DC machine with with series excitation</a>;
 the only difference is that electrical transients are neglected.
 </HTML>"));
       end DC_SeriesExcited;
@@ -4926,7 +4926,7 @@ the only difference is that electrical transients are neglected.
 <p>
 This package contains quasistationary models of DC machines;
 these models are fully compatible with the
-<a href=Modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines>transient machine models of DC machines</a>;
+<a href=modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines>transient machine models of DC machines</a>;
 the only difference is that electrical transients are neglected.
 </p>
 <h4>Please note:</h4>
@@ -4934,7 +4934,7 @@ the only difference is that electrical transients are neglected.
 Quasistationary DC machine models are basically different from quasistationary induction machine models:
 Quasistaionary DC machine models neglect electrical transients, i.e. setting <code>der(i) = 0</code>,
 whereas quasistationary induction machine models are based on time phasor theory,
-see <a href=Modelica://Modelica.Electrical.QuasiStationary>QuasiStationary Library</a>,
+see <a href=modelica://Modelica.Electrical.QuasiStationary>QuasiStationary Library</a>,
 where e.g. <code>L*der(i)</code> is replaced by <code>j*omega*L*(I_re+j*I_im)</code>.
 </p>
 </HTML>
@@ -5011,7 +5011,7 @@ where e.g. <code>L*der(i)</code> is replaced by <code>j*omega*L*(I_re+j*I_im)</c
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yy0
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"),            Diagram(coordinateSystem(preserveAspectRatio=true,
                   extent={{-100,-100},{100,100}}),
                               graphics));
@@ -5066,7 +5066,7 @@ Transformer Yy0
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yy2
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Yy02;
 
@@ -5118,7 +5118,7 @@ Transformer Yy2
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yy4
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Yy04;
 
@@ -5166,7 +5166,7 @@ Transformer Yy4
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yy6
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Yy06;
 
@@ -5218,7 +5218,7 @@ Transformer Yy6
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yy8
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Yy08;
 
@@ -5271,7 +5271,7 @@ Transformer Yy8
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yy10
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Yy10;
         annotation (Documentation(info="<HTML>
@@ -5343,7 +5343,7 @@ This package contains transformers primary Y connected / secondary y connected i
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yd1
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Yd01;
 
@@ -5389,7 +5389,7 @@ Transformer Yd1
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yd3
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Yd03;
 
@@ -5430,7 +5430,7 @@ Transformer Yd3
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yd5
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Yd05;
 
@@ -5471,7 +5471,7 @@ Transformer Yd5
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yd7
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Yd07;
 
@@ -5517,7 +5517,7 @@ Transformer Yd7
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yd9
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Yd09;
 
@@ -5559,7 +5559,7 @@ Transformer Yd9
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yd11
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Yd11;
         annotation (Documentation(info="<HTML>
@@ -5652,7 +5652,7 @@ This package contains transformers primary Y connected / secondary d connected i
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yz1
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Yz01;
 
@@ -5715,7 +5715,7 @@ Transformer Yz1
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yz3
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Yz03;
 
@@ -5771,7 +5771,7 @@ Transformer Yz3
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yz5
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Yz05;
 
@@ -5827,7 +5827,7 @@ Transformer Yz5
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yz7
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Yz07;
 
@@ -5890,7 +5890,7 @@ Transformer Yz7
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yz9
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Yz09;
 
@@ -5953,7 +5953,7 @@ Transformer Yz9
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yz11
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Yz11;
         annotation (Documentation(info="<HTML>
@@ -6031,7 +6031,7 @@ This package contains transformers primary Y connected / secondary zig-zag conne
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dy1
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Dy01;
 
@@ -6078,7 +6078,7 @@ Transformer Dy1
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dy3
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Dy03;
 
@@ -6121,7 +6121,7 @@ Transformer Dy3
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dy5
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Dy05;
 
@@ -6168,7 +6168,7 @@ Transformer Dy5
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dy7
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Dy07;
 
@@ -6216,7 +6216,7 @@ Transformer Dy7
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dy9
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Dy09;
 
@@ -6259,7 +6259,7 @@ Transformer Dy9
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dy11
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Dy11;
         annotation (Documentation(info="<HTML>
@@ -6326,7 +6326,7 @@ This package contains transformers primary D connected / secondary y connected i
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dd0
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Dd00;
 
@@ -6367,7 +6367,7 @@ Transformer Dd0
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dd2
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Dd02;
 
@@ -6404,7 +6404,7 @@ Transformer Dd2
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dd4
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Dd04;
 
@@ -6440,7 +6440,7 @@ Transformer Dd4
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dd6
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Dd06;
 
@@ -6481,7 +6481,7 @@ Transformer Dd6
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dd8
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Dd08;
 
@@ -6518,7 +6518,7 @@ Transformer Dd8
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dd10
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Dd10;
         annotation (Documentation(info="<HTML>
@@ -6606,7 +6606,7 @@ This package contains transformers primary D connected / secondary d connected i
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dz0
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Dz00;
 
@@ -6664,7 +6664,7 @@ Transformer Dz0
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dz2
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Dz02;
 
@@ -6715,7 +6715,7 @@ Transformer Dz2
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dz4
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Dz04;
 
@@ -6766,7 +6766,7 @@ Transformer Dz4
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dz6
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Dz06;
 
@@ -6824,7 +6824,7 @@ Transformer Dz6
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dz8
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Dz08;
 
@@ -6882,7 +6882,7 @@ Transformer Dz8
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dz10
 <br>Typical parameters see:
-<a href=Modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
 </html>"));
         end Dz10;
         annotation (Documentation(info="<HTML>
@@ -6981,7 +6981,7 @@ Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b>
-<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
+<a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
 </p>
 </HTML>",     revisions="<HTML>
   <ul>
@@ -9943,7 +9943,7 @@ If <code>useThermalPort == true</code>, a thermal model or machine-specific ther
 On the other hand, all losses are dissipated to this internal or external thermal ambient.
 </p>
 <p>
-The machine specific thermal connector contains <a href=Modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a>heatPort</a>s
+The machine specific thermal connector contains <a href=modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a>heatPort</a>s
 for all relevant loss sources of the machine type, although some of the loss sources are not yet implemented;
 these heatPorts are left unconnceted inside the machine, i.e. the HeatFlowRate is zero,
 but they have to be connected to a constant temperature source in the internal or external thermal ambient.
@@ -9953,7 +9953,7 @@ or temperatures prescribed via signal inputs (<code>useTemperatureInputs == true
 <h4>Loss sources</h4>
 <p>
 Up to now, only Ohmic losses in stator and rotor windings are implemented.
-They are modeled as <a href=Modelica://Modelica.Electrical.Analog.Basic.Resistor>linearly temperature dependent rsistors</a>:
+They are modeled as <a href=modelica://Modelica.Electrical.Analog.Basic.Resistor>linearly temperature dependent rsistors</a>:
 </p>
 <pre>
    ROperational = RRef * (1 + alphaRef * (TOperational - TRef))
@@ -9977,8 +9977,8 @@ The linear temperature coefficient <code>alpha20</code> at 20&deg;C = 293.15 K h
               1 + alpha20 * (TRef - 293.15)
 </pre>
 <p>
-For this reason, the function <a href=Modelica://Modelica.Electrical.Machines.Thermal.convertAlpha>convertAlpha</a> is provided.
-In sub-package <a href=Modelica://Modelica.Electrical.Machines.Thermal.Constants>Constants</a> linear temperature coefficients at 20&deg;C for commonly used materials are defined.
+For this reason, the function <a href=modelica://Modelica.Electrical.Machines.Thermal.convertAlpha>convertAlpha</a> is provided.
+In sub-package <a href=modelica://Modelica.Electrical.Machines.Thermal.Constants>Constants</a> linear temperature coefficients at 20&deg;C for commonly used materials are defined.
 </p>
 <h4>Backwards compatibilty</h4>
 <ul>
@@ -9989,7 +9989,7 @@ In sub-package <a href=Modelica://Modelica.Electrical.Machines.Thermal.Constants
 <li>The default / start values of all nominal temperatures are set to 20&deg;C.</li>
 </ul>
 <h4>Machine specific thermalPorts</h4>
-<h5><a href=Modelica://Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage>Asynchronous induction machine with squirrel cage</a></h5>
+<h5><a href=modelica://Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage>Asynchronous induction machine with squirrel cage</a></h5>
 <ul>
 <li><code>heatPort_s[m]</code>: m=3 heatPorts for the m=3 stator phases</li>
 <li><code>heatPort_r</code>: heatPort for the rotor cage</li>
@@ -9997,7 +9997,7 @@ In sub-package <a href=Modelica://Modelica.Electrical.Machines.Thermal.Constants
 <li><code>heatPort_stray</code>: stray load losses (not yet connected/implemented)</li>
 <li><code>heatPort_friction</code>: friction losses (not yet connected/implemented)</li>
 </ul>
-<h5><a href=Modelica://Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing>Asynchronous induction machine with slipring rotor</a></h5>
+<h5><a href=modelica://Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing>Asynchronous induction machine with slipring rotor</a></h5>
 <ul>
 <li><code>heatPort_s[m]</code>: m=3 heatPorts for the m=3 stator phases</li>
 <li><code>heatPort_r[m]</code>: m=3 heatPorts for the m=3 rotor phases</li>
@@ -10006,7 +10006,7 @@ In sub-package <a href=Modelica://Modelica.Electrical.Machines.Thermal.Constants
 <li><code>heatPort_stray</code>: stray load losses (not yet connected/implemented)</li>
 <li><code>heatPort_friction</code>: friction losses (not yet connected/implemented)</li>
 </ul>
-<h5><a href=Modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet>Synchronous induction machine with permanent magnets</a></h5>
+<h5><a href=modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet>Synchronous induction machine with permanent magnets</a></h5>
 <ul>
 <li><code>heatPort_s[m]</code>: m=3 heatPorts for the m=3 stator phases</li>
 <li><code>heatPort_r</code>: conditional (<code>useDamperCage=true/false</code>) heatPort for the damper cage</li>
@@ -10015,7 +10015,7 @@ In sub-package <a href=Modelica://Modelica.Electrical.Machines.Thermal.Constants
 <li><code>heatPort_stray</code>: stray load losses (not yet connected/implemented)</li>
 <li><code>heatPort_friction</code>: friction losses (not yet connected/implemented)</li>
 </ul>
-<h5><a href=Modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited>Synchronous induction machine with electrical excitation</a></h5>
+<h5><a href=modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited>Synchronous induction machine with electrical excitation</a></h5>
 <ul>
 <li><code>heatPort_s[m]</code>: m=3 heatPorts for the m=3 stator phases</li>
 <li><code>heatPort_r</code>: conditional (<code>useDamperCage=true/false</code>) heatPort for the damper cage</li>
@@ -10025,7 +10025,7 @@ In sub-package <a href=Modelica://Modelica.Electrical.Machines.Thermal.Constants
 <li><code>heatPort_stray</code>: stray load losses (not yet connected/implemented)</li>
 <li><code>heatPort_friction</code>: friction losses (not yet connected/implemented)</li>
 </ul>
-<h5><a href=Modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor>Synchronous induction machine with reluctance rotor</a></h5>
+<h5><a href=modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor>Synchronous induction machine with reluctance rotor</a></h5>
 <ul>
 <li><code>heatPort_s[m]</code>: m=3 heatPorts for the m=3 stator phases</li>
 <li><code>heatPort_r</code>: conditional (<code>useDamperCage=true/false</code>) heatPort for the damper cage</li>
@@ -10033,7 +10033,7 @@ In sub-package <a href=Modelica://Modelica.Electrical.Machines.Thermal.Constants
 <li><code>heatPort_stray</code>: stray load losses (not yet connected/implemented)</li>
 <li><code>heatPort_friction</code>: friction losses (not yet connected/implemented)</li>
 </ul>
-<h5><a href=Modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet>DC machine with permanent magnets</a></h5>
+<h5><a href=modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet>DC machine with permanent magnets</a></h5>
 <ul>
 <li><code>heatPort_a</code>: armature losses</li>
 <li><code>heatPort_pm</code>: permanet magnet losses (not yet connected/implemented)</li>
@@ -10042,7 +10042,7 @@ In sub-package <a href=Modelica://Modelica.Electrical.Machines.Thermal.Constants
 <li><code>heatPort_stray</code>: stray load losses (not yet connected/implemented)</li>
 <li><code>heatPort_friction</code>: friction losses (not yet connected/implemented)</li>
 </ul>
-<h5><a href=Modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited>DC machine with electrical (shunt) excitation</a></h5>
+<h5><a href=modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited>DC machine with electrical (shunt) excitation</a></h5>
 <ul>
 <li><code>heatPort_a</code>: armature losses</li>
 <li><code>heatPort_e</code>: electrical (shunt) excitation</li>
@@ -10051,7 +10051,7 @@ In sub-package <a href=Modelica://Modelica.Electrical.Machines.Thermal.Constants
 <li><code>heatPort_stray</code>: stray load losses (not yet connected/implemented)</li>
 <li><code>heatPort_friction</code>: friction losses (not yet connected/implemented)</li>
 </ul>
-<h5><a href=Modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited>DC machine with serial excitation</a></h5>
+<h5><a href=modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited>DC machine with serial excitation</a></h5>
 <ul>
 <li><code>heatPort_a</code>: armature losses</li>
 <li><code>heatPort_se</code>: electrical series excitation</li>
@@ -10060,7 +10060,7 @@ In sub-package <a href=Modelica://Modelica.Electrical.Machines.Thermal.Constants
 <li><code>heatPort_stray</code>: stray load losses (not yet connected/implemented)</li>
 <li><code>heatPort_friction</code>: friction losses (not yet connected/implemented)</li>
 </ul>
-<h5><!--<a href=Modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_Compound>-->DC machine with compound excitation (not yet implemented)<!--</a>--></h5>
+<h5><!--<a href=modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_Compound>-->DC machine with compound excitation (not yet implemented)<!--</a>--></h5>
 <ul>
 <li><code>heatPort_a</code>: armature losses</li>
 <li><code>heatPort_e</code>: electrical (shunt) excitation</li>
@@ -10070,7 +10070,7 @@ In sub-package <a href=Modelica://Modelica.Electrical.Machines.Thermal.Constants
 <li><code>heatPort_stray</code>: stray load losses (not yet connected/implemented)</li>
 <li><code>heatPort_friction</code>: friction losses (not yet connected/implemented)</li>
 </ul>
-<h5><a href=Modelica://Modelica.Electrical.Machines.BasicMachines.Transformers>Transformers</a></h5>
+<h5><a href=modelica://Modelica.Electrical.Machines.BasicMachines.Transformers>Transformers</a></h5>
 <ul>
 <li><code>heatPort1[m]</code>: m=3 heatPorts for the m=3 primary phases</li>
 <li><code>heatPort2[m]</code>: m=3 heatPorts for the m=3 secondary phases</li>
@@ -11980,7 +11980,7 @@ starting at time <code>tStart</code> with a linear ramp <code>tRamp</code>.</p>
       annotation (defaultComponentName="smeeData", defaultComponentPrefixes="parameter",
       Documentation(info="<html>
 <p>The parameters of the
-<a href=\"Modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited\">
+<a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited\">
 synchronous machine model with electrical excitation (and damper)</a> are calculated from parameters
 normally given in a technical description, according to the standard EN&nbsp;60034-4:2008&nbsp;Appendix&nbsp;C.</p>
 </html>"));
@@ -12077,7 +12077,7 @@ Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and AIT.
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b>
-<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
+<a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
 </p>
 </HTML>", revisions="<HTML>
   <ul>

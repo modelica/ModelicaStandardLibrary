@@ -433,7 +433,7 @@ For more details see the <a href=Modelica.Magnetic.FundamentalWave.UsersGuide.Co
 <h4>Direct on line (DOL) starting of an asynchronous induction machine with squirrel cage</h4>
 <p>
 At start time tStart three phase voltage is supplied to the
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.AsynchronousInductionMachines.AIM_SquirrelCage\">asynchronous induction machine with squirrel cage</a>.
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.AsynchronousInductionMachines.AIM_SquirrelCage\">asynchronous induction machine with squirrel cage</a>.
 The machine starts from standstill, accelerating
 inertias against load torque quadratic dependent on speed, finally reaching nominal speed.</p>
 
@@ -650,7 +650,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <h4>Starting of an asynchronous induction machine with slipring rotor resistance starting</h4>
 <p>
 At start time <code>tOn</code> three phase voltage is supplied to the
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.AsynchronousInductionMachines.AIM_SlipRing\">asynchronous induction machine with sliprings</a>.
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.AsynchronousInductionMachines.AIM_SlipRing\">asynchronous induction machine with sliprings</a>.
 The machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed,
 using a starting resistance. At time tRheostat external rotor resistance is shortened, finally reaching nominal speed.</p>
 
@@ -861,8 +861,8 @@ Simulate for 1.5 seconds and plot (versus time):
 <h4>Synchronous induction machine with reluctance rotor fed by an ideal inverter</h4>
 <p>
 An ideal frequency inverter is modeled by using a
-<a href=\"Modelica://Modelica.Electrical.Machines.Utilities.VfController\">VfController</a>
-and a threephase <a href=\"Modelica://Modelica.Electrical.MultiPhase.Sources.SignalVoltage\">SignalVoltage</a>.
+<a href=\"modelica://Modelica.Electrical.Machines.Utilities.VfController\">VfController</a>
+and a threephase <a href=\"modelica://Modelica.Electrical.MultiPhase.Sources.SignalVoltage\">SignalVoltage</a>.
 Frequency is raised by a ramp, causing the
 <a href=\"Modelcia://Modelica.Magnetic.FundamentalWave.Machines.SynchronousInductionMachines.SM_ReluctanceRotor\">reluctance machine</a> to start,
 and accelerating inertias. At time <code>tStep</code> a load step is applied.
@@ -1081,10 +1081,10 @@ Simulate for 1.5 seconds and plot (versus time):
 <p>
 
 An ideal frequency inverter is modeled by using a
-<a href=\"Modelica://Modelica.Electrical.Machines.Utilities.VfController\">VfController</a>
-and a threephase <a href=\"Modelica://Modelica.Electrical.MultiPhase.Sources.SignalVoltage\">SignalVoltage</a>.
+<a href=\"modelica://Modelica.Electrical.Machines.Utilities.VfController\">VfController</a>
+and a threephase <a href=\"modelica://Modelica.Electrical.MultiPhase.Sources.SignalVoltage\">SignalVoltage</a>.
 Frequency is raised by a ramp, causing the
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.SynchronousInductionMachines.SM_PermanentMagnet\">permanent magnet synchronous induction machine</a> to start,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.SynchronousInductionMachines.SM_PermanentMagnet\">permanent magnet synchronous induction machine</a> to start,
 and accelerate the inertias.</p>
 
 <p>At time tStep a load step is applied. Simulate for 1.5 seconds and plot (versus time):</p>
@@ -1338,7 +1338,7 @@ and accelerate the inertias.</p>
 <h4>Electrical excited synchronous induction machine as generator</h4>
 <p>
 An
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.SynchronousInductionMachines.SM_ElectricalExcited\">electrically excited synchronous generator</a> is connected to the grid and driven with constant speed.
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.SynchronousInductionMachines.SM_ElectricalExcited\">electrically excited synchronous generator</a> is connected to the grid and driven with constant speed.
 Since speed is slightly smaller than synchronous speed corresponding to mains frequency,
 rotor angle is very slowly increased. This allows to see several charactersistics dependent on rotor angle.
 </p>
@@ -1356,8 +1356,8 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
 
     annotation (Documentation(info="<html>
 <p>Examples comparing the models of
-<a href=\"Modelica://Modelica.Electrical.Machines.BasicMachines\">Electrical.Machines.BasicMachines</a> with
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines\">Magnetic.FundamentalWave.Machines</a>.
+<a href=\"modelica://Modelica.Electrical.Machines.BasicMachines\">Electrical.Machines.BasicMachines</a> with
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines\">Magnetic.FundamentalWave.Machines</a>.
 </p>
 </html>"));
   end Examples;
@@ -1561,12 +1561,12 @@ The voltage <img src=\"../Images/Magnetic/FundamentalWave/v.png\"> induced in th
 </p>
 
 <p>The single phase electro magnetic converter is a special case of the
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter\">MultiPhaseElectroMagneticConverter</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter\">MultiPhaseElectroMagneticConverter</a>
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter\">MultiPhaseElectroMagneticConverter</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter\">MultiPhaseElectroMagneticConverter</a>
 </p>
 
 </html>"));
@@ -1710,7 +1710,7 @@ The voltages <img src=\"../Images/Magnetic/FundamentalWave/v_k.png\"> induced in
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">SinglePhaseElectroMagneticConverter</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">SinglePhaseElectroMagneticConverter</a>
 <p>
 </p>
 </html>"));
@@ -1782,7 +1782,7 @@ This is a simple short cut branch.
     end Short;
     annotation (DymolaStoredErrors, Documentation(info="<html>
 <p>Basic components of the FundamentalWave library for modeling magnetic circuits. Machine specific components are
-located at <a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.Components\">Machines.Components</a>.</p>
+located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components\">Machines.Components</a>.</p>
 </html>"));
   end Components;
 
@@ -1869,7 +1869,7 @@ Resistances and stray inductances of the machine refer to the stator phases. The
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.AsynchronousInductionMachines.AIM_SlipRing\">AIM_SlipRing</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.AsynchronousInductionMachines.AIM_SlipRing\">AIM_SlipRing</a>,
 </p>
 </html>"));
       end AIM_SquirrelCage;
@@ -1997,7 +1997,7 @@ Resistances and stray inductances of the machine always refer to either stator o
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.AsynchronousInductionMachines.AIM_SquirrelCage\">AIM_SquirrelCage</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.AsynchronousInductionMachines.AIM_SquirrelCage\">AIM_SquirrelCage</a>,
 </p>
 </html>"));
       end AIM_SlipRing;
@@ -2007,7 +2007,7 @@ Resistances and stray inductances of the machine always refer to either stator o
 <h4>See also</h4>
 
 <p>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.SynchronousInductionMachines\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.SynchronousInductionMachines\">
    SynchronousInductionMachines</a>
 </p>
 </html>"));
@@ -2160,9 +2160,9 @@ Resistances and stray inductances of the machine refer to the stator phases. The
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.SynchronousInductionMachines.SM_ElectricalExcited\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.SynchronousInductionMachines.SM_ElectricalExcited\">
    SM_ElectricalExcited</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.SynchronousInductionMachines.SM_ReluctanceRotor\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.SynchronousInductionMachines.SM_ReluctanceRotor\">
    SM_ReluctanceRotor</a>,
 </p>
 </html>"));
@@ -2347,9 +2347,9 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.SynchronousInductionMachines.SM_PermanentMagnet\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.SynchronousInductionMachines.SM_PermanentMagnet\">
    SM_PermanentMagnet</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.SynchronousInductionMachines.SM_ReluctanceRotor\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.SynchronousInductionMachines.SM_ReluctanceRotor\">
    SM_ReluctanceRotor</a>,
 </p>
 </html>"));
@@ -2466,9 +2466,9 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.SynchronousInductionMachines.SM_ElectricalExcited\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.SynchronousInductionMachines.SM_ElectricalExcited\">
    SM_ElectricalExcited</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.SynchronousInductionMachines.SM_PermanentMagnet\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.SynchronousInductionMachines.SM_PermanentMagnet\">
    SM_PermanentMagnet</a>,
 </p>
 </html>"));
@@ -2479,7 +2479,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
 <h4>See also</h4>
 
 <p>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.AsynchronousInductionMachines\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.AsynchronousInductionMachines\">
    AsynchronousInductionMachines</a>
 </p>
 </html>"));
@@ -2595,19 +2595,19 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
         Documentation(info="<html>
 <p>
 The single phase winding consists of a
-<a href=\"Modelica://Modelica.Electrical.Analog.Basic.Resistor\">resistor</a>, a symmetrical
-<a href=\"Modelica://Modelica.Electrical.Analog.Basic.Inductor\">stray inductor</a> and a
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">single phase electro magnetic coupling</a>.
+<a href=\"modelica://Modelica.Electrical.Analog.Basic.Resistor\">resistor</a>, a symmetrical
+<a href=\"modelica://Modelica.Electrical.Analog.Basic.Inductor\">stray inductor</a> and a
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">single phase electro magnetic coupling</a>.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SymmetricMultiPhaseWinding\">SymmetricMultiPhaseWinding</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SymmetricMultiPhaseCageWinding\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SymmetricMultiPhaseWinding\">SymmetricMultiPhaseWinding</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SymmetricMultiPhaseCageWinding\">
    SymmetricMultiPhaseCageWinding</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SaliencyCageWinding\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SaliencyCageWinding\">
    SaliencyCageWinding</a>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
 </html>"));
       end SinglePhaseWinding;
@@ -2729,19 +2729,19 @@ The single phase winding consists of a
         Documentation(info="<html>
 <p>
 The symmetrical multi phase winding consists of a symmetrical winding
-<a href=\"Modelica://Modelica.Electrical.MultiPhase.Basic.Resistor\">resistor</a>, a symmetrical
-<a href=\"Modelica://Modelica.Electrical.MultiPhase.Basic.Inductor\">stray inductor</a> and a symmetrical
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter\">multi phase electro magnetic coupling</a>.
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.Resistor\">resistor</a>, a symmetrical
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.Inductor\">stray inductor</a> and a symmetrical
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter\">multi phase electro magnetic coupling</a>.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SinglePhaseWinding\">SinglePhaseWinding</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SymmetricMultiPhaseCageWinding\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SinglePhaseWinding\">SinglePhaseWinding</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SymmetricMultiPhaseCageWinding\">
    SymmetricMultiPhaseCageWinding</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SaliencyCageWinding\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SaliencyCageWinding\">
    SaliencyCageWinding</a>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
 </html>"));
       end SymmetricMultiPhaseWinding;
@@ -2892,12 +2892,12 @@ This salient air gap model can be used for machines with uniform airgaps and for
 
 <p>
 For the mechanical interaction of the air gap model with the stator and the rotor it is equipped with to
-<a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.Flange_a\">rotational connectors</a>. The torques acting on both connectors have the same absolute values but different signs. The difference between the stator and the rotor angle,
+<a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.Flange_a\">rotational connectors</a>. The torques acting on both connectors have the same absolute values but different signs. The difference between the stator and the rotor angle,
 <img src=\"../Images/Magnetic/FundamentalWave/gamma.png\">, is required for the transformation of the magnetic stator quantities to the rotor side.</p>
 
 <p>
 The air gap model has two magnetic stator and two magnetic rotor
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort\">ports</a>. The magnetic potential difference and the magnetic flux of the stator (superscript s) are transformed to the rotor fixed reference frame (superscript r). The effective reluctances of the main field with respect to the d- and q-axis are considered then in the balance equations
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort\">ports</a>. The magnetic potential difference and the magnetic flux of the stator (superscript s) are transformed to the rotor fixed reference frame (superscript r). The effective reluctances of the main field with respect to the d- and q-axis are considered then in the balance equations
 </p>
 
 <p>
@@ -2918,11 +2918,11 @@ according to the following figure.
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SinglePhaseWinding\">SinglePhaseWinding</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SymmetricMultiPhaseWinding\">SymmetricMultiPhaseWinding</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SymmetricMultiPhaseCageWinding\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SinglePhaseWinding\">SinglePhaseWinding</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SymmetricMultiPhaseWinding\">SymmetricMultiPhaseWinding</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SymmetricMultiPhaseCageWinding\">
    SymmetricMultiPhaseCageWinding</a>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SaliencyCageWinding\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SaliencyCageWinding\">
    SaliencyCageWinding</a>
 </p>
 
@@ -3104,10 +3104,10 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SinglePhaseWinding\">SinglePhaseWinding</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SymmetricMultiPhaseWinding\">SymmetricMultiPhaseWinding</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SaliencyCageWinding\">SaliencyCageWinding</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SinglePhaseWinding\">SinglePhaseWinding</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SymmetricMultiPhaseWinding\">SymmetricMultiPhaseWinding</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SaliencyCageWinding\">SaliencyCageWinding</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
 </html>"));
       end SymmetricMultiPhaseCageWinding;
@@ -3271,11 +3271,11 @@ The salient cage model is a two axis model with two phases. The electro magnetic
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SinglePhaseWinding\">SinglePhaseWinding</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SymmetricMultiPhaseWinding\">SymmetricMultiPhaseWinding</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SymmetricMultiPhaseCageWinding\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SinglePhaseWinding\">SinglePhaseWinding</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SymmetricMultiPhaseWinding\">SymmetricMultiPhaseWinding</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SymmetricMultiPhaseCageWinding\">
    SymmetricMultiPhaseCageWinding</a>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
 </html>"));
       end SaliencyCageWinding;
@@ -3283,8 +3283,8 @@ The salient cage model is a two axis model with two phases. The electro magnetic
     annotation (Documentation(info="<html>
 <p>
 This package contains components for
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.AsynchronousInductionMachines\">asynchronous induction machines</a> and
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.SynchronousInductionMachines\">synchronous induction machines</a>.
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.AsynchronousInductionMachines\">asynchronous induction machines</a> and
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.SynchronousInductionMachines\">synchronous induction machines</a>.
 </p>
 </html>"));
     end Components;
@@ -3323,7 +3323,7 @@ This function determines the winding angles of a symmetrical winding with <img s
   annotation (Documentation(info="<html>
 <p>
 This package contains electric machine models and
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Machines.Components\">components</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components\">components</a>
 for electric machines.
 </p>
 </html>"));
@@ -3375,10 +3375,10 @@ Source of constant magneto motive force.
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Sources.SignalMagneticPotentialDifference\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.SignalMagneticPotentialDifference\">
    SignalMagneticPotentialDifference</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Sources.ConstantFlux\">ConstantFlux</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Sources.SignalFlux\">SignalFlux</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.ConstantFlux\">ConstantFlux</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.SignalFlux\">SignalFlux</a>
 </p>
 </html>"));
     end ConstantMagneticPotentialDifference;
@@ -3427,10 +3427,10 @@ Source of magneto motive force with complex signal input.
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Sources.ConstantMagneticPotentialDifference\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.ConstantMagneticPotentialDifference\">
    ConstantMagneticPotentialDifference</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Sources.ConstantFlux\">ConstantFlux</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Sources.SignalFlux\">SignalFlux</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.ConstantFlux\">ConstantFlux</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.SignalFlux\">SignalFlux</a>
 </p>
 
 </html>"));
@@ -3475,11 +3475,11 @@ Source of constant magnetic flux.
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Sources.ConstantMagneticPotentialDifference\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.ConstantMagneticPotentialDifference\">
    ConstantMagneticPotentialDifference</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Sources.SignalMagneticPotentialDifference\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.SignalMagneticPotentialDifference\">
    SignalMagneticPotentialDifference</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Sources.SignalFlux\">SignalFlux</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.SignalFlux\">SignalFlux</a>
 </p>
 
 </html>"));
@@ -3529,11 +3529,11 @@ Source of magnetic flux with complex signal input.
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Sources.ConstantMagneticPotentialDifference\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.ConstantMagneticPotentialDifference\">
    ConstantMagneticPotentialDifference</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Sources.SignalMagneticPotentialDifference\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.SignalMagneticPotentialDifference\">
    SignalMagneticPotentialDifference</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Sources.ConstantFlux\">ConstantFlux</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.ConstantFlux\">ConstantFlux</a>,
 </p>
 
 </html>"));
@@ -3603,7 +3603,7 @@ Source of magnetic flux with complex signal input.
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Sensors.MagneticPotentialDifferenceSensor\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sensors.MagneticPotentialDifferenceSensor\">
    MagneticPotentialDifferenceSensor</a>
 </p>
 </html>"));
@@ -3669,7 +3669,7 @@ Source of magnetic flux with complex signal input.
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Sensors.MagneticFluxSensor\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sensors.MagneticFluxSensor\">
    MagneticFluxSensor</a>
 </p></html>"));
     end MagneticPotentialDifferenceSensor;
@@ -3695,8 +3695,8 @@ The potential quantity of the magnetic port is the complex magnetic potential di
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>
 </p>
 
 </html>"));
@@ -3723,13 +3723,13 @@ The potential quantity of the magnetic port is the complex magnetic potential di
               fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
 <p>
-Negative magnetic <a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort\">port</a>.
+Negative magnetic <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort\">port</a>.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort\">MagneticPort</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort\">MagneticPort</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>
 </p>
 </html>"));
     end NegativeMagneticPort;
@@ -3754,13 +3754,13 @@ Negative magnetic <a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Interfa
               fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
 <p>
-Positive magnetic <a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort\">port</a>.
+Positive magnetic <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort\">port</a>.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort\">MagneticPort</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort\">MagneticPort</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>
 </p>
 
 </html>"));
@@ -3788,16 +3788,16 @@ Positive magnetic <a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Interfa
     annotation (Documentation(info="<html>
 <p>
 This magnetic two port element consists of a
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort\">positive</a> and a
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">negative magnetic port</a> and
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort\">positive</a> and a
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">negative magnetic port</a> and
 considers the flux balance of the two ports. Additionally the magnetic potential difference (of the positive and the negative port) and the magnetic flux (into the positive magnetic port) are defined. This model is mainly to used to extend from in order build more complex - graphical - models.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary\">PartialTwoPortElementary</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary\">PartialTwoPortElementary</a>
 </p></html>"));
     end PartialTwoPort;
 
@@ -3813,16 +3813,16 @@ considers the flux balance of the two ports. Additionally the magnetic potential
     annotation (Documentation(info="<html>
 <p>
 This magnetic two port element only consists of a
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort\">positive</a> and a
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">negative magnetic port</a>.
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort\">positive</a> and a
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">negative magnetic port</a>.
 This model is mainly used to extend from in order build more complex - equation based - models.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort\">PartialTwoPort</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort\">PartialTwoPort</a>
 </p>
 </html>"));
     end PartialTwoPortElementary;
@@ -4144,11 +4144,11 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Types.SalientCurrent\">SalientCurrent</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Types.SalientVoltage\">SalientVoltage</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Types.SalientInductance\">SalientInductance</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Types.SalientReluctance\">SalientReluctance</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Types.SalientResistance\">SalientResistance</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientCurrent\">SalientCurrent</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientVoltage\">SalientVoltage</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientInductance\">SalientInductance</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientReluctance\">SalientReluctance</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientResistance\">SalientResistance</a>
 </p>
 
 </html>"));
@@ -4162,11 +4162,11 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Types.Salient\">Salient</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Types.SalientVoltage\">SalientVoltage</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Types.SalientInductance\">SalientInductance</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Types.SalientReluctance\">SalientReluctance</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Types.SalientResistance\">SalientResistance</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.Salient\">Salient</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientVoltage\">SalientVoltage</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientInductance\">SalientInductance</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientReluctance\">SalientReluctance</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientResistance\">SalientResistance</a>
 </p>
 
 </html>"));
@@ -4178,11 +4178,11 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Types.Salient\">Salient</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Types.SalientCurrent\">SalientCurrent</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Types.SalientInductance\">SalientInductance</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Types.SalientReluctance\">SalientReluctance</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Types.SalientResistance\">SalientResistance</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.Salient\">Salient</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientCurrent\">SalientCurrent</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientInductance\">SalientInductance</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientReluctance\">SalientReluctance</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientResistance\">SalientResistance</a>
 </p>
 
 </html>"));
@@ -4194,11 +4194,11 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Types.Salient\">Salient</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Types.SalientCurrent\">SalientCurrent</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Types.SalientVoltage\">SalientVoltage</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Types.SalientReluctance\">SalientReluctance</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Types.SalientResistance\">SalientResistance</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.Salient\">Salient</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientCurrent\">SalientCurrent</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientVoltage\">SalientVoltage</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientReluctance\">SalientReluctance</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientResistance\">SalientResistance</a>
 </p>
 
 </html>"));
@@ -4210,11 +4210,11 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Types.Salient\">Salient</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Types.SalientCurrent\">SalientCurrent</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Types.SalientVoltage\">SalientVoltage</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Types.SalientInductance\">SalientInductance</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Types.SalientResistance\">SalientResistance</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.Salient\">Salient</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientCurrent\">SalientCurrent</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientVoltage\">SalientVoltage</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientInductance\">SalientInductance</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientResistance\">SalientResistance</a>
 </p>
 
 </html>"));
@@ -4226,11 +4226,11 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Types.Salient\">Salient</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Types.SalientCurrent\">SalientCurrent</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Types.SalientVoltage\">SalientVoltage</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Types.SalientInductance\">SalientInductance</a>,
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Types.SalientReluctance\">SalientReluctance</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.Salient\">Salient</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientCurrent\">SalientCurrent</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientVoltage\">SalientVoltage</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientInductance\">SalientInductance</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientReluctance\">SalientReluctance</a>
 </p>
 
 </html>"));
@@ -4262,8 +4262,8 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 </p>
 </html>", info="<html>
 <p>
-Copyright (C) 2009-2010, <a href=\"Modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Christian Kral</a> and 
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Anton Haumer</a>
+Copyright (C) 2009-2010, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Christian Kral</a> and 
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Anton Haumer</a>
 </p>
 
 <p>
@@ -4271,7 +4271,7 @@ Copyright (C) 2009-2010, <a href=\"Modelica://Modelica.Magnetic.FundamentalWave.
 the use is completely at <b>your own risk</b>;
 it can be redistributed and/or modified under the terms of the
 Modelica license 2, see the 
-<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">license conditions</a>
+<a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">license conditions</a>
 (including the disclaimer of warranty) or at
 <a href=\"http://www.Modelica.org/licenses/ModelicaLicense2\">
 http://www.Modelica.org/licenses/ModelicaLicense2</a>.</i>

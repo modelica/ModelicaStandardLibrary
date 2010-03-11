@@ -356,7 +356,7 @@ In this section a more realistic, still simple, application example
 is given, to demonstrate various features of the StateGraph library.
 This example shows the control of a two tank system from the master thesis
 of Isolde Dressler
-(<a href=\"Modelica://Modelica.StateGraph.UsersGuide.Literature\">see literature</a>).
+(<a href=\"modelica://Modelica.StateGraph.UsersGuide.Literature\">see literature</a>).
 </p>
 <p>
 In the following figure the top level of the model is shown.
@@ -564,7 +564,7 @@ The StateGraph library is based on the following references:
 <ul>
 <li> The development of this library was strongly motivated by the
      master thesis of Isolde Dressler
-     (<a href=\"Modelica://Modelica.StateGraph.UsersGuide.Literature\">see literature</a>),
+     (<a href=\"modelica://Modelica.StateGraph.UsersGuide.Literature\">see literature</a>),
      in which
      a compiler from JGrafChart to Modelica was designed and
      implemented. This project was supervised by Karl-Erik Arzen
@@ -580,7 +580,7 @@ The StateGraph library is based on the following references:
      finite state machines with equations is based on
      (Elmqvist, Mattsson and Otter, 2001),
      which in turn uses ideas from (Mosterman, Otter and Elmqvist, 1998),
-     see <a href=\"Modelica://Modelica.StateGraph.UsersGuide.Literature\">literature</a></li>
+     see <a href=\"modelica://Modelica.StateGraph.UsersGuide.Literature\">literature</a></li>
 </ul>
 </html>
 "));
@@ -596,19 +596,19 @@ way. This package contains the <b>User's Guide</b> for
 the library and has the following content:
 </p>
 <ol>
-<li><a href=\"Modelica://Modelica.StateGraph.UsersGuide.OverView\">Overview of library</a>
+<li><a href=\"modelica://Modelica.StateGraph.UsersGuide.OverView\">Overview of library</a>
      gives an overview of the library.</li>
-<li> <a href=\"Modelica://Modelica.StateGraph.UsersGuide.FirstExample\">A first example</a>
+<li> <a href=\"modelica://Modelica.StateGraph.UsersGuide.FirstExample\">A first example</a>
      demonstrates at hand of a first example how to use this library.</li>
-<li> <a href=\"Modelica://Modelica.StateGraph.UsersGuide.ApplicationExample\">An
+<li> <a href=\"modelica://Modelica.StateGraph.UsersGuide.ApplicationExample\">An
      application example</a> demonstrates varies features at hand of the
      control of a two tank system.</li>
-<li><a href=\"Modelica://Modelica.StateGraph.UsersGuide.ReleaseNotes\">Release Notes</a>
+<li><a href=\"modelica://Modelica.StateGraph.UsersGuide.ReleaseNotes\">Release Notes</a>
     summarizes the differences between different versions of this library.</li>
-<li><a href=\"Modelica://Modelica.StateGraph.UsersGuide.Literature\">Literature</a>
+<li><a href=\"modelica://Modelica.StateGraph.UsersGuide.Literature\">Literature</a>
     provides references that have been used to design and implement this
     library.</li>
-<li><a href=\"Modelica://Modelica.StateGraph.UsersGuide.Contact\">Contact</a>
+<li><a href=\"modelica://Modelica.StateGraph.UsersGuide.Contact\">Contact</a>
     provides information about the authors of the library as well as
     acknowledgments.</li>
 </ol>
@@ -1120,7 +1120,7 @@ according to their setting before leaving the \"compositeStep\" via its
 <p>
 With this example the controller of a tank filling/emptying system
 is demonstrated. This example is from Dressler (2004),
-see <a href=\"Modelica://Modelica.StateGraph.UsersGuide.Literature\">Literature</a>.
+see <a href=\"modelica://Modelica.StateGraph.UsersGuide.Literature\">Literature</a>.
 The basic operation is to fill and empty the two tanks:
 </p>
 <ol>
@@ -3184,9 +3184,9 @@ some deficiences of StateCharts.
 For an introduction, have especially a look at:
 </p>
 <ul>
-<li> <a href=\"Modelica://Modelica.StateGraph.UsersGuide\">StateGraph.UsersGuide</a>
+<li> <a href=\"modelica://Modelica.StateGraph.UsersGuide\">StateGraph.UsersGuide</a>
      discusses the most important aspects how to use this library.</li>
-<li> <a href=\"Modelica://Modelica.StateGraph.Examples\">StateGraph.Examples</a>
+<li> <a href=\"modelica://Modelica.StateGraph.Examples\">StateGraph.Examples</a>
      contains examples that demonstrate the usage of this library.</li>
 </ul>
 <p>
@@ -3237,7 +3237,7 @@ Copyright &copy; 1998-2009, Modelica Association and DLR
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b>
-<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
+<a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
 </p><br>
 
 </HTML>

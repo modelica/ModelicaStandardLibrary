@@ -228,7 +228,7 @@ and the usage of an incompressible medium model.
 Normally one would expect bad equation systems in multi-way connections
 and possibly introduce mixing volumes to work around this.
 Here the problem is treated with the the modelStructure=av_vb in the
-<a href=\"Modelica://Modelica.Fluid.Pipes.DynamicPipe\">DynamicPipe</a> model.
+<a href=\"modelica://Modelica.Fluid.Pipes.DynamicPipe\">DynamicPipe</a> model.
 Each pipe exposes the states of the outer fluid segments to the respective fluid ports.
 Consequently the pressures of all connected pipe segments get lumped together into one mass balance
 spanning the whole connection set. With the stream concept in the fluid ports, the energy and substance

@@ -994,7 +994,7 @@ is used for the current simulation.
               Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapOverall_IN_con;
 
             annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the heat transfer functions of <a href=\"Modelica://Fluid.Dissipation.HeatTransfer.Channel\"> channels </a> implemented in Modelica_Fluid as thermo-hydraulic framework.
+This record is used as <b> input record </b> for the heat transfer functions of <a href=\"modelica://Fluid.Dissipation.HeatTransfer.Channel\"> channels </a> implemented in Modelica_Fluid as thermo-hydraulic framework.
 </html>"));
           end HeatTransferChannel_con;
 
@@ -1004,7 +1004,7 @@ This record is used as <b> input record </b> for the heat transfer functions of 
               Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapOverall_IN_var;
 
             annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the heat transfer functions of <a href=\"Modelica://Fluid.Dissipation.HeatTransfer.Channel\"> channels </a> implemented in Modelica_Fluid as thermo-hydraulic framework.
+This record is used as <b> input record </b> for the heat transfer functions of <a href=\"modelica://Fluid.Dissipation.HeatTransfer.Channel\"> channels </a> implemented in Modelica_Fluid as thermo-hydraulic framework.
 </html>"));
           end HeatTransferChannel_var;
         end BaseChannelHT;
@@ -1023,7 +1023,7 @@ This record is used as <b> input record </b> for the heat transfer functions of 
 
         annotation (Documentation(info="<html>
 <p>
-In this package the heat transfer function <a href=\"Modelica://Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapLaminar_KC\"> kc_evenGapLaminar_KC </a> of an even gap out of the <b> Fluid.Dissipation </b> library is implemented into an usable form for replaceable calculations of convective heat transfer coefficients. All functions for <a href=\"Modelica://Fluid.Dissipation.Examples.Applications.Channel\"> channels </a> are integrated within the <b>Modelica_Fluid </b> library as thermo-hydraulic framework.
+In this package the heat transfer function <a href=\"modelica://Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapLaminar_KC\"> kc_evenGapLaminar_KC </a> of an even gap out of the <b> Fluid.Dissipation </b> library is implemented into an usable form for replaceable calculations of convective heat transfer coefficients. All functions for <a href=\"Modelica://Fluid.Dissipation.Examples.Applications.Channel\"> channels </a> are integrated within the <b>Modelica_Fluid </b> library as thermo-hydraulic framework.
 </p>
 
 <p>
@@ -1031,7 +1031,7 @@ This function executes the heat transfer calculation of an even gap at a laminar
 </p>
 
 <p>
-A test case for implemented heat transfer functions of channels is available as <a href=\"Modelica://Fluid.Dissipation.Examples.TestCases.HeatTransfer.Channel\"> volume model</a> for Modelica_Fluid as thermo-hydraulic framework.
+A test case for implemented heat transfer functions of channels is available as <a href=\"modelica://Fluid.Dissipation.Examples.TestCases.HeatTransfer.Channel\"> volume model</a> for Modelica_Fluid as thermo-hydraulic framework.
 </p>
 
 </html>"));
@@ -1051,7 +1051,7 @@ A test case for implemented heat transfer functions of channels is available as 
 
         annotation (Documentation(info="<html>
 <p>
-In this package the heat transfer function <a href=\"Modelica://Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapOverall_KC\"> kc_evenGapOverall_KC </a> of an even gap out of the <b> Fluid.Dissipation </b> library is implemented into an usable form for replaceable calculations of convective heat transfer coefficients. All functions for <a href=\"Modelica://Fluid.Dissipation.Examples.Applications.Channel\"> channels </a> are integrated within the <b>Modelica_Fluid </b> library as thermo-hydraulic framework.
+In this package the heat transfer function <a href=\"modelica://Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapOverall_KC\"> kc_evenGapOverall_KC </a> of an even gap out of the <b> Fluid.Dissipation </b> library is implemented into an usable form for replaceable calculations of convective heat transfer coefficients. All functions for <a href=\"Modelica://Fluid.Dissipation.Examples.Applications.Channel\"> channels </a> are integrated within the <b>Modelica_Fluid </b> library as thermo-hydraulic framework.
 </p>
 
 <p>
@@ -1059,7 +1059,7 @@ This function executes the heat transfer calculation of an even gap at an overal
 </p>
 
 <p>
-A test case for implemented heat transfer functions of channels is available as <a href=\"Modelica://Fluid.Dissipation.Examples.TestCases.Channel\"> volume model</a> for Modelica_Fluid as thermo-hydraulic framework.
+A test case for implemented heat transfer functions of channels is available as <a href=\"modelica://Fluid.Dissipation.Examples.TestCases.Channel\"> volume model</a> for Modelica_Fluid as thermo-hydraulic framework.
 </p>
 
 </html>"));
@@ -1080,7 +1080,7 @@ A test case for implemented heat transfer functions of channels is available as 
 
         annotation (Documentation(info="<html>
 <p>
-In this package the heat transfer function <a href=\"Modelica://Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapTurbulentRoughness_KC\"> kc_evenGapTurbulentRoughness_KC </a> of an even gap out of the <b> Fluid.Dissipation </b> library is implemented into an usable form for replaceable calculations of convective heat transfer coefficients. All functions for <a href=\"Modelica://Fluid.Dissipation.Examples.Applications.Channel\"> channels </a> are integrated within the <b>Modelica_Fluid </b> library as thermo-hydraulic framework.
+In this package the heat transfer function <a href=\"modelica://Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapTurbulentRoughness_KC\"> kc_evenGapTurbulentRoughness_KC </a> of an even gap out of the <b> Fluid.Dissipation </b> library is implemented into an usable form for replaceable calculations of convective heat transfer coefficients. All functions for <a href=\"Modelica://Fluid.Dissipation.Examples.Applications.Channel\"> channels </a> are integrated within the <b>Modelica_Fluid </b> library as thermo-hydraulic framework.
 </p>
 
 <p>
@@ -1088,7 +1088,7 @@ This function executes the heat transfer calculation of an even gap at an turbul
 </p>
 
 <p>
-A test case for implemented heat transfer functions of channels is available as <a href=\"Modelica://Fluid.Dissipation.Examples.TestCases.Channel\"> volume model</a> for Modelica_Fluid as thermo-hydraulic framework.
+A test case for implemented heat transfer functions of channels is available as <a href=\"modelica://Fluid.Dissipation.Examples.TestCases.Channel\"> volume model</a> for Modelica_Fluid as thermo-hydraulic framework.
 </p>
 
 </html>"));
@@ -1125,7 +1125,7 @@ A test case for implemented heat transfer functions of channels is available as 
               Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_con;
 
             annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the heat transfer functions of <a href=\"Modelica://Fluid.Dissipation.HeatTransfer.General\"> generic geometries </a> implemented in Modelica_Fluid as thermo-hydraulic framework.
+This record is used as <b> input record </b> for the heat transfer functions of <a href=\"modelica://Fluid.Dissipation.HeatTransfer.General\"> generic geometries </a> implemented in Modelica_Fluid as thermo-hydraulic framework.
 </html>"));
           end HeatTransferGeneral_con;
 
@@ -1135,7 +1135,7 @@ This record is used as <b> input record </b> for the heat transfer functions of 
               Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_var;
 
             annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the heat transfer functions of <a href=\"Modelica://Fluid.Dissipation.HeatTransfer.General\"> generic geometries </a> implemented in Modelica_Fluid as thermo-hydraulic framework.
+This record is used as <b> input record </b> for the heat transfer functions of <a href=\"modelica://Fluid.Dissipation.HeatTransfer.General\"> generic geometries </a> implemented in Modelica_Fluid as thermo-hydraulic framework.
 </html>"));
           end HeatTransferGeneral_var;
         end BaseGeneralHT;
@@ -1156,7 +1156,7 @@ This record is used as <b> input record </b> for the heat transfer functions of 
 
         annotation (Documentation(info="<html>
 <p>
-In this package the heat transfer function <a href=\"Modelica://Fluid.Dissipation.HeatTransfer.HeatTransfer.General.kc_approxForcedConvection_KC\"> HeatTransfer.General.kc_approxForcedConvection_KC </a> of a generic geometry out of the <b> Fluid.Dissipation </b> library is implemented into an usable form for replaceable calculations of convective heat transfer coefficients. All functions for <a href=\"Modelica://Fluid.Dissipation.Examples.Applications.General\"> generic geometries </a> are integrated within the <b>Modelica_Fluid </b> library as thermo-hydraulic framework.
+In this package the heat transfer function <a href=\"modelica://Fluid.Dissipation.HeatTransfer.HeatTransfer.General.kc_approxForcedConvection_KC\"> HeatTransfer.General.kc_approxForcedConvection_KC </a> of a generic geometry out of the <b> Fluid.Dissipation </b> library is implemented into an usable form for replaceable calculations of convective heat transfer coefficients. All functions for <a href=\"Modelica://Fluid.Dissipation.Examples.Applications.General\"> generic geometries </a> are integrated within the <b>Modelica_Fluid </b> library as thermo-hydraulic framework.
 </p>
 
 <p>
@@ -1164,7 +1164,7 @@ This function executes the heat transfer calculation of an even gap at an turbul
 </p>
 
 <p>
-A test case for implemented heat transfer functions of channels is available as <a href=\"Modelica://Fluid.Dissipation.Examples.TestCases.General\"> volume model</a> for Modelica_Fluid as thermo-hydraulic framework.
+A test case for implemented heat transfer functions of channels is available as <a href=\"modelica://Fluid.Dissipation.Examples.TestCases.General\"> volume model</a> for Modelica_Fluid as thermo-hydraulic framework.
 </p>
 
 </html>"));
@@ -1508,7 +1508,7 @@ A test case for implemented heat transfer functions of channels is available as 
               Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall_IN_con;
 
             annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the heat transfer functions of <a href=\"Modelica://Fluid.Dissipation.HeatTransfer.HelicalPipe\"> helical pipes </a> implemented in Modelica_Fluid as thermo-hydraulic framework.
+This record is used as <b> input record </b> for the heat transfer functions of <a href=\"modelica://Fluid.Dissipation.HeatTransfer.HelicalPipe\"> helical pipes </a> implemented in Modelica_Fluid as thermo-hydraulic framework.
 </html>"));
           end HeatTransferHelicalPipe_con;
 
@@ -1519,7 +1519,7 @@ This record is used as <b> input record </b> for the heat transfer functions of 
               Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall_IN_var;
 
             annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the heat transfer functions of <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe\"> helical pipes </a> implemented in Modelica_Fluid as thermo-hydraulic framework.
+This record is used as <b> input record </b> for the heat transfer functions of <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe\"> helical pipes </a> implemented in Modelica_Fluid as thermo-hydraulic framework.
 </html>"));
           end HeatTransferHelicalPipe_var;
         end BaseHelicalPipeHT;
@@ -1539,7 +1539,7 @@ This record is used as <b> input record </b> for the heat transfer functions of 
 
         annotation (Documentation(info="<html>
 <p>
-In this package the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_laminar_KC\"> kc_laminar_KC </a> of a helical pipe out of the <b> Fluid.Dissipation </b> library is implemented into an usable form for replaceable calculations of convective heat transfer coefficients. All functions for <a href=\"Modelica://Modelica.Fluid.Dissipation.Examples.Applications.HelicalPipe\"> helical pipes </a> are integrated within the <b>Modelica_Fluid </b> library as thermo-hydraulic framework.
+In this package the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_laminar_KC\"> kc_laminar_KC </a> of a helical pipe out of the <b> Fluid.Dissipation </b> library is implemented into an usable form for replaceable calculations of convective heat transfer coefficients. All functions for <a href=\"Modelica://Modelica.Fluid.Dissipation.Examples.Applications.HelicalPipe\"> helical pipes </a> are integrated within the <b>Modelica_Fluid </b> library as thermo-hydraulic framework.
 </p>
 
 <p>
@@ -1547,7 +1547,7 @@ This function executes the calculation of a helical pipe in the laminar regime f
 </p>
 
 <p>
-A test case for implemented heat transfer functions of helical pipes is available as <a href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.HelicalPipe\"> volume model</a> for Modelica_Fluid as thermo-hydraulic framework.
+A test case for implemented heat transfer functions of helical pipes is available as <a href=\"modelica://Modelica.Fluid.Dissipation.Examples.TestCases.HelicalPipe\"> volume model</a> for Modelica_Fluid as thermo-hydraulic framework.
 </p>
 
 </html>
@@ -1569,7 +1569,7 @@ A test case for implemented heat transfer functions of helical pipes is availabl
 
         annotation (Documentation(info="<html>
 <p>
-In this package the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall_KC\"> kc_overall_KC </a> of a helical pipe out of the <b> Fluid.Dissipation </b> library is implemented into an usable form for replaceable calculations of convective heat transfer coefficients. All functions for <a href=\"Modelica://Modelica.Fluid.Dissipation.Examples.Applications.HelicalPipe\"> helical pipes </a> are integrated within the <b>Modelica_Fluid </b> library as thermo-hydraulic framework.
+In this package the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall_KC\"> kc_overall_KC </a> of a helical pipe out of the <b> Fluid.Dissipation </b> library is implemented into an usable form for replaceable calculations of convective heat transfer coefficients. All functions for <a href=\"Modelica://Modelica.Fluid.Dissipation.Examples.Applications.HelicalPipe\"> helical pipes </a> are integrated within the <b>Modelica_Fluid </b> library as thermo-hydraulic framework.
 </p>
 
 <p>
@@ -1577,7 +1577,7 @@ This function executes the calculation of a helical pipe in the overall regime f
 </p>
 
 <p>
-A test case for implemented heat transfer functions of helical pipes is available as <a href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.HelicalPipe\"> volume model</a> for Modelica_Fluid as thermo-hydraulic framework.
+A test case for implemented heat transfer functions of helical pipes is available as <a href=\"modelica://Modelica.Fluid.Dissipation.Examples.TestCases.HelicalPipe\"> volume model</a> for Modelica_Fluid as thermo-hydraulic framework.
 </p>
 
 </html>
@@ -1599,7 +1599,7 @@ A test case for implemented heat transfer functions of helical pipes is availabl
 
         annotation (Documentation(info="<html>
 <p>
-In this package the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_turbulent_KC\"> kc_turbulent_KC </a> of a helical pipe out of the <b> Fluid.Dissipation </b> library is implemented into an usable form for replaceable calculations of convective heat transfer coefficients. All functions for <a href=\"Modelica://Modelica.Fluid.Dissipation.Examples.Applications.HelicalPipe\"> helical pipes </a> are integrated within the <b>Modelica_Fluid </b> library as thermo-hydraulic framework.
+In this package the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_turbulent_KC\"> kc_turbulent_KC </a> of a helical pipe out of the <b> Fluid.Dissipation </b> library is implemented into an usable form for replaceable calculations of convective heat transfer coefficients. All functions for <a href=\"Modelica://Modelica.Fluid.Dissipation.Examples.Applications.HelicalPipe\"> helical pipes </a> are integrated within the <b>Modelica_Fluid </b> library as thermo-hydraulic framework.
 </p>
 
 <p>
@@ -1607,7 +1607,7 @@ This function executes the calculation of a helical pipe in the turbulent regime
 </p>
 
 <p>
-A test case for implemented heat transfer functions of helical pipes is available as <a href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.HelicalPipe\"> volume model</a> for Modelica_Fluid as thermo-hydraulic framework.
+A test case for implemented heat transfer functions of helical pipes is available as <a href=\"modelica://Modelica.Fluid.Dissipation.Examples.TestCases.HelicalPipe\"> volume model</a> for Modelica_Fluid as thermo-hydraulic framework.
 </p>
 
 </html>
@@ -1647,7 +1647,7 @@ A test case for implemented heat transfer functions of helical pipes is availabl
               Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_overall_IN_con;
 
             annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the heat transfer functions of <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate\"> plates </a> implemented in Modelica_Fluid as thermo-hydraulic framework.
+This record is used as <b> input record </b> for the heat transfer functions of <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate\"> plates </a> implemented in Modelica_Fluid as thermo-hydraulic framework.
 </html>"));
           end HeatTransferPlate_con;
 
@@ -1657,7 +1657,7 @@ This record is used as <b> input record </b> for the heat transfer functions of 
               Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_overall_IN_var;
 
             annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the heat transfer functions of <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate\"> plates </a> implemented in Modelica_Fluid as thermo-hydraulic framework.
+This record is used as <b> input record </b> for the heat transfer functions of <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate\"> plates </a> implemented in Modelica_Fluid as thermo-hydraulic framework.
 </html>"));
           end HeatTransferPlate_var;
         end BasePlateHT;
@@ -1677,7 +1677,7 @@ This record is used as <b> input record </b> for the heat transfer functions of 
 
         annotation (Documentation(info="<html>
 <p>
-In this package the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_laminar_KC\"> kc_laminar_KC </a> of a plate out of the <b> Fluid.Dissipation </b> library is implemented into an usable form for replaceable calculations of convective heat transfer coefficients. All functions for <a href=\"Modelica://Modelica.Fluid.Dissipation.Examples.Applications.Plate\"> plates </a> are integrated within the <b>Modelica_Fluid </b> library as thermo-hydraulic framework.
+In this package the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_laminar_KC\"> kc_laminar_KC </a> of a plate out of the <b> Fluid.Dissipation </b> library is implemented into an usable form for replaceable calculations of convective heat transfer coefficients. All functions for <a href=\"Modelica://Modelica.Fluid.Dissipation.Examples.Applications.Plate\"> plates </a> are integrated within the <b>Modelica_Fluid </b> library as thermo-hydraulic framework.
 </p>
 
 <p>
@@ -1685,7 +1685,7 @@ This function executes the calculation of a plate at laminar flow regime for an 
 </p>
 
 <p>
-A test case for implemented heat transfer functions of plates is available as <a href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.Plate\"> volume model</a> for Modelica_Fluid as thermo-hydraulic framework.
+A test case for implemented heat transfer functions of plates is available as <a href=\"modelica://Modelica.Fluid.Dissipation.Examples.TestCases.Plate\"> volume model</a> for Modelica_Fluid as thermo-hydraulic framework.
 </p>
 
 </html>"));
@@ -1706,7 +1706,7 @@ A test case for implemented heat transfer functions of plates is available as <a
 
         annotation (Documentation(info="<html>
 <p>
-In this package the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_mean_overall_KC\"> kc_overall_KC </a> of a plate out of the <b> Fluid.Dissipation </b> library is implemented into an usable form for replaceable calculations of convective heat transfer coefficients. All functions for <a href=\"Modelica://Modelica.Fluid.Dissipation.Examples.Applications.Plate\"> plates </a> are integrated within the <b>Modelica_Fluid </b> library as thermo-hydraulic framework.
+In this package the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_mean_overall_KC\"> kc_overall_KC </a> of a plate out of the <b> Fluid.Dissipation </b> library is implemented into an usable form for replaceable calculations of convective heat transfer coefficients. All functions for <a href=\"Modelica://Modelica.Fluid.Dissipation.Examples.Applications.Plate\"> plates </a> are integrated within the <b>Modelica_Fluid </b> library as thermo-hydraulic framework.
 </p>
 
 <p>
@@ -1714,7 +1714,7 @@ This function executes the calculation of a plate at overall flow regime for an 
 </p>
 
 <p>
-A test case for implemented heat transfer functions of plates is available as <a href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.Plate\"> volume model</a> for Modelica_Fluid as thermo-hydraulic framework.
+A test case for implemented heat transfer functions of plates is available as <a href=\"modelica://Modelica.Fluid.Dissipation.Examples.TestCases.Plate\"> volume model</a> for Modelica_Fluid as thermo-hydraulic framework.
 </p>
 
 </html>"));
@@ -1735,7 +1735,7 @@ A test case for implemented heat transfer functions of plates is available as <a
 
         annotation (Documentation(info="<html>
 <p>
-In this package the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_turbulent_KC\"> kc_turbulent_KC </a> of a plate out of the <b> Fluid.Dissipation </b> library is implemented into an usable form for replaceable calculations of convective heat transfer coefficients. All functions for <a href=\"Modelica://Modelica.Fluid.Dissipation.Examples.Applications.Plate\"> plates </a> are integrated within the <b>Modelica_Fluid </b> library as thermo-hydraulic framework.
+In this package the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_turbulent_KC\"> kc_turbulent_KC </a> of a plate out of the <b> Fluid.Dissipation </b> library is implemented into an usable form for replaceable calculations of convective heat transfer coefficients. All functions for <a href=\"Modelica://Modelica.Fluid.Dissipation.Examples.Applications.Plate\"> plates </a> are integrated within the <b>Modelica_Fluid </b> library as thermo-hydraulic framework.
 </p>
 
 <p>
@@ -1743,7 +1743,7 @@ This function executes the calculation of a plate at turbulent flow regime for a
 </p>
 
 <p>
-A test case for implemented heat transfer functions of plates is available as <a href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.Plate\"> volume model</a> for Modelica_Fluid as thermo-hydraulic framework.
+A test case for implemented heat transfer functions of plates is available as <a href=\"modelica://Modelica.Fluid.Dissipation.Examples.TestCases.Plate\"> volume model</a> for Modelica_Fluid as thermo-hydraulic framework.
 </p>
 
 </html>"));
@@ -1805,7 +1805,7 @@ A test case for implemented heat transfer functions of plates is available as <a
 
         annotation (Documentation(info="<html>
 <p>
-In this package the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar_KC\"> kc_laminar_KC </a> of a straight pipe out of the <b> Fluid.Dissipation </b> library is implemented into an usable form for replaceable calculations of convective heat transfer coefficients. All functions for <a href=\"Modelica://Modelica.Fluid.Dissipation.Examples.Applications.StraightPipe\"> straight pipes </a> are integrated within the <b>Modelica_Fluid </b> library as thermo-hydraulic framework.
+In this package the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar_KC\"> kc_laminar_KC </a> of a straight pipe out of the <b> Fluid.Dissipation </b> library is implemented into an usable form for replaceable calculations of convective heat transfer coefficients. All functions for <a href=\"Modelica://Modelica.Fluid.Dissipation.Examples.Applications.StraightPipe\"> straight pipes </a> are integrated within the <b>Modelica_Fluid </b> library as thermo-hydraulic framework.
 </p>
 
 <p>
@@ -1813,7 +1813,7 @@ This function executes the calculation of a straight pipe in the laminar regime 
 </p>
 
 <p>
-A test case for implemented heat transfer functions of straight pipes is available as <a href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.HeatTransfer.StraightPipe\"> volume model</a> for Modelica_Fluid as thermo-hydraulic framework.
+A test case for implemented heat transfer functions of straight pipes is available as <a href=\"modelica://Modelica.Fluid.Dissipation.Examples.TestCases.HeatTransfer.StraightPipe\"> volume model</a> for Modelica_Fluid as thermo-hydraulic framework.
 </p>
 
 </html>
@@ -1835,7 +1835,7 @@ A test case for implemented heat transfer functions of straight pipes is availab
 
         annotation (Documentation(info="<html>
 <p>
-In this package the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_KC\"> kc_overall_KC </a> of a straight pipe out of the <b> Fluid.Dissipation </b> library is implemented into an usable form for replaceable calculations of convective heat transfer coefficients. All functions for <a href=\"Modelica://Modelica.Fluid.Dissipation.Examples.Applications.StraightPipe\"> straight pipes </a> are integrated within the <b>Modelica_Fluid </b> library as thermo-hydraulic framework.
+In this package the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_KC\"> kc_overall_KC </a> of a straight pipe out of the <b> Fluid.Dissipation </b> library is implemented into an usable form for replaceable calculations of convective heat transfer coefficients. All functions for <a href=\"Modelica://Modelica.Fluid.Dissipation.Examples.Applications.StraightPipe\"> straight pipes </a> are integrated within the <b>Modelica_Fluid </b> library as thermo-hydraulic framework.
 </p>
 
 <p>
@@ -1843,7 +1843,7 @@ This function executes the calculation of a straight pipe in the overall regime 
 </p>
 
 <p>
-A test case for implemented heat transfer functions of straight pipes is available as <a href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.HeatTransfer.StraightPipe\"> volume model</a> for Modelica_Fluid as thermo-hydraulic framework.
+A test case for implemented heat transfer functions of straight pipes is available as <a href=\"modelica://Modelica.Fluid.Dissipation.Examples.TestCases.HeatTransfer.StraightPipe\"> volume model</a> for Modelica_Fluid as thermo-hydraulic framework.
 </p>
 
 </html>
@@ -1865,7 +1865,7 @@ A test case for implemented heat transfer functions of straight pipes is availab
 
         annotation (Documentation(info="<html>
 <p>
-In this package the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent_KC\"> kc_turbulent_KC </a> of a straight pipe out of the <b> Fluid.Dissipation </b> library is implemented into an usable form for replaceable calculations of convective heat transfer coefficients. All functions for <a href=\"Modelica://Modelica.Fluid.Dissipation.Examples.Applications.StraightPipe\"> straight pipes </a> are integrated within the <b>Modelica_Fluid </b> library as thermo-hydraulic framework.
+In this package the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent_KC\"> kc_turbulent_KC </a> of a straight pipe out of the <b> Fluid.Dissipation </b> library is implemented into an usable form for replaceable calculations of convective heat transfer coefficients. All functions for <a href=\"Modelica://Modelica.Fluid.Dissipation.Examples.Applications.StraightPipe\"> straight pipes </a> are integrated within the <b>Modelica_Fluid </b> library as thermo-hydraulic framework.
 </p>
 
 <p>
@@ -1873,7 +1873,7 @@ This function executes the calculation of a straight pipe in the turbulent regim
 </p>
 
 <p>
-A test case for implemented heat transfer functions of straight pipes is available as <a href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.HeatTransfer.StraightPipe\"> volume model</a> for Modelica_Fluid as thermo-hydraulic framework.
+A test case for implemented heat transfer functions of straight pipes is available as <a href=\"modelica://Modelica.Fluid.Dissipation.Examples.TestCases.HeatTransfer.StraightPipe\"> volume model</a> for Modelica_Fluid as thermo-hydraulic framework.
 </p>
 
 </html>
@@ -2340,9 +2340,9 @@ A test case for implemented heat transfer functions of straight pipes is availab
 
           annotation (Documentation(info="<html>
 <p>
-In this package the pressure loss function <a href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall\"> dp_curvedOverall </a> of a curved bend function with surface roughness dependence out of the <b> Fluid.Dissipation </b> library is
+In this package the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall\"> dp_curvedOverall </a> of a curved bend function with surface roughness dependence out of the <b> Fluid.Dissipation </b> library is
 implemented into an usable form for the replaceable pressure loss calculations of a <a
-href=\"Modelica://Modelica.Fluid.Dissipation.Examples.Applications.PressureLoss.Bend\"> bend function </a> with the <b>Modelica.Fluid </b>
+href=\"modelica://Modelica.Fluid.Dissipation.Examples.Applications.PressureLoss.Bend\"> bend function </a> with the <b>Modelica.Fluid </b>
 library as thermo-hydraulic framework.
 </p>
 
@@ -2354,7 +2354,7 @@ pressure loss (dp).
 
 <p>
 A test case ready for the simulation of a Modelica.Fluid bend function can be found in <a
-href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.Bend\"> Test: Bend functions </a>.
+href=\"modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.Bend\"> Test: Bend functions </a>.
 </p>
 
 </html>
@@ -2408,7 +2408,7 @@ href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.Ben
 
             annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss of the <a
-href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend\"> curved bend function </a> implemented in Modelica.Fluid
+href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend\"> curved bend function </a> implemented in Modelica.Fluid
 as thermo-hydraulic framework.
 </html>"));
 
@@ -2421,7 +2421,7 @@ as thermo-hydraulic framework.
 
             annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss of the <a
-href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend\"> curved bend function </a> implemented in Modelica.Fluid
+href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend\"> curved bend function </a> implemented in Modelica.Fluid
 as thermo-hydraulic framework.
 </html>"));
 
@@ -2449,9 +2449,9 @@ as thermo-hydraulic framework.
 
           annotation (Documentation(info="<html>
 <p>
-In this package the pressure loss function <a href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall\"> dp_edgedOverall </a> of a edged bend function with surface roughness dependence out of the <b> Fluid.Dissipation </b> library is
+In this package the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall\"> dp_edgedOverall </a> of a edged bend function with surface roughness dependence out of the <b> Fluid.Dissipation </b> library is
 implemented into an usable form for the replaceable pressure loss calculations of a <a
-href=\"Modelica://Modelica.Fluid.Dissipation.Examples.Applications.PressureLoss.Bend\"> bend function </a> with the <b>Modelica.Fluid </b>
+href=\"modelica://Modelica.Fluid.Dissipation.Examples.Applications.PressureLoss.Bend\"> bend function </a> with the <b>Modelica.Fluid </b>
 library as thermo-hydraulic framework.
 </p>
 
@@ -2463,7 +2463,7 @@ pressure loss (dp).
 
 <p>
 A test case ready for the simulation of a Modelica.Fluid bend function can be found in <a
-href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.Bend\"> Test: Bend functions </a>.
+href=\"modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.Bend\"> Test: Bend functions </a>.
 </p>
 
 </html>
@@ -2513,7 +2513,7 @@ href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.Ben
 
             annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss of the <a
-href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend\"> edged bend function </a> implemented in Modelica.Fluid
+href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend\"> edged bend function </a> implemented in Modelica.Fluid
 as thermo-hydraulic framework.
 </html>"));
 
@@ -2526,7 +2526,7 @@ as thermo-hydraulic framework.
 
             annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss of the <a
-href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend\"> edged bend function </a> implemented in Modelica.Fluid
+href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend\"> edged bend function </a> implemented in Modelica.Fluid
 as thermo-hydraulic framework.
 </html>"));
 
@@ -2585,9 +2585,9 @@ as thermo-hydraulic framework.
 
           annotation (Documentation(info="<html>
 <p>
-In this package the pressure loss function <a href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.Channel.dp_internalFlowOverall_MFLOW\"> dp_internalFlowOverall </a> of a channel out of the <b> Fluid.Dissipation </b> library is
+In this package the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Channel.dp_internalFlowOverall_MFLOW\"> dp_internalFlowOverall </a> of a channel out of the <b> Fluid.Dissipation </b> library is
 implemented into an usable form for the replaceable pressure loss calculations of a <a
-href=\"Modelica://Modelica.Fluid.Dissipation.Examples.Applications.PressureLoss.Channel\"> channel </a> with the <b>Modelica.Fluid </b>
+href=\"modelica://Modelica.Fluid.Dissipation.Examples.Applications.PressureLoss.Channel\"> channel </a> with the <b>Modelica.Fluid </b>
 library as thermo-hydraulic framework.
 </p>
 
@@ -2599,7 +2599,7 @@ pressure loss (dp).
 
 <p>
 A test case ready for the simulation of a Modelica.Fluid channel function can be found in <a
-href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.Channel\"> Test: channel functions </a>.
+href=\"modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.Channel\"> Test: channel functions </a>.
 </p>
 
 </html>
@@ -2683,7 +2683,7 @@ href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.Cha
 
             annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss of the <a
-href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.Channel\"> channel function </a> implemented in Modelica.Fluid
+href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Channel\"> channel function </a> implemented in Modelica.Fluid
 as thermo-hydraulic framework.
 </html>"));
 
@@ -2697,7 +2697,7 @@ as thermo-hydraulic framework.
 
             annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss of the <a
-href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.Channel\"> channel function </a> implemented in Modelica.Fluid
+href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Channel\"> channel function </a> implemented in Modelica.Fluid
 as thermo-hydraulic framework.
 </html>"));
 
@@ -2756,10 +2756,10 @@ as thermo-hydraulic framework.
 
           annotation (Documentation(info="<html>
 <p>
-In this package the pressure loss function <a href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas\">
+In this package the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas\">
 dp_idealGas </a> of a generic function with volume flow rate dependence out of the <b> Fluid.Dissipation </b> library is
 implemented into an usable form for the replaceable pressure loss calculations of a <a
-href=\"Modelica://Modelica.Fluid.Dissipation.Examples.Applications.General\"> generic function </a> with the <b>Modelica.Fluid </b>
+href=\"modelica://Modelica.Fluid.Dissipation.Examples.Applications.General\"> generic function </a> with the <b>Modelica.Fluid </b>
 library as thermo-hydraulic framework.
 </p>
 
@@ -2771,7 +2771,7 @@ pressure loss (dp).
 
 <p>
 A test case ready for the simulation of a Modelica.Fluid generic function can be found in <a
-href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.General\"> Test: Generic functions </a>.
+href=\"modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.General\"> Test: Generic functions </a>.
 </p>
 
 </html>
@@ -2835,7 +2835,7 @@ href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.Gen
 
             annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss of the <a
-href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.General\"> generic ideal gas function </a> implemented in Modelica.Fluid
+href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General\"> generic ideal gas function </a> implemented in Modelica.Fluid
 as thermo-hydraulic framework.
 </html>"));
 
@@ -2848,7 +2848,7 @@ as thermo-hydraulic framework.
 
             annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss of the <a
-href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.General\"> generic ideal gas function </a> implemented in Modelica.Fluid
+href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General\"> generic ideal gas function </a> implemented in Modelica.Fluid
 as thermo-hydraulic framework.
 </html>"));
 
@@ -2877,10 +2877,10 @@ as thermo-hydraulic framework.
 
           annotation (Documentation(info="<html>
 <p>
-In this package the pressure loss function <a href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity\">
+In this package the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity\">
 dp_nominalDensityViscosity </a> of a generic function with volume flow rate dependence out of the <b> Fluid.Dissipation </b> library is
 implemented into an usable form for the replaceable pressure loss calculations of a <a
-href=\"Modelica://Modelica.Fluid.Dissipation.Examples.Applications.General\"> generic function </a> with the <b>Modelica.Fluid </b>
+href=\"modelica://Modelica.Fluid.Dissipation.Examples.Applications.General\"> generic function </a> with the <b>Modelica.Fluid </b>
 library as thermo-hydraulic framework.
 </p>
 
@@ -2892,7 +2892,7 @@ pressure loss (dp).
 
 <p>
 A test case ready for the simulation of a Modelica.Fluid generic function can be found in <a
-href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.General\"> Test: Generic functions </a>.
+href=\"modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.General\"> Test: Generic functions </a>.
 </p>
 
 </html>
@@ -2952,7 +2952,7 @@ href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.Gen
 
             annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss of the <a
-href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.General\"> generic ideal gas function </a> implemented in Modelica.Fluid
+href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General\"> generic ideal gas function </a> implemented in Modelica.Fluid
 as thermo-hydraulic framework.
 </html>"));
 
@@ -2966,7 +2966,7 @@ as thermo-hydraulic framework.
 
             annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss of the <a
-href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.General\"> generic ideal gas function </a> implemented in Modelica.Fluid
+href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General\"> generic ideal gas function </a> implemented in Modelica.Fluid
 as thermo-hydraulic framework.
 </html>"));
 
@@ -2996,10 +2996,10 @@ as thermo-hydraulic framework.
           annotation (Documentation(info="<html>
 <p>
 In this package the pressure loss function <a
-href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_MFLOW\">
+href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_MFLOW\">
 dp_nominalPressureLossLawDensity_MFLOW </a> of a generic function with density dependence out of the <b> Fluid.Dissipation </b>
 library is implemented into an usable form for the replaceable pressure loss calculations of a <a
-href=\"Modelica://Modelica.Fluid.Dissipation.Examples.Applications.General\"> generic function </a> with the <b>Modelica.Fluid </b>
+href=\"modelica://Modelica.Fluid.Dissipation.Examples.Applications.General\"> generic function </a> with the <b>Modelica.Fluid </b>
 library as thermo-hydraulic framework.
 </p>
 
@@ -3011,7 +3011,7 @@ fluid flow considering density dependence. Here the mass flow rate (M_FLOW) is c
 
 <p>
 A test case ready for the simulation of a Modelica.Fluid generic function can be found in <a
-href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.General\"> Test: Generic functions </a>.
+href=\"modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.General\"> Test: Generic functions </a>.
 </p>
 
 </html>
@@ -3092,7 +3092,7 @@ href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.Gen
 
             annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss of the <a
-href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.General\"> generic density function </a> implemented in Modelica.Fluid as
+href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General\"> generic density function </a> implemented in Modelica.Fluid as
 thermo-hydraulic framework.
 </html>"));
 
@@ -3106,7 +3106,7 @@ thermo-hydraulic framework.
 
             annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss of the <a
-href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.General\"> generic density function </a> implemented in Modelica.Fluid as
+href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General\"> generic density function </a> implemented in Modelica.Fluid as
 thermo-hydraulic framework.
 </html>"));
 
@@ -3136,10 +3136,10 @@ thermo-hydraulic framework.
           annotation (Documentation(info="<html>
 <p>
 In this package the pressure loss function <a
-href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_genericPressureLossCoefficient_MFLOW\">
+href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_genericPressureLossCoefficient_MFLOW\">
 dp_genericPressureLossCoefficient_MFLOW </a> of a generic function with pressure loss coefficient dependence out of the <b>
 Fluid.Dissipation </b> library is implemented into an usable form for the replaceable pressure loss calculations of a <a
-href=\"Modelica://Modelica.Fluid.Dissipation.Examples.Applications.General\"> generic function </a> with the <b>Modelica.Fluid </b>
+href=\"modelica://Modelica.Fluid.Dissipation.Examples.Applications.General\"> generic function </a> with the <b>Modelica.Fluid </b>
 library as thermo-hydraulic framework.
 </p>
 
@@ -3151,7 +3151,7 @@ of a known pressure loss (dp).
 
 <p>
 A test case ready for the simulation of a Modelica.Fluid generic function can be found in <a
-href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.General\"> Test: Generic functions </a>.
+href=\"modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.General\"> Test: Generic functions </a>.
 </p>
 
 </html>
@@ -3200,7 +3200,7 @@ href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.Gen
 
             annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss of the <a
-href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.General\"> generic pressure loss coefficient function </a> implemented in
+href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General\"> generic pressure loss coefficient function </a> implemented in
 Modelica.Fluid as thermo-hydraulic framework.
 </html>"));
 
@@ -3214,7 +3214,7 @@ Modelica.Fluid as thermo-hydraulic framework.
 
             annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss of the <a
-href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.General\"> generic pressure loss coefficient function </a> implemented in
+href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General\"> generic pressure loss coefficient function </a> implemented in
 Modelica.Fluid as thermo-hydraulic framework.
 </html>"));
 
@@ -3243,10 +3243,10 @@ Modelica.Fluid as thermo-hydraulic framework.
 
           annotation (Documentation(info="<html>
 <p>
-In this package the pressure loss function <a href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate\">
+In this package the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate\">
 dp_volumeFlowRate </a> of a generic function with volume flow rate dependence out of the <b> Fluid.Dissipation </b> library is
 implemented into an usable form for the replaceable pressure loss calculations of a <a
-href=\"Modelica://Modelica.Fluid.Dissipation.Examples.Applications.General\"> generic function </a> with the <b>Modelica.Fluid </b>
+href=\"modelica://Modelica.Fluid.Dissipation.Examples.Applications.General\"> generic function </a> with the <b>Modelica.Fluid </b>
 library as thermo-hydraulic framework.
 </p>
 
@@ -3258,7 +3258,7 @@ pressure loss (dp).
 
 <p>
 A test case ready for the simulation of a Modelica.Fluid generic function can be found in <a
-href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.general\"> Test: Generic functions </a>.
+href=\"modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.general\"> Test: Generic functions </a>.
 </p>
 
 </html>
@@ -3272,7 +3272,7 @@ href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.gen
 
             annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss of the <a
-href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.General\"> generic volume flow rate function </a> implemented in Modelica.Fluid
+href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General\"> generic volume flow rate function </a> implemented in Modelica.Fluid
 as thermo-hydraulic framework.
 </html>"));
 
@@ -3285,7 +3285,7 @@ as thermo-hydraulic framework.
 
             annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss of the <a
-href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.General\"> generic volume flow rate function </a> implemented in Modelica.Fluid
+href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General\"> generic volume flow rate function </a> implemented in Modelica.Fluid
 as thermo-hydraulic framework.
 </html>"));
 
@@ -3374,10 +3374,10 @@ as thermo-hydraulic framework.
 
           annotation (Documentation(info="<html>
 <p>
-In this package the pressure loss function <a href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall\"> dp_thickEdgedOverall </a> of a orifice function with surface roughness dependence
+In this package the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall\"> dp_thickEdgedOverall </a> of a orifice function with surface roughness dependence
 out of the <b> Fluid.Dissipation </b> library is
 implemented into an usable form for the replaceable pressure loss calculations of a <a
-href=\"Modelica://Modelica.Fluid.Dissipation.Examples.Applications.PressureLoss.Orifice\"> orifice function </a> with the <b>Modelica.Fluid </b>
+href=\"modelica://Modelica.Fluid.Dissipation.Examples.Applications.PressureLoss.Orifice\"> orifice function </a> with the <b>Modelica.Fluid </b>
 library as thermo-hydraulic framework.
 </p>
 
@@ -3389,7 +3389,7 @@ pressure loss (dp).
 
 <p>
 A test case ready for the simulation of a Modelica.Fluid orifice function can be found in <a
-href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.Orifice\"> Test: Orifice functions </a>.
+href=\"modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.Orifice\"> Test: Orifice functions </a>.
 </p>
 
 </html>
@@ -3403,7 +3403,7 @@ href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.Ori
 
             annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss of the <a
-href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice\"> orifice function </a> implemented in Modelica.Fluid
+href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice\"> orifice function </a> implemented in Modelica.Fluid
 as thermo-hydraulic framework.
 </html>"));
 
@@ -3416,7 +3416,7 @@ as thermo-hydraulic framework.
 
             annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss of the <a
-href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice\"> orifice function </a> implemented in Modelica.Fluid
+href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice\"> orifice function </a> implemented in Modelica.Fluid
 as thermo-hydraulic framework.
 </html>"));
 
@@ -3482,9 +3482,9 @@ as thermo-hydraulic framework.
 
           annotation (Documentation(info="<html>
 <p>
-In this package the pressure loss function <a href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChangeSectionBidirectionalTurbulentSmooth\"> dp_suddenChangeSectionBidirectionalTurbulentSmooth </a> of an sharp edged orifice with a sudden change in its cross sectional area neglecting surface roughness out of the <b> Fluid.Dissipation </b> library is
+In this package the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChangeSectionBidirectionalTurbulentSmooth\"> dp_suddenChangeSectionBidirectionalTurbulentSmooth </a> of an sharp edged orifice with a sudden change in its cross sectional area neglecting surface roughness out of the <b> Fluid.Dissipation </b> library is
 implemented into an usable form for the replaceable pressure loss calculations of a <a
-href=\"Modelica://Modelica.Fluid.Dissipation.Examples.Applications.PressureLoss.Orifice\"> orifice function </a> with the <b>Modelica.Fluid </b>
+href=\"modelica://Modelica.Fluid.Dissipation.Examples.Applications.PressureLoss.Orifice\"> orifice function </a> with the <b>Modelica.Fluid </b>
 library as thermo-hydraulic framework.
 </p>
 
@@ -3496,7 +3496,7 @@ pressure loss (dp).
 
 <p>
 A test case ready for the simulation of a Modelica.Fluid orifice function can be found in <a
-href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.Orifice\"> Test: Orifice functions </a>.
+href=\"modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.Orifice\"> Test: Orifice functions </a>.
 </p>
 
 </html>
@@ -3511,7 +3511,7 @@ href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.Ori
 
             annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss of the <a
-href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice\"> orifice function </a> implemented in Modelica.Fluid
+href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice\"> orifice function </a> implemented in Modelica.Fluid
 as thermo-hydraulic framework.
 </html>"));
 
@@ -3525,7 +3525,7 @@ as thermo-hydraulic framework.
 
             annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss of the <a
-href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice\"> orifice function </a> implemented in Modelica.Fluid
+href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice\"> orifice function </a> implemented in Modelica.Fluid
 as thermo-hydraulic framework.
 </html>"));
 
@@ -3614,9 +3614,9 @@ as thermo-hydraulic framework.
 
           annotation (Documentation(info="<html>
 <p>
-In this package the pressure loss function <a href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar\"> dp_laminar </a> of a straight pipe function with surface roughness dependence out of the <b> Fluid.Dissipation </b> library is
+In this package the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar\"> dp_laminar </a> of a straight pipe function with surface roughness dependence out of the <b> Fluid.Dissipation </b> library is
 implemented into an usable form for the replaceable pressure loss calculations of a <a
-href=\"Modelica://Modelica.Fluid.Dissipation.Examples.Applications.PressureLoss.StraightPipe\"> straight pipe function </a> with the <b>Modelica.Fluid </b>
+href=\"modelica://Modelica.Fluid.Dissipation.Examples.Applications.PressureLoss.StraightPipe\"> straight pipe function </a> with the <b>Modelica.Fluid </b>
 library as thermo-hydraulic framework.
 </p>
 
@@ -3628,7 +3628,7 @@ pressure loss (dp).
 
 <p>
 A test case ready for the simulation of a Modelica.Fluid straight pipe function can be found in <a
-href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.StraightPipe\"> Test: Straight pipe functions </a>.
+href=\"modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.StraightPipe\"> Test: Straight pipe functions </a>.
 </p>
 
 </html>
@@ -3667,7 +3667,7 @@ href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.Str
 
             annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss of the <a
-href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe\"> straight pipe function </a> implemented in Modelica.Fluid
+href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe\"> straight pipe function </a> implemented in Modelica.Fluid
 as thermo-hydraulic framework.
 </html>"));
 
@@ -3680,7 +3680,7 @@ as thermo-hydraulic framework.
 
             annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss of the <a
-href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe\"> straight pipe function </a> implemented in Modelica.Fluid
+href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe\"> straight pipe function </a> implemented in Modelica.Fluid
 as thermo-hydraulic framework.
 </html>"));
 
@@ -3708,9 +3708,9 @@ as thermo-hydraulic framework.
 
           annotation (Documentation(info="<html>
 <p>
-In this package the pressure loss function <a href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall\"> dp_overall </a> of a straight pipe function with surface roughness dependence out of the <b> Fluid.Dissipation </b> library is
+In this package the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall\"> dp_overall </a> of a straight pipe function with surface roughness dependence out of the <b> Fluid.Dissipation </b> library is
 implemented into an usable form for the replaceable pressure loss calculations of a <a
-href=\"Modelica://Modelica.Fluid.Dissipation.Examples.Applications.PressureLoss.StraightPipe\"> straight pipe function </a> with the <b>Modelica.Fluid </b>
+href=\"modelica://Modelica.Fluid.Dissipation.Examples.Applications.PressureLoss.StraightPipe\"> straight pipe function </a> with the <b>Modelica.Fluid </b>
 library as thermo-hydraulic framework.
 </p>
 
@@ -3722,7 +3722,7 @@ pressure loss (dp).
 
 <p>
 A test case ready for the simulation of a Modelica.Fluid straight pipe function can be found in <a
-href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.StraightPipe\"> Test: Straight pipe functions </a>.
+href=\"modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.StraightPipe\"> Test: Straight pipe functions </a>.
 </p>
 
 </html>
@@ -3770,7 +3770,7 @@ href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.Str
 
             annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss of the <a
-href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe\"> straight pipe function </a> implemented in Modelica.Fluid
+href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe\"> straight pipe function </a> implemented in Modelica.Fluid
 as thermo-hydraulic framework.
 </html>"));
 
@@ -3783,7 +3783,7 @@ as thermo-hydraulic framework.
 
             annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss of the <a
-href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe\"> straight pipe function </a> implemented in Modelica.Fluid
+href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe\"> straight pipe function </a> implemented in Modelica.Fluid
 as thermo-hydraulic framework.
 </html>"));
 
@@ -3812,9 +3812,9 @@ as thermo-hydraulic framework.
 
           annotation (Documentation(info="<html>
 <p>
-In this package the pressure loss function <a href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent\"> dp_turbulent </a> of a straight pipe function with surface roughness dependence out of the <b> Fluid.Dissipation </b> library is
+In this package the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent\"> dp_turbulent </a> of a straight pipe function with surface roughness dependence out of the <b> Fluid.Dissipation </b> library is
 implemented into an usable form for the replaceable pressure loss calculations of a <a
-href=\"Modelica://Modelica.Fluid.Dissipation.Examples.Applications.PressureLoss.StraightPipe\"> straight pipe function </a> with the <b>Modelica.Fluid </b>
+href=\"modelica://Modelica.Fluid.Dissipation.Examples.Applications.PressureLoss.StraightPipe\"> straight pipe function </a> with the <b>Modelica.Fluid </b>
 library as thermo-hydraulic framework.
 </p>
 
@@ -3826,7 +3826,7 @@ pressure loss (dp).
 
 <p>
 A test case ready for the simulation of a Modelica.Fluid straight pipe function can be found in <a
-href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.StraightPipe\"> Test: Straight pipe functions </a>.
+href=\"modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.StraightPipe\"> Test: Straight pipe functions </a>.
 </p>
 
 </html>
@@ -3840,7 +3840,7 @@ href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.Str
 
             annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss of the <a
-href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe\"> straight pipe function </a> implemented in Modelica.Fluid
+href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe\"> straight pipe function </a> implemented in Modelica.Fluid
 as thermo-hydraulic framework.
 </html>"));
 
@@ -3853,7 +3853,7 @@ as thermo-hydraulic framework.
 
             annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss of the <a
-href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe\"> straight pipe function </a> implemented in Modelica.Fluid
+href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe\"> straight pipe function </a> implemented in Modelica.Fluid
 as thermo-hydraulic framework.
 </html>"));
 
@@ -3920,9 +3920,9 @@ as thermo-hydraulic framework.
 
             annotation (Documentation(info="<html>
 <p>
-In this package the pressure loss function <a href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_MFLOW\"> dp_severalGeometryOverall </a> of a valve out of the <b> Fluid.Dissipation </b> library is
+In this package the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_MFLOW\"> dp_severalGeometryOverall </a> of a valve out of the <b> Fluid.Dissipation </b> library is
 implemented into an usable form for the replaceable pressure loss calculations of a <a
-href=\"Modelica://Modelica.Fluid.Dissipation.Examples.Applications.PressureLoss.Valve\"> valve </a> with the <b>Modelica.Fluid </b>
+href=\"modelica://Modelica.Fluid.Dissipation.Examples.Applications.PressureLoss.Valve\"> valve </a> with the <b>Modelica.Fluid </b>
 library as thermo-hydraulic framework.
 </p>
 
@@ -3934,7 +3934,7 @@ pressure loss (dp).
 
 <p>
 A test case ready for the simulation of a Modelica.Fluid valve function can be found in <a
-href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.Valve\"> Test: Valve functions </a>.
+href=\"modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.Valve\"> Test: Valve functions </a>.
 </p>
 
 </html>
@@ -4016,7 +4016,7 @@ href=\"Modelica://Modelica.Fluid.Dissipation.Examples.TestCases.PressureLoss.Val
 
             annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss of the <a
-href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve\"> valve function </a> implemented in Modelica.Fluid
+href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve\"> valve function </a> implemented in Modelica.Fluid
 as thermo-hydraulic framework.
 </html>"));
 
@@ -4030,7 +4030,7 @@ as thermo-hydraulic framework.
 
             annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss of the <a
-href=\"Modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve\"> valve function </a> implemented in Modelica.Fluid
+href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve\"> valve function </a> implemented in Modelica.Fluid
 as thermo-hydraulic framework.
 </html>"));
 
@@ -6031,7 +6031,7 @@ loss correlations. All models in this library have the property
 that no mass and no energy is stored in the component. Therefore,
 none of the models has a state. The basic correlations are implemented
 with functions of sublibrary
-<a href=\"Modelica://Modelica.Fluid.PressureLosses.Utilities\">PressureLosses.Utilities</a>
+<a href=\"modelica://Modelica.Fluid.PressureLosses.Utilities\">PressureLosses.Utilities</a>
 These functions might also be directly called
 (e.g. in another component implementation).
 </p>

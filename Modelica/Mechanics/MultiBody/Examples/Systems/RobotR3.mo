@@ -407,7 +407,7 @@ The actual signal content is defined by connecting to an instance
 of this connector. The signals that are usually used
 (and are by default listed as choices in the menu that defines
 the connection to this bus) are defined
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.InternalConnectors.AxisControlBus\">here</a>.
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.InternalConnectors.AxisControlBus\">here</a>.
 </p>
 
 </html>"));
@@ -433,7 +433,7 @@ The actual signal content is defined by connecting to an instance
 of this connector. The sub-buses that are usually used
 (and are by default listed as choices in the menu that defines
 the connection to this bus) are defined
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.InternalConnectors.ControlBus\">here</a>.
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.InternalConnectors.ControlBus\">here</a>.
 </p>
 </html>"));
     end ControlBus;

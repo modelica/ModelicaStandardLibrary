@@ -139,12 +139,12 @@ way. This package contains the <b>User's Guide</b> for
 the library and has the following content:
 </p>
 <ol>
-<li><a href=\"Modelica://Modelica.Electrical.Digital.UsersGuide.ReleaseNotes\">Release Notes</a>
+<li><a href=\"modelica://Modelica.Electrical.Digital.UsersGuide.ReleaseNotes\">Release Notes</a>
     summarizes the differences between different versions of this library.</li>
-<li><a href=\"Modelica://Modelica.Electrical.Digital.UsersGuide.Literature\">Literature</a>
+<li><a href=\"modelica://Modelica.Electrical.Digital.UsersGuide.Literature\">Literature</a>
     provides references that have been used to design and implement this
     library.</li>
-<li><a href=\"Modelica://Modelica.Electrical.Digital.UsersGuide.Contact\">Contact</a>
+<li><a href=\"modelica://Modelica.Electrical.Digital.UsersGuide.Contact\">Contact</a>
     provides information about the authors of the library as well as
     acknowledgments.</li>
 </ol>
@@ -6884,7 +6884,7 @@ Copyright &copy; 1998-2009, Modelica Association and Fraunhofer-Gesellschaft.
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b>
-<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
+<a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
 </p><br>
 
 </HTML>

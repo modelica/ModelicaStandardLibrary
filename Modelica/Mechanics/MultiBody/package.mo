@@ -247,7 +247,7 @@ in the middle of the light blue sphere.
 In principal, now special action is needed, if
 loop structures occur (contrary to the ModelicaAdditions.MultiBody library).
 An example is presented in the figure below. It is available as
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar1\">
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar1\">
 MultiBody.Examples.Loops.Fourbar1</a>
 </p>
 <p align=\"center\">
@@ -296,7 +296,7 @@ In many mechanisms it is possible to solve the non-linear algebraic
 equations analytically. For a certain class of systems this can
 be performed also with the MultiBody library. This technique
 is described in section
-\"<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">Analytic loop handling</a>\".
+\"<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">Analytic loop handling</a>\".
 </p>
 </HTML>"));
       end Introduction;
@@ -307,7 +307,7 @@ is described in section
 <p>
 In the figure below, the model of a V6 engine is
 shown that has a simple combustion model. It is available as
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6\">
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6\">
 MultiBody.Examples.Loops.EngineV6</a>.
 </p>
 <p align=\"center\">
@@ -351,7 +351,7 @@ on pure structural information cannot distinguish these two cases.
 The usual remedy is to remove superfluous constraints,
 e.g., along the axis of rotation of <b>one</b> revolute joint. Since this is
 not easy for an inexperienced modeler, the special joint:
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.RevolutePlanarLoopConstraint\">
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.RevolutePlanarLoopConstraint\">
 RevolutePlanarLoopConstraint</a> is provided that removes these constraints.
 Exactly one revolute joint in a every planar loop must be replaced by this
 joint type. In the engine example, this special joinst is used for
@@ -383,7 +383,7 @@ Both cases are discussed in the error message.
 Note, that the non-linear algebraic equations occurring
 in planar loops can be solved analytically in most cases and therefore it is
 highly recommended to use the techniques discussed in section
-\"<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">Analytic loop handling</a>\"
+\"<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">Analytic loop handling</a>\"
 for such systems.
 </p>
 </HTML>"));
@@ -427,7 +427,7 @@ method is usually manually applied which requires know-how and experience.
 In the MultiBody library the \"characteristic pair of
 joints\" method is supported in a restricted form such that it can be applied
 also by non-specialists. The idea is to provide aggregations of joints in package
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies\">
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies\">
 MultiBody.Joints.Assemblies</a>.
 as one object that either have <b>6</b> degrees of freedom or
 <b>3</b> degrees of freedom (for usage in planar loops).
@@ -445,7 +445,7 @@ joint, two spherical joints and one prismatic joint.
 In the figure below, the two spherical joints
 and the prismatic joint are collected together in an assembly object
 called \"jointSSP\" from
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP\">
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP\">
 MultiBody.Joints.Assemblies.JointSSP</a>.
 </p>
 <p align=\"center\">
@@ -616,7 +616,7 @@ revolute and one prismatic joint, see next figure.
 Since 6
 cylinders are connected together, 6 coupled loops with 6 JointRRP objects are
 present. This model is available as
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6_analytic\">
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6_analytic\">
 MultiBody.Examples.Loops.EngineV6_analytic</a>.
 </p>
 <p>
@@ -659,13 +659,13 @@ analytically. There are the following sub-chapters:
 </p>
 <ol>
 <li>
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.Introduction\">Introduction</a>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.Introduction\">Introduction</a>
 </li>
 <li>
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops\">Planar loops</a>.
+<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops\">Planar loops</a>.
 </li>
 <li>
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">Analytic loop handling</a>.
+<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">Analytic loop handling</a>.
 </li>
 </ol>
 </HTML>"));
@@ -677,15 +677,15 @@ MultiBody library.
 </p>
 <ol>
 <li>
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.OverView\">Overview of
+<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.OverView\">Overview of
 MultiBody library</a> summarizes the most important aspects.
 </li>
 <li>
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.FirstExample\">A first example</a>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.FirstExample\">A first example</a>
   describes in detail all the steps to build a simple pendulum model.
 </li>
 <li>
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures\">Loop structures</a>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures\">Loop structures</a>
   explains how to model kinematic loops, especially by analytically
   solving non-linear equations.
 </li>
@@ -914,21 +914,21 @@ This package contains the User's Guide for the MultiBody library.
 </p>
 <ol>
 <li>
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial\">Tutorial</a>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial\">Tutorial</a>
 gives an introduction into the most important aspects of the library.
 </li>
 <li>
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Upgrade\">Upgrade</a> describes
+<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Upgrade\">Upgrade</a> describes
   how to upgrade from former versions, especially from the \"old\"
   ModelicaAdditions.MultiBody library.
 </li>
 
 <li>
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Literature\">Literature</a> provides
+<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Literature\">Literature</a> provides
   references that have been used to design and implement this library.
 </li>
 <li>
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Contact\">Contact</a> provides
+<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Contact\">Contact</a> provides
   information about the author of the library as well as
   acknowledgments.
 </li>
@@ -1389,9 +1389,9 @@ in the next figure:
 For an introduction, have especially a look at:
 </p>
 <ul>
-<li> <a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide\">MultiBody.UsersGuide</a>
+<li> <a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide\">MultiBody.UsersGuide</a>
      discusses the most important aspects how to use this library.</li>
-<li> <a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples\">MultiBody.Examples</a>
+<li> <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples\">MultiBody.Examples</a>
      contains examples that demonstrate the usage of this library.</li>
 </ul>
 
@@ -1402,7 +1402,7 @@ Copyright &copy; 1998-2009, Modelica Association and DLR.
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b>
-<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
+<a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
 </p><br>
 </HTML>"));
 end MultiBody;

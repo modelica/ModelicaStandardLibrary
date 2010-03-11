@@ -2408,12 +2408,12 @@ The used variables have the following declaration:
       <td valign=\"top\">Return unit vector e directed along axis i
       </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions\">Quaternions</a></td>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions\">Quaternions</a></td>
       <td valign=\"top\"><b>Package</b> with functions to transform rotational frame quantities based
           on quaternions (also called Euler parameters).
       </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices\">TransformationMatrices</a></td>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices\">TransformationMatrices</a></td>
       <td valign=\"top\"><b>Package</b> with functions to transform rotational frame quantities based
           on transformation matrices.
       </td>

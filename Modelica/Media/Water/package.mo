@@ -657,7 +657,7 @@ This model calculates medium properties
 for water in the <b>liquid</b>, <b>gas</b> and <b>two phase</b> regions
 according to the IAPWS/IF97 standard, i.e., the accepted industrial standard
 and best compromise between accuracy and computation time.
-For more details see <a href=\"Modelica://Modelica.Media.Water.IF97_Utilities\">
+For more details see <a href=\"modelica://Modelica.Media.Water.IF97_Utilities\">
 Modelica.Media.Water.IF97_Utilities</a>. Three variable pairs can be the
 independent variables of the model:
 <ol>
@@ -691,9 +691,9 @@ The following quantities are always computed:
 In some cases additional medium properties are needed.
 A component that needs these optional properties has to call
 one of the functions listed in
-<a href=\"Modelica://Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">
+<a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">
 Modelica.Media.UsersGuide.MediumUsage.OptionalProperties</a> and in
-<a href=\"Modelica://Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
+<a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
 Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 </p>
 </p>
@@ -1258,7 +1258,7 @@ This model calculates medium properties
 for water in the <b>liquid</b>, <b>gas</b> and <b>two phase</b> regions
 according to the IAPWS/IF97 standard, i.e., the accepted industrial standard
 and best compromise between accuracy and computation time.
-For more details see <a href=\"Modelica://Modelica.Media.Water.IF97_Utilities\">
+For more details see <a href=\"modelica://Modelica.Media.Water.IF97_Utilities\">
 Modelica.Media.Water.IF97_Utilities</a>. Three variable pairs can be the
 independent variables of the model:
 <ol>
@@ -1292,9 +1292,9 @@ The following quantities are always computed:
 In some cases additional medium properties are needed.
 A component that needs these optional properties has to call
 one of the functions listed in
-<a href=\"Modelica://Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">
+<a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">
 Modelica.Media.UsersGuide.MediumUsage.OptionalProperties</a> and in
-<a href=\"Modelica://Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
+<a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
 Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 </p>
 </p>
@@ -1537,7 +1537,7 @@ one of the following functions:
       <td valign=\"top\">molar mass</td></tr>
 </table>
 <p>More details are given in
-<a href=\"Modelica://Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">
+<a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">
 Modelica.Media.UsersGuide.MediumUsage.OptionalProperties</a>.
 
 Many additional optional functions are defined to compute properties of
@@ -1597,7 +1597,7 @@ SaturationProperties record sat, the following functions are provided:
 </table>
 
 <p>Details on usage and some examples are given in:
-<a href=\"Modelica://Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
+<a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
 Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 </p>
 

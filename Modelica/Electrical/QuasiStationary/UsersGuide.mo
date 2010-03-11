@@ -21,7 +21,7 @@ v=\\sqrt{2}V_{\\mathrm{RMS}}\\cos(\\omega t+\\varphi_{v})\">
 
 <p>
 in the time domain can be represented by a complex
-<a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Glossar\">rms</a> phasor
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Glossar\">rms</a> phasor
 </p>
 
 <p>
@@ -68,9 +68,9 @@ The explanation given for sinusoidal voltages can certainly also be applied
 to sinusoidal currents.</p>
 
 <h4>See also</h4>
-<a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.ACCircuit\">
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.ACCircuit\">
           AC circuit</a>,
-<a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Power\">
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Power\">
           Power</a>
 
 
@@ -82,7 +82,7 @@ to sinusoidal currents.</p>
       annotation (Documentation(info="<html>
 <p>
 A simple
-<a href=\"Modelica://Modelica.Electrical.QuasiStationary.Examples.SeriesResonance\">
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.Examples.SeriesResonance\">
           example</a> of a series connection of a resistor, an inductor and a capacitor
 as depicted in Fig. 1 should be explained in the following. For various frequencies,
 the voltage drops across the resistor, the inductor and the capacitor should be determined.
@@ -166,9 +166,9 @@ as illustraed in the phasor diagram of Fig. 2.
 
 
 <h4>See also</h4>
-<a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Introduction\">
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Introduction\">
           Introduction</a>,
-<a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Power\">
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Power\">
           Power</a>
 
 </html>"));
@@ -185,9 +185,9 @@ Yet, there is instantaneous power exchanged with connecting network.
 </p>
 
 The
-<a href=\"Modelica://Modelica.Electrical.QuasiStationary.Examples.SeriesResonance\">
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.Examples.SeriesResonance\">
           series resonance circuit</a> which was also adressed in the
-<a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.ACCircuit\">
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.ACCircuit\">
           AC circuit</a>
 will be investigated.
 
@@ -303,15 +303,15 @@ In this equation <sup>*</sup> represents the conjugate complex operator
 </p>
 
 <h4>See also</h4>
-<a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Introduction\">
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Introduction\">
           Introduction</a>,
-<a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.ACCircuit\">
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.ACCircuit\">
           AC circuit</a>
 </html>"));
     end Power;
     annotation (Documentation(info="<html>
 <p>
-The <a href=\"Modelica://Modelica.Electrical.QuasiStationary\">Modelica.Electrical.QuasiStationary</a>
+The <a href=\"modelica://Modelica.Electrical.QuasiStationary\">Modelica.Electrical.QuasiStationary</a>
 library addresses the analysis of electrical circuits with purely sinusoidal
 voltages and currents. The main characteristics of the library are:
 </p>
@@ -329,22 +329,22 @@ voltages and currents. The main characteristics of the library are:
       since it propagated through the connector.
       Therefore, independent circuits of different frequencies can be modeled in one model.</li>
   <li>The connectors contain the real and the imaginary part of the voltage and the current
-      <a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Phasor\">RMS phasors</a></li>
+      <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Phasor\">RMS phasors</a></li>
 
 </ul>
 
 <p>
 The main intention of this library is the modeling of quasi stationary behavior
 of single and multi phase
-<a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.ACCircuit\">AC circuits</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.ACCircuit\">AC circuits</a>
 with fixed and variable frequency. Quasi stationary theory and applications can be
 found in
-[<a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">Dorf1993</a>],
-[<a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">Burton1994</a>],
-[<a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">Landolt1936</a>],
-[<a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">Philippow1967</a>],
-[<a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">Weyh1967</a>],
-[<a href=\"Modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">Vaske1973</a>].
+[<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">Dorf1993</a>],
+[<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">Burton1994</a>],
+[<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">Landolt1936</a>],
+[<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">Philippow1967</a>],
+[<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">Weyh1967</a>],
+[<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">Vaske1973</a>].
 </p>
 
 
