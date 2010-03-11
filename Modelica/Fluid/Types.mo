@@ -1,7 +1,6 @@
 within Modelica.Fluid;
 package Types "Common types for fluid models"
 
-
   type HydraulicConductance =Real (
       final quantity="HydraulicConductance",
       final unit="kg/(s.Pa)") "Real type for hydraulic conductance";

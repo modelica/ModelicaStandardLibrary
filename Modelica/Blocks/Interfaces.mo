@@ -4,7 +4,6 @@ package Interfaces
   import Modelica.SIunits;
     extends Modelica.Icons.Library;
 
-
 connector RealInput = input Real "'input Real' as connector"
   annotation (defaultComponentName="u",
   Icon(graphics={Polygon(

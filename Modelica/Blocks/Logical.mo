@@ -2,7 +2,6 @@ within Modelica.Blocks;
 package Logical "Library of components with Boolean input and output signals"
     extends Modelica.Icons.Library;
 
-
   model And "Logical 'and': y = u1 and u2"
     extends Blocks.Interfaces.partialBooleanSI2SO;
   equation
@@ -343,7 +342,6 @@ the output is <b>false</b>.
   block Greater "Output y is true, if input u1 is greater as input u2"
     extends Blocks.Interfaces.partialBooleanComparison;
 
-
   equation
     y = u1 > u2;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -366,7 +364,6 @@ Real input u2, otherwise the output is <b>false</b>.
     "Output y is true, if input u1 is greater or equal as input u2"
     extends Blocks.Interfaces.partialBooleanComparison;
 
-
   equation
     y = u1 >= u2;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -388,7 +385,6 @@ Real input u2, otherwise the output is <b>false</b>.
   block Less "Output y is true, if input u1 is less as input u2"
     extends Blocks.Interfaces.partialBooleanComparison;
 
-
   equation
     y = u1 < u2;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -409,7 +405,6 @@ Real input u2, otherwise the output is <b>false</b>.
 
   block LessEqual "Output y is true, if input u1 is less or equal as input u2"
     extends Blocks.Interfaces.partialBooleanComparison;
-
 
   equation
     y = u1 <= u2;
@@ -496,7 +491,6 @@ component <i>ModelicaAdditions.Blocks.Discrete.TriggeredSampler</i>.
 
   block LogicalSwitch "Logical Switch"
     extends Blocks.Interfaces.partialBooleanSI3SO;
-
 
   equation
     y = if u2 then u1 else u3;
@@ -822,7 +816,6 @@ signal <b>u</b> exceeds the <b>reference</b> signal plus half of the bandwidth.<
     Blocks.Interfaces.RealOutput y "Connector of Real output signal"
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
-
 
   protected
     discrete Real endValue "Value of y at time of recent edge";

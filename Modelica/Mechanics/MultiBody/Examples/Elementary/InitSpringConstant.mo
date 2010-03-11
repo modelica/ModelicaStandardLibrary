@@ -31,7 +31,6 @@ model InitSpringConstant
         rotation=270)));
 
 equation
-
   connect(world.frame_b, rev.frame_a)
     annotation (Line(
       points={{-60,10},{-40,10}},

@@ -8,7 +8,6 @@ package Utilities "Library of utility functions dedicated to scripting (operatin
 
 package UsersGuide "User's Guide of Utilities Library"
 
-
   class ImplementationNotes "Implementation Notes"
 
     annotation (Documentation(info="<html>
@@ -160,6 +159,7 @@ in Modelica that will allow to catch errors at a defined place.
 </p>
 </HTML>"));
 end UsersGuide;
+
 
     annotation (
 Documentation(info="<html>

@@ -33,7 +33,6 @@ package Sources "Define fixed or prescribed boundary conditions"
       "Boundary trace substances"
       annotation (Dialog(group = "Only for trace-substance flow", enable=Medium.nC > 0));
 
-
   equation
     Modelica.Fluid.Utilities.checkBoundary(Medium.mediumName, Medium.substanceNames,
                                           Medium.singleState, use_p, X,

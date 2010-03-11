@@ -5,7 +5,6 @@ package Continuous "Library of continuous control blocks with internal states"
   import Modelica.SIunits;
   extends Modelica.Icons.Library;
 
-
   block Integrator "Output the integral of the input signal"
     import Modelica.Blocks.Types.Init;
     parameter Real k=1 "Integrator gain";
@@ -20,7 +19,6 @@ package Continuous "Library of continuous control blocks with internal states"
     parameter Real y_start=0 "Initial or guess value of output (= state)"
       annotation (Dialog(group="Initialization"));
     extends Interfaces.SISO(y(start=y_start));
-
 
   initial equation
     if initType == Init.SteadyState then
@@ -679,7 +677,6 @@ This is discussed in the description of package
     parameter Real y_start=0 "Initial value of output"
       annotation(Dialog(enable=initType == Init.InitialOutput, group=
             "Initialization"));
-
 
     Blocks.Math.Gain P(k=1) "Proportional part of PID controller"
       annotation (Placement(transformation(extent={{-60,60},{-20,100}},

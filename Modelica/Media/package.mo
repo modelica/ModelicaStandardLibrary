@@ -11,9 +11,7 @@ import SI = Modelica.SIunits;
 
 package UsersGuide "User's Guide of Media Library"
 
-
   package MediumUsage "Medium usage"
-
 
     class BasicUsage "Basic usage"
 
@@ -1138,7 +1136,6 @@ all media models with some very simple piping networks.
 
   package MediumDefinition "Medium definition"
 
-
     class BasicStructure "Basic structure"
 
       annotation (Documentation(info="<HTML>
@@ -2242,7 +2239,6 @@ package Examples
     Real der_p;
     Real der_T;
 
-
   equation
     state.p = 100000.0;
     state.T = 200 + 1000*time;
@@ -2913,7 +2909,6 @@ is given to compare the approximation.
         SI.Mass mXi[Medium.nXi]
           "Independent substance masses of junction volume";
 
-
       initial equation
         if not Medium.singleState then
           if use_p_start then
@@ -3358,8 +3353,7 @@ no mass or energy is stored in the pipe.
           annotation (Line(points={{-9,10},{10,10}}, color={0,127,255}));
         connect(shortPipe1.port_b, ambient.port)
           annotation (Line(points={{57,10},{71,10}}, color={0,127,255}));
-        annotation (
-                             Documentation(info="<html>
+        annotation (         Documentation(info="<html>
 
 </html>"));
       end PartialTestModel2;
@@ -3773,7 +3767,6 @@ output window.
      SI.Temperature Ts "Temperature computed from s1";
      SI.MassFraction[4] X "mass fraction vector";
 
-
     protected
      constant SI.Time timeUnit = 1.0;
 
@@ -3853,7 +3846,6 @@ end Examples;
 
 
 package Interfaces "Interfaces for media models"
-
 
   extends Modelica.Icons.Library;
   import SI = Modelica.SIunits;
@@ -8473,6 +8465,7 @@ provide a package in the following way:
       </address>
 </html>"));
 end Common;
+
 
 annotation (
   Documentation(info="<HTML>

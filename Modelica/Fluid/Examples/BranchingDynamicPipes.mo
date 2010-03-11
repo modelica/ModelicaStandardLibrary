@@ -5,7 +5,6 @@ extends Modelica.Icons.Example;
 replaceable package Medium=Modelica.Media.Air.MoistAir;
 //replaceable package Medium=Modelica.Media.Water.StandardWater;
 
-
   inner Modelica.Fluid.System system(momentumDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial)
     annotation (Placement(transformation(extent={{-90,70},{-70,90}},  rotation=
             0)));

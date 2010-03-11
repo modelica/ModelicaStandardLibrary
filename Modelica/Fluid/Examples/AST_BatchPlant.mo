@@ -2,7 +2,6 @@ within Modelica.Fluid.Examples;
 package AST_BatchPlant
   "Model of the experimental batch plant at Process Control Laboratory at University of Dortmund (Prof. Engell)"
 
-
   model BatchPlant_StandardWater
       extends Modelica.Icons.Example;
     replaceable package BatchMedium = Modelica.Media.Water.StandardWater constrainedby
@@ -688,7 +687,6 @@ package AST_BatchPlant
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
               rotation=0)));
 
-
     protected
       discrete Real endValue "Value of y at time of recent edge";
       discrete Real rate "Current rising/falling rate";
@@ -1249,7 +1247,6 @@ handled properly.</p>
                       level,
                       minimumLenght=1,
                       significantDigits=2)))}),
-
         Documentation(info="<HTML>
 <p>
 <p>This tank has the same geometric variables as TankWith3InletOutletArrays plus the feature of a HeatPort and the possibility of evaporation.
@@ -2014,7 +2011,6 @@ end for;
       elseif massDynamics == Types.Dynamics.SteadyStateInitial then
         der(level) = 0;
       end if;
-
 
   equation
       connect(heatPort, heatTransfer.heatPorts[1]) annotation (Line(

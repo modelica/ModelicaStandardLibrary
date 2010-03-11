@@ -100,7 +100,6 @@ package FileSystem
     "Internal package with external functions as interface to the file system"
  extends Modelica.Icons.Library;
 
-
   function mkdir "Make directory (POSIX: 'mkdir')"
     extends Modelica.Icons.Function;
     input String directoryName "Make a new directory";

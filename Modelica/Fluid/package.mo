@@ -6,7 +6,6 @@ package Fluid "Library of 1-dim. thermo-fluid flow models using the Modelica.Med
 
 package UsersGuide "Users Guide"
 
-
   class Overview "Overview"
 
     annotation (Documentation(info="<HTML>
@@ -104,7 +103,6 @@ which provide simple models for a broad variety of applications.
   end GettingStarted;
 
   package ComponentDefinition "Component definition"
-
 
   class FluidConnectors "Fluid connectors"
 

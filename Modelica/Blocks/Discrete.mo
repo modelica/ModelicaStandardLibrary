@@ -4,7 +4,6 @@ package Discrete
 
   extends Modelica.Icons.Library;
 
-
   block Sampler "Ideal sampling of continuous signals"
     extends Interfaces.DiscreteSISO;
 
@@ -119,7 +118,6 @@ values of the last two sampled input signals.
   block UnitDelay "Unit Delay Block"
     parameter Real y_start=0 "Initial value of output signal";
     extends Interfaces.DiscreteSISO;
-
 
   equation
     when sampleTrigger then
@@ -297,7 +295,6 @@ states can be set as start values of <b>x</b>.<p>
 
     extends Interfaces.DiscreteMIMO(final nin=size(B, 2), final nout=size(C, 1));
     output Real x[size(A, 1)] "State vector";
-
 
   equation
     when sampleTrigger then

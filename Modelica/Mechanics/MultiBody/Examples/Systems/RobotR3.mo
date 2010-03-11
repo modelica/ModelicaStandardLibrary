@@ -21,7 +21,6 @@ package RobotR3
     parameter SI.AngularAcceleration refAccMax=10
       "Maximum reference acceleration";
 
-
     Components.AxisType1 axis(
       w=5500,
       ratio=210,
@@ -85,7 +84,6 @@ load inertia.
 
   model fullRobot
     "6 degree of freedom robot with path planning, controllers, motors, brakes, gears and mechanics"
-
 
     import SI = Modelica.SIunits;
 
@@ -471,7 +469,6 @@ the connection to this bus) are defined
         annotation (Placement(transformation(extent={{0,-10},{20,10}}, rotation=
                0)));
 
-
       Blocks.Logical.TerminateSimulation terminateSimulation(condition=time >= path.endTime
              + swingTime) annotation (Placement(transformation(extent={{-50,-30},
                 {30,-24}}, rotation=0)));
@@ -617,7 +614,6 @@ motion on the controlBus of the r3 robot.
       PathToAxisControlBus pathToAxis6(nAxis=naxis, axisUsed=6)
         annotation (Placement(transformation(extent={{-10,-80},{10,-60}},
               rotation=0)));
-
 
       Blocks.Logical.TerminateSimulation terminateSimulation(condition=time >= path.endTime
              + swingTime) annotation (Placement(transformation(extent={{-50,
@@ -923,7 +919,6 @@ motion on the controlBus of the r3 robot.
       constant SI.AngularVelocity unitAngularVelocity = 1;
       constant SI.Torque unitTorque = 1;
 
-
       Modelica.Mechanics.Rotational.Components.IdealGear gear(
                                                    ratio=i, useSupport=false)
         annotation (Placement(transformation(extent={{50,-10},{70,10}},
@@ -1146,7 +1141,6 @@ Default values for all parameters are given for joint 4.
       parameter Real D=0.6 "Damping constant of motor";
       parameter SI.AngularVelocity w_max=315 "Maximum speed of motor";
       parameter SI.Current i_max=9 "Maximum current of motor";
-
 
       Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_motor
         annotation (Placement(transformation(extent={{90,-10},{110,10}},

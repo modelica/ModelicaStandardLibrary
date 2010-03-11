@@ -9,7 +9,6 @@ extends Modelica.Icons.Library2;
 
 package UsersGuide "User's Guide of StateGraph Library"
 
-
   class OverView "Overview of library"
 
     annotation (Documentation(info="<html>
@@ -757,7 +756,6 @@ package Examples
 
     extends Modelica.Icons.Example;
 
-
     InitialStep step0 annotation (
           Placement(transformation(extent={{-140,-100},{-120,-80}}, rotation=0)));
     Transition transition1(enableTimer=true, waitTime=1)
@@ -900,7 +898,6 @@ has a higher priority to fire as alternative.split[2]).
 
     extends Modelica.Icons.Example;
 
-
     Utilities.CompositeStep compositeStep
                                      annotation (Placement(transformation(
               extent={{-10,5},{20,35}}, rotation=0)));
@@ -969,7 +966,6 @@ is that the alternative paths are included in a \"CompositeStep\".
       "Example to demonstrate how a hierarchically structured StateGraph can suspend and resume actions on different levels"
 
     extends Modelica.Icons.Example;
-
 
     Utilities.CompositeStep1 compositeStep
                                 annotation (Placement(transformation(extent={{
@@ -2190,7 +2186,6 @@ block InitialStep "Initial step (= step that is active when simulation starts)"
 
   extends Interfaces.PartialStep;
 
-
 initial equation
   active = true;
 equation
@@ -2226,7 +2221,6 @@ block InitialStepWithSignal
     "Initial step (= step that is active when simulation starts). Connector 'active' is true when the step is active"
 
   extends Interfaces.PartialStep;
-
 
   Modelica.Blocks.Interfaces.BooleanOutput active
     annotation (Placement(transformation(
@@ -2270,7 +2264,6 @@ block Step "Ordinary step (= step that is not active when simulation starts)"
 
   extends Interfaces.PartialStep;
 
-
 initial equation
   active = false;
 equation
@@ -2302,7 +2295,6 @@ block StepWithSignal
     "Ordinary step (= step that is not active when simulation starts). Connector 'active' is true when the step is active"
 
   extends Interfaces.PartialStep;
-
 
   Modelica.Blocks.Interfaces.BooleanOutput active
     annotation (Placement(transformation(
@@ -2763,7 +2755,6 @@ partial model PartialCompositeStep
           extent={{-10,-10},{10,10}},
           rotation=90)));
 
-
   model OuterState
       "Block containing the port that is connected to the outer stateGraphRoot"
     Interfaces.CompositeStepStatePort_in subgraphStatePort
@@ -2921,7 +2912,6 @@ model StateGraphRoot
 
   extends StateGraph.Interfaces.CompositeStepState;
   output Integer activeSteps "Number of active steps within the stategraph";
-
 
 equation
   activeSteps = -integer(subgraphStatePort.activeSteps);
@@ -3136,10 +3126,10 @@ value, still requires to go in to the text layer.
                     minimumLength=1,
                     significantDigits=integer(precision))),
               lineColor={0,0,255})}),
-
         Documentation(info="<html>
 
 </html>"));
+
   end NumericValue;
 
   model IndicatorLamp

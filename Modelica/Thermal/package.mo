@@ -3,7 +3,6 @@ package Thermal "Library of thermal system components to model heat transfer and
   extends Modelica.Icons.Library;
 
 
-
 annotation (Documentation(info="<html>
 <p>
 This package contains libraries to model heat transfer

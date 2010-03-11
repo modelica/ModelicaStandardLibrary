@@ -4,7 +4,6 @@ package Math "Library of mathematical functions as input/output blocks"
   import Modelica.Blocks.Interfaces;
   extends Modelica.Icons.Library;
 
-
   encapsulated package UnitConversions
     "Conversion blocks to convert between SI and non-SI unit signals"
     import Modelica;
@@ -2760,7 +2759,6 @@ as <i>Real equivalent</i> of the Integer input <b>u</b>:
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
 
-
   equation
     y = if u then realTrue else realFalse;
     annotation (
@@ -2808,7 +2806,6 @@ and <b>realTrue</b> and <b>realFalse</b> are parameters.
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
 
-
   equation
     y = if u then integerTrue else integerFalse;
     annotation (
@@ -2854,7 +2851,6 @@ and <b>integerTrue</b> and <b>integerFalse</b> are parameters.
     extends Interfaces.partialBooleanSO;
     parameter Real threshold=0.5
       "Output signal y is true, if input u >= threshold";
-
 
   equation
     y = u >= threshold;
@@ -2903,7 +2899,6 @@ where <b>threshold</b> is a parameter.
     extends Interfaces.partialBooleanSO;
     parameter Integer threshold=1
       "Output signal y is true, if input u >= threshold";
-
 
   equation
     y = u >= threshold;

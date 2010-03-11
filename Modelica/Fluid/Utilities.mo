@@ -577,7 +577,6 @@ k1=1, k2=3 is shown in the next figure:
 </html>"));
   end evaluatePoly3_derivativeAtZero;
 
-
   function regFun3 "Co-monotonic and C1 smooth regularization function"
 
     input Real x "Abscissa value";

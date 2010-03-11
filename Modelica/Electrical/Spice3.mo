@@ -12,7 +12,7 @@ extends Modelica.Icons.Library2;
 <p><h4><font color=\"#008000\">Overview of Spice3 library</font></h4></p>
 <p><br/>The Spice3 library is a Modelica library that contains some models of the Berkeley SPICE3 analog simulator. </p>
 <p><br/><u>General information about the analog simulator SPICE3 </u></p>
-<p>SPICE (Simulation Program with Integrated Circuit Emphasis) is a simulator for analog electrical circuits. It was developed as one of the first analog simulators in the university of Berkeley in 1970. SPICE-netlists, which contain the circuit that shall be simulated, are one of &nbsp;the de-facto-standard up to now. For nearly every electrical circuit a SPICE-netlist exists. Today the actual version of SPICE is SPICE3e/SPICE3f. SPICE contains basic elements (resistor, inductor, capacitor), sources and semiconductor devices (diode, bipolar transistors, junction field effect transistors, MOS-field effect transistors) as well as models of lines. Out of this offered pool of elements, the circuits that shall be simulated are build in the form of SPICE-netlists. </p>
+<p>SPICE (Simulation Program with Integrated Circuit Emphasis) is a simulator for analog electrical circuits. It was developed as one of the first analog simulators in the university of Berkeley in 1970. SPICE-netlists, which contain the circuit that shall be simulated, are a de-facto-standard up to now. For nearly every electrical circuit a SPICE-netlist exists. Today the actual version of SPICE is SPICE3e/SPICE3f. SPICE contains basic elements (resistor, inductor, capacitor), sources and semiconductor devices (diode, bipolar transistors, junction field effect transistors, MOS-field effect transistors) as well as models of lines. Out of this offered pool of elements, the circuits that shall be simulated are build in form of SPICE-netlists. </p>
 <p><br/><u>The Spice3-library for Modelica</u></p>
 <p>The Spice3 library was extraced from orinial SPICE3 C++ code. To be sure the Modelica models are correct the simulation results were compared to SPICE3.</p>
 <p>The Spice3-library was built in accordance to the model structure in SPICE. It contains the following packages:</p>
@@ -21,11 +21,11 @@ extends Modelica.Icons.Library2;
 <li>Basics (R, C, L, controlled sources) </li>
 <li>Semiconductos (MOS (P, N), BJT(NPN PNP), Diode, semiconductor resistor)</li>
 <li>Sources (constant, sinusodial, exponential, pulse, piece wise linear, single-frequency FM, respectively for V and I)</li>
-<li>Additionals (useful features from PSPICE/SPICE2)</li>
+<li>Additionals (useful features from SPICE2)</li>
 <li>Interfaces</li>
-<li>Repository (functions and data neede to model the semiconductor devices)<br/></li>
+<li>Repository (functions and data needed to model the semiconductor devices)<br/></li>
 </ul></p>
-<p>Since the semiconductor models, especially MOS and BJT, are very complex models, many functions, data and parameters were needed for their description. Therefore a special Package Repository was created that contains all thel functions and records with data and parameters that are needed for the semiconductor models. It is not necessary that a user of the library works inside this package,so is not for user access.The package Additionals is also a special one. It is not part of the original SPICE3 models. Nevertheless it contains useful models/features like the polynomial sources of SPICE2 that are often used.<b></p><p></b></p>
+<p>Since the semiconductor models, especially MOS and BJT, are very complex models, many functions, data and parameters were needed for their description. Therefore a special Package Repository was created that contains all thel functions and records with data and parameters that are needed for the semiconductor models. It is not necessary that a user of the library works inside this package,so it is not for user access.The package Additionals is also a special one. It is not part of the original SPICE3 models. Nevertheless it contains useful models/features like the polynomial sources of SPICE2 that are often used.</p>
 </html>", revisions="<html>
 </html>"));
   end Overview;
@@ -153,40 +153,30 @@ extends Modelica.Icons.Library2;
   class Literature "Literature"
 
     annotation (Documentation(info="<html>
-
-
-<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-<tr>
-<td valign=\"top\">[B&ouml;hme2009]</td>
-<td valign=\"top\">S. B&ouml;hme, K. Majetta, C. Clauss, P. Schneider,
-\"Spice3 Modelica Library,\"
-<i>7th Modelica Conference</i>,
-Como, Italy (2009)</td>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\"><tr>
+<td valign=\"top\"><p>[B&ouml;hme2009]</p></td>
+<td valign=\"top\"><p>S. B&ouml;hme, K. Majetta, C. Clauss, P. Schneider, &QUOT;Spice3 Modelica Library,&QUOT; <i>7th Modelica Conference</i>, Como, Italy (2009)</p></td>
+<td></td>
 </tr>
 <tr>
-<td valign=\"top\">[Antognetti1988]</td>
-<td valign=\"top\">P. Antognetti, G. Massobrio, 
-<i>Semiconductor Device Modeling with SPICE.</i>,
-McGraw-Hill Book Company, USA, 1988</td>
+<td valign=\"top\"><p>[Antognetti1988]</p></td>
+<td valign=\"top\"><p>P. Antognetti, G. Massobrio, <i>Semiconductor Device Modeling with SPICE.</i>, McGraw-Hill Book Company, USA, 1988</p></td>
+<td></td>
 </tr>
 <tr>
-<td valign=\"top\">[Connelly1992]</td>
-<td valign=\"top\">A. Connelly, A, P. Choi, 
-<i>Macromodeling with SPICE.</i>,
-Prentice-Hall, New Jersey, USA (1992)</td>
+<td valign=\"top\"><p>[Connelly1992]</p></td>
+<td valign=\"top\"><p>A. Connelly, A, P. Choi, <i>Macromodeling with SPICE.</i>, Prentice-Hall, New Jersey, USA (1992)</p></td>
+<td></td>
 </tr>
 <tr>
-<td valign=\"top\">[Johnson1991]</td>
-<td valign=\"top\">B. Johnson, T. Quarles, A.R. Newton, D. O. Pederson, A. Sangiovanni-Vincentelli, 
-<i>SPICE3 Version 3e User's Manual.</i>,
-University of Berkeley, Department of Electrical Engineering and Computer Sciences, USA (1991)</td>
+<td valign=\"top\"><p>[Johnson1991]</p></td>
+<td valign=\"top\"><p>B. Johnson, T. Quarles, A.R. Newton, D. O. Pederson, A. Sangiovanni-Vincentelli, <i>SPICE3 Version 3e User&apos;s Manual.</i>, University of Berkeley, Department of Electrical Engineering and Computer Sciences, USA (1991)</p></td>
+<td></td>
 </tr>
 <tr>
-<td valign=\"top\">[Kielkowski1994]</td>
-<td valign=\"top\">R. Kielkowski, 
-<i>Inside SPICE - Overcoming the obstacles of circuit simulation.</i>,
-McGraw-Hill, USA (1994)</td></br>
-<td valign=\"top\"><a href=\"http://bear.cwru.edu/eecs_cad/man_spice3.pdf\">SPICE3 users manual</a></td>
+<td valign=\"top\"><p>[Kielkowski1994]</p></td>
+<td valign=\"top\"><p>R. Kielkowski, <i>Inside SPICE - Overcoming the obstacles of circuit simulation.</i>, McGraw-Hill, USA (1994)</p></td>
+<a href=\"http://bear.cwru.edu/eecs_cad/man_spice3.pdf\">SPICE3 users manual</a>
 </tr>
 </table>
 </html>", revisions="<html>
@@ -258,21 +248,21 @@ McGraw-Hill, USA (1994)</td></br>
 
     //--------------------------------------------------------------------------------------------------------------
 
-      Spice3.Semiconductors.M_PMOS MP(modelcard(
+      Semiconductors.M_PMOS mp(modelcard(
           RD=0,
           RS=0,
           CBD=0,
           CBS=0))
         annotation (Placement(transformation(extent={{-14,8},{6,28}})));
-      Spice3.Semiconductors.M_NMOS MN(modelcard(
+      Semiconductors.M_NMOS mn(modelcard(
           RD=0,
           RS=0,
           CBD=0,
           CBS=0))
         annotation (Placement(transformation(extent={{-14,-34},{6,-14}})));
-      Spice3.Basic.Ground ground
+      Basic.Ground ground
         annotation (Placement(transformation(extent={{-14,-60},{6,-40}})));
-      Spice3.Sources.V_pulse vin(
+      Sources.V_pulse vin(
         V2=5,
         TD=4e-12,
         TR=0.1e-12,
@@ -282,33 +272,33 @@ McGraw-Hill, USA (1994)</td></br>
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-40,-16})));
-      Spice3.Sources.V_pulse v(V2=5, TR=0.1e-12)        annotation (Placement(
+      Sources.V_pulse v(V2=5, TR=0.1e-12)               annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={40,-4})));
     equation
-      connect(MN.D, MP.S)    annotation (Line(
+      connect(mn.D,mp. S)    annotation (Line(
           points={{-4,-14},{-4,8}},
           color={0,0,255},
           smooth=Smooth.None));
-      connect(MP.G, MN.G)    annotation (Line(
+      connect(mp.G,mn. G)    annotation (Line(
           points={{-14,17.9},{-14,-24.1}},
           color={0,0,255},
           smooth=Smooth.None));
-      connect(MN.S, MN.B)     annotation (Line(
+      connect(mn.S,mn. B)     annotation (Line(
           points={{-4,-34},{6,-34},{6,-24}},
           color={0,0,0},
           smooth=Smooth.None));
-      connect(MP.B, MP.D)   annotation (Line(
+      connect(mp.B,mp. D)   annotation (Line(
           points={{6,18},{6,28},{-4,28}},
           color={0,0,255},
           smooth=Smooth.None));
-      connect(MN.S, ground.p)   annotation (Line(
+      connect(mn.S, ground.p)   annotation (Line(
           points={{-4,-34},{-4,-40}},
           color={0,0,0},
           smooth=Smooth.None));
-      connect(v.p, MP.D)         annotation (Line(
+      connect(v.p,mp. D)         annotation (Line(
           points={{40,6},{40,28},{-4,28}},
           color={0,0,255},
           smooth=Smooth.None));
@@ -316,7 +306,7 @@ McGraw-Hill, USA (1994)</td></br>
           points={{40,-14},{40,-40},{-4,-40}},
           color={0,0,0},
           smooth=Smooth.None));
-      connect(vin.p, MP.G)      annotation (Line(
+      connect(vin.p,mp. G)      annotation (Line(
           points={{-40,-6},{-40,17.9},{-14,17.9}},
           color={0,0,255},
           smooth=Smooth.None));
@@ -359,7 +349,7 @@ McGraw-Hill, USA (1994)</td></br>
         experimentSetupOutput,
         Documentation(info="<html>
 <p>An inverter is an electrical circuit that consists of a PMOS and a NMOS transistor. Its task is to turn the input voltage from high potential to low potential or the other way round. </p>
-<p>Simulate until 1.e-11 s. Display the input voltage Vin.p.v as well as the output voltage MP.S.v. It shows that the input voltage is inverted.</p>
+<p>Simulate until 1.e-11 s. Display the input voltage Vin.p.v as well as the output voltage mp.S.v. It shows that the input voltage is inverted.</p>
 </html>", revisions="<html>
 <p><ul>
 <li><i>March 2009 </i>by Kristin Majetta initially implemented</li>
@@ -370,49 +360,49 @@ McGraw-Hill, USA (1994)</td></br>
     model InvertersApartRecord
       "Two inverters where transistor models use different modelcard instances"
 
-      Spice3.Basic.Ground ground annotation (Placement(transformation(extent={{-38,-80},
+      Basic.Ground ground        annotation (Placement(transformation(extent={{-38,-80},
                 {-18,-60}},        rotation=0)));
     //--------------------------------------------------------------------------------------------------------------
     /*apart record: For each transistor in the circuit a record with the technologieparameters is made avaliable
   as an instance of the record modelcardMOS */
-      parameter Spice3.Semiconductors.ModelcardMOS MPmos(GAMMA=0.37)
+      parameter Semiconductors.ModelcardMOS MPmos(GAMMA=0.37)
         "Specified modelcardMOS for MPmos"; //instance of record modelcardMOS
-      parameter Spice3.Semiconductors.ModelcardMOS MNmos(GAMMA=0.37, LAMBDA=
-            0.02) "Specified modelcardMOS for MNmos";
+      parameter Semiconductors.ModelcardMOS MNmos(GAMMA=0.37, LAMBDA=0.02)
+        "Specified modelcardMOS for MNmos";
                                              //instance of record modelcardMOS
-      Spice3.Semiconductors.M_PMOS mp1(modelcard=MPmos)
+      Semiconductors.M_PMOS mp1(modelcard=MPmos)
                 annotation (Placement(transformation(extent={{-38,20},{-18,40}},
               rotation=0)));
-      Spice3.Semiconductors.M_NMOS mn1(modelcard=MNmos)
+      Semiconductors.M_NMOS mn1(modelcard=MNmos)
                 annotation (Placement(transformation(extent={{-38,-30},{-18,-10}},
               rotation=0)));
-      Spice3.Semiconductors.M_PMOS mp2(modelcard=MPmos)
+      Semiconductors.M_PMOS mp2(modelcard=MPmos)
                 annotation (Placement(transformation(extent={{2,20},{22,40}},
               rotation=0)));
-      Spice3.Semiconductors.M_NMOS mn2(modelcard=MNmos)
+      Semiconductors.M_NMOS mn2(modelcard=MNmos)
                 annotation (Placement(transformation(extent={{2,-30},{22,-10}},
               rotation=0)));
     //--------------------------------------------------------------------------------------------------------------
 
-      Spice3.Basic.C_Capacitor c1(C=1e-5)
+      Basic.C_Capacitor c1(C=1e-5)
         annotation (Placement(transformation(
             origin={-8,-30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Spice3.Basic.C_Capacitor c2(C=1e-5)
+      Basic.C_Capacitor c2(C=1e-5)
         annotation (Placement(transformation(
             origin={34,-30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
 
-      Spice3.Sources.V_pulse vin(
+      Sources.V_pulse vin(
         V2=5,
         TD=2,
         TR=1) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-60,-32})));
-      Spice3.Sources.V_pulse v(V2=5, TR=1)       annotation (Placement(transformation(
+      Sources.V_pulse v(V2=5, TR=1)              annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={60,-32})));
@@ -441,14 +431,14 @@ McGraw-Hill, USA (1994)</td></br>
               -30}}, color={0,0,255}));
       connect(mp2.G, mn1.D) annotation (Line(points={{2,29.9},{2,0},{-28,0},{
               -28,-10}},  color={0,0,255}));
-      connect(c1.p, mn1.D) annotation (Line(points={{-8,-20},{-8,0},{-28,0},{-28,
-              -10}},     color={0,0,255}));
+      connect(c1.p, mn1.D) annotation (Line(points={{-8,-20},{-8,0},{-28,0},{
+              -28,-10}}, color={0,0,255}));
       connect(mn2.D, c2.p) annotation (Line(points={{12,-10},{12,0},{34,0},{34,
               -20}}, color={0,0,255}));
       connect(c2.n, ground.p) annotation (Line(points={{34,-40},{34,-60},{-28,
               -60}}, color={0,0,255}));
-      connect(c1.n, ground.p) annotation (Line(points={{-8,-40},{-8,-60},{-28,-60}},
-                     color={0,0,255}));
+      connect(c1.n, ground.p) annotation (Line(points={{-8,-40},{-8,-60},{-28,
+              -60}}, color={0,0,255}));
       connect(mp1.G, vin.p)    annotation (Line(
           points={{-38,29.9},{-60,29.9},{-60,-22}},
           color={0,0,255},
@@ -516,23 +506,23 @@ McGraw-Hill, USA (1994)</td></br>
     model InvertersExtendedModel
       "Two inverters with MOS models defined by inheritance"
 
-      Spice3.Basic.Ground ground annotation (Placement(transformation(extent={{-40,-80},
+      Basic.Ground ground        annotation (Placement(transformation(extent={{-40,-80},
                 {-20,-60}},        rotation=0)));
     //--------------------------------------------------------------------------------------------------------------
     /*extended model: For each set of technology parameters an apart model has to be defined. Every transistor extends
   this model. In this process the required technology parameters are specified. */
 
       model MPmos "PMOS transistor with specified modelcard"
-        Spice3.Semiconductors.ModelcardMOS M(GAMMA=0.37);
-        extends Spice3.Semiconductors.M_PMOS(modelcard=M);
+        Semiconductors.ModelcardMOS M(GAMMA=0.37);
+        extends Semiconductors.M_PMOS(modelcard=M);
         annotation (Documentation(info="<html>
 <p>This model MPmos is inherited by the model <i>InverterExtendedModel</i> to build an inverter circuit. For detailed information</p><p>please see <i>InverterExtendedModel</i>.</p>
 </html>"));
       end MPmos;
 
       model MNmos "NMOS transistor with specified modelcard"
-        Spice3.Semiconductors.ModelcardMOS M(GAMMA=0.37, LAMBDA=0.02);
-        extends Spice3.Semiconductors.M_NMOS(modelcard=M);
+        Semiconductors.ModelcardMOS M(GAMMA=0.37, LAMBDA=0.02);
+        extends Semiconductors.M_NMOS(modelcard=M);
         annotation (Documentation(info="<html>
 <p>This model MNmos is inherited by the model <i>InverterExtendedModel</i> to build an inverter circuit. For detailed information</p><p>please see <i>InverterExtendedModel</i>.</p>
 </html>"));
@@ -548,25 +538,25 @@ McGraw-Hill, USA (1994)</td></br>
               rotation=0)));
     //--------------------------------------------------------------------------------------------------------------
 
-      Spice3.Basic.C_Capacitor c1(C=1e-5)
+      Basic.C_Capacitor c1(C=1e-5)
         annotation (Placement(transformation(
             origin={-10,-30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Spice3.Basic.C_Capacitor c2(C=1e-5)
+      Basic.C_Capacitor c2(C=1e-5)
         annotation (Placement(transformation(
             origin={32,-30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
 
-      Spice3.Sources.V_pulse vin(
+      Sources.V_pulse vin(
         V2=5,
         TD=2,
         TR=1) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-60,-22})));
-      Spice3.Sources.V_pulse v(V2=5, TR=1)       annotation (Placement(transformation(
+      Sources.V_pulse v(V2=5, TR=1)              annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={56,-22})));
@@ -669,66 +659,64 @@ McGraw-Hill, USA (1994)</td></br>
     model FourInverters
       "Four inverters with MOSFET level 1, using private record as model card"
 
-      Spice3.Basic.Ground ground annotation (Placement(transformation(extent={{-74,-80},
+      Basic.Ground ground        annotation (Placement(transformation(extent={{-74,-80},
                 {-54,-60}},        rotation=0)));
 
-      parameter Spice3.Semiconductors.ModelcardMOS modp
-        "private PMOS modelcard";
-      parameter Spice3.Semiconductors.ModelcardMOS modn
-        "provate NMOS modelcard";
+      parameter Semiconductors.ModelcardMOS modp "private PMOS modelcard";
+      parameter Semiconductors.ModelcardMOS modn "provate NMOS modelcard";
 
-      Spice3.Semiconductors.M_PMOS mp1(modelcard=modp)
+      Semiconductors.M_PMOS mp1(modelcard=modp)
                 annotation (Placement(transformation(extent={{-74,20},{-54,40}},
               rotation=0)));
-      Spice3.Semiconductors.M_NMOS mn1(modelcard=modn)
+      Semiconductors.M_NMOS mn1(modelcard=modn)
                 annotation (Placement(transformation(extent={{-74,-30},{-54,-10}},
               rotation=0)));
-      Spice3.Semiconductors.M_PMOS mp2(modelcard=modp)
+      Semiconductors.M_PMOS mp2(modelcard=modp)
                 annotation (Placement(transformation(extent={{-34,20},{-14,40}},
               rotation=0)));
-      Spice3.Semiconductors.M_NMOS mn2(modelcard=modn)
+      Semiconductors.M_NMOS mn2(modelcard=modn)
                 annotation (Placement(transformation(extent={{-34,-30},{-14,-10}},
               rotation=0)));
-      Spice3.Semiconductors.M_PMOS mp3(modelcard=modp)
+      Semiconductors.M_PMOS mp3(modelcard=modp)
                 annotation (Placement(transformation(extent={{6,20},{26,40}},
               rotation=0)));
-      Spice3.Semiconductors.M_PMOS mp4(modelcard=modn)
+      Semiconductors.M_PMOS mp4(modelcard=modn)
                 annotation (Placement(transformation(extent={{46,20},{66,40}},
               rotation=0)));
-      Spice3.Semiconductors.M_NMOS mn3(modelcard=modp)
+      Semiconductors.M_NMOS mn3(modelcard=modp)
                 annotation (Placement(transformation(extent={{6,-30},{26,-10}},
               rotation=0)));
-      Spice3.Semiconductors.M_NMOS mn4(modelcard=modn)
+      Semiconductors.M_NMOS mn4(modelcard=modn)
                 annotation (Placement(transformation(extent={{46,-30},{66,-10}},
               rotation=0)));
-      Spice3.Basic.C_Capacitor c1(C=10e-6)
+      Basic.C_Capacitor c1(C=10e-6)
         annotation (Placement(transformation(
             origin={-44,-30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Spice3.Basic.C_Capacitor c2(C=10e-6)
+      Basic.C_Capacitor c2(C=10e-6)
         annotation (Placement(transformation(
             origin={-2,-30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Spice3.Basic.C_Capacitor c3(C=10e-6)
+      Basic.C_Capacitor c3(C=10e-6)
         annotation (Placement(transformation(
             origin={36,-30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Spice3.Basic.C_Capacitor c4(C=10e-6)
+      Basic.C_Capacitor c4(C=10e-6)
         annotation (Placement(transformation(
             origin={76,-30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Spice3.Sources.V_pulse vin(
+      Sources.V_pulse vin(
         V2=5,
         TD=2,
         TR=1) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-86,-42})));
-      Spice3.Sources.V_pulse v(V2=5, TR=1)                        annotation (
+      Sources.V_pulse v(V2=5, TR=1)                               annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
@@ -761,10 +749,11 @@ McGraw-Hill, USA (1994)</td></br>
               -30}}, color={0,0,255}));
       connect(c1.p, mn1.D) annotation (Line(points={{-44,-20},{-44,0},{-64,0},
               {-64,-10}},color={0,0,255}));
-      connect(mn2.D, c2.p) annotation (Line(points={{-24,-10},{-24,0},{-2,0},{-2,
-              -20}}, color={0,0,255}));
-      connect(c2.n, ground.p) annotation (Line(points={{-2,-40},{-2,-60},{-64,-60}},
+      connect(mn2.D, c2.p) annotation (Line(points={{-24,-10},{-24,0},{-2,0},{
+              -2,-20}},
                      color={0,0,255}));
+      connect(c2.n, ground.p) annotation (Line(points={{-2,-40},{-2,-60},{-64,
+              -60}}, color={0,0,255}));
       connect(c1.n, ground.p) annotation (Line(points={{-44,-40},{-44,-60},{-64,
               -60}}, color={0,0,255}));
       connect(c3.n, ground.p) annotation (Line(points={{36,-40},{36,-60},{-64,
@@ -791,8 +780,8 @@ McGraw-Hill, USA (1994)</td></br>
               -10}}, color={0,0,255}));
       connect(c4.p, mn4.D) annotation (Line(points={{76,-20},{76,0},{56,0},{56,
               -10}},      color={0,0,255}));
-      connect(c2.p, mn3.G) annotation (Line(points={{-2,-20},{2,-20},{2,-20.1},{
-              6,-20.1}},          color={0,0,255}));
+      connect(c2.p, mn3.G) annotation (Line(points={{-2,-20},{2,-20},{2,-20.1},
+              {6,-20.1}},         color={0,0,255}));
       connect(mn3.G, mp3.G) annotation (Line(points={{6,-20.1},{6,29.9}},
             color={0,0,255}));
       connect(c3.p, mn4.G) annotation (Line(points={{36,-20},{41,-20},{41,
@@ -875,25 +864,25 @@ McGraw-Hill, USA (1994)</td></br>
 
     model Nand "MOS Nand gate circuit"
 
-      Spice3.Semiconductors.M_PMOS mPMOS(
+      Semiconductors.M_PMOS mp1(
         L=2e-5,
         W=1e-5,
         modelcard(PHI=0.7))               annotation (Placement(transformation(
               extent={{-22,24},{-2,44}},  rotation=0)));
-      Spice3.Semiconductors.M_PMOS mPMOS1(modelcard(PHI=0.7))
+      Semiconductors.M_PMOS mp2(modelcard(PHI=0.7))
                                            annotation (Placement(transformation(
               extent={{24,24},{44,44}},rotation=0)));
-      Spice3.Semiconductors.M_NMOS mNMOS  annotation (Placement(transformation(
+      Semiconductors.M_NMOS mn2           annotation (Placement(transformation(
               extent={{-24,-44},{-4,-24}},rotation=0)));
-      Spice3.Semiconductors.M_NMOS mNMOS1  annotation (Placement(transformation(
+      Semiconductors.M_NMOS mn1            annotation (Placement(transformation(
               extent={{-24,-10},{-4,10}}, rotation=0)));
-      Spice3.Sources.V_constant vconstant(V=5)  annotation (Placement(
+      Sources.V_constant vconstant(V=5)         annotation (Placement(
             transformation(extent={{-10,-10},{10,10}},
                                                      rotation=270,
             origin={62,34})));
-      Spice3.Basic.Ground ground annotation (Placement(transformation(extent={{20,-100},
+      Basic.Ground ground        annotation (Placement(transformation(extent={{20,-100},
                 {40,-80}},         rotation=0)));
-      Spice3.Sources.V_pulse vin1(
+      Sources.V_pulse vin1(
         TR=1e-9,
         TF=1e-9,
         V2=5,
@@ -903,7 +892,7 @@ McGraw-Hill, USA (1994)</td></br>
             origin={-50,24},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Spice3.Sources.V_pulse vin2(
+      Sources.V_pulse vin2(
         V2=5,
         TR=1e-9,
         TF=1e-9,
@@ -915,42 +904,42 @@ McGraw-Hill, USA (1994)</td></br>
             rotation=270)));
 
     equation
-      connect(mPMOS.B, mPMOS.D)   annotation (Line(points={{-2,34},{-2,44},{
+      connect(mp1.B, mp1.D)       annotation (Line(points={{-2,34},{-2,44},{
               -12,44}},  color={0,0,255}));
-      connect(mPMOS1.B, mPMOS1.D)   annotation (Line(points={{44,34},{44,44},
+      connect(mp2.B, mp2.D)         annotation (Line(points={{44,34},{44,44},
               {34,44}}, color={0,0,255}));
-      connect(vconstant.p, mPMOS1.D)   annotation (Line(points={{62,44},{62,44},
+      connect(vconstant.p, mp2.D)      annotation (Line(points={{62,44},{62,44},
               {34,44}}, color={0,0,255}));
-      connect(mPMOS1.D, mPMOS.D)
+      connect(mp2.D, mp1.D)
         annotation (Line(points={{34,44},{-12,44}}, color={0,0,255}));
-      connect(mPMOS.G, mNMOS1.G)   annotation (Line(points={{-22,33.9},{-22,
+      connect(mp1.G, mn1.G)        annotation (Line(points={{-22,33.9},{-22,
               16},{-24,16},{-24,-0.1}},
                       color={0,0,255}));
-      connect(mPMOS.G, vin1.p)   annotation (Line(points={{-22,33.9},{-38,33.9},
+      connect(mp1.G, vin1.p)     annotation (Line(points={{-22,33.9},{-38,33.9},
               {-38,34},{-50,34}}, color={0,0,255}));
       connect(vin1.n, ground.p)  annotation (Line(points={{-50,14},{-62,14},{
               -62,-80},{30,-80}},color={0,0,255}));
-      connect(mPMOS1.G, mNMOS.G)   annotation (Line(points={{24,33.9},{24,14},
+      connect(mp2.G, mn2.G)        annotation (Line(points={{24,33.9},{24,14},
               {-32,14},{-32,-34.1},{-24,-34.1}},
                                               color={0,0,255}));
-      connect(mNMOS.G, vin2.p)   annotation (Line(points={{-24,-34.1},{-38,
+      connect(mn2.G, vin2.p)     annotation (Line(points={{-24,-34.1},{-38,
               -34.1},{-38,-34},{-52,-34}},
                                   color={0,0,255}));
       connect(vin2.n, ground.p)  annotation (Line(points={{-52,-54},{-52,-80},{
               30,-80}},color={0,0,255}));
-      connect(mNMOS.S, ground.p)  annotation (Line(points={{-14,-44},{-14,-80},
+      connect(mn2.S, ground.p)    annotation (Line(points={{-14,-44},{-14,-80},
               {30,-80}},color={0,0,255}));
-      connect(mNMOS1.B, mNMOS.B)
+      connect(mn1.B, mn2.B)
         annotation (Line(points={{-4,0},{-4,-34}},   color={0,0,255}));
-      connect(mNMOS.B, mNMOS.S)   annotation (Line(points={{-4,-34},{-4,-44},
+      connect(mn2.B, mn2.S)       annotation (Line(points={{-4,-34},{-4,-44},
               {-14,-44}}, color={0,0,255}));
-      connect(mNMOS1.S, mNMOS.D)
+      connect(mn1.S, mn2.D)
         annotation (Line(points={{-14,-10},{-14,-24}},
                                                     color={0,0,255}));
-      connect(mPMOS.S, mNMOS1.D)
+      connect(mp1.S, mn1.D)
         annotation (Line(points={{-12,24},{-12,18},{-14,18},{-14,10}},
                                                      color={0,0,255}));
-      connect(mPMOS1.S, mNMOS1.D)   annotation (Line(points={{34,24},{34,10},
+      connect(mp2.S, mn1.D)         annotation (Line(points={{34,24},{34,10},
               {-14,10}}, color={0,0,255}));
       connect(vconstant.n, ground.p)  annotation (Line(points={{62,24},{62,-80},
               {30,-80}},color={0,0,255}));
@@ -1023,7 +1012,7 @@ McGraw-Hill, USA (1994)</td></br>
 
     model Nor "MOS NOR gate circuit"
 
-      Spice3.Semiconductors.M_PMOS mPMOS(modelcard(
+      Semiconductors.M_PMOS mp1(modelcard(
           RD=1e-4,
           RS=1e-4,
           CBD=1e-5,
@@ -1032,7 +1021,7 @@ McGraw-Hill, USA (1994)</td></br>
           CGDO=1e-5,
           CGBO=1e-5))                     annotation (Placement(transformation(
               extent={{-16,24},{4,44}},   rotation=0)));
-      Spice3.Semiconductors.M_PMOS mPMOS1(modelcard(
+      Semiconductors.M_PMOS mp2(modelcard(
           RD=1e-4,
           RS=1e-4,
           CBD=1e-5,
@@ -1041,7 +1030,7 @@ McGraw-Hill, USA (1994)</td></br>
           CGDO=1e-5,
           CGBO=1e-5))                      annotation (Placement(transformation(
               extent={{-16,-6},{4,14}},   rotation=0)));
-      Spice3.Semiconductors.M_NMOS mNMOS(modelcard(
+      Semiconductors.M_NMOS mn1(modelcard(
           RD=1e-4,
           RS=1e-4,
           CBD=1e-5,
@@ -1050,7 +1039,7 @@ McGraw-Hill, USA (1994)</td></br>
           CGDO=1e-5,
           CGBO=1e-5))                     annotation (Placement(transformation(
               extent={{-16,-44},{4,-24}}, rotation=0)));
-      Spice3.Semiconductors.M_NMOS mNMOS1(modelcard(
+      Semiconductors.M_NMOS mn2(modelcard(
           RD=1e-4,
           RS=1e-4,
           CBD=1e-5,
@@ -1060,9 +1049,9 @@ McGraw-Hill, USA (1994)</td></br>
           CGBO=1e-5))                      annotation (Placement(transformation(
               extent={{32,-44},{52,-24}},
                                        rotation=0)));
-      Spice3.Basic.Ground ground annotation (Placement(transformation(extent={{28,-100},
+      Basic.Ground ground        annotation (Placement(transformation(extent={{28,-100},
                 {48,-80}},         rotation=0)));
-      Spice3.Sources.V_pulse vin1(
+      Sources.V_pulse vin1(
         V2=5,
         TR=0.001,
         TF=0.001,
@@ -1072,7 +1061,7 @@ McGraw-Hill, USA (1994)</td></br>
             origin={-42,24},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Spice3.Sources.V_pulse vin2(
+      Sources.V_pulse vin2(
         V2=5,
         TR=0.001,
         TF=0.001,
@@ -1090,44 +1079,44 @@ McGraw-Hill, USA (1994)</td></br>
             rotation=270,
             origin={62,34})));
     equation
-      connect(mNMOS.B, mNMOS.S)   annotation (Line(points={{4,-34},{4,-44},{
+      connect(mn1.B, mn1.S)       annotation (Line(points={{4,-34},{4,-44},{
               -6,-44}},   color={0,0,255}));
-      connect(mNMOS1.B, mNMOS1.S)   annotation (Line(points={{52,-34},{52,-44},
+      connect(mn2.B, mn2.S)         annotation (Line(points={{52,-34},{52,-44},
               {42,-44}}, color={0,0,255}));
-      connect(mNMOS1.S, ground.p)  annotation (Line(points={{42,-44},{38,-44},
+      connect(mn2.S, ground.p)     annotation (Line(points={{42,-44},{38,-44},
               {38,-80}},
                        color={0,0,255}));
-      connect(mNMOS.S, ground.p)  annotation (Line(points={{-6,-44},{-6,-80},{
+      connect(mn1.S, ground.p)    annotation (Line(points={{-6,-44},{-6,-80},{
               38,-80}}, color={0,0,255}));
-      connect(vin2.p, mNMOS.G)      annotation (Line(points={{-44,-34},{-29,
+      connect(vin2.p, mn1.G)        annotation (Line(points={{-44,-34},{-29,
               -34},{-29,-34.1},{-16,-34.1}},
                                       color={0,0,255}));
       connect(vin2.n, ground.p)     annotation (Line(points={{-44,-54},{-44,-80},
               {38,-80}},color={0,0,255}));
-      connect(vin1.p, mPMOS.G)     annotation (Line(points={{-42,34},{-29,34},
+      connect(vin1.p, mp1.G)       annotation (Line(points={{-42,34},{-29,34},
               {-29,33.9},{-16,33.9}}, color={0,0,255}));
       connect(vin1.n, ground.p)    annotation (Line(points={{-42,14},{-64,14},{
               -64,-80},{38,-80}},color={0,0,255}));
-      connect(mPMOS.S, mPMOS1.D)
+      connect(mp1.S, mp2.D)
         annotation (Line(points={{-6,24},{-6,14}},   color={0,0,255}));
-      connect(mPMOS1.S, mNMOS.D)   annotation (Line(points={{-6,-6},{-6,-24}},
+      connect(mp2.S, mn1.D)        annotation (Line(points={{-6,-6},{-6,-24}},
             color={0,0,255}));
-      connect(mNMOS1.D, mNMOS.D)   annotation (Line(points={{42,-24},{-6,-24}},
+      connect(mn2.D, mn1.D)        annotation (Line(points={{42,-24},{-6,-24}},
             color={0,0,255}));
-      connect(vin2.p, mPMOS1.G)      annotation (Line(points={{-44,-34},{-44,4},
+      connect(vin2.p, mp2.G)         annotation (Line(points={{-44,-34},{-44,4},
               {-16,4},{-16,3.9}},   color={0,0,255}));
-      connect(vin1.p, mNMOS1.G)     annotation (Line(points={{-42,34},{-28,34},
+      connect(vin1.p, mn2.G)        annotation (Line(points={{-42,34},{-28,34},
               {-28,-18},{32,-18},{32,-34.1}},
                                          color={0,0,255}));
-      connect(mPMOS.B, mPMOS.D)   annotation (Line(
+      connect(mp1.B, mp1.D)       annotation (Line(
           points={{4,34},{4,44},{-6,44}},
           color={0,0,255},
           smooth=Smooth.None));
-      connect(mPMOS1.B, mPMOS.B)   annotation (Line(
+      connect(mp2.B, mp1.B)        annotation (Line(
           points={{4,4},{4,34}},
           color={0,0,255},
           smooth=Smooth.None));
-      connect(v.p, mPMOS.D)         annotation (Line(
+      connect(v.p, mp1.D)           annotation (Line(
           points={{62,44},{-6,44}},
           color={0,0,255},
           smooth=Smooth.None));
@@ -1205,35 +1194,35 @@ McGraw-Hill, USA (1994)</td></br>
 
     model Graetz "Graetz rectifier circuit"
 
-      Spice3.Semiconductors.D_DIODE D1(modelcarddiode(CJO=1e-7))
+      Semiconductors.D_DIODE D1(modelcarddiode(CJO=1e-7))
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=0,
             origin={0,14})));
-      Spice3.Semiconductors.D_DIODE D3(modelcarddiode(CJO=1e-7))
+      Semiconductors.D_DIODE D3(modelcarddiode(CJO=1e-7))
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
             rotation=270,
             origin={20,-8})));
-      Spice3.Semiconductors.D_DIODE D4(modelcarddiode(CJO=1e-7))
+      Semiconductors.D_DIODE D4(modelcarddiode(CJO=1e-7))
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=0,
             origin={1,-30})));
-      Spice3.Semiconductors.D_DIODE D2(modelcarddiode(CJO=1e-7))
+      Semiconductors.D_DIODE D2(modelcarddiode(CJO=1e-7))
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-20,-8})));
-      Spice3.Semiconductors.R_Resistor rout(R=10)
+      Semiconductors.R_Resistor rout(R=10)
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={42,-7})));
-      Spice3.Sources.V_sin vsin(VA=10, FREQ=200)
+      Sources.V_sin vsin(VA=10, FREQ=200)
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-44,-8})));
-      Spice3.Basic.Ground ground
+      Basic.Ground ground
         annotation (Placement(transformation(extent={{-30,-60},{-10,-40}})));
     equation
       connect(D1.n, D3.p) annotation (Line(
@@ -1312,47 +1301,47 @@ McGraw-Hill, USA (1994)</td></br>
 
     model Oscillator "Oscillator circuit"
 
-      Spice3.Basic.R_Resistor r(R=1000) annotation (Placement(
+      Basic.R_Resistor r(R=1000)        annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={-36,20})));
-      Spice3.Basic.C_Capacitor c(C=1e-7)
+      Basic.C_Capacitor c(C=1e-7)
         annotation (Placement(transformation(extent={{-32,0},{-12,20}})));
-      Spice3.Basic.C_Capacitor c1(C=1e-7)
+      Basic.C_Capacitor c1(C=1e-7)
         annotation (Placement(transformation(extent={{24,0},{44,20}})));
-      Spice3.Basic.R_Resistor r1(R=22000) annotation (Placement(
+      Basic.R_Resistor r1(R=22000)        annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={-6,20})));
-      Spice3.Basic.R_Resistor r2(R=22000) annotation (Placement(
+      Basic.R_Resistor r2(R=22000)        annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={18,20})));
-      Spice3.Basic.R_Resistor r3(R=1000) annotation (Placement(
+      Basic.R_Resistor r3(R=1000)        annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={50,20})));
-      Spice3.Semiconductors.Q_NPNBJT T1(mod(CJE=1e-9, CJC=1e-9))
+      Semiconductors.Q_NPNBJT T1(mod(CJE=1e-9, CJC=1e-9))
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=180,
             origin={-30,-24})));
-      Spice3.Semiconductors.Q_NPNBJT T2(mod(CJE=1e-9, CJC=1e-9))
+      Semiconductors.Q_NPNBJT T2(mod(CJE=1e-9, CJC=1e-9))
         annotation (Placement(transformation(extent={{30,-40},{50,-20}})));
-      Spice3.Basic.Ground ground1
+      Basic.Ground ground1
         annotation (Placement(transformation(extent={{-78,-34},{-58,-14}})));
-      Spice3.Basic.Ground ground2
+      Basic.Ground ground2
         annotation (Placement(transformation(extent={{50,-60},{70,-40}})));
-      Spice3.Basic.R_Resistor r4(R=10000)         annotation (
+      Basic.R_Resistor r4(R=10000)                annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={64,-2})));
-      Spice3.Sources.V_pulse v(
+      Sources.V_pulse v(
         V2=8,
         TD=0.0005,
         TR=0.01,
@@ -1543,7 +1532,7 @@ by this gound element.
 
     model R_Resistor "Ideal linear electrical resistor"
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
-      parameter SI.Resistance R=1 "Resistance";
+      parameter SI.Resistance R(start=100) "Resistance";
     equation
       R*i = v;
       annotation (
@@ -2010,7 +1999,7 @@ is translated to Modelica:<br>
     end ModelcardMOS;
 
     model Q_NPNBJT "Bipolar junction transistor"
-     extends Spice3.Repository.BJT(mod(final TBJT=1));
+     extends Repository.BJT(mod(final TBJT=1));
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Polygon(
@@ -2035,7 +2024,7 @@ is translated to Modelica:<br>
     end Q_NPNBJT;
 
     model Q_PNPBJT "Bipolar junction transistor"
-     extends Spice3.Repository.BJT(mod(final TBJT=-1));
+     extends Repository.BJT(mod(final TBJT=-1));
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Polygon(
@@ -2060,7 +2049,7 @@ is translated to Modelica:<br>
     end Q_PNPBJT;
 
     record ModelcardBJT "Record for the specification of modelcard parameters"
-      extends Spice3.Repository.ModelcardBJT;
+      extends Repository.ModelcardBJT;
       annotation (Documentation(info="<html>
 <p>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g. the temperature of a whole electrical circuit.</p>
 <p><br/>Technology parameters of the modified Gummel-Poon bipolar junction transistor model</p>
@@ -2068,7 +2057,7 @@ is translated to Modelica:<br>
     end ModelcardBJT;
 
    model D_DIODE "Diode model"
-     extends Spice3.Repository.DIODE;
+     extends Repository.DIODE;
 
      annotation (
        Icon(
@@ -2091,7 +2080,7 @@ is translated to Modelica:<br>
    end D_DIODE;
 
    record ModelcardDIODE "Record for the specification of modelcard parameters"
-     extends Spice3.Repository.ModelcardDIODE;
+     extends Repository.ModelcardDIODE;
       annotation (Documentation(info="<html>
 <p>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g. the temperature of a whole electrical circuit.</p>
 <p><br/>Technology parameters of the junction diode model</p>
@@ -2099,7 +2088,7 @@ is translated to Modelica:<br>
    end ModelcardDIODE;
 
     model R_Resistor "Semiconductor resistor from SPICE3"
-    extends Spice3.Repository.R_SEMI;
+    extends Repository.R_SEMI;
                     annotation (Placement(transformation(extent={{-110,-10},{
                 -90,10}}, rotation=0), iconTransformation(extent={{-100,0},{-80,
                 20}})),         Placement(transformation(extent={{110,-10},{90,
@@ -2120,7 +2109,7 @@ is translated to Modelica:<br>
 
     record ModelcardRESISTOR
       "Record for the specification of modelcard parameters"
-      extends Spice3.Repository.ModelcardR;
+      extends Repository.ModelcardR;
       annotation (Documentation(info="<html>
 <p>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g. the temperature of a whole electrical circuit.</p>
 <p><br/>Technology parameters of the semiconductor resistor model</p>
@@ -2316,13 +2305,12 @@ is translated to Modelica:<br>
       parameter SI.Time PER= Modelica.Constants.inf "Period";
 
     protected
-      parameter Modelica.SIunits.Time Trising=TR
-        "End time of rising phase within one period";
-      parameter Modelica.SIunits.Time Twidth=Trising + PW
+      parameter SI.Time Trising=TR "End time of rising phase within one period";
+      parameter SI.Time Twidth=Trising + PW
         "End time of width phase within one period";
-      parameter Modelica.SIunits.Time Tfalling=Twidth + TF
+      parameter SI.Time Tfalling=Twidth + TF
         "End time of falling phase within one period";
-      Modelica.SIunits.Time T0(final start=TD) "Start time of current period";
+      SI.Time T0(final start=TD) "Start time of current period";
       Integer counter(start=-1) "Period counter";
       Integer counter2(start=-1);
 
@@ -2750,13 +2738,12 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
       parameter SI.Time PER= Modelica.Constants.inf "Period";
 
     protected
-      parameter Modelica.SIunits.Time Trising=TR
-        "End time of rising phase within one period";
-      parameter Modelica.SIunits.Time Twidth=Trising + PW
+      parameter SI.Time Trising=TR "End time of rising phase within one period";
+      parameter SI.Time Twidth=Trising + PW
         "End time of width phase within one period";
-      parameter Modelica.SIunits.Time Tfalling=Twidth + TF
+      parameter SI.Time Tfalling=Twidth + TF
         "End time of falling phase within one period";
-      Modelica.SIunits.Time T0(final start=TD) "Start time of current period";
+      SI.Time T0(final start=TD) "Start time of current period";
       Integer counter(start=-1) "Period counter";
       Integer counter2(start=-1);
 
@@ -3599,21 +3586,19 @@ VN- -&GT; name.pc[N-1]
 
     parameter Integer mtype(start = 0)
         "MOSFET type: 0 - N channel, 1 - P channel";
-    parameter Modelica.SIunits.Length L =  1e-4 "Length";
-    parameter Modelica.SIunits.Length W =  1e-4 "Width";
-    parameter Modelica.SIunits.Area AD = 0 "Area of the drain diffusion";
-    parameter Modelica.SIunits.Area AS = 0 "Area of the source diffusion";
-    parameter Modelica.SIunits.Length PD =  0 "Perimeter of the drain junction";
-    parameter Modelica.SIunits.Length PS =  0
-        "Perimeter of the source junction";
+    parameter SI.Length L =  1e-4 "Length";
+    parameter SI.Length W =  1e-4 "Width";
+    parameter SI.Area AD = 0 "Area of the drain diffusion";
+    parameter SI.Area AS = 0 "Area of the source diffusion";
+    parameter SI.Length PD =  0 "Perimeter of the drain junction";
+    parameter SI.Length PS =  0 "Perimeter of the source junction";
     parameter Real NRD = 1 "Number of squares of the drain diffusions";
     parameter Real NRS = 1 "Number of squares of the source diffusions";
     parameter Integer OFF = 0
         "Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet";
-    parameter Modelica.SIunits.Voltage IC( start = -1e40)
+    parameter SI.Voltage IC( start = -1e40)
         "Initial condition values, not implemented yet";
-    parameter Modelica.SIunits.Temp_C TEMP = 27
-        "Operating temperature of the device";
+    parameter SI.Temp_C TEMP = 27 "Operating temperature of the device";
 
     parameter Repository.ModelcardMOS modelcard "MOSFET modelcard" annotation(Evaluate=true);
     Repository.SpiceConstants C "General constants of SPICE simulator";
@@ -3668,8 +3653,8 @@ VN- -&GT; name.pc[N-1]
     Real icGB;
     Real icGS;
     Real icGD;
-    Modelica.SIunits.Voltage vDS "Drain - source voltage";
-    Modelica.SIunits.Voltage vGS "Gate - source voltage";
+    SI.Voltage vDS "Drain - source voltage";
+    SI.Voltage vGS "Gate - source voltage";
 
   equation
     assert( NRD <> 0, "NRD, length of drain in squares, must not be zero");
@@ -3742,55 +3727,51 @@ VN- -&GT; name.pc[N-1]
 
      record ModelcardMOS "Record with technological parameters (.model)"
 
-       parameter Modelica.SIunits.Voltage VTO=-1e40
-        "Zero-bias threshold voltage, default 0";
-       parameter Real KP=-1e40
-        "A/(V*V), Transconductance parameter, default 2e-5";
-       parameter Modelica.SIunits.Voltage GAMMA=-1e40
-        "Bulk threshold parameter, default 0";
-       parameter Modelica.SIunits.Voltage PHI=-1e40
-        "Surface potential, default 0.6";
-       parameter Real LAMBDA=0 "1/V, Channel-length modulation, default 0";
-       parameter Modelica.SIunits.Resistance RD=-1e40
-        "Drain ohmic resistance, default 0";
-       parameter Modelica.SIunits.Resistance RS=-1e40
-        "Source ohmic resistance, default 0";
-       parameter Modelica.SIunits.Capacitance CBD=-1e40
+       parameter SI.Voltage VTO=-1e40 "Zero-bias threshold voltage, default 0";
+       parameter SI.Transconductance KP=-1e40
+        "Transconductance parameter, default 2e-5";
+       parameter SI.Voltage GAMMA=-1e40 "Bulk threshold parameter, default 0";
+       parameter SI.Voltage PHI=-1e40 "Surface potential, default 0.6";
+       parameter SI.InversePotential LAMBDA=0
+        "Channel-length modulation, default 0";
+       parameter SI.Resistance RD=-1e40 "Drain ohmic resistance, default 0";
+       parameter SI.Resistance RS=-1e40 "Source ohmic resistance, default 0";
+       parameter SI.Capacitance CBD=-1e40
         "Zero-bias B-D junction capacitance, default 0";
-       parameter Modelica.SIunits.Capacitance CBS=-1e40
+       parameter SI.Capacitance CBS=-1e40
         "Zero-bias B-S junction capacitance, default 0";
-       parameter Modelica.SIunits.Current IS=1.e-14
-        "Bulk junction saturation current";
-       parameter Modelica.SIunits.Voltage PB=0.8 "Bulk junction potential";
-       parameter Modelica.SIunits.Permittivity CGSO=0.0
-        "In F/m, Gate-source overlap capacitance per meter channel width";
-       parameter Modelica.SIunits.Permittivity CGDO=0.0
-        "In F/m, Gate-drain overlap capacitance per meter channel width";
-       parameter Modelica.SIunits.Permittivity CGBO=0.0
-        "In F/m, Gate-bulk overlap capacitance per meter channel width";
-       parameter Modelica.SIunits.Resistance RSH=0.0
+       parameter SI.Current IS=1.e-14 "Bulk junction saturation current";
+       parameter SI.Voltage PB=0.8 "Bulk junction potential";
+       parameter SI.Permittivity CGSO=0.0
+        "Gate-source overlap capacitance per meter channel width";
+       parameter SI.Permittivity CGDO=0.0
+        "Gate-drain overlap capacitance per meter channel width";
+       parameter SI.Permittivity CGBO=0.0
+        "Gate-bulk overlap capacitance per meter channel width";
+       parameter SI.Resistance RSH=0.0
         "Drain and source diffusion sheet resistance";
-       parameter Real CJ=0.0
-        "In F/(m*m), Zero-bias bulk junction bottom cap. per sq-meter of junction area";
+       parameter SI.CapacitancePerArea CJ=0.0
+        "Zero-bias bulk junction bottom cap. per sq-meter of junction area";
        parameter Real MJ=0.5 "Bulk junction bottom grading coefficient";
-       parameter Modelica.SIunits.Permittivity CJSW=0.0
-        "In F/m, Zero-bias junction sidewall cap. per meter of junction perimeter";
+       parameter SI.Permittivity CJSW=0.0
+        "Zero-bias junction sidewall cap. per meter of junction perimeter";
        parameter Real MJSW=0.5 "Bulk junction sidewall grading coefficient";
-       parameter Modelica.SIunits.CurrentDensity JS=0.0
-        "In A/(m*m), Bulk junction saturation current per sq-meter of junction area";
-       parameter Modelica.SIunits.Length TOX=-1e40
-        "Oxide thickness, default 1e-7";
+       parameter SI.CurrentDensity JS=0.0
+        "Bulk junction saturation current per sq-meter of junction area";
+       parameter SI.Length TOX=-1e40 "Oxide thickness, default 1e-7";
        parameter Real NSUB=-1e40 "Substrate doping, default 0";
-       parameter Real NSS=0.0 "1/(cm*cm), Surface state density";
+       parameter SI.Conversions.NonSIunits.PerArea_cm NSS=0.0
+        "Surface state density";
        parameter Real TPG=1.0
         "Type of gate material: +1 opp. to substrate, -1 same as substrate, 0 Al gate";
-       parameter Modelica.SIunits.Length LD=0.0 "Lateral diffusion";
-       parameter Real UO=600 "(cm*cm)/(Vs), Surface mobility";
+       parameter SI.Length LD=0.0 "Lateral diffusion";
+       parameter SI.Conversions.NonSIunits.Area_cmPerVoltageSecond UO=600
+        "Surface mobility";
        parameter Real KF=0 "Flicker noise coefficient";
        parameter Real AF=1.0 "Flicker noise exponent";
        parameter Real FC=0.5
         "Coefficient for forward-bias depletion capacitance formula";
-       parameter Modelica.SIunits.Temp_C TNOM=-1e40
+       parameter SI.Temp_C TNOM=-1e40
         "Parameter measurement temperature, default 27";
        constant Integer LEVEL=1 "Model level: Shichman-Hodges";
      equation
@@ -3816,35 +3797,33 @@ VN- -&GT; name.pc[N-1]
                                           annotation (Placement(transformation(
               extent={{90,-10},{110,10}}, rotation=0)));
 
-    parameter Real mtype(start = 0) "MOSFET type: 0 - N channel, 1 - P channel";
-    parameter Real L = 1e-4 "In m, Length";
-    parameter Real W = 1e-4 "In m, Width";
-    parameter Real AD = 0 "In m*m, Area of the drain diffusion";
-    parameter Real AS = 0 "In m*m, Area of the source diffusion";
-    parameter Real PD = 0 "In m, Perimeter of the drain junction";
-    parameter Real PS = 0 "In m, Perimeter of the source junction";
+    parameter Integer mtype(start = 0)
+        "MOSFET type: 0 - N channel, 1 - P channel";
+    parameter SI.Length L = 1e-4 "Length";
+    parameter SI.Length W = 1e-4 "Width";
+    parameter SI.Area AD = 0 "Area of the drain diffusion";
+    parameter SI.Area AS = 0 "Area of the source diffusion";
+    parameter SI.Length PD = 0 "Perimeter of the drain junction";
+    parameter SI.Length PS = 0 "Perimeter of the source junction";
     parameter Real NRD = 1 "Number of squares of the drain diffusions";
     parameter Real NRS = 1 "Number of squares of the source diffusions";
-    parameter Real OFF = 0
+    parameter Integer OFF = 0
         "Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet";
-    parameter Real IC( start = -1e40)
-        "In A, Initial condition values, not implemented yet";
-    parameter Real TEMP = 27 "In deg C, Operating temperature of the device";
+    parameter SI.Voltage IC( start = -1e40)
+        "Initial condition values, not implemented yet";
+    parameter Real TEMP = 27 "Operating temperature of the device";
 
     Real MOScapgd = qm.qm_capgd;
     Real MOScapgs = qm.qm_capgs;
     Real MOScapgb = qm.qm_capgb;
 
-    parameter Spice3.Repository.ModelcardMOS2 modelcard "MOSFET modelcard"
+    parameter ModelcardMOS2 modelcard "MOSFET modelcard"
                 annotation(Evaluate=true);
-    constant Spice3.Repository.SpiceConstants C
-        "General constants of SPICE simulator";
-    final parameter Spice3.Repository.Mos2.Mos2ModelLineParams p=
-          Spice3.Repository.Mos2.mos2RenameParameters(modelcard, C)
-        "Model line parameters"
+    constant SpiceConstants C "General constants of SPICE simulator";
+    final parameter Mos2.Mos2ModelLineParams p=Mos2.mos2RenameParameters(
+          modelcard, C) "Model line parameters"
                       annotation(Evaluate=true);
-    final parameter Spice3.Repository.Mosfet.Mosfet m=
-          Spice3.Repository.Mos2.mos2RenameParametersDev(
+    final parameter Mosfet.Mosfet m=Mos2.mos2RenameParametersDev(
             modelcard,
             mtype,
             W,
@@ -3861,19 +3840,17 @@ VN- -&GT; name.pc[N-1]
                                     annotation(Evaluate=true);
     final parameter Integer m_type = if (m.m_bPMOS > 0.5) then -1 else 1
         "Type of the transistor";
-    final parameter Spice3.Repository.Mos2.Mos2ModelLineVariables vp=
-          Spice3.Repository.Mos2.mos2ModelLineParamsInitEquations(
+    final parameter Mos2.Mos2ModelLineVariables vp=
+          Mos2.mos2ModelLineParamsInitEquations(
             p,
             C,
             m_type) "Model line variables";
-    final parameter Spice3.Repository.Mos2.Mos2Calc c1=
-          Spice3.Repository.Mos.mos2CalcInitEquations(
+    final parameter Mos2.Mos2Calc c1=Mos.mos2CalcInitEquations(
             p,
             C,
             vp,
             m) "Precalculated parameters";
-    final parameter Spice3.Repository.Mos2.Mos2Calc c2=
-          Spice3.Repository.Mos.mos2CalcCalcTempDependencies(
+    final parameter Mos2.Mos2Calc c2=Mos.mos2CalcCalcTempDependencies(
             p,
             C,
             vp,
@@ -3881,7 +3858,7 @@ VN- -&GT; name.pc[N-1]
             c1,
             m_type) "Precalculated parameters";
     Mos.DEVqmeyer qm;
-    Spice3.Repository.Mos.CurrrentsCapacitances cc;
+    Mos.CurrrentsCapacitances cc;
 
     constant Boolean m_bInit = false;
 
@@ -3901,8 +3878,8 @@ VN- -&GT; name.pc[N-1]
     Real icqmGB;
     Real icqmGS;
     Real icqmGD;
-    Modelica.SIunits.Voltage vDS "Drain - source voltage";
-    Modelica.SIunits.Voltage vGS "Gate - source voltage";
+    SI.Voltage vDS "Drain - source voltage";
+    SI.Voltage vGS "Gate - source voltage";
 
   equation
     assert( NRD <> 0, "NRD, length of drain in squares, must not be zero");
@@ -3911,7 +3888,7 @@ VN- -&GT; name.pc[N-1]
     vDS = D.v - S.v;
     vGS = G.v - S.v;
 
-      (cc,qm) = Spice3.Repository.Mos.mos2CalcNoBypassCode(
+      (cc,qm) = Mos.mos2CalcNoBypassCode(
           m,
           m_type,
           c2,
@@ -3941,8 +3918,8 @@ VN- -&GT; name.pc[N-1]
 
     // currents
     // --------
-      ibsgmin = Spice3.Repository.SpiceConstants.CKTgmin*(B.v - Sinternal);
-      ibdgmin = Spice3.Repository.SpiceConstants.CKTgmin*(B.v - Dinternal);
+      ibsgmin = SpiceConstants.CKTgmin*(B.v - Sinternal);
+      ibdgmin = SpiceConstants.CKTgmin*(B.v - Dinternal);
     G.i =  icGB + icGD + icGS + icqmGB + icqmGD + icqmGS;
     B.i = cc.iBD + cc.iBS+ ibdgmin + ibsgmin -icGB + icBD + icBS - icqmGB;
     D.i = ird;
@@ -4012,47 +3989,42 @@ VN- -&GT; name.pc[N-1]
       parameter Real AREA = 1.0 "Area factor";
       parameter Boolean OFF = false
         "Optional initial condition: false - IC not used, true - IC used, not implemented yet";
-      parameter Modelica.SIunits.Voltage IC_VCE( start = -1e40)
-        "In v, Initial condition value (VBE, not implemented yet";
-      parameter Modelica.SIunits.Voltage IC_VBE( start = -1e40)
-        "In v, Initial condition value (VBC, not implemented yet";
-      parameter Modelica.SIunits.Temp_C TEMP = 27
-        "In deg C, Operating temperature of the device";
+      parameter SI.Voltage IC_VCE( start = -1e40)
+        "Initial condition value (VBE, not implemented yet";
+      parameter SI.Voltage IC_VBE( start = -1e40)
+        "Initial condition value (VBC, not implemented yet";
+      parameter SI.Temp_C TEMP = 27 "Operating temperature of the device";
       parameter Boolean SENS_AREA = false
         "Flag to request sensitivity WRT area, not implemented yet";
 
-      parameter Spice3.Repository.ModelcardBJT mod "BJT modelcard"                            annotation(Evaluate=true);
+      parameter ModelcardBJT mod "BJT modelcard"                                              annotation(Evaluate=true);
 
-      final parameter Spice3.Repository.Bjt3.BjtModelLineParams p=
-          Bjt3.bjtRenameParameters(mod, Con) "Model line parameters"                                                                       annotation(Evaluate=true);
-      constant Spice3.Repository.SpiceConstants Con
-        "General constants of SPICE simulator";
-      final parameter Spice3.Repository.Bjt3.Bjt p1=
-          Bjt3.bjtRenameParametersDev(
+      final parameter Bjt3.BjtModelLineParams p=Bjt3.bjtRenameParameters(mod,
+          Con) "Model line parameters"                                                                                                     annotation(Evaluate=true);
+      constant SpiceConstants Con "General constants of SPICE simulator";
+      final parameter Bjt3.Bjt p1=Bjt3.bjtRenameParametersDev(
               AREA,
               OFF,
               IC_VBE,
               IC_VCE,
               SENS_AREA) "Renamed parameters"
                    annotation(Evaluate=true);
-      final parameter Spice3.Repository.Model.Model m=
-          Bjt3.bjtRenameParametersDevTemp(TEMP) "Renamed parameters"                                                                          annotation(Evaluate=true);
-      final parameter Spice3.Repository.Bjt3.BjtModelLineVariables vl=
+      final parameter Model.Model m=Bjt3.bjtRenameParametersDevTemp(TEMP)
+        "Renamed parameters"                                                                                                     annotation(Evaluate=true);
+      final parameter Bjt3.BjtModelLineVariables vl=
           Bjt3.bjtModelLineInitEquations(p) "Model line variables";
-      final parameter Spice3.Repository.Bjt3.Bjt3Calc c=
-          Bjt3.bjt3CalcTempDependencies(
+      final parameter Bjt3.Bjt3Calc c=Bjt3.bjt3CalcTempDependencies(
               p1,
               p,
               m,
               vl) "Precalculated parameters";
-      final parameter Spice3.Repository.Bjt3.BjtVariables v=
-          Bjt3.bjtInitEquations(
+      final parameter Bjt3.BjtVariables v=Bjt3.bjtInitEquations(
               p1,
               p,
               vl) "Precalculated parameters";
 
       constant Boolean m_bInit = false;
-      Spice3.Repository.Bjt3.CurrentsCapacitances cc;
+      Bjt3.CurrentsCapacitances cc;
       Real Cinternal;    //inner collector node
       Real Binternal;    //inner base node
       Real Einternal;    //inner emitter node
@@ -4067,9 +4039,9 @@ VN- -&GT; name.pc[N-1]
       Real icapbc;
       Real capbx;
       Real icapbx;
-      Modelica.SIunits.Voltage vBE "Base - emitter voltage";
-      Modelica.SIunits.Voltage vCE "Collector - emitter voltage";
-      Modelica.SIunits.Voltage vBC "Base - collector voltage";
+      SI.Voltage vBE "Base - emitter voltage";
+      SI.Voltage vCE "Collector - emitter voltage";
+      SI.Voltage vBC "Base - collector voltage";
 
     equation
       vBE = B.v - E.v;
@@ -4143,74 +4115,50 @@ VN- -&GT; name.pc[N-1]
     record ModelcardBJT "Record with technological parameters (.model)"
 
       parameter Real TBJT( start = 1) "Type of transistor (NPN=1, PNP=-1)";
-      parameter Modelica.SIunits.Temp_C TNOM = -1e40
+      parameter SI.Temp_C TNOM = -1e40
         "Parameter measurement temperature, default 27";
-      parameter Modelica.SIunits.Current IS = 1e-16
-        "Transport saturation current";                                             // m_satCur
-      parameter Real BF = 100.00 "Ideal maximum forward beta F"; //m_beta
-      parameter Real NF = 1.0 "Forward current emission coefficientF"; //m_emissionCoeff
+      parameter SI.Current IS = 1e-16 "Transport saturation current";
+      parameter Real BF = 100.00 "Ideal maximum forward beta F";
+      parameter Real NF = 1.0 "Forward current emission coefficientF";
       parameter Real NE = 1.5 "B-E leakage emission coefficient ";
-                                             //m_leakBEemissionCoeff
-      parameter Modelica.SIunits.Current ISE = -1e40
+      parameter SI.Current ISE = -1e40
         "B-E leakage saturation current, default = 0";
-                                                          //m_leakBEcurrent,
-      constant Real C2 =  -1e40 "Obsolete parameter name, , default = 0";
-      parameter Modelica.SIunits.Current ISC = -1e40
+      constant Real C2 =  -1e40 "Obsolete parameter name, default = 0";
+      parameter SI.Current ISC = -1e40
         "B-C leakage saturation current, default = 0";
-
-      constant Real C4 =  -1e40 "Obsolete parameter name, default = 0";
+      constant Real C4 =   -1e40 "Obsolete parameter name, default = 0";
       parameter Real BR = 1.0 "Ideal maximum reverse beta";
       parameter Real NR = 1.0 "Reverse current emission coefficient ";
       parameter Real NC = 2.0 "B-C leakage emission coefficient";
-
-      parameter Modelica.SIunits.Voltage VAF = 0.0 "Forward Early voltage";
-      parameter Modelica.SIunits.Current IKF = 0.0
-        "Forward beta roll-off corner current";
-      parameter Modelica.SIunits.Voltage VAR = 0.0 "Reverse Early voltage";
-      parameter Modelica.SIunits.Current IKR = 0.0
-        "Reverse beta roll-off corner current";
-      parameter Modelica.SIunits.Resistance RE = 0.0 "Emitter resistance";
-      parameter Modelica.SIunits.Resistance RC = 0.0 "Collector resistance";
-      parameter Modelica.SIunits.Current IRB = 0.0
-        "Current for base resistance = (rb+rbm)/2";
-
-      parameter Modelica.SIunits.Resistance RB = 0.0
-        "Zero bias base resistance";
-      parameter Modelica.SIunits.Resistance RBM = -1e40
+      parameter SI.Voltage VAF = 0.0 "Forward Early voltage";
+      parameter SI.Current IKF = 0.0 "Forward beta roll-off corner current";
+      parameter SI.Voltage VAR = 0.0 "Reverse Early voltage";
+      parameter SI.Current IKR = 0.0 "Reverse beta roll-off corner current";
+      parameter SI.Resistance RE = 0.0 "Emitter resistance";
+      parameter SI.Resistance RC = 0.0 "Collector resistance";
+      parameter SI.Current IRB = 0.0 "Current for base resistance = (rb+rbm)/2";
+      parameter SI.Resistance RB = 0.0 "Zero bias base resistance";
+      parameter SI.Resistance RBM = -1e40
         "Minimum base resistance, default = 0.0";
-      parameter Modelica.SIunits.Capacitance CJE = 0.0
-        "Zero bias B-E depletion capacitance";
-
-      parameter Modelica.SIunits.Voltage VJE = 0.75 "B-E built in potential";
+      parameter SI.Capacitance CJE = 0.0 "Zero bias B-E depletion capacitance";
+      parameter SI.Voltage VJE = 0.75 "B-E built in potential";
       parameter Real MJE = 0.33 "B-E junction exponential faktor";
-      parameter Modelica.SIunits.Time TF = 0.0 "Ideal forward transit time";
+      parameter SI.Time TF = 0.0 "Ideal forward transit time";
       parameter Real XTF = 0.0 "Coefficient for bias dependence of TF ";
-
-      parameter Modelica.SIunits.Current ITF = 0.0
-        "High current dependence of TF,";
-
-      parameter Modelica.SIunits.Voltage VTF = 0.0
-        "Voltage giving VBC dependence of TF";
-
-      parameter Modelica.SIunits.Temp_C PTF = 0.0
-        "Excess phase at freq=1/(TF*2*Pi) Hz";
-      parameter Modelica.SIunits.Capacitance CJC = 0.0
-        "Zero bias B-C depletion capacitance";
-
-      parameter Modelica.SIunits.Voltage VJC = 0.75 " B-C built in potential";
+      parameter SI.Current ITF = 0.0 "High current dependence of TF,";
+      parameter SI.Voltage VTF = 0.0 "Voltage giving VBC dependence of TF";
+      parameter SI.Temp_C PTF = 0.0 "Excess phase at freq=1/(TF*2*Pi) Hz";
+      parameter SI.Capacitance CJC = 0.0 "Zero bias B-C depletion capacitance";
+      parameter SI.Voltage VJC = 0.75 " B-C built in potential";
       parameter Real MJC = 0.33 "B-C junction grading coefficient";
       parameter Real XCJC = 1.0 "Fraction of B-C cap to internal base";
-
-      parameter Modelica.SIunits.Time TR = 0.0 "Ideal reverse transit time";
-      parameter Modelica.SIunits.Capacitance CJS = 0.0
-        "In F, Zero bias C-S capacitance ";
-      parameter Modelica.SIunits.Voltage VJS = 0.75
-        "In V, Substrate junction built-in potential ";
+      parameter SI.Time TR = 0.0 "Ideal reverse transit time";
+      parameter SI.Capacitance CJS = 0.0 "Zero bias C-S capacitance ";
+      parameter SI.Voltage VJS = 0.75 "Substrate junction built-in potential ";
       parameter Real MJS = 0.0 "Substrate junction grading coefficient ";
-
       parameter Real XTB = 0.0 "Forward and reverse beta temperature exponent ";
-      parameter Real EG = 1.11
-        "In eV, Energy gap for IS temperature effect on IS ";
+      parameter SI.GapEnergy EG = 1.11
+        "Energy gap for IS temperature effect on IS ";
       parameter Real XTI = 3.0 "Temperature exponent for IS";
       parameter Real KF = 0.0 "Flicker Noise Coefficient ";
       parameter Real AF = 1.0 "Flicker Noise Exponent ";
@@ -4229,42 +4177,37 @@ VN- -&GT; name.pc[N-1]
      parameter Real AREA = 1 "Area factor";
      parameter Boolean OFF = false
         "Optional initial condition: false - IC not used, true - IC used, not implemented yet";
-     parameter Real IC( start = -1e40)
-        "In v, Initial condition value (VD, not implemented yet";
-     parameter Real TEMP = 27 "In deg C, Operating temperature of the device";
+     parameter SI.Voltage IC( start = -1e40)
+        "Initial condition value (VD, not implemented yet";
+     parameter SI.Temp_C TEMP = 27 "Operating temperature of the device";
      parameter Boolean SENS_AREA( start = false)
         "Flag to request sensitivity WRT area, not implemented yet";
 
-     parameter Spice3.Repository.ModelcardDIODE modelcarddiode
-        "DIODE modelcard"                                                         annotation(Evaluate=true);
-     Spice3.Repository.SpiceConstants C "General constants of SPICE simulator";
-     final parameter Spice3.Repository.Diode.DiodeModelLineParams param=
-          Spice3.Repository.Diode.diodeRenameParameters(modelcarddiode, C)
+     parameter ModelcardDIODE modelcarddiode "DIODE modelcard"                    annotation(Evaluate=true);
+     SpiceConstants C "General constants of SPICE simulator";
+     final parameter Diode.DiodeModelLineParams param=
+          Diode.diodeRenameParameters(modelcarddiode, C)
         "Model line parameters";
-     final parameter Spice3.Repository.Diode.DiodeParams dp=
-          Spice3.Repository.Diode.diodeRenameParametersDev(
+     final parameter Diode.DiodeParams dp=Diode.diodeRenameParametersDev(
              TEMP,
              AREA,
              IC,
              OFF,
              SENS_AREA) "Renamed parameters"
                       annotation(Evaluate=true);
-     final parameter Spice3.Repository.Model.Model m=
-          Spice3.Repository.Diode.diodeRenameParametersDevTemp(TEMP)
+     final parameter Model.Model m=Diode.diodeRenameParametersDevTemp(TEMP)
         "Renamed parameters"
                  annotation(Evaluate=true);
-     final parameter Spice3.Repository.Diode.DiodeVariables c1=
-          Spice3.Repository.Diode.diodeInitEquations(param)
+     final parameter Diode.DiodeVariables c1=Diode.diodeInitEquations(param)
         "Precalculated values";
-     final parameter Spice3.Repository.Diode.DiodeCalc c2=
-          Spice3.Repository.Diode.diodeCalcTempDependencies(
+     final parameter Diode.DiodeCalc c2=Diode.diodeCalcTempDependencies(
              param,
              dp,
              m,
              c1) "Precalculated values";
      constant Boolean m_mbInit = false;
 
-     Spice3.Repository.Diode.CurrentsCapacitances cc;
+     Diode.CurrentsCapacitances cc;
      Real icap;
      Real m_dCap;
      Real pin;
@@ -4272,7 +4215,7 @@ VN- -&GT; name.pc[N-1]
      Real igmin;
 
    equation
-      (cc,m_dCap) = Spice3.Repository.Diode.diodeNoBypassCode(
+      (cc,m_dCap) = Diode.diodeNoBypassCode(
            param,
            dp,
            c2,
@@ -4286,7 +4229,7 @@ VN- -&GT; name.pc[N-1]
        ir*param.m_resist = (p.v - pin);
 
      //gmin
-      igmin = Spice3.Repository.SpiceConstants.CKTgmin*(pin - n.v);
+      igmin = SpiceConstants.CKTgmin*(pin - n.v);
 
      p.i =  ir;
      n.i =  -(cc.m_dCurrent +igmin) -icap;
@@ -4322,24 +4265,22 @@ VN- -&GT; name.pc[N-1]
    end DIODE;
 
    record ModelcardDIODE "Record with technological parameters (.model)"
-    parameter Modelica.SIunits.Current IS=1e-14 "In A, Saturation Current";
-    parameter Modelica.SIunits.Resistance RS=0.0 "In Ohm, Ohmic resistance";
+    parameter SI.Current IS=1e-14 "Saturation Current";
+    parameter SI.Resistance RS=0.0 "Ohmic resistance";
     parameter Real N=1.0 "Emission coefficient";
-    parameter Modelica.SIunits.Time TT=0.0 "In s, Transit time";
-    parameter Modelica.SIunits.Capacitance CJO=0.0 "In F, Junction capacitance";
-    parameter Modelica.SIunits.Voltage VJ=1.0 "In V, Junction Potential";
+    parameter SI.Time TT=0.0 "Transit time";
+    parameter SI.Capacitance CJO=0.0 "Junction capacitance";
+    parameter SI.Voltage VJ=1.0 "Junction Potential";
     parameter Real M=0.5 "Grading coefficient";
-    parameter Real EG=1.11 "In eV, Activation Energy";
+    parameter SI.ActivationEnergy EG=1.11 "Activation Energy";
     parameter Real XTI=3.0 "Saturation current temperature exponent";
     parameter Real FC=0.5 "Forward bias junction fit parameter";
-    parameter Modelica.SIunits.Voltage BV=-1e40
-        "In V, Reverse breakdown voltage, default infinity";
-    parameter Real IBV=1e-3 "Am Current at reverse breakdown voltage";
-    parameter Modelica.SIunits.Temp_C TNOM=27
-        "In degree C, Parameter measurement temperature";
+    parameter SI.Voltage BV=-1e40 "Reverse breakdown voltage, default infinity";
+    parameter SI.Current IBV=1e-3 "Current at reverse breakdown voltage";
+    parameter SI.Temp_C TNOM=27 "Parameter measurement temperature";
     parameter Real KF=0.0 "Flicker noise coefficient";
     parameter Real AF=1.0 "Flicker noise exponent";
-    parameter Modelica.SIunits.Conductance G=0 "In S, Ohmic conductance";
+    parameter SI.Conductance G=0 "Ohmic conductance";
      annotation (Documentation(info="<html>
 <p>Modelcard parameters for DIODE model</p>
 <p><br/>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
@@ -4351,19 +4292,19 @@ VN- -&GT; name.pc[N-1]
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
       parameter SI.Resistance R= -1e40
         "Resistance, if specified, geometrical information is overwritten";
-      parameter Real TEMP = -1e40 "In deg C, Temperature of resistor";
-      parameter Real L = -1e40 "In m, lenght of the resistor";
-      parameter Real W = -1e40
-        "In m, width of the resistor, default DEFW (modelcard)";
+      parameter SI.Temp_C TEMP = -1e40 "Temperature of resistor";
+      parameter SI.Length L = -1e40 "lenght of the resistor";
+      parameter SI.Length W = -1e40
+        "width of the resistor, default DEFW (modelcard)";
       parameter Boolean SENS_AREA= false
         "Parameter for sensitivity analyses, not implemented yet";
-      parameter Spice3.Repository.ModelcardR modelcard "Resistor modelcard";
-      Spice3.Repository.SpiceConstants C "General constants of SPICE simulator";
-      final parameter Spice3.Repository.Rsemiconductor.ResistorModelLineParams
-        lp=Spice3.Repository.Rsemiconductor.resistorRenameParameters(modelcard,
-          C) "Model Line Parameters";
-      final parameter Spice3.Repository.Rsemiconductor.ResistorParams rp=
-          Spice3.Repository.Rsemiconductor.resistorRenameParametersDev(
+      parameter ModelcardR modelcard "Resistor modelcard";
+      SpiceConstants C "General constants of SPICE simulator";
+      final parameter Rsemiconductor.ResistorModelLineParams lp=
+          Rsemiconductor.resistorRenameParameters(modelcard, C)
+        "Model Line Parameters";
+      final parameter Rsemiconductor.ResistorParams rp=
+          Rsemiconductor.resistorRenameParametersDev(
               R,
               W,
               L,
@@ -4371,10 +4312,10 @@ VN- -&GT; name.pc[N-1]
               SENS_AREA,
               C) "Renamed parameters";
 
-        Spice3.Repository.Rsemiconductor.ResistorVariables vp;
+        Rsemiconductor.ResistorVariables vp;
 
     algorithm
-      vp := Spice3.Repository.Rsemiconductor.resistorInitEquations(rp, lp);
+      vp := Rsemiconductor.resistorInitEquations(rp, lp);
 
       (vp.m_dConduct,vp.m_dCond_dTemp) := Spice3.Repository.Equation.resDepTemp(
             vp.m_dResist,
@@ -4417,16 +4358,15 @@ VN- -&GT; name.pc[N-1]
     end R_SEMI;
 
     record ModelcardR "Record with technological parameters (.model)"
-     parameter Real TC1 = 0.0
-        "In Ohm/deg C, First order temperature coefficient";
-     parameter Real TC2 = 0.0
+     parameter SI.Conversions.NonSIunits.FirstOrderTemperaturCoefficient TC1 =        0.0
+        "First order temperature coefficient";
+     parameter SI.Conversions.NonSIunits.SecondOrderTemperaturCoefficient TC2 =               0.0
         "In Ohm/(deg C*deg C), Second2 order temperature coefficient";
-     parameter Real RSH = -1e40 "In Ohm/Area Sheet resistance";
-     parameter Modelica.SIunits.Temp_C TNOM = -1e40
-        "In deg C, Parameter measurement temperature, default 27";
-     parameter Modelica.SIunits.Length DEFW = 1e-5 "In m, Default device width";
-     parameter Modelica.SIunits.Length NARROW = 0
-        "In m, Narrowing of resistor due to side etching";
+     parameter SI.Resistance RSH = -1e40 "Sheet resistance";
+     parameter SI.Temp_C TNOM = -1e40
+        "Parameter measurement temperature, default 27";
+     parameter SI.Length DEFW = 1e-5 "Default device width";
+     parameter SI.Length NARROW = 0 "Narrowing of resistor due to side etching";
       annotation (Documentation(info="<html>
 <p>Modelcard parameters for semiconductor resistance model</p>
 <p><br/>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
@@ -4436,10 +4376,10 @@ VN- -&GT; name.pc[N-1]
      record SpiceConstants "General constants of SPICE simulator"
        constant Real EPSSIL =     (11.7 * 8.854214871e-12);
        constant Real EPSOX =      3.453133e-11;
-       constant Real CHARGE =     (1.6021918e-19);
-       constant Real CONSTCtoK =  (273.15);
+       constant SI.Charge CHARGE =     (1.6021918e-19);
+       constant SI.Temp_C CONSTCtoK =  (273.15);
        constant Real CONSTboltz = (1.3806226e-23);
-       constant Real REFTEMP =    300.15;  /* 27 deg C */
+       constant SI.Temp_C REFTEMP =    300.15;  /* 27 deg C */
 
        constant Real CONSTroot2 =  sqrt(2.0);
        constant Real CONSTvt0 =    CONSTboltz * (27 + CONSTCtoK)  / CHARGE; // deg C
@@ -4448,13 +4388,13 @@ VN- -&GT; name.pc[N-1]
 
        // options
 
-       constant Real CKTgmin =         1e-12;
-       constant Real CKTnomTemp =      300.15;
-       constant Real CKTtemp =         300.15;
-       constant Real CKTdefaultMosAD = 0.0;
-       constant Real CKTdefaultMosAS = 0.0;
-       constant Real CKTdefaultMosL =  100e-6;
-       constant Real CKTdefaultMosW =  100e-6;
+       constant SI.Conductance CKTgmin =         1e-12;
+       constant SI.Temp_C CKTnomTemp =      300.15;
+       constant SI.Temp_C CKTtemp =         300.15;
+       constant SI.Area CKTdefaultMosAD = 0.0;
+       constant SI.Area CKTdefaultMosAS = 0.0;
+       constant SI.Length CKTdefaultMosL =  100e-6;
+       constant SI.Length CKTdefaultMosW =  100e-6;
        constant Real CKTreltol =       1e-10;
        constant Real CKTabstol =       1e-15;
        constant Real CKTvolttol =      1e-10;
@@ -4746,7 +4686,7 @@ VN- -&GT; name.pc[N-1]
       Real vte;
 
     algorithm
-      vt := Spice3.Repository.SpiceConstants.CONSTKoverQ*temp;
+        vt := SpiceConstants.CONSTKoverQ*temp;
       vte := emissioncoeff * vt;
       ret := satcur0 * exp( ((temp / tnom) - 1) * energygap / vte
              + satcurexp / emissioncoeff * Modelica.Math.log( temp / tnom));
@@ -4773,14 +4713,14 @@ VN- -&GT; name.pc[N-1]
       Integer iter;
 
     algorithm
-      vt := Spice3.Repository.SpiceConstants.CONSTKoverQ*temp;
+        vt := SpiceConstants.CONSTKoverQ*temp;
       v23 := vb;
       cbv := ivb;
 
       if (cbv < satcur * vb / vt) then
         cbv := satcur * vb / vt;
       else
-          tol := Spice3.Repository.SpiceConstants.CKTreltol*cbv;
+          tol := SpiceConstants.CKTreltol*cbv;
         v23 := vb - vt * Modelica.Math.log( 1 + cbv / satcur);
         for iter in 0:24 loop
           v23 := vb - vt * Modelica.Math.log( cbv / satcur + 1 - v23 / vt);
@@ -4818,7 +4758,7 @@ VN- -&GT; name.pc[N-1]
 
     algorithm
       if (satcur > 1.0e-101) then
-          vte := Spice3.Repository.SpiceConstants.CONSTKoverQ*temp*ncoeff;
+          vte := SpiceConstants.CONSTKoverQ*temp*ncoeff;
         max_exponent := Modelica.Math.log( max_current / satcur);
         max_exponent := min( max_exp, max_exponent);
         if (voltage >= max_exponent * vte) then
@@ -4827,15 +4767,13 @@ VN- -&GT; name.pc[N-1]
           current := satcur * (evd - 1) + cond * (voltage - max_exponent * vte);
         elseif (voltage >= -3 * vte) then
           evd     := exp( voltage / vte);
-            current := satcur*(evd - 1) + Spice3.Repository.SpiceConstants.CKTgmin
-              *voltage;
-            cond := satcur*evd/vte + Spice3.Repository.SpiceConstants.CKTgmin;
+            current := satcur*(evd - 1) + SpiceConstants.CKTgmin*voltage;
+            cond := satcur*evd/vte + SpiceConstants.CKTgmin;
         elseif (voltage >= -v23) then
-            arg := 3*vte/(voltage*Spice3.Repository.SpiceConstants.CONSTe);
+            arg := 3*vte/(voltage*SpiceConstants.CONSTe);
           arg     := arg * arg * arg;
-            current := -1.*satcur*(1 + arg) + Spice3.Repository.SpiceConstants.CKTgmin
-              *voltage;
-            cond := satcur*3*arg/voltage + Spice3.Repository.SpiceConstants.CKTgmin;
+            current := -1.*satcur*(1 + arg) + SpiceConstants.CKTgmin*voltage;
+            cond := satcur*3*arg/voltage + SpiceConstants.CKTgmin;
         else
           vr := -( v23 + voltage);
           if (vr > max_exponent * vte) then
@@ -4844,9 +4782,8 @@ VN- -&GT; name.pc[N-1]
             current := -1. * (satcur * (evd - 1) + cond * (vr - max_exponent * vte));
           else
             evrev   := exp( vr / vte);
-              current := -1.*satcur*evrev + Spice3.Repository.SpiceConstants.CKTgmin
-                *voltage;
-              cond := satcur*evrev/vte + Spice3.Repository.SpiceConstants.CKTgmin;
+              current := -1.*satcur*evrev + SpiceConstants.CKTgmin*voltage;
+              cond := satcur*evrev/vte + SpiceConstants.CKTgmin;
           end if;
         end if;
       else
@@ -4915,7 +4852,7 @@ VN- -&GT; name.pc[N-1]
 
     algorithm
       if (satcur > 1.0e-101) then
-          vte := Spice3.Repository.SpiceConstants.CONSTKoverQ*temp*ncoeff;
+          vte := SpiceConstants.CONSTKoverQ*temp*ncoeff;
         max_exponent := Modelica.Math.log( max_current / satcur);
         max_exponent := min( max_exp, max_exponent);
         if (voltage >= max_exponent * vte) then
@@ -4925,15 +4862,13 @@ VN- -&GT; name.pc[N-1]
 
         elseif (voltage >= -5 * vte) then
           evd     := exp( voltage / vte);
-            current := satcur*(evd - 1) + Spice3.Repository.SpiceConstants.CKTgmin
-              *voltage;
-            cond := satcur*evd/vte + Spice3.Repository.SpiceConstants.CKTgmin;
+            current := satcur*(evd - 1) + SpiceConstants.CKTgmin*voltage;
+            cond := satcur*evd/vte + SpiceConstants.CKTgmin;
         else
-            arg := 3*vte/(voltage*Spice3.Repository.SpiceConstants.CONSTe);
+            arg := 3*vte/(voltage*SpiceConstants.CONSTe);
           arg     := arg * arg * arg;
-            current := -1*satcur*(1 + arg) + Spice3.Repository.SpiceConstants.CKTgmin
-              *voltage;
-            cond := satcur*3*arg/voltage + Spice3.Repository.SpiceConstants.CKTgmin;
+            current := -1*satcur*(1 + arg) + SpiceConstants.CKTgmin*voltage;
+            cond := satcur*3*arg/voltage + SpiceConstants.CKTgmin;
         end if;
       else
         current := 0.0;
@@ -6166,7 +6101,6 @@ VN- -&GT; name.pc[N-1]
 
             if (vgst <= vds) then
                /* saturation region */
-
                out_c.m_cdrain := betap * vgst * vgst * 0.5;
                out_c.m_gm     := betap * vgst;
                out_c.m_gds    := in_p.m_lambda * out_c.m_Beta * vgst * vgst * 0.5;
@@ -6187,8 +6121,8 @@ VN- -&GT; name.pc[N-1]
 
       function mos1RenameParameters "Parameter renaming to internal names"
 
-        input Spice3.Repository.ModelcardMOS ex;
-        input Spice3.Repository.SpiceConstants con;
+        input ModelcardMOS ex;
+        input SpiceConstants con;
 
         output Mos.MosModelLineParams intern;
 
@@ -6281,7 +6215,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
 
       function mos1RenameParametersDev
         "Device parameter renaming to internal names"
-        input Spice3.Repository.ModelcardMOS ex;
+        input ModelcardMOS ex;
         input Integer mtype;
         input Real W;
         input Real L;
@@ -6342,7 +6276,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
     package Mos2
       record Mos2ModelLineParams
         "Record for Mosfet model line parameters (for level 2)"
-        extends Spice3.Repository.Mos.MosModelLineParams(
+        extends Mos.MosModelLineParams(
           m_lambda(start=0.0),
           m_transconductance(start=2.0e-5),
           m_bulkJctSideGradingCoeff(start=0.33),
@@ -6364,7 +6298,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
       end Mos2ModelLineParams;
 
       record Mos2ModelLineVariables
-        extends Spice3.Repository.Mos.MosModelLineVariables;
+        extends Mos.MosModelLineVariables;
 
         Real m_bulkCapFactor;
         Real m_substrateDoping;
@@ -6376,7 +6310,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
       end Mos2ModelLineVariables;
 
       record Mos2Calc "Further mosfet variables (for level 2)"
-        extends Spice3.Repository.Mos.MosCalc;
+        extends Mos.MosCalc;
 
         annotation (Documentation(info="<html>
 <p>This record Mos1Calc contains further mosfet variables (for level 1).</p>
@@ -6386,7 +6320,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
       function mos2ModelLineParamsInitEquations "Initial precalculation"
 
         input Mos2ModelLineParams in_p;
-        input Spice3.Repository.SpiceConstants in_C;
+        input SpiceConstants in_C;
         input Integer in_m_type;
 
         output Mos2ModelLineVariables out_v;
@@ -6462,10 +6396,10 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
          input Real vgs;
          input Real vds;
 
-         input Spice3.Repository.Mosfet.Mosfet in_m;
+         input Mosfet.Mosfet in_m;
          input Mos2Calc in_c;
          input Mos2ModelLineParams in_p;
-         input Spice3.Repository.SpiceConstants in_C;
+         input SpiceConstants in_C;
          input Mos2ModelLineVariables in_vp;
          input Integer in_m_type;
 
@@ -7002,8 +6936,8 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
 
       function mos2RenameParameters "Parameter renaming to internal names"
 
-        input Spice3.Repository.ModelcardMOS2 ex;
-        input Spice3.Repository.SpiceConstants con;
+        input ModelcardMOS2 ex;
+        input SpiceConstants con;
 
         output Mos2ModelLineParams intern;
 
@@ -7061,8 +6995,8 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
           intern.m_transconductanceIsGiven := if          (ex.KP > -1e40) then 1 else 0;
           intern.m_transconductance := if         (ex.KP > -1e40) then ex.KP else 2e-5;
 
-        intern.m_tnom := if (ex.TNOM > -1e40) then ex.TNOM + Spice3.Repository.SpiceConstants.CONSTCtoK else
-                300.15;
+        intern.m_tnom := if (ex.TNOM > -1e40) then ex.TNOM + SpiceConstants.CONSTCtoK else
+          300.15;
 
          intern.m_jctSatCurDensity := ex.JS;             // A/(m*m) bulk junction saturation current per sq-meter of junction area (default 0)
          intern.m_sheetResistance := ex.RSH;             // Ohm drain and source diffusion sheet resistance (default 0)
@@ -7089,7 +7023,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
 
       function mos2RenameParametersDev
         "Device parameter renaming to internal names"
-        input Spice3.Repository.ModelcardMOS2 ex;
+        input ModelcardMOS2 ex;
         input Real mtype;
         input Real W;
         input Real L;
@@ -7155,7 +7089,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
         Real m_pBvIsGiven "BV is given value";
         Real m_breakdownCurrent( start = 1.0e-3)
           "IBV, Current at reverse breakdown voltage";
-        Real m_nomTemp( start=Spice3.Repository.SpiceConstants.CKTnomTemp)
+        Real m_nomTemp( start=SpiceConstants.CKTnomTemp)
           "TNOM, Parameter measurement temperature";
         Real m_fNcoef( start = 0.0) "KF, flicker noise coefficient";
         Real m_fNexp( start = 1.0) "AF, flicker noise exponent";
@@ -7278,7 +7212,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
 
         input DiodeModelLineParams in_p;
         input DiodeParams in_dp;
-        input Spice3.Repository.Model.Model in_m;
+        input Model.Model in_m;
         input DiodeVariables in_v;
 
         output DiodeCalc out_c;
@@ -7310,8 +7244,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
                 in_m.m_dTemp,
                 in_p.m_emissionCoeff,
                 out_c.m_tSatCur);
-        out_c.m_dVte := in_m.m_dTemp*Spice3.Repository.SpiceConstants.CONSTKoverQ
-          *in_p.m_emissionCoeff;
+        out_c.m_dVte := in_m.m_dTemp*SpiceConstants.CONSTKoverQ*in_p.m_emissionCoeff;
         if (in_v.m_pBvIsGiven > 0.5) then
           out_c.m_tBrkdwnV :=
             Spice3.Repository.Equation.junctionVoltage23SPICE3(
@@ -7333,7 +7266,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
         input DiodeModelLineParams in_p;
         input DiodeParams in_dp;
         input DiodeCalc in_c;
-        input Spice3.Repository.Model.Model in_m;
+        input Model.Model in_m;
         input Boolean in_m_mbInit;
         input Real[2] in_m_pVoltageValues; /* DPP, DN */
 
@@ -7350,9 +7283,9 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
       algorithm
         m_dPNVoltage := in_m_pVoltageValues[1] - in_m_pVoltageValues[2];
 
-        if (Spice3.Repository.SpiceRoot.useInitialConditions() and in_dp.m_pIcIsGiven > 0.5) then
+        if (SpiceRoot.useInitialConditions() and in_dp.m_pIcIsGiven > 0.5) then
           m_dPNVoltage := in_dp.m_dIC;
-        elseif (Spice3.Repository.SpiceRoot.initJunctionVoltages()) then
+        elseif (SpiceRoot.initJunctionVoltages()) then
           if (in_dp.m_bOff) then
             m_dPNVoltage := 0.0;
           else
@@ -7368,8 +7301,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
                   in_c.m_tSatCur,
                   in_c.m_tBrkdwnV);
         else
-          (out_cc.m_dCurrent,m_dCond) :=
-            Spice3.Repository.Equation.junction2(
+          (out_cc.m_dCurrent,m_dCond) := Spice3.Repository.Equation.junction2(
                   m_dPNVoltage,
                   in_m.m_dTemp,
                   in_p.m_emissionCoeff,
@@ -7413,10 +7345,10 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
 
       function diodeRenameParameters "Technology parameter renaming"
 
-        input Spice3.Repository.ModelcardDIODE ex;
-        input Spice3.Repository.SpiceConstants con;
+        input ModelcardDIODE ex;
+        input SpiceConstants con;
 
-        output Spice3.Repository.Diode.DiodeModelLineParams intern;
+        output DiodeModelLineParams intern;
 
       algorithm
          intern.m_satCur := ex.IS;
@@ -7435,7 +7367,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
          intern.m_breakdownVoltage := if (ex.BV > -1e40) then ex.BV else 0;
 
          intern.m_breakdownCurrent := ex.IBV;
-         intern.m_nomTemp := ex.TNOM + Spice3.Repository.SpiceConstants.CONSTCtoK;
+        intern.m_nomTemp := ex.TNOM + SpiceConstants.CONSTCtoK;
          intern.m_fNcoef := ex.KF;
          intern.m_fNexp := ex.AF;
 
@@ -7475,10 +7407,10 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
       function diodeRenameParametersDevTemp "Temperature calculation"
 
         input Real TEMP;
-        output Spice3.Repository.Model.Model dev_temp;
+        output Model.Model dev_temp;
 
       algorithm
-        dev_temp.m_dTemp := TEMP + Spice3.Repository.SpiceConstants.CONSTCtoK;
+        dev_temp.m_dTemp := TEMP + SpiceConstants.CONSTCtoK;
 
         annotation (Documentation(info="<html>
 <pre>This function calculates device parameters wehich are temperature dependent.</pre>
@@ -7535,10 +7467,10 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
 
       function resistorRenameParameters "Technology parameter renaming"
 
-      input Spice3.Repository.ModelcardR ex;
-      input Spice3.Repository.SpiceConstants con;
+      input ModelcardR ex;
+      input SpiceConstants con;
 
-      output Spice3.Repository.Rsemiconductor.ResistorModelLineParams intern;
+      output ResistorModelLineParams intern;
 
       algorithm
         intern.m_dTC1 := ex.TC1;
@@ -7549,7 +7481,7 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
 
         intern.m_dDefW := ex.DEFW;
         intern.m_dNarrow := ex.NARROW;
-        intern.m_dTnom := if (ex.TNOM > -1e40) then ex.TNOM + Spice3.Repository.SpiceRoot.SPICEcircuitCONST.CONSTCtoK else
+        intern.m_dTnom := if (ex.TNOM > -1e40) then ex.TNOM + SpiceRoot.SPICEcircuitCONST.CONSTCtoK else
                 300.15;
 
         annotation (Documentation(info="<html>
@@ -7566,7 +7498,7 @@ to the internal parameters (e.g. m_emissionCoeff). It also does the analysis of 
         input Real TEMP;
         input Boolean SENS_AREA;
 
-       input Spice3.Repository.SpiceConstants con;
+       input SpiceConstants con;
 
        output ResistorParams intern;
 
@@ -7586,7 +7518,7 @@ to the internal parameters (e.g. m_emissionCoeff). It also does the analysis of 
          intern.m_dLength := if
                               (L > -1e40) then L else 0;
          intern.m_bSensResist := SENS_AREA;
-        intern.m_dTemp := if (TEMP > -1e40) then TEMP + Spice3.Repository.SpiceRoot.SPICEcircuitCONST.CONSTCtoK else
+        intern.m_dTemp := if (TEMP > -1e40) then TEMP + SpiceRoot.SPICEcircuitCONST.CONSTCtoK else
                 300.15;
 
         annotation (Documentation(info="<html>
@@ -7596,8 +7528,8 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
       end resistorRenameParametersDev;
 
       function resistorInitEquations "Initial calculation"
-       input Spice3.Repository.Rsemiconductor.ResistorParams in_p;
-       input Spice3.Repository.Rsemiconductor.ResistorModelLineParams in_p2;
+       input ResistorParams in_p;
+       input ResistorModelLineParams in_p2;
        output ResistorVariables out;
 
       algorithm
@@ -7642,7 +7574,7 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
 
          Boolean m_bNPN( start = true) "NPN, NPN type device";
          Boolean m_bPNP( start = false) "PNP, PNP type device";
-        Real m_tnom( start=Spice3.Repository.SpiceConstants.CKTnomTemp)
+        Real m_tnom( start=SpiceConstants.CKTnomTemp)
           "TNOM, Parameter measurement temperature";
         Real m_satCur( start = 1.0e-16) "IS, Saturation Current";
         Real m_betaF( start = 100.0) "BF, Ideal forward beta";
@@ -7916,16 +7848,16 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
         Real gmaold;
       algorithm
 
-        fact1 := in_p.m_tnom/Spice3.Repository.SpiceConstants.REFTEMP;
-        vt := m.m_dTemp*Spice3.Repository.SpiceConstants.CONSTKoverQ;
-        fact2 := m.m_dTemp/Spice3.Repository.SpiceConstants.REFTEMP;
+        fact1 := in_p.m_tnom/SpiceConstants.REFTEMP;
+        vt := m.m_dTemp*SpiceConstants.CONSTKoverQ;
+        fact2 := m.m_dTemp/SpiceConstants.REFTEMP;
 
         egfet  := 1.16 - (7.02e-4 * m.m_dTemp * m.m_dTemp) / (m.m_dTemp + 1108);
 
-        arg := -egfet/(2*Spice3.Repository.SpiceConstants.CONSTboltz*m.m_dTemp) + 1.1150877/(Spice3.Repository.SpiceConstants.CONSTboltz
-          *(Spice3.Repository.SpiceConstants.REFTEMP + Spice3.Repository.SpiceConstants.REFTEMP));
-        pbfact := -2*vt*(1.5*Modelica.Math.log(fact2) + Spice3.Repository.SpiceConstants.CHARGE
-          *arg);
+        arg := -egfet/(2*SpiceConstants.CONSTboltz*m.m_dTemp) + 1.1150877/(
+          SpiceConstants.CONSTboltz*(SpiceConstants.REFTEMP + SpiceConstants.REFTEMP));
+        pbfact := -2*vt*(1.5*Modelica.Math.log(fact2) + SpiceConstants.CHARGE*
+          arg);
 
         ratlog  := Modelica.Math.log( m.m_dTemp / in_p.m_tnom);
         ratio1  := m.m_dTemp / in_p.m_tnom - 1;
@@ -7944,31 +7876,30 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
                               * in_p3.m_area;
 
         out_c.m_tBEcap := in_p.m_depletionCapBE/(1 + in_p.m_junctionExpBE*(4e-4
-          *(in_p.m_tnom - Spice3.Repository.SpiceConstants.REFTEMP) - gmaold));
+          *(in_p.m_tnom - SpiceConstants.REFTEMP) - gmaold));
         out_c.m_tBEpot := fact2 * pbo + pbfact;
 
         gmanew := (out_c.m_tBEpot - pbo) / pbo;
 
-        out_c.m_tBEcap := out_c.m_tBEcap*(1 + in_p.m_junctionExpBE*(4e-4*(m.m_dTemp - Spice3.Repository.SpiceConstants.REFTEMP)
-           - gmanew));
+        out_c.m_tBEcap := out_c.m_tBEcap*(1 + in_p.m_junctionExpBE*(4e-4*(m.m_dTemp
+           - SpiceConstants.REFTEMP) - gmanew));
 
         pbo    := (in_p.m_potentialBC - pbfact) / fact1;
         gmaold := (in_p.m_potentialBC - pbo) / pbo;
 
         out_c.m_tBCcap := in_p.m_depletionCapBC/(1 + in_p.m_junctionExpBC*(4e-4
-          *(in_p.m_tnom - Spice3.Repository.SpiceConstants.REFTEMP) - gmaold));
+          *(in_p.m_tnom - SpiceConstants.REFTEMP) - gmaold));
         out_c.m_tBCpot := fact2 * pbo + pbfact;
 
         gmanew := (out_c.m_tBCpot - pbo) / pbo;
 
-        out_c.m_tBCcap := out_c.m_tBCcap*(1 + in_p.m_junctionExpBC*(4e-4*(m.m_dTemp - Spice3.Repository.SpiceConstants.REFTEMP)
-           - gmanew));
+        out_c.m_tBCcap := out_c.m_tBCcap*(1 + in_p.m_junctionExpBC*(4e-4*(m.m_dTemp
+           - SpiceConstants.REFTEMP) - gmanew));
 
         out_c.m_tDepCapBE := in_p.m_depletionCapCoeff * out_c.m_tBEpot;
         out_c.m_tDepCapBC := in_p.m_depletionCapCoeff * out_c.m_tBCpot;
         xfc               := Modelica.Math.log( 1 - in_p.m_depletionCapCoeff);
-        out_c.m_tVcrit := vt*Modelica.Math.log(vt/(Spice3.Repository.SpiceConstants.CONSTroot2
-          *in_p.m_satCur));
+        out_c.m_tVcrit := vt*Modelica.Math.log(vt/(SpiceConstants.CONSTroot2*in_p.m_satCur));
         out_c.m_dVt       := vt;
 
         // calculate the parameters that depend on the area factor
@@ -7992,7 +7923,7 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
 
       function bjt3NoBypassCode "Calculation of currents"
 
-        input Spice3.Repository.Model.Model in_m;
+        input Model.Model in_m;
         input Bjt in_p3;
         input BjtModelLineParams in_p;
         input Bjt3Calc in_c;
@@ -8062,7 +7993,7 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
         vbe := in_p.m_type * (in_m_pVoltageValues[5] - in_m_pVoltageValues[6]); // ( BaseP, EmitP);
         vbx := in_p.m_type * (in_m_pVoltageValues[2] - in_m_pVoltageValues[4]); // ( Base, ColP);
 
-        if (Spice3.Repository.SpiceRoot.useInitialConditions()) then
+        if (SpiceRoot.useInitialConditions()) then
           if (in_p3.m_bICvbeIsGiven > 0.5) then
             vbe := in_p.m_type * in_p3.m_dICvbe;
           end if;
@@ -8070,7 +8001,7 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
             vce := in_p.m_type * in_p3.m_dICvce;
           end if;
           vbx := vbe - vce;
-        elseif (Spice3.Repository.SpiceRoot.initJunctionVoltages()) then
+        elseif (SpiceRoot.initJunctionVoltages()) then
           if (in_p3.m_bOff) then
             vbe := 0.0;
             vce := 0.0;
@@ -8286,7 +8217,7 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
 
       function bjtNoBypassCode "Calculation of currents"
 
-        input Spice3.Repository.Model.Model in_m;
+        input Model.Model in_m;
         input Bjt3 in_p3;
         input BjtModelLineParams in_p;
         input Bjt3Calc in_c;
@@ -8342,10 +8273,10 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
       end bjtNoBypassCode;
 
       function bjtRenameParameters "Technology parameter renaming"
-        input Spice3.Repository.ModelcardBJT ex;
-        input Spice3.Repository.SpiceConstants con;
+        input ModelcardBJT ex;
+        input SpiceConstants con;
 
-        output Spice3.Repository.Bjt3.BjtModelLineParams intern;
+        output BjtModelLineParams intern;
       algorithm
 
         intern.m_type := ex.TBJT;

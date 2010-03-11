@@ -3804,7 +3804,6 @@ Ordinary Water Substance<br>
 
       extends Modelica.Icons.Library;
 
-
       function visc_dTp "dynamic viscosity eta(d,T,p), industrial formulation"
         extends Modelica.Icons.Function;
         input SI.Density d "density";
@@ -5320,7 +5319,6 @@ Ordinary Water Substance<br>
     end Inverses;
 
     package ByRegion "simple explicit functions for one region only"
-
 
       extends Modelica.Icons.Library;
       function waterR1_pT "standard properties for region 1, (p,T) as inputs"

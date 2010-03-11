@@ -18,9 +18,7 @@ extends Modelica.Icons.Library;
 
 package UsersGuide "User's Guide of MultiBody Library"
 
-
   package Tutorial "Tutorial"
-
 
     class OverView "Overview of MultiBody library"
 
@@ -951,7 +949,6 @@ model World
                                annotation (Placement(transformation(extent={{84,
             -16},{116,16}}, rotation=0)));
 
-
   parameter Boolean enableAnimation=true
     "= true, if animation of all components is enabled";
   parameter Boolean animateWorld=true
@@ -1374,6 +1371,7 @@ of these axes can be set via parameters.
 </HTML>
 "));
 end World;
+
 
 annotation (
   Documentation(info="<HTML>

@@ -252,7 +252,6 @@ block Extractor
   parameter Boolean allowOutOfRange=false "Index may be out of range";
   parameter Real outOfRangeValue=1e10 "Output signal if index is out of range";
 
-
   Modelica.Blocks.Interfaces.IntegerInput index             annotation (Placement(
           transformation(
           origin={0,-120},

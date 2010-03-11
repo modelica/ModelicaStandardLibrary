@@ -47,7 +47,6 @@ end DataRecord;
 partial package SingleGasNasa
   "Medium model of an ideal gas based on NASA source"
 
-
   extends Interfaces.PartialPureSubstance(
      ThermoStates = Choices.IndependentVariables.pT,
      mediumName=data.name,
@@ -762,7 +761,6 @@ end SingleGasNasa;
 
 partial package MixtureGasNasa
   "Medium model of a mixture of ideal gases based on NASA source"
-
 
   import Modelica.Math;
   import Modelica.Media.Interfaces.PartialMedium.Choices.ReferenceEnthalpy;

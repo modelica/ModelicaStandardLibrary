@@ -151,13 +151,11 @@ Variable <b>y</b> is both a variable and a connector.
   import Modelica.SIunits;
       extends Modelica.Icons.Library;
 
-
       block Clock "Generate actual time signal "
         parameter Modelica.SIunits.Time offset=0 "Offset of output signal";
         parameter Modelica.SIunits.Time startTime=0
       "Output = offset for time < startTime";
         extends Interfaces.SO;
-
 
       equation
         y = offset + (if time < startTime then 0 else time - startTime);
@@ -447,7 +445,6 @@ The Real output y is a step signal:
         parameter Modelica.SIunits.Time startTime=0
       "Output = offset for time < startTime";
         extends Interfaces.SO;
-
 
       equation
         y = offset + (if time < startTime then 0 else if time < (startTime +
@@ -2758,7 +2755,6 @@ The Boolean output y is a pulse signal:
       parameter Modelica.SIunits.Time startTime=0
       "Time instant of first sample trigger";
       extends Interfaces.partialBooleanSource;
-
 
     equation
       y = sample(startTime, period);

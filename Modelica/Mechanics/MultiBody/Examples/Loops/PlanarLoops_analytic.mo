@@ -24,7 +24,6 @@ model PlanarLoops_analytic
   final parameter SI.Length r3a[3]=r3b + rh - r2b
     "Position vector from 'upper left' revolute to 'upper right' revolute joint in the third loop";
 
-
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
         transformation(extent={{-94,-90},{-74,-70}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR jointRRR1(

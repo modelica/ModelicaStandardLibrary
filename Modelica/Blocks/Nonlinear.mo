@@ -4,14 +4,12 @@ package Nonlinear
   import Modelica.Blocks.Interfaces;
       extends Modelica.Icons.Library;
 
-
       block Limiter "Limit the range of a signal"
         parameter Real uMax(start=1) "Upper limits of input signals";
         parameter Real uMin= -uMax "Lower limits of input signals";
         parameter Boolean limitsAtInit = true
       "= false, if limits are ignored during initializiation (i.e., y=u)";
         extends Interfaces.SISO;
-
 
       equation
         assert(uMax >= uMin, "Limiter: Limits must be consistent. However, uMax (=" + String(uMax) +
@@ -112,7 +110,6 @@ as output.
     Real uMax;
     Real uMin;
 
-
   equation
     uMax = max(limit1, limit2);
     uMin = min(limit1, limit2);
@@ -206,7 +203,6 @@ is passed as output.
       "= false, if dead zone is ignored during initializiation (i.e., y=u)";
         extends Interfaces.SISO;
 
-
       equation
         assert(uMax >= uMin, "DeadZone: Limits must be consistent. However, uMax (=" + String(uMax) +
                              ") < uMin (=" + String(uMin) + ")");
@@ -292,7 +288,6 @@ function of the input with a slope of 1.
     extends Modelica.Blocks.Interfaces.SISO;
     parameter SI.Time delayTime(start=1)
       "Delay time of output with respect to input signal";
-
 
   equation
     y = delay(u, delayTime);

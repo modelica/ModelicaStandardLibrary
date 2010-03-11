@@ -101,7 +101,6 @@ package Sensors "Sensors to measure variables"
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
 
-
   protected
     AbsolutePosition position(resolveInFrame=resolveInFrame) if get_r
       annotation (Placement(transformation(extent={{10,10},{-10,30}},
@@ -584,7 +583,6 @@ and sequence[2] &ne; sequence[3]. Often used values are:
           origin={100,-110},
           extent={{10,-10},{-10,10}},
           rotation=90)));
-
 
   protected
     RelativePosition relativePosition(         resolveInFrame=resolveInFrame) if
@@ -1139,7 +1137,6 @@ computed as:
     parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA resolveInFrame
       = Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
       "Frame in which output vector v shall be resolved (1: world, 2: frame_a, 3: frame_resolve)";
-
 
   protected
     Internal.BasicAbsolutePosition position(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world)
@@ -3372,7 +3369,6 @@ transformed output vector as \"Real r_out[3]\";
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
         "Frame in which output vector(s) is/are resolved (1: world, 2: frame_a, 3: frame_resolve)";
 
-
     protected
       outer Modelica.Mechanics.MultiBody.World world;
     equation
@@ -3445,7 +3441,6 @@ with the blocks of package Modelica.Blocks.
         resolveInFrame=
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
         "Frame in which output vector is resolved (1: world, 2: frame_a, 3: frame_resolve)";
-
 
     protected
       outer Modelica.Mechanics.MultiBody.World world;

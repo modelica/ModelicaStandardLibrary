@@ -3,7 +3,6 @@ package Frames "Functions to transform rotational frame quantities"
 
   extends Modelica.Icons.Library;
 
-
   record Orientation
     "Orientation object defining rotation from a frame 1 into a frame 2"
 
@@ -766,7 +765,6 @@ is not possible or too difficult to compute, use function from_T2(..).
   package Quaternions
     "Functions to transform rotational frame quantities based on quaternions (also called Euler parameters)"
     extends Modelica.Icons.Library;
-
 
     type Orientation
       "Orientation type defining rotation from a frame 1 into a frame 2 with quaternions {p1,p2,p3,p0}"

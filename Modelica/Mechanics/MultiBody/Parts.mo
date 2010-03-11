@@ -5,7 +5,6 @@ package Parts
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Library;
 
-
   model Fixed "Frame fixed in the world frame at a given position"
     import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
@@ -45,7 +44,6 @@ package Parts
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-
 
   protected
     outer Modelica.Mechanics.MultiBody.World world;
@@ -165,7 +163,6 @@ animation = <b>false</b>.
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-
 
   protected
     outer Modelica.Mechanics.MultiBody.World world;
@@ -2014,7 +2011,6 @@ November 3-4, 2003, pp. 149-158</p>
             extent={{-20,-20},{20,20}},
             rotation=90)));
 
-
     protected
     outer Modelica.Mechanics.MultiBody.World world;
     parameter Real e[3](each final unit="1")=Modelica.Math.Vectors.normalize(
@@ -2272,7 +2268,6 @@ November 3-4, 2003, pp. 149-158</p>
           extent={{-20,-20},{20,20}},
           rotation=90)));
 
-
   protected
     outer World world;
     parameter Real e_a[3](each final unit="1")=Modelica.Math.Vectors.normalize(              n_a)
@@ -2406,7 +2401,8 @@ November 3-4, 2003, pp. 149-158</p>
       "Angles to rotate world-frame in to frame_a around z-, y-, x-axis"
         annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
 
-      SI.AngularVelocity der_angles[3](start={0,0,0}, fixed = true, each stateSelect=stateSelect)
+      SI.AngularVelocity der_angles[3](start={0,0,0}, fixed = true, each
+        stateSelect =                                                                stateSelect)
       "Derivative of angles"
         annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
 
@@ -2541,7 +2537,6 @@ November 3-4, 2003, pp. 149-158</p>
           tab="Animation",
           group="if animation = true",
           enable=animation));
-
 
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame1
       "Frame fixed in center point of left wheel (y-axis: along wheel axis, z-Axis: upwards)"

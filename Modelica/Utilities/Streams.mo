@@ -2,7 +2,6 @@ within Modelica.Utilities;
 package Streams "Read from files and write to files"
   extends Modelica.Icons.Library;
 
-
   function print "Print string to terminal or file"
     extends Modelica.Icons.Function;
     input String string="" "String to be printed";
@@ -52,7 +51,6 @@ After every call of \"print(..)\" a \"new line\" is printed automatically.
                  annotation(Dialog(__Dymola_loadSelector(filter="Text files (*.txt)",
                         caption="Open text file for reading")));
     output String stringVector[countLines(fileName)] "Content of file";
-
 
   algorithm
     for i in  1:size(stringVector, 1) loop

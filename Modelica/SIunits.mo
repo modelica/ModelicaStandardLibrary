@@ -279,6 +279,19 @@ end UsersGuide;
       type MassFlowRate_gps = Real (final quantity="MassFlowRate", final unit=
               "g/s") "Mass flow rate in gramm per second";
 
+      type FirstOrderTemperaturCoefficient =
+                              Real (final quantity="FirstOrderTemperatureCoefficient",
+            final unit="Ohm/degC") "First Order Temperatur Coefficient"                                         annotation(__Dymola_absoluteValue=true);
+      type SecondOrderTemperaturCoefficient =
+                              Real (final quantity="SecondOrderTemperatureCoefficient",
+            final unit="Ohm/degC2") "Second Order Temperatur Coefficient"                                        annotation(__Dymola_absoluteValue=true);
+      type Area_cm =   Real (final quantity="Area", final unit="cm2")
+        "Area in cm";
+      type PerArea_cm =Real (final quantity="PerArea", final unit="1/cm2")
+        "Per Area in cm";
+      type Area_cmPerVoltageSecond =
+                       Real (final quantity="AreaPerVoltageSecond", final unit="cm2/(V.s)")
+        "Area in cm per voltage second";
       annotation (Documentation(info="<HTML>
 <p>
 This package provides predefined types, such as <b>Angle_deg</b> (angle in
@@ -743,9 +756,9 @@ still kept in Modelica.SIunits.</p>
     end ConversionIcon;
 
     function from_Hz "Convert from Hz to rad/s"
-      extends Modelica.SIunits.Conversions.ConversionIcon;
-      input Modelica.SIunits.Frequency f "frequency";
-      output Modelica.SIunits.AngularVelocity w "angular velocity";
+      extends SIunits.Conversions.ConversionIcon;
+      input SIunits.Frequency f "frequency";
+      output SIunits.AngularVelocity w "angular velocity";
 
     algorithm
       w := 2*Modelica.Constants.pi*f;
@@ -759,9 +772,9 @@ still kept in Modelica.SIunits.</p>
     end from_Hz;
 
     function to_Hz "Convert from rad/s to Hz"
-      extends Modelica.SIunits.Conversions.ConversionIcon;
-      input Modelica.SIunits.AngularVelocity w "angular velocity";
-      output Modelica.SIunits.Frequency f "frequency";
+      extends SIunits.Conversions.ConversionIcon;
+      input SIunits.AngularVelocity w "angular velocity";
+      output SIunits.Frequency f "frequency";
     algorithm
       f := w/(2*Modelica.Constants.pi);
       annotation (Icon(graphics={Text(
@@ -772,6 +785,38 @@ still kept in Modelica.SIunits.</p>
               lineColor={0,0,0},
               textString="Hz")}));
     end to_Hz;
+
+    function to_cm2 "Convert from square metre to square centrimetre"
+      extends ConversionIcon;
+      input Area m2 "square metre value";
+      output NonSIunits.Area_cm cm2 "square centimetre value";
+    algorithm
+      cm2 := 0.0001*m2;
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={Text(
+              extent={{-20,100},{-100,20}},
+              lineColor={0,0,0},
+              textString="m/s"), Text(
+              extent={{100,-20},{20,-100}},
+              lineColor={0,0,0},
+              textString="km/h")}));
+    end to_cm2;
+
+    function from_cm2 "Convert from square centrimetre to square metre"
+      extends ConversionIcon;
+      input NonSIunits.Area_cm cm2 "square centimetre value";
+      output Area m2 "square metre value";
+    algorithm
+      m2 :=10000*cm2;
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={Text(
+              extent={{-20,100},{-100,20}},
+              lineColor={0,0,0},
+              textString="km/h"), Text(
+              extent={{100,-20},{20,-100}},
+              lineColor={0,0,0},
+              textString="m/s")}));
+    end from_cm2;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true,
                      extent={{-100,-100},{100,100}}), graphics={
           Text(
@@ -981,7 +1026,7 @@ argument):</p>
   type TemperatureDifference = Real (
       final quantity="ThermodynamicTemperature",
       final unit="K") annotation(__Dymola_absoluteValue=false);
-  type Temp_C = Modelica.SIunits.Conversions.NonSIunits.Temperature_degC;
+  type Temp_C = SIunits.Conversions.NonSIunits.Temperature_degC;
   type TemperatureSlope = Real (final quantity="TemperatureSlope",
       final unit="K/s");
   type LinearTemperatureCoefficient = Real(final quantity = "LinearTemperatureCoefficient", final unit
@@ -1622,6 +1667,7 @@ argument):</p>
   type DonorIonizationEnergy = Real (final quantity="Energy", final unit="eV");
   type AcceptorIonizationEnergy = Real (final quantity="Energy", final unit=
           "eV");
+  type ActivationEnergy = Real (final quantity="Energy", final unit="eV");
   type FermiTemperature = ThermodynamicTemperature;
   type ElectronNumberDensity = Real (final quantity="ElectronNumberDensity",
         final unit="m-3");
@@ -1646,76 +1692,72 @@ argument):</p>
           final unit="1");
   type FluxiodQuantum = Real (final quantity="FluxiodQuantum", final unit="Wb");
   record ComplexCurrent =
-    Complex(redeclare Modelica.SIunits.Current re,
-            redeclare Modelica.SIunits.Current im) "Complex electrical current";
+    Complex(redeclare Current re,
+            redeclare Current im) "Complex electrical current";
   record ComplexCurrentSlope =
-    Complex(redeclare Modelica.SIunits.CurrentSlope re,
-            redeclare Modelica.SIunits.CurrentSlope im) "Complex current slope";
+    Complex(redeclare CurrentSlope re,
+            redeclare CurrentSlope im) "Complex current slope";
   record ComplexCurrentDensity =
-    Complex(redeclare Modelica.SIunits.CurrentDensity re,
-            redeclare Modelica.SIunits.CurrentDensity im)
-    "Complex electrical current density";
+    Complex(redeclare CurrentDensity re,
+            redeclare CurrentDensity im) "Complex electrical current density";
   record ComplexElectricPotential =
-    Complex(redeclare Modelica.SIunits.ElectricPotential re,
-            redeclare Modelica.SIunits.ElectricPotential im)
-    "Complex electric potential";
+    Complex(redeclare ElectricPotential re,
+            redeclare ElectricPotential im) "Complex electric potential";
   record ComplexPotentialDifference =
-    Complex(redeclare Modelica.SIunits.PotentialDifference re,
-            redeclare Modelica.SIunits.PotentialDifference im)
+    Complex(redeclare PotentialDifference re,
+            redeclare PotentialDifference im)
     "Complex electric potential difference";
   record ComplexVoltage =
-    Complex(redeclare Modelica.SIunits.Voltage re,
-            redeclare Modelica.SIunits.Voltage im) "Complex electrical voltage";
+    Complex(redeclare Voltage re,
+            redeclare Voltage im) "Complex electrical voltage";
   record ComplexVoltageSlope =
-    Complex(redeclare Modelica.SIunits.VoltageSlope re,
-            redeclare Modelica.SIunits.VoltageSlope im) "Complex voltage slope";
+    Complex(redeclare VoltageSlope re,
+            redeclare VoltageSlope im) "Complex voltage slope";
   record ComplexElectricFieldStrength =
-    Complex(redeclare Modelica.SIunits.ElectricFieldStrength re,
-            redeclare Modelica.SIunits.ElectricFieldStrength im)
+    Complex(redeclare ElectricFieldStrength re,
+            redeclare ElectricFieldStrength im)
     "Complex electric field strength";
   record ComplexElectricFluxDensity =
-    Complex(redeclare Modelica.SIunits.ElectricFluxDensity re,
-            redeclare Modelica.SIunits.ElectricFluxDensity im)
-    "Complex electric flux density";
+    Complex(redeclare ElectricFluxDensity re,
+            redeclare ElectricFluxDensity im) "Complex electric flux density";
   record ComplexElectricFlux =
-    Complex(redeclare Modelica.SIunits.ElectricFlux re,
-            redeclare Modelica.SIunits.ElectricFlux im) "Complex electric flux";
+    Complex(redeclare ElectricFlux re,
+            redeclare ElectricFlux im) "Complex electric flux";
   record ComplexMagneticFieldStrength =
-    Complex(redeclare Modelica.SIunits.MagneticFieldStrength re,
-            redeclare Modelica.SIunits.MagneticFieldStrength im)
+    Complex(redeclare MagneticFieldStrength re,
+            redeclare MagneticFieldStrength im)
     "Complex magnetic field strength";
   record ComplexMagneticPotential =
-    Complex(redeclare Modelica.SIunits.MagneticPotential re,
-            redeclare Modelica.SIunits.MagneticPotential im)
-    "Complex magnetic potential";
+    Complex(redeclare MagneticPotential re,
+            redeclare MagneticPotential im) "Complex magnetic potential";
   record ComplexMagneticPotentialDifference =
-    Complex(redeclare Modelica.SIunits.MagneticPotentialDifference re,
-            redeclare Modelica.SIunits.MagneticPotentialDifference im)
+    Complex(redeclare MagneticPotentialDifference re,
+            redeclare MagneticPotentialDifference im)
     "Complex magnetic potential difference";
   record ComplexMagnetomotiveForce =
-    Complex(redeclare Modelica.SIunits.MagnetomotiveForce re,
-            redeclare Modelica.SIunits.MagnetomotiveForce im)
-    "Complex magneto motive force";
+    Complex(redeclare MagnetomotiveForce re,
+            redeclare MagnetomotiveForce im) "Complex magneto motive force";
   record ComplexMagneticFluxDensity =
-    Complex(redeclare Modelica.SIunits.MagneticFluxDensity re,
-            redeclare Modelica.SIunits.MagneticFluxDensity im)
-    "Complex magnetic flux density";
+    Complex(redeclare MagneticFluxDensity re,
+            redeclare MagneticFluxDensity im) "Complex magnetic flux density";
   record ComplexMagneticFlux =
-    Complex(redeclare Modelica.SIunits.MagneticFlux re,
-            redeclare Modelica.SIunits.MagneticFlux im) "Complex magnetic flux";
+    Complex(redeclare MagneticFlux re,
+            redeclare MagneticFlux im) "Complex magnetic flux";
   record ComplexImpedance =
-    Complex(redeclare Modelica.SIunits.Resistance re,
-            redeclare Modelica.SIunits.Reactance im)
-    "Complex electrical impedance";
+    Complex(redeclare Resistance re,
+            redeclare Reactance im) "Complex electrical impedance";
   record ComplexAdmittance =
-    Complex(redeclare Modelica.SIunits.Conductance re,
-            redeclare Modelica.SIunits.Susceptance im)
-    "Complex electrical impedance";
+    Complex(redeclare Conductance re,
+            redeclare Susceptance im) "Complex electrical impedance";
   record ComplexPower =
-    Complex(redeclare Modelica.SIunits.ActivePower re,
-            redeclare Modelica.SIunits.ReactivePower im)
-    "Complex electrical power";
+    Complex(redeclare ActivePower re,
+            redeclare ReactivePower im) "Complex electrical power";
 
+  type CapacitancePerArea =
+              Real (final quantity="CapacitancePerArea", final unit="F/m2")
+    "Capacitance per area";
+  type VoltageSecond = Real (final quantity="VoltageSecond", final unit="V.s")
+    "Voltage second";
   annotation (
     Invisible=true,
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
@@ -1798,5 +1840,6 @@ and the accompanying <b>disclaimer</b>
         Text(
           extent={{163,320},{406,264}},
           lineColor={255,0,0},
-          textString="Modelica.SIunits")}));
+          textString="Modelica.SIunits")}),
+    uses(Modelica(version="3.1")));
 end SIunits;

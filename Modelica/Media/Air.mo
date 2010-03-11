@@ -876,7 +876,6 @@ Derivative function for <a href=Modelica://Modelica.Media.Air.MoistAir.specificI
    redeclare function extends specificEntropy
       "Return specific entropy from thermodynamic state record, only valid for phi<1"
 
-
     protected
       MoleFraction[2] Y = massToMoleFractions(state.X,{steam.MM,dryair.MM})
         "molar fraction";

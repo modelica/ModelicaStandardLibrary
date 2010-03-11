@@ -4,7 +4,6 @@ package Interfaces
 
   extends Modelica.Icons.Library;
 
-
   connector Frame
     "Coordinate system fixed to the component with one cut-force and cut-torque (no icon)"
     import SI = Modelica.SIunits;
@@ -353,7 +352,6 @@ needed and if the two frame connectors should be connected for a correct model.
     Interfaces.Frame_b frame_b
       "Coordinate system fixed to the component with one cut-force and cut-torque"
       annotation (Placement(transformation(extent={{92,-8},{108,8}})));
-
 
   protected
     outer Modelica.Mechanics.MultiBody.World world;

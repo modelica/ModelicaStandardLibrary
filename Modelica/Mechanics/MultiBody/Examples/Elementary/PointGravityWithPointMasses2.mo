@@ -44,7 +44,6 @@ model PointGravityWithPointMasses2
         extent={{10,-10},{-10,10}},
         rotation=90)));
 
-
   inner World world(                             gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.PointGravity, mue=
         5)
     annotation (Placement(transformation(extent={{-80,60},{-60,80}}, rotation=0)));
@@ -102,7 +101,6 @@ model SystemWithStandardBodies
           origin={-10,-70},
           extent={{10,-10},{-10,10}},
           rotation=90)));
-
 
 equation
   connect(fixedTranslation1.frame_a, fixedTranslation.frame_a)

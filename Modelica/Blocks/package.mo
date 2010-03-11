@@ -6,7 +6,6 @@ import SI = Modelica.SIunits;
 extends Modelica.Icons.Library2;
 
 
-
 package Examples
   "Library of examples to demonstrate the usage of package Blocks"
 
@@ -347,7 +346,6 @@ model.
     Logical.Not Not1 annotation (Placement(transformation(extent={{-40,-20},{
               -20,0}}, rotation=0)));
 
-
     Logical.And And1 annotation (Placement(transformation(extent={{0,-20},{20,0}},
             rotation=0)));
     Logical.Or Or1 annotation (Placement(transformation(extent={{40,20},{60,40}},
@@ -383,7 +381,6 @@ If a \"circle\" is \"white\", the signal is <b>false</b>. It a
 </p>
 </html>"));
     end LogicalNetwork1;
-
 
   model BusUsage "Demonstrates the usage of a signal bus"
     extends Modelica.Icons.Example;
@@ -623,7 +620,6 @@ constructed by the signals connected to this bus.
                   extent={{-20,2},{22,-2}},
                   lineColor={255,204,51},
                   lineThickness=0.5)}),
-
             Documentation(info="<html>
 <p>
 This connector is used to show default signals that might be added
@@ -735,6 +731,7 @@ usage of package blocks.
 </HTML>
 "));
 end Examples;
+
 
 annotation (
   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),

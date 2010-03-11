@@ -3,7 +3,6 @@ package Forces "Components that exert forces and/or torques between frames"
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Library;
 
-
   model WorldForce
     "External force acting at frame_b, defined by 3 input signals and resolved in frame world, frame_b or frame_resolve"
 
@@ -37,7 +36,6 @@ package Forces "Components that exert forces and/or torques between frames"
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
-
 
   protected
     SI.Position f_in_m[3]=frame_b.f/N_to_m
@@ -204,7 +202,6 @@ This leads to the following animation
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
-
 
   protected
     SI.Position t_in_m[3]=frame_b.t/Nm_to_m
@@ -391,8 +388,6 @@ This leads to the following animation
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
-
-
 
   protected
     SI.Position f_in_m[3]=frame_b.f/N_to_m
@@ -1056,7 +1051,6 @@ clarity this is not shown in the animation):
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
-
 
   protected
     SI.Position f_in_m[3]=frame_b.f/N_to_m
@@ -2721,7 +2715,6 @@ values from the outside in order that the model remains balanced
         "Position vector from origin of frame_a to origin of frame_b resolved in world frame";
       SI.Torque t_b_0[3] "frame_b.t resoved in world frame";
 
-
     equation
       assert(cardinality(frame_resolve) > 0, "Connector frame_resolve must be connected at least once and frame_resolve.r_0/.R must be set");
       frame_resolve.f = zeros(3);
@@ -2854,7 +2847,6 @@ values from the outside in order that the model remains balanced
         Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world
         "Frame in which force is resolved (1: world, 2: frame_b, 3: frame_resolve)";
 
-
     equation
        assert(cardinality(frame_resolve) > 0, "Connector frame_resolve must be connected at least once and frame_resolve.r_0/.R must be set");
        frame_resolve.f = zeros(3);
@@ -2961,7 +2953,6 @@ values from the outside in order that the model remains balanced
         resolveInFrame=
         Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world
         "Frame in which torque is resolved (1: world, 2: frame_b, 3: frame_resolve)";
-
 
     equation
        assert(cardinality(frame_resolve) > 0, "Connector frame_resolve must be connected at least once and frame_resolve.r_0/.R must be set");

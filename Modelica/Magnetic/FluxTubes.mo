@@ -2625,7 +2625,6 @@ In translatory actuators with limited stroke, the armature with its inertia can 
           "Conductor filling factor resulting from CHOSEN number of turns and wire diameter";
 
         annotation (Icon(graphics),
-
           Documentation(info="<html>
 <p>
 This model exemplarily shows dimensioning of a winding (wire diameter, number of turns) based on desired operating conditions (voltage, temperature, current density, conductor filling factor) for a given cross-section area of the winding. It can be modified according to the parameters given and sought after for a particular design project.

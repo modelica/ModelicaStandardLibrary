@@ -3,7 +3,6 @@ package Joints "Components that constrain the motion between two frames"
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Library;
 
-
   model Prismatic
     "Prismatic joint (1 translational degree-of-freedom, 2 potential states, optional axis flange)"
 
@@ -63,7 +62,6 @@ Possible reasons:
       "First derivative of s (relative velocity)";
     SI.Acceleration a(start=0) "Second derivative of s (relative acceleration)";
     SI.Force f "Actuation force in direction of joint axis";
-
 
   protected
     Visualizers.Advanced.Shape box(
@@ -757,7 +755,6 @@ this force is an unknown quantity).
     SI.AngularAcceleration wd(start=0)
       "Second derivative of angle phi (relative angular acceleration)";
 
-
   protected
     Visualizers.Advanced.Shape cylinder(
       shapeType="cylinder",
@@ -911,7 +908,6 @@ vector \"n\" defining the cylinder axis
       "Second derivative of angle phi_a (relative angular acceleration a)";
     SI.AngularAcceleration a_b(start=0)
       "Second derivative of angle phi_b (relative angular acceleration b)";
-
 
   equation
     phi_a = revolute_a.phi;
@@ -1102,7 +1098,6 @@ phi_b.start = 45<sup>o</sup>).
       "Second derivative of s_y (relative acceleration in s_y direction)";
     SI.AngularAcceleration wd(start=0)
       "Second derivative of angle phi (relative angular acceleration)";
-
 
   protected
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
@@ -1628,7 +1623,6 @@ frame_b of the joint.
         Modelica.Mechanics.MultiBody.Frames.axesRotations(sequence_start, angles_start,zeros(3))
       "Orientation object from frame_a to frame_b at initial time";
 
-
   protected
     Visualizers.Advanced.Arrow arrow(
       r_head=r_rel_a,
@@ -1997,7 +1991,6 @@ frame_b of the joint.
       "Force acting at frame_b, but without force in rod, resolved in frame_a";
     SI.Power totalPower
       "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
-
 
   protected
     Visualizers.Advanced.Shape shape_rod(
@@ -3196,7 +3189,6 @@ November 3-4, 2003, pp. 149-158</p>
       Modelica.SIunits.AngularVelocity der_theta2(start=0, stateSelect=stateSelect)
       "Derivative of theta 2";
 
-
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame1
       "Frame fixed in center point of left wheel (y-axis: along wheel axis, z-Axis: upwards)"
         annotation (Placement(transformation(extent={{-96,16},{-64,-16}}),
@@ -3431,7 +3423,6 @@ November 3-4, 2003, pp. 149-158</p>
   package Assemblies "Joint aggregations for analytic loop handling"
     import SI = Modelica.SIunits;
     extends Modelica.Icons.Library;
-
 
     model JointUPS
       "Universal - prismatic - spherical joint aggregation (no constraints, no potential states)"
@@ -4237,7 +4228,6 @@ component).
         "Denominator used to compute force in rod connecting universal and spherical joint";
       SI.Force f_rod
         "Constraint force in direction of the rod (positive, if rod is pressed)";
-
 
       Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint
         revolute(
@@ -6005,7 +5995,6 @@ component).
       SI.Power totalPower=jointUSR.totalPower
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
 
-
       JointUSR jointUSR(
         animation=false,
         n1_a=n_a,
@@ -6348,7 +6337,6 @@ are connected by rigid rods.
         "Unit vector along axes of translation of the prismatic joint, resolved in frame_b and frame_ib";
       SI.Power totalPower=jointUSP.totalPower
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
-
 
       JointUSP jointUSP(
         animation=false,
@@ -6783,7 +6771,6 @@ pair of joints\" from Woernle and Hiller is described in:
         "= phi + from_deg(phi_offset) (relative rotation angle between frame_a and frame_b)";
       SI.Torque tau "= axis.tau (driving torque in the axis)";
 
-
     protected
       SI.Position r_a[3]=position_a
         "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint";
@@ -7166,7 +7153,6 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
       SI.Position r_rel_a[3]
         "Position vector from frame_a to frame_b resolved in frame_a";
       SI.Force f "= axis.f (driving force in the axis)";
-
 
     protected
       SI.Position r_a[3]=position_a

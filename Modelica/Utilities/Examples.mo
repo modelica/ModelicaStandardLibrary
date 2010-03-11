@@ -2,14 +2,12 @@ within Modelica.Utilities;
 package Examples
   "Examples to demonstrate the usage of package Modelica.Utilities"
 
-
   function calculator
     "Interpreter to evaluate simple expressions consisting of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi"
     import Modelica.Utilities.Strings.*;
     extends Modelica.Icons.Function;
     input String string "Expression that is evaluated";
     output Real result "Value of expression";
-
 
   protected
     Integer nextIndex;
@@ -65,7 +63,6 @@ The following operations are supported (pi=3.14.. is a predefined constant):
       "Message used in error message if scan is not successful";
     output Real result "Value of expression";
     output Integer nextIndex "Index after the scanned expression";
-
 
   protected
   function term "Evaluate term of an expression"
@@ -259,7 +256,6 @@ function can be used as part of another scan operation.
                            caption="Open file in which Real parameters are present")));
     input String name "Name of parameter";
     output Real result "Actual value of parameter on file";
-
 
   protected
     String line;
