@@ -878,7 +878,7 @@ Initial release of Fluid.Dissipation.
 
 </html>"));
     end ReleaseNotes;
-    annotation (DocumentationClass=true);
+    annotation (__Dymola_DocumentationClass=true);
   end UsersGuide;
 
   package HeatTransfer "Package for calculation of heat transfer"

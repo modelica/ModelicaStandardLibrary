@@ -478,6 +478,6 @@ found in
 </table>
 </html>"));
   end Glossar;
-  annotation (DocumentationClass=true, Documentation(info="<html>
+  annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
 </html>"));
 end UsersGuide;

@@ -246,7 +246,7 @@ for contributing his source code to this library.
 "));
 
     end References;
-    annotation (DocumentationClass=true, Documentation(info="<html>
+    annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
 
 <p>
 This library contains components for modelling of electromagnetic fundamental wave models for the application in three phase

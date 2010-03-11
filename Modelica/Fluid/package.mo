@@ -1682,7 +1682,7 @@ and many have contributed.
 
 </html>"));
 end Contact;
-  annotation (DocumentationClass=true, Documentation(info="<HTML>
+  annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
 
 <p>
 Library <b>Modelica.Fluid</b> is a <b>free</b> Modelica package providing components for

@@ -179,7 +179,7 @@ Andr&eacute; Klick of then Dresden University of Technology, Dresden, Germany ga
 "));
   end Contact;
 
-  annotation (DocumentationClass=true, Documentation(info="<html>
+  annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
 <p>
 This library contains components for modelling of electromagnetic devices with lumped magnetic networks. Those models are suited for both rough design of the magnetic subsystem of a device as well as for efficient dynamic simulation at system level together with neighbouring subsystems. At present, components and examples for modelling of <i>translatory</i> electromagnetic and electrodynamic actuators are provided. If needed, these components can be adapted to network modellling of <i>rotational</i> electrical machines.
 </p>

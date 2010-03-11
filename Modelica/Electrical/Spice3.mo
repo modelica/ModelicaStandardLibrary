@@ -228,7 +228,7 @@ extends Modelica.Icons.Library2;
 </html>"));
   end Contact;
 
-  annotation (DocumentationClass=true, Documentation(info="<html>
+  annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
 <p>Package Spice3 is a <b>free</b> Modelica package </p>
 <p>This is a short <b>User&apos;s Guide</b> for the overall library. </p>
 </html>",   revisions="<html>
