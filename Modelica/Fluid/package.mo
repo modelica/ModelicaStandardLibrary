@@ -4,7 +4,7 @@ package Fluid "Library of 1-dim. thermo-fluid flow models using the Modelica.Med
   import SI = Modelica.SIunits;
 
 
-package UsersGuide "Users Guide"
+package UsersGuide "User's Guide"
 
   class Overview "Overview"
 

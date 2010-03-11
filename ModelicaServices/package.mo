@@ -2,7 +2,7 @@ within ;
 package ModelicaServices "Models and functions used in the Modelica Standard Library requiring a tool specific implementation"
 
 
-package UsersGuide "Users Guide"
+package UsersGuide "User's Guide"
 
 class ReleaseNotes "Release notes"
 

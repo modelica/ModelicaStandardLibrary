@@ -14330,7 +14330,7 @@ The <b>valveCharacteristic</b> is determined out of a correlation for the pressu
      </pre>
 </ul>
 The different flow coefficients <b>Kv and Cv</b> are often given in manufacturer data instead of <b>Av</b> to describe pressure loss of valves. Here a geometry of a valve can be chosen and the specific manufacturer data for the flow coefficients can be used. Then values for given <b>Kv and Cv</b> are converted into <b>Av</b> used in pressure loss calculation
-(see <a href=\"Modelica://Modelica_Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">Users Guide</a> for detailed discussion).
+(see <a href=\"Modelica://Modelica_Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">User's Guide</a> for detailed discussion).
 
 The pressure loss coefficient (<b>zeta_TOT</b>) for several geometries of valves is calculated according to <i>[Miller 1978, sec. 14.6, p. 270ff]</i> :
 <ul>
@@ -14476,7 +14476,7 @@ The <b>valveCharacteristic</b> is determined out of a correlation for the pressu
      </pre>
 </ul>
 The different flow coefficients <b>Kv and Cv</b> are often given in manufacturer data instead of <b>Av</b> to describe pressure loss of valves. Here a geometry of a valve can be chosen and the specific manufacturer data for the flow coefficients can be used. Then values for given <b>Kv and Cv</b> are converted into <b>Av</b> used in pressure loss calculation
-(see <a href=\"Modelica://Modelica_Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">Users Guide</a> for detailed discussion).
+(see <a href=\"Modelica://Modelica_Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">User's Guide</a> for detailed discussion).
 
 The pressure loss coefficient (<b>zeta_TOT</b>) for several geometries of valves is calculated according to <i>[Miller 1978, sec. 14.6, p. 270ff]</i> :
 <ul>

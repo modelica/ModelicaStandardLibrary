@@ -4,7 +4,7 @@ package Spice3 "Library for components of the Berkeley SPICE3 simulator"
 
 extends Modelica.Icons.Library2;
 
-  package UsersGuide "Users Guide"
+  package UsersGuide "User's Guide"
 
   class Overview "Overview"
 
@@ -1816,7 +1816,7 @@ is translated to Modelica:<br>
 <p><br/>is translated to Modelica:</p>
 <pre>    Hname -&GT; Spice3.Basic.H_CCV Hname
     (Hname is the name of the Modelica instance)
-    N+ -&GT; p2.v 
+    N+ -&GT; p2.v
     N- -&GT; n2.v  </pre>
 <p>The voltage source VNAM has the two nodes NV+ and NV-: </p>
 <pre>                   VNAM VN+ VN- VALUE_V</pre>
@@ -1824,7 +1824,7 @@ is translated to Modelica:<br>
 <pre>    NV_AD -&GT; p1.i
     NV- -&GT; n1.i</pre>
 <p>On this way the current, that flows through the voltage source VNAM, flows through the CCV. </p>
-<pre> 
+<pre>
     VALUE -&GT; transResistance </pre>
 </html>"),
         Icon(coordinateSystem(
