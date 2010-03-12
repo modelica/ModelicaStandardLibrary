@@ -1532,7 +1532,7 @@ by this gound element.
 
     model R_Resistor "Ideal linear electrical resistor"
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
-      parameter SI.Resistance R(start=100) "Resistance";
+      parameter SI.Resistance R(start=1000) "Resistance";
     equation
       R*i = v;
       annotation (
@@ -1574,7 +1574,7 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
 
     model C_Capacitor "Ideal linear electrical capacitor"
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
-      parameter SI.Capacitance C=1 "Capacitance";
+      parameter SI.Capacitance C(start=0) "Capacitance";
       parameter SI.Voltage IC=0 "Initial value";
       parameter Boolean UIC=false
         "Use initial conditions: true, if initial condition is used";
@@ -1623,7 +1623,7 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
 
     model L_Inductor "Ideal linear electrical inductor"
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
-      parameter SI.Inductance L=1 "Inductance";
+      parameter SI.Inductance L(start=0) "Inductance";
       parameter SI.Current IC=0 "Initial value";
       parameter Boolean UIC=false
         "Use initial conditions: true, if initial condition is used";
@@ -1668,7 +1668,7 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
 
     model E_VCV "Linear voltage-controlled voltage source"
       extends Interfaces.TwoPortControlledSources;
-      parameter Real gain=1 "Voltage gain";
+      parameter Real gain(start=0) "Voltage gain";
     equation
       v2 = v1*gain;
       i1 = 0;
@@ -1733,7 +1733,7 @@ is translated to Modelica:<br>
 
     model G_VCC "Linear voltage-controlled current source"
       extends Interfaces.TwoPortControlledSources;
-      parameter SI.Conductance transConductance=1 "Transconductance";
+      parameter SI.Conductance transConductance(start=0) "Transconductance";
     equation
       i2 = v1*transConductance;
       i1 = 0;
@@ -1802,7 +1802,7 @@ is translated to Modelica:<br>
     model H_CCV "Linear current-controlled voltage source"
       extends Interfaces.TwoPortControlledSources;
 
-      parameter SI.Resistance transResistance=1 "Transresistance";
+      parameter SI.Resistance transResistance(start=0) "Transresistance";
     equation
       v2 = i1*transResistance;
       v1 = 0;
@@ -1859,7 +1859,7 @@ is translated to Modelica:<br>
 
     model F_CCC "Linear current-controlled current source"
       extends Interfaces.TwoPortControlledSources;
-      parameter Real gain=1 "Current gain";
+      parameter Real gain(start=0) "Current gain";
     equation
       i2 = i1*gain;
       v1 = 0;
@@ -8433,27 +8433,18 @@ annotation(preferedView="info", Window(
 <p><br/>accompanying <i><b>disclaimer</b></i><i> in the documentation of package Modelica in file &QUOT;Modelica/package.mo&QUOT;.</i></p>
 </html>",
    revisions="<html>
-<ul>
-<li><i>  </i>
-       </li>
-<li><i> September 2009 </i>
-       by Kristin Majetta <br>Bipolar transistor implemented</li>
-<li><i> August 2009 </i>
-       by Jonathan Kress <br>default values in sources improved</li>
-<li><i> August 2009 </i>
-       by Kristin Majetta <br>Bipolar transistor started</li>
-<li><i> April 2009 </i>
-       by Kristin Majetta <br>Semiconductor Resistor implemented</li>
-<li><i> March 2009 </i>
-       by Kristin Majetta <br>DIODE implemented</li>
-<li><i> 25th February 2009 </i>
-       by Kristin Majetta <br>MOS Level 2 implemented</li>
-<li><i> 15th October 2008 </i>
-       by Kristin Majetta <br>minor errors fixed in L_Inductor, I_Pulse and SpiceRoot</li>
-<li><i> April, 2008   </i>
-       by Sandra Boehme <br> initially implemented<br>
-       </li>
-</ul>
+<p><ul>
+<li><i>March 2010</i> by Kristin Majetta<br/>Guidelines applied, users guide added</li>
+<li><i>February 2010</i> by Kristin Majetta<br/>Spice3 library added to MSL and examples revised</li>
+<li><i>September 2009 </i>by Kristin Majetta <br/>Bipolar transistor implemented</li>
+<li><i>August 2009 </i>by Jonathan Kress <br/>default values in sources improved</li>
+<li><i>August 2009 </i>by Kristin Majetta <br/>Bipolar transistor started</li>
+<li><i>April 2009 </i>by Kristin Majetta <br/>Semiconductor Resistor implemented</li>
+<li><i>March 2009 </i>by Kristin Majetta <br/>DIODE implemented</li>
+<li><i>25th February 2009 </i>by Kristin Majetta <br/>MOS Level 2 implemented</li>
+<li><i>15th October 2008 </i>by Kristin Majetta <br/>minor errors fixed in L_Inductor, I_Pulse and SpiceRoot</li>
+<li><i>April, 2008 </i>by Sandra Boehme <br/>initially implemented<br/></li>
+</ul></p>
 </html>"),
     uses(Modelica(version="3.1")),
     version="1");
