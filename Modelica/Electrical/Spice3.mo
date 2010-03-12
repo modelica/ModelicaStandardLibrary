@@ -4943,13 +4943,13 @@ VN- -&GT; name.pc[N-1]
 
         // options
 
-        constant Real CKTgmin =         1e-12;
-        constant Real CKTnomTemp =      300.15;
-        constant Real CKTtemp =         300.15;
-        constant Real CKTdefaultMosAD = 0.0;
-        constant Real CKTdefaultMosAS = 0.0;
-        constant Real CKTdefaultMosL =  1.0e-4;
-        constant Real CKTdefaultMosW =  1.0e-4;
+        constant Modelica.SIunits.Conductance CKTgmin =         1e-12;
+        constant Modelica.SIunits.Temp_C CKTnomTemp =      300.15;
+        constant Modelica.SIunits.Temp_C CKTtemp =         300.15;
+        constant Modelica.SIunits.Area CKTdefaultMosAD = 0.0;
+        constant Modelica.SIunits.Area CKTdefaultMosAS = 0.0;
+        constant Modelica.SIunits.Length CKTdefaultMosL =  1.0e-4;
+        constant Modelica.SIunits.Length CKTdefaultMosW =  1.0e-4;
         constant Real CKTreltol =       1e-10;
         constant Real CKTabstol =       1e-15;
         constant Real CKTvolttol =      1e-10;
@@ -5017,7 +5017,7 @@ VN- -&GT; name.pc[N-1]
 
     record Model "Device Temperature"
 
-      Real m_dTemp( start = SpiceRoot.SPICEcircuitCONST.CKTnomTemp)
+      Modelica.SIunits.Temp_C m_dTemp( start = SpiceRoot.SPICEcircuitCONST.CKTnomTemp)
           "TEMP, Device Temperature";
         annotation (Documentation(info="<html>
 <p>The record Model includes the device temperture which has a default value of 27&deg;C.</p>
@@ -5033,21 +5033,28 @@ VN- -&GT; name.pc[N-1]
       record Mosfet "Record for Mosfet parameters"
         extends Model.Model;
 
-        Real m_len(             start = 1e-4) "L, length of channel region";
-        Real m_width(           start = 1e-4) "W, width of channel region";
-        Real m_drainArea(       start = SpiceRoot.SPICEcircuitCONST.CKTdefaultMosAD)
+        Modelica.SIunits.Length m_len(             start = 1e-4)
+          "L, length of channel region";
+        Modelica.SIunits.Length m_width(           start = 1e-4)
+          "W, width of channel region";
+        Modelica.SIunits.Area m_drainArea(       start = SpiceRoot.SPICEcircuitCONST.CKTdefaultMosAD)
           "AD, area of drain diffusion";
-        Real m_sourceArea(      start = SpiceRoot.SPICEcircuitCONST.CKTdefaultMosAS)
+        Modelica.SIunits.Area m_sourceArea(      start = SpiceRoot.SPICEcircuitCONST.CKTdefaultMosAS)
           "AS, area of source diffusion";
         Real m_drainSquares(    start = 1.0) "NRD, length of drain in squares";
         Real m_sourceSquares(   start = 1.0) "NRS, length of source in squares";
-        Real m_drainPerimiter(  start = 0.0) "PD, Drain perimeter";
-        Real m_sourcePerimiter( start = 0.0) "PS, Source perimeter";
-        Real m_dICVDS(          start = 0.0) "IC_VDS, Initial D-S voltage";
+        Modelica.SIunits.Length m_drainPerimiter(  start = 0.0)
+          "PD, Drain perimeter";
+        Modelica.SIunits.Length m_sourcePerimiter( start = 0.0)
+          "PS, Source perimeter";
+        Modelica.SIunits.Voltage m_dICVDS(          start = 0.0)
+          "IC_VDS, Initial D-S voltage";
         Real m_dICVDSIsGiven "IC_VDS, IsGivenValue";
-        Real m_dICVGS(          start = 0.0) "IC_VGS, Initial G-S voltage";
+        Modelica.SIunits.Voltage m_dICVGS(          start = 0.0)
+          "IC_VGS, Initial G-S voltage";
         Real m_dICVGSIsGiven "IC_VGS, IsGivenValue";
-        Real m_dICVBS(          start = 0.0) "IC_VBS, Initial B-S voltage";
+        Modelica.SIunits.Voltage m_dICVBS(          start = 0.0)
+          "IC_VBS, Initial B-S voltage";
         Real m_dICVBSIsGiven "IC_VBS, IsGivenValue";
         Real m_off(          start = 0)
           "Device initially off, non-zero to indicate device is off for dc analysis";
@@ -5063,7 +5070,7 @@ VN- -&GT; name.pc[N-1]
 
          Real m_jctSatCurDensity(           start = 0.0)
           "JS, Bulk jct. sat. current density, input - use tSatCurDens";
-         Real m_sheetResistance(            start = 0.0)
+         Modelica.SIunits.Resistance m_sheetResistance(            start = 0.0)
           "RSH, Sheet resistance";
          Real m_bulkJctPotential(           start = 0.8)
           "PB, Bulk junction potential, input - use tBulkPot";
@@ -5101,15 +5108,15 @@ VN- -&GT; name.pc[N-1]
 
       record MosfetCalc "Mosfet Variables"
 
-        Real m_vds "Vds,  Drain-Source voltage";
-        Real m_vgs "Vgs, Gate-Source voltage";
-        Real m_vbs "Vbs, Bulk-Source voltage";
-        Real m_cbs "Ibs, B-S junction current";
-        Real m_gbs "Gbs, Bulk-Source conductance";
-        Real m_cbd "Ibd, B-D junction current";
-        Real m_gbd "Gbd, Bulk-Drain conductance";
-        Real m_cdrain "Ids";
-        Real m_gds "Gds, Drain-Source conductance";
+        Modelica.SIunits.Voltage m_vds "Vds,  Drain-Source voltage";
+        Modelica.SIunits.Voltage m_vgs "Vgs, Gate-Source voltage";
+        Modelica.SIunits.Voltage m_vbs "Vbs, Bulk-Source voltage";
+        Modelica.SIunits.Current m_cbs "Ibs, B-S junction current";
+        Modelica.SIunits.Conductance m_gbs "Gbs, Bulk-Source conductance";
+        Modelica.SIunits.Current m_cbd "Ibd, B-D junction current";
+        Modelica.SIunits.Conductance m_gbd "Gbd, Bulk-Drain conductance";
+        Modelica.SIunits.Current m_cdrain "Ids";
+        Modelica.SIunits.Conductance m_gds "Gds, Drain-Source conductance";
         Real m_gm "Gm, Transconductance";
         Real m_gmbs "Gmbs, Bulk-Source transconductance";
         Real m_capbsb "Cbsb";
@@ -5120,14 +5127,14 @@ VN- -&GT; name.pc[N-1]
         Real m_chargebdb "Qbdb";
         Real m_capbds "Cbds";
         Real m_chargebds "Qbds";
-        Real m_sourceResistance "Rs";
-        Real m_drainResistance "Rd";
+        Modelica.SIunits.Resistance m_sourceResistance "Rs";
+        Modelica.SIunits.Resistance m_drainResistance "Rd";
         Real m_Beta "Beta";
         Real m_capGSovl "Cgso, Gate-source overlap cap.";
         Real m_capGDovl "Cgdo, Gate-drain overlap cap.";
         Real m_capGBovl "Cgbo, Gate-bulk overlap cap.";
         Real m_capOx "Cox";
-        Real m_von "Von, Turn-on voltage";
+        Modelica.SIunits.Voltage m_von "Von, Turn-on voltage";
         Real m_vdsat "Vdsat";
         Integer m_mode(start = 1) "Mode";
 
@@ -5197,12 +5204,13 @@ VN- -&GT; name.pc[N-1]
         extends Mosfet.MosfetModelLineParams;
 
          Real m_oxideCapFactor(      start = 0.0);
-         Real m_vt0(                 start = 0.0) "VTO, Threshold voltage";
+         Modelica.SIunits.Voltage m_vt0(                 start = 0.0)
+          "VTO, Threshold voltage";
          Real m_vtOIsGiven "VTO IsGivenValue";
-         Real m_capBD(               start = 0.0)
+         Modelica.SIunits.Capacitance m_capBD(               start = 0.0)
           "CBD, B-D junction capacitance";
          Real m_capBDIsGiven "CapBD IsGivenValue";
-         Real m_capBS(               start = 0.0)
+         Modelica.SIunits.Capacitance m_capBS(               start = 0.0)
           "CBS, B-S junction capacitance";
          Real m_capBSIsGiven "CapBS IsGivenValue";
          Real m_bulkCapFactor(       start = 0.0)
@@ -5212,9 +5220,10 @@ VN- -&GT; name.pc[N-1]
           "CJSW, Side grading coefficient";
          Real m_fwdCapDepCoeff(      start = 0.5)
           "FC, Forward bias jct. fit parm.";
-         Real m_phi(                 start = 0.6) "PHI, Surface potential";
+         Modelica.SIunits.Voltage m_phi(                 start = 0.6)
+          "PHI, Surface potential";
          Real m_phiIsGiven "Phi IsGivenValue";
-         Real m_gamma(               start = 0.0)
+         Modelica.SIunits.Voltage m_gamma(               start = 0.0)
           "GAMMA, Bulk threshold parameter";
          Real m_gammaIsGiven "Gamma IsGivenValue";
          Real m_lambda "Channel-length modulation";
@@ -5224,15 +5233,17 @@ VN- -&GT; name.pc[N-1]
          Real m_surfaceStateDensity( start = 0.0) "NSS, Gate type";
          Real m_surfaceMobility(     start = 600.0) "UO, Surface mobility";
          Real m_latDiff(             start = 0.0) "LD, Lateral diffusion";
-         Real m_jctSatCur(           start = 1.0e-14)
+         Modelica.SIunits.Current m_jctSatCur(           start = 1.0e-14)
           "IS, Bulk junction sat. current";
-         Real m_drainResistance(     start = 0) "RD, Drain ohmic resistance";
+         Modelica.SIunits.Resistance m_drainResistance(     start = 0)
+          "RD, Drain ohmic resistance";
          Real m_drainResistanceIsGiven "Drain resistance IsGivenValue";
-         Real m_sourceResistance(    start = 0) "RS, Source ohmic resistance";
+         Modelica.SIunits.Resistance m_sourceResistance(    start = 0)
+          "RS, Source ohmic resistance";
          Real m_sourceResistanceIsGiven "Source resistance IsGivenValue";
          Real m_transconductance "input - use tTransconductance";
          Real m_transconductanceIsGiven "Transconductance IsGivenValue";
-         Real m_tnom(                start=SpiceConstants.CKTnomTemp)
+         Modelica.SIunits.Temp_C m_tnom(                start=SpiceConstants.CKTnomTemp)
           "TNOM, Parameter measurement temperature";
 
         annotation (Documentation(info="<html>
@@ -5314,15 +5325,15 @@ VN- -&GT; name.pc[N-1]
 
       record CurrrentsCapacitances "Currents and Capacities"
 
-        Real idrain( start = 0);
-        Real iBD( start = 0);
-        Real iBS( start = 0);
-        Real cGS( start = 0);
-        Real cGB( start = 0);
-        Real cGD( start = 0);
-        Real cBS( start = 0);
-        Real cBD( start = 0);
-        Real m_capgd;
+        Modelica.SIunits.Current idrain( start = 0);
+        Modelica.SIunits.Current iBD( start = 0);
+        Modelica.SIunits.Current iBS( start = 0);
+        Modelica.SIunits.Capacitance cGS( start = 0);
+        Modelica.SIunits.Capacitance cGB( start = 0);
+        Modelica.SIunits.Capacitance cGD( start = 0);
+        Modelica.SIunits.Capacitance cBS( start = 0);
+        Modelica.SIunits.Capacitance cBD( start = 0);
+        Modelica.SIunits.Capacitance m_capgd;
 
         annotation (Documentation(info="<html>
 <pre>This record CurrentsCapacities contains values for the currents and the capacities inside the mosfet models level 1, 2, 3 and 6.</pre>
@@ -7075,11 +7086,14 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
     package Diode "Records and functions for diode model"
       record DiodeModelLineParams "Record for Diode model line parameters"
 
-        Real m_satCur( start = 1.0e-14) "IS, Saturation current";
-        Real m_resist( start = 0.0) "RS, Ohmic resistance";
+        Modelica.SIunits.Current m_satCur( start = 1.0e-14)
+          "IS, Saturation current";
+        Modelica.SIunits.Resistance m_resist( start = 0.0)
+          "RS, Ohmic resistance";
         Real m_emissionCoeff( start = 1.0) "N, Emission Coefficient";
         Real m_transitTime( start = 0.0) "TT, Transit Time";
-        Real m_junctionCap( start = 0.0) "CJO, Junction capacitance";
+        Modelica.SIunits.Capacitance m_junctionCap( start = 0.0)
+          "CJO, Junction capacitance";
         Real m_junctionPot( start = 1.0) "VJ, Junction potential";
         Real m_gradingCoeff( start = 0.5) "M, Grading coefficient";
         Real m_activationEnergy( start = 1.11) "EG, Activation energy";
@@ -7087,15 +7101,16 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
           "XTI, Saturation current temperature exp.";
         Real m_depletionCapCoeff( start = 0.5)
           "FC, Forward bias junction fit parameter";
-        Real m_breakdownVoltage "BV, Reverse breakdown voltage";
+        Modelica.SIunits.Voltage m_breakdownVoltage
+          "BV, Reverse breakdown voltage";
         Real m_pBvIsGiven "BV is given value";
-        Real m_breakdownCurrent( start = 1.0e-3)
+        Modelica.SIunits.Current m_breakdownCurrent( start = 1.0e-3)
           "IBV, Current at reverse breakdown voltage";
-        Real m_nomTemp( start=SpiceConstants.CKTnomTemp)
+        Modelica.SIunits.Temp_C m_nomTemp( start=SpiceConstants.CKTnomTemp)
           "TNOM, Parameter measurement temperature";
         Real m_fNcoef( start = 0.0) "KF, flicker noise coefficient";
         Real m_fNexp( start = 1.0) "AF, flicker noise exponent";
-        Real m_conductance "G, Ohmic conductance";
+        Modelica.SIunits.Conductance m_conductance "G, Ohmic conductance";
 
         annotation (Documentation(info="<html>
 <p>This record contains the model line (also called model card) parameters that are used for the diode model  in SPICE3.</p>
@@ -7118,7 +7133,8 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
 
         Real m_area(start = 1.0) "AREA, Area factor";
         Boolean m_bOff(start = false) "OFF, Initially off";
-        Real m_dIC(start = 0.0) "IC, Initial device voltage";
+        Modelica.SIunits.Voltage m_dIC(start = 0.0)
+          "IC, Initial device voltage";
         Real m_pIcIsGiven "IC is giben value";
         Boolean m_bSensArea(start = false)
           "SENS_AREA, flag to request sensitivity WRT area";
@@ -7156,7 +7172,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
 
       record CurrentsCapacitances "Diode variables"
 
-        Real m_dCurrent;
+        Modelica.SIunits.Current m_dCurrent;
 
         annotation (Documentation(info="<html>
 <p>This record contains the model variables that are used for the diode model in SPICE3.</p>
@@ -7427,15 +7443,17 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
       "Records and functions for semiconductor resistor model"
       record ResistorParams "Resistor device parameters"
 
-          Real m_dResist( start=1000) "Device is a resistor model";
+          Modelica.SIunits.Resistance m_dResist( start=1000)
+          "Device is a resistor model";
           Real m_dResIsGiven "Resistance is given value";
-          Real m_dWidth( start=0) "Width";
+          Modelica.SIunits.Length m_dWidth( start=0) "Width";
           Real m_dWidthIsGiven "Width is given value";
-          Real m_dLength "Length";
+          Modelica.SIunits.Length m_dLength "Length";
           Real m_dLengthIsGiven "Length is given value";
           Boolean m_bSensResist( start = false)
           "flag to request sensitivity WRT resistance";
-          Real m_dTemp(start = 27) "Resistor device temperature";
+          Modelica.SIunits.Temp_C m_dTemp(start = 27)
+          "Resistor device temperature";
 
         annotation (Documentation(info="<html>
 <p>This record contains the device parameters that are used for the resistor model in SPICE3.</p>
@@ -7446,11 +7464,11 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
 
           Real m_dTC1 "First order temp, coefficient";
           Real m_dTC2 "Second order temp, coefficient";
-          Real m_dRsh "Sheet resistance";
+          Modelica.SIunits.Resistance m_dRsh "Sheet resistance";
           Real m_dRshIsGiven;
           Real m_dDefW "Default device width";
           Real m_dNarrow "Narrowing of resistor";
-          Real m_dTnom "Parameter measurement temperature";
+          Modelica.SIunits.Temp_C m_dTnom "Parameter measurement temperature";
 
         annotation (Documentation(info="<html>
 <p>This record contains the model line (also called model card) parameters that are used for the resistor model in SPICE3.</p>
@@ -7458,11 +7476,11 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
       end ResistorModelLineParams;
 
       record ResistorVariables "Variables for the diode model"
-       Real m_dWidth;
-       Real m_dLength;
-       Real m_dResist;
-       Real m_dConduct;
-       Real m_dCond_dTemp;
+       Modelica.SIunits.Length m_dWidth;
+       Modelica.SIunits.Length m_dLength;
+       Modelica.SIunits.Resistance m_dResist;
+       Modelica.SIunits.Conductance m_dConduct;
+       Modelica.SIunits.Temp_C m_dCond_dTemp;
         annotation (Documentation(info="<html>
 <p>This record contains the model variables that are used for the resistor model in SPICE3.</p>
 </html>"));
@@ -7573,20 +7591,23 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
     package Bjt3 "Records and functions for bjt model"
       record BjtModelLineParams "Record for bjt model line parameters"
 
-         Real m_type( start = 1) "device type : 1 = n,  -1 = p";
+        Real m_type( start = 1) "device type : 1 = n,  -1 = p";
 
-         Boolean m_bNPN( start = true) "NPN, NPN type device";
-         Boolean m_bPNP( start = false) "PNP, PNP type device";
-        Real m_tnom( start=SpiceConstants.CKTnomTemp)
+        Boolean m_bNPN( start = true) "NPN type device";
+        Boolean m_bPNP( start = false) "PNP type device";
+        Modelica.SIunits.Temp_C m_tnom( start=SpiceConstants.CKTnomTemp)
           "TNOM, Parameter measurement temperature";
-        Real m_satCur( start = 1.0e-16) "IS, Saturation Current";
+        Modelica.SIunits.Current m_satCur( start = 1.0e-16)
+          "IS, Saturation Current";
         Real m_betaF( start = 100.0) "BF, Ideal forward beta";
         Real m_emissionCoeffF(  start = 1.0) "NF, Forward emission coefficient";
         Real m_leakBEemissionCoeff( start = 1.5)
           "NE, B-E leakage emission coefficient";
-        Real m_leakBEcurrent( start = 0.) "ISE, B-E leakage saturation current";
+        Modelica.SIunits.Current m_leakBEcurrent( start = 0.)
+          "ISE, B-E leakage saturation current";
         Real m_c2( start = 0.) "C2, Obsolete parameter name";
-        Real m_leakBCcurrent( start = 0.) "ISC, B-C leakage saturation current";
+        Modelica.SIunits.Current m_leakBCcurrent( start = 0.)
+          "ISC, B-C leakage saturation current";
         Real m_c4( start = 0.) "C4, Obsolete parameter name";
         Real m_leakBEcurrentIsGiven;
         Real m_c2IsGiven;
@@ -7602,14 +7623,18 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
         Real m_earlyVoltR( start = 0.0) "VAR, Reverse Early voltage";
         Real m_rollOffR( start = 0.0)
           "IKR, reverse beta roll-off corner current";
-        Real m_emitterResist( start = 0.0) "RE, Emitter resistance";
-        Real m_collectorResist( start = 0.0) "RC, Collector resistance";
-        Real m_baseCurrentHalfResist( start = 0.0)
+        Modelica.SIunits.Resistance m_emitterResist( start = 0.0)
+          "RE, Emitter resistance";
+        Modelica.SIunits.Resistance m_collectorResist( start = 0.0)
+          "RC, Collector resistance";
+        Modelica.SIunits.Current m_baseCurrentHalfResist( start = 0.0)
           "IRB, Current for base resistance=(rb+rbm)/2";
-        Real m_baseResist( start = 0.0) "RB, Zero bias base resistance";
-        Real m_minBaseResist( start = 0.0) "RBM, Minimum base resistance";
+        Modelica.SIunits.Current m_baseResist( start = 0.0)
+          "RB, Zero bias base resistance";
+        Modelica.SIunits.Resistance m_minBaseResist( start = 0.0)
+          "RBM, Minimum base resistance";
         Real m_minBaseResistIsGiven;
-        Real m_depletionCapBE( start = 0.0)
+        Modelica.SIunits.Capacitance m_depletionCapBE( start = 0.0)
           "CJE, Zero bias B-E depletion capacitance";
         Real m_potentialBE( start = 0.75) "VJE, B-E built in potential";
         Real m_junctionExpBE( start = 0.33) "MJE, B-E built in potential";
@@ -7621,7 +7646,7 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
         Real m_transitTimeFVBC( start = 0.0)
           "VTF, Voltage giving VBC dependence of TF";
         Real m_excessPhase( start = 0.0) "PTF, Excess phase";
-        Real m_depletionCapBC( start = 0.0)
+        Modelica.SIunits.Capacitance m_depletionCapBC( start = 0.0)
           "CJC, Zero bias B-C depletion capacitance";
         Real m_potentialBC( start = 0.75) "VJC, B-C built in potential";
         Real m_junctionExpBC( start = 0.33)
@@ -7629,7 +7654,8 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
         Real m_baseFractionBCcap( start = 1.0)
           "XCJC, Fraction of B-C cap to internal base";
         Real m_transitTimeR( start = 0.0) "TR, Ideal reverse transit time";
-        Real m_capCS( start = 0.0) "CJS, Zero bias C-S capacitance";
+        Modelica.SIunits.Capacitance m_capCS( start = 0.0)
+          "CJS, Zero bias C-S capacitance";
         Real m_potentialSubstrate( start = 0.75)
           "VJS, Zero bias C-S capacitance";
         Real m_exponentialSubstrate( start = 0.0)
@@ -7790,12 +7816,12 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
 
       record CurrentsCapacitances "Bjt3 variables"
 
-        Real iBE( start = 0.0);  //current through diode dE1 (ideal part)
-        Real iBEN( start = 0.0); //current through diode dE2 (non ideal part)
-        Real iBC( start = 0.0); //current through diode dC1 (ideal part)
-        Real iBCN( start = 0.0); //current through diode dC2 (non ideal part)
-        Real iCC( start = 0.0);  //channel current
-        Real capbc( start = 0.0);
+        Modelica.SIunits.Current iBE( start = 0.0);  //current through diode dE1 (ideal part)
+        Modelica.SIunits.Current iBEN( start = 0.0); //current through diode dE2 (non ideal part)
+        Modelica.SIunits.Current iBC( start = 0.0); //current through diode dC1 (ideal part)
+        Modelica.SIunits.Current iBCN( start = 0.0); //current through diode dC2 (non ideal part)
+        Modelica.SIunits.Current iCC( start = 0.0);  //channel current
+        Modelica.SIunits.Current capbc( start = 0.0);
         Real capbe( start = 0.0);
         Real capbx( start = 0.0);
         Real iXX( start = 0.0);
