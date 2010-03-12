@@ -2162,14 +2162,16 @@ and the accompanying <b>disclaimer</b>
         plug_p2.reference.gamma = plug_n2.reference.gamma;
         Connections.branch(plug_p3.reference, plug_n3.reference);
         plug_p3.reference.gamma = plug_n3.reference.gamma;
-      //Define p1.reference.gamme = p2.reference.gamma
-      //Note: p2 or n2 are connected to p3 or n3
+      //Define p1.reference.gamme = p2.reference.gamma = p3.reference.gamma
         Connections.branch(plug_p1.reference, plug_p2.reference);
         plug_p1.reference.gamma = plug_p2.reference.gamma;
-      //Define p1 and p2 as potential roots
-      //NOte: transformer could be fed from primary or secondary side
+        Connections.branch(plug_p1.reference, plug_p3.reference);
+        plug_p1.reference.gamma = plug_p3.reference.gamma;
+      //Define p1, p2 and p3 as potential roots
+      //Note: transformer could be fed from primary or secondary side
         Connections.potentialRoot(plug_p1.reference);
         Connections.potentialRoot(plug_p2.reference);
+        Connections.potentialRoot(plug_p3.reference);
       //Current balances
         plug_p1.pin.i + plug_n1.pin.i = fill(Complex(0), m);
         plug_p2.pin.i + plug_n2.pin.i = fill(Complex(0), m);
