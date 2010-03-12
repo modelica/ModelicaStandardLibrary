@@ -2,6 +2,201 @@ within Modelica.Electrical.QuasiStationary;
 package SinglePhase "Single phase AC components"
   extends Modelica.Icons.Library2;
 
+  package Examples "Test examples"
+    extends Modelica.Icons.Library2;
+
+    model SeriesResonance "Series resonance circuit"
+      extends Modelica.Icons.Example2;
+      Modelica.Blocks.Sources.Constant V
+        annotation (Placement(transformation(
+            origin={-40,50},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      Modelica.Blocks.Sources.Constant phi(k=0)
+        annotation (Placement(transformation(
+            origin={-80,50},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      Modelica.Blocks.Sources.Ramp f(
+        height=2,
+        duration=1,
+        offset=1e-6) annotation (Placement(transformation(
+            origin={-60,-50},
+            extent={{-10,-10},{10,10}},
+            rotation=90)));
+      QuasiStationary.SinglePhase.Sources.VariableVoltageSource voltageSource
+        annotation (Placement(transformation(
+            origin={-30,-20},
+            extent={{-10,10},{10,-10}},
+            rotation=270)));
+      QuasiStationary.SinglePhase.Basic.Ground ground
+        annotation (Placement(transformation(extent={{-40,-60},{-20,-40}}, rotation=
+               0)));
+      QuasiStationary.SinglePhase.Basic.Resistor resistor(R_ref=0.1)
+        annotation (Placement(transformation(extent={{10,-10},{30,10}}, rotation=0)));
+      QuasiStationary.SinglePhase.Basic.Inductor inductor(L=1/(2*Modelica.Constants.pi))
+        annotation (Placement(transformation(extent={{40,-10},{60,10}}, rotation=0)));
+      QuasiStationary.SinglePhase.Basic.Capacitor capacitor(C=1/(2*Modelica.Constants.pi))
+        annotation (Placement(transformation(extent={{70,-10},{90,10}}, rotation=0)));
+      QuasiStationary.SinglePhase.Sensors.CurrentSensor currentSensor
+                                          annotation (Placement(transformation(
+              extent={{-20,10},{0,-10}}, rotation=0)));
+      Modelica.ComplexBlocks.ComplexMath.PolarToComplex polarToComplex
+        annotation (Placement(transformation(
+            origin={-60,10},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      Modelica.ComplexBlocks.ComplexMath.ComplexToPolar complexToPolar
+        annotation (Placement(transformation(
+            origin={-10,30},
+            extent={{-10,-10},{10,10}},
+            rotation=90)));
+    equation
+      connect(f.y, voltageSource.f) annotation (Line(points={{-60,-39},{-60,-24},{-40,
+              -24}}, color={0,0,127}));
+      connect(polarToComplex.y, voltageSource.V) annotation (Line(points={{-60,-1},
+              {-60,-16},{-40,-16}},color={85,170,255}));
+      connect(ground.pin, voltageSource.pin_n) annotation (Line(points={{-30,-40},
+              {-30,-35},{-30,-30},{-30,-30}},
+                                         color={85,170,255}));
+      connect(voltageSource.pin_p, currentSensor.pin_p) annotation (Line(points={{-30,-10},
+              {-30,0},{-20,0}},      color={85,170,255}));
+      connect(currentSensor.pin_n, resistor.pin_p)
+        annotation (Line(points={{0,0},{2.5,0},{2.5,-3.36456e-022},{5,-3.36456e-022},
+              {5,0},{10,0}}, color={85,170,255}));
+      connect(resistor.pin_n, inductor.pin_p)
+        annotation (Line(points={{30,0},{32.5,0},{32.5,1.22125e-015},{35,1.22125e-015},
+              {35,0},{40,0}}, color={85,170,255}));
+      connect(inductor.pin_n, capacitor.pin_p)
+        annotation (Line(points={{60,0},{62.5,0},{62.5,1.22125e-015},{65,1.22125e-015},
+              {65,0},{70,0}}, color={85,170,255}));
+      connect(capacitor.pin_n, ground.pin) annotation (Line(points={{90,0},{90,-40},
+              {-30,-40}}, color={85,170,255}));
+      connect(phi.y, polarToComplex.phi) annotation (Line(points={{-80,39},{-80,30},
+              {-66,30},{-66,22}},     color={0,0,127}));
+      connect(V.y, polarToComplex.len) annotation (Line(
+          points={{-40,39},{-40,30},{-54,30},{-54,22}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(currentSensor.y, complexToPolar.u) annotation (Line(
+          points={{-10,11},{-10,18}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      annotation ( Documentation(info="<html>
+<p>
+The frequency of the voltage source is varied by a ramp.
+Plot length and angle of the current phasor, i.e. complexToPolar.len and .phi, versis time resp. frequency.
+</p>
+</html>"));
+    end SeriesResonance;
+
+    model ParallelResonance "Parallel resonance circuit"
+      extends Modelica.Icons.Example2;
+      Modelica.Blocks.Sources.Constant I
+        annotation (Placement(transformation(
+            origin={-80,-50},
+            extent={{-10,-10},{10,10}},
+            rotation=90)));
+      Modelica.Blocks.Sources.Constant phi(k=0)
+        annotation (Placement(transformation(
+            origin={-40,-50},
+            extent={{-10,-10},{10,10}},
+            rotation=90)));
+      Modelica.Blocks.Sources.Ramp f(
+        height=2,
+        duration=1,
+        offset=1e-6) annotation (Placement(transformation(
+            origin={-60,50},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      QuasiStationary.SinglePhase.Sources.VariableCurrentSource currentSource
+        annotation (Placement(transformation(
+            origin={-30,20},
+            extent={{10,10},{-10,-10}},
+            rotation=270)));
+      QuasiStationary.SinglePhase.Basic.Ground ground
+        annotation (Placement(transformation(extent={{-40,-20},{-20,0}}, rotation=0)));
+      QuasiStationary.SinglePhase.Basic.Resistor resistor(R_ref=10)
+        annotation (Placement(transformation(
+            origin={-10,20},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      QuasiStationary.SinglePhase.Basic.Inductor inductor(L=1/(2*Modelica.Constants.pi))
+        annotation (Placement(transformation(
+            origin={10,20},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      QuasiStationary.SinglePhase.Basic.Capacitor capacitor(C=1/(2*Modelica.Constants.pi))
+        annotation (Placement(transformation(
+            origin={30,20},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      QuasiStationary.SinglePhase.Sensors.VoltageSensor voltageSensor
+        annotation (Placement(transformation(
+            origin={50,20},
+            extent={{10,-10},{-10,10}},
+            rotation=90)));
+      Modelica.ComplexBlocks.ComplexMath.PolarToComplex polarToComplex
+        annotation (Placement(transformation(
+            origin={-60,-10},
+            extent={{-10,-10},{10,10}},
+            rotation=90)));
+      Modelica.ComplexBlocks.ComplexMath.ComplexToPolar complexToPolar annotation (Placement(transformation(
+              extent={{70,10},{90,30}}, rotation=0)));
+    equation
+      connect(currentSource.pin_n, resistor.pin_p) annotation (Line(points={{-30,30},
+              {-30,40},{-10,40},{-10,30}}, color={85,170,255}));
+      connect(currentSource.pin_n, inductor.pin_p) annotation (Line(points={{-30,30},
+              {-30,40},{10,40},{10,30}}, color={85,170,255}));
+      connect(currentSource.pin_n, capacitor.pin_p) annotation (Line(points={{-30,30},
+              {-30,40},{30,40},{30,30}}, color={85,170,255}));
+      connect(currentSource.pin_n, voltageSensor.pin_p) annotation (Line(points={{-30,30},
+              {-30,40},{50,40},{50,30}},     color={85,170,255}));
+      connect(currentSource.pin_p, ground.pin) annotation (Line(points={{-30,10},
+              {-30,5},{-30,0}},               color={85,170,255}));
+      connect(resistor.pin_n, ground.pin) annotation (Line(points={{-10,10},{
+              -10,0},{-30,0}},
+                        color={85,170,255}));
+      connect(inductor.pin_n, ground.pin) annotation (Line(points={{10,10},{10,0},{-30,
+              0}}, color={85,170,255}));
+      connect(capacitor.pin_n, ground.pin) annotation (Line(points={{30,10},{30,
+              0},{-30,0}},
+                       color={85,170,255}));
+      connect(voltageSensor.pin_n, ground.pin) annotation (Line(points={{50,10},{50,
+              0},{-30,0}}, color={85,170,255}));
+      connect(f.y, currentSource.f) annotation (Line(points={{-60,39},{-60,24},{-40,
+              24}}, color={0,0,127}));
+      connect(polarToComplex.y, currentSource.I) annotation (Line(points={{-60,1},{
+              -60,16},{-40,16}},
+                             color={85,170,255}));
+      connect(phi.y, polarToComplex.phi) annotation (Line(points={{-40,-39},{-40,
+              -32},{-54,-32},{-54,-22}},color={0,0,127}));
+      connect(I.y, polarToComplex.len) annotation (Line(
+          points={{-80,-39},{-80,-32},{-66,-32},{-66,-22}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(voltageSensor.y, complexToPolar.u) annotation (Line(
+          points={{61,20},{68,20}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      annotation ( Documentation(info="<html>
+<p>
+The frequency of the current source is varied by a ramp.
+Plot length and angle of the voltage phasor, i.e. complexToPolar.len and .phi, versis time resp. frequency.
+</p>
+</html>"));
+    end ParallelResonance;
+
+    annotation (Documentation(info="<html>
+Examples to demonstrate the usage of quasistationary electric components.
+</html>"),   Icon(graphics={Ellipse(extent={{-80,44},{60,-96}}, lineColor={95,
+              95,95}), Polygon(
+          points={{-40,36},{-40,-88},{60,-26},{-40,36}},
+          lineColor={95,95,95},
+          fillColor={95,95,95},
+          fillPattern=FillPattern.Solid)}));
+  end Examples;
+
   package Basic "Basic components for AC singlephase models"
     extends Modelica.Icons.Library2;
 
@@ -10,6 +205,10 @@ package SinglePhase "Single phase AC components"
       Interfaces.PositivePin pin
         annotation (Placement(transformation(extent={{-10,90},{10,110}}, rotation=0)));
     equation
+      Connections.potentialRoot(pin.reference, 256);
+      if Connections.isRoot(pin.reference) then
+        pin.reference.gamma = 0;
+      end if;
       pin.v = Complex(0);
       annotation (Icon(graphics={
             Line(points={{-60,50},{60,50}}),
@@ -594,7 +793,7 @@ derived from this base connector.
 
     connector PositivePin "Positive connector"
       extends Pin;
-      Modelica.Electrical.QuasiStationary.Types.Reference reference "Reference";
+      QuasiStationary.Types.Reference reference "Reference";
       annotation (Diagram(graphics={Text(
               extent={{-100,100},{100,60}},
               lineColor={0,0,255},
@@ -632,7 +831,7 @@ Additionally the reference angle is specified in the connector. The time derivat
 
     connector NegativePin "Negative Connector"
       extends Pin;
-      Modelica.Electrical.QuasiStationary.Types.Reference reference "Reference";
+      QuasiStationary.Types.Reference reference "Reference";
       annotation (Diagram(graphics={Text(
               extent={{-100,100},{100,60}},
               lineColor={0,0,255},
@@ -833,8 +1032,9 @@ The source partial model relies on the
     annotation (Icon(graphics={Rectangle(
           extent={{-30,-20},{10,-60}},
           lineColor={0,0,0},
-          fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={0,0,255}), Rectangle(extent={{-60,10},{40,-90}}, lineColor={
+          fillPattern=FillPattern.Solid,
+          fillColor={170,213,255}),
+                                Rectangle(extent={{-60,10},{40,-90}}, lineColor={
               0,0,255})}),                        Documentation(info="<html>
 <p>This package contains connector specifications and partial models for more complex components.</p>
 </html>"));
@@ -1209,8 +1409,8 @@ Quasi stationary theory for single phase circuits can be found in the
             0,255}), Rectangle(
         extent={{-30,-20},{10,-60}},
         lineColor={0,0,0},
-        fillPattern=FillPattern.HorizontalCylinder,
-        fillColor={0,0,255})}),      Documentation(info="<html>
+        fillPattern=FillPattern.Solid,
+        fillColor={170,213,255})}),  Documentation(info="<html>
 <p>This package hosts models for quasi stationary single phase circuits.
 Quasi stationary theory for single phase circuits can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
