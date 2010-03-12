@@ -2705,7 +2705,7 @@ neglecting initial transient.
           points={{-30,-40},{-20,-40},{-20,-50}},
           color={0,0,255},
           smooth=Smooth.None));
-      connect(transformer2.plug1, currentQuasiRMSSensor.plug_n) annotation (Line(
+      connect(transformer2.plug1, currentSensor.plug_n) annotation (Line(
           points={{-50,-40},{-60,-40},{-60,0}},
           color={0,0,255},
           smooth=Smooth.None));
