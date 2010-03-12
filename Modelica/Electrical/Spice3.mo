@@ -4293,9 +4293,9 @@ VN- -&GT; name.pc[N-1]
       parameter SI.Resistance R= -1e40
         "Resistance, if specified, geometrical information is overwritten";
       parameter SI.Temp_C TEMP = -1e40 "Temperature of resistor";
-      parameter SI.Length L = -1e40 "lenght of the resistor";
+      parameter SI.Length L = -1e40 "Lenght of the resistor";
       parameter SI.Length W = -1e40
-        "width of the resistor, default DEFW (modelcard)";
+        "Width of the resistor, default DEFW (modelcard)";
       parameter Boolean SENS_AREA= false
         "Parameter for sensitivity analyses, not implemented yet";
       parameter ModelcardR modelcard "Resistor modelcard";
@@ -4797,7 +4797,7 @@ VN- -&GT; name.pc[N-1]
     end junction3;
 
     function junctionCapTransTime
-        "junction capacitance transittime calculation"
+        "Junction capacitance transittime calculation"
 
       input Real capin;
       input Real voltage;
@@ -4880,7 +4880,7 @@ VN- -&GT; name.pc[N-1]
 </html>"));
     end junction2;
 
-    function resDepTemp "temperature dependent conductance"
+    function resDepTemp "Temperature dependent conductance"
 
     input Real resist;
     input Real temp;
@@ -5367,7 +5367,7 @@ VN- -&GT; name.pc[N-1]
       end mosCalcInitEquations;
 
       function mosCalcCalcTempDependencies
-        "precalculation relating to temperature"
+        "Precalculation relating to temperature"
 
         input Mos1.Mos1ModelLineParams in_p;
         input SpiceConstants in_C;
@@ -5613,7 +5613,7 @@ VN- -&GT; name.pc[N-1]
 </html>"));
       end mosCalcNoBypassCode;
 
-      function mosCalcDEVqmeyer "calculation of meyer capacities"
+      function mosCalcDEVqmeyer "Calculation of meyer capacities"
 
         input Real vgs;
         input Real vgd;
@@ -5699,7 +5699,7 @@ VN- -&GT; name.pc[N-1]
       end mos2CalcInitEquations;
 
       function mos2CalcCalcTempDependencies
-        "precalculation relating to temperature"
+        "Precalculation relating to temperature"
 
         input Mos2.Mos2ModelLineParams in_p;
         input SpiceConstants in_C;
@@ -5962,7 +5962,7 @@ VN- -&GT; name.pc[N-1]
 </html>"));
     end Mos;
 
-    package Mos1
+    package Mos1 "Records and functions for Mosfets level 1"
       record Mos1ModelLineParams
         "Record for Mosfet model line parameters (for level 1)"
         extends Mos.MosModelLineParams(
@@ -5978,7 +5978,7 @@ VN- -&GT; name.pc[N-1]
         extends Mos.MosCalc;
 
         annotation (Documentation(info="<html>
-<p>This record Mos1Calc contains further mosfet variables (for level 1).</p>
+<p>This record Mos1Calc contains further mosfet variables (for level 1) that are needed for the calculations.</p>
 </html>"));
       end Mos1Calc;
 
@@ -6265,7 +6265,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
           "Device temperature";
 
         annotation (Documentation(info="<html>
-<pre>This function mos2RenameParameters assigns the external (given by the user) device parameters to the internal parameters. It also does the analysis of the IsGiven values (level 2).</pre>
+<pre>This function mos1RenameParametersDev assigns the external (given by the user) device parameters to the internal parameters. It also does the analysis of the IsGiven values (level 1).</pre>
 </html>"));
       end mos1RenameParametersDev;
       annotation (Documentation(info="<html>
@@ -6273,7 +6273,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
 </html>"));
     end Mos1;
 
-    package Mos2
+    package Mos2 "Records and functions for Mosfets level 2"
       record Mos2ModelLineParams
         "Record for Mosfet model line parameters (for level 2)"
         extends Mos.MosModelLineParams(
@@ -6298,6 +6298,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
       end Mos2ModelLineParams;
 
       record Mos2ModelLineVariables
+        "Record for Mosfet model line variables (for level 2)"
         extends Mos.MosModelLineVariables;
 
         Real m_bulkCapFactor;
@@ -6313,7 +6314,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
         extends Mos.MosCalc;
 
         annotation (Documentation(info="<html>
-<p>This record Mos1Calc contains further mosfet variables (for level 1).</p>
+<p>This record Mos1Calc contains further mosfet variables (for level 2) that are needed for the calculations.</p>
 </html>"));
       end Mos2Calc;
 
@@ -7064,13 +7065,16 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
         dev.m_nLevel := ex.LEVEL;
         assert(ex.LEVEL== 1, "only MOS Level1 implemented");
         dev.m_dTemp :=TEMP + SpiceRoot.SPICEcircuitCONST.CONSTCtoK;
+        annotation (Documentation(info="<html>
+<pre>This function mos2RenameParameters assigns the external (given by the user) device parameters to the internal parameters. It also does the analysis of the IsGiven values (level 2).</pre>
+</html>"));
       end mos2RenameParametersDev;
       annotation (Documentation(info="<html>
 <p>This package Mos2 contains functions and records with data of the mosfet model level 2.</p>
 </html>"));
     end Mos2;
 
-    package Diode
+    package Diode "Records and functions for diode model"
       record DiodeModelLineParams "Record for Diode model line parameters"
 
         Real m_satCur( start = 1.0e-14) "IS, Saturation current";
@@ -7422,6 +7426,7 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
     end Diode;
 
     package Rsemiconductor
+      "Records and functions for semiconductor resistor model"
       record ResistorParams "Resistor device parameters"
 
           Real m_dResist( start=1000) "Device is a resistor model";
@@ -7567,7 +7572,7 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
 </html>"));
     end Rsemiconductor;
 
-    package Bjt3
+    package Bjt3 "Records and functions for bjt model"
       record BjtModelLineParams "Record for bjt model line parameters"
 
          Real m_type( start = 1) "device type : 1 = n,  -1 = p";
@@ -7821,7 +7826,7 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
 </html>"));
       end bjt3InitEquations;
 
-      function bjt3CalcTempDependencies
+      function bjt3CalcTempDependencies "Temperature dependency calculation"
 
         input Bjt3 in_p3;
         input BjtModelLineParams in_p;
