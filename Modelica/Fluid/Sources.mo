@@ -163,6 +163,7 @@ with exception of boundary pressure, do not have an effect.
     medium.p = p_in_internal;
     medium.T = T_in_internal;
     medium.Xi = X_in_internal[1:Medium.nXi];
+
     ports.C_outflow = fill(C_in_internal, nPorts);
     annotation (defaultComponentName="boundary",
       Icon(coordinateSystem(
@@ -765,7 +766,16 @@ of the modeller. Increase nPorts to add an additional port.
 
        ports[i].p          = medium.p;
        ports[i].h_outflow  = medium.h;
-       ports[i].Xi_outflow = medium.Xi;
+       // <Hot fix>
+       // Normally, the following line should read
+       //   ports[i].Xi_outflow = medium.Xi;
+       // In some Modelica tools, this produces an error however. Instead of wating
+       // for bug fixes for all tools, Modelica Association decided to include a
+       // simple reformulation to avoid this problem.
+       for j in 1:Medium.nXi loop
+         ports[i].Xi_outflow[j] = medium.Xi[j];
+       end for;
+       // <//Hot fix>
     end for;
 
     annotation (defaultComponentName="boundary", Documentation(info="<html>

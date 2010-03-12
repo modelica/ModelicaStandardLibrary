@@ -375,7 +375,16 @@ of the modeller. Increase nPorts to add an additional port.
           end if;
 
           ports[i].h_outflow  = medium.h;
-          ports[i].Xi_outflow = medium.Xi;
+          // <Hot fix>
+          // Normally, the following line should read
+          //   ports[i].Xi_outflow = medium.Xi;
+          // In some Modelica tools, this produces an error however. Instead of wating
+          // for bug fixes for all tools, Modelica Association decided to include a
+          // simple reformulation to avoid this problem.
+          for j in 1:Medium.nXi loop
+            ports[i].Xi_outflow[j] = medium.Xi[j];
+          end for;
+          // <Hot fix>
           ports[i].C_outflow  = C;
 
           ports_H_flow[i] = ports[i].m_flow * actualStream(ports[i].h_outflow)

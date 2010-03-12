@@ -1953,7 +1953,16 @@ end for;
          mC_flow_top[i,:]  = topPorts[i].m_flow*actualStream(topPorts[i].C_outflow);
          topPorts[i].p     = p_ambient;
          topPorts[i].h_outflow = h_start;
-         topPorts[i].Xi_outflow = X_start[1:Medium.nXi];
+         // <Hot fix>
+         // Normally, the following line should read
+         //   topPorts[i].Xi_outflow = X_start[1:Medium.nXi];
+         // In some Modelica tools, this produces an error however. Instead of wating
+         // for bug fixes for all tools, Modelica Association decided to include a
+         // simple reformulation to avoid this problem.
+         for j in 1:Medium.nXi loop
+           topPorts[i].Xi_outflow[j] = X_start[j];
+         end for;
+         // </Hot fix>
          topPorts[i].C_outflow  = C_start;
   /*
        assert(topPorts[i].m_flow > -1, "Mass flows out of tank via topPorts[" + String(i) + "]\n" +
@@ -1966,38 +1975,47 @@ end for;
          port_b_H_flow_bottom[i]   = ports[i].m_flow*actualStream(ports[i].h_outflow);
          port_b_mXi_flow_bottom[i,:] = ports[i].m_flow*actualStream(ports[i].Xi_outflow);
          port_b_mC_flow_bottom[i,:]  = ports[i].m_flow*actualStream(ports[i].C_outflow);
-         aboveLevel[i] = level >= (portsData_height2[i] + ports_emptyPipeHysteresis[i])
-                         or pre(aboveLevel[i]) and level >= (portsData_height2[i] - ports_emptyPipeHysteresis[i]);
-         levelAbovePort[i] = if aboveLevel[i] then level - portsData_height2[i] else 0;
-         ports[i].h_outflow = medium.h;
-         ports[i].Xi_outflow = medium.Xi;
+          aboveLevel[i] = level >= (portsData_height2[i] + ports_emptyPipeHysteresis[i])
+                          or pre(aboveLevel[i]) and level >= (portsData_height2[i] - ports_emptyPipeHysteresis[i]);
+          levelAbovePort[i] = if aboveLevel[i] then level - portsData_height2[i] else 0;
+          ports[i].h_outflow = medium.h;
+          // <Hot fix>
+          // Normally, the following line should read
+          //   ports[i].Xi_outflow = medium.Xi;
+          // In some Modelica tools, this produces an error however. Instead of wating
+          // for bug fixes for all tools, Modelica Association decided to include a
+          // simple reformulation to avoid this problem.
+          for j in 1:Medium.nXi loop
+             ports[i].Xi_outflow[j] = medium.Xi[j];
+          end for;
+          // </Hot fix>
          ports[i].C_outflow  = C;
 
          if stiffCharacteristicForEmptyPort then
             // If port is above fluid level, use large zeta if fluid flows out of port (= small mass flow rate)
-            zetas_out[i] = 1 + (if aboveLevel[i] then 0 else zetaLarge);
-            ports[i].p = p_ambient + levelAbovePort[i]*system.g*medium.d
-                                 + Modelica.Fluid.Utilities.regSquare2(ports[i].m_flow, m_flow_small,
-                                       lossConstant_D_zeta(portsData_diameter2[i], 0.01)/medium.d,
-                                       lossConstant_D_zeta(portsData_diameter2[i], zetas_out[i])/medium.d);
-            ports_m_flow_out[i] = false;
+             zetas_out[i] = 1 + (if aboveLevel[i] then 0 else zetaLarge);
+             ports[i].p = p_ambient + levelAbovePort[i]*system.g*medium.d
+                                  + Modelica.Fluid.Utilities.regSquare2(ports[i].m_flow, m_flow_small,
+                                        lossConstant_D_zeta(portsData_diameter2[i], 0.01)/medium.d,
+                                        lossConstant_D_zeta(portsData_diameter2[i], zetas_out[i])/medium.d);
+             ports_m_flow_out[i] = false;
 
          else
-            // Handling according to Remelhe/Poschlad
-            ports_m_flow_out[i] = (pre(ports_m_flow_out[i]) and not ports[i].p>p_ambient)
-                                       or ports[i].m_flow < -1e-6;
-           if aboveLevel[i] then
-               ports[i].p = p_ambient + levelAbovePort[i]*system.g*medium.d -
-                                 smooth(2,noEvent(if ports[i].m_flow < 0 then ports[i].m_flow^2/
-                                       (2*medium.d*bottomArea[i]^2) else 0));
-           else
-              if pre(ports_m_flow_out[i]) then
-                 ports[i].m_flow = 0;
-              else
-                 ports[i].p = p_ambient;
-              end if;
-           end if;
-            zetas_out[i] =0;
+             // Handling according to Remelhe/Poschlad
+             ports_m_flow_out[i] = (pre(ports_m_flow_out[i]) and not ports[i].p>p_ambient)
+                                        or ports[i].m_flow < -1e-6;
+            if aboveLevel[i] then
+                ports[i].p = p_ambient + levelAbovePort[i]*system.g*medium.d -
+                                  smooth(2,noEvent(if ports[i].m_flow < 0 then ports[i].m_flow^2/
+                                        (2*medium.d*bottomArea[i]^2) else 0));
+            else
+               if pre(ports_m_flow_out[i]) then
+                  ports[i].m_flow = 0;
+               else
+                  ports[i].p = p_ambient;
+               end if;
+            end if;
+             zetas_out[i] =0;
          end if;
        end for;
 
