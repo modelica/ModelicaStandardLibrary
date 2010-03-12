@@ -2406,14 +2406,14 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
               rotation=0)));
       Machines.Sensors.VoltageQuasiRMSSensor voltageQuasiRMSSensorS
         annotation (Placement(transformation(
-            origin={-40,-10},
+            origin={-50,-30},
             extent={{-10,10},{10,-10}},
-            rotation=270)));
+            rotation=180)));
       Modelica.Electrical.MultiPhase.Basic.Delta deltaS
         annotation (Placement(transformation(
-            origin={-40,-30},
+            origin={-50,-10},
             extent={{-10,-10},{10,10}},
-            rotation=270)));
+            rotation=0)));
       Modelica.Electrical.Analog.Basic.Resistor earth(R=1e6)
         annotation (Placement(transformation(
             origin={0,-40},
@@ -2424,14 +2424,14 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
               rotation=0)));
       Machines.Sensors.VoltageQuasiRMSSensor voltageRMSSensorL
         annotation (Placement(transformation(
-            origin={40,-10},
+            origin={50,-30},
             extent={{-10,-10},{10,10}},
-            rotation=270)));
+            rotation=0)));
       Modelica.Electrical.MultiPhase.Basic.Delta deltaL
         annotation (Placement(transformation(
-            origin={40,-30},
+            origin={50,-10},
             extent={{-10,10},{10,-10}},
-            rotation=270)));
+            rotation=180)));
       Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensorL
         annotation (Placement(transformation(extent={{40,20},{60,0}}, rotation=
                 0)));
@@ -2487,24 +2487,8 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
       connect(electricalPowerSensorL.plug_ni, load.plug_p)
         annotation (Line(points={{90,10},{90,-1.77636e-015}},
                                                   color={0,0,255}));
-      connect(currentQuasiRMSSensorS.plug_n, voltageQuasiRMSSensorS.plug_p)
-        annotation (Line(points={{-40,10},{-40,-1.77636e-015}},
-                                                    color={0,0,255}));
-      connect(currentQuasiRMSSensorL.plug_p, voltageRMSSensorL.plug_p)
-        annotation (Line(points={{40,10},{40,0}}, color={0,0,255}));
       connect(electricalPowerSensorL.plug_nv, starL.plug_p)
         annotation (Line(points={{80,0},{80,-30},{90,-30}}, color={0,0,255}));
-      connect(voltageQuasiRMSSensorS.plug_n, deltaS.plug_p)
-        annotation (Line(points={{-40,-20},{-40,-20}}, color={0,0,255}));
-      connect(deltaL.plug_p, voltageRMSSensorL.plug_n)
-        annotation (Line(points={{40,-20},{40,-20}}, color={0,0,255}));
-      connect(deltaS.plug_n, voltageQuasiRMSSensorS.plug_p)
-        annotation (Line(points={{-40,-40},{-50,-40},{-50,-1.77636e-015},{-40,
-              -1.77636e-015}},                                         color={0,
-              0,255}));
-      connect(deltaL.plug_n, voltageRMSSensorL.plug_p)
-        annotation (Line(points={{40,-40},{50,-40},{50,0},{40,0}}, color={0,0,
-              255}));
       connect(currentQuasiRMSSensorS.plug_n, transformer.plug1)
                                                            annotation (Line(
           points={{-40,10},{-20,10}},
@@ -2513,6 +2497,30 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
       connect(transformer.plug2, currentQuasiRMSSensorL.plug_p)
                                                            annotation (Line(
           points={{20,10},{40,10}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(deltaS.plug_p, voltageQuasiRMSSensorS.plug_n) annotation (Line(
+          points={{-60,-10},{-60,-30}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(deltaS.plug_n, voltageQuasiRMSSensorS.plug_p) annotation (Line(
+          points={{-40,-10},{-40,-30}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(currentQuasiRMSSensorS.plug_n, deltaS.plug_n) annotation (Line(
+          points={{-40,10},{-40,-10}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(currentQuasiRMSSensorL.plug_p, deltaL.plug_n) annotation (Line(
+          points={{40,10},{40,-10}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(deltaL.plug_n, voltageRMSSensorL.plug_p) annotation (Line(
+          points={{40,-10},{40,-30},{40,-30}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(deltaL.plug_p, voltageRMSSensorL.plug_n) annotation (Line(
+          points={{60,-10},{60,-30}},
           color={0,0,255},
           smooth=Smooth.None));
       annotation (Documentation(info="<HTML>
