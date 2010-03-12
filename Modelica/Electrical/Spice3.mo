@@ -1452,7 +1452,6 @@ extends Modelica.Icons.Library2;
               textString="%name")}),
         experiment(StopTime=0.025),
         experimentSetupOutput,
-        uses(                     Modelica(version="3.1"), Spice3(version="1")),
         Documentation(info="<html>
 <p>The oscillator circuit demonstrates the usage of BJT transistors.</p>
 <p><br/>Simulate until 0.025 s. Display v.p.v, which is rising until 5 V. Furthermore display r4.p.v, which starts oscillating.</p>
@@ -8445,7 +8444,5 @@ annotation(preferedView="info", Window(
 <li><i>15th October 2008 </i>by Kristin Majetta <br/>minor errors fixed in L_Inductor, I_Pulse and SpiceRoot</li>
 <li><i>April, 2008 </i>by Sandra Boehme <br/>initially implemented<br/></li>
 </ul></p>
-</html>"),
-    uses(Modelica(version="3.1")),
-    version="1");
+</html>"));
 end Spice3;
