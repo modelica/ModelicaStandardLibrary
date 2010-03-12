@@ -236,8 +236,7 @@ extends Modelica.Icons.Library2;
 <li><i>Feb 2010 </i>by Kristin Majetta initially written</li>
 </ul></p>
 </html>"),  Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-              {100,100}}), graphics),
-      uses(Modelica(version="3.1")));
+              {100,100}}), graphics));
   end UsersGuide;
 
   package Examples "Example circuits"
@@ -4938,7 +4937,7 @@ VN- -&GT; name.pc[N-1]
         constant Real REFTEMP =    300.15;  /* 27 degrees C */
 
         constant Real CONSTroot2 =  sqrt(2.0);
-        constant Real CONSTvt0 =    CONSTboltz * (27 + CONSTCtoK)  / CHARGE; // deg c
+        constant Real CONSTvt0 =    CONSTboltz * (27 + CONSTCtoK)  / CHARGE; // deg C
         constant Real CONSTKoverQ = CONSTboltz / CHARGE;
         constant Real CONSTe =      exp(1.0);
 
