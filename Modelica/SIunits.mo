@@ -324,7 +324,7 @@ still kept in Modelica.SIunits.</p>
       output NonSIunits.Temperature_degC Celsius "Celsius value";
     algorithm
       Celsius := Kelvin + Modelica.Constants.T_zero;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
@@ -339,8 +339,12 @@ still kept in Modelica.SIunits.</p>
       input NonSIunits.Temperature_degC Celsius "Celsius value";
       output Temperature Kelvin "Kelvin value";
     algorithm
-      Kelvin := Celsius - Modelica.Constants.T_zero;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      /* Due to a bug in the code generation of a Modelica tool, the
+     following statement is replaced by a literal value of T_zero
+    Kelvin := Celsius - Modelica.Constants.T_zero;
+  */
+      Kelvin := Celsius + 273.15;
+      annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
@@ -356,7 +360,7 @@ still kept in Modelica.SIunits.</p>
       output NonSIunits.Temperature_degF Fahrenheit "Fahrenheit value";
     algorithm
       Fahrenheit := (Kelvin + Modelica.Constants.T_zero)*(9/5) + 32;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
@@ -372,7 +376,7 @@ still kept in Modelica.SIunits.</p>
       output Temperature Kelvin "Kelvin value";
     algorithm
       Kelvin := (Fahrenheit - 32)*(5/9) - Modelica.Constants.T_zero;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
@@ -388,7 +392,7 @@ still kept in Modelica.SIunits.</p>
       output NonSIunits.Temperature_degRk Rankine "Rankine value";
     algorithm
       Rankine := (9/5)*Kelvin;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
@@ -404,7 +408,7 @@ still kept in Modelica.SIunits.</p>
       output Temperature Kelvin "Kelvin value";
     algorithm
       Kelvin := (5/9)*Rankine;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
@@ -420,7 +424,7 @@ still kept in Modelica.SIunits.</p>
       output NonSIunits.Angle_deg degree "degree value";
     algorithm
       degree := (180.0/Modelica.Constants.pi)*radian;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
@@ -436,7 +440,7 @@ still kept in Modelica.SIunits.</p>
       output Angle radian "radian value";
     algorithm
       radian := (Modelica.Constants.pi/180.0)*degree;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
@@ -452,7 +456,7 @@ still kept in Modelica.SIunits.</p>
       output NonSIunits.AngularVelocity_rpm rpm "revolutions per minute value";
     algorithm
       rpm := (30/Modelica.Constants.pi)*rs;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
@@ -469,7 +473,7 @@ still kept in Modelica.SIunits.</p>
       output AngularVelocity rs "radian per second value";
     algorithm
       rs := (Modelica.Constants.pi/30)*rpm;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
@@ -485,7 +489,7 @@ still kept in Modelica.SIunits.</p>
       output NonSIunits.Velocity_kmh kmh "kilometre per hour value";
     algorithm
       kmh := 3.6*ms;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
@@ -501,7 +505,7 @@ still kept in Modelica.SIunits.</p>
       output Velocity ms "metre per second value";
     algorithm
       ms := kmh/3.6;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
@@ -517,7 +521,7 @@ still kept in Modelica.SIunits.</p>
       output NonSIunits.Time_day day "day value";
     algorithm
       day := s/86400;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
@@ -533,7 +537,7 @@ still kept in Modelica.SIunits.</p>
       output Time s "second value";
     algorithm
       s := 86400*day;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
@@ -549,7 +553,7 @@ still kept in Modelica.SIunits.</p>
       output NonSIunits.Time_hour hour "hour value";
     algorithm
       hour := s/3600;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
@@ -565,7 +569,7 @@ still kept in Modelica.SIunits.</p>
       output Time s "second value";
     algorithm
       s := 3600*hour;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
@@ -581,7 +585,7 @@ still kept in Modelica.SIunits.</p>
       output NonSIunits.Time_minute minute "minute value";
     algorithm
       minute := s/60;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
@@ -597,7 +601,7 @@ still kept in Modelica.SIunits.</p>
       output Time s "second value";
     algorithm
       s := 60*minute;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
@@ -613,7 +617,7 @@ still kept in Modelica.SIunits.</p>
       output NonSIunits.Volume_litre litre "litre value";
     algorithm
       litre := 1000*m3;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
@@ -629,7 +633,7 @@ still kept in Modelica.SIunits.</p>
       output Volume m3 "cubic metre value";
     algorithm
       m3 := litre/1000;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
@@ -645,7 +649,7 @@ still kept in Modelica.SIunits.</p>
       output NonSIunits.Energy_kWh kWh "kWh value";
     algorithm
       kWh := J/3.6e6;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
@@ -661,7 +665,7 @@ still kept in Modelica.SIunits.</p>
       output Energy J "Joule value";
     algorithm
       J := 3.6e6*kWh;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
@@ -677,7 +681,7 @@ still kept in Modelica.SIunits.</p>
       output NonSIunits.Pressure_bar bar "bar value";
     algorithm
       bar := Pa/1e5;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
@@ -693,7 +697,7 @@ still kept in Modelica.SIunits.</p>
       output Pressure Pa "Pascal value";
     algorithm
       Pa := 1e5*bar;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
@@ -709,7 +713,7 @@ still kept in Modelica.SIunits.</p>
       output NonSIunits.MassFlowRate_gps gps "g/s value";
     algorithm
       gps := 1000*kgps;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
@@ -725,7 +729,7 @@ still kept in Modelica.SIunits.</p>
       output MassFlowRate kgps "kg/s value";
     algorithm
       kgps := gps/1000;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
@@ -762,7 +766,7 @@ still kept in Modelica.SIunits.</p>
 
     algorithm
       w := 2*Modelica.Constants.pi*f;
-      annotation (Icon(graphics={Text(
+      annotation (Inline=true,Icon(graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
               textString="Hz"), Text(
@@ -777,7 +781,7 @@ still kept in Modelica.SIunits.</p>
       output SIunits.Frequency f "frequency";
     algorithm
       f := w/(2*Modelica.Constants.pi);
-      annotation (Icon(graphics={Text(
+      annotation (Inline=true,Icon(graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
               textString="1/s"), Text(
@@ -792,7 +796,7 @@ still kept in Modelica.SIunits.</p>
       output NonSIunits.Area_cm cm2 "square centimetre value";
     algorithm
       cm2 := 0.0001*m2;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
@@ -808,7 +812,7 @@ still kept in Modelica.SIunits.</p>
       output Area m2 "square metre value";
     algorithm
       m2 :=10000*cm2;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
