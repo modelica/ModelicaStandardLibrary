@@ -4262,7 +4262,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 </p>
 </html>", info="<html>
 <p>
-Copyright (C) 2009-2010, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Christian Kral</a> and
+Copyright &copy; 2009-2010, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Christian Kral</a> and
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Anton Haumer</a>
 </p>
 
