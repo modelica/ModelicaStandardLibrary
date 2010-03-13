@@ -36,7 +36,7 @@ Christoph Clau&szlig;
 
 
 <p>
-Copyright &copy; 1998-2009, Modelica Association and Fraunhofer-Gesellschaft.
+Copyright &copy; 1998-2010, Modelica Association and Fraunhofer-Gesellschaft.
 </p>
 <p>
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified

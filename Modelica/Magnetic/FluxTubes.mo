@@ -4819,7 +4819,7 @@ This library contains components for modelling of electromagnetic devices with l
 </p>
 
 <p>
-Copyright &copy; 2005-2009, Thomas B&ouml;drich.
+Copyright &copy; 2005-2010, Thomas B&ouml;drich.
 </p>
 <p>
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified

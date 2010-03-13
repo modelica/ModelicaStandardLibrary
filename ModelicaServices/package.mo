@@ -34,7 +34,7 @@ Sweden<br>
 email: Board@Modelica.org<br>
 web&nbsp; : http://www.Modelica.org</p>
 <p style=\"margin-left: 40px;\"><b>Copyright notices of the files:</b></p>
-<div style=\"margin-left: 40px;\">Copyright &copy; 1998-2009,
+<div style=\"margin-left: 40px;\">Copyright &copy; 1998-2010,
 DLR, Dynasim.<br>
 </div>
 <br>

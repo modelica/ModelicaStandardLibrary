@@ -2733,7 +2733,7 @@ Christoph Clau&szlig;
 <dt>
 <b>Copyright:</b>
 <dd>
-Copyright &copy; 1998-2006, Modelica Association and Fraunhofer-Gesellschaft.<br>
+Copyright &copy; 1998-2010, Modelica Association and Fraunhofer-Gesellschaft.<br>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> in the documentation of package

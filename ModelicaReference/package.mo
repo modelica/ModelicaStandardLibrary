@@ -5510,7 +5510,7 @@ operators and is based on the
 </dl>
 
 <p>
-<b>Copyright &copy; 2003-2004, 2008 Modelica Association and DLR.</b>
+<b>Copyright &copy; 2003-2010, 2008 Modelica Association and DLR.</b>
 </p>
 <p>
 <i>The <b>ModelicaReference</b> package is <b>free</b> software;

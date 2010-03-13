@@ -1190,7 +1190,7 @@ This package contains utility components used for the test examples.<br>
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2009, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and arsenal research.
 </p>
 <p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -1236,7 +1236,7 @@ This package contains test examples:
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2009, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and arsenal research.
 </p>
 <p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -1450,7 +1450,7 @@ Thermodynamic equations are defined in partial models (package Partials).<br>
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2009, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and arsenal research.
 </p>
 <p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -1559,7 +1559,7 @@ This package contains definitions of medium properties.<br>
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2009, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and arsenal research.
 </p>
 <p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -1883,7 +1883,7 @@ All fans / pumps are considered without losses, they do not change enthalpy flow
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2009, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and arsenal research.
 </p>
 <p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -2071,7 +2071,7 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2009, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and arsenal research.
 </p>
 <p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -2559,7 +2559,7 @@ This package contains partial models, defining in a very compact way the basic t
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2009, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and arsenal research.
 </p>
 <p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -2618,7 +2618,7 @@ This package contains connectors and partial models:
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2009, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and arsenal research.
 </p>
 <p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified

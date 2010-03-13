@@ -6369,7 +6369,7 @@ it must be connected, and if it is not enabled, it must not be connected.
 </p>
 
 <p>
-Copyright &copy; 1998-2009, Modelica Association and DLR.
+Copyright &copy; 1998-2010, Modelica Association and DLR.
 </p>
 <p>
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified

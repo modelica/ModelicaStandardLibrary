@@ -193,7 +193,7 @@ The following main sublibraries are available:
 </ul>
 
 <p>
-Copyright &copy; 1998-2009, Modelica Association, DLR and Dynasim.
+Copyright &copy; 1998-2010, Modelica Association, DLR and Dynasim.
 </p>
 <p>
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified

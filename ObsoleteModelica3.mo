@@ -3711,7 +3711,7 @@ marked in the icon layer with a red box.
 </p>
 
 <p>
-Copyright &copy; 2007-2009, Modelica Association.
+Copyright &copy; 2007-2010, Modelica Association.
 </p>
 <p>
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified

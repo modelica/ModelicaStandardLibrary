@@ -513,7 +513,7 @@ may have the following notices:</P>
 
 <table border=\"0\"><tr><td>&nbsp;&nbsp;&nbsp;</td><td>
 Licensed by Modelica Association under the Modelica License 2<br>
-Copyright &copy; 1998-2008, Modelica Association.
+Copyright &copy; 1998-2010, Modelica Association.
 </td></tr></table>
 
 <table border=\"0\"><tr><td>&nbsp;&nbsp;&nbsp;</td><td>
