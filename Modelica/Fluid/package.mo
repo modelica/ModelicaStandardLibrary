@@ -1748,24 +1748,12 @@ The following parts are useful, when newly starting with this library:
 <li> <a href=\"modelica://Modelica.Fluid.Examples\">Modelica.Fluid.Examples</a>
      contains examples that demonstrate the usage of this library.</li>
 </ul>
-
-
 <p>
 <b>Licensed by the Modelica Association under the Modelica License 2</b><br>
 Copyright &copy; 2002-2010, ABB, DLR, Dynasim, Modelon, TU Braunschweig, TU Hamburg-Harburg, Politecnico di Milano.
 </p>
-
 <p>
-<i>This Modelica package is <u>free</u> software and
-the use is completely at <u>your own risk</u>;
-it can be redistributed and/or modified under the terms of the
-Modelica license 2, see the license conditions (including the
-disclaimer of warranty)
-<a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a></u>
-or at
-<a href=\"http://www.Modelica.org/licenses/ModelicaLicense2\">
-http://www.Modelica.org/licenses/ModelicaLicense2</a>.</i>
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
-
 </html>"));
 end Fluid;

@@ -1192,11 +1192,9 @@ This package contains utility components used for the test examples.<br>
 <p>
 Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and arsenal research.
 </p>
+
 <p>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b>
-<a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
 </HTML>", revisions="<HTML>
   <ul>
@@ -1238,11 +1236,9 @@ This package contains test examples:
 <p>
 Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and arsenal research.
 </p>
+
 <p>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b>
-<a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
 </HTML>", revisions="<HTML>
   <ul>
@@ -1453,10 +1449,7 @@ Thermodynamic equations are defined in partial models (package Partials).<br>
 Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and arsenal research.
 </p>
 <p>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b>
-<a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
 </HTML>", revisions="<HTML>
   <ul>
@@ -1562,10 +1555,7 @@ This package contains definitions of medium properties.<br>
 Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and arsenal research.
 </p>
 <p>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b>
-<a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
 </HTML>", revisions="<HTML>
   <ul>
@@ -1886,10 +1876,7 @@ All fans / pumps are considered without losses, they do not change enthalpy flow
 Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and arsenal research.
 </p>
 <p>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b>
-<a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
 </HTML>", revisions="<HTML>
   <ul>
@@ -2074,10 +2061,7 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
 Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and arsenal research.
 </p>
 <p>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b>
-<a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
 </HTML>", revisions="<HTML>
   <ul>
@@ -2562,10 +2546,7 @@ This package contains partial models, defining in a very compact way the basic t
 Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and arsenal research.
 </p>
 <p>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b>
-<a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
 </HTML>",revisions="<HTML>
   <ul>
@@ -2621,10 +2602,7 @@ This package contains connectors and partial models:
 Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and arsenal research.
 </p>
 <p>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b>
-<a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
 </HTML>", revisions="<HTML>
   <ul>
@@ -2711,10 +2689,7 @@ Outlet temperature is defined by variable T of the corresponding component.</li>
 Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and AIT.
 </p>
 <p>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b>
-<a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
 </HTML>", revisions="<HTML>
   <ul>

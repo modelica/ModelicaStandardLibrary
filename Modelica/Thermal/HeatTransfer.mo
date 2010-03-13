@@ -2894,12 +2894,10 @@ Hubertus Tummescheit, Lund Institute of Technology, Lund, Sweden.
   </dd>
 </dl>
 <p><b>Copyright &copy; 2001-2010, Modelica Association, Michael Tiller and DLR.</b></p>
-<p><i>
-This Modelica package is free software; it can be redistributed and/or modified
-under the terms of the Modelica license, see the license conditions
-and the accompanying disclaimer in the documentation of package
-Modelica in file \"Modelica/package.mo\".
-</i></p>
+
+<p>
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+</p>
 </HTML>
 ", revisions="<html>
 <ul>

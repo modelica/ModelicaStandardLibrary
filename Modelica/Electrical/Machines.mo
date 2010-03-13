@@ -6985,11 +6985,9 @@ even though the source's and/or load's starpoint are grounded; you may use a rea
 <p>
 Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.
 </p>
+
 <p>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b>
-<a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
 </HTML>",     revisions="<HTML>
   <ul>
@@ -12082,10 +12080,7 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
 Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and AIT.
 </p>
 <p>
-<i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b>
-<a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a>.</i>
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
 </HTML>", revisions="<HTML>
   <ul>

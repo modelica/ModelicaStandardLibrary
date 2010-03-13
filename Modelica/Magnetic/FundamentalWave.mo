@@ -4265,16 +4265,8 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 Copyright &copy; 2009-2010, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Christian Kral</a> and
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Anton Haumer</a>
 </p>
-
 <p>
-<i>This Modelica package is <b>free</b> software and
-the use is completely at <b>your own risk</b>;
-it can be redistributed and/or modified under the terms of the
-Modelica license 2, see the
-<a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">license conditions</a>
-(including the disclaimer of warranty) or at
-<a href=\"http://www.Modelica.org/licenses/ModelicaLicense2\">
-http://www.Modelica.org/licenses/ModelicaLicense2</a>.</i>
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
 </html>"));
 end FundamentalWave;
