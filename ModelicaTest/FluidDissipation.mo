@@ -5,11 +5,11 @@ extends Modelica.Icons.Library;
 
   package Verifications
     "verification package of heat transfer and pressure loss correlations"
-  extends Modelica.Fluid.Dissipation.Utilities.Icons.ExamplesLibrary;
+  extends Modelica.Icons.Example;
     package HeatTransfer "Verification package for heat transfer functions"
-    extends Modelica.Fluid.Dissipation.Utilities.Icons.ExamplesLibrary;
+    extends Modelica.Icons.Example;
       package Channel "Verification package for channel correlations"
-      extends Modelica.Fluid.Dissipation.Utilities.Icons.ExamplesLibrary;
+      extends Modelica.Icons.Example;
         model kc_evenGapLaminar "Verification of function kc_evenGapLaminar"
 
           parameter Integer n=size(cp, 1);
@@ -1009,7 +1009,7 @@ extends Modelica.Icons.Library;
       end Channel;
 
       package General "Verification package for general correlations"
-      extends Modelica.Fluid.Dissipation.Utilities.Icons.ExamplesLibrary;
+      extends Modelica.Icons.Example;
         model kc_approxForcedConvection
           "Verification of function kc_approxForcedConvection"
           parameter Integer n=size(cp, 1);
@@ -1284,7 +1284,7 @@ extends Modelica.Icons.Library;
 
       package HeatExchanger
         "Verification package for heat exchanger correlations"
-      extends Modelica.Fluid.Dissipation.Utilities.Icons.ExamplesLibrary;
+      extends Modelica.Icons.Example;
 
         model kc_flatTube "Verification of function kc_flatTube"
 
@@ -1978,7 +1978,7 @@ extends Modelica.Icons.Library;
       end HeatExchanger;
 
       package HelicalPipe "Verification package for helical pipe correlations"
-      extends Modelica.Fluid.Dissipation.Utilities.Icons.ExamplesLibrary;
+      extends Modelica.Icons.Example;
         model kc_laminar "Verification of function kc_laminar"
 
           parameter Integer n=size(cp, 1);
@@ -2860,7 +2860,7 @@ extends Modelica.Icons.Library;
       end HelicalPipe;
 
       package Plate "Verification models for plate heat transfer"
-      extends Modelica.Fluid.Dissipation.Utilities.Icons.ExamplesLibrary;
+      extends Modelica.Icons.Example;
         model kc_laminar "Verification of function kc_laminar"
 
           parameter Integer n=size(cp, 1);
@@ -3365,7 +3365,7 @@ extends Modelica.Icons.Library;
 
       package StraightPipe
         "Verification package for straight pipe correlations"
-      extends Modelica.Fluid.Dissipation.Utilities.Icons.ExamplesLibrary;
+      extends Modelica.Icons.Example;
         model kc_laminar "Verification of function kc_laminar"
 
           parameter Integer n=size(cp, 1);
@@ -4507,9 +4507,9 @@ extends Modelica.Icons.Library;
     end HeatTransfer;
 
     package PressureLoss "Verification package for pressure loss functions"
-    extends Modelica.Fluid.Dissipation.Utilities.Icons.ExamplesLibrary;
+    extends Modelica.Icons.Example;
       package Bend
-      extends Modelica.Fluid.Dissipation.Utilities.Icons.ExamplesLibrary;
+      extends Modelica.Icons.Example;
         model dp_curvedOverall "Verification of function dp_curvedOverall"
           parameter Integer n=size(R_0, 1)
             "Number of different relative curvature radii of bend";
@@ -5171,7 +5171,7 @@ extends Modelica.Icons.Library;
       end Bend;
 
       package Channel
-      extends Modelica.Fluid.Dissipation.Utilities.Icons.ExamplesLibrary;
+      extends Modelica.Icons.Example;
         model dp_internalFlowOverall
           "Verification of function dp_internalFlowOverall_DP AND dp_internalFlowOverall_MFLOW"
 
@@ -5540,7 +5540,7 @@ extends Modelica.Icons.Library;
       end Channel;
 
       package General
-      extends Modelica.Fluid.Dissipation.Utilities.Icons.ExamplesLibrary;
+      extends Modelica.Icons.Example;
         model dp_idealGas "Verification of function dp_idealGas"
 
           parameter Integer n=size(dp_nom, 1);
@@ -6850,7 +6850,7 @@ extends Modelica.Icons.Library;
       end General;
 
       package Orifice
-      extends Modelica.Fluid.Dissipation.Utilities.Icons.ExamplesLibrary;
+      extends Modelica.Icons.Example;
 
         model dp_suddenChange
           "Verification of function dp_suddenChange_DP AND dp_suddenChange_MFLOW"
@@ -7419,7 +7419,7 @@ extends Modelica.Icons.Library;
       end Orifice;
 
       package StraightPipe
-      extends Modelica.Fluid.Dissipation.Utilities.Icons.ExamplesLibrary;
+      extends Modelica.Icons.Example;
         model dp_laminar "Verification of function dp_laminar"
 
           constant Real MIN=Modelica.Constants.eps;
@@ -8386,7 +8386,7 @@ extends Modelica.Icons.Library;
       end StraightPipe;
 
       package Valve "Verification of valve functions"
-      extends Modelica.Fluid.Dissipation.Utilities.Icons.ExamplesLibrary;
+      extends Modelica.Icons.Example;
         model dp_severalGeometryOverall_DPMFLOW
           "Verification of function dp_severalGeometryOverall_DP AND dp_severalGeometryOverall_MFLOW"
 
@@ -8640,7 +8640,7 @@ extends Modelica.Icons.Library;
   end Verifications;
 
   package TestCases "package for implemented test cases ready for simulation"
-  extends Modelica.Fluid.Dissipation.Utilities.Icons.ExamplesLibrary;
+  extends Modelica.Icons.Example;
 
     model EngineFeedingSystem "Test cases of an aircraft engine feeding system"
       import SI = Modelica.SIunits;
@@ -8940,7 +8940,7 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
 
     package HeatTransfer
       "Test package for heat transfer models implemented in Modelica.Fluid"
-    extends Modelica.Fluid.Dissipation.Utilities.Icons.VariantLibrary;
+    extends Modelica.Fluid.Icons.VariantLibrary;
 
       model Channel "Test case for heat transfer of channel"
         import SI = Modelica.SIunits;
@@ -9253,7 +9253,7 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
 
     package PressureLoss
       "Test package for pressure loss models implemented in Modelica.Fluid"
-    extends Modelica.Fluid.Dissipation.Utilities.Icons.VariantLibrary;
+    extends Modelica.Fluid.Icons.VariantLibrary;
 
       model Bend "Test cases of generic pressure loss functions"
 

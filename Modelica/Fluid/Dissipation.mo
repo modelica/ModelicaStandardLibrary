@@ -882,9 +882,9 @@ Initial release of Fluid.Dissipation.
   end UsersGuide;
 
   package HeatTransfer "Package for calculation of heat transfer"
-  extends Modelica.Fluid.Dissipation.Utilities.Icons.VariantLibrary;
+  extends Modelica.Fluid.Icons.VariantLibrary;
     package Channel
-    extends Modelica.Fluid.Dissipation.Utilities.Icons.VariantLibrary;
+    extends Modelica.Fluid.Icons.VariantLibrary;
 
       function kc_evenGapLaminar
         "Mean heat transfer coefficient of even gap | laminar flow regime | considering boundary layer development | heat transfer at ONE or BOTH sides | identical and constant wall temperatures"
@@ -2193,7 +2193,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
     end Channel;
 
     package General
-    extends Modelica.Fluid.Dissipation.Utilities.Icons.VariantLibrary;
+    extends Modelica.Fluid.Icons.VariantLibrary;
 
       function kc_approxForcedConvection
         "Mean convective heat transfer coefficient for forced convection | approximation | turbulent regime | hydrodynamically developed fluid flow"
@@ -2457,7 +2457,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
     end General;
 
     package HeatExchanger
-    extends Modelica.Fluid.Dissipation.Utilities.Icons.VariantLibrary;
+    extends Modelica.Fluid.Icons.VariantLibrary;
 
       function kc_flatTube
 
@@ -3249,7 +3249,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
     end HeatExchanger;
 
     package HelicalPipe
-    extends Modelica.Fluid.Dissipation.Utilities.Icons.VariantLibrary;
+    extends Modelica.Fluid.Icons.VariantLibrary;
 
       function kc_laminar
         "Mean heat transfer coefficient of helical pipe | laminar flow regime"
@@ -4342,7 +4342,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
     end HelicalPipe;
 
     package Plate
-    extends Modelica.Fluid.Dissipation.Utilities.Icons.VariantLibrary;
+    extends Modelica.Fluid.Icons.VariantLibrary;
 
       function kc_laminar
         "Mean heat transfer coefficient of plate | laminar regime"
@@ -5183,7 +5183,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
     end Plate;
 
     package StraightPipe
-    extends Modelica.Fluid.Dissipation.Utilities.Icons.VariantLibrary;
+    extends Modelica.Fluid.Icons.VariantLibrary;
 
       function kc_laminar
         "Mean heat transfer coefficient of straight pipe | uniform wall temperature or uniform heat flux | hydrodynamically developed or undeveloped laminar flow regime"
@@ -6628,10 +6628,10 @@ This record is used as <b> input record </b> for the heat transfer function <a h
   end HeatTransfer;
 
   package PressureLoss "Package for calculation of pressure loss"
-  extends Modelica.Fluid.Dissipation.Utilities.Icons.VariantLibrary;
+  extends Modelica.Fluid.Icons.VariantLibrary;
 
     package Bend "Package for pressure loss calculation of bends"
-    extends Modelica.Fluid.Dissipation.Utilities.Icons.VariantLibrary;
+    extends Modelica.Fluid.Icons.VariantLibrary;
 
       function dp_curvedOverall
         "Pressure loss of curved bend | overall flow regime | surface roughness"
@@ -8359,7 +8359,7 @@ This record is used as <b> input record </b> for the  pressure loss function <a 
     end Bend;
 
     package Channel "Package for pressure loss calculation of channels"
-    extends Modelica.Fluid.Dissipation.Utilities.Icons.VariantLibrary;
+    extends Modelica.Fluid.Icons.VariantLibrary;
 
       function dp_internalFlowOverall
         "Pressure loss of internal flow | overall flow regime | surface roughness | several geometries"
@@ -8941,7 +8941,7 @@ This record is used as <b> input record </b> for the pressure loss function <a h
     end Channel;
 
     package General "Package for generic pressure loss calculations"
-    extends Modelica.Fluid.Dissipation.Utilities.Icons.VariantLibrary;
+    extends Modelica.Fluid.Icons.VariantLibrary;
 
       function dp_idealGas "Generic pressure loss | ideal gas | mean density"
 
@@ -10869,7 +10869,7 @@ This record is used as <b> input record </b> for the pressure loss function <a h
 
     package HeatExchanger
       "Package for pressure loss calculation of heat exchangers"
-    extends Modelica.Fluid.Dissipation.Utilities.Icons.VariantLibrary;
+    extends Modelica.Fluid.Icons.VariantLibrary;
 
     annotation (preferedView="info", Documentation(info="<html>
 Note that the intention is to enhance the Fluid.Dissipation library by editing this package in future.
@@ -10877,7 +10877,7 @@ Note that the intention is to enhance the Fluid.Dissipation library by editing t
     end HeatExchanger;
 
     package Junction "Package for pressure loss calculation of junctions"
-    extends Modelica.Fluid.Dissipation.Utilities.Icons.VariantLibrary;
+    extends Modelica.Fluid.Icons.VariantLibrary;
 
     annotation (preferedView="info", Documentation(info="<html>
 Note that the intention is to enhance the Fluid.Dissipation library by editing this package in future.
@@ -10885,7 +10885,7 @@ Note that the intention is to enhance the Fluid.Dissipation library by editing t
     end Junction;
 
     package Orifice "Package for pressure loss calculation of orifices"
-    extends Modelica.Fluid.Dissipation.Utilities.Icons.VariantLibrary;
+    extends Modelica.Fluid.Icons.VariantLibrary;
 
       function dp_suddenChange
         "Pressure loss of orifice with sudden change in cross sectional area | turbulent flow regime | smooth surface | arbitrary cross sectional area | without buffles | sharp edge"
@@ -11947,7 +11947,7 @@ This record is used as <b> input record </b> for the pressure loss functions <a 
 
     package StraightPipe
       "Package for pressure loss calculation of straight pipes"
-    extends Modelica.Fluid.Dissipation.Utilities.Icons.VariantLibrary;
+    extends Modelica.Fluid.Icons.VariantLibrary;
 
       function dp_laminar
         "Pressure loss of straight pipe | laminar flow regime (Hagen-Poiseuille)"
@@ -13976,7 +13976,7 @@ This record is used as <b> input record </b> for the pressure loss function <a h
     end StraightPipe;
 
     package Valve "Package for pressure loss calculation of valves"
-    extends Modelica.Fluid.Dissipation.Utilities.Icons.VariantLibrary;
+    extends Modelica.Fluid.Icons.VariantLibrary;
 
       function dp_severalGeometryOverall
         "Pressure loss of internal flow | overall flow regime | surface roughness | several geometries"
@@ -14909,8 +14909,9 @@ This record is used as <b> input record </b> for the pressure loss function <a h
     package Functions "Package for utility functions"
     extends Modelica.Icons.Library;
 
-      package PressureLoss
+      package PressureLoss "Package for utility pressure loss functions"
         package TwoPhase
+          "Package with utility functions to compute two phase pressure loss characteristics"
 
           function dp_twoPhaseChisholm_DP
             "Frictional pressure loss of straight pipe for two phase flow according to Chisholm correlation | calculate pressure loss | overall flow regime"
@@ -15582,9 +15583,10 @@ The heterogeneous approaches are analytically derived by minimising the momentum
         end TwoPhase;
       end PressureLoss;
 
-      package HeatTransfer
+      package HeatTransfer "Package for utility heat transfer functions"
 
         package TwoPhase
+          "Package with utility functions to compute two phase heat transfer characteristics"
 
           function kc_twoPhase_condensationHorizontal_KC
             "Local two phase heat transfer coefficient of straight pipe | horizontal condensation"
@@ -16157,127 +16159,13 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
       end General;
     end Functions;
 
-    package Icons
+    package Icons "Icons for Fluid.Dissipation and Fluid.Fittings libraries"
     extends Modelica.Icons.Library;
-      partial package BaseLibrary "Icon for a base library"
-        annotation (Icon(coordinateSystem(
-              preserveAspectRatio=false,
-              extent={{-100,-100},{100,100}},
-              grid={1,1}), graphics={
-              Rectangle(
-                extent={{-100,-100},{80,50}},
-                lineColor={175,175,175},
-                fillColor={235,255,253},
-                fillPattern=FillPattern.Solid),
-              Polygon(
-                points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}},
-                lineColor={175,175,175},
-                fillColor={235,255,253},
-                fillPattern=FillPattern.Solid),
-              Polygon(
-                points={{100,70},{100,-80},{80,-100},{80,50},{100,70}},
-                lineColor={175,175,175},
-                fillColor={235,255,253},
-                fillPattern=FillPattern.Solid),
-              Text(
-                extent={{-94,15},{73,-16}},
-                lineColor={0,0,255},
-                textString="Library of"),
-              Text(
-                extent={{-120,122},{120,73}},
-                lineColor={255,0,0},
-                textString="%name"),
-              Text(
-                extent={{-92,-44},{73,-72}},
-                lineColor={0,0,255},
-                textString="Base classes")}));
-      end BaseLibrary;
-
-      partial package Dumpster
-        annotation (Icon(
-            Ellipse(extent=[-60, -40; 60, -80], style(
-                color=10,
-                rgbcolor={135,135,135},
-                fillColor=30,
-                rgbfillColor={215,215,215})),
-            Rectangle(extent=[-60, 60; 60, -60], style(
-                pattern=0,
-                fillColor=30,
-                rgbfillColor={215,215,215},
-                fillPattern=1)),
-            Ellipse(extent=[-60, 80; 60, 40], style(
-                color=30,
-                rgbcolor={215,215,215},
-                fillColor=10,
-                rgbfillColor={135,135,135},
-                fillPattern=1)),
-            Line(points=[-60, 60; -60, -60; -60, 60], style(
-                color=10,
-                rgbcolor={135,135,135},
-                fillColor=10,
-                rgbfillColor={135,135,135},
-                fillPattern=1)),
-            Line(points=[60, 60; 60, -60; 60, 60], style(
-                color=10,
-                rgbcolor={135,135,135},
-                fillColor=10,
-                rgbfillColor={135,135,135},
-                fillPattern=1)),
-            Text(
-              extent=[-75, 45; 75, -75],
-              style(color=3),
-              string="Dump")));
-      end Dumpster;
-
-      partial package Enumeration "package icon for enumerations workaround"
-        annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics={Text(
-                extent={{-140,162},{136,102}},
-                textString="%name",
-                lineColor={0,0,255}),Ellipse(
-                extent={{-100,100},{100,-100}},
-                lineColor={255,127,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),Text(
-                extent={{-100,112},{100,-88}},
-                lineColor={255,127,0},
-                textString="e")}));
-      end Enumeration;
-
-      partial package ExamplesLibrary "Icon for an examples library"
-        annotation (Icon(
-            Rectangle(extent=[-100, -90; 80, 60], style(
-                color=10,
-                rgbcolor={0,0,255},
-                fillColor=30,
-                rgbfillColor={255,255,255},
-                fillPattern=1)),
-            Polygon(points=[-100, 60; -80, 80; 100, 80; 80, 60; -100, 60], style(
-                color=10,
-                rgbcolor={0,0,255},
-                fillColor=30,
-                rgbfillColor={255,255,255},
-                fillPattern=1)),
-            Polygon(points=[100, 80; 100, -70; 80, -90; 80, 60; 100, 80], style(
-                color=10,
-                rgbcolor={0,0,255},
-                fillColor=30,
-                rgbfillColor={255,255,255},
-                fillPattern=1)),
-            Text(
-              extent=[-120, 132; 120, 83],
-              string="%name",
-              style(color=1)),
-            Text(
-              extent=[-85, 45; 65, -75],
-              string="Examples",
-              style(color=10, rgbcolor={0,0,255}))));
-      end ExamplesLibrary;
 
       package HeatTransfer "Icons for heat tranfer calculation"
       extends Modelica.Icons.Library;
 
-        partial model Gap1_d "icon for gap"
+        partial model Gap1_d "Geometry figure for gap"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                     -100},{100,100}}), graphics), Diagram(coordinateSystem(
@@ -16472,7 +16360,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
 
         end Gap1_d;
 
-        partial model HelicalPipe1_d "icon for helical pipe"
+        partial model HelicalPipe1_d "Geometry figure for helical pipe"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                     -100},{100,100}}), graphics), Diagram(coordinateSystem(
@@ -16773,7 +16661,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
                   textString="L")}));
         end HelicalPipe1_d;
 
-        partial model Plate1_d "icon for plate"
+        partial model Plate1_d "Geometry figure 1 for plate"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                     -100},{100,100}}), graphics), Diagram(coordinateSystem(
@@ -16809,7 +16697,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
                   textString="velocity")}));
         end Plate1_d;
 
-        partial model Plate2_d "icon for plate"
+        partial model Plate2_d "Geometry figure 2 for plate"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                     {100,100}}), graphics), Diagram(coordinateSystem(
@@ -16860,7 +16748,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
                   textString="L")}));
         end Plate2_d;
 
-        partial model Channel_i
+        partial model Channel_i "Icon for heat transfer in a channel"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
@@ -16868,7 +16756,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
                       "modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/channel/icon_channel.png")}));
         end Channel_i;
 
-        partial model General_i
+        partial model General_i "Icon for general heat transfer component"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
@@ -16877,6 +16765,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
         end General_i;
 
         partial model HeatExchanger_i
+          "Icon for heat transfer of a heat exchanger"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
@@ -16884,7 +16773,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
                       "modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/heatExchanger/icon_heatExchanger.png")}));
         end HeatExchanger_i;
 
-        partial model HelicalPipe_i
+        partial model HelicalPipe_i "Icon for heat transfer in a helical pipe"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
@@ -16892,7 +16781,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
                       "modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/helicalPipe/icon_helicalPipe.png")}));
         end HelicalPipe_i;
 
-        partial model Plate_i
+        partial model Plate_i "Icon for heat transfer of a plate"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
@@ -16900,6 +16789,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
         end Plate_i;
 
         partial model StraightPipe_i
+          "Icon for heat transfer of a straight pipe"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
@@ -16912,7 +16802,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
       package PressureLoss "Icons for pressure loss calculation"
       extends Modelica.Icons.Library;
 
-        partial model BendEdged_d "icon for edged bend"
+        partial model BendEdged_d "Geometry figure of edged bend"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                     -100},{100,100}}), graphics), Diagram(coordinateSystem(
@@ -17034,7 +16924,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
 
         end BendEdged_d;
 
-        partial model Channel_d "Icon for channel"
+        partial model Channel_d "Geometry figure for channel"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                     -100},{100,100}}), graphics), Diagram(coordinateSystem(
@@ -17420,7 +17310,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
         end Channel_d;
 
         partial model OrificeSuddenChangeSection_d
-          "icon for orifice with sudden change of cross sectional area"
+          "Geometry figure for orifice with sudden change of cross sectional area"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics), Diagram(coordinateSystem(
@@ -17530,7 +17420,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
         end OrificeSuddenChangeSection_d;
 
         partial model OrificeThickEdged_d
-          "icon for orifice with thick edged vena contraction"
+          "Geometry figure for orifice with thick edged vena contraction"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics), Diagram(coordinateSystem(
@@ -17665,7 +17555,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
                   textString="L")}));
         end OrificeThickEdged_d;
 
-        partial model StraightPipe_d "icon for straight pipe"
+        partial model StraightPipe_d "Geometry figure for straight pipe"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                     -100},{100,100}}), graphics), Diagram(coordinateSystem(
@@ -17801,7 +17691,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
 
         end Valve_d;
 
-        model FlowModel "icon for flow model in Modelica_Fluid applications"
+        model FlowModel "Icon for flow model in Modelica.Fluid applications"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                     -100},{100,100}}), graphics={
@@ -17820,14 +17710,14 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
                 Line(points={{60,0},{100,0}}, color={0,127,255})}));
         end FlowModel;
 
-        partial model Bend_i
+        partial model Bend_i "Icon for bend"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
                     fileName="modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/icon_bend.png")}));
         end Bend_i;
 
-        partial model Channel_i
+        partial model Channel_i "Icon for channel"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
@@ -17835,7 +17725,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
                       "modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/channel/icon_channel.png")}));
         end Channel_i;
 
-        partial model General_i
+        partial model General_i "Icon for general pressure drop"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
@@ -17851,7 +17741,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
                   "modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/heatExchanger/icon_heatExchanger.png")}));
         end HeatExchanger_i;
 
-        partial model Orifice_i
+        partial model Orifice_i "Icon for orifice"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
@@ -17859,7 +17749,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
                       "modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/icon_orifice.png")}));
         end Orifice_i;
 
-        partial model StraightPipe_i
+        partial model StraightPipe_i "Icon for straight pipe"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
@@ -17867,7 +17757,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
                       "modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/icon_StraightPipe.png")}));
         end StraightPipe_i;
 
-        partial model Valve_i
+        partial model Valve_i "Icon for valve"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
@@ -17875,33 +17765,6 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
         end Valve_i;
       end PressureLoss;
 
-      partial package VariantLibrary
-        "Icon for a library that contains several variants of one component"
-
-        annotation (Icon(coordinateSystem(
-              preserveAspectRatio=false,
-              extent={{-100,-100},{100,100}},
-              grid={1,1}), graphics={
-              Rectangle(
-                extent={{-40,-40},{100,100}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Rectangle(
-                extent={{-70,-70},{70,70}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Rectangle(
-                extent={{-100,-100},{40,40}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Text(
-                extent={{-125,158},{115,103}},
-                lineColor={255,0,0},
-                textString="%name")}));
-      end VariantLibrary;
     end Icons;
 
     package Records "Package for base records"

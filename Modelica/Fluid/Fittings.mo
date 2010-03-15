@@ -241,7 +241,7 @@ symbolic / numeric approach for solving differential-algebraic equation systems.
   end Bends;
 
   package HeatTransfer "Fittings for heat transfer"
-  extends Modelica.Fluid.Dissipation.Utilities.Icons.VariantLibrary;
+  extends Modelica.Fluid.Icons.VariantLibrary;
 
     model ChannelHeatTransferModel
       "Application model for a channel in Modelica_Fluid"
@@ -934,7 +934,7 @@ is used for the current simulation.
     end StateForHeatTransfer;
 
     package BaseClasses "Base classes for heat transfer applications"
-    extends Modelica.Fluid.Dissipation.Utilities.Icons.BaseLibrary;
+    extends Modelica.Fluid.Icons.BaseClassLibrary;
 
       partial model BaseHeatTransferModel
 
@@ -966,11 +966,11 @@ is used for the current simulation.
 
       package Channel
         "Base package for heat transfer application of a channel with Modelica_Fluid as thermo-hydraulic framework"
-      extends Modelica.Fluid.Dissipation.Utilities.Icons.BaseLibrary;
+      extends Modelica.Fluid.Icons.BaseClassLibrary;
 
         package BaseChannelHT
           "Base package for all heat transfer functions of a channel"
-        extends Modelica.Fluid.Dissipation.Utilities.Icons.BaseLibrary;
+        extends Modelica.Fluid.Icons.BaseClassLibrary;
 
         replaceable partial function coefficientOfHeatTransfer
             "Base function for channel"
@@ -1097,11 +1097,11 @@ A test case for implemented heat transfer functions of channels is available as 
 
       package General
         "Base package for heat transfer application of a generic geometry with Modelica_Fluid as thermo-hydraulic framework"
-      extends Modelica.Fluid.Dissipation.Utilities.Icons.BaseLibrary;
+      extends Modelica.Fluid.Icons.BaseClassLibrary;
 
         package BaseGeneralHT
           "Base package for all heat transfer functions of a generic geometry"
-        extends Modelica.Fluid.Dissipation.Utilities.Icons.BaseLibrary;
+        extends Modelica.Fluid.Icons.BaseClassLibrary;
 
         replaceable partial function coefficientOfHeatTransfer
             "Base function for generic geometry"
@@ -1173,11 +1173,11 @@ A test case for implemented heat transfer functions of channels is available as 
 
       package HeatExchanger
         "Application package for heat transfer for a heat exchanger with Modelica_Fluid as thermo-hydraulic framework"
-      extends Modelica.Fluid.Dissipation.Utilities.Icons.BaseLibrary;
+      extends Modelica.Fluid.Icons.BaseClassLibrary;
 
         package BaseHeatExchangerHT
           "Base package for all heat transfer functions of a haet exchanger"
-          extends Modelica.Fluid.Dissipation.Utilities.Icons.BaseLibrary;
+          extends Modelica.Fluid.Icons.BaseClassLibrary;
 
           replaceable partial function coefficientOfHeatTransfer
             "base function for heat Exchanger"
@@ -1479,11 +1479,11 @@ A test case for implemented heat transfer functions of channels is available as 
 
       package HelicalPipe
         "Application package for heat transfer in a helical pipe with Modelica_Fluid as thermo-hydraulic framework"
-      extends Modelica.Fluid.Dissipation.Utilities.Icons.BaseLibrary;
+      extends Modelica.Fluid.Icons.BaseClassLibrary;
 
         package BaseHelicalPipeHT
           "Base package for all heat transfer functions of a helical pipe"
-        extends Modelica.Fluid.Dissipation.Utilities.Icons.BaseLibrary;
+        extends Modelica.Fluid.Icons.BaseClassLibrary;
 
         replaceable partial function coefficientOfHeatTransfer
             "base function for helical pipes"
@@ -1617,11 +1617,11 @@ A test case for implemented heat transfer functions of helical pipes is availabl
 
       package Plate
         "Application package for heat transfer for a plate with Modelica_Fluid as thermo-hydraulic framework"
-      extends Modelica.Fluid.Dissipation.Utilities.Icons.BaseLibrary;
+      extends Modelica.Fluid.Icons.BaseClassLibrary;
 
         package BasePlateHT
           "Base package for all heat transfer functions of a plate"
-        extends Modelica.Fluid.Dissipation.Utilities.Icons.BaseLibrary;
+        extends Modelica.Fluid.Icons.BaseClassLibrary;
           import FD =
             Modelica.Fluid.Fittings.HeatTransfer.BaseClasses.Plate.BasePlateHT;
 
@@ -1752,11 +1752,11 @@ A test case for implemented heat transfer functions of plates is available as <a
 
       package StraightPipe
         "Application package for heat transfer in a straight pipe with Modelica_Fluid as thermo-hydraulic framework"
-      extends Modelica.Fluid.Dissipation.Utilities.Icons.BaseLibrary;
+      extends Modelica.Fluid.Icons.BaseClassLibrary;
 
         package BaseStraightPipeHT
           "Base package for all heat transfer functions of a straight pipe"
-        extends Modelica.Fluid.Dissipation.Utilities.Icons.BaseLibrary;
+        extends Modelica.Fluid.Icons.BaseClassLibrary;
 
         replaceable partial function coefficientOfHeatTransfer
             "base function for straight pipe"
@@ -1887,7 +1887,7 @@ A test case for implemented heat transfer functions of straight pipes is availab
   end HeatTransfer;
 
   package PressureLoss "Fittings for pressure loss models"
-  extends Modelica.Fluid.Dissipation.Utilities.Icons.VariantLibrary;
+  extends Modelica.Fluid.Icons.VariantLibrary;
 
     model BendFlowModel
       "Application flow model for bend functions in Modelica.Fluid"
@@ -2201,7 +2201,7 @@ A test case for implemented heat transfer functions of straight pipes is availab
     end ValveFlowModel;
 
     package BaseClasses
-    extends Modelica.Fluid.Dissipation.Utilities.Icons.BaseLibrary;
+    extends Modelica.Fluid.Icons.BaseClassLibrary;
 
       partial model BaseFlowModel
         "Base flow model for pressure loss functions in Modelica.Fluid"
@@ -2291,11 +2291,11 @@ A test case for implemented heat transfer functions of straight pipes is availab
 
       package Bend
         "Application package for pressure loss in a bend with Modelica.Fluid as thermo-hydraulic framework"
-      extends Modelica.Fluid.Dissipation.Utilities.Icons.BaseLibrary;
+      extends Modelica.Fluid.Icons.BaseClassLibrary;
 
         partial package BaseBendPL
           "Base package for all pressure loss functions of a bend"
-        extends Modelica.Fluid.Dissipation.Utilities.Icons.BaseLibrary;
+        extends Modelica.Fluid.Icons.BaseClassLibrary;
 
         replaceable partial function massFlowRate_dp
           extends Modelica.Icons.Function;
@@ -2536,11 +2536,11 @@ as thermo-hydraulic framework.
 
       package Channel
         "Application package for pressure loss in a channel with Modelica.Fluid as thermo-hydraulic framework"
-      extends Modelica.Fluid.Dissipation.Utilities.Icons.BaseLibrary;
+      extends Modelica.Fluid.Icons.BaseClassLibrary;
 
         partial package BaseChannelPL
           "Base package for all pressure loss functions of a channel"
-        extends Modelica.Fluid.Dissipation.Utilities.Icons.BaseLibrary;
+        extends Modelica.Fluid.Icons.BaseClassLibrary;
 
         replaceable partial function massFlowRate_dp
           extends Modelica.Icons.Function;
@@ -2707,11 +2707,11 @@ as thermo-hydraulic framework.
 
       package General
         "Application package for a generic pressure loss with Modelica.Fluid as thermo-hydraulic framework"
-      extends Modelica.Fluid.Dissipation.Utilities.Icons.BaseLibrary;
+      extends Modelica.Fluid.Icons.BaseClassLibrary;
 
         package BaseGeneralPL
           "Base package for all generic pressure loss functions"
-        extends Modelica.Fluid.Dissipation.Utilities.Icons.BaseLibrary;
+        extends Modelica.Fluid.Icons.BaseClassLibrary;
 
         replaceable partial function massFlowRate_dp
           extends Modelica.Icons.Function;
@@ -3324,11 +3324,11 @@ as thermo-hydraulic framework.
 
       package Orifice
         "Application package for pressure loss in an orifice with Modelica.Fluid as thermo-hydraulic framework"
-      extends Modelica.Fluid.Dissipation.Utilities.Icons.BaseLibrary;
+      extends Modelica.Fluid.Icons.BaseClassLibrary;
 
         package BaseOrificePL
           "Base package for all pressure loss functions of an orifice"
-        extends Modelica.Fluid.Dissipation.Utilities.Icons.BaseLibrary;
+        extends Modelica.Fluid.Icons.BaseClassLibrary;
 
         replaceable partial function massFlowRate_dp
           extends Modelica.Icons.Function;
@@ -3565,11 +3565,11 @@ as thermo-hydraulic framework.
 
       package StraightPipe
         "Application package for pressure loss in a straight pipe with Modelica.Fluid as thermo-hydraulic framework"
-      extends Modelica.Fluid.Dissipation.Utilities.Icons.BaseLibrary;
+      extends Modelica.Fluid.Icons.BaseClassLibrary;
 
         partial package BaseStraightPipePL
           "Base package for all pressure loss functions of a straight pipe"
-        extends Modelica.Fluid.Dissipation.Utilities.Icons.BaseLibrary;
+        extends Modelica.Fluid.Icons.BaseClassLibrary;
 
         replaceable partial function massFlowRate_dp
           extends Modelica.Icons.Function;
@@ -3897,7 +3897,7 @@ as thermo-hydraulic framework.
 
       package Valve
         "Application package for pressure loss in a valves with Modelica.Fluid as thermo-hydraulic framework"
-      extends Modelica.Fluid.Dissipation.Utilities.Icons.BaseLibrary;
+      extends Modelica.Fluid.Icons.BaseClassLibrary;
 
         package Overall "Fluid.Dissipation: Overall regime of valve"
           extends BaseValvePL;
@@ -4039,7 +4039,7 @@ as thermo-hydraulic framework.
 
         partial package BaseValvePL
           "Base package for all pressure loss functions of a valve"
-        extends Modelica.Fluid.Dissipation.Utilities.Icons.BaseLibrary;
+        extends Modelica.Fluid.Icons.BaseClassLibrary;
 
         replaceable partial function massFlowRate_dp
           extends Modelica.Icons.Function;
@@ -6021,6 +6021,63 @@ where
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics));
     end PartialPressureLoss;
+
+    function getMediumProperties
+       replaceable package Medium =
+          Modelica.Media.Interfaces.PartialMedium "Medium in the component"
+          annotation (choicesAllMatching = true);
+       input Boolean allowFlowReversal;
+       input Boolean use_nominal;
+       input Medium.AbsolutePressure dp_small;
+       input Medium.ThermodynamicState state_a
+        "state for medium inflowing through port_a";
+       input Medium.ThermodynamicState state_b
+        "state for medium inflowing through port_b";
+       output
+        Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_var
+        mediumProperties;
+    algorithm
+      if use_nominal then
+         mediumProperties.rho :=rho_nominal;
+         mediumProperties.eta :=eta_nominal;
+      elseif not allowFlowReversal then
+         mediumProperties.rho :=Medium.density(state_a);
+         mediumProperties.eta :=Medium.dynamicViscosity(state_a);
+      else
+         mediumProperties.rho :=Medium.density(Medium.setSmoothState(dp, state_a, state_b, dp_small));
+         mediumProperties.eta :=Medium.dynamicViscosity(Medium.setSmoothState(dp, state_a, state_b, dp_small));
+      end if;
+    end getMediumProperties;
+
+    package Bends
+      function dp_curvedOverall_DP
+         replaceable package Medium =
+            Modelica.Media.Interfaces.PartialMedium "Medium in the component"
+            annotation (choicesAllMatching = true);
+         input
+          Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_con
+          geometry "Geometry of bend";
+         input Boolean allowFlowReversal;
+         input Boolean use_nominal;
+         input Medium.AbsolutePressure dp_small;
+         input Medium.ThermodynamicState state_a
+          "state for medium inflowing through port_a";
+         input Medium.ThermodynamicState state_b
+          "state for medium inflowing through port_b";
+
+         input SI.Pressure DP "Output for function dp_curvedOverall_DP";
+         output SI.MassFlowRate m_flow "Mass flow rate";
+      protected
+      Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_var
+          IN_var;
+      algorithm
+         m_flow :=
+          Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_MFLOW(
+                geometry,
+                mediumProperties,
+                dp);
+      end dp_curvedOverall_DP;
+    end Bends;
   end BaseClasses;
   annotation (Documentation(info="<html>
 
