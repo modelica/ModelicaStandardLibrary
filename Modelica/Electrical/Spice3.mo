@@ -5403,27 +5403,27 @@ VN- -&GT; name.pc[N-1]
 
         out_c.m_tPhi := Equation.junctionPotDepTemp(in_vp.m_phi, in_m.m_dTemp, in_p.m_tnom);
 
-        out_c.m_tVbi := in_vp.m_vt0 - in_m_type * (in_vp.m_gamma * sqrt(in_vp.m_phi)) +.5  *
+        out_c.m_tVbi := in_vp.m_vt0 - in_m_type * (in_vp.m_gamma * sqrt(in_vp.m_phi)) +0.5  *
                         (Equation.energyGapDepTemp( in_p.m_tnom) - Equation.energyGapDepTemp( in_m.m_dTemp))
-                        + in_m_type *.5  * (out_c.m_tPhi - in_vp.m_phi);
+                        + in_m_type *0.5  * (out_c.m_tPhi - in_vp.m_phi);
         out_c.m_tVto := out_c.m_tVbi + in_m_type * in_vp.m_gamma * sqrt(out_c.m_tPhi);
 
         out_c.m_tBulkPot := Equation.junctionPotDepTemp(in_p.m_bulkJctPotential,in_m.m_dTemp, in_p.m_tnom);
         out_c.m_tDepCap  := in_p.m_fwdCapDepCoeff * out_c.m_tBulkPot;
 
-       if (in_p.m_jctSatCurDensity == 0. or in_m.m_sourceArea == 0. or in_m.m_drainArea == 0.) then
+       if (in_p.m_jctSatCurDensity == 0.0 or in_m.m_sourceArea == 0.0 or in_m.m_drainArea == 0.0) then
           out_c.m_tDrainSatCur  := Equation.saturationCurDepTempSPICE3MOSFET(
                                    in_p.m_jctSatCur, in_m.m_dTemp, in_p.m_tnom);
           out_c.m_tSourceSatCur := out_c.m_tDrainSatCur;
-          out_c.m_VBScrit       := Equation.junctionVCrit( in_m.m_dTemp, 1., out_c.m_tSourceSatCur);
+          out_c.m_VBScrit       := Equation.junctionVCrit( in_m.m_dTemp, 1.0, out_c.m_tSourceSatCur);
           out_c.m_VBDcrit       := out_c.m_VBScrit;
         else
           out_c.m_tSatCurDens   := Equation.saturationCurDepTempSPICE3MOSFET(
                                    in_p.m_jctSatCurDensity, in_m.m_dTemp,in_p.m_tnom);
           out_c.m_tDrainSatCur  := out_c.m_tSatCurDens * in_m.m_drainArea;
           out_c.m_tSourceSatCur := out_c.m_tSatCurDens * in_m.m_sourceArea;
-          out_c.m_VBScrit       := Equation.junctionVCrit( in_m.m_dTemp, 1., out_c.m_tSourceSatCur);
-          out_c.m_VBDcrit       := Equation.junctionVCrit( in_m.m_dTemp, 1., out_c.m_tDrainSatCur);
+          out_c.m_VBScrit       := Equation.junctionVCrit( in_m.m_dTemp, 1.0, out_c.m_tSourceSatCur);
+          out_c.m_VBDcrit       := Equation.junctionVCrit( in_m.m_dTemp, 1.0, out_c.m_tDrainSatCur);
         end if;
 
         if ( not (in_p.m_capBDIsGiven > 0.5) or not (in_p.m_capBSIsGiven > 0.5)) then
