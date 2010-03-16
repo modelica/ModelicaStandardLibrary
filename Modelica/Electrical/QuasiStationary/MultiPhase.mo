@@ -347,7 +347,7 @@ Star (wye) connection of a multi phase circuit. The potentials at the star point
       annotation (Icon(graphics={
             Text(
               extent={{-150,60},{150,120}},
-              lineColor={0,0,255},
+              lineColor={0,0,0},
               textString =                        "%name"),
             Line(
               points={{-40,68},{-40,-70},{79,0},{-40,68},{-40,67}},
@@ -825,8 +825,8 @@ using <i>m</i> <a href=modelica://Modelica.Electrical.QuasiStationary.SinglePhas
               {-39,0},{-68,0}},
             color={85,170,255}));
       connect(variableResistor.pin_n, plugToPins_n.pin_n)
-        annotation (Line(points={{10,0},{39,0},{39,2.44929e-016},{68,2.44929e-016}},
-                                                color={85,170,255}));
+        annotation (Line(points={{10,0},{39,0},{39,2.44929e-016},{68,
+              2.44929e-016}},                   color={85,170,255}));
       connect(variableResistor.heatPort, heatPort) annotation (Line(
           points={{0,-10},{0,-10},{0,-100}},
           color={191,0,0},
@@ -907,8 +907,8 @@ A linear temperature dependency of the resistances for enabled heat ports is als
               {-39,0},{-68,0}},
             color={85,170,255}));
       connect(variableResistor.pin_n, plugToPins_n.pin_n)
-        annotation (Line(points={{10,0},{39,0},{39,2.44929e-016},{68,2.44929e-016}},
-                                                color={85,170,255}));
+        annotation (Line(points={{10,0},{39,0},{39,2.44929e-016},{68,
+              2.44929e-016}},                   color={85,170,255}));
       connect(variableResistor.heatPort, heatPort)
         annotation (Line(points={{0,-10},{0,-32.5},{1.16573e-015,-32.5},{1.16573e-015,
               -55},{0,-55},{0,-100}},
@@ -980,8 +980,8 @@ A linear temperature dependency of the conductances for enabled heat ports is al
               {-39,0},{-68,0}},
             color={85,170,255}));
       connect(variableCapacitor.pin_n, plugToPins_n.pin_n)
-        annotation (Line(points={{10,0},{39,0},{39,2.44929e-016},{68,2.44929e-016}},
-                                                color={85,170,255}));
+        annotation (Line(points={{10,0},{39,0},{39,2.44929e-016},{68,
+              2.44929e-016}},                   color={85,170,255}));
       connect(C, variableCapacitor.C) annotation (Line(
           points={{0,110},{0,61},{0,61},{0,11}},
           color={0,0,127},
@@ -1043,8 +1043,8 @@ The capacitances <i>C</i> are given as <i>m</i> input signals.
               {-39,0},{-68,0}},
             color={85,170,255}));
       connect(variableInductor.pin_n, plugToPins_n.pin_n)
-        annotation (Line(points={{10,0},{39,0},{39,2.44929e-016},{68,2.44929e-016}},
-                                                color={85,170,255}));
+        annotation (Line(points={{10,0},{39,0},{39,2.44929e-016},{68,
+              2.44929e-016}},                   color={85,170,255}));
       connect(variableInductor.L, L)
         annotation (Line(points={{0,10.8},{0,35.6},{1.77636e-015,35.6},{1.77636e-015,
               60.4},{0,60.4},{0,110}},
@@ -1527,7 +1527,9 @@ The source partial model relies on the
               extent={{-29,-11},{30,-70}},
               lineColor={0,0,0},
               textString=
-                   "V")}),
+                   "V"),
+            Text(extent={{100,70},{-100,110}},   textString=
+                                                   "%name")}),
       Documentation(info="<html>
 
 <p>
@@ -1568,7 +1570,9 @@ This sensor can be used to measure <i>m</i> complex potentials, using <i>m</i>
               extent={{-29,-11},{30,-70}},
               lineColor={0,0,0},
               textString=
-                   "V")}),
+                   "V"),
+            Text(extent={{100,70},{-100,110}},   textString=
+                                                   "%name")}),
       Documentation(info="<html>
 
 <p>
@@ -1610,7 +1614,9 @@ This sensor can be used to measure <i>m</i> complex voltages, using <i>m</i>
               extent={{-29,-11},{30,-70}},
               lineColor={0,0,0},
               textString=
-                   "I")}),
+                   "I"),
+            Text(extent={{100,70},{-100,110}},   textString=
+                                                   "%name")}),
       Documentation(info="<html>
 
 <p>
@@ -1736,7 +1742,9 @@ This sensor can be used to measure <i>m</i> complex currents, using <i>m</i>
               lineColor={0,0,0},
               textString=
                    "P"),
-            Line(points={{-80,-100},{-80,0}}, color={85,170,255})}),
+            Line(points={{-80,-100},{-80,0}}, color={85,170,255}),
+            Text(extent={{100,110},{-100,150}},  textString=
+                                                   "%name")}),
       Documentation(info="<html>
 
 <p>

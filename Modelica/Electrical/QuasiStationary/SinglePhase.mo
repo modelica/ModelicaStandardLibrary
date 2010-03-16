@@ -1051,7 +1051,9 @@ The source partial model relies on the
               extent={{-29,-11},{30,-70}},
               lineColor={0,0,0},
               textString=
-                   "V")}),
+                   "V"),
+            Text(extent={{100,70},{-100,110}},   textString=
+                                                   "%name")}),
       Documentation(info="<html>
 
 <p>
@@ -1078,7 +1080,9 @@ This sensor can be used to measure the complex potential.
               extent={{-29,-11},{30,-70}},
               lineColor={0,0,0},
               textString=
-                   "V")}),
+                   "V"),
+            Text(extent={{100,70},{-100,110}},   textString=
+                                                   "%name")}),
       Documentation(info="<html>
 <p>
 This sensor can be used to measure the complex voltage.
@@ -1104,7 +1108,9 @@ This sensor can be used to measure the complex voltage.
               extent={{-29,-11},{30,-70}},
               lineColor={0,0,0},
               textString=
-                   "I")}),
+                   "I"),
+            Text(extent={{100,70},{-100,110}},   textString=
+                                                   "%name")}),
       Documentation(info="<html>
 <p>
 This sensor can be used to measure the complex current.
@@ -1185,7 +1191,9 @@ This sensor can be used to measure the complex current.
               lineColor={0,0,0},
               textString=
                    "P"),
-            Line(points={{-80,-100},{-80,0}}, color={85,170,255})}),
+            Line(points={{-80,-100},{-80,0}}, color={85,170,255}),
+            Text(extent={{100,110},{-100,150}},  textString=
+                                                   "%name")}),
       Documentation(info="<html>
 
 <p>
