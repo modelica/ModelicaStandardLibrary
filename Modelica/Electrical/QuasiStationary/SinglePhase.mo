@@ -187,94 +187,184 @@ Plot length and angle of the voltage phasor, i.e. complexToPolar.len and .phi, v
 </html>"));
     end ParallelResonance;
 
-    model LoadBattery "Load a battery"
+    model Rectifier "Rectifier example"
       extends Modelica.Icons.Example2;
-      parameter Modelica.SIunits.Voltage VQS = 100 "QS rms voltage";
-      parameter Real conversionFactor = sqrt(2)
-        "Ratio of DC voltage / QS rms voltage";
-      final parameter Modelica.SIunits.Voltage VDC = conversionFactor*VQS
-        "DC voltage of full battery";
-      Sources.VoltageSource voltageQS(f=50, V=VQS)
-                                      annotation (Placement(transformation(
+      import Modelica.Constants.pi;
+      parameter Modelica.SIunits.Voltage VAC = 100 "AC rms voltage";
+      parameter Real conversionFactor = 1
+        "Ratio of DC voltage / AC rms voltage";
+      Sources.VoltageSource voltageQS(f=50, V=VAC) annotation (Placement(
+            transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
-            origin={-80,0})));
-      Basic.Inductor inductorQS(L=200E-6)
-        annotation (Placement(transformation(extent={{-70,0},{-50,20}})));
-      Basic.Resistor resistorQS(R_ref=20E-3)
-        annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
-      Utilities.IdealACDCConverter rectifier(conversionFactor=conversionFactor)
-        annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+            origin={-80,50})));
+      Basic.Resistor resistorQS(R_ref=50E-3)
+        annotation (Placement(transformation(extent={{-72,50},{-52,70}})));
+      Sensors.CurrentSensor currentSensorQS
+        annotation (Placement(transformation(extent={{-40,70},{-20,50}})));
+      ComplexBlocks.ComplexMath.ComplexToPolar iQS
+        annotation (Placement(transformation(extent={{-20,70},{0,90}})));
       Basic.Ground groundQS
-        annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
-      Analog.Basic.Ground groundDC
-        annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
-      Analog.Basic.Resistor resistorDC(R=50E-3)
-        annotation (Placement(transformation(extent={{20,0},{40,20}})));
-      Analog.Basic.Capacitor battery(C=2, v(start=0.9*VDC, fixed=true)) annotation (
-         Placement(transformation(
+        annotation (Placement(transformation(extent={{-20,10},{0,30}})));
+      Utilities.IdealACDCConverter rectifierQS(conversionFactor=conversionFactor)
+        annotation (Placement(transformation(extent={{-10,40},{10,60}})));
+      Analog.Basic.Ground groundDC1
+        annotation (Placement(transformation(extent={{0,10},{20,30}})));
+      Analog.Sensors.CurrentSensor iDC1
+        annotation (Placement(transformation(extent={{20,70},{40,50}})));
+      Analog.Basic.VariableConductor load1 annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
-            origin={50,0})));
+            origin={50,50})));
+      Analog.Sources.SineVoltage voltageAC(V=sqrt(2)*VAC, freqHz=50,phase=pi/2)
+        annotation (
+          Placement(transformation(
+            extent={{-10,10},{10,-10}},
+            rotation=270,
+            origin={-80,-50})));
+      Analog.Basic.Resistor resistorAC(R=50E-3)
+        annotation (Placement(transformation(extent={{-70,-50},{-50,-30}})));
+      Analog.Sensors.CurrentSensor currentSensorAC
+        annotation (Placement(transformation(extent={{-40,-30},{-20,-50}})));
+      Utilities.Harmonic iAC(f=50, k=1)
+        annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
+      Analog.Basic.Ground groundAC
+        annotation (Placement(transformation(extent={{-20,-90},{0,-70}})));
+      Utilities.GraetzRectifier rectifierAC
+        annotation (Placement(transformation(extent={{-10,-60},{10,-40}})));
+      Analog.Sensors.CurrentSensor currentSensorDC2
+        annotation (Placement(transformation(extent={{20,-30},{40,-50}})));
+      Utilities.RootMeanSquare iDC2(f=50)
+        annotation (Placement(transformation(extent={{40,-30},{60,-10}})));
+      Analog.Basic.VariableConductor load2 annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={50,-50})));
+      Blocks.Sources.Ramp ramp(height=1,
+        duration=0.8,
+        startTime=0.1)
+        annotation (Placement(transformation(extent={{100,-10},{80,10}})));
     equation
-      connect(inductorQS.pin_p, voltageQS.pin_p) annotation (Line(
-          points={{-70,10},{-80,10}},
+      connect(voltageQS.pin_p, resistorQS.pin_p) annotation (Line(
+          points={{-80,60},{-72,60}},
           color={85,170,255},
           smooth=Smooth.None));
-      connect(inductorQS.pin_n, resistorQS.pin_p) annotation (Line(
-          points={{-50,10},{-40,10}},
+      connect(voltageQS.pin_n, rectifierQS.pin_nQS) annotation (Line(
+          points={{-80,40},{-10,40}},
           color={85,170,255},
           smooth=Smooth.None));
-      connect(resistorQS.pin_n, rectifier.pin_pQS)          annotation (Line(
-          points={{-20,10},{-10,10}},
+      connect(rectifierQS.pin_nQS, groundQS.pin) annotation (Line(
+          points={{-10,40},{-10,30}},
           color={85,170,255},
           smooth=Smooth.None));
-      connect(rectifier.pin_nQS, groundQS.pin)          annotation (Line(
-          points={{-10,-10},{-10,-20}},
-          color={85,170,255},
-          smooth=Smooth.None));
-      connect(voltageQS.pin_n, rectifier.pin_nQS)          annotation (Line(
-          points={{-80,-10},{-10,-10}},
-          color={85,170,255},
-          smooth=Smooth.None));
-      connect(rectifier.pin_nDC, groundDC.p)          annotation (Line(
-          points={{10,-10},{10,-20}},
+      connect(rectifierQS.pin_nDC, groundDC1.p) annotation (Line(
+          points={{10,40},{10,30}},
           color={0,0,255},
           smooth=Smooth.None));
-      connect(rectifier.pin_pDC, resistorDC.p)          annotation (Line(
-          points={{10,10},{20,10}},
+      connect(load1.n, rectifierQS.pin_nDC) annotation (Line(
+          points={{50,40},{10,40}},
           color={0,0,255},
           smooth=Smooth.None));
-      connect(resistorDC.n, battery.p) annotation (Line(
-          points={{40,10},{50,10}},
+      connect(voltageAC.p, resistorAC.p) annotation (Line(
+          points={{-80,-40},{-70,-40}},
           color={0,0,255},
           smooth=Smooth.None));
-      connect(rectifier.pin_nDC, battery.n)          annotation (Line(
-          points={{10,-10},{50,-10}},
+      connect(voltageAC.n, rectifierAC.pin_nAC) annotation (Line(
+          points={{-80,-60},{-10,-60}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(rectifierAC.pin_nAC, groundAC.p) annotation (Line(
+          points={{-10,-60},{-10,-70}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(rectifierAC.pin_nDC, load2.n) annotation (Line(
+          points={{10,-60},{50,-60}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(ramp.y, load1.G) annotation (Line(
+          points={{79,0},{70,0},{70,50},{61,50}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(ramp.y, load2.G) annotation (Line(
+          points={{79,0},{70,0},{70,-50},{61,-50}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(resistorQS.pin_n, currentSensorQS.pin_p) annotation (Line(
+          points={{-52,60},{-40,60}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      connect(currentSensorQS.pin_n, rectifierQS.pin_pQS) annotation (Line(
+          points={{-20,60},{-10,60}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      connect(currentSensorQS.y, iQS.u)            annotation (Line(
+          points={{-30,71},{-30,80},{-22,80}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      connect(rectifierQS.pin_pDC, iDC1.p)             annotation (Line(
+          points={{10,60},{20,60}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(iDC1.n, load1.p)             annotation (Line(
+          points={{40,60},{50,60}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(resistorAC.n, currentSensorAC.p) annotation (Line(
+          points={{-50,-40},{-40,-40}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(currentSensorAC.n, rectifierAC.pin_pAC) annotation (Line(
+          points={{-20,-40},{-10,-40}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(currentSensorAC.i, iAC.u)            annotation (Line(
+          points={{-30,-30},{-30,-20},{-22,-20}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(currentSensorDC2.i, iDC2.u) annotation (Line(
+          points={{30,-30},{30,-20},{38,-20}},
+          color={0,0,127},
+          smooth=Smooth.None));
+     connect(currentSensorDC2.p, rectifierAC.pin_pDC) annotation (Line(
+          points={{20,-40},{10,-40}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(currentSensorDC2.n, load2.p) annotation (Line(
+          points={{40,-40},{50,-40}},
           color={0,0,255},
           smooth=Smooth.None));
       annotation (Diagram(graphics),
-        experiment(Interval=0.001),
+        experiment(Interval=0.0001),
         experimentSetupOutput,
         Documentation(info="<html>
 <p>
-This example demonstrates coupling a quasi stationary circuit with a DC circuit.
-The QS voltage is rectified (using an
+This example demonstrates coupling a quasi stationary circuit with a DC circuit. 
+The QS voltage is rectified (using an 
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Utilities.IdealACDCConverter\">
-ideal AC DC converter</a>),
-loading a battery (represented by a large capacitor and an internal resistance).
-At the beginning, the battery is 90% full. Plot the following results:
+ideal AC DC converter</a>), loaded by a variable load conductor. 
+The <i>conversionFactor = DC voltage / AC rms voltage</i> in this case is the root mean square of a rectified sine, i.e. 1. 
+You may compare the quasi stationary results with that of a fully transient model (using a 
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Utilities.GraetzRectifier\">
+Graetz rectifier</a>), plotting:
 </p>
 <ul>
-<li>rectifier.vQSabs</li>
-<li>rectifier.iQSabs</li>
-<li>rectifier.pQS</li>
-<li>rectifier.vDC</li>
-<li>rectifier.iDC</li>
-<li>rectifier.pDC</li>
+<li>QS: AC rms           current = iQS.len</li>
+<li>AC: AC instantaneous current = iAC.u</li>
+<li>AC: AC rms           current = iAC.y</li>
+<li>QS: DC current               = iDC1.i</li>
+<li>AC: DC instantaneous current = iDC2.u</li>
+<li>AC: DC rms           current = iDC2.y</li>
 </ul>
+<p>
+It can be ssen that at the DC side the current is represented by its averaged value, at the AC side by its rms value.
+</p>
+<h4>Note</h4>
+<p>
+The quasi stationary model needs a grounding at the QS side as well as the DC side, 
+wheras the transient model may have only one ground since AC side and DC side are connected via the diodes.
+</p>
 </html>"));
-    end LoadBattery;
+    end Rectifier;
 
     annotation (Documentation(info="<html>
 Examples to demonstrate the usage of quasistationary electric components.
@@ -1538,8 +1628,7 @@ Quasi stationary theory for single phase circuits can be found in the
   package Utilities "Library with auxiliary models for testing"
     extends Modelica.Icons.Library;
     model IdealACDCConverter "Ideal AC DC converter"
-      parameter Real conversionFactor = sqrt(2)
-        "Ratio of DC voltage / QS rms voltage";
+      parameter Real conversionFactor "Ratio of DC voltage / QS rms voltage";
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.imag;
       import Modelica.ComplexMath.conj;
@@ -1609,18 +1698,297 @@ Quasi stationary theory for single phase circuits can be found in the
               textString="%conversionFactor")}),
         Documentation(info="<html>
 <p>
-This is an ideal AC DC converter, based on a power balance between QS circuit and DC side.
-The paramater <i>conversionFactor</i> defines the ratio between DC voltage and QS rms voltage,
-which is for an ideally smoothed DC voltage <eq>sqrt(2)</eq>.
-Furthermore, reactive power at the QS side is set to 0.
+This is an ideal AC DC converter, based on a power balance between QS circuit and DC side. 
+The paramater <i>conversionFactor</i> defines the ratio between averaged DC voltage and QS rms voltage. 
+Furthermore, reactive power at the QS side is set to 0. 
 </p>
 <h4>Note:</h4>
 <p>
-Of course no voltage or current ripple is present, neither at the QS side nor at the DC side.
-At the QS side, only base harmonics of voltage and current are taken into account.
+Of course no voltage or current ripple is present, neither at the QS side nor at the DC side. 
+At the QS side, only base harmonics of voltage and current are taken into account. 
+At the DC side, only the mean of voltage and current are taken into account.
 </p>
 </html>"));
     end IdealACDCConverter;
+
+    model GraetzRectifier "Graetz rectifier bridge"
+      Modelica.SIunits.Voltage vAC = pin_pAC.v - pin_nAC.v "AC voltage";
+      Modelica.SIunits.Current iAC = pin_pAC.i "AC current";
+      Modelica.SIunits.ActivePower pAC = vAC*iAC "AC power";
+      Modelica.SIunits.Voltage vDC = pin_pDC.v - pin_nDC.v "DC voltage";
+      Modelica.SIunits.Current iDC = pin_pDC.i "DC current";
+      Modelica.SIunits.Power pDC = vDC*iDC "DC power";
+      Analog.Interfaces.PositivePin pin_pAC
+        annotation (Placement(transformation(extent={{-110,110},{-90,90}}),
+            iconTransformation(extent={{-110,110},{-90,90}})));
+      Analog.Interfaces.NegativePin pin_nAC
+        annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}),
+            iconTransformation(extent={{-110,-110},{-90,-90}})));
+      Analog.Interfaces.PositivePin pin_pDC
+        annotation (Placement(transformation(extent={{90,110},{110,90}}),
+            iconTransformation(extent={{90,110},{110,90}})));
+      Analog.Interfaces.NegativePin pin_nDC
+        annotation (Placement(transformation(extent={{90,-110},{110,-90}}),
+            iconTransformation(extent={{90,-110},{110,-90}})));
+      Analog.Ideal.IdealDiode idealDiode1 annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={-40,30})));
+      Analog.Ideal.IdealDiode idealDiode2 annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={40,30})));
+      Analog.Ideal.IdealDiode idealDiode3 annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={-40,-30})));
+      Analog.Ideal.IdealDiode idealDiode4 annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={40,-30})));
+    equation
+      connect(idealDiode1.p, idealDiode3.n) annotation (Line(
+          points={{-40,20},{-40,-20}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(idealDiode2.p, idealDiode4.n) annotation (Line(
+          points={{40,20},{40,-20}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(idealDiode3.p, idealDiode4.p) annotation (Line(
+          points={{-40,-40},{40,-40}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(idealDiode1.n, idealDiode2.n) annotation (Line(
+          points={{-40,40},{40,40}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(pin_pAC, idealDiode1.p) annotation (Line(
+          points={{-100,100},{-100,10},{-40,10},{-40,20}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(pin_nAC, idealDiode4.n) annotation (Line(
+          points={{-100,-100},{-100,-10},{40,-10},{40,-20}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(idealDiode2.n, pin_pDC) annotation (Line(
+          points={{40,40},{40,100},{100,100}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(idealDiode4.p, pin_nDC) annotation (Line(
+          points={{40,-40},{40,-100},{100,-100}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      annotation (Diagram(graphics), Icon(graphics={
+            Line(
+              points={{2,100},{2,60},{82,60},{2,60},{82,-60},{2,-60},{2,60},{2,-100}},
+              color={0,0,255},
+              smooth=Smooth.None),
+            Text(
+              extent={{40,40},{100,0}},
+              lineColor={0,0,255},
+              textString="DC"),
+            Line(
+              points={{-2,100},{-2,60},{-82,60},{-2,60},{-82,-60},{-2,-60},{-2,60},
+                  {-2,-100}},
+              color={0,0,255},
+              smooth=Smooth.None),
+            Text(
+              extent={{-100,40},{-40,0}},
+              lineColor={0,0,255},
+              textString="AC"),
+            Text(
+              extent={{-100,92},{100,60}},
+              lineColor={0,0,255},
+              textString="%name")}),
+        Documentation(info="<html>
+<p>
+This is a so called Graetz-bridge, a single phase rectifier built from 4 diodes.
+</p>
+</html>"));
+    end GraetzRectifier;
+
+    block Mean "Calculate mean over period 1/f"
+      extends Modelica.Blocks.Interfaces.SISO;
+      parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
+    protected
+      discrete Modelica.SIunits.Time t0;
+      Real x(start=0);
+    equation
+      when initial() then
+          t0 = time;
+      end when;
+      der(x) = u;
+      when sample(t0+1/f, 1/f) then
+        y=f*x;
+        reinit(x, 0);
+      end when;
+      annotation (Documentation(info="<html>
+<p>
+This block calculates the mean of input signal u over the given period 1/f.
+</p>
+</html>"),     Icon(graphics={Text(
+              extent={{-80,60},{80,20}},
+              lineColor={0,0,255},
+              textString="mean"), Text(
+              extent={{-80,-20},{80,-60}},
+              lineColor={0,0,255},
+              textString="f=%f")}));
+    end Mean;
+
+    block RootMeanSquare
+      extends Modelica.Blocks.Interfaces.SISO;
+      parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
+      Blocks.Math.Product product
+        annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
+      Mean mean(final f=f)
+        annotation (Placement(transformation(extent={{0,-10},{20,10}})));
+      Blocks.Math.Sqrt sqrt1
+        annotation (Placement(transformation(extent={{40,-10},{60,10}})));
+    equation
+
+      connect(u, product.u1) annotation (Line(
+          points={{-120,0},{-60,0},{-60,6},{-42,6}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(u, product.u2) annotation (Line(
+          points={{-120,0},{-60,0},{-60,-6},{-42,-6}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(product.y, mean.u) annotation (Line(
+          points={{-19,0},{-2,0}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(mean.y, sqrt1.u) annotation (Line(
+          points={{21,0},{38,0}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(sqrt1.y, y) annotation (Line(
+          points={{61,0},{110,0}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      annotation (Diagram(graphics),
+        Documentation(info="<html>
+<p>
+This block calculates the root mean square of input signal u over the given period 1/f, using the 
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Utilities.Mean\">mean block</a>.
+</p>
+</html>"),
+        Icon(graphics={       Text(
+              extent={{-80,60},{80,20}},
+              lineColor={0,0,255},
+              textString="RMS"),  Text(
+              extent={{-80,-20},{80,-60}},
+              lineColor={0,0,255},
+              textString="f=%f")}));
+    end RootMeanSquare;
+
+    block Harmonic
+      extends Modelica.Blocks.Interfaces.SISO;
+      parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
+      parameter Integer k(start=1) "Order of harmonic";
+      Blocks.Sources.Sine sin1(
+        final freqHz=f,
+        final phase=0,
+        final amplitude=sqrt(2)) annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={-80,70})));
+      Blocks.Sources.Sine sin2(final freqHz=f, final amplitude=sqrt(2),
+        phase=Modelica.Constants.pi/2)                                  annotation (
+         Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={-80,-70})));
+      Blocks.Math.Product product1
+        annotation (Placement(transformation(extent={{-70,30},{-50,50}})));
+      Blocks.Math.Product product2
+        annotation (Placement(transformation(extent={{-70,-50},{-50,-30}})));
+      Mean mean1(final f=f)
+        annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
+      Mean mean2(final f=f)
+        annotation (Placement(transformation(extent={{-40,-50},{-20,-30}})));
+      Blocks.Math.Product product3
+        annotation (Placement(transformation(extent={{0,30},{20,50}})));
+      Blocks.Math.Product product4
+        annotation (Placement(transformation(extent={{0,-50},{20,-30}})));
+      Blocks.Math.Add add
+        annotation (Placement(transformation(extent={{40,-10},{60,10}})));
+      Blocks.Math.Sqrt sqrt1
+        annotation (Placement(transformation(extent={{70,-10},{90,10}})));
+    equation
+
+      connect(sin2.y, product2.u2) annotation (Line(
+          points={{-80,-59},{-80,-46},{-72,-46}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(sin1.y, product1.u1) annotation (Line(
+          points={{-80,59},{-80,46},{-72,46}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(u, product1.u2) annotation (Line(
+          points={{-120,0},{-80,0},{-80,34},{-72,34}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(u, product2.u1) annotation (Line(
+          points={{-120,0},{-80,0},{-80,-34},{-72,-34}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(product2.y, mean2.u) annotation (Line(
+          points={{-49,-40},{-42,-40}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(product1.y, mean1.u) annotation (Line(
+          points={{-49,40},{-42,40}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(mean1.y, product3.u1) annotation (Line(
+          points={{-19,40},{-10,40},{-10,46},{-2,46}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(mean1.y, product3.u2) annotation (Line(
+          points={{-19,40},{-10,40},{-10,34},{-2,34}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(mean2.y, product4.u1) annotation (Line(
+          points={{-19,-40},{-10,-40},{-10,-34},{-2,-34}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(mean2.y, product4.u2) annotation (Line(
+          points={{-19,-40},{-10,-40},{-10,-46},{-2,-46}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(product3.y, add.u1) annotation (Line(
+          points={{21,40},{30,40},{30,6},{38,6}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(product4.y, add.u2) annotation (Line(
+          points={{21,-40},{30,-40},{30,-6},{38,-6}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(add.y, sqrt1.u) annotation (Line(
+          points={{61,0},{68,0}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(sqrt1.y, y) annotation (Line(
+          points={{91,0},{110,0}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      annotation (Diagram(graphics),
+        Documentation(info="<html>
+<p>
+This block calculates the root mean square of a single harmonic <i>k</i> of the input signal u over the given period 1/f, using the 
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Utilities.Mean\">mean block</a>.
+</p>
+</html>"),
+        Icon(graphics={       Text(
+              extent={{-80,60},{80,20}},
+              lineColor={0,0,255},
+              textString="H%k"),  Text(
+              extent={{-80,-20},{80,-60}},
+              lineColor={0,0,255},
+              textString="f=%f")}));
+    end Harmonic;
     annotation (Documentation(info="<html>
 <p>This package hosts utilities for test examples of quasi stationary single phase circuits.
 Quasi stationary theory for single phase circuits can be found in the
