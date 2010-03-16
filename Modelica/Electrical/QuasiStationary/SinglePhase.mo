@@ -1145,6 +1145,8 @@ This sensor can be used to measure the complex current.
       currentP.reference.gamma = currentN.reference.gamma;
       Connections.branch(voltageP.reference, voltageN.reference);
       voltageP.reference.gamma = voltageN.reference.gamma;
+      Connections.branch(currentP.reference, voltageP.reference);
+      currentP.reference.gamma = voltageP.reference.gamma;
       currentP.i + currentN.i = Complex(0);
       currentP.v - currentN.v = Complex(0);
       i = currentP.i;

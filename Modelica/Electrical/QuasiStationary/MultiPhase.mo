@@ -5,8 +5,6 @@ package MultiPhase "Multiphase AC components"
   package Examples "Test examples"
     extends Modelica.Icons.Library2;
 
-
-
     model BalancingStar "Balancing an unsymmetrical star-connected load"
       extends Modelica.Icons.Example2;
       parameter Integer m=3 "Number of phases";
@@ -17,8 +15,7 @@ package MultiPhase "Multiphase AC components"
         "Load inductance";
       parameter Modelica.SIunits.Capacitance C = 1/(R*sqrt(3))/(2*Modelica.Constants.pi*f)
         "Load capacitance";
-      QuasiStationary.MultiPhase.Sources.VoltageSource
-        voltageSource(
+      QuasiStationary.MultiPhase.Sources.VoltageSource voltageSource(
         m=m,
         f=f,
         V=fill(V, m),
@@ -35,21 +32,18 @@ package MultiPhase "Multiphase AC components"
       QuasiStationary.SinglePhase.Basic.Ground ground
         annotation (Placement(transformation(extent={{-90,-90},{-70,-70}}, rotation=
                0)));
-      QuasiStationary.MultiPhase.Basic.PlugToPin_p
-        plugToPin_p1(                                                               m=m, k=1)
+      QuasiStationary.MultiPhase.Basic.PlugToPin_p plugToPin_p1(                    m=m, k=1)
         annotation (Placement(transformation(extent={{-10,40},{10,60}}, rotation=0)));
-      QuasiStationary.MultiPhase.Basic.PlugToPin_p
-        plugToPin_p2(                                                               k=2, m=m)
+      QuasiStationary.MultiPhase.Basic.PlugToPin_p plugToPin_p2(                    k=2, m=m)
         annotation (Placement(transformation(extent={{-10,0},{10,20}}, rotation=0)));
-      QuasiStationary.MultiPhase.Basic.PlugToPin_p
-        plugToPin_p3(                                                               k=3, m=m)
+      QuasiStationary.MultiPhase.Basic.PlugToPin_p plugToPin_p3(                    k=3, m=m)
         annotation (Placement(transformation(extent={{-10,-40},{10,-20}}, rotation=
                 0)));
-      QuasiStationary.MultiPhase.Sensors.PowerSensor
-        powerSensor(m=m)
+      QuasiStationary.MultiPhase.Sensors.PowerSensor powerSensor(
+                    m=m)
         annotation (Placement(transformation(extent={{-70,0},{-50,20}}, rotation=0)));
-      QuasiStationary.MultiPhase.Sensors.CurrentSensor
-        currentSensor(m=m)
+      QuasiStationary.MultiPhase.Sensors.CurrentSensor currentSensor(
+                      m=m)
         annotation (Placement(transformation(extent={{-40,0},{-20,20}}, rotation=0)));
       QuasiStationary.SinglePhase.Basic.Resistor resistor(R_ref=R)
         annotation (Placement(transformation(extent={{20,-40},{40,-20}}, rotation=0)));
@@ -62,26 +56,22 @@ package MultiPhase "Multiphase AC components"
             origin={80,-50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      QuasiStationary.MultiPhase.Basic.PlugToPin_n
-        plugToPin_n1(                                                               m=m, k=1)
+      QuasiStationary.MultiPhase.Basic.PlugToPin_n plugToPin_n1(                    m=m, k=1)
         annotation (Placement(transformation(
             origin={60,50},
             extent={{-10,-10},{10,10}},
             rotation=180)));
-      QuasiStationary.MultiPhase.Basic.PlugToPin_n
-        plugToPin_n2(                                                               k=2, m=m)
+      QuasiStationary.MultiPhase.Basic.PlugToPin_n plugToPin_n2(                    k=2, m=m)
         annotation (Placement(transformation(
             origin={60,10},
             extent={{-10,-10},{10,10}},
             rotation=180)));
-      QuasiStationary.MultiPhase.Basic.PlugToPin_n
-        plugToPin_n3(                                                               k=3, m=m)
+      QuasiStationary.MultiPhase.Basic.PlugToPin_n plugToPin_n3(                    k=3, m=m)
         annotation (Placement(transformation(
             origin={60,-30},
             extent={{-10,-10},{10,10}},
             rotation=180)));
-      QuasiStationary.SinglePhase.Sensors.CurrentSensor
-        currentSensor0
+      QuasiStationary.SinglePhase.Sensors.CurrentSensor currentSensor0
         annotation (Placement(transformation(
             origin={-30,-60},
             extent={{-10,-10},{10,10}},
@@ -149,8 +139,7 @@ P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase c
         "Load inductance";
       parameter Modelica.SIunits.Capacitance C = 1/(R*sqrt(3))/(2*Modelica.Constants.pi*f)
         "Load capacitance";
-      QuasiStationary.MultiPhase.Sources.VoltageSource
-        voltageSource(
+      QuasiStationary.MultiPhase.Sources.VoltageSource voltageSource(
         m=m,
         f=f,
         V=fill(V_LL, m),
@@ -167,20 +156,17 @@ P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase c
       QuasiStationary.SinglePhase.Basic.Ground ground
         annotation (Placement(transformation(extent={{-80,-90},{-60,-70}}, rotation=
                0)));
-      QuasiStationary.MultiPhase.Basic.PlugToPin_p
-        plugToPin_p1(                                                               m=m, k=1)
+      QuasiStationary.MultiPhase.Basic.PlugToPin_p plugToPin_p1(                    m=m, k=1)
         annotation (Placement(transformation(extent={{12,70},{32,90}}, rotation=0)));
-      QuasiStationary.MultiPhase.Basic.PlugToPin_p
-        plugToPin_p2(                                                               k=2, m=m)
+      QuasiStationary.MultiPhase.Basic.PlugToPin_p plugToPin_p2(                    k=2, m=m)
         annotation (Placement(transformation(extent={{10,0},{30,20}}, rotation=0)));
-      QuasiStationary.MultiPhase.Basic.PlugToPin_p
-        plugToPin_p3(                                                               k=3, m=m)
+      QuasiStationary.MultiPhase.Basic.PlugToPin_p plugToPin_p3(                    k=3, m=m)
         annotation (Placement(transformation(extent={{10,-70},{30,-50}}, rotation=0)));
-      QuasiStationary.MultiPhase.Sensors.PowerSensor
-        powerSensor(m=m)
+      QuasiStationary.MultiPhase.Sensors.PowerSensor powerSensor(
+                    m=m)
         annotation (Placement(transformation(extent={{-60,0},{-40,20}}, rotation=0)));
-      QuasiStationary.MultiPhase.Sensors.CurrentSensor
-        currentSensor(m=m)
+      QuasiStationary.MultiPhase.Sensors.CurrentSensor currentSensor(
+                      m=m)
         annotation (Placement(transformation(extent={{-30,0},{-10,20}}, rotation=0)));
       QuasiStationary.SinglePhase.Basic.Resistor resistor(R_ref=R)
         annotation (Placement(transformation(
@@ -197,20 +183,17 @@ P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase c
             origin={40,-38},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Sensors.CurrentSensor
-        currentSensor12
+      QuasiStationary.SinglePhase.Sensors.CurrentSensor currentSensor12
         annotation (Placement(transformation(
             origin={40,62},
             extent={{-10,10},{10,-10}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Sensors.CurrentSensor
-        currentSensor23
+      QuasiStationary.SinglePhase.Sensors.CurrentSensor currentSensor23
         annotation (Placement(transformation(
             origin={40,-8},
             extent={{-10,10},{10,-10}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Sensors.CurrentSensor
-        currentSensor31
+      QuasiStationary.SinglePhase.Sensors.CurrentSensor currentSensor31
         annotation (Placement(transformation(
             origin={70,-10},
             extent={{-10,-10},{10,10}},
@@ -290,8 +273,7 @@ Examples to demonstrate the usage of quasistationary electric components.
       Interfaces.PositivePlug plug_p(final m=m)
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
                0)));
-      QuasiStationary.SinglePhase.Interfaces.NegativePin
-        pin_n
+      QuasiStationary.SinglePhase.Interfaces.NegativePin pin_n
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
       PlugToPins_p plugToPins_p annotation (Placement(transformation(extent={{-80,
                 -10},{-60,10}}, rotation=0)));
@@ -396,8 +378,7 @@ Delta (polygon) connection of a multi phase circuit.
       Interfaces.PositivePlug plug_p(final m=m)
         annotation (Placement(transformation(extent={{-30,-10},{-10,10}}, rotation=
                 0)));
-      QuasiStationary.SinglePhase.Interfaces.PositivePin
-        pin_p
+      QuasiStationary.SinglePhase.Interfaces.PositivePin pin_p
         annotation (Placement(transformation(extent={{10,-10},{30,10}}, rotation=0)));
     equation
       Connections.branch(plug_p.reference, pin_p.reference);
@@ -444,8 +425,7 @@ Connects the single phase (positive) pin <i>k</i> of the multi phase (positive) 
       Interfaces.NegativePlug plug_n(final m=m)
         annotation (Placement(transformation(extent={{-30,-10},{-10,10}}, rotation=
                 0)));
-      QuasiStationary.SinglePhase.Interfaces.NegativePin
-        pin_n
+      QuasiStationary.SinglePhase.Interfaces.NegativePin pin_n
         annotation (Placement(transformation(extent={{10,-10},{30,10}}, rotation=0)));
     equation
       Connections.branch(plug_n.reference, pin_n.reference);
@@ -489,8 +469,8 @@ Connects the single phase (negative) pin <i>k</i> of the multi phase (negative) 
       Interfaces.PositivePlug plug_p(final m=m)
         annotation (Placement(transformation(extent={{-30,-10},{-10,10}}, rotation=
                 0)));
-      QuasiStationary.SinglePhase.Interfaces.PositivePin
-        pin_p[                                 m]
+      QuasiStationary.SinglePhase.Interfaces.PositivePin pin_p[
+                                               m]
         annotation (Placement(transformation(extent={{10,-10},{30,10}}, rotation=0)));
     equation
       for j in 1:m loop
@@ -530,8 +510,8 @@ Connects all <i>m</i> single phase (positive) pins of the multi phase (positive)
       Interfaces.NegativePlug plug_n(final m=m)
         annotation (Placement(transformation(extent={{-30,-10},{-10,10}}, rotation=
                 0)));
-      QuasiStationary.SinglePhase.Interfaces.NegativePin
-        pin_n[                                 m]
+      QuasiStationary.SinglePhase.Interfaces.NegativePin pin_n[
+                                               m]
         annotation (Placement(transformation(extent={{10,-10},{30,10}}, rotation=0)));
     equation
       for j in 1:m loop
@@ -831,8 +811,8 @@ using <i>m</i> <a href=modelica://Modelica.Electrical.QuasiStationary.SinglePhas
             origin={0,110},
             extent={{-20,-20},{20,20}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Basic.VariableResistor
-        variableResistor[                                 m](
+      QuasiStationary.SinglePhase.Basic.VariableResistor variableResistor[
+                                                          m](
         final T_ref=T_ref,
         final alpha_ref=alpha_ref,
         each final useHeatPort=useHeatPort,
@@ -914,8 +894,8 @@ A linear temperature dependency of the resistances for enabled heat ports is als
             origin={0,110},
             extent={{-20,-20},{20,20}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Basic.VariableConductor
-        variableResistor[                                  m](
+      QuasiStationary.SinglePhase.Basic.VariableConductor variableResistor[
+                                                           m](
         final T_ref=T_ref,
         final alpha_ref=alpha_ref,
         each final useHeatPort=useHeatPort,
@@ -991,8 +971,8 @@ A linear temperature dependency of the conductances for enabled heat ports is al
             origin={0,110},
             extent={{-20,-20},{20,20}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Basic.VariableCapacitor
-        variableCapacitor[                                  m]
+      QuasiStationary.SinglePhase.Basic.VariableCapacitor variableCapacitor[
+                                                            m]
         annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
     equation
       connect(variableCapacitor.pin_p, plugToPins_p.pin_p)
@@ -1054,8 +1034,8 @@ The capacitances <i>C</i> are given as <i>m</i> input signals.
             origin={0,110},
             extent={{-20,-20},{20,20}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Basic.VariableInductor
-        variableInductor[                                 m]
+      QuasiStationary.SinglePhase.Basic.VariableInductor variableInductor[
+                                                          m]
         annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
     equation
       connect(variableInductor.pin_p, plugToPins_p.pin_p)
@@ -1228,8 +1208,7 @@ Quasi stationary theory can be found in the
 
     connector Plug "Basic multiphase plug"
       parameter Integer m=3 "number of phases";
-      QuasiStationary.SinglePhase.Interfaces.Pin pin[
-                                     m];
+      QuasiStationary.SinglePhase.Interfaces.Pin pin[m];
       annotation (Documentation(info="<html>
 
 <p>
@@ -1532,8 +1511,8 @@ The source partial model relies on the
 
     model PotentialSensor
       extends Interfaces.AbsoluteSensor;
-      QuasiStationary.SinglePhase.Sensors.PotentialSensor
-        potentialSensor[                                  m]
+      QuasiStationary.SinglePhase.Sensors.PotentialSensor potentialSensor[
+                                                          m]
         annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
     equation
 
@@ -1570,8 +1549,8 @@ This sensor can be used to measure <i>m</i> complex potentials, using <i>m</i>
 
     model VoltageSensor
       extends Interfaces.RelativeSensor;
-      QuasiStationary.SinglePhase.Sensors.VoltageSensor
-        voltageSensor[                                m]
+      QuasiStationary.SinglePhase.Sensors.VoltageSensor voltageSensor[
+                                                      m]
         annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
     equation
       connect(plugToPins_p.pin_p, voltageSensor.pin_p)
@@ -1612,8 +1591,8 @@ This sensor can be used to measure <i>m</i> complex voltages, using <i>m</i>
 
     model CurrentSensor
       extends Interfaces.RelativeSensor;
-      QuasiStationary.SinglePhase.Sensors.CurrentSensor
-        currentSensor[                                m]
+      QuasiStationary.SinglePhase.Sensors.CurrentSensor currentSensor[
+                                                      m]
         annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
     equation
       connect(plugToPins_p.pin_p,currentSensor. pin_p)
@@ -1684,8 +1663,8 @@ This sensor can be used to measure <i>m</i> complex currents, using <i>m</i>
             origin={0,-70},
             extent={{-10,10},{10,-10}},
             rotation=90)));
-      QuasiStationary.SinglePhase.Sensors.PowerSensor
-        powerSensor[                              m]
+      QuasiStationary.SinglePhase.Sensors.PowerSensor powerSensor[
+                                                  m]
         annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
       Modelica.ComplexBlocks.ComplexMath.Sum sum(final nin=m)
         annotation (Placement(transformation(
@@ -1820,8 +1799,8 @@ Quasi stationary theory can be found in the
         "RMS voltage of the source";
       parameter Modelica.SIunits.Angle phi[m]={0 - (j-1)*2*pi/m for j in 1:m}
         "Phase shift of the source";
-      QuasiStationary.SinglePhase.Sources.VoltageSource
-        voltageSource[                                m](
+      QuasiStationary.SinglePhase.Sources.VoltageSource voltageSource[
+                                                      m](
         each final f=f,
         final V=V,
         final phi=phi)
@@ -1931,8 +1910,8 @@ Additionally, the frequency of the voltage source is defined by a real signal in
         "RMS current of the source";
       parameter Modelica.SIunits.Angle phi[m]={0 - (j-1)*2*pi/m for j in 1:m}
         "Phase shift of the source";
-      QuasiStationary.SinglePhase.Sources.CurrentSource
-        currentSource[                                m](
+      QuasiStationary.SinglePhase.Sources.CurrentSource currentSource[
+                                                      m](
         each final f=f,
         final phi=phi,
         final I=I)
