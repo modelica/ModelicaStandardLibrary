@@ -1357,19 +1357,6 @@ a <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Plug
       PositivePlug plug_p(final m=m)
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
                0)));
-      Modelica.ComplexBlocks.Interfaces.ComplexOutput y[m]
-        annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=
-                0)));
-      Basic.PlugToPins_p plugToPins_p(final m=m)
-        annotation (Placement(transformation(extent={{-80,-10},{-60,10}}, rotation=
-                0)));
-    equation
-      connect(plug_p, plugToPins_p.plug_p)
-          annotation (Line(
-          points={{-100,0},{-93,0},{-93,1.16573e-015},{-86,1.16573e-015},{-86,0},{-72,
-              0}},
-          color={85,170,255},
-          smooth=Smooth.None));
       annotation (         Icon(graphics={
             Line(points={{-70,0},{-94,0}}, color={0,0,0}),
             Text(
@@ -1403,7 +1390,8 @@ The absolute sensor partial model relies on the a
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.RelativeSensor\">SinglePhase.Interfaces.RelativeSensor</a>
 </p>
 
-</html>"));
+</html>"),
+        Diagram(graphics));
     end AbsoluteSensor;
 
     partial model RelativeSensor "Partial voltage / current sensor"
@@ -1509,27 +1497,82 @@ The source partial model relies on the
   package Sensors "AC multiphase sensors"
     extends Modelica.Icons.Library2;
 
-    model PotentialSensor
+    model FrequencySensor "Frequency sensor"
+      extends Interfaces.AbsoluteSensor;
+      SinglePhase.Sensors.FrequencySensor potentialSensor
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
+      Basic.PlugToPin_p plugToPins_p( final m=m, final k=1)
+        annotation (Placement(transformation(extent={{-80,-10},{-60,10}}, rotation=
+                0)));
+      Blocks.Interfaces.RealOutput y
+        annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=
+                0)));
+    equation
+
+      connect(plug_p, plugToPins_p.plug_p) annotation (Line(
+          points={{-100,0},{-72,0}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      connect(plugToPins_p.pin_p, potentialSensor.pin) annotation (Line(
+          points={{-68,0},{-10,0}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      connect(potentialSensor.y, y) annotation (Line(
+          points={{11,0},{110,0}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      annotation (Icon(graphics={Text(
+              extent={{-29,-11},{30,-70}},
+              lineColor={0,0,0},
+              textString="f"),
+            Text(extent={{100,70},{-100,110}}, textString="%name")}),
+      Documentation(info="<html>
+
+<p>
+This sensor can be used to measure the frequency of the reference system, using <i>1</i>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.FrequencySensor\">single phase FrequencySensor</a>.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.FrequencySensor\">SinglePhase.FrequencySensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PotentialSensor\">PotentialSensor</a>
+</p>
+
+</html>"),
+        Diagram(graphics));
+    end FrequencySensor;
+
+    model PotentialSensor "Potential sensor"
       extends Interfaces.AbsoluteSensor;
       QuasiStationary.SinglePhase.Sensors.PotentialSensor potentialSensor[
                                                           m]
         annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
+      Basic.PlugToPins_p plugToPins_p(final m=m)
+        annotation (Placement(transformation(extent={{-80,-10},{-60,10}}, rotation=
+                0)));
+      ComplexBlocks.Interfaces.ComplexOutput y[         m]
+        annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=
+                0)));
     equation
 
-      connect(plugToPins_p.pin_p, potentialSensor.pin) annotation (Line(points={{-68,0},
-              {-53.5,0},{-53.5,1.22125e-015},{-39,1.22125e-015},{-39,0},{-10,0}},
-                                                                    color={85,170,
-              255}));
       connect(potentialSensor.y, y) annotation (Line(points={{11,0},{35.75,0},{35.75,
               1.16573e-015},{60.5,1.16573e-015},{60.5,0},{110,0}},
                                                  color={85,170,255}));
+      connect(plug_p, plugToPins_p.plug_p) annotation (Line(
+          points={{-100,0},{-72,0}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      connect(plugToPins_p.pin_p, potentialSensor.pin) annotation (Line(
+          points={{-68,0},{-10,0}},
+          color={85,170,255},
+          smooth=Smooth.None));
       annotation (Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
               lineColor={0,0,0},
-              textString=
-                   "V"),
-            Text(extent={{100,70},{-100,110}},   textString=
-                                                   "%name")}),
+              textString="V"),
+            Text(extent={{100,70},{-100,110}}, textString="%name")}),
       Documentation(info="<html>
 
 <p>
@@ -1546,10 +1589,11 @@ This sensor can be used to measure <i>m</i> complex potentials, using <i>m</i>
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor\">PowerSensor</a>
 </p>
 
-</html>"));
+</html>"),
+        Diagram(graphics));
     end PotentialSensor;
 
-    model VoltageSensor
+    model VoltageSensor "Voltage sensor"
       extends Interfaces.RelativeSensor;
       QuasiStationary.SinglePhase.Sensors.VoltageSensor voltageSensor[
                                                       m]
@@ -1593,7 +1637,7 @@ This sensor can be used to measure <i>m</i> complex voltages, using <i>m</i>
         Diagram(graphics));
     end VoltageSensor;
 
-    model CurrentSensor
+    model CurrentSensor "Current Sensor"
       extends Interfaces.RelativeSensor;
       QuasiStationary.SinglePhase.Sensors.CurrentSensor currentSensor[
                                                       m]
@@ -1636,7 +1680,7 @@ This sensor can be used to measure <i>m</i> complex currents, using <i>m</i>
 </html>"));
     end CurrentSensor;
 
-    model PowerSensor
+    model PowerSensor "Power sensor"
       parameter Integer m(min=1) = 3 "number of phases";
       Modelica.SIunits.AngularVelocity omega = der(currentP.reference.gamma);
       Interfaces.PositivePlug currentP

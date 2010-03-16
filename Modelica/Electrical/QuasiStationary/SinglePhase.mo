@@ -187,6 +187,95 @@ Plot length and angle of the voltage phasor, i.e. complexToPolar.len and .phi, v
 </html>"));
     end ParallelResonance;
 
+    model LoadBattery "Load a battery"
+      extends Modelica.Icons.Example2;
+      parameter Modelica.SIunits.Voltage VQS = 100 "QS rms voltage";
+      parameter Real conversionFactor = sqrt(2)
+        "Ratio of DC voltage / QS rms voltage";
+      final parameter Modelica.SIunits.Voltage VDC = conversionFactor*VQS
+        "DC voltage of full battery";
+      Sources.VoltageSource voltageQS(f=50, V=VQS)
+                                      annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={-80,0})));
+      Basic.Inductor inductorQS(L=200E-6)
+        annotation (Placement(transformation(extent={{-70,0},{-50,20}})));
+      Basic.Resistor resistorQS(R_ref=20E-3)
+        annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
+      Utilities.IdealACDCConverter rectifier(conversionFactor=conversionFactor)
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+      Basic.Ground groundQS
+        annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
+      Analog.Basic.Ground groundDC
+        annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
+      Analog.Basic.Resistor resistorDC(R=50E-3)
+        annotation (Placement(transformation(extent={{20,0},{40,20}})));
+      Analog.Basic.Capacitor battery(C=2, v(start=0.9*VDC, fixed=true)) annotation (
+         Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={50,0})));
+    equation
+      connect(inductorQS.pin_p, voltageQS.pin_p) annotation (Line(
+          points={{-70,10},{-80,10}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      connect(inductorQS.pin_n, resistorQS.pin_p) annotation (Line(
+          points={{-50,10},{-40,10}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      connect(resistorQS.pin_n, rectifier.pin_pQS)          annotation (Line(
+          points={{-20,10},{-10,10}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      connect(rectifier.pin_nQS, groundQS.pin)          annotation (Line(
+          points={{-10,-10},{-10,-20}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      connect(voltageQS.pin_n, rectifier.pin_nQS)          annotation (Line(
+          points={{-80,-10},{-10,-10}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      connect(rectifier.pin_nDC, groundDC.p)          annotation (Line(
+          points={{10,-10},{10,-20}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(rectifier.pin_pDC, resistorDC.p)          annotation (Line(
+          points={{10,10},{20,10}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(resistorDC.n, battery.p) annotation (Line(
+          points={{40,10},{50,10}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(rectifier.pin_nDC, battery.n)          annotation (Line(
+          points={{10,-10},{50,-10}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      annotation (Diagram(graphics),
+        experiment(Interval=0.001),
+        experimentSetupOutput,
+        Documentation(info="<html>
+<p>
+This example demonstrates coupling a quasi stationary circuit with a DC circuit.
+The QS voltage is rectified (using an
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Utilities.IdealACDCConverter\">
+ideal AC DC converter</a>),
+loading a battery (represented by a large capacitor and an internal resistance).
+At the beginning, the battery is 90% full. Plot the following results:
+</p>
+<ul>
+<li>rectifier.vQSabs</li>
+<li>rectifier.iQSabs</li>
+<li>rectifier.pQS</li>
+<li>rectifier.vDC</li>
+<li>rectifier.iDC</li>
+<li>rectifier.pDC</li>
+</ul>
+</html>"));
+    end LoadBattery;
+
     annotation (Documentation(info="<html>
 Examples to demonstrate the usage of quasistationary electric components.
 </html>"),   Icon(graphics={Ellipse(extent={{-80,44},{60,-96}}, lineColor={95,
@@ -215,7 +304,8 @@ Examples to demonstrate the usage of quasistationary electric components.
             Line(points={{-40,30},{40,30}}),
             Line(points={{-20,10},{20,10}}),
             Line(points={{0,90},{0,50}}),
-            Text(extent={{100,-40},{-100,0}}, textString=
+            Text(extent={{100,-60},{-100,-20}},
+                                              textString=
                                                 "%name")}),
         Documentation(info="<html>
 <p>
@@ -926,8 +1016,6 @@ This model is intended to be used with textual representation of user models.
       PositivePin pin "Pin"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
                0)));
-      Modelica.ComplexBlocks.Interfaces.ComplexOutput y annotation (Placement(transformation(extent=
-               {{100,-10},{120,10}}, rotation=0)));
     equation
       pin.i = Complex(0);
       annotation (         Icon(graphics={
@@ -940,7 +1028,7 @@ This model is intended to be used with textual representation of user models.
               fillPattern=FillPattern.Solid,
               textString=
                    "%name"),
-            Line(points={{70,0},{80,0},{90,0},{100,0}}, color={85,170,255})}),
+            Line(points={{100,0},{70,0}},  color={0,0,0})}),
       Documentation(info="<html>
 <p>
 The absolute sensor partial model provides a single
@@ -956,7 +1044,8 @@ The absolute sensor partial model provides a single
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.RelativeSensor\">MultiPhase.Interfaces.RelativeSensor</a>
 </p>
 
-</html>"));
+</html>"),
+        Diagram(graphics));
     end AbsoluteSensor;
 
     partial model RelativeSensor "Partial voltage / current sensor"
@@ -1043,17 +1132,47 @@ The source partial model relies on the
   package Sensors "AC singlephase sensors"
     extends Modelica.Icons.Library2;
 
+    model FrequencySensor "Frequency sensor"
+      extends Interfaces.AbsoluteSensor;
+      import Modelica.Constants.pi;
+      Blocks.Interfaces.RealOutput y                    annotation (Placement(transformation(extent={{100,-10},
+                {120,10}},           rotation=0)));
+    equation
+      2*pi*y = omega;
+      annotation (Icon(graphics={Text(
+              extent={{-29,-11},{30,-70}},
+              lineColor={0,0,0},
+              textString="f"),
+            Text(extent={{100,70},{-100,110}}, textString="%name")}),
+      Documentation(info="<html>
+
+<p>
+This sensor can be used to measure the frequency of the reference system.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PotentialSensor\">PotentialSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.VoltageSensor\">VoltageSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.CurrentSensor\">CurrentSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PowerSensor\">PowerSensor</a>
+</p>
+
+</html>"));
+    end FrequencySensor;
+
     model PotentialSensor "Potential sensor"
       extends Interfaces.AbsoluteSensor;
+      ComplexBlocks.Interfaces.ComplexOutput y          annotation (Placement(transformation(extent={{100,-10},
+                {120,10}},           rotation=0)));
     equation
       y = pin.v;
       annotation (Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
               lineColor={0,0,0},
-              textString=
-                   "V"),
-            Text(extent={{100,70},{-100,110}},   textString=
-                                                   "%name")}),
+              textString="V"),
+            Text(extent={{100,70},{-100,110}}, textString="%name")}),
       Documentation(info="<html>
 
 <p>
@@ -1415,6 +1534,104 @@ Quasi stationary theory for single phase circuits can be found in the
 
 </html>"));
   end Sources;
+
+  package Utilities "Library with auxiliary models for testing"
+    extends Modelica.Icons.Library;
+    model IdealACDCConverter "Ideal AC DC converter"
+      parameter Real conversionFactor = sqrt(2)
+        "Ratio of DC voltage / QS rms voltage";
+      import Modelica.ComplexMath.real;
+      import Modelica.ComplexMath.imag;
+      import Modelica.ComplexMath.conj;
+      import Modelica.ComplexMath.'abs';
+      import Modelica.ComplexMath.arg;
+      Modelica.SIunits.ComplexVoltage vQS = pin_pQS.v - pin_nQS.v
+        "AC QS voltage";
+      Modelica.SIunits.ComplexCurrent iQS = pin_pQS.i "AC QS current";
+      output Modelica.SIunits.Voltage vQSabs='abs'(vQS) "Abs(AC QS voltage)";
+      output Modelica.SIunits.Current iQSabs='abs'(iQS) "Abs(AC QS current)";
+      Modelica.SIunits.ComplexPower sQS = vQS*conj(iQS) "AC QS apparent power";
+      Modelica.SIunits.ActivePower pQS = real(sQS) "AC QS active power";
+      Modelica.SIunits.ReactivePower qQS = imag(sQS) "AC QS reactive power";
+      Modelica.SIunits.Voltage vDC = pin_pDC.v - pin_nDC.v "DC voltage";
+      Modelica.SIunits.Current iDC = pin_pDC.i "DC current";
+      Modelica.SIunits.Power pDC = vDC*iDC "DC power";
+      Interfaces.PositivePin pin_pQS
+        annotation (Placement(transformation(extent={{-110,110},{-90,90}}),
+            iconTransformation(extent={{-110,110},{-90,90}})));
+      Interfaces.NegativePin pin_nQS
+        annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}),
+            iconTransformation(extent={{-110,-110},{-90,-90}})));
+      Analog.Interfaces.PositivePin pin_pDC
+        annotation (Placement(transformation(extent={{90,110},{110,90}}),
+            iconTransformation(extent={{90,110},{110,90}})));
+      Analog.Interfaces.NegativePin pin_nDC
+        annotation (Placement(transformation(extent={{90,-110},{110,-90}}),
+            iconTransformation(extent={{90,-110},{110,-90}})));
+    equation
+    //QS balances
+      Connections.branch(pin_pQS.reference, pin_nQS.reference);
+      pin_pQS.reference.gamma = pin_nQS.reference.gamma;
+      pin_pQS.i + pin_nQS.i = Complex(0);
+    //DC current balance
+      pin_pDC.i + pin_nDC.i = 0;
+    //voltage relation
+      vDC = 'abs'(vQS)*conversionFactor;
+    //power balance
+      pQS + pDC = 0;
+    //define reactive power
+      qQS = 0;
+      annotation (Diagram(graphics), Icon(graphics={
+            Line(
+              points={{2,100},{2,60},{82,60},{2,60},{82,-60},{2,-60},{2,60},{2,-100}},
+              color={0,0,255},
+              smooth=Smooth.None),
+            Text(
+              extent={{40,40},{100,0}},
+              lineColor={0,0,255},
+              textString="DC"),
+            Line(
+              points={{-2,100},{-2,60},{-82,60},{-2,60},{-82,-60},{-2,-60},{-2,60},
+                  {-2,-100}},
+              color={85,170,255},
+              smooth=Smooth.None),
+            Text(
+              extent={{-100,40},{-40,0}},
+              lineColor={85,170,255},
+              textString="QS"),
+            Text(
+              extent={{-100,92},{100,60}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Text(
+              extent={{-100,-60},{100,-92}},
+              lineColor={0,0,255},
+              textString="%conversionFactor")}),
+        Documentation(info="<html>
+<p>
+This is an ideal AC DC converter, based on a power balance between QS circuit and DC side.
+The paramater <i>conversionFactor</i> defines the ratio between DC voltage and QS rms voltage,
+which is for an ideally smoothed DC voltage <eq>sqrt(2)</eq>.
+Furthermore, reactive power at the QS side is set to 0.
+</p>
+<h4>Note:</h4>
+<p>
+Of course no voltage or current ripple is present, neither at the QS side nor at the DC side.
+At the QS side, only base harmonics of voltage and current are taken into account.
+</p>
+</html>"));
+    end IdealACDCConverter;
+    annotation (Documentation(info="<html>
+<p>This package hosts utilities for test examples of quasi stationary single phase circuits.
+Quasi stationary theory for single phase circuits can be found in the
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
+</p>
+<h4>See also</h4>
+
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Examples\">Examples</a>
+
+</html>"));
+  end Utilities;
   annotation (Icon(graphics={Rectangle(extent={{-60,10},{40,-90}}, lineColor={0,
             0,255}), Rectangle(
         extent={{-30,-20},{10,-60}},

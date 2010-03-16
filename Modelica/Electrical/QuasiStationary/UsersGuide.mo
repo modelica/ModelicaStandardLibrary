@@ -71,8 +71,9 @@ to sinusoidal currents.</p>
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.ACCircuit\">
           AC circuit</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Power\">
-          Power</a>
-
+          Power</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.ReferenceSystem\">
+          Reference system</a>
 
 </html>"));
     end Introduction;
@@ -169,7 +170,9 @@ as illustraed in the phasor diagram of Fig. 2.
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Introduction\">
           Introduction</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Power\">
-          Power</a>
+          Power</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.ReferenceSystem\">
+          Reference system</a>
 
 </html>"));
     end ACCircuit;
@@ -306,9 +309,44 @@ In this equation <sup>*</sup> represents the conjugate complex operator
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Introduction\">
           Introduction</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.ACCircuit\">
-          AC circuit</a>
+          AC circuit</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.ReferenceSystem\">
+          Reference system</a>
 </html>"));
     end Power;
+
+    class ReferenceSystem "Reference system"
+
+      annotation (Documentation(info="<html>
+<p>
+The reference angle <eq>gamma</eq>:
+</p>
+<ul>
+  <li>defines the angular frequency <eq>omega</eq> of the voltages and currents
+      of a circuit by means of <eq>omega = der(gamma)</eq>. </li>
+  <li>is not a global quantity since it propagated through the connector.
+      Therefore, independent circuits of different frequencies can be modeled in one model.</li>
+  <li>is present only once in a multiphase connector;
+      a multiphase component has only one reference angle common to all phases.</li>
+  <li>can be either constant or variable, but it has to be consistent in one contiguous circuit.</li>
+  <li>is defined by the sources.</li>
+</ul>
+<p>
+Designing new components, the guidelines of the Modelica Specification dealing with
+Overconstrained Equation Operators for Connection Graphs have to be taken into account.
+</p>
+
+<h4>See also</h4>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Introduction\">
+          Introduction</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.ACCircuit\">
+          AC circuit</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Power\">
+          Power</a>
+
+</html>"));
+    end ReferenceSystem;
+
     annotation (Documentation(info="<html>
 <p>
 The <a href=\"modelica://Modelica.Electrical.QuasiStationary\">Modelica.Electrical.QuasiStationary</a>
@@ -322,8 +360,7 @@ voltages and currents. The main characteristics of the library are:
   <li>Any electrical transient effects are negelcted.</li>
   <li>The electrical components of this library are strictly linear.</li>
   <li>The angular frequency <eq>omega</eq> of the voltages and currents of
-      a circuit are
-      determined from a reference angle <eq>gamma</eq> by means of
+      a circuit are determined from a reference angle <eq>gamma</eq> by means of
       <eq>omega = der(gamma)</eq>. </li>
   <li>The reference angle <eq>gamma</eq> is not a global quantity
       since it propagated through the connector.
@@ -347,6 +384,16 @@ found in
 [<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">Vaske1973</a>].
 </p>
 
+<h4>Note</h4>
+<p>
+A general electrical circuit can be a DC circuit, an AC circuit with periodic sinusoidal or non-sinusodial voltages and currents
+or a transient circuit without particular waveform of voltages and currents.
+Therefore a coupling model between a quasi stationary circuit and a general (transient) electrical circuit
+has to be designed carefully taking the specific application into account.
+As an exmaple, you may look at the <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Utilities.IdealACDCConverter\">
+ideal AC DC converter</a>, which is used in the
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Examples.LoadBattery\">example loading a battery.</a>
+</p>
 
 </html>"));
   end Overview;
