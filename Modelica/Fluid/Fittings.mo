@@ -6,21 +6,32 @@ package Fittings
     model CurvedBend "Curved bend flow model"
       extends Modelica.Fluid.Fittings.BaseClasses.PartialPressureLoss;
       extends Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.Bend_i;
-
+      import Modelica.Fluid.Dissipation.PressureLoss.Bend;
       parameter
         Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_con
         geometry "Geometry of curved bend"
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
 
-      Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_var
-        mediumProperties(final eta=eta, final rho=rho) "Properties of medium"
-        annotation (Placement(transformation(extent={{-46,20},{-26,40}})));
+    /*
+  Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_var
+    properties(final eta=eta, final rho=rho) "Properties of medium"
+    annotation (Placement(transformation(extent={{-46,20},{-26,40}})));
+*/
 
     equation
-      m_flow = Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_MFLOW(
-        geometry,
-        mediumProperties,
-        dp);
+      if use_nominal then
+         m_flow = Bend.dp_curvedOverall_MFLOW(
+                    geometry, Bend.dp_curvedOverall_IN_var(rho=rho_nominal, eta=eta_nominal), dp);
+      elseif not allowFlowReversal then
+         m_flow = Bend.dp_curvedOverall_MFLOW(
+                    geometry, Bend.dp_curvedOverall_IN_var(
+                                rho=Medium.density(state_a),
+                                eta=Medium.dynamicViscosity(state_a)), dp);
+      else
+         m_flow = Modelica.Fluid.Fittings.BaseClasses.Bends.dp_curvedOverall_DP(
+                    geometry, state_a, state_b, dp_small, m_flow_small, dp);
+      end if;
+
       annotation (Documentation(info="<html>
 <p>
 This component models the pressure loss in curved bends at overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness. In the model neither mass nor energy is stored.
@@ -5967,51 +5978,52 @@ where
         annotation (Dialog(enable=use_nominal, group="Fluid properties"));
 
       // Operational conditions
-      parameter Boolean from_dp=true
-        "= true, use m_flow = f(dp) else dp = f(m_flow)"
-        annotation (Evaluate=true, Dialog(tab="Advanced"));
       parameter Medium.AbsolutePressure dp_small=system.dp_small
         "Default small pressure drop for regularization of laminar and zero flow"
         annotation (Dialog(tab="Advanced"));
 
-      Medium.ThermodynamicState state
-        "Upstream medium state for computation of pressure loss characteristics (smoothed around zero flow with state_a and state_b)";
-      SI.Density rho
-        "Upstream density (smoothed around zero flow with state_a and state_b)";
-      SI.DynamicViscosity eta
-        "Upstream dynamic viscosity (smoothed around zero flow with state_a and state_b)";
-
+    /*
+  Medium.ThermodynamicState state
+    "Upstream medium state for computation of pressure loss characteristics (smoothed around zero flow with state_a and state_b)";
+  SI.Density rho
+    "Upstream density (smoothed around zero flow with state_a and state_b)";
+  SI.DynamicViscosity eta
+    "Upstream dynamic viscosity (smoothed around zero flow with state_a and state_b)";
+*/
     equation
       //isenthalpic state transformation (no storage and no loss of energy)
       port_a.h_outflow = inStream(port_b.h_outflow);
       port_b.h_outflow = inStream(port_a.h_outflow);
 
       // Upstream properties for pressure loss characteristic calculation
-      if allowFlowReversal then
-        if from_dp then
-          state = Medium.setSmoothState(
-            dp,
-            state_a,
-            state_b,
-            dp_small);
-        else
-          state = Medium.setSmoothState(
-            m_flow,
-            state_a,
-            state_b,
-            m_flow_small);
-        end if;
-      else
-        state = state_a;
-      end if;
 
-      if use_nominal then
-         rho = rho_nominal;
-         eta = eta_nominal;
-      else
-         rho = Medium.density(state);
-         eta = Medium.dynamicViscosity(state);
-      end if;
+    /*
+  if allowFlowReversal then
+    if from_dp then
+      state = Medium.setSmoothState(
+        dp,
+        state_a,
+        state_b,
+        dp_small);
+    else
+      state = Medium.setSmoothState(
+        m_flow,
+        state_a,
+        state_b,
+        m_flow_small);
+    end if;
+  else
+    state = state_a;
+  end if;
+
+  if use_nominal then
+     rho = rho_nominal;
+     eta = eta_nominal;
+  else
+     rho = Medium.density(state);
+     eta = Medium.dynamicViscosity(state);
+  end if;
+*/
 
       annotation (Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -6022,60 +6034,30 @@ where
             grid={1,1}), graphics));
     end PartialPressureLoss;
 
-    function getMediumProperties
-       replaceable package Medium =
-          Modelica.Media.Interfaces.PartialMedium "Medium in the component"
-          annotation (choicesAllMatching = true);
-       input Boolean allowFlowReversal;
-       input Boolean use_nominal;
-       input Medium.AbsolutePressure dp_small;
-       input Medium.ThermodynamicState state_a
-        "state for medium inflowing through port_a";
-       input Medium.ThermodynamicState state_b
-        "state for medium inflowing through port_b";
-       output
-        Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_var
-        mediumProperties;
-    algorithm
-      if use_nominal then
-         mediumProperties.rho :=rho_nominal;
-         mediumProperties.eta :=eta_nominal;
-      elseif not allowFlowReversal then
-         mediumProperties.rho :=Medium.density(state_a);
-         mediumProperties.eta :=Medium.dynamicViscosity(state_a);
-      else
-         mediumProperties.rho :=Medium.density(Medium.setSmoothState(dp, state_a, state_b, dp_small));
-         mediumProperties.eta :=Medium.dynamicViscosity(Medium.setSmoothState(dp, state_a, state_b, dp_small));
-      end if;
-    end getMediumProperties;
 
     package Bends
       function dp_curvedOverall_DP
+         import Modelica.Fluid.Dissipation.PressureLoss.Bend;
+
          replaceable package Medium =
             Modelica.Media.Interfaces.PartialMedium "Medium in the component"
             annotation (choicesAllMatching = true);
-         input
-          Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_con
-          geometry "Geometry of bend";
-         input Boolean allowFlowReversal;
-         input Boolean use_nominal;
-         input Medium.AbsolutePressure dp_small;
+         input Bend.dp_curvedOverall_IN_con geometry "Geometry of bend";
          input Medium.ThermodynamicState state_a
           "state for medium inflowing through port_a";
          input Medium.ThermodynamicState state_b
           "state for medium inflowing through port_b";
-
-         input SI.Pressure DP "Output for function dp_curvedOverall_DP";
+         input SI.AbsolutePressure dp_small;
+         input SI.MassFlowRate m_flow_small;
+         input SI.Pressure dp "Pressure drop";
          output SI.MassFlowRate m_flow "Mass flow rate";
-      protected
-      Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_var
-          IN_var;
       algorithm
-         m_flow :=
-          Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_MFLOW(
-                geometry,
-                mediumProperties,
-                dp);
+         m_flow := Bend.dp_curvedOverall_MFLOW(
+                     geometry,
+                     Bend.dp_curvedOverall_IN_var(
+                         rho=Medium.density(Medium.setSmoothState(dp, state_a, state_b, dp_small)),
+                         eta=Medium.dynamicViscosity(Medium.setSmoothState(dp, state_a, state_b, dp_small))),
+                     dp);
       end dp_curvedOverall_DP;
     end Bends;
   end BaseClasses;

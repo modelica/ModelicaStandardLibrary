@@ -177,7 +177,6 @@ models of several devices</a>.
  </html>"));
     end GettingStarted;
 
-
     class ReleaseNotes "Release notes"
       annotation (Documentation(info="<html>
 <h4><font color=\"#008000\">Version 1.0 Beta 4-6, 2010-01-12</font></h4>
@@ -6900,8 +6899,7 @@ and <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedO
 
         //fluid property variables
         extends
-          Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties(      final cp=
-              0, final lambda=0);
+          Modelica.Fluid.Dissipation.Utilities.Records.General.PressureLoss;
 
         annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall\"> dp_curvedOverall </a>,
@@ -7732,8 +7730,7 @@ This record is used as <b> input record </b> for the  pressure loss function <a 
 
         //fluid property variables
         extends
-          Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties(      final cp=
-              0, final lambda=0);
+          Modelica.Fluid.Dissipation.Utilities.Records.General.PressureLoss;
         annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the  pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall\"> dp_edgedOverall </a>,
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_DP\"> dp_edgedOverall_DP </a> and
@@ -8313,8 +8310,7 @@ This record is used as <b> input record </b> for the pressure loss function <a h
 
         //fluid property variables
         extends
-          Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties(      final cp=
-              0, final lambda=0);
+          Modelica.Fluid.Dissipation.Utilities.Records.General.PressureLoss;
 
         annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Channel.dp_internalFlowOverall\"> dp_internalFlowOverall </a>,
@@ -9145,8 +9141,7 @@ This record is used as <b> input record </b> for the pressure loss function <a h
 
         //fluid property variables
         extends
-          Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties(      final cp=
-              0, final lambda=0);
+          Modelica.Fluid.Dissipation.Utilities.Records.General.PressureLoss;
 
         annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity\"> dp_nominalDensityViscosity </a>,
@@ -9637,10 +9632,8 @@ This record is used as <b> input record </b> for the pressure loss function <a h
 
         //fluid property variables
         extends
-          Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties(
-          final cp=0,
-          final eta=0,
-          final lambda=0);
+          Modelica.Fluid.Dissipation.Utilities.Records.General.PressureLoss(
+          final eta=0);
 
         annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity\"> dp_nominalPressureLosslawDensity </a>,
@@ -10237,10 +10230,8 @@ This record is used as <b> input record </b> for the pressure loss function <a h
 
         //fluid property variables
         extends
-          Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties(
-          final cp=0,
-          final eta=0,
-          final lambda=0);
+          Modelica.Fluid.Dissipation.Utilities.Records.General.PressureLoss(
+          final eta=0);
 
         annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate\"> dp_volumeFlowRate </a>,
@@ -10796,8 +10787,7 @@ This record is used as <b> input record </b> for the pressure loss functions <a 
 
         //fluid property variables
         extends
-          Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties(      final cp=
-              0, final lambda=0);
+          Modelica.Fluid.Dissipation.Utilities.Records.General.PressureLoss;
 
         annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss functions <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange\"> dp_suddenChange </a>,
@@ -11318,8 +11308,7 @@ This record is used as <b> input record </b> for the pressure loss functions <a 
 
         //fluid property variables
         extends
-          Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties(      final cp=
-              0, final lambda=0);
+          Modelica.Fluid.Dissipation.Utilities.Records.General.PressureLoss;
 
         annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss functions <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall\"> dp_thickEdgedOverall </a>,
@@ -12382,8 +12371,7 @@ This record is used as <b> input record </b> for the pressure loss function <a h
 
         //fluid property variables
         extends
-          Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties(      final cp=
-              0, final lambda=0);
+          Modelica.Fluid.Dissipation.Utilities.Records.General.PressureLoss;
 
         annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall\"> dp_overall </a>,
@@ -14480,7 +14468,8 @@ This record is used as <b> input record </b> for the pressure loss function <a h
 
             import PI = Modelica.Constants.pi;
             import MIN = Modelica.Constants.eps;
-            import SMOOTH = Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower;
+            import SMOOTH =
+              Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower;
 
             //choices
             input Modelica.Fluid.Dissipation.Utilities.Types.Roughness
@@ -15093,7 +15082,8 @@ The heterogeneous approaches are analytically derived by minimising the momentum
             //SOURCE_1: Bejan,A.: HEAT TRANSFER HANDBOOK, Wiley, 2003.
             //SOURCE_2: Gungor, K.E. and R.H.S. Winterton: A general correlation for flow boiling in tubes and annuli, Int.J. Heat Mass Transfer, Vol.29, p.351-358, 1986.
 
-            import SMOOTH = Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
+            import SMOOTH =
+              Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
 
             //records
             input
@@ -17152,16 +17142,29 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
     package Records "Package for base records"
     extends Modelica.Icons.Library;
       package General
+        record PressureLoss
+          "Base record for fluid properties for pressure loss"
+          extends Modelica.Icons.Record;
+
+          SI.DynamicViscosity eta "Dynamic viscosity of fluid"
+            annotation (Dialog(group="Fluid properties"));
+          SI.Density rho "Density of fluid"
+            annotation (Dialog(group="Fluid properties"));
+        end PressureLoss;
+
         record FluidProperties "Base record for fluid properties"
           extends Modelica.Icons.Record;
 
           SI.SpecificHeatCapacityAtConstantPressure cp=4.19e3
             "Specific heat capacity of fluid at constant pressure"
             annotation (Dialog(group="Fluid properties"));
+
           SI.DynamicViscosity eta=1e-3 "Dynamic viscosity of fluid"
             annotation (Dialog(group="Fluid properties"));
+
           SI.ThermalConductivity lambda=0.58 "Thermal conductivity of fluid"
             annotation (Dialog(group="Fluid properties"));
+
           SI.Density rho=1e3 "Density of fluid"
             annotation (Dialog(group="Fluid properties"));
         end FluidProperties;
