@@ -5735,27 +5735,27 @@ VN- -&GT; name.pc[N-1]
 
         out_c.m_tPhi := Equation.junctionPotDepTemp(in_vp.m_phi, in_m.m_dTemp, in_p.m_tnom);
 
-        out_c.m_tVbi := in_vp.m_vt0 - in_m_type * (in_vp.m_gamma * sqrt(in_vp.m_phi)) +.5  *
+        out_c.m_tVbi := in_vp.m_vt0 - in_m_type * (in_vp.m_gamma * sqrt(in_vp.m_phi)) +0.5  *
                         (Equation.energyGapDepTemp( in_p.m_tnom) - Equation.energyGapDepTemp( in_m.m_dTemp))
-                        + in_m_type *.5  * (out_c.m_tPhi - in_vp.m_phi);
+                        + in_m_type *0.5  * (out_c.m_tPhi - in_vp.m_phi);
         out_c.m_tVto := out_c.m_tVbi + in_m_type * in_vp.m_gamma * sqrt(out_c.m_tPhi);
 
         out_c.m_tBulkPot := Equation.junctionPotDepTemp(in_p.m_bulkJctPotential,in_m.m_dTemp, in_p.m_tnom);
         out_c.m_tDepCap  := in_p.m_fwdCapDepCoeff * out_c.m_tBulkPot;
 
-        if (in_p.m_jctSatCurDensity == 0. or in_m.m_sourceArea == 0. or in_m.m_drainArea == 0.) then
+        if (in_p.m_jctSatCurDensity == 0.0 or in_m.m_sourceArea == 0.0 or in_m.m_drainArea == 0.0) then
           out_c.m_tDrainSatCur  := Equation.saturationCurDepTempSPICE3MOSFET(
                                    in_p.m_jctSatCur, in_m.m_dTemp, in_p.m_tnom);
           out_c.m_tSourceSatCur := out_c.m_tDrainSatCur;
-          out_c.m_VBScrit       := Equation.junctionVCrit( in_m.m_dTemp, 1., out_c.m_tSourceSatCur);
+          out_c.m_VBScrit       := Equation.junctionVCrit( in_m.m_dTemp, 1.0, out_c.m_tSourceSatCur);
           out_c.m_VBDcrit       := out_c.m_VBScrit;
         else
           out_c.m_tSatCurDens   := Equation.saturationCurDepTempSPICE3MOSFET(
                                    in_p.m_jctSatCurDensity, in_m.m_dTemp,in_p.m_tnom);
           out_c.m_tDrainSatCur  := out_c.m_tSatCurDens * in_m.m_drainArea;
           out_c.m_tSourceSatCur := out_c.m_tSatCurDens * in_m.m_sourceArea;
-          out_c.m_VBScrit       := Equation.junctionVCrit( in_m.m_dTemp, 1., out_c.m_tSourceSatCur);
-          out_c.m_VBDcrit       := Equation.junctionVCrit( in_m.m_dTemp, 1., out_c.m_tDrainSatCur);
+          out_c.m_VBScrit       := Equation.junctionVCrit( in_m.m_dTemp, 1.0, out_c.m_tSourceSatCur);
+          out_c.m_VBDcrit       := Equation.junctionVCrit( in_m.m_dTemp, 1.0, out_c.m_tDrainSatCur);
         end if;
 
         if ( not (in_p.m_capBDIsGiven > 0.5) or not (in_p.m_capBSIsGiven > 0.5)) then
@@ -6035,15 +6035,15 @@ VN- -&GT; name.pc[N-1]
               if (in_p.m_substrateDoping * 1e6 > 1.45e16) then // (cm**3/m**3)
                 if (not (in_p.m_phiIsGiven > 0.5)) then
                   out_v.m_phi := 2*vtnom*Modelica.Math.log(in_p.m_substrateDoping*1e6/1.45e16); // (cm**3/m**3)
-                  out_v.m_phi := max(.1, out_v.m_phi);
+                  out_v.m_phi := max(0.1, out_v.m_phi);
                 end if;
-                fermis := in_m_type *.5  * out_v.m_phi;
+                fermis := in_m_type *0.5  * out_v.m_phi;
                 wkfng  := 3.2;
                 if (in_p.m_gateType <> 0) then
-                  fermig := in_m_type * in_p.m_gateType *.5  * egfet1;
-                  wkfng  := 3.25 +.5  * egfet1 - fermig;
+                  fermig := in_m_type * in_p.m_gateType *0.5  * egfet1;
+                  wkfng  := 3.25 +0.5  * egfet1 - fermig;
                 end if;
-                wkfngs := wkfng - (3.25 +.5  * egfet1 + fermis);
+                wkfngs := wkfng - (3.25 +0.5  * egfet1 + fermis);
                 if (not (in_p.m_gammaIsGiven > 0.5)) then
                   out_v.m_gamma := sqrt(2 * 11.70 * 8.854214871e-12 * SpiceRoot.SPICEcircuitCONST.CHARGE *
                                    in_p.m_substrateDoping * 1e6 / out_v.m_oxideCapFactor);         // (cm**3/m**3)
