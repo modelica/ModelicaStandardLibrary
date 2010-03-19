@@ -5672,8 +5672,7 @@ end While;
 
 
 annotation (__Dymola_DocumentationClass=true,
-     versionBuild=1,
-     versionDate="2010-03-15",
+     dateModified="2010-03-19 15:30:00Z",
      revisionId="$Id::                                       $",
      Documentation(info="<html>
 <p>
