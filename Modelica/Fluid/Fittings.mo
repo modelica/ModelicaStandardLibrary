@@ -51,7 +51,7 @@ This function shall be used inside of the restricted limits according to the ref
       <b> length of bend along curved axis / diameter &ge; 10 </b> <i>[Idelchik 2006, p. 357, diag. 6-1] </i>
  </li>
   <li>
-      <b> angle of curvature smaller than 180° (delta &le; 180) </b> <i>[Idelchik 2006, p. 357, diag. 6-1] </i>
+      <b> angle of curvature smaller than 180&deg; (delta &le; 180) </b> <i>[Idelchik 2006, p. 357, diag. 6-1] </i>
  </li>
 </ul>
 
