@@ -289,44 +289,64 @@ This is useful if g represents the major computational effort of fg).</li>
 
     annotation (Documentation(info="<html>
 <p>
-Define graphical layout of parameter menu
+Define graphical layout of the parameter menu.
 </p>
-
-<h4><font color=\"#008000\">Examples</font></h4>
-
-<pre><b>model</b> BodyShape
-  ...
-  <b>parameter</b> Boolean animation = true;
-  <b>parameter</b> Modelica.SIunits.Length length \"Length of shape\"
-     <b>annotation</b>(Dialog(enable = animation, tab = \"Animation\",
-                        group = \"Shape definition\"));
-  ...
-<b>end</b> BodyShape;
-</pre>
 
 <h4><font color=\"#008000\">Syntax</font></h4>
-
-<pre>   <b>annotation</b>(Dialog(enable = parameter-expression, tab = \"tab\", group = \"group\"))
+<blockquote>
+<pre><b>annotation</b>(<b>Dialog</b>(<b>enable</b> = true,
+                     <b>tab</b> = \"General\", 
+                   <b>group</b> = \"Parameters\", 
+      <b>showStartAttribute</b> = false,
+              <b>groupImage</b> = \"modelica://MyPackage/Resources/Images/image.png\",       
+         <b>connectorSizing</b> = false));
 </pre>
-
+</blockquote>
 
 <h4><font color=\"#008000\">Description</font></h4>
-
 <p>
-Defines the placement of the component or class parameter in a parameter dialog with optional tab and group specification. If enable is false, the input field may be disabled [and no input can be given]. \"Dialog\" is defined as:
+The annotations <b><code>tab</code></b> and <b><code>group</code></b> define the placement of the component or of variables in a dialog with optional tab and group specification. If <code><b>enable</b> = false</code>, the input field may be disabled [and no input can be given]. If <code><b>showStartAttribute</b> = true</code> the dialog should allow the user to set the start-value and the fixed attribute for the variable instead of the value-attribute [this is primarily intended for non-parameter values and avoids introducing a separate parameter for the start-value of the variable].
 </p>
-
-<pre>   <b>record</b> Dialog
-     <b>parameter</b> String  tab    = \"General\";
-     <b>parameter</b> String  group  = \"Parameters\";
-     <b>parameter</b> Boolean enable = <b>true</b>;
-   <b>end Dialog;
+<p>
+The annotation <b><code>groupImage</code></b> references an image using an Modelica URI, and the image is intended to be shown together with the parameter-group (only one image per group is supported). Disabling the input field will not disable the image.
+</p>
+<p>
+The value of the <b><code>connectorSizing</code></b> annotation must be a literal false or true value [since if the value is an expression, the <code>connectorSizing</code> functionality is conditional and this will then lead easily to wrong models]. If <code>connectorSizing = false</code>, this annotation has no effect. If <code>connectorSizing = true</code>, the corresponding variable must be declared with the parameter prefix, must be a subtype of a scalar Integer and must have a literal default value of zero [since this annotation is designed for a parameter that is used as vector dimension and the dimension of the vector should be zero when the component is dragged or redeclared; furthermore, when a tool does not support the connectorSizing annotation, dragging will still result in a correct model]. 
+If <code>connectorSizing = true</code>, a tool may set the parameter value in a modifier automatically, if used as dimension size of a vector of connectors. [The <code>connectorSizing</code> annotation is used in cases where connections to a vector of connectors shall be made and a new connection requires to resize the vector and to  connect  to the new index (unary connections). The annotation allows a tool to perform these two actions in many cases automatically. This is, e.g., very useful for state machines and for certain components of fluid libraries.]
+</p>
+<p>
+By default the annotation \"Dialog\" is defined as:
+</p>
+<blockquote>
+<pre><b>record</b> Dialog
+  <b>parameter</b> String  tab                = \"General\";
+  <b>parameter</b> String  group              = \"Parameters\";
+  <b>parameter</b> Boolean enable             = <b>true</b>;
+  <b>parameter</b> Boolean showStartAttribute = <b>false</b>;
+  <b>parameter</b> Boolean connectorSizing    = <b>false</b>;
+<b>end Dialog;
 </pre>
+</blockquote>
 
+<h4><font color=\"#008000\">Examples</font></h4>
 <p>
 A parameter dialog is a sequence of tabs with a sequence of groups inside them.
 </p>
 
+<pre><b>model</b> DialogDemo
+  <b>parameter</b> Boolean b = true \"Boolean parameter\";
+  <b>parameter</b> Modelica.SIunits.Length length \"Real parameter with unit\";
+  <b>parameter</b> Integer nInports=0 annotation(Dialog(connectorSizing=true));
+  <b>parameter</b> Real r1 \"Real parameter in Group 1\" annotation(Dialog(group=\"Group 1\"));
+  <b>parameter</b> Real r2 \"Disabled Real parameter in group 1\" 
+                     <b>annotation</b>(<b>Dialog</b>(<b>group</b>=\"Group 1\", <b>enable</b> = <b>not</b> b));
+  <b>parameter</b> Real r3 \"Real parameter in Tab 1\" <b>annotation</b>(Dialog</b>(<b>tab</b>=\"Tab 1\"));
+  <b>parameter</b> Real r4 \"Real parameter in Tab 1 and Group 2\" 
+                     <b>annotation</b>(<b>Dialog</b>(<b>tab</b>=\"Tab 1\", <b>group</b>=\"Group 2\"));
+  StepIn stepIn[nInports];
+  ...
+<b>end</b> DialogDemo;
+</pre>
 </html>"));
   end Dialog;
 
@@ -465,6 +485,37 @@ The experiment annotation defines the default start time (StartTime) in [s], the
 
 </html>"));
   end experiment;
+
+  class dateModified "dateModified"
+
+    annotation (Documentation(info="<html>
+<p>UTC date and time of the latest change to the package in the following format (with one space between date and time):<br>
+&nbsp;&nbsp;<code>YYYY-MM-DD hh:mm:ssZ</code></p>
+<p><b><font style=\"color: #008000; \">Examples</font></b> </p>
+<p><pre><b>package</b> Modelica
+  <b>annotation</b>(version      = &QUOT;3.0.1&QUOT;,
+             versionDate  = &QUOT;2008-04-10&QUOT;,
+             versionBuild = 4,
+             <em>dateModified = &QUOT;2009-02-15 16:33:14Z&QUOT;</em>,
+             revisionId   = &QUOT;$Id:: package.mo 2566 2009-05-26 13:25:54Z #$&QUOT;);
+  ...
+  <b>end</b> Modelica;</pre></p>
+<p><b><font style=\"color: #008000; \">Syntax</font></b></p>
+<p><code><blockquote><b>annotation</b>&QUOT;(&QUOT; dateModified &QUOT;=&QUOT; STRING &QUOT;)&QUOT;</code> </blockquote></p>
+<p><b><font style=\"color: #008000; \">Description</font></b> </p>
+<p>&ldquo;<code>dateModified</code>&rdquo; is the UTC date and time (according to <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>) of the last modification of the
+package. <em>The intention is that a Modelica tool updates this annotation whenever the package or part of it
+was modified and is saved on persistent storage (like file or database system).</em></p>
+<p>Related annotations: 
+<ul>
+  <li><a href=\"modelica://ModelicaReference.Annotations.version\">version</a></li>
+  <li><a href=\"modelica://ModelicaReference.Annotations.versionDate\">versionDate</a></li>
+  <li><a href=\"modelica://ModelicaReference.Annotations.versionBuild\">versionBuild</a></li>
+  <li><a href=\"modelica://ModelicaReference.Annotations.revisionId\">revisionId</a></li>
+</ul>
+</p>
+</html>"));
+  end dateModified;
 
   class HideResult "HideResult"
 
@@ -620,6 +671,34 @@ The preferredView annotation defines the default view when selecting the class. 
 </html>"));
   end PreferredView;
 
+  class revisionId "revisionId"
+
+    annotation (Documentation(info="<html>
+<p>Revision identifier of the version management system used to manage this library. It marks the latest submitted change to any file belonging to the package.</p>
+<p><b><font style=\"color: #008000; \">Examples</font></b> </p>
+<p><pre><b>package</b> Modelica
+  <b>annotation</b>(version      = &QUOT;3.0.1&QUOT;,
+             versionDate  = &QUOT;2008-04-10&QUOT;,
+             versionBuild = 4,
+             dateModified = &QUOT;2009-02-15 16:33:14Z&QUOT;,
+             <em>revisionId   = &QUOT;$Id:: package.mo 2566 2009-05-26 13:25:54Z #$&QUOT;</em>);
+  ...
+  <b>end</b> Modelica;</pre></p>
+<p><b><font style=\"color: #008000; \">Syntax</font></b></p>
+<p><code><blockquote><b>annotation</b>&QUOT;(&QUOT; revisionId &QUOT;=&QUOT; STRING &QUOT;)&QUOT;</code></blockquote></p>
+<p><b><font style=\"color: #008000; \">Description</font></b> </p>
+<p>&ldquo;<code>revisionId</code>&rdquo; is a tool specific revision identifier possibly generated by a source code management system (e.g., <a href=\"http://subversion.apache.org\">Subversion</a> or <a href=\"http://en.wikipedia.org/wiki/Concurrent_Versions_System\">CVS</a>). This information allows to exactly identify the library source code in the source code management system.</p>
+<p>Related annotations: 
+<ul>
+  <li><a href=\"modelica://ModelicaReference.Annotations.version\">version</a></li>
+  <li><a href=\"modelica://ModelicaReference.Annotations.versionDate\">versionDate</a></li>
+  <li><a href=\"modelica://ModelicaReference.Annotations.versionBuild\">versionBuild</a></li>
+  <li><a href=\"modelica://ModelicaReference.Annotations.dateModified\">dateModified</a></li>
+</ul>
+</p>
+</html>"));
+  end revisionId;
+
   class smoothOrder "smoothOrder"
 
     annotation (Documentation(info="<html>
@@ -682,8 +761,6 @@ Define version information of package
 <p>
 In this example the model A uses an older version of the Modelica library and can be upgraded using the given script, and model B uses an older version of the Modelica library but no changes are required when upgrading.
 </p>
-
-
 
 <h4><font color=\"#008000\">Description</font></h4>
 
@@ -748,13 +825,76 @@ of the following ways in a directory given in the MODELICAPATH:
 <li> The directory IDENT \" \" VERSION-NUMBER<br>
      Example: Modelica 2.1</li>
 </ul>
-
 <p>
 This allows a tool to access multiple versions of the same package.
+</p>
+<p>Related annotations: 
+<ul>
+  <li><a href=\"modelica://ModelicaReference.Annotations.version\">version</a></li>
+  <li><a href=\"modelica://ModelicaReference.Annotations.versionBuild\">versionBuild</a></li>
+  <li><a href=\"modelica://ModelicaReference.Annotations.dateModified\">dateModified</a></li>
+  <li><a href=\"modelica://ModelicaReference.Annotations.revisionId\">revisionId</a></li>	
+</ul>
 </p>
 
 </html>"));
   end version;
+
+  class versionBuild "versionBuild"
+
+    annotation (Documentation(info="<html>
+<p>Defines the optional build number of the library.</p>
+<p><b><font style=\"color: #008000; \">Examples</font></b> </p>
+<p><pre><b>package</b> Modelica
+  <b>annotation</b>(version      = &QUOT;3.0.1&QUOT;,
+             versionDate  = &QUOT;2008-04-10&QUOT;,
+             <em>versionBuild = 4</em>,
+             dateModified = &QUOT;2009-02-15 16:33:14Z&QUOT;,
+             revisionId   = &QUOT;$Id:: package.mo 2566 2009-05-26 13:25:54Z #$&QUOT;);
+  ...
+  <b>end</b> Modelica;</pre></p>
+<p><b><font style=\"color: #008000; \">Syntax</font></b></p>
+<p><code><blockquote><b>annotation</b>&QUOT;(&QUOT; versionBuild &QUOT;=&QUOT; INTEGER &QUOT;)&QUOT;</code> </blockquote></p>
+<p><b><font style=\"color: #008000; \">Description</font></b> </p>
+<p>&ldquo;<code>versionBuild</code>&rdquo; is the optional build number of the library. When a new version is released &ldquo;<code>versionBuild</code>&rdquo; should be omitted or &ldquo;<code>versionBuild = 1</code>&rdquo;. There might be bug fixes to the library that do not justify a new library version. Such maintenance changes are called a &ldquo;build&rdquo; release of the library. For every new maintenance change, the &ldquo;<code>versionBuild</code>&rdquo; number is increased. A &ldquo;<code>versionBuild</code>&rdquo; number A that is higher as &ldquo;<code>versionBuild</code>&rdquo; number B, is a newer release of the library. There are no conversions between the same versions with different build numbers.</p>
+<p>Related annotations: 
+<ul>
+  <li><a href=\"modelica://ModelicaReference.Annotations.version\">version</a></li>
+  <li><a href=\"modelica://ModelicaReference.Annotations.versionDate\">versionDate</a></li>
+  <li><a href=\"modelica://ModelicaReference.Annotations.dateModified\">dateModified</a></li>
+  <li><a href=\"modelica://ModelicaReference.Annotations.revisionId\">revisionId</a></li>	
+</ul>
+</p>
+</html>"));
+  end versionBuild;
+
+  class versionDate "versionDate"
+
+    annotation (Documentation(info="<html>
+<p>UTC date of first version build (in format: <code>YYYY-MM-DD</code>).</p>
+<p><b><font style=\"color: #008000; \">Examples</font></b> </p>
+<p><pre><b>package</b> Modelica
+  <b>annotation</b>(version      = &QUOT;3.0.1&QUOT;,
+             <em>versionDate  = &QUOT;2008-04-10&QUOT;</em>,
+             versionBuild = 4,
+             dateModified = &QUOT;2009-02-15 16:33:14Z&QUOT;,
+             revisionId   = &QUOT;$Id:: package.mo 2566 2009-05-26 13:25:54Z #$&QUOT;);
+  ...
+  <b>end</b> Modelica;</pre></p>
+<p><b><font style=\"color: #008000; \">Syntax</font></b></p>
+<p><code><blockquote><b>annotation</b>&QUOT;(&QUOT; versionDate &QUOT;=&QUOT; STRING &QUOT;)&QUOT;</code> </blockquote></p>
+<p><b><font style=\"color: #008000; \">Description</font></b> </p>
+<p>&ldquo;<code>versionDate</code>&rdquo; is the date in UTC format (according to <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>) when the library was released.</p>
+<p>Related annotations: 
+<ul>
+  <li><a href=\"modelica://ModelicaReference.Annotations.version\">version</a></li>
+  <li><a href=\"modelica://ModelicaReference.Annotations.versionBuild\">versionBuild</a></li>
+  <li><a href=\"modelica://ModelicaReference.Annotations.dateModified\">dateModified</a></li>
+  <li><a href=\"modelica://ModelicaReference.Annotations.revisionId\">revisionId</a></li>	
+</ul>
+</p>
+</html>"));
+  end versionDate;
 
   class unassignedMessage "unassignedMessage"
 
@@ -2290,6 +2430,50 @@ True during initialization
   off = x &lt; -2 or <b>initial</b>();</pre>
 </html>"));
   end Initial;
+
+  class inverse "inverse"
+
+    annotation (Documentation(info="<html>
+<p>Every function with one output argument may have one or more &QUOT;<code>inverse</code>&QUOT; annotations to define inverses of this function. </p>
+<p><b><font style=\"color: #008000; \">Syntax</font></b> </p>
+<blockquote>
+<pre><b>function</b> f1
+  <b>input</b> A1 u1;
+  ...
+  <b>input</b> T1 uk;
+  ...
+  <b>input</b> Am um = am;
+  ...
+  <b>input</b> An un;
+  <b>output</b> T2 y;
+  <b>annotation</b>(<b>inverse</b>(uk = f2(..., y, ....), ui = f3(..., y, ...), ...));
+<b>algorithm</b>
+  ...
+<b>end</b> f1;</pre></blockquote>
+<p><h4><font color=\"#008000\">Description</font></h4></p>
+<p>The meaning is that function &QUOT;<code>f2</code>&QUOT; is one inverse to function &QUOT;<code>f1</code>&QUOT; where the previous output &QUOT;<code>y</code>&QUOT; is now an input and the previous input &QUOT;<code>uk</code>&QUOT; is now an output. More than one inverse can be defined within the same inverse annotation. Several inverses are separated by commas. <em>(The inverse requires that for all valid values of the inputarguments of <code>f2(...,y, ...)</code> and <code>uk</code> being calculated as <code>uk := f2(..., y, ...)</code> implies the equality <code>y = f1(..., uk, ...,) </code>up to a certain precision.)</em></p>
+<p>Function &QUOT;<code>f1</code>&QUOT; can have any number and types of arguments with and without default value. The restriction is that the number of unknown variables in the output argument of both &QUOT;<code>f1</code>&QUOT; and &QUOT;<code>f2</code>&QUOT; must be the same and that &QUOT;<code>f2</code>&QUOT; must have exactly the same arguments as &QUOT;<code>f1</code>&QUOT; (with the same defaults, if an argument um has a default), but the order of the arguments may be permuted.</p>
+<p><h4><font style=\"color: #008000; \">Examples</font></h4></p>
+<pre><b>function</b> h_pTX
+  <b>input</b> Real p    &QUOT;pressure&QUOT;;
+  <b>input</b> Real T    &QUOT;temperature&QUOT;;
+  <b>input</b> Real X[:] &QUOT;mass fractions&QUOT;;
+  <b>output</b> Real h   &QUOT;specific enthalpy&QUOT;;
+  <b>annotation</b>(<b>inverse</b>(T = T_phX(p,h,X)));
+<b>algorithm</b>
+  ...
+<b>end</b> h_pTX;
+
+<b>function</b> T_phX
+  <b>input</b> Real  p    &QUOT;pressure&QUOT;;
+  <b>input</b> Real  h    &QUOT;specific enthalpy&QUOT;;
+  <b>input</b> Real  X[:] &QUOT;mass fractions&QUOT;;
+  <b>output</b> Real T    &QUOT;temperature&QUOT;;
+<b>algorithm</b>
+  ...
+<b>end</b> T_phX;</pre>
+</html>"));
+  end inverse;
 
   class IntegerUpperCase "Integer"
 
@@ -5488,10 +5672,10 @@ end While;
 
 
 annotation (__Dymola_DocumentationClass=true,
-	    versionBuild=1,
-	    versionDate="2010-03-15",
-	    revisionId="$Id::                                       $",
-	    Documentation(info="<html>
+     versionBuild=1,
+     versionDate="2010-03-15",
+     revisionId="$Id::                                       $",
+     Documentation(info="<html>
 <p>
 This package is a reference to Modelica keywords and Modelica builtin
 operators and is based on the
@@ -5510,27 +5694,44 @@ operators and is based on the
 </dl>
 
 <p>
-<b>Copyright &copy; 2003-2010, 2008 Modelica Association and DLR.</b>
+<b>Copyright &copy; 2003-2010 Modelica Association and DLR.</b>
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
 </html>", revisions="<html>
-
-<ul>
-<li><i>Jan. 2, 2008</i>
-    by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-    Adapted to Modelica language version 3.0</li>
-
-<li><i>Sept. 30, 2004</i>
-    by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-    Moved the content of \"Functions\" into \"Operators\" and updated
-    \"Operators\" according to Modelica 2.1</li>
-
-<li><i>July 10, 2003</i>
-     by <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
-     Implemented.</li>
-</ul>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+    <tr>
+      <th>Revision</th>
+      <th>Date</th>
+      <th>Author</th>
+      <th>Comment</th>
+    </tr>
+    <tr>
+      <td valign=\"top\"><a href=\"http://trac.modelica.org/Modelica/changeset/3598/Modelica\">r3598</a></td>
+      <td valign=\"top\">2010-03-10</td>
+      <td valign=\"top\"><a href=\"http://www.hit.no/ansatte/vis/dietmar.winkler\">Dietmar Winkler</a></td>
+      <td valign=\"top\">Added some annotation from Modelica language version 3.1 and 3.2 (see ticket <a href=\"http://trac.modelica.org/Modelica/ticket/228\">#228</a>)</td>
+    </tr>
+    <tr>
+      <td valign=\"top\"><a href=\"http://trac.modelica.org/Modelica/changeset/948/Modelica\">r948</a></td>
+      <td valign=\"top\">2008-01-02</td>
+      <td valign=\"top\"><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a></td>
+      <td valign=\"top\">Adapted to Modelica language version 3.0</td>
+    </tr>
+    <tr>
+      <td valign=\"top\"></td>
+      <td valign=\"top\">2004-09-30</td>
+      <td valign=\"top\"><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a></td>
+      <td valign=\"top\">Moved the content of \"Functions\" into \"Operators\" and updated \"Operators\" according to Modelica 2.1</td>
+    </tr>
+    <tr>
+      <td valign=\"top\"></td>
+      <td valign=\"top\">2003-07-10</td>
+      <td valign=\"top\"><a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a></td>
+      <td valign=\"top\">Implemented.</td>
+    </tr>
+</table>
 </html>"),
   uses(Modelica(version="3.2")));
 end ModelicaReference;
