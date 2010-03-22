@@ -6016,7 +6016,6 @@ This record is used as <b> input record </b> for the heat transfer function <a h
     package Bend "Package for pressure loss calculation of bends"
     extends Modelica.Fluid.Icons.VariantLibrary;
 
-
       function dp_curvedOverall_DP
         "Pressure loss of curved bend | calculate pressure loss | overall flow regime | surface roughness"
 
@@ -6561,7 +6560,7 @@ This function shall be used inside of the restricted limits according to the ref
       <b> length of bend along curved axis / diameter &ge; 10 </b> <i>[Idelchik 2006, p. 357, diag. 6-1] </i>
  </li>
   <li>
-      <b> angle of curvature smaller than 180° (delta &le; 180) </b> <i>[Idelchik 2006, p. 357, diag. 6-1] </i>
+      <b> angle of curvature smaller than 180&deg; (delta &le; 180) </b> <i>[Idelchik 2006, p. 357, diag. 6-1] </i>
  </li>
 </ul>
 
@@ -6786,7 +6785,6 @@ This record is used as <b> input record </b> for the pressure loss function <a h
 and <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_MFLOW\"> dp_curvedOverall_MFLOW </a>.
 </html>"));
       end dp_curvedOverall_IN_var;
-
 
       function dp_edgedOverall_DP
         "Pressure loss of edged bend | calculate pressure loss | overall flow regime | surface roughness"
@@ -7504,7 +7502,6 @@ This record is used as <b> input record </b> for the  pressure loss function <a 
     package Channel "Package for pressure loss calculation of channels"
     extends Modelica.Fluid.Icons.VariantLibrary;
 
-
       function dp_internalFlowOverall_DP
         "Pressure loss of internal flow | calculate pressure loss | overall flow regime | surface roughness | several geometries"
 
@@ -7951,7 +7948,6 @@ This record is used as <b> input record </b> for the pressure loss function <a h
     package General "Package for generic pressure loss calculations"
     extends Modelica.Fluid.Icons.VariantLibrary;
 
-
       function dp_idealGas_DP
         "Generic pressure loss | calculate pressure loss | ideal gas | mean density"
 
@@ -8338,7 +8334,6 @@ This record is used as <b> input record </b> for the pressure loss function <a h
 
       end dp_idealGas_IN_var;
 
-
       function dp_nominalDensityViscosity_DP
         "Generic pressure loss | calculate mass flow rate | nominal operation point | pressure loss law (exponent) | density and dynamic viscosity dependence"
 
@@ -8652,7 +8647,6 @@ This record is used as <b> input record </b> for the pressure loss function <a h
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity_MFLOW\"> dp_nominalDensityViscosity_MFLOW </a>.
 </html>"));
       end dp_nominalDensityViscosity_IN_var;
-
 
       function dp_nominalPressureLossLawDensity_DP
         "Generic pressure loss | calculate pressure loss | nominal operation point | pressure loss law (coefficient and exponent) | density dependence"
@@ -9083,7 +9077,6 @@ This record is used as <b> input record </b> for the pressure loss function <a h
 </html>"));
       end dp_nominalPressureLossLawDensity_IN_var;
 
-
       function dp_pressureLossCoefficient_DP
         "Generic pressure loss | calculate pressure loss | pressure loss coefficient (zeta_TOT)"
 
@@ -9312,7 +9305,6 @@ This record is used as <b> input record </b> for the pressure loss function <a h
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_MFLOW\"> dp_pressureLossCoefficient_MFLOW </a>.
 </html>"));
       end dp_pressureLossCoefficient_IN_var;
-
 
       function dp_volumeFlowRate_DP
         "Generic pressure loss | calculate pressure loss | quadratic function (dp=a*V_flow^2 + b*V_flow)"
@@ -9585,7 +9577,6 @@ Note that the intention is to enhance the Fluid.Dissipation library by editing t
 
     package Orifice "Package for pressure loss calculation of orifices"
     extends Modelica.Fluid.Icons.VariantLibrary;
-
 
       function dp_suddenChange_DP
         "Pressure loss of orifice with sudden change in cross sectional area | calculate pressure loss | turbulent flow regime | smooth surface | arbitrary cross sectional area | without buffles | sharp edge"
@@ -9998,7 +9989,6 @@ This record is used as <b> input record </b> for the pressure loss functions <a 
 </html>"));
       end dp_suddenChange_IN_var;
 
-
       function dp_thickEdgedOverall_DP
         "Pressure loss of thick and sharp edged orifice | calculate pressure loss | overall flow regime | constant influence of friction  | arbitrary cross sectional area"
 
@@ -10404,7 +10394,6 @@ This record is used as <b> input record </b> for the pressure loss functions <a 
       "Package for pressure loss calculation of straight pipes"
     extends Modelica.Fluid.Icons.VariantLibrary;
 
-
       function dp_laminar_DP
         "Pressure loss of straight pipe | calculate pressure loss| laminar flow regime (Hagen-Poiseuille)"
 
@@ -10754,7 +10743,6 @@ This record is used as <b> input record </b> for the pressure loss function <a h
 </html>"));
 
       end dp_laminar_IN_var;
-
 
       function dp_overall_DP
         "Pressure loss of straight pipe | calculate pressure loss | overall flow regime | surface roughness"
@@ -11259,7 +11247,6 @@ This record is used as <b> input record </b> for the pressure loss function <a h
 </html>"));
 
       end dp_overall_IN_var;
-
 
       function dp_turbulent_DP
         "Pressure loss of straight pipe | calculate pressure loss | turbulent flow regime | surface roughness"
@@ -12127,7 +12114,6 @@ This record is used as <b> input record </b> for the pressure loss function <a h
 
     package Valve "Package for pressure loss calculation of valves"
     extends Modelica.Fluid.Icons.VariantLibrary;
-
 
       function dp_severalGeometryOverall_DP
         "Pressure loss of valve | calculate pressure loss | several geometries | overall flow regime"
