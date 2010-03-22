@@ -315,12 +315,13 @@ The value of the <b><code>connectorSizing</code></b> annotation must be a litera
 If <code>connectorSizing = true</code>, a tool may set the parameter value in a modifier automatically, if used as dimension size of a vector of connectors. [The <code>connectorSizing</code> annotation is used in cases where connections to a vector of connectors shall be made and a new connection requires to resize the vector and to  connect  to the new index (unary connections). The annotation allows a tool to perform these two actions in many cases automatically. This is, e.g., very useful for state machines and for certain components of fluid libraries.]
 </p>
 <p>
-By default the annotation \"Dialog\" is defined as:
+Annotation \"Dialog\" is defined as:
 </p>
 <blockquote>
 <pre><b>record</b> Dialog
   <b>parameter</b> String  tab                = \"General\";
   <b>parameter</b> String  group              = \"Parameters\";
+  <b>parameter</b> String  groupImage         = \"\";
   <b>parameter</b> Boolean enable             = <b>true</b>;
   <b>parameter</b> Boolean showStartAttribute = <b>false</b>;
   <b>parameter</b> Boolean connectorSizing    = <b>false</b>;
