@@ -338,12 +338,12 @@ Plot length and angle of the voltage phasor, i.e. complexToPolar.len and .phi, v
         experimentSetupOutput,
         Documentation(info="<html>
 <p>
-This example demonstrates coupling a quasi stationary circuit with a DC circuit. 
-The QS voltage is rectified (using an 
+This example demonstrates coupling a quasi stationary circuit with a DC circuit.
+The QS voltage is rectified (using an
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Utilities.IdealACDCConverter\">
-ideal AC DC converter</a>), loaded by a variable load conductor. 
-The <i>conversionFactor = DC voltage / AC rms voltage</i> in this case is the root mean square of a rectified sine, i.e. 1. 
-You may compare the quasi stationary results with that of a fully transient model (using a 
+ideal AC DC converter</a>), loaded by a variable load conductor.
+The <i>conversionFactor = DC voltage / AC rms voltage</i> in this case is the root mean square of a rectified sine, i.e. 1.
+You may compare the quasi stationary results with that of a fully transient model (using a
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Utilities.GraetzRectifier\">
 Graetz rectifier</a>), plotting:
 </p>
@@ -360,7 +360,7 @@ It can be ssen that at the DC side the current is represented by its averaged va
 </p>
 <h4>Note</h4>
 <p>
-The quasi stationary model needs a grounding at the QS side as well as the DC side, 
+The quasi stationary model needs a grounding at the QS side as well as the DC side,
 wheras the transient model may have only one ground since AC side and DC side are connected via the diodes.
 </p>
 </html>"));
@@ -1698,14 +1698,14 @@ Quasi stationary theory for single phase circuits can be found in the
               textString="%conversionFactor")}),
         Documentation(info="<html>
 <p>
-This is an ideal AC DC converter, based on a power balance between QS circuit and DC side. 
-The paramater <i>conversionFactor</i> defines the ratio between averaged DC voltage and QS rms voltage. 
-Furthermore, reactive power at the QS side is set to 0. 
+This is an ideal AC DC converter, based on a power balance between QS circuit and DC side.
+The paramater <i>conversionFactor</i> defines the ratio between averaged DC voltage and QS rms voltage.
+Furthermore, reactive power at the QS side is set to 0.
 </p>
 <h4>Note:</h4>
 <p>
-Of course no voltage or current ripple is present, neither at the QS side nor at the DC side. 
-At the QS side, only base harmonics of voltage and current are taken into account. 
+Of course no voltage or current ripple is present, neither at the QS side nor at the DC side.
+At the QS side, only base harmonics of voltage and current are taken into account.
 At the DC side, only the mean of voltage and current are taken into account.
 </p>
 </html>"));
@@ -1870,7 +1870,7 @@ This block calculates the mean of input signal u over the given period 1/f.
       annotation (Diagram(graphics),
         Documentation(info="<html>
 <p>
-This block calculates the root mean square of input signal u over the given period 1/f, using the 
+This block calculates the root mean square of input signal u over the given period 1/f, using the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Utilities.Mean\">mean block</a>.
 </p>
 </html>"),
@@ -1977,7 +1977,7 @@ This block calculates the root mean square of input signal u over the given peri
       annotation (Diagram(graphics),
         Documentation(info="<html>
 <p>
-This block calculates the root mean square of a single harmonic <i>k</i> of the input signal u over the given period 1/f, using the 
+This block calculates the root mean square of a single harmonic <i>k</i> of the input signal u over the given period 1/f, using the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Utilities.Mean\">mean block</a>.
 </p>
 </html>"),
