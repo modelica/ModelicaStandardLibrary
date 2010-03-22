@@ -790,6 +790,7 @@ partial model PartialDistributedVolume
     "Base class for distributed volume models"
     import Modelica.Fluid.Types;
     import Modelica.Fluid.Types.Dynamics;
+    import Modelica.Media.Interfaces.PartialMedium.Choices.IndependentVariables;
   outer Modelica.Fluid.System system "System properties";
 
   replaceable package Medium =
@@ -934,16 +935,33 @@ equation
 initial equation
   // initialization of balances
   if energyDynamics == Dynamics.FixedInitial then
+    /*
     if use_T_start then
       mediums.T = fill(T_start, n);
     else
       mediums.h = fill(h_start, n);
     end if;
+    */
+    if Medium.ThermoStates == IndependentVariables.ph or
+       Medium.ThermoStates == IndependentVariables.phX then
+       mediums.h = fill(h_start, n);
+    else
+       mediums.T = fill(T_start, n);
+    end if;
+
   elseif energyDynamics == Dynamics.SteadyStateInitial then
+    /*
     if use_T_start then
       der(mediums.T) = zeros(n);
     else
       der(mediums.h) = zeros(n);
+    end if;
+    */
+    if Medium.ThermoStates == IndependentVariables.ph or
+       Medium.ThermoStates == IndependentVariables.phX then
+       der(mediums.h) = zeros(n);
+    else
+       der(mediums.T) = zeros(n);
     end if;
   end if;
 

@@ -17,6 +17,59 @@ package Fittings
     properties(final eta=eta, final rho=rho) "Properties of medium"
     annotation (Placement(transformation(extent={{-46,20},{-26,40}})));
 */
+    protected
+      parameter Medium.AbsolutePressure dp_small= Bend.dp_curvedOverall_DP(
+                    geometry, Bend.dp_curvedOverall_IN_var(
+                      rho=Medium.density(Medium.setState_pTX(
+                           Medium.reference_p,
+                           Medium.reference_T,
+                           Medium.reference_X)),
+                      eta=Medium.dynamicViscosity(Medium.setState_pTX(
+                           Medium.reference_p,
+                           Medium.reference_T,
+                           Medium.reference_X))),
+                    m_flow_small)
+        "Default small pressure drop for regularization of laminar and zero flow (calculated from m_flow_small)";
+
+    partial function dp_curvedOverall_fixedInterface
+       input Bend.dp_curvedOverall_IN_con geometry "Geometry of bend";
+       input Medium.ThermodynamicState state_a
+          "State for medium inflowing through port_a";
+       input Medium.ThermodynamicState state_b
+          "State for medium inflowing through port_b";
+       input SI.AbsolutePressure dp_small;
+       input SI.MassFlowRate m_flow_small;
+    end dp_curvedOverall_fixedInterface;
+
+    function dp_curvedOverall_MFLOW
+      extends dp_curvedOverall_fixedInterface;
+      input SI.Pressure dp "Pressure drop";
+      output SI.MassFlowRate m_flow "Mass flow rate";
+    algorithm
+       m_flow := Bend.dp_curvedOverall_MFLOW(
+                   geometry,
+                   Bend.dp_curvedOverall_IN_var(
+                       rho=Medium.density(Medium.setSmoothState(dp, state_a, state_b, dp_small)),
+                       eta=Medium.dynamicViscosity(Medium.setSmoothState(dp, state_a, state_b, dp_small))),
+                   dp);
+
+       annotation(Inline=false, LateInline=true,
+                  inverse(dp=dp_curvedOverall_DP(
+                                geometry, state_a, state_b, dp_small, m_flow_small, m_flow)));
+    end dp_curvedOverall_MFLOW;
+
+    function dp_curvedOverall_DP
+       extends dp_curvedOverall_fixedInterface;
+       input SI.MassFlowRate m_flow "Mass flow rate";
+       output SI.Pressure dp "Pressure drop";
+    algorithm
+       dp := Bend.dp_curvedOverall_DP(
+                   geometry,
+                   Bend.dp_curvedOverall_IN_var(
+                       rho=Medium.density(Medium.setSmoothState(m_flow, state_a, state_b, m_flow_small)),
+                       eta=Medium.dynamicViscosity(Medium.setSmoothState(m_flow, state_a, state_b, m_flow_small))),
+                   m_flow);
+    end dp_curvedOverall_DP;
 
     equation
       if use_nominal then
@@ -28,7 +81,7 @@ package Fittings
                                 rho=Medium.density(state_a),
                                 eta=Medium.dynamicViscosity(state_a)), dp);
       else
-         m_flow = Modelica.Fluid.Fittings.BaseClasses.Bends.dp_curvedOverall_DP(
+         m_flow = dp_curvedOverall_MFLOW(
                     geometry, state_a, state_b, dp_small, m_flow_small, dp);
       end if;
 
@@ -51,7 +104,7 @@ This function shall be used inside of the restricted limits according to the ref
       <b> length of bend along curved axis / diameter &ge; 10 </b> <i>[Idelchik 2006, p. 357, diag. 6-1] </i>
  </li>
   <li>
-      <b> angle of curvature smaller than 180&deg; (delta &le; 180) </b> <i>[Idelchik 2006, p. 357, diag. 6-1] </i>
+      <b> angle of curvature smaller than 180° (delta &le; 180) </b> <i>[Idelchik 2006, p. 357, diag. 6-1] </i>
  </li>
 </ul>
 
@@ -5977,11 +6030,6 @@ where
         "Nominal density (e.g. d_liquidWater = 995, d_air = 1.2)"
         annotation (Dialog(enable=use_nominal, group="Fluid properties"));
 
-      // Operational conditions
-      parameter Medium.AbsolutePressure dp_small=system.dp_small
-        "Default small pressure drop for regularization of laminar and zero flow"
-        annotation (Dialog(tab="Advanced"));
-
     /*
   Medium.ThermodynamicState state
     "Upstream medium state for computation of pressure loss characteristics (smoothed around zero flow with state_a and state_b)";
@@ -6034,32 +6082,6 @@ where
             grid={1,1}), graphics));
     end PartialPressureLoss;
 
-
-    package Bends
-      function dp_curvedOverall_DP
-         import Modelica.Fluid.Dissipation.PressureLoss.Bend;
-
-         replaceable package Medium =
-            Modelica.Media.Interfaces.PartialMedium "Medium in the component"
-            annotation (choicesAllMatching = true);
-         input Bend.dp_curvedOverall_IN_con geometry "Geometry of bend";
-         input Medium.ThermodynamicState state_a
-          "state for medium inflowing through port_a";
-         input Medium.ThermodynamicState state_b
-          "state for medium inflowing through port_b";
-         input SI.AbsolutePressure dp_small;
-         input SI.MassFlowRate m_flow_small;
-         input SI.Pressure dp "Pressure drop";
-         output SI.MassFlowRate m_flow "Mass flow rate";
-      algorithm
-         m_flow := Bend.dp_curvedOverall_MFLOW(
-                     geometry,
-                     Bend.dp_curvedOverall_IN_var(
-                         rho=Medium.density(Medium.setSmoothState(dp, state_a, state_b, dp_small)),
-                         eta=Medium.dynamicViscosity(Medium.setSmoothState(dp, state_a, state_b, dp_small))),
-                     dp);
-      end dp_curvedOverall_DP;
-    end Bends;
   end BaseClasses;
   annotation (Documentation(info="<html>
 

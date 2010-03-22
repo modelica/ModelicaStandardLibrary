@@ -176,7 +176,7 @@ with exception of boundary pressure, do not have an effect.
             fillPattern=FillPattern.Sphere,
             fillColor={0,127,255}),
           Text(
-            extent={{-150,110},{150,150}},
+            extent={{-150,120},{150,160}},
             textString="%name",
             lineColor={0,0,255}),
           Line(
