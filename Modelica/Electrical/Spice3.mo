@@ -7187,15 +7187,15 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
         output DiodeModelLineVariables out_v;
 
       algorithm
-        // limit grading coeff to max of .9
+        // limit grading coeff to max of 0.9
         if (in_p.m_gradingCoeff > 0.9) then
           out_v.m_gradingCoeff := 0.9;
         end if;
-        // limit activation energy to min of .1
+        // limit activation energy to min of 0.1
         if (in_p.m_activationEnergy < 0.1) then
           out_v.m_activationEnergy := 0.1;
         end if;
-        // limit depletion cap coeff to max of .95
+        // limit depletion cap coeff to max of 0.95
         if (in_p.m_depletionCapCoeff > 0.95) then
           out_v.m_depletionCapCoeff := 0.95;
         end if;

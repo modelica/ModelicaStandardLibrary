@@ -1559,7 +1559,7 @@ through large matrix calculations like Taylor-series approximation
 or computation of eigenvalues.
 </p>
 <b>Example:</b><br><br>
-<pre>       - A = [1, 10,  1000; .01,  0,  10; .005,  .01,  10]
+<pre>       - A = [1, 10,  1000; 0.01,  0,  10; 0.005,  0.01,  10]
        - Matrices.norm(A, 1);
          = 1020.0
        - (T,B)=Matrices.balance(A)
