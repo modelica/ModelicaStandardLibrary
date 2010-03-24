@@ -168,18 +168,10 @@ record Complex "Complex number with overloaded operators"
 
 annotation (version="1.0",
 versionBuild=1,
-versionDate="2010-01-26",
+versionDate="2010-03-24",
 dateModified = "2010-01-26 19:32:58Z",
 revisionId="$Id::                                       $",
 Documentation(info="<html>
 <p>Complex number defined as a record containing real and imaginary part, utilizing operator overloading.</p>
-</html>"),
-Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-        graphics={                        Text(
-          extent={{-100,70},{40,-70}},
-          lineColor={85,170,255},
-          textString="C",
-          fillColor={85,170,255},
-          fillPattern=FillPattern.Solid)}),
-    uses(Modelica(version="3.2")));
+</html>"));
 end Complex;
