@@ -176,7 +176,7 @@ extends Modelica.Icons.Library2;
 <tr>
 <td valign=\"top\"><p>[Kielkowski1994]</p></td>
 <td valign=\"top\"><p>R. Kielkowski, <i>Inside SPICE - Overcoming the obstacles of circuit simulation.</i>, McGraw-Hill, USA (1994)</p></td>
-<a href=\"http://bear.cwru.edu/eecs_cad/man_spice3.pdf\">SPICE3 users manual</a>
+<a href=\"http://bear.cwru.edu/eecs_cad/man_spice3.pdf\">SPICE3 user's manual</a>
 </tr>
 </table>
 </html>", revisions="<html>
@@ -8435,7 +8435,7 @@ annotation(preferedView="info", Window(
 <li>Diode </li>
 <li>Semiconductor resistor</li>
 </ul></p>
-<p><br/>For the usage of this package, especially for detailed explanation of parameters, it is useful to know the <a href=\"http://bear.cwru.edu/eecs_cad/man_spice3.pdf\">SPICE3 users manual</a> which modelling relied on.</p>
+<p><br/>For the usage of this package, especially for detailed explanation of parameters, it is useful to know the <a href=\"http://bear.cwru.edu/eecs_cad/man_spice3.pdf\">SPICE3 user's manual</a> which modelling relied on.</p>
 <p><br/><b>Open issues</b>:</p>
 <p><ul>
 <li>devices from SPICE3 that are not modelled yet: </li>
@@ -8458,7 +8458,7 @@ annotation(preferedView="info", Window(
 </html>",
    revisions="<html>
 <p><ul>
-<li><i>March 2010</i> by Kristin Majetta<br/>Guidelines applied, users guide added</li>
+<li><i>March 2010</i> by Kristin Majetta<br/>Guidelines applied, User's Guide added</li>
 <li><i>February 2010</i> by Kristin Majetta<br/>Spice3 library added to MSL and examples revised</li>
 <li><i>September 2009 </i>by Kristin Majetta <br/>Bipolar transistor implemented</li>
 <li><i>August 2009 </i>by Jonathan Kress <br/>default values in sources improved</li>

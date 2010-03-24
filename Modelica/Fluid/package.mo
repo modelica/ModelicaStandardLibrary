@@ -1298,7 +1298,7 @@ Modelica.Fluid was further improved:
 <li> Moved default initialization in \"System\" in to a comment, since no effect yet</li>
 
 <li> Added the explanation from Francesco for Kv, Cv for valves in the
-     users guide and added links in the corresponding valves to this description</li>
+     User's Guide and added links in the corresponding valves to this description</li>
 </ul>
 
 <p>
