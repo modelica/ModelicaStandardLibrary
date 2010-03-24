@@ -7,13 +7,11 @@ package Fittings
       extends Modelica.Fluid.Fittings.BaseClasses.PartialPressureLoss;
       extends Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.Bend_i;
       import Modelica.Fluid.Dissipation.PressureLoss.Bend;
-      parameter
-        Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_con
-        geometry "Geometry of curved bend"
+      parameter Bend.dp_curvedOverall_IN_con geometry "Geometry of curved bend"
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
 
     /*
-  Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_var
+  Bend.dp_curvedOverall_IN_var
     properties(final eta=eta, final rho=rho) "Properties of medium"
     annotation (Placement(transformation(extent={{-46,20},{-26,40}})));
 */
@@ -302,7 +300,669 @@ symbolic / numeric approach for solving differential-algebraic equation systems.
 </html>
 "));
     end CurvedBend;
+
+    model EdgedBend "Edged bend flow model"
+      extends Modelica.Fluid.Fittings.BaseClasses.PartialPressureLoss;
+      extends Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.Bend_i;
+      import Modelica.Fluid.Dissipation.PressureLoss.Bend;
+      parameter Bend.dp_edgedOverall_IN_con geometry "Geometry of edged bend"
+          annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+
+    /*
+  Bend.dp_edgedOverall_IN_var
+    properties(final eta=eta, final rho=rho) "Properties of medium"
+    annotation (Placement(transformation(extent={{-46,20},{-26,40}})));
+*/
+    protected
+      parameter Medium.AbsolutePressure dp_small= Bend.dp_edgedOverall_DP(
+                    geometry, Bend.dp_edgedOverall_IN_var(
+                      rho=Medium.density(Medium.setState_pTX(
+                           Medium.reference_p,
+                           Medium.reference_T,
+                           Medium.reference_X)),
+                      eta=Medium.dynamicViscosity(Medium.setState_pTX(
+                           Medium.reference_p,
+                           Medium.reference_T,
+                           Medium.reference_X))),
+                    m_flow_small)
+        "Default small pressure drop for regularization of laminar and zero flow (calculated from m_flow_small)";
+
+    partial function dp_edgedOverall_fixedInterface
+       input Bend.dp_edgedOverall_IN_con geometry "Geometry of bend";
+       input Medium.ThermodynamicState state_a
+          "State for medium inflowing through port_a";
+       input Medium.ThermodynamicState state_b
+          "State for medium inflowing through port_b";
+       input SI.AbsolutePressure dp_small;
+       input SI.MassFlowRate m_flow_small;
+    end dp_edgedOverall_fixedInterface;
+
+    function dp_edgedOverall_MFLOW
+      extends dp_edgedOverall_fixedInterface;
+      input SI.Pressure dp "Pressure drop";
+      output SI.MassFlowRate m_flow "Mass flow rate";
+    algorithm
+       m_flow := Bend.dp_edgedOverall_MFLOW(
+                   geometry,
+                   Bend.dp_edgedOverall_IN_var(
+                       rho=Medium.density(Medium.setSmoothState(dp, state_a, state_b, dp_small)),
+                       eta=Medium.dynamicViscosity(Medium.setSmoothState(dp, state_a, state_b, dp_small))),
+                   dp);
+
+       annotation(Inline=false, LateInline=true,
+                  inverse(dp=dp_edgedOverall_DP(
+                                geometry, state_a, state_b, dp_small, m_flow_small, m_flow)));
+    end dp_edgedOverall_MFLOW;
+
+    function dp_edgedOverall_DP
+       extends dp_edgedOverall_fixedInterface;
+       input SI.MassFlowRate m_flow "Mass flow rate";
+       output SI.Pressure dp "Pressure drop";
+    algorithm
+       dp := Bend.dp_edgedOverall_DP(
+                   geometry,
+                   Bend.dp_edgedOverall_IN_var(
+                       rho=Medium.density(Medium.setSmoothState(m_flow, state_a, state_b, m_flow_small)),
+                       eta=Medium.dynamicViscosity(Medium.setSmoothState(m_flow, state_a, state_b, m_flow_small))),
+                   m_flow);
+    end dp_edgedOverall_DP;
+
+    equation
+      if use_nominal then
+         m_flow = Bend.dp_edgedOverall_MFLOW(
+                    geometry, Bend.dp_edgedOverall_IN_var(rho=rho_nominal, eta=eta_nominal), dp);
+      elseif not allowFlowReversal then
+         m_flow = Bend.dp_edgedOverall_MFLOW(
+                    geometry, Bend.dp_edgedOverall_IN_var(
+                                rho=Medium.density(state_a),
+                                eta=Medium.dynamicViscosity(state_a)), dp);
+      else
+         m_flow = dp_edgedOverall_MFLOW(
+                    geometry, state_a, state_b, dp_small, m_flow_small, dp);
+      end if;
+
+      annotation (Documentation(info="<html>
+<p>
+This component models the pressure loss in edged bends with sharp corners at overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness. In the model neither mass nor energy is stored.
+</p>
+
+<p>
+There are larger pressure losses in an edged bend compared to a curved bend under the same conditions. The effect of a sharp corner in an edged bend on the pressure loss is much larger than the influence of surface roughness.
+</p>
+
+<h4><font color=\"#EF9B13\">Restriction</font></h4>
+This function shall be used inside of the restricted limits according to the referenced literature.
+<ul>
+ <li>
+      <b> circular cross sectional area </b> <i>[Idelchik 2006, p. 366, diag. 6-7] </i>
+ </li>
+ <li>
+      <b> edged bend with sharp corners at turning </b> <i>[Idelchik 2006, p. 366, diag. 6-7] </i>
+ </li>
+ <li>
+      <b> 0° &le; angle of turning &le; 180° </b> <i>[Idelchik 2006, p. 338, sec. 19] </i>
+ </li>
+ <li>
+      <b> length of edged bend along edged axis / diameter &ge; 10 </b> <i>[Idelchik 2006, p. 366, diag. 6-7] </i>
+ </li>
+</ul>
+
+<h4><font color=\"#EF9B13\">Geometry</font></h4>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/pic_edgedBend.png\">
+</p>
+
+<h4><font color=\"#EF9B13\">Calculation</font></h4>
+The pressure loss <b> dp </b> for edged bends is determined by:
+<p>
+<pre>
+    dp = zeta_TOT * (rho/2) * velocity^2
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> rho            </b></td><td> as density of fluid [kg/m3],</td></tr>
+<tr><td><b> velocity       </b></td><td> as mean velocity [m/s],</td></tr>
+<tr><td><b> zeta_TOT       </b></td><td> as pressure loss coefficient [-].</td></tr>
+</table>
+</p>
+
+The pressure loss coefficient <b> zeta_TOT </b> of an edged bend can be calculated for different angles of turning <b> delta </b> by:
+<p>
+<pre>
+    zeta_TOT = A * C1 * zeta_LOC * CF_Fri* CF_Re <i>[Idelchik 2006, p. 366, diag. 6-7] </i> and <i>[Miller 1984, p. 149, sec. 9.4]</i>
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> A              </b></td><td> as coefficient considering effect for angle of turning [-],</td></tr>
+<tr><td><b> C1             </b></td><td> as coefficient considering relative elongation of cross sectional area (here: circular cross sectional area) [-],</td></tr>
+<tr><td><b> CF_Fri         </b></td><td> as correction factor considering surface roughness [-],</td></tr>
+<tr><td><b> CF_Re          </b></td><td> as correction factor considering Reynolds number [-],</td></tr>
+<tr><td><b> delta          </b></td><td> as angle of turning [deg].</td></tr>
+</table>
+</p>
+
+The correction factor <b> CF_Fri </b> regarding the influence of surface roughness is determined as ratio of the Darcy friction factor for rough surfaces to smooth surfaces according to <i>[Miller, p. 207, eq. 9.3]:</i>
+</p>
+<pre>
+    CF_Fri = lambda_FRI_rough / lambda_FRI_smooth
+</pre>
+
+<p>
+and the Darcy friction factors <b> lambda_FRI </b> are calculated with an approximated Colebrook-White law according to <i>[Miller, p. 191, eq. 8.4]:</i>
+</p>
+<pre>
+    lambda_FRI = 0.25*(lg(K/(3.7*d_hyd) + 5.74/Re^0.9))^-2
+</pre>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> d_hyd              </b></td><td> as hydraulic diameter [m],</td></tr>
+<tr><td><b> K                  </b></td><td> as absolute roughness (average height of surface asperities) [m],</td></tr>
+<tr><td><b> lambda_FRI         </b></td><td> as Darcy friction factor[-],</td></tr>
+<tr><td><b> Re                 </b></td><td> as Reynolds number [m],</td></tr>
+<tr><td><b> zeta_TOT           </b></td><td> as pressure loss coefficient [-].</td></tr>
+</table>
+</p>
+
+<p>
+Note that the Darcy friction factor for a smooth surface <b> lambda_FRI_smooth </b> is calculated with the previous equation and an absolute roughness of <b> K = 0 </b>. Additionally no influence of surface roughness is considered for angles of turning equal or smaller than 45° according to <i>[Miller 1984, p. 214, eq. 9.4.2]</i>.
+</p>
+
+<p>
+The correction for surface roughness through <b> CF_Fri </b> is used only in the turbulent regime, where the fluid flow is influenced by surface asperities not covered by a laminar boundary layer. Here the correction according to friction starts at <b> Re &ge; Re_lam_leave </b> according to <i>[Idelchik 2006, p. 336, sec. 15]</i>. Here the end of the laminar regime is restricted to a Reynolds number smaller than 2e3 w.r.t. <i>[VDI, p. Lac 6, fig. 16]</i>.
+</p>
+
+<p>
+Nevertheless the transition point from the laminar to the transition regime is shifted to smaller Reynolds numbers for an increasing absolute roughness. This effect is considered according to <i>[Samoilenko in Idelchik 2006, p. 81, sec. 2-1-21]</i> as:
+<pre>
+    Re_lam_leave = 754*exp(if k &le; 0.007 then 0.0065/0.007 else 0.0065/k)
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> k = K /d_hyd       </b></td><td> as relative roughness [-],</td></tr>
+<tr><td><b> Re_lam_leave       </b></td><td> as Reynolds number for leaving laminar regime [-].</td></tr>
+</table>
+</p>
+
+<p>
+Note that the beginning of the laminar regime cannot be beneath <b> Re &le; 1e2 </b> according to <i>[VDI 2002, p. Lac 6, fig. 16]</i>
+</p>
+
+<p>
+In addition the influence or decreasing Reynolds numbers <b> Re </b> on the pressure loss coefficient <b> zeta_TOT </b> in the laminar regime is considered through a second correction factor <b> CF_Re </b> according to <i>[Miller 1984, p. 149, sec. 9.4]</i> and <i>[Idelchik 2006, p. 340, sec. 28]</i> by:
+</p>
+
+<p>
+<pre>
+CF_Re = B/Re^exp for Re &le; Re_lam_leave
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> B = f(Geometry)  </b></td><td> as coefficient considering effect of Reynolds number in laminar regime [-],</td></tr>
+<tr><td><b> exp              </b></td><td> as exponent for Reynolds number in laminar regime [-],</td></tr>
+<tr><td><b> Re               </b></td><td> as Reynolds number [-], </td></tr>
+<tr><td><b> Re_lam_leave     </b></td><td> as Reynolds number for leaving laminar regime [-].</td></tr>
+</table>
+</p>
+
+<p>
+Note that the coefficient <b> B </b> considers the influence of the angle of turning <b> delta </b> on the pressure loss coefficient <b> zeta_TOT </b> in the laminar regime according to <i>[Idelchik 2006, p. 340, sec. 28]</i>.
+</p>
+
+<p>
+Note that the correction of the pressure loss coefficient <b> zeta_TOT </b> is influenced by the correction factor <b> CF_Re </b> only for decreasing Reynolds numbers <b> Re </b> out of the turbulent fluid flow regime at <b> Re &le; Re_lam_leave </b> into transition and laminar fluid flow regime.
+</p>
+
+<h4><font color=\"#EF9B13\">Verification</font></h4>
+<p>
+The pressure loss coefficient <b> zeta_TOT </b> of a edged bend in dependence of the Reynolds number <b> Re </b> for different angles of turning <b> delta </b> is shown in the figures below.
+<p>
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_ZETAvsRE.png\">
+</p>
+
+<p>
+Pressure loss calculation of edged bends is complex and there are large differences in literature data. Nevertheless these calculations cover the usual range of pressure loss coefficients for an edged bend.
+</p>
+
+<p>
+The validation of the pressure loss coefficient for an edged bends shows four possible flow regimes:
+<ul>
+ <li>
+      <b> laminar regime </b> for Re &le; 4e2
+ <li>
+      <b> transition regime </b> for 4e2 &le; Re &le; 2e3
+ <li>
+      <b> dependent turbulent regime on Reynolds number for 2e3 &le; Re &le; 1e5
+ <li>
+      <b> independent turbulent regime of Reynolds number for Re &ge; 1e5
+</ul>
+</p>
+
+<p>
+<b> Incompressible case </b> [Pressure loss = f(m_flow)]:
+</p>
+<p>
+The pressure loss in dependence of the mass flow rate of water is shown for different angles of turning:
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_DPvsMFLOWwrtDelta.png\">
+</p>
+
+<h4><font color=\"#EF9B13\">References</font></h4>
+<dl>
+<dt>Idelchik,I.E.:</dt>
+    <dd><b>Handbook of hydraulic resistance</b>.
+    Jaico Publishing House,Mumbai,3rd edition, 2006.</dd>
+<dt>Miller,D.S.:</dt>
+    <dd><b>Internal flow systems</b>.
+    volume 5th of BHRA Fluid Engineering Series.BHRA Fluid Engineering, 1984.
+ <dt>Samoilenko,L.A.:</dt>
+    <dd><b>Investigation of the hydraulic resistance of pipelines in the
+        zone of transition from laminar into turbulent motion</b>.
+        PhD thesis, Leningrad State University, 1968.</dd>
+<dt>VDI:</dt>
+    <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
+    Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+</html>
+"));
+    end EdgedBend;
   end Bends;
+
+  package Orifices "Flow models for orifices"
+    extends Modelica.Fluid.Icons.VariantLibrary;
+
+    model ThickEdgedOrifice "Thicked edged orifice flow model"
+      extends Modelica.Fluid.Fittings.BaseClasses.PartialPressureLoss;
+      extends Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.Orifice_i;
+      import Modelica.Fluid.Dissipation.PressureLoss.Orifice;
+      parameter Orifice.dp_thickEdgedOverall_IN_con geometry
+        "Geometry of curved bend"
+          annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+
+    /*
+  Orifice.dp_thickEdgedOverall_IN_var
+    properties(final eta=eta, final rho=rho) "Properties of medium"
+    annotation (Placement(transformation(extent={{-46,20},{-26,40}})));
+*/
+    protected
+      parameter Medium.AbsolutePressure dp_small= Orifice.dp_thickEdgedOverall_DP(
+                    geometry, Orifice.dp_thickEdgedOverall_IN_var(
+                      rho=Medium.density(Medium.setState_pTX(
+                           Medium.reference_p,
+                           Medium.reference_T,
+                           Medium.reference_X)),
+                      eta=Medium.dynamicViscosity(Medium.setState_pTX(
+                           Medium.reference_p,
+                           Medium.reference_T,
+                           Medium.reference_X))),
+                    m_flow_small)
+        "Default small pressure drop for regularization of laminar and zero flow (calculated from m_flow_small)";
+
+    partial function dp_thickEdgedOverall_fixedInterface
+       input Orifice.dp_thickEdgedOverall_IN_con geometry "Geometry of bend";
+       input Medium.ThermodynamicState state_a
+          "State for medium inflowing through port_a";
+       input Medium.ThermodynamicState state_b
+          "State for medium inflowing through port_b";
+       input SI.AbsolutePressure dp_small;
+       input SI.MassFlowRate m_flow_small;
+    end dp_thickEdgedOverall_fixedInterface;
+
+    function dp_thickEdgedOverall_MFLOW
+      extends dp_thickEdgedOverall_fixedInterface;
+      input SI.Pressure dp "Pressure drop";
+      output SI.MassFlowRate m_flow "Mass flow rate";
+    algorithm
+       m_flow := Orifice.dp_thickEdgedOverall_MFLOW(
+                   geometry,
+                   Orifice.dp_thickEdgedOverall_IN_var(
+                       rho=Medium.density(Medium.setSmoothState(dp, state_a, state_b, dp_small)),
+                       eta=Medium.dynamicViscosity(Medium.setSmoothState(dp, state_a, state_b, dp_small))),
+                   dp);
+
+       annotation(Inline=false, LateInline=true,
+                  inverse(dp=dp_thickEdgedOverall_DP(
+                                geometry, state_a, state_b, dp_small, m_flow_small, m_flow)));
+    end dp_thickEdgedOverall_MFLOW;
+
+    function dp_thickEdgedOverall_DP
+       extends dp_thickEdgedOverall_fixedInterface;
+       input SI.MassFlowRate m_flow "Mass flow rate";
+       output SI.Pressure dp "Pressure drop";
+    algorithm
+       dp := Orifice.dp_thickEdgedOverall_DP(
+                   geometry,
+                   Orifice.dp_thickEdgedOverall_IN_var(
+                       rho=Medium.density(Medium.setSmoothState(m_flow, state_a, state_b, m_flow_small)),
+                       eta=Medium.dynamicViscosity(Medium.setSmoothState(m_flow, state_a, state_b, m_flow_small))),
+                   m_flow);
+    end dp_thickEdgedOverall_DP;
+
+    equation
+      if use_nominal then
+         m_flow = Orifice.dp_thickEdgedOverall_MFLOW(
+                    geometry, Orifice.dp_thickEdgedOverall_IN_var(rho=rho_nominal, eta=eta_nominal), dp);
+      elseif not allowFlowReversal then
+         m_flow = Orifice.dp_thickEdgedOverall_MFLOW(
+                    geometry, Orifice.dp_thickEdgedOverall_IN_var(
+                                rho=Medium.density(state_a),
+                                eta=Medium.dynamicViscosity(state_a)), dp);
+      else
+         m_flow = dp_thickEdgedOverall_MFLOW(
+                    geometry, state_a, state_b, dp_small, m_flow_small, dp);
+      end if;
+
+      annotation (Documentation(info="<html>
+<p>
+This component models the pressure loss in thick edged orifices with sharp corners at overall flow regime for incompressible and single-phase fluid flow through an arbitrary shaped cross sectional area (square, circular, etc.) considering constant influence of surface roughness. In the model neither mass nor energy is stored.
+</p>
+
+<h4><font color=\"#EF9B13\">Restriction</font></h4>
+This function shall be used within the restricted limits according to the referenced literature.
+<ul>
+ <li>
+      <b> Reynolds number (for vena contraction) Re &gt 1e3 </b> <i>[Idelchik 2006, p. 222, diag. 4-15] </i>
+ <li>
+      <b> Relative length of vena contraction (L/d_hyd_0) &gt 0.015 </b> <i>[Idelchik 2006, p. 222, diag. 4-15] </i>
+ <li>
+      <b> Darcy friction factor lambda_FRI = 0.02 </b> <i>[Idelchik 2006, p. 222, sec. 4-15] </i>
+</ul>
+
+<h4><font color=\"#EF9B13\">Geometry</font></h4>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/pic_thickEdged.png\">
+</p>
+
+<h4><font color=\"#EF9B13\">Calculation</font></h4>
+The pressure loss <b> dp </b> for a thick edged orifice is determined by:
+<p>
+<pre>
+dp = zeta_TOT * (rho/2) * (velocity_1)^2
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> rho            </b></td><td> as density of fluid [kg/m3],</td></tr>
+<tr><td><b> velocity_1     </b></td><td> as mean velocity in large cross sectional area [m/s],</td></tr>
+<tr><td><b> zeta_TOT       </b></td><td> as pressure loss coefficient [-].</td></tr>
+</table>
+</p>
+
+The pressure loss coefficient <b> zeta_TOT </b> of a thick edged orifice can be calculated for different cross sectional areas <b> A_0 </b> and relative length of orifice <b> l_bar </b>=L/d_hyd_0 by:
+<p>
+<pre>
+zeta_TOT = (0.5*(1 - A_0/A_1)^0.75 + tau*(1 - A_0/A_1)^1.375 + (1 - A_0/A_1)^2 + lambda_FRI*l_bar)*(A_1/A_0)^2 <i>[Idelchik 2006, p. 222, diag. 4-15] </i>
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> A_0       </b></td><td> cross sectional area of vena contraction [m2],</td></tr>
+<tr><td><b> A_1       </b></td><td> large cross sectional area of orifice [m2],</td></tr>
+<tr><td><b> d_hyd_0   </b></td><td> hydraulic diameter of vena contraction [m],</td></tr>
+<tr><td><b> lambda_FRI</b></td><td> as constant Darcy friction factor [-],</td></tr>
+<tr><td><b> l_bar     </b></td><td> relative length of orifice [-],</td></tr>
+<tr><td><b> L         </b></td><td> length of vena contraction [m],</td></tr>
+<tr><td><b> tau       </b></td><td> geometry parameter [-].</td></tr>
+</table>
+</p>
+
+<p>
+The geometry factor <b> tau </b> is determined by <i>[Idelchik 2006, p. 219, diag. 4-12]</i>:
+</p>
+
+<p>
+<pre>
+tau = (2.4 - l_bar)*10^(-phi)
+phi = 0.25 + 0.535*l_bar^8 / (0.05 + l_bar^8) .
+</pre>
+</p>
+
+<h4><font color=\"#EF9B13\">Verification</font></h4>
+The pressure loss coefficient <b> zeta_TOT </b> of a thick edged orifice in dependence of a relative length <b>(l_bar = L /d_hyd)</b> with different ratios of cross sectional areas <b> A_0/A_1 </b> is shown in the figure below.
+<p>
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_ZETAvsLENGHT.png\">
+</p>
+
+<p>
+<b> Incompressible case </b> [Pressure loss = f(m_flow)]:
+</p>
+The pressure loss <b> DP </b> of an thick edged orifice in dependence of the mass flow rate <b> m_flow </b> of water for different ratios <b>A_0/A_1</b> (where <b> A_0 </b> = 0.001 m^2) is shown in the figure below.
+<p>
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_DPvsMFLOW.png\">
+</p>
+
+<h4><font color=\"#EF9B13\">References</font></h4>
+<dl>
+ <dt>Elmquist,H., M.Otter and S.E. Cellier:</dt>
+    <dd><b>Inline integration: A new mixed
+symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
+    In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
+<dt>Idelchik,I.E.:</dt>
+    <dd><b>Handbook of hydraulic resistance</b>.
+    Jaico Publishing House,Mumbai,3rd edition, 2006.</dd>
+</dl>
+</html>
+"));
+    end ThickEdgedOrifice;
+
+    model SuddenChangeOrifice "Sudden section change orifice flow model"
+      extends Modelica.Fluid.Fittings.BaseClasses.PartialPressureLoss;
+      extends Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.Orifice_i;
+      import Modelica.Fluid.Dissipation.PressureLoss.Orifice;
+      parameter Orifice.dp_suddenChange_IN_con geometry
+        "Geometry of sudden section change orifice"
+          annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+
+    /*
+  Orifice.dp_suddenChange_IN_var
+    properties(final eta=eta, final rho=rho) "Properties of medium"
+    annotation (Placement(transformation(extent={{-46,20},{-26,40}})));
+*/
+    protected
+      parameter Medium.AbsolutePressure dp_small= Orifice.dp_suddenChange_DP(
+                    geometry, Orifice.dp_suddenChange_IN_var(
+                      rho=Medium.density(Medium.setState_pTX(
+                           Medium.reference_p,
+                           Medium.reference_T,
+                           Medium.reference_X)),
+                      eta=Medium.dynamicViscosity(Medium.setState_pTX(
+                           Medium.reference_p,
+                           Medium.reference_T,
+                           Medium.reference_X))),
+                    m_flow_small)
+        "Default small pressure drop for regularization of laminar and zero flow (calculated from m_flow_small)";
+
+    partial function dp_suddenChange_fixedInterface
+       input Orifice.dp_suddenChange_IN_con geometry "Geometry of bend";
+       input Medium.ThermodynamicState state_a
+          "State for medium inflowing through port_a";
+       input Medium.ThermodynamicState state_b
+          "State for medium inflowing through port_b";
+       input SI.AbsolutePressure dp_small;
+       input SI.MassFlowRate m_flow_small;
+    end dp_suddenChange_fixedInterface;
+
+    function dp_suddenChange_MFLOW
+      extends dp_suddenChange_fixedInterface;
+      input SI.Pressure dp "Pressure drop";
+      output SI.MassFlowRate m_flow "Mass flow rate";
+    algorithm
+       m_flow := Orifice.dp_suddenChange_MFLOW(
+                   geometry,
+                   Orifice.dp_suddenChange_IN_var(
+                       rho=Medium.density(Medium.setSmoothState(dp, state_a, state_b, dp_small)),
+                       eta=Medium.dynamicViscosity(Medium.setSmoothState(dp, state_a, state_b, dp_small))),
+                   dp);
+
+       annotation(Inline=false, LateInline=true,
+                  inverse(dp=dp_suddenChange_DP(
+                                geometry, state_a, state_b, dp_small, m_flow_small, m_flow)));
+    end dp_suddenChange_MFLOW;
+
+    function dp_suddenChange_DP
+       extends dp_suddenChange_fixedInterface;
+       input SI.MassFlowRate m_flow "Mass flow rate";
+       output SI.Pressure dp "Pressure drop";
+    algorithm
+       dp := Orifice.dp_suddenChange_DP(
+                   geometry,
+                   Orifice.dp_suddenChange_IN_var(
+                       rho=Medium.density(Medium.setSmoothState(m_flow, state_a, state_b, m_flow_small)),
+                       eta=Medium.dynamicViscosity(Medium.setSmoothState(m_flow, state_a, state_b, m_flow_small))),
+                   m_flow);
+    end dp_suddenChange_DP;
+
+    equation
+      if use_nominal then
+         m_flow = Orifice.dp_suddenChange_MFLOW(
+                    geometry, Orifice.dp_suddenChange_IN_var(rho=rho_nominal, eta=eta_nominal), dp);
+      elseif not allowFlowReversal then
+         m_flow = Orifice.dp_suddenChange_MFLOW(
+                    geometry, Orifice.dp_suddenChange_IN_var(
+                                rho=Medium.density(state_a),
+                                eta=Medium.dynamicViscosity(state_a)), dp);
+      else
+         m_flow = dp_suddenChange_MFLOW(
+                    geometry, state_a, state_b, dp_small, m_flow_small, dp);
+      end if;
+
+      annotation (Documentation(info="<html>
+<p>
+This component models local pressure loss at a sudden change of the cross sectional areas (sudden expansion or sudden contraction) with sharp corners at turbulent flow regime for incompressible and single-phase fluid flow through arbitrary shaped cross sectional area (square, circular, etc.) considering a smooth surface. The flow direction determines the type of the transition. In case of the design flow a sudden expansion will be considered. At flow reversal a sudden contraction will be considered. In the model neither mass nor energy is stored.
+</p>
+
+<h4><font color=\"#EF9B13\">Restriction</font></h4>
+This function shall be used within the restricted limits according to the referenced literature.
+<ul>
+ <li>
+      <b>Smooth surface</b>
+ <li>
+      <b>Turbulent flow regime</b>
+ <li>
+      <b>Reynolds number for sudden expansion Re &gt 3.3e3 </b> <i>[Idelchik 2006, p. 208, diag. 4-1] </i>
+ <li>
+      <b>Reynolds number for sudden contraction Re &gt 1e4 </b> <i>[Idelchik 2006, p. 216-217, diag. 4-9] </i>
+</ul>
+
+<h4><font color=\"#EF9B13\">Geometry </font></h4>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/pic_suddenChangeSection.png\">
+</p>
+
+<h4><font color=\"#EF9B13\">Calculation</font></h4>
+The local pressure loss <b> dp </b> is generally determinated by:
+<p>
+<pre>
+dp = 0.5 * zeta_LOC * rho * |v_1|*v_1
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> rho              </b></td><td> as density of fluid [kg/m3],</td></tr>
+<tr><td><b> v_1             </b></td><td> as average flow velocity in small cross sectional area [m/s].</td></tr>
+<tr><td><b> zeta_LOC         </b></td><td> as local resistance coefficient [-],</td></tr>
+</table>
+</p>
+
+The local resistance coefficient <b> zeta_LOC </b> of a sudden expansion can be calculated for different ratios of cross sectional areas by:
+<p>
+<pre>
+zeta_LOC = (1 - A_1/A_2)^2  <i>[Idelchik 2006, p. 208, diag. 4-1] </i>
+</pre>
+</p>
+
+
+and for sudden contraction:
+<p>
+<pre>
+zeta_LOC = 0.5*(1 - A_1/A_2)^0.75  <i>[Idelchik 2006, p. 216-217, diag. 4-9] </i>
+</pre>
+</p>
+
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> A_1       </b></td><td> small cross sectional area [m^2],</td></tr>
+<tr><td><b> A_2       </b></td><td> large cross sectional area [m^2]</td></tr>.
+
+</table>
+</p>
+
+<h4><font color=\"#EF9B13\">Verification</font></h4>
+The local resistance coefficient <b> zeta_LOC </b> of a sudden expansion in dependence of the cross sectional area ratio <b> A_1/A_2 </b> is shown in the figure below.
+<p>
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/fig_orifice_suddenChangeExpansion.png\">
+</p>
+
+The local resistance coefficient <b> zeta_LOC </b> of a sudden contraction in dependence of the cross sectional area ratio <b> A_1/A_2 </b> is shown in the figure below.
+<p>
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/fig_orifice_suddenChangeContraction.png\">
+</p>
+
+
+<h4><font color=\"#EF9B13\">References</font></h4>
+<dl>
+<dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
+    <dd><b>Inline integration: A new mixed
+    symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
+    In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
+
+<dt>Idelchik,I.E.:</dt>
+    <dd><b>Handbook of hydraulic resistance</b>.
+    Jaico Publishing House,Mumbai,3rd edition, 2006.</dd>
+</dl>
+</html>
+"));
+    end SuddenChangeOrifice;
+  end Orifices;
 
   package HeatTransfer "Fittings for heat transfer"
   extends Modelica.Fluid.Icons.VariantLibrary;
