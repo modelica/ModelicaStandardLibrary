@@ -286,7 +286,8 @@ Examples to demonstrate the usage of quasistationary electric components.
               {-86,0},{-72,0}},                                  color={85,170,255}));
       annotation (Icon(graphics={
             Text(extent={{-150,60},{150,120}}, textString=
-                                                  "%name"),
+                                                  "%name",
+              lineColor={0,0,255}),
             Line(
               points={{80,0},{0,0}},
               color={0,0,255},
@@ -347,7 +348,7 @@ Star (wye) connection of a multi phase circuit. The potentials at the star point
       annotation (Icon(graphics={
             Text(
               extent={{-150,60},{150,120}},
-              lineColor={0,0,0},
+              lineColor={0,0,255},
               textString =                        "%name"),
             Line(
               points={{-40,68},{-40,-70},{79,0},{-40,68},{-40,67}},
@@ -399,7 +400,8 @@ Delta (polygon) connection of a multi phase circuit.
               fillColor={215,215,215},
               fillPattern=FillPattern.Solid),
             Text(extent={{-100,100},{100,40}}, textString=
-                                                "%name"),
+                                                "%name",
+              lineColor={0,0,255}),
             Text(
               extent={{-100,-60},{100,-100}},
               lineColor={0,0,0},
@@ -446,7 +448,8 @@ Connects the single phase (positive) pin <i>k</i> of the multi phase (positive) 
               fillColor={215,215,215},
               fillPattern=FillPattern.Solid),
             Text(extent={{-100,100},{100,40}}, textString=
-                                                "%name"),
+                                                "%name",
+              lineColor={0,0,255}),
             Text(
               extent={{-100,-60},{100,-100}},
               lineColor={0,0,0},
@@ -491,7 +494,8 @@ Connects the single phase (negative) pin <i>k</i> of the multi phase (negative) 
               fillColor={170,255,255},
               fillPattern=FillPattern.Solid),
             Text(extent={{-100,100},{100,40}}, textString=
-                                                "%name")}),
+                                                "%name",
+              lineColor={0,0,255})}),
       Documentation(info="<html>
 <p>
 Connects all <i>m</i> single phase (positive) pins of the multi phase (positive) plug to an array of <i>m</i> single phase (positive) pins.
@@ -532,7 +536,8 @@ Connects all <i>m</i> single phase (positive) pins of the multi phase (positive)
               fillColor={170,255,255},
               fillPattern=FillPattern.Solid),
             Text(extent={{-100,100},{100,40}}, textString=
-                                                "%name")}),
+                                                "%name",
+              lineColor={0,0,255})}),
       Documentation(info="<html>
 <p>
 Connects all <i>m</i> single phase (negative) pins of the multi phase (negative) plug to an array of <i>m</i> single phase (negative) pins.
@@ -577,7 +582,8 @@ Connects all <i>m</i> single phase (negative) pins of the multi phase (negative)
                                    color={191,0,0}));
       annotation (Icon(graphics={
             Text(extent={{100,60},{-100,100}}, textString=
-                                                 "%name"),
+                                                 "%name",
+              lineColor={0,0,255}),
             Line(points={{60,0},{90,0}}),
             Line(points={{-90,0},{-60,0}}),
             Rectangle(
@@ -650,7 +656,8 @@ A linear temperature dependency of the resistances for enabled heat ports is als
                                    color={191,0,0}));
       annotation (Icon(graphics={
             Text(extent={{100,60},{-100,100}}, textString=
-                                                   "%name"),
+                                                   "%name",
+              lineColor={0,0,255}),
             Line(points={{60,0},{90,0}}),
             Line(points={{-90,0},{-60,0}}),
             Rectangle(
@@ -707,7 +714,8 @@ A linear temperature dependency of the conductances for enabled heat ports is al
               2.44929e-016}},                   color={85,170,255}));
       annotation (Icon(graphics={
             Text(extent={{100,60},{-100,100}}, textString=
-                                                   "%name"),
+                                                   "%name",
+              lineColor={0,0,255}),
             Line(
               points={{-14,28},{-14,-28}},
               color={0,0,255},
@@ -761,7 +769,8 @@ using <i>m</i> <a href=modelica://Modelica.Electrical.QuasiStationary.SinglePhas
             color={85,170,255}));
       annotation (Icon(graphics={
             Text(extent={{100,60},{-100,100}}, textString=
-                                                   "%name"),
+                                                   "%name",
+              lineColor={0,0,255}),
             Ellipse(extent={{-60,-15},{-30,15}}),
             Ellipse(extent={{-30,-15},{0,15}}),
             Ellipse(extent={{0,-15},{30,15}}),
@@ -837,7 +846,8 @@ using <i>m</i> <a href=modelica://Modelica.Electrical.QuasiStationary.SinglePhas
           smooth=Smooth.None));
       annotation (Icon(graphics={
             Text(extent={{100,-80},{-100,-40}}, textString=
-                                                   "%name"),
+                                                   "%name",
+              lineColor={0,0,255}),
             Line(points={{60,0},{90,0}}),
             Line(points={{-90,0},{-60,0}}),
             Rectangle(
@@ -919,7 +929,8 @@ A linear temperature dependency of the resistances for enabled heat ports is als
                                  color={0,0,127}));
       annotation (Icon(graphics={
             Text(extent={{100,-80},{-100,-40}}, textString=
-                                                   "%name"),
+                                                   "%name",
+              lineColor={0,0,255}),
             Line(points={{60,0},{90,0}}),
             Line(points={{-90,0},{-60,0}}),
             Rectangle(
@@ -988,7 +999,8 @@ A linear temperature dependency of the conductances for enabled heat ports is al
           smooth=Smooth.None));
       annotation (Icon(graphics={
             Text(extent={{100,-80},{-100,-40}}, textString=
-                                                   "%name"),
+                                                   "%name",
+              lineColor={0,0,255}),
             Line(
               points={{-14,28},{-14,-28}},
               color={0,0,255},
@@ -1051,7 +1063,8 @@ The capacitances <i>C</i> are given as <i>m</i> input signals.
                                   color={0,0,127}));
       annotation (Icon(graphics={
             Text(extent={{100,-80},{-100,-40}}, textString=
-                                                   "%name"),
+                                                   "%name",
+              lineColor={0,0,255}),
             Ellipse(extent={{-60,-15},{-30,15}}),
             Ellipse(extent={{-30,-15},{0,15}}),
             Ellipse(extent={{0,-15},{30,15}}),
@@ -1135,7 +1148,8 @@ Quasi stationary theory can be found in the
             Line(points={{-90,0},{-41,0}}),
             Line(points={{91,0},{40,0}}),
             Text(extent={{-100,100},{100,70}}, textString=
-                                                   "%name")}),
+                                                   "%name",
+              lineColor={0,0,255})}),
       Documentation(info="<html>
 <p>
 This model describes <i>m</m> simple idle branches considering the complex currents <i><u>i</u></i> = 0;
@@ -1171,7 +1185,8 @@ it uses <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Single
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(extent={{-100,100},{100,70}}, textString=
-                                                   "%name"),
+                                                   "%name",
+              lineColor={0,0,255}),
             Line(points={{91,0},{-90,0}})}),
       Documentation(info="<html>
 <p>
@@ -1448,7 +1463,8 @@ The relative sensor partial model relies on the
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(extent={{100,-100},{-100,-60}}, textString=
-                                                   "%name"),
+                                                   "%name",
+              lineColor={0,0,255}),
             Line(points={{-90,0},{-50,0}}, color={0,0,0}),
             Line(points={{50,0},{90,0}}, color={0,0,0}),
             Text(
@@ -1525,7 +1541,8 @@ The source partial model relies on the
               extent={{-29,-11},{30,-70}},
               lineColor={0,0,0},
               textString="f"),
-            Text(extent={{100,70},{-100,110}}, textString="%name")}),
+            Text(extent={{100,70},{-100,110}}, textString="%name",
+              lineColor={0,0,255})}),
       Documentation(info="<html>
 
 <p>
@@ -1572,7 +1589,8 @@ This sensor can be used to measure the frequency of the reference system, using 
               extent={{-29,-11},{30,-70}},
               lineColor={0,0,0},
               textString="V"),
-            Text(extent={{100,70},{-100,110}}, textString="%name")}),
+            Text(extent={{100,70},{-100,110}}, textString="%name",
+              lineColor={0,0,255})}),
       Documentation(info="<html>
 
 <p>
@@ -1616,7 +1634,8 @@ This sensor can be used to measure <i>m</i> complex potentials, using <i>m</i>
               textString=
                    "V"),
             Text(extent={{100,70},{-100,110}},   textString=
-                                                   "%name")}),
+                                                   "%name",
+              lineColor={0,0,255})}),
       Documentation(info="<html>
 
 <p>
@@ -1660,7 +1679,8 @@ This sensor can be used to measure <i>m</i> complex voltages, using <i>m</i>
               textString=
                    "I"),
             Text(extent={{100,70},{-100,110}},   textString=
-                                                   "%name")}),
+                                                   "%name",
+              lineColor={0,0,255})}),
       Documentation(info="<html>
 
 <p>
@@ -1788,7 +1808,8 @@ This sensor can be used to measure <i>m</i> complex currents, using <i>m</i>
                    "P"),
             Line(points={{-80,-100},{-80,0}}, color={85,170,255}),
             Text(extent={{100,110},{-100,150}},  textString=
-                                                   "%name")}),
+                                                   "%name",
+              lineColor={0,0,255})}),
       Documentation(info="<html>
 
 <p>

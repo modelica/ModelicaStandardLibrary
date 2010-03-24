@@ -2418,7 +2418,7 @@ This package contains components for modeling quasi stationary electrical induct
               extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{0,-60},{0,-100}},
-              lineColor={0,0,255},
+              lineColor={0,0,0},
               textString="%VectorGroup"),
             Text(
               extent={{0,100},{0,60}},

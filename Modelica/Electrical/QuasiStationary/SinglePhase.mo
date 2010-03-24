@@ -396,7 +396,8 @@ Examples to demonstrate the usage of quasistationary electric components.
             Line(points={{0,90},{0,50}}),
             Text(extent={{100,-60},{-100,-20}},
                                               textString=
-                                                "%name")}),
+                                                "%name",
+              lineColor={0,0,255})}),
         Documentation(info="<html>
 <p>
 Ground of a single phase circuit. The potential at the ground node is zero.
@@ -428,7 +429,8 @@ Every electrical circuit, e.g. a series resonance
       LossPower = real(v*conj(i));
       annotation (Icon(graphics={
             Text(extent={{100,60},{-100,100}}, textString=
-                                                   "%name"),
+                                                   "%name",
+              lineColor={0,0,255}),
             Line(points={{60,0},{90,0}}),
             Line(points={{-90,0},{-60,0}}),
             Rectangle(
@@ -484,7 +486,8 @@ A linear temperature dependency of the resistance for an enabled heat port is al
       LossPower = real(v*conj(i));
       annotation (Icon(graphics={
             Text(extent={{100,60},{-100,100}}, textString=
-                                                   "%name"),
+                                                   "%name",
+              lineColor={0,0,255}),
             Line(points={{60,0},{90,0}}),
             Line(points={{-90,0},{-60,0}}),
             Rectangle(
@@ -529,7 +532,8 @@ A linear temperature dependency of the resistance for an enabled heat port is al
       i = j*omega*C*v;
       annotation (Icon(graphics={
             Text(extent={{100,60},{-100,100}}, textString=
-                                                   "%name"),
+                                                   "%name",
+              lineColor={0,0,255}),
             Line(
               points={{-14,28},{-14,-28}},
               color={0,0,255},
@@ -571,7 +575,8 @@ The capacitance <i>C</i> is allowed to be positive, zero, or negative.
       v = j*omega*L*i;
       annotation (Icon(graphics={
             Text(extent={{100,60},{-100,100}}, textString=
-                                                   "%name"),
+                                                   "%name",
+              lineColor={0,0,255}),
             Ellipse(extent={{-60,-15},{-30,15}}),
             Ellipse(extent={{-30,-15},{0,15}}),
             Ellipse(extent={{0,-15},{30,15}}),
@@ -629,7 +634,8 @@ The Inductance <i>L</i> is allowed to be positive, zero, or negative.
       LossPower = real(v*conj(i));
       annotation (Icon(graphics={
             Text(extent={{100,-80},{-100,-40}}, textString=
-                                                   "%name"),
+                                                   "%name",
+              lineColor={0,0,255}),
             Line(points={{60,0},{90,0}}),
             Line(points={{-90,0},{-60,0}}),
             Rectangle(
@@ -702,7 +708,8 @@ A linear temperature dependency of the resistance for an enabled heat port is al
       LossPower = real(v*conj(i));
       annotation (Icon(graphics={
             Text(extent={{100,-80},{-100,-40}}, textString=
-                                                   "%name"),
+                                                   "%name",
+              lineColor={0,0,255}),
             Line(points={{60,0},{90,0}}),
             Line(points={{-90,0},{-60,0}}),
             Rectangle(
@@ -753,7 +760,8 @@ A linear temperature dependency of the resistance for an enabled heat port is al
       i = j*omega*C*v;
       annotation (Icon(graphics={
             Text(extent={{100,-80},{-100,-40}}, textString=
-                                                   "%name"),
+                                                   "%name",
+              lineColor={0,0,255}),
             Line(
               points={{-14,28},{-14,-28}},
               color={0,0,255},
@@ -804,7 +812,8 @@ The abstraction of a variable capacitor at quasi stationary operation assumes:<b
       v = j*omega*L*i;
       annotation (Icon(graphics={
             Text(extent={{100,-80},{-100,-40}}, textString=
-                                                   "%name"),
+                                                   "%name",
+              lineColor={0,0,255}),
             Ellipse(extent={{-60,-15},{-30,15}}),
             Ellipse(extent={{-30,-15},{0,15}}),
             Ellipse(extent={{0,-15},{30,15}}),
@@ -878,7 +887,8 @@ Quasi stationary theory for single phase circuits can be found in the
             Line(points={{-90,0},{-41,0}}),
             Line(points={{91,0},{40,0}}),
             Text(extent={{-100,100},{100,70}}, textString=
-                                                   "%name")}),
+                                                   "%name",
+              lineColor={0,0,255})}),
         Window(
           x=0.36,
           y=0.16,
@@ -909,7 +919,8 @@ This model is a simple idle branch considering the complex current <i><u>i</u></
               fillPattern=FillPattern.Solid),
             Line(points={{91,0},{-90,0}}),
             Text(extent={{-100,100},{100,70}}, textString=
-                                                   "%name")}),
+                                                   "%name",
+              lineColor={0,0,255})}),
         Window(
           x=0.31,
           y=0.14,
@@ -1188,7 +1199,8 @@ The relative sensor partial model relies on the
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(extent={{100,-100},{-100,-60}}, textString=
-                                                   "%name"),
+                                                   "%name",
+              lineColor={0,0,255}),
             Line(points={{-90,0},{-50,0}}, color={0,0,0}),
             Line(points={{50,0},{90,0}}, color={0,0,0})}),
       Documentation(info="<html>
@@ -1233,7 +1245,8 @@ The source partial model relies on the
               extent={{-29,-11},{30,-70}},
               lineColor={0,0,0},
               textString="f"),
-            Text(extent={{100,70},{-100,110}}, textString="%name")}),
+            Text(extent={{100,70},{-100,110}}, textString="%name",
+              lineColor={0,0,255})}),
       Documentation(info="<html>
 
 <p>
@@ -1262,7 +1275,8 @@ This sensor can be used to measure the frequency of the reference system.
               extent={{-29,-11},{30,-70}},
               lineColor={0,0,0},
               textString="V"),
-            Text(extent={{100,70},{-100,110}}, textString="%name")}),
+            Text(extent={{100,70},{-100,110}}, textString="%name",
+              lineColor={0,0,255})}),
       Documentation(info="<html>
 
 <p>
@@ -1291,7 +1305,8 @@ This sensor can be used to measure the complex potential.
               textString=
                    "V"),
             Text(extent={{100,70},{-100,110}},   textString=
-                                                   "%name")}),
+                                                   "%name",
+              lineColor={0,0,255})}),
       Documentation(info="<html>
 <p>
 This sensor can be used to measure the complex voltage.
@@ -1319,7 +1334,8 @@ This sensor can be used to measure the complex voltage.
               textString=
                    "I"),
             Text(extent={{100,70},{-100,110}},   textString=
-                                                   "%name")}),
+                                                   "%name",
+              lineColor={0,0,255})}),
       Documentation(info="<html>
 <p>
 This sensor can be used to measure the complex current.
@@ -1402,7 +1418,8 @@ This sensor can be used to measure the complex current.
                    "P"),
             Line(points={{-80,-100},{-80,0}}, color={85,170,255}),
             Text(extent={{100,110},{-100,150}},  textString=
-                                                   "%name")}),
+                                                   "%name",
+              lineColor={0,0,255})}),
       Documentation(info="<html>
 
 <p>
@@ -1829,10 +1846,10 @@ This block calculates the mean of input signal u over the given period 1/f.
 </p>
 </html>"),     Icon(graphics={Text(
               extent={{-80,60},{80,20}},
-              lineColor={0,0,255},
+              lineColor={0,0,0},
               textString="mean"), Text(
               extent={{-80,-20},{80,-60}},
-              lineColor={0,0,255},
+              lineColor={0,0,0},
               textString="f=%f")}));
     end Mean;
 
@@ -1876,10 +1893,10 @@ This block calculates the root mean square of input signal u over the given peri
 </html>"),
         Icon(graphics={       Text(
               extent={{-80,60},{80,20}},
-              lineColor={0,0,255},
+              lineColor={0,0,0},
               textString="RMS"),  Text(
               extent={{-80,-20},{80,-60}},
-              lineColor={0,0,255},
+              lineColor={0,0,0},
               textString="f=%f")}));
     end RootMeanSquare;
 
@@ -1983,10 +2000,10 @@ This block calculates the root mean square of a single harmonic <i>k</i> of the 
 </html>"),
         Icon(graphics={       Text(
               extent={{-80,60},{80,20}},
-              lineColor={0,0,255},
+              lineColor={0,0,0},
               textString="H%k"),  Text(
               extent={{-80,-20},{80,-60}},
-              lineColor={0,0,255},
+              lineColor={0,0,0},
               textString="f=%f")}));
     end Harmonic;
     annotation (Documentation(info="<html>
