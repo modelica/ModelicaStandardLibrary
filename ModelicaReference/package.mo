@@ -295,10 +295,10 @@ Define graphical layout of the parameter menu.
 <h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote>
 <pre><b>annotation</b>(<b>Dialog</b>(<b>enable</b> = true,
-                     <b>tab</b> = \"General\", 
-                   <b>group</b> = \"Parameters\", 
+                     <b>tab</b> = \"General\",
+                   <b>group</b> = \"Parameters\",
       <b>showStartAttribute</b> = false,
-              <b>groupImage</b> = \"modelica://MyPackage/Resources/Images/image.png\",       
+              <b>groupImage</b> = \"modelica://MyPackage/Resources/Images/image.png\",
          <b>connectorSizing</b> = false));
 </pre>
 </blockquote>
@@ -311,7 +311,7 @@ The annotations <b><code>tab</code></b> and <b><code>group</code></b> define the
 The annotation <b><code>groupImage</code></b> references an image using an Modelica URI, and the image is intended to be shown together with the parameter-group (only one image per group is supported). Disabling the input field will not disable the image.
 </p>
 <p>
-The value of the <b><code>connectorSizing</code></b> annotation must be a literal false or true value [since if the value is an expression, the <code>connectorSizing</code> functionality is conditional and this will then lead easily to wrong models]. If <code>connectorSizing = false</code>, this annotation has no effect. If <code>connectorSizing = true</code>, the corresponding variable must be declared with the parameter prefix, must be a subtype of a scalar Integer and must have a literal default value of zero [since this annotation is designed for a parameter that is used as vector dimension and the dimension of the vector should be zero when the component is dragged or redeclared; furthermore, when a tool does not support the connectorSizing annotation, dragging will still result in a correct model]. 
+The value of the <b><code>connectorSizing</code></b> annotation must be a literal false or true value [since if the value is an expression, the <code>connectorSizing</code> functionality is conditional and this will then lead easily to wrong models]. If <code>connectorSizing = false</code>, this annotation has no effect. If <code>connectorSizing = true</code>, the corresponding variable must be declared with the parameter prefix, must be a subtype of a scalar Integer and must have a literal default value of zero [since this annotation is designed for a parameter that is used as vector dimension and the dimension of the vector should be zero when the component is dragged or redeclared; furthermore, when a tool does not support the connectorSizing annotation, dragging will still result in a correct model].
 If <code>connectorSizing = true</code>, a tool may set the parameter value in a modifier automatically, if used as dimension size of a vector of connectors. [The <code>connectorSizing</code> annotation is used in cases where connections to a vector of connectors shall be made and a new connection requires to resize the vector and to  connect  to the new index (unary connections). The annotation allows a tool to perform these two actions in many cases automatically. This is, e.g., very useful for state machines and for certain components of fluid libraries.]
 </p>
 <p>
@@ -339,10 +339,10 @@ A parameter dialog is a sequence of tabs with a sequence of groups inside them.
   <b>parameter</b> Modelica.SIunits.Length length \"Real parameter with unit\";
   <b>parameter</b> Integer nInports=0 annotation(Dialog(connectorSizing=true));
   <b>parameter</b> Real r1 \"Real parameter in Group 1\" annotation(Dialog(group=\"Group 1\"));
-  <b>parameter</b> Real r2 \"Disabled Real parameter in group 1\" 
+  <b>parameter</b> Real r2 \"Disabled Real parameter in group 1\"
                      <b>annotation</b>(<b>Dialog</b>(<b>group</b>=\"Group 1\", <b>enable</b> = <b>not</b> b));
   <b>parameter</b> Real r3 \"Real parameter in Tab 1\" <b>annotation</b>(Dialog</b>(<b>tab</b>=\"Tab 1\"));
-  <b>parameter</b> Real r4 \"Real parameter in Tab 1 and Group 2\" 
+  <b>parameter</b> Real r4 \"Real parameter in Tab 1 and Group 2\"
                      <b>annotation</b>(<b>Dialog</b>(<b>tab</b>=\"Tab 1\", <b>group</b>=\"Group 2\"));
   StepIn stepIn[nInports];
   ...
@@ -507,7 +507,7 @@ The experiment annotation defines the default start time (StartTime) in [s], the
 <p>&ldquo;<code>dateModified</code>&rdquo; is the UTC date and time (according to <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>) of the last modification of the
 package. <em>The intention is that a Modelica tool updates this annotation whenever the package or part of it
 was modified and is saved on persistent storage (like file or database system).</em></p>
-<p>Related annotations: 
+<p>Related annotations:
 <ul>
   <li><a href=\"modelica://ModelicaReference.Annotations.version\">version</a></li>
   <li><a href=\"modelica://ModelicaReference.Annotations.versionDate\">versionDate</a></li>
@@ -689,7 +689,7 @@ The preferredView annotation defines the default view when selecting the class. 
 <p><code><blockquote><b>annotation</b>&QUOT;(&QUOT; revisionId &QUOT;=&QUOT; STRING &QUOT;)&QUOT;</code></blockquote></p>
 <p><b><font style=\"color: #008000; \">Description</font></b> </p>
 <p>&ldquo;<code>revisionId</code>&rdquo; is a tool specific revision identifier possibly generated by a source code management system (e.g., <a href=\"http://subversion.apache.org\">Subversion</a> or <a href=\"http://en.wikipedia.org/wiki/Concurrent_Versions_System\">CVS</a>). This information allows to exactly identify the library source code in the source code management system.</p>
-<p>Related annotations: 
+<p>Related annotations:
 <ul>
   <li><a href=\"modelica://ModelicaReference.Annotations.version\">version</a></li>
   <li><a href=\"modelica://ModelicaReference.Annotations.versionDate\">versionDate</a></li>
@@ -829,12 +829,12 @@ of the following ways in a directory given in the MODELICAPATH:
 <p>
 This allows a tool to access multiple versions of the same package.
 </p>
-<p>Related annotations: 
+<p>Related annotations:
 <ul>
   <li><a href=\"modelica://ModelicaReference.Annotations.version\">version</a></li>
   <li><a href=\"modelica://ModelicaReference.Annotations.versionBuild\">versionBuild</a></li>
   <li><a href=\"modelica://ModelicaReference.Annotations.dateModified\">dateModified</a></li>
-  <li><a href=\"modelica://ModelicaReference.Annotations.revisionId\">revisionId</a></li>	
+  <li><a href=\"modelica://ModelicaReference.Annotations.revisionId\">revisionId</a></li>
 </ul>
 </p>
 
@@ -858,12 +858,12 @@ This allows a tool to access multiple versions of the same package.
 <p><code><blockquote><b>annotation</b>&QUOT;(&QUOT; versionBuild &QUOT;=&QUOT; INTEGER &QUOT;)&QUOT;</code> </blockquote></p>
 <p><b><font style=\"color: #008000; \">Description</font></b> </p>
 <p>&ldquo;<code>versionBuild</code>&rdquo; is the optional build number of the library. When a new version is released &ldquo;<code>versionBuild</code>&rdquo; should be omitted or &ldquo;<code>versionBuild = 1</code>&rdquo;. There might be bug fixes to the library that do not justify a new library version. Such maintenance changes are called a &ldquo;build&rdquo; release of the library. For every new maintenance change, the &ldquo;<code>versionBuild</code>&rdquo; number is increased. A &ldquo;<code>versionBuild</code>&rdquo; number A that is higher as &ldquo;<code>versionBuild</code>&rdquo; number B, is a newer release of the library. There are no conversions between the same versions with different build numbers.</p>
-<p>Related annotations: 
+<p>Related annotations:
 <ul>
   <li><a href=\"modelica://ModelicaReference.Annotations.version\">version</a></li>
   <li><a href=\"modelica://ModelicaReference.Annotations.versionDate\">versionDate</a></li>
   <li><a href=\"modelica://ModelicaReference.Annotations.dateModified\">dateModified</a></li>
-  <li><a href=\"modelica://ModelicaReference.Annotations.revisionId\">revisionId</a></li>	
+  <li><a href=\"modelica://ModelicaReference.Annotations.revisionId\">revisionId</a></li>
 </ul>
 </p>
 </html>"));
@@ -886,12 +886,12 @@ This allows a tool to access multiple versions of the same package.
 <p><code><blockquote><b>annotation</b>&QUOT;(&QUOT; versionDate &QUOT;=&QUOT; STRING &QUOT;)&QUOT;</code> </blockquote></p>
 <p><b><font style=\"color: #008000; \">Description</font></b> </p>
 <p>&ldquo;<code>versionDate</code>&rdquo; is the date in UTC format (according to <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>) when the library was released.</p>
-<p>Related annotations: 
+<p>Related annotations:
 <ul>
   <li><a href=\"modelica://ModelicaReference.Annotations.version\">version</a></li>
   <li><a href=\"modelica://ModelicaReference.Annotations.versionBuild\">versionBuild</a></li>
   <li><a href=\"modelica://ModelicaReference.Annotations.dateModified\">dateModified</a></li>
-  <li><a href=\"modelica://ModelicaReference.Annotations.revisionId\">revisionId</a></li>	
+  <li><a href=\"modelica://ModelicaReference.Annotations.revisionId\">revisionId</a></li>
 </ul>
 </p>
 </html>"));
@@ -5673,13 +5673,13 @@ end While;
 
 
 annotation (__Dymola_DocumentationClass=true,
-     dateModified="2010-03-19 15:30:00Z",
+     dateModified="2010-03-19 21:19:00Z",
      revisionId="$Id::                                       $",
      Documentation(info="<html>
 <p>
 This package is a reference to Modelica keywords and Modelica builtin
 operators and is based on the
-<a href=\"http://www.modelica.org/documents/ModelicaSpec30.pdf\">Modelica Language Specification version 3.0</a> from Sept. 2007.
+<a href=\"http://www.modelica.org/documents/ModelicaSpec32.pdf\">Modelica Language Specification version 3.2</a> from March 2010.
 
 
 <dl>
