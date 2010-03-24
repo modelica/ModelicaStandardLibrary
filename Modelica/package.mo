@@ -4797,9 +4797,10 @@ annotation (
 preferredView="info",
 version="3.2",
 versionBuild=0,
-versionDate="2010-03-15",
+versionDate="2010-03-24",
 dateModified = "2010-03-15 00:00:00Z",
 revisionId="$Id::                                       $",
+uses(Complex(version="1.0")),
 conversion(
  noneFromVersion="3.1",
  noneFromVersion="3.0.1",
