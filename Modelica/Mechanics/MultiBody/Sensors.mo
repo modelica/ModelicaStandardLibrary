@@ -1,6 +1,6 @@
 within Modelica.Mechanics.MultiBody;
 package Sensors "Sensors to measure variables"
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.SensorsPackage;
 
   model AbsoluteSensor
     "Measure absolute kinematic quantities of frame connector"

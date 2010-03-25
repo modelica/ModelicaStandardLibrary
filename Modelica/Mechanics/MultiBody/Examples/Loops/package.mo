@@ -1,6 +1,6 @@
 within Modelica.Mechanics.MultiBody.Examples;
 package Loops "Examples with kinematic loops"
-extends Modelica.Icons.Library;
+extends Modelica.Icons.Package;
 
 
 annotation ( Documentation(info="<html>

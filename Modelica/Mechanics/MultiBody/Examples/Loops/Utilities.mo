@@ -1,6 +1,6 @@
 within Modelica.Mechanics.MultiBody.Examples.Loops;
 package Utilities "Utility models for Examples.Loops"
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
 
   model Cylinder "Cylinder with rod and crank of a combustion engine"
     import SI = Modelica.SIunits;

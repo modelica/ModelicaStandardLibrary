@@ -4,7 +4,7 @@ package MultiBody "Library to model 3-dimensional mechanical systems"
 import SI = Modelica.SIunits;
 
 
-extends Modelica.Icons.Library;
+extends Modelica.Icons.Package;
 
 
 package UsersGuide "User's Guide of MultiBody Library"

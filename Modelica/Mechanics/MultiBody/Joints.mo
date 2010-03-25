@@ -1,7 +1,7 @@
 within Modelica.Mechanics.MultiBody;
 package Joints "Components that constrain the motion between two frames"
   import SI = Modelica.SIunits;
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
 
   model Prismatic
     "Prismatic joint (1 translational degree-of-freedom, 2 potential states, optional axis flange)"
@@ -3422,7 +3422,7 @@ November 3-4, 2003, pp. 149-158</p>
 
   package Assemblies "Joint aggregations for analytic loop handling"
     import SI = Modelica.SIunits;
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Package;
 
     model JointUPS
       "Universal - prismatic - spherical joint aggregation (no constraints, no potential states)"
@@ -6708,7 +6708,7 @@ pair of joints\" from Woernle and Hiller is described in:
   package Internal
     "Components used for analytic solution of kinematic loops (use only if you know what you are doing)"
 
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Package;
 
     model RevoluteWithLengthConstraint
       "Revolute joint where the rotation angle is computed from a length constraint (1 degree-of-freedom, no potential state)"

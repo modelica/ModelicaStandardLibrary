@@ -1,6 +1,6 @@
 within Modelica.Mechanics.MultiBody;
 package Visualizers "3-dimensional visual objects used for animation"
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
 
   model FixedShape
     "Animation shape of a part with fixed shape type and dynamically varying shape definition"
@@ -838,7 +838,7 @@ This shape visualizes the x-y plane by a box
   package Advanced
     "Visualizers that require basic knowledge about Modelica in order to use them"
 
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Package;
     model Arrow
       "Visualizing an arrow with variable size; all data have to be set as modifiers (see info layer)"
 
@@ -1237,7 +1237,7 @@ since they all have frame connectors).
   package Internal
     "Visualizers that will be replaced by improved versions in the future (don't use them)"
 
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Package;
 
     model FixedLines
       "Visualizing a set of lines as cylinders (e.g., used to display characters)"

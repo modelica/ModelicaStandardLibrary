@@ -1,6 +1,6 @@
 within Modelica.Mechanics.MultiBody;
 package Types "Constants and types with choices, especially to build menus"
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
 
   type Axis = Modelica.Icons.TypeReal[3](each final unit="1")
     "Axis vector with choices for menus"                                      annotation (
@@ -283,7 +283,7 @@ type Init = enumeration(
       PositionVelocityAcceleration);
 
   package Defaults "Default settings of the MultiBody library via constants"
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Package;
 
     // Color defaults
     constant Types.Color BodyColor={0,128,255}

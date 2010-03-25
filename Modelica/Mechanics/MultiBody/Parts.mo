@@ -3,7 +3,7 @@ package Parts
   "Rigid components such as bodies with mass and inertia and massless rods"
 
   import SI = Modelica.SIunits;
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
 
   model Fixed "Frame fixed in the world frame at a given position"
     import SI = Modelica.SIunits;

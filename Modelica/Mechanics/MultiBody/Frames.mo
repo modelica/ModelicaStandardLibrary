@@ -1,7 +1,7 @@
 within Modelica.Mechanics.MultiBody;
 package Frames "Functions to transform rotational frame quantities"
 
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
 
   record Orientation
     "Orientation object defining rotation from a frame 1 into a frame 2"
@@ -764,7 +764,7 @@ is not possible or too difficult to compute, use function from_T2(..).
 
   package Quaternions
     "Functions to transform rotational frame quantities based on quaternions (also called Euler parameters)"
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Package;
 
     type Orientation
       "Orientation type defining rotation from a frame 1 into a frame 2 with quaternions {p1,p2,p3,p0}"
@@ -1225,7 +1225,7 @@ The used variables have the following declaration:
   end Quaternions;
 
   package TransformationMatrices "Functions for transformation matrices"
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Package;
     type Orientation
       "Orientation type defining rotation from a frame 1 into a frame 2 with a transformation matrix"
 
@@ -2136,7 +2136,7 @@ The used variables have the following declaration:
 
   package Internal
     "Internal definitions that may be removed or changed (do not use)"
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Package;
 
     type TransformationMatrix = Real[3, 3];
     type QuaternionBase = Real[4];

@@ -1,7 +1,7 @@
 within Modelica.Mechanics.MultiBody;
 package Forces "Components that exert forces and/or torques between frames"
   import SI = Modelica.SIunits;
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
 
   model WorldForce
     "External force acting at frame_b, defined by 3 input signals and resolved in frame world, frame_b or frame_resolve"

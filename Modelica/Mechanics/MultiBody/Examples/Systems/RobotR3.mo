@@ -384,11 +384,11 @@ to plot variables.
 </p>
 </HTML>"));
   end fullRobot;
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
   import SI = Modelica.SIunits;
 
   package Components "Library of components of the robot"
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Package;
 
     expandable connector AxisControlBus "Data bus for one robot axis"
       extends Modelica.Icons.SignalSubBus;
