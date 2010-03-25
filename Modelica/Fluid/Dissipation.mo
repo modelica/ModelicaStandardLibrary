@@ -8,7 +8,9 @@ package Dissipation
   import TYP = Modelica.Fluid.Dissipation.Utilities.Types;
 
   package UsersGuide "User's guide"
+    extends Modelica.Icons.Information;
     class GettingStarted "Getting Started"
+      extends Modelica.Icons.Information;
 
       annotation (Documentation(info="<html>
 <p>
@@ -179,6 +181,7 @@ models of several devices</a>.
     end GettingStarted;
 
     class ReleaseNotes "Release notes"
+      extends Modelica.Icons.ReleaseNotes;
 
       annotation (Documentation(info="<html>
 <h4><font color=\"#008000\">Version 1.0 Beta 4-6, 2010-01-12</font></h4>
