@@ -3,11 +3,11 @@ package Math "Library of mathematical functions (e.g., sin, cos) and of function
 import SI = Modelica.SIunits;
 
 
-extends Modelica.Icons.Library2;
+extends Modelica.Icons.Package;
 
 
 package Vectors "Library of functions operating on vectors"
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
 
   function isEqual "Determine if two Real vectors are numerically identical"
     extends Modelica.Icons.Function;
@@ -355,7 +355,7 @@ end Vectors;
 
 package Matrices "Library of functions operating on matrices"
 
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
 
   function isEqual "Compare whether two Real matrices are identical"
     extends Modelica.Icons.Function;

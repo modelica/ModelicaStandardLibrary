@@ -1,10 +1,13 @@
 within Modelica;
 package Utilities "Library of utility functions dedicated to scripting (operating on files, streams, strings, system)"
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
+
 
 package UsersGuide "User's Guide of Utilities Library"
+  extends Modelica.Icons.Information;
 
   class ImplementationNotes "Implementation Notes"
+    extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -83,6 +86,7 @@ Below the major design decisions of this library are summarized.
   end ImplementationNotes;
 
   class ReleaseNotes "Release notes"
+    extends Modelica.Icons.ReleaseNotes;
 
     annotation (Documentation(info="<HTML>
 <h4>Version 1.0, 2004-09-29</h4>
@@ -94,6 +98,7 @@ First version implemented.
   end ReleaseNotes;
 
   class Contact "Contact"
+    extends Modelica.Icons.Contact;
 
     annotation (Documentation(info="<html>
 <dl>
@@ -155,6 +160,12 @@ in Modelica that will allow to catch errors at a defined place.
 </p>
 </HTML>"));
 end UsersGuide;
+
+
+
+
+
+
 
 
     annotation (

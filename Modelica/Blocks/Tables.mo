@@ -3,7 +3,7 @@ within Modelica.Blocks;
 
 package Tables
   "Library of blocks to interpolate in one and two-dimensional tables"
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
   model CombiTable1D
     "Table look-up in one dimension (matrix/file) with n inputs and n outputs "
     import Modelica.Blocks.Types;

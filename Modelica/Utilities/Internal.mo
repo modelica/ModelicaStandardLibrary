@@ -1,6 +1,7 @@
 within Modelica.Utilities;
 package Internal
   "Internal components that a user should usually not directly utilize"
+  extends Modelica.Icons.Package;
 partial package PartialModelicaServices
     "Interfaces of components requiring a tool specific implementation"
   package Animation "Models and functions for 3-dim. animation"
@@ -8,9 +9,9 @@ partial package PartialModelicaServices
   partial model PartialShape
         "Different visual shapes with variable size; all data have to be set as modifiers"
 
-    import SI = Modelica.SIunits;
-    import Modelica.Mechanics.MultiBody.Frames;
-    import Modelica.Mechanics.MultiBody.Types;
+        import SI = Modelica.SIunits;
+        import Modelica.Mechanics.MultiBody.Frames;
+        import Modelica.Mechanics.MultiBody.Types;
 
     parameter Types.ShapeType shapeType="box"
           "Type of shape (box, sphere, cylinder, pipecylinder, cone, pipe, beam, gearwheel, spring)";

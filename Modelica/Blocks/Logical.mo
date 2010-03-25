@@ -1,6 +1,6 @@
 within Modelica.Blocks;
 package Logical "Library of components with Boolean input and output signals"
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Package;
 
   model And "Logical 'and': y = u1 and u2"
     extends Blocks.Interfaces.partialBooleanSI2SO;

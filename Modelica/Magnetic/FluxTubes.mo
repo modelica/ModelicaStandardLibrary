@@ -6,11 +6,13 @@ package FluxTubes
   import Modelica.Constants.pi;
   import mu_0 = Modelica.Constants.mue_0;
 
-  extends Modelica.Icons.Library2;
+  extends Modelica.Icons.Package;
 
 package UsersGuide "User's Guide"
+  extends Modelica.Icons.Information;
 
   class FluxTubeConcept "Flux tube concept"
+    extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Overview of the Conept of Magnetic Flux Tubes</font></h3>
@@ -55,6 +57,7 @@ Network elements for sources of a magnetic potential difference or magnetomotive
   end FluxTubeConcept;
 
   class ReluctanceForceCalculation "Reluctance forces"
+    extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Calculation of reluctance forces from lumped magnetic network models</font></h3>
@@ -91,6 +94,7 @@ The sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.Leakage\
   end ReluctanceForceCalculation;
 
   class Literature "Literature"
+    extends Modelica.Icons.References;
 
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Literature</font></h3>
@@ -144,6 +148,7 @@ Magna Physics Publishing and Oxford University Press 1994
   end Literature;
 
   class Contact "Contact"
+    extends Modelica.Icons.Contact;
 
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Contact</font></h3>
@@ -193,9 +198,11 @@ end UsersGuide;
 
   package Examples
     "Illustration of component usage with simple models of various devices"
+    extends Modelica.Icons.ExamplesPackage;
 
     model SaturatedInductor
       "Inductor with saturation in the ferromagnetic core"
+      extends Modelica.Icons.Example;
 
       Modelica.Magnetic.FluxTubes.Basic.Ground ground_m
         annotation (Placement(transformation(extent={{50,-30},{70,-10}},
@@ -254,9 +261,11 @@ end UsersGuide;
       connect(source.n, coil.n) annotation (Line(points={{-80,0},{-30,0},{-30,4}},
           color={0,0,255}));
       connect(coil.port_p, r_mLeak.port_p) annotation (Line(points={{-10,16},{
-            -10,20},{10,20}}, color={255,127,0}));
+              -10,20},{10,20}},
+                              color={255,127,0}));
       connect(r_mLeak.port_p, r_mAirPar.port_p) annotation (Line(points={{10,20},
-            {26,20}}, color={255,127,0}));
+              {26,20}},
+                      color={255,127,0}));
       connect(r_mAirPar.port_n, r_mFe.port_p) annotation (Line(points={{46,20},
             {54,20},{54,20},{60,20}}, color={255,127,0}));
       connect(r_mFe.port_n, r_mLeak.port_n) annotation (Line(points={{60,0},{
@@ -297,38 +306,16 @@ If the supply voltage has a zero-crossing when applied to the inductor at time t
 </html>"),Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
-          Rectangle(
-            extent={{-100,-100},{80,50}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Polygon(
-            points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Polygon(
-            points={{100,70},{100,-80},{80,-100},{80,50},{100,70}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Text(
-            extent={{-120,130},{120,70}},
-            lineColor={0,0,255},
-            textString="%name"),
-          Text(
-            extent={{-100,30},{80,-80}},
-            lineColor={0,0,255},
-            textString="1")}),
+          grid={2,2}), graphics),
         Diagram(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics));
     end SaturatedInductor;
-    extends Modelica.Icons.Library;
+
     package MovingCoilActuator
       "Two translatory electrodynamic actuator models of different modelling depth and their comparison"
+      extends Modelica.Icons.ExamplesPackage;
 
       model ForceCurrentBehaviour
         "Comparison of the force-current characteristics of both converter models with armature blocked at mid-position"
@@ -623,6 +610,8 @@ Whereas the steady state current is the same in both models, the steady state ac
       end ArmatureStroke;
 
       package Components "Components to be used in examples"
+        extends Modelica.Icons.Package;
+
         model PermeanceActuator
           "Detailed actuator model for rough magnetic design of actuator and system simulation"
 
@@ -987,34 +976,12 @@ The converter constant c as well as coil resistance R and inductance L are assum
 Moving coil actuators are often called electrodynamic actuators and a proportional behaviour between force and current is expressed by a converter constant (see <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator\">ConstantActuator</a>). However, in a simple moving coil actuator as presented in this example there is an additional non-linear force component that is due to the increase of the inductance when the armature coil moves into the ferromagnetic stator. A simple <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator\">PermeanceActuator</a> can be used to describe this non-linear force component.
 </p>
 </html>"),     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}), graphics={
-          Rectangle(
-            extent={{-100,-100},{80,50}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Polygon(
-            points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Polygon(
-            points={{100,70},{100,-80},{80,-100},{80,50},{100,70}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Text(
-            extent={{-120,130},{120,70}},
-            lineColor={0,0,255},
-            textString="%name"),
-          Text(
-            extent={{-100,32},{80,-78}},
-            lineColor={0,0,255},
-            textString="2")}));
+              -100},{100,100}}), graphics));
     end MovingCoilActuator;
 
     package SolenoidActuator
       "Two models of a reluctance actuator of different modelling depth and their comparison and usage"
+      extends Modelica.Icons.ExamplesPackage;
 
       model ComparisonQuasiStationary
         "Slow forced armature motion of both solenoid models so that electromagnetic field and current are quasi-stationary"
@@ -1580,6 +1547,8 @@ The characteristic current drop during pull-in is due to both armature motion an
       end ComparisonPullInStroke;
 
       package Components "Components to be used in examples"
+       extends Modelica.Icons.Package;
+
         model SimpleSolenoid
           "Simple network model of a lifting magnet with planar armature end face"
 
@@ -2363,33 +2332,12 @@ As an example of a reluctance actuator, a simple axisymmetric lifting magnet wit
 The differences between these two models in static behaviour can be analysed and compared to results obtained with a more accurate finite element analysis (FEA) in <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary\">ComparisonQuasiStationary</a>. The resulting differences in dynamic behaviour can be analysed and compared to FEA results with simulation of a pull-in stroke in <a href=\"Modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke\">ComparisonPullInStroke</a>.
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-              {100,100}}), graphics={
-          Rectangle(
-            extent={{-100,-100},{80,50}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Polygon(
-            points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Polygon(
-            points={{100,70},{100,-80},{80,-100},{80,50},{100,70}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Text(
-            extent={{-120,130},{120,70}},
-            lineColor={0,0,255},
-            textString="%name"),
-          Text(
-            extent={{-100,30},{80,-80}},
-            lineColor={0,0,255},
-            textString="3")}));
+              {100,100}}), graphics));
     end SolenoidActuator;
 
     package Utilities "Utilities to be used in examples"
+      extends Modelica.Icons.Package;
+
       model TranslatoryArmatureAndStopper
         "Mass with free travel between two stoppers"
 
@@ -2559,7 +2507,6 @@ In translatory actuators with limited stroke, the armature with its inertia can 
 </html>"));
       end TranslatoryArmatureAndStopper;
 
-    public
       record CoilDesign
         "Calculation of winding parameters (wire diameter, number of turns et al.) and recalculation with optionally chosen parameters; to be adapted to particular design tasks"
         extends Modelica.Icons.Record;
@@ -2650,6 +2597,7 @@ For manufacturing of a winding, the obtained wire diameter d_wireCalculated must
   end Examples;
 
   package Basic "Basic elements of magnetic network models"
+    extends Modelica.Icons.Package;
 
     model Ground "Zero magnetic potential"
 
@@ -3034,9 +2982,11 @@ Partitioning of a solid conductive cylinder or prism into several hollow cylinde
 
   package Shapes
     "Reluctance and permeance elements respectively based on geometric shapes"
+    extends Modelica.Icons.Package;
 
     package FixedShape
       "Flux tubes with fixed shape during simulation and linear or non-linear material characteristics"
+      extends Modelica.Icons.VariantsPackage;
 
       model HollowCylinderAxialFlux
         "(Hollow) cylinder with axial flux; fixed shape; linear or non-linear material characteristics"
@@ -3180,6 +3130,7 @@ For initial design of magnetic circuits, the relative permeability of possibly n
 
     package Force
       "Flux tubes with reluctance force generation; constant permeability"
+      extends Modelica.Icons.VariantsPackage;
 
       model HollowCylinderAxialFlux
         "(Hollow) cylinder with axial flux; constant permeability"
@@ -3382,6 +3333,7 @@ The shapes of the flux tubes defined in this package are rather simple. Only one
 
     package Leakage
       "Leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1"
+      extends Modelica.Icons.VariantsPackage;
 
       model QuarterCylinder
         "Leakage flux from one edge to the opposite plane through a quarter cylinder"
@@ -3591,8 +3543,12 @@ All dimensions are defined as parameters. As a result, the shape of these elemen
 
   package Material
     "Magnetisation characteristics of common soft magnetic and hard magnetic materials"
+    extends Modelica.Icons.MaterialPropertiesPackage;
+
     package SoftMagnetic
       "Characteristics mu_r(B) of common soft magnetic materials; hysteresis neglected"
+      extends Modelica.Icons.MaterialPropertiesPackage;
+
       record BaseData
         "Coefficients for approximation of soft magnetic materials"
 
@@ -3614,6 +3570,7 @@ The parameters needed for <a href=\"modelica://Modelica.Magnetic.FluxTubes.Mater
       end BaseData;
 
       package Steel "Various ferromagnetic steels"
+        extends Modelica.Icons.MaterialPropertiesPackage;
         record Steel_9SMnPb28 "9SMnPb28 (1.0718)"
           extends Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData(
             mu_i=400,
@@ -3717,7 +3674,7 @@ Please refer to the description of  the enclosing package <a href=\"modelica://M
       end Steel;
 
       package ElectricSheet "Various electric sheets"
-        extends Modelica.Icons.Library;
+        extends Modelica.Icons.MaterialPropertiesPackage;
 
       record M330_50A "M330-50A (1.0809) @ 50Hz"
         extends Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData(
@@ -3813,6 +3770,8 @@ Please refer to the description of  the enclosing package <a href=\"modelica://M
       end ElectricSheet;
 
       package PureIron "Pure iron "
+        extends Modelica.Icons.MaterialPropertiesPackage;
+
         record RFe80 "Hyperm 0 (RFe80)"
           extends Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData(
             mu_i=123,
@@ -3849,9 +3808,9 @@ Source of B(H) characteristics:
         end VacoferS2;
       end PureIron;
 
-      extends Modelica.Icons.Library;
-
       package CobaltIron "Cobalt iron"
+        extends Modelica.Icons.MaterialPropertiesPackage;
+
         record Vacoflux50 "Vacoflux 50 (50% CoFe)"
           extends Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData(
             mu_i=3850,
@@ -3870,6 +3829,8 @@ Source of B(H) characteristics: VACUUMSCHMELZE GmbH &amp; Co. KG, Germany
       end CobaltIron;
 
       package NickelIron "Nickel iron"
+        extends Modelica.Icons.MaterialPropertiesPackage;
+
         record MuMetall "MUMETALL (77% NiFe)"
           extends Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData(
             mu_i=27300,
@@ -3973,12 +3934,10 @@ Additional user-specific materials can be defined as needed. This requires deter
 
     end SoftMagnetic;
 
-    extends Modelica.Icons.Library;
-
     package HardMagnetic
       "Characteristics of common permanent magnetic materials (temperature dependence considered)"
+      extends Modelica.Icons.MaterialPropertiesPackage;
 
-    public
       record BaseData "Record for permanent magnetic material data"
         extends Modelica.Icons.Record;
 
@@ -4119,7 +4078,7 @@ Additional user-specific materials can be defined as needed.
   end Material;
 
   package Interfaces "Interfaces of magnetic network components"
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.InterfacesPackage;
 
     connector MagneticPort "Generic magnetic port"
       SI.MagneticPotentialDifference V_m "Magnetic potential at the port";
@@ -4459,7 +4418,7 @@ This package contains connectors for the magnetic domain and partial models for 
 
   package Sources
     "Sources of different complexity of magnetomotive force and magnetic flux"
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.SourcesPackage;
 
     model ConstantMagneticPotentialDifference "Constant magnetomotive force"
 
@@ -4711,6 +4670,7 @@ This package contains sources of a magnetic potential difference or a magnetic f
   end Sources;
 
   package Sensors "Sensors to measure variables in magnetic networks"
+    extends Modelica.Icons.SensorsPackage;
 
   model MagneticPotentialDifferenceSensor
       "Sensor to measure magnetic potential difference"

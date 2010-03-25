@@ -1,9 +1,12 @@
 within Modelica;
 package SIunits
   "Library of type and unit definitions based on SI units according to ISO 31-1992"
+  extends Modelica.Icons.Package;
 package UsersGuide "User's Guide of SIunits Library"
+  extends Modelica.Icons.Information;
 
   class HowToUseSIunits "How to use SIunits"
+    extends Modelica.Icons.Information;
 
     annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
 <p>
@@ -129,6 +132,7 @@ in the declaration as in the example at the beginning.
   end HowToUseSIunits;
 
   class Conventions "Conventions"
+    extends Modelica.Icons.Information;
 
     annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
 <p>The following conventions are used in package SIunits:</p>
@@ -173,6 +177,7 @@ in the declaration as in the example at the beginning.
   end Conventions;
 
   class Literature "Literature"
+    extends Modelica.Icons.References;
 
     annotation (Documentation(info="<html>
 <p> This package is based on the following references
@@ -197,6 +202,7 @@ in the declaration as in the example at the beginning.
   end Literature;
 
   class Contact "Contact"
+    extends Modelica.Icons.Contact;
 
     annotation (Documentation(info="<html>
 <dl>
@@ -230,16 +236,15 @@ on units.</p>
 
 </HTML>"));
 end UsersGuide;
-  extends Modelica.Icons.Library2;
 
   package Conversions
     "Conversion functions to/from non SI units and type definitions of non SI units"
 
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.Package;
 
     package NonSIunits "Type definitions of non SI units"
 
-      extends Modelica.Icons.Library2;
+      extends Modelica.Icons.Package;
 
       type Temperature_degC = Real (final quantity="ThermodynamicTemperature",
             final unit="degC")
@@ -740,6 +745,7 @@ still kept in Modelica.SIunits.</p>
     end from_gps;
 
     partial function ConversionIcon "Base icon for conversion functions"
+
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Rectangle(

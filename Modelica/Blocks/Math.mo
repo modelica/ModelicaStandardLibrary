@@ -2,13 +2,14 @@ within Modelica.Blocks;
 package Math "Library of mathematical functions as input/output blocks"
   import Modelica.SIunits;
   import Modelica.Blocks.Interfaces;
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
 
   encapsulated package UnitConversions
     "Conversion blocks to convert between SI and non-SI unit signals"
     import Modelica;
     import SI = Modelica.SIunits;
     import NonSI = Modelica.SIunits.Conversions.NonSIunits;
+    extends Modelica.Icons.Package;
 
     block To_degC "Convert from Kelvin to °Celsius"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="K"), y(

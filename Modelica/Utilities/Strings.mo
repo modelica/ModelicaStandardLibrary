@@ -1,5 +1,7 @@
 within Modelica.Utilities;
 package Strings "Operations on strings"
+  extends Modelica.Icons.Package;
+
   function length "Returns length of string"
     extends Modelica.Icons.Function;
     input String string;
@@ -134,7 +136,6 @@ optionally ignoring case.
 </p>
 </html>"));
   end isEqual;
-  extends Modelica.Icons.Library;
 
   function count "Count the number of non-overlapping occurrences of a string"
     extends Modelica.Icons.Function;

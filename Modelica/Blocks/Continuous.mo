@@ -3,7 +3,7 @@ package Continuous "Library of continuous control blocks with internal states"
 
   import Modelica.Blocks.Interfaces;
   import Modelica.SIunits;
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
 
   block Integrator "Output the integral of the input signal"
     import Modelica.Blocks.Types.Init;

@@ -1,6 +1,7 @@
 within Modelica.Utilities;
 package Examples
   "Examples to demonstrate the usage of package Modelica.Utilities"
+  extends Modelica.Icons.ExamplesPackage;
 
   function calculator
     "Interpreter to evaluate simple expressions consisting of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi"

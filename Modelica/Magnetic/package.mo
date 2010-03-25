@@ -1,6 +1,7 @@
 within Modelica;
 package Magnetic "Library of magnetic models"
-extends Modelica.Icons.Library2;
+extends Modelica.Icons.Package;
+
 
 
 annotation (

@@ -1,5 +1,7 @@
 within Modelica.Utilities;
 package Files "Functions to work with files and directories"
+  extends Modelica.Icons.Package;
+
 function list "List content of file or directory"
   extends Modelica.Icons.Function;
   input String name
@@ -127,7 +129,6 @@ in the \"name\" directory are printed in sorted order.
 </p>
 </html>"));
 end list;
-  extends Modelica.Icons.Library;
 
 function copy "Generate a copy of a file or of a directory"
   extends Modelica.Icons.Function;

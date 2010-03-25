@@ -5,7 +5,7 @@ package Constants
   import SI = Modelica.SIunits;
   import NonSI = Modelica.SIunits.Conversions.NonSIunits;
 
-  extends Modelica.Icons.Library2;
+  extends Modelica.Icons.Package;
 
   // Mathematical constants
   final constant Real e=Modelica.Math.exp(1.0);

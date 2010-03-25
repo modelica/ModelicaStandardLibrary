@@ -2,7 +2,7 @@ within Modelica.Blocks;
 package Discrete
   "Library of discrete input/output blocks with fixed sample period"
 
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
 
   block Sampler "Ideal sampling of continuous signals"
     extends Interfaces.DiscreteSISO;

@@ -1,5 +1,6 @@
 within Modelica.Utilities;
 package Types "Type definitions used in package Modelica.Utilities"
+  extends Modelica.Icons.Package;
   type Compare = enumeration(
       Less "String 1 is lexicographically less than string 2",
       Equal "String 1 is identical to string 2",

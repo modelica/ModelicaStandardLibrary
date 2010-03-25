@@ -2,7 +2,7 @@ within Modelica.Blocks;
 package Nonlinear
   "Library of discontinuous or non-differentiable algebraic control blocks"
   import Modelica.Blocks.Interfaces;
-      extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
 
       block Limiter "Limit the range of a signal"
         parameter Real uMax(start=1) "Upper limits of input signals";

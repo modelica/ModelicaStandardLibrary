@@ -1,6 +1,6 @@
 within Modelica.Blocks;
 package Routing "Library of blocks to combine and extract signals"
-  extends Icons.Library;
+  extends Modelica.Icons.Package;
 
   block Replicator "Signal replicator"
     extends Modelica.Blocks.Interfaces.SIMO;

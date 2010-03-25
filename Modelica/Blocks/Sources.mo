@@ -3,6 +3,10 @@ within Modelica.Blocks;
 
 package Sources
   "Library of signal source blocks generating Real and Boolean signals"
+  import Modelica.Blocks.Interfaces;
+  import Modelica.SIunits;
+  extends Modelica.Icons.SourcesPackage;
+
   block RealExpression "Set output signal to a time varying Real expression"
 
     Modelica.Blocks.Interfaces.RealOutput y=0.0 "Value of Real output"
@@ -147,9 +151,6 @@ Variable <b>y</b> is both a variable and a connector.
 </html>"));
 
   end BooleanExpression;
-  import Modelica.Blocks.Interfaces;
-  import Modelica.SIunits;
-      extends Modelica.Icons.SourcesPackage;
 
       block Clock "Generate actual time signal "
         parameter Modelica.SIunits.Time offset=0 "Offset of output signal";

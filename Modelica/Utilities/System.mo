@@ -1,6 +1,6 @@
 within Modelica.Utilities;
 package System "Interaction with environment"
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
 
 function getWorkDirectory "Get full path name of work directory"
   extends Modelica.Icons.Function;

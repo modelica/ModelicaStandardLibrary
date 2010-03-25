@@ -1,10 +1,13 @@
 within Modelica.Magnetic;
 package FundamentalWave
   "Library for magnetic fundamental wave effects in electric machines"
+  extends Modelica.Icons.Package;
 
   package UsersGuide "User's Guide"
+    extends Modelica.Icons.Information;
 
     class Concept "Fundamental wave concept"
+      extends Modelica.Icons.Information;
 
       annotation (Documentation(info="<html>
 
@@ -95,6 +98,7 @@ The term <b>fundamental wave</b> refers to spatial waves of the electro magnetic
     end Concept;
 
     class Contact "Contact"
+      extends Modelica.Icons.Contact;
 
       annotation (Documentation(info="<html>
 <h4>Contact</h4>
@@ -127,6 +131,7 @@ for contributing his source code to this library.
     end Contact;
 
     class ReleaseNotes "Release Notes"
+      extends Modelica.Icons.ReleaseNotes;
 
       annotation (Documentation(info="<html>
 
@@ -188,6 +193,7 @@ for contributing his source code to this library.
     end ReleaseNotes;
 
     class References "References"
+      extends Modelica.Icons.References;
 
       annotation (Documentation(info="<html>
 <h4>References</h4>
@@ -260,10 +266,11 @@ For more details see the <a href=Modelica.Magnetic.FundamentalWave.UsersGuide.Co
 
   package Examples
     "Examples of electric machines based on the FundamentalWave concept"
+    extends Modelica.Icons.ExamplesPackage;
 
     model AIMC_DOL
       "Direct on line start of asynchronous induction machine with squirrel cage"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
 
       constant Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage VsNominal=100
@@ -392,8 +399,7 @@ For more details see the <a href=Modelica.Magnetic.FundamentalWave.UsersGuide.Co
       connect(terminalBoxM.plug_sp,             aimcM.plug_sp)
         annotation (Line(points={{6,-10},{6,-10}}, color={0,0,255}));
       connect(terminalBoxM.plugSupply, currentRMSsensorM.plug_n)
-        annotation (Line(points={{6.10623e-16,-8},{-1.33731e-15,-8},{
-              -1.33731e-15,20}},
+        annotation (Line(points={{0,-8},{-1.83697e-015,-8},{-1.83697e-015,20}},
                      color={0,0,255}));
       connect(aimcE.flange,   loadInertiaE.flange_a)
         annotation (Line(points={{10,-80},{10,-80},{50,-80}},
@@ -405,16 +411,15 @@ For more details see the <a href=Modelica.Magnetic.FundamentalWave.UsersGuide.Co
       connect(terminalBoxE.plug_sp,             aimcE.plug_sp)
         annotation (Line(points={{6,-70},{6,-70}}, color={0,0,255}));
       connect(currentRMSsensorE.plug_n,terminalBoxE.plugSupply)
-        annotation (Line(points={{-60,20},{-60,-60},{6.10623e-16,-60},{
-              6.10623e-16,-68}},
+        annotation (Line(points={{-60,20},{-60,-60},{0,-60},{0,-68}},
                      color={0,0,255}));
 
       connect(sineVoltage.plug_p, idealCloser.plug_p) annotation (Line(
-          points={{-20,90},{2.33651e-15,90},{2.33651e-15,70}},
+          points={{-20,90},{1.83697e-015,90},{1.83697e-015,70}},
           color={0,0,255},
           smooth=Smooth.None));
       connect(idealCloser.plug_n, currentRMSsensorM.plug_p) annotation (Line(
-          points={{-1.33731e-15,50},{2.33651e-15,50},{2.33651e-15,40}},
+          points={{-1.83697e-015,50},{1.83697e-015,50},{1.83697e-015,40}},
           color={0,0,255},
           smooth=Smooth.None));
       connect(booleanStep.y, idealCloser.control) annotation (Line(
@@ -422,7 +427,7 @@ For more details see the <a href=Modelica.Magnetic.FundamentalWave.UsersGuide.Co
           color={255,0,255},
           smooth=Smooth.None));
       connect(currentRMSsensorE.plug_p, idealCloser.plug_n) annotation (Line(
-          points={{-60,40},{0,40},{0,50},{-1.33731e-15,50}},
+          points={{-60,40},{0,40},{0,50},{-1.83697e-015,50}},
           color={0,0,255},
           smooth=Smooth.None));
       annotation (
@@ -453,7 +458,7 @@ Simulate for 1.5 seconds and plot (versus time):
 
     model AIMS_Start
       "Starting of asynchronous induction machine with slip rings"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
 
       constant Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage VsNominal=100
@@ -670,7 +675,7 @@ Simulate for 1.5 seconds and plot (versus time):
 
     model SMR_Inverter
       "Starting of synchronous reluctance machine with inverter"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
 
       constant Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage VsNominal=100
@@ -885,7 +890,7 @@ Simulate for 1.5 seconds and plot (versus time):
 
     model SMPM_Inverter
       "Starting of permanent magnet synchronous machine with inverter"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
 
       constant Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage VsNominal=100
@@ -1102,7 +1107,7 @@ and accelerate the inertias.</p>
 
     model SMEE_Generator
       "Electrical excited synchronous machine operating as generator"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
 
       constant Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage VsNominal=100
@@ -1365,6 +1370,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
   end Examples;
 
   package Components "Basic fundamental wave components"
+    extends Modelica.Icons.Package;
 
     model Ground "Magnetic ground"
 
@@ -1800,8 +1806,10 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Compo
 
   package BasicMachines
     "Machine components and modelsElectric machine models based on FundamentalWave package"
+    extends Modelica.Icons.Package;
 
     package AsynchronousInductionMachines "Asynchronous inductioin machines"
+      extends Modelica.Icons.VariantsPackage;
 
       model AIM_SquirrelCage
         "Asynchronous induction machine with squirrel cage"
@@ -2026,6 +2034,7 @@ Resistances and stray inductances of the machine always refer to either stator o
     end AsynchronousInductionMachines;
 
     package SynchronousInductionMachines "Synchronous machines"
+      extends Modelica.Icons.VariantsPackage;
 
       model SM_PermanentMagnet
         "Permanent magnet synchronous machine with optional damper cage"
@@ -2500,6 +2509,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
     end SynchronousInductionMachines;
 
     package Components "Components specially for electric machines"
+      extends Modelica.Icons.Package;
 
       model SinglePhaseWinding
         "Symmetric winding model coupling electrical and magnetic domain"
@@ -3307,6 +3317,8 @@ This package contains components for
     end Components;
 
     package Functions "Axiliary functions for electric machines"
+      extends Modelica.Icons.Package;
+
       function symmetricWindingAngle
         "Winding angles of symmetric phase winding"
 
@@ -3347,6 +3359,7 @@ for electric machines.
   end BasicMachines;
 
   package Sources "Sources"
+    extends Modelica.Icons.SourcesPackage;
 
     model ConstantMagneticPotentialDifference
       "Source with constant magnetic potential difference"
@@ -3578,6 +3591,7 @@ Source of magnetic flux with complex signal input.
   end Sources;
 
   package Sensors "Sensors to measure variables in magnetic networks"
+    extends Modelica.Icons.SensorsPackage;
 
     model MagneticFluxSensor "Sensor to measure magnetic flux"
       extends Modelica.Icons.RotationalSensor;
@@ -3717,6 +3731,7 @@ This package provides sensors for the magnetic potential difference and the magn
   end Sensors;
 
   package Interfaces "Interfaces and partial models"
+    extends Modelica.Icons.InterfacesPackage;
 
     connector MagneticPort "Complex magnetic port"
 
@@ -4171,6 +4186,7 @@ This package contains interface definitions of the magnetic ports as well as par
   end Interfaces;
 
   package Types "Definition of salient types"
+    extends Modelica.Icons.Package;
 
     record Salient "Base record of saliency with d and q component"
       Real d "Component of d (direct) axis, aligned to real part";

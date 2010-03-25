@@ -1,6 +1,6 @@
 within Modelica.Utilities;
 package Streams "Read from files and write to files"
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
 
   function print "Print string to terminal or file"
     extends Modelica.Icons.Function;
