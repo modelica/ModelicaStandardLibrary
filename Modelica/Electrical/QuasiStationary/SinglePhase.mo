@@ -226,7 +226,7 @@ Plot length and angle of the voltage phasor, i.e. complexToPolar.len and .phi, v
         annotation (Placement(transformation(extent={{-70,-50},{-50,-30}})));
       Analog.Sensors.CurrentSensor currentSensorAC
         annotation (Placement(transformation(extent={{-40,-30},{-20,-50}})));
-      Utilities.Harmonic iAC(f=50, k=1)
+      Modelica.Blocks.Math.Harmonic iAC(f=50, k=1)
         annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
       Analog.Basic.Ground groundAC
         annotation (Placement(transformation(extent={{-20,-90},{0,-70}})));
@@ -234,7 +234,7 @@ Plot length and angle of the voltage phasor, i.e. complexToPolar.len and .phi, v
         annotation (Placement(transformation(extent={{-10,-60},{10,-40}})));
       Analog.Sensors.CurrentSensor currentSensorDC2
         annotation (Placement(transformation(extent={{20,-30},{40,-50}})));
-      Utilities.RootMeanSquare iDC2(f=50)
+      Modelica.Blocks.Math.RootMeanSquare iDC2(f=50)
         annotation (Placement(transformation(extent={{40,-30},{60,-10}})));
       Analog.Basic.VariableConductor load2 annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
@@ -350,7 +350,7 @@ Graetz rectifier</a>), plotting:
 <ul>
 <li>QS: AC rms           current = iQS.len</li>
 <li>AC: AC instantaneous current = iAC.u</li>
-<li>AC: AC rms           current = iAC.y</li>
+<li>AC: AC rms           current = iAC.y_rms</li>
 <li>QS: DC current               = iDC1.i</li>
 <li>AC: DC instantaneous current = iDC2.u</li>
 <li>AC: DC rms           current = iDC2.y</li>
@@ -1825,187 +1825,6 @@ This is a so called Graetz-bridge, a single phase rectifier built from 4 diodes.
 </html>"));
     end GraetzRectifier;
 
-    block Mean "Calculate mean over period 1/f"
-      extends Modelica.Blocks.Interfaces.SISO;
-      parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
-    protected
-      discrete Modelica.SIunits.Time t0;
-      Real x(start=0);
-    equation
-      when initial() then
-          t0 = time;
-      end when;
-      der(x) = u;
-      when sample(t0+1/f, 1/f) then
-        y=f*x;
-        reinit(x, 0);
-      end when;
-      annotation (Documentation(info="<html>
-<p>
-This block calculates the mean of input signal u over the given period 1/f.
-</p>
-</html>"),     Icon(graphics={Text(
-              extent={{-80,60},{80,20}},
-              lineColor={0,0,0},
-              textString="mean"), Text(
-              extent={{-80,-20},{80,-60}},
-              lineColor={0,0,0},
-              textString="f=%f")}));
-    end Mean;
-
-    block RootMeanSquare
-      extends Modelica.Blocks.Interfaces.SISO;
-      parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
-      Blocks.Math.Product product
-        annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
-      Mean mean(final f=f)
-        annotation (Placement(transformation(extent={{0,-10},{20,10}})));
-      Blocks.Math.Sqrt sqrt1
-        annotation (Placement(transformation(extent={{40,-10},{60,10}})));
-    equation
-
-      connect(u, product.u1) annotation (Line(
-          points={{-120,0},{-60,0},{-60,6},{-42,6}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      connect(u, product.u2) annotation (Line(
-          points={{-120,0},{-60,0},{-60,-6},{-42,-6}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      connect(product.y, mean.u) annotation (Line(
-          points={{-19,0},{-2,0}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      connect(mean.y, sqrt1.u) annotation (Line(
-          points={{21,0},{38,0}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      connect(sqrt1.y, y) annotation (Line(
-          points={{61,0},{110,0}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      annotation (Diagram(graphics),
-        Documentation(info="<html>
-<p>
-This block calculates the root mean square of input signal u over the given period 1/f, using the
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Utilities.Mean\">mean block</a>.
-</p>
-</html>"),
-        Icon(graphics={       Text(
-              extent={{-80,60},{80,20}},
-              lineColor={0,0,0},
-              textString="RMS"),  Text(
-              extent={{-80,-20},{80,-60}},
-              lineColor={0,0,0},
-              textString="f=%f")}));
-    end RootMeanSquare;
-
-    block Harmonic
-      extends Modelica.Blocks.Interfaces.SISO;
-      parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
-      parameter Integer k(start=1) "Order of harmonic";
-      Blocks.Sources.Sine sin1(
-        final freqHz=f,
-        final phase=0,
-        final amplitude=sqrt(2)) annotation (Placement(transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=270,
-            origin={-80,70})));
-      Blocks.Sources.Sine sin2(final freqHz=f, final amplitude=sqrt(2),
-        phase=Modelica.Constants.pi/2)                                  annotation (
-         Placement(transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=90,
-            origin={-80,-70})));
-      Blocks.Math.Product product1
-        annotation (Placement(transformation(extent={{-70,30},{-50,50}})));
-      Blocks.Math.Product product2
-        annotation (Placement(transformation(extent={{-70,-50},{-50,-30}})));
-      Mean mean1(final f=f)
-        annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
-      Mean mean2(final f=f)
-        annotation (Placement(transformation(extent={{-40,-50},{-20,-30}})));
-      Blocks.Math.Product product3
-        annotation (Placement(transformation(extent={{0,30},{20,50}})));
-      Blocks.Math.Product product4
-        annotation (Placement(transformation(extent={{0,-50},{20,-30}})));
-      Blocks.Math.Add add
-        annotation (Placement(transformation(extent={{40,-10},{60,10}})));
-      Blocks.Math.Sqrt sqrt1
-        annotation (Placement(transformation(extent={{70,-10},{90,10}})));
-    equation
-
-      connect(sin2.y, product2.u2) annotation (Line(
-          points={{-80,-59},{-80,-46},{-72,-46}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      connect(sin1.y, product1.u1) annotation (Line(
-          points={{-80,59},{-80,46},{-72,46}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      connect(u, product1.u2) annotation (Line(
-          points={{-120,0},{-80,0},{-80,34},{-72,34}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      connect(u, product2.u1) annotation (Line(
-          points={{-120,0},{-80,0},{-80,-34},{-72,-34}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      connect(product2.y, mean2.u) annotation (Line(
-          points={{-49,-40},{-42,-40}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      connect(product1.y, mean1.u) annotation (Line(
-          points={{-49,40},{-42,40}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      connect(mean1.y, product3.u1) annotation (Line(
-          points={{-19,40},{-10,40},{-10,46},{-2,46}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      connect(mean1.y, product3.u2) annotation (Line(
-          points={{-19,40},{-10,40},{-10,34},{-2,34}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      connect(mean2.y, product4.u1) annotation (Line(
-          points={{-19,-40},{-10,-40},{-10,-34},{-2,-34}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      connect(mean2.y, product4.u2) annotation (Line(
-          points={{-19,-40},{-10,-40},{-10,-46},{-2,-46}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      connect(product3.y, add.u1) annotation (Line(
-          points={{21,40},{30,40},{30,6},{38,6}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      connect(product4.y, add.u2) annotation (Line(
-          points={{21,-40},{30,-40},{30,-6},{38,-6}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      connect(add.y, sqrt1.u) annotation (Line(
-          points={{61,0},{68,0}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      connect(sqrt1.y, y) annotation (Line(
-          points={{91,0},{110,0}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      annotation (Diagram(graphics),
-        Documentation(info="<html>
-<p>
-This block calculates the root mean square of a single harmonic <i>k</i> of the input signal u over the given period 1/f, using the
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Utilities.Mean\">mean block</a>.
-</p>
-</html>"),
-        Icon(graphics={       Text(
-              extent={{-80,60},{80,20}},
-              lineColor={0,0,0},
-              textString="H%k"),  Text(
-              extent={{-80,-20},{80,-60}},
-              lineColor={0,0,0},
-              textString="f=%f")}));
-    end Harmonic;
     annotation (Documentation(info="<html>
 <p>This package hosts utilities for test examples of quasi stationary single phase circuits.
 Quasi stationary theory for single phase circuits can be found in the
