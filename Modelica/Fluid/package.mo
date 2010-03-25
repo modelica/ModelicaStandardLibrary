@@ -1,12 +1,14 @@
 within Modelica;
 package Fluid "Library of 1-dim. thermo-fluid flow models using the Modelica.Media media description"
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
   import SI = Modelica.SIunits;
 
 
 package UsersGuide "User's Guide"
+  extends Modelica.Icons.Information;
 
   class Overview "Overview"
+    extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<HTML>
 <p>
@@ -90,6 +92,7 @@ This library has the following main features:
   end Overview;
 
   class GettingStarted "Getting started"
+    extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 
@@ -103,8 +106,10 @@ which provide simple models for a broad variety of applications.
   end GettingStarted;
 
   package ComponentDefinition "Component definition"
+    extends Modelica.Icons.Information;
 
   class FluidConnectors "Fluid connectors"
+    extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -353,6 +358,7 @@ all the kinetic phenomena with the appropriate level of detail.
   end FluidConnectors;
 
   class BalanceEquations "Balance equations"
+    extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 
@@ -424,6 +430,7 @@ component inherits from.
   end BalanceEquations;
 
   class UpstreamDiscretization "Upstream discretization"
+    extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 
@@ -528,6 +535,7 @@ direction.
   end UpstreamDiscretization;
 
   class RegularizingCharacteristics "Regularizing characteristics"
+    extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 
@@ -605,6 +613,7 @@ and 0.0025% around x=1.
   end RegularizingCharacteristics;
 
   class WallFriction "Wall friction"
+    extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 
@@ -858,6 +867,7 @@ It is valid for incompressible and compressible flow up to a Mach number of 0.6.
   end WallFriction;
 
   class ValveCharacteristics "Valve characteristics"
+    extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -952,7 +962,9 @@ Please note that the design of the connectors has been changed with respect to t
   end ComponentDefinition;
 
   package BuildingSystemModels "Building system models"
+    extends Modelica.Icons.Information;
     class SystemComponent "System component"
+      extends Modelica.Icons.Information;
 
       annotation (Documentation(info="<html>
 
@@ -993,6 +1005,7 @@ is recognised by all other components.
     end SystemComponent;
 
     class MediumDefinition "Definition of the medium models"
+      extends Modelica.Icons.Information;
 
       annotation (Documentation(info="<html>
 
@@ -1017,6 +1030,7 @@ components</li>.
     end MediumDefinition;
 
     class CustomizingModel "Customizing a system model"
+      extends Modelica.Icons.Information;
 
       annotation (Documentation(info="<html>
 
@@ -1068,6 +1082,7 @@ system, and the typical customizations available in the Modelica.Fluid models.
   end BuildingSystemModels;
 
   class ReleaseNotes "Release notes"
+    extends Modelica.Icons.ReleaseNotes;
 
     annotation (Documentation(info="<HTML>
 
@@ -1601,6 +1616,7 @@ standard library.
   end ReleaseNotes;
 
 class Contact "Contact"
+  extends Modelica.Icons.Contact;
 
     annotation (Documentation(info="<html>
 
@@ -1696,6 +1712,19 @@ substance medium with one or more phases might be used.
 </p>
 </HTML>"));
 end UsersGuide;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 annotation (

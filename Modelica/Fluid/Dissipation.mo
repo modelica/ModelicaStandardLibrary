@@ -1,7 +1,7 @@
 within Modelica.Fluid;
 package Dissipation
   "Functions for convective heat transfer and pressure loss characteristics"
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Package;
   import PI = Modelica.Constants.pi;
   import REC = Modelica.Fluid.Dissipation.Utilities.Records;
   import SI = Modelica.SIunits;
@@ -267,9 +267,9 @@ Initial release of Fluid.Dissipation.
   end UsersGuide;
 
   package HeatTransfer "Package for calculation of heat transfer"
-  extends Modelica.Fluid.Icons.VariantLibrary;
+  extends Modelica.Icons.VariantsPackage;
     package Channel
-    extends Modelica.Fluid.Icons.VariantLibrary;
+    extends Modelica.Icons.VariantsPackage;
 
       function kc_evenGapLaminar
         "Mean heat transfer coefficient of even gap | laminar flow regime | considering boundary layer development | heat transfer at ONE or BOTH sides | identical and constant wall temperatures"
@@ -1578,7 +1578,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
     end Channel;
 
     package General
-    extends Modelica.Fluid.Icons.VariantLibrary;
+    extends Modelica.Icons.VariantsPackage;
 
       function kc_approxForcedConvection
         "Mean convective heat transfer coefficient for forced convection | approximation | turbulent regime | hydrodynamically developed fluid flow"
@@ -1842,7 +1842,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
     end General;
 
     package HeatExchanger
-    extends Modelica.Fluid.Icons.VariantLibrary;
+    extends Modelica.Icons.VariantsPackage;
 
       function kc_flatTube
 
@@ -2634,7 +2634,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
     end HeatExchanger;
 
     package HelicalPipe
-    extends Modelica.Fluid.Icons.VariantLibrary;
+    extends Modelica.Icons.VariantsPackage;
 
       function kc_laminar
         "Mean heat transfer coefficient of helical pipe | laminar flow regime"
@@ -3727,7 +3727,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
     end HelicalPipe;
 
     package Plate
-    extends Modelica.Fluid.Icons.VariantLibrary;
+    extends Modelica.Icons.VariantsPackage;
 
       function kc_laminar
         "Mean heat transfer coefficient of plate | laminar regime"
@@ -4568,7 +4568,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
     end Plate;
 
     package StraightPipe
-    extends Modelica.Fluid.Icons.VariantLibrary;
+    extends Modelica.Icons.VariantsPackage;
 
       function kc_laminar
         "Mean heat transfer coefficient of straight pipe | uniform wall temperature or uniform heat flux | hydrodynamically developed or undeveloped laminar flow regime"
@@ -6013,10 +6013,10 @@ This record is used as <b> input record </b> for the heat transfer function <a h
   end HeatTransfer;
 
   package PressureLoss "Package for calculation of pressure loss"
-  extends Modelica.Fluid.Icons.VariantLibrary;
+  extends Modelica.Icons.VariantsPackage;
 
     package Bend "Package for pressure loss calculation of bends"
-    extends Modelica.Fluid.Icons.VariantLibrary;
+    extends Modelica.Icons.VariantsPackage;
 
       function dp_curvedOverall_DP
         "Pressure loss of curved bend | calculate pressure loss | overall flow regime | surface roughness"
@@ -7502,7 +7502,7 @@ This record is used as <b> input record </b> for the  pressure loss function <a 
     end Bend;
 
     package Channel "Package for pressure loss calculation of channels"
-    extends Modelica.Fluid.Icons.VariantLibrary;
+    extends Modelica.Icons.VariantsPackage;
 
       function dp_internalFlowOverall_DP
         "Pressure loss of internal flow | calculate pressure loss | overall flow regime | surface roughness | several geometries"
@@ -7948,7 +7948,7 @@ This record is used as <b> input record </b> for the pressure loss function <a h
     end Channel;
 
     package General "Package for generic pressure loss calculations"
-    extends Modelica.Fluid.Icons.VariantLibrary;
+    extends Modelica.Icons.VariantsPackage;
 
       function dp_idealGas_DP
         "Generic pressure loss | calculate pressure loss | ideal gas | mean density"
@@ -9562,7 +9562,7 @@ This record is used as <b> input record </b> for the pressure loss function <a h
 
     package HeatExchanger
       "Package for pressure loss calculation of heat exchangers"
-    extends Modelica.Fluid.Icons.VariantLibrary;
+    extends Modelica.Icons.VariantsPackage;
 
     annotation (preferedView="info", Documentation(info="<html>
 Note that the intention is to enhance the Fluid.Dissipation library by editing this package in future.
@@ -9570,7 +9570,7 @@ Note that the intention is to enhance the Fluid.Dissipation library by editing t
     end HeatExchanger;
 
     package Junction "Package for pressure loss calculation of junctions"
-    extends Modelica.Fluid.Icons.VariantLibrary;
+    extends Modelica.Icons.VariantsPackage;
 
     annotation (preferedView="info", Documentation(info="<html>
 Note that the intention is to enhance the Fluid.Dissipation library by editing this package in future.
@@ -9578,7 +9578,7 @@ Note that the intention is to enhance the Fluid.Dissipation library by editing t
     end Junction;
 
     package Orifice "Package for pressure loss calculation of orifices"
-    extends Modelica.Fluid.Icons.VariantLibrary;
+    extends Modelica.Icons.VariantsPackage;
 
       function dp_suddenChange_DP
         "Pressure loss of orifice with sudden change in cross sectional area | calculate pressure loss | turbulent flow regime | smooth surface | arbitrary cross sectional area | without buffles | sharp edge"
@@ -10394,7 +10394,7 @@ This record is used as <b> input record </b> for the pressure loss functions <a 
 
     package StraightPipe
       "Package for pressure loss calculation of straight pipes"
-    extends Modelica.Fluid.Icons.VariantLibrary;
+    extends Modelica.Icons.VariantsPackage;
 
       function dp_laminar_DP
         "Pressure loss of straight pipe | calculate pressure loss| laminar flow regime (Hagen-Poiseuille)"
@@ -12115,7 +12115,7 @@ This record is used as <b> input record </b> for the pressure loss function <a h
     end StraightPipe;
 
     package Valve "Package for pressure loss calculation of valves"
-    extends Modelica.Fluid.Icons.VariantLibrary;
+    extends Modelica.Icons.VariantsPackage;
 
       function dp_severalGeometryOverall_DP
         "Pressure loss of valve | calculate pressure loss | several geometries | overall flow regime"
@@ -12144,7 +12144,8 @@ This record is used as <b> input record </b> for the pressure loss function <a h
         output SI.Pressure DP "Pressure loss";
 
       protected
-        type TYP1 = Modelica.Fluid.Dissipation.Utilities.Types.ValveCoefficient;
+        type TYP1 =
+            Modelica.Fluid.Dissipation.Utilities.Types.ValveCoefficient;
         type TYP2 = Modelica.Fluid.Dissipation.Utilities.Types.ValveGeometry;
 
         Real MIN=Modelica.Constants.eps;
@@ -12553,7 +12554,8 @@ The pressure loss of different valves at a constant opening of 50% in dependence
         output SI.MassFlowRate M_FLOW "Mass flow rate";
 
       protected
-        type TYP1 = Modelica.Fluid.Dissipation.Utilities.Types.ValveCoefficient;
+        type TYP1 =
+            Modelica.Fluid.Dissipation.Utilities.Types.ValveCoefficient;
         type TYP2 = Modelica.Fluid.Dissipation.Utilities.Types.ValveGeometry;
 
         Real MIN=Modelica.Constants.eps;
@@ -12900,13 +12902,16 @@ This record is used as <b> input record </b> for the pressure loss function <a h
   end PressureLoss;
 
   package Utilities "Package for utilities (should not be used directly)"
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
     package Functions "Package for utility functions"
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Package;
 
       package PressureLoss "Package for utility pressure loss functions"
+        extends Modelica.Icons.Package;
+
         package TwoPhase
           "Package with utility functions to compute two phase pressure loss characteristics"
+          extends Modelica.Icons.Package;
 
           function dp_twoPhaseChisholm_DP
             "Frictional pressure loss of straight pipe for two phase flow according to Chisholm correlation | calculate pressure loss | overall flow regime"
@@ -13579,9 +13584,11 @@ The heterogeneous approaches are analytically derived by minimising the momentum
       end PressureLoss;
 
       package HeatTransfer "Package for utility heat transfer functions"
+        extends Modelica.Icons.Package;
 
         package TwoPhase
           "Package with utility functions to compute two phase heat transfer characteristics"
+          extends Modelica.Icons.Package;
 
           function kc_twoPhase_condensationHorizontal_KC
             "Local two phase heat transfer coefficient of straight pipe | horizontal condensation"
@@ -13799,6 +13806,7 @@ The heterogeneous approaches are analytically derived by minimising the momentum
       end HeatTransfer;
 
       package General
+        extends Modelica.Icons.Package;
 
         function CubicInterpolation_DP
           import Modelica.Math;
@@ -14155,10 +14163,10 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
     end Functions;
 
     package Icons "Icons for Fluid.Dissipation and Fluid.Fittings libraries"
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Package;
 
       package HeatTransfer "Icons for heat tranfer calculation"
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.Package;
 
         partial model Gap1_d "Geometry figure for gap"
 
@@ -14795,7 +14803,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
       end HeatTransfer;
 
       package PressureLoss "Icons for pressure loss calculation"
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.Package;
 
         partial model BendEdged_d "Geometry figure of edged bend"
 
@@ -15763,8 +15771,9 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
     end Icons;
 
     package Records "Package for base records"
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Package;
       package General
+        extends Modelica.Icons.Package;
         record PressureLoss
           "Base record for fluid properties for pressure loss"
           extends Modelica.Icons.Record;
@@ -16026,6 +16035,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
       end General;
 
       package HeatTransfer
+        extends Modelica.Icons.Package;
         record EvenGap "Input for even gap"
           extends Modelica.Icons.Record;
 
@@ -16169,6 +16179,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
       end HeatTransfer;
 
       package PressureLoss
+        extends Modelica.Icons.Package;
 
         record Bend "Input for bend"
           extends Modelica.Icons.Record;
@@ -16349,7 +16360,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
     end Records;
 
     package Types "Package for types"
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Package;
       type DarcyFrictionFactor = Modelica.Icons.TypeReal (
           final quantity=
               "Darcy friction factor | lambda_fri = zeta_fri / (length/diameter)",
@@ -16424,6 +16435,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
           Energy " Kinetic energy flow approach w.r.t. Zivi (heterogeneous)",
           Chisholm
             "Empirical momentum flux approach w.r.t. Chisholm (heterogeneous)");
+
       type OrificeGeometry = enumeration(
           SharpEdged "Sharp edged shape of orifice inlet",
           ThickEdged "Thick edged shape of orifice inlet",

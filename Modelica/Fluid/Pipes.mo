@@ -1,6 +1,6 @@
 within Modelica.Fluid;
 package Pipes "Devices for conveying fluid"
-    extends Modelica.Fluid.Icons.VariantLibrary;
+    extends Modelica.Icons.VariantsPackage;
 
   model StaticPipe "Basic pipe flow model without storage of mass or energy"
 
@@ -273,7 +273,7 @@ The intended use is for complex networks of pipes and other flow devices, like v
 
   package BaseClasses
     "Base classes used in the Pipes package (only of interest to build new component models)"
-    extends Modelica.Fluid.Icons.BaseClassLibrary;
+    extends Modelica.Icons.BasesPackage;
 
     partial model PartialStraightPipe "Base class for straight pipe models"
       extends Modelica.Fluid.Interfaces.PartialTwoPort;
@@ -1032,6 +1032,7 @@ This also allows for taking into account friction losses with respect to the act
 
     package FlowModels
       "Flow models for pipes, including wall friction, static head and momentum flow"
+      extends Modelica.Icons.Package;
           partial model PartialStaggeredFlowModel
         "Base class for momentum balances in flow models"
 
@@ -1584,6 +1585,7 @@ b has the same sign of the change of density.</p>
     end FlowModels;
 
   package HeatTransfer "Heat transfer for flow models"
+    extends Modelica.Icons.Package;
     partial model PartialFlowHeatTransfer
         "base class for any pipe heat transfer correlation"
       extends Modelica.Fluid.Interfaces.PartialHeatTransfer;
@@ -1712,6 +1714,7 @@ Heat transfer correlations for pipe models
   end HeatTransfer;
 
     package CharacteristicNumbers "Functions to compute characteristic numbers"
+      extends Modelica.Icons.Package;
       function ReynoldsNumber "Return Reynolds number from v, rho, mu, D"
         input SI.Velocity v "Mean velocity of fluid flow";
         input SI.Density rho "Fluid density";
@@ -1784,8 +1787,10 @@ See also <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.CharacteristicNum
 
     package WallFriction
       "Different variants for pressure drops due to pipe wall friction"
+      extends Modelica.Icons.Package;
       partial package PartialWallFriction
         "Partial wall friction characteristic (base package of all wall friction characteristics)"
+        extends Modelica.Icons.Package;
 
       // Constants to be set in subpackages
         constant Boolean use_mu = true
@@ -1905,6 +1910,7 @@ See also <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.CharacteristicNum
       end PartialWallFriction;
 
       package NoFriction "No pipe wall friction, no static head"
+        extends Modelica.Icons.Package;
 
         extends PartialWallFriction(
                   final use_mu = false,

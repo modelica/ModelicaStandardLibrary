@@ -1,6 +1,6 @@
 within Modelica.Fluid;
 package Sources "Define fixed or prescribed boundary conditions"
-  extends Modelica.Fluid.Icons.VariantLibrary;
+  extends Modelica.Icons.SourcesPackage;
   model FixedBoundary "Boundary source component"
     extends Sources.BaseClasses.PartialSource;
     parameter Boolean use_p=true "select p or d"
@@ -729,7 +729,7 @@ with exception of boundary flow rate, do not have an effect.
 
   package BaseClasses
     "Base classes used in the Sources package (only of interest to build new component models)"
-    extends Modelica.Fluid.Icons.BaseClassLibrary;
+    extends Modelica.Icons.BasesPackage;
   partial model PartialSource
       "Partial component source with one fluid connector"
       import Modelica.Constants;

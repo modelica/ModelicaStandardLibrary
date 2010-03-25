@@ -1,6 +1,6 @@
 within Modelica.Fluid;
 package Vessels "Devices for storing fluid"
-   extends Modelica.Fluid.Icons.VariantLibrary;
+   extends Modelica.Icons.VariantsPackage;
 
     model ClosedVolume
     "Volume of fixed size, closed to the ambient, with inlet/outlet ports"
@@ -191,7 +191,7 @@ end OpenTank;
 
   package BaseClasses
     "Base classes used in the Vessels package (only of interest to build new component models)"
-    extends Modelica.Fluid.Icons.BaseClassLibrary;
+    extends Modelica.Icons.BasesPackage;
 
       partial model PartialLumpedVessel
       "Lumped volume with a vector of fluid ports and replaceable heat transfer model"
@@ -476,6 +476,7 @@ should be used if these values are needed.
       end PartialLumpedVessel;
 
   package HeatTransfer "HeatTransfer models for vessels"
+    extends Modelica.Icons.Package;
 
     partial model PartialVesselHeatTransfer
         "Base class for vessel heat transfer models"

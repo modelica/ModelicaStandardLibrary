@@ -1,6 +1,6 @@
 within Modelica.Fluid;
 package Valves "Components for the regulation and control of fluid flow"
-    extends Modelica.Fluid.Icons.VariantLibrary;
+    extends Modelica.Icons.VariantsPackage;
 
     model ValveIncompressible "Valve for (almost) incompressible fluids"
       extends BaseClasses.PartialValve;
@@ -353,7 +353,7 @@ it is open.
 
   package BaseClasses
     "Base classes used in the Valves package (only of interest to build new component models)"
-    extends Modelica.Fluid.Icons.BaseClassLibrary;
+    extends Modelica.Icons.BasesPackage;
     partial model PartialValve "Base model for valves"
 
       import Modelica.Fluid.Types.CvTypes;

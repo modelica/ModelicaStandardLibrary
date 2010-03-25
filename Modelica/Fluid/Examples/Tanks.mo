@@ -1,6 +1,6 @@
 within Modelica.Fluid.Examples;
 package Tanks "Library demonstrating the usage of the tank model"
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.ExamplesPackage;
 
   model ThreeTanks "Demonstrating the usage of SimpleTank"
     import Modelica.Fluid;

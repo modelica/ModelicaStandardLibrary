@@ -1,6 +1,7 @@
 within Modelica.Fluid.Examples;
 package Explanatory
   "A set of examples illustrating when special attention has to be paid"
+  extends Modelica.Icons.ExamplesPackage;
 
   model MeasuringTemperature "Differences between using one port with
    and without explicit junction model and two port sensors for fluid temperature meassuring"

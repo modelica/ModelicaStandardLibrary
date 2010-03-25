@@ -2,9 +2,10 @@ within Modelica.Fluid.Examples;
 package DrumBoiler
   "Drum boiler example, see Franke, Rode, Krueger: On-line Optimization of Drum Boiler Startup, 3rd International Modelica Conference, Linkoping, 2003"
 
+  extends Modelica.Icons.ExamplesPackage;
   model DrumBoiler
     "Complete drum boiler model, including evaporator and supplementary components"
-     extends Modelica.Icons.Example;
+    extends Modelica.Icons.Example;
     import Modelica.SIunits.Conversions.*;
 
     Modelica.Fluid.Examples.DrumBoiler.BaseClasses.EquilibriumDrumBoiler
@@ -129,8 +130,8 @@ package DrumBoiler
             30}}, color={0,0,127}));
     connect(limiter.y, pump.m_flow_in) annotation (Line(points={{-85.7,30},{-90,
             30},{-90,-12},{-80,-12}},   color={0,0,127}));
-    connect(temperature.T, K2degC.Kelvin) annotation (Line(points={{4,-1},{4,-1},
-            {10,-1},{10,60},{37,60}},
+    connect(temperature.T, K2degC.Kelvin) annotation (Line(points={{4,-1},{4,
+            -1},{10,-1},{10,60},{37,60}},
                               color={0,0,127}));
     connect(pressure.port, massFlowRate.port_a) annotation (Line(points={{20,14},
             {20,-20}}, color={0,127,255}));
@@ -189,7 +190,7 @@ package DrumBoiler
   end DrumBoiler;
 
   package BaseClasses "Additional components for drum boiler example"
-    extends Modelica.Fluid.Icons.BaseClassLibrary;
+    extends Modelica.Icons.BasesPackage;
 
     model EquilibriumDrumBoiler
       "Simple Evaporator with two states, see Astroem, Bell: Drum-boiler dynamics, Automatica 36, 2000, pp.363-378"

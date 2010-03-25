@@ -2,7 +2,7 @@ within Modelica.Fluid;
 package Interfaces
   "Interfaces for steady state and unsteady, mixed-phase, multi-substance, incompressible and compressible flow"
 
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.InterfacesPackage;
 
   connector FluidPort
     "Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)"

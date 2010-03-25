@@ -1,7 +1,7 @@
 within Modelica.Fluid;
 package Machines
   "Devices for converting between energy held in a fluid and mechanical energy"
-  extends Modelica.Fluid.Icons.VariantLibrary;
+  extends Modelica.Icons.VariantsPackage;
   model SweptVolume
     "varying cylindric volume depending on the postition of the piston"
     import Modelica.Constants.pi;
@@ -300,7 +300,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
 
   package BaseClasses
     "Base classes used in the Machines package (only of interest to build new component models)"
-    extends Modelica.Fluid.Icons.BaseClassLibrary;
+    extends Modelica.Icons.BasesPackage;
 
   partial model PartialPump "Base model for centrifugal pumps"
       import Modelica.SIunits.Conversions.NonSIunits.*;

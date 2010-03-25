@@ -1,6 +1,7 @@
 within Modelica.Fluid.Examples;
 package AST_BatchPlant
   "Model of the experimental batch plant at Process Control Laboratory at University of Dortmund (Prof. Engell)"
+  extends Modelica.Icons.ExamplesPackage;
 
   model BatchPlant_StandardWater
       extends Modelica.Icons.Example;
@@ -668,7 +669,7 @@ package AST_BatchPlant
   end BatchPlant_StandardWater;
 
   package BaseClasses
-    extends Modelica.Fluid.Icons.BaseClassLibrary;
+    extends Modelica.Icons.BasesPackage;
     block TriggeredTrapezoid "Triggered trapezoid generator"
       extends Modelica.Blocks.Interfaces.partialBooleanBlockIcon;
 
@@ -1564,7 +1565,7 @@ Full steady state initialization is not supported, because the corresponding int
     end Controller;
 
     package ControllerUtilities
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.Package;
       class Adapter_Inference
         Port_IdleTanks idleTanks;
       end Adapter_Inference;
@@ -2130,6 +2131,8 @@ Implemented trace substances and missing equation for outflow of multi substance
   end BaseClasses;
 
   package Test "Test of used tank models"
+    extends Modelica.Icons.ExamplesPackage;
+
     model OneTank
       "Tank with one time-varying top inlet mass flow rate and a bottom outlet into the ambient"
       import Modelica.SIunits.Conversions.from_bar;

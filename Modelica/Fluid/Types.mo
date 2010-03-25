@@ -1,5 +1,6 @@
 within Modelica.Fluid;
 package Types "Common types for fluid models"
+  extends Modelica.Icons.Package;
 
   type HydraulicConductance =Real (
       final quantity="HydraulicConductance",

@@ -1,6 +1,8 @@
 within Modelica.Fluid.Examples;
 package ControlledTankSystem
   "Tank system with controller, start/stop/shut operation and diagram animation"
+  extends Modelica.Icons.ExamplesPackage;
+
   model ControlledTanks
     "Demonstrating the controller of a tank filling/emptying system"
     extends Modelica.Icons.Example;
@@ -232,6 +234,8 @@ This example is based on
   end ControlledTanks;
 
   package Utilities
+    extends Modelica.Icons.Package;
+
     model TankController "Controller for tank system"
           extends Modelica.StateGraph.Interfaces.PartialStateGraphIcon;
       parameter SI.Height maxLevel "Fill level of tank 1";

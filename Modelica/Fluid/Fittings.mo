@@ -2,7 +2,7 @@ within Modelica.Fluid;
 package Fittings
   "Adaptors for connections of fluid components and the regulation of fluid flow"
   package Bends "Flow models for bends"
-    extends Modelica.Fluid.Icons.VariantLibrary;
+    extends Modelica.Icons.VariantsPackage;
     model CurvedBend "Curved bend flow model"
       extends Modelica.Fluid.Fittings.BaseClasses.PartialPressureLoss;
       extends Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.Bend_i;
@@ -598,7 +598,7 @@ The pressure loss in dependence of the mass flow rate of water is shown for diff
   end Bends;
 
   package Orifices "Flow models for orifices"
-    extends Modelica.Fluid.Icons.VariantLibrary;
+    extends Modelica.Icons.VariantsPackage;
 
     model ThickEdgedOrifice "Thicked edged orifice flow model"
       extends Modelica.Fluid.Fittings.BaseClasses.PartialPressureLoss;
@@ -965,7 +965,7 @@ The local resistance coefficient <b> zeta_LOC </b> of a sudden contraction in de
   end Orifices;
 
   package HeatTransfer "Fittings for heat transfer"
-  extends Modelica.Fluid.Icons.VariantLibrary;
+  extends Modelica.Icons.VariantsPackage;
 
     model ChannelHeatTransferModel
       "Application model for a channel in Modelica_Fluid"
@@ -1658,7 +1658,7 @@ is used for the current simulation.
     end StateForHeatTransfer;
 
     package BaseClasses "Base classes for heat transfer applications"
-    extends Modelica.Fluid.Icons.BaseClassLibrary;
+    extends Modelica.Icons.BasesPackage;
 
       partial model BaseHeatTransferModel
 
@@ -1690,11 +1690,11 @@ is used for the current simulation.
 
       package Channel
         "Base package for heat transfer application of a channel with Modelica_Fluid as thermo-hydraulic framework"
-      extends Modelica.Fluid.Icons.BaseClassLibrary;
+      extends Modelica.Icons.BasesPackage;
 
         package BaseChannelHT
           "Base package for all heat transfer functions of a channel"
-        extends Modelica.Fluid.Icons.BaseClassLibrary;
+        extends Modelica.Icons.BasesPackage;
 
         replaceable partial function coefficientOfHeatTransfer
             "Base function for channel"
@@ -1821,11 +1821,11 @@ A test case for implemented heat transfer functions of channels is available as 
 
       package General
         "Base package for heat transfer application of a generic geometry with Modelica_Fluid as thermo-hydraulic framework"
-      extends Modelica.Fluid.Icons.BaseClassLibrary;
+      extends Modelica.Icons.BasesPackage;
 
         package BaseGeneralHT
           "Base package for all heat transfer functions of a generic geometry"
-        extends Modelica.Fluid.Icons.BaseClassLibrary;
+        extends Modelica.Icons.BasesPackage;
 
         replaceable partial function coefficientOfHeatTransfer
             "Base function for generic geometry"
@@ -1897,11 +1897,11 @@ A test case for implemented heat transfer functions of channels is available as 
 
       package HeatExchanger
         "Application package for heat transfer for a heat exchanger with Modelica_Fluid as thermo-hydraulic framework"
-      extends Modelica.Fluid.Icons.BaseClassLibrary;
+      extends Modelica.Icons.BasesPackage;
 
         package BaseHeatExchangerHT
           "Base package for all heat transfer functions of a haet exchanger"
-          extends Modelica.Fluid.Icons.BaseClassLibrary;
+          extends Modelica.Icons.BasesPackage;
 
           replaceable partial function coefficientOfHeatTransfer
             "base function for heat Exchanger"
@@ -2203,11 +2203,11 @@ A test case for implemented heat transfer functions of channels is available as 
 
       package HelicalPipe
         "Application package for heat transfer in a helical pipe with Modelica_Fluid as thermo-hydraulic framework"
-      extends Modelica.Fluid.Icons.BaseClassLibrary;
+      extends Modelica.Icons.BasesPackage;
 
         package BaseHelicalPipeHT
           "Base package for all heat transfer functions of a helical pipe"
-        extends Modelica.Fluid.Icons.BaseClassLibrary;
+        extends Modelica.Icons.BasesPackage;
 
         replaceable partial function coefficientOfHeatTransfer
             "base function for helical pipes"
@@ -2341,11 +2341,11 @@ A test case for implemented heat transfer functions of helical pipes is availabl
 
       package Plate
         "Application package for heat transfer for a plate with Modelica_Fluid as thermo-hydraulic framework"
-      extends Modelica.Fluid.Icons.BaseClassLibrary;
+      extends Modelica.Icons.BasesPackage;
 
         package BasePlateHT
           "Base package for all heat transfer functions of a plate"
-        extends Modelica.Fluid.Icons.BaseClassLibrary;
+        extends Modelica.Icons.BasesPackage;
           import FD =
             Modelica.Fluid.Fittings.HeatTransfer.BaseClasses.Plate.BasePlateHT;
 
@@ -2476,11 +2476,11 @@ A test case for implemented heat transfer functions of plates is available as <a
 
       package StraightPipe
         "Application package for heat transfer in a straight pipe with Modelica_Fluid as thermo-hydraulic framework"
-      extends Modelica.Fluid.Icons.BaseClassLibrary;
+      extends Modelica.Icons.BasesPackage;
 
         package BaseStraightPipeHT
           "Base package for all heat transfer functions of a straight pipe"
-        extends Modelica.Fluid.Icons.BaseClassLibrary;
+        extends Modelica.Icons.BasesPackage;
 
         replaceable partial function coefficientOfHeatTransfer
             "base function for straight pipe"
@@ -2611,7 +2611,7 @@ A test case for implemented heat transfer functions of straight pipes is availab
   end HeatTransfer;
 
   package PressureLoss "Fittings for pressure loss models"
-  extends Modelica.Fluid.Icons.VariantLibrary;
+  extends Modelica.Icons.VariantsPackage;
 
     model BendFlowModel
       "Application flow model for bend functions in Modelica.Fluid"
@@ -2925,7 +2925,7 @@ A test case for implemented heat transfer functions of straight pipes is availab
     end ValveFlowModel;
 
     package BaseClasses
-    extends Modelica.Fluid.Icons.BaseClassLibrary;
+    extends Modelica.Icons.BasesPackage;
 
       partial model BaseFlowModel
         "Base flow model for pressure loss functions in Modelica.Fluid"
@@ -3015,11 +3015,11 @@ A test case for implemented heat transfer functions of straight pipes is availab
 
       package Bend
         "Application package for pressure loss in a bend with Modelica.Fluid as thermo-hydraulic framework"
-      extends Modelica.Fluid.Icons.BaseClassLibrary;
+      extends Modelica.Icons.BasesPackage;
 
         partial package BaseBendPL
           "Base package for all pressure loss functions of a bend"
-        extends Modelica.Fluid.Icons.BaseClassLibrary;
+        extends Modelica.Icons.BasesPackage;
 
         replaceable partial function massFlowRate_dp
           extends Modelica.Icons.Function;
@@ -3260,11 +3260,11 @@ as thermo-hydraulic framework.
 
       package Channel
         "Application package for pressure loss in a channel with Modelica.Fluid as thermo-hydraulic framework"
-      extends Modelica.Fluid.Icons.BaseClassLibrary;
+      extends Modelica.Icons.BasesPackage;
 
         partial package BaseChannelPL
           "Base package for all pressure loss functions of a channel"
-        extends Modelica.Fluid.Icons.BaseClassLibrary;
+        extends Modelica.Icons.BasesPackage;
 
         replaceable partial function massFlowRate_dp
           extends Modelica.Icons.Function;
@@ -3431,11 +3431,11 @@ as thermo-hydraulic framework.
 
       package General
         "Application package for a generic pressure loss with Modelica.Fluid as thermo-hydraulic framework"
-      extends Modelica.Fluid.Icons.BaseClassLibrary;
+      extends Modelica.Icons.BasesPackage;
 
         package BaseGeneralPL
           "Base package for all generic pressure loss functions"
-        extends Modelica.Fluid.Icons.BaseClassLibrary;
+        extends Modelica.Icons.BasesPackage;
 
         replaceable partial function massFlowRate_dp
           extends Modelica.Icons.Function;
@@ -4048,11 +4048,11 @@ as thermo-hydraulic framework.
 
       package Orifice
         "Application package for pressure loss in an orifice with Modelica.Fluid as thermo-hydraulic framework"
-      extends Modelica.Fluid.Icons.BaseClassLibrary;
+      extends Modelica.Icons.BasesPackage;
 
         package BaseOrificePL
           "Base package for all pressure loss functions of an orifice"
-        extends Modelica.Fluid.Icons.BaseClassLibrary;
+        extends Modelica.Icons.BasesPackage;
 
         replaceable partial function massFlowRate_dp
           extends Modelica.Icons.Function;
@@ -4289,11 +4289,11 @@ as thermo-hydraulic framework.
 
       package StraightPipe
         "Application package for pressure loss in a straight pipe with Modelica.Fluid as thermo-hydraulic framework"
-      extends Modelica.Fluid.Icons.BaseClassLibrary;
+      extends Modelica.Icons.BasesPackage;
 
         partial package BaseStraightPipePL
           "Base package for all pressure loss functions of a straight pipe"
-        extends Modelica.Fluid.Icons.BaseClassLibrary;
+        extends Modelica.Icons.BasesPackage;
 
         replaceable partial function massFlowRate_dp
           extends Modelica.Icons.Function;
@@ -4621,7 +4621,7 @@ as thermo-hydraulic framework.
 
       package Valve
         "Application package for pressure loss in a valves with Modelica.Fluid as thermo-hydraulic framework"
-      extends Modelica.Fluid.Icons.BaseClassLibrary;
+      extends Modelica.Icons.BasesPackage;
 
         package Overall "Fluid.Dissipation: Overall regime of valve"
           extends BaseValvePL;
@@ -4763,7 +4763,7 @@ as thermo-hydraulic framework.
 
         partial package BaseValvePL
           "Base package for all pressure loss functions of a valve"
-        extends Modelica.Fluid.Icons.BaseClassLibrary;
+        extends Modelica.Icons.BasesPackage;
 
         replaceable partial function massFlowRate_dp
           extends Modelica.Icons.Function;
@@ -4789,7 +4789,7 @@ as thermo-hydraulic framework.
       end Valve;
     end BaseClasses;
   end PressureLoss;
-     extends Modelica.Fluid.Icons.VariantLibrary;
+     extends Modelica.Icons.VariantsPackage;
 
 model SimpleGenericOrifice
     "Simple generic orifice defined by pressure loss coefficient and diameter (only for flow from port_a to port_b)"
@@ -5292,7 +5292,7 @@ of the modeller.
 
   package BaseClasses
     "Base classes used in the Fittings package (only of interest to build new component models)"
-    extends Modelica.Fluid.Icons.BaseClassLibrary;
+    extends Modelica.Icons.BasesPackage;
 
     function lossConstant_D_zeta "Return the loss constant 8*zeta/(pi^2*D^4)"
           extends Modelica.Icons.Function;
