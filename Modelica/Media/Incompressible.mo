@@ -1,13 +1,14 @@
 within Modelica.Media;
 package Incompressible
   "Medium model for T-dependent properties, defined by tables or polynomials"
-
+  extends Modelica.Icons.MaterialPropertiesPackage;
   import SI = Modelica.SIunits;
   import Cv = Modelica.SIunits.Conversions;
   import Modelica.Constants;
   import Modelica.Math;
 
   package Common "Common data structures"
+    extends Modelica.Icons.Package;
 
     // Extended record for input to functions based on polynomials
     record BaseProps_Tpoly "Fluid state record"
@@ -696,6 +697,7 @@ function calls can not be used.
   end TableBased;
 
   package Examples "Examples for incompressible media"
+    extends Modelica.Icons.MaterialPropertiesPackage;
 
   package Glycol47 "1,2-Propylene glycol, 47% mixture with water"
     extends TableBased(

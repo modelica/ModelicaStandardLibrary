@@ -1,7 +1,7 @@
 within Modelica.Mechanics.MultiBody;
 package Forces "Components that exert forces and/or torques between frames"
   import SI = Modelica.SIunits;
-  extends Modelica.Icons.Package;
+  extends Modelica.Icons.SourcesPackage;
 
   model WorldForce
     "External force acting at frame_b, defined by 3 input signals and resolved in frame world, frame_b or frame_resolve"
@@ -2551,6 +2551,7 @@ force element) and der(s_damper) is the time derivative of s_damper.
   end SpringDamperSeries;
 
   package Internal "Internal package, should not be used by user"
+    extends Modelica.Icons.Package;
 
     model BasicForce
       "Force acting between two frames, defined by 3 input signals"

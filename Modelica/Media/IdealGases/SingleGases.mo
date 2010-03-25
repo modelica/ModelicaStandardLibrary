@@ -1,6 +1,6 @@
 within Modelica.Media.IdealGases;
 package SingleGases "Media models of ideal gases from NASA tables"
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.MaterialPropertiesPackage;
 
   package Ar "Ideal gas \"Ar\" from NASA Glenn coefficients"
     extends Common.SingleGasNasa(

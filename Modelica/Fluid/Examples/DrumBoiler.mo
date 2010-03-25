@@ -130,8 +130,8 @@ package DrumBoiler
             30}}, color={0,0,127}));
     connect(limiter.y, pump.m_flow_in) annotation (Line(points={{-85.7,30},{-90,
             30},{-90,-12},{-80,-12}},   color={0,0,127}));
-    connect(temperature.T, K2degC.Kelvin) annotation (Line(points={{4,-1},{4,
-            -1},{10,-1},{10,60},{37,60}},
+    connect(temperature.T, K2degC.Kelvin) annotation (Line(points={{4,-1},{4,-1},
+            {10,-1},{10,60},{37,60}},
                               color={0,0,127}));
     connect(pressure.port, massFlowRate.port_a) annotation (Line(points={{20,14},
             {20,-20}}, color={0,127,255}));
@@ -165,7 +165,7 @@ package DrumBoiler
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
-            extent={{-100,100},{100,-100}},
+            extent={{-100,101},{100,-99}},
             lineColor={0,0,255},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),

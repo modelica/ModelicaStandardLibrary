@@ -1,6 +1,8 @@
 within Modelica.Media;
 package IdealGases "Data and models of ideal gases (single, fixed and dynamic mixtures) from NASA source"
-extends Modelica.Icons.Library;
+  extends Modelica.Icons.MaterialPropertiesPackage;
+
+
 
 
 annotation (

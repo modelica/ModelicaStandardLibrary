@@ -1,13 +1,17 @@
 within Modelica;
 package Media "Library of media property models"
-extends Modelica.Icons.Library;
+extends Modelica.Icons.Package;
 import SI = Modelica.SIunits;
 
+
 package UsersGuide "User's Guide of Media Library"
+  extends Modelica.Icons.Information;
 
   package MediumUsage "Medium usage"
+    extends Modelica.Icons.Information;
 
     class BasicUsage "Basic usage"
+      extends Modelica.Icons.Information;
 
       annotation (Documentation(info="<HTML>
 <h4>Basic usage of medium model</h4>
@@ -227,6 +231,7 @@ PartialMedium.BaseProperties based on Xi, reference_X, and the information wheth
     end BasicUsage;
 
     class BalanceVolume "Balance volume"
+      extends Modelica.Icons.Information;
 
       annotation (Documentation(info="<HTML>
 <p>
@@ -337,6 +342,7 @@ M and U.
     end BalanceVolume;
 
     class ShortPipe "Short pipe"
+      extends Modelica.Icons.Information;
 
       annotation (Documentation(info="<HTML>
 <p>
@@ -438,6 +444,7 @@ linear system of equations:
     end ShortPipe;
 
     class OptionalProperties "Optional properties"
+      extends Modelica.Icons.Information;
 
       annotation (Documentation(info="<HTML>
 <p>
@@ -599,6 +606,7 @@ e.g., about nominal or start values, are automatically utilized.
     end OptionalProperties;
 
     class Constants "Constants"
+      extends Modelica.Icons.Information;
 
       annotation (Documentation(info="<HTML>
 <p>
@@ -808,6 +816,7 @@ elements</p>
     end Constants;
 
     class TwoPhase "Two-phase media"
+      extends Modelica.Icons.Information;
 
       annotation (Documentation(info="<HTML>
 <p>
@@ -1015,6 +1024,7 @@ Here are some examples:
     end TwoPhase;
 
     class Initialization "Initialization"
+      extends Modelica.Icons.Information;
 
       annotation (Documentation(info="<HTML>
 
@@ -1129,8 +1139,10 @@ all media models with some very simple piping networks.
   end MediumUsage;
 
   package MediumDefinition "Medium definition"
+    extends Modelica.Icons.Information;
 
     class BasicStructure "Basic structure"
+      extends Modelica.Icons.Information;
 
       annotation (Documentation(info="<HTML>
 <p>
@@ -1384,6 +1396,7 @@ of the graphical user interface.</p>
     end BasicStructure;
 
     class BasicDefinition "Basic definition"
+      extends Modelica.Icons.Information;
 
       annotation (Documentation(info="<HTML>
 <p>
@@ -1455,6 +1468,7 @@ defined in the base class and adding their algorithms, e.g.:
     end BasicDefinition;
 
     class MultipleSubstances "Multiple Substances"
+      extends Modelica.Icons.Information;
 
       annotation (Documentation(info="<HTML>
 <p>
@@ -1515,6 +1529,7 @@ For further details, refer to the implementation of
     end MultipleSubstances;
 
     class SpecificEnthalpyAsFunction "Specific enthalpy as function"
+      extends Modelica.Icons.Information;
 
       annotation (Documentation(info="<html>
 <p>
@@ -1712,6 +1727,7 @@ of the independent medium variables.
     end SpecificEnthalpyAsFunction;
 
     class StaticStateSelection "Static State Selection"
+      extends Modelica.Icons.Information;
 
       annotation (Documentation(info="<html>
 <p>
@@ -1901,6 +1917,7 @@ states. This means that static state selection is possible.
     end StaticStateSelection;
 
     class TestOfMedium "Test of medium"
+      extends Modelica.Icons.Information;
 
       annotation (Documentation(info="<html>
 <p>
@@ -1968,7 +1985,7 @@ TemplateMedium package is given here:
   end MediumDefinition;
 
   class ReleaseNotes "Release notes"
-
+    extends Modelica.Icons.ReleaseNotes;
     annotation (Documentation(info="<HTML>
 <h4>Version included in Modelica 3.0</h4>
 <p> See top-level release notes for MSL.</p>
@@ -1999,7 +2016,7 @@ for the Modelica'2003 conference (for evaluation).
   end ReleaseNotes;
 
   class Future "Future"
-
+    extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 
 <h4>Planned changes for version 3.1</h4>
@@ -2026,7 +2043,7 @@ entries ph, pT, pTX, phX and dTX. Users are advised to use this enumeration to d
   end Future;
 
 class Contact "Contact"
-
+  extends Modelica.Icons.Contact;
     annotation (Documentation(info="<html>
 <dl>
 <dt><b>Main author and maintainer:</b>
@@ -2162,7 +2179,7 @@ end UsersGuide;
 package Examples
   "Demonstrate usage of property models (currently: simple tests)"
 
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.ExamplesPackage;
 
   model SimpleLiquidWater "Example for Water.SimpleLiquidWater medium model"
 
@@ -3841,7 +3858,7 @@ end Examples;
 
 package Interfaces "Interfaces for media models"
 
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.InterfacesPackage;
   import SI = Modelica.SIunits;
 
   partial package TemplateMedium "Template for media models"
@@ -4014,7 +4031,7 @@ Modelica source.
     "Partial medium properties (base package of all media packages)"
 
     import SI = Modelica.SIunits;
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.MaterialPropertiesPackage;
 
     // Constants to be set in Medium
     constant
@@ -6693,7 +6710,7 @@ end Interfaces;
 
 package Common "data structures and fundamental functions for fluid properties"
 
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
 protected
   type Rate = Real (final quantity="Rate", final unit="s-1");
   type MolarFlowRate = Real (final quantity="MolarFlowRate", final unit="mol/s");
@@ -8461,6 +8478,10 @@ provide a package in the following way:
       </address>
 </html>"));
 end Common;
+
+
+
+
 
 
 annotation (

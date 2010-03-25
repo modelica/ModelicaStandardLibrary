@@ -1,5 +1,6 @@
 within Modelica.Media;
 package Air "Medium models for air"
+  extends Modelica.Icons.MaterialPropertiesPackage;
 
   package SimpleAir "Air: Simple dry air model (0..100 degC)"
 
