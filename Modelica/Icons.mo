@@ -440,8 +440,8 @@ This icon is indicates a record.
 </html>"));
   end Record;
 
-  type TypeComplex "Icon for Complex types"
-      extends Complex;
+  record TypeComplex "Icon for Complex types"
+    extends Complex;
       annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={Rectangle(
             extent={{-100,100},{100,-100}},
