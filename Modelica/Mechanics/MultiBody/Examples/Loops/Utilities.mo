@@ -934,6 +934,72 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
 
   partial model Engine1bBase "Model of one cylinder engine with gas force"
     import SI = Modelica.SIunits;
+    extends Modelica.Icons.Example;
+    Modelica.Mechanics.MultiBody.Parts.BodyCylinder Piston(diameter=0.1, r={0,-0.1,0})
+      annotation (Placement(transformation(
+          origin={120,53},
+          extent={{-10,30},{10,-30}},
+          rotation=270)));
+    Modelica.Mechanics.MultiBody.Parts.BodyBox Rod2(
+      widthDirection={1,0,0},
+      width=0.02,
+      height=0.06,
+      color={0,0,200},
+      r={0,0.2,0})     annotation (Placement(transformation(
+          origin={120,10},
+          extent={{-10,-10},{10,10}},
+          rotation=90)));
+    Modelica.Mechanics.MultiBody.Joints.Revolute Bearing(useAxisFlange=true,
+      n={1,0,0},
+      cylinderLength=0.02,
+      cylinderDiameter=0.05) annotation (Placement(transformation(extent={{-50,
+              -80},{-30,-100}}, rotation=0)));
+    inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
+          transformation(extent={{-90,-100},{-70,-80}}, rotation=0)));
+    Modelica.Mechanics.Rotational.Components.Inertia Inertia(
+      stateSelect=StateSelect.always,
+      J=0.1,
+      w(fixed=true),
+      phi(
+        fixed=true,
+        start=0.001,
+        displayUnit="rad"))              annotation (Placement(transformation(
+            extent={{-68,-120},{-48,-100}}, rotation=0)));
+    Modelica.Mechanics.MultiBody.Parts.BodyBox Crank4(
+      height=0.05,
+      widthDirection={1,0,0},
+      width=0.02,
+      r={0,-0.1,0}) annotation (Placement(transformation(
+          origin={75.5,-75},
+          extent={{10,-10},{-10,10}},
+          rotation=90)));
+    Modelica.Mechanics.MultiBody.Parts.BodyCylinder Crank3(r={0.1,0,0}, diameter=0.03) annotation (
+                                   Placement(transformation(extent={{41.5,-71},
+              {61.5,-51}}, rotation=0)));
+    Modelica.Mechanics.MultiBody.Parts.BodyCylinder Crank1(diameter=0.05, r={0.1,0,0})
+      annotation (Placement(transformation(extent={{-16,-100},{4,-80}},
+            rotation=0)));
+    Modelica.Mechanics.MultiBody.Parts.BodyBox Crank2(
+      height=0.05,
+      widthDirection={1,0,0},
+      width=0.02,
+      r={0,0.1,0})
+                  annotation (Placement(transformation(
+          origin={30,-76},
+          extent={{-10,-10},{10,10}},
+          rotation=90)));
+    Modelica.Mechanics.MultiBody.Parts.FixedTranslation Mid(r={0.05,0,0})
+      annotation (Placement(transformation(extent={{30,-53},{50,-33}}, rotation=
+             0)));
+    Modelica.Mechanics.MultiBody.Parts.FixedTranslation cylPosition(                 animation=false, r={0.15,
+          0.55,0})
+      annotation (Placement(transformation(extent={{-40.5,100},{-20.5,120}},
+            rotation=0)));
+    Utilities.GasForce2 gasForce(        d=0.1, L=0.35)
+      annotation (Placement(transformation(
+          origin={119,97},
+          extent={{10,-10},{-10,10}},
+          rotation=90)));
   equation
     connect(world.frame_b, Bearing.frame_a)
       annotation (Line(
@@ -998,14 +1064,6 @@ An animation of this example is shown in the figure below.
 <p align=\"center\">
 <IMG src=\"modelica://Modelica/Images/MultiBody/Examples/Loops/Engine.png\" ALT=\"model Examples.Loops.Engine\">
 </p>
-</html>"),
-      Icon(graphics={
-          Rectangle(
-            extent={{-100,100},{100,-100}},
-            lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Bitmap(extent={{-97,75},{99,-39}}, fileName=
-                "modelica://Modelica/Images/MultiBody/Examples/Loops/EngineV6_CAD.png")}));
+</html>"));
   end Engine1bBase;
 end Utilities;
