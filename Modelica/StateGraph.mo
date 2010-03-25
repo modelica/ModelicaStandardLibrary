@@ -2,11 +2,13 @@ within Modelica;
 package StateGraph
   "Library of hierarchical state machine components to model discrete event and reactive systems"
 
-extends Modelica.Icons.Library2;
+extends Modelica.Icons.Package;
 
 package UsersGuide "User's Guide of StateGraph Library"
+  extends Modelica.Icons.Information;
 
   class OverView "Overview of library"
+    extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -336,6 +338,7 @@ be aborted due to different transitions).
   end OverView;
 
   class FirstExample "A first example"
+    extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -346,6 +349,7 @@ A first example will be given here (not yet done).
   end FirstExample;
 
   class ApplicationExample "An application example"
+    extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -452,6 +456,7 @@ step \"emptyTanks\" is active. Otherwise, valve2 is closed.
   end ApplicationExample;
 
   class ReleaseNotes "Release notes"
+    extends Modelica.Icons.ReleaseNotes;
 
     annotation (Documentation(info="<html>
 <h4>Version 0.87, 2004-06-23</h4>
@@ -512,6 +517,7 @@ Implemented a first version that is provided to other people.
   end ReleaseNotes;
 
   class Literature "Literature"
+    extends Modelica.Icons.References;
 
     annotation (Documentation(info="<html>
 <p>
@@ -544,6 +550,7 @@ The StateGraph library is based on the following references:
   end Literature;
 
   class Contact "Contact"
+    extends Modelica.Icons.Contact;
 
     annotation (Documentation(info="<html>
 <dl>
@@ -614,6 +621,7 @@ end UsersGuide;
 
 package Examples
     "Examples to demonstrate the usage of the components of the StateGraph library"
+  extends Modelica.Icons.ExamplesPackage;
 
   model FirstExample "A first simple StateGraph example"
     extends Modelica.Icons.Example;
@@ -745,8 +753,6 @@ package Examples
 
 </html>"));
   end FirstExample_Variant3;
-
-  extends Modelica.Icons.Library;
 
   model ExecutionPaths
       "Example to demonstrate parallel and alternative execution paths"
@@ -1153,6 +1159,8 @@ buttons:
   end ControlledTanks;
 
   package Utilities "Utility components for the examples"
+    extends Modelica.Icons.Package;
+
     model TankController "Controller for tank system"
       extends StateGraph.Interfaces.PartialStateGraphIcon;
       parameter Temporary.SetRealParameter limit=0.98 "Limit level of tank 1"
@@ -1402,7 +1410,7 @@ buttons:
     connector inflow1
         "Inflow connector (this is a copy from Isolde Dressler's master thesis project)"
 
-        import Units = Modelica.SIunits;
+      import Units = Modelica.SIunits;
 
       input Units.VolumeFlowRate Fi "inflow";
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1417,7 +1425,7 @@ buttons:
     connector inflow2
         "Inflow connector (this is a copy from Isolde Dressler's master thesis project)"
 
-        import Units = Modelica.SIunits;
+      import Units = Modelica.SIunits;
 
       output Units.VolumeFlowRate Fi "inflow";
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1432,7 +1440,7 @@ buttons:
     connector outflow1
         "Outflow connector (this is a copy from Isolde Dressler's master thesis project)"
 
-        import Units = Modelica.SIunits;
+      import Units = Modelica.SIunits;
 
       output Units.VolumeFlowRate Fo "outflow";
       input Boolean open "valve open";
@@ -1448,7 +1456,7 @@ buttons:
     connector outflow2
         "Outflow connector (this is a copy from Isolde Dressler's master thesis project)"
 
-        import Units = Modelica.SIunits;
+      import Units = Modelica.SIunits;
 
       input Units.VolumeFlowRate Fo "outflow";
       output Boolean open "valve open";
@@ -1762,7 +1770,7 @@ buttons:
 end Examples;
 
 package Interfaces "Connectors and partial models"
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.InterfacesPackage;
 
   connector Step_in "Input port of a step"
     output Boolean occupied "true, if step is active" annotation (HideResult=true);
@@ -3023,7 +3031,7 @@ value, still requires to go in to the text layer.
 </p>
 </html>"));
 
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
 
   function anyTrue
       "Returns true, if at least on element of the Boolean input vector is true"
