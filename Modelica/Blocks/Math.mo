@@ -3050,6 +3050,240 @@ This block calculates the components <code>y_re</code> and <code>y_im</code> of 
 </html>"));
   end PolarToRectangular;
 
+  block Mean "Calculate mean over period 1/f"
+    extends Modelica.Blocks.Interfaces.SISO;
+    parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
+  protected
+    discrete Modelica.SIunits.Time t0 "Start time of simulation";
+    Real x(start=0) "Integrator state";
+  equation
+    when initial() then
+        t0 = time;
+    end when;
+    der(x) = u;
+    when sample(t0+1/f, 1/f) then
+      y=f*x;
+      reinit(x, 0);
+    end when;
+    annotation (Documentation(info="<html>
+<p>
+This block calculates the mean of the input signal u over the given period 1/f:
+</p>
+<pre>
+1 T
+- &int; u(t) dt
+T 0
+</pre>
+<p>
+Note: The output is updated after each period defined by 1/f.
+</p>
+</html>"),   Icon(graphics={Text(
+            extent={{-80,60},{80,20}},
+            lineColor={0,0,0},
+            textString="mean"), Text(
+            extent={{-80,-20},{80,-60}},
+            lineColor={0,0,0},
+            textString="f=%f")}));
+  end Mean;
+
+  block RectifiedMean
+    extends Modelica.Blocks.Interfaces.SISO;
+    parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
+    Mean mean(final f=f)
+      annotation (Placement(transformation(extent={{0,-10},{20,10}})));
+    Blocks.Math.Abs abs1
+      annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+  equation
+    connect(u, abs1.u) annotation (Line(
+        points={{-120,0},{-62,0}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(abs1.y, mean.u) annotation (Line(
+        points={{-39,0},{-2,0}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(mean.y, y) annotation (Line(
+        points={{21,0},{110,0}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (Diagram(graphics),
+      Documentation(info="<html>
+<p>
+This block calculates the rectified mean of the input signal u over the given period 1/f, using the
+<a href=\"modelica://Modelica.Blocks.Math.Mean\">mean block</a>.
+</p>
+<p>
+Note: The output is updated after each period defined by 1/f.
+</p>
+</html>"),
+      Icon(graphics={       Text(
+            extent={{-80,60},{80,20}},
+            lineColor={0,0,0},
+            textString="RM"),   Text(
+            extent={{-80,-20},{80,-60}},
+            lineColor={0,0,0},
+            textString="f=%f")}));
+  end RectifiedMean;
+
+  block RootMeanSquare
+    extends Modelica.Blocks.Interfaces.SISO;
+    parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
+    Blocks.Math.Product product
+      annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
+    Mean mean(final f=f)
+      annotation (Placement(transformation(extent={{0,-10},{20,10}})));
+    Blocks.Math.Sqrt sqrt1
+      annotation (Placement(transformation(extent={{40,-10},{60,10}})));
+  equation
+
+    connect(u, product.u1) annotation (Line(
+        points={{-120,0},{-60,0},{-60,6},{-42,6}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(u, product.u2) annotation (Line(
+        points={{-120,0},{-60,0},{-60,-6},{-42,-6}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(product.y, mean.u) annotation (Line(
+        points={{-19,0},{-2,0}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(mean.y, sqrt1.u) annotation (Line(
+        points={{21,0},{38,0}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(sqrt1.y, y) annotation (Line(
+        points={{61,0},{110,0}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (Diagram(graphics),
+      Documentation(info="<html>
+<p>
+This block calculates the root mean square of the input signal u over the given period 1/f, using the
+<a href=\"modelica://Modelica.Blocks.Math.Mean\">mean block</a>.
+</p>
+<p>
+Note: The output is updated after each period defined by 1/f.
+</p>
+</html>"),
+      Icon(graphics={       Text(
+            extent={{-80,60},{80,20}},
+            lineColor={0,0,0},
+            textString="RMS"),  Text(
+            extent={{-80,-20},{80,-60}},
+            lineColor={0,0,0},
+            textString="f=%f")}));
+  end RootMeanSquare;
+
+  block Harmonic
+    extends Modelica.Blocks.Interfaces.BlockIcon;
+    parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
+    parameter Integer k(start=1) "Order of harmonic";
+    Blocks.Sources.Sine sin1(
+      final amplitude=sqrt(2),
+      final phase=Modelica.Constants.pi/2,
+      final freqHz=k*f)        annotation (Placement(transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=270,
+          origin={-80,70})));
+    Blocks.Sources.Sine sin2(                final amplitude=sqrt(2),
+      final phase=0,
+      final freqHz=k*f)                                               annotation (
+       Placement(transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=90,
+          origin={-80,-70})));
+    Blocks.Math.Product product1
+      annotation (Placement(transformation(extent={{-60,30},{-40,50}})));
+    Blocks.Math.Product product2
+      annotation (Placement(transformation(extent={{-60,-50},{-40,-30}})));
+    Mean mean1(final f=f)
+      annotation (Placement(transformation(extent={{-20,30},{0,50}})));
+    Mean mean2(final f=f)
+      annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
+    Blocks.Interfaces.RealInput u
+      annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+    Blocks.Interfaces.RealOutput y_rms
+      "Root mean square of polar representation"
+      annotation (Placement(transformation(extent={{100,50},{120,70}},
+            rotation=0)));
+    Blocks.Interfaces.RealOutput y_arg "Angle of polar representation"
+      annotation (Placement(transformation(extent={{100,-70},{120,-50}},
+            rotation=0)));
+    Blocks.Math.RectangularToPolar rectangularToPolar
+      annotation (Placement(transformation(extent={{40,-12},{60,8}})));
+  equation
+
+    connect(sin2.y, product2.u2) annotation (Line(
+        points={{-80,-59},{-80,-46},{-62,-46}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(sin1.y, product1.u1) annotation (Line(
+        points={{-80,59},{-80,46},{-62,46}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(u, product1.u2) annotation (Line(
+        points={{-120,0},{-80,0},{-80,34},{-62,34}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(u, product2.u1) annotation (Line(
+        points={{-120,0},{-80,0},{-80,-34},{-62,-34}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(product2.y, mean2.u) annotation (Line(
+        points={{-39,-40},{-22,-40}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(product1.y, mean1.u) annotation (Line(
+        points={{-39,40},{-22,40}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(mean1.y, rectangularToPolar.u_re) annotation (Line(
+        points={{1,40},{20,40},{20,4},{38,4}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(mean2.y, rectangularToPolar.u_im) annotation (Line(
+        points={{1,-40},{20,-40},{20,-8},{38,-8}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(rectangularToPolar.y_abs, y_rms) annotation (Line(
+        points={{61,4},{80,4},{80,60},{110,60}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(rectangularToPolar.y_arg, y_arg) annotation (Line(
+        points={{61,-8},{80,-8},{80,-60},{110,-60}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (Diagram(graphics),
+      Documentation(info="<html>
+<p>
+This block calculates the root mean square and the phase angle of a single harmonic <i>k</i> of the input signal u over the given period 1/f, using the
+<a href=\"modelica://Modelica.Blocks.Math.Mean\">mean block</a>.
+</p>
+<p>
+Note: The output is updated after each period defined by 1/f.
+</p>
+<p>
+Note: The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t - arg)</code>
+</p>
+</html>"),
+      Icon(graphics={       Text(
+            extent={{-80,60},{80,20}},
+            lineColor={0,0,0},
+            textString="H%k"),  Text(
+            extent={{-80,-20},{80,-60}},
+            lineColor={0,0,0},
+            textString="f=%f"),
+                            Text(
+            extent={{20,100},{100,60}},
+            lineColor={0,0,0},
+            textString="rms"),
+                            Text(
+            extent={{20,-60},{100,-100}},
+            lineColor={0,0,0},
+            textString="arg")}));
+  end Harmonic;
+
   block Max "Pass through the largest signal"
     extends Interfaces.SI2SO;
   equation
