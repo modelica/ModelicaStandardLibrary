@@ -1,15 +1,15 @@
 within Modelica.Mechanics;
 package Translational
   "Library to model 1-dimensional, translational mechanical systems"
-  extends Modelica.Icons.Library2;
+  extends Modelica.Icons.Package;
   import SI = Modelica.SIunits;
 
   package Examples "DeMonstration examples of the components of this package"
 
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.ExamplesPackage;
 
     model SignConvention "Examples for the used sign conventions."
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       Translational.Components.Mass mass1(L=1,
         s(fixed=true),
         v(fixed=true),
@@ -114,7 +114,7 @@ the two other examples).
 
     model InitialConditions "Setting of initial conditions"
 
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
 
       Translational.Components.Fixed fixed2(        s0=1)
                                        annotation (Placement(transformation(
@@ -235,7 +235,7 @@ combination). In this case the system is not at rest.
 
     model WhyArrows "Use of arrows in Mechanics.Translational"
 
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
 
       Translational.Components.Fixed fixed
                                  annotation (Placement(transformation(extent={{
@@ -357,7 +357,7 @@ problems.
 
     model Accelerate "Use of model accelerate."
 
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       Translational.Sources.Accelerate accelerate
                                            annotation (Placement(transformation(
               extent={{-40,20},{-20,40}}, rotation=0)));
@@ -389,7 +389,7 @@ with a predefined acceleration.
 
     model Damper "Use of damper models."
 
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
 
       Translational.Components.Mass mass1(
         L=1,
@@ -465,7 +465,7 @@ Demonstrate usage of damper components in different variants.
 
     model Oscillator "Oscillator demonstrates the use of initial conditions."
 
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
 
       Translational.Components.Mass mass1(
         L=1,
@@ -566,7 +566,7 @@ If damping is added the amplitudes are bounded.
 
     model Sensors "Sensors for translational systems."
 
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
 
       Translational.Sensors.ForceSensor forceSensor  annotation (Placement(
             transformation(extent={{-20,40},{0,60}}, rotation=0)));
@@ -646,7 +646,7 @@ to see the difference.
     end Sensors;
 
     model Friction "Use of model Stop"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       Modelica.Mechanics.Translational.Components.MassWithStopAndFriction stop1
         (                                      L=1,
         s(fixed=true),
@@ -771,7 +771,7 @@ to see the difference.
 
     model PreLoad "Preload of a spool using ElastoGap models."
 
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
 
       Translational.Components.ElastoGap innerContactA(
         c=1000e3,
@@ -952,7 +952,7 @@ Spool position s as a function of working force f.
     end PreLoad;
 
     model ElastoGap "Demonstrate usgae of ElastoGap"
-    extends Modelica.Icons.Example2;
+    extends Modelica.Icons.Example;
       Components.Fixed fixed
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
       Components.Rod rod1(L=2)
@@ -1054,7 +1054,7 @@ mass2 moves freely as long as -0.5 m &lt; s &lt; +0.5 m.
     end ElastoGap;
 
     model Brake "Demonstrate braking of a translational moving mass"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
 
       Modelica.Mechanics.Translational.Components.Brake brake(fn_max=1, useSupport=
             false)
@@ -1115,7 +1115,7 @@ one where the brake is implicitly grounded and one where it is explicitly ground
     end Brake;
 
     package Utilities "Utility classes used by the Example models"
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.Package;
       function GenerateStribeckFrictionTable
         "Generate stribeck friction table for example Friction for the SupportFriction"
          input Real F_prop(final unit="N.s/m", final min=0)
@@ -1162,7 +1162,7 @@ simulate them according to the provided description in the models.
   end Examples;
 
   package Components "Components for 1D translational mechanical drive trains"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.Package;
 
     model Fixed "Fixed flange"
       parameter SI.Position s0=0 "Fixed offset position of housing";
@@ -2896,7 +2896,7 @@ This package contains basic components 1D mechanical translational drive trains.
   end Components;
 
   package Sources "Sources to drive 1D translational mechanical components"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.SourcesPackage;
 
     model Position
       "Forced movement of a flange according to a reference position"
@@ -3523,12 +3523,7 @@ Positive force acts accelerating.
     end ForceStep;
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics={Polygon(
-            points={{-100,-32},{10,-32},{10,-1},{80,-42},{10,-83},{10,-52},{-100,
-                -52},{-100,-32}},
-            lineColor={0,127,0},
-            fillColor={0,127,0},
-            fillPattern=FillPattern.Solid)}),               Documentation(info="<html>
+              -100},{100,100}}), graphics),                 Documentation(info="<html>
 <p>
 This package contains ideal sources to drive 1D mechanical translational drive trains.
 </p>
@@ -3537,7 +3532,7 @@ This package contains ideal sources to drive 1D mechanical translational drive t
 
   package Sensors "Sensors for 1-dim. translational mechanical quantities"
 
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.SensorsPackage;
 
     model PositionSensor "Ideal sensor to measure the absolute position"
       extends Translational.Interfaces.PartialAbsoluteSensor;
@@ -3840,18 +3835,6 @@ and provides the result as output signal <b>power</b>
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Rectangle(
-            extent={{-76,-81},{64,-1}},
-            lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Polygon(
-            points={{-6,-61},{-16,-37},{4,-37},{-6,-61}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-6,-21},{-6,-37}}, color={0,0,0}),
-          Line(points={{-76,-21},{-6,-21}}, color={0,0,0}),
           Line(points={{-56,-61},{-56,-81}}, color={0,0,0}),
           Line(points={{-36,-61},{-36,-81}}, color={0,0,0}),
           Line(points={{-16,-61},{-16,-81}}, color={0,0,0}),
@@ -3869,7 +3852,7 @@ Modelica.Blocks library.
 
   package Interfaces
     "Interfaces for 1-dim. translational mechanical components"
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.InterfacesPackage;
 
     connector Flange_a
       "(left) 1D translational flange (flange axis directed INTO cut plane, e. g. from left to right)"
@@ -4068,6 +4051,7 @@ the support force can always be accessed as internalSupport.f.
 
     partial model PartialTwoFlanges
       "Component with two translational 1D flanges "
+
       Flange_a flange_a
         "(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)"
          annotation (Placement(transformation(extent={{-110,-10},{-90,10}},

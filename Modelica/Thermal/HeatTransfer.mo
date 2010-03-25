@@ -4,13 +4,13 @@ within Modelica.Thermal;
 package HeatTransfer
   "Library of 1-dimensional heat transfer with lumped elements"
   import Modelica.SIunits.Conversions.*;
-  extends Modelica.Icons.Library2;
+  extends Modelica.Icons.Package;
   package Examples
     "Example models to demonstrate the usage of package Modelica.Thermal.HeatTransfer"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.ExamplesPackage;
 
     model TwoMasses "Simple conduction demo"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       parameter Modelica.SIunits.Temperature T_final_K(fixed=false)
         "Projected final temperature";
       HeatTransfer.Components.HeatCapacitor mass1(
@@ -59,7 +59,7 @@ Tsensor1.T, Tsensor2.T, T_final_degC
     end TwoMasses;
 
     model ControlledTemperature "Control temperature of a resistor"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       parameter Modelica.SIunits.Temperature TAmb(displayUnit="degC") = 293.15
         "Ambient Temperature";
       parameter Modelica.SIunits.TemperatureDifference TDif = 2
@@ -163,7 +163,7 @@ An approppriate simulating time would be 10 seconds.
     end ControlledTemperature;
 
     model Motor "Second order thermal model of a motor"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       parameter Modelica.SIunits.Temperature TAmb(displayUnit="degC") = 293.15
         "Ambient temperature";
 
@@ -286,19 +286,14 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
                 graphics));
     end Motor;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics={Ellipse(extent={{-60,10},{40,-90}},
-              lineColor={135,135,135}), Polygon(
-            points={{-30,-12},{-30,-68},{28,-40},{-30,-12}},
-            lineColor={135,135,135},
-            fillColor={135,135,135},
-            fillPattern=FillPattern.Solid)}),
+              -100},{100,100}}), graphics),
                               Documentation(info="<html>
 
 </html>"));
   end Examples;
 
   package Components "Lumped thermal components"
-  extends Modelica.Icons.Library2;
+  extends Modelica.Icons.Package;
 
     model HeatCapacitor "Lumped thermal element storing heat"
       parameter Modelica.SIunits.HeatCapacity C
@@ -914,7 +909,7 @@ This is a model to collect the heat flows from <i>m</i> heatports to one single 
   end Components;
 
   package Sources "Thermal sources"
-  extends Modelica.Icons.Library2;
+  extends Modelica.Icons.SourcesPackage;
 
     model FixedTemperature "Fixed temperature boundary condition in Kelvin"
 
@@ -1229,36 +1224,13 @@ in order to simulate temperature dependent losses (which are given an reference 
               fillPattern=FillPattern.Solid)}));
     end PrescribedHeatFlow;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics={
-          Line(
-            points={{-100,-20},{36,-20}},
-            color={191,0,0},
-            thickness=0.5),
-          Line(
-            points={{-100,-60},{38,-60}},
-            color={191,0,0},
-            thickness=0.5),
-          Polygon(
-            points={{30,-80},{30,-40},{60,-60},{30,-80}},
-            lineColor={191,0,0},
-            fillColor={191,0,0},
-            fillPattern=FillPattern.Solid),
-          Polygon(
-            points={{30,-40},{30,0},{60,-20},{30,-40}},
-            lineColor={191,0,0},
-            fillColor={191,0,0},
-            fillPattern=FillPattern.Solid),
-          Rectangle(
-            extent={{60,0},{80,-80}},
-            lineColor={191,0,0},
-            fillColor={191,0,0},
-            fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+              -100},{100,100}}), graphics),   Documentation(info="<html>
 
 </html>"));
   end Sources;
 
   package Sensors "Thermal sensors"
-  extends Modelica.Icons.Library2;
+  extends Modelica.Icons.SensorsPackage;
 
     model TemperatureSensor "Absolute temperature sensor in Kelvin"
 
@@ -1455,37 +1427,17 @@ to port_b.
 "));
     end HeatFlowSensor;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics={
-          Ellipse(
-            extent={{-60,10},{40,-90}},
-            lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-50,-16},{-36,-25}}, color={0,0,0}),
-          Line(points={{-35,0},{-25,-14}}, color={0,0,0}),
-          Line(points={{-10,7},{-10,-10}}, color={0,0,0}),
-          Line(points={{15,0},{5,-14}}, color={0,0,0}),
-          Line(points={{30,-15},{16,-25}}, color={0,0,0}),
-          Ellipse(
-            extent={{-15,-35},{-5,-45}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-10,-40},{-6,-26}}, color={0,0,0}),
-          Polygon(
-            points={{-12,-24},{-0.5,-27},{2,1.5},{-12,-24}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+              -100},{100,100}}), graphics),   Documentation(info="<html>
 
 </html>"));
   end Sensors;
 
   package Celsius "Components with Celsius input and/or output"
 
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.VariantsPackage;
 
     model ToKelvin "Conversion block from °Celsius to Kelvin"
+
       Modelica.Blocks.Interfaces.RealInput Celsius
          annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
@@ -1547,6 +1499,7 @@ and provide is as output signal.
     end ToKelvin;
 
     model FromKelvin "Conversion from Kelvin to °Celsius"
+
       Modelica.Blocks.Interfaces.RealInput Kelvin
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
@@ -1868,9 +1821,10 @@ Example:
 
   package Fahrenheit "Components with Fahrenheit input and/or output"
 
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.VariantsPackage;
 
     model ToKelvin "Conversion block from °Fahrenheit to Kelvin"
+
       Modelica.Blocks.Interfaces.RealInput Fahrenheit annotation (Placement(
             transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
       Modelica.Blocks.Interfaces.RealOutput Kelvin
@@ -2250,7 +2204,7 @@ Example:
 
   package Rankine "Components with Rankine input and/or output"
 
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.VariantsPackage;
 
     model ToKelvin "Conversion block from °Rankine to Kelvin"
       parameter Integer n=1 "Number of inputs (= number of outputs)";
@@ -2634,7 +2588,7 @@ Example:
 
   package Interfaces "Connectors and partial models"
 
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.InterfacesPackage;
 
     partial connector HeatPort "Thermal port for 1-dim. heat transfer"
       Modelica.SIunits.Temperature T "Port temperature";
@@ -2755,11 +2709,7 @@ constitutive equations for many types of heat transfer components.
                 graphics));
     end Element1D;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics={Rectangle(
-            extent={{-60,10},{40,-90}},
-            lineColor={191,0,0},
-            fillColor={191,0,0},
-            fillPattern=FillPattern.Solid)}),
+              -100},{100,100}}), graphics),
                                Documentation(info="<html>
 
 </html>"));

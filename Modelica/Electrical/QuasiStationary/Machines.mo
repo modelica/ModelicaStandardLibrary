@@ -233,7 +233,7 @@ Examples to demonstrate the usage of quasistationary electric components.
     extends Modelica.Icons.Package;
 
     package Transformers "Library for technical 3phase transformers"
-      extends Modelica.Icons.VariantsPackage;
+      extends Modelica.Icons.Package;
 
       package Yy "Transformers: primary Y / secondary y"
         extends Modelica.Icons.VariantsPackage;
@@ -2035,7 +2035,70 @@ Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.
        conditional ThermalPort for all machines</li>
   </ul>
 </HTML>"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics));
+                -100},{100,100}}), graphics={
+            Polygon(
+              points={{-80,50},{-60,30},{-60,-50},{-80,-70},{-80,50}},
+              lineColor={0,0,0},
+              smooth=Smooth.None,
+              fillColor={135,135,135},
+              fillPattern=FillPattern.VerticalCylinder),
+            Polygon(
+              points={{60,50},{40,30},{40,-50},{60,-70},{60,50}},
+              lineColor={0,0,0},
+              smooth=Smooth.None,
+              fillColor={135,135,135},
+              fillPattern=FillPattern.VerticalCylinder),
+            Polygon(
+              points={{-10,40},{-20,30},{-20,-50},{-10,-60},{0,-50},{0,30},{-10,
+                  40}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.VerticalCylinder,
+              smooth=Smooth.None,
+              fillColor={135,135,135}),
+            Polygon(
+              points={{-80,50},{60,50},{40,30},{0,30},{-10,40},{-20,30},{-60,30},
+                  {-80,50}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.VerticalCylinder,
+              smooth=Smooth.None,
+              fillColor={135,135,135}),
+            Polygon(
+              points={{-80,-70},{60,-70},{40,-50},{0,-50},{-10,-60},{-20,-50},{
+                  -60,-50},{-80,-70}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.VerticalCylinder,
+              smooth=Smooth.None,
+              fillColor={135,135,135}),
+            Rectangle(
+              extent={{-88,26},{-52,-46}},
+              lineColor={213,170,255},
+              fillPattern=FillPattern.VerticalCylinder,
+              fillColor={213,170,255}),
+            Rectangle(
+              extent={{-94,18},{-46,-38}},
+              lineColor={170,213,255},
+              fillPattern=FillPattern.VerticalCylinder,
+              fillColor={170,213,255}),
+            Rectangle(
+              extent={{-28,26},{8,-46}},
+              lineColor={213,170,255},
+              fillPattern=FillPattern.VerticalCylinder,
+              fillColor={213,170,255}),
+            Rectangle(
+              extent={{-34,18},{14,-38}},
+              lineColor={170,213,255},
+              fillPattern=FillPattern.VerticalCylinder,
+              fillColor={170,213,255}),
+            Rectangle(
+              extent={{32,26},{68,-46}},
+              lineColor={213,170,255},
+              fillPattern=FillPattern.VerticalCylinder,
+              fillColor={213,170,255}),
+            Rectangle(
+              extent={{26,18},{74,-38}},
+              lineColor={170,213,255},
+              fillPattern=FillPattern.VerticalCylinder,
+              fillColor={170,213,255})}));
     end Transformers;
 
     package Components "Machine components like AirGaps"

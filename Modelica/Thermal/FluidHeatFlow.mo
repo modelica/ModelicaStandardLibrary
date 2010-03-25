@@ -3,14 +3,14 @@ within Modelica.Thermal;
 
 package FluidHeatFlow
   "Simple components for 1-dimensional incompressible thermo-fluid flow models"
-  extends Modelica.Icons.Library2;
+  extends Modelica.Icons.Package;
 
   package Examples
     "Examples that demonstrate the usage of the FluidHeatFlow components"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.ExamplesPackage;
 
     model SimpleCooling "Example: simple cooling circuit"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
         "Cooling medium"
         annotation(__Dymola_choicesAllMatching=true);
@@ -125,7 +125,7 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
     end SimpleCooling;
 
     model ParallelCooling "Example: coolig circuit with parallel branches"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
         "Cooling medium"
         annotation(__Dymola_choicesAllMatching=true);
@@ -326,7 +326,7 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
     end ParallelCooling;
 
     model IndirectCooling "Example: indirect cooling circuit"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       parameter FluidHeatFlow.Media.Medium outerMedium=FluidHeatFlow.Media.Medium()
         "Outer medium"
         annotation(__Dymola_choicesAllMatching=true);
@@ -531,7 +531,7 @@ Inner coolant's temperature rise near the source is the same as temperature drop
     end IndirectCooling;
 
     model PumpAndValve "Example: cooling circuit with pump and valve"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
         "Cooling medium"
         annotation(__Dymola_choicesAllMatching=true);
@@ -656,7 +656,7 @@ You may try to:
     end PumpAndValve;
 
     model PumpDropOut "Example: cooling circuit with drop out of pump"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
         "Cooling medium"
         annotation(__Dymola_choicesAllMatching=true);
@@ -747,7 +747,7 @@ then started again (using a ramp of 0.2 s).
 
     model ParallelPumpDropOut
       "Example: cooling circuit with parallel branches and drop out of pump"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
         "Cooling medium"
         annotation(__Dymola_choicesAllMatching=true);
@@ -899,7 +899,7 @@ then started again (using a ramp of 0.2 s).
     end ParallelPumpDropOut;
 
     model OneMass "Example: ccoling of one hot mass"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
         "Cooling medium"
         annotation(__Dymola_choicesAllMatching=true);
@@ -977,7 +977,7 @@ the time behaviour depending on coolant flow.
     end OneMass;
 
     model TwoMass "Example: cooling of two hot masses"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
         "Cooling medium"
         annotation(__Dymola_choicesAllMatching=true);
@@ -1100,7 +1100,7 @@ the time behaviour depending on coolant flow.
     end TwoMass;
 
     package Utilities "Utility models for examples"
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.Package;
 
       model DoubleRamp "Ramp going up and down"
         extends Modelica.Blocks.Interfaces.SO;
@@ -1256,16 +1256,11 @@ Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and arsenal resea
   </ul>
 </HTML>
 "), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={Ellipse(extent={{-60,10},{40,-90}}, lineColor={
-                135,135,135}), Polygon(
-            points={{-30,-12},{-30,-68},{28,-40},{-30,-12}},
-            lineColor={135,135,135},
-            fillColor={135,135,135},
-            fillPattern=FillPattern.Solid)}));
+              100}}), graphics));
   end Examples;
 
   package Components "Basic components (pipes, valves)"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.Package;
 
     model IsolatedPipe "Pipe without heat exchange"
 
@@ -1478,7 +1473,7 @@ Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and arsenal resea
   end Components;
 
   package Media "Medium properties"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.MaterialPropertiesPackage;
 
     record Medium "Record containing media properties"
       extends Modelica.Icons.Record;
@@ -1566,19 +1561,11 @@ Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and arsenal resea
   </ul>
 </HTML>
 "), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={
-          Rectangle(
-            extent={{-80,8},{60,-88}},
-            lineColor={0,0,127},
-            fillColor={85,170,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-10,8},{-10,-88},{-10,-88}}, color={0,0,127}),
-          Line(points={{-80,-24},{60,-24}}, color={0,0,127}),
-          Line(points={{-80,-56},{60,-56}}, color={0,0,127})}));
+              100}}), graphics));
   end Media;
 
   package Sources "Ideal fluid sources, e.g., ambient, volume flow"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.SourcesPackage;
 
     model Ambient "Ambient with constant properties"
 
@@ -1887,13 +1874,11 @@ Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and arsenal resea
   </ul>
 </HTML>
 "), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={Ellipse(extent={{-60,10},{40,-90}}, lineColor={
-                255,0,0}), Polygon(points={{-40,0},{-40,-80},{38,-50},{38,-30},
-                {-40,0}}, lineColor={0,0,255})}));
+              100}}), graphics));
   end Sources;
 
   package Sensors "Ideal sensors to measure port properties"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.SensorsPackage;
 
     model PressureSensor "Absolute pressure sensor"
 
@@ -2070,32 +2055,11 @@ Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and arsenal resea
   </ul>
 </HTML>
 "), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={
-          Ellipse(
-            extent={{-60,10},{40,-90}},
-            lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-10,7},{-10,-10}}, color={0,0,0}),
-          Line(points={{-50,-16},{-36,-25}}, color={0,0,0}),
-          Line(points={{30,-15},{16,-25}}, color={0,0,0}),
-          Line(points={{-35,0},{-25,-14}}, color={0,0,0}),
-          Line(points={{15,0},{5,-14}}, color={0,0,0}),
-          Ellipse(
-            extent={{-15,-35},{-5,-45}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-10,-40},{-6,-26}}, color={0,0,0}),
-          Polygon(
-            points={{-12,-24},{-0.5,-27},{2,1.5},{-12,-24}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid)}));
+              100}}), graphics));
   end Sensors;
 
   package Interfaces "Connectors and partial models"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.InterfacesPackage;
 
     connector FlowPort "Connector flow port"
 
@@ -2180,7 +2144,7 @@ Same as FlowPort, but icon allows to differentiate direction of flow.
     end FlowPort_b;
 
     package Partials "Partial models"
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.Package;
 
       partial model SimpleFriction "Simple friction model"
 
@@ -2623,12 +2587,7 @@ Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and arsenal resea
   </ul>
 </HTML>
 "), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={Rectangle(extent={{-60,10},{40,-90}}, lineColor=
-               {255,0,0}), Ellipse(
-            extent={{-58,8},{38,-88}},
-            lineColor={0,0,255},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid)}));
+              100}}), graphics));
   end Interfaces;
   annotation (
     Documentation(info="<HTML>

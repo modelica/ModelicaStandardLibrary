@@ -1,12 +1,14 @@
 within Modelica.Mechanics;
 package Rotational
   "Library to model 1-dimensional, rotational mechanical systems"
-  extends Modelica.Icons.Library2;
+  extends Modelica.Icons.Package;
   import SI = Modelica.SIunits;
 
 package UsersGuide "User's Guide of Rotational Library"
+  extends Modelica.Icons.Information;
 
   class Overview "Overview"
+    extends Modelica.Icons.Information;
 
     annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
 
@@ -70,6 +72,7 @@ together, see figure below.
   end Overview;
 
   class FlangeConnectors "Flange Connectors"
+    extends Modelica.Icons.Information;
 
     annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
 <p>
@@ -97,6 +100,7 @@ determined by differentiation of the flange angle <tt>phi</tt>:
   end FlangeConnectors;
 
   class SupportTorques "Support Torques"
+    extends Modelica.Icons.Information;
 
     annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
 
@@ -126,6 +130,7 @@ identical results.</p>
   end SupportTorques;
 
   class SignConventions "Sign Conventions"
+    extends Modelica.Icons.Information;
 
     annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
 
@@ -186,6 +191,7 @@ is as indicated with the additional grey arrows.
   end SignConventions;
 
   class UserDefinedComponents "User Defined Components"
+    extends Modelica.Icons.Information;
 
     annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
 <p>
@@ -322,6 +328,7 @@ diagram and is therefore less convenient to use.
   end UserDefinedComponents;
 
   class RequirementsForSimulationTool "Requirements for Simulation Tools"
+    extends Modelica.Icons.Information;
 
     annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
 
@@ -380,6 +387,7 @@ as possible.
   end RequirementsForSimulationTool;
 
   class Contact "Contact"
+    extends Modelica.Icons.Contact;
 
     annotation (Documentation(info="<html>
 <dl>
@@ -423,11 +431,11 @@ end UsersGuide;
 
   package Examples "Demonstration examples of the components of this package"
 
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.ExamplesPackage;
 
     model First "First example: simple drive train"
       import SI = Modelica.SIunits;
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       parameter Modelica.SIunits.Torque amplitude=10
         "Amplitude of driving torque";
       parameter SI.Frequency freqHz=5 "Frequency of driving torque";
@@ -512,7 +520,7 @@ in the housing on one side via component Fixed.</p>
     model FirstGrounded
       "First example: simple drive train with grounded elments"
       import SI = Modelica.SIunits;
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       parameter Modelica.SIunits.Torque amplitude=10
         "Amplitude of driving torque";
       parameter SI.Frequency freqHz=5 "Frequency of driving torque";
@@ -592,7 +600,7 @@ in the housing on one side via component Fixed.</p>
     model Friction "Drive train with clutch and brake"
       import Modelica.Constants.pi;
       import SI = Modelica.SIunits;
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       parameter SI.Time startTime=0.5 "Start time of step";
       output SI.Torque tMotor = torque.tau "Driving torque of inertia3";
       output SI.Torque tClutch = clutch.tau "Friction torque of clutch";
@@ -721,7 +729,7 @@ values (defined already in the model):</p>
 
     model CoupledClutches "Drive train with 3 dynamically coupled clutches"
       import SI = Modelica.SIunits;
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       parameter SI.Frequency freqHz=0.2
         "Frequency of sine function to invoke clutch1";
       parameter SI.Time T2=0.4 "Time when clutch2 is invoked";
@@ -847,7 +855,7 @@ locked, forward sliding.</p>
     model LossyGearDemo1
       "Example to show that gear efficiency may lead to stuck motion"
       import SI = Modelica.SIunits;
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       SI.Power PowerLoss=
         gear.flange_a.tau*der(gear.flange_a.phi) + gear.flange_b.tau*der(gear.flange_b.phi)
         "Power lost in the gear";
@@ -930,7 +938,7 @@ gear.mode  :  1 = forward rolling
     model LossyGearDemo2
       "Example to show combination of LossyGear and BearingFriction"
       import SI = Modelica.SIunits;
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       SI.Power PowerLoss=
         gear.flange_a.tau*der(gear.flange_a.phi) + gear.flange_b.tau*der(gear.flange_b.phi)
         "Power lost in the gear";
@@ -1029,7 +1037,7 @@ as component LossyGear includes the functionality of component BearingFriction
     end LossyGearDemo2;
 
     model ElasticBearing "Example to show possible usage of support flange"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       Rotational.Components.Inertia shaft(        phi(fixed=true, start=0), w(
             fixed=true),
         J=1)
@@ -1105,7 +1113,7 @@ Simulate for about 10 seconds and plot the angular velocities of the inertias <t
     end ElasticBearing;
 
     model Backlash "Example to demonstrate backlash"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       Rotational.Components.Fixed fixed1
         annotation (Placement(transformation(extent={{-50,50},{-30,70}})));
       Rotational.Components.SpringDamper springDamper(c=20E3, d=50,
@@ -1165,7 +1173,7 @@ also that the damping torque does not lead to unphysical pulling torques
     end Backlash;
 
     model RollingWheel "Demonstrate coupling Rotational - Translational"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       Rotational.Components.IdealRollingWheel idealRollingWheel(radius=1)
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
       Rotational.Components.Inertia inertia(J=1)
@@ -1227,7 +1235,7 @@ simulate them according to the provided description in the models.
   end Examples;
 
   package Components "Components for 1D rotational mechanical drive trains"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.Package;
 
     model Fixed "Flange fixed in housing at a given angle"
       parameter SI.Angle phi0=0 "Fixed offset angle of housing";
@@ -4025,7 +4033,7 @@ This package contains basic components 1D mechanical rotational drive trains.
   end Components;
 
   package Sources "Sources to drive 1D rotational mechanical components"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.SourcesPackage;
 
     model Position
       "Forced movement of a flange according to a reference angle signal"
@@ -4766,15 +4774,7 @@ Positive torque acts accelerating.
     end TorqueStep;
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics={Line(
-            points={{-98,-64},{-74,-34},{-46,-12},{-12,-2},{18,-8},{38,-20},{54,
-                -36},{66,-50},{76,-64}},
-            color={0,0,0},
-            thickness=0.5), Polygon(
-            points={{76,-64},{56,-6},{27,-37},{76,-64}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid)}),               Documentation(info="<html>
+              -100},{100,100}}), graphics),                 Documentation(info="<html>
 <p>
 This package contains ideal sources to drive 1D mechanical rotational drive trains.
 </p>
@@ -4783,7 +4783,7 @@ This package contains ideal sources to drive 1D mechanical rotational drive trai
 
   package Sensors
     "Sensors to measure variables in 1D rotational mechanical components"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.SensorsPackage;
 
     model AngleSensor "Ideal sensor to measure the absolute flange angle"
 
@@ -5076,29 +5076,7 @@ and provides the result as output signal <b>power</b>
             grid={1,1}), graphics));
     end PowerSensor;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics={
-          Line(points={{-56,-61},{-56,-81}}, color={0,0,0}),
-          Line(points={{-36,-61},{-36,-81}}, color={0,0,0}),
-          Line(points={{-16,-61},{-16,-81}}, color={0,0,0}),
-          Rectangle(
-            extent={{-76,-81},{64,-1}},
-            lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{4,-61},{4,-81}}, color={0,0,0}),
-          Line(points={{24,-61},{24,-81}}, color={0,0,0}),
-          Line(points={{44,-61},{44,-81}}, color={0,0,0}),
-          Polygon(
-            points={{-6,-61},{-16,-37},{4,-37},{-6,-61}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-6,-21},{-6,-37}}, color={0,0,0}),
-          Line(points={{-76,-21},{-6,-21}}, color={0,0,0}),
-          Line(points={{-56,-61},{-56,-81}}, color={0,0,0}),
-          Line(points={{-36,-61},{-36,-81}}, color={0,0,0}),
-          Line(points={{-16,-61},{-16,-81}}, color={0,0,0})}),
-                                                            Documentation(info="<html>
+              -100},{100,100}}), graphics),                 Documentation(info="<html>
 <p>
 This package contains ideal sensor components that provide
 the connector variables as signals for further processing with the
@@ -5110,7 +5088,7 @@ Modelica.Blocks library.
   package Interfaces
     "Connectors and partial models for 1D rotational mechanical components"
 
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.InterfacesPackage;
 
     connector Flange_a
       "1-dim. rotational flange of a shaft (filled square icon)"
@@ -5380,6 +5358,7 @@ the support torque can always be accessed as internalSupport.tau.
 
     partial model PartialTwoFlanges
       "Partial model for a component with two rotational 1-dim. shaft flanges"
+
       Flange_a flange_a "Flange of left shaft"
                         annotation (Placement(transformation(extent={{-110,-10},
                 {-90,10}}, rotation=0)));

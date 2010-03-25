@@ -720,7 +720,7 @@ This icon is designed for a <b>sub-bus</b> in a signal connector.
 </html>"));
   end UnderConstruction;
 
-  partial class Obsolete
+  partial class ObsoleteModel
     "Icon for classes that are obsolete and will be removed in later versions"
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
@@ -735,7 +735,7 @@ for an obsolete model</u> that will be removed from the
 corresponding library in a future release.
 <p>
 </html>"));
-  end Obsolete;
+  end ObsoleteModel;
 
   partial class Library
     "This icon will be removed in future Modelica versions, use Package instead"

@@ -2,6 +2,8 @@ within Modelica;
 package ComplexMath
   "Library of complex mathematical functions (e.g., sin, cos) and of functions operating on copmlex vectors and matrices"
 package Vectors "Library of functions operating on complex vectors"
+  extends Modelica.Icons.Package;
+
 function norm "Returns the norm of a complex vector"
   input Complex v[:] "Vector";
   input Real p(min=1) = 2
