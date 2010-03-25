@@ -3086,7 +3086,7 @@ Note: The output is updated after each period defined by 1/f.
             textString="f=%f")}));
   end Mean;
 
-  block RectifiedMean
+  block RectifiedMean "Calculate refctified mean over period 1/f"
     extends Modelica.Blocks.Interfaces.SISO;
     parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
     Mean mean(final f=f)
@@ -3125,7 +3125,7 @@ Note: The output is updated after each period defined by 1/f.
             textString="f=%f")}));
   end RectifiedMean;
 
-  block RootMeanSquare
+  block RootMeanSquare "Calculate root mean square over period 1/f"
     extends Modelica.Blocks.Interfaces.SISO;
     parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
     Blocks.Math.Product product
@@ -3175,7 +3175,7 @@ Note: The output is updated after each period defined by 1/f.
             textString="f=%f")}));
   end RootMeanSquare;
 
-  block Harmonic
+  block Harmonic "Calculate harmonic over period 1/f"
     extends Modelica.Blocks.Interfaces.BlockIcon;
     parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
     parameter Integer k(start=1) "Order of harmonic";
