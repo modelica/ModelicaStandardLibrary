@@ -84,6 +84,7 @@ load inertia.
 
   model fullRobot
     "6 degree of freedom robot with path planning, controllers, motors, brakes, gears and mechanics"
+    extends Modelica.Icons.Example;
 
     import SI = Modelica.SIunits;
 
@@ -351,22 +352,7 @@ load inertia.
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={0.5,0.5}), graphics={
-          Rectangle(
-            extent={{-99.5,100},{100,-100}},
-            lineColor={0,0,0},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Bitmap(extent={{-75.5,98.25},{87,-96.75}}, fileName=
-                "modelica://Modelica/Images/MultiBody/Examples/Systems/robot_kr15.bmp"),
-          Text(
-            extent={{-111.5,130},{108.5,100}},
-            textString="%name",
-            lineColor={0,0,255}),
-          Text(
-            extent={{-104.5,-104},{115,-128}},
-            lineColor={0,0,0},
-            textString="mLoad=%mLoad")}),
+          grid={0.5,0.5}), graphics),
       experiment(StopTime=2),
       __Dymola_Commands(
         file="Mechanics/MultiBody/Examples/Systems/Run.mos" "Simulate",
@@ -384,7 +370,7 @@ to plot variables.
 </p>
 </HTML>"));
   end fullRobot;
-  extends Modelica.Icons.Package;
+  extends Modelica.Icons.ExamplesPackage;
   import SI = Modelica.SIunits;
 
   package Components "Library of components of the robot"
@@ -1980,6 +1966,8 @@ This model contains the mechanical components of the r3 robot
     end MechanicalStructure;
 
     package InternalConnectors "Internal models that should not be used"
+      extends Modelica.Icons.Package;
+
       expandable connector AxisControlBus "Data bus for one robot axis"
         extends
           Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus;

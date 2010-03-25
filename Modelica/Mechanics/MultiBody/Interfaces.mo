@@ -2,7 +2,7 @@ within Modelica.Mechanics.MultiBody;
 package Interfaces
   "Connectors and partial models for 3-dim. mechanical components"
 
-  extends Modelica.Icons.Package;
+  extends Modelica.Icons.InterfacesPackage;
 
   connector Frame
     "Coordinate system fixed to the component with one cut-force and cut-torque (no icon)"

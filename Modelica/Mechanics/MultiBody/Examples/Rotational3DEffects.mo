@@ -1,6 +1,8 @@
 within Modelica.Mechanics.MultiBody.Examples;
 package Rotational3DEffects
   "Demonstrates the usage of 1-dim. rotational elements with all 3-dim. effects included"
+extends Modelica.Icons.ExamplesPackage;
+
   model GyroscopicEffects
     "Demonstrates that a cylindrical body can be replaced by Rotor1D model"
     extends Modelica.Icons.Example;

@@ -8,10 +8,13 @@ extends Modelica.Icons.Package;
 
 
 package UsersGuide "User's Guide of MultiBody Library"
+  extends Modelica.Icons.Information;
 
   package Tutorial "Tutorial"
+    extends Modelica.Icons.Information;
 
     class OverView "Overview of MultiBody library"
+      extends Modelica.Icons.Information;
 
       annotation (Documentation(info="<HTML>
 <p>
@@ -140,6 +143,7 @@ The main features of the library are:
     end OverView;
 
     class FirstExample "A first example"
+      extends Modelica.Icons.Information;
 
       annotation (Documentation(info="<HTML>
 <p>
@@ -230,8 +234,10 @@ in the middle of the light blue sphere.
     end FirstExample;
 
     package LoopStructures "Loop structures"
+      extends Modelica.Icons.Information;
 
       class Introduction "Introduction"
+        extends Modelica.Icons.Information;
 
         annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
 <p>
@@ -293,6 +299,7 @@ is described in section
       end Introduction;
 
       class PlanarLoops "Planar loops"
+        extends Modelica.Icons.Information;
 
         annotation (Documentation(info="<HTML>
 <p>
@@ -381,6 +388,7 @@ for such systems.
       end PlanarLoops;
 
       class AnalyticLoopHandling "Analytic loop handling"
+        extends Modelica.Icons.Information;
 
         annotation (Documentation(info="<HTML>
 It is well known that the non-linear
@@ -685,6 +693,7 @@ MultiBody library</a> summarizes the most important aspects.
   end Tutorial;
 
   class Upgrade "Upgrade from Former Versions"
+    extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<HTML>
 <p>
@@ -803,6 +812,7 @@ calls in 0.99 should be changed:
   end Upgrade;
 
   class Literature "Literature"
+    extends Modelica.Icons.References;
 
     annotation (Documentation(info="<html>
 <ul>
@@ -855,6 +865,7 @@ dynamical effects is described in:
   end Literature;
 
   class Contact "Contact"
+    extends Modelica.Icons.Contact;
 
     annotation (Documentation(info="<html>
 <dl>
