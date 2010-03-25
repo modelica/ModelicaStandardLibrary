@@ -331,7 +331,7 @@ This icon is designed for a <b>rotational sensor</b> model.
 </html>"));
   end RotationalSensor;
 
-  partial class TranslantionalSensor
+  partial class TranslationalSensor
     "Icon representing a linear measurement device"
 
     annotation (
@@ -365,9 +365,9 @@ This icon is designed for a <b>rotational sensor</b> model.
 <p>
 This icon is designed for a <b>translational sensor</b> model.
 </p></html>"));
-  end TranslantionalSensor;
+  end TranslationalSensor;
 
-  partial class MaterialProperiesPackage
+  partial class MaterialPropertiesPackage
     "Icon for package containing property classes"
   extends Package;
 
@@ -381,7 +381,7 @@ This icon is designed for a <b>translational sensor</b> model.
                               Documentation(info="<html>
 <p>This icon indicates a package that contains properties</p>
 </html>"));
-  end MaterialProperiesPackage;
+  end MaterialPropertiesPackage;
 
   partial class MaterialProperty "Icon for property classes"
 
@@ -885,7 +885,7 @@ This icon of an <b>electrical motor</b> model will be removed in future versions
                               Documentation(info="<html>
 <p>This icon indicate classes containing only documentation, intended for general description of e.g. concepts and features of a package.</p>
 <h5>Note</h5>
-<p>This icon will be removed in future versions of the Modelica Standard Library. Instead the icon <a href=\"Modelica://Modelica.Icons.Information\">Information</a> shall be used.</p></html>"));
+<p>This icon will be removed in future versions of the Modelica Standard Library. Instead the icon <a href=\"Modelica://Modelica.Icons.Informationrmationrmation\">Information</a> shall be used.</p></html>"));
   end Info;
   annotation (
     version="1",
