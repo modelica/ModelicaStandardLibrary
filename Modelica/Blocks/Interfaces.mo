@@ -2,7 +2,7 @@ within Modelica.Blocks;
 package Interfaces
   "Library of connectors and partial models for input/output blocks"
   import Modelica.SIunits;
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.InterfacesPackage;
 
 connector RealInput = input Real "'input Real' as connector"
   annotation (defaultComponentName="u",
@@ -1297,7 +1297,7 @@ has a 3D icon (e.g. used in Blocks.Logical library).
 package Adaptors
     "Obsolete package with components to send signals to a bus or receive signals from a bus (only for backward compatibility)"
 
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
 
   block SendReal "Obsolete block to send Real signal to bus"
     RealOutput toBus "Output signal to be connected to bus" annotation (Placement(

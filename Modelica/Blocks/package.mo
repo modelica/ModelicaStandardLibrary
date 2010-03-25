@@ -3,13 +3,13 @@ package Blocks "Library of basic input/output control blocks (continuous, discre
 import SI = Modelica.SIunits;
 
 
-extends Modelica.Icons.Library2;
+extends Modelica.Icons.Package;
 
 
 package Examples
   "Library of examples to demonstrate the usage of package Blocks"
 
-  extends Icons.Library;
+  extends Modelica.Icons.ExamplesPackage;
 
   model PID_Controller
     "Demonstrates the usage of a Continuous.LimPID controller"
@@ -62,6 +62,7 @@ package Examples
               0)));
   initial equation
     der(spring.w_rel) = 0;
+
   equation
     connect(spring.flange_b,inertia2. flange_a)
       annotation (Line(points={{52,-10},{60,-10}}, color={0,0,0}));
@@ -552,7 +553,9 @@ just potential signals. The user might still add different signal names.
 
   package BusUsage_Utilities
     "Utility models and connectors for example Modelica.Blocks.Examples.BusUsage"
+    extends Modelica.Icons.Package;
   package Interfaces "Interfaces specialised for this example"
+    extends Modelica.Icons.InterfacesPackage;
 
       expandable connector ControlBus
         "Empty control bus that is adapted to the signals connected to it"
@@ -603,6 +606,8 @@ constructed by the signals connected to this bus.
 
     package InternalConnectors
         "Internal definitions that are usually not utilized (only indirectly via the expandable connectors)"
+      extends Modelica.Icons.Package;
+
         expandable connector StandardControlBus
           "Used to build up the standard control bus (do not use this connector)"
           extends

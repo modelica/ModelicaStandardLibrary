@@ -149,7 +149,7 @@ Variable <b>y</b> is both a variable and a connector.
   end BooleanExpression;
   import Modelica.Blocks.Interfaces;
   import Modelica.SIunits;
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.SourcesPackage;
 
       block Clock "Generate actual time signal "
         parameter Modelica.SIunits.Time offset=0 "Offset of output signal";
