@@ -1,5 +1,6 @@
 within Modelica.Electrical.Analog.Examples;
 model OvervoltageProtection "Example for Zener diodes"
+  extends Modelica.Icons.Example;
 
  Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(
    offset=0,
@@ -83,28 +84,5 @@ equation
 </ul>
 </html>"),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-            100}}), graphics={
-        Rectangle(
-          extent={{-100,-100},{80,50}},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Polygon(
-          points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Polygon(
-          points={{100,70},{100,-80},{80,-100},{80,50},{100,70}},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Text(
-          extent={{-96,3},{77,-49}},
-          lineColor={0,0,255},
-          textString="Example"),
-        Text(
-          extent={{-120,132},{120,73}},
-          lineColor={255,0,0},
-          textString="%name")}));
+            100}}), graphics));
 end OvervoltageProtection;

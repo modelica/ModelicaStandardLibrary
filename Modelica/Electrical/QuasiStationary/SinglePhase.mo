@@ -1,12 +1,12 @@
 within Modelica.Electrical.QuasiStationary;
 package SinglePhase "Single phase AC components"
-  extends Modelica.Icons.Library2;
+  extends Modelica.Icons.Package;
 
   package Examples "Test examples"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.ExamplesPackage;
 
     model SeriesResonance "Series resonance circuit"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       Modelica.Blocks.Sources.Constant V
         annotation (Placement(transformation(
             origin={-40,50},
@@ -91,7 +91,7 @@ Plot length and angle of the current phasor, i.e. complexToPolar.len and .phi, v
     end SeriesResonance;
 
     model ParallelResonance "Parallel resonance circuit"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       Modelica.Blocks.Sources.Constant I
         annotation (Placement(transformation(
             origin={-80,-50},
@@ -188,7 +188,7 @@ Plot length and angle of the voltage phasor, i.e. complexToPolar.len and .phi, v
     end ParallelResonance;
 
     model Rectifier "Rectifier example"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       import Modelica.Constants.pi;
       parameter Modelica.SIunits.Voltage VAC = 100 "AC rms voltage";
       parameter Real conversionFactor = 1
@@ -368,16 +368,11 @@ wheras the transient model may have only one ground since AC side and DC side ar
 
     annotation (Documentation(info="<html>
 Examples to demonstrate the usage of quasistationary electric components.
-</html>"),   Icon(graphics={Ellipse(extent={{-80,44},{60,-96}}, lineColor={95,
-              95,95}), Polygon(
-          points={{-40,36},{-40,-88},{60,-26},{-40,36}},
-          lineColor={95,95,95},
-          fillColor={95,95,95},
-          fillPattern=FillPattern.Solid)}));
+</html>"),   Icon(graphics));
   end Examples;
 
   package Basic "Basic components for AC singlephase models"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.Package;
 
     model Ground "Electrical ground"
 
@@ -871,7 +866,7 @@ Quasi stationary theory for single phase circuits can be found in the
   end Basic;
 
   package Ideal "Ideal components for AC singlephase models"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.Package;
 
     model Idle "Idle branch"
       extends Interfaces.OnePort;
@@ -955,7 +950,7 @@ Quasi stationary theory for single phase circuits can be found in the
   end Ideal;
 
   package Interfaces "Interfaces for AC singlephase models"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.InterfacesPackage;
 
     connector Pin "Basic connector"
       Modelica.SIunits.ComplexVoltage v "Complex potential at the node";
@@ -1220,19 +1215,13 @@ The source partial model relies on the
 </p>
 </html>"));
     end Source;
-    annotation (Icon(graphics={Rectangle(
-          extent={{-30,-20},{10,-60}},
-          lineColor={0,0,0},
-          fillPattern=FillPattern.Solid,
-          fillColor={170,213,255}),
-                                Rectangle(extent={{-60,10},{40,-90}}, lineColor={
-              0,0,255})}),                        Documentation(info="<html>
+    annotation (Icon(graphics),                   Documentation(info="<html>
 <p>This package contains connector specifications and partial models for more complex components.</p>
 </html>"));
   end Interfaces;
 
   package Sensors "AC singlephase sensors"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.SensorsPackage;
 
     model FrequencySensor "Frequency sensor"
       extends Interfaces.AbsoluteSensor;
@@ -1436,28 +1425,7 @@ This sensor can be used to measure the complex apparent power.
 
 </html>"));
     end PowerSensor;
-    annotation (Icon(graphics={
-        Ellipse(
-          extent={{-60,10},{40,-90}},
-          lineColor={0,0,0},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Line(points={{-50,-16},{-36,-25}}, color={0,0,0}),
-        Line(points={{-35,0},{-25,-14}}, color={0,0,0}),
-        Line(points={{-10,7},{-10,-10}}, color={0,0,0}),
-        Polygon(
-          points={{-12,-24},{-0.5,-27},{2,1.5},{-12,-24}},
-          lineColor={0,0,0},
-          fillColor={0,0,0},
-          fillPattern=FillPattern.Solid),
-        Line(points={{-10,-40},{-6,-26}}, color={0,0,0}),
-        Ellipse(
-          extent={{-15,-35},{-5,-45}},
-          lineColor={0,0,0},
-          fillColor={0,0,0},
-          fillPattern=FillPattern.Solid),
-        Line(points={{15,0},{5,-14}}, color={0,0,0}),
-        Line(points={{30,-15},{16,-25}}, color={0,0,0})}), Documentation(info="<html>
+    annotation (Icon(graphics),                            Documentation(info="<html>
 <p>This package hosts sensors for quasi stationary single phase circuits.
 Quasi stationary theory for single phase circuits can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
@@ -1470,7 +1438,7 @@ Quasi stationary theory for single phase circuits can be found in the
   end Sensors;
 
   package Sources "AC singlephase sources"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.SourcesPackage;
 
     model VoltageSource "Constant AC voltage"
       extends Interfaces.Source;
@@ -1623,14 +1591,7 @@ Additionally, the frequency of the voltage source is defined by a real signal in
 </p>
 </html>"));
     end VariableCurrentSource;
-    annotation (Icon(graphics={
-        Line(points={{-100,-40},{-60,-40}}),
-        Ellipse(
-          extent={{-60,10},{40,-90}},
-          lineColor={0,0,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Line(points={{40,-40},{80,-40}})}), Documentation(info="<html>
+    annotation (Icon(graphics),             Documentation(info="<html>
 <p>This package hosts sources for quasi stationary single phase circuits.
 Quasi stationary theory for single phase circuits can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
@@ -1643,7 +1604,7 @@ Quasi stationary theory for single phase circuits can be found in the
   end Sources;
 
   package Utilities "Library with auxiliary models for testing"
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Package;
     model IdealACDCConverter "Ideal AC DC converter"
       parameter Real conversionFactor "Ratio of DC voltage / QS rms voltage";
       import Modelica.ComplexMath.real;

@@ -1,6 +1,30 @@
 within Modelica.Electrical.Analog;
 package Examples "Examples that demonstrate the usage of the Analog electrical components"
-extends Modelica.Icons.Library2;
+extends Modelica.Icons.ExamplesPackage;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 annotation (

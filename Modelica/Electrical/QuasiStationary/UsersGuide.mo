@@ -1,9 +1,12 @@
 within Modelica.Electrical.QuasiStationary;
 package UsersGuide "User's guide"
+  extends Modelica.Icons.Information;
 
   package Overview "Overview"
+    extends Modelica.Icons.Information;
 
     class Introduction "Introduction to phasors"
+      extends Modelica.Icons.Information;
 
       annotation (Documentation(info="<html>
 
@@ -79,6 +82,7 @@ to sinusoidal currents.</p>
     end Introduction;
 
     class ACCircuit "AC circuit"
+      extends Modelica.Icons.Information;
 
       annotation (Documentation(info="<html>
 <p>
@@ -178,6 +182,7 @@ as illustraed in the phasor diagram of Fig. 2.
     end ACCircuit;
 
     class Power "Real and reactive power"
+      extends Modelica.Icons.Information;
 
       annotation (Documentation(info="<html>
 
@@ -316,6 +321,7 @@ In this equation <sup>*</sup> represents the conjugate complex operator
     end Power;
 
     class ReferenceSystem "Reference system"
+      extends Modelica.Icons.Information;
 
       annotation (Documentation(info="<html>
 <p>
@@ -399,6 +405,7 @@ ideal AC DC converter</a>, which is used in the
   end Overview;
 
   class ReleaseNotes "Release notes"
+    extends Modelica.Icons.ReleaseNotes;
 
     annotation (Documentation(info="<html>
 </html>",   revisions="<html>
@@ -409,6 +416,7 @@ ideal AC DC converter</a>, which is used in the
   end ReleaseNotes;
 
   class References "References"
+    extends Modelica.Icons.References;
 
     annotation (Documentation(info="<html>
 
@@ -467,7 +475,8 @@ ideal AC DC converter</a>, which is used in the
 </html>"));
   end References;
 
-  class Contact "Authors' contact"
+  class Contact "Contact"
+    extends Modelica.Icons.Contact;
 
     annotation (Documentation(info="<html>
 
@@ -507,6 +516,7 @@ ideal AC DC converter</a>, which is used in the
   end Contact;
 
   class Glossar "Glossar"
+    extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">

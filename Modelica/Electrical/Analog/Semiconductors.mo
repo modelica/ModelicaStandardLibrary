@@ -1,7 +1,7 @@
 within Modelica.Electrical.Analog;
 package Semiconductors
   "Semiconductor devices such as diode, MOS and bipolar transistor"
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
   import Modelica.SIunits;
 
   model Diode "Simple diode"

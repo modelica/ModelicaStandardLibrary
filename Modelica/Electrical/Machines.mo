@@ -2,14 +2,14 @@ within Modelica.Electrical;
 
 
 package Machines "Library for electric machines"
-  extends Modelica.Icons.Library2;
+  extends Modelica.Icons.Package;
 
   package Examples "Test examples"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.ExamplesPackage;
 
     model AIMC_DOL
       "Test example 1: AsynchronousInductionMachineSquirrelCage direct-on-line"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       constant Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage VNominal=100
         "Nominal RMS voltage per phase";
@@ -126,7 +126,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
 
     model AIMC_YD
       "Test example 2a: AsynchronousInductionMachineSquirrelCage Y-D"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       constant Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage VNominal=100
         "Nominal RMS voltage per phase";
@@ -246,7 +246,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
 
     model AIMC_Transformer
       "Test example 2b: AsynchronousInductionMachineSquirrelCage transformer starting"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       constant Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage VNominal=100
         "Nominal RMS voltage per phase";
@@ -425,7 +425,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
     end AIMC_Transformer;
 
     model AIMS_Start "Test example 3: AsynchronousInductionMachineSlipRing"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       constant Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage VNominal=100
         "Nominal RMS voltage per phase";
@@ -554,7 +554,7 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
 
     model AIMC_Inverter
       "Test example 4: AsynchronousInductionMachineSquirrelCage with inverter"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       constant Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage VNominal=100
         "Nominal RMS voltage per phase";
@@ -664,7 +664,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
 
     model SMR_Inverter
       "Test example 5: SynchronousInductionMachineReluctanceRotor with inverter"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       constant Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage VNominal=100
         "Nominal RMS voltage per phase";
@@ -788,7 +788,7 @@ Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
 
     model SMPM_Inverter
       "Test example 6: PermanentMagnetSynchronousInductionMachine with inverter"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       constant Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage VNominal=100
         "Nominal RMS voltage per phase";
@@ -917,7 +917,7 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
 
     model SMEE_Generator
       "Test example 7a: ElectricalExcitedSynchronousInductionMachine as Generator"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       constant Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage VNominal=100
         "Nominal RMS voltage per phase";
@@ -1095,7 +1095,7 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
 
     model SMEE_LoadDump
       "Test example 7b: ElectricalExcitedSynchronousInductionMachine with voltage controller"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       import Modelica.Constants.pi;
       constant Integer m=3 "Number of phases";
       parameter Modelica.SIunits.AngularVelocity wNominal=2*pi*smeeData.fsNominal/smee.p
@@ -1320,7 +1320,7 @@ One could try to optimize the controller parameters.
 
     model DCPM_Start
       "Test example 8: DC with permanent magnet starting with voltage ramp"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       parameter Modelica.SIunits.Voltage Va=100 "Actual armature voltage";
       parameter Modelica.SIunits.Time tStart=0.2
         "Start of armature voltage ramp";
@@ -1392,7 +1392,7 @@ Default machine parameters of model <i>DC_PermanentMagnet</i> are used.
 
     model DCEE_Start
       "Test example 9: DC with electrical ecxitation starting with voltage ramp"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       parameter Modelica.SIunits.Voltage Va=100 "Actual armature voltage";
       parameter Modelica.SIunits.Time tStart=0.2
         "Start of armature voltage ramp";
@@ -1483,7 +1483,7 @@ Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
 
     model DCSE_Start
       "Test example 10: DC with serial excitation starting with voltage ramp"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       parameter Modelica.SIunits.Voltage Va=100 "Actual armature voltage";
       parameter Modelica.SIunits.Time tStart=0.1 "Start of resistance ramp";
       parameter Modelica.SIunits.Time tRamp=0.9 "Resistance ramp";
@@ -1574,7 +1574,7 @@ Default machine parameters of model <i>DC_SeriesExcited</i> are used.
 
     model DCSE_SinglePhase
       "Test example 11: DC with serial excitation starting with voltage ramp"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       parameter Modelica.SIunits.Voltage Va=100 "Actual armature voltage RMS";
       parameter Modelica.SIunits.Time tStart=0.1 "Start of resistance ramp";
       parameter Modelica.SIunits.Time tRamp=0.9 "Resistance ramp";
@@ -1668,7 +1668,7 @@ Due to the additional inductive voltage drops, output of the motor is lower, com
 
     model DC_Comparison
       "Test example 12: Compare torque-speed characteristic of DC motors"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       parameter Modelica.SIunits.Voltage Va=100 "Actual armature voltage";
       parameter Modelica.SIunits.Voltage Ve=100 "Actual excitation voltage";
       parameter Modelica.SIunits.AngularVelocity w0=Modelica.SIunits.Conversions.from_rpm(1500)
@@ -1772,7 +1772,7 @@ Default machine parameters are used.
 
     model DCPM_Temperature
       "Test example 13: Investigate temperature dependecy of a DCPM motor"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       parameter Modelica.SIunits.Voltage Va=100 "Actual armature voltage";
       parameter Modelica.SIunits.Voltage Ve=100 "Actual excitation voltage";
       parameter Modelica.SIunits.AngularVelocity w0=Modelica.SIunits.Conversions.from_rpm(1500)
@@ -1876,7 +1876,7 @@ So the machine is at the beginning in cold condition, ending in warm condition
     end DCPM_Temperature;
 
     model DCPM_Cooling "Test example 14: Cooling of a DCPM motor"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       parameter Modelica.SIunits.Voltage Va=100 "Actual armature voltage";
       parameter Modelica.SIunits.Voltage Ve=100 "Actual excitation voltage";
       parameter Modelica.SIunits.AngularVelocity w0=Modelica.SIunits.Conversions.from_rpm(1500)
@@ -2089,7 +2089,7 @@ Default machine parameters are used, but:
 
     model DCPM_QuasiStationary
       "Test example 15: Compare DCPM motors transient - quasistationary"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       parameter Modelica.SIunits.Voltage Va=100 "Actual armature voltage";
       parameter Modelica.SIunits.Voltage Ve=100 "Actual excitation voltage";
       parameter Modelica.SIunits.AngularVelocity w0=Modelica.SIunits.Conversions.from_rpm(1500)
@@ -2201,7 +2201,7 @@ Simulate for 2 seconds and plot (versus time):
 
     model AIMC_Steinmetz
       "AsynchronousInductionMachineSquirrelCage Steinmetz-connection"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       constant Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage VNominal=100
         "Nominal RMS voltage per phase";
@@ -2382,7 +2382,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
     end AIMC_Steinmetz;
 
     model TransformerTestbench "Transformer Testbench"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       parameter Modelica.SIunits.Resistance RL[3]=fill(1/3,3) "Load resistance";
       Modelica.Electrical.MultiPhase.Sources.SineVoltage source(freqHz=fill(50, 3),
           V=fill(sqrt(2/3)*100, 3))
@@ -2538,7 +2538,7 @@ even though the source's or load's starpoint are grounded; you may use a reasona
     end TransformerTestbench;
 
     model Rectifier6pulse "6-pulse rectifier with 1 transformer"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       constant Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage V=100*sqrt(2/3)
         "Amplitude of star-voltage";
@@ -2760,20 +2760,15 @@ This package contains test examples of electric machines.
        included new Examples (AIMC_Transformer, DC_Comparison)</li>
   </ul>
 </HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}}), graphics={Ellipse(extent={{-80,44},{60,-96}},
-              lineColor={95,95,95}), Polygon(
-            points={{-40,36},{-40,-88},{60,-26},{-40,36}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid)}));
+              {100,100}}), graphics));
   end Examples;
 
   package BasicMachines "Basic machine models"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.Package;
 
     package AsynchronousInductionMachines
       "Models of asynchronous induction machines"
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.VariantsPackage;
 
       model AIM_SquirrelCage
         "Asynchronous induction machine with squirrel cage rotor"
@@ -3272,7 +3267,7 @@ These models use package SpacePhasors.
 
     package SynchronousInductionMachines
       "Models of synchronous induction machines"
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.VariantsPackage;
 
       model SM_PermanentMagnet "Permanent magnet synchronous induction machine"
         extends Machines.Interfaces.PartialBasicInductionMachine(
@@ -4203,7 +4198,7 @@ These models use package SpacePhasors.
     end SynchronousInductionMachines;
 
     package DCMachines "Models of DC machines"
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.VariantsPackage;
 
       model DC_PermanentMagnet "Permanent magnet DC machine"
         extends Machines.Interfaces.PartialBasicDCMachine(
@@ -4889,7 +4884,7 @@ This package contains models of DC machines:
     end DCMachines;
 
     package QuasiStationaryDCMachines "Models of quasistationary DC machines"
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.VariantsPackage;
 
       model DC_PermanentMagnet "Quasistationary permanent magnet DC machine"
         extends Machines.BasicMachines.DCMachines.DC_PermanentMagnet(final
@@ -4970,10 +4965,10 @@ where e.g. <code>L*der(i)</code> is replaced by <code>j*omega*L*(I_re+j*I_im)</c
     end QuasiStationaryDCMachines;
 
     package Transformers "Library for technical 3phase transformers"
-      extends Modelica.Icons.Library2;
+      extends Modelica.Icons.VariantsPackage;
 
       package Yy "Transformers: primary Y / secondary y"
-        extends Modelica.Icons.Library2;
+        extends Modelica.Icons.VariantsPackage;
 
         model Yy00 "Transformer Yy0"
 
@@ -5304,14 +5299,11 @@ This package contains transformers primary Y connected / secondary y connected i
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
 </HTML>"),      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics={Text(
-                extent={{0,40},{0,-100}},
-                lineColor={0,0,255},
-                textString="Yy")}));
+                  -100},{100,100}}), graphics));
       end Yy;
 
       package Yd "Transformers: primary Y / secondary d"
-        extends Modelica.Icons.Library2;
+        extends Modelica.Icons.VariantsPackage;
 
         model Yd01 "Transformer Yd1"
 
@@ -5592,14 +5584,11 @@ This package contains transformers primary Y connected / secondary d connected i
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
 </HTML>"),      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics={Text(
-                extent={{0,40},{0,-100}},
-                lineColor={0,0,255},
-                textString="Yd")}));
+                  -100},{100,100}}), graphics));
       end Yd;
 
       package Yz "Transformers: primary Y / secondary zig-zag"
-        extends Modelica.Icons.Library2;
+        extends Modelica.Icons.VariantsPackage;
 
         model Yz01 "Transformer Yz1"
 
@@ -5986,14 +5975,11 @@ This package contains transformers primary Y connected / secondary zig-zag conne
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
 </HTML>"),      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics={Text(
-                extent={{0,40},{0,-100}},
-                lineColor={0,0,255},
-                textString="Yz")}));
+                  -100},{100,100}}), graphics));
       end Yz;
 
       package Dy "Transformers: primary D / secondary y"
-        extends Modelica.Icons.Library2;
+        extends Modelica.Icons.VariantsPackage;
 
         model Dy01 "Transformer Dy1"
 
@@ -6292,14 +6278,11 @@ This package contains transformers primary D connected / secondary y connected i
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
 </HTML>"),      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics={Text(
-                extent={{0,40},{0,-100}},
-                lineColor={0,0,255},
-                textString="Dy")}));
+                  -100},{100,100}}), graphics));
       end Dy;
 
       package Dd "Transformers: primary D / secondary d"
-        extends Modelica.Icons.Library2;
+        extends Modelica.Icons.VariantsPackage;
 
         model Dd00 "Transformer Dd0"
 
@@ -6551,14 +6534,11 @@ This package contains transformers primary D connected / secondary d connected i
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
 </HTML>"),      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics={Text(
-                extent={{0,40},{0,-100}},
-                lineColor={0,0,255},
-                textString="Dd")}));
+                  -100},{100,100}}), graphics));
       end Dd;
 
       package Dz "Transformers: primary D / secondary ziag-zag"
-        extends Modelica.Icons.Library2;
+        extends Modelica.Icons.VariantsPackage;
 
         model Dz00 "Transformer Dz0"
 
@@ -6915,10 +6895,7 @@ This package contains transformers primary D connected / secondary d connected i
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
 </HTML>"),      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics={Text(
-                extent={{0,40},{0,-100}},
-                lineColor={0,0,255},
-                textString="Dz")}));
+                  -100},{100,100}}), graphics));
       end Dz;
 
       annotation (
@@ -6997,74 +6974,11 @@ Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.
        conditional ThermalPort for all machines</li>
   </ul>
 </HTML>"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={
-            Polygon(
-              points={{-80,36},{-60,16},{-60,-64},{-80,-84},{-80,36}},
-              lineColor={0,0,0},
-              smooth=Smooth.None,
-              fillColor={135,135,135},
-              fillPattern=FillPattern.VerticalCylinder),
-            Polygon(
-              points={{60,36},{40,16},{40,-64},{60,-84},{60,36}},
-              lineColor={0,0,0},
-              smooth=Smooth.None,
-              fillColor={135,135,135},
-              fillPattern=FillPattern.VerticalCylinder),
-            Polygon(
-              points={{-10,26},{-20,16},{-20,-64},{-10,-74},{0,-64},{0,16},{-10,
-                  26}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.VerticalCylinder,
-              smooth=Smooth.None,
-              fillColor={135,135,135}),
-            Polygon(
-              points={{-80,36},{60,36},{40,16},{0,16},{-10,26},{-20,16},{-60,16},
-                  {-80,36}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.VerticalCylinder,
-              smooth=Smooth.None,
-              fillColor={135,135,135}),
-            Polygon(
-              points={{-80,-84},{60,-84},{40,-64},{0,-64},{-10,-74},{-20,-64},{
-                  -60,-64},{-80,-84}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.VerticalCylinder,
-              smooth=Smooth.None,
-              fillColor={135,135,135}),
-            Rectangle(
-              extent={{-88,12},{-52,-60}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.VerticalCylinder,
-              fillColor={0,0,255}),
-            Rectangle(
-              extent={{-94,4},{-46,-52}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.VerticalCylinder,
-              fillColor={170,170,255}),
-            Rectangle(
-              extent={{-28,12},{8,-60}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.VerticalCylinder,
-              fillColor={0,0,255}),
-            Rectangle(
-              extent={{-34,4},{14,-52}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.VerticalCylinder,
-              fillColor={170,170,255}),
-            Rectangle(
-              extent={{32,12},{68,-60}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.VerticalCylinder,
-              fillColor={0,0,255}),
-            Rectangle(
-              extent={{26,4},{74,-52}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.VerticalCylinder,
-              fillColor={170,170,255})}));
+                -100},{100,100}}), graphics));
     end Transformers;
 
     package Components "Machine components like AirGaps"
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.Package;
 
       partial model PartialAirGap "Partial airgap model"
         parameter Integer m=3 "Number of phases";
@@ -7921,7 +7835,7 @@ The induction machine models use package SpacePhasors.
   end BasicMachines;
 
   package Sensors "Sensors for machine modelling"
-   extends Modelica.Icons.Library2;
+   extends Modelica.Icons.SensorsPackage;
 
     model VoltageQuasiRMSSensor "Length of space phasor -> RMS voltage"
       constant Integer m(final min=1) = 3 "Number of phases";
@@ -8491,35 +8405,14 @@ This package contains sensors that are usefull when modelling machines.
        to ease the implementation of a 3D-frame in a future release</li>
   </ul>
 </HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}}), graphics={
-          Ellipse(
-            extent={{-74,46},{66,-94}},
-            lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-4,46},{-4,16}}, color={0,0,0}),
-          Line(points={{18.9,8.8},{36.2,33.3}}, color={0,0,0}),
-          Line(points={{-26.9,8.8},{-44.2,33.3}}, color={0,0,0}),
-          Line(points={{33.6,-10.3},{61.8,-0.1}}, color={0,0,0}),
-          Line(points={{-41.6,-10.3},{-69.8,-0.1}}, color={0,0,0}),
-          Line(points={{-4,-24},{5.02,4.6}}, color={0,0,0}),
-          Polygon(
-            points={{-4.48,7.6},{14,2},{14,33.2},{-4.48,7.6}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
-          Ellipse(
-            extent={{-9,-19},{1,-29}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid)}));
+              {100,100}}), graphics));
   end Sensors;
 
   package SpacePhasors "Library with space phasor-models"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.Package;
 
     package Components "Basic space phasor models"
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.Package;
 
       model SpacePhasor
         "Physical transformation: three phase <-> space phasors"
@@ -8693,7 +8586,7 @@ a ground has to be used where necessary for currents flowing back.
     end Components;
 
     package Blocks "Blocks for space phasor transformation"
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.Package;
 
       block ToSpacePhasor "Conversion: three phase -> space phasor"
         extends Modelica.Blocks.Interfaces.MIMO(final nin=m, final nout=2);
@@ -8950,7 +8843,7 @@ the first element representing the real part and the second element representing
     end Blocks;
 
     package Functions "Functions for space phasor transformation"
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.Package;
 
       function ToSpacePhasor "Conversion: three phase -> space phasor"
         extends Modelica.Icons.Function;
@@ -9133,7 +9026,7 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
   end SpacePhasors;
 
   package Thermal "Library with models for connecting thermal models"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.Package;
 
     type LinearTemperatureCoefficient20 =
         Modelica.SIunits.LinearTemperatureCoefficient
@@ -9146,6 +9039,8 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
         choice=Machines.Thermal.Constants.alpha20Bronze "Bronze",
         choice=Machines.Thermal.Constants.alpha20Copper "Copper"));
     package Constants "Material Constants"
+      extends Modelica.Icons.Package;
+
       constant Modelica.SIunits.LinearTemperatureCoefficient alpha20Zero=0
         "Not temperature dependent";
       constant Modelica.SIunits.LinearTemperatureCoefficient alpha20Aluminium=4.000e-3
@@ -9219,7 +9114,7 @@ where <code>RRef</code> is the resistance at the reference temperature <code>TRe
 
     package AsynchronousInductionMachines
       "Thermal parts of asynchronous induction machines"
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.VariantsPackage;
       model ThermalAmbientAIMC
         "Thermal ambient for asynchronous induction machine with squirrel cage"
         extends Machines.Interfaces.PartialThermalAmbientInductionMachines(
@@ -9347,7 +9242,7 @@ Thermal parts for asynchronous induction machines
 
     package SynchronousInductionMachines
       "Thermal parts of synchronous induction machines"
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.VariantsPackage;
       model ThermalAmbientSMPM
         "Thermal ambient for synchronous induction machine with permanent magnets"
         parameter Boolean useDamperCage(start = true)
@@ -9576,7 +9471,7 @@ Thermal parts for synchronous induction machines
     end SynchronousInductionMachines;
 
     package DCMachines "Thermal parts of DC machines"
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.VariantsPackage;
       model ThermalAmbientDCPM
         "Thermal ambient for DC machine with permanent magnets"
         extends Machines.Interfaces.PartialThermalAmbientDCMachines(
@@ -9937,7 +9832,7 @@ Additionally, all losses = heat flows are recorded.
 </HTML>"));
     end ThermalAmbientTransformer;
     annotation (Icon(graphics={             Ellipse(
-            extent={{-86,50},{64,-100}},
+            extent={{-78,50},{52,-76}},
             lineColor={191,0,0},
             fillColor={191,0,0},
             fillPattern=FillPattern.Solid)}), Documentation(info="<HTML>
@@ -10092,7 +9987,7 @@ In sub-package <a href=modelica://Modelica.Electrical.Machines.Thermal.Constants
   end Thermal;
 
   package Interfaces "SpacePhasor connector and PartialMachines"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.InterfacesPackage;
 
     connector SpacePhasor "Connector for Space Phasors"
       Modelica.SIunits.Voltage v_[2] "1=real, 2=imaginary part";
@@ -10749,7 +10644,7 @@ Partial thermal ambient for induction machines
 
     package AsynchronousInductionMachines
       "Thermal ports of asynchronous induction machines"
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.Package;
       connector ThermalPortAIMC
         "Thermal port of asynchronous induction machine with squirrel cage"
         extends Machines.Interfaces.PartialThermalPortInductionMachines;
@@ -10783,7 +10678,7 @@ Thermal ports for asynchronous induction machines
 
     package SynchronousInductionMachines
       "Thermal ports of synchronous induction machines"
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.Package;
       connector ThermalPortSMPM
         "Thermal port of synchronous induction machine with permanent magnets"
         extends Machines.Interfaces.PartialThermalPortInductionMachines;
@@ -10843,7 +10738,7 @@ Thermal ports for synchronous induction machines
     end SynchronousInductionMachines;
 
     package DCMachines "Thermal ports of DC machines"
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.Package;
       connector ThermalPortDCPM
         "Thermal port of DC machine with permanent magnets"
         extends Machines.Interfaces.PartialThermalPortDCMachines;
@@ -11186,15 +11081,11 @@ This package contains the space phasor connector and partial models for machine 
        conditional ThermalPort for all machines</li>
   </ul>
 </HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}}), graphics={Polygon(
-            points={{-70,-30},{-10,30},{50,-30},{-10,-90},{-70,-30}},
-            lineColor={0,0,255},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid)}));
+              {100,100}}), graphics));
   end Interfaces;
 
   package Icons "Icons for electrical machines"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.Package;
 
     partial model TransientMachineIcon
 
@@ -11452,7 +11343,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
   end Icons;
 
   package Utilities "Library with auxiliary models for testing"
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Package;
 
     block VfController "Voltage-Frequency-Controller"
       extends Modelica.Blocks.Interfaces.SIMO(final nout=m);

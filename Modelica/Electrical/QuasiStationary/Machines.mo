@@ -1,12 +1,12 @@
 within Modelica.Electrical.QuasiStationary;
 package Machines "Quasistaionary machine models"
-  extends Modelica.Icons.Library2;
+  extends Modelica.Icons.Package;
 
   package Examples "Test examples"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.ExamplesPackage;
 
     model TransformerTestbench "Transformer Testbench"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       parameter Modelica.SIunits.Resistance RL[3]=fill(1/3,3) "Load resistance";
       QuasiStationary.MultiPhase.Sources.VoltageSource source(f=50, V=fill(100/
             sqrt(3), 3))
@@ -226,22 +226,17 @@ even though the source's or load's starpoint are grounded; you may use a reasona
     end TransformerTestbench;
     annotation (Documentation(info="<html>
 Examples to demonstrate the usage of quasistationary electric components.
-</html>"),   Icon(graphics={Ellipse(extent={{-80,44},{60,-96}}, lineColor={95,
-              95,95}), Polygon(
-          points={{-40,36},{-40,-88},{60,-26},{-40,36}},
-          lineColor={95,95,95},
-          fillColor={95,95,95},
-          fillPattern=FillPattern.Solid)}));
+</html>"),   Icon(graphics));
   end Examples;
 
   package BasicMachines "Basic machine models"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.Package;
 
     package Transformers "Library for technical 3phase transformers"
-      extends Modelica.Icons.Library2;
+      extends Modelica.Icons.VariantsPackage;
 
       package Yy "Transformers: primary Y / secondary y"
-        extends Modelica.Icons.Library2;
+        extends Modelica.Icons.VariantsPackage;
 
         model Yy00 "Transformer Yy0"
 
@@ -538,14 +533,11 @@ This package contains transformers primary Y connected / secondary y connected i
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
 </HTML>"),      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics={Text(
-                extent={{0,40},{0,-100}},
-                lineColor={85,170,255},
-                textString="Yy")}));
+                  -100},{100,100}}), graphics));
       end Yy;
 
       package Yd "Transformers: primary Y / secondary d"
-        extends Modelica.Icons.Library2;
+        extends Modelica.Icons.VariantsPackage;
 
         model Yd01 "Transformer Yd1"
 
@@ -800,14 +792,11 @@ This package contains transformers primary Y connected / secondary d connected i
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
 </HTML>"),      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics={Text(
-                extent={{0,40},{0,-100}},
-                lineColor={85,170,255},
-                textString="Yd")}));
+                  -100},{100,100}}), graphics));
       end Yd;
 
       package Yz "Transformers: primary Y / secondary zig-zag"
-        extends Modelica.Icons.Library2;
+        extends Modelica.Icons.VariantsPackage;
 
         model Yz01 "Transformer Yz1"
 
@@ -1151,14 +1140,11 @@ This package contains transformers primary Y connected / secondary zig-zag conne
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
 </HTML>"),      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics={Text(
-                extent={{0,40},{0,-100}},
-                lineColor={85,170,255},
-                textString="Yz")}));
+                  -100},{100,100}}), graphics));
       end Yz;
 
       package Dy "Transformers: primary D / secondary y"
-        extends Modelica.Icons.Library2;
+        extends Modelica.Icons.VariantsPackage;
 
         model Dy01 "Transformer Dy1"
 
@@ -1423,14 +1409,11 @@ This package contains transformers primary D connected / secondary y connected i
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
 </HTML>"),      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics={Text(
-                extent={{0,40},{0,-100}},
-                lineColor={85,170,255},
-                textString="Dy")}));
+                  -100},{100,100}}), graphics));
       end Dy;
 
       package Dd "Transformers: primary D / secondary d"
-        extends Modelica.Icons.Library2;
+        extends Modelica.Icons.VariantsPackage;
 
         model Dd00 "Transformer Dd0"
 
@@ -1655,14 +1638,11 @@ This package contains transformers primary D connected / secondary d connected i
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
 </HTML>"),      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics={Text(
-                extent={{0,40},{0,-100}},
-                lineColor={85,170,255},
-                textString="Dd")}));
+                  -100},{100,100}}), graphics));
       end Dd;
 
       package Dz "Transformers: primary D / secondary ziag-zag"
-        extends Modelica.Icons.Library2;
+        extends Modelica.Icons.VariantsPackage;
 
         model Dz00 "Transformer Dz0"
 
@@ -1977,10 +1957,7 @@ This package contains transformers primary D connected / secondary d connected i
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
 </HTML>"),      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics={Text(
-                extent={{0,40},{0,-100}},
-                lineColor={85,170,255},
-                textString="Dz")}));
+                  -100},{100,100}}), graphics));
       end Dz;
 
       annotation (
@@ -2058,73 +2035,11 @@ Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.
        conditional ThermalPort for all machines</li>
   </ul>
 </HTML>"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={
-            Polygon(
-              points={{-80,36},{-60,16},{-60,-64},{-80,-84},{-80,36}},
-              lineColor={0,0,0},
-              smooth=Smooth.None,
-              fillColor={135,135,135},
-              fillPattern=FillPattern.VerticalCylinder),
-            Polygon(
-              points={{60,36},{40,16},{40,-64},{60,-84},{60,36}},
-              lineColor={0,0,0},
-              smooth=Smooth.None,
-              fillColor={135,135,135},
-              fillPattern=FillPattern.VerticalCylinder),
-            Polygon(
-              points={{-10,26},{-20,16},{-20,-64},{-10,-74},{0,-64},{0,16},{-10,26}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.VerticalCylinder,
-              smooth=Smooth.None,
-              fillColor={135,135,135}),
-            Polygon(
-              points={{-80,36},{60,36},{40,16},{0,16},{-10,26},{-20,16},{-60,16},{-80,
-                  36}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.VerticalCylinder,
-              smooth=Smooth.None,
-              fillColor={135,135,135}),
-            Polygon(
-              points={{-80,-84},{60,-84},{40,-64},{0,-64},{-10,-74},{-20,-64},{-60,-64},
-                  {-80,-84}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.VerticalCylinder,
-              smooth=Smooth.None,
-              fillColor={135,135,135}),
-            Rectangle(
-              extent={{-88,12},{-52,-60}},
-              lineColor={213,170,255},
-              fillPattern=FillPattern.VerticalCylinder,
-              fillColor={213,170,255}),
-            Rectangle(
-              extent={{-94,4},{-46,-52}},
-              lineColor={170,213,255},
-              fillPattern=FillPattern.VerticalCylinder,
-              fillColor={170,213,255}),
-            Rectangle(
-              extent={{-28,12},{8,-60}},
-              lineColor={213,170,255},
-              fillPattern=FillPattern.VerticalCylinder,
-              fillColor={213,170,255}),
-            Rectangle(
-              extent={{-34,4},{14,-52}},
-              lineColor={170,213,255},
-              fillPattern=FillPattern.VerticalCylinder,
-              fillColor={170,213,255}),
-            Rectangle(
-              extent={{32,12},{68,-60}},
-              lineColor={213,170,255},
-              fillPattern=FillPattern.VerticalCylinder,
-              fillColor={213,170,255}),
-            Rectangle(
-              extent={{26,4},{74,-52}},
-              lineColor={170,213,255},
-              fillPattern=FillPattern.VerticalCylinder,
-              fillColor={170,213,255})}));
+                -100},{100,100}}), graphics));
     end Transformers;
 
     package Components "Machine components like AirGaps"
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.Package;
 
       partial model PartialCore
         "Partial model of transformer core with 3 windings"
@@ -2273,7 +2188,7 @@ This package contains components for modeling quasi stationary electrical induct
   end BasicMachines;
 
   package Interfaces "SpacePhasor connector and PartialMachines"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.InterfacesPackage;
 
     partial model PartialBasicTransformer
       "Partial model of threephase transformer"
@@ -2504,11 +2419,7 @@ Circuit layout (vector group) of primary and secondary windings have to be defin
 </table>
 </html>"));
     end PartialBasicTransformer;
-    annotation (Icon(graphics={      Polygon(
-            points={{-70,-30},{-10,30},{50,-30},{-10,-90},{-70,-30}},
-            lineColor={0,0,255},
-            fillColor={170,213,255},
-            fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+    annotation (Icon(graphics),               Documentation(info="<html>
 <p>
 This package contains the quasi stationary space phasor connector and partial models for quasi stationary machine models.
 </p>

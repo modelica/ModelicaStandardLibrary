@@ -2,7 +2,7 @@ within Modelica.Electrical;
 package QuasiStationary "Library for quasi-stationary electrical singlephase and multiphase AC simulation"
 
 
-  extends Modelica.Icons.Library2;
+  extends Modelica.Icons.Package;
 
 
     annotation (preferedView="info", Documentation(info="<HTML>

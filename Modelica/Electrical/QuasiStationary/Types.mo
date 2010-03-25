@@ -1,6 +1,6 @@
 within Modelica.Electrical.QuasiStationary;
 package Types "Definiton of types for quasistationary AC models"
-  extends Modelica.Icons.Library2;
+  extends Modelica.Icons.Package;
 
   record Reference "Reference angle"
     Modelica.SIunits.Angle gamma;

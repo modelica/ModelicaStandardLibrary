@@ -1,6 +1,7 @@
 within Modelica.Electrical.Analog.Examples;
 model AmplifierWithOpAmpDetailed
   "Simple Amplifier circuit which uses OpAmpDetailed"
+  extends Modelica.Icons.Example;
 
   Modelica.Electrical.Analog.Basic.OpAmpDetailed opAmp
     annotation (Placement(transformation(extent={{-26,-4},{2,24}})));
@@ -58,15 +59,15 @@ equation
       color={0,0,255},
       smooth=Smooth.None));
   connect(opAmp.m_supply, constantVoltage1.p)       annotation (Line(
-      points={{-12,-0.36},{18,-0.36},{18,6.10623e-16},{48,6.10623e-16}},
+      points={{-12,-0.36},{18,-0.36},{18,0},{48,0}},
       color={0,0,255},
       smooth=Smooth.None));
   connect(constantVoltage.n, constantVoltage1.n) annotation (Line(
-      points={{68,20},{80,20},{80,6.10623e-16},{68,6.10623e-16}},
+      points={{68,20},{80,20},{80,0},{68,0}},
       color={0,0,255},
       smooth=Smooth.None));
   connect(constantVoltage1.n, ground.p) annotation (Line(
-      points={{68,6.10623e-16},{80,6.10623e-16},{80,-46},{-10,-46},{-10,-50}},
+      points={{68,0},{80,0},{80,-46},{-10,-46},{-10,-50}},
       color={0,0,255},
       smooth=Smooth.None));
   connect(opAmp.outp, resistor2.p)       annotation (Line(
@@ -93,28 +94,5 @@ equation
 <p>With the test circuit AmplifierWithOpAmpDetailed a time domain analysis of the example arrangement with a sinusoidal input voltage (12 V amplitude, frequency 1 kHz) using the operational amplifier model OpAmpDetailed is carried out. The working voltages are 15 V and -15 V.</p>
 </html>"),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-            100}}), graphics={
-        Rectangle(
-          extent={{-100,-98},{80,52}},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Polygon(
-          points={{-100,52},{-80,72},{100,72},{80,52},{-100,52}},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Polygon(
-          points={{100,72},{100,-78},{80,-98},{80,52},{100,72}},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Text(
-          extent={{-96,5},{77,-47}},
-          lineColor={0,0,255},
-          textString="Example"),
-        Text(
-          extent={{-120,134},{120,75}},
-          lineColor={255,0,0},
-          textString="%name")}));
+            100}}), graphics));
 end AmplifierWithOpAmpDetailed;

@@ -1,5 +1,6 @@
 within Modelica.Electrical.Analog.Examples;
 model AD_DA_conversion "Conversion circuit"
+  extends Modelica.Icons.Example;
   parameter Integer N=7 "Digital signal width";
   Modelica.Electrical.Analog.Ideal.AD_Converter aD_Converter(N=N)
     annotation (Placement(transformation(extent={{-14,-10},{12,16}})));
@@ -66,30 +67,7 @@ equation
     experiment(StopTime=0.2),
     experimentSetupOutput,
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-            100}}), graphics={
-        Rectangle(
-          extent={{-100,-100},{80,50}},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Polygon(
-          points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Polygon(
-          points={{100,70},{100,-80},{80,-100},{80,50},{100,70}},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Text(
-          extent={{-96,3},{77,-49}},
-          lineColor={0,0,255},
-          textString="Example"),
-        Text(
-          extent={{-120,132},{120,73}},
-          lineColor={255,0,0},
-          textString="%name")}),
+            100}}), graphics),
     Documentation(info="<html>
 <p>The simple converter circuit converts an analog sine signal into a N-bit (by default a 4 bit) logic signal, which is converted backward into an analog signal.</p>
 <p><ul>

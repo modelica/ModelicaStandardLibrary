@@ -1,5 +1,6 @@
 within Modelica.Electrical.Analog.Examples;
 model SimpleTriacCircuit "Simple triac test circuit"
+  extends Modelica.Icons.Example;
 
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-30,-40},{-10,-20}})));
@@ -78,28 +79,5 @@ equation
 <p>Simulate until 0.001 seconds. Display V.p.v (input voltage), simpleTriac.g.i  (gate input), and both simplelTriac.n.v and simpleTriac.n.i, which demonstrate the TRIAC behavior.</p>
 </html>"),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-            100}}), graphics={
-        Rectangle(
-          extent={{-90,-90},{90,60}},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Polygon(
-          points={{-90,60},{-70,80},{110,80},{90,60},{-90,60}},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Polygon(
-          points={{110,80},{110,-70},{90,-90},{90,60},{110,80}},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Text(
-          extent={{-86,13},{87,-39}},
-          lineColor={0,0,255},
-          textString="Example"),
-        Text(
-          extent={{-110,142},{130,83}},
-          lineColor={255,0,0},
-          textString="%name")}));
+            100}}), graphics));
 end SimpleTriacCircuit;

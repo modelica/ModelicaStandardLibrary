@@ -1,5 +1,6 @@
 within Modelica.Electrical.Analog.Examples;
 model ThyristorBehaviourTest "Thyristor demonstration example"
+  extends Modelica.Icons.Example;
 
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{18,-40},{38,-20}})));
@@ -65,28 +66,5 @@ equation
 <p>This is a simple testcircuit, to test the behavior of the thysistor model.</p><p>Interesting values to plot are Cathode.v, Gate.v and sineVoltage.p.v. and in another plot window pulseCurrent.p.i</p><p>The simulation time should be trom 0 seconds to 2e-4 seconds.</p>
 </html>"),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-            100}}), graphics={
-        Polygon(
-          points={{100,72},{100,-78},{80,-98},{80,52},{100,72}},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Polygon(
-          points={{-100,52},{-80,72},{100,72},{80,52},{-100,52}},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Rectangle(
-          extent={{-100,-98},{80,52}},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Text(
-          extent={{-96,5},{77,-47}},
-          lineColor={0,0,255},
-          textString="Example"),
-        Text(
-          extent={{-120,134},{120,75}},
-          lineColor={255,0,0},
-          textString="%name")}));
+            100}}), graphics));
 end ThyristorBehaviourTest;

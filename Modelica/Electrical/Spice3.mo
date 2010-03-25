@@ -2,11 +2,12 @@ within Modelica.Electrical;
 package Spice3 "Library for components of the Berkeley SPICE3 simulator"
   import SI = Modelica.SIunits;
 
-extends Modelica.Icons.Library2;
+extends Modelica.Icons.Package;
 
   package UsersGuide "User's Guide"
-
+    extends Modelica.Icons.Information;
   class Overview "Overview"
+    extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p><h4><font color=\"#008000\">Overview of Spice3 library</font></h4></p>
@@ -31,6 +32,7 @@ extends Modelica.Icons.Library2;
   end Overview;
 
   class Useofsemiconductors "Use of Semiconductors"
+    extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>Within the semiconductor devices SPICE3 differentiates between technology parameters and device parameters. Device parameters can be chosen for every single model instance, e.g. the channel length of a transistor. Technology parameters which are specified in a model card (.model) are adjustable for more than one element simultaneously, e.g. the type of transistors. As usualy done in Modelica the parameters of the modelcard can be set in a parameter list.</p>
@@ -46,6 +48,7 @@ extends Modelica.Icons.Library2;
   end Useofsemiconductors;
 
   class Spicenetlist "SPICE3 netlists"
+    extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p><h4><font color=\"#008000\">Translation of SPICE3 netlists to Modelica </font></h4></p>
@@ -112,6 +115,7 @@ extends Modelica.Icons.Library2;
   end Spicenetlist;
 
   class NamingPrinciple "Naming principle"
+    extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>In SPICE3 we have a predefined model pool. Each model device has got a code letter (e.g. resistor - R). In analogy to the SPICE3 models the models of the Spice3 library also got the according code letter in their names. The following examples shows the relationship:</p>
@@ -143,6 +147,7 @@ extends Modelica.Icons.Library2;
   end NamingPrinciple;
 
   class ParameterHandling "Parameter handling"
+    extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>In SPICE3 it is important to know whether a parameter was set by the user or not because the calculation of some values depends on that information and can be different.Since in Modelica there is no possibility to check that, a circumvention was chosen.The relevant parameters get an unrealistic value (-1e40) as their default value. Within a function it is checked if the parameter has still got this value (the parameter was not set by the user) of if it has a new value (parameter was set by the user).</p>
@@ -151,6 +156,7 @@ extends Modelica.Icons.Library2;
   end ParameterHandling;
 
   class Literature "Literature"
+    extends Modelica.Icons.References;
 
     annotation (Documentation(info="<html>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"0\"><tr>
@@ -184,6 +190,7 @@ extends Modelica.Icons.Library2;
   end Literature;
 
   class ReleaseNotes "Release notes"
+    extends Modelica.Icons.ReleaseNotes;
 
     annotation (Documentation(info="<html>
 <p>This section summarizes the changes that have been performed on the Spice3 library.</p>
@@ -197,7 +204,8 @@ extends Modelica.Icons.Library2;
 
   end ReleaseNotes;
 
-  class Contact "Contact information"
+  class Contact "Contact"
+    extends Modelica.Icons.Contact;
 
     annotation (Documentation(info="<html>
 <dl><dt><b>Main Authors:</b> </dt>
@@ -240,12 +248,13 @@ extends Modelica.Icons.Library2;
   end UsersGuide;
 
   package Examples "Example circuits"
-  extends Modelica.Icons.Library2;
+  extends Modelica.Icons.ExamplesPackage;
 
     model Inverter "Simple inverter circuit"
     //--------------------------------------------------------------------------------------------------------------
 
     //--------------------------------------------------------------------------------------------------------------
+      extends Modelica.Icons.Example;
 
       Semiconductors.M_PMOS mp(modelcard(
           RD=0,
@@ -317,30 +326,7 @@ extends Modelica.Icons.Library2;
             coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
                 100,100}}), graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics={
-            Rectangle(
-              extent={{-100,-102},{80,48}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-            Polygon(
-              points={{-100,48},{-80,68},{100,68},{80,48},{-100,48}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-            Polygon(
-              points={{100,68},{100,-82},{80,-102},{80,48},{100,68}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-            Text(
-              extent={{-96,1},{77,-51}},
-              lineColor={0,0,255},
-              textString="1"),
-            Text(
-              extent={{-120,130},{120,71}},
-              lineColor={255,0,0},
-              textString="%name")}),
+                100,100}}), graphics),
         experiment(
           StopTime=1e-011,
           NumberOfIntervals=2000,
@@ -358,6 +344,7 @@ extends Modelica.Icons.Library2;
 
     model InvertersApartRecord
       "Two inverters where transistor models use different modelcard instances"
+      extends Modelica.Icons.Example;
 
       Basic.Ground ground        annotation (Placement(transformation(extent={{-38,-80},
                 {-18,-60}},        rotation=0)));
@@ -462,30 +449,7 @@ extends Modelica.Icons.Library2;
             coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
                 100,100}}), graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics={
-            Rectangle(
-              extent={{-100,-100},{80,50}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-            Polygon(
-              points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-            Polygon(
-              points={{100,70},{100,-80},{80,-100},{80,50},{100,70}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-            Text(
-              extent={{-96,3},{77,-49}},
-              lineColor={0,0,255},
-              textString="2"),
-            Text(
-              extent={{-120,132},{120,73}},
-              lineColor={255,0,0},
-              textString="%name")}),
+                100,100}}), graphics),
         experiment(StopTime=5),
         experimentSetupOutput,
         Documentation(info="<html>
@@ -504,6 +468,7 @@ extends Modelica.Icons.Library2;
 
     model InvertersExtendedModel
       "Two inverters with MOS models defined by inheritance"
+      extends Modelica.Icons.Example;
 
       Basic.Ground ground        annotation (Placement(transformation(extent={{-40,-80},
                 {-20,-60}},        rotation=0)));
@@ -582,12 +547,12 @@ extends Modelica.Icons.Library2;
                      color={0,0,255}));
       connect(mp2.G, mn1.D) annotation (Line(points={{0,29.9},{0,0},{-30,0},{-30,-10}},
                           color={0,0,255}));
-      connect(c1.p, mn1.D) annotation (Line(points={{-10,-20},{-10,0},{-30,0},{-30,
-              -10}},     color={0,0,255}));
+      connect(c1.p, mn1.D) annotation (Line(points={{-10,-20},{-10,0},{-30,0},{
+              -30,-10}}, color={0,0,255}));
       connect(mn2.D, c2.p) annotation (Line(points={{10,-10},{10,0},{32,0},{32,-20}},
                      color={0,0,255}));
-      connect(c2.n, ground.p) annotation (Line(points={{32,-40},{32,-60},{-30,-60}},
-                     color={0,0,255}));
+      connect(c2.n, ground.p) annotation (Line(points={{32,-40},{32,-60},{-30,
+              -60}}, color={0,0,255}));
       connect(c1.n, ground.p) annotation (Line(points={{-10,-40},{-10,-60},{-30,
               -60}}, color={0,0,255}));
       connect(vin.p, mp1.G)    annotation (Line(
@@ -614,30 +579,7 @@ extends Modelica.Icons.Library2;
             coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
                 100,100}}), graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics={
-            Rectangle(
-              extent={{-100,-100},{80,50}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-            Polygon(
-              points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-            Polygon(
-              points={{100,70},{100,-80},{80,-100},{80,50},{100,70}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-            Text(
-              extent={{-96,3},{77,-49}},
-              lineColor={0,0,255},
-              textString="3"),
-            Text(
-              extent={{-120,132},{120,73}},
-              lineColor={255,0,0},
-              textString="%name")}),
+                100,100}}), graphics),
         experiment(StopTime=5),
         experimentSetupOutput,
         DymolaStoredErrors,
@@ -657,6 +599,7 @@ extends Modelica.Icons.Library2;
 
     model FourInverters
       "Four inverters with MOSFET level 1, using private record as model card"
+      extends Modelica.Icons.Example;
 
       Basic.Ground ground        annotation (Placement(transformation(extent={{-74,-80},
                 {-54,-60}},        rotation=0)));
@@ -825,30 +768,7 @@ extends Modelica.Icons.Library2;
         Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            initialScale=0.1), graphics={
-            Rectangle(
-              extent={{-100,-100},{80,50}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-            Polygon(
-              points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-            Polygon(
-              points={{100,70},{100,-80},{80,-100},{80,50},{100,70}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-            Text(
-              extent={{-96,3},{77,-49}},
-              lineColor={0,0,255},
-              textString="4"),
-            Text(
-              extent={{-120,132},{120,73}},
-              lineColor={255,0,0},
-              textString="%name")}),
+            initialScale=0.1), graphics),
         experiment(StopTime=5),
         experimentSetupOutput,
         Documentation(info="<html>
@@ -862,6 +782,7 @@ extends Modelica.Icons.Library2;
     end FourInverters;
 
     model Nand "MOS Nand gate circuit"
+      extends Modelica.Icons.Example;
 
       Semiconductors.M_PMOS mp1(
         L=2e-5,
@@ -946,30 +867,7 @@ extends Modelica.Icons.Library2;
               preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),
                                                      graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics={
-            Rectangle(
-              extent={{-100,-100},{80,50}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-            Polygon(
-              points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-            Polygon(
-              points={{100,70},{100,-80},{80,-100},{80,50},{100,70}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-            Text(
-              extent={{-96,3},{77,-49}},
-              lineColor={0,0,255},
-              textString="5"),
-            Text(
-              extent={{-120,132},{120,73}},
-              lineColor={255,0,0},
-              textString="%name")}),
+                100,100}}), graphics),
         Documentation(info="<html>
 <p>In nearly every electronic the basic circuit &QUOT;nand&QUOT; are used. A nand contains two PMOS and two NMOS. The faulty wiring can be seen in the graphical mode. If and only if the two input voltages have high potential, the output voltage has low potential, otherwise the output voltage has high potential.</p>
 <p>Nand truth table (1 means true, it is represented by the 5V voltage):</p>
@@ -1010,6 +908,7 @@ extends Modelica.Icons.Library2;
     end Nand;
 
     model Nor "MOS NOR gate circuit"
+      extends Modelica.Icons.Example;
 
       Semiconductors.M_PMOS mp1(modelcard(
           RD=1e-4,
@@ -1127,30 +1026,7 @@ extends Modelica.Icons.Library2;
               preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),
                                                      graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics={
-            Rectangle(
-              extent={{-100,-100},{80,50}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-            Polygon(
-              points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-            Polygon(
-              points={{100,70},{100,-80},{80,-100},{80,50},{100,70}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-            Text(
-              extent={{-96,3},{77,-49}},
-              lineColor={0,0,255},
-              textString="6"),
-            Text(
-              extent={{-120,132},{120,73}},
-              lineColor={255,0,0},
-              textString="%name")}),
+                100,100}}), graphics),
         Documentation(info="<html>
 <p>In nearly every electronic the basic circuit &QUOT;nor&QUOT; is used. A nor contains two PMOS and two NMOS. The faulty wiring can be seen in the graphical mode. If and only if the two inputvoltages have low potential, the outputvoltage has high potential, otherwise the outputvoltage has low potential.</p>
 <p>Nor truth table (1 means true, it is represented by the 5V voltage):</p>
@@ -1192,6 +1068,7 @@ extends Modelica.Icons.Library2;
     end Nor;
 
     model Graetz "Graetz rectifier circuit"
+      extends Modelica.Icons.Example;
 
       Semiconductors.D_DIODE D1(modelcarddiode(CJO=1e-7))
         annotation (Placement(transformation(
@@ -1262,30 +1139,7 @@ extends Modelica.Icons.Library2;
           smooth=Smooth.None));
       annotation (
         Diagram(graphics),
-        Icon(graphics={
-            Rectangle(
-              extent={{-100,-100},{80,50}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-            Polygon(
-              points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-            Polygon(
-              points={{100,70},{100,-80},{80,-100},{80,50},{100,70}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-            Text(
-              extent={{-96,3},{77,-49}},
-              lineColor={0,0,255},
-              textString="7"),
-            Text(
-              extent={{-120,132},{120,73}},
-              lineColor={255,0,0},
-              textString="%name")}),
+        Icon(graphics),
         experiment(StopTime=0.025),
         experimentSetupOutput,
         Documentation(info="<html>
@@ -1299,6 +1153,7 @@ extends Modelica.Icons.Library2;
     end Graetz;
 
     model Oscillator "Oscillator circuit"
+      extends Modelica.Icons.Example;
 
       Basic.R_Resistor r(R=1000)        annotation (Placement(
             transformation(
@@ -1421,34 +1276,7 @@ extends Modelica.Icons.Library2;
           color={0,0,0},
           smooth=Smooth.None));
       annotation (Diagram(graphics),
-        Icon(graphics={
-            Text(
-              extent={{-108,156},{132,97}},
-              lineColor={255,0,0},
-              textString="%name"),
-            Rectangle(
-              extent={{-100,-100},{80,50}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-            Polygon(
-              points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-            Polygon(
-              points={{100,70},{100,-80},{80,-100},{80,50},{100,70}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-            Text(
-              extent={{-96,3},{77,-49}},
-              lineColor={0,0,255},
-              textString="8"),
-            Text(
-              extent={{-120,132},{120,73}},
-              lineColor={255,0,0},
-              textString="%name")}),
+        Icon(graphics),
         experiment(StopTime=0.025),
         experimentSetupOutput,
         Documentation(info="<html>
@@ -1467,7 +1295,7 @@ extends Modelica.Icons.Library2;
 
   package Basic "Basic electronical components"
 
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Package;
 
     model Ground "Ground node"
 
@@ -1943,7 +1771,7 @@ is translated to Modelica:<br>
   end Basic;
 
   package Semiconductors "Semiconductor devices and model cards"
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Package;
     import Modelica.SIunits;
 
     model M_PMOS "PMOS MOSFET device"
@@ -2134,7 +1962,7 @@ is translated to Modelica:<br>
 
   package Sources "Time dependent SPICE3 voltage and current sources"
 
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.SourcesPackage;
 
     model V_constant "Constant independent voltage sources"
       parameter SI.Voltage V=1 "Value of constant voltage";
@@ -3513,7 +3341,7 @@ VN- -&GT; name.pc[N-1]
 
   package Interfaces "Connectors, Interfaces, and partial models"
 
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.InterfacesPackage;
 
     partial model TwoPortControlledSources
       "Component with two electrical ports, including current"
@@ -3570,6 +3398,7 @@ VN- -&GT; name.pc[N-1]
 
   package Repository
     "Collection of functions and records derived from the C++ Spice library"
+    extends Modelica.Icons.Package;
 
   model MOS "Metal-Oxide Semiconductor Field-Effect Transistor"
 
@@ -4404,6 +4233,7 @@ VN- -&GT; name.pc[N-1]
      end SpiceConstants;
 
   package Equation "Equations for semiconductor calculation"
+    extends Modelica.Icons.Package;
 
       function energyGapDepTemp "Temperature dependency of energy gap"
 
@@ -4926,6 +4756,7 @@ VN- -&GT; name.pc[N-1]
   end Equation;
 
     package SpiceRoot "Basic records and functions"
+      extends Modelica.Icons.Package;
 
       record SPICEcircuitCONST "SPICE3 Constants"
 
@@ -5014,6 +4845,7 @@ VN- -&GT; name.pc[N-1]
     end SpiceRoot;
 
     package Model "Device Temperature"
+      extends Modelica.Icons.Package;
 
     record Model "Device Temperature"
 
@@ -5030,6 +4862,8 @@ VN- -&GT; name.pc[N-1]
     end Model;
 
     package Mosfet "Functions and records for Mosfets"
+      extends Modelica.Icons.Package;
+
       record Mosfet "Record for Mosfet parameters"
         extends Model.Model;
 
@@ -5198,6 +5032,7 @@ VN- -&GT; name.pc[N-1]
     end Mosfet;
 
     package Mos "Records and functions for Mosfets level 1,2,3,6"
+      extends Modelica.Icons.Package;
 
       record MosModelLineParams
         "Record for Mosfet model line parameters (for level 1, 2, 3 and 6)"
@@ -5972,6 +5807,8 @@ VN- -&GT; name.pc[N-1]
     end Mos;
 
     package Mos1 "Records and functions for Mosfets level 1"
+      extends Modelica.Icons.Package;
+
       record Mos1ModelLineParams
         "Record for Mosfet model line parameters (for level 1)"
         extends Mos.MosModelLineParams(
@@ -6283,6 +6120,8 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
     end Mos1;
 
     package Mos2 "Records and functions for Mosfets level 2"
+      extends Modelica.Icons.Package;
+
       record Mos2ModelLineParams
         "Record for Mosfet model line parameters (for level 2)"
         extends Mos.MosModelLineParams(
@@ -7084,6 +6923,8 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
     end Mos2;
 
     package Diode "Records and functions for diode model"
+      extends Modelica.Icons.Package;
+
       record DiodeModelLineParams "Record for Diode model line parameters"
 
         Modelica.SIunits.Current m_satCur( start = 1.0e-14)
@@ -7441,6 +7282,8 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
 
     package Rsemiconductor
       "Records and functions for semiconductor resistor model"
+        extends Modelica.Icons.Package;
+
       record ResistorParams "Resistor device parameters"
 
           Modelica.SIunits.Resistance m_dResist( start=1000)
@@ -7589,6 +7432,8 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
     end Rsemiconductor;
 
     package Bjt3 "Records and functions for bjt model"
+      extends Modelica.Icons.Package;
+
       record BjtModelLineParams "Record for bjt model line parameters"
 
         Real m_type( start = 1) "device type : 1 = n,  -1 = p";

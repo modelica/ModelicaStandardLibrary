@@ -1,7 +1,7 @@
 within Modelica.Electrical.Analog;
 package Basic "Basic electrical components"
 
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
 
   model Ground "Ground node"
 

@@ -2,7 +2,7 @@ within Modelica.Electrical.Analog;
 package Ideal
   "Ideal electrical elements such as switches, diode, transformer, operational amplifier"
 
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
 
           model IdealThyristor "Ideal thyristor"
             extends Modelica.Electrical.Analog.Interfaces.OnePort;

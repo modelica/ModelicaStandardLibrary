@@ -1,12 +1,12 @@
 within Modelica.Electrical.QuasiStationary;
 package MultiPhase "Multiphase AC components"
-  extends Modelica.Icons.Library2;
+  extends Modelica.Icons.Package;
 
   package Examples "Test examples"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.ExamplesPackage;
 
     model BalancingStar "Balancing an unsymmetrical star-connected load"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       parameter Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage V = 100 "Source Voltage";
       parameter Modelica.SIunits.Frequency f = 50 "Source frequency";
@@ -129,7 +129,7 @@ P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase c
     end BalancingStar;
 
     model BalancingDelta "Balancing an unsymmetrical delta-connected load"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       parameter Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage V_LL = 100
         "Source voltage line-to-line";
@@ -257,16 +257,11 @@ P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase c
 
     annotation (Documentation(info="<html>
 Examples to demonstrate the usage of quasistationary electric components.
-</html>"),   Icon(graphics={Ellipse(extent={{-80,44},{60,-96}}, lineColor={95,
-              95,95}), Polygon(
-          points={{-40,36},{-40,-88},{60,-26},{-40,36}},
-          lineColor={95,95,95},
-          fillColor={95,95,95},
-          fillPattern=FillPattern.Solid)}));
+</html>"),   Icon(graphics));
   end Examples;
 
   package Basic "Basic components for AC multiphase models"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.Package;
 
     model Star "Star connection"
       parameter Integer m(final min=1) = 3 "Number of phases";
@@ -1123,7 +1118,7 @@ Quasi stationary theory can be found in the
   end Basic;
 
   package Ideal "Ideal components for AC multiphase models"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.Package;
 
     model Idle "Idle branch"
       extends Interfaces.TwoPlug;
@@ -1219,7 +1214,7 @@ Quasi stationary theory can be found in the
   end Ideal;
 
   package Interfaces "Interfaces for AC multiphase models"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.InterfacesPackage;
 
     connector Plug "Basic multiphase plug"
       parameter Integer m=3 "number of phases";
@@ -1491,27 +1486,11 @@ The source partial model relies on the
 </p>
 </html>"));
     end Source;
-    annotation (Icon(graphics={
-        Ellipse(extent={{-60,10},{40,-90}}, lineColor={0,0,255}),
-        Ellipse(
-          extent={{-40,-14},{-20,-34}},
-          lineColor={0,0,255},
-          fillColor={170,213,255},
-          fillPattern=FillPattern.Solid),
-        Ellipse(
-          extent={{0,-14},{20,-34}},
-          lineColor={0,0,255},
-          fillColor={170,213,255},
-          fillPattern=FillPattern.Solid),
-        Ellipse(
-          extent={{-20,-54},{0,-74}},
-          lineColor={0,0,255},
-          fillColor={170,213,255},
-          fillPattern=FillPattern.Solid)}));
+    annotation (Icon(graphics));
   end Interfaces;
 
   package Sensors "AC multiphase sensors"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.SensorsPackage;
 
     model FrequencySensor "Frequency sensor"
       extends Interfaces.AbsoluteSensor;
@@ -1829,28 +1808,7 @@ This sensor can be used to measure <i>m</i> complex apparent power values, using
 </html>"),
         Diagram(graphics));
     end PowerSensor;
-    annotation (Icon(graphics={
-        Ellipse(
-          extent={{-60,10},{40,-90}},
-          lineColor={0,0,0},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Line(points={{-50,-16},{-36,-25}}, color={0,0,0}),
-        Line(points={{-35,0},{-25,-14}}, color={0,0,0}),
-        Line(points={{-10,7},{-10,-10}}, color={0,0,0}),
-        Line(points={{15,0},{5,-14}}, color={0,0,0}),
-        Line(points={{30,-15},{16,-25}}, color={0,0,0}),
-        Polygon(
-          points={{-12,-24},{-0.5,-27},{2,1.5},{-12,-24}},
-          lineColor={0,0,0},
-          fillColor={0,0,0},
-          fillPattern=FillPattern.Solid),
-        Line(points={{-10,-40},{-6,-26}}, color={0,0,0}),
-        Ellipse(
-          extent={{-15,-35},{-5,-45}},
-          lineColor={0,0,0},
-          fillColor={0,0,0},
-          fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+    annotation (Icon(graphics),             Documentation(info="<html>
 <p>This package hosts sensors for quasi stationary multiphase circuits.
 Quasi stationary theory can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
@@ -1863,7 +1821,7 @@ Quasi stationary theory can be found in the
   end Sensors;
 
   package Sources "AC multiphase sources"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.SourcesPackage;
 
     model VoltageSource "Constant multiphase AC voltage"
       extends Interfaces.Source;
@@ -2076,14 +2034,7 @@ Additionally, the frequency of the current source is defined by a real signal in
 </p>
 </html>"));
     end VariableCurrentSource;
-    annotation (Icon(graphics={
-        Line(points={{-100,-40},{-60,-40}}),
-        Ellipse(
-          extent={{-60,10},{40,-90}},
-          lineColor={0,0,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Line(points={{40,-40},{80,-40}})}), Documentation(info="<html>
+    annotation (Icon(graphics),             Documentation(info="<html>
 <p>This package hosts sources for quasi stationary multiphase circuits.
 Quasi stationary theory can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.

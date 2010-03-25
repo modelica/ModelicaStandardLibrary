@@ -1,6 +1,8 @@
 within Modelica.Electrical.Analog.Examples;
 model CauerLowPassSC
   "Cauer low-pass filter with operational amplifiers and switched capacitors"
+  extends Modelica.Icons.Example;
+
 model Rn "Negative resistance"
   parameter Modelica.SIunits.Time clock=1 "Clock";
   parameter Modelica.SIunits.Resistance R(min=Modelica.Constants.eps)=1
@@ -508,28 +510,5 @@ equation
 <p>Due to the recharging of the capacitances after switching the performance of simulation is not as good as in the CauerLowPassOPV example.</p>
 </html>"),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-250,-200},{250,
-            200}}), graphics={
-        Rectangle(
-          extent={{-100,-100},{80,50}},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Polygon(
-          points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Polygon(
-          points={{100,70},{100,-80},{80,-100},{80,50},{100,70}},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Text(
-          extent={{-96,3},{77,-49}},
-          lineColor={0,0,255},
-          textString="Example"),
-        Text(
-          extent={{-120,132},{120,73}},
-          lineColor={255,0,0},
-          textString="%name")}));
+            200}}), graphics));
 end CauerLowPassSC;

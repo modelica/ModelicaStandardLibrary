@@ -1,7 +1,7 @@
 within Modelica.Electrical.Analog;
 package Sensors "Potential, voltage, current, and power sensors"
 
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.SensorsPackage;
 
   model PotentialSensor "Sensor to measure the potential"
     extends Modelica.Icons.RotationalSensor;
@@ -155,6 +155,7 @@ package Sensors "Potential, voltage, current, and power sensors"
   end CurrentSensor;
 
 model PowerSensor "Sensor to measure the power"
+
   Modelica.Electrical.Analog.Interfaces.PositivePin pc
       "Positive pin, current path"
     annotation (Placement(transformation(extent={{-90,-10},{-110,10}}, rotation=

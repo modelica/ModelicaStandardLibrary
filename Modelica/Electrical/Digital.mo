@@ -1,9 +1,13 @@
 within Modelica.Electrical;
 package Digital
   "Library for digital electrical components based on the VHDL standard with 9-valued logic and conversion to 2-,3-,4-valued logic"
+  extends Modelica.Icons.Package;
+
     package UsersGuide "User's Guide"
+      extends Modelica.Icons.Information;
 
       class ReleaseNotes "Release notes"
+          extends Modelica.Icons.ReleaseNotes;
 
         annotation (Documentation(info="<html>
 <h4>Version 1.0.8, 2009-10-01</h4>
@@ -64,6 +68,7 @@ package Digital
       end ReleaseNotes;
 
       class Literature "Literature"
+          extends Modelica.Icons.References;
 
         annotation (Documentation(info="<html>
 <p>
@@ -100,6 +105,7 @@ The Electrical.Digital library is based on the following references:
       end Literature;
 
       class Contact "Contact"
+        extends Modelica.Icons.Contact;
 
         annotation (Documentation(info="<html>
 <dl>
@@ -153,9 +159,13 @@ the library and has the following content:
 
       package Examples
     "Examples that demonstrate the usage of the Digital electrical components"
+        extends Modelica.Icons.ExamplesPackage;
+
         model Multiplexer "4 to 1 Bit Multiplexer Example"
           import D = Modelica.Electrical.Digital;
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          extends Modelica.Icons.Example;
+
           D.Sources.Clock CLK(period=20)  annotation (Placement(transformation(
                   extent={{-80,-56},{-60,-36}}, rotation=0)));
           D.Sources.Table D0(
@@ -218,12 +228,7 @@ the library and has the following content:
 </html>"),  Icon(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}},
-                grid={2,2}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
-              lineThickness=0.5,
-              fillColor={255,255,170},
-              fillPattern=FillPattern.Solid)}),
+                grid={2,2}), graphics),
             Diagram(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}},
@@ -234,6 +239,8 @@ the library and has the following content:
         model FlipFlop "Pulse Triggered Master Slave Flip-Flop"
           import D = Modelica.Electrical.Digital;
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          extends Modelica.Icons.Example;
+
           D.Examples.Utilities.JKFF FF
                          annotation (Placement(transformation(extent={{-10,-40},{70,
                     40}}, rotation=0)));
@@ -265,12 +272,7 @@ the library and has the following content:
 </html>"),  Icon(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}},
-                grid={2,2}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
-              lineThickness=0.5,
-              fillColor={255,255,170},
-              fillPattern=FillPattern.Solid)}),
+                grid={2,2}), graphics),
             Diagram(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}},
@@ -281,6 +283,7 @@ the library and has the following content:
         model HalfAdder
       "Adding circuit for binary numbers without input carry bit"
           import Modelica.Electrical.Digital;
+          extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Sources.Table a(
             t={1,2,3,4},
@@ -355,13 +358,7 @@ The simulation stop time should be 5 seconds.
 "),         Icon(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}},
-                grid={2,2}), graphics={Rectangle(
-              extent={{-88,100},{90,-100}},
-              lineColor={0,0,0},
-              lineThickness=0.5,
-              fillColor={255,255,170},
-              fillPattern=FillPattern.Solid), Line(points={{40,54},{40,60},{-40,
-                  60},{10,0},{-40,-60},{40,-60},{40,-52}}, color={0,0,0})}),
+                grid={2,2}), graphics),
             Diagram(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}},
@@ -372,6 +369,7 @@ The simulation stop time should be 5 seconds.
         model FullAdder "Full 1 Bit Adder Example"
           import D = Modelica.Electrical.Digital;
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          extends Modelica.Icons.Example;
 
           D.Examples.Utilities.FullAdder Adder1                  annotation (Placement(
                 transformation(extent={{0,-30},{60,30}}, rotation=0)));
@@ -435,13 +433,7 @@ The simulation stop time should be 10 seconds.
 "),         Icon(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}},
-                grid={2,2}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
-              lineThickness=0.5,
-              fillColor={255,255,170},
-              fillPattern=FillPattern.Solid), Line(points={{40,54},{40,60},{-40,
-                  60},{10,0},{-40,-60},{40,-60},{40,-52}}, color={0,0,0})}),
+                grid={2,2}), graphics),
             Diagram(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}},
@@ -451,6 +443,7 @@ The simulation stop time should be 10 seconds.
 
         model Adder4 "4 Bit Adder Example"
           import Modelica.Electrical.Digital;
+          extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Sources.Table b4(
             y0=3,
@@ -586,12 +579,7 @@ The simulation stop time has to be 5s.
 "),         Icon(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-200,-200},{200,200}},
-                grid={2,2}), graphics={Rectangle(
-              extent={{-200,200},{200,-200}},
-              lineColor={0,0,0},
-              lineThickness=0.5,
-              fillColor={255,255,170},
-              fillPattern=FillPattern.Solid)}),
+                grid={2,2}), graphics),
             Diagram(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-200,-200},{200,200}},
@@ -601,6 +589,8 @@ The simulation stop time has to be 5s.
 
         model Counter3 "3 Bit Counter Example"
           import D = Modelica.Electrical.Digital;
+          extends Modelica.Icons.Example;
+
           D.Sources.Step Enable       annotation (Placement(transformation(extent={
                     {-90,8},{-50,48}}, rotation=0)));
           D.Sources.Clock Clock       annotation (Placement(transformation(extent={
@@ -623,12 +613,7 @@ The simulation stop time has to be 5s.
 </html>"),  Icon(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}},
-                grid={2,2}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
-              lineThickness=0.5,
-              fillColor={255,255,170},
-              fillPattern=FillPattern.Solid)}),
+                grid={2,2}), graphics),
             Diagram(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}},
@@ -638,6 +623,8 @@ The simulation stop time has to be 5s.
 
         model Counter "Generic N Bit Counter Example"
           import D = Modelica.Electrical.Digital;
+          extends Modelica.Icons.Example;
+
           D.Sources.Step Enable       annotation (Placement(transformation(extent={
                     {-90,8},{-50,48}}, rotation=0)));
           D.Sources.Clock Clock       annotation (Placement(transformation(extent={
@@ -676,12 +663,7 @@ The simulation stop time has to be 5s.
 </html>"),  Icon(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}},
-                grid={2,2}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
-              lineThickness=0.5,
-              fillColor={255,255,170},
-              fillPattern=FillPattern.Solid)}),
+                grid={2,2}), graphics),
             Diagram(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}},
@@ -690,6 +672,7 @@ The simulation stop time has to be 5s.
         end Counter;
 
         model Delay_test "Vector delay"
+          extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Delay.InertialDelaySensitiveVector delay(
             final tHL=1,
@@ -718,17 +701,14 @@ The simulation stop time has to be 5s.
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),          graphics), Icon(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-            graphics={Rectangle(
-              extent={{-80,80},{80,-80}},
-              lineColor={127,0,127},
-              fillColor={255,213,170},
-              fillPattern=FillPattern.Solid)}),
+            graphics),
         Documentation(info="<html>
 <p>This example is a simple test of the vector valued sensitive delay component. The delay times are chosen different from each other. To examine the rersults plot bothe the input vector x and the output vector y.</p>
 </html>"));
         end Delay_test;
 
         model DFFREG_test "Pulse triggered D-Register-Bank, high active reset"
+          extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Sources.Table clock(x={3,4,3,4,3,4,3}, t={0,7,8,10,11,15,16})
             annotation (Placement(transformation(extent={{-86,-32},{-66,-12}})));
@@ -763,11 +743,7 @@ The simulation stop time has to be 5s.
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),          graphics), Icon(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-            graphics={Rectangle(
-              extent={{-80,80},{80,-80}},
-              lineColor={127,33,107},
-              fillColor={255,213,170},
-              fillPattern=FillPattern.Solid)}),
+            graphics),
             experiment(StopTime=25),
             experimentSetupOutput,
         Documentation(info="<html>
@@ -776,6 +752,7 @@ The simulation stop time has to be 5s.
         end DFFREG_test;
 
         model DFFREGL_test "Pulse triggered D-Register-Bank, low active reset"
+          extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Sources.Table clock(x={3,4,3,4,3,4,3}, t={0,7,8,10,11,15,16})
             annotation (Placement(transformation(extent={{-86,-30},{-66,-10}})));
@@ -814,11 +791,7 @@ The simulation stop time has to be 5s.
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),          graphics), Icon(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-            graphics={Rectangle(
-              extent={{-80,80},{80,-80}},
-              lineColor={127,33,107},
-              fillColor={255,213,170},
-              fillPattern=FillPattern.Solid)}),
+            graphics),
             experiment(StopTime=25),
             experimentSetupOutput,
         Documentation(info="<html>
@@ -828,6 +801,7 @@ The simulation stop time has to be 5s.
 
         model DFFREGSRH_test
       "Pulse triggered D-Register-Bank, high active set and reset"
+          extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Sources.Table clock(x={3,4,3}, t={0,10,11})
             annotation (Placement(transformation(extent={{-86,-32},{-66,-12}})));
@@ -868,11 +842,7 @@ The simulation stop time has to be 5s.
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),          graphics), Icon(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-            graphics={Rectangle(
-              extent={{-80,80},{80,-80}},
-              lineColor={127,33,107},
-              fillColor={255,213,170},
-              fillPattern=FillPattern.Solid)}),
+            graphics),
             experiment(StopTime=15),
             experimentSetupOutput,
         Documentation(info="<html>
@@ -882,6 +852,7 @@ The simulation stop time has to be 5s.
 
         model DFFREGSRL_test
       "Pulse triggered D-Register-Bank, low active set and reset"
+          extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Sources.Table clock(x={3,4,3}, t={0,10,11})
             annotation (Placement(transformation(extent={{-86,-32},{-66,-12}})));
@@ -921,11 +892,7 @@ The simulation stop time has to be 5s.
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),          graphics), Icon(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-            graphics={Rectangle(
-              extent={{-80,80},{80,-80}},
-              lineColor={127,33,107},
-              fillColor={255,213,170},
-              fillPattern=FillPattern.Solid)}),
+            graphics),
             experiment(StopTime=15),
             experimentSetupOutput,
         Documentation(info="<html>
@@ -934,6 +901,7 @@ The simulation stop time has to be 5s.
         end DFFREGSRL_test;
 
         model DLATREG_test "Level sensitive D-Register-Bank, high active reset"
+          extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Sources.Table enable(x={3,4,3}, t={0,10,18})
             annotation (Placement(transformation(extent={{-86,-32},{-66,-12}})));
@@ -969,11 +937,7 @@ The simulation stop time has to be 5s.
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),          graphics), Icon(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-            graphics={Rectangle(
-              extent={{-80,80},{80,-80}},
-              lineColor={127,33,107},
-              fillColor={255,213,170},
-              fillPattern=FillPattern.Solid)}),
+            graphics),
             experiment(StopTime=25),
             experimentSetupOutput,
         Documentation(info="<html>
@@ -982,6 +946,7 @@ The simulation stop time has to be 5s.
         end DLATREG_test;
 
         model DLATREGL_test "Level sensitive D-Register-Bank, low active reset"
+          extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Sources.Table enable(x={3,4,3}, t={0,10,18})
             annotation (Placement(transformation(extent={{-86,-32},{-66,-12}})));
@@ -1016,11 +981,7 @@ The simulation stop time has to be 5s.
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),          graphics), Icon(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-            graphics={Rectangle(
-              extent={{-80,80},{80,-80}},
-              lineColor={127,33,107},
-              fillColor={255,213,170},
-              fillPattern=FillPattern.Solid)}),
+            graphics),
             experiment(StopTime=25),
             experimentSetupOutput,
         Documentation(info="<html>
@@ -1030,6 +991,7 @@ The simulation stop time has to be 5s.
 
         model DLATREGSRH_test
       "Level sensitive D-Register-Bank, high active set and reset"
+          extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Sources.Table enable(x={3,4,3}, t={0,10,18})
             annotation (Placement(transformation(extent={{-86,-32},{-66,-12}})));
@@ -1075,11 +1037,7 @@ The simulation stop time has to be 5s.
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),          graphics), Icon(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-            graphics={Rectangle(
-              extent={{-80,80},{80,-80}},
-              lineColor={127,33,107},
-              fillColor={255,213,170},
-              fillPattern=FillPattern.Solid)}),
+            graphics),
             experiment(StopTime=25),
             experimentSetupOutput,
         Documentation(info="<html>
@@ -1089,6 +1047,7 @@ The simulation stop time has to be 5s.
 
         model DLATREGSRL_test
       "Level sensitive D-Register-Bank, low active set and reset"
+          extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Sources.Table enable(t={0,10,18}, x={3,4,3})
             annotation (Placement(transformation(extent={{-86,-32},{-66,-12}})));
@@ -1133,11 +1092,7 @@ The simulation stop time has to be 5s.
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),          graphics), Icon(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-            graphics={Rectangle(
-              extent={{-80,80},{80,-80}},
-              lineColor={127,33,107},
-              fillColor={255,213,170},
-              fillPattern=FillPattern.Solid)}),
+            graphics),
             experiment(StopTime=25),
             experimentSetupOutput,
         Documentation(info="<html>
@@ -1146,9 +1101,11 @@ The simulation stop time has to be 5s.
         end DLATREGSRL_test;
 
       package Utilities "Utility components used by package Examples"
+        extends Modelica.Icons.Package;
+
         model MUX4 "4 to 1 Bit Multiplexer"
-            import D = Modelica.Electrical.Digital;
-            import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import D = Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
           parameter Modelica.SIunits.Time delayTime=0.001 "Delay time";
           parameter D.Interfaces.Logic q0=L.'0' "Initial value";
@@ -1323,8 +1280,8 @@ The simulation stop time has to be 5s.
         end MUX4;
 
         model RS "Unclocked RS FlipFlop"
-            import D = Modelica.Electrical.Digital;
-            import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import D = Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
           parameter Modelica.SIunits.Time delayTime=0 "Delay time";
           parameter D.Interfaces.Logic q0=L.'U' "Initial value of output";
@@ -1421,8 +1378,8 @@ The simulation stop time has to be 5s.
         end RS;
 
         model RSFF "Unclocked RS FlipFlop"
-            import D = Modelica.Electrical.Digital;
-            import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import D = Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
           parameter Modelica.SIunits.Time delayTime=0.01 "Delay time";
           parameter D.Interfaces.Logic q0=L.'U' "Initial value";
@@ -1533,8 +1490,8 @@ The simulation stop time has to be 5s.
         end RSFF;
 
         model DFF "D FlipFlop"
-            import D = Modelica.Electrical.Digital;
-            import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import D = Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
           parameter Modelica.SIunits.Time Tdel=0.01 "Delay time";
           parameter L QInit=L.'U' "Initial value";
@@ -1628,8 +1585,8 @@ The simulation stop time has to be 5s.
         end DFF;
 
         model JKFF "JK FlipFlop"
-            import D = Modelica.Electrical.Digital;
-            import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import D = Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
           parameter Modelica.SIunits.Time delayTime=0.001 "Delay time";
           parameter D.Interfaces.Logic q0=L.'0' "Initial value";
@@ -2066,7 +2023,7 @@ The simulation stop time has to be 5s.
         end FullAdder;
 
         model Adder "Generic N Bit Adder"
-            import Modelica.Electrical.Digital;
+          import Modelica.Electrical.Digital;
 
           parameter Integer n=2 "Number of single adders";
           Modelica.Electrical.Digital.Examples.Utilities.FullAdder Adder[n]
@@ -2161,8 +2118,8 @@ The simulation stop time has to be 5s.
         end Adder;
 
         model Counter3 "3 Bit Counter"
-            import D = Modelica.Electrical.Digital;
-            import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import D = Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
           D.Interfaces.DigitalInput enable
                                          annotation (Placement(transformation(
@@ -2290,8 +2247,8 @@ The simulation stop time has to be 5s.
         end Counter3;
 
         model Counter "Generic N Bit Counter"
-            import D = Modelica.Electrical.Digital;
-            import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import D = Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
           parameter Integer n=3 "Number of bits";
           parameter Modelica.SIunits.Time delayTime=0.001 "Delay of each JKFF";
@@ -2373,30 +2330,7 @@ The simulation stop time has to be 5s.
 </html>"));
       end Utilities;
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics={
-          Rectangle(
-            extent={{-100,-100},{80,50}},
-            fillColor={235,235,235},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Polygon(
-            points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}},
-            fillColor={235,235,235},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Polygon(
-            points={{100,70},{100,-80},{80,-100},{80,50},{100,70}},
-            fillColor={235,235,235},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Text(
-            extent={{-85,35},{65,-85}},
-            lineColor={0,0,255},
-            textString="Library"),
-          Text(
-            extent={{-120,122},{120,73}},
-            lineColor={255,0,0},
-            textString="%name")}),
+              -100},{100,100}}), graphics),
                                 Documentation(info="<html>
 <p>This package contains examples that demonstrate the usage of the components of the Electrical.Digital library.</p>
 <p>The examples are simple to understand. They will show a typical behavior of the components, and they will give hints to users.</p>
@@ -2404,6 +2338,7 @@ The simulation stop time has to be 5s.
       end Examples;
 
       package Interfaces "Basic definitions"
+        extends Modelica.Icons.InterfacesPackage;
 
         type Logic = enumeration(
         'U' "U  Uninitialized",
@@ -2523,7 +2458,8 @@ The simulation stop time has to be 5s.
             extent={{-150,-100},{150,-160}},
             lineColor={127,0,127},
             textString="%name")}),
-      Documentation(info="<html>
+          Documentation(info=
+                         "<html>
 <p>DigitalOutput is the  digital output connector defintion. DigitalOutput  is of type Logic. It can have the logic values (U, X, 0, 1, ...) which are internally coded by integer values by using the enumeration (c.f. the definition of type Logic). The arrow shape symbolizes the signal flow direction.</p>
 </html>"));
 
@@ -2614,36 +2550,14 @@ The simulation stop time has to be 5s.
         end MIMO;
 
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics={
-          Rectangle(
-            extent={{-100,-100},{80,50}},
-            fillColor={235,235,235},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Polygon(
-            points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}},
-            fillColor={235,235,235},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Polygon(
-            points={{100,70},{100,-80},{80,-100},{80,50},{100,70}},
-            fillColor={235,235,235},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Text(
-            extent={{-85,35},{65,-85}},
-            lineColor={0,0,255},
-            textString="Library"),
-          Text(
-            extent={{-120,122},{120,73}},
-            lineColor={255,0,0},
-            textString="%name")}),
+              -100},{100,100}}), graphics),
                                 Documentation(info="<html>
 <p>This package contains basic definitions: Type definitions of Logic and Strength,  interface definitions (connectors) for digital electrical components, and partial models for connection patterns which are often used.</p>
 </html>"),DymolaStoredErrors);
       end Interfaces;
 
       package Tables "Truth tables"
+        extends Modelica.Icons.Package;
 
         import D = Modelica.Electrical.Digital;
         import L = Modelica.Electrical.Digital.Interfaces.Logic;
@@ -2739,36 +2653,14 @@ The simulation stop time has to be 5s.
       "Output strength conversion by [signal, strength] reading";
 
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics={
-          Rectangle(
-            extent={{-100,-100},{80,50}},
-            fillColor={235,235,235},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Polygon(
-            points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}},
-            fillColor={235,235,235},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Polygon(
-            points={{100,70},{100,-80},{80,-100},{80,50},{100,70}},
-            fillColor={235,235,235},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Text(
-            extent={{-85,35},{65,-85}},
-            lineColor={0,0,255},
-            textString="Library"),
-          Text(
-            extent={{-120,122},{120,73}},
-            lineColor={255,0,0},
-            textString="%name")}),
+              -100},{100,100}}), graphics),
                                 Documentation(info="<html>
 <p>Tables contains several logic valued matrixes which are used for quickly calculating the result. Since the logic values are coded internally by the integers 1 ... 9, the code of the input signals can be taken to chose line and column of the matrix element where the result can be found. In this way the tables are used by some components.</p>
 </html>"));
       end Tables;
 
       package Delay "Delay blocks"
+        extends Modelica.Icons.Package;
 
         partial block DelayParams "Definition of delay parameters"
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
@@ -3076,36 +2968,14 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 </html>"));
         end InertialDelaySensitiveVector;
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics={
-          Rectangle(
-            extent={{-100,-100},{80,50}},
-            fillColor={235,235,235},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Polygon(
-            points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}},
-            fillColor={235,235,235},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Polygon(
-            points={{100,70},{100,-80},{80,-100},{80,50},{100,70}},
-            fillColor={235,235,235},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Text(
-            extent={{-85,35},{65,-85}},
-            lineColor={0,0,255},
-            textString="Library"),
-          Text(
-            extent={{-120,122},{120,73}},
-            lineColor={255,0,0},
-            textString="%name")}),
+              -100},{100,100}}), graphics),
                                 Documentation(info="<html>
 <p>The Delay package collects the delay blocks which are used in many components. Both transport and inertial delay are offered for scalar connectors. The most advanced component is the sensitive interial delay the delay time of which is chosen in dependency of the signal values. This component is also available for vector valued input.</p>
 </html>"));
       end Delay;
 
       package Basic "Basic logic blocks without delays"
+        extends Modelica.Icons.Package;
 
         model Not "Not logic component without delay"
           import D = Modelica.Electrical.Digital;
@@ -3415,36 +3285,14 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
                     graphics));
         end Xnor;
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics={
-          Rectangle(
-            extent={{-100,-100},{80,50}},
-            fillColor={235,235,235},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Polygon(
-            points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}},
-            fillColor={235,235,235},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Polygon(
-            points={{100,70},{100,-80},{80,-100},{80,50},{100,70}},
-            fillColor={235,235,235},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Text(
-            extent={{-85,35},{65,-85}},
-            lineColor={0,0,255},
-            textString="Library"),
-          Text(
-            extent={{-120,122},{120,73}},
-            lineColor={255,0,0},
-            textString="%name")}),
+              -100},{100,100}}), graphics),
                                 Documentation(info="<html>
 <p>Basic contains the basic gates according to standard logic. The components of Basic calculate their results using the corresponding truth tables. They do not contain any delay components.</p>
 </html>"));
       end Basic;
 
       package Gates "Logic gates including delays"
+        extends Modelica.Icons.Package;
 
         model InvGate
       "InvGate with 1 input value, composed by Not and sensitive intertial delay"
@@ -3951,36 +3799,14 @@ NandGate with n input values, composed by Nand and sensitive intertial delay.
               textString="1")}));
         end BufGate;
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics={
-          Rectangle(
-            extent={{-100,-100},{80,50}},
-            fillColor={235,235,235},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Polygon(
-            points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}},
-            fillColor={235,235,235},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Polygon(
-            points={{100,70},{100,-80},{80,-100},{80,50},{100,70}},
-            fillColor={235,235,235},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Text(
-            extent={{-85,35},{65,-85}},
-            lineColor={0,0,255},
-            textString="Library"),
-          Text(
-            extent={{-120,122},{120,73}},
-            lineColor={255,0,0},
-            textString="%name")}),
+              -100},{100,100}}), graphics),
                                 Documentation(info="<html>
 <p>Gates contains the basic gates according to standard logic as they are provided in the Basic package. Additionally they contain an InertialDelaySensitive component They are composed graphically, not using any equations.</p>
 </html>"));
       end Gates;
 
       package Sources "Time-dependend digital signal sources"
+        extends Modelica.Icons.SourcesPackage;
 
         block Set "Digital Set Source"
           import D = Modelica.Electrical.Digital;
@@ -4022,7 +3848,8 @@ If the logic values are imported by <br><b> import L = Digital.Interfaces.Logic;
 they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
 </P>
 </HTML>
-", revisions =   "<HTML>
+",       revisions=
+                 "<HTML>
 <ul>
 <li><i>   </i>
        by ...<br>
@@ -4105,7 +3932,8 @@ If the logic values are imported by <br><b> import L = Digital.Interfaces.Logic;
 they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
 </P>
 </HTML>
-", revisions =   "<HTML>
+",       revisions=
+                 "<HTML>
 <ul>
 <li><i>   </i>
        by ...<br>
@@ -4385,36 +4213,15 @@ The number of periods is unlimited. The first pulse starts at startTime.
                 color={0,0,0})}));
         end Clock;
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics={
-          Rectangle(
-            extent={{-100,-100},{80,50}},
-            fillColor={235,235,235},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Polygon(
-            points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}},
-            fillColor={235,235,235},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Polygon(
-            points={{100,70},{100,-80},{80,-100},{80,50},{100,70}},
-            fillColor={235,235,235},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Text(
-            extent={{-85,35},{65,-85}},
-            lineColor={0,0,255},
-            textString="Library"),
-          Text(
-            extent={{-120,122},{120,73}},
-            lineColor={255,0,0},
-            textString="%name")}),
+              -100},{100,100}}), graphics),
                                 Documentation(info="<html>
 <p>The sources are not taken from Standard Logic. They were added since they turned out to be quite useful, since such sources are often needed. For a better optical overview the colour green was chosen for the sources.</p>
 </html>"));
       end Sources;
 
       package Converters "Converters between 2-,3-,4- and 9-valued logic"
+        extends Modelica.Icons.Package;
+
         block LogicToXO1 "Conversion to XO1"
           import D = Modelica.Electrical.Digital;
           import T = Modelica.Electrical.Digital.Tables;
@@ -4930,36 +4737,15 @@ The values val... are given by parameters.</P>
         end LogicToReal;
 
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics={
-          Rectangle(
-            extent={{-100,-100},{80,50}},
-            fillColor={235,235,235},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Polygon(
-            points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}},
-            fillColor={235,235,235},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Polygon(
-            points={{100,70},{100,-80},{80,-100},{80,50},{100,70}},
-            fillColor={235,235,235},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Text(
-            extent={{-85,35},{65,-85}},
-            lineColor={0,0,255},
-            textString="Library"),
-          Text(
-            extent={{-120,122},{120,73}},
-            lineColor={255,0,0},
-            textString="%name")}),
+              -100},{100,100}}), graphics),
                                 Documentation(info="<html>
 <p>The Converter BooleanToLogic, LogicToBoolean, RealToLogic, and LogicTo Real components are not standard logic components. They were designed to easily convert from or to Boolean or Real valued signals. The LogicToX01, LogicToX01Z and LogicTo UX01 converters correspond to standard logic functions. They transform 9-valued logic to 3- or 4-valued logic.</p>
 </html>"));
       end Converters;
 
       package Registers "Registers with N-bit input data and output data"
+        extends Modelica.Icons.Package;
+
         model DFFR "Edge triggered register bank with reset"
           import D = Modelica.Electrical.Digital;
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
@@ -6821,7 +6607,8 @@ Clock transition definitions:
               textString="low active")}));
         end DLATREGSRL;
 
-    annotation (Documentation(info="<html>
+        annotation (Documentation(info=
+                                   "<html>
 <p>Registers is a collection of flipflops and latches. In the opposite to the Examples.Utilities models the Register models are a series of assignments in the algorithm part of the model. The model text is taken nearly identical from the standard logic text.</p>
 </html>"));
       end Registers;
@@ -6893,25 +6680,6 @@ Copyright &copy; 1998-2010, Modelica Association and Fraunhofer-Gesellschaft.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
-        Polygon(
-          points={{-100,-100},{-100,50},{80,50},{80,-100},{-100,-100}},
-          fillColor={235,235,235},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Polygon(
-          points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}},
-          fillColor={235,235,235},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Polygon(
-          points={{100,70},{100,-80},{80,-100},{80,50},{100,70}},
-          fillColor={235,235,235},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Text(
-          extent={{-120,122},{120,73}},
-          lineColor={255,0,0},
-          textString="%name"),
         Rectangle(
           extent={{-52,4},{-32,-36}},
           lineColor={0,0,0},
@@ -6947,10 +6715,6 @@ Copyright &copy; 1998-2010, Modelica Association and Fraunhofer-Gesellschaft.
         Text(
           extent={{28,-58},{8,-50}},
           lineColor={0,0,0},
-          textString="="),
-        Text(
-          extent={{-90,40},{70,10}},
-          lineColor={160,160,164},
-          textString="Library")}));
+          textString="=")}));
 end Digital;
 

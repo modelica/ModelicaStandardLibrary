@@ -1,7 +1,7 @@
 within Modelica.Electrical.Analog;
 package Interfaces
   "Connectors and partial models for Analog electrical components"
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.InterfacesPackage;
 
   connector Pin "Pin of an electrical component"
     Modelica.SIunits.Voltage v "Potential at the pin" annotation (

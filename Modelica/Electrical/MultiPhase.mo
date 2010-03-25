@@ -2,13 +2,13 @@ within Modelica.Electrical;
 
 
 package MultiPhase "Library for electrical components with 2, 3 or more phases"
-  extends Modelica.Icons.Library2;
+  extends Modelica.Icons.Package;
 
   package Examples "Multiphase test examples"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.ExamplesPackage;
 
     model TransformerYY "Test example with multiphase components"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       parameter Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage V=1 "Amplitude of Star-Voltage";
       parameter Modelica.SIunits.Frequency f=5 "Frequency";
@@ -100,7 +100,7 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
     end TransformerYY;
 
     model TransformerYD "Test example with multiphase components"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       parameter Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage V=1 "Amplitude of Star-Voltage";
       parameter Modelica.SIunits.Frequency f=5 "Frequency";
@@ -195,7 +195,7 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
     end TransformerYD;
 
     model Rectifier "Test example with multiphase components"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       parameter Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage V=1 "Amplitude of Star-Voltage";
       parameter Modelica.SIunits.Frequency f=5 "Frequency";
@@ -321,16 +321,11 @@ This package contains test examples of analog electrical multiphase circuits.
 </p>
 </dl>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}}), graphics={Ellipse(extent={{-60,12},{40,-88}},
-              lineColor={135,135,135}), Polygon(
-            points={{-30,-10},{-30,-66},{28,-38},{-30,-10}},
-            lineColor={135,135,135},
-            fillColor={135,135,135},
-            fillPattern=FillPattern.Solid)}));
+              {100,100}}), graphics));
   end Examples;
 
   package Basic "Basic components for electrical multiphase models"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.Package;
 
     model Star "Star-connection"
       parameter Integer m(final min=1) = 3 "Number of phases";
@@ -1209,7 +1204,7 @@ This package contains basic analog electrical multiphase components.
   end Basic;
 
   package Ideal "Multiphase components with idealized behaviour"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.Package;
 
     model IdealThyristor "Multiphase ideal thyristor"
       extends Interfaces.TwoPlug;
@@ -1989,7 +1984,7 @@ like thyristor, diode, switch, transformer.
   end Ideal;
 
   package Interfaces "Interfaces for electrical multiphase models"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.InterfacesPackage;
 
     connector Plug "Plug with m pins for an electric component"
       parameter Integer m(final min=1) = 3 "Number of phases";
@@ -2212,27 +2207,11 @@ electrical multiphase components, based on Modelica.Electrical.Analog.
 </p>
 </dl>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}}), graphics={
-          Ellipse(extent={{-60,10},{40,-90}}, lineColor={0,0,255}),
-          Ellipse(
-            extent={{-40,-14},{-20,-34}},
-            lineColor={0,0,255},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid),
-          Ellipse(
-            extent={{0,-14},{20,-34}},
-            lineColor={0,0,255},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid),
-          Ellipse(
-            extent={{-20,-54},{0,-74}},
-            lineColor={0,0,255},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid)}));
+              {100,100}}), graphics));
   end Interfaces;
 
   package Sensors "Multiphase potential, voltage and current Sensors"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.SensorsPackage;
 
     model PotentialSensor "Multiphase potential sensor"
       extends Modelica.Icons.RotationalSensor;
@@ -2512,32 +2491,11 @@ This package contains multiphase potential, voltage, and current sensors.
 </p>
 </dl>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}}), graphics={
-          Ellipse(
-            extent={{-60,10},{40,-90}},
-            lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-50,-16},{-36,-25}}, color={0,0,0}),
-          Line(points={{-35,0},{-25,-14}}, color={0,0,0}),
-          Line(points={{-10,7},{-10,-10}}, color={0,0,0}),
-          Line(points={{15,0},{5,-14}}, color={0,0,0}),
-          Line(points={{30,-15},{16,-25}}, color={0,0,0}),
-          Ellipse(
-            extent={{-15,-35},{-5,-45}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-10,-40},{-6,-26}}, color={0,0,0}),
-          Polygon(
-            points={{-12,-24},{-0.5,-27},{2,1.5},{-12,-24}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid)}));
+              {100,100}}), graphics));
   end Sensors;
 
   package Sources "Multiphase voltage and current sources"
-    extends Modelica.Icons.Library2;
+    extends Modelica.Icons.SourcesPackage;
 
     model SignalVoltage "Multiphase signal voltage source"
       parameter Integer m(min=1) = 3 "Number of phases";
@@ -2904,15 +2862,7 @@ This package contains time-dependend and controlled multiphase voltage and curre
 </p>
 </dl>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}}), graphics={
-          Line(points={{-100,-40},{-60,-40}}, color={0,0,255}),
-          Line(points={{-60,-40},{40,-40}}, color={0,0,255}),
-          Line(points={{40,-40},{80,-40}}, color={0,0,255}),
-          Ellipse(
-            extent={{-60,10},{40,-90}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid)}));
+              {100,100}}), graphics));
   end Sources;
   annotation (
      Documentation(info="<HTML>
