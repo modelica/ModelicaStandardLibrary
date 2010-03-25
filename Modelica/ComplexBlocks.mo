@@ -1,13 +1,14 @@
 within Modelica;
 package ComplexBlocks
   "Library of basic input/output control blocks with Complex signals"
-extends Modelica.Icons.Library2;
+extends Modelica.Icons.Package;
 
   package Examples
     "Library of examples to demonstrate the usage of package Blocks"
+    extends Modelica.Icons.ExamplesPackage;
 
     model TestConversionBlock "Test the conversion blocks"
-      extends Modelica.Icons.Example2;
+      extends Modelica.Icons.Example;
       Modelica.Blocks.Sources.Ramp len(duration=1, offset=1E-6)
         annotation (Placement(transformation(extent={{-80,10},{-60,30}}, rotation=0)));
       Modelica.Blocks.Sources.Ramp phi(height=4*Modelica.Constants.pi, duration=1)
@@ -41,7 +42,7 @@ Plotting the imaginary part versus the real part, you will see an Archimedean sp
 
   package Interfaces
     "Library of connectors and partial models for input/output blocks"
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.InterfacesPackage;
 
   connector ComplexInput = input Complex "'input Complex' as connector"
     annotation (defaultComponentName="u",
@@ -255,7 +256,7 @@ generated signal.
 
   package ComplexMath
     "Library of mathematical functions as input/output blocks"
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Package;
 
         block Gain "Output the product of a gain value with the input signal"
 
@@ -2044,7 +2045,7 @@ connected with continuous blocks or with sampled-data blocks.
   end ComplexMath;
 
   package Sources "Library of signal source blocks generating Complex signals"
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.SourcesPackage;
 
     block ComplexExpression
       "Set output signal to a time varying Complex expression"

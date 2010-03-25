@@ -293,7 +293,7 @@ end sort;
 <p>This library hosts the definition of functions working on vectors of Complex numbers.</p>
 </html>"));
 end Vectors;
-  extends Icons.Library2;
+  extends Modelica.Icons.Package;
 
   function sin "Sine of complex number"
     input Complex c1 "Complex number";
