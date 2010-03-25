@@ -1,11 +1,13 @@
 within ;
 package Modelica "Modelica Standard Library (Version 3.2)"
-extends Modelica.Icons.Library;
+extends Modelica.Icons.Package;
 
 
 package UsersGuide "User's Guide"
+  extends Modelica.Icons.Information;
 
 class Overview "Overview of Modelica Library"
+  extends Modelica.Icons.Information;
 
  annotation (Documentation(info="<html>
 <p>
@@ -187,6 +189,7 @@ Based on magnetic flux tubes concepts. Especially to model electro-magnetic actu
 end Overview;
 
 class Connectors "Connectors"
+  extends Modelica.Icons.Information;
 
  annotation (Documentation(info="<html>
 
@@ -364,6 +367,7 @@ a Plug connector, such as \"connect(resistor.p, plug.phase)\".
 end Connectors;
 
 class Conventions "Conventions"
+  extends Modelica.Icons.Information;
 
  annotation (Documentation(info="<html>
 
@@ -427,6 +431,7 @@ In the Modelica package the following conventions are used:
 end Conventions;
 
 class ParameterDefaults "Parameter defaults"
+  extends Modelica.Icons.Information;
 
  annotation (Documentation(info="<html>
 
@@ -524,8 +529,11 @@ instead of a warning.
 end ParameterDefaults;
 
 package ReleaseNotes "Release notes"
+  extends Modelica.Icons.ReleaseNotes;
 
 class VersionManagement "Version Management"
+  extends Modelica.Icons.ReleaseNotes;
+
       annotation (Documentation(info="<html>
 <p>
 Maintenance of the Modelica Standard Library is performed with
@@ -603,7 +611,7 @@ Incorporation of bug fixes (subversion \"commit\") shall be performed in the fol
              revisionId   = \"$I&#8203;d::                                       $\")</pre>
      The \"revisionId\" field is a bit special though. If written like in the example above it will be automatically
      expanded to:
-	<pre>             revisionId   = \"$I&#8203;d:: package.mo 2879 2009-08-28 07:40:19Z #$\"</pre>
+        <pre>             revisionId   = \"$I&#8203;d:: package.mo 2879 2009-08-28 07:40:19Z #$\"</pre>
      by the subversion checkout procedure.</li>
 <li> If time does not permit, a vendor makes the bug fix in its local version
          and then has to include it in the maintenance version. It would be best to make these
@@ -632,6 +640,7 @@ more of the following changes.
 end VersionManagement;
 
 class Version_3_1 "Version 3.1 (August 14, 2009)"
+  extends Modelica.Icons.ReleaseNotes;
 
    annotation (Documentation(info="<html>
 
@@ -929,6 +938,7 @@ units are wrong or errors in documentation):
 end Version_3_1;
 
 class Version_3_0_1 "Version 3.0.1 (Jan.27, 2009)"
+  extends Modelica.Icons.ReleaseNotes;
 
    annotation (Documentation(info="<html>
 
@@ -1211,6 +1221,7 @@ units are wrong or errors in documentation):
 end Version_3_0_1;
 
 class Version_3_0 "Version 3.0 (Feb., 2008)"
+  extends Modelica.Icons.ReleaseNotes;
 
    annotation (Documentation(info="<html>
 <p>
@@ -1976,6 +1987,7 @@ units are wrong or errors in documentation):
 end Version_3_0;
 
 class Version_2_2_2 "Version 2.2.2 (Aug. 31, 2007)"
+  extends Modelica.Icons.ReleaseNotes;
 
    annotation (Documentation(info="<html>
 <p>
@@ -2971,6 +2983,7 @@ units are wrong or errors in documentation):
 end Version_2_2_2;
 
 class Version_2_2_1 "Version 2.2.1 (March 24, 2006)"
+  extends Modelica.Icons.ReleaseNotes;
 
    annotation (Documentation(info="<html>
 
@@ -3349,6 +3362,7 @@ The following <b>errors</b> have been fixed:
 end Version_2_2_1;
 
 class Version_2_2 "Version 2.2 (April 6, 2005)"
+  extends Modelica.Icons.ReleaseNotes;
 
    annotation (Documentation(info="<html>
 
@@ -3413,6 +3427,7 @@ The following <b>changes</b> have been performed in the
 end Version_2_2;
 
 class Version_2_1 "Version 2.1 (Nov. 11, 2004)"
+  extends Modelica.Icons.ReleaseNotes;
 
    annotation (Documentation(info="<html>
 
@@ -3606,6 +3621,7 @@ Other changes:
 end Version_2_1;
 
 class Version_1_6 "Version 1.6 (June 21, 2004)"
+  extends Modelica.Icons.ReleaseNotes;
 
    annotation (Documentation(info="<html>
 
@@ -3685,6 +3701,7 @@ with not much computational effort.</p>
 end Version_1_6;
 
 class Version_1_5 "Version 1.5 (Dec. 16, 2002)"
+  extends Modelica.Icons.ReleaseNotes;
 
    annotation (Documentation(info="<html>
 
@@ -3890,6 +3907,7 @@ filled with white and not transparent any more.</p>
 end Version_1_5;
 
 class Version_1_4 "Version 1.4 (June 28, 2001)"
+  extends Modelica.Icons.ReleaseNotes;
 
 annotation (Documentation(info="<html>
 
@@ -3969,6 +3987,7 @@ main version number is not changed.
 end ReleaseNotes;
 
 class ModelicaLicense2 "Modelica License 2"
+  extends Modelica.Icons.Information;
 
   annotation (Documentation(info="<html>
 
@@ -4541,6 +4560,7 @@ printing and shipping costs may be recovered.</p>
 end ModelicaLicense2;
 
 class Contact "Contact"
+  extends Modelica.Icons.Contact;
 
  annotation (Documentation(info="<html>
 <dl><dt>The Modelica Standard Library (this Modelica package) is developed by many people from different organizations (see list below). It is licensed under the <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica License 2</a> by:</dt>
