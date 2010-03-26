@@ -7,12 +7,12 @@ package SinglePhase "Single phase AC components"
 
     model SeriesResonance "Series resonance circuit"
       extends Modelica.Icons.Example;
-      Modelica.Blocks.Sources.Constant V
+      Modelica.Blocks.Sources.Constant V 
         annotation (Placement(transformation(
             origin={-40,50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Blocks.Sources.Constant phi(k=0)
+      Modelica.Blocks.Sources.Constant phi(k=0) 
         annotation (Placement(transformation(
             origin={-80,50},
             extent={{-10,-10},{10,10}},
@@ -24,29 +24,29 @@ package SinglePhase "Single phase AC components"
             origin={-60,-50},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      QuasiStationary.SinglePhase.Sources.VariableVoltageSource voltageSource
+      QuasiStationary.SinglePhase.Sources.VariableVoltageSource voltageSource 
         annotation (Placement(transformation(
             origin={-30,-20},
             extent={{-10,10},{10,-10}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Basic.Ground ground
+      QuasiStationary.SinglePhase.Basic.Ground ground 
         annotation (Placement(transformation(extent={{-40,-60},{-20,-40}}, rotation=
                0)));
-      QuasiStationary.SinglePhase.Basic.Resistor resistor(R_ref=0.1)
+      QuasiStationary.SinglePhase.Basic.Resistor resistor(R_ref=0.1) 
         annotation (Placement(transformation(extent={{10,-10},{30,10}}, rotation=0)));
-      QuasiStationary.SinglePhase.Basic.Inductor inductor(L=1/(2*Modelica.Constants.pi))
+      QuasiStationary.SinglePhase.Basic.Inductor inductor(L=1/(2*Modelica.Constants.pi)) 
         annotation (Placement(transformation(extent={{40,-10},{60,10}}, rotation=0)));
-      QuasiStationary.SinglePhase.Basic.Capacitor capacitor(C=1/(2*Modelica.Constants.pi))
+      QuasiStationary.SinglePhase.Basic.Capacitor capacitor(C=1/(2*Modelica.Constants.pi)) 
         annotation (Placement(transformation(extent={{70,-10},{90,10}}, rotation=0)));
-      QuasiStationary.SinglePhase.Sensors.CurrentSensor currentSensor
+      QuasiStationary.SinglePhase.Sensors.CurrentSensor currentSensor 
                                           annotation (Placement(transformation(
               extent={{-20,10},{0,-10}}, rotation=0)));
-      Modelica.ComplexBlocks.ComplexMath.PolarToComplex polarToComplex
+      Modelica.ComplexBlocks.ComplexMath.PolarToComplex polarToComplex 
         annotation (Placement(transformation(
             origin={-60,10},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.ComplexBlocks.ComplexMath.ComplexToPolar complexToPolar
+      Modelica.ComplexBlocks.ComplexMath.ComplexToPolar complexToPolar 
         annotation (Placement(transformation(
             origin={-10,30},
             extent={{-10,-10},{10,10}},
@@ -61,13 +61,13 @@ package SinglePhase "Single phase AC components"
                                          color={85,170,255}));
       connect(voltageSource.pin_p, currentSensor.pin_p) annotation (Line(points={{-30,-10},
               {-30,0},{-20,0}},      color={85,170,255}));
-      connect(currentSensor.pin_n, resistor.pin_p)
+      connect(currentSensor.pin_n, resistor.pin_p) 
         annotation (Line(points={{0,0},{2.5,0},{2.5,-3.36456e-022},{5,-3.36456e-022},
               {5,0},{10,0}}, color={85,170,255}));
-      connect(resistor.pin_n, inductor.pin_p)
+      connect(resistor.pin_n, inductor.pin_p) 
         annotation (Line(points={{30,0},{32.5,0},{32.5,1.22125e-015},{35,1.22125e-015},
               {35,0},{40,0}}, color={85,170,255}));
-      connect(inductor.pin_n, capacitor.pin_p)
+      connect(inductor.pin_n, capacitor.pin_p) 
         annotation (Line(points={{60,0},{62.5,0},{62.5,1.22125e-015},{65,1.22125e-015},
               {65,0},{70,0}}, color={85,170,255}));
       connect(capacitor.pin_n, ground.pin) annotation (Line(points={{90,0},{90,-40},
@@ -92,12 +92,12 @@ Plot length and angle of the current phasor, i.e. complexToPolar.len and .phi, v
 
     model ParallelResonance "Parallel resonance circuit"
       extends Modelica.Icons.Example;
-      Modelica.Blocks.Sources.Constant I
+      Modelica.Blocks.Sources.Constant I 
         annotation (Placement(transformation(
             origin={-80,-50},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Modelica.Blocks.Sources.Constant phi(k=0)
+      Modelica.Blocks.Sources.Constant phi(k=0) 
         annotation (Placement(transformation(
             origin={-40,-50},
             extent={{-10,-10},{10,10}},
@@ -109,34 +109,34 @@ Plot length and angle of the current phasor, i.e. complexToPolar.len and .phi, v
             origin={-60,50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Sources.VariableCurrentSource currentSource
+      QuasiStationary.SinglePhase.Sources.VariableCurrentSource currentSource 
         annotation (Placement(transformation(
             origin={-30,20},
             extent={{10,10},{-10,-10}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Basic.Ground ground
+      QuasiStationary.SinglePhase.Basic.Ground ground 
         annotation (Placement(transformation(extent={{-40,-20},{-20,0}}, rotation=0)));
-      QuasiStationary.SinglePhase.Basic.Resistor resistor(R_ref=10)
+      QuasiStationary.SinglePhase.Basic.Resistor resistor(R_ref=10) 
         annotation (Placement(transformation(
             origin={-10,20},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Basic.Inductor inductor(L=1/(2*Modelica.Constants.pi))
+      QuasiStationary.SinglePhase.Basic.Inductor inductor(L=1/(2*Modelica.Constants.pi)) 
         annotation (Placement(transformation(
             origin={10,20},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Basic.Capacitor capacitor(C=1/(2*Modelica.Constants.pi))
+      QuasiStationary.SinglePhase.Basic.Capacitor capacitor(C=1/(2*Modelica.Constants.pi)) 
         annotation (Placement(transformation(
             origin={30,20},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Sensors.VoltageSensor voltageSensor
+      QuasiStationary.SinglePhase.Sensors.VoltageSensor voltageSensor 
         annotation (Placement(transformation(
             origin={50,20},
             extent={{10,-10},{-10,10}},
             rotation=90)));
-      Modelica.ComplexBlocks.ComplexMath.PolarToComplex polarToComplex
+      Modelica.ComplexBlocks.ComplexMath.PolarToComplex polarToComplex 
         annotation (Placement(transformation(
             origin={-60,-10},
             extent={{-10,-10},{10,10}},
@@ -198,43 +198,43 @@ Plot length and angle of the voltage phasor, i.e. complexToPolar.len and .phi, v
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-80,50})));
-      Basic.Resistor resistorQS(R_ref=50E-3)
+      Basic.Resistor resistorQS(R_ref=50E-3) 
         annotation (Placement(transformation(extent={{-72,50},{-52,70}})));
-      Sensors.CurrentSensor currentSensorQS
+      Sensors.CurrentSensor currentSensorQS 
         annotation (Placement(transformation(extent={{-40,70},{-20,50}})));
-      ComplexBlocks.ComplexMath.ComplexToPolar iQS
+      ComplexBlocks.ComplexMath.ComplexToPolar iQS 
         annotation (Placement(transformation(extent={{-20,70},{0,90}})));
-      Basic.Ground groundQS
+      Basic.Ground groundQS 
         annotation (Placement(transformation(extent={{-20,10},{0,30}})));
-      Utilities.IdealACDCConverter rectifierQS(conversionFactor=conversionFactor)
+      Utilities.IdealACDCConverter rectifierQS(conversionFactor=conversionFactor) 
         annotation (Placement(transformation(extent={{-10,40},{10,60}})));
-      Analog.Basic.Ground groundDC1
+      Analog.Basic.Ground groundDC1 
         annotation (Placement(transformation(extent={{0,10},{20,30}})));
-      Analog.Sensors.CurrentSensor iDC1
+      Analog.Sensors.CurrentSensor iDC1 
         annotation (Placement(transformation(extent={{20,70},{40,50}})));
       Analog.Basic.VariableConductor load1 annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={50,50})));
-      Analog.Sources.SineVoltage voltageAC(V=sqrt(2)*VAC, freqHz=50,phase=pi/2)
+      Analog.Sources.SineVoltage voltageAC(V=sqrt(2)*VAC, freqHz=50,phase=pi/2) 
         annotation (
           Placement(transformation(
             extent={{-10,10},{10,-10}},
             rotation=270,
             origin={-80,-50})));
-      Analog.Basic.Resistor resistorAC(R=50E-3)
+      Analog.Basic.Resistor resistorAC(R=50E-3) 
         annotation (Placement(transformation(extent={{-70,-50},{-50,-30}})));
-      Analog.Sensors.CurrentSensor currentSensorAC
+      Analog.Sensors.CurrentSensor currentSensorAC 
         annotation (Placement(transformation(extent={{-40,-30},{-20,-50}})));
-      Modelica.Blocks.Math.Harmonic iAC(f=50, k=1)
+      Modelica.Blocks.Math.Harmonic iAC(f=50, k=1) 
         annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
-      Analog.Basic.Ground groundAC
+      Analog.Basic.Ground groundAC 
         annotation (Placement(transformation(extent={{-20,-90},{0,-70}})));
-      Utilities.GraetzRectifier rectifierAC
+      Utilities.GraetzRectifier rectifierAC 
         annotation (Placement(transformation(extent={{-10,-60},{10,-40}})));
-      Analog.Sensors.CurrentSensor currentSensorDC2
+      Analog.Sensors.CurrentSensor currentSensorDC2 
         annotation (Placement(transformation(extent={{20,-30},{40,-50}})));
-      Modelica.Blocks.Math.RootMeanSquare iDC2(f=50)
+      Modelica.Blocks.Math.RootMeanSquare iDC2(f=50) 
         annotation (Placement(transformation(extent={{40,-30},{60,-10}})));
       Analog.Basic.VariableConductor load2 annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
@@ -242,7 +242,7 @@ Plot length and angle of the voltage phasor, i.e. complexToPolar.len and .phi, v
             origin={50,-50})));
       Blocks.Sources.Ramp ramp(height=1,
         duration=0.8,
-        startTime=0.1)
+        startTime=0.1) 
         annotation (Placement(transformation(extent={{100,-10},{80,10}})));
     equation
       connect(voltageQS.pin_p, resistorQS.pin_p) annotation (Line(
@@ -376,7 +376,7 @@ Examples to demonstrate the usage of quasistationary electric components.
 
     model Ground "Electrical ground"
 
-      Interfaces.PositivePin pin
+      Interfaces.PositivePin pin 
         annotation (Placement(transformation(extent={{-10,90},{10,110}}, rotation=0)));
     equation
       Connections.potentialRoot(pin.reference, 256);
@@ -617,7 +617,7 @@ The Inductance <i>L</i> is allowed to be positive, zero, or negative.
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
       Modelica.SIunits.Resistance R_actual
         "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
-      Modelica.Blocks.Interfaces.RealInput R_ref
+      Modelica.Blocks.Interfaces.RealInput R_ref 
         annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
@@ -691,7 +691,7 @@ A linear temperature dependency of the resistance for an enabled heat port is al
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
       Modelica.SIunits.Conductance G_actual
         "Conductance = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
-      Modelica.Blocks.Interfaces.RealInput G_ref
+      Modelica.Blocks.Interfaces.RealInput G_ref 
         annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
@@ -746,7 +746,7 @@ A linear temperature dependency of the resistance for an enabled heat port is al
     model VariableCapacitor "Singlephase variable capacitor"
       extends Interfaces.OnePort;
       import Modelica.Constants.j;
-      Modelica.Blocks.Interfaces.RealInput C
+      Modelica.Blocks.Interfaces.RealInput C 
         annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
@@ -798,7 +798,7 @@ The abstraction of a variable capacitor at quasi stationary operation assumes:<b
     model VariableInductor "Singlephase variable inductor"
       extends Interfaces.OnePort;
       import Modelica.Constants.j;
-      Modelica.Blocks.Interfaces.RealInput L
+      Modelica.Blocks.Interfaces.RealInput L 
         annotation (Placement(transformation(
             origin={0,108},
             extent={{-20,-20},{20,20}},
@@ -949,277 +949,6 @@ Quasi stationary theory for single phase circuits can be found in the
 </html>"));
   end Ideal;
 
-  package Interfaces "Interfaces for AC singlephase models"
-    extends Modelica.Icons.InterfacesPackage;
-
-    connector Pin "Basic connector"
-      Modelica.SIunits.ComplexVoltage v "Complex potential at the node";
-      flow Modelica.SIunits.ComplexCurrent i
-        "Complex current flowing into the pin";
-      annotation (Documentation(info="<html>
-<p>
-The potential of this connector is the complex voltage and the flow variable is the complex current.
-The <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">positive</a> and
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin\">negative pin</a> are
-derived from this base connector.
-</p>
-
-<h4>See also</h4>
-
-<p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">PositivePin</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin\">NegativePin</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Plug\">Plug</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug\">PositivePlug</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug\">NegativePlug</a>
-</p>
-
-</html>"));
-    end Pin;
-
-    connector PositivePin "Positive connector"
-      extends Pin;
-      QuasiStationary.Types.Reference reference "Reference";
-      annotation (Diagram(graphics={Text(
-              extent={{-100,100},{100,60}},
-              lineColor={0,0,255},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
-              textString=
-                   "%name"), Rectangle(
-              extent={{-40,40},{40,-40}},
-              lineColor={85,170,255},
-              fillColor={85,170,255},
-              fillPattern=FillPattern.Solid)}),
-                                Icon(graphics={Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={85,170,255},
-              fillColor={85,170,255},
-              fillPattern=FillPattern.Solid)}),
-      Documentation(info="<html>
-
-<p>
-The positive pin is based on <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Pin\">Pin</a>.
-Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angluar velocity of the quasi stationary voltage and current. The symbol is also designed such way to look different than the <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin\">negative pin</a>.
-</p>
-
-<h4>See also</h4>
-
-<p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Pin\">Pin</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin\">NegativePin</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Plug\">Plug</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug\">PositivePlug</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug\">NegativePlug</a>
-</p>
-</html>"));
-    end PositivePin;
-
-    connector NegativePin "Negative Connector"
-      extends Pin;
-      QuasiStationary.Types.Reference reference "Reference";
-      annotation (Diagram(graphics={Text(
-              extent={{-100,100},{100,60}},
-              lineColor={0,0,255},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
-              textString=
-                   "%name"), Rectangle(
-              extent={{-40,40},{40,-40}},
-              lineColor={85,170,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid)}),
-                                Icon(graphics={Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={85,170,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid)}),
-      Documentation(info="<html>
-
-<p>
-The negative pin is based on <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Pin\">Pin</a>.
-Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angluar velocity of the quasi stationary voltage and current. The symbol is also designed such way to look different than the <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">positive pin</a>.
-</p>
-
-<h4>See also</h4>
-
-<p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Pin\">Pin</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">PositivePin</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Plug\">Plug</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug\">PositivePlug</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug\">NegativePlug</a>
-</p>
-</html>"));
-    end NegativePin;
-
-    partial model TwoPin "Two pins"
-      Modelica.SIunits.ComplexVoltage v;
-      Modelica.SIunits.ComplexCurrent i;
-      Modelica.SIunits.AngularVelocity omega = der(pin_p.reference.gamma);
-      PositivePin pin_p "Positive pin"
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
-               0)));
-      NegativePin pin_n "Negative pin"
-        annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
-    equation
-      Connections.branch(pin_p.reference, pin_n.reference);
-      pin_p.reference.gamma = pin_n.reference.gamma;
-      i = pin_p.i;
-      v = pin_p.v - pin_n.v;
-      annotation (         Documentation(info="<html>
-<p>
-This partial model uses a <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">positive</a>
-and <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin\">negative pin</a> and defines the complex voltage difference as well as the complex current (into the positive pin). Additionally, the angular velocity of the quasi stationary system is explicitely defined as variable. This model is mainly intended to be used with graphical representation of user models.
-</p>
-
-<h4>See also</h4>
-
-<p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">PositivePin</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin\">NegativePin</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort\">OnePort</a>
-</p>
-</html>"));
-    end TwoPin;
-
-    partial model OnePort "Two pins, current through"
-      extends TwoPin;
-    equation
-      pin_p.i + pin_n.i = Complex(0);
-      annotation (         Documentation(info="<html>
-<p>
-This partial model is based on <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.TwoPin\">TwoPin</a> and
-additionally considers the complex current balance of the
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">positive</a> and the
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin\">negative pin</a>.
-This model is intended to be used with textual representation of user models.
-</p>
-
-<h4>See also</h4>
-
-<p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">PositivePin</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin\">NegativePin</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.TwoPin\">TwoPin</a>
-</p>
-</html>"));
-    end OnePort;
-
-    partial model AbsoluteSensor "Partial potential sensor"
-      extends Modelica.Icons.RotationalSensor;
-      Modelica.SIunits.AngularVelocity omega = der(pin.reference.gamma);
-      PositivePin pin "Pin"
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
-               0)));
-    equation
-      pin.i = Complex(0);
-      annotation (         Icon(graphics={
-            Line(points={{-70,0},{-94,0}}, color={0,0,0}),
-            Text(
-              extent={{-100,100},{100,70}},
-              lineColor={0,0,255},
-              pattern=LinePattern.None,
-              fillColor={170,85,255},
-              fillPattern=FillPattern.Solid,
-              textString=
-                   "%name"),
-            Line(points={{100,0},{70,0}},  color={0,0,0})}),
-      Documentation(info="<html>
-<p>
-The absolute sensor partial model provides a single
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">positive pin</a> to measure the complex voltage. Additionally this model contains a proper icon and a definition of the angular velocity.
-</p>
-
-<h4>See also</h4>
-
-<p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.RelativeSensor\">RelativeSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PotentialSensor\">PotentialSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.AbsoluteSensor\">MultiPhase.Interfaces.AbsoluteSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.RelativeSensor\">MultiPhase.Interfaces.RelativeSensor</a>
-</p>
-
-</html>"),
-        Diagram(graphics));
-    end AbsoluteSensor;
-
-    partial model RelativeSensor "Partial voltage / current sensor"
-      extends Modelica.Icons.RotationalSensor;
-      extends OnePort;
-      Modelica.ComplexBlocks.Interfaces.ComplexOutput y annotation (Placement(transformation(
-            origin={0,-110},
-            extent={{-10,-10},{10,10}},
-            rotation=270)));
-      annotation (         Icon(graphics={
-            Line(points={{-70,0},{-94,0}}, color={0,0,0}),
-            Line(points={{70,0},{94,0}}, color={0,0,0}),
-            Text(
-              extent={{-100,100},{100,70}},
-              lineColor={0,0,255},
-              pattern=LinePattern.None,
-              fillColor={170,85,255},
-              fillPattern=FillPattern.Solid,
-              textString=
-                   "%name"),
-            Line(points={{0,-70},{0,-80},{0,-90},{0,-100}}, color={85,170,255})}),
-      Documentation(info="<html>
-<p>
-The relative sensor partial model relies on the
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort\">OnePort</a> to measure the complex voltage, current or power. Additionally this model contains a proper icon and a definition of the angular velocity.
-</p>
-
-<h4>See also</h4>
-
-<p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.AbsoluteSensor\">AbsoluteSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.VoltageSensor\">VoltageSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.CurrentSensor\">CurrentSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PowerSensor\">PowerSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.AbsoluteSensor\">MultiPhase.Interfaces.AbsoluteSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.RelativeSensor\">MultiPhase.Interfaces.RelativeSensor</a>
-</p>
-
-</html>"));
-    end RelativeSensor;
-
-    partial model Source "Partial voltage / current source"
-      extends OnePort;
-    equation
-      Connections.root(pin_p.reference);
-      annotation (Icon(graphics={
-            Ellipse(
-              extent={{-50,50},{50,-50}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Text(extent={{100,-100},{-100,-60}}, textString=
-                                                   "%name",
-              lineColor={0,0,255}),
-            Line(points={{-90,0},{-50,0}}, color={0,0,0}),
-            Line(points={{50,0},{90,0}}, color={0,0,0})}),
-      Documentation(info="<html>
-<p>
-The source partial model relies on the
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort\">OnePort</a> and contains a proper icon.
-</p>
-
-<h4>See also</h4>
-
-<p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource\">VoltageSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.CurrentSource\">CurrentSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableCurrentSource\">VariableCurrentSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Source\">MultiPhase.Interfaces.Source</a>.
-</p>
-</html>"));
-    end Source;
-    annotation (Icon(graphics),                   Documentation(info="<html>
-<p>This package contains connector specifications and partial models for more complex components.</p>
-</html>"));
-  end Interfaces;
-
   package Sensors "AC singlephase sensors"
     extends Modelica.Icons.SensorsPackage;
 
@@ -1343,19 +1072,19 @@ This sensor can be used to measure the complex current.
 
     model PowerSensor "Power sensor"
       import Modelica.ComplexMath.conj;
-      Interfaces.PositivePin currentP
+      Interfaces.PositivePin currentP 
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
                0)));
-      Interfaces.NegativePin currentN
+      Interfaces.NegativePin currentN 
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
-      Interfaces.PositivePin voltageP
+      Interfaces.PositivePin voltageP 
         annotation (Placement(transformation(extent={{-10,90},{10,110}}, rotation=0)));
-      Interfaces.NegativePin voltageN
+      Interfaces.NegativePin voltageN 
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}}, rotation=
                0)));
       output Modelica.SIunits.ComplexCurrent i;
       output Modelica.SIunits.ComplexVoltage v;
-      Modelica.ComplexBlocks.Interfaces.ComplexOutput y
+      Modelica.ComplexBlocks.Interfaces.ComplexOutput y 
         annotation (Placement(transformation(
             origin={-80,-110},
             extent={{-10,-10},{10,10}},
@@ -1478,12 +1207,12 @@ This is a constant voltage source, specifying the complex voltage by the RMS vol
 
     model VariableVoltageSource "Variable AC voltage"
       extends Interfaces.Source;
-      Modelica.Blocks.Interfaces.RealInput f
+      Modelica.Blocks.Interfaces.RealInput f 
         annotation (Placement(transformation(
             origin={40,100},
             extent={{-20,-20},{20,20}},
             rotation=270)));
-      Modelica.ComplexBlocks.Interfaces.ComplexInput V
+      Modelica.ComplexBlocks.Interfaces.ComplexInput V 
         annotation (Placement(transformation(
             origin={-40,100},
             extent={{-20,-20},{20,20}},
@@ -1554,12 +1283,12 @@ This is a constant current source, specifying the complex current by the RMS cur
 
     model VariableCurrentSource "Variable AC current"
       extends Interfaces.Source;
-      Modelica.Blocks.Interfaces.RealInput f
+      Modelica.Blocks.Interfaces.RealInput f 
         annotation (Placement(transformation(
             origin={40,100},
             extent={{-20,-20},{20,20}},
             rotation=270)));
-      Modelica.ComplexBlocks.Interfaces.ComplexInput I
+      Modelica.ComplexBlocks.Interfaces.ComplexInput I 
         annotation (Placement(transformation(
             origin={-40,100},
             extent={{-20,-20},{20,20}},
@@ -1603,6 +1332,279 @@ Quasi stationary theory for single phase circuits can be found in the
 </html>"));
   end Sources;
 
+  package Interfaces "Interfaces for AC singlephase models"
+    extends Modelica.Icons.InterfacesPackage;
+
+    connector Pin "Basic connector"
+      Modelica.SIunits.ComplexVoltage v "Complex potential at the node";
+      flow Modelica.SIunits.ComplexCurrent i
+        "Complex current flowing into the pin";
+      annotation (Documentation(info="<html>
+<p>
+The potential of this connector is the complex voltage and the flow variable is the complex current.
+The <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">positive</a> and
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin\">negative pin</a> are
+derived from this base connector.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">PositivePin</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin\">NegativePin</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Plug\">Plug</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug\">PositivePlug</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug\">NegativePlug</a>
+</p>
+
+</html>"));
+    end Pin;
+
+    connector PositivePin "Positive connector"
+      extends Pin;
+      QuasiStationary.Types.Reference reference "Reference";
+      annotation (Diagram(graphics={Text(
+              extent={{-100,100},{100,60}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid,
+              textString=
+                   "%name"), Rectangle(
+              extent={{-40,40},{40,-40}},
+              lineColor={85,170,255},
+              fillColor={85,170,255},
+              fillPattern=FillPattern.Solid)}),
+                                Icon(graphics={Rectangle(
+              extent={{-100,100},{100,-100}},
+              lineColor={85,170,255},
+              fillColor={85,170,255},
+              fillPattern=FillPattern.Solid)}),
+      Documentation(info="<html>
+
+<p>
+The positive pin is based on <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Pin\">Pin</a>.
+Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angluar velocity of the quasi stationary voltage and current. The symbol is also designed such way to look different than the <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin\">negative pin</a>.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Pin\">Pin</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin\">NegativePin</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Plug\">Plug</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug\">PositivePlug</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug\">NegativePlug</a>
+</p>
+</html>"));
+    end PositivePin;
+
+    connector NegativePin "Negative Connector"
+      extends Pin;
+      QuasiStationary.Types.Reference reference "Reference";
+      annotation (Diagram(graphics={Text(
+              extent={{-100,100},{100,60}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid,
+              textString=
+                   "%name"), Rectangle(
+              extent={{-40,40},{40,-40}},
+              lineColor={85,170,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid)}),
+                                Icon(graphics={Rectangle(
+              extent={{-100,100},{100,-100}},
+              lineColor={85,170,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid)}),
+      Documentation(info="<html>
+
+<p>
+The negative pin is based on <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Pin\">Pin</a>.
+Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angluar velocity of the quasi stationary voltage and current. The symbol is also designed such way to look different than the <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">positive pin</a>.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Pin\">Pin</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">PositivePin</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Plug\">Plug</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug\">PositivePlug</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug\">NegativePlug</a>
+</p>
+</html>"));
+    end NegativePin;
+
+    partial model TwoPin "Two pins"
+      Modelica.SIunits.ComplexVoltage v;
+      Modelica.SIunits.ComplexCurrent i;
+      Modelica.SIunits.AngularVelocity omega = der(pin_p.reference.gamma);
+      PositivePin pin_p "Positive pin" 
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
+               0)));
+      NegativePin pin_n "Negative pin" 
+        annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
+    equation
+      Connections.branch(pin_p.reference, pin_n.reference);
+      pin_p.reference.gamma = pin_n.reference.gamma;
+      i = pin_p.i;
+      v = pin_p.v - pin_n.v;
+      annotation (         Documentation(info="<html>
+<p>
+This partial model uses a <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">positive</a>
+and <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin\">negative pin</a> and defines the complex voltage difference as well as the complex current (into the positive pin). Additionally, the angular velocity of the quasi stationary system is explicitely defined as variable. This model is mainly intended to be used with graphical representation of user models.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">PositivePin</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin\">NegativePin</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort\">OnePort</a>
+</p>
+</html>"));
+    end TwoPin;
+
+    partial model OnePort "Two pins, current through"
+      extends TwoPin;
+    equation
+      pin_p.i + pin_n.i = Complex(0);
+      annotation (         Documentation(info="<html>
+<p>
+This partial model is based on <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.TwoPin\">TwoPin</a> and
+additionally considers the complex current balance of the
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">positive</a> and the
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin\">negative pin</a>.
+This model is intended to be used with textual representation of user models.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">PositivePin</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin\">NegativePin</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.TwoPin\">TwoPin</a>
+</p>
+</html>"));
+    end OnePort;
+
+    partial model AbsoluteSensor "Partial potential sensor"
+      extends Modelica.Icons.RotationalSensor;
+      Modelica.SIunits.AngularVelocity omega = der(pin.reference.gamma);
+      PositivePin pin "Pin" 
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
+               0)));
+    equation
+      pin.i = Complex(0);
+      annotation (         Icon(graphics={
+            Line(points={{-70,0},{-94,0}}, color={0,0,0}),
+            Text(
+              extent={{-100,100},{100,70}},
+              lineColor={0,0,255},
+              pattern=LinePattern.None,
+              fillColor={170,85,255},
+              fillPattern=FillPattern.Solid,
+              textString=
+                   "%name"),
+            Line(points={{100,0},{70,0}},  color={0,0,0})}),
+      Documentation(info="<html>
+<p>
+The absolute sensor partial model provides a single
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">positive pin</a> to measure the complex voltage. Additionally this model contains a proper icon and a definition of the angular velocity.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.RelativeSensor\">RelativeSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PotentialSensor\">PotentialSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.AbsoluteSensor\">MultiPhase.Interfaces.AbsoluteSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.RelativeSensor\">MultiPhase.Interfaces.RelativeSensor</a>
+</p>
+
+</html>"),
+        Diagram(graphics));
+    end AbsoluteSensor;
+
+    partial model RelativeSensor "Partial voltage / current sensor"
+      extends Modelica.Icons.RotationalSensor;
+      extends OnePort;
+      Modelica.ComplexBlocks.Interfaces.ComplexOutput y annotation (Placement(transformation(
+            origin={0,-110},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      annotation (         Icon(graphics={
+            Line(points={{-70,0},{-94,0}}, color={0,0,0}),
+            Line(points={{70,0},{94,0}}, color={0,0,0}),
+            Text(
+              extent={{-100,100},{100,70}},
+              lineColor={0,0,255},
+              pattern=LinePattern.None,
+              fillColor={170,85,255},
+              fillPattern=FillPattern.Solid,
+              textString=
+                   "%name"),
+            Line(points={{0,-70},{0,-80},{0,-90},{0,-100}}, color={85,170,255})}),
+      Documentation(info="<html>
+<p>
+The relative sensor partial model relies on the
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort\">OnePort</a> to measure the complex voltage, current or power. Additionally this model contains a proper icon and a definition of the angular velocity.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.AbsoluteSensor\">AbsoluteSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.VoltageSensor\">VoltageSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.CurrentSensor\">CurrentSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PowerSensor\">PowerSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.AbsoluteSensor\">MultiPhase.Interfaces.AbsoluteSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.RelativeSensor\">MultiPhase.Interfaces.RelativeSensor</a>
+</p>
+
+</html>"));
+    end RelativeSensor;
+
+    partial model Source "Partial voltage / current source"
+      extends OnePort;
+    equation
+      Connections.root(pin_p.reference);
+      annotation (Icon(graphics={
+            Ellipse(
+              extent={{-50,50},{50,-50}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Text(extent={{100,-100},{-100,-60}}, textString=
+                                                   "%name",
+              lineColor={0,0,255}),
+            Line(points={{-90,0},{-50,0}}, color={0,0,0}),
+            Line(points={{50,0},{90,0}}, color={0,0,0})}),
+      Documentation(info="<html>
+<p>
+The source partial model relies on the
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort\">OnePort</a> and contains a proper icon.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource\">VoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.CurrentSource\">CurrentSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableCurrentSource\">VariableCurrentSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Source\">MultiPhase.Interfaces.Source</a>.
+</p>
+</html>"));
+    end Source;
+    annotation (Icon(graphics),                   Documentation(info="<html>
+<p>This package contains connector specifications and partial models for more complex components.</p>
+</html>"));
+  end Interfaces;
+
+
+
   package Utilities "Library with auxiliary models for testing"
     extends Modelica.Icons.Package;
     model IdealACDCConverter "Ideal AC DC converter"
@@ -1623,16 +1625,16 @@ Quasi stationary theory for single phase circuits can be found in the
       Modelica.SIunits.Voltage vDC = pin_pDC.v - pin_nDC.v "DC voltage";
       Modelica.SIunits.Current iDC = pin_pDC.i "DC current";
       Modelica.SIunits.Power pDC = vDC*iDC "DC power";
-      Interfaces.PositivePin pin_pQS
+      Interfaces.PositivePin pin_pQS 
         annotation (Placement(transformation(extent={{-110,110},{-90,90}}),
             iconTransformation(extent={{-110,110},{-90,90}})));
-      Interfaces.NegativePin pin_nQS
+      Interfaces.NegativePin pin_nQS 
         annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}),
             iconTransformation(extent={{-110,-110},{-90,-90}})));
-      Analog.Interfaces.PositivePin pin_pDC
+      Analog.Interfaces.PositivePin pin_pDC 
         annotation (Placement(transformation(extent={{90,110},{110,90}}),
             iconTransformation(extent={{90,110},{110,90}})));
-      Analog.Interfaces.NegativePin pin_nDC
+      Analog.Interfaces.NegativePin pin_nDC 
         annotation (Placement(transformation(extent={{90,-110},{110,-90}}),
             iconTransformation(extent={{90,-110},{110,-90}})));
     equation
@@ -1696,16 +1698,16 @@ At the DC side, only the mean of voltage and current are taken into account.
       Modelica.SIunits.Voltage vDC = pin_pDC.v - pin_nDC.v "DC voltage";
       Modelica.SIunits.Current iDC = pin_pDC.i "DC current";
       Modelica.SIunits.Power pDC = vDC*iDC "DC power";
-      Analog.Interfaces.PositivePin pin_pAC
+      Analog.Interfaces.PositivePin pin_pAC 
         annotation (Placement(transformation(extent={{-110,110},{-90,90}}),
             iconTransformation(extent={{-110,110},{-90,90}})));
-      Analog.Interfaces.NegativePin pin_nAC
+      Analog.Interfaces.NegativePin pin_nAC 
         annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}),
             iconTransformation(extent={{-110,-110},{-90,-90}})));
-      Analog.Interfaces.PositivePin pin_pDC
+      Analog.Interfaces.PositivePin pin_pDC 
         annotation (Placement(transformation(extent={{90,110},{110,90}}),
             iconTransformation(extent={{90,110},{110,90}})));
-      Analog.Interfaces.NegativePin pin_nDC
+      Analog.Interfaces.NegativePin pin_nDC 
         annotation (Placement(transformation(extent={{90,-110},{110,-90}}),
             iconTransformation(extent={{90,-110},{110,-90}})));
       Analog.Ideal.IdealDiode idealDiode1 annotation (Placement(transformation(
