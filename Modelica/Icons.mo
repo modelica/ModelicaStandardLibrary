@@ -129,6 +129,7 @@ package Icons "Library of icons"
 
   partial package ExamplesPackage
     "Icon for packages containing runnable examples"
+  //extends Modelica.Icons.Package;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={Rectangle(
             extent={{-80,100},{100,-80}},
@@ -181,6 +182,7 @@ package Icons "Library of icons"
   end Package;
 
   partial package BasesPackage "Icon for packages containing base classes"
+  //extends Modelica.Icons.Package;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={Rectangle(
             extent={{-80,100},{100,-80}},
@@ -202,6 +204,7 @@ package Icons "Library of icons"
   end BasesPackage;
 
   partial package VariantsPackage "Icon for package containing variants"
+  //extends Modelica.Icons.Package;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
               {100,100}}),       graphics={Rectangle(
             extent={{-80,100},{100,-80}},
@@ -238,6 +241,7 @@ package Icons "Library of icons"
   end VariantsPackage;
 
   partial package InterfacesPackage "Icon for packages containing interfaces"
+  //extends Modelica.Icons.Package;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={Rectangle(
             extent={{-80,100},{100,-80}},
@@ -268,6 +272,7 @@ package Icons "Library of icons"
   end InterfacesPackage;
 
   partial package SourcesPackage "Icon for packages containing sources"
+  //extends Modelica.Icons.Package;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={Rectangle(
             extent={{-80,100},{100,-80}},
@@ -294,6 +299,7 @@ package Icons "Library of icons"
   end SourcesPackage;
 
   partial package SensorsPackage "Icon for packages containing sensors"
+  //extends Modelica.Icons.Package;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={Rectangle(
             extent={{-80,100},{100,-80}},
@@ -408,6 +414,7 @@ This icon is designed for a <b>translational sensor</b> model.
 
   partial package MaterialPropertiesPackage
     "Icon for package containing property classes"
+  //extends Modelica.Icons.Package;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={Rectangle(
             extent={{-80,100},{100,-80}},
