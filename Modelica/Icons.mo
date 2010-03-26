@@ -127,7 +127,7 @@ package Icons "Library of icons"
 
   end References;
 
-  partial class ExamplesPackage
+  partial package ExamplesPackage
     "Icon for packages containing runnable examples"
   extends Package;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
@@ -156,7 +156,7 @@ package Icons "Library of icons"
 </html>"));
   end Example;
 
-  partial class Package "Icon for standard packages"
+  partial package Package "Icon for standard packages"
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={Rectangle(
@@ -173,7 +173,7 @@ package Icons "Library of icons"
 </html>"));
   end Package;
 
-  partial class BasesPackage "Icon for packages containing base classes"
+  partial package BasesPackage "Icon for packages containing base classes"
   extends Package;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={
@@ -187,7 +187,7 @@ package Icons "Library of icons"
 </html>"));
   end BasesPackage;
 
-  partial class VariantsPackage "Icon for package containing variants"
+  partial package VariantsPackage "Icon for package containing variants"
   extends Package;
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
@@ -217,7 +217,7 @@ package Icons "Library of icons"
 </html>"));
   end VariantsPackage;
 
-  partial class InterfacesPackage "Icon for packages containing interfaces"
+  partial package InterfacesPackage "Icon for packages containing interfaces"
   extends Package;
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
@@ -241,7 +241,7 @@ package Icons "Library of icons"
 </html>"));
   end InterfacesPackage;
 
-  partial class SourcesPackage "Icon for packages containing sources"
+  partial package SourcesPackage "Icon for packages containing sources"
   extends Package;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={
@@ -260,7 +260,7 @@ package Icons "Library of icons"
 </html>"));
   end SourcesPackage;
 
-  partial class SensorsPackage "Icon for packages containing sensors"
+  partial package SensorsPackage "Icon for packages containing sensors"
   extends Package;
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
@@ -367,7 +367,7 @@ This icon is designed for a <b>translational sensor</b> model.
 </p></html>"));
   end TranslationalSensor;
 
-  partial class MaterialPropertiesPackage
+  partial package MaterialPropertiesPackage
     "Icon for package containing property classes"
   extends Package;
 
@@ -737,7 +737,7 @@ corresponding library in a future release.
 </html>"));
   end ObsoleteModel;
 
-  partial class Library
+  partial package Library
     "This icon will be removed in future Modelica versions, use Package instead"
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
@@ -757,7 +757,7 @@ corresponding library in a future release.
 </html>"));
   end Library;
 
-  partial class Library2
+  partial package Library2
     "This icon will be removed in future Modelica versions, use Package instead"
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
