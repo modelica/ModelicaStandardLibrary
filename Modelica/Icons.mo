@@ -129,9 +129,16 @@ package Icons "Library of icons"
 
   partial package ExamplesPackage
     "Icon for packages containing runnable examples"
-  extends Package;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}), graphics={
+              -100},{100,100}}), graphics={Rectangle(
+            extent={{-80,100},{100,-80}},
+            lineColor={0,0,0},
+            fillColor={215,230,240},
+            fillPattern=FillPattern.Solid), Rectangle(
+            extent={{-100,80},{80,-100}},
+            lineColor={0,0,0},
+            fillColor={240,240,240},
+            fillPattern=FillPattern.Solid),
           Polygon(
             points={{-58,46},{42,-14},{-58,-74},{-58,46}},
             lineColor={0,0,255},
@@ -174,9 +181,16 @@ package Icons "Library of icons"
   end Package;
 
   partial package BasesPackage "Icon for packages containing base classes"
-  extends Package;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}), graphics={
+              -100},{100,100}}), graphics={Rectangle(
+            extent={{-80,100},{100,-80}},
+            lineColor={0,0,0},
+            fillColor={215,230,240},
+            fillPattern=FillPattern.Solid), Rectangle(
+            extent={{-100,80},{80,-100}},
+            lineColor={0,0,0},
+            fillColor={240,240,240},
+            fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-30,10},{10,-30}},
             lineColor={0,0,0},
@@ -188,10 +202,16 @@ package Icons "Library of icons"
   end BasesPackage;
 
   partial package VariantsPackage "Icon for package containing variants"
-  extends Package;
-
     annotation (Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-              {100,100}}),       graphics={
+              {100,100}}),       graphics={Rectangle(
+            extent={{-80,100},{100,-80}},
+            lineColor={0,0,0},
+            fillColor={215,230,240},
+            fillPattern=FillPattern.Solid), Rectangle(
+            extent={{-100,80},{80,-100}},
+            lineColor={0,0,0},
+            fillColor={240,240,240},
+            fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-80,-20},{-20,-80}},
             lineColor={0,0,0},
@@ -218,10 +238,16 @@ package Icons "Library of icons"
   end VariantsPackage;
 
   partial package InterfacesPackage "Icon for packages containing interfaces"
-  extends Package;
-
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}), graphics={
+              -100},{100,100}}), graphics={Rectangle(
+            extent={{-80,100},{100,-80}},
+            lineColor={0,0,0},
+            fillColor={215,230,240},
+            fillPattern=FillPattern.Solid), Rectangle(
+            extent={{-100,80},{80,-100}},
+            lineColor={0,0,0},
+            fillColor={240,240,240},
+            fillPattern=FillPattern.Solid),
           Polygon(
             points={{0,50},{20,50},{50,10},{80,10},{80,-30},{50,-30},{20,-70},{
                 0,-70},{0,50}},
@@ -242,9 +268,16 @@ package Icons "Library of icons"
   end InterfacesPackage;
 
   partial package SourcesPackage "Icon for packages containing sources"
-  extends Package;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}), graphics={
+              -100},{100,100}}), graphics={Rectangle(
+            extent={{-80,100},{100,-80}},
+            lineColor={0,0,0},
+            fillColor={215,230,240},
+            fillPattern=FillPattern.Solid), Rectangle(
+            extent={{-100,80},{80,-100}},
+            lineColor={0,0,0},
+            fillColor={240,240,240},
+            fillPattern=FillPattern.Solid),
           Polygon(
             points={{-28,12},{-28,-40},{36,-14},{-28,12}},
             lineColor={0,0,0},
@@ -261,10 +294,16 @@ package Icons "Library of icons"
   end SourcesPackage;
 
   partial package SensorsPackage "Icon for packages containing sensors"
-  extends Package;
-
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}), graphics={
+              -100},{100,100}}), graphics={Rectangle(
+            extent={{-80,100},{100,-80}},
+            lineColor={0,0,0},
+            fillColor={215,230,240},
+            fillPattern=FillPattern.Solid), Rectangle(
+            extent={{-100,80},{80,-100}},
+            lineColor={0,0,0},
+            fillColor={240,240,240},
+            fillPattern=FillPattern.Solid),
           Line(
             points={{-70,20},{50,20}},
             color={0,0,0},
@@ -369,10 +408,16 @@ This icon is designed for a <b>translational sensor</b> model.
 
   partial package MaterialPropertiesPackage
     "Icon for package containing property classes"
-  extends Package;
-
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}), graphics={
+              -100},{100,100}}), graphics={Rectangle(
+            extent={{-80,100},{100,-80}},
+            lineColor={0,0,0},
+            fillColor={215,230,240},
+            fillPattern=FillPattern.Solid), Rectangle(
+            extent={{-100,80},{80,-100}},
+            lineColor={0,0,0},
+            fillColor={240,240,240},
+            fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-68,50},{52,-70}},
             lineColor={0,0,0},
