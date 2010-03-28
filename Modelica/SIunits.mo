@@ -833,7 +833,7 @@ still kept in Modelica.SIunits.</p>
             extent={{-33,-7},{-92,-67}},
             lineColor={0,0,0},
             lineThickness=1,
-            textString="°C"),
+            textString="degC"),
           Text(
             extent={{82,-7},{22,-67}},
             lineColor={0,0,0},

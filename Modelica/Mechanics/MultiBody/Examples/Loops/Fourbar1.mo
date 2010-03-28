@@ -91,7 +91,7 @@ equation
       thickness=0.5));
   connect(j4.frame_b, j5.frame_a)
     annotation (Line(
-      points={{-12,70},{0,70},{0,80}},
+      points={{-12,70},{-5.55112e-16,70},{-5.55112e-16,80}},
       color={95,95,95},
       thickness=0.5));
   connect(j5.frame_b, b3.frame_b) annotation (Line(

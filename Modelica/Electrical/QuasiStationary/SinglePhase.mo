@@ -7,12 +7,12 @@ package SinglePhase "Single phase AC components"
 
     model SeriesResonance "Series resonance circuit"
       extends Modelica.Icons.Example;
-      Modelica.Blocks.Sources.Constant V 
+      Modelica.Blocks.Sources.Constant V
         annotation (Placement(transformation(
             origin={-40,50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Blocks.Sources.Constant phi(k=0) 
+      Modelica.Blocks.Sources.Constant phi(k=0)
         annotation (Placement(transformation(
             origin={-80,50},
             extent={{-10,-10},{10,10}},
@@ -24,29 +24,29 @@ package SinglePhase "Single phase AC components"
             origin={-60,-50},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      QuasiStationary.SinglePhase.Sources.VariableVoltageSource voltageSource 
+      QuasiStationary.SinglePhase.Sources.VariableVoltageSource voltageSource
         annotation (Placement(transformation(
             origin={-30,-20},
             extent={{-10,10},{10,-10}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Basic.Ground ground 
+      QuasiStationary.SinglePhase.Basic.Ground ground
         annotation (Placement(transformation(extent={{-40,-60},{-20,-40}}, rotation=
                0)));
-      QuasiStationary.SinglePhase.Basic.Resistor resistor(R_ref=0.1) 
+      QuasiStationary.SinglePhase.Basic.Resistor resistor(R_ref=0.1)
         annotation (Placement(transformation(extent={{10,-10},{30,10}}, rotation=0)));
-      QuasiStationary.SinglePhase.Basic.Inductor inductor(L=1/(2*Modelica.Constants.pi)) 
+      QuasiStationary.SinglePhase.Basic.Inductor inductor(L=1/(2*Modelica.Constants.pi))
         annotation (Placement(transformation(extent={{40,-10},{60,10}}, rotation=0)));
-      QuasiStationary.SinglePhase.Basic.Capacitor capacitor(C=1/(2*Modelica.Constants.pi)) 
+      QuasiStationary.SinglePhase.Basic.Capacitor capacitor(C=1/(2*Modelica.Constants.pi))
         annotation (Placement(transformation(extent={{70,-10},{90,10}}, rotation=0)));
-      QuasiStationary.SinglePhase.Sensors.CurrentSensor currentSensor 
+      QuasiStationary.SinglePhase.Sensors.CurrentSensor currentSensor
                                           annotation (Placement(transformation(
               extent={{-20,10},{0,-10}}, rotation=0)));
-      Modelica.ComplexBlocks.ComplexMath.PolarToComplex polarToComplex 
+      Modelica.ComplexBlocks.ComplexMath.PolarToComplex polarToComplex
         annotation (Placement(transformation(
             origin={-60,10},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.ComplexBlocks.ComplexMath.ComplexToPolar complexToPolar 
+      Modelica.ComplexBlocks.ComplexMath.ComplexToPolar complexToPolar
         annotation (Placement(transformation(
             origin={-10,30},
             extent={{-10,-10},{10,10}},
@@ -61,13 +61,13 @@ package SinglePhase "Single phase AC components"
                                          color={85,170,255}));
       connect(voltageSource.pin_p, currentSensor.pin_p) annotation (Line(points={{-30,-10},
               {-30,0},{-20,0}},      color={85,170,255}));
-      connect(currentSensor.pin_n, resistor.pin_p) 
+      connect(currentSensor.pin_n, resistor.pin_p)
         annotation (Line(points={{0,0},{2.5,0},{2.5,-3.36456e-022},{5,-3.36456e-022},
               {5,0},{10,0}}, color={85,170,255}));
-      connect(resistor.pin_n, inductor.pin_p) 
+      connect(resistor.pin_n, inductor.pin_p)
         annotation (Line(points={{30,0},{32.5,0},{32.5,1.22125e-015},{35,1.22125e-015},
               {35,0},{40,0}}, color={85,170,255}));
-      connect(inductor.pin_n, capacitor.pin_p) 
+      connect(inductor.pin_n, capacitor.pin_p)
         annotation (Line(points={{60,0},{62.5,0},{62.5,1.22125e-015},{65,1.22125e-015},
               {65,0},{70,0}}, color={85,170,255}));
       connect(capacitor.pin_n, ground.pin) annotation (Line(points={{90,0},{90,-40},
@@ -92,12 +92,12 @@ Plot length and angle of the current phasor, i.e. complexToPolar.len and .phi, v
 
     model ParallelResonance "Parallel resonance circuit"
       extends Modelica.Icons.Example;
-      Modelica.Blocks.Sources.Constant I 
+      Modelica.Blocks.Sources.Constant I
         annotation (Placement(transformation(
             origin={-80,-50},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Modelica.Blocks.Sources.Constant phi(k=0) 
+      Modelica.Blocks.Sources.Constant phi(k=0)
         annotation (Placement(transformation(
             origin={-40,-50},
             extent={{-10,-10},{10,10}},
@@ -109,34 +109,34 @@ Plot length and angle of the current phasor, i.e. complexToPolar.len and .phi, v
             origin={-60,50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Sources.VariableCurrentSource currentSource 
+      QuasiStationary.SinglePhase.Sources.VariableCurrentSource currentSource
         annotation (Placement(transformation(
             origin={-30,20},
             extent={{10,10},{-10,-10}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Basic.Ground ground 
+      QuasiStationary.SinglePhase.Basic.Ground ground
         annotation (Placement(transformation(extent={{-40,-20},{-20,0}}, rotation=0)));
-      QuasiStationary.SinglePhase.Basic.Resistor resistor(R_ref=10) 
+      QuasiStationary.SinglePhase.Basic.Resistor resistor(R_ref=10)
         annotation (Placement(transformation(
             origin={-10,20},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Basic.Inductor inductor(L=1/(2*Modelica.Constants.pi)) 
+      QuasiStationary.SinglePhase.Basic.Inductor inductor(L=1/(2*Modelica.Constants.pi))
         annotation (Placement(transformation(
             origin={10,20},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Basic.Capacitor capacitor(C=1/(2*Modelica.Constants.pi)) 
+      QuasiStationary.SinglePhase.Basic.Capacitor capacitor(C=1/(2*Modelica.Constants.pi))
         annotation (Placement(transformation(
             origin={30,20},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Sensors.VoltageSensor voltageSensor 
+      QuasiStationary.SinglePhase.Sensors.VoltageSensor voltageSensor
         annotation (Placement(transformation(
             origin={50,20},
             extent={{10,-10},{-10,10}},
             rotation=90)));
-      Modelica.ComplexBlocks.ComplexMath.PolarToComplex polarToComplex 
+      Modelica.ComplexBlocks.ComplexMath.PolarToComplex polarToComplex
         annotation (Placement(transformation(
             origin={-60,-10},
             extent={{-10,-10},{10,10}},
@@ -198,43 +198,43 @@ Plot length and angle of the voltage phasor, i.e. complexToPolar.len and .phi, v
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-80,50})));
-      Basic.Resistor resistorQS(R_ref=50E-3) 
+      Basic.Resistor resistorQS(R_ref=50E-3)
         annotation (Placement(transformation(extent={{-72,50},{-52,70}})));
-      Sensors.CurrentSensor currentSensorQS 
+      Sensors.CurrentSensor currentSensorQS
         annotation (Placement(transformation(extent={{-40,70},{-20,50}})));
-      ComplexBlocks.ComplexMath.ComplexToPolar iQS 
+      ComplexBlocks.ComplexMath.ComplexToPolar iQS
         annotation (Placement(transformation(extent={{-20,70},{0,90}})));
-      Basic.Ground groundQS 
+      Basic.Ground groundQS
         annotation (Placement(transformation(extent={{-20,10},{0,30}})));
-      Utilities.IdealACDCConverter rectifierQS(conversionFactor=conversionFactor) 
+      Utilities.IdealACDCConverter rectifierQS(conversionFactor=conversionFactor)
         annotation (Placement(transformation(extent={{-10,40},{10,60}})));
-      Analog.Basic.Ground groundDC1 
+      Analog.Basic.Ground groundDC1
         annotation (Placement(transformation(extent={{0,10},{20,30}})));
-      Analog.Sensors.CurrentSensor iDC1 
+      Analog.Sensors.CurrentSensor iDC1
         annotation (Placement(transformation(extent={{20,70},{40,50}})));
       Analog.Basic.VariableConductor load1 annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={50,50})));
-      Analog.Sources.SineVoltage voltageAC(V=sqrt(2)*VAC, freqHz=50,phase=pi/2) 
+      Analog.Sources.SineVoltage voltageAC(V=sqrt(2)*VAC, freqHz=50,phase=pi/2)
         annotation (
           Placement(transformation(
             extent={{-10,10},{10,-10}},
             rotation=270,
             origin={-80,-50})));
-      Analog.Basic.Resistor resistorAC(R=50E-3) 
+      Analog.Basic.Resistor resistorAC(R=50E-3)
         annotation (Placement(transformation(extent={{-70,-50},{-50,-30}})));
-      Analog.Sensors.CurrentSensor currentSensorAC 
+      Analog.Sensors.CurrentSensor currentSensorAC
         annotation (Placement(transformation(extent={{-40,-30},{-20,-50}})));
-      Modelica.Blocks.Math.Harmonic iAC(f=50, k=1) 
+      Modelica.Blocks.Math.Harmonic iAC(f=50, k=1)
         annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
-      Analog.Basic.Ground groundAC 
+      Analog.Basic.Ground groundAC
         annotation (Placement(transformation(extent={{-20,-90},{0,-70}})));
-      Utilities.GraetzRectifier rectifierAC 
+      Utilities.GraetzRectifier rectifierAC
         annotation (Placement(transformation(extent={{-10,-60},{10,-40}})));
-      Analog.Sensors.CurrentSensor currentSensorDC2 
+      Analog.Sensors.CurrentSensor currentSensorDC2
         annotation (Placement(transformation(extent={{20,-30},{40,-50}})));
-      Modelica.Blocks.Math.RootMeanSquare iDC2(f=50) 
+      Modelica.Blocks.Math.RootMeanSquare iDC2(f=50)
         annotation (Placement(transformation(extent={{40,-30},{60,-10}})));
       Analog.Basic.VariableConductor load2 annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
@@ -242,7 +242,7 @@ Plot length and angle of the voltage phasor, i.e. complexToPolar.len and .phi, v
             origin={50,-50})));
       Blocks.Sources.Ramp ramp(height=1,
         duration=0.8,
-        startTime=0.1) 
+        startTime=0.1)
         annotation (Placement(transformation(extent={{100,-10},{80,10}})));
     equation
       connect(voltageQS.pin_p, resistorQS.pin_p) annotation (Line(
@@ -376,7 +376,7 @@ Examples to demonstrate the usage of quasistationary electric components.
 
     model Ground "Electrical ground"
 
-      Interfaces.PositivePin pin 
+      Interfaces.PositivePin pin
         annotation (Placement(transformation(extent={{-10,90},{10,110}}, rotation=0)));
     equation
       Connections.potentialRoot(pin.reference, 256);
@@ -617,7 +617,7 @@ The Inductance <i>L</i> is allowed to be positive, zero, or negative.
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
       Modelica.SIunits.Resistance R_actual
         "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
-      Modelica.Blocks.Interfaces.RealInput R_ref 
+      Modelica.Blocks.Interfaces.RealInput R_ref
         annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
@@ -691,7 +691,7 @@ A linear temperature dependency of the resistance for an enabled heat port is al
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
       Modelica.SIunits.Conductance G_actual
         "Conductance = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
-      Modelica.Blocks.Interfaces.RealInput G_ref 
+      Modelica.Blocks.Interfaces.RealInput G_ref
         annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
@@ -746,7 +746,7 @@ A linear temperature dependency of the resistance for an enabled heat port is al
     model VariableCapacitor "Singlephase variable capacitor"
       extends Interfaces.OnePort;
       import Modelica.Constants.j;
-      Modelica.Blocks.Interfaces.RealInput C 
+      Modelica.Blocks.Interfaces.RealInput C
         annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
@@ -798,7 +798,7 @@ The abstraction of a variable capacitor at quasi stationary operation assumes:<b
     model VariableInductor "Singlephase variable inductor"
       extends Interfaces.OnePort;
       import Modelica.Constants.j;
-      Modelica.Blocks.Interfaces.RealInput L 
+      Modelica.Blocks.Interfaces.RealInput L
         annotation (Placement(transformation(
             origin={0,108},
             extent={{-20,-20},{20,20}},
@@ -1072,19 +1072,19 @@ This sensor can be used to measure the complex current.
 
     model PowerSensor "Power sensor"
       import Modelica.ComplexMath.conj;
-      Interfaces.PositivePin currentP 
+      Interfaces.PositivePin currentP
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
                0)));
-      Interfaces.NegativePin currentN 
+      Interfaces.NegativePin currentN
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
-      Interfaces.PositivePin voltageP 
+      Interfaces.PositivePin voltageP
         annotation (Placement(transformation(extent={{-10,90},{10,110}}, rotation=0)));
-      Interfaces.NegativePin voltageN 
+      Interfaces.NegativePin voltageN
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}}, rotation=
                0)));
       output Modelica.SIunits.ComplexCurrent i;
       output Modelica.SIunits.ComplexVoltage v;
-      Modelica.ComplexBlocks.Interfaces.ComplexOutput y 
+      Modelica.ComplexBlocks.Interfaces.ComplexOutput y
         annotation (Placement(transformation(
             origin={-80,-110},
             extent={{-10,-10},{10,10}},
@@ -1207,12 +1207,12 @@ This is a constant voltage source, specifying the complex voltage by the RMS vol
 
     model VariableVoltageSource "Variable AC voltage"
       extends Interfaces.Source;
-      Modelica.Blocks.Interfaces.RealInput f 
+      Modelica.Blocks.Interfaces.RealInput f
         annotation (Placement(transformation(
             origin={40,100},
             extent={{-20,-20},{20,20}},
             rotation=270)));
-      Modelica.ComplexBlocks.Interfaces.ComplexInput V 
+      Modelica.ComplexBlocks.Interfaces.ComplexInput V
         annotation (Placement(transformation(
             origin={-40,100},
             extent={{-20,-20},{20,20}},
@@ -1283,12 +1283,12 @@ This is a constant current source, specifying the complex current by the RMS cur
 
     model VariableCurrentSource "Variable AC current"
       extends Interfaces.Source;
-      Modelica.Blocks.Interfaces.RealInput f 
+      Modelica.Blocks.Interfaces.RealInput f
         annotation (Placement(transformation(
             origin={40,100},
             extent={{-20,-20},{20,20}},
             rotation=270)));
-      Modelica.ComplexBlocks.Interfaces.ComplexInput I 
+      Modelica.ComplexBlocks.Interfaces.ComplexInput I
         annotation (Placement(transformation(
             origin={-40,100},
             extent={{-20,-20},{20,20}},
@@ -1440,10 +1440,10 @@ Additionally the reference angle is specified in the connector. The time derivat
       Modelica.SIunits.ComplexVoltage v;
       Modelica.SIunits.ComplexCurrent i;
       Modelica.SIunits.AngularVelocity omega = der(pin_p.reference.gamma);
-      PositivePin pin_p "Positive pin" 
+      PositivePin pin_p "Positive pin"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
                0)));
-      NegativePin pin_n "Negative pin" 
+      NegativePin pin_n "Negative pin"
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
     equation
       Connections.branch(pin_p.reference, pin_n.reference);
@@ -1492,7 +1492,7 @@ This model is intended to be used with textual representation of user models.
     partial model AbsoluteSensor "Partial potential sensor"
       extends Modelica.Icons.RotationalSensor;
       Modelica.SIunits.AngularVelocity omega = der(pin.reference.gamma);
-      PositivePin pin "Pin" 
+      PositivePin pin "Pin"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
                0)));
     equation
@@ -1603,8 +1603,6 @@ The source partial model relies on the
 </html>"));
   end Interfaces;
 
-
-
   package Utilities "Library with auxiliary models for testing"
     extends Modelica.Icons.Package;
     model IdealACDCConverter "Ideal AC DC converter"
@@ -1625,16 +1623,16 @@ The source partial model relies on the
       Modelica.SIunits.Voltage vDC = pin_pDC.v - pin_nDC.v "DC voltage";
       Modelica.SIunits.Current iDC = pin_pDC.i "DC current";
       Modelica.SIunits.Power pDC = vDC*iDC "DC power";
-      Interfaces.PositivePin pin_pQS 
+      Interfaces.PositivePin pin_pQS
         annotation (Placement(transformation(extent={{-110,110},{-90,90}}),
             iconTransformation(extent={{-110,110},{-90,90}})));
-      Interfaces.NegativePin pin_nQS 
+      Interfaces.NegativePin pin_nQS
         annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}),
             iconTransformation(extent={{-110,-110},{-90,-90}})));
-      Analog.Interfaces.PositivePin pin_pDC 
+      Analog.Interfaces.PositivePin pin_pDC
         annotation (Placement(transformation(extent={{90,110},{110,90}}),
             iconTransformation(extent={{90,110},{110,90}})));
-      Analog.Interfaces.NegativePin pin_nDC 
+      Analog.Interfaces.NegativePin pin_nDC
         annotation (Placement(transformation(extent={{90,-110},{110,-90}}),
             iconTransformation(extent={{90,-110},{110,-90}})));
     equation
@@ -1698,16 +1696,16 @@ At the DC side, only the mean of voltage and current are taken into account.
       Modelica.SIunits.Voltage vDC = pin_pDC.v - pin_nDC.v "DC voltage";
       Modelica.SIunits.Current iDC = pin_pDC.i "DC current";
       Modelica.SIunits.Power pDC = vDC*iDC "DC power";
-      Analog.Interfaces.PositivePin pin_pAC 
+      Analog.Interfaces.PositivePin pin_pAC
         annotation (Placement(transformation(extent={{-110,110},{-90,90}}),
             iconTransformation(extent={{-110,110},{-90,90}})));
-      Analog.Interfaces.NegativePin pin_nAC 
+      Analog.Interfaces.NegativePin pin_nAC
         annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}),
             iconTransformation(extent={{-110,-110},{-90,-90}})));
-      Analog.Interfaces.PositivePin pin_pDC 
+      Analog.Interfaces.PositivePin pin_pDC
         annotation (Placement(transformation(extent={{90,110},{110,90}}),
             iconTransformation(extent={{90,110},{110,90}})));
-      Analog.Interfaces.NegativePin pin_nDC 
+      Analog.Interfaces.NegativePin pin_nDC
         annotation (Placement(transformation(extent={{90,-110},{110,-90}}),
             iconTransformation(extent={{90,-110},{110,-90}})));
       Analog.Ideal.IdealDiode idealDiode1 annotation (Placement(transformation(

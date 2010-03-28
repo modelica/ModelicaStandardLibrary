@@ -33,7 +33,7 @@ model Engine1b
         rotation=90)));
 equation
   connect(B1.frame_b, Rod1.frame_a) annotation (Line(
-      points={{60,-10},{70,-10},{70,0}},
+      points={{60,-10},{70,-10},{70,-5.55112e-16}},
       color={95,95,95},
       thickness=0.5));
   connect(Rod1.frame_b, B2.frame_b) annotation (Line(
@@ -61,7 +61,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(B1.frame_b, Rod2.frame_a) annotation (Line(
-      points={{60,-10},{120,-10},{120,0}},
+      points={{60,-10},{120,-10},{120,-5.55112e-16}},
       color={95,95,95},
       thickness=0.5));
   connect(Mid.frame_b, B1.frame_a) annotation (Line(

@@ -3,7 +3,6 @@ package Magnetic "Library of magnetic models"
 extends Modelica.Icons.Package;
 
 
-
 annotation (
   Documentation(info="<html>
 <p>

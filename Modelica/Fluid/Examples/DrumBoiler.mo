@@ -114,7 +114,8 @@ package DrumBoiler
     connect(levelSetPoint.y,feedback.u1)             annotation (Line(points={{
             -29.35,56.5},{-22,56.5},{-22,30},{-28,30}}, color={0,0,127}));
     connect(massFlowRate.m_flow, qm_S)
-      annotation (Line(points={{30,-9},{30,0},{104,0}}, color={0,0,127}));
+      annotation (Line(points={{30,-9},{30,8.32667e-17},{104,8.32667e-17}},
+                                                        color={0,0,127}));
     connect(evaporator.V, V_l)
       annotation (Line(points={{-26,-9},{-26,11},{-15,11},{-15,92},{104,92}},
           color={0,0,127}));
@@ -164,11 +165,6 @@ package DrumBoiler
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Rectangle(
-            extent={{-100,101},{100,-99}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
           Text(
             extent={{-151,165},{138,102}},
             lineColor={0,0,255},

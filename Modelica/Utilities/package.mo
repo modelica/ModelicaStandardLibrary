@@ -162,12 +162,6 @@ in Modelica that will allow to catch errors at a defined place.
 end UsersGuide;
 
 
-
-
-
-
-
-
     annotation (
 Documentation(info="<html>
 <p>
