@@ -1775,7 +1775,8 @@ is translated to Modelica:<br>
     import Modelica.SIunits;
 
     model M_PMOS "PMOS MOSFET device"
-      extends Repository.MOS( final mtype=1);
+      extends Modelica.Electrical.Spice3.Internal.MOS(
+                              final mtype=1);
     equation
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
@@ -1796,7 +1797,8 @@ is translated to Modelica:<br>
     end M_PMOS;
 
     model M_NMOS "NMOS MOSFET device"
-      extends Repository.MOS( final mtype=0);
+      extends Modelica.Electrical.Spice3.Internal.MOS(
+                              final mtype=0);
     equation
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
@@ -1817,7 +1819,7 @@ is translated to Modelica:<br>
     end M_NMOS;
 
     record ModelcardMOS "Record for the specification of modelcard parameters"
-      extends Repository.ModelcardMOS;
+      extends Modelica.Electrical.Spice3.Internal.ModelcardMOS;
       annotation (Documentation(info="<html>
 <p>Technology model parameters of MOSFET transistor with fixed level 1: Shichman-Hodges model</p>
 <p><br/>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g. the temperature of a whole electrical circuit.</p>
@@ -1825,7 +1827,8 @@ is translated to Modelica:<br>
     end ModelcardMOS;
 
     model Q_NPNBJT "Bipolar junction transistor"
-     extends Repository.BJT(mod(final TBJT=1));
+     extends Modelica.Electrical.Spice3.Internal.BJT(
+                            mod(final TBJT=1));
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Polygon(
@@ -1850,7 +1853,8 @@ is translated to Modelica:<br>
     end Q_NPNBJT;
 
     model Q_PNPBJT "Bipolar junction transistor"
-     extends Repository.BJT(mod(final TBJT=-1));
+     extends Modelica.Electrical.Spice3.Internal.BJT(
+                            mod(final TBJT=-1));
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Polygon(
@@ -1875,7 +1879,7 @@ is translated to Modelica:<br>
     end Q_PNPBJT;
 
     record ModelcardBJT "Record for the specification of modelcard parameters"
-      extends Repository.ModelcardBJT;
+      extends Modelica.Electrical.Spice3.Internal.ModelcardBJT;
       annotation (Documentation(info="<html>
 <p>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g. the temperature of a whole electrical circuit.</p>
 <p><br/>Technology parameters of the modified Gummel-Poon bipolar junction transistor model</p>
@@ -1883,7 +1887,7 @@ is translated to Modelica:<br>
     end ModelcardBJT;
 
    model D_DIODE "Diode model"
-     extends Repository.DIODE;
+     extends Modelica.Electrical.Spice3.Internal.DIODE;
 
      annotation (
        Icon(
@@ -1906,7 +1910,7 @@ is translated to Modelica:<br>
    end D_DIODE;
 
    record ModelcardDIODE "Record for the specification of modelcard parameters"
-     extends Repository.ModelcardDIODE;
+     extends Modelica.Electrical.Spice3.Internal.ModelcardDIODE;
       annotation (Documentation(info="<html>
 <p>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g. the temperature of a whole electrical circuit.</p>
 <p><br/>Technology parameters of the junction diode model</p>
@@ -1914,7 +1918,7 @@ is translated to Modelica:<br>
    end ModelcardDIODE;
 
     model R_Resistor "Semiconductor resistor from SPICE3"
-    extends Repository.R_SEMI;
+    extends Modelica.Electrical.Spice3.Internal.R_SEMI;
                     annotation (Placement(transformation(extent={{-110,-10},{
                 -90,10}}, rotation=0), iconTransformation(extent={{-100,0},{-80,
                 20}})),         Placement(transformation(extent={{110,-10},{90,
@@ -1935,7 +1939,7 @@ is translated to Modelica:<br>
 
     record ModelcardRESISTOR
       "Record for the specification of modelcard parameters"
-      extends Repository.ModelcardR;
+      extends Modelica.Electrical.Spice3.Internal.ModelcardR;
       annotation (Documentation(info="<html>
 <p>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g. the temperature of a whole electrical circuit.</p>
 <p><br/>Technology parameters of the semiconductor resistor model</p>
@@ -3396,7 +3400,7 @@ VN- -&GT; name.pc[N-1]
 </html>"));
   end Interfaces;
 
-  package Repository
+  package Internal
     "Collection of functions and records derived from the C++ Spice library"
     extends Modelica.Icons.Package;
 
@@ -3427,8 +3431,8 @@ VN- -&GT; name.pc[N-1]
         "Initial condition values, not implemented yet";
     parameter SI.Temp_C TEMP = 27 "Operating temperature of the device";
 
-    parameter Repository.ModelcardMOS modelcard "MOSFET modelcard" annotation(Evaluate=true);
-    Repository.SpiceConstants C "General constants of SPICE simulator";
+    parameter ModelcardMOS modelcard "MOSFET modelcard"            annotation(Evaluate=true);
+    SpiceConstants C "General constants of SPICE simulator";
     final parameter Mos1.Mos1ModelLineParams p = Mos1.mos1RenameParameters(modelcard, C)
         "Model line parameters"                                                                                  annotation(Evaluate=true);
     final parameter Mosfet.Mosfet m = Mos1.mos1RenameParametersDev(
@@ -4144,7 +4148,8 @@ VN- -&GT; name.pc[N-1]
     algorithm
       vp := Rsemiconductor.resistorInitEquations(rp, lp);
 
-      (vp.m_dConduct,vp.m_dCond_dTemp) := Spice3.Repository.Equation.resDepTemp(
+      (vp.m_dConduct,vp.m_dCond_dTemp) :=
+        Modelica.Electrical.Spice3.Internal.Functions.resDepTemp(
             vp.m_dResist,
             rp.m_dTemp,
             lp.m_dTnom,
@@ -4232,7 +4237,7 @@ VN- -&GT; name.pc[N-1]
 </html>"));
      end SpiceConstants;
 
-  package Equation "Equations for semiconductor calculation"
+  package Functions "Equations for semiconductor calculation"
     extends Modelica.Icons.Package;
 
       function energyGapDepTemp "Temperature dependency of energy gap"
@@ -4643,7 +4648,7 @@ VN- -&GT; name.pc[N-1]
       output Real charge;
 
     algorithm
-        (capout,charge) := Spice3.Repository.Equation.junctionCap(
+        (capout,charge) := junctionCap(
               capin,
               voltage,
               depcap,
@@ -4753,7 +4758,7 @@ VN- -&GT; name.pc[N-1]
       annotation (Documentation(info="<html>
 <p>The package Equation contains functions that are needed to model the semiconductor models. Some of these functions are used by several semiconductor models.</p>
 </html>"));
-  end Equation;
+  end Functions;
 
     package SpiceRoot "Basic records and functions"
       extends Modelica.Icons.Package;
@@ -5236,44 +5241,51 @@ VN- -&GT; name.pc[N-1]
 
         out_c.m_tSurfMob          := in_p.m_surfaceMobility / ratio4;
 
-        out_c.m_tPhi := Equation.junctionPotDepTemp(in_vp.m_phi, in_m.m_dTemp, in_p.m_tnom);
+        out_c.m_tPhi := Modelica.Electrical.Spice3.Internal.Functions.junctionPotDepTemp(
+                                                    in_vp.m_phi, in_m.m_dTemp, in_p.m_tnom);
 
         out_c.m_tVbi := in_vp.m_vt0 - in_m_type * (in_vp.m_gamma * sqrt(in_vp.m_phi)) +0.5  *
-                        (Equation.energyGapDepTemp( in_p.m_tnom) - Equation.energyGapDepTemp( in_m.m_dTemp))
+                        (Modelica.Electrical.Spice3.Internal.Functions.energyGapDepTemp(
+                                                    in_p.m_tnom) - Modelica.Electrical.Spice3.Internal.Functions.energyGapDepTemp(
+                                                                                              in_m.m_dTemp))
                         + in_m_type *0.5  * (out_c.m_tPhi - in_vp.m_phi);
         out_c.m_tVto := out_c.m_tVbi + in_m_type * in_vp.m_gamma * sqrt(out_c.m_tPhi);
 
-        out_c.m_tBulkPot := Equation.junctionPotDepTemp(in_p.m_bulkJctPotential,in_m.m_dTemp, in_p.m_tnom);
+        out_c.m_tBulkPot := Modelica.Electrical.Spice3.Internal.Functions.junctionPotDepTemp(
+                                                        in_p.m_bulkJctPotential,in_m.m_dTemp, in_p.m_tnom);
         out_c.m_tDepCap  := in_p.m_fwdCapDepCoeff * out_c.m_tBulkPot;
 
        if (in_p.m_jctSatCurDensity == 0.0 or in_m.m_sourceArea == 0.0 or in_m.m_drainArea == 0.0) then
-          out_c.m_tDrainSatCur  := Equation.saturationCurDepTempSPICE3MOSFET(
+          out_c.m_tDrainSatCur  := Modelica.Electrical.Spice3.Internal.Functions.saturationCurDepTempSPICE3MOSFET(
                                    in_p.m_jctSatCur, in_m.m_dTemp, in_p.m_tnom);
           out_c.m_tSourceSatCur := out_c.m_tDrainSatCur;
-          out_c.m_VBScrit       := Equation.junctionVCrit( in_m.m_dTemp, 1.0, out_c.m_tSourceSatCur);
+          out_c.m_VBScrit       := Modelica.Electrical.Spice3.Internal.Functions.junctionVCrit(
+                                                           in_m.m_dTemp, 1.0, out_c.m_tSourceSatCur);
           out_c.m_VBDcrit       := out_c.m_VBScrit;
         else
-          out_c.m_tSatCurDens   := Equation.saturationCurDepTempSPICE3MOSFET(
+          out_c.m_tSatCurDens   := Modelica.Electrical.Spice3.Internal.Functions.saturationCurDepTempSPICE3MOSFET(
                                    in_p.m_jctSatCurDensity, in_m.m_dTemp,in_p.m_tnom);
           out_c.m_tDrainSatCur  := out_c.m_tSatCurDens * in_m.m_drainArea;
           out_c.m_tSourceSatCur := out_c.m_tSatCurDens * in_m.m_sourceArea;
-          out_c.m_VBScrit       := Equation.junctionVCrit( in_m.m_dTemp, 1.0, out_c.m_tSourceSatCur);
-          out_c.m_VBDcrit       := Equation.junctionVCrit( in_m.m_dTemp, 1.0, out_c.m_tDrainSatCur);
+          out_c.m_VBScrit       := Modelica.Electrical.Spice3.Internal.Functions.junctionVCrit(
+                                                           in_m.m_dTemp, 1.0, out_c.m_tSourceSatCur);
+          out_c.m_VBDcrit       := Modelica.Electrical.Spice3.Internal.Functions.junctionVCrit(
+                                                           in_m.m_dTemp, 1.0, out_c.m_tDrainSatCur);
         end if;
 
         if ( not (in_p.m_capBDIsGiven > 0.5) or not (in_p.m_capBSIsGiven > 0.5)) then
-          (out_c.m_tCj)   := Equation.junctionParamDepTempSPICE3(
+          (out_c.m_tCj)   := Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3(
                                     in_p.m_bulkJctPotential, in_p.m_bulkCapFactor,
                                     in_p.m_bulkJctBotGradingCoeff, in_m.m_dTemp, in_p.m_tnom);
-          (out_c.m_tCjsw) := Equation.junctionParamDepTempSPICE3(
+          (out_c.m_tCjsw) := Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3(
                                     in_p.m_bulkJctPotential, in_p.m_sideWallCapFactor,
                                     in_p.m_bulkJctSideGradingCoeff, in_m.m_dTemp, in_p.m_tnom);
-          (out_c.m_f1s, out_c.m_f2s, out_c.m_f3s) := Equation.junctionCapCoeffs(
+          (out_c.m_f1s, out_c.m_f2s, out_c.m_f3s) := Modelica.Electrical.Spice3.Internal.Functions.junctionCapCoeffs(
                                     in_p.m_bulkJctSideGradingCoeff, in_p.m_fwdCapDepCoeff, out_c.m_tBulkPot);
         end if;
 
         if (in_p.m_capBDIsGiven > 0.5) then
-          (out_c.m_tCBDb) := Equation.junctionParamDepTempSPICE3(
+          (out_c.m_tCBDb) := Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3(
                                     in_p.m_bulkJctPotential, in_p.m_capBD,
                                     in_p.m_bulkJctBotGradingCoeff, in_m.m_dTemp, in_p.m_tnom);
           out_c.m_tCBDs          := 0.0;
@@ -5283,7 +5295,7 @@ VN- -&GT; name.pc[N-1]
         end if;
 
         if (in_p.m_capBSIsGiven > 0.5) then
-          (out_c.m_tCBSb) := Equation.junctionParamDepTempSPICE3(
+          (out_c.m_tCBSb) := Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3(
                                     in_p.m_bulkJctPotential, in_p.m_capBS,
                                     in_p.m_bulkJctBotGradingCoeff, in_m.m_dTemp, in_p.m_tnom);
           out_c.m_tCBSs          := 0.0;
@@ -5291,7 +5303,7 @@ VN- -&GT; name.pc[N-1]
           out_c.m_tCBSb := out_c.m_tCj * in_m.m_sourceArea;
           out_c.m_tCBSs := out_c.m_tCjsw * in_m.m_sourcePerimiter;
         end if;
-         (out_c.m_f1b, out_c.m_f2b, out_c.m_f3b) := Equation.junctionCapCoeffs(
+         (out_c.m_f1b, out_c.m_f2b, out_c.m_f3b) := Modelica.Electrical.Spice3.Internal.Functions.junctionCapCoeffs(
                                                     in_p.m_bulkJctBotGradingCoeff,
                                                     in_p.m_fwdCapDepCoeff, out_c.m_tBulkPot);
         out_c.m_dVt   := in_m.m_dTemp * SpiceRoot.SPICEcircuitCONST.CONSTKoverQ;
@@ -5363,10 +5375,12 @@ VN- -&GT; name.pc[N-1]
 
         vgb := int_c.m_vgs - int_c.m_vbs;
 
-         (int_c.m_cbd, int_c.m_gbd) := Equation.junction2SPICE3MOSFET( int_c.m_cbd, int_c.m_gbd, vbd,
+         (int_c.m_cbd, int_c.m_gbd) := Modelica.Electrical.Spice3.Internal.Functions.junction2SPICE3MOSFET(
+                                                                       int_c.m_cbd, int_c.m_gbd, vbd,
                                        in_m.m_dTemp, 1., int_c.m_tDrainSatCur);
          out_cc.iBD                 := in_m_type * int_c.m_cbd;
-         (int_c.m_cbs, int_c.m_gbs) := Equation.junction2SPICE3MOSFET( int_c.m_cbs, int_c.m_gbs, int_c.m_vbs,
+         (int_c.m_cbs, int_c.m_gbs) := Modelica.Electrical.Spice3.Internal.Functions.junction2SPICE3MOSFET(
+                                                                       int_c.m_cbs, int_c.m_gbs, int_c.m_vbs,
                                        in_m.m_dTemp, 1., int_c.m_tSourceSatCur);
          out_cc.iBS                 := in_m_type * int_c.m_cbs;
 
@@ -5388,25 +5402,25 @@ VN- -&GT; name.pc[N-1]
         int_c.m_chargebss := 0.0;
         int_c.m_capbds    := 0.0;
         int_c.m_chargebds := 0.0;
-        (int_c.m_capbsb, int_c.m_chargebsb) := Equation.junctionCap(
+        (int_c.m_capbsb, int_c.m_chargebsb) := Modelica.Electrical.Spice3.Internal.Functions.junctionCap(
                int_c.m_tCBSb, int_c.m_vbs, int_c.m_tDepCap,
                in_p.m_bulkJctBotGradingCoeff, int_c.m_tBulkPot,
                int_c.m_f1b, int_c.m_f2b, int_c.m_f3b);
 
-        (int_c.m_capbdb, int_c.m_chargebdb) := Equation.junctionCap(
+        (int_c.m_capbdb, int_c.m_chargebdb) := Modelica.Electrical.Spice3.Internal.Functions.junctionCap(
                int_c.m_tCBDb, vbd, int_c.m_tDepCap,
                in_p.m_bulkJctBotGradingCoeff, int_c.m_tBulkPot,
                int_c.m_f1b, int_c.m_f2b, int_c.m_f3b);
 
         if ( not (in_p.m_capBSIsGiven > 0.5)) then
-          (int_c.m_capbss, int_c.m_chargebss) := Equation.junctionCap(
+          (int_c.m_capbss, int_c.m_chargebss) := Modelica.Electrical.Spice3.Internal.Functions.junctionCap(
                int_c.m_tCBSs,int_c. m_vbs, int_c.m_tDepCap,
                in_p.m_bulkJctSideGradingCoeff, int_c.m_tBulkPot,
                int_c.m_f1s, int_c.m_f2s, int_c.m_f3s);
         end if;
 
         if (not (in_p.m_capBDIsGiven > 0.5)) then
-          (int_c.m_capbds, int_c.m_chargebds) := Equation.junctionCap(
+          (int_c.m_capbds, int_c.m_chargebds) := Modelica.Electrical.Spice3.Internal.Functions.junctionCap(
                int_c.m_tCBDs, vbd, int_c.m_tDepCap,
                in_p.m_bulkJctSideGradingCoeff, int_c.m_tBulkPot,
                int_c.m_f1s, int_c.m_f2s, int_c.m_f3s);
@@ -5568,44 +5582,51 @@ VN- -&GT; name.pc[N-1]
 
         out_c.m_tSurfMob          := in_p.m_surfaceMobility / ratio4;
 
-        out_c.m_tPhi := Equation.junctionPotDepTemp(in_vp.m_phi, in_m.m_dTemp, in_p.m_tnom);
+        out_c.m_tPhi := Modelica.Electrical.Spice3.Internal.Functions.junctionPotDepTemp(
+                                                    in_vp.m_phi, in_m.m_dTemp, in_p.m_tnom);
 
         out_c.m_tVbi := in_vp.m_vt0 - in_m_type * (in_vp.m_gamma * sqrt(in_vp.m_phi)) +0.5  *
-                        (Equation.energyGapDepTemp( in_p.m_tnom) - Equation.energyGapDepTemp( in_m.m_dTemp))
+                        (Modelica.Electrical.Spice3.Internal.Functions.energyGapDepTemp(
+                                                    in_p.m_tnom) - Modelica.Electrical.Spice3.Internal.Functions.energyGapDepTemp(
+                                                                                              in_m.m_dTemp))
                         + in_m_type *0.5  * (out_c.m_tPhi - in_vp.m_phi);
         out_c.m_tVto := out_c.m_tVbi + in_m_type * in_vp.m_gamma * sqrt(out_c.m_tPhi);
 
-        out_c.m_tBulkPot := Equation.junctionPotDepTemp(in_p.m_bulkJctPotential,in_m.m_dTemp, in_p.m_tnom);
+        out_c.m_tBulkPot := Modelica.Electrical.Spice3.Internal.Functions.junctionPotDepTemp(
+                                                        in_p.m_bulkJctPotential,in_m.m_dTemp, in_p.m_tnom);
         out_c.m_tDepCap  := in_p.m_fwdCapDepCoeff * out_c.m_tBulkPot;
 
         if (in_p.m_jctSatCurDensity == 0.0 or in_m.m_sourceArea == 0.0 or in_m.m_drainArea == 0.0) then
-          out_c.m_tDrainSatCur  := Equation.saturationCurDepTempSPICE3MOSFET(
+          out_c.m_tDrainSatCur  := Modelica.Electrical.Spice3.Internal.Functions.saturationCurDepTempSPICE3MOSFET(
                                    in_p.m_jctSatCur, in_m.m_dTemp, in_p.m_tnom);
           out_c.m_tSourceSatCur := out_c.m_tDrainSatCur;
-          out_c.m_VBScrit       := Equation.junctionVCrit( in_m.m_dTemp, 1.0, out_c.m_tSourceSatCur);
+          out_c.m_VBScrit       := Modelica.Electrical.Spice3.Internal.Functions.junctionVCrit(
+                                                           in_m.m_dTemp, 1.0, out_c.m_tSourceSatCur);
           out_c.m_VBDcrit       := out_c.m_VBScrit;
         else
-          out_c.m_tSatCurDens   := Equation.saturationCurDepTempSPICE3MOSFET(
+          out_c.m_tSatCurDens   := Modelica.Electrical.Spice3.Internal.Functions.saturationCurDepTempSPICE3MOSFET(
                                    in_p.m_jctSatCurDensity, in_m.m_dTemp,in_p.m_tnom);
           out_c.m_tDrainSatCur  := out_c.m_tSatCurDens * in_m.m_drainArea;
           out_c.m_tSourceSatCur := out_c.m_tSatCurDens * in_m.m_sourceArea;
-          out_c.m_VBScrit       := Equation.junctionVCrit( in_m.m_dTemp, 1.0, out_c.m_tSourceSatCur);
-          out_c.m_VBDcrit       := Equation.junctionVCrit( in_m.m_dTemp, 1.0, out_c.m_tDrainSatCur);
+          out_c.m_VBScrit       := Modelica.Electrical.Spice3.Internal.Functions.junctionVCrit(
+                                                           in_m.m_dTemp, 1.0, out_c.m_tSourceSatCur);
+          out_c.m_VBDcrit       := Modelica.Electrical.Spice3.Internal.Functions.junctionVCrit(
+                                                           in_m.m_dTemp, 1.0, out_c.m_tDrainSatCur);
         end if;
 
         if ( not (in_p.m_capBDIsGiven > 0.5) or not (in_p.m_capBSIsGiven > 0.5)) then
-          (out_c.m_tCj)   := Equation.junctionParamDepTempSPICE3(
+          (out_c.m_tCj)   := Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3(
                                     in_p.m_bulkJctPotential, in_p.m_bulkCapFactor,
                                     in_p.m_bulkJctBotGradingCoeff, in_m.m_dTemp, in_p.m_tnom);
-          (out_c.m_tCjsw) := Equation.junctionParamDepTempSPICE3(
+          (out_c.m_tCjsw) := Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3(
                                     in_p.m_bulkJctPotential, in_p.m_sideWallCapFactor,
                                     in_p.m_bulkJctSideGradingCoeff, in_m.m_dTemp, in_p.m_tnom);
-          (out_c.m_f1s, out_c.m_f2s, out_c.m_f3s) := Equation.junctionCapCoeffs(
+          (out_c.m_f1s, out_c.m_f2s, out_c.m_f3s) := Modelica.Electrical.Spice3.Internal.Functions.junctionCapCoeffs(
                                     in_p.m_bulkJctSideGradingCoeff, in_p.m_fwdCapDepCoeff, out_c.m_tBulkPot);
         end if;
 
         if (in_p.m_capBDIsGiven > 0.5) then
-          (out_c.m_tCBDb) := Equation.junctionParamDepTempSPICE3(
+          (out_c.m_tCBDb) := Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3(
                                     in_p.m_bulkJctPotential, in_p.m_capBD,
                                     in_p.m_bulkJctBotGradingCoeff, in_m.m_dTemp, in_p.m_tnom);
           out_c.m_tCBDs          := 0.0;
@@ -5615,7 +5636,7 @@ VN- -&GT; name.pc[N-1]
         end if;
 
         if (in_p.m_capBSIsGiven > 0.5) then
-          (out_c.m_tCBSb) := Equation.junctionParamDepTempSPICE3(
+          (out_c.m_tCBSb) := Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3(
                                     in_p.m_bulkJctPotential, in_p.m_capBS,
                                     in_p.m_bulkJctBotGradingCoeff, in_m.m_dTemp, in_p.m_tnom);
           out_c.m_tCBSs          := 0.0;
@@ -5623,7 +5644,7 @@ VN- -&GT; name.pc[N-1]
           out_c.m_tCBSb := out_c.m_tCj * in_m.m_sourceArea;
           out_c.m_tCBSs := out_c.m_tCjsw * in_m.m_sourcePerimiter;
         end if;
-         (out_c.m_f1b, out_c.m_f2b, out_c.m_f3b) := Equation.junctionCapCoeffs(
+         (out_c.m_f1b, out_c.m_f2b, out_c.m_f3b) := Modelica.Electrical.Spice3.Internal.Functions.junctionCapCoeffs(
                                                     in_p.m_bulkJctBotGradingCoeff,
                                                     in_p.m_fwdCapDepCoeff, out_c.m_tBulkPot);
         out_c.m_dVt   := in_m.m_dTemp * SpiceRoot.SPICEcircuitCONST.CONSTKoverQ;
@@ -5706,10 +5727,12 @@ VN- -&GT; name.pc[N-1]
 
         vgb := int_c.m_vgs - int_c.m_vbs;
 
-         (int_c.m_cbd, int_c.m_gbd) := Equation.junction2SPICE3MOSFET( int_c.m_cbd, int_c.m_gbd, vbd,
+         (int_c.m_cbd, int_c.m_gbd) := Modelica.Electrical.Spice3.Internal.Functions.junction2SPICE3MOSFET(
+                                                                       int_c.m_cbd, int_c.m_gbd, vbd,
                                        in_m.m_dTemp, 1., int_c.m_tDrainSatCur);
          out_cc.iBD                 := in_m_type * int_c.m_cbd;
-         (int_c.m_cbs, int_c.m_gbs) := Equation.junction2SPICE3MOSFET( int_c.m_cbs, int_c.m_gbs, int_c.m_vbs,
+         (int_c.m_cbs, int_c.m_gbs) := Modelica.Electrical.Spice3.Internal.Functions.junction2SPICE3MOSFET(
+                                                                       int_c.m_cbs, int_c.m_gbs, int_c.m_vbs,
                                        in_m.m_dTemp, 1., int_c.m_tSourceSatCur);
          out_cc.iBS                 := in_m_type * int_c.m_cbs;
 
@@ -5731,25 +5754,25 @@ VN- -&GT; name.pc[N-1]
         int_c.m_chargebss := 0.0;
         int_c.m_capbds    := 0.0;
         int_c.m_chargebds := 0.0;
-        (int_c.m_capbsb, int_c.m_chargebsb) := Equation.junctionCap(
+        (int_c.m_capbsb, int_c.m_chargebsb) := Modelica.Electrical.Spice3.Internal.Functions.junctionCap(
                int_c.m_tCBSb, int_c.m_vbs, int_c.m_tDepCap,
                in_p.m_bulkJctBotGradingCoeff, int_c.m_tBulkPot,
                int_c.m_f1b, int_c.m_f2b, int_c.m_f3b);
 
-        (int_c.m_capbdb, int_c.m_chargebdb) := Equation.junctionCap(
+        (int_c.m_capbdb, int_c.m_chargebdb) := Modelica.Electrical.Spice3.Internal.Functions.junctionCap(
                int_c.m_tCBDb, vbd, int_c.m_tDepCap,
                in_p.m_bulkJctBotGradingCoeff, int_c.m_tBulkPot,
                int_c.m_f1b, int_c.m_f2b, int_c.m_f3b);
 
         if ( not (in_p.m_capBSIsGiven > 0.5)) then
-          (int_c.m_capbss, int_c.m_chargebss) := Equation.junctionCap(
+          (int_c.m_capbss, int_c.m_chargebss) := Modelica.Electrical.Spice3.Internal.Functions.junctionCap(
                int_c.m_tCBSs,int_c. m_vbs, int_c.m_tDepCap,
                in_p.m_bulkJctSideGradingCoeff, int_c.m_tBulkPot,
                int_c.m_f1s, int_c.m_f2s, int_c.m_f3s);
         end if;
 
         if (not (in_p.m_capBDIsGiven > 0.5)) then
-          (int_c.m_capbds, int_c.m_chargebds) := Equation.junctionCap(
+          (int_c.m_capbds, int_c.m_chargebds) := Modelica.Electrical.Spice3.Internal.Functions.junctionCap(
                int_c.m_tCBDs, vbd, int_c.m_tDepCap,
                in_p.m_bulkJctSideGradingCoeff, int_c.m_tBulkPot,
                int_c.m_f1s, int_c.m_f2s, int_c.m_f3s);
@@ -7078,36 +7101,37 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
 
       algorithm
         (out_c.m_tJctPot,out_c.m_tJctCap) :=
-          Spice3.Repository.Equation.junctionParamDepTempSPICE3(
-                in_p.m_junctionPot,
+          Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3
+          (     in_p.m_junctionPot,
                 in_p.m_junctionCap,
                 in_p.m_gradingCoeff,
                 in_m.m_dTemp,
                 in_p.m_nomTemp);
         out_c.m_tJctCap := in_dp.m_area * out_c.m_tJctCap;
         (out_c.m_tF1,out_c.m_f2,out_c.m_f3) :=
-          Spice3.Repository.Equation.junctionCapCoeffs(
+          Modelica.Electrical.Spice3.Internal.Functions.junctionCapCoeffs(
                 in_p.m_gradingCoeff,
                 in_p.m_depletionCapCoeff,
                 out_c.m_tJctPot);
 
         out_c.m_tSatCur :=
-          Spice3.Repository.Equation.saturationCurDepTempSPICE3(
-                in_p.m_satCur,
+          Modelica.Electrical.Spice3.Internal.Functions.saturationCurDepTempSPICE3
+          (     in_p.m_satCur,
                 in_m.m_dTemp,
                 in_p.m_nomTemp,
                 in_p.m_emissionCoeff,
                 in_p.m_activationEnergy,
                 in_p.m_saturationCurrentExp);
-        out_c.m_tVcrit := Spice3.Repository.Equation.junctionVCrit(
+        out_c.m_tVcrit :=
+          Modelica.Electrical.Spice3.Internal.Functions.junctionVCrit(
                 in_m.m_dTemp,
                 in_p.m_emissionCoeff,
                 out_c.m_tSatCur);
         out_c.m_dVte := in_m.m_dTemp*SpiceConstants.CONSTKoverQ*in_p.m_emissionCoeff;
         if (in_v.m_pBvIsGiven > 0.5) then
           out_c.m_tBrkdwnV :=
-            Spice3.Repository.Equation.junctionVoltage23SPICE3(
-                  in_p.m_breakdownVoltage,
+            Modelica.Electrical.Spice3.Internal.Functions.junctionVoltage23SPICE3
+            (     in_p.m_breakdownVoltage,
                   in_p.m_breakdownCurrent,
                   out_c.m_tSatCur,
                   in_m.m_dTemp,
@@ -7153,21 +7177,24 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
         end if;
 
         if (in_p.m_pBvIsGiven > 0.5) then
-          (out_cc.m_dCurrent,m_dCond) := Spice3.Repository.Equation.junction3(
+          (out_cc.m_dCurrent,m_dCond) :=
+            Modelica.Electrical.Spice3.Internal.Functions.junction3(
                   m_dPNVoltage,
                   in_m.m_dTemp,
                   in_p.m_emissionCoeff,
                   in_c.m_tSatCur,
                   in_c.m_tBrkdwnV);
         else
-          (out_cc.m_dCurrent,m_dCond) := Spice3.Repository.Equation.junction2(
+          (out_cc.m_dCurrent,m_dCond) :=
+            Modelica.Electrical.Spice3.Internal.Functions.junction2(
                   m_dPNVoltage,
                   in_m.m_dTemp,
                   in_p.m_emissionCoeff,
                   in_c.m_tSatCur);
         end if;
 
-        (m_dCap,m_dCharge) := Spice3.Repository.Equation.junctionCapTransTime(
+        (m_dCap,m_dCharge) :=
+          Modelica.Electrical.Spice3.Internal.Functions.junctionCapTransTime(
                 in_c.m_tJctCap,
                 m_dPNVoltage,
                 in_c.m_tJctPot*in_p.m_depletionCapCoeff,
@@ -7404,7 +7431,8 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
                     out.m_dWidth :=in_p2.m_dDefW;
                 end if;
 
-            (out.m_dResist) := Spice3.Repository.Equation.resDepGeom(
+            (out.m_dResist) :=
+              Modelica.Electrical.Spice3.Internal.Functions.resDepGeom(
                     in_p2.m_dRsh,
                     out.m_dWidth,
                     in_p.m_dLength,
@@ -7780,12 +7808,12 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
         out_c.m_tBEcap := out_c.m_tBEcap * in_p3.m_area;
         out_c.m_tBCcap := out_c.m_tBCcap * in_p3.m_area;
         (out_c.m_tF1c,out_c.m_f2c,out_c.m_f3c) :=
-          Spice3.Repository.Equation.junctionCapCoeffs(
+          Modelica.Electrical.Spice3.Internal.Functions.junctionCapCoeffs(
                 in_p.m_junctionExpBC,
                 in_p.m_depletionCapCoeff,
                 out_c.m_tBCpot);
         (out_c.m_tF1e,out_c.m_f2e,out_c.m_f3e) :=
-          Spice3.Repository.Equation.junctionCapCoeffs(
+          Modelica.Electrical.Spice3.Internal.Functions.junctionCapCoeffs(
                 in_p.m_junctionExpBE,
                 in_p.m_depletionCapCoeff,
                 out_c.m_tBEpot);
@@ -7890,26 +7918,26 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
         vbc := vbe - vce;
 
           // junction current
-        (cbe,gbe) := Spice3.Repository.Equation.junction2(
+        (cbe,gbe) := Modelica.Electrical.Spice3.Internal.Functions.junction2(
                 vbe,
                 in_m.m_dTemp,
                 in_p.m_emissionCoeffF,
                 in_c.m_tSatCur);
 
         out_cc.iBE   := in_p.m_type * cbe / in_c.m_tBetaF;
-        (cben,gben) := Spice3.Repository.Equation.junction2(
+        (cben,gben) := Modelica.Electrical.Spice3.Internal.Functions.junction2(
                 vbe,
                 in_m.m_dTemp,
                 in_p.m_leakBEemissionCoeff,
                 in_c.m_tBEleakCur);
         out_cc.iBEN  := in_p.m_type * cben;
-        (cbc,gbc) := Spice3.Repository.Equation.junction2(
+        (cbc,gbc) := Modelica.Electrical.Spice3.Internal.Functions.junction2(
                 vbc,
                 in_m.m_dTemp,
                 in_p.m_emissionCoeffR,
                 in_c.m_tSatCur);
         out_cc.iBC   := in_p.m_type * cbc / in_c.m_tBetaR;
-        (cbcn,gbcn) := Spice3.Repository.Equation.junction2(
+        (cbcn,gbcn) := Modelica.Electrical.Spice3.Internal.Functions.junction2(
                 vbc,
                 in_m.m_dTemp,
                 in_p.m_leakBCemissionCoeff,
@@ -8008,7 +8036,8 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
           gbe   := (gbe * (1 + arg2) - cbe * dqbdve) / qb;
           captt := in_p.m_transitTimeF * (arg3 - cbe * dqbdvc) / qb;
         end if;
-        (capbe,chargebe) := Spice3.Repository.Equation.junctionCapTransTime(
+        (capbe,chargebe) :=
+          Modelica.Electrical.Spice3.Internal.Functions.junctionCapTransTime(
                 in_c.m_tBEcap,
                 vbe,
                 in_c.m_tDepCapBE,
@@ -8023,7 +8052,8 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
 
         out_cc.iXX        := 0;
         aux1 := in_c.m_tBCcap*in_p.m_baseFractionBCcap;
-        (capbc,chargebc) := Spice3.Repository.Equation.junctionCapTransTime(
+        (capbc,chargebc) :=
+          Modelica.Electrical.Spice3.Internal.Functions.junctionCapTransTime(
                 aux1,
                 vbc,
                 in_c.m_tDepCapBC,
@@ -8037,7 +8067,8 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
                 cbc);
 
         aux2:= in_c.m_tBCcap*(1. - in_p.m_baseFractionBCcap);
-        (capbx,chargebx) := Spice3.Repository.Equation.junctionCap(
+        (capbx,chargebx) :=
+          Modelica.Electrical.Spice3.Internal.Functions.junctionCap(
                 aux2,
                 vbx,
                 in_c.m_tDepCapBC,
@@ -8263,7 +8294,7 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
     annotation (Documentation(info="<html>
 <p>This package contains all function, parameters and data of semiconductor models, that are transformed from SPICE3 into Modelica. The models of the package semiconductors access to repository models. This package should not be used via direct access by a user of the Spice-Library for Modelica. It is restricted to the development.</p>
 </html>"));
-  end Repository;
+  end Internal;
 
 annotation(preferedView="info", Window(
     x=0.05,
