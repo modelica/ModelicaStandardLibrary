@@ -65,7 +65,7 @@ The specific arrangement of windings in electric machines with <img src=\"modeli
 </p>
 
 <p>
-The main components of an electric machine model based on the FundamentalWave library are <a href=\"Modelica.Magnetic.FundamentalWave.Machines.Components.SymmetricMultiPhaseWinding\">multi phase</a> and <a href=\"Modelica.Magnetic.FundamentalWave.Machines.Components.SinglePhaseWinding\">single phase windings</a>, <a href=\"Modelica.Magnetic.FundamentalWave.Machines.Components.RotorSaliencyAirGap\">air gap</a> as well as <a href=\"Modelica.Magnetic.FundamentalWave.Machines.Components.SymmetricMultiPhaseWinding\">symmetric</a> or <a href=\"Modelica.Magnetic.FundamentalWave.Machines.Components.SaliencyCageWinding\">salient cage</a> models.
+The main components of an electric machine model based on the FundamentalWave library are <a href=\"Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">multi phase</a> and <a href=\"Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">single phase windings</a>, <a href=\"Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">air gap</a> as well as <a href=\"Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">symmetric</a> or <a href=\"Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">salient cage</a> models.
 The electric machine models provided in this library are based on symmetrical three phase windings in the stator and equivalent two or three phase windings in the rotor.
 </p>
 
@@ -256,7 +256,7 @@ for contributing his source code to this library.
 
 <p>
 This library contains components for modelling of electromagnetic fundamental wave models for the application in three phase
-<a href=Modelica.Magnetic.FundamentalWave.Machines>electric machines</a>. DC machines are (currently) not included in this library. The FundamentalWave library is an alternative approach to the <a href=\"Modelica.Electrical.Machines\">Modelica.Electrical.Machines</a> library. A great advantage of this library is the strict object orientation of the electrical and magnetic components that the electric machines models are composed of. From a didactic point of view this library is very beneficial for students in the field of electrical engineering.
+<a href=Modelica.Magnetic.FundamentalWave.BasicMachines>electric machines</a>. DC machines are (currently) not included in this library. The FundamentalWave library is an alternative approach to the <a href=\"Modelica.Electrical.Machines\">Modelica.Electrical.Machines</a> library. A great advantage of this library is the strict object orientation of the electrical and magnetic components that the electric machines models are composed of. From a didactic point of view this library is very beneficial for students in the field of electrical engineering.
 </p>
 
 <p>
@@ -440,7 +440,7 @@ For more details see the <a href=Modelica.Magnetic.FundamentalWave.UsersGuide.Co
 <h4>Direct on line (DOL) starting of an asynchronous induction machine with squirrel cage</h4>
 <p>
 At start time tStart three phase voltage is supplied to the
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.AsynchronousInductionMachines.AIM_SquirrelCage\">asynchronous induction machine with squirrel cage</a>.
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage\">asynchronous induction machine with squirrel cage</a>.
 The machine starts from standstill, accelerating
 inertias against load torque quadratic dependent on speed, finally reaching nominal speed.</p>
 
@@ -657,7 +657,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <h4>Starting of an asynchronous induction machine with slipring rotor resistance starting</h4>
 <p>
 At start time <code>tOn</code> three phase voltage is supplied to the
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.AsynchronousInductionMachines.AIM_SlipRing\">asynchronous induction machine with sliprings</a>.
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing\">asynchronous induction machine with sliprings</a>.
 The machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed,
 using a starting resistance. At time tRheostat external rotor resistance is shortened, finally reaching nominal speed.</p>
 
@@ -871,7 +871,7 @@ An ideal frequency inverter is modeled by using a
 <a href=\"modelica://Modelica.Electrical.Machines.Utilities.VfController\">VfController</a>
 and a threephase <a href=\"modelica://Modelica.Electrical.MultiPhase.Sources.SignalVoltage\">SignalVoltage</a>.
 Frequency is raised by a ramp, causing the
-<a href=\"Modelcia://Modelica.Magnetic.FundamentalWave.Machines.SynchronousInductionMachines.SM_ReluctanceRotor\">reluctance machine</a> to start,
+<a href=\"Modelcia://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor\">reluctance machine</a> to start,
 and accelerating inertias. At time <code>tStep</code> a load step is applied.
 </p>
 
@@ -1091,7 +1091,7 @@ An ideal frequency inverter is modeled by using a
 <a href=\"modelica://Modelica.Electrical.Machines.Utilities.VfController\">VfController</a>
 and a threephase <a href=\"modelica://Modelica.Electrical.MultiPhase.Sources.SignalVoltage\">SignalVoltage</a>.
 Frequency is raised by a ramp, causing the
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.SynchronousInductionMachines.SM_PermanentMagnet\">permanent magnet synchronous induction machine</a> to start,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">permanent magnet synchronous induction machine</a> to start,
 and accelerate the inertias.</p>
 
 <p>At time tStep a load step is applied. Simulate for 1.5 seconds and plot (versus time):</p>
@@ -1345,7 +1345,7 @@ and accelerate the inertias.</p>
 <h4>Electrical excited synchronous induction machine as generator</h4>
 <p>
 An
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.SynchronousInductionMachines.SM_ElectricalExcited\">electrically excited synchronous generator</a> is connected to the grid and driven with constant speed.
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited\">electrically excited synchronous generator</a> is connected to the grid and driven with constant speed.
 Since speed is slightly smaller than synchronous speed corresponding to mains frequency,
 rotor angle is very slowly increased. This allows to see several charactersistics dependent on rotor angle.
 </p>
@@ -1364,7 +1364,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
     annotation (Documentation(info="<html>
 <p>Examples comparing the models of
 <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines\">Electrical.Machines.BasicMachines</a> with
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines\">Magnetic.FundamentalWave.Machines</a>.
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines\">Magnetic.FundamentalWave.BasicMachines</a>.
 </p>
 </html>"));
   end Examples;
@@ -1800,7 +1800,7 @@ This is a simple short cut branch.
     end Short;
     annotation (DymolaStoredErrors, Documentation(info="<html>
 <p>Basic components of the FundamentalWave library for modeling magnetic circuits. Machine specific components are
-located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components\">Machines.Components</a>.</p>
+located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components\">Machines.Components</a>.</p>
 </html>"));
   end Components;
 
@@ -1889,7 +1889,7 @@ Resistances and stray inductances of the machine refer to the stator phases. The
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.AsynchronousInductionMachines.AIM_SlipRing\">AIM_SlipRing</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing\">AIM_SlipRing</a>,
 </p>
 </html>"));
       end AIM_SquirrelCage;
@@ -2017,7 +2017,7 @@ Resistances and stray inductances of the machine always refer to either stator o
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.AsynchronousInductionMachines.AIM_SquirrelCage\">AIM_SquirrelCage</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage\">AIM_SquirrelCage</a>,
 </p>
 </html>"));
       end AIM_SlipRing;
@@ -2027,7 +2027,7 @@ Resistances and stray inductances of the machine always refer to either stator o
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.SynchronousInductionMachines\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines\">
    SynchronousInductionMachines</a>
 </p>
 </html>"));
@@ -2181,9 +2181,9 @@ Resistances and stray inductances of the machine refer to the stator phases. The
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.SynchronousInductionMachines.SM_ElectricalExcited\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited\">
    SM_ElectricalExcited</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.SynchronousInductionMachines.SM_ReluctanceRotor\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor\">
    SM_ReluctanceRotor</a>,
 </p>
 </html>"));
@@ -2370,9 +2370,9 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.SynchronousInductionMachines.SM_PermanentMagnet\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">
    SM_PermanentMagnet</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.SynchronousInductionMachines.SM_ReluctanceRotor\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor\">
    SM_ReluctanceRotor</a>,
 </p>
 </html>"));
@@ -2489,9 +2489,9 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.SynchronousInductionMachines.SM_ElectricalExcited\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited\">
    SM_ElectricalExcited</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.SynchronousInductionMachines.SM_PermanentMagnet\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">
    SM_PermanentMagnet</a>,
 </p>
 </html>"));
@@ -2502,7 +2502,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.AsynchronousInductionMachines\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines\">
    AsynchronousInductionMachines</a>
 </p>
 </html>"));
@@ -2626,12 +2626,12 @@ The single phase winding consists of a
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SymmetricMultiPhaseWinding\">SymmetricMultiPhaseWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SymmetricMultiPhaseCageWinding\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">SymmetricMultiPhaseWinding</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding\">
    SymmetricMultiPhaseCageWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SaliencyCageWinding\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">
    SaliencyCageWinding</a>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
 </html>"));
       end SinglePhaseWinding;
@@ -2760,12 +2760,12 @@ The symmetrical multi phase winding consists of a symmetrical winding
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SinglePhaseWinding\">SinglePhaseWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SymmetricMultiPhaseCageWinding\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">SinglePhaseWinding</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding\">
    SymmetricMultiPhaseCageWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SaliencyCageWinding\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">
    SaliencyCageWinding</a>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
 </html>"));
       end SymmetricMultiPhaseWinding;
@@ -2943,11 +2943,11 @@ according to the following figure.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SinglePhaseWinding\">SinglePhaseWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SymmetricMultiPhaseWinding\">SymmetricMultiPhaseWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SymmetricMultiPhaseCageWinding\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">SinglePhaseWinding</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">SymmetricMultiPhaseWinding</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding\">
    SymmetricMultiPhaseCageWinding</a>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SaliencyCageWinding\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">
    SaliencyCageWinding</a>
 </p>
 
@@ -3130,10 +3130,10 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SinglePhaseWinding\">SinglePhaseWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SymmetricMultiPhaseWinding\">SymmetricMultiPhaseWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SaliencyCageWinding\">SaliencyCageWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">SinglePhaseWinding</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">SymmetricMultiPhaseWinding</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">SaliencyCageWinding</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
 </html>"));
       end SymmetricMultiPhaseCageWinding;
@@ -3298,11 +3298,11 @@ The salient cage model is a two axis model with two phases. The electro magnetic
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SinglePhaseWinding\">SinglePhaseWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SymmetricMultiPhaseWinding\">SymmetricMultiPhaseWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.SymmetricMultiPhaseCageWinding\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">SinglePhaseWinding</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">SymmetricMultiPhaseWinding</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding\">
    SymmetricMultiPhaseCageWinding</a>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
 </html>"));
       end SaliencyCageWinding;
@@ -3310,8 +3310,8 @@ The salient cage model is a two axis model with two phases. The electro magnetic
     annotation (Documentation(info="<html>
 <p>
 This package contains components for
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.AsynchronousInductionMachines\">asynchronous induction machines</a> and
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.SynchronousInductionMachines\">synchronous induction machines</a>.
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines\">asynchronous induction machines</a> and
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines\">synchronous induction machines</a>.
 </p>
 </html>"));
     end Components;
@@ -3352,7 +3352,7 @@ This function determines the winding angles of a symmetrical winding with <img s
   annotation (Documentation(info="<html>
 <p>
 This package contains electric machine models and
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Machines.Components\">components</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components\">components</a>
 for electric machines.
 </p>
 </html>"));
