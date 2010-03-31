@@ -4261,8 +4261,8 @@ VN- -&GT; name.pc[N-1]
         "Temperature dependency of junction potential"
 
         input Real phi0;
-        input Real temp;
-        input Real tnom;
+        input Real temp "Device Temperature";
+        input Real tnom "Nominal Temperature";
 
         output Real ret;
 
@@ -4286,8 +4286,8 @@ VN- -&GT; name.pc[N-1]
         "Temperature dependency of saturation current"
 
         input Real satcur0;
-        input Real temp;
-        input Real tnom;
+        input Real temp "Device Temperature";
+        input Real tnom "Nominal Temperature";
 
         output Real ret;
 
@@ -4313,7 +4313,7 @@ VN- -&GT; name.pc[N-1]
 
         input Real temp;
         input Real ncoeff;
-        input Real satcur;
+        input Real satcur "Saturation current";
 
         output Real ret;
 
@@ -7101,8 +7101,8 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
 
       algorithm
         (out_c.m_tJctPot,out_c.m_tJctCap) :=
-          Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3
-          (     in_p.m_junctionPot,
+          Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3(
+                in_p.m_junctionPot,
                 in_p.m_junctionCap,
                 in_p.m_gradingCoeff,
                 in_m.m_dTemp,
@@ -7115,8 +7115,8 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
                 out_c.m_tJctPot);
 
         out_c.m_tSatCur :=
-          Modelica.Electrical.Spice3.Internal.Functions.saturationCurDepTempSPICE3
-          (     in_p.m_satCur,
+          Modelica.Electrical.Spice3.Internal.Functions.saturationCurDepTempSPICE3(
+                in_p.m_satCur,
                 in_m.m_dTemp,
                 in_p.m_nomTemp,
                 in_p.m_emissionCoeff,
@@ -7130,8 +7130,8 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
         out_c.m_dVte := in_m.m_dTemp*SpiceConstants.CONSTKoverQ*in_p.m_emissionCoeff;
         if (in_v.m_pBvIsGiven > 0.5) then
           out_c.m_tBrkdwnV :=
-            Modelica.Electrical.Spice3.Internal.Functions.junctionVoltage23SPICE3
-            (     in_p.m_breakdownVoltage,
+            Modelica.Electrical.Spice3.Internal.Functions.junctionVoltage23SPICE3(
+                  in_p.m_breakdownVoltage,
                   in_p.m_breakdownCurrent,
                   out_c.m_tSatCur,
                   in_m.m_dTemp,
