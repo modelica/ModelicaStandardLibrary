@@ -354,6 +354,63 @@ end Vectors;
 
 
 package Matrices "Library of functions operating on matrices"
+  package Examples
+    "Examples demonstrating the usage of the Math.Matrices functions"
+    extends Modelica.Icons.ExamplesPackage;
+    function solveLinearEquations
+      "Demonstrate the solution of linear equation systems"
+      import Modelica.Utilities.Streams.print;
+      // solve and solve2
+    protected
+      Real A0[0,0];
+      Real A1[2,2] = [1,2;3,4];
+      Real x1_ref[2] = {-2,3};
+      Real b1[2] = A1*x1_ref;
+      Real x1[2];
+      Real B2[2,3] = [b1, 2*b1, -3*b1];
+      Real X2[2,3];
+
+      // leastSquares and leastSquares2
+      Integer rank;
+      Real a[3] = {2,3,-1};
+      Real A3[3,3] = transpose( [{2,3,-4}, a, 3*a]);
+      Real x3_ref[3] = {-2,3,5};
+      Real b3[3] = A3*x3_ref;
+      Real x3[3];
+      Real B3[3,2] = [b3, -3*b3];
+      Real X3[3,2];
+
+    algorithm
+      print("\nDemonstrate how to solve linear equation systems:\n");
+
+      // Solve regular linear equation with a right hand side vector
+      x1 :=Math.Matrices.solve(A1, b1);
+      print("diff1 = " + String(Vectors.norm(x1 - x1_ref)));
+
+      // Solve regular linear equation with a right hand side matrix
+      X2 :=Math.Matrices.solve2(A1, B2);
+      print("diff2 = " + String(Matrices.norm(X2 - [x1_ref,2*x1_ref, -3*x1_ref])));
+
+      // Solve singular linear equation with a right hand side vector
+      (x3, rank) :=Math.Matrices.leastSquares(A3, b3);
+      print("diff3 = " + String(Vectors.norm(A3*x3 - b3)) +
+            ", n = " + String(size(A3,1)) + ", rank = " + String(rank));
+
+      // Solve singular linear equation with a right hand side matrix
+      (X3, rank) :=Math.Matrices.leastSquares2(A3, B3);
+      print("diff4 = " + String(Matrices.norm(A3*X3 - B3)) +
+            ", n = " + String(size(A3,1)) + ", rank = " + String(rank));
+
+      annotation (Documentation(info="<html>
+<p>
+With simple examples this function demonstrates how to solve
+regular linear equation systems with Matrices.solve and Matrices.solve2,
+and how to solve singular linear equation systems with
+Matrices.leastSquares and Matrices.leastSquares2.
+</p>
+</html>"));
+    end solveLinearEquations;
+  end Examples;
 
   extends Modelica.Icons.Package;
 
@@ -733,18 +790,20 @@ i.e., by Gaussian elemination with partial pivoting.
 </pre></blockquote>
 
 <h4>See also</h4>
+<p>
 <a href=\"modelica://Modelica.Math.Matrices.LU\">Matrices.LU</a>,
 <a href=\"modelica://Modelica.Math.Matrices.LU_solve2\">Matrices.LU_solve2</a>
+</p>
 </HTML>"));
   end solve2;
 
   function leastSquares
-    "Solve overdetermined or underdetermined real system of linear equations A*x=b in a least squares sense (A may be rank deficient)"
+    "Solve linear equation A*x = b (exactly if possible, or otherwise in a least square sense; A may be non-square and may be rank deficient)"
     extends Modelica.Icons.Function;
     input Real A[:, :] "Matrix A";
     input Real b[size(A, 1)] "Vector b";
     input Real rcond=100*Modelica.Constants.eps
-      "Reciprocal condition number to estimate rank of A";
+      "Reciprocal condition number to estimate the rank of A";
     output Real x[size(A, 2)]
       "Vector x such that min|A*x-b|^2 if size(A,1) >= size(A,2) or min|x|^2 and A*x=b, if size(A,1) < size(A,2)";
     output Integer rank "Rank of A";
@@ -752,46 +811,294 @@ i.e., by Gaussian elemination with partial pivoting.
     Integer info;
     Real xx[max(size(A,1),size(A,2))];
   algorithm
-    (xx,info,rank) := LAPACK.dgelsx_vec(A, b, rcond);
-    x := xx[1:size(A,2)];
-    assert(info == 0, "Solving an overdetermined or underdetermined linear system of
-equations with function \"Matrices.leastSquares\" failed.");
+    if min(size(A)) > 0 then
+      (xx,info,rank) := LAPACK.dgelsx_vec(A, b, rcond);
+       x := xx[1:size(A,2)];
+       assert(info == 0, "Solving an overdetermined or underdetermined linear system\n" +
+                         "of equations with function \"Matrices.leastSquares\" failed.");
+    else
+       x := fill(0.0, size(A, 2));
+    end if;
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 x = Matrices.<b>leastSquares</b>(A,b);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-A linear system of equations A*x = b has no solutions or infinitely
-many solutions if A is not square, or if A is square and rank deficient.
-Function \"leastSquares\" returns a solution of this equation in a least
+Returns a solution of equation A*x = b in a least
 square sense (A may be rank deficient):
 </p>
 <pre>
-  minimize | A*x - B |
+  minimize | A*x - b |
 </pre>
+
 <p>
-This problem has a unique solution, if A has <b>full rank</b>:
+Several different cases can be distinguished (note, <b>rank</b> is an
+output argument of this function):
 </p>
 
-<pre>
-  size(A,1) &gt; size(A,2):  returns x such that |A*x - b| is a minimum
-  size(A,1) = size(A,2):  returns x such that A*x = b
-  size(A,1) &lt; size(A,2):  returns x such that |x|^2 is a minimum for all
-                          vectors x that fulfill A*x = b
-</pre>
 <p>
-If A does <b>not</b> have <b>full rank</b>, the minimum norm solution
-\"minimize |A*x - b|\" is <b>not unique</b>
-and from the infinitely many solutions the one is selected that
-minimizes both |x| and |A*x - b|.
+<b>size(A,1) = size(A,2)</b>
+</p>
+
+<p> A solution is returned for a regular, as well as a singular matrix A:
+</p>
+
+<ul>
+<li> <b>rank</b> = size(A,1):<br>
+     A is <b>regular</b> and the returned solution x fulfills the equation
+     A*x = b uniquely.</li>
+
+<li> <b>rank</b> &lt; size(A,1):<br>
+     A is <b>singular</b> and no unique solution for equation A*x = b exists.
+     <ul>
+     <li>  If an infinite number of solutions exists, the one is selected that fulfills
+           the equation and at the same time has the minimum norm |x| for all solution
+           vectors that fulfill the equation.</li>
+     <li>  If no solution exists, x is selected such that |A*x - b| is as small as
+           possible (but A*x - b is not zero).</li>
+     </ul>
+</ul>
+
+<p>
+<b>size(A,1) &gt; size(A,2):</b>
+</p>
+
+<p>
+The equation A*x = b has no unique solution. The solution x is selected such that
+|A*x - b| is as small as possible. If rank = size(A,2), this minimum norm solution is
+unique. If rank &lt; size(A,2), there are an infinite number of solutions leading to the
+same minimum value of |A*x - b|. From these infinite number of solutions, the one with the
+minimum norm |x| is selected. This gives a unique solution that minimizes both
+|A*x - b| and |x|.
+</p>
+
+<p>
+<b>size(A,1) &lt; size(A,2):</b>
+</p>
+
+<ul>
+<li> <b>rank</b> = size(A,1):<br>
+     There are an infinite number of solutions that fulfill the equation A*x = b.
+     From this infinite number, the unique solution is selected that minimizes |x|.
+     </li>
+
+<li> <b>rank</b> &lt; size(A,1):<br>
+     There is either no solution of equation A*x = b, or there are again an infinite
+     number of solutions. The unique solution x is returned that minimizes
+      both |A*x - b| and |x|.</li>
+</ul>
+
+
+<p>
 Note, the solution is computed with the LAPACK function \"dgelsx\",
 i.e., QR or LQ factorization of A with column pivoting.
 </p>
-</HTML>"));
+
+<h4>Algorithmic details</h4>
+
+<p>
+The function first computes a QR factorization with column pivoting:
+</p>
+
+<pre>
+      A * P = Q * [ R11 R12 ]
+                  [  0  R22 ]
+</pre>
+
+<p>
+with R11 defined as the largest leading submatrix whose estimated
+condition number is less than 1/rcond.  The order of R11, <b>rank</b>,
+is the effective rank of A.
+</p>
+
+<p>
+Then, R22 is considered to be negligible, and R12 is annihilated
+by orthogonal transformations from the right, arriving at the
+complete orthogonal factorization:
+</p>
+
+<pre>
+     A * P = Q * [ T11 0 ] * Z
+                 [  0  0 ]
+</pre>
+
+<p>
+The minimum-norm solution is then
+</p>
+
+<pre>
+     x = P * Z' [ inv(T11)*Q1'*b ]
+                [        0       ]
+</pre>
+
+<p>
+where Q1 consists of the first \"rank\" columns of Q.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href=\"modelica://Modelica.Math.Matrices.leastSquares2\">Matrices.leastSquares2</a>
+(same as leastSquares, but with a right hand side matrix), <br>
+<a href=\"modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>
+(for square, regular matrices A)
+</p>
+
+</html>"));
   end leastSquares;
+
+  function leastSquares2
+    "Solve overdetermined or underdetermined real system of linear equations A*X=B in a least squares sense (A may be rank deficient)"
+    extends Modelica.Icons.Function;
+    input Real A[:, :] "Matrix A";
+    input Real B[size(A, 1),:] "Matrix B";
+    input Real rcond=100*Modelica.Constants.eps
+      "Reciprocal condition number to estimate rank of A";
+    output Real X[size(A, 2), size(B,2)]
+      "Matrix X such that min|A*X-B|^2 if size(A,1) >= size(A,2) or min|X|^2 and A*X=B, if size(A,1) < size(A,2)";
+    output Integer rank "Rank of A";
+  protected
+    Integer info;
+    Real XX[max(size(A,1),size(A,2)), size(B,2)];
+  algorithm
+    (XX,info,rank) := LAPACK.dgelsx(A, B, rcond);
+    X := XX[1:size(A,2), :];
+    assert(info == 0, "Solving an overdetermined or underdetermined linear system of
+equations with function \"Matrices.leastSquares2\" failed.");
+    annotation (
+      Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+X = Matrices.<b>leastSquares2</b>(A,B);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Returns a solution of equation A*X = B in a least
+square sense (A may be rank deficient):
+</p>
+<pre>
+  minimize | A*X - B |
+</pre>
+
+<p>
+Several different cases can be distinguished (note, <b>rank</b> is an
+output argument of this function):
+</p>
+
+<p>
+<b>size(A,1) = size(A,2)</b>
+</p>
+
+<p> A solution is returned for a regular, as well as a singular matrix A:
+</p>
+
+<ul>
+<li> <b>rank</b> = size(A,1):<br>
+     A is <b>regular</b> and the returned solution X fulfills the equation
+     A*X = B uniquely.</li>
+
+<li> <b>rank</b> &lt; size(A,1):<br>
+     A is <b>singular</b> and no unique solution for equation A*X = B exists.
+     <ul>
+     <li>  If an infinite number of solutions exists, the one is selected that fulfills
+           the equation and at the same time has the minimum norm |x| for all solution
+           vectors that fulfill the equation.</li>
+     <li>  If no solution exists, X is selected such that |A*X - B| is as small as
+           possible (but A*X - B is not zero).</li>
+     </ul>
+</ul>
+
+<p>
+<b>size(A,1) &gt; size(A,2):</b>
+</p>
+
+<p>
+The equation A*X = B has no unique solution. The solution X is selected such that
+|A*X - B| is as small as possible. If rank = size(A,2), this minimum norm solution is
+unique. If rank &lt; size(A,2), there are an infinite number of solutions leading to the
+same minimum value of |A*X - B|. From these infinite number of solutions, the one with the
+minimum norm |X| is selected. This gives a unique solution that minimizes both
+|A*X - B| and |X|.
+</p>
+
+<p>
+<b>size(A,1) &lt; size(A,2):</b>
+</p>
+
+<ul>
+<li> <b>rank</b> = size(A,1):<br>
+     There are an infinite number of solutions that fulfill the equation A*X = B.
+     From this infinite number, the unique solution is selected that minimizes |X|.
+     </li>
+
+<li> <b>rank</b> &lt; size(A,1):<br>
+     There is either no solution of equation A*X = B, or there are again an infinite
+     number of solutions. The unique solution X is returned that minimizes
+      both |A*X - B| and |X|.</li>
+</ul>
+
+
+<p>
+Note, the solution is computed with the LAPACK function \"dgelsx\",
+i.e., QR or LQ factorization of A with column pivoting.
+</p>
+
+<h4>Algorithmic details</h4>
+
+<p>
+The function first computes a QR factorization with column pivoting:
+</p>
+
+<pre>
+      A * P = Q * [ R11 R12 ]
+                  [  0  R22 ]
+</pre>
+
+<p>
+with R11 defined as the largest leading submatrix whose estimated
+condition number is less than 1/rcond.  The order of R11, <b>rank</b>,
+is the effective rank of A.
+</p>
+
+<p>
+Then, R22 is considered to be negligible, and R12 is annihilated
+by orthogonal transformations from the right, arriving at the
+complete orthogonal factorization:
+</p>
+
+<pre>
+     A * P = Q * [ T11 0 ] * Z
+                 [  0  0 ]
+</pre>
+
+<p>
+The minimum-norm solution is then
+</p>
+
+<pre>
+     X = P * Z' [ inv(T11)*Q1'*B ]
+                [        0       ]
+</pre>
+
+<p>
+where Q1 consists of the first \"rank\" columns of Q.
+</p>
+
+
+<h4>See also</h4>
+
+<p>
+<a href=\"modelica://Modelica.Math.Matrices.leastSquares\">Matrices.leastSquares</a>
+(same as leastSquares2, but with a right hand side vector), <br>
+<a href=\"modelica://Modelica.Math.Matrices.solve2\">Matrices.solve2</a>
+(for square, regular matrices A)
+</p>
+
+</html>"));
+  end leastSquares2;
 
   function equalityLeastSquares
     "Solve a linear equality constrained least squares problem"
@@ -2353,61 +2660,64 @@ are computed, then only the diagonal blocks will be correct.
 "));
     end dgegv;
 
-    function dgels_vec
-      "Solves overdetermined or underdetermined real linear equations A*x=b with a b vector"
+    function dgelsx
+      "Computes the minimum-norm solution to a real linear least squares problem with rank deficient A"
 
       extends Modelica.Icons.Function;
       input Real A[:, :];
-      input Real b[size(A,1)];
-      output Real x[nx]= cat(1,b,zeros(nx-nrow))
-        "solution is in first size(A,2) rows";
+      input Real B[size(A,1), :];
+      input Real rcond=0.0 "Reciprocal condition number to estimate rank";
+      output Real X[max(nrow,ncol),nrhs]= cat(1,B,zeros(max(nrow,ncol)-nrow,nrhs))
+        "Solution is in first size(A,2) rows";
       output Integer info;
+      output Integer rank "Effective rank of A";
     protected
       Integer nrow=size(A,1);
       Integer ncol=size(A,2);
       Integer nx=max(nrow,ncol);
-      Integer lwork=min(nrow,ncol) + nx;
+      Integer nrhs=size(B,2);
+      Integer lwork=max( min(nrow,ncol)+3*ncol, 2*min(nrow,ncol)+nrhs);
       Real work[lwork];
       Real Awork[nrow,ncol]=A;
-      external "FORTRAN 77" dgels("N", nrow, ncol, 1, Awork, nrow, x,
-                                  nx, work, lwork, info) annotation (Library="Lapack");
+      Integer jpvt[ncol]=zeros(ncol);
+      external "FORTRAN 77" dgelsx(nrow, ncol, nrhs, Awork, nrow, X, nx, jpvt,
+                                  rcond, rank, work, lwork, info) annotation (Library="Lapack");
 
       annotation (
         Documentation(info="Lapack documentation
   Purpose
   =======
 
-  DGELS solves overdetermined or underdetermined real linear systems
-  involving an M-by-N matrix A, or its transpose, using a QR or LQ
-  factorization of A.  It is assumed that A has full rank.
-
-  The following options are provided:
-
-  1. If TRANS = 'N' and m >= n:  find the least squares solution of
-     an overdetermined system, i.e., solve the least squares problem
-                  minimize || B - A*X ||.
-
-  2. If TRANS = 'N' and m < n:  find the minimum norm solution of
-     an underdetermined system A * X = B.
-
-  3. If TRANS = 'T' and m >= n:  find the minimum norm solution of
-     an undetermined system A**T * X = B.
-
-  4. If TRANS = 'T' and m < n:  find the least squares solution of
-     an overdetermined system, i.e., solve the least squares problem
-                  minimize || B - A**T * X ||.
+  DGELSX computes the minimum-norm solution to a real linear least
+  squares problem:
+      minimize || A * X - B ||
+  using a complete orthogonal factorization of A.  A is an M-by-N
+  matrix which may be rank-deficient.
 
   Several right hand side vectors b and solution vectors x can be
   handled in a single call; they are stored as the columns of the
   M-by-NRHS right hand side matrix B and the N-by-NRHS solution
   matrix X.
 
+  The routine first computes a QR factorization with column pivoting:
+      A * P = Q * [ R11 R12 ]
+                  [  0  R22 ]
+  with R11 defined as the largest leading submatrix whose estimated
+  condition number is less than 1/RCOND.  The order of R11, RANK,
+  is the effective rank of A.
+
+  Then, R22 is considered to be negligible, and R12 is annihilated
+  by orthogonal transformations from the right, arriving at the
+  complete orthogonal factorization:
+     A * P = Q * [ T11 0 ] * Z
+                 [  0  0 ]
+  The minimum-norm solution is then
+     X = P * Z' [ inv(T11)*Q1'*B ]
+                [        0       ]
+  where Q1 consists of the first RANK columns of Q.
+
   Arguments
   =========
-
-  TRANS   (input) CHARACTER
-          = 'N': the linear system involves A;
-          = 'T': the linear system involves A**T.
 
   M       (input) INTEGER
           The number of rows of the matrix A.  M >= 0.
@@ -2417,56 +2727,55 @@ are computed, then only the diagonal blocks will be correct.
 
   NRHS    (input) INTEGER
           The number of right hand sides, i.e., the number of
-          columns of the matrices B and X. NRHS >=0.
+          columns of matrices B and X. NRHS >= 0.
 
   A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
           On entry, the M-by-N matrix A.
-          On exit,
-            if M >= N, A is overwritten by details of its QR
-                       factorization as returned by DGEQRF;
-            if M <  N, A is overwritten by details of its LQ
-                       factorization as returned by DGELQF.
+          On exit, A has been overwritten by details of its
+          complete orthogonal factorization.
 
   LDA     (input) INTEGER
           The leading dimension of the array A.  LDA >= max(1,M).
 
   B       (input/output) DOUBLE PRECISION array, dimension (LDB,NRHS)
-          On entry, the matrix B of right hand side vectors, stored
-          columnwise; B is M-by-NRHS if TRANS = 'N', or N-by-NRHS
-          if TRANS = 'T'.
-          On exit, B is overwritten by the solution vectors, stored
-          columnwise:  if TRANS = 'N' and m >= n, rows 1 to n of B
-          contain the least squares solution vectors; the residual
-          sum of squares for the solution in each column is given by
-          the sum of squares of elements N+1 to M in that column;
-          if TRANS = 'N' and m < n, rows 1 to N of B contain the
-          minimum norm solution vectors;
-          if TRANS = 'T' and m >= n, rows 1 to M of B contain the
-          minimum norm solution vectors;
-          if TRANS = 'T' and m < n, rows 1 to M of B contain the
-          least squares solution vectors; the residual sum of squares
-          for the solution in each column is given by the sum of
-          squares of elements M+1 to N in that column.
+          On entry, the M-by-NRHS right hand side matrix B.
+          On exit, the N-by-NRHS solution matrix X.
+          If m >= n and RANK = n, the residual sum-of-squares for
+          the solution in the i-th column is given by the sum of
+          squares of elements N+1:M in that column.
 
   LDB     (input) INTEGER
-          The leading dimension of the array B. LDB >= MAX(1,M,N).
+          The leading dimension of the array B. LDB >= max(1,M,N).
 
-  WORK    (workspace) DOUBLE PRECISION array, dimension (LWORK)
-          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
+  JPVT    (input/output) INTEGER array, dimension (N)
+          On entry, if JPVT(i) .ne. 0, the i-th column of A is an
+          initial column, otherwise it is a free column.  Before
+          the QR factorization of A, all initial columns are
+          permuted to the leading positions; only the remaining
+          free columns are moved as a result of column pivoting
+          during the factorization.
+          On exit, if JPVT(i) = k, then the i-th column of A*P
+          was the k-th column of A.
 
-  LWORK   (input) INTEGER
-          The dimension of the array WORK.
-          LWORK >= min(M,N) + MAX(1,M,N,NRHS).
-          For optimal performance,
-          LWORK >= min(M,N) + MAX(1,M,N,NRHS) * NB
-          where NB is the optimum block size.
+  RCOND   (input) DOUBLE PRECISION
+          RCOND is used to determine the effective rank of A, which
+          is defined as the order of the largest leading triangular
+          submatrix R11 in the QR factorization with pivoting of A,
+          whose estimated condition number < 1/RCOND.
+
+  RANK    (output) INTEGER
+          The effective rank of A, i.e., the order of the submatrix
+          R11.  This is the same as the order of the submatrix T11
+          in the complete orthogonal factorization of A.
+
+  WORK    (workspace) DOUBLE PRECISION array, dimension
+                      (max( min(M,N)+3*N, 2*min(M,N)+NRHS )),
 
   INFO    (output) INTEGER
           = 0:  successful exit
-          < 0:  if INFO = -i, the i-th argument had an illegal value
-                                                                          "));
+          < 0:  if INFO = -i, the i-th argument had an illegal value    "));
 
-    end dgels_vec;
+    end dgelsx;
 
     function dgelsx_vec
       "Computes the minimum-norm solution to a real linear least squares problem with rank deficient A"
@@ -2583,6 +2892,121 @@ are computed, then only the diagonal blocks will be correct.
           < 0:  if INFO = -i, the i-th argument had an illegal value    "));
 
     end dgelsx_vec;
+
+    function dgels_vec
+      "Solves overdetermined or underdetermined real linear equations A*x=b with a b vector"
+
+      extends Modelica.Icons.Function;
+      input Real A[:, :];
+      input Real b[size(A,1)];
+      output Real x[nx]= cat(1,b,zeros(nx-nrow))
+        "solution is in first size(A,2) rows";
+      output Integer info;
+    protected
+      Integer nrow=size(A,1);
+      Integer ncol=size(A,2);
+      Integer nx=max(nrow,ncol);
+      Integer lwork=min(nrow,ncol) + nx;
+      Real work[lwork];
+      Real Awork[nrow,ncol]=A;
+      external "FORTRAN 77" dgels("N", nrow, ncol, 1, Awork, nrow, x,
+                                  nx, work, lwork, info) annotation (Library="Lapack");
+
+      annotation (
+        Documentation(info="Lapack documentation
+  Purpose
+  =======
+
+  DGELS solves overdetermined or underdetermined real linear systems
+  involving an M-by-N matrix A, or its transpose, using a QR or LQ
+  factorization of A.  It is assumed that A has full rank.
+
+  The following options are provided:
+
+  1. If TRANS = 'N' and m >= n:  find the least squares solution of
+     an overdetermined system, i.e., solve the least squares problem
+                  minimize || B - A*X ||.
+
+  2. If TRANS = 'N' and m < n:  find the minimum norm solution of
+     an underdetermined system A * X = B.
+
+  3. If TRANS = 'T' and m >= n:  find the minimum norm solution of
+     an undetermined system A**T * X = B.
+
+  4. If TRANS = 'T' and m < n:  find the least squares solution of
+     an overdetermined system, i.e., solve the least squares problem
+                  minimize || B - A**T * X ||.
+
+  Several right hand side vectors b and solution vectors x can be
+  handled in a single call; they are stored as the columns of the
+  M-by-NRHS right hand side matrix B and the N-by-NRHS solution
+  matrix X.
+
+  Arguments
+  =========
+
+  TRANS   (input) CHARACTER
+          = 'N': the linear system involves A;
+          = 'T': the linear system involves A**T.
+
+  M       (input) INTEGER
+          The number of rows of the matrix A.  M >= 0.
+
+  N       (input) INTEGER
+          The number of columns of the matrix A.  N >= 0.
+
+  NRHS    (input) INTEGER
+          The number of right hand sides, i.e., the number of
+          columns of the matrices B and X. NRHS >=0.
+
+  A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
+          On entry, the M-by-N matrix A.
+          On exit,
+            if M >= N, A is overwritten by details of its QR
+                       factorization as returned by DGEQRF;
+            if M <  N, A is overwritten by details of its LQ
+                       factorization as returned by DGELQF.
+
+  LDA     (input) INTEGER
+          The leading dimension of the array A.  LDA >= max(1,M).
+
+  B       (input/output) DOUBLE PRECISION array, dimension (LDB,NRHS)
+          On entry, the matrix B of right hand side vectors, stored
+          columnwise; B is M-by-NRHS if TRANS = 'N', or N-by-NRHS
+          if TRANS = 'T'.
+          On exit, B is overwritten by the solution vectors, stored
+          columnwise:  if TRANS = 'N' and m >= n, rows 1 to n of B
+          contain the least squares solution vectors; the residual
+          sum of squares for the solution in each column is given by
+          the sum of squares of elements N+1 to M in that column;
+          if TRANS = 'N' and m < n, rows 1 to N of B contain the
+          minimum norm solution vectors;
+          if TRANS = 'T' and m >= n, rows 1 to M of B contain the
+          minimum norm solution vectors;
+          if TRANS = 'T' and m < n, rows 1 to M of B contain the
+          least squares solution vectors; the residual sum of squares
+          for the solution in each column is given by the sum of
+          squares of elements M+1 to N in that column.
+
+  LDB     (input) INTEGER
+          The leading dimension of the array B. LDB >= MAX(1,M,N).
+
+  WORK    (workspace) DOUBLE PRECISION array, dimension (LWORK)
+          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
+
+  LWORK   (input) INTEGER
+          The dimension of the array WORK.
+          LWORK >= min(M,N) + MAX(1,M,N,NRHS).
+          For optimal performance,
+          LWORK >= min(M,N) + MAX(1,M,N,NRHS) * NB
+          where NB is the optimum block size.
+
+  INFO    (output) INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value
+                                                                          "));
+
+    end dgels_vec;
 
     function dgesv
       "Solve real system of linear equations A*X=B with a B matrix"
