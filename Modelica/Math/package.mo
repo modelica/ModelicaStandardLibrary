@@ -743,15 +743,16 @@ i.e., by Gaussian elemination with partial pivoting.
     extends Modelica.Icons.Function;
     input Real A[:, :] "Matrix A";
     input Real b[size(A, 1)] "Vector b";
+    input Real rcond=100*Modelica.Constants.eps
+      "Reciprocal condition number to estimate rank of A";
     output Real x[size(A, 2)]
       "Vector x such that min|A*x-b|^2 if size(A,1) >= size(A,2) or min|x|^2 and A*x=b, if size(A,1) < size(A,2)";
-
+    output Integer rank "Rank of A";
   protected
     Integer info;
-    Integer rank;
     Real xx[max(size(A,1),size(A,2))];
   algorithm
-    (xx,info,rank) := LAPACK.dgelsx_vec(A, b, 100*Modelica.Constants.eps);
+    (xx,info,rank) := LAPACK.dgelsx_vec(A, b, rcond);
     x := xx[1:size(A,2)];
     assert(info == 0, "Solving an overdetermined or underdetermined linear system of
 equations with function \"Matrices.leastSquares\" failed.");
@@ -764,21 +765,30 @@ x = Matrices.<b>leastSquares</b>(A,b);
 <h4>Description</h4>
 <p>
 A linear system of equations A*x = b has no solutions or infinitely
-many solutions if A is not square. Function \"leastSquares\" returns
-a solution in a least squarse sense:
+many solutions if A is not square, or if A is square and rank deficient.
+Function \"leastSquares\" returns a solution of this equation in a least
+square sense (A may be rank deficient):
 </p>
 <pre>
-  size(A,1) &gt; size(A,2):  returns x such that |A*x - b|^2 is a minimum
+  minimize | A*x - B |
+</pre>
+<p>
+This problem has a unique solution, if A has <b>full rank</b>:
+</p>
+
+<pre>
+  size(A,1) &gt; size(A,2):  returns x such that |A*x - b| is a minimum
   size(A,1) = size(A,2):  returns x such that A*x = b
   size(A,1) &lt; size(A,2):  returns x such that |x|^2 is a minimum for all
                           vectors x that fulfill A*x = b
 </pre>
 <p>
+If A does <b>not</b> have <b>full rank</b>, the minimum norm solution
+\"minimize |A*x - b|\" is <b>not unique</b>
+and from the infinitely many solutions the one is selected that
+minimizes both |x| and |A*x - b|.
 Note, the solution is computed with the LAPACK function \"dgelsx\",
 i.e., QR or LQ factorization of A with column pivoting.
-If A does not have full rank,
-the solution is not unique and from the infinitely many solutions
-the one is selected that minimizes both |x|^2 and |A*x - b|^2.
 </p>
 </HTML>"));
   end leastSquares;
