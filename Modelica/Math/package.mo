@@ -5548,7 +5548,7 @@ partial function baseIcon2
           lineColor={95,95,95},
           fillColor={95,95,95},
           fillPattern=FillPattern.Solid)}),
-    Documentation(revisions="<html>
+    Documentation(info="<html>
 <p>
 Icon for a mathematical function, consisting of an y-axis in the middle.
 It is expected, that an x-axis is added and a plot of the function.
