@@ -172,6 +172,167 @@ is forced back to its limit after a transient phase.
 </html>"));
   end PID_Controller;
 
+model Filter "Demonstrates the Continuous.Filter block with various options"
+  extends Modelica.Icons.Example;
+  parameter Integer order = 3;
+  parameter Modelica.SIunits.Frequency f_cut = 2;
+  parameter Modelica.Blocks.Types.FilterType filterType=Modelica.Blocks.Types.FilterType.LowPass
+      "Type of filter (LowPass/HighPass)";
+  parameter Modelica.Blocks.Types.Init init=Modelica.Blocks.Types.Init.SteadyState
+      "Type of initialization (no init/steady state/initial state/initial output)";
+  parameter Boolean normalized = true;
+
+  Modelica.Blocks.Sources.Step step(startTime=0.1, offset=0.1)
+    annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
+    Modelica.Blocks.Continuous.Filter CriticalDamping(
+    analogFilter=Modelica.Blocks.Types.AnalogFilter.CriticalDamping,
+    normalized=normalized,
+    init=init,
+    filterType=filterType,
+    order=order,
+    f_cut=f_cut,
+    f_min=0.8*f_cut)
+      annotation (Placement(transformation(extent={{-20,40},{0,60}})));
+    Modelica.Blocks.Continuous.Filter Bessel(
+    normalized=normalized,
+    analogFilter=Modelica.Blocks.Types.AnalogFilter.Bessel,
+    init=init,
+    filterType=filterType,
+    order=order,
+    f_cut=f_cut,
+    f_min=0.8*f_cut)
+      annotation (Placement(transformation(extent={{-20,0},{0,20}})));
+    Modelica.Blocks.Continuous.Filter Butterworth(
+    normalized=normalized,
+    analogFilter=Modelica.Blocks.Types.AnalogFilter.Butterworth,
+    init=init,
+    filterType=filterType,
+    order=order,
+    f_cut=f_cut,
+    f_min=0.8*f_cut)
+      annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
+    Modelica.Blocks.Continuous.Filter ChebyshevI(
+      normalized=normalized,
+      analogFilter=Modelica.Blocks.Types.AnalogFilter.ChebyshevI,
+      init=init,
+      filterType=filterType,
+      order=order,
+      f_cut=f_cut,
+      f_min=0.8*f_cut)
+      annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+
+equation
+  connect(step.y, CriticalDamping.u)
+                               annotation (Line(
+        points={{-39,50},{-22,50}},
+        color={0,0,127},
+        smooth=Smooth.None));
+  connect(step.y, Bessel.u)   annotation (Line(
+      points={{-39,50},{-32,50},{-32,10},{-22,10}},
+      color={0,0,127},
+      smooth=Smooth.None));
+  connect(Butterworth.u, step.y)
+                              annotation (Line(
+      points={{-22,-30},{-32,-30},{-32,50},{-39,50}},
+      color={0,0,127},
+      smooth=Smooth.None));
+    connect(ChebyshevI.u, step.y)
+                               annotation (Line(
+      points={{-22,-70},{-32,-70},{-32,50},{-39,50}},
+      color={0,0,127},
+      smooth=Smooth.None));
+  annotation (Diagram(graphics),
+      experiment(StopTime=0.9),
+      experimentSetupOutput,
+    Icon(graphics={Text(
+            extent={{-82,54},{86,22}},
+            lineColor={0,0,0},
+            textString="basic"), Text(
+            extent={{-84,2},{84,-30}},
+            lineColor={0,0,0},
+            textString="filters")}),
+      Documentation(info="<html>
+
+<p>
+This example demonstrates various options of the
+<a href=\"modelica://Modelica.Blocks.Continuous.Filter\">Filter</a> block.
+A step input starts at 0.1 s with an offset of 0.1, in order to demonstrate
+the initialization options. This step input drives 4 filter blocks that
+have identical parameters, with the only exception of the used analog filter type
+(CriticalDamping, Bessel, Butterworth, Chebyshev of type I). All the main options
+can be set via parameters and are then applied to all the 4 filters.
+The default setting uses low pass filters of order 3 with a cut-off frequency of
+2 Hz resulting in the following outputs:
+</p>
+
+<p>
+<img src=\"modelica://Modelica/Images/Blocks/Filter1.png\">
+</p>
+
+</html>"));
+end Filter;
+
+model FilterWithDifferentiation
+    "Demonstrates the use of low pass filters to determine derivatives of filters"
+  extends Modelica.Icons.Example;
+  parameter Modelica.SIunits.Frequency f_cut = 2;
+
+  Modelica.Blocks.Sources.Step step(startTime=0.1, offset=0.1)
+    annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
+    Modelica.Blocks.Continuous.Filter Bessel(
+      f_cut=f_cut,
+      filterType=Modelica.Blocks.Types.FilterType.LowPass,
+      order=3,
+      analogFilter=Modelica.Blocks.Types.AnalogFilter.Bessel)
+      annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
+
+    Continuous.Der der1
+      annotation (Placement(transformation(extent={{-6,40},{14,60}})));
+    Continuous.Der der2
+      annotation (Placement(transformation(extent={{30,40},{50,60}})));
+    Continuous.Der der3
+      annotation (Placement(transformation(extent={{62,40},{82,60}})));
+equation
+    connect(step.y, Bessel.u)  annotation (Line(
+        points={{-59,50},{-42,50}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(Bessel.y, der1.u) annotation (Line(
+        points={{-19,50},{-8,50}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(der1.y, der2.u) annotation (Line(
+        points={{15,50},{28,50}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(der2.y, der3.u) annotation (Line(
+        points={{51,50},{60,50}},
+        color={0,0,127},
+        smooth=Smooth.None));
+  annotation (Diagram(graphics),
+      experiment(StopTime=0.9),
+      experimentSetupOutput,
+    Icon(graphics={Text(
+            extent={{-82,54},{86,22}},
+            lineColor={0,0,0},
+            textString="basic"), Text(
+            extent={{-84,2},{84,-30}},
+            lineColor={0,0,0},
+            textString="filters")}),
+    Documentation(info="<html>
+
+<p>
+This example demonstrates that the output of the
+<a href=\"modelica://Modelica.Blocks.Continuous.Filter\">Filter</a> block
+can be differentiated up to the order of the filter. This feature can be
+used in order to make an inverse model realizable or to \"smooth\" a potential
+discontinuous control signal.
+</p>
+
+
+</html>"));
+end FilterWithDifferentiation;
+
   model InverseModel "Demonstrates the construction of an inverse model"
     extends Modelica.Icons.Example;
 

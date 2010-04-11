@@ -80,4 +80,22 @@ definitions that define the menus to be built up in the graphical
 user interface when the type is used as parameter in a declaration.
 </p>
 </HTML>"));
+type AnalogFilter = enumeration(
+      CriticalDamping "Filter with critical damping",
+      Bessel "Bessel filter",
+      Butterworth "Butterworth filter",
+      ChebyshevI "ChebyshevI filter")
+    "Enumeration defining the method of filtering"
+      annotation (Evaluate=true, Documentation(info="<html>
+
+</html>"));
+type FilterType = enumeration(
+      LowPass "Low pass filter",
+      HighPass "High pass filter",
+      BandPass "Band pass filter",
+      BandStop "Band stop / notch filter")
+    "Enumeration of analog filter types (low, high, band pass or band stop filter"
+    annotation (Evaluate=true, Documentation(info="<html>
+
+</html>"));
 end Types;
