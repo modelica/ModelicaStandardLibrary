@@ -230,4 +230,214 @@ package Blocks "Test models for Modelica.Blocks"
               100,100}}), graphics),
       experiment(StopTime=3));
   end KinematicPTP;
+
+  package FilterTests "Test of Blocks.Continuous.Filter"
+    block AllOptions
+      "Simulates 264 filter blocks and varies all possible options systematically for different orders and different cut-off frequencies"
+      extends Modelica.Icons.Example;
+      DifferentInitialization normalized(normalized=true)
+        annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
+      DifferentInitialization notNormalized(normalized=false)
+        annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
+      Basic basicWithGain(gain=1.4)
+        annotation (Placement(transformation(extent={{-20,40},{0,60}})));
+      annotation (experiment(StopTime=1.1), experimentSetupOutput);
+    end AllOptions;
+
+  model Basic
+    extends Modelica.Blocks.Interfaces.BlockIcon;
+    parameter Integer order1 = 3;
+    parameter Integer order2 = 6;
+    parameter Modelica.SIunits.Frequency f_cut1 = 3;
+    parameter Modelica.SIunits.Frequency f_cut2 = 5;
+    parameter Boolean normalized = true;
+    parameter Modelica.Blocks.Types.FilterType filterType=Modelica.Blocks.Types.FilterType.LowPass
+        "Type of filter (LowPass/HighPass)";
+    parameter Modelica.Blocks.Types.Init init=Modelica.Blocks.Types.Init.SteadyState
+        "Type of initialization (no init/steady state/initial state/initial output)";
+
+    Modelica.Blocks.Sources.Step step(startTime=0.1, offset=0.1)
+      annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
+      Modelica.Blocks.Continuous.Filter CriticalDamping_a(
+      analogFilter=Modelica.Blocks.Types.AnalogFilter.CriticalDamping,
+      normalized=normalized,
+      order=order1,
+      f_cut=f_cut1,
+      init=init,
+      filterType=filterType,
+      f_min=0.8*f_cut1,
+      gain=gain)
+        annotation (Placement(transformation(extent={{-20,40},{0,60}})));
+      Modelica.Blocks.Continuous.Filter CriticalDamping_b(
+      analogFilter=Modelica.Blocks.Types.AnalogFilter.CriticalDamping,
+      normalized=normalized,
+      order=order2,
+      f_cut=f_cut2,
+      init=init,
+      filterType=filterType,
+      f_min=0.8*f_cut2,
+      gain=gain)
+        annotation (Placement(transformation(extent={{40,40},{60,60}})));
+      Modelica.Blocks.Continuous.Filter Bessel_a(
+      normalized=normalized,
+      order=order1,
+      f_cut=f_cut1,
+      analogFilter=Modelica.Blocks.Types.AnalogFilter.Bessel,
+      init=init,
+      filterType=filterType,
+        f_min=0.8*f_cut1,
+        gain=gain)
+        annotation (Placement(transformation(extent={{-20,0},{0,20}})));
+      Modelica.Blocks.Continuous.Filter Bessel_b(
+      normalized=normalized,
+      order=order2,
+      f_cut=f_cut2,
+      analogFilter=Modelica.Blocks.Types.AnalogFilter.Bessel,
+      init=init,
+      filterType=filterType,
+        f_min=0.8*f_cut2,
+        gain=gain)
+        annotation (Placement(transformation(extent={{40,0},{60,20}})));
+      Modelica.Blocks.Continuous.Filter Butterworth_a(
+      normalized=normalized,
+      order=order1,
+      f_cut=f_cut1,
+      analogFilter=Modelica.Blocks.Types.AnalogFilter.Butterworth,
+      init=init,
+      filterType=filterType,
+      f_min=0.8*f_cut1,
+      gain=gain)
+        annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
+      Modelica.Blocks.Continuous.Filter Butterworth_b(
+      normalized=normalized,
+      order=order2,
+      f_cut=f_cut2,
+      analogFilter=Modelica.Blocks.Types.AnalogFilter.Butterworth,
+      init=init,
+      filterType=filterType,
+      f_min=0.8*f_cut2,
+      gain=gain)
+        annotation (Placement(transformation(extent={{40,-40},{60,-20}})));
+      Modelica.Blocks.Continuous.Filter ChebyshevI_a(
+      normalized=normalized,
+      order=order1,
+      f_cut=f_cut1,
+      analogFilter=Modelica.Blocks.Types.AnalogFilter.ChebyshevI,
+      init=init,
+      filterType=filterType,
+      f_min=0.8*f_cut1,
+      gain=gain)
+        annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+      Modelica.Blocks.Continuous.Filter ChebyshevI_b(
+      normalized=normalized,
+      order=order2,
+      f_cut=f_cut2,
+      analogFilter=Modelica.Blocks.Types.AnalogFilter.ChebyshevI,
+      init=init,
+      filterType=filterType,
+      f_min=0.8*f_cut2,
+      gain=gain)
+        annotation (Placement(transformation(extent={{40,-80},{60,-60}})));
+
+      parameter Real gain=1.0
+        "Gain (= amplitude of frequency response at zero frequency)";
+  equation
+    connect(step.y, CriticalDamping_a.u)
+                                 annotation (Line(
+          points={{-39,50},{-22,50}},
+          color={0,0,127},
+          smooth=Smooth.None));
+    connect(step.y, CriticalDamping_b.u)
+                                annotation (Line(
+        points={{-39,50},{-32,50},{-32,70},{20,70},{20,50},{38,50}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(step.y,Bessel_a. u) annotation (Line(
+        points={{-39,50},{-32,50},{-32,10},{-22,10}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(step.y,Bessel_b. u) annotation (Line(
+        points={{-39,50},{-32,50},{-32,70},{20,70},{20,10},{38,10}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(Butterworth_a.u, step.y)
+                                annotation (Line(
+        points={{-22,-30},{-32,-30},{-32,50},{-39,50}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(step.y, Butterworth_b.u)
+                                annotation (Line(
+        points={{-39,50},{-32,50},{-32,70},{20,70},{20,-30},{38,-30}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(ChebyshevI_a.u, step.y)
+                                 annotation (Line(
+        points={{-22,-70},{-32,-70},{-32,50},{-39,50}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(step.y, ChebyshevI_b.u)
+                                 annotation (Line(
+        points={{-39,50},{-32,50},{-32,70},{20,70},{20,-70},{38,-70}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (Diagram(graphics),
+        experiment(StopTime=0.9),
+        experimentSetupOutput,
+      Icon(graphics={Text(
+              extent={{-82,54},{86,22}},
+              lineColor={0,0,0},
+              textString="basic"), Text(
+              extent={{-84,2},{84,-30}},
+              lineColor={0,0,0},
+              textString="filters")}));
+  end Basic;
+
+    block DifferentFilterTypes
+      extends Modelica.Blocks.Interfaces.BlockIcon;
+      Basic lowPass(filterType=Modelica.Blocks.Types.FilterType.LowPass,
+        normalized=normalized,
+        init=init)
+        annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
+      Basic highPass(filterType=Modelica.Blocks.Types.FilterType.HighPass,
+        normalized=normalized,
+        init=init)
+        annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
+      Basic bandPass(
+        order1=2,
+        order2=5,
+        filterType=Modelica.Blocks.Types.FilterType.BandPass,
+        normalized=normalized,
+        init=init)
+        annotation (Placement(transformation(extent={{-60,-40},{-40,-20}})));
+      Basic bandStop(
+        order1=2,
+        order2=5,
+        filterType=Modelica.Blocks.Types.FilterType.BandStop,
+        normalized=normalized,
+        init=init)
+        annotation (Placement(transformation(extent={{-60,-80},{-40,-60}})));
+      parameter Modelica.Blocks.Types.Init init=Modelica.Blocks.Types.Init.SteadyState
+        "Type of initialization (no init/steady state/initial state/initial output)";
+      parameter Boolean normalized=true;
+    end DifferentFilterTypes;
+
+    block DifferentInitialization
+      extends Modelica.Blocks.Interfaces.BlockIcon;
+      DifferentFilterTypes steadyState(init=Modelica.Blocks.Types.Init.SteadyState,
+          normalized=normalized)
+        annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
+      DifferentFilterTypes initialState(init=Modelica.Blocks.Types.Init.InitialState,
+          normalized=normalized)
+        annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
+      DifferentFilterTypes initialOutput(init=Modelica.Blocks.Types.Init.InitialOutput,
+          normalized=normalized)
+        annotation (Placement(transformation(extent={{-60,-40},{-40,-20}})));
+      DifferentFilterTypes noInit(init=Modelica.Blocks.Types.Init.InitialOutput,
+          normalized=normalized)
+        annotation (Placement(transformation(extent={{-60,-80},{-40,-60}})));
+      parameter Boolean normalized=true;
+    equation
+
+    end DifferentInitialization;
+  end FilterTests;
 end Blocks;
