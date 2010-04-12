@@ -4242,7 +4242,7 @@ VN- -&GT; name.pc[N-1]
 
       function energyGapDepTemp "Temperature dependency of energy gap"
 
-        input Real temp;
+        input Real temp "Temperature";
         input Real gap0 =   1.16;
         input Real coeff1 = 7.02e-4;
         input Real coeff2 = 1108.;
@@ -4311,7 +4311,7 @@ VN- -&GT; name.pc[N-1]
 
       function junctionVCrit "Voltage limitation"
 
-        input Real temp;
+        input Real temp "temperature";
         input Real ncoeff;
         input Real satcur "Saturation current";
 
@@ -4336,11 +4336,11 @@ VN- -&GT; name.pc[N-1]
         input Real phi0;
         input Real cap0;
         input Real mcoeff;
-        input Real temp;
-        input Real tnom;
+        input Real temp "Device temperature";
+        input Real tnom "Nominal temperature";
 
-        output Real junctionpot;
-        output Real jucntioncap;
+        output Real junctionpot "Junction potential";
+        output Real jucntioncap "Junction capacitance";
 
       protected
         Real phibtemp;
@@ -4410,15 +4410,15 @@ VN- -&GT; name.pc[N-1]
     function junction2SPICE3MOSFET
         "Junction current and conductance calculation"
 
-      input Real current;
-      input Real cond;
-      input Real voltage;
-      input Real temp;
+      input Real current "Input current";
+      input Real cond "Input conductance";
+      input Real voltage "Input voltage";
+      input Real temp "Device Temperature";
       input Real ncoeff;
       input Real satcur;
 
-      output Real out_current;
-      output Real out_cond;
+      output Real out_current "Calculated current";
+      output Real out_cond "Calculated conduction";
 
       protected
       Real vte;
@@ -4463,8 +4463,8 @@ VN- -&GT; name.pc[N-1]
 
     function junctionCap "Junction capacity"
 
-      input Real capin;
-      input Real voltage;
+      input Real capin "Input capacitance";
+      input Real voltage "Input voltage";
       input Real depcap;
       input Real mj;
       input Real phij;
@@ -4472,8 +4472,8 @@ VN- -&GT; name.pc[N-1]
       input Real f2;
       input Real f3;
 
-      output Real capout;
-      output Real charge;
+      output Real capout "Output capacitance";
+      output Real charge "Output charge";
 
       protected
       Real arg;
@@ -4506,13 +4506,13 @@ VN- -&GT; name.pc[N-1]
         "Temperature dependency of saturation current"
 
       input Real satcur0;
-      input Real temp;
-      input Real tnom;
+      input Real temp "Device Temperature";
+      input Real tnom "Nominal Temperature";
       input Real emissioncoeff;
       input Real energygap;
       input Real satcurexp;
 
-      output Real ret;
+      output Real ret "Output value";
 
       protected
       Real vt;
@@ -4534,7 +4534,7 @@ VN- -&GT; name.pc[N-1]
       input Real vb;
       input Real ivb;
       input Real satcur;
-      input Real temp;
+      input Real temp "Device temperature";
       input Real ncoeff;
 
       output Real v23;
@@ -4570,14 +4570,14 @@ VN- -&GT; name.pc[N-1]
 
     function junction3 "Junction current and conductance calculation"
 
-      input Real voltage;
-      input Real temp;
+      input Real voltage "Input voltage";
+      input Real temp "Device Temperature";
       input Real ncoeff;
       input Real satcur;
       input Real v23;
 
-      output Real current;
-      output Real cond;
+      output Real current "Output curret";
+      output Real cond "Output conductance";
 
       protected
       constant Real max_exp = 50.0;
@@ -4632,8 +4632,8 @@ VN- -&GT; name.pc[N-1]
     function junctionCapTransTime
         "Junction capacitance transittime calculation"
 
-      input Real capin;
-      input Real voltage;
+      input Real capin "Input capacitance";
+      input Real voltage "Input voltage";
       input Real depcap;
       input Real mj;
       input Real phij;
@@ -4641,11 +4641,11 @@ VN- -&GT; name.pc[N-1]
       input Real f2;
       input Real f3;
       input Real transittime;
-      input Real conduct;
-      input Real current;
+      input Real conduct "Input conductance";
+      input Real current "Input current";
 
-      output Real capout;
-      output Real charge;
+      output Real capout "Output capacitance";
+      output Real charge "Output charge";
 
     algorithm
         (capout,charge) := junctionCap(
@@ -4667,13 +4667,13 @@ VN- -&GT; name.pc[N-1]
 
     function junction2 "Junction current and conductance calculation"
 
-      input Real voltage;
-      input Real temp;
+      input Real voltage "Input Voltage";
+      input Real temp "Device Temperature";
       input Real ncoeff;
       input Real satcur;
 
-      output Real current;
-      output Real cond;
+      output Real current "Output current";
+      output Real cond "Output conductance";
 
       protected
       constant Real max_exp = 50.0;
@@ -4715,13 +4715,13 @@ VN- -&GT; name.pc[N-1]
 
     function resDepTemp "Temperature dependent conductance"
 
-    input Real resist;
-    input Real temp;
-    input Real tnom;
+    input Real resist "Input resistance";
+    input Real temp "Device temperature";
+    input Real tnom "Nominal temperature";
     input Real tc1;
     input Real tc2;
 
-    output Real conduct;
+    output Real conduct "Output conductance";
     output Real dCond_dTemp;
 
       protected
@@ -4741,10 +4741,10 @@ VN- -&GT; name.pc[N-1]
 
     function resDepGeom "Resistance dependent from width and narrow"
 
-    input Real rsh;
-    input Real width;
-    input Real length;
-    input Real narrow;
+    input Real rsh "Input sheet resistance";
+    input Real width "Input transistor width";
+    input Real length "Input transistor legth";
+    input Real narrow "Input narrow";
 
     output Real out;
 
@@ -4833,7 +4833,7 @@ VN- -&GT; name.pc[N-1]
 
       function limitJunctionVoltage "Limitation of junction voltage"
 
-        input Real voltage;
+        input Real voltage "Input voltage";
 
         output Real ret;
 
@@ -5182,12 +5182,14 @@ VN- -&GT; name.pc[N-1]
 
       function mosCalcInitEquations "Mosfet initial precalculations (level 1)"
 
-        input Mos1.Mos1ModelLineParams in_p;
-        input SpiceConstants in_C;
-        input Mos.MosModelLineVariables in_vp;
-        input Mosfet.Mosfet in_m;
+        input Mos1.Mos1ModelLineParams in_p
+          "Input record model line parameters for MOS1";
+        input SpiceConstants in_C "Input record SPICE constants";
+        input Mos.MosModelLineVariables in_vp
+          "Input record model line variables";
+        input Mosfet.Mosfet in_m "Input record mosfet parameters";
 
-        output Mos1.Mos1Calc out_c;
+        output Mos1.Mos1Calc out_c "Output record Mos1 calculated values";
 
       algorithm
          out_c.m_drainResistance := if
@@ -5218,14 +5220,16 @@ VN- -&GT; name.pc[N-1]
       function mosCalcCalcTempDependencies
         "Precalculation relating to temperature"
 
-        input Mos1.Mos1ModelLineParams in_p;
-        input SpiceConstants in_C;
-        input Mos.MosModelLineVariables in_vp;
-        input Mosfet.Mosfet in_m;
-        input Mos1.Mos1Calc in_c;
-        input Integer in_m_type;
+        input Mos1.Mos1ModelLineParams in_p
+          "Input record model line parameters for MOS1";
+        input SpiceConstants in_C "Input record SPICE constants";
+        input Mos.MosModelLineVariables in_vp
+          "Input record model line variables";
+        input Mosfet.Mosfet in_m "Input record mosfet parameters";
+        input Mos1.Mos1Calc in_c "Input record Mos1Calc";
+        input Integer in_m_type "Type of MOS transistor";
 
-        output Mos1.Mos1Calc out_c;
+        output Mos1.Mos1Calc out_c "Output record with calculates values";
 
       protected
          Real ratio;
@@ -5316,12 +5320,14 @@ VN- -&GT; name.pc[N-1]
       function mosCalcNoBypassCode
         "Calculation of currents and capacities (level 1)"
 
-        input Mosfet.Mosfet in_m;
-        input Integer in_m_type;
-        input Mos1.Mos1Calc in_c;
-        input Mos1.Mos1ModelLineParams in_p;
-        input SpiceConstants in_C;
-        input Mos.MosModelLineVariables in_vp;
+        input Mosfet.Mosfet in_m "Input record mosfet parameters";
+        input Integer in_m_type "Type of MOS transistor";
+        input Mos1.Mos1Calc in_c "Input record Mos1Calc";
+        input Mos1.Mos1ModelLineParams in_p
+          "Input record model line parameters for MOS1";
+        input SpiceConstants in_C "Input record SPICE constants";
+        input Mos.MosModelLineVariables in_vp
+          "Input record model line variables";
         input Boolean in_m_bInit;
         input Real[4] in_m_pVoltageValues; /* gate bulk drain source */
 
