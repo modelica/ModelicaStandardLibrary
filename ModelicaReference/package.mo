@@ -1,9 +1,238 @@
 within ;
 package ModelicaReference "Modelica Reference"
+  extends Modelica.Icons.Information;
+
+
+class ModelicaGrammar "Modelica Grammar"
+  extends Modelica.Icons.Information;
+
+  annotation (Documentation(info="<html>
+
+<p>This is the grammar of Modelica 3.2 in EBNF form. Each non-terminal
+appearing on the right hand side of a production is a link to the production
+for that non-terminal. This grammar is identical to that in the Modelica 3.2
+specification except for removal of some unnecessary parentheses, grouping of
+some common terms, and reformatting for easier readability. The following
+typographic conventions are used:
+<ul>
+<li>Keywords are set in <b>boldface</b>.</li>
+<li>Literals other than keywords are <font color=green>\"</font><tt>quoted-monospaced</tt><font color=green>\"</font> text.</li>
+<li>Non-terminals are set in <i>italics</i>, with <font color=#003399><i>blue italics</i></font> used for links.</li>
+<li>EBNF meta-characters are <font color=green>green</font>.</li>
+</ul>
+<h4>Stored Definition</h4>
+<p><a name=\"stored_definition\" class=NAME><i>stored_definition</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>[</font><tt> </tt><b>within</b><tt> </tt><font color=green size=+1>[</font><tt> </tt><a href=\"#name\" class=HREF><i>name</i></a><tt> </tt><font color=green size=+1>]</font><tt> </tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>]</font><tt> </tt><font color=green size=+1>{</font><tt> </tt><font color=green size=+1>[</font><tt> </tt><b>final</b><tt> </tt><font color=green size=+1>]</font><tt> </tt><a href=\"#class_definition\" class=HREF><i>class_definition</i></a><tt> </tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>}</font>
+<h4>Class Definition</h4>
+<p><a name=\"class_definition\" class=NAME><i>class_definition</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>[</font><tt> </tt><b>encapsulated</b><tt> </tt><font color=green size=+1>]</font><tt> </tt><font color=green size=+1>[</font><tt> </tt><b>partial</b><tt> </tt><font color=green size=+1>]</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>(</font><tt> </tt><b>class</b><tt> </tt><font color=green size=+1>|</font><tt> </tt><b>model</b><tt> </tt><font color=green size=+1>|</font><tt> </tt><b>record</b><tt> </tt><font color=green size=+1>|</font><tt> </tt><b>block</b><tt> </tt><font color=green size=+1>|</font><tt> </tt><font color=green size=+1>[</font><tt> </tt><b>expandable</b><tt> </tt><font color=green size=+1>]</font><tt> </tt><b>connector</b><tt> </tt><font color=green size=+1>|</font><tt> </tt><b>type</b><tt> </tt><font color=green size=+1>|</font><tt> </tt><b>package</b><tt> </tt><font color=green size=+1>|</font><tt> </tt><b>function</b><tt> </tt><font color=green size=+1>|</font><tt> </tt><b>operator</b><tt> </tt><font color=green size=+1>[</font><tt> </tt><b>function</b><tt> </tt><font color=green size=+1>|</font><tt> </tt><b>record</b><tt> </tt><font color=green size=+1>]</font><tt> </tt><font color=green size=+1>)</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#class_specifier\" class=HREF><i>class_specifier</i></a>
+<p><a name=\"class_specifier\" class=NAME><i>class_specifier</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>IDENT</i><tt> </tt><a href=\"#string_comment\" class=HREF><i>string_comment</i></a><tt> </tt><a href=\"#composition\" class=HREF><i>composition</i></a><tt> </tt><b>end</b><tt> </tt><i>IDENT</i>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><i>IDENT</i><tt> </tt><font color=green>\"</font><tt>=</tt><font color=green>\"</font><tt> </tt><a href=\"#base_prefix\" class=HREF><i>base_prefix</i></a><tt> </tt><a href=\"#name\" class=HREF><i>name</i></a><tt> </tt><font color=green size=+1>[</font><tt> </tt><a href=\"#array_subscripts\" class=HREF><i>array_subscripts</i></a><tt> </tt><font color=green size=+1>]</font><tt> </tt><font color=green size=+1>[</font><tt> </tt><a href=\"#class_modification\" class=HREF><i>class_modification</i></a><tt> </tt><font color=green size=+1>]</font><tt> </tt><a href=\"#comment\" class=HREF><i>comment</i></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><i>IDENT</i><tt> </tt><font color=green>\"</font><tt>=</tt><font color=green>\"</font><tt> </tt><b>enumeration</b><tt> </tt><font color=green>\"</font><tt>(</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>(</font><tt> </tt><font color=green size=+1>[</font><tt> </tt><a href=\"#enum_list\" class=HREF><i>enum_list</i></a><tt> </tt><font color=green size=+1>]</font><tt> </tt><font color=green size=+1>|</font><tt> </tt><font color=green>\"</font><tt>:</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>)</font><tt> </tt><font color=green>\"</font><tt>)</tt><font color=green>\"</font><tt> </tt><a href=\"#comment\" class=HREF><i>comment</i></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><i>IDENT</i><tt> </tt><font color=green>\"</font><tt>=</tt><font color=green>\"</font><tt> </tt><b>der</b><tt> </tt><font color=green>\"</font><tt>(</tt><font color=green>\"</font><tt> </tt><a href=\"#name\" class=HREF><i>name</i></a><tt> </tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt> </tt><i>IDENT</i><tt> </tt><font color=green size=+1>{</font><tt> </tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt> </tt><i>IDENT</i><tt> </tt><font color=green size=+1>}</font><tt> </tt><font color=green>\"</font><tt>)</tt><font color=green>\"</font><tt> </tt><a href=\"#comment\" class=HREF><i>comment</i></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><b>extends</b><tt> </tt><i>IDENT</i><tt> </tt><font color=green size=+1>[</font><tt> </tt><a href=\"#class_modification\" class=HREF><i>class_modification</i></a><tt> </tt><font color=green size=+1>]</font><tt> </tt><a href=\"#string_comment\" class=HREF><i>string_comment</i></a><tt> </tt><a href=\"#composition\" class=HREF><i>composition</i></a><tt> </tt><b>end</b><tt> </tt><i>IDENT</i>
+<p><a name=\"base_prefix\" class=NAME><i>base_prefix</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#type_prefix\" class=HREF><i>type_prefix</i></a>
+<p><a name=\"enum_list\" class=NAME><i>enum_list</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#enumeration_literal\" class=HREF><i>enumeration_literal</i></a><tt> </tt><font color=green size=+1>{</font><tt> </tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt> </tt><a href=\"#enumeration_literal\" class=HREF><i>enumeration_literal</i></a><tt> </tt><font color=green size=+1>}</font>
+<p><a name=\"enumeration_literal\" class=NAME><i>enumeration_literal</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>IDENT</i><tt> </tt><a href=\"#comment\" class=HREF><i>comment</i></a>
+<p><a name=\"composition\" class=NAME><i>composition</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#element_list\" class=HREF><i>element_list</i></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>{</font><tt> </tt><b>public</b><tt> </tt><a href=\"#element_list\" class=HREF><i>element_list</i></a><tt> </tt><font color=green size=+1>|</font><tt> </tt><b>protected</b><tt> </tt><a href=\"#element_list\" class=HREF><i>element_list</i></a><tt> </tt><font color=green size=+1>|</font><tt> </tt><a href=\"#equation_section\" class=HREF><i>equation_section</i></a><tt> </tt><font color=green size=+1>|</font><tt> </tt><a href=\"#algorithm_section\" class=HREF><i>algorithm_section</i></a><tt> </tt><font color=green size=+1>}</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>[</font><tt> </tt><b>external</b><tt> </tt><font color=green size=+1>[</font><tt> </tt><a href=\"#language_specification\" class=HREF><i>language_specification</i></a><tt> </tt><font color=green size=+1>]</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>[</font><tt> </tt><a href=\"#external_function_call\" class=HREF><i>external_function_call</i></a><tt> </tt><font color=green size=+1>]</font><tt> </tt><font color=green size=+1>[</font><tt> </tt><a href=\"#annotation\" class=HREF><i>annotation</i></a><tt> </tt><font color=green size=+1>]</font><tt> </tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>]</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>[</font><tt> </tt><a href=\"#annotation\" class=HREF><i>annotation</i></a><tt> </tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>]</font>
+<p><a name=\"language_specification\" class=NAME><i>language_specification</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>STRING</i>
+<p><a name=\"external_function_call\" class=NAME><i>external_function_call</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>[</font><tt> </tt><a href=\"#component_reference\" class=HREF><i>component_reference</i></a><tt> </tt><font color=green>\"</font><tt>=</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>]</font><tt> </tt><i>IDENT</i><tt> </tt><font color=green>\"</font><tt>(</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>[</font><tt> </tt><a href=\"#expression_list\" class=HREF><i>expression_list</i></a><tt> </tt><font color=green size=+1>]</font><tt> </tt><font color=green>\"</font><tt>)</tt><font color=green>\"</font>
+<p><a name=\"element_list\" class=NAME><i>element_list</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>{</font><tt> </tt><a href=\"#element\" class=HREF><i>element</i></a><tt> </tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>}</font>
+<p><a name=\"element\" class=NAME><i>element</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#import_clause\" class=HREF><i>import_clause</i></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><a href=\"#extends_clause\" class=HREF><i>extends_clause</i></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><font color=green size=+1>[</font><tt> </tt><b>redeclare</b><tt> </tt><font color=green size=+1>]</font><tt> </tt><font color=green size=+1>[</font><tt> </tt><b>final</b><tt> </tt><font color=green size=+1>]</font><tt> </tt><font color=green size=+1>[</font><tt> </tt><b>inner</b><tt> </tt><font color=green size=+1>]</font><tt> </tt><font color=green size=+1>[</font><tt> </tt><b>outer</b><tt> </tt><font color=green size=+1>]</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>(</font><tt> </tt><a href=\"#class_definition\" class=HREF><i>class_definition</i></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><a href=\"#component_clause\" class=HREF><i>component_clause</i></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><b>replaceable</b><tt> </tt><font color=green size=+1>(</font><tt> </tt><a href=\"#class_definition\" class=HREF><i>class_definition</i></a><tt> </tt><font color=green size=+1>|</font><tt> </tt><a href=\"#component_clause\" class=HREF><i>component_clause</i></a><tt> </tt><font color=green size=+1>)</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>[</font><tt> </tt><a href=\"#constraining_clause\" class=HREF><i>constraining_clause</i></a><tt> </tt><a href=\"#comment\" class=HREF><i>comment</i></a><tt> </tt><font color=green size=+1>]</font><tt> </tt><font color=green size=+1>)</font>
+<p><a name=\"import_clause\" class=NAME><i>import_clause</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><b>import</b><tt> </tt><font color=green size=+1>(</font><tt> </tt><i>IDENT</i><tt> </tt><font color=green>\"</font><tt>=</tt><font color=green>\"</font><tt> </tt><a href=\"#name\" class=HREF><i>name</i></a><tt> </tt><font color=green size=+1>|</font><tt> </tt><a href=\"#name\" class=HREF><i>name</i></a><tt> </tt><font color=green size=+1>[</font><tt> </tt><font color=green>\"</font><tt>.</tt><font color=green>\"</font><tt> </tt><font color=green>\"</font><tt>*</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>|</font><tt> </tt><font color=green>\"</font><tt>.*</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>]</font><tt> </tt><font color=green size=+1>)</font><tt> </tt><a href=\"#comment\" class=HREF><i>comment</i></a>
+<h4>Extends</h4>
+<p><a name=\"extends_clause\" class=NAME><i>extends_clause</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><b>extends</b><tt> </tt><a href=\"#name\" class=HREF><i>name</i></a><tt> </tt><font color=green size=+1>[</font><tt> </tt><a href=\"#class_modification\" class=HREF><i>class_modification</i></a><tt> </tt><font color=green size=+1>]</font><tt> </tt><font color=green size=+1>[</font><tt> </tt><a href=\"#annotation\" class=HREF><i>annotation</i></a><tt> </tt><font color=green size=+1>]</font>
+<p><a name=\"constraining_clause\" class=NAME><i>constraining_clause</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><b>constrainedby</b><tt> </tt><a href=\"#name\" class=HREF><i>name</i></a><tt> </tt><font color=green size=+1>[</font><tt> </tt><a href=\"#class_modification\" class=HREF><i>class_modification</i></a><tt> </tt><font color=green size=+1>]</font>
+<h4>Component Clause</h4>
+<p><a name=\"component_clause\" class=NAME><i>component_clause</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#type_prefix\" class=HREF><i>type_prefix</i></a><tt> </tt><a href=\"#type_specifier\" class=HREF><i>type_specifier</i></a><tt> </tt><font color=green size=+1>[</font><tt> </tt><a href=\"#array_subscripts\" class=HREF><i>array_subscripts</i></a><tt> </tt><font color=green size=+1>]</font><tt> </tt><a href=\"#component_list\" class=HREF><i>component_list</i></a>
+<p><a name=\"type_prefix\" class=NAME><i>type_prefix</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>[</font><tt> </tt><b>flow</b><tt> </tt><font color=green size=+1>|</font><tt> </tt><b>stream</b><tt> </tt><font color=green size=+1>]</font><tt> </tt><font color=green size=+1>[</font><tt> </tt><b>discrete</b><tt> </tt><font color=green size=+1>|</font><tt> </tt><b>parameter</b><tt> </tt><font color=green size=+1>|</font><tt> </tt><b>constant</b><tt> </tt><font color=green size=+1>]</font><tt> </tt><font color=green size=+1>[</font><tt> </tt><b>input</b><tt> </tt><font color=green size=+1>|</font><tt> </tt><b>output</b><tt> </tt><font color=green size=+1>]</font>
+<p><a name=\"type_specifier\" class=NAME><i>type_specifier</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#name\" class=HREF><i>name</i></a>
+<p><a name=\"component_list\" class=NAME><i>component_list</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#component_declaration\" class=HREF><i>component_declaration</i></a><tt> </tt><font color=green size=+1>{</font><tt> </tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt> </tt><a href=\"#component_declaration\" class=HREF><i>component_declaration</i></a><tt> </tt><font color=green size=+1>}</font>
+<p><a name=\"component_declaration\" class=NAME><i>component_declaration</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#declaration\" class=HREF><i>declaration</i></a><tt> </tt><font color=green size=+1>[</font><tt> </tt><a href=\"#conditional_attribute\" class=HREF><i>conditional_attribute</i></a><tt> </tt><font color=green size=+1>]</font><tt> </tt><a href=\"#comment\" class=HREF><i>comment</i></a>
+<p><a name=\"conditional_attribute\" class=NAME><i>conditional_attribute</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><b>if</b><tt> </tt><a href=\"#expression\" class=HREF><i>expression</i></a>
+<p><a name=\"declaration\" class=NAME><i>declaration</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>IDENT</i><tt> </tt><font color=green size=+1>[</font><tt> </tt><a href=\"#array_subscripts\" class=HREF><i>array_subscripts</i></a><tt> </tt><font color=green size=+1>]</font><tt> </tt><font color=green size=+1>[</font><tt> </tt><a href=\"#modification\" class=HREF><i>modification</i></a><tt> </tt><font color=green size=+1>]</font>
+<h4>Modification</h4>
+<p><a name=\"modification\" class=NAME><i>modification</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#class_modification\" class=HREF><i>class_modification</i></a><tt> </tt><font color=green size=+1>[</font><tt> </tt><font color=green>\"</font><tt>=</tt><font color=green>\"</font><tt> </tt><a href=\"#expression\" class=HREF><i>expression</i></a><tt> </tt><font color=green size=+1>]</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><font color=green>\"</font><tt>=</tt><font color=green>\"</font><tt> </tt><a href=\"#expression\" class=HREF><i>expression</i></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><font color=green>\"</font><tt>:=</tt><font color=green>\"</font><tt> </tt><a href=\"#expression\" class=HREF><i>expression</i></a>
+<p><a name=\"class_modification\" class=NAME><i>class_modification</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green>\"</font><tt>(</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>[</font><tt> </tt><a href=\"#argument_list\" class=HREF><i>argument_list</i></a><tt> </tt><font color=green size=+1>]</font><tt> </tt><font color=green>\"</font><tt>)</tt><font color=green>\"</font>
+<p><a name=\"argument_list\" class=NAME><i>argument_list</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#argument\" class=HREF><i>argument</i></a><tt> </tt><font color=green size=+1>{</font><tt> </tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt> </tt><a href=\"#argument\" class=HREF><i>argument</i></a><tt> </tt><font color=green size=+1>}</font>
+<p><a name=\"argument\" class=NAME><i>argument</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#element_modification_or_replaceable\" class=HREF><i>element_modification_or_replaceable</i></a><tt> </tt><font color=green size=+1>|</font><tt> </tt><a href=\"#element_redeclaration\" class=HREF><i>element_redeclaration</i></a>
+<p><a name=\"element_modification_or_replaceable\" class=NAME><i>element_modification_or_replaceable</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>[</font><tt> </tt><b>each</b><tt> </tt><font color=green size=+1>]</font><tt> </tt><font color=green size=+1>[</font><tt> </tt><b>final</b><tt> </tt><font color=green size=+1>]</font><tt> </tt><font color=green size=+1>(</font><tt> </tt><a href=\"#element_modification\" class=HREF><i>element_modification</i></a><tt> </tt><font color=green size=+1>|</font><tt> </tt><a href=\"#element_replaceable\" class=HREF><i>element_replaceable</i></a><tt> </tt><font color=green size=+1>)</font>
+<p><a name=\"element_modification\" class=NAME><i>element_modification</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#name\" class=HREF><i>name</i></a><tt> </tt><font color=green size=+1>[</font><tt> </tt><a href=\"#modification\" class=HREF><i>modification</i></a><tt> </tt><font color=green size=+1>]</font><tt> </tt><a href=\"#string_comment\" class=HREF><i>string_comment</i></a>
+<p><a name=\"element_redeclaration\" class=NAME><i>element_redeclaration</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><b>redeclare</b><tt> </tt><font color=green size=+1>[</font><tt> </tt><b>each</b><tt> </tt><font color=green size=+1>]</font><tt> </tt><font color=green size=+1>[</font><tt> </tt><b>final</b><tt> </tt><font color=green size=+1>]</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>(</font><tt> </tt><a href=\"#class_definition\" class=HREF><i>class_definition</i></a><tt> </tt><font color=green size=+1>|</font><tt> </tt><a href=\"#component_clause1\" class=HREF><i>component_clause1</i></a><tt> </tt><font color=green size=+1>|</font><tt> </tt><a href=\"#element_replaceable\" class=HREF><i>element_replaceable</i></a><tt> </tt><font color=green size=+1>)</font>
+<p><a name=\"element_replaceable\" class=NAME><i>element_replaceable</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><b>replaceable</b><tt> </tt><font color=green size=+1>(</font><tt> </tt><a href=\"#class_definition\" class=HREF><i>class_definition</i></a><tt> </tt><font color=green size=+1>|</font><tt> </tt><a href=\"#component_clause1\" class=HREF><i>component_clause1</i></a><tt> </tt><font color=green size=+1>)</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>[</font><tt> </tt><a href=\"#constraining_clause\" class=HREF><i>constraining_clause</i></a><tt> </tt><font color=green size=+1>]</font>
+<p><a name=\"component_clause1\" class=NAME><i>component_clause1</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#type_prefix\" class=HREF><i>type_prefix</i></a><tt> </tt><a href=\"#type_specifier\" class=HREF><i>type_specifier</i></a><tt> </tt><a href=\"#component_declaration1\" class=HREF><i>component_declaration1</i></a>
+<p><a name=\"component_declaration1\" class=NAME><i>component_declaration1</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#declaration\" class=HREF><i>declaration</i></a><tt> </tt><a href=\"#comment\" class=HREF><i>comment</i></a>
+<h4>Equation</h4>
+<p><a name=\"equation_section\" class=NAME><i>equation_section</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>[</font><tt> </tt><b>initial</b><tt> </tt><font color=green size=+1>]</font><tt> </tt><b>equation</b><tt> </tt><font color=green size=+1>{</font><tt> </tt><a href=\"#equation\" class=HREF><i>equation</i></a><tt> </tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>}</font>
+<p><a name=\"algorithm_section\" class=NAME><i>algorithm_section</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>[</font><tt> </tt><b>initial</b><tt> </tt><font color=green size=+1>]</font><tt> </tt><b>algorithm</b><tt> </tt><font color=green size=+1>{</font><tt> </tt><a href=\"#statement\" class=HREF><i>statement</i></a><tt> </tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>}</font>
+<p><a name=\"equation\" class=NAME><i>equation</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>(</font><tt> </tt><a href=\"#simple_expression\" class=HREF><i>simple_expression</i></a><tt> </tt><font color=green>\"</font><tt>=</tt><font color=green>\"</font><tt> </tt><a href=\"#expression\" class=HREF><i>expression</i></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><a href=\"#if_equation\" class=HREF><i>if_equation</i></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><a href=\"#for_equation\" class=HREF><i>for_equation</i></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><a href=\"#connect_clause\" class=HREF><i>connect_clause</i></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><a href=\"#when_equation\" class=HREF><i>when_equation</i></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><a href=\"#name\" class=HREF><i>name</i></a><tt> </tt><a href=\"#function_call_args\" class=HREF><i>function_call_args</i></a><tt> </tt><font color=green size=+1>)</font><tt> </tt><a href=\"#comment\" class=HREF><i>comment</i></a>
+<p><a name=\"statement\" class=NAME><i>statement</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>(</font><tt> </tt><a href=\"#component_reference\" class=HREF><i>component_reference</i></a><tt> </tt><font color=green size=+1>(</font><tt> </tt><font color=green>\"</font><tt>:=</tt><font color=green>\"</font><tt> </tt><a href=\"#expression\" class=HREF><i>expression</i></a><tt> </tt><font color=green size=+1>|</font><tt> </tt><a href=\"#function_call_args\" class=HREF><i>function_call_args</i></a><tt> </tt><font color=green size=+1>)</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><font color=green>\"</font><tt>(</tt><font color=green>\"</font><tt> </tt><a href=\"#output_expression_list\" class=HREF><i>output_expression_list</i></a><tt> </tt><font color=green>\"</font><tt>)</tt><font color=green>\"</font><tt> </tt><font color=green>\"</font><tt>:=</tt><font color=green>\"</font><tt> </tt><a href=\"#component_reference\" class=HREF><i>component_reference</i></a><tt> </tt><a href=\"#function_call_args\" class=HREF><i>function_call_args</i></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><b>break</b>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><b>return</b>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><a href=\"#if_statement\" class=HREF><i>if_statement</i></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><a href=\"#for_statement\" class=HREF><i>for_statement</i></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><a href=\"#while_statement\" class=HREF><i>while_statement</i></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><a href=\"#when_statement\" class=HREF><i>when_statement</i></a><tt> </tt><font color=green size=+1>)</font><tt> </tt><a href=\"#comment\" class=HREF><i>comment</i></a>
+<p><a name=\"if_equation\" class=NAME><i>if_equation</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><b>if</b><tt> </tt><a href=\"#expression\" class=HREF><i>expression</i></a><tt> </tt><b>then</b><tt> </tt><font color=green size=+1>{</font><tt> </tt><a href=\"#equation\" class=HREF><i>equation</i></a><tt> </tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>}</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>{</font><tt> </tt><b>elseif</b><tt> </tt><a href=\"#expression\" class=HREF><i>expression</i></a><tt> </tt><b>then</b><tt> </tt><font color=green size=+1>{</font><tt> </tt><a href=\"#equation\" class=HREF><i>equation</i></a><tt> </tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>}</font><tt> </tt><font color=green size=+1>}</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>[</font><tt> </tt><b>else</b><tt> </tt><font color=green size=+1>{</font><tt> </tt><a href=\"#equation\" class=HREF><i>equation</i></a><tt> </tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>}</font><tt> </tt><font color=green size=+1>]</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><b>end</b><tt> </tt><b>if</b>
+<p><a name=\"if_statement\" class=NAME><i>if_statement</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><b>if</b><tt> </tt><a href=\"#expression\" class=HREF><i>expression</i></a><tt> </tt><b>then</b><tt> </tt><font color=green size=+1>{</font><tt> </tt><a href=\"#statement\" class=HREF><i>statement</i></a><tt> </tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>}</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>{</font><tt> </tt><b>elseif</b><tt> </tt><a href=\"#expression\" class=HREF><i>expression</i></a><tt> </tt><b>then</b><tt> </tt><font color=green size=+1>{</font><tt> </tt><a href=\"#statement\" class=HREF><i>statement</i></a><tt> </tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>}</font><tt> </tt><font color=green size=+1>}</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>[</font><tt> </tt><b>else</b><tt> </tt><font color=green size=+1>{</font><tt> </tt><a href=\"#statement\" class=HREF><i>statement</i></a><tt> </tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>}</font><tt> </tt><font color=green size=+1>]</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><b>end</b><tt> </tt><b>if</b>
+<p><a name=\"for_equation\" class=NAME><i>for_equation</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><b>for</b><tt> </tt><a href=\"#for_indices\" class=HREF><i>for_indices</i></a><tt> </tt><b>loop</b><tt> </tt><font color=green size=+1>{</font><tt> </tt><a href=\"#equation\" class=HREF><i>equation</i></a><tt> </tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>}</font><tt> </tt><b>end</b><tt> </tt><b>for</b>
+<p><a name=\"for_statement\" class=NAME><i>for_statement</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><b>for</b><tt> </tt><a href=\"#for_indices\" class=HREF><i"
+           + ">for_indices</i></a><tt> </tt><b>loop</b><tt> </tt><font color=green size=+1>{</font><tt> </tt><a href=\"#statement\" class=HREF><i>statement</i></a><tt> </tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>}</font><tt> </tt><b>end</b><tt> </tt><b>for</b>
+<p><a name=\"for_indices\" class=NAME><i>for_indices</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#for_index\" class=HREF><i>for_index</i></a><tt> </tt><font color=green size=+1>{</font><tt> </tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt> </tt><a href=\"#for_index\" class=HREF><i>for_index</i></a><tt> </tt><font color=green size=+1>}</font>
+<p><a name=\"for_index\" class=NAME><i>for_index</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>IDENT</i><tt> </tt><font color=green size=+1>[</font><tt> </tt><b>in</b><tt> </tt><a href=\"#expression\" class=HREF><i>expression</i></a><tt> </tt><font color=green size=+1>]</font>
+<p><a name=\"while_statement\" class=NAME><i>while_statement</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><b>while</b><tt> </tt><a href=\"#expression\" class=HREF><i>expression</i></a><tt> </tt><b>loop</b><tt> </tt><font color=green size=+1>{</font><tt> </tt><a href=\"#statement\" class=HREF><i>statement</i></a><tt> </tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>}</font><tt> </tt><b>end</b><tt> </tt><b>while</b>
+<p><a name=\"when_equation\" class=NAME><i>when_equation</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><b>when</b><tt> </tt><a href=\"#expression\" class=HREF><i>expression</i></a><tt> </tt><b>then</b><tt> </tt><font color=green size=+1>{</font><tt> </tt><a href=\"#equation\" class=HREF><i>equation</i></a><tt> </tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>}</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>{</font><tt> </tt><b>elsewhen</b><tt> </tt><a href=\"#expression\" class=HREF><i>expression</i></a><tt> </tt><b>then</b><tt> </tt><font color=green size=+1>{</font><tt> </tt><a href=\"#equation\" class=HREF><i>equation</i></a><tt> </tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>}</font><tt> </tt><font color=green size=+1>}</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><b>end</b><tt> </tt><b>when</b>
+<p><a name=\"when_statement\" class=NAME><i>when_statement</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><b>when</b><tt> </tt><a href=\"#expression\" class=HREF><i>expression</i></a><tt> </tt><b>then</b><tt> </tt><font color=green size=+1>{</font><tt> </tt><a href=\"#statement\" class=HREF><i>statement</i></a><tt> </tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>}</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>{</font><tt> </tt><b>elsewhen</b><tt> </tt><a href=\"#expression\" class=HREF><i>expression</i></a><tt> </tt><b>then</b><tt> </tt><font color=green size=+1>{</font><tt> </tt><a href=\"#statement\" class=HREF><i>statement</i></a><tt> </tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>}</font><tt> </tt><font color=green size=+1>}</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><b>end</b><tt> </tt><b>when</b>
+<p><a name=\"connect_clause\" class=NAME><i>connect_clause</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><b>connect</b><tt> </tt><font color=green>\"</font><tt>(</tt><font color=green>\"</font><tt> </tt><a href=\"#component_reference\" class=HREF><i>component_reference</i></a><tt> </tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt> </tt><a href=\"#component_reference\" class=HREF><i>component_reference</i></a><tt> </tt><font color=green>\"</font><tt>)</tt><font color=green>\"</font>
+<h4>Expression</h4>
+<p><a name=\"expression\" class=NAME><i>expression</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#simple_expression\" class=HREF><i>simple_expression</i></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><b>if</b><tt> </tt><a href=\"#expression\" class=HREF><i>expression</i></a><tt> </tt><b>then</b><tt> </tt><a href=\"#expression\" class=HREF><i>expression</i></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>{</font><tt> </tt><b>elseif</b><tt> </tt><a href=\"#expression\" class=HREF><i>expression</i></a><tt> </tt><b>then</b><tt> </tt><a href=\"#expression\" class=HREF><i>expression</i></a><tt> </tt><font color=green size=+1>}</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><b>else</b><tt> </tt><a href=\"#expression\" class=HREF><i>expression</i></a>
+<p><a name=\"simple_expression\" class=NAME><i>simple_expression</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#logical_expression\" class=HREF><i>logical_expression</i></a><tt> </tt><font color=green size=+1>[</font><tt> </tt><font color=green>\"</font><tt>:</tt><font color=green>\"</font><tt> </tt><a href=\"#logical_expression\" class=HREF><i>logical_expression</i></a><tt> </tt><font color=green size=+1>[</font><tt> </tt><font color=green>\"</font><tt>:</tt><font color=green>\"</font><tt> </tt><a href=\"#logical_expression\" class=HREF><i>logical_expression</i></a><tt> </tt><font color=green size=+1>]</font><tt> </tt><font color=green size=+1>]</font>
+<p><a name=\"logical_expression\" class=NAME><i>logical_expression</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#logical_term\" class=HREF><i>logical_term</i></a><tt> </tt><font color=green size=+1>{</font><tt> </tt><b>or</b><tt> </tt><a href=\"#logical_term\" class=HREF><i>logical_term</i></a><tt> </tt><font color=green size=+1>}</font>
+<p><a name=\"logical_term\" class=NAME><i>logical_term</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#logical_factor\" class=HREF><i>logical_factor</i></a><tt> </tt><font color=green size=+1>{</font><tt> </tt><b>and</b><tt> </tt><a href=\"#logical_factor\" class=HREF><i>logical_factor</i></a><tt> </tt><font color=green size=+1>}</font>
+<p><a name=\"logical_factor\" class=NAME><i>logical_factor</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>[</font><tt> </tt><b>not</b><tt> </tt><font color=green size=+1>]</font><tt> </tt><a href=\"#relation\" class=HREF><i>relation</i></a>
+<p><a name=\"relation\" class=NAME><i>relation</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#arithmetic_expression\" class=HREF><i>arithmetic_expression</i></a><tt> </tt><font color=green size=+1>[</font><tt> </tt><a href=\"#rel_op\" class=HREF><i>rel_op</i></a><tt> </tt><a href=\"#arithmetic_expression\" class=HREF><i>arithmetic_expression</i></a><tt> </tt><font color=green size=+1>]</font>
+<p><a name=\"rel_op\" class=NAME><i>rel_op</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green>\"</font><tt><</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>|</font><tt> </tt><font color=green>\"</font><tt><=</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>|</font><tt> </tt><font color=green>\"</font><tt>></tt><font color=green>\"</font><tt> </tt><font color=green size=+1>|</font><tt> </tt><font color=green>\"</font><tt>>=</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>|</font><tt> </tt><font color=green>\"</font><tt>==</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>|</font><tt> </tt><font color=green>\"</font><tt><></tt><font color=green>\"</font>
+<p><a name=\"arithmetic_expression\" class=NAME><i>arithmetic_expression</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>[</font><tt> </tt><a href=\"#add_op\" class=HREF><i>add_op</i></a><tt> </tt><font color=green size=+1>]</font><tt> </tt><a href=\"#term\" class=HREF><i>term</i></a><tt> </tt><font color=green size=+1>{</font><tt> </tt><a href=\"#add_op\" class=HREF><i>add_op</i></a><tt> </tt><a href=\"#term\" class=HREF><i>term</i></a><tt> </tt><font color=green size=+1>}</font>
+<p><a name=\"add_op\" class=NAME><i>add_op</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green>\"</font><tt>+</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>|</font><tt> </tt><font color=green>\"</font><tt>-</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>|</font><tt> </tt><font color=green>\"</font><tt>.+</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>|</font><tt> </tt><font color=green>\"</font><tt>.-</tt><font color=green>\"</font>
+<p><a name=\"term\" class=NAME><i>term</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#factor\" class=HREF><i>factor</i></a><tt> </tt><font color=green size=+1>{</font><tt> </tt><a href=\"#mul_op\" class=HREF><i>mul_op</i></a><tt> </tt><a href=\"#factor\" class=HREF><i>factor</i></a><tt> </tt><font color=green size=+1>}</font>
+<p><a name=\"mul_op\" class=NAME><i>mul_op</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green>\"</font><tt>*</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>|</font><tt> </tt><font color=green>\"</font><tt>/</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>|</font><tt> </tt><font color=green>\"</font><tt>.*</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>|</font><tt> </tt><font color=green>\"</font><tt>./</tt><font color=green>\"</font>
+<p><a name=\"factor\" class=NAME><i>factor</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#primary\" class=HREF><i>primary</i></a><tt> </tt><font color=green size=+1>[</font><tt> </tt><font color=green size=+1>(</font><tt> </tt><font color=green>\"</font><tt>^</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>|</font><tt> </tt><font color=green>\"</font><tt>.^</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>)</font><tt> </tt><a href=\"#primary\" class=HREF><i>primary</i></a><tt> </tt><font color=green size=+1>]</font>
+<p><a name=\"primary\" class=NAME><i>primary</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>UNSIGNED_NUMBER</i>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><i>STRING</i>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><b>false</b>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><b>true</b>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><a href=\"#component_reference\" class=HREF><i>component_reference</i></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><font color=green size=+1>(</font><tt> </tt><a href=\"#name\" class=HREF><i>name</i></a><tt> </tt><font color=green size=+1>|</font><tt> </tt><b>der</b><tt> </tt><font color=green size=+1>|</font><tt> </tt><b>initial</b><tt> </tt><font color=green size=+1>)</font><tt> </tt><a href=\"#function_call_args\" class=HREF><i>function_call_args</i></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><font color=green>\"</font><tt>(</tt><font color=green>\"</font><tt> </tt><a href=\"#output_expression_list\" class=HREF><i>output_expression_list</i></a><tt> </tt><font color=green>\"</font><tt>)</tt><font color=green>\"</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><font color=green>\"</font><tt>[</tt><font color=green>\"</font><tt> </tt><a href=\"#expression_list\" class=HREF><i>expression_list</i></a><tt> </tt><font color=green size=+1>{</font><tt> </tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt> </tt><a href=\"#expression_list\" class=HREF><i>expression_list</i></a><tt> </tt><font color=green size=+1>}</font><tt> </tt><font color=green>\"</font><tt>]</tt><font color=green>\"</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><font color=green>\"</font><tt>{</tt><font color=green>\"</font><tt> </tt><a href=\"#function_arguments\" class=HREF><i>function_arguments</i></a><tt> </tt><font color=green>\"</font><tt>}</tt><font color=green>\"</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><b>end</b>
+<p><a name=\"name\" class=NAME><i>name</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>[</font><tt> </tt><font color=green>\"</font><tt>.</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>]</font><tt> </tt><i>IDENT</i><tt> </tt><font color=green size=+1>{</font><tt> </tt><font color=green>\"</font><tt>.</tt><font color=green>\"</font><tt> </tt><i>IDENT</i><tt> </tt><font color=green size=+1>}</font>
+<p><a name=\"component_reference\" class=NAME><i>component_reference</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>[</font><tt> </tt><font color=green>\"</font><tt>.</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>]</font><tt> </tt><i>IDENT</i><tt> </tt><font color=green size=+1>[</font><tt> </tt><a href=\"#array_subscripts\" class=HREF><i>array_subscripts</i></a><tt> </tt><font color=green size=+1>]</font><tt> </tt><font color=green size=+1>{</font><tt> </tt><font color=green>\"</font><tt>.</tt><font color=green>\"</font><tt> </tt><i>IDENT</i><tt> </tt><font color=green size=+1>[</font><tt> </tt><a href=\"#array_subscripts\" class=HREF><i>array_subscripts</i></a><tt> </tt><font color=green size=+1>]</font><tt> </tt><font color=green size=+1>}</font>
+<p><a name=\"function_call_args\" class=NAME><i>function_call_args</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green>\"</font><tt>(</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>[</font><tt> </tt><a href=\"#function_arguments\" class=HREF><i>function_arguments</i></a><tt> </tt><font color=green size=+1>]</font><tt> </tt><font color=green>\"</font><tt>)</tt><font color=green>\"</font>
+<p><a name=\"function_arguments\" class=NAME><i>function_arguments</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#expression\" class=HREF><i>expression</i></a><tt> </tt><font color=green size=+1>[</font><tt> </tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt> </tt><a href=\"#function_arguments\" class=HREF><i>function_arguments</i></a><tt> </tt><font color=green size=+1>|</font><tt> </tt><b>for</b><tt> </tt><a href=\"#for_indices\" class=HREF><i>for_indices</i></a><tt> </tt><font color=green size=+1>]</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><a href=\"#named_arguments\" class=HREF><i>named_arguments</i></a>
+<p><a name=\"named_arguments\" class=NAME><i>named_arguments</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#named_argument\" class=HREF><i>named_argument</i></a><tt> </tt><font color=green size=+1>[</font><tt> </tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt> </tt><a href=\"#named_arguments\" class=HREF><i>named_arguments</i></a><tt> </tt><font color=green size=+1>]</font>
+<p><a name=\"named_argument\" class=NAME><i>named_argument</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><i>IDENT</i><tt> </tt><font color=green>\"</font><tt>=</tt><font color=green>\"</font><tt> </tt><a href=\"#expression\" class=HREF><i>expression</i></a>
+<p><a name=\"output_expression_list\" class=NAME><i>output_expression_list</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>[</font><tt> </tt><a href=\"#expression\" class=HREF><i>expression</i></a><tt> </tt><font color=green size=+1>]</font><tt> </tt><font color=green size=+1>{</font><tt> </tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>[</font><tt> </tt><a href=\"#expression\" class=HREF><i>expression</i></a><tt> </tt><font color=green size=+1>]</font><tt> </tt><font color=green size=+1>}</font>
+<p><a name=\"expression_list\" class=NAME><i>expression_list</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#expression\" class=HREF><i>expression</i></a><tt> </tt><font color=green size=+1>{</font><tt> </tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt> </tt><a href=\"#expression\" class=HREF><i>expression</i></a><tt> </tt><font color=green size=+1>}</font>
+<p><a name=\"array_subscripts\" class=NAME><i>array_subscripts</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green>\"</font><tt>[</tt><font color=green>\"</font><tt> </tt><a href=\"#subscript\" class=HREF><i>subscript</i></a><tt> </tt><font color=green size=+1>{</font><tt> </tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt> </tt><a href=\"#subscript\" class=HREF><i>subscript</i></a><tt> </tt><font color=green size=+1>}</font><tt> </tt><font color=green>\"</font><tt>]</tt><font color=green>\"</font>
+<p><a name=\"subscript\" class=NAME><i>subscript</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green>\"</font><tt>:</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>|</font><tt> </tt><a href=\"#expression\" class=HREF><i>expression</i></a>
+<p><a name=\"comment\" class=NAME><i>comment</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#string_comment\" class=HREF><i>string_comment</i></a><tt> </tt><font color=green size=+1>[</font><tt> </tt><a href=\"#annotation\" class=HREF><i>annotation</i></a><tt> </tt><font color=green size=+1>]</font>
+<p><a name=\"string_comment\" class=NAME><i>string_comment</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>[</font><tt> </tt><i>STRING</i><tt> </tt><font color=green size=+1>{</font><tt> </tt><font color=green>\"</font><tt>+</tt><font color=green>\"</font><tt> </tt><i>STRING</i><tt> </tt><font color=green size=+1>}</font><tt> </tt><font color=green size=+1>]</font>
+<p><a name=\"annotation\" class=NAME><i>annotation</i></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><b>annotation</b><tt> </tt><a href=\"#class_modification\" class=HREF><i>class_modification</i></a>
+</html>"));
+end ModelicaGrammar;
 
 
 package Annotations "Annotations"
+  extends Modelica.Icons.Information;
   class choices "choices"
+  extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -53,6 +282,7 @@ This is a hint for users of the model, and can also be used by the user interfac
   end choices;
 
   class defaultComponentName "defaultComponentName"
+  extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -76,6 +306,7 @@ giving string.
   end defaultComponentName;
 
   class defaultComponentPrefixes "defaultComponentPrefixes"
+  extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -104,6 +335,7 @@ The following prefixes may be included in the string prefixes: inner, outer, rep
   end defaultComponentPrefixes;
 
   class derivative "derivative"
+  extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -286,6 +518,7 @@ This is useful if g represents the major computational effort of fg).</li>
   end derivative;
 
   class Dialog "Dialog"
+  extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -352,6 +585,7 @@ A parameter dialog is a sequence of tabs with a sequence of groups inside them.
   end Dialog;
 
   class Documentation "Documentation"
+  extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -384,6 +618,7 @@ Together with scheme \"Modelica\" the (URI)  fragment specifiers #diagram, #info
   end Documentation;
 
   class DynamicSelect "DynamicSelect"
+  extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -420,6 +655,7 @@ of the diagram layer, e.g., after a simulation.
   end DynamicSelect;
 
   class Evaluate "Evaluate"
+  extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -454,6 +690,7 @@ Evaluate is for example used for axis of rotation parameters in the Modelica.Mec
   end Evaluate;
 
   class experiment "experiment"
+  extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -488,6 +725,7 @@ The experiment annotation defines the default start time (StartTime) in [s], the
   end experiment;
 
   class dateModified "dateModified"
+  extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>UTC date and time of the latest change to the package in the following format (with one space between date and time):<br>
@@ -498,7 +736,7 @@ The experiment annotation defines the default start time (StartTime) in [s], the
              versionDate  = &QUOT;2008-04-10&QUOT;,
              versionBuild = 4,
              <em>dateModified = &QUOT;2009-02-15 16:33:14Z&QUOT;</em>,
-             revisionId   = &QUOT;$Id:: package.mo 2566 2009-05-26 13:25:54Z #$&QUOT;);
+             revisionId   = &QUOT;$Id::                                       $&QUOT;);
   ...
   <b>end</b> Modelica;</pre></p>
 <p><b><font style=\"color: #008000; \">Syntax</font></b></p>
@@ -519,6 +757,7 @@ was modified and is saved on persistent storage (like file or database system).<
   end dateModified;
 
   class HideResult "HideResult"
+  extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -549,6 +788,7 @@ HideResult is for example used in the connectors of the Modelica.StateGraph libr
   end HideResult;
 
   class Inline "Inline"
+  extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -584,6 +824,7 @@ Inline = true is for example used in Modelica.Mechanics.MultiBody.Frames and in 
   end Inline;
 
   class LateInline "LateInline"
+  extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -618,6 +859,7 @@ This annotation is for example used in Modelica.Media.Water.IF97_Utilities.T_pro
   end LateInline;
 
   class missingInnerMessage "missingInnerMessage"
+  extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -650,6 +892,7 @@ When an outer component of the class does not have a corresponding inner compone
   end missingInnerMessage;
 
   class PreferredView "preferredView"
+  extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -673,6 +916,7 @@ The preferredView annotation defines the default view when selecting the class. 
   end PreferredView;
 
   class revisionId "revisionId"
+  extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>Revision identifier of the version management system used to manage this library. It marks the latest submitted change to any file belonging to the package.</p>
@@ -682,7 +926,7 @@ The preferredView annotation defines the default view when selecting the class. 
              versionDate  = &QUOT;2008-04-10&QUOT;,
              versionBuild = 4,
              dateModified = &QUOT;2009-02-15 16:33:14Z&QUOT;,
-             <em>revisionId   = &QUOT;$Id:: package.mo 2566 2009-05-26 13:25:54Z #$&QUOT;</em>);
+             <em>revisionId   = &QUOT;$Id::                                       $&QUOT;</em>);
   ...
   <b>end</b> Modelica;</pre></p>
 <p><b><font style=\"color: #008000; \">Syntax</font></b></p>
@@ -701,6 +945,7 @@ The preferredView annotation defines the default view when selecting the class. 
   end revisionId;
 
   class smoothOrder "smoothOrder"
+  extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -731,6 +976,7 @@ This means that the function is at least C<sup>smoothOrder</sup>. smoothOrder = 
   end smoothOrder;
 
   class version "version"
+  extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -842,6 +1088,7 @@ This allows a tool to access multiple versions of the same package.
   end version;
 
   class versionBuild "versionBuild"
+  extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>Defines the optional build number of the library.</p>
@@ -851,7 +1098,7 @@ This allows a tool to access multiple versions of the same package.
              versionDate  = &QUOT;2008-04-10&QUOT;,
              <em>versionBuild = 4</em>,
              dateModified = &QUOT;2009-02-15 16:33:14Z&QUOT;,
-             revisionId   = &QUOT;$Id:: package.mo 2566 2009-05-26 13:25:54Z #$&QUOT;);
+             revisionId   = &QUOT;$Id::                                       $&QUOT;);
   ...
   <b>end</b> Modelica;</pre></p>
 <p><b><font style=\"color: #008000; \">Syntax</font></b></p>
@@ -870,6 +1117,7 @@ This allows a tool to access multiple versions of the same package.
   end versionBuild;
 
   class versionDate "versionDate"
+  extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>UTC date of first version build (in format: <code>YYYY-MM-DD</code>).</p>
@@ -879,7 +1127,7 @@ This allows a tool to access multiple versions of the same package.
              <em>versionDate  = &QUOT;2008-04-10&QUOT;</em>,
              versionBuild = 4,
              dateModified = &QUOT;2009-02-15 16:33:14Z&QUOT;,
-             revisionId   = &QUOT;$Id:: package.mo 2566 2009-05-26 13:25:54Z #$&QUOT;);
+             revisionId   = &QUOT;$Id::                                       $&QUOT;);
   ...
   <b>end</b> Modelica;</pre></p>
 <p><b><font style=\"color: #008000; \">Syntax</font></b></p>
@@ -898,6 +1146,7 @@ This allows a tool to access multiple versions of the same package.
   end versionDate;
 
   class unassignedMessage "unassignedMessage"
+  extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -943,7 +1192,9 @@ end Annotations;
 
 
 package Classes "Classes (model, function, ...)"
+  extends Modelica.Icons.Information;
   class Block "block"
+  extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -987,6 +1238,7 @@ to block diagram semantic.
   end Block;
 
   class Class "class"
+  extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -1029,6 +1281,7 @@ In most cases, it is recommended to use specialized classes as <b>block</b>,
   end Class;
 
   class Connector "connector"
+  extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -1063,6 +1316,7 @@ of connector classes.
   end Connector;
 
   class Function "function"
+  extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -1185,6 +1439,7 @@ Modelica functions have the following enhancements compared to a general Modelic
   end Function;
 
   class Model "model"
+  extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -1224,6 +1479,7 @@ no restrictions and no enhancements.
   end Model;
 
   class Package "package"
+  extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -1265,7 +1521,7 @@ class_specifier :
   end Package;
 
   class Record "record"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Define specialized class <i>record</i>
@@ -1321,7 +1577,7 @@ normal type compatibility rules.
   end Record;
 
   class Type "type"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Define specialized class <i>type</i>
@@ -1360,8 +1616,9 @@ end Classes;
 
 
 package Operators "Operators (+, der, size, ...)"
+  extends Modelica.Icons.Information;
 class ElementaryOperators "Elementary operators (+, >, or, ..)"
-
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Elementary operators are overloaded and operate on variables
@@ -1790,7 +2047,7 @@ Mathematica and in MATLAB these are valid expressions):
 end ElementaryOperators;
 
   class Abs "abs"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Absolute value of Real or Integer variable.
@@ -1809,7 +2066,7 @@ needs to be an Integer or Real expression. </P>
   end Abs;
 
   class Acos "acos"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Trigonometric inverse cosine function
@@ -1838,7 +2095,7 @@ The acos function can also be accessed as Modelica.Math.acos.
   end Acos;
 
   class Asin "asin"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Trigonometric inverse sine function
@@ -1867,7 +2124,7 @@ The asin function can also be accessed as Modelica.Math.asin.
   end Asin;
 
   class Assert "assert"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Trigger error and print error message if assertion condition is not fulfilled
@@ -1927,7 +2184,7 @@ The AssertionLevel.warning case can be used when the boundary of validity is not
   end Assert;
 
   class Atan "atan"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Trigonometric inverse tangent function
@@ -1956,7 +2213,7 @@ The atan function can also be accessed as Modelica.Math.atan.
   end Atan;
 
   class Atan2 "atan2"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Four quadrant inverse tangent
@@ -1990,7 +2247,7 @@ The atan2 function can also be accessed as Modelica.Math.atan2.
   end Atan2;
 
   class Cardinality "cardinality"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Number of connectors in connection.
@@ -2034,7 +2291,7 @@ parameters.
   end Cardinality;
 
   class Ceil "ceil"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Round a Real number towards plus infinity
@@ -2053,7 +2310,7 @@ triggered when the return value changes discontinuously.]</i></p>
   end Ceil;
 
   class Change "change"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Indicate discrete variable changing
@@ -2078,7 +2335,7 @@ The same restrictions as for the pre() operator apply.</P>
   end Change;
 
   class Cos "cos"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Trigonometric cosine function
@@ -2104,7 +2361,7 @@ The cosine function can also be accessed as Modelica.Math.cos.
   end Cos;
 
   class Cosh "cosh"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Hyberbolic cosine function
@@ -2132,6 +2389,7 @@ The cosh function can also be accessed as Modelica.Math.cosh.
   end Cosh;
 
 class Cross "cross"
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Return cross product of two vectors
@@ -2151,7 +2409,7 @@ Returns the cross product of the 3-vectors x and y, i.e.
 end Cross;
 
   class Delay "delay"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Delay expression
@@ -2197,7 +2455,7 @@ time in order to avoid extrapolation in the delay buffer.]</i></p>
   end Delay;
 
   class Der "der"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Time derivative of expression or<br>
@@ -2261,6 +2519,7 @@ The specific enthalphy can be computed from a Gibbs-function as follows:
   end Der;
 
 class Diagonal "diagonal"
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Returns a diagonal matrix
@@ -2276,7 +2535,7 @@ on the diagonal and all other elements zero.
 end Diagonal;
 
   class Div "div"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Integer part of division of two Real numbers
@@ -2303,7 +2562,7 @@ when the return value changes discontinuously.]</i></p>
   end Div;
 
   class Edge "edge"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Indicate rising edge
@@ -2330,7 +2589,7 @@ classes).</P>
   end Edge;
 
   class Exp "exp"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Exponential, base e.
@@ -2356,6 +2615,7 @@ The exponential function can also be accessed as Modelica.Math.exp.
   end Exp;
 
 class Fill "fill"
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Return a Real, Integer, Boolean or String array with all elements equal
@@ -2381,7 +2641,7 @@ Boolean vb[3]   = fill(true,3);  // = {true, true, true}
 end Fill;
 
   class Floor "floor"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Round Real number towards minus infinity
@@ -2400,6 +2660,7 @@ value changes discontinuously.]</i></p>
   end Floor;
 
 class Identity "identity"
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Returns the identity matrix of the desired size
@@ -2415,7 +2676,7 @@ on the diagonal and zeros at the other places.
 end Identity;
 
   class Initial "initial"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 True during initialization
@@ -2433,7 +2694,7 @@ True during initialization
   end Initial;
 
   class inverse "inverse"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>Every function with one output argument may have one or more &QUOT;<code>inverse</code>&QUOT; annotations to define inverses of this function. </p>
 <p><b><font style=\"color: #008000; \">Syntax</font></b> </p>
@@ -2477,7 +2738,7 @@ True during initialization
   end inverse;
 
   class IntegerUpperCase "Integer"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Returns ordinal number of enumeration
@@ -2497,7 +2758,7 @@ Returns the ordinal number of the enumeration value E.enumvalue, where Integer(E
   end IntegerUpperCase;
 
   class IntegerLowerCase "integer"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Round Real number towards minus infinity
@@ -2516,7 +2777,7 @@ when the return value changes discontinuously.]</i></p>
   end IntegerLowerCase;
 
   class IsPresent "isPresent"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Returns true if the formal input or output argument of a function is present
@@ -2555,6 +2816,7 @@ list. It can only be used in functions.
   end IsPresent;
 
 class Linspace "linspace"
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Return Real vector with equally spaced elements
@@ -2581,7 +2843,7 @@ Real v[:] = linspace(1,7,4);  // = {1, 3, 5, 7}
 end Linspace;
 
   class Log "log"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Natural (base e) logarithm
@@ -2607,7 +2869,7 @@ The natural logarithm can also be accessed as Modelica.Math.log.
   end Log;
 
   class Log10 "log10"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Base 10 logarithm
@@ -2633,6 +2895,7 @@ The base 10 logarithm can also be accessed as Modelica.Math.log10.
   end Log10;
 
 class Matrix "matrix"
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Returns the first two dimensions of an array as matrix
@@ -2663,6 +2926,8 @@ C[i_1, ..., i_nA, 1, ..., 1] = A[i_1, ..., i_nA].
 end Matrix;
 
 class Max "max"
+  extends Modelica.Icons.Information;
+
   annotation (Documentation(info="<html>
 <p>
 Returns the largest element
@@ -2694,6 +2959,7 @@ combinations of i in u, ..., j in v
 end Max;
 
 class Min "min"
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Returns the smallest element
@@ -2725,7 +2991,7 @@ combinations of i in u, ..., j in v
 end Min;
 
   class Mod "mod"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Integer modulus of a division of two Real numbers
@@ -2749,6 +3015,7 @@ discontinuously.]</I></P>
   end Mod;
 
 class Ndims "ndims"
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Return number of array dimensions
@@ -2769,7 +3036,7 @@ Integer n = ndims(A);  // = 3
 end Ndims;
 
   class NoEvent "noEvent"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Turn off event triggering
@@ -2801,6 +3068,7 @@ discontinuously.]</i></p>
   end NoEvent;
 
 class Ones "ones"
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Returns an array with \"1\" elements
@@ -2816,6 +3084,7 @@ elements equal to one (ni >=0 ).
 end Ones;
 
 class OuterProduct "outerProduct"
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Returns the outer product of two vectors
@@ -2831,7 +3100,7 @@ Returns the outer product of vectors v1 and v2 <br>
 end OuterProduct;
 
   class Pre "pre"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Refer to left limit
@@ -2887,6 +3156,7 @@ model equations.]</I></p>
   end Pre;
 
 class Product "product"
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Returns the scalar product
@@ -2922,7 +3192,7 @@ u, ..., j <b>in</b> v) is the same as the type of e(i,...j).
 end Product;
 
   class Reinit "reinit"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Reinitialize state variable
@@ -2962,7 +3232,7 @@ because the reinit operator is applied on a non-state variable.]</i></P>
   end Reinit;
 
   class Rem "rem"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Integer remainder of the division of two Real numbers
@@ -2988,7 +3258,7 @@ the return value changes discontinuously.]</I></P>
   end Rem;
 
   class Sample "sample"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Trigger time events
@@ -3016,6 +3286,7 @@ expressions and need to be a subtype of Real or Integer.
   end Sample;
 
 class Scalar "scalar"
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Returns a one-element array as scalar
@@ -3036,7 +3307,7 @@ Real e = scalar(A);  // = 3
 end Scalar;
 
   class SemiLinear "semiLinear"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Returns \"if x >= 0 then positiveSlope*x else negativeSlope*x\" and handle x=0 in a meaningful way
@@ -3129,7 +3400,7 @@ flow direction.]</i>
   end SemiLinear;
 
   class Sign "sign"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Signum function of a Real or Integer number
@@ -3148,7 +3419,7 @@ when clause state events are triggered.]</i></p>
   end Sign;
 
   class Sin "sin"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Trigonometric sine function
@@ -3176,7 +3447,7 @@ The sine function can also be accessed as Modelica.Math.sin.
   end Sin;
 
   class Sinh "sinh"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Hyberbolic sine function
@@ -3204,6 +3475,7 @@ The sinh function can also be accessed as Modelica.Math.sinh.
   end Sinh;
 
 class Size "size"
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Returns dimensions of an array
@@ -3232,6 +3504,7 @@ Integer n[:] = size(A);    // = {8,4,5}
 end Size;
 
 class Skew "skew"
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Returns the skew matrix that is associated with a vector
@@ -3253,7 +3526,7 @@ Returns the 3 x 3 skew symmetric matrix associated with a
 end Skew;
 
   class Smooth "smooth"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Indicate smoothness of expression
@@ -3289,7 +3562,7 @@ discontinuously.]</I></p>
   end Smooth;
 
   class Sqrt "sqrt"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Square root
@@ -3306,7 +3579,7 @@ Argument v needs to be an Integer or Real expression.</p>
   end Sqrt;
 
   class string "String"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Convert a scalar Real, Integer or Boolean expression to a String representation
@@ -3396,6 +3669,7 @@ String(123, minimumLength=6, leftJustified=false)  // = \"   123\"
   end string;
 
 class Sum "sum"
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Returns the scalar sum
@@ -3432,6 +3706,7 @@ u, ..., j <b>in</b> v) is the same as the type of e(i,...j).
 end Sum;
 
 class Symmetric "symmetric"
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Returns a symmetric matrix
@@ -3455,7 +3730,7 @@ B := <b>symmetric</b>(A)
 end Symmetric;
 
   class Tan "tan"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Trigonometric tangent function
@@ -3483,7 +3758,7 @@ The tangent function can also be accessed as Modelica.Math.tan.
   end Tan;
 
   class Tanh "tanh"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Hyberbolic tangent function
@@ -3511,7 +3786,7 @@ The tanh function can also be accessed as Modelica.Math.tanh.
   end Tanh;
 
   class Terminal "terminal"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 True after successful analysis
@@ -3528,7 +3803,7 @@ True after successful analysis
   end Terminal;
 
   class Terminate "terminate"
-
+  extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Successfully terminate current analysis
@@ -3556,6 +3831,7 @@ end</B> ThrowingBall;</pre>
   end Terminate;
 
 class Transpose "transpose"
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Transpose of a matrix or permutation of the first two dimensions of an array
@@ -3572,6 +3848,7 @@ It is an error, if array A does not have at least
 end Transpose;
 
 class Vector "vector"
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Returns an array with one non-singleton dimension as vector
@@ -3592,6 +3869,7 @@ Real v[2] = vector(A);  // = {3,4}
 end Vector;
 
 class Zeros "zeros"
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Returns a zero array.
@@ -3628,7 +3906,7 @@ end Operators;
 
 
 class BalancedModel "balanced model"
-
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 The basic concept to count unknowns and equations.
@@ -4029,7 +4307,7 @@ end BalancedModel;
 
 
 class Connect "connect"
-
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Connect objects
@@ -4131,7 +4409,7 @@ end Connect;
 
 
 class Encapsulated "encapsulated"
-
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Break lookup in hierarchy
@@ -4173,7 +4451,7 @@ end Encapsulated;
 
 
 class Extends "extends"
-
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Inheritance from base class
@@ -4756,7 +5034,7 @@ end Extends;
 
 
 class Flow "flow"
-
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Declare flow (through) variable, which have to sum up to zero in connections
@@ -4843,7 +5121,7 @@ end Flow;
 
 
 class For "for"
-
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Repeat equations or statements a specific number of times
@@ -4945,7 +5223,7 @@ end For;
 
 
 class If "if"
-
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Declare equations or execute statements conditionally
@@ -5030,7 +5308,7 @@ end If;
 
 
 class Import "import"
-
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Import classes
@@ -5103,7 +5381,7 @@ end Import;
 
 
 class Input "input"
-
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Define causality and/or block diagram connection semantic
@@ -5230,7 +5508,7 @@ end Input;
 
 
 class Output "output"
-
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Define causality and/or block diagram connection semantic
@@ -5358,7 +5636,7 @@ end Output;
 
 
 class Partial "partial"
-
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Prohibit instantiation of components of the class
@@ -5412,7 +5690,7 @@ end Partial;
 
 
 class Time "time"
-
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Built-in variable time
@@ -5447,7 +5725,7 @@ end Time;
 
 
 class When "when"
-
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Activate equations or statements when condition becomes true
@@ -5633,7 +5911,7 @@ end When;
 
 
 class While "while"
-
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Repeat statements as long as a condition is fulfilled
@@ -5672,29 +5950,60 @@ and is formally defined as follows</P>
 end While;
 
 
+class Contact "Contact"
+  extends Modelica.Icons.Contact;
+
+ annotation (Documentation(info="<html>
+<dl>
+<dt><b>Library Officers:</b>
+<dd> <a href=\"http://www.hit.no/ansatte/vis/dietmar.winkler\">Dietmar Winkler</a><br>
+     Telemark University College<br>
+     Porsgrunn Norway<br>
+     <a href=\"mailto:dietmar.winkler@hit.no\">dietmar.winkler@hit.no</a><br>
+     &nbsp;<br>
+     and<br>&nbsp;<br>
+    <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
+    Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
+    Institut f&uuml;r Robotik und Mechatronik<br>
+    Abteilung Systemdynamik und Regelungstechnik<br>
+    Postfach 1116<br>
+    D-82230 Wessling<br>
+    Germany<br>
+    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br>
+</dl>
+<p><b>Acknowledgements:</b></p>
+<ul>
+<li> The initial version of ModelicaReference is from Christian Schweiger (DLR) who
+     provided it up to Modelica version 2.2.</li>
+
+<li> Martin Otter (DLR) updated ModelicaReference for Modelica 3.0.</li>
+
+<li> Dietmar Winkler (Telemark University College) updated ModelicaReference for
+     Modelica 3.1 and 3.2</li>
+
+<li> Stefan Vorkoetter (Maplesoft) provided ModelicaReference.ModelicaGrammar
+     for Modelica 3.2.</li>
+</ul>
+
+</html>"));
+
+end Contact;
+
+
 annotation (__Dymola_DocumentationClass=true,
      dateModified="2010-03-19 21:19:00Z",
      revisionId="$Id::                                       $",
      Documentation(info="<html>
 <p>
-This package is a reference to Modelica keywords and Modelica builtin
-operators and is based on the
+This package is a reference to Modelica keywords,
+<a href=\"modelica://ModelicaReference.Operators\">Modelica builtin operators</a>
+, and the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica grammar</a>.
+It is based on the
 <a href=\"http://www.modelica.org/documents/ModelicaSpec32.pdf\">Modelica Language Specification version 3.2</a> from March 2010.
-
-
-<dl>
-<dt><b>Main Author:</b></dt>
-<dd><a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian.Schweiger</a><br>
-    Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
-    Institut f&uuml;r Robotik und Mechatronik<br>
-    Postfach 11 16<br>
-    D-82230 Wessling<br>
-    Germany<br>
-    email: <A HREF=\"mailto:Christian.Schweiger@dlr.de\">Christian.Schweiger@dlr.de</A><br></dd>
-</dl>
+</p>
 
 <p>
-<b>Copyright &copy; 2003-2010 Modelica Association and DLR.</b>
+<b>Copyright &copy; 2003-2010 Modelica Association, DLR, Telemark University College, and Maplesoft.</b>
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
@@ -5708,10 +6017,19 @@ operators and is based on the
       <th>Comment</th>
     </tr>
     <tr>
+      <td valign=\"top\"></td>
+      <td valign=\"top\">2010-04-13</td>
+      <td valign=\"top\"><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a></td>
+      <td valign=\"top\">Added the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica 3.2 grammar</a>
+                       from Stefan Vorkoetter (Maplesoft).<br>
+                       Introduced a \"Contact\" subpackage with updated contact and
+                       acknowledgment information.</td>
+    </tr>
+    <tr>
       <td valign=\"top\"><a href=\"http://trac.modelica.org/Modelica/changeset/3598/Modelica\">r3598</a></td>
       <td valign=\"top\">2010-03-10</td>
       <td valign=\"top\"><a href=\"http://www.hit.no/ansatte/vis/dietmar.winkler\">Dietmar Winkler</a></td>
-      <td valign=\"top\">Added some annotation from Modelica language version 3.1 and 3.2 (see ticket <a href=\"http://trac.modelica.org/Modelica/ticket/228\">#228</a>)</td>
+      <td valign=\"top\">Added some annotations from Modelica language version 3.1 and 3.2 (see ticket <a href=\"http://trac.modelica.org/Modelica/ticket/228\">#228</a>)</td>
     </tr>
     <tr>
       <td valign=\"top\"><a href=\"http://trac.modelica.org/Modelica/changeset/948/Modelica\">r948</a></td>
