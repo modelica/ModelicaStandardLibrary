@@ -736,7 +736,7 @@ The experiment annotation defines the default start time (StartTime) in [s], the
              versionDate  = &QUOT;2008-04-10&QUOT;,
              versionBuild = 4,
              <em>dateModified = &QUOT;2009-02-15 16:33:14Z&QUOT;</em>,
-             revisionId   = &QUOT;$Id::                                       $&QUOT;);
+             revisionId   = &QUOT;$I&#8203;d:: package.mo 2566 2009-02-15 16:33:14Z #$&QUOT;);
   ...
   <b>end</b> Modelica;</pre></p>
 <p><b><font style=\"color: #008000; \">Syntax</font></b></p>
@@ -926,7 +926,7 @@ The preferredView annotation defines the default view when selecting the class. 
              versionDate  = &QUOT;2008-04-10&QUOT;,
              versionBuild = 4,
              dateModified = &QUOT;2009-02-15 16:33:14Z&QUOT;,
-             <em>revisionId   = &QUOT;$Id::                                       $&QUOT;</em>);
+             <em>revisionId   = &QUOT;$I&#8203;d:: package.mo 2566 2009-02-15 16:33:14Z #$&QUOT;</em>);
   ...
   <b>end</b> Modelica;</pre></p>
 <p><b><font style=\"color: #008000; \">Syntax</font></b></p>
@@ -1098,7 +1098,7 @@ This allows a tool to access multiple versions of the same package.
              versionDate  = &QUOT;2008-04-10&QUOT;,
              <em>versionBuild = 4</em>,
              dateModified = &QUOT;2009-02-15 16:33:14Z&QUOT;,
-             revisionId   = &QUOT;$Id::                                       $&QUOT;);
+             revisionId   = &QUOT;$I&#8203;d:: package.mo 2566 2009-02-15 16:33:14Z #$&QUOT;);
   ...
   <b>end</b> Modelica;</pre></p>
 <p><b><font style=\"color: #008000; \">Syntax</font></b></p>
@@ -1127,7 +1127,7 @@ This allows a tool to access multiple versions of the same package.
              <em>versionDate  = &QUOT;2008-04-10&QUOT;</em>,
              versionBuild = 4,
              dateModified = &QUOT;2009-02-15 16:33:14Z&QUOT;,
-             revisionId   = &QUOT;$Id::                                       $&QUOT;);
+             revisionId   = &QUOT;$I&#8203;d:: package.mo 2566 2009-02-15 16:33:14Z #$&QUOT;);
   ...
   <b>end</b> Modelica;</pre></p>
 <p><b><font style=\"color: #008000; \">Syntax</font></b></p>
