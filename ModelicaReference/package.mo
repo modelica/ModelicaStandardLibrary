@@ -952,6 +952,30 @@ The preferredView annotation defines the default view when selecting the class. 
 Define differentiability of function body
 </p>
 
+
+<h4><font color=\"#008000\">Examples</font></h4>
+
+<pre><b>function</b> SpecialPolynomial
+  <b>input</b>  Real u;
+  <b>output</b> Real y;
+<b>algorithm</b>
+   y = <b>if</b> u > 0 <b>then</b> u^2 <b>else</b> 0;
+  <b>annotation</b>(smoothOrder = 1);
+<b>end</b> SpecialPolynomial;
+
+<b>model</b> TestSpecialPolynomial
+   Real y;
+   Real yd;
+   Real ydd;
+<b>equation</b>
+   y   = SpecialPolynomial(sin(time));
+   yd  = <b>der</b>(y);     // fine, SpecialPolynomial is analytically differentiated once
+   ydd = <b>der</b>(yd);    // error, SpecialPolynomial cannot be differentiated twice
+<b>end</b> TestSpecialPolynomial;
+</pre>
+
+
+
 <h4><font color=\"#008000\">Syntax</font></h4>
 
 <pre>   <b>annotation</b>\"(\" smoothOrder \"=\" UNSIGNED_INTEGER \")\"
@@ -969,7 +993,7 @@ smoothOrder defines the minimum number of differentations of the function, in or
 </p>
 
 <p>
-This means that the function is at least C<sup>smoothOrder</sup>. smoothOrder = 1 means that the function can be differentiated at least once in order that all output arguments are still continuous, provided the input arguments are continuous. If a tool needs the derivative of a function, e.g., for index reduction or to compute an analytic Jacobian, the function can be differentiated analytically at least smoothOrder times.
+This means that the function is at least C<sup>smoothOrder</sup>. smoothOrder = 1 means that the function can be differentiated at least once in order that all output arguments are still continuous, provided the input arguments are continuous. If a tool needs the derivative of a function, e.g., for index reduction or to compute an analytic Jacobian, the function can be differentiated analytically at most smoothOrder times.
 </p>
 
 </html>"));
@@ -2693,6 +2717,194 @@ True during initialization
 </html>"));
   end Initial;
 
+  class InStream "inStream"
+  extends Modelica.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+Returns the mixing value of a stream variable if it flows into the component where the inStream operator
+is used.
+</p>
+
+<p>
+For an introduction into stream variables and an example for the inStream(..) operator, see
+<a href=\"modelica://ModelicaReference.Stream\">stream</a>.
+</p>
+
+<h4><font color=\"#008000\">Syntax</font></h4>
+
+<blockquote><pre><b>inStream</b>(IDENT) </pre>
+</blockquote>
+
+<p>
+where IDENT must be a variable reference in a connector component declared with the
+<a href=\"modelica://ModelicaReference.Stream\">stream</a> prefix.
+</p>
+
+<h4><font color=\"#008000\">Description</font></h4>
+
+<p>
+In combination with the stream variables of a connector, the inStream() operator
+is designed to describe in a numerically reliable way the bi-directional
+transport of specific quantities carried by a flow of matter. inStream(v) is
+only allowed on stream variables v and is informally the value the stream
+variable has, assuming that the flow is from the connection point into the
+component. This value is computed from the stream connection equations of the
+flow variables and of the stream variables. For the following definition it is
+assumed that N inside connectors mj.c (j=1,2,...,N) and M outside connectors
+ck(k=1,2,...,M) belonging to the same connection set
+are connected together and a stream variable h_outflow is associated with
+a flow variable m_flow in connector c.
+</p>
+
+<blockquote>
+<pre><b>connector</b> FluidPort
+   ...
+   <b>flow</b>   Real m_flow     \"Flow of matter; m_flow &gt; 0 if flow into component\";
+   <b>stream</b> Real h_outflow  \"Specific variable in component if m_flow &lt; 0\"
+<b>end</b> FluidPort;
+
+<b>model</b> FluidSystem
+   ...
+   FluidComponent m1, m2, ..., mN;
+   FluidPort      c1, c2, ..., cM;
+<b>equation</b>
+   <b>connect</b>(m1.c, m2.c);
+   <b>connect</b>(m1.c, m3.c);
+      ...
+   <b>connect</b>(m1.c, mN.c);
+   <b>connect</b>(m1.c, c1);
+   <b>connect</b>(m1.c, c2);
+      ...
+   <b>connect</b>(m1.c, cM);
+   ...
+<b>end</b> FluidSystem;
+</pre>
+</blockquote>
+
+<p>
+With these prerequisites, the semantics of the expression
+</p>
+
+<blockquote>
+<pre><b>inStream</b>(m<sub>i</sub>.c.h_outflow)
+</pre>
+</blockquote>
+
+<p>
+is given implicitly by defining an additional variable <b>h_mix_in</b><sub>i</sub>,
+and by adding to the model the conservation equations for mass and energy corresponding
+to the infinitesimally small volume spanning the connection set. The connect equation
+for the flow variables has already been added to the system according to the connection
+semantics of flow variables:
+</p>
+
+<blockquote>
+<pre>// Standard connection equation for flow variables
+0 = <b>sum</b>(m<sub>j</sub>.c.m_flow <b>for</b> j <b>in</b> 1:N) + <b>sum</b>(-c<sub>k</sub>.m_flow <b>for</b> k in 1:M);
+</pre></blockquote>
+
+<p>
+Whenever the inStream() operator is applied to a stream variable of an
+inside connector, the balance equation of the transported property must
+be added  under the assumption of flow going into the connector
+</p>
+
+<blockquote>
+<pre>// Implicit definition of the inStream() operator applied to inside connector i
+0 = <b>sum</b>(m<su>j</sub>.c.m_flow*(<b>if</b> m<sub>j</sub>.c.m_flow > 0 <b>or</b> j==i <b>then</b> h_mix_in<sub>i</sub> <b>else</b> m<sub>j</sub>.c.h_outflow) <b>for</b> j <b>in</b> 1:N) +
+    <b>sum</b>(-c<sub>k</sub>.m_flow* (<b>if</b> c<sub>k</sub>.m_flow > 0 <b>then</b> h_mix_in<sub>i</sub> <b>else</b> inStream(c<sub>k</sub>.h_outflow) <b>for</b> k <b>in</b> 1:M);
+<b>inStream</b>(m<sub>i</sub>.c.h_outflow) = h_mix_in<sub>i</sub>;
+</pre>
+</blockquote>
+
+<p>
+Note that the result of the inStream(m<sub>i</sub>.c.h_outflow) operator is different for each port i,
+because the assumption of flow entering the port is different for each of them.
+Additional equations need to be generated for the stream variables of outside connectors.
+</p>
+
+<blockquote>
+<pre>// Additional connection equations for outside connectors
+<b>for</b> q in 1:M <b>loop</b>
+  0 = <b>sum</b>(m<sub>j</sub>.c.m_flow*(<b>if</b> m<sub>j</sub>.c.m_flow > 0 <b>then</b> h_mix_out<sub>q</sub> <b>else</b> m<sub>j</sub>.c.h_outflow) <b>for</b> j <b>in</b> 1:N) +
+      <b>sum</b>(-c<sub>k</sub>.m_flow* (<b>if</b> c<sub>k</sub>.m_flow > 0 <b>or</b> k==q <b>then</b> h_mix_out<sub>q</sub> <b>else</b> <b>inStream</b>(c<sub>k</sub>.h_outflow)
+          <b>for</b> k <b>in</b> 1:M);
+  c<sub>q</sub>.h_outflow = h_mix_out<sub>q</sub>;
+<b>end for</b>;
+</pre></blockquote>
+
+<p>
+Neglecting zero flow conditions, the above implicit equations can be
+analytically solved for the inStream(..) operators.
+The details are given in Section 15.2 of the
+<a href=\"http://www.modelica.org/documents/ModelicaSpec32.pdf\">Modelica Language Specification version 3.2</a>.
+The stream connection equations have singularities and/or multiple solutions if one or more
+of the flow variables become zero. When all the flows are zero, a singularity is always
+present, so it is necessary to approximate the solution in an open neighbourhood
+of that point. [<i>For example assume that m<sub>j</sub>.c.m_flow = c<sub>k</sub>.m_flow = 0,
+then all equations above are identically fulfilled and inStream(..) can have any value</i>].
+It is required that the inStream() operator is appropriately approximated in that case
+and the approximation must fulfill the following requirements:
+</p>
+
+<ol>
+<li> inStream(m<sub>i</sub>.c.h_outflow) and inStream(c<sub>k</sub>.h_outflow)
+     must be <b>unique</b> with respect to all values of the flow and stream
+     variables in the connection set, and must have a continuous dependency on them.<br>&nbsp;</li>
+<li> Every solution of the implicit equation system above must fulfill the equation
+     system identically [<i>upto the usual numerical accuracy</i>],
+     provided the absolute value of every flow variable in the connection set is
+     greater as a small value (|m<sub>1</sub>.c.m_flow| &gt; eps and |m<sub>2</sub>.c.m_flow| &gt; eps
+     and ... and |c<sub>M</sub>.m_flow| &gt; eps).</li>
+</ol>
+
+<p>
+In Section 15.2 a recommended implementation of the solution of the implicit equation system is
+given, that fulfills the above requirements.
+</p>
+
+</html>"));
+  end InStream;
+
+  class IntegerUpperCase "Integer"
+  extends Modelica.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+Returns ordinal number of enumeration
+</p>
+<h4><font color=\"#008000\">Syntax</font></h4>
+<blockquote><pre><b>Integer</b>(E.e1)</pre></blockquote>
+<h4><font color=\"#008000\">Description</font></h4>
+<p>
+Returns the ordinal number of the enumeration value E.enumvalue, where Integer(E.e1)=1, Integer(E.en)= size(E), for an enumeration type E=enumeration(e1, ...,  en).</p>
+
+<h4><font color=\"#008000\">Examples</font></h4>
+<pre>  <b>type</b> Size = enumeration(small, medium, large, xlarge);
+  <b>Integer</b>(Size.large) = 3</pre>
+
+
+</html>"));
+  end IntegerUpperCase;
+
+  class IntegerLowerCase "integer"
+  extends Modelica.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+Round Real number towards minus infinity
+</p>
+<h4><font color=\"#008000\">Syntax</font></h4>
+<blockquote><pre><b>integer</b>(x)</pre></blockquote>
+<h4><font color=\"#008000\">Description</font></h4>
+<p>Returns the largest integer not greater than <tt>x</tt>.
+The argument shall have type Real. The result has type Integer.</p>
+<p><i>[Note, outside of a when clause state events are triggered
+when the return value changes discontinuously.]</i></p>
+<h4><font color=\"#008000\">Examples</font></h4>
+<pre><b>integer</b>({-3.14, 3.14})
+ = {-4, 3}</pre>
+</html>"));
+  end IntegerLowerCase;
+
   class inverse "inverse"
   extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
@@ -2736,45 +2948,6 @@ True during initialization
 <b>end</b> T_phX;</pre>
 </html>"));
   end inverse;
-
-  class IntegerUpperCase "Integer"
-  extends Modelica.Icons.Information;
-    annotation (Documentation(info="<html>
-<p>
-Returns ordinal number of enumeration
-</p>
-<h4><font color=\"#008000\">Syntax</font></h4>
-<blockquote><pre><b>Integer</b>(E.e1)</pre></blockquote>
-<h4><font color=\"#008000\">Description</font></h4>
-<p>
-Returns the ordinal number of the enumeration value E.enumvalue, where Integer(E.e1)=1, Integer(E.en)= size(E), for an enumeration type E=enumeration(e1, ...,  en).</p>
-
-<h4><font color=\"#008000\">Examples</font></h4>
-<pre>  <b>type</b> Size = enumeration(small, medium, large, xlarge);
-  <b>Integer</b>(Size.large) = 3</pre>
-
-
-</html>"));
-  end IntegerUpperCase;
-
-  class IntegerLowerCase "integer"
-  extends Modelica.Icons.Information;
-    annotation (Documentation(info="<html>
-<p>
-Round Real number towards minus infinity
-</p>
-<h4><font color=\"#008000\">Syntax</font></h4>
-<blockquote><pre><b>integer</b>(x)</pre></blockquote>
-<h4><font color=\"#008000\">Description</font></h4>
-<p>Returns the largest integer not greater than <tt>x</tt>.
-The argument shall have type Real. The result has type Integer.</p>
-<p><i>[Note, outside of a when clause state events are triggered
-when the return value changes discontinuously.]</i></p>
-<h4><font color=\"#008000\">Examples</font></h4>
-<pre><b>integer</b>({-3.14, 3.14})
- = {-4, 3}</pre>
-</html>"));
-  end IntegerLowerCase;
 
   class IsPresent "isPresent"
   extends Modelica.Icons.Information;
@@ -5109,7 +5282,7 @@ component_clause:
    type_prefix type_specifier [ array_subscripts ] component_list
 
 type_prefix :
-   [ <B>flow</b> ]
+   [ <B>flow</b> | <B>stream</b> ]
    [ <B>discrete</B> | <B>parameter</b> | <B>constant</b> ] [ <B>input</b> | <B>output</b> ]</PRE>
 
 <h4><font color=\"#008000\">Description</font></h4>
@@ -5458,7 +5631,7 @@ The prefixes <b>input</b> and <b>output</b> have a slightly different semantic m
 <ul>
 <li> In functions, these prefixes define the computational causality of the
      function body, i.e., given the variables declared as input,
-     the variables declared as output are computed in the function body<br>&nbsp;</li>.
+     the variables declared as output are computed in the function body.<br>&nbsp;</li>
 
 <li> In simulation models and blocks (i.e., on the top level of a model or
      block that shall be simulated), these prefixes define the interaction
@@ -5586,7 +5759,7 @@ The prefixes <b>input</b> and <b>output</b> have a slightly different semantic m
 <ul>
 <li> In functions, these prefixes define the computational causality of the
      function body, i.e., given the variables declared as input,
-     the variables declared as output are computed in the function body<br>&nbsp;</li>.
+     the variables declared as output are computed in the function body.<br>&nbsp;</li>
 
 <li> In simulation models and blocks (i.e., on the top level of a model or
      block that shall be simulated), these prefixes define the interaction
@@ -5643,30 +5816,30 @@ Prohibit instantiation of components of the class
 </p>
 <h4><font color=\"#008000\">Examples</font></h4>
 
-<pre><b>partial block</b> BaseBlock
+<pre><b>partial block</b> PartialBlock
   <b>input</b> Real u;
   <b>output</b> Real y;
 <b>protected</b>
   Real x;
 <b>equation</b>
   x = y;
-<b>end</b> BaseBlock;
+<b>end</b> PartialBlock;
 
 <b>block</b> Integrator
-  <b>extends</b> BaseBlock;
+  <b>extends</b> PartialBlock;
 <b>equation
   der</b>(x) = u;
 <b>end</b> Integrator;
 
 <b>block</b> Gain
-  <b>extends</b> BaseBlock;
+  <b>extends</b> PartialBlock;
   <b>parameter</b> k = 1;
 <b>equation</b>
   x = k*u;
 <b>end</b> Gain;
 
 <b>model</b> Composition
-  BaseBlock block1; // Illegal
+  PartialBlock block1; // Illegal
   Integrator block2; // Legal
   Gain block3; // Legal
 <b>end</b> Composition;</pre>
@@ -5684,6 +5857,21 @@ class_specifier :
    string_comment composition <B>end</B> IDENT
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
    | \"=\" <B>enumeration</B> \"(\" ( [enum_list] | \":\" ) \")\" comment</PRE>
+
+
+<h4><font color=\"#008000\">Description</font></h4>
+
+<p>
+The keyword <b>partial</b> defines that a class is <b>incomplete</b> and
+that it cannot be instantiated. For example, defining
+</p>
+
+<pre>   PartialBlock block1;</pre>
+
+<p>
+is illegal. A partial class can only be used in an \"extends\" clause to inherit from it
+or in a \"constrained\" clause to define the constraints of a replaceable class.
+</p>
 
 </html>"));
 end Partial;
@@ -6000,7 +6188,7 @@ This package is a reference to Modelica keywords,
 <a href=\"modelica://ModelicaReference.Operators\">Modelica builtin operators</a>
 , and the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica grammar</a>.
 It is based on the
-<a href=\"http://www.modelica.org/documents/ModelicaSpec32.pdf\">Modelica Language Specification version 3.2</a> from March 2010.
+<a href=\"http://www.modelica.org/documents/ModelicaSpec32.pdf\">Modelica Language Specification version 3.2</a> from March 2010. Currently, not the whole Modelica language is documented in ModelicaReference (but a large subset).
 </p>
 
 <p>
