@@ -5958,8 +5958,9 @@ class Contact "Contact"
 <dt><b>Library Officers:</b>
 <dd> <a href=\"http://www.hit.no/ansatte/vis/dietmar.winkler\">Dietmar Winkler</a><br>
      Telemark University College<br>
-     Porsgrunn Norway<br>
-     <a href=\"mailto:dietmar.winkler@hit.no\">dietmar.winkler@hit.no</a><br>
+     PO box 203<br>
+     NO-3901 Porsgrunn<br>
+     Norway<br>
      &nbsp;<br>
      and<br>&nbsp;<br>
     <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
@@ -6017,7 +6018,7 @@ It is based on the
       <th>Comment</th>
     </tr>
     <tr>
-      <td valign=\"top\"></td>
+      <td valign=\"top\"><a href=\"http://trac.modelica.org/Modelica/changeset/3742/Modelica\">r3742</a></td>
       <td valign=\"top\">2010-04-13</td>
       <td valign=\"top\"><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a></td>
       <td valign=\"top\">Added the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica 3.2 grammar</a>
