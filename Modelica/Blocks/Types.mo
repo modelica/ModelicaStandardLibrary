@@ -6,20 +6,15 @@ package Types
       LinearSegments "Table points are linearly interpolated",
       ContinuousDerivative
         "Table points are interpolated such that the first derivative is continuous")
-    "Enumeration defining the smoothness of table interpolation"
-    annotation (Documentation(info="<html>
+    "Enumeration defining the smoothness of table interpolation";
 
-</html>"));
-type Extrapolation = enumeration(
+  type Extrapolation = enumeration(
       HoldLastPoint "Hold the last table point outside of the table scope",
       LastTwoPoints
         "Extrapolate linearly through the last two table points outside of the table scope",
 
       Periodic "Repeat the table scope periodically")
-    "Enumeration defining the extrapolation of time table interpolation"
-        annotation ( Documentation(info="<html>
-
-</html>"));
+    "Enumeration defining the extrapolation of time table interpolation";
 
   type Init = enumeration(
       NoInit
@@ -31,9 +26,7 @@ type Extrapolation = enumeration(
       InitialOutput
         "Initialization with initial outputs (and steady state of the states if possibles)")
     "Enumeration defining initialization of a block"
-      annotation (Evaluate=true, Documentation(info="<html>
-
-</html>"));
+      annotation (Evaluate=true);
 
   type InitPID = enumeration(
       NoInit
@@ -68,10 +61,22 @@ initialization definition.
       PD "PD controller",
       PID "PID controller")
     "Enumeration defining P, PI, PD, or PID simple controller type"
-      annotation (Evaluate=true, Documentation(info="<html>
+      annotation (Evaluate=true);
 
-</html>"));
-
+type AnalogFilter = enumeration(
+      CriticalDamping "Filter with critical damping",
+      Bessel "Bessel filter",
+      Butterworth "Butterworth filter",
+      ChebyshevI "ChebyshevI filter")
+    "Enumeration defining the method of filtering"
+      annotation (Evaluate=true);
+type FilterType = enumeration(
+      LowPass "Low pass filter",
+      HighPass "High pass filter",
+      BandPass "Band pass filter",
+      BandStop "Band stop / notch filter")
+    "Enumeration of analog filter types (low, high, band pass or band stop filter"
+    annotation (Evaluate=true);
   annotation ( Documentation(info="<HTML>
 <p>
 In this package <b>types</b> and <b>constants</b> are defined that are used
@@ -80,22 +85,4 @@ definitions that define the menus to be built up in the graphical
 user interface when the type is used as parameter in a declaration.
 </p>
 </HTML>"));
-type AnalogFilter = enumeration(
-      CriticalDamping "Filter with critical damping",
-      Bessel "Bessel filter",
-      Butterworth "Butterworth filter",
-      ChebyshevI "ChebyshevI filter")
-    "Enumeration defining the method of filtering"
-      annotation (Evaluate=true, Documentation(info="<html>
-
-</html>"));
-type FilterType = enumeration(
-      LowPass "Low pass filter",
-      HighPass "High pass filter",
-      BandPass "Band pass filter",
-      BandStop "Band stop / notch filter")
-    "Enumeration of analog filter types (low, high, band pass or band stop filter"
-    annotation (Evaluate=true, Documentation(info="<html>
-
-</html>"));
 end Types;
