@@ -4009,8 +4009,8 @@ web: <a href=\"http://www.Modelica.org\">http://www.Modelica.org</a></p>
 
 <p style=\"margin-left: 40px;\"><b>Copyright notices of the files:</b><br>
 Copyright &copy; 1998-2010,
-ABB, arsenal research, T.&nbsp;B&ouml;drich, DLR, Dynasim, Fraunhofer, Modelon, TU
-Hamburg-Harburg, Politecnico di Milano, XRG Simulation.<br>
+ABB, Austrian Institue of Technology, T.&nbsp;B&ouml;drich, DLR, Dynasim, Fraunhofer, A.&nbsp;Haumer, Modelon, 
+TU Hamburg-Harburg, Politecnico di Milano, XRG Simulation.<br>
 <br>
 </p>
 
