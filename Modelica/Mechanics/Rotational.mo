@@ -1725,7 +1725,7 @@ to describe a coupling of the element with the housing via a spring/damper.
                    if phi_diff < bMin then
                       smooth(0, noEvent(if tau_c + tau_d >= 0 then 0 else tau_c + max(tau_c,tau_d))) else 0;
       end if;
-      lossPower = tau_d*w_rel;
+      lossPower = 0;
       annotation (
         Documentation(info="<html>
 <p>
@@ -2040,11 +2040,11 @@ where the different effects are visualized:
       flange_a.tau + flange_b.tau - tau = 0;
 
       // Friction torque
-      tau = if locked then sa*unitTorque else (if startForward then
-        Modelica.Math.tempInterpol1(w, tau_pos, 2) else if startBackward then -
-        Modelica.Math.tempInterpol1(-w, tau_pos, 2) else if pre(mode) == Forward then
-              Modelica.Math.tempInterpol1(w, tau_pos, 2) else -
-        Modelica.Math.tempInterpol1(-w, tau_pos, 2));
+      tau = if locked then sa*unitTorque else
+           (if startForward then         Modelica.Math.tempInterpol1( w, tau_pos, 2) else
+            if startBackward then       -Modelica.Math.tempInterpol1(-w, tau_pos, 2) else
+            if pre(mode) == Forward then Modelica.Math.tempInterpol1( w, tau_pos, 2) else
+                                        -Modelica.Math.tempInterpol1(-w, tau_pos, 2));
       lossPower = tau*w_relfric;
       annotation (
         Documentation(info="<html>
@@ -2256,13 +2256,14 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       tau0_max = peak*tau0;
       free = fn <= 0;
 
-      // friction torque
-      tau = if locked then sa*unitTorque else if free then 0 else cgeo*fn*(if startForward then
-              Modelica.Math.tempInterpol1(w, mue_pos, 2) else if startBackward then
-              -Modelica.Math.tempInterpol1(-w, mue_pos, 2) else if pre(mode) ==
-        Forward then Modelica.Math.tempInterpol1(w, mue_pos, 2) else -
-        Modelica.Math.tempInterpol1(-w, mue_pos, 2));
-      lossPower = tau*w_relfric;
+      // Friction torque
+      tau = if locked then sa*unitTorque else
+            if free   then 0 else
+            cgeo*fn*(if startForward then         Modelica.Math.tempInterpol1( w, mue_pos, 2) else
+                     if startBackward then       -Modelica.Math.tempInterpol1(-w, mue_pos, 2) else
+                     if pre(mode) == Forward then Modelica.Math.tempInterpol1( w, mue_pos, 2) else
+                                                 -Modelica.Math.tempInterpol1(-w, mue_pos, 2));
+      lossPower = 0;
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -2452,12 +2453,13 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       tau0_max = peak*tau0;
 
       // Friction torque
-      tau = if locked then sa*unitTorque else if free then 0 else cgeo*fn*(if startForward then
-              Modelica.Math.tempInterpol1(w_rel, mue_pos, 2) else if
-        startBackward then -Modelica.Math.tempInterpol1(-w_rel, mue_pos, 2) else
-        if pre(mode) == Forward then Modelica.Math.tempInterpol1(w_rel, mue_pos,
-        2) else -Modelica.Math.tempInterpol1(-w_rel, mue_pos, 2));
-      lossPower = tau*w_relfric;
+      tau = if locked then sa*unitTorque else
+            if free   then 0 else
+            cgeo*fn*(if startForward then         Modelica.Math.tempInterpol1( w_rel, mue_pos, 2) else
+                     if startBackward then       -Modelica.Math.tempInterpol1(-w_rel, mue_pos, 2) else
+                     if pre(mode) == Forward then Modelica.Math.tempInterpol1( w_rel, mue_pos, 2) else
+                                                 -Modelica.Math.tempInterpol1(-w_rel, mue_pos, 2));
+      lossPower = 0;
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -2668,7 +2670,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       // Determine configuration
       stuck = locked or w_rel <= 0;
 
-      lossPower = tau*w_rel;
+      lossPower = 0;
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -2904,6 +2906,9 @@ connected to other elements in an appropriate way.
         "Transmission ratio (flange_a.phi/flange_b.phi)";
       parameter Real lossTable[:, 5]=[0, 1, 1, 0, 0]
         "Array for mesh efficiencies and bearing friction depending on speed";
+      extends
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
+         final T=293.15);
       Modelica.SIunits.Angle phi_a
         "Angle between left shaft flange and support";
       Modelica.SIunits.Angle phi_b
@@ -3023,12 +3028,9 @@ Modelica.Constants.eps).
       tauLossMin = if tau_aPos then quadrant4 else quadrant3;
 
       // Determine rolling/stuck mode when w_rel = 0
-      startForward = pre(mode) == Stuck and sa > tauLossMax/unitTorque or initial() and w_a
-         > 0;
-      startBackward = pre(mode) == Stuck and sa < tauLossMin/unitTorque or initial() and w_a
-         < 0;
-      locked = not (ideal or pre(mode) == Forward or startForward or pre(mode)
-         == Backward or startBackward);
+      startForward = pre(mode) == Stuck and sa > tauLossMax/unitTorque or initial() and w_a > 0;
+      startBackward = pre(mode) == Stuck and sa < tauLossMin/unitTorque or initial() and w_a < 0;
+      locked = not (ideal or pre(mode) == Forward or startForward or pre(mode) == Backward or startBackward);
 
       /* Parameterized curve description a_a = f1(sa), tauLoss = f2(sa)
        In comparison to Modelica.Mechanics.Rotational.FrictionBase it is possible
@@ -3045,6 +3047,8 @@ Modelica.Constants.eps).
       mode = if ideal then Free else (if (pre(mode) == Forward or startForward)
          and w_a > 0 then Forward else if (pre(mode) == Backward or startBackward)
          and w_a < 0 then Backward else Stuck);
+
+      lossPower = 0;
       annotation (Documentation(info="<HTML>
 <p>
 This component models the gear ratio and the <b>losses</b> of
@@ -3465,7 +3469,8 @@ in the flanges, are along the axis vector displayed in the icon.
         "Relative angular acceleration over gear elasticity (= der(w_rel))";
 
       Rotational.Components.LossyGear lossyGear(final ratio=ratio, final lossTable=lossTable,
-        final useSupport=true)
+        final useSupport=true,
+        final useHeatPort=true)
         annotation (Placement(transformation(extent={{-60,-20},{-20,20}},
               rotation=0)));
       Rotational.Components.ElastoBacklash elastoBacklash(
@@ -3489,6 +3494,10 @@ in the flanges, are along the axis vector displayed in the icon.
           smooth=Smooth.None));
       connect(elastoBacklash.heatPort, internalHeatPort) annotation (Line(
           points={{20,-20},{20,-60},{-100,-60},{-100,-80}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(lossyGear.heatPort, internalHeatPort) annotation (Line(
+          points={{-60,-20},{-60,-60},{-100,-60},{-100,-80}},
           color={191,0,0},
           smooth=Smooth.None));
       annotation (

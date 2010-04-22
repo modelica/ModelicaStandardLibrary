@@ -15,14 +15,13 @@ package Forces "Components that exert forces and/or torques between frames"
           origin={0,-100},
           extent={{-16,-16},{16,16}},
           rotation=270)));
-    Modelica.Blocks.Interfaces.RealInput force[3](each final quantity="Force", each
-        final unit = "N")
+    Modelica.Blocks.Interfaces.RealInput force[3](each final quantity="Force", each final unit=
+                     "N")
       "x-, y-, z-coordinates of force resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameB resolveInFrame
-      =
+    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameB resolveInFrame=
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world
       "Frame in which input force is resolved (1: world, 2: frame_b, 3: frame_resolve)";
     parameter Real N_to_m(unit="N/m") = world.defaultN_to_m
@@ -181,14 +180,13 @@ This leads to the following animation
           origin={0,100},
           extent={{16,-16},{-16,16}},
           rotation=270)));
-    Modelica.Blocks.Interfaces.RealInput torque[3](each final quantity="Torque", each
-        final unit = "N.m")
+    Modelica.Blocks.Interfaces.RealInput torque[3](each final quantity="Torque", each final unit=
+                     "N.m")
       "x-, y-, z-coordiantes of torque resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameB resolveInFrame
-      =
+    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameB resolveInFrame=
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world
       "Frame in which input torque is resolved (1: world, 2: frame_b, 3: frame_resolve)";
     parameter Real Nm_to_m(unit="N.m/m") = world.defaultNm_to_m
@@ -354,20 +352,19 @@ This leads to the following animation
           origin={0,100},
           extent={{16,-16},{-16,16}},
           rotation=270)));
-    Blocks.Interfaces.RealInput force[3](each final quantity="Force", each
-        final unit = "N")
+    Blocks.Interfaces.RealInput force[3](each final quantity="Force", each final unit=
+                     "N")
       "x-, y-, z-coordinates of force resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
             rotation=0)));
-    Blocks.Interfaces.RealInput torque[3](each final quantity="Torque", each
-        final unit = "N.m")
+    Blocks.Interfaces.RealInput torque[3](each final quantity="Torque", each final unit=
+                     "N.m")
       "x-, y-, z-coordiantes of torque resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(extent={{-140,40},{-100,80}},
             rotation=0)));
 
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameB resolveInFrame
-      =
+    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameB resolveInFrame=
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world
       "Frame in which input force and torque are resolved (1: world, 2: frame_b, 3: frame_resolve)";
 
@@ -608,8 +605,8 @@ is resolved in the world frame).
           origin={40,100},
           extent={{-16,-16},{16,16}},
           rotation=90)));
-    Modelica.Blocks.Interfaces.RealInput force[3](each final quantity="Force", each
-        final unit = "N")
+    Modelica.Blocks.Interfaces.RealInput force[3](each final quantity="Force", each final unit=
+                     "N")
       "x-, y-, z-coordinates of force resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(
           origin={-60,120},
@@ -806,8 +803,8 @@ clarity this is not shown in the animation):
           extent={{-16,-16},{16,16}},
           rotation=90)));
 
-    Modelica.Blocks.Interfaces.RealInput torque[3](each final quantity="Torque", each
-        final unit = "N.m")
+    Modelica.Blocks.Interfaces.RealInput torque[3](each final quantity="Torque", each final unit=
+                     "N.m")
       "x-, y-, z-coordiantes of torque resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(
           origin={-60,120},
@@ -1001,15 +998,15 @@ clarity this is not shown in the animation):
     import Modelica.Mechanics.MultiBody.Types;
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
 
-    Blocks.Interfaces.RealInput force[3](each final quantity="Force", each
-        final unit = "N")
+    Blocks.Interfaces.RealInput force[3](each final quantity="Force", each final unit=
+                     "N")
       "x-, y-, z-coordinates of force resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(
           origin={-80,120},
           extent={{-20,-20},{20,20}},
           rotation=270)));
-    Blocks.Interfaces.RealInput torque[3](each final quantity="Torque", each
-        final unit = "N.m")
+    Blocks.Interfaces.RealInput torque[3](each final quantity="Torque", each final unit=
+                     "N.m")
       "x-, y-, z-coordiantes of torque resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(
           origin={0,120},
@@ -2229,7 +2226,9 @@ ALT=\"model Examples.Elementary.SpringWithMass\">
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     extends Interfaces.PartialLineForce;
-
+    extends
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
+       final T=293.15);
   protected
     SI.Position r0_b[3]=e_a*noEvent(min(length_a, s));
     Visualizers.Advanced.Shape shape_a(
@@ -2258,6 +2257,7 @@ ALT=\"model Examples.Elementary.SpringWithMass\">
       R=frame_a.R) if world.enableAnimation and animation;
   equation
     f = d*der(s);
+    lossPower = f*der(s);
     annotation (
       Documentation(info="<HTML>
 <p>
@@ -2351,8 +2351,12 @@ where a mass is hanging on a damper.
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     extends Interfaces.PartialLineForce;
+    extends
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
+       final T=293.15);
 
   protected
+    Modelica.SIunits.Force f_d "Damping force";
     Visualizers.Advanced.Shape shape(
       shapeType="spring",
       color=color,
@@ -2365,7 +2369,9 @@ where a mass is hanging on a damper.
       r=frame_a.r_0,
       R=frame_a.R) if world.enableAnimation and animation;
   equation
-    f = c*(s - s_unstretched) + d*der(s);
+    f_d = d*der(s);
+    f = c*(s - s_unstretched) + f_d;
+    lossPower = f_d*der(s);
     annotation (
       Documentation(info="<HTML>
 <p>
@@ -2458,10 +2464,13 @@ and der(s) is the time derivative of s.
     SI.Position s_damper(start=s_damper_start, fixed=true)
       "Actual length of damper (frame_a - damper - spring - frame_b)";
     extends Interfaces.PartialLineForce;
-
+    extends
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
+       final T=293.15);
   equation
     f = c*(s - s_unstretched - s_damper);
     d*der(s_damper) = f;
+    lossPower = f*der(s_damper);
     annotation (
       Documentation(info="<HTML>
 <p>
@@ -2564,8 +2573,8 @@ force element) and der(s_damper) is the time derivative of s_damper.
             origin={40,100},
             extent={{-16,-16},{16,16}},
             rotation=90)));
-      Modelica.Blocks.Interfaces.RealInput force[3](each final quantity="Force", each
-          final unit="N")
+      Modelica.Blocks.Interfaces.RealInput force[3](each final quantity="Force", each final unit=
+                     "N")
         "x-, y-, z-coordinates of force resolved in frame defined by resolveInFrame"
         annotation (Placement(transformation(
             origin={-60,120},
@@ -2700,8 +2709,8 @@ values from the outside in order that the model remains balanced
             extent={{-16,-16},{16,16}},
             rotation=90)));
 
-      Modelica.Blocks.Interfaces.RealInput torque[3](each final quantity="Torque", each
-          final unit="N.m")
+      Modelica.Blocks.Interfaces.RealInput torque[3](each final quantity="Torque", each final unit=
+                     "N.m")
         "x-, y-, z-coordiantes of torque resolved in frame defined by resolveInFrame"
         annotation (Placement(transformation(
             origin={-60,120},
@@ -2838,8 +2847,8 @@ values from the outside in order that the model remains balanced
             extent={{-16,-16},{16,16}},
             rotation=270)));
 
-      Modelica.Blocks.Interfaces.RealInput force[3](each final quantity="Force", each
-          final unit="N")
+      Modelica.Blocks.Interfaces.RealInput force[3](each final quantity="Force", each final unit=
+                     "N")
         "x-, y-, z-coordinates of force resolved in frame defined by resolveInFrame"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
@@ -2945,8 +2954,8 @@ values from the outside in order that the model remains balanced
             extent={{16,-16},{-16,16}},
             rotation=270)));
 
-      Modelica.Blocks.Interfaces.RealInput torque[3](each final quantity="Torque", each
-          final unit="N.m")
+      Modelica.Blocks.Interfaces.RealInput torque[3](each final quantity="Torque", each final unit=
+                     "N.m")
         "x-, y-, z-coordinates of torque resolved in frame defined by resolveInFrame"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));

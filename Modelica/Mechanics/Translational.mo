@@ -1628,7 +1628,7 @@ if a positive force is acting on the element and no other force balances this fo
       f_d  = smooth(0, noEvent( if contact then (if f_d2 <  f_c then  f_c else
                                                  if f_d2 > -f_c then -f_c else f_d2) else 0));
       f = f_c + f_d;
-      lossPower = f_d*v_rel;
+      lossPower = 0;
       annotation (
         Window(
           x=0.23,
@@ -2073,7 +2073,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
                    if pre(mode) == Forward then  Modelica.Math.tempInterpol1( v, mue_pos, 2) else
                                                 -Modelica.Math.tempInterpol1(-v, mue_pos, 2));
 
-      lossPower = f*v_relfric;
+      lossPower = 0;
       annotation (
         Documentation(info="<html>
 <p>
