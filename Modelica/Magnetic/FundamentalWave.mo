@@ -1674,10 +1674,8 @@ The salient reluctance models the relationship between the complex magnetic pote
       extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
       parameter Modelica.SIunits.Resistance R
         "Eqivalent symmetric loss resistance";
-
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T = 273.15);
-      // Modelica.SIunits.Power p1 = (pi/2)*V_m.re*der(Phi.re);
-      // Modelica.SIunits.Power p2 = (pi/2)*V_m.im*der(Phi.im);
+
     equation
       LossPower = (pi/2)*(V_m.re*der(Phi.re) + V_m.im*der(Phi.im));
 
@@ -4620,7 +4618,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <tr><td>Version</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
 </thead>
 <tbody>
-<tr><td>1.4.0</td>  <td>2010-04-22</td>  <td>C. Kral</td>  <td>Added eddy current loss model and thermal heat port</td></tr>
+<tr><td>1.4.0</td>  <td>2010-04-22</td>  <td>C. Kral</td>  <td>Added eddy current loss model with thermal heat port</td></tr>
 <tr><td>1.3.0</td>  <td>2010-02-26</td>  <td>A. Haumer<br>C. Kral</td>  <td>New state selection, icons and copyright included</td></tr>
 <tr><td>1.2.0</td>  <td>2010-02-17</td>  <td>C. Kral</td>  <td>Renamed Machines to BasicMachines and updated references to Electrical.Machines</td></tr>
 <tr><td>1.1.0</td>  <td>2010-02-15</td>  <td>C. Kral</td>  <td>Added thermal connectors and temperature dependent resistances</td></tr>
