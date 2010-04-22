@@ -444,50 +444,50 @@ end UsersGuide;
       parameter Real ratio=10 "Gear ratio";
       parameter Real damping=10 "Damping in bearing of gear";
 
-      Rotational.Components.Fixed fixed 
+      Rotational.Components.Fixed fixed
                              annotation (Placement(transformation(extent={{38,
                 -48},{54,-32}}, rotation=0)));
-      Rotational.Sources.Torque torque(useSupport=true) 
+      Rotational.Sources.Torque torque(useSupport=true)
                                annotation (Placement(transformation(extent={{-68,-8},
                 {-52,8}},         rotation=0)));
-      Rotational.Components.Inertia inertia1(        J=Jmotor) 
+      Rotational.Components.Inertia inertia1(        J=Jmotor)
         annotation (Placement(transformation(extent={{-38,-8},{-22,8}},
               rotation=0)));
       Rotational.Components.IdealGear idealGear(        ratio=ratio, useSupport=
-           true) 
+           true)
         annotation (Placement(transformation(extent={{-8,-8},{8,8}},  rotation=
                 0)));
       Rotational.Components.Inertia inertia2(        J=2,
         phi(fixed=true, start=0),
-        w(fixed=true)) 
+        w(fixed=true))
                     annotation (Placement(transformation(extent={{22,-8},{38,8}},
               rotation=0)));
       Rotational.Components.Spring spring(        c=1.e4,
         phi_rel(fixed=true))           annotation (Placement(transformation(
               extent={{52,-8},{68,8}}, rotation=0)));
-      Rotational.Components.Inertia inertia3(        J=Jload, w(fixed=true)) 
+      Rotational.Components.Inertia inertia3(        J=Jload, w(fixed=true))
                     annotation (Placement(transformation(extent={{82,-8},{98,8}},
               rotation=0)));
-      Rotational.Components.Damper damper(        d=damping) 
+      Rotational.Components.Damper damper(        d=damping)
         annotation (Placement(transformation(
             origin={46,-22},
             extent={{-8,-8},{8,8}},
             rotation=270)));
-      Modelica.Blocks.Sources.Sine sine(amplitude=amplitude, freqHz=freqHz) 
+      Modelica.Blocks.Sources.Sine sine(amplitude=amplitude, freqHz=freqHz)
         annotation (Placement(transformation(extent={{-98,-8},{-82,8}},
               rotation=0)));
     equation
-      connect(inertia1.flange_b, idealGear.flange_a) 
+      connect(inertia1.flange_b, idealGear.flange_a)
         annotation (Line(points={{-22,0},{-8,0}},  color={0,0,0}));
-      connect(idealGear.flange_b, inertia2.flange_a) 
+      connect(idealGear.flange_b, inertia2.flange_a)
         annotation (Line(points={{8,0},{22,0}}, color={0,0,0}));
-      connect(inertia2.flange_b, spring.flange_a) 
+      connect(inertia2.flange_b, spring.flange_a)
         annotation (Line(points={{38,0},{52,0}}, color={0,0,0}));
-      connect(spring.flange_b, inertia3.flange_a) 
+      connect(spring.flange_b, inertia3.flange_a)
         annotation (Line(points={{68,0},{82,0}}, color={0,0,0}));
-      connect(damper.flange_a, inertia2.flange_b) 
+      connect(damper.flange_a, inertia2.flange_b)
         annotation (Line(points={{46,-14},{46,0},{38,0}}, color={0,0,0}));
-      connect(damper.flange_b, fixed.flange) 
+      connect(damper.flange_b, fixed.flange)
         annotation (Line(points={{46,-30},{46,-40}}, color={0,0,0}));
       connect(sine.y, torque.tau) annotation (Line(points={{-81.2,0},{-69.6,0}},
             color={0,0,127}));
@@ -529,49 +529,49 @@ in the housing on one side via component Fixed.</p>
       parameter Real ratio=10 "Gear ratio";
       parameter Real damping=10 "Damping in bearing of gear";
 
-      Rotational.Components.Fixed fixed 
+      Rotational.Components.Fixed fixed
                              annotation (Placement(transformation(extent={{38,-48},
                 {54,-32}},      rotation=0)));
-      Rotational.Sources.Torque torque(useSupport=false) 
+      Rotational.Sources.Torque torque(useSupport=false)
                                annotation (Placement(transformation(extent={{-68,-8},
                 {-52,8}},         rotation=0)));
-      Rotational.Components.Inertia inertia1(        J=Jmotor) 
+      Rotational.Components.Inertia inertia1(        J=Jmotor)
         annotation (Placement(transformation(extent={{-38,-8},{-22,8}},
               rotation=0)));
-      Rotational.Components.IdealGear idealGear(ratio=ratio, useSupport=false) 
+      Rotational.Components.IdealGear idealGear(ratio=ratio, useSupport=false)
         annotation (Placement(transformation(extent={{-8,-8},{8,8}},  rotation=
                 0)));
       Rotational.Components.Inertia inertia2(        J=2,
         phi(fixed=true, start=0),
-        w(fixed=true)) 
+        w(fixed=true))
                     annotation (Placement(transformation(extent={{22,-8},{38,8}},
               rotation=0)));
       Rotational.Components.Spring spring(        c=1.e4,
         phi_rel(fixed=true))           annotation (Placement(transformation(
               extent={{52,-8},{68,8}}, rotation=0)));
-      Rotational.Components.Inertia inertia3(        J=Jload, w(fixed=true)) 
+      Rotational.Components.Inertia inertia3(        J=Jload, w(fixed=true))
                     annotation (Placement(transformation(extent={{82,-8},{98,8}},
               rotation=0)));
-      Rotational.Components.Damper damper(        d=damping) 
+      Rotational.Components.Damper damper(        d=damping)
         annotation (Placement(transformation(
             origin={46,-22},
             extent={{-8,-8},{8,8}},
             rotation=270)));
-      Modelica.Blocks.Sources.Sine sine(amplitude=amplitude, freqHz=freqHz) 
+      Modelica.Blocks.Sources.Sine sine(amplitude=amplitude, freqHz=freqHz)
         annotation (Placement(transformation(extent={{-98,-8},{-82,8}},
               rotation=0)));
     equation
-      connect(inertia1.flange_b, idealGear.flange_a) 
+      connect(inertia1.flange_b, idealGear.flange_a)
         annotation (Line(points={{-22,0},{-8,0}},  color={0,0,0}));
-      connect(idealGear.flange_b, inertia2.flange_a) 
+      connect(idealGear.flange_b, inertia2.flange_a)
         annotation (Line(points={{8,0},{22,0}}, color={0,0,0}));
-      connect(inertia2.flange_b, spring.flange_a) 
+      connect(inertia2.flange_b, spring.flange_a)
         annotation (Line(points={{38,0},{52,0}}, color={0,0,0}));
-      connect(spring.flange_b, inertia3.flange_a) 
+      connect(spring.flange_b, inertia3.flange_a)
         annotation (Line(points={{68,0},{82,0}}, color={0,0,0}));
-      connect(damper.flange_a, inertia2.flange_b) 
+      connect(damper.flange_a, inertia2.flange_b)
         annotation (Line(points={{46,-14},{46,0},{38,0}}, color={0,0,0}));
-      connect(damper.flange_b, fixed.flange) 
+      connect(damper.flange_b, fixed.flange)
         annotation (Line(points={{46,-30},{46,-40}}, color={0,0,0}));
       connect(sine.y, torque.tau) annotation (Line(points={{-81.2,0},{-69.6,0}},
             color={0,0,127}));
@@ -607,7 +607,7 @@ in the housing on one side via component Fixed.</p>
       output SI.Torque tBrake = brake.tau "Friction torque of brake";
       output SI.Torque tSpring = spring.tau "Spring torque";
 
-      Rotational.Sources.Torque torque(useSupport=true) 
+      Rotational.Sources.Torque torque(useSupport=true)
                                annotation (Placement(transformation(extent={{-90,-10},
                 {-70,10}},        rotation=0)));
       Rotational.Components.Inertia inertia3(
@@ -618,39 +618,39 @@ in the housing on one side via component Fixed.</p>
           displayUnit="deg"),
         w(start=100,
           fixed=true,
-          displayUnit="rad/s")) 
+          displayUnit="rad/s"))
                       annotation (Placement(transformation(extent={{-60,-10},{-40,
                 10}},    rotation=0)));
-      Rotational.Components.Clutch clutch(        fn_max=160) 
+      Rotational.Components.Clutch clutch(        fn_max=160)
                                            annotation (Placement(transformation(
               extent={{-30,-10},{-10,10}},
                                       rotation=0)));
       Rotational.Components.Inertia inertia2(
         J=0.05,
         phi(start=0, fixed=true),
-        w(start=90, fixed=true)) 
+        w(start=90, fixed=true))
                      annotation (Placement(transformation(extent={{0,-10},{20,10}},
               rotation=0)));
-      Rotational.Components.SpringDamper spring(        c=160, d=1) 
+      Rotational.Components.SpringDamper spring(        c=160, d=1)
         annotation (Placement(transformation(extent={{30,-10},{50,10}},
                                                                       rotation=
                 0)));
       Rotational.Components.Inertia inertia1(
         J=1,
         phi(start=0, fixed=true),
-        w(start=90, fixed=true)) 
+        w(start=90, fixed=true))
                      annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
-      Rotational.Components.Brake brake(        fn_max=1600, useSupport=true) 
+      Rotational.Components.Brake brake(        fn_max=1600, useSupport=true)
                                           annotation (Placement(transformation(
               extent={{60,-10},{80,10}},
                                        rotation=0)));
-      Modelica.Blocks.Sources.Constant const(k=1) 
+      Modelica.Blocks.Sources.Constant const(k=1)
         annotation (Placement(transformation(
             origin={-25,35},
             extent={{-5,-5},{15,15}},
             rotation=270)));
-      Modelica.Blocks.Sources.Step step(startTime=startTime) 
+      Modelica.Blocks.Sources.Step step(startTime=startTime)
         annotation (Placement(transformation(
             origin={65,35},
             extent={{-5,-5},{15,15}},
@@ -660,29 +660,29 @@ in the housing on one side via component Fixed.</p>
         offset=1,
         startTime=startTime)   annotation (Placement(transformation(extent={{-160,
                 -30},{-140,-10}},   rotation=0)));
-      Modelica.Blocks.Sources.Sine sine(amplitude=200, freqHz=50/pi) 
+      Modelica.Blocks.Sources.Sine sine(amplitude=200, freqHz=50/pi)
         annotation (Placement(transformation(extent={{-160,10},{-140,30}},
               rotation=0)));
-      Modelica.Blocks.Math.Product product 
+      Modelica.Blocks.Math.Product product
                            annotation (Placement(transformation(extent={{-120,-10},
                 {-100,10}},
                           rotation=0)));
-      Rotational.Components.Fixed fixed 
+      Rotational.Components.Fixed fixed
                              annotation (Placement(transformation(extent={{-10,-30},
                 {10,-10}},     rotation=0)));
     equation
-      connect(torque.flange, inertia3.flange_a) 
+      connect(torque.flange, inertia3.flange_a)
         annotation (Line(points={{-70,0},{-70,0},{-60,0}},
                                                    color={0,0,0}));
-      connect(inertia3.flange_b, clutch.flange_a) 
+      connect(inertia3.flange_b, clutch.flange_a)
         annotation (Line(points={{-40,0},{-30,0}},color={0,0,0}));
-      connect(clutch.flange_b, inertia2.flange_a) 
+      connect(clutch.flange_b, inertia2.flange_a)
         annotation (Line(points={{-10,0},{0,0}},color={0,0,0}));
-      connect(inertia2.flange_b, spring.flange_a) 
+      connect(inertia2.flange_b, spring.flange_a)
         annotation (Line(points={{20,0},{30,0}}, color={0,0,0}));
-      connect(spring.flange_b, brake.flange_a) 
+      connect(spring.flange_b, brake.flange_a)
         annotation (Line(points={{50,0},{60,0}}, color={0,0,0}));
-      connect(brake.flange_b, inertia1.flange_a) 
+      connect(brake.flange_b, inertia1.flange_a)
         annotation (Line(points={{80,0},{80,0},{90,0}},
                                                  color={0,0,0}));
       connect(sine.y, product.u1) annotation (Line(points={{-139,20},{-130,20},{
@@ -738,20 +738,20 @@ values (defined already in the model):</p>
       Rotational.Components.Inertia J1(
         J=1,
         phi(fixed=true, start=0),
-        w(start=10, fixed=true)) 
+        w(start=10, fixed=true))
                      annotation (Placement(transformation(extent={{-70,-10},{
                 -50,10}},
                      rotation=0)));
-      Rotational.Sources.Torque torque(useSupport=true) 
+      Rotational.Sources.Torque torque(useSupport=true)
                                annotation (Placement(transformation(extent={{-100,
                 -10},{-80,10}},   rotation=0)));
-      Rotational.Components.Clutch clutch1(        peak=1.1, fn_max=20) 
+      Rotational.Components.Clutch clutch1(        peak=1.1, fn_max=20)
         annotation (Placement(transformation(extent={{-40,-10},{-20,10}},
               rotation=0)));
-      Modelica.Blocks.Sources.Sine sin1(amplitude=10, freqHz=5) 
+      Modelica.Blocks.Sources.Sine sin1(amplitude=10, freqHz=5)
         annotation (Placement(transformation(extent={{-130,-10},{-110,10}},
               rotation=0)));
-      Modelica.Blocks.Sources.Step step1(startTime=T2) 
+      Modelica.Blocks.Sources.Step step1(startTime=T2)
         annotation (Placement(transformation(
             origin={25,35},
             extent={{-5,-5},{15,15}},
@@ -760,7 +760,7 @@ values (defined already in the model):</p>
         phi(fixed=true, start=0),
         w(fixed=true))           annotation (Placement(transformation(extent={{-10,-10},
                 {10,10}},      rotation=0)));
-      Rotational.Components.Clutch clutch2(        peak=1.1, fn_max=20) 
+      Rotational.Components.Clutch clutch2(        peak=1.1, fn_max=20)
         annotation (Placement(transformation(extent={{20,-10},{40,10}},
                                                                       rotation=
                 0)));
@@ -768,7 +768,7 @@ values (defined already in the model):</p>
         phi(fixed=true, start=0),
         w(fixed=true))           annotation (Placement(transformation(extent={{50,-10},
                 {70,10}},       rotation=0)));
-      Rotational.Components.Clutch clutch3(        peak=1.1, fn_max=20) 
+      Rotational.Components.Clutch clutch3(        peak=1.1, fn_max=20)
         annotation (Placement(transformation(extent={{80,-10},{100,10}},
                                                                       rotation=
                 0)));
@@ -783,29 +783,29 @@ values (defined already in the model):</p>
             origin={-35,35},
             extent={{-5,-5},{15,15}},
             rotation=270)));
-      Modelica.Blocks.Sources.Step step2(startTime=T3) 
+      Modelica.Blocks.Sources.Step step2(startTime=T3)
         annotation (Placement(transformation(
             origin={85,35},
             extent={{-5,-5},{15,15}},
             rotation=270)));
-      Rotational.Components.Fixed fixed 
+      Rotational.Components.Fixed fixed
                              annotation (Placement(transformation(extent={{-100,
                 -30},{-80,-10}}, rotation=0)));
     equation
-      connect(torque.flange, J1.flange_a) 
+      connect(torque.flange, J1.flange_a)
         annotation (Line(points={{-80,0},{-70,0}}, color={0,0,0}));
-      connect(J1.flange_b, clutch1.flange_a) 
+      connect(J1.flange_b, clutch1.flange_a)
         annotation (Line(points={{-50,0},{-40,0}}, color={0,0,0}));
-      connect(clutch1.flange_b, J2.flange_a) 
+      connect(clutch1.flange_b, J2.flange_a)
         annotation (Line(points={{-20,0},{-10,0}},color={0,0,0}));
-      connect(J2.flange_b, clutch2.flange_a) 
+      connect(J2.flange_b, clutch2.flange_a)
         annotation (Line(points={{10,0},{10,0},{20,0}},
                                                 color={0,0,0}));
-      connect(clutch2.flange_b, J3.flange_a) 
+      connect(clutch2.flange_b, J3.flange_a)
         annotation (Line(points={{40,0},{50,0}}, color={0,0,0}));
-      connect(J3.flange_b, clutch3.flange_a) 
+      connect(J3.flange_b, clutch3.flange_a)
         annotation (Line(points={{70,0},{80,0}}, color={0,0,0}));
-      connect(clutch3.flange_b, J4.flange_a) 
+      connect(clutch3.flange_b, J4.flange_a)
         annotation (Line(points={{100,0},{110,0}},
                                                  color={0,0,0}));
       connect(sin1.y, torque.tau) annotation (Line(points={{-109,0},{-102,0}},
@@ -860,23 +860,23 @@ locked, forward sliding.</p>
         gear.flange_a.tau*der(gear.flange_a.phi) + gear.flange_b.tau*der(gear.flange_b.phi)
         "Power lost in the gear";
       Rotational.Components.LossyGear gear(ratio=2, lossTable=[0, 0.5, 0.5, 0, 0],
-        useSupport=true) 
+        useSupport=true)
         annotation (Placement(transformation(extent={{-10,0},{10,20}}, rotation=
                0)));
-      Rotational.Components.Inertia Inertia1(J=1) 
+      Rotational.Components.Inertia Inertia1(J=1)
                                   annotation (Placement(transformation(extent={
                 {-40,0},{-20,20}}, rotation=0)));
       Rotational.Components.Inertia Inertia2(        J=1.5,
         phi(fixed=true, start=0),
         w(fixed=true))                   annotation (Placement(transformation(
               extent={{20,0},{40,20}}, rotation=0)));
-      Rotational.Sources.Torque torque1(useSupport=true) 
+      Rotational.Sources.Torque torque1(useSupport=true)
                                 annotation (Placement(transformation(extent={{
                 -70,0},{-50,20}}, rotation=0)));
-      Rotational.Sources.Torque torque2(useSupport=true) 
+      Rotational.Sources.Torque torque2(useSupport=true)
                                 annotation (Placement(transformation(extent={{
                 70,0},{50,20}}, rotation=0)));
-      Modelica.Blocks.Sources.Sine DriveSine(amplitude=10, freqHz=1) 
+      Modelica.Blocks.Sources.Sine DriveSine(amplitude=10, freqHz=1)
         annotation (Placement(transformation(extent={{-100,0},{-80,20}},
               rotation=0)));
       Modelica.Blocks.Sources.Ramp load(
@@ -884,23 +884,23 @@ locked, forward sliding.</p>
         duration=2,
         offset=-10)   annotation (Placement(transformation(extent={{100,0},{80,
                 20}}, rotation=0)));
-      Rotational.Components.Fixed fixed 
+      Rotational.Components.Fixed fixed
                              annotation (Placement(transformation(extent={{-10,
                 -30},{10,-10}}, rotation=0)));
     equation
-      connect(Inertia1.flange_b, gear.flange_a) 
+      connect(Inertia1.flange_b, gear.flange_a)
         annotation (Line(points={{-20,10},{-10,10}}, color={0,0,0}));
-      connect(gear.flange_b, Inertia2.flange_a) 
+      connect(gear.flange_b, Inertia2.flange_a)
         annotation (Line(points={{10,10},{20,10}}, color={0,0,0}));
-      connect(torque1.flange, Inertia1.flange_a) 
+      connect(torque1.flange, Inertia1.flange_a)
         annotation (Line(points={{-50,10},{-40,10}}, color={0,0,0}));
-      connect(torque2.flange, Inertia2.flange_b) 
+      connect(torque2.flange, Inertia2.flange_b)
         annotation (Line(points={{50,10},{40,10}}, color={0,0,0}));
       connect(DriveSine.y, torque1.tau) annotation (Line(points={{-79,10},{-72,
               10}}, color={0,0,127}));
       connect(load.y, torque2.tau) annotation (Line(points={{79,10},{72,10}},
             color={0,0,127}));
-      connect(fixed.flange, gear.support) 
+      connect(fixed.flange, gear.support)
         annotation (Line(points={{0,-20},{0,0}}, color={0,0,0}));
       connect(fixed.flange, torque1.support)   annotation (Line(points={{0,-20},
               {-60,-20},{-60,0}}, color={0,0,0}));
@@ -944,23 +944,23 @@ gear.mode  :  1 = forward rolling
         "Power lost in the gear";
 
       Rotational.Components.LossyGear gear(ratio=2, lossTable=[0, 0.5, 0.5, 0, 0],
-        useSupport=true) 
+        useSupport=true)
         annotation (Placement(transformation(extent={{-20,0},{0,20}}, rotation=
                 0)));
-      Rotational.Components.Inertia Inertia1(J=1) 
+      Rotational.Components.Inertia Inertia1(J=1)
                                   annotation (Placement(transformation(extent={{-50,0},
                 {-30,20}},         rotation=0)));
       Rotational.Components.Inertia Inertia2(        J=1.5,
         phi(fixed=true, start=0),
         w(fixed=true))                   annotation (Placement(transformation(
               extent={{10,0},{30,20}}, rotation=0)));
-      Rotational.Sources.Torque torque1(useSupport=true) 
+      Rotational.Sources.Torque torque1(useSupport=true)
                                 annotation (Placement(transformation(extent={{-110,0},
                 {-90,20}},        rotation=0)));
-      Rotational.Sources.Torque torque2(useSupport=true) 
+      Rotational.Sources.Torque torque2(useSupport=true)
                                 annotation (Placement(transformation(extent={{60,0},{
                 40,20}},        rotation=0)));
-      Modelica.Blocks.Sources.Sine DriveSine(amplitude=10, freqHz=1) 
+      Modelica.Blocks.Sources.Sine DriveSine(amplitude=10, freqHz=1)
         annotation (Placement(transformation(extent={{-140,0},{-120,20}},
               rotation=0)));
       Modelica.Blocks.Sources.Ramp load(
@@ -969,20 +969,20 @@ gear.mode  :  1 = forward rolling
         offset=-10) annotation (Placement(transformation(extent={{90,0},{70,20}},
               rotation=0)));
       Rotational.Components.BearingFriction bearingFriction(        tau_pos=[0, 0.5; 1, 1],
-          useSupport=true) 
+          useSupport=true)
         annotation (Placement(transformation(extent={{-80,0},{-60,20}},
               rotation=0)));
-      Rotational.Components.Fixed fixed 
+      Rotational.Components.Fixed fixed
                              annotation (Placement(transformation(extent={{-20,-30},
                 {0,-10}},       rotation=0)));
     equation
-      connect(torque2.flange, Inertia2.flange_b) 
+      connect(torque2.flange, Inertia2.flange_b)
         annotation (Line(points={{40,10},{30,10}}, color={0,0,0}));
-      connect(Inertia2.flange_a, gear.flange_b) 
+      connect(Inertia2.flange_a, gear.flange_b)
         annotation (Line(points={{10,10},{0,10}},  color={0,0,0}));
-      connect(gear.flange_a, Inertia1.flange_b) 
+      connect(gear.flange_a, Inertia1.flange_b)
         annotation (Line(points={{-20,10},{-30,10}},color={0,0,0}));
-      connect(Inertia1.flange_a, bearingFriction.flange_b) 
+      connect(Inertia1.flange_a, bearingFriction.flange_b)
         annotation (Line(points={{-50,10},{-60,10}}, color={0,0,0}));
       connect(bearingFriction.flange_a, torque1.flange)   annotation (Line(
             points={{-80,10},{-80,10},{-90,10}},
@@ -991,7 +991,7 @@ gear.mode  :  1 = forward rolling
               -119,10},{-112,10}},    color={0,0,127}));
       connect(load.y, torque2.tau) annotation (Line(points={{69,10},{62,10}},
             color={0,0,127}));
-      connect(gear.support, fixed.flange) 
+      connect(gear.support, fixed.flange)
         annotation (Line(points={{-10,0},{-10,-20}},
                                                  color={0,0,0}));
       connect(fixed.flange, torque2.support)   annotation (Line(points={{-10,-20},
@@ -1040,34 +1040,34 @@ as component LossyGear includes the functionality of component BearingFriction
       extends Modelica.Icons.Example;
       Rotational.Components.Inertia shaft(        phi(fixed=true, start=0), w(
             fixed=true),
-        J=1) 
+        J=1)
         annotation (Placement(transformation(extent={{-20,40},{0,60}}, rotation=
                0)));
       Rotational.Components.Inertia load(        J=50,
-        w(fixed=true)) 
+        w(fixed=true))
         annotation (Placement(transformation(extent={{70,40},{90,60}}, rotation=
                0)));
-      Rotational.Components.Spring spring(        c=1e3, phi_rel(fixed=true)) 
+      Rotational.Components.Spring spring(        c=1e3, phi_rel(fixed=true))
         annotation (Placement(transformation(extent={{40,40},{60,60}}, rotation=
                0)));
-      Rotational.Components.Fixed fixed 
+      Rotational.Components.Fixed fixed
         annotation (Placement(transformation(extent={{10,-70},{30,-50}},
               rotation=0)));
       Rotational.Components.SpringDamper springDamper(        c=1e5, d=5,
         phi_rel(fixed=true),
-        w_rel(fixed=true)) 
+        w_rel(fixed=true))
         annotation (Placement(transformation(
             origin={20,-30},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Rotational.Sources.Torque torque(useSupport=true) 
+      Rotational.Sources.Torque torque(useSupport=true)
         annotation (Placement(transformation(extent={{-50,40},{-30,60}},
               rotation=0)));
-      Modelica.Blocks.Sources.Ramp ramp(              duration=5, height=100) 
+      Modelica.Blocks.Sources.Ramp ramp(              duration=5, height=100)
         annotation (Placement(transformation(extent={{-90,40},{-70,60}},
               rotation=0)));
       Rotational.Components.IdealGear idealGear(        ratio=3, useSupport=
-            true) 
+            true)
         annotation (Placement(transformation(extent={{10,40},{30,60}}, rotation=
                0)));
       Rotational.Components.Inertia housing(
@@ -1076,20 +1076,20 @@ as component LossyGear includes the functionality of component BearingFriction
             extent={{-10,-10},{10,10}},
             rotation=90)));
     equation
-      connect(torque.flange, shaft.flange_a) 
+      connect(torque.flange, shaft.flange_a)
         annotation (Line(points={{-30,50},{-20,50}}, color={0,0,0}));
-      connect(spring.flange_b, load.flange_a) 
+      connect(spring.flange_b, load.flange_a)
         annotation (Line(points={{60,50},{70,50}}, color={0,0,0}));
-      connect(springDamper.flange_a, fixed.flange) 
+      connect(springDamper.flange_a, fixed.flange)
         annotation (Line(points={{20,-40},{20,-56},{20,-60}},
                                                      color={0,0,0}));
-      connect(shaft.flange_b, idealGear.flange_a) 
+      connect(shaft.flange_b, idealGear.flange_a)
         annotation (Line(points={{0,50},{10,50}}, color={0,0,0}));
-      connect(idealGear.flange_b, spring.flange_a) 
+      connect(idealGear.flange_b, spring.flange_a)
         annotation (Line(points={{30,50},{40,50}}, color={0,0,0}));
-      connect(idealGear.support, housing.flange_b) 
+      connect(idealGear.support, housing.flange_b)
         annotation (Line(points={{20,40},{20,20}}, color={0,0,0}));
-      connect(housing.flange_a, springDamper.flange_b) 
+      connect(housing.flange_a, springDamper.flange_b)
         annotation (Line(points={{20,0},{20,-20}}, color={0,0,0}));
       connect(ramp.y, torque.tau) annotation (Line(points={{-69,50},{-69,50},{
               -52,50}},
@@ -1114,40 +1114,40 @@ Simulate for about 10 seconds and plot the angular velocities of the inertias <t
 
     model Backlash "Example to demonstrate backlash"
       extends Modelica.Icons.Example;
-      Rotational.Components.Fixed fixed1 
+      Rotational.Components.Fixed fixed1
         annotation (Placement(transformation(extent={{-50,50},{-30,70}})));
       Rotational.Components.SpringDamper springDamper(c=20E3, d=50,
-        phi_nominal=1) 
+        phi_nominal=1)
         annotation (Placement(transformation(extent={{-20,50},{0,70}})));
       Rotational.Components.Inertia inertia1(J=5,
         w(fixed=true, start=0),
         phi(
           fixed=true,
           displayUnit="deg",
-          start=1.570796326794897)) 
+          start=1.570796326794897))
         annotation (Placement(transformation(extent={{20,50},{40,70}})));
-      Rotational.Components.Fixed fixed2 
+      Rotational.Components.Fixed fixed2
         annotation (Placement(transformation(extent={{-50,-50},{-30,-30}})));
       Rotational.Components.ElastoBacklash elastoBacklash(
         c=20E3,
         d=50,
         b(displayUnit="deg") = 0.7853981633974483,
-        phi_nominal=1) 
+        phi_nominal=1)
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
       Rotational.Components.Inertia inertia2(J=5,
         w(fixed=true, start=0),
         phi(
           fixed=true,
           start=1.570796326794897,
-          displayUnit="deg")) 
+          displayUnit="deg"))
         annotation (Placement(transformation(extent={{20,-50},{40,-30}})));
     equation
-      connect(springDamper.flange_b, inertia1.flange_a) 
+      connect(springDamper.flange_b, inertia1.flange_a)
                                                        annotation (Line(
           points={{0,60},{20,60}},
           color={0,0,0},
           smooth=Smooth.None));
-      connect(elastoBacklash.flange_b, inertia2.flange_a) 
+      connect(elastoBacklash.flange_b, inertia2.flange_a)
                                                        annotation (Line(
           points={{0,-40},{20,-40}},
           color={0,0,0},
@@ -1174,23 +1174,23 @@ also that the damping torque does not lead to unphysical pulling torques
 
     model RollingWheel "Demonstrate coupling Rotational - Translational"
       extends Modelica.Icons.Example;
-      Rotational.Components.IdealRollingWheel idealRollingWheel(radius=1) 
+      Rotational.Components.IdealRollingWheel idealRollingWheel(radius=1)
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-      Rotational.Components.Inertia inertia(J=1) 
+      Rotational.Components.Inertia inertia(J=1)
         annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
       Rotational.Sources.TorqueStep torqueStep(
         stepTorque=10,
         offsetTorque=0,
         startTime=0.1,
-        useSupport=false) 
+        useSupport=false)
         annotation (Placement(transformation(extent={{-70,-10},{-50,10}})));
-      Translational.Components.Mass mass(L=0, m=1) 
+      Translational.Components.Mass mass(L=0, m=1)
         annotation (Placement(transformation(extent={{20,-10},{40,10}})));
       Translational.Sources.QuadraticSpeedDependentForce
         quadraticSpeedDependentForce(
         f_nominal=-10,
         ForceDirection=false,
-        v_nominal=5) 
+        v_nominal=5)
         annotation (Placement(transformation(extent={{72,-10},{52,10}})));
     equation
 
@@ -1240,7 +1240,7 @@ simulate them according to the provided description in the models.
     model Fixed "Flange fixed in housing at a given angle"
       parameter SI.Angle phi0=0 "Fixed offset angle of housing";
 
-      Interfaces.Flange_b flange "(right) flange fixed in housing" 
+      Interfaces.Flange_b flange "(right) flange fixed in housing"
         annotation (Placement(transformation(extent={{10,-10},{-10,10}}, rotation=
                0)));
 
@@ -1288,10 +1288,10 @@ at an angle phi0 in the <b>housing</b>. May be used:
 
     model Inertia "1D-rotational component with inertia"
       import SI = Modelica.SIunits;
-      Rotational.Interfaces.Flange_a flange_a "Left flange of shaft" 
+      Rotational.Interfaces.Flange_a flange_a "Left flange of shaft"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
-      Rotational.Interfaces.Flange_b flange_b "Right flange of shaft" 
+      Rotational.Interfaces.Flange_b flange_b "Right flange of shaft"
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
       parameter SI.Inertia J(min=0, start=1) "Moment of inertia";
@@ -1481,7 +1481,8 @@ a coupling of the element with the housing via a spring.
       parameter SI.RotationalDampingConstant d(final min=0, start=0)
         "Damping constant";
       extends
-        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(final T=293.15);
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
+         final T=293.15);
     equation
       tau = d*w_rel;
       lossPower = tau*w_rel;
@@ -1554,10 +1555,16 @@ between two inertia/gear elements.
       extends
         Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates;
       extends
-        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(final T=293.15);
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
+         final T=293.15);
+    protected
+      Modelica.SIunits.Torque tau_c "Spring torque";
+      Modelica.SIunits.Torque tau_d "Damping torque";
     equation
-      tau = c*(phi_rel - phi_rel0) + d*w_rel;
-      lossPower = d*w_rel*w_rel;
+      tau_c = c*(phi_rel - phi_rel0);
+      tau_d = d*w_rel;
+      tau = tau_c + tau_d;
+      lossPower = tau_d*w_rel;
       annotation (
         Documentation(info="<html>
 <p>
@@ -1650,7 +1657,8 @@ to describe a coupling of the element with the housing via a spring/damper.
       extends
         Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates;
       extends
-        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(final T=293.15);
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
+         final T=293.15);
     protected
       final parameter SI.Angle bMax = b/2
         "Backlash in range bMin <= phi_rel - phi_rel0 <= bMax";
@@ -1678,7 +1686,7 @@ to describe a coupling of the element with the housing via a spring/damper.
                                    = (c/3)*(3/2)*bMax
                                    = (c/2)*bMax
      */
-         tau_c = if phi_diff > 1.5*bMax then c*(phi_diff - bMax) else 
+         tau_c = if phi_diff > 1.5*bMax then c*(phi_diff - bMax) else
                  if phi_diff < 1.5*bMin then c*(phi_diff - bMin) else (c/3)*phi_diff;
          tau_d = d*w_rel;
          tau   = tau_c + tau_d;
@@ -1707,14 +1715,14 @@ to describe a coupling of the element with the housing via a spring/damper.
      it cannot be changed anymore after translation).
    */
 
-         tau_c = if abs(b) <= bEps then c*phi_diff else 
-                 if phi_diff > bMax then c*(phi_diff - bMax) else 
+         tau_c = if abs(b) <= bEps then c*phi_diff else
+                 if phi_diff > bMax then c*(phi_diff - bMax) else
                  if phi_diff < bMin then c*(phi_diff - bMin) else 0;
          tau_d = d*w_rel;
-         tau   = if abs(b) <= bEps then tau_c + tau_d else 
-                   if phi_diff > bMax then 
-                      smooth(0, noEvent(if tau_c + tau_d <= 0 then 0 else tau_c + min(tau_c,tau_d))) else 
-                   if phi_diff < bMin then 
+         tau   = if abs(b) <= bEps then tau_c + tau_d else
+                   if phi_diff > bMax then
+                      smooth(0, noEvent(if tau_c + tau_d <= 0 then 0 else tau_c + min(tau_c,tau_d))) else
+                   if phi_diff < bMin then
                       smooth(0, noEvent(if tau_c + tau_d >= 0 then 0 else tau_c + max(tau_c,tau_d))) else 0;
       end if;
       lossPower = tau_d*w_rel;
@@ -2003,7 +2011,8 @@ where the different effects are visualized:
 
       extends Rotational.Interfaces.PartialFriction;
       extends
-        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(final T=293.15);
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
+         final T=293.15);
 
       SI.Angle phi
         "Angle between shaft flanges (flange_a, flange_b) and support";
@@ -2031,9 +2040,9 @@ where the different effects are visualized:
       flange_a.tau + flange_b.tau - tau = 0;
 
       // Friction torque
-      tau = if locked then sa*unitTorque else (if startForward then 
+      tau = if locked then sa*unitTorque else (if startForward then
         Modelica.Math.tempInterpol1(w, tau_pos, 2) else if startBackward then -
-        Modelica.Math.tempInterpol1(-w, tau_pos, 2) else if pre(mode) == Forward then 
+        Modelica.Math.tempInterpol1(-w, tau_pos, 2) else if pre(mode) == Forward then
               Modelica.Math.tempInterpol1(w, tau_pos, 2) else -
         Modelica.Math.tempInterpol1(-w, tau_pos, 2));
       lossPower = tau*w_relfric;
@@ -2207,7 +2216,8 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 
       extends Rotational.Interfaces.PartialFriction;
       extends
-        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(final T=293.15);
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
+         final T=293.15);
 
       SI.Angle phi
         "Angle between shaft flanges (flange_a, flange_b) and support";
@@ -2247,8 +2257,8 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       free = fn <= 0;
 
       // friction torque
-      tau = if locked then sa*unitTorque else if free then 0 else cgeo*fn*(if startForward then 
-              Modelica.Math.tempInterpol1(w, mue_pos, 2) else if startBackward then 
+      tau = if locked then sa*unitTorque else if free then 0 else cgeo*fn*(if startForward then
+              Modelica.Math.tempInterpol1(w, mue_pos, 2) else if startBackward then
               -Modelica.Math.tempInterpol1(-w, mue_pos, 2) else if pre(mode) ==
         Forward then Modelica.Math.tempInterpol1(w, mue_pos, 2) else -
         Modelica.Math.tempInterpol1(-w, mue_pos, 2));
@@ -2414,6 +2424,9 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       Modelica.SIunits.AngularAcceleration a_rel(start=0)
         "Relative angular acceleration (= der(w_rel))";
       extends Rotational.Interfaces.PartialFriction;
+      extends
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
+         final T=293.15);
 
       Real mue0 "Friction coefficient for w=0 and forward sliding";
       SI.Force fn "Normal force (fn=fn_max*f_normalized)";
@@ -2438,12 +2451,13 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       tau0 = mue0*cgeo*fn;
       tau0_max = peak*tau0;
 
-      // friction torque
-      tau = if locked then sa*unitTorque else if free then 0 else cgeo*fn*(if startForward then 
-              Modelica.Math.tempInterpol1(w_rel, mue_pos, 2) else if 
-        startBackward then -Modelica.Math.tempInterpol1(-w_rel, mue_pos, 2) else 
+      // Friction torque
+      tau = if locked then sa*unitTorque else if free then 0 else cgeo*fn*(if startForward then
+              Modelica.Math.tempInterpol1(w_rel, mue_pos, 2) else if
+        startBackward then -Modelica.Math.tempInterpol1(-w_rel, mue_pos, 2) else
         if pre(mode) == Forward then Modelica.Math.tempInterpol1(w_rel, mue_pos,
         2) else -Modelica.Math.tempInterpol1(-w_rel, mue_pos, 2));
+      lossPower = tau*w_relfric;
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -2594,6 +2608,9 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       parameter SI.AngularVelocity w_small=1e10
         "Relative angular velocity near to zero if jumps due to a reinit(..) of the velocity can occur (set to low value only if such impulses can occur)"
          annotation(Dialog(tab="Advanced"));
+      extends
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
+         final T=293.15);
 
       Real u "Normalized force input signal (0..1)";
       SI.Force fn "Normal force (fn=fn_max*inPort.signal)";
@@ -2650,6 +2667,8 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 
       // Determine configuration
       stuck = locked or w_rel <= 0;
+
+      lossPower = tau*w_rel;
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -2975,7 +2994,7 @@ Modelica.Constants.eps).
 
       ideal = equal(lossTable, [0, 1, 1, 0, 0]);
 
-      interpolation_result = if ideal then [1, 1, 0, 0] else 
+      interpolation_result = if ideal then [1, 1, 0, 0] else
         Modelica.Math.tempInterpol2(noEvent(abs(w_a)), lossTable, {2,3,4,5});
       eta_mf1 = interpolation_result[1, 1];
       eta_mf2 = interpolation_result[1, 2];
@@ -3015,7 +3034,7 @@ Modelica.Constants.eps).
        In comparison to Modelica.Mechanics.Rotational.FrictionBase it is possible
        to simplify the following expression as mode == Stuck is assured in case
        of startForward or startBackward */
-      tauLoss = if ideal then 0 else (if locked then sa*unitTorque else (if (startForward or 
+      tauLoss = if ideal then 0 else (if locked then sa*unitTorque else (if (startForward or
             pre(mode) == Forward) then tauLossMax else tauLossMin));
 
       a_a = unitAngularAcceleration*(if locked then 0 else sa - tauLoss/unitTorque);
@@ -3199,7 +3218,7 @@ Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e. V., March 18-19, 2002.</p>
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={192,192,192}),
             Text(
-              extent={{-146,-49},{154,-79}},
+              extent={{-145,-49},{155,-79}},
               lineColor={0,0,0},
               textString="ratio=%ratio")}),
         Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
@@ -3212,13 +3231,13 @@ Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e. V., March 18-19, 2002.</p>
         "Number of ring_teeth/sun_teeth (e.g. ratio=100/50)";
 
       // kinematic relationship
-      Interfaces.Flange_a sun "Flange of sun shaft" 
+      Interfaces.Flange_a sun "Flange of sun shaft"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
-      Interfaces.Flange_a carrier "Flange of carrier shaft" 
+      Interfaces.Flange_a carrier "Flange of carrier shaft"
         annotation (Placement(transformation(extent={{-110,30},{-90,50}},
               rotation=0)));
-      Interfaces.Flange_b ring "Flange of ring shaft" 
+      Interfaces.Flange_b ring "Flange of ring shaft"
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=
                0)));
 
@@ -3432,9 +3451,11 @@ in the flanges, are along the axis vector displayed in the icon.
         "(relative) gear damping";
       parameter SI.Angle b(final min=0) = 0 "Total backlash";
       parameter StateSelect stateSelect=StateSelect.prefer
-        "Priority to use phi_rel and w_rel as states" 
+        "Priority to use phi_rel and w_rel as states"
       annotation(HideResult=true, Dialog(tab="Advanced"));
-
+      extends
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialConditionalHeatPort(
+         final T=293.15);
       Modelica.SIunits.Angle phi_rel(start=0, stateSelect=stateSelect, nominal=1e-4)=
         flange_b.phi - lossyGear.flange_b.phi
         "Relative rotation angle over gear elasticity (= flange_b.phi - lossyGear.flange_b.phi)";
@@ -3443,27 +3464,32 @@ in the flanges, are along the axis vector displayed in the icon.
       Modelica.SIunits.AngularAcceleration a_rel(start=0) = der(w_rel)
         "Relative angular acceleration over gear elasticity (= der(w_rel))";
 
-      Rotational.Components.LossyGear lossyGear(final ratio=ratio, final
-          lossTable =                                                              lossTable,
-        final useSupport=true) 
+      Rotational.Components.LossyGear lossyGear(final ratio=ratio, final lossTable=lossTable,
+        final useSupport=true)
         annotation (Placement(transformation(extent={{-60,-20},{-20,20}},
               rotation=0)));
       Rotational.Components.ElastoBacklash elastoBacklash(
         final b=b,
         final c=c,
         final phi_rel0=0,
-        final d=d) annotation (Placement(transformation(extent={{20,-20},{60,20}},
+        final d=d,
+        final useHeatPort=true)
+                   annotation (Placement(transformation(extent={{20,-20},{60,20}},
               rotation=0)));
     equation
-      connect(flange_a, lossyGear.flange_a) 
+      connect(flange_a, lossyGear.flange_a)
         annotation (Line(points={{-100,0},{-60,0}}, color={0,0,0}));
-      connect(lossyGear.flange_b, elastoBacklash.flange_a) 
+      connect(lossyGear.flange_b, elastoBacklash.flange_a)
         annotation (Line(points={{-20,0},{20,0}}, color={0,0,0}));
-      connect(elastoBacklash.flange_b, flange_b) 
+      connect(elastoBacklash.flange_b, flange_b)
         annotation (Line(points={{60,0},{100,0}}, color={0,0,0}));
       connect(lossyGear.support, support) annotation (Line(
           points={{-40,-20},{-40,-40},{0,-40},{0,-100}},
           color={0,0,0},
+          smooth=Smooth.None));
+      connect(elastoBacklash.heatPort, internalHeatPort) annotation (Line(
+          points={{20,-20},{20,-60},{-100,-60},{-100,-80}},
+          color={191,0,0},
           smooth=Smooth.None));
       annotation (
         Documentation(info="<html>
@@ -3737,15 +3763,15 @@ no rolling resistance. This component defines the kinematic constraint:
         "Priority to use flange angle and speed as states";
 
       Modelica.Blocks.Interfaces.RealInput phi_start if use_phi_start
-        "Initial angle of flange" 
+        "Initial angle of flange"
         annotation (Placement(transformation(extent={{-140,60},{-100,100}},
               rotation=0), iconTransformation(extent={{-140,60},{-100,100}})));
       Modelica.Blocks.Interfaces.RealInput w_start if use_w_start
-        "Initial speed of flange" 
+        "Initial speed of flange"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
       Modelica.Blocks.Interfaces.RealInput a_start if use_a_start
-        "Initial angular acceleration of flange" 
+        "Initial angular acceleration of flange"
         annotation (Placement(transformation(extent={{-140,-100},{-100,-60}},
               rotation=0), iconTransformation(extent={{-140,-100},{-100,-60}})));
       Interfaces.Flange_b flange "Flange that is initialized" annotation (Placement(
@@ -3760,11 +3786,11 @@ no rolling resistance. This component defines the kinematic constraint:
       encapsulated model Set_phi_start "Set phi_start"
         import Modelica;
         extends Modelica.Blocks.Interfaces.BlockIcon;
-        Modelica.Blocks.Interfaces.RealInput phi_start "Start angle" 
+        Modelica.Blocks.Interfaces.RealInput phi_start "Start angle"
           annotation (HideResult=true, Placement(transformation(extent={{-140,-20},{
                   -100,20}}, rotation=0)));
 
-        Modelica.Mechanics.Rotational.Interfaces.Flange_b flange 
+        Modelica.Mechanics.Rotational.Interfaces.Flange_b flange
                                               annotation (Placement(
               transformation(extent={{90,-10},{110,10}}, rotation=0)));
       initial equation
@@ -3777,11 +3803,11 @@ no rolling resistance. This component defines the kinematic constraint:
       encapsulated model Set_w_start "Set w_start"
         import Modelica;
         extends Modelica.Blocks.Interfaces.BlockIcon;
-        Modelica.Blocks.Interfaces.RealInput w_start "Start angular velocity" 
+        Modelica.Blocks.Interfaces.RealInput w_start "Start angular velocity"
           annotation (HideResult=true, Placement(transformation(extent={{-140,-20},{
                   -100,20}}, rotation=0)));
 
-        Modelica.Mechanics.Rotational.Interfaces.Flange_b flange 
+        Modelica.Mechanics.Rotational.Interfaces.Flange_b flange
                                               annotation (Placement(
               transformation(extent={{90,-10},{110,10}}, rotation=0)));
       initial equation
@@ -3795,11 +3821,11 @@ no rolling resistance. This component defines the kinematic constraint:
         import Modelica;
         extends Modelica.Blocks.Interfaces.BlockIcon;
         Modelica.Blocks.Interfaces.RealInput a_start
-          "Start angular acceleration" 
+          "Start angular acceleration"
           annotation (HideResult=true, Placement(transformation(extent={{-140,-20},{
                   -100,20}}, rotation=0)));
 
-        Modelica.Mechanics.Rotational.Interfaces.Flange_b flange(phi(stateSelect=StateSelect.avoid)) 
+        Modelica.Mechanics.Rotational.Interfaces.Flange_b flange(phi(stateSelect=StateSelect.avoid))
                                                                                   annotation (Placement(
               transformation(extent={{90,-10},{110,10}}, rotation=0)));
 
@@ -3816,7 +3842,7 @@ no rolling resistance. This component defines the kinematic constraint:
       encapsulated model Set_flange_tau "Set flange.tau to zero"
         import Modelica;
         extends Modelica.Blocks.Interfaces.BlockIcon;
-        Modelica.Mechanics.Rotational.Interfaces.Flange_b flange 
+        Modelica.Mechanics.Rotational.Interfaces.Flange_b flange
                                               annotation (Placement(
               transformation(extent={{90,-10},{110,10}}, rotation=0)));
       equation
@@ -3825,10 +3851,10 @@ no rolling resistance. This component defines the kinematic constraint:
     protected
       Set_phi_start set_phi_start if use_phi_start annotation (Placement(
             transformation(extent={{-20,70},{0,90}}, rotation=0)));
-      Set_w_start set_w_start if use_w_start 
+      Set_w_start set_w_start if use_w_start
                               annotation (Placement(transformation(extent={{-20,
                 -10},{0,10}}, rotation=0)));
-      Set_a_start set_a_start if use_a_start 
+      Set_a_start set_a_start if use_a_start
                               annotation (Placement(transformation(extent={{-20,-90},
                 {0,-70}},      rotation=0)));
       Set_flange_tau set_flange_tau annotation (Placement(transformation(extent={{96,-90},
@@ -4051,7 +4077,7 @@ This package contains basic components 1D mechanical rotational drive trains.
     model AngleSensor "Ideal sensor to measure the absolute flange angle"
 
       extends Rotational.Interfaces.PartialAbsoluteSensor;
-      Modelica.Blocks.Interfaces.RealOutput phi "Absolute angle of flange" 
+      Modelica.Blocks.Interfaces.RealOutput phi "Absolute angle of flange"
                                     annotation (Placement(transformation(extent=
                {{100,-10},{120,10}}, rotation=0)));
     equation
@@ -4083,7 +4109,7 @@ way and provides the result as output signal <b>phi</b>
 
       extends Rotational.Interfaces.PartialAbsoluteSensor;
       Modelica.Blocks.Interfaces.RealOutput w
-        "Absolute angular velocity of flange" 
+        "Absolute angular velocity of flange"
                                     annotation (Placement(transformation(extent=
                {{100,-10},{120,10}}, rotation=0)));
 
@@ -4117,7 +4143,7 @@ way and provides the result as output signal <b>w</b>
       extends Rotational.Interfaces.PartialAbsoluteSensor;
       SI.AngularVelocity w "Absolute angular velocity of flange";
       Modelica.Blocks.Interfaces.RealOutput a
-        "Absolute angular acceleration of flange" 
+        "Absolute angular acceleration of flange"
                                     annotation (Placement(transformation(extent=
                {{100,-10},{120,10}}, rotation=0)));
 
@@ -4151,7 +4177,7 @@ blocks of the Modelica.Blocks library).
 
       extends Rotational.Interfaces.PartialRelativeSensor;
       Modelica.Blocks.Interfaces.RealOutput phi_rel
-        "Relative angle between two flanges (= flange_b.phi - flange_a.phi)" 
+        "Relative angle between two flanges (= flange_b.phi - flange_a.phi)"
         annotation (Placement(transformation(
             origin={0,-110},
             extent={{10,-10},{-10,10}},
@@ -4233,7 +4259,7 @@ in an ideal way and provides the result as output signal <b>w_rel</b>
         "Relative angle between two flanges (flange_b.phi - flange_a.phi)";
       SI.AngularVelocity w_rel "Relative angular velocity between two flanges";
       Modelica.Blocks.Interfaces.RealOutput a_rel
-        "Relative angular acceleration between two flanges" 
+        "Relative angular acceleration between two flanges"
         annotation (Placement(transformation(
             origin={0,-110},
             extent={{10,-10},{-10,10}},
@@ -4308,7 +4334,7 @@ and provides the result as output signal <b>tau</b>
       "Ideal sensor to measure the power between two flanges (= flange_a.tau*der(flange_a.phi))"
 
       extends Rotational.Interfaces.PartialRelativeSensor;
-      Modelica.Blocks.Interfaces.RealOutput power "Power in flange flange_a" 
+      Modelica.Blocks.Interfaces.RealOutput power "Power in flange flange_a"
     annotation (Placement(transformation(
             origin={-80,-110},
             extent={{10,-10},{-10,10}},
@@ -4366,9 +4392,8 @@ Modelica.Blocks library.
         "If exact=false, Angular velocity of flange with respect to support else dummy";
       SI.AngularAcceleration a(start=0)
         "If exact=false, Angular acceleration of flange with respect to support else dummy";
-      Modelica.Blocks.Interfaces.RealInput phi_ref(final quantity="Angle", final unit
-          =                                                                           "rad", displayUnit="deg")
-        "Reference angle of flange with respect to support as input signal" 
+      Modelica.Blocks.Interfaces.RealInput phi_ref(final quantity="Angle", final unit="rad", displayUnit="deg")
+        "Reference angle of flange with respect to support as input signal"
           annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
 
@@ -4764,7 +4789,7 @@ blocks of the block library Modelica.Blocks.Sources.
       extends
         Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2;
       Modelica.Blocks.Interfaces.RealInput tau
-        "Accelerating torque acting at flange (= -flange.tau)" 
+        "Accelerating torque acting at flange (= -flange.tau)"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
 
@@ -5371,10 +5396,10 @@ the support torque can always be accessed as internalSupport.tau.
     partial model PartialTwoFlanges
       "Partial model for a component with two rotational 1-dim. shaft flanges"
 
-      Flange_a flange_a "Flange of left shaft" 
+      Flange_a flange_a "Flange of left shaft"
                         annotation (Placement(transformation(extent={{-110,-10},
                 {-90,10}}, rotation=0)));
-      Flange_b flange_b "Flange of right shaft" 
+      Flange_b flange_b "Flange of right shaft"
                         annotation (Placement(transformation(extent={{90,-10},{
                 110,10}}, rotation=0)));
       annotation (
@@ -5395,18 +5420,18 @@ of several components.
     partial model PartialOneFlangeAndSupport
       "Partial model for a component with one rotational 1-dim. shaft flange and a support used for graphical modeling, i.e., the model is build up by drag-and-drop from elementary components"
       parameter Boolean useSupport=false
-        "= true, if support flange enabled, otherwise implicitly grounded" 
+        "= true, if support flange enabled, otherwise implicitly grounded"
           annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-      Flange_b flange "Flange of shaft" 
+      Flange_b flange "Flange of shaft"
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
-      Support support if useSupport "Support/housing of component" 
+      Support support if useSupport "Support/housing of component"
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
     protected
       Support internalSupport
         "Internal support/housing of component (either connected to support, if useSupport=true, or connected to fixed, if useSupport=false)"
         annotation (Placement(transformation(extent={{-3,-83},{3,-77}})));
       Components.Fixed fixed if not useSupport
-        "Fixed support/housing, if not useSupport" 
+        "Fixed support/housing, if not useSupport"
         annotation (Placement(transformation(extent={{10,-94},{30,-74}})));
     equation
       connect(support, internalSupport) annotation (Line(
@@ -5470,20 +5495,20 @@ and instead the component is internally fixed to ground.
     partial model PartialTwoFlangesAndSupport
       "Partial model for a component with two rotational 1-dim. shaft flanges and a support used for graphical modeling, i.e., the model is build up by drag-and-drop from elementary components"
       parameter Boolean useSupport=false
-        "= true, if support flange enabled, otherwise implicitly grounded" 
+        "= true, if support flange enabled, otherwise implicitly grounded"
           annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-      Flange_a flange_a "Flange of left shaft" 
+      Flange_a flange_a "Flange of left shaft"
         annotation (Placement(transformation(extent={{-110,-10}, {-90,10}}, rotation=0)));
-      Flange_b flange_b "Flange of right shaft" 
+      Flange_b flange_b "Flange of right shaft"
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
-      Support support if useSupport "Support/housing of component" 
+      Support support if useSupport "Support/housing of component"
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
     protected
       Support internalSupport
         "Internal support/housing of component (either connected to support, if useSupport=true, or connected to fixed, if useSupport=false)"
         annotation (Placement(transformation(extent={{-3,-83},{3,-77}})));
       Components.Fixed fixed if not useSupport
-        "Fixed support/housing, if not useSupport" 
+        "Fixed support/housing, if not useSupport"
         annotation (Placement(transformation(extent={{10,-97},{30,-77}})));
     equation
       connect(support, internalSupport) annotation (Line(
@@ -5550,7 +5575,7 @@ and instead the component is internally fixed to ground.
       Modelica.SIunits.Angle phi_rel(start=0)
         "Relative rotation angle (= flange_b.phi - flange_a.phi)";
       Modelica.SIunits.Torque tau "Torque between flanges (= flange_b.tau)";
-      Flange_a flange_a "Left flange of compliant 1-dim. rotational component" 
+      Flange_a flange_a "Left flange of compliant 1-dim. rotational component"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
       Flange_b flange_b "Right flange of compliant 1-dim. rotational component"
@@ -5589,7 +5614,7 @@ is used to built up force elements such as springs, dampers, friction.
       Modelica.SIunits.AngularAcceleration a_rel(start=0)
         "Relative angular acceleration (= der(w_rel))";
       Modelica.SIunits.Torque tau "Torque between flanges (= flange_b.tau)";
-      Flange_a flange_a "Left flange of compliant 1-dim. rotational component" 
+      Flange_a flange_a "Left flange of compliant 1-dim. rotational component"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
       Flange_b flange_b "Right flange of compliant 1-dim. rotational component"
@@ -5599,7 +5624,7 @@ is used to built up force elements such as springs, dampers, friction.
       parameter SI.Angle phi_nominal(displayUnit="rad")=1e-4
         "Nominal value of phi_rel (used for scaling)"  annotation(Dialog(tab="Advanced"));
       parameter StateSelect stateSelect=StateSelect.prefer
-        "Priority to use phi_rel and w_rel as states" 
+        "Priority to use phi_rel and w_rel as states"
       annotation(HideResult=true, Dialog(tab="Advanced"));
 
     equation
@@ -5650,18 +5675,18 @@ and c are more meaningful for the user.
       "Obsolete partial model. Use PartialElementaryOneFlangeAndSupport2."
       extends Modelica.Icons.ObsoleteModel;
       parameter Boolean useSupport=false
-        "= true, if support flange enabled, otherwise implicitly grounded" 
+        "= true, if support flange enabled, otherwise implicitly grounded"
           annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-      Flange_b flange "Flange of shaft" 
+      Flange_b flange "Flange of shaft"
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
-      Support support if useSupport "Support/housing of component" 
+      Support support if useSupport "Support/housing of component"
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
     protected
       Rotational.Interfaces.InternalSupport internalSupport(tau = -flange.tau)
         "Internal support/housing of component as a model with connector flange (flange is either connected to support, if useSupport=true, or connected to fixed, if useSupport=false)"
         annotation (Placement(transformation(extent={{-10,-90},{10,-70}})));
       Rotational.Components.Fixed fixed if not useSupport
-        "Fixed support/housing, if not useSupport" 
+        "Fixed support/housing, if not useSupport"
         annotation (Placement(transformation(extent={{10,-96},{30,-76}})));
     equation
       connect(internalSupport.flange, support) annotation (Line(
@@ -5725,12 +5750,12 @@ and instead the component is internally fixed to ground.
     partial model PartialElementaryOneFlangeAndSupport2
       "Partial model for a component with one rotational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models"
       parameter Boolean useSupport=false
-        "= true, if support flange enabled, otherwise implicitly grounded" 
+        "= true, if support flange enabled, otherwise implicitly grounded"
           annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-      Flange_b flange "Flange of shaft" 
+      Flange_b flange "Flange of shaft"
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
       Support support(phi = phi_support, tau = -flange.tau) if useSupport
-        "Support/housing of component" 
+        "Support/housing of component"
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
     protected
       Modelica.SIunits.Angle phi_support "Absolute angle of support flange";
@@ -5786,20 +5811,20 @@ and instead the component is internally fixed to ground.
       "Obsolete partial model. Use PartialElementaryTwoFlangesAndSupport2."
       extends Modelica.Icons.ObsoleteModel;
       parameter Boolean useSupport=false
-        "= true, if support flange enabled, otherwise implicitly grounded" 
+        "= true, if support flange enabled, otherwise implicitly grounded"
           annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-      Flange_a flange_a "Flange of left shaft" 
+      Flange_a flange_a "Flange of left shaft"
         annotation (Placement(transformation(extent={{-110,-10}, {-90,10}}, rotation=0)));
-      Flange_b flange_b "Flange of right shaft" 
+      Flange_b flange_b "Flange of right shaft"
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
-      Support support if useSupport "Support/housing of component" 
+      Support support if useSupport "Support/housing of component"
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
     protected
       Rotational.Interfaces.InternalSupport internalSupport(tau = -flange_a.tau - flange_b.tau)
         "Internal support/housing of component as a model with connector flange (flange is either connected to support, if useSupport=true, or connected to fixed, if useSupport=false)"
         annotation (Placement(transformation(extent={{-10,-90},{10,-70}})));
       Rotational.Components.Fixed fixed if not useSupport
-        "Fixed support/housing, if not useSupport" 
+        "Fixed support/housing, if not useSupport"
         annotation (Placement(transformation(extent={{10,-97},{30,-77}})));
     equation
       connect(internalSupport.flange, support) annotation (Line(
@@ -5863,14 +5888,14 @@ and instead the component is internally fixed to ground.
     partial model PartialElementaryTwoFlangesAndSupport2
       "Partial model for a component with two rotational 1-dim. shaft flanges and a support used for textual modeling, i.e., for elementary models"
       parameter Boolean useSupport=false
-        "= true, if support flange enabled, otherwise implicitly grounded" 
+        "= true, if support flange enabled, otherwise implicitly grounded"
           annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-      Flange_a flange_a "Flange of left shaft" 
+      Flange_a flange_a "Flange of left shaft"
         annotation (Placement(transformation(extent={{-110,-10}, {-90,10}}, rotation=0)));
-      Flange_b flange_b "Flange of right shaft" 
+      Flange_b flange_b "Flange of right shaft"
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
       Support support(phi = phi_support, tau=-flange_a.tau-flange_b.tau) if useSupport
-        "Support/housing of component" 
+        "Support/housing of component"
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
     protected
       Modelica.SIunits.Angle phi_support "Absolute angle of support flange";
@@ -5931,35 +5956,35 @@ and instead the component is internally fixed to ground.
       parameter Boolean useSupportT=false
         "= true, if translational support flange enabled, otherwise implicitly grounded"
           annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-      Rotational.Interfaces.Flange_a flangeR "Flange of rotational shaft" 
+      Rotational.Interfaces.Flange_a flangeR "Flange of rotational shaft"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
       Modelica.Mechanics.Translational.Interfaces.Flange_b flangeT
-        "Flange of translational rod" 
+        "Flange of translational rod"
         annotation (Placement(transformation(extent={{90,10},{110,-10}}, rotation=0)));
       Rotational.Interfaces.Support supportR if useSupportR
-        "Rotational support/housing of component" 
+        "Rotational support/housing of component"
         annotation (Placement(transformation(extent={{-110,-110},{-90,-90}},     rotation=0),
             iconTransformation(extent={{-110,-110},{-90,-90}})));
       Translational.Interfaces.Support supportT if useSupportT
-        "Translational support/housing of component" 
+        "Translational support/housing of component"
         annotation (Placement(transformation(extent={{110,-110},{90,-90}},
               rotation=0), iconTransformation(extent={{90,-110},{110,-90}})));
 
     protected
-      Rotational.Interfaces.InternalSupport internalSupportR(tau = - flangeR.tau) 
+      Rotational.Interfaces.InternalSupport internalSupportR(tau = - flangeR.tau)
         annotation (Placement(transformation(extent={{-110,-90},{-90,-70}})));
-      Translational.Interfaces.InternalSupport internalSupportT(f = -flangeT.f) 
+      Translational.Interfaces.InternalSupport internalSupportT(f = -flangeT.f)
         annotation (Placement(transformation(extent={{90,-90},{110,-70}})));
-      Rotational.Components.Fixed fixedR if not useSupportR 
+      Rotational.Components.Fixed fixedR if not useSupportR
         annotation (Placement(transformation(extent={{-90,-90},{-70,-70}})));
-      Translational.Components.Fixed fixedT if not useSupportT 
+      Translational.Components.Fixed fixedT if not useSupportT
         annotation (Placement(transformation(extent={{70,-90},{90,-70}})));
     equation
       connect(internalSupportR.flange, supportR) annotation (Line(
           points={{-100,-80},{-100,-100}},
           color={0,0,0},
           smooth=Smooth.None));
-      connect(internalSupportR.flange, fixedR.flange) 
+      connect(internalSupportR.flange, fixedR.flange)
                                                      annotation (Line(
           points={{-100,-80},{-80,-80}},
           color={0,0,0},
@@ -6125,7 +6150,7 @@ and instead the component is internally fixed to ground.
       "Partial model to measure a single absolute flange variable"
 
       Flange_a flange
-        "Flange of shaft from which sensor information shall be measured" 
+        "Flange of shaft from which sensor information shall be measured"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
 
@@ -6181,10 +6206,10 @@ with the blocks of package Modelica.Blocks.
     partial model PartialRelativeSensor
       "Partial model to measure a single relative variable between two flanges"
 
-      Flange_a flange_a "Left flange of shaft" 
+      Flange_a flange_a "Left flange of shaft"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
-      Flange_b flange_b "Right flange of shaft" 
+      Flange_b flange_b "Right flange of shaft"
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
 
@@ -6281,7 +6306,7 @@ with the blocks of package Modelica.Blocks.
    if for each configuration special code shall be generated)
 */
       startForward = pre(mode) == Stuck and (sa > tau0_max/unitTorque or pre(startForward)
-         and sa > tau0/unitTorque) or pre(mode) == Backward and w_relfric > w_small or 
+         and sa > tau0/unitTorque) or pre(mode) == Backward and w_relfric > w_small or
         initial() and (w_relfric > 0);
       startBackward = pre(mode) == Stuck and (sa < -tau0_max/unitTorque or pre(
         startBackward) and sa < -tau0/unitTorque) or pre(mode) == Forward and w_relfric <
@@ -6289,11 +6314,11 @@ with the blocks of package Modelica.Blocks.
       locked = not free and not (pre(mode) == Forward or startForward or pre(
         mode) == Backward or startBackward);
 
-      a_relfric/unitAngularAcceleration = if locked then               0 else 
-                                          if free then                 sa else 
-                                          if startForward then         sa - tau0_max/unitTorque else 
-                                          if startBackward then        sa + tau0_max/unitTorque else 
-                                          if pre(mode) == Forward then sa - tau0_max/unitTorque else 
+      a_relfric/unitAngularAcceleration = if locked then               0 else
+                                          if free then                 sa else
+                                          if startForward then         sa - tau0_max/unitTorque else
+                                          if startBackward then        sa + tau0_max/unitTorque else
+                                          if pre(mode) == Forward then sa - tau0_max/unitTorque else
                                                                        sa + tau0_max/unitTorque;
 
     /* Friction torque has to be defined in a subclass. Example for a clutch:
@@ -6305,11 +6330,11 @@ with the blocks of package Modelica.Blocks.
                                                -Math.tempInterpol1(-w_relfric, mue_pos, 2));
 */
     // finite state machine to determine configuration
-      mode = if free then Free else 
-        (if (pre(mode) == Forward  or pre(mode) == Free or startForward)  and w_relfric > 0 then 
-           Forward else 
-         if (pre(mode) == Backward or pre(mode) == Free or startBackward) and w_relfric < 0 then 
-           Backward else 
+      mode = if free then Free else
+        (if (pre(mode) == Forward  or pre(mode) == Free or startForward)  and w_relfric > 0 then
+           Forward else
+         if (pre(mode) == Backward or pre(mode) == Free or startBackward) and w_relfric < 0 then
+           Backward else
            Stuck);
       annotation (Documentation(info="<html>
 <p>
