@@ -135,6 +135,14 @@ for contributing his source code to this library.
 
       annotation (Documentation(info="<html>
 
+<h5>Version 1.4.0, 2010-04-22</h5>
+
+<ul>
+<li>Added eddy current model in accordance to <a href=\"Modelica://Modelica.Magnetic.FluxTubes\">FluxTubes</a> library</li>
+<li>Added thermal heat port to eddy current model</li>
+<li>Minor updates due to dependencies of <a href=\"Modelica://Modelica.Electrical.Machines\">Machines</a>
+</ul>
+
 <h5>Version 1.3.0, 2010-02-26</h5>
 
 <ul>
@@ -4612,6 +4620,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <tr><td>Version</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
 </thead>
 <tbody>
+<tr><td>1.4.0</td>  <td>2010-04-22</td>  <td>C. Kral</td>  <td>Added eddy current loss model and thermal heat port</td></tr>
 <tr><td>1.3.0</td>  <td>2010-02-26</td>  <td>A. Haumer<br>C. Kral</td>  <td>New state selection, icons and copyright included</td></tr>
 <tr><td>1.2.0</td>  <td>2010-02-17</td>  <td>C. Kral</td>  <td>Renamed Machines to BasicMachines and updated references to Electrical.Machines</td></tr>
 <tr><td>1.1.0</td>  <td>2010-02-15</td>  <td>C. Kral</td>  <td>Added thermal connectors and temperature dependent resistances</td></tr>
