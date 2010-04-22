@@ -366,69 +366,1170 @@ a Plug connector, such as \"connect(resistor.p, plug.phase)\".
 "));
 end Connectors;
 
-class Conventions "Conventions"
-  extends Modelica.Icons.Information;
 
- annotation (Documentation(info="<html>
+  package Conventions "Conventions"
+    extends Modelica.Icons.Information;
+    package Documentation "HTML documentation"
+      extends Modelica.Icons.Information;
 
-<p>
-Note, in the html documentation of any Modelica library,
-the headings \"h1, h2, h3\" should not be used,
-because they are utilized from the automatically generated documentation/headings.
-Additional headings in the html documentation should start with \"h4\".
+      package Format "Format"
+        extends Modelica.Icons.Information;
+
+        class Cases "Cases"
+          extends Modelica.Icons.Information;
+          annotation (Documentation(info="<html>
+
+<p>In the Modelica documentation sometimes different cases have to be distinguished. If the case distinction refers to Modelica parameters or variables (boolean expressions) the comparisons should be written in the style of Modelica code within <code>&lt;code&gt;</code> and <code>&lt;/code&gt;</code>
 </p>
 
+<h5>Example 1</h5>
+
+<code>&lt;p&gt;If &lt;code&gt;useCage == true&lt;/code&gt;, a damper cage is considered in the model...&lt;/p&gt;</code>
+
+<p>appears as</p>
+
+<p>If <code>useCage == true</code>, a damper cage is considered in the model...</p>
+
 <p>
-In the Modelica package the following conventions are used:
+For more complex case scenarios a unordered list should be used. In this case only Modelica specific code segments and boolean expressions.
 </p>
-<ol>
-<li> Class and instance names are usually written in upper and lower case
-  letters, e.g., \"ElectricCurrent\". An underscore may be used in names.
-  However, it has to be taken into account that the last underscore in a
-  name might indicate that the following characters are rendered as a subscript.
-  Example: \"pin_a\" may be rendered as \"pin<sub>a</sub>\".<br>&nbsp;</li>
 
-<li> <b>Class names</b> start always with an upper case letter, with the exception of functions, that start with a lower case letter.<br>&nbsp;</li>
+<h5>Example 2</h5>
 
-<li> <b>Instance names</b>, i.e., names of component instances and
-  of variables (with the exception of constants),
-  start usually with a lower case letter with only
-  a few exceptions if this is common sense
-  (such as \"T\" for a temperature variable).<br>&nbsp;</li>
+<pre>
+&lt;ul&gt;
+  &lt;li&gt; If &lt;code&gt;useCage == true&lt;/code&gt;, a damper cage is considered in the model.
+       Cage parameters must be specified in this case.&lt;/li&gt;
+  &lt;li&gt; If &lt;code&gt;useCage == false&lt;/code&gt;, the damper cage is omitted.&lt;/li&gt;
+&lt;/ul&gt;</pre>
 
-<li> <b>Constant names</b>, i.e., names of variables declared with the
-  \"constant\" prefix, follow the usual naming conventions
-  (= upper and lower case letters) and start usually with an
-  upper case letter, e.g. UniformGravity, SteadyState.<br>&nbsp;<li>
+<p>appears as</p>
 
-<li> The two connectors of a domain that have identical declarations
-  and different icons are usually distinguished by \"_a\", \"_b\"
-  or \"_p\", \"_n\", e.g., Flange_a/Flange_b, HeatPort_a, HeatPort_b.<br>&nbsp;</li>
+<ul>
+  <li> If <code>useCage == true</code>, a damper cage is considered in the model.
+       Cage parameters must be specified in this case.</li>
+  <li> If <code>useCage == false</code>, the damper cage is omitted.</li>
+</ul>
 
-<li> The <b>instance name</b> of a component is always displayed in its icon
-  (= text string \"%name\") in <b>blue color</b>. A connector class has the instance
-  name definition in the diagram layer and not in the icon layer.
-  <b>Parameter</b> values, e.g., resistance, mass, gear ratio, are displayed
-  in the icon in <b>black color</b> in a smaller font size as the instance name.
- <br>&nbsp;<li>
+<p>
+In a more equation oriented case additional equations or code segments can be added.
+</p>
 
-<li> A main package has usually the following subpackages:
-  <ul>
-  <li><b>UsersGuide</b> containing an overall description of the library
-   and how to use it.</li>
-  <li><b>Examples</b> containing models demonstrating the
-   usage of the library.</li>
-  <li><b>Interfaces</b> containing connectors and partial
-   models.</li>
-  <li><b>Types</b> containing type, enumeration and choice
-   definitions.</li>
-  </ul>
+<h5>Example 3</h5>
+
+<pre>
+&lt;ul&gt;
+  &lt;li&gt;if &lt;code&gt;usePolar == true&lt;/code&gt;, assign magnitude and angle to output &lt;br&gt;
+  &lt;!-- insert graphical representation of equations --&gt;
+  y[i,1] = sqrt( a[i]^2 + b[i]^2 ) &lt;br&gt;
+  y[i,2] = atan2( b[i], a[i] )
+  &lt;/li&gt;
+  &lt;li&gt;if &lt;code&gt;usePolar == false&lt;/code&gt;, assign cosine and sine to output &lt;br&gt;
+  &lt;!-- insert graphical representation of equations --&gt;
+  y[i,1] = a[i] &lt;br&gt;
+  y[i,2] = b[i]
+  &lt;/li&gt;
+&lt;/ul&gt;</pre>
+
+<p>appears as</p>
+
+<ul>
+  <li>if <code>usePolar == true</code>, assign magnitude and angle to output <br>
+                               
+  <img src=\"Modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i1_polar.png\"> <br>
+  <img src=\"Modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i2_polar.png\">
   </li>
+  <li>if <code>usePolar == false</code>, assign cosine and sine to output <br>
+  <img src=\"Modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i1_rect.png\"> <br>
+  <img src=\"Modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i2_rect.png\">
+  </li>
+</ul>
+
+</html>"));
+        end Cases;
+
+        class Code "Code"
+          extends Modelica.Icons.Information;
+
+          annotation (Documentation(info="<html>
+
+<h4>Code</h4>
+
+<p>
+<a href=\"Modelica://Modelica.UsersGuide.Conventions.ModelicaCode\">Modelica code</a> conventions of class and instance names,
+parameters and variables are specified separately. In this section it is summarized how to refer to
+Modelica code in the HTML documentation.
+</p>
+
+<ol>
+<li> For constants, parameters and variables in code segments <code>&lt;code&gt;</code> and <code>&lt;/code&gt;</code>
+     should to be used, e.g., <code><b>parameter</b> Modelica.SIunits.Time tStart \"Start time\"</code></li>
+<li> Write multi or single line code segments using <code>&lt;pre&gt;</code> and <code>&lt;/pre&gt;</code>.</li>
+<li> Multi line or single line code shall not be indented.</li>
+<li> Inline code segments may be typeset with <code>&lt;code&gt;</code> and <code>&lt;/code&gt;</code>.</li>
+<li> In code segements use bold to emphasize Modelica keywords.</li>
 </ol>
 
+<h5>Example 1</h5>
+
+<pre>
+&lt;pre&gt;
+&lt;b&gt;connector&lt;/b&gt; Frame
+   ...
+   &lt;b&gt;flow&lt;/b&gt; SI.Force f[Woehrnschimmel1998] &lt;b&gt;annotation&lt;/b&gt;(unassignedMessage=\"...\");
+&lt;b&gt;end&lt;/b&gt; Frame;
+&lt;/pre&gt;</pre>
+
+<p>appears as</p>
+
+<pre>
+<b>connector</b> Frame
+   ...
+   <b>flow</b> SI.Force f[Woehrnschimmel1998] <b>annotation</b>(unassignedMessage=\"...\");
+<b>end</b> Frame;
+</pre>
+
+<h5>Example 2</h5>
+
+<pre>&lt;pre&gt;
+&lt;b&gt;parameter&lt;/b&gt; Modelica.SIunits.Conductance G=1 &quot;Conductance&quot;;&lt;/pre&gt;
+</pre>
+<p>appears as</p>
+
+<pre>
+<b>parameter</b> Modelica.SIunits.Conductance G=1 &quot;Conductance&quot;;</pre>
+</html>"));
+        end Code;
+
+        class Equations "Equations"
+          extends Modelica.Icons.Information;
+
+          annotation (Documentation(info="<html>
+
+<p>
+In the context of <a href=\"http://www.w3c.org/\">HTML</a> documentation
+equations should have a graphical representation in PNG format. For that purpose tool
+specific math typing capabilites can be used. Alternatively the LaTeX to HTML translator
+<a href=\"http://www.latex2html.org\">LaTeX2HTML</a>, or the
+<a href=\"http://www.homeschoolmath.net/worksheets/equation_editor.php\">Online Equation Editor</a> 
+or <a href=\"http://www.codecogs.com/components/eqneditor/editor.php\">codecogs</a> can be used.
+</p>
+
+<p>
+A typical equation, e.g. of a Fourier synthesis, could look like<br>
+<img
+ src=\"Modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Equations/fourier.png\"> <br>
+or <br>
+<img
+ src=\"Modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png\"
+ alt=\"y=a_1+a_2\"><br>
+In an <code>alt</code> tag the original equation can be stored, e.g.</p>
+<pre>
+&lt;img
+&nbsp;src=&quot;Modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png&quot;
+&nbsp;alt=&quot;y=a_1+a_2&quot;&gt;
+</pre>
+
+
+<p>
+If one wants to refer to particular variables and parameters in the documentation text, either a
+graphical representation (PNG file) or italic fonts for regular physical symbols and lower case
+<a href=\"http://www.w3.org/TR/html4/sgml/entities.html\">greek letters</a>
+should be used. Full word variables and full word indices should be spelled within &lt;code&gt; and &lt;/code&gt;. Vector and array indices should be typeset
+as subscripts using the &lt;sub&gt; and &lt;/sub&gt; tags. Examples for such variables and parameters are:
+<i>&phi;</i>, <i>&phi;</i><sub>ref</sub>, <i>v<sub>2</sub></i>, <code>useDamperCage</code>.</p>
+
+
+<h4>Numbered equations</h4>
+
+<p>For numbering equations a one row table with two columns should be used. The equation number should be placed in the right column:</p>
+
+<pre>
+&lt;table border=\"0\" cellspacing=\"10\" cellpadding=\"2\"&gt;
+  &lt;tr&gt;
+      &lt;td&gt;&lt;img
+      src=&quot;Modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png&quot;
+      alt=&quot;y=a_1+a_2&quot;&gt; &lt;/td&gt;
+      &lt;td&gt;(1)&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+
+<p>appears as:</p>
+
+<table border=\"0\" cellspacing=\"10\" cellpadding=\"2\">
+  <tr>
+    <td><img
+         src=\"Modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png\"
+         alt=\"y=a_1+a_2\"></td>
+    <td>(1)</td>
+  </tr>
+</table>
+
+</html>"));
+        end Equations;
+
+        class Figures "Figures"
+          extends Modelica.Icons.Information;
+
+          annotation (Documentation(info="<html>
+
+<h4>Figures</h4>
+
+<p>Figures should in particular be included to examples to discuss the problems and results of the respective model. The library developers are yet encouraged to add figures to the documentation of other components to support the understanding of the users of the library.</p>
+<ol>
+<li> Figures have to be placed outside of paragraphs to be HTML compliant.</li>
+<li> Technical figures should be placed within a table environment. Each technical figure should then also have a caption. The figure caption starts with a capital letter.</li>
+<li> Illustration can be embedded without table environment.</li>
+</ol>
+
+<h4>Location of files</h4>
+
+The <code>PNG</code> files should be placed in a folder which exactly represents the package structure.
+
+<h5>Example 1</h5>
+
+<p>This example shows how an illustration should be embedded in the Example
+<a href=\"Modelica://Modelica.Blocks.Examples.PID_Controller\">PID_Controller</a> of the
+<a href=\"Modelica://Modelica.Blocks\">Blocks</a> package.</p>
+
+<pre>
+&lt;img src=\"Modelica://Modelica/Images/UsersGuide/Conventions/Images/Blocks/Examples/PID_controller.png\"&gt;</pre>
+
+<h5>Example 2</h5>
+
+<p>This is a simple example of a technical figure with caption.</p>
+
+<pre>
+&lt;table border=\"0\" cellspacing=\"0\" cellpadding=\"2\"&gt;
+  &lt;caption align=\"bottom\"&gt;Caption starts with a capital letter&lt;/caption&gt;
+  &lt;tr&gt;
+    &lt;td&gt;
+      &lt;img src=\"Modelica://Modelica/Images/UsersGuide/Conventions/Images/Blocks/Examples/PID_controller.png\"&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+
+<h5>Example 3</h5>
+
+<p>To refer to a certain figure, a figure number may be added. In such case the figure name (Fig.) including the figure enumeration (1,2,...) have to be displayed bold using <code>&lt;b&gt;</code> and <code>&lt;/b&gt;</code>. The figure name
+and enumeration should look like this: <b>Fig. 1:</b> Figures have to be enumerated manually. </p>
+
+<pre>
+&lt;table border=\"0\" cellspacing=\"0\" cellpadding=\"2\"&gt;
+  &lt;caption align=\"bottom\"&gt;&lt;b&gt;Fig. 2: &lt;/b&gt;Caption starts with a capital letter&lt;/caption&gt;
+  &lt;tr&gt;
+    &lt;td&gt;
+      &lt;img src=\"Modelica://Modelica/Images/UsersGuide/Conventions/Images/Blocks/Examples/PID_controller.png\"&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+
+</html>"));
+        end Figures;
+
+        class Hyperlinks "Hyperlinks"
+          extends Modelica.Icons.Information;
+
+          annotation (Documentation(info="<html>
+<ol>
+<li> Hyperlinks should always be made when referring to a component or package.</li>
+<li> The hyperlink text in between <code>&lt;a href=&quot;...&quot;&gt;</code> and <code>&lt;/a&gt;</code> should include the full main package name.</li>
+<li> A link to an external component should include the full name of the package that it is refered to.</li>
+<li> Modelica hyperlinks have to use the scheme <code>&quot;modelica://...&quot;</code></li>
+<li> For hyperlinks referring to a Modelica component, see Example 1 and 2.</li>
+<li> No links to commercial web sites are allowed.</li>
+</ol>
+<h5>Example 1</h5>
+<pre>
+&lt;a href=\"Modelica://MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops\"&gt;
+         MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops&lt;/a&gt;</pre>
+<p>appears as</p>
+<a href=\"modelica://MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops\">
+         MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops</a>
+<h5>Example 2</h5>
+<pre>
+&lt;p&gt;
+  The feeder calbles are connected to an
+  &lt;a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage\"&gt;
+  induction machine&lt;/a&gt;.
+&lt;/p&gt;</pre>
+<p>appears as</p>
+<p>
+  The feeder calbles are connected to an
+  <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage\">
+  induction machine</a>.
+</p>
+</html>"));
+        end Hyperlinks;
+
+        class Lists "Lists"
+          extends Modelica.Icons.Information;
+
+          annotation (Documentation(info="<html>
+
+<h4>Lists</h4>
+
+<ol>
+<li> Items of a list shall start with </li>
+<ul>
+    <li> a capital letter if each item is a full sentence</li>
+    <li> a small letter, if only text fragments are used or the list is fragment of a sentence</li>
+</ul>
+</ol>
+
+<h5>Example 1</h5>
+
+<p>This is a simple example of an enumerated (ordered) list</p>
+
+<pre>
+&lt;ol&gt;
+  &lt;li&gt;item 1&lt;/li&gt;
+  &lt;li&gt;item 2&lt;/li&gt;
+&lt;/ol&gt;
+</pre>
+<p>appears as</p>
+<ol>
+  <li>item 1</li>
+  <li>item 2</li>
+</ol>
+
+<h5>Example 2</h5>
+
+<p>This is a simple example of an unnumbered list.</p>
+
+<pre>
+&lt;ul&gt;
+  &lt;li&gt;item 1&lt;/li&gt;
+  &lt;li&gt;item 2&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+<p>appears as</p>
+<ul>
+  <li>item 1</li>
+  <li>item 2</li>
+</ul>
+</html>"));
+        end Lists;
+
+        class References "References"
+          extends Modelica.Icons.Information;
+
+          annotation (Documentation(info="<html>
+
+<h4>General</h4>
+<ol>
+<li> Refer to references by [1], [Andronov1973], etc. by hyperlink and summarize literature in the references subsection of
+     <a href=\"Modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\">Conventions.UsersGuide.References</a>.
+<li> There has to be made at least one citation to each reference.</li>
+</ol>
+
+<h5>Example</h5>
+
+<pre>
+&lt;p&gt;
+  More details about sensorless rotor temperature estimation
+  can be found in &lt;a href=\"Modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\"&gt;[Gao2008]&lt;/a.&gt;
+&lt;/p&gt;</pre>
+<p>appears as</p>
+<p>
+  More details about sensorless rotor temperature estimation can be found in <a href=\"Modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\">[Gao2008]</a>.
+</p>
+
+</html>"));
+        end References;
+
+        class Tables "Tables"
+          extends Modelica.Icons.Information;
+
+          annotation (Documentation(info="<html>
+
+<h4>Tables</h4>
+
+<ol>
+<li> Tables should always be typeset with <code>&lt;table&gt;</code> and <code>&lt;/table&gt;</code>,
+     not with <code>&lt;pre&gt;</code> and <code>&lt;/pre&gt;</code>.</li>
+<li> Tables have to be placed outside of paragraphs to be HTML compliant.<li>
+<li> Each table must have a table caption. </li>
+<li> Table headers and entries start with capital letters.</li>
+</ol>
+
+<h5>Example 1</h5>
+
+<p>This is a simple example of a table.</p>
+
+<pre>
+&lt;table border=\"1\" cellspacing=\"0\" cellpadding=\"2\"&gt;
+  &lt;caption align=\"bottom\"&gt;Caption starts with a capital letter&lt;/caption&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Head 1&lt;/th&gt;
+    &lt;th&gt;Head 2&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Entry 1&lt;/td&gt;
+    &lt;td&gt;Entry 2&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Entry 3&lt;/td&gt;
+    &lt;td&gt;Entry 4&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+<p>appears as</p>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\">Caption starts with a capital letter</caption>
+  <tr>
+    <th><b>Head 1</b></th>
+    <th><b>Head 2</b></th>
+  </tr>
+  <tr>
+    <td>Entry 1</td>
+    <td>Entry 2</td>
+  </tr>
+  <tr>
+    <td>Entry 3</td>
+    <td>Entry 4</td>
+  </tr>
+</table>
+
+<h5>Example 2</h5>
+
+<p>In this case of table captions, the table name (Tab.) including the table enumeration (1,2,...)
+has to be displayed bold using <code></code> and <code></code>. The table name
+and enumeration should look like this: <b>Tab. 1:</b> Tables have to be enumerated manually.</p>
+
+<pre>
+&lt;table border=\"1\" cellspacing=\"0\" cellpadding=\"2\"&gt;
+  &lt;caption align=\"bottom\"&gt;Tab 2: Caption starts with a capital letter&lt;/caption&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Head 1&lt;/th&gt;
+    &lt;th&gt;Head 2&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Entry 1&lt;/td&gt;
+    &lt;td&gt;Entry 2&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Entry 3&lt;/td&gt;
+    &lt;td&gt;Entry 4&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+<p>appears as</p>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><b>Tab. 2: </b>Caption starts with a capital letter</caption>
+  <tr>
+    <th>Head 1</th>
+    <th>Head 2</th>
+  </tr>
+  <tr>
+    <td>Entry 1</td>
+    <td>Entry 2</td>
+  </tr>
+  <tr>
+    <td>Entry 3</td>
+    <td>Entry 4</td>
+  </tr>
+</table>
+
+</html>"));
+        end Tables;
+        annotation (Documentation(info="<html>
+
+<p>
+In this section the format UsersGuide of the HTML documentation are specified.
+The <a href=\"Modelica://Modelica.UsersGuide.Conventions.Documentation.Structure\">structure</a> of the documentation is specified separately.
+</p>
+
+<h4>Paragraphs</h4>
+
+<ol>
+<li> In each section the paragraphs should start with <code>&lt;p&gt;</code>
+     and terminate with <code>&lt;/p&gt;</code>.</li>
+<li> Do not write plain text without putting it in a paragraph.</li>
+<li> No artificial line breaks <code>&lt;br&gt;</code><br> should be added within text paragraphs.</li>
+<li> After a colon (:) continue with capital letter if new sentence starts;
+     for text fragments continue with lower case letter</li>
+</ol>
+
+<h4>Emphasis</h4>
+
+<ol>
+<li> For <b>emphasizing</b> text fragments <code>&lt;b&gt;</code> and <code>&lt;b&gt;</code> has to be used.</li>
+<li> Modelica terms such as expandable bus, array, etc. should not be emphasized anyhow.</li>
+</ol>
+
+<h4>Capitalization of Text</h4>
+
+<ol>
+<li> Table headers and entries should start with capital letters</li>
+<li> Table entries should start with lower case letter if only text fragments are used.</li>
+<li> Table and figure captions start with a capital letter</li>
+</ol>
+
+</html>"));
+      end Format;
+
+      class Structure "Structure"
+        extends Modelica.Icons.Information;
+
+        annotation (Documentation(info="<html>
+
+<h4>General</h4>
+
+<ol>
+<li> In the HTML documentation of any Modelica library, the headings <code>&lt;h1&gt;</code>,
+     <code>&lt;h2&gt;</code> and <code>&lt;h3&gt;</code> should not be used, because they are utilized by
+     the automatically generated documentation.
+<li> The utilized heading format starts with <code>&lt;h4&gt;</code> and terminates with <code>&lt;/h4&gt;</code>, e.g.,
+     <code>&lt;h4&gt;Description&lt;/h4&gt;</code> </li>
+<li> The  <code>&lt;h4&gt;</code> and  <code>&lt;h5&gt;</code> headings must not be terminated by a colon (:).</li>
+<li> For additional structuring <code>&lt;h5&gt;</code> and <code>&lt;/h5&gt;</code> may be used as demonstrated below.
+</ol>
+
+<h4>Structure</h4>
+<p>
+The following parts should be added to the documentation of each component:
+</p>
+
+<ol>
+<li> General information without additional subsection explains how the class works</li>
+<li> <b>Syntax</b> (for functions only): shows syntax of function call with minimum and full input parameters</li>
+<li> <b>Implementation</b> (optional): explains how the implementation is made </li>
+<li> <b>Limitations</b> (optional): explains the limitations of the component</li>
+<li> <b>Notes</b> (optional): if required/useful </li>
+<li> <b>Examples</b> (optional): if required/useful </li>
+<li> <b>Acknowledgments</b> (optional): if required </li>
+<li> <b>See also</b>: shows hyperlinks to related models </li>
+<li> <b>Revision history</b> (optional): if required/intended for a package/model, the revision history
+        should be placed in <code>annotation(Documentation(revisions=&quot;...&quot;));</code></li>
+</ol>
+
+<p>
+These sections should appear in the listed order. The only exceptions are hierachically structured notes and examples as explained in the following.
+</p>
+
+<h4>Additional notes and examples</h4>
+
+<p>Some additional notes or examples may require additional <code>&lt;h5&gt;</code> headings. For either notes or examples the following cases may be applied:</p>
+
+<h5>Example 1</h5>
+<p>
+This is an example of a single note.
+</p>
+
+<pre>
+&lt;h5&gt;Note&lt;/h5&gt;
+&lt;p&gt;This is the note.&lt;/p&gt;
+</pre>
+
+<h5>Example 2</h5>
+<p>
+This is an example of a very simple structure.
+</p>
+
+<pre>
+&lt;h5&gt;Notes&lt;/h5&gt;
+&lt;p&gt;This is the first note.&lt;/p&gt;
+&lt;p&gt;This is the second note.&lt;/p&gt;
+</pre>
+
+<h5>Example 3</h5>
+
+<p>
+This example shows a more complex structure with enumeration.
+</p>
+
+<pre>
+&lt;h5&gt;Note 1&lt;/h5&gt;
+...
+&lt;h5&gt;Note 2&lt;/h5&gt;
+...
+</pre>
+<h4>Automatically created documentation</h4>
+<p>
+For parameters, connectors, as well as inputs and outputs of function automatic documentation is generated by the tool from the quoted comments.
+<p>
+
+</html>",       revisions="<html>
+</html>"));
+      end Structure;
+      annotation (Documentation(info="<html>
+<a href=\"http://www.w3c.org/\">HTML</a> documentation of Modelica classes.
+</html>"));
+    end Documentation;
+
+    package ModelicaCode "Modelica code"
+      extends Modelica.Icons.Information;
+
+       class Format "Format"
+         extends Modelica.Icons.Information;
+
+        annotation (Documentation(info="<html>
+
+<ol>
+<li> In the <b>icon</b> of a component the instance name is displayed
+     (text string <code>%name</code>) in <b>blue color</b>.
+     Parameter values, e.g., resistance, mass, gear ratio, are displayed
+     in the icon in <b>black color</b> in a smaller font size as the instance name.</li>
+<li> Comments and annotations always start with a capital letter, e.g.,
+     <code><b>parameter</b> Real a = 1 \"Arbitrary factor\";</code></li>
+</ol>
+
+</html>"));
+       end Format;
+
+      class Naming "Naming convention"
+        extends Modelica.Icons.Information;
+
+        annotation (Documentation(info="<html>
+
+<ol>
+<li> <b>Class and instance names</b> are written in upper and lower case
+     letters, e.g., <code>ElectricCurrent</code>. An underscore is only used
+     at the end of a name to characterize a lower or upper index,
+     e.g., <code>pin_a</code>.</li>
+
+<li> <b>Class names</b> start always with an upper case letter.</li>
+
+<li> <b>Instance names</b>, i.e., names of component instances and
+     of variables (with the exception of constants),
+     start usually with a lower case letter with only
+     a few exceptions if this is common sense
+     (such as <code>T</code> for a temperature variable).</li>
+
+<li> <b>Constant names</b>, i.e., names of variables declared with the
+     \"constant\" prefix, follow the usual naming conventions
+     (= upper and lower case letters) and start usually with an
+     upper case letter, e.g., UniformGravity, SteadyState.<li>
+
+<li> The two <b>connectors</b> of a domain that have identical declarations
+     and different icons are usually distinguished by <code>_a</code>, <code>_b</code>
+     or <code>_p</code>, <code>_n</code>, e.g., <code>Flange_a</code>, <code>Flange_b</code>,
+     <code>HeatPort_a</code>, <code>HeatPort_b</code>.</li>
+
+<li> A <b>connector class</b> has the instance
+     name definition in the diagram layer and not in the icon layer.</li>
+</ol>
+
+<h4>Variable names</h4>
+<p>In the following table typical variable names are listed. This list should be completd.</p>
+
+<table border=\"1\" cellpadding=\"2\" cellspacing=\"0\" >
+   <caption align=\"bottom\">Variables and names</caption>
+   <tr>
+      <th>Variable</th>
+      <th>Quantity</th>
+    </tr>
+     <tr>
+      <td>a</td>
+      <td>acceleration</td>
+    </tr>
+    <tr>
+      <td>A</td>
+      <td>area</td>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>Capacitance</td>
+    </tr>
+    <tr>
+      <td>d</td>
+      <td>damping, density, diameter</td>
+    </tr>
+    <tr>
+      <td>dp</td>
+      <td>pressureDrop</td>
+    </tr>
+    <tr>
+      <td>e</td>
+      <td>specificEntropy</td>
+    </tr>
+    <tr>
+      <td>E</td>
+      <td>energy, entropy</td>
+    </tr>
+    <tr>
+      <td>eta</td>
+      <td>efficiency</td>
+    </tr>
+    <tr>
+      <td>f</td>
+      <td>force, frequency</td>
+    </tr>
+    <tr>
+      <td>G</td>
+      <td>conductance</td>
+    </tr>
+    <tr>
+      <td>H</td>
+      <td>enthalpy</td>
+    </tr>
+    <tr>
+      <td>h</td>
+      <td>height, specificEnthalpy</td>
+    </tr>
+    <tr>
+      <td>HFlow</td>
+      <td>enthalpyFlow</td>
+    </tr>
+    <tr>
+      <td>i</td>
+      <td>current</td>
+    </tr>
+    <tr>
+      <td>J</td>
+      <td>inertia</td>
+    </tr>
+    <tr>
+      <td>l</td>
+      <td>length</td>
+    </tr>
+    <tr>
+      <td>L</td>
+      <td>Inductance</td>
+    </tr>
+    <tr>
+      <td>m</td>
+      <td>mass</td>
+    </tr>
+    <tr>
+      <td>M</td>
+      <td>mutualInductance</td>
+    </tr>
+    <tr>
+      <td>mFlow</td>
+      <td>massFlow</td>
+    </tr>
+    <tr>
+      <td>P</td>
+      <td>power</td>
+    </tr>
+    <tr>
+      <td>p</td>
+      <td>pressure</td>
+    </tr>
+    <tr>
+      <td>Q</td>
+      <td>heat</td>
+    </tr>
+    <tr>
+      <td>Qflow</td>
+      <td>heatFlow</td>
+    </tr>
+    <tr>
+      <td>r</td>
+      <td>radius</td>
+    </tr>
+    <tr>
+      <td>R</td>
+      <td>radius, resistance</td>
+    </tr>
+    <tr>
+      <td>t</td>
+      <td>time</td>
+    </tr>
+    <tr>
+      <td>T</td>
+      <td>temperature</td>
+    </tr>
+    <tr>
+      <td>tau</td>
+      <td>torque</td>
+    </tr>
+    <tr>
+      <td>U</td>
+      <td>internalEnergy</td>
+    </tr>
+    <tr>
+      <td>v</td>
+      <td>electricPotential, specificVolume, velocity, voltage</td>
+    </tr>
+    <tr>
+      <td>V</td>
+      <td>volume</td>
+    </tr>
+    <tr>
+      <td>w</td>
+      <td>angularVelocity</td>
+    </tr>
+    <tr>
+      <td>X</td>
+      <td>reactance</td>
+    </tr>
+    <tr>
+      <td>Z</td>
+      <td>impedance</td>
+    </tr>
+</table>
+</html>"));
+      end Naming;
+
+      annotation (Documentation(info="<html>
+
+<p>In this section the
+<a href=\"Modelica://Modelica.UsersGuide.Conventions.ModelicaCode.Naming\">naming conventions</a> of class and instance names, parameters and variables are specified. Additionally some
+<a href=\"Modelica://Modelica.UsersGuide.Conventions.ModelicaCode.Format\">format UsersGuide</a> are stated.</p>
+
+</html>"));
+    end ModelicaCode;
+
+    package UsersGuide "User's Guide"
+      extends Modelica.Icons.Information;
+
+      class Implementation "Implementation notes"
+        extends Modelica.Icons.Information;
+
+        annotation (Documentation(info="<html>
+<p>
+This class summarizes general information about the implementation which is not stated elsewhere.
+</p>
+<ol>
+<li>The <code>&lt;caption&gt;</code> tag is currently not supported in some tools.</li>
+<li>The <code>&amp;sim;</code> symbol (i.e., '&sim;' ) is currently not supported in some tools.</li>
+<li>The <code>&amp;prop;</code> symbol (i.e., '&prop;' ) is currently not supported in some tools.</li>
+</ol>
+</html>"));
+      end Implementation;
+
+      class References "References"
+        extends Modelica.Icons.Information;
+
+        annotation (Documentation(info="<html>
+
+<ol>
+<li> Citation formats should be unified according to IEEE Transactions style.</li>
+<li> Reference should be formated as tables with two columns.</li>
+</ol>
+
+<p>In the following the reference formats will be explained based on five examples:</p>
+
+<ul>
+<li> Journal (or conference) [Gao2008] </li>
+<li> Book [Andronov1973]</li>
+<li> Master's thesis [Woehrnschimmel1998]</li>
+<li> PhD thesis [Farnleitner1999]</li>
+<li> Technical report [Marlino2005]</li>
+</ul>
+
+<p>The <a href=\"Modelica://Modelica.UsersGuide.Conventions.Documentation.Format.References\">citation</a> is also explained.</p>
+
+<h4>Example</h4>
+
+<pre>
+&lt;table border=\"0\" cellspacing=\"0\" cellpadding=\"2\"&gt;
+    &lt;tr&gt;
+      &lt;td valign=\"top\"&gt;[Gao2008]&lt;/td&gt;
+      &lt;td valign=\"top\"&gt;Z. Gao, T. G. Habetler, R. G. Harley, and R. S. Colby,
+        &quot;A sensorless  rotor temperature estimator for induction
+                 machines based on a current harmonic spectral
+                 estimation scheme,&quot;
+        &lt;i&gt;IEEE Transactions on Industrial Electronics&lt;/i&gt;,
+        vol. 55, no. 1, pp. 407-416, Jan. 2008.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td valign=\"top\"&gt;[Andronov1973]&lt;/td&gt;
+      &lt;td valign=\"top\"&gt;A. Andronov, E. Leontovich, I. Gordon, and A. Maier,
+        &lt;i&gt;Theory of  Bifurcations of Dynamic Systems on a plane&lt;/i&gt;,
+        1st ed. New York: J. Wiley &amp; Sons, 1973.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td valign=\"top\"&gt;[Woehrnschimmel1998]&lt;/td&gt;
+      &lt;td valign=\"top\"&gt;R. W&ouml;hrnschimmel,
+        &quot;Simulation, modeling and fault detection for vector
+              controlled induction machines,&quot;
+        Master&apos;s thesis, Vienna University of Technology,
+        Vienna, Austria, 1998.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td valign=\"top\"&gt;[Farnleitner1999]&lt;/td&gt;
+      &lt;td valign=\"top\"&gt;E. Farnleitner,
+        &quot;Computational ?uid dynamics analysis for rotating
+              electrical machinery,&quot;
+        Ph.D. dissertation, University of Leoben,
+        Department  of Applied Mathematics, Leoben, Austria, 1999.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td valign=\"top\"&gt;[Marlino2005]&lt;/td&gt;
+      &lt;td valign=\"top\"&gt;L. D. Marlino,
+        &quot;Oak ridge national laboratory annual progress report for the
+              power electronics and electric machinery program,&quot;
+      Oak Ridge National Laboratory, prepared for the U.S. Department of Energy,
+      Tennessee, USA, Tech. Rep. FY2004 Progress Report, January 2005.&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</pre>
+
+<p>appears as</p>
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+    <tr>
+      <td valign=\"top\">[Gao08]</td>
+      <td valign=\"top\">Z. Gao, T. G. Habetler, R. G. Harley, and R. S. Colby,
+        &quot;A sensorless  rotor temperature estimator for induction
+                 machines based on a current harmonic spectral
+                 estimation scheme,&quot;
+        <i>IEEE Transactions on Industrial Electronics</i>,
+        vol. 55, no. 1, pp. 407-416, Jan. 2008.</td>
+    </tr>
+    <tr>
+      <td valign=\"top\">[Andronov1973]</td>
+      <td valign=\"top\">A. Andronov, E. Leontovich, I. Gordon, and A. Maier,
+        <i>Theory of  Bifurcations of Dynamic Systems on a plane</i>,
+        1st ed. New York: J. Wiley &amp; Sons, 1973.</td>
+    </tr>
+    <tr>
+      <td valign=\"top\">[Woehrnschimmel1998]</td>
+      <td valign=\"top\">R. W&ouml;hrnschimmel,
+        &quot;Simulation, modeling and fault detection for vector
+              controlled induction machines,&quot;
+        Master&apos;s thesis, Vienna University of Technology,
+        Vienna, Austria, 1998.</td>
+    </tr>
+    <tr>
+      <td valign=\"top\">[Farnleitner1999]</td>
+      <td valign=\"top\">E. Farnleitner,
+        &quot;Computational Fluid dynamics analysis for rotating
+              electrical machinery,&quot;
+        Ph.D. dissertation, University of Leoben,
+        Department  of Applied Mathematics, Leoben, Austria, 1999.</td>
+    </tr>
+    <tr>
+      <td valign=\"top\">[Marlino2005]</td>
+      <td valign=\"top\">L. D. Marlino,
+        &quot;Oak ridge national laboratory annual progress report for the
+              power electronics and electric machinery program,&quot;
+      Oak Ridge National Laboratory, prepared for the U.S. Department of Energy,
+      Tennessee, USA, Tech. Rep. FY2004 Progress Report, January 2005.</td>
+    </tr>
+</table>
+
+</html>"));
+      end References;
+
+      class Contact "Contact"
+        extends Modelica.Icons.Contact;
+
+        annotation (Documentation(info="<html>
+
+<p>
+This class summarizes contact information of the contributing persons.
+</p>
+
+<h5>Example</h5>
+
+<pre>
+&lt;p&gt;This package is developed an maintained by the following contributors&lt;/p&gt;
+  &lt;table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+    &lt;tr&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;Name&lt;/th&gt;
+      &lt;th&gt;Affiliation&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td valign=\"top\"&gt;Library officer&lt;/td&gt;
+      &lt;td valign=\"top\"&gt;
+      &lt;a href=\"mailto:a.haumer@haumer.at\"&gt;A. Haumer&lt;/a&gt;
+      &lt;/td&gt;
+      &lt;td valign=\"top\"&gt;
+        &lt;a href=\"http://www.haumer.at\"&gt;Technical Consulting &amp;amp; Electrical Engineering&lt;/a&gt;&lt;br&gt;
+        3423 St.Andrae-Woerdern&lt;br&gt;
+        Austria
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td valign=\"top\"&gt;Contributor&lt;/td&gt;
+      &lt;td valign=\"top\"&gt;
+        &lt;a href=\"mailto:christian.kral@ait.ac.at\"&gt;C. Kral&lt;/a&gt;
+      &lt;/td&gt;
+      &lt;td valign=\"top\"&gt;
+        &lt;a href=\"http://www.ait.ac.at\"&gt;Austrian Institute of Technology, AIT&lt;/a&gt;, Mobility Department&lt;br&gt;
+        Giefinggasse 2&lt;br&gt;
+        1210 Vienna&lt;br&gt;
+        Austria
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;</pre>
+
+<p>appears as</p>
+
+<p>This package is developed an maintained by the following contributors</p>
+  <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Affiliation</th>
+    </tr>
+    <tr>
+      <td valign=\"top\">Library officer</td>
+      <td valign=\"top\">
+      <a href=\"mailto:a.haumer@haumer.at\">A. Haumer</a>
+      </td>
+      <td valign=\"top\">
+        <a href=\"http://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
+        3423 St.Andrae-Woerdern<br>
+        Austria
+      </td>
+    </tr>
+    <tr>
+      <td valign=\"top\">Contributor</td>
+      <td valign=\"top\">
+        <a href=\"mailto:christian.kral@ait.ac.at\">C. Kral</a>
+      </td>
+      <td valign=\"top\">
+        <a href=\"http://www.ait.ac.at\">Austrian Institute of Technology, AIT</a>, Mobility Department<br>
+        Giefinggasse 2<br>
+        1210 Vienna<br>
+        Austria
+      </td>
+    </tr>
+    <tr>
+      <td valign=\"top\">Contributor</td>
+      <td valign=\"top\">
+        <a href=\"http://www.hit.no/ansatte/vis/dietmar.winkler\">D. Winkler</a>
+      </td>
+      <td valign=\"top\">
+        <a href=\"http://www.hit.no\">Telemark University College</a><br>
+        PO box 203<br>
+        3901 Porsgrunn<br>
+        Norway
+      </td>
+    </tr>
+  </table>
+
+</html>"));
+      end Contact;
+
+      class RevisionHistory "Revision History"
+        extends Modelica.Icons.ReleaseNotes;
+
+        annotation (Documentation(info="<html>
+
+<ol>
+<li> The revision history needs to answer the question:
+     What has changed and what are the improvements over the previous versions and revision.</li>
+<li> The revision history includes the documentation of the development history of each class and/or package.</li>
+<li> Version number, revision number, date, author and comments shall be included.</li>
+</ol>
+
+<h5>Example</h5>
+
+<pre>
+&lt;table border=\"1\" cellspacing=\"0\" cellpadding=\"2\"&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Version&lt;/th&gt;
+      &lt;th&gt;Revision&lt;/th&gt;
+      &lt;th&gt;Date&lt;/th&gt;
+      &lt;th&gt;Author&lt;/th&gt;
+      &lt;th&gt;Comment&lt;/th&gt;
+    &lt;/tr&gt;
+    ...
+    &lt;tr&gt;
+      &lt;td valign=\"top\"&gt;1.0.1&lt;/td&gt;
+      &lt;td valign=\"top\"&gt;828&lt;/td&gt;
+      &lt;td valign=\"top\"&gt;2008-05-26&lt;/td&gt;
+      &lt;td valign=\"top\"&gt;A. Haumer&lt;br&gt;C. Kral&lt;/td&gt;
+      &lt;td valign=\"top\"&gt;Fixed bug in documentation&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td valign=\"top\"&gt;1.0.0&lt;/td&gt;
+      &lt;td valign=\"top\"&gt;821&lt;/td&gt;
+      &lt;td valign=\"top\"&gt;2008-05-21&lt;/td&gt;
+      &lt;td valign=\"top\"&gt;A. Haumer&lt;/td&gt;
+      &lt;td valign=\"top\"&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</pre>
+
+<p>This code appears then as in the \"Revisions\" section below.</p>
+
+</html>",
+      revisions="<html>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+    <tr>
+      <th>Version</th>
+      <th>Revision</th>
+      <th>Date</th>
+      <th>Author</th>
+      <th>Comment</th>
+    </tr>
+    <tr>
+      <td valign=\"top\">1.1.0</td>
+      <td valign=\"top\"></td>
+      <td valign=\"top\">2010-04-22</td>
+      <td valign=\"top\">C. Kral</td>
+      <td valign=\"top\">Migrated Conventions to UsersGuide of MSL</td>
+    </tr>
+    <tr>
+      <td valign=\"top\">1.0.5</td>
+      <td valign=\"top\">3540</td>
+      <td valign=\"top\">2010-03-11</td>
+      <td valign=\"top\">D. Winkler</td>
+      <td valign=\"top\">Updated image links guide to new 'modelica://' URIs, added contact details</td>
+    </tr>
+    <tr>
+      <td valign=\"top\">1.0.4</td>
+      <td valign=\"top\">2960</td>
+      <td valign=\"top\">2009-09-28</td>
+      <td valign=\"top\">C. Kral</td>
+      <td valign=\"top\">Applied new rules for equations as discussed on the 63rd Modelica Design Meeting</td>
+    </tr>
+    <tr>
+      <td valign=\"top\">1.0.3</td>
+      <td valign=\"top\">2579</td>
+      <td valign=\"top\">2008-05-26</td>
+      <td valign=\"top\">D. Winkler</td>
+      <td valign=\"top\">Layout fixes and enhancements</td>
+    </tr>
+    <tr>
+      <td valign=\"top\">1.0.1</td>
+      <td valign=\"top\">828</td>
+      <td valign=\"top\">2008-05-26</td>
+      <td valign=\"top\">A. Haumer<br>C. Kral</td>
+      <td valign=\"top\">Fixed bug in documentation</td>
+    </tr>
+    <tr>
+      <td valign=\"top\">1.0.0</td>
+      <td valign=\"top\">821</td>
+      <td valign=\"top\">2008-05-21</td>
+      <td valign=\"top\">A. Haumer</td>
+      <td valign=\"top\"></td>
+    </tr>
+</table>
+</html>"));
+      end RevisionHistory;
+
+    annotation (Documentation(info="<html>
+<p>The UsersGuide of each package should consist of the following classes</p>
+<ol>
+<li> <a href=\"Modelica://Modelica.UsersGuide.Conventions.UsersGuide.Contact\">Contact</a> information of
+     the library officer and the co-authors </li>
+<li> Optional <a href=\"Modelica://Modelica.UsersGuide.Conventions.UsersGuide.Implementation\">Implementation Notes</a> to give general information about the implementation
+<li> <a href=\"Modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\">References</a> for summarizing the literature of the package</li>
+<li> <a href=\"Modelica://Modelica.UsersGuide.Conventions.UsersGuide.RevisionHistory\">Revision history </a> to summarize the most important changes and improvements of the package</li>
+</ol>
+</html>"));
+    end UsersGuide;
+    annotation (__Dymola_DocumentationClass=true,Documentation(info="<html>
+<p>A Modelica main package should be compliant with the UsersGuide stated in this documentation:</p>
+<ol>
+<li> Conventions of the <a href=\"Modelica://Modelica.UsersGuide.Conventions.ModelicaCode\">Modelica code</a> </li>
+<li> Consistent HTML documentation <a href=\"Modelica://Modelica.UsersGuide.Conventions.Documentation\">UsersGuide</a> </li>
+<li> Structure to be provided by a main package</li>
+<ul>
+     <li> <a href=\"Modelica://Modelica.UsersGuide.Conventions.UsersGuide\">User's Guide</a></li>
+     <li> <b>Examples</b> containing models demonstrating the usage of the library.</li>
+     <li> <b>Components</b> -- in case of a complex library a more detailed strcture can be established.</li>
+     <li> <b>Sensors</b></li>
+     <li> <b>Sources</b></li>
+     <li> <b>Interfaces</b> containing connectors and partial models.</li>
+     <li> <b>Types</b> containing type, enumeration and choice definitions.</li>
+</ul>
+<li> These packages should appear in the listed order.</li>
+</ol>
 </html>
 "));
-end Conventions;
+  end Conventions;
 
 class ParameterDefaults "Parameter defaults"
   extends Modelica.Icons.Information;
