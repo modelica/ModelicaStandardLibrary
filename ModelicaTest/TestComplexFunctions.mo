@@ -151,5 +151,4 @@ algorithm
   assert(Modelica.ComplexMath.'abs'(ref-res)<epsilon, "sqrt failed");
 
   success:=true;
-  annotation (uses(Modelica(version="3.1")));
 end TestComplexFunctions;

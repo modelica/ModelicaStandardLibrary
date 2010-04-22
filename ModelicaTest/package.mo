@@ -25,8 +25,11 @@ algorithm
   ok := true;
 end testAllFunctions;
 
-  annotation (version="1.1", versionDate="2007-10-19", uses(Modelica(version=
-          "3.2")),
+  annotation (version="1.1",
+	      versionDate="2007-10-19",
+	      versionBuild=2,
+	      dateModified = "2010-04-22 00:00:00Z",
+	      uses(Modelica(version="3.2")),
     Documentation(info="<html>
 <p>
 This library provides models and functions to test components of
