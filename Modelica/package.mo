@@ -1195,7 +1195,7 @@ This class summarizes general information about the implementation which is not 
       end Implementation;
 
       class References "References"
-        extends Modelica.Icons.Information;
+        extends Modelica.Icons.References;
 
         annotation (Documentation(info="<html>
 
