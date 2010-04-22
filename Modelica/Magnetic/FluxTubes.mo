@@ -2924,6 +2924,7 @@ This element must <b>not</b> be used <b>for dynamic simulation of</b> electro-ma
       "For modelling of eddy current in a conductive magnetic flux tube"
 
       extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPorts;
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T = 273.15);
 
       parameter SI.Resistivity rho( start = 0.098e-6)
         "Resistivity of flux tube material (default: Iron at 20degC)";
@@ -2935,8 +2936,8 @@ This element must <b>not</b> be used <b>for dynamic simulation of</b> electro-ma
         "Electrical resistance of eddy current path";
 
     equation
+      LossPower = V_m*der(Phi);
       V_m = 1/R * der(Phi); //Magnetic voltage drop in magnetic network due to eddy current
-
       annotation (
         Window(
           x=0.16,
@@ -4793,6 +4794,8 @@ Copyright &copy; 2005-2010, Modelica Association and Thomas B&ouml;drich.
 </thead>
 
 <tbody>
+<tr><td>1.3</td>  <td>2010-04-22</td>
+    <td>Christian&nbsp;Kral</td> <td>Added conditional heat port to EddyCurrent model</td> </tr>
 <tr><td>1.2</td>  <td>2009-08-11</td>
     <td>Christian&nbsp;Kral<br>
         Anton&nbsp;Haumer<br>
