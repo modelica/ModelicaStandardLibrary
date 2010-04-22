@@ -1761,8 +1761,7 @@ relationship of the voltage and current space phasor.
 
 <p><a href=\"Modelica://Modelica.Magnetic.FluxTubes.Basic.EddyCurrent\">FluxTubes.Basic.EddyCurrent</a></p>
 
-</html>"),
-        uses(Modelica(version="3.2")));
+</html>"));
     end EddyCurrent;
 
     model SinglePhaseElectroMagneticConverter
