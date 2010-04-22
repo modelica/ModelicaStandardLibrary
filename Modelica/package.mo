@@ -366,7 +366,6 @@ a Plug connector, such as \"connect(resistor.p, plug.phase)\".
 "));
 end Connectors;
 
-
   package Conventions "Conventions"
     extends Modelica.Icons.Information;
     package Documentation "HTML documentation"
@@ -5699,12 +5698,16 @@ class Contact "Contact"
 <td valign=\"top\"><p>Fraunhofer Institute for Integrated Circuits, Dresden, Germany (Christoph Clauss)</p></td>
 </tr>
 <tr>
-<td valign=\"top\"><p>Electrical.Machines</p><p>Electrical.MultiPhase</p></td>
-<td valign=\"top\"><p>Anton Haumer, Consultant, St.Andrae-Woerdern, Austria, and</p><p>Austrian Institute of Technology, AIT, Vienna, Austria (Christian Kral)</p></td>
+<td valign=\"top\"><p>Electrical.Machines</p><p>Electrical.MultiPhase</p><p>Electrical.QuasiStationary</p></td>
+<td valign=\"top\"><p>Anton Haumer, Consultant, St.Andrae-Woerdern, Austria</p><p>Austrian Institute of Technology, AIT, Vienna, Austria (Christian Kral)</p></td>
 </tr>
 <tr>
 <td valign=\"top\"><p>Magnetic.FluxTubes</p></td>
 <td valign=\"top\"><p>Thomas B&ouml;drich, Dresden, Germany</p><p>(Dresden University of Technology,</p><p>Institute of Electromechanical and Electronic Design)</p></td>
+</tr>
+<tr>
+<td valign=\"top\"><p>Magnetic.FundamentalWave</p></td>
+<td valign=\"top\"><p>Austrian Institute of Technology, AIT, Vienna, Austria (Christian Kral)</p><p>Anton Haumer, Consultant, St.Andrae-Woerdern, Austria</p></td>
 </tr>
 <tr>
 <td valign=\"top\"><p>Fluid</p></td>
@@ -5740,7 +5743,7 @@ class Contact "Contact"
 </tr>
 <tr>
 <td valign=\"top\"><p>Thermal.FluidHeatFlow</p><p>Thermal.HeatTransfer</p></td>
-<td valign=\"top\"><p>Anton Haumer, Consultant, St.Andrae-Woerdern, Austria, and</p><p>Austrian Institute of Technology, AIT, Vienna, Austria (Christian Kral)</p></td>
+<td valign=\"top\"><p>Anton Haumer, Consultant, St.Andrae-Woerdern, Austria</p><p>Austrian Institute of Technology, AIT, Vienna, Austria (Christian Kral)</p></td>
 </tr>
 <tr>
 <td valign=\"top\"><p>Utilities</p></td>
@@ -5786,7 +5789,7 @@ class Contact "Contact"
 </tr>
 <tr>
 <td valign=\"top\"><p><b>Anton Haumer</b></p><p>Consultant, St.Andrae-Woerdern,</p><p>Austria</p></td>
-<td valign=\"top\"><p>Modelica.Electrical.Machines</p><p>Modelica.Electrical.Multiphase</p><p>Modelica.Mechanics.Rotational</p><p>Modelica.Mechanics.Translational</p><p>Modelica.Thermal.FluidHeatFlow</p><p>Modelica.Thermal.HeatTransfer</p><p>Conversion from 1.6 to 2.0</p><p>Conversion from 2.2 to 3.0</p></td>
+<td valign=\"top\"><p>Modelica.Electrical.Machines</p><p>Modelica.Electrical.Multiphase</p><p>Modelica.Electrical.QuasiStationary</p><p>Modelica.Magnetics.FundamentalWave</p><p>Modelica.Mechanics.Rotational</p><p>Modelica.Mechanics.Translational</p><p>Modelica.Thermal.FluidHeatFlow</p><p>Modelica.Thermal.HeatTransfer</p><p>Conversion from 1.6 to 2.0</p><p>Conversion from 2.2 to 3.0</p></td>
 </tr>
 <tr>
 <td valign=\"top\"><p><b>Hans-Dieter Joos</b></p><p>Institute of Robotics and Mechatronics</p><p>DLR, German Aerospace Center,</p><p>Oberpfaffenhofen, Germany</p></td>
@@ -5794,7 +5797,7 @@ class Contact "Contact"
 </tr>
 <tr>
 <td valign=\"top\"><p><b>Christian Kral</b></p><p>arsenal research, Vienna, Austria</p></td>
-<td valign=\"top\"><p>Modelica.Electrical.Machines</p><p>Modelica.Thermal.FluidHeatFlow</p></td>
+<td valign=\"top\"><p>Modelica.Electrical.Machines</p><p>Modelica.Electrical.Multiphase</p><p>Modelica.Electrical.QuasiStationary</p><p>Modelica.Magnetics.FundamentalWave</p><p>Modelica.Mechanics.Rotational</p><p>Modelica.Mechanics.Translational</p><p>Modelica.Thermal.FluidHeatFlow</p><p>Modelica.Thermal.HeatTransfer</p></td>
 </tr>
 <tr>
 <td valign=\"top\"><p><b>Sven Erik Mattsson</b></p><p>Dynasim AB, Lund, Sweden</p></td>
