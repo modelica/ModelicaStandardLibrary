@@ -805,7 +805,7 @@ corresponding library in a future release.
                               Documentation(info="<html>
 <p>This icon of a package will be removed in future versions of the library.</p>
 <h5>Note</h5>
-<p>This icon will be removed in future versions of the Modelica Standard Library. Instead the icon <a href=\"Modelica://Modelica.Icons.Package\">Package</a> shall be used.</p>
+<p>This icon will be removed in future versions of the Modelica Standard Library. Instead the icon <a href=\"modelica://Modelica.Icons.Package\">Package</a> shall be used.</p>
 </html>"));
   end Library;
 
@@ -825,7 +825,7 @@ corresponding library in a future release.
                               Documentation(info="<html>
 <p>This icon of a package will be removed in future versions of the library.</p>
 <h5>Note</h5>
-<p>This icon will be removed in future versions of the Modelica Standard Library. Instead the icon <a href=\"Modelica://Modelica.Icons.Package\">Package</a> shall be used.</p></html>"));
+<p>This icon will be removed in future versions of the Modelica Standard Library. Instead the icon <a href=\"modelica://Modelica.Icons.Package\">Package</a> shall be used.</p></html>"));
   end Library2;
 
   partial class GearIcon
@@ -937,7 +937,7 @@ This icon of an <b>electrical motor</b> model will be removed in future versions
                               Documentation(info="<html>
 <p>This icon indicate classes containing only documentation, intended for general description of e.g. concepts and features of a package.</p>
 <h5>Note</h5>
-<p>This icon will be removed in future versions of the Modelica Standard Library. Instead the icon <a href=\"Modelica://Modelica.Icons.Informationrmationrmation\">Information</a> shall be used.</p></html>"));
+<p>This icon will be removed in future versions of the Modelica Standard Library. Instead the icon <a href=\"modelica://Modelica.Icons.Informationrmationrmation\">Information</a> shall be used.</p></html>"));
   end Info;
   annotation (
     version="1",
@@ -949,6 +949,6 @@ This icon of an <b>electrical motor</b> model will be removed in future versions
 <dd>Christian Kral</dd><dd><a href=\"http://www.ait.ac.at/\">Austrian Institute of Technology, AIT</a></dd><dd>Mobility Department</dd><dd>Giefinggasse 2</dd><dd>1210 Vienna, Austria</dd><dd>email: <a href=\"mailto:christian.kral@ait.ac.at\">christian.kral@ait.ac.at</a></dd><br>
 <dd align=\"justify\">Johan Andreasson</dd><dd align=\"justify\"><a href=\"http://www.modelon.se/\">Modelon AB</a></dd><dd align=\"justify\">Ideon Science Park</dd><dd align=\"justify\">22370 Lund, Sweden</dd><dd align=\"justify\">email: <a href=\"johan.andreasson@modelon.se\">johan.andreasson@modelon.se</a></dd>
 </dl><p>Copyright &copy; 1998-2010, Modelica Association, DLR, AIT, and Modelon AB. </p>
-<p><i>This Modelica package is </i><i><b>free</b></i><i> software; it can be redistributed and/or modified under the terms of the </i><i><b>Modelica license</b></i><i>, see the license conditions and the accompanying </i><i><b>disclaimer</b></i><i> </i><i><a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a></i><i>.</i> </p>
+<p><i>This Modelica package is </i><i><b>free</b></i><i> software; it can be redistributed and/or modified under the terms of the </i><i><b>Modelica license</b></i><i>, see the license conditions and the accompanying </i><i><b>disclaimer</b></i><i> </i><i><a href=\"modelica://Modelica.UsersGuide.ModelicaLicense\">here</a></i><i>.</i> </p>
 </html>"));
 end Icons;

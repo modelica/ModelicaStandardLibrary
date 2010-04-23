@@ -435,12 +435,12 @@ In a more equation oriented case additional equations or code segments can be ad
 <ul>
   <li>if <code>usePolar == true</code>, assign magnitude and angle to output <br>
                                
-  <img src=\"Modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i1_polar.png\"> <br>
-  <img src=\"Modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i2_polar.png\">
+  <img src=\"modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i1_polar.png\"> <br>
+  <img src=\"modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i2_polar.png\">
   </li>
   <li>if <code>usePolar == false</code>, assign cosine and sine to output <br>
-  <img src=\"Modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i1_rect.png\"> <br>
-  <img src=\"Modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i2_rect.png\">
+  <img src=\"modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i1_rect.png\"> <br>
+  <img src=\"modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i2_rect.png\">
   </li>
 </ul>
 
@@ -455,7 +455,7 @@ In a more equation oriented case additional equations or code segments can be ad
 <h4>Code</h4>
 
 <p>
-<a href=\"Modelica://Modelica.UsersGuide.Conventions.ModelicaCode\">Modelica code</a> conventions of class and instance names,
+<a href=\"modelica://Modelica.UsersGuide.Conventions.ModelicaCode\">Modelica code</a> conventions of class and instance names,
 parameters and variables are specified separately. In this section it is summarized how to refer to
 Modelica code in the HTML documentation.
 </p>
@@ -517,15 +517,15 @@ or <a href=\"http://www.codecogs.com/components/eqneditor/editor.php\">codecogs<
 <p>
 A typical equation, e.g. of a Fourier synthesis, could look like<br>
 <img
- src=\"Modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Equations/fourier.png\"> <br>
+ src=\"modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Equations/fourier.png\"> <br>
 or <br>
 <img
- src=\"Modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png\"
+ src=\"modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png\"
  alt=\"y=a_1+a_2\"><br>
 In an <code>alt</code> tag the original equation can be stored, e.g.</p>
 <pre>
 &lt;img
-&nbsp;src=&quot;Modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png&quot;
+&nbsp;src=&quot;modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png&quot;
 &nbsp;alt=&quot;y=a_1+a_2&quot;&gt;
 </pre>
 
@@ -547,7 +547,7 @@ as subscripts using the &lt;sub&gt; and &lt;/sub&gt; tags. Examples for such var
 &lt;table border=\"0\" cellspacing=\"10\" cellpadding=\"2\"&gt;
   &lt;tr&gt;
       &lt;td&gt;&lt;img
-      src=&quot;Modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png&quot;
+      src=&quot;modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png&quot;
       alt=&quot;y=a_1+a_2&quot;&gt; &lt;/td&gt;
       &lt;td&gt;(1)&lt;/td&gt;
   &lt;/tr&gt;
@@ -559,7 +559,7 @@ as subscripts using the &lt;sub&gt; and &lt;/sub&gt; tags. Examples for such var
 <table border=\"0\" cellspacing=\"10\" cellpadding=\"2\">
   <tr>
     <td><img
-         src=\"Modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png\"
+         src=\"modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png\"
          alt=\"y=a_1+a_2\"></td>
     <td>(1)</td>
   </tr>
@@ -589,11 +589,11 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <h5>Example 1</h5>
 
 <p>This example shows how an illustration should be embedded in the Example
-<a href=\"Modelica://Modelica.Blocks.Examples.PID_Controller\">PID_Controller</a> of the
-<a href=\"Modelica://Modelica.Blocks\">Blocks</a> package.</p>
+<a href=\"modelica://Modelica.Blocks.Examples.PID_Controller\">PID_Controller</a> of the
+<a href=\"modelica://Modelica.Blocks\">Blocks</a> package.</p>
 
 <pre>
-&lt;img src=\"Modelica://Modelica/Images/UsersGuide/Conventions/Images/Blocks/Examples/PID_controller.png\"&gt;</pre>
+&lt;img src=\"modelica://Modelica/Images/UsersGuide/Conventions/Images/Blocks/Examples/PID_controller.png\"&gt;</pre>
 
 <h5>Example 2</h5>
 
@@ -604,7 +604,7 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
   &lt;caption align=\"bottom\"&gt;Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
     &lt;td&gt;
-      &lt;img src=\"Modelica://Modelica/Images/UsersGuide/Conventions/Images/Blocks/Examples/PID_controller.png\"&gt;
+      &lt;img src=\"modelica://Modelica/Images/UsersGuide/Conventions/Images/Blocks/Examples/PID_controller.png\"&gt;
     &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
@@ -620,7 +620,7 @@ and enumeration should look like this: <b>Fig. 1:</b> Figures have to be enumera
   &lt;caption align=\"bottom\"&gt;&lt;b&gt;Fig. 2: &lt;/b&gt;Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
     &lt;td&gt;
-      &lt;img src=\"Modelica://Modelica/Images/UsersGuide/Conventions/Images/Blocks/Examples/PID_controller.png\"&gt;
+      &lt;img src=\"modelica://Modelica/Images/UsersGuide/Conventions/Images/Blocks/Examples/PID_controller.png\"&gt;
     &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
@@ -643,7 +643,7 @@ and enumeration should look like this: <b>Fig. 1:</b> Figures have to be enumera
 </ol>
 <h5>Example 1</h5>
 <pre>
-&lt;a href=\"Modelica://MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops\"&gt;
+&lt;a href=\"modelica://MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops\"&gt;
          MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops&lt;/a&gt;</pre>
 <p>appears as</p>
 <a href=\"modelica://MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops\">
@@ -721,7 +721,7 @@ and enumeration should look like this: <b>Fig. 1:</b> Figures have to be enumera
 <h4>General</h4>
 <ol>
 <li> Refer to references by [1], [Andronov1973], etc. by hyperlink and summarize literature in the references subsection of
-     <a href=\"Modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\">Conventions.UsersGuide.References</a>.
+     <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\">Conventions.UsersGuide.References</a>.
 <li> There has to be made at least one citation to each reference.</li>
 </ol>
 
@@ -730,11 +730,11 @@ and enumeration should look like this: <b>Fig. 1:</b> Figures have to be enumera
 <pre>
 &lt;p&gt;
   More details about sensorless rotor temperature estimation
-  can be found in &lt;a href=\"Modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\"&gt;[Gao2008]&lt;/a.&gt;
+  can be found in &lt;a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\"&gt;[Gao2008]&lt;/a.&gt;
 &lt;/p&gt;</pre>
 <p>appears as</p>
 <p>
-  More details about sensorless rotor temperature estimation can be found in <a href=\"Modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\">[Gao2008]</a>.
+  More details about sensorless rotor temperature estimation can be found in <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\">[Gao2008]</a>.
 </p>
 
 </html>"));
@@ -839,7 +839,7 @@ and enumeration should look like this: <b>Tab. 1:</b> Tables have to be enumerat
 
 <p>
 In this section the format UsersGuide of the HTML documentation are specified.
-The <a href=\"Modelica://Modelica.UsersGuide.Conventions.Documentation.Structure\">structure</a> of the documentation is specified separately.
+The <a href=\"modelica://Modelica.UsersGuide.Conventions.Documentation.Structure\">structure</a> of the documentation is specified separately.
 </p>
 
 <h4>Paragraphs</h4>
@@ -1169,8 +1169,8 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
       annotation (Documentation(info="<html>
 
 <p>In this section the
-<a href=\"Modelica://Modelica.UsersGuide.Conventions.ModelicaCode.Naming\">naming conventions</a> of class and instance names, parameters and variables are specified. Additionally some
-<a href=\"Modelica://Modelica.UsersGuide.Conventions.ModelicaCode.Format\">format UsersGuide</a> are stated.</p>
+<a href=\"modelica://Modelica.UsersGuide.Conventions.ModelicaCode.Naming\">naming conventions</a> of class and instance names, parameters and variables are specified. Additionally some
+<a href=\"modelica://Modelica.UsersGuide.Conventions.ModelicaCode.Format\">format UsersGuide</a> are stated.</p>
 
 </html>"));
     end ModelicaCode;
@@ -1213,7 +1213,7 @@ This class summarizes general information about the implementation which is not 
 <li> Technical report [Marlino2005]</li>
 </ul>
 
-<p>The <a href=\"Modelica://Modelica.UsersGuide.Conventions.Documentation.Format.References\">citation</a> is also explained.</p>
+<p>The <a href=\"modelica://Modelica.UsersGuide.Conventions.Documentation.Format.References\">citation</a> is also explained.</p>
 
 <h4>Example</h4>
 
@@ -1501,22 +1501,22 @@ This class summarizes contact information of the contributing persons.
     annotation (Documentation(info="<html>
 <p>The UsersGuide of each package should consist of the following classes</p>
 <ol>
-<li> <a href=\"Modelica://Modelica.UsersGuide.Conventions.UsersGuide.Contact\">Contact</a> information of
+<li> <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.Contact\">Contact</a> information of
      the library officer and the co-authors </li>
-<li> Optional <a href=\"Modelica://Modelica.UsersGuide.Conventions.UsersGuide.Implementation\">Implementation Notes</a> to give general information about the implementation
-<li> <a href=\"Modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\">References</a> for summarizing the literature of the package</li>
-<li> <a href=\"Modelica://Modelica.UsersGuide.Conventions.UsersGuide.RevisionHistory\">Revision history </a> to summarize the most important changes and improvements of the package</li>
+<li> Optional <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.Implementation\">Implementation Notes</a> to give general information about the implementation
+<li> <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\">References</a> for summarizing the literature of the package</li>
+<li> <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.RevisionHistory\">Revision history </a> to summarize the most important changes and improvements of the package</li>
 </ol>
 </html>"));
     end UsersGuide;
     annotation (__Dymola_DocumentationClass=true,Documentation(info="<html>
 <p>A Modelica main package should be compliant with the UsersGuide stated in this documentation:</p>
 <ol>
-<li> Conventions of the <a href=\"Modelica://Modelica.UsersGuide.Conventions.ModelicaCode\">Modelica code</a> </li>
-<li> Consistent HTML documentation <a href=\"Modelica://Modelica.UsersGuide.Conventions.Documentation\">UsersGuide</a> </li>
+<li> Conventions of the <a href=\"modelica://Modelica.UsersGuide.Conventions.ModelicaCode\">Modelica code</a> </li>
+<li> Consistent HTML documentation <a href=\"modelica://Modelica.UsersGuide.Conventions.Documentation\">UsersGuide</a> </li>
 <li> Structure to be provided by a main package</li>
 <ul>
-     <li> <a href=\"Modelica://Modelica.UsersGuide.Conventions.UsersGuide\">User's Guide</a></li>
+     <li> <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide\">User's Guide</a></li>
      <li> <b>Examples</b> containing models demonstrating the usage of the library.</li>
      <li> <b>Components</b> -- in case of a complex library a more detailed strcture can be established.</li>
      <li> <b>Sensors</b></li>

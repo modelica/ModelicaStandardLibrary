@@ -9460,8 +9460,8 @@ Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.In
     annotation (defaultComponentPrefixes="parameter ",
     Documentation(info="<html>
 <p>
-Parameter record for <a href=\"Modelica://Modelica.Electrical.Machines.Losses.InductionMachines.Core\">core losses of induction machines</a> 
-and <a href=\"Modelica://Modelica.Electrical.Machines.Losses.DCMachines.Core\">core losses of DC machines</a>.
+Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.InductionMachines.Core\">core losses of induction machines</a> 
+and <a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.Core\">core losses of DC machines</a>.
 </p>
 </html>"));
     end CoreParameters;

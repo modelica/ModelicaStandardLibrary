@@ -139,18 +139,18 @@ for contributing his source code to this library.
 
 <ul>
 <li>Added stator core, friction and stray load losses to all machine types based on 
-<a href=\"Modelica://Modelica.Electrical.Machines\">Machines</a> models.</li>
+<a href=\"modelica://Modelica.Electrical.Machines\">Machines</a> models.</li>
 <li>Changed parameter of 
-<a href=\"Modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">EddyCurrent</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">EddyCurrent</a>
 model from R to G</li>
 </ul>
 
 <h5>Version 1.4.0, 2010-04-22</h5>
 
 <ul>
-<li>Added eddy current model in accordance to <a href=\"Modelica://Modelica.Magnetic.FluxTubes\">FluxTubes</a> library</li>
+<li>Added eddy current model in accordance to <a href=\"modelica://Modelica.Magnetic.FluxTubes\">FluxTubes</a> library</li>
 <li>Added thermal heat port to eddy current model</li>
-<li>Minor updates due to dependencies of <a href=\"Modelica://Modelica.Electrical.Machines\">Machines</a>
+<li>Minor updates due to dependencies of <a href=\"modelica://Modelica.Electrical.Machines\">Machines</a>
 </ul>
 
 <h5>Version 1.3.0, 2010-02-26</h5>
@@ -1715,7 +1715,7 @@ The salient reluctance models the relationship between the complex magnetic pote
               textString="G=%G")}),                    Documentation(info="<html>
 <p>
 The eddy current loss model with respect to fundamental wave effects is designed in accordance to 
-<a href=\"Modelica://Modelica.Magnetic.FluxTubes.Basic.EddyCurrent\">FluxTubes.Basic.EddyCurrent</a>. 
+<a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.EddyCurrent\">FluxTubes.Basic.EddyCurrent</a>. 
 </p>
 
 <p>
@@ -1726,7 +1726,7 @@ The eddy current loss model with respect to fundamental wave effects is designed
   <caption align=\"bottom\">Fig. 1: equivalent models of eddy current losses</caption>
   <tr>
     <td>
-      <img src=\"Modelica://Modelica/Images/Magnetic/FundamentalWave/Components/eddycurrent_electric.png\">
+      <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/Components/eddycurrent_electric.png\">
     </td>
   </tr>
 </table>
@@ -1774,7 +1774,7 @@ relationship of the voltage and current space phasor.
 </p>
 <h4>See also</h4>
 
-<p><a href=\"Modelica://Modelica.Magnetic.FluxTubes.Basic.EddyCurrent\">FluxTubes.Basic.EddyCurrent</a></p>
+<p><a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.EddyCurrent\">FluxTubes.Basic.EddyCurrent</a></p>
 
 </html>"));
     end EddyCurrent;
