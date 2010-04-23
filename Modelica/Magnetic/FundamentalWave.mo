@@ -4358,9 +4358,8 @@ This model is mainly used to extend from in order build more complex - equation 
         annotation (Placement(transformation(extent={{56,-104},{64,-96}},
               rotation=0)));
     public
-      Components.EddyCurrent eddyCurrent(
-        final useHeatPort=true,
-        final G=(m/2)*statorCoreParameters.GcRef/effectiveStatorTurns^2)
+      Components.EddyCurrent statorEddyCurrent(final useHeatPort=true, final G=
+            (m/2)*statorCoreParameters.GcRef/effectiveStatorTurns^2)
         annotation (
           Placement(transformation(
             extent={{10,-10},{-10,10}},
@@ -4419,6 +4418,55 @@ This model is mainly used to extend from in order build more complex - equation 
           points={{-30,10},{-20,10},{-20,10},{-10,10}},
           color={255,128,0},
           smooth=Smooth.None));
+      connect(statorWinding.plug_p, strayLoad.plug_n) annotation (Line(
+          points={{10,50},{10,70},{40,70}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(plug_sp, strayLoad.plug_p) annotation (Line(
+          points={{60,100},{60,70}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(strayLoad.support, internalSupport) annotation (Line(
+          points={{50,60},{60,60},{60,-100}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(strayLoad.heatPort, internalThermalPort.heatPort_stray) annotation (
+          Line(
+          points={{40,60},{40,-80},{-40,-80},{-40,-90}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(friction.support, internalSupport) annotation (Line(
+          points={{90,-40},{90,-68},{60,-68},{60,-100}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(strayLoad.flange, inertiaRotor.flange_b) annotation (Line(
+          points={{50,80},{90,80},{90,-1.72421e-15}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(friction.flange, inertiaRotor.flange_b) annotation (Line(
+          points={{90,-20},{90,-1.72421e-15}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(friction.heatPort, internalThermalPort.heatPort_friction) annotation (
+         Line(
+          points={{80,-30},{40,-30},{40,-80},{-40,-80},{-40,-90}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(statorEddyCurrent.heatPort, internalThermalPort.heatPort_statorCore)
+        annotation (Line(
+          points={{40,20},{40,-80},{-40,-80},{-40,-90}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(statorWinding.port_p, statorEddyCurrent.port_p)
+                                                        annotation (Line(
+          points={{10,30},{20,30},{20,30},{30,30}},
+          color={255,128,0},
+          smooth=Smooth.None));
+      connect(airGap.port_sp, statorEddyCurrent.port_n)
+                                                  annotation (Line(
+          points={{10,10},{30,10}},
+          color={255,128,0},
+          smooth=Smooth.None));
       annotation (Documentation(info="<HTML>
 Partial model for induction machine models
 </HTML>"),
@@ -4463,53 +4511,6 @@ Partial model for induction machine models
               points={{120,-100},{110,-120}},
               color={0,0,0},
               smooth=Smooth.None)}));
-      connect(statorWinding.plug_p, strayLoad.plug_n) annotation (Line(
-          points={{10,50},{10,70},{40,70}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(plug_sp, strayLoad.plug_p) annotation (Line(
-          points={{60,100},{60,70}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(strayLoad.support, internalSupport) annotation (Line(
-          points={{50,60},{60,60},{60,-100}},
-          color={0,0,0},
-          smooth=Smooth.None));
-      connect(strayLoad.heatPort, internalThermalPort.heatPort_stray) annotation (
-          Line(
-          points={{40,60},{40,-80},{-40,-80},{-40,-90}},
-          color={191,0,0},
-          smooth=Smooth.None));
-      connect(friction.support, internalSupport) annotation (Line(
-          points={{90,-40},{90,-68},{60,-68},{60,-100}},
-          color={0,0,0},
-          smooth=Smooth.None));
-      connect(strayLoad.flange, inertiaRotor.flange_b) annotation (Line(
-          points={{50,80},{90,80},{90,-1.72421e-15}},
-          color={0,0,0},
-          smooth=Smooth.None));
-      connect(friction.flange, inertiaRotor.flange_b) annotation (Line(
-          points={{90,-20},{90,-1.72421e-15}},
-          color={0,0,0},
-          smooth=Smooth.None));
-      connect(friction.heatPort, internalThermalPort.heatPort_friction) annotation (
-         Line(
-          points={{80,-30},{40,-30},{40,-80},{-40,-80},{-40,-90}},
-          color={191,0,0},
-          smooth=Smooth.None));
-      connect(eddyCurrent.heatPort, internalThermalPort.heatPort_statorCore)
-        annotation (Line(
-          points={{40,20},{40,-80},{-40,-80},{-40,-90}},
-          color={191,0,0},
-          smooth=Smooth.None));
-      connect(statorWinding.port_p, eddyCurrent.port_p) annotation (Line(
-          points={{10,30},{20,30},{20,30},{30,30}},
-          color={255,128,0},
-          smooth=Smooth.None));
-      connect(airGap.port_sp, eddyCurrent.port_n) annotation (Line(
-          points={{10,10},{30,10}},
-          color={255,128,0},
-          smooth=Smooth.None));
     end PartialBasicInductionMachine;
 
     model StateSelector
@@ -4686,19 +4687,19 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <p>
 <table border=\"1\" rules=\"groups\">
 <thead>
-<tr><td>Version</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
+<tr><td>Version</td> <td>Revision</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
 </thead>
 <tbody>
-<tr><td>1.5.0</td>  <td>2010-04-23</td>  <td>C. Kral</td>  <td>Added stator core, friction and stray load loss mdoels and changed parameter of EddyCurrent model</td></tr>
-<tr><td>1.4.0</td>  <td>2010-04-22</td>  <td>C. Kral</td>  <td>Added eddy current loss model with thermal heat port</td></tr>
-<tr><td>1.3.0</td>  <td>2010-02-26</td>  <td>A. Haumer<br>C. Kral</td>  <td>New state selection, icons and copyright included</td></tr>
-<tr><td>1.2.0</td>  <td>2010-02-17</td>  <td>C. Kral</td>  <td>Renamed Machines to BasicMachines and updated references to Electrical.Machines</td></tr>
-<tr><td>1.1.0</td>  <td>2010-02-15</td>  <td>C. Kral</td>  <td>Added thermal connectors and temperature dependent resistances</td></tr>
-<tr><td>1.0.0</td>  <td>2010-02-04</td>  <td>C. Kral</td>  <td>Integrated the libray into the MSL</td></tr>
-<tr><td>0.4.0</td>  <td>2009-10-29</td>  <td>C. Kral<br>A.&nbsp;Haumer</td>  <td>Corrected bug in magnetic potential calculation</td></tr>
-<tr><td>0.3.0</td>  <td>2009-10-28</td>  <td>C. Kral</td>  <td>Renamed number of turns and winding angles</td></tr>
-<tr><td>0.2.0</td>  <td>2009-10-20</td>  <td>C. Kral</td>  <td>Added idle model</td></tr>
-<tr><td>0.1.0</td>  <td>2009-07-22</td>  <td>C. Kral</td>  <td>First version based on the concept of the FluxTubes library and the Magnetics library of Michael Beuschel</td></tr>
+<tr><td>1.5.0</td><td>3771</td>  <td>2010-04-23</td>  <td>C. Kral</td>  <td>Added stator core, friction and stray load loss mdoels and changed parameter of EddyCurrent model</td></tr>
+<tr><td>1.4.0</td><td>3763</td>  <td>2010-04-22</td>  <td>C. Kral</td>  <td>Added eddy current loss model with thermal heat port</td></tr>
+<tr><td>1.3.0</td><td></td>  <td>2010-02-26</td>  <td>A. Haumer<br>C. Kral</td>  <td>New state selection, icons and copyright included</td></tr>
+<tr><td>1.2.0</td><td>3468</td>   <td>2010-02-17</td>  <td>C. Kral</td>  <td>Renamed Machines to BasicMachines and updated references to Electrical.Machines</td></tr>
+<tr><td>1.1.0</td><td>3424</td>  <td>2010-02-15</td>  <td>C. Kral</td>  <td>Added thermal connectors and temperature dependent resistances</td></tr>
+<tr><td>1.0.0</td><td>3426</td>  <td>2010-02-04</td>  <td>C. Kral</td>  <td>Integrated the libray into the MSL</td></tr>
+<tr><td>0.4.0</td> <td></td>  <td>2009-10-29</td>  <td>C. Kral<br>A.&nbsp;Haumer</td>  <td>Corrected bug in magnetic potential calculation</td></tr>
+<tr><td>0.3.0</td> <td></td>  <td>2009-10-28</td>  <td>C. Kral</td>  <td>Renamed number of turns and winding angles</td></tr>
+<tr><td>0.2.0</td> <td></td>  <td>2009-10-20</td>  <td>C. Kral</td>  <td>Added idle model</td></tr>
+<tr><td>0.1.0</td> <td></td>  <td>2009-07-22</td>  <td>C. Kral</td>  <td>First version based on the concept of the FluxTubes library and the Magnetics library of Michael Beuschel</td></tr>
 </tbody>
 </table>
 </p>
