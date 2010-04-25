@@ -135,11 +135,11 @@ for contributing his source code to this library.
 
       annotation (Documentation(info="<html>
 
-<h5>Version 1.5.0, 2010-04-23</h5>
+<h5>Version 1.5.0, 2010-04-25</h5>
 
 <ul>
-<li>Added stator core, friction and stray load losses to all machine types based on 
-<a href=\"modelica://Modelica.Electrical.Machines\">Machines</a> models.</li>
+<li>Added stator core, friction, stray load and brush losses to all machine types based on 
+<a href=\"modelica://Modelica.Electrical.Machines.Losses\">loss models</a> of the <a href=\"modelica://Modelica.Electrical.Machines\">Machines</a> library.</li>
 <li>Changed parameter of 
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">EddyCurrent</a>
 model from R to G</li>
@@ -755,8 +755,9 @@ Simulate for 1.5 seconds and plot (versus time):
           stateSelectorS(x0StateSelect=StateSelect.prefer, xrStateSelect=
                 StateSelect.prefer),
           stateSelectorR(x0StateSelect=StateSelect.prefer, xrStateSelect=
-                StateSelect.prefer))
-          annotation (Placement(transformation(extent={{-10,-30},{10,-10}},  rotation=
+                StateSelect.prefer),
+          brushParameters(V=2, ILinear=1))
+          annotation (Placement(transformation(extent={{-8,-30},{12,-10}},   rotation=
                  0)));
         Electrical.Machines.Utilities.SwitchedRheostat rheostatM(
             RStart=RStart, tStart=tRheostat)
@@ -791,7 +792,8 @@ Simulate for 1.5 seconds and plot (versus time):
           Lrsigma=Lrsigma,
           Rr=Rr,
           alpha20s(displayUnit="1/K"),
-          alpha20r(displayUnit="1/K"))
+          alpha20r(displayUnit="1/K"),
+          brushParameters(V=2, ILinear=1))
           annotation (Placement(transformation(extent={{-10,-90},{10,-70}},rotation=0)));
         Electrical.Machines.Utilities.SwitchedRheostat rheostatE(RStart=RStart,
             tStart=tRheostat)
@@ -830,13 +832,13 @@ Simulate for 1.5 seconds and plot (versus time):
         connect(loadInertiaM.flange_b, quadraticLoadTorqueM.flange)
           annotation (Line(points={{70,-20},{70,-20},{80,-20}},
                                                          color={0,0,0}));
-        connect(aimsM.flange,   loadInertiaM.flange_a) annotation (Line(points={{10,-20},
-                {10,-20},{50,-20}},
+        connect(aimsM.flange,   loadInertiaM.flange_a) annotation (Line(points={{12,-20},
+                {12,-20},{50,-20}},
                                  color={0,0,0}));
         connect(terminalBoxM.plug_sp, aimsM.plug_sp)           annotation (Line(
-              points={{6,-10},{6,-10}},     color={0,0,255}));
+              points={{6,-10},{8,-10}},     color={0,0,255}));
         connect(terminalBoxM.plug_sn, aimsM.plug_sn)           annotation (Line(
-              points={{-6,-10},{-6,-10}},   color={0,0,255}));
+              points={{-6,-10},{-4,-10}},   color={0,0,255}));
 
         connect(currentRMSsensorM.plug_n, terminalBoxM.plugSupply)
                                                                   annotation (
@@ -845,11 +847,11 @@ Simulate for 1.5 seconds and plot (versus time):
             color={0,0,255},
             smooth=Smooth.None));
         connect(rheostatM.plug_p, aimsM.plug_rp) annotation (Line(
-            points={{-20,-14},{-10,-14}},
+            points={{-20,-14},{-8,-14}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(rheostatM.plug_n, aimsM.plug_rn) annotation (Line(
-            points={{-20,-26},{-10,-26}},
+            points={{-20,-26},{-8,-26}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(currentRMSsensorE.plug_n, terminalBoxE.plugSupply)
@@ -1818,17 +1820,17 @@ relationship of the voltage and current space phasor.
         "Equivalent vector representation of windingAngle";
 
     equation
-      // Complex magnetic flux into positive port
+      // Magnetic flux and flux balance of the magnetic ports
       port_p.Phi = Phi;
-
-      // Complex magnetic potential difference
-      port_p.V_m - port_n.V_m = V_m;
       port_p.Phi + port_n.Phi = Complex(0,0);
 
-      // Voltage equation
+      // Magnetic potential difference of the magnetic ports
+      port_p.V_m - port_n.V_m = V_m;
+
+      // Voltage drop between the electrical pins
       v = pin_p.v - pin_n.v;
 
-      // Current equations
+      // Current and current balance of the electric pins
       i = pin_p.i;
       pin_p.i + pin_n.i = 0;
 
@@ -1960,27 +1962,27 @@ The voltage <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/v.png
       //  "Equivalent vector representation of windingAngle";
 
     equation
-      // Flux into positive port
+      // Magnetic flux and flux balance of the magnetic ports
       port_p.Phi = Phi;
-
-      // Magneto motive force
-      port_p.V_m - port_n.V_m = V_m;
       port_p.Phi + port_n.Phi = Complex(0,0);
 
-      // Voltage equation
+      // Magnetic potential difference of the magnetic ports
+      port_p.V_m - port_n.V_m = V_m;
+
+      // Voltage drop between the electrical plugs
       v = plug_p.pin.v - plug_n.pin.v;
 
-      // Current equations
+      // Current and current balance of the electric plugs
       i = plug_p.pin.i;
       plug_p.pin.i + plug_n.pin.i = zeros(m);
 
       // Complex magnetic potential difference from currents, number
-      // of turns and angles of winding axis
+      // of turns and angles of winding axes
       V_m.re = (2.0/pi) * sum( effectiveTurns[k]*cos(windingAngle[k])*i[k] for k in 1:m);
       V_m.im = (2.0/pi) * sum( effectiveTurns[k]*sin(windingAngle[k])*i[k] for k in 1:m);
 
       // Induced voltages from complex magnetic flux, number of turns
-      // and angles of winding axis
+      // and angles of winding axes
       for k in 1:m loop
         -v[k] = effectiveTurns[k]*cos(windingAngle[k])*der(Phi.re)
               + effectiveTurns[k]*sin(windingAngle[k])*der(Phi.im);
@@ -2273,6 +2275,11 @@ Resistances and stray inductances of the machine refer to the stator phases. The
         parameter Modelica.SIunits.Voltage VrLockedRotor(start=100*(2*pi*fsNominal*Lm)/sqrt(Rs^2+(2*pi*fsNominal*(Lm+Lssigma))^2))
           "Locked rotor voltage per phase"
           annotation(Dialog(enable=not useTurnsRatio));
+
+        parameter Modelica.Electrical.Machines.Losses.BrushParameters
+          brushParameters "Brush losses"
+          annotation(Dialog(tab="Losses"));
+
         output Modelica.SIunits.Voltage vr[m] = plug_rp.pin.v - plug_rn.pin.v
           "Rotor instantaneous voltages";
         output Modelica.SIunits.Current ir[m] = plug_rp.pin.i
@@ -2307,14 +2314,17 @@ Resistances and stray inductances of the machine refer to the stator phases. The
           annotation (Placement(transformation(extent={{-10,-10},{10,10}},
               rotation=90,
               origin={-90,0})));
+        Electrical.Machines.Losses.InductionMachines.Brush brush(
+                                             final brushParameters=
+              brushParameters) annotation (Placement(transformation(
+              extent={{-10,10},{10,-10}},
+              rotation=270,
+              origin={-80,40})));
       equation
 
         connect(rotorWinding.plug_n, plug_rn) annotation (Line(points={{-10,-50},
                 {-10,-50},{-100,-50},{-100,-60}},
                                   color={0,0,255}));
-        connect(rotorWinding.plug_p, plug_rp) annotation (Line(points={{10,-50},
-                {10,-60},{-80,-60},{-80,60},{-100,60}},
-                                                    color={0,0,255}));
         connect(rotorWinding.heatPort, internalThermalPort.heatPort_r) annotation (
             Line(
             points={{-10,-40},{-40,-40},{-40,-90}},
@@ -2340,7 +2350,19 @@ Resistances and stray inductances of the machine always refer to either stator o
 <p>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage\">AIM_SquirrelCage</a>,
 </p>
-</html>"));
+</html>"),Diagram(graphics));
+        connect(plug_rp, brush.plug_p) annotation (Line(
+            points={{-100,60},{-80,60},{-80,50}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(brush.plug_n, rotorWinding.plug_p) annotation (Line(
+            points={{-80,30},{-80,-60},{10,-60},{10,-50}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(brush.heatPort, internalThermalPort.heatPort_brush) annotation (Line(
+            points={{-70,40},{-40,40},{-40,-90}},
+            color={191,0,0},
+            smooth=Smooth.None));
       end AIM_SlipRing;
     annotation (Documentation(info="<html>
 <p>This package provides squirrel cage and slip ring induction machine models.</p>
@@ -2584,6 +2606,11 @@ Resistances and stray inductances of the machine refer to the stator phases. The
         parameter Real sigmae(min=0, max=1, start=0.025)
           "Stray fraction of total excitation inductance"
            annotation(Dialog(tab="Excitation"));
+
+        parameter Modelica.Electrical.Machines.Losses.BrushParameters
+          brushParameters "Brush losses"
+          annotation(Dialog(tab="Losses"));
+
         output Modelica.SIunits.Voltage ve = pin_ep.v-pin_en.v
           "Excitation voltage";
         output Modelica.SIunits.Current ie = pin_ep.i "Excitation current";
@@ -2629,6 +2656,11 @@ Resistances and stray inductances of the machine refer to the stator phases. The
           annotation (Placement(transformation(extent={{-110,70},{-90,50}}, rotation=0)));
         Modelica.Electrical.Analog.Interfaces.NegativePin pin_en
           annotation (Placement(transformation(extent={{-90,-50},{-110,-70}},rotation=0)));
+        Electrical.Machines.Losses.DCMachines.Brush brush(
+                                      final brushParameters=brushParameters)
+          annotation (Placement(transformation(extent={{10,-10},{-10,10}},
+              rotation=90,
+              origin={-80,40})));
       equation
 
         connect(short.port_n, rotorCage.port_n)
@@ -2640,8 +2672,6 @@ Resistances and stray inductances of the machine refer to the stator phases. The
         connect(pin_en, excitationWinding.pin_n)
           annotation (Line(points={{-100,-60},{-100,-60},{-100,-50},{-30,-50}},
                                                                      color={0,0,255}));
-        connect(excitationWinding.pin_p, pin_ep)
-          annotation (Line(points={{-30,-30},{-100,-30},{-100,60}},             color={0,0,255}));
         connect(airGap.port_rn, excitationWinding.port_p) annotation (Line(
             points={{-10,-10},{-10,-20},{-10,-20},{-10,-30}},
             color={255,128,0},
@@ -2688,7 +2718,19 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor\">
    SM_ReluctanceRotor</a>,
 </p>
-</html>"));
+</html>"),Diagram(graphics));
+        connect(pin_ep, brush.p) annotation (Line(
+            points={{-100,60},{-80,60},{-80,50}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(brush.n, excitationWinding.pin_p) annotation (Line(
+            points={{-80,30},{-80,-30},{-30,-30}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(brush.heatPort, internalThermalPort.heatPort_brush) annotation (Line(
+            points={{-70,40},{-40,40},{-40,-90}},
+            color={191,0,0},
+            smooth=Smooth.None));
       end SM_ElectricalExcited;
 
       model SM_ReluctanceRotor "Reluctance machine with optional damper cage"
@@ -4679,18 +4721,18 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <p>This package provides types for modeling anisotropic saliency effects in electric machines. These saliencies are usually considered by a d- (direct) and q-axis (quadrature) components in the respective axis (of the rotor).</p>
 </html>"));
   end Types;
-  annotation (
+  annotation (preferredView="info",
     Documentation(revisions="<html>
 
 <p>The table below refers to internal version numbers of the FundamentalWave library.</p>
 
 <p>
-<table border=\"1\" rules=\"groups\">
+<table border=\"1\" rules=\"groups\" cellpadding=\"2\">
 <thead>
 <tr><td>Version</td> <td>Revision</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
 </thead>
 <tbody>
-<tr><td>1.5.0</td><td>3771</td>  <td>2010-04-23</td>  <td>C. Kral</td>  <td>Added stator core, friction and stray load loss mdoels and changed parameter of EddyCurrent model</td></tr>
+<tr><td>1.5.0</td><td>3772</td>  <td>2010-04-25</td>  <td>C. Kral</td>  <td>Added stator core, friction, stray load and brush loss models and changed parameter of EddyCurrent model</td></tr>
 <tr><td>1.4.0</td><td>3763</td>  <td>2010-04-22</td>  <td>C. Kral</td>  <td>Added eddy current loss model with thermal heat port</td></tr>
 <tr><td>1.3.0</td><td></td>  <td>2010-02-26</td>  <td>A. Haumer<br>C. Kral</td>  <td>New state selection, icons and copyright included</td></tr>
 <tr><td>1.2.0</td><td>3468</td>   <td>2010-02-17</td>  <td>C. Kral</td>  <td>Renamed Machines to BasicMachines and updated references to Electrical.Machines</td></tr>
