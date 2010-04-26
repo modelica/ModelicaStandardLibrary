@@ -9774,7 +9774,7 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
           Gcs = statorCoreParameters.GcRef;// * (statorCoreParameters.wRef/wsLimit*statorCoreParameters.ratioHysteresis + 1 - statorCoreParameters.ratioHysteresis);
           i_scs = Gcs*spacePhasor_s.v_;
         end if;
-        heatPortS.Q_flow = m/2*(+spacePhasor_s.v_[1]*i_scs[1]+spacePhasor_s.v_[2]*i_scs[2]);
+        heatPortS.Q_flow = -m/2*(+spacePhasor_s.v_[1]*i_scs[1]+spacePhasor_s.v_[2]*i_scs[2]);
         // Rotor core losses
         if (statorCoreParameters.PRef<=0) then
           Gcr = 0;
@@ -9783,7 +9783,7 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
           Gcr = rotorCoreParameters.GcRef;// * (rotorCoreParameters.wRef/wrLimit*rotorCoreParameters.ratioHysteresis + 1 - rotorCoreParameters.ratioHysteresis);
           i_rcr = Gcr*spacePhasor_r.v_;
         end if;
-        heatPortR.Q_flow = m/2*(+spacePhasor_r.v_[1]*i_rcr[1]+spacePhasor_r.v_[2]*i_rcr[2]);
+        heatPortR.Q_flow = -m/2*(+spacePhasor_r.v_[1]*i_rcr[1]+spacePhasor_r.v_[2]*i_rcr[2]);
         annotation (
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                   100}}),
@@ -11522,7 +11522,7 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
       parameter Machines.Losses.CoreParameters statorCoreParameters(
         final m=3,
         VRef(start=1),
-        wRef(start=2*pi*fsNominal)) "Stator core losses"
+        wRef=2*pi*fsNominal) "Stator core losses"
         annotation(Dialog(tab="Losses"));
     protected
       parameter Machines.Losses.CoreParameters rotorCoreParameters(
@@ -11928,7 +11928,7 @@ Interfaces and partial models for induction machines
 
     partial model PartialBasicDCMachine "Partial model for DC machine"
       extends PartialBasicMachine(Jr(start=0.15),
-        frictionParameters(wRef(start=wNominal)));
+        frictionParameters(wRef=wNominal));
       parameter Modelica.SIunits.Temperature TaOperational(start=293.15)
         "Operational armature temperature"
          annotation(Dialog(group="Operational temperatures", enable=not useThermalPort));
@@ -11957,13 +11957,13 @@ Interfaces and partial models for induction machines
         "Armature inductance"
          annotation(Dialog(tab="Nominal resistances and inductances"));
       parameter Machines.Losses.CoreParameters coreParameters(final m=1,
-        VRef(start=ViNominal), wRef(start=wNominal)) "Armature core losses"
+        VRef=ViNominal, wRef=wNominal) "Armature core losses"
         annotation(Dialog(tab="Losses"));
       parameter Machines.Losses.StrayLoadParameters strayLoadParameters(
-        IRef(start=IaNominal), wRef(start=wNominal)) "Stray load losses"
+        IRef=IaNominal, wRef=wNominal) "Stray load losses"
         annotation(Dialog(tab="Losses"));
       parameter Machines.Losses.BrushParameters brushParameters(
-        ILinear(start=0.01*IaNominal)) "Brush losses"
+        ILinear=0.01*IaNominal) "Brush losses"
         annotation(Dialog(tab="Losses"));
       output Modelica.SIunits.Voltage va = pin_ap.v-pin_an.v "Armature voltage";
       output Modelica.SIunits.Current ia = pin_ap.i "Armature current";
