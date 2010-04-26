@@ -2338,6 +2338,18 @@ Resistances and stray inductances of the machine refer to the stator phases. The
             points={{10,-10},{10,-10},{10,-30},{10,-30}},
             color={255,128,0},
             smooth=Smooth.None));
+        connect(plug_rp, brush.plug_p) annotation (Line(
+            points={{-100,60},{-80,60},{-80,50}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(brush.plug_n, rotorWinding.plug_p) annotation (Line(
+            points={{-80,30},{-80,-60},{10,-60},{10,-50}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(brush.heatPort, internalThermalPort.heatPort_brush) annotation (Line(
+            points={{-70,40},{-40,40},{-40,-90}},
+            color={191,0,0},
+            smooth=Smooth.None));
         annotation (         Icon(graphics={Line(points={{-100,50},{-100,20},{-60,
                     20}}, color={0,0,255}), Line(points={{-100,-50},{-100,-20},
                     {-60,-20}}, color={0,0,255})}),
@@ -2351,18 +2363,6 @@ Resistances and stray inductances of the machine always refer to either stator o
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage\">AIM_SquirrelCage</a>,
 </p>
 </html>"),Diagram(graphics));
-        connect(plug_rp, brush.plug_p) annotation (Line(
-            points={{-100,60},{-80,60},{-80,50}},
-            color={0,0,255},
-            smooth=Smooth.None));
-        connect(brush.plug_n, rotorWinding.plug_p) annotation (Line(
-            points={{-80,30},{-80,-60},{10,-60},{10,-50}},
-            color={0,0,255},
-            smooth=Smooth.None));
-        connect(brush.heatPort, internalThermalPort.heatPort_brush) annotation (Line(
-            points={{-70,40},{-40,40},{-40,-90}},
-            color={191,0,0},
-            smooth=Smooth.None));
       end AIM_SlipRing;
     annotation (Documentation(info="<html>
 <p>This package provides squirrel cage and slip ring induction machine models.</p>
@@ -2694,6 +2694,18 @@ Resistances and stray inductances of the machine refer to the stator phases. The
             color={191,0,0},
             smooth=Smooth.None));
 
+        connect(pin_ep, brush.p) annotation (Line(
+            points={{-100,60},{-80,60},{-80,50}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(brush.n, excitationWinding.pin_p) annotation (Line(
+            points={{-80,30},{-80,-30},{-30,-30}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(brush.heatPort, internalThermalPort.heatPort_brush) annotation (Line(
+            points={{-70,40},{-40,40},{-40,-90}},
+            color={191,0,0},
+            smooth=Smooth.None));
         annotation (         Icon(graphics={
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255}),
               Line(points={{-100,50},{-100,20},{-130,20},{-130,-4}}, color={0,0,
@@ -2719,18 +2731,6 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
    SM_ReluctanceRotor</a>,
 </p>
 </html>"),Diagram(graphics));
-        connect(pin_ep, brush.p) annotation (Line(
-            points={{-100,60},{-80,60},{-80,50}},
-            color={0,0,255},
-            smooth=Smooth.None));
-        connect(brush.n, excitationWinding.pin_p) annotation (Line(
-            points={{-80,30},{-80,-30},{-30,-30}},
-            color={0,0,255},
-            smooth=Smooth.None));
-        connect(brush.heatPort, internalThermalPort.heatPort_brush) annotation (Line(
-            points={{-70,40},{-40,40},{-40,-90}},
-            color={191,0,0},
-            smooth=Smooth.None));
       end SM_ElectricalExcited;
 
       model SM_ReluctanceRotor "Reluctance machine with optional damper cage"
@@ -2921,8 +2921,8 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
               extent={{10,-10},{-10,10}},
               rotation=90)));
         Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter
-          electroMagneticConverter(final effectiveTurns=effectiveTurns, final
-            windingAngle=windingAngle)
+          electroMagneticConverter(final effectiveTurns=effectiveTurns, final windingAngle=
+                         windingAngle)
           annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
         Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
           "Heat ports of winding resistor"
