@@ -9767,12 +9767,22 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
         flange.tau = -tauElectrical;
         support.tau = tauElectrical;
         // Stator core losses
-        Gcs = 0; // if (statorCoreParameters.PRef<=0) then 0 else ...;
-        i_scs = Gcs*spacePhasor_s.v_;
+        if (statorCoreParameters.PRef<=0) then
+          Gcs = 0;
+          i_scs = zeros(2);
+        else
+          Gcs = statorCoreParameters.GcRef;// * (statorCoreParameters.wRef/wsLimit*statorCoreParameters.ratioHysteresis + 1 - statorCoreParameters.ratioHysteresis);
+          i_scs = Gcs*spacePhasor_s.v_;
+        end if;
         heatPortS.Q_flow = m/2*(+spacePhasor_s.v_[1]*i_scs[1]+spacePhasor_s.v_[2]*i_scs[2]);
         // Rotor core losses
-        Gcr = 0; // if (rotorCoreParameters.PRef<=0) then 0 else ...;
-        i_rcr = Gcr*spacePhasor_r.v_;
+        if (statorCoreParameters.PRef<=0) then
+          Gcr = 0;
+          i_rcr = zeros(2);
+        else
+          Gcr = rotorCoreParameters.GcRef;// * (rotorCoreParameters.wRef/wrLimit*rotorCoreParameters.ratioHysteresis + 1 - rotorCoreParameters.ratioHysteresis);
+          i_rcr = Gcr*spacePhasor_r.v_;
+        end if;
         heatPortR.Q_flow = m/2*(+spacePhasor_r.v_[1]*i_rcr[1]+spacePhasor_r.v_[2]*i_rcr[2]);
         annotation (
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
@@ -10209,9 +10219,13 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
         // excitation flux: linearly dependent on excitation current
         psi_e = Le * ie;
         // core losses
-        Gc = if (coreParameters.PRef<=0) then 0 else
-             coreParameters.GcRef * (coreParameters.wRef/wLimit*coreParameters.ratioHysteresis + 1 - coreParameters.ratioHysteresis);
-        ic = Gc*vai;
+        if (coreParameters.PRef<=0) then
+          Gc = 0;
+          ic = 0;
+        else
+          Gc = coreParameters.GcRef * (coreParameters.wRef/wLimit*coreParameters.ratioHysteresis + 1 - coreParameters.ratioHysteresis);
+          ic = Gc*vai;
+        end if;
         heatPort.Q_flow = -vai*ic;
         annotation (
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
