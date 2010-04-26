@@ -2996,7 +2996,13 @@ This package contains test examples of electric machines.
           redeclare final Machines.Interfaces.InductionMachines.ThermalPortAIMC
             thermalPort,
           redeclare final Machines.Interfaces.InductionMachines.ThermalPortAIMC
-            internalThermalPort);
+            internalThermalPort,
+          redeclare final
+            Machines.Interfaces.InductionMachines.PowerBalanceAIMC
+            powerBalance(
+              final pLoss_coreS = -airGapS.heatPortS.Q_flow,
+              final pLoss_coreR = -airGapS.heatPortR.Q_flow,
+              final pLoss_r = -squirrelCageR.heatPort.Q_flow));
         Machines.Losses.InductionMachines.AirGapRwithLosses airGapS(
           final m=3,
           final p=p,
@@ -3021,8 +3027,7 @@ This package contains test examples of electric machines.
           "Reference temperature of rotor resistance"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20r(
-                   start=0)
-          "Temperature coefficient of rotor resistance at 20 degC"
+          start=0) "Temperature coefficient of rotor resistance at 20 degC"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Temperature TrOperational(start=293.15)
           "Operational temperature of rotor resistance"
@@ -3201,7 +3206,15 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           redeclare final Machines.Interfaces.InductionMachines.ThermalPortAIMS
             thermalPort,
           redeclare final Machines.Interfaces.InductionMachines.ThermalPortAIMS
-            internalThermalPort);
+            internalThermalPort,
+          redeclare final
+            Machines.Interfaces.InductionMachines.PowerBalanceAIMS
+            powerBalance(
+              final pLoss_coreS = -airGapS.heatPortS.Q_flow,
+              final pLoss_coreR = -airGapS.heatPortR.Q_flow,
+              final pLoss_r = -sum(rr.heatPort.Q_flow),
+              final pLoss_brush = -brush.heatPort.Q_flow,
+              final pElectrical_r = Machines.SpacePhasors.Functions.activePower(vr, ir)));
         Machines.Losses.InductionMachines.AirGapRwithLosses airGapS(
           final m=3,
           final p=p,
@@ -3226,8 +3239,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           "Reference temperature of rotor resistance"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20r(
-                   start=0)
-          "Temperature coefficient of rotor resistance at 20 degC"
+          start=0) "Temperature coefficient of rotor resistance at 20 degC"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Boolean useTurnsRatio(start=true)
           "Use turnsRatio or calculate from locked-rotor voltage?";
@@ -3321,7 +3333,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color={0,0,255},
             smooth=Smooth.None));
         connect(brush.plug_n, rr.plug_p) annotation (Line(
-            points={{-80,30},{-80,20},{-80,20}},
+            points={{-80,30},{-80,20}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(lrsigma.plug_n, spacePhasorR.plug_p) annotation (Line(
@@ -3548,7 +3560,14 @@ These models use package SpacePhasors.
           redeclare final Machines.Interfaces.InductionMachines.ThermalPortSMPM
             thermalPort(final useDamperCage = useDamperCage),
           redeclare final Machines.Interfaces.InductionMachines.ThermalPortSMPM
-            internalThermalPort(final useDamperCage = useDamperCage));
+            internalThermalPort(final useDamperCage = useDamperCage),
+          redeclare final
+            Machines.Interfaces.InductionMachines.PowerBalanceSMPM
+            powerBalance(
+              final pLoss_coreS = -airGapR.heatPortS.Q_flow,
+              final pLoss_coreR = -airGapR.heatPortR.Q_flow,
+              final pLoss_r = 0,
+              final pLoss_pm = 0));
         Machines.Losses.InductionMachines.AirGapRwithLosses airGapR(
           final m=3,
           final p=p,
@@ -3590,7 +3609,7 @@ These models use package SpacePhasors.
           "Reference temperature of damper resistances in d- and q-axis"
           annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
         parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20r(
-                   start=0)
+          start=0)
           "Temperature coefficient of damper resistances in d- and q-axis"
           annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
         output Modelica.SIunits.Current idq_dr[2](each stateSelect=StateSelect.prefer)=
@@ -3829,7 +3848,16 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           redeclare final Machines.Interfaces.InductionMachines.ThermalPortSMEE
             thermalPort(final useDamperCage = useDamperCage),
           redeclare final Machines.Interfaces.InductionMachines.ThermalPortSMEE
-            internalThermalPort(final useDamperCage = useDamperCage));
+            internalThermalPort(final useDamperCage = useDamperCage),
+          redeclare final
+            Machines.Interfaces.InductionMachines.PowerBalanceSMEE
+            powerBalance(
+              final pLoss_coreS = -airGapR.heatPortS.Q_flow,
+              final pLoss_coreR = -airGapR.heatPortR.Q_flow,
+              final pLoss_r = 0,
+              final pElectrical_e = ve*ie,
+              final pLoss_e = -re.heatPort.Q_flow,
+              final pLoss_brush = -brush.heatPort.Q_flow));
         Machines.Losses.InductionMachines.AirGapRwithLosses airGapR(
           final m=3,
           final p=p,
@@ -3869,7 +3897,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           "Reference temperature of damper resistances in d- and q-axis"
           annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
         parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20r(
-                   start=0)
+          start=0)
           "Temperature coefficient of damper resistances in d- and q-axis"
           annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
         parameter Modelica.SIunits.Voltage VsNominal(start=100)
@@ -4224,7 +4252,12 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           redeclare final Machines.Interfaces.InductionMachines.ThermalPortSMR
             thermalPort(final useDamperCage = useDamperCage),
           redeclare final Machines.Interfaces.InductionMachines.ThermalPortSMR
-            internalThermalPort(final useDamperCage = useDamperCage));
+            internalThermalPort(final useDamperCage = useDamperCage),
+          redeclare final Machines.Interfaces.InductionMachines.PowerBalanceSMR
+            powerBalance(
+              final pLoss_coreS = -airGapR.heatPortS.Q_flow,
+              final pLoss_coreR = -airGapR.heatPortR.Q_flow,
+              final pLoss_r = 0));
         Machines.Losses.InductionMachines.AirGapRwithLosses airGapR(
           final m=3,
           final p=p,
@@ -4264,7 +4297,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           "Reference temperature of damper resistances in d- and q-axis"
           annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
         parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20r(
-                   start=0)
+          start=0)
           "Temperature coefficient of damper resistances in d- and q-axis"
           annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
         Components.DamperCage damperCage(
@@ -4541,7 +4574,11 @@ These models use package SpacePhasors.
           redeclare final Machines.Interfaces.DCMachines.ThermalPortDCPM
             thermalPort,
           redeclare final Machines.Interfaces.DCMachines.ThermalPortDCPM
-            internalThermalPort);
+            internalThermalPort,
+          redeclare final Machines.Interfaces.DCMachines.PowerBalanceDCPM
+            powerBalance(
+              final pLoss_core = -airGapDC.heatPort.Q_flow,
+              final pLoss_pm = 0));
         Losses.DCMachines.AirGapDCwithLosses airGapDC(
           final turnsRatio=turnsRatio,
           final Le=Lme,
@@ -4691,7 +4728,12 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
           redeclare final Machines.Interfaces.DCMachines.ThermalPortDCEE
             thermalPort,
           redeclare final Machines.Interfaces.DCMachines.ThermalPortDCEE
-            internalThermalPort);
+            internalThermalPort,
+          redeclare final Machines.Interfaces.DCMachines.PowerBalanceDCEE
+            powerBalance(
+              final pLoss_core = -airGapDC.heatPort.Q_flow,
+              final pElectrical_e = ve*ie,
+              final pLoss_e = -re.heatPort.Q_flow));
         parameter Modelica.SIunits.Current IeNominal(start=1)
           "Nominal excitation current"
            annotation(Dialog(tab="Excitation"));
@@ -4702,7 +4744,7 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
           "Reference temperature of excitation resistance"
            annotation(Dialog(tab="Excitation"));
         parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20e(
-                   start=0) "Temperature coefficient of excitation resistance"
+          start=0) "Temperature coefficient of excitation resistance"
            annotation(Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Inductance Le(start=1)
           "Total field excitation inductance"
@@ -4956,7 +4998,12 @@ Armature current does not cover excitation current of a shunt excitation; in thi
           redeclare final Machines.Interfaces.DCMachines.ThermalPortDCSE
             thermalPort,
           redeclare final Machines.Interfaces.DCMachines.ThermalPortDCSE
-            internalThermalPort);
+            internalThermalPort,
+          redeclare final Machines.Interfaces.DCMachines.PowerBalanceDCSE
+            powerBalance(
+              final pLoss_core = -airGapDC.heatPort.Q_flow,
+              final pElectrical_se = ve*ie,
+              final pLoss_se = -re.heatPort.Q_flow));
         parameter Modelica.SIunits.Resistance Re(start=0.01)
           "Series excitation resistance at TRef"
            annotation(Dialog(tab="Excitation"));
@@ -4964,7 +5011,7 @@ Armature current does not cover excitation current of a shunt excitation; in thi
           "Reference temperature of excitation resistance"
            annotation(Dialog(tab="Excitation"));
         parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20e(
-                   start=0) "Temperature coefficient of excitation resistance"
+          start=0) "Temperature coefficient of excitation resistance"
            annotation(Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Inductance Le(start=0.0005)
           "Total field excitation inductance"
@@ -5249,8 +5296,7 @@ This package contains models of DC machines:
       extends Modelica.Icons.VariantsPackage;
 
       model DC_PermanentMagnet "Quasistationary permanent magnet DC machine"
-        extends Machines.BasicMachines.DCMachines.DC_PermanentMagnet(final quasiStationary=
-                              true);
+        extends Machines.BasicMachines.DCMachines.DC_PermanentMagnet(final quasiStationary=true);
           extends Machines.Icons.QuasiStationaryMachineIcon;
         annotation (defaultComponentName="dcpm",
           Documentation(info="<HTML>
@@ -5263,8 +5309,7 @@ the only difference is that electrical transients are neglected.
 
       model DC_ElectricalExcited
         "Quasistationary electrical shunt/separate excited linear DC machine"
-        extends Machines.BasicMachines.DCMachines.DC_ElectricalExcited(final quasiStationary=
-                              true);
+        extends Machines.BasicMachines.DCMachines.DC_ElectricalExcited(final quasiStationary=true);
         extends Machines.Icons.QuasiStationaryMachineIcon;
         annotation (defaultComponentName="dcee",
           Documentation(info="<HTML>
@@ -5276,8 +5321,7 @@ the only difference is that electrical transients are neglected.
       end DC_ElectricalExcited;
 
       model DC_SeriesExcited "Quasistationary series excited linear DC machine"
-        extends Machines.BasicMachines.DCMachines.DC_SeriesExcited(final quasiStationary=
-                              true);
+        extends Machines.BasicMachines.DCMachines.DC_SeriesExcited(final quasiStationary=true);
         extends Machines.Icons.QuasiStationaryMachineIcon;
         annotation (defaultComponentName="dcse",
           Documentation(info="<HTML>
@@ -9363,7 +9407,7 @@ Converts a space phasor from polar coordinates to rectangular coordinates.
 </HTML>"));
       end FromPolar;
 
-      function quasiRMS "Calcualte quasi-RMS value of input"
+      function quasiRMS "Calculate quasi-RMS value of input"
         extends Modelica.Icons.Function;
         constant Integer m=3 "Number of phases";
         constant Real pi=Modelica.Constants.pi;
@@ -9381,6 +9425,30 @@ Converts a space phasor from polar coordinates to rectangular coordinates.
 Transformation of three phase values (voltages or currents) to space phasor and calculate length of space phasor.
 </HTML>"));
       end quasiRMS;
+
+      function activePower
+        "Calculate active power of voltage and current input"
+        extends Modelica.Icons.Function;
+        constant Integer m=3 "Number of phases";
+        import Modelica.Constants.pi;
+        input Modelica.SIunits.Voltage v[m] "phase voltages";
+        input Modelica.SIunits.Current i[m] "phase currents";
+        output Modelica.SIunits.Power p "Active power";
+      protected
+        Modelica.SIunits.Voltage v_[2] "Voltage space phasor";
+        Modelica.SIunits.Current i_[2] "Current space phasor";
+      algorithm
+        v_ := zeros(2);
+        i_ := zeros(2);
+        for k in 1:m loop
+          v_ := v_ + 2/m*{+cos((k - 1)/m*2*pi), +sin(+(k - 1)/m*2*pi)}*v[k];
+          i_ := i_ + 2/m*{+cos((k - 1)/m*2*pi), +sin(+(k - 1)/m*2*pi)}*i[k];
+        end for;
+        p :=m/2*(+v_[1]*i_[1] + v_[2]*i_[2]);
+        annotation (Inline=true, Documentation(info="<HTML>
+Transformation of three phase voltages and currents to space phasors and calculate active power.
+</HTML>"));
+      end activePower;
       annotation (Documentation(info="<HTML>
 This package contains space phasor transformation functions for use in calculations:
 <ul>
@@ -9785,8 +9853,8 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
         end if;
         heatPortR.Q_flow = -m/2*(+spacePhasor_r.v_[1]*i_rcr[1]+spacePhasor_r.v_[2]*i_rcr[2]);
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                  100}}),
+          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                  {100,100}}),
                   graphics),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
@@ -11534,6 +11602,15 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
       parameter Machines.Losses.StrayLoadParameters strayLoadParameters(
         IRef(start=1), wRef(start=2*pi*fsNominal/p)) "Stray load losses"
         annotation(Dialog(tab="Losses"));
+      replaceable output
+        Machines.Interfaces.InductionMachines.PartialPowerBalanceInductionMachines
+                                                                                   powerBalance(
+        final pElectrical_s = Machines.SpacePhasors.Functions.activePower(vs, is),
+        final pMechanical = wMechanical*tauShaft,
+        final pInertia = inertiaRotor.J*inertiaRotor.a*inertiaRotor.w,
+        final pLoss_s = -sum(rs.heatPort.Q_flow),
+        final pLoss_stray = -strayLoad.heatPort.Q_flow,
+        final pLoss_friction = -friction.heatPort.Q_flow) "Power balance";
       output Modelica.SIunits.Voltage vs[m] = plug_sp.pin.v - plug_sn.pin.v
         "Stator instantaneous voltages";
       output Modelica.SIunits.Current is[m] = plug_sp.pin.i
@@ -11835,6 +11912,24 @@ Partial thermal ambient for induction machines
 </HTML>"),Diagram(graphics));
       end PartialThermalAmbientInductionMachines;
 
+      partial record PartialPowerBalanceInductionMachines
+        "Partial power balance of induction machines"
+        extends Modelica.Icons.Record;
+        Modelica.SIunits.Power pElectrical_s "Electrical power (stator)";
+        Modelica.SIunits.Power pMechanical "Mechanical power";
+        Modelica.SIunits.Power pInertia "Inertia power";
+        Modelica.SIunits.Power pLoss_total "Total loss power";
+        Modelica.SIunits.Power pLoss_s "Stator copper losses";
+        Modelica.SIunits.Power pLoss_coreS "Stator core losses";
+        Modelica.SIunits.Power pLoss_coreR "Rotor core losses";
+        Modelica.SIunits.Power pLoss_stray "Stray load losses";
+        Modelica.SIunits.Power pLoss_friction "Friction losses";
+        annotation (defaultComponentPrefixes="output",
+          Documentation(info="<HTML>
+Partial power balance of induction machines.
+ </HTML>"));
+      end PartialPowerBalanceInductionMachines;
+
       connector ThermalPortAIMC
         "Thermal port of asynchronous induction machine with squirrel cage"
         extends
@@ -11847,6 +11942,18 @@ Partial thermal ambient for induction machines
 Thermal port for asnychronous induction machine with squirrel cage
 </HTML>"));
       end ThermalPortAIMC;
+
+      record PowerBalanceAIMC
+        "Power balance of asynchronous induction machines with squirrel cage"
+        extends
+          Machines.Interfaces.InductionMachines.PartialPowerBalanceInductionMachines(
+          final pLoss_total = pLoss_s + pLoss_coreS + pLoss_coreR + pLoss_stray + pLoss_friction + pLoss_r);
+        Modelica.SIunits.Power pLoss_r "Rotor copper losses";
+        annotation (defaultComponentPrefixes="output",
+          Documentation(info="<HTML>
+Power balance of asynchronous induction machines with squirrel cage.
+ </HTML>"));
+      end PowerBalanceAIMC;
 
       connector ThermalPortAIMS
         "Thermal port of asynchronous induction machine with slipring"
@@ -11863,6 +11970,20 @@ Thermal port for asnychronous induction machine with squirrel cage
 Thermal port for asnychronous induction machine with slipring rotor
 </HTML>"));
       end ThermalPortAIMS;
+
+      record PowerBalanceAIMS
+        "Power balance of asynchronous induction machines with slipring"
+        extends
+          Machines.Interfaces.InductionMachines.PartialPowerBalanceInductionMachines(
+          final pLoss_total = pLoss_s + pLoss_coreS + pLoss_coreR + pLoss_stray + pLoss_friction + pLoss_r + pLoss_brush);
+        Modelica.SIunits.Power pLoss_r "Rotor copper losses";
+        Modelica.SIunits.Power pLoss_brush "Brush losses";
+        Modelica.SIunits.Power pElectrical_r "Electrical power (rotor)";
+        annotation (defaultComponentPrefixes="output",
+          Documentation(info="<HTML>
+Power balance of asynchronous induction machines with slipring.
+ </HTML>"));
+      end PowerBalanceAIMS;
 
       connector ThermalPortSMPM
         "Thermal port of synchronous induction machine with permanent magnets"
@@ -11882,6 +12003,19 @@ Thermal port for asnychronous induction machine with slipring rotor
 Thermal port for snychronous induction machine with permanent magnets
 </HTML>"),Diagram(graphics));
       end ThermalPortSMPM;
+
+      record PowerBalanceSMPM
+        "Power balance of synchronous induction machines with permanent magnet"
+        extends
+          Machines.Interfaces.InductionMachines.PartialPowerBalanceInductionMachines(
+          final pLoss_total = pLoss_s + pLoss_coreS + pLoss_coreR + pLoss_stray + pLoss_friction + pLoss_r + pLoss_pm);
+        Modelica.SIunits.Power pLoss_r "Rotor copper losses";
+        Modelica.SIunits.Power pLoss_pm "Permanent magnet losses";
+        annotation (defaultComponentPrefixes="output",
+          Documentation(info="<HTML>
+Power balance of synchronous induction machines with permanent magnet.
+ </HTML>"));
+      end PowerBalanceSMPM;
 
       connector ThermalPortSMEE
         "Thermal port of synchronous induction machine with electrical excitation"
@@ -11905,6 +12039,21 @@ Thermal port for snychronous induction machine with electrical excitation
 </HTML>"));
       end ThermalPortSMEE;
 
+      record PowerBalanceSMEE
+        "Power balance of synchronous induction machines with electrical excitation"
+        extends
+          Machines.Interfaces.InductionMachines.PartialPowerBalanceInductionMachines(
+          final pLoss_total = pLoss_s + pLoss_coreS + pLoss_coreR + pLoss_stray + pLoss_friction + pLoss_r + pLoss_e + pLoss_brush);
+        Modelica.SIunits.Power pLoss_r "Rotor copper losses";
+        Modelica.SIunits.Power pElectrical_e "Electrical excitation power";
+        Modelica.SIunits.Power pLoss_e "Excitation losses";
+        Modelica.SIunits.Power pLoss_brush "Brush losses";
+        annotation (defaultComponentPrefixes="output",
+          Documentation(info="<HTML>
+Power balance of synchronous induction machines with electrical excitation.
+ </HTML>"));
+      end PowerBalanceSMEE;
+
       connector ThermalPortSMR
         "Thermal port of synchronous induction machine with reluctance rotor"
         extends
@@ -11920,6 +12069,18 @@ Thermal port for snychronous induction machine with electrical excitation
 Thermal port for snychronous induction machine with reluctance rotor
 </HTML>"));
       end ThermalPortSMR;
+
+      record PowerBalanceSMR
+        "Power balance of synchronous induction machines with reluctance rotor"
+        extends
+          Machines.Interfaces.InductionMachines.PartialPowerBalanceInductionMachines(
+          final pLoss_total = pLoss_s + pLoss_coreS + pLoss_coreR + pLoss_stray + pLoss_friction + pLoss_r);
+        Modelica.SIunits.Power pLoss_r "Rotor copper losses";
+        annotation (defaultComponentPrefixes="output",
+          Documentation(info="<HTML>
+Power balance of synchronous induction machines with reluctnace rotor.
+ </HTML>"));
+      end PowerBalanceSMR;
 
     annotation(Documentation(info="<HTML>
 Interfaces and partial models for induction machines
@@ -11965,6 +12126,15 @@ Interfaces and partial models for induction machines
       parameter Machines.Losses.BrushParameters brushParameters(
         ILinear=0.01*IaNominal) "Brush losses"
         annotation(Dialog(tab="Losses"));
+      replaceable output
+        Machines.Interfaces.DCMachines.PartialPowerBalanceDCMachines powerBalance(
+        final pElectrical = va*ia,
+        final pMechanical = wMechanical*tauShaft,
+        final pInertia = inertiaRotor.J*inertiaRotor.a*inertiaRotor.w,
+        final pLoss_a = -ra.heatPort.Q_flow,
+        final pLoss_stray = -strayLoad.heatPort.Q_flow,
+        final pLoss_friction = -friction.heatPort.Q_flow,
+        final pLoss_brush = -brush.heatPort.Q_flow) "Power balance";
       output Modelica.SIunits.Voltage va = pin_ap.v-pin_an.v "Armature voltage";
       output Modelica.SIunits.Current ia = pin_ap.i "Armature current";
       Modelica.Electrical.Analog.Interfaces.PositivePin pin_ap
@@ -12231,6 +12401,24 @@ Partial thermal ambient for induction machines
 </HTML>"));
       end PartialThermalAmbientDCMachines;
 
+      partial record PartialPowerBalanceDCMachines
+        "Partial power balance of DC machines"
+        extends Modelica.Icons.Record;
+        Modelica.SIunits.Power pElectrical "Electrical power";
+        Modelica.SIunits.Power pMechanical "Mechanical power";
+        Modelica.SIunits.Power pInertia "Inertia power";
+        Modelica.SIunits.Power pLoss_total "Total loss power";
+        Modelica.SIunits.Power pLoss_a "Armature copper losses";
+        Modelica.SIunits.Power pLoss_core "Core losses";
+        Modelica.SIunits.Power pLoss_stray "Stray load losses";
+        Modelica.SIunits.Power pLoss_friction "Friction losses";
+        Modelica.SIunits.Power pLoss_brush "Brush losses";
+        annotation (defaultComponentPrefixes="output",
+          Documentation(info="<HTML>
+Partial power balance of DC machines.
+ </HTML>"));
+      end PartialPowerBalanceDCMachines;
+
       connector ThermalPortDCPM
         "Thermal port of DC machine with permanent magnets"
         extends Machines.Interfaces.DCMachines.PartialThermalPortDCMachines;
@@ -12242,6 +12430,17 @@ Partial thermal ambient for induction machines
 Thermal port for DC machine with permanent magnets
 </HTML>"));
       end ThermalPortDCPM;
+
+      record PowerBalanceDCPM
+        "Power balance of DC machines with permanent magnet"
+        extends Machines.Interfaces.DCMachines.PartialPowerBalanceDCMachines(
+          final pLoss_total = pLoss_a + pLoss_core + pLoss_stray + pLoss_friction + pLoss_brush + pLoss_pm);
+        Modelica.SIunits.Power pLoss_pm "Permanent magnet losses";
+        annotation (defaultComponentPrefixes="output",
+          Documentation(info="<HTML>
+Power balance of DC machines with permanent magnet.
+ </HTML>"));
+      end PowerBalanceDCPM;
 
       connector ThermalPortDCEE
         "Thermal port of DC machine with electrical excitation"
@@ -12255,6 +12454,19 @@ Thermal port for DC machine with electrical (shunt) excitation
 </HTML>"));
       end ThermalPortDCEE;
 
+      record PowerBalanceDCEE
+        "Power balance of DC machines with electrical excitation"
+        extends Machines.Interfaces.DCMachines.PartialPowerBalanceDCMachines(
+          final pLoss_total = pLoss_a + pLoss_core + pLoss_stray + pLoss_friction + pLoss_brush + pLoss_e);
+        Modelica.SIunits.Power pElectrical_e
+          "Electrical (shunt) excitation power";
+        Modelica.SIunits.Power pLoss_e "Excitation losses";
+        annotation (defaultComponentPrefixes="output",
+          Documentation(info="<HTML>
+Power balance of DC machines with electrical excitation.
+ </HTML>"));
+      end PowerBalanceDCEE;
+
       connector ThermalPortDCSE
         "Thermal port of DC machine with series excitation"
         extends Machines.Interfaces.DCMachines.PartialThermalPortDCMachines;
@@ -12266,6 +12478,19 @@ Thermal port for DC machine with electrical (shunt) excitation
 Thermal port for DC machine with serial excitation
 </HTML>"));
       end ThermalPortDCSE;
+
+      record PowerBalanceDCSE
+        "Power balance of DC machines with series excitation"
+        extends Machines.Interfaces.DCMachines.PartialPowerBalanceDCMachines(
+          final pLoss_total = pLoss_a + pLoss_core + pLoss_stray + pLoss_friction + pLoss_brush + pLoss_se);
+        Modelica.SIunits.Power pElectrical_se
+          "Electrical series excitation power";
+        Modelica.SIunits.Power pLoss_se "Series excitation losses";
+        annotation (defaultComponentPrefixes="output",
+          Documentation(info="<HTML>
+Power balance of DC machines with series excitation.
+ </HTML>"));
+      end PowerBalanceDCSE;
 
       connector ThermalPortDCCE
         "Thermal port of DC machine with compound excitation"
@@ -12281,6 +12506,22 @@ Thermal port for DC machine with serial excitation
 Thermal port for DC machine with compound excitation
 </HTML>"));
       end ThermalPortDCCE;
+
+      record PowerBalanceDCCE
+        "Power balance of DC machines with compound excitation"
+        extends Machines.Interfaces.DCMachines.PartialPowerBalanceDCMachines(
+          final pLoss_total = pLoss_a + pLoss_core + pLoss_stray + pLoss_friction + pLoss_brush + pLoss_e + pLoss_se);
+        Modelica.SIunits.Power pElectrical_e
+          "Electrical (shunt) excitation power";
+        Modelica.SIunits.Power pElectrical_se
+          "Electrical series excitation power";
+        Modelica.SIunits.Power pLoss_e "(Shunt) excitation losses";
+        Modelica.SIunits.Power pLoss_se "Series excitation losses";
+        annotation (defaultComponentPrefixes="output",
+          Documentation(info="<HTML>
+Power balance of DC machines with compound excitation.
+ </HTML>"));
+      end PowerBalanceDCCE;
     annotation(Documentation(info="<HTML>
 Thermal ports for DC machines
 </HTML>"));
@@ -12312,8 +12553,7 @@ Thermal ports for DC machines
       parameter Modelica.SIunits.Temperature T2Ref(start=293.15)
         "Reference temperature of secondary resistance"
          annotation(Dialog(tab="Nominal resistances and inductances"));
-      parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20_2(
-                  start=0)
+      parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20_2(start=0)
         "Temperature coefficient of secondary resistance at 20 degC"
          annotation(Dialog(tab="Nominal resistances and inductances"));
       parameter Modelica.SIunits.Inductance L2sigma(start=78E-6/(if C2=="d" then 1 else 3))
@@ -12328,6 +12568,12 @@ Thermal ports for DC machines
       parameter Modelica.SIunits.Temperature T2Operational(start=293.15)
         "Operational temperature of secondary resistance"
          annotation(Dialog(group="Operational temperatures", enable=not useThermalPort));
+      output Machines.Interfaces.PowerBalanceTransformer powerBalance(
+        final p_1 = Machines.SpacePhasors.Functions.activePower(v1, +i1),
+        final p_2 = Machines.SpacePhasors.Functions.activePower(v2, -i2),
+        final pLoss_1 = -sum(r1.heatPort.Q_flow),
+        final pLoss_2 = -sum(r2.heatPort.Q_flow),
+        final pLoss_core = 0) "Power balance";
       output Modelica.SIunits.Voltage v1[m]=plug1.pin.v "Primary voltage";
       output Modelica.SIunits.Current i1[m]=plug1.pin.i "Primary current";
       output Modelica.SIunits.Voltage v2[m]=plug2.pin.v "Secondary voltage";
@@ -12537,6 +12783,21 @@ Circuit layout (vector group) of primary and secondary windings have to be defin
 Thermal port for transformers
 </HTML>"));
     end ThermalPortTransformer;
+
+    record PowerBalanceTransformer "Power balance of transformers"
+      extends Modelica.Icons.Record;
+      Modelica.SIunits.Power p_1 "Primary power";
+      Modelica.SIunits.Power p_2 "Secondary power";
+      Modelica.SIunits.Power pLoss_total = pLoss_1 + pLoss_2 + pLoss_core
+        "Total loss power";
+      Modelica.SIunits.Power pLoss_1 "Primary copper losses";
+      Modelica.SIunits.Power pLoss_2 "Secondary copper losses";
+      Modelica.SIunits.Power pLoss_core "Core losses";
+      annotation (defaultComponentPrefixes="output",
+        Documentation(info="<HTML>
+Power balance of transformers.
+ </HTML>"));
+    end PowerBalanceTransformer;
 
     partial model FlangeSupport "Shaft and support"
 
