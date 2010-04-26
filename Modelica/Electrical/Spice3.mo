@@ -4410,15 +4410,15 @@ VN- -&GT; name.pc[N-1]
     function junction2SPICE3MOSFET
         "Junction current and conductance calculation"
 
-      input Real current "Input current";
-      input Real cond "Input conductance";
-      input Real voltage "Input voltage";
+      input Modelica.SIunits.Current current "Input current";
+      input Modelica.SIunits.Conductance cond "Input conductance";
+      input Modelica.SIunits.Voltage voltage "Input voltage";
       input Real temp "Device Temperature";
       input Real ncoeff;
       input Real satcur;
 
-      output Real out_current "Calculated current";
-      output Real out_cond "Calculated conduction";
+      output Modelica.SIunits.Current out_current "Calculated current";
+      output Modelica.SIunits.Conductance out_cond "Calculated conductance";
 
       protected
       Real vte;
@@ -4463,8 +4463,8 @@ VN- -&GT; name.pc[N-1]
 
     function junctionCap "Junction capacity"
 
-      input Real capin "Input capacitance";
-      input Real voltage "Input voltage";
+      input Modelica.SIunits.Capacitance capin "Input capacitance";
+      input Modelica.SIunits.Voltage voltage "Input voltage";
       input Real depcap;
       input Real mj;
       input Real phij;
@@ -4472,8 +4472,8 @@ VN- -&GT; name.pc[N-1]
       input Real f2;
       input Real f3;
 
-      output Real capout "Output capacitance";
-      output Real charge "Output charge";
+      output Modelica.SIunits.Capacitance capout "Output capacitance";
+      output Modelica.SIunits.Charge charge "Output charge";
 
       protected
       Real arg;
@@ -4505,7 +4505,7 @@ VN- -&GT; name.pc[N-1]
     function saturationCurDepTempSPICE3
         "Temperature dependency of saturation current"
 
-      input Real satcur0;
+      input Modelica.SIunits.Current satcur0 "Saturation current";
       input Real temp "Device Temperature";
       input Real tnom "Nominal Temperature";
       input Real emissioncoeff;
@@ -4533,7 +4533,7 @@ VN- -&GT; name.pc[N-1]
 
       input Real vb;
       input Real ivb;
-      input Real satcur;
+      input Modelica.SIunits.Current satcur "Saturation current";
       input Real temp "Device temperature";
       input Real ncoeff;
 
@@ -4570,14 +4570,14 @@ VN- -&GT; name.pc[N-1]
 
     function junction3 "Junction current and conductance calculation"
 
-      input Real voltage "Input voltage";
+      input Modelica.SIunits.Voltage voltage "Input voltage";
       input Real temp "Device Temperature";
       input Real ncoeff;
       input Real satcur;
       input Real v23;
 
-      output Real current "Output curret";
-      output Real cond "Output conductance";
+      output Modelica.SIunits.Current current "Output curret";
+      output Modelica.SIunits.Conductance cond "Output conductance";
 
       protected
       constant Real max_exp = 50.0;
@@ -4632,8 +4632,8 @@ VN- -&GT; name.pc[N-1]
     function junctionCapTransTime
         "Junction capacitance transittime calculation"
 
-      input Real capin "Input capacitance";
-      input Real voltage "Input voltage";
+      input Modelica.SIunits.Capacitance capin "Input capacitance";
+      input Modelica.SIunits.Voltage voltage "Input voltage";
       input Real depcap;
       input Real mj;
       input Real phij;
@@ -4641,11 +4641,11 @@ VN- -&GT; name.pc[N-1]
       input Real f2;
       input Real f3;
       input Real transittime;
-      input Real conduct "Input conductance";
-      input Real current "Input current";
+      input Modelica.SIunits.Conductance conduct "Input conductance";
+      input Modelica.SIunits.Current current "Input current";
 
-      output Real capout "Output capacitance";
-      output Real charge "Output charge";
+      output Modelica.SIunits.Capacitance capout "Output capacitance";
+      output Modelica.SIunits.Charge charge "Output charge";
 
     algorithm
         (capout,charge) := junctionCap(
@@ -4667,13 +4667,13 @@ VN- -&GT; name.pc[N-1]
 
     function junction2 "Junction current and conductance calculation"
 
-      input Real voltage "Input Voltage";
+      input Modelica.SIunits.Voltage voltage "Input Voltage";
       input Real temp "Device Temperature";
       input Real ncoeff;
       input Real satcur;
 
-      output Real current "Output current";
-      output Real cond "Output conductance";
+      output Modelica.SIunits.Current current "Output current";
+      output Modelica.SIunits.Conductance cond "Output conductance";
 
       protected
       constant Real max_exp = 50.0;
@@ -4715,13 +4715,13 @@ VN- -&GT; name.pc[N-1]
 
     function resDepTemp "Temperature dependent conductance"
 
-    input Real resist "Input resistance";
+    input Modelica.SIunits.Resistance resist "Input resistance";
     input Real temp "Device temperature";
     input Real tnom "Nominal temperature";
     input Real tc1;
     input Real tc2;
 
-    output Real conduct "Output conductance";
+    output Modelica.SIunits.Conductance conduct "Output conductance";
     output Real dCond_dTemp;
 
       protected
@@ -4743,7 +4743,7 @@ VN- -&GT; name.pc[N-1]
 
     input Real rsh "Input sheet resistance";
     input Real width "Input transistor width";
-    input Real length "Input transistor legth";
+    input Modelica.SIunits.Length length "Input transistor length";
     input Real narrow "Input narrow";
 
     output Real out;
@@ -4833,7 +4833,7 @@ VN- -&GT; name.pc[N-1]
 
       function limitJunctionVoltage "Limitation of junction voltage"
 
-        input Real voltage "Input voltage";
+        input Modelica.SIunits.Voltage voltage "Input voltage";
 
         output Real ret;
 
@@ -5229,7 +5229,7 @@ VN- -&GT; name.pc[N-1]
         input Mos1.Mos1Calc in_c "Input record Mos1Calc";
         input Integer in_m_type "Type of MOS transistor";
 
-        output Mos1.Mos1Calc out_c "Output record with calculates values";
+        output Mos1.Mos1Calc out_c "Output record with calculated values";
 
       protected
          Real ratio;
@@ -5482,9 +5482,9 @@ VN- -&GT; name.pc[N-1]
         input Real vgs;
         input Real vgd;
         input Real vgb;
-        input MosCalc in_c;
+        input MosCalc in_c "Input variable set";
 
-        output DEVqmeyer out_qm;
+        output DEVqmeyer out_qm "Qmeyer values";
 
       protected
         Real vds;
@@ -5530,12 +5530,13 @@ VN- -&GT; name.pc[N-1]
 
       function mos2CalcInitEquations "Mosfet initial precalculations (level 1)"
 
-        input Mos2.Mos2ModelLineParams in_p;
-        input SpiceConstants in_C;
-        input Mos.MosModelLineVariables in_vp;
-        input Mosfet.Mosfet in_m;
+        input Mos2.Mos2ModelLineParams in_p "Input record Mos2 values";
+        input SpiceConstants in_C "Spice constants";
+        input Mos.MosModelLineVariables in_vp
+          "Input record model line variables";
+        input Mosfet.Mosfet in_m "Input record mosfet parameters";
 
-        output Mos2.Mos2Calc out_c;
+        output Mos2.Mos2Calc out_c "Output record Mos2 calculated values";
 
       algorithm
        out_c.m_drainResistance := if  (in_p.m_drainResistanceIsGiven > 0.5) then
@@ -5565,14 +5566,16 @@ VN- -&GT; name.pc[N-1]
       function mos2CalcCalcTempDependencies
         "Precalculation relating to temperature"
 
-        input Mos2.Mos2ModelLineParams in_p;
-        input SpiceConstants in_C;
-        input Mos.MosModelLineVariables in_vp;
-        input Mosfet.Mosfet in_m;
-        input Mos2.Mos2Calc in_c;
-        input Integer in_m_type;
+        input Mos2.Mos2ModelLineParams in_p
+          "Output record Mos1 calculated values";
+        input SpiceConstants in_C "Spice constants";
+        input Mos.MosModelLineVariables in_vp
+          "Input record model line variables";
+        input Mosfet.Mosfet in_m "Input record mosfet parameters";
+        input Mos2.Mos2Calc in_c "Input record Mos2Calc";
+        input Integer in_m_type "Type of MOS transistor";
 
-        output Mos2.Mos2Calc out_c;
+        output Mos2.Mos2Calc out_c "Output record with calculated values";
 
       protected
          Real ratio;
@@ -5663,31 +5666,32 @@ VN- -&GT; name.pc[N-1]
       function mos2CalcNoBypassCode
         "Calculation of currents and capacities (level 2)"
 
-        input Mosfet.Mosfet in_m;
-        input Integer in_m_type;
-        input Mos2.Mos2Calc in_c;
-        input Mos2.Mos2ModelLineParams in_p;
-        input SpiceConstants in_C;
-        input Mos2.Mos2ModelLineVariables in_vp;
+        input Mosfet.Mosfet in_m "Input record mosfet parameters";
+        input Integer in_m_type "Type of MOS transistor";
+        input Mos2.Mos2Calc in_c "Input record Mos2Calc";
+        input Mos2.Mos2ModelLineParams in_p
+          "Input record model line parameters";
+        input SpiceConstants in_C "Spice constants";
+        input Mos2.Mos2ModelLineVariables in_vp
+          "Input record model line variables";
         input Boolean in_m_bInit;
-        input Real[4] in_m_pVoltageValues; /* gate bulk drain source */
+        input Modelica.SIunits.Voltage[4] in_m_pVoltageValues; /* gate bulk drain source */
 
-        output CurrrentsCapacitances out_cc;
+        output CurrrentsCapacitances out_cc
+          "Calculated currents and capacitances";
 
-        output DEVqmeyer qm;
+        output DEVqmeyer qm "Calculated qmeyer values";
 
       protected
-        Real vbd;
-        Real vgd;
-        Real vgb;
-        Real cur;
+        Modelica.SIunits.Voltage vbd "Voltage";
+        Modelica.SIunits.Voltage vgd "Volatge";
+        Modelica.SIunits.Voltage vgb "Voltage";
+        Modelica.SIunits.Current cur "Voltage";
         Integer n;
 
-        DEVqmeyer in_qm;
-        Mos2.Mos2Calc int_c;
-        Mosfet.Mosfet int_m;
-
-        Real zzz;
+        DEVqmeyer in_qm "Qmeyer capacitances";
+        Mos2.Mos2Calc int_c "Record Mos2Calc";
+        Mosfet.Mosfet int_m "Record Mosfet";
 
       algorithm
         int_c := in_c;
@@ -5753,8 +5757,6 @@ VN- -&GT; name.pc[N-1]
 
         n      := if (int_c.m_mode == 1) then 6 else 5;
         out_cc.idrain := in_m_type * int_c.m_cdrain * int_c.m_mode;
-
-        zzz := int_c.m_cdrain;
 
         int_c.m_capbss    := 0.0;
         int_c.m_chargebss := 0.0;
@@ -5859,11 +5861,13 @@ VN- -&GT; name.pc[N-1]
 
       function mos1ModelLineParamsInitEquations "Initial precalculation"
 
-        input Mos1ModelLineParams in_p;
-        input SpiceConstants in_C;
-        input Integer in_m_type;
+        input Mos1ModelLineParams in_p
+          "Input record model line parameters for MOS1";
+        input SpiceConstants in_C "Spice constants";
+        input Integer in_m_type "Type of MOS transistor";
 
-        output Mos.MosModelLineVariables out_v;
+        output Mos.MosModelLineVariables out_v
+          "Output record model line variables";
 
       protected
         Real vtnom;
@@ -5930,17 +5934,19 @@ VN- -&GT; name.pc[N-1]
 
       function drainCur "Drain current calculation"
 
-        input Real vb;
-        input Real vg;
-        input Real vds;
+        input Modelica.SIunits.Voltage vb;
+        input Modelica.SIunits.Voltage vg;
+        input Modelica.SIunits.Voltage vds;
 
-        input Mos1Calc in_c;
-        input Mos1ModelLineParams in_p;
-        input SpiceConstants in_C;
-        input Mos.MosModelLineVariables in_vp;
-        input Integer in_m_type;
+        input Mos1Calc in_c "Input record Mos1Calc";
+        input Mos1ModelLineParams in_p
+          "Input record model line parameters for MOS1";
+        input SpiceConstants in_C "Spice constants";
+        input Mos.MosModelLineVariables in_vp
+          "Input record model line variables";
+        input Integer in_m_type "Type of Mos transistor";
 
-        output Mos1Calc out_c;
+        output Mos1Calc out_c "Output record Mos1Calc";
 
       protected
         Real arg;
@@ -5996,10 +6002,11 @@ VN- -&GT; name.pc[N-1]
 
       function mos1RenameParameters "Parameter renaming to internal names"
 
-        input ModelcardMOS ex;
-        input SpiceConstants con;
+        input ModelcardMOS ex "Modelcard with technologieparameters";
+        input SpiceConstants con "Spice constants";
 
-        output Mos.MosModelLineParams intern;
+        output Mos.MosModelLineParams intern
+          "Output record model line parameters";
 
       algorithm
           intern.m_oxideCapFactor := 0;
@@ -6092,19 +6099,20 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
         "Device parameter renaming to internal names"
         input ModelcardMOS ex;
         input Integer mtype;
-        input Real W;
-        input Real L;
-        input Real AD;
-        input Real AS;
-        input Real PD;
-        input Real PS;
-        input Real NRD;
-        input Real NRS;
-        input Integer OFF;
-        input Real IC;
-        input Real TEMP;
+        input Modelica.SIunits.Length W "Channel Width";
+        input Modelica.SIunits.Length L "Channel Length";
+        input Modelica.SIunits.Area AD "Area of the drain diffusion";
+        input Modelica.SIunits.Area AS "Area of the source diffusion";
+        input Modelica.SIunits.Length PD "Perimeter of the drain junction";
+        input Modelica.SIunits.Length PS "Perimeter of the source junction";
+        input Real NRD "Number of squares of the drain diffusions";
+        input Real NRS "Number of squares of the source diffusions";
+        input Integer OFF
+          "Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet";
+        input Real IC "Initial condition values, not implemented yet";
+        input Modelica.SIunits.Temp_C TEMP "Temperature";
 
-        output Mosfet.Mosfet dev;
+        output Mosfet.Mosfet dev "Output record Mosfet";
 
       algorithm
       /*device parameters*/
@@ -6197,11 +6205,13 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
 
       function mos2ModelLineParamsInitEquations "Initial precalculation"
 
-        input Mos2ModelLineParams in_p;
-        input SpiceConstants in_C;
-        input Integer in_m_type;
+        input Mos2ModelLineParams in_p
+          "Input record model line parameters for MOS2";
+        input SpiceConstants in_C "Spice constants";
+        input Integer in_m_type "Type of MOS transistor";
 
-        output Mos2ModelLineVariables out_v;
+        output Mos2ModelLineVariables out_v
+          "Output record with model line variables";
 
       protected
         Real vtnom;
@@ -6270,18 +6280,19 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
 
       function drainCur "Drain current calculation"
 
-         input Real vbs;
-         input Real vgs;
-         input Real vds;
+         input Modelica.SIunits.Voltage vbs;
+         input Modelica.SIunits.Voltage vgs;
+         input Modelica.SIunits.Voltage vds;
 
-         input Mosfet.Mosfet in_m;
-         input Mos2Calc in_c;
-         input Mos2ModelLineParams in_p;
-         input SpiceConstants in_C;
-         input Mos2ModelLineVariables in_vp;
-         input Integer in_m_type;
+         input Mosfet.Mosfet in_m "Record mosfet";
+         input Mos2Calc in_c "Input record Mos2Calc";
+         input Mos2ModelLineParams in_p
+          "Input record model line parameters for MOS2";
+         input SpiceConstants in_C "Spice constants";
+         input Mos2ModelLineVariables in_vp "Input record model line variables";
+         input Integer in_m_type "Type of MOS transistor";
 
-         output Mos2Calc out_c;
+         output Mos2Calc out_c "Output record Mos2Calc";
 
       protected
         Real vt;      // K * T / Q
@@ -6814,10 +6825,10 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
 
       function mos2RenameParameters "Parameter renaming to internal names"
 
-        input ModelcardMOS2 ex;
-        input SpiceConstants con;
+        input ModelcardMOS2 ex "Modelcard with technologie parameters";
+        input SpiceConstants con "Spice constants";
 
-        output Mos2ModelLineParams intern;
+        output Mos2ModelLineParams intern "Output record model line parameters";
 
       algorithm
          intern.m_narrowFactor := ex.DELTA;           // DELTA, Width effect on threshold
@@ -6902,20 +6913,21 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
       function mos2RenameParametersDev
         "Device parameter renaming to internal names"
         input ModelcardMOS2 ex;
-        input Real mtype;
-        input Real W;
-        input Real L;
-        input Real AD;
-        input Real AS;
-        input Real PD;
-        input Real PS;
-        input Real NRD;
-        input Real NRS;
-        input Real OFF;
-        input Real IC;
-        input Real TEMP;
+        input Integer mtype;
+        input Modelica.SIunits.Length W "Width of channel region";
+        input Modelica.SIunits.Length L "Length of channel region";
+        input Modelica.SIunits.Area AD "Area of drain diffusion";
+        input Modelica.SIunits.Area AS "Area of source diffusion";
+        input Modelica.SIunits.Length PD "Drain perimeter";
+        input Modelica.SIunits.Length PS "Source perimeter";
+        input Real NRD "Length of drain squares";
+        input Real NRS "Length of Source squares";
+        input Real OFF
+          "Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet";
+        input Real IC "Initial condition values, not implemented yet";
+        input Modelica.SIunits.Temp_C TEMP "Temperature";
 
-        output Mosfet.Mosfet dev;
+        output Mosfet.Mosfet dev "Output record Mosfet";
 
       algorithm
       /*device parameters*/
@@ -7052,9 +7064,11 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
       function diodeModelLineInitEquations
         "Initial precalculation of model line parameters"
 
-        input DiodeModelLineParams in_p;
+        input DiodeModelLineParams in_p
+          "Input record with diode model line parameters";
 
-        output DiodeModelLineVariables out_v;
+        output DiodeModelLineVariables out_v
+          "Output record with diode model line variables";
 
       algorithm
         // limit grading coeff to max of 0.9
@@ -7079,9 +7093,10 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
 
       function diodeInitEquations "Initial calculation"
 
-        input DiodeModelLineParams in_p;
+        input DiodeModelLineParams in_p
+          "Input record with diode model line parameters";
 
-        output DiodeVariables out_v;
+        output DiodeVariables out_v "Output record with diode variables";
 
       algorithm
        out_v.m_pBvIsGiven := in_p.m_pBvIsGiven;
@@ -7098,12 +7113,13 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
 
       function diodeCalcTempDependencies "Temperature dependency calculation"
 
-        input DiodeModelLineParams in_p;
-        input DiodeParams in_dp;
-        input Model.Model in_m;
-        input DiodeVariables in_v;
+        input DiodeModelLineParams in_p
+          "Input record diode model line parameters";
+        input DiodeParams in_dp "Input record diode paramters";
+        input Model.Model in_m "Input record Model";
+        input DiodeVariables in_v "Input record diode variables";
 
-        output DiodeCalc out_c;
+        output DiodeCalc out_c "Output record with calculated values";
 
       algorithm
         (out_c.m_tJctPot,out_c.m_tJctCap) :=
@@ -7152,22 +7168,25 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
 
       function diodeNoBypassCode "Calculation of currents"
 
-        input DiodeModelLineParams in_p;
-        input DiodeParams in_dp;
-        input DiodeCalc in_c;
-        input Model.Model in_m;
+        input DiodeModelLineParams in_p
+          "Input record model line parameters for diode";
+        input DiodeParams in_dp "Input record with parameters for diode";
+        input DiodeCalc in_c "Input record DiodeCalc";
+        input Model.Model in_m "Input record model";
         input Boolean in_m_mbInit;
-        input Real[2] in_m_pVoltageValues; /* DPP, DN */
+        input Modelica.SIunits.Voltage[2] in_m_pVoltageValues; /* DPP, DN */
 
-        output CurrentsCapacitances out_cc;
+        output CurrentsCapacitances out_cc
+          "Output record with calculated currents and capacitances";
 
-        output Real m_dCap;
+        output Modelica.SIunits.Capacitance m_dCap "Output capacitance";
+
       protected
-        Real m_dPNVoltage;
-        Real m_dCurrent;
-        Real m_dCond;
-        Real m_dCharge;
-        Real m_dCapCurrent;
+        Modelica.SIunits.Voltage m_dPNVoltage "Voltage";
+        Modelica.SIunits.Current m_dCurrent "Current";
+        Modelica.SIunits.Conductance m_dCond "Conductance";
+        Modelica.SIunits.Charge m_dCharge "Charge";
+        Modelica.SIunits.Current m_dCapCurrent "Current";
 
       algorithm
         m_dPNVoltage := in_m_pVoltageValues[1] - in_m_pVoltageValues[2];
@@ -7220,12 +7239,13 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
 
       function diodeCalcAdditionalValues "Calculation of additional values"
 
-        input DiodeVariables in_v;
-        input DiodeModelLineParams in_p;
-        input DiodeParams in_dp;
-        input Real[2] in_m_pVoltageValues; /* DP, DPP */
+        input DiodeVariables in_v "Input record with diode variables";
+        input DiodeModelLineParams in_p
+          "Input record with diode model line parameters";
+        input DiodeParams in_dp "Input record with diode parameters";
+        input Modelica.SIunits.Voltage[2] in_m_pVoltageValues; /* DP, DPP */
 
-        output DiodeVariables out_v;
+        output DiodeVariables out_v "Output record with diode variables";
 
       algorithm
         out_v := in_v;
@@ -7237,10 +7257,11 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
 
       function diodeRenameParameters "Technology parameter renaming"
 
-        input ModelcardDIODE ex;
-        input SpiceConstants con;
+        input ModelcardDIODE ex "Modelcard with technologie parameters";
+        input SpiceConstants con "Spice constants";
 
-        output DiodeModelLineParams intern;
+        output DiodeModelLineParams intern
+          "Output record diode model line parameters";
 
       algorithm
          intern.m_satCur := ex.IS;
@@ -7272,13 +7293,15 @@ to the internal parameters (e.g. m_satCur). It also does the analysis of the IsG
       end diodeRenameParameters;
 
       function diodeRenameParametersDev "Temperature calculation"
-        input Real TEMP;
-        input Real AREA;
-        input Real IC;
-        input Boolean OFF;
-        input Boolean SENS_AREA;
+        input Modelica.SIunits.Temp_K TEMP "Temperature";
+        input Real AREA "Area factor";
+        input Real IC "Initial condition value (VD, not implemented yet";
+        input Boolean OFF
+          "Optional initial condition: false - IC not used, true - IC used, not implemented yet";
+        input Boolean SENS_AREA
+          "Flag to request sensitivity WRT area, not implemented yet";
 
-        output DiodeParams dev;
+        output DiodeParams dev "Output record with calculated diode parameters";
 
       algorithm
       /*device parameters*/
@@ -7298,8 +7321,8 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
 
       function diodeRenameParametersDevTemp "Temperature calculation"
 
-        input Real TEMP;
-        output Model.Model dev_temp;
+        input Modelica.SIunits.Temp_C TEMP "Temperature";
+        output Model.Model dev_temp "Input record Model";
 
       algorithm
         dev_temp.m_dTemp := TEMP + SpiceConstants.CONSTCtoK;
@@ -7364,10 +7387,11 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
 
       function resistorRenameParameters "Technology parameter renaming"
 
-      input ModelcardR ex;
-      input SpiceConstants con;
+      input ModelcardR ex "Modelcard with technologie parameters";
+      input SpiceConstants con "Spice constants";
 
-      output ResistorModelLineParams intern;
+      output ResistorModelLineParams intern
+          "Output record with resistor model line parameters";
 
       algorithm
         intern.m_dTC1 := ex.TC1;
@@ -7389,15 +7413,16 @@ to the internal parameters (e.g. m_emissionCoeff). It also does the analysis of 
 
       function resistorRenameParametersDev "Device parameter renaming"
 
-        input Real R;
-        input Real W;
-        input Real L;
-        input Real TEMP;
-        input Boolean SENS_AREA;
+        input Modelica.SIunits.Resistance R "Resistance";
+        input Modelica.SIunits.Length W "Width";
+        input Modelica.SIunits.Length L "Length";
+        input Modelica.SIunits.Temp_C TEMP "Temperature";
+        input Boolean SENS_AREA
+          "Parameter for sensitivity analyses, not implemented yet";
 
-       input SpiceConstants con;
+       input SpiceConstants con "Spice constants";
 
-       output ResistorParams intern;
+       output ResistorParams intern "Output record with resistor parameters";
 
       algorithm
          intern.m_dResIsGiven := if
@@ -7425,9 +7450,10 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
       end resistorRenameParametersDev;
 
       function resistorInitEquations "Initial calculation"
-       input ResistorParams in_p;
-       input ResistorModelLineParams in_p2;
-       output ResistorVariables out;
+       input ResistorParams in_p "Input record with resistor parameters";
+       input ResistorModelLineParams in_p2
+          "Input record with resistor model line parameters";
+       output ResistorVariables out "Output record with resistor variables";
 
       algorithm
       out.m_dWidth := in_p.m_dWidth;
@@ -7585,9 +7611,11 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
 
       function bjtModelLineInitEquations "Initial calculation"
 
-        input BjtModelLineParams in_p;
+        input BjtModelLineParams in_p
+          "Input record with Bjt model line parameters";
 
-        output BjtModelLineVariables out_v;
+        output BjtModelLineVariables out_v
+          "Output record with Bjt model line variables";
 
       protected
         Real xfc;
@@ -7713,10 +7741,12 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
 
       function bjt3InitEquations "Initial calculation"
 
-        input Bjt3 in_p;
-        input BjtModelLineParams in_pml;
-        input BjtModelLineVariables in_vl;
-        output Bjt3Variables out_v;
+        input Bjt3 in_p "Input record Bjt3";
+        input BjtModelLineParams in_pml
+          "Input record with Bjt model line parameters";
+        input BjtModelLineVariables in_vl
+          "Input record with Bjt model line variables";
+        output Bjt3Variables out_v "Output record with Bjt variables";
 
       algorithm
         // calculate the parameters that depend on the area factor
@@ -7731,12 +7761,14 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
 
       function bjt3CalcTempDependencies "Temperature dependency calculation"
 
-        input Bjt3 in_p3;
-        input BjtModelLineParams in_p;
-        input Model.Model m;
-        input BjtModelLineVariables in_vl;
+        input Bjt3 in_p3 "Input record Bjt3";
+        input BjtModelLineParams in_p
+          "Input record with Bjt model line parameters";
+        input Model.Model m "Input record model";
+        input BjtModelLineVariables in_vl
+          "Input record with Bjt model line variables";
 
-        output Bjt3Calc out_c;
+        output Bjt3Calc out_c "Output record Bjt3Calc";
 
       protected
         Real xfc;
@@ -7831,19 +7863,22 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
 
       function bjt3NoBypassCode "Calculation of currents"
 
-        input Model.Model in_m;
-        input Bjt in_p3;
-        input BjtModelLineParams in_p;
-        input Bjt3Calc in_c;
-        input BjtModelLineVariables in_vl;
-        input Real[6] in_m_pVoltageValues; /* 1 Col; 2 Base; 3 Emit; 4 ColP; 5 BaseP; 6 EmitP */
+        input Model.Model in_m "Input record model";
+        input Bjt in_p3 "Input record Bjt3";
+        input BjtModelLineParams in_p
+          "Input record with Bjt model line parameters";
+        input Bjt3Calc in_c "Input record Bjt3Calc";
+        input BjtModelLineVariables in_vl
+          "Input record with Bjt model line variables";
+        input Modelica.SIunits.Voltage[6] in_m_pVoltageValues; /* 1 Col; 2 Base; 3 Emit; 4 ColP; 5 BaseP; 6 EmitP */
         input Boolean in_m_bInit;
 
-        output CurrentsCapacitances out_cc;
+        output CurrentsCapacitances out_cc
+          "Output record with calculated currents and capacitances";
 
-        output Real capbe;
-        output Real capbc;
-        output Real capbx;
+        output Modelica.SIunits.Capacitance capbe "Capacitance";
+        output Modelica.SIunits.Capacitance capbc "Capacitance";
+        output Modelica.SIunits.Capacitance capbx "Capacitance";
 
       protected
         Real vce;
@@ -8108,13 +8143,15 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
 
       function bjtInitEquations "Initial calculation"
 
-        input Bjt in_p;
-        input BjtModelLineParams in_pml;
-        input BjtModelLineVariables in_vl;
-        output BjtVariables out_v;
+        input Bjt in_p "Input record Bjt";
+        input BjtModelLineParams in_pml
+          "Input record with Bjt model line parameters";
+        input BjtModelLineVariables in_vl
+          "Input record with Bjt model line variables";
+        output BjtVariables out_v "Output record with Bjt variables";
 
       protected
-        Bjt3Variables v3;
+        Bjt3Variables v3 "Record with Bjt variables";
 
       algorithm
         v3 := bjt3InitEquations(in_p, in_pml, in_vl);
@@ -8128,21 +8165,23 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
 
       function bjtNoBypassCode "Calculation of currents"
 
-        input Model.Model in_m;
-        input Bjt3 in_p3;
-        input BjtModelLineParams in_p;
-        input Bjt3Calc in_c;
-        input BjtVariables in_v;
+        input Model.Model in_m "Input record model";
+        input Bjt3 in_p3 "Input record Bjt3";
+        input BjtModelLineParams in_p
+          "Input record with Bjt model line parameters";
+        input Bjt3Calc in_c "Input record Bjt3Calc";
+        input BjtVariables in_v "Input record with Bjt variables";
         input BjtModelLineVariables in_vl;
-        input Real[6] in_m_pVoltageValues; /* 1 Col; 2 Base; 3 Emit; 4 Subst; 5 ColP; 6 BaseP; 7 EmitP */
+        input Modelica.SIunits.Voltage[6] in_m_pVoltageValues; /* 1 Col; 2 Base; 3 Emit; 4 Subst; 5 ColP; 6 BaseP; 7 EmitP */
 
         input Boolean in_m_bInit;
 
-        output CurrentsCapacitances out_cc;
+        output CurrentsCapacitances out_cc
+          "Output record with calculated currents and capacitances";
 
-        output Real capbe;
-        output Real capbc;
-        output Real capbx;
+        output Modelica.SIunits.Capacitance capbe "Capacitance";
+        output Modelica.SIunits.Capacitance capbc "Capacitance";
+        output Modelica.SIunits.Capacitance capbx "Capacitance";
       protected
         Real[6] bjt3_VoltageValues; /* 1 Col; 2 Base; 3 Emit; 4 ColP; 5 BaseP; 6 EmitP */
         Integer i;
@@ -8184,10 +8223,11 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
       end bjtNoBypassCode;
 
       function bjtRenameParameters "Technology parameter renaming"
-        input ModelcardBJT ex;
-        input SpiceConstants con;
+        input ModelcardBJT ex "Modelcard with technologie parameters";
+        input SpiceConstants con "Spice constants";
 
-        output BjtModelLineParams intern;
+        output BjtModelLineParams intern
+          "Output record with Bjt model line parameters";
       algorithm
 
         intern.m_type := ex.TBJT;
@@ -8255,13 +8295,15 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
       end bjtRenameParameters;
 
       function bjtRenameParametersDev "Temperature calculation"
-       input Real AREA;
-       input Boolean OFF;
-       input Real IC_VBE;
-       input Real IC_VCE;
-       input Boolean SENS_AREA;
+       input Real AREA "Area factor";
+       input Boolean OFF
+          "Optional initial condition: false - IC not used, true - IC used, not implemented yet";
+       input Real IC_VBE "Initial condition value, not yet implemented";
+       input Real IC_VCE "Initial condition value, not yet implemented";
+       input Boolean SENS_AREA
+          "Flag for sensitivity analysis, not yet implemented";
 
-       output Bjt3 dev;
+       output Bjt3 dev "Output record Bjt3";
 
       algorithm
         dev.m_area := AREA;
@@ -8282,9 +8324,9 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
       end bjtRenameParametersDev;
 
       function bjtRenameParametersDevTemp "Temperature calculation"
-       input Real TEMP;
+       input Modelica.SIunits.Temp_C TEMP "Temperature";
 
-      output Model.Model m;
+      output Model.Model m "Output record model";
       algorithm
 
        m.m_dTemp :=TEMP + SpiceRoot.SPICEcircuitCONST.CONSTCtoK;
