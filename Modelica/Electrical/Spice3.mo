@@ -5383,11 +5383,11 @@ VN- -&GT; name.pc[N-1]
 
          (int_c.m_cbd, int_c.m_gbd) := Modelica.Electrical.Spice3.Internal.Functions.junction2SPICE3MOSFET(
                                                                        int_c.m_cbd, int_c.m_gbd, vbd,
-                                       in_m.m_dTemp, 1., int_c.m_tDrainSatCur);
+                                       in_m.m_dTemp, 1.0, int_c.m_tDrainSatCur);
          out_cc.iBD                 := in_m_type * int_c.m_cbd;
          (int_c.m_cbs, int_c.m_gbs) := Modelica.Electrical.Spice3.Internal.Functions.junction2SPICE3MOSFET(
                                                                        int_c.m_cbs, int_c.m_gbs, int_c.m_vbs,
-                                       in_m.m_dTemp, 1., int_c.m_tSourceSatCur);
+                                       in_m.m_dTemp, 1.0, int_c.m_tSourceSatCur);
          out_cc.iBS                 := in_m_type * int_c.m_cbs;
 
         int_c.m_mode := if (int_c.m_vds >= 0) then 1 else -1; // 1: normal mode, -1: inverse mode
@@ -5739,11 +5739,11 @@ VN- -&GT; name.pc[N-1]
 
          (int_c.m_cbd, int_c.m_gbd) := Modelica.Electrical.Spice3.Internal.Functions.junction2SPICE3MOSFET(
                                                                        int_c.m_cbd, int_c.m_gbd, vbd,
-                                       in_m.m_dTemp, 1., int_c.m_tDrainSatCur);
+                                       in_m.m_dTemp, 1.0, int_c.m_tDrainSatCur);
          out_cc.iBD                 := in_m_type * int_c.m_cbd;
          (int_c.m_cbs, int_c.m_gbs) := Modelica.Electrical.Spice3.Internal.Functions.junction2SPICE3MOSFET(
                                                                        int_c.m_cbs, int_c.m_gbs, int_c.m_vbs,
-                                       in_m.m_dTemp, 1., int_c.m_tSourceSatCur);
+                                       in_m.m_dTemp, 1.0, int_c.m_tSourceSatCur);
          out_cc.iBS                 := in_m_type * int_c.m_cbs;
 
         int_c.m_mode := if (int_c.m_vds >= 0) then 1 else -1; // 1: normal mode, -1: inverse mode
