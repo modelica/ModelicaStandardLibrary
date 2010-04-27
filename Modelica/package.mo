@@ -1571,14 +1571,14 @@ situations are present:
 <li> The parameter value could be anything (e.g., a spring constant or
   a resistance value) and therefore the user should provide a value in
   all cases. A Modelica translator should warn, if no value is provided.
-  <br><br></li>
+</li>
 
 <li> The parameter value is not changed in &gt; 95 % of the cases
   (e.g. initialization or visualization parameters, or parameter phi_rel0
   in the example above). In this case a default parameter value should be
   provided, in order that the model or function can be conveniently
   used by a modeler.
-  <br><br></li>
+</li>
 
 <li> A modeler would like to quickly utilize a model, e.g.,
   <ul>
