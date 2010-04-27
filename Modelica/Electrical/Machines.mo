@@ -1877,99 +1877,97 @@ Since both the field and the armature current are sinusoidal, the waveform of th
 Due to the additional inductive voltage drops, output of the motor is lower, compared to the same motor (DCSE_Start) at DC voltage.
 </HTML>"));
       end DCSE_SinglePhase;
+    /*
+  model DC_CompareCharacteristics 
+    "Test example: Compare torque-speed characteristic of DC motors"
+    extends Modelica.Icons.Example;
+    parameter Modelica.SIunits.Voltage Va=100 "Actual armature voltage";
+    parameter Modelica.SIunits.Voltage Ve=100 "Actual excitation voltage";
+    parameter Modelica.SIunits.AngularVelocity w0=Modelica.SIunits.Conversions.from_rpm(1500) 
+      "No-load speed";
+    parameter Modelica.SIunits.Torque TLoad=63.66 "Nominal load torque";
+    parameter Modelica.SIunits.Time tStart=0.5 "Start ofload torque ramp ramp";
+    parameter Modelica.SIunits.Time tRamp=2.0 "Load torque ramp";
+    parameter Modelica.SIunits.Inertia JLoad=0.15 "Load's moment of inertia";
 
-      model DC_CompareCharacteristics
-        "Test example: Compare torque-speed characteristic of DC motors"
-        extends Modelica.Icons.Example;
-        parameter Modelica.SIunits.Voltage Va=100 "Actual armature voltage";
-        parameter Modelica.SIunits.Voltage Ve=100 "Actual excitation voltage";
-        parameter Modelica.SIunits.AngularVelocity w0=Modelica.SIunits.Conversions.from_rpm(1500)
-          "No-load speed";
-        parameter Modelica.SIunits.Torque TLoad=63.66 "Nominal load torque";
-        parameter Modelica.SIunits.Time tStart=0.5
-          "Start ofload torque ramp ramp";
-        parameter Modelica.SIunits.Time tRamp=2.0 "Load torque ramp";
-        parameter Modelica.SIunits.Inertia JLoad=0.15
-          "Load's moment of inertia";
+    Machines.BasicMachines.DCMachines.DC_ElectricalExcited dcee(wMechanical(start=
+           w0, fixed=true), ie(start=1, fixed=true))
+      annotation (Placement(transformation(extent={{-20,-10},{0,10}},
+            rotation=0)));
+    Modelica.Electrical.Analog.Sources.ConstantVoltage armatureVoltage(V=Va)
+      annotation (Placement(transformation(extent={{10,-10},{-10,10}},
+                                                                     rotation=90,
+          origin={-80,70})));
+    Modelica.Electrical.Analog.Basic.Ground groundArmature
+      annotation (Placement(transformation(
+          origin={-80,40},
+          extent={{-10,-10},{10,10}},
+          rotation=0)));
+    Modelica.Electrical.Analog.Sources.ConstantVoltage excitationVoltage(V=Ve)
+      annotation (Placement(transformation(
+          origin={-80,-50},
+          extent={{-10,-10},{10,10}},
+          rotation=270)));
+    Modelica.Electrical.Analog.Basic.Ground groundExcitation
+      annotation (Placement(transformation(
+          origin={-80,-80},
+          extent={{-10,-10},{10,10}},
+          rotation=0)));
+    Modelica.Mechanics.Rotational.Components.Inertia loadInertia1(J=JLoad)
+      annotation (Placement(transformation(extent={{10,-10},{30,10}},
+            rotation=0)));
+    Modelica.Mechanics.Rotational.Sources.Torque loadTorque1(useSupport=false)
+      annotation (Placement(transformation(extent={{60,-10},{40,10}}, rotation=0)));
+    Modelica.Blocks.Sources.Ramp ramp(
+      startTime=tStart,
+      height=-TLoad,
+      duration=tRamp,
+      offset=0) annotation (Placement(transformation(extent={{100,-10},{80,10}})));
+  equation 
+    connect(loadInertia1.flange_b, loadTorque1.flange)
+      annotation (Line(points={{30,0},{30,0},{40,0}},
+                                                   color={0,0,0}));
+    connect(dcee.flange, loadInertia1.flange_a)
+                                               annotation (Line(
+        points={{0,0},{10,0}},
+        color={0,0,0},
+        smooth=Smooth.None));
 
-        Machines.BasicMachines.DCMachines.DC_ElectricalExcited dcee(wMechanical(start=
-               w0, fixed=true), ie(start=1, fixed=true))
-          annotation (Placement(transformation(extent={{-20,-10},{0,10}},
-                rotation=0)));
-        Modelica.Electrical.Analog.Sources.ConstantVoltage armatureVoltage(V=Va)
-          annotation (Placement(transformation(extent={{10,-10},{-10,10}},
-                                                                         rotation=90,
-              origin={-80,70})));
-        Modelica.Electrical.Analog.Basic.Ground groundArmature
-          annotation (Placement(transformation(
-              origin={-80,40},
-              extent={{-10,-10},{10,10}},
-              rotation=0)));
-        Modelica.Electrical.Analog.Sources.ConstantVoltage excitationVoltage(V=Ve)
-          annotation (Placement(transformation(
-              origin={-80,-50},
-              extent={{-10,-10},{10,10}},
-              rotation=270)));
-        Modelica.Electrical.Analog.Basic.Ground groundExcitation
-          annotation (Placement(transformation(
-              origin={-80,-80},
-              extent={{-10,-10},{10,10}},
-              rotation=0)));
-        Modelica.Mechanics.Rotational.Components.Inertia loadInertia1(J=JLoad)
-          annotation (Placement(transformation(extent={{10,-10},{30,10}},
-                rotation=0)));
-        Modelica.Mechanics.Rotational.Sources.Torque loadTorque1(useSupport=false)
-          annotation (Placement(transformation(extent={{60,-10},{40,10}}, rotation=0)));
-        Modelica.Blocks.Sources.Ramp ramp(
-          startTime=tStart,
-          height=-TLoad,
-          duration=tRamp,
-          offset=0) annotation (Placement(transformation(extent={{100,-10},{80,10}})));
-      equation
-        connect(loadInertia1.flange_b, loadTorque1.flange)
-          annotation (Line(points={{30,0},{30,0},{40,0}},
-                                                       color={0,0,0}));
-        connect(dcee.flange, loadInertia1.flange_a)
-                                                   annotation (Line(
-            points={{0,0},{10,0}},
-            color={0,0,0},
-            smooth=Smooth.None));
-
-        connect(ramp.y, loadTorque1.tau)
-                                        annotation (Line(
-            points={{79,0},{62,0}},
-            color={0,0,127},
-            smooth=Smooth.None));
-        connect(armatureVoltage.n, groundArmature.p) annotation (Line(
-            points={{-80,60},{-80,50}},
-            color={0,0,255},
-            smooth=Smooth.None));
-        connect(excitationVoltage.n, groundExcitation.p) annotation (Line(
-            points={{-80,-60},{-80,-70}},
-            color={0,0,255},
-            smooth=Smooth.None));
-        connect(armatureVoltage.p, dcee.pin_ap) annotation (Line(
-            points={{-80,80},{-30,80},{-30,20},{-4,20},{-4,10}},
-            color={0,0,255},
-            smooth=Smooth.None));
-        connect(armatureVoltage.n, dcee.pin_an) annotation (Line(
-            points={{-80,60},{-40,60},{-40,10},{-16,10}},
-            color={0,0,255},
-            smooth=Smooth.None));
-        connect(excitationVoltage.p, dcee.pin_ep) annotation (Line(
-            points={{-80,-40},{-60,-40},{-60,6},{-20,6}},
-            color={0,0,255},
-            smooth=Smooth.None));
-        connect(excitationVoltage.n, dcee.pin_en) annotation (Line(
-            points={{-80,-60},{-50,-60},{-50,-6},{-20,-6}},
-            color={0,0,255},
-            smooth=Smooth.None));
-        annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}}),
-                  graphics),
-          experiment(StopTime=3, Interval=0.001),
-          Documentation(info="<HTML>
+    connect(ramp.y, loadTorque1.tau)
+                                    annotation (Line(
+        points={{79,0},{62,0}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(armatureVoltage.n, groundArmature.p) annotation (Line(
+        points={{-80,60},{-80,50}},
+        color={0,0,255},
+        smooth=Smooth.None));
+    connect(excitationVoltage.n, groundExcitation.p) annotation (Line(
+        points={{-80,-60},{-80,-70}},
+        color={0,0,255},
+        smooth=Smooth.None));
+    connect(armatureVoltage.p, dcee.pin_ap) annotation (Line(
+        points={{-80,80},{-30,80},{-30,20},{-4,20},{-4,10}},
+        color={0,0,255},
+        smooth=Smooth.None));
+    connect(armatureVoltage.n, dcee.pin_an) annotation (Line(
+        points={{-80,60},{-40,60},{-40,10},{-16,10}},
+        color={0,0,255},
+        smooth=Smooth.None));
+    connect(excitationVoltage.p, dcee.pin_ep) annotation (Line(
+        points={{-80,-40},{-60,-40},{-60,6},{-20,6}},
+        color={0,0,255},
+        smooth=Smooth.None));
+    connect(excitationVoltage.n, dcee.pin_en) annotation (Line(
+        points={{-80,-60},{-50,-60},{-50,-6},{-20,-6}},
+        color={0,0,255},
+        smooth=Smooth.None));
+    annotation (
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+              {100,100}}),
+              graphics),
+      experiment(StopTime=3, Interval=0.001),
+      Documentation(info="<HTML>
 <b>Test example: Compare characteristic of DC motors</b><br>
 The motors are started at no-load speed, then a load ramp is applied.<br>
 Simulate for 3 seconds and plot (versus time):
@@ -1979,9 +1977,10 @@ Simulate for 3 seconds and plot (versus time):
 <li>dcxx.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters are used.
-</HTML>"),experimentSetupOutput);
-      end DC_CompareCharacteristics;
-
+</HTML>"),
+      experimentSetupOutput);
+  end DC_CompareCharacteristics;
+*/
       model DCPM_Temperature
         "Test example: Investigate temperature dependecy of a DCPM motor"
         extends Modelica.Icons.Example;
@@ -9605,7 +9604,7 @@ Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.In
         "Reference angular velocity that reference core losses PRef refer to";
       // In the current implementation ratioHysterisis = 0 since hysteresis losses are not implemented yet
       final parameter Real ratioHysteresis(min=0, max=1) = 0
-        "Ratio of hysteresis losses with respect to the total core losses at VRef and fRef";
+        "Ratio of hysteresis losses with respect to the total core losses at VRef and fRef";//0.775
       final parameter Modelica.SIunits.Conductance GcRef =  if (PRef<=0) then 0 else PRef / VRef^2 / m
         "Reference conductance at reference frequency and voltage";
       final parameter Modelica.SIunits.AngularVelocity wMin=1e-6*wRef;
@@ -9809,6 +9808,26 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
       protected
         parameter Modelica.SIunits.Inductance L[2,2]={{Lmd,0},{0,Lmq}}
           "Inductance matrix";
+        final parameter Real psiMinRel = 1E-3
+          "Minimum flux w.r.t. nominal flux";
+        final parameter Modelica.SIunits.MagneticFlux psiMin = psiMinRel*statorCoreParameters.VRef/statorCoreParameters.wRef
+          "Minimum flux for numerical reasons";
+        Modelica.SIunits.MagneticFlux psi_ms_abs
+          "Length of flux phasor w.r.t. stator fixed frame";
+        Modelica.SIunits.Angle psi_ms_arg
+          "Angle of flux phasor w.r.t. stator fixed frame";
+        Modelica.SIunits.AngularVelocity ws
+          "Remagnetization angular velocity of stator";
+        Modelica.SIunits.AngularVelocity wsLimit = noEvent(max(noEvent(abs(ws)),statorCoreParameters.wMin))
+          "Limited remagnetization angular velocity of stator";
+        Modelica.SIunits.MagneticFlux psi_mr_abs
+          "Length of flux phasor w.r.t. rotor fixed frame";
+        Modelica.SIunits.Angle psi_mr_arg
+          "Angle of flux phasor w.r.t. rotor fixed frame";
+        Modelica.SIunits.AngularVelocity wr
+          "Remagnetization angular velocity of rotor";
+        Modelica.SIunits.AngularVelocity wrLimit = noEvent(max(noEvent(abs(wr)),rotorCoreParameters.wMin))
+          "Limited remagnetization angular velocity of rotor";
       equation
         // mechanical angle of the rotor of an equivalent 2-pole machine
         gamma=p*(flange.phi-support.phi);
@@ -9834,12 +9853,31 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
         tauElectrical = m/2*p*((i_ss[2] - i_scs[2])*psi_ms[1] - (i_ss[1] - i_scs[1])*psi_ms[2]);
         flange.tau = -tauElectrical;
         support.tau = tauElectrical;
+        // Remagnetization angular velocity of stator
+        psi_ms_abs = sqrt(psi_ms[1]^2 + psi_ms[2]^2);
+        if noEvent(psi_ms_abs <= psiMin) then
+          psi_ms_arg = 0;
+          ws = 0;
+        else
+          psi_ms_arg = Modelica.Math.atan2(psi_ms[2], psi_ms[1]);
+          ws = (der(psi_ms[2])*cos(psi_ms_arg) - der(psi_ms[1])*sin(psi_ms_arg))/psi_ms_abs;
+        end if;
+        // Remagnetization angular velocity of rotor
+        psi_mr_abs = sqrt(psi_mr[1]^2 + psi_mr[2]^2);
+        if noEvent(psi_mr_abs <= psiMin) then
+          psi_mr_arg = 0;
+          wr = 0;
+        else
+          psi_mr_arg = Modelica.Math.atan2(psi_mr[2], psi_mr[1]);
+          wr = (der(psi_mr[2])*cos(psi_mr_arg) - der(psi_mr[1])*sin(psi_mr_arg))/psi_mr_abs;
+        end if;
         // Stator core losses
         if (statorCoreParameters.PRef<=0) then
           Gcs = 0;
           i_scs = zeros(2);
         else
-          Gcs = statorCoreParameters.GcRef;// * (statorCoreParameters.wRef/wsLimit*statorCoreParameters.ratioHysteresis + 1 - statorCoreParameters.ratioHysteresis);
+          Gcs = statorCoreParameters.GcRef
+              * (statorCoreParameters.wRef/wsLimit*statorCoreParameters.ratioHysteresis + 1 - statorCoreParameters.ratioHysteresis);
           i_scs = Gcs*spacePhasor_s.v_;
         end if;
         heatPortS.Q_flow = -m/2*(+spacePhasor_s.v_[1]*i_scs[1]+spacePhasor_s.v_[2]*i_scs[2]);
@@ -9848,7 +9886,8 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
           Gcr = 0;
           i_rcr = zeros(2);
         else
-          Gcr = rotorCoreParameters.GcRef;// * (rotorCoreParameters.wRef/wrLimit*rotorCoreParameters.ratioHysteresis + 1 - rotorCoreParameters.ratioHysteresis);
+          Gcr = rotorCoreParameters.GcRef
+              * (rotorCoreParameters.wRef/wrLimit*rotorCoreParameters.ratioHysteresis + 1 - rotorCoreParameters.ratioHysteresis);
           i_rcr = Gcr*spacePhasor_r.v_;
         end if;
         heatPortR.Q_flow = -m/2*(+spacePhasor_r.v_[1]*i_rcr[1]+spacePhasor_r.v_[2]*i_rcr[2]);
