@@ -3076,7 +3076,6 @@ This package contains test examples of electric machines.
                 0,-80}},
             color={191,0,0},
             smooth=Smooth.None));
-
         annotation (defaultComponentName="aimc",
           Documentation(info="<HTML>
 <b>Model of a three phase asynchronous induction machine with squirrel cage.</b><br>
@@ -7608,7 +7607,7 @@ Model of the airgap in rotor-fixed coordinate system, using only equations.
         assert((1 + alpha*(T_heatPort - T_ref)) >= Modelica.Constants.eps, "Temperature outside scope of model!");
         Rr_actual = Rr*(1 + alpha*(T_heatPort - T_ref));
         spacePhasor_r.v_ = Rr_actual*spacePhasor_r.i_ + Lrsigma*der(spacePhasor_r.i_);
-        LossPower = Rr_actual*(spacePhasor_r.i_[1]*spacePhasor_r.i_[1] + spacePhasor_r.i_[2]*spacePhasor_r.i_[2]);
+        2/3*LossPower = Rr_actual*(spacePhasor_r.i_[1]*spacePhasor_r.i_[1] + spacePhasor_r.i_[2]*spacePhasor_r.i_[2]);
         annotation (
           Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}),
@@ -7680,7 +7679,7 @@ Material properties alpha of both axis are the same.
         Rrq_actual = Rrq*(1 + alpha*(T_heatPort - T_ref));
         spacePhasor_r.v_[1] = Rrd_actual * spacePhasor_r.i_[1] + Lrsigmad * der(spacePhasor_r.i_[1]);
         spacePhasor_r.v_[2] = Rrq_actual * spacePhasor_r.i_[2] + Lrsigmaq * der(spacePhasor_r.i_[2]);
-        LossPower = Rrd_actual*spacePhasor_r.i_[1]*spacePhasor_r.i_[1] + Rrq_actual*spacePhasor_r.i_[2]*spacePhasor_r.i_[2];
+        2/3*LossPower = Rrd_actual*spacePhasor_r.i_[1]*spacePhasor_r.i_[1] + Rrq_actual*spacePhasor_r.i_[2]*spacePhasor_r.i_[2];
         annotation (
           Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
                   -100},{100,100}}),
