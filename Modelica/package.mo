@@ -434,7 +434,7 @@ In a more equation oriented case additional equations or code segments can be ad
 
 <ul>
   <li>if <code>usePolar == true</code>, assign magnitude and angle to output <br>
-                               
+
   <img src=\"modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i1_polar.png\"> <br>
   <img src=\"modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i2_polar.png\">
   </li>
@@ -510,7 +510,7 @@ In the context of <a href=\"http://www.w3c.org/\">HTML</a> documentation
 equations should have a graphical representation in PNG format. For that purpose tool
 specific math typing capabilites can be used. Alternatively the LaTeX to HTML translator
 <a href=\"http://www.latex2html.org\">LaTeX2HTML</a>, or the
-<a href=\"http://www.homeschoolmath.net/worksheets/equation_editor.php\">Online Equation Editor</a> 
+<a href=\"http://www.homeschoolmath.net/worksheets/equation_editor.php\">Online Equation Editor</a>
 or <a href=\"http://www.codecogs.com/components/eqneditor/editor.php\">codecogs</a> can be used.
 </p>
 
@@ -5109,7 +5109,7 @@ web: <a href=\"http://www.Modelica.org\">http://www.Modelica.org</a></p>
 
 <p style=\"margin-left: 40px;\"><b>Copyright notices of the files:</b><br>
 Copyright &copy; 1998-2010,
-ABB, Austrian Institue of Technology, T.&nbsp;B&ouml;drich, DLR, Dynasim, Fraunhofer, A.&nbsp;Haumer, Modelon, 
+ABB, Austrian Institue of Technology, T.&nbsp;B&ouml;drich, DLR, Dynasim, Fraunhofer, A.&nbsp;Haumer, Modelon,
 TU Hamburg-Harburg, Politecnico di Milano, XRG Simulation.<br>
 <br>
 </p>
@@ -5832,7 +5832,7 @@ class Contact "Contact"
 <td valign=\"top\"><p>Modelica.Fluid</p></td>
 </tr>
 <tr>
-<td valign=\"top\"><p><b>Michael Tiller</b></p><p>Emmeskay, Inc., Dearborn, MI, U.S.A,</p><p>(previously Ford Motor Company, Dearborn)</p></td>
+<td valign=\"top\"><p><b>Michael Tiller</b></p><p>Emmeskay, Inc., Plymouth, MI, U.S.A,</p><p>(previously Ford Motor Company, Plymouth)</p></td>
 <td valign=\"top\"><p>Modelica.Media</p><p>Modelica.Thermal.HeatTransfer</p></td>
 </tr>
 <tr>
