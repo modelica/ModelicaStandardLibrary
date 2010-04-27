@@ -675,7 +675,7 @@ This is discussed in the description of package
       "Initial or guess value for state of derivative block"
       annotation (Dialog(group="Initialization"));
     parameter Real y_start=0 "Initial value of output"
-      annotation(Dialog(enable=initType == Init.InitialOutput, group=
+      annotation(Dialog(enable=initType == InitPID.InitialOutput, group=
             "Initialization"));
 
     Blocks.Math.Gain P(k=1) "Proportional part of PID controller"

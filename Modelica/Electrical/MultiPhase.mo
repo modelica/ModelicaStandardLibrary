@@ -1114,8 +1114,8 @@ Cmin is a parameter with default value Modelica.Constants.eps.
             origin={0,100},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Electrical.Analog.Basic.VariableInductor variableInductor[m](final Lmin
-          =    Lmin)
+      Modelica.Electrical.Analog.Basic.VariableInductor variableInductor[m](final Lmin=
+               Lmin)
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
               rotation=0)));
 
@@ -2308,9 +2308,6 @@ This package contains multiphase potential, voltage, and current sensors.
               extent={{-150,-110},{150,-50}},
               textString="%name",
               lineColor={0,0,255}),
-            Text(
-              extent={{-100,100},{-20,60}},
-              lineColor={0,0,0}),
             Text(
               extent={{20,100},{100,60}},
               lineColor={0,0,0},

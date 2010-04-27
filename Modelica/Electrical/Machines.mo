@@ -853,6 +853,264 @@ the machine starts from standstill, accelerating inertias against load torque qu
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
 </HTML>"));
       end AIMC_Steinmetz;
+
+      model AIMC_withLosses
+        "Test example: AsynchronousInductionMachineSquirrelCage with losses"
+        extends Modelica.Icons.Example;
+        import Modelica.SIunits.Conversions.from_rpm;
+        import Modelica.SIunits.Conversions.to_rpm;
+        import Modelica.SIunits.Conversions.from_degC;
+      protected
+        constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
+        constant Integer m=3 "Number of phases";
+        parameter Modelica.SIunits.Inertia J=0.12 "Moment of inertia";
+        parameter Modelica.SIunits.Power PNominal=18500 "Nominal output";
+        parameter Modelica.SIunits.Voltage VNominal=400 "Nominal RMS voltage";
+        parameter Modelica.SIunits.Power PcoreRef=410 "Nominal core losses";
+        parameter Modelica.SIunits.Voltage VcoreNominal=375.7
+          "Nominal inner RMS voltage";
+        parameter Modelica.SIunits.Power PstrayRef=180
+          "Nominal stray load losses";
+        parameter Modelica.SIunits.Current INominal=32.85 "Nominal RMS current";
+        parameter Real pfNominal=0.898 "Nominal power factor";
+        parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
+        parameter Modelica.SIunits.AngularVelocity wNominal=from_rpm(1462.5)
+          "Nominal speed";
+        parameter Modelica.SIunits.Torque TNominal=PNominal/wNominal
+          "Nominal torque";
+        parameter Modelica.SIunits.Temperature TempNominal = from_degC(90)
+          "Nominal temperature";
+        Modelica.SIunits.Power Pel=electricalPowerSensor.P;
+        Modelica.SIunits.ReactivePower Qel=electricalPowerSensor.Q;
+        Modelica.SIunits.ApparentPower Sel=sqrt(Pel^2+Qel^2);
+        parameter Real Ptable[:]={  1E-6,  1845,  3549,  5325,  7521,  9372, 11010, 12930, 14950, 16360, 18500, 18560, 20180, 22170};
+        parameter Real Itable[:]={  11.0, 11.20, 12.27, 13.87, 16.41, 18.78, 21.07, 23.92, 27.05, 29.40, 32.85, 32.95, 35.92, 39.35};
+        parameter Real ntable[:]={  1500,  1496,  1493,  1490,  1486,  1482,  1479,  1475,  1471,  1467,  1462,  1462,  1458,  1453};
+        parameter Real ctable[:]={ 0.085, 0.327, 0.506, 0.636, 0.741, 0.797, 0.831, 0.857, 0.875, 0.887, 0.896, 0.896, 0.902, 0.906};
+        parameter Real etable[:]={     0,0.7250,0.8268,0.8698,0.8929,0.9028,0.9064,0.9088,0.9089,0.9070,0.9044,0.9043,0.9008,0.8972};
+      public
+        output Modelica.SIunits.Power Pmech= powerSensor.power
+          "Mechanical output";
+        output Modelica.SIunits.Current I_sim= currentQuasiRMSSensor.I
+          "Simulated current";
+        output Modelica.SIunits.Current I_meas=combiTable1Ds.y[1]
+          "Measured current";
+        output Modelica.SIunits.AngularVelocity w_sim(displayUnit="1/min") = aimc.wMechanical
+          "Simulated speed";
+        output Modelica.SIunits.Current w_meas=combiTable1Ds.y[2]
+          "Measured speed";
+        output Real pf_sim=if noEvent(Sel>Modelica.Constants.small) then Pel/Sel else 0
+          "Simulated power factor";
+        output Modelica.SIunits.Current pf_meas=combiTable1Ds.y[3]
+          "Measured power factor";
+        output Real eff_sim=if noEvent(abs(Pel)>Modelica.Constants.small) then Pmech/Pel else 0
+          "Simulated efficiency";
+        output Modelica.SIunits.Current eff_meas=combiTable1Ds.y[4]
+          "Measured efficiency";
+        Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
+          aimc(
+          Jr=J,
+          p=2,
+          fsNominal=fNominal,
+          TsOperational=TempNominal,
+          TrOperational=TempNominal,
+          frictionParameters(PRef=PstrayRef, wRef=wNominal),
+          statorCoreParameters(
+            PRef=PcoreRef,
+            VRef=VcoreNominal,
+            wRef=2*pi*fNominal),
+          strayLoadParameters(
+            PRef=0.005*sqrt(3)*VNominal*INominal*pfNominal,
+            IRef=INominal/sqrt(3),
+            wRef=wNominal),
+          Rs=0.56,
+          alpha20s(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper,
+          Lssigma=1.52/(2*pi*fNominal),
+          Lm=66.4/(2*pi*fNominal),
+          Lrsigma=2.31/(2*pi*fNominal),
+          Rr=0.42,
+          alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Aluminium,
+          wMechanical(start=wNominal, fixed=true),
+          TsRef=293.15,
+          TrRef=293.15)
+          annotation (Placement(transformation(extent={{-40,0},{-20,20}},
+                rotation=0)));
+
+        Machines.Utilities.TerminalBox terminalBox(terminalConnection="D")
+          annotation (Placement(transformation(extent={{-40,20},{-20,40}},
+                rotation=0)));
+        Sensors.ElectricalPowerSensor electricalPowerSensor annotation (Placement(
+              transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={-30,40})));
+        Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor
+          annotation (Placement(transformation(
+              origin={-30,70},
+              extent={{-10,10},{10,-10}},
+              rotation=270)));
+        Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+          final m=m,
+          freqHz=fill(fNominal, m),
+          V=fill(sqrt(2/3)*VNominal, m))
+          annotation (Placement(transformation(
+              origin={-70,70},
+              extent={{-10,-10},{10,10}},
+              rotation=270)));
+        Modelica.Electrical.MultiPhase.Basic.Star star(final m=m)
+          annotation (Placement(transformation(extent={{10,-10},{-10,10}},
+                rotation=90,
+              origin={-70,30})));
+        Modelica.Electrical.Analog.Basic.Ground ground
+          annotation (Placement(transformation(
+              origin={-70,0},
+              extent={{-10,-10},{10,10}},
+              rotation=0)));
+        Modelica.Mechanics.Rotational.Sensors.PowerSensor powerSensor
+          annotation (Placement(transformation(extent={{-10,0},{10,20}})));
+        Modelica.Mechanics.Rotational.Components.Inertia loadInertia(J=J)
+          annotation (Placement(transformation(extent={{20,0},{40,20}},
+                rotation=0)));
+        Modelica.Mechanics.Rotational.Sources.Torque torque
+          annotation (Placement(transformation(extent={{70,0},{50,20}})));
+        Modelica.Blocks.Math.Gain gain(k=-1)
+          annotation (Placement(transformation(extent={{50,-60},{70,-40}})));
+        Modelica.Blocks.Continuous.PI PI(k=0.01, T=0.01)
+          annotation (Placement(transformation(extent={{20,-60},{40,-40}})));
+        Modelica.Blocks.Math.Feedback feedback
+          annotation (Placement(transformation(extent={{-10,-40},{10,-60}})));
+        Modelica.Blocks.Sources.Ramp ramp(
+          height=1.2*PNominal,
+          offset=0,
+          startTime=4.5,
+          duration=5.5)
+          annotation (Placement(transformation(extent={{-40,-62},{-20,-42}})));
+        Blocks.Tables.CombiTable1Ds combiTable1Ds(table={{Ptable[j],Itable[j],ntable[
+              j],ctable[j],etable[j]} for j in 1:size(Ptable, 1)}, smoothness=
+              Modelica.Blocks.Types.Smoothness.ContinuousDerivative)
+          annotation (Placement(transformation(extent={{20,-30},{40,-10}})));
+      equation
+        connect(star.pin_n, ground.p)
+          annotation (Line(points={{-70,20},{-70,10}}, color={0,0,255}));
+        connect(sineVoltage.plug_n, star.plug_p)
+          annotation (Line(points={{-70,60},{-70,40}},
+              color={0,0,255}));
+        connect(terminalBox.plug_sn, aimc.plug_sn)   annotation (Line(
+            points={{-36,20},{-36,20}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(terminalBox.plug_sp, aimc.plug_sp)   annotation (Line(
+            points={{-24,20},{-24,20}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(currentQuasiRMSSensor.plug_n, electricalPowerSensor.plug_p)
+          annotation (Line(
+            points={{-30,60},{-30,57.5},{-30,57.5},{-30,55},{-30,50},{-30,50}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(electricalPowerSensor.plug_nv, star.plug_p) annotation (Line(
+            points={{-40,40},{-70,40}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(electricalPowerSensor.plug_ni, terminalBox.plugSupply) annotation (
+            Line(
+            points={{-30,30},{-30,26},{-30,26},{-30,22}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(aimc.flange, powerSensor.flange_a) annotation (Line(
+            points={{-20,10},{-10,10}},
+            color={0,0,0},
+            smooth=Smooth.None));
+        connect(powerSensor.flange_b, loadInertia.flange_a) annotation (Line(
+            points={{10,10},{20,10}},
+            color={0,0,0},
+            smooth=Smooth.None));
+        connect(torque.flange, loadInertia.flange_b) annotation (Line(
+            points={{50,10},{40,10}},
+            color={0,0,0},
+            smooth=Smooth.None));
+        connect(gain.y, torque.tau) annotation (Line(
+            points={{71,-50},{80,-50},{80,10},{72,10}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(sineVoltage.plug_p, currentQuasiRMSSensor.plug_p) annotation (Line(
+            points={{-70,80},{-30,80}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(powerSensor.power, feedback.u2) annotation (Line(
+            points={{-8,-1},{-8,-20},{0,-20},{0,-42}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(feedback.y, PI.u) annotation (Line(
+            points={{9,-50},{18,-50}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(PI.y, gain.u) annotation (Line(
+            points={{41,-50},{48,-50}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(ramp.y, feedback.u1) annotation (Line(
+            points={{-19,-52},{-14,-52},{-14,-50},{-8,-50}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(powerSensor.power, combiTable1Ds.u) annotation (Line(
+            points={{-8,-1},{-8,-20},{18,-20}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        annotation (
+          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+                  100}}),
+                  graphics),
+          experiment(StopTime=5, Interval=0.001),
+          Documentation(info="<HTML>
+<p>Test example: Asynchronous induction machine with squirrel cage - characteristics with losses</p>
+<ul>
+<li>Simulate for 5 seconds: The machine is started at nominal speed, flux is build up in the machine.</li>
+<li>Condinue the simulation for additional 5 seconds: Subsequently a load ramp is applied.</li> 
+<li>Compare by plotting versus Pmech:<li>
+</ul>
+<table>
+<tr><td>Current      </td><td>I_sim   </td><td>I_meas  </td></tr>
+<tr><td>Speed        </td><td>w_sim   </td><td>w_meas  </td></tr>
+<tr><td>Power factor </td><td>pf_sim  </td><td>pf_meas </td></tr>
+<tr><td>Efficiency   </td><td>eff_sim </td><td>eff_meas</td></tr>
+</table>
+<p>Machine parameters are taken from a standard 18.5 kW 400 V 50 Hz motor, simulation results are compared with measurements.<p>
+<table>
+<tr><td>Nominal stator current            </td><td>     32.85  </td><td>A      </td></tr>
+<tr><td>Power factor                      </td><td>      0.898 </td><td>       </td></tr>
+<tr><td>Speed                             </td><td>   1462.4   </td><td>rpm    </td></tr>
+<tr><td>Electrical input                  </td><td> 20,443.95  </td><td>W      </td></tr>
+<tr><td>Stator copper losses              </td><td>    770.13  </td><td>W      </td></tr>
+<tr><td>Stator core losses                </td><td>    410.00  </td><td>W      </td></tr>
+<tr><td>Rotor  sopper losses              </td><td>    481.60  </td><td>W      </td></tr>
+<tr><td>Stray load losses                 </td><td>    102.22  </td><td>W      </td></tr>
+<tr><td>Friction losses                   </td><td>    180.00  </td><td>W      </td></tr>
+<tr><td>Mechanical output                 </td><td> 18,500.00  </td><td>W      </td></tr>
+<tr><td>Efficiency                        </td><td>     90.49  </td><td>%      </td></tr>
+<tr><td>Nominal torque                    </td><td>    120.79  </td><td>Nm     </td></tr>
+</table>
+<br>
+<table>
+<tr><td>Stator resistance per phase       </td><td>  0.56     </td><td>&Omega;</td></tr>
+<tr><td>Temperature coefficient           </td><td> copper    </td><td>       </td></tr>
+<tr><td>Reference temperature             </td><td> 20        </td><td>&deg;C </td></tr>
+<tr><td>Operation temperature             </td><td> 90        </td><td>&deg;C </td></tr>
+<tr><td>Stator leakage reactance at 50 Hz </td><td>  1.52     </td><td>&Omega;</td></tr>
+<tr><td>Main  field    reactance at 50 Hz </td><td> 66.40     </td><td>&Omega;</td></tr>
+<tr><td>Rotor  leakage reactance at 50 Hz </td><td>  2.31     </td><td>&Omega;</td></tr>
+<tr><td>Rotor  resistance per phase       </td><td>  0.42     </td><td>&Omega;</td></tr>
+<tr><td>Temperature coefficient           </td><td> aluminium </td><td>       </td></tr>
+<tr><td>Reference temperature             </td><td> 20        </td><td>&deg;C </td></tr>
+<tr><td>Operation temperature             </td><td> 90        </td><td>&deg;C </td></tr>
+</table>
+<p>See:<br>
+Anton Haumer, Christian Kral, Hansj&ouml;rg Kapeller, Thomas B&auml;uml, Johannes V. Gragger<br>
+<a href=\"http://www.modelica.org/events/modelica2009/Proceedings/memorystick/pages/papers/0103/0103.pdf\">
+The AdvancedMachines Library: Loss Models for Electric Machines</a><br>
+Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
+</HTML>"));
+      end AIMC_withLosses;
       annotation (Documentation(info="<HTML>
 This package contains test examples of asynchronous induction machines.
 </HTML>"));
@@ -1350,23 +1608,23 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
               origin={-20,-10},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Mechanics.Rotational.Sources.Speed speed
+        Modelica.Mechanics.Rotational.Sources.Speed speed
           annotation (Placement(transformation(extent={{50,-40},{30,-20}})));
-        Blocks.Sources.Ramp speedRamp(height=wNominal, duration=1)
+        Modelica.Blocks.Sources.Ramp speedRamp(height=wNominal, duration=1)
           annotation (Placement(transformation(extent={{80,-40},{60,-20}})));
         Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor annotation (Placement(
               transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={30,-50})));
-        Blocks.Math.Gain setPointGain(k=smeeData.VsNominal/wNominal)
+        Modelica.Blocks.Math.Gain setPointGain(k=smeeData.VsNominal/wNominal)
           annotation (Placement(transformation(extent={{-50,-90},{-70,-70}})));
         Sensors.VoltageQuasiRMSSensor voltageQuasiRMSSensor(V(start=1E-3, fixed=true))
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={0,0})));
-        Blocks.Continuous.LimPID voltageController(
+        Modelica.Blocks.Continuous.LimPID voltageController(
           controllerType=Modelica.Blocks.Types.SimpleController.PI,
           k=k,
           Ti=Ti,
@@ -1388,15 +1646,15 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
               origin={10,30},
               extent={{-10,10},{10,-10}},
               rotation=270)));
-        Blocks.Sources.BooleanPulse loadControl(period=4, startTime=2)
+        Modelica.Blocks.Sources.BooleanPulse loadControl(period=4, startTime=2)
           annotation (Placement(transformation(extent={{-40,70},{-20,90}})));
-        MultiPhase.Ideal.CloserWithArc switch(     m=m)
+        Modelica.Electrical.MultiPhase.Ideal.CloserWithArc switch(     m=m)
           annotation (Placement(transformation(extent={{0,40},{-20,60}})));
-        MultiPhase.Basic.Resistor loadResistor(m=m, R=fill(RLoad, m))
+        Modelica.Electrical.MultiPhase.Basic.Resistor loadResistor(m=m, R=fill(RLoad, m))
           annotation (Placement(transformation(extent={{-30,40},{-50,60}})));
-        MultiPhase.Basic.Inductor loadInductor(m=m, L=fill(LLoad, m))
+        Modelica.Electrical.MultiPhase.Basic.Inductor loadInductor(m=m, L=fill(LLoad, m))
           annotation (Placement(transformation(extent={{-60,40},{-80,60}})));
-        MultiPhase.Basic.Star star(m=m) annotation (Placement(transformation(
+        Modelica.Electrical.MultiPhase.Basic.Star star(m=m) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-90,30})));
@@ -2451,7 +2709,7 @@ Simulate for 2 seconds and plot (versus time):
         Modelica.Mechanics.Rotational.Components.Inertia loadInertia1(J=JLoad)
           annotation (Placement(transformation(extent={{30,-20},{50,0}},
                 rotation=0)));
-        Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque loadTorque1(
+        Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque loadTorque1(
             useSupport=false,
           tau_nominal=-TLoad1,
           TorqueDirection=false,
@@ -2475,7 +2733,7 @@ Simulate for 2 seconds and plot (versus time):
         Modelica.Mechanics.Rotational.Components.Inertia loadInertia2(J=JLoad)
           annotation (Placement(transformation(extent={{30,-80},{50,-60}},
                 rotation=0)));
-        Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque loadTorque2(
+        Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque loadTorque2(
             useSupport=false,
           tau_nominal=-TLoad2,
           TorqueDirection=false,
@@ -3564,7 +3822,7 @@ These models use package SpacePhasors.
             powerBalance(
               final pLoss_coreS = -airGapR.heatPortS.Q_flow,
               final pLoss_coreR = -airGapR.heatPortR.Q_flow,
-              final pLoss_r = 0,
+              final pLoss_r = conditionalHeatFlowSensor.Q_flow,
               final pLoss_pm = 0));
         Machines.Losses.InductionMachines.AirGapRwithLosses airGapR(
           final m=3,
@@ -3636,6 +3894,11 @@ These models use package SpacePhasors.
               origin={0,-40},
               extent={{-10,-10},{10,10}},
               rotation=270)));
+        Components.ConditionalHeatFlowSensor conditionalHeatFlowSensor(final useDamperCage=
+                          useDamperCage) annotation (Placement(transformation(
+              extent={{10,-10},{-10,10}},
+              rotation=90,
+              origin={30,-50})));
       equation
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r) annotation (Line(
               points={{10,-10},{10,-16},{10,-30},{10,-30}},
@@ -3658,10 +3921,6 @@ These models use package SpacePhasors.
                 1.22465e-015}},
             color={0,0,0},
             smooth=Smooth.None));
-        connect(damperCage.heatPort, internalThermalPort.heatPort_r) annotation (Line(
-            points={{-10,-40},{50,-40},{50,-80},{0,-80}},
-            color={191,0,0},
-            smooth=Smooth.None));
         connect(airGapR.heatPortS, internalThermalPort.heatPort_statorCore)
           annotation (Line(
             points={{1.83697e-015,10},{0,10},{0,20},{50,20},{50,-80},{0,-80}},
@@ -3671,6 +3930,16 @@ These models use package SpacePhasors.
           annotation (Line(
             points={{-1.83697e-015,-10},{0,-10},{0,-20},{50,-20},{50,-80},{0,
                 -80}},
+            color={191,0,0},
+            smooth=Smooth.None));
+        connect(damperCage.heatPort, conditionalHeatFlowSensor.port_a) annotation (
+            Line(
+            points={{-10,-40},{30,-40}},
+            color={191,0,0},
+            smooth=Smooth.None));
+        connect(conditionalHeatFlowSensor.port_b, internalThermalPort.heatPort_r)
+          annotation (Line(
+            points={{30,-60},{30,-80},{0,-80}},
             color={191,0,0},
             smooth=Smooth.None));
         annotation (defaultComponentName="smpm",
@@ -3852,7 +4121,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             powerBalance(
               final pLoss_coreS = -airGapR.heatPortS.Q_flow,
               final pLoss_coreR = -airGapR.heatPortR.Q_flow,
-              final pLoss_r = 0,
+              final pLoss_r = conditionalHeatFlowSensor.Q_flow,
               final pElectrical_e = ve*ie,
               final pLoss_e = -re.heatPort.Q_flow,
               final pLoss_brush = -brush.heatPort.Q_flow));
@@ -3977,6 +4246,11 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           annotation (Placement(transformation(extent={{10,-10},{-10,10}},
               rotation=90,
               origin={-80,40})));
+        Components.ConditionalHeatFlowSensor conditionalHeatFlowSensor(final useDamperCage=
+                          useDamperCage) annotation (Placement(transformation(
+              extent={{10,-10},{-10,10}},
+              rotation=90,
+              origin={30,-50})));
       equation
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r)
           annotation (Line(points={{10,-10},{10,-30},{10,-30}},
@@ -3998,10 +4272,6 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             points={{10,-1.83697e-015},{35,-1.83697e-015},{35,1.22465e-015},{70,
                 1.22465e-015}},
             color={0,0,0},
-            smooth=Smooth.None));
-        connect(damperCage.heatPort, internalThermalPort.heatPort_r) annotation (Line(
-            points={{-10,-40},{50,-40},{50,-80},{0,-80}},
-            color={191,0,0},
             smooth=Smooth.None));
         connect(electricalExcitation.pin_en, pin_en) annotation (Line(
             points={{-50,-60},{-100,-60}},
@@ -4044,6 +4314,16 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color={191,0,0},
             smooth=Smooth.None));
 
+        connect(damperCage.heatPort, conditionalHeatFlowSensor.port_a) annotation (
+            Line(
+            points={{-10,-40},{30,-40}},
+            color={191,0,0},
+            smooth=Smooth.None));
+        connect(conditionalHeatFlowSensor.port_b, internalThermalPort.heatPort_r)
+          annotation (Line(
+            points={{30,-60},{30,-80},{0,-80}},
+            color={191,0,0},
+            smooth=Smooth.None));
         annotation (defaultComponentName="smee",
           Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
                   100}}),
@@ -4255,7 +4535,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             powerBalance(
               final pLoss_coreS = -airGapR.heatPortS.Q_flow,
               final pLoss_coreR = -airGapR.heatPortR.Q_flow,
-              final pLoss_r = 0));
+              final pLoss_r = conditionalHeatFlowSensor.Q_flow));
         Machines.Losses.InductionMachines.AirGapRwithLosses airGapR(
           final m=3,
           final p=p,
@@ -4311,6 +4591,11 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
               origin={0,-40},
               extent={{-10,-10},{10,10}},
               rotation=270)));
+        Components.ConditionalHeatFlowSensor conditionalHeatFlowSensor(final useDamperCage=
+                          useDamperCage) annotation (Placement(transformation(
+              extent={{10,-10},{-10,10}},
+              rotation=90,
+              origin={30,-50})));
       equation
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r)
           annotation (Line(points={{10,-10},{10,-15},{10,-15},{10,-20},{10,-30},
@@ -4330,10 +4615,6 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
                 1.22465e-015}},
             color={0,0,0},
             smooth=Smooth.None));
-        connect(damperCage.heatPort, internalThermalPort.heatPort_r) annotation (Line(
-            points={{-10,-40},{50,-40},{50,-80},{0,-80}},
-            color={191,0,0},
-            smooth=Smooth.None));
         connect(airGapR.heatPortS, internalThermalPort.heatPort_statorCore)
           annotation (Line(
             points={{1.83697e-015,10},{0,10},{0,20},{50,20},{50,-80},{0,-80}},
@@ -4343,6 +4624,16 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           annotation (Line(
             points={{-1.83697e-015,-10},{0,-10},{0,-20},{50,-20},{50,-80},{0,
                 -80}},
+            color={191,0,0},
+            smooth=Smooth.None));
+        connect(damperCage.heatPort, conditionalHeatFlowSensor.port_a) annotation (
+            Line(
+            points={{-10,-40},{30,-40}},
+            color={191,0,0},
+            smooth=Smooth.None));
+        connect(conditionalHeatFlowSensor.port_b, internalThermalPort.heatPort_r)
+          annotation (Line(
+            points={{30,-60},{30,-80},{0,-80}},
             color={191,0,0},
             smooth=Smooth.None));
         annotation (defaultComponentName="smr",
@@ -8176,6 +8467,63 @@ Exactly the same as Interfaces.PartialBasicTransformer, included for compatibili
 </html>"));
       end BasicTransformer;
 
+      model ConditionalHeatFlowSensor "Conditional heat flow rate sensor"
+        parameter Boolean useDamperCage(start = true)
+          "Enable / disable damper cage"
+          annotation(Evaluate=true);
+        Modelica.Blocks.Interfaces.RealOutput Q_flow
+          "Heat flow from port_a to port_b" annotation (Placement(
+              transformation(
+              origin={0,-100},
+              extent={{-10,-10},{10,10}},
+              rotation=270), iconTransformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={0,-30})));
+        Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a port_a
+          annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
+        Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b port_b
+          annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
+        Modelica.Thermal.HeatTransfer.Sensors.HeatFlowSensor heatFlowSensor
+          annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+        Modelica.Thermal.HeatTransfer.Sources.FixedTemperature fixedTemperature(final T=293.15) if not useDamperCage
+          annotation (Placement(transformation(extent={{-60,-40},{-40,-20}})));
+      equation
+
+        connect(port_a, heatFlowSensor.port_a) annotation (Line(
+            points={{-100,0},{-10,0}},
+            color={191,0,0},
+            smooth=Smooth.None));
+        connect(heatFlowSensor.port_b, port_b) annotation (Line(
+            points={{10,0},{100,0}},
+            color={191,0,0},
+            smooth=Smooth.None));
+        connect(heatFlowSensor.Q_flow, Q_flow) annotation (Line(
+            points={{0,-10},{0,-100}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(fixedTemperature.port, heatFlowSensor.port_a) annotation (Line(
+            points={{-40,-30},{-20,-30},{-20,0},{-10,0}},
+            color={191,0,0},
+            smooth=Smooth.None));
+        annotation (
+          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                  {100,100}}),graphics),
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                  100,100}}), graphics={Rectangle(
+                extent={{-100,20},{100,-20}},
+                lineColor={255,0,0},
+                fillColor={255,0,0},
+                fillPattern=FillPattern.HorizontalCylinder)}),
+          Documentation(info="<HTML>
+<p>
+This is a conditional heat flow sensor; 
+if useDamperCage = false (assuming the connections to both heatPorts are removed), the ouput Q_flow is set to zero.
+</p>
+</HTML>
+"));
+      end ConditionalHeatFlowSensor;
+
       annotation (Documentation(info="<HTML>
 This package contains components for modeling electrical machines, specially threephase induction machines, based on space phasor theory.
 These models use package SpacePhasors.
@@ -9602,8 +9950,8 @@ Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.In
       parameter Modelica.SIunits.AngularVelocity wRef(min=Modelica.Constants.small)
         "Reference angular velocity that reference core losses PRef refer to";
       // In the current implementation ratioHysterisis = 0 since hysteresis losses are not implemented yet
-      final parameter Real ratioHysteresis(min=0, max=1) = 0
-        "Ratio of hysteresis losses with respect to the total core losses at VRef and fRef";//0.775
+      final parameter Real ratioHysteresis(min=0, max=1, start=0.775) = 0
+        "Ratio of hysteresis losses with respect to the total core losses at VRef and fRef";
       final parameter Modelica.SIunits.Conductance GcRef =  if (PRef<=0) then 0 else PRef / VRef^2 / m
         "Reference conductance at reference frequency and voltage";
       final parameter Modelica.SIunits.AngularVelocity wMin=1e-6*wRef;
@@ -9807,26 +10155,27 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
       protected
         parameter Modelica.SIunits.Inductance L[2,2]={{Lmd,0},{0,Lmq}}
           "Inductance matrix";
-        final parameter Real psiMinRel = 1E-3
-          "Minimum flux w.r.t. nominal flux";
-        final parameter Modelica.SIunits.MagneticFlux psiMin = psiMinRel*statorCoreParameters.VRef/statorCoreParameters.wRef
-          "Minimum flux for numerical reasons";
-        Modelica.SIunits.MagneticFlux psi_ms_abs
-          "Length of flux phasor w.r.t. stator fixed frame";
-        Modelica.SIunits.Angle psi_ms_arg
-          "Angle of flux phasor w.r.t. stator fixed frame";
-        Modelica.SIunits.AngularVelocity ws
-          "Remagnetization angular velocity of stator";
-        Modelica.SIunits.AngularVelocity wsLimit = noEvent(max(noEvent(abs(ws)),statorCoreParameters.wMin))
-          "Limited remagnetization angular velocity of stator";
-        Modelica.SIunits.MagneticFlux psi_mr_abs
-          "Length of flux phasor w.r.t. rotor fixed frame";
-        Modelica.SIunits.Angle psi_mr_arg
-          "Angle of flux phasor w.r.t. rotor fixed frame";
-        Modelica.SIunits.AngularVelocity wr
-          "Remagnetization angular velocity of rotor";
-        Modelica.SIunits.AngularVelocity wrLimit = noEvent(max(noEvent(abs(wr)),rotorCoreParameters.wMin))
-          "Limited remagnetization angular velocity of rotor";
+      /*
+  final parameter Real psiMinRel = 1E-3 "Minimum flux w.r.t. nominal flux";
+  final parameter Modelica.SIunits.MagneticFlux psiMin = psiMinRel*statorCoreParameters.VRef/statorCoreParameters.wRef 
+    "Minimum flux for numerical reasons";
+  Modelica.SIunits.MagneticFlux psi_ms_abs 
+    "Length of flux phasor w.r.t. stator fixed frame";
+  Modelica.SIunits.Angle psi_ms_arg 
+    "Angle of flux phasor w.r.t. stator fixed frame";
+  Modelica.SIunits.AngularVelocity ws 
+    "Remagnetization angular velocity of stator";
+  Modelica.SIunits.AngularVelocity wsLimit = noEvent(max(noEvent(abs(ws)),statorCoreParameters.wMin)) 
+    "Limited remagnetization angular velocity of stator";
+  Modelica.SIunits.MagneticFlux psi_mr_abs 
+    "Length of flux phasor w.r.t. rotor fixed frame";
+  Modelica.SIunits.Angle psi_mr_arg 
+    "Angle of flux phasor w.r.t. rotor fixed frame";
+  Modelica.SIunits.AngularVelocity wr 
+    "Remagnetization angular velocity of rotor";
+  Modelica.SIunits.AngularVelocity wrLimit = noEvent(max(noEvent(abs(wr)),rotorCoreParameters.wMin)) 
+    "Limited remagnetization angular velocity of rotor";
+ */
       equation
         // mechanical angle of the rotor of an equivalent 2-pole machine
         gamma=p*(flange.phi-support.phi);
@@ -9853,30 +10202,34 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
         flange.tau = -tauElectrical;
         support.tau = tauElectrical;
         // Remagnetization angular velocity of stator
-        psi_ms_abs = sqrt(psi_ms[1]^2 + psi_ms[2]^2);
-        if noEvent(psi_ms_abs <= psiMin) then
-          psi_ms_arg = 0;
-          ws = 0;
-        else
-          psi_ms_arg = Modelica.Math.atan2(psi_ms[2], psi_ms[1]);
-          ws = (der(psi_ms[2])*cos(psi_ms_arg) - der(psi_ms[1])*sin(psi_ms_arg))/psi_ms_abs;
-        end if;
+      /*
+  psi_ms_abs = sqrt(psi_ms[1]^2 + psi_ms[2]^2);
+  if noEvent(psi_ms_abs <= psiMin) then
+    psi_ms_arg = 0;
+    ws = 0;
+  else
+    psi_ms_arg = Modelica.Math.atan2(psi_ms[2], psi_ms[1]);
+    ws = (der(psi_ms[2])*cos(psi_ms_arg) - der(psi_ms[1])*sin(psi_ms_arg))/psi_ms_abs;
+  end if;
+*/
         // Remagnetization angular velocity of rotor
-        psi_mr_abs = sqrt(psi_mr[1]^2 + psi_mr[2]^2);
-        if noEvent(psi_mr_abs <= psiMin) then
-          psi_mr_arg = 0;
-          wr = 0;
-        else
-          psi_mr_arg = Modelica.Math.atan2(psi_mr[2], psi_mr[1]);
-          wr = (der(psi_mr[2])*cos(psi_mr_arg) - der(psi_mr[1])*sin(psi_mr_arg))/psi_mr_abs;
-        end if;
+      /*
+  psi_mr_abs = sqrt(psi_mr[1]^2 + psi_mr[2]^2);
+  if noEvent(psi_mr_abs <= psiMin) then
+    psi_mr_arg = 0;
+    wr = 0;
+  else
+    psi_mr_arg = Modelica.Math.atan2(psi_mr[2], psi_mr[1]);
+    wr = (der(psi_mr[2])*cos(psi_mr_arg) - der(psi_mr[1])*sin(psi_mr_arg))/psi_mr_abs;
+  end if;
+*/
         // Stator core losses
         if (statorCoreParameters.PRef<=0) then
           Gcs = 0;
           i_scs = zeros(2);
         else
-          Gcs = statorCoreParameters.GcRef
-              * (statorCoreParameters.wRef/wsLimit*statorCoreParameters.ratioHysteresis + 1 - statorCoreParameters.ratioHysteresis);
+          Gcs = statorCoreParameters.GcRef;
+          //  * (statorCoreParameters.wRef/wsLimit*statorCoreParameters.ratioHysteresis + 1 - statorCoreParameters.ratioHysteresis);
           i_scs = Gcs*spacePhasor_s.v_;
         end if;
         heatPortS.Q_flow = -m/2*(+spacePhasor_s.v_[1]*i_scs[1]+spacePhasor_s.v_[2]*i_scs[2]);
@@ -9885,8 +10238,8 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
           Gcr = 0;
           i_rcr = zeros(2);
         else
-          Gcr = rotorCoreParameters.GcRef
-              * (rotorCoreParameters.wRef/wrLimit*rotorCoreParameters.ratioHysteresis + 1 - rotorCoreParameters.ratioHysteresis);
+          Gcr = rotorCoreParameters.GcRef;
+          //  * (rotorCoreParameters.wRef/wrLimit*rotorCoreParameters.ratioHysteresis + 1 - rotorCoreParameters.ratioHysteresis);
           i_rcr = Gcr*spacePhasor_r.v_;
         end if;
         heatPortR.Q_flow = -m/2*(+spacePhasor_r.v_[1]*i_rcr[1]+spacePhasor_r.v_[2]*i_rcr[2]);
@@ -10274,9 +10627,10 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
         output Modelica.SIunits.Torque tauElectrical;
         Modelica.SIunits.Current ic "Core loss current";
         Modelica.SIunits.Conductance Gc "Variable core loss conductance";
-      protected
-        Modelica.SIunits.AngularVelocity wLimit = noEvent(max(noEvent(abs(w)),coreParameters.wMin))
-          "Limited angular velocity";
+      /*  
+  Modelica.SIunits.AngularVelocity wLimit = noEvent(max(noEvent(abs(w)),coreParameters.wMin)) 
+    "Limited angular velocity";
+*/
       public
         Modelica.Mechanics.Rotational.Interfaces.Flange_a flange
           annotation (Placement(transformation(extent={{-10,110},{10,90}},
@@ -10329,7 +10683,8 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
           Gc = 0;
           ic = 0;
         else
-          Gc = coreParameters.GcRef * (coreParameters.wRef/wLimit*coreParameters.ratioHysteresis + 1 - coreParameters.ratioHysteresis);
+          Gc = coreParameters.GcRef;
+          // * (coreParameters.wRef/wLimit*coreParameters.ratioHysteresis + 1 - coreParameters.ratioHysteresis);
           ic = Gc*vai;
         end if;
         heatPort.Q_flow = -vai*ic;
@@ -11627,14 +11982,15 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
          annotation(Dialog(tab="Nominal resistances and inductances"));
       parameter Machines.Losses.CoreParameters statorCoreParameters(
         final m=3,
-        VRef(start=1),
+        VRef(start=100),
         wRef=2*pi*fsNominal) "Stator core losses"
         annotation(Dialog(tab="Losses"));
     protected
       parameter Machines.Losses.CoreParameters rotorCoreParameters(
         final m=3,
-        VRef(start=1),
-        wRef(start=1)) "Rotor core losses"
+        PRef=0,
+        VRef(start=1)=1,
+        wRef(start=1)=1) "Rotor core losses"
         annotation(Dialog(tab="Losses"));
     public
       parameter Machines.Losses.StrayLoadParameters strayLoadParameters(
