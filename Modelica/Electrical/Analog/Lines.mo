@@ -157,16 +157,16 @@ equation
     connect(R[j].p,p[j]);
     connect(R[j].n,inductance.p[j]);
     connect(inductance.n[j],n[j]);
-    connect(inductance.n[j],C[((1+(j-1)*lines)-((j-2)*(j-1))*0.5)].p);
-    connect(C[((1+(j-1)*lines)-((j-2)*(j-1))*0.5)].n,M.p);
-    connect(inductance.n[j],G[((1+(j-1)*lines)-((j-2)*(j-1))*0.5)].p);
-    connect(G[((1+(j-1)*lines)-((j-2)*(j-1))*0.5)].n,M.p);
+    connect(inductance.n[j],C[((1+(j-1)*lines) - div(((j-2)*(j-1)),2))]. p);
+    connect(C[((1+(j-1)*lines) - div(((j-2)*(j-1)),2))].n,M.p);
+    connect(inductance.n[j],G[((1+(j-1)*lines) - div(((j-2)*(j-1)),2))].p);
+    connect(G[((1+(j-1)*lines) - div(((j-2)*(j-1)),2))].n,M.p);
 
     for i in j+1:lines loop
-      connect(inductance.n[j],C[((1+(j-1)*lines)-((j-2)*(j-1))*0.5)+1+i-(j+1)].p);
-      connect(C[((1+(j-1)*lines)-((j-2)*(j-1))*0.5)+1+i-(j+1)].n,inductance.n[i]);
-      connect(inductance.n[j],G[((1+(j-1)*lines)-((j-2)*(j-1))*0.5)+1+i-(j+1)].p);
-      connect(G[((1+(j-1)*lines)-((j-2)*(j-1))*0.5)+1+i-(j+1)].n,inductance.n[i]);
+      connect(inductance.n[j],C[((1+(j-1)*lines) - div(((j-2)*(j-1)),2)) + 1 + i - (j+1)].p);
+      connect(C[((1+(j-1)*lines) - div(((j-2)*(j-1)),2)) + 1 + i - (j+1)].n,  inductance.n[i]);
+      connect(inductance.n[j],G[((1+(j-1)*lines) - div(((j-2)*(j-1)),2)) + 1 + i - (j+1)].p);
+      connect(G[((1+(j-1)*lines) - div(((j-2)*(j-1)),2)) + 1 + i - (j+1)].n,inductance.n[i]);
     end for;
   end for;
     connect(R[lines].p,p[lines]);
