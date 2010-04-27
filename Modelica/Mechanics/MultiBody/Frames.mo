@@ -913,7 +913,7 @@ confused with Modelica \"parameters\".
     end multipleResolve2;
 
     function nullRotation
-      "Return quaternions orientation object that does not rotate a frame"
+      "Return quaternion orientation object that does not rotate a frame"
 
       extends Modelica.Icons.Function;
       output Quaternions.Orientation Q
@@ -966,7 +966,7 @@ confused with Modelica \"parameters\".
     end absoluteRotation;
 
     function planarRotation
-      "Return quaternions orientation object of a planar rotation"
+      "Return quaternion orientation object of a planar rotation"
       import Modelica.Math;
       extends Modelica.Icons.Function;
       input Real e[3](each final unit="1")
@@ -992,7 +992,7 @@ confused with Modelica \"parameters\".
     end smallRotation;
 
     function from_T
-      "Return quaternions orientation object Q from transformation matrix T"
+      "Return quaternion orientation object Q from transformation matrix T"
 
       extends Modelica.Icons.Function;
       input Real T[3, 3]
@@ -1062,7 +1062,7 @@ confused with Modelica \"parameters\".
     end from_T;
 
     function from_T_inv
-      "Return quaternions orientation object Q from inverse transformation matrix T_inv"
+      "Return quaternion orientation object Q from inverse transformation matrix T_inv"
 
       extends Modelica.Icons.Function;
       input Real T_inv[3, 3]
@@ -2123,7 +2123,7 @@ The used variables have the following declaration:
       </td>
   </tr>
   <tr><td valign=\"top\">Q = <b>to_Q</b>(T);</td>
-      <td valign=\"top\">Return quaternione orientation object Q from orientation object T.
+      <td valign=\"top\">Return quaternion orientation object Q from orientation object T.
       </td>
   </tr>
   <tr><td valign=\"top\">exy = <b>to_exy</b>(T);</td>
@@ -2389,7 +2389,7 @@ The used variables have the following declaration:
       </td>
   </tr>
   <tr><td valign=\"top\">Q = <b>to_Q</b>(R);</td>
-      <td valign=\"top\">Return quaternione orientation object Q from orientation object R.
+      <td valign=\"top\">Return quaternion orientation object Q from orientation object R.
       </td>
   </tr>
   <tr><td valign=\"top\">exy = <b>to_exy</b>(R);</td>
