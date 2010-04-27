@@ -4243,11 +4243,11 @@ VN- -&GT; name.pc[N-1]
       function energyGapDepTemp "Temperature dependency of energy gap"
 
         input Real temp "Temperature";
-        input Real gap0 =   1.16;
-        input Real coeff1 = 7.02e-4;
-        input Real coeff2 = 1108.;
+        input Real gap0 =   1.16 "Input parameter";
+        input Real coeff1 = 7.02e-4 "Input parameter";
+        input Real coeff2 = 1108.0 "Input parameter";
 
-        output Real ret;
+        output Real ret "Output value";
 
       algorithm
         ret := gap0 - (coeff1 * temp * temp) / (temp + coeff2);
@@ -4264,7 +4264,7 @@ VN- -&GT; name.pc[N-1]
         input Real temp "Device Temperature";
         input Real tnom "Nominal Temperature";
 
-        output Real ret;
+        output Real ret "Output value";
 
       protected
         Real phibtemp;
@@ -4315,7 +4315,7 @@ VN- -&GT; name.pc[N-1]
         input Real ncoeff;
         input Real satcur "Saturation current";
 
-        output Real ret;
+        output Real ret "Output value";
 
       protected
         Real vte;
@@ -4537,7 +4537,7 @@ VN- -&GT; name.pc[N-1]
       input Real temp "Device temperature";
       input Real ncoeff;
 
-      output Real v23;
+      output Real v23 "Output value";
 
       protected
       Real vt;
@@ -4722,7 +4722,7 @@ VN- -&GT; name.pc[N-1]
     input Real tc2;
 
     output Modelica.SIunits.Conductance conduct "Output conductance";
-    output Real dCond_dTemp;
+    output Real dCond_dTemp "Output value";
 
       protected
       Real difference;
@@ -4746,7 +4746,7 @@ VN- -&GT; name.pc[N-1]
     input Modelica.SIunits.Length length "Input transistor length";
     input Real narrow "Input narrow";
 
-    output Real out;
+    output Real out "Output value";
 
     algorithm
       out :=rsh*(length - narrow)/(width - narrow);

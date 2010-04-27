@@ -1100,6 +1100,256 @@ The simulation stop time has to be 5s.
 </html>"));
         end DLATREGSRL_test;
 
+        model NXFER_test "Functionality test of NXFERGATE"
+
+          Modelica.Electrical.Digital.Sources.Table e_table(
+        y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
+        x={3,4,5},
+        t={0,5,9})
+            annotation (Placement(transformation(extent={{-75,30},{-55,50}})));
+          Modelica.Electrical.Digital.Sources.Table x_table(
+        y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
+        x={4,3},
+        t={1,7})
+            annotation (Placement(transformation(extent={{-75,-20},{-55,0}})));
+          Modelica.Electrical.Digital.Tristates.NXFERGATE nXFERGATE(
+                                            tHL=1, tLH=1)
+            annotation (Placement(transformation(extent={{-40,-52},{52,41}})));
+        equation
+          connect(x_table.y, nXFERGATE.x) annotation (Line(
+              points={{-55,-10},{-45.2,-10},{-45.2,-10.15},{-35.4,-10.15}},
+              color={127,0,127},
+              smooth=Smooth.None));
+          connect(e_table.y, nXFERGATE.enable) annotation (Line(
+              points={{-55,40},{-35.4,40},{-35.4,27.05}},
+              color={127,0,127},
+              smooth=Smooth.None));
+          annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                    -100},{100,100}}), graphics={Ellipse(extent={{-100,100},{
+                  100,-100}},
+                    lineColor={95,95,95}), Polygon(
+                  points={{-36,60},{64,0},{-36,-60},{-36,60}},
+                  lineColor={0,0,255},
+                  pattern=LinePattern.None,
+                  fillColor={95,95,95},
+                  fillPattern=FillPattern.Solid)}), Diagram(coordinateSystem(
+                  preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+                graphics),
+            experiment(StopTime=12),
+            experimentSetupOutput,
+            Documentation(info="<html>
+<p>This example is a simple test of the Tristates.NXFERGATE component.</p>
+</html>"));
+        end NXFER_test;
+
+        model NRXFER_test "Functionality test of NRXFERGATE"
+
+          Modelica.Electrical.Digital.Sources.Table e_table(
+        y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
+        x={3,4,5},
+        t={0,5,9})
+            annotation (Placement(transformation(extent={{-75,30},{-55,50}})));
+          Modelica.Electrical.Digital.Sources.Table x_table(
+        y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
+        x={4,3},
+        t={1,7})
+            annotation (Placement(transformation(extent={{-75,-20},{-55,0}})));
+          Modelica.Electrical.Digital.Tristates.NRXFERGATE nRXFERGATE(
+                                              tHL=1, tLH=1)
+            annotation (Placement(transformation(extent={{-40,-54},{58,44}})));
+        equation
+          connect(x_table.y, nRXFERGATE.x) annotation (Line(
+              points={{-55,-10},{-45.05,-10},{-45.05,-9.9},{-35.1,-9.9}},
+              color={127,0,127},
+              smooth=Smooth.None));
+          connect(e_table.y, nRXFERGATE.enable) annotation (Line(
+              points={{-55,40},{-35.1,40},{-35.1,29.3}},
+              color={127,0,127},
+              smooth=Smooth.None));
+          annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                    -100},{100,100}}), graphics={Ellipse(extent={{-100,100},{
+                  100,-100}},
+                    lineColor={95,95,95}), Polygon(
+                  points={{-36,60},{64,0},{-36,-60},{-36,60}},
+                  lineColor={0,0,255},
+                  pattern=LinePattern.None,
+                  fillColor={95,95,95},
+                  fillPattern=FillPattern.Solid)}), Diagram(coordinateSystem(
+                  preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+                graphics),
+            experiment(StopTime=12),
+            experimentSetupOutput,
+            Documentation(info="<html>
+<p>This example is a simple test of the Tristates.NRXFER component.  After simulation until 12 s plot x, enable, and y of the <code>nRXFERGATE </code>component. To verify the result compare to the truth table <code>NRXferTable</code>.</p>
+</html>"));
+        end NRXFER_test;
+
+        model BUF3S_test "Functionality test of BUF3S"
+
+          Modelica.Electrical.Digital.Sources.Table e_table(
+        y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
+        x={3,4,5},
+        t={0,5,9})
+            annotation (Placement(transformation(extent={{-75,30},{-55,50}})));
+          Modelica.Electrical.Digital.Sources.Table x_table(
+        y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
+        x={4,3},
+        t={1,7})
+            annotation (Placement(transformation(extent={{-75,-20},{-55,0}})));
+          Modelica.Electrical.Digital.Tristates.BUF3S bUF3S(
+            tHL=1,
+            tLH=1,
+            strength=Modelica.Electrical.Digital.Interfaces.Strength.'S_X01')
+            annotation (Placement(transformation(extent={{-40,-50},{48,38}})));
+        equation
+          connect(x_table.y, bUF3S.x) annotation (Line(
+              points={{-55,-10},{-35.6,-10.4}},
+              color={127,0,127},
+              smooth=Smooth.None));
+          connect(e_table.y, bUF3S.enable) annotation (Line(
+              points={{-55,40},{-35.6,40},{-35.6,24.8}},
+              color={127,0,127},
+              smooth=Smooth.None));
+          annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                    -100},{100,100}}), graphics={Ellipse(extent={{-100,100},{
+                  100,-100}},
+                    lineColor={95,95,95}), Polygon(
+                  points={{-36,60},{64,0},{-36,-60},{-36,60}},
+                  lineColor={0,0,255},
+                  pattern=LinePattern.None,
+                  fillColor={95,95,95},
+                  fillPattern=FillPattern.Solid)}), Diagram(coordinateSystem(
+                  preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+                graphics),
+            experiment(StopTime=12),
+            experimentSetupOutput,
+            Documentation(info="<html>
+<p>This example is a simple test of the Tristates.BUF3S component.  After simulation until 12 s plot x, enable, and y of the bUF3S<code> </code>component. To verify the result compare to the truth table Buf3sTable.</p>
+</html>"));
+        end BUF3S_test;
+
+        model INV3S_test "Functionality test of INV3S"
+
+          Modelica.Electrical.Digital.Sources.Table e_table(
+        y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
+        x={3,4,5},
+        t={0,5,9})
+            annotation (Placement(transformation(extent={{-75,30},{-55,50}})));
+          Modelica.Electrical.Digital.Sources.Table x_table(
+        y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
+        x={4,3},
+        t={1,7})
+            annotation (Placement(transformation(extent={{-75,-20},{-55,0}})));
+          Modelica.Electrical.Digital.Tristates.INV3S iNV3S
+            annotation (Placement(transformation(extent={{-34,-44},{42,32}})));
+        equation
+          connect(x_table.y, iNV3S.x) annotation (Line(
+              points={{-55,-10},{-42.6,-10},{-42.6,-9.8},{-30.2,-9.8}},
+              color={127,0,127},
+              smooth=Smooth.None));
+          connect(e_table.y, iNV3S.enable) annotation (Line(
+              points={{-55,40},{-30.2,40},{-30.2,20.6}},
+              color={127,0,127},
+              smooth=Smooth.None));
+          annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                    -100},{100,100}}), graphics={Ellipse(extent={{-100,100},{
+                  100,-100}},
+                    lineColor={95,95,95}), Polygon(
+                  points={{-36,60},{64,0},{-36,-60},{-36,60}},
+                  lineColor={0,0,255},
+                  pattern=LinePattern.None,
+                  fillColor={95,95,95},
+                  fillPattern=FillPattern.Solid)}), Diagram(coordinateSystem(
+                  preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+                graphics),
+            experiment(StopTime=12),
+            experimentSetupOutput,
+            Documentation(info="<html>
+<p>This example is a simple test of the Tristates.INV3S component. After simulation until 12 s plot x, enable, and y of the iNV3S<code> </code>component. To verify the result compare to the truth table <code>T.UX01Table</code>.</p>
+</html>"));
+        end INV3S_test;
+
+        model WiredX_test "Functionality test of WiredX"
+
+          Modelica.Electrical.Digital.Sources.Table e_table2(
+        y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
+        x={3,4,3},
+        t={0,3,9})
+            annotation (Placement(transformation(extent={{-85,68},{-65,88}})));
+          Modelica.Electrical.Digital.Sources.Table x_table2(
+        y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
+        x={4,3},
+        t={1,7})
+            annotation (Placement(transformation(extent={{-85,18},{-65,38}})));
+          Modelica.Electrical.Digital.Tristates.BUF3S bUF3S2(
+            tHL=1,
+            tLH=1,
+            strength=Modelica.Electrical.Digital.Interfaces.Strength.'S_X01')
+            annotation (Placement(transformation(extent={{-48,-1},{16,63}})));
+          Modelica.Electrical.Digital.Sources.Table e_table1(
+        y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
+        t={0,3,9},
+        x={3,4,3})
+            annotation (Placement(transformation(extent={{-85,-24},{-65,-4}})));
+          Modelica.Electrical.Digital.Sources.Table x_table1(
+        y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
+        x={3,4,3},
+        t={1,5,7})
+            annotation (Placement(transformation(extent={{-85,-74},{-65,-54}})));
+          Modelica.Electrical.Digital.Tristates.BUF3S bUF3S1(
+            tHL=1,
+            tLH=1,
+            strength=Modelica.Electrical.Digital.Interfaces.Strength.'S_X01')
+            annotation (Placement(transformation(extent={{-52,-94},{14,-28}})));
+          Modelica.Electrical.Digital.Tristates.WiredX wiredX(n=2)
+            annotation (Placement(transformation(extent={{26,-38},{80,16}})));
+        equation
+          connect(x_table2.y, bUF3S2.x)
+                                      annotation (Line(
+              points={{-65,28},{-44.8,27.8}},
+              color={127,0,127},
+              smooth=Smooth.None));
+          connect(e_table2.y, bUF3S2.enable)
+                                           annotation (Line(
+              points={{-65,78},{-44.8,78},{-44.8,53.4}},
+              color={127,0,127},
+              smooth=Smooth.None));
+          connect(x_table1.y, bUF3S1.x)
+                                      annotation (Line(
+              points={{-65,-64},{-48.7,-64.3}},
+              color={127,0,127},
+              smooth=Smooth.None));
+          connect(e_table1.y, bUF3S1.enable)
+                                           annotation (Line(
+              points={{-65,-14},{-48.7,-14},{-48.7,-37.9}},
+              color={127,0,127},
+              smooth=Smooth.None));
+          connect(bUF3S1.y, wiredX.x[1]) annotation (Line(
+              points={{10.7,-64.3},{24,-64.3},{24,-21.8},{36.8,-21.8}},
+              color={127,0,127},
+              smooth=Smooth.None));
+          connect(bUF3S2.y, wiredX.x[2]) annotation (Line(
+              points={{12.8,27.8},{26,27.8},{26,-0.2},{36.8,-0.2}},
+              color={127,0,127},
+              smooth=Smooth.None));
+          annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                    -100},{100,100}}), graphics={Ellipse(extent={{-100,100},{
+                  100,-100}},
+                    lineColor={95,95,95}), Polygon(
+                  points={{-36,60},{64,0},{-36,-60},{-36,60}},
+                  lineColor={0,0,255},
+                  pattern=LinePattern.None,
+                  fillColor={95,95,95},
+                  fillPattern=FillPattern.Solid)}), Diagram(coordinateSystem(
+                  preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+                graphics),
+            experiment(StopTime=12),
+            experimentSetupOutput,
+            Documentation(info="<html>
+<p>This example is a simple test of the Tristates.WiredX component. The input width is set to two. After simulation until 12 s plot x[1], x[2], and y of the WiredX component. To verify the result compare to the truth table  Tables.ResolutionTable.</p>
+</html>"));
+        end WiredX_test;
+
       package Utilities "Utility components used by package Examples"
         extends Modelica.Icons.Package;
 
@@ -2335,6 +2585,11 @@ The simulation stop time has to be 5s.
 <p>This package contains examples that demonstrate the usage of the components of the Electrical.Digital library.</p>
 <p>The examples are simple to understand. They will show a typical behavior of the components, and they will give hints to users.</p>
 </html>"));
+
+
+
+
+
       end Examples;
 
       package Interfaces "Basic definitions"
@@ -2373,6 +2628,26 @@ The simulation stop time has to be 5s.
 
 </html>"));
 
+        type UX01 = enumeration(
+        'U' "U  Uninitialized",
+        'X' "X  Forcing Unknown",
+        '0' "0  Forcing 0",
+        '1' "1  Forcing 1") "4-valued subtype of IEEE 1164 STD_ULOGIC type"
+          annotation (Documentation(info="<html>
+<p><b>Code Table:</b></p>
+ 
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign=\"top\"><b>Logic value</b></td>
+      <td valign=\"top\"><b>Meaning</b></td>
+  </tr>
+                         
+  <tr><td valign=\"top\">'U'</td> <td valign=\"top\">Uninitialized</td></tr>
+  <tr><td valign=\"top\">'X'</td> <td valign=\"top\">Forcing Unknown</td></tr>
+  <tr><td valign=\"top\">'0'</td> <td valign=\"top\">Forcing 0</td></tr>
+  <tr><td valign=\"top\">'1'</td> <td valign=\"top\">Forcing 1</td></tr>
+
+</table>
+</html>"));
         type Strength = enumeration(
         'S_X01',
         'S_X0H',
@@ -2556,108 +2831,215 @@ The simulation stop time has to be 5s.
 </html>"),DymolaStoredErrors);
       end Interfaces;
 
-      package Tables "Truth tables"
-        extends Modelica.Icons.Package;
+  package Tables "Truth tables for all components of package Digital"
 
-        import D = Modelica.Electrical.Digital;
-        import L = Modelica.Electrical.Digital.Interfaces.Logic;
-        import S = Modelica.Electrical.Digital.Interfaces.Strength;
+    import D = Modelica.Electrical.Digital;
+    import L = Modelica.Electrical.Digital.Interfaces.Logic;
+    import R = Modelica.Electrical.Digital.Interfaces.UX01;
+    import S = Modelica.Electrical.Digital.Interfaces.Strength;
 
-        constant D.Interfaces.Logic AndTable[L, L]=[
-            L.'U', L.'U', L.'0', L.'U', L.'U', L.'U', L.'0', L.'U', L.'U';
-            L.'U', L.'X', L.'0', L.'X', L.'X', L.'X', L.'0', L.'X', L.'X';
-            L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0';
-            L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X';
-            L.'U', L.'X', L.'0', L.'X', L.'X', L.'X', L.'0', L.'X', L.'X';
-            L.'U', L.'X', L.'0', L.'X', L.'X', L.'X', L.'0', L.'X', L.'X';
-            L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0';
-            L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X';
-            L.'U', L.'X', L.'0', L.'X', L.'X', L.'X', L.'0', L.'X', L.'X']
+    constant D.Interfaces.Logic AndTable[L, L]=[
+        L.'U', L.'U', L.'0', L.'U', L.'U', L.'U', L.'0', L.'U', L.'U';
+        L.'U', L.'X', L.'0', L.'X', L.'X', L.'X', L.'0', L.'X', L.'X';
+        L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0';
+        L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X';
+        L.'U', L.'X', L.'0', L.'X', L.'X', L.'X', L.'0', L.'X', L.'X';
+        L.'U', L.'X', L.'0', L.'X', L.'X', L.'X', L.'0', L.'X', L.'X';
+        L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0';
+        L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X';
+        L.'U', L.'X', L.'0', L.'X', L.'X', L.'X', L.'0', L.'X', L.'X']
       "9-value logic for 'and'";
 
-        constant D.Interfaces.Logic OrTable[L, L]=[
-            L.'U', L.'U', L.'U', L.'1', L.'U', L.'U', L.'U', L.'1', L.'U';
-            L.'U', L.'X', L.'X', L.'1', L.'X', L.'X', L.'X', L.'1', L.'X';
-            L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X';
-            L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1';
-            L.'U', L.'X', L.'X', L.'1', L.'X', L.'X', L.'X', L.'1', L.'X';
-            L.'U', L.'X', L.'X', L.'1', L.'X', L.'X', L.'X', L.'1', L.'X';
-            L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X';
-            L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1';
-            L.'U', L.'X', L.'X', L.'1', L.'X', L.'X', L.'X', L.'1', L.'X']
+    constant D.Interfaces.Logic OrTable[L, L]=[
+        L.'U', L.'U', L.'U', L.'1', L.'U', L.'U', L.'U', L.'1', L.'U';
+        L.'U', L.'X', L.'X', L.'1', L.'X', L.'X', L.'X', L.'1', L.'X';
+        L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X';
+        L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1';
+        L.'U', L.'X', L.'X', L.'1', L.'X', L.'X', L.'X', L.'1', L.'X';
+        L.'U', L.'X', L.'X', L.'1', L.'X', L.'X', L.'X', L.'1', L.'X';
+        L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X';
+        L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1';
+        L.'U', L.'X', L.'X', L.'1', L.'X', L.'X', L.'X', L.'1', L.'X']
       "9-value logic for 'or'";
 
-        constant D.Interfaces.Logic NotTable[L]={
-            L.'U',L.'X',L.'1',L.'0',L.'X',L.'X',L.'1',L.'0',L.'X'}
+    constant D.Interfaces.Logic NotTable[L]={
+        L.'U',L.'X',L.'1',L.'0',L.'X',L.'X',L.'1',L.'0',L.'X'}
       "9-value logic for 'not'";
 
-        constant D.Interfaces.Logic XorTable[L, L]=[
-            L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U';
-            L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X';
-            L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X';
-            L.'U', L.'X', L.'1', L.'0', L.'X', L.'X', L.'1', L.'0', L.'X';
-            L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X';
-            L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X';
-            L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X';
-            L.'U', L.'X', L.'1', L.'0', L.'X', L.'X', L.'1', L.'0', L.'X';
-            L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X']
+    constant D.Interfaces.Logic XorTable[L, L]=[
+        L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U';
+        L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X';
+        L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X';
+        L.'U', L.'X', L.'1', L.'0', L.'X', L.'X', L.'1', L.'0', L.'X';
+        L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X';
+        L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X';
+        L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X';
+        L.'U', L.'X', L.'1', L.'0', L.'X', L.'X', L.'1', L.'0', L.'X';
+        L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X']
       "9-value logic for 'xor'";
 
-        constant D.Interfaces.Logic X01Table[L]={
-            L.'X',L.'X',L.'0',L.'1',L.'X',L.'X',L.'0',L.'1',L.'X'};
+    constant D.Interfaces.Logic ResolutionTable[L, L]=[
+        L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U';
+        L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X';
+        L.'U', L.'X', L.'0', L.'X', L.'0', L.'0', L.'0', L.'0', L.'X';
+        L.'U', L.'X', L.'X', L.'1', L.'1', L.'1', L.'1', L.'1', L.'X';
+        L.'U', L.'X', L.'0', L.'1', L.'Z', L.'W', L.'L', L.'H', L.'X';
+        L.'U', L.'X', L.'0', L.'1', L.'W', L.'W', L.'W', L.'W', L.'X';
+        L.'U', L.'X', L.'0', L.'1', L.'L', L.'W', L.'L', L.'W', L.'X';
+        L.'U', L.'X', L.'0', L.'1', L.'H', L.'W', L.'W', L.'H', L.'X';
+        L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X']
+      "9-value logic for 'wiredX'";
+    constant D.Interfaces.Logic X01Table[L]={
+        L.'X',L.'X',L.'0',L.'1',L.'X',L.'X',L.'0',L.'1',L.'X'};
 
-        constant D.Interfaces.Logic X01ZTable[L]={
-            L.'X',L.'X',L.'0',L.'1',L.'Z',L.'X',L.'0',L.'1',L.'Z'};
+    constant D.Interfaces.Logic X01ZTable[L]={
+        L.'X',L.'X',L.'0',L.'1',L.'Z',L.'X',L.'0',L.'1',L.'Z'};
 
-        constant D.Interfaces.Logic UX01Table[L]={
-            L.'U',L.'X',L.'0',L.'1',L.'X',L.'X',L.'0',L.'1',L.'X'};
+    constant D.Interfaces.Logic UX01Table[L]={
+        L.'U',L.'X',L.'0',L.'1',L.'X',L.'X',L.'0',L.'1',L.'X'};
 
-        constant Integer DelayTable[L, L]=[
-             0,  0, -1,  1,  0,  0, -1,  1,  0;
-             0,  0, -1,  1,  0,  0, -1,  1,  0;
-             1,  1,  0,  1,  1,  1,  0,  1,  1;
-            -1, -1, -1,  0, -1, -1, -1,  0, -1;
-             0,  0, -1,  1,  0,  0, -1,  1,  0;
-             0,  0, -1,  1,  0,  0, -1,  1,  0;
-             1,  1,  0,  1,  1,  1,  0,  1,  1;
-            -1, -1, -1,  0, -1, -1, -1,  0, -1;
-             0,  0, -1,  1,  0,  0, -1,  1,  0] "Delay selection for signal change by [old_signal, new_signal] reading:
+    constant Integer DelayTable[L, L]=[
+         0,  0, -1,  1,  0,  0, -1,  1,  0;
+         0,  0, -1,  1,  0,  0, -1,  1,  0;
+         1,  1,  0,  1,  1,  1,  0,  1,  1;
+        -1, -1, -1,  0, -1, -1, -1,  0, -1;
+         0,  0, -1,  1,  0,  0, -1,  1,  0;
+         0,  0, -1,  1,  0,  0, -1,  1,  0;
+         1,  1,  0,  1,  1,  1,  0,  1,  1;
+        -1, -1, -1,  0, -1, -1, -1,  0, -1;
+         0,  0, -1,  1,  0,  0, -1,  1,  0] "Delay selection for signal change by [old_signal, new_signal] reading: 
       -1: High-Low delay |
        0: no delay |
        1: Low-High delay";
 
-        constant Integer ClockMap[L, L]=[
-            0, 0, 0, 2, 0, 0, 0, 2, 0;
-            0, 0, 0, 2, 0, 0, 0, 2, 0;
-            2, 2, 0, 1, 2, 2, 0, 1, 2;
-            0, 0, 0, 0, 0, 0, 0, 0, 0;
-            0, 0, 0, 2, 0, 0, 0, 2, 0;
-            0, 0, 0, 2, 0, 0, 0, 2, 0;
-            2, 2, 0, 1, 2, 2, 0, 1, 0;
-            0, 0, 0, 0, 0, 0, 0, 0, 0;
-            0, 0, 0, 2, 0, 0, 0, 2, 0] "Edge detection by [pre(clock), clock] reading:
+    constant Integer ClockMap[L, L]=[
+        0, 0, 0, 2, 0, 0, 0, 2, 0;
+        0, 0, 0, 2, 0, 0, 0, 2, 0;
+        2, 2, 0, 1, 2, 2, 0, 1, 2;
+        0, 0, 0, 0, 0, 0, 0, 0, 0;
+        0, 0, 0, 2, 0, 0, 0, 2, 0;
+        0, 0, 0, 2, 0, 0, 0, 2, 0;
+        2, 2, 0, 1, 2, 2, 0, 1, 0;
+        0, 0, 0, 0, 0, 0, 0, 0, 0;
+        0, 0, 0, 2, 0, 0, 0, 2, 0] "Edge detection by [pre(clock), clock] reading:
     0: 0-Transition |
     1: rising edge  |
     2: X-Transition";
 
-        constant D.Interfaces.Logic StrengthMap[L, S]=
-            [L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U';
-             L.'X', L.'X', L.'X', L.'X', L.'X', L.'W', L.'W', L.'W', L.'W', L.'W';
-             L.'0', L.'0', L.'L', L.'0', L.'Z', L.'L', L.'L', L.'Z', L.'0', L.'L';
-             L.'1', L.'H', L.'1', L.'Z', L.'1', L.'H', L.'Z', L.'H', L.'H', L.'1';
-             L.'X', L.'X', L.'X', L.'X', L.'X', L.'W', L.'W', L.'W', L.'W', L.'W';
-             L.'X', L.'X', L.'X', L.'X', L.'X', L.'W', L.'W', L.'W', L.'W', L.'W';
-             L.'0', L.'0', L.'L', L.'0', L.'Z', L.'L', L.'L', L.'Z', L.'0', L.'L';
-             L.'1', L.'H', L.'1', L.'Z', L.'1', L.'H', L.'Z', L.'H', L.'H', L.'1';
-             L.'X', L.'X', L.'X', L.'X', L.'X', L.'W', L.'W', L.'W', L.'W', L.'W']
+    constant D.Interfaces.Logic StrengthMap[L, S]=
+        [L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U';
+         L.'X', L.'X', L.'X', L.'X', L.'X', L.'W', L.'W', L.'W', L.'W', L.'W';
+         L.'0', L.'0', L.'L', L.'0', L.'Z', L.'L', L.'L', L.'Z', L.'0', L.'L';
+         L.'1', L.'H', L.'1', L.'Z', L.'1', L.'H', L.'Z', L.'H', L.'H', L.'1';
+         L.'X', L.'X', L.'X', L.'X', L.'X', L.'W', L.'W', L.'W', L.'W', L.'W';
+         L.'X', L.'X', L.'X', L.'X', L.'X', L.'W', L.'W', L.'W', L.'W', L.'W';
+         L.'0', L.'0', L.'L', L.'0', L.'Z', L.'L', L.'L', L.'Z', L.'0', L.'L';
+         L.'1', L.'H', L.'1', L.'Z', L.'1', L.'H', L.'Z', L.'H', L.'H', L.'1';
+         L.'X', L.'X', L.'X', L.'X', L.'X', L.'W', L.'W', L.'W', L.'W', L.'W']
       "Output strength conversion by [signal, strength] reading";
 
-        annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics),
-                                Documentation(info="<html>
-<p>Tables contains several logic valued matrixes which are used for quickly calculating the result. Since the logic values are coded internally by the integers 1 ... 9, the code of the input signals can be taken to chose line and column of the matrix element where the result can be found. In this way the tables are used by some components.</p>
+    constant D.Interfaces.Logic NXferTable[L, L]=[
+        L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U';
+        L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X';
+        L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z';
+        L.'U', L.'X', L.'0', L.'1', L.'Z', L.'W', L.'L', L.'H', L.'X';
+        L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X';
+        L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X';
+        L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z';
+        L.'U', L.'X', L.'0', L.'1', L.'Z', L.'W', L.'L', L.'H', L.'X';
+        L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X']
+      "NX Transfer by [enable, input] reading";
+
+    constant D.Interfaces.Logic NRXferTable[L, L]=[
+        L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U';
+        L.'U', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W';
+        L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z';
+        L.'U', L.'W', L.'L', L.'H', L.'Z', L.'W', L.'L', L.'H', L.'W';
+        L.'U', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W';
+        L.'U', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W';
+        L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z';
+        L.'U', L.'W', L.'L', L.'H', L.'Z', L.'W', L.'L', L.'H', L.'W';
+        L.'U', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W']
+      "NRX Transfer by [enable, input] reading";
+
+    constant D.Interfaces.Logic PXferTable[L, L]=[
+        L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U';
+        L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X';
+        L.'U', L.'X', L.'0', L.'1', L.'Z', L.'W', L.'L', L.'H', L.'X';
+        L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z';
+        L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X';
+        L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X';
+        L.'U', L.'X', L.'0', L.'1', L.'Z', L.'W', L.'L', L.'H', L.'X';
+        L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z';
+        L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X']
+      "PX Transfer by [enable, input] reading";
+
+    constant D.Interfaces.Logic PRXferTable[L, L]=[
+        L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U';
+        L.'U', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W';
+        L.'U', L.'W', L.'L', L.'H', L.'Z', L.'W', L.'L', L.'H', L.'W';
+        L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z';
+        L.'U', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W';
+        L.'U', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W';
+        L.'U', L.'W', L.'L', L.'H', L.'Z', L.'W', L.'L', L.'H', L.'W';
+        L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z';
+        L.'U', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W']
+      "PRX Transfer by [enable, input] reading";
+
+    constant D.Interfaces.Logic Buf3sTable[S, R, R]=[
+        {{{L.'U',L.'U',L.'U',L.'U'},{L.'U',L.'X',L.'X',L.'X'},{L.'Z',L.'Z',L.'Z',L.'Z'},{L.'U',L.'X',L.'0',L.'1'}},
+         {{L.'U',L.'U',L.'U',L.'U'},{L.'U',L.'X',L.'X',L.'X'},{L.'Z',L.'Z',L.'Z',L.'Z'},{L.'U',L.'X',L.'0',L.'H'}},
+         {{L.'U',L.'U',L.'U',L.'U'},{L.'U',L.'X',L.'X',L.'X'},{L.'Z',L.'Z',L.'Z',L.'Z'},{L.'U',L.'X',L.'L',L.'1'}},
+         {{L.'U',L.'U',L.'U',L.'Z'},{L.'U',L.'X',L.'X',L.'Z'},{L.'Z',L.'Z',L.'Z',L.'Z'},{L.'U',L.'X',L.'0',L.'Z'}},
+         {{L.'U',L.'U',L.'U',L.'U'},{L.'U',L.'X',L.'X',L.'X'},{L.'Z',L.'Z',L.'Z',L.'Z'},{L.'U',L.'X',L.'Z',L.'1'}},
+         {{L.'U',L.'U',L.'U',L.'U'},{L.'U',L.'W',L.'W',L.'W'},{L.'Z',L.'Z',L.'Z',L.'Z'},{L.'U',L.'W',L.'L',L.'H'}},
+         {{L.'U',L.'U',L.'U',L.'U'},{L.'U',L.'W',L.'W',L.'Z'},{L.'Z',L.'Z',L.'Z',L.'Z'},{L.'U',L.'W',L.'L',L.'Z'}},
+         {{L.'U',L.'U',L.'U',L.'U'},{L.'U',L.'W',L.'W',L.'W'},{L.'Z',L.'Z',L.'Z',L.'Z'},{L.'U',L.'W',L.'Z',L.'H'}},
+         {{L.'U',L.'U',L.'U',L.'U'},{L.'U',L.'W',L.'W',L.'W'},{L.'Z',L.'Z',L.'Z',L.'Z'},{L.'U',L.'W',L.'0',L.'H'}},
+         {{L.'U',L.'U',L.'U',L.'U'},{L.'U',L.'W',L.'W',L.'W'},{L.'Z',L.'Z',L.'Z',L.'Z'},{L.'U',L.'W',L.'L',L.'1'}}}]
+      "Tristate Table by [strength, enable, input] reading, high-acitive enable";
+
+    constant D.Interfaces.Logic Buf3slTable[S, R, R]=[
+        {{{L.'U',L.'U',L.'U',L.'U'},{L.'U',L.'X',L.'X',L.'X'},{L.'U',L.'X',L.'0',L.'1'},{L.'Z',L.'Z',L.'Z',L.'Z'}},
+         {{L.'U',L.'U',L.'U',L.'U'},{L.'U',L.'X',L.'X',L.'X'},{L.'U',L.'X',L.'0',L.'H'},{L.'Z',L.'Z',L.'Z',L.'Z'}},
+         {{L.'U',L.'U',L.'U',L.'U'},{L.'U',L.'X',L.'X',L.'X'},{L.'U',L.'X',L.'L',L.'1'},{L.'Z',L.'Z',L.'Z',L.'Z'}},
+         {{L.'U',L.'U',L.'U',L.'Z'},{L.'U',L.'X',L.'X',L.'Z'},{L.'U',L.'X',L.'0',L.'Z'},{L.'Z',L.'Z',L.'Z',L.'Z'}},
+         {{L.'U',L.'U',L.'U',L.'U'},{L.'U',L.'X',L.'X',L.'X'},{L.'U',L.'X',L.'Z',L.'1'},{L.'Z',L.'Z',L.'Z',L.'Z'}},
+         {{L.'U',L.'U',L.'U',L.'U'},{L.'U',L.'W',L.'W',L.'W'},{L.'U',L.'W',L.'L',L.'H'},{L.'Z',L.'Z',L.'Z',L.'Z'}},
+         {{L.'U',L.'U',L.'U',L.'U'},{L.'U',L.'W',L.'W',L.'Z'},{L.'U',L.'W',L.'L',L.'Z'},{L.'Z',L.'Z',L.'Z',L.'Z'}},
+         {{L.'U',L.'U',L.'U',L.'U'},{L.'U',L.'W',L.'W',L.'W'},{L.'U',L.'W',L.'Z',L.'H'},{L.'Z',L.'Z',L.'Z',L.'Z'}},
+         {{L.'U',L.'U',L.'U',L.'U'},{L.'U',L.'W',L.'W',L.'W'},{L.'U',L.'W',L.'0',L.'H'},{L.'Z',L.'Z',L.'Z',L.'Z'}},
+         {{L.'U',L.'U',L.'U',L.'U'},{L.'U',L.'W',L.'W',L.'W'},{L.'U',L.'W',L.'L',L.'1'},{L.'Z',L.'Z',L.'Z',L.'Z'}}}]
+      "Tristate Table by [strength, enable, input] reading, low-active enable";
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+              -100},{100,100}}), graphics={
+          Rectangle(
+            extent={{-100,-100},{80,50}},
+            fillColor={235,235,235},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
+          Polygon(
+            points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}},
+            fillColor={235,235,235},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
+          Polygon(
+            points={{100,70},{100,-80},{80,-100},{80,50},{100,70}},
+            fillColor={235,235,235},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
+          Text(
+            extent={{-85,35},{65,-85}},
+            lineColor={0,0,255},
+            textString="Library"),
+          Text(
+            extent={{-120,122},{120,73}},
+            lineColor={255,0,0},
+            textString="%name")}),
+                            Documentation(info="<html>
+ 
 </html>"));
-      end Tables;
+  end Tables;
 
       package Delay "Delay blocks"
         extends Modelica.Icons.Package;
@@ -2810,7 +3192,7 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
           parameter Modelica.SIunits.Time tHL(start=0) "fall inertial delay";
           parameter D.Interfaces.Logic y0=L.'U' "initial value of output";
     protected
-          Integer delayTable[:,:]=D.Tables.DelayTable
+          Integer delayTable[:,:]=Modelica.Electrical.Digital.Tables.DelayTable
         "specification of delay according to signal change";
           Modelica.SIunits.Time delayTime;
           D.Interfaces.Logic y_auxiliary(start=y0, fixed=true);
@@ -2984,7 +3366,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
     protected
           D.Interfaces.Logic auxiliary(start=L.'0', fixed=true);
         equation
-          auxiliary = D.Tables.NotTable[x];
+          auxiliary =Modelica.Electrical.Digital.Tables.NotTable[x];
           y = pre(auxiliary);
           annotation (
             Documentation(info="<html>
@@ -3032,7 +3414,8 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
         equation
           auxiliary[1] = x[1];
           for i in 1:n - 1 loop
-            auxiliary[i + 1] = D.Tables.AndTable[auxiliary[i], x[i + 1]];
+            auxiliary[i + 1] =Modelica.Electrical.Digital.Tables.AndTable[
+          auxiliary[i], x[i + 1]];
           end for;
           y = pre(auxiliary[n]);
           annotation (
@@ -3073,9 +3456,10 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
         equation
           auxiliary[1] = x[1];
           for i in 1:n - 1 loop
-            auxiliary[i + 1] = D.Tables.AndTable[auxiliary[i], x[i + 1]];
+            auxiliary[i + 1] =Modelica.Electrical.Digital.Tables.AndTable[
+          auxiliary[i], x[i + 1]];
           end for;
-          y = pre(D.Tables.NotTable[auxiliary[n]]);
+          y = pre(Modelica.Electrical.Digital.Tables.NotTable[auxiliary[n]]);
           annotation (
             Documentation(info="<html>
 <p>Nand component with multiple input values and one output.</p>
@@ -3122,7 +3506,8 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
         equation
           auxiliary[1] = x[1];
           for i in 1:n - 1 loop
-            auxiliary[i + 1] = D.Tables.OrTable[auxiliary[i], x[i + 1]];
+            auxiliary[i + 1] =Modelica.Electrical.Digital.Tables.OrTable[
+          auxiliary[i], x[i + 1]];
           end for;
           y = pre(auxiliary[n]);
           annotation (
@@ -3163,9 +3548,10 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
         equation
           auxiliary[1] = x[1];
           for i in 1:n - 1 loop
-            auxiliary[i + 1] = D.Tables.OrTable[auxiliary[i], x[i + 1]];
+            auxiliary[i + 1] =Modelica.Electrical.Digital.Tables.OrTable[
+          auxiliary[i], x[i + 1]];
           end for;
-          y = pre(D.Tables.NotTable[auxiliary[n]]);
+          y = pre(Modelica.Electrical.Digital.Tables.NotTable[auxiliary[n]]);
           annotation (
             Documentation(info="<html>
 <p>Nor component with multiple input values and one output.</p>
@@ -3212,7 +3598,8 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
         equation
           auxiliary[1] = x[1];
           for i in 1:n - 1 loop
-            auxiliary[i + 1] = D.Tables.XorTable[auxiliary[i], x[i + 1]];
+            auxiliary[i + 1] =Modelica.Electrical.Digital.Tables.XorTable[
+          auxiliary[i], x[i + 1]];
           end for;
           y = pre(auxiliary[n]);
           annotation (
@@ -3253,9 +3640,10 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
         equation
           auxiliary[1] = x[1];
           for i in 1:n - 1 loop
-            auxiliary[i + 1] = D.Tables.XorTable[auxiliary[i], x[i + 1]];
+            auxiliary[i + 1] =Modelica.Electrical.Digital.Tables.XorTable[
+          auxiliary[i], x[i + 1]];
           end for;
-          y = pre(D.Tables.NotTable[auxiliary[n]]);
+          y = pre(Modelica.Electrical.Digital.Tables.NotTable[auxiliary[n]]);
           annotation (
             Documentation(info="<html>
 <p>Xnor component with multiple input values and one output.</p>
@@ -6716,5 +7104,797 @@ Copyright &copy; 1998-2010, Modelica Association and Fraunhofer-Gesellschaft.
           extent={{28,-58},{8,-50}},
           lineColor={0,0,0},
           textString="=")}));
+  package Tristates "Transfergates, Buffers, Inverters, and WiredX"
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import T = Modelica.Electrical.Digital.Tables;
+      import S = Modelica.Electrical.Digital.Interfaces.Strength;
+
+    model NXFERGATE "Transfergate with enable active high"
+      parameter Modelica.SIunits.Time tHL=0 "High->Low delay";
+      parameter Modelica.SIunits.Time tLH=0 "Low->High delay";
+      D.Interfaces.DigitalInput enable
+        annotation (Placement(transformation(extent={{-100,60},{-80,80}}),
+            iconTransformation(extent={{-100,60},{-80,80}})));
+      D.Interfaces.DigitalInput x
+        annotation (Placement(transformation(extent={{-100,-20},{-80,0}}),
+            iconTransformation(extent={{-100,-20},{-80,0}})));
+      D.Interfaces.DigitalOutput y
+        annotation (Placement(transformation(extent={{80,-20},{100,0}}),
+            iconTransformation(extent={{80,-20},{100,0}})));
+    protected
+              D.Interfaces.Logic nextstate(start=L.'U');
+              D.Interfaces.DigitalOutput yy(start=L.'U');
+              D.Delay.InertialDelaySensitive inertialDelaySensitive(each tLH=tLH, each tHL=tHL);
+    algorithm
+      nextstate := T.NXferTable[enable, x];
+      yy := nextstate;
+    equation
+      connect(yy, inertialDelaySensitive.x);
+      connect(inertialDelaySensitive.y, y);
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={
+            Rectangle(
+              extent={{-60,60},{60,-20}},
+              lineColor={127,0,127},
+              fillPattern=FillPattern.Solid,
+              fillColor={213,170,255},
+              lineThickness=0.5),
+            Line(
+              points={{-33,16},{31,16}},
+              color={127,0,127},
+              thickness=1,
+              smooth=Smooth.None),
+            Line(
+              points={{-80,-10},{-32,-10},{-32,10},{30,10},{30,-10},{80,-10}},
+              color={127,0,127},
+              smooth=Smooth.None,
+              thickness=1),
+            Text(
+              extent={{-7,46},{39,18}},
+              lineColor={127,0,127},
+              lineThickness=1,
+              textString="N"),
+            Line(
+              points={{-82,70},{0,70},{0,16}},
+              color={127,0,127},
+              thickness=1,
+              smooth=Smooth.None),
+            Text(
+              extent={{-44,-24},{30,-46}},
+              lineColor={0,0,255},
+              fillColor={213,170,255},
+              fillPattern=FillPattern.Solid,
+              textString="%name")}),
+                                 Diagram(coordinateSystem(preserveAspectRatio=true,
+              extent={{-100,-100},{100,100}}), graphics),
+        Documentation(revisions="<html>
+<ul>
+<PRE>
+<li><i>January 15, 2010 </i> created by Ulrich Donath<br>
+       </li>
+</PRE>
+</ul>
+</html>", info="<html>
+<p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd<p>
+<p><b>Truth Table</b></p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign=\"top\"><b>DataIn</b></td>
+      <td valign=\"top\"><b>Enable</b></td>
+      <td valign=\"top\"><b>DataOut</b></td>
+  </tr>
+                        
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">Z</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">1</td> <td valign=\"top\">DataIn</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">Z</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">W</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">L</td> <td valign=\"top\">Z</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">H</td> <td valign=\"top\">DataIn</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">-</td> <td valign=\"top\">UX</td></tr>
+</table>
+<p>
+<PRE>
+  UX: if dataIn == U then U else X 
+</PRE>
+</p>
+
+</html>"));
+    end NXFERGATE;
+
+    model NRXFERGATE
+      "Transfergate with enable active high. Output strength reduced."
+      parameter Modelica.SIunits.Time tHL=0 "High->Low delay";
+      parameter Modelica.SIunits.Time tLH=0 "Low->High delay";
+      D.Interfaces.DigitalInput enable
+        annotation (Placement(transformation(extent={{-100,60},{-80,80}}),
+            iconTransformation(extent={{-100,60},{-80,80}})));
+      D.Interfaces.DigitalInput x
+        annotation (Placement(transformation(extent={{-100,-20},{-80,0}}),
+            iconTransformation(extent={{-100,-20},{-80,0}})));
+      D.Interfaces.DigitalOutput y
+        annotation (Placement(transformation(extent={{80,-20},{100,0}}),
+            iconTransformation(extent={{80,-20},{100,0}})));
+    protected
+              D.Interfaces.Logic nextstate(start=L.'U');
+              D.Interfaces.DigitalOutput yy(start=L.'U');
+              D.Delay.InertialDelaySensitive inertialDelaySensitive(each tLH=tLH, each tHL=tHL);
+    algorithm
+      nextstate := T.NRXferTable[enable, x];
+      yy := nextstate;
+    equation
+      connect(yy, inertialDelaySensitive.x);
+      connect(inertialDelaySensitive.y, y);
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={
+            Rectangle(
+              extent={{-60,60},{60,-20}},
+              lineColor={127,0,127},
+              fillPattern=FillPattern.Solid,
+              fillColor={213,170,255},
+              lineThickness=0.5),
+            Line(
+              points={{-33,16},{31,16}},
+              color={127,0,127},
+              thickness=1,
+              smooth=Smooth.None),
+            Line(
+              points={{-80,-10},{-32,-10},{-32,10},{30,10},{30,-10},{80,-10}},
+              color={127,0,127},
+              smooth=Smooth.None,
+              thickness=1),
+            Text(
+              extent={{-2,46},{44,18}},
+              lineColor={127,0,127},
+              lineThickness=1,
+              textString="NR"),
+            Line(
+              points={{-82,70},{0,70},{0,16}},
+              color={127,0,127},
+              thickness=1,
+              smooth=Smooth.None),
+            Text(
+              extent={{-36,-24},{38,-46}},
+              lineColor={0,0,255},
+              fillColor={213,170,255},
+              fillPattern=FillPattern.Solid,
+              textString="%name")}),
+                                 Diagram(coordinateSystem(preserveAspectRatio=true,
+              extent={{-100,-100},{100,100}}), graphics),
+        Documentation(revisions="<html>
+<ul>
+<PRE>
+<li><i>January 15, 2010 </i> created by Ulrich Donath<br>
+       </li>
+</PRE>
+</ul>
+</html>", info="<html>
+<p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd<p>
+<p><b>Truth Table</b></p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign=\"top\"><b>DataIn</b></td>
+      <td valign=\"top\"><b>Enable</b></td>
+      <td valign=\"top\"><b>DataOut</b></td>
+  </tr>
+                        
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">UW</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">Z</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">1</td> <td valign=\"top\">DataIn, Strength Reduced</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">Z</td> <td valign=\"top\">UW</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">W</td> <td valign=\"top\">UW</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">L</td> <td valign=\"top\">Z</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">H</td> <td valign=\"top\">DataIn, Strength Reduced</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">-</td> <td valign=\"top\">UW</td></tr>
+</table>
+<p>
+<PRE>
+  UW: if dataIn == U then U else W
+  Strength Reduced: 0 -> L, 1 -> H, X -> W 
+</PRE>
+</p>
+</html>"));
+    end NRXFERGATE;
+
+    model PXFERGATE "Transfergate with enable active low"
+      parameter Modelica.SIunits.Time tHL=0 "High->Low delay";
+      parameter Modelica.SIunits.Time tLH=0 "Low->High delay";
+      D.Interfaces.DigitalInput enable
+        annotation (Placement(transformation(extent={{-100,60},{-80,80}}),
+            iconTransformation(extent={{-100,60},{-80,80}})));
+      D.Interfaces.DigitalInput x
+        annotation (Placement(transformation(extent={{-100,-20},{-80,0}}),
+            iconTransformation(extent={{-100,-20},{-80,0}})));
+      D.Interfaces.DigitalOutput y
+        annotation (Placement(transformation(extent={{80,-20},{100,0}}),
+            iconTransformation(extent={{80,-20},{100,0}})));
+    protected
+              D.Interfaces.Logic nextstate(start=L.'U');
+              D.Interfaces.DigitalOutput yy(start=L.'U');
+              D.Delay.InertialDelaySensitive inertialDelaySensitive(each tLH=tLH, each tHL=tHL);
+    algorithm
+      nextstate := T.PXferTable[enable, x];
+      yy := nextstate;
+    equation
+      connect(yy, inertialDelaySensitive.x);
+      connect(inertialDelaySensitive.y, y);
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={
+            Rectangle(
+              extent={{-60,60},{60,-20}},
+              lineColor={127,0,127},
+              fillPattern=FillPattern.Solid,
+              fillColor={213,170,255},
+              lineThickness=0.5),
+            Line(
+              points={{-33,16},{31,16}},
+              color={127,0,127},
+              thickness=1,
+              smooth=Smooth.None),
+            Line(
+              points={{-80,-10},{-32,-10},{-32,10},{30,10},{30,-10},{80,-10}},
+              color={127,0,127},
+              smooth=Smooth.None,
+              thickness=1),
+            Text(
+              extent={{-7,46},{39,18}},
+              lineColor={127,0,127},
+              lineThickness=1,
+              textString="P"),
+            Line(
+              points={{-82,70},{0,70},{0,16}},
+              color={127,0,127},
+              thickness=1,
+              smooth=Smooth.None),
+            Text(
+              extent={{-36,-24},{38,-46}},
+              lineColor={0,0,255},
+              fillColor={213,170,255},
+              fillPattern=FillPattern.Solid,
+              textString="%name")}),
+                                 Diagram(coordinateSystem(preserveAspectRatio=true,
+              extent={{-100,-100},{100,100}}), graphics),
+        Documentation(revisions="<html>
+<ul>
+<PRE>
+<li><i>January 15, 2010 </i> created by Ulrich Donath<br>
+       </li>
+</PRE>
+</ul>
+</html>", info="<html>
+<p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd<p>
+<p><b>Truth Table</b></p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign=\"top\"><b>DataIn</b></td>
+      <td valign=\"top\"><b>Enable</b></td>
+      <td valign=\"top\"><b>DataOut</b></td>
+  </tr>
+                        
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">DataIn</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">1</td> <td valign=\"top\">Z</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">Z</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">W</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">L</td> <td valign=\"top\">DataIn</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">H</td> <td valign=\"top\">Z</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">-</td> <td valign=\"top\">UX</td></tr>
+</table>
+<p>
+<PRE>
+  UX: if dataIn == U then U else X 
+</PRE>
+</html>"));
+    end PXFERGATE;
+
+    model PRXFERGATE
+      "Transfergate with enable active low. Output strength reduced."
+      parameter Modelica.SIunits.Time tHL=0 "High->Low delay";
+      parameter Modelica.SIunits.Time tLH=0 "Low->High delay";
+      D.Interfaces.DigitalInput enable
+        annotation (Placement(transformation(extent={{-100,60},{-80,80}}),
+            iconTransformation(extent={{-100,60},{-80,80}})));
+      D.Interfaces.DigitalInput x
+        annotation (Placement(transformation(extent={{-100,-20},{-80,0}}),
+            iconTransformation(extent={{-100,-20},{-80,0}})));
+      D.Interfaces.DigitalOutput y
+        annotation (Placement(transformation(extent={{80,-20},{100,0}}),
+            iconTransformation(extent={{80,-20},{100,0}})));
+    protected
+              D.Interfaces.Logic nextstate(start=L.'U');
+              D.Interfaces.DigitalOutput yy(start=L.'U');
+              D.Delay.InertialDelaySensitive inertialDelaySensitive(each tLH=tLH, each tHL=tHL);
+    algorithm
+      nextstate := T.PRXferTable[enable, x];
+      yy := nextstate;
+    equation
+      connect(yy, inertialDelaySensitive.x);
+      connect(inertialDelaySensitive.y, y);
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={
+            Rectangle(
+              extent={{-60,60},{60,-20}},
+              lineColor={127,0,127},
+              fillPattern=FillPattern.Solid,
+              fillColor={213,170,255},
+              lineThickness=0.5),
+            Line(
+              points={{-33,16},{31,16}},
+              color={127,0,127},
+              thickness=1,
+              smooth=Smooth.None),
+            Line(
+              points={{-80,-10},{-32,-10},{-32,10},{30,10},{30,-10},{80,-10}},
+              color={127,0,127},
+              smooth=Smooth.None,
+              thickness=1),
+            Text(
+              extent={{-2,46},{44,18}},
+              lineColor={127,0,127},
+              lineThickness=1,
+              textString="PR"),
+            Line(
+              points={{-82,70},{0,70},{0,16}},
+              color={127,0,127},
+              thickness=1,
+              smooth=Smooth.None),
+            Text(
+              extent={{-40,-24},{34,-46}},
+              lineColor={0,0,255},
+              fillColor={213,170,255},
+              fillPattern=FillPattern.Solid,
+              textString="%name")}),
+                                 Diagram(coordinateSystem(preserveAspectRatio=true,
+              extent={{-100,-100},{100,100}}), graphics),
+        Documentation(revisions="<html>
+<ul>
+<PRE>
+<li><i>January 15, 2010 </i> created by Ulrich Donath<br>
+       </li>
+</PRE>
+</ul>
+</html>", info="<html>
+<p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd<p>
+<p><b>Truth Table</b></p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign=\"top\"><b>DataIn</b></td>
+      <td valign=\"top\"><b>Enable</b></td>
+      <td valign=\"top\"><b>DataOut</b></td>
+  </tr>
+                        
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">UW</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">DataIn, Strength Reduced</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">1</td> <td valign=\"top\">Z</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">Z</td> <td valign=\"top\">UW</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">W</td> <td valign=\"top\">UW</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">L</td> <td valign=\"top\">DataIn, Strength Reduced</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">H</td> <td valign=\"top\">Z</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">-</td> <td valign=\"top\">UW</td></tr>
+</table>
+<p>
+<PRE>
+  UW: if dataIn == U then U else W
+  Strength Reduced: 0 -> L, 1 -> H, X -> W 
+</PRE>
+</p>
+</html>"));
+    end PRXFERGATE;
+
+    model BUF3S "Tristate buffer with enable active high"
+      parameter Modelica.SIunits.Time tHL=0 "High->Low delay";
+      parameter Modelica.SIunits.Time tLH=0 "Low->High delay";
+      parameter D.Interfaces.Strength strength = S.'S_X01' "output strength";
+      D.Interfaces.DigitalInput enable
+        annotation (Placement(transformation(extent={{-100,60},{-80,80}}),
+            iconTransformation(extent={{-100,60},{-80,80}})));
+      D.Interfaces.DigitalInput x
+        annotation (Placement(transformation(extent={{-100,-20},{-80,0}}),
+            iconTransformation(extent={{-100,-20},{-80,0}})));
+      D.Interfaces.DigitalOutput y
+        annotation (Placement(transformation(extent={{80,-20},{100,0}}),
+            iconTransformation(extent={{80,-20},{100,0}})));
+    protected
+              D.Interfaces.Logic nextstate(start=L.'U');
+              D.Interfaces.DigitalOutput yy(start=L.'U');
+              D.Delay.InertialDelaySensitive inertialDelaySensitive(each tLH=tLH, each tHL=tHL);
+    algorithm
+      nextstate := T.Buf3sTable[strength, T.UX01Table[enable], T.UX01Table[x]];
+      yy := nextstate;
+    equation
+      connect(yy, inertialDelaySensitive.x);
+      connect(inertialDelaySensitive.y, y);
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={
+            Line(
+              points={{-80,70},{0,70},{0,14}},
+              color={127,0,127},
+              thickness=1,
+              smooth=Smooth.None),
+            Polygon(
+              points={{-40,40},{-40,-60},{40,-10},{-40,40}},
+              lineColor={127,0,127},
+              smooth=Smooth.None,
+              fillColor={213,170,255},
+              fillPattern=FillPattern.Solid),
+            Line(
+              points={{-80,-10},{-40,-10}},
+              color={127,0,127},
+              smooth=Smooth.None,
+              thickness=1),
+            Line(
+              points={{40,-10},{82,-10}},
+              color={127,0,127},
+              smooth=Smooth.None,
+              thickness=1),
+            Text(
+              extent={{-54,-62},{20,-84}},
+              lineColor={0,0,255},
+              fillColor={213,170,255},
+              fillPattern=FillPattern.Solid,
+              textString="%name")}),
+                                 Diagram(coordinateSystem(preserveAspectRatio=true,
+              extent={{-100,-100},{100,100}}), graphics),
+        Documentation(revisions="<html>
+<ul>
+<PRE>
+<li><i>January 22, 2010 </i> created by Ulrich Donath<br>
+       </li>
+</PRE>
+</ul>
+</html>", info="<html>
+<p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd<p>
+<p>and for tristate table http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd<p>
+<p><b>Truth Table</b></p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign=\"top\"><b>DataIn</b></td>
+      <td valign=\"top\"><b>Enable</b></td>
+      <td valign=\"top\"><b>DataOut*</b></td>
+  </tr>
+                        
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">Z</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">1</td> <td valign=\"top\">DataIn</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">Z</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">W</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">L</td> <td valign=\"top\">Z</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">H</td> <td valign=\"top\">DataIn</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">-</td> <td valign=\"top\">UX</td></tr>
+</table>
+<p>
+<PRE>
+  UX: if dataIn == U then U else X 
+  DataOut*: Strength map for DataOut according to tristate table Buf3sTable
+</PRE>
+</p>
+
+</html>"));
+    end BUF3S;
+
+    model BUF3SL "Tristate buffer with enable active low"
+      parameter Modelica.SIunits.Time tHL=0 "High->Low delay";
+      parameter Modelica.SIunits.Time tLH=0 "Low->High delay";
+      parameter D.Interfaces.Strength strength = S.'S_X01' "output strength";
+      D.Interfaces.DigitalInput enable
+        annotation (Placement(transformation(extent={{-100,60},{-80,80}}),
+            iconTransformation(extent={{-100,60},{-80,80}})));
+      D.Interfaces.DigitalInput x
+        annotation (Placement(transformation(extent={{-100,-20},{-80,0}}),
+            iconTransformation(extent={{-100,-20},{-80,0}})));
+      D.Interfaces.DigitalOutput y
+        annotation (Placement(transformation(extent={{80,-20},{100,0}}),
+            iconTransformation(extent={{80,-20},{100,0}})));
+    protected
+              D.Interfaces.Logic nextstate(start=L.'U');
+              D.Interfaces.DigitalOutput yy(start=L.'U');
+              D.Delay.InertialDelaySensitive inertialDelaySensitive(each tLH=tLH, each tHL=tHL);
+    algorithm
+      nextstate := T.Buf3slTable[strength, T.UX01Table[enable], T.UX01Table[x]];
+      yy := nextstate;
+    equation
+      connect(yy, inertialDelaySensitive.x);
+      connect(inertialDelaySensitive.y, y);
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={
+            Line(
+              points={{-80,70},{0,70},{0,14}},
+              color={127,0,127},
+              thickness=1,
+              smooth=Smooth.None),
+            Polygon(
+              points={{-40,40},{-40,-60},{40,-10},{-40,40}},
+              lineColor={127,0,127},
+              smooth=Smooth.None,
+              fillColor={213,170,255},
+              fillPattern=FillPattern.Solid),
+            Line(
+              points={{-80,-10},{-40,-10}},
+              color={127,0,127},
+              smooth=Smooth.None,
+              thickness=1),
+            Line(
+              points={{40,-10},{82,-10}},
+              color={127,0,127},
+              smooth=Smooth.None,
+              thickness=1),
+            Text(
+              extent={{-54,-62},{20,-84}},
+              lineColor={0,0,255},
+              fillColor={213,170,255},
+              fillPattern=FillPattern.Solid,
+              textString="%name")}),
+                                 Diagram(coordinateSystem(preserveAspectRatio=true,
+              extent={{-100,-100},{100,100}}), graphics),
+        Documentation(revisions="<html>
+<ul>
+<PRE>
+<li><i>January 22, 2010 </i> created by Ulrich Donath<br>
+       </li>
+</PRE>
+</ul>
+</html>", info="<html>
+<p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd<p>
+<p>and for tristate table http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd<p>
+<p><b>Truth Table</b></p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign=\"top\"><b>DataIn</b></td>
+      <td valign=\"top\"><b>Enable</b></td>
+      <td valign=\"top\"><b>DataOut*</b></td>
+  </tr>
+                        
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">DataIn</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">1</td> <td valign=\"top\">Z</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">Z</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">W</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">L</td> <td valign=\"top\">DataIn</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">H</td> <td valign=\"top\">Z</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">-</td> <td valign=\"top\">UX</td></tr>
+</table>
+<p>
+<PRE>
+  UX: if dataIn == U then U else X 
+  DataOut*: Strength map for DataOut according to tristate table Buf3slTable
+</PRE>
+</p>
+
+</html>"));
+    end BUF3SL;
+
+    model INV3S "Tristate Inverter with enable active high"
+      parameter Modelica.SIunits.Time tHL=0 "High->Low delay";
+      parameter Modelica.SIunits.Time tLH=0 "Low->High delay";
+      parameter D.Interfaces.Strength strength = S.'S_X01' "output strength";
+      D.Interfaces.DigitalInput enable
+        annotation (Placement(transformation(extent={{-100,60},{-80,80}}),
+            iconTransformation(extent={{-100,60},{-80,80}})));
+      D.Interfaces.DigitalInput x
+        annotation (Placement(transformation(extent={{-100,-20},{-80,0}}),
+            iconTransformation(extent={{-100,-20},{-80,0}})));
+      D.Interfaces.DigitalOutput y
+        annotation (Placement(transformation(extent={{80,-20},{100,0}}),
+            iconTransformation(extent={{80,-20},{100,0}})));
+    protected
+              D.Interfaces.Logic nextstate(start=L.'U');
+              D.Interfaces.DigitalOutput yy(start=L.'U');
+              D.Delay.InertialDelaySensitive inertialDelaySensitive(each tLH=tLH, each tHL=tHL);
+    algorithm
+      nextstate := T.Buf3sTable[strength, T.UX01Table[enable], T.NotTable[x]];
+      yy := nextstate;
+    equation
+      connect(yy, inertialDelaySensitive.x);
+      connect(inertialDelaySensitive.y, y);
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={
+            Line(
+              points={{-80,70},{0,70},{0,14}},
+              color={127,0,127},
+              thickness=1,
+              smooth=Smooth.None),
+            Polygon(
+              points={{-40,40},{-40,-60},{40,-10},{-40,40}},
+              lineColor={127,0,127},
+              smooth=Smooth.None,
+              fillColor={213,170,255},
+              fillPattern=FillPattern.Solid),
+            Line(
+              points={{-80,-10},{-40,-10}},
+              color={127,0,127},
+              smooth=Smooth.None,
+              thickness=1),
+            Line(
+              points={{40,-10},{82,-10}},
+              color={127,0,127},
+              smooth=Smooth.None,
+              thickness=1),
+            Ellipse(
+              extent={{40,-3},{54,-17}},
+              lineColor={127,0,127},
+              fillColor={213,170,255},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-54,-62},{20,-84}},
+              lineColor={0,0,255},
+              fillColor={213,170,255},
+              fillPattern=FillPattern.Solid,
+              textString="%name")}),
+                                 Diagram(coordinateSystem(preserveAspectRatio=true,
+              extent={{-100,-100},{100,100}}), graphics),
+        Documentation(revisions="<html>
+<ul>
+<PRE>
+<li><i>January 22, 2010 </i> created by Ulrich Donath<br>
+       </li>
+</PRE>
+</ul>
+</html>", info="<html>
+<p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd<p>
+<p>and for tristate table http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd<p>
+<p><b>Truth Table</b></p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign=\"top\"><b>DataIn</b></td>
+      <td valign=\"top\"><b>Enable</b></td>
+      <td valign=\"top\"><b>DataOut*</b></td>
+  </tr>
+                        
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">Z</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">1</td> <td valign=\"top\">Not DataIn</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">Z</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">W</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">L</td> <td valign=\"top\">Z</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">H</td> <td valign=\"top\">Not DataIn</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">-</td> <td valign=\"top\">UX</td></tr>
+</table>
+<p>
+<PRE>
+  UX: if dataIn == U then U else X 
+  DataOut*: Strength map for DataOut according to tristate table Buf3sTable
+</PRE>
+</p>
+
+</html>"));
+    end INV3S;
+
+    model INV3SL "Tristate inverter with enable active low"
+      parameter Modelica.SIunits.Time tHL=0 "High->Low delay";
+      parameter Modelica.SIunits.Time tLH=0 "Low->High delay";
+      parameter D.Interfaces.Strength strength = S.'S_X01' "output strength";
+      D.Interfaces.DigitalInput enable
+        annotation (Placement(transformation(extent={{-100,60},{-80,80}}),
+            iconTransformation(extent={{-100,60},{-80,80}})));
+      D.Interfaces.DigitalInput x
+        annotation (Placement(transformation(extent={{-100,-20},{-80,0}}),
+            iconTransformation(extent={{-100,-20},{-80,0}})));
+      D.Interfaces.DigitalOutput y
+        annotation (Placement(transformation(extent={{80,-20},{100,0}}),
+            iconTransformation(extent={{80,-20},{100,0}})));
+    protected
+              D.Interfaces.Logic nextstate(start=L.'U');
+              D.Interfaces.DigitalOutput yy(start=L.'U');
+              D.Delay.InertialDelaySensitive inertialDelaySensitive(each tLH=tLH, each tHL=tHL);
+    algorithm
+      nextstate := T.Buf3sTable[strength, T.NotTable[enable], T.NotTable[x]];
+      yy := nextstate;
+    equation
+      connect(yy, inertialDelaySensitive.x);
+      connect(inertialDelaySensitive.y, y);
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={
+            Polygon(
+              points={{-40,40},{-40,-60},{40,-10},{-40,40}},
+              lineColor={127,0,127},
+              smooth=Smooth.None,
+              fillColor={213,170,255},
+              fillPattern=FillPattern.Solid),
+            Line(
+              points={{-80,70},{0,70},{0,14}},
+              color={127,0,127},
+              thickness=1,
+              smooth=Smooth.None),
+            Line(
+              points={{-80,-10},{-40,-10}},
+              color={127,0,127},
+              smooth=Smooth.None,
+              thickness=1),
+            Line(
+              points={{40,-10},{82,-10}},
+              color={127,0,127},
+              smooth=Smooth.None,
+              thickness=1),
+            Ellipse(
+              extent={{40,-3},{54,-17}},
+              lineColor={127,0,127},
+              fillColor={213,170,255},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-54,-62},{20,-84}},
+              lineColor={0,0,255},
+              fillColor={213,170,255},
+              fillPattern=FillPattern.Solid,
+              textString="%name")}),
+                                 Diagram(coordinateSystem(preserveAspectRatio=true,
+              extent={{-100,-100},{100,100}}), graphics),
+        Documentation(revisions="<html>
+<ul>
+<PRE>
+<li><i>January 22, 2010 </i> created by Ulrich Donath<br>
+       </li>
+</PRE>
+</ul>
+</html>", info="<html>
+<p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd<p>
+<p>and for tristate table http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd<p>
+<p><b>Truth Table</b></p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign=\"top\"><b>DataIn</b></td>
+      <td valign=\"top\"><b>Enable</b></td>
+      <td valign=\"top\"><b>DataOut*</b></td>
+  </tr>
+                        
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">Not DataIn</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">1</td> <td valign=\"top\">Z</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">Z</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">W</td> <td valign=\"top\">UX</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">L</td> <td valign=\"top\">Not DataIn</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">H</td> <td valign=\"top\">Z</td></tr>
+  <tr><td valign=\"top\">*</td> <td valign=\"top\">-</td> <td valign=\"top\">UX</td></tr>
+</table>
+<p>
+<PRE>
+  UX: if dataIn == U then U else X 
+  DataOut*: Strength map for DataOut according to tristate table Buf3slTable
+</PRE>
+</p>
+
+</html>"));
+    end INV3SL;
+
+    model WiredX "Wired node with multiple input and one output"
+      extends D.Interfaces.MISO;
+    protected
+      D.Interfaces.Logic auxiliary[n](each start=L.'Z', each fixed=true);
+    equation
+      auxiliary[1] = x[1];
+      for i in 1:n - 1 loop
+        auxiliary[i + 1] = D.Tables.ResolutionTable[auxiliary[i], x[i + 1]];
+      end for;
+      y = pre(auxiliary[n]);
+      annotation (
+        Documentation(info="<HTML>
+<P>
+Wires n input signals in one output signal, without delay.
+</P>
+<p>Resolution table is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd<p>
+</HTML>
+",   revisions=
+             "<html>
+<ul>
+<PRE>
+<li><i>January 22, 2010 </i> created by Ulrich Donath<br>
+       </li>
+</PRE>
+</ul>
+</html>"),
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                100,100}}), graphics={Text(
+              extent={{-50,40},{50,80}},
+              lineColor={0,0,0},
+              lineThickness=0.5,
+              textString="Wire"), Text(
+              extent={{152,-160},{-148,-100}},
+              lineColor={0,0,255},
+              textString="%name")}),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}),
+                graphics));
+    end WiredX;
+  end Tristates;
 end Digital;
 

@@ -260,11 +260,6 @@ equation
           Rectangle(extent={{-70,30},{70,-30}}, lineColor={0,0,255}),
           Line(points={{-90,0},{-70,0}}, color={0,0,255}),
           Line(points={{70,0},{90,0}}, color={0,0,255}),
-          Text(
-            extent={{-136,-42},{142,-74}},
-            lineColor={0,0,0},
-            pattern=LinePattern.None,
-            textString="G=%G"),
           Line(
             visible=useHeatPort,
             points={{0,-100},{0,-30}},
@@ -276,7 +271,7 @@ equation
             textString="%name",
             lineColor={0,0,255}),
           Text(
-            extent={{-144,-40},{142,-72}},
+            extent={{-144,-38},{142,-70}},
             lineColor={0,0,0},
             textString="G=%G")}),
     Diagram(coordinateSystem(
