@@ -315,6 +315,305 @@ to the original vector are given, such that sorted_v = v[indices].
 </pre></blockquote>
 </HTML>"));
   end sort;
+
+  function find "Find element in vector"
+    extends Modelica.Icons.Function;
+    input Integer s "Search for s";
+    input Integer v[:] "Integer vector";
+    output Integer result
+      "v[result] = s (first occurrence of s); result=0, if not found";
+  protected
+    Integer i;
+  algorithm
+    result := 0;
+    i := 1;
+    while i <= size(v, 1) loop
+      if v[i] == s then
+        result := i;
+        i := size(v, 1) + 1;
+      else
+        i := i + 1;
+      end if;
+    end while;
+  end find;
+
+  function toString "Convert a real vector to a string"
+    import Modelica.Utilities.Strings;
+
+    input Real v[:] "Real vector";
+    input String name="v" "Independent variable name used for printing";
+    input Integer significantDigits=6
+      "Number of significant digits that are shown";
+    output String s="";
+  protected
+    String blanks=Strings.repeat(significantDigits);
+    String space=Strings.repeat(8);
+    Integer r=size(v, 1);
+
+  algorithm
+    if r == 0 then
+      s := if name=="" then "[]" else name + " = []";
+    else
+      s := if name=="" then "\n" else "\n" + name + " = \n";
+      for i in 1:r loop
+        s := s + space;
+
+        if v[i] >= 0 then
+          s := s + " ";
+        end if;
+        s := s + String(v[i], significantDigits=significantDigits) +
+          Strings.repeat(significantDigits + 8 - Strings.length(String(abs(v[i]))));
+
+        s := s + "\n";
+      end for;
+
+    end if;
+
+    annotation (Documentation(info="<HTML>
+<h4>Syntax</h4>
+<blockquote><pre>
+Vectors.<b>toString</b>(v);
+Vectors.<b>toString</b>(v,name=\"v\",significantDigits=6); 
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call \"<code>Vectors.<b>toString</b>(v)</code>\" returns
+string representation of vector v.
+With the optional arguments \"name\" and \"significantDigits\", a name and the number of the digits are defined.
+The default values of name and significantDigits are \"v\" and 6 repectively. If name=\"\" then the prefix \"v =\" is leaved out.
+
+
+<h4>Example</h4>
+<blockquote><pre>
+  v = {2.12, -4.34, -2.56, -1.67};
+  <b>toString</b>(v);           // = \"v = 
+                                //           2.12
+                                //          -4.34
+                                //          -2.56
+                                //          -1.67\"
+  <b>toString</b>(v,\"vv\",1);    // = \"vv = 
+                         //           2
+                         //          -4
+                         //          -3
+                         //          -2\"
+  <b>toString</b>(v,\"\");        //  
+                                //           2.12
+                                //          -4.34
+                                //          -2.56
+                                //          -1.67\"
+
+</pre></blockquote>
+</HTML>",   revisions="<html>
+
+</html>"));
+  end toString;
+
+  package Utilities
+    "Utility functions that should not be directly utilized by the user"
+      extends Modelica.Icons.Package;
+  function householderVector
+      "Calculate a normalized householder vector for the reflexion of vector a onto vector b "
+
+    import Modelica.Math.Vectors.length;
+
+    input Real a[:] "Real vector to be reflected";
+    input Real b[size(a, 1)] "Real vector b vector a is mapped onto";
+    output Real u[size(a, 1)] "Housholder vector to map a onto b";
+    protected
+    Real length_a=length(a);
+    Real alpha=if length(a + length_a*b) > 0 then length_a else -length_a;
+
+  algorithm
+    assert(length(b) > 0,
+      "vector b in function housholderVector is zero vector, but at least one element should be different from zero ");
+    assert(length(a) > 0,
+      "vector a in function housholderVector is zero vector, but at least one element should be different from zero");
+    u := (a + alpha*b)/length(a + alpha*b);
+
+    annotation (Documentation(info="<HTML>
+<h4>Syntax</h4>
+<blockquote><pre>
+Vectors.Utilities<b>householderVector</b>(a,b);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call \"<code>householderVector(a, b)</code>\" returns vector
+<b>u</b>, which is the normalized Householder vector for a Householder
+reflexion with matrix <b>Q</b>
+</p>
+<blockquote>
+<p>
+<b>Q</b> = <b>I</b> - 2*<b>u</b>*<b>u</b>',
+</p>
+</blockquote>
+i.e., vector <b>a</b> is mapped to
+<blockquote>
+<p>
+<b>a</b> -> <b>Q</b>*<b>a</b>=c*<b>b</b>
+</p>
+</blockquote>
+with scalar c. <b>Q</b>*<b>a</b> is the reflection of <b>a</b> about the hyperplane orthogonal to <b>u</b>.
+<b>Q</b> is an orthogonal matrix, i.e.
+<blockquote>
+<p>
+    <b>Q</b> = inv(<b>Q</b>) = <b>Q</b>'
+</p>
+</blockquote>
+<h4>Example</h4>
+<blockquote><pre>
+  a = {2, -4, -2, -1};
+  b = {1, 0, 0, 0};
+
+  u=<b>householderVector</b>(a,b);    // {0.837, -0.478, -0.239, -0.119}
+                                      // Computation (I - 2*matrix(u)*transpose(matrix(u))) results in         
+                                      // {-5, 0, 0, 0} = -5*b        
+</pre></blockquote>
+<h4>See also</h4>
+<a href=\"modelica://Modelica.Math.Vectors.Utilities.householderReflexion\">Utilities.householderReflexion</a>
+</HTML>
+
+
+", revisions="<html>
+<ul>
+<li><i>April 15, 2010</i>
+       by Marcus Baur, DLR System Dynamics and Control
+email: <a href=\"mailto:marcus.baur@dlr.de\">Marcus Baur</a>
+</ul>
+
+</html>"));
+  end householderVector;
+
+    function householderReflection
+      "Reflect a vector a on a plane with orthogonal vector u"
+      import Modelica.Math.Vectors;
+
+      input Real a[:] "Real vector a to be reflected";
+      input Real u[size(a, 1)] "householder vector";
+      output Real ra[size(u, 1)] "reflexion of a";
+
+    protected
+      Real norm_a=Vectors.length(a);
+      Real h=2*u*a;
+
+    algorithm
+      ra := a - h*u;
+
+    // this function is mainly used in the fromStateSpace transformations.
+    // In this context the calculation of invariant zeros is very susceptible with subject to
+    // elements of the output vector are zero or not. Therefore, values close to zero are set to zero.
+      for i in 1:size(ra, 1) loop
+        ra[i] := if abs(ra[i]) >= norm_a*1e-12 then ra[i] else 0;
+      end for;
+
+      annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+Vectors.Utilities<b>householderReflection</b>(a,u);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call \"<code>householderReflection(a, u)</code>\" reflects a vector
+<b>a</b> about a plane orthogonal to vector <b>u</b> (housholder vector).
+Algebraically the operation is defined by
+</p>
+<p>
+<b>b</b>=<b>Q</b>*<b>a</b>
+</p>
+</blockquote>
+with
+<blockquote>
+<p>
+<b>Q</b> = <b>I</b> - 2*<b>u</b>*<b>u</b>',
+</p>
+</blockquote>
+<b>Q</b> is an orthogonal matrix, i.e.
+<blockquote>
+<p>
+    <b>Q</b> = inv(<b>Q</b>) = <b>Q</b>'
+</p>
+</blockquote>
+<h4>Example</h4>
+<blockquote><pre>
+  a = {2, -4, -2, -1};
+  u = {0.837, -0.478, -0.239, -0.119};
+
+  <b>householderReflection</b>(a,u);    //  = {-5.0, -0.001, -0.0005, -0.0044}
+</pre></blockquote>
+<h4>See also</h4>
+<a href=\"modelica://Modelica.Math.Vectors.Utilities.householderVector\">Utilities.householderVector</a>
+</html>", revisions="<html>
+<ul>
+<li><i>April 15, 2010</i>
+       by Marcus Baur, DLR System Dynamics and Control
+email: <a href=\"mailto:marcus.baur@dlr.de\">Marcus Baur</a>
+</ul>
+</html>"));
+    end householderReflection;
+
+      encapsulated function roots
+      "Determine zeros of polynomial where highest coefficient of polynomial is not zero"
+        import Modelica.Math.Matrices;
+
+        input Real p[:]
+        "Vector with polynomial coefficients p[1]*x^n + p[2]*x^(n-1) + p[n]*x +p[n-1]";
+        output Real roots[max(0,size(p,1)-1),2]=fill(0,max(0,size(p,1)-1),2)
+        "Real and imaginary parts of the roots of polynomial";
+    protected
+        Integer np=size(p, 1);
+        Integer n=size(p, 1)-1;
+        Real A[max(n,0),max(n,0)] "Companion matrix";
+        Real ev[max(n,0),2] "Eigenvalues";
+      algorithm
+        if n > 0 then
+          assert(abs(p[1])>0, "Computing the roots of a polynomial with function \"Vectors.Utilities.roots\" failed, beacuse the first element of the coefficient vector is zero, but should not be.");
+
+          // companion matrix
+          A[1, :] := -p[2:np]/p[1];
+          A[2:n, :] := [identity(n - 1),zeros(n - 1)];
+
+          // roots are the eigenvalues of companion matrix
+          roots := Matrices.Utilities.eigenvaluesHessenberg(A);
+        end if;
+      annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+  r = Vectors.Utilities<b>roots</b>(p);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function computes the roots of a polynomial P in x
+</p>
+<blockquote><pre>
+  P = p[1]*x^n + p[2]*x^(n-1) + ... + p[n-1]*x + p[n+1];
+</pre></blockquote>
+<p>
+with the coefficient vector <b>p</b>. It is assumed that the first element of p is not zero, i.e. that the polynomial is of order size(p,1)-1.
+For computing the roots, the eigenvalues of the corresponding companion matrix <b>C</b>
+</p>
+<blockquote><pre>
+              |-p[2]/p[1]  -p[3]/p[1]  ...  -p[n-2]/p[1]  -p[n-1]/p[1]  -p[n]/p[1] |
+              |    1            0                0               0           0     |
+              |    0            1      ...       0               0           0     |
+  <b>C</b> =  |    .            .      ...       .               .           .     |
+              |    .            .      ...       .               .           .     |
+              |    0            0      ...       0               1           0     |
+</pre></blockquote>
+<p>
+are calculated. These are the roots of the polynomial. No transformationto  Hessenberg form is performed since the companion matrix has already Hessenberg form.
+<p>
+Since the function is implemented in one statement,
+it is usually inlined and therefore symbolic processing is
+possible.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  r = <b>roots</b>({1,2,3});  
+  //ev = [-1.0, 1.41421356237309;-1.0, -1.41421356237309]
+  // = -1.0 +- j*sqrt(2)
+</pre></blockquote>
+</html>"));
+      end roots;
+  end Utilities;
   annotation (
     preferedView = "info",
     Documentation(info="<HTML>
@@ -1166,7 +1465,9 @@ has a unique solution.
     output Integer pivots[min(size(A, 1), size(A,2))]
       "pivot indices (used with LU_solve(..))";
     output Integer info "Information";
-    external "FORTRAN 77" dgetrf(size(A, 1), size(A, 2), LU, size(A, 1), pivots, info)
+  protected
+    Integer lda=max(1,size(A, 1));
+    external "FORTRAN 77" dgetrf(size(A, 1), size(A, 2), LU, lda, pivots, info) 
       annotation (Library="Lapack");
 
     annotation ( Documentation(info="<HTML>
@@ -1424,10 +1725,12 @@ matrix A was interchanged with row pivots[i].
   end LU_solve2;
 
   function QR
-    "QR decomposition of a square matrix with column pivoting (A(:,p) = Q*R)"
+    "QR decomposition of a square matrix with optional column pivoting (A(:,p) = Q*R)"
 
     extends Modelica.Icons.Function;
     input Real A[:, :] "Rectangular matrix with size(A,1) >= size(A,2)";
+    input Boolean pivoting=true
+      "True if column pivoting is performed. True is default";
     output Real Q[size(A, 1), size(A, 2)]
       "Rectangular matrix with orthonormal columns such that Q*R=A[:,p]";
     output Real R[size(A, 2), size(A, 2)] "Square upper triangular matrix";
@@ -1440,7 +1743,12 @@ matrix A was interchanged with row pivots[i].
   algorithm
     assert(nrow >= ncol, "\nInput matrix A[" + String(nrow) + "," + String(ncol) + "] has more columns as rows.
 This is not allowed when calling Modelica.Matrices.QR(A).");
-    (Q,tau,p) := LAPACK.dgeqpf(A);
+    if pivoting then
+      (Q,tau,p) := LAPACK.dgeqpf(A);
+    else
+      (Q,tau) := Modelica.Math.Matrices.LAPACK.dgeqrf(A);
+       p := 1:ncol;
+    end if;
 
     // determine R
     R := zeros(ncol,ncol);
@@ -2303,7 +2611,7 @@ is discribed in
       Real work[lwork];
 
     external "Fortran 77" dgeev("N", "V", n, Awork, n, eigenReal, eigenImag,
-        eigenVectors, n, eigenVectors, n, work, size(work, 1), info)
+        eigenVectors, n, eigenVectors, n, work, size(work, 1), info) 
         annotation (Library="Lapack");
       annotation (
         Documentation(info="Lapack documentation
@@ -2409,7 +2717,7 @@ is discribed in
 */
     external "Fortran 77" dgeev("N", "N", size(A, 1), Awork, size(A, 1),
         EigenReal, EigenImag, EigenvectorsL, size(EigenvectorsL, 1),
-        EigenvectorsL, size(EigenvectorsL, 1), work, size(work, 1), info)
+        EigenvectorsL, size(EigenvectorsL, 1), work, size(work, 1), info) 
         annotation (Library="Lapack");
 
       annotation (
@@ -2511,7 +2819,7 @@ is discribed in
       Real dummy2[1,1];
 
       external "Fortran 77" dgegv("N", "N", n, Awork, n, Bwork, n, alphaReal, alphaImag, beta,
-                 dummy1, 1, dummy2, 1, work, size(work, 1), info)
+                 dummy1, 1, dummy2, 1, work, size(work, 1), info) 
             annotation (Library="Lapack");
       annotation (Documentation(info="Purpose
 =======
@@ -3017,10 +3325,11 @@ are computed, then only the diagonal blocks will be correct.
       output Integer info;
     protected
       Real Awork[size(A, 1), size(A, 1)]=A;
+      Integer lda=max(1,size(A,1));
+      Integer ldb=max(1,size(B,1));
       Integer ipiv[size(A, 1)];
 
-    external "FORTRAN 77" dgesv(size(A, 1), size(B, 2), Awork, size(A, 1), ipiv,
-         X, size(A, 1), info) annotation (Library="Lapack");
+    external "FORTRAN 77" dgesv(size(A, 1), size(B, 2), Awork, lda, ipiv, X, ldb, info) annotation (Library="Lapack");
       annotation (
         Documentation(info="Lapack documentation:
     Purpose
@@ -3076,10 +3385,11 @@ are computed, then only the diagonal blocks will be correct.
       output Integer info;
     protected
       Real Awork[size(A, 1), size(A, 1)]=A;
+      Integer lda=max(1,size(A,1));
+      Integer ldb=max(1,size(b,1));
       Integer ipiv[size(A, 1)];
 
-    external "FORTRAN 77" dgesv(size(A, 1), 1, Awork, size(A, 1), ipiv, x, size(
-        A, 1), info) annotation (Library="Lapack");
+    external "FORTRAN 77" dgesv(size(A, 1), 1, Awork, lda, ipiv, x, ldb, info) annotation (Library="Lapack");
       annotation (
         Documentation(info="
 Same as function LAPACK.dgesv, but right hand side is a vector and not a matrix.
@@ -3210,7 +3520,7 @@ For details of the arguments, see documentation of dgesv.
       Real subdiagwork[size(subdiag, 1)]=subdiag;
 
     external "FORTRAN 77" dgtsv(size(diag, 1), size(B, 2), subdiagwork,
-        diagwork, superdiagwork, X, size(B, 1), info)
+        diagwork, superdiagwork, X, size(B, 1), info) 
         annotation (Library="Lapack");
       annotation (
         Documentation(info="Lapack documentation:
@@ -3402,7 +3712,7 @@ elements of U because of fill-in resulting from the row interchanges."));
       Real work[lwork];
 
     external "Fortran 77" dgesvd("A", "A", size(A, 1), size(A, 2), Awork, size(
-        A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info)
+        A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info) 
         annotation (Library="Lapack");
       annotation (
         Documentation(info="Lapack documentation:
@@ -3516,7 +3826,7 @@ elements of U because of fill-in resulting from the row interchanges."));
       Real work[lwork];
 
     external "Fortran 77" dgesvd("N", "N", size(A, 1), size(A, 2), Awork, size(
-        A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info)
+        A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info) 
         annotation (Library="Lapack");
       annotation (
         Documentation(info="Lapack documentation:
@@ -3625,8 +3935,9 @@ elements of U because of fill-in resulting from the row interchanges."));
       output Real LU[size(A, 1), size(A, 2)]=A;
       output Integer pivots[min(size(A, 1), size(A, 2))] "Pivot vector";
       output Integer info "Information";
-
-    external "FORTRAN 77" dgetrf(size(A, 1), size(A, 2), LU, size(A, 1), pivots,
+    protected
+      Integer lda=max(1,size(A, 1));
+    external "FORTRAN 77" dgetrf(size(A, 1), size(A, 2), LU, lda, pivots,
          info) annotation (Library="Lapack");
       annotation (
         Documentation(info="Lapack documentation:
@@ -3686,12 +3997,14 @@ INFO    (output) INTEGER
         input Integer pivots[size(LU, 1)] "Pivot vector of dgetrf";
         input Real B[size(LU, 1),:] "Right hand side matrix B";
         output Real X[size(B, 1), size(B,2)]=B "Solution matrix X";
-
+        output Integer info;
     protected
         Real work[size(LU, 1), size(LU, 1)]=LU;
-        Integer info;
-      external "FORTRAN 77" dgetrs("N", size(LU, 1), size(B,2), work, size(LU, 1), pivots,
-           X, size(B, 1), info) annotation (Library="Lapack");
+        Integer lda=max(1,size(LU, 1));
+        Integer ldb=max(1,size(B, 1));
+
+      external "FORTRAN 77" dgetrs("N", size(LU, 1), size(B,2), work, lda, pivots,
+           X, ldb, info) annotation (Library="Lapack");
         annotation (
           Documentation(info="Lapack documentation:
   SUBROUTINE DGETRS( TRANS, N, NRHS, A, LDA, IPIV, B, LDB, INFO )
@@ -3753,12 +4066,15 @@ INFO    (output) INTEGER
       input Integer pivots[size(LU, 1)] "Pivot vector of dgetrf";
       input Real b[size(LU, 1)] "Right hand side vector b";
       output Real x[size(b, 1)]=b;
+      output Integer info;
 
     protected
       Real work[size(LU, 1), size(LU, 1)]=LU;
-      Integer info;
-    external "FORTRAN 77" dgetrs("N", size(LU, 1), 1, work, size(LU, 1), pivots,
-         x, size(b, 1), info) annotation (Library="Lapack");
+      Integer lda=max(1,size(LU, 1));
+      Integer ldb=max(1,size(b, 1));
+
+    external "FORTRAN 77" dgetrs("N", size(LU, 1), 1, work, lda, pivots,
+         x, ldb, info) annotation (Library="Lapack");
       annotation (
         Documentation(info="Lapack documentation:
   SUBROUTINE DGETRS( TRANS, N, NRHS, A, LDA, IPIV, B, LDB, INFO )
@@ -3819,13 +4135,15 @@ INFO    (output) INTEGER
         "LU factorization of dgetrf of a square matrix";
       input Integer pivots[size(LU, 1)] "Pivot vector of dgetrf";
       output Real inv[size(LU, 1), size(LU, 2)]=LU "Inverse of matrix P*L*U";
+      output Integer info;
 
     protected
-      Integer lwork=min(10, size(LU, 1))*size(LU, 1) "Length of work array";
+      Integer lda=max(1,size(LU, 1));
+      Integer lwork=max(1,min(10, size(LU, 1))*size(LU, 1))
+        "Length of work array";
       Real work[lwork];
-      Integer info;
-    external "FORTRAN 77" dgetri(size(LU, 1), inv, size(LU, 1), pivots, work,
-        lwork, info) annotation (Library="Lapack");
+
+    external "FORTRAN 77" dgetri(size(LU, 1), inv, lda, pivots, work, lwork, info) annotation (Library="Lapack");
       annotation (
         Documentation(info="Lapack documentation:
    SUBROUTINE DGETRI( N, A, LDA, IPIV, WORK, LWORK, INFO )
@@ -3882,12 +4200,12 @@ INFO    (output) INTEGER
       output Real tau[min(size(A, 1), size(A, 2))]
         "The scalar factors of the elementary reflectors of Q";
       output Integer p[size(A, 2)]=zeros(size(A, 2)) "Pivot vector";
-
+      output Integer info;
     protected
-      Integer info;
+      Integer lda=max(1,size(A, 1));
       Integer ncol=size(A, 2) "Column dimension of A";
       Real work[3*ncol] "work array";
-    external "FORTRAN 77" dgeqpf(size(A, 1), ncol, QR, size(A, 1), p, tau, work,
+    external "FORTRAN 77" dgeqpf(size(A, 1), ncol, QR, lda, p, tau, work,
          info) annotation (Library={"Lapack"});
       annotation (
         Documentation(info="Lapack documentation:
@@ -3955,13 +4273,15 @@ then the jth column of P is the ith canonical unit vector."));
       input Real tau[min(size(QR, 1), size(QR, 2))]
         "The scalar factors of the elementary reflectors of Q";
       output Real Q[size(QR, 1), size(QR, 2)]=QR "Orthogonal matrix Q";
+      output Integer info;
 
     protected
-      Integer info;
-      Integer lwork=min(10, size(QR, 2))*size(QR, 2) "Length of work array";
+      Integer lda=max(1,size(Q, 1));
+      Integer lwork=max(1,min(10, size(QR, 2))*size(QR, 2))
+        "Length of work array";
       Real work[lwork];
     external "FORTRAN 77" dorgqr(size(QR, 1), size(QR, 2), size(tau, 1), Q,
-        size(Q, 1), tau, work, lwork, info) annotation (Library={"Lapack"});
+        lda,  tau, work, lwork, info) annotation (Library={"Lapack"});
       annotation (
         Documentation(info="Lapack documentation:
    SUBROUTINE DORGQR( M, N, K, A, LDA, TAU, WORK, LWORK, INFO )
@@ -4013,6 +4333,3046 @@ INFO    (output) INTEGER
         < 0:  if INFO = -i, the i-th argument has an illegal value
 "));
     end dorgqr;
+
+    function dgees
+      "Computes real Schur form T of  real nonsymmetric matrix A, and, optionally, the matrix of Schur vectors Z as well as the eigenvalues"
+
+      input Real A[:,size(A,1)] "Square matrix";
+      output Real T[size(A, 1), size(A, 2)]=A "Real Schur form with A = Z*T*Z'";
+      output Real Z[size(A, 1), size(A, 1)]
+        "orthogonal matrix Z of Schur vectors";
+      output Real eval_real[size(A, 1)] "real part of the eigenvectors of A";
+      output Real eval_imag[size(A, 1)]
+        "imaginary part of the eigenvectors of A";
+      output Integer info;
+
+    protected
+      Integer n=size(A, 1) "Row dimension of A";
+      Integer lda=max(1,n);
+      Integer sdim=0;
+      Boolean bwork[n];
+
+      external "FORTRAN 77" c_inter_dgees("V", "N", n, T, lda, sdim, eval_real, eval_imag, Z, lda, bwork, info) 
+      annotation (Include=" 
+#include<f2c.h>
+logical select_(doublereal *par1, doublereal *par2)
+{
+return false;
+};
+  #include<f2c.h>
+
+extern  int dgees_(char *, char *, L_fp, integer *, doublereal *, integer *, integer *, doublereal *, doublereal *,
+                   doublereal *, integer *, doublereal *, integer *, logical *, integer *);
+extern logical select_(doublereal *par1, doublereal *par2);   
+
+int c_inter_dgees_(char *jobvs, char *sort, integer *n, doublereal *a, integer *lda, integer *sdim, doublereal *wr, 
+        doublereal *wi, doublereal *z, integer *ldz, logical *bwork, integer *info) 
+{
+                
+  
+  doublereal *work;
+  integer nn=*n;
+  integer lwork=-1;
+  
+  
+   work = (doublereal *) malloc((3*nn+1)*sizeof(doublereal));
+   dgees_(jobvs, sort, (L_fp)select_, n, a, lda, sdim, wr, wi, z, ldz, work, &lwork, bwork, info);
+   lwork=(int)(work[0]);
+   free(work);
+   work = (doublereal *) malloc((lwork+1)*sizeof(doublereal));
+   dgees_(jobvs, sort, (L_fp)select_, n, a, lda, sdim, wr, wi, z, ldz, work, &lwork, bwork, info);
+  free(work);
+  return 0;
+  }",     Library={"lapack"});
+
+      annotation (Documentation(info="
+   Purpose   
+    =======   
+
+    DGEES computes for an N-by-N real nonsymmetric matrix A, the   
+    eigenvalues, the real Schur form T, and, optionally, the matrix of   
+    Schur vectors Z.  This gives the Schur factorization A = Z*T*(Z**T).   
+
+    Optionally, it also orders the eigenvalues on the diagonal of the   
+    real Schur form so that selected eigenvalues are at the top left.   
+    The leading columns of Z then form an orthonormal basis for the   
+    invariant subspace corresponding to the selected eigenvalues.   
+
+    A matrix is in real Schur form if it is upper quasi-triangular with   
+    1-by-1 and 2-by-2 blocks. 2-by-2 blocks will be standardized in the   
+    form   
+            [  a  b  ]   
+            [  c  a  ]   
+
+    where b*c < 0. The eigenvalues of such a block are a +- sqrt(bc).   
+
+    Arguments   
+    =========   
+
+    JOBVS   (input) CHARACTER*1   
+            = 'N': Schur vectors are not computed;   
+            = 'V': Schur vectors are computed.   
+
+    SORT    (input) CHARACTER*1   
+            Specifies whether or not to order the eigenvalues on the   
+            diagonal of the Schur form.   
+            = 'N': Eigenvalues are not ordered;   
+            = 'S': Eigenvalues are ordered (see SELECT).   
+
+    SELECT  (external procedure) LOGICAL FUNCTION of two DOUBLE PRECISION arguments   
+            SELECT must be declared EXTERNAL in the calling subroutine.   
+            If SORT = 'S', SELECT is used to select eigenvalues to sort   
+            to the top left of the Schur form.   
+            If SORT = 'N', SELECT is not referenced.   
+            An eigenvalue WR(j)+sqrt(-1)*WI(j) is selected if   
+            SELECT(WR(j),WI(j)) is true; i.e., if either one of a complex   
+            conjugate pair of eigenvalues is selected, then both complex   
+            eigenvalues are selected.   
+            Note that a selected complex eigenvalue may no longer   
+            satisfy SELECT(WR(j),WI(j)) = .TRUE. after ordering, since   
+            ordering may change the value of complex eigenvalues   
+            (especially if the eigenvalue is ill-conditioned); in this   
+            case INFO is set to N+2 (see INFO below).   
+
+    N       (input) INTEGER   
+            The order of the matrix A. N >= 0.   
+
+    A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)   
+            On entry, the N-by-N matrix A.   
+            On exit, A has been overwritten by its real Schur form T.   
+
+    LDA     (input) INTEGER   
+            The leading dimension of the array A.  LDA >= max(1,N).   
+
+    SDIM    (output) INTEGER   
+            If SORT = 'N', SDIM = 0.   
+            If SORT = 'S', SDIM = number of eigenvalues (after sorting)   
+                           for which SELECT is true. (Complex conjugate   
+                           pairs for which SELECT is true for either   
+                           eigenvalue count as 2.)   
+
+    WR      (output) DOUBLE PRECISION array, dimension (N)   
+    WI      (output) DOUBLE PRECISION array, dimension (N)   
+            WR and WI contain the real and imaginary parts,   
+            respectively, of the computed eigenvalues in the same order   
+            that they appear on the diagonal of the output Schur form T.   
+            Complex conjugate pairs of eigenvalues will appear   
+            consecutively with the eigenvalue having the positive   
+            imaginary part first.   
+
+    VS      (output) DOUBLE PRECISION array, dimension (LDVS,N)   
+            If JOBVS = 'V', VS contains the orthogonal matrix Z of Schur   
+            vectors.   
+            If JOBVS = 'N', VS is not referenced.   
+
+    LDVS    (input) INTEGER   
+            The leading dimension of the array VS.  LDVS >= 1; if   
+            JOBVS = 'V', LDVS >= N.   
+
+    WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))   
+            On exit, if INFO = 0, WORK(1) contains the optimal LWORK.   
+
+    LWORK   (input) INTEGER   
+            The dimension of the array WORK.  LWORK >= max(1,3*N).   
+            For good performance, LWORK must generally be larger.   
+
+            If LWORK = -1, then a workspace query is assumed; the routine   
+            only calculates the optimal size of the WORK array, returns   
+            this value as the first entry of the WORK array, and no error   
+            message related to LWORK is issued by XERBLA.   
+
+    BWORK   (workspace) LOGICAL array, dimension (N)   
+            Not referenced if SORT = 'N'.   
+
+    INFO    (output) INTEGER   
+            = 0: successful exit   
+            < 0: if INFO = -i, the i-th argument had an illegal value.   
+            > 0: if INFO = i, and i is   
+               <= N: the QR algorithm failed to compute all the   
+                     eigenvalues; elements 1:ILO-1 and i+1:N of WR and WI   
+                     contain those eigenvalues which have converged; if   
+                     JOBVS = 'V', VS contains the matrix which reduces A   
+                     to its partially converged Schur form.   
+               = N+1: the eigenvalues could not be reordered because some   
+                     eigenvalues were too close to separate (the problem   
+                     is very ill-conditioned);   
+               = N+2: after reordering, roundoff changed values of some   
+                     complex eigenvalues so that leading eigenvalues in   
+                     the Schur form no longer satisfy SELECT=.TRUE.  This   
+                     could also be caused by underflow due to scaling.   
+"));
+    end dgees;
+
+    function dtrsen "Reorder the real Schur factorization of a real matrix"
+
+      input String job="N" "Specifies the usage of a condition number";
+      input String compq="V" "Is \"V\" if Schur vector matrix is to be updated";
+      input Boolean select[:] "Specifies tthe eigenvalues to reorder";
+      input Real T[:,:] "Real Schur form to be reordered";
+      input Real Q[:,size(T, 2)] "Matrix of the Schur vectors";
+
+    protected
+      Integer n=size(T, 2);
+      Integer ldt=max(1, n);
+      Integer ldq=if compq == "V" then n else 1;
+      Integer lwork=if job == "N" then max(1, n) else if job == "E" then n*n else 2
+          *n*n;
+      Real work[lwork];
+      Integer liwork=if job == "N" or job == "E" then 1 else n*n;
+      Integer iwork[liwork];
+
+    public
+      output Real To[:,:]=T "Reordered Schur form";
+      output Real Qo[:,:]=Q "Reordered Schur vectors";
+      output Real wr[size(T, 2)] "Reordered eigenvalues, real part";
+      output Real wi[size(T, 2)] "Reordered eigenvalues, imaginary part";
+      output Integer m
+        "Dimension of the invariant sub space spanned bei the selected eigenvalues";
+      output Real s
+        "Lower bound of the reciprocal condition number. Not referenced for job==V";
+      output Real sep
+        "Estimated reciprocal condition number of the specified invariant subspace";
+      output Integer info;
+
+    external "Fortran 77" dtrsen(
+        job,
+        compq,
+        select,
+        n,
+        To,
+        ldt,
+        Qo,
+        ldq,
+        wr,
+        wi,
+        m,
+        s,
+        sep,
+        work,
+        lwork,
+        iwork,
+        liwork,
+        info) annotation(Library = {"lapack"});
+
+      annotation (Documentation(info="   
+   Purpose  
+   =======  
+ 
+     DTRSEN reorders the real Schur factorization of a real matrix  
+   A = Q*T*Q**T, so that a selected cluster of eigenvalues appears in  
+   the leading diagonal blocks of the upper quasi-triangular matrix T,  
+   and the leading columns of Q form an orthonormal basis of the  
+   corresponding right invariant subspace.  
+ 
+   Optionally the routine computes the reciprocal condition numbers of  
+   the cluster of eigenvalues and/or the invariant subspace.  
+ 
+   T must be in Schur canonical form (as returned by DHSEQR), that is,  
+   block upper triangular with 1-by-1 and 2-by-2 diagonal blocks; each  
+   2-by-2 diagonal block has its diagonal elemnts equal and its  
+   off-diagonal elements of opposite sign.  
+ 
+   Arguments  
+   =========  
+ 
+   JOB     (input) CHARACTER*1  
+           Specifies whether condition numbers are required for the  
+           cluster of eigenvalues (S) or the invariant subspace (SEP):  
+           = 'N': none;  
+           = 'E': for eigenvalues only (S);  
+           = 'V': for invariant subspace only (SEP);  
+           = 'B': for both eigenvalues and invariant subspace (S and  
+                  SEP).  
+ 
+   COMPQ   (input) CHARACTER*1  
+           = 'V': update the matrix Q of Schur vectors;  
+           = 'N': do not update Q.  
+ 
+   SELECT  (input) LOGICAL array, dimension (N)  
+           SELECT specifies the eigenvalues in the selected cluster. To  
+           select a real eigenvalue w(j), SELECT(j) must be set to  
+           .TRUE.. To select a complex conjugate pair of eigenvalues  
+           w(j) and w(j+1), corresponding to a 2-by-2 diagonal block,  
+           either SELECT(j) or SELECT(j+1) or both must be set to  
+           .TRUE.; a complex conjugate pair of eigenvalues must be  
+           either both included in the cluster or both excluded.  
+ 
+   N       (input) INTEGER  
+           The order of the matrix T. N >= 0.  
+ 
+   T       (input/output) DOUBLE PRECISION array, dimension (LDT,N)  
+           On entry, the upper quasi-triangular matrix T, in Schur  
+           canonical form.  
+           On exit, T is overwritten by the reordered matrix T, again in  
+           Schur canonical form, with the selected eigenvalues in the  
+           leading diagonal blocks.  
+ 
+   LDT     (input) INTEGER  
+           The leading dimension of the array T. LDT >= max(1,N).  
+ 
+   Q       (input/output) DOUBLE PRECISION array, dimension (LDQ,N)  
+           On entry, if COMPQ = 'V', the matrix Q of Schur vectors.  
+           On exit, if COMPQ = 'V', Q has been postmultiplied by the  
+           orthogonal transformation matrix which reorders T; the  
+           leading M columns of Q form an orthonormal basis for the  
+           specified invariant subspace.  
+           If COMPQ = 'N', Q is not referenced.  
+ 
+   LDQ     (input) INTEGER  
+           The leading dimension of the array Q.  
+           LDQ >= 1; and if COMPQ = 'V', LDQ >= N.  
+ 
+   WR      (output) DOUBLE PRECISION array, dimension (N)  
+   WI      (output) DOUBLE PRECISION array, dimension (N)  
+           The real and imaginary parts, respectively, of the reordered  
+           eigenvalues of T. The eigenvalues are stored in the same  
+           order as on the diagonal of T, with WR(i) = T(i,i) and, if  
+           T(i:i+1,i:i+1) is a 2-by-2 diagonal block, WI(i) > 0 and  
+           WI(i+1) = -WI(i). Note that if a complex eigenvalue is  
+           sufficiently ill-conditioned, then its value may differ  
+           significantly from its value before reordering.  
+ 
+   M       (output) INTEGER  
+           The dimension of the specified invariant subspace.  
+           0 < = M <= N.  
+ 
+   S       (output) DOUBLE PRECISION  
+           If JOB = 'E' or 'B', S is a lower bound on the reciprocal  
+           condition number for the selected cluster of eigenvalues.  
+           S cannot underestimate the true reciprocal condition number  
+           by more than a factor of sqrt(N). If M = 0 or N, S = 1.  
+           If JOB = 'N' or 'V', S is not referenced.  
+ 
+   SEP     (output) DOUBLE PRECISION  
+           If JOB = 'V' or 'B', SEP is the estimated reciprocal  
+           condition number of the specified invariant subspace. If  
+           M = 0 or N, SEP = norm(T).  
+           If JOB = 'N' or 'E', SEP is not referenced.  
+ 
+   WORK    (workspace/output) DOUBLE PRECISION array, dimension (LWORK)  
+           On exit, if INFO = 0, WORK(1) returns the optimal LWORK.  
+ 
+   LWORK   (input) INTEGER  
+           The dimension of the array WORK.  
+           If JOB = 'N', LWORK >= max(1,N);  
+           if JOB = 'E', LWORK >= M*(N-M);  
+           if JOB = 'V' or 'B', LWORK >= 2*M*(N-M).  
+ 
+           If LWORK = -1, then a workspace query is assumed; the routine  
+           only calculates the optimal size of the WORK array, returns  
+           this value as the first entry of the WORK array, and no error  
+           message related to LWORK is issued by XERBLA.  
+ 
+   IWORK   (workspace) INTEGER array, dimension (LIWORK)  
+           IF JOB = 'N' or 'E', IWORK is not referenced.  
+ 
+   LIWORK  (input) INTEGER  
+           The dimension of the array IWORK.  
+           If JOB = 'N' or 'E', LIWORK >= 1;  
+           if JOB = 'V' or 'B', LIWORK >= M*(N-M).  
+ 
+           If LIWORK = -1, then a workspace query is assumed; the  
+           routine only calculates the optimal size of the IWORK array,  
+           returns this value as the first entry of the IWORK array, and  
+           no error message related to LIWORK is issued by XERBLA.  
+ 
+   INFO    (output) INTEGER  
+           = 0: successful exit  
+           < 0: if INFO = -i, the i-th argument had an illegal value  
+           = 1: reordering of T failed because some eigenvalues are too  
+                close to separate (the problem is very ill-conditioned);  
+                T may have been partially reordered, and WR and WI  
+                contain the eigenvalues in the same order as in T; S and  
+                SEP (if requested) are set to zero.  
+ 
+   Further Details  
+   ===============  
+ 
+   DTRSEN first collects the selected eigenvalues by computing an  
+   orthogonal transformation Z to move them to the top left corner of T.  
+   In other words, the selected eigenvalues are the eigenvalues of T11  
+   in:  
+ 
+                 Z'*T*Z = ( T11 T12 ) n1  
+                          (  0  T22 ) n2  
+                             n1  n2  
+ 
+   where N = n1+n2 and Z' means the transpose of Z. The first n1 columns  
+   of Z span the specified invariant subspace of T.  
+ 
+   If T has been obtained from the real Schur factorization of a matrix  
+   A = Q*T*Q', then the reordered real Schur factorization of A is given  
+   by A = (Q*Z)*(Z'*T*Z)*(Q*Z)', and the first n1 columns of Q*Z span  
+   the corresponding invariant subspace of A.  
+ 
+   The reciprocal condition number of the average of the eigenvalues of  
+   T11 may be returned in S. S lies between 0 (very badly conditioned)  
+   and 1 (very well conditioned). It is computed as follows. First we  
+   compute R so that  
+ 
+                          P = ( I  R ) n1  
+                              ( 0  0 ) n2  
+                                n1 n2  
+ 
+   is the projector on the invariant subspace associated with T11.  
+   R is the solution of the Sylvester equation:  
+ 
+                         T11*R - R*T22 = T12.  
+ 
+   Let F-norm(M) denote the Frobenius-norm of M and 2-norm(M) denote  
+   the two-norm of M. Then S is computed as the lower bound  
+ 
+                       (1 + F-norm(R)**2)**(-1/2)  
+ 
+   on the reciprocal of 2-norm(P), the true reciprocal condition number.  
+   S cannot underestimate 1 / 2-norm(P) by more than a factor of  
+   sqrt(N).  
+ 
+   An approximate error bound for the computed average of the  
+   eigenvalues of T11 is  
+ 
+                          EPS * norm(T) / S  
+ 
+   where EPS is the machine precision.  
+ 
+   The reciprocal condition number of the right invariant subspace  
+   spanned by the first n1 columns of Z (or of Q*Z) is returned in SEP.  
+   SEP is defined as the separation of T11 and T22:  
+ 
+                      sep( T11, T22 ) = sigma-min( C )  
+ 
+   where sigma-min(C) is the smallest singular value of the  
+   n1*n2-by-n1*n2 matrix  
+ 
+      C  = kprod( I(n2), T11 ) - kprod( transpose(T22), I(n1) )  
+ 
+   I(m) is an m by m identity matrix, and kprod denotes the Kronecker  
+   product. We estimate sigma-min(C) by the reciprocal of an estimate of  
+   the 1-norm of inverse(C). The true reciprocal 1-norm of inverse(C)  
+   cannot differ from sigma-min(C) by more than a factor of sqrt(n1*n2).  
+ 
+   When SEP is small, small changes in T can cause large changes in  
+   the invariant subspace. An approximate bound on the maximum angular  
+   error in the computed right invariant subspace is  
+ 
+                       EPS * norm(T) / SEP  
+ 
+   =====================================================================  "));
+    end dtrsen;
+
+    function dgesvx
+      "Solve real system of linear equations op(A)*X=B, op(A) is A or A' according to the boolean input transposed"
+      extends Modelica.Icons.Function;
+      input Real A[:,size(A, 1)] "Real square matrix A";
+      input Real B[size(A, 1),:] "Real matrix B";
+      input Boolean transposed=true
+        "True if the equation to be solved is A'*X=B";
+      output Real X[size(A, 1),size(B, 2)] "Solution matrix";
+      output Integer info;
+      output Real rcond "reciprocal condition number of the matrix A";
+
+    protected
+      String transA= if transposed then "T" else "N";
+      Real Awork[size(A, 1),size(A, 2)]=A;
+      Real Bwork[size(B, 1),size(B, 2)]=B;
+      Real AF[size(A, 1),size(A, 2)];
+      Real R[size(A, 1)];
+      Real C[size(A, 1)];
+      Real ferr[size(B, 2)];
+      Real berr[size(B, 2)];
+      Integer lda=max(1,size(A, 1));
+      Real work[4*size(A, 1)];
+      Integer ipiv[size(A, 1)];
+      Integer iwork[size(A, 1)];
+
+    external "FORTRAN 77" dgesvx("N", transA, size(A, 1), size(B, 2), Awork,  lda, AF, lda, ipiv, "N", R, C, B, lda, X, lda, rcond, ferr, berr, work, iwork, info)                 annotation (Library="lapack");
+      annotation (Documentation(info="Lapack documentation:
+  
+ Purpose   
+    =======   
+
+    DGESVX uses the LU factorization to compute the solution to a real   
+    system of linear equations   
+       A * X = B,   
+    where A is an N-by-N matrix and X and B are N-by-NRHS matrices.   
+
+    Error bounds on the solution and a condition estimate are also   
+    provided.   
+
+    Description   
+    ===========   
+
+    The following steps are performed:   
+
+    1. If FACT = 'E', real scaling factors are computed to equilibrate   
+       the system:   
+          TRANS = 'N':  diag(R)*A*diag(C)     *inv(diag(C))*X = diag(R)*B   
+          TRANS = 'T': (diag(R)*A*diag(C))**T *inv(diag(R))*X = diag(C)*B   
+          TRANS = 'C': (diag(R)*A*diag(C))**H *inv(diag(R))*X = diag(C)*B   
+       Whether or not the system will be equilibrated depends on the   
+       scaling of the matrix A, but if equilibration is used, A is   
+       overwritten by diag(R)*A*diag(C) and B by diag(R)*B (if TRANS='N')   
+       or diag(C)*B (if TRANS = 'T' or 'C').   
+
+    2. If FACT = 'N' or 'E', the LU decomposition is used to factor the   
+       matrix A (after equilibration if FACT = 'E') as   
+          A = P * L * U,   
+       where P is a permutation matrix, L is a unit lower triangular   
+       matrix, and U is upper triangular.   
+
+    3. If some U(i,i)=0, so that U is exactly singular, then the routine   
+       returns with INFO = i. Otherwise, the factored form of A is used   
+       to estimate the condition number of the matrix A.  If the   
+       reciprocal of the condition number is less than machine precision,   
+       INFO = N+1 is returned as a warning, but the routine still goes on   
+       to solve for X and compute error bounds as described below.   
+
+    4. The system of equations is solved for X using the factored form   
+       of A.   
+
+    5. Iterative refinement is applied to improve the computed solution   
+       matrix and calculate error bounds and backward error estimates   
+       for it.   
+
+    6. If equilibration was used, the matrix X is premultiplied by   
+       diag(C) (if TRANS = 'N') or diag(R) (if TRANS = 'T' or 'C') so   
+       that it solves the original system before equilibration.   
+
+    Arguments   
+    =========   
+
+    FACT    (input) CHARACTER*1   
+            Specifies whether or not the factored form of the matrix A is   
+            supplied on entry, and if not, whether the matrix A should be   
+            equilibrated before it is factored.   
+            = 'F':  On entry, AF and IPIV contain the factored form of A.   
+                    If EQUED is not 'N', the matrix A has been   
+                    equilibrated with scaling factors given by R and C.   
+                    A, AF, and IPIV are not modified.   
+            = 'N':  The matrix A will be copied to AF and factored.   
+            = 'E':  The matrix A will be equilibrated if necessary, then   
+                    copied to AF and factored.   
+
+    TRANS   (input) CHARACTER*1   
+            Specifies the form of the system of equations:   
+            = 'N':  A * X = B     (No transpose)   
+            = 'T':  A**T * X = B  (Transpose)   
+            = 'C':  A**H * X = B  (Transpose)   
+
+    N       (input) INTEGER   
+            The number of linear equations, i.e., the order of the   
+            matrix A.  N >= 0.   
+
+    NRHS    (input) INTEGER   
+            The number of right hand sides, i.e., the number of columns   
+            of the matrices B and X.  NRHS >= 0.   
+
+    A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)   
+            On entry, the N-by-N matrix A.  If FACT = 'F' and EQUED is   
+            not 'N', then A must have been equilibrated by the scaling   
+            factors in R and/or C.  A is not modified if FACT = 'F' or   
+            'N', or if FACT = 'E' and EQUED = 'N' on exit.   
+
+            On exit, if EQUED .ne. 'N', A is scaled as follows:   
+            EQUED = 'R':  A := diag(R) * A   
+            EQUED = 'C':  A := A * diag(C)   
+            EQUED = 'B':  A := diag(R) * A * diag(C).   
+
+    LDA     (input) INTEGER   
+            The leading dimension of the array A.  LDA >= max(1,N).   
+
+    AF      (input or output) DOUBLE PRECISION array, dimension (LDAF,N)   
+            If FACT = 'F', then AF is an input argument and on entry   
+            contains the factors L and U from the factorization   
+            A = P*L*U as computed by DGETRF.  If EQUED .ne. 'N', then   
+            AF is the factored form of the equilibrated matrix A.   
+
+            If FACT = 'N', then AF is an output argument and on exit   
+            returns the factors L and U from the factorization A = P*L*U   
+            of the original matrix A.   
+
+            If FACT = 'E', then AF is an output argument and on exit   
+            returns the factors L and U from the factorization A = P*L*U   
+            of the equilibrated matrix A (see the description of A for   
+            the form of the equilibrated matrix).   
+
+    LDAF    (input) INTEGER   
+            The leading dimension of the array AF.  LDAF >= max(1,N).   
+
+    IPIV    (input or output) INTEGER array, dimension (N)   
+            If FACT = 'F', then IPIV is an input argument and on entry   
+            contains the pivot indices from the factorization A = P*L*U   
+            as computed by DGETRF; row i of the matrix was interchanged   
+            with row IPIV(i).   
+
+            If FACT = 'N', then IPIV is an output argument and on exit   
+            contains the pivot indices from the factorization A = P*L*U   
+            of the original matrix A.   
+
+            If FACT = 'E', then IPIV is an output argument and on exit   
+            contains the pivot indices from the factorization A = P*L*U   
+            of the equilibrated matrix A.   
+
+    EQUED   (input or output) CHARACTER*1   
+            Specifies the form of equilibration that was done.   
+            = 'N':  No equilibration (always true if FACT = 'N').   
+            = 'R':  Row equilibration, i.e., A has been premultiplied by   
+                    diag(R).   
+            = 'C':  Column equilibration, i.e., A has been postmultiplied   
+                    by diag(C).   
+            = 'B':  Both row and column equilibration, i.e., A has been   
+                    replaced by diag(R) * A * diag(C).   
+            EQUED is an input argument if FACT = 'F'; otherwise, it is an   
+            output argument.   
+
+    R       (input or output) DOUBLE PRECISION array, dimension (N)   
+            The row scale factors for A.  If EQUED = 'R' or 'B', A is   
+            multiplied on the left by diag(R); if EQUED = 'N' or 'C', R   
+            is not accessed.  R is an input argument if FACT = 'F';   
+            otherwise, R is an output argument.  If FACT = 'F' and   
+            EQUED = 'R' or 'B', each element of R must be positive.   
+
+    C       (input or output) DOUBLE PRECISION array, dimension (N)   
+            The column scale factors for A.  If EQUED = 'C' or 'B', A is   
+            multiplied on the right by diag(C); if EQUED = 'N' or 'R', C   
+            is not accessed.  C is an input argument if FACT = 'F';   
+            otherwise, C is an output argument.  If FACT = 'F' and   
+            EQUED = 'C' or 'B', each element of C must be positive.   
+
+    B       (input/output) DOUBLE PRECISION array, dimension (LDB,NRHS)   
+            On entry, the N-by-NRHS right hand side matrix B.   
+            On exit,   
+            if EQUED = 'N', B is not modified;   
+            if TRANS = 'N' and EQUED = 'R' or 'B', B is overwritten by   
+            diag(R)*B;   
+            if TRANS = 'T' or 'C' and EQUED = 'C' or 'B', B is   
+            overwritten by diag(C)*B.   
+
+    LDB     (input) INTEGER   
+            The leading dimension of the array B.  LDB >= max(1,N).   
+
+    X       (output) DOUBLE PRECISION array, dimension (LDX,NRHS)   
+            If INFO = 0 or INFO = N+1, the N-by-NRHS solution matrix X   
+            to the original system of equations.  Note that A and B are   
+            modified on exit if EQUED .ne. 'N', and the solution to the   
+            equilibrated system is inv(diag(C))*X if TRANS = 'N' and   
+            EQUED = 'C' or 'B', or inv(diag(R))*X if TRANS = 'T' or 'C'   
+            and EQUED = 'R' or 'B'.   
+
+    LDX     (input) INTEGER   
+            The leading dimension of the array X.  LDX >= max(1,N).   
+
+    RCOND   (output) DOUBLE PRECISION   
+            The estimate of the reciprocal condition number of the matrix   
+            A after equilibration (if done).  If RCOND is less than the   
+            machine precision (in particular, if RCOND = 0), the matrix   
+            is singular to working precision.  This condition is   
+            indicated by a return code of INFO > 0.   
+
+    FERR    (output) DOUBLE PRECISION array, dimension (NRHS)   
+            The estimated forward error bound for each solution vector   
+            X(j) (the j-th column of the solution matrix X).   
+            If XTRUE is the true solution corresponding to X(j), FERR(j)   
+            is an estimated upper bound for the magnitude of the largest   
+            element in (X(j) - XTRUE) divided by the magnitude of the   
+            largest element in X(j).  The estimate is as reliable as   
+            the estimate for RCOND, and is almost always a slight   
+            overestimate of the true error.   
+
+    BERR    (output) DOUBLE PRECISION array, dimension (NRHS)   
+            The componentwise relative backward error of each solution   
+            vector X(j) (i.e., the smallest relative change in   
+            any element of A or B that makes X(j) an exact solution).   
+
+    WORK    (workspace/output) DOUBLE PRECISION array, dimension (4*N)   
+            On exit, WORK(1) contains the reciprocal pivot growth   
+            factor norm(A)/norm(U). The \"max absolute element\" norm is   
+            used. If WORK(1) is much less than 1, then the stability   
+            of the LU factorization of the (equilibrated) matrix A   
+            could be poor. This also means that the solution X, condition   
+            estimator RCOND, and forward error bound FERR could be   
+            unreliable. If factorization fails with 0<INFO<=N, then   
+            WORK(1) contains the reciprocal pivot growth factor for the   
+            leading INFO columns of A.   
+
+    IWORK   (workspace) INTEGER array, dimension (N)   
+
+    INFO    (output) INTEGER   
+            = 0:  successful exit   
+            < 0:  if INFO = -i, the i-th argument had an illegal value   
+            > 0:  if INFO = i, and i is   
+                  <= N:  U(i,i) is exactly zero.  The factorization has   
+                         been completed, but the factor U is exactly   
+                         singular, so the solution and error bounds   
+                         could not be computed. RCOND = 0 is returned.   
+                  = N+1: U is nonsingular, but RCOND is less than machine   
+                         precision, meaning that the matrix is singular   
+                         to working precision.  Nevertheless, the   
+                         solution and error bounds are computed because   
+                         there are a number of situations where the   
+                         computed solution can be more accurate than the   
+                         value of RCOND would suggest.   
+
+    =====================================================================   
+"));
+    end dgesvx;
+
+    function dtrsyl
+      "Solve the real Sylvester matrix equation op(A)*X + X*op(B) = scale*C or op(A)*X - X*op(B) = scale*C"
+
+      input Real A[:,:] "Upper quais-triangular matrix";
+      input Real B[:,:] "Upper quais-triangular matrix";
+      input Real C[if tranA then size(A,1) else size(A, 2),if tranB then size(B,1) else size(B, 2)]
+        "Right side of the sylvester equation";
+
+      input Boolean tranA=false "True if op(A)=A'";
+      input Boolean tranB=false "True if op(B)=B'";
+      input Integer isgn=1 "Specifies the sign in the equation, +1 or -1";
+      output Real X[size(C,1),size(C,2)]=C "Solution of the Sylvester equation";
+      output Real scale "Scale factor";
+      output Integer info;
+    protected
+      Integer m=if tranA then size(A,1) else size(A, 2);
+      Integer n=if tranB then size(B,1) else size(B, 2);
+      String trana = if tranA then "T" else "N";
+      String tranb = if tranB then "T" else "N";
+      Integer lda = max(1,m);
+      Integer ldb = max(1,n);
+
+    external "Fortran 77" dtrsyl(trana, tranb, isgn, m, n, A, lda, B, ldb, X, lda, scale, info) annotation(Library = {"lapack"});
+
+      annotation (Documentation(info="   
+   Purpose   
+    =======   
+
+    DTRSYL solves the real Sylvester matrix equation:   
+
+       op(A)*X + X*op(B) = scale*C or   
+       op(A)*X - X*op(B) = scale*C,   
+
+    where op(A) = A or A**T, and  A and B are both upper quasi-   
+    triangular. A is M-by-M and B is N-by-N; the right hand side C and   
+    the solution X are M-by-N; and scale is an output scale factor, set   
+    <= 1 to avoid overflow in X.   
+
+    A and B must be in Schur canonical form (as returned by DHSEQR), that   
+    is, block upper triangular with 1-by-1 and 2-by-2 diagonal blocks;   
+    each 2-by-2 diagonal block has its diagonal elements equal and its   
+    off-diagonal elements of opposite sign.   
+
+    Arguments   
+    =========   
+
+    TRANA   (input) CHARACTER*1   
+            Specifies the option op(A):   
+            = 'N': op(A) = A    (No transpose)   
+            = 'T': op(A) = A**T (Transpose)   
+            = 'C': op(A) = A**H (Conjugate transpose = Transpose)   
+
+    TRANB   (input) CHARACTER*1   
+            Specifies the option op(B):   
+            = 'N': op(B) = B    (No transpose)   
+            = 'T': op(B) = B**T (Transpose)   
+            = 'C': op(B) = B**H (Conjugate transpose = Transpose)   
+
+    ISGN    (input) INTEGER   
+            Specifies the sign in the equation:   
+            = +1: solve op(A)*X + X*op(B) = scale*C   
+            = -1: solve op(A)*X - X*op(B) = scale*C   
+
+    M       (input) INTEGER   
+            The order of the matrix A, and the number of rows in the   
+            matrices X and C. M >= 0.   
+
+    N       (input) INTEGER   
+            The order of the matrix B, and the number of columns in the   
+            matrices X and C. N >= 0.   
+
+    A       (input) DOUBLE PRECISION array, dimension (LDA,M)   
+            The upper quasi-triangular matrix A, in Schur canonical form.   
+
+    LDA     (input) INTEGER   
+            The leading dimension of the array A. LDA >= max(1,M).   
+
+    B       (input) DOUBLE PRECISION array, dimension (LDB,N)   
+            The upper quasi-triangular matrix B, in Schur canonical form.   
+
+    LDB     (input) INTEGER   
+            The leading dimension of the array B. LDB >= max(1,N).   
+
+    C       (input/output) DOUBLE PRECISION array, dimension (LDC,N)   
+            On entry, the M-by-N right hand side matrix C.   
+            On exit, C is overwritten by the solution matrix X.   
+
+    LDC     (input) INTEGER   
+            The leading dimension of the array C. LDC >= max(1,M)   
+
+    SCALE   (output) DOUBLE PRECISION   
+            The scale factor, scale, set <= 1 to avoid overflow in X.   
+
+    INFO    (output) INTEGER   
+            = 0: successful exit   
+            < 0: if INFO = -i, the i-th argument had an illegal value   
+            = 1: A and B have common or very close eigenvalues; perturbed   
+                 values were used to solve the equation (but the matrices   
+                 A and B are unchanged).   
+
+    =====================================================================   
+
+
+ 
+   DTRSEN first collects the selected eigenvalues by computing an  
+   orthogonal transformation Z to move them to the top left corner of T.  
+   In other words, the selected eigenvalues are the eigenvalues of T11  
+   in:  
+ 
+                 Z'*T*Z = ( T11 T12 ) n1  
+                          (  0  T22 ) n2  
+                             n1  n2  
+ 
+   where N = n1+n2 and Z' means the transpose of Z. The first n1 columns  
+   of Z span the specified invariant subspace of T.  
+ 
+   If T has been obtained from the real Schur factorization of a matrix  
+   A = Q*T*Q', then the reordered real Schur factorization of A is given  
+   by A = (Q*Z)*(Z'*T*Z)*(Q*Z)', and the first n1 columns of Q*Z span  
+   the corresponding invariant subspace of A.  
+ 
+   The reciprocal condition number of the average of the eigenvalues of  
+   T11 may be returned in S. S lies between 0 (very badly conditioned)  
+   and 1 (very well conditioned). It is computed as follows. First we  
+   compute R so that  
+ 
+                          P = ( I  R ) n1  
+                              ( 0  0 ) n2  
+                                n1 n2  
+ 
+   is the projector on the invariant subspace associated with T11.  
+   R is the solution of the Sylvester equation:  
+ 
+                         T11*R - R*T22 = T12.  
+ 
+   Let F-norm(M) denote the Frobenius-norm of M and 2-norm(M) denote  
+   the two-norm of M. Then S is computed as the lower bound  
+ 
+                       (1 + F-norm(R)**2)**(-1/2)  
+ 
+   on the reciprocal of 2-norm(P), the true reciprocal condition number.  
+   S cannot underestimate 1 / 2-norm(P) by more than a factor of  
+   sqrt(N).  
+ 
+   An approximate error bound for the computed average of the  
+   eigenvalues of T11 is  
+ 
+                          EPS * norm(T) / S  
+ 
+   where EPS is the machine precision.  
+ 
+   The reciprocal condition number of the right invariant subspace  
+   spanned by the first n1 columns of Z (or of Q*Z) is returned in SEP.  
+   SEP is defined as the separation of T11 and T22:  
+ 
+                      sep( T11, T22 ) = sigma-min( C )  
+ 
+   where sigma-min(C) is the smallest singular value of the  
+   n1*n2-by-n1*n2 matrix  
+ 
+      C  = kprod( I(n2), T11 ) - kprod( transpose(T22), I(n1) )  
+ 
+   I(m) is an m by m identity matrix, and kprod denotes the Kronecker  
+   product. We estimate sigma-min(C) by the reciprocal of an estimate of  
+   the 1-norm of inverse(C). The true reciprocal 1-norm of inverse(C)  
+   cannot differ from sigma-min(C) by more than a factor of sqrt(n1*n2).  
+ 
+   When SEP is small, small changes in T can cause large changes in  
+   the invariant subspace. An approximate bound on the maximum angular  
+   error in the computed right invariant subspace is  
+ 
+                       EPS * norm(T) / SEP  
+ 
+   =====================================================================  "));
+    end dtrsyl;
+
+    function dhseqr
+      "Compute eingenvalues of a matrix H using lapack routine DHSEQR for Hessenberg form matrix"
+      input Real H[:,size(H, 1)] "Matrix H with Hessenberg form";
+      input Boolean eigenValuesOnly=true
+        "True to compute the eigenvalues. False to compute the Schur form too";
+      input String compz="N" "Specifies the computation of the Schur vectors";
+      input Real Z[:,:]=H "Matrix Z";
+      output Real alphaReal[size(H, 1)]
+        "Real part of alpha (eigenvalue=(alphaReal+i*alphaImag))";
+      output Real alphaImag[size(H, 1)]
+        "Imaginary part of alpha (eigenvalue=(alphaReal+i*alphaImag))";
+      output Integer info;
+      output Real Ho[:,:]=H
+        "Schur decomposition (if eigenValuesOnly==false, unspecified else))";
+      output Real Zo[:,:]=Z;
+      output Real work[max({lwork, size(H, 1),1})];
+
+    protected
+      Integer n=size(H, 1);
+      String job=if eigenValuesOnly then "E" else "S";
+      Integer ilo=1;
+      Integer ihi=n;
+      Integer ldh=max(n, 1);
+      Integer lwork=3*max(1, size(H, 1))
+        "Dimension of the dwork array usd in dhseqr";
+
+    external "Fortran 77" dhseqr(job, compz, n, ilo, ihi, Ho, ldh, alphaReal, alphaImag, Zo, ldh, work, lwork, info) annotation(Library = {"lapack"});
+
+      annotation (Documentation(info="    DHSEQR computes the eigenvalues of a real upper Hessenberg matrix H  
+   and, optionally, the matrices T and Z from the Schur decomposition  
+   H = Z T Z**T, where T is an upper quasi-triangular matrix (the Schur  
+   form), and Z is the orthogonal matrix of Schur vectors.  
+ 
+   Optionally Z may be postmultiplied into an input orthogonal matrix Q,  
+   so that this routine can give the Schur factorization of a matrix A  
+   which has been reduced to the Hessenberg form H by the orthogonal  
+   matrix Q:  A = Q*H*Q**T = (QZ)*T*(QZ)**T.  
+ 
+   Arguments  
+   =========  
+ 
+   JOB     (input) CHARACTER*1  
+           = 'E':  compute eigenvalues only;  
+           = 'S':  compute eigenvalues and the Schur form T.  
+ 
+   COMPZ   (input) CHARACTER*1  
+           = 'N':  no Schur vectors are computed;  
+           = 'I':  Z is initialized to the unit matrix and the matrix Z  
+                   of Schur vectors of H is returned;  
+           = 'V':  Z must contain an orthogonal matrix Q on entry, and  
+                   the product Q*Z is returned.  
+ 
+   N       (input) INTEGER  
+           The order of the matrix H.  N >= 0.  
+ 
+   ILO     (input) INTEGER  
+   IHI     (input) INTEGER  
+           It is assumed that H is already upper triangular in rows  
+           and columns 1:ILO-1 and IHI+1:N. ILO and IHI are normally  
+           set by a previous call to DGEBAL, and then passed to SGEHRD  
+           when the matrix output by DGEBAL is reduced to Hessenberg  
+           form. Otherwise ILO and IHI should be set to 1 and N  
+           respectively.  
+           1 <= ILO <= IHI <= N, if N > 0; ILO=1 and IHI=0, if N=0.  
+ 
+   H       (input/output) DOUBLE PRECISION array, dimension (LDH,N)  
+           On entry, the upper Hessenberg matrix H.  
+           On exit, if JOB = 'S', H contains the upper quasi-triangular  
+           matrix T from the Schur decomposition (the Schur form);  
+           2-by-2 diagonal blocks (corresponding to complex conjugate  
+           pairs of eigenvalues) are returned in standard form, with  
+           H(i,i) = H(i+1,i+1) and H(i+1,i)*H(i,i+1) < 0. If JOB = 'E',  
+           the contents of H are unspecified on exit.  
+ 
+   LDH     (input) INTEGER  
+           The leading dimension of the array H. LDH >= max(1,N).  
+ 
+   WR      (output) DOUBLE PRECISION array, dimension (N)  
+   WI      (output) DOUBLE PRECISION array, dimension (N)  
+           The real and imaginary parts, respectively, of the computed  
+           eigenvalues. If two eigenvalues are computed as a complex  
+           conjugate pair, they are stored in consecutive elements of  
+           WR and WI, say the i-th and (i+1)th, with WI(i) > 0 and  
+           WI(i+1) < 0. If JOB = 'S', the eigenvalues are stored in the  
+           same order as on the diagonal of the Schur form returned in  
+           H, with WR(i) = H(i,i) and, if H(i:i+1,i:i+1) is a 2-by-2  
+           diagonal block, WI(i) = sqrt(H(i+1,i)*H(i,i+1)) and  
+           WI(i+1) = -WI(i).  
+ 
+   Z       (input/output) DOUBLE PRECISION array, dimension (LDZ,N)  
+           If COMPZ = 'N': Z is not referenced.  
+           If COMPZ = 'I': on entry, Z need not be set, and on exit, Z  
+           contains the orthogonal matrix Z of the Schur vectors of H.  
+           If COMPZ = 'V': on entry Z must contain an N-by-N matrix Q,  
+           which is assumed to be equal to the unit matrix except for  
+           the submatrix Z(ILO:IHI,ILO:IHI); on exit Z contains Q*Z.  
+           Normally Q is the orthogonal matrix generated by DORGHR after  
+           the call to DGEHRD which formed the Hessenberg matrix H.  
+ 
+   LDZ     (input) INTEGER  
+           The leading dimension of the array Z.  
+           LDZ >= max(1,N) if COMPZ = 'I' or 'V'; LDZ >= 1 otherwise.  
+ 
+   WORK    (workspace/output) DOUBLE PRECISION array, dimension (LWORK)  
+           On exit, if INFO = 0, WORK(1) returns the optimal LWORK.  
+ 
+   LWORK   (input) INTEGER  
+           The dimension of the array WORK.  LWORK >= max(1,N).  
+ 
+           If LWORK = -1, then a workspace query is assumed; the routine  
+           only calculates the optimal size of the WORK array, returns  
+           this value as the first entry of the WORK array, and no error  
+           message related to LWORK is issued by XERBLA.  
+ 
+   INFO    (output) INTEGER  
+           = 0:  successful exit  
+           < 0:  if INFO = -i, the i-th argument had an illegal value  
+           > 0:  if INFO = i, DHSEQR failed to compute all of the  
+                 eigenvalues in a total of 30*(IHI-ILO+1) iterations;  
+                 elements 1:ilo-1 and i+1:n of WR and WI contain those  
+                 eigenvalues which have been successfully computed.  
+ 
+   =====================================================================  "));
+    end dhseqr;
+
+    function dlange "Norm of a matrix"
+
+      input Real A[:,:] "Real matrix A";
+      input String norm="1" "specifies the norm, i.e. 1, I, F, M";
+      output Real anorm "norm of A";
+    protected
+      Integer m=size(A, 1);
+      Integer n=size(A,2);
+      Integer lda=max(1,m);
+      Real work[2*m];
+
+    external "Fortran 77" dlange2(norm, m, n, A, lda, work, anorm) 
+      annotation (Include="
+  #include<f2c.h>
+  #include <stdio.h> 
+
+extern  doublereal dlange_(char *, integer *, integer *, doublereal *, integer *, doublereal *);
+
+int dlange2_(char *norm, integer *m, integer *n, doublereal *a, integer *lda, doublereal *work, doublereal *anorm) 
+{
+   FILE *fileptr;  
+   
+   fileptr = fopen(\"test.txt\",\"w\");   
+   
+  *anorm=dlange_(norm, m, n, a, lda, work);
+  
+fprintf(fileptr,\"anorm=%f \\n\",*anorm);  
+  
+  
+  fclose(fileptr);
+  
+  return 0;
+}",     Library={"lapack"});
+    annotation (   Documentation(info="   
+
+    Purpose   
+    =======   
+
+    DLANGE  returns the value of the one norm,  or the Frobenius norm, or   
+    the  infinity norm,  or the  element of  largest absolute value  of a   
+    real matrix A.   
+
+    Description   
+    ===========   
+
+    DLANGE returns the value   
+
+       DLANGE = ( max(abs(A(i,j))), NORM = 'M' or 'm'   
+                (   
+                ( norm1(A),         NORM = '1', 'O' or 'o'   
+                (   
+                ( normI(A),         NORM = 'I' or 'i'   
+                (   
+                ( normF(A),         NORM = 'F', 'f', 'E' or 'e'   
+
+    where  norm1  denotes the  one norm of a matrix (maximum column sum),   
+    normI  denotes the  infinity norm  of a matrix  (maximum row sum) and   
+    normF  denotes the  Frobenius norm of a matrix (square root of sum of   
+    squares).  Note that  max(abs(A(i,j)))  is not a consistent matrix norm.   
+
+    Arguments   
+    =========   
+
+    NORM    (input) CHARACTER*1   
+            Specifies the value to be returned in DLANGE as described   
+            above.   
+
+    M       (input) INTEGER   
+            The number of rows of the matrix A.  M >= 0.  When M = 0,   
+            DLANGE is set to zero.   
+
+    N       (input) INTEGER   
+            The number of columns of the matrix A.  N >= 0.  When N = 0,   
+            DLANGE is set to zero.   
+
+    A       (input) DOUBLE PRECISION array, dimension (LDA,N)   
+            The m by n matrix A.   
+
+    LDA     (input) INTEGER   
+            The leading dimension of the array A.  LDA >= max(M,1).   
+
+    WORK    (workspace) DOUBLE PRECISION array, dimension (MAX(1,LWORK)),   
+            where LWORK >= M when NORM = 'I'; otherwise, WORK is not   
+            referenced.   
+
+   =====================================================================   
+"));
+
+    end dlange;
+
+    function dgecon
+      "Estimates the reciprocal of the condition number of a general real matrix A"
+
+      input Real LU_of_A[:,:] "LU factroization of a real matrix A";
+      input Boolean inf=false
+        "Is true if infinity norm is used and false for 1-norm";
+      input Real anorm "norm of A";
+      output Real rcond "Reciprocal condition number of A";
+      output Integer info;
+    protected
+      Integer n=size(LU_of_A, 2);
+      Integer lda=max(1,size(LU_of_A,1));
+      Real work[4*size(LU_of_A,2)];
+      Integer iwork[size(LU_of_A,2)];
+      String norm = if inf then "I" else "1";
+
+    external "Fortran 77" dgecon(
+        norm,
+        n,
+        LU_of_A,
+        lda,
+        anorm,
+        rcond,
+        work,
+        iwork,
+        info) annotation(Library = {"lapack"});
+
+      annotation (Documentation(info=" 
+ 
+  Purpose   
+    =======   
+
+    DGECON estimates the reciprocal of the condition number of a general   
+    real matrix A, in either the 1-norm or the infinity-norm, using   
+    the LU factorization computed by DGETRF.   
+
+    An estimate is obtained for norm(inv(A)), and the reciprocal of the   
+    condition number is computed as   
+       RCOND = 1 / ( norm(A) * norm(inv(A)) ).   
+
+    Arguments   
+    =========   
+
+    NORM    (input) CHARACTER*1   
+            Specifies whether the 1-norm condition number or the   
+            infinity-norm condition number is required:   
+            = '1' or 'O':  1-norm;   
+            = 'I':         Infinity-norm.   
+
+    N       (input) INTEGER   
+            The order of the matrix A.  N >= 0.   
+
+    A       (input) DOUBLE PRECISION array, dimension (LDA,N)   
+            The factors L and U from the factorization A = P*L*U   
+            as computed by DGETRF.   
+
+    LDA     (input) INTEGER   
+            The leading dimension of the array A.  LDA >= max(1,N).   
+
+    ANORM   (input) DOUBLE PRECISION   
+            If NORM = '1' or 'O', the 1-norm of the original matrix A.   
+            If NORM = 'I', the infinity-norm of the original matrix A.   
+
+    RCOND   (output) DOUBLE PRECISION   
+            The reciprocal of the condition number of the matrix A,   
+            computed as RCOND = 1/(norm(A) * norm(inv(A))).   
+
+    WORK    (workspace) DOUBLE PRECISION array, dimension (4*N)   
+
+    IWORK   (workspace) INTEGER array, dimension (N)   
+
+    INFO    (output) INTEGER   
+            = 0:  successful exit   
+            < 0:  if INFO = -i, the i-th argument had an illegal value   
+
+    =====================================================================  
+"));
+    end dgecon;
+
+    function dgehrd
+      "reduces a real general matrix A to upper Hessenberg form H by an orthogonal similarity transformation:  Q' * A * Q = H"
+
+      input Real A[:,size(A, 2)];
+      input Integer ilo=1
+        "lowest index where the original matrix had been Hessenbergform";
+      input Integer ihi=size(A, 1)
+        "highest index where the original matrix had been Hessenbergform";
+      output Real Aout[size(A, 1),size(A, 2)]=A
+        "contains the Hessenberg form in the upper triangle and the first subdiagonal and below the first subdiagonal it contains the elementary reflectors which represents (with array tau) as a product the orthogonal matrix Q";
+      output Real tau[max(size(A, 1),1) - 1]
+        "scalar factors of the elementary reflectors";
+      output Integer info;
+    protected
+      Integer n=size(A, 1);
+      Integer lda=max(1, n);
+      Integer lwork=max(1, 3*n);
+      Real work[lwork];
+
+    external "Fortran 77" dgehrd(
+        n,
+        ilo,
+        ihi,
+        Aout,
+        lda,
+        tau,
+        work,
+        lwork,
+        info) annotation(Library = {"lapack"});
+
+      annotation (Documentation(info="
+   Purpose  
+   =======  
+ 
+   DGEHRD reduces a real general matrix A to upper Hessenberg form H by  
+   an orthogonal similarity transformation:  Q' * A * Q = H .  
+ 
+   Arguments  
+   =========  
+ 
+   N       (input) INTEGER  
+           The order of the matrix A.  N >= 0.  
+ 
+   ILO     (input) INTEGER  
+   IHI     (input) INTEGER  
+           It is assumed that A is already upper triangular in rows  
+           and columns 1:ILO-1 and IHI+1:N. ILO and IHI are normally  
+           set by a previous call to DGEBAL; otherwise they should be  
+           set to 1 and N respectively. See Further Details.  
+           1 <= ILO <= IHI <= N, if N > 0; ILO=1 and IHI=0, if N=0.  
+ 
+   A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)  
+           On entry, the N-by-N general matrix to be reduced.  
+           On exit, the upper triangle and the first subdiagonal of A  
+           are overwritten with the upper Hessenberg matrix H, and the  
+           elements below the first subdiagonal, with the array TAU,  
+           represent the orthogonal matrix Q as a product of elementary  
+           reflectors. See Further Details.  
+ 
+   LDA     (input) INTEGER  
+           The leading dimension of the array A.  LDA >= max(1,N).  
+ 
+   TAU     (output) DOUBLE PRECISION array, dimension (N-1)  
+           The scalar factors of the elementary reflectors (see Further  
+           Details). Elements 1:ILO-1 and IHI:N-1 of TAU are set to  
+           zero.  
+ 
+   WORK    (workspace/output) DOUBLE PRECISION array, dimension (LWORK)  
+           On exit, if INFO = 0, WORK(1) returns the optimal LWORK.  
+ 
+   LWORK   (input) INTEGER  
+           The length of the array WORK.  LWORK >= max(1,N).  
+           For optimum performance LWORK >= N*NB, where NB is the  
+           optimal blocksize.  
+ 
+           If LWORK = -1, then a workspace query is assumed; the routine  
+           only calculates the optimal size of the WORK array, returns  
+           this value as the first entry of the WORK array, and no error  
+           message related to LWORK is issued by XERBLA.  
+ 
+   INFO    (output) INTEGER  
+           = 0:  successful exit  
+           < 0:  if INFO = -i, the i-th argument had an illegal value.  
+ 
+   Further Details  
+   ===============  
+ 
+   The matrix Q is represented as a product of (ihi-ilo) elementary  
+   reflectors  
+ 
+      Q = H(ilo) H(ilo+1) . . . H(ihi-1).  
+ 
+   Each H(i) has the form  
+ 
+      H(i) = I - tau * v * v'  
+ 
+   where tau is a real scalar, and v is a real vector with  
+   v(1:i) = 0, v(i+1) = 1 and v(ihi+1:n) = 0; v(i+2:ihi) is stored on  
+   exit in A(i+2:ihi,i), and tau in TAU(i).  
+ 
+   The contents of A are illustrated by the following example, with  
+   n = 7, ilo = 2 and ihi = 6:  
+ 
+   on entry,                        on exit,  
+ 
+   ( a   a   a   a   a   a   a )    (  a   a   h   h   h   h   a )  
+   (     a   a   a   a   a   a )    (      a   h   h   h   h   a )  
+   (     a   a   a   a   a   a )    (      h   h   h   h   h   h )  
+   (     a   a   a   a   a   a )    (      v2  h   h   h   h   h )  
+   (     a   a   a   a   a   a )    (      v2  v3  h   h   h   h )  
+   (     a   a   a   a   a   a )    (      v2  v3  v4  h   h   h )  
+   (                         a )    (                          a )  
+ 
+   where a denotes an element of the original matrix A, h denotes a  
+   modified element of the upper Hessenberg matrix H, and vi denotes an  
+   element of the vector defining H(i).  
+ 
+   =====================================================================  
+"));
+    end dgehrd;
+
+    function dgeqrf "computes a QR factorization without pivoting"
+
+      input Real A[:,:] "Square or rectangular matrix";
+      output Real Aout[size(A, 1),size(A, 2)]=A
+        "the upper triangle of the array contains the upper trapezoidal matrix R; the elements below the diagonal, together with the array TAU, represent the orthogonal matrix Q as a product of elementary reflectors";
+      output Real tau[min(size(A, 1), size(A, 2))]
+        "scalar factors of the elementary reflectors";
+      output Integer info;
+      output Real work[3*max(1,size(A,2))];
+    protected
+      Integer m=size(A, 1);
+      Integer n=size(A, 2);
+      Integer lda=max(1, m);
+      Integer lwork=3*max(1,n);
+
+    external "Fortran 77" dgeqrf(m, n, Aout, lda,  tau, work,  lwork,  info) annotation(Library = {"lapack"});
+
+      annotation (Documentation(info="
+   Purpose  
+   =======  
+ 
+   DGEQRF computes a QR factorization of a real M-by-N matrix A:  
+   A = Q * R.  
+ 
+   Arguments  
+   =========  
+ 
+   M       (input) INTEGER  
+           The number of rows of the matrix A.  M >= 0.  
+ 
+   N       (input) INTEGER  
+           The number of columns of the matrix A.  N >= 0.  
+ 
+   A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)  
+           On entry, the M-by-N matrix A.  
+           On exit, the elements on and above the diagonal of the array  
+           contain the min(M,N)-by-N upper trapezoidal matrix R (R is  
+           upper triangular if m >= n); the elements below the diagonal,  
+           with the array TAU, represent the orthogonal matrix Q as a  
+           product of min(m,n) elementary reflectors (see Further  
+           Details).  
+ 
+   LDA     (input) INTEGER  
+           The leading dimension of the array A.  LDA >= max(1,M).  
+ 
+   TAU     (output) DOUBLE PRECISION array, dimension (min(M,N))  
+           The scalar factors of the elementary reflectors (see Further  
+           Details).  
+ 
+   WORK    (workspace/output) DOUBLE PRECISION array, dimension (LWORK)  
+           On exit, if INFO = 0, WORK(1) returns the optimal LWORK.  
+ 
+   LWORK   (input) INTEGER  
+           The dimension of the array WORK.  LWORK >= max(1,N).  
+           For optimum performance LWORK >= N*NB, where NB is  
+           the optimal blocksize.  
+ 
+           If LWORK = -1, then a workspace query is assumed; the routine  
+           only calculates the optimal size of the WORK array, returns  
+           this value as the first entry of the WORK array, and no error  
+           message related to LWORK is issued by XERBLA.  
+ 
+   INFO    (output) INTEGER  
+           = 0:  successful exit  
+           < 0:  if INFO = -i, the i-th argument had an illegal value  
+ 
+   Further Details  
+   ===============  
+ 
+   The matrix Q is represented as a product of elementary reflectors  
+ 
+      Q = H(1) H(2) . . . H(k), where k = min(m,n).  
+ 
+   Each H(i) has the form  
+ 
+      H(i) = I - tau * v * v'  
+ 
+   where tau is a real scalar, and v is a real vector with  
+   v(1:i-1) = 0 and v(i) = 1; v(i+1:m) is stored on exit in A(i+1:m,i),  
+   and tau in TAU(i).  
+ 
+   =====================================================================  "));
+    end dgeqrf;
+
+    function dgeevx
+      "Compute the eigenvalues and the (real) left and right eigenvectors of matrix A, using lapack routine dgeevx "
+
+      input Real A[:,size(A, 1)];
+      output Real alphaReal[size(A, 1)]
+        "Real part of alpha (eigenvalue=(alphaReal+i*alphaImag))";
+      output Real alphaImag[size(A, 1)]
+        "Imaginary part of alpha (eigenvalue=(alphaReal+i*alphaImag))";
+      output Real lEigenVectors[size(A, 1),size(A, 1)]
+        "left eigenvectors of matrix A";
+      output Real rEigenVectors[size(A, 1),size(A, 1)]
+        "right eigenvectors of matrix A";
+      output Real AS[size(A, 1),size(A, 2)]=A
+        "AS iss the real Schur form of the balanced version of the input matrix A";
+      output Integer info;
+    protected
+      Integer n=size(A, 1);
+      Integer ilo;
+      Integer ihi;
+      Real scale[n];
+      Real abnrm;
+      Real rconde[n];
+      Real rcondv[n];
+      Integer lwork=n*(n + 6);
+      Real work[lwork];
+
+    external "Fortran 77" dgeevx(
+        "B",
+        "V",
+        "V",
+        "E",
+        n,
+        AS,
+        n,
+        alphaReal,
+        alphaImag,
+        lEigenVectors,
+        n,
+        rEigenVectors,
+        n,
+        ilo,
+        ihi,
+        scale,
+        abnrm,
+        rconde,
+        rcondv,
+        work,
+        lwork,
+        info) annotation(Library = {"lapack"});
+
+      annotation (Documentation(info="   Purpose  
+   =======  
+ 
+   DGEEVX computes for an N-by-N real nonsymmetric matrix A, the  
+   eigenvalues and, optionally, the left and/or right eigenvectors.  
+ 
+   Optionally also, it computes a balancing transformation to improve  
+   the conditioning of the eigenvalues and eigenvectors (ILO, IHI,  
+   SCALE, and ABNRM), reciprocal condition numbers for the eigenvalues  
+   (RCONDE), and reciprocal condition numbers for the right  
+   eigenvectors (RCONDV).  
+ 
+   The right eigenvector v(j) of A satisfies  
+                    A * v(j) = lambda(j) * v(j)  
+   where lambda(j) is its eigenvalue.  
+   The left eigenvector u(j) of A satisfies  
+                 u(j)**H * A = lambda(j) * u(j)**H  
+   where u(j)**H denotes the conjugate transpose of u(j).  
+ 
+   The computed eigenvectors are normalized to have Euclidean norm  
+   equal to 1 and largest component real.  
+ 
+   Balancing a matrix means permuting the rows and columns to make it  
+   more nearly upper triangular, and applying a diagonal similarity  
+   transformation D * A * D**(-1), where D is a diagonal matrix, to  
+   make its rows and columns closer in norm and the condition numbers  
+   of its eigenvalues and eigenvectors smaller.  The computed  
+   reciprocal condition numbers correspond to the balanced matrix.  
+   Permuting rows and columns will not change the condition numbers  
+   (in exact arithmetic) but diagonal scaling will.  For further  
+   explanation of balancing, see section 4.10.2 of the LAPACK  
+   Users' Guide.  
+ 
+   Arguments  
+   =========  
+ 
+   BALANC  (input) CHARACTER*1  
+           Indicates how the input matrix should be diagonally scaled  
+           and/or permuted to improve the conditioning of its  
+           eigenvalues.  
+           = 'N': Do not diagonally scale or permute;  
+           = 'P': Perform permutations to make the matrix more nearly  
+                  upper triangular. Do not diagonally scale;  
+           = 'S': Diagonally scale the matrix, i.e. replace A by  
+                  D*A*D**(-1), where D is a diagonal matrix chosen  
+                  to make the rows and columns of A more equal in  
+                  norm. Do not permute;  
+           = 'B': Both diagonally scale and permute A.  
+ 
+           Computed reciprocal condition numbers will be for the matrix  
+           after balancing and/or permuting. Permuting does not change  
+           condition numbers (in exact arithmetic), but balancing does.  
+ 
+   JOBVL   (input) CHARACTER*1  
+           = 'N': left eigenvectors of A are not computed;  
+           = 'V': left eigenvectors of A are computed.  
+           If SENSE = 'E' or 'B', JOBVL must = 'V'.  
+ 
+   JOBVR   (input) CHARACTER*1  
+           = 'N': right eigenvectors of A are not computed;  
+           = 'V': right eigenvectors of A are computed.  
+           If SENSE = 'E' or 'B', JOBVR must = 'V'.  
+ 
+   SENSE   (input) CHARACTER*1  
+           Determines which reciprocal condition numbers are computed.  
+           = 'N': None are computed;  
+           = 'E': Computed for eigenvalues only;  
+           = 'V': Computed for right eigenvectors only;  
+           = 'B': Computed for eigenvalues and right eigenvectors.  
+ 
+           If SENSE = 'E' or 'B', both left and right eigenvectors  
+           must also be computed (JOBVL = 'V' and JOBVR = 'V').  
+ 
+   N       (input) INTEGER  
+           The order of the matrix A. N >= 0.  
+ 
+   A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)  
+           On entry, the N-by-N matrix A.  
+           On exit, A has been overwritten.  If JOBVL = 'V' or  
+           JOBVR = 'V', A contains the real Schur form of the balanced  
+           version of the input matrix A.  
+ 
+   LDA     (input) INTEGER  
+           The leading dimension of the array A.  LDA >= max(1,N).  
+ 
+   WR      (output) DOUBLE PRECISION array, dimension (N)  
+   WI      (output) DOUBLE PRECISION array, dimension (N)  
+           WR and WI contain the real and imaginary parts,  
+           respectively, of the computed eigenvalues.  Complex  
+           conjugate pairs of eigenvalues will appear consecutively  
+           with the eigenvalue having the positive imaginary part  
+           first.  
+ 
+   VL      (output) DOUBLE PRECISION array, dimension (LDVL,N)  
+           If JOBVL = 'V', the left eigenvectors u(j) are stored one  
+           after another in the columns of VL, in the same order  
+           as their eigenvalues.  
+           If JOBVL = 'N', VL is not referenced.  
+           If the j-th eigenvalue is real, then u(j) = VL(:,j),  
+           the j-th column of VL.  
+           If the j-th and (j+1)-st eigenvalues form a complex  
+           conjugate pair, then u(j) = VL(:,j) + i*VL(:,j+1) and  
+           u(j+1) = VL(:,j) - i*VL(:,j+1).  
+ 
+   LDVL    (input) INTEGER  
+           The leading dimension of the array VL.  LDVL >= 1; if  
+           JOBVL = 'V', LDVL >= N.  
+ 
+   VR      (output) DOUBLE PRECISION array, dimension (LDVR,N)  
+           If JOBVR = 'V', the right eigenvectors v(j) are stored one  
+           after another in the columns of VR, in the same order  
+           as their eigenvalues.  
+           If JOBVR = 'N', VR is not referenced.  
+           If the j-th eigenvalue is real, then v(j) = VR(:,j),  
+           the j-th column of VR.  
+           If the j-th and (j+1)-st eigenvalues form a complex  
+           conjugate pair, then v(j) = VR(:,j) + i*VR(:,j+1) and  
+           v(j+1) = VR(:,j) - i*VR(:,j+1).  
+ 
+   LDVR    (input) INTEGER  
+           The leading dimension of the array VR.  LDVR >= 1, and if  
+           JOBVR = 'V', LDVR >= N.  
+ 
+   ILO,IHI (output) INTEGER  
+           ILO and IHI are integer values determined when A was  
+           balanced.  The balanced A(i,j) = 0 if I > J and  
+           J = 1,...,ILO-1 or I = IHI+1,...,N.  
+ 
+   SCALE   (output) DOUBLE PRECISION array, dimension (N)  
+           Details of the permutations and scaling factors applied  
+           when balancing A.  If P(j) is the index of the row and column  
+           interchanged with row and column j, and D(j) is the scaling  
+           factor applied to row and column j, then  
+           SCALE(J) = P(J),    for J = 1,...,ILO-1  
+                    = D(J),    for J = ILO,...,IHI  
+                    = P(J)     for J = IHI+1,...,N.  
+           The order in which the interchanges are made is N to IHI+1,  
+           then 1 to ILO-1.  
+ 
+   ABNRM   (output) DOUBLE PRECISION  
+           The one-norm of the balanced matrix (the maximum  
+           of the sum of absolute values of elements of any column).  
+ 
+   RCONDE  (output) DOUBLE PRECISION array, dimension (N)  
+           RCONDE(j) is the reciprocal condition number of the j-th  
+           eigenvalue.  
+ 
+   RCONDV  (output) DOUBLE PRECISION array, dimension (N)  
+           RCONDV(j) is the reciprocal condition number of the j-th  
+           right eigenvector.  
+ 
+   WORK    (workspace/output) DOUBLE PRECISION array, dimension (LWORK)  
+           On exit, if INFO = 0, WORK(1) returns the optimal LWORK.  
+ 
+   LWORK   (input) INTEGER  
+           The dimension of the array WORK.   If SENSE = 'N' or 'E',  
+           LWORK >= max(1,2*N), and if JOBVL = 'V' or JOBVR = 'V',  
+           LWORK >= 3*N.  If SENSE = 'V' or 'B', LWORK >= N*(N+6).  
+           For good performance, LWORK must generally be larger.  
+ 
+           If LWORK = -1, then a workspace query is assumed; the routine  
+           only calculates the optimal size of the WORK array, returns  
+           this value as the first entry of the WORK array, and no error  
+           message related to LWORK is issued by XERBLA.  
+ 
+   IWORK   (workspace) INTEGER array, dimension (2*N-2)  
+           If SENSE = 'N' or 'E', not referenced.  
+ 
+   INFO    (output) INTEGER  
+           = 0:  successful exit  
+           < 0:  if INFO = -i, the i-th argument had an illegal value.  
+           > 0:  if INFO = i, the QR algorithm failed to compute all the  
+                 eigenvalues, and no eigenvectors or condition numbers  
+                 have been computed; elements 1:ILO-1 and i+1:N of WR  
+                 and WI contain eigenvalues which have converged.  
+ 
+   =====================================================================  
+"));
+    end dgeevx;
+
+    function dgesdd "Determine singular value decomposition"
+      extends Modelica.Icons.Function;
+      input Real A[:,:];
+      output Real sigma[min(size(A, 1), size(A, 2))];
+      output Real U[size(A, 1),size(A, 1)]=zeros(size(A, 1), size(A, 1));
+      output Real VT[size(A, 2),size(A, 2)]=zeros(size(A, 2), size(A, 2));
+      output Integer info;
+    protected
+      Real Awork[size(A, 1),size(A, 2)]=A;
+      Integer lda=max(1, size(A, 1));
+      Integer ldu=max(1, size(A, 1));
+      Integer ldvt=max(1, size(A, 2));
+      Integer lwork=max(1,3*(3*min(size(A, 1),size(A, 2))*min(size(A, 1),size(A, 2)) + max(max(size(A, 1),size(A, 2)),4*min(size(A, 1),size(A, 2))*min(size(A, 1),size(A, 2))+4*min(size(A, 1),size(A, 2)))));
+      Integer iwork=max(1,8*min(size(A, 1),size(A, 2)));
+      Real work[lwork];
+
+    external "Fortran 77" dgesdd(
+        "A",
+        size(A, 1),
+        size(A, 2),
+        Awork,
+        lda,
+        sigma,
+        U,
+        ldu,
+        VT,
+        ldvt,
+        work,
+        lwork,
+        iwork,
+        info) 
+        annotation (Library="lapack");
+      annotation (Documentation(info="   Purpose  
+   =======  
+
+   DGESDD computes the singular value decomposition (SVD) of a real  
+   M-by-N matrix A, optionally computing the left and right singular  
+   vectors.  If singular vectors are desired, it uses a  
+   divide-and-conquer algorithm.  
+
+   The SVD is written  
+
+        A = U * SIGMA * transpose(V)  
+
+   where SIGMA is an M-by-N matrix which is zero except for its  
+   min(m,n) diagonal elements, U is an M-by-M orthogonal matrix, and  
+   V is an N-by-N orthogonal matrix.  The diagonal elements of SIGMA  
+   are the singular values of A; they are real and non-negative, and  
+   are returned in descending order.  The first min(m,n) columns of  
+   U and V are the left and right singular vectors of A.  
+
+   Note that the routine returns VT = V**T, not V.  
+
+   The divide and conquer algorithm makes very mild assumptions about  
+   floating point arithmetic. It will work on machines with a guard  
+   digit in add/subtract, or on those binary machines without guard  
+   digits which subtract like the Cray X-MP, Cray Y-MP, Cray C-90, or  
+   Cray-2. It could conceivably fail on hexadecimal or decimal machines  
+   without guard digits, but we know of none.  
+
+   Arguments  
+   =========  
+
+   JOBZ    (input) CHARACTER*1  
+           Specifies options for computing all or part of the matrix U:  
+           = 'A':  all M columns of U and all N rows of V**T are  
+                   returned in the arrays U and VT;  
+           = 'S':  the first min(M,N) columns of U and the first  
+                   min(M,N) rows of V**T are returned in the arrays U  
+                   and VT;  
+           = 'O':  If M >= N, the first N columns of U are overwritten  
+                   on the array A and all rows of V**T are returned in  
+                   the array VT;  
+                   otherwise, all columns of U are returned in the  
+                   array U and the first M rows of V**T are overwritten  
+                   in the array VT;  
+           = 'N':  no columns of U or rows of V**T are computed.  
+
+   M       (input) INTEGER  
+           The number of rows of the input matrix A.  M >= 0.  
+
+   N       (input) INTEGER  
+           The number of columns of the input matrix A.  N >= 0.  
+
+   A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)  
+           On entry, the M-by-N matrix A.  
+           On exit,  
+           if JOBZ = 'O',  A is overwritten with the first N columns  
+                           of U (the left singular vectors, stored  
+                           columnwise) if M >= N;  
+                           A is overwritten with the first M rows  
+                           of V**T (the right singular vectors, stored  
+                           rowwise) otherwise.  
+           if JOBZ .ne. 'O', the contents of A are destroyed.  
+
+   LDA     (input) INTEGER  
+           The leading dimension of the array A.  LDA >= max(1,M).  
+
+   S       (output) DOUBLE PRECISION array, dimension (min(M,N))  
+           The singular values of A, sorted so that S(i) >= S(i+1).  
+
+   U       (output) DOUBLE PRECISION array, dimension (LDU,UCOL)  
+           UCOL = M if JOBZ = 'A' or JOBZ = 'O' and M < N;  
+           UCOL = min(M,N) if JOBZ = 'S'.  
+           If JOBZ = 'A' or JOBZ = 'O' and M < N, U contains the M-by-M  
+           orthogonal matrix U;  
+           if JOBZ = 'S', U contains the first min(M,N) columns of U  
+           (the left singular vectors, stored columnwise);  
+           if JOBZ = 'O' and M >= N, or JOBZ = 'N', U is not referenced.  
+
+   LDU     (input) INTEGER  
+           The leading dimension of the array U.  LDU >= 1; if  
+           JOBZ = 'S' or 'A' or JOBZ = 'O' and M < N, LDU >= M.  
+
+   VT      (output) DOUBLE PRECISION array, dimension (LDVT,N)  
+           If JOBZ = 'A' or JOBZ = 'O' and M >= N, VT contains the  
+           N-by-N orthogonal matrix V**T;  
+           if JOBZ = 'S', VT contains the first min(M,N) rows of  
+           V**T (the right singular vectors, stored rowwise);  
+           if JOBZ = 'O' and M < N, or JOBZ = 'N', VT is not referenced.  
+
+   LDVT    (input) INTEGER  
+           The leading dimension of the array VT.  LDVT >= 1; if  
+           JOBZ = 'A' or JOBZ = 'O' and M >= N, LDVT >= N;  
+           if JOBZ = 'S', LDVT >= min(M,N).  
+
+   WORK    (workspace/output) DOUBLE PRECISION array, dimension (LWORK)  
+           On exit, if INFO = 0, WORK(1) returns the optimal LWORK;  
+
+   LWORK   (input) INTEGER  
+           The dimension of the array WORK. LWORK >= 1.  
+           If JOBZ = 'N',  
+             LWORK >= 3*min(M,N) + max(max(M,N),6*min(M,N)).  
+           If JOBZ = 'O',  
+             LWORK >= 3*min(M,N)*min(M,N) +  
+                      max(max(M,N),5*min(M,N)*min(M,N)+4*min(M,N)).  
+           If JOBZ = 'S' or 'A'  
+             LWORK >= 3*min(M,N)*min(M,N) +  
+                      max(max(M,N),4*min(M,N)*min(M,N)+4*min(M,N)).  
+           For good performance, LWORK should generally be larger.  
+           If LWORK < 0 but other input arguments are legal, WORK(1)  
+           returns the optimal LWORK.  
+
+   IWORK   (workspace) INTEGER array, dimension (8*min(M,N))  
+
+   INFO    (output) INTEGER  
+           = 0:  successful exit.  
+           < 0:  if INFO = -i, the i-th argument had an illegal value.  
+           > 0:  DBDSDC did not converge, updating process failed.  
+
+   Further Details  
+   ===============  
+
+   Based on contributions by  
+      Ming Gu and Huan Ren, Computer Science Division, University of  
+      California at Berkeley, USA  
+
+   =====================================================================  "));
+    end dgesdd;
+
+    function dggev "Compute generalized eigenvalues for a (A,B) system"
+
+      input Real A[:,size(A, 1)];
+      input Real B[size(A, 1),size(A, 1)];
+      input Integer nA=size(A,1);
+      output Real alphaReal[size(A, 1)]
+        "Real part of alpha (eigenvalue=(alphaReal+i*alphaImag)/beta)";
+      output Real alphaImag[size(A, 1)] "Imaginary part of alpha";
+      output Real beta[size(A, 1)] "Denominator of eigenvalue";
+      output Real lEigenVectors[size(A, 1),size(A, 1)]
+        "left eigenvectors of matrix A";
+      output Real rEigenVectors[size(A, 1),size(A, 1)]
+        "right eigenvectors of matrix A";
+
+      output Integer info;
+    protected
+      Integer n=size(A, 1);
+      Integer lwork=max(1,8*n);
+      Real Awork[n,n]=A;
+      Real Bwork[n,n]=B;
+      Real work[lwork];
+      Integer lda=max(1,n);
+
+    external "Fortran 77" dggev(
+        "V",
+        "V",
+        nA,
+        Awork,
+        lda,
+        Bwork,
+        lda,
+        alphaReal,
+        alphaImag,
+        beta,
+        lEigenVectors,
+        lda,
+        rEigenVectors,
+        lda,
+        work,
+        lwork,
+        info)         annotation(Library = {"lapack"});
+      annotation (Documentation(info="   Purpose  
+   =======  
+ 
+   DGGEV computes for a pair of N-by-N real nonsymmetric matrices (A,B)  
+   the generalized eigenvalues, and optionally, the left and/or right  
+   generalized eigenvectors.  
+ 
+   A generalized eigenvalue for a pair of matrices (A,B) is a scalar  
+   lambda or a ratio alpha/beta = lambda, such that A - lambda*B is  
+   singular. It is usually represented as the pair (alpha,beta), as  
+   there is a reasonable interpretation for beta=0, and even for both  
+   being zero.  
+ 
+   The right eigenvector v(j) corresponding to the eigenvalue lambda(j)  
+   of (A,B) satisfies  
+ 
+                    A * v(j) = lambda(j) * B * v(j).  
+ 
+   The left eigenvector u(j) corresponding to the eigenvalue lambda(j)  
+   of (A,B) satisfies  
+ 
+                    u(j)**H * A  = lambda(j) * u(j)**H * B .  
+ 
+   where u(j)**H is the conjugate-transpose of u(j).  
+ 
+ 
+   Arguments  
+   =========  
+ 
+   JOBVL   (input) CHARACTER*1  
+           = 'N':  do not compute the left generalized eigenvectors;  
+           = 'V':  compute the left generalized eigenvectors.  
+ 
+   JOBVR   (input) CHARACTER*1  
+           = 'N':  do not compute the right generalized eigenvectors;  
+           = 'V':  compute the right generalized eigenvectors.  
+ 
+   N       (input) INTEGER  
+           The order of the matrices A, B, VL, and VR.  N >= 0.  
+ 
+   A       (input/output) DOUBLE PRECISION array, dimension (LDA, N)  
+           On entry, the matrix A in the pair (A,B).  
+           On exit, A has been overwritten.  
+ 
+   LDA     (input) INTEGER  
+           The leading dimension of A.  LDA >= max(1,N).  
+ 
+   B       (input/output) DOUBLE PRECISION array, dimension (LDB, N)  
+           On entry, the matrix B in the pair (A,B).  
+           On exit, B has been overwritten.  
+ 
+   LDB     (input) INTEGER  
+           The leading dimension of B.  LDB >= max(1,N).  
+ 
+   ALPHAR  (output) DOUBLE PRECISION array, dimension (N)  
+   ALPHAI  (output) DOUBLE PRECISION array, dimension (N)  
+   BETA    (output) DOUBLE PRECISION array, dimension (N)  
+           On exit, (ALPHAR(j) + ALPHAI(j)*i)/BETA(j), j=1,...,N, will  
+           be the generalized eigenvalues.  If ALPHAI(j) is zero, then  
+           the j-th eigenvalue is real; if positive, then the j-th and  
+           (j+1)-st eigenvalues are a complex conjugate pair, with  
+           ALPHAI(j+1) negative.  
+ 
+           Note: the quotients ALPHAR(j)/BETA(j) and ALPHAI(j)/BETA(j)  
+           may easily over- or underflow, and BETA(j) may even be zero.  
+           Thus, the user should avoid naively computing the ratio  
+           alpha/beta.  However, ALPHAR and ALPHAI will be always less  
+           than and usually comparable with norm(A) in magnitude, and  
+           BETA always less than and usually comparable with norm(B).  
+ 
+   VL      (output) DOUBLE PRECISION array, dimension (LDVL,N)  
+           If JOBVL = 'V', the left eigenvectors u(j) are stored one  
+           after another in the columns of VL, in the same order as  
+           their eigenvalues. If the j-th eigenvalue is real, then  
+           u(j) = VL(:,j), the j-th column of VL. If the j-th and  
+           (j+1)-th eigenvalues form a complex conjugate pair, then  
+           u(j) = VL(:,j)+i*VL(:,j+1) and u(j+1) = VL(:,j)-i*VL(:,j+1).  
+           Each eigenvector will be scaled so the largest component have  
+           abs(real part)+abs(imag. part)=1.  
+           Not referenced if JOBVL = 'N'.  
+ 
+   LDVL    (input) INTEGER  
+           The leading dimension of the matrix VL. LDVL >= 1, and  
+           if JOBVL = 'V', LDVL >= N.  
+ 
+   VR      (output) DOUBLE PRECISION array, dimension (LDVR,N)  
+           If JOBVR = 'V', the right eigenvectors v(j) are stored one  
+           after another in the columns of VR, in the same order as  
+           their eigenvalues. If the j-th eigenvalue is real, then  
+           v(j) = VR(:,j), the j-th column of VR. If the j-th and  
+           (j+1)-th eigenvalues form a complex conjugate pair, then  
+           v(j) = VR(:,j)+i*VR(:,j+1) and v(j+1) = VR(:,j)-i*VR(:,j+1).  
+           Each eigenvector will be scaled so the largest component have  
+           abs(real part)+abs(imag. part)=1.  
+           Not referenced if JOBVR = 'N'.  
+ 
+   LDVR    (input) INTEGER  
+           The leading dimension of the matrix VR. LDVR >= 1, and  
+           if JOBVR = 'V', LDVR >= N.  
+ 
+   WORK    (workspace/output) DOUBLE PRECISION array, dimension (LWORK)  
+           On exit, if INFO = 0, WORK(1) returns the optimal LWORK.  
+ 
+   LWORK   (input) INTEGER  
+           The dimension of the array WORK.  LWORK >= max(1,8*N).  
+           For good performance, LWORK must generally be larger.  
+ 
+           If LWORK = -1, then a workspace query is assumed; the routine  
+           only calculates the optimal size of the WORK array, returns  
+           this value as the first entry of the WORK array, and no error  
+           message related to LWORK is issued by XERBLA.  
+ 
+   INFO    (output) INTEGER  
+           = 0:  successful exit  
+           < 0:  if INFO = -i, the i-th argument had an illegal value.  
+           = 1,...,N:  
+                 The QZ iteration failed.  No eigenvectors have been  
+                 calculated, but ALPHAR(j), ALPHAI(j), and BETA(j)  
+                 should be correct for j=INFO+1,...,N.  
+           > N:  =N+1: other than QZ iteration failed in DHGEQZ.  
+                 =N+2: error return from DTGEVC.  
+ 
+   =====================================================================  
+"));
+    end dggev;
+
+    function dggevx
+      "Compute generalized eigenvalues for a (A,B) system, using lapack routine dggevx"
+
+      input Real A[:,size(A, 1)];
+      input Real B[size(A, 1),size(A, 1)];
+      output Real alphaReal[size(A, 1)]
+        "Real part of alpha (eigenvalue=(alphaReal+i*alphaImag)/beta)";
+      output Real alphaImag[size(A, 1)] "Imaginary part of alpha";
+      output Real beta[size(A, 1)] "Denominator of eigenvalue";
+      output Real lEigenVectors[size(A, 1),size(A, 1)]
+        "left eigenvectors of matrix A";
+      output Real rEigenVectors[size(A, 1),size(A, 1)]
+        "right eigenvectors of matrix A";
+
+      output Integer info;
+    protected
+      Integer n=size(A, 1);
+      Integer lda=max(1,size(A, 1));
+      Integer ilo;
+      Integer ihi;
+      Real lscale[n];
+      Real rscale[n];
+      Real abnrm;
+      Real bbnrm;
+      Real rconde[n];
+      Real rcondv[n];
+      Integer lwork=2*n*n + 12*n + 16;
+      Real work[lwork];
+      Integer iwork[n + 6];
+      Integer bwork[n];
+
+    external "Fortran 77" dggevx(
+        "B",
+        "V",
+        "V",
+        "B",
+        n,
+        A,
+        lda,
+        B,
+        lda,
+        alphaReal,
+        alphaImag,
+        beta,
+        lEigenVectors,
+        lda,
+        rEigenVectors,
+        lda,
+        ilo,
+        ihi,
+        lscale,
+        rscale,
+        abnrm,
+        bbnrm,
+        rconde,
+        rcondv,
+        work,
+        lwork,
+        iwork,
+        bwork,
+        info)  annotation(Library = {"lapack"});
+      annotation (Documentation(info="/*  Purpose  
+/*  =======  
+ 
+   DGGEVX computes for a pair of N-by-N real nonsymmetric matrices (A,B)  
+   the generalized eigenvalues, and optionally, the left and/or right  
+   generalized eigenvectors.  
+ 
+   Optionally also, it computes a balancing transformation to improve  
+   the conditioning of the eigenvalues and eigenvectors (ILO, IHI,  
+   LSCALE, RSCALE, ABNRM, and BBNRM), reciprocal condition numbers for  
+   the eigenvalues (RCONDE), and reciprocal condition numbers for the  
+   right eigenvectors (RCONDV).  
+ 
+   A generalized eigenvalue for a pair of matrices (A,B) is a scalar  
+   lambda or a ratio alpha/beta = lambda, such that A - lambda*B is  
+   singular. It is usually represented as the pair (alpha,beta), as  
+   there is a reasonable interpretation for beta=0, and even for both  
+   being zero.  
+ 
+   The right eigenvector v(j) corresponding to the eigenvalue lambda(j)  
+   of (A,B) satisfies  
+ 
+                    A * v(j) = lambda(j) * B * v(j) .  
+ 
+   The left eigenvector u(j) corresponding to the eigenvalue lambda(j)  
+   of (A,B) satisfies  
+ 
+                    u(j)**H * A  = lambda(j) * u(j)**H * B.  
+ 
+   where u(j)**H is the conjugate-transpose of u(j).  
+ 
+ 
+   Arguments  
+   =========  
+ 
+   BALANC  (input) CHARACTER*1  
+           Specifies the balance option to be performed.  
+           = 'N':  do not diagonally scale or permute;  
+           = 'P':  permute only;  
+           = 'S':  scale only;  
+           = 'B':  both permute and scale.  
+           Computed reciprocal condition numbers will be for the  
+           matrices after permuting and/or balancing. Permuting does  
+           not change condition numbers (in exact arithmetic), but  
+           balancing does.  
+ 
+   JOBVL   (input) CHARACTER*1  
+           = 'N':  do not compute the left generalized eigenvectors;  
+           = 'V':  compute the left generalized eigenvectors.  
+ 
+   JOBVR   (input) CHARACTER*1  
+           = 'N':  do not compute the right generalized eigenvectors;  
+           = 'V':  compute the right generalized eigenvectors.  
+ 
+   SENSE   (input) CHARACTER*1  
+           Determines which reciprocal condition numbers are computed.  
+           = 'N': none are computed;  
+           = 'E': computed for eigenvalues only;  
+           = 'V': computed for eigenvectors only;  
+           = 'B': computed for eigenvalues and eigenvectors.  
+ 
+   N       (input) INTEGER  
+           The order of the matrices A, B, VL, and VR.  N >= 0.  
+ 
+   A       (input/output) DOUBLE PRECISION array, dimension (LDA, N)  
+           On entry, the matrix A in the pair (A,B).  
+           On exit, A has been overwritten. If JOBVL='V' or JOBVR='V'  
+           or both, then A contains the first part of the real Schur  
+           form of the \"balanced\" versions of the input A and B.  
+ 
+   LDA     (input) INTEGER  
+           The leading dimension of A.  LDA >= max(1,N).  
+ 
+   B       (input/output) DOUBLE PRECISION array, dimension (LDB, N)  
+           On entry, the matrix B in the pair (A,B).  
+           On exit, B has been overwritten. If JOBVL='V' or JOBVR='V'  
+           or both, then B contains the second part of the real Schur  
+           form of the \"balanced\" versions of the input A and B.  
+ 
+   LDB     (input) INTEGER  
+           The leading dimension of B.  LDB >= max(1,N).  
+ 
+   ALPHAR  (output) DOUBLE PRECISION array, dimension (N)  
+   ALPHAI  (output) DOUBLE PRECISION array, dimension (N)  
+   BETA    (output) DOUBLE PRECISION array, dimension (N)  
+           On exit, (ALPHAR(j) + ALPHAI(j)*i)/BETA(j), j=1,...,N, will  
+           be the generalized eigenvalues.  If ALPHAI(j) is zero, then  
+           the j-th eigenvalue is real; if positive, then the j-th and  
+           (j+1)-st eigenvalues are a complex conjugate pair, with  
+           ALPHAI(j+1) negative.  
+ 
+           Note: the quotients ALPHAR(j)/BETA(j) and ALPHAI(j)/BETA(j)  
+           may easily over- or underflow, and BETA(j) may even be zero.  
+           Thus, the user should avoid naively computing the ratio  
+           ALPHA/BETA. However, ALPHAR and ALPHAI will be always less  
+           than and usually comparable with norm(A) in magnitude, and  
+           BETA always less than and usually comparable with norm(B).  
+ 
+   VL      (output) DOUBLE PRECISION array, dimension (LDVL,N)  
+           If JOBVL = 'V', the left eigenvectors u(j) are stored one  
+           after another in the columns of VL, in the same order as  
+           their eigenvalues. If the j-th eigenvalue is real, then  
+           u(j) = VL(:,j), the j-th column of VL. If the j-th and  
+           (j+1)-th eigenvalues form a complex conjugate pair, then  
+           u(j) = VL(:,j)+i*VL(:,j+1) and u(j+1) = VL(:,j)-i*VL(:,j+1).  
+           Each eigenvector will be scaled so the largest component have  
+           abs(real part) + abs(imag. part) = 1.  
+           Not referenced if JOBVL = 'N'.  
+ 
+   LDVL    (input) INTEGER  
+           The leading dimension of the matrix VL. LDVL >= 1, and  
+           if JOBVL = 'V', LDVL >= N.  
+ 
+   VR      (output) DOUBLE PRECISION array, dimension (LDVR,N)  
+           If JOBVR = 'V', the right eigenvectors v(j) are stored one  
+           after another in the columns of VR, in the same order as  
+           their eigenvalues. If the j-th eigenvalue is real, then  
+           v(j) = VR(:,j), the j-th column of VR. If the j-th and  
+           (j+1)-th eigenvalues form a complex conjugate pair, then  
+           v(j) = VR(:,j)+i*VR(:,j+1) and v(j+1) = VR(:,j)-i*VR(:,j+1).  
+           Each eigenvector will be scaled so the largest component have  
+           abs(real part) + abs(imag. part) = 1.  
+           Not referenced if JOBVR = 'N'.  
+ 
+   LDVR    (input) INTEGER  
+           The leading dimension of the matrix VR. LDVR >= 1, and  
+           if JOBVR = 'V', LDVR >= N.  
+ 
+   ILO,IHI (output) INTEGER  
+           ILO and IHI are integer values such that on exit  
+           A(i,j) = 0 and B(i,j) = 0 if i > j and  
+           j = 1,...,ILO-1 or i = IHI+1,...,N.  
+           If BALANC = 'N' or 'S', ILO = 1 and IHI = N.  
+ 
+   LSCALE  (output) DOUBLE PRECISION array, dimension (N)  
+           Details of the permutations and scaling factors applied  
+           to the left side of A and B.  If PL(j) is the index of the  
+           row interchanged with row j, and DL(j) is the scaling  
+           factor applied to row j, then  
+             LSCALE(j) = PL(j)  for j = 1,...,ILO-1  
+                       = DL(j)  for j = ILO,...,IHI  
+                       = PL(j)  for j = IHI+1,...,N.  
+           The order in which the interchanges are made is N to IHI+1,  
+           then 1 to ILO-1.  
+ 
+   RSCALE  (output) DOUBLE PRECISION array, dimension (N)  
+           Details of the permutations and scaling factors applied  
+           to the right side of A and B.  If PR(j) is the index of the  
+           column interchanged with column j, and DR(j) is the scaling  
+           factor applied to column j, then  
+             RSCALE(j) = PR(j)  for j = 1,...,ILO-1  
+                       = DR(j)  for j = ILO,...,IHI  
+                       = PR(j)  for j = IHI+1,...,N  
+           The order in which the interchanges are made is N to IHI+1,  
+           then 1 to ILO-1.  
+ 
+   ABNRM   (output) DOUBLE PRECISION  
+           The one-norm of the balanced matrix A.  
+ 
+   BBNRM   (output) DOUBLE PRECISION  
+           The one-norm of the balanced matrix B.  
+ 
+   RCONDE  (output) DOUBLE PRECISION array, dimension (N)  
+           If SENSE = 'E' or 'B', the reciprocal condition numbers of  
+           the selected eigenvalues, stored in consecutive elements of  
+           the array. For a complex conjugate pair of eigenvalues two  
+           consecutive elements of RCONDE are set to the same value.  
+           Thus RCONDE(j), RCONDV(j), and the j-th columns of VL and VR  
+           all correspond to the same eigenpair (but not in general the  
+           j-th eigenpair, unless all eigenpairs are selected).  
+           If SENSE = 'V', RCONDE is not referenced.  
+ 
+   RCONDV  (output) DOUBLE PRECISION array, dimension (N)  
+           If SENSE = 'V' or 'B', the estimated reciprocal condition  
+           numbers of the selected eigenvectors, stored in consecutive  
+           elements of the array. For a complex eigenvector two  
+           consecutive elements of RCONDV are set to the same value. If  
+           the eigenvalues cannot be reordered to compute RCONDV(j),  
+           RCONDV(j) is set to 0; this can only occur when the true  
+           value would be very small anyway.  
+           If SENSE = 'E', RCONDV is not referenced.  
+ 
+   WORK    (workspace/output) DOUBLE PRECISION array, dimension (LWORK)  
+           On exit, if INFO = 0, WORK(1) returns the optimal LWORK.  
+ 
+   LWORK   (input) INTEGER  
+           The dimension of the array WORK. LWORK >= max(1,6*N).  
+           If SENSE = 'E', LWORK >= 12*N.  
+           If SENSE = 'V' or 'B', LWORK >= 2*N*N+12*N+16.  
+ 
+           If LWORK = -1, then a workspace query is assumed; the routine  
+           only calculates the optimal size of the WORK array, returns  
+           this value as the first entry of the WORK array, and no error  
+           message related to LWORK is issued by XERBLA.  
+ 
+   IWORK   (workspace) INTEGER array, dimension (N+6)  
+           If SENSE = 'E', IWORK is not referenced.  
+ 
+   BWORK   (workspace) LOGICAL array, dimension (N)  
+           If SENSE = 'N', BWORK is not referenced.  
+ 
+   INFO    (output) INTEGER  
+           = 0:  successful exit  
+           < 0:  if INFO = -i, the i-th argument had an illegal value.  
+           = 1,...,N:  
+                 The QZ iteration failed.  No eigenvectors have been  
+                 calculated, but ALPHAR(j), ALPHAI(j), and BETA(j)  
+                 should be correct for j=INFO+1,...,N.  
+           > N:  =N+1: other than QZ iteration failed in DHGEQZ.  
+                 =N+2: error return from DTGEVC.  
+ 
+   Further Details  
+   ===============  
+ 
+   Balancing a matrix pair (A,B) includes, first, permuting rows and  
+   columns to isolate eigenvalues, second, applying diagonal similarity  
+   transformation to the rows and columns to make the rows and columns  
+   as close in norm as possible. The computed reciprocal condition  
+   numbers correspond to the balanced matrix. Permuting rows and columns  
+   will not change the condition numbers (in exact arithmetic) but  
+   diagonal scaling will.  For further explanation of balancing, see  
+   section 4.11.1.2 of LAPACK Users' Guide.  
+ 
+   An approximate error bound on the chordal distance between the i-th  
+   computed generalized eigenvalue w and the corresponding exact  
+   eigenvalue lambda is  
+ 
+        chord(w, lambda) <= EPS * norm(ABNRM, BBNRM) / RCONDE(I)  
+ 
+   An approximate error bound for the angle between the i-th computed  
+   eigenvector VL(i) or VR(i) is given by  
+ 
+        EPS * norm(ABNRM, BBNRM) / DIF(i).  
+ 
+   For further explanation of the reciprocal condition numbers RCONDE  
+   and RCONDV, see section 4.11 of LAPACK User's Guide.  
+ 
+   =====================================================================  
+"));
+    end dggevx;
+
+    function dhgeqz "Compute generalized eigenvalues for a (A,B) system"
+
+      input Real A[:,size(A, 1)];
+      input Real B[size(A, 1),size(A, 1)];
+      output Real alphaReal[size(A, 1)]
+        "Real part of alpha (eigenvalue=(alphaReal+i*alphaImag)/beta)";
+      output Real alphaImag[size(A, 1)] "Imaginary part of alpha";
+      output Real beta[size(A, 1)] "Denominator of eigenvalue";
+
+      output Integer info;
+    protected
+      Integer n=size(A, 1);
+      Integer ilo=1;
+      Integer ihi=n;
+      Integer lwork=max(1,3*n);
+      Real work[lwork];
+      Real Awork[n,n]=A;
+      Real Bwork[n,n]=B;
+      Integer lda=max(1, n);
+      Real Q[1,1]=fill(0, 1, n);
+
+    external "Fortran 77" dhgeqz(
+        "E",
+        "N",
+        "N",
+        n,
+        ilo,
+        ihi,
+        Awork,
+        lda,
+        Bwork,
+        lda,
+        alphaReal,
+        alphaImag,
+        beta,
+        Q,
+        1,
+        Q,
+        1,
+        work,
+        lwork,
+        info)         annotation(Library = {"lapack"});
+
+      annotation (Documentation(info="
+     Purpose  
+   =======  
+ 
+   DHGEQZ implements a single-/double-shift version of the QZ method for  
+   finding the generalized eigenvalues  
+ 
+   w(j)=(ALPHAR(j) + i*ALPHAI(j))/BETAR(j)   of the equation  
+ 
+        det( A - w(i) B ) = 0  
+ 
+   In addition, the pair A,B may be reduced to generalized Schur form:  
+   B is upper triangular, and A is block upper triangular, where the  
+   diagonal blocks are either 1-by-1 or 2-by-2, the 2-by-2 blocks having  
+   complex generalized eigenvalues (see the description of the argument  
+   JOB.)  
+ 
+   If JOB='S', then the pair (A,B) is simultaneously reduced to Schur  
+   form by applying one orthogonal tranformation (usually called Q) on  
+   the left and another (usually called Z) on the right.  The 2-by-2  
+   upper-triangular diagonal blocks of B corresponding to 2-by-2 blocks  
+   of A will be reduced to positive diagonal matrices.  (I.e.,  
+   if A(j+1,j) is non-zero, then B(j+1,j)=B(j,j+1)=0 and B(j,j) and  
+   B(j+1,j+1) will be positive.)  
+ 
+   If JOB='E', then at each iteration, the same transformations  
+   are computed, but they are only applied to those parts of A and B  
+   which are needed to compute ALPHAR, ALPHAI, and BETAR.  
+ 
+   If JOB='S' and COMPQ and COMPZ are 'V' or 'I', then the orthogonal  
+   transformations used to reduce (A,B) are accumulated into the arrays  
+   Q and Z s.t.:  
+ 
+        Q(in) A(in) Z(in)* = Q(out) A(out) Z(out)*  
+        Q(in) B(in) Z(in)* = Q(out) B(out) Z(out)*  
+ 
+   Ref: C.B. Moler & G.W. Stewart, \"An Algorithm for Generalized Matrix  
+        Eigenvalue Problems\", SIAM J. Numer. Anal., 10(1973),  
+        pp. 241--256.  
+ 
+   Arguments  
+   =========  
+ 
+   JOB     (input) CHARACTER*1  
+           = 'E': compute only ALPHAR, ALPHAI, and BETA.  A and B will  
+                  not necessarily be put into generalized Schur form.  
+           = 'S': put A and B into generalized Schur form, as well  
+                  as computing ALPHAR, ALPHAI, and BETA.  
+ 
+   COMPQ   (input) CHARACTER*1  
+           = 'N': do not modify Q.  
+           = 'V': multiply the array Q on the right by the transpose of  
+                  the orthogonal tranformation that is applied to the  
+                  left side of A and B to reduce them to Schur form.  
+           = 'I': like COMPQ='V', except that Q will be initialized to  
+                  the identity first.  
+ 
+   COMPZ   (input) CHARACTER*1  
+           = 'N': do not modify Z.  
+           = 'V': multiply the array Z on the right by the orthogonal  
+                  tranformation that is applied to the right side of  
+                  A and B to reduce them to Schur form.  
+           = 'I': like COMPZ='V', except that Z will be initialized to  
+                  the identity first.  
+ 
+   N       (input) INTEGER  
+           The order of the matrices A, B, Q, and Z.  N >= 0.  
+ 
+   ILO     (input) INTEGER  
+   IHI     (input) INTEGER  
+           It is assumed that A is already upper triangular in rows and  
+           columns 1:ILO-1 and IHI+1:N.  
+           1 <= ILO <= IHI <= N, if N > 0; ILO=1 and IHI=0, if N=0.  
+ 
+   A       (input/output) DOUBLE PRECISION array, dimension (LDA, N)  
+           On entry, the N-by-N upper Hessenberg matrix A.  Elements  
+           below the subdiagonal must be zero.  
+           If JOB='S', then on exit A and B will have been  
+              simultaneously reduced to generalized Schur form.  
+           If JOB='E', then on exit A will have been destroyed.  
+              The diagonal blocks will be correct, but the off-diagonal  
+              portion will be meaningless.  
+ 
+   LDA     (input) INTEGER  
+           The leading dimension of the array A.  LDA >= max( 1, N ).  
+ 
+   B       (input/output) DOUBLE PRECISION array, dimension (LDB, N)  
+           On entry, the N-by-N upper triangular matrix B.  Elements  
+           below the diagonal must be zero.  2-by-2 blocks in B  
+           corresponding to 2-by-2 blocks in A will be reduced to  
+           positive diagonal form.  (I.e., if A(j+1,j) is non-zero,  
+           then B(j+1,j)=B(j,j+1)=0 and B(j,j) and B(j+1,j+1) will be  
+           positive.)  
+           If JOB='S', then on exit A and B will have been  
+              simultaneously reduced to Schur form.  
+           If JOB='E', then on exit B will have been destroyed.  
+              Elements corresponding to diagonal blocks of A will be  
+              correct, but the off-diagonal portion will be meaningless.  
+ 
+   LDB     (input) INTEGER  
+           The leading dimension of the array B.  LDB >= max( 1, N ).  
+ 
+   ALPHAR  (output) DOUBLE PRECISION array, dimension (N)  
+           ALPHAR(1:N) will be set to real parts of the diagonal  
+           elements of A that would result from reducing A and B to  
+           Schur form and then further reducing them both to triangular  
+           form using unitary transformations s.t. the diagonal of B  
+           was non-negative real.  Thus, if A(j,j) is in a 1-by-1 block  
+           (i.e., A(j+1,j)=A(j,j+1)=0), then ALPHAR(j)=A(j,j).  
+           Note that the (real or complex) values  
+           (ALPHAR(j) + i*ALPHAI(j))/BETA(j), j=1,...,N, are the  
+           generalized eigenvalues of the matrix pencil A - wB.  
+ 
+   ALPHAI  (output) DOUBLE PRECISION array, dimension (N)  
+           ALPHAI(1:N) will be set to imaginary parts of the diagonal  
+           elements of A that would result from reducing A and B to  
+           Schur form and then further reducing them both to triangular  
+           form using unitary transformations s.t. the diagonal of B  
+           was non-negative real.  Thus, if A(j,j) is in a 1-by-1 block  
+           (i.e., A(j+1,j)=A(j,j+1)=0), then ALPHAR(j)=0.  
+           Note that the (real or complex) values  
+           (ALPHAR(j) + i*ALPHAI(j))/BETA(j), j=1,...,N, are the  
+           generalized eigenvalues of the matrix pencil A - wB.  
+ 
+   BETA    (output) DOUBLE PRECISION array, dimension (N)  
+           BETA(1:N) will be set to the (real) diagonal elements of B  
+           that would result from reducing A and B to Schur form and  
+           then further reducing them both to triangular form using  
+           unitary transformations s.t. the diagonal of B was  
+           non-negative real.  Thus, if A(j,j) is in a 1-by-1 block  
+           (i.e., A(j+1,j)=A(j,j+1)=0), then BETA(j)=B(j,j).  
+           Note that the (real or complex) values  
+           (ALPHAR(j) + i*ALPHAI(j))/BETA(j), j=1,...,N, are the  
+           generalized eigenvalues of the matrix pencil A - wB.  
+           (Note that BETA(1:N) will always be non-negative, and no  
+           BETAI is necessary.)  
+ 
+   Q       (input/output) DOUBLE PRECISION array, dimension (LDQ, N)  
+           If COMPQ='N', then Q will not be referenced.  
+           If COMPQ='V' or 'I', then the transpose of the orthogonal  
+              transformations which are applied to A and B on the left  
+              will be applied to the array Q on the right.  
+ 
+   LDQ     (input) INTEGER  
+           The leading dimension of the array Q.  LDQ >= 1.  
+           If COMPQ='V' or 'I', then LDQ >= N.  
+ 
+   Z       (input/output) DOUBLE PRECISION array, dimension (LDZ, N)  
+           If COMPZ='N', then Z will not be referenced.  
+           If COMPZ='V' or 'I', then the orthogonal transformations  
+              which are applied to A and B on the right will be applied  
+              to the array Z on the right.  
+ 
+   LDZ     (input) INTEGER  
+           The leading dimension of the array Z.  LDZ >= 1.  
+           If COMPZ='V' or 'I', then LDZ >= N.  
+ 
+   WORK    (workspace/output) DOUBLE PRECISION array, dimension (LWORK)  
+           On exit, if INFO >= 0, WORK(1) returns the optimal LWORK.  
+ 
+   LWORK   (input) INTEGER  
+           The dimension of the array WORK.  LWORK >= max(1,N).  
+ 
+           If LWORK = -1, then a workspace query is assumed; the routine  
+           only calculates the optimal size of the WORK array, returns  
+           this value as the first entry of the WORK array, and no error  
+           message related to LWORK is issued by XERBLA.  
+ 
+   INFO    (output) INTEGER  
+           = 0: successful exit  
+           < 0: if INFO = -i, the i-th argument had an illegal value  
+           = 1,...,N: the QZ iteration did not converge.  (A,B) is not  
+                      in Schur form, but ALPHAR(i), ALPHAI(i), and  
+                      BETA(i), i=INFO+1,...,N should be correct.  
+           = N+1,...,2*N: the shift calculation failed.  (A,B) is not  
+                      in Schur form, but ALPHAR(i), ALPHAI(i), and  
+                      BETA(i), i=INFO-N+1,...,N should be correct.  
+           > 2*N:     various \"impossible\" errors.  
+ 
+   Further Details  
+   ===============  
+ 
+   Iteration counters:  
+ 
+   JITER  -- counts iterations.  
+   IITER  -- counts iterations run since ILAST was last  
+             changed.  This is therefore reset only when a 1-by-1 or  
+             2-by-2 block deflates off the bottom.  
+ 
+   =====================================================================  
+"));
+    end dhgeqz;
+
+    function dormhr
+      "overwrites the general real M-by-N matrix C with Q * C or C * Q or Q' * C or C * Q', where Q is an orthogonal matrix as returne by dgehrd"
+
+      input Real C[:,:];
+      input Real A[:,:];
+      input Real tau[if side=="L" then size(C, 2) - 1 else size(C,1)-1];
+      input String side="L";
+      input String trans="N";
+      input Integer ilo=1
+        "lowest index where the original matrix had been Hessenbergform";
+      input Integer ihi=if side=="L" then size(C,1) else size(C,2)
+        "highest index where the original matrix had been Hessenbergform";
+      output Real Cout[size(C, 1),size(C, 2)]=C
+        "contains the Hessenberg form in the upper triangle and the first subdiagonal and below the first subdiagonal it contains the elementary reflectors which represents (with array tau) as a product the orthogonal matrix Q";
+
+      output Integer info;
+    protected
+      Integer m=size(C, 1);
+      Integer n=size(C, 2);
+      Integer lda=max(1, size(A, 2));
+      Integer ldc=max(1, m);
+      Integer lwork=max(1,2*size(A, 2));
+      Real work[lwork];
+
+    external "Fortran 77" dormhr(
+        side,
+        trans,
+        m,
+        n,
+        ilo,
+        ihi,
+        A,
+        lda,
+        tau,
+        Cout,
+        ldc,
+        work,
+        lwork,
+        info) annotation(Library = {"lapack"});
+
+      annotation (Documentation(info=" 
+   Purpose  
+   =======  
+ 
+     DORMHR overwrites the general real M-by-N matrix C with  
+ 
+                   SIDE = 'L'     SIDE = 'R'  
+   TRANS = 'N':      Q * C          C * Q  
+   TRANS = 'T':      Q**T * C       C * Q**T  
+ 
+   where Q is a real orthogonal matrix of order nq, with nq = m if  
+   SIDE = 'L' and nq = n if SIDE = 'R'. Q is defined as the product of  
+   IHI-ILO elementary reflectors, as returned by DGEHRD:  
+ 
+   Q = H(ilo) H(ilo+1) . . . H(ihi-1).  
+ 
+   Arguments  
+   =========  
+ 
+   SIDE    (input) CHARACTER*1  
+           = 'L': apply Q or Q**T from the Left;  
+           = 'R': apply Q or Q**T from the Right.  
+ 
+   TRANS   (input) CHARACTER*1  
+           = 'N':  No transpose, apply Q;  
+           = 'T':  Transpose, apply Q**T.  
+ 
+   M       (input) INTEGER  
+           The number of rows of the matrix C. M >= 0.  
+ 
+   N       (input) INTEGER  
+           The number of columns of the matrix C. N >= 0.  
+ 
+   ILO     (input) INTEGER  
+   IHI     (input) INTEGER  
+           ILO and IHI must have the same values as in the previous call  
+           of DGEHRD. Q is equal to the unit matrix except in the  
+           submatrix Q(ilo+1:ihi,ilo+1:ihi).  
+           If SIDE = 'L', then 1 <= ILO <= IHI <= M, if M > 0, and  
+           ILO = 1 and IHI = 0, if M = 0;  
+           if SIDE = 'R', then 1 <= ILO <= IHI <= N, if N > 0, and  
+           ILO = 1 and IHI = 0, if N = 0.  
+ 
+   A       (input) DOUBLE PRECISION array, dimension  
+                                (LDA,M) if SIDE = 'L'  
+                                (LDA,N) if SIDE = 'R'  
+           The vectors which define the elementary reflectors, as  
+           returned by DGEHRD.  
+ 
+   LDA     (input) INTEGER  
+           The leading dimension of the array A.  
+           LDA >= max(1,M) if SIDE = 'L'; LDA >= max(1,N) if SIDE = 'R'.  
+ 
+   TAU     (input) DOUBLE PRECISION array, dimension  
+                                (M-1) if SIDE = 'L'  
+                                (N-1) if SIDE = 'R'  
+           TAU(i) must contain the scalar factor of the elementary  
+           reflector H(i), as returned by DGEHRD.  
+ 
+   C       (input/output) DOUBLE PRECISION array, dimension (LDC,N)  
+           On entry, the M-by-N matrix C.  
+           On exit, C is overwritten by Q*C or Q**T*C or C*Q**T or C*Q.  
+ 
+   LDC     (input) INTEGER  
+           The leading dimension of the array C. LDC >= max(1,M).  
+ 
+   WORK    (workspace/output) DOUBLE PRECISION array, dimension (LWORK)  
+           On exit, if INFO = 0, WORK(1) returns the optimal LWORK.  
+ 
+   LWORK   (input) INTEGER  
+           The dimension of the array WORK.  
+           If SIDE = 'L', LWORK >= max(1,N);  
+           if SIDE = 'R', LWORK >= max(1,M).  
+           For optimum performance LWORK >= N*NB if SIDE = 'L', and  
+           LWORK >= M*NB if SIDE = 'R', where NB is the optimal  
+           blocksize.  
+ 
+           If LWORK = -1, then a workspace query is assumed; the routine  
+           only calculates the optimal size of the WORK array, returns  
+           this value as the first entry of the WORK array, and no error  
+           message related to LWORK is issued by XERBLA.  
+ 
+   INFO    (output) INTEGER  
+           = 0:  successful exit  
+           < 0:  if INFO = -i, the i-th argument had an illegal value  
+ 
+   =====================================================================  "));
+    end dormhr;
+
+    function dormqr
+      "overwrites the general real M-by-N matrix C with Q * C or C * Q or Q' * C or C * Q', where Q is an orthogonal matrix of a QR factorization as returned by dgeqrf"
+
+      input Real C[:,:];
+      input Real A[:,:];
+      input Real tau[:];
+      input String side="L";
+      input String trans="N";
+
+      output Real Cout[size(C, 1),size(C, 2)]=C
+        "contains Q*C or Q**T*C or C*Q**T or C*Q";
+
+      output Integer info;
+    protected
+      Integer m=size(C, 1);
+      Integer n=size(C, 2);
+      Integer k=if side == "L" then m else n;
+      Integer lda=if side == "L" then max(1, m) else max(1, n);
+      Integer ldc=max(1, m);
+      Integer lwork=if side == "L" then max(1, n) else max(1, m);
+      Real work[lwork];
+
+    external "Fortran 77" dormhr(
+        side,
+        trans,
+        m,
+        n,
+        k,
+        A,
+        lda,
+        tau,
+        Cout,
+        ldc,
+        work,
+        lwork,
+        info) annotation(Library = {"lapack"});
+
+      annotation (Documentation(info="   Purpose  
+   =======  
+ 
+   DORMQR overwrites the general real M-by-N matrix C with  
+ 
+                   SIDE = 'L'     SIDE = 'R'  
+   TRANS = 'N':      Q * C          C * Q  
+   TRANS = 'T':      Q**T * C       C * Q**T  
+ 
+   where Q is a real orthogonal matrix defined as the product of k  
+   elementary reflectors  
+ 
+         Q = H(1) H(2) . . . H(k)  
+ 
+   as returned by DGEQRF. Q is of order M if SIDE = 'L' and of order N  
+   if SIDE = 'R'.  
+ 
+   Arguments  
+   =========  
+ 
+   SIDE    (input) CHARACTER*1  
+           = 'L': apply Q or Q**T from the Left;  
+           = 'R': apply Q or Q**T from the Right.  
+ 
+   TRANS   (input) CHARACTER*1  
+           = 'N':  No transpose, apply Q;  
+           = 'T':  Transpose, apply Q**T.  
+ 
+   M       (input) INTEGER  
+           The number of rows of the matrix C. M >= 0.  
+ 
+   N       (input) INTEGER  
+           The number of columns of the matrix C. N >= 0.  
+ 
+   K       (input) INTEGER  
+           The number of elementary reflectors whose product defines  
+           the matrix Q.  
+           If SIDE = 'L', M >= K >= 0;  
+           if SIDE = 'R', N >= K >= 0.  
+ 
+   A       (input) DOUBLE PRECISION array, dimension (LDA,K)  
+           The i-th column must contain the vector which defines the  
+           elementary reflector H(i), for i = 1,2,...,k, as returned by  
+           DGEQRF in the first k columns of its array argument A.  
+           A is modified by the routine but restored on exit.  
+ 
+   LDA     (input) INTEGER  
+           The leading dimension of the array A.  
+           If SIDE = 'L', LDA >= max(1,M);  
+           if SIDE = 'R', LDA >= max(1,N).  
+ 
+   TAU     (input) DOUBLE PRECISION array, dimension (K)  
+           TAU(i) must contain the scalar factor of the elementary  
+           reflector H(i), as returned by DGEQRF.  
+ 
+   C       (input/output) DOUBLE PRECISION array, dimension (LDC,N)  
+           On entry, the M-by-N matrix C.  
+           On exit, C is overwritten by Q*C or Q**T*C or C*Q**T or C*Q.  
+ 
+   LDC     (input) INTEGER  
+           The leading dimension of the array C. LDC >= max(1,M).  
+ 
+   WORK    (workspace/output) DOUBLE PRECISION array, dimension (LWORK)  
+           On exit, if INFO = 0, WORK(1) returns the optimal LWORK.  
+ 
+   LWORK   (input) INTEGER  
+           The dimension of the array WORK.  
+           If SIDE = 'L', LWORK >= max(1,N);  
+           if SIDE = 'R', LWORK >= max(1,M).  
+           For optimum performance LWORK >= N*NB if SIDE = 'L', and  
+           LWORK >= M*NB if SIDE = 'R', where NB is the optimal  
+           blocksize.  
+ 
+           If LWORK = -1, then a workspace query is assumed; the routine  
+           only calculates the optimal size of the WORK array, returns  
+           this value as the first entry of the WORK array, and no error  
+           message related to LWORK is issued by XERBLA.  
+ 
+   INFO    (output) INTEGER  
+           = 0:  successful exit  
+           < 0:  if INFO = -i, the i-th argument had an illegal value  
+ 
+   =====================================================================  "));
+    end dormqr;
+
+    function dtrevc
+      "Compute the right and/or left eigenvectors of a real upper quasi-triangular matrix T"
+      input Real T[:,size(T, 1)] "Upper quasie triangular matrix";
+      input String side="R" "Specify which eigenvectors";
+      input String howmny="B" "Specify how many eigenvectors";
+      input Real Q[size(T, 1),size(T, 1)]
+        "Orthogonal matrix Q of Schur vectors returned by DHSEQR";
+
+      output Real lEigenVectors[size(T, 1),size(T, 1)]=Q
+        "left eigenvectors of matrix T";
+      output Real rEigenVectors[size(T, 1),size(T, 1)]=Q
+        "right eigenvectors of matrix T";
+      output Integer info;
+
+    protected
+      Integer n=size(T, 1);
+      Boolean select[n];
+      Integer ldt=max(1, n);
+      Integer ldvl=max(1, n);
+      Integer ldvr=max(1, n);
+      Real work[3*n];
+
+    external "Fortran 77" dtrevc(
+        side,
+        howmny,
+        select,
+        n,
+        T,
+        ldt,
+        lEigenVectors,
+        ldvl,
+        rEigenVectors,
+        ldvr,
+        n,
+        n,
+        work,
+        info) annotation(Library = {"lapack"});
+
+      annotation (Documentation(info="    /*  DTREVC computes some or all of the right and/or left eigenvectors of 
+ a real upper quasi-triangular matrix T. 
+ Matrices of this type are produced by the Schur factorization of 
+ a real general matrix:  A = Q*T*Q**T, as computed by DHSEQR. 
+ 
+ The right eigenvector x and the left eigenvector y of T corresponding 
+ to an eigenvalue w are defined by: 
+ 
+    T*x = w*x,     (y**H)*T = w*(y**H) 
+ 
+ where y**H denotes the conjugate transpose of y. 
+ The eigenvalues are not input to this routine, but are read directly 
+ from the diagonal blocks of T. 
+ 
+ This routine returns the matrices X and/or Y of right and left 
+ eigenvectors of T, or the products Q*X and/or Q*Y, where Q is an 
+ input matrix.  If Q is the orthogonal factor that reduces a matrix 
+ A to Schur form T, then Q*X and Q*Y are the matrices of right and 
+ left eigenvectors of A. 
+ 
+ Arguments 
+ ========= 
+ 
+ SIDE    (input) CHARACTER*1 
+         = 'R':  compute right eigenvectors only; 
+         = 'L':  compute left eigenvectors only; 
+         = 'B':  compute both right and left eigenvectors. 
+ 
+ HOWMNY  (input) CHARACTER*1 
+         = 'A':  compute all right and/or left eigenvectors; 
+         = 'B':  compute all right and/or left eigenvectors, 
+                 backtransformed by the matrices in VR and/or VL; 
+         = 'S':  compute selected right and/or left eigenvectors, 
+                 as indicated by the logical array SELECT. 
+ 
+ SELECT  (input/output) LOGICAL array, dimension (N) 
+         If HOWMNY = 'S', SELECT specifies the eigenvectors to be 
+         computed. 
+         If w(j) is a real eigenvalue, the corresponding real 
+         eigenvector is computed if SELECT(j) is .TRUE.. 
+         If w(j) and w(j+1) are the real and imaginary parts of a 
+         complex eigenvalue, the corresponding complex eigenvector is 
+         computed if either SELECT(j) or SELECT(j+1) is .TRUE., and 
+         on exit SELECT(j) is set to .TRUE. and SELECT(j+1) is set to 
+         .FALSE.. 
+         Not referenced if HOWMNY = 'A' or 'B'. 
+ 
+ N       (input) INTEGER 
+         The order of the matrix T. N >= 0. 
+ 
+ T       (input) DOUBLE PRECISION array, dimension (LDT,N) 
+         The upper quasi-triangular matrix T in Schur canonical form. 
+ 
+ LDT     (input) INTEGER 
+         The leading dimension of the array T. LDT >= max(1,N). 
+ 
+ VL      (input/output) DOUBLE PRECISION array, dimension (LDVL,MM) 
+         On entry, if SIDE = 'L' or 'B' and HOWMNY = 'B', VL must 
+         contain an N-by-N matrix Q (usually the orthogonal matrix Q 
+         of Schur vectors returned by DHSEQR). 
+         On exit, if SIDE = 'L' or 'B', VL contains: 
+         if HOWMNY = 'A', the matrix Y of left eigenvectors of T; 
+         if HOWMNY = 'B', the matrix Q*Y; 
+         if HOWMNY = 'S', the left eigenvectors of T specified by 
+                          SELECT, stored consecutively in the columns 
+                          of VL, in the same order as their 
+                          eigenvalues. 
+         A complex eigenvector corresponding to a complex eigenvalue 
+         is stored in two consecutive columns, the first holding the 
+         real part, and the second the imaginary part. 
+         Not referenced if SIDE = 'R'. 
+ 
+ LDVL    (input) INTEGER 
+         The leading dimension of the array VL.  LDVL >= 1, and if 
+         SIDE = 'L' or 'B', LDVL >= N. 
+ 
+ VR      (input/output) DOUBLE PRECISION array, dimension (LDVR,MM) 
+         On entry, if SIDE = 'R' or 'B' and HOWMNY = 'B', VR must 
+         contain an N-by-N matrix Q (usually the orthogonal matrix Q 
+         of Schur vectors returned by DHSEQR). 
+         On exit, if SIDE = 'R' or 'B', VR contains: 
+         if HOWMNY = 'A', the matrix X of right eigenvectors of T; 
+         if HOWMNY = 'B', the matrix Q*X; 
+         if HOWMNY = 'S', the right eigenvectors of T specified by 
+                          SELECT, stored consecutively in the columns 
+                          of VR, in the same order as their 
+                          eigenvalues. 
+         A complex eigenvector corresponding to a complex eigenvalue 
+         is stored in two consecutive columns, the first holding the 
+         real part and the second the imaginary part. 
+         Not referenced if SIDE = 'L'. 
+ 
+ LDVR    (input) INTEGER 
+         The leading dimension of the array VR.  LDVR >= 1, and if 
+         SIDE = 'R' or 'B', LDVR >= N. 
+ 
+ MM      (input) INTEGER 
+         The number of columns in the arrays VL and/or VR. MM >= M. 
+ 
+ M       (output) INTEGER 
+         The number of columns in the arrays VL and/or VR actually 
+         used to store the eigenvectors. 
+         If HOWMNY = 'A' or 'B', M is set to N. 
+         Each selected real eigenvector occupies one column and each 
+         selected complex eigenvector occupies two columns. 
+ 
+ WORK    (workspace) DOUBLE PRECISION array, dimension (3*N) 
+ 
+ INFO    (output) INTEGER 
+         = 0:  successful exit 
+         < 0:  if INFO = -i, the i-th argument had an illegal value 
+ 
+ Further Details 
+ =============== 
+ 
+ The algorithm used in this program is basically backward (forward) 
+ substitution, with scaling to make the the code robust against 
+ possible overflow. 
+ 
+ Each eigenvector is normalized so that the element of largest 
+ magnitude has magnitude 1; here the magnitude of a complex number 
+ (x,y) is taken to be |x| + |y|. 
+ 
+   =====================================================================  "));
+    end dtrevc;
+
+    function dpotrf
+      "Computes the Cholesky factorization of a real symmetric positive definite matrix A"
+
+      extends Modelica.Icons.Function;
+      input Real A[:, size(A,1)] "Real symmetric positive definite matrix A";
+      input Boolean upper=true "True if the upper triangle of A is provided";
+
+      output Real Acholesky[size(A,1),size(A,1)]=A "Cholesky factor";
+      output Integer info;
+    protected
+      String uplo=if upper then "U" else "L";
+      Integer n=size(A,1);
+      Integer lda=max(1,n);
+      external "FORTRAN 77" dpotrf(uplo, n, Acholesky, lda, info) annotation (Library="Lapack");
+
+      annotation (
+        Documentation(info="Lapack documentation
+    Purpose   
+    =======   
+
+    DPOTRF computes the Cholesky factorization of a real symmetric   
+    positive definite matrix A.   
+
+    The factorization has the form   
+       A = U**T * U,  if UPLO = 'U', or   
+       A = L  * L**T,  if UPLO = 'L',   
+    where U is an upper triangular matrix and L is lower triangular.   
+
+    This is the block version of the algorithm, calling Level 3 BLAS.   
+
+    Arguments   
+    =========   
+
+    UPLO    (input) CHARACTER*1   
+            = 'U':  Upper triangle of A is stored;   
+            = 'L':  Lower triangle of A is stored.   
+
+    N       (input) INTEGER   
+            The order of the matrix A.  N >= 0.   
+
+    A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)   
+            On entry, the symmetric matrix A.  If UPLO = 'U', the leading   
+            N-by-N upper triangular part of A contains the upper   
+            triangular part of the matrix A, and the strictly lower   
+            triangular part of A is not referenced.  If UPLO = 'L', the   
+            leading N-by-N lower triangular part of A contains the lower   
+            triangular part of the matrix A, and the strictly upper   
+            triangular part of A is not referenced.   
+
+            On exit, if INFO = 0, the factor U or L from the Cholesky   
+            factorization A = U**T*U or A = L*L**T.   
+
+    LDA     (input) INTEGER   
+            The leading dimension of the array A.  LDA >= max(1,N).   
+
+    INFO    (output) INTEGER   
+            = 0:  successful exit   
+            < 0:  if INFO = -i, the i-th argument had an illegal value   
+            > 0:  if INFO = i, the leading minor of order i is not   
+                  positive definite, and the factorization could not be   
+                  completed."));
+
+    end dpotrf;
+
+    function dtrsm
+      "Solve one of the matrix equations  op( A )*X = alpha*B,   or   X*op( A ) = alpha*B, where A is triangular matrix. BLAS routine"
+
+      input Real A[:,:] "Input matrix A";
+      input Real B[:,:] "Input matrix B";
+      input Real alpha=1 "Factor alpha";
+      input Boolean right=true "True if A is right multiplication";
+      input Boolean upper=true "True if A is upper triangular";
+      input Boolean trans=false "True if op(A) means transposed(A)";
+      input Boolean unitTriangular=false
+        "True if A is unit triangular, i.e. all diagonal elements of A are equal to 1";
+
+      output Real X[size(B,1),size(B,2)]=B
+        "Matrix Bout=alpha*op( A )*B,   or   B := alpha*B*op( A )";
+    protected
+      String side=if right then "R" else "L";
+      String uplo=if upper then "U" else "L";
+      String transA=if trans then "T" else "N";
+      String diag=if unitTriangular then "U" else "N";
+      Integer m=size(B, 1) "Number of rows of B";
+      Integer n=size(B, 2) "Number of columns of B";
+      Integer lda=if right then max(1,n) else max(1,m) "First dimension of A";
+      Integer ldb=max(1,m) "First dimension of B";
+
+    external "Fortran 77" dtrsm(side, uplo, transA, diag, m, n, alpha, A, lda, X, ldb) annotation(Library = {"lapack"});
+
+      annotation (Documentation(info="
+    
+   Purpose   
+    =======   
+    DTRSM  solves one of the matrix equations   
+       op( A )*X = alpha*B,   or   X*op( A ) = alpha*B,   
+    where alpha is a scalar, X and B are m by n matrices, A is a unit, or   
+    non-unit,  upper or lower triangular matrix  and  op( A )  is one  of   
+       op( A ) = A   or   op( A ) = A'.   
+    The matrix X is overwritten on B.   
+    Arguments   
+    ==========   
+    SIDE   - CHARACTER*1.   
+             On entry, SIDE specifies whether op( A ) appears on the left   
+             or right of X as follows:   
+                SIDE = 'L' or 'l'   op( A )*X = alpha*B.   
+                SIDE = 'R' or 'r'   X*op( A ) = alpha*B.   
+             Unchanged on exit.   
+    UPLO   - CHARACTER*1.   
+             On entry, UPLO specifies whether the matrix A is an upper or   
+             lower triangular matrix as follows:   
+                UPLO = 'U' or 'u'   A is an upper triangular matrix.   
+                UPLO = 'L' or 'l'   A is a lower triangular matrix.   
+             Unchanged on exit.   
+    TRANSA - CHARACTER*1.   
+             On entry, TRANSA specifies the form of op( A ) to be used in   
+             the matrix multiplication as follows:   
+                TRANSA = 'N' or 'n'   op( A ) = A.   
+                TRANSA = 'T' or 't'   op( A ) = A'.   
+                TRANSA = 'C' or 'c'   op( A ) = A'.   
+             Unchanged on exit.   
+    DIAG   - CHARACTER*1.   
+             On entry, DIAG specifies whether or not A is unit triangular   
+             as follows:   
+                DIAG = 'U' or 'u'   A is assumed to be unit triangular.   
+                DIAG = 'N' or 'n'   A is not assumed to be unit   
+                                    triangular.   
+             Unchanged on exit.   
+    M      - INTEGER.   
+             On entry, M specifies the number of rows of B. M must be at   
+             least zero.   
+             Unchanged on exit.   
+    N      - INTEGER.   
+             On entry, N specifies the number of columns of B.  N must be   
+             at least zero.   
+             Unchanged on exit.   
+    ALPHA  - DOUBLE PRECISION.   
+             On entry,  ALPHA specifies the scalar  alpha. When  alpha is   
+             zero then  A is not referenced and  B need not be set before   
+             entry.   
+             Unchanged on exit.   
+    A      - DOUBLE PRECISION array of DIMENSION ( LDA, k ), where k is m   
+             when  SIDE = 'L' or 'l'  and is  n  when  SIDE = 'R' or 'r'.   
+             Before entry  with  UPLO = 'U' or 'u',  the  leading  k by k   
+             upper triangular part of the array  A must contain the upper   
+             triangular matrix  and the strictly lower triangular part of   
+             A is not referenced.   
+             Before entry  with  UPLO = 'L' or 'l',  the  leading  k by k   
+             lower triangular part of the array  A must contain the lower   
+             triangular matrix  and the strictly upper triangular part of   
+             A is not referenced.   
+             Note that when  DIAG = 'U' or 'u',  the diagonal elements of   
+             A  are not referenced either,  but are assumed to be  unity.   
+             Unchanged on exit.   
+    LDA    - INTEGER.   
+             On entry, LDA specifies the first dimension of A as declared   
+             in the calling (sub) program.  When  SIDE = 'L' or 'l'  then   
+             LDA  must be at least  max( 1, m ),  when  SIDE = 'R' or 'r'   
+             then LDA must be at least max( 1, n ).   
+             Unchanged on exit.   
+    B      - DOUBLE PRECISION array of DIMENSION ( LDB, n ).   
+             Before entry,  the leading  m by n part of the array  B must   
+             contain  the  right-hand  side  matrix  B,  and  on exit  is   
+             overwritten by the solution matrix  X.   
+    LDB    - INTEGER.   
+             On entry, LDB specifies the first dimension of B as declared   
+             in  the  calling  (sub)  program.   LDB  must  be  at  least   
+             max( 1, m ).   
+             Unchanged on exit.   
+    Level 3 Blas routine.   "));
+    end dtrsm;
       annotation (Documentation(info="<html>
 <p>
 This package contains external Modelica functions as interface to the
@@ -4044,6 +7404,1807 @@ This package contains a direct interface to the LAPACK subroutines
 </html>"));
   end LAPACK;
 
+  package Utilities
+    "Utility functions that should not be directly utilized by the user"
+    extends Modelica.Icons.Package;
+
+    function rsf
+      "Computes the real Schur form (RSF) of a square matrix A, A=QZ*S*QZ' using lapack dgees"
+      import Modelica.Math.Matrices;
+
+      input Real A[:,size(A, 1)];
+
+    public
+      output Real S[size(A, 1),size(A, 2)] "Real Schut form of A";
+      output Real QZ[size(A, 1),size(A, 2)] "Schur vector Matrix";
+      output Real alphaReal[size(A, 1)]
+        "Real part of eigenvalue=alphaReal+i*alphaImag";
+      output Real alphaImag[size(A, 1)]
+        "Imaginary part of eigenvalue=(alphaReal+i*alphaImag";
+
+    protected
+      Integer info;
+
+    algorithm
+      if size(A, 1) > 1 then
+        (S,QZ,alphaReal,alphaImag) := Matrices.LAPACK.dgees(A);
+        assert(info == 0, "The output info of LAPACK.dgees should be zero, else if\n
+     info < 0:  if info = -i, the i-th argument of dgees had an illegal value\n
+     info > 0:  if INFO = i, and i is   
+               <= N: the QR algorithm failed to compute all the   
+                     eigenvalues; elements 1:ILO-1 and i+1:N of WR and WI   
+                     contain those eigenvalues which have converged; if   
+                     JOBVS = 'V', VS contains the matrix which reduces A   
+                     to its partially converged Schur form.\n");
+      else
+        S := A;
+        if size(A, 1) > 0 then
+          QZ := [1];
+          alphaReal := {1};
+          alphaImag := {0};
+        else
+          QZ := fill(
+            1,
+            0,
+            0);
+          alphaReal := fill(1, 0);
+          alphaImag := fill(0, 0);
+        end if;
+      end if;
+
+      annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+         S = Matrices.Utilities<b>rsf</b>(A);
+(S, QZ, alphaReal, alphaImag) = Matrices.Utilities<b>rsf</b>(A);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Function <b>rsf</b> (real Schur form) calculates the real Schur form af a real square matrix <b>A</b>, i.e.
+<blockquote><pre>
+           T
+A = QZ*S*QZ
+
+</pre></blockquote>
+with the real nxn matrices <b>S</b> and <b>QZ</b>. <b>S</b> is a block upper triangular matrix with 1x1 and 2x2 blocks in the diagonal. <b>QZ</b> is an orthogonal matrix.
+The 1x1 blocks contains the real eigenvalues of <b>A</b>. The 2x2 blocks [a11, a12; a21, a22] represents the conjugated complex pairs of eigenvalues, whereas the real parts of the eigenvalues
+are the elements of the diagonal (a11, a22). The imaginary parts are the positve and negatice square roots of the product of the two other elements (+-sqrt(a12*a21)).
+<p>
+The calculation is performed stepwise using lapack.dgees, i.e. using the internal mehtods of balacing and scaling of dgees.
+<p>
+See also <a href=\"Modelica://Modelica.Math.Matrices.Utilities.rsf\">Math.Matrices.Utilities.rsf</a>
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+   Real A[3,3] = [1, 2, 3; 4, 5, 6; 7, 8, 9];
+   Real T[3,3];
+   Real Z[3,3];
+   Real alphaReal[3];
+   Real alphaImag[3];
+
+<b>algorithm</b>
+  (T, Z, alphaReal, alphaImag):=Modelica.Math.Matrices.Utilities.rsf(A);
+//   T = [16.12, 4.9,   1.59E-015;
+//        0,    -1.12, -1.12E-015;
+//        0,     0,    -1.30E-015]
+//   Z = [-0.23,  -0.88,   0.41;
+//        -0.52,  -0.24,  -0.82;
+//        -0.82,   0.4,    0.41]
+//alphaReal = {16.12, -1.12, -1.32E-015}
+//alphaImag = {0, 0, 0}
+
+</pre></blockquote>
+</html> "));
+    end rsf;
+
+    function reorderRSF
+      "Reorders a real Schur factorization to clusters of stable and unstable eigenvalues"
+
+      import Modelica.Math.Matrices.LAPACK;
+
+      input Real T[:,:] "Real Schur form";
+      input Real Q[:,size(T, 2)] "Schur vector Matrix";
+      input Real alphaReal[size(T, 1)]
+        "Real part of eigenvalue=alphaReal+i*alphaImag";
+      input Real alphaImag[size(T, 1)]
+        "Imaginary part of eigenvalue=(alphaReal+i*alphaImag";
+      input Boolean iscontinuous=true
+        "True if the according system is continuous. False for discrete systems";
+
+      output Real To[size(T, 1),size(T, 2)];
+      output Real Qo[size(T, 1),size(T, 2)];
+      output Real wr[size(T, 2)];
+      output Real wi[size(T, 2)];
+
+    protected
+      Integer n=size(T, 2);
+      Boolean select[:]=fill(false, size(T, 2));
+      Integer i;
+    algorithm
+      if iscontinuous then
+        for i in 1:n loop
+          if alphaReal[i] < 0 then
+            select[i] := true;
+          end if;
+        end for;
+      else
+        for i in 1:n loop
+          if alphaReal[i]^2 + alphaImag[i]^2 < 1 then
+            select[i] := true;
+          end if;
+        end for;
+      end if;
+
+      (To,Qo,wr,wi) := LAPACK.dtrsen("E", "V", select, T, Q);
+
+      annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+           To = Matrices.Utilities<b>reorderRSF</b>(T);
+(To, Qo, wr, wi) = Matrices.Utilities<b>reorderRSF</b>(T, Q, alphaReal, alphaImag, iscontinuous);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Function <b>reorderRSF</b>(..) reorders the real Schur form such that the stable eigenvalues of
+the system are in 1-by-1 and 2-by-2 diagonal blocks in the block <b>upper</b> triangular.
+If the Schur form is referenced to a continuous system the staple eigenvalus are in th left complex half plane. 
+The stable eigenvalues of a dicrete system are inside the complex unit circle.
+The Schur vector matrix <b>Q</b> is reordered according to <b>T</b>. The vectors <b>wr</b> and <b>wi</b> contains the real and imaginary parts of the
+rordered eigenvalues respectively.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  T := [-1,2, 3,4;
+         0,2, 6,5;
+         0,0,-3,5;
+         0,0, 0,6];
+  To := Matrices.Utilities.reorderRSF(T,identity(4),{-1, 2, -3, 6},{0, 0, 0, 0}, true)
+  \\ To =  = [-1.0, -0.384, 3.585, 4.0;
+  \\           0.0, -3.0,   6.0,   0.64;
+  \\           0.0,  0.0,   2.0,   7.042;
+  \\           0.0,  0.0,   0.0,   6.0]
+</pre></blockquote>
+</html>"));
+    end reorderRSF;
+
+    function carenls
+      "Newton's method with exact line search for iterative solving continuous algebraic riccati equations"
+      extends Modelica.Icons.Function;
+
+      import Modelica.Math.Matrices;
+
+      input Real A[:,size(A, 1)]
+        "Matrix A of Riccati equation X*A + A'*X -X*G*X +Q = 0";
+      input Real B[size(A, 1),:] "Matrix B in G = B*inv(R)*B'";
+      input Real R[size(B, 2),size(B, 2)]=identity(size(B, 2))
+        "Matrix R in G = B*inv(R)*B'";
+      input Real Q[size(A, 1),size(A, 2)]=identity(size(A, 1))
+        "Matrix Q of Riccati equation X*A + A'*X -X*G*X +Q = 0";
+      input Real X0[size(A, 1),size(A, 2)]=identity(size(A, 1))
+        "Initial approximate solution for X*A + A'*X -X*G*X +Q = 0";
+      input Real eps=Matrices.Utilities.frobeniusNorm(A)*1e-9
+        "Tolerance for stop criterion";
+
+      output Real X[size(X0, 1),size(X0, 2)]
+        "Solution X of Riccati equation X*A + A'*X -X*G*X +Q = 0";
+      output Real r "Norm of X*A + A'*X - X*G*X + Q, zero for exact solution";
+
+    protected
+      Integer n=size(A, 1);
+      Real G[size(A, 1),size(A, 2)]=B*Matrices.solve2(R, transpose(B));
+      Real Xk[size(X, 1),size(X, 2)];
+      Real Ak[size(A, 1),size(A, 2)];
+      Real Rk[size(A, 1),size(A, 2)];
+      Real Nk[size(A, 1),size(A, 2)];
+      Real Vk[size(A, 1),size(A, 2)];
+      Real tk;
+      Integer k;
+      Boolean stop;
+
+    algorithm
+      if n > 1 then
+        k := 0;
+        stop := false;
+        Xk := X0;
+        while (not stop and k < 10) loop
+          k := k + 1;
+          Ak := A - G*Xk;
+          Rk := transpose(A)*Xk + Xk*A + Q - Xk*G*Xk;
+          Nk := Modelica.Math.Matrices.clyapunov(
+                                  Ak, -Rk);
+          Vk := Nk*G*Nk;
+          tk := Matrices.Utilities.Internal.findLocal_tk(Rk, Vk);
+          stop := eps > Matrices.Utilities.frobeniusNorm(tk*Nk)/Matrices.Utilities.frobeniusNorm(Xk);
+          Xk := Xk + tk*Nk;
+        end while;
+        X := Xk;
+        r := Matrices.Utilities.frobeniusNorm(X*A + transpose(A)*X - X*G*X + Q);
+
+      elseif n == 1 then // exact calculation
+        X := matrix((A[1, 1] - sqrt(A[1, 1]*A[1, 1] + G[1, 1]*Q[1, 1]))/G[1,1]);
+        if X[1,1]*G[1,1]<A[1,1] then
+          X:=matrix((A[1,1]+sqrt(A[1,1]*A[1,1]+G[1,1]*Q[1,1]))/G[1,1]);
+        end if;
+        r := 0;
+      else
+        X := fill(0, 0, 0);
+        r := 0;
+      end if;
+
+      annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+           X = Matrices.Utilities.<b>carenls</b>(A, B, R, Q, X0);
+           (X, r) = Matrices.Utilities.<b>carenls</b>(A, B, R, Q, X0, eps);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function provides a Newton-like method for solving algebraic contiuous Riccati equations. It uses Exact Line Search to improve the sometimes erratic
+convergence of newton's method. Exact line sarch means, that at each iteration <tt>i</tt> a Newton step <tt>delta_i</tt>
+</p>
+<blockquote><pre>
+  <b>X</b>_i+1 = <b>X</b>_i + delta_i
+</pre></blockquote>
+<p>
+is taken in the direction to minimize
+</p>
+<blockquote><pre>
+    ||<b>X</b>_i+1*<b>A</b> +<b>A</b>'*<b>X</b>_i+1 - <b>X</b>_i+1*<b>G</b>*<b>X</b>_i+1 + <b>Q</b>||
+</pre></blockquote>
+<p>
+The algorithm is taken from [1].
+
+
+<h4>References</h4>
+<PRE>
+  [1] Benner, P., Byers, R.
+      An Exact Line Search Method for Solving Generalized Continuous-Time Algebraic Riccati Equations
+      IEEE Transactions On Automatic Control, Vol. 43, No. 1, pp. 101-107, 1998.
+</PRE>
+
+
+<h4>Example</h4>
+<blockquote><pre>
+     A=[0.0,         1.0,         0.0,         0.0;
+        0.0,        -1.890,       3.900e-01,  -5.530;
+        0.0,        -3.400e-02,  -2.980,       2.430;
+        3.400e-02,  -1.100e-03,  -9.900e-01,  -2.100e-01];
+        
+     B=[ 0.0,         0.0;
+         3.600e-01,  -1.60;
+        -9.500e-01,  -3.200e-02;
+         3.000e-02,   0.0];
+         
+     R=[1, 0; 0, 1];
+     
+     Q=[2.313,       2.727,       6.880e-01,   2.300e-02;
+        2.727,       4.271,       1.148,       3.230e-01;
+        6.880e-01,   1.148,       3.130e-01,   1.020e-01;
+        2.300e-02,   3.230e-01,   1.020e-01,   8.300e-02];
+        
+    X0=identity(4);
+    
+    (X,r) = Matrices.Utilities.carenls(A, B, R, Q, X0);
+    
+  //  X = [1.3239,  0.9015,  0.5466, -1.7672;
+           0.9015,  0.9607,  0.4334, -1.1989;
+           0.5466,  0.4334,  0.4605, -1.3633;
+          -1.7672, -1.1989, -1.3633,  4.4612]
+  // r =  2.48809423389491E-015       
+</pre></blockquote>
+<h4>See also</h4>
+<a href=\"modelica://Modelica.Math.Matrices.Utilities.darenls\">Matrices.Utilities.darenls</a>
+</html>"));
+    end carenls;
+
+    function darenls
+      "Newton's method with exact line search for solving continuous algebraic riccati equation"
+      extends Modelica.Icons.Function;
+
+      import Modelica.Math.Matrices;
+
+      input Real A[:,size(A, 1)];
+      input Real B[size(A, 1),:];
+      input Real R[size(B, 2),size(B, 2)]=identity(size(B, 2));
+      input Real Q[size(A, 1),size(A, 2)]=identity(size(A, 1));
+      input Real X0[size(A, 1),size(A, 2)]=identity(size(A,1));
+      input Real eps=Matrices.Utilities.frobeniusNorm(
+                                            A)*1e-9;
+
+      output Real X[size(X0, 1),size(X0, 2)];
+      output Real r;
+
+    protected
+      Integer n=size(A, 1);
+      Real Xk[size(X, 1),size(X, 2)];
+      Real Ak[size(A, 1),size(A, 2)];
+      Real Rk[size(A, 1),size(A, 2)];
+      Real Nk[size(A, 1),size(A, 2)];
+      Real Hk[size(B, 2),size(B, 1)];
+      Real Sk[size(B, 1),size(B, 1)];
+      Real Vk[size(A, 1),size(A, 2)];
+      Real tk;
+      Integer k;
+      Real AT[size(A, 2),size(A, 2)]=transpose(A);
+      Real BT[size(B, 2),size(B, 1)]=transpose(B);
+
+      Boolean stop;
+
+    algorithm
+      if n > 0 then
+        k := 0;
+        stop := false;
+        Xk := X0;
+        while (not stop and k<10) loop
+          k := k + 1;
+          Hk := Matrices.solve2(R + BT*Xk*B, BT);
+          Ak := A-B*Hk*Xk*A;
+
+          Rk:=AT*Xk*A - Xk + Q - AT*Xk*B*Hk*Xk*A;
+
+          Nk := Matrices.dlyapunov(Ak, -Rk);
+
+          Sk := B*Hk;
+          Vk :=transpose(Ak)*Nk*Sk*Nk*Ak;
+          tk := Matrices.Utilities.Internal.findLocal_tk(Rk, Vk);
+          stop := eps > Matrices.Utilities.frobeniusNorm(tk*Nk)/Matrices.Utilities.frobeniusNorm(Xk);
+          Xk := Xk + tk*Nk;
+
+        end while;
+        X := Xk;
+        r := Matrices.Utilities.frobeniusNorm(AT*X*A - X + Q - AT*X*B*
+          Matrices.solve2(R + BT*X*B, BT)*X*A);
+      else
+        X := fill(0, 0, 0);
+        r := 0;
+      end if;
+
+      annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+           X = Matrices.Utilities.<b>darenls</b>(A, B, R, Q, X0);
+           (X, r) = Matrices.Utilities.<b>darenls</b>(A, B, R, Q, X0, eps);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function provides a Newton-like method for solving discrete-time algebraic Riccati equations. It uses Exact Line Search to improve the sometimes erratic
+convergence of newton's method. Exact line sarch means, that at each iteration <tt>i</tt> a Newton step <tt>delta_i</tt>
+</p>
+<blockquote><pre>
+  <b>X</b>_i+1 = <b>X</b>_i + delta_i
+</pre></blockquote>
+<p>
+is taken in the direction to minimize
+</p>
+<blockquote><pre>
+  ||<b>A</b>'<b>X</b>_i+1*<b>A</b> - <b>X</b>_i+1 - <b>A</b>'<b>X</b>_i+1*<b>G</b>*<b>X</b>_i+1*<b>A</b> + <b>Q</b>||
+</pre></blockquote>
+<p>
+The algorithm is taken from [1].
+
+
+<h4>References</h4>
+<PRE>
+  [1] Benner, P.
+      Accelerating Newton?s Methodfor Discrete-Time Algebraic Riccati Equations
+      http://www-user.tu-chemnitz.de/~benner/pub/mtns98.ps.gz.
+</PRE>
+
+
+<h4>Example</h4>
+<blockquote><pre>
+     A  = [0.9970,    0.0000,    0.0000,    0.0000;
+           1.0000,    0.0000,    0.0000,    0.0000; 
+           0.0000,    1.0000,    0.0000,    0.0000; 
+           0.0000,    0.0000,    1.0000,    0.0000];
+
+     B  = [0.0150;
+           0.0000; 
+           0.0000; 
+           0.0000]; 
+
+     R = [0.2500];
+     
+     Q = [0, 0, 0, 0;
+          0, 0, 0, 0;
+          0, 0, 0, 0;
+          0, 0, 0, 1];
+        
+    X0=identity(4);
+    
+    (X,r) = Matrices.Utilities.carenls(A, B, R, Q, X0);
+    
+  //  X = [30.625, 0.0, 0.0, 0.0;
+            0.0,   1.0, 0.0, 0.0;
+            0.0,   0.0, 1.0, 0.0;
+            0.0,   0.0, 0.0, 1.0];
+            
+  // r =   3.10862446895044E-015       
+</pre></blockquote>
+<h4>See also</h4>
+<a href=\"modelica://Modelica.Math.Matrices.Utilities.carenls\">Matrices.Utilities.carenls</a>
+</html>"));
+    end darenls;
+
+    function frobeniusNorm "Return the Frobenius norm of a matrix"
+      extends Modelica.Icons.Function;
+      input Real A[:,:] "Input matrix";
+      output Real result=if min(size(A))>0 then sqrt(sum(A.*A)) else -1e100
+        "Frobenius norm of matrix A";
+
+    algorithm
+      annotation(Inline=true);
+    end frobeniusNorm;
+
+    function eigenvaluesHessenberg
+      "Compute eigenvalues of an upper Hessenberg form matrix"
+      import Modelica.Math.Matrices.Utilities.Internal;
+      import Modelica.Math.Matrices.LAPACK;
+      input Real H[:,size(H, 1)] "Hessenberg matrix H";
+
+      output Real ev[size(H, 1),2] "Eigenvalues";
+      output Integer info=0;
+    protected
+      Integer n=size(H, 1);
+      Integer ilo=1;
+      Integer ihi=n;
+      Real alphaReal[size(H, 1)]
+        "Real part of alpha (eigenvalue=(alphaReal+i*alphaImag))";
+      Real alphaImag[size(H, 1)]
+        "Imaginary part of alpha (eigenvalue=(alphaReal+i*alphaImag))";
+      Real Z[n,n]=fill(0, n, n);
+
+    algorithm
+      if size(H, 1) > 0 then
+        (alphaReal,alphaImag,info) := LAPACK.dhseqr(H);
+      else
+        alphaReal := fill(0, size(H, 1));
+        alphaImag := fill(0, size(H, 1));
+      end if;
+      ev :=[alphaReal, alphaImag];
+
+      annotation (Documentation(info="<html>
+This function uses DHSEQR Lapack-routine to calculate the eigenvalues of an upper Hessenberg form <b>H</b>.
+Therefore, <b>H</b> is reduced to Schur form <b>T</b>. The eigenvalues are obtained from the diagonal of <b>T</b>.
+ 
+<p>
+See Modelica.Math.Matrices.LAPACK.dhseqr for details
+</p>
+</html>
+"));
+    end eigenvaluesHessenberg;
+
+    function toUpperHessenberg
+      "transform a real general matrix A to upper Hessenberg form H by an orthogonal similarity transformation:  Q' * A * Q = H"
+      import Modelica.Math.Matrices;
+      import Modelica.Math.Matrices.LAPACK;
+
+      input Real A[:,size(A, 1)] "Square matrix A";
+      input Integer ilo=1
+        "lowest index where the original matrix had been Hessenbergform";
+      input Integer ihi=size(A, 1)
+        "highest index where the original matrix had been Hessenbergform";
+      output Real H[size(A, 1),size(A, 2)] "Upper Hessenberg form";
+      output Real V[size(A, 1),size(A, 2)]
+        "V=[v1,v2,..vn-1,0] with vi are vectors which define the elementary reflectors";
+
+      output Real tau[max(0,size(A, 1) - 1)]
+        "Scalar factors of the elementary reflectors";
+      output Integer info;
+
+    protected
+      Integer n=size(A, 1);
+      Real Aout[size(A, 1),size(A, 2)];
+      Integer i;
+
+    algorithm
+      if n>0 then
+      (Aout,tau,info) := LAPACK.dgehrd(
+        A,
+        ilo,
+        ihi);
+      H[1:2, 1:ihi] := Aout[1:2, 1:ihi];
+      H[1:2, ihi + 1:n] := A[1:2, ihi + 1:n];
+
+      for i in 3:n loop
+        H[i, i - 1:ihi] := Aout[i, i - 1:ihi];
+        H[i, ihi + 1:n] := A[i, ihi + 1:n];
+      end for;
+
+      for i in 1:min(n - 2, ihi) loop
+        V[i + 1, i] := 1.0;
+        V[i + 2:n, i] := Aout[i + 2:n, i];
+
+      end for;
+      V[n, n - 1] := 1;
+      end if;
+
+      annotation (Documentation(info="<html>
+  
+   <h4>Syntax</h4>
+<blockquote><pre>
+         H = Matrices.Utilities<b>toUpperHessenberg</b>(A);
+         (H, V, tau, info) = Matrices.Utilities<b>toUpperHessenberg</b>(A,ilo, ihi);
+</pre></blockquote>
+<h4>Description</h4>
+Function <b>toUpperHessenberg</b> computes a upper Hessenberg form <b>H</b> of a matrix <b>A</b> by orthogonal similarity transformation:  <b>Q</b>' * <b>A</b> * <b>Q</b> = <b>H</b>.
+With the optional inputs ilo and ihi, also partial transformation is possible. The function calls LAPACK function DGEHRD. See Matrices.Lapack.dgehrd for more information about the additional outputs V, tau, info and inputs ilo, ihi for more information.
+<p>
+
+
+<h4>Example</h4>
+<blockquote><pre>
+ A  = [1, 2,  3;
+       6, 5,  4;
+       1, 0,  0]; 
+
+ H = toUpperHessenberg(A);
+
+  results in:
+  
+ H = [1.0,  -2.466,  2.630;
+     -6.083, 5.514, -3.081;
+      0.0,   0.919, -0.514]
+      
+</pre></blockquote>
+
+</html>"));
+    end toUpperHessenberg;
+
+    package Internal
+      "Internal functions that should not be directly utilized by the user"
+      extends Modelica.Icons.Package;
+
+      function findLocal_tk
+        "Find a local minimizer tk to define the length of the step tk*Nk in carenls"
+        extends Modelica.Icons.Function;
+
+        import Modelica.Math.Matrices;
+        import Modelica.Math.Vectors;
+
+        input Real Rk[:,size(Rk, 2)];
+        input Real Vk[size(Rk, 1),size(Rk, 2)];
+
+        output Real tk;
+
+      protected
+        Real alpha_k;
+        Real beta_k;
+        Real gamma_k;
+        Real p[3,2];
+        Boolean h;
+
+      algorithm
+        alpha_k := Matrices.trace(Rk*Rk);
+        beta_k := Matrices.trace(Rk*Vk);
+        gamma_k := Matrices.trace(Vk*Vk);
+
+        if gamma_k > Modelica.Constants.eps then
+          p := Vectors.Utilities.roots({4*gamma_k,6*beta_k,2*(alpha_k - 2*beta_k),-2
+            *alpha_k});
+          h := false;
+          for i1 in 1:3 loop
+            if abs(p[i1, 2]) < Modelica.Constants.eps then
+              if abs(p[i1, 1] - 1) <= 1 then
+                tk := p[i1, 1];
+                h := true;
+              end if;
+            end if;
+          end for;
+          if not h then
+            tk := 1;
+          end if;
+
+        else
+          tk := 1;
+        end if;
+
+      end findLocal_tk;
+    end Internal;
+  end Utilities;
+
+  function care "Solution of continuous-time algebraic Riccati equation (care)"
+    import Modelica.Math.Matrices;
+
+    input Real A[:,size(A, 1)];
+    input Real B[size(A, 1),:];
+    input Real R[size(B, 2),size(B, 2)]=identity(size(B, 2));
+    input Real Q[size(A, 1),size(A, 1)]=identity(size(A, 1));
+    input Boolean refine = false;
+
+  protected
+    Integer n=size(A, 1);
+    Real G[size(A, 1),size(A, 1)]=B*Modelica.Math.Matrices.solve2(R, transpose(B));
+    Real H[:,:]=[A,-G; -Q,-transpose(A)];
+    Real H_RSF[:,:]=H;
+    Real Z[size(H, 1),size(H, 2)];
+    Real Z11[size(A, 1),size(A, 2)];
+    Real Z21[size(A, 1),size(A, 2)];
+
+    Integer info;
+
+  public
+    output Real X[size(A, 1),size(A, 2)] "stabilizing solution of CARE";
+  //  output Complex ev[size(A, 1)] "eigenvalues of the closed loop system";
+    output Real alphaReal[size(H, 1)]
+      "Real parts of eigenvalue=alphaReal+i*alphaImag";
+    output Real alphaImag[size(H, 1)]
+      "Imaginary parts of eigenvalue=(alphaReal+i*alphaImag";
+  algorithm
+    if n > 1 then
+      (H_RSF,Z,alphaReal,alphaImag) := Matrices.Utilities.rsf(H);
+      (H_RSF,Z,alphaReal,alphaImag) := Matrices.Utilities.reorderRSF(
+        H_RSF,
+        Z,
+        alphaReal,
+        alphaImag,
+        true);
+
+      Z11 := Z[1:n, 1:n];
+      Z21 := Z[n + 1:2*n, 1:n];
+      if size(Z11, 1) > 0 then
+
+        (X,info) := Matrices.LAPACK.dgesvx(Z11, transpose(Z21));
+        //this function does not need to transpose Z11 as solve2 does with //  X := transpose(Matrices.solve2(transpose(Z11), transpose(Z21)));
+        assert(info == 0,
+          "Solving a linear system of equations with function \"Matrices.LAPACK.dgesvx\" is not possible, because the system has either no or infinitely many solutions (input A is singular).");
+        X := transpose(X);
+
+        if refine then
+          X := Matrices.Utilities.carenls(A, B, R, Q, X);
+        end if;
+      else
+        X := fill(
+          0,
+          size(Z21, 1),
+          size(Z11, 1));
+      end if;
+
+    elseif n == 1 then
+      X := matrix((A[1,1]-sqrt(A[1,1]*A[1,1]+G[1,1]*Q[1,1]))/G[1,1]);
+      if X[1,1]*G[1,1]<A[1,1] then
+        X:=matrix((A[1,1]+sqrt(A[1,1]*A[1,1]+G[1,1]*Q[1,1]))/G[1,1]);
+      end if;
+    else
+      X := fill(0, 0, 0);
+    end if;
+
+    annotation (Documentation(info="<html>
+ 
+   
+   <h4>Syntax</h4>
+<blockquote><pre>
+         X = Matrices.<b>dare</b>(A, B, R, Q);
+         (X, alphaReal, alphaImag) = Matrices.<b>dare</b>(A, B, R, Q, true);
+</pre></blockquote>
+<h4>Description</h4>
+Function <b>care</b> computes the solution <b>X</b> of the continuous-time algebraic Riccati equation
+<blockquote><pre>
+ <b>Q</b> + <b>A</b>'*<b>X</b> + <b>X</b>*<b>A</b> - <b>X</b>*<b>G</b>*<b>X</b> = <b>0</b> 
+</pre></blockquote>
+with
+<blockquote><pre>
+       -1
+<b>G</b> = <b>B</b>*<b>R</b> *<b>B</b>' 
+</pre>
+</blockquote>
+using the Schur vector approach proposed by Laub [1].
+<p>
+It is assumed that <b>Q</b> is symmetric and positve semidefinite and <b>R</b> is symmetric, nonsingular and positive definite,
+(<b>A</b>,<b>B</b>) is stabilizable and (<b>A</b>,<b>Q</b>) is detectable.
+<p><b>
+The assumptions are not checked in this function
+</b>
+<p>
+The assumptions guarantee that Hamiltonian matrix 
+<blockquote><pre>
+<b>H</b> = [<b>A</b>, -<b>G</b>; -<b>Q</b>, -<b>A</b>']
+</pre></blockquote>
+has no pure imaginary eigenvalue and can be put
+to an ordered real Schur form 
+<blockquote><pre>
+<b>U</b>'*<b>H</b>*<b>U</b> = <b>S</b> = [<b>S</b>11, <b>S</b>12; <b>0</b>, <b>S</b>22]
+</pre></blockquote>
+with orthogonal similarity transformation <b>U</b>. <b>S</b> is ordered in such a way,
+that <b>S11</b> contains the n stable eigenvalues of the closed loop system with system matrix
+<blockquote><pre>
+       -1
+<b>A</b> - <b>B</b>*<b>R</b> *<b>B</b>'*<b>X</b>
+</pre></blockquote>
+If <b>U</b> is partitioned to 
+<blockquote><pre>
+<b>U</b> = [<b>U</b>11, <b>U</b>12; <b>U</b>21, <b>U</b>22]
+</pre></blockquote>
+with dimenstions according to <b>S</b>, the solution <b>X</b> can be calculated by
+<blockquote><pre>
+<b>X</b>*<b>U</b>11 = <b>U</b>21.
+</pre></blockquote>
+ 
+The algorithm uses LAPACK routines dgehrd (to compute the upper Hessenberg matrix of <b>H</b>), dorghr (to calculate the orthogonal
+matrix from the elementary reflectors as returned from dgehrd), dhseqr (to put transformed <b>H</b> to Schur form and to calculate the eigenvalues 
+of the closed loop system) and dtrsen (to compute the ordered real Schur form and matrix <b>U</b>).
+ 
+</p>
+<h4>References</h4>
+<PRE>
+  [1] Laub, A.J.
+      A Schur Method for Solving Algebraic Riccati equations.
+      IEEE Trans. Auto. Contr., AC-24, pp. 913-921, 1979.
+</PRE>
+<p>
+<h4>Example</h4>
+<blockquote><pre>
+  A = [0.0, 1.0;
+       0.0,0.0];
+       
+  B = [0.0;
+       1.0];
+     
+  R = [1];
+  
+  Q = [1.0, 0.0;
+       0.0, 2.0];
+  
+X = care(A, B, R, Q);
+
+  results in:
+  
+X = [2.0, 1.0;
+     1.0, 2.0];
+      
+</pre></blockquote>
+<h4>See also</h4>
+<a href=\"modelica://Modelica.Math.Matrices.dare\">Matrices.dare</a>
+ 
+ 
+</html>"));
+  end care;
+
+  function dare "Solution of discrete-time algebraic Riccati equations"
+    import Modelica.Math.Matrices;
+
+    input Real A[:,size(A, 1)];
+    input Real B[size(A, 1),:];
+    input Real R[size(B, 2),size(B, 2)]=identity(size(B, 2));
+    input Real Q[size(A, 1),size(A, 1)]=identity(size(A, 1));
+    input Boolean refine = false;
+
+  protected
+    Integer n=size(A, 1);
+    Real G[size(A, 1),size(A, 1)]=B*Matrices.solve2(R, transpose(B));
+    Real invAT[:,:]=transpose(Matrices.inv(A));
+    Real H[:,:]=[A + G*invAT*Q,-G*invAT; -invAT*Q,invAT];
+    Real H_RSF[:,:]=H;
+    Real Z[size(H, 1),size(H, 2)];
+    Real Z11[size(A, 1),size(A, 2)];
+    Real Z21[size(A, 1),size(A, 2)];
+
+    Integer info;
+
+  public
+    output Real X[size(A, 1),size(A, 2)]
+      "orthogonal matrix of the Schur vectors associated to ordered rsf";
+    output Real alphaReal[size(H, 1)]
+      "Real part of eigenvalue=alphaReal+i*alphaImag";
+    output Real alphaImag[size(H, 1)]
+      "Imaginary part of eigenvalue=(alphaReal+i*alphaImag";
+  algorithm
+    (H_RSF,Z,alphaReal,alphaImag) := Matrices.Utilities.rsf(H);// put H to Schur form
+    (H_RSF,Z,alphaReal,alphaImag) := Matrices.Utilities.reorderRSF(H_RSF, Z, alphaReal, alphaImag,  false);// ordered Schur form
+    Z11 := Z[1:n, 1:n];
+    Z21 := Z[n + 1:2*n, 1:n];
+    if size(Z11, 1) > 0 then
+  //  X := transpose(Matrices.solve2(transpose(Z11), transpose(Z21)));
+      (X,info) := Matrices.LAPACK.dgesvx(Z11, transpose(Z21));//function does not need to transpose Z11 as solve2 does
+      X := transpose(X);
+      assert(info == 0, "Solving a linear system of equations with function
+\"Matrices.LAPACK.dgesvx\" is not possible, because the system has either 
+no or infinitely many solutions (input A is singular).");
+
+        if refine then
+          X := Matrices.Utilities.darenls(A, B, R, Q, X);
+        end if;
+    else
+      X := fill(
+        0,
+        size(Z21, 1),
+        size(Z11, 1));
+    end if;
+
+    annotation (Documentation(info="<html>
+  
+   <h4>Syntax</h4>
+<blockquote><pre>
+         X = Matrices.<b>dare</b>(A, B, R, Q);
+         (X, alphaReal, alphaImag) = Matrices.<b>dare</b>(A, B, R, Q, true);
+</pre></blockquote>
+<h4>Description</h4>
+Function <b>dare</b> computes the solution <b>X</b> of the discrete-time algebraic Riccati equation
+<p>
+<blockquote><pre>
+ <b>X</b> = <b>A</b>'*<b>X</b>*<b>A</b> - <b>A</b>'*<b>X</b>*<b>B</b>*(<b>R</b> + <b>B</b>'*<b>X</b>*<b>B</b>)  *<b>B</b>'*<b>X</b>*<b>A</b> + <b>Q</b>
+</pre>
+</blockquote>
+</p>
+using the Schur vector approach proposed by Laub [1].
+<p>
+It is assumed that <b>Q</b> is symmetric and positve semidefinite and <b>R</b> is symmetric, nonsingular and positive definite,
+(<b>A</b>,<b>B</b>) is stabilizable and (<b>A</b>,<b>Q</b>) is detectable. Using this method, <b>A</b> has also to be invertible.
+<p>
+</b>
+The assumptions are not checked in this function
+</b>
+<p>
+The assumptions guarantee that the Hamiltonian matrix 
+<blockquote><pre>
+      -1  -1       -1        -1
+<b>H</b> = [<b>A</b>, -<b>A</b>  *<b>G</b>; <b>Q</b>*<b>A</b>, <b>A</b>' + <b>Q</b>*<b>A</b>  *<b>G</b> ]
+</pre></blockquote>
+with
+<blockquote><pre>
+       -1
+<b>G</b> = <b>B</b>*<b>R</b> *<b>B</b>' 
+</pre>
+</blockquote>
+has no eigenvalue on the unit circle and can be put
+to an ordered real Schur form 
+<blockquote><pre>
+<b>U</b>'*<b>H</b>*<b>U</b> = <b>X</b> = [<b>S11</b>, <b>S12</b>; <b>0</b>, <b>S22</b>]
+</pre></blockquote>
+with orthogonal similarity transformation <b>U</b>. <b>X</b> is ordered in such a way,
+that <b>S11</b> contains the n stable eigenvalues of the closed loop system with system matrix
+<blockquote><pre>
+                  -1
+<b>A</b> - <b>B</b>*(<b>R</b> + <b>B</b>'*<b>X</b>*<b>B</b>)  *<b>B</b>'*<b>X</b>*<b>A</b>
+</pre>
+</blockquote>
+If <b>U</b> is partitioned to 
+<blockquote><pre>
+<b>U</b> = [<b>U11</b>, <b>U12</b>; <b>U21</b>, <b>U22</b>]
+</pre></blockquote>
+according to <b>X</b>, the solution <b>X</b> can be calculated by
+<blockquote><pre>
+<b>X</b>*<b>U11</b> = <b>U21</b>.
+</pre></blockquote>
+<p> 
+The algorithm uses LAPACK routines dgehrd (to compute the upper Hessenberg matrix of <b>H</b>), dorghr (to calculate the orthogonal
+matrix from the elementary reflectors as returned from dgehrd), dhseqr (to put transformed <b>H</b> to Schur form and to calculate the eigenvalues 
+of the closed loop system) and dtrsen (to compute the ordered real Schur form and matrix <b>U</b>).
+</p>
+<h4>References</h4>
+<PRE>
+  [1] Laub, A.J.
+      A Schur Method for Solving Algebraic Riccati equations.
+      IEEE Trans. Auto. Contr., AC-24, pp. 913-921, 1979.
+</PRE>
+<p>
+<h4>Example</h4>
+<blockquote><pre>
+ A  = [4.0    3.0]
+      -4.5,  -3.5]; 
+
+ B  = [ 1.0;
+       -1.0];
+
+ R = [1.0];
+
+ Q = [9.0, 6.0;
+      6.0, 4.0]
+  
+X = dare(A, B, R, Q);
+
+  results in:
+  
+X = [14.5623, 9.7082;
+      9.7082, 6.4721];
+      
+</pre></blockquote>
+<h4>See also</h4>
+<a href=\"modelica://Modelica.Math.Matrices.care\">Matrices.care</a>
+ 
+</html>"));
+  end dare;
+
+  function clyapunov
+    "Solution of continuous-time Lyapunov equation X*A + A'*X = C"
+    import Modelica.Math.Matrices;
+
+    input Real A[:,size(A, 1)];
+    input Real C[size(A, 1),size(A, 2)];
+    input Real eps=Modelica.Math.Matrices.norm(A,1)*10*1e-15;
+
+  protected
+    Integer n=size(A, 1);
+    Real R[size(A, 1),size(A, 2)] "rsf of A', i.e. R=U'A'U";
+    Real U[size(A, 1),size(A, 2)] "transformation matrix U for R=U'A'U";
+    Real C2[size(A, 1),size(A, 2)];
+    Real R11[size(A, 1),size(A, 2)];
+    Real R22[size(A, 1),size(A, 2)];
+    Real R12[size(A, 1),size(A, 2)];
+    Real R21[size(A, 1),size(A, 2)];
+    Real R2[2*size(A, 1),2*size(A, 2)];
+    Real I[size(A, 1),size(A, 1)]=identity(size(A, 1));
+    Real x[2*size(A,1)];
+    Real c[2*size(A,1)];
+    Real CC[size(A,1),2];
+    Integer k;
+
+  public
+    output Real X[size(A, 1),size(A, 2)] "solution of the Lyapunov equation";
+
+  algorithm
+    if n > 1 then
+      (R,U) := Matrices.Utilities.rsf(transpose(A));
+      C2 := transpose(U)*C*U;
+      X := zeros(n, n);
+
+  // Calculate the last 1 or 2 columns of X
+      R22 := R;
+      for i1 in 1:n loop
+        R22[i1, i1] := R[i1, i1] + R[n, n];
+      end for;
+      if abs(R[n, n - 1]) < eps then
+        X[:, n] := Matrices.solve(R22, C2[:, n]);
+        k := n - 1;
+      else
+        R11 := R;
+        R12 := zeros(n, n);
+        R21 := zeros(n, n);
+        for i1 in 1:n loop
+          R11[i1, i1] := R[i1, i1] + R[n - 1, n - 1];
+          R12[i1, i1] := R[n - 1, n];
+          R21[i1, i1] := R[n, n - 1];
+        end for;
+
+  // solve 2nx2n equation for 2x2 Schur bump with Kronecker product and vec operator approach
+        R2 := [R11,R12; R21,R22];
+        c := cat(1, C2[:, n - 1], C2[:, n]);
+        x := Matrices.solve(R2, c);
+        X[:, n - 1] := x[1:n];
+        X[:, n] := x[n + 1:2*n];
+        k := n - 2;
+      end if;
+
+  // Calculate the rest of X
+      while k > 1 loop
+        R22 := R;
+        for i1 in 1:n loop
+          R22[i1, i1] := R[i1, i1] + R[k, k];
+        end for;
+        if abs(R[k, k - 1]) < eps then
+          //real eigenvalue
+          X[:, k] := Matrices.solve(R22, C2[:, k] - vector(X[:, k + 1:n]*matrix(R[k, k + 1:n])));
+          k := k - 1;
+        else
+         // conjugated complex eigenvalues
+          R11 := R;
+          R12 := zeros(n, n);
+          R21 := zeros(n, n);
+          for i1 in 1:n loop
+            R11[i1, i1] := R[i1, i1] + R[k - 1, k - 1];
+            R12[i1, i1] := R[k - 1, k];
+            R21[i1, i1] := R[k, k - 1];
+          end for;
+          R2 := [R11,R12; R21,R22];
+          CC := C2[:,k-1:k] - X[:,k+1:n]*transpose(R[k-1:k,k+1:n]);
+          c := cat(1, CC[:, 1], CC[:, 2]);
+          x := Matrices.solve(R2, c);
+          X[:, k - 1] := x[1:n];
+          X[:, k] := x[n + 1:2*n];
+
+          k := k - 2;
+        end if;
+      end while;// k=1 or k=0
+
+  // if k=1 the first column (if there exist a real eigenvalue) has to be calculated separately
+      if k == 1 then
+        R22 := R;
+        for i1 in 1:n loop
+          R22[i1, i1] := R[i1, i1] + R[1, 1];
+        end for;
+        X[:, 1] := Matrices.solve(R22, C2[:, 1] - vector(X[:, 2:n]*matrix(R[1, 2:n])));
+      end if;
+
+  // transform X corresponding to the original form
+      X := U*X*transpose(U);
+
+    elseif n == 1 then
+      X[1, 1] := C[1, 1]/(2*A[1, 1]);
+    else
+      X := fill(0, 0, 0);
+    end if;
+
+    annotation (Documentation(info="<html>
+ <h4>Syntax</h4>
+<blockquote><pre>
+         X = Matrices.<b>lyapunov</b>(A, C);
+         X = Matrices.<b>lyapunov</b>(A, C, eps);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function computes the solution <b>X</b> of the continuous-time Lyapunov equation
+</p>
+<blockquote><pre>
+ <b>X</b>*<b>A</b> + <b>A</b>'*<b>X</b> = <b>C</b>.
+</pre></blockquote>
+<p>
+using the Schur method for Lyapunov equations proposed by Bartels and Stewart [1].
+<p>
+In a nutshell, the problem is reduced to the corresponding problem
+<blockquote><pre>
+ <b>Y</b>*<b>R</b>' + <b>R</b>*<b>Y</b> = <b>D</b>.
+</pre></blockquote>
+<p>
+with <b>R</b>=<b>U</b>'*<b>A'</b>*<b>U</b> is the RSF of <b>A</b>' and <b>D</b>=<b>U</b>'*<b>C</b>*<b>U</b> and <b>Y</b>=<b>U</b>'*<b>X</b>*<b>U</b>
+are the appropriate transformations of <b>C</b> and <b>X</b>. This problem is solved subsequently by exploiting the block triangular form of <b>R</b>.
+Finally the solution of the the original problem is recovered as <b>X</b>=<b>U</b>*<b>Y</b>*<b>U</b>'.
+</p>
+
+<h4>References</h4>
+<PRE>
+  [1] Bartels, R.H. and Stewart G.W.
+      Algorithm 432: Solution of the matrix equation AX + XB = C.
+      Comm. ACM., Vol. 15, pp. 820-826, 1972.
+</PRE>
+
+
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  A = [1, 2,  3,  4;
+       3, 4,  5, -2;
+      -1, 2, -3, -5;
+       0, 2,  0,  6];
+  C =  [-2, 3, 1, 0;
+        -6, 8, 0, 1;
+         2, 3, 4, 5;
+        0, -2, 0, 0];
+  X = lyapunov(A, C);
+  results in:
+  X = [1.633, -0.761,  0.575, -0.656;
+      -1.158,  1.216,  0.047,  0.343;
+      -1.066, -0.052, -0.916,  1.61;
+      -2.473,  0.717, -0.986,  1.48]
+</pre></blockquote>
+<h4>See also</h4>
+<a href=\"modelica://Modelica.Math.Matrices.sylvester\">Matrices.sylvester</a>
+
+
+</html>"));
+  end clyapunov;
+
+  function dlyapunov
+    "Solution of continuous-time Lyapunov equation A'X*A - X = C"
+    import Modelica.Math.Matrices;
+
+    input Real A[:,size(A, 1)];
+    input Real C[size(A, 1),size(A, 2)];
+    input Real eps=Matrices.norm(A,1)*10*Modelica.Constants.eps;
+
+  protected
+    Integer n=size(A, 1);
+    Real R[size(A, 1),size(A, 2)] "rsf of A', i.e. R=U'A'U";
+    Real U[size(A, 1),size(A, 2)] "transformation matrix U for R=U'A'U";
+    Real C2[size(A, 1),size(A, 2)];
+    Real R22[size(A, 1),size(A, 2)];
+    Real R11[size(A, 1),size(A, 2)];
+    Integer k;
+
+    Real bk1[size(A, 1)];
+    Real bk[size(A, 1)];
+    Real yk[size(A, 1)];
+    Boolean crit;
+
+  public
+    output Real X[size(A, 1),size(A, 2)] "solution of the Lyapunov equation";
+
+  algorithm
+       X := zeros(n, n);
+      k := n;
+    if n > 1 then
+      (R,U) := Matrices.Utilities.rsf(transpose(A));
+      C2 := transpose(U)*C*U;
+
+    while k > 0 loop
+        bk := C2[:,k] - R*X[:,k+1:n]*R[k,k+1:n];
+        crit :=  if k>1 then abs(R[k,k-1])<eps else false;
+     if (k==1 or crit) then
+        R22 := R[k,k]*R;
+        for i in 1:n loop
+          R22[i,i] := R22[i,i]-1.0;
+        end for;
+        X[:,k] := Matrices.solve(R22,bk);
+        k:=k-1;
+     else
+         bk1:=C2[:,k-1]-R*X[:,k+1:n]*R[k-1,k+1:n];
+         R11 := R[k-1,k-1]*R;
+         R22 :=  R[k,k]*R;
+         for i in 1:n loop
+           R11[i,i] := R11[i,i] -1.0;
+           R22[i,i] := R22[i,i] -1.0;
+         end for;
+         yk :=Matrices.solve([R11,  R[k-1,k]*R; R[k,k-1]*R,  R22], cat(1,bk1,bk));
+         X[:,k-1]:=yk[1:n];
+         X[:,k]:=yk[n + 1:2*n];
+         k:=k-2;
+     end if;
+     end while;
+
+  // transform X corresponding to the original form
+      X := U*X*transpose(U);
+
+    elseif n == 1 then
+      X[1, 1] := C[1, 1]/(A[1, 1]*A[1, 1]-1);
+    else
+      X := fill(0, 0, 0);
+    end if;
+
+    annotation (Documentation(info="<html>
+ 
+ 
+Function <b>laypunov</b> computes the solution <b>X</b> of the continuous-time Lyapunov equation
+<blockquote><pre>
+ <b>X</b><b>A</b> + <b>A</b>'*<b>X</b> = <b>C</b>.
+</pre></blockquote>
+using the Schur method for Lyapunov equations proposed by Bartels and Stewart [1].
+<p>
+<A name=\"References\"><B><FONT SIZE=\"+1\">References</FONT></B></A>
+<PRE>
+  [1] Bartels, R.H. and Stewart G.W.
+      Algorithm 432: Solution of the matrix equation AX + XB = C.
+      Comm. ACM., Vol. 15, pp. 820-826, 1972.
+</PRE>
+</html>"));
+  end dlyapunov;
+
+  function sylvester
+    "Solution of continuous-time Sylvester equation A*X + X*B = C"
+    import Modelica.Math.Matrices;
+
+    input Real A[:,:] "Matrix A";
+    input Real B[:,:] "Matrix B";
+    input Real C[size(A, 1),size(B, 2)] "Matrix C";
+    input Boolean aIsSchur=false "True if A has already real Schur form";
+    input Boolean bIsSchur=false "True if B has already real Schur form";
+    output Real X[size(A, 1),size(B, 2)] "Solution of Sylvester equation";
+
+  protected
+    Integer n=size(A, 1);
+    Integer m=size(B, 1);
+    Real S[size(A, 1),size(A, 2)];
+    Real T[size(B, 1),size(B, 2)];
+    Real U[size(A, 1),size(A, 1)];
+    Real V[size(B, 1),size(B, 1)];
+    Real Chat[size(C, 1),size(C, 2)];
+    Real scale;
+    Integer info;
+
+  algorithm
+    if n > 1 and m > 1 then
+      if aIsSchur then
+        S := A;
+        U := identity(n);
+      else
+        (S,U) := Matrices.Utilities.rsf(A);
+      end if;
+      if bIsSchur then
+        T := B;
+        V := identity(m);
+      else
+        (T,V) := Matrices.Utilities.rsf(B);
+      end if;
+
+      Chat := if aIsSchur and bIsSchur then C else if aIsSchur then C*V else if 
+        bIsSchur then transpose(U)*C else transpose(U)*C*V;
+      (X,scale,info) := Matrices.LAPACK.dtrsyl(S, T, Chat);
+      assert(info == 0, "Solving of Sylvester equation with Matrices.sylvester was not sucessfull.\n
+                    The value of info is "   + String(info) + ", but should be zero. A value unequal to zero means:\n
+            < 0: if INFO = -i, the i-th argument had an illegal value\n
+            = 1: A and B have common or very close eigenvalues; perturbed   
+                 values were used to solve the equation (but the matrices   
+                 A and B are unchanged).");
+      X := if aIsSchur and bIsSchur then scale*X else if aIsSchur then scale*X*
+        transpose(V) else if bIsSchur then scale*U*X else scale*U*X*transpose(V);
+    else
+      X := fill(0, n, m);
+    end if;
+
+    annotation (Documentation(info="<html>
+ <h4>Syntax</h4>
+<blockquote><pre>
+         X = Matrices.<b>sylvester</b>(A, B, C);
+         X = Matrices.<b>sylvester</b>(A, B, C, aIsSchur, bIsSchur);
+</pre></blockquote>
+<h4>Description</h4>
+Function <b>sylvester</b> computes the solution <b>X</b> of the continuous-time Sylvester equation
+<p>
+<blockquote><pre>
+ <b>A</b>*<b>X</b> + <b>X</b>*<b>B</b> = <b>C</b>.
+</pre></blockquote>
+</p>
+using the Schur method for Sylvester equations proposed by Bartels and Stewart [1].
+<p>
+In a nutshell, the problem is reduced to the corresponding problem
+<blockquote><pre>
+ <b>S</b>*<b>Y</b> + <b>Y</b>*<b>T</b> = <b>D</b>.
+</pre></blockquote>
+<p>
+with <b>S</b>=<b>U</b>'*<b>A</b>*<b>U</b> is the RSF of <b>A</b>,  <b>T</b>=<b>V</b>'*<b>T</b>*<b>V</b> is the RSF of <b>B</b> and 
+<b>D</b>=<b>U</b>'*<b>C</b>*<b>V</b> and <b>Y</b>=<b>U</b>*<b>X</b>*<b>V</b>'
+are the appropriate transformations of <b>C</b> and <b>X</b>. This problem is solved subsequently by exploiting the block triangular form of <b>S</b> and <b>T</b>.
+Finally the solution of the the original problem is recovered as <b>X</b>=<b>U</b>'*<b>Y</b>*<b>V</b>.
+</p>
+
+<h4>References</h4>
+<PRE>
+  [1] Bartels, R.H. and Stewart G.W.
+      Algorithm 432: Solution of the matrix equation AX + XB = C.
+      Comm. ACM., Vol. 15, pp. 820-826, 1972.
+</PRE>
+
+
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  B = [1, 2,  3,  4;
+       3, 4,  5, -2;
+      -1, 2, -3, -5;
+       0, 2,  0,  6];
+  C =  [-2, 3, 1, 0;
+        -6, 8, 0, 1;
+         2, 3, 4, 5;
+        0, -2, 0, 0];
+  A = transpose(B)
+  X = lyapunov(A, B, C);
+  results in:
+  X = [1.633, -0.761,  0.575, -0.656;
+      -1.158,  1.216,  0.047,  0.343;
+      -1.066, -0.052, -0.916,  1.61;
+      -2.473,  0.717, -0.986,  1.48]
+</pre></blockquote>
+<h4>See also</h4>
+<a href=\"modelica://Modelica.Math.Matrices.lyapunov\">Matrices.lyapunov</a>
+
+
+</html>"));
+  end sylvester;
+
+  function trace "Trace(A) is the sum of the diagonal elements of A"
+    extends Modelica.Icons.Function;
+
+    input Real A[:,size(A, 1)];
+    output Real result=sum(A[i, i] for i in 1:size(A, 1));
+  algorithm
+
+  annotation(Inline=true);
+  end trace;
+
+  function conditionNumber
+    "Calculate the condition number norm(A)*norm(inv(A))"
+    extends Modelica.Icons.Function;
+
+    input Real A[:,:] "Input matrix";
+    input Real p(min=1) = 2
+      "Type of p-norm (only allowed: 1, 2 or Modelica.Constants.inf)";
+    output Real result=0.0 "p-norm of matrix A";
+
+  protected
+    Real eps=1e-25;
+    Real s[size(A, 1)] "singular values";
+
+  algorithm
+    if min(size(A)) > 0 then
+      if p == 2 then
+        s := Modelica.Math.Matrices.singularValues(A);
+        if min(s) < eps then
+          result := Modelica.Constants.inf;
+        else
+          result := max(s)/min(s);
+        end if;
+      else
+        result := Modelica.Math.Matrices.norm(A, p)*Modelica.Math.Matrices.norm(
+          Modelica.Math.Matrices.inv(A), p);
+      end if;
+    end if;
+
+    annotation (Documentation(info="<html>
+  <h4>Syntax</h4>
+<blockquote><pre>
+r = Matrices.<b>conditionNumber</b>(A);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function calculates the the condition number (norm(A) * norm(inv(A))) of a general real matrix A, in either the 1-norm, 2-norm or the infinity-norm.
+In the case of 2-norm the result is he ratio of the largest to the smallest singular value to A.
+</p>
+<p>
+<h4>Example</h4>
+<blockquote><pre>
+  A = [1, 2
+       2, 1];
+  r = conditionNumber(A);
+  
+  results in:
+  
+  r = 3.0
+</pre></blockquote>
+</p>
+<h4>See also</h4>
+<a href=\"Modelica://Modelica.Math.Matrices.rcond\">Matrices.rcond</a>
+</html>"));
+  end conditionNumber;
+
+  function rcond "Reciprocal condition number"
+    extends Modelica.Icons.Function;
+    input Real A[:,size(A,1)] "Square real matrix";
+    input Boolean inf = false
+      "Is true if infinity norm is used and false for 1-norm";
+    output Real rcond "Reciprocal condition number of A";
+    output Integer info "Information";
+  protected
+    Real LU[:,:] "LU factorization of matrix A, returned by dgetrf";
+    Real anorm "Norm of matrix A";
+    String normspec= if inf then "I" else "1" "specifies the norm 1 or inf";
+
+  algorithm
+    if min(size(A)) > 0 then
+      (LU,,info) := Modelica.Math.Matrices.LAPACK.dgetrf(A);
+      anorm := Modelica.Math.Matrices.LAPACK.dlange(A,normspec);
+      (rcond,info) := Modelica.Math.Matrices.LAPACK.dgecon(LU,inf,anorm);
+    else
+      rcond := Modelica.Constants.inf;
+      info := 0;
+    end if;
+
+    annotation (Documentation(info="<HTML>
+  <h4>Syntax</h4>
+<blockquote><pre>
+r = Matrices.<b>rcond</b>(A);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function estimates the reciprocal of the condition number (norm(A) * norm(inv(A))) of a general real matrix A, in either the 1-norm or the infinity-norm, using the LAPACK function DGECON.   
+</p>
+<p>
+<h4>Example</h4>
+<blockquote><pre>
+  A = [1, 2
+       2, 1];
+  r = rcond(A);
+  
+  results in:
+  
+  r = 0.3333
+</pre></blockquote>
+</p>
+<h4>See also</h4>
+<a href=\"Modelica://Modelica.Math.Matrices.conditionNumber\">Matrices.conditionNumber</a>
+</HTML>"));
+  end rcond;
+
+  function nullSpace "Orthonormal nullspace of a matrix"
+    extends Modelica.Icons.Function;
+
+    input Real A[:,:] "input matrix";
+    output Real Z[size(A, 2),:] "orthonormal nullspace of matrix A";
+    output Integer nullity "nullity, i.e. the dimension of the nullspace";
+
+  protected
+    Real V[size(A, 2),size(A, 2)] "Right orthogonal matrix ";
+    Real sigma[min(size(A, 1), size(A, 2))] "singular values";
+    Integer rank "rank of matrix A";
+    Real eps "tolerance for rank determination";
+    Integer n=min(size(A, 1), size(A, 2));
+    Integer i=n;
+
+  algorithm
+    (sigma,,V) := Modelica.Math.Matrices.singularValues(A);
+    V := transpose(V);
+    // rank computation
+    eps := max(size(A, 1), size(A, 2))*max(sigma)*Modelica.Constants.eps;
+    rank := 0;
+    if n > 0 then
+      while i > 0 loop
+        if sigma[i] > eps then
+          rank := i;
+          i := 0;
+        end if;
+        i := i - 1;
+      end while;
+    end if;
+    Z := V[:,rank + 1:size(A,2)];// nullspace computation
+    nullity := size(A,2) - rank;// nullity
+
+  annotation (Documentation(info="<html>
+  <h4>Syntax</h4>
+<blockquote><pre>
+Z = Matrices.<b>nullspace</b>(A);<br>
+(Z, nullity) = Matrices.<b>nullspace</b>(A);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function calculates a orthonormal basis <b>Z</b>=[<b>z</b>_1, <b>z</b>_2, ...] of the nullspace of a matrix <b>A</b>, i.e. <b>A</b>*<b>z</b>_i=0.
+</p>
+The nullspace is obtained by svd method. That is, matrix <b>A</b> is decomposed into the matrices <b>S</b>, <b>U</b>, <b>V</b>: 
+<blockquote><pre>
+        T
+ <b>A</b> = <b>U</b><b>S</b><b>V</b>
+</pre></blockquote>
+with the orthonormal matrices <b>U</b> and <b>V</b> and the matrix <b>S</b> with
+<blockquote><pre>
+ <b>S</b> = [<b>S</b>1, <b>0</b>]
+ <b>S</b>1 = [diag(s); <b>0</b>]
+</pre></blockquote>
+with the singular values <b>s</b>={s1, s2, ..., sr} of <b>A</b> and r=rank(<b>A</b>). Note, that <b>S</b> has the same size as <b>A</b>. Since, <b>U</b> and <b>V</b> are orthonormal, we may write
+<blockquote><pre>
+  T
+ <b>U</b>*<b>A</b>*<b>V</b> = [<b>S</b>1, <b>0</b>].
+</pre></blockquote>
+Matrix <b>S</b>1 obviously has full column rank and therefore, the left n-r rows (n is the number of columns of <b>A</b> or <b>S</b>) of matrix <b>V</b> span a nullspace of <b>A</b>.
+</p>
+<p>
+The nullity of matrix <b>A</b> is the dimension of the nullspace of <b>A</b>. In view of the above, it becomes clear that nullity holds
+<blockquote><pre>
+ nullity = n - r
+</pre></blockquote>
+with
+<blockquote><pre>
+ n = number of columns of matrix <b>A</b>
+ r = rank(<b>A</b>)
+</pre></blockquote>
+
+</p>
+<p>
+<h4>Example</h4>
+<blockquote><pre>
+  A = [1, 2,  3, 1;
+       3, 4,  5, 2;
+      -1, 2, -3, 3];
+  (Z, nullity) = nullspace(A);
+  
+  results in:
+  
+  Z=[0.1715;
+    -0.686;
+     0.1715;
+     0.686]
+     
+  nullity = 1
+</pre></blockquote>
+</p>
+<h4>See also</h4>
+<a href=\"Modelica://Modelica.Math.Matrices.singularValues\">Matrices.singularValues</a>
+</html>"));
+  end nullSpace;
+
+  function toString "Convert a matrix into its string representation "
+    import Modelica.Utilities.Strings;
+
+    input Real M[:,:] "Real matrix";
+    input String name="M" "Independent variable name used for printing";
+    input Integer significantDigits=6
+      "Number of significant digits that are shown";
+    output String s="";
+  protected
+    String blanks=Strings.repeat(significantDigits);
+    String space=Strings.repeat(8);
+    String space2=Strings.repeat(3);
+    Integer r=size(M, 1);
+    Integer c=size(M, 2);
+
+  algorithm
+    if r == 0 or c == 0 then
+      s := name + " = []";
+    else
+      s := if name=="" then "\n" else  "\n" + name + " = \n";
+      for i in 1:r loop
+        s := s + space;
+        for j in 1:c loop
+          if M[i, j] >= 0 then
+            s := s + " ";
+          end if;
+          s := s + String(M[i, j], significantDigits=significantDigits) +
+            Strings.repeat(significantDigits + 8 - Strings.length(String(abs(M[i,j]))));
+        end for;
+        s := s + "\n";
+      end for;
+
+    end if;
+
+    annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+Matrices.<b>toString</b>(A);
+Matrices.<b>toString</b>(A,significant, Digits=6name=\"A\"); 
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call \"<code>Matrices.<b>toString</b>(A)</code>\" returns
+string representation of matrix <b>A</b>.
+With the optional arguments \"name\" and \"significantDigits\", a name and the number of the digits are defined.
+The default values of name and significantDigits are \"M\" and 6 repectively. If name=\"\" then the prefix \"M =\" is leaved out.
+
+
+<h4>Example</h4>
+<blockquote><pre>
+  A = [2.12, -4.34; -2.56, -1.67];
+  
+  toString(A);           
+  // \"M = [2.12   -4.34
+  //      -2.56    -1.67]\";
+
+  toString(A,\"A\",1);  
+  // \"M = [2     -4     
+           -3     -2]\"  
+  <b>toString</b>(A,\"\");
+  //      \"  [2.12   -4.34
+  //          -2.56   -1.67\"
+
+</pre></blockquote>
+</HTML>",   revisions="<html>
+</html>"));
+  end toString;
+
+  function flipLeftRight "flip the columns of a matrix in left/right direction"
+
+    input Real A[:,:] "Matrix to be flipped";
+    output Real Aflip[size(A, 1),size(A, 2)] = A[:,{i for i in size(A,2):-1:1}]
+      "flipped matrix";
+  algorithm
+
+    annotation (Documentation(info="<html>
+ <h4>Syntax</h4>
+<blockquote><pre>
+         A_flr = Matrices.<b>flipLeftRight</b>(A);
+</pre></blockquote>
+<h4>Description</h4>
+Function <b>flipLeftRight</b> computes from matrix <b>A</b> a matrix <b>A_flr</b> with flipped columns, i.e. <b>A_flr</b>[:,i]=<b>A</b>[:,n-i+1], i=1,..., n.
+<p>
+<h4>Example</h4>
+<blockquote><pre>
+  A = [1, 2,  3;
+       3, 4,  5;
+      -1, 2, -3];
+  
+  A_flr = flipLeftRight(A);
+  
+  results in:
+  
+  A_flr = [3, 2,  1;
+           5, 4,  3;
+          -3, 2, -1]
+</pre></blockquote>
+<h4>See also</h4>
+<a href=\"modelica://Modelica.Math.Matrices.flipUpDown\">Matrices.flipUpDown</a>
+
+
+</html>"));
+  end flipLeftRight;
+
+  function flipUpDown "Flip the columns of a matrix in up/down direction"
+
+    input Real A[:,:] "Matrix to be flipped";
+    output Real Aflip[size(A, 1),size(A, 2)]=A[{i for i in size(A,1):-1:1},:]
+      "flipped matrix";
+  algorithm
+
+    annotation (Documentation(info="<html>
+ <h4>Syntax</h4>
+<blockquote><pre>
+         A_fud = Matrices.<b>flipUpDown</b>(A);
+</pre></blockquote>
+<h4>Description</h4>
+Function <b>flipUpDown</b> computes from matrix <b>A</b> a matrix <b>A_fud</b> with flipped rows, i.e. <b>A_fud</b>[i,i]=<b>A</b>[n-i+1,:], i=1,..., n.
+<p>
+<h4>Example</h4>
+<blockquote><pre>
+  A = [1, 2,  3;
+       3, 4,  5;
+      -1, 2, -3];
+  
+  A_fud = flipUpDown(A);
+  
+  results in:
+  
+  A_fud  = [-1, 2, -3;
+             3, 4,  5;
+             1, 2,  3]
+</pre></blockquote>
+<h4>See also</h4>
+<a href=\"modelica://Modelica.Math.Matrices.flipLeftRight\">Matrices.flipLeftRight</a>
+
+
+</html>"));
+  end flipUpDown;
+
+  function hessenberg
+    "Compute an upper Hessenberg matrix by repeatedly applicated householder similarity transformation"
+    import Modelica;
+    import Modelica.Math.Matrices;
+
+    input Real A[size(A, 1),size(A, 2)];
+
+    output Real Ht[size(A, 1),size(A, 2)];
+
+  algorithm
+    Ht := Matrices.Utilities.toUpperHessenberg(A, 1, size(A, 1));
+
+    annotation (Documentation(info="<html>
+  
+   <h4>Syntax</h4>
+<blockquote><pre>
+         H = Matrices<b>hessenberg</b>(A);
+ </pre></blockquote>
+<h4>Description</h4>
+Function <b>toUpperHessenberg</b> computes the Hessenberg matrix of matrix <b>A</b> by repetitive application of Householder similarity transformation <b>Q</b>'_i*<b>A</b>_i*<b>Q</b>_i
+The elementary transformations can be subsumed under
+<blockquote> 
+<pre>
+   <b>H</b> = <b>Q</b>'*<b>A</b>*<b>Q</b>
+</pre>
+<p>
+with
+<blockquote> 
+<pre>
+   <b>Q</b> = <b>Q</b>_1*<b>Q</b>_2*...*<b>Q</b>_n
+</pre>
+<p>
+
+<h4>Example</h4>
+<blockquote><pre>
+ A  = [1, 2,  3;
+       6, 5,  4;
+       1, 0,  0]; 
+
+ H = toUpperHessenberg(A);
+
+  results in:
+  
+ H = [1.0,  -2.466,  2.630;
+     -6.083, 5.514, -3.081;
+      0.0,   0.919, -0.514]
+      
+</pre></blockquote> 
+
+</html>"));
+  end hessenberg;
+
+  function householderReflexion
+    "Reflect each of the vectors ai of matrix  A=[a1, a2, ..., an] on a plane with orthogonal vector u"
+    import Modelica.Math.Vectors;
+
+    input Real A[:,:] "Rectangular matrix";
+    input Real u[size(A, 1)] "Householder vector";
+
+    output Real RA[size(A, 1),size(A, 2)] "Reflexion of A";
+
+  protected
+    Integer n=size(A, 2);
+    Real h;
+    Real lu=Vectors.length(u)*Vectors.length(u);
+
+  algorithm
+    for i in 1:n loop
+      h := scalar(2*transpose(matrix(u))*A[:, i]/lu);
+      RA[:, i] := A[:, i] - h*u;
+    end for;
+
+    annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+Matrices.<b>householderReflection</b>(A,u);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function computes the Housholder reflection (transformation)
+</p>
+<blockquote>
+ <b>Ar</b> = <b>Q</b>*<b>A</b>
+</blockquote>
+with
+<blockquote>
+ <b>Q</b> = <b>I</b> -2*<b>u</b>*<b>u</b>'/(<b>u</b>'*<b>u</b>)
+</blockquote>
+<p>
+where <b>u</b>*<b>u</b> is housholder vector, i.e. the normal vector of the reflection plane.
+<p>
+Householder reflection is widely used in numerical linear algebra, e.g. to perform QR decompositions.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+// First step of QR decomposition
+  import   Modelica.Math.Vectors.Utilities;
+  
+  Real A[3,3] = [1,2,3;
+                 3,4,5;
+                 2,1,4];
+  Real Ar[3,3];
+  Real u[:];
+  
+  u=Utilities.householderVector(A[:,1],{1,0,0});
+  // u={ = {0.763, 0.646, 0}
+  Ar=householderReflexion(A,u);
+ // Ar = [-6.0828,   -5.2608,   -4.4388;
+ //        0.0,      -1.1508,   -2.3016;
+ //        0.0,       2.0,       0.0]
+
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Math.Matrices.housholderSimilarityTransformation\">Matrices.housholderSimilarityTransformation</a>,
+</p>
+</html>"));
+  end householderReflexion;
+
+  function householderSimilarityTransformation
+    "Calculate the similarity transformation S*A*S of matrix A with symmetric householder matrix S = I - 2u*u'"
+
+    import Modelica;
+    import Modelica.Math.Vectors;
+
+    input Real A[:,size(A, 1)] "Square matrix A";
+    input Real u[size(A, 1)] "Householder vector";
+    output Real SAS[size(A, 1),size(A, 1)];
+
+  protected
+    Integer na=size(A, 1);
+    Real S[:,:]=-2*matrix(u)*transpose(matrix(u))/(Vectors.length(u)*Vectors.length(u))
+      "Symmetric matrix";
+    Integer i;
+  algorithm
+    for i in 1:na loop
+      S[i, i] := 1.0 + S[i, i];
+    end for;
+    SAS := S*A*S;
+
+    annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+Matrices.<b>householderSimilarityTransformation</b>(A,u);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function computes the Housholder similarity transformation
+</p>
+<blockquote>
+ <b>As</b> = <b>S</b>*<b>A</b>*<b>S</b>
+</blockquote>
+with
+<blockquote>
+ <b>S</b> = <b>I</b> -2*<b>u</b>*<b>u</b>'/(<b>u</b>'*<b>u</b>).
+</blockquote>
+<p>
+This transformation is widely used for transforming non-symmetric matrices to a Hessenberg form.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+// First step of Hessenberg decomposition
+  import   Modelica.Math.Vectors.Utilities;
+  
+  Real A[4,4] = [1,2,3,4;
+                 3,4,5,6;
+                 9,8,7,6;
+                 1,2,0,0];
+  Real Ar[4,4];
+  Real u[4]={0,0,0,0};
+  
+  u[2:4]=Utilities.householderVector(A[2:4,1],{1,0,0});
+  // u= = {0, 0.8107, 0.5819, 0.0647}
+  Ar=householderSimilarityTransformation(A,u);
+ //  Ar = [1.0,     -3.8787,    -1.2193,    3.531;
+          -9.5394, 11.3407,      6.4336,   -5.9243;
+           0.0,     3.1307,      0.7525,   -3.3670;
+           0.0,     0.8021,     -1.1656,   -1.0932]
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Math.Matrices.housholderReflection\">Matrices.housholderReflection</a>,
+</p>
+</html>"));
+  end householderSimilarityTransformation;
   annotation (
     Documentation(info="<HTML>
 <h4>Library content</h4>
