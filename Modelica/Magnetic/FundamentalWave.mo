@@ -135,7 +135,7 @@ for contributing his source code to this library.
 
       annotation (Documentation(info="<html>
 
-<h5>Version 1.5.0, 2010-04-25</h5>
+<h5>Version 1.5.0, 2010-04-28</h5>
 
 <ul>
 <li>Added stator core, friction, stray load and brush losses to all machine types based on 
@@ -143,6 +143,8 @@ for contributing his source code to this library.
 <li>Changed parameter of 
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">EddyCurrent</a>
 model from R to G</li>
+<li>Fixed wrong sign of internal quantity <code>tauElectrical</code>, model behavior does not change</li>
+<li>Rewrote equations of electro magnetic coupling to look more elegant</li>
 </ul>
 
 <h5>Version 1.4.0, 2010-04-22</h5>
@@ -1816,8 +1818,9 @@ relationship of the voltage and current space phasor.
         "Complex magnetic potential difference";
       Modelica.SIunits.ComplexMagneticFlux Phi "Complex magnetic flux";
 
-      final parameter Complex rotator = Modelica.ComplexMath.exp(Complex(0,windingAngle))
-        "Equivalent vector representation of windingAngle";
+      final parameter Complex N=
+        effectiveTurns * Modelica.ComplexMath.exp(Complex(0,windingAngle))
+        "Complex number of turns";
 
     equation
       // Magnetic flux and flux balance of the magnetic ports
@@ -1838,13 +1841,13 @@ relationship of the voltage and current space phasor.
       // of turns and angles of winding axis
       // V_m.re = (2/pi) * effectiveTurns*cos(windingAngle)*i;
       // V_m.im = (2/pi) * effectiveTurns*sin(windingAngle)*i;
-      V_m = (2.0/pi) * effectiveTurns*rotator*i;
+      V_m = (2.0/pi) * N * i;
 
       // Induced voltages from complex magnetic flux, number of turns
       // and angles of winding axis
-      // -v = effectiveTurns*real(rotator*Complex(der(Phi.re),der(Phi.im));
-      -v = effectiveTurns*cos(windingAngle)*der(Phi.re)
-         + effectiveTurns*sin(windingAngle)*der(Phi.im);
+      // -v = effectiveTurns*cos(windingAngle)*der(Phi.re)
+      //    + effectiveTurns*sin(windingAngle)*der(Phi.im);
+      -v = Modelica.ComplexMath.real(Modelica.ComplexMath.conj(N)*Complex(der(Phi.re),der(Phi.im)));
 
       annotation (Diagram(coordinateSystem(
             preserveAspectRatio=false,
@@ -1937,9 +1940,11 @@ The voltage <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/v.png
             extent={{-10,-10},{10,10}},
             rotation=180)));
 
-      Interfaces.PositiveMagneticPort port_p "Positive complex magnetic port"
+      Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort port_p
+        "Positive complex magnetic port"
         annotation (Placement(transformation(extent={{90,90},{110,110}}, rotation=0)));
-      Interfaces.NegativeMagneticPort port_n "Negative complex magnetic port"
+      Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort port_n
+        "Negative complex magnetic port"
         annotation (Placement(transformation(extent={{90,-110},{110,-90}}, rotation=
                0)));
 
@@ -1958,8 +1963,8 @@ The voltage <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/v.png
       Modelica.SIunits.ComplexMagneticFlux Phi "Complex magnetic flux";
 
       // A technical solution with a rotator cannot be applied to the equations below
-      // final parameter Complex rotator[m] = {Modelica.ComplexMath.exp(Complex(0,windingAngle[k])) for k in 1:m}
-      //  "Equivalent vector representation of windingAngle";
+      final parameter Complex N[m] = {effectiveTurns[k]*Modelica.ComplexMath.exp(Complex(0,windingAngle[k])) for k in 1:m}
+        "Complex effective number of turns";
 
     equation
       // Magnetic flux and flux balance of the magnetic ports
@@ -1978,15 +1983,22 @@ The voltage <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/v.png
 
       // Complex magnetic potential difference from currents, number
       // of turns and angles of winding axes
-      V_m.re = (2.0/pi) * sum( effectiveTurns[k]*cos(windingAngle[k])*i[k] for k in 1:m);
-      V_m.im = (2.0/pi) * sum( effectiveTurns[k]*sin(windingAngle[k])*i[k] for k in 1:m);
+      // Original component wise implementation
+      // V_m.re = (2.0/pi) * sum( effectiveTurns[k]*cos(windingAngle[k])*i[k] for k in 1:m);
+      // V_m.im = (2.0/pi) * sum( effectiveTurns[k]*sin(windingAngle[k])*i[k] for k in 1:m);
+      // New complex based implementation
+      V_m.re = (2.0/pi) * sum( Modelica.ComplexMath.real(N[k])*i[k] for k in 1:m);
+      V_m.im = (2.0/pi) * sum( Modelica.ComplexMath.imag(N[k])*i[k] for k in 1:m);
+      // Alternative implementation checks OK but does not compile
+      // V_m = (2/pi) * Modelica.ComplexMath.'sum'({N[k]*Complex(i[k],0) for k in 1:m});
 
       // Induced voltages from complex magnetic flux, number of turns
       // and angles of winding axes
-      for k in 1:m loop
-        -v[k] = effectiveTurns[k]*cos(windingAngle[k])*der(Phi.re)
-              + effectiveTurns[k]*sin(windingAngle[k])*der(Phi.im);
-      end for;
+      // for k in 1:m loop
+      //   -v[k] = effectiveTurns[k]*cos(windingAngle[k])*der(Phi.re)
+      //         + effectiveTurns[k]*sin(windingAngle[k])*der(Phi.im);
+      // end for;
+      -v = Modelica.ComplexMath.real(Modelica.ComplexMath.conj(N)*Complex(der(Phi.re),der(Phi.im)));
 
       annotation (         Icon(coordinateSystem(preserveAspectRatio=false,
               extent={{-100,-100},{100,100}}), graphics={
@@ -2921,8 +2933,8 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
               extent={{10,-10},{-10,10}},
               rotation=90)));
         Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter
-          electroMagneticConverter(final effectiveTurns=effectiveTurns, final windingAngle=
-                         windingAngle)
+          electroMagneticConverter(final effectiveTurns=effectiveTurns, final
+            windingAngle=windingAngle)
           annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
         Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
           "Heat ports of winding resistor"
@@ -3235,10 +3247,10 @@ The symmetrical multi phase winding consists of a symmetrical winding
         (pi/2.0) * (V_mrr.im - V_msr.im) = Phi_rr.im*R_m.q;
 
         // Torque
-        tauElectrical = - (pi*p/2.0)*(Phi_ss.re * V_mss.im - Phi_ss.im * V_mss.re);
+        tauElectrical = - (pi*p/2.0)*(Phi_ss.im * V_mss.re - Phi_ss.re * V_mss.im);
 
-        flange_a.tau = tauElectrical;
-        support.tau = -tauElectrical;
+        flange_a.tau = -tauElectrical;
+        support.tau = tauElectrical;
 
         // Electrical angle between stator and rotor
         gamma = p*(flange_a.phi-support.phi);
@@ -4732,7 +4744,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <tr><td>Version</td> <td>Revision</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
 </thead>
 <tbody>
-<tr><td>1.5.0</td><td>3772</td>  <td>2010-04-25</td>  <td>C. Kral</td>  <td>Added stator core, friction, stray load and brush loss models and changed parameter of EddyCurrent model</td></tr>
+<tr><td>1.5.0</td><td>3802</td>  <td>2010-04-28</td>  <td>C. Kral</td>  <td>Added stator core, friction, stray load and brush loss models and changed parameter of EddyCurrent model</td></tr>
 <tr><td>1.4.0</td><td>3763</td>  <td>2010-04-22</td>  <td>C. Kral</td>  <td>Added eddy current loss model with thermal heat port</td></tr>
 <tr><td>1.3.0</td><td></td>  <td>2010-02-26</td>  <td>A. Haumer<br>C. Kral</td>  <td>New state selection, icons and copyright included</td></tr>
 <tr><td>1.2.0</td><td>3468</td>   <td>2010-02-17</td>  <td>C. Kral</td>  <td>Renamed Machines to BasicMachines and updated references to Electrical.Machines</td></tr>
