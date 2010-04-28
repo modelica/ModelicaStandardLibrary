@@ -13923,7 +13923,7 @@ within &infin; > y > -1/e.  The relative deviation of this approximation for lam
 </p>
 
 <p>
-<img src=\"modelica://Modelica/pictures/utilities/LambertW_deviation.png\">
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/utilities/LambertW_deviation.png\">
 </p>
 
 <p>
@@ -14037,13 +14037,12 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
           annotation (smoothOrder=1);
         end ReynoldsNumber;
 
-
         function SmoothPower "Function from ThermoFluid"
           extends Modelica.Icons.Function;
-          input Real x;
-          input Real deltax;
-          input Real pow;
-          output Real y;
+          input Real x "input variable";
+          input Real deltax "range for interpolation";
+          input Real pow "exponent for x";
+          output Real y "output variable";
         protected
           Real adeltax=abs(deltax);
           Real C3=(pow - 1)/2*adeltax^(pow - 3);
@@ -14052,19 +14051,41 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
         algorithm
           y := if x >= adeltax then x^pow else if x <= -adeltax then -(-x)^pow else (C1
              + C3*x*x)*x;
-          annotation (derivative=SmoothPower_der,
-                      smoothOrder=5);
+          annotation (derivative=SmoothPower_der, smoothOrder=1,
+            Documentation(info="<html>
+<p><br/>The function is used to limit the derivative of an inversed function</p>
+<p>y = x<sup><b>pow</b></sup>, for <b>pow</b>&GT;1</p>
+<p><br/>around -<b>deltax</b>&LT; x &LT; <b>deltax</b>. </p>
+<h4><font color=\"#EF9B13\">Example </font></h4>
+<p>
+In the picture below the input x is increased from -1 to 1. The range of interpolation is defined by the same range. Displayed is the output of the function SmoothPower compared to <br>
+<pre>
+y=x*|x|
+</pre>
+<br>
+For |x| &gt; 1 both functions return identical results.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/utilities/SmoothPower.png\">
+</p>
+
+<h4><font color=\"#EF9B13\">References</font></h4> 
+<dl>
+<dt>ThermoFluid Library</dt>
+    <dd><b><a href=\"http://sourceforge.net/projects/thermofluid/\"> http://sourceforge.net/projects/thermofluid/</b>.</dd>
+
+</html>"));
         end SmoothPower;
 
         function SmoothPower_der "Function from ThermoFluid"
           extends Modelica.Icons.Function;
-          input Real x;
-          input Real deltax;
-          input Real pow;
-          input Real dx;
-          input Real ddeltax;
-          input Real dpow;
-          output Real dy;
+          input Real x "input variable";
+          input Real deltax "range of interpolation";
+          input Real pow "exponent for x";
+          input Real dx "derivative of x";
+          input Real ddeltax "derivative of deltax";
+          input Real dpow "derivative of pow";
+          output Real dy "derivative of SmoothPower";
         protected
           Real C3;
           Real C1;
@@ -14116,7 +14137,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
               height=0.6),
             Documentation(info="<html>
 <p>
-The function is used for continuous fading of variable inputs within a defined range. It allows a differentiable and smooth transition between function outputs, e.g. laminar and turbulent pressure drop or correlations for certain ranges.  
+The function is used for continuous fading of variable inputs within a defined range. It allows a differentiable and smooth transition between function outputs, e.g. laminar and turbulent pressure drop or correlations for certain ranges.
 </p>
 <h4><font color=\"#EF9B13\">Function </font></h4>
 <p>
@@ -14127,7 +14148,7 @@ In order to work correctly, the internal interpolation range in terms of the ext
 f(func)   = 0.5 &pi;
 f(nofunc) = -0.5 &pi;
 </pre>
-</p> 
+</p>
 <h4><font color=\"#EF9B13\">Example </font></h4>
 <p>
 In the picture below the input x is increased from 0 to 1. The range of interpolation is defined by:
@@ -14138,10 +14159,10 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 </ul>
 </p>
 <p>
-<img src=\"../Extras/Images/utilities/Stepsmoother.png\">
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/utilities/Stepsmoother.png\">
 </p>
 
-<h4><font color=\"#EF9B13\">References</font></h4> 
+<h4><font color=\"#EF9B13\">References</font></h4>
 <dl>
 <dt>Wischhusen, St.</dt>
     <dd><b>Simulation von K&auml;ltemaschinen-Prozessen mit MODELICA / DYMOLA</b>.
