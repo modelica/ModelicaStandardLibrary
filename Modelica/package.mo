@@ -1739,6 +1739,167 @@ more of the following changes.
 </html>"));
 end VersionManagement;
 
+class Version_3_2 "Version 3.2 (June 30, 2010)"
+  extends Modelica.Icons.ReleaseNotes;
+
+   annotation (Documentation(info="<html>
+
+<p>
+Version 3.2 is backward compatible to version 3.1, i.e., models developed with
+version 3.0, 3.0.1, or 3.1 will work without any changes also with version 3.2.
+</p>
+
+<p>
+Version 3.2 is slightly based on the Modelica Specification 3.2. It uses
+the following new language elements (compared to Modelica Specification 3.1):
+</p>
+
+<ul>
+<li> Operator records and overloaded operators. </li>
+</ul>
+
+<p>
+The following <b style=\"color:blue\">new libraries</b> have been added:
+</p>
+<table border=\"1\" cellspacing=0 cellpadding=2>
+<tr><td valign=\"top\"><a href=\"modelica://Complex\">Complex</a></td>
+    <td valign=\"top\">
+    This is a top-level record outside of the Modelica Standard Library.
+    It is used for complex numbers and contains overloaded operations.
+    From a users point of view, Complex is used in a similar way as the
+    built-in type Real.
+    </td>
+
+<tr><td valign=\"top\"><a href=\"modelica://Modelica.ComplexBlocks\">Modelica.ComplexBlocks</a></td>
+    <td valign=\"top\">
+    Library of basic input/output control blocks with Complex signals.<br>
+    (This library was developed by Anton Haumer).
+    </td>
+
+<tr><td valign=\"top\"><a href=\"modelica://Modelica.Electrical.QuasiStationary\">Modelica.Electrical.QuasiStationary</a></td>
+    <td valign=\"top\">
+    Library for quasi-stationary electrical singlephase and multiphase AC simulation.<br>
+    (This library was developed by Anton Haumer and Christian Kral, AIT).
+    </td>
+
+<tr><td valign=\"top\"><a href=\"modelica://Modelica.Electrical.Spice3\">Modelica.Electrical.Spice3</a></td>
+    <td valign=\"top\">
+    Library with components of the Berkely SPICE3 simulator:
+    R, C, L, controlled and independent sources, semiconductor device models
+    (MOSFET Level 1, Bipolar junction transistor, Diode, Semiconductor resistor).
+    The components have been intensively tested and compared with results from the SPICE3
+    simulator.<br>
+    (This library was developed by Fraunhofer Gesellschaft, Dresden).
+    </td>
+
+<tr><td valign=\"top\"><a href=\"modelica://Modelica.Magnetic.FundamentalWave\">Modelica.Magnetic.FundamentalWave</a></td>
+    <td valign=\"top\">
+     Library for magnetic fundamental wave effects in electric machines for the
+     application in three pase electric machines.
+     The library is an alternative approach to the Modelica.Electrical.Machines library.
+     A great advantage of this library is the strict object orientation of the
+     electrical and magnetic components that the electric machines models are composed of.
+     From a didactic point of view this library is very beneficial for students in the field
+     of electrical engineering.<br>
+     (This library was developed by Christian Kral, AIT, and Anton Haumer, using
+     ideas and source code of a library from Michael Beuschel from 2000).
+    </td>
+
+<tr><td valign=\"top\"><a href=\"modelica://Modelica.Fluid.Dissipation\">Modelica.Fluid.Dissipation</a></td>
+    <td valign=\"top\">
+     Library with functions to compute convective heat transfer and pressure loss characteristics.<br>
+     (This library was developed by Thorgen Vahlenkamp and Stefan Wischhusen from
+     XRG Simulation).
+    </td>
+
+<tr><td valign=\"top\"><a href=\"modelica://Modelica.ComplexMath\">Modelica.ComplexMath</a></td>
+    <td valign=\"top\">
+    Library of complex mathematical functions (e.g., sin, cos) and of functions operating
+    on complex vectors.<br>
+    (This library was developed by Marcus Baur (DLR-RM), Anton Haumer, and
+     HansJ&uuml;rg Wiesmann).
+    </td>
+
+</table>
+
+
+<p><br>
+The following <b style=\"color:blue\">new components</b> have been added
+to <b style=\"color:blue\">existing</b> libraries:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><b>Modelica.Blocks.Continuous.</b></td></tr>
+<tr><td valign=\"top\"> Filter </td>
+    <td valign=\"top\"> Continuous low pass, high pass, band pass or band stop
+                      IIR-filter of type CriticalDamping, Bessel, Butterworth or ChebyshevI </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Math.Vectors.</b></td></tr>
+<tr><td valign=\"top\"> find </td>
+    <td valign=\"top\"> Find element in vector. </td> </tr>
+<tr><td valign=\"top\"> toString </td>
+    <td valign=\"top\"> Convert a real vector to a string. </td> </tr>
+<tr><td colspan=\"2\"><b>Modelica.Math.Vectors.Utilities</b></td></tr>
+<tr><td valign=\"top\"> householderVector<br>
+                      householderReflection<br>
+                      roots </td>
+    <td valign=\"top\"> Utility functions for vectors that are used by the newly introduced functions,
+                      but are only of interested for a specialist. </td> </tr>
+<tr><td colspan=\"2\"><b>Modelica.Math.Matrices.</b></td></tr>
+<tr><td valign=\"top\"> continuousRiccati<br>
+                      discreteRiccati </td>
+    <td valign=\"top\"> Return solution of continuous-time and discrete-time
+                      algebraic Riccati equation. </td> </tr>
+<tr><td colspan=\"2\"><b>Modelica.Math.Matrices.LAPACK.</b></td></tr>
+<tr><td valign=\"top\"> dtrevc<br>
+                      dpotrf<br>
+                      dtrsm </td>
+    <td valign=\"top\"> New interface functions for LAPACK
+                      (should usually not directly be used but only indirectly via
+                      Modelica.Math.Matrices). </td> </tr>
+</table>
+
+
+
+<p><br>
+The following <b style=\"color:blue\">existing components</b>
+have been <b style=\"color:blue\">improved</b> in a
+<b style=\"color:blue\">backward compatible</b> way:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><b>Modelica.AAA</b></td></tr>
+<tr><td valign=\"top\"> XXX </td>
+    <td valign=\"top\"> YYY </td> </tr>
+</table>
+
+
+<p><br>
+The following <b style=\"color:red\">critical errors</b> have been fixed (i.e. errors
+that can lead to wrong simulation results):
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><b>Mechanics.AAA.</b></td></tr>
+<tr><td valign=\"top\"> XXX </td>
+    <td valign=\"top\"> YYY</td>
+</tr>
+</table>
+
+<p><br>
+The following <b style=\"color:red\">uncritical errors</b> have been fixed (i.e. errors
+that do <b style=\"color:red\">not</b> lead to wrong simulation results, but, e.g.,
+units are wrong or errors in documentation):
+</p>
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><b>Modelica.AAA</b></td></tr>
+<tr><td valign=\"top\"> XXX </td>
+    <td valign=\"top\"> YYY</td> </tr>
+</table>
+
+</html>"));
+end Version_3_2;
+
 class Version_3_1 "Version 3.1 (August 14, 2009)"
   extends Modelica.Icons.ReleaseNotes;
 
