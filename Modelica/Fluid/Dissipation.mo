@@ -9875,9 +9875,9 @@ This function shall be used within the restricted limits according to the refere
  <li>
       <b>Turbulent flow regime</b>
  <li>
-      <b>Reynolds number for sudden expansion Re &gt 3.3e3 </b> <i>[Idelchik 2006, p. 208, diag. 4-1] </i>
+      <b>Reynolds number for sudden expansion Re &gt; 3.3e3 </b> <i>[Idelchik 2006, p. 208, diag. 4-1] </i>
  <li>
-      <b>Reynolds number for sudden contraction Re &gt 1e4 </b> <i>[Idelchik 2006, p. 216-217, diag. 4-9] </i>
+      <b>Reynolds number for sudden contraction Re &gt; 1e4 </b> <i>[Idelchik 2006, p. 216-217, diag. 4-9] </i>
 </ul>
 
 <h4><font color=\"#EF9B13\">Geometry </font></h4>
@@ -15337,13 +15337,13 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
                   fillPattern=FillPattern.Solid,
                   lineColor={0,0,0}),
                 Text(
-                  extent={{-48,94},{46,74}},
+                  extent={{-80,88},{86,76}},
                   lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid,
                   textString="sudden expansion"),
                 Text(
-                  extent={{-44,-74},{50,-94}},
+                  extent={{-82,-76},{86,-88}},
                   lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid,
@@ -15405,7 +15405,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
                   fillPattern=FillPattern.Solid,
                   pattern=LinePattern.None),
                 Text(
-                  extent={{-44,12},{40,-2}},
+                  extent={{-44,10},{40,2}},
                   lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid,
