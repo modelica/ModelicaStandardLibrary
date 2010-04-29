@@ -4896,9 +4896,9 @@ VN- -&GT; name.pc[N-1]
         Modelica.SIunits.Voltage m_dICVBS(          start = 0.0)
           "IC_VBS, Initial B-S voltage";
         Real m_dICVBSIsGiven "IC_VBS, IsGivenValue";
-        Real m_off(          start = 0)
+        Integer m_off(          start = 0)
           "Device initially off, non-zero to indicate device is off for dc analysis";
-        Real m_bPMOS(        start = 0) "P type MOSfet model";
+        Integer m_bPMOS(        start = 0) "P type MOSfet model";
         Integer m_nLevel(       start = 1) "MOS model level";
 
         annotation (Documentation(info="<html>
@@ -6928,7 +6928,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
         input Modelica.SIunits.Length PS "Source perimeter";
         input Real NRD "Length of drain squares";
         input Real NRS "Length of Source squares";
-        input Real OFF
+        input Integer OFF
           "Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet";
         input Real IC "Initial condition values, not implemented yet";
         input Modelica.SIunits.Temp_C TEMP "Temperature";
@@ -6979,12 +6979,14 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
         Modelica.SIunits.Resistance m_resist( start = 0.0)
           "RS, Ohmic resistance";
         Real m_emissionCoeff( start = 1.0) "N, Emission Coefficient";
-        Real m_transitTime( start = 0.0) "TT, Transit Time";
+        Modelica.SIunits.Time m_transitTime( start = 0.0) "TT, Transit Time";
         Modelica.SIunits.Capacitance m_junctionCap( start = 0.0)
           "CJO, Junction capacitance";
-        Real m_junctionPot( start = 1.0) "VJ, Junction potential";
+        Modelica.SIunits.Voltage m_junctionPot( start = 1.0)
+          "VJ, Junction potential";
         Real m_gradingCoeff( start = 0.5) "M, Grading coefficient";
-        Real m_activationEnergy( start = 1.11) "EG, Activation energy";
+        Modelica.SIunits.ActivationEnergy m_activationEnergy( start = 1.11)
+          "EG, Activation energy";
         Real m_saturationCurrentExp( start = 3.0)
           "XTI, Saturation current temperature exp.";
         Real m_depletionCapCoeff( start = 0.5)
@@ -7367,12 +7369,14 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
 
       record ResistorModelLineParams "Record for Diode model line parameters"
 
-          Real m_dTC1 "First order temp, coefficient";
-          Real m_dTC2 "Second order temp, coefficient";
+          Modelica.SIunits.Conversions.NonSIunits.FirstOrderTemperaturCoefficient
+          m_dTC1 "First order temp, coefficient";
+          Modelica.SIunits.Conversions.NonSIunits.SecondOrderTemperaturCoefficient
+          m_dTC2 "Second order temp, coefficient";
           Modelica.SIunits.Resistance m_dRsh "Sheet resistance";
           Real m_dRshIsGiven;
-          Real m_dDefW "Default device width";
-          Real m_dNarrow "Narrowing of resistor";
+          Modelica.SIunits.Length m_dDefW "Default device width";
+          Modelica.SIunits.Length m_dNarrow "Narrowing of resistor";
           Modelica.SIunits.Temp_C m_dTnom "Parameter measurement temperature";
 
         annotation (Documentation(info="<html>
@@ -7528,11 +7532,13 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
         Real m_emissionCoeffR( start = 1.0) "NR, Reverse emission coefficient";
         Real m_leakBCemissionCoeff( start = 2.0)
           "NC, B-C leakage emission coefficient";
-        Real m_earlyVoltF( start = 0.0) "VAF, Forward Early voltage";
-        Real m_rollOffF( start = 0.0)
+        Modelica.SIunits.Voltage m_earlyVoltF( start = 0.0)
+          "VAF, Forward Early voltage";
+        Modelica.SIunits.Current m_rollOffF( start = 0.0)
           "IKF, Forward beta roll-off corner current";
-        Real m_earlyVoltR( start = 0.0) "VAR, Reverse Early voltage";
-        Real m_rollOffR( start = 0.0)
+        Modelica.SIunits.Voltage m_earlyVoltR( start = 0.0)
+          "VAR, Reverse Early voltage";
+        Modelica.SIunits.Current m_rollOffR( start = 0.0)
           "IKR, reverse beta roll-off corner current";
         Modelica.SIunits.Resistance m_emitterResist( start = 0.0)
           "RE, Emitter resistance";
@@ -7547,32 +7553,36 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
         Real m_minBaseResistIsGiven;
         Modelica.SIunits.Capacitance m_depletionCapBE( start = 0.0)
           "CJE, Zero bias B-E depletion capacitance";
-        Real m_potentialBE( start = 0.75) "VJE, B-E built in potential";
+        Modelica.SIunits.Voltage m_potentialBE( start = 0.75)
+          "VJE, B-E built in potential";
         Real m_junctionExpBE( start = 0.33) "MJE, B-E built in potential";
-        Real m_transitTimeF( start = 0.0) "TF, Ideal forward transit time";
+        Modelica.SIunits.Time m_transitTimeF( start = 0.0)
+          "TF, Ideal forward transit time";
         Real m_transitTimeBiasCoeffF( start = 0.0)
           "XTF, Coefficient for bias dependence of TF";
-        Real m_transitTimeHighCurrentF( start = 0.0)
+        Modelica.SIunits.Current m_transitTimeHighCurrentF( start = 0.0)
           "ITF, High current dependence of TF";
-        Real m_transitTimeFVBC( start = 0.0)
+        Modelica.SIunits.Voltage m_transitTimeFVBC( start = 0.0)
           "VTF, Voltage giving VBC dependence of TF";
-        Real m_excessPhase( start = 0.0) "PTF, Excess phase";
+        Modelica.SIunits.Temp_C m_excessPhase( start = 0.0) "PTF, Excess phase";
         Modelica.SIunits.Capacitance m_depletionCapBC( start = 0.0)
           "CJC, Zero bias B-C depletion capacitance";
-        Real m_potentialBC( start = 0.75) "VJC, B-C built in potential";
+        Modelica.SIunits.Voltage m_potentialBC( start = 0.75)
+          "VJC, B-C built in potential";
         Real m_junctionExpBC( start = 0.33)
           "MJC, B-C junction grading coefficient";
         Real m_baseFractionBCcap( start = 1.0)
           "XCJC, Fraction of B-C cap to internal base";
-        Real m_transitTimeR( start = 0.0) "TR, Ideal reverse transit time";
+        Modelica.SIunits.Time m_transitTimeR( start = 0.0)
+          "TR, Ideal reverse transit time";
         Modelica.SIunits.Capacitance m_capCS( start = 0.0)
           "CJS, Zero bias C-S capacitance";
-        Real m_potentialSubstrate( start = 0.75)
+        Modelica.SIunits.Voltage m_potentialSubstrate( start = 0.75)
           "VJS, Zero bias C-S capacitance";
         Real m_exponentialSubstrate( start = 0.0)
           "MJS, Substrate junction grading coefficient";
         Real m_betaExp( start = 0.0) "XTB, Forward and reverse beta temp. exp.";
-        Real m_energyGap( start = 1.11)
+        Modelica.SIunits.GapEnergy m_energyGap( start = 1.11)
           "EG, Energy gap for IS temp. dependency";
         Real m_tempExpIS( start = 3.0) "XTI,Temp. exponent for IS";
         Real m_fNcoef( start = 0.0) "KF, Flicker Noise Coefficient";
@@ -7674,9 +7684,9 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
 
        Real m_area(  start = 1.0) "AREA";
        Boolean m_bOff(  start = false) "OFF";
-       Real m_dICvbe( start = 0.0) "IC_VBE";
+       Modelica.SIunits.Voltage m_dICvbe( start = 0.0) "IC_VBE";
        Real m_bICvbeIsGiven( start = 0.0);
-       Real m_dICvce( start = 0.0) "IC_VCE";
+       Modelica.SIunits.Voltage m_dICvce( start = 0.0) "IC_VCE";
        Real m_bICvceIsGiven( start = 0.0);
        Boolean m_bSensArea( start = false) "SENS_AREA";
 
