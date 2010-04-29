@@ -4507,8 +4507,8 @@ VN- -&GT; name.pc[N-1]
         "Temperature dependency of saturation current"
 
       input Modelica.SIunits.Current satcur0 "Saturation current";
-      input Real temp "Device Temperature";
-      input Real tnom "Nominal Temperature";
+      input Modelica.SIunits.Temp_K temp "Device Temperature";
+      input Modelica.SIunits.Temp_K tnom "Nominal Temperature";
       input Real emissioncoeff;
       input Real energygap;
       input Real satcurexp;
@@ -4535,7 +4535,7 @@ VN- -&GT; name.pc[N-1]
       input Real vb;
       input Real ivb;
       input Modelica.SIunits.Current satcur "Saturation current";
-      input Real temp "Device temperature";
+      input Modelica.SIunits.Temp_K temp "Device temperature";
       input Real ncoeff;
 
       output Real v23 "Output value";
@@ -4572,7 +4572,7 @@ VN- -&GT; name.pc[N-1]
     function junction3 "Junction current and conductance calculation"
 
       input Modelica.SIunits.Voltage voltage "Input voltage";
-      input Real temp "Device Temperature";
+      input Modelica.SIunits.Temp_K temp "Device Temperature";
       input Real ncoeff;
       input Real satcur;
       input Real v23;
@@ -4669,7 +4669,7 @@ VN- -&GT; name.pc[N-1]
     function junction2 "Junction current and conductance calculation"
 
       input Modelica.SIunits.Voltage voltage "Input Voltage";
-      input Real temp "Device Temperature";
+      input Modelica.SIunits.Temp_K temp "Device Temperature";
       input Real ncoeff;
       input Real satcur;
 
@@ -4717,8 +4717,8 @@ VN- -&GT; name.pc[N-1]
     function resDepTemp "Temperature dependent conductance"
 
     input Modelica.SIunits.Resistance resist "Input resistance";
-    input Real temp "Device temperature";
-    input Real tnom "Nominal temperature";
+    input Modelica.SIunits.Temp_K temp "Device temperature";
+    input Modelica.SIunits.Temp_K tnom "Nominal temperature";
     input Real tc1;
     input Real tc2;
 
