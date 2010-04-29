@@ -135,6 +135,19 @@ for contributing his source code to this library.
 
       annotation (Documentation(info="<html>
 
+<h5>Version 1.6.0, 2010-04-29</h5>
+
+<ul>
+<li>Renamed all parameters <code>windingAngle</code> to <code>orientation</code>. This particularly refers to</li>
+<ul>
+<li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">SinglePhaseElectroMagneticConverter</a></li>
+<li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter\">MultiPhaseElectroMagneticConverter</a></li>
+<li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">SinglePhaseWinding</a></li>
+<li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Functions.symmetricOrientation\">symmetricOrientation</a></li>
+<li><a href=\"modelica://\"></a></li>
+</ul>
+</ul>
+
 <h5>Version 1.5.0, 2010-04-28</h5>
 
 <ul>
@@ -337,14 +350,14 @@ For more details see the <a href=Modelica.Magnetic.FundamentalWave.UsersGuide.Co
               rotation=0,
               origin={-60,-20})));
         Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
-          converter_e(windingAngle=
-          Modelica.Magnetic.FundamentalWave.BasicMachines.Functions.symmetricWindingAngle(3),
+          converter_e(orientation=
+          Modelica.Magnetic.FundamentalWave.BasicMachines.Functions.symmetricOrientation(3),
           m=3,
           effectiveTurns=fill(N, 3))
                    annotation (Placement(transformation(extent={{20,50},{40,70}})));
         Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
-          converter_m(windingAngle=
-            Modelica.Magnetic.FundamentalWave.BasicMachines.Functions.symmetricWindingAngle(3),
+          converter_m(orientation=
+            Modelica.Magnetic.FundamentalWave.BasicMachines.Functions.symmetricOrientation(3),
           effectiveTurns=fill(N, 3),
           m=3)     annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
         Modelica.Magnetic.FundamentalWave.Components.Reluctance reluctance_e(R_m(d=
@@ -1806,8 +1819,8 @@ relationship of the voltage and current space phasor.
                0)));
 
       parameter Real effectiveTurns "Effective number of turns";
-      parameter Modelica.SIunits.Angle windingAngle
-        "Angle of winding axis (with respect to fundamental)";
+      parameter Modelica.SIunits.Angle orientation
+        "Orientation of the resulting fundamental wave field phasor";
 
       // Local electric single phase quantities
       Modelica.SIunits.Voltage v "Voltage drop";
@@ -1819,7 +1832,7 @@ relationship of the voltage and current space phasor.
       Modelica.SIunits.ComplexMagneticFlux Phi "Complex magnetic flux";
 
       final parameter Complex N=
-        effectiveTurns * Modelica.ComplexMath.exp(Complex(0,windingAngle))
+        effectiveTurns * Modelica.ComplexMath.exp(Complex(0,orientation))
         "Complex number of turns";
 
     equation
@@ -1839,14 +1852,14 @@ relationship of the voltage and current space phasor.
 
       // Complex magnetic potential difference from currents, number
       // of turns and angles of winding axis
-      // V_m.re = (2/pi) * effectiveTurns*cos(windingAngle)*i;
-      // V_m.im = (2/pi) * effectiveTurns*sin(windingAngle)*i;
+      // V_m.re = (2/pi) * effectiveTurns*cos(orientation)*i;
+      // V_m.im = (2/pi) * effectiveTurns*sin(orientation)*i;
       V_m = (2.0/pi) * N * i;
 
       // Induced voltages from complex magnetic flux, number of turns
       // and angles of winding axis
-      // -v = effectiveTurns*cos(windingAngle)*der(Phi.re)
-      //    + effectiveTurns*sin(windingAngle)*der(Phi.im);
+      // -v = effectiveTurns*cos(orientation)*der(Phi.re)
+      //    + effectiveTurns*sin(orientation)*der(Phi.im);
       -v = Modelica.ComplexMath.real(Modelica.ComplexMath.conj(N)*Complex(der(Phi.re),der(Phi.im)));
 
       annotation (Diagram(coordinateSystem(
@@ -1886,7 +1899,7 @@ relationship of the voltage and current space phasor.
               textString="%name")}),
       Documentation(info="<html>
 <p>
-The single phase winding has an effective number of turns, <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/effectiveTurns.png\"> and a respective winding angle, <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/windingAngle.png\">. The current in winding is <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/i.png\">.
+The single phase winding has an effective number of turns, <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/effectiveTurns.png\"> and a respective orientation of the winding, <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/orientation.png\">. The current in winding is <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/i.png\">.
 </p>
 
 <p>
@@ -1902,7 +1915,7 @@ In this equation the magneto motive forc is aligned with the winding axis.
 </p>
 
 <p>
-The voltage <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/v.png\"> induced in the winding depends on the cosine between the the winding angle and the angle of the complex magnetic flux. Additionally, the magnitudes of the induced voltages are propotional to the respective number of turns. This relationship can be modeled by means of</p>
+The voltage <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/v.png\"> induced in the winding depends on the cosine between the orientation of the winding and the angle of the complex magnetic flux. Additionally, the magnitudes of the induced voltages are propotional to the respective number of turns. This relationship can be modeled by means of</p>
 
 <p>
 &nbsp;&nbsp;<img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/Components/singlephaseconverter_phi.png\">
@@ -1950,8 +1963,8 @@ The voltage <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/v.png
 
       parameter Integer m = 3 "Number of phases";
       parameter Real effectiveTurns[m] "Effective number of turns";
-      parameter Modelica.SIunits.Angle windingAngle[m]
-        "Angle of winding axis (with respect to fundamental)";
+      parameter Modelica.SIunits.Angle orientation[m]
+        "Orientation of the resulting fundamental wave field phasor";
 
       // Local electric multi phase quantities
       Modelica.SIunits.Voltage v[m] "Voltage drop";
@@ -1963,7 +1976,7 @@ The voltage <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/v.png
       Modelica.SIunits.ComplexMagneticFlux Phi "Complex magnetic flux";
 
       // A technical solution with a rotator cannot be applied to the equations below
-      final parameter Complex N[m] = {effectiveTurns[k]*Modelica.ComplexMath.exp(Complex(0,windingAngle[k])) for k in 1:m}
+      final parameter Complex N[m] = {effectiveTurns[k]*Modelica.ComplexMath.exp(Complex(0,orientation[k])) for k in 1:m}
         "Complex effective number of turns";
 
     equation
@@ -1984,8 +1997,8 @@ The voltage <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/v.png
       // Complex magnetic potential difference from currents, number
       // of turns and angles of winding axes
       // Original component wise implementation
-      // V_m.re = (2.0/pi) * sum( effectiveTurns[k]*cos(windingAngle[k])*i[k] for k in 1:m);
-      // V_m.im = (2.0/pi) * sum( effectiveTurns[k]*sin(windingAngle[k])*i[k] for k in 1:m);
+      // V_m.re = (2.0/pi) * sum( effectiveTurns[k]*cos(orientation[k])*i[k] for k in 1:m);
+      // V_m.im = (2.0/pi) * sum( effectiveTurns[k]*sin(orientation[k])*i[k] for k in 1:m);
       // New complex based implementation
       V_m.re = (2.0/pi) * sum( Modelica.ComplexMath.real(N[k])*i[k] for k in 1:m);
       V_m.im = (2.0/pi) * sum( Modelica.ComplexMath.imag(N[k])*i[k] for k in 1:m);
@@ -1995,8 +2008,8 @@ The voltage <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/v.png
       // Induced voltages from complex magnetic flux, number of turns
       // and angles of winding axes
       // for k in 1:m loop
-      //   -v[k] = effectiveTurns[k]*cos(windingAngle[k])*der(Phi.re)
-      //         + effectiveTurns[k]*sin(windingAngle[k])*der(Phi.im);
+      //   -v[k] = effectiveTurns[k]*cos(orientation[k])*der(Phi.re)
+      //         + effectiveTurns[k]*sin(orientation[k])*der(Phi.im);
       // end for;
       -v = Modelica.ComplexMath.real(Modelica.ComplexMath.conj(N)*Complex(der(Phi.re),der(Phi.im)));
 
@@ -2032,7 +2045,7 @@ The voltage <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/v.png
         Documentation(info="<html>
 
 <p>
-Each phase <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/k.png\"> of an <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/m.png\"> phase winding has an effective number of turns, <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/effectiveTurns_k.png\"> and an respective winging angle <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/windingAngle_k.png\"> and a phase current <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/i_k.png\">.
+Each phase <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/k.png\"> of an <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/m.png\"> phase winding has an effective number of turns, <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/effectiveTurns_k.png\"> and an respective winging angle <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/orientation_k.png\"> and a phase current <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/i_k.png\">.
 </p>
 
 <p>
@@ -2048,7 +2061,7 @@ In this equation each contribution of a winding magneto motive force on the tota
 </p>
 
 <p>
-The voltages <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/v_k.png\"> induced in each winding depend on the cosinus between the the winding angle and the angle of the complex magnetic flux. Additionally, the magnitudes of the induced voltages are propotional to the respective number of turns. This relationship can be modeled by means of</p>
+The voltages <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/v_k.png\"> induced in each winding depend on the cosinus between the orientation of the winding and the angle of the complex magnetic flux. Additionally, the magnitudes of the induced voltages are propotional to the respective number of turns. This relationship can be modeled by means of</p>
 
 <p>
 &nbsp;&nbsp;<img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/Components/multiphaseconverter_phi.png\">
@@ -2651,7 +2664,7 @@ Resistances and stray inductances of the machine refer to the stator phases. The
           annotation (Placement(transformation(extent={{10,-10},{-10,10}},   rotation=90,
               origin={30,-40})));
         Components.SinglePhaseWinding excitationWinding(
-          final windingAngle=0,
+          final orientation=0,
           final RRef=Re,
           final alpha20=alpha20e,
           final TRef=TeRef,
@@ -2904,8 +2917,8 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
         parameter Modelica.SIunits.Inductance Lsigma
           "Winding stray inductance per phase";
         parameter Real effectiveTurns = 1 "Effective number of turns per phase";
-        parameter Modelica.SIunits.Angle windingAngle
-          "Angle of the winding axis";
+        parameter Modelica.SIunits.Angle orientation
+          "Orientation of the resulting fundamental wave field phasor";
 
         Modelica.Electrical.Analog.Interfaces.PositivePin pin_p "Positive pin"
           annotation (Placement(transformation(
@@ -2934,7 +2947,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
               rotation=90)));
         Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter
           electroMagneticConverter(final effectiveTurns=effectiveTurns, final
-            windingAngle=windingAngle)
+            orientation=orientation)
           annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
         Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
           "Heat ports of winding resistor"
@@ -2955,7 +2968,8 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
         connect(electroMagneticConverter.port_n, port_n)
           annotation (Line(points={{10,-10},{10,-100},{100,-100}}, color={255,128,0}));
         connect(heatPort, resistor.heatPort) annotation (Line(
-            points={{0,-100},{0,-60},{40,-60},{40,70},{0,70}},
+            points={{5.55112e-16,-100},{5.55112e-16,-60},{40,-60},{40,70},{
+                5.55112e-16,70}},
             color={191,0,0},
             smooth=Smooth.None));
         annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
@@ -3048,7 +3062,7 @@ The single phase winding consists of a
           electroMagneticConverter(
           final m=m,
           final effectiveTurns=fill(effectiveTurns, m),
-          final windingAngle=Functions.symmetricWindingAngle(m))
+          final orientation=Functions.symmetricOrientation(m))
           annotation (Placement(transformation(extent={{-10,-10},{10,10}},rotation=0)));
         Modelica.Electrical.MultiPhase.Basic.Inductor strayInductor(
           final m=m,
@@ -3076,10 +3090,11 @@ The single phase winding consists of a
         connect(plug_p, resistor.plug_p)
           annotation (Line(points={{-100,100},{-10,100},{-10,80}}, color={0,0,255}));
         connect(resistor.plug_n, strayInductor.plug_p)
-          annotation (Line(points={{-10,60},{-10,40}},
+          annotation (Line(points={{-10,60},{-10,55},{-10,55},{-10,50},{-10,40},
+                {-10,40}},
             color={0,0,255}));
         connect(strayInductor.plug_n, electroMagneticConverter.plug_p)
-          annotation (Line(points={{-10,20},{-10,16},{-10,10}}, color={0,0,255}));
+          annotation (Line(points={{-10,20},{-10,10},{-10,10}}, color={0,0,255}));
         connect(electroMagneticConverter.plug_n, plug_n)
           annotation (Line(points={{-10,-10},{-10,-100},{-100,-100}}, color={0,0,255}));
         connect(electroMagneticConverter.port_p, port_p)
@@ -3089,7 +3104,8 @@ The single phase winding consists of a
           annotation (Line(points={{10,-10},{10,-100},{100,-100}},
             color={255,128,0}));
         connect(resistor.heatPort, heatPort) annotation (Line(
-            points={{0,70},{40,70},{40,-60},{0,-60},{0,-100}},
+            points={{5.55112e-16,70},{40,70},{40,-60},{5.55112e-16,-60},{
+                5.55112e-16,-100}},
             color={191,0,0},
             smooth=Smooth.None));
         annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
@@ -3194,7 +3210,7 @@ The symmetrical multi phase winding consists of a symmetrical winding
         Modelica.SIunits.Angle gamma
           "Electrical angle between rotor and stator";
 
-        Complex rotator "Equivalent vector representation of windingAngle";
+        Complex rotator "Equivalent vector representation of orientation";
 
       equation
         // Stator flux into positive stator port
@@ -3359,7 +3375,7 @@ according to the following figure.
         Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
           winding(
           final m=m,
-          final windingAngle={2*pi*(k - 1)/m for k in 1:m},
+          final orientation={2*pi*(k - 1)/m for k in 1:m},
           final effectiveTurns=fill(effectiveTurns, m),
           Phi(re(stateSelect=StateSelect.avoid), im(stateSelect=StateSelect.avoid)))
           "Symmetric winding"
@@ -3409,10 +3425,10 @@ according to the following figure.
         i = strayInductor.i;
 
         connect(port_p, winding.port_p)                            annotation (Line(
-              points={{-100,0},{-55,0},{-10,0}},
+              points={{-100,5.55112e-16},{-10,5.55112e-16},{-10,1.16747e-15}},
                                color={255,128,0}));
         connect(winding.port_n, port_n)                            annotation (Line(
-              points={{10,0},{58,0},{100,0}},
+              points={{10,-5.72459e-17},{100,-5.72459e-17},{100,5.55112e-16}},
                                color={255,128,0}));
         connect(ground.p,star. pin_n) annotation (Line(points={{60,-80},{50,-80}},
               color={0,0,255}));
@@ -3436,7 +3452,7 @@ according to the following figure.
             color={191,0,0},
             smooth=Smooth.None));
         connect(thermalCollector.port_b, heatPort) annotation (Line(
-            points={{-40,-90},{-40,-100},{0,-100}},
+            points={{-40,-90},{-40,-100},{5.55112e-16,-100}},
             color={191,0,0},
             smooth=Smooth.None));
         annotation (         Icon(coordinateSystem(preserveAspectRatio=false,
@@ -3531,7 +3547,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
         Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
           winding(
           final m=2,
-          final windingAngle={0,Modelica.Constants.pi/2},
+          final orientation={0,Modelica.Constants.pi/2},
           final effectiveTurns=fill(effectiveTurns, 2),
           Phi(re(stateSelect=StateSelect.avoid), im(stateSelect=StateSelect.avoid)))
           "Symmetric winding"
@@ -3682,32 +3698,33 @@ This package contains components for
     package Functions "Axiliary functions for electric machines"
       extends Modelica.Icons.Package;
 
-      function symmetricWindingAngle
-        "Winding angles of symmetric phase winding"
+      function symmetricOrientation
+        "Orientations of the resulting fundamental wave field phasors"
 
         import Modelica.Constants.pi;
 
         input Integer m "Number of phases";
-        output Modelica.SIunits.Angle windingAngle[m] "Angle of wining axis";
+        output Modelica.SIunits.Angle orientation[m]
+          "Orientation of the resulting fundamental wave field phasors";
 
       algorithm
         if mod(m,2) == 0 then
           // Even number of phases
           for k in 1:integer(m/2) loop
-            windingAngle[k] :=(k - 1)*4*pi/m;
-            windingAngle[k+integer(m/2)] := windingAngle[k] + 2*pi/m;
+            orientation[k] :=(k - 1)*4*pi/m;
+            orientation[k+integer(m/2)] := orientation[k] + 2*pi/m;
           end for;
         else
           // Odd number of phases
-          windingAngle :={(k - 1)*2*pi/m for k in 1:m};
+          orientation :={(k - 1)*2*pi/m for k in 1:m};
         end if;
       annotation (Documentation(info="<html>
 <p>
-This function determines the winding angles of a symmetrical winding with <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/m.png\"> phases. For an odd number of phases the difference of the windings angles of two adjacent phases is
-<img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/2pi_over_m.png\">. In case of an even number of phases aligned winding angles are not modeled since they do not add any information. Instead the <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/m.png\"> windings are divided into two different groups. The first group refers to the indices <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/k_le_m_over_2.png\">. The second group covers the indices <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/k_gt_m_over_2.png\">. The difference of the windings angles of two adjacent phases - of both the first and the second group, respectively - is <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/4pi_over_m.png\">. The phase shift of the two groups <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/pi_over_2m.png\">.
+This function determines the orientation of the symmetrical winding with <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/m.png\"> phases. For an odd number of phases the difference of the windings angles of two adjacent phases is
+<img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/2pi_over_m.png\">. In case of an even number of phases the aligned orientation of winding is not modeled since they do not add any information. Instead the <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/m.png\"> windings are divided into two different groups. The first group refers to the indices <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/k_le_m_over_2.png\">. The second group covers the indices <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/k_gt_m_over_2.png\">. The difference of the windings angles of two adjacent phases - of both the first and the second group, respectively - is <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/4pi_over_m.png\">. The phase shift of the two groups <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/pi_over_2m.png\">.
 </p>
 </html>"));
-      end symmetricWindingAngle;
+      end symmetricOrientation;
       annotation (Documentation(info="<html>
 <p>This package contains auxiliary functions for electric machine models.</p>
 </html>"));
@@ -4744,6 +4761,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <tr><td>Version</td> <td>Revision</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
 </thead>
 <tbody>
+<tr><td>1.6.0</td><td>3808</td>  <td>2010-04-29</td>  <td>C. Kral</td>  <td>Renamed all parameters windingAngle to orientation</td></tr>
 <tr><td>1.5.0</td><td>3802</td>  <td>2010-04-28</td>  <td>C. Kral</td>  <td>Added stator core, friction, stray load and brush loss models and changed parameter of EddyCurrent model</td></tr>
 <tr><td>1.4.0</td><td>3763</td>  <td>2010-04-22</td>  <td>C. Kral</td>  <td>Added eddy current loss model with thermal heat port</td></tr>
 <tr><td>1.3.0</td><td></td>  <td>2010-02-26</td>  <td>A. Haumer<br>C. Kral</td>  <td>New state selection, icons and copyright included</td></tr>
