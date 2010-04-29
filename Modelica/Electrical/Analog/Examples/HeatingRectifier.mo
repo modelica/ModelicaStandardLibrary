@@ -17,12 +17,12 @@ model HeatingRectifier "Heating rectifier"
   annotation (Placement(transformation(extent={{20,40},{40,60}}, rotation=0)));
   Modelica.Thermal.HeatTransfer.Components.HeatCapacitor HeatCapacitor1(C=1)
   annotation (Placement(transformation(
-        origin={-10,-50},
+        origin={-20,-50},
         extent={{-10,-10},{10,10}},
         rotation=180)));
   Modelica.Thermal.HeatTransfer.Components.ThermalConductor ThermalConductor1(G=10)
   annotation (Placement(transformation(
-        origin={-10,-10},
+        origin={-20,-10},
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Resistor R(R=1)
@@ -35,15 +35,13 @@ equation
   connect(Capacitor1.n, G.p)
   annotation (Line(points={{40,50},{40,20},{-70,20}}, color={0,0,255}));
   connect(HeatingDiode1.n, Capacitor1.p)
-  annotation (Line(points={{5.55112e-16,50},{20,50}},
-                                            color={0,0,255}));
+  annotation (Line(points={{0,50},{20,50}}, color={0,0,255}));
   connect(HeatingDiode1.heatPort, ThermalConductor1.port_a)
                                                           annotation (Line(
-        points={{-10,40},{-10,20},{-10,5.55112e-16},{-10,5.55112e-16}},
-                                                      color={191,0,0}));
+        points={{-20,40},{-20,0},{-20,0}},            color={191,0,0}));
   connect(ThermalConductor1.port_b, HeatCapacitor1.port)
-                                                       annotation (Line(points={{-10,-20},
-          {-10,-25.75},{-10,-40},{-10,-40}},
+                                                       annotation (Line(points={{-20,-20},
+          {-20,-25.75},{-20,-40}},
         color={191,0,0}));
   connect(R.p, Capacitor1.p)
   annotation (Line(points={{20,80},{20,50}}, color={0,0,255}));

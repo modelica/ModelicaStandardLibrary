@@ -12,7 +12,9 @@ package Ideal
       "Opened thyristor conductance";
             parameter Modelica.SIunits.Voltage Vknee(final min=0, start=0)
       "Forward threshold voltage";
-            extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+            extends
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
+               final T=293.15);
             Boolean off(start=true) "Switching state";
             Modelica.Blocks.Interfaces.BooleanInput fire
               annotation (Placement(transformation(
@@ -28,7 +30,7 @@ package Ideal
             off = s < 0 or pre(off) and not fire;
             v = (s*unitCurrent)*(if off then 1 else Ron) + Vknee;
             i = (s*unitVoltage)*(if off then Goff else 1) + Goff*Vknee;
-            LossPower = v*i;
+            lossPower = v*i;
             annotation (
               Documentation(info="<html>
 This is an ideal thyristor model which is<br><br>
@@ -154,7 +156,9 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
       "Opened thyristor conductance";
             parameter Modelica.SIunits.Voltage Vknee(final min=0, start=0)
       "Forward threshold voltage";
-            extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+            extends
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
+               final T=293.15);
             Boolean off(start=true) "Switching state";
             Modelica.Blocks.Interfaces.BooleanInput fire
               annotation (Placement(transformation(
@@ -170,7 +174,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
             off = s < 0 or not fire;
             v = (s*unitCurrent)*(if off then 1 else Ron) + Vknee;
             i = (s*unitVoltage)*(if off then Goff else 1) + Goff*Vknee;
-            LossPower = v*i;
+            lossPower = v*i;
             annotation (
               Documentation(info="<html>
 This is an ideal GTO thyristor model which is<br><br>
@@ -292,7 +296,8 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+    extends
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(      final T=293.15);
     Interfaces.PositivePin p annotation (Placement(transformation(extent={{-110,
               -10},{-90,10}}, rotation=0)));
     Interfaces.NegativePin n2 annotation (Placement(transformation(extent={{90,
@@ -317,7 +322,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     n1.i = -(s1*unitVoltage)*(if (control) then Goff else 1);
     p.v - n2.v = (s2*unitCurrent)*(if (control) then Ron else 1);
     n2.i = -(s2*unitVoltage)*(if (control) then 1 else Goff);
-    LossPower = p.i * p.v + n1.i *n1.v + n2.i * n2.v;
+    lossPower = p.i * p.v + n1.i *n1.v + n2.i * n2.v;
     annotation (
       Documentation(info="<HTML>
 <P>
@@ -398,7 +403,8 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+    extends
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(      final T=293.15);
     Interfaces.PositivePin p1 annotation (Placement(transformation(extent={{
               -110,40},{-90,60}}, rotation=0)));
     Interfaces.PositivePin p2 annotation (Placement(transformation(extent={{
@@ -431,7 +437,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     n1.i = if control then -s1*unitVoltage*Goff - s4*unitCurrent else -s1*unitCurrent - s4*unitVoltage*Goff;
     n2.i = if control then -s2*unitVoltage*Goff - s3*unitCurrent else -s2*unitCurrent - s3*unitVoltage*Goff;
 
-    LossPower = p1.i * p1.v + p2.i * p2.v + n1.i *n1.v + n2.i * n2.v;
+    lossPower = p1.i * p1.v + p2.i * p2.v + n1.i *n1.v + n2.i * n2.v;
     annotation (
       Documentation(info="<HTML>
 <P>
@@ -520,7 +526,8 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+    extends
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(      final T=293.15);
     Interfaces.PositivePin p annotation (Placement(transformation(extent={{-110,
               -10},{-90,10}}, rotation=0)));
     Interfaces.NegativePin n2 annotation (Placement(transformation(extent={{90,
@@ -546,7 +553,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     n1.i = -(s1*unitVoltage)*(if (control.v > level) then Goff else 1);
     p.v - n2.v = (s2*unitCurrent)*(if (control.v > level) then Ron else 1);
     n2.i = -(s2*unitVoltage)*(if (control.v > level) then 1 else Goff);
-    LossPower = p.i * p.v + n1.i *n1.v + n2.i * n2.v;
+    lossPower = p.i * p.v + n1.i *n1.v + n2.i * n2.v;
     annotation (
       Documentation(info="<HTML>
 <P>
@@ -630,7 +637,8 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+    extends
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(      final T=293.15);
     Interfaces.PositivePin p1 annotation (Placement(transformation(extent={{
               -110,40},{-90,60}}, rotation=0)));
     Interfaces.PositivePin p2 annotation (Placement(transformation(extent={{
@@ -665,7 +673,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     n1.i = if control.v > level then -s1*unitVoltage*Goff - s4*unitCurrent else -s1*unitCurrent - s4*unitVoltage*Goff;
     n2.i = if control.v > level then -s2*unitVoltage*Goff - s3*unitCurrent else -s2*unitCurrent - s3*unitVoltage*Goff;
 
-    LossPower = p1.i * p1.v + p2.i * p2.v + n1.i *n1.v + n2.i * n2.v;
+    lossPower = p1.i * p1.v + p2.i * p2.v + n1.i *n1.v + n2.i * n2.v;
     annotation (
       Documentation(info="<HTML>
 <P>
@@ -1056,7 +1064,8 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
       "Backward state-off conductance (opened diode conductance)";
           parameter Modelica.SIunits.Voltage Vknee(final min=0, start=0)
       "Forward threshold voltage";
-          extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
+          extends
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort;
           Boolean off(start=true) "Switching state";
   protected
           Real s(final unit="1")
@@ -1071,7 +1080,7 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
           v = (s*unitCurrent)*(if off then 1 else Ron) + Vknee;
           i = (s*unitVoltage)*(if off then Goff else 1) + Goff*Vknee;
 
-          LossPower = v*i;
+          lossPower = v*i;
           annotation (
             Documentation(info="<html>
 <P>
@@ -1476,7 +1485,8 @@ where the constant <i>G</i> is called the gyration conductance.
    parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance" annotation (Placement(transformation(extent={
               {10,10},{56.6667,56.6667}}, rotation=0)));
-   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+   extends
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(     final T=293.15);
    Modelica.Blocks.Interfaces.BooleanInput control
       "true => switch open, false => p--n connected" annotation (Placement(
           transformation(
@@ -1491,7 +1501,7 @@ where the constant <i>G</i> is called the gyration conductance.
    v = (s*unitCurrent)*(if control then 1 else Ron);
    i = (s*unitVoltage)*(if control then Goff else 1);
 
-   LossPower = v*i;
+   lossPower = v*i;
     annotation (
       Documentation(info="<HTML>
 <P>
@@ -1570,7 +1580,8 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
       parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance"   annotation (Placement(transformation(extent=
              {{10,10},{56.6667,56.6667}}, rotation=0)));
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+      extends
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(        final T=293.15);
       Modelica.Blocks.Interfaces.BooleanInput control
       "true => p--n connected, false => switch open"   annotation (Placement(
           transformation(
@@ -1585,7 +1596,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
       v = (s*unitCurrent)*(if control then Ron else 1);
       i = (s*unitVoltage)*(if control then 1 else Goff);
 
-      LossPower = v*i;
+      lossPower = v*i;
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -1654,6 +1665,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     end IdealClosingSwitch;
 
   model ControlledIdealOpeningSwitch "Controlled ideal electrical opener"
+
     parameter SI.Voltage level=0.5 "Switch level" annotation (Placement(
           transformation(extent={{-56.6667,10},{-10,56.6667}}, rotation=0)));
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
@@ -1662,7 +1674,8 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance" annotation (Placement(transformation(extent={
               {-56.6667,-56.6667},{-10,-10}}, rotation=0)));
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+    extends
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(      final T=293.15);
     Interfaces.PositivePin p annotation (Placement(transformation(extent={{-110,
               -10},{-90,10}}, rotation=0)));
     Interfaces.NegativePin n annotation (Placement(transformation(extent={{90,
@@ -1683,7 +1696,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     p.v - n.v = (s*unitCurrent)*(if (control.v > level) then 1 else Ron);
     p.i = (s*unitVoltage)*(if (control.v > level) then Goff else 1);
 
-    LossPower = (p.v - n.v)*p.i;
+    lossPower = (p.v - n.v)*p.i;
     annotation (
       Documentation(info="
 <HTML>
@@ -1751,6 +1764,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
   end ControlledIdealOpeningSwitch;
 
     model ControlledIdealClosingSwitch "Controlled ideal electrical closer"
+
       parameter SI.Voltage level=0.5 "Switch level" annotation (Placement(
           transformation(extent={{-56.6667,10},{-10,56.6667}}, rotation=0)));
       parameter SI.Resistance Ron(final min=0) = 1.E-5
@@ -1760,7 +1774,8 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
       parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance"   annotation (Placement(transformation(extent=
              {{-56.6667,-56.6667},{-10,-10}}, rotation=0)));
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+      extends
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(        final T=293.15);
       Modelica.Electrical.Analog.Interfaces.PositivePin p annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
       Modelica.Electrical.Analog.Interfaces.NegativePin n annotation (Placement(
@@ -1781,7 +1796,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
       p.v - n.v = (s*unitCurrent)*(if (control.v > level) then Ron else 1);
       p.i = (s*unitVoltage)*(if (control.v > level) then 1 else Goff);
 
-      LossPower = (p.v - n.v)*p.i;
+      lossPower = (p.v - n.v)*p.i;
       annotation (
         Documentation(info="
 <HTML>
@@ -1855,7 +1870,8 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     parameter Modelica.SIunits.VoltageSlope dVdt(start=10E3)
       "Arc voltage slope";
     parameter Modelica.SIunits.Voltage Vmax(start=60) "Max. arc voltage";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+    extends
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(      final T=293.15);
     Modelica.Blocks.Interfaces.BooleanInput control
       "false => p--n connected, true => switch open"
       annotation (Placement(transformation(
@@ -1882,7 +1898,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
         v=min(Vmax, V0 + dVdt*(time - tSwitch))*sign(i);
       end if;
     end if;
-   LossPower = v*i;
+   lossPower = v*i;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
               -100},{100,100}}), graphics={
           Line(points={{40,50},{32,32},{48,28},{40,18}}, color={255,0,0}),
@@ -1990,7 +2006,8 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     parameter Modelica.SIunits.VoltageSlope dVdt(start=10E3)
       "Arc voltage slope";
     parameter Modelica.SIunits.Voltage Vmax(start=60) "Max. arc voltage";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+    extends
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(      final T=293.15);
     Modelica.Blocks.Interfaces.BooleanInput control
       "true => p--n connected, false => switch open"
       annotation (Placement(transformation(
@@ -2017,7 +2034,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
         v=min(Vmax, V0 + dVdt*(time - tSwitch))*sign(i);
       end if;
     end if;
-  LossPower = v*i;
+  lossPower = v*i;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={
           Line(points={{40,50},{32,24},{48,28},{40,0}}, color={255,0,0}),
@@ -2129,7 +2146,8 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     parameter Modelica.SIunits.VoltageSlope dVdt(start=10E3)
       "Arc voltage slope";
     parameter Modelica.SIunits.Voltage Vmax(start=60) "Max. arc voltage";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+    extends
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(      final T=293.15);
     Modelica.Electrical.Analog.Interfaces.PositivePin p
                              annotation (Placement(transformation(extent={{-110,
               -10},{-90,10}}, rotation=0)));
@@ -2170,7 +2188,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
         v=min(Vmax, V0 + dVdt*(time - tSwitch))*sign(i);
       end if;
     end if;
-   LossPower = v*i;
+   lossPower = v*i;
     annotation (
       Documentation(info="
 <HTML>
@@ -2270,7 +2288,8 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
       parameter Modelica.SIunits.VoltageSlope dVdt(start=10E3)
       "Arc voltage slope";
       parameter Modelica.SIunits.Voltage Vmax(start=60) "Max. arc voltage";
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+      extends
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(        final T=293.15);
       Modelica.Electrical.Analog.Interfaces.PositivePin p annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
       Modelica.Electrical.Analog.Interfaces.NegativePin n annotation (Placement(
@@ -2309,7 +2328,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
           v=min(Vmax, V0 + dVdt*(time - tSwitch))*sign(i);
         end if;
       end if;
-     LossPower = v*i;
+     lossPower = v*i;
       annotation (
         Documentation(info="
 <HTML>

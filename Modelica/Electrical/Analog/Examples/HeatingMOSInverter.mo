@@ -3,7 +3,7 @@ model HeatingMOSInverter "Heating MOS Inverter"
   extends Modelica.Icons.Example;
   Modelica.Electrical.Analog.Basic.Ground G
   annotation (Placement(transformation(extent={{-80,-40},{-60,-20}}, rotation=0)));
-  Modelica.Electrical.Analog.Sources.SineVoltage Sin(V=5)
+  Modelica.Electrical.Analog.Sources.SineVoltage Sin(V=5, freqHz=1)
   annotation (Placement(transformation(
         origin={-70,0},
         extent={{-10,-10},{10,10}},
@@ -46,11 +46,7 @@ equation
   connect(Capacitor1.n, G.p)
   annotation (Line(points={{30,0},{30,-20},{-70,-20}}, color={0,0,255}));
 
-  connect(H_NMOS.G, H_PMOS.G)
-  annotation (Line(points={{-40,5},{-40,45}}, color={0,0,255}));
 
-  connect(H_NMOS.G, Sin.p)
-  annotation (Line(points={{-40,5},{-40,10},{-70,10}}, color={0,0,255}));
   connect(H_PMOS.S, H_NMOS.D)
   annotation (Line(points={{-20,45},{-20,15}}, color={0,0,255}));
   connect(H_NMOS.D, Capacitor1.p)
@@ -73,9 +69,9 @@ equation
           -80},{40,-60},{60,-60}}, color={191,0,0}));
   connect(TC1.port_a, H_PMOS.heatPort)
                                      annotation (Line(points={{0,-40},{-10,-40},
-          {-10,40},{-30,40}}, color={191,0,0}));
+          {-10,40},{-40,40}}, color={191,0,0}));
   connect(TC2.port_a, H_NMOS.heatPort)
-  annotation (Line(points={{0,-80},{-30,-80},{-30,0}}, color={191,0,0}));
+  annotation (Line(points={{0,-80},{-40,-80},{-40,0}}, color={191,0,0}));
   connect(TC3.port_b, FixedTemperature1.port)
                                             annotation (Line(points={{70,-30},{
           80,-30}},                   color={191,0,0}));
@@ -121,4 +117,12 @@ H_PMOS.heatPort.Q_flow and H_NMOS.heatPort.Q_flow<br>
 "),
   experiment(
      StopTime=5));
+  connect(Sin.p, H_NMOS.G) annotation (Line(
+      points={{-70,10},{-54,10},{-54,5},{-40,5}},
+      color={0,0,255},
+      smooth=Smooth.None));
+  connect(H_PMOS.G, Sin.p) annotation (Line(
+      points={{-40,45},{-48,45},{-48,44},{-54,44},{-54,10},{-70,10}},
+      color={0,0,255},
+      smooth=Smooth.None));
 end HeatingMOSInverter;

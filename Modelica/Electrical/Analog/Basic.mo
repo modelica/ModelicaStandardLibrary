@@ -65,18 +65,19 @@ model Resistor "Ideal linear electrical resistor"
       "Resistance at temperature T_ref";
   parameter Modelica.SIunits.Temperature T_ref=300.15 "Reference temperature";
   parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
-      "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
+      "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(TheatPort - T_ref))";
 
   extends Modelica.Electrical.Analog.Interfaces.OnePort;
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
+  extends
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(    T = T_ref);
   Modelica.SIunits.Resistance R_actual
-      "Actual resistance = R*(1 + alpha*(T_heatPort - T_ref))";
+      "Actual resistance = R*(1 + alpha*(TheatPort - T_ref))";
 
 equation
-  assert((1 + alpha*(T_heatPort - T_ref)) >= Modelica.Constants.eps, "Temperature outside scope of model!");
-  R_actual = R*(1 + alpha*(T_heatPort - T_ref));
+  assert((1 + alpha*(TheatPort - T_ref)) >= Modelica.Constants.eps, "Temperature outside scope of model!");
+  R_actual = R*(1 + alpha*(TheatPort - T_ref));
   v = R_actual*i;
-  LossPower = v*i;
+  lossPower = v*i;
   annotation (
     Documentation(info="<html>
 <p>The linear resistor connects the branch voltage <i>v</i> with the branch current <i>i</i> by <i>i*R = v</i>. The Resistance <i>R</i> is allowed to be positive, zero, or negative.</p>
@@ -135,14 +136,15 @@ end Resistor;
     parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of resistance (R = R_ref*(1 + alpha*(heatPort.T - T_ref))";
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref, useHeatPort=true);
+    extends
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(      T = T_ref, useHeatPort=true);
     Modelica.SIunits.Resistance R
-      "Resistance = R_ref*(1 + alpha*(T_heatPort - T_ref))";
+      "Resistance = R_ref*(1 + alpha*(TheatPort - T_ref))";
   equation
-    assert((1 + alpha*(T_heatPort - T_ref)) >= Modelica.Constants.eps, "Temperature outside scope of model!");
-    R = R_ref*(1 + alpha*(T_heatPort - T_ref));
+    assert((1 + alpha*(TheatPort - T_ref)) >= Modelica.Constants.eps, "Temperature outside scope of model!");
+    R = R_ref*(1 + alpha*(TheatPort - T_ref));
     v = R*i;
-    LossPower = v*i;
+    lossPower = v*i;
     annotation (__Dymola_structurallyIncomplete=true,
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
@@ -222,15 +224,16 @@ model Conductor "Ideal linear electrical conductor"
   parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref))";
   extends Modelica.Electrical.Analog.Interfaces.OnePort;
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
+  extends
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(    T = T_ref);
   Modelica.SIunits.Conductance G_actual
       "Actual conductance = G_ref/(1 + alpha*(T_heatPort - T_ref))";
 
 equation
-  assert((1 + alpha*(T_heatPort - T_ref)) >= Modelica.Constants.eps, "Temperature outside scope of model!");
-  G_actual = G/(1 + alpha*(T_heatPort - T_ref));
+  assert((1 + alpha*(TheatPort - T_ref)) >= Modelica.Constants.eps, "Temperature outside scope of model!");
+  G_actual = G/(1 + alpha*(TheatPort - T_ref));
   i = G_actual*v;
-  LossPower = v*i;
+  lossPower = v*i;
   annotation (
     Documentation(info="<html>
 <p>The linear conductor connects the branch voltage <i>v</i> with the branch current <i>i</i> by <i>i = v*G</i>. The Conductance <i>G</i> is allowed to be positive, zero, or negative.</p>
@@ -1854,21 +1857,22 @@ end M_Transformer;
         parameter Modelica.SIunits.Temperature T_ref=300.15
       "Reference temperature";
         parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
-      "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
+      "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(TheatPort - T_ref))";
         extends Modelica.Electrical.Analog.Interfaces.OnePort;
-        extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
+        extends
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(          T = T_ref);
         Modelica.SIunits.Resistance R_actual
-      "Actual resistance = R*(1 + alpha*(T_heatPort - T_ref))";
+      "Actual resistance = R*(1 + alpha*(TheatPort - T_ref))";
         Modelica.Blocks.Interfaces.RealInput R
           annotation (Placement(transformation(
         origin={0,110},
         extent={{-20,-20},{20,20}},
         rotation=270)));
       equation
-        assert((1 + alpha*(T_heatPort - T_ref)) >= Modelica.Constants.eps, "Temperature outside scope of model!");
-        R_actual = R*(1 + alpha*(T_heatPort - T_ref));
+        assert((1 + alpha*(TheatPort - T_ref)) >= Modelica.Constants.eps, "Temperature outside scope of model!");
+        R_actual = R*(1 + alpha*(TheatPort - T_ref));
         v = R_actual*i;
-        LossPower = v*i;
+        lossPower = v*i;
         annotation (
           Documentation(info="<html>
 <p><br/>The linear resistor connects the branch voltage <i>v</i> with the branch current <i>i</i> by</p><p><br/><i><b>i*R = v</b></i></p>
@@ -1924,21 +1928,22 @@ end M_Transformer;
         parameter Modelica.SIunits.Temperature T_ref=300.15
       "Reference temperature";
         parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
-      "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(T_heatPort - T_ref))";
+      "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(TheatPort - T_ref))";
         extends Modelica.Electrical.Analog.Interfaces.OnePort;
-        extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
+        extends
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(          T = T_ref);
         Modelica.SIunits.Conductance G_actual
-      "Actual conductance = G/(1 + alpha*(T_heatPort - T_ref))";
+      "Actual conductance = G/(1 + alpha*(TheatPort - T_ref))";
         Modelica.Blocks.Interfaces.RealInput G
           annotation (Placement(transformation(
         origin={0,110},
         extent={{-20,-20},{20,20}},
         rotation=270)));
       equation
-        assert((1 + alpha*(T_heatPort - T_ref)) >= Modelica.Constants.eps, "Temperature outside scope of model!");
-        G_actual = G/(1 + alpha*(T_heatPort - T_ref));
+        assert((1 + alpha*(TheatPort - T_ref)) >= Modelica.Constants.eps, "Temperature outside scope of model!");
+        G_actual = G/(1 + alpha*(TheatPort - T_ref));
         i = G_actual*v;
-        LossPower = v*i;
+        lossPower = v*i;
         annotation (
           Documentation(info="<html>
 <p><br/>The linear conductor connects the branch voltage <i>v</i> with the branch current <i>i</i> by</p><p><br/><i><b>i = G*v</b></i></p>

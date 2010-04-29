@@ -12,11 +12,13 @@ package Semiconductors
     parameter Real Maxexp(final min=Modelica.Constants.small) = 15
       "Max. exponent for linear continuation";
     parameter SIunits.Resistance R=1.e8 "Parallel ohmic resistance";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
+    extends
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
+       T=293.15);
   equation
     i = smooth(1,(if (v/Vt > Maxexp) then Ids*(exp(Maxexp)*(1 + v/Vt - Maxexp) - 1) +
       v/R else Ids*(exp(v/Vt) - 1) + v/R));
-    LossPower = v*i;
+    lossPower = v*i;
     annotation (
       Documentation(info="<html>
 <p>The simple diode is a one port. It consists of the diode itself and an parallel ohmic resistance <i>R</i>. The diode formula is:</p>
@@ -89,7 +91,9 @@ package Semiconductors
       "Breakthrough voltage = Zener- or Z-voltage";
    parameter Modelica.SIunits.Current Ibv=0.7 "Breakthrough knee current";
    parameter Real Nbv=0.74 "Breakthrough emission coefficient";
-   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
+   extends
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
+      T=293.15);
 
    Real maxexp=exp(Maxexp);
  equation
@@ -98,7 +102,7 @@ package Semiconductors
            if ( (v+Bv)<-Maxexp*(Nbv*Vt)) then
               -Ids -Ibv* exp(Maxexp)*(1 - (v+Bv)/(Nbv*Vt) - Maxexp) +v/R else
               Ids*(exp(v/Vt)-1) - Ibv*exp(-(v+Bv)/(Nbv*Vt)) + v/R);
-    LossPower = v*i;
+    lossPower = v*i;
           annotation (__Dymola_structurallyIncomplete=true,
             Documentation(info="<html>
 <p>The simple zener diode is a one port. It consists of the diode itself and an parallel ohmic resistance <i>R</i>. The diode formula is:</p>
@@ -172,7 +176,9 @@ model PMOS "Simple MOS Transistor"
   parameter SIunits.Length dW=-2.5e-6 "Narrowing of channel";
   parameter SIunits.Length dL=-2.1e-6 "Shortening of channel";
   parameter SIunits.Resistance RDS=1.e+7 "Drain-Source-Resistance";
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
+  extends
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
+     T=293.15);
   protected
   Real v;
   Real uds;
@@ -199,7 +205,7 @@ equation
   D.i = smooth(0,if (D.v > S.v) then -id else id);
   S.i = smooth(0,if (D.v > S.v) then id else -id);
   B.i = 0;
-  LossPower = D.i * (D.v - S.v);
+  lossPower = D.i * (D.v - S.v);
   annotation (
     Documentation(info="
 <HTML>
@@ -316,7 +322,8 @@ model NMOS "Simple MOS Transistor"
   parameter SIunits.Length dW=-2.5e-6 "narrowing of channel";
   parameter SIunits.Length dL=-1.5e-6 "shortening of channel";
   parameter SIunits.Resistance RDS=1.e+7 "Drain-Source-Resistance";
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
+  extends
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(    T=293.15);
   protected
   Real v;
   Real uds;
@@ -343,7 +350,7 @@ equation
   D.i = smooth(0,if (D.v < S.v) then -id else id);
   S.i = smooth(0,if (D.v < S.v) then id else -id);
   B.i = 0;
-  LossPower = D.i * (D.v - S.v);
+  lossPower = D.i * (D.v - S.v);
   annotation (
     Documentation(info="
 <HTML>
@@ -472,7 +479,9 @@ model NPN "Simple BJT according to Ebers-Moll"
   parameter SIunits.Voltage Vt=0.02585 "Voltage equivalent of temperature";
   parameter Real EMin=-100 "if x < EMin, the exp(x) function is linearized";
   parameter Real EMax=40 "if x > EMax, the exp(x) function is linearized";
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
+  extends
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
+     T=293.15);
   protected
   Real vbc;
   Real vbe;
@@ -527,7 +536,7 @@ equation
   B.i = ibe/Bf + ibc/Br + cbc*der(vbc) + cbe*der(vbe);
   E.i = -B.i - C.i + Ccs*der(C.v);
 
-  LossPower = (C.v-E.v)*(ibe-ibc)*qbk + vbc*ibc/Br + vbe*ibe/Bf;
+  lossPower = (C.v-E.v)*(ibe-ibc)*qbk + vbc*ibc/Br + vbe*ibe/Bf;
   annotation (
     Documentation(info="
 <HTML>
@@ -632,7 +641,8 @@ model PNP "Simple BJT according to Ebers-Moll"
   parameter SIunits.Voltage Vt=0.02585 "Voltage equivalent of temperature";
   parameter Real EMin=-100 "if x < EMin, the exp(x) function is linearized";
   parameter Real EMax=40 "if x > EMax, the exp(x) function is linearized";
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
+  extends
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(     T=293.15);
   protected
   Real vbc;
   Real vbe;
@@ -688,7 +698,7 @@ equation
   B.i = -(ibe/Bf + ibc/Br + cbe*der(vbe) + cbc*der(vbc));
   E.i = -B.i - C.i + Ccs*der(C.v);
 
-  LossPower = (E.v-C.v)*(ibe-ibc)*qbk + vbc*ibc/Br + vbe*ibe/Bf;
+  lossPower = (E.v-C.v)*(ibe-ibc)*qbk + vbc*ibc/Br + vbe*ibe/Bf;
                                                                     annotation (
     Documentation(info="
 <HTML>
@@ -783,7 +793,8 @@ model HeatingDiode "Simple diode with heating port"
   parameter Modelica.SIunits.Temperature TNOM=300.15
       "Parameter measurement temperature";
   parameter Real XTI=3 "Temperature exponent of saturation current";
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=true);
+  extends
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(    useHeatPort=true);
 
   Modelica.SIunits.Temperature vt_t "Temperature voltage";
   Modelica.SIunits.Current id "diode current";
@@ -795,8 +806,8 @@ model HeatingDiode "Simple diode with heating port"
   Real auxp;
   Real maxexp=exp(Maxexp);
 equation
-  assert( T_heatPort > 0,"temperature must be positive");
-  htemp = T_heatPort;
+  assert( TheatPort > 0,"temperature must be positive");
+  htemp = TheatPort;
   vt_t = k*htemp/q;
 
   id = exlin((v/(N*vt_t)), Maxexp) - 1;
@@ -806,7 +817,7 @@ equation
 
   i = Ids*id*pow(htemp/TNOM, XTI/N)*auxp + v/R;
 
-  LossPower = i*v;
+  lossPower = i*v;
   annotation (__Dymola_structurallyIncomplete=true,
     Documentation(info="
 <HTML>
@@ -905,7 +916,9 @@ end HeatingDiode;
       "Parameter measurement temperature";
           parameter Real kvt=-6.96e-3 "fitting parameter for Vt";
           parameter Real kk2=6.0e-4 "fitting parameter for K22";
-          extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=true);
+          extends
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
+             useHeatPort=true);
   protected
           Real v;
           Real uds;
@@ -921,7 +934,7 @@ end HeatingDiode;
         equation
           assert(L + dL > 0, "Heating NMOS: Effective length must be positive");
           assert(W + dW > 0, "Heating NMOS: Effective width  must be positive");
-          assert(T_heatPort > 0,"Heating NMOS: Temperature must be positive");
+          assert(TheatPort > 0,"Heating NMOS: Temperature must be positive");
           gds = if (RDS < 1.e-20 and RDS > -1.e-20) then 1.e20 else 1/RDS;
           v = beta_t*(W + dW)/(L + dL);
           ud = smooth(0,if (D.v < S.v) then S.v else D.v);
@@ -932,15 +945,15 @@ end HeatingDiode;
           id = smooth(0,if (ugst <= 0) then uds*gds else if (ugst > uds) then v*uds*(
             ugst - uds/2) + uds*gds else v*ugst*ugst/2 + uds*gds);
 
-          beta_t = Beta*pow((T_heatPort/Tnom), -1.5);
-          vt_t = Vt*(1 + (T_heatPort - Tnom)*kvt);
-          k2_t = K2*(1 + (T_heatPort - Tnom)*kk2);
+          beta_t = Beta*pow((TheatPort/Tnom), -1.5);
+          vt_t = Vt*(1 + (TheatPort - Tnom)*kvt);
+          k2_t = K2*(1 + (TheatPort - Tnom)*kk2);
 
           G.i = 0;
           D.i = smooth(0,if (D.v < S.v) then -id else id);
           S.i = smooth(0,if (D.v < S.v) then id else -id);
           B.i = 0;
-          LossPower = D.i*(D.v - S.v);
+          lossPower = D.i*(D.v - S.v);
           annotation (__Dymola_structurallyIncomplete=true,
             Documentation(info="<html>
 <p>The NMos model is a simple model of a n-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for H. Spiro.</p>
@@ -1056,7 +1069,8 @@ end HeatingDiode;
       "Parameter measurement temperature";
           parameter Real kvt=-2.9e-3 "fitting parameter for Vt";
           parameter Real kk2=6.2e-4 "fitting parameter for Kk2";
-          extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=true);
+          extends
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(            useHeatPort=true);
   protected
           Real v;
           Real uds;
@@ -1072,7 +1086,7 @@ end HeatingDiode;
         equation
           assert(L + dL > 0, "HeatingPMOS: Effective length must be positive");
           assert(W + dW > 0, "HeatingPMOS: Effective width  must be positive");
-          assert( T_heatPort > 0,"HeatingPMOS: Temperature must be positive");
+          assert( TheatPort > 0,"HeatingPMOS: Temperature must be positive");
           gds = if (RDS < 1.e-20 and RDS > -1.e-20) then 1.e20 else 1/RDS;
           v = beta_t*(W + dW)/(L + dL);
           ud = smooth(0,if (D.v > S.v) then S.v else D.v);
@@ -1083,15 +1097,15 @@ end HeatingDiode;
           id = smooth(0,if (ugst >= 0) then uds*gds else if (ugst < uds) then -v*uds*(
             ugst - uds/2) + uds*gds else -v*ugst*ugst/2 + uds*gds);
 
-          beta_t = Beta*pow((T_heatPort/Tnom), -1.5);
-          vt_t = Vt*(1 + (T_heatPort - Tnom)*kvt);
-          k2_t = K2*(1 + (T_heatPort - Tnom)*kk2);
+          beta_t = Beta*pow((TheatPort/Tnom), -1.5);
+          vt_t = Vt*(1 + (TheatPort - Tnom)*kvt);
+          k2_t = K2*(1 + (TheatPort - Tnom)*kk2);
 
           G.i = 0;
           D.i = smooth(0,if (D.v > S.v) then -id else id);
           S.i = smooth(0,if (D.v > S.v) then id else -id);
           B.i = 0;
-          LossPower = D.i*(D.v - S.v);
+          lossPower = D.i*(D.v - S.v);
           annotation (__Dymola_structurallyIncomplete=true,
             Documentation(info="<html>
 <p>The PMOS model is a simple model of a p-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for H. Spiro.</p>
@@ -1208,7 +1222,8 @@ end HeatingDiode;
           parameter Real NR=1.0 "Reverse current emission coefficient";
           parameter Real K=1.3806226e-23 "Boltzmann's constant";
           parameter Real q=1.6021918e-19 "Elementary electronic charge";
-          extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=true);
+          extends
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(            useHeatPort=true);
           /*protected*/
           Real vbc;
           Real vbe;
@@ -1238,21 +1253,21 @@ end HeatingDiode;
             annotation (Placement(transformation(extent={{90,-40},{110,-60}},
             rotation=0)));
         equation
-          assert( T_heatPort > 0,"temperature must be positive");
+          assert( TheatPort > 0,"temperature must be positive");
           ExMin = exp(EMin);
           ExMax = exp(EMax);
           vbc = B.v - C.v;
           vbe = B.v - E.v;
           qbk = 1 - vbc*Vak;
 
-          hexp = (T_heatPort/Tnom - 1)*EG/vt_t;
+          hexp = (TheatPort/Tnom - 1)*EG/vt_t;
           htempexp = smooth(1,if (hexp < EMin) then ExMin*(hexp - EMin + 1) else if (
             hexp > EMax) then ExMax*(hexp - EMax + 1) else exp(hexp));
 
-          is_t = Is*pow((T_heatPort/Tnom), XTI)*htempexp;
-          br_t = Br*pow((T_heatPort/Tnom), XTB);
-          bf_t = Bf*pow((T_heatPort/Tnom), XTB);
-          vt_t = (K/q)*T_heatPort;
+          is_t = Is*pow((TheatPort/Tnom), XTI)*htempexp;
+          br_t = Br*pow((TheatPort/Tnom), XTB);
+          bf_t = Bf*pow((TheatPort/Tnom), XTB);
+          vt_t = (K/q)*TheatPort;
 
           ibc = smooth(1,(if (vbc/(NR*vt_t) < EMin) then is_t*(ExMin*(vbc/(NR*vt_t) -
             EMin + 1) - 1) + vbc*Gbc else if (vbc/(NR*vt_t) > EMax) then is_t*(
@@ -1278,7 +1293,7 @@ end HeatingDiode;
           B.i = ibe/bf_t + ibc/br_t + cbc*der(vbc) + cbe*der(vbe);
           E.i = -B.i - C.i + Ccs*der(C.v);
 
-          LossPower = (vbc*ibc/br_t + vbe*ibe/bf_t + (ibe - ibc)*qbk*(C.v - E.v));
+          lossPower = (vbc*ibc/br_t + vbe*ibe/bf_t + (ibe - ibc)*qbk*(C.v - E.v));
           annotation (__Dymola_structurallyIncomplete=true,
             Documentation(info="<html>
 <p>This model is a simple model of a bipolar npn junction transistor according to Ebers-Moll.</p>
@@ -1381,7 +1396,8 @@ end HeatingDiode;
           parameter Real NR=1.0 "Reverse current emission coefficient";
           parameter Real K=1.3806226e-23 "Boltzmann's constant";
           parameter Real q=1.6021918e-19 "Elementary electronic charge";
-          extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=true);
+          extends
+      Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(            useHeatPort=true);
   protected
           Real vcb;
           Real veb;
@@ -1411,21 +1427,21 @@ end HeatingDiode;
             annotation (Placement(transformation(extent={{90,-40},{110,-60}},
             rotation=0)));
         equation
-          assert( T_heatPort > 0,"temperature must be positive");
+          assert( TheatPort > 0,"temperature must be positive");
           ExMin = exp(EMin);
           ExMax = exp(EMax);
           vcb = C.v - B.v;
           veb = E.v - B.v;
           qbk = 1 - vcb*Vak;
 
-          hexp = (T_heatPort/Tnom - 1)*EG/vt_t;
+          hexp = (TheatPort/Tnom - 1)*EG/vt_t;
           htempexp = smooth(1,if (hexp < EMin) then ExMin*(hexp - EMin + 1) else if (
             hexp > EMax) then ExMax*(hexp - EMax + 1) else exp(hexp));
 
-          is_t = Is*pow((T_heatPort/Tnom), XTI)*htempexp;
-          br_t = Br*pow((T_heatPort/Tnom), XTB);
-          bf_t = Bf*pow((T_heatPort/Tnom), XTB);
-          vt_t = (K/q)*T_heatPort;
+          is_t = Is*pow((TheatPort/Tnom), XTI)*htempexp;
+          br_t = Br*pow((TheatPort/Tnom), XTB);
+          bf_t = Bf*pow((TheatPort/Tnom), XTB);
+          vt_t = (K/q)*TheatPort;
 
           icb = smooth(1,(if (vcb/(NR*vt_t) < EMin) then is_t*(ExMin*(vcb/(NR*vt_t) -
             EMin + 1) - 1) + vcb*Gbc else if (vcb/(NR*vt_t) > EMax) then is_t*(
@@ -1453,7 +1469,7 @@ end HeatingDiode;
           B.i = -ieb/bf_t - icb/br_t - ceb*der(veb) - ccb*der(vcb);
           E.i = -B.i - C.i + Ccs*der(C.v);
 
-          LossPower = (vcb*icb/br_t + veb*ieb/bf_t + (icb - ieb)*qbk*(C.v- E.v));
+          lossPower = (vcb*icb/br_t + veb*ieb/bf_t + (icb - ieb)*qbk*(C.v- E.v));
           annotation (__Dymola_structurallyIncomplete=true,
             Documentation(info="<html>
 <p>This model is a simple model of a bipolar pnp junction transistor according to Ebers-Moll.</p>
