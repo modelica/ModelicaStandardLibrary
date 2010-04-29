@@ -4209,20 +4209,20 @@ VN- -&GT; name.pc[N-1]
        constant Real EPSSIL =     (11.7 * 8.854214871e-12);
        constant Real EPSOX =      3.453133e-11;
        constant SI.Charge CHARGE =     (1.6021918e-19);
-       constant SI.Temp_C CONSTCtoK =  (273.15);
-       constant Real CONSTboltz = (1.3806226e-23);
-       constant SI.Temp_C REFTEMP =    300.15;  /* 27 deg C */
+       constant SI.Temp_K CONSTCtoK =  (273.15);
+       constant Real CONSTboltz(  final unit= "J/K") =  (1.3806226e-23);
+       constant SI.Temp_K REFTEMP =    300.15;  /* 27 deg C */
 
        constant Real CONSTroot2 =  sqrt(2.0);
-       constant Real CONSTvt0 =    CONSTboltz * (27 + CONSTCtoK)  / CHARGE; // deg C
-       constant Real CONSTKoverQ = CONSTboltz / CHARGE;
+       constant Real CONSTvt0(   final unit= "(J/K)/(A.s)") =   CONSTboltz * (27 + CONSTCtoK)  / CHARGE; // deg C
+       constant Real CONSTKoverQ(  final unit= "(J/K)/(A.s)")= CONSTboltz / CHARGE;
        constant Real CONSTe =      exp(1.0);
 
        // options
 
        constant SI.Conductance CKTgmin =         1e-12;
-       constant SI.Temp_C CKTnomTemp =      300.15;
-       constant SI.Temp_C CKTtemp =         300.15;
+       constant SI.Temp_K CKTnomTemp =      300.15;
+       constant SI.Temp_K CKTtemp =         300.15;
        constant SI.Area CKTdefaultMosAD = 0.0;
        constant SI.Area CKTdefaultMosAS = 0.0;
        constant SI.Length CKTdefaultMosL =  100e-6;
@@ -4242,12 +4242,13 @@ VN- -&GT; name.pc[N-1]
 
       function energyGapDepTemp "Temperature dependency of energy gap"
 
-        input Real temp "Temperature";
-        input Real gap0 =   1.16 "Input parameter";
-        input Real coeff1 = 7.02e-4 "Input parameter";
-        input Real coeff2 = 1108.0 "Input parameter";
+        input Modelica.SIunits.Temp_K temp "Temperature";
+        output Modelica.SIunits.Voltage ret "Output voltage";
 
-        output Real ret "Output value";
+      protected
+         Modelica.SIunits.Voltage gap0 =   1.16;
+         Real coeff1( final unit = "V/K") = 7.02e-4;
+         Modelica.SIunits.Temp_K coeff2 = 1108.0;
 
       algorithm
         ret := gap0 - (coeff1 * temp * temp) / (temp + coeff2);
@@ -4260,16 +4261,16 @@ VN- -&GT; name.pc[N-1]
       function junctionPotDepTemp
         "Temperature dependency of junction potential"
 
-        input Real phi0;
-        input Real temp "Device Temperature";
-        input Real tnom "Nominal Temperature";
+        input Modelica.SIunits.Voltage phi0;
+        input Modelica.SIunits.Temp_K temp "Device Temperature";
+        input Modelica.SIunits.Temp_K tnom "Nominal Temperature";
 
-        output Real ret "Output value";
+        output Modelica.SIunits.Voltage ret "Output voltage";
 
       protected
-        Real phibtemp;
-        Real phibtnom;
-        Real vt;
+        Modelica.SIunits.Voltage phibtemp;
+        Modelica.SIunits.Voltage phibtnom;
+        Modelica.SIunits.Voltage vt;
 
       algorithm
         phibtemp := energyGapDepTemp( temp);
@@ -4285,17 +4286,17 @@ VN- -&GT; name.pc[N-1]
       function saturationCurDepTempSPICE3MOSFET
         "Temperature dependency of saturation current"
 
-        input Real satcur0;
-        input Real temp "Device Temperature";
-        input Real tnom "Nominal Temperature";
+        input Modelica.SIunits.Current satcur0 "Satuaration current";
+        input Modelica.SIunits.Temp_K temp "Device Temperature";
+        input Modelica.SIunits.Temp_K tnom "Nominal Temperature";
 
-        output Real ret;
+        output Modelica.SIunits.Current ret "Output current";
 
       protected
-        Real vt;
-        Real vtnom;
-        Real energygaptnom;
-        Real energygaptemp;
+        Modelica.SIunits.Voltage vt;
+        Modelica.SIunits.Voltage vtnom;
+        Modelica.SIunits.Voltage energygaptnom;
+        Modelica.SIunits.Voltage energygaptemp;
 
       algorithm
         vt            := SpiceRoot.SPICEcircuitCONST.CONSTKoverQ * temp;
@@ -4311,14 +4312,14 @@ VN- -&GT; name.pc[N-1]
 
       function junctionVCrit "Voltage limitation"
 
-        input Real temp "temperature";
+        input Modelica.SIunits.Temp_K temp "temperature";
         input Real ncoeff;
-        input Real satcur "Saturation current";
+        input Modelica.SIunits.Current satcur "Saturation current";
 
         output Real ret "Output value";
 
       protected
-        Real vte;
+        Modelica.SIunits.Voltage vte;
 
       algorithm
         vte := SpiceRoot.SPICEcircuitCONST.CONSTKoverQ * temp * ncoeff;
@@ -4333,20 +4334,20 @@ VN- -&GT; name.pc[N-1]
       function junctionParamDepTempSPICE3
         "Temperature dependency of junction parameters"
 
-        input Real phi0;
-        input Real cap0;
+        input Modelica.SIunits.Voltage phi0;
+        input Modelica.SIunits.Capacitance cap0;
         input Real mcoeff;
-        input Real temp "Device temperature";
-        input Real tnom "Nominal temperature";
+        input Modelica.SIunits.Temp_K temp "Device temperature";
+        input Modelica.SIunits.Temp_K tnom "Nominal temperature";
 
         output Real junctionpot "Junction potential";
         output Real jucntioncap "Junction capacitance";
 
       protected
-        Real phibtemp;
-        Real phibtnom;
-        Real vt;
-        Real vtnom;
+        Modelica.SIunits.Voltage phibtemp;
+        Modelica.SIunits.Voltage phibtnom;
+        Modelica.SIunits.Voltage vt;
+        Modelica.SIunits.Voltage vtnom;
         Real arg;
         Real fact2;
         Real pbfact;
@@ -4767,21 +4768,21 @@ VN- -&GT; name.pc[N-1]
 
          constant Real EPSSIL =     (11.7 * 8.854214871e-12);
          constant Real EPSOX =      3.453133e-11;
-         constant Real CHARGE =     (1.6021918e-19);
-        constant Real CONSTCtoK =  (273.15);
-         constant Real CONSTboltz = (1.3806226e-23);
-        constant Real REFTEMP =    300.15;  /* 27 degrees C */
+         constant Modelica.SIunits.Charge CHARGE =     (1.6021918e-19);
+        constant Modelica.SIunits.Temp_K CONSTCtoK =  (273.15);
+        constant Real CONSTboltz( final unit= "J/K") = (1.3806226e-23);
+        constant Modelica.SIunits.Temp_K REFTEMP =    300.15;  /* 27 degrees C */
 
         constant Real CONSTroot2 =  sqrt(2.0);
-        constant Real CONSTvt0 =    CONSTboltz * (27 + CONSTCtoK)  / CHARGE; // deg C
-        constant Real CONSTKoverQ = CONSTboltz / CHARGE;
+        constant Real CONSTvt0(  final unit= "(J/K)/(A.s)") =   CONSTboltz * (27 + CONSTCtoK)  / CHARGE; // deg C
+        constant Real CONSTKoverQ( final unit= "(J/K)/(A.s)") = CONSTboltz / CHARGE;
         constant Real CONSTe =      exp(1.0);
 
         // options
 
         constant Modelica.SIunits.Conductance CKTgmin =         1e-12;
-        constant Modelica.SIunits.Temp_C CKTnomTemp =      300.15;
-        constant Modelica.SIunits.Temp_C CKTtemp =         300.15;
+        constant Modelica.SIunits.Temp_K CKTnomTemp =      300.15;
+        constant Modelica.SIunits.Temp_K CKTtemp =         300.15;
         constant Modelica.SIunits.Area CKTdefaultMosAD = 0.0;
         constant Modelica.SIunits.Area CKTdefaultMosAS = 0.0;
         constant Modelica.SIunits.Length CKTdefaultMosL =  1.0e-4;
@@ -4854,7 +4855,7 @@ VN- -&GT; name.pc[N-1]
 
     record Model "Device Temperature"
 
-      Modelica.SIunits.Temp_C m_dTemp( start = SpiceRoot.SPICEcircuitCONST.CKTnomTemp)
+      Modelica.SIunits.Temp_K m_dTemp( start = SpiceRoot.SPICEcircuitCONST.CKTnomTemp)
           "TEMP, Device Temperature";
         annotation (Documentation(info="<html>
 <p>The record Model includes the device temperture which has a default value of 27&deg;C.</p>
@@ -5053,10 +5054,10 @@ VN- -&GT; name.pc[N-1]
          Modelica.SIunits.Capacitance m_capBS(               start = 0.0)
           "CBS, B-S junction capacitance";
          Real m_capBSIsGiven "CapBS IsGivenValue";
-         Real m_bulkCapFactor(       start = 0.0)
+         Modelica.SIunits.CapacitancePerArea m_bulkCapFactor(       start = 0.0)
           "CJ, Bottom junction cap per area";
          Real m_bulkCapFactorIsGiven "Bulk cap factor IsGivenValue";
-         Real m_sideWallCapFactor(   start = 0.0)
+         Modelica.SIunits.Permittivity m_sideWallCapFactor(   start = 0.0)
           "CJSW, Side grading coefficient";
          Real m_fwdCapDepCoeff(      start = 0.5)
           "FC, Forward bias jct. fit parm.";
@@ -5066,13 +5067,17 @@ VN- -&GT; name.pc[N-1]
          Modelica.SIunits.Voltage m_gamma(               start = 0.0)
           "GAMMA, Bulk threshold parameter";
          Real m_gammaIsGiven "Gamma IsGivenValue";
-         Real m_lambda "Channel-length modulation";
+         Modelica.SIunits.InversePotential m_lambda "Channel-length modulation";
          Real m_substrateDoping(     start = 0.0) "NSUB, Substrate doping";
          Real m_substrateDopingIsGiven "Substrate doping IsGivenValue";
          Real m_gateType(            start = 1.0) "TPG, Gate type";
-         Real m_surfaceStateDensity( start = 0.0) "NSS, Gate type";
-         Real m_surfaceMobility(     start = 600.0) "UO, Surface mobility";
-         Real m_latDiff(             start = 0.0) "LD, Lateral diffusion";
+         Modelica.SIunits.Conversions.NonSIunits.PerArea_cm
+          m_surfaceStateDensity(                                                   start = 0.0)
+          "NSS, Gate type";
+         Modelica.SIunits.Conversions.NonSIunits.Area_cmPerVoltageSecond
+          m_surfaceMobility( start = 600.0) "UO, Surface mobility";
+         Modelica.SIunits.Length m_latDiff(             start = 0.0)
+          "LD, Lateral diffusion";
          Modelica.SIunits.Current m_jctSatCur(           start = 1.0e-14)
           "IS, Bulk junction sat. current";
          Modelica.SIunits.Resistance m_drainResistance(     start = 0)
@@ -5081,9 +5086,10 @@ VN- -&GT; name.pc[N-1]
          Modelica.SIunits.Resistance m_sourceResistance(    start = 0)
           "RS, Source ohmic resistance";
          Real m_sourceResistanceIsGiven "Source resistance IsGivenValue";
-         Real m_transconductance "input - use tTransconductance";
+         Modelica.SIunits.Transconductance m_transconductance
+          "input - use tTransconductance";
          Real m_transconductanceIsGiven "Transconductance IsGivenValue";
-         Modelica.SIunits.Temp_C m_tnom(                start=SpiceConstants.CKTnomTemp)
+         Modelica.SIunits.Temp_K m_tnom(start=SpiceConstants.CKTnomTemp)
           "TNOM, Parameter measurement temperature";
 
         annotation (Documentation(info="<html>
