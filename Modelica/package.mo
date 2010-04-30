@@ -1829,12 +1829,39 @@ to <b style=\"color:blue\">existing</b> libraries:
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>Modelica.Blocks.Continuous.</b></td></tr>
+<tr><td colspan=\"2\"><b>Modelica.Blocks.Continuous</b></td></tr>
 <tr><td valign=\"top\"> Filter </td>
     <td valign=\"top\"> Continuous low pass, high pass, band pass or band stop
                       IIR-filter of type CriticalDamping, Bessel, Butterworth or ChebyshevI </td> </tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Math.Vectors.</b></td></tr>
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Analog</b></td></tr>
+<tr><td valign=\"top\"> Examples </td>
+    <td valign=\"top\"> SimpleTriacCircuit, IdealTriacCircuit, AD_DA_conversion </td> </tr>
+<tr><td valign=\"top\"> Ideal </td>
+    <td valign=\"top\"> IdealTriac, AD_Converter, DA_Converter </td> </tr>
+<tr><td valign=\"top\"> Semiconductors </td>
+    <td valign=\"top\"> SimpleTriac </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Digital</b></td></tr>
+<tr><td valign=\"top\"> Examples </td>
+    <td valign=\"top\"> Delay_example, DFFREG_example, DFFREGL_example, DFFREGSRH_example,
+                      DFFREGSRL_example, DLATREG_example, DLATREGL_example, DLATREGSRH_example
+                      DLATREGSRL_example, NXFER_example, NRXFER_example, BUF3S_example
+                      INV3S_example, WiredX_example </td> </tr>
+<tr><td valign=\"top\"> Interfaces</td>
+    <td valign=\"top\"> UX01, Strength, MIMO </td> </tr>
+<tr><td valign=\"top\"> Tables</td>
+    <td valign=\"top\"> ResolutionTable, StrengthMap, NXferTable, NRXferTable, PXferTable, PRXferTable,
+                      Buf3sTable, Buf3slTable </td> </tr>
+<tr><td valign=\"top\"> Delay</td>
+    <td valign=\"top\"> InertialDelaySensitiveVector </td> </tr>
+<tr><td valign=\"top\"> Registers</td>
+    <td valign=\"top\"> DFFR, DFFREG, DFFREGL, DFFSR, DFFREGSRH, DFFREGSRL, DLATR, DLATREG, DLATREGL, 
+                      DLATSR, DLATREGSRH, DLATREGSRL </td> </tr>
+<tr><td valign=\"top\"> Tristates</td>
+    <td valign=\"top\"> NXFERGATE, NRXFERGATE, PXFERGATE, PRXFERGATE, BUF3S, BUF3SL, INV3S, INV3SL, WiredX </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Math.Vectors</b></td></tr>
 <tr><td valign=\"top\"> find </td>
     <td valign=\"top\"> Find element in vector. </td> </tr>
 <tr><td valign=\"top\"> toString </td>
@@ -1845,12 +1872,12 @@ to <b style=\"color:blue\">existing</b> libraries:
                       roots </td>
     <td valign=\"top\"> Utility functions for vectors that are used by the newly introduced functions,
                       but are only of interested for a specialist. </td> </tr>
-<tr><td colspan=\"2\"><b>Modelica.Math.Matrices.</b></td></tr>
+<tr><td colspan=\"2\"><b>Modelica.Math.Matrices</b></td></tr>
 <tr><td valign=\"top\"> continuousRiccati<br>
                       discreteRiccati </td>
     <td valign=\"top\"> Return solution of continuous-time and discrete-time
                       algebraic Riccati equation. </td> </tr>
-<tr><td colspan=\"2\"><b>Modelica.Math.Matrices.LAPACK.</b></td></tr>
+<tr><td colspan=\"2\"><b>Modelica.Math.Matrices.LAPACK</b></td></tr>
 <tr><td valign=\"top\"> dtrevc<br>
                       dpotrf<br>
                       dtrsm </td>

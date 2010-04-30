@@ -671,7 +671,7 @@ The simulation stop time has to be 5s.
             experiment(StopTime=100));
         end Counter;
 
-        model Delay_test "Vector delay"
+        model Delay_example "Vector delay"
           extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Delay.InertialDelaySensitiveVector delay(
@@ -705,9 +705,10 @@ The simulation stop time has to be 5s.
         Documentation(info="<html>
 <p>This example is a simple test of the vector valued sensitive delay component. The delay times are chosen different from each other. To examine the rersults plot bothe the input vector x and the output vector y.</p>
 </html>"));
-        end Delay_test;
+        end Delay_example;
 
-        model DFFREG_test "Pulse triggered D-Register-Bank, high active reset"
+        model DFFREG_example
+      "Pulse triggered D-Register-Bank, high active reset"
           extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Sources.Table clock(x={3,4,3,4,3,4,3}, t={0,7,8,10,11,15,16})
@@ -749,9 +750,10 @@ The simulation stop time has to be 5s.
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DFFREG component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DFFREG component.</p>
 </html>"));
-        end DFFREG_test;
+        end DFFREG_example;
 
-        model DFFREGL_test "Pulse triggered D-Register-Bank, low active reset"
+        model DFFREGL_example
+      "Pulse triggered D-Register-Bank, low active reset"
           extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Sources.Table clock(x={3,4,3,4,3,4,3}, t={0,7,8,10,11,15,16})
@@ -797,9 +799,9 @@ The simulation stop time has to be 5s.
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DFFREGL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DFFREGL component.</p>
 </html>"));
-        end DFFREGL_test;
+        end DFFREGL_example;
 
-        model DFFREGSRH_test
+        model DFFREGSRH_example
       "Pulse triggered D-Register-Bank, high active set and reset"
           extends Modelica.Icons.Example;
 
@@ -848,9 +850,9 @@ The simulation stop time has to be 5s.
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DFFREGSRH component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DFFREGSRH component.</p>
 </html>"));
-        end DFFREGSRH_test;
+        end DFFREGSRH_example;
 
-        model DFFREGSRL_test
+        model DFFREGSRL_example
       "Pulse triggered D-Register-Bank, low active set and reset"
           extends Modelica.Icons.Example;
 
@@ -898,9 +900,10 @@ The simulation stop time has to be 5s.
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DFFREGSRL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DFFREGSRL component.</p>
 </html>"));
-        end DFFREGSRL_test;
+        end DFFREGSRL_example;
 
-        model DLATREG_test "Level sensitive D-Register-Bank, high active reset"
+        model DLATREG_example
+      "Level sensitive D-Register-Bank, high active reset"
           extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Sources.Table enable(x={3,4,3}, t={0,10,18})
@@ -943,9 +946,10 @@ The simulation stop time has to be 5s.
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DLATREG component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DLATREG component.</p>
 </html>"));
-        end DLATREG_test;
+        end DLATREG_example;
 
-        model DLATREGL_test "Level sensitive D-Register-Bank, low active reset"
+        model DLATREGL_example
+      "Level sensitive D-Register-Bank, low active reset"
           extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Sources.Table enable(x={3,4,3}, t={0,10,18})
@@ -987,9 +991,9 @@ The simulation stop time has to be 5s.
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DLATREGL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DLATREGL component.</p>
 </html>"));
-        end DLATREGL_test;
+        end DLATREGL_example;
 
-        model DLATREGSRH_test
+        model DLATREGSRH_example
       "Level sensitive D-Register-Bank, high active set and reset"
           extends Modelica.Icons.Example;
 
@@ -1043,9 +1047,9 @@ The simulation stop time has to be 5s.
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DLATREGSRH component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DLATREGSRH component.</p>
 </html>"));
-        end DLATREGSRH_test;
+        end DLATREGSRH_example;
 
-        model DLATREGSRL_test
+        model DLATREGSRL_example
       "Level sensitive D-Register-Bank, low active set and reset"
           extends Modelica.Icons.Example;
 
@@ -1098,9 +1102,9 @@ The simulation stop time has to be 5s.
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DLATREGSRL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DLATREGSRL component.</p>
 </html>"));
-        end DLATREGSRL_test;
+        end DLATREGSRL_example;
 
-        model NXFER_test "Functionality test of NXFERGATE"
+        model NXFER_example "Functionality test of NXFERGATE"
 
           Modelica.Electrical.Digital.Sources.Table e_table(
         y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
@@ -1140,9 +1144,9 @@ The simulation stop time has to be 5s.
             Documentation(info="<html>
 <p>This example is a simple test of the Tristates.NXFERGATE component.</p>
 </html>"));
-        end NXFER_test;
+        end NXFER_example;
 
-        model NRXFER_test "Functionality test of NRXFERGATE"
+        model NRXFER_example "Functionality test of NRXFERGATE"
 
           Modelica.Electrical.Digital.Sources.Table e_table(
         y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
@@ -1182,9 +1186,9 @@ The simulation stop time has to be 5s.
             Documentation(info="<html>
 <p>This example is a simple test of the Tristates.NRXFER component.  After simulation until 12 s plot x, enable, and y of the <code>nRXFERGATE </code>component. To verify the result compare to the truth table <code>NRXferTable</code>.</p>
 </html>"));
-        end NRXFER_test;
+        end NRXFER_example;
 
-        model BUF3S_test "Functionality test of BUF3S"
+        model BUF3S_example "Functionality test of BUF3S"
 
           Modelica.Electrical.Digital.Sources.Table e_table(
         y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
@@ -1226,9 +1230,9 @@ The simulation stop time has to be 5s.
             Documentation(info="<html>
 <p>This example is a simple test of the Tristates.BUF3S component.  After simulation until 12 s plot x, enable, and y of the bUF3S<code> </code>component. To verify the result compare to the truth table Buf3sTable.</p>
 </html>"));
-        end BUF3S_test;
+        end BUF3S_example;
 
-        model INV3S_test "Functionality test of INV3S"
+        model INV3S_example "Functionality test of INV3S"
 
           Modelica.Electrical.Digital.Sources.Table e_table(
         y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
@@ -1267,9 +1271,9 @@ The simulation stop time has to be 5s.
             Documentation(info="<html>
 <p>This example is a simple test of the Tristates.INV3S component. After simulation until 12 s plot x, enable, and y of the iNV3S<code> </code>component. To verify the result compare to the truth table <code>T.UX01Table</code>.</p>
 </html>"));
-        end INV3S_test;
+        end INV3S_example;
 
-        model WiredX_test "Functionality test of WiredX"
+        model WiredX_example "Functionality test of WiredX"
 
           Modelica.Electrical.Digital.Sources.Table e_table2(
         y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
@@ -1348,7 +1352,7 @@ The simulation stop time has to be 5s.
             Documentation(info="<html>
 <p>This example is a simple test of the Tristates.WiredX component. The input width is set to two. After simulation until 12 s plot x[1], x[2], and y of the WiredX component. To verify the result compare to the truth table  Tables.ResolutionTable.</p>
 </html>"));
-        end WiredX_test;
+        end WiredX_example;
 
       package Utilities "Utility components used by package Examples"
         extends Modelica.Icons.Package;
