@@ -2586,10 +2586,6 @@ The simulation stop time has to be 5s.
 <p>The examples are simple to understand. They will show a typical behavior of the components, and they will give hints to users.</p>
 </html>"));
 
-
-
-
-
       end Examples;
 
       package Interfaces "Basic definitions"
@@ -7000,110 +6996,7 @@ Clock transition definitions:
 <p>Registers is a collection of flipflops and latches. In the opposite to the Examples.Utilities models the Register models are a series of assignments in the algorithm part of the model. The model text is taken nearly identical from the standard logic text.</p>
 </html>"));
       end Registers;
-      annotation (
-        Documentation(info="<html>
-<p>
-This library contains packages for digital electrical components. Both, type system
-and models are based on the VHDL standard (IEEE Std 1076-1987 VHDL, IEEE Std 1076-1993 VHDL,
-IEEE Std 1164 Multivalue Logic System):
-<ul>
-<li>Interfaces: Definition of signals and interfaces</li>
-<li>Tables: All truth tables needed</li>
-<li>Delay: Transport and inertial delay</li>
-<li>Basic: Basic logic without delay</li>
-<li>Gates: Basic gates composed by basic components and inertial delay</li>
-<li>Tristate: (not yet available)</li>
-<li>FlipFlops: D-Flip-Flops</li>
-<li>Latches: D-Latches</li>
-<li>TransferGates: (not yet available)</li>
-<li>Multiplexers (not yet available)</li>
-<li>Memory: Ram, Rom, (not yet available)</li>
-<li>Sources: Time-dependend signal sources</li>
-<li>Converters</li>
-<li>Examples</li>
-</ul>
-</p>
-<p>
-The logic values are coded by integer values. The following code table is necessary
-for both setting of input and interpreting the output values.
-</p>
-<p><b>Code Table:</b></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>Logic value</b></td>
-      <td valign=\"top\"><b>Integer code</b></td>
-      <td valign=\"top\"><b>Meaning</b></td>
-  </tr>
-
-  <tr><td valign=\"top\">'U'</td> <td valign=\"top\">1</td> <td valign=\"top\">Uninitialized</td></tr>
-  <tr><td valign=\"top\">'X'</td> <td valign=\"top\">2</td> <td valign=\"top\">Forcing Unknown</td></tr>
-  <tr><td valign=\"top\">'0'</td> <td valign=\"top\">3</td> <td valign=\"top\">Forcing 0</td></tr>
-  <tr><td valign=\"top\">'1'</td> <td valign=\"top\">4</td> <td valign=\"top\">Forcing 1</td></tr>
-  <tr><td valign=\"top\">'Z'</td> <td valign=\"top\">5</td> <td valign=\"top\">High Impedance</td></tr>
-  <tr><td valign=\"top\">'W'</td> <td valign=\"top\">6</td> <td valign=\"top\">Weak Unknown</td></tr>
-  <tr><td valign=\"top\">'L'</td> <td valign=\"top\">7</td> <td valign=\"top\">Weak 0</td></tr>
-  <tr><td valign=\"top\">'H'</td> <td valign=\"top\">8</td> <td valign=\"top\">Weak 1</td></tr>
-  <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Don't care</td></tr>
-</table>
-
-<p>
-The library will be developed in two main steps. The first step contains the basic components and
-the gates. In the next step the more complicated devices will be added. Currently the first step of
-the library is implemented and released for public use.
-</p>
-
-<p>
-Copyright &copy; 1998-2010, Modelica Association and Fraunhofer-Gesellschaft.
-</p>
-
-<p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
-</p>
-</HTML>
-"),     Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
-        Icon(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
-        Rectangle(
-          extent={{-52,4},{-32,-36}},
-          lineColor={0,0,0},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Rectangle(
-          extent={{8,-46},{28,-86}},
-          lineColor={0,0,0},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Rectangle(
-          extent={{8,4},{28,-36}},
-          lineColor={0,0,0},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Line(points={{-72,-6},{-52,-6}}, color={0,0,0}),
-        Line(points={{-72,-28},{-52,-28}}, color={0,0,0}),
-        Ellipse(extent={{-32,-14},{-28,-18}}, lineColor={0,0,0}),
-        Ellipse(extent={{28,-14},{32,-18}}, lineColor={0,0,0}),
-        Line(points={{-28,-16},{8,-16}}, color={0,0,0}),
-        Line(points={{-28,-16},{-12,-16},{-12,-56},{8,-56}}, color={0,0,0}),
-        Line(points={{8,-76},{-72,-76}}, color={0,0,0}),
-        Line(points={{32,-16},{48,-16}}, color={0,0,0}),
-        Line(points={{28,-66},{48,-66}}, color={0,0,0}),
-        Text(
-          extent={{-32,-8},{-52,0}},
-          lineColor={0,0,0},
-          textString="&"),
-        Text(
-          extent={{28,-10},{8,-2}},
-          lineColor={0,0,0},
-          textString="1"),
-        Text(
-          extent={{28,-58},{8,-50}},
-          lineColor={0,0,0},
-          textString="=")}));
   package Tristates "Transfergates, Buffers, Inverters, and WiredX"
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
@@ -7896,5 +7789,109 @@ Wires n input signals in one output signal, without delay.
                 graphics));
     end WiredX;
   end Tristates;
+      annotation (
+        Documentation(info="<html>
+<p>
+This library contains packages for digital electrical components. Both, type system
+and models are based on the VHDL standard (IEEE Std 1076-1987 VHDL, IEEE Std 1076-1993 VHDL,
+IEEE Std 1164 Multivalue Logic System):
+<ul>
+<li>Interfaces: Definition of signals and interfaces</li>
+<li>Tables: All truth tables needed</li>
+<li>Delay: Transport and inertial delay</li>
+<li>Basic: Basic logic without delay</li>
+<li>Gates: Basic gates composed by basic components and inertial delay</li>
+<li>Tristate: (not yet available)</li>
+<li>FlipFlops: D-Flip-Flops</li>
+<li>Latches: D-Latches</li>
+<li>TransferGates: (not yet available)</li>
+<li>Multiplexers (not yet available)</li>
+<li>Memory: Ram, Rom, (not yet available)</li>
+<li>Sources: Time-dependend signal sources</li>
+<li>Converters</li>
+<li>Examples</li>
+</ul>
+</p>
+<p>
+The logic values are coded by integer values. The following code table is necessary
+for both setting of input and interpreting the output values.
+</p>
+<p><b>Code Table:</b></p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign=\"top\"><b>Logic value</b></td>
+      <td valign=\"top\"><b>Integer code</b></td>
+      <td valign=\"top\"><b>Meaning</b></td>
+  </tr>
+
+  <tr><td valign=\"top\">'U'</td> <td valign=\"top\">1</td> <td valign=\"top\">Uninitialized</td></tr>
+  <tr><td valign=\"top\">'X'</td> <td valign=\"top\">2</td> <td valign=\"top\">Forcing Unknown</td></tr>
+  <tr><td valign=\"top\">'0'</td> <td valign=\"top\">3</td> <td valign=\"top\">Forcing 0</td></tr>
+  <tr><td valign=\"top\">'1'</td> <td valign=\"top\">4</td> <td valign=\"top\">Forcing 1</td></tr>
+  <tr><td valign=\"top\">'Z'</td> <td valign=\"top\">5</td> <td valign=\"top\">High Impedance</td></tr>
+  <tr><td valign=\"top\">'W'</td> <td valign=\"top\">6</td> <td valign=\"top\">Weak Unknown</td></tr>
+  <tr><td valign=\"top\">'L'</td> <td valign=\"top\">7</td> <td valign=\"top\">Weak 0</td></tr>
+  <tr><td valign=\"top\">'H'</td> <td valign=\"top\">8</td> <td valign=\"top\">Weak 1</td></tr>
+  <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Don't care</td></tr>
+</table>
+
+<p>
+The library will be developed in two main steps. The first step contains the basic components and
+the gates. In the next step the more complicated devices will be added. Currently the first step of
+the library is implemented and released for public use.
+</p>
+
+<p>
+Copyright &copy; 1998-2010, Modelica Association and Fraunhofer-Gesellschaft.
+</p>
+
+<p>
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+</p>
+</HTML>
+"),     Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics),
+        Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics={
+        Rectangle(
+          extent={{-52,4},{-32,-36}},
+          lineColor={0,0,0},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid),
+        Rectangle(
+          extent={{8,-46},{28,-86}},
+          lineColor={0,0,0},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid),
+        Rectangle(
+          extent={{8,4},{28,-36}},
+          lineColor={0,0,0},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid),
+        Line(points={{-72,-6},{-52,-6}}, color={0,0,0}),
+        Line(points={{-72,-28},{-52,-28}}, color={0,0,0}),
+        Ellipse(extent={{-32,-14},{-28,-18}}, lineColor={0,0,0}),
+        Ellipse(extent={{28,-14},{32,-18}}, lineColor={0,0,0}),
+        Line(points={{-28,-16},{8,-16}}, color={0,0,0}),
+        Line(points={{-28,-16},{-12,-16},{-12,-56},{8,-56}}, color={0,0,0}),
+        Line(points={{8,-76},{-72,-76}}, color={0,0,0}),
+        Line(points={{32,-16},{48,-16}}, color={0,0,0}),
+        Line(points={{28,-66},{48,-66}}, color={0,0,0}),
+        Text(
+          extent={{-32,-8},{-52,0}},
+          lineColor={0,0,0},
+          textString="&"),
+        Text(
+          extent={{28,-10},{8,-2}},
+          lineColor={0,0,0},
+          textString="1"),
+        Text(
+          extent={{28,-58},{8,-50}},
+          lineColor={0,0,0},
+          textString="=")}));
 end Digital;
 
