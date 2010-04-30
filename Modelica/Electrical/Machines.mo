@@ -1425,7 +1425,8 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
               extent={{-10,-10},{10,10}},
               rotation=270)));
         Modelica.Mechanics.Rotational.Sources.ConstantSpeed constantSpeed(
-                                                                  final w_fixed=wActual)
+                                                                  final w_fixed
+            =                                                                   wActual)
           annotation (Placement(transformation(extent={{90,-50},{70,-30}},
                 rotation=0)));
         Machines.Sensors.MechanicalPowerSensor mechanicalPowerSensor(useSupport=true)
@@ -2709,7 +2710,8 @@ Simulate for 2 seconds and plot (versus time):
         Modelica.Mechanics.Rotational.Components.Inertia loadInertia1(J=JLoad)
           annotation (Placement(transformation(extent={{30,-20},{50,0}},
                 rotation=0)));
-        Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque loadTorque1(
+        Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
+          loadTorque1(
             useSupport=false,
           tau_nominal=-TLoad1,
           TorqueDirection=false,
@@ -2733,7 +2735,8 @@ Simulate for 2 seconds and plot (versus time):
         Modelica.Mechanics.Rotational.Components.Inertia loadInertia2(J=JLoad)
           annotation (Placement(transformation(extent={{30,-80},{50,-60}},
                 rotation=0)));
-        Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque loadTorque2(
+        Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
+          loadTorque2(
             useSupport=false,
           tau_nominal=-TLoad2,
           TorqueDirection=false,
@@ -3255,8 +3258,7 @@ This package contains test examples of electric machines.
           redeclare final Machines.Interfaces.InductionMachines.ThermalPortAIMC
             internalThermalPort,
           redeclare final
-            Machines.Interfaces.InductionMachines.PowerBalanceAIMC
-            powerBalance(
+            Machines.Interfaces.InductionMachines.PowerBalanceAIMC powerBalance(
               final pLoss_coreS = -airGapS.heatPortS.Q_flow,
               final pLoss_coreR = -airGapS.heatPortR.Q_flow,
               final pLoss_r = -squirrelCageR.heatPort.Q_flow));
@@ -3464,8 +3466,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           redeclare final Machines.Interfaces.InductionMachines.ThermalPortAIMS
             internalThermalPort,
           redeclare final
-            Machines.Interfaces.InductionMachines.PowerBalanceAIMS
-            powerBalance(
+            Machines.Interfaces.InductionMachines.PowerBalanceAIMS powerBalance(
               final pLoss_coreS = -airGapS.heatPortS.Q_flow,
               final pLoss_coreR = -airGapS.heatPortR.Q_flow,
               final pLoss_r = -sum(rr.heatPort.Q_flow),
@@ -3524,7 +3525,8 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         final parameter Real internalTurnsRatio=if useTurnsRatio then turnsRatio else
           VsNominal/VrLockedRotor*(2*pi*fsNominal*Lm)/sqrt(Rs^2+(2*pi*fsNominal*(Lm+Lssigma))^2);
       public
-        Machines.SpacePhasors.Components.SpacePhasor spacePhasorR(final turnsRatio=internalTurnsRatio)
+        Machines.SpacePhasors.Components.SpacePhasor spacePhasorR(final
+            turnsRatio =                                                           internalTurnsRatio)
           annotation (Placement(transformation(
               origin={0,-40},
               extent={{-10,10},{10,-10}},
@@ -3818,8 +3820,7 @@ These models use package SpacePhasors.
           redeclare final Machines.Interfaces.InductionMachines.ThermalPortSMPM
             internalThermalPort(final useDamperCage = useDamperCage),
           redeclare final
-            Machines.Interfaces.InductionMachines.PowerBalanceSMPM
-            powerBalance(
+            Machines.Interfaces.InductionMachines.PowerBalanceSMPM powerBalance(
               final pLoss_coreS = -airGapR.heatPortS.Q_flow,
               final pLoss_coreR = -airGapR.heatPortR.Q_flow,
               final pLoss_r = conditionalHeatFlowSensor.Q_flow,
@@ -3894,8 +3895,8 @@ These models use package SpacePhasors.
               origin={0,-40},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Components.ConditionalHeatFlowSensor conditionalHeatFlowSensor(final useDamperCage=
-                          useDamperCage) annotation (Placement(transformation(
+        Components.ConditionalHeatFlowSensor conditionalHeatFlowSensor(final
+            useDamperCage=useDamperCage) annotation (Placement(transformation(
               extent={{10,-10},{-10,10}},
               rotation=90,
               origin={30,-50})));
@@ -4117,8 +4118,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           redeclare final Machines.Interfaces.InductionMachines.ThermalPortSMEE
             internalThermalPort(final useDamperCage = useDamperCage),
           redeclare final
-            Machines.Interfaces.InductionMachines.PowerBalanceSMEE
-            powerBalance(
+            Machines.Interfaces.InductionMachines.PowerBalanceSMEE powerBalance(
               final pLoss_coreS = -airGapR.heatPortS.Q_flow,
               final pLoss_coreR = -airGapR.heatPortR.Q_flow,
               final pLoss_r = conditionalHeatFlowSensor.Q_flow,
@@ -4246,8 +4246,8 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           annotation (Placement(transformation(extent={{10,-10},{-10,10}},
               rotation=90,
               origin={-80,40})));
-        Components.ConditionalHeatFlowSensor conditionalHeatFlowSensor(final useDamperCage=
-                          useDamperCage) annotation (Placement(transformation(
+        Components.ConditionalHeatFlowSensor conditionalHeatFlowSensor(final
+            useDamperCage=useDamperCage) annotation (Placement(transformation(
               extent={{10,-10},{-10,10}},
               rotation=90,
               origin={30,-50})));
@@ -4591,8 +4591,8 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
               origin={0,-40},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Components.ConditionalHeatFlowSensor conditionalHeatFlowSensor(final useDamperCage=
-                          useDamperCage) annotation (Placement(transformation(
+        Components.ConditionalHeatFlowSensor conditionalHeatFlowSensor(final
+            useDamperCage=useDamperCage) annotation (Placement(transformation(
               extent={{10,-10},{-10,10}},
               rotation=90,
               origin={30,-50})));
@@ -5059,8 +5059,8 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
               rotation=270)));
         Analog.Basic.Ground ground
           annotation (Placement(transformation(extent={{-30,-30},{-10,-10}})));
-        Components.CompoundDCExcitation compoundDCExcitation(final excitationTurnsRatio=
-                                 1)
+        Components.CompoundDCExcitation compoundDCExcitation(final
+            excitationTurnsRatio=1)
           annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
         Analog.Basic.Ground groundSE
           annotation (Placement(transformation(extent={{-30,-50},{-10,-30}})));
@@ -5327,8 +5327,8 @@ Armature current does not cover excitation current of a shunt excitation; in thi
               origin={0,0},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Components.CompoundDCExcitation compoundDCExcitation(final excitationTurnsRatio=
-                                 1)
+        Components.CompoundDCExcitation compoundDCExcitation(final
+            excitationTurnsRatio=1)
           annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
         Analog.Basic.Ground ground
           annotation (Placement(transformation(extent={{-30,-30},{-10,-10}})));
@@ -5585,8 +5585,9 @@ This package contains models of DC machines:
       extends Modelica.Icons.VariantsPackage;
 
       model DC_PermanentMagnet "Quasistationary permanent magnet DC machine"
-        extends Machines.BasicMachines.DCMachines.DC_PermanentMagnet(final quasiStationary=true);
-          extends Machines.Icons.QuasiStationaryMachineIcon;
+        extends Machines.BasicMachines.DCMachines.DC_PermanentMagnet(final
+            quasiStationary =                                                              true);
+          extends Modelica.Electrical.Machines.Icons.QuasiStationaryMachine;
         annotation (defaultComponentName="dcpm",
           Documentation(info="<HTML>
 <b>Quasistaionary model of a DC Machine with permanent magnets.</b><br>
@@ -5598,8 +5599,9 @@ the only difference is that electrical transients are neglected.
 
       model DC_ElectricalExcited
         "Quasistationary electrical shunt/separate excited linear DC machine"
-        extends Machines.BasicMachines.DCMachines.DC_ElectricalExcited(final quasiStationary=true);
-        extends Machines.Icons.QuasiStationaryMachineIcon;
+        extends Machines.BasicMachines.DCMachines.DC_ElectricalExcited(final
+            quasiStationary =                                                                true);
+        extends Modelica.Electrical.Machines.Icons.QuasiStationaryMachine;
         annotation (defaultComponentName="dcee",
           Documentation(info="<HTML>
 <b>Quasistaionary model of a DC Machine with electrical shunt or separate excitation.</b><br>
@@ -5610,8 +5612,9 @@ the only difference is that electrical transients are neglected.
       end DC_ElectricalExcited;
 
       model DC_SeriesExcited "Quasistationary series excited linear DC machine"
-        extends Machines.BasicMachines.DCMachines.DC_SeriesExcited(final quasiStationary=true);
-        extends Machines.Icons.QuasiStationaryMachineIcon;
+        extends Machines.BasicMachines.DCMachines.DC_SeriesExcited(final
+            quasiStationary =                                                            true);
+        extends Modelica.Electrical.Machines.Icons.QuasiStationaryMachine;
         annotation (defaultComponentName="dcse",
           Documentation(info="<HTML>
 <b>Quasistaionary model of a DC Machine with Series excitation.</b><br>
@@ -11826,7 +11829,7 @@ Connector for Space Phasors:
     end SpacePhasor;
 
     partial model PartialBasicMachine "Partial model for all machines"
-      extends Machines.Icons.TransientMachineIcon;
+      extends Modelica.Electrical.Machines.Icons.TransientMachine;
       constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
       parameter Modelica.SIunits.Inertia Jr "Rotor's moment of inertia";
       parameter Boolean useSupport=false
@@ -11998,7 +12001,7 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
         annotation(Dialog(tab="Losses"));
       replaceable output
         Machines.Interfaces.InductionMachines.PartialPowerBalanceInductionMachines
-                                                                                   powerBalance(
+        powerBalance(
         final pElectrical_s = Machines.SpacePhasors.Functions.activePower(vs, is),
         final pMechanical = wMechanical*tauShaft,
         final pInertia = inertiaRotor.J*inertiaRotor.a*inertiaRotor.w,
@@ -12521,7 +12524,8 @@ Interfaces and partial models for induction machines
         ILinear=0.01*IaNominal) "Brush losses"
         annotation(Dialog(tab="Losses"));
       replaceable output
-        Machines.Interfaces.DCMachines.PartialPowerBalanceDCMachines powerBalance(
+        Machines.Interfaces.DCMachines.PartialPowerBalanceDCMachines
+        powerBalance(
         final pElectrical = va*ia,
         final pMechanical = wMechanical*tauShaft,
         final pInertia = inertiaRotor.J*inertiaRotor.a*inertiaRotor.w,
@@ -12923,7 +12927,7 @@ Thermal ports for DC machines
 
     partial model PartialBasicTransformer
       "Partial model of threephase transformer"
-      extends Machines.Icons.TransientTransformerIcon;
+      extends Modelica.Electrical.Machines.Icons.TransientTransformer;
       constant Integer m(min=1) = 3 "Number of phases";
       constant String VectorGroup="Yy00";
       parameter Real n(start=1)
@@ -13014,7 +13018,8 @@ Thermal ports for DC machines
               rotation=0)));
       Machines.Interfaces.ThermalPortTransformer thermalPort if useThermalPort
         annotation (Placement(transformation(extent={{-10,90},{10,110}})));
-      Thermal.ThermalAmbientTransformer thermalAmbient(final useTemperatureInputs=false,
+      Thermal.ThermalAmbientTransformer thermalAmbient(final
+          useTemperatureInputs =                                                  false,
         final T1=T1Operational,
         final T2=T2Operational) if not useThermalPort
         annotation (Placement(transformation(
@@ -13265,7 +13270,7 @@ This package contains the space phasor connector and partial models for machine 
   package Icons "Icons for electrical machines"
     extends Modelica.Icons.Package;
 
-    partial model TransientMachineIcon
+    partial model TransientMachine
 
       annotation (Icon(graphics={
             Rectangle(
@@ -13298,9 +13303,9 @@ This package contains the space phasor connector and partial models for machine 
 This icon is designed for a <b>transient machine</b> model.
 </p>
 </html>"));
-    end TransientMachineIcon;
+    end TransientMachine;
 
-    partial model QuasiStationaryMachineIcon
+    partial model QuasiStationaryMachine
 
       annotation (Icon(graphics={
             Rectangle(
@@ -13333,9 +13338,9 @@ This icon is designed for a <b>transient machine</b> model.
 This icon is designed for a <b>quasistationary machine</b> model.
 </p>
 </html>"));
-    end QuasiStationaryMachineIcon;
+    end QuasiStationaryMachine;
 
-    partial model FundamentalWaveMachineIcon
+    partial model FundamentalWaveMachine
 
       annotation (Icon(graphics={
             Rectangle(
@@ -13368,9 +13373,9 @@ This icon is designed for a <b>quasistationary machine</b> model.
 This icon is designed for a <b>fundamentalwave machine</b> model.
 </p>
 </html>"));
-    end FundamentalWaveMachineIcon;
+    end FundamentalWaveMachine;
 
-    model TransientTransformerIcon
+    model TransientTransformer
 
       annotation (Icon(graphics={
             Polygon(
@@ -13439,9 +13444,9 @@ This icon is designed for a <b>fundamentalwave machine</b> model.
 This icon is designed for a <b>transient transformer</b> model.
 </p>
 </html>"));
-    end TransientTransformerIcon;
+    end TransientTransformer;
 
-    partial model QuasiStationaryTransformerIcon
+    partial model QuasiStationaryTransformer
 
       annotation (Icon(graphics={
             Polygon(
@@ -13510,7 +13515,7 @@ This icon is designed for a <b>transient transformer</b> model.
 This icon is designed for a <b>quasistationary transformer</b> model.
 </p>
 </html>"));
-    end QuasiStationaryTransformerIcon;
+    end QuasiStationaryTransformer;
 
     annotation(Documentation(info="<html>
 <p>

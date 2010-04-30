@@ -135,17 +135,18 @@ for contributing his source code to this library.
 
       annotation (Documentation(info="<html>
 
-<h5>Version 1.6.0, 2010-04-29</h5>
+<h5>Version 1.6.0, 2010-04-30</h5>
 
 <ul>
-<li>Renamed all parameters <code>windingAngle</code> to <code>orientation</code>. This particularly refers to</li>
+<li>Renamed all parameters <code>windingAngle</code> to <code>orientation</code>. The following classes are affected:</li>
 <ul>
 <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">SinglePhaseElectroMagneticConverter</a></li>
 <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter\">MultiPhaseElectroMagneticConverter</a></li>
 <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">SinglePhaseWinding</a></li>
 <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Functions.symmetricOrientation\">symmetricOrientation</a></li>
-<li><a href=\"modelica://\"></a></li>
 </ul>
+<li>Update due to changed class names in <a href=\"modelica://Modelica.Electrical.Machines.Icons\">Machines.Icons</a></li>
+
 </ul>
 
 <h5>Version 1.5.0, 2010-04-28</h5>
@@ -4262,7 +4263,7 @@ This model is mainly used to extend from in order build more complex - equation 
 
     partial model PartialBasicInductionMachine
       "Partial model for induction machine"
-      extends Modelica.Electrical.Machines.Icons.FundamentalWaveMachineIcon;
+      extends Modelica.Electrical.Machines.Icons.FundamentalWaveMachine;
       constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
       constant Integer m=3 "Number of phases";
 
@@ -4761,7 +4762,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <tr><td>Version</td> <td>Revision</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
 </thead>
 <tbody>
-<tr><td>1.6.0</td><td>3808</td>  <td>2010-04-29</td>  <td>C. Kral</td>  <td>Renamed all parameters windingAngle to orientation</td></tr>
+<tr><td>1.6.0</td><td>3817</td>  <td>2010-04-30</td>  <td>C. Kral</td>  <td>Renamed all parameters windingAngle to orientation<br>Update due to changed class names in Machines.Icons</td></tr>
 <tr><td>1.5.0</td><td>3802</td>  <td>2010-04-28</td>  <td>C. Kral</td>  <td>Added stator core, friction, stray load and brush loss models and changed parameter of EddyCurrent model</td></tr>
 <tr><td>1.4.0</td><td>3763</td>  <td>2010-04-22</td>  <td>C. Kral</td>  <td>Added eddy current loss model with thermal heat port</td></tr>
 <tr><td>1.3.0</td><td></td>  <td>2010-02-26</td>  <td>A. Haumer<br>C. Kral</td>  <td>New state selection, icons and copyright included</td></tr>
