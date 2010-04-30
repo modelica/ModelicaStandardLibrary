@@ -56,7 +56,7 @@ package RobotR3
         color={255,204,51},
         thickness=0.5));
     connect(controlBus.axisControlBus1, axis.axisControlBus) annotation (
-      Text(
+      __Dymola_Text(
         string="%first",
         index=-1,
         extent=[-6,3; -6,3],
@@ -287,7 +287,7 @@ load inertia.
         color={255,204,51},
         thickness=0.5));
     connect(controlBus.axisControlBus1, axis1.axisControlBus) annotation (
-      Text(
+      __Dymola_Text(
         string="%first",
         index=-1,
         extent=[-6,3; -6,3],
@@ -298,7 +298,7 @@ load inertia.
         thickness=0.5));
 
     connect(controlBus.axisControlBus2, axis2.axisControlBus) annotation (
-      Text(
+      __Dymola_Text(
         string="%first",
         index=-1,
         extent=[-6,3; -6,3],
@@ -308,7 +308,7 @@ load inertia.
         thickness=0.5));
 
     connect(controlBus.axisControlBus3, axis3.axisControlBus) annotation (
-      Text(
+      __Dymola_Text(
         string="%first",
         index=-1,
         extent=[-6,3; -6,3],
@@ -318,7 +318,7 @@ load inertia.
         thickness=0.5));
 
     connect(controlBus.axisControlBus4, axis4.axisControlBus) annotation (
-      Text(
+      __Dymola_Text(
         string="%first",
         index=-1,
         extent=[-6,3; -6,3],
@@ -327,7 +327,7 @@ load inertia.
         color={255,204,51},
         thickness=0.5));
     connect(controlBus.axisControlBus5, axis5.axisControlBus) annotation (
-      Text(
+      __Dymola_Text(
         string="%first",
         index=-1,
         extent=[-6,3; -6,3],
@@ -336,7 +336,7 @@ load inertia.
         color={255,204,51},
         thickness=0.5));
     connect(controlBus.axisControlBus6, axis6.axisControlBus) annotation (
-      Text(
+      __Dymola_Text(
         string="%first",
         index=-1,
         extent=[-6,3; -6,3],
@@ -468,7 +468,7 @@ the connection to this bus) are defined
       connect(path.moving, pathToAxis1.moving)             annotation (Line(
             points={{-29,-8},{-2,-8}}, color={255,0,255}));
       connect(pathToAxis1.axisControlBus, controlBus.axisControlBus1) annotation (
-        Text(
+        __Dymola_Text(
           string="%second",
           index=1,
           extent=[6,3; 6,3],
@@ -654,7 +654,7 @@ motion on the controlBus of the r3 robot.
       connect(path.moving, pathToAxis6.moving)             annotation (Line(
             points={{-69,-78},{-12,-78}}, color={255,0,255}));
       connect(pathToAxis1.axisControlBus, controlBus.axisControlBus1) annotation (
-        Text(
+        __Dymola_Text(
           string="%second",
           index=1,
           extent=[6,3; 6,3],
@@ -663,7 +663,7 @@ motion on the controlBus of the r3 robot.
           color={255,204,51},
           thickness=0.5));
       connect(pathToAxis2.axisControlBus, controlBus.axisControlBus2) annotation (
-        Text(
+        __Dymola_Text(
           string="%second",
           index=1,
           extent=[6,3; 6,3],
@@ -672,7 +672,7 @@ motion on the controlBus of the r3 robot.
           color={255,204,51},
           thickness=0.5));
       connect(pathToAxis3.axisControlBus, controlBus.axisControlBus3) annotation (
-        Text(
+        __Dymola_Text(
           string="%second",
           index=1,
           extent=[6,3; 6,3],
@@ -681,7 +681,7 @@ motion on the controlBus of the r3 robot.
           color={255,204,51},
           thickness=0.5));
       connect(pathToAxis4.axisControlBus, controlBus.axisControlBus4) annotation (
-        Text(
+        __Dymola_Text(
           string="%second",
           index=1,
           extent=[6,3; 6,3],
@@ -690,7 +690,7 @@ motion on the controlBus of the r3 robot.
           color={255,204,51},
           thickness=0.5));
       connect(pathToAxis5.axisControlBus, controlBus.axisControlBus5) annotation (
-        Text(
+        __Dymola_Text(
           string="%second",
           index=1,
           extent=[6,3; 6,3],
@@ -699,7 +699,7 @@ motion on the controlBus of the r3 robot.
           color={255,204,51},
           thickness=0.5));
       connect(pathToAxis6.axisControlBus, controlBus.axisControlBus6) annotation (
-        Text(
+        __Dymola_Text(
           string="%second",
           index=1,
           extent=[6,3; 6,3],
@@ -826,28 +826,28 @@ motion on the controlBus of the r3 robot.
       connect(motion_ref_axisUsed.u, moving[axisUsed])     annotation (Line(
             points={{-42,-60},{-60,-60},{-60,-80},{-120,-80}}, color={255,0,255}));
       connect(motion_ref_axisUsed.y, axisControlBus.motion_ref) annotation (
-        Text(
+        __Dymola_Text(
           string="%second",
           index=1,
           extent=[6,3; 6,3],
           style(color=0, rgbcolor={0,0,0})), Line(points={{-19,-60},{44,-60},{
               44,-8},{102,-8},{102,0},{100,0}}, color={255,0,255}));
       connect(qdd_axisUsed.y, axisControlBus.acceleration_ref) annotation (
-        Text(
+        __Dymola_Text(
           string="%second",
           index=1,
           extent=[6,3; 6,3],
           style(color=0, rgbcolor={0,0,0})), Line(points={{-19,-20},{40,-20},{
               40,-4},{98,-4},{98,0},{100,0}}, color={0,0,127}));
       connect(qd_axisUsed.y, axisControlBus.speed_ref) annotation (
-        Text(
+        __Dymola_Text(
           string="%second",
           index=1,
           extent=[6,3; 6,3],
           style(color=0, rgbcolor={0,0,0})), Line(points={{-19,20},{20,20},{20,
               0},{100,0}}, color={0,0,127}));
       connect(q_axisUsed.y, axisControlBus.angle_ref) annotation (
-        Text(
+        __Dymola_Text(
           string="%second",
           index=1,
           extent=[6,3; 6,3],
@@ -1543,35 +1543,35 @@ reference signals. All signals are communicated via the
           color={255,204,51},
           thickness=0.5));
       connect(angleSensor.phi, axisControlBus.angle) annotation (
-        Text(
+        __Dymola_Text(
           string="%second",
           index=1,
           extent=[6,3; 6,3],
           style(color=0, rgbcolor={0,0,0})), Line(points={{51,70},{70,70},{70,
               84},{-98,84},{-98,9},{-100,9},{-100,0}}, color={0,0,127}));
       connect(speedSensor.w, axisControlBus.speed) annotation (
-        Text(
+        __Dymola_Text(
           string="%second",
           index=1,
           extent=[6,3; 6,3],
           style(color=0, rgbcolor={0,0,0})), Line(points={{51,50},{74,50},{74,
               87},{-100,87},{-100,0}}, color={0,0,127}));
       connect(accSensor.a, axisControlBus.acceleration) annotation (
-        Text(
+        __Dymola_Text(
           string="%second",
           index=1,
           extent=[6,3; 6,3],
           style(color=0, rgbcolor={0,0,0})), Line(points={{51,30},{77,30},{77,
               90},{-102,90},{-102,0},{-100,0}}, color={0,0,127}));
       connect(axisControlBus.angle_ref, initializeFlange.phi_start) annotation (
-        Text(
+        __Dymola_Text(
           string="%first",
           index=-1,
           extent=[-6,3; -6,3],
           style(color=0, rgbcolor={0,0,0})), Line(points={{-100,0},{-100,-7},{
               -97,-7},{-97,-42},{-42,-42}}, color={0,0,0}));
       connect(axisControlBus.speed_ref, initializeFlange.w_start) annotation (
-        Text(
+        __Dymola_Text(
           string="%first",
           index=-1,
           extent=[-6,3; -6,3],
