@@ -4414,20 +4414,20 @@ VN- -&GT; name.pc[N-1]
       input Modelica.SIunits.Current current "Input current";
       input Modelica.SIunits.Conductance cond "Input conductance";
       input Modelica.SIunits.Voltage voltage "Input voltage";
-      input Real temp "Device Temperature";
+      input Modelica.SIunits.Temp_K temp "Device Temperature";
       input Real ncoeff;
-      input Real satcur;
+      input Modelica.SIunits.Current satcur "Saturation current";
 
       output Modelica.SIunits.Current out_current "Calculated current";
       output Modelica.SIunits.Conductance out_cond "Calculated conductance";
 
       protected
-      Real vte;
+      Modelica.SIunits.Voltage vte;
       Real max_exponent;
       Real evbd;
       Real evd;
       constant Real max_exp =     50.;
-      constant Real max_current = 1.e4;
+      constant Modelica.SIunits.Current max_current = 1.e4;
 
     algorithm
       out_current := current;
@@ -4466,10 +4466,10 @@ VN- -&GT; name.pc[N-1]
 
       input Modelica.SIunits.Capacitance capin "Input capacitance";
       input Modelica.SIunits.Voltage voltage "Input voltage";
-      input Real depcap;
+      input Modelica.SIunits.Voltage depcap;
       input Real mj;
       input Real phij;
-      input Real f1;
+      input Modelica.SIunits.Voltage f1;
       input Real f2;
       input Real f3;
 
@@ -4510,14 +4510,14 @@ VN- -&GT; name.pc[N-1]
       input Modelica.SIunits.Temp_K temp "Device Temperature";
       input Modelica.SIunits.Temp_K tnom "Nominal Temperature";
       input Real emissioncoeff;
-      input Real energygap;
+      input Modelica.SIunits.Voltage energygap;
       input Real satcurexp;
 
-      output Real ret "Output value";
+      output Modelica.SIunits.Current ret "Output value";
 
       protected
-      Real vt;
-      Real vte;
+      Modelica.SIunits.Voltage vt;
+      Modelica.SIunits.Voltage vte;
 
     algorithm
         vt := SpiceConstants.CONSTKoverQ*temp;
@@ -4532,17 +4532,17 @@ VN- -&GT; name.pc[N-1]
 
     function junctionVoltage23SPICE3 "Junction Voltage"
 
-      input Real vb;
-      input Real ivb;
+      input Modelica.SIunits.Voltage vb;
+      input Modelica.SIunits.Current ivb;
       input Modelica.SIunits.Current satcur "Saturation current";
       input Modelica.SIunits.Temp_K temp "Device temperature";
       input Real ncoeff;
 
-      output Real v23 "Output value";
+      output Modelica.SIunits.Voltage v23 "Output value";
 
       protected
-      Real vt;
-      Real cbv;
+      Modelica.SIunits.Voltage vt;
+      Modelica.SIunits.Current cbv;
       Real tol;
       Integer iter;
 
@@ -4574,21 +4574,21 @@ VN- -&GT; name.pc[N-1]
       input Modelica.SIunits.Voltage voltage "Input voltage";
       input Modelica.SIunits.Temp_K temp "Device Temperature";
       input Real ncoeff;
-      input Real satcur;
-      input Real v23;
+      input Modelica.SIunits.Current satcur "Saturation current";
+      input Modelica.SIunits.Voltage v23;
 
       output Modelica.SIunits.Current current "Output curret";
       output Modelica.SIunits.Conductance cond "Output conductance";
 
       protected
       constant Real max_exp = 50.0;
-      constant Real max_current = 1.0e4;
-      Real vte;
+      constant Modelica.SIunits.Current max_current = 1.0e4;
+      Modelica.SIunits.Voltage vte;
       Real max_exponent;
       Real evd;
       Real arg;
       Real evrev;
-      Real vr;
+      Modelica.SIunits.Voltage vr;
 
     algorithm
       if (satcur > 1.0e-101) then
@@ -4635,13 +4635,13 @@ VN- -&GT; name.pc[N-1]
 
       input Modelica.SIunits.Capacitance capin "Input capacitance";
       input Modelica.SIunits.Voltage voltage "Input voltage";
-      input Real depcap;
+      input Modelica.SIunits.Voltage depcap;
       input Real mj;
       input Real phij;
-      input Real f1;
+      input Modelica.SIunits.Voltage f1;
       input Real f2;
       input Real f3;
-      input Real transittime;
+      input Modelica.SIunits.Time transittime;
       input Modelica.SIunits.Conductance conduct "Input conductance";
       input Modelica.SIunits.Current current "Input current";
 
@@ -4671,7 +4671,7 @@ VN- -&GT; name.pc[N-1]
       input Modelica.SIunits.Voltage voltage "Input Voltage";
       input Modelica.SIunits.Temp_K temp "Device Temperature";
       input Real ncoeff;
-      input Real satcur;
+      input Modelica.SIunits.Current satcur "Saturation current";
 
       output Modelica.SIunits.Current current "Output current";
       output Modelica.SIunits.Conductance cond "Output conductance";
@@ -4679,7 +4679,7 @@ VN- -&GT; name.pc[N-1]
       protected
       constant Real max_exp = 50.0;
       constant Real max_current = 1.0e4;
-      Real vte;
+      Modelica.SIunits.Voltage vte;
       Real max_exponent;
       Real evd;
       Real arg;
@@ -4719,14 +4719,14 @@ VN- -&GT; name.pc[N-1]
     input Modelica.SIunits.Resistance resist "Input resistance";
     input Modelica.SIunits.Temp_K temp "Device temperature";
     input Modelica.SIunits.Temp_K tnom "Nominal temperature";
-    input Real tc1;
-    input Real tc2;
+    input Real tc1( final unit="1/K");
+    input Real tc2( final unit="1/(K.K)");
 
     output Modelica.SIunits.Conductance conduct "Output conductance";
     output Real dCond_dTemp "Output value";
 
       protected
-      Real difference;
+      Modelica.SIunits.Temp_K difference;
       Real factor;
 
     algorithm
@@ -4743,9 +4743,9 @@ VN- -&GT; name.pc[N-1]
     function resDepGeom "Resistance dependent from width and narrow"
 
     input Real rsh "Input sheet resistance";
-    input Real width "Input transistor width";
+    input Modelica.SIunits.Length width "Input transistor width";
     input Modelica.SIunits.Length length "Input transistor length";
-    input Real narrow "Input narrow";
+    input Modelica.SIunits.Length narrow "Input narrow";
 
     output Real out "Output value";
 
@@ -4836,7 +4836,7 @@ VN- -&GT; name.pc[N-1]
 
         input Modelica.SIunits.Voltage voltage "Input voltage";
 
-        output Real ret;
+        output Modelica.SIunits.Voltage ret;
 
       algorithm
         ret := voltage;
@@ -5335,21 +5335,19 @@ VN- -&GT; name.pc[N-1]
         input Mos.MosModelLineVariables in_vp
           "Input record model line variables";
         input Boolean in_m_bInit;
-        input Real[4] in_m_pVoltageValues; /* gate bulk drain source */
+        input Modelica.SIunits.Voltage[4] in_m_pVoltageValues; /* gate bulk drain source */
 
         output CurrrentsCapacitances out_cc;
 
       protected
-        Real vbd;
-        Real vgd;
-        Real vgb;
-        Real cur;
+        Modelica.SIunits.Voltage vbd;
+        Modelica.SIunits.Voltage vgd;
+        Modelica.SIunits.Voltage vgb;
+        Modelica.SIunits.Current cur;
         Integer n;
         DEVqmeyer qm;
         DEVqmeyer in_qm;
         Mos1.Mos1Calc int_c;
-
-        Real zzz;
 
       algorithm
         int_c := in_c;
@@ -5407,8 +5405,6 @@ VN- -&GT; name.pc[N-1]
 
         n      := if (int_c.m_mode == 1) then 6 else 5;
         out_cc.idrain := in_m_type * int_c.m_cdrain * int_c.m_mode;
-
-        zzz := int_c.m_cdrain;
 
         int_c.m_capbss    := 0.0;
         int_c.m_chargebss := 0.0;
@@ -5485,19 +5481,19 @@ VN- -&GT; name.pc[N-1]
 
       function mosCalcDEVqmeyer "Calculation of meyer capacities"
 
-        input Real vgs;
-        input Real vgd;
-        input Real vgb;
+        input Modelica.SIunits.Voltage vgs;
+        input Modelica.SIunits.Voltage vgd;
+        input Modelica.SIunits.Voltage vgb;
         input MosCalc in_c "Input variable set";
 
         output DEVqmeyer out_qm "Qmeyer values";
 
       protected
-        Real vds;
-        Real vddif;
-        Real vddif1;
-        Real vddif2;
-        Real vgst;
+        Modelica.SIunits.Voltage vds;
+        Modelica.SIunits.Voltage vddif;
+        Modelica.SIunits.Voltage vddif1;
+        Modelica.SIunits.Voltage vddif2;
+        Modelica.SIunits.Voltage vgst;
 
       algorithm
         vgst := vgs - in_c.m_von;
@@ -5876,8 +5872,8 @@ VN- -&GT; name.pc[N-1]
           "Output record model line variables";
 
       protected
-        Real vtnom;
-        Real fermis;
+        Modelica.SIunits.Voltage vtnom;
+        Modelica.SIunits.Voltage fermis;
         Real fermig;
         Real wkfng;
         Real wkfngs;
@@ -5956,9 +5952,9 @@ VN- -&GT; name.pc[N-1]
 
       protected
         Real arg;
-        Real betap;
+        Real betap( final unit = "A/(V.V)");
         Real sarg;
-        Real vgst;
+        Modelica.SIunits.Voltage vgst;
 
       algorithm
         out_c := in_c;
@@ -6220,8 +6216,8 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
           "Output record with model line variables";
 
       protected
-        Real vtnom;
-        Real fermis;
+        Modelica.SIunits.Voltage vtnom;
+        Modelica.SIunits.Voltage fermis;
         Real fermig;
         Real wkfng;
         Real wkfngs;
@@ -7790,7 +7786,7 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
         Real xfc;
         Real gmanew;
         Real fact1;
-        Real vt;
+        Modelica.SIunits.Voltage vt;
         Real fact2;
         Real egfet;
         Real arg;
@@ -7897,20 +7893,20 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
         output Modelica.SIunits.Capacitance capbx "Capacitance";
 
       protected
-        Real vce;
-        Real vbe;
-        Real vbx;
-        Real vbc;
-        Real gbe;
-        Real cbe;
-        Real gbc;
-        Real cbc;
-        Real gben;
-        Real cben;
-        Real gbcn;
-        Real cbcn;
-        Real cjbe;
-        Real cjbc;
+        Modelica.SIunits.Voltage vce;
+        Modelica.SIunits.Voltage vbe;
+        Modelica.SIunits.Voltage vbx;
+        Modelica.SIunits.Voltage vbc;
+        Modelica.SIunits.Conductance gbe;
+        Modelica.SIunits.Current cbe;
+        Modelica.SIunits.Conductance gbc;
+        Modelica.SIunits.Current cbc;
+        Modelica.SIunits.Conductance gben;
+        Modelica.SIunits.Current cben;
+        Modelica.SIunits.Conductance gbcn;
+        Modelica.SIunits.Current cbcn;
+        Modelica.SIunits.Current cjbe;
+        Modelica.SIunits.Current cjbc;
         Real dqbdve;
         Real dqbdvc;
         Real qb;
@@ -7942,7 +7938,7 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
         Real chargebx;
         Real argtf;
         Real exponent;
-        Real temp;
+        Modelica.SIunits.Temp_K temp;
 
         Real aux1;
         Real aux2;
