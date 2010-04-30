@@ -7811,7 +7811,6 @@ The algorithm is taken from [1] and [2].
 </html>"));
     end discreteRiccatiIterative;
 
-
     function householderReflection
       "Reflect each of the vectors a_i of matrix  A=[a_1, a_2, ..., a_n] on a plane with orthogonal vector u"
       import Modelica.Math.Vectors;
@@ -8046,7 +8045,7 @@ With the optional inputs ilo and ihi, also partial transformation is possible. T
 
     function eigenvaluesHessenberg
       "Compute eigenvalues of an upper Hessenberg form matrix"
-      import Modelica.Math.Matrices.Utilities.Internal;
+      import Modelica.Math.Matrices.Utilities;
       import Modelica.Math.Matrices.LAPACK;
       input Real H[:,size(H, 1)] "Hessenberg matrix H";
 
@@ -8105,7 +8104,8 @@ See Modelica.Math.Matrices.LAPACK.dhseqr for details
 <a href=\"modelica://Modelica.Math.Matrices.hessenberg\">Matrices.hessenberg</a>  
 <p>
 </html>
-", revisions="<html>
+",     revisions=
+             "<html>
 <ul>
 <li><i>2010/04/30 </i>
        by Marcus Baur, DLR-RM</li>
@@ -8196,8 +8196,6 @@ See also <a href=\"modelica://Modelica.Math.Matrices.realSchur\">Matrices.realSc
 </ul>
 </html>"));
     end reorderRSF;
-
-
 
     function findLocal_tk
       "Find a local minimizer tk to define the length of the step tk*Nk in continuousRiccatiIterative and discreteRiccatiIterative"
