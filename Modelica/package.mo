@@ -1877,13 +1877,69 @@ to <b style=\"color:blue\">existing</b> libraries:
                       discreteRiccati </td>
     <td valign=\"top\"> Return solution of continuous-time and discrete-time
                       algebraic Riccati equation. </td> </tr>
-<tr><td colspan=\"2\"><b>Modelica.Math.Matrices.LAPACK</b></td></tr>
+<tr><td valign=\"top\"> continuousSylvester<br>
+                      discreteSylvester </td>
+    <td valign=\"top\"> Return solution of continuous-time and discrete-time
+                      Sylvester equation. </td> </tr>
+<tr><td valign=\"top\"> continuousLyapunov<br>
+                      discreteLyapunov </td>
+    <td valign=\"top\"> Return solution of continuous-time and discrete-time
+                      Lyapunonv equation. </td> </tr>
+<tr><td valign=\"top\"> trace </td>
+    <td valign=\"top\"> Return the trace of a matrix. </td> </tr>
+<tr><td valign=\"top\"> conditionNumber </td>
+    <td valign=\"top\"> Compute the condition number of a matrix. </td> </tr>
+<tr><td valign=\"top\"> rcond </td>
+    <td valign=\"top\"> Estimate the reciprocal condition number of a matrix. </td> </tr>
+<tr><td valign=\"top\"> nullSpace </td>
+    <td valign=\"top\"> Return a orthonormal basis for the null space of a matrix. </td> </tr>
+<tr><td valign=\"top\"> toString </td>
+    <td valign=\"top\"> Convert a matrix into its string representation. </td> </tr>
+<tr><td valign=\"top\"> flipLeftRight </td>
+    <td valign=\"top\"> Flip the columns of a matrix in left/right direction. </td> </tr>
+<tr><td valign=\"top\"> flipUpDown </td>
+    <td valign=\"top\"> Flip the columns of a matrix in up/down direction. </td> </tr>
+<tr><td valign=\"top\"> hessenberg </td>
+    <td valign=\"top\"> Transform a matrix to upper Hessenberg form. </td> </tr>
+<tr><td valign=\"top\"> realSchur </td>
+    <td valign=\"top\"> Computes the real Schur form of a matrix. </td> </tr>
+<tr><td valign=\"top\"> frobeniusNorm </td>
+    <td valign=\"top\"> Return the Frobenius norm of a matrix. </td> </tr>
+<tr><td colspan=\"2\"><b>Modelica.Math.Matrices.LAPACK.</b></td></tr>
 <tr><td valign=\"top\"> dtrevc<br>
                       dpotrf<br>
-                      dtrsm </td>
+                      dtrsm<br>
+                      dgees<br>
+                      dtrsen<br>
+                      dgesvx<br>
+                      dhseqr<br>
+                      dlange<br>
+                      dgecon<br>
+                      dgehrd<br>
+                      dgeqrf<br>
+                      dggevx<br>
+                      dgesdd<br>
+                      dggev<br>
+                      dggevx<br>
+                      dhgeqz<br>
+                      dormhr<br>
+                      dormqr<br>
+                      dorghr</td>
     <td valign=\"top\"> New interface functions for LAPACK
                       (should usually not directly be used but only indirectly via
                       Modelica.Math.Matrices). </td> </tr>
+<tr><td colspan=\"2\"><b>Modelica.Math.Matrices.Utilities.</b></td></tr>
+<tr><td valign=\"top\"> reorderRSF<br>
+                      continuousRiccatiIterative<br>
+                      discreteRiccatiIterative<br>
+                      eigenvaluesHessenberg<br>
+                      toUpperHessenberg<br>
+                      householderReflection<br>
+                      householderSimilarityTransformation<br>
+                      findLokal_tk</td>
+    <td valign=\"top\"> Utility functions for matrices that are used by the newly introduced functions,
+                      but are only of interested for a specialist. </td> </tr>
+
 </table>
 
 
@@ -1895,9 +1951,9 @@ have been <b style=\"color:blue\">improved</b> in a
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>Modelica.AAA</b></td></tr>
-<tr><td valign=\"top\"> XXX </td>
-    <td valign=\"top\"> YYY </td> </tr>
+<tr><td colspan=\"2\"><b>Modelica.Math.Matrices</b></td></tr>
+<tr><td valign=\"top\"> QR </td>
+    <td valign=\"top\"> A Boolean input \"pivoting\" has been added (now QR(A, pivoting)) to provide QR-decomposition without pivoting (QR(A, false)). Default is pivoting=true.</td> </tr>
 </table>
 
 
@@ -1919,9 +1975,20 @@ that do <b style=\"color:red\">not</b> lead to wrong simulation results, but, e.
 units are wrong or errors in documentation):
 </p>
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>Modelica.AAA</b></td></tr>
-<tr><td valign=\"top\"> XXX </td>
-    <td valign=\"top\"> YYY</td> </tr>
+<tr><td colspan=\"2\"><b>Modelica.Math.Matrices.LAPACK</b></td></tr>
+<tr><td valign=\"top\"> dgesv_vec<br>
+                        dgesv<br>
+                        dgetrs<br>
+                        dgetrf<br>
+                        dgetrs_vec<br>
+                        dgetri<br>
+                        dgeqpf<br>
+                        dorgqr<br>
+                        dgesvx<br>
+                        dtrsyl</td>
+    <td valign=\"top\"> Integer inputs to specify leading dimensions of matrices have got a lower bound 1 (e.g. lda=max(1,n))
+                      to avoid incorrect values (e.g. lda=0) in the case of empty matrices.<br>
+                      The Integer variable \"info\" to indicate the successful call of a LAPACK routine has been converted to a output where it had been a protected variable. </td> </tr>
 </table>
 
 </html>"));
