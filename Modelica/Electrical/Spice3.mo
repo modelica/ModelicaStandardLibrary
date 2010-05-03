@@ -3561,7 +3561,7 @@ VN- -&GT; name.pc[N-1]
        parameter SI.Voltage VTO=-1e40 "Zero-bias threshold voltage, default 0";
        parameter SI.Transconductance KP=-1e40
         "Transconductance parameter, default 2e-5";
-       parameter SI.Voltage GAMMA=-1e40 "Bulk threshold parameter, default 0";
+       parameter Real GAMMA=-1e40 "Bulk threshold parameter, default 0";
        parameter SI.Voltage PHI=-1e40 "Surface potential, default 0.6";
        parameter SI.InversePotential LAMBDA=0
         "Channel-length modulation, default 0";
@@ -4799,7 +4799,7 @@ VN- -&GT; name.pc[N-1]
 
       record SpiceRoot "Data for insertion to matrices"
 
-        Real[6] m_pCurrentValues(   start = zeros(6));
+        Modelica.SIunits.Current[6] m_pCurrentValues(   start = zeros(6));
         Real[36] m_pResJacobi(      start = zeros(36));
         Real[36] m_pCapJacobi(      start = zeros(36));
 
@@ -4957,25 +4957,27 @@ VN- -&GT; name.pc[N-1]
         Modelica.SIunits.Conductance m_gbd "Gbd, Bulk-Drain conductance";
         Modelica.SIunits.Current m_cdrain "Ids";
         Modelica.SIunits.Conductance m_gds "Gds, Drain-Source conductance";
-        Real m_gm "Gm, Transconductance";
-        Real m_gmbs "Gmbs, Bulk-Source transconductance";
-        Real m_capbsb "Cbsb";
-        Real m_chargebsb "Qbsb";
-        Real m_capbss "Cbss";
-        Real m_chargebss "Qbss";
-        Real m_capbdb "Cbdb";
-        Real m_chargebdb "Qbdb";
-        Real m_capbds "Cbds";
-        Real m_chargebds "Qbds";
+        Modelica.SIunits.Transconductance m_gm "Gm, Transconductance";
+        Modelica.SIunits.Transconductance m_gmbs
+          "Gmbs, Bulk-Source transconductance";
+        Modelica.SIunits.Capacitance m_capbsb "Cbsb";
+        Modelica.SIunits.Charge m_chargebsb "Qbsb";
+        Modelica.SIunits.Capacitance m_capbss "Cbss";
+        Modelica.SIunits.Charge m_chargebss "Qbss";
+        Modelica.SIunits.Capacitance m_capbdb "Cbdb";
+        Modelica.SIunits.Charge m_chargebdb "Qbdb";
+        Modelica.SIunits.Capacitance m_capbds "Cbds";
+        Modelica.SIunits.Charge m_chargebds "Qbds";
         Modelica.SIunits.Resistance m_sourceResistance "Rs";
         Modelica.SIunits.Resistance m_drainResistance "Rd";
         Real m_Beta "Beta";
-        Real m_capGSovl "Cgso, Gate-source overlap cap.";
-        Real m_capGDovl "Cgdo, Gate-drain overlap cap.";
-        Real m_capGBovl "Cgbo, Gate-bulk overlap cap.";
-        Real m_capOx "Cox";
+        Modelica.SIunits.Capacitance m_capGSovl
+          "Cgso, Gate-source overlap cap.";
+        Modelica.SIunits.Capacitance m_capGDovl "Cgdo, Gate-drain overlap cap.";
+        Modelica.SIunits.Capacitance m_capGBovl "Cgbo, Gate-bulk overlap cap.";
+        Modelica.SIunits.Capacitance m_capOx "Cox";
         Modelica.SIunits.Voltage m_von "Von, Turn-on voltage";
-        Real m_vdsat "Vdsat";
+        Modelica.SIunits.Voltage m_vdsat "Vdsat";
         Integer m_mode(start = 1) "Mode";
 
         Real m_lEff;
@@ -5101,10 +5103,10 @@ VN- -&GT; name.pc[N-1]
         "Record for Mosfet model line variables (for level 1)"
 
         Real m_oxideCapFactor;
-        Real m_vt0;
-        Real m_phi;
+        Modelica.SIunits.Voltage m_vt0;
+        Modelica.SIunits.Voltage m_phi;
         Real m_gamma;
-        Real m_transconductance;
+        Modelica.SIunits.Transconductance m_transconductance;
 
         annotation (Documentation(info="<html>
 <p>This record MosModelLineVariables contains the model line variables that are used for the mosfet transistors level 1 SPICE3.</p>
@@ -5114,24 +5116,24 @@ VN- -&GT; name.pc[N-1]
       record MosCalc "Further mosfet variables (for level 1, 2, 3 and 6)"
         extends Mosfet.MosfetCalc;
 
-        Real m_tTransconductance( start = 0.);
+        Modelica.SIunits.Transconductance m_tTransconductance( start = 0.);
         Real m_tSurfMob( start = 0.);
-        Real m_tPhi( start = 0.7);
-        Real m_tVto( start = 1.);
+        Modelica.SIunits.Voltage m_tPhi( start = 0.7);
+        Modelica.SIunits.Voltage m_tVto( start = 1.);
         Real m_tSatCurDens( start = 0.);
-        Real m_tDrainSatCur( start = 0.);
-        Real m_tSourceSatCur( start = 0.);
-        Real m_tCBDb( start = 0.);
-        Real m_tCBDs( start = 0.);
-        Real m_tCBSb( start = 0.);
-        Real m_tCBSs( start = 0.);
+        Modelica.SIunits.Current m_tDrainSatCur( start = 0.);
+        Modelica.SIunits.Current m_tSourceSatCur( start = 0.);
+        Modelica.SIunits.Capacitance m_tCBDb( start = 0.);
+        Modelica.SIunits.Capacitance m_tCBDs( start = 0.);
+        Modelica.SIunits.Capacitance m_tCBSb( start = 0.);
+        Modelica.SIunits.Capacitance m_tCBSs( start = 0.);
         Real m_tCj( start = 0.);
         Real m_tCjsw( start = 0.);
-        Real m_tBulkPot( start = 0.7);
+        Modelica.SIunits.Voltage m_tBulkPot( start = 0.7);
         Real m_tDepCap( start = 0.35);
-        Real m_tVbi( start = 1.);
-        Real m_VBScrit( start = 0.7);
-        Real m_VBDcrit( start = 0.7);
+        Modelica.SIunits.Voltage m_tVbi( start = 1.);
+        Modelica.SIunits.Voltage m_VBScrit( start = 0.7);
+        Modelica.SIunits.Voltage m_VBDcrit( start = 0.7);
         Real m_f1b( start = 0.);
         Real m_f2b( start = 0.);
         Real m_f3b( start = 0.);
@@ -5140,12 +5142,12 @@ VN- -&GT; name.pc[N-1]
         Real m_f3s( start = 0.);
         Real m_dVt( start = 0.);
 
-        Real m_capgd( start = 0.);
-        Real m_capgs( start = 0.);
-        Real m_capgb( start = 0.);
-        Real m_qgs( start = 0.);
-        Real m_qgd( start = 0.);
-        Real m_qgb( start = 0.);
+        Modelica.SIunits.Capacitance m_capgd( start = 0.);
+        Modelica.SIunits.Capacitance m_capgs( start = 0.);
+        Modelica.SIunits.Capacitance m_capgb( start = 0.);
+        Modelica.SIunits.Charge m_qgs( start = 0.);
+        Modelica.SIunits.Charge m_qgd( start = 0.);
+        Modelica.SIunits.Charge m_qgb( start = 0.);
 
         annotation (Documentation(info="<html>
 <pre>This record MosCalc contains further mosfet variables (for level 1, 2, 3 and 6).</pre>
@@ -5154,15 +5156,15 @@ VN- -&GT; name.pc[N-1]
 
       record DEVqmeyer "Meyer capacities and charge"
 
-        Real qm_capgb(  start = 0);
-        Real qm_capgs(  start = 0);
-        Real qm_capgd(  start = 0);
-        Real qm_qgs(  start = 0);
-        Real qm_qgb(  start = 0);
-        Real qm_qgd(  start = 0);
-        Real qm_vgs(  start = 0);
-        Real qm_vgb(  start = 0);
-        Real qm_vgd(  start = 0);
+        Modelica.SIunits.Capacitance qm_capgb(  start = 0);
+        Modelica.SIunits.Capacitance qm_capgs(  start = 0);
+        Modelica.SIunits.Capacitance qm_capgd(  start = 0);
+        Modelica.SIunits.Charge qm_qgs(  start = 0);
+        Modelica.SIunits.Charge qm_qgb(  start = 0);
+        Modelica.SIunits.Charge qm_qgd(  start = 0);
+        Modelica.SIunits.Voltage qm_vgs(  start = 0);
+        Modelica.SIunits.Voltage qm_vgb(  start = 0);
+        Modelica.SIunits.Voltage qm_vgd(  start = 0);
 
         annotation (Documentation(info="<html>
 <pre>This record DEVqmeyer contains values that are needed for the calculation of the meyer capacities and charge.</pre>
@@ -6175,7 +6177,8 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
           "UCRIT, Crit. field for mob. degradation";
         Real m_maxDriftVel( start = 0.0) "VMAX, Maximum carrier drift velocity";
         Real m_junctionDepth( start = 0.0) "XJ, Junction depth";
-        Real m_channelCharge( start = 1.0) "NEFF, Total channel charge coeff";
+        Modelica.SIunits.Charge m_channelCharge( start = 1.0)
+          "NEFF, Total channel charge coeff";
         Real m_fastSurfaceStateDensity( start = 0.0)
           "NFS, Fast surface state density";
 
@@ -7008,7 +7011,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
         Real m_gradingCoeff;
         Real m_activationEnergy;
         Real m_depletionCapCoeff;
-        Real m_conductance;
+        Modelica.SIunits.Conductance m_conductance;
 
         annotation (Documentation(info="<html>
 <p>This record contains the model line (also called model card) variables  that are used for the diode model in SPICE3.</p>
@@ -7041,15 +7044,15 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
 
       record DiodeCalc "Diode variables"
 
-        Real m_tJctPot;
-        Real m_tJctCap;
+        Modelica.SIunits.Voltage m_tJctPot;
+        Modelica.SIunits.Capacitance m_tJctCap;
         Real m_tF1;
         Real m_f2;
         Real m_f3;
-        Real m_tSatCur;
-        Real m_tVcrit;
+        Modelica.SIunits.Current m_tSatCur;
+        Modelica.SIunits.Voltage m_tVcrit;
         Real m_dVte;
-        Real m_tBrkdwnV;
+        Modelica.SIunits.Voltage m_tBrkdwnV;
 
         annotation (Documentation(info="<html>
 <p>This record contains the model variables that are used for the diode model in SPICE3.</p>
@@ -7602,15 +7605,15 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
 
       record BjtModelLineVariables "Record for bjt model line variables"
 
-        Real m_leakBEcurrent;
-        Real m_leakBCcurrent;
-        Real m_minBaseResist;
-        Real m_invEarlyVoltF;
+        Modelica.SIunits.Current m_leakBEcurrent;
+        Modelica.SIunits.Current m_leakBCcurrent;
+        Modelica.SIunits.Resistance m_minBaseResist;
+        Modelica.SIunits.Voltage m_invEarlyVoltF;
         Real m_invRollOffF;
-        Real m_invEarlyVoltR;
+        Modelica.SIunits.Voltage m_invEarlyVoltR;
         Real m_invRollOffR;
-        Real m_collectorConduct;
-        Real m_emitterConduct;
+        Modelica.SIunits.Conductance m_collectorConduct;
+        Modelica.SIunits.Conductance m_emitterConduct;
         Real m_transitTimeVBCFactor;
         Real m_excessPhaseFactor;
 
@@ -7697,7 +7700,7 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
 
       record Bjt3Variables "Variables for the bjt3 model"
 
-        Real m_transitTimeHighCurrentF( start = 0.0);
+        Modelica.SIunits.Current m_transitTimeHighCurrentF( start = 0.0);
         Real m_invRollOffF( start = 0.0);
         Real m_invRollOffR( start = 0.0);
 
@@ -7708,11 +7711,11 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
 
       record Bjt3Calc "Bjt3 variables"
 
-        Real m_tSatCur = 0;
+        Modelica.SIunits.Current m_tSatCur = 0;
         Real m_tBetaF = 1;
         Real m_tBetaR = 1;
-        Real m_tBEleakCur = 1e-14;
-        Real m_tBCleakCur = 1e-14;
+        Modelica.SIunits.Current m_tBEleakCur = 1e-14;
+        Modelica.SIunits.Current m_tBCleakCur = 1e-14;
         Real m_tBEcap = 0;
         Real m_tBEpot = 0.7;
         Real m_tBCcap = 0;
@@ -7741,10 +7744,10 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
         Modelica.SIunits.Current iBCN( start = 0.0); //current through diode dC2 (non ideal part)
         Modelica.SIunits.Current iCC( start = 0.0);  //channel current
         Modelica.SIunits.Current capbc( start = 0.0);
-        Real capbe( start = 0.0);
-        Real capbx( start = 0.0);
+        Modelica.SIunits.Capacitance capbe( start = 0.0);
+        Modelica.SIunits.Capacitance capbx( start = 0.0);
         Real iXX( start = 0.0);
-        Real capcs( start = 0.0);
+        Modelica.SIunits.Capacitance capcs( start = 0.0);
 
         annotation (Documentation(info="<html>
 <p>This record contains the model variables that are used for the bipoar transistor model in SPICE3.</p>
@@ -7907,41 +7910,41 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
         Modelica.SIunits.Current cbcn;
         Modelica.SIunits.Current cjbe;
         Modelica.SIunits.Current cjbc;
-        Real dqbdve;
-        Real dqbdvc;
-        Real qb;
-        Real q1;
-        Real q2;
-        Real arg;
-        Real sqarg;
-        Real cc;
-        Real cex;
-        Real gex;
-        Real ttime;
-        Real step;
-        Real laststep;
-        Real bcex0;
-        Real bcex1;
-        Real arg1;
-        Real arg2;
-        Real denom;
-        Real arg3;
-        Real rbpr;
-        Real rbpi;
-        Real gx;
-        Real xjrb;
-        Real go;
-        Real gm;
+          Real dqbdve;
+          Real dqbdvc;
+          Real qb;
+          Real q1;
+          Real q2;
+          Real arg;
+          Real sqarg;
+          Real cc;
+        Modelica.SIunits.Current cex;
+        Modelica.SIunits.Conductance gex;
+        Modelica.SIunits.Time ttime;
+          Real step;
+          Real laststep;
+        Modelica.SIunits.Current bcex0;
+        Modelica.SIunits.Current bcex1;
+          Real arg1;
+          Real arg2;
+          Real denom;
+          Real arg3;
+          Real rbpr;
+          Real rbpi;
+          Real gx;
+          Real xjrb;
+          Real go;
+          Real gm;
         Real captt;
-        Real chargebe;
-        Real chargebc;
-        Real chargebx;
-        Real argtf;
-        Real exponent;
+        Modelica.SIunits.Charge chargebe;
+        Modelica.SIunits.Charge chargebc;
+        Modelica.SIunits.Charge chargebx;
+          Real argtf;
+          Real exponent;
         Modelica.SIunits.Temp_K temp;
 
-        Real aux1;
-        Real aux2;
+          Real aux1;
+          Real aux2;
 
       algorithm
         vce := in_p.m_type * (in_m_pVoltageValues[4] - in_m_pVoltageValues[6]); // ( ColP, EmitP);
@@ -8062,7 +8065,7 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
 
         // determine dc incremental conductances
         go := (gbc+(cex-cbc)*dqbdvc/qb)/qb;
-        gm := (gex-(cex-cbc)*dqbdve/qb)/qb-go;
+        gm := (gex-(cex-cbc)*dqbdve/qb)/qb - go;
         out_cc.iCC := in_p.m_type * cc;
 
         // charge storage elements and transit time calculation
@@ -8195,11 +8198,11 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
         output Modelica.SIunits.Capacitance capbc "Capacitance";
         output Modelica.SIunits.Capacitance capbx "Capacitance";
       protected
-        Real[6] bjt3_VoltageValues; /* 1 Col; 2 Base; 3 Emit; 4 ColP; 5 BaseP; 6 EmitP */
+        Modelica.SIunits.Voltage[6] bjt3_VoltageValues; /* 1 Col; 2 Base; 3 Emit; 4 ColP; 5 BaseP; 6 EmitP */
         Integer i;
-        Real capcs;
-        Real chargecs;
-        Real vcs;
+        Modelica.SIunits.Capacitance capcs;
+        Modelica.SIunits.Charge chargecs;
+        Modelica.SIunits.Voltage vcs;
         Real arg;
         Real sarg;
 
@@ -8310,8 +8313,10 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
        input Real AREA "Area factor";
        input Boolean OFF
           "Optional initial condition: false - IC not used, true - IC used, not implemented yet";
-       input Real IC_VBE "Initial condition value, not yet implemented";
-       input Real IC_VCE "Initial condition value, not yet implemented";
+       input Modelica.SIunits.Voltage IC_VBE
+          "Initial condition value, not yet implemented";
+       input Modelica.SIunits.Voltage IC_VCE
+          "Initial condition value, not yet implemented";
        input Boolean SENS_AREA
           "Flag for sensitivity analysis, not yet implemented";
 
