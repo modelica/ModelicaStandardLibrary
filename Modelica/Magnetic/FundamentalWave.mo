@@ -4768,7 +4768,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <tr><td>Version</td> <td>Revision</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
 </thead>
 <tbody>
-<tr><td>1.6.0</td><td>3822</td>  <td>2010-05-04</td>  <td>C. Kral</td>  <td>Renamed all parameters windingAngle to orientation<br>Update due to changed class names in Machines.Icons</td></tr>
+<tr><td>1.6.0</td><td>3825</td>  <td>2010-05-04</td>  <td>C. Kral</td>  <td>Renamed all parameters windingAngle to orientation<br>Update due to changed class names in Machines.Icons</td></tr>
 <tr><td>1.5.0</td><td>3802</td>  <td>2010-04-28</td>  <td>C. Kral</td>  <td>Added stator core, friction, stray load and brush loss models and changed parameter of EddyCurrent model</td></tr>
 <tr><td>1.4.0</td><td>3763</td>  <td>2010-04-22</td>  <td>C. Kral</td>  <td>Added eddy current loss model with thermal heat port</td></tr>
 <tr><td>1.3.0</td><td></td>  <td>2010-02-26</td>  <td>A. Haumer<br>C. Kral</td>  <td>New state selection, icons and copyright included</td></tr>
