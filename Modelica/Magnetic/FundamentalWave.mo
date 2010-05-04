@@ -55,17 +55,17 @@ The waveforms of the magnetic field quantities, e.g. the magnetic potential diff
 </table>
 
 <p>
-The potential and flow quantities of this library are the complex magnetic potential difference and the complex magnetic flux as defined in the basic <a href=\"Modelica_FundamentalWave.Interfaces.MagneticPort\">magnetic port</a>. Due to the sinusoidal distribution of magnetic potential and flux, such a complex phasor representation can be used. This way, the FundamentalWave library can be seen as a spatial extension of the <a href=\"Modelica.Magnetics.FluxTubes\">FluxTubes</a> library.
+The potential and flow quantities of this library are the complex magnetic potential difference and the complex magnetic flux as defined in the basic <a href=\"Modelica_FundamentalWave.Interfaces.MagneticPort\">magnetic port</a>. Due to the sinusoidal distribution of magnetic potential and flux, such a complex phasor representation can be used. This way, the FundamentalWave library can be seen as a spatial extension of the <a href=\"modelica://Modelica.Magnetics.FluxTubes\">FluxTubes</a> library.
 </p>
 
 <p>
 The specific arrangement of windings in electric machines with <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/p.png\"> pole pairs give rise to sinusoidal dominant magnetic potential wave. The spatial period of this wave is determined by one pole pair
-[<a href=\"Modelica.Magnetic.FundamentalWave.UsersGuide.References\">Mueller70</a>,
- <a href=\"Modelica.Magnetic.FundamentalWave.UsersGuide.References\">Spaeth73</a>].
+[<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.References\">Mueller70</a>,
+ <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.References\">Spaeth73</a>].
 </p>
 
 <p>
-The main components of an electric machine model based on the FundamentalWave library are <a href=\"Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">multi phase</a> and <a href=\"Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">single phase windings</a>, <a href=\"Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">air gap</a> as well as <a href=\"Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">symmetric</a> or <a href=\"Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">salient cage</a> models.
+The main components of an electric machine model based on the FundamentalWave library are <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">multi phase</a> and <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">single phase windings</a>, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">air gap</a> as well as <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">symmetric</a> or <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">salient cage</a> models.
 The electric machine models provided in this library are based on symmetrical three phase windings in the stator and equivalent two or three phase windings in the rotor.
 </p>
 
@@ -77,14 +77,14 @@ The machine models of the FundamentalWave library are currently based on the fol
 
 <ul>
 <li>The number of stator phases is limited to three
-    [<a href=\"Modelica.Magnetic.FundamentalWave.UsersGuide.References\">Eckhardt82</a>]
+    [<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.References\">Eckhardt82</a>]
     </li>
 <li>The phase windings are assumed to be symmetrical; an extension to this approach can be considererd</li>
 <li>Only fundamental wave effects are taken into account</li>
 <li>There are no restrictions on the waveforms of voltages and currents</li>
 <li>All resistances and inductances are modeled as constant quantities; saturation effects, cross coupling effects
-    [<a href=\"Modelica.Magnetic.FundamentalWave.UsersGuide.References\">Li07</a>], temperature dependency of resistances and deep bar effects could be considered in an extension to this library</li>
-<li>Core losses, i.e., eddy current and hysteresis losses, friction losses and stray load losses are currently not considered [<a href=\"Modelica.Magnetic.FundamentalWave.UsersGuide.References\">Haumer09</a>]</li>
+    [<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.References\">Li07</a>], temperature dependency of resistances and deep bar effects could be considered in an extension to this library</li>
+<li>Core losses, i.e., eddy current and hysteresis losses, friction losses and stray load losses are currently not considered [<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.References\">Haumer09</a>]</li>
 <li>The only dissipated losses in the electric machine models are currently ohmic heat losses</li>
 </ul>
 
@@ -122,7 +122,7 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br></dd>
 
 <p>
 Based on an original idea of Michael Beuschel this library was developed
-[<a href=\"Modelica.Magnetic.FundamentalWave.UsersGuide.References\">Beuschel00</a>].
+[<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.References\">Beuschel00</a>].
 The authors of the FundamentalWave library would like to thank Michael Beuschel
 for contributing his source code to this library.
 </p>
@@ -135,7 +135,7 @@ for contributing his source code to this library.
 
       annotation (Documentation(info="<html>
 
-<h5>Version 1.6.0, 2010-04-30</h5>
+<h5>Version 1.6.0, 2010-05-04</h5>
 
 <ul>
 <li>Renamed all parameters <code>windingAngle</code> to <code>orientation</code>. The following classes are affected:</li>
@@ -146,6 +146,13 @@ for contributing his source code to this library.
 <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Functions.symmetricOrientation\">symmetricOrientation</a></li>
 </ul>
 <li>Update due to changed class names in <a href=\"modelica://Modelica.Electrical.Machines.Icons\">Machines.Icons</a></li>
+<li>Using <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort\">
+    HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort</a> instead of
+    <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort\">
+    Analog.Interfaces.ConditionalHeatPort</a> in
+    <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">
+    EddyCurrent</a> </li>
+<li>Added <code>modelica://</code> to all Modelica hyper links</li>
 
 </ul>
 
@@ -183,7 +190,7 @@ model from R to G</li>
 <ul>
 <li>Renamed Machines to BasicMachines</li>
 <li>Updated dependencies due to renamed class
-<a href=\"Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20\">LinearTemperatureCoefficient20</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20\">LinearTemperatureCoefficient20</a>
 <li>Added release notes in User's Guide</li>
 </ul>
 
@@ -221,7 +228,7 @@ model from R to G</li>
 
 <ul>
 <li>First version based on the concept of the FluxTubes library and the Magnetics library of Michael Beuschel
-[<a href=\"Modelica.Magnetic.FundamentalWave.UsersGuide.References\">Beuschel00</a>]</li>
+[<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.References\">Beuschel00</a>]</li>
 </ul>
 </html>"));
     end ReleaseNotes;
@@ -290,11 +297,11 @@ model from R to G</li>
 
 <p>
 This library contains components for modelling of electromagnetic fundamental wave models for the application in three phase
-<a href=Modelica.Magnetic.FundamentalWave.BasicMachines>electric machines</a>. DC machines are (currently) not included in this library. The FundamentalWave library is an alternative approach to the <a href=\"Modelica.Electrical.Machines\">Modelica.Electrical.Machines</a> library. A great advantage of this library is the strict object orientation of the electrical and magnetic components that the electric machines models are composed of. From a didactic point of view this library is very beneficial for students in the field of electrical engineering.
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines\">electric machines</a>. DC machines are (currently) not included in this library. The FundamentalWave library is an alternative approach to the <a href=\"modelica://Modelica.Electrical.Machines\">Modelica.Electrical.Machines</a> library. A great advantage of this library is the strict object orientation of the electrical and magnetic components that the electric machines models are composed of. From a didactic point of view this library is very beneficial for students in the field of electrical engineering.
 </p>
 
 <p>
-For more details see the <a href=Modelica.Magnetic.FundamentalWave.UsersGuide.Concept>concept.</a>
+For more details see the <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Concept\">concept.</a>
 </html>"));
   end UsersGuide;
 
@@ -314,7 +321,7 @@ For more details see the <a href=Modelica.Magnetic.FundamentalWave.UsersGuide.Co
           "Reluctance of the magnetic circuit";
         parameter Real N = 1 "Number of turns";
         output Modelica.SIunits.Power lossPower_e=sum(loss_e.conductor.LossPower);
-        output Modelica.SIunits.Power lossPower_m=loss_m.LossPower;
+        output Modelica.SIunits.Power lossPower_m=loss_m.lossPower;
 
         Modelica.Electrical.Analog.Basic.Ground ground_e
           annotation (Placement(transformation(extent={{-90,0},{-70,20}})));
@@ -636,9 +643,8 @@ In this example the eddy current losses are implemented in two different ways. C
         connect(terminalBoxM.plug_sp,             aimcM.plug_sp)
           annotation (Line(points={{6,-10},{6,-10}}, color={0,0,255}));
         connect(terminalBoxM.plugSupply, currentRMSsensorM.plug_n)
-          annotation (Line(points={{6.10623e-16,-8},{-1.33731e-15,-8},{
-                -1.33731e-15,20}},
-                       color={0,0,255}));
+          annotation (Line(points={{6.10623e-16,-8},{-1.33731e-15,-8},{-1.33731e-15,
+                20}},  color={0,0,255}));
         connect(aimcE.flange,   loadInertiaE.flange_a)
           annotation (Line(points={{10,-80},{10,-80},{50,-80}},
                                                        color={0,0,0}));
@@ -649,9 +655,8 @@ In this example the eddy current losses are implemented in two different ways. C
         connect(terminalBoxE.plug_sp,             aimcE.plug_sp)
           annotation (Line(points={{6,-70},{6,-70}}, color={0,0,255}));
         connect(currentRMSsensorE.plug_n,terminalBoxE.plugSupply)
-          annotation (Line(points={{-60,20},{-60,-60},{6.10623e-16,-60},{
-                6.10623e-16,-68}},
-                       color={0,0,255}));
+          annotation (Line(points={{-60,20},{-60,-60},{6.10623e-16,-60},{6.10623e-16,
+                -68}}, color={0,0,255}));
 
         connect(sineVoltage.plug_p, idealCloser.plug_p) annotation (Line(
             points={{-20,90},{2.33651e-15,90},{2.33651e-15,70}},
@@ -1112,7 +1117,7 @@ An ideal frequency inverter is modeled by using a
 <a href=\"modelica://Modelica.Electrical.Machines.Utilities.VfController\">VfController</a>
 and a threephase <a href=\"modelica://Modelica.Electrical.MultiPhase.Sources.SignalVoltage\">SignalVoltage</a>.
 Frequency is raised by a ramp, causing the
-<a href=\"Modelcia://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor\">reluctance machine</a> to start,
+<a href=\"modelcia://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor\">reluctance machine</a> to start,
 and accelerating inertias. At time <code>tStep</code> a load step is applied.
 </p>
 
@@ -1703,10 +1708,12 @@ The salient reluctance models the relationship between the complex magnetic pote
       extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
       parameter Modelica.SIunits.Conductance G(min=0)
         "Eqivalent symmetric loss conductance";
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T = 273.15);
+      extends
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
+         final T = 273.15);
 
     equation
-      LossPower = (pi/2)*(V_m.re*der(Phi.re) + V_m.im*der(Phi.im));
+      lossPower = (pi/2)*(V_m.re*der(Phi.re) + V_m.im*der(Phi.im));
       if G>0 then
         (pi/2) * V_m.re = G * der(Phi.re);
         (pi/2) * V_m.im = G * der(Phi.im);
@@ -1714,8 +1721,8 @@ The salient reluctance models the relationship between the complex magnetic pote
         V_m.re = 0;
         V_m.im = 0;
       end if;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}}), graphics={
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
+                -100},{100,100}}),      graphics={
             Rectangle(
               extent={{-70,30},{70,-30}},
               lineColor={255,128,0},
@@ -1794,7 +1801,8 @@ relationship of the voltage and current space phasor.
 
 <p><a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.EddyCurrent\">FluxTubes.Basic.EddyCurrent</a></p>
 
-</html>"));
+</html>"),
+        Diagram(graphics));
     end EddyCurrent;
 
     model SinglePhaseElectroMagneticConverter
@@ -2111,7 +2119,7 @@ This is a simple idle running branch.
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica.Magnetic.FundamentalWave.Components.Short\">Short</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Short\">Short</a>
 </p>
 
 </html>"),
@@ -2150,7 +2158,7 @@ This is a simple short cut branch.
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica.Magnetic.FundamentalWave.Components.Idle\">Idle</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Idle\">Idle</a>
 </p>
 
 </html>"));
@@ -2969,8 +2977,8 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
         connect(electroMagneticConverter.port_n, port_n)
           annotation (Line(points={{10,-10},{10,-100},{100,-100}}, color={255,128,0}));
         connect(heatPort, resistor.heatPort) annotation (Line(
-            points={{5.55112e-16,-100},{5.55112e-16,-60},{40,-60},{40,70},{
-                5.55112e-16,70}},
+            points={{5.55112e-16,-100},{5.55112e-16,-60},{40,-60},{40,80},{1.16747e-15,
+                80}},
             color={191,0,0},
             smooth=Smooth.None));
         annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
@@ -3105,8 +3113,8 @@ The single phase winding consists of a
           annotation (Line(points={{10,-10},{10,-100},{100,-100}},
             color={255,128,0}));
         connect(resistor.heatPort, heatPort) annotation (Line(
-            points={{5.55112e-16,70},{40,70},{40,-60},{5.55112e-16,-60},{
-                5.55112e-16,-100}},
+            points={{5.55112e-16,70},{40,70},{40,-60},{5.55112e-16,-60},{5.55112e-16,
+                -100}},
             color={191,0,0},
             smooth=Smooth.None));
         annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
@@ -4451,9 +4459,9 @@ This model is mainly used to extend from in order build more complex - equation 
           color={199,0,0},
           smooth=Smooth.None));
       connect(inertiaRotor.flange_b, flange)
-                                            annotation (Line(points={{90,
-              -1.72421e-15},{102,-1.72421e-15},{102,5.55112e-16},{100,
-              5.55112e-16}},                                   color={0,0,0}));
+                                            annotation (Line(points={{90,-1.72421e-15},
+              {102,-1.72421e-15},{102,5.55112e-16},{100,5.55112e-16}},
+                                                               color={0,0,0}));
       connect(internalSupport, inertiaStator.flange_a) annotation (Line(
           points={{60,-100},{70,-100}},
           color={0,0,0},
@@ -4468,14 +4476,12 @@ This model is mainly used to extend from in order build more complex - equation 
       connect(statorWinding.port_n,airGap. port_sn) annotation (Line(points={{-10,30},
               {-10,27},{-10,10},{-10,10}},                       color={255,128,0}));
       connect(airGap.flange_a, inertiaRotor.flange_a) annotation (Line(
-          points={{10,-1.33731e-15},{40,-1.33731e-15},{40,7.25006e-16},{70,
-              7.25006e-16}},
+          points={{10,-1.33731e-15},{40,-1.33731e-15},{40,7.25006e-16},{70,7.25006e-16}},
           color={0,0,0},
           smooth=Smooth.None));
 
       connect(airGap.support, internalSupport) annotation (Line(
-          points={{-10,2.33651e-15},{-60,2.33651e-15},{-60,-68},{60,-68},{60,
-              -100}},
+          points={{-10,2.33651e-15},{-60,2.33651e-15},{-60,-68},{60,-68},{60,-100}},
           color={0,0,0},
           smooth=Smooth.None));
 
@@ -4526,7 +4532,7 @@ This model is mainly used to extend from in order build more complex - equation 
           smooth=Smooth.None));
       connect(statorEddyCurrent.heatPort, internalThermalPort.heatPort_statorCore)
         annotation (Line(
-          points={{40,20},{40,-80},{-40,-80},{-40,-90}},
+          points={{40,30},{40,-80},{-40,-80},{-40,-90}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(statorWinding.port_p, statorEddyCurrent.port_p)
@@ -4762,7 +4768,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <tr><td>Version</td> <td>Revision</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
 </thead>
 <tbody>
-<tr><td>1.6.0</td><td>3817</td>  <td>2010-04-30</td>  <td>C. Kral</td>  <td>Renamed all parameters windingAngle to orientation<br>Update due to changed class names in Machines.Icons</td></tr>
+<tr><td>1.6.0</td><td>3822</td>  <td>2010-05-04</td>  <td>C. Kral</td>  <td>Renamed all parameters windingAngle to orientation<br>Update due to changed class names in Machines.Icons</td></tr>
 <tr><td>1.5.0</td><td>3802</td>  <td>2010-04-28</td>  <td>C. Kral</td>  <td>Added stator core, friction, stray load and brush loss models and changed parameter of EddyCurrent model</td></tr>
 <tr><td>1.4.0</td><td>3763</td>  <td>2010-04-22</td>  <td>C. Kral</td>  <td>Added eddy current loss model with thermal heat port</td></tr>
 <tr><td>1.3.0</td><td></td>  <td>2010-02-26</td>  <td>A. Haumer<br>C. Kral</td>  <td>New state selection, icons and copyright included</td></tr>
