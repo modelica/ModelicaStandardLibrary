@@ -14052,7 +14052,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
         algorithm
           y := if x >= adeltax then x^pow else if x <= -adeltax then -(-x)^pow else (C1
              + C3*x*x)*x;
-          annotation (derivative=SmoothPower_der, smoothOrder=1,
+          annotation (derivative=SmoothPower_der,
             Documentation(info="<html>
 <p>
 The function is used to limit the derivative of the following function at x=0:
