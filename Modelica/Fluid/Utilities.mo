@@ -425,6 +425,7 @@ k1=1, k2=3 is shown in the next figure:
        Real w1;
        Real w2;
        Real y0d;
+       Real ww;
     algorithm
        // x2 :=-x1*(k2/k1)^2;
        x2 := -x1;
@@ -452,8 +453,11 @@ k1=1, k2=3 is shown in the next figure:
         */
           w1 :=sqrt(5)*k1*x1;
           w2 :=sqrt(5)*k2*abs(x2);
-          y0d :=min(y0d, 0.9*min(w1, w2));
-
+          // y0d :=min(y0d, 0.9*min(w1, w2));
+          ww :=0.9*(if w1 < w2 then w1 else w2);
+          if ww < y0d then
+             y0d :=ww;
+          end if;
           y := if x >= 0 then evaluatePoly3_derivativeAtZero(x,x1,y1,y1d,y0d) else
                               evaluatePoly3_derivativeAtZero(x,x2,y2,y2d,y0d);
        end if;
