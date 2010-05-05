@@ -1066,7 +1066,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
 <p>Test example: Asynchronous induction machine with squirrel cage - characteristics with losses</p>
 <ul>
 <li>Simulate for 5 seconds: The machine is started at nominal speed, flux is build up in the machine.</li>
-<li>Condinue the simulation for additional 5 seconds: Subsequently a load ramp is applied.</li> 
+<li>Condinue the simulation for additional 5 seconds: Subsequently a load ramp is applied.</li>
 <li>Compare by plotting versus Pmech:<li>
 </ul>
 <table>
@@ -2137,12 +2137,12 @@ Due to the additional inductive voltage drops, output of the motor is lower, com
 </HTML>"));
       end DCSE_SinglePhase;
     /*
-  model DC_CompareCharacteristics 
+  model DC_CompareCharacteristics
     "Test example: Compare torque-speed characteristic of DC motors"
     extends Modelica.Icons.Example;
     parameter Modelica.SIunits.Voltage Va=100 "Actual armature voltage";
     parameter Modelica.SIunits.Voltage Ve=100 "Actual excitation voltage";
-    parameter Modelica.SIunits.AngularVelocity w0=Modelica.SIunits.Conversions.from_rpm(1500) 
+    parameter Modelica.SIunits.AngularVelocity w0=Modelica.SIunits.Conversions.from_rpm(1500)
       "No-load speed";
     parameter Modelica.SIunits.Torque TLoad=63.66 "Nominal load torque";
     parameter Modelica.SIunits.Time tStart=0.5 "Start ofload torque ramp ramp";
@@ -2182,7 +2182,7 @@ Due to the additional inductive voltage drops, output of the motor is lower, com
       height=-TLoad,
       duration=tRamp,
       offset=0) annotation (Placement(transformation(extent={{100,-10},{80,10}})));
-  equation 
+  equation
     connect(loadInertia1.flange_b, loadTorque1.flange)
       annotation (Line(points={{30,0},{30,0},{40,0}},
                                                    color={0,0,0}));
@@ -2788,7 +2788,7 @@ Simulate for 2 seconds and plot (versus time):
 <b>Test example: Investigate influence of losses on DCPM motor performance</b><br>
 Both motors are started with a voltage ramp applied to the armature, causing the DC machines to start,
 and accelerating inertias. Both machines are loading with a quadratic speed depenedent load torque.<br>
-The first machine <code>dcpm1</code> uses default machine parameters of model <i>DC_PermanentMagnet</i>, 
+The first machine <code>dcpm1</code> uses default machine parameters of model <i>DC_PermanentMagnet</i>,
 the second machine <code>dcpm2</code> is parametrized with additional losses:<br>
 <table>
 <tr><td>                            </td><td>   dcpm1</td><td>   dcpm2</td><td>     </td></tr>
@@ -8520,7 +8520,7 @@ Exactly the same as Interfaces.PartialBasicTransformer, included for compatibili
                 fillPattern=FillPattern.HorizontalCylinder)}),
           Documentation(info="<HTML>
 <p>
-This is a conditional heat flow sensor; 
+This is a conditional heat flow sensor;
 if useDamperCage = false (assuming the connections to both heatPorts are removed), the ouput Q_flow is set to zero.
 </p>
 </HTML>
@@ -9901,7 +9901,7 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
     annotation (defaultComponentPrefixes="parameter ",
     Documentation(info="<html>
 <p>
-Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.Friction\">Friction</a> losses. 
+Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.Friction\">Friction</a> losses.
 </p>
 </html>"));
     end FrictionParameters;
@@ -9936,8 +9936,8 @@ Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.In
     annotation (defaultComponentPrefixes="parameter ",
     Documentation(info="<html>
 <p>
-Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.InductionMachines.StrayLoad\">threephase</a> and 
-<a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.StrayLoad\">DC</a> stray load losses. 
+Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.InductionMachines.StrayLoad\">threephase</a> and
+<a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.StrayLoad\">DC</a> stray load losses.
 </p>
 </html>"));
     end StrayLoadParameters;
@@ -9961,7 +9961,7 @@ Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.In
     annotation (defaultComponentPrefixes="parameter ",
     Documentation(info="<html>
 <p>
-Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.InductionMachines.AirGapRwithLosses\">core losses of induction machines</a> 
+Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.InductionMachines.AirGapRwithLosses\">core losses of induction machines</a>
 and <a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.AirGapDCwithLosses\">core losses of DC machines</a>.
 </p>
 </html>"));
@@ -9974,7 +9974,7 @@ and <a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.AirGapDC
         extends Machines.Losses.DCMachines.Friction;
         annotation (Documentation(info="<html>
 <p>
-Model of friction losses; it is the same as 
+Model of friction losses; it is the same as
 <a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.Friction\">DC Friction</a> loss model.
 </p>
 </html>"), Diagram(graphics));
@@ -10021,7 +10021,7 @@ Model of friction losses; it is the same as
               Line(points={{40,0},{90,0}}, color={0,0,255})}),
                                   Documentation(info="<html>
 <p>
-Model of voltage drop and losses of carbon brushes. This threephase model uses three 
+Model of voltage drop and losses of carbon brushes. This threephase model uses three
 <a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.Brush\">DC Brush</a> loss models.
 </p>
 </html>"),Diagram(graphics));
@@ -10058,7 +10058,7 @@ Model of voltage drop and losses of carbon brushes. This threephase model uses t
           Diagram(graphics),
           Documentation(info="<html>
 <p>
-Stray load losses are modeled similar to standards EN 60034-2 and IEEE 512, i.e. they are dependent on square of current, 
+Stray load losses are modeled similar to standards EN 60034-2 and IEEE 512, i.e. they are dependent on square of current,
 but without scaling them to zero at no-load current.
 </p>
 <p>
@@ -10067,8 +10067,8 @@ W. Lang, &Uuml;ber die Bemessung verlustarmer Asynchronmotoren mit K&auml;figl&a
 Doctoral Thesis, Technical University of Vienna, 1984.
 </p>
 <p>
-The stray load losses are modeled such way that they do not cause a voltage drop in the electric circuit. 
-Instead, the dissipated losses are considered through an equivalent braking torque at the shaft. 
+The stray load losses are modeled such way that they do not cause a voltage drop in the electric circuit.
+Instead, the dissipated losses are considered through an equivalent braking torque at the shaft.
 </p>
 <p>
 The stray load loss torque is
@@ -10077,15 +10077,15 @@ The stray load loss torque is
   tau = PRef/wRef * (i/IRef)^2 * (w/wRef)^power_w
 </pre>
 <p>
-where <code>i</code> is the current of the machine and <code>w</code> is the actual angular velocity. 
-The dependency of the stray load torque on the angular velocity is modeled by the exponent <code>power_w</code>. 
+where <code>i</code> is the current of the machine and <code>w</code> is the actual angular velocity.
+The dependency of the stray load torque on the angular velocity is modeled by the exponent <code>power_w</code>.
 </p>
 <h4>See also</h4>
 <p>
 <a href=\"modelica://Modelica.Electrical.Machines.Losses.StrayLoadParameters\">StrayLoad parameters</a>
 </p>
 <p>
-If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRef = 0</code> (this is the default). 
+If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRef = 0</code> (this is the default).
 </p>
 </html>"));
       end StrayLoad;
@@ -10160,23 +10160,23 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
           "Inductance matrix";
       /*
   final parameter Real psiMinRel = 1E-3 "Minimum flux w.r.t. nominal flux";
-  final parameter Modelica.SIunits.MagneticFlux psiMin = psiMinRel*statorCoreParameters.VRef/statorCoreParameters.wRef 
+  final parameter Modelica.SIunits.MagneticFlux psiMin = psiMinRel*statorCoreParameters.VRef/statorCoreParameters.wRef
     "Minimum flux for numerical reasons";
-  Modelica.SIunits.MagneticFlux psi_ms_abs 
+  Modelica.SIunits.MagneticFlux psi_ms_abs
     "Length of flux phasor w.r.t. stator fixed frame";
-  Modelica.SIunits.Angle psi_ms_arg 
+  Modelica.SIunits.Angle psi_ms_arg
     "Angle of flux phasor w.r.t. stator fixed frame";
-  Modelica.SIunits.AngularVelocity ws 
+  Modelica.SIunits.AngularVelocity ws
     "Remagnetization angular velocity of stator";
-  Modelica.SIunits.AngularVelocity wsLimit = noEvent(max(noEvent(abs(ws)),statorCoreParameters.wMin)) 
+  Modelica.SIunits.AngularVelocity wsLimit = noEvent(max(noEvent(abs(ws)),statorCoreParameters.wMin))
     "Limited remagnetization angular velocity of stator";
-  Modelica.SIunits.MagneticFlux psi_mr_abs 
+  Modelica.SIunits.MagneticFlux psi_mr_abs
     "Length of flux phasor w.r.t. rotor fixed frame";
-  Modelica.SIunits.Angle psi_mr_arg 
+  Modelica.SIunits.Angle psi_mr_arg
     "Angle of flux phasor w.r.t. rotor fixed frame";
-  Modelica.SIunits.AngularVelocity wr 
+  Modelica.SIunits.AngularVelocity wr
     "Remagnetization angular velocity of rotor";
-  Modelica.SIunits.AngularVelocity wrLimit = noEvent(max(noEvent(abs(wr)),rotorCoreParameters.wMin)) 
+  Modelica.SIunits.AngularVelocity wrLimit = noEvent(max(noEvent(abs(wr)),rotorCoreParameters.wMin))
     "Limited remagnetization angular velocity of rotor";
  */
       equation
@@ -10272,13 +10272,13 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
                 textString="R")}),
           Documentation(info="<html>
 <p>
-This is a linear model of an induction machine airgap in rotor fixed ccordinate system. 
-Additionally to the <a href=modelica://Modelica.Electrical.Machines.BasicMachines.Components.AirGapR>airgap model</a> 
+This is a linear model of an induction machine airgap in rotor fixed ccordinate system.
+Additionally to the <a href=modelica://Modelica.Electrical.Machines.BasicMachines.Components.AirGapR>airgap model</a>
 stator and rotor core losses are implemented (by deducing a core loss current before calculating the torque).
 </p>
 <p>
-Core losses can be separated into <i>eddy current</i> and <i>hysteresis</i> losses. The total core losses 
-can thus be expressed as 
+Core losses can be separated into <i>eddy current</i> and <i>hysteresis</i> losses. The total core losses
+can thus be expressed as
 </p>
 <pre>
   p = PRef * (ratioHysteresis * (wRef / w) + 1 - ratioHysteresis) * (v / VRef)^2
@@ -10287,34 +10287,34 @@ can thus be expressed as
 where <code>w</code> is the actual angular velocity and <code>v</code> is the actual voltage. The term <code>ratioHysteresis</code> is the ratio
 of the hysteresis losses with respect to the total core losses for reference inner voltage and reference angular velocity.
 </p>
- 
+
 <p>
-For the voltage and angular velocity range with respect to Fig.&nbsp;1, 
-the dependency of total core losses on the parameter <code>ratioHysteresis</code> is depicted in Fig.&nbsp;2. 
+For the voltage and angular velocity range with respect to Fig.&nbsp;1,
+the dependency of total core losses on the parameter <code>ratioHysteresis</code> is depicted in Fig.&nbsp;2.
 </p>
- 
+
 <table border=0 cellspacing=0 cellpadding=1>
   <tr><td> <img src=\"modelica://Modelica/Images/Electrical/Machines/CoreLossesVw.png\"> </td>
   </tr>
   <tr><td> <b> Fig. 1: </b>Voltage versus angular velocity</td>
   </tr>
 </table>
- 
+
 <table border=0 cellspacing=0 cellpadding=1>
   <tr><td> <img src=\"modelica://Modelica/Images/Electrical/Machines/CoreLossesPcw.png\"> </td>
   </tr>
   <tr><td> <b> Fig. 2: </b>Core losses versus angular velocity with parameter <code>ratioHysteresis</code></td>
   </tr>
 </table>
- 
+
 <h4>Note</h4>
 <p>In the current implementation it is assumed that <code>ratioHysteresis = 0</code>. This parameter cannot be changed due to compatibility reasons.</p>
- 
+
 <h4>See also</h4>
 <p>
 <a href=modelica://Modelica.Electrical.Machines.Losses.CoreParameters>Core loss parameters</a>
 </p>
- 
+
 </html>"));
       end AirGapRwithLosses;
 
@@ -10425,28 +10425,28 @@ This package contains loss models used for induction machine models.
                 fillPattern=FillPattern.Solid)}),
          Documentation(info="<html>
 <p>
-The friction losses are considered by the equations 
+The friction losses are considered by the equations
 </p>
 <pre>
    tau / tauRef = (+w / wRef) ^ power_w    for w &gt; +wLinear
  - tau / tauRef = (-w / wRef) ^ power_w    for w &lt; -wLinear
 </pre>
 <p>
-with 
+with
 </p>
 <pre>
   tauRef * wRef = PRef
 </pre>
 <p>
-being the friction torque at the referenc angular velocity 
-<code>wRef</code>. The exponent <code>power_w</code> is 
+being the friction torque at the referenc angular velocity
+<code>wRef</code>. The exponent <code>power_w</code> is
 approximately 1.5 for axial ventilation and approximately 2.0 for radial ventilation.
 </p>
 <p>
 For stability reasons the friction torque <code>tau</code> is approximated by a linear curve
 </p>
 <pre>
-  tau / tauLinear = w / wLinear 
+  tau / tauLinear = w / wLinear
 </pre>
 <p>
 with
@@ -10508,11 +10508,11 @@ If it is desired to neglect friction losses, set <code>frictionParameters.PRef =
                                   Documentation(info="<html>
 <p>
 Model of voltage drop and losses of carbon brushes. For currents between <code>-ILinear</code> and <code>ILinear</code>
- the voltage drop shows a linear behavior as depicted in Fig. 1. 
- For positive currents greater or equal than <code>ILinear</code> the voltage drop equals <code>V</code>. 
- For negative currents less or equal than <code>-ILinear</code> the voltage drop equals <code>-V</code>. 
+ the voltage drop shows a linear behavior as depicted in Fig. 1.
+ For positive currents greater or equal than <code>ILinear</code> the voltage drop equals <code>V</code>.
+ For negative currents less or equal than <code>-ILinear</code> the voltage drop equals <code>-V</code>.
 </p>
- 
+
 <table border=0 cellspacing=0 cellpadding=1>
   <tr><td> <img src=\"modelica://Modelica/Images/Electrical/Machines/brush.png\"> </td> </tr>
   <tr><td> <b> Fig. 1: </b>Model of voltage drop of carbon brushes</td> </tr>
@@ -10521,14 +10521,14 @@ Model of voltage drop and losses of carbon brushes. For currents between <code>-
 <p>
 The voltage drop <code>v</code> is the total voltage drop of all series connected brushes.
 </p>
-<p> 
-</p> 
+<p>
+</p>
 <h4>See also</h4>
 <p>
 <a href=\"modelica://Modelica.Electrical.Machines.Losses.BrushParamters\">BrushParameters</a>
 </p>
 <p>
-If it is desired to neglect brush losses, set <code>brushParameters.V = 0</code> (this is the default). 
+If it is desired to neglect brush losses, set <code>brushParameters.V = 0</code> (this is the default).
 </p>
 </html>"));
       end Brush;
@@ -10549,7 +10549,7 @@ If it is desired to neglect brush losses, set <code>brushParameters.V = 0</code>
         end if;
         annotation (Documentation(info="<html>
 <p>
-Calculates the voltage drop of carbon brushes, according to 
+Calculates the voltage drop of carbon brushes, according to
 <a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.Brush\">Brush</a> losses,
 e.g. used for initial equations.
 </p>
@@ -10592,11 +10592,11 @@ The stray load loss torque is
   tau = PRef/wRef * (i/IRef)^2 * (w/wRef)^power_w
 </pre>
 <p>
-where <code>i</code> is the current of the machine and <code>w</code> is the actual angular velocity. 
-The dependency of the stray load torque on the angular velocity is modeled by the exponent <code>power_w</code>. 
+where <code>i</code> is the current of the machine and <code>w</code> is the actual angular velocity.
+The dependency of the stray load torque on the angular velocity is modeled by the exponent <code>power_w</code>.
 </p>
 <p>
-The stray load losses are modeled such way that they do not cause a voltage drop in the electric circuit. 
+The stray load losses are modeled such way that they do not cause a voltage drop in the electric circuit.
 Instead, the dissipated losses are considered through an equivalent braking torque at the shaft.
 </p>
 <h4>See also</h4>
@@ -10604,7 +10604,7 @@ Instead, the dissipated losses are considered through an equivalent braking torq
 <a href=\"modelica://Modelica.Electrical.Machines.Losses.StrayLoadParameters\">StrayLoad parameters</a>
 </p>
 <p>
-If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRef = 0</code> (this is the default). 
+If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRef = 0</code> (this is the default).
 </p>
 </html>"));
       end StrayLoad;
@@ -10630,8 +10630,8 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
         output Modelica.SIunits.Torque tauElectrical;
         Modelica.SIunits.Current ic "Core loss current";
         Modelica.SIunits.Conductance Gc "Variable core loss conductance";
-      /*  
-  Modelica.SIunits.AngularVelocity wLimit = noEvent(max(noEvent(abs(w)),coreParameters.wMin)) 
+      /*
+  Modelica.SIunits.AngularVelocity wLimit = noEvent(max(noEvent(abs(w)),coreParameters.wMin))
     "Limited angular velocity";
 */
       public
@@ -10731,13 +10731,13 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
                 fillColor={170,213,255})}),
           Documentation(info="<html>
 <p>
-This is a linear model of a DC airgap. 
-Additionally to the <a href=modelica://Modelica.Electrical.Machines.BasicMachines.Components.AirGapDC>DC airgap model</a> 
+This is a linear model of a DC airgap.
+Additionally to the <a href=modelica://Modelica.Electrical.Machines.BasicMachines.Components.AirGapDC>DC airgap model</a>
 armature core losses are implemented (by deducing a core loss current before calculating the torque).
 </p>
 <p>
-Core losses can be separated into <i>eddy current</i> and <i>hysteresis</i> losses. The total core losses 
-can thus be expressed as 
+Core losses can be separated into <i>eddy current</i> and <i>hysteresis</i> losses. The total core losses
+can thus be expressed as
 </p>
 <pre>
   p = PRef * (ratioHysteresis * (wRef / w) + 1 - ratioHysteresis) * (v / VRef)^2
@@ -10746,36 +10746,36 @@ can thus be expressed as
 where <code>w</code> is the actual angular velocity and <code>v</code> is the actual voltage. The term <code>ratioHysteresis</code> is the ratio
 of the hysteresis losses with respect to the total core losses for reference inner voltage and reference angular velocity.
 </p>
- 
+
 <p>
-For the voltage and angular velocity range with respect to Fig.&nbsp;1, 
-the dependency of total core losses on the parameter <code>ratioHysteresis</code> is depicted in Fig.&nbsp;2. 
+For the voltage and angular velocity range with respect to Fig.&nbsp;1,
+the dependency of total core losses on the parameter <code>ratioHysteresis</code> is depicted in Fig.&nbsp;2.
 </p>
- 
+
 <table border=0 cellspacing=0 cellpadding=1>
   <tr><td> <img src=\"modelica://Modelica/Images/Electrical/Machines/CoreLossesVw.png\"> </td>
   </tr>
   <tr><td> <b> Fig. 1: </b>Voltage versus angular velocity</td>
   </tr>
 </table>
- 
+
 <table border=0 cellspacing=0 cellpadding=1>
   <tr><td> <img src=\"modelica://Modelica/Images/Electrical/Machines/CoreLossesPcw.png\"> </td>
   </tr>
   <tr><td> <b> Fig. 2: </b>Core losses versus angular velocity with parameter <code>ratioHysteresis</code></td>
   </tr>
 </table>
- 
+
 <h4>Note</h4>
 <p>In the current implementation it is assumed that <code>ratioHysteresis = 0</code>. This parameter cannot be changed due to compatibility reasons.</p>
-<p>Armature core losses are dependent on mechanical speed (=frequency of remagnetization) and (even varying) flux. 
+<p>Armature core losses are dependent on mechanical speed (=frequency of remagnetization) and (even varying) flux.
 Losses due to varying flux, i.e. hysteresis loops superimposed to the magnetic point of operation, are not considered.</p>
- 
+
 <h4>See also</h4>
 <p>
 <a href=modelica://Modelica.Electrical.Machines.Losses.CoreParameters>Core loss parameters</a>
 </p>
- 
+
 </html>"));
       end AirGapDCwithLosses;
 
@@ -13219,7 +13219,7 @@ Power balance of transformers.
       tau = support.tau;
       annotation (Documentation(info="<html>
 <p>
-This partial model defines shaft and housing connector for loss models. 
+This partial model defines shaft and housing connector for loss models.
 Positive torque <code>tau</code> acts as braking torque.
 </p>
 </html>"),           Diagram(graphics),

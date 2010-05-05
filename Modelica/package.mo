@@ -1856,7 +1856,7 @@ to <b style=\"color:blue\">existing</b> libraries:
 <tr><td valign=\"top\"> Delay</td>
     <td valign=\"top\"> InertialDelaySensitiveVector </td> </tr>
 <tr><td valign=\"top\"> Registers</td>
-    <td valign=\"top\"> DFFR, DFFREG, DFFREGL, DFFSR, DFFREGSRH, DFFREGSRL, DLATR, DLATREG, DLATREGL, 
+    <td valign=\"top\"> DFFR, DFFREG, DFFREGL, DFFSR, DFFREGSRH, DFFREGSRL, DLATR, DLATREG, DLATREGL,
                       DLATSR, DLATREGSRH, DLATREGSRL </td> </tr>
 <tr><td valign=\"top\"> Tristates</td>
     <td valign=\"top\"> NXFERGATE, NRXFERGATE, PXFERGATE, PRXFERGATE, BUF3S, BUF3SL, INV3S, INV3SL, WiredX </td> </tr>

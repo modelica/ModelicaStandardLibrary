@@ -2635,12 +2635,12 @@ The simulation stop time has to be 5s.
         '1' "1  Forcing 1") "4-valued subtype of IEEE 1164 STD_ULOGIC type"
           annotation (Documentation(info="<html>
 <p><b>Code Table:</b></p>
- 
+
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td valign=\"top\"><b>Logic value</b></td>
       <td valign=\"top\"><b>Meaning</b></td>
   </tr>
-                         
+
   <tr><td valign=\"top\">'U'</td> <td valign=\"top\">Uninitialized</td></tr>
   <tr><td valign=\"top\">'X'</td> <td valign=\"top\">Forcing Unknown</td></tr>
   <tr><td valign=\"top\">'0'</td> <td valign=\"top\">Forcing 0</td></tr>
@@ -2907,7 +2907,7 @@ The simulation stop time has to be 5s.
          0,  0, -1,  1,  0,  0, -1,  1,  0;
          1,  1,  0,  1,  1,  1,  0,  1,  1;
         -1, -1, -1,  0, -1, -1, -1,  0, -1;
-         0,  0, -1,  1,  0,  0, -1,  1,  0] "Delay selection for signal change by [old_signal, new_signal] reading: 
+         0,  0, -1,  1,  0,  0, -1,  1,  0] "Delay selection for signal change by [old_signal, new_signal] reading:
       -1: High-Low delay |
        0: no delay |
        1: Low-High delay";
@@ -3037,7 +3037,7 @@ The simulation stop time has to be 5s.
             lineColor={255,0,0},
             textString="%name")}),
                             Documentation(info="<html>
- 
+
 </html>"));
   end Tables;
 
@@ -7080,7 +7080,7 @@ Clock transition definitions:
       <td valign=\"top\"><b>Enable</b></td>
       <td valign=\"top\"><b>DataOut</b></td>
   </tr>
-                        
+
   <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td></tr>
   <tr><td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">UX</td></tr>
   <tr><td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">Z</td></tr>
@@ -7093,7 +7093,7 @@ Clock transition definitions:
 </table>
 <p>
 <PRE>
-  UX: if dataIn == U then U else X 
+  UX: if dataIn == U then U else X
 </PRE>
 </p>
 
@@ -7174,7 +7174,7 @@ Clock transition definitions:
       <td valign=\"top\"><b>Enable</b></td>
       <td valign=\"top\"><b>DataOut</b></td>
   </tr>
-                        
+
   <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td></tr>
   <tr><td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">UW</td></tr>
   <tr><td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">Z</td></tr>
@@ -7188,7 +7188,7 @@ Clock transition definitions:
 <p>
 <PRE>
   UW: if dataIn == U then U else W
-  Strength Reduced: 0 -> L, 1 -> H, X -> W 
+  Strength Reduced: 0 -> L, 1 -> H, X -> W
 </PRE>
 </p>
 </html>"));
@@ -7267,7 +7267,7 @@ Clock transition definitions:
       <td valign=\"top\"><b>Enable</b></td>
       <td valign=\"top\"><b>DataOut</b></td>
   </tr>
-                        
+
   <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td></tr>
   <tr><td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">UX</td></tr>
   <tr><td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">DataIn</td></tr>
@@ -7280,7 +7280,7 @@ Clock transition definitions:
 </table>
 <p>
 <PRE>
-  UX: if dataIn == U then U else X 
+  UX: if dataIn == U then U else X
 </PRE>
 </html>"));
     end PXFERGATE;
@@ -7359,7 +7359,7 @@ Clock transition definitions:
       <td valign=\"top\"><b>Enable</b></td>
       <td valign=\"top\"><b>DataOut</b></td>
   </tr>
-                        
+
   <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td></tr>
   <tr><td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">UW</td></tr>
   <tr><td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">DataIn, Strength Reduced</td></tr>
@@ -7373,7 +7373,7 @@ Clock transition definitions:
 <p>
 <PRE>
   UW: if dataIn == U then U else W
-  Strength Reduced: 0 -> L, 1 -> H, X -> W 
+  Strength Reduced: 0 -> L, 1 -> H, X -> W
 </PRE>
 </p>
 </html>"));
@@ -7449,7 +7449,7 @@ Clock transition definitions:
       <td valign=\"top\"><b>Enable</b></td>
       <td valign=\"top\"><b>DataOut*</b></td>
   </tr>
-                        
+
   <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td></tr>
   <tr><td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">UX</td></tr>
   <tr><td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">Z</td></tr>
@@ -7462,7 +7462,7 @@ Clock transition definitions:
 </table>
 <p>
 <PRE>
-  UX: if dataIn == U then U else X 
+  UX: if dataIn == U then U else X
   DataOut*: Strength map for DataOut according to tristate table Buf3sTable
 </PRE>
 </p>
@@ -7540,7 +7540,7 @@ Clock transition definitions:
       <td valign=\"top\"><b>Enable</b></td>
       <td valign=\"top\"><b>DataOut*</b></td>
   </tr>
-                        
+
   <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td></tr>
   <tr><td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">UX</td></tr>
   <tr><td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">DataIn</td></tr>
@@ -7553,7 +7553,7 @@ Clock transition definitions:
 </table>
 <p>
 <PRE>
-  UX: if dataIn == U then U else X 
+  UX: if dataIn == U then U else X
   DataOut*: Strength map for DataOut according to tristate table Buf3slTable
 </PRE>
 </p>
@@ -7636,7 +7636,7 @@ Clock transition definitions:
       <td valign=\"top\"><b>Enable</b></td>
       <td valign=\"top\"><b>DataOut*</b></td>
   </tr>
-                        
+
   <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td></tr>
   <tr><td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">UX</td></tr>
   <tr><td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">Z</td></tr>
@@ -7649,7 +7649,7 @@ Clock transition definitions:
 </table>
 <p>
 <PRE>
-  UX: if dataIn == U then U else X 
+  UX: if dataIn == U then U else X
   DataOut*: Strength map for DataOut according to tristate table Buf3sTable
 </PRE>
 </p>
@@ -7732,7 +7732,7 @@ Clock transition definitions:
       <td valign=\"top\"><b>Enable</b></td>
       <td valign=\"top\"><b>DataOut*</b></td>
   </tr>
-                        
+
   <tr><td valign=\"top\">*</td> <td valign=\"top\">U</td> <td valign=\"top\">U</td></tr>
   <tr><td valign=\"top\">*</td> <td valign=\"top\">X</td> <td valign=\"top\">UX</td></tr>
   <tr><td valign=\"top\">*</td> <td valign=\"top\">0</td> <td valign=\"top\">Not DataIn</td></tr>
@@ -7745,7 +7745,7 @@ Clock transition definitions:
 </table>
 <p>
 <PRE>
-  UX: if dataIn == U then U else X 
+  UX: if dataIn == U then U else X
   DataOut*: Strength map for DataOut according to tristate table Buf3slTable
 </PRE>
 </p>

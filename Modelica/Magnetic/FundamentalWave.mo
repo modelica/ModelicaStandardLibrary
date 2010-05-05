@@ -159,9 +159,9 @@ for contributing his source code to this library.
 <h5>Version 1.5.0, 2010-04-28</h5>
 
 <ul>
-<li>Added stator core, friction, stray load and brush losses to all machine types based on 
+<li>Added stator core, friction, stray load and brush losses to all machine types based on
 <a href=\"modelica://Modelica.Electrical.Machines.Losses\">loss models</a> of the <a href=\"modelica://Modelica.Electrical.Machines\">Machines</a> library.</li>
-<li>Changed parameter of 
+<li>Changed parameter of
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">EddyCurrent</a>
 model from R to G</li>
 <li>Fixed wrong sign of internal quantity <code>tauElectrical</code>, model behavior does not change</li>
@@ -505,7 +505,7 @@ For more details see the <a href=\"modelica://Modelica.Magnetic.FundamentalWave.
           experiment(StopTime=40, Interval=0.01),
           experimentSetupOutput,
           Documentation(info="<html>
-In this example the eddy current losses are implemented in two different ways. Compare the loss dissipation <code>powerb_e.power</code> and <code>powerb_m.power</code> of the two models indicated by power meters. 
+In this example the eddy current losses are implemented in two different ways. Compare the loss dissipation <code>powerb_e.power</code> and <code>powerb_m.power</code> of the two models indicated by power meters.
 </html>"));
       end EddyCurrentLosses;
     end Components;
@@ -1739,8 +1739,8 @@ The salient reluctance models the relationship between the complex magnetic pote
               lineColor={0,0,0},
               textString="G=%G")}),                    Documentation(info="<html>
 <p>
-The eddy current loss model with respect to fundamental wave effects is designed in accordance to 
-<a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.EddyCurrent\">FluxTubes.Basic.EddyCurrent</a>. 
+The eddy current loss model with respect to fundamental wave effects is designed in accordance to
+<a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.EddyCurrent\">FluxTubes.Basic.EddyCurrent</a>.
 </p>
 
 <p>
@@ -1756,11 +1756,11 @@ The eddy current loss model with respect to fundamental wave effects is designed
   </tr>
 </table>
 
-<p>Due to the nature of eddy current losses, which can be represented by symmetric 
-conductors in an equivalent electric circuit (Fig. 1), the respective 
-number of phases <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/m.png\"> has to be taken into account. 
-Assume that the <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/m.png\"> conductances 
-of the equivalent circuit are <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/Components/Gc.png\">, 
+<p>Due to the nature of eddy current losses, which can be represented by symmetric
+conductors in an equivalent electric circuit (Fig. 1), the respective
+number of phases <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/m.png\"> has to be taken into account.
+Assume that the <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/m.png\"> conductances
+of the equivalent circuit are <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/Components/Gc.png\">,
 the conductance for the eddy current loss model is determined by</p>
 
 <p>
@@ -1772,7 +1772,7 @@ where <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/N.png\"> is
 </p>
 
 <p>For such an <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/m.png\"> phase system
-the relationship between the voltage and current <a href=\"http://www.haumer.at/refimg/SpacePhasors.pdf\">space phasors</a> 
+the relationship between the voltage and current <a href=\"http://www.haumer.at/refimg/SpacePhasors.pdf\">space phasors</a>
 and the magnetic flux and magnetic potential difference phasor is
 </p>
 
@@ -1782,7 +1782,7 @@ and the magnetic flux and magnetic potential difference phasor is
 </p>
 
 <p>
-where <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/v_k\"> 
+where <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/v_k\">
 and <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/i_k\">
 are the phase voltages and currents, respectively.
 </p>
