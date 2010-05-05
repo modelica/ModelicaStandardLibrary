@@ -195,7 +195,8 @@ present as for T_twoPort.T.
 <img src=\"modelica://Modelica/Images/Fluid/Examples/MeasuringTemperature2.png\">
 </blockquote>
 
-</html>"));
+</html>"),
+      experiment(StopTime=1.1));
   end MeasuringTemperature;
 
   model MomentumBalanceFittings
@@ -299,6 +300,7 @@ The total pressures offer an additional perspective on the model. After setting 
 </html>"),
       __Dymola_Commands(file=
             "Scripts/Fluid/MomentumBalanceFittings/Plot the model results.mos"
-          "Plot the model results"));
+          "Plot the model results"),
+      experiment(StopTime=1.1));
   end MomentumBalanceFittings;
 end Explanatory;

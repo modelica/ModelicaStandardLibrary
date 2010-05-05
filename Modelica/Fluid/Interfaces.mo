@@ -537,8 +537,10 @@ the boundary temperatures <tt>heatPorts[n].T</tt>, and the heat flow rates <tt>Q
 
     partial model PartialLumpedVolume
     "Lumped volume with mass and energy balance"
-    import Modelica.Fluid.Types;
-    import Modelica.Fluid.Types.Dynamics;
+      import Modelica.Fluid.Types;
+      import Modelica.Fluid.Types.Dynamics;
+      import
+      Modelica.Media.Interfaces.PartialMedium.Choices.IndependentVariables;
 
       outer Modelica.Fluid.System system "System properties";
       replaceable package Medium =
@@ -651,16 +653,32 @@ the boundary temperatures <tt>heatPorts[n].T</tt>, and the heat flow rates <tt>Q
     initial equation
       // initialization of balances
       if energyDynamics == Dynamics.FixedInitial then
-        if use_T_start then
-          medium.T = T_start;
+        /*
+    if use_T_start then
+      medium.T = T_start;
+    else
+      medium.h = h_start;
+    end if;
+    */
+        if Medium.ThermoStates == IndependentVariables.ph or
+           Medium.ThermoStates == IndependentVariables.phX then
+           medium.h = h_start;
         else
-          medium.h = h_start;
+           medium.T = T_start;
         end if;
       elseif energyDynamics == Dynamics.SteadyStateInitial then
-        if use_T_start then
-          der(medium.T) = 0;
+        /*
+    if use_T_start then
+      der(medium.T) = 0;
+    else
+      der(medium.h) = 0;
+    end if;
+    */
+        if Medium.ThermoStates == IndependentVariables.ph or
+           Medium.ThermoStates == IndependentVariables.phX then
+           der(medium.h) = 0;
         else
-          der(medium.h) = 0;
+           der(medium.T) = 0;
         end if;
       end if;
 
