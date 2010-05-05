@@ -135,7 +135,7 @@ for contributing his source code to this library.
 
       annotation (Documentation(info="<html>
 
-<h5>Version 1.6.0, 2010-05-04</h5>
+<h5>Version 1.6.0, 2010-05-05</h5>
 
 <ul>
 <li>Renamed all parameters <code>windingAngle</code> to <code>orientation</code>. The following classes are affected:</li>
@@ -153,7 +153,9 @@ for contributing his source code to this library.
     <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">
     EddyCurrent</a> </li>
 <li>Added <code>modelica://</code> to all Modelica hyper links</li>
-
+<li>Fixed bug in displayed parameters of <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">
+    EddyCurrent</a> </li>
+<li>Updated code documentation of <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a></li>
 </ul>
 
 <h5>Version 1.5.0, 2010-04-28</h5>
@@ -1681,7 +1683,7 @@ Grounding of the complex magnetic potential. Each magnetic circuit has to be gro
             Text(
               extent={{0,-70},{0,-110}},
               lineColor={0,0,0},
-              textString="R_m.re=%R_m.re, R_m.im=%R_m.im")}),
+              textString="R_m.d=%R_m.d, R_m.q=%R_m.q")}),
                                                        Documentation(info="<html>
 <p>
 The salient reluctance models the relationship between the complex magnetic potential difference
@@ -3194,7 +3196,7 @@ The symmetrical multi phase winding consists of a symmetrical winding
           Modelica.Magnetic.FundamentalWave.Types.SalientReluctance R_m(
           d=1/L0.d, q=1/L0.q) "Reluctance of the air gap model";
 
-        // Stator magnetic quantities
+        // Complex phasors of magnetic potential differences
         Modelica.SIunits.ComplexMagneticPotentialDifference V_mss
           "Complex magnetic potential difference of stator w.r.t. stator reference frame";
         Modelica.SIunits.ComplexMagneticPotentialDifference V_msr
@@ -3204,6 +3206,7 @@ The symmetrical multi phase winding consists of a symmetrical winding
         // Modelica.SIunits.ComplexMagneticPotentialDifference V_mrs
         //   "Complex magnetic potential difference of rotor w.r.t. stator reference frame";
 
+        // Complex phasors of magnetic fluxes
         Modelica.SIunits.ComplexMagneticFlux Phi_ss
           "Complex magnetic potential difference of stator w.r.t. stator reference frame";
         Modelica.SIunits.ComplexMagneticFlux Phi_sr
@@ -4768,7 +4771,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <tr><td>Version</td> <td>Revision</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
 </thead>
 <tbody>
-<tr><td>1.6.0</td><td>3825</td>  <td>2010-05-04</td>  <td>C. Kral</td>  <td>Renamed all parameters windingAngle to orientation<br>Update due to changed class names in Machines.Icons</td></tr>
+<tr><td>1.6.0</td><td>3832</td>  <td>2010-05-05</td>  <td>C. Kral</td>  <td>Renamed all parameters windingAngle to orientation<br>Update due to changed class names in Machines.Icons</td></tr>
 <tr><td>1.5.0</td><td>3802</td>  <td>2010-04-28</td>  <td>C. Kral</td>  <td>Added stator core, friction, stray load and brush loss models and changed parameter of EddyCurrent model</td></tr>
 <tr><td>1.4.0</td><td>3763</td>  <td>2010-04-22</td>  <td>C. Kral</td>  <td>Added eddy current loss model with thermal heat port</td></tr>
 <tr><td>1.3.0</td><td></td>  <td>2010-02-26</td>  <td>A. Haumer<br>C. Kral</td>  <td>New state selection, icons and copyright included</td></tr>
