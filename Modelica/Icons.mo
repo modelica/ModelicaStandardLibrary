@@ -150,9 +150,9 @@ package Icons "Library of icons"
 </html>"));
   end ExamplesPackage;
 
-  partial class Example "Icon for runnable examples"
+  partial model Example "Icon for runnable examples"
 
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (experiment(StopTime=0.99),Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={Ellipse(extent={{-100,100},{100,-100}},
               lineColor={95,95,95}), Polygon(
             points={{-36,60},{64,0},{-36,-60},{-36,60}},
