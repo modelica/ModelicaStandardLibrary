@@ -5242,6 +5242,7 @@ VN- -&GT; name.pc[N-1]
       protected
          Real ratio;
          Real ratio4;
+         Real res;
 
       algorithm
         out_c := in_c;
@@ -5286,10 +5287,10 @@ VN- -&GT; name.pc[N-1]
         end if;
 
         if ( not (in_p.m_capBDIsGiven > 0.5) or not (in_p.m_capBSIsGiven > 0.5)) then
-          (out_c.m_tCj)   := Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3(
+          (res,out_c.m_tCj)   := Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3(
                                     in_p.m_bulkJctPotential, in_p.m_bulkCapFactor,
                                     in_p.m_bulkJctBotGradingCoeff, in_m.m_dTemp, in_p.m_tnom);
-          (out_c.m_tCjsw) := Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3(
+          (res,out_c.m_tCjsw) := Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3(
                                     in_p.m_bulkJctPotential, in_p.m_sideWallCapFactor,
                                     in_p.m_bulkJctSideGradingCoeff, in_m.m_dTemp, in_p.m_tnom);
           (out_c.m_f1s, out_c.m_f2s, out_c.m_f3s) := Modelica.Electrical.Spice3.Internal.Functions.junctionCapCoeffs(
@@ -5297,7 +5298,7 @@ VN- -&GT; name.pc[N-1]
         end if;
 
         if (in_p.m_capBDIsGiven > 0.5) then
-          (out_c.m_tCBDb) := Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3(
+          (res,out_c.m_tCBDb) := Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3(
                                     in_p.m_bulkJctPotential, in_p.m_capBD,
                                     in_p.m_bulkJctBotGradingCoeff, in_m.m_dTemp, in_p.m_tnom);
           out_c.m_tCBDs          := 0.0;
@@ -5307,7 +5308,7 @@ VN- -&GT; name.pc[N-1]
         end if;
 
         if (in_p.m_capBSIsGiven > 0.5) then
-          (out_c.m_tCBSb) := Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3(
+          (res,out_c.m_tCBSb) := Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3(
                                     in_p.m_bulkJctPotential, in_p.m_capBS,
                                     in_p.m_bulkJctBotGradingCoeff, in_m.m_dTemp, in_p.m_tnom);
           out_c.m_tCBSs          := 0.0;
@@ -5348,8 +5349,8 @@ VN- -&GT; name.pc[N-1]
         Modelica.SIunits.Current cur;
         Integer n;
         DEVqmeyer qm;
-        DEVqmeyer in_qm;
         Mos1.Mos1Calc int_c;
+        Real hlp;
 
       algorithm
         int_c := in_c;
@@ -5443,34 +5444,14 @@ VN- -&GT; name.pc[N-1]
           qm := mosCalcDEVqmeyer( int_c.m_vgs, vgd, vgb, int_c);
         else
           qm := mosCalcDEVqmeyer( vgd, int_c.m_vgs, vgb, int_c);
+          hlp := qm.qm_capgd;
+          qm.qm_capgd := qm.qm_capgs;
+          qm.qm_capgs := hlp;
         end if;
-        in_qm := qm;
 
-        if (in_m_bInit) then
           int_c.m_capgd := 2 * qm.qm_capgd + int_c.m_capGDovl;
           int_c.m_capgs := 2 * qm.qm_capgs + int_c.m_capGSovl;
           int_c.m_capgb := 2 * qm.qm_capgb + int_c.m_capGBovl;
-          int_c.m_qgs   := int_c.m_capgs * int_c.m_vgs;
-          int_c.m_qgb   := int_c.m_capgb * vgb;
-          int_c.m_qgd   := int_c.m_capgd * vgd;
-        else
-          int_c.m_capgd := qm.qm_capgd + in_qm.qm_capgd + int_c.m_capGDovl;
-          int_c.m_capgs := qm.qm_capgs + in_qm.qm_capgs + int_c.m_capGSovl;
-
-          int_c.m_capgb := qm.qm_capgb + in_qm.qm_capgb + int_c.m_capGBovl;
-          int_c.m_qgs   := (int_c.m_vgs - in_qm.qm_vgs) * int_c.m_capgs + in_qm.qm_qgs;
-          int_c.m_qgb   := (vgb - in_qm.qm_vgb) * int_c.m_capgb + in_qm.qm_qgb;
-          int_c.m_qgd   := (vgd - in_qm.qm_vgd) * int_c.m_capgd + in_qm.qm_qgd;
-        end if;
-
-          out_cc.m_capgd := int_c.m_capgd;
-
-        qm.qm_qgs := int_c.m_qgs;
-        qm.qm_qgb := int_c.m_qgb;
-        qm.qm_qgd := int_c.m_qgd;
-        qm.qm_vgs := int_c.m_vgs;
-        qm.qm_vgb := vgb;
-        qm.qm_vgd := vgd;
 
         out_cc.cGB := if (in_m_bInit) then -1e40 else int_c.m_capgb;
         out_cc.cGD := if (in_m_bInit) then -1e40 else int_c.m_capgd;
