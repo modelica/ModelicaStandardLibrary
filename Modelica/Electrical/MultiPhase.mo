@@ -840,6 +840,74 @@ Each element of the array of saturatingInductors is only dependent on the curren
 </HTML>"));
     end SaturatingInductor;
 
+    model MutualInductor "Linear mutual inductor"
+      extends Modelica.Electrical.MultiPhase.Interfaces.OnePort;
+      constant Real epsilon = 1e-9
+        "Relative accuracy tolerance of matrix symmetry";
+      parameter Integer m = 3 "Number of phases";
+      parameter Modelica.SIunits.Inductance L[m,m] "Mutual inductance matrix";
+    initial equation
+      if abs(Modelica.Math.Matrices.det(L))<epsilon then
+        Modelica.Utilities.Streams.print("Warning: mutual inductance matrix singular!");
+      end if;
+    equation
+      assert(sum(abs(L-transpose(L)))<epsilon*sum(abs(L)),"Mutual inductance matrix is not symmetric");
+      for j in 1:m loop
+        v[j] = sum(L[j,k]*der(i[k]) for k in 1:m);
+      end for;
+      annotation (Diagram(graphics),
+                           Documentation(info="<html> 
+<p>
+Model of a multi phase inductor providing a mutual inductance matrix model.
+</p>
+<H4>Implementation</H4>
+<pre>
+  v[1] = L[1,1]*der(i[1]) + L[1,2]*der(i[2]) + ... + L[1,m]*der(i[m])
+  v[2] = L[2,1]*der(i[1]) + L[2,2]*der(i[2]) + ... + L[2,m]*der(i[m])
+    :              :                         :                                :
+  v[m] = L[m,1]*der(i[1]) + L[m,2]*der(i[2]) + ... + L[m,m]*der(i[m])
+</pre>
+ 
+</html>"),
+        Icon(graphics={
+            Ellipse(extent={{30,-50},{60,10}},lineColor={0,0,255}),
+            Ellipse(extent={{0,-50},{30,10}},lineColor={0,0,255}),
+            Ellipse(extent={{-30,-50},{0,10}},lineColor={0,0,255}),
+            Ellipse(extent={{-60,-50},{-30,10}},lineColor={0,0,255}),
+            Line(points={{-80,20},{-80,-20},{-60,-20}}, color={0,0,255}),
+            Line(points={{-80,20},{-60,20}}, color={0,0,255}),
+            Ellipse(extent={{-60,-10},{-30,50}},
+                                               lineColor={0,0,255}),
+            Ellipse(extent={{-30,-10},{0,50}},
+                                             lineColor={0,0,255}),
+            Ellipse(extent={{0,-10},{30,50}},
+                                            lineColor={0,0,255}),
+            Ellipse(extent={{30,-10},{60,50}},
+                                             lineColor={0,0,255}),
+            Line(points={{60,20},{80,20}}, color={0,0,255}),
+            Line(points={{80,20},{80,-20},{60,-20}}, color={0,0,255}),
+            Rectangle(
+              extent={{-60,0},{60,20}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Rectangle(
+              extent={{-60,-20},{60,0}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-90,0},{-80,0}}, color={0,0,255}),
+            Line(points={{80,0},{90,0}}, color={0,0,255}),
+            Text(
+              extent={{0,60},{0,100}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-100,-100},{100,-60}},
+              lineColor={0,0,0},
+              textString="m=%m")}));
+    end MutualInductor;
+
     model Transformer "Multiphase Transformer"
       extends Interfaces.FourPlug;
       parameter Modelica.SIunits.Inductance L1[m](start=fill(1, m))
