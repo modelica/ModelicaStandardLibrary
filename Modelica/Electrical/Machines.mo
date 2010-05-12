@@ -2063,7 +2063,7 @@ Default machine parameters of model <i>DC_SeriesExcited</i> are used.
           offset=1)
           annotation (Placement(transformation(extent={{60,0},{40,20}},
                 rotation=0)));
-        Analog.Sources.SineVoltage constantVoltage(V=sqrt(2)*Va, freqHz=50)
+        Modelica.Electrical.Analog.Sources.SineVoltage constantVoltage(V=sqrt(2)*Va, freqHz=50)
           annotation (Placement(transformation(extent={{0,50},{-20,30}}, rotation=
                  0)));
         Modelica.Electrical.Analog.Basic.Ground ground
@@ -3544,7 +3544,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
               extent={{10,-10},{-10,10}},
               rotation=270,
               origin={20,-20})));
-        Analog.Basic.Inductor lrzero(final L=Lrzero)
+        Modelica.Electrical.Analog.Basic.Inductor lrzero(final L=Lrzero)
           annotation (Placement(transformation(extent={{10,10},{-10,-10}},
               rotation=90,
               origin={-50,-60})));
@@ -4969,12 +4969,12 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
               origin={0,0},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Analog.Basic.Ground ground
+        Modelica.Electrical.Analog.Basic.Ground ground
           annotation (Placement(transformation(extent={{-30,-30},{-10,-10}})));
         Components.CompoundDCExcitation compoundDCExcitation(final excitationTurnsRatio=
                                  1)
           annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
-        Analog.Basic.Ground groundSE
+        Modelica.Electrical.Analog.Basic.Ground groundSE
           annotation (Placement(transformation(extent={{-30,-50},{-10,-30}})));
 
         Modelica.Electrical.Analog.Basic.Resistor re(
@@ -5237,9 +5237,9 @@ Armature current does not cover excitation current of a shunt excitation; in thi
         Components.CompoundDCExcitation compoundDCExcitation(final excitationTurnsRatio=
                                  1)
           annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
-        Analog.Basic.Ground ground
+        Modelica.Electrical.Analog.Basic.Ground ground
           annotation (Placement(transformation(extent={{-30,-30},{-10,-10}})));
-        Analog.Basic.Ground groundE
+        Modelica.Electrical.Analog.Basic.Ground groundE
           annotation (Placement(transformation(extent={{0,-60},{20,-40}})));
         Modelica.Electrical.Analog.Basic.Resistor re(
           final R=Re,
@@ -5489,7 +5489,7 @@ This package contains models of DC machines:
 
       model DC_PermanentMagnet "Quasistationary permanent magnet DC machine"
         extends Machines.BasicMachines.DCMachines.DC_PermanentMagnet(final quasiStationary=true);
-          extends Modelica.Electrical.Machines.Icons.QuasiStationaryMachine;
+          extends Machines.Icons.QuasiStationaryMachine;
         annotation (defaultComponentName="dcpm",
           Documentation(info="<HTML>
 <b>Quasistaionary model of a DC Machine with permanent magnets.</b><br>
@@ -5502,7 +5502,7 @@ the only difference is that electrical transients are neglected.
       model DC_ElectricalExcited
         "Quasistationary electrical shunt/separate excited linear DC machine"
         extends Machines.BasicMachines.DCMachines.DC_ElectricalExcited(final quasiStationary=true);
-        extends Modelica.Electrical.Machines.Icons.QuasiStationaryMachine;
+        extends Machines.Icons.QuasiStationaryMachine;
         annotation (defaultComponentName="dcee",
           Documentation(info="<HTML>
 <b>Quasistaionary model of a DC Machine with electrical shunt or separate excitation.</b><br>
@@ -5514,7 +5514,7 @@ the only difference is that electrical transients are neglected.
 
       model DC_SeriesExcited "Quasistationary series excited linear DC machine"
         extends Machines.BasicMachines.DCMachines.DC_SeriesExcited(final quasiStationary=true);
-        extends Modelica.Electrical.Machines.Icons.QuasiStationaryMachine;
+        extends Machines.Icons.QuasiStationaryMachine;
         annotation (defaultComponentName="dcse",
           Documentation(info="<HTML>
 <b>Quasistaionary model of a DC Machine with Series excitation.</b><br>
@@ -8270,18 +8270,18 @@ Induced armature voltage is calculated from flux times angular velocity.
         Modelica.SIunits.Current ie = pin_ep.i;
         Modelica.SIunits.Voltage vse = pin_sep.v - pin_sen.v;
         Modelica.SIunits.Current ise = pin_sep.i;
-        Analog.Interfaces.PositivePin pin_p "Positive pin to airgap"
+        Modelica.Electrical.Analog.Interfaces.PositivePin pin_p "Positive pin to airgap"
           annotation (Placement(transformation(extent={{90,110},{110,90}})));
-        Analog.Interfaces.NegativePin pin_n "Negative pin to airgap"
+        Modelica.Electrical.Analog.Interfaces.NegativePin pin_n "Negative pin to airgap"
           annotation (Placement(transformation(extent={{-110,110},{-90,90}})));
-        Analog.Interfaces.PositivePin pin_ep "Positive pin to shunt excitation"
+        Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep "Positive pin to shunt excitation"
           annotation (Placement(transformation(extent={{90,-108},{110,-88}})));
-        Analog.Interfaces.NegativePin pin_en "Negative pin to shunt excitation"
+        Modelica.Electrical.Analog.Interfaces.NegativePin pin_en "Negative pin to shunt excitation"
           annotation (Placement(transformation(extent={{10,-110},{30,-90}})));
-        Analog.Interfaces.PositivePin pin_sep
+        Modelica.Electrical.Analog.Interfaces.PositivePin pin_sep
           "Positive pin to series excitation"
           annotation (Placement(transformation(extent={{-30,-110},{-10,-90}})));
-        Analog.Interfaces.NegativePin pin_sen
+        Modelica.Electrical.Analog.Interfaces.NegativePin pin_sen
           "Negative pin to series excitation"
           annotation (Placement(transformation(extent={{-110,-110},{-90,-90}})));
       equation
@@ -10310,7 +10310,7 @@ If it is desired to neglect brush losses, set <code>brushParameters.V = 0</code>
 
       function brushVoltageDrop "Voltage drop of carbon brushes"
         extends Modelica.Icons.Function;
-        input Modelica.Electrical.Machines.Losses.BrushParameters
+        input Machines.Losses.BrushParameters
           brushParameters "Brush loss parameters";
         input Modelica.SIunits.Current i "Actual current";
         output Modelica.SIunits.Voltage v "Voltage drop";
@@ -11552,7 +11552,7 @@ Connector for Space Phasors:
     end SpacePhasor;
 
     partial model PartialBasicMachine "Partial model for all machines"
-      extends Modelica.Electrical.Machines.Icons.TransientMachine;
+      extends Machines.Icons.TransientMachine;
       constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
       parameter Modelica.SIunits.Inertia Jr "Rotor's moment of inertia";
       parameter Boolean useSupport=false
@@ -11715,7 +11715,7 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
         wRef=2*pi*fsNominal) "Stator core losses"
         annotation(Dialog(tab="Losses"));
       parameter Machines.Losses.StrayLoadParameters strayLoadParameters(
-        IRef(start=1), wRef(start=2*pi*fsNominal/p)) "Stray load losses"
+        IRef(start=100), wRef(start=2*pi*fsNominal/p)) "Stray load losses"
         annotation(Dialog(tab="Losses"));
       replaceable output
         Machines.Interfaces.InductionMachines.PartialPowerBalanceInductionMachines
@@ -12706,7 +12706,7 @@ Thermal ports for DC machines
 
     partial model PartialBasicTransformer
       "Partial model of threephase transformer"
-      extends Modelica.Electrical.Machines.Icons.TransientTransformer;
+      extends Machines.Icons.TransientTransformer;
       final parameter Integer m(min=1) = 3 "Number of phases";
       constant String VectorGroup="Yy00";
       parameter Real n(start=1)
