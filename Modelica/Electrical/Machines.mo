@@ -867,10 +867,10 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         parameter Modelica.SIunits.Power PNominal=18500 "Nominal output";
         parameter Modelica.SIunits.Voltage VNominal=400 "Nominal RMS voltage";
         parameter Modelica.SIunits.Power PcoreRef=410 "Nominal core losses";
-        parameter Modelica.SIunits.Voltage VcoreNominal=375.7
+        parameter Modelica.SIunits.Voltage VcoreNominal=387.9
           "Nominal inner RMS voltage";
-        parameter Modelica.SIunits.Power PstrayRef=180
-          "Nominal stray load losses";
+        parameter Modelica.SIunits.Power PfrictionRef=180
+          "Nominal friction losses";
         parameter Modelica.SIunits.Current INominal=32.85 "Nominal RMS current";
         parameter Real pfNominal=0.898 "Nominal power factor";
         parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
@@ -914,7 +914,6 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           fsNominal=fNominal,
           TsOperational=TempNominal,
           TrOperational=TempNominal,
-          frictionParameters(PRef=PstrayRef, wRef=wNominal),
           statorCoreParameters(
             PRef=PcoreRef,
             VRef=VcoreNominal,
@@ -931,6 +930,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           Rr=0.42,
           alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Aluminium,
           wMechanical(start=wNominal, fixed=true),
+          frictionParameters(PRef=PfrictionRef, wRef=wNominal),
           TsRef=293.15,
           TrRef=293.15)
           annotation (Placement(transformation(extent={{-40,0},{-20,20}},
@@ -984,10 +984,10 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           offset=0,
           startTime=4.5,
           duration=5.5)
-          annotation (Placement(transformation(extent={{-40,-62},{-20,-42}})));
-        Blocks.Tables.CombiTable1Ds combiTable1Ds(table={{Ptable[j],Itable[j],ntable[
-              j],ctable[j],etable[j]} for j in 1:size(Ptable, 1)}, smoothness=
-              Modelica.Blocks.Types.Smoothness.ContinuousDerivative)
+          annotation (Placement(transformation(extent={{-40,-60},{-20,-40}})));
+        Modelica.Blocks.Tables.CombiTable1Ds combiTable1Ds(
+          table={{Ptable[j],Itable[j],ntable[j],ctable[j],etable[j]} for j in 1:size(Ptable, 1)},
+          smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative)
           annotation (Placement(transformation(extent={{20,-30},{40,-10}})));
       equation
         connect(star.pin_n, ground.p)
@@ -1050,7 +1050,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
             color={0,0,127},
             smooth=Smooth.None));
         connect(ramp.y, feedback.u1) annotation (Line(
-            points={{-19,-52},{-14,-52},{-14,-50},{-8,-50}},
+            points={{-19,-50},{-8,-50}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(powerSensor.power, combiTable1Ds.u) annotation (Line(
@@ -1067,7 +1067,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
 <ul>
 <li>Simulate for 5 seconds: The machine is started at nominal speed, flux is build up in the machine.</li>
 <li>Condinue the simulation for additional 5 seconds: Subsequently a load ramp is applied.</li>
-<li>Compare by plotting versus Pmech:<li>
+<li>Compare by plotting versus Pmech:</li>
 </ul>
 <table>
 <tr><td>Current      </td><td>I_sim   </td><td>I_meas  </td></tr>
@@ -1083,7 +1083,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
 <tr><td>Electrical input                  </td><td> 20,443.95  </td><td>W      </td></tr>
 <tr><td>Stator copper losses              </td><td>    770.13  </td><td>W      </td></tr>
 <tr><td>Stator core losses                </td><td>    410.00  </td><td>W      </td></tr>
-<tr><td>Rotor  sopper losses              </td><td>    481.60  </td><td>W      </td></tr>
+<tr><td>Rotor  copper losses              </td><td>    481.60  </td><td>W      </td></tr>
 <tr><td>Stray load losses                 </td><td>    102.22  </td><td>W      </td></tr>
 <tr><td>Friction losses                   </td><td>    180.00  </td><td>W      </td></tr>
 <tr><td>Mechanical output                 </td><td> 18,500.00  </td><td>W      </td></tr>
@@ -1619,7 +1619,7 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
               origin={30,-50})));
         Modelica.Blocks.Math.Gain setPointGain(k=smeeData.VsNominal/wNominal)
           annotation (Placement(transformation(extent={{-50,-90},{-70,-70}})));
-        Sensors.VoltageQuasiRMSSensor voltageQuasiRMSSensor(V(start=1E-3, fixed=true))
+        Machines.Sensors.VoltageQuasiRMSSensor voltageQuasiRMSSensor(V(start=1E-3, fixed=true))
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
@@ -1631,7 +1631,7 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
           yMax=2.5*Ve0,
           yMin=0)
           annotation (Placement(transformation(extent={{-70,-40},{-50,-20}})));
-        Analog.Sources.SignalVoltage excitationVoltage annotation (Placement(
+        Modelica.Electrical.Analog.Sources.SignalVoltage excitationVoltage annotation (Placement(
               transformation(
               extent={{10,-10},{-10,10}},
               rotation=90,
@@ -3257,17 +3257,12 @@ This package contains test examples of electric machines.
           redeclare final Machines.Interfaces.InductionMachines.ThermalPortAIMC
             internalThermalPort,
           redeclare final
-            Machines.Interfaces.InductionMachines.PowerBalanceAIMC powerBalance(
-              final pLoss_coreS = -airGapS.heatPortS.Q_flow,
-              final pLoss_coreR = -airGapS.heatPortR.Q_flow,
-              final pLoss_r = -squirrelCageR.heatPort.Q_flow));
-        Machines.Losses.InductionMachines.AirGapRwithLosses airGapS(
-          final m=3,
+            Machines.Interfaces.InductionMachines.PowerBalanceAIMC
+           powerBalance(final pLoss_r = -squirrelCageR.heatPort.Q_flow));
+        Components.AirGapS                                  airGapS(
           final p=p,
-          final Lmd=Lm,
-          final Lmq=Lm,
-          final statorCoreParameters=statorCoreParameters,
-          final rotorCoreParameters=rotorCoreParameters)
+          final Lm=Lm,
+          final m=m)
           annotation (Placement(transformation(
               origin={0,0},
               extent={{-10,-10},{10,10}},
@@ -3303,12 +3298,8 @@ This package contains test examples of electric machines.
               rotation=270)));
       equation
         connect(airGapS.spacePhasor_r, squirrelCageR.spacePhasor_r)
-          annotation (Line(points={{10,-10},{10,-15},{10,-30}},
+          annotation (Line(points={{10,-10},{10,-15},{10,-30},{10,-30}},
                                                        color={0,0,255}));
-        connect(spacePhasorS.spacePhasor, airGapS.spacePhasor_s) annotation (Line(
-            points={{10,30},{10,20},{10,10},{10,10}},
-            color={0,0,255},
-            smooth=Smooth.None));
         connect(airGapS.support, internalSupport) annotation (Line(
             points={{-10,1.83697e-015},{-10,0},{-40,0},{-40,-90},{60,-90},{60,
                 -100}},
@@ -3324,16 +3315,9 @@ This package contains test examples of electric machines.
             points={{-10,-40},{50,-40},{50,-80},{0,-80}},
             color={191,0,0},
             smooth=Smooth.None));
-        connect(airGapS.heatPortS, internalThermalPort.heatPort_statorCore)
-          annotation (Line(
-            points={{1.83697e-015,10},{0,10},{0,20},{50,20},{50,-80},{0,-80}},
-            color={191,0,0},
-            smooth=Smooth.None));
-        connect(airGapS.heatPortR, internalThermalPort.heatPort_rotorCore)
-          annotation (Line(
-            points={{-1.83697e-015,-10},{-1.83697e-015,-20},{50,-20},{50,-80},{
-                0,-80}},
-            color={191,0,0},
+        connect(lssigma.spacePhasor_b, airGapS.spacePhasor_s) annotation (Line(
+            points={{20,10},{10,10},{10,10}},
+            color={0,0,255},
             smooth=Smooth.None));
         annotation (defaultComponentName="aimc",
           Documentation(info="<HTML>
@@ -3465,19 +3449,15 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           redeclare final Machines.Interfaces.InductionMachines.ThermalPortAIMS
             internalThermalPort,
           redeclare final
-            Machines.Interfaces.InductionMachines.PowerBalanceAIMS powerBalance(
-              final pLoss_coreS = -airGapS.heatPortS.Q_flow,
-              final pLoss_coreR = -airGapS.heatPortR.Q_flow,
+            Machines.Interfaces.InductionMachines.PowerBalanceAIMS
+            powerBalance(
               final pLoss_r = -sum(rr.heatPort.Q_flow),
               final pLoss_brush = -brush.heatPort.Q_flow,
               final pElectrical_r = Machines.SpacePhasors.Functions.activePower(vr, ir)));
-        Machines.Losses.InductionMachines.AirGapRwithLosses airGapS(
-          final m=3,
+        Components.AirGapS                                  airGapS(
           final p=p,
-          final Lmd=Lm,
-          final Lmq=Lm,
-          final statorCoreParameters=statorCoreParameters,
-          final rotorCoreParameters=rotorCoreParameters)
+          final Lm=Lm,
+          final m=m)
           annotation (Placement(transformation(
               origin={0,0},
               extent={{-10,-10},{10,10}},
@@ -3529,10 +3509,6 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
               origin={0,-40},
               extent={{-10,10},{10,-10}},
               rotation=90)));
-        Modelica.Electrical.MultiPhase.Basic.Inductor lrsigma(final m=m, final L=fill(Lrsigma, m))
-          annotation (Placement(transformation(extent={{-10,10},{10,-10}},
-                rotation=270,
-              origin={-80,-20})));
         Modelica.Electrical.MultiPhase.Basic.Resistor rr(
           final m=m,
           final R=fill(Rr, m),
@@ -3557,18 +3533,15 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
               extent={{-10,10},{10,-10}},
               rotation=270,
               origin={-80,40})));
+        Components.Inductor lrsigma(final L=fill(Lrsigma, 2)) annotation (Placement(
+              transformation(
+              extent={{10,-10},{-10,10}},
+              rotation=270,
+              origin={20,-20})));
+        Analog.Basic.Inductor Lrzero(final L=Lrsigma)
+          annotation (Placement(transformation(extent={{0,-30},{-20,-10}})));
       equation
-        connect(spacePhasorR.ground, spacePhasorR.zero) annotation (Line(
-            points={{-10,-30},{-10,-24},{6.12323e-016,-24},{6.12323e-016,-30}},
-            color={0,0,255}));
 
-        connect(airGapS.spacePhasor_r, spacePhasorR.spacePhasor)
-          annotation (Line(points={{10,-10},{10,-25},{10,-30}},
-                                                       color={0,0,255}));
-        connect(spacePhasorS.spacePhasor, airGapS.spacePhasor_s) annotation (Line(
-            points={{10,30},{10,20},{10,10},{10,10}},
-            color={0,0,255},
-            smooth=Smooth.None));
         connect(airGapS.support, internalSupport) annotation (Line(
             points={{-10,1.83697e-015},{-40,1.83697e-015},{-40,-90},{60,-90},{
                 60,-100}},
@@ -3580,20 +3553,12 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
                 1.22465e-015}},
             color={0,0,0},
             smooth=Smooth.None));
-        connect(rr.plug_n, lrsigma.plug_p) annotation (Line(
-            points={{-80,0},{-80,-10}},
-            color={0,0,255},
-            smooth=Smooth.None));
         connect(plug_rp, brush.plug_p) annotation (Line(
             points={{-100,60},{-80,60},{-80,50}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(brush.plug_n, rr.plug_p) annotation (Line(
             points={{-80,30},{-80,20}},
-            color={0,0,255},
-            smooth=Smooth.None));
-        connect(lrsigma.plug_n, spacePhasorR.plug_p) annotation (Line(
-            points={{-80,-30},{-80,-60},{10,-60},{10,-50}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(plug_rn, plug_rn) annotation (Line(
@@ -3613,16 +3578,29 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             points={{-70,40},{-60,40},{-60,-70},{0,-70},{0,-80}},
             color={191,0,0},
             smooth=Smooth.None));
-        connect(airGapS.heatPortS, internalThermalPort.heatPort_statorCore)
-          annotation (Line(
-            points={{1.83697e-015,10},{1.83697e-015,20},{50,20},{50,-80},{0,-80}},
-            color={191,0,0},
+        connect(lssigma.spacePhasor_b, airGapS.spacePhasor_s) annotation (Line(
+            points={{20,10},{10,10},{10,10}},
+            color={0,0,255},
             smooth=Smooth.None));
-        connect(airGapS.heatPortR, internalThermalPort.heatPort_rotorCore)
-          annotation (Line(
-            points={{-1.83697e-015,-10},{0,-10},{0,-20},{50,-20},{50,-80},{0,
-                -80}},
-            color={191,0,0},
+        connect(spacePhasorR.spacePhasor, lrsigma.spacePhasor_a) annotation (Line(
+            points={{10,-30},{20,-30}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(lrsigma.spacePhasor_b, airGapS.spacePhasor_r) annotation (Line(
+            points={{20,-10},{15,-10},{15,-10},{10,-10}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(spacePhasorR.plug_p, rr.plug_n) annotation (Line(
+            points={{10,-50},{10,-60},{-80,-60},{-80,0}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(Lrzero.p, spacePhasorR.zero) annotation (Line(
+            points={{0,-20},{0,-25},{0,-30},{6.12323e-016,-30}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(Lrzero.n, spacePhasorR.ground) annotation (Line(
+            points={{-20,-20},{-20,-30},{-10,-30}},
+            color={0,0,255},
             smooth=Smooth.None));
         annotation (defaultComponentName="aims",
           Documentation(info="<HTML>
@@ -3820,17 +3798,13 @@ These models use package SpacePhasors.
           redeclare final
             Machines.Interfaces.InductionMachines.PowerBalanceSMPM
             powerBalance(
-              final pLoss_coreS = -airGapR.heatPortS.Q_flow,
-              final pLoss_coreR = -airGapR.heatPortR.Q_flow,
               final pLoss_r = damperCage.LossPower,
               final pLoss_pm = 0));
-        Machines.Losses.InductionMachines.AirGapRwithLosses airGapR(
-          final m=3,
+        Components.AirGapR                                  airGapR(
           final p=p,
           final Lmd=Lmd,
           final Lmq=Lmq,
-          final statorCoreParameters=statorCoreParameters,
-          final rotorCoreParameters=rotorCoreParameters)
+          final m=m)
           annotation (Placement(transformation(
               origin={0,0},
               extent={{-10,-10},{10,10}},
@@ -3895,15 +3869,11 @@ These models use package SpacePhasors.
               rotation=270)));
       equation
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r) annotation (Line(
-              points={{10,-10},{10,-15},{10,-15},{10,-20},{10,-30},{10,-30}},
+              points={{10,-10},{10,-15},{10,-30},{10,-30}},
                                           color={0,0,255}));
         connect(airGapR.spacePhasor_r, permanentMagnet.spacePhasor_r)
           annotation (Line(points={{10,-10},{20,-10},{20,-50},{8,-50}},  color=
                 {0,0,255}));
-        connect(spacePhasorS.spacePhasor, airGapR.spacePhasor_s) annotation (Line(
-            points={{10,30},{10,20},{10,10},{10,10}},
-            color={0,0,255},
-            smooth=Smooth.None));
         connect(airGapR.support, internalSupport) annotation (Line(
             points={{-10,1.83697e-015},{-40,1.83697e-015},{-40,-90},{60,-90},{
                 60,-100}},
@@ -3915,20 +3885,13 @@ These models use package SpacePhasors.
                 1.22465e-015}},
             color={0,0,0},
             smooth=Smooth.None));
-        connect(airGapR.heatPortS, internalThermalPort.heatPort_statorCore)
-          annotation (Line(
-            points={{1.83697e-015,10},{0,10},{0,20},{50,20},{50,-80},{0,-80}},
-            color={191,0,0},
-            smooth=Smooth.None));
-        connect(airGapR.heatPortR, internalThermalPort.heatPort_rotorCore)
-          annotation (Line(
-            points={{-1.83697e-015,-10},{0,-10},{0,-20},{50,-20},{50,-80},{0,
-                -80}},
-            color={191,0,0},
-            smooth=Smooth.None));
         connect(damperCage.heatPort, internalThermalPort.heatPort_r) annotation (Line(
             points={{-10,-40},{50,-40},{50,-80},{0,-80}},
             color={191,0,0},
+            smooth=Smooth.None));
+        connect(lssigma.spacePhasor_b, airGapR.spacePhasor_s) annotation (Line(
+            points={{20,10},{10,10},{10,10}},
+            color={0,0,255},
             smooth=Smooth.None));
         annotation (defaultComponentName="smpm",
           Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
@@ -4107,19 +4070,15 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           redeclare final
             Machines.Interfaces.InductionMachines.PowerBalanceSMEE
             powerBalance(
-              final pLoss_coreS = -airGapR.heatPortS.Q_flow,
-              final pLoss_coreR = -airGapR.heatPortR.Q_flow,
               final pLoss_r = damperCage.LossPower,
               final pElectrical_e = ve*ie,
               final pLoss_e = -re.heatPort.Q_flow,
               final pLoss_brush = -brush.heatPort.Q_flow));
-        Machines.Losses.InductionMachines.AirGapRwithLosses airGapR(
-          final m=3,
+        Components.AirGapR                                  airGapR(
           final p=p,
           final Lmd=Lmd,
           final Lmq=Lmq,
-          final statorCoreParameters=statorCoreParameters,
-          final rotorCoreParameters=rotorCoreParameters)
+          final m=m)
           annotation (Placement(transformation(
               origin={0,0},
               extent={{-10,-10},{10,10}},
@@ -4236,16 +4195,12 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
               origin={-80,40})));
       equation
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r)
-          annotation (Line(points={{10,-10},{10,-15},{10,-15},{10,-20},{10,-30},
-                {10,-30}},                             color={0,0,255}));
+          annotation (Line(points={{10,-10},{10,-30},{10,-30}},
+                                                       color={0,0,255}));
         connect(airGapR.spacePhasor_r, electricalExcitation.spacePhasor_r)
           annotation (Line(points={{10,-10},{20,-10},{20,-60},{-30,-60},{-30,
                 -40}},                                                   color=
                 {0,0,255}));
-        connect(spacePhasorS.spacePhasor, airGapR.spacePhasor_s) annotation (Line(
-            points={{10,30},{10,30},{10,10},{10,10}},
-            color={0,0,255},
-            smooth=Smooth.None));
         connect(airGapR.support, internalSupport) annotation (Line(
             points={{-10,1.83697e-015},{-10,0},{-40,0},{-40,-90},{60,-90},{60,
                 -100}},
@@ -4285,21 +4240,14 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             points={{-70,10},{-60,10},{-60,-68},{0,-68},{0,-80}},
             color={191,0,0},
             smooth=Smooth.None));
-        connect(airGapR.heatPortS, internalThermalPort.heatPort_statorCore)
-          annotation (Line(
-            points={{1.83697e-015,10},{0,10},{0,20},{50,20},{50,-80},{0,-80}},
-            color={191,0,0},
-            smooth=Smooth.None));
-        connect(airGapR.heatPortR, internalThermalPort.heatPort_rotorCore)
-          annotation (Line(
-            points={{-1.83697e-015,-10},{-1.83697e-015,-20},{50,-20},{50,-80},{
-                0,-80}},
-            color={191,0,0},
-            smooth=Smooth.None));
 
         connect(damperCage.heatPort, internalThermalPort.heatPort_r) annotation (Line(
             points={{-10,-40},{50,-40},{50,-80},{0,-80}},
             color={191,0,0},
+            smooth=Smooth.None));
+        connect(lssigma.spacePhasor_b, airGapR.spacePhasor_s) annotation (Line(
+            points={{20,10},{10,10},{10,10}},
+            color={0,0,255},
             smooth=Smooth.None));
         annotation (defaultComponentName="smee",
           Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
@@ -4509,17 +4457,12 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           redeclare final Machines.Interfaces.InductionMachines.ThermalPortSMR
             internalThermalPort(final useDamperCage = useDamperCage),
           redeclare final Machines.Interfaces.InductionMachines.PowerBalanceSMR
-            powerBalance(
-              final pLoss_coreS = -airGapR.heatPortS.Q_flow,
-              final pLoss_coreR = -airGapR.heatPortR.Q_flow,
-              final pLoss_r = damperCage.LossPower));
-        Machines.Losses.InductionMachines.AirGapRwithLosses airGapR(
-          final m=3,
+            powerBalance(final pLoss_r = damperCage.LossPower));
+        Components.AirGapR                                  airGapR(
           final p=p,
           final Lmd=Lmd,
           final Lmq=Lmq,
-          final statorCoreParameters=statorCoreParameters,
-          final rotorCoreParameters=rotorCoreParameters)
+          final m=m)
           annotation (Placement(transformation(
               origin={0,0},
               extent={{-10,-10},{10,10}},
@@ -4570,12 +4513,8 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
               rotation=270)));
       equation
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r)
-          annotation (Line(points={{10,-10},{10,-15},{10,-30},{10,-30}},
-                                                       color={0,0,255}));
-        connect(spacePhasorS.spacePhasor, airGapR.spacePhasor_s) annotation (Line(
-            points={{10,30},{10,10},{10,10}},
-            color={0,0,255},
-            smooth=Smooth.None));
+          annotation (Line(points={{10,-10},{10,-15},{10,-15},{10,-20},{10,-30},
+                {10,-30}},                             color={0,0,255}));
         connect(airGapR.support, internalSupport) annotation (Line(
             points={{-10,1.83697e-015},{-40,1.83697e-015},{-40,-90},{60,-90},{
                 60,-100}},
@@ -4587,20 +4526,13 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
                 1.22465e-015}},
             color={0,0,0},
             smooth=Smooth.None));
-        connect(airGapR.heatPortS, internalThermalPort.heatPort_statorCore)
-          annotation (Line(
-            points={{1.83697e-015,10},{0,10},{0,20},{50,20},{50,-80},{0,-80}},
-            color={191,0,0},
-            smooth=Smooth.None));
-        connect(airGapR.heatPortR, internalThermalPort.heatPort_rotorCore)
-          annotation (Line(
-            points={{-1.83697e-015,-10},{0,-10},{0,-20},{50,-20},{50,-80},{0,
-                -80}},
-            color={191,0,0},
-            smooth=Smooth.None));
         connect(damperCage.heatPort, internalThermalPort.heatPort_r) annotation (Line(
             points={{-10,-40},{50,-40},{50,-80},{0,-80}},
             color={191,0,0},
+            smooth=Smooth.None));
+        connect(lssigma.spacePhasor_b, airGapR.spacePhasor_s) annotation (Line(
+            points={{20,10},{10,10},{10,10}},
+            color={0,0,255},
             smooth=Smooth.None));
         annotation (defaultComponentName="smr",
           Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
@@ -4832,12 +4764,11 @@ These models use package SpacePhasors.
             internalThermalPort,
           redeclare final Machines.Interfaces.DCMachines.PowerBalanceDCPM
             powerBalance(
-              final pLoss_core = -airGapDC.heatPort.Q_flow,
-              final pLoss_pm = 0));
-        Losses.DCMachines.AirGapDCwithLosses airGapDC(
+              final pLoss_pm = 0),
+          core(final wReMag=airGapDC.w));
+        Machines.BasicMachines.Components.AirGapDC airGapDC(
           final turnsRatio=turnsRatio,
           final Le=Lme,
-          final coreParameters=coreParameters,
           final quasiStationary=quasiStationary)
           annotation (Placement(transformation(
               origin={0,0},
@@ -4865,10 +4796,10 @@ These models use package SpacePhasors.
                 -25},{10,-40}},
                        color={0,0,255}));
         connect(airGapDC.pin_en, eGround.p) annotation (Line(points={{-10,-10},
-                {-10,-30},{-10,-30}},
+                {-10,-20},{-10,-30},{-10,-30}},
                             color={0,0,255}));
         connect(airGapDC.pin_ap, la.n) annotation (Line(
-            points={{10,10},{10,40},{10,40},{10,70}},
+            points={{10,10},{10,40},{10,60},{10,60}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(airGapDC.support, internalSupport) annotation (Line(
@@ -4883,13 +4814,8 @@ These models use package SpacePhasors.
             color={0,0,0},
             smooth=Smooth.None));
         connect(airGapDC.pin_an, brush.p) annotation (Line(
-            points={{-10,10},{-10,40},{-10,40},{-10,70}},
+            points={{-10,10},{-10,40},{-10,60},{-10,60}},
             color={0,0,255},
-            smooth=Smooth.None));
-        connect(airGapDC.heatPort, internalThermalPort.heatPort_core)
-          annotation (Line(
-            points={{1.83697e-015,10},{1.83697e-015,20},{50,20},{50,-80},{0,-80}},
-            color={191,0,0},
             smooth=Smooth.None));
 
         annotation (defaultComponentName="dcpm",
@@ -4986,9 +4912,9 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
             internalThermalPort,
           redeclare final Machines.Interfaces.DCMachines.PowerBalanceDCEE
             powerBalance(
-              final pLoss_core = -airGapDC.heatPort.Q_flow,
               final pElectrical_e = ve*ie,
-              final pLoss_e = -re.heatPort.Q_flow));
+              final pLoss_e = -re.heatPort.Q_flow),
+          core(final wReMag=airGapDC.w));
         parameter Modelica.SIunits.Current IeNominal(start=1)
           "Nominal excitation current"
            annotation(Dialog(tab="Excitation"));
@@ -5014,10 +4940,9 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
           "Field excitation voltage";
         output Modelica.SIunits.Current ie = pin_ep.i
           "Field excitation current";
-        Losses.DCMachines.AirGapDCwithLosses airGapDC(
+        Machines.BasicMachines.Components.AirGapDC airGapDC(
           final turnsRatio=turnsRatio,
           final Le=Lme,
-          final coreParameters=coreParameters,
           final quasiStationary=quasiStationary)
           annotation (Placement(transformation(
               origin={0,0},
@@ -5062,7 +4987,7 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
           annotation(Evaluate=true);
       equation
         connect(airGapDC.pin_ap, la.n) annotation (Line(
-            points={{10,10},{10,35},{10,70},{10,70}},
+            points={{10,10},{10,40},{10,60},{10,60}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(airGapDC.support, internalSupport) annotation (Line(
@@ -5076,7 +5001,7 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
             color={0,0,0},
             smooth=Smooth.None));
         connect(re.heatPort, internalThermalPort.heatPort_e) annotation (Line(
-            points={{-70,50},{50,50},{50,-80},{0,-80}},
+            points={{-70,50},{-60,50},{-60,40},{50,40},{50,-80},{0,-80}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(re.p, pin_ep) annotation (Line(
@@ -5112,13 +5037,8 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
             color={0,0,255},
             smooth=Smooth.None));
         connect(airGapDC.pin_an, brush.p) annotation (Line(
-            points={{-10,10},{-10,70},{-10,70}},
+            points={{-10,10},{-10,40},{-10,60},{-10,60}},
             color={0,0,255},
-            smooth=Smooth.None));
-        connect(airGapDC.heatPort, internalThermalPort.heatPort_core)
-          annotation (Line(
-            points={{1.83697e-015,10},{0,10},{0,20},{50,20},{50,-80},{0,-80}},
-            color={191,0,0},
             smooth=Smooth.None));
         annotation (defaultComponentName="dcee",
           Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
@@ -5256,9 +5176,9 @@ Armature current does not cover excitation current of a shunt excitation; in thi
             internalThermalPort,
           redeclare final Machines.Interfaces.DCMachines.PowerBalanceDCSE
             powerBalance(
-              final pLoss_core = -airGapDC.heatPort.Q_flow,
               final pElectrical_se = ve*ie,
-              final pLoss_se = -re.heatPort.Q_flow));
+              final pLoss_se = -re.heatPort.Q_flow),
+          core(final wReMag=airGapDC.w));
         parameter Modelica.SIunits.Resistance Re(start=0.01)
           "Series excitation resistance at TRef"
            annotation(Dialog(tab="Excitation"));
@@ -5284,10 +5204,9 @@ Armature current does not cover excitation current of a shunt excitation; in thi
           "Field excitation voltage";
         output Modelica.SIunits.Current ie = pin_ep.i
           "Field excitation current";
-        Losses.DCMachines.AirGapDCwithLosses airGapDC(
+        Machines.BasicMachines.Components.AirGapDC airGapDC(
           final turnsRatio=turnsRatio,
           final Le=Lme,
-          final coreParameters=coreParameters,
           final quasiStationary=quasiStationary)
           annotation (Placement(transformation(
               origin={0,0},
@@ -5331,7 +5250,7 @@ Armature current does not cover excitation current of a shunt excitation; in thi
           annotation(Evaluate=true);
       equation
         connect(airGapDC.pin_ap, la.n) annotation (Line(
-            points={{10,10},{10,35},{10,70},{10,70}},
+            points={{10,10},{10,40},{10,60},{10,60}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(airGapDC.support, internalSupport) annotation (Line(
@@ -5345,7 +5264,7 @@ Armature current does not cover excitation current of a shunt excitation; in thi
             color={0,0,0},
             smooth=Smooth.None));
         connect(re.heatPort, internalThermalPort.heatPort_se) annotation (Line(
-            points={{-70,50},{50,50},{50,-80},{0,-80}},
+            points={{-70,50},{-60,50},{-60,40},{50,40},{50,-80},{0,-80}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(pin_ep, re.p) annotation (Line(
@@ -5381,13 +5300,8 @@ Armature current does not cover excitation current of a shunt excitation; in thi
             color={0,0,255},
             smooth=Smooth.None));
         connect(airGapDC.pin_an, brush.p) annotation (Line(
-            points={{-10,10},{-10,70},{-10,70}},
+            points={{-10,10},{-10,40},{-10,60},{-10,60}},
             color={0,0,255},
-            smooth=Smooth.None));
-        connect(airGapDC.heatPort, internalThermalPort.heatPort_core)
-          annotation (Line(
-            points={{1.83697e-015,10},{1.83697e-015,20},{50,20},{50,-80},{0,-80}},
-            color={191,0,0},
             smooth=Smooth.None));
 
         annotation (defaultComponentName="dcse",
@@ -7845,6 +7759,50 @@ Model of the airgap in rotor-fixed coordinate system, using only equations.
 </HTML>"));
       end AirGapR;
 
+      model Inductor "Space phasor inductor"
+        parameter Modelica.SIunits.Inductance L[2] "Inductance of both axes";
+        Modelica.SIunits.Voltage v_[2];
+        Modelica.SIunits.Current i_[2];
+        Interfaces.SpacePhasor spacePhasor_a
+          annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
+                rotation=0)));
+        Interfaces.SpacePhasor spacePhasor_b
+          annotation (Placement(transformation(extent={{90,-10},{110,10}},
+                rotation=0)));
+      equation
+        spacePhasor_a.i_ + spacePhasor_b.i_ = zeros(2);
+        v_ = spacePhasor_a.v_ - spacePhasor_b.v_;
+        i_ = spacePhasor_a.i_;
+        v_[1] = L[1]*der(i_[1]);
+        v_[2] = L[2]*der(i_[2]);
+        annotation (
+          Documentation(info="<html>
+This is a model of an inductor, described with space phasors.
+</html>"),Icon(graphics={
+              Ellipse(extent={{-60,-15},{-30,15}},lineColor={0,0,255}),
+              Ellipse(extent={{-30,-15},{0,15}},lineColor={0,0,255}),
+              Ellipse(extent={{0,-15},{30,15}},lineColor={0,0,255}),
+              Ellipse(extent={{30,-15},{60,15}},lineColor={0,0,255}),
+              Rectangle(
+                extent={{-60,-30},{60,0}},
+                lineColor={255,255,255},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
+              Line(
+                points={{-60,0},{-90,0}},
+                color={0,0,255},
+                smooth=Smooth.None),
+              Line(
+                points={{90,0},{60,0}},
+                color={0,0,255},
+                smooth=Smooth.None),
+              Text(
+                extent={{-100,100},{100,60}},
+                lineColor={0,0,255},
+                textString="%name")}),
+          Diagram(graphics));
+      end Inductor;
+
       model SquirrelCage "Squirrel Cage"
         parameter Modelica.SIunits.Inductance Lrsigma
           "Rotor stray inductance per phase translated to stator";
@@ -7866,7 +7824,7 @@ Model of the airgap in rotor-fixed coordinate system, using only equations.
         spacePhasor_r.v_ = Rr_actual*spacePhasor_r.i_ + Lrsigma*der(spacePhasor_r.i_);
         2/3*LossPower = Rr_actual*(spacePhasor_r.i_[1]*spacePhasor_r.i_[1] + spacePhasor_r.i_[2]*spacePhasor_r.i_[2]);
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
                   -100},{100,100}}),
                   graphics),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -8166,7 +8124,7 @@ If <code>quasiStationary == false</code>, the electrical transients are neglecte
           annotation(Evaluate=true);
         parameter Real turnsRatio
           "Ratio of armature turns over number of turns of the excitation winding";
-        Modelica.SIunits.AngularVelocity w "Angluar velocity";
+        output Modelica.SIunits.AngularVelocity w "Angluar velocity";
         Modelica.SIunits.Voltage vei
           "Voltage drop across field excitation inductance";
         Modelica.SIunits.Current ie "Excitation current";
@@ -8440,7 +8398,6 @@ Circuit layout (vector group) of primary and secondary windings have to be defin
 Exactly the same as Interfaces.PartialBasicTransformer, included for compatibility reasons.
 </html>"));
       end BasicTransformer;
-
 
       annotation (Documentation(info="<HTML>
 This package contains components for modeling electrical machines, specially threephase induction machines, based on space phasor theory.
@@ -10005,209 +9962,69 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
 </html>"));
       end StrayLoad;
 
-      model AirGapRwithLosses
-        "Airgap model of an induction machine in rotor-fixed coordinate system with addtional core losses"
-        import Modelica;
-        parameter Integer m=3 "Number of phases";
-        parameter Integer p(min=1) "Number of pole pairs";
-        parameter Modelica.SIunits.Inductance Lmd
-          "Main field inductance d-axis";
-        parameter Modelica.SIunits.Inductance Lmq
-          "Main field inductance q-axis";
-        parameter Machines.Losses.CoreParameters statorCoreParameters(final m=3)
-          "Stator core losses";
-        parameter Machines.Losses.CoreParameters rotorCoreParameters(final m=3)
-          "Rotor core losses";
-        output Modelica.SIunits.Torque tauElectrical;
-        Modelica.SIunits.Angle gamma "Rotor displacement angle";
-        Modelica.SIunits.Current i_ss[2]
-          "Stator current space phasor with respect to the stator fixed frame";
-        Modelica.SIunits.Current i_sr[2]
-          "Stator current space phasor with respect to the rotor fixed frame";
-        Modelica.SIunits.Current i_rs[2]
-          "Rotor current space phasor with respect to the stator fixed frame";
-        Modelica.SIunits.Current i_rr[2]
-          "Rotor current space phasor with respect to the rotor fixed frame";
-        Modelica.SIunits.MagneticFlux psi_ms[2]
-          "Magnetizing flux phasor with respect to the stator fixed frame";
-        Modelica.SIunits.MagneticFlux psi_mr[2]
-          "Magnetizing flux phasor with respect to the rotor fixed frame";
-        Real RotationMatrix[2,2] "Matrix of rotation from rotor to stator";
-        Modelica.SIunits.Current i_scs[2]
-          "Stator core loss current w.r.t. stator fixed frame";
-        Modelica.SIunits.Conductance Gcs
-          "Variable stator core loss conductance";
-        Modelica.SIunits.Current i_scr[2]
-          "Stator core loss current w.r.t. rotor fixed frame";
-        Modelica.SIunits.Current i_rcr[2]
-          "Rotor core loss current w.r.t. rotor fixed frame";
-        Modelica.SIunits.Conductance Gcr "Variable rotor core loss conductance";
-        Modelica.SIunits.Current i_mr[2]
-          "Magnetizing current space phasor with respect to the rotor fixed frame";
-      public
-        Modelica.Mechanics.Rotational.Interfaces.Flange_a flange
-          annotation (Placement(transformation(extent={{-10,110},{10,90}},
-                rotation=0)));
-        Modelica.Mechanics.Rotational.Interfaces.Flange_a support
-          "Support at which the reaction torque is acting"
-             annotation (Placement(transformation(extent={{-10,-110},{10,-90}},
-                rotation=0)));
-        Machines.Interfaces.SpacePhasor spacePhasor_s
-          annotation (Placement(transformation(extent={{-110,90},{-90,110}},
-                rotation=0)));
-        Machines.Interfaces.SpacePhasor spacePhasor_r
-          annotation (Placement(transformation(extent={{90,90},{110,110}},
-                rotation=0)));
-        Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortS
+      model Core "Model of core losses"
+        parameter Machines.Losses.CoreParameters coreParameters(final m=3);
+        Interfaces.SpacePhasor spacePhasor
+          annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
+                rotation=0), iconTransformation(extent={{-110,-10},{-90,10}})));
+        Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort
           "Heat port for modeling the heat flow"
           annotation (Placement(transformation(
-              origin={-100,0},
+              origin={0,-100},
               extent={{10,-10},{-10,10}},
               rotation=270)));
-        Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortR
-          "Heat port for modeling the heat flow"
-          annotation (Placement(transformation(
-              origin={100,0},
-              extent={{10,10},{-10,-10}},
-              rotation=270)));
+        input Modelica.SIunits.AngularVelocity wReMag
+          "Remagnetization velocity"
+          annotation(Dialog(group="Losses"));
+        Modelica.SIunits.Conductance Gc "Variable core loss conductance";
       protected
-        parameter Modelica.SIunits.Inductance L[2,2]={{Lmd,0},{0,Lmq}}
-          "Inductance matrix";
-      /*
-  final parameter Real psiMinRel = 1E-3 "Minimum flux w.r.t. nominal flux";
-  final parameter Modelica.SIunits.MagneticFlux psiMin = psiMinRel*statorCoreParameters.VRef/statorCoreParameters.wRef
-    "Minimum flux for numerical reasons";
-  Modelica.SIunits.MagneticFlux psi_ms_abs
-    "Length of flux phasor w.r.t. stator fixed frame";
-  Modelica.SIunits.Angle psi_ms_arg
-    "Angle of flux phasor w.r.t. stator fixed frame";
-  Modelica.SIunits.AngularVelocity ws
-    "Remagnetization angular velocity of stator";
-  Modelica.SIunits.AngularVelocity wsLimit = noEvent(max(noEvent(abs(ws)),statorCoreParameters.wMin))
-    "Limited remagnetization angular velocity of stator";
-  Modelica.SIunits.MagneticFlux psi_mr_abs
-    "Length of flux phasor w.r.t. rotor fixed frame";
-  Modelica.SIunits.Angle psi_mr_arg
-    "Angle of flux phasor w.r.t. rotor fixed frame";
-  Modelica.SIunits.AngularVelocity wr
-    "Remagnetization angular velocity of rotor";
-  Modelica.SIunits.AngularVelocity wrLimit = noEvent(max(noEvent(abs(wr)),rotorCoreParameters.wMin))
-    "Limited remagnetization angular velocity of rotor";
- */
+        Modelica.SIunits.AngularVelocity wLimit = noEvent(max(noEvent(abs(wReMag)),coreParameters.wMin))
+          "Limited angular velocity";
       equation
-        // mechanical angle of the rotor of an equivalent 2-pole machine
-        gamma=p*(flange.phi-support.phi);
-        RotationMatrix={{+cos(gamma),-sin(gamma)},{+sin(gamma),+cos(gamma)}};
-        // Stator current
-        i_ss = spacePhasor_s.i_;
-        i_ss = RotationMatrix*i_sr;
-        i_scs = RotationMatrix*i_scr;
-        // Rotor current
-        i_rr = spacePhasor_r.i_;
-        i_rs = RotationMatrix*i_rr;
-        // Magnetizing current with respect to the rotor reference frame
-        i_mr = (i_sr - i_scr) + (i_rr - i_rcr);
-        // Main flux linkage with respect to the rotor reference frame
-        psi_mr = L*i_mr;
-        // Main flux linkage with respect to the stator reference frame
-        psi_ms = RotationMatrix*psi_mr;
-        // Stator voltage induction
-        spacePhasor_s.v_ = der(psi_ms);
-        // Rotor voltage induction
-        spacePhasor_r.v_ = der(psi_mr);
-        // Electromechanical torque (cross product of current and flux space phasor)
-        tauElectrical = m/2*p*((i_ss[2] - i_scs[2])*psi_ms[1] - (i_ss[1] - i_scs[1])*psi_ms[2]);
-        flange.tau = -tauElectrical;
-        support.tau = tauElectrical;
-        // Remagnetization angular velocity of stator
-      /*
-  psi_ms_abs = sqrt(psi_ms[1]^2 + psi_ms[2]^2);
-  if noEvent(psi_ms_abs <= psiMin) then
-    psi_ms_arg = 0;
-    ws = 0;
-  else
-    psi_ms_arg = Modelica.Math.atan2(psi_ms[2], psi_ms[1]);
-    ws = (der(psi_ms[2])*cos(psi_ms_arg) - der(psi_ms[1])*sin(psi_ms_arg))/psi_ms_abs;
-  end if;
-*/
-        // Remagnetization angular velocity of rotor
-      /*
-  psi_mr_abs = sqrt(psi_mr[1]^2 + psi_mr[2]^2);
-  if noEvent(psi_mr_abs <= psiMin) then
-    psi_mr_arg = 0;
-    wr = 0;
-  else
-    psi_mr_arg = Modelica.Math.atan2(psi_mr[2], psi_mr[1]);
-    wr = (der(psi_mr[2])*cos(psi_mr_arg) - der(psi_mr[1])*sin(psi_mr_arg))/psi_mr_abs;
-  end if;
-*/
-        // Stator core losses
-        if (statorCoreParameters.PRef<=0) then
-          Gcs = 0;
-          i_scs = zeros(2);
+        if (coreParameters.PRef<=0) then
+          Gc = 0;
+          spacePhasor.i_ = zeros(2);
         else
-          Gcs = statorCoreParameters.GcRef;
-          //  * (statorCoreParameters.wRef/wsLimit*statorCoreParameters.ratioHysteresis + 1 - statorCoreParameters.ratioHysteresis);
-          i_scs = Gcs*spacePhasor_s.v_;
+          Gc = coreParameters.GcRef;
+          //  * (coreParameters.wRef/wsLimit*coreParameters.ratioHysteresis + 1 - coreParameters.ratioHysteresis);
+          spacePhasor.i_ = Gc*spacePhasor.v_;
         end if;
-        heatPortS.Q_flow = -m/2*(+spacePhasor_s.v_[1]*i_scs[1]+spacePhasor_s.v_[2]*i_scs[2]);
-        // Rotor core losses
-        if (statorCoreParameters.PRef<=0) then
-          Gcr = 0;
-          i_rcr = zeros(2);
-        else
-          Gcr = rotorCoreParameters.GcRef;
-          //  * (rotorCoreParameters.wRef/wrLimit*rotorCoreParameters.ratioHysteresis + 1 - rotorCoreParameters.ratioHysteresis);
-          i_rcr = Gcr*spacePhasor_r.v_;
-        end if;
-        heatPortR.Q_flow = -m/2*(+spacePhasor_r.v_[1]*i_rcr[1]+spacePhasor_r.v_[2]*i_rcr[2]);
-        annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}}),
-                  graphics),
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                  100,100}}), graphics={
-              Ellipse(
-                extent={{-90,90},{90,-92}},
+        heatPort.Q_flow = -3/2*(+spacePhasor.v_[1]*spacePhasor.i_[1]+spacePhasor.v_[2]*spacePhasor.i_[2]);
+        annotation (Icon(graphics={
+              Rectangle(
+                extent={{-70,30},{70,-30}},
                 lineColor={0,0,255},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
-              Ellipse(extent={{-80,80},{80,-80}}, lineColor={0,0,255}),
-              Rectangle(
-                extent={{-10,90},{10,-80}},
-                lineColor={0,0,0},
-                fillPattern=FillPattern.VerticalCylinder,
-                fillColor={128,128,128}),
-              Text(
-                extent={{-150,-90},{150,-150}},
-                lineColor={0,0,255},
-                textString="%name"),    Text(
-                extent={{0,40},{80,-40}},
-                lineColor={0,0,0},
-                textString="R")}),
+              Line(points={{-90,0},{-70,0}}),
+              Line(points={{-70,10},{70,10}}, color={0,0,255}),
+              Line(points={{-70,-30},{70,-30}}, color={0,0,255}),
+              Line(points={{-70,-10},{70,-10}}, color={0,0,255})}),
+          Diagram(graphics),
           Documentation(info="<html>
 <p>
-This is a linear model of an induction machine airgap in rotor fixed ccordinate system.
-Additionally to the <a href=modelica://Modelica.Electrical.Machines.BasicMachines.Components.AirGapR>airgap model</a>
-stator and rotor core losses are implemented (by deducing a core loss current before calculating the torque).
-</p>
-<p>
-Core losses can be separated into <i>eddy current</i> and <i>hysteresis</i> losses. The total core losses
-can thus be expressed as
+Core losses can be separated into <b>eddy current</b> and <b>hysteresis</b> losses. The total core losses 
+can thus be expressed as 
 </p>
 <pre>
-  p = PRef * (ratioHysteresis * (wRef / w) + 1 - ratioHysteresis) * (v / VRef)^2
+  P = PRef * (ratioHysteresis * (wRef / w) + 1 - ratioHysteresis) * (V / VRef)^2
 </pre>
 <p>
-where <code>w</code> is the actual angular velocity and <code>v</code> is the actual voltage. The term <code>ratioHysteresis</code> is the ratio
-of the hysteresis losses with respect to the total core losses for reference inner voltage and reference angular velocity.
+where <code>w</code> is the actual angular remagnetization velocity and <code>V</code> is the actual voltage. 
+The term <code>ratioHysteresis</code> is the ratio of the hysteresis losses with respect to the total core losses for the reference voltage and frequency.
 </p>
-
+ 
 <p>
-For the voltage and angular velocity range with respect to Fig.&nbsp;1,
-the dependency of total core losses on the parameter <code>ratioHysteresis</code> is depicted in Fig.&nbsp;2.
+In the current implemenation hysteresis losses are <b>not considered</b> since complex numbers are not provided in Modelica.
+Therefore, implicitly <code>ratioHysteresis = 0</code> is set. For the voltage and frequency range with respect to Fig.&nbsp;1, 
+the dependency of total core losses on the parameter <code>ratioHysteresis</code> is depicted in Fig.&nbsp;2. 
+The current implementation has thus the drawback over a model that considers <code>ratioHysteresis &gt; 0</code>:
 </p>
-
+<ul>
+<li>underestimation of the losses in the constant field region (<code>w</code> &lt; <code>wRef</code>)</il>
+<li>overestimation of the losses in the field weakening region (<code>w</code> &gt; <code>wRef</code>)</il>
+</ul>
+ 
 <table border=0 cellspacing=0 cellpadding=1>
   <tr><td> <img src=\"modelica://Modelica/Images/Electrical/Machines/CoreLossesVw.png\"> </td>
   </tr>
@@ -10221,17 +10038,17 @@ the dependency of total core losses on the parameter <code>ratioHysteresis</code
   <tr><td> <b> Fig. 2: </b>Core losses versus angular velocity with parameter <code>ratioHysteresis</code></td>
   </tr>
 </table>
-
+ 
 <h4>Note</h4>
 <p>In the current implementation it is assumed that <code>ratioHysteresis = 0</code>. This parameter cannot be changed due to compatibility reasons.</p>
-
+ 
 <h4>See also</h4>
 <p>
 <a href=modelica://Modelica.Electrical.Machines.Losses.CoreParameters>Core loss parameters</a>
 </p>
-
+ 
 </html>"));
-      end AirGapRwithLosses;
+      end Core;
 
       annotation (Documentation(info="<HTML>
 This package contains loss models used for induction machine models.
@@ -10524,135 +10341,49 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
 </html>"));
       end StrayLoad;
 
-      model AirGapDCwithLosses
-        "Linear airgap model of a DC machine with armature core losses"
-        import Modelica;
-        parameter Boolean quasiStationary(start=false)
-          "No electrical transients if true"
-          annotation(Evaluate=true);
-        parameter Real turnsRatio
-          "Ratio of armature turns over number of turns of the excitation winding";
-        parameter Modelica.SIunits.Inductance Le "Excitation inductance";
+      model Core "Model of core losses"
+        extends Modelica.Electrical.Analog.Interfaces.OnePort;
         parameter Machines.Losses.CoreParameters coreParameters(final m=1)
           "Armature core losses";
-        Modelica.SIunits.AngularVelocity w "Angluar velocity";
-        Modelica.SIunits.Voltage vei
-          "Voltage drop across field excitation inductance";
-        Modelica.SIunits.Current ie "Excitation current";
-        Modelica.SIunits.MagneticFlux psi_e "Excitation flux";
-        Modelica.SIunits.Voltage vai "Induced armature voltage";
-        Modelica.SIunits.Current ia "Armature current";
-        output Modelica.SIunits.Torque tauElectrical;
-        Modelica.SIunits.Current ic "Core loss current";
-        Modelica.SIunits.Conductance Gc "Variable core loss conductance";
-      /*
-  Modelica.SIunits.AngularVelocity wLimit = noEvent(max(noEvent(abs(w)),coreParameters.wMin))
-    "Limited angular velocity";
-*/
-      public
-        Modelica.Mechanics.Rotational.Interfaces.Flange_a flange
-          annotation (Placement(transformation(extent={{-10,110},{10,90}},
-                rotation=0)));
-        Modelica.Mechanics.Rotational.Interfaces.Flange_a support
-          "Support at which the reaction torque is acting"
-             annotation (Placement(transformation(extent={{-10,-110},{10,-90}},
-                rotation=0)));
-        Modelica.Electrical.Analog.Interfaces.PositivePin pin_ap
-          annotation (Placement(transformation(extent={{-110,110},{-90,90}},
-                rotation=0)));
-        Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep
-          annotation (Placement(transformation(extent={{90,110},{110,90}},
-                rotation=0)));
-        Modelica.Electrical.Analog.Interfaces.NegativePin pin_an
-          annotation (Placement(transformation(extent={{-110,-110},{-90,-90}},
-                rotation=0)));
-        Modelica.Electrical.Analog.Interfaces.NegativePin pin_en
-          annotation (Placement(transformation(extent={{90,-110},{110,-90}},
-                rotation=0)));
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort
           "Heat port for modeling the heat flow"
           annotation (Placement(transformation(
-              origin={-100,0},
+              origin={0,-100},
               extent={{10,-10},{-10,10}},
               rotation=270)));
+        input Modelica.SIunits.AngularVelocity wReMag
+          "Remagnetization velocity"
+          annotation(Dialog(group="Losses"));
+        Modelica.SIunits.Conductance Gc "Variable core loss conductance";
+      protected
+        Modelica.SIunits.AngularVelocity wLimit = noEvent(max(noEvent(abs(wReMag)),coreParameters.wMin))
+          "Limited angular velocity";
       equation
-        // armature pins
-        vai = pin_ap.v - pin_an.v;
-        ia = pin_ap.i;
-        pin_ap.i + pin_an.i = 0;
-        // excitation pins
-        vei = pin_ep.v - pin_en.v;
-        ie = pin_ep.i;
-        pin_ep.i + pin_en.i = 0;
-        // induced voltage across field excitation inductance
-        vei = if quasiStationary then 0 else der(psi_e);
-        // mechanical speed
-        w = der(flange.phi)-der(support.phi);
-        // induced armature voltage
-        vai = turnsRatio * psi_e * w;
-        // electrical torque (ia is perpendicular to flux)
-        tauElectrical = turnsRatio * psi_e * (ia - ic);
-        flange.tau = -tauElectrical;
-        support.tau = tauElectrical;
-        // excitation flux: linearly dependent on excitation current
-        psi_e = Le * ie;
-        // core losses
         if (coreParameters.PRef<=0) then
           Gc = 0;
-          ic = 0;
+          i = 0;
         else
           Gc = coreParameters.GcRef;
           // * (coreParameters.wRef/wLimit*coreParameters.ratioHysteresis + 1 - coreParameters.ratioHysteresis);
-          ic = Gc*vai;
+          i = Gc*v;
         end if;
-        heatPort.Q_flow = -vai*ic;
-        annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}}),
-                  graphics),
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                  100,100}}), graphics={
-              Ellipse(
-                extent={{-90,90},{90,-92}},
-                lineColor={0,0,255},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{-80,80},{80,-80}},
-                lineColor={0,0,255},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
+        heatPort.Q_flow = -v*i;
+        annotation (Icon(graphics={
               Rectangle(
-                extent={{-10,90},{10,-80}},
-                lineColor={0,0,0},
-                fillPattern=FillPattern.VerticalCylinder,
-                fillColor={128,128,128}),
-              Text(
-                extent={{0,40},{80,-40}},
-                lineColor={0,0,0},
-                textString="E"),
-              Text(
-                extent={{-150,-100},{150,-160}},
+                extent={{-70,30},{70,-30}},
                 lineColor={0,0,255},
-                textString="%name"),
-              Text(
-                extent={{-80,40},{0,-40}},
-                lineColor={0,0,0},
-                textString="A"),
-              Rectangle(visible=quasiStationary,
-                extent={{-10,90},{10,-80}},
-                lineColor={170,213,255},
-                fillPattern=FillPattern.VerticalCylinder,
-                fillColor={170,213,255})}),
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
+              Line(points={{70,0},{90,0}}),
+              Line(points={{-90,0},{-70,0}}),
+              Line(points={{-70,10},{70,10}}, color={0,0,255}),
+              Line(points={{-70,-30},{70,-30}}, color={0,0,255}),
+              Line(points={{-70,-10},{70,-10}}, color={0,0,255})}),
+          Diagram(graphics),
           Documentation(info="<html>
 <p>
-This is a linear model of a DC airgap.
-Additionally to the <a href=modelica://Modelica.Electrical.Machines.BasicMachines.Components.AirGapDC>DC airgap model</a>
-armature core losses are implemented (by deducing a core loss current before calculating the torque).
-</p>
-<p>
-Core losses can be separated into <i>eddy current</i> and <i>hysteresis</i> losses. The total core losses
-can thus be expressed as
+Core losses can be separated into <i>eddy current</i> and <i>hysteresis</i> losses. The total core losses 
+can thus be expressed as 
 </p>
 <pre>
   p = PRef * (ratioHysteresis * (wRef / w) + 1 - ratioHysteresis) * (v / VRef)^2
@@ -10661,12 +10392,12 @@ can thus be expressed as
 where <code>w</code> is the actual angular velocity and <code>v</code> is the actual voltage. The term <code>ratioHysteresis</code> is the ratio
 of the hysteresis losses with respect to the total core losses for reference inner voltage and reference angular velocity.
 </p>
-
+ 
 <p>
-For the voltage and angular velocity range with respect to Fig.&nbsp;1,
-the dependency of total core losses on the parameter <code>ratioHysteresis</code> is depicted in Fig.&nbsp;2.
+For the voltage and angular velocity range with respect to Fig.&nbsp;1, 
+the dependency of total core losses on the parameter <code>ratioHysteresis</code> is depicted in Fig.&nbsp;2. 
 </p>
-
+ 
 <table border=0 cellspacing=0 cellpadding=1>
   <tr><td> <img src=\"modelica://Modelica/Images/Electrical/Machines/CoreLossesVw.png\"> </td>
   </tr>
@@ -10680,19 +10411,17 @@ the dependency of total core losses on the parameter <code>ratioHysteresis</code
   <tr><td> <b> Fig. 2: </b>Core losses versus angular velocity with parameter <code>ratioHysteresis</code></td>
   </tr>
 </table>
-
+ 
 <h4>Note</h4>
 <p>In the current implementation it is assumed that <code>ratioHysteresis = 0</code>. This parameter cannot be changed due to compatibility reasons.</p>
-<p>Armature core losses are dependent on mechanical speed (=frequency of remagnetization) and (even varying) flux.
-Losses due to varying flux, i.e. hysteresis loops superimposed to the magnetic point of operation, are not considered.</p>
-
+ 
 <h4>See also</h4>
 <p>
 <a href=modelica://Modelica.Electrical.Machines.Losses.CoreParameters>Core loss parameters</a>
 </p>
-
+ 
 </html>"));
-      end AirGapDCwithLosses;
+      end Core;
 
       annotation (Documentation(info="<HTML>
 This package contains loss models used for DC machine models.
@@ -10885,7 +10614,7 @@ where <code>RRef</code> is the resistance at the reference temperature <code>TRe
                 textString="AIMC")}),  Documentation(info="<HTML>
 Thermal ambient for asynchronous induction machines with squirrel cage to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
-</HTML>"));
+</HTML>"),Diagram(graphics));
       end ThermalAmbientAIMC;
 
       model ThermalAmbientAIMS
@@ -11616,8 +11345,8 @@ In sub-package <a href=modelica://Modelica.Electrical.Machines.Thermal.Constants
 <ul>
 <li><code>heatPort_s[m]</code>: m=3 heatPorts for the m=3 stator phases</li>
 <li><code>heatPort_r</code>: heatPort for the rotor cage</li>
-<li><code>heatPort_core</code>: stator core losses (not yet connected/implemented)</li>
-<li><code>heatPort_core</code>: rotor core losses (not yet connected/implemented)</li>
+<li><code>heatPort_statorCore</code>: stator core losses (not yet fully implemented)</li>
+<li><code>heatPort_rotorCore</code>: rotor core losses (not yet connected/implemented)</li>
 <li><code>heatPort_stray</code>: stray load losses</li>
 <li><code>heatPort_friction</code>: friction losses</li>
 </ul>
@@ -11626,8 +11355,8 @@ In sub-package <a href=modelica://Modelica.Electrical.Machines.Thermal.Constants
 <li><code>heatPort_s[m]</code>: m=3 heatPorts for the m=3 stator phases</li>
 <li><code>heatPort_r[m]</code>: m=3 heatPorts for the m=3 rotor phases</li>
 <li><code>heatPort_brush</code>: brush losses</li>
-<li><code>heatPort_core</code>: stator core losses (not yet connected/implemented)</li>
-<li><code>heatPort_core</code>: rotor core losses (not yet connected/implemented)</li>
+<li><code>heatPort_statorCore</code>: stator core losses (not yet fully implemented)</li>
+<li><code>heatPort_rotorCore</code>: rotor core losses (not yet connected/implemented)</li>
 <li><code>heatPort_stray</code>: stray load losses</li>
 <li><code>heatPort_friction</code>: friction losses</li>
 </ul>
@@ -11636,8 +11365,8 @@ In sub-package <a href=modelica://Modelica.Electrical.Machines.Thermal.Constants
 <li><code>heatPort_s[m]</code>: m=3 heatPorts for the m=3 stator phases</li>
 <li><code>heatPort_r</code>: conditional (<code>useDamperCage=true/false</code>) heatPort for the damper cage</li>
 <li><code>heatPort_pm</code>: permanet magnet losses (not yet connected/implemented)</li>
-<li><code>heatPort_core</code>: stator core losses (not yet connected/implemented)</li>
-<li><code>heatPort_core</code>: rotor core losses (not yet connected/implemented)</li>
+<li><code>heatPort_statorCore</code>: stator core losses (not yet fully implemented)</li>
+<li><code>heatPort_rotorCore</code>: rotor core losses (not yet connected/implemented)</li>
 <li><code>heatPort_stray</code>: stray load losses</li>
 <li><code>heatPort_friction</code>: friction losses</li>
 </ul>
@@ -11647,8 +11376,8 @@ In sub-package <a href=modelica://Modelica.Electrical.Machines.Thermal.Constants
 <li><code>heatPort_r</code>: conditional (<code>useDamperCage=true/false</code>) heatPort for the damper cage</li>
 <li><code>heatPort_e</code>: electrical excitation</li>
 <li><code>heatPort_brush</code>: brush losses</li>
-<li><code>heatPort_core</code>: stator core losses (not yet connected/implemented)</li>
-<li><code>heatPort_core</code>: rotor core losses (not yet connected/implemented)</li>
+<li><code>heatPort_statorCore</code>: stator core losses (not yet fully implemented)</li>
+<li><code>heatPort_rotorCore</code>: rotor core losses (not yet connected/implemented)</li>
 <li><code>heatPort_stray</code>: stray load losses</li>
 <li><code>heatPort_friction</code>: friction losses</li>
 </ul>
@@ -11656,8 +11385,8 @@ In sub-package <a href=modelica://Modelica.Electrical.Machines.Thermal.Constants
 <ul>
 <li><code>heatPort_s[m]</code>: m=3 heatPorts for the m=3 stator phases</li>
 <li><code>heatPort_r</code>: conditional (<code>useDamperCage=true/false</code>) heatPort for the damper cage</li>
-<li><code>heatPort_core</code>: stator core losses (not yet connected/implemented)</li>
-<li><code>heatPort_core</code>: rotor core losses (not yet connected/implemented)</li>
+<li><code>heatPort_statorCore</code>: stator core losses (not yet fully implemented)</li>
+<li><code>heatPort_rotorCore</code>: rotor core losses (not yet connected/implemented)</li>
 <li><code>heatPort_stray</code>: stray load losses</li>
 <li><code>heatPort_friction</code>: friction losses</li>
 </ul>
@@ -11921,6 +11650,8 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
         final pMechanical = wMechanical*tauShaft,
         final pInertia = inertiaRotor.J*inertiaRotor.a*inertiaRotor.w,
         final pLoss_s = -sum(rs.heatPort.Q_flow),
+        final pLoss_coreS = -statorCore.heatPort.Q_flow,
+        final pLoss_coreR = 0,
         final pLoss_stray = -strayLoad.heatPort.Q_flow,
         final pLoss_friction = -friction.heatPort.Q_flow) "Power balance";
       output Modelica.SIunits.Voltage vs[m] = plug_sp.pin.v - plug_sn.pin.v
@@ -11953,28 +11684,38 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
         final alpha=fill(Machines.Thermal.convertAlpha(alpha20s, TsRef), m),
         final useHeatPort=true,
         final T=fill(TsRef,m))
-        annotation (Placement(transformation(extent={{60,50},{40,70}}, rotation=
+        annotation (Placement(transformation(extent={{60,70},{40,90}}, rotation=
                0)));
-      Modelica.Electrical.MultiPhase.Basic.Inductor lssigma(final m=m, final L=fill(Lssigma, m))
-        annotation (Placement(transformation(extent={{30,50},{10,70}}, rotation=
-               0)));
+      Machines.BasicMachines.Components.Inductor lssigma(final L=fill(Lssigma, 2))
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={20,20})));
+      Modelica.Electrical.Analog.Basic.Inductor Lszero(final L=Lssigma)
+        annotation (Placement(transformation(extent={{0,40},{-20,60}})));
+      Machines.Losses.InductionMachines.Core statorCore(final coreParameters=
+            statorCoreParameters, final wReMag=statorCoreParameters.wRef)
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=180,
+            origin={0,30})));
       SpacePhasors.Components.SpacePhasor spacePhasorS(final turnsRatio=1)
         annotation (Placement(transformation(
-            origin={0,40},
+            origin={0,70},
             extent={{10,10},{-10,-10}},
             rotation=90)));
-      Losses.InductionMachines.StrayLoad strayLoad(final strayLoadParameters=
+      Machines.Losses.InductionMachines.StrayLoad strayLoad(final strayLoadParameters=
             strayLoadParameters)
-        annotation (Placement(transformation(extent={{90,50},{70,70}})));
+        annotation (Placement(transformation(extent={{90,70},{70,90}})));
       replaceable
         Machines.Interfaces.InductionMachines.PartialThermalPortInductionMachines
-        thermalPort(final m=m) if                                    useThermalPort
+        thermalPort(final m=m) if useThermalPort
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
       replaceable
         Machines.Interfaces.InductionMachines.PartialThermalAmbientInductionMachines
         thermalAmbient(
         final useTemperatureInputs=false, final Ts=TsOperational,
-        final m=m) if                                                not useThermalPort annotation (Placement(transformation(
+        final m=m) if not useThermalPort annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-30,-80})));
@@ -11984,21 +11725,10 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
         internalThermalPort(final m=m)
         annotation (Placement(transformation(extent={{-4,-84},{4,-76}})));
     equation
-      connect(rs.plug_n, lssigma.plug_p) annotation (Line(
-          points={{40,60},{30,60}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(lssigma.plug_n, spacePhasorS.plug_p) annotation (Line(
-          points={{10,60},{10,50}},
-          color={0,0,255},
-          smooth=Smooth.None));
       connect(spacePhasorS.plug_n, plug_sn) annotation (Line(
-          points={{-10,50},{-10,60},{-60,60},{-60,100}},
+          points={{-10,80},{-60,80},{-60,100}},
           color={0,0,255},
           smooth=Smooth.None));
-      connect(spacePhasorS.ground,spacePhasorS. zero) annotation (Line(
-          points={{-10,30},{-10,24},{-6.12323e-016,24},{-6.12323e-016,30}},
-          color={0,0,255}));
       connect(thermalPort, internalThermalPort) annotation (Line(
           points={{0,-100},{0,-80}},
           color={199,0,0},
@@ -12008,7 +11738,7 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
           color={199,0,0},
           smooth=Smooth.None));
       connect(rs.heatPort, internalThermalPort.heatPort_s) annotation (Line(
-          points={{50,50},{50,-80},{0,-80}},
+          points={{50,70},{50,-80},{0,-80}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(friction.heatPort, internalThermalPort.heatPort_friction)
@@ -12017,24 +11747,49 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
           color={191,0,0},
           smooth=Smooth.None));
       connect(strayLoad.plug_n, rs.plug_p) annotation (Line(
-          points={{70,60},{60,60}},
+          points={{70,80},{60,80}},
           color={0,0,255},
           smooth=Smooth.None));
       connect(strayLoad.plug_p, plug_sp) annotation (Line(
-          points={{90,60},{90,100},{60,100}},
+          points={{90,80},{90,100},{60,100}},
           color={0,0,255},
           smooth=Smooth.None));
       connect(strayLoad.flange, inertiaRotor.flange_b) annotation (Line(
-          points={{80,70},{100,70},{100,40},{90,40},{90,-1.22465e-015}},
+          points={{80,90},{100,90},{100,60},{90,60},{90,-1.22465e-015}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(strayLoad.support, internalSupport) annotation (Line(
-          points={{80,50},{80,20},{60,20},{60,-100}},
+          points={{80,70},{80,50},{60,50},{60,-100}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(strayLoad.heatPort, internalThermalPort.heatPort_stray) annotation (
           Line(
-          points={{70,50},{70,40},{50,40},{50,-80},{0,-80}},
+          points={{70,70},{70,60},{50,60},{50,-80},{0,-80}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(spacePhasorS.plug_p, rs.plug_n) annotation (Line(
+          points={{10,80},{40,80}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(spacePhasorS.zero, Lszero.p) annotation (Line(
+          points={{-6.12323e-016,60},{0,60},{0,50}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(Lszero.n, spacePhasorS.ground) annotation (Line(
+          points={{-20,50},{-20,60},{-10,60}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(spacePhasorS.spacePhasor, lssigma.spacePhasor_a) annotation (Line(
+          points={{10,60},{20,60},{20,30}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(statorCore.spacePhasor, lssigma.spacePhasor_a) annotation (Line(
+          points={{10,30},{20,30}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(statorCore.heatPort, internalThermalPort.heatPort_statorCore)
+        annotation (Line(
+          points={{1.22465e-015,40},{50,40},{50,-80},{0,-80}},
           color={191,0,0},
           smooth=Smooth.None));
         annotation(Documentation(info="<HTML>
@@ -12447,6 +12202,7 @@ Interfaces and partial models for induction machines
         final pMechanical = wMechanical*tauShaft,
         final pInertia = inertiaRotor.J*inertiaRotor.a*inertiaRotor.w,
         final pLoss_a = -ra.heatPort.Q_flow,
+        final pLoss_core = -core.heatPort.Q_flow,
         final pLoss_stray = -strayLoad.heatPort.Q_flow,
         final pLoss_friction = -friction.heatPort.Q_flow,
         final pLoss_brush = -brush.heatPort.Q_flow) "Power balance";
@@ -12466,18 +12222,22 @@ Interfaces and partial models for induction machines
         final alpha=Machines.Thermal.convertAlpha(alpha20a, TaRef),
         final useHeatPort=true,
         final T=TaRef)
-        annotation (Placement(transformation(extent={{60,60},{40,80}}, rotation=0)));
+        annotation (Placement(transformation(extent={{60,50},{40,70}}, rotation=0)));
       Machines.BasicMachines.Components.InductorDC la(final L=La,
         final quasiStationary = quasiStationary)
-        annotation (Placement(transformation(extent={{30,60},{10,80}}, rotation=
+        annotation (Placement(transformation(extent={{30,50},{10,70}}, rotation=
                0)));
-      Losses.DCMachines.Brush brush(final brushParameters=brushParameters)
+      Machines.Losses.DCMachines.Brush brush(final brushParameters=brushParameters)
         annotation (Placement(transformation(
             extent={{-10,10},{10,-10}},
             rotation=180,
-            origin={-20,70})));
+            origin={-20,60})));
+      Machines.Losses.DCMachines.Core core(final coreParameters=coreParameters)
+        annotation (Placement(transformation(extent={{10,70},{-10,90}})));
+      Machines.Losses.DCMachines.StrayLoad strayLoad(final strayLoadParameters=strayLoadParameters)
+        annotation (Placement(transformation(extent={{90,50},{70,70}})));
       replaceable Machines.Interfaces.DCMachines.PartialThermalPortDCMachines
-        thermalPort if                                        useThermalPort
+        thermalPort if useThermalPort
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
       replaceable
         Machines.Interfaces.DCMachines.PartialThermalAmbientDCMachines
@@ -12486,9 +12246,6 @@ Interfaces and partial models for induction machines
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-30,-80})));
-      Losses.DCMachines.StrayLoad strayLoad(final strayLoadParameters=
-            strayLoadParameters)
-        annotation (Placement(transformation(extent={{90,60},{70,80}})));
     protected
       constant Boolean quasiStationary=false "No electrical transients if true"
         annotation(Evaluate=true);
@@ -12503,7 +12260,7 @@ Interfaces and partial models for induction machines
     equation
       assert(ViNominal > Modelica.Constants.eps, "VaNominal has to be > (Ra[+Rse])*IaNominal");
       connect(la.p,ra. n)
-        annotation (Line(points={{30,70},{40,70}}, color={0,0,255}));
+        annotation (Line(points={{30,60},{40,60}}, color={0,0,255}));
       connect(thermalPort, internalThermalPort) annotation (Line(
           points={{0,-100},{0,-80}},
           color={199,0,0},
@@ -12513,7 +12270,7 @@ Interfaces and partial models for induction machines
           color={199,0,0},
           smooth=Smooth.None));
       connect(ra.heatPort, internalThermalPort.heatPort_a) annotation (Line(
-          points={{50,60},{50,-80},{0,-80}},
+          points={{50,50},{50,-80},{0,-80}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(friction.heatPort, internalThermalPort.heatPort_friction)
@@ -12522,33 +12279,46 @@ Interfaces and partial models for induction machines
           color={191,0,0},
           smooth=Smooth.None));
       connect(brush.heatPort, internalThermalPort.heatPort_brush) annotation (Line(
-          points={{-20,60},{-20,50},{50,50},{50,-80},{0,-80}},
+          points={{-20,50},{-20,40},{50,40},{50,-80},{0,-80}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(brush.n, pin_an) annotation (Line(
-          points={{-30,70},{-60,70},{-60,100}},
+          points={{-30,60},{-60,60},{-60,100}},
           color={0,0,255},
           smooth=Smooth.None));
       connect(pin_ap, strayLoad.p) annotation (Line(
-          points={{60,100},{90,100},{90,70}},
+          points={{60,100},{90,100},{90,60}},
           color={0,0,255},
           smooth=Smooth.None));
       connect(strayLoad.n, ra.p) annotation (Line(
-          points={{70,70},{60,70}},
+          points={{70,60},{60,60}},
           color={0,0,255},
           smooth=Smooth.None));
       connect(strayLoad.heatPort, internalThermalPort.heatPort_stray) annotation (
           Line(
-          points={{70,60},{70,50},{50,50},{50,-80},{0,-80}},
+          points={{70,50},{70,40},{50,40},{50,-80},{0,-80}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(strayLoad.flange, inertiaRotor.flange_b) annotation (Line(
-          points={{80,80},{100,80},{100,50},{90,50},{90,-1.22465e-015}},
+          points={{80,70},{100,70},{100,50},{90,50},{90,-1.22465e-015}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(strayLoad.support, internalSupport) annotation (Line(
-          points={{80,60},{80,30},{60,30},{60,-100}},
+          points={{80,50},{80,30},{60,30},{60,-100}},
           color={0,0,0},
+          smooth=Smooth.None));
+      connect(la.p, core.p) annotation (Line(
+          points={{30,60},{30,80},{10,80}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(core.n, brush.p) annotation (Line(
+          points={{-10,80},{-10,60}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(core.heatPort, internalThermalPort.heatPort_core) annotation (
+          Line(
+          points={{0,70},{0,40},{50,40},{50,-80},{0,-80}},
+          color={191,0,0},
           smooth=Smooth.None));
       annotation (Documentation(info="<HTML>
 Partial model for DC machine models.
