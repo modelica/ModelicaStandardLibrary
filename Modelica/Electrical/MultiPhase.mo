@@ -908,6 +908,72 @@ Model of a multi phase inductor providing a mutual inductance matrix model.
               textString="m=%m")}));
     end MutualInductor;
 
+    model ZeroInductor "Linear zero sequence inductor"
+      extends Modelica.Electrical.MultiPhase.Interfaces.OnePort;
+      parameter Modelica.SIunits.Inductance Lzero "Zero sequence inductance";
+      Modelica.SIunits.Current i0;
+      Modelica.SIunits.Voltage v0;
+    equation
+      i0 = sum(i)/m;
+      v0 = Lzero*der(i0);
+      v = fill(v0, m);
+      annotation (Diagram(graphics),
+                           Documentation(info="<html> 
+<p>
+Model of a multi phase zero sequence inductor.
+</p>
+<H4>Implementation</H4>
+<pre>
+  v = Lzero*sum(der(i)) = Lzero*der(sum(i))
+</pre>
+ 
+</html>"),
+        Icon(graphics={
+            Ellipse(extent={{30,-50},{60,10}},lineColor={0,0,255},
+              fillPattern=FillPattern.Solid,
+              fillColor={0,0,255}),
+            Ellipse(extent={{0,-50},{30,10}},lineColor={0,0,255},
+              fillPattern=FillPattern.Solid,
+              fillColor={0,0,255}),
+            Ellipse(extent={{-30,-50},{0,10}},lineColor={0,0,255},
+              fillPattern=FillPattern.Solid,
+              fillColor={0,0,255}),
+            Ellipse(extent={{-60,-50},{-30,10}},lineColor={0,0,255},
+              fillPattern=FillPattern.Solid,
+              fillColor={0,0,255}),
+            Ellipse(extent={{-60,-10},{-30,50}},
+                                               lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid),
+            Ellipse(extent={{-30,-10},{0,50}},
+                                             lineColor={0,0,255},
+              fillPattern=FillPattern.Solid,
+              fillColor={0,0,255}),
+            Ellipse(extent={{0,-10},{30,50}},
+                                            lineColor={0,0,255},
+              fillPattern=FillPattern.Solid,
+              fillColor={0,0,255}),
+            Ellipse(extent={{30,-10},{60,50}},
+                                             lineColor={0,0,255},
+              fillPattern=FillPattern.Solid,
+              fillColor={0,0,255}),
+            Line(points={{-90,0},{-80,0}}, color={0,0,255}),
+            Line(points={{80,0},{90,0}}, color={0,0,255}),
+            Text(
+              extent={{0,60},{0,100}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-100,-100},{100,-60}},
+              lineColor={0,0,0},
+              textString="m=%m"),
+            Rectangle(
+              extent={{-80,20},{80,-20}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid)}));
+    end ZeroInductor;
+
     model Transformer "Multiphase Transformer"
       extends Interfaces.FourPlug;
       parameter Modelica.SIunits.Inductance L1[m](start=fill(1, m))
