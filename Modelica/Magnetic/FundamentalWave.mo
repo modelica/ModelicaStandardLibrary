@@ -159,6 +159,7 @@ for contributing his source code to this library.
   <li>Renamed instances of stator and rotor (winding) models in each machines</li>
   <li>Updates due to changed loss variable and heat port names in 
       <a href=\"modelica://Modelica.Electrical.Machines\">Electrical.Machines</a></li>
+  <li>Added magnetic potential sensor</li>
   <li>Removed state selections</li>
 </ul>
 
@@ -4929,7 +4930,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <tr><td>Version</td> <td>Revision</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
 </thead>
 <tbody>
-<tr><td>1.7.0</td><td>3858</td>  <td>2010-05-14</td>  <td>C. Kral</td>  <td>Changed single phase and symmetrical multi phase winding model<br>Relocated core losses<br>Update due to changed variables in Electrical.Machines</td></tr>
+<tr><td>1.7.0</td><td>3859</td>  <td>2010-05-14</td>  <td>C. Kral</td>  <td>Changed single phase and symmetrical multi phase winding model<br>Relocated core losses<br>Update due to changed variables in Electrical.Machines</td></tr>
 <tr><td>1.6.0</td><td>3837</td>  <td>2010-05-05</td>  <td>C. Kral</td>  <td>Renamed all parameters windingAngle to orientation<br>Update due to changed class names in Machines.Icons<br>Exchanged positive and negative stator ports of air gap model</td></tr>
 <tr><td>1.5.0</td><td>3802</td>  <td>2010-04-28</td>  <td>C. Kral</td>  <td>Added stator core, friction, stray load and brush loss models and changed parameter of EddyCurrent model</td></tr>
 <tr><td>1.4.0</td><td>3763</td>  <td>2010-04-22</td>  <td>C. Kral</td>  <td>Added eddy current loss model with thermal heat port</td></tr>
