@@ -135,19 +135,20 @@ for contributing his source code to this library.
 
       annotation (Documentation(info="<html>
 
-<h5>Version 1.7.0, 2010-05-12</h5>
+<h5>Version 1.7.0, 2010-05-14</h5>
 
 <ul>
 <li>Changed <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">symmetric multi phase winding</a> model</li>
   <ul>
-  <li>Added zero sequence inductance based on 
-      <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MutualInductor\">mutual inductor</li>
-  <li>Replaced electrical model of stray 
-      <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.Inductor\">inductor</a> by stray 
-      <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Reluctance\">reluctance</a> model</li>
-  <li>Integrated cores <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">losses</a> 
-      and <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">heat port</a></li>
+      <li>Added zero sequence inductance based on 
+          <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.ZeroInductor\">zero inductor</li>
+      <li>Replaced electrical model of stray 
+          <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.Inductor\">inductor</a> by stray 
+          <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Reluctance\">reluctance</a> model</li>
+      <li>Integrated cores <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">losses</a> 
+          and <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">heat port</a></li>
   </ul>
+  <li>Added rotor core loss parameters in asynchronous induction machine with slip rings</li>
   <li>Renamed heat ports of 
       <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">
       single phase winding</a> and
@@ -156,7 +157,9 @@ for contributing his source code to this library.
      </li>
   <li>Relocated core losses between zero inductor and stray reluctance model in the magntic domain</li>
   <li>Renamed instances of stator and rotor (winding) models in each machines</li>
-  <li>Updates due to changed loss variable and heat port names in <a href=\"modelica://Modelica.Electrical.Machines\">Electrical.Machines</a></li>
+  <li>Updates due to changed loss variable and heat port names in 
+      <a href=\"modelica://Modelica.Electrical.Machines\">Electrical.Machines</a></li>
+  <li>Removed state selections</li>
 </ul>
 
 <h5>Version 1.6.0, 2010-05-05</h5>
@@ -609,12 +612,15 @@ In this example the eddy current losses are implemented in two different ways. C
           Lrsigma=Lrsigma,
           Rr=Rr,
           alpha20s(displayUnit="1/K"),
-          alpha20r(displayUnit="1/K"),
-          stateSelectorS(
-            x0StateSelect=StateSelect.prefer,
-            xrStateSelect=StateSelect.prefer))
+          alpha20r(displayUnit="1/K"))
           annotation (Placement(transformation(extent={{-10,-30},{10,-10}},
             rotation=0)));
+        /*
+    stateSelectorS(
+      x0StateSelect=StateSelect.prefer,
+      xrStateSelect=StateSelect.prefer)
+  */
+
         Modelica.Mechanics.Rotational.Components.Inertia loadInertiaM(
           J=J_Load)
           annotation (Placement(transformation(extent={{50,-30},{70,-10}}, rotation=0)));
@@ -803,18 +809,24 @@ Simulate for 1.5 seconds and plot (versus time):
           Rr=Rr,
           alpha20s(displayUnit="1/K"),
           alpha20r(displayUnit="1/K"),
-          p=p,
-          stateSelectorS(x0StateSelect=StateSelect.prefer, xrStateSelect=
-                StateSelect.prefer),
-          stateSelectorR(x0StateSelect=StateSelect.prefer, xrStateSelect=
-                StateSelect.prefer))
+          p=p)
           annotation (Placement(transformation(extent={{-8,-30},{12,-10}},   rotation=
                  0)));
+        /*
+    stateSelectorS(
+      x0StateSelect=StateSelect.prefer, 
+      xrStateSelect=StateSelect.prefer),
+    stateSelectorR(
+      x0StateSelect=StateSelect.prefer, 
+      xrStateSelect=StateSelect.prefer)
+  */
         Electrical.Machines.Utilities.SwitchedRheostat rheostatM(
-            RStart=RStart, tStart=tRheostat)
-                                      annotation (Placement(transformation(extent={{-40,-30},
+          RStart=RStart,
+          tStart=tRheostat)
+          annotation (Placement(transformation(extent={{-40,-30},
                   {-20,-10}},      rotation=0)));
-        Modelica.Mechanics.Rotational.Components.Inertia loadInertiaM(J=J_Load)
+        Modelica.Mechanics.Rotational.Components.Inertia loadInertiaM(
+          J=J_Load)
           annotation (Placement(transformation(extent={{50,-30},{70,-10}},   rotation=
                  0)));
         Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
@@ -832,7 +844,7 @@ Simulate for 1.5 seconds and plot (versus time):
               extent={{-10,-10},{10,10}},
               rotation=270)));
         Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxE(
-            terminalConnection="D")
+          terminalConnection="D")
           annotation (Placement(transformation(extent={{-10,-70},{10,-50}},rotation=0)));
         Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing
           aimsE(
@@ -1027,11 +1039,14 @@ Simulate for 1.5 seconds and plot (versus time):
           Rrq=Rrq,
           p=p,
           alpha20s(displayUnit="1/K"),
-          alpha20r(displayUnit="1/K"),
-          stateSelectorS(x0StateSelect=StateSelect.prefer, xrStateSelect=
-                StateSelect.prefer))
+          alpha20r(displayUnit="1/K"))
           annotation (Placement(transformation(extent={{-10,-30},{10,-10}},
                                                                          rotation=0)));
+        /*
+    stateSelectorS(
+      x0StateSelect=StateSelect.prefer, 
+      xrStateSelect=StateSelect.prefer)
+  */
         Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorAngleM(
            p=p)
           annotation (Placement(transformation(
@@ -1181,7 +1196,7 @@ and accelerate the inertias.</p>
         parameter Modelica.SIunits.Current Ie = 19 "Excitation current";
         parameter Modelica.SIunits.Current Ie0 = 10
           "Initial excitation current";
-        parameter Modelica.SIunits.Conversions.NonSIunits.Angle_deg gamma0 = 0
+        parameter Modelica.SIunits.Angle gamma0(displayUnit="deg") = 0
           "Initial rotor displacement angle";
 
         parameter Integer p = 2 "Number of pole pairs";
@@ -1238,11 +1253,14 @@ and accelerate the inertias.</p>
           alpha20s(displayUnit="1/K"),
           alpha20r(displayUnit="1/K"),
           alpha20e(displayUnit="1/K"),
-          phiMechanical(start=-(Modelica.Constants.pi +
-                Modelica.SIunits.Conversions.from_deg(gamma0))/p, fixed=true),
-          stateSelectorS(x0StateSelect=StateSelect.prefer, xrStateSelect=StateSelect.prefer))
+          phiMechanical(start=-(Modelica.Constants.pi + gamma0)/p, fixed=true))
           annotation (Placement(transformation(extent={{-10,-30},{10,-10}},
                                                                         rotation=0)));
+        /*
+    stateSelectorS(
+      x0StateSelect=StateSelect.prefer, 
+      xrStateSelect=StateSelect.prefer)
+  */
         Modelica.Electrical.Analog.Sources.RampCurrent rampCurrentM(
           duration=0.1,
           I=Ie - Ie0,
@@ -1276,7 +1294,7 @@ and accelerate the inertias.</p>
               rotation=270,
               origin={-60,30})));
         Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxE(
-            terminalConnection="Y")
+          terminalConnection="Y")
           annotation (Placement(transformation(extent={{-10,-70},{10,-50}},rotation=0)));
         Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited
           smeeE(
@@ -1293,7 +1311,7 @@ and accelerate the inertias.</p>
           alpha20r(displayUnit="1/K"),
           alpha20e(displayUnit="1/K"),
           phiMechanical(start=-(Modelica.Constants.pi +
-                Modelica.SIunits.Conversions.from_deg(gamma0))/p, fixed=true))
+            Modelica.SIunits.Conversions.from_deg(gamma0))/p, fixed=true))
           annotation (Placement(transformation(extent={{-10,-90},{10,-70}},rotation=0)));
         Modelica.Electrical.Analog.Sources.RampCurrent rampCurrentE(
           duration=0.1,
@@ -1352,7 +1370,7 @@ and accelerate the inertias.</p>
                 {24,-10},{6,-10}},
                           color={0,0,255}));
         connect(rotorAngleM.flange,smeeM.flange)
-          annotation (Line(points={{20,-20},{15,-20},{10,-20}},
+          annotation (Line(points={{20,-20},{10,-20},{10,-20}},
                                                               color={0,0,0}));
         connect(smeeM.flange,   mechanicalPowerSensorM.flange_a)
           annotation (Line(points={{10,-20},{50,-20}},        color={0,0,0}));
@@ -1374,7 +1392,7 @@ and accelerate the inertias.</p>
 
         connect(electricalPowerSensorM.plug_p, sineVoltage.plug_p) annotation (
             Line(
-            points={{1.83697e-015,40},{0,40},{0,90},{-20,90}},
+            points={{2.44753e-15,40},{0,40},{0,90},{-20,90}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(electricalPowerSensorE.plug_p, sineVoltage.plug_p) annotation (
@@ -1384,12 +1402,12 @@ and accelerate the inertias.</p>
             smooth=Smooth.None));
         connect(electricalPowerSensorM.plug_ni, terminalBoxM.plugSupply)
           annotation (Line(
-            points={{-1.83697e-015,20},{0,20},{0,-8}},
+            points={{-1.22629e-15,20},{6.10623e-16,20},{6.10623e-16,-8}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(electricalPowerSensorE.plug_ni, terminalBoxE.plugSupply)
           annotation (Line(
-            points={{-60,20},{-60,-50},{0,-50},{0,-68}},
+            points={{-60,20},{-60,-50},{6.10623e-16,-50},{6.10623e-16,-68}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(electricalPowerSensorE.plug_nv, star.plug_p) annotation (Line(
@@ -1501,10 +1519,13 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
           Rrd=Rrd,
           Rrq=Rrq,
           alpha20s(displayUnit="1/K"),
-          alpha20r(displayUnit="1/K"),
-          stateSelectorS(x0StateSelect=StateSelect.prefer, xrStateSelect=
-                StateSelect.prefer))
+          alpha20r(displayUnit="1/K"))
           annotation (Placement(transformation(extent={{-10,-30},{10,-10}},rotation=0)));
+        /*
+    stateSelectorS(
+      x0StateSelect=StateSelect.prefer, 
+      xrStateSelect=StateSelect.prefer)
+  */
         Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorAngleM(
           p=p)
           annotation (Placement(transformation(
@@ -2304,6 +2325,9 @@ Resistances and stray inductances of the machine refer to the stator phases. The
         parameter Modelica.SIunits.Inductance Lrsigma(start = 3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal))
           "Rotor leakage inductance w.r.t. stator side"
            annotation(Dialog(tab="Nominal resistances and inductances"));
+        parameter Modelica.SIunits.Inductance Lrzero=Lrsigma
+          "Rotor zero inductance w.r.t. stator side"
+           annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Resistance Rr(start = 0.04)
           "Rotor resistance w.r.t. stator side"
            annotation(Dialog(tab="Nominal resistances and inductances"));
@@ -2327,9 +2351,18 @@ Resistances and stray inductances of the machine refer to the stator phases. The
         parameter Modelica.SIunits.Voltage VsNominal(start=100)
           "Nominal stator voltage per phase"
           annotation(Dialog(enable=not useTurnsRatio));
-        parameter Modelica.SIunits.Voltage VrLockedRotor(start=100*(2*pi*fsNominal*Lm)/sqrt(Rs^2+(2*pi*fsNominal*(Lm+Lssigma))^2))
+        parameter Modelica.SIunits.Voltage VrLockedRotor(
+          start=100*(2*pi*fsNominal*Lm)/sqrt(Rs^2+(2*pi*fsNominal*(Lm+Lssigma))^2))
           "Locked rotor voltage per phase"
           annotation(Dialog(enable=not useTurnsRatio));
+
+        parameter Modelica.Electrical.Machines.Losses.CoreParameters
+          rotorCoreParameters(
+          final m=3,
+          PRef=0,
+          VRef(start=1)=1,
+          wRef(start=1)=1) "Rotor core losses"
+          annotation(Dialog(tab="Losses"));
 
         output Modelica.SIunits.Voltage vr[m] = plug_rp.pin.v - plug_rn.pin.v
           "Rotor instantaneous voltages";
@@ -2348,23 +2381,26 @@ Resistances and stray inductances of the machine refer to the stator phases. The
           final RRef=Rr,
           final TRef=TrRef,
           final TOperational=TrOperational,
-          electroMagneticConverter(port_p(Phi(re(stateSelect=StateSelect.avoid),
-                  im(stateSelect=StateSelect.avoid)))),
-          Lzero=Lrsigma,
-          GcRef=0,
-          final alpha20=alpha20r)
+          final Lzero=Lrsigma,
+          final alpha20=alpha20r,
+          final GcRef=rotorCoreParameters.GcRef)
           "Symmetric rotor winding including resistances, zero and stray inductances and zero core losses"
           annotation (Placement(transformation(
               origin={0,-40},
               extent={{-10,10},{10,-10}},
               rotation=90)));
-        Interfaces.StateSelector stateSelectorR(
-          final mp=m,
-          final xi=ir,
-          final gamma=0) "State selection of rotor currents"
-          annotation (Placement(transformation(extent={{-10,-10},{10,10}},
-              rotation=90,
-              origin={-90,0})));
+        /* previously used: state selection, now commented 
+    electroMagneticConverter(port_p(Phi(re(stateSelect=StateSelect.avoid),
+            im(stateSelect=StateSelect.avoid)))),
+
+  Interfaces.StateSelector stateSelectorR(
+    final mp=m,
+    final xi=ir,
+    final gamma=0) "State selection of rotor currents"
+    annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+        rotation=90,
+        origin={-90,0})));
+  */
       equation
 
         connect(rotor.plug_n, plug_rn)        annotation (Line(points={{-10,-50},
@@ -2375,7 +2411,7 @@ Resistances and stray inductances of the machine refer to the stator phases. The
             color={255,128,0},
             smooth=Smooth.None));
         connect(airGap.port_rp, rotor.port_p)        annotation (Line(
-            points={{10,-10},{10,-10},{10,-30},{10,-30}},
+            points={{10,-10},{10,-20},{10,-30},{10,-30}},
             color={255,128,0},
             smooth=Smooth.None));
         connect(rotor.heatPortCore, internalThermalPort.heatPortRotorCore)
@@ -2688,18 +2724,20 @@ Resistances and stray inductances of the machine refer to the stator phases. The
           final effectiveTurns=effectiveStatorTurns*turnsRatio*m/2,
           final useHeatPort=true,
           final TOperational=TeOperational,
-          electroMagneticConverter(Phi(re(stateSelect=StateSelect.avoid), im(
-                  stateSelect=StateSelect.avoid))),
-          strayInductor(i(stateSelect=StateSelect.prefer)),
           final alpha20=alpha20e)
           "Excitation winding including resistance and stray inductance"
           annotation (Placement(transformation(extent={{-30,-50},{-10,-30}}, rotation=0)));
+        /* Previously used state selection, now commented
+    electroMagneticConverter(Phi(re(stateSelect=StateSelect.avoid), im(
+            stateSelect=StateSelect.avoid))),
+    strayInductor(i(stateSelect=StateSelect.prefer)),
+  */
         Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep
           annotation (Placement(transformation(extent={{-110,70},{-90,50}}, rotation=0)));
         Modelica.Electrical.Analog.Interfaces.NegativePin pin_en
           annotation (Placement(transformation(extent={{-90,-50},{-110,-70}},rotation=0)));
         Electrical.Machines.Losses.DCMachines.Brush brush(
-                                      final brushParameters=brushParameters)
+          final brushParameters=brushParameters)
           annotation (Placement(transformation(extent={{10,-10},{-10,10}},
               rotation=90,
               origin={-80,40})));
@@ -3090,11 +3128,9 @@ The single phase winding consists of a
           final orientation=Functions.symmetricOrientation(m))
           annotation (Placement(transformation(extent={{-10,-40},{10,-20}},
                                                                           rotation=0)));
-        Electrical.MultiPhase.Basic.MutualInductor zeroInductor(final m=m,
-            final L=fill(
-                    Lzero,
-                    m,
-                    m))
+        Modelica.Electrical.MultiPhase.Basic.ZeroInductor zeroInductor(
+                                                                final m=m, final
+            Lzero=Lzero)
           annotation (Placement(transformation(
               origin={-20,30},
               extent={{-10,-10},{10,10}},
@@ -3135,7 +3171,8 @@ The single phase winding consists of a
         connect(plug_p, resistor.plug_p)
           annotation (Line(points={{-100,100},{-20,100},{-20,80}}, color={0,0,255}));
         connect(resistor.plug_n, zeroInductor.plug_p)
-          annotation (Line(points={{-20,60},{-20,40},{-20,40}},
+          annotation (Line(points={{-20,60},{-20,55},{-20,55},{-20,50},{-20,40},
+                {-20,40}},
             color={0,0,255}));
         connect(zeroInductor.plug_n, electroMagneticConverter.plug_p)
           annotation (Line(points={{-20,20},{-20,-20},{-10,-20}},
@@ -4093,7 +4130,7 @@ Source of magnetic flux with complex signal input.
               extent={{-29,-11},{30,-70}},
               lineColor={0,0,0},
               textString="Phi"),
-            Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            Line(points={{-72,0},{-90,0}}, color={0,0,0}),
             Text(
               extent={{-140,120},{140,80}},
               textString="%name",
@@ -4103,10 +4140,7 @@ Source of magnetic flux with complex signal input.
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
-            Line(points={{-70,0},{-100,0}}, color={0,0,0}),
-            Line(points={{70,0},{100,0}}, color={0,0,0}),
-            Line(points={{0,-90},{0,-70}})}),
+            grid={2,2}), graphics),
         Documentation(info="<html>
 <p>Sensor for magnetic flux.</p>
 
@@ -4170,10 +4204,7 @@ Source of magnetic flux with complex signal input.
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
-            Line(points={{-70,0},{-100,0}}, color={0,0,0}),
-            Line(points={{70,0},{100,0}}, color={0,0,0}),
-            Line(points={{0,-90},{0,-70}})}),
+            grid={2,2}), graphics),
         Documentation(info="<html>
 <p>Sensor for magnetic potential difference.</p>
 
@@ -4188,6 +4219,61 @@ Source of magnetic flux with complex signal input.
 This package provides sensors for the magnetic potential difference and the magnetic flux in magnetic circuit.
 </p>
 </html>"));
+    model MagneticPotentialSensor "Sensor to measure magnetic potentiale"
+      extends Modelica.Icons.RotationalSensor;
+
+      Modelica.ComplexBlocks.Interfaces.ComplexOutput V_m
+        "Complex magnetic potential"
+         annotation (Placement(transformation(
+            origin={0,-100},
+            extent={{10,-10},{-10,10}},
+            rotation=90)));
+
+      Interfaces.PositiveMagneticPort port_p "Magnetic connector of sensor"
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+    equation
+      // No magnetic flux through sensor
+      port_p.Phi = Complex(0,0);
+
+      // Magnetic potential
+      V_m = port_p.V_m;
+
+      annotation (
+        Window(
+          x=0.28,
+          y=0.29,
+          width=0.6,
+          height=0.6),
+        Icon(coordinateSystem(
+            preserveAspectRatio=false,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics={
+            Text(
+              extent={{-52,1},{48,-57}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid,
+              textString="V_m"),
+            Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            Line(points={{70,0},{90,0}}, color={0,0,0}),
+            Line(points={{0,-90},{0,-70}}),
+            Text(
+              extent={{-140,120},{140,80}},
+              textString="%name",
+              lineColor={0,0,255})}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics),
+        Documentation(info="<html>
+<p>Sensor for magnetic potential difference.</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sensors.MagneticFluxSensor\">
+   MagneticFluxSensor</a>
+</p></html>"));
+    end MagneticPotentialSensor;
   end Sensors;
 
   package Interfaces "Interfaces and partial models"
@@ -4381,23 +4467,24 @@ This model is mainly used to extend from in order build more complex - equation 
         "Stator stray inductance per phase"
          annotation(Dialog(tab="Nominal resistances and inductances"));
       parameter Modelica.SIunits.Inductance Lszero=Lssigma
-        "Stator stray inductance per phase"
+        "Stator zero inductance per phase"
          annotation(Dialog(tab="Nominal resistances and inductances"));
       parameter Modelica.Magnetic.FundamentalWave.Types.SalientInductance L0(d(start=1),q(start=1))
          annotation(Dialog(tab="Nominal resistances and inductances"));
       parameter Modelica.Electrical.Machines.Losses.FrictionParameters
         frictionParameters(
-        wRef(start=2*pi*fsNominal/p)) "Friction losses"
+          wRef(start=2*pi*fsNominal/p)) "Friction losses"
         annotation(Dialog(tab="Losses"));
       parameter Modelica.Electrical.Machines.Losses.CoreParameters
         statorCoreParameters(
-        final m=3,
-        wRef(start=2*pi*fsNominal/p),
-        VRef(start=1)) "Stator core losses"
+          final m=3,
+          wRef(start=2*pi*fsNominal/p),
+          VRef(start=100)) "Stator core losses"
         annotation(Dialog(tab="Losses"));
       parameter Modelica.Electrical.Machines.Losses.StrayLoadParameters
         strayLoadParameters(
-        IRef(start=1), wRef(start=2*pi*fsNominal/p)) "Stray load losses"
+          IRef(start=100),
+          wRef(start=2*pi*fsNominal/p)) "Stray load losses"
         annotation(Dialog(tab="Losses"));
 
       // Mechanical quantities
@@ -4453,9 +4540,6 @@ This model is mainly used to extend from in order build more complex - equation 
         final Lsigma=Lssigma,
         final effectiveTurns=effectiveStatorTurns,
         final TOperational=TsOperational,
-        electroMagneticConverter(port_p(Phi(re(stateSelect=StateSelect.avoid), im(
-                  stateSelect=StateSelect.avoid)))),
-        zeroInductor(each i(stateSelect=StateSelect.avoid)),
         final GcRef=statorCoreParameters.GcRef,
         final alpha20=alpha20s,
         final Lzero=Lszero)
@@ -4464,6 +4548,15 @@ This model is mainly used to extend from in order build more complex - equation 
             origin={0,40},
             extent={{-10,-10},{10,10}},
             rotation=270)));
+      /* previously used: state selection, now commented 
+    electroMagneticConverter(
+      port_p(
+        Phi(
+          re(stateSelect=StateSelect.avoid), 
+          im(stateSelect=StateSelect.avoid)))),
+    zeroInductor(
+      each i(stateSelect=StateSelect.avoid)),
+  */
       replaceable
         Modelica.Electrical.Machines.Interfaces.InductionMachines.PartialThermalAmbientInductionMachines
         thermalAmbient(
@@ -4480,7 +4573,8 @@ This model is mainly used to extend from in order build more complex - equation 
         annotation (Placement(transformation(extent={{-40,30},{-20,10}},rotation=0)));
       Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap
         airGap(
-        final p=p, final L0=L0)
+          final p=p,
+          final L0=L0)
         annotation (Placement(transformation(
             origin={0,0},
             extent={{-10,-10},{10,10}},
@@ -4489,11 +4583,13 @@ This model is mainly used to extend from in order build more complex - equation 
         "Ground of rotor magnetic circuit"
         annotation (Placement(transformation(extent={{-40,-30},{-20,-10}}, rotation=
                0)));
-      Modelica.Magnetic.FundamentalWave.Interfaces.StateSelector stateSelectorS(
-        final mp=m,
-        final xi=is,
-        final gamma=p*phiMechanical) "State selection of stator currents"
-        annotation (Placement(transformation(extent={{-10,80},{10,100}})));
+      /* previously used: state selection, now commented 
+  Modelica.Magnetic.FundamentalWave.Interfaces.StateSelector stateSelectorS(
+    final mp=m,
+    final xi=is,
+    final gamma=p*phiMechanical) "State selection of stator currents"
+    annotation (Placement(transformation(extent={{-10,80},{10,100}})));
+  */
       Electrical.Machines.Losses.InductionMachines.StrayLoad strayLoad(
         final strayLoadParameters=strayLoadParameters)
         annotation (Placement(transformation(extent={{60,60},{40,80}})));
@@ -4833,7 +4929,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <tr><td>Version</td> <td>Revision</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
 </thead>
 <tbody>
-<tr><td>1.7.0</td><td>XXXX</td>  <td>2010-05-12</td>  <td>C. Kral</td>  <td>Changed single phase and symmetrical multi phase winding model<br>Relocated core losses<br>Update due to changed variables in Electrical.Machines</td></tr>
+<tr><td>1.7.0</td><td>3858</td>  <td>2010-05-14</td>  <td>C. Kral</td>  <td>Changed single phase and symmetrical multi phase winding model<br>Relocated core losses<br>Update due to changed variables in Electrical.Machines</td></tr>
 <tr><td>1.6.0</td><td>3837</td>  <td>2010-05-05</td>  <td>C. Kral</td>  <td>Renamed all parameters windingAngle to orientation<br>Update due to changed class names in Machines.Icons<br>Exchanged positive and negative stator ports of air gap model</td></tr>
 <tr><td>1.5.0</td><td>3802</td>  <td>2010-04-28</td>  <td>C. Kral</td>  <td>Added stator core, friction, stray load and brush loss models and changed parameter of EddyCurrent model</td></tr>
 <tr><td>1.4.0</td><td>3763</td>  <td>2010-04-22</td>  <td>C. Kral</td>  <td>Added eddy current loss model with thermal heat port</td></tr>
