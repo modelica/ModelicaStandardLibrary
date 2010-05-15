@@ -140,16 +140,16 @@ for contributing his source code to this library.
 <ul>
 <li>Changed <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">symmetric multi phase winding</a> model</li>
   <ul>
-      <li>Added zero sequence inductance based on 
+      <li>Added zero sequence inductance based on
           <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.ZeroInductor\">zero inductor</li>
-      <li>Replaced electrical model of stray 
-          <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.Inductor\">inductor</a> by stray 
+      <li>Replaced electrical model of stray
+          <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.Inductor\">inductor</a> by stray
           <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Reluctance\">reluctance</a> model</li>
-      <li>Integrated cores <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">losses</a> 
+      <li>Integrated cores <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">losses</a>
           and <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">heat port</a></li>
   </ul>
   <li>Added rotor core loss parameters in asynchronous induction machine with slip rings</li>
-  <li>Renamed heat ports of 
+  <li>Renamed heat ports of
       <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">
       single phase winding</a> and
       <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">
@@ -157,7 +157,7 @@ for contributing his source code to this library.
      </li>
   <li>Relocated core losses between zero inductor and stray reluctance model in the magntic domain</li>
   <li>Renamed instances of stator and rotor (winding) models in each machines</li>
-  <li>Updates due to changed loss variable and heat port names in 
+  <li>Updates due to changed loss variable and heat port names in
       <a href=\"modelica://Modelica.Electrical.Machines\">Electrical.Machines</a></li>
   <li>Added magnetic potential sensor</li>
   <li>Removed state selections</li>
@@ -815,10 +815,10 @@ Simulate for 1.5 seconds and plot (versus time):
                  0)));
         /*
     stateSelectorS(
-      x0StateSelect=StateSelect.prefer, 
+      x0StateSelect=StateSelect.prefer,
       xrStateSelect=StateSelect.prefer),
     stateSelectorR(
-      x0StateSelect=StateSelect.prefer, 
+      x0StateSelect=StateSelect.prefer,
       xrStateSelect=StateSelect.prefer)
   */
         Electrical.Machines.Utilities.SwitchedRheostat rheostatM(
@@ -1045,7 +1045,7 @@ Simulate for 1.5 seconds and plot (versus time):
                                                                          rotation=0)));
         /*
     stateSelectorS(
-      x0StateSelect=StateSelect.prefer, 
+      x0StateSelect=StateSelect.prefer,
       xrStateSelect=StateSelect.prefer)
   */
         Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorAngleM(
@@ -1259,7 +1259,7 @@ and accelerate the inertias.</p>
                                                                         rotation=0)));
         /*
     stateSelectorS(
-      x0StateSelect=StateSelect.prefer, 
+      x0StateSelect=StateSelect.prefer,
       xrStateSelect=StateSelect.prefer)
   */
         Modelica.Electrical.Analog.Sources.RampCurrent rampCurrentM(
@@ -1524,7 +1524,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
           annotation (Placement(transformation(extent={{-10,-30},{10,-10}},rotation=0)));
         /*
     stateSelectorS(
-      x0StateSelect=StateSelect.prefer, 
+      x0StateSelect=StateSelect.prefer,
       xrStateSelect=StateSelect.prefer)
   */
         Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorAngleM(
@@ -2390,7 +2390,7 @@ Resistances and stray inductances of the machine refer to the stator phases. The
               origin={0,-40},
               extent={{-10,10},{10,-10}},
               rotation=90)));
-        /* previously used: state selection, now commented 
+        /* previously used: state selection, now commented
     electroMagneticConverter(port_p(Phi(re(stateSelect=StateSelect.avoid),
             im(stateSelect=StateSelect.avoid)))),
 
@@ -3236,7 +3236,7 @@ The single phase winding consists of a
         Documentation(info="<html>
 <p>
 The symmetrical multi phase winding consists of a symmetrical winding
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.Resistor\">resistor</a>, a 
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.Resistor\">resistor</a>, a
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MutualInductor\">zero</a> and
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.Inductor\">stray inductor</a> as well as a symmetrical
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter\">multi phase electro magnetic coupling</a> and a
@@ -4549,11 +4549,11 @@ This model is mainly used to extend from in order build more complex - equation 
             origin={0,40},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      /* previously used: state selection, now commented 
+      /* previously used: state selection, now commented
     electroMagneticConverter(
       port_p(
         Phi(
-          re(stateSelect=StateSelect.avoid), 
+          re(stateSelect=StateSelect.avoid),
           im(stateSelect=StateSelect.avoid)))),
     zeroInductor(
       each i(stateSelect=StateSelect.avoid)),
@@ -4584,7 +4584,7 @@ This model is mainly used to extend from in order build more complex - equation 
         "Ground of rotor magnetic circuit"
         annotation (Placement(transformation(extent={{-40,-30},{-20,-10}}, rotation=
                0)));
-      /* previously used: state selection, now commented 
+      /* previously used: state selection, now commented
   Modelica.Magnetic.FundamentalWave.Interfaces.StateSelector stateSelectorS(
     final mp=m,
     final xi=is,

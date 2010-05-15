@@ -10046,28 +10046,28 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
           Diagram(graphics),
           Documentation(info="<html>
 <p>
-Core losses can be separated into <b>eddy current</b> and <b>hysteresis</b> losses. The total core losses 
-can thus be expressed as 
+Core losses can be separated into <b>eddy current</b> and <b>hysteresis</b> losses. The total core losses
+can thus be expressed as
 </p>
 <pre>
   P = PRef * (ratioHysteresis * (wRef / w) + 1 - ratioHysteresis) * (V / VRef)^2
 </pre>
 <p>
-where <code>w</code> is the actual angular remagnetization velocity and <code>V</code> is the actual voltage. 
+where <code>w</code> is the actual angular remagnetization velocity and <code>V</code> is the actual voltage.
 The term <code>ratioHysteresis</code> is the ratio of the hysteresis losses with respect to the total core losses for the reference voltage and frequency.
 </p>
- 
+
 <p>
 In the current implemenation hysteresis losses are <b>not considered</b> since complex numbers are not provided in Modelica.
-Therefore, implicitly <code>ratioHysteresis = 0</code> is set. For the voltage and frequency range with respect to Fig.&nbsp;1, 
-the dependency of total core losses on the parameter <code>ratioHysteresis</code> is depicted in Fig.&nbsp;2. 
+Therefore, implicitly <code>ratioHysteresis = 0</code> is set. For the voltage and frequency range with respect to Fig.&nbsp;1,
+the dependency of total core losses on the parameter <code>ratioHysteresis</code> is depicted in Fig.&nbsp;2.
 The current implementation has thus the drawback over a model that considers <code>ratioHysteresis &gt; 0</code>:
 </p>
 <ul>
 <li>underestimation of the losses in the constant field region (<code>w</code> &lt; <code>wRef</code>)</il>
 <li>overestimation of the losses in the field weakening region (<code>w</code> &gt; <code>wRef</code>)</il>
 </ul>
- 
+
 <table border=0 cellspacing=0 cellpadding=1>
   <tr><td> <img src=\"modelica://Modelica/Images/Electrical/Machines/CoreLossesVw.png\"> </td>
   </tr>
@@ -10081,15 +10081,15 @@ The current implementation has thus the drawback over a model that considers <co
   <tr><td> <b> Fig. 2: </b>Core losses versus angular velocity with parameter <code>ratioHysteresis</code></td>
   </tr>
 </table>
- 
+
 <h4>Note</h4>
 <p>In the current implementation it is assumed that <code>ratioHysteresis = 0</code>. This parameter cannot be changed due to compatibility reasons.</p>
- 
+
 <h4>See also</h4>
 <p>
 <a href=modelica://Modelica.Electrical.Machines.Losses.CoreParameters>Core loss parameters</a>
 </p>
- 
+
 </html>"));
       end Core;
 
@@ -10425,8 +10425,8 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
           Diagram(graphics),
           Documentation(info="<html>
 <p>
-Core losses can be separated into <i>eddy current</i> and <i>hysteresis</i> losses. The total core losses 
-can thus be expressed as 
+Core losses can be separated into <i>eddy current</i> and <i>hysteresis</i> losses. The total core losses
+can thus be expressed as
 </p>
 <pre>
   p = PRef * (ratioHysteresis * (wRef / w) + 1 - ratioHysteresis) * (v / VRef)^2
@@ -10435,12 +10435,12 @@ can thus be expressed as
 where <code>w</code> is the actual angular velocity and <code>v</code> is the actual voltage. The term <code>ratioHysteresis</code> is the ratio
 of the hysteresis losses with respect to the total core losses for reference inner voltage and reference angular velocity.
 </p>
- 
+
 <p>
-For the voltage and angular velocity range with respect to Fig.&nbsp;1, 
-the dependency of total core losses on the parameter <code>ratioHysteresis</code> is depicted in Fig.&nbsp;2. 
+For the voltage and angular velocity range with respect to Fig.&nbsp;1,
+the dependency of total core losses on the parameter <code>ratioHysteresis</code> is depicted in Fig.&nbsp;2.
 </p>
- 
+
 <table border=0 cellspacing=0 cellpadding=1>
   <tr><td> <img src=\"modelica://Modelica/Images/Electrical/Machines/CoreLossesVw.png\"> </td>
   </tr>
@@ -10454,15 +10454,15 @@ the dependency of total core losses on the parameter <code>ratioHysteresis</code
   <tr><td> <b> Fig. 2: </b>Core losses versus angular velocity with parameter <code>ratioHysteresis</code></td>
   </tr>
 </table>
- 
+
 <h4>Note</h4>
 <p>In the current implementation it is assumed that <code>ratioHysteresis = 0</code>. This parameter cannot be changed due to compatibility reasons.</p>
- 
+
 <h4>See also</h4>
 <p>
 <a href=modelica://Modelica.Electrical.Machines.Losses.CoreParameters>Core loss parameters</a>
 </p>
- 
+
 </html>"));
       end Core;
 
