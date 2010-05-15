@@ -14,12 +14,16 @@ for that non-terminal. This grammar is identical to that in the Modelica 3.2
 specification except for removal of some unnecessary parentheses, grouping of
 some common terms, and reformatting for easier readability. The following
 typographic conventions are used:
+</p>
+
 <ul>
 <li>Keywords are set in <b>boldface</b>.</li>
 <li>Literals other than keywords are <font color=green>\"</font><tt>quoted-monospaced</tt><font color=green>\"</font> text.</li>
 <li>Non-terminals are set in <i>italics</i>, with <font color=#003399><i>blue italics</i></font> used for links.</li>
 <li>EBNF meta-characters are <font color=green>green</font>.</li>
 </ul>
+
+
 <h4>Stored Definition</h4>
 <p><a name=\"stored_definition\" class=NAME><i>stored_definition</i></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>[</font><tt> </tt><b>within</b><tt> </tt><font color=green size=+1>[</font><tt> </tt><a href=\"#name\" class=HREF><i>name</i></a><tt> </tt><font color=green size=+1>]</font><tt> </tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>]</font><tt> </tt><font color=green size=+1>{</font><tt> </tt><font color=green size=+1>[</font><tt> </tt><b>final</b><tt> </tt><font color=green size=+1>]</font><tt> </tt><a href=\"#class_definition\" class=HREF><i>class_definition</i></a><tt> </tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>}</font>
@@ -141,8 +145,8 @@ typographic conventions are used:
 <p><a name=\"for_equation\" class=NAME><i>for_equation</i></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><b>for</b><tt> </tt><a href=\"#for_indices\" class=HREF><i>for_indices</i></a><tt> </tt><b>loop</b><tt> </tt><font color=green size=+1>{</font><tt> </tt><a href=\"#equation\" class=HREF><i>equation</i></a><tt> </tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>}</font><tt> </tt><b>end</b><tt> </tt><b>for</b>
 <p><a name=\"for_statement\" class=NAME><i>for_statement</i></a>:
-<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><b>for</b><tt> </tt><a href=\"#for_indices\" class=HREF><i"
-           + ">for_indices</i></a><tt> </tt><b>loop</b><tt> </tt><font color=green size=+1>{</font><tt> </tt><a href=\"#statement\" class=HREF><i>statement</i></a><tt> </tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>}</font><tt> </tt><b>end</b><tt> </tt><b>for</b>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><b>for</b><tt> </tt><a href=\"#for_indices\" class"
+           + "=HREF><i>for_indices</i></a><tt> </tt><b>loop</b><tt> </tt><font color=green size=+1>{</font><tt> </tt><a href=\"#statement\" class=HREF><i>statement</i></a><tt> </tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>}</font><tt> </tt><b>end</b><tt> </tt><b>for</b>
 <p><a name=\"for_indices\" class=NAME><i>for_indices</i></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#for_index\" class=HREF><i>for_index</i></a><tt> </tt><font color=green size=+1>{</font><tt> </tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt> </tt><a href=\"#for_index\" class=HREF><i>for_index</i></a><tt> </tt><font color=green size=+1>}</font>
 <p><a name=\"for_index\" class=NAME><i>for_index</i></a>:
@@ -1297,10 +1301,19 @@ class_specifier :
 <p>
 The keyword class is used to define general classes (without any restrictions).
 It is identical to the keyword model.
-In most cases, it is recommended to use specialized classes as <b>block</b>,
-<b>connector</b>, <b>model</b>, <b>package</b>, <b>record</b>, <b>function</b>or <b>type</b>.
-\"class\" should only be used to define ExternalObjects.
+In most cases, it is recommended to use specialized classes as
+<a href=\"modelica://ModelicaReference.Classes.Connector\">connector</a>,
+<a href=\"modelica://ModelicaReference.Classes.Model\">model</a>,
+<a href=\"modelica://ModelicaReference.Classes.Block\">block</a>,
+<a href=\"modelica://ModelicaReference.Classes.Package\">package</a>,
+<a href=\"modelica://ModelicaReference.Classes.Record\">record</a>,
+<a href=\"modelica://ModelicaReference.Classes.Function\">function</a>,
+<a href=\"modelica://ModelicaReference.Classes.Type\">type</a>.
+\"class\" should only be used to define
+<a href=\"modelica://ModelicaReference.Classes.ExternalObject\">ExternalObject</a>s.
 </p>
+
+
 </html>"));
   end Class;
 
@@ -1330,12 +1343,77 @@ class_specifier :
 <p>See Modelica Language Specification for further details.</p>
 
 <h4><font color=\"#008000\">Description</font></h4>
-<P>The keyword connector is used to define connectors, which are used
-in connect statements. In connectors, no equations are allowed in the
+<p>The keyword connector is used to define connectors, which are used
+in
+<a href=\"modelica://ModelicaReference.Connect\">connect</a>
+statements. In connectors, no equations are allowed in the
 definition or in any of its components.
 With respect to \"class\", it is enhanced to allow connect(..) to components
 of connector classes.
-</P>
+</p>
+
+<p>
+Variable declarations in a connector can have the additional prefixes
+<a href=\"modelica://ModelicaReference.Flow\">flow</a> or
+<a href=\"modelica://ModelicaReference.Stream\">stream</a>, besides
+the prefixes
+<a href=\"modelica://ModelicaReference.Input\">input</a> and
+<a href=\"modelica://ModelicaReference.Output\">output</a>, that are
+also allowed outside of a connector. Based on the prefix, a
+<a href=\"modelica://ModelicaReference.Connect\">connect</a>
+statement leads to specific connection equations, that describe the
+balance equations in the infinitesimal connection points.
+</p>
+
+<h4><font color=\"#008000\">Example</font></h4>
+
+<p>
+If three connectors c1, c2, c3 with the definition
+</p>
+
+<pre>
+<b>connector</b> Demo
+  Real        p;  // potential variable
+  <b>flow</b>   Real f;  // flow variable
+  <b>stream</b> Real s;  // stream variable
+<b>end</b> Demo;
+</pre>
+
+<p>
+are connected together with
+</p>
+
+<pre>
+   <b>connect</b>(c1,c2);
+   <b>connect</b>(c1,c3);
+</pre>
+
+<p>
+then this leads to the following equations:
+</p>
+
+<pre>
+  // Potential variables are identical
+  c1.p = c2.p;
+  c1.p = c3.p;
+
+  // The sum of the flow variables is zero
+  0 = c1.f + c2.f + c3.f;
+
+  /* The sum of the product of flow variables and upstream stream variables is zero
+     (this implicit set of equations is explicitly solved when generating code;
+     the \"&lt;undefined&gt;\" parts are defined in such a way that
+     inStream(..) is continuous).
+  */
+  0 = c1.f*(<b>if</b> c1.f > 0 <b>then</b> s_mix <b>else</b> c1.s) +
+      c2.f*(<b>if</b> c2.f > 0 <b>then</b> s_mix <b>else</b> c2.s) +
+      c3.f*(<b>if</b> c3.f > 0 <b>then</b> s_mix <b>else</b> c3.s);
+
+  <b>inStream</b>(c1.s) = <b>if</b> c1.f > 0 <b>then</b> s_mix <b>else</b> &lt;undefined&gt;;
+  <b>inStream</b>(c2.s) = <b>if</b> c2.f > 0 <b>then</b> s_mix <b>else</b> &lt;undefined&gt;;
+  <b>inStream</b>(c3.s) = <b>if</b> c3.f > 0 <b>then</b> s_mix <b>else</b> &lt;undefined&gt;;
+</pre>
+
 </html>"));
   end Connector;
 
@@ -1636,6 +1714,135 @@ Moreover, they have additional properties called enhancements.
 </p>
 
 </html>"));
+  class ExternalObject "ExternalObject"
+  extends Modelica.Icons.Information;
+
+    annotation (Documentation(info="<html>
+<p>
+Define external functions with internal memory.
+</p>
+
+<h4><font color=\"#008000\">Description</font></h4>
+
+<p>
+External functions may have internal memory reported between function calls. Within Modelica this memory is defined as instance of the predefined class <b>ExternalObject</b> according to the following rules:
+</p>
+
+<ul>
+<li> There is a predefined partial class <b>ExternalObject</b>
+     [<i>since the class is partial, it is not possible to define an
+     instance of this class</i>].</li>
+
+<li> An external object class shall be directly extended from
+     ExternalObject, shall have exactly two function definitions,
+     called \"<b>constructor</b>\" and \"<b>destructor</b>\", and
+     shall not contain other elements. </li>
+
+<li> The constructor function is called exactly once before the first use of
+     the object. For each completely constructed object, the destructor
+     is called exactly once, after the last use of the object, even
+     if an error occurs. The constructor shall have exactly one output
+     argument in which the constructed ExternalObject is returned.
+     The destructor shall have no output arguments and the only input
+     argument of the destructor shall be the ExternalObject.
+     It is not legal to call explicitly the constructor and destructor
+     functions.</li>
+
+<li> Classes derived from ExternalObject can neither be used in an
+     extends-clause nor in a short class definition.</li>
+
+<li> External functions may be defined which operate on the internal memory
+     of an ExternalObject. An ExternalObject used as input argument or
+     return value of an external C-function is mapped to the C-type \"void*\".</li>
+</ul>
+
+<h4><font color=\"#008000\">Examples</font></h4>
+
+<p>
+A user-defined table may be defined in the following way as an ExternalObject
+(the table is read in a user-defined format from file and has memory for the last used table interval):
+</p>
+
+<pre>
+<b>class</b> MyTable
+  <b>extends</b> ExternalObject;
+  <b>function</b> constructor
+    <b>input</b>  String  fileName := \"\";
+    <b>input</b>  String  tableName := \"\";
+    <b>output</b> MyTable table;
+    <b>external</b> \"C\" table = initMyTable(fileName, tableName);
+  <b>end</b> constructor;
+
+  <b>function</b> destructor \"Release storage of table\"
+    <b>inpu</b>t  MyTable table;
+    <b>external</b> \"C\" closeMyTable(table);
+  <b>end</b> destructor;
+<b>end</b> MyTable;
+</pre>
+
+<p>
+and used in the following way:
+</p>
+
+<pre>
+<b>model</b> test \"Define a new table and interpolate in it\"
+  MyTable table=MyTable(fileName =\"testTables.txt\",
+                        tableName=\"table1\");  // call initMyTable
+  Real y;
+<b>equation</b>
+  y = interpolateMyTable(table, time);
+<b>end</b> test;
+</pre>
+
+<p>
+This requires to provide the following Modelica function:
+</p>
+
+<pre>
+<b>function</b> interpolateMyTable \"Interpolate in table\"
+  <b>input</b>  MyTable table;
+  <b>input</b>  Real  u;
+  <b>output</b> Real  y;
+  <b>external</b> \"C\" y = interpolateMyTable(table, u);
+<b>end</b> interpolateTable;
+</pre>
+
+<p>
+The external C-functions may be defined in the following way:
+</p>
+
+<pre>
+<b>typedef struct</b> {  /* User-defined datastructure of the table */
+  <b>double</b>* array;      /* nrow*ncolumn vector       */
+  <b>int</b>     nrow;       /* number of rows            */
+  <b>int</b>     ncol;       /* number of columns         */
+  <b>int</b>     type;       /* interpolation type        */
+  <b>int</b>     lastIndex;  /* last row index for search */
+} MyTable;
+
+<b>void</b>* initMyTable(char* fileName, char* tableName) {
+  MyTable* table = malloc(sizeof(MyTable));
+  <b>if</b> ( table == NULL ) ModelicaError(\"Not enough memory\");
+        // read table from file and store all data in *table
+  <b>return</b> (void*) table;
+};
+
+<b>void </b>closeMyTable(void* object) { /* Release table storage */
+  MyTable* table = (MyTable*) object;
+  <b>if</b> ( object == NULL ) return;
+  free(table->array);
+  free(table);
+}
+
+<b>double</b> interpolateMyTable(void* object, double u) {
+  MyTable* table = (MyTable*) object;
+  <b>double</b> y;
+  // Interpolate using \"table\" data (compute y)
+  <b>return</b> y;
+};
+</pre>
+</html>"));
+  end ExternalObject;
 end Classes;
 
 
