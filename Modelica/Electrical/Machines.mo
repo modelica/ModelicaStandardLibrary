@@ -3812,7 +3812,7 @@ These models use package SpacePhasors.
             internalThermalPort(final useDamperCage = useDamperCage),
           redeclare final
             Machines.Interfaces.InductionMachines.PowerBalanceSMPM
-            powerBalance(final lossPowerRotorWinding = 0,
+            powerBalance(final lossPowerRotorWinding = heatFlowSensorDamperCage.Q_flow,
                          final lossPowerRotorCore = 0,
                          final lossPowerPermanentMagnet = 0),
           statorCore(final w=statorCoreParameters.wRef));
@@ -3883,6 +3883,9 @@ These models use package SpacePhasors.
               origin={0,-40},
               extent={{-10,-10},{10,10}},
               rotation=270)));
+        Thermal.ConditionalFixedHeatFlowSensor heatFlowSensorDamperCage(final
+            useFixedTemperature=not useDamperCage)
+          annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
       equation
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r) annotation (Line(
               points={{10,-10},{10,-30},{10,-30}},
@@ -3905,14 +3908,19 @@ These models use package SpacePhasors.
             points={{20,10},{10,10},{10,10}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(damperCage.heatPort, internalThermalPort.heatPortRotorWinding)
+        connect(damperCage.heatPort, heatFlowSensorDamperCage.port_a) annotation (
+            Line(
+            points={{-10,-40},{-10,-60}},
+            color={191,0,0},
+            smooth=Smooth.None));
+        connect(heatFlowSensorDamperCage.port_b, internalThermalPort.heatPortRotorWinding)
           annotation (Line(
-            points={{-10,-40},{-10,-60},{0,-60},{0,-80}},
+            points={{10,-60},{10,-80},{0,-80}},
             color={191,0,0},
             smooth=Smooth.None));
         annotation (defaultComponentName="smpm",
-          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-                  -100},{100,100}}),
+          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
+                  100}}),
                   graphics),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
@@ -4086,7 +4094,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             internalThermalPort(final useDamperCage = useDamperCage),
           redeclare final
             Machines.Interfaces.InductionMachines.PowerBalanceSMEE
-            powerBalance(final lossPowerRotorWinding = 0,
+            powerBalance(final lossPowerRotorWinding = heatFlowSensorDamperCage.Q_flow,
                          final powerExcitation = ve*ie,
                          final lossPowerExcitation = -re.heatPort.Q_flow,
                          final lossPowerBrush = -brush.heatPort.Q_flow,
@@ -4211,6 +4219,9 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           annotation (Placement(transformation(extent={{10,-10},{-10,10}},
               rotation=90,
               origin={-80,40})));
+        Thermal.ConditionalFixedHeatFlowSensor heatFlowSensorDamperCage(final
+            useFixedTemperature=not useDamperCage)
+          annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
       equation
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r)
           annotation (Line(points={{10,-10},{10,-16},{10,-30},{10,-30}},
@@ -4254,17 +4265,22 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             points={{20,10},{10,10},{10,10}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(damperCage.heatPort, internalThermalPort.heatPortRotorWinding)
-          annotation (Line(
-            points={{-10,-40},{-10,-60},{0,-60},{0,-80}},
-            color={191,0,0},
-            smooth=Smooth.None));
         connect(brush.heatPort, internalThermalPort.heatPortBrush) annotation (Line(
             points={{-70,40},{50,40},{50,-80},{0,-80}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(re.heatPort, internalThermalPort.heatPortExcitation) annotation (Line(
             points={{-70,10},{-60,10},{-60,40},{50,40},{50,-80},{0,-80}},
+            color={191,0,0},
+            smooth=Smooth.None));
+        connect(damperCage.heatPort, heatFlowSensorDamperCage.port_a) annotation (
+            Line(
+            points={{-10,-40},{-10,-60}},
+            color={191,0,0},
+            smooth=Smooth.None));
+        connect(heatFlowSensorDamperCage.port_b, internalThermalPort.heatPortRotorWinding)
+          annotation (Line(
+            points={{10,-60},{10,-80},{0,-80}},
             color={191,0,0},
             smooth=Smooth.None));
         annotation (defaultComponentName="smee",
@@ -4475,7 +4491,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           redeclare final Machines.Interfaces.InductionMachines.ThermalPortSMR
             internalThermalPort(final useDamperCage = useDamperCage),
           redeclare final Machines.Interfaces.InductionMachines.PowerBalanceSMR
-            powerBalance(final lossPowerRotorWinding = 0,
+            powerBalance(final lossPowerRotorWinding = heatFlowSensorDamperCage.Q_flow,
                          final lossPowerRotorCore = 0),
           statorCore(final w=statorCoreParameters.wRef));
         Machines.BasicMachines.Components.AirGapR airGapR(
@@ -4531,6 +4547,9 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
               origin={0,-40},
               extent={{-10,-10},{10,10}},
               rotation=270)));
+        Thermal.ConditionalFixedHeatFlowSensor heatFlowSensorDamperCage(final
+            useFixedTemperature=not useDamperCage)
+          annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
       equation
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r)
           annotation (Line(points={{10,-10},{10,-15},{10,-30},{10,-30}},
@@ -4550,14 +4569,19 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             points={{20,10},{10,10},{10,10}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(damperCage.heatPort, internalThermalPort.heatPortRotorCore)
+        connect(damperCage.heatPort, heatFlowSensorDamperCage.port_a) annotation (
+            Line(
+            points={{-10,-40},{-10,-60}},
+            color={191,0,0},
+            smooth=Smooth.None));
+        connect(heatFlowSensorDamperCage.port_b, internalThermalPort.heatPortRotorWinding)
           annotation (Line(
-            points={{-10,-40},{-10,-60},{0,-60},{0,-80}},
+            points={{10,-60},{10,-80},{0,-80}},
             color={191,0,0},
             smooth=Smooth.None));
         annotation (defaultComponentName="smr",
-          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-                  -100},{100,100}}),
+          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
+                  100}}),
                   graphics),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
@@ -11356,6 +11380,86 @@ Additionally, all losses = heat flows are recorded.
 </HTML>"),
         Diagram(graphics));
     end ThermalAmbientTransformer;
+
+    model ConditionalFixedHeatFlowSensor
+      "HeatFlowSensor, conditional fixed Temperature"
+      parameter Boolean useFixedTemperature(start=false)
+        "Fixed Temperature if true"
+        annotation(Evaluate=true);
+      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a port_a
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b port_b
+        annotation (Placement(transformation(extent={{90,-10},{110,10}})));
+      Modelica.Thermal.HeatTransfer.Sensors.HeatFlowSensor heatFlowSensor
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+      Modelica.Thermal.HeatTransfer.Sources.FixedTemperature fixedTemperature(final T=566.3) if useFixedTemperature
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={-50,-30})));
+      Blocks.Interfaces.RealOutput Q_flow annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={0,-70})));
+    equation
+      connect(heatFlowSensor.port_b, port_b) annotation (Line(
+          points={{10,0},{100,0}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(port_a, heatFlowSensor.port_a) annotation (Line(
+          points={{-100,0},{-10,0}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(fixedTemperature.port, heatFlowSensor.port_a) annotation (Line(
+          points={{-50,-20},{-50,0},{-10,0}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(heatFlowSensor.Q_flow, Q_flow) annotation (Line(
+          points={{0,-10},{0,-70}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      annotation (Diagram(graphics),
+        Icon(graphics={
+            Rectangle(
+              extent={{-90,10},{90,-10}},
+              lineColor={255,0,0},
+              fillColor={255,0,0},
+              fillPattern=FillPattern.HorizontalCylinder),
+            Ellipse(
+              extent={{-50,50},{50,-50}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,50},{0,38}}, color={0,0,0}),
+            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}),
+            Ellipse(
+              extent={{-5,5},{5,-5}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{-2.48,21.6},{16,16},{16,47.2},{-2.48,21.6}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-36,12},{-46,16}},         color={0,0,0}),
+            Line(points={{36,12},{46,16}},         color={0,0,0}),
+            Line(points={{22,30},{28,40}},         color={0,0,0}),
+            Line(points={{-20,30},{-28,40}},         color={0,0,0}),
+            Line(points={{0,-50},{0,-60}},
+                                         color={0,0,0})}),
+        Documentation(info="<html>
+<p>
+If useFixedTemperature = false, this sensor acts just as a normal 
+<a href=\"modelica://Modelica.Thermal.HeatTransfer.Sensors.HeatFlowSensor\">HeatFlowSensor</a>.
+</p>
+<p>
+If useFixedTemperature = true, it is assumed that the connections to both heatPorts of this sensor are conditionally removed; 
+in this case, the measured Q_flow is reported = 0 automatically.
+To avoid a singular equation system, the temperature of the sensor is set to 293.15 K.
+</p>
+</html>"));
+    end ConditionalFixedHeatFlowSensor;
     annotation (Icon(graphics={             Ellipse(
             extent={{-78,50},{52,-76}},
             lineColor={191,0,0},
@@ -11595,8 +11699,8 @@ Connector for Space Phasors:
         annotation (Placement(transformation(extent={{56,-104},{64,-96}},
               rotation=0)));
     public
-      Losses.InductionMachines.Friction friction(final frictionParameters=
-            frictionParameters)                  annotation (Placement(
+      Machines.Losses.DCMachines.Friction friction(final frictionParameters=frictionParameters)
+        annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=0,
