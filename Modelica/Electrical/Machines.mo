@@ -3263,7 +3263,7 @@ This package contains test examples of electric machines.
             powerBalance(final lossPowerRotorWinding = -squirrelCageR.heatPort.Q_flow,
                          final lossPowerRotorCore = 0),
           statorCore(final w=statorCoreParameters.wRef));
-        Components.AirGapS                                  airGapS(
+        Machines.BasicMachines.Components.AirGapS airGapS(
           final p=p,
           final Lm=Lm,
           final m=m)
@@ -3302,7 +3302,7 @@ This package contains test examples of electric machines.
               rotation=270)));
       equation
         connect(airGapS.spacePhasor_r, squirrelCageR.spacePhasor_r)
-          annotation (Line(points={{10,-10},{10,-15},{10,-30},{10,-30}},
+          annotation (Line(points={{10,-10},{10,-30},{10,-30}},
                                                        color={0,0,255}));
         connect(airGapS.support, internalSupport) annotation (Line(
             points={{-10,1.83697e-015},{-10,0},{-40,0},{-40,-90},{60,-90},{60,
@@ -3455,11 +3455,11 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           redeclare final
             Machines.Interfaces.InductionMachines.PowerBalanceAIMS
             powerBalance(final lossPowerRotorWinding = -sum(rr.heatPort.Q_flow),
+                         final lossPowerRotorCore = -rotorCore.heatPort.Q_flow,
                          final lossPowerBrush = 0,
-                         final powerRotor = Machines.SpacePhasors.Functions.activePower(vr, ir),
-                         final lossPowerRotorCore = -rotorCore.heatPort.Q_flow),
+                         final powerRotor = Machines.SpacePhasors.Functions.activePower(vr, ir)),
           statorCore(final w=statorCoreParameters.wRef));
-        Components.AirGapS                                  airGapS(
+        Machines.BasicMachines.Components.AirGapS airGapS(
           final p=p,
           final Lm=Lm,
           final m=m)
@@ -3524,8 +3524,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           final m=m,
           final R=fill(Rr, m),
           final T_ref=fill(TrRef,m),
-          final alpha=fill(Machines.Thermal.convertAlpha(
-                                                alpha20r, TrRef), m),
+          final alpha=fill(Machines.Thermal.convertAlpha(alpha20r, TrRef), m),
           final useHeatPort=true,
           final T=fill(TrRef,m))
           annotation (Placement(transformation(extent={{10,-10},{-10,10}},
@@ -3539,7 +3538,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           "Negative rotor plug"
           annotation (Placement(transformation(extent={{-110,-50},{-90,-70}},
                 rotation=0)));
-        Components.Inductor lrsigma(final L=fill(Lrsigma, 2)) annotation (Placement(
+        Machines.BasicMachines.Components.Inductor lrsigma(final L=fill(Lrsigma, 2)) annotation (Placement(
               transformation(
               extent={{10,-10},{-10,10}},
               rotation=270,
@@ -3548,7 +3547,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           annotation (Placement(transformation(extent={{10,10},{-10,-10}},
               rotation=90,
               origin={-50,-60})));
-        Losses.InductionMachines.Core rotorCore(
+        Machines.Losses.InductionMachines.Core rotorCore(
           final coreParameters=rotorCoreParameters,
           final w=rotorCoreParameters.wRef)
           annotation (Placement(transformation(
@@ -3813,11 +3812,11 @@ These models use package SpacePhasors.
             internalThermalPort(final useDamperCage = useDamperCage),
           redeclare final
             Machines.Interfaces.InductionMachines.PowerBalanceSMPM
-            powerBalance(final lossPowerRotorWinding = damperCage.LossPower,
+            powerBalance(final lossPowerRotorWinding = 0,
                          final lossPowerRotorCore = 0,
                          final lossPowerPermanentMagnet = 0),
           statorCore(final w=statorCoreParameters.wRef));
-        Components.AirGapR                                  airGapR(
+        Machines.BasicMachines.Components.AirGapR airGapR(
           final p=p,
           final Lmd=Lmd,
           final Lmq=Lmq,
@@ -3871,22 +3870,22 @@ These models use package SpacePhasors.
               origin={-70,-30},
               extent={{-10,10},{10,-10}},
               rotation=180)));
-        Components.DamperCage damperCage(
-          final useDamperCage=useDamperCage,
+        Machines.BasicMachines.Components.DamperCage damperCage(
           final Lrsigmad=Lrsigmad,
           final Lrsigmaq=Lrsigmaq,
           final Rrd=Rrd,
           final Rrq=Rrq,
           final T_ref=TrRef,
           final alpha=Machines.Thermal.convertAlpha(alpha20r, TrRef),
-          final T=TrRef)
+          final T=TrRef,
+          final useHeatPort=true) if useDamperCage
           annotation (Placement(transformation(
               origin={0,-40},
               extent={{-10,-10},{10,10}},
               rotation=270)));
       equation
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r) annotation (Line(
-              points={{10,-10},{10,-15},{10,-30},{10,-30}},
+              points={{10,-10},{10,-30},{10,-30}},
                                           color={0,0,255}));
         connect(airGapR.spacePhasor_r, permanentMagnet.spacePhasor_r)
           annotation (Line(points={{10,-10},{10,-10},{10,-20},{-60,-20}},color=
@@ -4087,13 +4086,13 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             internalThermalPort(final useDamperCage = useDamperCage),
           redeclare final
             Machines.Interfaces.InductionMachines.PowerBalanceSMEE
-            powerBalance(final lossPowerRotorWinding = damperCage.LossPower,
+            powerBalance(final lossPowerRotorWinding = 0,
                          final powerExcitation = ve*ie,
                          final lossPowerExcitation = -re.heatPort.Q_flow,
                          final lossPowerBrush = -brush.heatPort.Q_flow,
                          final lossPowerRotorCore = 0),
           statorCore(final w=statorCoreParameters.wRef));
-        Components.AirGapR                                  airGapR(
+        Machines.BasicMachines.Components.AirGapR airGapR(
           final p=p,
           final Lmd=Lmd,
           final Lmq=Lmq,
@@ -4168,20 +4167,20 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           "Stator current / excitation current";
         final parameter Modelica.SIunits.Inductance Lesigma = Lmd*turnsRatio^2*3/2 * sigmae/(1-sigmae);
       public
-        Components.DamperCage damperCage(
-          final useDamperCage=useDamperCage,
+        Machines.BasicMachines.Components.DamperCage damperCage(
           final Lrsigmad=Lrsigmad,
           final Lrsigmaq=Lrsigmaq,
           final Rrd=Rrd,
           final Rrq=Rrq,
           final T_ref=TrRef,
           final alpha=Machines.Thermal.convertAlpha(alpha20r, TrRef),
-          final T=TrRef)
+          final T=TrRef,
+          final useHeatPort=true) if useDamperCage
           annotation (Placement(transformation(
               origin={0,-40},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Components.ElectricalExcitation electricalExcitation(final turnsRatio=turnsRatio)
+        Machines.BasicMachines.Components.ElectricalExcitation electricalExcitation(final turnsRatio=turnsRatio)
           annotation (Placement(transformation(
               origin={-70,-50},
               extent={{-10,10},{10,-10}},
@@ -4208,13 +4207,13 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           "Negative excitation pin"
           annotation (Placement(transformation(extent={{-90,-50},{-110,-70}},
                 rotation=0)));
-        Losses.DCMachines.Brush brush(final brushParameters=brushParameters)
+        Machines.Losses.DCMachines.Brush brush(final brushParameters=brushParameters)
           annotation (Placement(transformation(extent={{10,-10},{-10,10}},
               rotation=90,
               origin={-80,40})));
       equation
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r)
-          annotation (Line(points={{10,-10},{10,-30},{10,-30}},
+          annotation (Line(points={{10,-10},{10,-16},{10,-30},{10,-30}},
                                                        color={0,0,255}));
         connect(airGapR.spacePhasor_r, electricalExcitation.spacePhasor_r)
           annotation (Line(points={{10,-10},{10,-10},{10,-20},{-60,-20},{-60,
@@ -4476,10 +4475,10 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           redeclare final Machines.Interfaces.InductionMachines.ThermalPortSMR
             internalThermalPort(final useDamperCage = useDamperCage),
           redeclare final Machines.Interfaces.InductionMachines.PowerBalanceSMR
-            powerBalance(final lossPowerRotorWinding = damperCage.LossPower,
+            powerBalance(final lossPowerRotorWinding = 0,
                          final lossPowerRotorCore = 0),
           statorCore(final w=statorCoreParameters.wRef));
-        Components.AirGapR                                  airGapR(
+        Machines.BasicMachines.Components.AirGapR airGapR(
           final p=p,
           final Lmd=Lmd,
           final Lmq=Lmq,
@@ -4519,23 +4518,23 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           start=0)
           "Temperature coefficient of damper resistances in d- and q-axis"
           annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
-        Components.DamperCage damperCage(
-          final useDamperCage=useDamperCage,
+        Machines.BasicMachines.Components.DamperCage damperCage(
           final Lrsigmad=Lrsigmad,
           final Lrsigmaq=Lrsigmaq,
           final Rrd=Rrd,
           final Rrq=Rrq,
           final T_ref=TrRef,
           final alpha=Machines.Thermal.convertAlpha(alpha20r, TrRef),
-          final T=TrRef)
+          final T=TrRef,
+          final useHeatPort=true) if useDamperCage
           annotation (Placement(transformation(
               origin={0,-40},
               extent={{-10,-10},{10,10}},
               rotation=270)));
       equation
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r)
-          annotation (Line(points={{10,-10},{10,-15},{10,-15},{10,-20},{10,-30},
-                {10,-30}},                             color={0,0,255}));
+          annotation (Line(points={{10,-10},{10,-15},{10,-30},{10,-30}},
+                                                       color={0,0,255}));
         connect(airGapR.support, internalSupport) annotation (Line(
             points={{-10,1.83697e-015},{-40,1.83697e-015},{-40,-90},{60,-90},{
                 60,-100}},
@@ -7891,8 +7890,6 @@ Material properties alpha of both axis are the same.
       end SquirrelCage;
 
       model DamperCage "Squirrel Cage"
-        parameter Boolean useDamperCage(start = true)
-          "Enable / disable damper cage";
         parameter Modelica.SIunits.Inductance Lrsigmad
           "Stray inductance in d-axis per phase translated to stator";
         parameter Modelica.SIunits.Inductance Lrsigmaq
@@ -7905,9 +7902,7 @@ Material properties alpha of both axis are the same.
           "Reference temperature of both resistances in d- and q-axis";
         parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
           "Temperature coefficient of both resistances in d- and q-axis at T_ref";
-        extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
-          final useHeatPort = useDamperCage,
-          T = T_ref);
+        extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
         Modelica.SIunits.Resistance Rrd_actual
           "Actual resistance = Rrd*(1 + alpha*(T_heatPort - T_ref))";
         Modelica.SIunits.Resistance Rrq_actual
@@ -7919,12 +7914,8 @@ Material properties alpha of both axis are the same.
         assert((1 + alpha*(T_heatPort - T_ref)) >= Modelica.Constants.eps, "Temperature outside scope of model!");
         Rrd_actual = Rrd*(1 + alpha*(T_heatPort - T_ref));
         Rrq_actual = Rrq*(1 + alpha*(T_heatPort - T_ref));
-        if useDamperCage then
-          spacePhasor_r.v_[1] = Rrd_actual * spacePhasor_r.i_[1] + Lrsigmad * der(spacePhasor_r.i_[1]);
-          spacePhasor_r.v_[2] = Rrq_actual * spacePhasor_r.i_[2] + Lrsigmaq * der(spacePhasor_r.i_[2]);
-        else
-          spacePhasor_r.i_ = zeros(2);
-        end if;
+        spacePhasor_r.v_[1] = Rrd_actual * spacePhasor_r.i_[1] + Lrsigmad * der(spacePhasor_r.i_[1]);
+        spacePhasor_r.v_[2] = Rrq_actual * spacePhasor_r.i_[2] + Lrsigmaq * der(spacePhasor_r.i_[2]);
         2/3*LossPower = Rrd_actual*spacePhasor_r.i_[1]*spacePhasor_r.i_[1] + Rrq_actual*spacePhasor_r.i_[2]*spacePhasor_r.i_[2];
         annotation (
           Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
@@ -8270,13 +8261,17 @@ Induced armature voltage is calculated from flux times angular velocity.
         Modelica.SIunits.Current ie = pin_ep.i;
         Modelica.SIunits.Voltage vse = pin_sep.v - pin_sen.v;
         Modelica.SIunits.Current ise = pin_sep.i;
-        Modelica.Electrical.Analog.Interfaces.PositivePin pin_p "Positive pin to airgap"
+        Modelica.Electrical.Analog.Interfaces.PositivePin pin_p
+          "Positive pin to airgap"
           annotation (Placement(transformation(extent={{90,110},{110,90}})));
-        Modelica.Electrical.Analog.Interfaces.NegativePin pin_n "Negative pin to airgap"
+        Modelica.Electrical.Analog.Interfaces.NegativePin pin_n
+          "Negative pin to airgap"
           annotation (Placement(transformation(extent={{-110,110},{-90,90}})));
-        Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep "Positive pin to shunt excitation"
+        Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep
+          "Positive pin to shunt excitation"
           annotation (Placement(transformation(extent={{90,-108},{110,-88}})));
-        Modelica.Electrical.Analog.Interfaces.NegativePin pin_en "Negative pin to shunt excitation"
+        Modelica.Electrical.Analog.Interfaces.NegativePin pin_en
+          "Negative pin to shunt excitation"
           annotation (Placement(transformation(extent={{10,-110},{30,-90}})));
         Modelica.Electrical.Analog.Interfaces.PositivePin pin_sep
           "Positive pin to series excitation"
