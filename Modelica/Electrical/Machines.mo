@@ -939,7 +939,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="D")
           annotation (Placement(transformation(extent={{-40,20},{-20,40}},
                 rotation=0)));
-        Sensors.ElectricalPowerSensor electricalPowerSensor annotation (Placement(
+        Machines.Sensors.ElectricalPowerSensor electricalPowerSensor annotation (Placement(
               transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
@@ -1467,7 +1467,7 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
                 extent={{-20,-30},{0,-10}}, rotation=0)));
         Modelica.Mechanics.Rotational.Components.Fixed fixed
           annotation (Placement(transformation(extent={{70,-70},{90,-50}})));
-        parameter Utilities.SynchronousMachineData smeeData
+        parameter Machines.Utilities.SynchronousMachineData smeeData
           annotation (Placement(transformation(extent={{-20,-100},{0,-80}})));
       equation
         connect(rotorDisplacementAngle.plug_n, smee.plug_sn)    annotation (Line(
@@ -1599,7 +1599,7 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
           alpha20e=smeeData.alpha20e)
           annotation (Placement(transformation(extent={{0,-40},{20,-20}},
                 rotation=0)));
-        parameter Utilities.SynchronousMachineData smeeData
+        parameter Machines.Utilities.SynchronousMachineData smeeData
           annotation (Placement(transformation(extent={{0,-70},{20,-50}})));
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y")
           annotation (Placement(transformation(extent={{0,-20},{20,0}},    rotation=0)));
@@ -2277,7 +2277,7 @@ Default machine parameters are used.
           offsetTorque=0,
           startTime=0.1)
           annotation (Placement(transformation(extent={{60,-10},{40,10}}, rotation=0)));
-        Thermal.DCMachines.ThermalAmbientDCPM thermalAmbientDCPM(useTemperatureInputs=true)
+        Machines.Thermal.DCMachines.ThermalAmbientDCPM thermalAmbientDCPM(useTemperatureInputs=true)
           annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
         Modelica.Blocks.Sources.Exponentials exponential(
           offset=293.15,
@@ -3883,8 +3883,8 @@ These models use package SpacePhasors.
               origin={0,-40},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Thermal.ConditionalFixedHeatFlowSensor heatFlowSensorDamperCage(final
-            useFixedTemperature=not useDamperCage)
+        Machines.Thermal.ConditionalFixedHeatFlowSensor heatFlowSensorDamperCage(final useFixedTemperature=
+                                not useDamperCage)
           annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
       equation
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r) annotation (Line(
@@ -4219,8 +4219,8 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           annotation (Placement(transformation(extent={{10,-10},{-10,10}},
               rotation=90,
               origin={-80,40})));
-        Thermal.ConditionalFixedHeatFlowSensor heatFlowSensorDamperCage(final
-            useFixedTemperature=not useDamperCage)
+        Machines.Thermal.ConditionalFixedHeatFlowSensor heatFlowSensorDamperCage(final useFixedTemperature=
+                                not useDamperCage)
           annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
       equation
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r)
@@ -4547,8 +4547,8 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
               origin={0,-40},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Thermal.ConditionalFixedHeatFlowSensor heatFlowSensorDamperCage(final
-            useFixedTemperature=not useDamperCage)
+        Machines.Thermal.ConditionalFixedHeatFlowSensor heatFlowSensorDamperCage(final useFixedTemperature=
+                                not useDamperCage)
           annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
       equation
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r)
@@ -4994,7 +4994,7 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
               rotation=270)));
         Modelica.Electrical.Analog.Basic.Ground ground
           annotation (Placement(transformation(extent={{-30,-30},{-10,-10}})));
-        Components.CompoundDCExcitation compoundDCExcitation(final excitationTurnsRatio=
+       Machines.BasicMachines.Components.CompoundDCExcitation compoundDCExcitation(final excitationTurnsRatio=
                                  1)
           annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
         Modelica.Electrical.Analog.Basic.Ground groundSE
@@ -5010,7 +5010,7 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
               origin={-80,50},
               extent={{10,-10},{-10,10}},
               rotation=90)));
-        Components.InductorDC lesigma(final L=Lesigma, final quasiStationary=
+       Machines.BasicMachines.Components.InductorDC lesigma(final L=Lesigma, final quasiStationary=
               quasiStationary)
           annotation (Placement(transformation(extent={{-10,-10},{10,10}},
               rotation=270,
@@ -5257,7 +5257,7 @@ Armature current does not cover excitation current of a shunt excitation; in thi
               origin={0,0},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Components.CompoundDCExcitation compoundDCExcitation(final excitationTurnsRatio=
+       Machines.BasicMachines.Components.CompoundDCExcitation compoundDCExcitation(final excitationTurnsRatio=
                                  1)
           annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
         Modelica.Electrical.Analog.Basic.Ground ground
@@ -5274,7 +5274,7 @@ Armature current does not cover excitation current of a shunt excitation; in thi
               origin={-80,50},
               extent={{-10,10},{10,-10}},
               rotation=270)));
-        Components.InductorDC lesigma(final L=Lesigma, final quasiStationary=
+       Machines.BasicMachines.Components.InductorDC lesigma(final L=Lesigma, final quasiStationary=
               quasiStationary)
           annotation (Placement(transformation(extent={{-10,-10},{10,10}},
               rotation=270,
@@ -7809,10 +7809,10 @@ Model of the airgap in rotor-fixed coordinate system, using only equations.
         parameter Modelica.SIunits.Inductance L[2] "Inductance of both axes";
         Modelica.SIunits.Voltage v_[2];
         Modelica.SIunits.Current i_[2];
-        Interfaces.SpacePhasor spacePhasor_a
+        Machines.Interfaces.SpacePhasor spacePhasor_a
           annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
                 rotation=0)));
-        Interfaces.SpacePhasor spacePhasor_b
+        Machines.Interfaces.SpacePhasor spacePhasor_b
           annotation (Placement(transformation(extent={{90,-10},{110,10}},
                 rotation=0)));
       equation
@@ -10006,7 +10006,7 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
 
       model Core "Model of core losses"
         parameter Machines.Losses.CoreParameters coreParameters(final m=3);
-        Interfaces.SpacePhasor spacePhasor
+        Machines.Interfaces.SpacePhasor spacePhasor
           annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
                 rotation=0), iconTransformation(extent={{-110,-10},{-90,10}})));
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort
@@ -11685,7 +11685,7 @@ Connector for Space Phasors:
         "Support at which the reaction torque is acting"
            annotation (Placement(transformation(extent={{90,-110},{110,-90}},
               rotation=0)));
-      Modelica.Mechanics.Rotational.Components.Inertia inertiaStator(final J=Js) if useSupport
+      Modelica.Mechanics.Rotational.Components.Inertia inertiaStator(final J=Js)
         annotation (Placement(transformation(
             origin={80,-100},
             extent={{10,10},{-10,-10}},
@@ -11821,7 +11821,8 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
         powerBalance(
         final powerStator = Machines.SpacePhasors.Functions.activePower(vs, is),
         final powerMechanical = wMechanical*tauShaft,
-        final powerInertia = inertiaRotor.J*inertiaRotor.a*inertiaRotor.w,
+        final powerInertiaStator = inertiaStator.J*inertiaStator.a*inertiaStator.w,
+        final powerInertiaRotor = inertiaRotor.J*inertiaRotor.a*inertiaRotor.w,
         final lossPowerStatorWinding = -sum(rs.heatPort.Q_flow),
         final lossPowerStatorCore = -statorCore.heatPort.Q_flow,
         final lossPowerStrayLoad = -strayLoad.heatPort.Q_flow,
@@ -11870,7 +11871,7 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
             extent={{-10,-10},{10,10}},
             rotation=180,
             origin={0,30})));
-      SpacePhasors.Components.SpacePhasor spacePhasorS(final turnsRatio=1)
+      Machines.SpacePhasors.Components.SpacePhasor spacePhasorS(final turnsRatio=1)
         annotation (Placement(transformation(
             origin={0,70},
             extent={{10,10},{-10,-10}},
@@ -12158,7 +12159,8 @@ Partial thermal ambient for induction machines
         extends Modelica.Icons.Record;
         Modelica.SIunits.Power powerStator "Electrical power (stator)";
         Modelica.SIunits.Power powerMechanical "Mechanical power";
-        Modelica.SIunits.Power powerInertia "Inertia power";
+        Modelica.SIunits.Power powerInertiaStator "Stator inertia power";
+        Modelica.SIunits.Power powerInertiaRotor "Rotor inertia power";
         Modelica.SIunits.Power lossPowerTotal "Total loss power";
         Modelica.SIunits.Power lossPowerStatorWinding "Stator copper losses";
         Modelica.SIunits.Power lossPowerStatorCore "Stator core losses";
@@ -12378,7 +12380,8 @@ Interfaces and partial models for induction machines
         powerBalance(
         final powerArmature = va*ia,
         final powerMechanical = wMechanical*tauShaft,
-        final powerInertia = inertiaRotor.J*inertiaRotor.a*inertiaRotor.w,
+        final powerInertiaStator = inertiaStator.J*inertiaStator.a*inertiaStator.w,
+        final powerInertiaRotor = inertiaRotor.J*inertiaRotor.a*inertiaRotor.w,
         final lossPowerArmature = -ra.heatPort.Q_flow,
         final lossPowerCore = -core.heatPort.Q_flow,
         final lossPowerStrayLoad = -strayLoad.heatPort.Q_flow,
@@ -12674,7 +12677,8 @@ Partial thermal ambient for induction machines
         extends Modelica.Icons.Record;
         Modelica.SIunits.Power powerArmature "Electrical armature power";
         Modelica.SIunits.Power powerMechanical "Mechanical power";
-        Modelica.SIunits.Power powerInertia "Inertia power";
+        Modelica.SIunits.Power powerInertiaStator "Stator inertia power";
+        Modelica.SIunits.Power powerInertiaRotor "Rotor inertia power";
         Modelica.SIunits.Power lossPowerTotal "Total loss power";
         Modelica.SIunits.Power lossPowerArmature "Armature copper losses";
         Modelica.SIunits.Power lossPowerCore "Core losses";
@@ -12896,7 +12900,7 @@ Thermal ports for DC machines
               rotation=0)));
       Machines.Interfaces.ThermalPortTransformer thermalPort(final m=m) if useThermalPort
         annotation (Placement(transformation(extent={{-10,90},{10,110}})));
-      Thermal.ThermalAmbientTransformer thermalAmbient(final useTemperatureInputs=false,
+     Machines.Thermal.ThermalAmbientTransformer thermalAmbient(final useTemperatureInputs=false,
         final T1=T1Operational,
         final T2=T2Operational,
         final m=m) if not useThermalPort
@@ -13902,7 +13906,7 @@ starting at time <code>tStart</code> with a linear ramp <code>tRamp</code>.</p>
       final parameter Real re =  xe/(omega*Td0Transient)
         "Excitation resistance per phase at specification temperature [pu]";
       parameter Modelica.SIunits.Resistance Rs=
-        Thermal.convertResistance(rs*ZReference,TsSpecification,alpha20s,TsRef)
+       Machines.Thermal.convertResistance(rs*ZReference,TsSpecification,alpha20s,TsRef)
         "Stator resistance per phase at TRef"
          annotation(Dialog(tab="Result", enable=false));
       parameter Modelica.SIunits.Inductance Lssigma=x0*ZReference/omega
@@ -13921,15 +13925,15 @@ starting at time <code>tStart</code> with a linear ramp <code>tRamp</code>.</p>
         "Damper stray inductance in q-axis"
          annotation(Dialog(tab="Result", enable=false));
       parameter Modelica.SIunits.Resistance Rrd=
-        Thermal.convertResistance(rrd*ZReference,TrSpecification,alpha20r,TrRef)
+       Machines.Thermal.convertResistance(rrd*ZReference,TrSpecification,alpha20r,TrRef)
         "Damper resistance in d-axis at TRef"
          annotation(Dialog(tab="Result", enable=false));
       parameter Modelica.SIunits.Resistance Rrq=
-        Thermal.convertResistance(rrq*ZReference,TrSpecification,alpha20r,TrRef)
+       Machines.Thermal.convertResistance(rrq*ZReference,TrSpecification,alpha20r,TrRef)
         "Damper resistance in q-axis at TRef"
          annotation(Dialog(tab="Result", enable=false));
       parameter Modelica.SIunits.Resistance Re=3/2*turnsRatio^2*
-        Thermal.convertResistance(re*ZReference,TeSpecification,alpha20e,TeRef)
+       Machines.Thermal.convertResistance(re*ZReference,TeSpecification,alpha20e,TeRef)
         "Excitation resistance at TRef"
          annotation(Dialog(tab="Result", enable=false));
       parameter Real sigmae=1 - xmd/xe
