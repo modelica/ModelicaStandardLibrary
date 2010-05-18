@@ -929,36 +929,6 @@ Model of a multi phase zero sequence inductor.
 
 </html>"),
         Icon(graphics={
-            Ellipse(extent={{30,-50},{60,10}},lineColor={0,0,255},
-              fillPattern=FillPattern.Solid,
-              fillColor={0,0,255}),
-            Ellipse(extent={{0,-50},{30,10}},lineColor={0,0,255},
-              fillPattern=FillPattern.Solid,
-              fillColor={0,0,255}),
-            Ellipse(extent={{-30,-50},{0,10}},lineColor={0,0,255},
-              fillPattern=FillPattern.Solid,
-              fillColor={0,0,255}),
-            Ellipse(extent={{-60,-50},{-30,10}},lineColor={0,0,255},
-              fillPattern=FillPattern.Solid,
-              fillColor={0,0,255}),
-            Ellipse(extent={{-60,-10},{-30,50}},
-                                               lineColor={0,0,255},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid),
-            Ellipse(extent={{-30,-10},{0,50}},
-                                             lineColor={0,0,255},
-              fillPattern=FillPattern.Solid,
-              fillColor={0,0,255}),
-            Ellipse(extent={{0,-10},{30,50}},
-                                            lineColor={0,0,255},
-              fillPattern=FillPattern.Solid,
-              fillColor={0,0,255}),
-            Ellipse(extent={{30,-10},{60,50}},
-                                             lineColor={0,0,255},
-              fillPattern=FillPattern.Solid,
-              fillColor={0,0,255}),
-            Line(points={{-90,0},{-80,0}}, color={0,0,255}),
-            Line(points={{80,0},{90,0}}, color={0,0,255}),
             Text(
               extent={{0,60},{0,100}},
               textString="%name",
@@ -967,11 +937,11 @@ Model of a multi phase zero sequence inductor.
               extent={{-100,-100},{100,-60}},
               lineColor={0,0,0},
               textString="m=%m"),
-            Rectangle(
-              extent={{-80,20},{80,-20}},
-              lineColor={0,0,255},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid)}));
+            Line(points={{-90,0},{-50,0}}, color={0,0,255}),
+            Line(points={{52,0},{90,0}}, color={0,0,255}),
+            Ellipse(extent={{-50,30},{-8,-32}}, lineColor={0,0,255}),
+            Ellipse(extent={{-20,30},{22,-32}}, lineColor={0,0,255}),
+            Ellipse(extent={{10,30},{52,-32}}, lineColor={0,0,255})}));
     end ZeroInductor;
 
     model Transformer "Multiphase Transformer"
@@ -1248,8 +1218,8 @@ Cmin is a parameter with default value Modelica.Constants.eps.
             origin={0,100},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Electrical.Analog.Basic.VariableInductor variableInductor[m](final Lmin=
-               Lmin)
+      Modelica.Electrical.Analog.Basic.VariableInductor variableInductor[m](final Lmin
+          =    Lmin)
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
               rotation=0)));
 
