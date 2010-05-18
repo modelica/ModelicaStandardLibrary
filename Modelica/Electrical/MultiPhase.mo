@@ -914,7 +914,7 @@ Model of a multi phase inductor providing a mutual inductance matrix model.
       Modelica.SIunits.Current i0;
       Modelica.SIunits.Voltage v0;
     equation
-      i0 = sum(i)/m;
+      m*i0 = sum(i);
       v0 = Lzero*der(i0);
       v = fill(v0, m);
       annotation (Diagram(graphics),
@@ -1218,8 +1218,8 @@ Cmin is a parameter with default value Modelica.Constants.eps.
             origin={0,100},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Electrical.Analog.Basic.VariableInductor variableInductor[m](final Lmin
-          =    Lmin)
+      Modelica.Electrical.Analog.Basic.VariableInductor variableInductor[m](final Lmin=
+               Lmin)
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
               rotation=0)));
 

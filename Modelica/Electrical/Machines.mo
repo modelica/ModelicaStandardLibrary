@@ -9176,10 +9176,10 @@ This package contains sensors that are usefull when modelling machines.
         v/turnsRatio = plug_p.pin.v - plug_n.pin.v;
         i*turnsRatio = +plug_p.pin.i;
         i*turnsRatio = -plug_n.pin.i;
-        zero.v = 1/m*sum(v);
+        m*zero.v = sum(v);
         spacePhasor.v_ = TransformationMatrix *v;
       //v  = fill(zero.v,m) + InverseTransformation*spacePhasor.v_;
-        -zero.i = 1/m*sum(i);
+        -m*zero.i = sum(i);
         -spacePhasor.i_ = TransformationMatrix *i;
       //-i  = fill(zero.i,m) + InverseTransformation*spacePhasor.i_;
         ground.v = 0;
@@ -9334,7 +9334,7 @@ a ground has to be used where necessary for currents flowing back.
                 rotation=0)));
 
       equation
-        zero = 1/m*sum(u);
+        m*zero = sum(u);
         y = TransformationMatrix *u;
       //u = fill(zero,m) + InverseTransformation*y;
         annotation (
@@ -9380,7 +9380,7 @@ Transformation of threephase values (voltages or currents) to space phasor and z
                 rotation=0)));
       equation
         y = fill(zero,m) + InverseTransformation*u;
-      //zero = 1/m*sum(y);
+      //m*zero = sum(y);
       //u = TransformationMatrix *y;
         annotation (
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
