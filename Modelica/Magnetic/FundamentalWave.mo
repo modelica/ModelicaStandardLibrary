@@ -42,7 +42,11 @@ In the fundamental wave theory only a pure sinusoidal distribution of magnetic q
 </table>
 
 <p>
-The waveforms of the magnetic field quantities, e.g. the magnetic potential difference <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/V_m_phi.png\">, can be represented by complex phasor, e.g., <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/V_m.png\">.
+The waveforms of the magnetic field quantities, e.g. the magnetic potential difference <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/V_m_phi.png\">, can be represented by complex phasor, e.g., <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/V_m.png\"> according to:
+</p>
+
+<p>
+&nbsp;&nbsp;<img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/V_m_real_complex.png\">
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
@@ -162,6 +166,7 @@ for contributing his source code to this library.
   <li>Added machine specific output records to summarize power and loss balance</li>
   <li>Added magnetic potential sensor</li>
   <li>Removed state selections</li>
+  <li>Updated images of Users Guide</li>
 </ul>
 
 <h5>Version 1.6.0, 2010-05-05</h5>
@@ -2259,7 +2264,7 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
             smooth=Smooth.None));
         connect(rotorCageWinding.heatPortWinding, internalThermalPort.heatPortRotorWinding)
           annotation (Line(
-            points={{0,-40},{-40,-40},{-40,-90}},
+            points={{-6.10623e-16,-40},{-40,-40},{-40,-90}},
             color={191,0,0},
             smooth=Smooth.None));
         annotation (Icon(graphics),
@@ -3209,7 +3214,7 @@ The single phase winding consists of a
         connect(plug_p, resistor.plug_p)
           annotation (Line(points={{-100,100},{-20,100},{-20,80}}, color={0,0,255}));
         connect(resistor.plug_n, zeroInductor.plug_p)
-          annotation (Line(points={{-20,60},{-20,55},{-20,55},{-20,50},{-20,50},
+          annotation (Line(points={{-20,60},{-20,55},{-20,55},{-20,50},{-20,40},
                 {-20,40}},
             color={0,0,255}));
         connect(zeroInductor.plug_n, electroMagneticConverter.plug_p)
@@ -4646,7 +4651,7 @@ This model is mainly used to extend from in order build more complex - equation 
           color={0,0,255},
           smooth=Smooth.None));
       connect(thermalPort,internalThermalPort)  annotation (Line(
-          points={{0,-100},{0,-90},{-40,-90}},
+          points={{5.55112e-16,-100},{5.55112e-16,-90},{-40,-90}},
           color={199,0,0},
           smooth=Smooth.None));
       connect(thermalAmbient.thermalPort,internalThermalPort)  annotation (Line(
@@ -4654,8 +4659,8 @@ This model is mainly used to extend from in order build more complex - equation 
           color={199,0,0},
           smooth=Smooth.None));
       connect(inertiaRotor.flange_b, flange)
-        annotation (Line(points={{90,-1.22465e-015},{102,-1.22465e-015},{102,0},
-              {100,0}},
+        annotation (Line(points={{90,-1.72421e-15},{102,-1.72421e-15},{102,
+              5.55112e-16},{100,5.55112e-16}},
           color={0,0,0}));
       connect(internalSupport, inertiaStator.flange_a) annotation (Line(
           points={{60,-100},{70,-100}},
@@ -4669,12 +4674,12 @@ This model is mainly used to extend from in order build more complex - equation 
         annotation (Line(points={{90,-100},{90,-100},{100,-100}},
           color={0,0,0}));
       connect(airGap.flange_a, inertiaRotor.flange_a) annotation (Line(
-          points={{10,-1.83697e-015},{40,-1.83697e-015},{40,1.22465e-015},{70,
-              1.22465e-015}},
+          points={{10,-1.33731e-15},{40,-1.33731e-15},{40,7.25006e-16},{70,
+              7.25006e-16}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(airGap.support, internalSupport) annotation (Line(
-          points={{-10,1.83697e-015},{-60,1.83697e-015},{-60,-70},{60,-70},{60,
+          points={{-10,2.33651e-15},{-60,2.33651e-15},{-60,-70},{60,-70},{60,
               -100}},
           color={0,0,0},
           smooth=Smooth.None));
@@ -4702,11 +4707,11 @@ This model is mainly used to extend from in order build more complex - equation 
           color={0,0,0},
           smooth=Smooth.None));
       connect(strayLoad.flange, inertiaRotor.flange_b) annotation (Line(
-          points={{50,80},{90,80},{90,-1.22465e-015}},
+          points={{50,80},{90,80},{90,-1.72421e-15}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(friction.flange, inertiaRotor.flange_b) annotation (Line(
-          points={{90,-20},{90,-1.22465e-015}},
+          points={{90,-20},{90,-1.72421e-15}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(friction.heatPort, internalThermalPort.heatPortFriction) annotation (
@@ -4959,7 +4964,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <tr><td>Version</td> <td>Revision</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
 </thead>
 <tbody>
-<tr><td>1.7.0</td><td>XXXX</td>  <td>2010-05-18</td>  <td>C. Kral</td>  <td>Changed single phase and symmetrical multi phase winding model<br>Relocated core losses</td></tr>
+<tr><td>1.7.0</td><td>3873</td>  <td>2010-05-18</td>  <td>C. Kral</td>  <td>Changed single phase and symmetrical multi phase winding model<br>Relocated core losses</td></tr>
 <tr><td>1.6.0</td><td>3837</td>  <td>2010-05-05</td>  <td>C. Kral</td>  <td>Renamed all parameters windingAngle to orientation<br>Update due to changed class names in Machines.Icons<br>Exchanged positive and negative stator ports of air gap model</td></tr>
 <tr><td>1.5.0</td><td>3802</td>  <td>2010-04-28</td>  <td>C. Kral</td>  <td>Added stator core, friction, stray load and brush loss models and changed parameter of EddyCurrent model</td></tr>
 <tr><td>1.4.0</td><td>3763</td>  <td>2010-04-22</td>  <td>C. Kral</td>  <td>Added eddy current loss model with thermal heat port</td></tr>
