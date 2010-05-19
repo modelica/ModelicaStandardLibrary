@@ -2240,28 +2240,28 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
            annotation(Dialog(group="Operational temperatures", enable=not useThermalPort));
 
         Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding
-          rotorCageWinding(
+          rotorCage(
           final Lsigma=Lrsigma,
           final m=m,
           final effectiveTurns=effectiveStatorTurns,
           final useHeatPort=true,
           final RRef=Rr,
           final TRef=TrRef,
-          final alpha20=alpha20r,
-          final TOperational=TrRef)
+          final TOperational=TrRef,
+          final alpha20=alpha20r)
           "Symmetric rotor cage winding including resistances and stray inductances"
           annotation (Placement(transformation(extent={{10,-40},{-10,-20}}, rotation=0)));
 
       equation
-        connect(airGap.port_rn, rotorCageWinding.port_n) annotation (Line(
-            points={{-10,-10},{-10,-20},{-10,-30},{-10,-30}},
+        connect(airGap.port_rn, rotorCage.port_n)        annotation (Line(
+            points={{-10,-10},{-10,-15},{-10,-15},{-10,-20},{-10,-30},{-10,-30}},
             color={255,128,0},
             smooth=Smooth.None));
-        connect(airGap.port_rp, rotorCageWinding.port_p) annotation (Line(
-            points={{10,-10},{10,-20},{10,-20},{10,-30}},
+        connect(airGap.port_rp, rotorCage.port_p)        annotation (Line(
+            points={{10,-10},{10,-30}},
             color={255,128,0},
             smooth=Smooth.None));
-        connect(rotorCageWinding.heatPortWinding, internalThermalPort.heatPortRotorWinding)
+        connect(rotorCage.heatPortWinding, internalThermalPort.heatPortRotorWinding)
           annotation (Line(
             points={{-6.10623e-16,-40},{-40,-40},{-40,-90}},
             color={191,0,0},
@@ -4973,7 +4973,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <tr><td>Version</td> <td>Revision</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
 </thead>
 <tbody>
-<tr><td>1.7.0</td><td>3883</td>  <td>2010-05-19</td>  <td>C. Kral<br>A. Haumer</td>  <td>Changed single phase and symmetrical multi phase winding model<br>Relocated core losses</td></tr>
+<tr><td>1.7.0</td><td>3884</td>  <td>2010-05-19</td>  <td>C. Kral<br>A. Haumer</td>  <td>Changed single phase and symmetrical multi phase winding model<br>Relocated core losses</td></tr>
 <tr><td>1.6.0</td><td>3837</td>  <td>2010-05-05</td>  <td>C. Kral</td>  <td>Renamed all parameters windingAngle to orientation<br>Update due to changed class names in Machines.Icons<br>Exchanged positive and negative stator ports of air gap model</td></tr>
 <tr><td>1.5.0</td><td>3802</td>  <td>2010-04-28</td>  <td>C. Kral</td>  <td>Added stator core, friction, stray load and brush loss models and changed parameter of EddyCurrent model</td></tr>
 <tr><td>1.4.0</td><td>3763</td>  <td>2010-04-22</td>  <td>C. Kral</td>  <td>Added eddy current loss model with thermal heat port</td></tr>
