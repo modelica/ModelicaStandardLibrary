@@ -161,15 +161,18 @@ for contributing his source code to this library.
      </li>
   <li>Relocated core losses between zero inductor and stray reluctance model in the magntic domain</li>
   <li>Renamed instances of stator and rotor (winding) models in each machines</li>
+  <li>Added magnetic potential sensor</li>
+  <li>Removed state selections</li>
   <li>Updates due to changed loss variable and heat port names in
       <a href=\"modelica://Modelica.Electrical.Machines\">Electrical.Machines</a></li>
   <li>Added machine specific output records to summarize power and loss balance</li>
+  <li>Updated images of Users Guide</li>
   <li>Improved performance due to <code>annotation(Evaluate=true)</code> added to the parameters of the
       <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">
       single phase winding</a>
-  <li>Added magnetic potential sensor</li>
-  <li>Removed state selections</li>
-  <li>Updated images of Users Guide</li>
+  <li>Reduced number of states in 
+      <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding\">
+      symmetric cage</a> model</li>
 </ul>
 
 <h5>Version 1.6.0, 2010-05-05</h5>
@@ -3551,10 +3554,10 @@ according to the following figure.
               rotation=90)));
         Modelica.Electrical.MultiPhase.Basic.Star star(
           final m=m)
-          annotation (Placement(transformation(extent={{30,-90},{50,-70}}, rotation=0)));
+          annotation (Placement(transformation(extent={{30,-30},{50,-10}}, rotation=0)));
         Modelica.Electrical.Analog.Basic.Ground ground
           annotation (Placement(transformation(
-              origin={70,-80},
+              origin={70,-20},
               extent={{-10,10},{10,-10}},
               rotation=270)));
 
@@ -3565,6 +3568,8 @@ according to the following figure.
         Thermal.HeatTransfer.Components.ThermalCollector thermalCollector(final m=m) if useHeatPort
           "Connector of thermal rotor resistance heat ports"
           annotation (Placement(transformation(extent={{-50,-90},{-30,-70}})));
+        Modelica.Electrical.MultiPhase.Basic.Star starAuxiliary(final m=m)
+          annotation (Placement(transformation(extent={{30,-90},{50,-70}}, rotation=0)));
       initial equation
         i = zeros(m);
 
@@ -3578,7 +3583,8 @@ according to the following figure.
         connect(winding.port_n, port_n)                            annotation (Line(
               points={{10,-5.72459e-17},{100,-5.72459e-17},{100,5.55112e-16}},
                                color={255,128,0}));
-        connect(ground.p,star. pin_n) annotation (Line(points={{60,-80},{50,-80}},
+        connect(ground.p,star. pin_n) annotation (Line(points={{60,-20},{56,-20},
+                {50,-20}},
               color={0,0,255}));
         connect(strayInductor.plug_n, resistor.plug_p)
                                            annotation (Line(points={{-20,-40},{-20,
@@ -3587,12 +3593,8 @@ according to the following figure.
             points={{-20,-20},{-10,-20}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(resistor.plug_n, winding.plug_n) annotation (Line(
-            points={{-20,-80},{20,-80},{20,-20},{10,-20}},
-            color={0,0,255},
-            smooth=Smooth.None));
         connect(star.plug_p, winding.plug_n) annotation (Line(
-            points={{30,-80},{20,-80},{20,-20},{10,-20}},
+            points={{30,-20},{10,-20}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(thermalCollector.port_a, resistor.heatPort) annotation (Line(
@@ -3664,6 +3666,10 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
 </html>"),Diagram(graphics));
+        connect(resistor.plug_n, starAuxiliary.plug_p) annotation (Line(
+            points={{-20,-80},{30,-80}},
+            color={0,0,255},
+            smooth=Smooth.None));
       end SymmetricMultiPhaseCageWinding;
 
       model SaliencyCageWinding "Rotor cage with saliency in d- and q-axis"
@@ -4967,7 +4973,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <tr><td>Version</td> <td>Revision</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
 </thead>
 <tbody>
-<tr><td>1.7.0</td><td>3879</td>  <td>2010-05-19</td>  <td>C. Kral<br>A. Haumer</td>  <td>Changed single phase and symmetrical multi phase winding model<br>Relocated core losses</td></tr>
+<tr><td>1.7.0</td><td>3880</td>  <td>2010-05-19</td>  <td>C. Kral<br>A. Haumer</td>  <td>Changed single phase and symmetrical multi phase winding model<br>Relocated core losses</td></tr>
 <tr><td>1.6.0</td><td>3837</td>  <td>2010-05-05</td>  <td>C. Kral</td>  <td>Renamed all parameters windingAngle to orientation<br>Update due to changed class names in Machines.Icons<br>Exchanged positive and negative stator ports of air gap model</td></tr>
 <tr><td>1.5.0</td><td>3802</td>  <td>2010-04-28</td>  <td>C. Kral</td>  <td>Added stator core, friction, stray load and brush loss models and changed parameter of EddyCurrent model</td></tr>
 <tr><td>1.4.0</td><td>3763</td>  <td>2010-04-22</td>  <td>C. Kral</td>  <td>Added eddy current loss model with thermal heat port</td></tr>
