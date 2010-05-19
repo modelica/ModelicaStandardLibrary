@@ -1826,8 +1826,9 @@ This package contains test examples of synchronous induction machines.
       equation
         connect(ramp.y, signalVoltage.v)   annotation (Line(points={{-59,70},{-10,
                 70},{-10,47}}, color={0,0,255}));
-        connect(signalVoltage.p, dcpm.pin_ap)   annotation (Line(points={{0,40},{
-                0,-20},{-4,-20},{-4,-30}}, color={0,0,255}));
+        connect(signalVoltage.p, dcpm.pin_ap)   annotation (Line(points={{
+                5.55112e-16,40},{5.55112e-16,-20},{-4,-20},{-4,-30}},
+                                           color={0,0,255}));
         connect(signalVoltage.n, ground.p)   annotation (Line(points={{-20,40},{
                 -60,40}}, color={0,0,255}));
         connect(dcpm.pin_an, signalVoltage.n)   annotation (Line(points={{-16,-30},
@@ -1835,7 +1836,7 @@ This package contains test examples of synchronous induction machines.
         connect(loadInertia.flange_b, loadTorqueStep.flange)
           annotation (Line(points={{60,-40},{70,-40}}, color={0,0,0}));
         connect(dcpm.flange, loadInertia.flange_a) annotation (Line(
-            points={{0,-40},{40,-40}},
+            points={{5.55112e-16,-40},{40,-40}},
             color={0,0,0},
             smooth=Smooth.None));
         annotation (
@@ -2287,12 +2288,15 @@ Default machine parameters are used.
           fallTimeConst=0.5,
           startTime=0.1)
           annotation (Placement(transformation(extent={{-60,-60},{-40,-40}})));
+        Blocks.Sources.Constant const(k=293.15)
+          annotation (Placement(transformation(extent={{40,-60},{20,-40}})));
       equation
         connect(loadInertia.flange_b, loadTorque.flange)
-          annotation (Line(points={{30,0},{30,0},{40,0}},
-                                                       color={0,0,0}));
+          annotation (Line(points={{30,6.10623e-16},{30,6.10623e-16},{40,
+                6.10623e-16}},                         color={0,0,0}));
         connect(dcpm.flange, loadInertia.flange_a) annotation (Line(
-            points={{0,0},{10,0}},
+            points={{5.55112e-16,6.10623e-16},{2.5,6.10623e-16},{2.5,
+                1.22125e-15},{5,1.22125e-15},{5,6.10623e-16},{10,6.10623e-16}},
             color={0,0,0},
             smooth=Smooth.None));
 
@@ -2308,13 +2312,18 @@ Default machine parameters are used.
             points={{-80,60},{-16,60},{-16,10}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(dcpm.thermalPort, thermalAmbientDCPM.thermalPort) annotation (Line(
-            points={{-10,-10},{-10,-20}},
-            color={0,0,255},
-            smooth=Smooth.None));
         connect(exponential.y, thermalAmbientDCPM.TArmature) annotation (Line(
             points={{-39,-50},{-18,-50},{-18,-40}},
             color={0,0,127},
+            smooth=Smooth.None));
+        connect(const.y, thermalAmbientDCPM.TPermanentMagnet) annotation (Line(
+            points={{19,-50},{-10,-50},{-10,-40}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(dcpm.thermalPort, thermalAmbientDCPM.thermalPort) annotation (
+            Line(
+            points={{-10,-10},{-10,-20}},
+            color={195,0,0},
             smooth=Smooth.None));
         annotation (
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -4847,7 +4856,7 @@ These models use package SpacePhasors.
           annotation (Line(points={{-10,-30},{-10,-30},{-10,-40}},
                                                         color={0,0,255}));
         connect(airGapDC.pin_ep, ie.n) annotation (Line(points={{10,-10},{10,
-                -25},{10,-40}},
+                -40},{10,-40}},
                        color={0,0,255}));
         connect(airGapDC.pin_en, eGround.p) annotation (Line(points={{-10,-10},
                 {-10,-20},{-10,-30},{-10,-30}},
@@ -4857,14 +4866,14 @@ These models use package SpacePhasors.
             color={0,0,255},
             smooth=Smooth.None));
         connect(airGapDC.support, internalSupport) annotation (Line(
-            points={{-10,1.83697e-015},{-26,0},{-40,0},{-40,-90},{60,-90},{60,
+            points={{-10,2.33651e-15},{-26,0},{-40,0},{-40,-90},{60,-90},{60,
                 -100}},
             color={0,0,0},
             smooth=Smooth.None));
 
         connect(airGapDC.flange, inertiaRotor.flange_a) annotation (Line(
-            points={{10,-1.83697e-015},{36,-1.83697e-015},{36,1.22465e-015},{70,
-                1.22465e-015}},
+            points={{10,-1.33731e-15},{36,-1.33731e-15},{36,7.25006e-16},{70,
+                7.25006e-16}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(airGapDC.pin_an, brush.p) annotation (Line(
@@ -11076,7 +11085,7 @@ Thermal parts for synchronous induction machines
       equation
         connect(temperaturePermanentMagnet.port, thermalPort.heatPortPermanentMagnet)
           annotation (Line(
-            points={{-20,40},{-20,100},{0,100}},
+            points={{-20,40},{-20,100},{5.55112e-16,100}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(constTpm.y, temperaturePermanentMagnet.T) annotation (Line(
@@ -11084,7 +11093,8 @@ Thermal parts for synchronous induction machines
             color={0,0,127},
             smooth=Smooth.None));
         connect(TPermanentMagnet, temperaturePermanentMagnet.T) annotation (Line(
-            points={{0,-100},{0,-60},{-40,-60},{-40,8},{-20,8},{-20,18}},
+            points={{1.11022e-15,-100},{1.11022e-15,-60},{-40,-60},{-40,8},{-20,
+                8},{-20,18}},
             color={0,0,127},
             smooth=Smooth.None));
       annotation (Icon(graphics={
@@ -11685,7 +11695,7 @@ Connector for Space Phasors:
     equation
       connect(inertiaRotor.flange_b, flange)
                                             annotation (Line(points={{90,
-              -1.22465e-015},{92,-1.22465e-015},{92,0},{100,0}},
+              -1.72421e-15},{92,-1.72421e-15},{92,5.55112e-16},{100,5.55112e-16}},
                                                                color={0,0,0}));
       connect(inertiaStator.flange_b, support)
         annotation (Line(points={{90,-100},{100,-100}}, color={0,0,0}));
@@ -11698,7 +11708,7 @@ Connector for Space Phasors:
           color={0,0,0},
           smooth=Smooth.None));
       connect(inertiaRotor.flange_b, friction.flange) annotation (Line(
-          points={{90,-1.22465e-015},{90,-30}},
+          points={{90,-1.72421e-15},{90,-30}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(friction.support, internalSupport) annotation (Line(
@@ -12420,11 +12430,12 @@ Interfaces and partial models for induction machines
       connect(la.p,ra. n)
         annotation (Line(points={{30,60},{40,60}}, color={0,0,255}));
       connect(thermalPort, internalThermalPort) annotation (Line(
-          points={{0,-100},{0,-80}},
+          points={{5.55112e-16,-100},{5.55112e-16,-95},{6.38379e-16,-95},{
+              6.38379e-16,-90},{0,-90},{0,-80}},
           color={199,0,0},
           smooth=Smooth.None));
       connect(thermalAmbient.thermalPort, internalThermalPort) annotation (Line(
-          points={{-20,-80},{0,-80}},
+          points={{-20,-80},{8.32667e-17,-80}},
           color={199,0,0},
           smooth=Smooth.None));
       connect(brush.n, pin_an) annotation (Line(
@@ -12440,7 +12451,7 @@ Interfaces and partial models for induction machines
           color={0,0,255},
           smooth=Smooth.None));
       connect(strayLoad.flange, inertiaRotor.flange_b) annotation (Line(
-          points={{80,70},{100,70},{100,50},{90,50},{90,-1.22465e-015}},
+          points={{80,70},{100,70},{100,50},{90,50},{90,-1.72421e-15}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(strayLoad.support, internalSupport) annotation (Line(
@@ -12452,30 +12463,31 @@ Interfaces and partial models for induction machines
           color={0,0,255},
           smooth=Smooth.None));
       connect(core.n, brush.p) annotation (Line(
-          points={{-10,80},{-10,60}},
+          points={{-10,80},{-10,70},{-10,70},{-10,60}},
           color={0,0,255},
           smooth=Smooth.None));
       connect(core.heatPort, internalThermalPort.heatPortCore) annotation (Line(
-          points={{0,70},{0,40},{50,40},{50,-80},{0,-80}},
+          points={{-4.996e-16,70},{-4.996e-16,40},{50,40},{50,-80},{8.32667e-17,
+              -80}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(brush.heatPort, internalThermalPort.heatPortBrush) annotation (Line(
-          points={{-20,50},{-20,40},{50,40},{50,-80},{0,-80}},
+          points={{-20,50},{-20,40},{50,40},{50,-80},{8.32667e-17,-80}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(strayLoad.heatPort, internalThermalPort.heatPortStrayLoad)
         annotation (Line(
-          points={{70,50},{70,40},{50,40},{50,-80},{0,-80}},
+          points={{70,50},{70,40},{50,40},{50,-80},{8.32667e-17,-80}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(friction.heatPort, internalThermalPort.heatPortFriction) annotation (
           Line(
-          points={{80,-40},{50,-40},{50,-80},{0,-80}},
+          points={{80,-40},{50,-40},{50,-80},{8.32667e-17,-80}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(ra.heatPort, internalThermalPort.heatPortArmature) annotation (
           Line(
-          points={{50,50},{50,-80},{0,-80}},
+          points={{50,50},{50,-80},{8.32667e-17,-80}},
           color={191,0,0},
           smooth=Smooth.None));
       annotation (Documentation(info="<HTML>
@@ -12604,25 +12616,25 @@ Partial thermal port for DC machines
             smooth=Smooth.None));
         connect(temperatureArmature.port, thermalPort.heatPortArmature)
           annotation (Line(
-            points={{-80,40},{-80,100},{0,100}},
+            points={{-80,40},{-80,100},{5.55112e-16,100}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(temperatureBrush.port, thermalPort.heatPortBrush)  annotation (Line(
-            points={{20,20},{20,100},{0,100}},
+            points={{20,20},{20,100},{5.55112e-16,100}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(temperatureCore.port, thermalPort.heatPortCore)  annotation (Line(
-            points={{40,40},{40,100},{0,100}},
+            points={{40,40},{40,100},{5.55112e-16,100}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(temperatureStrayLoad.port, thermalPort.heatPortStrayLoad)
           annotation (Line(
-            points={{60,20},{60,100},{0,100}},
+            points={{60,20},{60,100},{5.55112e-16,100}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(temperatureFriction.port, thermalPort.heatPortFriction)  annotation (
            Line(
-            points={{80,40},{80,100},{0,100}},
+            points={{80,40},{80,100},{5.55112e-16,100}},
             color={191,0,0},
             smooth=Smooth.None));
         annotation (Icon(graphics={
