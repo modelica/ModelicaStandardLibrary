@@ -1854,9 +1854,11 @@ relationship of the voltage and current space phasor.
         annotation (Placement(transformation(extent={{90,-110},{110,-90}}, rotation=
                0)));
 
-      parameter Real effectiveTurns "Effective number of turns";
+      parameter Real effectiveTurns "Effective number of turns"
+        annotation(Evaluate=true);
       parameter Modelica.SIunits.Angle orientation
-        "Orientation of the resulting fundamental wave field phasor";
+        "Orientation of the resulting fundamental wave field phasor"
+        annotation(Evaluate=true);
 
       // Local electric single phase quantities
       Modelica.SIunits.Voltage v "Voltage drop";

@@ -13981,8 +13981,7 @@ This package contains utility components for testing examples.
   </ul>
 </HTML>"));
   end Utilities;
-  annotation (
-  Settings(NewStateSelection=true, Evaluate=true),
+  annotation (preferredView="info",
    Documentation(info="<HTML>
 This package contains components to model electrical machines:
 <ul>
