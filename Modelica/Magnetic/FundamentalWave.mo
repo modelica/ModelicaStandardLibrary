@@ -164,6 +164,9 @@ for contributing his source code to this library.
   <li>Updates due to changed loss variable and heat port names in
       <a href=\"modelica://Modelica.Electrical.Machines\">Electrical.Machines</a></li>
   <li>Added machine specific output records to summarize power and loss balance</li>
+  <li>Improved performance due to <code>annotation(Evaluate=true)</code> added to the parameters of the
+      <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">
+      single phase winding</a>
   <li>Added magnetic potential sensor</li>
   <li>Removed state selections</li>
   <li>Updated images of Users Guide</li>
@@ -582,8 +585,7 @@ In this example the eddy current losses are implemented in two different ways. C
               extent={{-10,-10},{10,10}},
               rotation=270)));
         Modelica.Electrical.MultiPhase.Basic.Star star(final m=m)
-          annotation (Placement(transformation(extent={{-50,80},{-70,100}}, rotation=
-                  0)));
+          annotation (Placement(transformation(extent={{-50,80},{-70,100}}, rotation=0)));
         Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
           final m=m,
           freqHz=fill(fsNominal, m),
@@ -606,10 +608,18 @@ In this example the eddy current losses are implemented in two different ways. C
               origin={0,30},
               extent={{-10,10},{10,-10}},
               rotation=270)));
+        Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor
+          currentRMSsensorE
+          annotation (Placement(transformation(
+              origin={-60,30},
+              extent={{-10,-10},{10,10}},
+              rotation=270)));
         Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxM(
           terminalConnection="D")
-          annotation (Placement(transformation(extent={{-10,-10},{10,10}},  rotation=
-                  0)));
+          annotation (Placement(transformation(extent={{-10,-10},{10,10}},  rotation=0)));
+        Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxE(
+          terminalConnection="D")
+          annotation (Placement(transformation(extent={{-10,-70},{10,-50}}, rotation=0)));
         Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
           aimcM(
           p=p,
@@ -622,26 +632,6 @@ In this example the eddy current losses are implemented in two different ways. C
           alpha20r(displayUnit="1/K"))
           annotation (Placement(transformation(extent={{-10,-30},{10,-10}},
             rotation=0)));
-        Modelica.Mechanics.Rotational.Components.Inertia loadInertiaM(
-          J=J_Load)
-          annotation (Placement(transformation(extent={{50,-30},{70,-10}}, rotation=0)));
-        Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
-          quadraticLoadTorqueM(
-          w_nominal=w_Load,
-          tau_nominal=-T_Load,
-          TorqueDirection=false,
-          useSupport=false)
-          annotation (Placement(transformation(extent={{100,-30},{80,-10}},rotation=0)));
-        Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor
-          currentRMSsensorE
-          annotation (Placement(transformation(
-              origin={-60,30},
-              extent={{-10,-10},{10,10}},
-              rotation=270)));
-        Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxE(
-          terminalConnection="D")
-          annotation (Placement(transformation(extent={{-10,-70},{10,-50}}, rotation=
-                  0)));
         Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
           aimcE(
           p=p,
@@ -654,8 +644,18 @@ In this example the eddy current losses are implemented in two different ways. C
           alpha20r(displayUnit="1/K"))
           annotation (Placement(transformation(extent={{-10,-90},{10,-70}}, rotation=
                   0)));
+        Modelica.Mechanics.Rotational.Components.Inertia loadInertiaM(
+          J=J_Load)
+          annotation (Placement(transformation(extent={{50,-30},{70,-10}}, rotation=0)));
         Modelica.Mechanics.Rotational.Components.Inertia loadInertiaE(J=J_Load)
           annotation (Placement(transformation(extent={{50,-90},{70,-70}}, rotation=0)));
+        Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
+          quadraticLoadTorqueM(
+          w_nominal=w_Load,
+          tau_nominal=-T_Load,
+          TorqueDirection=false,
+          useSupport=false)
+          annotation (Placement(transformation(extent={{100,-30},{80,-10}},rotation=0)));
         Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
           quadraticLoadTorqueE(
           w_nominal=w_Load,
@@ -669,9 +669,9 @@ In this example the eddy current losses are implemented in two different ways. C
         connect(sineVoltage.plug_n, star.plug_p)
           annotation (Line(points={{-40,90},{-40,90},{-50,90}},
               color={0,0,255}));
-        connect(aimcM.flange,   loadInertiaM.flange_a)
+        connect(aimcM.flange, loadInertiaM.flange_a)
           annotation (Line(points={{10,-20},{10,-20},{50,-20}},
-                                                       color={0,0,0}));
+              color={0,0,0}));
         connect(loadInertiaM.flange_b, quadraticLoadTorqueM.flange)
           annotation (Line(points={{70,-20},{80,-20}}, color={0,0,0}));
         connect(terminalBoxM.plug_sn,             aimcM.plug_sn)
@@ -681,10 +681,10 @@ In this example the eddy current losses are implemented in two different ways. C
         connect(terminalBoxM.plugSupply, currentRMSsensorM.plug_n)
           annotation (Line(points={{6.10623e-16,-8},{-1.33731e-15,-8},{
                 -1.33731e-15,20}},
-                       color={0,0,255}));
+              color={0,0,255}));
         connect(aimcE.flange,   loadInertiaE.flange_a)
           annotation (Line(points={{10,-80},{10,-80},{50,-80}},
-                                                       color={0,0,0}));
+              color={0,0,0}));
         connect(loadInertiaE.flange_b, quadraticLoadTorqueE.flange)
           annotation (Line(points={{70,-80},{80,-80}}, color={0,0,0}));
         connect(terminalBoxE.plug_sn,             aimcE.plug_sn)
@@ -694,8 +694,7 @@ In this example the eddy current losses are implemented in two different ways. C
         connect(currentRMSsensorE.plug_n,terminalBoxE.plugSupply)
           annotation (Line(points={{-60,20},{-60,-60},{6.10623e-16,-60},{
                 6.10623e-16,-68}},
-                       color={0,0,255}));
-
+              color={0,0,255}));
         connect(sineVoltage.plug_p, idealCloser.plug_p) annotation (Line(
             points={{-20,90},{2.33651e-15,90},{2.33651e-15,70}},
             color={0,0,255},
@@ -751,8 +750,8 @@ Simulate for 1.5 seconds and plot (versus time):
         parameter Modelica.SIunits.Time tRheostat=1.0
           "Time of shortening the rheostat";
         parameter Modelica.SIunits.Torque T_Load=161.4 "Nominal load torque";
-        parameter Modelica.SIunits.AngularVelocity w_Load(displayUnit="1/min")=1440.45*2*Modelica.Constants.pi/60
-          "Nominal load speed";
+        parameter Modelica.SIunits.AngularVelocity w_Load(displayUnit="1/min")=
+          Modelica.SIunits.Conversions.from_rpm(1440.45) "Nominal load speed";
         parameter Modelica.SIunits.Inertia J_Load=0.29 "Load inertia";
 
         parameter Integer p = 2 "Number of pole pairs";
@@ -772,8 +771,7 @@ Simulate for 1.5 seconds and plot (versus time):
               extent={{-10,-10},{10,10}},
               rotation=270)));
         Modelica.Electrical.MultiPhase.Basic.Star star(final m=m)
-          annotation (Placement(transformation(extent={{-50,80},{-70,100}}, rotation=
-                  0)));
+          annotation (Placement(transformation(extent={{-50,80},{-70,100}}, rotation=0)));
         Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
           final m=m,
           freqHz=fill(fsNominal, m),
@@ -794,13 +792,21 @@ Simulate for 1.5 seconds and plot (versus time):
         Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor
           currentRMSsensorM
           annotation (Placement(transformation(
-              origin={0,30},
+              origin={0,20},
               extent={{-10,10},{10,-10}},
+              rotation=270)));
+        Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor
+          currentRMSsensorE
+          annotation (Placement(transformation(
+              origin={-60,20},
+              extent={{-10,-10},{10,10}},
               rotation=270)));
         Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxM(
             terminalConnection="D")
-          annotation (Placement(transformation(extent={{-10,-10},{10,10}},   rotation=
-                 0)));
+          annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
+        Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxE(
+          terminalConnection="D")
+          annotation (Placement(transformation(extent={{-10,-70},{10,-50}},rotation=0)));
         Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing
           aimsM(
           Rs=Rs,
@@ -811,34 +817,7 @@ Simulate for 1.5 seconds and plot (versus time):
           alpha20s(displayUnit="1/K"),
           alpha20r(displayUnit="1/K"),
           p=p)
-          annotation (Placement(transformation(extent={{-10,-30},{10,-10}},  rotation=
-                 0)));
-        Electrical.Machines.Utilities.SwitchedRheostat rheostatM(
-          RStart=RStart,
-          tStart=tRheostat)
-          annotation (Placement(transformation(extent={{-40,-30},
-                  {-20,-10}},      rotation=0)));
-        Modelica.Mechanics.Rotational.Components.Inertia loadInertiaM(
-          J=J_Load)
-          annotation (Placement(transformation(extent={{50,-30},{70,-10}},   rotation=
-                 0)));
-        Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
-          quadraticLoadTorqueM(
-          tau_nominal=-T_Load,
-          TorqueDirection=false,
-          useSupport=false,
-          w_nominal=w_Load)
-          annotation (Placement(transformation(extent={{100,-30},{80,-10}},
-                rotation=0)));
-        Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor
-          currentRMSsensorE
-          annotation (Placement(transformation(
-              origin={-60,30},
-              extent={{-10,-10},{10,10}},
-              rotation=270)));
-        Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxE(
-          terminalConnection="D")
-          annotation (Placement(transformation(extent={{-10,-70},{10,-50}},rotation=0)));
+          annotation (Placement(transformation(extent={{-10,-30},{10,-10}},  rotation=0)));
         Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing
           aimsE(
           p=p,
@@ -850,11 +829,28 @@ Simulate for 1.5 seconds and plot (versus time):
           alpha20s(displayUnit="1/K"),
           alpha20r(displayUnit="1/K"))
           annotation (Placement(transformation(extent={{-10,-90},{10,-70}},rotation=0)));
-        Electrical.Machines.Utilities.SwitchedRheostat rheostatE(RStart=RStart,
-            tStart=tRheostat)
+        Electrical.Machines.Utilities.SwitchedRheostat rheostatM(
+          RStart=RStart,
+          tStart=tRheostat)
+          annotation (Placement(transformation(extent={{-40,-30},
+                  {-20,-10}},      rotation=0)));
+        Electrical.Machines.Utilities.SwitchedRheostat rheostatE(
+          RStart=RStart,
+          tStart=tRheostat)
          annotation (Placement(transformation(extent={{-40,-90},{-20,-70}}, rotation=0)));
+        Modelica.Mechanics.Rotational.Components.Inertia loadInertiaM(
+          J=J_Load)
+          annotation (Placement(transformation(extent={{50,-30},{70,-10}}, rotation=0)));
         Modelica.Mechanics.Rotational.Components.Inertia loadInertiaE(J=J_Load)
           annotation (Placement(transformation(extent={{50,-90},{70,-70}}, rotation=0)));
+        Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
+          quadraticLoadTorqueM(
+          tau_nominal=-T_Load,
+          TorqueDirection=false,
+          useSupport=false,
+          w_nominal=w_Load)
+          annotation (Placement(transformation(extent={{100,-30},{80,-10}},
+                rotation=0)));
         Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
           quadraticLoadTorqueE(
           tau_nominal=-T_Load,
@@ -896,9 +892,9 @@ Simulate for 1.5 seconds and plot (versus time):
               points={{-6,-10},{-6,-10}},   color={0,0,255}));
 
         connect(currentRMSsensorM.plug_n, terminalBoxM.plugSupply)
-                                                                  annotation (
+          annotation (
             Line(
-            points={{-1.33731e-15,20},{6.10623e-16,20},{6.10623e-16,-8}},
+            points={{-1.33731e-15,10},{6.10623e-16,10},{6.10623e-16,-8}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(rheostatM.plug_p, aimsM.plug_rp) annotation (Line(
@@ -911,16 +907,16 @@ Simulate for 1.5 seconds and plot (versus time):
             smooth=Smooth.None));
         connect(currentRMSsensorE.plug_n, terminalBoxE.plugSupply)
           annotation (Line(
-            points={{-60,20},{-60,-60},{6.10623e-16,-60},{6.10623e-16,-68}},
+            points={{-60,10},{-60,-60},{6.10623e-16,-60},{6.10623e-16,-68}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(idealCloser.plug_n, currentRMSsensorM.plug_p) annotation (Line(
-            points={{-1.33731e-15,50},{2.33651e-15,50},{2.33651e-15,40}},
+            points={{-1.33731e-15,50},{2.33651e-15,50},{2.33651e-15,30}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(currentRMSsensorE.plug_p, idealCloser.plug_n)
           annotation (Line(
-            points={{-60,40},{-1.33731e-15,40},{-1.33731e-15,50}},
+            points={{-60,30},{-1.33731e-15,30},{-1.33731e-15,50}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(idealCloser.plug_p, sineVoltage.plug_p) annotation (Line(
@@ -1173,6 +1169,7 @@ and accelerate the inertias.</p>
       model SMEE_Generator
         "Electrical excited synchronous machine operating as generator"
         extends Modelica.Icons.Example;
+        import Modelica.Constants.pi;
 
         constant Integer m=3 "Number of phases";
         parameter Modelica.SIunits.Voltage VsNominal=100
@@ -1611,7 +1608,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
           experiment(
             StopTime=1.5,
             Interval=0.001,
-            Tolerance=1e-05),
+            Tolerance=1e-06),
           experimentSetupOutput(doublePrecision=true),
           Documentation(info="<HTML>
 <h4>Synchronous induction machine with reluctance rotor fed by an ideal inverter</h4>
@@ -3523,6 +3520,7 @@ according to the following figure.
         parameter Real effectiveTurns = 1 "Effective number of turns";
 
         Modelica.SIunits.Current i[m] "Cage currents";
+        Modelica.SIunits.Current i0 "Zero sequence current";
 
         Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
           winding(
@@ -3573,7 +3571,7 @@ according to the following figure.
       equation
 
         i = strayInductor.i;
-
+        m*i0 = sum(i);
         connect(port_p, winding.port_p)                            annotation (Line(
               points={{-100,5.55112e-16},{-10,5.55112e-16},{-10,1.16747e-15}},
                                color={255,128,0}));
@@ -4567,7 +4565,7 @@ This model is mainly used to extend from in order build more complex - equation 
             origin={80,-100},
             extent={{10,10},{-10,-10}},
             rotation=180)));
-      Modelica.Mechanics.Rotational.Components.Fixed fixed if  (not useSupport)
+      Modelica.Mechanics.Rotational.Components.Fixed fixed if (not useSupport)
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
               rotation=180,
             origin={70,-90})));
@@ -4969,7 +4967,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <tr><td>Version</td> <td>Revision</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
 </thead>
 <tbody>
-<tr><td>1.7.0</td><td>XXXX</td>  <td>2010-05-19</td>  <td>C. Kral</td>  <td>Changed single phase and symmetrical multi phase winding model<br>Relocated core losses</td></tr>
+<tr><td>1.7.0</td><td>3877</td>  <td>2010-05-19</td>  <td>C. Kral<br>A. Haumer</td>  <td>Changed single phase and symmetrical multi phase winding model<br>Relocated core losses</td></tr>
 <tr><td>1.6.0</td><td>3837</td>  <td>2010-05-05</td>  <td>C. Kral</td>  <td>Renamed all parameters windingAngle to orientation<br>Update due to changed class names in Machines.Icons<br>Exchanged positive and negative stator ports of air gap model</td></tr>
 <tr><td>1.5.0</td><td>3802</td>  <td>2010-04-28</td>  <td>C. Kral</td>  <td>Added stator core, friction, stray load and brush loss models and changed parameter of EddyCurrent model</td></tr>
 <tr><td>1.4.0</td><td>3763</td>  <td>2010-04-22</td>  <td>C. Kral</td>  <td>Added eddy current loss model with thermal heat port</td></tr>
