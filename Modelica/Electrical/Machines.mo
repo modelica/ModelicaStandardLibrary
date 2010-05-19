@@ -3805,7 +3805,8 @@ These models use package SpacePhasors.
             final idq_rr = airGapR.i_rr,
           redeclare final
             Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMPM
-            thermalAmbient(final useDamperCage = useDamperCage, final Tr=TrOperational),
+            thermalAmbient(final useDamperCage = useDamperCage, final Tr=TrOperational,
+            final Tpm=TpmOperational),
           redeclare final Machines.Interfaces.InductionMachines.ThermalPortSMPM
             thermalPort(final useDamperCage = useDamperCage),
           redeclare final Machines.Interfaces.InductionMachines.ThermalPortSMPM
@@ -3825,6 +3826,9 @@ These models use package SpacePhasors.
               origin={0,0},
               extent={{-10,-10},{10,10}},
               rotation=270)));
+        final parameter Modelica.SIunits.Temperature TpmOperational=293.15
+          "Operational temperature of permanent magnet"
+           annotation(Dialog(group="Operational temperatures"));
         parameter Modelica.SIunits.Temperature TrOperational(start=293.15)
           "Operational temperature of (optional) damper cage"
            annotation(Dialog(group="Operational temperatures", enable=not useThermalPort and useDamperCage));
@@ -3883,7 +3887,8 @@ These models use package SpacePhasors.
               origin={0,-40},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Machines.Thermal.ConditionalFixedHeatFlowSensor heatFlowSensorDamperCage(final useFixedTemperature=
+        Modelica.Thermal.HeatTransfer.Sensors.ConditionalFixedHeatFlowSensor
+                                                        heatFlowSensorDamperCage(final useFixedTemperature=
                                 not useDamperCage)
           annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
       equation
@@ -4219,7 +4224,8 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           annotation (Placement(transformation(extent={{10,-10},{-10,10}},
               rotation=90,
               origin={-80,40})));
-        Machines.Thermal.ConditionalFixedHeatFlowSensor heatFlowSensorDamperCage(final useFixedTemperature=
+        Modelica.Thermal.HeatTransfer.Sensors.ConditionalFixedHeatFlowSensor
+                                                        heatFlowSensorDamperCage(final useFixedTemperature=
                                 not useDamperCage)
           annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
       equation
@@ -4547,7 +4553,8 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
               origin={0,-40},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Machines.Thermal.ConditionalFixedHeatFlowSensor heatFlowSensorDamperCage(final useFixedTemperature=
+        Modelica.Thermal.HeatTransfer.Sensors.ConditionalFixedHeatFlowSensor
+                                                        heatFlowSensorDamperCage(final useFixedTemperature=
                                 not useDamperCage)
           annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
       equation
@@ -4802,7 +4809,7 @@ These models use package SpacePhasors.
                                       - Machines.Losses.DCMachines.brushVoltageDrop(brushParameters, IaNominal),
           final psi_eNominal = Lme*IeNominal,
           redeclare final Machines.Thermal.DCMachines.ThermalAmbientDCPM
-            thermalAmbient,
+            thermalAmbient(final Tpm=TpmOperational),
           redeclare final Machines.Interfaces.DCMachines.ThermalPortDCPM
             thermalPort,
           redeclare final Machines.Interfaces.DCMachines.ThermalPortDCPM
@@ -4810,6 +4817,9 @@ These models use package SpacePhasors.
           redeclare final Machines.Interfaces.DCMachines.PowerBalanceDCPM
             powerBalance(final lossPowerPermanentMagnet = 0),
           core(final w=airGapDC.w));
+        final parameter Modelica.SIunits.Temperature TpmOperational=293.15
+          "Operational temperature of permanent magnet"
+           annotation(Dialog(group="Operational temperatures"));
         Machines.BasicMachines.Components.AirGapDC airGapDC(
           final turnsRatio=turnsRatio,
           final Le=Lme,
@@ -10767,6 +10777,7 @@ Thermal parts for asynchronous induction machines
       extends Modelica.Icons.VariantsPackage;
       model ThermalAmbientSMPM
         "Thermal ambient for synchronous induction machine with permanent magnets"
+        import Modelica;
         parameter Boolean useDamperCage(start = true)
           "Enable / disable damper cage"
           annotation(Evaluate=true);
@@ -10775,6 +10786,9 @@ Thermal parts for asynchronous induction machines
            redeclare final
             Machines.Interfaces.InductionMachines.ThermalPortSMPM
              thermalPort(final useDamperCage = useDamperCage));
+        parameter Modelica.SIunits.Temperature Tpm(start=TDefault)
+          "Temperature of permanent magnet"
+          annotation(Dialog(enable=not useTemperatureInputs));
         parameter Modelica.SIunits.Temperature Tr(start=TDefault)
           "Temperature of damper cage (optional)"
           annotation(Dialog(enable=(not useTemperatureInputs and useDamperCage)));
@@ -10788,43 +10802,62 @@ Thermal parts for asynchronous induction machines
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=90,
-              origin={-50,30})));
+              origin={-20,30})));
         Modelica.Blocks.Interfaces.RealInput TRotorWinding if
-                                                    (useTemperatureInputs and useDamperCage)
+          (useTemperatureInputs and useDamperCage)
           "Temperature of damper cage (optional)"  annotation (Placement(transformation(
               extent={{-20,-20},{20,20}},
               rotation=90,
               origin={80,-100})));
-        Modelica.Blocks.Sources.Constant constT_r(final k=if useDamperCage then Tr else TDefault) if (not useTemperatureInputs or not useDamperCage) annotation (Placement(transformation(
+        Modelica.Blocks.Sources.Constant constTr(final k=if useDamperCage  then Tr else TDefault) if
+             (not useTemperatureInputs or not useDamperCage) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=90,
-              origin={-50,-10})));
-        Modelica.Thermal.HeatTransfer.Sources.FixedTemperature temperaturePermanentMagnet(final T=
-              TDefault)
+              origin={-20,-10})));
+        Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature temperaturePermanentMagnet
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=90,
-              origin={-20,30})));
+              origin={-50,30})));
+        Modelica.Blocks.Sources.Constant constTpm(final k=Tpm) if  (not useTemperatureInputs) annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={-50,-10})));
+        Modelica.Blocks.Interfaces.RealInput TPermanentMagnet if
+          (useTemperatureInputs and useDamperCage)
+          "Temperature of permanent magnet"        annotation (Placement(transformation(
+              extent={{-20,-20},{20,20}},
+              rotation=90,
+              origin={0,-100})));
       equation
-        connect(constT_r.y, temperatureRotorWinding.T)
+        connect(constTr.y, temperatureRotorWinding.T)
                                               annotation (Line(
-            points={{-50,1},{-50,18}},
+            points={{-20,1},{-20,18}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(temperatureRotorWinding.port, thermalPort.heatPortRotorWinding)
                                                             annotation (Line(
-            points={{-50,40},{-50,100},{0,100}},
+            points={{-20,40},{-20,100},{0,100}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(TRotorWinding, temperatureRotorWinding.T)
                                       annotation (Line(
-            points={{80,-100},{80,8},{-50,8},{-50,18}},
+            points={{80,-100},{80,8},{-20,8},{-20,18}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(temperaturePermanentMagnet.port, thermalPort.heatPortPermanentMagnet)
                                                               annotation (Line(
-            points={{-20,40},{-20,100},{0,100}},
+            points={{-50,40},{-50,100},{0,100}},
             color={191,0,0},
+            smooth=Smooth.None));
+        connect(constTpm.y, temperaturePermanentMagnet.T) annotation (Line(
+            points={{-50,1},{-50,18}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(TPermanentMagnet, temperaturePermanentMagnet.T) annotation (
+            Line(
+            points={{0,-100},{0,-60},{-60,-60},{-60,8},{-50,8},{-50,18}},
+            color={0,0,127},
             smooth=Smooth.None));
       annotation (Icon(graphics={
               Text(
@@ -10864,7 +10897,7 @@ Additionally, all losses = heat flows are recorded.
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=90,
-              origin={-50,30})));
+              origin={-20,30})));
         Modelica.Blocks.Interfaces.RealInput TRotorWinding if
                                                     (useTemperatureInputs and useDamperCage)
           "Temperature of damper cage (optional)"                                   annotation (Placement(transformation(
@@ -10874,12 +10907,12 @@ Additionally, all losses = heat flows are recorded.
         Modelica.Blocks.Sources.Constant constTr(final k=if useDamperCage  then Tr else TDefault) if (not useTemperatureInputs or not useDamperCage) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=90,
-              origin={-50,-10})));
+              origin={-20,-10})));
         Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature temperatureExcitation
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=90,
-              origin={-20,30})));
+              origin={-50,30})));
         Modelica.Blocks.Interfaces.RealInput TExcitation if
                                                     useTemperatureInputs
           "Temperature of excitation"   annotation (Placement(transformation(
@@ -10890,7 +10923,7 @@ Additionally, all losses = heat flows are recorded.
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=90,
-              origin={-20,-10})));
+              origin={-50,-10})));
         Modelica.Thermal.HeatTransfer.Sources.FixedTemperature temperatureBrush(final T=
               TDefault)
           annotation (Placement(transformation(
@@ -10900,32 +10933,32 @@ Additionally, all losses = heat flows are recorded.
       equation
         connect(constTr.y, temperatureRotorWinding.T)
                                               annotation (Line(
-            points={{-50,1},{-50,18}},
+            points={{-20,1},{-20,18}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(temperatureRotorWinding.port, thermalPort.heatPortRotorWinding)
                                                             annotation (Line(
-            points={{-50,40},{-50,100},{0,100}},
+            points={{-20,40},{-20,100},{0,100}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(TRotorWinding, temperatureRotorWinding.T)
                                       annotation (Line(
-            points={{80,-100},{80,10},{-50,10},{-50,18}},
+            points={{80,-100},{80,8},{-20,8},{-20,18}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(constTe.y, temperatureExcitation.T)
                                              annotation (Line(
-            points={{-20,1},{-20,18}},
+            points={{-50,1},{-50,18}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(TExcitation, temperatureExcitation.T)
                                       annotation (Line(
-            points={{0,-100},{0,6},{-20,6},{-20,18}},
+            points={{0,-100},{0,-60},{-60,-60},{-60,8},{-50,8},{-50,18}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(temperatureExcitation.port, thermalPort.heatPortExcitation)
                                                             annotation (Line(
-            points={{-20,40},{-20,100},{0,100}},
+            points={{-50,40},{-50,100},{0,100}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(temperatureBrush.port, thermalPort.heatPortBrush)  annotation (
@@ -10965,7 +10998,7 @@ Additionally, all losses = heat flows are recorded.
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=90,
-              origin={-50,30})));
+              origin={-20,30})));
         Modelica.Blocks.Interfaces.RealInput TRotorWinding if
                                                     (useTemperatureInputs and useDamperCage)
           "Temperature of damper cage (optional)"                                   annotation (Placement(transformation(
@@ -10975,21 +11008,21 @@ Additionally, all losses = heat flows are recorded.
         Modelica.Blocks.Sources.Constant constTr(final k=if useDamperCage  then Tr else TDefault) if (not useTemperatureInputs or not useDamperCage) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=90,
-              origin={-50,-10})));
+              origin={-20,-10})));
       equation
         connect(constTr.y, temperatureRotorWinding.T)
                                               annotation (Line(
-            points={{-50,1},{-50,18}},
+            points={{-20,1},{-20,18}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(temperatureRotorWinding.port, thermalPort.heatPortRotorWinding)
                                                             annotation (Line(
-            points={{-50,40},{-50,100},{0,100}},
+            points={{-20,40},{-20,100},{0,100}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(TRotorWinding, temperatureRotorWinding.T)
                                       annotation (Line(
-            points={{80,-100},{80,10},{-50,10},{-50,18}},
+            points={{80,-100},{80,10},{-20,10},{-20,18}},
             color={0,0,127},
             smooth=Smooth.None));
       annotation (Icon(graphics={
@@ -11012,24 +11045,47 @@ Thermal parts for synchronous induction machines
       extends Modelica.Icons.VariantsPackage;
       model ThermalAmbientDCPM
         "Thermal ambient for DC machine with permanent magnets"
+        import Modelica;
         extends Machines.Interfaces.DCMachines.PartialThermalAmbientDCMachines(
            redeclare final Machines.Interfaces.DCMachines.ThermalPortDCPM
             thermalPort);
+        parameter Modelica.SIunits.Temperature Tpm(start=TDefault)
+          "Temperature of permanent magnet"
+          annotation(Dialog(enable=not useTemperatureInputs));
         output Modelica.SIunits.HeatFlowRate Q_flowPermanentMagnet = temperaturePermanentMagnet.port.Q_flow
           "Heat flow rate of permanent magnets";
         output Modelica.SIunits.HeatFlowRate Q_flowTotal=
           Q_flowArmature + Q_flowCore + Q_flowStrayLoad + Q_flowFriction + Q_flowBrush + Q_flowPermanentMagnet;
-        Modelica.Thermal.HeatTransfer.Sources.FixedTemperature temperaturePermanentMagnet(final T=
-              TDefault)
+        Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature
+          temperaturePermanentMagnet
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=90,
               origin={-20,30})));
+        Modelica.Blocks.Sources.Constant constTpm(final k=Tpm) if not useTemperatureInputs
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={-20,-10})));
+        Modelica.Blocks.Interfaces.RealInput TPermanentMagnet if useTemperatureInputs
+          "Temperature of permanent magnet"
+          annotation (Placement(transformation(
+              extent={{-20,-20},{20,20}},
+              rotation=90,
+              origin={0,-100})));
       equation
         connect(temperaturePermanentMagnet.port, thermalPort.heatPortPermanentMagnet)
           annotation (Line(
-            points={{-20,40},{-20,100},{0,100},{0,100}},
+            points={{-20,40},{-20,100},{0,100}},
             color={191,0,0},
+            smooth=Smooth.None));
+        connect(constTpm.y, temperaturePermanentMagnet.T) annotation (Line(
+            points={{-20,1},{-20,18}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(TPermanentMagnet, temperaturePermanentMagnet.T) annotation (Line(
+            points={{0,-100},{0,-60},{-40,-60},{-40,8},{-20,8},{-20,18}},
+            color={0,0,127},
             smooth=Smooth.None));
       annotation (Icon(graphics={
               Text(
@@ -11381,85 +11437,6 @@ Additionally, all losses = heat flows are recorded.
         Diagram(graphics));
     end ThermalAmbientTransformer;
 
-    model ConditionalFixedHeatFlowSensor
-      "HeatFlowSensor, conditional fixed Temperature"
-      parameter Boolean useFixedTemperature(start=false)
-        "Fixed Temperature if true"
-        annotation(Evaluate=true);
-      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a port_a
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b port_b
-        annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-      Modelica.Thermal.HeatTransfer.Sensors.HeatFlowSensor heatFlowSensor
-        annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-      Modelica.Thermal.HeatTransfer.Sources.FixedTemperature fixedTemperature(final T=566.3) if useFixedTemperature
-        annotation (Placement(transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=90,
-            origin={-50,-30})));
-      Blocks.Interfaces.RealOutput Q_flow annotation (Placement(transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=270,
-            origin={0,-70})));
-    equation
-      connect(heatFlowSensor.port_b, port_b) annotation (Line(
-          points={{10,0},{100,0}},
-          color={191,0,0},
-          smooth=Smooth.None));
-      connect(port_a, heatFlowSensor.port_a) annotation (Line(
-          points={{-100,0},{-10,0}},
-          color={191,0,0},
-          smooth=Smooth.None));
-      connect(fixedTemperature.port, heatFlowSensor.port_a) annotation (Line(
-          points={{-50,-20},{-50,0},{-10,0}},
-          color={191,0,0},
-          smooth=Smooth.None));
-      connect(heatFlowSensor.Q_flow, Q_flow) annotation (Line(
-          points={{0,-10},{0,-70}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      annotation (Diagram(graphics),
-        Icon(graphics={
-            Rectangle(
-              extent={{-90,10},{90,-10}},
-              lineColor={255,0,0},
-              fillColor={255,0,0},
-              fillPattern=FillPattern.HorizontalCylinder),
-            Ellipse(
-              extent={{-50,50},{50,-50}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{0,50},{0,38}}, color={0,0,0}),
-            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}),
-            Ellipse(
-              extent={{-5,5},{5,-5}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Polygon(
-              points={{-2.48,21.6},{16,16},{16,47.2},{-2.48,21.6}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-36,12},{-46,16}},         color={0,0,0}),
-            Line(points={{36,12},{46,16}},         color={0,0,0}),
-            Line(points={{22,30},{28,40}},         color={0,0,0}),
-            Line(points={{-20,30},{-28,40}},         color={0,0,0}),
-            Line(points={{0,-50},{0,-60}},
-                                         color={0,0,0})}),
-        Documentation(info="<html>
-<p>
-If useFixedTemperature = false, this sensor acts just as a normal 
-<a href=\"modelica://Modelica.Thermal.HeatTransfer.Sensors.HeatFlowSensor\">HeatFlowSensor</a>.
-</p>
-<p>
-If useFixedTemperature = true, it is assumed that the connections to both heatPorts of this sensor are conditionally removed; 
-in this case, the measured Q_flow is reported = 0 automatically.
-To avoid a singular equation system, the temperature of the sensor is set to 293.15 K.
-</p>
-</html>"));
-    end ConditionalFixedHeatFlowSensor;
     annotation (Icon(graphics={             Ellipse(
             extent={{-78,50},{52,-76}},
             lineColor={191,0,0},

@@ -1105,6 +1105,87 @@ to port_b.
 </HTML>
 "));
     end HeatFlowSensor;
+
+    model ConditionalFixedHeatFlowSensor
+      "HeatFlowSensor, conditional fixed Temperature"
+      parameter Boolean useFixedTemperature(start=false)
+        "Fixed Temperature if true"
+        annotation(Evaluate=true);
+      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a port_a
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b port_b
+        annotation (Placement(transformation(extent={{90,-10},{110,10}})));
+      Modelica.Thermal.HeatTransfer.Sensors.HeatFlowSensor heatFlowSensor
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+      Modelica.Thermal.HeatTransfer.Sources.FixedTemperature fixedTemperature(final T(
+            displayUnit="K") = 293.15) if                                                       useFixedTemperature
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={-50,-30})));
+      Blocks.Interfaces.RealOutput Q_flow annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={0,-70})));
+    equation
+      connect(heatFlowSensor.port_b, port_b) annotation (Line(
+          points={{10,0},{100,0}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(port_a, heatFlowSensor.port_a) annotation (Line(
+          points={{-100,0},{-10,0}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(fixedTemperature.port, heatFlowSensor.port_a) annotation (Line(
+          points={{-50,-20},{-50,0},{-10,0}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(heatFlowSensor.Q_flow, Q_flow) annotation (Line(
+          points={{0,-10},{0,-70}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      annotation (Diagram(graphics),
+        Icon(graphics={
+            Rectangle(
+              extent={{-90,10},{90,-10}},
+              lineColor={255,0,0},
+              fillColor={255,0,0},
+              fillPattern=FillPattern.HorizontalCylinder),
+            Ellipse(
+              extent={{-50,50},{50,-50}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,50},{0,38}}, color={0,0,0}),
+            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}),
+            Ellipse(
+              extent={{-5,5},{5,-5}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{-2.48,21.6},{16,16},{16,47.2},{-2.48,21.6}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-36,12},{-46,16}},         color={0,0,0}),
+            Line(points={{36,12},{46,16}},         color={0,0,0}),
+            Line(points={{22,30},{28,40}},         color={0,0,0}),
+            Line(points={{-20,30},{-28,40}},         color={0,0,0}),
+            Line(points={{0,-50},{0,-60}},
+                                         color={0,0,0})}),
+        Documentation(info="<html>
+<p>
+If useFixedTemperature = false, this sensor acts just as a normal 
+<a href=\"modelica://Modelica.Thermal.HeatTransfer.Sensors.HeatFlowSensor\">HeatFlowSensor</a>.
+</p>
+<p>
+If useFixedTemperature = true, it is assumed that the connections to both heatPorts of this sensor are conditionally removed; 
+in this case, the measured Q_flow is reported = 0 automatically.
+To avoid a singular equation system, the temperature of the sensor is set to 293.15 K.
+</p>
+</html>"));
+    end ConditionalFixedHeatFlowSensor;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics),   Documentation(info="<html>
 

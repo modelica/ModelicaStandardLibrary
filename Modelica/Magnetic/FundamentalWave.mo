@@ -2543,7 +2543,7 @@ Resistances and stray inductances of the machine always refer to either stator o
               origin={-10,-40},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Modelica.Electrical.Machines.Thermal.ConditionalFixedHeatFlowSensor
+        Modelica.Thermal.HeatTransfer.Sensors.ConditionalFixedHeatFlowSensor
           heatFlowSensorDamperCage(final useFixedTemperature=not useDamperCage)
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
@@ -2748,7 +2748,7 @@ Resistances and stray inductances of the machine refer to the stator phases. The
           annotation (Placement(transformation(extent={{10,-10},{-10,10}},
               rotation=90,
               origin={-80,40})));
-        Electrical.Machines.Thermal.ConditionalFixedHeatFlowSensor
+        Modelica.Thermal.HeatTransfer.Sensors.ConditionalFixedHeatFlowSensor
           heatFlowSensorDamperCage(final useFixedTemperature=not useDamperCage)
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
@@ -2909,7 +2909,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
           final TOperational=TrOperational) if useDamperCage
           "Symmetric rotor cage winding including resistances and stray inductances"
           annotation (Placement(transformation(extent={{10,-10},{-10,10}},  rotation=90, origin={20,-40})));
-        Electrical.Machines.Thermal.ConditionalFixedHeatFlowSensor
+        Modelica.Thermal.HeatTransfer.Sensors.ConditionalFixedHeatFlowSensor
           heatFlowSensorDamperCage(final useFixedTemperature=not useDamperCage)
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
@@ -3606,6 +3606,10 @@ according to the following figure.
             points={{-40,-90},{-40,-100},{5.55112e-16,-100}},
             color={191,0,0},
             smooth=Smooth.None));
+        connect(resistor.plug_n, starAuxiliary.plug_p) annotation (Line(
+            points={{-20,-80},{30,-80}},
+            color={0,0,255},
+            smooth=Smooth.None));
         annotation (         Icon(coordinateSystem(preserveAspectRatio=false,
                 extent={{-100,-100},{100,100}}), graphics={
               Ellipse(
@@ -3666,10 +3670,6 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
 </html>"),Diagram(graphics));
-        connect(resistor.plug_n, starAuxiliary.plug_p) annotation (Line(
-            points={{-20,-80},{30,-80}},
-            color={0,0,255},
-            smooth=Smooth.None));
       end SymmetricMultiPhaseCageWinding;
 
       model SaliencyCageWinding "Rotor cage with saliency in d- and q-axis"
