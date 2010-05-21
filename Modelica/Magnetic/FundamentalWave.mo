@@ -2215,7 +2215,7 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
             internalThermalPort,
           redeclare final
             Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceAIMC
-            powerBalance(final lossPowerRotorWinding = -rotorCageWinding.heatPortWinding.Q_flow,
+            powerBalance(final lossPowerRotorWinding = -rotorCage.heatPortWinding.Q_flow,
                          final lossPowerRotorCore = 0));
 
         parameter Modelica.SIunits.Inductance Lm(start=3*sqrt(1 - 0.0667)/(2*pi*fsNominal))
@@ -2258,12 +2258,12 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
             color={255,128,0},
             smooth=Smooth.None));
         connect(airGap.port_rp, rotorCage.port_p)        annotation (Line(
-            points={{10,-10},{10,-30}},
+            points={{10,-10},{10,-20},{10,-20},{10,-30}},
             color={255,128,0},
             smooth=Smooth.None));
         connect(rotorCage.heatPortWinding, internalThermalPort.heatPortRotorWinding)
           annotation (Line(
-            points={{-6.10623e-16,-40},{-40,-40},{-40,-90}},
+            points={{0,-40},{-40,-40},{-40,-90}},
             color={191,0,0},
             smooth=Smooth.None));
         annotation (Icon(graphics),
@@ -4658,7 +4658,7 @@ This model is mainly used to extend from in order build more complex - equation 
           color={0,0,255},
           smooth=Smooth.None));
       connect(thermalPort,internalThermalPort)  annotation (Line(
-          points={{5.55112e-16,-100},{5.55112e-16,-90},{-40,-90}},
+          points={{0,-100},{0,-90},{-40,-90}},
           color={199,0,0},
           smooth=Smooth.None));
       connect(thermalAmbient.thermalPort,internalThermalPort)  annotation (Line(
@@ -4666,8 +4666,8 @@ This model is mainly used to extend from in order build more complex - equation 
           color={199,0,0},
           smooth=Smooth.None));
       connect(inertiaRotor.flange_b, flange)
-        annotation (Line(points={{90,-1.72421e-15},{102,-1.72421e-15},{102,
-              5.55112e-16},{100,5.55112e-16}},
+        annotation (Line(points={{90,-1.22465e-015},{102,-1.22465e-015},{102,0},
+              {100,0}},
           color={0,0,0}));
       connect(internalSupport, inertiaStator.flange_a) annotation (Line(
           points={{60,-100},{70,-100}},
@@ -4681,12 +4681,12 @@ This model is mainly used to extend from in order build more complex - equation 
         annotation (Line(points={{90,-100},{90,-100},{100,-100}},
           color={0,0,0}));
       connect(airGap.flange_a, inertiaRotor.flange_a) annotation (Line(
-          points={{10,-1.33731e-15},{40,-1.33731e-15},{40,7.25006e-16},{70,
-              7.25006e-16}},
+          points={{10,-1.83697e-015},{40,-1.83697e-015},{40,1.22465e-015},{70,
+              1.22465e-015}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(airGap.support, internalSupport) annotation (Line(
-          points={{-10,2.33651e-15},{-60,2.33651e-15},{-60,-70},{60,-70},{60,
+          points={{-10,1.83697e-015},{-60,1.83697e-015},{-60,-70},{60,-70},{60,
               -100}},
           color={0,0,0},
           smooth=Smooth.None));
@@ -4714,11 +4714,11 @@ This model is mainly used to extend from in order build more complex - equation 
           color={0,0,0},
           smooth=Smooth.None));
       connect(strayLoad.flange, inertiaRotor.flange_b) annotation (Line(
-          points={{50,80},{90,80},{90,-1.72421e-15}},
+          points={{50,80},{90,80},{90,-1.22465e-015}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(friction.flange, inertiaRotor.flange_b) annotation (Line(
-          points={{90,-20},{90,-1.72421e-15}},
+          points={{90,-20},{90,-1.22465e-015}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(friction.heatPort, internalThermalPort.heatPortFriction) annotation (

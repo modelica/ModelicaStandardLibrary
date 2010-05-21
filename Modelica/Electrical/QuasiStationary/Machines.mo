@@ -2297,6 +2297,12 @@ This package contains components for modeling quasi stationary electrical induct
       parameter Modelica.SIunits.Temperature T2Operational(start=293.15)
         "Operational temperature of secondary resistance"
          annotation(Dialog(group="Operational temperatures", enable=not useThermalPort));
+      output Modelica.Electrical.Machines.Interfaces.PowerBalanceTransformer powerBalance(
+        final power1 = sum({Modelica.ComplexMath.real(v1[j]*Modelica.ComplexMath.conj( i1[j])) for j in 1:m}),
+        final power2 = sum({Modelica.ComplexMath.real(v2[j]*Modelica.ComplexMath.conj(-i2[j])) for j in 1:m}),
+        final lossPower1 = -sum(r1.heatPort.Q_flow),
+        final lossPower2 = -sum(r2.heatPort.Q_flow),
+        final lossPowerCore = 0) "Power balance";
       output Modelica.SIunits.ComplexVoltage v1[m]=plug1.pin.v
         "Primary voltage";
       output Modelica.SIunits.ComplexCurrent i1[m]=plug1.pin.i
@@ -2381,11 +2387,11 @@ This package contains components for modeling quasi stationary electrical induct
           points={{-20,80},{0,80}},
           color={199,0,0},
           smooth=Smooth.None));
-      connect(r1.heatPort, internalThermalPort.heatPort_1) annotation (Line(
+      connect(r1.heatPort, internalThermalPort.heatPort1) annotation (Line(
           points={{-80,10},{-80,60},{0,60},{0,80}},
           color={191,0,0},
           smooth=Smooth.None));
-      connect(r2.heatPort, internalThermalPort.heatPort_2) annotation (Line(
+      connect(r2.heatPort, internalThermalPort.heatPort2) annotation (Line(
           points={{80,10},{80,60},{0,60},{0,80}},
           color={191,0,0},
           smooth=Smooth.None));
