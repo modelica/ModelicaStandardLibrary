@@ -139,7 +139,7 @@ for contributing his source code to this library.
 
       annotation (Documentation(info="<html>
 
-<h5>Version 1.7.0, 2010-05-19</h5>
+<h5>Version 1.7.0, 2010-05-21</h5>
 
 <ul>
 <li>Changed <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">symmetric multi phase winding</a> model</li>
@@ -172,7 +172,7 @@ for contributing his source code to this library.
       single phase winding</a>
   <li>Reduced number of states in 
       <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding\">
-      symmetric cage</a> model</li>
+      symmetric cage</a> model by introducing an additional non-grounded star connection</li>
 </ul>
 
 <h5>Version 1.6.0, 2010-05-05</h5>
@@ -1851,13 +1851,12 @@ relationship of the voltage and current space phasor.
       Interfaces.PositiveMagneticPort port_p "Positive complex magnetic port"
         annotation (Placement(transformation(extent={{90,90},{110,110}}, rotation=0)));
       Interfaces.NegativeMagneticPort port_n "Negative complex magnetic port"
-        annotation (Placement(transformation(extent={{90,-110},{110,-90}}, rotation=
-               0)));
+        annotation (Placement(transformation(extent={{90,-110},{110,-90}}, rotation=0)));
 
       parameter Real effectiveTurns "Effective number of turns"
         annotation(Evaluate=true);
       parameter Modelica.SIunits.Angle orientation
-        "Orientation of the resulting fundamental wave field phasor"
+        "Orientation of the resulting fundamental wave V_m phasor"
         annotation(Evaluate=true);
 
       // Local electric single phase quantities
@@ -1888,19 +1887,19 @@ relationship of the voltage and current space phasor.
       i = pin_p.i;
       pin_p.i + pin_n.i = 0;
 
-      // Complex magnetic potential difference from currents, number
+      // Complex magnetic potential difference is determined from currents, number
       // of turns and angles of orientation of winding
       // V_m.re = (2/pi) * effectiveTurns*cos(orientation)*i;
       // V_m.im = (2/pi) * effectiveTurns*sin(orientation)*i;
       V_m = (2.0/pi) * N * i;
 
-      // Induced voltages from complex magnetic flux, number of turns
+      // Induced voltages is determined from complex magnetic flux, number of turns
       // and angles of orientation of winding
       // -v = effectiveTurns*cos(orientation)*der(Phi.re)
       //    + effectiveTurns*sin(orientation)*der(Phi.im);
       -v = Modelica.ComplexMath.real(Modelica.ComplexMath.conj(N)*Complex(der(Phi.re),der(Phi.im)));
 
-      annotation (defaultName="converter",
+      annotation (defaultComponentName="converter",
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
@@ -1977,8 +1976,6 @@ The voltage <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/v.png
 
       import Modelica.Constants.pi;
 
-      // constant Modelica.SIunits.Angle offset = 0.0000
-      //   "Development constant to be removed in the final version";
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(
         final m=m) "Positive plug"
         annotation (Placement(transformation(
@@ -1997,21 +1994,17 @@ The voltage <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/v.png
         annotation (Placement(transformation(extent={{90,90},{110,110}}, rotation=0)));
       Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort port_n
         "Negative complex magnetic port"
-        annotation (Placement(transformation(extent={{90,-110},{110,-90}}, rotation=
-               0)));
+        annotation (Placement(transformation(extent={{90,-110},{110,-90}}, rotation=0)));
 
       parameter Integer m = 3 "Number of phases";
       parameter Real effectiveTurns[m] "Effective number of turns";
       parameter Modelica.SIunits.Angle orientation[m]
         "Orientation of the resulting fundamental wave field phasor";
 
-      // A technical solution with a rotator cannot be applied to the equations below
-      final parameter Complex N[m] = {effectiveTurns[k]*Modelica.ComplexMath.exp(Complex(0,orientation[k])) for k in 1:m}
-        "Complex effective number of turns";
-
       Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter
-        singlePhaseElectroMagneticConverter[m](final effectiveTurns=
-            effectiveTurns, final orientation=orientation)
+        singlePhaseElectroMagneticConverter[m](
+          final effectiveTurns=effectiveTurns,
+          final orientation=orientation)
         annotation (Placement(transformation(extent={{-8,-10},{12,10}})));
     equation
       connect(plug_p.pin, singlePhaseElectroMagneticConverter.pin_p) annotation (
@@ -2038,7 +2031,7 @@ The voltage <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/v.png
           color={255,128,0},
           smooth=Smooth.None));
 
-      annotation (         Icon(coordinateSystem(preserveAspectRatio=false,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false,
               extent={{-100,-100},{100,100}}), graphics={
             Ellipse(
               extent={{-60,60},{58,0}},
@@ -2109,9 +2102,7 @@ The voltages <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/v_k.
 <p>
 </p>
 </html>"),
-        uses(Modelica(version="3.2")),
-        Diagram(graphics),
-                 defaultName="converter");
+        Diagram(graphics),defaultComponentName="converter");
     end MultiPhaseElectroMagneticConverter;
 
     model Idle "Salient reluctance"
@@ -2263,10 +2254,10 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
             smooth=Smooth.None));
         connect(rotorCage.heatPortWinding, internalThermalPort.heatPortRotorWinding)
           annotation (Line(
-            points={{0,-40},{-40,-40},{-40,-90}},
+            points={{-6.10623e-16,-40},{-40,-40},{-40,-90}},
             color={191,0,0},
             smooth=Smooth.None));
-        annotation (Icon(graphics),
+        annotation (defaultComponentName="aimc",Icon(graphics),
         Documentation(info="<html>
 <p>
 Resistances and stray inductances of the machine refer to the stator phases. The symmetry of the stator and rotor is assumed. Only losses in stator and rotor resistances are taken into account.
@@ -2414,7 +2405,7 @@ Resistances and stray inductances of the machine refer to the stator phases. The
             points={{-100,60},{-80,60},{-80,-60},{10,-60},{10,-50}},
             color={0,0,255},
             smooth=Smooth.None));
-        annotation (         Icon(graphics={Line(points={{-100,50},{-100,20},{-60,
+        annotation (defaultComponentName="aims",Icon(graphics={Line(points={{-100,50},{-100,20},{-60,
                     20}}, color={0,0,255}), Line(points={{-100,-50},{-100,-20},
                     {-60,-20}}, color={0,0,255})}),
         Documentation(info="<html>
@@ -2582,7 +2573,7 @@ Resistances and stray inductances of the machine always refer to either stator o
             points={{40,-60},{40,-80},{-40,-80},{-40,-90}},
             color={191,0,0},
             smooth=Smooth.None));
-        annotation (         Icon(graphics={
+        annotation (defaultComponentName="smpm",Icon(graphics={
               Rectangle(
                 extent={{-130,10},{-100,-10}},
                 lineColor={0,0,0},
@@ -2805,7 +2796,7 @@ Resistances and stray inductances of the machine refer to the stator phases. The
             points={{40,-60},{40,-80},{-40,-80},{-40,-90}},
             color={191,0,0},
             smooth=Smooth.None));
-        annotation (         Icon(graphics={
+        annotation (defaultComponentName="smee",Icon(graphics={
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255}),
               Line(points={{-100,50},{-100,20},{-130,20},{-130,-4}}, color={0,0,
                     255}),
@@ -2943,7 +2934,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
             points={{40,-60},{40,-80},{-40,-80},{-40,-90}},
             color={191,0,0},
             smooth=Smooth.None));
-        annotation (         Icon(graphics={
+        annotation (defaultComponentName="smr",Icon(graphics={
               Rectangle(extent={{-130,10},{-100,-10}}, lineColor={0,0,0}),
               Rectangle(extent={{-100,10},{-70,-10}}, lineColor={0,0,0}),
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255})}),
@@ -3331,7 +3322,7 @@ heat <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">
           d(start=1), q(start=1))
           "Salient inductance of a single unchorded coil w.r.t. the fundamental wave";
         final parameter
-          Modelica.Magnetic.FundamentalWave.Types.SalientReluctance R_m(
+          Modelica.Magnetic.FundamentalWave.Types.SalientReluctance               R_m(
           d=1/L0.d, q=1/L0.q) "Reluctance of the air gap model";
 
         // Complex phasors of magnetic potential differences
@@ -3511,8 +3502,7 @@ according to the following figure.
           "Reference temperature of winding";
         parameter
           Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
-          alpha20(start=Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero)
-          "Temperature coefficient of winding at 20 degC";
+          alpha20(start=0) "Temperature coefficient of winding at 20 degC";
         final parameter Modelica.SIunits.LinearTemperatureCoefficient alphaRef=
           Modelica.Electrical.Machines.Thermal.convertAlpha(alpha20,TRef,293.15);
         parameter Modelica.SIunits.Temperature TOperational(start=293.15)
@@ -3522,8 +3512,8 @@ according to the following figure.
         parameter Modelica.SIunits.Inductance Lsigma "Cage stray inductance";
         parameter Real effectiveTurns = 1 "Effective number of turns";
 
-        Modelica.SIunits.Current i[m] "Cage currents";
-        Modelica.SIunits.Current i0 "Zero sequence current";
+        Modelica.SIunits.Current i[m](each start=0)=strayInductor.i
+          "Cage currents";
 
         Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
           winding(
@@ -3561,34 +3551,29 @@ according to the following figure.
               extent={{-10,10},{10,-10}},
               rotation=270)));
 
-        Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortWinding if
-                                                               useHeatPort
+        Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortWinding if useHeatPort
           "Heat ports of winding resistor"
           annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
-        Thermal.HeatTransfer.Components.ThermalCollector thermalCollector(final m=m) if useHeatPort
+        Thermal.HeatTransfer.Components.ThermalCollector thermalCollector(
+          final m=m) if useHeatPort
           "Connector of thermal rotor resistance heat ports"
           annotation (Placement(transformation(extent={{-50,-90},{-30,-70}})));
-        Modelica.Electrical.MultiPhase.Basic.Star starAuxiliary(final m=m)
+        Modelica.Electrical.MultiPhase.Basic.Star starAuxiliary(
+          final m=m)
           annotation (Placement(transformation(extent={{30,-90},{50,-70}}, rotation=0)));
-      initial equation
-        i = zeros(m);
 
       equation
-
-        i = strayInductor.i;
-        m*i0 = sum(i);
-        connect(port_p, winding.port_p)                            annotation (Line(
+        connect(port_p, winding.port_p) annotation (Line(
               points={{-100,5.55112e-16},{-10,5.55112e-16},{-10,1.16747e-15}},
-                               color={255,128,0}));
-        connect(winding.port_n, port_n)                            annotation (Line(
+              color={255,128,0}));
+        connect(winding.port_n, port_n) annotation (Line(
               points={{10,-5.72459e-17},{100,-5.72459e-17},{100,5.55112e-16}},
-                               color={255,128,0}));
+              color={255,128,0}));
         connect(ground.p,star. pin_n) annotation (Line(points={{60,-20},{56,-20},
                 {50,-20}},
               color={0,0,255}));
         connect(strayInductor.plug_n, resistor.plug_p)
-                                           annotation (Line(points={{-20,-40},{-20,
-                -60}}, color={0,0,255}));
+          annotation (Line(points={{-20,-40},{-20,-60}}, color={0,0,255}));
         connect(strayInductor.plug_p, winding.plug_p) annotation (Line(
             points={{-20,-20},{-10,-20}},
             color={0,0,255},
@@ -3602,7 +3587,7 @@ according to the following figure.
             color={191,0,0},
             smooth=Smooth.None));
         connect(thermalCollector.port_b, heatPortWinding)
-                                                   annotation (Line(
+          annotation (Line(
             points={{-40,-90},{-40,-100},{5.55112e-16,-100}},
             color={191,0,0},
             smooth=Smooth.None));
@@ -3610,7 +3595,7 @@ according to the following figure.
             points={{-20,-80},{30,-80}},
             color={0,0,255},
             smooth=Smooth.None));
-        annotation (         Icon(coordinateSystem(preserveAspectRatio=false,
+        annotation (Icon(coordinateSystem(preserveAspectRatio=false,
                 extent={{-100,-100},{100,100}}), graphics={
               Ellipse(
                 extent={{-80,80},{80,-80}},
@@ -3686,8 +3671,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
           "Reference temperature of winding";
         parameter
           Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
-          alpha20(start=Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero)
-          "Temperature coefficient of winding at 20 degC";
+          alpha20(start=0) "Temperature coefficient of winding at 20 degC";
         final parameter Modelica.SIunits.LinearTemperatureCoefficient alphaRef=
           Modelica.Electrical.Machines.Thermal.convertAlpha(alpha20,TRef,293.15);
         parameter Modelica.SIunits.Temperature TOperational(start=293.15)
@@ -3699,7 +3683,9 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
           d(start=1), q(start=1)) "Salient cage stray inductance";
         parameter Real effectiveTurns = 1 "Effective number of turns";
 
-        Modelica.Magnetic.FundamentalWave.Types.SalientCurrent i "Cage current";
+        Modelica.Magnetic.FundamentalWave.Types.SalientCurrent i(
+          d(start=0, fixed=true)=strayInductor.i[1],
+          q(start=0, fixed=true)=strayInductor.i[2]) "Cage current";
 
         Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
           winding(
@@ -3744,11 +3730,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
         Thermal.HeatTransfer.Components.ThermalCollector thermalCollector(final m=2) if useHeatPort
           "Connector of thermal rotor resistance heat ports"
           annotation (Placement(transformation(extent={{-50,-90},{-30,-70}})));
-      initial equation
-        i = Modelica.Magnetic.FundamentalWave.Types.Salient(0, 0);
       equation
-        i.d = strayInductor.i[1];
-        i.q = strayInductor.i[2];
 
         connect(port_p, winding.port_p)                            annotation (Line(
               points={{-100,5.55112e-16},{-10,5.55112e-16},{-10,1.16747e-15}},
@@ -3927,12 +3909,12 @@ for electric machines.
               textString="-"),
             Ellipse(
               extent={{-50,-50},{50,50}},
-              lineColor={255,127,0},
+              lineColor={255,128,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
-            Line(points={{100,0},{50,0}}, color={255,127,0}),
-            Line(points={{-50,0},{-100,0}}, color={255,127,0}),
-            Line(points={{-50,0},{50,0}}, color={255,127,0}),
+            Line(points={{100,0},{50,0}}, color={255,128,0}),
+            Line(points={{-50,0},{-100,0}}, color={255,128,0}),
+            Line(points={{-50,0},{50,0}}, color={255,128,0}),
             Text(
               extent={{0,-120},{0,-80}},
               textString="%name",
@@ -3982,13 +3964,13 @@ Source of constant magneto motive force.
               textString="-"),
             Ellipse(
               extent={{-50,-50},{50,50}},
-              lineColor={255,127,0},
+              lineColor={255,128,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
-            Line(points={{100,0},{50,0}}, color={255,127,0}),
-            Line(points={{-50,0},{-100,0}}, color={255,127,0}),
-            Line(points={{-50,0},{50,0}}, color={255,127,0}),
-            Line(points={{0,100},{0,50}}, color={255,127,0}),
+            Line(points={{100,0},{50,0}}, color={255,128,0}),
+            Line(points={{-50,0},{-100,0}}, color={255,128,0}),
+            Line(points={{-50,0},{50,0}}, color={255,128,0}),
+            Line(points={{0,100},{0,50}}, color={255,128,0}),
             Text(
               extent={{0,-120},{0,-80}},
               textString="%name",
@@ -4031,12 +4013,12 @@ Source of magneto motive force with complex signal input.
               extent={{-100,-100},{100,100}}), graphics={
             Ellipse(
               extent={{-50,-50},{50,50}},
-              lineColor={255,127,0},
+              lineColor={255,128,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
-            Line(points={{100,0},{50,0}}, color={255,127,0}),
-            Line(points={{-50,0},{-100,0}}, color={255,127,0}),
-            Line(points={{0,50},{0,-50}}, color={255,127,0}),
+            Line(points={{100,0},{50,0}}, color={255,128,0}),
+            Line(points={{-50,0},{-100,0}}, color={255,128,0}),
+            Line(points={{0,50},{0,-50}}, color={255,128,0}),
             Polygon(
               points={{80,0},{60,6},{60,-6},{80,0}},
               lineColor={255,128,0},
@@ -4089,18 +4071,18 @@ Source of constant magnetic flux.
               extent={{-100,-100},{100,100}}), graphics={
             Ellipse(
               extent={{-50,-50},{50,50}},
-              lineColor={255,127,0},
+              lineColor={255,128,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
-            Line(points={{100,0},{50,0}}, color={255,127,0}),
-            Line(points={{-50,0},{-100,0}}, color={255,127,0}),
-            Line(points={{0,50},{0,-50}}, color={255,127,0}),
+            Line(points={{100,0},{50,0}}, color={255,128,0}),
+            Line(points={{-50,0},{-100,0}}, color={255,128,0}),
+            Line(points={{0,50},{0,-50}}, color={255,128,0}),
             Polygon(
               points={{80,0},{60,6},{60,-6},{80,0}},
               lineColor={255,128,0},
               fillColor={255,128,0},
               fillPattern=FillPattern.Solid),
-            Line(points={{0,100},{0,50}}, color={255,127,0}),
+            Line(points={{0,100},{0,50}}, color={255,128,0}),
             Text(
               extent={{0,-120},{0,-80}},
               textString="%name",
@@ -4342,7 +4324,7 @@ The potential quantity of the magnetic port is the complex magnetic potential di
 
       extends Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort;
 
-      annotation (defaultName="port_n",
+      annotation (defaultComponentName="port_n",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Ellipse(
               extent={{-100,100},{100,-100}},
@@ -4374,7 +4356,7 @@ Negative magnetic <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfa
     connector PositiveMagneticPort "Positive complex magnetic port"
 
       extends Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort;
-      annotation (defaultName="port_p",
+      annotation (defaultComponentName="port_p",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Ellipse(
               extent={{-100,100},{100,-100}},
@@ -4658,7 +4640,7 @@ This model is mainly used to extend from in order build more complex - equation 
           color={0,0,255},
           smooth=Smooth.None));
       connect(thermalPort,internalThermalPort)  annotation (Line(
-          points={{0,-100},{0,-90},{-40,-90}},
+          points={{5.55112e-16,-100},{5.55112e-16,-90},{-40,-90}},
           color={199,0,0},
           smooth=Smooth.None));
       connect(thermalAmbient.thermalPort,internalThermalPort)  annotation (Line(
@@ -4666,8 +4648,8 @@ This model is mainly used to extend from in order build more complex - equation 
           color={199,0,0},
           smooth=Smooth.None));
       connect(inertiaRotor.flange_b, flange)
-        annotation (Line(points={{90,-1.22465e-015},{102,-1.22465e-015},{102,0},
-              {100,0}},
+        annotation (Line(points={{90,-1.72421e-15},{102,-1.72421e-15},{102,
+              5.55112e-16},{100,5.55112e-16}},
           color={0,0,0}));
       connect(internalSupport, inertiaStator.flange_a) annotation (Line(
           points={{60,-100},{70,-100}},
@@ -4681,12 +4663,12 @@ This model is mainly used to extend from in order build more complex - equation 
         annotation (Line(points={{90,-100},{90,-100},{100,-100}},
           color={0,0,0}));
       connect(airGap.flange_a, inertiaRotor.flange_a) annotation (Line(
-          points={{10,-1.83697e-015},{40,-1.83697e-015},{40,1.22465e-015},{70,
-              1.22465e-015}},
+          points={{10,-1.33731e-15},{40,-1.33731e-15},{40,7.25006e-16},{70,
+              7.25006e-16}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(airGap.support, internalSupport) annotation (Line(
-          points={{-10,1.83697e-015},{-60,1.83697e-015},{-60,-70},{60,-70},{60,
+          points={{-10,2.33651e-15},{-60,2.33651e-15},{-60,-70},{60,-70},{60,
               -100}},
           color={0,0,0},
           smooth=Smooth.None));
@@ -4714,11 +4696,11 @@ This model is mainly used to extend from in order build more complex - equation 
           color={0,0,0},
           smooth=Smooth.None));
       connect(strayLoad.flange, inertiaRotor.flange_b) annotation (Line(
-          points={{50,80},{90,80},{90,-1.22465e-015}},
+          points={{50,80},{90,80},{90,-1.72421e-15}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(friction.flange, inertiaRotor.flange_b) annotation (Line(
-          points={{90,-20},{90,-1.22465e-015}},
+          points={{90,-20},{90,-1.72421e-15}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(friction.heatPort, internalThermalPort.heatPortFriction) annotation (
@@ -4973,7 +4955,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <tr><td>Version</td> <td>Revision</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
 </thead>
 <tbody>
-<tr><td>1.7.0</td><td>3889</td>  <td>2010-05-19</td>  <td>C. Kral<br>A. Haumer</td>  <td>Changed single phase and symmetrical multi phase winding model<br>Relocated core losses</td></tr>
+<tr><td>1.7.0</td><td>3892</td>  <td>2010-05-21</td>  <td>C. Kral<br>A. Haumer</td>  <td>Changed single phase and symmetrical multi phase winding model<br>Relocated core losses</td></tr>
 <tr><td>1.6.0</td><td>3837</td>  <td>2010-05-05</td>  <td>C. Kral</td>  <td>Renamed all parameters windingAngle to orientation<br>Update due to changed class names in Machines.Icons<br>Exchanged positive and negative stator ports of air gap model</td></tr>
 <tr><td>1.5.0</td><td>3802</td>  <td>2010-04-28</td>  <td>C. Kral</td>  <td>Added stator core, friction, stray load and brush loss models and changed parameter of EddyCurrent model</td></tr>
 <tr><td>1.4.0</td><td>3763</td>  <td>2010-04-22</td>  <td>C. Kral</td>  <td>Added eddy current loss model with thermal heat port</td></tr>
