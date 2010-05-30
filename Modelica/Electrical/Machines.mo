@@ -2913,7 +2913,7 @@ This package contains test examples of DC machines.
           C2=Modelica.Utilities.Strings.substring(transformer.VectorGroup,2,2))
                                                 annotation (Placement(
               transformation(extent={{-10,40},{10,60}}, rotation=0)));
-        Machines.BasicMachines.Transformers.Yd.Yd01 transformer(
+        BasicMachines.Transformers.Dy.Dy01          transformer(
           n=transformerData.n,
           R1=transformerData.R1,
           L1sigma=transformerData.L1sigma,
@@ -2981,17 +2981,136 @@ This package contains test examples of DC machines.
             color={0,0,255},
             smooth=Smooth.None));
         annotation (Documentation(info="<HTML>
-Transformer testbench:<br>
-You may choose different connections as well as vary the load (even not symmetrical).<br>
+<h4>Transformer testbench:</h4>
+<p>
+You may choose different connections as well as vary the load (even not symmetrical).
+</p>
+<p>
 <b>Please pay attention</b> to proper grounding of the primary and secondary part of the whole circuit.<br>
-The primary and secondary starpoint are available as connectors, if the connection is not delta (D or d).<br>
-In some cases it may be necessary to ground the transformer's starpoint
-even though the source's or load's starpoint are grounded; you may use a reasonable high earthing resistance.
+The primary and secondary starpoint are available as connectors, if the connection is not delta (D or d).
+</p>
+<p>
+In some cases it may be necessary to ground the transformer's starpoint even though the source's or load's starpoint are grounded:
+</p>
+<ul>
+<li>Yy ... Grounding of transformer's primary or secondary starpoint with reasonable high earthing resistance is necessary.</li>
+<li>Yd ... No grounding necessary.</li>
+<li>Yz ... Grounding of transformer's primary starpoint with reasonable high earthing resistance is necessary.</li>
+<li>Dy ... No grounding necessary.</li>
+<li>Dd ... No grounding necessary.</li>
+<li>Dz ... No grounding necessary.</li>
+</ul>
 </HTML>"),Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}),
                   graphics),
           experiment(StopTime=0.1));
       end TransformerTestbench;
+
+      model AsymmetricalLoad "AsymmetricalLoad"
+        extends Modelica.Icons.Example;
+        parameter Modelica.SIunits.Resistance RL=1 "Load resistance";
+        Modelica.Electrical.MultiPhase.Sources.SineVoltage source(freqHz=fill(50, 3),
+            V=fill(sqrt(2/3)*100, 3))
+          annotation (Placement(transformation(
+              origin={-90,-10},
+              extent={{-10,10},{10,-10}},
+              rotation=270)));
+        Modelica.Electrical.MultiPhase.Basic.Star starS
+          annotation (Placement(transformation(
+              origin={-90,-40},
+              extent={{-10,-10},{10,10}},
+              rotation=270)));
+        Modelica.Electrical.Analog.Basic.Ground groundS
+          annotation (Placement(transformation(extent={{-100,-80},{-80,-60}},
+                rotation=0)));
+        MultiPhase.Sensors.CurrentSensor currentSensorS
+          annotation (Placement(transformation(extent={{-60,20},{-40,0}},
+                rotation=0)));
+        Modelica.Electrical.Analog.Basic.Ground groundL
+          annotation (Placement(transformation(extent={{0,-80},{20,-60}},
+                rotation=0)));
+        Machines.Utilities.TransformerData transformerData(
+          C1=Modelica.Utilities.Strings.substring(transformer.VectorGroup,1,1),
+          C2=Modelica.Utilities.Strings.substring(transformer.VectorGroup,2,2))
+                                                annotation (Placement(
+              transformation(extent={{-10,40},{10,60}}, rotation=0)));
+        BasicMachines.Transformers.Dy.Dy01          transformer(
+          n=transformerData.n,
+          R1=transformerData.R1,
+          L1sigma=transformerData.L1sigma,
+          R2=transformerData.R2,
+          L2sigma=transformerData.L2sigma) annotation (Placement(transformation(
+                extent={{-20,-10},{20,30}}, rotation=0)));
+        MultiPhase.Basic.PlugToPin_n plugToPin_n(     k=1)
+          annotation (Placement(transformation(extent={{20,0},{40,20}})));
+        Analog.Basic.Resistor load(R=RL) annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={50,0})));
+        Analog.Basic.Resistor                     earth(R=1e6)
+          annotation (Placement(transformation(
+              origin={-10,-40},
+              extent={{-10,10},{10,-10}},
+              rotation=270)));
+        Analog.Basic.Ground                     groundT
+          annotation (Placement(transformation(extent={{-20,-80},{0,-60}},
+                rotation=0)));
+      equation
+        connect(starS.pin_n, groundS.p)
+          annotation (Line(points={{-90,-50},{-90,-60}}, color={0,0,255}));
+        connect(source.plug_n, starS.plug_p)
+          annotation (Line(points={{-90,-20},{-90,-30}}, color={0,0,255}));
+        connect(currentSensorS.plug_n, transformer.plug1)    annotation (Line(
+            points={{-40,10},{-20,10}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(transformer.plug2, plugToPin_n.plug_n) annotation (Line(
+            points={{20,10},{28,10}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(transformer.starpoint2, groundL.p) annotation (Line(
+            points={{10,-10},{10,-60}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(load.p, plugToPin_n.pin_n) annotation (Line(
+            points={{50,10},{32,10}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(transformer.starpoint2, load.n) annotation (Line(
+            points={{10,-10},{50,-10}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(source.plug_p, currentSensorS.plug_p) annotation (Line(
+            points={{-90,-1.77636e-015},{-90,10},{-60,10}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(earth.n,groundT. p)
+          annotation (Line(points={{-10,-50},{-10,-50},{-10,-60}},       color={0,
+                0,255}));
+        annotation (Documentation(info="<HTML>
+<h4>Asymmetrical (singlephase) load:</h4>
+<p>
+You may choose different connections.
+</p>
+<p>
+<b>Please pay attention</b> to proper grounding of the primary and secondary part of the whole circuit.<br>
+The primary and secondary starpoint are available as connectors, if the connection is not delta (D or d).
+</p>
+<p>
+In some cases it may be necessary to ground the transformer's starpoint even though the source's or load's starpoint are grounded:
+</p>
+<ul>
+<li>Yy with primary starpoint connected to source's starpoint: primary current in only one phase</li>
+<li>Yy primary starpoint  not connected to source's starpoint: secondary voltage breaks down</li>
+<li>Yz ... Grounding of transformer's primary starpoint with reasonable high earthing resistance is necessary.</li>
+<li>Dy ... Load current in two   primary phases.</li>
+<li>Dz ... Load current in three primary phases.</li>
+</ul>
+</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                  {100,100}}),
+                  graphics),
+          experiment(StopTime=0.1));
+      end AsymmetricalLoad;
 
       model Rectifier6pulse "6-pulse rectifier with 1 transformer"
         extends Modelica.Icons.Example;
@@ -9900,18 +10019,137 @@ and <a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.AirGapDC
 </html>"));
     end CoreParameters;
 
+    model Friction "Model of angular velocity dependent friction losses"
+      extends Machines.Interfaces.FlangeSupport;
+      parameter FrictionParameters frictionParameters
+        "Friction loss parameters";
+      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort
+        "Heat port to model heat flow"
+        annotation (Placement(transformation(
+            origin={-100,0},
+            extent={{10,-10},{-10,10}},
+            rotation=270), iconTransformation(
+            extent={{10,-10},{-10,10}},
+            rotation=270,
+            origin={-100,0})));
+    equation
+      if (frictionParameters.PRef<=0) then
+        tau = 0;
+      else
+        tau = -smooth(1,if w >= +frictionParameters.wLinear then
+                          +frictionParameters.tauRef*(+w/frictionParameters.wRef)^frictionParameters.power_w else
+                        if w <= -frictionParameters.wLinear then
+                          -frictionParameters.tauRef*(-w/frictionParameters.wRef)^frictionParameters.power_w else
+                          frictionParameters.tauLinear*(w/frictionParameters.wLinear));
+      end if;
+      heatPort.Q_flow = tau*w;
+     annotation (
+       Diagram(graphics),
+       Icon(graphics={
+            Ellipse(
+              extent={{-60,60},{60,-60}},
+              lineColor={0,0,0},
+              fillColor={175,175,175},
+              fillPattern=FillPattern.Solid),
+            Ellipse(
+              extent={{-50,50},{50,-50}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Ellipse(
+              extent={{-12,50},{8,30}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={135,135,135}),
+            Ellipse(
+              extent={{-10,-30},{10,-50}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={135,135,135}),
+            Ellipse(
+              extent={{24,-10},{44,-30}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={135,135,135}),
+            Ellipse(
+              extent={{22,34},{42,14}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={135,135,135}),
+            Ellipse(
+              extent={{-44,30},{-24,10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={135,135,135}),
+            Ellipse(
+              extent={{-44,-12},{-24,-32}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={135,135,135}),
+            Ellipse(
+              extent={{-30,30},{30,-30}},
+              lineColor={0,0,0},
+              fillColor={175,175,175},
+              fillPattern=FillPattern.Solid),
+            Ellipse(
+              extent={{-20,20},{20,-20}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid)}),
+       Documentation(info="<html>
+<p>
+The friction losses are considered by the equations
+</p>
+<pre>
+   tau / tauRef = (+w / wRef) ^ power_w    for w &gt; +wLinear
+ - tau / tauRef = (-w / wRef) ^ power_w    for w &lt; -wLinear
+</pre>
+<p>
+with
+</p>
+<pre>
+  tauRef * wRef = PRef
+</pre>
+<p>
+being the friction torque at the referenc angular velocity
+<code>wRef</code>. The exponent <code>power_w</code> is
+approximately 1.5 for axial ventilation and approximately 2.0 for radial ventilation.
+</p>
+<p>
+For stability reasons the friction torque <code>tau</code> is approximated by a linear curve
+</p>
+<pre>
+  tau / tauLinear = w / wLinear
+</pre>
+<p>
+with
+</p>
+<pre>
+  tauLinear = tauRef*(wLinear/wRef) ^ power_w
+</pre>
+<p>
+in the range <code> -wLinear &le; w &le; wLinear</code> with <code>wLinear = 0.001 * wRef</code>. The relationship of torque
+and angular velocity is depicted in Fig. 1
+</p>
+<table border=0 cellspacing=0 cellpadding=1>
+  <tr><td> <img src=\"modelica://Modelica/Images/Electrical/Machines/frictiontorque.png\"> </td>
+  </tr>
+  <tr><td> <b> Fig. 1: </b>Friction loss torque versus angular velocity for <code>power_w = 2</code></td>
+  </tr>
+</table>
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Electrical.Machines.Losses.FrictionParameters\">FrictionParameters</a>
+</p>
+<p>
+If it is desired to neglect friction losses, set <code>frictionParameters.PRef = 0</code> (this is the default).
+</p>
+</html>"));
+    end Friction;
+
     package InductionMachines "Loss models for induction machines"
       extends Modelica.Icons.VariantsPackage;
 
-      model Friction "Model of angular velocity dependent friction losses"
-        extends Machines.Losses.DCMachines.Friction;
-        annotation (Documentation(info="<html>
-<p>
-Model of friction losses; it is the same as
-<a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.Friction\">DC Friction</a> loss model.
-</p>
-</html>"), Diagram(graphics));
-      end Friction;
 
       model Brush "Model considering voltage drop of carbon brushes"
         extends Modelica.Electrical.MultiPhase.Interfaces.TwoPlug(final m=3);
@@ -10159,133 +10397,6 @@ This package contains loss models used for induction machine models.
     package DCMachines "Loss models for DC machines"
       extends Modelica.Icons.VariantsPackage;
 
-      model Friction "Model of angular velocity dependent friction losses"
-        extends Machines.Interfaces.FlangeSupport;
-        parameter FrictionParameters frictionParameters
-          "Friction loss parameters";
-        Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort
-          "Heat port to model heat flow"
-          annotation (Placement(transformation(
-              origin={-100,0},
-              extent={{10,-10},{-10,10}},
-              rotation=270), iconTransformation(
-              extent={{10,-10},{-10,10}},
-              rotation=270,
-              origin={-100,0})));
-      equation
-        if (frictionParameters.PRef<=0) then
-          tau = 0;
-        else
-          tau = -smooth(1,if w >= +frictionParameters.wLinear then
-                            +frictionParameters.tauRef*(+w/frictionParameters.wRef)^frictionParameters.power_w else
-                          if w <= -frictionParameters.wLinear then
-                            -frictionParameters.tauRef*(-w/frictionParameters.wRef)^frictionParameters.power_w else
-                            frictionParameters.tauLinear*(w/frictionParameters.wLinear));
-        end if;
-        heatPort.Q_flow = tau*w;
-       annotation (
-         Diagram(graphics),
-         Icon(graphics={
-              Ellipse(
-                extent={{-60,60},{60,-60}},
-                lineColor={0,0,0},
-                fillColor={175,175,175},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{-50,50},{50,-50}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{-12,50},{8,30}},
-                lineColor={0,0,0},
-                fillPattern=FillPattern.Sphere,
-                fillColor={135,135,135}),
-              Ellipse(
-                extent={{-10,-30},{10,-50}},
-                lineColor={0,0,0},
-                fillPattern=FillPattern.Sphere,
-                fillColor={135,135,135}),
-              Ellipse(
-                extent={{24,-10},{44,-30}},
-                lineColor={0,0,0},
-                fillPattern=FillPattern.Sphere,
-                fillColor={135,135,135}),
-              Ellipse(
-                extent={{22,34},{42,14}},
-                lineColor={0,0,0},
-                fillPattern=FillPattern.Sphere,
-                fillColor={135,135,135}),
-              Ellipse(
-                extent={{-44,30},{-24,10}},
-                lineColor={0,0,0},
-                fillPattern=FillPattern.Sphere,
-                fillColor={135,135,135}),
-              Ellipse(
-                extent={{-44,-12},{-24,-32}},
-                lineColor={0,0,0},
-                fillPattern=FillPattern.Sphere,
-                fillColor={135,135,135}),
-              Ellipse(
-                extent={{-30,30},{30,-30}},
-                lineColor={0,0,0},
-                fillColor={175,175,175},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{-20,20},{20,-20}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid)}),
-         Documentation(info="<html>
-<p>
-The friction losses are considered by the equations
-</p>
-<pre>
-   tau / tauRef = (+w / wRef) ^ power_w    for w &gt; +wLinear
- - tau / tauRef = (-w / wRef) ^ power_w    for w &lt; -wLinear
-</pre>
-<p>
-with
-</p>
-<pre>
-  tauRef * wRef = PRef
-</pre>
-<p>
-being the friction torque at the referenc angular velocity
-<code>wRef</code>. The exponent <code>power_w</code> is
-approximately 1.5 for axial ventilation and approximately 2.0 for radial ventilation.
-</p>
-<p>
-For stability reasons the friction torque <code>tau</code> is approximated by a linear curve
-</p>
-<pre>
-  tau / tauLinear = w / wLinear
-</pre>
-<p>
-with
-</p>
-<pre>
-  tauLinear = tauRef*(wLinear/wRef) ^ power_w
-</pre>
-<p>
-in the range <code> -wLinear &le; w &le; wLinear</code> with <code>wLinear = 0.001 * wRef</code>. The relationship of torque
-and angular velocity is depicted in Fig. 1
-</p>
-<table border=0 cellspacing=0 cellpadding=1>
-  <tr><td> <img src=\"modelica://Modelica/Images/Electrical/Machines/frictiontorque.png\"> </td>
-  </tr>
-  <tr><td> <b> Fig. 1: </b>Friction loss torque versus angular velocity for <code>power_w = 2</code></td>
-  </tr>
-</table>
-<h4>See also</h4>
-<p>
-<a href=\"modelica://Modelica.Electrical.Machines.Losses.FrictionParameters\">FrictionParameters</a>
-</p>
-<p>
-If it is desired to neglect friction losses, set <code>frictionParameters.PRef = 0</code> (this is the default).
-</p>
-</html>"));
-      end Friction;
 
       model Brush "Model considering voltage drop of carbon brushes"
         extends Modelica.Electrical.Analog.Interfaces.OnePort;
@@ -11681,21 +11792,20 @@ Connector for Space Phasors:
         annotation (Placement(transformation(extent={{10,10},{-10,-10}},
               rotation=180,
             origin={50,-100})));
-    protected
-      Modelica.Mechanics.Rotational.Interfaces.Support internalSupport
-        annotation (Placement(transformation(extent={{56,-104},{64,-96}},
-              rotation=0)));
-    public
-      Machines.Losses.DCMachines.Friction friction(final frictionParameters=frictionParameters)
+      Machines.Losses.Friction friction(final frictionParameters=frictionParameters)
         annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=0,
             origin={90,-40})));
+    protected
+      Modelica.Mechanics.Rotational.Interfaces.Support internalSupport
+        annotation (Placement(transformation(extent={{56,-104},{64,-96}},
+              rotation=0)));
     equation
       connect(inertiaRotor.flange_b, flange)
                                             annotation (Line(points={{90,
-              -1.72421e-15},{92,-1.72421e-15},{92,5.55112e-16},{100,5.55112e-16}},
+              -1.22465e-015},{92,-1.22465e-015},{92,0},{100,0}},
                                                                color={0,0,0}));
       connect(inertiaStator.flange_b, support)
         annotation (Line(points={{90,-100},{100,-100}}, color={0,0,0}));
@@ -11708,7 +11818,7 @@ Connector for Space Phasors:
           color={0,0,0},
           smooth=Smooth.None));
       connect(inertiaRotor.flange_b, friction.flange) annotation (Line(
-          points={{90,-1.72421e-15},{90,-30}},
+          points={{90,-1.22465e-015},{90,-30}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(friction.support, internalSupport) annotation (Line(
