@@ -4275,7 +4275,7 @@ VN- -&GT; name.pc[N-1]
       algorithm
         phibtemp := energyGapDepTemp( temp);
         phibtnom := energyGapDepTemp( tnom);
-        vt       := SpiceRoot.SPICEcircuitCONST.CONSTKoverQ * temp;
+        vt       := SpiceConstants.CONSTKoverQ * temp;
         ret := (phi0 - phibtnom) * temp / tnom + phibtemp + vt * 3 * Modelica.Math.log( tnom / temp);
 
         annotation (Documentation(info="<html>
@@ -4299,8 +4299,8 @@ VN- -&GT; name.pc[N-1]
         Modelica.SIunits.Voltage energygaptemp;
 
       algorithm
-        vt            := SpiceRoot.SPICEcircuitCONST.CONSTKoverQ * temp;
-        vtnom         := SpiceRoot.SPICEcircuitCONST.CONSTKoverQ * tnom;
+        vt            := SpiceConstants.CONSTKoverQ * temp;
+        vtnom         := SpiceConstants.CONSTKoverQ * tnom;
         energygaptnom := energyGapDepTemp( tnom);
         energygaptemp := energyGapDepTemp( temp);
         ret           := satcur0  * exp( energygaptnom / vtnom - energygaptemp / vt);
@@ -4322,7 +4322,7 @@ VN- -&GT; name.pc[N-1]
         Modelica.SIunits.Voltage vte;
 
       algorithm
-        vte := SpiceRoot.SPICEcircuitCONST.CONSTKoverQ * temp * ncoeff;
+        vte := SpiceConstants.CONSTKoverQ * temp * ncoeff;
         ret := vte * Modelica.Math.log( vte / (sqrt(2) * satcur));
         ret := if ( ret > 1e10) then  1e10 else ret;
 
@@ -4361,23 +4361,23 @@ VN- -&GT; name.pc[N-1]
       algorithm
         phibtemp    := energyGapDepTemp( temp);
         phibtnom    := energyGapDepTemp( tnom);
-        vt          := SpiceRoot.SPICEcircuitCONST.CONSTKoverQ * temp;
-        vtnom       := SpiceRoot.SPICEcircuitCONST.CONSTKoverQ * tnom;
-        arg         := -phibtemp/(2*SpiceRoot.SPICEcircuitCONST.CONSTboltz*temp) +
-                       1.1150877/(SpiceRoot.SPICEcircuitCONST.CONSTboltz*(2*SpiceRoot.SPICEcircuitCONST.REFTEMP));
-        fact2       := temp/SpiceRoot.SPICEcircuitCONST.REFTEMP;
-        pbfact      := -2*vt*(1.5*Modelica.Math.log(fact2)+SpiceRoot.SPICEcircuitCONST.CHARGE*arg);
-        arg1        := -phibtnom/(SpiceRoot.SPICEcircuitCONST.CONSTboltz*2*tnom) +
-                       1.1150877/(2*SpiceRoot.SPICEcircuitCONST.CONSTboltz*SpiceRoot.SPICEcircuitCONST.REFTEMP);
-        fact1       := tnom/SpiceRoot.SPICEcircuitCONST.REFTEMP;
-        pbfact1     := -2 * vtnom*(1.5*Modelica.Math.log(fact1)+SpiceRoot.SPICEcircuitCONST.CHARGE*arg1);
+        vt          := SpiceConstants.CONSTKoverQ * temp;
+        vtnom       := SpiceConstants.CONSTKoverQ * tnom;
+        arg         := -phibtemp/(2*SpiceConstants.CONSTboltz*temp) +
+                       1.1150877/(SpiceConstants.CONSTboltz*(2*SpiceConstants.REFTEMP));
+        fact2       := temp/SpiceConstants.REFTEMP;
+        pbfact      := -2*vt*(1.5*Modelica.Math.log(fact2)+SpiceConstants.CHARGE*arg);
+        arg1        := -phibtnom/(SpiceConstants.CONSTboltz*2*tnom) +
+                       1.1150877/(2*SpiceConstants.CONSTboltz*SpiceConstants.REFTEMP);
+        fact1       := tnom/SpiceConstants.REFTEMP;
+        pbfact1     := -2 * vtnom*(1.5*Modelica.Math.log(fact1)+SpiceConstants.CHARGE*arg1);
         pbo         := (phi0-pbfact1)/fact1;
         junctionpot := pbfact+fact2*pbo;
         gmaold      := (phi0 -pbo)/pbo;
         gmanew      := (junctionpot-pbo)/pbo;
         jucntioncap := cap0 /
-                       (1+mcoeff* (400e-6*(tnom-SpiceRoot.SPICEcircuitCONST.REFTEMP)-gmaold))  *
-                       (1+mcoeff* (400e-6*(temp-SpiceRoot.SPICEcircuitCONST.REFTEMP)-gmanew));
+                       (1+mcoeff* (400e-6*(tnom-SpiceConstants.REFTEMP)-gmaold))  *
+                       (1+mcoeff* (400e-6*(temp-SpiceConstants.REFTEMP)-gmanew));
 
         annotation (Documentation(info="<html>
 <p>This internal function calculates several temperature dependent junction parameters based on the actual and the nominal temperature.</p>
@@ -4433,7 +4433,7 @@ VN- -&GT; name.pc[N-1]
       out_current := current;
       out_cond := cond;
       if (satcur > 1e-101) then
-        vte := SpiceRoot.SPICEcircuitCONST.CONSTKoverQ * temp * ncoeff;
+        vte := SpiceConstants.CONSTKoverQ * temp * ncoeff;
 
         max_exponent := Modelica.Math.log(max_current/satcur);
         max_exponent := min(max_exp, max_exponent);
@@ -4441,7 +4441,7 @@ VN- -&GT; name.pc[N-1]
         if (voltage <= 0) then
           out_cond    := satcur/vte;
           out_current := out_cond * voltage;
-          out_cond    := out_cond + SpiceRoot.SPICEcircuitCONST.CKTgmin;
+          out_cond    := out_cond + SpiceConstants.CKTgmin;
         elseif (voltage >= max_exponent * vte) then
           evd         := exp( max_exponent);
           out_cond    := satcur * evd / vte;
@@ -4449,7 +4449,7 @@ VN- -&GT; name.pc[N-1]
 
         else
           evbd        := exp( voltage / vte);
-          out_cond    := satcur*evbd/vte + SpiceRoot.SPICEcircuitCONST.CKTgmin;
+          out_cond    := satcur*evbd/vte + SpiceConstants.CKTgmin;
           out_current := satcur *(evbd-1);
         end if;
       else
@@ -4764,39 +4764,6 @@ VN- -&GT; name.pc[N-1]
     package SpiceRoot "Basic records and functions"
       extends Modelica.Icons.Package;
 
-      record SPICEcircuitCONST "SPICE3 Constants"
-
-         constant Real EPSSIL =     (11.7 * 8.854214871e-12);
-         constant Real EPSOX =      3.453133e-11;
-         constant Modelica.SIunits.Charge CHARGE =     (1.6021918e-19);
-        constant Modelica.SIunits.Temp_K CONSTCtoK =  (273.15);
-        constant Real CONSTboltz( final unit= "J/K") = (1.3806226e-23);
-        constant Modelica.SIunits.Temp_K REFTEMP =    300.15;  /* 27 degrees C */
-
-        constant Real CONSTroot2 =  sqrt(2.0);
-        constant Real CONSTvt0(  final unit= "(J/K)/(A.s)") =   CONSTboltz * (27 + CONSTCtoK)  / CHARGE; // deg C
-        constant Real CONSTKoverQ( final unit= "(J/K)/(A.s)") = CONSTboltz / CHARGE;
-        constant Real CONSTe =      exp(1.0);
-
-        // options
-
-        constant Modelica.SIunits.Conductance CKTgmin =         1e-12;
-        constant Modelica.SIunits.Temp_K CKTnomTemp =      300.15;
-        constant Modelica.SIunits.Temp_K CKTtemp =         300.15;
-        constant Modelica.SIunits.Area CKTdefaultMosAD = 0.0;
-        constant Modelica.SIunits.Area CKTdefaultMosAS = 0.0;
-        constant Modelica.SIunits.Length CKTdefaultMosL =  1.0e-4;
-        constant Modelica.SIunits.Length CKTdefaultMosW =  1.0e-4;
-        constant Real CKTreltol =       1e-10;
-        constant Real CKTabstol =       1e-15;
-        constant Real CKTvolttol =      1e-10;
-        constant Real CKTtemptol =      1e-3;
-
-        annotation (Documentation(info="<html>
-<p>The package SPICEcircuitCONST contains several very general constants that are given in SPICE3.</p>
-</html>"));
-      end SPICEcircuitCONST;
-
       record SpiceRoot "Data for insertion to matrices"
 
         Modelica.SIunits.Current[6] m_pCurrentValues(   start = zeros(6));
@@ -4855,7 +4822,7 @@ VN- -&GT; name.pc[N-1]
 
     record Model "Device Temperature"
 
-      Modelica.SIunits.Temp_K m_dTemp( start = SpiceRoot.SPICEcircuitCONST.CKTnomTemp)
+      Modelica.SIunits.Temp_K m_dTemp( start = SpiceConstants.CKTnomTemp)
           "TEMP, Device Temperature";
         annotation (Documentation(info="<html>
 <p>The record Model includes the device temperture which has a default value of 27&deg;C.</p>
@@ -4877,9 +4844,9 @@ VN- -&GT; name.pc[N-1]
           "L, length of channel region";
         Modelica.SIunits.Length m_width(           start = 1e-4)
           "W, width of channel region";
-        Modelica.SIunits.Area m_drainArea(       start = SpiceRoot.SPICEcircuitCONST.CKTdefaultMosAD)
+        Modelica.SIunits.Area m_drainArea(       start = SpiceConstants.CKTdefaultMosAD)
           "AD, area of drain diffusion";
-        Modelica.SIunits.Area m_sourceArea(      start = SpiceRoot.SPICEcircuitCONST.CKTdefaultMosAS)
+        Modelica.SIunits.Area m_sourceArea(      start = SpiceConstants.CKTdefaultMosAS)
           "AS, area of source diffusion";
         Real m_drainSquares(    start = 1.0) "NRD, length of drain in squares";
         Real m_sourceSquares(   start = 1.0) "NRS, length of source in squares";
@@ -5319,7 +5286,7 @@ VN- -&GT; name.pc[N-1]
          (out_c.m_f1b, out_c.m_f2b, out_c.m_f3b) := Modelica.Electrical.Spice3.Internal.Functions.junctionCapCoeffs(
                                                     in_p.m_bulkJctBotGradingCoeff,
                                                     in_p.m_fwdCapDepCoeff, out_c.m_tBulkPot);
-        out_c.m_dVt   := in_m.m_dTemp * SpiceRoot.SPICEcircuitCONST.CONSTKoverQ;
+        out_c.m_dVt   := in_m.m_dTemp * SpiceConstants.CONSTKoverQ;
 
         annotation (Documentation(info="<html>
 <p>This function mosCalcCalcTempDependencies does precalculation relating to the temperature (level 1).</p>
@@ -5641,7 +5608,7 @@ VN- -&GT; name.pc[N-1]
          (out_c.m_f1b, out_c.m_f2b, out_c.m_f3b) := Modelica.Electrical.Spice3.Internal.Functions.junctionCapCoeffs(
                                                     in_p.m_bulkJctBotGradingCoeff,
                                                     in_p.m_fwdCapDepCoeff, out_c.m_tBulkPot);
-        out_c.m_dVt   := in_m.m_dTemp * SpiceRoot.SPICEcircuitCONST.CONSTKoverQ;
+        out_c.m_dVt   := in_m.m_dTemp * SpiceConstants.CONSTKoverQ;
 
         annotation (Documentation(info="<html>
 <p>This function mosCalcCalcTempDependencies does precalculation relating to the temperature (level 2).</p>
@@ -5870,7 +5837,7 @@ VN- -&GT; name.pc[N-1]
         out_v.m_gamma            := in_p.m_gamma;
         out_v.m_vt0              := in_p.m_vt0;
 
-        vtnom  := in_p.m_tnom*SpiceRoot.SPICEcircuitCONST.CONSTKoverQ;
+        vtnom  := in_p.m_tnom*SpiceConstants.CONSTKoverQ;
         egfet1 := 1.16 - (7.02e-4*in_p.m_tnom*in_p.m_tnom)/(in_p.m_tnom + 1108);
 
         if (not (in_p.m_oxideThicknessIsGiven > 0.5) or in_p.m_oxideThickness == 0) then
@@ -5900,11 +5867,11 @@ VN- -&GT; name.pc[N-1]
                 end if;
                 wkfngs := wkfng - (3.25 +0.5  * egfet1 + fermis);
                 if (not (in_p.m_gammaIsGiven > 0.5)) then
-                  out_v.m_gamma := sqrt(2 * 11.70 * 8.854214871e-12 * SpiceRoot.SPICEcircuitCONST.CHARGE *
+                  out_v.m_gamma := sqrt(2 * 11.70 * 8.854214871e-12 * SpiceConstants.CHARGE *
                                    in_p.m_substrateDoping * 1e6 / out_v.m_oxideCapFactor);         // (cm**3/m**3)
                 end if;
                 if (not (in_p.m_vtOIsGiven > 0.5)) then
-                  vfb         := wkfngs - in_p.m_surfaceStateDensity * 1e4 * SpiceRoot.SPICEcircuitCONST.CHARGE / out_v.m_oxideCapFactor; // (cm**2/m**2)
+                  vfb         := wkfngs - in_p.m_surfaceStateDensity * 1e4 * SpiceConstants.CHARGE / out_v.m_oxideCapFactor; // (cm**2/m**2)
                   out_v.m_vt0 := vfb + in_m_type * (out_v.m_gamma * sqrt(out_v.m_phi) + out_v.m_phi);
                  end if;
               end if;
@@ -6048,7 +6015,7 @@ VN- -&GT; name.pc[N-1]
           intern.m_transconductanceIsGiven := if          (ex.KP > -1e40) then 1 else 0;
           intern.m_transconductance := if         (ex.KP > -1e40) then ex.KP else 2e-5;
 
-          intern.m_tnom := if (ex.TNOM > -1e40) then ex.TNOM + SpiceRoot.SPICEcircuitCONST.CONSTCtoK else 300.15
+          intern.m_tnom := if (ex.TNOM > -1e40) then ex.TNOM + SpiceConstants.CONSTCtoK else 300.15
           "parameter measurement temperature (default 27 deg C)";
 
          intern.m_jctSatCurDensity := ex.JS
@@ -6129,8 +6096,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
         dev.m_bPMOS := mtype "P type MOSfet model";
         dev.m_nLevel := ex.LEVEL "Level";
         assert(ex.LEVEL== 1, "only MOS Level1 implemented");
-        dev.m_dTemp :=TEMP + SpiceRoot.SPICEcircuitCONST.CONSTCtoK
-          "Device temperature";
+        dev.m_dTemp :=TEMP + SpiceConstants.CONSTCtoK "Device temperature";
 
         annotation (Documentation(info="<html>
 <pre>This function mos1RenameParametersDev assigns the external (given by the user) device parameters to the internal parameters. It also does the analysis of the IsGiven values (level 1).</pre>
@@ -6939,7 +6905,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
         dev.m_bPMOS := mtype;         // P type MOSfet model
         dev.m_nLevel := ex.LEVEL;
         assert(ex.LEVEL== 1, "only MOS Level1 implemented");
-        dev.m_dTemp :=TEMP + SpiceRoot.SPICEcircuitCONST.CONSTCtoK;
+        dev.m_dTemp :=TEMP + SpiceConstants.CONSTCtoK;
         annotation (Documentation(info="<html>
 <pre>This function mos2RenameParameters assigns the external (given by the user) device parameters to the internal parameters. It also does the analysis of the IsGiven values (level 2).</pre>
 </html>"));
@@ -7392,7 +7358,7 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
 
         intern.m_dDefW := ex.DEFW;
         intern.m_dNarrow := ex.NARROW;
-        intern.m_dTnom := if (ex.TNOM > -1e40) then ex.TNOM + SpiceRoot.SPICEcircuitCONST.CONSTCtoK else
+        intern.m_dTnom := if (ex.TNOM > -1e40) then ex.TNOM + SpiceConstants.CONSTCtoK else
                 300.15;
 
         annotation (Documentation(info="<html>
@@ -7430,7 +7396,7 @@ to the internal parameters (e.g. m_emissionCoeff). It also does the analysis of 
          intern.m_dLength := if
                               (L > -1e40) then L else 0;
          intern.m_bSensResist := SENS_AREA;
-        intern.m_dTemp := if (TEMP > -1e40) then TEMP + SpiceRoot.SPICEcircuitCONST.CONSTCtoK else
+        intern.m_dTemp := if (TEMP > -1e40) then TEMP + SpiceConstants.CONSTCtoK else
                 300.15;
 
         annotation (Documentation(info="<html>
@@ -8282,7 +8248,7 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
         intern.m_fNcoef := ex.KF;
         intern.m_fNexp := ex.AF;
         intern.m_depletionCapCoeff :=ex.FC;
-        intern.m_tnom := if (ex.TNOM > -1e40) then ex.TNOM + SpiceRoot.SPICEcircuitCONST.CONSTCtoK else 300.15;
+        intern.m_tnom := if (ex.TNOM > -1e40) then ex.TNOM + SpiceConstants.CONSTCtoK else 300.15;
 
         annotation (Documentation(info="<html>
 <p>This function assigns the external (given by the user, e.g. IS) technology parameters</p>
@@ -8327,7 +8293,7 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
       output Model.Model m "Output record model";
       algorithm
 
-       m.m_dTemp :=TEMP + SpiceRoot.SPICEcircuitCONST.CONSTCtoK;
+       m.m_dTemp :=TEMP + SpiceConstants.CONSTCtoK;
 
         annotation (Documentation(info="<html>
 <p>This function calculates device parameters wehich are temperature dependent.</p>
