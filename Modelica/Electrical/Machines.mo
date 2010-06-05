@@ -1,3 +1,4 @@
+within Modelica.Electrical;
 
 
 package Machines "Library for electric machines" 
@@ -847,8 +848,7 @@ Default machine parameters of model <i>SM_PermanentMagnetDamperCage</i> are used
       parameter Modelica.SIunits.Voltage VNominal=100 
         "nominal RMS voltage per phase";
       parameter Modelica.SIunits.Frequency fNominal=50 "nominal frequency";
-      parameter Modelica.SIunits.Conversions.NonSIunits.AngularVelocity_rpm rpm
-        =                                                                       1499 
+      parameter Modelica.SIunits.Conversions.NonSIunits.AngularVelocity_rpm rpm=1499 
         "nominal speed";
       parameter Modelica.SIunits.Current Ie = 19 "excitation current";
       parameter Modelica.SIunits.Current Ie0 = 10 "initial excitation current";
@@ -2212,7 +2212,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color=3,
             rgbcolor={0,0,255},
             smooth=0));
-        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20; 
+        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20;
               -10,14; -6.12303e-016,14; -6.12303e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
@@ -2398,7 +2398,7 @@ TurnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<
           annotation (points=[40,-80; 30,-80],   style(color=3));
         connect(rr.plug_p, plug_rp)        annotation (points=[60,-80; 60,-90;
               -80,-90; -80,60; -100,60],  style(color=3, rgbcolor={0,0,255}));
-        connect(spacePhasorR.ground, spacePhasorR.zero) annotation (points=[-10,-20; 
+        connect(spacePhasorR.ground, spacePhasorR.zero) annotation (points=[-10,-20;
               -10,-14; -6.12303e-016,-14; -6.12303e-016,-20],      style(
             color=3,
             rgbcolor={0,0,255},
@@ -2445,7 +2445,7 @@ TurnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<
             color=3,
             rgbcolor={0,0,255},
             smooth=0));
-        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20; 
+        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20;
               -10,14; -6.12303e-016,14; -6.12303e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
@@ -2766,7 +2766,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color=3,
             rgbcolor={0,0,255},
             smooth=0));
-        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20; 
+        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20;
               -10,14; -6.12303e-016,14; -6.12303e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
@@ -3064,7 +3064,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color=3,
             rgbcolor={0,0,255},
             smooth=0));
-        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20; 
+        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20;
               -10,14; -6.12303e-016,14; -6.12303e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
@@ -3290,7 +3290,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color=3,
             rgbcolor={0,0,255},
             smooth=0));
-        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20; 
+        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20;
               -10,14; -6.12303e-016,14; -6.12303e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
@@ -3362,9 +3362,8 @@ This package contains models of DC machines:
         Components.AirGapDC airGapDC(            final TurnsRatio=TurnsRatio, final Le=Le) 
                                      annotation (extent=[-10,-10; 10,10], rotation=-90);
       protected 
-        final parameter Modelica.SIunits.Inductance Le=1 
-          "total field excitation inductance" 
-           annotation(Dialog(group="Excitation"));
+        constant Modelica.SIunits.Inductance Le=1 
+          "total field excitation inductance";
         constant Modelica.SIunits.Current IeNominal=1 
           "equivalent excitation current";
       public 
@@ -3448,13 +3447,13 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
         connect(airGapDC.pin_en, eGround.p) annotation (points=[-10,-10; -10,
               -50], style(color=3, rgbcolor={0,0,255}));
         connect(airGapDC.flange_a, inertiaRotor.flange_a) annotation (points=[10,
-              6.12303e-016; 36,6.12303e-016; 36,-1.22461e-015; 60,-1.22461e-015],
+              6.12323e-016; 36,6.12323e-016; 36,-1.22465e-015; 60,-1.22465e-015],
                               style(
             color=0,
             rgbcolor={0,0,0},
             smooth=0));
         connect(airGapDC.support, internalSupport) annotation (points=[-10,
-              -6.12303e-016; -56,-6.12303e-016; -56,0; -90,0; -90,-100; 20,-100],
+              -6.12323e-016; -56,-6.12323e-016; -56,0; -90,0; -90,-100; 20,-100],
             style(
             color=0,
             rgbcolor={0,0,0},
@@ -3911,8 +3910,7 @@ This package contains transformers primary Y connected / secondary y connected i
           
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yy0
-</html>"), 
-            Diagram);
+</html>"),  Diagram);
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Yy00");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m) 
@@ -5091,8 +5089,7 @@ This package contains transformers primary D connected / secondary d connected i
           
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dz0
-</html>"), 
-            Diagram);
+</html>"),  Diagram);
           extends Machines.BasicMachines.Components.BasicTransformer(final 
               VectorGroup =                                                            "Dz00");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m) 
@@ -7136,7 +7133,7 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
         Diagram);
     equation 
       connect(inertiaRotor.flange_b, flange_a) annotation (points=[80,
-            1.22461e-015; 92,1.22461e-015; 92,0; 100,0],
+            1.22465e-015; 92,1.22465e-015; 92,0; 100,0],
                                            style(color=0, rgbcolor={0,0,0}));
       connect(inertiaStator.flange_b, support) 
         annotation (points=[80,-100; 100,-100], style(color=0, rgbcolor={0,0,0}));
