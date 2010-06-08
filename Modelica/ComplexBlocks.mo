@@ -2270,6 +2270,64 @@ The Complex output y is a step signal (of real and imaginary part):
 
 </html>"));
         end ComplexStep;
+
+    block ComplexRotatingPhasor
+      "Generate a phasor with constant magnitude and constant angular velocity of type Complex"
+      parameter Real magnitude=1 "Magnitude of complex phasor";
+      parameter Modelica.SIunits.AngularVelocity w=1
+        "Constant angular velocity of complex phasor";
+      parameter Modelica.SIunits.Angle phi0 = 0
+        "Initial angle of complex phasor at time = 0";
+      extends Modelica.ComplexBlocks.Interfaces.ComplexSO;
+
+    equation
+      y = magnitude * Modelica.ComplexMath.exp(Complex(0,w*time+phi0));
+      annotation (
+        Icon(coordinateSystem(
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
+        grid={1,1}), graphics={
+        Polygon(
+          points={{-10,90},{-16,68},{-4,68},{-10,90}},
+          lineColor={95,95,95},
+          fillColor={95,95,95},
+          fillPattern=FillPattern.Solid),
+        Line(points={{-10,68},{-10,-90}}, color={95,95,95}),
+        Line(points={{-90,0},{82,0}},     color={95,95,95}),
+        Polygon(
+          points={{90,0},{68,6},{68,-6},{90,0}},
+          lineColor={95,95,95},
+          fillColor={95,95,95},
+          fillPattern=FillPattern.Solid),
+            Line(
+              points={{-10,0},{50,50}},
+              color={0,0,255},
+              smooth=Smooth.None,
+              thickness=0.5),
+        Polygon(
+          points={{50,50},{29,41},{38,30},{50,50}},
+          lineColor={95,95,95},
+          fillColor={0,0,255},
+          fillPattern=FillPattern.Solid),
+            Line(points={{-47,35},{-40,40},{-32,44},{-20,47},{-7,46},{5,42},{18,34},
+                  {26,23},{31,10}},            color={0,0,255}),
+            Polygon(
+              points={{-52,29},{-32,36},{-42,47},{-52,29}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid)}),
+        Diagram(coordinateSystem(
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
+        grid={1,1}), graphics),
+    Documentation(info="<html>
+<p>
+The output y is a complex phasor with constant magnitude, spinning with constant angular velocity.
+</p>
+
+</html>"),
+        uses(Modelica(version="3.2")));
+    end ComplexRotatingPhasor;
   end Sources;
  annotation (Documentation(info="<html>
 <p>This library hosts blocks using Complex inputs and outputs.</p>
