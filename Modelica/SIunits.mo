@@ -1753,6 +1753,9 @@ argument):</p>
   record ComplexMagneticFlux =
     Complex(redeclare MagneticFlux re,
             redeclare MagneticFlux im) "Complex magnetic flux";
+  record ComplexReluctance =
+    Complex(redeclare Modelica.SIunits.Reluctance re,
+            redeclare Modelica.SIunits.Reluctance im) "Complex reluctance";
   record ComplexImpedance =
     Complex(redeclare Resistance re,
             redeclare Reactance im) "Complex electrical impedance";
