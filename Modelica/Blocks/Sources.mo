@@ -706,8 +706,7 @@ The Real output y is a sine signal:
 
       equation
         y = offset + (if time < startTime then 0 else amplitude*
-          Modelica.Math.exp(-(time - startTime)*damping)*Modelica.Math.sin(2*pi
-          *freqHz*(time - startTime) + phase));
+          Modelica.Math.exp(-(time - startTime)*damping)*Modelica.Math.sin(2*pi*freqHz*(time - startTime) + phase));
         annotation (
           Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -845,10 +844,9 @@ The Real output y is a sine signal with exponentially changing amplitude:
 
       equation
         y_riseTime = outMax*(1 - Modelica.Math.exp(-riseTime/riseTimeConst));
-        y = offset + (if (time < startTime) then 0 else if (time < (startTime
-           + riseTime)) then outMax*(1 - Modelica.Math.exp(-(time - startTime)/riseTimeConst)) else
-                y_riseTime*Modelica.Math.exp(-(time - startTime - riseTime)/
-          fallTimeConst));
+        y = offset + (if (time < startTime) then 0
+                else if (time < (startTime + riseTime)) then outMax*(1 - Modelica.Math.exp(-(time - startTime)/riseTimeConst))
+                else                                          y_riseTime*Modelica.Math.exp(-(time - startTime - riseTime)/fallTimeConst));
 
         annotation (
           Icon(coordinateSystem(
@@ -969,21 +967,26 @@ by a falling exponential signal:
           final max=100) = 50 "Width of pulse in % of period";
         parameter Modelica.SIunits.Time period(final min=Modelica.Constants.small,start=1)
       "Time for one period";
+        parameter Integer nperiod=-1
+      "Number of periods (< 0 means infinite number of periods)";
         parameter Real offset=0 "Offset of output signals";
         parameter Modelica.SIunits.Time startTime=0
       "Output = offset for time < startTime";
         extends Modelica.Blocks.Interfaces.SO;
-
   protected
-        Modelica.SIunits.Time T0(final start=startTime)
-      "Start time of current period";
         Modelica.SIunits.Time T_width = period*width/100;
+        Modelica.SIunits.Time T0 "Start time of current period";
+        Integer counter "Period counter";
+      initial algorithm
+        counter := integer((time - startTime)/period);
+        T0 := startTime + counter*period;
       equation
-        when sample(startTime, period) then
+        when integer((time - startTime)/period)>pre(counter) then
+          counter = pre(counter)+1;
           T0 = time;
         end when;
-        y = offset + (if time < startTime or time >= T0 + T_width then 0 else
-          amplitude);
+        y = offset + (if (time<startTime or nperiod==0 or (nperiod>0 and counter>=nperiod)) then 0
+                 else if  time<T0 + T_width then amplitude else 0);
         annotation (
           Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -1124,19 +1127,25 @@ The Real output y is a pulse signal:
         parameter Real amplitude=1 "Amplitude of saw tooth";
         parameter SIunits.Time period(final min=Modelica.Constants.small,start = 1)
       "Time for one period";
+        parameter Integer nperiod=-1
+      "Number of periods (< 0 means infinite number of periods)";
         parameter Real offset=0 "Offset of output signals";
         parameter SIunits.Time startTime=0
       "Output = offset for time < startTime";
         extends Interfaces.SO;
   protected
         SIunits.Time T0(final start=startTime) "Start time of current period";
-
+        Integer counter "Period counter";
+      initial algorithm
+        counter := integer((time - startTime)/period);
+        T0 := startTime + counter*period;
       equation
-        when sample(startTime, period) then
+        when integer((time - startTime)/period)>pre(counter) then
+          counter = pre(counter)+1;
           T0 = time;
         end when;
-        y = offset + (if time < startTime then 0 else (amplitude/period)*(time
-           - T0));
+        y = offset + (if (time<startTime or nperiod==0 or (nperiod>0 and counter>=nperiod)) then 0
+                     else amplitude*(time - T0)/period);
         annotation (
           Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -1275,20 +1284,21 @@ The Real output y is a saw tooth signal:
       "End time of width phase within one period";
         parameter SIunits.Time T_falling=T_width + falling
       "End time of falling phase within one period";
-        SIunits.Time T0(final start=startTime) "Start time of current period";
-        Integer counter(start=nperiod) "Period counter";
-        Integer counter2(start=nperiod);
-
+        SIunits.Time T0 "Start time of current period";
+        Integer counter "Period counter";
+      initial algorithm
+        counter := integer((time - startTime)/period);
+        T0 := startTime + counter*period;
       equation
-        when pre(counter2) <> 0 and sample(startTime, period) then
+        when integer((time - startTime)/period)>pre(counter) then
+          counter = pre(counter)+1;
           T0 = time;
-          counter2 = pre(counter);
-          counter = pre(counter) - (if pre(counter) > 0 then 1 else 0);
         end when;
-        y = offset + (if (time < startTime or counter2 == 0 or time >= T0 +
-          T_falling) then 0 else if (time < T0 + T_rising) then (time - T0)*
-          amplitude/T_rising else if (time < T0 + T_width) then amplitude else
-          (T0 + T_falling - time)*amplitude/(T_falling - T_width));
+        y = offset + (if (time<startTime or nperiod==0 or (nperiod>0 and counter>=nperiod)) then 0
+                 else if (time < T0 + T_rising)  then amplitude*(time - T0)/rising
+                 else if (time < T0 + T_width)   then amplitude
+                 else if (time < T0 + T_falling) then amplitude*(T0 + T_falling - time)/falling
+                 else                                 0);
         annotation (
           Icon(coordinateSystem(
           preserveAspectRatio=true,
