@@ -5043,6 +5043,7 @@ VN- -&GT; name.pc[N-1]
          Modelica.SIunits.Conversions.NonSIunits.PerArea_cm
           m_surfaceStateDensity(                                                   start = 0.0)
           "NSS, Gate type";
+         Real m_surfaceStateDensityIsGiven "surfaceStateDensityIsGivenValue";
          Modelica.SIunits.Conversions.NonSIunits.Area_cmPerVoltageSecond
           m_surfaceMobility( start = 600.0) "UO, Surface mobility";
          Modelica.SIunits.Length m_latDiff(             start = 0.0)
