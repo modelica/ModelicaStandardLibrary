@@ -5645,7 +5645,7 @@ VN- -&GT; name.pc[N-1]
         DEVqmeyer in_qm "Qmeyer capacitances";
         Mos2.Mos2Calc int_c "Record Mos2Calc";
         Mosfet.Mosfet int_m "Record Mosfet";
-
+        Real hlp;
       algorithm
         int_c := in_c;
 
@@ -5747,8 +5747,10 @@ VN- -&GT; name.pc[N-1]
           qm := mosCalcDEVqmeyer( int_c.m_vgs, vgd, vgb, int_c);
         else
           qm := mosCalcDEVqmeyer( vgd, int_c.m_vgs, vgb, int_c);
+          hlp := qm.qm_capgd;
+          qm.qm_capgd := qm.qm_capgs;
+          qm.qm_capgs := hlp;
         end if;
-        in_qm := qm;
 
         if (in_m_bInit) then
           int_c.m_capgd := 2 * qm.qm_capgd + int_c.m_capGDovl;
