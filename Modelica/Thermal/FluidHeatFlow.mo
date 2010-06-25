@@ -1181,16 +1181,15 @@ This package contains utility components used for the test examples.<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
 </p>
   <p>
-  Dr.Christian Kral<br>
-  &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
-  <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
+  Dr. Christian Kral<br>
+  <a href=\"http://www.ait.ac.at/\">Austrian Institute of Technology, AIT</a><br>
   Giefinggasse 2<br>
   A-1210 Vienna, Austria
 </p>
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
 </p>
 
 <p>
@@ -1226,15 +1225,14 @@ This package contains test examples:
 </p>
   <p>
   Dr.Christian Kral<br>
-  &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
-  <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
+  <a href=\"http://www.ait.ac.at/\">Austrian Institute of Technology, AIT</a><br>
   Giefinggasse 2<br>
   A-1210 Vienna, Austria
 </p>
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
 </p>
 
 <p>
@@ -1432,16 +1430,15 @@ Thermodynamic equations are defined in partial models (package Partials).<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
 </p>
   <p>
-  Dr.Christian Kral<br>
-  &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
-  <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
+  Dr. Christian Kral<br>
+  <a href=\"http://www.ait.ac.at/\">Austrian Institute of Technology, AIT</a><br>
   Giefinggasse 2<br>
   A-1210 Vienna, Austria
 </p>
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
@@ -1538,16 +1535,15 @@ This package contains definitions of medium properties.<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
 </p>
   <p>
-  Dr.Christian Kral<br>
-  &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
-  <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
+  Dr. Christian Kral<br>
+  <a href=\"http://www.ait.ac.at/\">Austrian Institute of Technology, AIT</a><br>
   Giefinggasse 2<br>
   A-1210 Vienna, Austria
 </p>
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
@@ -1721,16 +1717,15 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
 </p>
   <p>
-  Dr.Christian Kral<br>
-  &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
-  <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
+  Dr. Christian Kral<br>
+  <a href=\"http://www.ait.ac.at/\">Austrian Institute of Technology, AIT</a><br>
   Giefinggasse 2<br>
   A-1210 Vienna, Austria
 </p>
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
@@ -2032,16 +2027,15 @@ All fans / pumps are considered without losses, they do not change enthalpy flow
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
 </p>
   <p>
-  Dr.Christian Kral<br>
-  &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
-  <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
+  Dr. Christian Kral<br>
+  <a href=\"http://www.ait.ac.at/\">Austrian Institute of Technology, AIT</a><br>
   Giefinggasse 2<br>
   A-1210 Vienna, Austria
 </p>
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
@@ -2498,16 +2492,15 @@ This package contains partial models, defining in a very compact way the basic t
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
 </p>
   <p>
-  Dr.Christian Kral<br>
-  &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
-  <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
+  Dr. Christian Kral<br>
+  <a href=\"http://www.ait.ac.at/\">Austrian Institute of Technology, AIT</a><br>
   Giefinggasse 2<br>
   A-1210 Vienna, Austria
 </p>
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
@@ -2554,16 +2547,15 @@ This package contains connectors and partial models:
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
 </p>
   <p>
-  Dr.Christian Kral<br>
-  &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
-  <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
+  Dr. Christian Kral<br>
+  <a href=\"http://www.ait.ac.at/\">Austrian Institute of Technology, AIT</a><br>
   Giefinggasse 2<br>
   A-1210 Vienna, Austria
 </p>
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
@@ -2637,8 +2629,8 @@ Outlet temperature is defined by variable T of the corresponding component.</li>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
 </p>
   <p>
-  Dr.Christian Kral<br>
-  Austrian Institute of Technology <a href=\"http://www.ait.ac.at/\">AIT</a><br>
+  Dr. Christian Kral<br>
+  <a href=\"http://www.ait.ac.at/\">Austrian Institute of Technology, AIT</a><br>
   Giefinggasse 2<br>
   A-1210 Vienna, Austria
 </p>
@@ -2694,6 +2686,8 @@ Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and AIT.
   <li> v1.6.6 2007/11/13 Anton Haumer<br>
        replaced all nonSIunits<br>
        some renaming to be more concise</li>
+  <li> v1.6.7 2010/06/25 Christian Kral<br>
+       changed company name to AIT</li>
   </ul>
 </HTML>
 "), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
