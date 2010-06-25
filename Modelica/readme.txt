@@ -2,7 +2,7 @@ All files in this directory (Modelica) and in all subdirectories,
 especially in Modelica\C-sources, Modelica\help, Modelica\Images are
 licensed by the Modelica Association under the Modelica License 2
 (with exception of files "Modelica\C-sources\win32_dirent.*").
-Copyright © 1998-2009, ABB, arsenal research, DLR, Dynasim, Fraunhofer, Modelon,
+Copyright © 1998-2009, ABB, AIT, DLR, Dynasim, Fraunhofer, Modelon,
                        TU Hamburg-Harburg, Politecnico di Milano.
 
 These files are free software and the use is completely at your own risk;
