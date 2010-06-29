@@ -17,7 +17,15 @@ record Complex "Complex number with overloaded operators"
     end fromReal;
     annotation(Documentation(info="<html>
 <p>Here the constructor operator(s) is/are defined.</p>
-</html>"));
+</html>"), Icon(graphics={                 Rectangle(
+            extent={{-80,100},{100,-80}},
+            lineColor={0,0,0},
+            fillColor={215,230,240},
+            fillPattern=FillPattern.Solid), Rectangle(
+            extent={{-100,80},{80,-100}},
+            lineColor={0,0,0},
+            fillColor={240,240,240},
+            fillPattern=FillPattern.Solid)}));
   end 'constructor';
 
   encapsulated operator '-' "Unary and binary minus"
@@ -45,7 +53,15 @@ record Complex "Complex number with overloaded operators"
     end subtract;
     annotation(Documentation(info="<html>
 <p>Here the unary and binary minus operator(s) is/are defined.</p>
-</html>"));
+</html>"), Icon(graphics={                 Rectangle(
+            extent={{-80,100},{100,-80}},
+            lineColor={0,0,0},
+            fillColor={215,230,240},
+            fillPattern=FillPattern.Solid), Rectangle(
+            extent={{-100,80},{80,-100}},
+            lineColor={0,0,0},
+            fillColor={240,240,240},
+            fillPattern=FillPattern.Solid)}));
   end '-';
 
   encapsulated operator '*' "Multiplication"
@@ -83,7 +99,15 @@ record Complex "Complex number with overloaded operators"
     end scalarProduct;
     annotation(Documentation(info="<html>
 <p>Here the multiplication operator(s) is/are defined.</p>
-</html>"));
+</html>"), Icon(graphics={                 Rectangle(
+            extent={{-80,100},{100,-80}},
+            lineColor={0,0,0},
+            fillColor={215,230,240},
+            fillPattern=FillPattern.Solid), Rectangle(
+            extent={{-100,80},{80,-100}},
+            lineColor={0,0,0},
+            fillColor={240,240,240},
+            fillPattern=FillPattern.Solid)}));
   end '*';
 
   encapsulated operator function '+' "Add two complex numbers"
@@ -173,5 +197,6 @@ dateModified = "2010-01-26 19:32:58Z",
 revisionId="$Id::                                       $",
 Documentation(info="<html>
 <p>Complex number defined as a record containing real and imaginary part, utilizing operator overloading.</p>
-</html>"));
+</html>"),
+    uses(Modelica(version="3.2")));
 end Complex;
