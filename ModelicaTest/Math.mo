@@ -133,6 +133,12 @@ package Math "Test models for Modelica.Math"
                     0.1500,   0.0053,  -0.1838,   0.2501,  -0.0687;
                     0.0568,  -0.1006,  -0.3735,  -0.0202,   0.2285];
 
+    Real L[5,5] = [0.4562,    0,        0,        0,        0;
+                    0.0637,   0.5142,   0,        0,        0;
+                    0.3139,   0.1287,   0.3484,   0,        0;
+                    0.1500,   0.0053,  -0.1838,   0.2501,   0;
+                    0.0568,  -0.1006,  -0.3735,  -0.0202,   0.2285];
+
     Real C3[5,5] = transpose([0.3086,   0.0247,  -0.4691,   0.1728,  -0.3704])*[0.3086,   0.0247,  -0.4691,   0.1728,  -0.3704];
     Real X3[5,5];
     Real A3s[5,5]=transpose(Matrices.realSchur(A3));
@@ -319,7 +325,7 @@ package Math "Test models for Modelica.Math"
 
     c := Matrices.frobeniusNorm(N);
 
-  //  ##########   Hessenberg, Schur and toString   ##########
+  //  ##########   Hessenberg, Schur, Cholesky and toString   ##########
     (H1,U1) := Modelica.Math.Matrices.hessenberg(A1);
     Modelica.Math.Matrices.toString(H1,"Hessenberg",6);
     r := Matrices.norm(U1*H1*transpose(U1)-A1);
@@ -327,8 +333,12 @@ package Math "Test models for Modelica.Math"
     assert(abs(r)<eps, "\"hessenberg\"");
     H1 := Modelica.Math.Matrices.realSchur(A1);
     Modelica.Math.Matrices.toString(H1,"realSchur",6);
+    H1 := Modelica.Math.Matrices.cholesky(L*transpose(L), false);
+    r := Matrices.norm(H1-L);
+    Modelica.Utilities.Streams.print("r = "+String(r));
+    assert(abs(r)<eps, "\"cholesky\"");
 
-    Xn :=  Modelica.Math.Matrices.hessenberg(N);
+    Xn := Modelica.Math.Matrices.hessenberg(N);
     Xn := Modelica.Math.Matrices.realSchur(N);
 
   //  ##########   Utilities tests without result verification   ##########

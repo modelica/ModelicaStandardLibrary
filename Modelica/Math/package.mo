@@ -813,66 +813,6 @@ can be provided as third argument of the function. Default is \"eps = 0\".
 </HTML>"));
   end isEqual;
 
-  function norm "Returns the norm of a matrix"
-    extends Modelica.Icons.Function;
-    input Real A[:, :] "Input matrix";
-    input Real p(min=1) = 2
-      "Type of p-norm (only allowed: 1, 2 or Modelica.Constants.inf)";
-    output Real result=0.0 "p-norm of matrix A";
-
-  algorithm
-    if p == 1 then
-      // column sum norm
-      for i in 1:size(A, 2) loop
-        result := max(result, sum(abs(A[:, i])));
-      end for;
-    elseif p == 2 then
-      // largest singular value
-      result := max(singularValues(A));
-    elseif p == Modelica.Constants.inf then
-      // row sum norm
-      for i in 1:size(A, 1) loop
-        result := max(result, sum(abs(A[i, :])));
-      end for;
-    else
-      assert(false, "Optional argument \"p\" of function \"norm\" must be
-1, 2 or Modelica.Constants.inf");
-    end if;
-    annotation ( Documentation(info="<HTML>
-<h4>Syntax</h4>
-<blockquote><pre>
-Matrices.<b>norm</b>(A);
-Matrices.<b>norm</b>(A, p=2);
-</pre></blockquote>
-<h4>Description</h4>
-<p>
-The function call \"<code>Matrices.norm(A)</code>\" returns the
-2-norm of matrix A, i.e., the largest singular value of A.<br>
-The function call \"<code>Matrices.norm(A, p)</code>\" returns the
-p-norm of matrix A. The only allowed values for p are</p>
-<ul>
-<li> \"p=1\": the largest column sum of A</li>
-<li> \"p=2\": the largest singular value of A</li>
-<li> \"p=Modelica.Constants.inf\": the largest row sum of A</li>
-</ul>
-<p>
-Note, for any matrices A1, A2 the following inequality holds:
-</p>
-<blockquote><pre>
-Matrices.<b>norm</b>(A1+A2,p) &le; Matrices.<b>norm</b>(A1,p) + Matrices.<b>norm</b>(A2,p)
-</pre></blockquote>
-<p>
-Note, for any matrix A and vector v the following inequality holds:
-</p>
-<blockquote><pre>
-Vectors.<b>norm</b>(A*v,p) &le; Matrices.<b>norm</b>(A,p)*Vectors.<b>norm</b>(A,p)
-</pre></blockquote>
-
-<h4>See also</h4>
-<a href=\"Modelica://Modelica.Math.Matrices.frobeniusNorm\">Matrices.frobeniusNorm</a>
-
-</HTML>"));
-  end norm;
 
   function sort
     "Sort rows or columns of matrix in ascending or descending order"
@@ -1763,6 +1703,100 @@ matrix A was interchanged with row pivots[i].
 </HTML>"));
   end LU_solve2;
 
+  function cholesky
+    "Compute the Cholesky factorization of a symmetric positive definte matrix"
+    import Modelica.Math.Matrices.LAPACK;
+    input Real A[:,size(A, 1)] "Symmetric positive definite matrix";
+    input Boolean upper=true
+      "True if the right cholesky factor (upper triangle) should be returned";
+
+    output Real H[size(A, 1),size(A, 2)]
+      "Cholesky factor U (upper=true) or L (upper=false) for A = U'*U or A = L*L'";
+
+  protected
+    Integer n=size(A,1);
+    Integer info;
+
+  algorithm
+    if size(A, 1) > 0 then
+      (H, info) := LAPACK.dpotrf(A, upper);
+    else
+      H := fill(0,0,0);
+      info := 0;
+    end if;
+    if info<0 then
+     assert(info==0,"Cholesky factorization failed in function \"Matrices.cholesky\" due to illegal value of input " +String(info)+" for LAPACK routine DPOTRF");
+    else
+      assert(info==0,"Cholesky factorization failed in function \"Matrices.cholesky\" since matrix A is not positive definite");
+    end if;
+
+    if upper then
+      for i in 2:n loop
+        for j in 1:i - 1 loop
+          H[i, j] := 0.0;
+        end for;
+      end for;
+    else
+      for i in 1:n - 1 loop
+        for j in i + 1:n loop
+          H[i, j] := 0.0;
+        end for;
+      end for;
+    end if;
+    annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+         H = Matrices.<b>cholesky</b>(A);
+         H = Matrices.<b>cholesky</b>(A, upper=true);
+ </pre></blockquote>
+<h4>Description</h4>
+Function <b>cholesky</b> computes the Cholesky factorization of a real symmetric positive definite matrix A.
+The optional Boolean input \"upper\" specifies wether the upper or the lower triangular matrix is returned, i.e. 
+<p>
+<blockquote><pre>
+      T
+ A = H *H   if upper is true (H is upper triangular)
+ 
+        T
+ A = H*H   if upper is false (H is lower triangular)
+ 
+</pre></blockquote>
+</p>
+Computation is performed by <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dpotrf\">LAPACK.dpotrf</a>.<br>
+<p>
+<h4>Example</h4>
+<blockquote><pre>
+  A  = [1, 0,  0;
+        6, 5,  0;
+        1, -2,  2];
+  S = A*transpose(A);
+
+  H = Matrices.cholesky(S);
+
+  results in:
+
+  H = [1.0,  6.0,  1.0;
+       0.0,  5.0, -2.0;
+       0.0,  0.0,  2.0]
+
+  with 
+  
+  transpose(H)*H = [1.0,  6.0,   1;
+                    6.0, 61.0,  -4.0;
+                    1.0, -4.0,   9.0] //=S
+
+</pre></blockquote>
+
+
+</html>", revisions="<html>
+<ul>
+<li><i>2010/05/31 </i>
+       by Marcus Baur, DLR-RM</li>
+</ul>
+
+</html> "));
+  end cholesky;
+
   function QR
     "QR decomposition of a square matrix with optional column pivoting (A(:,p) = Q*R)"
 
@@ -1865,6 +1899,165 @@ called as: <code>(,R,p) = QR(A)</code>.
 </pre></blockquote>
 </HTML>"));
   end QR;
+
+  function realSchur
+    "Computes the real Schur form (RSF) S of a square matrix A, A=QZ*S*QZ'"
+      import Modelica.Math.Matrices;
+
+    input Real A[:,size(A, 1)] "Square matrix";
+
+  public
+    output Real S[size(A, 1),size(A, 2)] "Real Schur form of A";
+    output Real QZ[size(A, 1),size(A, 2)] "Schur vector Matrix";
+    output Real alphaReal[size(A, 1)]
+      "Real part of eigenvalue=alphaReal+i*alphaImag";
+    output Real alphaImag[size(A, 1)]
+      "Imaginary part of eigenvalue=(alphaReal+i*alphaImag";
+
+  protected
+    Integer info;
+
+  algorithm
+    if size(A, 1) > 1 then
+      (S,QZ,alphaReal,alphaImag) := Matrices.LAPACK.dgees(A);
+      assert(info == 0, "The output info of LAPACK.dgees should be zero, else if\n
+     info < 0:  if info = -i, the i-th argument of dgees had an illegal value\n
+     info > 0:  if INFO = i, and i is
+               <= N: the QR algorithm failed to compute all the
+                     eigenvalues; elements 1:ILO-1 and i+1:N of WR and WI
+                     contain those eigenvalues which have converged; if
+                     JOBVS = 'V', VS contains the matrix which reduces A
+                     to its partially converged Schur form.\n");
+    else
+      S := A;
+      if size(A, 1) > 0 then
+        QZ := [1];
+        alphaReal := {1};
+        alphaImag := {0};
+      else
+        QZ := fill(1, 0, 0);
+        alphaReal := fill(1, 0);
+        alphaImag := fill(0, 0);
+      end if;
+    end if;
+
+    annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+                            S = Matrices.<b>realSchur</b>(A);
+(S, QZ, alphaReal, alphaImag) = Matrices.<b>realSchur</b>(A);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Function <b>realSchur</b> calculates the real Schur form of a real square matrix <b>A</b>, i.e.
+<blockquote><pre>
+       T
+ <b>A</b> = <b>QZ</b>*<b>S</b>*<b>QZ</b>
+
+</pre></blockquote>
+with the real nxn matrices <b>S</b> and <b>QZ</b>. <b>S</b> is a block upper triangular matrix with 1x1 and 2x2 blocks in the diagonal. <b>QZ</b> is an orthogonal matrix.
+The 1x1 blocks contains the real eigenvalues of <b>A</b>. The 2x2 blocks [s11, s12; s21, s11] represents the conjugated complex pairs of eigenvalues, whereas the real parts of the eigenvalues
+are the elements of the diagonal (s11). The imaginary parts are the positive and negative square roots of the product of the two elements s12 and s21 (imag = +-sqrt(s12*s21)).
+<p>
+The calculation in lapack.dgees is performed stepwise, i.e. using the internal methods of balancing and scaling of dgees.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+   Real A[3,3] = [1, 2, 3; 4, 5, 6; 7, 8, 9];
+   Real T[3,3];
+   Real Z[3,3];
+   Real alphaReal[3];
+   Real alphaImag[3];
+
+<b>algorithm</b>
+  (T, Z, alphaReal, alphaImag):=Modelica.Math.Matrices.Utilities.rsf(A);
+//   T = [16.12, 4.9,   1.59E-015;
+//        0,    -1.12, -1.12E-015;
+//        0,     0,    -1.30E-015]
+//   Z = [-0.23,  -0.88,   0.41;
+//        -0.52,  -0.24,  -0.82;
+//        -0.82,   0.4,    0.41]
+//alphaReal = {16.12, -1.12, -1.32E-015}
+//alphaImag = {0, 0, 0}
+<p>
+<h4>See also</h4>
+<a href=\"Modelica://Modelica.Math.Matrices.Utilities.reorderRSF\">Math.Matrices.Utilities.reorderRSF</a>
+</pre></blockquote>
+</html> ", revisions="<html>
+<ul>
+<li><i>2010/05/31 </i>
+       by Marcus Baur, DLR-RM</li>
+</ul>
+</html>"));
+  end realSchur;
+
+  function hessenberg "Transform a matrix to upper Hessenberg form"
+    import Modelica;
+    import Modelica.Math.Matrices;
+
+    input Real A[:,:] "Square matrix A";
+
+    output Real H[size(A, 1),size(A, 2)] "Hessenberg form of A";
+    output Real U[size(A, 1),size(A, 2)] "Transformation matrix";
+
+  protected
+    Real V[size(A, 1),size(A, 2)]
+      "V=[v1,v2,..vn-1,0] with vi are vectors which define the elementary reflectors";
+    Real tau[max(0,size(A, 1) - 1)]
+      "Scalar factors of the elementary reflectors";
+
+  algorithm
+    (H, V, tau) := Matrices.Utilities.toUpperHessenberg(A, 1, size(A, 1));
+     U := Matrices.LAPACK.dorghr(V,1,size(A, 1),tau);
+    annotation (Documentation(info="<html>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+         H = Matrices.<b>hessenberg</b>(A);
+    (H, U) = Matrices.<b>hessenberg</b>(A);
+ </pre></blockquote>
+<h4>Description</h4>
+Function <b>hessenberg</b> computes the Hessenberg matrix <b>H</b> of matrix <b>A</b> as well as the orthogonal transformation matrix <b>U</b> that holds <b>H</b> = <b>U</b>'*<b>A</b>*<b>U</b>.
+The Hessenberg form of a matrix is computed by repeated Householder similarity transformation. The elementary reflectors and the corresponding scalar factors are provided
+by function \"Utilities.toUpperHessenberg()\". The transformation matrix <b>U</b> is then computed by
+<a href=\"modelica://Modelica.Math.Matrices.LAPACK.dorghr\">LAPACK.dorghr</a>.<br>
+<p>
+<h4>Example</h4>
+<blockquote><pre>
+ A  = [1, 2,  3;
+       6, 5,  4;
+       1, 0,  0];
+
+ (H, U) = hessenberg(A);
+
+  results in:
+
+ H = [1.0,  -2.466,  2.630;
+     -6.083, 5.514, -3.081;
+      0.0,   0.919, -0.514]
+
+ U = [1.0,    0.0,      0.0;
+      0.0,   -0.9864,  -0.1644;
+      0.0,   -0.1644,   0.9864]
+
+  and therefore,
+
+ u*H*transpose(U) = [1.0, 2.0, 3.0;
+                     6.0, 5.0, 4.0;
+                     1.0, 0.0, 0.0]
+
+</pre></blockquote>
+
+<h4>See also</h4>
+<a href=\"modelica://Modelica.Math.Matrices.Utilities.toUpperHessenberg\">Matrices.Utilities.toUpperHessenberg</a>
+
+</html>", revisions="<html>
+<ul>
+<li><i>2010/05/31 </i>
+       by Marcus Baur, DLR-RM</li>
+</ul>
+</html>"));
+  end hessenberg;
 
   function eigenValues
     "Compute eigenvalues and eigenvectors for a real, nonsymmetric matrix"
@@ -2106,28 +2299,6 @@ to compute the rank of a matrix.
 </HTML>"));
   end det;
 
-  function inv
-    "Inverse of a matrix (try to avoid, use function solve(..) instead)"
-    extends Modelica.Icons.Function;
-    input Real A[:, size(A, 1)];
-    output Real invA[size(A, 1), size(A, 2)] "Inverse of matrix A";
-  protected
-    Integer info;
-    Integer pivots[size(A, 1)] "Pivot vector";
-    Real LU[size(A, 1), size(A, 2)] "LU factors of A";
-  algorithm
-    (LU,pivots,info) := LAPACK.dgetrf(A);
-
-    assert(info == 0, "Calculating an inverse matrix with function
-\"Matrices.inv\" is not possible, since matrix A is singular.");
-
-    invA := LAPACK.dgetri(LU, pivots);
-
-    annotation (Documentation(info="<html>
-
-</html>"));
-  end inv;
-
   function rank "Rank of a matrix (computed with singular values)"
     extends Modelica.Icons.Function;
     input Real A[:, :] "Matrix";
@@ -2157,6 +2328,278 @@ to compute the rank of a matrix.
 
 </html>"));
   end rank;
+
+  function inv
+    "Inverse of a matrix (try to avoid, use function solve(..) instead)"
+    extends Modelica.Icons.Function;
+    input Real A[:, size(A, 1)];
+    output Real invA[size(A, 1), size(A, 2)] "Inverse of matrix A";
+  protected
+    Integer info;
+    Integer pivots[size(A, 1)] "Pivot vector";
+    Real LU[size(A, 1), size(A, 2)] "LU factors of A";
+  algorithm
+    (LU,pivots,info) := LAPACK.dgetrf(A);
+
+    assert(info == 0, "Calculating an inverse matrix with function
+\"Matrices.inv\" is not possible, since matrix A is singular.");
+
+    invA := LAPACK.dgetri(LU, pivots);
+
+    annotation (Documentation(info="<html>
+
+</html>"));
+  end inv;
+
+  function norm "Returns the norm of a matrix"
+    extends Modelica.Icons.Function;
+    input Real A[:, :] "Input matrix";
+    input Real p(min=1) = 2
+      "Type of p-norm (only allowed: 1, 2 or Modelica.Constants.inf)";
+    output Real result=0.0 "p-norm of matrix A";
+
+  algorithm
+    if p == 1 then
+      // column sum norm
+      for i in 1:size(A, 2) loop
+        result := max(result, sum(abs(A[:, i])));
+      end for;
+    elseif p == 2 then
+      // largest singular value
+      result := max(singularValues(A));
+    elseif p == Modelica.Constants.inf then
+      // row sum norm
+      for i in 1:size(A, 1) loop
+        result := max(result, sum(abs(A[i, :])));
+      end for;
+    else
+      assert(false, "Optional argument \"p\" of function \"norm\" must be
+1, 2 or Modelica.Constants.inf");
+    end if;
+    annotation ( Documentation(info="<HTML>
+<h4>Syntax</h4>
+<blockquote><pre>
+Matrices.<b>norm</b>(A);
+Matrices.<b>norm</b>(A, p=2);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call \"<code>Matrices.norm(A)</code>\" returns the
+2-norm of matrix A, i.e., the largest singular value of A.<br>
+The function call \"<code>Matrices.norm(A, p)</code>\" returns the
+p-norm of matrix A. The only allowed values for p are</p>
+<ul>
+<li> \"p=1\": the largest column sum of A</li>
+<li> \"p=2\": the largest singular value of A</li>
+<li> \"p=Modelica.Constants.inf\": the largest row sum of A</li>
+</ul>
+<p>
+Note, for any matrices A1, A2 the following inequality holds:
+</p>
+<blockquote><pre>
+Matrices.<b>norm</b>(A1+A2,p) &le; Matrices.<b>norm</b>(A1,p) + Matrices.<b>norm</b>(A2,p)
+</pre></blockquote>
+<p>
+Note, for any matrix A and vector v the following inequality holds:
+</p>
+<blockquote><pre>
+Vectors.<b>norm</b>(A*v,p) &le; Matrices.<b>norm</b>(A,p)*Vectors.<b>norm</b>(A,p)
+</pre></blockquote>
+
+<h4>See also</h4>
+<a href=\"Modelica://Modelica.Math.Matrices.frobeniusNorm\">Matrices.frobeniusNorm</a>
+
+</HTML>"));
+  end norm;
+
+  function frobeniusNorm "Return the Frobenius norm of a matrix"
+    extends Modelica.Icons.Function;
+    input Real A[:,:] "Input matrix";
+    output Real result "Frobenius norm of matrix A";
+
+  algorithm
+    result := if min(size(A))>0 then sqrt(sum(A.*A)) else -1e100;
+
+    annotation(Inline=true, Documentation(info="<html>
+ <h4>Syntax</h4>
+<blockquote><pre>
+  r = Matrices.<b>frobeniusNorm</b>(A);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function computes the Frobenius norm of a general real matrix <b>A</b>, i.e., the square root of the sum of the squares of all elements.
+<p>
+<h4>Example</h4>
+<blockquote><pre>
+  A = [1, 2;
+       2, 1];
+  r = frobeniusNorm(A);
+
+  results in:
+
+  r = 3.162;
+
+</pre></blockquote>
+</p>
+<h4>See also</h4>
+<a href=\"Modelica://Modelica.Math.Matrices.norm\">Matrices.norm</a>
+
+</html>", revisions="<html>
+<ul>
+<li><i>2010/05/31 </i>
+       by Marcus Baur, DLR-RM</li>
+</ul>
+</html>"));
+  end frobeniusNorm;
+
+  function conditionNumber "Compute the condition number norm(A)*norm(inv(A))"
+    extends Modelica.Icons.Function;
+
+    input Real A[:,:] "Input matrix";
+    input Real p(min=1) = 2
+      "Type of p-norm (only allowed: 1, 2 or Modelica.Constants.inf)";
+    output Real result=0.0 "p-norm of matrix A";
+
+  protected
+    Real eps=1e-25;
+    Real s[size(A, 1)] "singular values";
+
+  algorithm
+    if min(size(A)) > 0 then
+      if p == 2 then
+        s := Modelica.Math.Matrices.singularValues(A);
+        if min(s) < eps then
+          result := Modelica.Constants.inf;
+        else
+          result := max(s)/min(s);
+        end if;
+      else
+        result := Modelica.Math.Matrices.norm(A, p)*Modelica.Math.Matrices.norm(
+          Modelica.Math.Matrices.inv(A), p);
+      end if;
+    end if;
+
+    annotation (Documentation(info="<html>
+  <h4>Syntax</h4>
+<blockquote><pre>
+r = Matrices.<b>conditionNumber</b>(A);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function calculates the condition number (norm(A) * norm(inv(A))) of a general real matrix <b>A</b>, in either the 1-norm, 2-norm or the infinity-norm.
+In the case of 2-norm the result is the ratio of the largest to the smallest singular value of <b>A</b>.
+</p>
+<p>
+<h4>Example</h4>
+<blockquote><pre>
+  A = [1, 2;
+       2, 1];
+  r = conditionNumber(A);
+
+  results in:
+
+  r = 3.0
+</pre></blockquote>
+</p>
+<h4>See also</h4>
+<a href=\"Modelica://Modelica.Math.Matrices.rcond\">Matrices.rcond</a>
+</html>", revisions="<html>
+<ul>
+<li><i>2010/05/31 </i>
+       by Marcus Baur, DLR-RM</li>
+</ul>
+</html>"));
+  end conditionNumber;
+
+  function rcond "Reciprocal condition number"
+    extends Modelica.Icons.Function;
+    input Real A[:,size(A,1)] "Square real matrix";
+    input Boolean inf = false
+      "Is true if infinity norm is used and false for 1-norm";
+    output Real rcond "Reciprocal condition number of A";
+    output Integer info "Information";
+  protected
+    Real LU[:,:] "LU factorization of matrix A, returned by dgetrf";
+    Real anorm "Norm of matrix A";
+    String normspec= if inf then "I" else "1" "Specifies the norm 1 or inf";
+
+  algorithm
+    if min(size(A)) > 0 then
+      (LU,,info) := Modelica.Math.Matrices.LAPACK.dgetrf(A);
+      anorm := Modelica.Math.Matrices.LAPACK.dlange(A,normspec);
+      (rcond,info) := Modelica.Math.Matrices.LAPACK.dgecon(LU,inf,anorm);
+    else
+      rcond := Modelica.Constants.inf;
+      info := 0;
+    end if;
+
+    annotation (Documentation(info="<HTML>
+  <h4>Syntax</h4>
+<blockquote><pre>
+r = Matrices.<b>rcond</b>(A);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function estimates the reciprocal of the condition number (norm(A) * norm(inv(A))) of a general real matrix <b>A</b>, in either the 1-norm or
+the infinity-norm, using the LAPACK function <a href=\"Modelica://Modelica.Math.Matrices.LAPACK.dgecon\">DGECON</a>.<br>
+If rcond(A) is near 1.0, <b>A</b> is well conditioned and <b>A</b> is ill conditioned if rcond(A) is near zero.
+<p>
+<h4>Example</h4>
+<blockquote><pre>
+  A = [1, 2;
+       2, 1];
+  r = rcond(A);
+
+  results in:
+
+  r = 0.3333
+</pre></blockquote>
+</p>
+<h4>See also</h4>
+<a href=\"Modelica://Modelica.Math.Matrices.conditionNumber\">Matrices.conditionNumber</a>
+</HTML>", revisions="<html>
+<ul>
+<li><i>2010/05/31 </i>
+       by Marcus Baur, DLR-RM</li>
+</ul>
+</html>"));
+  end rcond;
+
+  function trace "Compute the trace of matrix A, i.e., the sum of the diagonal"
+    extends Modelica.Icons.Function;
+
+    input Real A[:,size(A, 1)] "Square matrix A";
+    output Real result "Trace of A";
+  algorithm
+    result := sum(A[i, i] for i in 1:size(A, 1));
+  annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+  r = Matrices.<b>trace</b>(A);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function computes the trace, i.e. the sum of the elements in the diagonal of matrix <b>A</b>.
+</p>
+<p>
+<h4>Example</h4>
+<blockquote><pre>
+  A = [1, 3;
+       2, 1];
+  r = trace(A);
+
+  results in:
+
+  r = 2.0
+</pre></blockquote>
+</p>
+</html>", revisions="<html>
+<ul>
+<li><i>2010/05/31 </i>
+       by Marcus Baur, DLR-RM</li>
+</ul>
+</html>"));
+  end trace;
 
   function balance "Balancing of matrix A to improve the condition of A"
     extends Modelica.Icons.Function;
@@ -2255,6 +2698,109 @@ which based on the balanc function from EISPACK.
 </li>
 </html>"));
   end balance;
+
+  function nullSpace "Orthonormal nullspace of a matrix"
+    extends Modelica.Icons.Function;
+
+    input Real A[:,:] "Input matrix";
+    output Real Z[size(A, 2),:] "Orthonormal nullspace of matrix A";
+    output Integer nullity "Nullity, i.e. the dimension of the nullspace";
+
+  protected
+    Real V[size(A, 2),size(A, 2)] "Right orthogonal matrix ";
+    Real sigma[min(size(A, 1), size(A, 2))] "singular values";
+    Integer rank "rank of matrix A";
+    Real eps "tolerance for rank determination";
+    Integer n=min(size(A, 1), size(A, 2));
+    Integer i=n;
+
+  algorithm
+    (sigma,,V) := Modelica.Math.Matrices.singularValues(A);
+    V := transpose(V);
+    // rank computation
+    eps := max(size(A, 1), size(A, 2))*max(sigma)*Modelica.Constants.eps;
+    rank := 0;
+    if n > 0 then
+      while i > 0 loop
+        if sigma[i] > eps then
+          rank := i;
+          i := 0;
+        end if;
+        i := i - 1;
+      end while;
+    end if;
+    Z := V[:, rank + 1:size(A, 2)];// nullspace computation
+    nullity := size(A, 2) - rank;// nullity
+
+    annotation (Documentation(info="<html>
+  <h4>Syntax</h4>
+<blockquote><pre>
+           Z = Matrices.<b>nullspace</b>(A);
+(Z, nullity) = Matrices.<b>nullspace</b>(A);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function calculates an orthonormal basis <b>Z</b>=[<b>z</b>_1, <b>z</b>_2, ...] of the nullspace of a matrix <b>A</b>, i.e. <b>A</b>*<b>z</b>_i=<b>0</b>.
+</p>
+The nullspace is obtained by svd method. That is, matrix <b>A</b> is decomposed into the matrices <b>S</b>, <b>U</b>, <b>V</b>:
+<blockquote><pre>
+        T
+ <b>A</b> = <b>U</b><b>S</b><b>V</b>
+
+</pre></blockquote>
+with the orthonormal matrices <b>U</b> and <b>V</b> and the matrix <b>S</b> with
+<blockquote><pre>
+ <b>S</b> = [<b>S</b>1, <b>0</b>]
+ <b>S</b>1 = [diag(s); <b>0</b>]
+
+</pre></blockquote>
+and the singular values <b>s</b>={s1, s2, ..., sr} of <b>A</b> and r=rank(<b>A</b>). Note, that <b>S</b> has the same size as <b>A</b>. Since <b>U</b> and <b>V</b> are orthonormal we may write
+<blockquote><pre>
+  T
+ <b>U</b>*<b>A</b>*<b>V</b> = [<b>S</b>1, <b>0</b>].
+
+</pre></blockquote>
+Matrix <b>S</b>1 obviously has full column rank and therefore, the left n-r rows (n is the number of columns of <b>A</b> or <b>S</b>) of matrix <b>V</b> span a nullspace of <b>A</b>.
+</p>
+<p>
+The nullity of matrix <b>A</b> is the dimension of the nullspace of <b>A</b>. In view of the above, it becomes clear that nullity holds
+<blockquote><pre>
+ nullity = n - r
+</pre></blockquote>
+with
+<blockquote><pre>
+ n = number of columns of matrix <b>A</b>
+ r = rank(<b>A</b>)
+</pre></blockquote>
+
+</p>
+<p>
+<h4>Example</h4>
+<blockquote><pre>
+  A = [1, 2,  3, 1;
+       3, 4,  5, 2;
+      -1, 2, -3, 3];
+  (Z, nullity) = nullspace(A);
+
+  results in:
+
+  Z=[0.1715;
+    -0.686;
+     0.1715;
+     0.686]
+
+  nullity = 1
+</pre></blockquote>
+</p>
+<h4>See also</h4>
+<a href=\"Modelica://Modelica.Math.Matrices.singularValues\">Matrices.singularValues</a>
+</html>", revisions="<html>
+<ul>
+<li><i>2010/05/31 </i>
+       by Marcus Baur, DLR-RM</li>
+</ul>
+</html>"));
+  end nullSpace;
 
   function exp
     "Compute the exponential of a matrix by adaptive Taylor series expansion with scaling and balancing"
@@ -2630,6 +3176,1224 @@ is discribed in
 
 //
 // protected
+
+
+  function continuousLyapunov
+    "Solution of continuous-time Lyapunov equation X*A + A'*X = C"
+    import Modelica.Math.Matrices;
+
+    input Real A[:,size(A, 1)] "Square matrix A in X*A + A'*X = C";
+    input Real C[size(A, 1),size(A, 2)] "Square matrix C in X*A + A'*X = C";
+    input Boolean ATisSchur=false
+      "True if transpose(A) has already real Schur form";
+    input Real eps=Modelica.Math.Matrices.norm(A, 1)*10*1e-15 "Tolerance eps";
+
+  protected
+    Integer n=size(A, 1);
+    Real R[size(A, 1),size(A, 2)] "rsf of A', i.e. R=U'A'U";
+    Real U[size(A, 1),size(A, 2)] "transformation matrix U for R=U'A'U";
+    Real D[size(A, 1),size(A, 2)] "Matrix D=U'*C*U";
+    Real R11[size(A, 1),size(A, 2)];
+    Real R22[size(A, 1),size(A, 2)];
+    Real R12[size(A, 1),size(A, 2)];
+    Real R21[size(A, 1),size(A, 2)];
+    Real R2[2*size(A, 1),2*size(A, 2)];
+    Real I[size(A, 1),size(A, 1)]=identity(size(A, 1));
+    Real y[2*size(A, 1)];
+    Real c[2*size(A, 1)];
+    Real CC[size(A, 1),2];
+    Integer k;
+
+  public
+    output Real X[size(A, 1),size(A, 2)]
+      "Solution X of the Lyapunov equation  X*A + A'*X = C";
+
+  algorithm
+    if n > 1 then
+      if ATisSchur then
+        R := transpose(A);
+        U := identity(n);
+        D := C;
+      else
+        (R,U) := Modelica.Math.Matrices.realSchur(transpose(A));
+        D := transpose(U)*C*U;
+      end if;
+
+      X := zeros(n, n);
+
+  // Calculate the last 1 or 2 columns of X
+      R22 := R;
+      for i1 in 1:n loop
+        R22[i1, i1] := R[i1, i1] + R[n, n];
+      end for;
+      if abs(R[n, n - 1]) < eps then
+        X[:, n] := Matrices.solve(R22, D[:, n]);
+        k := n - 1;
+      else
+        R11 := R;
+        R12 := zeros(n, n);
+        R21 := zeros(n, n);
+        for i1 in 1:n loop
+          R11[i1, i1] := R[i1, i1] + R[n - 1, n - 1];
+          R12[i1, i1] := R[n - 1, n];
+          R21[i1, i1] := R[n, n - 1];
+        end for;
+
+  // solve 2nx2n equation for 2x2 Schur bump with Kronecker product and vec operator approach
+        R2 := [R11,R12; R21,R22];
+        c := cat(1, D[:, n - 1], D[:, n]);
+        y := Matrices.solve(R2, c);
+        X[:, n - 1] := y[1:n];
+        X[:, n] := y[n + 1:2*n];
+        k := n - 2;
+      end if;
+
+  // Calculate the rest of X
+      while k > 1 loop
+        R22 := R;
+        for i1 in 1:n loop
+          R22[i1, i1] := R[i1, i1] + R[k, k];
+        end for;
+        if abs(R[k, k - 1]) < eps then
+          //real eigenvalue
+          X[:, k] := Matrices.solve(R22, D[:, k] - vector(X[:, k + 1:n]*matrix(R[
+            k, k + 1:n])));
+          k := k - 1;
+        else
+         // conjugated complex eigenvalues
+          R11 := R;
+          R12 := zeros(n, n);
+          R21 := zeros(n, n);
+          for i1 in 1:n loop
+            R11[i1, i1] := R[i1, i1] + R[k - 1, k - 1];
+            R12[i1, i1] := R[k - 1, k];
+            R21[i1, i1] := R[k, k - 1];
+          end for;
+          R2 := [R11,R12; R21,R22];
+          CC := D[:, k - 1:k] - X[:, k + 1:n]*transpose(R[k - 1:k, k + 1:n]);
+          c := cat(
+            1,
+            CC[:, 1],
+            CC[:, 2]);
+          y := Matrices.solve(R2, c);
+          X[:, k - 1] := y[1:n];
+          X[:, k] := y[n + 1:2*n];
+
+          k := k - 2;
+        end if;
+      end while;// k=1 or k=0
+
+  // if k=1 the first column (if there exist a real eigenvalue) has to be calculated separately
+      if k == 1 then
+        R22 := R;
+        for i1 in 1:n loop
+          R22[i1, i1] := R[i1, i1] + R[1, 1];
+        end for;
+        X[:, 1] := Matrices.solve(R22, D[:, 1] - vector(X[:, 2:n]*matrix(R[1, 2:n])));
+      end if;
+
+  // transform X corresponding to the original form
+      if not ATisSchur then
+        X := U*X*transpose(U);
+      end if;
+
+    elseif n == 1 then //simple scalar equation
+      X[1, 1] := C[1, 1]/(2*A[1, 1]);
+    else
+      X := fill(0, 0, 0);
+    end if;
+
+    annotation (Documentation(info="<html>
+ <h4>Syntax</h4>
+<blockquote><pre>
+         X = Matrices.<b>continuousLyapunov</b>(A, C);
+         X = Matrices.<b>continuousLyapunov</b>(A, C, ATisSchur, eps);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function computes the solution <b>X</b> of the continuous-time Lyapunov equation
+</p>
+<blockquote><pre>
+ <b>X</b>*<b>A</b> + <b>A</b>'*<b>X</b> = <b>C</b>
+</pre></blockquote>
+<p>
+using the Schur method for Lyapunov equations proposed by Bartels and Stewart [1].
+<p>
+In a nutshell, the problem is reduced to the corresponding problem
+<blockquote><pre>
+ <b>Y</b>*<b>R</b>' + <b>R</b>*<b>Y</b> = <b>D</b>
+</pre></blockquote>
+<p>
+with <b>R</b>=<b>U</b>'*<b>A'</b>*<b>U</b> is the real Schur form of <b>A</b>' and <b>D</b>=<b>U</b>'*<b>C</b>*<b>U</b> and <b>Y</b>=<b>U</b>'*<b>X</b>*<b>U</b>
+are the corresponding transformations of <b>C</b> and <b>X</b>. This problem is solved sequently for the 1x1 or 2x2 Schur blocks by exploiting the block triangular form of <b>R</b>.
+Finally the solution of the original problem is recovered as <b>X</b>=<b>U</b>*<b>Y</b>*<b>U</b>'.<br>
+The boolean input \"ATisSchur\" indicates to omit the transformation to Schur in the case that <b>A</b>' has already Schur form.
+</p>
+
+<h4>References</h4>
+<PRE>
+  [1] Bartels, R.H. and Stewart G.W.
+      Algorithm 432: Solution of the matrix equation AX + XB = C.
+      Comm. ACM., Vol. 15, pp. 820-826, 1972.
+</PRE>
+
+
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  A = [1, 2,  3,  4;
+       3, 4,  5, -2;
+      -1, 2, -3, -5;
+       0, 2,  0,  6];
+
+  C =  [-2, 3, 1, 0;
+        -6, 8, 0, 1;
+         2, 3, 4, 5;
+        0, -2, 0, 0];
+
+  X = continuousLyapunov(A, C);
+
+  results in:
+
+  X = [1.633, -0.761,  0.575, -0.656;
+      -1.158,  1.216,  0.047,  0.343;
+      -1.066, -0.052, -0.916,  1.61;
+      -2.473,  0.717, -0.986,  1.48]
+</pre></blockquote>
+<h4>See also</h4>
+<a href=\"modelica://Modelica.Math.Matrices.continuousSylvester\">Matrices.continuousSylvester</a>,<br>
+<a href=\"modelica://Modelica.Math.Matrices.discreteLyapunov\">Matrices.discreteLyapunov</a>
+
+
+</html>", revisions="<html>
+<ul>
+<li><i>2010/05/31 </i>
+       by Marcus Baur, DLR-RM</li>
+</ul>
+</html>"));
+  end continuousLyapunov;
+
+  function continuousSylvester
+    "Solution of continuous-time Sylvester equation A*X + X*B = C"
+    import Modelica.Math.Matrices;
+
+    input Real A[:,:] "Square matrix A";
+    input Real B[:,:] "Square matrix B";
+    input Real C[size(A, 1),size(B, 2)] "Matrix C";
+    input Boolean AisSchur=false "True if A has already real Schur form";
+    input Boolean BisSchur=false "True if B has already real Schur form";
+    output Real X[size(A, 1),size(B, 2)]
+      "Solution of the continuous Sylvester equation";
+
+  protected
+    Integer n=size(A, 1);
+    Integer m=size(B, 1);
+    Real S[size(A, 1),size(A, 2)];
+    Real T[size(B, 1),size(B, 2)];
+    Real U[size(A, 1),size(A, 1)];
+    Real V[size(B, 1),size(B, 1)];
+    Real Chat[size(C, 1),size(C, 2)];
+    Real scale;
+    Integer info;
+
+  algorithm
+    if n > 1 and m > 1 then
+      if AisSchur then
+        S := A;
+        U := identity(n);
+      else
+        (S,U) := Modelica.Math.Matrices.realSchur(    A);
+      end if;
+      if BisSchur then
+        T := B;
+        V := identity(m);
+      else
+        (T,V) := Modelica.Math.Matrices.realSchur(    B);
+      end if;
+
+      Chat := if AisSchur and BisSchur then C else if AisSchur then C*V else if 
+        BisSchur then transpose(U)*C else transpose(U)*C*V;
+      (X,scale,info) := Matrices.LAPACK.dtrsyl(S, T, Chat);
+      assert(info == 0, "Solving of Sylvester equation with Matrices.continuousSylvester was not sucessfull.\n
+                    The value of info is "   + String(info) + ", but should be zero. A value unequal to zero means:\n
+            < 0: if INFO = -i, the i-th argument had an illegal value\n
+            = 1: A and B have common or very close eigenvalues; perturbed
+                 values were used to solve the equation (but the matrices
+                 A and B are unchanged).");
+      X := if AisSchur and BisSchur then scale*X else if AisSchur then scale*X*
+        transpose(V) else if BisSchur then scale*U*X else scale*U*X*transpose(V);
+    else
+      X := fill(0, n, m);
+    end if;
+
+    annotation (Documentation(info="<html>
+ <h4>Syntax</h4>
+<blockquote><pre>
+         X = Matrices.<b>continuousSylvester</b>(A, B, C);
+         X = Matrices.<b>continuousSylvester</b>(A, B, C, AisSchur, BisSchur);
+</pre></blockquote>
+<h4>Description</h4>
+Function <b>continuousSylvester</b> computes the solution <b>X</b> of the continuous-time Sylvester equation
+<p>
+<blockquote><pre>
+ <b>A</b>*<b>X</b> + <b>X</b>*<b>B</b> = <b>C</b>.
+
+</pre></blockquote>
+</p>
+using the Schur method for Sylvester equations proposed by Bartels and Stewart [1].
+<p>
+In a nutshell, the problem is reduced to the corresponding problem
+<blockquote><pre>
+ <b>S</b>*<b>Y</b> + <b>Y</b>*<b>T</b> = <b>D</b>.
+</pre></blockquote>
+<p>
+with <b>S</b>=<b>U</b>'*<b>A</b>*<b>U</b> is the real Schur of <b>A</b>,  <b>T</b>=<b>V</b>'*<b>T</b>*<b>V</b> is the real Schur form of <b>B</b> and
+<b>D</b>=<b>U</b>'*<b>C</b>*<b>V</b> and <b>Y</b>=<b>U</b>*<b>X</b>*<b>V</b>'
+are the corresponding transformations of <b>C</b> and <b>X</b>. This problem is solved sequently by exploiting the block triangular form of <b>S</b> and <b>T</b>.
+Finally the solution of the original problem is recovered as <b>X</b>=<b>U</b>'*<b>Y</b>*<b>V</b>.<br>
+The boolean inputs \"AisSchur\" and \"BisSchur\" indicate to omit one or both of the transformation to Schur in the case that <b>A</b> and/or <b>B</b> have already Schur form.
+
+</p>
+The function applies LAPACK-routine DTRSYL. See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dtrsyl\">LAPACK.dtrsyl</a>
+for more information.
+<p>
+<h4>References</h4>
+<PRE>
+  [1] Bartels, R.H. and Stewart G.W.
+      Algorithm 432: Solution of the matrix equation AX + XB = C.
+      Comm. ACM., Vol. 15, pp. 820-826, 1972.
+</PRE>
+
+
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  A = [17.0,   24.0,   1.0,   8.0,   15.0 ;
+       23.0,    5.0,   7.0,  14.0,   16.0 ;
+        0.0,    6.0,  13.0,  20.0,   22.0;
+        0.0,    0.0,  19.0,  21.0,    3.0 ;
+        0.0,    0.0,   0.0,   2.0,    9.0];
+
+  B =  [8.0, 1.0, 6.0;
+        0.0, 5.0, 7.0;
+        0.0, 9.0, 2.0];
+
+  C = [62.0,  -12.0, 26.0;
+       59.0,  -10.0, 31.0;
+       70.0,  -6.0,   9.0;
+       35.0,  31.0,  -7.0;
+       36.0, -15.0,   7.0];
+
+  X = continuousSylvester(A, B, C);
+
+  results in:
+
+  X = [0.0,  0.0,  1.0;
+       1.0,  0.0,  0.0;
+       0.0,  1.0,  0.0;
+       1.0,  1.0, -1.0;
+       2.0, -2.0,  1.0];
+
+
+</pre></blockquote>
+<h4>See also</h4>
+<a href=\"modelica://Modelica.Math.Matrices.discreteSylvester\">Matrices.discreteSylvester</a>,<br>
+<a href=\"modelica://Modelica.Math.Matrices.continuousLyapunov\">Matrices.continuousLyapunov</a>
+
+</html>", revisions="<html>
+<ul>
+<li><i>2010/05/31 </i>
+       by Marcus Baur, DLR-RM</li>
+</ul>
+</html>"));
+  end continuousSylvester;
+
+  function continuousRiccati
+    "Solution of continuous-time algebraic Riccati equation (care)"
+    import Modelica.Math.Matrices;
+
+    input Real A[:,size(A, 1)] "Square matrix A in CARE";
+    input Real B[size(A, 1),:] "Matrix B in CARE";
+    input Real R[size(B, 2),size(B, 2)]=identity(size(B, 2)) "Matrix R in CARE";
+    input Real Q[size(A, 1),size(A, 1)]=identity(size(A, 1)) "Matrix Q in CARE";
+    input Boolean refine=false "True for subsequent refinement";
+
+  protected
+    Integer n=size(A, 1);
+    Real G[size(A, 1),size(A, 1)]=B*Modelica.Math.Matrices.solve2(R, transpose(B));
+    Real H[:,:]=[A,-G; -Q,-transpose(A)];
+    Real H_RSF[:,:]=H;
+    Real Z[size(H, 1),size(H, 2)];
+    Real Z11[size(A, 1),size(A, 2)];
+    Real Z21[size(A, 1),size(A, 2)];
+
+    Integer info;
+
+  public
+    output Real X[size(A, 1),size(A, 2)] "stabilizing solution of CARE";
+    output Real alphaReal[size(H, 1)]
+      "Real parts of eigenvalue=alphaReal+i*alphaImag";
+    output Real alphaImag[size(H, 1)]
+      "Imaginary parts of eigenvalue=(alphaReal+i*alphaImag";
+  algorithm
+    if n > 1 then
+      (H_RSF,Z,alphaReal,alphaImag) := Modelica.Math.Matrices.realSchur(    H);
+      (H_RSF,Z,alphaReal,alphaImag) := Matrices.Utilities.reorderRSF(
+        H_RSF,
+        Z,
+        alphaReal,
+        alphaImag,
+        true);
+
+      Z11 := Z[1:n, 1:n];
+      Z21 := Z[n + 1:2*n, 1:n];
+      if size(Z11, 1) > 0 then
+
+        (X,info) := Matrices.LAPACK.dgesvx(Z11, transpose(Z21));
+        //this function does not need to transpose Z11 as solve2 does with //  X := transpose(Matrices.solve2(transpose(Z11), transpose(Z21)));
+        assert(info == 0, "Solving a linear system of equations with function \"Matrices.LAPACK.dgesvx\" is not possible, because the system has either no or infinitely many solutions (input A is singular).");
+        X := transpose(X);
+
+        if refine then
+          X := Modelica.Math.Matrices.Utilities.continuousRiccatiIterative(
+                                          A, B, R, Q, X);
+        end if;
+      else
+        X := fill(0, size(Z21, 1), size(Z11, 1));
+      end if;
+
+    elseif n == 1 then
+      X := matrix((A[1, 1] - sqrt(A[1, 1]*A[1, 1] + G[1, 1]*Q[1, 1]))/G[1, 1]);
+      if X[1, 1]*G[1, 1] < A[1, 1] then
+        X := matrix((A[1, 1] + sqrt(A[1, 1]*A[1, 1] + G[1, 1]*Q[1, 1]))/G[1, 1]);
+      end if;
+    else
+      X := fill(0, 0, 0);
+    end if;
+
+    annotation (Documentation(info="<html>
+
+
+   <h4>Syntax</h4>
+<blockquote><pre>
+                                X = Matrices.<b>continuousRiccati</b>(A, B, R, Q);
+        (X, alphaReal, alphaImag) = Matrices.<b>continuousRiccati</b>(A, B, R, Q, true);
+</pre></blockquote>
+<h4>Description</h4>
+Function <b>continuousRiccati</b> computes the solution <b>X</b> of the continuous-time algebraic Riccati equation
+<blockquote><pre>
+ <b>Q</b> + <b>A</b>'*<b>X</b> + <b>X</b>*<b>A</b> - <b>X</b>*<b>G</b>*<b>X</b> = <b>0</b>
+</pre></blockquote>
+with
+<blockquote><pre>
+       -1
+<b>G</b> = <b>B</b>*<b>R</b> *<b>B</b>'
+
+</pre>
+</blockquote>
+using the Schur vector approach proposed by Laub [1].
+<p>
+It is assumed that <b>Q</b> is symmetric and positive semidefinite and <b>R</b> is symmetric, nonsingular and positive definite,
+(<b>A</b>,<b>B</b>) is stabilizable and (<b>A</b>,<b>Q</b>) is detectable.
+<p><b>
+These assumptions are not checked in this function !!
+</b><br>
+<p>
+The assumptions guarantee that the Hamiltonian matrix
+<blockquote><pre>
+<b>H</b> = [<b>A</b>, -<b>G</b>; -<b>Q</b>, -<b>A</b>']
+
+</pre></blockquote>
+has no pure imaginary eigenvalue and can be put
+to an ordered real Schur form
+<blockquote><pre>
+<b>U</b>'*<b>H</b>*<b>U</b> = <b>S</b> = [<b>S</b>11, <b>S</b>12; <b>0</b>, <b>S</b>22]
+
+</pre></blockquote>
+with orthogonal similarity transformation <b>U</b>. <b>S</b> is ordered in such a way,
+that <b>S</b>11 contains the n stable eigenvalues of the closed loop system with system matrix
+<blockquote><pre>
+       -1
+<b>A</b> - <b>B</b>*<b>R</b> *<b>B</b>'*<b>X</b>
+
+</pre></blockquote>
+If <b>U</b> is partitioned to
+<blockquote><pre>
+<b>U</b> = [<b>U</b>11, <b>U</b>12; <b>U</b>21, <b>U</b>22]
+
+</pre></blockquote>
+with dimenstions according to <b>S</b>, the solution <b>X</b> is calculated by
+<blockquote><pre>
+<b>X</b>*<b>U</b>11 = <b>U</b>21.
+
+</pre></blockquote>
+
+With optional input <tt>refinement=true</tt> a subsequent iterative refinement based on Newton's method with exact line search is applied.
+See <a href=\"modelica://Modelica.Math.Matrices.Utilities.continuousRiccatiIterative\">continuousRiccatiIterative</a>
+for more information.<br><br>
+
+The algorithm calls LAPACK routines <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgehrd\">dgehrd</a> (to compute the upper Hessenberg matrix of <b>H</b>),
+<a href=\"modelica://Modelica.Math.Matrices.LAPACK. dorghr\">dorghr</a> (to calculate the orthogonal
+matrix from the elementary reflectors as returned from dgehrd), <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dhseqr\">dhseqr</a>
+(to put transformed <b>H</b> to Schur form and to calculate the eigenvalues
+of the closed loop system) and <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dtrsen\">dtrsen</a> (to compute the ordered real Schur form and matrix <b>U</b>).
+
+</p>
+<h4>References</h4>
+<PRE>
+  [1] Laub, A.J.
+      A Schur Method for Solving Algebraic Riccati equations.
+      IEEE Trans. Auto. Contr., AC-24, pp. 913-921, 1979.
+</PRE>
+<p>
+<h4>Example</h4>
+<blockquote><pre>
+  A = [0.0, 1.0;
+       0.0, 0.0];
+
+  B = [0.0;
+       1.0];
+
+  R = [1];
+
+  Q = [1.0, 0.0;
+       0.0, 2.0];
+
+X = continuousRiccati(A, B, R, Q);
+
+  results in:
+
+X = [2.0, 1.0;
+     1.0, 2.0];
+
+</pre></blockquote>
+<h4>See also</h4>
+
+
+<a href=\"modelica://Modelica.Math.Matrices.Utilities.continuousRiccatiIterative\">Matrices.Utilities.continuousRiccatiIterative</a>
+<a href=\"modelica://Modelica.Math.Matrices.discreteRiccati\">Matrices.discreteRiccati</a>
+
+
+</html>", revisions="<html><ul>
+<li><i>2010/05/31 </i>
+       by Marcus Baur, DLR-RM</li>
+</ul>
+</html>"));
+  end continuousRiccati;
+
+  function discreteLyapunov
+    "Solution of discrete-time Lyapunov equation A'*X*A + sgn*X = C"
+    import Modelica.Math.Matrices;
+
+    input Real A[:,size(A, 1)] "Square matrix A in A'*X*A + sgn*X = C";
+    input Real C[size(A, 1),size(A, 2)] "Square matrix C in A'*X*A + sgn*X = C";
+    input Boolean ATisSchur=false
+      "True if transpose(A) has already real Schur form";
+    input Integer sgn=1 "Specifies the sign in A'*X*A + sgn*X = C";
+    input Real eps=Matrices.norm(A, 1)*10*Modelica.Constants.eps
+      "Tolerance eps";
+
+  protected
+    Integer n=size(A, 1);
+    Real R[size(A, 1),size(A, 2)] "RSF of A', i.e. R=U'A'U";
+    Real U[size(A, 1),size(A, 2)] "Transformation matrix U for R=U'A'U";
+    Real D[size(A, 1),size(A, 2)] "Matrix D=U'*C*U";
+    Real R22[size(A, 1),size(A, 2)];
+    Real R11[size(A, 1),size(A, 2)];
+    Integer k;
+
+    Real g[size(A, 1)];
+    Real w[size(A, 1)];
+    Real y[2*size(A, 1)];
+    Boolean crit;
+
+  public
+    output Real X[size(A, 1),size(A, 2)]
+      "Solution X of the Lyapunov equation A'*X*A + sgn*X = C";
+
+  algorithm
+    assert(sgn==1 or sgn==-1,"Input sgn in function Math.Matrices.discreteLyapunov() must be 1 or -1, however it is "+String(sgn));
+    X := zeros(n, n);
+    k := n;
+    if n > 1 then
+      if ATisSchur then
+        R := transpose(A);
+        U := identity(n);
+        D := C;
+      else
+        (R,U) := Modelica.Math.Matrices.realSchur(transpose(A));
+         D := transpose(U)*C*U;
+      end if;
+
+      while k > 0 loop
+        w := D[:, k] - R*X[:, k + 1:n]*R[k, k + 1:n];
+        crit := if k > 1 then abs(R[k, k - 1]) < eps else false;
+        if (k == 1 or crit) then
+          R22 := R[k, k]*R;
+          for i in 1:n loop
+            R22[i, i] := R22[i, i] + sgn;
+          end for;
+          X[:, k] := Matrices.solve(R22, w);
+          k := k - 1;
+        else
+          g := D[:, k - 1] - R*X[:, k + 1:n]*R[k - 1, k + 1:n];
+          R11 := R[k - 1, k - 1]*R;
+          R22 := R[k, k]*R;
+          for i in 1:n loop
+            R11[i, i] := R11[i, i] + sgn;
+            R22[i, i] := R22[i, i] + sgn;
+          end for;
+          y := Matrices.solve([R11,R[k - 1, k]*R; R[k, k - 1]*R,R22], cat(1, g, w));
+          X[:, k - 1] := y[1:n];
+          X[:, k] := y[n + 1:2*n];
+          k := k - 2;
+        end if;
+      end while;
+
+  // transform X corresponding to the original form
+      if not ATisSchur then
+        X := U*X*transpose(U);
+      end if;
+
+    elseif n == 1 then
+      X[1, 1] := C[1, 1]/(A[1, 1]*A[1, 1] + sgn);
+    else
+      X := fill(0, 0, 0);
+    end if;
+
+    annotation (Documentation(info="<html>
+ <h4>Syntax</h4>
+<blockquote><pre>
+         X = Matrices.<b>discreteLyapunov</b>(A, C);
+         X = Matrices.<b>discreteLyapunov</b>(A, C, ATisSchur, sgn, eps);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function computes the solution <b>X</b> of the discrete-time Lyapunov equation
+</p>
+<blockquote><pre>
+ <b>A</b>'*<b>X</b>*<b>A</b> + sgn*<b>X</b> = <b>C</b>
+</pre></blockquote>
+<p>
+where sgn=1 or sgn =-1. For sgn = -1, the discrete Lyapunov equation is a special case of the Stein equation:
+<p>
+<blockquote><pre>
+ <b>A</b>*<b>X</b>*<b>B</b> - <b>X</b> + <b>Q</b> = <b>0</b>.
+
+</pre></blockquote>
+</p>
+The algorithm uses the Schur method for Lyapunov equations proposed by Bartels and Stewart [1].
+<p>
+In a nutshell, the problem is reduced to the corresponding problem
+<blockquote><pre>
+ <b>R</b>*<b>Y</b>*<b>R</b>' + sgn*<b>Y</b> = <b>D</b>.
+</pre></blockquote>
+<p>
+with <b>R</b>=<b>U</b>'*<b>A'</b>*<b>U</b> is the the real Schur form of <b>A</b>' and <b>D</b>=<b>U</b>'*<b>C</b>*<b>U</b> and <b>Y</b>=<b>U</b>'*<b>X</b>*<b>U</b>
+are the corresponding transformations of <b>C</b> and <b>X</b>. This problem is solved sequently by exploiting the block triangular form of <b>R</b>.
+Finally the solution of the original problem is recovered as <b>X</b>=<b>U</b>*<b>Y</b>*<b>U</b>'.<br>
+The boolean input \"ATisSchur\" indicates to omit the transformation to Schur in the case that <b>A</b>' has already Schur form.
+
+</p>
+
+<h4>References</h4>
+<PRE>
+  [1] Bartels, R.H. and Stewart G.W.
+      Algorithm 432: Solution of the matrix equation AX + XB = C.
+      Comm. ACM., Vol. 15, pp. 820-826, 1972.
+</PRE>
+
+
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  A = [1, 2,  3,  4;
+       3, 4,  5, -2;
+      -1, 2, -3, -5;
+       0, 2,  0,  6];
+
+  C =  [-2,  3, 1, 0;
+        -6,  8, 0, 1;
+         2,  3, 4, 5;
+         0, -2, 0, 0];
+
+  X = discreteLyapunov(A, C, sgn=-1);
+
+  results in:
+
+  X  = [7.5735,   -3.1426,  2.7205, -2.5958;
+       -2.6105,    1.2384, -0.9232,  0.9632;
+        6.6090,   -2.6775,  2.6415, -2.6928;
+       -0.3572,    0.2298,  0.0533, -0.27410];
+
+</pre></blockquote>
+<h4>See also</h4>
+<a href=\"modelica://Modelica.Math.Matrices.discreteSylvester\">Matrices.discreteSylvester</a>,<br>
+<a href=\"modelica://Modelica.Math.Matrices.continuousLyapunov\">Matrices.continuousLyapunov</a>
+
+
+</html>", revisions="<html>
+<ul>
+<li><i>2010/05/31 </i>
+       by Marcus Baur, DLR-RM</li>
+</ul>
+</html>"));
+  end discreteLyapunov;
+
+  function discreteSylvester
+    "Solution of discrete-time Sylvester equation A*X*B + sgn*X = C"
+    import Modelica.Math.Matrices;
+
+    input Real A[:,size(A, 1)] "Square matrix A in A*X*B + sgn*X = C";
+    input Real B[:,size(B, 1)] "Square matrix B in A*X*B + sgn*X = C";
+    input Real C[size(A, 2),size(B, 1)]
+      "Rectangular matrix C in A*X*B + sgn*X = C";
+    input Boolean AisHess=false "True if A has already Hessenberg form";
+    input Boolean BTisSchur=false "True if B' has already real Schur form";
+    input Integer sgn=1 "Specifies the sign in A*X*B + sgn*X = C";
+    input Real eps=Matrices.norm(A, 1)*10*Modelica.Constants.eps "Tolerance";
+
+  protected
+    Integer n=size(A, 1);
+    Integer m=size(B, 1);
+    Real H[n,n] "Hessenberg form  of A, i.e. H=U'AU";
+    Real U[n,n] "Transformation matrix U for H=U'AU";
+    Real S[m,m] "RSF form  of B, i.e. S=Z'BZ";
+    Real Z[m,m] "Transformation matrix Z for S=Z'BZ";
+    Real F[n,m] "Appropriate transformation of the right side C, F=U'*C*Z";
+
+    Real R22[n,n];
+    Real R11[n,n];
+    Integer k;
+
+    Real w[n];
+    Real g[n];
+    Real y[2*n];
+    Boolean crit;
+
+  public
+    output Real X[size(A, 2),size(B, 1)]
+      "solution of the discrete Sylvester equation A*X*B + sgn*X = C";
+
+  algorithm
+    assert(sgn==1 or sgn==-1,"Input sgn in function Math.Matrices.discreteLyapunov() must be 1 or -1, however it is "+String(sgn));
+    X := zeros(n, m);
+    k := m;
+
+    if n > 1 and m > 1 then
+      if AisHess then
+        H := A;
+        U := identity(n);
+        if BTisSchur then
+          S := B;
+          Z := identity(m);
+          F := C;
+        else
+          (S,Z) := Matrices.realSchur(transpose(B));
+          S := transpose(S);
+          F := C*Z;
+        end if;
+      else
+        (H,U) := Matrices.hessenberg(A);
+        if BTisSchur then
+          S := B;
+          Z := identity(m);
+          F := transpose(U)*C;
+        else
+          (S,Z) := Matrices.realSchur(transpose(B));
+          S := transpose(S);
+          F := transpose(U)*C*Z;
+        end if;
+      end if;
+
+      while k >0 loop
+
+        w := F[:, k] - H*X[:, k + 1:m]*S[k +1:m,k];
+        crit := if k > 1 then abs(S[k-1, k]) < eps else false;
+
+        if (k == 1 or crit) then //real eigenvalue in Schur form
+          R22 := S[k, k]*H;
+          for i in 1:n loop
+            R22[i, i] := R22[i, i] + sgn;
+          end for;
+          X[:, k] := Matrices.solve(R22, w); // solve one column in X for one real eigenvalue
+          k := k - 1;
+        else // pair of complex eigenvalues, i.e. 2x2 Schur bump
+          g := F[:, k-1] - H*X[:, k + 1:m]*S[k+1 :m,k-1];
+          R22 := S[k, k]*H;
+          R11 := S[k-1, k-1]*H;
+          for i in 1:n loop
+            R11[i, i] := R11[i, i] + sgn;
+            R22[i, i] := R22[i, i] + sgn;
+          end for;
+          y := Matrices.solve([R11,S[k,  k-1]*H; S[k-1, k]*H,R22], cat(1, g, w));// solve two columns in X for one conjugated complex pole pair
+          X[:, k-1] := y[1:n];
+          X[:, k] := y[n + 1:2*n];
+          k := k - 2;
+        end if;
+      end while;
+
+  // transform X corresponding to the original form
+      if not (AisHess and BTisSchur) then
+        X := if AisHess then X*transpose(Z) else if BTisSchur then U*X else U*X*transpose(Z);
+      end if;
+
+    elseif n == 1 and m == 1 then // simple scalar equation
+      X[1, 1] := C[1, 1]/(A[1, 1]*B[1, 1] + sgn);
+    else
+      X := fill(0, 0, 0);
+    end if;
+
+    annotation (Documentation(info="<html>
+ <h4>Syntax</h4>
+<blockquote><pre>
+         X = Matrices.<b>discreteSylvester</b>(A, B, C);
+         X = Matrices.<b>discreteSylvester</b>(A, B, C, AisHess, BTisSchur, sgn, eps);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Function <b>discreteSylvester</b> computes the solution <b>X</b> of the discrete-time Sylvester equation
+<p>
+<blockquote><pre>
+ <b>A</b>*<b>X</b>*<b>B</b> + sgn*<b>X</b> = <b>C</b>.
+
+</pre></blockquote>
+</p>
+where sgn = 1 or sgn = -1. The algorithm applies the Hessenberg-Schur method proposed by Golub et al [1].
+For sgn = -1, the discrete Sylvester equation is also known as Stein equation:
+<p>
+<blockquote><pre>
+ <b>A</b>*<b>X</b>*<b>B</b> - <b>X</b> + <b>Q</b> = <b>0</b>.
+
+</pre></blockquote>
+</p>
+
+In a nutshell, the problem is reduced to the corresponding problem
+<blockquote><pre>
+ <b>H</b>*<b>Y</b>*<b>S</b>' + sgn*<b>Y</b> = <b>F</b>.
+</pre></blockquote>
+<p>
+with <b>H</b>=<b>U</b>'*<b>A</b>*<b>U</b> is the Hessenberg form of <b>A</b> and <b>S</b>=<b>V</b>'*<b>B</b>'*<b>V</b> is the real Schur form of <b>B</b>',
+<b>F</b>=<b>U</b>'*<b>C</b>*<b>V</b> and <b>Y</b>=<b>U</b>*<b>X</b>*<b>V</b>'
+are appropriate transformations of <b>C</b> and <b>X</b>. This problem is solved sequently by exploiting the specific forms of <b>S</b> and <b>H</b>.
+Finally the solution of the original problem is recovered as <b>X</b>=<b>U</b>'*<b>Y</b>*<b>V</b>.<br>
+The boolean inputs \"AisHess\" and \"BTisSchur\" indicate to omit one or both of the transformation to Hessenberg form or Schur form repectively in the case that <b>A</b> and/or <b>B</b> have already Hessenberg form or Schur respectively.
+
+</p>
+<h4>References</h4>
+<PRE>
+  [1] Golub, G.H., Nash, S. and Van Loan, C.F.
+      A Hessenberg-Schur method for the problem AX + XB = C.
+      IEEE Transaction on Automatic Control, AC-24, no. 6, pp. 909-913, 1979.
+
+
+</PRE>
+
+
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  A = [1.0,   2.0,   3.0;
+       6.0,   7.0,   8.0;
+       9.0,   2.0,   3.0];
+
+
+  B = [7.0,   2.0,   3.0;
+       2.0,   1.0,   2.0;
+       3.0,   4.0,   1.0];
+
+
+  C = [271.0,   135.0,   147.0;
+       923.0,   494.0,   482.0;
+       578.0,   383.0,   287.0];
+
+  X = discreteSylvester(A, B, C);
+
+  results in:
+  X = [2.0,   3.0,   6.0;
+       4.0,   7.0,   1.0;
+       5.0,   3.0,   2.0];
+
+</pre></blockquote>
+<p>
+<h4>See also</h4>
+<a href=\"modelica://Modelica.Math.Matrices.continuousSylvester\">Matrices.continuousSylvester</a>,<br>
+<a href=\"modelica://Modelica.Math.Matrices.discreteLyapunov\">Matrices.discreteLyapunov</a>
+
+
+
+</html>", revisions="<html>
+<ul>
+<li><i>2010/05/31 </i>
+       by Marcus Baur, DLR-RM</li>
+</ul>
+</html>"));
+  end discreteSylvester;
+
+  function discreteRiccati
+    "Solution of discrete-time algebraic Riccati equation (dare)"
+
+    import Modelica.Math.Matrices;
+    input Real A[:,size(A, 1)] "Square matrix A in DARE";
+    input Real B[size(A, 1),:] "Matrix B in DARE";
+    input Real R[size(B, 2),size(B, 2)]=identity(size(B, 2)) "Matrix R in DARE";
+    input Real Q[size(A, 1),size(A, 1)]=identity(size(A, 1)) "Matrix Q in DARE";
+    input Boolean refine=false "True for subsequent refinement";
+
+  protected
+    Integer n=size(A, 1);
+    Real G[size(A, 1),size(A, 1)]=B*Matrices.solve2(R, transpose(B));
+    Real AT[:,:]=transpose(A);
+    Real LU[n,n];
+    Integer p[n];
+    Real H[2*n,2*n];
+    Real H11[n,n];
+    Real H12[n,n];
+    Real H21[n,n];
+    Real H22[n,n];
+    Real H_RSF[2*n,2*n];
+    Real Z[size(H, 1),size(H, 2)];
+    Real Z11[size(A, 1),size(A, 2)];
+    Real Z21[size(A, 1),size(A, 2)];
+
+    Integer info;
+
+  public
+    output Real X[size(A, 1),size(A, 2)]
+      "orthogonal matrix of the Schur vectors associated to ordered rsf";
+    output Real alphaReal[size(H, 1)]
+      "Real part of eigenvalue=alphaReal+i*alphaImag";
+    output Real alphaImag[size(H, 1)]
+      "Imaginary part of eigenvalue=(alphaReal+i*alphaImag";
+  algorithm
+    (LU,p) := Modelica.Math.Matrices.LU(AT);
+    H21 := Modelica.Math.Matrices.LU_solve2(
+        LU,
+        p,
+        -Q);
+    H22 := Modelica.Math.Matrices.LU_solve2(
+        LU,
+        p,
+        identity(n));
+    (LU,p) := Modelica.Math.Matrices.LU(A);
+    H12 := Modelica.Math.Matrices.LU_solve2(
+        LU,
+        p,
+        -G);
+    H12 := transpose(H12);
+    H11 := A - H12*Q;
+    H := [H11,H12; H21,H22];
+    (H_RSF,Z,alphaReal,alphaImag) := Modelica.Math.Matrices.realSchur(H);
+                                                               // put H to Schur form
+    (H_RSF,Z,alphaReal,alphaImag) := Matrices.Utilities.reorderRSF(
+        H_RSF,
+        Z,
+        alphaReal,
+        alphaImag,
+        false);  // ordered Schur form
+    Z11 := Z[1:n, 1:n];
+    Z21 := Z[n + 1:2*n, 1:n];
+    if size(Z11, 1) > 0 then
+  //  X := transpose(Matrices.solve2(transpose(Z11), transpose(Z21)));
+      (X,info) := Matrices.LAPACK.dgesvx(Z11, transpose(Z21));//function does not need to transpose Z11 as solve2 does
+      X := transpose(X);
+      assert(info == 0, "Solving a linear system of equations with function
+\"Matrices.LAPACK.dgesvx\" is not possible, because the system has either
+no or infinitely many solutions (input A is singular).");
+
+      if refine then
+        X := Modelica.Math.Matrices.Utilities.discreteRiccatiIterative(
+            A,
+            B,
+            R,
+            Q,
+            X);
+      end if;
+    else
+      X := fill(
+          0,
+          size(Z21, 1),
+          size(Z11, 1));
+    end if;
+
+    annotation (Documentation(info="<html>
+
+   <h4>Syntax</h4>
+<blockquote><pre>
+                                 X = Matrices.<b>discreteRiccati</b>(A, B, R, Q);
+         (X, alphaReal, alphaImag) = Matrices.<b>discreteRiccati</b>(A, B, R, Q, true);
+</pre></blockquote>
+<h4>Description</h4>
+Function <b>discreteRiccati</b> computes the solution <b>X</b> of the discrete-time algebraic Riccati equation
+<p>
+<blockquote><pre>
+                                -1
+ <b>X</b> = <b>A</b>'*<b>X</b>*<b>A</b> - <b>A</b>'*<b>X</b>*<b>B</b>*(<b>R</b> + <b>B</b>'*<b>X</b>*<b>B</b>)  *<b>B</b>'*<b>X</b>*<b>A</b> + <b>Q</b>
+
+</pre>
+</blockquote>
+</p>
+using the Schur vector approach proposed by Laub [1].
+<p>
+It is assumed that <b>Q</b> is symmetric and positive semidefinite and <b>R</b> is symmetric, nonsingular and positive definite,
+(<b>A</b>,<b>B</b>) is stabilizable and (<b>A</b>,<b>Q</b>) is detectable. Using this method, <b>A</b> has also to be invertible.
+<p>
+<b>These assumptions are not checked in this function !!!</b>
+<p>
+
+The assumptions guarantee that the Hamiltonian matrix.
+<blockquote><pre>
+<b>H</b> = [<b>A</b> + <b>G</b>*<b>T</b>*<b>Q</b>, -<b>G</b>*<b>T</b>; -<b>T</b>*<b>Q</b>, <b>T</b>]
+</pre></blockquote>
+with
+<blockquote><pre>
+     -T
+<b>T</b> = <b>A</b>
+</pre></blockquote>
+and
+<blockquote><pre>
+       -1
+<b>G</b> = <b>B</b>*<b>R</b> *<b>B</b>'
+
+</pre>
+</blockquote>
+has no eigenvalue on the unit circle and can be put
+to an ordered real Schur form
+<blockquote><pre>
+<b>U</b>'*<b>H</b>*<b>U</b> = <b>S</b> = [<b>S11</b>, <b>S12</b>; <b>0</b>, <b>S22</b>]
+
+</pre></blockquote>
+with orthogonal similarity transformation <b>U</b>. <b>S</b> is ordered in such a way,
+that <b>S11</b> contains the n stable eigenvalues of the closed loop system with system matrix
+<blockquote><pre>
+                  -1
+<b>A</b> - <b>B</b>*(<b>R</b> + <b>B</b>'*<b>X</b>*<b>B</b>)  *<b>B</b>'*<b>X</b>*<b>A</b>
+
+</pre>
+</blockquote>
+If <b>U</b> is partitioned to
+<blockquote><pre>
+<b>U</b> = [<b>U11</b>, <b>U12</b>; <b>U21</b>, <b>U22</b>]
+
+</pre></blockquote>
+according to <b>S</b>, the solution <b>X</b> can be calculated by
+<blockquote><pre>
+<b>X</b>*<b>U11</b> = <b>U21</b>.
+</pre></blockquote>
+<p>
+The algorithm calls LAPACK routines <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgehrd\">dgehrd</a> (to compute the upper Hessenberg matrix of <b>H</b>),
+<a href=\"modelica://Modelica.Math.Matrices.LAPACK. dorghr\">dorghr</a> (to calculate the orthogonal
+matrix from the elementary reflectors as returned from dgehrd), <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dhseqr\">dhseqr</a>
+(to put transformed <b>H</b> to Schur form and to calculate the eigenvalues
+of the closed loop system) and <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dtrsen\">dtrsen</a> (to compute the ordered real Schur form and matrix <b>U</b>).
+
+</p>
+<h4>References</h4>
+<PRE>
+  [1] Laub, A.J.
+      A Schur Method for Solving Algebraic Riccati equations.
+      IEEE Trans. Auto. Contr., AC-24, pp. 913-921, 1979.
+</PRE>
+<p>
+<h4>Example</h4>
+<blockquote><pre>
+ A  = [4.0    3.0]
+      -4.5,  -3.5];
+
+ B  = [ 1.0;
+       -1.0];
+
+ R = [1.0];
+
+ Q = [9.0, 6.0;
+      6.0, 4.0]
+
+X = discreteRiccati(A, B, R, Q);
+
+  results in:
+
+X = [14.5623, 9.7082;
+      9.7082, 6.4721];
+
+</pre></blockquote>
+<h4>See also</h4>
+<a href=\"modelica://Modelica.Math.Matrices.care\">Matrices.continuousRiccati</a>
+
+</html>", revisions="<html>
+<ul>
+<li><i>2010/05/31 </i>
+       by Marcus Baur, DLR-RM</li>
+</ul>
+</html>"));
+  end discreteRiccati;
+
+
+
+
+
+
+
+
+
+
+
+  function flipLeftRight "Flip the columns of a matrix in left/right direction"
+
+    input Real A[:,:] "Matrix to be flipped";
+    output Real Aflip[size(A, 1),size(A, 2)] "Flipped matrix";
+  algorithm
+    Aflip := A[:,{i for i in size(A,2):-1:1}];
+
+    annotation (Inline=true, Documentation(info="<html>
+ <h4>Syntax</h4>
+<blockquote><pre>
+         A_flr = Matrices.<b>flipLeftRight</b>(A);
+</pre></blockquote>
+<h4>Description</h4>
+Function <b>flipLeftRight</b> computes from matrix <b>A</b> a matrix <b>A_flr</b> with flipped columns, i.e. <b>A_flr</b>[:,i]=<b>A</b>[:,n-i+1], i=1,..., n.
+<p>
+<h4>Example</h4>
+<blockquote><pre>
+  A = [1, 2,  3;
+       3, 4,  5;
+      -1, 2, -3];
+
+  A_flr = flipLeftRight(A);
+
+  results in:
+
+  A_flr = [3, 2,  1;
+           5, 4,  3;
+          -3, 2, -1]
+</pre></blockquote>
+<h4>See also</h4>
+<a href=\"modelica://Modelica.Math.Matrices.flipUpDown\">Matrices.flipUpDown</a>
+
+
+</html>", revisions="<html>
+<ul>
+<li><i>2010/05/31 </i>
+       by Marcus Baur, DLR-RM</li>
+</ul>
+</html>"));
+  end flipLeftRight;
+
+  function flipUpDown "Flip the rows of a matrix in up/down direction"
+
+    input Real A[:,:] "Matrix to be flipped";
+    output Real Aflip[size(A, 1),size(A, 2)] "Flipped matrix";
+  algorithm
+    Aflip := A[{i for i in size(A,1):-1:1},:];
+
+    annotation (Inline=true, Documentation(info="<html>
+ <h4>Syntax</h4>
+<blockquote><pre>
+         A_fud = Matrices.<b>flipUpDown</b>(A);
+</pre></blockquote>
+<h4>Description</h4>
+Function <b>flipUpDown</b> computes from matrix <b>A</b> a matrix <b>A_fud</b> with flipped rows, i.e. <b>A_fud</b>[i,:]=<b>A</b>[n-i+1,:], i=1,..., n.
+<p>
+<h4>Example</h4>
+<blockquote><pre>
+  A = [1, 2,  3;
+       3, 4,  5;
+      -1, 2, -3];
+
+  A_fud = flipUpDown(A);
+
+  results in:
+
+  A_fud  = [-1, 2, -3;
+             3, 4,  5;
+             1, 2,  3]
+</pre></blockquote>
+<h4>See also</h4>
+<a href=\"modelica://Modelica.Math.Matrices.flipLeftRight\">Matrices.flipLeftRight</a>
+
+
+</html>", revisions="<html>
+<ul>
+<li><i>2010/05/31 </i>
+       by Marcus Baur, DLR-RM</li>
+</ul>
+</html>"));
+  end flipUpDown;
+
+  function toString "Convert a matrix into its string representation "
+    import Modelica.Utilities.Strings;
+
+    input Real M[:,:] "Real matrix";
+    input String name="M" "Independent variable name used for printing";
+    input Integer significantDigits=6
+      "Number of significant digits that are shown";
+    output String s="" "String expression of matrix M";
+  protected
+    String blanks=Strings.repeat(significantDigits);
+    String space=Strings.repeat(8);
+    String space2=Strings.repeat(3);
+    Integer r=size(M, 1);
+    Integer c=size(M, 2);
+
+  algorithm
+    if r == 0 or c == 0 then
+      s := name + " = []";
+    else
+      s := if name == "" then "\n" else "\n" + name + " = \n";
+      for i in 1:r loop
+        s := s + space;
+        for j in 1:c loop
+          if M[i, j] >= 0 then
+            s := s + " ";
+          end if;
+          s := s + String(M[i, j], significantDigits=significantDigits) +
+            Strings.repeat(significantDigits + 8 - Strings.length(String(abs(M[i,
+            j]))));
+        end for;
+        s := s + "\n";
+      end for;
+
+    end if;
+
+    annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+Matrices.<b>toString</b>(A);
+Matrices.<b>toString</b>(A, name=\"A\", significantDigits=6);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call \"<code>Matrices.<b>toString</b>(A)</code>\" returns the
+string representation of matrix <b>A</b>.
+With the optional arguments \"name\" and \"significantDigits\", a name and the number of the digits are defined.
+The default values of name and significantDigits are \"M\" and 6 repectively. If name==\"\" then the prefix \"M =\" is leaved out.
+
+
+<h4>Example</h4>
+<blockquote><pre>
+  A = [2.12, -4.34; -2.56, -1.67];
+
+  toString(A);
+  // \"M = [2.12   -4.34
+  //      -2.56    -1.67]\";
+
+  toString(A,\"A\",1);
+  // \"M = [2     -4
+          -3     -2]\"
+  <b>toString</b>(A,\"\");
+  //      \"  [2.12   -4.34
+  //         -2.56   -1.67\"
+
+</pre></blockquote>
+
+<h4>See also</h4>
+
+
+<a href=\"modelica://Modelica.Math.Vectors.toString\">Vectors.toString</a>
+
+</HTML>",   revisions="<html>
+</html>"));
+  end toString;
+
   package LAPACK
     "Interface to LAPACK library (should usually not directly be used but only indirectly via Modelica.Math.Matrices)"
     extends Modelica.Icons.Library;
@@ -8325,1756 +10089,6 @@ See [1] for more information
 </html>"));
     end findLocal_tk;
   end Utilities;
-
-  function continuousLyapunov
-    "Solution of continuous-time Lyapunov equation X*A + A'*X = C"
-    import Modelica.Math.Matrices;
-
-    input Real A[:,size(A, 1)] "Square matrix A in X*A + A'*X = C";
-    input Real C[size(A, 1),size(A, 2)] "Square matrix C in X*A + A'*X = C";
-    input Boolean ATisSchur=false
-      "True if transpose(A) has already real Schur form";
-    input Real eps=Modelica.Math.Matrices.norm(A, 1)*10*1e-15 "Tolerance eps";
-
-  protected
-    Integer n=size(A, 1);
-    Real R[size(A, 1),size(A, 2)] "rsf of A', i.e. R=U'A'U";
-    Real U[size(A, 1),size(A, 2)] "transformation matrix U for R=U'A'U";
-    Real D[size(A, 1),size(A, 2)] "Matrix D=U'*C*U";
-    Real R11[size(A, 1),size(A, 2)];
-    Real R22[size(A, 1),size(A, 2)];
-    Real R12[size(A, 1),size(A, 2)];
-    Real R21[size(A, 1),size(A, 2)];
-    Real R2[2*size(A, 1),2*size(A, 2)];
-    Real I[size(A, 1),size(A, 1)]=identity(size(A, 1));
-    Real y[2*size(A, 1)];
-    Real c[2*size(A, 1)];
-    Real CC[size(A, 1),2];
-    Integer k;
-
-  public
-    output Real X[size(A, 1),size(A, 2)]
-      "Solution X of the Lyapunov equation  X*A + A'*X = C";
-
-  algorithm
-    if n > 1 then
-      if ATisSchur then
-        R := transpose(A);
-        U := identity(n);
-        D := C;
-      else
-        (R,U) := Modelica.Math.Matrices.realSchur(transpose(A));
-        D := transpose(U)*C*U;
-      end if;
-
-      X := zeros(n, n);
-
-  // Calculate the last 1 or 2 columns of X
-      R22 := R;
-      for i1 in 1:n loop
-        R22[i1, i1] := R[i1, i1] + R[n, n];
-      end for;
-      if abs(R[n, n - 1]) < eps then
-        X[:, n] := Matrices.solve(R22, D[:, n]);
-        k := n - 1;
-      else
-        R11 := R;
-        R12 := zeros(n, n);
-        R21 := zeros(n, n);
-        for i1 in 1:n loop
-          R11[i1, i1] := R[i1, i1] + R[n - 1, n - 1];
-          R12[i1, i1] := R[n - 1, n];
-          R21[i1, i1] := R[n, n - 1];
-        end for;
-
-  // solve 2nx2n equation for 2x2 Schur bump with Kronecker product and vec operator approach
-        R2 := [R11,R12; R21,R22];
-        c := cat(1, D[:, n - 1], D[:, n]);
-        y := Matrices.solve(R2, c);
-        X[:, n - 1] := y[1:n];
-        X[:, n] := y[n + 1:2*n];
-        k := n - 2;
-      end if;
-
-  // Calculate the rest of X
-      while k > 1 loop
-        R22 := R;
-        for i1 in 1:n loop
-          R22[i1, i1] := R[i1, i1] + R[k, k];
-        end for;
-        if abs(R[k, k - 1]) < eps then
-          //real eigenvalue
-          X[:, k] := Matrices.solve(R22, D[:, k] - vector(X[:, k + 1:n]*matrix(R[
-            k, k + 1:n])));
-          k := k - 1;
-        else
-         // conjugated complex eigenvalues
-          R11 := R;
-          R12 := zeros(n, n);
-          R21 := zeros(n, n);
-          for i1 in 1:n loop
-            R11[i1, i1] := R[i1, i1] + R[k - 1, k - 1];
-            R12[i1, i1] := R[k - 1, k];
-            R21[i1, i1] := R[k, k - 1];
-          end for;
-          R2 := [R11,R12; R21,R22];
-          CC := D[:, k - 1:k] - X[:, k + 1:n]*transpose(R[k - 1:k, k + 1:n]);
-          c := cat(
-            1,
-            CC[:, 1],
-            CC[:, 2]);
-          y := Matrices.solve(R2, c);
-          X[:, k - 1] := y[1:n];
-          X[:, k] := y[n + 1:2*n];
-
-          k := k - 2;
-        end if;
-      end while;// k=1 or k=0
-
-  // if k=1 the first column (if there exist a real eigenvalue) has to be calculated separately
-      if k == 1 then
-        R22 := R;
-        for i1 in 1:n loop
-          R22[i1, i1] := R[i1, i1] + R[1, 1];
-        end for;
-        X[:, 1] := Matrices.solve(R22, D[:, 1] - vector(X[:, 2:n]*matrix(R[1, 2:n])));
-      end if;
-
-  // transform X corresponding to the original form
-      if not ATisSchur then
-        X := U*X*transpose(U);
-      end if;
-
-    elseif n == 1 then //simple scalar equation
-      X[1, 1] := C[1, 1]/(2*A[1, 1]);
-    else
-      X := fill(0, 0, 0);
-    end if;
-
-    annotation (Documentation(info="<html>
- <h4>Syntax</h4>
-<blockquote><pre>
-         X = Matrices.<b>continuousLyapunov</b>(A, C);
-         X = Matrices.<b>continuousLyapunov</b>(A, C, ATisSchur, eps);
-</pre></blockquote>
-<h4>Description</h4>
-<p>
-This function computes the solution <b>X</b> of the continuous-time Lyapunov equation
-</p>
-<blockquote><pre>
- <b>X</b>*<b>A</b> + <b>A</b>'*<b>X</b> = <b>C</b>
-</pre></blockquote>
-<p>
-using the Schur method for Lyapunov equations proposed by Bartels and Stewart [1].
-<p>
-In a nutshell, the problem is reduced to the corresponding problem
-<blockquote><pre>
- <b>Y</b>*<b>R</b>' + <b>R</b>*<b>Y</b> = <b>D</b>
-</pre></blockquote>
-<p>
-with <b>R</b>=<b>U</b>'*<b>A'</b>*<b>U</b> is the real Schur form of <b>A</b>' and <b>D</b>=<b>U</b>'*<b>C</b>*<b>U</b> and <b>Y</b>=<b>U</b>'*<b>X</b>*<b>U</b>
-are the corresponding transformations of <b>C</b> and <b>X</b>. This problem is solved sequently for the 1x1 or 2x2 Schur blocks by exploiting the block triangular form of <b>R</b>.
-Finally the solution of the the original problem is recovered as <b>X</b>=<b>U</b>*<b>Y</b>*<b>U</b>'.<br>
-The boolean input \"ATisSchur\" indicates to omit the transformation to Schur in the case that <b>A</b>' has already Schur form.
-</p>
-
-<h4>References</h4>
-<PRE>
-  [1] Bartels, R.H. and Stewart G.W.
-      Algorithm 432: Solution of the matrix equation AX + XB = C.
-      Comm. ACM., Vol. 15, pp. 820-826, 1972.
-</PRE>
-
-
-</p>
-<h4>Example</h4>
-<blockquote><pre>
-  A = [1, 2,  3,  4;
-       3, 4,  5, -2;
-      -1, 2, -3, -5;
-       0, 2,  0,  6];
-
-  C =  [-2, 3, 1, 0;
-        -6, 8, 0, 1;
-         2, 3, 4, 5;
-        0, -2, 0, 0];
-
-  X = continuousLyapunov(A, C);
-
-  results in:
-
-  X = [1.633, -0.761,  0.575, -0.656;
-      -1.158,  1.216,  0.047,  0.343;
-      -1.066, -0.052, -0.916,  1.61;
-      -2.473,  0.717, -0.986,  1.48]
-</pre></blockquote>
-<h4>See also</h4>
-<a href=\"modelica://Modelica.Math.Matrices.continuousSylvester\">Matrices.continuousSylvester</a>,<br>
-<a href=\"modelica://Modelica.Math.Matrices.discreteLyapunov\">Matrices.discreteLyapunov</a>
-
-
-</html>", revisions="<html>
-<ul>
-<li><i>2010/05/31 </i>
-       by Marcus Baur, DLR-RM</li>
-</ul>
-</html>"));
-  end continuousLyapunov;
-
-  function continuousSylvester
-    "Solution of continuous-time Sylvester equation A*X + X*B = C"
-    import Modelica.Math.Matrices;
-
-    input Real A[:,:] "Square matrix A";
-    input Real B[:,:] "Square matrix B";
-    input Real C[size(A, 1),size(B, 2)] "Matrix C";
-    input Boolean AisSchur=false "True if A has already real Schur form";
-    input Boolean BisSchur=false "True if B has already real Schur form";
-    output Real X[size(A, 1),size(B, 2)]
-      "Solution of the continuous Sylvester equation";
-
-  protected
-    Integer n=size(A, 1);
-    Integer m=size(B, 1);
-    Real S[size(A, 1),size(A, 2)];
-    Real T[size(B, 1),size(B, 2)];
-    Real U[size(A, 1),size(A, 1)];
-    Real V[size(B, 1),size(B, 1)];
-    Real Chat[size(C, 1),size(C, 2)];
-    Real scale;
-    Integer info;
-
-  algorithm
-    if n > 1 and m > 1 then
-      if AisSchur then
-        S := A;
-        U := identity(n);
-      else
-        (S,U) := Modelica.Math.Matrices.realSchur(    A);
-      end if;
-      if BisSchur then
-        T := B;
-        V := identity(m);
-      else
-        (T,V) := Modelica.Math.Matrices.realSchur(    B);
-      end if;
-
-      Chat := if AisSchur and BisSchur then C else if AisSchur then C*V else if 
-        BisSchur then transpose(U)*C else transpose(U)*C*V;
-      (X,scale,info) := Matrices.LAPACK.dtrsyl(S, T, Chat);
-      assert(info == 0, "Solving of Sylvester equation with Matrices.continuousSylvester was not sucessfull.\n
-                    The value of info is "   + String(info) + ", but should be zero. A value unequal to zero means:\n
-            < 0: if INFO = -i, the i-th argument had an illegal value\n
-            = 1: A and B have common or very close eigenvalues; perturbed
-                 values were used to solve the equation (but the matrices
-                 A and B are unchanged).");
-      X := if AisSchur and BisSchur then scale*X else if AisSchur then scale*X*
-        transpose(V) else if BisSchur then scale*U*X else scale*U*X*transpose(V);
-    else
-      X := fill(0, n, m);
-    end if;
-
-    annotation (Documentation(info="<html>
- <h4>Syntax</h4>
-<blockquote><pre>
-         X = Matrices.<b>continuousSylvester</b>(A, B, C);
-         X = Matrices.<b>continuousSylvester</b>(A, B, C, AisSchur, BisSchur);
-</pre></blockquote>
-<h4>Description</h4>
-Function <b>continuousSylvester</b> computes the solution <b>X</b> of the continuous-time Sylvester equation
-<p>
-<blockquote><pre>
- <b>A</b>*<b>X</b> + <b>X</b>*<b>B</b> = <b>C</b>.
-
-</pre></blockquote>
-</p>
-using the Schur method for Sylvester equations proposed by Bartels and Stewart [1].
-<p>
-In a nutshell, the problem is reduced to the corresponding problem
-<blockquote><pre>
- <b>S</b>*<b>Y</b> + <b>Y</b>*<b>T</b> = <b>D</b>.
-</pre></blockquote>
-<p>
-with <b>S</b>=<b>U</b>'*<b>A</b>*<b>U</b> is the real Schur of <b>A</b>,  <b>T</b>=<b>V</b>'*<b>T</b>*<b>V</b> is the real Schur form of <b>B</b> and
-<b>D</b>=<b>U</b>'*<b>C</b>*<b>V</b> and <b>Y</b>=<b>U</b>*<b>X</b>*<b>V</b>'
-are the corresponding transformations of <b>C</b> and <b>X</b>. This problem is solved sequently by exploiting the block triangular form of <b>S</b> and <b>T</b>.
-Finally the solution of the the original problem is recovered as <b>X</b>=<b>U</b>'*<b>Y</b>*<b>V</b>.<br>
-The boolean inputs \"AisSchur\" and \"BisSchur\" indicate to omit one or both of the transformation to Schur in the case that <b>A</b> and/or <b>B</b> have already Schur form.
-
-</p>
-The function applies LAPACK-routine DTRSYL. See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dtrsyl\">LAPACK.dtrsyl</a>
-for more information.
-<p>
-<h4>References</h4>
-<PRE>
-  [1] Bartels, R.H. and Stewart G.W.
-      Algorithm 432: Solution of the matrix equation AX + XB = C.
-      Comm. ACM., Vol. 15, pp. 820-826, 1972.
-</PRE>
-
-
-</p>
-<h4>Example</h4>
-<blockquote><pre>
-  A = [17.0,   24.0,   1.0,   8.0,   15.0 ;
-       23.0,    5.0,   7.0,  14.0,   16.0 ;
-        0.0,    6.0,  13.0,  20.0,   22.0;
-        0.0,    0.0,  19.0,  21.0,    3.0 ;
-        0.0,    0.0,   0.0,   2.0,    9.0];
-
-  B =  [8.0, 1.0, 6.0;
-        0.0, 5.0, 7.0;
-        0.0, 9.0, 2.0];
-
-  C = [62.0,  -12.0, 26.0;
-       59.0,  -10.0, 31.0;
-       70.0,  -6.0,   9.0;
-       35.0,  31.0,  -7.0;
-       36.0, -15.0,   7.0];
-
-  X = continuousSylvester(A, B, C);
-
-  results in:
-
-  X = [0.0,  0.0,  1.0;
-       1.0,  0.0,  0.0;
-       0.0,  1.0,  0.0;
-       1.0,  1.0, -1.0;
-       2.0, -2.0,  1.0];
-
-
-</pre></blockquote>
-<h4>See also</h4>
-<a href=\"modelica://Modelica.Math.Matrices.discreteSylvester\">Matrices.discreteSylvester</a>,<br>
-<a href=\"modelica://Modelica.Math.Matrices.continuousLyapunov\">Matrices.continuousLyapunov</a>
-
-</html>", revisions="<html>
-<ul>
-<li><i>2010/05/31 </i>
-       by Marcus Baur, DLR-RM</li>
-</ul>
-</html>"));
-  end continuousSylvester;
-
-  function continuousRiccati
-    "Solution of continuous-time algebraic Riccati equation (care)"
-    import Modelica.Math.Matrices;
-
-    input Real A[:,size(A, 1)] "Square matrix A in CARE";
-    input Real B[size(A, 1),:] "Matrix B in CARE";
-    input Real R[size(B, 2),size(B, 2)]=identity(size(B, 2)) "Matrix R in CARE";
-    input Real Q[size(A, 1),size(A, 1)]=identity(size(A, 1)) "Matrix Q in CARE";
-    input Boolean refine=false "True for subsequent refinement";
-
-  protected
-    Integer n=size(A, 1);
-    Real G[size(A, 1),size(A, 1)]=B*Modelica.Math.Matrices.solve2(R, transpose(B));
-    Real H[:,:]=[A,-G; -Q,-transpose(A)];
-    Real H_RSF[:,:]=H;
-    Real Z[size(H, 1),size(H, 2)];
-    Real Z11[size(A, 1),size(A, 2)];
-    Real Z21[size(A, 1),size(A, 2)];
-
-    Integer info;
-
-  public
-    output Real X[size(A, 1),size(A, 2)] "stabilizing solution of CARE";
-    output Real alphaReal[size(H, 1)]
-      "Real parts of eigenvalue=alphaReal+i*alphaImag";
-    output Real alphaImag[size(H, 1)]
-      "Imaginary parts of eigenvalue=(alphaReal+i*alphaImag";
-  algorithm
-    if n > 1 then
-      (H_RSF,Z,alphaReal,alphaImag) := Modelica.Math.Matrices.realSchur(    H);
-      (H_RSF,Z,alphaReal,alphaImag) := Matrices.Utilities.reorderRSF(
-        H_RSF,
-        Z,
-        alphaReal,
-        alphaImag,
-        true);
-
-      Z11 := Z[1:n, 1:n];
-      Z21 := Z[n + 1:2*n, 1:n];
-      if size(Z11, 1) > 0 then
-
-        (X,info) := Matrices.LAPACK.dgesvx(Z11, transpose(Z21));
-        //this function does not need to transpose Z11 as solve2 does with //  X := transpose(Matrices.solve2(transpose(Z11), transpose(Z21)));
-        assert(info == 0, "Solving a linear system of equations with function \"Matrices.LAPACK.dgesvx\" is not possible, because the system has either no or infinitely many solutions (input A is singular).");
-        X := transpose(X);
-
-        if refine then
-          X := Modelica.Math.Matrices.Utilities.continuousRiccatiIterative(
-                                          A, B, R, Q, X);
-        end if;
-      else
-        X := fill(0, size(Z21, 1), size(Z11, 1));
-      end if;
-
-    elseif n == 1 then
-      X := matrix((A[1, 1] - sqrt(A[1, 1]*A[1, 1] + G[1, 1]*Q[1, 1]))/G[1, 1]);
-      if X[1, 1]*G[1, 1] < A[1, 1] then
-        X := matrix((A[1, 1] + sqrt(A[1, 1]*A[1, 1] + G[1, 1]*Q[1, 1]))/G[1, 1]);
-      end if;
-    else
-      X := fill(0, 0, 0);
-    end if;
-
-    annotation (Documentation(info="<html>
-
-
-   <h4>Syntax</h4>
-<blockquote><pre>
-                                X = Matrices.<b>continuousRiccati</b>(A, B, R, Q);
-        (X, alphaReal, alphaImag) = Matrices.<b>continuousRiccati</b>(A, B, R, Q, true);
-</pre></blockquote>
-<h4>Description</h4>
-Function <b>continuousRiccati</b> computes the solution <b>X</b> of the continuous-time algebraic Riccati equation
-<blockquote><pre>
- <b>Q</b> + <b>A</b>'*<b>X</b> + <b>X</b>*<b>A</b> - <b>X</b>*<b>G</b>*<b>X</b> = <b>0</b>
-</pre></blockquote>
-with
-<blockquote><pre>
-       -1
-<b>G</b> = <b>B</b>*<b>R</b> *<b>B</b>'
-
-</pre>
-</blockquote>
-using the Schur vector approach proposed by Laub [1].
-<p>
-It is assumed that <b>Q</b> is symmetric and positive semidefinite and <b>R</b> is symmetric, nonsingular and positive definite,
-(<b>A</b>,<b>B</b>) is stabilizable and (<b>A</b>,<b>Q</b>) is detectable.
-<p><b>
-These assumptions are not checked in this function !!
-</b><br>
-<p>
-The assumptions guarantee that the Hamiltonian matrix
-<blockquote><pre>
-<b>H</b> = [<b>A</b>, -<b>G</b>; -<b>Q</b>, -<b>A</b>']
-
-</pre></blockquote>
-has no pure imaginary eigenvalue and can be put
-to an ordered real Schur form
-<blockquote><pre>
-<b>U</b>'*<b>H</b>*<b>U</b> = <b>S</b> = [<b>S</b>11, <b>S</b>12; <b>0</b>, <b>S</b>22]
-
-</pre></blockquote>
-with orthogonal similarity transformation <b>U</b>. <b>S</b> is ordered in such a way,
-that <b>S</b>11 contains the n stable eigenvalues of the closed loop system with system matrix
-<blockquote><pre>
-       -1
-<b>A</b> - <b>B</b>*<b>R</b> *<b>B</b>'*<b>X</b>
-
-</pre></blockquote>
-If <b>U</b> is partitioned to
-<blockquote><pre>
-<b>U</b> = [<b>U</b>11, <b>U</b>12; <b>U</b>21, <b>U</b>22]
-
-</pre></blockquote>
-with dimenstions according to <b>S</b>, the solution <b>X</b> is calculated by
-<blockquote><pre>
-<b>X</b>*<b>U</b>11 = <b>U</b>21.
-
-</pre></blockquote>
-
-With optional input <tt>refinement=true</tt> a subsequent iterative refinement based on Newton's method with exact line search is applied.
-See <a href=\"modelica://Modelica.Math.Matrices.Utilities.continuousRiccatiIterative\">continuousRiccatiIterative</a>
-for more information.<br><br>
-
-The algorithm calls LAPACK routines <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgehrd\">dgehrd</a> (to compute the upper Hessenberg matrix of <b>H</b>),
-<a href=\"modelica://Modelica.Math.Matrices.LAPACK. dorghr\">dorghr</a> (to calculate the orthogonal
-matrix from the elementary reflectors as returned from dgehrd), <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dhseqr\">dhseqr</a>
-(to put transformed <b>H</b> to Schur form and to calculate the eigenvalues
-of the closed loop system) and <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dtrsen\">dtrsen</a> (to compute the ordered real Schur form and matrix <b>U</b>).
-
-</p>
-<h4>References</h4>
-<PRE>
-  [1] Laub, A.J.
-      A Schur Method for Solving Algebraic Riccati equations.
-      IEEE Trans. Auto. Contr., AC-24, pp. 913-921, 1979.
-</PRE>
-<p>
-<h4>Example</h4>
-<blockquote><pre>
-  A = [0.0, 1.0;
-       0.0, 0.0];
-
-  B = [0.0;
-       1.0];
-
-  R = [1];
-
-  Q = [1.0, 0.0;
-       0.0, 2.0];
-
-X = continuousRiccati(A, B, R, Q);
-
-  results in:
-
-X = [2.0, 1.0;
-     1.0, 2.0];
-
-</pre></blockquote>
-<h4>See also</h4>
-
-
-<a href=\"modelica://Modelica.Math.Matrices.Utilities.continuousRiccatiIterative\">Matrices.Utilities.continuousRiccatiIterative</a>
-<a href=\"modelica://Modelica.Math.Matrices.discreteRiccati\">Matrices.discreteRiccati</a>
-
-
-</html>", revisions="<html><ul>
-<li><i>2010/05/31 </i>
-       by Marcus Baur, DLR-RM</li>
-</ul>
-</html>"));
-  end continuousRiccati;
-
-  function discreteLyapunov
-    "Solution of discrete-time Lyapunov equation A'*X*A + sgn*X = C"
-    import Modelica.Math.Matrices;
-
-    input Real A[:,size(A, 1)] "Square matrix A in A'*X*A + sgn*X = C";
-    input Real C[size(A, 1),size(A, 2)] "Square matrix C in A'*X*A + sgn*X = C";
-    input Boolean ATisSchur=false
-      "True if transpose(A) has already real Schur form";
-    input Integer sgn=1 "Specifies the sign in A'*X*A + sgn*X = C";
-    input Real eps=Matrices.norm(A, 1)*10*Modelica.Constants.eps
-      "Tolerance eps";
-
-  protected
-    Integer n=size(A, 1);
-    Real R[size(A, 1),size(A, 2)] "RSF of A', i.e. R=U'A'U";
-    Real U[size(A, 1),size(A, 2)] "Transformation matrix U for R=U'A'U";
-    Real D[size(A, 1),size(A, 2)] "Matrix D=U'*C*U";
-    Real R22[size(A, 1),size(A, 2)];
-    Real R11[size(A, 1),size(A, 2)];
-    Integer k;
-
-    Real g[size(A, 1)];
-    Real w[size(A, 1)];
-    Real y[2*size(A, 1)];
-    Boolean crit;
-
-  public
-    output Real X[size(A, 1),size(A, 2)]
-      "Solution X of the Lyapunov equation A'*X*A + sgn*X = C";
-
-  algorithm
-    assert(sgn==1 or sgn==-1,"Input sgn in function Math.Matrices.discreteLyapunov() must be 1 or -1, however it is "+String(sgn));
-    X := zeros(n, n);
-    k := n;
-    if n > 1 then
-      if ATisSchur then
-        R := transpose(A);
-        U := identity(n);
-        D := C;
-      else
-        (R,U) := Modelica.Math.Matrices.realSchur(transpose(A));
-         D := transpose(U)*C*U;
-      end if;
-
-      while k > 0 loop
-        w := D[:, k] - R*X[:, k + 1:n]*R[k, k + 1:n];
-        crit := if k > 1 then abs(R[k, k - 1]) < eps else false;
-        if (k == 1 or crit) then
-          R22 := R[k, k]*R;
-          for i in 1:n loop
-            R22[i, i] := R22[i, i] + sgn;
-          end for;
-          X[:, k] := Matrices.solve(R22, w);
-          k := k - 1;
-        else
-          g := D[:, k - 1] - R*X[:, k + 1:n]*R[k - 1, k + 1:n];
-          R11 := R[k - 1, k - 1]*R;
-          R22 := R[k, k]*R;
-          for i in 1:n loop
-            R11[i, i] := R11[i, i] + sgn;
-            R22[i, i] := R22[i, i] + sgn;
-          end for;
-          y := Matrices.solve([R11,R[k - 1, k]*R; R[k, k - 1]*R,R22], cat(1, g, w));
-          X[:, k - 1] := y[1:n];
-          X[:, k] := y[n + 1:2*n];
-          k := k - 2;
-        end if;
-      end while;
-
-  // transform X corresponding to the original form
-      if not ATisSchur then
-        X := U*X*transpose(U);
-      end if;
-
-    elseif n == 1 then
-      X[1, 1] := C[1, 1]/(A[1, 1]*A[1, 1] + sgn);
-    else
-      X := fill(0, 0, 0);
-    end if;
-
-    annotation (Documentation(info="<html>
- <h4>Syntax</h4>
-<blockquote><pre>
-         X = Matrices.<b>discreteLyapunov</b>(A, C);
-         X = Matrices.<b>discreteLyapunov</b>(A, C, ATisSchur, sgn, eps);
-</pre></blockquote>
-<h4>Description</h4>
-<p>
-This function computes the solution <b>X</b> of the discrete-time Lyapunov equation
-</p>
-<blockquote><pre>
- <b>A</b>'*<b>X</b>*<b>A</b> + sgn*<b>X</b> = <b>C</b>
-</pre></blockquote>
-<p>
-where sgn=1 or sgn =-1. For sgn = -1, the discrete Lyapunov equation is a special case of the Stein equation:
-<p>
-<blockquote><pre>
- <b>A</b>*<b>X</b>*<b>B</b> - <b>X</b> + <b>Q</b> = <b>0</b>.
-
-</pre></blockquote>
-</p>
-The algorithm uses the Schur method for Lyapunov equations proposed by Bartels and Stewart [1].
-<p>
-In a nutshell, the problem is reduced to the corresponding problem
-<blockquote><pre>
- <b>R</b>*<b>Y</b>*<b>R</b>' + sgn*<b>Y</b> = <b>D</b>.
-</pre></blockquote>
-<p>
-with <b>R</b>=<b>U</b>'*<b>A'</b>*<b>U</b> is the the real Schur form of <b>A</b>' and <b>D</b>=<b>U</b>'*<b>C</b>*<b>U</b> and <b>Y</b>=<b>U</b>'*<b>X</b>*<b>U</b>
-are the corresponding transformations of <b>C</b> and <b>X</b>. This problem is solved sequently by exploiting the block triangular form of <b>R</b>.
-Finally the solution of the the original problem is recovered as <b>X</b>=<b>U</b>*<b>Y</b>*<b>U</b>'.<br>
-The boolean input \"ATisSchur\" indicates to omit the transformation to Schur in the case that <b>A</b>' has already Schur form.
-
-</p>
-
-<h4>References</h4>
-<PRE>
-  [1] Bartels, R.H. and Stewart G.W.
-      Algorithm 432: Solution of the matrix equation AX + XB = C.
-      Comm. ACM., Vol. 15, pp. 820-826, 1972.
-</PRE>
-
-
-</p>
-<h4>Example</h4>
-<blockquote><pre>
-  A = [1, 2,  3,  4;
-       3, 4,  5, -2;
-      -1, 2, -3, -5;
-       0, 2,  0,  6];
-
-  C =  [-2,  3, 1, 0;
-        -6,  8, 0, 1;
-         2,  3, 4, 5;
-         0, -2, 0, 0];
-
-  X = discreteLyapunov(A, C, sgn=-1);
-
-  results in:
-
-  X  = [7.5735,   -3.1426,  2.7205, -2.5958;
-       -2.6105,    1.2384, -0.9232,  0.9632;
-        6.6090,   -2.6775,  2.6415, -2.6928;
-       -0.3572,    0.2298,  0.0533, -0.27410];
-
-</pre></blockquote>
-<h4>See also</h4>
-<a href=\"modelica://Modelica.Math.Matrices.discreteSylvester\">Matrices.discreteSylvester</a>,<br>
-<a href=\"modelica://Modelica.Math.Matrices.continuousLyapunov\">Matrices.continuousLyapunov</a>
-
-
-</html>", revisions="<html>
-<ul>
-<li><i>2010/05/31 </i>
-       by Marcus Baur, DLR-RM</li>
-</ul>
-</html>"));
-  end discreteLyapunov;
-
-  function discreteSylvester
-    "Solution of discrete-time Sylvester equation A*X*B + sgn*X = C"
-    import Modelica.Math.Matrices;
-
-    input Real A[:,size(A, 1)] "Square matrix A in A*X*B + sgn*X = C";
-    input Real B[:,size(B, 1)] "Square matrix B in A*X*B + sgn*X = C";
-    input Real C[size(A, 2),size(B, 1)]
-      "Rectangular matrix C in A*X*B + sgn*X = C";
-    input Boolean AisHess=false "True if A has already Hessenberg form";
-    input Boolean BTisSchur=false "True if B' has already real Schur form";
-    input Integer sgn=1 "Specifies the sign in A*X*B + sgn*X = C";
-    input Real eps=Matrices.norm(A, 1)*10*Modelica.Constants.eps "Tolerance";
-
-  protected
-    Integer n=size(A, 1);
-    Integer m=size(B, 1);
-    Real H[n,n] "Hessenberg form  of A, i.e. H=U'AU";
-    Real U[n,n] "Transformation matrix U for H=U'AU";
-    Real S[m,m] "RSF form  of B, i.e. S=Z'BZ";
-    Real Z[m,m] "Transformation matrix Z for S=Z'BZ";
-    Real F[n,m] "Appropriate transformation of the right side C, F=U'*C*Z";
-
-    Real R22[n,n];
-    Real R11[n,n];
-    Integer k;
-
-    Real w[n];
-    Real g[n];
-    Real y[2*n];
-    Boolean crit;
-
-  public
-    output Real X[size(A, 2),size(B, 1)]
-      "solution of the discrete Sylvester equation A*X*B + sgn*X = C";
-
-  algorithm
-    assert(sgn==1 or sgn==-1,"Input sgn in function Math.Matrices.discreteLyapunov() must be 1 or -1, however it is "+String(sgn));
-    X := zeros(n, m);
-    k := m;
-
-    if n > 1 and m > 1 then
-      if AisHess then
-        H := A;
-        U := identity(n);
-        if BTisSchur then
-          S := B;
-          Z := identity(m);
-          F := C;
-        else
-          (S,Z) := Matrices.realSchur(transpose(B));
-          S := transpose(S);
-          F := C*Z;
-        end if;
-      else
-        (H,U) := Matrices.hessenberg(A);
-        if BTisSchur then
-          S := B;
-          Z := identity(m);
-          F := transpose(U)*C;
-        else
-          (S,Z) := Matrices.realSchur(transpose(B));
-          S := transpose(S);
-          F := transpose(U)*C*Z;
-        end if;
-      end if;
-
-      while k >0 loop
-
-        w := F[:, k] - H*X[:, k + 1:m]*S[k +1:m,k];
-        crit := if k > 1 then abs(S[k-1, k]) < eps else false;
-
-        if (k == 1 or crit) then //real eigenvalue in Schur form
-          R22 := S[k, k]*H;
-          for i in 1:n loop
-            R22[i, i] := R22[i, i] + sgn;
-          end for;
-          X[:, k] := Matrices.solve(R22, w); // solve one column in X for one real eigenvalue
-          k := k - 1;
-        else // pair of complex eigenvalues, i.e. 2x2 Schur bump
-          g := F[:, k-1] - H*X[:, k + 1:m]*S[k+1 :m,k-1];
-          R22 := S[k, k]*H;
-          R11 := S[k-1, k-1]*H;
-          for i in 1:n loop
-            R11[i, i] := R11[i, i] + sgn;
-            R22[i, i] := R22[i, i] + sgn;
-          end for;
-          y := Matrices.solve([R11,S[k,  k-1]*H; S[k-1, k]*H,R22], cat(1, g, w));// solve two columns in X for one conjugated complex pole pair
-          X[:, k-1] := y[1:n];
-          X[:, k] := y[n + 1:2*n];
-          k := k - 2;
-        end if;
-      end while;
-
-  // transform X corresponding to the original form
-      if not (AisHess and BTisSchur) then
-        X := if AisHess then X*transpose(Z) else if BTisSchur then U*X else U*X*transpose(Z);
-      end if;
-
-    elseif n == 1 and m == 1 then // simple scalar equation
-      X[1, 1] := C[1, 1]/(A[1, 1]*B[1, 1] + sgn);
-    else
-      X := fill(0, 0, 0);
-    end if;
-
-    annotation (Documentation(info="<html>
- <h4>Syntax</h4>
-<blockquote><pre>
-         X = Matrices.<b>discreteSylvester</b>(A, B, C);
-         X = Matrices.<b>discreteSylvester</b>(A, B, C, AisHess, BTisSchur, sgn, eps);
-</pre></blockquote>
-<h4>Description</h4>
-<p>
-Function <b>discreteSylvester</b> computes the solution <b>X</b> of the discrete-time Sylvester equation
-<p>
-<blockquote><pre>
- <b>A</b>*<b>X</b>*<b>B</b> + sgn*<b>X</b> = <b>C</b>.
-
-</pre></blockquote>
-</p>
-where sgn = 1 or sgn = -1. The algorithm applies the Hessenberg-Schur method proposed by Golub et al [1].
-For sgn = -1, the discrete Sylvester equation is also known as Stein equation:
-<p>
-<blockquote><pre>
- <b>A</b>*<b>X</b>*<b>B</b> - <b>X</b> + <b>Q</b> = <b>0</b>.
-
-</pre></blockquote>
-</p>
-
-In a nutshell, the problem is reduced to the corresponding problem
-<blockquote><pre>
- <b>H</b>*<b>Y</b>*<b>S</b>' + sgn*<b>Y</b> = <b>F</b>.
-</pre></blockquote>
-<p>
-with <b>H</b>=<b>U</b>'*<b>A</b>*<b>U</b> is the Hessenberg form of <b>A</b> and <b>S</b>=<b>V</b>'*<b>B</b>'*<b>V</b> is the real Schur form of <b>B</b>',
-<b>F</b>=<b>U</b>'*<b>C</b>*<b>V</b> and <b>Y</b>=<b>U</b>*<b>X</b>*<b>V</b>'
-are appropriate transformations of <b>C</b> and <b>X</b>. This problem is solved sequently by exploiting the specific forms of <b>S</b> and <b>H</b>.
-Finally the solution of the the original problem is recovered as <b>X</b>=<b>U</b>'*<b>Y</b>*<b>V</b>.<br>
-The boolean inputs \"AisHess\" and \"BTisSchur\" indicate to omit one or both of the transformation to Hessenberg form or Schur form repectively in the case that <b>A</b> and/or <b>B</b> have already Hessenberg form or Schur respectively.
-
-</p>
-<h4>References</h4>
-<PRE>
-  [1] Golub, G.H., Nash, S. and Van Loan, C.F.
-      A Hessenberg-Schur method for the problem AX + XB = C.
-      IEEE Transaction on Automatic Control, AC-24, no. 6, pp. 909-913, 1979.
-
-
-</PRE>
-
-
-</p>
-<h4>Example</h4>
-<blockquote><pre>
-  A = [1.0,   2.0,   3.0;
-       6.0,   7.0,   8.0;
-       9.0,   2.0,   3.0];
-
-
-  B = [7.0,   2.0,   3.0;
-       2.0,   1.0,   2.0;
-       3.0,   4.0,   1.0];
-
-
-  C = [271.0,   135.0,   147.0;
-       923.0,   494.0,   482.0;
-       578.0,   383.0,   287.0];
-
-  X = discreteSylvester(A, B, C);
-
-  results in:
-  X = [2.0,   3.0,   6.0;
-       4.0,   7.0,   1.0;
-       5.0,   3.0,   2.0];
-
-</pre></blockquote>
-<p>
-<h4>See also</h4>
-<a href=\"modelica://Modelica.Math.Matrices.continuousSylvester\">Matrices.continuousSylvester</a>,<br>
-<a href=\"modelica://Modelica.Math.Matrices.discreteLyapunov\">Matrices.discreteLyapunov</a>
-
-
-
-</html>", revisions="<html>
-<ul>
-<li><i>2010/05/31 </i>
-       by Marcus Baur, DLR-RM</li>
-</ul>
-</html>"));
-  end discreteSylvester;
-
-  function discreteRiccati
-    "Solution of discrete-time algebraic Riccati equation (dare)"
-
-    import Modelica.Math.Matrices;
-    input Real A[:,size(A, 1)] "Square matrix A in DARE";
-    input Real B[size(A, 1),:] "Matrix B in DARE";
-    input Real R[size(B, 2),size(B, 2)]=identity(size(B, 2)) "Matrix R in DARE";
-    input Real Q[size(A, 1),size(A, 1)]=identity(size(A, 1)) "Matrix Q in DARE";
-    input Boolean refine=false "True for subsequent refinement";
-
-  protected
-    Integer n=size(A, 1);
-    Real G[size(A, 1),size(A, 1)]=B*Matrices.solve2(R, transpose(B));
-    Real AT[:,:]=transpose(A);
-    Real LU[n,n];
-    Integer p[n];
-    Real H[2*n,2*n];
-    Real H11[n,n];
-    Real H12[n,n];
-    Real H21[n,n];
-    Real H22[n,n];
-    Real H_RSF[2*n,2*n];
-    Real Z[size(H, 1),size(H, 2)];
-    Real Z11[size(A, 1),size(A, 2)];
-    Real Z21[size(A, 1),size(A, 2)];
-
-    Integer info;
-
-  public
-    output Real X[size(A, 1),size(A, 2)]
-      "orthogonal matrix of the Schur vectors associated to ordered rsf";
-    output Real alphaReal[size(H, 1)]
-      "Real part of eigenvalue=alphaReal+i*alphaImag";
-    output Real alphaImag[size(H, 1)]
-      "Imaginary part of eigenvalue=(alphaReal+i*alphaImag";
-  algorithm
-    (LU,p) := Modelica.Math.Matrices.LU(AT);
-    H21 := Modelica.Math.Matrices.LU_solve2(
-        LU,
-        p,
-        -Q);
-    H22 := Modelica.Math.Matrices.LU_solve2(
-        LU,
-        p,
-        identity(n));
-    (LU,p) := Modelica.Math.Matrices.LU(A);
-    H12 := Modelica.Math.Matrices.LU_solve2(
-        LU,
-        p,
-        -G);
-    H12 := transpose(H12);
-    H11 := A - H12*Q;
-    H := [H11,H12; H21,H22];
-    (H_RSF,Z,alphaReal,alphaImag) := Modelica.Math.Matrices.realSchur(H);
-                                                               // put H to Schur form
-    (H_RSF,Z,alphaReal,alphaImag) := Matrices.Utilities.reorderRSF(
-        H_RSF,
-        Z,
-        alphaReal,
-        alphaImag,
-        false);  // ordered Schur form
-    Z11 := Z[1:n, 1:n];
-    Z21 := Z[n + 1:2*n, 1:n];
-    if size(Z11, 1) > 0 then
-  //  X := transpose(Matrices.solve2(transpose(Z11), transpose(Z21)));
-      (X,info) := Matrices.LAPACK.dgesvx(Z11, transpose(Z21));//function does not need to transpose Z11 as solve2 does
-      X := transpose(X);
-      assert(info == 0, "Solving a linear system of equations with function
-\"Matrices.LAPACK.dgesvx\" is not possible, because the system has either
-no or infinitely many solutions (input A is singular).");
-
-      if refine then
-        X := Modelica.Math.Matrices.Utilities.discreteRiccatiIterative(
-            A,
-            B,
-            R,
-            Q,
-            X);
-      end if;
-    else
-      X := fill(
-          0,
-          size(Z21, 1),
-          size(Z11, 1));
-    end if;
-
-    annotation (Documentation(info="<html>
-
-   <h4>Syntax</h4>
-<blockquote><pre>
-                                 X = Matrices.<b>discreteRiccati</b>(A, B, R, Q);
-         (X, alphaReal, alphaImag) = Matrices.<b>discreteRiccati</b>(A, B, R, Q, true);
-</pre></blockquote>
-<h4>Description</h4>
-Function <b>discreteRiccati</b> computes the solution <b>X</b> of the discrete-time algebraic Riccati equation
-<p>
-<blockquote><pre>
-                                -1
- <b>X</b> = <b>A</b>'*<b>X</b>*<b>A</b> - <b>A</b>'*<b>X</b>*<b>B</b>*(<b>R</b> + <b>B</b>'*<b>X</b>*<b>B</b>)  *<b>B</b>'*<b>X</b>*<b>A</b> + <b>Q</b>
-
-</pre>
-</blockquote>
-</p>
-using the Schur vector approach proposed by Laub [1].
-<p>
-It is assumed that <b>Q</b> is symmetric and positive semidefinite and <b>R</b> is symmetric, nonsingular and positive definite,
-(<b>A</b>,<b>B</b>) is stabilizable and (<b>A</b>,<b>Q</b>) is detectable. Using this method, <b>A</b> has also to be invertible.
-<p>
-<b>These assumptions are not checked in this function !!!</b>
-<p>
-
-The assumptions guarantee that the Hamiltonian matrix.
-<blockquote><pre>
-<b>H</b> = [<b>A</b> + <b>G</b>*<b>T</b>*<b>Q</b>, -<b>G</b>*<b>T</b>; -<b>T</b>*<b>Q</b>, <b>T</b>]
-</pre></blockquote>
-with
-<blockquote><pre>
-     -T
-<b>T</b> = <b>A</b>
-</pre></blockquote>
-and
-<blockquote><pre>
-       -1
-<b>G</b> = <b>B</b>*<b>R</b> *<b>B</b>'
-
-</pre>
-</blockquote>
-has no eigenvalue on the unit circle and can be put
-to an ordered real Schur form
-<blockquote><pre>
-<b>U</b>'*<b>H</b>*<b>U</b> = <b>S</b> = [<b>S11</b>, <b>S12</b>; <b>0</b>, <b>S22</b>]
-
-</pre></blockquote>
-with orthogonal similarity transformation <b>U</b>. <b>S</b> is ordered in such a way,
-that <b>S11</b> contains the n stable eigenvalues of the closed loop system with system matrix
-<blockquote><pre>
-                  -1
-<b>A</b> - <b>B</b>*(<b>R</b> + <b>B</b>'*<b>X</b>*<b>B</b>)  *<b>B</b>'*<b>X</b>*<b>A</b>
-
-</pre>
-</blockquote>
-If <b>U</b> is partitioned to
-<blockquote><pre>
-<b>U</b> = [<b>U11</b>, <b>U12</b>; <b>U21</b>, <b>U22</b>]
-
-</pre></blockquote>
-according to <b>S</b>, the solution <b>X</b> can be calculated by
-<blockquote><pre>
-<b>X</b>*<b>U11</b> = <b>U21</b>.
-</pre></blockquote>
-<p>
-The algorithm calls LAPACK routines <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgehrd\">dgehrd</a> (to compute the upper Hessenberg matrix of <b>H</b>),
-<a href=\"modelica://Modelica.Math.Matrices.LAPACK. dorghr\">dorghr</a> (to calculate the orthogonal
-matrix from the elementary reflectors as returned from dgehrd), <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dhseqr\">dhseqr</a>
-(to put transformed <b>H</b> to Schur form and to calculate the eigenvalues
-of the closed loop system) and <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dtrsen\">dtrsen</a> (to compute the ordered real Schur form and matrix <b>U</b>).
-
-</p>
-<h4>References</h4>
-<PRE>
-  [1] Laub, A.J.
-      A Schur Method for Solving Algebraic Riccati equations.
-      IEEE Trans. Auto. Contr., AC-24, pp. 913-921, 1979.
-</PRE>
-<p>
-<h4>Example</h4>
-<blockquote><pre>
- A  = [4.0    3.0]
-      -4.5,  -3.5];
-
- B  = [ 1.0;
-       -1.0];
-
- R = [1.0];
-
- Q = [9.0, 6.0;
-      6.0, 4.0]
-
-X = discreteRiccati(A, B, R, Q);
-
-  results in:
-
-X = [14.5623, 9.7082;
-      9.7082, 6.4721];
-
-</pre></blockquote>
-<h4>See also</h4>
-<a href=\"modelica://Modelica.Math.Matrices.care\">Matrices.continuousRiccati</a>
-
-</html>", revisions="<html>
-<ul>
-<li><i>2010/05/31 </i>
-       by Marcus Baur, DLR-RM</li>
-</ul>
-</html>"));
-  end discreteRiccati;
-
-  function trace "Compute the trace of matrix A, i.e., the sum of the diagonal"
-    extends Modelica.Icons.Function;
-
-    input Real A[:,size(A, 1)] "Square matrix A";
-    output Real result "Trace of A";
-  algorithm
-    result := sum(A[i, i] for i in 1:size(A, 1));
-  annotation(Inline=true, Documentation(info="<html>
-<h4>Syntax</h4>
-<blockquote><pre>
-  r = Matrices.<b>trace</b>(A);
-</pre></blockquote>
-<h4>Description</h4>
-<p>
-This function computes the trace, i.e. the sum of the elements in the diagonal matrix <b>A</b>.
-</p>
-<p>
-<h4>Example</h4>
-<blockquote><pre>
-  A = [1, 3;
-       2, 1];
-  r = trace(A);
-
-  results in:
-
-  r = 2.0
-</pre></blockquote>
-</p>
-</html>", revisions="<html>
-<ul>
-<li><i>2010/05/31 </i>
-       by Marcus Baur, DLR-RM</li>
-</ul>
-</html>"));
-  end trace;
-
-  function conditionNumber "Compute the condition number norm(A)*norm(inv(A))"
-    extends Modelica.Icons.Function;
-
-    input Real A[:,:] "Input matrix";
-    input Real p(min=1) = 2
-      "Type of p-norm (only allowed: 1, 2 or Modelica.Constants.inf)";
-    output Real result=0.0 "p-norm of matrix A";
-
-  protected
-    Real eps=1e-25;
-    Real s[size(A, 1)] "singular values";
-
-  algorithm
-    if min(size(A)) > 0 then
-      if p == 2 then
-        s := Modelica.Math.Matrices.singularValues(A);
-        if min(s) < eps then
-          result := Modelica.Constants.inf;
-        else
-          result := max(s)/min(s);
-        end if;
-      else
-        result := Modelica.Math.Matrices.norm(A, p)*Modelica.Math.Matrices.norm(
-          Modelica.Math.Matrices.inv(A), p);
-      end if;
-    end if;
-
-    annotation (Documentation(info="<html>
-  <h4>Syntax</h4>
-<blockquote><pre>
-r = Matrices.<b>conditionNumber</b>(A);
-</pre></blockquote>
-<h4>Description</h4>
-<p>
-This function calculates the condition number (norm(A) * norm(inv(A))) of a general real matrix <b>A</b>, in either the 1-norm, 2-norm or the infinity-norm.
-In the case of 2-norm the result is the ratio of the largest to the smallest singular value to <b>A</b>.
-</p>
-<p>
-<h4>Example</h4>
-<blockquote><pre>
-  A = [1, 2;
-       2, 1];
-  r = conditionNumber(A);
-
-  results in:
-
-  r = 3.0
-</pre></blockquote>
-</p>
-<h4>See also</h4>
-<a href=\"Modelica://Modelica.Math.Matrices.rcond\">Matrices.rcond</a>
-</html>", revisions="<html>
-<ul>
-<li><i>2010/05/31 </i>
-       by Marcus Baur, DLR-RM</li>
-</ul>
-</html>"));
-  end conditionNumber;
-
-  function rcond "Reciprocal condition number"
-    extends Modelica.Icons.Function;
-    input Real A[:,size(A,1)] "Square real matrix";
-    input Boolean inf = false
-      "Is true if infinity norm is used and false for 1-norm";
-    output Real rcond "Reciprocal condition number of A";
-    output Integer info "Information";
-  protected
-    Real LU[:,:] "LU factorization of matrix A, returned by dgetrf";
-    Real anorm "Norm of matrix A";
-    String normspec= if inf then "I" else "1" "specifies the norm 1 or inf";
-
-  algorithm
-    if min(size(A)) > 0 then
-      (LU,,info) := Modelica.Math.Matrices.LAPACK.dgetrf(A);
-      anorm := Modelica.Math.Matrices.LAPACK.dlange(A,normspec);
-      (rcond,info) := Modelica.Math.Matrices.LAPACK.dgecon(LU,inf,anorm);
-    else
-      rcond := Modelica.Constants.inf;
-      info := 0;
-    end if;
-
-    annotation (Documentation(info="<HTML>
-  <h4>Syntax</h4>
-<blockquote><pre>
-r = Matrices.<b>rcond</b>(A);
-</pre></blockquote>
-<h4>Description</h4>
-<p>
-This function estimates the reciprocal of the condition number (norm(A) * norm(inv(A))) of a general real matrix <b>A</b>, in either the 1-norm or
-the infinity-norm, using the LAPACK function <a href=\"Modelica://Modelica.Math.Matrices.LAPACK.dgecon\">DGECON</a>.<br>
-If rcond(A) is near 1.0, <b>A</b> is well conditioned and <b>A</b> is ill conditioned if rcond(A) is near zero.
-<p>
-<h4>Example</h4>
-<blockquote><pre>
-  A = [1, 2;
-       2, 1];
-  r = rcond(A);
-
-  results in:
-
-  r = 0.3333
-</pre></blockquote>
-</p>
-<h4>See also</h4>
-<a href=\"Modelica://Modelica.Math.Matrices.conditionNumber\">Matrices.conditionNumber</a>
-</HTML>", revisions="<html>
-<ul>
-<li><i>2010/05/31 </i>
-       by Marcus Baur, DLR-RM</li>
-</ul>
-</html>"));
-  end rcond;
-
-  function nullSpace "Orthonormal nullspace of a matrix"
-    extends Modelica.Icons.Function;
-
-    input Real A[:,:] "Input matrix";
-    output Real Z[size(A, 2),:] "Orthonormal nullspace of matrix A";
-    output Integer nullity "Nullity, i.e. the dimension of the nullspace";
-
-  protected
-    Real V[size(A, 2),size(A, 2)] "Right orthogonal matrix ";
-    Real sigma[min(size(A, 1), size(A, 2))] "singular values";
-    Integer rank "rank of matrix A";
-    Real eps "tolerance for rank determination";
-    Integer n=min(size(A, 1), size(A, 2));
-    Integer i=n;
-
-  algorithm
-    (sigma,,V) := Modelica.Math.Matrices.singularValues(A);
-    V := transpose(V);
-    // rank computation
-    eps := max(size(A, 1), size(A, 2))*max(sigma)*Modelica.Constants.eps;
-    rank := 0;
-    if n > 0 then
-      while i > 0 loop
-        if sigma[i] > eps then
-          rank := i;
-          i := 0;
-        end if;
-        i := i - 1;
-      end while;
-    end if;
-    Z := V[:, rank + 1:size(A, 2)];// nullspace computation
-    nullity := size(A, 2) - rank;// nullity
-
-    annotation (Documentation(info="<html>
-  <h4>Syntax</h4>
-<blockquote><pre>
-           Z = Matrices.<b>nullspace</b>(A);
-(Z, nullity) = Matrices.<b>nullspace</b>(A);
-</pre></blockquote>
-<h4>Description</h4>
-<p>
-This function calculates an orthonormal basis <b>Z</b>=[<b>z</b>_1, <b>z</b>_2, ...] of the nullspace of a matrix <b>A</b>, i.e. <b>A</b>*<b>z</b>_i=<b>0</b>.
-</p>
-The nullspace is obtained by svd method. That is, matrix <b>A</b> is decomposed into the matrices <b>S</b>, <b>U</b>, <b>V</b>:
-<blockquote><pre>
-        T
- <b>A</b> = <b>U</b><b>S</b><b>V</b>
-
-</pre></blockquote>
-with the orthonormal matrices <b>U</b> and <b>V</b> and the matrix <b>S</b> with
-<blockquote><pre>
- <b>S</b> = [<b>S</b>1, <b>0</b>]
- <b>S</b>1 = [diag(s); <b>0</b>]
-
-</pre></blockquote>
-and the singular values <b>s</b>={s1, s2, ..., sr} of <b>A</b> and r=rank(<b>A</b>). Note, that <b>S</b> has the same size as <b>A</b>. Since, <b>U</b> and <b>V</b> are orthonormal, we may write
-<blockquote><pre>
-  T
- <b>U</b>*<b>A</b>*<b>V</b> = [<b>S</b>1, <b>0</b>].
-
-</pre></blockquote>
-Matrix <b>S</b>1 obviously has full column rank and therefore, the left n-r rows (n is the number of columns of <b>A</b> or <b>S</b>) of matrix <b>V</b> span a nullspace of <b>A</b>.
-</p>
-<p>
-The nullity of matrix <b>A</b> is the dimension of the nullspace of <b>A</b>. In view of the above, it becomes clear that nullity holds
-<blockquote><pre>
- nullity = n - r
-</pre></blockquote>
-with
-<blockquote><pre>
- n = number of columns of matrix <b>A</b>
- r = rank(<b>A</b>)
-</pre></blockquote>
-
-</p>
-<p>
-<h4>Example</h4>
-<blockquote><pre>
-  A = [1, 2,  3, 1;
-       3, 4,  5, 2;
-      -1, 2, -3, 3];
-  (Z, nullity) = nullspace(A);
-
-  results in:
-
-  Z=[0.1715;
-    -0.686;
-     0.1715;
-     0.686]
-
-  nullity = 1
-</pre></blockquote>
-</p>
-<h4>See also</h4>
-<a href=\"Modelica://Modelica.Math.Matrices.singularValues\">Matrices.singularValues</a>
-</html>", revisions="<html>
-<ul>
-<li><i>2010/05/31 </i>
-       by Marcus Baur, DLR-RM</li>
-</ul>
-</html>"));
-  end nullSpace;
-
-  function toString "Convert a matrix into its string representation "
-    import Modelica.Utilities.Strings;
-
-    input Real M[:,:] "Real matrix";
-    input String name="M" "Independent variable name used for printing";
-    input Integer significantDigits=6
-      "Number of significant digits that are shown";
-    output String s="" "String expression of matrix M";
-  protected
-    String blanks=Strings.repeat(significantDigits);
-    String space=Strings.repeat(8);
-    String space2=Strings.repeat(3);
-    Integer r=size(M, 1);
-    Integer c=size(M, 2);
-
-  algorithm
-    if r == 0 or c == 0 then
-      s := name + " = []";
-    else
-      s := if name == "" then "\n" else "\n" + name + " = \n";
-      for i in 1:r loop
-        s := s + space;
-        for j in 1:c loop
-          if M[i, j] >= 0 then
-            s := s + " ";
-          end if;
-          s := s + String(M[i, j], significantDigits=significantDigits) +
-            Strings.repeat(significantDigits + 8 - Strings.length(String(abs(M[i,
-            j]))));
-        end for;
-        s := s + "\n";
-      end for;
-
-    end if;
-
-    annotation (Documentation(info="<html>
-<h4>Syntax</h4>
-<blockquote><pre>
-Matrices.<b>toString</b>(A);
-Matrices.<b>toString</b>(A, name=\"A\", significantDigits=6);
-</pre></blockquote>
-<h4>Description</h4>
-<p>
-The function call \"<code>Matrices.<b>toString</b>(A)</code>\" returns the
-string representation of matrix <b>A</b>.
-With the optional arguments \"name\" and \"significantDigits\", a name and the number of the digits are defined.
-The default values of name and significantDigits are \"M\" and 6 repectively. If name==\"\" then the prefix \"M =\" is leaved out.
-
-
-<h4>Example</h4>
-<blockquote><pre>
-  A = [2.12, -4.34; -2.56, -1.67];
-
-  toString(A);
-  // \"M = [2.12   -4.34
-  //      -2.56    -1.67]\";
-
-  toString(A,\"A\",1);
-  // \"M = [2     -4
-          -3     -2]\"
-  <b>toString</b>(A,\"\");
-  //      \"  [2.12   -4.34
-  //         -2.56   -1.67\"
-
-</pre></blockquote>
-
-<h4>See also</h4>
-
-
-<a href=\"modelica://Modelica.Math.Vectors.toString\">Vectors.toString</a>
-
-</HTML>",   revisions="<html>
-</html>"));
-  end toString;
-
-  function flipLeftRight "Flip the columns of a matrix in left/right direction"
-
-    input Real A[:,:] "Matrix to be flipped";
-    output Real Aflip[size(A, 1),size(A, 2)] "Flipped matrix";
-  algorithm
-    Aflip := A[:,{i for i in size(A,2):-1:1}];
-
-    annotation (Inline=true, Documentation(info="<html>
- <h4>Syntax</h4>
-<blockquote><pre>
-         A_flr = Matrices.<b>flipLeftRight</b>(A);
-</pre></blockquote>
-<h4>Description</h4>
-Function <b>flipLeftRight</b> computes from matrix <b>A</b> a matrix <b>A_flr</b> with flipped columns, i.e. <b>A_flr</b>[:,i]=<b>A</b>[:,n-i+1], i=1,..., n.
-<p>
-<h4>Example</h4>
-<blockquote><pre>
-  A = [1, 2,  3;
-       3, 4,  5;
-      -1, 2, -3];
-
-  A_flr = flipLeftRight(A);
-
-  results in:
-
-  A_flr = [3, 2,  1;
-           5, 4,  3;
-          -3, 2, -1]
-</pre></blockquote>
-<h4>See also</h4>
-<a href=\"modelica://Modelica.Math.Matrices.flipUpDown\">Matrices.flipUpDown</a>
-
-
-</html>", revisions="<html>
-<ul>
-<li><i>2010/05/31 </i>
-       by Marcus Baur, DLR-RM</li>
-</ul>
-</html>"));
-  end flipLeftRight;
-
-  function flipUpDown "Flip the rows of a matrix in up/down direction"
-
-    input Real A[:,:] "Matrix to be flipped";
-    output Real Aflip[size(A, 1),size(A, 2)] "Flipped matrix";
-  algorithm
-    Aflip := A[{i for i in size(A,1):-1:1},:];
-
-    annotation (Inline=true, Documentation(info="<html>
- <h4>Syntax</h4>
-<blockquote><pre>
-         A_fud = Matrices.<b>flipUpDown</b>(A);
-</pre></blockquote>
-<h4>Description</h4>
-Function <b>flipUpDown</b> computes from matrix <b>A</b> a matrix <b>A_fud</b> with flipped rows, i.e. <b>A_fud</b>[i,:]=<b>A</b>[n-i+1,:], i=1,..., n.
-<p>
-<h4>Example</h4>
-<blockquote><pre>
-  A = [1, 2,  3;
-       3, 4,  5;
-      -1, 2, -3];
-
-  A_fud = flipUpDown(A);
-
-  results in:
-
-  A_fud  = [-1, 2, -3;
-             3, 4,  5;
-             1, 2,  3]
-</pre></blockquote>
-<h4>See also</h4>
-<a href=\"modelica://Modelica.Math.Matrices.flipLeftRight\">Matrices.flipLeftRight</a>
-
-
-</html>", revisions="<html>
-<ul>
-<li><i>2010/05/31 </i>
-       by Marcus Baur, DLR-RM</li>
-</ul>
-</html>"));
-  end flipUpDown;
-
-  function cholesky
-    "Compute the Cholesky factorization of a symmetric positive definte matrix"
-    import Modelica.Math.Matrices.LAPACK;
-    input Real A[:,size(A, 1)] "Symmetric positive definite matrix";
-    input Boolean upper=true "True if the upper triangle of A is provided";
-
-    output Real H[size(A, 1),size(A, 2)]
-      "Cholesky factor U or L for A = U'*U or A = L*L'";
-
-  protected
-    Integer n=size(A,1);
-    Integer info;
-
-  algorithm
-    if size(A, 1) > 0 then
-      (H, info) := LAPACK.dpotrf(A, upper);
-    else
-      H := fill(0,0,0);
-      info := 0;
-    end if;
-    if info<0 then
-     assert(info==0,"Cholesky factorization failed in function \"Matrices.cholesky\" due to illegal value of input " +String(info)+" for LAPACK routine DPOTRF");
-    else
-      assert(info==0,"Cholesky factorization failed in function \"Matrices.cholesky\" since matrix A is not positive definite");
-    end if;
-
-    if upper then
-      for i in 2:n loop
-        for j in 1:i - 1 loop
-          H[i, j] := 0.0;
-        end for;
-      end for;
-    else
-      for i in 1:n - 1 loop
-        for j in i + 1:n loop
-          H[i, j] := 0.0;
-        end for;
-      end for;
-    end if;
-    annotation (Documentation(info="<html>
-<h4>Syntax</h4>
-<blockquote><pre>
-         H = Matrices.<b>cholesky</b>(A);
-         H = Matrices.<b>cholesky</b>(A, upper=true);
- </pre></blockquote>
-<h4>Description</h4>
-Function <b>cholesky</b> computes the Cholesky factorization of a real symmetric positive definite matrix A.
-The optional Boolean input \"upper\" specifies wether the upper ot the lower triangular matrix is returned, i.e. 
-<p>
-<blockquote><pre>
-      T
- A = H *H   if upper is true (H is upper triangular)
- 
-        T
- A = H*H   if upper is false (H is lower triangular)
- 
-</pre></blockquote>
-</p>
-Computation is performed by <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dpotrf\">LAPACK.dpotrf</a>.<br>
-<p>
-<h4>Example</h4>
-<blockquote><pre>
-  A  = [1, 0,  0;
-        6, 5,  0;
-        1, -2,  2];
-  S = A*transpose(A);
-
-  H = Matrices.cholesky(S);
-
-  results in:
-
-  H = [1.0,  6.0,  1.0;
-       0.0,  5.0, -2.0;
-       0.0,  0.0,  2.0]
-
-  with 
-  
-  transpose(H)*H = [1.0,  6.0,   1;
-                    6.0, 61.0,  -4.0;
-                    1.0, -4.0,   9.0] //=S
-
-</pre></blockquote>
-
-
-</html>", revisions="<html>
-<ul>
-<li><i>2010/05/31 </i>
-       by Marcus Baur, DLR-RM</li>
-</ul>
-
-</html> "));
-  end cholesky;
-
-  function hessenberg "Transform a matrix to upper Hessenberg form"
-    import Modelica;
-    import Modelica.Math.Matrices;
-
-    input Real A[:,:] "Square matrix A";
-
-    output Real H[size(A, 1),size(A, 2)] "Hessenberg form of A";
-    output Real U[size(A, 1),size(A, 2)] "Transformation matrix";
-
-  protected
-    Real V[size(A, 1),size(A, 2)]
-      "V=[v1,v2,..vn-1,0] with vi are vectors which define the elementary reflectors";
-    Real tau[max(0,size(A, 1) - 1)]
-      "Scalar factors of the elementary reflectors";
-
-  algorithm
-    (H, V, tau) := Matrices.Utilities.toUpperHessenberg(A, 1, size(A, 1));
-     U := Matrices.LAPACK.dorghr(V,1,size(A, 1),tau);
-    annotation (Documentation(info="<html>
-
-<h4>Syntax</h4>
-<blockquote><pre>
-         H = Matrices.<b>hessenberg</b>(A);
-    (H, U) = Matrices.<b>hessenberg</b>(A);
- </pre></blockquote>
-<h4>Description</h4>
-Function <b>hessenberg</b> computes the Hessenberg matrix <b>H</b> of matrix <b>A</b> as well as the orthogonal transformation matrix <b>U</b> that holds <b>H</b> = <b>U</b>'*<b>A</b>*<b>U</b>.
-The Hessenberg form of a matrix is computed by repeated Householder similarity transformation. The elementary reflectors and the corresponding scalar factors are provided
-by function \"Utilities.toUpperHessenberg()\". The transformation matrix <b>U</b> is then computed by
-<a href=\"modelica://Modelica.Math.Matrices.LAPACK.dorghr\">LAPACK.dorghr</a>.<br>
-<p>
-<h4>Example</h4>
-<blockquote><pre>
- A  = [1, 2,  3;
-       6, 5,  4;
-       1, 0,  0];
-
- (H, U) = hessenberg(A);
-
-  results in:
-
- H = [1.0,  -2.466,  2.630;
-     -6.083, 5.514, -3.081;
-      0.0,   0.919, -0.514]
-
- U = [1.0,    0.0,      0.0;
-      0.0,   -0.9864,  -0.1644;
-      0.0,   -0.1644,   0.9864]
-
-  and therefore,
-
- u*H*transpose(U) = [1.0, 2.0, 3.0;
-                     6.0, 5.0, 4.0;
-                     1.0, 0.0, 0.0]
-
-</pre></blockquote>
-
-<h4>See also</h4>
-<a href=\"modelica://Modelica.Math.Matrices.Utilities.toUpperHessenberg\">Matrices.Utilities.toUpperHessenberg</a>
-
-</html>", revisions="<html>
-<ul>
-<li><i>2010/05/31 </i>
-       by Marcus Baur, DLR-RM</li>
-</ul>
-</html>"));
-  end hessenberg;
-
-  function realSchur
-    "Computes the real Schur form (RSF) S of a square matrix A, A=QZ*S*QZ'"
-      import Modelica.Math.Matrices;
-
-    input Real A[:,size(A, 1)] "Square matrix";
-
-  public
-    output Real S[size(A, 1),size(A, 2)] "Real Schur form of A";
-    output Real QZ[size(A, 1),size(A, 2)] "Schur vector Matrix";
-    output Real alphaReal[size(A, 1)]
-      "Real part of eigenvalue=alphaReal+i*alphaImag";
-    output Real alphaImag[size(A, 1)]
-      "Imaginary part of eigenvalue=(alphaReal+i*alphaImag";
-
-  protected
-    Integer info;
-
-  algorithm
-    if size(A, 1) > 1 then
-      (S,QZ,alphaReal,alphaImag) := Matrices.LAPACK.dgees(A);
-      assert(info == 0, "The output info of LAPACK.dgees should be zero, else if\n
-     info < 0:  if info = -i, the i-th argument of dgees had an illegal value\n
-     info > 0:  if INFO = i, and i is
-               <= N: the QR algorithm failed to compute all the
-                     eigenvalues; elements 1:ILO-1 and i+1:N of WR and WI
-                     contain those eigenvalues which have converged; if
-                     JOBVS = 'V', VS contains the matrix which reduces A
-                     to its partially converged Schur form.\n");
-    else
-      S := A;
-      if size(A, 1) > 0 then
-        QZ := [1];
-        alphaReal := {1};
-        alphaImag := {0};
-      else
-        QZ := fill(1, 0, 0);
-        alphaReal := fill(1, 0);
-        alphaImag := fill(0, 0);
-      end if;
-    end if;
-
-    annotation (Documentation(info="<html>
-<h4>Syntax</h4>
-<blockquote><pre>
-                            S = Matrices.<b>realSchur</b>(A);
-(S, QZ, alphaReal, alphaImag) = Matrices.<b>realSchur</b>(A);
-</pre></blockquote>
-<h4>Description</h4>
-<p>
-Function <b>realSchur</b> calculates the real Schur form of a real square matrix <b>A</b>, i.e.
-<blockquote><pre>
-       T
- <b>A</b> = <b>QZ</b>*<b>S</b>*<b>QZ</b>
-
-</pre></blockquote>
-with the real nxn matrices <b>S</b> and <b>QZ</b>. <b>S</b> is a block upper triangular matrix with 1x1 and 2x2 blocks in the diagonal. <b>QZ</b> is an orthogonal matrix.
-The 1x1 blocks contains the real eigenvalues of <b>A</b>. The 2x2 blocks [s11, s12; s21, s11] represents the conjugated complex pairs of eigenvalues, whereas the real parts of the eigenvalues
-are the elements of the diagonal (s11). The imaginary parts are the positive and negative square roots of the product of the two elements s12 and s21 (imag = +-sqrt(s12*s21)).
-<p>
-The calculation in lapack.dgees is performed stepwise, i.e. using the internal methods of balancing and scaling of dgees.
-</p>
-<h4>Example</h4>
-<blockquote><pre>
-   Real A[3,3] = [1, 2, 3; 4, 5, 6; 7, 8, 9];
-   Real T[3,3];
-   Real Z[3,3];
-   Real alphaReal[3];
-   Real alphaImag[3];
-
-<b>algorithm</b>
-  (T, Z, alphaReal, alphaImag):=Modelica.Math.Matrices.Utilities.rsf(A);
-//   T = [16.12, 4.9,   1.59E-015;
-//        0,    -1.12, -1.12E-015;
-//        0,     0,    -1.30E-015]
-//   Z = [-0.23,  -0.88,   0.41;
-//        -0.52,  -0.24,  -0.82;
-//        -0.82,   0.4,    0.41]
-//alphaReal = {16.12, -1.12, -1.32E-015}
-//alphaImag = {0, 0, 0}
-<p>
-<h4>See also</h4>
-<a href=\"Modelica://Modelica.Math.Matrices.Utilities.reorderRSF\">Math.Matrices.Utilities.reorderRSF</a>
-</pre></blockquote>
-</html> ", revisions="<html>
-<ul>
-<li><i>2010/05/31 </i>
-       by Marcus Baur, DLR-RM</li>
-</ul>
-</html>"));
-  end realSchur;
-
-  function frobeniusNorm "Return the Frobenius norm of a matrix"
-    extends Modelica.Icons.Function;
-    input Real A[:,:] "Input matrix";
-    output Real result "Frobenius norm of matrix A";
-
-  algorithm
-    result := if min(size(A))>0 then sqrt(sum(A.*A)) else -1e100;
-
-    annotation(Inline=true, Documentation(info="<html>
- <h4>Syntax</h4>
-<blockquote><pre>
-  r = Matrices.<b>frobeniusNorm</b>(A);
-</pre></blockquote>
-<h4>Description</h4>
-<p>
-This function computes the Frobenius norm of a general real matrix <b>A</b>, i.e., the square root of the sum of the squares of all elements.
-<p>
-<h4>Example</h4>
-<blockquote><pre>
-  A = [1, 2;
-       2, 1];
-  r = frobeniusNorm(A);
-
-  results in:
-
-  r = 3.162;
-
-</pre></blockquote>
-</p>
-<h4>See also</h4>
-<a href=\"Modelica://Modelica.Math.Matrices.norm\">Matrices.norm</a>
-
-</html>", revisions="<html>
-<ul>
-<li><i>2010/05/31 </i>
-       by Marcus Baur, DLR-RM</li>
-</ul>
-</html>"));
-  end frobeniusNorm;
   annotation (
     Documentation(info="<HTML>
 <h4>Library content</h4>
