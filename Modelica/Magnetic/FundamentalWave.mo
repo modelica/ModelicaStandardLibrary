@@ -142,11 +142,11 @@ for contributing his source code to this library.
 <h5>Version 1.7.1, 2010-06-25</h5>
 
 <ul>
-<li>Naming and documentation of 
+<li>Naming and documentation of
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort\">
 PartialTwoPort</a> is exchanged by
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary\">
-PartialTwoPortElementary</a> to match the naming conventions of 
+PartialTwoPortElementary</a> to match the naming conventions of
 <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces\">
 Rotational.Interfaces</a>
 and <a href=\"modelica://Modelica.Mechanics.Translational.Interfaces\">
@@ -185,7 +185,7 @@ Translational.Interfaces</a></li>
   <li>Improved performance due to <code>annotation(Evaluate=true)</code> added to the parameters of the
       <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">
       single phase winding</a>
-  <li>Reduced number of states in 
+  <li>Reduced number of states in
       <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding\">
       symmetric cage</a> model by introducing an additional non-grounded star connection</li>
 </ul>

@@ -1176,11 +1176,11 @@ to port_b.
                                          color={0,0,0})}),
         Documentation(info="<html>
 <p>
-If useFixedTemperature = false, this sensor acts just as a normal 
+If useFixedTemperature = false, this sensor acts just as a normal
 <a href=\"modelica://Modelica.Thermal.HeatTransfer.Sensors.HeatFlowSensor\">HeatFlowSensor</a>.
 </p>
 <p>
-If useFixedTemperature = true, it is assumed that the connections to both heatPorts of this sensor are conditionally removed; 
+If useFixedTemperature = true, it is assumed that the connections to both heatPorts of this sensor are conditionally removed;
 in this case, the measured Q_flow is reported = 0 automatically.
 To avoid a singular equation system, the temperature of the sensor is set to 293.15 K.
 </p>
