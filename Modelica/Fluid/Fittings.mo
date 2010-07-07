@@ -89,223 +89,154 @@ This component models the pressure loss in curved bends at overall flow regime f
 </p>
 
 
-<h4><font color=\"#EF9B13\">Restriction</font></h4>
-This function shall be used inside of the restricted limits according to the referenced literature.
-<ul>
- <li>
-      <b> circular cross sectional area </b>
- </li>
- <li>
-      <b> 0.5 &le; curvature radius / diameter &le; 3 </b> <i>[Idelchik 2006, p. 357, diag. 6-1] </i>
- </li>
- <li>
-      <b> length of bend along curved axis / diameter &ge; 10 </b> <i>[Idelchik 2006, p. 357, diag. 6-1] </i>
- </li>
-  <li>
-      <b> angle of curvature smaller than 180&deg; (delta &le; 180) </b> <i>[Idelchik 2006, p. 357, diag. 6-1] </i>
- </li>
-</ul>
-
-<p>
-<h4><font color=\"#EF9B13\">Geometry</font></h4>
-</p>
-<p>
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/pic_circularBend.png\">
-</p>
-
-<h4><font color=\"#EF9B13\">Calculation</font></h4>
-The pressure loss <b> dp </b> for curved bends is determined by:
-<p>
-<pre>
-    dp = zeta_TOT * (rho/2) * velocity^2
-</pre>
-</p>
-
-<p>
-with
-</p>
-
-<p>
-<table>
-<tr><td><b> rho            </b></td><td> as density of fluid [kg/m3],</td></tr>
-<tr><td><b> velocity       </b></td><td> as mean velocity [m/s],</td></tr>
-<tr><td><b> zeta_TOT       </b></td><td> as pressure loss coefficient [-].</td></tr>
+<p><h4><font color=\"#ef9b13\">Restriction</font></h4></p>
+<p>This function shall be used inside of the restricted limits according to the referenced literature. </p>
+<p><ul>
+<li><h4>circular cross sectional area </h4></li>
+<li><b>0.5 &le; curvature radius / diameter &le; 3 </b><i>[Idelchik 2006, p. 357, diag. 6-1] </i></li>
+<li><b>length of bend along curved axis / diameter &ge; 10 </b><i>[Idelchik 2006, p. 357, diag. 6-1] </i></li>
+<li><b>angle of curvature smaller than 180&deg; (delta &le; 180) </b><i>[Idelchik 2006, p. 357, diag. 6-1] </i></li>
+</ul></p>
+<p><b><font style=\"color: #ef9b13; \">Geometry</font></b> </p>
+<p><img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/pic_circularBend.png\"/> </p>
+<p><h4><font color=\"#ef9b13\">Calculation</font></h4></p>
+<p>The pressure loss <b>dp </b>for curved bends is determined by: </p>
+<pre>dp = zeta_TOT * (rho/2) * velocity^2 </pre>
+<p>with </p>
+<table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
+<td><p><h4>rho </h4></p></td>
+<td><p>as density of fluid [kg/m3],</p></td>
+</tr>
+<tr>
+<td><p><h4>velocity </h4></p></td>
+<td><p>as mean velocity [m/s],</p></td>
+</tr>
+<tr>
+<td><p><h4>zeta_TOT </h4></p></td>
+<td><p>as pressure loss coefficient [-].</p></td>
+</tr>
 </table>
-</p>
-
-<b> Curved bends with relative curvature radius R_0/d_hyd &le; 3 </b> according to <i>[Idelchik 2006, p. 357, diag. 6-1]</i>
-<p>
-The pressure loss of curved bends is similar to its calculation in straight pipes. There are tree different flow regimes observed (laminar,transition,turbulent). The turbulent regime is further separated into sections with a dependence or independence of the local resistance coefficient (<b>zeta_LOC </b>) on Reynolds number. The local resistance coefficient (<b>zeta_LOC</b>) of a curved bend is calculated in dependence of the flow regime as follows:
-</p>
-<ul>
-  <li> <b>Laminar regime (Re &le; Re_lam_leave)</b>:
-     <br><br>
-     <pre>
-      zeta_LOC = A2/Re + A1*B1*C1
-     </pre>
-  <li> <b>Transition regime (Re_lam_leave &le; 4e4)</b>
-        This calculation is done using a smoothing function interpolating between the laminar and the first turbulent flow regime.
-  <li> <b>Turbulent regime (4e4 &le; 3e5) with dependence </b> of local resistance coefficient on Reynolds number:
-     <br><br>
-     <pre>
-      zeta_LOC = k_Re * (A1*B1*C1)
-     </pre>
-       where <b>k_Re</b> depends on the relative curvature radius <b> R_0/d_hyd </b>
-     <pre>
-      k_Re = 1 + 4400/Re              for 0.50 &lt; r/d_hyd &lt; 0.55
-      k_Re = 5.45/Re^(0.118)          for 0.55 &le; r/d_hyd &lt; 0.70
-      k_Re = 11.5/Re^(0.19)           for 0.70 &le; r/d_hyd &lt; 3.00
-     </pre>
-  <li> <b>Turbulent regime (Re &ge; 3e5) with independence </b> of local resistance coefficient on Reynolds number
-     <br><br>
-     <pre>
-      zeta_LOC = A1*B1*C1
-     </pre>
-</ul>
-
-<p>
-with
-</p>
-
-<p>
-<table>
-<tr><td><b> A1            </b></td><td> as coefficient considering effect of angle of turning (delta) [-],</td></tr>
-<tr><td><b> A2            </b></td><td> as coefficient considering effect for laminar regime [-],</td></tr>
-<tr><td><b> B1            </b></td><td> as coefficient considering effect of relative curvature radius (R_0/d_hyd) [-],</td></tr>
-<tr><td><b> C1=1          </b></td><td> as coefficient considering relative elongation of cross sectional area (here: circular cross sectional area) [-],</td></tr>
-<tr><td><b> k_Re          </b></td><td> as coefficient considering influence of laminar regime in transition regime [-],</td></tr>
-<tr><td><b> Re            </b></td><td> as Reynolds number [-].</td></tr>
+<p><br/><b>Curved bends with relative curvature radius R_0/d_hyd &le; 3 </b>according to <i>[Idelchik 2006, p. 357, diag. 6-1]</i> </p>
+<p>The pressure loss of curved bends is similar to its calculation in straight pipes. There are tree different flow regimes observed (laminar,transition,turbulent). The turbulent regime is further separated into sections with a dependence or independence of the local resistance coefficient (<b>zeta_LOC </b>) on Reynolds number. The local resistance coefficient (<b>zeta_LOC</b>) of a curved bend is calculated in dependence of the flow regime as follows: </p>
+<p><ul>
+<li><b>Laminar regime (Re &le; Re_lam_leave)</b>: <br/><br/></li>
+<pre>      zeta_LOC = A2/Re + A1*B1*C1</pre>
+<li><b>Transition regime (Re_lam_leave &le; 4e4)</b> This calculation is done using a smoothing function interpolating between the laminar and the first turbulent flow regime. </li>
+<li><b>Turbulent regime (4e4 &le; 3e5) with dependence </b>of local resistance coefficient on Reynolds number: <br/><br/></li>
+<pre>      zeta_LOC = k_Re * (A1*B1*C1)</pre>
+<p>where <b>k_Re</b> depends on the relative curvature radius <b>R_0/d_hyd </b></p>
+<pre> 
+      k_Re = 1 + 4400/Re              for 0.50 &LT; r/d_hyd &LT; 0.55
+      k_Re = 5.45/Re^(0.118)          for 0.55 &le; r/d_hyd &LT; 0.70
+      k_Re = 11.5/Re^(0.19)           for 0.70 &le; r/d_hyd &LT; 3.00</pre>
+<li><b>Turbulent regime (Re &ge; 3e5) with independence </b>of local resistance coefficient on Reynolds number <br/><br/></li>
+</ul></p>
+<pre>      zeta_LOC = A1*B1*C1</pre>
+<p>with </p>
+<table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
+<td><p><h4>A1 </h4></p></td>
+<td><p>as coefficient considering effect of angle of turning (delta) [-],</p></td>
+</tr>
+<tr>
+<td><p><h4>A2 </h4></p></td>
+<td><p>as coefficient considering effect for laminar regime [-],</p></td>
+</tr>
+<tr>
+<td><p><h4>B1 </h4></p></td>
+<td><p>as coefficient considering effect of relative curvature radius (R_0/d_hyd) [-],</p></td>
+</tr>
+<tr>
+<td><p><h4>C1=1 </h4></p></td>
+<td><p>as coefficient considering relative elongation of cross sectional area (here: circular cross sectional area) [-],</p></td>
+</tr>
+<tr>
+<td><p><h4>k_Re </h4></p></td>
+<td><p>as coefficient considering influence of laminar regime in transition regime [-],</p></td>
+</tr>
+<tr>
+<td><p><h4>Re </h4></p></td>
+<td><p>as Reynolds number [-].</p></td>
+</tr>
 </table>
-</p>
-
-<p>
-The pressure loss coefficient <b> zeta_TOT </b> of a curved bend including pressure loss due to friction is determined by its local resistance coefficient <b> zeta_LOC </b> multiplied with a correction factor <b> CF </b> for surface roughness according to <i>[Miller, p. 209, eq. 9.4]:</i>
-</p>
-<pre>
-    zeta_TOT = CF*zeta_LOC
-</pre>
-
-<p>
-where the correction factor <b> CF </b> is determined as ratio of the darcy friction factor for rough surfaces to smooth surfaces according to <i>[Miller, p. 207, eq. 9.3]:</i>
-</p>
-<pre>
-    CF = lambda_FRI_rough / lambda_FRI_smooth
-</pre>
-
-<p>
-and the darcy friction factors <b> lambda_FRI </b> are calculated with an approximated Colebrook-White law according to <i>[Miller, p. 191, eq. 8.4]:</i>
-</p>
-<pre>
-    lambda_FRI = 0.25*(lg(K/(3.7*d_hyd) + 5.74/Re^0.9))^-2
-</pre>
-
-<p>
-with
-</p>
-
-<p>
-<table>
-<tr><td><b> d_hyd              </b></td><td> as hydraulic diameter [m],</td></tr>
-<tr><td><b> K                  </b></td><td> as absolute roughness (average height of surface asperities) [m],</td></tr>
-<tr><td><b> lambda_FRI         </b></td><td> as darcy friction factor[-],</td></tr>
-<tr><td><b> Re                 </b></td><td> as Reynolds number [m],</td></tr>
-<tr><td><b> zeta_LOC           </b></td><td> as local resistance coefficient [-],</td></tr>
-<tr><td><b> zeta_TOT           </b></td><td> as pressure loss coefficient [-].</td></tr>
+<p><br/><br/>The pressure loss coefficient <b>zeta_TOT </b>of a curved bend including pressure loss due to friction is determined by its local resistance coefficient <b>zeta_LOC </b>multiplied with a correction factor <b>CF </b>for surface roughness according to <i>[Miller, p. 209, eq. 9.4]:</i> </p>
+<pre>    zeta_TOT = CF*zeta_LOC </pre>
+<p>where the correction factor <b>CF </b>is determined from the darcy friction factor of a straight pipe having the bend flow path length </p>
+<pre>    CF = 1 + (lambda_FRI_rough * pi * delta/d_hyd) / zeta_LOC</pre>
+<p>and the darcy friction factors <b>lambda_FRI_rough </b>is calculated with an approximated Colebrook-White law according to <i>[Miller, p. 191, eq. 8.4]:</i> </p>
+<pre>    lambda_FRI_rough = 0.25*(lg(K/(3.7*d_hyd) + 5.74/Re^0.9))^-2</pre>
+<p>with </p>
+<table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
+<td><p><h4>delta </h4></p></td>
+<td><p>as curvature radiant [rad],</p></td>
+</tr>
+<tr>
+<td><p><h4>d_hyd </h4></p></td>
+<td><p>as hydraulic diameter [m],</p></td>
+</tr>
+<tr>
+<td><p><h4>K </h4></p></td>
+<td><p>as absolute roughness (average height of surface asperities) [m],</p></td>
+</tr>
+<tr>
+<td><p><h4>lambda_FRI_rough </h4></p></td>
+<td><p>as darcy friction factor[-],</p></td>
+</tr>
+<tr>
+<td><p><h4>Re </h4></p></td>
+<td><p>as Reynolds number [m],</p></td>
+</tr>
+<tr>
+<td><p><h4>zeta_LOC </h4></p></td>
+<td><p>as local resistance coefficient [-],</p></td>
+</tr>
+<tr>
+<td><p><h4>zeta_TOT </h4></p></td>
+<td><p>as pressure loss coefficient [-].</p></td>
+</tr>
 </table>
-</p>
-
-<p>
-Note that the darcy friction factor for a smooth surface <b> lambda_FRI_smooth </b> is calculated with the previous equation and an absolute roughness of <b> K = 0 </b>.
-</p>
-
-<p>
-The correction for surface roughness through <b> CF </b> is used only in the turbulent regime, where the fluid flow is influenced by surface asperities not covered by a laminar boundary layer. The turbulent regime starts at <b> Re &ge; 4e4 </b> according to <i>[Idelchik 2006, p. 336, sec. 15]</i>.
-There is no correction due to roughness in the laminar regime up to <b> Re &le; 6.5e3 </b> according to <i>[Idelchik 2006, p. 336, sec. 15]</i>.
-</p>
-
-<p>
-Nevertheless the transition point from the laminar to the transition regime is shifted to smaller Reynolds numbers for an increasing absolute roughness. This effect is considered according to <i>[Samoilenko in Idelchik 2006, p. 81, sec. 2-1-21]</i> as:
-<pre>
-    Re_lam_leave = 754*exp(if k &le; 0.007 then 0.0065/0.007 else 0.0065/k)
-</pre>
-</p>
-
-<p>
-with
-</p>
-
-<p>
-<table>
-<tr><td><b> k = K /d_hyd       </b></td><td> as relative roughness [-],</td></tr>
-<tr><td><b> Re_lam_leave       </b></td><td> as Reynolds number for leaving laminar regime [-].</td></tr>
+<p><br/>The correction for surface roughness through <b>CF </b>is used only in the turbulent regime, where the fluid flow is influenced by surface asperities not covered by a laminar boundary layer. The turbulent regime starts at <b>Re &ge; 4e4 </b>according to <i>[Idelchik 2006, p. 336, sec. 15]</i>. There is no correction due to roughness in the laminar regime up to <b>Re &le; 6.5e3 </b>according to <i>[Idelchik 2006, p. 336, sec. 15]</i>. </p>
+<p>Nevertheless the transition point from the laminar to the transition regime is shifted to smaller Reynolds numbers for an increasing absolute roughness. This effect is considered according to <i>[Samoilenko in Idelchik 2006, p. 81, sec. 2-1-21]</i> as: </p>
+<pre>    Re_lam_leave = 754*exp(if k &le; 0.007 then 0.0065/0.007 else 0.0065/k)</pre>
+<p>with </p>
+<table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
+<td><p><h4>k = K /d_hyd </h4></p></td>
+<td><p>as relative roughness [-],</p></td>
+</tr>
+<tr>
+<td><p><h4>Re_lam_leave </h4></p></td>
+<td><p>as Reynolds number for leaving laminar regime [-].</p></td>
+</tr>
 </table>
-</p>
-
-<p>
-Note that the beginning of the laminar regime cannot be beneath <b> Re &le; 1e2 </b>.
-</p>
-
-<h4><font color=\"#EF9B13\">Verification</font></h4>
-<p>
-The pressure loss coefficient <b> zeta_TOT </b> of a curved bend in dependence of the Reynolds number <b> Re </b> for different relative curvature radii <b> R_0/d_hyd </b> and different angles of turning <b> delta </b> is shown in the figures below.
-<p>
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOW.png\">
-</p>
-
-<p>
-There are deviations of the pressure loss coefficient <b> zeta_TOT </b> comparing different references. Usually these deviations in the transition regime have to be accepted due to an uncertainty for the determination of comparable boundary conditions in the different references. Nevertheless these calculations cover the usual range of pressure loss coefficients for a curved bend. The pressure loss coefficient <b> zeta_TOT </b> for the same geometry can be adjusted via variing the average height of surface asperities <b> K </b> for calibration.
-</p>
-
-<p>
-<b> Compressible case </b> [Mass flow rate = f(dp)]:
-</p>
-<p>
-The mass flow rate in dependence of the pressure loss of water of water is shown for different relative curvature radii:
-</p>
-<p>
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_MFLOWvsDPwrtRD.png\">
-</p>
-
-<p>
-The mass flow rate in dependence of the pressure loss of water is shown for different angles of turning:
-</p>
-<p>
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_MFLOWvsDPwrtDelta.png\">
-</p>
-
-<p>
-Note that there is a small deviation between the compressible and incompressible calculation due to the lack of a direct analytical invertibility.
-</p>
-
-<h4><font color=\"#EF9B13\">References</font></h4>
-<dl>
- <dt>Elmquist,H., M.Otter and S.E. Cellier:</dt>
-    <dd><b>Inline integration: A new mixed
-symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
-    In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
-<dt>Idelchik,I.E.:</dt>
-    <dd><b>Handbook of hydraulic resistance</b>.
-    Jaico Publishing House,Mumbai,3rd edition, 2006.</dd>
-<dt>Miller,D.S.:</dt>
-    <dd><b>Internal flow systems</b>.
-    volume 5th of BHRA Fluid Engineering Series.BHRA Fluid Engineering, 1984.
- <dt>Samoilenko,L.A.:</dt>
-    <dd><b>Investigation of the hydraulic resistance of pipelines in the
-        zone of transition from laminar into turbulent motion</b>.
-        PhD thesis, Leningrad State University, 1968.</dd>
-<dt>VDI:</dt>
-    <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
-    Springer Verlag, 9th edition, 2002.</dd>
-</dl>
-</html>
-"));
+<p><br/><br/>Note that the beginning of the laminar regime cannot be beneath <b>Re &le; 1e2 </b>. </p>
+<p><b><font style=\"color: #ef9b13; \">Verification</font></b> </p>
+<p>The pressure loss coefficient <b>zeta_TOT </b>of a curved bend in dependence of the Reynolds number <b>Re </b>for different relative curvature radii <b>R_0/d_hyd </b>and different angles of turning <b>delta </b>is shown in the figures below. </p>
+<p><img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOW.png\"/> </p>
+<p>There are deviations of the pressure loss coefficient <b>zeta_TOT </b>comparing different references. Usually these deviations in the transition regime have to be accepted due to an uncertainty for the determination of comparable boundary conditions in the different references. Nevertheless these calculations cover the usual range of pressure loss coefficients for a curved bend. The pressure loss coefficient <b>zeta_TOT </b>for the same geometry can be adjusted via variing the average height of surface asperities <b>K </b>for calibration. </p>
+<p><b>Incompressible case </b>[Pressure loss = f(m_flow)]: </p>
+<p>The pressure loss in dependence of the mass flow rate of water is shown for different relative curvature radii: </p>
+<p><img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD.png\"/> </p>
+<p>The pressure loss in dependence of the mass flow rate of water is shown for different angles of turning: </p>
+<p><img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtDelta.png\"/> </p>
+<p>Note that there is a small deviation between the compressible and incompressible calculation due to the lack of a direct analytical invertibility. </p>
+<p><b><font style=\"color: #ef9b13; \">References</font></b> </p>
+<dl><dt>Elmquist,H., M.Otter and S.E. Cellier: </dt>
+<dd><b>Inline integration: A new mixed symbolic / numeric approach for solving differential-algebraic equation systems.</b>. In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
+<dt>Idelchik,I.E.: </dt>
+<dd><b>Handbook of hydraulic resistance</b>. Jaico Publishing House,Mumbai,3rd edition, 2006.</dd>
+<dt>Miller,D.S.: </dt>
+<dd><b>Internal flow systems</b>. volume 5th of BHRA Fluid Engineering Series.BHRA Fluid Engineering, 1984. </dd>
+<dt>Samoilenko,L.A.: </dt>
+<dd><b>Investigation of the hydraulic resistance of pipelines in the zone of transition from laminar into turbulent motion</b>. PhD thesis, Leningrad State University, 1968.</dd>
+<dt>VDI: </dt>
+<dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>. Springer Verlag, 9th edition, 2002. </dd>
+</dl></html>"));
     end CurvedBend;
 
     model EdgedBend "Edged bend flow model"
       extends Modelica.Fluid.Fittings.BaseClasses.PartialPressureLoss;
       extends Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.Bend_i;
       import Modelica.Fluid.Dissipation.PressureLoss.Bend;
-      parameter Bend.dp_edgedOverall_IN_con geometry "Geometry of edged bend"
+      parameter Bend.dp_edgedOverall_IN_con geometry "Geometry of edged bend" 
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
 
     /*
@@ -605,7 +536,7 @@ The pressure loss in dependence of the mass flow rate of water is shown for diff
       extends Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.Orifice_i;
       import Modelica.Fluid.Dissipation.PressureLoss.Orifice;
       parameter Orifice.dp_thickEdgedOverall_IN_con geometry
-        "Geometry of curved bend"
+        "Geometry of curved bend" 
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
 
     /*
@@ -789,7 +720,7 @@ symbolic / numeric approach for solving differential-algebraic equation systems.
       extends Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.Orifice_i;
       import Modelica.Fluid.Dissipation.PressureLoss.Orifice;
       parameter Orifice.dp_suddenChange_IN_con geometry
-        "Geometry of sudden section change orifice"
+        "Geometry of sudden section change orifice" 
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
 
     /*
@@ -1060,8 +991,6 @@ The local resistance coefficient <b> zeta_LOC </b> of a sudden contraction in de
 </html>"));
     end NominalDensityViscosity;
 
-
-
     model NominalVolumeFlowRate "Component model for geometry independent flow resistance parameterized with nominal volume flow rate and
   characterictic dependency"
         extends Modelica.Fluid.Fittings.BaseClasses.PartialPressureLoss;
@@ -1147,7 +1076,6 @@ The local resistance coefficient <b> zeta_LOC </b> of a sudden contraction in de
     end NominalVolumeFlowRate;
   end GenericResistances;
 
-
      extends Modelica.Icons.VariantsPackage;
 
 model SimpleGenericOrifice
@@ -1160,7 +1088,7 @@ model SimpleGenericOrifice
     final momentumDynamics = Types.Dynamics.SteadyState);
 
   parameter SI.Diameter diameter "Diameter of orifice";
-  parameter Real zeta "Loss factor for flow of port_a -> port_b"
+  parameter Real zeta "Loss factor for flow of port_a -> port_b" 
     annotation(Dialog(enable=use_zeta));
   parameter Boolean use_zeta = true
       "= false to obtain zeta from dp_nominal and m_flow_nominal";
@@ -1170,10 +1098,10 @@ model SimpleGenericOrifice
   parameter SI.MassFlowRate m_flow_nominal = 1 "Mass flow rate for dp_nominal";
 
   parameter Boolean from_dp = true
-      "= true, use m_flow = f(dp) else dp = f(m_flow)"
+      "= true, use m_flow = f(dp) else dp = f(m_flow)" 
     annotation (Evaluate=true, Dialog(tab="Advanced"));
   parameter Medium.AbsolutePressure dp_small = system.dp_small
-      "Turbulent flow if |dp| >= dp_small"
+      "Turbulent flow if |dp| >= dp_small" 
     annotation(Dialog(tab="Advanced", enable=from_dp));
 
   // Variables
@@ -1451,11 +1379,11 @@ end AbruptAdaptor;
       annotation(Dialog(__Dymola_connectorSizing=true));
 
     Modelica.Fluid.Interfaces.FluidPort_a port_a(
-      redeclare package Medium=Medium)
+      redeclare package Medium=Medium) 
       annotation (Placement(transformation(extent={{-50,-10},{-30,10}},
             rotation=0)));
     Modelica.Fluid.Interfaces.FluidPorts_b ports_b[nPorts_b](
-      redeclare each package Medium=Medium)
+      redeclare each package Medium=Medium) 
       annotation (Placement(transformation(extent={{30,40},{50,-40}},
                                   rotation=0)));
 
@@ -1683,10 +1611,10 @@ of the modeller.
           "Loss factors suited for Re >= Re_turbulent"                            annotation(Dialog);
       SI.Diameter D_Re "Diameter used to compute Re" annotation(Dialog);
       Boolean zeta1_at_a = true
-          "dp = zeta1*(if zeta1_at_a then rho_a*v_a^2/2 else rho_b*v_b^2/2)"
+          "dp = zeta1*(if zeta1_at_a then rho_a*v_a^2/2 else rho_b*v_b^2/2)" 
                                                                         annotation(Dialog);
       Boolean zeta2_at_a = false
-          "dp = -zeta2*(if zeta2_at_a then rho_a*v_a^2/2 else rho_b*v_b^2/2)"
+          "dp = -zeta2*(if zeta2_at_a then rho_a*v_a^2/2 else rho_b*v_b^2/2)" 
                                                                          annotation(Dialog);
       Boolean zetaLaminarKnown = false
           "= true, if zeta = c0/Re in laminar region"                              annotation(Dialog);
@@ -1941,13 +1869,13 @@ port_a to port_b as:
             Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData;
           import SI = Modelica.SIunits;
           input SI.Diameter diameter
-            "Inner diameter of pipe (= same at port_a and port_b)"
+            "Inner diameter of pipe (= same at port_a and port_b)" 
                                                                   annotation(Dialog);
-          input SI.Diameter leastDiameter "Smallest diameter of orifice"
+          input SI.Diameter leastDiameter "Smallest diameter of orifice" 
                                                                 annotation(Dialog);
-          input SI.Diameter length "Length of orifice"
+          input SI.Diameter length "Length of orifice" 
                                                  annotation(Dialog);
-          input NonSI.Angle_deg alpha "Angle of orifice"
+          input NonSI.Angle_deg alpha "Angle of orifice" 
                                                         annotation(Dialog);
           output LossFactorData data
             "Pressure loss factors for both flow directions";
@@ -2271,7 +2199,7 @@ Laminar region:
 */
          dp_turbulent :=(k1 + k2)/(rho_a + rho_b)*
                         ((mu_a + mu_b)*data.D_Re*pi/8)^2*data.Re_turbulent^2;
-         yd0 :=if data.zetaLaminarKnown then
+         yd0 :=if data.zetaLaminarKnown then 
                   (rho_a + rho_b)/(k0*(mu_a + mu_b)) else 0;
          m_flow := Utilities.regRoot2(dp, dp_turbulent, rho_a/k1, rho_b/k2,
                                                      data.zetaLaminarKnown, yd0);
@@ -2461,21 +2389,21 @@ The used sufficient criteria for monotonicity follows from:
 
         // Advanced
         parameter Boolean from_dp = true
-          "= true, use m_flow = f(dp) else dp = f(m_flow)"
+          "= true, use m_flow = f(dp) else dp = f(m_flow)" 
           annotation (Evaluate=true, Dialog(tab="Advanced"));
         parameter Boolean use_Re = false
           "= true, if turbulent region is defined by Re, otherwise by dp_small or m_flow_small"
           annotation(Evaluate=true, Dialog(tab="Advanced"));
         parameter Medium.AbsolutePressure dp_small = system.dp_small
-          "Turbulent flow if |dp| >= dp_small"
+          "Turbulent flow if |dp| >= dp_small" 
           annotation(Dialog(tab="Advanced", enable=not use_Re and from_dp));
         parameter Medium.MassFlowRate m_flow_small = system.m_flow_small
-          "Turbulent flow if |m_flow| >= m_flow_small"
+          "Turbulent flow if |m_flow| >= m_flow_small" 
           annotation(Dialog(tab = "Advanced", enable=not from_dp));
 
         // Diagnostics
         parameter Boolean show_Re = false
-          "= true, if Reynolds number is included for plotting"
+          "= true, if Reynolds number is included for plotting" 
            annotation (Evaluate=true, Dialog(tab="Advanced", group="Diagnostics"));
         SI.ReynoldsNumber Re = Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber_m_flow(
               m_flow,
@@ -2493,20 +2421,20 @@ The used sufficient criteria for monotonicity follows from:
         F_p = A_mean*(Medium.pressure(state_b) - Medium.pressure(state_a));
         F_fg = A_mean*dp_fg;
         if from_dp then
-           m_flow = if use_Re then
+           m_flow = if use_Re then 
                        massFlowRate_dp_and_Re(
                           dp_fg, Medium.density(state_a), Medium.density(state_b),
                           Medium.dynamicViscosity(state_a),
                           Medium.dynamicViscosity(state_b),
-                          data) else
+                          data) else 
                        massFlowRate_dp(dp_fg, Medium.density(state_a), Medium.density(state_b), data, dp_small);
         else
-           dp_fg = if use_Re then
+           dp_fg = if use_Re then 
                    pressureLoss_m_flow_and_Re(
                        m_flow, Medium.density(state_a), Medium.density(state_b),
                        Medium.dynamicViscosity(state_a),
                        Medium.dynamicViscosity(state_b),
-                       data) else
+                       data) else 
                    pressureLoss_m_flow(m_flow, Medium.density(state_a), Medium.density(state_b), data, m_flow_small);
         end if;
 
@@ -2682,40 +2610,40 @@ The used sufficient criteria for monotonicity follows from:
         // Advanced
         /// Other settings than the final values are not yet implemented ///
         final parameter Boolean from_dp = false
-          "= true, use m_flow = f(dp) else dp = f(m_flow)"
+          "= true, use m_flow = f(dp) else dp = f(m_flow)" 
           annotation (Evaluate=true, Dialog(tab="Advanced"));
         final parameter Boolean use_Re = false
           "= true, if turbulent region is defined by Re, otherwise by dp_small or m_flow_small"
           annotation(Evaluate=true, Dialog(tab="Advanced"));
         // End not yet implemented /////////////////////////////////////////
         parameter Medium.AbsolutePressure dp_small = system.dp_small
-          "Turbulent flow if |dp| >= dp_small"
+          "Turbulent flow if |dp| >= dp_small" 
           annotation(Dialog(tab="Advanced", enable=not use_Re and from_dp));
         parameter Medium.MassFlowRate m_flow_small = system.m_flow_small
-          "Turbulent flow if |m_flow| >= m_flow_small"
+          "Turbulent flow if |m_flow| >= m_flow_small" 
           annotation(Dialog(tab = "Advanced", enable=not from_dp));
 
         // Diagnostics
         parameter Boolean show_Re = false
-          "= true, if Reynolds number is included for plotting"
+          "= true, if Reynolds number is included for plotting" 
            annotation (Evaluate=true, Dialog(tab="Advanced", group="Diagnostics"));
         SI.ReynoldsNumber Re = Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber_m_flow(
               m_flow,
               noEvent(if m_flow>0 then Medium.dynamicViscosity(state_a) else Medium.dynamicViscosity(state_b)),
               data.D_Re) if show_Re "Reynolds number at diameter data.D_Re";
         parameter Boolean show_totalPressures = false
-          "= true, if total pressures are included for plotting"
+          "= true, if total pressures are included for plotting" 
            annotation (Evaluate=true, Dialog(tab="Advanced", group="Diagnostics"));
-        SI.AbsolutePressure p_total_a = port_a.p + 0.5 * m_flow^2 /((Modelica.Constants.pi/4 * data.diameter_a^2)^2 * noEvent(if port_a.m_flow > 0 then Medium.density(state_a) else Medium.density(state_b))) if
+        SI.AbsolutePressure p_total_a = port_a.p + 0.5 * m_flow^2 /((Modelica.Constants.pi/4 * data.diameter_a^2)^2 * noEvent(if port_a.m_flow > 0 then Medium.density(state_a) else Medium.density(state_b))) if 
              show_totalPressures "Total pressure at port_a";
-        SI.AbsolutePressure p_total_b = port_b.p + 0.5 * m_flow^2 /((Modelica.Constants.pi/4 * data.diameter_b^2)^2 * noEvent(if port_b.m_flow > 0 then Medium.density(state_b) else Medium.density(state_a))) if
+        SI.AbsolutePressure p_total_b = port_b.p + 0.5 * m_flow^2 /((Modelica.Constants.pi/4 * data.diameter_b^2)^2 * noEvent(if port_b.m_flow > 0 then Medium.density(state_b) else Medium.density(state_a))) if 
              show_totalPressures "Total pressure at port_a";
         parameter Boolean show_portVelocities = false
-          "= true, if port velocities are included for plotting"
+          "= true, if port velocities are included for plotting" 
            annotation (Evaluate=true, Dialog(tab="Advanced", group="Diagnostics"));
-        SI.Velocity v_a = port_a.m_flow /(Modelica.Constants.pi/4 * data.diameter_a^2 * noEvent(if port_a.m_flow > 0 then Medium.density(state_a) else Medium.density(state_b))) if
+        SI.Velocity v_a = port_a.m_flow /(Modelica.Constants.pi/4 * data.diameter_a^2 * noEvent(if port_a.m_flow > 0 then Medium.density(state_a) else Medium.density(state_b))) if 
              show_portVelocities "Fluid velocity into port_a";
-        SI.Velocity v_b = port_b.m_flow /(Modelica.Constants.pi/4 * data.diameter_b^2 * noEvent(if port_b.m_flow > 0 then Medium.density(state_b) else Medium.density(state_a))) if
+        SI.Velocity v_b = port_b.m_flow /(Modelica.Constants.pi/4 * data.diameter_b^2 * noEvent(if port_b.m_flow > 0 then Medium.density(state_b) else Medium.density(state_a))) if 
              show_portVelocities "Fluid velocity into port_b";
 
         // Variables
@@ -2734,20 +2662,20 @@ The used sufficient criteria for monotonicity follows from:
         F_p = A_mean*(Medium.pressure(state_b) - Medium.pressure(state_a));
         F_fg = A_mean*dp_fg;
         if from_dp then
-           m_flow = if use_Re then
+           m_flow = if use_Re then 
                        massFlowRate_dp_and_Re(
                           dp_fg, Medium.density(state_a), Medium.density(state_b),
                           Medium.dynamicViscosity(state_a),
                           Medium.dynamicViscosity(state_b),
-                          data) else
+                          data) else 
                        massFlowRate_dp(dp_fg, Medium.density(state_a), Medium.density(state_b), data, dp_small);
         else
-           dp_fg = if use_Re then
+           dp_fg = if use_Re then 
                    pressureLoss_m_flow_and_Re(
                        m_flow, Medium.density(state_a), Medium.density(state_b),
                        Medium.dynamicViscosity(state_a),
                        Medium.dynamicViscosity(state_b),
-                       data) else
+                       data) else 
                    pressureLoss_m_flow_totalPressure(m_flow,
                      Medium.density(state_a),
                      Medium.density(state_b_des),
@@ -2909,8 +2837,8 @@ The used sufficient criteria for monotonicity follows from:
         SI.Area A_b = Modelica.Constants.pi * data.diameter_b^2/4
           "Cross section area at port_b";
       algorithm
-          dp := 1/2 * m_flow^2 *( if m_flow > 0 then
-            data.zeta1/(if data.zeta1_at_a then rho_a_des    * A_a^2 else    rho_b_des * A_b^2) - 1/(rho_a_des    * A_a^2) + 1/(rho_b_des    * A_b^2) else
+          dp := 1/2 * m_flow^2 *( if m_flow > 0 then 
+            data.zeta1/(if data.zeta1_at_a then rho_a_des    * A_a^2 else    rho_b_des * A_b^2) - 1/(rho_a_des    * A_a^2) + 1/(rho_b_des    * A_b^2) else 
             -data.zeta2/(if data.zeta2_at_a then rho_a_nondes * A_a^2 else rho_b_nondes * A_b^2) - 1/(rho_a_nondes * A_a^2) + 1/(rho_b_nondes * A_b^2));
         annotation (smoothOrder=1, Documentation(info="<html>
 <p>
@@ -2961,37 +2889,37 @@ where
       import Modelica.Fluid.Types.PortFlowDirection;
 
       replaceable package Medium=Modelica.Media.Interfaces.PartialMedium
-        "Medium in the component"
+        "Medium in the component" 
         annotation (choicesAllMatching=true);
 
-      Modelica.Fluid.Interfaces.FluidPort_a port_1(redeclare package Medium =
-            Medium, m_flow(min=if (portFlowDirection_1 == PortFlowDirection.Entering) then
+      Modelica.Fluid.Interfaces.FluidPort_a port_1(redeclare package Medium = 
+            Medium, m_flow(min=if (portFlowDirection_1 == PortFlowDirection.Entering) then 
                     0.0 else -Modelica.Constants.inf, max=if (portFlowDirection_1
-               == PortFlowDirection.Leaving) then 0.0 else Modelica.Constants.inf))
+               == PortFlowDirection.Leaving) then 0.0 else Modelica.Constants.inf)) 
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
-      Modelica.Fluid.Interfaces.FluidPort_b port_2(redeclare package Medium =
-            Medium, m_flow(min=if (portFlowDirection_2 == PortFlowDirection.Entering) then
+      Modelica.Fluid.Interfaces.FluidPort_b port_2(redeclare package Medium = 
+            Medium, m_flow(min=if (portFlowDirection_2 == PortFlowDirection.Entering) then 
                     0.0 else -Modelica.Constants.inf, max=if (portFlowDirection_2
-               == PortFlowDirection.Leaving) then 0.0 else Modelica.Constants.inf))
+               == PortFlowDirection.Leaving) then 0.0 else Modelica.Constants.inf)) 
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=
                0)));
       Modelica.Fluid.Interfaces.FluidPort_a port_3(
         redeclare package Medium=Medium,
         m_flow(min=if (portFlowDirection_3==PortFlowDirection.Entering) then 0.0 else -Modelica.Constants.inf,
-        max=if (portFlowDirection_3==PortFlowDirection.Leaving) then 0.0 else Modelica.Constants.inf))
+        max=if (portFlowDirection_3==PortFlowDirection.Leaving) then 0.0 else Modelica.Constants.inf)) 
         annotation (Placement(transformation(extent={{-10,90},{10,110}}, rotation=
                0)));
 
     protected
       parameter PortFlowDirection portFlowDirection_1=PortFlowDirection.Bidirectional
-        "Flow direction for port_1"
+        "Flow direction for port_1" 
        annotation(Dialog(tab="Advanced"));
       parameter PortFlowDirection portFlowDirection_2=PortFlowDirection.Bidirectional
-        "Flow direction for port_2"
+        "Flow direction for port_2" 
        annotation(Dialog(tab="Advanced"));
       parameter PortFlowDirection portFlowDirection_3=PortFlowDirection.Bidirectional
-        "Flow direction for port_3"
+        "Flow direction for port_3" 
        annotation(Dialog(tab="Advanced"));
 
       annotation(Icon(coordinateSystem(
@@ -3046,7 +2974,7 @@ where
           Medium.p_default,
           Medium.T_default,
           Medium.X_default)
-        "Nominal density (e.g. d_liquidWater = 995, d_air = 1.2)"
+        "Nominal density (e.g. d_liquidWater = 995, d_air = 1.2)" 
         annotation (Dialog(enable=use_nominal, group="Fluid properties"));
 
     /*
