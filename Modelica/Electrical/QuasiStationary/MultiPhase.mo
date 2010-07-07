@@ -298,7 +298,7 @@ Examples to demonstrate the usage of quasistationary electric components.
             Text(
               extent={{-100,-110},{100,-70}},
               lineColor={0,0,0},
-              textString=                            "m=%m"),
+              textString =                           "m=%m"),
             Line(points={{-90,0},{-40,0}}, color={0,0,255}),
             Line(points={{80,0},{90,0}}, color={0,0,255})}),
       Documentation(info="<html>
@@ -344,7 +344,7 @@ Star (wye) connection of a multi phase circuit. The potentials at the star point
             Text(
               extent={{-150,60},{150,120}},
               lineColor={0,0,255},
-              textString=                         "%name"),
+              textString =                        "%name"),
             Line(
               points={{-40,68},{-40,-70},{79,0},{-40,68},{-40,67}},
               color={0,0,255},
@@ -352,7 +352,7 @@ Star (wye) connection of a multi phase circuit. The potentials at the star point
             Text(
               extent={{-100,-110},{100,-70}},
               lineColor={0,0,0},
-              textString=                            "m=%m"),
+              textString =                           "m=%m"),
             Line(points={{-90,0},{-40,0}}, color={0,0,255}),
             Line(points={{80,0},{90,0}}, color={0,0,255})}),
       Documentation(info="<html>
@@ -1196,6 +1196,381 @@ it uses <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Single
 </p>
 </html>"));
     end Short;
+
+    model IdealCommutingSwitch "Multiphase ideal commuting switch"
+      parameter Integer m(final min=1) = 3 "Number of phases";
+      parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start = fill(1.E-5, m))
+        "Closed switch resistance";
+      parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start = fill(1.E-5, m))
+        "Opened switch conductance";
+      extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(final mh=m, final T=fill(293.15,m));
+      Modelica.Blocks.Interfaces.BooleanInput control[m]
+        "true => p--n2 connected, false => p--n1 connected" annotation (Placement(
+            transformation(
+            origin={0,80},
+            extent={{-20,-20},{20,20}},
+            rotation=270)));
+      Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
+              rotation=0)));
+      Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug plug_n2(final m=m)
+        annotation (Placement(transformation(extent={{90,-10},{110,10}},
+              rotation=0)));
+      Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug plug_n1(final m=m)
+        annotation (Placement(transformation(extent={{90,40},{110,60}},
+              rotation=0)));
+      Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealCommutingSwitch
+        idealCommutingSwitch[                                                    m](
+        final Ron=Ron,
+        final Goff=Goff,
+        each final useHeatPort=useHeatPort)
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+              rotation=0)));
+      Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p
+                         plugToPins_p(final m=m)
+        annotation (Placement(transformation(extent={{-90,-10},{-70,10}}, rotation=
+                0)));
+      Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n plugToPins_n1(final m=m)
+        annotation (Placement(transformation(
+            origin={80,50},
+            extent={{-10,-10},{10,10}},
+            rotation=180)));
+      Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n plugToPins_n2(final m=m)
+        annotation (Placement(transformation(
+            origin={80,0},
+            extent={{-10,-10},{10,10}},
+            rotation=180)));
+    equation
+      connect(control, idealCommutingSwitch.control)
+        annotation (Line(points={{0,80},{0,8}}, color={255,0,255}));
+      connect(idealCommutingSwitch.heatPort, heatPort) annotation (Line(
+          points={{0,-10},{0,-100}},
+          color={191,0,0},
+          pattern=LinePattern.None,
+          smooth=Smooth.None));
+      connect(plugToPins_n1.plug_n, plug_n1) annotation (Line(
+          points={{82,50},{100,50}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      connect(plugToPins_n2.plug_n, plug_n2) annotation (Line(
+          points={{82,-2.44929e-016},{90,-2.44929e-016},{90,0},{100,0}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      connect(plugToPins_n2.pin_n, idealCommutingSwitch.n2) annotation (Line(
+          points={{78,2.44929e-016},{44,2.44929e-016},{44,0},{10,0}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      connect(idealCommutingSwitch.n1, plugToPins_n1.pin_n) annotation (Line(
+          points={{10,5},{10,50},{78,50}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      connect(plugToPins_p.plug_p, plug_p) annotation (Line(
+          points={{-82,0},{-100,0}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      connect(idealCommutingSwitch.p, plugToPins_p.pin_p) annotation (Line(
+          points={{-10,0},{-78,0}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
+            Text(
+              extent={{-150,-40},{150,-100}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-100,100},{-20,60}},
+              lineColor={0,0,0},
+              textString="m="),
+            Text(
+              extent={{20,100},{100,60}},
+              lineColor={0,0,0},
+              textString="%m"),
+            Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
+            Line(points={{-90,0},{-44,0}}, color={0,0,255}),
+            Line(points={{-37,2},{40,50}}, color={0,0,255}),
+            Line(points={{40,50},{90,50}}, color={0,0,255}),
+            Line(points={{0,90},{0,25}}, color={0,0,255}),
+            Line(points={{40,0},{90,0}}, color={0,0,255})}),
+        Documentation(info="<HTML>
+<p>
+Contains m singlephase ideal commuting switches (Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealCommutingSwitch).
+</p>
+<p>
+<b>Use with care:</b>
+This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation. 
+</p>
+</HTML>"),
+        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
+                -100},{100,100}}),
+                graphics));
+    end IdealCommutingSwitch;
+
+    model IdealIntermediateSwitch "Multiphase ideal intermediate switch"
+      parameter Integer m(final min=1) = 3 "Number of phases";
+      parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start = fill(1.E-5, m))
+        "Closed switch resistance";
+      parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start = fill(1.E-5, m))
+        "Opened switch conductance";
+      extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(final mh=m, final T=fill(293.15,m));
+      Modelica.Blocks.Interfaces.BooleanInput control[m]
+        "true => p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2 connected"
+            annotation (Placement(transformation(
+            origin={0,80},
+            extent={{-20,-20},{20,20}},
+            rotation=270)));
+      Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug plug_p1(final m=m)
+        annotation (Placement(transformation(extent={{-110,40},{-90,60}},
+              rotation=0)));
+      Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug plug_p2(final m=m)
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
+              rotation=0)));
+      Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug plug_n2(final m=m)
+        annotation (Placement(transformation(extent={{90,-10},{110,10}},
+              rotation=0)));
+      Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug plug_n1(final m=m)
+        annotation (Placement(transformation(extent={{90,40},{110,60}},
+              rotation=0)));
+      Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealIntermediateSwitch
+        idealIntermediateSwitch[m](
+        final Ron=Ron,
+        final Goff=Goff,
+        each final useHeatPort=useHeatPort)
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+              rotation=0)));
+      Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p plugToPins_p1(final m=m)
+        annotation (Placement(transformation(extent={{-90,40},{-70,60}},  rotation=
+                0)));
+      Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n plugToPins_n1(final m=m)
+        annotation (Placement(transformation(
+            origin={80,50},
+            extent={{-10,-10},{10,10}},
+            rotation=180)));
+      Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p plugToPins_p2(final m=m)
+        annotation (Placement(transformation(extent={{-90,-10},{-70,10}}, rotation=
+                0)));
+      Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n plugToPins_n2(final m=m)
+        annotation (Placement(transformation(
+            origin={80,0},
+            extent={{-10,-10},{10,10}},
+            rotation=180)));
+    equation
+      connect(control, idealIntermediateSwitch.control)
+        annotation (Line(points={{0,80},{0,8}}, color={255,0,255}));
+      connect(idealIntermediateSwitch.heatPort, heatPort) annotation (Line(
+          points={{0,-10},{0,-100}},
+          color={191,0,0},
+          pattern=LinePattern.None,
+          smooth=Smooth.None));
+      connect(plug_p1, plugToPins_p1.plug_p) annotation (Line(
+          points={{-100,50},{-92,50},{-92,50},{-82,50}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      connect(plug_p2, plugToPins_p2.plug_p) annotation (Line(
+          points={{-100,0},{-82,0}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      connect(plugToPins_n1.plug_n, plug_n1) annotation (Line(
+          points={{82,50},{100,50}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      connect(plugToPins_n2.plug_n, plug_n2) annotation (Line(
+          points={{82,-2.44929e-016},{90,-2.44929e-016},{90,0},{100,0}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      connect(idealIntermediateSwitch.p2, plugToPins_p2.pin_p) annotation (Line(
+          points={{-10,0},{-78,0}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      connect(idealIntermediateSwitch.n2, plugToPins_n2.pin_n) annotation (Line(
+          points={{10,0},{44,0},{44,2.44929e-016},{78,2.44929e-016}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      connect(idealIntermediateSwitch.n1, plugToPins_n1.pin_n) annotation (Line(
+          points={{10,5},{10,50},{78,50}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      connect(idealIntermediateSwitch.p1, plugToPins_p1.pin_p) annotation (Line(
+          points={{-10,5},{-10,50},{-78,50}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
+            Text(
+              extent={{-150,-40},{150,-100}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-100,100},{-20,60}},
+              lineColor={0,0,0},
+              textString="m="),
+            Text(
+              extent={{20,100},{100,60}},
+              lineColor={0,0,0},
+              textString="%m"),
+            Ellipse(extent={{-4,30},{4,22}}, lineColor={0,0,255}),
+            Line(points={{-90,0},{-44,0}}, color={0,0,255}),
+            Line(points={{-90,50},{-44,50}}, color={0,0,255}),
+            Line(points={{-44,0},{40,50}}, color={0,0,255}),
+            Line(points={{-44,50},{40,0}}, color={0,0,255}),
+            Line(points={{40,50},{90,50}}, color={0,0,255}),
+            Line(points={{0,90},{0,25}}, color={0,0,255}),
+            Line(points={{40,0},{90,0}}, color={0,0,255})}),
+        Documentation(info="<HTML>
+<p>
+Contains m ideal intermediate switches (Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealIntermediateSwitch).
+</p>
+<b>Use with care:</b>
+This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation. 
+</p>
+</HTML>"),
+        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
+                100}}),
+                graphics));
+    end IdealIntermediateSwitch;
+
+    model IdealOpeningSwitch "Multiphase ideal opener"
+      extends Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug;
+      parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start = fill(1.E-5, m))
+        "Closed switch resistance";
+      parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start = fill(1.E-5, m))
+        "Opened switch conductance";
+      extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(final mh=m, final T=fill(293.15,m));
+      Modelica.Blocks.Interfaces.BooleanInput control[m]
+        "true => switch open, false => p--n connected" annotation (Placement(
+            transformation(
+            origin={0,70},
+            extent={{-20,-20},{20,20}},
+            rotation=270)));
+      Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealOpeningSwitch
+                                                          idealOpeningSwitch[m](
+        final Ron=Ron,
+        final Goff=Goff,
+        each final useHeatPort=useHeatPort) annotation (Placement(transformation(extent={{-10,
+                -10},{10,10}}, rotation=0)));
+    equation
+      connect(control, idealOpeningSwitch.control)
+        annotation (Line(points={{0,70},{0,7}}, color={255,0,255}));
+      connect(idealOpeningSwitch.heatPort, heatPort) annotation (Line(
+          points={{0,-10},{0,-100}},
+          color={191,0,0},
+          pattern=LinePattern.None,
+          smooth=Smooth.None));
+      connect(idealOpeningSwitch.pin_n, plugToPins_n.pin_n) annotation (
+          Line(
+          points={{10,0},{39,0},{39,2.44929e-016},{68,2.44929e-016}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      connect(plugToPins_p.pin_p, idealOpeningSwitch.pin_p) annotation (
+          Line(
+          points={{-68,0},{-10,0}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
+            Text(
+              extent={{-150,-40},{150,-100}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(points={{-90,0},{-44,0}}, color={0,0,255}),
+            Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
+            Line(points={{-37,2},{40,50}}, color={0,0,255}),
+            Line(points={{0,88},{0,26}}, color={0,0,255}),
+            Line(points={{40,0},{90,0}}, color={0,0,255}),
+            Text(
+              extent={{-100,100},{-20,60}},
+              lineColor={0,0,0},
+              textString="m="),
+            Text(
+              extent={{20,100},{100,60}},
+              lineColor={0,0,0},
+              textString="%m"),
+            Line(points={{40,20},{40,0}}, color={0,0,255})}),
+        Documentation(info="<HTML>
+<p>
+Contains m ideal opening switches (Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealOpeningSwitch).
+</p>
+<b>Use with care:</b>
+This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation. 
+</p>
+</HTML>"),
+        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
+                -100},{100,100}}),
+                graphics));
+    end IdealOpeningSwitch;
+
+    model IdealClosingSwitch "Multiphase ideal closer"
+      extends Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug;
+      parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start = fill(1.E-5, m))
+        "Closed switch resistance";
+      parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start = fill(1.E-5, m))
+        "Opened switch conductance";
+      extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(final mh=m, final T=fill(293.15,m));
+      Modelica.Blocks.Interfaces.BooleanInput control[m]
+        "true => p--n connected, false => switch open" annotation (Placement(
+            transformation(
+            origin={0,70},
+            extent={{-20,-20},{20,20}},
+            rotation=270)));
+      Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealClosingSwitch
+                                                          idealClosingSwitch[m](
+        final Ron=Ron,
+        final Goff=Goff,
+        each final useHeatPort=useHeatPort) annotation (Placement(transformation(extent={{-10,
+                -10},{10,10}}, rotation=0)));
+    equation
+      connect(control, idealClosingSwitch.control)
+        annotation (Line(points={{0,70},{0,7}}, color={255,0,255}));
+      connect(idealClosingSwitch.heatPort, heatPort) annotation (Line(
+          points={{0,-10},{0,-100}},
+          color={191,0,0},
+          pattern=LinePattern.None,
+          smooth=Smooth.None));
+      connect(idealClosingSwitch.pin_p, plugToPins_p.pin_p) annotation (
+          Line(
+          points={{-10,0},{-68,0}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      connect(idealClosingSwitch.pin_n, plugToPins_n.pin_n) annotation (
+          Line(
+          points={{10,0},{39,0},{39,2.44929e-016},{68,2.44929e-016}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
+            Text(
+              extent={{-150,-40},{150,-100}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(points={{-90,0},{-44,0}}, color={0,0,255}),
+            Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
+            Line(points={{-37,2},{40,50}}, color={0,0,255}),
+            Line(points={{0,88},{0,26}}, color={0,0,255}),
+            Line(points={{40,0},{90,0}}, color={0,0,255}),
+            Text(
+              extent={{-100,100},{-20,60}},
+              lineColor={0,0,0},
+              textString="m="),
+            Text(
+              extent={{20,100},{100,60}},
+              lineColor={0,0,0},
+              textString="%m")}),
+        Documentation(info="<HTML>
+<p>
+Contains m ideal closing switches (Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealClosingSwitch).
+</p>
+<b>Use with care:</b>
+This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation. 
+</p>
+</HTML>"),
+        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
+                -100},{100,100}}),
+                graphics));
+    end IdealClosingSwitch;
   annotation (Icon(graphics={
         Line(points={{-100,-60},{-54,-60}}),
         Ellipse(extent={{-54,-56},{-46,-64}}),

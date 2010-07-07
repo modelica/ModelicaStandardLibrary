@@ -932,6 +932,418 @@ This model is a simple short cut branch considering the complex voltage <i><u>v<
 </p>
 </html>"));
     end Short;
+
+    model IdealCommutingSwitch "Ideal commuting switch"
+      import Modelica.ComplexMath.*;
+      parameter Modelica.SIunits.Resistance Ron(final min=0)=1.E-5
+        "Closed switch resistance";
+      parameter Modelica.SIunits.Conductance Goff(final min=0)=1.E-5
+        "Opened switch conductance";
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+      Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin p
+       annotation (Placement(transformation(extent={{-110,
+                -10},{-90,10}}, rotation=0)));
+      Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin n2
+       annotation (Placement(transformation(extent={{90,
+                -10},{110,10}}, rotation=0)));
+      Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin n1
+       annotation (Placement(transformation(extent={{90,
+                40},{110,60}}, rotation=0)));
+      Modelica.Blocks.Interfaces.BooleanInput control
+        "true => p--n2 connected, false => p--n1 connected" annotation (Placement(
+            transformation(
+            origin={0,80},
+            extent={{-20,-20},{20,20}},
+            rotation=270)));
+    protected
+      Complex s1(re(final unit="1"), im(final unit="1"));
+      Complex s2(re(final unit="1"), im(final unit="1")) "Auxiliary variables";
+      constant Modelica.SIunits.ComplexVoltage unitVoltage=Complex(1,0)  annotation(HideResult=true);
+      constant Modelica.SIunits.ComplexCurrent unitCurrent=Complex(1,0)  annotation(HideResult=true);
+    equation
+      Connections.branch(p.reference, n1.reference);
+      p.reference.gamma = n1.reference.gamma;
+      Connections.branch(p.reference, n2.reference);
+      p.reference.gamma = n2.reference.gamma;
+      p.i + n2.i + n1.i = Complex(0,0);
+      p.v - n1.v = (s1*unitCurrent)*(if (control) then 1 else Ron);
+      n1.i = -(s1*unitVoltage)*(if (control) then Goff else 1);
+      p.v - n2.v = (s2*unitCurrent)*(if (control) then Ron else 1);
+      n2.i = -(s2*unitVoltage)*(if (control) then 1 else Goff);
+      LossPower = real(p.v*conj(p.i)) + real(n1.v*conj(n1.i)) + real(n2.v*conj(n2.i));
+      annotation (
+        Documentation(info="<HTML>
+<P>
+The commuting switch has a positive pin p and two negative pins n1 and n2.
+The switching behaviour is controlled
+by the inpug signal control. If control is true, the pin p is connected
+with the negative pin n2. Otherwise, the pin p is connected to the negative pin n1.
+</P>
+<P>
+In order to prevent singularities during switching, the opened
+switch has a (very low) conductance Goff
+and the closed switch has a (very low) resistance Ron.
+The limiting case is also allowed, i.e., the resistance Ron of the
+closed switch could be exactly zero and the conductance Goff of the
+open switch could be also exactly zero. Note, there are circuits,
+where a description with zero Ron or zero Goff is not possible.
+<br> <br>
+<b>Please note:</b>
+In case of useHeatPort=true the temperature dependence of the electrical
+behavior is <b> not </b> modelled. The parameters are not temperature dependent.
+</P>
+<p>
+<b>Use with care:</b>
+This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation. 
+</p>
+</HTML>"),
+        Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics={
+            Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
+            Text(
+              extent={{-80,0},{-60,22}},
+              textString="p",
+              lineColor={0,0,255}),
+            Text(
+              extent={{60,50},{80,72}},
+              textString="n1",
+              lineColor={0,0,255}),
+            Text(
+              extent={{60,0},{80,22}},
+              textString="n2",
+              lineColor={0,0,255}),
+            Line(points={{-90,0},{-44,0}}, color={0,0,255}),
+            Line(points={{-37,2},{40,50}}, color={0,0,255}),
+            Line(points={{40,50},{90,50}}, color={0,0,255}),
+            Line(points={{0,90},{0,25}}, color={0,0,255}),
+            Line(points={{40,0},{90,0}}, color={0,0,255}),
+            Line(
+              visible=useHeatPort,
+              points={{0,-100},{0,25}},
+              color={127,0,0},
+              smooth=Smooth.None,
+              pattern=LinePattern.Dot),
+            Text(
+              extent={{-148,-22},{152,-62}},
+              textString="%name",
+              lineColor={0,0,255})}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics={
+            Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
+            Line(points={{-96,0},{-44,0}}, color={0,0,255}),
+            Line(points={{-37,2},{40,50}}, color={0,0,255}),
+            Line(points={{40,50},{96,50}}, color={0,0,255}),
+            Line(points={{0,60},{0,25}}, color={0,0,255}),
+            Line(points={{40,0},{96,0}}, color={0,0,255})}));
+    end IdealCommutingSwitch;
+
+    model IdealIntermediateSwitch "Ideal intermediate switch"
+      import Modelica.ComplexMath.*;
+      parameter Modelica.SIunits.Resistance Ron(final min=0)=1.E-5
+        "Closed switch resistance";
+      parameter Modelica.SIunits.Conductance Goff(final min=0)=1.E-5
+        "Opened switch conductance";
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+      Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin p1
+        annotation (Placement(transformation(extent={{
+                -110,40},{-90,60}}, rotation=0)));
+      Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin p2
+        annotation (Placement(transformation(extent={{
+                -110,-10},{-90,10}}, rotation=0)));
+      Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin n1
+        annotation (Placement(transformation(extent={{90,
+                40},{110,60}}, rotation=0)));
+      Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin n2
+        annotation (Placement(transformation(extent={{90,
+                -10},{110,10}}, rotation=0)));
+      Modelica.Blocks.Interfaces.BooleanInput control
+        "true => p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2  connected"
+        annotation (Placement(transformation(
+            origin={0,80},
+            extent={{-20,-20},{20,20}},
+            rotation=270)));
+    protected
+      Complex s1(re(final unit="1"), im(final unit="1"));
+      Complex s2(re(final unit="1"), im(final unit="1"));
+      Complex s3(re(final unit="1"), im(final unit="1"));
+      Complex s4(re(final unit="1"), im(final unit="1")) "Auxiliary variables";
+      constant Modelica.SIunits.ComplexVoltage unitVoltage=Complex(1,0)  annotation(HideResult=true);
+      constant Modelica.SIunits.ComplexCurrent unitCurrent=Complex(1,0)  annotation(HideResult=true);
+    equation
+      Connections.branch(p1.reference, n1.reference);
+      p1.reference.gamma = n1.reference.gamma;
+      Connections.branch(p2.reference, n2.reference);
+      p2.reference.gamma = n2.reference.gamma;
+      Connections.branch(n1.reference, n2.reference);
+      n1.reference.gamma = n2.reference.gamma;
+
+      p1.v - n1.v = (s1*unitCurrent)*(if (control) then 1 else Ron);
+      p2.v - n2.v = (s2*unitCurrent)*(if (control) then 1 else Ron);
+      p1.v - n2.v = (s3*unitCurrent)*(if (control) then Ron else 1);
+      p2.v - n1.v = (s4*unitCurrent)*(if (control) then Ron else 1);
+
+      p1.i = if control then s1*unitVoltage*Goff + s3*unitCurrent else s1*unitCurrent + s3*unitVoltage*Goff;
+      p2.i = if control then s2*unitVoltage*Goff + s4*unitCurrent else s2*unitCurrent + s4*unitVoltage*Goff;
+      n1.i = if control then -s1*unitVoltage*Goff - s4*unitCurrent else -s1*unitCurrent - s4*unitVoltage*Goff;
+      n2.i = if control then -s2*unitVoltage*Goff - s3*unitCurrent else -s2*unitCurrent - s3*unitVoltage*Goff;
+
+      LossPower = real(p1.v*conj(p1.i)) + real(p2.v*conj(p2.i)) + real(n1.v*conj(n1.i)) + real(n2.v*conj(n2.i));
+      annotation (
+        Documentation(info="<HTML>
+<P>
+The intermediate switch has four switching contact pins p1, p2, n1, and n2.
+The switching behaviour is controlled by the input signal control. If control
+is true, the pin p1 is connected to pin n2, and the pin p2 is
+connected to the pin n2. Otherwise, the pin p1 is connected to n1, and
+p2 is connected to n2.
+</P>
+<IMG src=\"modelica://Modelica/Images/IdealIntermediateSwitch1.png\" ALT=\"IdealIntermediateSwitch1\">
+<P>
+In order to prevent singularities during switching, the opened
+switch has a (very low) conductance Goff
+and the closed switch has a (very low) resistance Ron.
+</P>
+<IMG src=\"modelica://Modelica/Images/IdealIntermediateSwitch2.png\" ALT=\"IdealIntermediateSwitch2\">
+<P>
+The limiting case is also allowed, i.e., the resistance Ron of the
+closed switch could be exactly zero and the conductance Goff of the
+open switch could be also exactly zero. Note, there are circuits,
+where a description with zero Ron or zero Goff is not possible.
+<br> <br>
+<b>Please note:</b>
+In case of useHeatPort=true the temperature dependence of the electrical
+behavior is <b> not </b> modelled. The parameters are not temperature dependent.
+</P>
+<p>
+<b>Use with care:</b>
+This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation. 
+</p>
+</HTML>"),
+        Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics={
+            Ellipse(extent={{-4,30},{4,22}}, lineColor={0,0,255}),
+            Text(
+              extent={{-80,50},{-60,72}},
+              textString="p1",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-80,0},{-60,22}},
+              textString="p2",
+              lineColor={0,0,255}),
+            Text(
+              extent={{60,50},{80,72}},
+              textString="n1",
+              lineColor={0,0,255}),
+            Text(
+              extent={{60,0},{80,22}},
+              textString="n2",
+              lineColor={0,0,255}),
+            Line(points={{-90,0},{-44,0}}, color={0,0,255}),
+            Line(points={{-90,50},{-44,50}}, color={0,0,255}),
+            Line(points={{-44,0},{40,50}}, color={0,0,255}),
+            Line(points={{-44,50},{40,0}}, color={0,0,255}),
+            Line(points={{40,50},{90,50}}, color={0,0,255}),
+            Line(points={{0,90},{0,25}}, color={0,0,255}),
+            Line(points={{40,0},{90,0}}, color={0,0,255}),
+            Text(
+              extent={{-151,-24},{149,-64}},
+              textString="%name",
+              lineColor={0,0,255})}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics={
+            Ellipse(extent={{-4,29},{4,21}}, lineColor={0,0,255}),
+            Line(points={{-96,0},{-40,0}}, color={0,0,255}),
+            Line(points={{-96,50},{-40,50}}, color={0,0,255}),
+            Line(points={{-40,0},{40,50}}, color={0,0,255}),
+            Line(points={{-40,50},{40,0}}, color={0,0,255}),
+            Line(points={{40,50},{96,50}}, color={0,0,255}),
+            Line(points={{0,60},{0,25}}, color={0,0,255}),
+            Line(points={{40,0},{96,0}}, color={0,0,255})}));
+    end IdealIntermediateSwitch;
+
+    model IdealOpeningSwitch "Ideal electrical opener"
+      import Modelica.ComplexMath.*;
+     extends Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort;
+     parameter Modelica.SIunits.Resistance Ron(final min=0)=1.E-5
+        "Closed switch resistance"
+         annotation (Placement(transformation(extent={{-56.6667,10},{-10,56.6667}},
+              rotation=0)));
+     parameter Modelica.SIunits.Conductance Goff(final min=0)=1.E-5
+        "Opened switch conductance" annotation (Placement(transformation(extent={
+                {10,10},{56.6667,56.6667}}, rotation=0)));
+     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+     Modelica.Blocks.Interfaces.BooleanInput control
+        "true => switch open, false => p--n connected" annotation (Placement(
+            transformation(
+            origin={0,70},
+            extent={{-20,-20},{20,20}},
+            rotation=270)));
+    protected
+     Complex s(re(final unit="1"), im(final unit="1")) "Auxiliary variable";
+     constant Modelica.SIunits.ComplexVoltage unitVoltage=Complex(1,0)  annotation(HideResult=true);
+     constant Modelica.SIunits.ComplexCurrent unitCurrent=Complex(1,0)  annotation(HideResult=true);
+    equation
+     v = (s*unitCurrent)*(if control then 1 else Ron);
+     i = (s*unitVoltage)*(if control then Goff else 1);
+
+     LossPower = real(v*conj(i));
+      annotation (
+        Documentation(info="<HTML>
+<P>
+The ideal opening switch has a positive pin p and a negative pin n.
+The switching behaviour is controlled by the input signal control.
+If control is true, pin p is not connected
+with negative pin n. Otherwise, pin p is connected
+with negative pin n.
+</P>
+<P>
+In order to prevent singularities during switching, the opened
+switch has a (very low) conductance Goff
+and the closed switch has a (very low) resistance Ron.
+The limiting case is also allowed, i.e., the resistance Ron of the
+closed switch could be exactly zero and the conductance Goff of the
+open switch could be also exactly zero. Note, there are circuits,
+where a description with zero Ron or zero Goff is not possible.
+<br> <br>
+<b>Please note:</b>
+In case of useHeatPort=true the temperature dependence of the electrical
+behavior is <b> not </b> modelled. The parameters are not temperature dependent.
+</P>
+<p>
+<b>Use with care:</b>
+This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation. 
+</p>
+</HTML>"),
+        Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics={
+            Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
+            Line(points={{-90,0},{-44,0}}, color={0,0,255}),
+            Line(points={{-37,2},{40,50}}, color={0,0,255}),
+            Line(points={{40,0},{90,0}}, color={0,0,255}),
+            Line(points={{0,51},{0,26}}, color={0,0,255}),
+            Line(points={{40,20},{40,0}}, color={0,0,255}),
+            Line(
+              visible=useHeatPort,
+              points={{0,-100},{0,25}},
+              color={127,0,0},
+              smooth=Smooth.None,
+              pattern=LinePattern.Dot),
+            Text(
+              extent={{-151,-21},{149,-61}},
+              textString="%name",
+              lineColor={0,0,255})}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics={
+            Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
+            Line(points={{-96,0},{-44,0}}, color={0,0,255}),
+            Line(points={{-37,2},{40,50}}, color={0,0,255}),
+            Line(points={{40,0},{96,0}}, color={0,0,255}),
+            Text(
+              extent={{-100,-40},{100,-79}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(points={{0,51},{0,26}}, color={0,0,255}),
+            Line(points={{40,20},{40,0}}, color={0,0,255})}));
+    end IdealOpeningSwitch;
+
+    model IdealClosingSwitch "Ideal electrical closer"
+      import Modelica.ComplexMath.*;
+        extends
+        Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort;
+        parameter Modelica.SIunits.Resistance Ron(final min=0)=1.E-5
+        "Closed switch resistance"
+           annotation (Placement(transformation(extent={{-56.6667,10},{-10,
+                56.6667}}, rotation=0)));
+        parameter Modelica.SIunits.Conductance Goff(final min=0)=1.E-5
+        "Opened switch conductance"   annotation (Placement(transformation(extent=
+               {{10,10},{56.6667,56.6667}}, rotation=0)));
+        extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+        Modelica.Blocks.Interfaces.BooleanInput control
+        "true => p--n connected, false => switch open"   annotation (Placement(
+            transformation(
+            origin={0,70},
+            extent={{-20,-20},{20,20}},
+            rotation=270)));
+    protected
+        Complex s(re(final unit="1"), im(final unit="1")) "Auxiliary variable";
+        constant Modelica.SIunits.ComplexVoltage unitVoltage=Complex(1,0)  annotation(HideResult=true);
+        constant Modelica.SIunits.ComplexCurrent unitCurrent=Complex(1,0)  annotation(HideResult=true);
+    equation
+        v = (s*unitCurrent)*(if control then Ron else 1);
+        i = (s*unitVoltage)*(if control then 1 else Goff);
+
+        LossPower = real(v*conj(i));
+        annotation (
+          Documentation(info="<HTML>
+<P>
+The ideal closing switch has a positive pin p and a negative pin n.
+The switching behaviour is controlled by input signal control.
+If control is true, pin p is connected
+with negative pin n. Otherwise, pin p is not connected
+with negative pin n.
+</P>
+<P>
+In order to prevent singularities during switching, the opened
+switch has a (very low) conductance Goff
+and the closed switch has a (very low) resistance Ron.
+The limiting case is also allowed, i.e., the resistance Ron of the
+closed switch could be exactly zero and the conductance Goff of the
+open switch could be also exactly zero. Note, there are circuits,
+where a description with zero Ron or zero Goff is not possible.
+<br> <br>
+<b>Please note:</b>
+In case of useHeatPort=true the temperature dependence of the electrical
+behavior is <b> not </b> modelled. The parameters are not temperature dependent.
+</P>
+<p>
+<b>Use with care:</b>
+This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation. 
+</p>
+</HTML>"),Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics={
+            Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
+            Line(points={{-90,0},{-44,0}}, color={0,0,255}),
+            Line(points={{-37,2},{40,50}}, color={0,0,255}),
+            Line(points={{40,0},{90,0}}, color={0,0,255}),
+            Line(points={{0,51},{0,26}}, color={0,0,255}),
+            Line(
+              visible=useHeatPort,
+              points={{0,-100},{0,25}},
+              color={127,0,0},
+              smooth=Smooth.None,
+              pattern=LinePattern.Dot),
+            Text(
+              extent={{-152,-28},{148,-68}},
+              textString="%name",
+              lineColor={0,0,255})}),
+          Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics={
+            Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
+            Line(points={{-96,0},{-44,0}}, color={0,0,255}),
+            Line(points={{-37,2},{40,50}}, color={0,0,255}),
+            Line(points={{40,0},{96,0}}, color={0,0,255}),
+            Text(
+              extent={{-100,-40},{100,-79}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(points={{0,51},{0,26}}, color={0,0,255})}));
+    end IdealClosingSwitch;
     annotation (Icon(graphics={
         Ellipse(extent={{-54,-56},{-46,-64}}),
         Line(points={{-100,-60},{-54,-60}}),
