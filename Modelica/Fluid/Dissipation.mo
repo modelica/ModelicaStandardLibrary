@@ -1,4 +1,3 @@
-<<<<<<< .mine
 within Modelica.Fluid;
 package Dissipation
   "Functions for convective heat transfer and pressure loss characteristics"
@@ -16549,5 +16548,3 @@ Germany<br>
   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
       graphics));
 end Dissipation;
-=======
->>>>>>> .r3949
