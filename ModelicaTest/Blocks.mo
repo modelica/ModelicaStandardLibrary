@@ -403,18 +403,18 @@ package Blocks "Test models for Modelica.Blocks"
         init=init)
         annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
       Basic bandPass(
-        order1=2,
-        order2=5,
         filterType=Modelica.Blocks.Types.FilterType.BandPass,
         normalized=normalized,
-        init=init)
+        init=init,
+        order1=4,
+        order2=10)
         annotation (Placement(transformation(extent={{-60,-40},{-40,-20}})));
       Basic bandStop(
-        order1=2,
-        order2=5,
         filterType=Modelica.Blocks.Types.FilterType.BandStop,
         normalized=normalized,
-        init=init)
+        init=init,
+        order1=4,
+        order2=10)
         annotation (Placement(transformation(extent={{-60,-80},{-40,-60}})));
       parameter Modelica.Blocks.Types.Init init=Modelica.Blocks.Types.Init.SteadyState
         "Type of initialization (no init/steady state/initial state/initial output)";
