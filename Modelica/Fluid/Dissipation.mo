@@ -6257,43 +6257,50 @@ with
 </table>
 </p>
 
-<p><br/><br/>The pressure loss coefficient <b>zeta_TOT </b>of a curved bend including pressure loss due to friction is determined by its local resistance coefficient <b>zeta_LOC </b>multiplied with a correction factor <b>CF </b>for surface roughness according to <i>[Miller, p. 209, eq. 9.4]:</i> </p>
-<pre>    zeta_TOT = CF*zeta_LOC </pre>
-<p>where the correction factor <b>CF </b>is determined from the darcy friction factor of a straight pipe having the bend flow path length </p>
-<pre>    CF = 1 + (lambda_FRI_rough * pi * delta/d_hyd) / zeta_LOC</pre>
-<p>and the darcy friction factors <b>lambda_FRI_rough </b>is calculated with an approximated Colebrook-White law according to <i>[Miller, p. 191, eq. 8.4]:</i> </p>
-<pre>    lambda_FRI_rough = 0.25*(lg(K/(3.7*d_hyd) + 5.74/Re^0.9))^-2</pre>
-<p>with </p>
-<table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
-<td><p><h4>delta </h4></p></td>
-<td><p>as curvature radiant [rad],</p></td>
-</tr>
-<tr>
-<td><p><h4>d_hyd </h4></p></td>
-<td><p>as hydraulic diameter [m],</p></td>
-</tr>
-<tr>
-<td><p><h4>K </h4></p></td>
-<td><p>as absolute roughness (average height of surface asperities) [m],</p></td>
-</tr>
-<tr>
-<td><p><h4>lambda_FRI_rough </h4></p></td>
-<td><p>as darcy friction factor[-],</p></td>
-</tr>
-<tr>
-<td><p><h4>Re </h4></p></td>
-<td><p>as Reynolds number [m],</p></td>
-</tr>
-<tr>
-<td><p><h4>zeta_LOC </h4></p></td>
-<td><p>as local resistance coefficient [-],</p></td>
-</tr>
-<tr>
-<td><p><h4>zeta_TOT </h4></p></td>
-<td><p>as pressure loss coefficient [-].</p></td>
-</tr>
+<p>
+The pressure loss coefficient <b> zeta_TOT </b> of a curved bend including pressure loss due to friction is determined by its local resistance coefficient <b> zeta_LOC </b> multiplied with a correction factor <b> CF </b> for surface roughness according to <i>[Miller, p. 209, eq. 9.4]:</i>
+</p>
+<pre>
+    zeta_TOT = CF*zeta_LOC
+</pre>
+
+<p>
+where the correction factor <b> CF </b> is determined as ratio of the darcy friction factor for rough surfaces to smooth surfaces according to <i>[Miller, p. 207, eq. 9.3]:</i>
+</p>
+<pre>
+    CF = lambda_FRI_rough / lambda_FRI_smooth
+</pre>
+
+<p>
+and the darcy friction factors <b> lambda_FRI </b> are calculated with an approximated Colebrook-White law according to <i>[Miller, p. 191, eq. 8.4]:</i>
+</p>
+<pre>
+    lambda_FRI = 0.25*(lg(K/(3.7*d_hyd) + 5.74/Re^0.9))^-2
+</pre>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> d_hyd              </b></td><td> as hydraulic diameter [m],</td></tr>
+<tr><td><b> K                  </b></td><td> as absolute roughness (average height of surface asperities) [m],</td></tr>
+<tr><td><b> lambda_FRI         </b></td><td> as darcy friction factor[-],</td></tr>
+<tr><td><b> Re                 </b></td><td> as Reynolds number [m],</td></tr>
+<tr><td><b> zeta_LOC           </b></td><td> as local resistance coefficient [-],</td></tr>
+<tr><td><b> zeta_TOT           </b></td><td> as pressure loss coefficient [-].</td></tr>
 </table>
-<p><br/>The correction for surface roughness through <b>CF </b>is used only in the turbulent regime, where the fluid flow is influenced by surface asperities not covered by a laminar boundary layer. The turbulent regime starts at <b>Re &ge; 4e4 </b>according to <i>[Idelchik 2006, p. 336, sec. 15]</i>. There is no correction due to roughness in the laminar regime up to <b>Re &le; 6.5e3 </b>according to <i>[Idelchik 2006, p. 336, sec. 15]</i>. </p>
+</p>
+
+<p>
+Note that the darcy friction factor for a smooth surface <b> lambda_FRI_smooth </b> is calculated with the previous equation and an absolute roughness of <b> K = 0 </b>.
+</p>
+
+<p>
+The correction for surface roughness through <b> CF </b> is used only in the turbulent regime, where the fluid flow is influenced by surface asperities not covered by a laminar boundary layer. The turbulent regime starts at <b> Re &ge; 4e4 </b> according to <i>[Idelchik 2006, p. 336, sec. 15]</i>.
+There is no correction due to roughness in the laminar regime up to <b> Re &le; 6.5e3 </b> according to <i>[Idelchik 2006, p. 336, sec. 15]</i>.
+</p>
 
 <p>
 Nevertheless the transition point from the laminar to the transition regime is shifted to smaller Reynolds numbers for an increasing absolute roughness. This effect is considered according to <i>[Samoilenko in Idelchik 2006, p. 81, sec. 2-1-21]</i> as:
@@ -6381,16 +6388,18 @@ symbolic / numeric approach for solving differential-algebraic equation systems.
         //SOURCE_3: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Lac 6 (Verification)
         //Notation of equations according to SOURCES
 
-        import FD = FluidDissipation.PressureLoss.Bend;
+        import FD = Modelica.Fluid.Dissipation.PressureLoss.Bend;
         import SMOOTH =
-          FluidDissipation.Utilities.Functions.General.Stepsmoother;
+          Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
 
         //input records
-        input FluidDissipation.PressureLoss.Bend.dp_curvedOverall_IN_con IN_con
-          "Input record for function dp_curvedOverall_MFLOW"
+        input
+          Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_con
+          IN_con "Input record for function dp_curvedOverall_MFLOW"
           annotation (Dialog(group="Constant inputs"));
-        input FluidDissipation.PressureLoss.Bend.dp_curvedOverall_IN_var IN_var
-          "Input record for function dp_curvedOverall_MFLOW"
+        input
+          Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_var
+          IN_var "Input record for function dp_curvedOverall_MFLOW"
           annotation (Dialog(group="Variable inputs"));
         input SI.Pressure dp "Pressure loss" annotation (Dialog(group="Input"));
 
@@ -6406,7 +6415,6 @@ symbolic / numeric approach for solving differential-algebraic equation systems.
         Real frac_RD=max(MIN, IN_con.R_0/d_hyd) "Relative curvature radius";
         Real k=max(MIN, abs(IN_con.K)/d_hyd) "Relative roughness";
         Real delta=IN_con.delta*180/PI "Angle of turning";
-        SI.Length L=IN_con.delta*IN_con.R_0 "Length of flow path";
 
         //SOURCE_1: p.336, sec.15: definition of flow regime boundaries
         SI.ReynoldsNumber Re_min=1 "Minium Reynolds number";
@@ -6439,7 +6447,7 @@ symbolic / numeric approach for solving differential-algebraic equation systems.
         TYP.LocalResistanceCoefficient zeta_LOC_sharp_turb=max(MIN, A1*B1*C1)
           "Local resistance coefficient for turbulent regime (Re > Re_turb_max)";
 
-        //SOURCE_1: p.357, diag. 6-1: pressure loss boundaries for w.r.t flow regimes
+        //SOURCE_1: p.357, diag. 6-1: pressure loss boundaries for w.r.t. flow regimes
         //IN_con.R_0/d_hyd <=3
         SI.AbsolutePressure dp_lam_max=(zeta_LOC_sharp_turb + A2/Re_lam_leave)*IN_var.rho
             /2*(Re_lam_leave*IN_var.eta/(IN_var.rho*d_hyd))^2
@@ -6480,7 +6488,7 @@ symbolic / numeric approach for solving differential-algebraic equation systems.
             zeta_LOC_sharp_turb)))
           "Mean velocity in turbulent regime with independence on pressure loss coefficient (Re > Re_turb_max)";
 
-        //mean velocity under smooth conditions w.r.t flow regime
+        //mean velocity under smooth conditions w.r.t. flow regime
         SI.Velocity v_smooth=if dp < dp_lam_max then v_lam else if dp < dp_turb_min then
                   SMOOTH(
             dp_lam_max,
@@ -6510,16 +6518,18 @@ symbolic / numeric approach for solving differential-algebraic equation systems.
           "Darcy friction factor neglecting surface roughness";
 
         //SOURCE_2: p.207, sec. 9.2.4: correction factors CF w.r.t.surface roughness
-        Real CF_3=1+SMOOTH(
-            6e3,
-            1e3,
-            Re_smooth)*min(1.4, (lambda_FRI_rough*L/d_hyd/zeta_LOC_sharp_turb)) + SMOOTH(
-            1e3,
-            6e3,
+        Real CF_3=SMOOTH(
+            Re_turb_min,
+            Re_lam_leave,
+            Re_smooth)*min(1.4, (lambda_FRI_rough/lambda_FRI_smooth)) + SMOOTH(
+            Re_lam_leave,
+            Re_turb_min,
             Re_smooth) "Correction factor for surface roughness";
 
         SI.Velocity velocity=v_smooth/max(1, CF_3)^(0.5)
           "Corrected velocity considering surface roughness";
+
+        //Documentation
 
       algorithm
         M_FLOW := sign(dp)*IN_var.rho*A_cross*abs(velocity);
@@ -6631,43 +6641,50 @@ with
 </table>
 </p>
 
-<p><br/><br/>The pressure loss coefficient <b>zeta_TOT </b>of a curved bend including pressure loss due to friction is determined by its local resistance coefficient <b>zeta_LOC </b>multiplied with a correction factor <b>CF </b>for surface roughness according to <i>[Miller, p. 209, eq. 9.4]:</i> </p>
-<pre>    zeta_TOT = CF*zeta_LOC </pre>
-<p>where the correction factor <b>CF </b>is determined from the darcy friction factor of a straight pipe having the bend flow path length </p>
-<pre>    CF = 1 + (lambda_FRI_rough * pi * delta/d_hyd) / zeta_LOC</pre>
-<p>and the darcy friction factors <b>lambda_FRI_rough </b>is calculated with an approximated Colebrook-White law according to <i>[Miller, p. 191, eq. 8.4]:</i> </p>
-<pre>    lambda_FRI_rough = 0.25*(lg(K/(3.7*d_hyd) + 5.74/Re^0.9))^-2</pre>
-<p>with </p>
-<table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
-<td><p><h4>delta </h4></p></td>
-<td><p>as curvature radiant [rad],</p></td>
-</tr>
-<tr>
-<td><p><h4>d_hyd </h4></p></td>
-<td><p>as hydraulic diameter [m],</p></td>
-</tr>
-<tr>
-<td><p><h4>K </h4></p></td>
-<td><p>as absolute roughness (average height of surface asperities) [m],</p></td>
-</tr>
-<tr>
-<td><p><h4>lambda_FRI_rough </h4></p></td>
-<td><p>as darcy friction factor[-],</p></td>
-</tr>
-<tr>
-<td><p><h4>Re </h4></p></td>
-<td><p>as Reynolds number [m],</p></td>
-</tr>
-<tr>
-<td><p><h4>zeta_LOC </h4></p></td>
-<td><p>as local resistance coefficient [-],</p></td>
-</tr>
-<tr>
-<td><p><h4>zeta_TOT </h4></p></td>
-<td><p>as pressure loss coefficient [-].</p></td>
-</tr>
+<p>
+The pressure loss coefficient <b> zeta_TOT </b> of a curved bend including pressure loss due to friction is determined by its local resistance coefficient <b> zeta_LOC </b> multiplied with a correction factor <b> CF </b> for surface roughness according to <i>[Miller, p. 209, eq. 9.4]:</i>
+</p>
+<pre>
+    zeta_TOT = CF*zeta_LOC
+</pre>
+
+<p>
+where the correction factor <b> CF </b> is determined as ratio of the darcy friction factor for rough surfaces to smooth surfaces according to <i>[Miller, p. 207, eq. 9.3]:</i>
+</p>
+<pre>
+    CF = lambda_FRI_rough / lambda_FRI_smooth
+</pre>
+
+<p>
+and the darcy friction factors <b> lambda_FRI </b> are calculated with an approximated Colebrook-White law according to <i>[Miller, p. 191, eq. 8.4]:</i>
+</p>
+<pre>
+    lambda_FRI = 0.25*(lg(K/(3.7*d_hyd) + 5.74/Re^0.9))^-2
+</pre>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> d_hyd              </b></td><td> as hydraulic diameter [m],</td></tr>
+<tr><td><b> K                  </b></td><td> as absolute roughness (average height of surface asperities) [m],</td></tr>
+<tr><td><b> lambda_FRI         </b></td><td> as darcy friction factor[-],</td></tr>
+<tr><td><b> Re                 </b></td><td> as Reynolds number [m],</td></tr>
+<tr><td><b> zeta_LOC           </b></td><td> as local resistance coefficient [-],</td></tr>
+<tr><td><b> zeta_TOT           </b></td><td> as pressure loss coefficient [-].</td></tr>
 </table>
-<p><br/>The correction for surface roughness through <b>CF </b>is used only in the turbulent regime, where the fluid flow is influenced by surface asperities not covered by a laminar boundary layer. The turbulent regime starts at <b>Re &ge; 4e4 </b>according to <i>[Idelchik 2006, p. 336, sec. 15]</i>. There is no correction due to roughness in the laminar regime up to <b>Re &le; 6.5e3 </b>according to <i>[Idelchik 2006, p. 336, sec. 15]</i>. </p>
+</p>
+
+<p>
+Note that the darcy friction factor for a smooth surface <b> lambda_FRI_smooth </b> is calculated with the previous equation and an absolute roughness of <b> K = 0 </b>.
+</p>
+
+<p>
+The correction for surface roughness through <b> CF </b> is used only in the turbulent regime, where the fluid flow is influenced by surface asperities not covered by a laminar boundary layer. The turbulent regime starts at <b> Re &ge; 4e4 </b> according to <i>[Idelchik 2006, p. 336, sec. 15]</i>.
+There is no correction due to roughness in the laminar regime up to <b> Re &le; 6.5e3 </b> according to <i>[Idelchik 2006, p. 336, sec. 15]</i>.
+</p>
 
 <p>
 Nevertheless the transition point from the laminar to the transition regime is shifted to smaller Reynolds numbers for an increasing absolute roughness. This effect is considered according to <i>[Samoilenko in Idelchik 2006, p. 81, sec. 2-1-21]</i> as:
