@@ -1619,7 +1619,8 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
               origin={30,-50})));
         Modelica.Blocks.Math.Gain setPointGain(k=smeeData.VsNominal/wNominal)
           annotation (Placement(transformation(extent={{-50,-90},{-70,-70}})));
-        Machines.Sensors.VoltageQuasiRMSSensor voltageQuasiRMSSensor(V(start=1E-3, fixed=true))
+        Machines.Sensors.VoltageQuasiRMSSensor voltageQuasiRMSSensor(
+            ToSpacePhasor1(y(each start=1E-3, each fixed=true)))
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
@@ -10150,7 +10151,6 @@ If it is desired to neglect friction losses, set <code>frictionParameters.PRef =
     package InductionMachines "Loss models for induction machines"
       extends Modelica.Icons.VariantsPackage;
 
-
       model Brush "Model considering voltage drop of carbon brushes"
         extends Modelica.Electrical.MultiPhase.Interfaces.TwoPlug(final m=3);
         parameter Machines.Losses.BrushParameters brushParameters
@@ -10396,7 +10396,6 @@ This package contains loss models used for induction machine models.
 
     package DCMachines "Loss models for DC machines"
       extends Modelica.Icons.VariantsPackage;
-
 
       model Brush "Model considering voltage drop of carbon brushes"
         extends Modelica.Electrical.Analog.Interfaces.OnePort;
