@@ -400,7 +400,7 @@ Delta (polygon) connection of a multi phase circuit.
             Text(
               extent={{-100,-60},{100,-100}},
               lineColor={0,0,0},
-              textString=                         "k = %k")}),
+              textString =                        "k = %k")}),
       Documentation(info="<html>
 <p>
 Connects the single phase (positive) pin <i>k</i> of the multi phase (positive) plug to a single phase (positive) pin.
@@ -448,7 +448,7 @@ Connects the single phase (positive) pin <i>k</i> of the multi phase (positive) 
             Text(
               extent={{-100,-60},{100,-100}},
               lineColor={0,0,0},
-              textString=                         "k = %k")}),
+              textString =                        "k = %k")}),
       Documentation(info="<html>
 <p>
 Connects the single phase (negative) pin <i>k</i> of the multi phase (negative) plug to a single phase (negative) pin.
@@ -2289,8 +2289,26 @@ a <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Plug
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug\">PositivePlug</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug\">NegativePlug</a>,
 </p>
-</html>"));
+</html>"), Diagram(graphics));
     end TwoPlug;
+
+    partial model OnePort
+      parameter Integer m(min=1) = 3 "Number of phases";
+      Modelica.SIunits.ComplexVoltage v[m];
+      Modelica.SIunits.ComplexCurrent i[m];
+      Modelica.SIunits.AngularVelocity omega = der(plug_p.reference.gamma);
+      PositivePlug plug_p(final m=m)
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
+               0)));
+      NegativePlug plug_n(final m=m)
+        annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
+    equation
+      Connections.branch(plug_p.reference, plug_n.reference);
+      plug_p.reference.gamma = plug_n.reference.gamma;
+      v = plug_p.pin.v - plug_n.pin.v;
+      i = plug_p.pin.i;
+      plug_p.pin.i + plug_n.pin.i = fill(Complex(0),m);
+    end OnePort;
 
     partial model AbsoluteSensor "Partial potential sensor"
       extends Modelica.Icons.RotationalSensor;
