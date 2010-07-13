@@ -378,6 +378,8 @@ Delta (polygon) connection of a multi phase circuit.
         annotation (Placement(transformation(extent={{10,-10},{30,10}}, rotation=0)));
     equation
       Connections.branch(plug_p.reference, pin_p.reference);
+    //Connections.potentialRoot(plug_p.reference);
+    //Connections.potentialRoot(pin_p.reference);
       plug_p.reference.gamma = pin_p.reference.gamma;
       pin_p.v = plug_p.pin[k].v;
       for j in 1:m loop
@@ -426,6 +428,8 @@ Connects the single phase (positive) pin <i>k</i> of the multi phase (positive) 
         annotation (Placement(transformation(extent={{10,-10},{30,10}}, rotation=0)));
     equation
       Connections.branch(plug_n.reference, pin_n.reference);
+    //Connections.potentialRoot(plug_n.reference);
+    //Connections.potentialRoot(pin_n.reference);
       plug_n.reference.gamma = pin_n.reference.gamma;
       pin_n.v = plug_n.pin[k].v;
       for j in 1:m loop
@@ -467,15 +471,20 @@ Connects the single phase (negative) pin <i>k</i> of the multi phase (negative) 
       Interfaces.PositivePlug plug_p(final m=m)
         annotation (Placement(transformation(extent={{-30,-10},{-10,10}}, rotation=
                 0)));
-      QuasiStationary.SinglePhase.Interfaces.PositivePin pin_p[
-                                               m]
+      QuasiStationary.SinglePhase.Interfaces.PositivePin pin_p[m]
         annotation (Placement(transformation(extent={{10,-10},{30,10}}, rotation=0)));
+      PlugToPin_p plugToPin_p[m](each final m=m, final k={j for j in 1:m})
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     equation
       for j in 1:m loop
-        Connections.branch(plug_p.reference, pin_p[j].reference);
-        plug_p.reference.gamma = pin_p[j].reference.gamma;
-        plug_p.pin[j].v = pin_p[j].v;
-        plug_p.pin[j].i = -pin_p[j].i;
+    /*
+    Connections.branch(plug_p.reference, pin_p[j].reference);
+    plug_p.reference.gamma = pin_p[j].reference.gamma;
+    plug_p.pin[j].v = pin_p[j].v;
+    plug_p.pin[j].i = -pin_p[j].i;
+*/
+        connect(plug_p, plugToPin_p[j].plug_p);
+        connect(plugToPin_p[j].pin_p, pin_p[j]);
       end for;
       annotation (Icon(graphics={
             Rectangle(
@@ -501,7 +510,8 @@ Connects all <i>m</i> single phase (positive) pins of the multi phase (positive)
 <a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_n>PlugToPin_n</a>,
 <a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n>PlugToPins_n</a>
 </p>
-</html>"));
+</html>"),
+        Diagram(graphics));
     end PlugToPins_p;
 
     model PlugToPins_n "Connect all (negative) pins"
@@ -509,15 +519,20 @@ Connects all <i>m</i> single phase (positive) pins of the multi phase (positive)
       Interfaces.NegativePlug plug_n(final m=m)
         annotation (Placement(transformation(extent={{-30,-10},{-10,10}}, rotation=
                 0)));
-      QuasiStationary.SinglePhase.Interfaces.NegativePin pin_n[
-                                               m]
+      QuasiStationary.SinglePhase.Interfaces.NegativePin pin_n[m]
         annotation (Placement(transformation(extent={{10,-10},{30,10}}, rotation=0)));
+      PlugToPin_n plugToPin_n[m](each final m=m, final k={j for j in 1:m})
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     equation
       for j in 1:m loop
-        Connections.branch(plug_n.reference, pin_n[j].reference);
-        plug_n.reference.gamma = pin_n[j].reference.gamma;
-        plug_n.pin[j].v = pin_n[j].v;
-        plug_n.pin[j].i = -pin_n[j].i;
+    /*
+    Connections.branch(plug_n.reference, pin_n[j].reference);
+    plug_n.reference.gamma = pin_n[j].reference.gamma;
+    plug_n.pin[j].v = pin_n[j].v;
+    plug_n.pin[j].i = -pin_n[j].i;
+*/
+        connect(plug_n, plugToPin_n[j].plug_n);
+        connect(plugToPin_n[j].pin_n, pin_n[j]);
       end for;
       annotation (Icon(graphics={
             Rectangle(
