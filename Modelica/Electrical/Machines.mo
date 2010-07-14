@@ -1375,6 +1375,161 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
 </HTML>"));
       end SMPM_Inverter;
 
+      model SMPM_CurrentSource
+        "Test example: PermanentMagnetSynchronousInductionMachine fed by current source"
+        extends Modelica.Icons.Example;
+        constant Integer m=3 "Number of phases";
+        parameter Modelica.SIunits.Voltage VNominal=100
+          "Nominal RMS voltage per phase";
+        parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
+        parameter Modelica.SIunits.Frequency f=50 "Actual frequency";
+        parameter Modelica.SIunits.Time tRamp=1 "Frequency ramp";
+        parameter Modelica.SIunits.Torque TLoad=181.4 "Nominal load torque";
+        parameter Modelica.SIunits.Time tStep=1.2 "Time of load torque step";
+        parameter Modelica.SIunits.Inertia JLoad=0.29
+          "Load's moment of inertia";
+
+        Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet smpm
+          annotation (Placement(transformation(extent={{-20,-50},{0,-30}}, rotation=0)));
+        MultiPhase.Sources.SignalCurrent signalCurrent(final m=m)
+          annotation (Placement(transformation(
+              origin={-10,40},
+              extent={{-10,10},{10,-10}},
+              rotation=270)));
+        Modelica.Electrical.MultiPhase.Basic.Star star(final m=m)
+          annotation (Placement(transformation(extent={{-50,80},{-70,100}},
+                rotation=0)));
+        Modelica.Electrical.Analog.Basic.Ground ground
+          annotation (Placement(transformation(
+              origin={-90,90},
+              extent={{-10,-10},{10,10}},
+              rotation=270)));
+        Utilities.CurrentController currentController(p=smpm.p)
+          annotation (Placement(transformation(extent={{-50,30},{-30,50}})));
+        Blocks.Sources.Constant iq(k=84.6)
+          annotation (Placement(transformation(extent={{-90,10},{-70,30}})));
+        Blocks.Sources.Constant id(k=-53.5)
+          annotation (Placement(transformation(extent={{-90,50},{-70,70}})));
+        Sensors.VoltageQuasiRMSSensor voltageQuasiRMSSensor annotation (Placement(
+              transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=180,
+              origin={-20,-8})));
+        MultiPhase.Basic.Star starM(final m=m) annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=180,
+              origin={-50,-8})));
+        Modelica.Electrical.Analog.Basic.Ground groundM
+          annotation (Placement(transformation(
+              origin={-70,-28},
+              extent={{-10,-10},{10,10}},
+              rotation=270)));
+        Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y")
+          annotation (Placement(transformation(
+                extent={{-20,-30},{0,-10}}, rotation=0)));
+        Machines.Sensors.RotorDisplacementAngle rotorDisplacementAngle(p=smpm.p)
+          annotation (Placement(transformation(
+              origin={20,-40},
+              extent={{-10,10},{10,-10}},
+              rotation=270)));
+        Mechanics.Rotational.Sensors.AngleSensor angleSensor
+          annotation (Placement(
+              transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={10,2})));
+        Mechanics.Rotational.Sensors.TorqueSensor torqueSensor
+          annotation (Placement(transformation(extent={{40,-50},{60,-30}})));
+        Mechanics.Rotational.Sources.ConstantSpeed constantSpeed(w_fixed(displayUnit="rpm")=
+               157.07963267949)
+          annotation (Placement(transformation(extent={{90,-50},{70,-30}})));
+      equation
+        connect(star.pin_n, ground.p)
+          annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
+        connect(rotorDisplacementAngle.plug_n, smpm.plug_sn)    annotation (Line(
+              points={{26,-30},{26,-20},{-16,-20},{-16,-30}}, color={0,0,255}));
+        connect(rotorDisplacementAngle.plug_p, smpm.plug_sp)    annotation (Line(
+              points={{14,-30},{-4,-30}}, color={0,0,255}));
+        connect(terminalBox.plug_sn, smpm.plug_sn)   annotation (Line(
+            points={{-16,-30},{-16,-30}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(terminalBox.plug_sp, smpm.plug_sp)   annotation (Line(
+            points={{-4,-30},{-4,-30}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(smpm.flange, rotorDisplacementAngle.flange) annotation (Line(
+            points={{0,-40},{10,-40}},
+            color={0,0,0},
+            smooth=Smooth.None));
+        connect(signalCurrent.plug_p, star.plug_p) annotation (Line(
+            points={{-10,50},{-10,90},{-50,90}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(angleSensor.flange, rotorDisplacementAngle.flange) annotation (Line(
+            points={{10,-8},{10,-40}},
+            color={0,0,0},
+            smooth=Smooth.None));
+        connect(angleSensor.phi, currentController.phi) annotation (Line(
+            points={{10,13},{10,20},{-40,20},{-40,30}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(signalCurrent.plug_n, terminalBox.plugSupply) annotation (Line(
+            points={{-10,30},{-10,1},{-10,1},{-10,-28}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(id.y, currentController.id_rms) annotation (Line(
+            points={{-69,60},{-60,60},{-60,46},{-50,46}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(iq.y, currentController.iq_rms) annotation (Line(
+            points={{-69,20},{-60,20},{-60,34},{-50,34}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(groundM.p, terminalBox.starpoint) annotation (Line(
+            points={{-60,-28},{-39.5,-28},{-39.5,-28},{-19,-28}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(smpm.flange, torqueSensor.flange_a) annotation (Line(
+            points={{0,-40},{40,-40}},
+            color={0,0,0},
+            smooth=Smooth.None));
+        connect(constantSpeed.flange, torqueSensor.flange_b) annotation (Line(
+            points={{70,-40},{60,-40}},
+            color={0,0,0},
+            smooth=Smooth.None));
+        connect(voltageQuasiRMSSensor.plug_p, terminalBox.plugSupply) annotation (
+            Line(
+            points={{-10,-8},{-10,-28}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(starM.plug_p, voltageQuasiRMSSensor.plug_n) annotation (Line(
+            points={{-40,-8},{-37.5,-8},{-37.5,-8},{-35,-8},{-35,-8},{-30,-8}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(starM.pin_n, groundM.p) annotation (Line(
+            points={{-60,-8},{-60,-28},{-60,-28}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(currentController.y, signalCurrent.i) annotation (Line(
+            points={{-29,40},{-17,40}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        annotation (
+          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                  {100,100}}),
+                  graphics),
+          experiment(StopTime=1.5, Interval=0.001),
+          Documentation(info="<HTML>
+<b>Test example: Permanent magnet synchronous induction machine fed by a current source</b><br>
+A synchronous induction machine with permanent magnets is driven with constant speed. 
+The rms values of d- and q-current in rotor fixed coordinate system are converted to threephase currents, 
+and fed to the machine. The result shows that the torque is influenced by the q-current, 
+whereas the stator voltage is influenced by the d-current.<br>
+Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
+</HTML>"));
+      end SMPM_CurrentSource;
+
       model SMEE_Generator
         "Test example: ElectricalExcitedSynchronousInductionMachine as Generator"
         extends Modelica.Icons.Example;
@@ -13556,6 +13711,89 @@ The sine-waves are intended to feed a m-phase SignalVoltage.<br>
 Phase shifts between sine-waves may be choosen by the user; default values are <i>(k-1)/m*pi for k in 1:m</i>.
 </HTML>"));
     end VfController;
+
+    model CurrentController "Current controller"
+      constant Integer m=3 "Number of phases";
+      parameter Integer p "Number of poles pairs";
+      extends Modelica.Blocks.Interfaces.MO(final nout=m);
+      Modelica.Blocks.Interfaces.RealInput id_rms
+        annotation (Placement(transformation(extent={{-120,40},{-80,80}}, rotation=0)));
+      Modelica.Blocks.Interfaces.RealInput iq_rms
+        annotation (Placement(transformation(extent={{-120,-80},{-80,-40}},
+              rotation=0)));
+      Modelica.Blocks.Interfaces.RealInput phi
+        annotation (Placement(transformation(
+            origin={0,-100},
+            extent={{20,-20},{-20,20}},
+            rotation=270)));
+      Modelica.Blocks.Math.Gain toPeak_d(k=sqrt(2))
+        annotation (Placement(transformation(extent={{-60,50},{-40,70}}, rotation=0)));
+      Modelica.Blocks.Math.Gain toPeak_q(k=sqrt(2))
+        annotation (Placement(transformation(extent={{-60,-70},{-40,-50}}, rotation=
+               0)));
+      Modelica.Blocks.Math.Gain toGamma(k=-p)
+        annotation (Placement(transformation(
+            origin={0,-50},
+            extent={{10,-10},{-10,10}},
+            rotation=270)));
+      Modelica.Electrical.Machines.SpacePhasors.Blocks.Rotator rotator
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
+      Modelica.Blocks.Sources.Constant i0(k=0)
+        annotation (Placement(transformation(extent={{-10,50},{10,30}},   rotation=0)));
+      Modelica.Electrical.Machines.SpacePhasors.Blocks.FromSpacePhasor fromSpacePhasor
+        annotation (Placement(transformation(extent={{40,10},{60,-10}},rotation=0)));
+    equation
+      connect(iq_rms, toPeak_q.u)
+                          annotation (Line(points={{-100,-60},{-62,-60}}, color={0,0,
+              127}));
+      connect(phi, toGamma.u) annotation (Line(points={{0,-100},{0,-62},{
+              -2.20436e-015,-62}},
+                    color={0,0,127}));
+      connect(rotator.angle, toGamma.y) annotation (Line(points={{0,-12},{0,-39},
+              {2.02067e-015,-39}},
+                    color={0,0,127}));
+      connect(rotator.y, fromSpacePhasor.u) annotation (Line(points={{11,0},{24,0},{
+              38,0}},
+            color={0,0,127}));
+      connect(toPeak_d.u, id_rms) annotation (Line(
+          points={{-62,60},{-100,60}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(toPeak_d.y, rotator.u[1]) annotation (Line(
+          points={{-39,60},{-30,60},{-30,-1},{-12,-1}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(toPeak_q.y, rotator.u[2]) annotation (Line(
+          points={{-39,-60},{-30,-60},{-30,1},{-12,1}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(i0.y, fromSpacePhasor.zero) annotation (Line(
+          points={{11,40},{20,40},{20,8},{38,8}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(fromSpacePhasor.y, y) annotation (Line(
+          points={{61,0},{110,0}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      annotation (Diagram(graphics),
+                           Icon(graphics={
+            Text(
+              extent={{-90,60},{30,40}},
+              lineColor={0,0,255},
+              textString=
+                   "id_rms"),
+            Text(
+              extent={{-90,-40},{30,-60}},
+              lineColor={0,0,255},
+              textString=
+                   "iq_rms")}),
+        Documentation(info="<HTML>
+Simple Current-Controller.<br>
+The desired rms values of d- and q-component of the space phasor in rotor fixed coordinate system are given by inputs \"id_rms\" and \"iq_rms\".
+Using the given rotor position (input \"phi\"), the correct threephase currents (output \"i[3]\")are calculated. 
+They can be used to feed a current source which in turn feeds an induction machine.
+</HTML>"));
+    end CurrentController;
 
     model SwitchYD "Y-D-switch"
       parameter Integer m=3 "Number of phases";
