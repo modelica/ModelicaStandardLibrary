@@ -7,7 +7,7 @@ package Continuous "Library of continuous control blocks with internal states"
 
   block Integrator "Output the integral of the input signal"
     import Modelica.Blocks.Types.Init;
-    parameter Real k=1 "Integrator gain";
+    parameter Real k(unit="1")=1 "Integrator gain";
 
     /* InitialState is the default, because it was the default in Modelica 2.2
      and therefore this setting is backward compatible
@@ -1199,10 +1199,10 @@ to use <b>limitAtInit</b> = <b>false</b>.
     import Modelica.Blocks.Types.Init;
     extends Interfaces.SISO;
 
-    parameter Real b[:]={1} "Numerator coefficients of transfer function"
-      annotation(Dialog(group="y = (2*s+3)/(4*s^2+5*s+6)*u is defined as b={2,3}, a={4,5,6}"));
-    parameter Real a[:] "Denominator coefficients of transfer function"
-      annotation(Dialog(group="y = (2*s+3)/(4*s^2+5*s+6)*u is defined as b={2,3}, a={4,5,6}"));
+    parameter Real b[:]={1}
+      "Numerator coefficients of transfer function (e.g., 2*s+3 is specified as {2,3})";
+    parameter Real a[:]={1}
+      "Denominator coefficients of transfer function (e.g., 5*s+6 is specified as {5,6})";
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit
       "Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)"
                                        annotation(Evaluate=true, Dialog(group=
