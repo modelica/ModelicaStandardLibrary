@@ -7,7 +7,7 @@ package SinglePhase "Single phase AC components"
 
     model SeriesResonance "Series resonance circuit"
       extends Modelica.Icons.Example;
-      Modelica.Blocks.Sources.Constant V
+      Modelica.Blocks.Sources.Constant V(k=1)
         annotation (Placement(transformation(
             origin={-40,50},
             extent={{-10,-10},{10,10}},
