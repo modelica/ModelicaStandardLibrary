@@ -813,7 +813,6 @@ can be provided as third argument of the function. Default is \"eps = 0\".
 </HTML>"));
   end isEqual;
 
-
   function sort
     "Sort rows or columns of matrix in ascending or descending order"
     extends Modelica.Icons.Function;
@@ -3177,7 +3176,6 @@ is discribed in
 //
 // protected
 
-
   function continuousLyapunov
     "Solution of continuous-time Lyapunov equation X*A + A'*X = C"
     import Modelica.Math.Matrices;
@@ -4226,16 +4224,6 @@ X = [14.5623, 9.7082;
 </ul>
 </html>"));
   end discreteRiccati;
-
-
-
-
-
-
-
-
-
-
 
   function flipLeftRight "Flip the columns of a matrix in left/right direction"
 
@@ -10199,7 +10187,7 @@ function sin "Sine"
   input SI.Angle u;
   output Real y;
 
-external "C" y = sin(u);
+external "builtin" y = sin(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -10279,7 +10267,7 @@ function cos "Cosine"
   input SI.Angle u;
   output Real y;
 
-external "C" y = cos(u);
+external "builtin" y = cos(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -10355,7 +10343,7 @@ function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
   input SI.Angle u;
   output Real y;
 
-external "C" y = tan(u);
+external "builtin" y = tan(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -10434,7 +10422,7 @@ function asin "Inverse sine (-1 <= u <= 1)"
   input Real u;
   output SI.Angle y;
 
-external "C" y = asin(u);
+external "builtin" y = asin(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -10514,7 +10502,7 @@ function acos "Inverse cosine (-1 <= u <= 1)"
   input Real u;
   output SI.Angle y;
 
-external "C" y = acos(u);
+external "builtin" y = acos(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -10590,7 +10578,7 @@ function atan "Inverse tangent"
   input Real u;
   output SI.Angle y;
 
-external "C" y = atan(u);
+external "builtin" y = atan(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -10661,7 +10649,7 @@ function atan2 "Four quadrant inverse tangent"
   input Real u2;
   output SI.Angle y;
 
-external "C" y = atan2(u1, u2);
+external "builtin" y = atan2(u1, u2);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -10866,7 +10854,7 @@ function sinh "Hyperbolic sine"
   input Real u;
   output Real y;
 
-external "C" y = sinh(u);
+external "builtin" y = sinh(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -10948,7 +10936,7 @@ function cosh "Hyperbolic cosine"
   input Real u;
   output Real y;
 
-external "C" y = cosh(u);
+external "builtin" y = cosh(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11030,7 +11018,7 @@ function tanh "Hyperbolic tangent"
   input Real u;
   output Real y;
 
-external "C" y = tanh(u);
+external "builtin" y = tanh(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11279,7 +11267,7 @@ function exp "Exponential, base e"
   input Real u;
   output Real y;
 
-external "C" y = exp(u);
+external "builtin" y = exp(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11359,7 +11347,7 @@ function log "Natural (base e) logarithm (u shall be > 0)"
   input Real u;
   output Real y;
 
-external "C" y = log(u);
+external "builtin" y = log(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11441,7 +11429,7 @@ function log10 "Base 10 logarithm (u shall be > 0)"
   input Real u;
   output Real y;
 
-external "C" y = log10(u);
+external "builtin" y = log10(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,

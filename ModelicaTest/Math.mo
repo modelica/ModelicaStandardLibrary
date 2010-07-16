@@ -1,5 +1,34 @@
 within ModelicaTest;
 package Math "Test models for Modelica.Math"
+  function ScalarFunctions
+    import Modelica.Utilities.Streams;
+    import Modelica.Math;
+    input String logFile = "ModelicaTestLog.txt"
+      "Filename where the log is stored";
+    output Boolean ok;
+  protected
+    constant Real pi = Modelica.Constants.pi;
+  algorithm
+    ok:=false;
+    Streams.print("... Test of Modelica.Math.<scalar functions>", logFile);
+
+    assert(abs(Math.sin(pi))         <= 1e-15, "sin is wrong");
+    assert(abs(Math.cos(pi/2))       <= 1e-15, "cos is wrong");
+    assert(abs(Math.tan(pi/4) - 1.0) <= 1e-15, "tan is wrong");
+    assert(abs(Math.asin(1) - pi/2)  <= 1e-15, "asin is wrong");
+    assert(abs(Math.acos(1))         <= 1e-15, "acos is wrong");
+    assert(abs(Math.atan(1) - pi/4)  <= 1e-15, "atan is wrong");
+    assert(abs(Math.atan2(1,1)-pi/4) <= 1e-15, "atan2 is wrong");
+    assert(abs(Math.sinh(0))         <= 1e-15, "sinh is wrong");
+    assert(abs(Math.cosh(0) - 1.0)   <= 1e-15, "cosh is wrong");
+    assert(abs(Math.tanh(0))         <= 1e-15, "tanh is wrong");
+    assert(abs(Math.log(1))          <= 1e-15, "log is wrong");
+    assert(abs(Math.log10(1))        <= 1e-15, "log10 is wrong");
+    assert(abs(Math.exp(1) - Modelica.Constants.e) <= 1e-15, "exp is wrong");
+
+    ok:=true;
+  end ScalarFunctions;
+
   function Polynomials
     "Test functions of Modelica.Media.Incompressible.TableBased.Polynomials_Temp"
     import Modelica.Utilities.Streams;
