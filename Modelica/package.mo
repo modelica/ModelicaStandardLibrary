@@ -6146,7 +6146,7 @@ class Contact "Contact"
 <tr><td valign=\"top\"> Modelica.Utilities </td>
    <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
       (Martin Otter)<br>
-      Dassault Systèmes, Lund, Sweden (Hans Olsson)</td>
+      Dassault Systèmes AB, Lund, Sweden (Hans Olsson)</td>
 </tr>
 </table>
 
@@ -6177,7 +6177,7 @@ of the Modelica package (many more people have contributed to the design):
 
 
 <tr><td valign=\"top\"><b>Dag Br&uuml;ck</b> </td
-   <td valign=\"top\"> Dassault Systèmes, Lund, Sweden</td>
+   <td valign=\"top\"> Dassault Systèmes AB, Lund, Sweden</td>
    <td valign=\"top\"> Modelica.Utilities</td>
 </tr>
 
@@ -6199,7 +6199,7 @@ of the Modelica package (many more people have contributed to the design):
 </tr>
 
 <tr><td valign=\"top\"><b>Hilding Elmqvist</b> </td
-   <td valign=\"top\"> Dassault Systèmes, Lund, Sweden</td>
+   <td valign=\"top\"> Dassault Systèmes AB, Lund, Sweden</td>
    <td valign=\"top\"> Modelica.Mechanics.MultiBody<br>
                    Modelica.Fluid<br>
      Modelica.Media<br>
@@ -6260,11 +6260,11 @@ of the Modelica package (many more people have contributed to the design):
 </tr>
 
 <tr><td valign=\"top\"><b>Sven Erik Mattsson</b> </td
-   <td valign=\"top\"> Dassault Systèmes, Lund, Sweden</td>
+   <td valign=\"top\"> Dassault Systèmes AB, Lund, Sweden</td>
    <td valign=\"top\"> Modelica.Mechanics.MultiBody</td>
 </tr>
 <tr><td valign=\"top\"><b>Hans Olsson</b> </td
-   <td valign=\"top\"> Dassault Systèmes, Lund, Sweden</td>
+   <td valign=\"top\"> Dassault Systèmes AB, Lund, Sweden</td>
    <td valign=\"top\"> Modelica.Blocks<br>
      Modelica.Math.Matrices<br>
      Modelica.Utilities<br>
