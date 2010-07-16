@@ -876,7 +876,7 @@ This icon of a <b>gearbox</b> will be removed in future versions of the library.
   end GearIcon;
 
   partial class MotorIcon
-    "This icon will be removed in future Modelica versions, use the one in Modelon.Mechanics.Rotational instead"
+    "This icon will be removed in future Modelica versions."
 
     annotation (             Icon(coordinateSystem(
           preserveAspectRatio=true,
