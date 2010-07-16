@@ -33,16 +33,39 @@ encapsulated model ChuaCircuit "Chua's circuit, ns, V, A"
   Basic.Ground Gnd annotation (Placement(transformation(extent={{-25,-112},{25,
             -62}}, rotation=0)));
 equation
-  connect(L.p, G.p) annotation (Line(points={{-75,63},{-25,63}}));
-  connect(G.n, Nr.p) annotation (Line(points={{25,63},{75,63},{75,28}}));
-  connect(Nr.n, Gnd.p) annotation (Line(points={{75,-22},{75,-62},{0,-62}}));
-  connect(C1.p, G.n) annotation (Line(points={{25,28},{25,45.5},{25,63}}));
   connect(L.n, Ro.p) annotation (Line(points={{-75,13},{-75,8}}));
-  connect(G.p, C2.p) annotation (Line(points={{-25,63},{-26,46},{-26,28},{-25,
-          28}}));
-  connect(C1.n, Gnd.p) annotation (Line(points={{25,-22},{25,-62},{0,-62}}));
-  connect(C2.n, Gnd.p) annotation (Line(points={{-25,-22},{-25,-62},{0,-62}}));
-  connect(Ro.n, Gnd.p) annotation (Line(points={{-75,-42},{-75,-62},{0,-62}}));
+  connect(C2.p, G.p) annotation (Line(
+      points={{-25,28},{-25,28},{-25,63}},
+      color={0,0,255},
+      smooth=Smooth.None));
+  connect(L.p, G.p) annotation (Line(
+      points={{-75,63},{-50.5,63},{-50.5,63},{-25,63}},
+      color={0,0,255},
+      smooth=Smooth.None));
+  connect(G.n, Nr.p) annotation (Line(
+      points={{25,63},{75,63},{75,28}},
+      color={0,0,255},
+      smooth=Smooth.None));
+  connect(C1.p, G.n) annotation (Line(
+      points={{25,28},{25,28},{25,63}},
+      color={0,0,255},
+      smooth=Smooth.None));
+  connect(Ro.n, Gnd.p) annotation (Line(
+      points={{-75,-42},{-75,-62},{0,-62}},
+      color={0,0,255},
+      smooth=Smooth.None));
+  connect(C2.n, Gnd.p) annotation (Line(
+      points={{-25,-22},{-24,-22},{-24,-62},{0,-62}},
+      color={0,0,255},
+      smooth=Smooth.None));
+  connect(Gnd.p, C1.n) annotation (Line(
+      points={{0,-62},{25,-62},{25,-22}},
+      color={0,0,255},
+      smooth=Smooth.None));
+  connect(Gnd.p, Nr.n) annotation (Line(
+      points={{0,-62},{75,-62},{75,-22}},
+      color={0,0,255},
+      smooth=Smooth.None));
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -79,7 +102,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 </dl>
 </html>"),
     experiment(StopTime=1),
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+    Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
             100,100}}), graphics={Text(
           extent={{-98,104},{-32,72}},
           lineColor={0,0,255},

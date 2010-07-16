@@ -75,32 +75,51 @@ encapsulated model DifferenceAmplifier
   Utilities.Transistor Transistor2 annotation (Placement(transformation(extent=
             {{60,-20},{40,0}}, rotation=0)));
 equation
-  connect(V1.n, Gnd1.p) annotation (Line(points={{-90,-60},{-90,-70}}));
-  connect(C1.n, Gnd2.p) annotation (Line(points={{-60,-60},{-60,-70}}));
-  connect(I1.n, Gnd7.p) annotation (Line(points={{-10,-60},{-10,-65},{-10,-65},
-          {-10,-70}}));
-  connect(C5.n, Gnd8.p) annotation (Line(points={{10,-60},{10,-70}}));
-  connect(C3.n, Gnd5.p) annotation (Line(points={{60,-60},{60,-70}}));
-  connect(R3.n, Gnd4.p) annotation (Line(points={{90,-10},{90,-40}}));
-  connect(C2.n, Gnd3.p) annotation (Line(points={{-10,-4},{-10,-10}}));
-  connect(C4.p, Gnd6.p) annotation (Line(points={{10,-4},{10,-10}}));
-  connect(I1.p, C5.p) annotation (Line(points={{-10,-40},{10,-40}}));
-  connect(R1.p, V1.p) annotation (Line(points={{-90,-10},{-90,-40}}));
-  connect(R2.p, V2.p) annotation (Line(points={{-40,40},{-40,70},{80,70},{80,60}}));
-  connect(R4.p, V2.p) annotation (Line(points={{40,40},{40,70},{80,70},{80,60}}));
-  connect(V2.n, Gnd9.p) annotation (Line(points={{80,40},{80,30}}));
-  connect(R1.n, Transistor1.b) annotation (Line(points={{-70,-10},{-60,-10}}));
-  connect(Transistor1.b, C1.p) annotation (Line(points={{-60,-10},{-60,-40}}));
-  connect(Transistor1.c, C2.p) annotation (Line(points={{-40,-4},{-30,-4}}));
-  connect(R2.n, Transistor1.c) annotation (Line(points={{-40,20},{-40,-4}}));
+  connect(V1.n, Gnd1.p) annotation (Line(points={{-90,-60},{-90,-70}}, color={0,
+          0,255}));
+  connect(C1.n, Gnd2.p) annotation (Line(points={{-60,-60},{-60,-70}}, color={0,
+          0,255}));
+  connect(I1.n, Gnd7.p) annotation (Line(points={{-10,-60},{-10,-65},{-10,-70}},
+        color={0,0,255}));
+  connect(C5.n, Gnd8.p) annotation (Line(points={{10,-60},{10,-70}}, color={0,0,
+          255}));
+  connect(C3.n, Gnd5.p) annotation (Line(points={{60,-60},{60,-70}}, color={0,0,
+          255}));
+  connect(R3.n, Gnd4.p) annotation (Line(points={{90,-10},{90,-40}}, color={0,0,
+          255}));
+  connect(C2.n, Gnd3.p) annotation (Line(points={{-10,-4},{-10,-10}}, color={0,0,
+          255}));
+  connect(C4.p, Gnd6.p) annotation (Line(points={{10,-4},{10,-10}}, color={0,0,255}));
+  connect(I1.p, C5.p) annotation (Line(points={{-10,-40},{10,-40}}, color={0,0,255}));
+  connect(R1.p, V1.p) annotation (Line(points={{-90,-10},{-90,-40}}, color={0,0,
+          255}));
+  connect(R2.p, V2.p) annotation (Line(points={{-40,40},{-40,70},{80,70},{80,60}}, color=
+          {0,0,255}));
+  connect(R4.p, V2.p) annotation (Line(points={{40,40},{40,70},{80,70},{80,60}}, color=
+          {0,0,255}));
+  connect(V2.n, Gnd9.p) annotation (Line(points={{80,40},{80,30}}, color={0,0,255}));
+  connect(R1.n, Transistor1.b) annotation (Line(points={{-70,-10},{-60,-10}}, color=
+          {0,0,255}));
+  connect(Transistor1.b, C1.p) annotation (Line(points={{-60,-10},{-60,-40}}, color=
+          {0,0,255}));
+  connect(Transistor1.c, C2.p) annotation (Line(points={{-40,-4},{-30,-4}}, color=
+          {0,0,255}));
+  connect(R2.n, Transistor1.c) annotation (Line(points={{-40,20},{-40,-4}}, color=
+          {0,0,255}));
   connect(Transistor1.e, I1.p) annotation (Line(points={{-40,-16},{-30,-16},{
-          -30,-40},{-10,-40}}));
-  connect(Transistor2.b, R3.p) annotation (Line(points={{60,-10},{70,-10}}));
-  connect(Transistor2.b, C3.p) annotation (Line(points={{60,-10},{60,-40}}));
-  connect(C4.n, Transistor2.c) annotation (Line(points={{30,-4},{40,-4}}));
-  connect(R4.n, Transistor2.c) annotation (Line(points={{40,20},{40,-4}}));
+          -30,-40},{-10,-40}},
+                           color={0,0,255}));
+  connect(Transistor2.b, R3.p) annotation (Line(points={{60,-10},{70,-10}}, color=
+          {0,0,255}));
+  connect(Transistor2.b, C3.p) annotation (Line(points={{60,-10},{60,-40}}, color=
+          {0,0,255}));
+  connect(C4.n, Transistor2.c) annotation (Line(points={{30,-4},{40,-4}}, color=
+          {0,0,255}));
+  connect(R4.n, Transistor2.c) annotation (Line(points={{40,20},{40,-4}}, color=
+          {0,0,255}));
   connect(C5.p, Transistor2.e) annotation (Line(points={{10,-40},{30,-40},{30,
-          -16},{40,-16}}));
+          -16},{40,-16}},
+                     color={0,0,255}));
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,

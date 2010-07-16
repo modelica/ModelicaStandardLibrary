@@ -40,13 +40,15 @@ encapsulated model NandGate "CMOS NAND Gate (see Tietze/Schenk, page 157)"
   Utilities.Nand Nand annotation (Placement(transformation(extent={{-40,-45},{
             40,55}}, rotation=0)));
 equation
-  connect(VDD.n, Gnd1.p) annotation (Line(points={{50,60},{50,53}}));
-  connect(VIN1.n, Gnd4.p) annotation (Line(points={{-70,10},{-70,5}}));
-  connect(VIN2.n, Gnd5.p) annotation (Line(points={{-70,-40},{-70,-45}}));
+  connect(VDD.n, Gnd1.p) annotation (Line(points={{50,60},{50,53}}, color={0,0,255}));
+  connect(VIN1.n, Gnd4.p) annotation (Line(points={{-70,10},{-70,5}}, color={0,0,255}));
+  connect(VIN2.n, Gnd5.p) annotation (Line(points={{-70,-40},{-70,-45}}, color={0,0,255}));
   connect(Nand.Vdd, VDD.p) annotation (Line(points={{0,55},{0,90},{50,90},{50,
-          80}}));
-  connect(VIN1.p, Nand.x1) annotation (Line(points={{-70,30},{-40,30}}));
-  connect(VIN2.p, Nand.x2) annotation (Line(points={{-70,-20},{-40,-20}}));
+          80}}, color={0,0,255}));
+  connect(VIN1.p, Nand.x1) annotation (Line(points={{-70,30},{-40,30}}, color={0,
+          0,255}));
+  connect(VIN2.p, Nand.x2) annotation (Line(points={{-70,-20},{-40,-20}}, color=
+          {0,0,255}));
   annotation (
     Icon(graphics),
     Documentation(info="<html>

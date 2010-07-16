@@ -127,7 +127,11 @@ equation
         Text(
           extent={{90,-15},{100,-25}},
           textString="y",
-          lineColor={0,0,255})}),
+          lineColor={0,0,255}),
+        Text(
+          extent={{-151,-81},{149,-111}},
+          lineColor={0,0,255},
+          textString="%name")}),
     Documentation(info="<html>
 <p>The nand gate is a basic CMOS building block. It consists of four CMOS transistors.</p>
 <p><b>Reference:</b></p>
