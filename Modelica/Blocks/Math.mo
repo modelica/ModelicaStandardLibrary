@@ -573,19 +573,19 @@ All other blocks convert exactly between two different units.
   block InverseBlockConstraints
     "Construct inverse model by requiring that two inputs and two outputs are identical (replaces the previously, unbalanced, TwoInputs and TwoOutputs blocks)"
 
-    Modelica.Blocks.Interfaces.RealInput u1 "Input signal 1 (u1 = u2)"
+    Modelica.Blocks.Interfaces.RealInput u1 "Input signal 1 (u1 = u2)" 
                             annotation (Placement(transformation(extent={{-240,
               -20},{-200,20}}, rotation=0), iconTransformation(extent={{-240,-20},
               {-200,20}})));
-    Modelica.Blocks.Interfaces.RealInput u2 "Input signal 2 (u1 = u2)"
+    Modelica.Blocks.Interfaces.RealInput u2 "Input signal 2 (u1 = u2)" 
                             annotation (Placement(transformation(extent={{-140,
               -20},{-180,20}}, rotation=0), iconTransformation(extent={{-140,-20},
               {-180,20}})));
-    Modelica.Blocks.Interfaces.RealOutput y1 "Output signal 1 (y1 = y2)"
+    Modelica.Blocks.Interfaces.RealOutput y1 "Output signal 1 (y1 = y2)" 
                              annotation (Placement(transformation(extent={{200,-10},
               {220,10}},      rotation=0), iconTransformation(extent={{200,-10},{
               220,10}})));
-    Modelica.Blocks.Interfaces.RealOutput y2 "Output signal 2 (y2 = y2)"
+    Modelica.Blocks.Interfaces.RealOutput y2 "Output signal 2 (y2 = y2)" 
                              annotation (Placement(transformation(extent={{10,-10},
               {-10,10}},       rotation=0,
           origin={170,0}),  iconTransformation(extent={{180,-10},{160,10}})));
@@ -631,12 +631,13 @@ instances:
 
       block Gain "Output the product of a gain value with the input signal"
 
-        parameter Real k(start=1) "Gain value multiplied with input signal";
+        parameter Real k(start=1, unit="1")
+      "Gain value multiplied with input signal";
   public
-        Interfaces.RealInput u "Input signal connector"
+        Interfaces.RealInput u "Input signal connector" 
           annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
-        Interfaces.RealOutput y "Output signal connector"
+        Interfaces.RealOutput y "Output signal connector" 
           annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
 
@@ -795,7 +796,7 @@ Example:
 
         input Interfaces.RealInput u1 annotation (Placement(transformation(
             extent={{-100,-20},{-60,20}}, rotation=0)));
-        input Interfaces.RealInput u2
+        input Interfaces.RealInput u2 
           annotation (Placement(transformation(
           origin={0,-80},
           extent={{-20,-20},{20,20}},
@@ -990,16 +991,16 @@ Example:
         parameter Real k1=+1 "Gain of upper input";
         parameter Real k2=+1 "Gain of middle input";
         parameter Real k3=+1 "Gain of lower input";
-        input Interfaces.RealInput u1 "Connector 1 of Real input signals"
+        input Interfaces.RealInput u1 "Connector 1 of Real input signals" 
           annotation (Placement(transformation(extent={{-140,60},{-100,100}},
             rotation=0)));
-        input Interfaces.RealInput u2 "Connector 2 of Real input signals"
+        input Interfaces.RealInput u2 "Connector 2 of Real input signals" 
           annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
-        input Interfaces.RealInput u3 "Connector 3 of Real input signals"
+        input Interfaces.RealInput u3 "Connector 3 of Real input signals" 
           annotation (Placement(transformation(extent={{-140,-100},{-100,-60}},
             rotation=0)));
-        output Interfaces.RealOutput y "Connector of Real output signals"
+        output Interfaces.RealOutput y "Connector of Real output signals" 
           annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
 
@@ -2679,14 +2680,14 @@ zero or negative.
   block RealToInteger "Convert Real to Integer signal"
     extends Interfaces.IntegerBlockIcon;
   public
-    Interfaces.RealInput u "Connector of Real input signal"
+    Interfaces.RealInput u "Connector of Real input signal" 
                            annotation (Placement(transformation(extent={{-140,
               -20},{-100,20}}, rotation=0)));
-    Interfaces.IntegerOutput y "Connector of Integer output signal"
+    Interfaces.IntegerOutput y "Connector of Integer output signal" 
                                annotation (Placement(transformation(extent={{
               100,-10},{120,10}}, rotation=0)));
   equation
-     y = if (u > 0) then integer(floor(u + 0.5)) else
+     y = if (u > 0) then integer(floor(u + 0.5)) else 
                          integer(ceil( u - 0.5));
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
@@ -2717,7 +2718,7 @@ as <i>nearest integer value</i> of the input <b>u</b>:
 
   block IntegerToReal "Convert integer to real signals"
     extends Interfaces.BlockIcon;
-    Interfaces.IntegerInput u "Connector of Integer input signal"
+    Interfaces.IntegerInput u "Connector of Integer input signal" 
                                                                annotation (Placement(
           transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
     Interfaces.RealOutput y "Connector of Real output signal"  annotation (Placement(
@@ -2756,7 +2757,7 @@ as <i>Real equivalent</i> of the Integer input <b>u</b>:
     parameter Real realTrue=1.0 "Output signal for true Boolean input";
     parameter Real realFalse=0.0 "Output signal for false Boolean input";
 
-    Blocks.Interfaces.RealOutput y "Connector of Real output signal"
+    Blocks.Interfaces.RealOutput y "Connector of Real output signal" 
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
 
@@ -2803,7 +2804,7 @@ and <b>realTrue</b> and <b>realFalse</b> are parameters.
     parameter Integer integerTrue=1 "Output signal for true Boolean input";
     parameter Integer integerFalse=0 "Output signal for false Boolean input";
 
-    Blocks.Interfaces.IntegerOutput y "Connector of Integer output signal"
+    Blocks.Interfaces.IntegerOutput y "Connector of Integer output signal" 
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
 
@@ -2945,15 +2946,15 @@ where <b>threshold</b> is a parameter.
     "Convert rectangular coordinates to polar coordinates"
     extends Modelica.Blocks.Interfaces.BlockIcon;
     Modelica.Blocks.Interfaces.RealInput u_re
-      "Real part of rectangular representation"
+      "Real part of rectangular representation" 
       annotation (Placement(transformation(extent={{-140,40},{-100,80}},
             rotation=0)));
     Modelica.Blocks.Interfaces.RealInput u_im
-      "Imaginary part of rectangular representation"
+      "Imaginary part of rectangular representation" 
       annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
             rotation=0)));
     Modelica.Blocks.Interfaces.RealOutput y_abs
-      "Length of polar representation"
+      "Length of polar representation" 
       annotation (Placement(transformation(extent={{100,50},{120,70}},
             rotation=0)));
     Modelica.Blocks.Interfaces.RealOutput y_arg "Angle of polar representation"
@@ -3004,15 +3005,15 @@ the angle <code>y_arg</code> of the polar representation of this phasor.
     Modelica.Blocks.Interfaces.RealInput u_abs "Length of polar representation"
       annotation (Placement(transformation(extent={{-140,40},{-100,80}},
             rotation=0)));
-    Modelica.Blocks.Interfaces.RealInput u_arg "Angle of polar representation"
+    Modelica.Blocks.Interfaces.RealInput u_arg "Angle of polar representation" 
       annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
             rotation=0)));
     Modelica.Blocks.Interfaces.RealOutput y_re
-      "Real part of rectangular representation"
+      "Real part of rectangular representation" 
       annotation (Placement(transformation(extent={{100,50},{120,70}},
             rotation=0)));
     Modelica.Blocks.Interfaces.RealOutput y_im
-      "Imaginary part of rectangular representation"
+      "Imaginary part of rectangular representation" 
       annotation (Placement(transformation(extent={{100,-70},{120,-50}},
             rotation=0)));
 
@@ -3090,9 +3091,9 @@ Note: The output is updated after each period defined by 1/f.
   block RectifiedMean "Calculate refctified mean over period 1/f"
     extends Modelica.Blocks.Interfaces.SISO;
     parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
-    Mean mean(final f=f)
+    Mean mean(final f=f) 
       annotation (Placement(transformation(extent={{0,-10},{20,10}})));
-    Blocks.Math.Abs abs1
+    Blocks.Math.Abs abs1 
       annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
   equation
     connect(u, abs1.u) annotation (Line(
@@ -3129,11 +3130,11 @@ Note: The output is updated after each period defined by 1/f.
   block RootMeanSquare "Calculate root mean square over period 1/f"
     extends Modelica.Blocks.Interfaces.SISO;
     parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
-    Blocks.Math.Product product
+    Blocks.Math.Product product 
       annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
-    Mean mean(final f=f)
+    Mean mean(final f=f) 
       annotation (Placement(transformation(extent={{0,-10},{20,10}})));
-    Blocks.Math.Sqrt sqrt1
+    Blocks.Math.Sqrt sqrt1 
       annotation (Placement(transformation(extent={{40,-10},{60,10}})));
   equation
 
@@ -3194,24 +3195,24 @@ Note: The output is updated after each period defined by 1/f.
           extent={{-10,-10},{10,10}},
           rotation=90,
           origin={-80,-70})));
-    Blocks.Math.Product product1
+    Blocks.Math.Product product1 
       annotation (Placement(transformation(extent={{-60,30},{-40,50}})));
-    Blocks.Math.Product product2
+    Blocks.Math.Product product2 
       annotation (Placement(transformation(extent={{-60,-50},{-40,-30}})));
-    Mean mean1(final f=f)
+    Mean mean1(final f=f) 
       annotation (Placement(transformation(extent={{-20,30},{0,50}})));
-    Mean mean2(final f=f)
+    Mean mean2(final f=f) 
       annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
-    Blocks.Interfaces.RealInput u
+    Blocks.Interfaces.RealInput u 
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
     Blocks.Interfaces.RealOutput y_rms
-      "Root mean square of polar representation"
+      "Root mean square of polar representation" 
       annotation (Placement(transformation(extent={{100,50},{120,70}},
             rotation=0)));
-    Blocks.Interfaces.RealOutput y_arg "Angle of polar representation"
+    Blocks.Interfaces.RealOutput y_arg "Angle of polar representation" 
       annotation (Placement(transformation(extent={{100,-70},{120,-50}},
             rotation=0)));
-    Blocks.Math.RectangularToPolar rectangularToPolar
+    Blocks.Math.RectangularToPolar rectangularToPolar 
       annotation (Placement(transformation(extent={{40,-12},{60,8}})));
   equation
 
