@@ -2410,7 +2410,8 @@ following references, especially (Armstrong and Canudas de Witt 1996):
             grid={2,2}), graphics));
     end Brake;
 
-    model Clutch "Clutch based on Coulomb friction "
+    model Clutch "Clutch based on Coulomb friction"
+      extends Modelica.Mechanics.Rotational.Icons.Clutch;
       extends
         Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates;
 
@@ -2465,38 +2466,6 @@ following references, especially (Armstrong and Canudas de Witt 1996):
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
-            Polygon(
-              points={{-30,40},{-60,50},{-60,30},{-30,40}},
-              lineColor={0,0,127},
-              fillColor={0,0,127},
-              fillPattern=FillPattern.Solid),
-            Line(points={{0,90},{-90,70},{-90,40},{-30,40}}, color={0,0,127}),
-            Line(points={{0,90},{90,70},{90,40},{30,40}}, color={0,0,127}),
-            Polygon(
-              points={{30,40},{60,50},{60,30},{30,40}},
-              lineColor={0,0,127},
-              fillColor={0,0,127},
-              fillPattern=FillPattern.Solid),
-            Rectangle(
-              extent={{10,60},{30,-60}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Rectangle(
-              extent={{-30,60},{-10,-60}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Rectangle(
-              extent={{30,10},{100,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Rectangle(
-              extent={{-100,10},{-30,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
             Text(
               extent={{-150,-110},{150,-70}},
               textString="%name",
@@ -2597,6 +2566,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
     end Clutch;
 
     model OneWayClutch "Series connection of freewheel and clutch"
+      extends Modelica.Mechanics.Rotational.Icons.Clutch;
       extends
         Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates;
 
@@ -2676,38 +2646,6 @@ following references, especially (Armstrong and Canudas de Witt 1996):
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
-            Polygon(
-              points={{-30,40},{-60,50},{-60,30},{-30,40}},
-              lineColor={0,0,127},
-              fillColor={0,0,127},
-              fillPattern=FillPattern.Solid),
-            Line(points={{0,90},{-90,70},{-90,40},{-30,40}}, color={0,0,127}),
-            Line(points={{0,90},{90,70},{90,40},{30,40}}, color={0,0,127}),
-            Polygon(
-              points={{30,40},{60,50},{60,30},{30,40}},
-              lineColor={0,0,127},
-              fillColor={0,0,127},
-              fillPattern=FillPattern.Solid),
-            Rectangle(
-              extent={{10,60},{30,-60}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Rectangle(
-              extent={{-30,60},{-10,-60}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Rectangle(
-              extent={{30,10},{100,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Rectangle(
-              extent={{-100,10},{-30,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
             Text(
               extent={{-150,-110},{150,-70}},
               textString="%name",
@@ -2808,6 +2746,7 @@ are dynamically coupled. The method is described in:
     end OneWayClutch;
 
     model IdealGear "Ideal gear without inertia"
+      extends Modelica.Mechanics.Rotational.Icons.Gear;
       extends
         Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2;
       parameter Real ratio(start=1)
@@ -2837,55 +2776,10 @@ connected to other elements in an appropriate way.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
-            Rectangle(
-              extent={{-40,20},{-20,-20}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Rectangle(
-              extent={{-40,100},{-20,20}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Rectangle(
-              extent={{20,80},{40,39}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Rectangle(
-              extent={{20,40},{40,-40}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Rectangle(
-              extent={{40,10},{100,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Rectangle(
-              extent={{-20,70},{20,50}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Rectangle(
-              extent={{-100,10},{-40,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
             Text(
               extent={{-153,145},{147,105}},
               lineColor={0,0,255},
               textString="%name"),
-            Line(points={{-80,20},{-60,20}}, color={0,0,0}),
-            Line(points={{-80,-20},{-60,-20}}, color={0,0,0}),
-            Line(points={{-70,-20},{-70,-85}}, color={0,0,0}),
-            Line(points={{0,40},{0,-100}}, color={0,0,0}),
-            Line(points={{-10,40},{10,40}}, color={0,0,0}),
-            Line(points={{-10,80},{10,80}}, color={0,0,0}),
-            Line(points={{60,-20},{80,-20}}, color={0,0,0}),
-            Line(points={{60,20},{80,20}}, color={0,0,0}),
-            Line(points={{70,-20},{70,-85}}, color={0,0,0}),
-            Line(points={{70,-85},{-70,-85}}, color={0,0,0}),
             Text(
               extent={{-146,-49},{154,-79}},
               lineColor={0,0,0},
@@ -2899,6 +2793,7 @@ connected to other elements in an appropriate way.
     model LossyGear
       "Gear with mesh efficiency and bearing friction (stuck/rolling possible)"
 
+      extends Modelica.Mechanics.Rotational.Icons.Gear;
       extends
         Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2;
 
@@ -3166,21 +3061,6 @@ Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e. V., March 18-19, 2002.</p>
 "),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}},
             grid={1,1}), graphics={
-            Rectangle(
-              extent={{-40,20},{-20,-20}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Rectangle(
-              extent={{40,10},{100,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Rectangle(
-              extent={{-100,10},{-40,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
             Polygon(
               points={{-109,40},{-80,40},{-80,80},{-90,80},{-70,100},{-50,80},{
                   -60,80},{-60,20},{-109,20},{-109,40}},
@@ -3188,39 +3068,10 @@ Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e. V., March 18-19, 2002.</p>
               fillColor={255,0,0},
               fillPattern=FillPattern.Solid),
             Line(points={{-80,20},{-60,20}}, color={0,0,0}),
-            Line(points={{-80,-20},{-60,-20}}, color={0,0,0}),
-            Line(points={{-70,-20},{-70,-84}}, color={0,0,0}),
-            Line(points={{70,-85},{-70,-85}}, color={0,0,0}),
-            Line(points={{60,20},{80,20}}, color={0,0,0}),
-            Line(points={{60,-20},{80,-20}}, color={0,0,0}),
-            Line(points={{70,-20},{70,-85}}, color={0,0,0}),
             Text(
               extent={{-148,145},{152,105}},
               lineColor={0,0,255},
               textString="%name"),
-            Rectangle(
-              extent={{-40,100},{-20,20}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Rectangle(
-              extent={{-20,70},{20,50}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Line(points={{-10,80},{10,80}}, color={0,0,0}),
-            Line(points={{-10,40},{10,40}}, color={0,0,0}),
-            Line(points={{0,40},{0,-100}}, color={0,0,0}),
-            Rectangle(
-              extent={{20,80},{40,39}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Rectangle(
-              extent={{20,40},{40,-40}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
             Text(
               extent={{-145,-49},{155,-79}},
               lineColor={0,0,0},
@@ -3442,6 +3293,7 @@ in the flanges, are along the axis vector displayed in the icon.
     end IdealPlanetary;
 
     model Gearbox "Realistic model of a gearbox (based on LossyGear)"
+      extends Modelica.Mechanics.Rotational.Icons.Gearbox;
       extends
         Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlangesAndSupport;
 
@@ -3483,13 +3335,19 @@ in the flanges, are along the axis vector displayed in the icon.
               rotation=0)));
     equation
       connect(flange_a, lossyGear.flange_a)
-        annotation (Line(points={{-100,0},{-60,0}}, color={0,0,0}));
+        annotation (Line(points={{-100,5.55112e-16},{-90,5.55112e-16},{-90,
+              1.77636e-15},{-80,1.77636e-15},{-80,1.22125e-15},{-60,1.22125e-15}},
+                                                    color={0,0,0}));
       connect(lossyGear.flange_b, elastoBacklash.flange_a)
-        annotation (Line(points={{-20,0},{20,0}}, color={0,0,0}));
+        annotation (Line(points={{-20,1.22125e-15},{-10,1.22125e-15},{-10,
+              2.4425e-15},{0,2.4425e-15},{0,1.22125e-15},{20,1.22125e-15}},
+                                                  color={0,0,0}));
       connect(elastoBacklash.flange_b, flange_b)
-        annotation (Line(points={{60,0},{100,0}}, color={0,0,0}));
+        annotation (Line(points={{60,1.22125e-15},{70,1.22125e-15},{70,
+              1.77636e-15},{80,1.77636e-15},{80,5.55112e-16},{100,5.55112e-16}},
+                                                  color={0,0,0}));
       connect(lossyGear.support, support) annotation (Line(
-          points={{-40,-20},{-40,-40},{0,-40},{0,-100}},
+          points={{-40,-20},{-40,-40},{5.55112e-16,-40},{5.55112e-16,-100}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(elastoBacklash.heatPort, internalHeatPort) annotation (Line(
@@ -3526,33 +3384,6 @@ Gearbox.
 </HTML>
 "),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
-            Rectangle(
-              extent={{-100,10},{-60,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Rectangle(
-              extent={{60,10},{100,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Rectangle(
-              extent={{-40,60},{40,-60}},
-              lineColor={0,0,0},
-              pattern=LinePattern.Solid,
-              lineThickness=0.25,
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Polygon(
-              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={128,128,128}),
-            Polygon(
-              points={{60,20},{40,40},{40,-40},{60,-20},{60,20}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
             Text(
               extent={{-150,150},{150,110}},
               lineColor={0,0,255},
@@ -3560,13 +3391,7 @@ Gearbox.
             Text(
               extent={{-150,70},{150,100}},
               lineColor={0,0,0},
-              textString="ratio=%ratio, c=%c"),
-            Polygon(
-              points={{-60,-80},{-46,-80},{-20,-20},{20,-20},{46,-80},{60,-80},
-                  {60,-90},{-60,-90},{-60,-80}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid)}),
+              textString="ratio=%ratio, c=%c")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                         graphics));
@@ -3874,15 +3699,17 @@ no rolling resistance. This component defines the kinematic constraint:
           color={0,0,127},
           smooth=Smooth.None));
       connect(set_phi_start.flange, flange) annotation (Line(
-          points={{0,80},{60,80},{60,0},{100,0}},
+          points={{5.55112e-16,80},{60,80},{60,5.55112e-16},{100,5.55112e-16}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(set_w_start.flange, flange) annotation (Line(
-          points={{0,0},{100,0}},
+          points={{5.55112e-16,6.10623e-16},{25,6.10623e-16},{25,1.16573e-15},{
+              50,1.16573e-15},{50,0},{100,0}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(set_w_start.w_start, w_start) annotation (Line(
-          points={{-22,0},{-120,0}},
+          points={{-22,6.66134e-16},{-46.5,6.66134e-16},{-46.5,1.77636e-15},{
+              -71,1.77636e-15},{-71,0},{-120,0}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(set_a_start.a_start, a_start) annotation (Line(
@@ -3890,11 +3717,11 @@ no rolling resistance. This component defines the kinematic constraint:
           color={0,0,127},
           smooth=Smooth.None));
       connect(set_a_start.flange, flange) annotation (Line(
-          points={{0,-80},{60,-80},{60,0},{100,0}},
+          points={{5.55112e-16,-80},{60,-80},{60,5.55112e-16},{100,5.55112e-16}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(set_flange_tau.flange, flange) annotation (Line(
-          points={{76,-80},{60,-80},{60,0},{100,0}},
+          points={{76,-80},{60,-80},{60,5.55112e-16},{100,5.55112e-16}},
           color={0,0,0},
           smooth=Smooth.None));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -5521,11 +5348,12 @@ and instead the component is internally fixed to ground.
         annotation (Placement(transformation(extent={{10,-97},{30,-77}})));
     equation
       connect(support, internalSupport) annotation (Line(
-          points={{0,-100},{0,-80}},
+          points={{5.55112e-16,-100},{5.55112e-16,-95},{4.4409e-16,-95},{
+              4.4409e-16,-90},{-1.11022e-16,-90},{-1.11022e-16,-80}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(internalSupport, fixed.flange) annotation (Line(
-          points={{0,-80},{20,-80},{20,-87}},
+          points={{-1.11022e-16,-80},{20,-80},{20,-87}},
           color={0,0,0},
           smooth=Smooth.None));
       annotation (
@@ -6363,6 +6191,149 @@ only be used as basic building elements for models.
 "));
   end Interfaces;
 
+  package Icons "Icons for rotational package"
+    import Modelica;
+    extends Modelica.Icons.Package;
+    partial class Gear "Rotational gear icon"
+
+      annotation (             Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics={
+            Rectangle(
+              extent={{-40,20},{-20,-20}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Rectangle(
+              extent={{-40,100},{-20,20}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Rectangle(
+              extent={{20,80},{40,39}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Rectangle(
+              extent={{20,40},{40,-40}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Rectangle(
+              extent={{40,10},{100,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Rectangle(
+              extent={{-20,70},{20,50}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Rectangle(
+              extent={{-100,10},{-40,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Line(points={{-80,20},{-60,20}}, color={0,0,0}),
+            Line(points={{-80,-20},{-60,-20}}, color={0,0,0}),
+            Line(points={{-70,-20},{-70,-86}}, color={0,0,0}),
+            Line(points={{0,40},{0,-86}},  color={0,0,0}),
+            Line(points={{-10,40},{10,40}}, color={0,0,0}),
+            Line(points={{-10,80},{10,80}}, color={0,0,0}),
+            Line(points={{60,-20},{80,-20}}, color={0,0,0}),
+            Line(points={{60,20},{80,20}}, color={0,0,0}),
+            Line(points={{70,-20},{70,-86}}, color={0,0,0}),
+            Line(points={{70,-86},{-70,-86}}, color={0,0,0})}),
+        Documentation(info="<html>
+<p>
+This is the icon of a gear from the rotational package.
+</p>
+</html>"));
+    end Gear;
+
+    model Gearbox "Icon of gear box"
+      annotation (Icon(graphics={
+            Rectangle(
+              extent={{-100,10},{-60,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Rectangle(
+              extent={{60,10},{100,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Rectangle(
+              extent={{-40,60},{40,-60}},
+              lineColor={0,0,0},
+              pattern=LinePattern.Solid,
+              lineThickness=0.25,
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Polygon(
+              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={128,128,128}),
+            Polygon(
+              points={{60,20},{40,40},{40,-40},{60,-20},{60,20}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{-60,-80},{-46,-80},{-20,-20},{20,-20},{46,-80},{60,-80},
+                  {60,-90},{-60,-90},{-60,-80}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+<p>
+This is the icon of a gear box from the rotational package.
+</p>
+</html>"));
+    end Gearbox;
+
+    model Clutch "Icon of a clutch"
+      annotation (Icon(graphics={
+            Rectangle(
+              extent={{-100,10},{-30,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Rectangle(
+              extent={{-30,60},{-10,-60}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Rectangle(
+              extent={{10,60},{30,-60}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Rectangle(
+              extent={{30,10},{100,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Polygon(
+              points={{-30,40},{-60,50},{-60,30},{-30,40}},
+              lineColor={0,0,127},
+              fillColor={0,0,127},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{30,40},{60,50},{60,30},{30,40}},
+              lineColor={0,0,127},
+              fillColor={0,0,127},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,90},{90,70},{90,40},{30,40}}, color={0,0,127}),
+            Line(points={{0,90},{-90,70},{-90,40},{-30,40}}, color={0,0,127})}),
+          Documentation(info="<html>
+<p>
+This is the icon of a clutch from the rotational package.
+</p>
+</html>"));
+    end Clutch;
+  end Icons;
   annotation (
     Documentation(info="<html>
 

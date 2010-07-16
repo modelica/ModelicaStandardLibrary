@@ -829,7 +829,7 @@ corresponding library in a future release.
   end Library2;
 
   partial class GearIcon
-    "This icon will be removed in future Modelica versions, use the one in Modelon.Mechanics.Rotational instead"
+    "This icon will be removed in future Modelica versions"
 
     annotation (             Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -870,7 +870,7 @@ corresponding library in a future release.
             fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
 <p>
-This icon of a <b>gearbox</b> will be removed in future versions of the library. Please use a locally defined icon in your user defined libraries and applications.
+This icon of a <b>gearbox</b> will be removed in future versions of the library. Please use one of the icons of <a href=\"modelica://Modelica.Mechanics.Rotational.Icons\">Mechanics.Rotational.Icons</a> instead.
 </p>
 </html>"));
   end GearIcon;
