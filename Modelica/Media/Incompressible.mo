@@ -423,7 +423,7 @@ which is only exactly true for a fluid with constant density d=d0.
 
     package Polynomials_Temp
       "Temporary Functions operating on polynomials (including polynomial fitting); only to be used in Modelica.Media.Incompressible.TableBased"
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.Package;
 
       function evaluate "Evaluate polynomial at a given abszissa value"
         extends Modelica.Icons.Function;

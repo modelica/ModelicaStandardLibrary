@@ -99,7 +99,7 @@ end PartialModelicaServices;
 protected
 package FileSystem
     "Internal package with external functions as interface to the file system"
- extends Modelica.Icons.Library;
+ extends Modelica.Icons.Package;
 
   function mkdir "Make directory (POSIX: 'mkdir')"
     extends Modelica.Icons.Function;

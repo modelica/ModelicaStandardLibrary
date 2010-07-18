@@ -2563,7 +2563,7 @@ points, e.g. when an isentropic reference state is computed.
   end TwoPhaseWater;
 
   package TestOnly "examples for testing purposes: move for final version "
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Package;
     model MixIdealGasAir "Ideal gas air medium model"
       extends Modelica.Icons.Example;
       package Medium = IdealGases.MixtureGases.CombustionAir "Medium model";
@@ -2697,7 +2697,7 @@ is given to compare the approximation.
     end IdealGasN2;
 
     package TestMedia "Test interfaces of media"
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.Package;
       model TemplateMedium "Test Interfaces.TemplateMedium"
         extends Modelica.Icons.Example;
         package Medium = Interfaces.TemplateMedium "Medium model";
@@ -2770,12 +2770,12 @@ is given to compare the approximation.
   package Tests
     "Library to test that all media models simulate and fulfill the expected structural properties"
 
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.Package;
 
     package Components
       "Functions, connectors and models needed for the media model tests"
 
-       extends Modelica.Icons.Library;
+       extends Modelica.Icons.Package;
 
       connector FluidPort
         "Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)"
@@ -3374,9 +3374,9 @@ no mass or energy is stored in the pipe.
     end Components;
 
     package MediaTestModels "Test models to test all media"
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.Package;
       package Air "Test models of library Modelica.Media.Air"
-        extends Modelica.Icons.Library;
+        extends Modelica.Icons.Package;
         model SimpleAir "Test Modelica.Media.Air.SimpleAir"
           extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
              redeclare package Medium = Modelica.Media.Air.SimpleAir);
@@ -3406,7 +3406,7 @@ no mass or energy is stored in the pipe.
       end Air;
 
       package IdealGases "Test models of library Modelica.Media.IdealGases"
-        extends Modelica.Icons.Library;
+        extends Modelica.Icons.Package;
 
         model Air "Test single gas Modelica.Media.IdealGases.SingleGases.Air"
           extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
@@ -3448,7 +3448,7 @@ no mass or energy is stored in the pipe.
 
       package Incompressible
         "Test models of library Modelica.Media.Incompressible"
-        extends Modelica.Icons.Library;
+        extends Modelica.Icons.Package;
         model Glycol47 "Test Modelica.Media.Incompressible.Examples.Glycol47"
           extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
              redeclare package Medium =
@@ -3475,7 +3475,7 @@ no mass or energy is stored in the pipe.
       end Incompressible;
 
       package Water "Test models of library Modelica.Media.Water"
-        extends Modelica.Icons.Library;
+        extends Modelica.Icons.Package;
         model ConstantPropertyLiquidWater
           "Test Modelica.Media.Water.ConstantPropertyLiquidWater"
           extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
@@ -3537,7 +3537,7 @@ no mass or energy is stored in the pipe.
 
       package LinearFluid
         "Test models of library Modelica.Media.Incompressible"
-        extends Modelica.Icons.Library;
+        extends Modelica.Icons.Package;
         model LinearColdWater
           "Test Modelica.Media.Incompressible.Examples.Glycol47"
           extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
@@ -8240,7 +8240,7 @@ Summing all mass fractions together results in
 
  package OneNonLinearEquation
     "Determine solution of a non-linear algebraic equation in one unknown without derivatives in a reliable and efficient way"
-   extends Modelica.Icons.Library;
+   extends Modelica.Icons.Package;
 
     replaceable record f_nonlinear_Data
       "Data specific for function f_nonlinear"
