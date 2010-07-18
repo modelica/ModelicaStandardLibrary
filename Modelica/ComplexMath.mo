@@ -4,7 +4,7 @@ package ComplexMath
 package Vectors "Library of functions operating on complex vectors"
   extends Modelica.Icons.Package;
 
-function norm "Returns the norm of a complex vector"
+function norm "Returns the p-norm of a complex vector"
   input Complex v[:] "Vector";
   input Real p(min=1) = 2
         "Type of p-norm (often used: 1, 2, or Modelica.Constants.inf)";
@@ -22,12 +22,13 @@ algorithm
   end if;
 
   annotation (Documentation(info="<HTML>
-<h4><font color=\"#008000\">Syntax</font></h4>
+<h4>Syntax</h4>
 <blockquote><pre>
 Vectors.<b>norm</b>(v);
 Vectors.<b>norm</b>(v,p=2);   // 1 &le; p &le; &#8734;
 </pre></blockquote>
-<h4><font color=\"#008000\">Description</font></h4>
+
+<h4>Description</h4>
 <p>
 The function call \"<code>Vectors.<b>norm</b>(v)</code>\" returns the
 <b>Euclidean norm</b> \"<code>sqrt(v*v)</code>\" of vector v.
@@ -61,7 +62,8 @@ Note, for any vector norm the following inequality holds:
 <blockquote><pre>
 <b>norm</b>(v1+v2,p) &le; <b>norm</b>(v1,p) + <b>norm</b>(v2,p)
 </pre></blockquote>
-<h4><font color=\"#008000\">Example</font></h4>
+
+<h4>Example</h4>
 <blockquote><pre>
   v = {2, -4, -2, -1};
   <b>norm</b>(v,1);    // = 9
@@ -70,8 +72,11 @@ Note, for any vector norm the following inequality holds:
   <b>norm</b>(v,10.5); // = 4.00052597412635
   <b>norm</b>(v,Modelica.Constants.inf);  // = 4
 </pre></blockquote>
-<h4><font color=\"#008000\">See also</font></h4>
+
+<h4>See also</h4>
+<p>
 <a href=\"Modelica:Modelica.Math.Matrices.norm\">Matrices.norm</a>
+</p>
 </HTML>"));
 end norm;
 
@@ -82,11 +87,13 @@ function length "Return length of a complex vector"
 algorithm
   result := sqrt(sum({v[i].re^2 + v[i].im^2 for i in 1:size(v,1)}));
   annotation (Documentation(info="<html>
-<h4><font color=\"#008000\">Syntax</font></h4>
+<h4>Syntax</h4>
 <blockquote><pre>
 Vectors.<b>length</b>(v);
 </pre></blockquote>
-<h4><font color=\"#008000\">Description</font></h4>
+
+<h4>Description</h4>
+
 <p>
 The function call \"<code>Vectors.<b>length</b>(v)</code>\" returns the
 <b>Euclidean length</b> \"<code>sqrt(v*v)</code>\" of vector v.
@@ -96,13 +103,17 @@ in one statement and therefore the function is usually automatically
 inlined. Further symbolic processing is therefore possible, which is
 not the case with function norm(..).
 </p>
-<h4><font color=\"#008000\">Example</font></h4>
+
+<h4>Example</h4>
 <blockquote><pre>
   v = {2, -4, -2, -1};
   <b>length</b>(v);  // = 5
 </pre></blockquote>
-<h4><font color=\"#008000\">See also</font></h4>
+
+<h4>See also</h4>
+<p>
 <a href=\"Modelica:Modelica_LinearSystems2.Math.Vectors.norm\">Vectors.norm</a>
+</p>
 </html>"));
 end length;
 
@@ -125,12 +136,13 @@ algorithm
   end if;
 
   annotation (Documentation(info="<html>
-<h4><font color=\"#008000\">Syntax</font></h4>
+<h4>Syntax</h4>
 <blockquote><pre>
 Vectors.<b>normalize</b>(v);
 Vectors.<b>normalize</b>(v,eps=100*Modelica.Constants.eps);
 </pre></blockquote>
-<h4><font color=\"#008000\">Description</font></h4>
+
+<h4>Description</h4>
 <p>
 The function call \"<code>Vectors.<b>normalize</b>(v)</code>\" returns the
 <b>unit vector</b> \"<code>v/length(v)</code>\" of vector v.
@@ -147,13 +159,17 @@ Since the function is implemented in one statement,
 it is usually inlined and therefore symbolic processing is
 possible.
 </p>
-<h4><font color=\"#008000\">Example</font></h4>
+
+<h4>Example</h4>
 <blockquote><pre>
   <b>normalize</b>({1,2,3});  // = {0.267, 0.534, 0.802}
   <b>normalize</b>({0,0,0});  // = {0,0,0}
 </pre></blockquote>
-<h4><font color=\"#008000\">See also</font></h4>
+
+<h4>See also</h4>
+<p>
 <a href=\"Modelica:Modelica_LinearSystems2.Math.Vectors.length\">Vectors.length</a>
+</p>
 </html>"));
 end normalize;
 
@@ -268,12 +284,13 @@ algorithm
   end while;
 
   annotation (Documentation(info="<HTML>
-<h4><font color=\"#008000\">Syntax</font></h4>
+<h4>Syntax</h4>
 <blockquote><pre>
            sorted_v = Vectors.<b>sort</b>(v);
 (sorted_v, indices) = Vectors.<b>sort</b>(v, ascending=true);
 </pre></blockquote>
-<h4><font color=\"#008000\">Description</font></h4>
+
+<h4>Description</h4>
 <p>
 Function <b>sort</b>(..) sorts a Real vector v
 in ascending order and returns the result in sorted_v.
@@ -282,17 +299,22 @@ is sorted in descending order. In the optional second
 output argument the indices of the sorted vector with respect
 to the original vector are given, such that sorted_v = v[indices].
 </p>
-<h4><font color=\"#008000\">Example</font></h4>
+
+<h4>Example</h4>
 <blockquote><pre>
   (v2, i2) := Vectors.sort({-1, 8, 3, 6, 2});
        -> v2 = {-1, 2, 3, 6, 8}
           i2 = {1, 5, 3, 4, 2}
 </pre></blockquote>
+
 </HTML>"));
 end sort;
 
   annotation(Documentation(info="<html>
-<p>This library hosts the definition of functions working on vectors of Complex numbers.</p>
+<p>
+This library provides functions operating on vectors
+of Complex numbers.
+</p>
 </html>"));
 end Vectors;
   extends Modelica.Icons.Package;
@@ -599,8 +621,12 @@ end Vectors;
   end 'product';
 
   annotation (Documentation(info="<html>
-<p>This library hosts the definition of Complex mathematical functions.</p>
-<p>It depends on the implementation of Complex.</p>
+<p>
+This package contains <b>basic mathematical functions</b> 
+operating on complex numbers (such as sin(..)),
+as well as functions operating on vectors of complex numbers.
+</p>
+
 </html>"), Icon(graphics={Text(
           extent={{-94,-14},{72,-56}},
           lineColor={0,0,0},
