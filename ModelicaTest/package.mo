@@ -19,17 +19,21 @@ algorithm
   end if;
 
   print("--- Test functions of Modelica library", logFile);
+  result := ModelicaTest.Math.ScalarFunctions(logFile);
   result := ModelicaTest.Math.Polynomials(logFile);
   result := ModelicaTest.Math.Matrices(logFile);
+  result := ModelicaTest.Math.Matrices2();
+  result := ModelicaTest.Math.Vectors();
   result := ModelicaTest.Utilities.testAll(logFile);
   ok := true;
 end testAllFunctions;
 
+
   annotation (version="1.1",
-	      versionDate="2007-10-19",
-	      versionBuild=2,
-	      dateModified = "2010-04-22 00:00:00Z",
-	      uses(Modelica(version="3.2")),
+       versionDate="2007-10-19",
+       versionBuild=2,
+       dateModified = "2010-04-22 00:00:00Z",
+       uses(Modelica(version="3.2")),
     Documentation(info="<html>
 <p>
 This library provides models and functions to test components of
