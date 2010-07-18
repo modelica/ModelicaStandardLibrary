@@ -2416,11 +2416,13 @@ the following new language elements (compared to Modelica Specification 3.1):
 
 <ul>
 <li> Operator records and overloaded operators. </li>
+<li> Functions as input arguments to functions.</li>
 </ul>
 
 <p>
 The following <b style=\"color:blue\">new libraries</b> have been added:
 </p>
+
 <table border=\"1\" cellspacing=0 cellpadding=2>
 <tr><td valign=\"top\"><a href=\"modelica://Complex\">Complex</a></td>
     <td valign=\"top\">
@@ -2468,8 +2470,8 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.Fluid.Dissipation\">Modelica.Fluid.Dissipation</a></td>
     <td valign=\"top\">
      Library with functions to compute convective heat transfer and pressure loss characteristics.<br>
-     (This library was developed by Thorgen Vahlenkamp and Stefan Wischhusen from
-     XRG Simulation).
+     (This library was developed by Thorben Vahlenkamp and Stefan Wischhusen from
+     XRG Simulation GmbH).
     </td>
 
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.ComplexMath\">Modelica.ComplexMath</a></td>
