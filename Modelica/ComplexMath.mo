@@ -1,6 +1,9 @@
 within Modelica;
 package ComplexMath
   "Library of complex mathematical functions (e.g., sin, cos) and of functions operating on copmlex vectors and matrices"
+  extends Modelica.Icons.Package;
+  final constant Complex j = Complex(0,1) "Imaginary unit";
+
 package Vectors "Library of functions operating on complex vectors"
   extends Modelica.Icons.Package;
 
@@ -119,7 +122,6 @@ end length;
 
 function normalize
       "Return normalized complex vector such that length = 1 and prevent zero-division for zero vector"
-    import Modelica.Constants.j;
   input Complex v[:] "Vector";
   input Real eps = 100*Modelica.Constants.eps "if |v| < eps then result = v";
   output Complex result[size(v, 1)] "Input vector v normalized to length=1";
@@ -317,7 +319,6 @@ of Complex numbers.
 </p>
 </html>"));
 end Vectors;
-  extends Modelica.Icons.Package;
 
   function sin "Sine of complex number"
     input Complex c1 "Complex number";
@@ -350,7 +351,6 @@ end Vectors;
   end tan;
 
   function asin "Arc-sine of complex number"
-    import Modelica.Constants.j;
     input Complex c1 "Complex number";
     output Complex c2 "arc_sin(c1)";
   algorithm
@@ -361,7 +361,6 @@ end Vectors;
   end asin;
 
   function acos "Arc-cosine of complex number"
-    import Modelica.Constants.j;
     input Complex c1 "Complex number";
     output Complex c2 "= arc_cos(c1)";
   algorithm
@@ -372,7 +371,6 @@ end Vectors;
   end acos;
 
   function atan "Arc-tangent of complex number"
-    import Modelica.Constants.j;
     input Complex c1 "Complex number";
     output Complex c2 "= arc_tan(c1)";
   algorithm

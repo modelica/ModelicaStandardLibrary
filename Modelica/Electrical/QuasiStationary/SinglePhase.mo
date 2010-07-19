@@ -521,7 +521,7 @@ A linear temperature dependency of the resistance for an enabled heat port is al
 
     model Capacitor "Singlephase linear capacitor"
       extends Interfaces.OnePort;
-      import Modelica.Constants.j;
+      import Modelica.ComplexMath.j;
       parameter Modelica.SIunits.Capacitance C(start=1) "Capacitance";
     equation
       i = j*omega*C*v;
@@ -564,7 +564,7 @@ The capacitance <i>C</i> is allowed to be positive, zero, or negative.
 
     model Inductor "Singlephase linear inductor"
       extends Interfaces.OnePort;
-      import Modelica.Constants.j;
+      import Modelica.ComplexMath.j;
       parameter Modelica.SIunits.Inductance L(start=1) "Inductance";
     equation
       v = j*omega*L*i;
@@ -745,7 +745,7 @@ A linear temperature dependency of the resistance for an enabled heat port is al
 
     model VariableCapacitor "Singlephase variable capacitor"
       extends Interfaces.OnePort;
-      import Modelica.Constants.j;
+      import Modelica.ComplexMath.j;
       Modelica.Blocks.Interfaces.RealInput C
         annotation (Placement(transformation(
             origin={0,110},
@@ -797,7 +797,7 @@ The abstraction of a variable capacitor at quasi stationary operation assumes:<b
 
     model VariableInductor "Singlephase variable inductor"
       extends Interfaces.OnePort;
-      import Modelica.Constants.j;
+      import Modelica.ComplexMath.j;
       Modelica.Blocks.Interfaces.RealInput L
         annotation (Placement(transformation(
             origin={0,108},
@@ -934,7 +934,8 @@ This model is a simple short cut branch considering the complex voltage <i><u>v<
     end Short;
 
     model IdealCommutingSwitch "Ideal commuting switch"
-      import Modelica.ComplexMath.*;
+      import Modelica.ComplexMath.real;
+      import Modelica.ComplexMath.conj;
       parameter Modelica.SIunits.Resistance Ron(final min=0)=1.E-5
         "Closed switch resistance";
       parameter Modelica.SIunits.Conductance Goff(final min=0)=1.E-5
@@ -1042,7 +1043,8 @@ This switch is only intended to be used for structural changes, not for fast swi
     end IdealCommutingSwitch;
 
     model IdealIntermediateSwitch "Ideal intermediate switch"
-      import Modelica.ComplexMath.*;
+      import Modelica.ComplexMath.real;
+      import Modelica.ComplexMath.conj;
       parameter Modelica.SIunits.Resistance Ron(final min=0)=1.E-5
         "Closed switch resistance";
       parameter Modelica.SIunits.Conductance Goff(final min=0)=1.E-5
@@ -1170,7 +1172,8 @@ This switch is only intended to be used for structural changes, not for fast swi
     end IdealIntermediateSwitch;
 
     model IdealOpeningSwitch "Ideal electrical opener"
-      import Modelica.ComplexMath.*;
+      import Modelica.ComplexMath.real;
+      import Modelica.ComplexMath.conj;
      extends Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort;
      parameter Modelica.SIunits.Resistance Ron(final min=0)=1.E-5
         "Closed switch resistance"
@@ -1259,8 +1262,9 @@ This switch is only intended to be used for structural changes, not for fast swi
     end IdealOpeningSwitch;
 
     model IdealClosingSwitch "Ideal electrical closer"
-      import Modelica.ComplexMath.*;
-        extends
+      import Modelica.ComplexMath.real;
+      import Modelica.ComplexMath.conj;
+      extends
         Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort;
         parameter Modelica.SIunits.Resistance Ron(final min=0)=1.E-5
         "Closed switch resistance"
@@ -1269,7 +1273,7 @@ This switch is only intended to be used for structural changes, not for fast swi
         parameter Modelica.SIunits.Conductance Goff(final min=0)=1.E-5
         "Opened switch conductance"   annotation (Placement(transformation(extent=
                {{10,10},{56.6667,56.6667}}, rotation=0)));
-        extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
         Modelica.Blocks.Interfaces.BooleanInput control
         "true => p--n connected, false => switch open"   annotation (Placement(
             transformation(
