@@ -277,6 +277,12 @@ end UsersGuide;
         "Time in minutes";
       type Volume_litre = Real (final quantity="Volume", final unit="l")
         "Volume in litres";
+      type ElectricCharge_Ah =
+        Real (final quantity="ElectricCharge", final unit="A.h")
+        "Electric charge in Ampere hours";
+      type Energy_Wh =
+           Real (final quantity="Energy", final unit="W.h")
+        "Energy in Watt hours";
       type Energy_kWh = Real (final quantity="Energy", final unit="kW.h")
         "Energy in kilo watt hours";
       type Pressure_bar = Real (final quantity="Pressure", final unit="bar")
@@ -648,6 +654,72 @@ still kept in Modelica.SIunits.</p>
               textString="m3")}));
     end from_litre;
 
+    function from_Ah "Convert from Ampere hours to Coulomb"
+      extends ConversionIcon;
+      input Modelica.SIunits.Conversions.NonSIunits.ElectricCharge_Ah
+            AmpereHour "Ampere hours";
+      output Modelica.SIunits.ElectricCharge Coulomb "Coulomb";
+    algorithm
+      Coulomb := AmpereHour * 3600;
+
+      annotation (Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
+            string="Ah"), Text(
+            extent=[100, -20; 20, -100],
+            style(color=0),
+            string="C")));
+    end from_Ah;
+
+    function to_Ah "Convert from Coulomb to Ampere hours"
+      extends Modelica.SIunits.Conversions.ConversionIcon;
+      input Modelica.SIunits.ElectricCharge Coulomb "Coulomb";
+      output Modelica.SIunits.Conversions.NonSIunits.ElectricCharge_Ah
+                                          AmpereHour "Ampere hours";
+    algorithm
+      AmpereHour := Coulomb/3600;
+
+      annotation (Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
+            string="Ah"), Text(
+            extent=[100, -20; 20, -100],
+            style(color=0),
+            string="C")));
+    end to_Ah;
+
+    function from_Wh "Convert from Watt hour to Joule"
+      extends Modelica.SIunits.Conversions.ConversionIcon;
+      input NonSIunits.Energy_Wh WattHour "Watt hour";
+      output Modelica.SIunits.Energy Joule "Joule";
+    algorithm
+      Joule := WattHour * 3600;
+
+      annotation (Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
+            string="Wh"), Text(
+            extent=[100, -20; 20, -100],
+            style(color=0),
+            string="C")));
+    end from_Wh;
+
+    function to_Wh "Convert from Joule to Watt hour"
+      extends Modelica.SIunits.Conversions.ConversionIcon;
+      input Modelica.SIunits.Energy Joule "Joule";
+      output NonSIunits.Energy_Wh WattHour "Watt hour";
+    algorithm
+      WattHour := Joule/3600;
+
+      annotation (Icon(Text(
+            extent=[-20, 100; -100, 20],
+            style(color=0),
+            string="Ah"), Text(
+            extent=[100, -20; 20, -100],
+            style(color=0),
+            string="C")));
+    end to_Wh;
+
     function to_kWh "Convert from Joule to kilo Watt hour"
       extends ConversionIcon;
       input Energy J "Joule value";
@@ -809,7 +881,7 @@ still kept in Modelica.SIunits.</p>
               textString="m/s"), Text(
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
-              textString="km/h")}));
+              textString="cm2")}));
     end to_cm2;
 
     function from_cm2 "Convert from square centrimetre to square metre"
@@ -822,7 +894,7 @@ still kept in Modelica.SIunits.</p>
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
-              textString="km/h"), Text(
+              textString="cm2"),  Text(
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="m/s")}));
@@ -1122,6 +1194,8 @@ argument):</p>
   type Voltage = ElectricPotential;
   type PotentialDifference = ElectricPotential;
   type ElectromotiveForce = ElectricPotential;
+  type VoltageSecond = Real (final quantity="VoltageSecond", final unit="V.s")
+    "Voltage second";
   type VoltageSlope = Real(final quantity="VoltageSlope", final unit="V/s");
   type ElectricFluxDensity = Real (final quantity="ElectricFluxDensity", final unit=
              "C/m2");
@@ -1130,6 +1204,9 @@ argument):</p>
       final quantity="Capacitance",
       final unit="F",
       min=0);
+  type CapacitancePerArea =
+              Real (final quantity="CapacitancePerArea", final unit="F/m2")
+    "Capacitance per area";
   type Permittivity = Real (
       final quantity="Permittivity",
       final unit="F/m",
@@ -1693,11 +1770,6 @@ argument):</p>
   type LandauGinzburgParameter = Real (final quantity="LandauGinzburgParameter",
           final unit="1");
   type FluxiodQuantum = Real (final quantity="FluxiodQuantum", final unit="Wb");
-  type CapacitancePerArea =
-              Real (final quantity="CapacitancePerArea", final unit="F/m2")
-    "Capacitance per area";
-  type VoltageSecond = Real (final quantity="VoltageSecond", final unit="V.s")
-    "Voltage second";
   record ComplexCurrent =
     Complex(redeclare Current re,
             redeclare Current im) "Complex electrical current";
