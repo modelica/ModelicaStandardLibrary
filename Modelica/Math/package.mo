@@ -1394,7 +1394,7 @@ has a unique solution.
     output Integer info "Information";
   protected
     Integer lda=max(1,size(A, 1));
-    external "FORTRAN 77" dgetrf(size(A, 1), size(A, 2), LU, lda, pivots, info) 
+    external "FORTRAN 77" dgetrf(size(A, 1), size(A, 2), LU, lda, pivots, info)
       annotation (Library="Lapack");
 
     annotation ( Documentation(info="<HTML>
@@ -3529,7 +3529,7 @@ The boolean input \"ATisSchur\" indicates to omit the transformation to Schur in
         (T,V) := Modelica.Math.Matrices.realSchur(    B);
       end if;
 
-      Chat := if AisSchur and BisSchur then C else if AisSchur then C*V else if 
+      Chat := if AisSchur and BisSchur then C else if AisSchur then C*V else if
         BisSchur then transpose(U)*C else transpose(U)*C*V;
       (X,scale,info) := Matrices.LAPACK.dtrsyl(S, T, Chat);
       assert(info == 0, "Solving of Sylvester equation with Matrices.continuousSylvester was not sucessfull.\n
@@ -4660,7 +4660,7 @@ Function <b>flipUpDown</b> computes from matrix <b>A</b> a matrix <b>A_fud</b> w
       Real work[lwork];
 
     external "Fortran 77" dgeev("N", "V", n, Awork, n, eigenReal, eigenImag,
-        eigenVectors, n, eigenVectors, n, work, size(work, 1), info) 
+        eigenVectors, n, eigenVectors, n, work, size(work, 1), info)
         annotation (Library="Lapack");
       annotation (
         Documentation(info="Lapack documentation
@@ -4766,7 +4766,7 @@ Function <b>flipUpDown</b> computes from matrix <b>A</b> a matrix <b>A_fud</b> w
 */
     external "Fortran 77" dgeev("N", "N", size(A, 1), Awork, size(A, 1),
         EigenReal, EigenImag, EigenvectorsL, size(EigenvectorsL, 1),
-        EigenvectorsL, size(EigenvectorsL, 1), work, size(work, 1), info) 
+        EigenvectorsL, size(EigenvectorsL, 1), work, size(work, 1), info)
         annotation (Library="Lapack");
 
       annotation (
@@ -4868,7 +4868,7 @@ Function <b>flipUpDown</b> computes from matrix <b>A</b> a matrix <b>A_fud</b> w
       Real dummy2[1,1];
 
       external "Fortran 77" dgegv("N", "N", n, Awork, n, Bwork, n, alphaReal, alphaImag, beta,
-                 dummy1, 1, dummy2, 1, work, size(work, 1), info) 
+                 dummy1, 1, dummy2, 1, work, size(work, 1), info)
             annotation (Library="Lapack");
       annotation (Documentation(info="Purpose
 =======
@@ -5569,7 +5569,7 @@ For details of the arguments, see documentation of dgesv.
       Real subdiagwork[size(subdiag, 1)]=subdiag;
 
     external "FORTRAN 77" dgtsv(size(diag, 1), size(B, 2), subdiagwork,
-        diagwork, superdiagwork, X, size(B, 1), info) 
+        diagwork, superdiagwork, X, size(B, 1), info)
         annotation (Library="Lapack");
       annotation (
         Documentation(info="Lapack documentation:
@@ -5761,7 +5761,7 @@ elements of U because of fill-in resulting from the row interchanges."));
       Real work[lwork];
 
     external "Fortran 77" dgesvd("A", "A", size(A, 1), size(A, 2), Awork, size(
-        A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info) 
+        A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info)
         annotation (Library="Lapack");
       annotation (
         Documentation(info="Lapack documentation:
@@ -5875,7 +5875,7 @@ elements of U because of fill-in resulting from the row interchanges."));
       Real work[lwork];
 
     external "Fortran 77" dgesvd("N", "N", size(A, 1), size(A, 2), Awork, size(
-        A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info) 
+        A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info)
         annotation (Library="Lapack");
       annotation (
         Documentation(info="Lapack documentation:
@@ -6401,7 +6401,7 @@ INFO    (output) INTEGER
       Integer sdim=0;
       Boolean bwork[n];
 
-      external "FORTRAN 77" c_inter_dgees("V", "N", n, T, lda, sdim, eval_real, eval_imag, Z, lda, bwork, info) 
+      external "FORTRAN 77" c_inter_dgees("V", "N", n, T, lda, sdim, eval_real, eval_imag, Z, lda, bwork, info)
       annotation (Include="
 #include<f2c.h>
 #ifdef __cplusplus
@@ -7383,7 +7383,7 @@ int c_inter_dgees_(char *jobvs, char *sort, integer *n, doublereal *a, integer *
       Integer lda=max(1,m);
       Real work[2*m];
 
-    external "Fortran 77" dlange2(norm, m, n, A, lda, work, anorm) 
+    external "Fortran 77" dlange2(norm, m, n, A, lda, work, anorm)
       annotation (Include="
   #include<f2c.h>
   #include <stdio.h>
@@ -8006,7 +8006,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
         work,
         lwork,
         iwork,
-        info) 
+        info)
         annotation (Library="lapack");
       annotation (Documentation(info="   Purpose
    =======
@@ -10530,7 +10530,7 @@ end Matrices;
 
 function sin "Sine"
   extends baseIcon1;
-  input SI.Angle u;
+  input Modelica.SIunits.Angle u;
   output Real y;
 
 external "builtin" y = sin(u);
@@ -12065,8 +12065,9 @@ annotation (
 <p>
 This package contains <b>basic mathematical functions</b> (such as sin(..)),
 as well as functions operating on 
-<a href=\"modelica://Modelica.Math.Vectors\">vectors</a> and
-<a href=\"modelica://Modelica.Math.Matrices\">matrices</a>.
+<a href=\"modelica://Modelica.Math.Vectors\">vectors</a>,
+<a href=\"modelica://Modelica.Math.Matrices\">matrices</a>, and
+<a href=\"modelica://Modelica.Math.Nonlinear\">nonlinear functions</a>.
 </p>
 
 <dl>

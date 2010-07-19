@@ -19,12 +19,19 @@ algorithm
   end if;
 
   print("--- Test functions of Modelica library", logFile);
+  Modelica.Math.Nonlinear.Examples.quadratureLobatto1();
+  Modelica.Math.Nonlinear.Examples.quadratureLobatto2();
+  Modelica.Math.Nonlinear.Examples.solveNonlinearEquations1();
+  Modelica.Math.Nonlinear.Examples.solveNonlinearEquations2();
+
+  print("--- Test functions of ModelicaTest library", logFile);
   result := ModelicaTest.Math.ScalarFunctions(logFile);
   result := ModelicaTest.Math.Polynomials(logFile);
   result := ModelicaTest.Math.Matrices(logFile);
   result := ModelicaTest.Math.Matrices2();
   result := ModelicaTest.Math.Vectors();
   result := ModelicaTest.Utilities.testAll(logFile);
+
   ok := true;
 end testAllFunctions;
 

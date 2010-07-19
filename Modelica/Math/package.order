@@ -1,5 +1,6 @@
 Vectors
 Matrices
+Nonlinear
 sin
 cos
 tan
@@ -20,3 +21,4 @@ baseIcon1
 baseIcon2
 tempInterpol1
 tempInterpol2
+Interfaces
