@@ -6404,13 +6404,18 @@ INFO    (output) INTEGER
       external "FORTRAN 77" c_inter_dgees("V", "N", n, T, lda, sdim, eval_real, eval_imag, Z, lda, bwork, info) 
       annotation (Include="
 #include<f2c.h>
+#ifdef __cplusplus
+typedef logical (*L_fp2)(...);
+#else
+typedef logical (*L_fp2)();
+#endif
 logical select_(doublereal *par1, doublereal *par2)
 {
 return false;
 };
-  #include<f2c.h>
 
-extern  int dgees_(char *, char *, L_fp, integer *, doublereal *, integer *, integer *, doublereal *, doublereal *,
+
+extern  int dgees_(char *, char *, L_fp2, integer *, doublereal *, integer *, integer *, doublereal *, doublereal *,
                    doublereal *, integer *, doublereal *, integer *, logical *, integer *);
 extern logical select_(doublereal *par1, doublereal *par2);
 
@@ -6425,11 +6430,11 @@ int c_inter_dgees_(char *jobvs, char *sort, integer *n, doublereal *a, integer *
 
 
    work = (doublereal *) malloc((3*nn+1)*sizeof(doublereal));
-   dgees_(jobvs, sort, (L_fp)select_, n, a, lda, sdim, wr, wi, z, ldz, work, &lwork, bwork, info);
+   dgees_(jobvs, sort, (L_fp2)select_, n, a, lda, sdim, wr, wi, z, ldz, work, &lwork, bwork, info);
    lwork=(int)(work[0]);
    free(work);
    work = (doublereal *) malloc((lwork+1)*sizeof(doublereal));
-   dgees_(jobvs, sort, (L_fp)select_, n, a, lda, sdim, wr, wi, z, ldz, work, &lwork, bwork, info);
+   dgees_(jobvs, sort, (L_fp2)select_, n, a, lda, sdim, wr, wi, z, ldz, work, &lwork, bwork, info);
   free(work);
   return 0;
   }",     Library={"lapack"});
