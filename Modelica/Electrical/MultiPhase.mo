@@ -509,7 +509,6 @@ Connects pin <i>k</i> of plug_n to pin_n, leaving the other pins of plug_n uncon
 
     model PlugToPins_p "Connect all (positive) Pins"
       parameter Integer m(final min=1) = 3 "Number of phases";
-      parameter Integer k(final min=1, final max=m, start = 1) "Phase index";
       Interfaces.PositivePlug plug_p(final m=m)
         annotation (Placement(transformation(extent={{-30,-10},{-10,10}},
               rotation=0)));
@@ -552,7 +551,6 @@ Connects all pins of plug_p to the pin array pin_p.
 
     model PlugToPins_n "Connect all (negative) Pins"
       parameter Integer m(final min=1) = 3 "Number of phases";
-      parameter Integer k(final min=1, final max=m, start = 1) "Phase index";
       Interfaces.NegativePlug plug_n(final m=m)
         annotation (Placement(transformation(extent={{-30,-10},{-10,10}},
               rotation=0)));
