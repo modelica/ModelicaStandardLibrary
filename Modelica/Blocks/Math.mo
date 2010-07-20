@@ -570,71 +570,6 @@ All other blocks convert exactly between two different units.
 </html>"));
   end UnitConversions;
 
-  block ShowValue
-    "Show Real value from numberPort or from number input field in diagram layer dynamically"
-    parameter Boolean use_numberPort = true "= true, if numberPort enabled"
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-    input Real number = 0.0
-      "Number to visualize if use_numberPort=false (time varying)"
-      annotation(Dialog(enable=not use_numberPort));
-    parameter Integer precision(min=0) = 3
-      "Number of significant digits to be shown";
-
-    Modelica.Blocks.Interfaces.RealInput numberPort if use_numberPort
-      "Number to be shown in diagram layer if use_numberPort = true"
-      annotation (Placement(transformation(extent={{-130,-15},{-100,15}})));
-     Modelica.Blocks.Interfaces.RealOutput number2;
-  equation
-    if use_numberPort then
-       connect(numberPort, number2);
-    else
-       number2 = number;
-    end if;
-
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false,  extent={{-100,
-                -100},{100,100}}), graphics={
-            Rectangle(
-              extent={{100,40},{-100,-40}},
-              lineColor={0,0,255},
-              fillColor={236,233,216},
-              fillPattern=FillPattern.Solid,
-              borderPattern=BorderPattern.Raised),
-            Text(extent={{-94,-34},{96,34}}, textString=DynamicSelect("0.0",
-                  realString(
-                    number2,
-                    1,
-                    integer(precision)))),
-            Text(
-              visible=not use_numberPort,
-              extent={{-150,-50},{150,-70}},
-              lineColor={0,0,0},
-              textString="%number")}), Documentation(info="<html>
-<p>
-This block visualizes a Real number in a diagram animation.
-The number to be visualized can be defined in the following ways:
-</p>
-
-<ul>
-<li> If useNumberPort = <b>true</b> (which is the default), a Real
-     input is present and this input variable is shown.</li>
-
-<li> If useNumberPort = <b>false</b> no input connector is present. 
-     Instead, a Real input field is activated in the parameter menu
-     and the Real expression from this input menu is shown.</li>
-</ul>
-
-<p>
-The two versions of the block are shown in the following image (in the right variant, the
-name of the variable value that is displayed is also shown below the icon):<br>
-<img src=\"modelica://Modelica/Images/Math/ShowValue.png\">
-</p>
-
-<p>
-The usage is demonstrated, e.g., in example
-<a href=\"modelica://Modelica.Blocks.Examples.RealNetwork1\">Modelica.Blocks.Examples.RealNetwork1</a>.
-</p>
-</html>"));
-  end ShowValue;
 
   block InverseBlockConstraints
     "Construct inverse model by requiring that two inputs and two outputs are identical (replaces the previously, unbalanced, TwoInputs and TwoOutputs blocks)"
@@ -901,7 +836,6 @@ block MultiSwitch
   Modelica.Blocks.Interfaces.RealOutput y(start=y_default,fixed=true)
       "Output depending on expression"
     annotation (Placement(transformation(extent={{300,-10},{320,10}})));
-
 
   protected
   Integer firstActiveIndex;
@@ -1331,7 +1265,6 @@ Example:
             textString="+")}));
       end Add3;
 
-
       block Product
     "Output product of the two inputs (this is an obsolet block. Use instead MultiProduct)"
         extends Interfaces.SI2SO;
@@ -1379,7 +1312,6 @@ the two inputs <b>u1</b> and <b>u2</b>:
           Line(points={{-15,-25.99},{15,25.99}}, color={0,0,0}),
           Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,255})}));
       end Product;
-
 
       block Division "Output first input divided by second input"
         extends Interfaces.SI2SO;
@@ -1447,7 +1379,6 @@ the two inputs <b>u1</b> and <b>u2</b>:
           Line(points={{-100,60},{-66,60},{-40,30}}, color={0,0,255}),
           Line(points={{-100,-60},{0,-60},{0,-50}}, color={0,0,255})}));
       end Division;
-
 
       block Abs "Output the absolute value of the input"
         extends Interfaces.SISO;

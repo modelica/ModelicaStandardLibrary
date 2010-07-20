@@ -558,11 +558,13 @@ If a \"circle\" is \"white\", the signal is <b>false</b>. It a
       annotation (Placement(transformation(extent={{-60,30},{-40,50}})));
     Sources.Constant        integerConstant(k=1)
       annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
-    Math.ShowValue        showValue
+    Modelica.Blocks.Interaction.Show.RealValue
+                          showValue
       annotation (Placement(transformation(extent={{40,60},{60,80}})));
     Math.MultiProduct   product(nu=3)
       annotation (Placement(transformation(extent={{16,24},{28,36}})));
-    Math.ShowValue        showValue1(precision=2)
+    Modelica.Blocks.Interaction.Show.RealValue
+                          showValue1(precision=2)
       annotation (Placement(transformation(extent={{46,20},{66,40}})));
     Sources.BooleanPulse booleanPulse1(period=1)
       annotation (Placement(transformation(extent={{-12,-30},{8,-10}})));
@@ -573,7 +575,8 @@ If a \"circle\" is \"white\", the signal is <b>false</b>. It a
       annotation (Placement(transformation(extent={{28,-60},{68,-40}})));
     Sources.BooleanPulse booleanPulse2(period=2, width=80)
       annotation (Placement(transformation(extent={{-12,-70},{8,-50}})));
-    Math.ShowValue        showValue3(use_numberPort=false, number=multiSwitch.y,
+    Modelica.Blocks.Interaction.Show.RealValue
+                          showValue3(use_numberPort=false, number=multiSwitch.y,
       precision=1)
       annotation (Placement(transformation(extent={{40,-84},{60,-64}})));
     equation
@@ -654,17 +657,20 @@ Note, that
       annotation (Placement(transformation(extent={{-60,30},{-40,50}})));
     Sources.IntegerConstant integerConstant(k=1)
       annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
-    MathInteger.ShowValue showValue
+    Modelica.Blocks.Interaction.Show.IntegerValue
+                          showValue
       annotation (Placement(transformation(extent={{40,60},{60,80}})));
     MathInteger.Product product(nu=2)
       annotation (Placement(transformation(extent={{16,24},{28,36}})));
-    MathInteger.ShowValue showValue1
+    Modelica.Blocks.Interaction.Show.IntegerValue
+                          showValue1
       annotation (Placement(transformation(extent={{40,20},{60,40}})));
     MathInteger.TriggeredAdd triggeredAdd(use_reset=false, use_set=false)
       annotation (Placement(transformation(extent={{16,-6},{28,6}})));
     Sources.BooleanPulse booleanPulse1(period=1)
       annotation (Placement(transformation(extent={{-12,-30},{8,-10}})));
-    MathInteger.ShowValue showValue2
+    Modelica.Blocks.Interaction.Show.IntegerValue
+                          showValue2
       annotation (Placement(transformation(extent={{40,-10},{60,10}})));
     MathInteger.MultiSwitch multiSwitch1(
       nu=2,
@@ -674,7 +680,8 @@ Note, that
       annotation (Placement(transformation(extent={{28,-60},{68,-40}})));
     Sources.BooleanPulse booleanPulse2(period=2, width=80)
       annotation (Placement(transformation(extent={{-12,-70},{8,-50}})));
-    MathInteger.ShowValue showValue3(use_numberPort=false, number=multiSwitch1.y)
+    Modelica.Blocks.Interaction.Show.IntegerValue
+                          showValue3(use_numberPort=false, number=multiSwitch1.y)
       annotation (Placement(transformation(extent={{40,-84},{60,-64}})));
     equation
     connect(sine.y, realToInteger.u) annotation (Line(
@@ -761,7 +768,8 @@ Note, that
 
     extends Modelica.Icons.Example;
 
-    MathBoolean.ShowValue showValue
+    Modelica.Blocks.Interaction.Show.BooleanValue
+                          showValue
       annotation (Placement(transformation(extent={{-36,74},{-16,94}})));
     MathBoolean.And and1(nu=3)
       annotation (Placement(transformation(extent={{-58,64},{-46,76}})));
@@ -775,15 +783,18 @@ Note, that
       annotation (Placement(transformation(extent={{-28,62},{-16,74}})));
     MathBoolean.Xor xor1(nu=2)
       annotation (Placement(transformation(extent={{-2,60},{10,72}})));
-    MathBoolean.ShowValue showValue2
+    Modelica.Blocks.Interaction.Show.BooleanValue
+                          showValue2
       annotation (Placement(transformation(extent={{-2,74},{18,94}})));
-    MathBoolean.ShowValue showValue3
+    Modelica.Blocks.Interaction.Show.BooleanValue
+                          showValue3
       annotation (Placement(transformation(extent={{24,56},{44,76}})));
     MathBoolean.Nand nand1(nu=2)
       annotation (Placement(transformation(extent={{22,40},{34,52}})));
     MathBoolean.Nor or2(nu=2)
       annotation (Placement(transformation(extent={{46,38},{58,50}})));
-    MathBoolean.ShowValue showValue4
+    Modelica.Blocks.Interaction.Show.BooleanValue
+                          showValue4
       annotation (Placement(transformation(extent={{90,34},{110,54}})));
     MathBoolean.Not nor1
       annotation (Placement(transformation(extent={{68,40},{76,48}})));
@@ -803,11 +814,14 @@ Note, that
       annotation (Placement(transformation(extent={{14,-56},{26,-44}})));
     Sources.IntegerConstant integerConstant(k=2)
       annotation (Placement(transformation(extent={{-20,-60},{0,-40}})));
-    MathInteger.ShowValue showValue1
+    Modelica.Blocks.Interaction.Show.IntegerValue
+                          showValue1
       annotation (Placement(transformation(extent={{40,-60},{60,-40}})));
-    MathBoolean.ShowValue showValue5
+    Modelica.Blocks.Interaction.Show.BooleanValue
+                          showValue5
       annotation (Placement(transformation(extent={{24,-23},{44,-3}})));
-    MathBoolean.ShowValue showValue6
+    Modelica.Blocks.Interaction.Show.BooleanValue
+                          showValue6
       annotation (Placement(transformation(extent={{-32,-100},{-12,-80}})));
     equation
     connect(booleanPulse1.y, and1.u[1]) annotation (Line(
@@ -944,6 +958,40 @@ Note, that
 </html>"),
       experimentSetupOutput);
     end BooleanNetwork1;
+
+    model Interaction1
+    "Demonstrates the usage of blocks from Modelica.Blocks.Interaction"
+
+    extends Modelica.Icons.Example;
+
+    Interaction.Show.IntegerValue integerValue
+      annotation (Placement(transformation(extent={{0,40},{20,60}})));
+    annotation(Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
+              -100},{100,100}}),
+                       graphics),
+        experiment(StopTime=10),
+      Documentation(info="<html>
+<p>
+This example demonstrates a network of Boolean blocks
+from package <a href=\"Modelica.Blocks.MathBoolean\">Modelica.Blocks.MathBoolean</a>.
+Note, that
+</p>
+
+<ul>
+<li> at the right side of the model, several MathBoolean.ShowValue blocks
+     are present, that visualize the actual value of the respective Boolean
+     signal in a diagram animation (\"green\" means \"true\").</li>
+
+<li> the Boolean values of the input and output signals are visualized
+     in the diagram animation, by the small \"circles\" close to the connectors.
+     If a \"circle\" is \"white\", the signal is <b>false</b>. If a
+     \"circle\" is \"green\", the signal is <b>true</b>.</li>
+
+</ul>
+
+</html>"),
+      experimentSetupOutput);
+    end Interaction1;
 
   model BusUsage "Demonstrates the usage of a signal bus"
     extends Modelica.Icons.Example;

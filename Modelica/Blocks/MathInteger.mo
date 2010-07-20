@@ -2,146 +2,6 @@ within Modelica.Blocks;
 package MathInteger
   "Library of Integer mathematical functions as input/output blocks"
   extends Modelica.Icons.Package;
-  block ShowValue
-    "Show Integer value from numberPort or from number input field in diagram layer dynamically"
-    parameter Boolean use_numberPort = true "= true, if numberPort enabled"
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-    input Integer number=0
-      "Number to visualize if use_numberPort=false (time varying)"
-      annotation(Dialog(enable=not use_numberPort));
-    Modelica.Blocks.Interfaces.IntegerInput numberPort if use_numberPort
-      "Number to be shown in diagram layer if use_numberPort = true"
-      annotation (Placement(transformation(extent={{-130,-15},{-100,15}})));
-     Modelica.Blocks.Interfaces.IntegerOutput number2;
-  equation
-    if use_numberPort then
-       connect(numberPort, number2);
-    else
-       number2 = number;
-    end if;
-
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false,  extent={{-100,
-                -100},{100,100}}), graphics={
-            Rectangle(
-              extent={{100,40},{-100,-40}},
-              lineColor={0,0,255},
-              fillColor={236,233,216},
-              fillPattern=FillPattern.Solid,
-              borderPattern=BorderPattern.Raised),
-            Text(extent={{-94,-34},{96,34}}, textString=DynamicSelect("0",
-                  realString(
-                    number2,
-                    1,
-                    0))),
-            Text(
-              visible=not use_numberPort,
-              extent={{-150,-50},{150,-70}},
-              lineColor={0,0,0},
-              textString="%number")}), Documentation(info="<html>
-<p>
-This block viualizes an Integer number in a diagram animation.
-The number to be visualized can be defined in the following ways:
-</p>
-
-<ul>
-<li> If useNumberPort = <b>true</b> (which is the default), an Integer
-     input is present and this input variable is shown.</li>
-
-<li> If useNumberPort = <b>false</b> no input connector is present. 
-     Instead, an Integer input field is activated in the parameter menu
-     and the Integer expression from this input menu is shown.</li>
-</ul>
-
-<p>
-The two versions of the block are shown in the following image (in the right variant, the
-name of the variable value that is displayed is also shown below the icon):<br>
-<img src=\"modelica://Modelica/Images/MathInteger/ShowValue.png\">
-</p>
-
-<p>
-The usage is demonstrated, e.g., in example
-<a href=\"modelica://Modelica.Blocks.Examples.IntegerNetwork1\">Modelica.Blocks.Examples.IntegerNetwork1</a>.
-</p>
-</html>"));
-  end ShowValue;
-
-  block Sum "Sum of Integers: y = k[1]*u[1] + k[2]*u[2] + ... + k[n]*u[n]"
-     extends Modelica.Blocks.Interfaces.PartialIntegerMISO;
-     parameter Integer k[nu] = fill(1,nu) "Input gains";
-  equation
-    y = k*u;
-
-    annotation (Icon(graphics={Text(
-              extent={{-200,-110},{200,-140}},
-              lineColor={0,0,0},
-              fillColor={255,213,170},
-              fillPattern=FillPattern.Solid,
-              textString="%k"), Text(
-              extent={{-72,68},{92,-68}},
-              lineColor={0,0,0},
-              fillColor={255,213,170},
-              fillPattern=FillPattern.Solid,
-              textString="+")}), Documentation(info="<html>
-<p>
-This blocks computes the scalar Integer output \"y\" as sum of the elements of the
-Integer input signal vector u:
-</p>
-<blockquote><pre>
-y = k[1]*u[1] + k[2]*u[2] + ... k[N]*u[N];
-</pre></blockquote>
-
-<p>
-The input connector is a vector of Integer input signals.
-When a connection line is drawn, the dimension of the input
-vector is enlarged by one and the connection is automatically
-connected to this new free index (thanks to the 
-connectorSizing annotation).
-</p>
-
-<p>
-The usage is demonstrated, e.g., in example
-<a href=\"modelica://Modelica.Blocks.Examples.IntegerNetwork1\">Modelica.Blocks.Examples.IntegerNetwork1</a>.
-</p>
-
-</html>"));
-  end Sum;
-
-  block Product "Product of Integer: y = u[1]*u[2]* ... *u[n]"
-     extends Modelica.Blocks.Interfaces.PartialIntegerMISO;
-  equation
-    y = product(u);
-
-    annotation (Icon(graphics={Text(
-              extent={{-74,50},{94,-94}},
-              lineColor={0,0,0},
-              fillColor={255,213,170},
-              fillPattern=FillPattern.Solid,
-              textString="*")}), Documentation(info="<html>
-<p>
-This blocks computes the scalar Integer output \"y\" as product of the elements of the
-Integer input signal vector u:
-</p>
-<blockquote><pre>
-y = u[1]*u[2]* ... *u[N];
-</pre></blockquote>
-
-<p>
-The input connector is a vector of Integer input signals.
-When a connection line is drawn, the dimension of the input
-vector is enlarged by one and the connection is automatically
-connected to this new free index (thanks to the 
-connectorSizing annotation).
-</p>
-
-<p>
-The usage is demonstrated, e.g., in example
-<a href=\"modelica://Modelica.Blocks.Examples.IntegerNetwork1\">Modelica.Blocks.Examples.IntegerNetwork1</a>.
-</p>
-
-
-</html>"));
-  end Product;
-
 block MultiSwitch
     "Set Integer expression that is associated with the first active input signal"
 
@@ -241,6 +101,84 @@ The usage is demonstrated, e.g., in example
 
 </html>"));
 end MultiSwitch;
+
+  block Sum "Sum of Integers: y = k[1]*u[1] + k[2]*u[2] + ... + k[n]*u[n]"
+     extends Modelica.Blocks.Interfaces.PartialIntegerMISO;
+     parameter Integer k[nu] = fill(1,nu) "Input gains";
+  equation
+    y = k*u;
+
+    annotation (Icon(graphics={Text(
+              extent={{-200,-110},{200,-140}},
+              lineColor={0,0,0},
+              fillColor={255,213,170},
+              fillPattern=FillPattern.Solid,
+              textString="%k"), Text(
+              extent={{-72,68},{92,-68}},
+              lineColor={0,0,0},
+              fillColor={255,213,170},
+              fillPattern=FillPattern.Solid,
+              textString="+")}), Documentation(info="<html>
+<p>
+This blocks computes the scalar Integer output \"y\" as sum of the elements of the
+Integer input signal vector u:
+</p>
+<blockquote><pre>
+y = k[1]*u[1] + k[2]*u[2] + ... k[N]*u[N];
+</pre></blockquote>
+
+<p>
+The input connector is a vector of Integer input signals.
+When a connection line is drawn, the dimension of the input
+vector is enlarged by one and the connection is automatically
+connected to this new free index (thanks to the 
+connectorSizing annotation).
+</p>
+
+<p>
+The usage is demonstrated, e.g., in example
+<a href=\"modelica://Modelica.Blocks.Examples.IntegerNetwork1\">Modelica.Blocks.Examples.IntegerNetwork1</a>.
+</p>
+
+</html>"));
+  end Sum;
+
+  block Product "Product of Integer: y = u[1]*u[2]* ... *u[n]"
+     extends Modelica.Blocks.Interfaces.PartialIntegerMISO;
+  equation
+    y = product(u);
+
+    annotation (Icon(graphics={Text(
+              extent={{-74,50},{94,-94}},
+              lineColor={0,0,0},
+              fillColor={255,213,170},
+              fillPattern=FillPattern.Solid,
+              textString="*")}), Documentation(info="<html>
+<p>
+This blocks computes the scalar Integer output \"y\" as product of the elements of the
+Integer input signal vector u:
+</p>
+<blockquote><pre>
+y = u[1]*u[2]* ... *u[N];
+</pre></blockquote>
+
+<p>
+The input connector is a vector of Integer input signals.
+When a connection line is drawn, the dimension of the input
+vector is enlarged by one and the connection is automatically
+connected to this new free index (thanks to the 
+connectorSizing annotation).
+</p>
+
+<p>
+The usage is demonstrated, e.g., in example
+<a href=\"modelica://Modelica.Blocks.Examples.IntegerNetwork1\">Modelica.Blocks.Examples.IntegerNetwork1</a>.
+</p>
+
+
+</html>"));
+  end Product;
+
 
   block TriggeredAdd
     "Add input to previous value of output, if rising edge of trigger port"

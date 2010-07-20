@@ -382,6 +382,19 @@ extends Modelica.Icons.Library;
               true, extent={{-100,-100},{300,100}})));
   end UnitDeduction;
 
+  model IntegerTable
+    Modelica.Blocks.Sources.IntegerTable integerTable(table=[0,1; 1,4; 1.5,5; 2,
+          6]) annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
+    Modelica.Blocks.Sources.IntegerTable integerTable2(table=[0,-1])
+      annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+    Modelica.Blocks.Sources.IntegerTable integerTable3(table=[2,-2])
+      annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
+    Modelica.Blocks.Sources.IntegerTable integerTable4(table=[0,1; 1,4; 1.5,5;
+          2,6; 4,7])
+      annotation (Placement(transformation(extent={{-40,60},{-20,80}})));
+    annotation (experiment(StopTime=3), experimentSetupOutput);
+  end IntegerTable;
+
   package FilterTests "Test of Blocks.Continuous.Filter"
     block AllOptions
       "Simulates 264 filter blocks and varies all possible options systematically for different orders and different cut-off frequencies"

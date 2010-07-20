@@ -3188,4 +3188,181 @@ usually requires a trimming calculation.
        of Dieter Moormann and Hilding Elmqvist.</li>
 </ul>
 </html>"));
+    block IntegerTable
+    "Generate an Integer output signal based on a vector of time instants"
+
+      parameter Real table[:, 2] = fill(0, 0, 2)
+      "Table matrix (first column: time; second column: y)";
+
+      extends Interfaces.IntegerSO;
+
+  protected
+      function getFirstIndex "Get first index of table and check table"
+        input Real table[:,2] "Table matrix";
+        input Modelica.SIunits.Time simulationStartTime "Simulation start time";
+        output Integer index "First index to be used";
+        output Modelica.SIunits.Time nextTime "Time instant of first event";
+        output Integer y "Value of y at simulationStartTime";
+    protected
+        Modelica.SIunits.Time t_last;
+        Integer j;
+        Integer n=size(table,1) "Number of table points";
+      algorithm
+        if size(table,1) == 0 then
+           index :=0;
+           nextTime := simulationStartTime - 1;
+           y :=0;
+        else
+           // Check whether time values are strict monotonically increasing
+           t_last :=table[1,1];
+           for i in 2:n loop
+              assert(table[i,1] > t_last,
+                "Time values of table not strict monotonically increasing: table[" +
+                String(i-1) + ",1] = " + String(table[i-1,1]) + "table[" + String(i)   +
+                ",1] = " + String(table[i,1]));
+           end for;
+
+           // Check that all values in the second column are Integer values
+           for i in 1:n loop
+              assert(rem(table[i,2],1) == 0.0, "Table value is not an Integer: table[" +
+                String(i) + ",2] = " + String(table[i,2]));
+           end for;
+
+           // Determine index in table for "nextTime"
+           j := 1;
+           y := integer(table[1,2]);
+           while j < n and table[j,1] <= simulationStartTime loop
+             j := j + 1;
+           end while;
+
+           if j == 1 then
+              nextTime := table[1,1];
+              y        := integer(table[1,2]);
+           elseif j == n and table[n,1] <= simulationStartTime then
+              nextTime := simulationStartTime - 1;
+              y        := integer(table[n,2]);
+           else
+              nextTime := table[j,1];
+              y        := integer(table[j-1,2]);
+           end if;
+
+           index := j;
+        end if;
+      end getFirstIndex;
+
+      parameter Integer n = size(table,1) "Number of table points";
+      Modelica.SIunits.Time nextTime;
+      Integer index "Index of actual table entry";
+    initial algorithm
+      (index, nextTime, y) :=getFirstIndex(table, time);
+    equation
+      assert(size(table,1) > 0, "No table values defined.");
+      when time >= pre(nextTime) then
+         y        = integer(table[pre(index),2]);
+         index    = pre(index) + 1;
+         nextTime = if index <= n then table[index,1] else pre(nextTime) - 1;
+      end when;
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+              100,100}}), graphics={
+            Line(points={{-80,64},{-80,-84}}, color={192,192,192}),
+            Polygon(
+              points={{-80,86},{-88,64},{-72,64},{-80,86}},
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-90,-74},{82,-74}}, color={192,192,192}),
+            Polygon(
+              points={{90,-74},{68,-66},{68,-82},{90,-74}},
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+        Rectangle(
+          extent={{-46,68},{4,-52}},
+          lineColor={255,255,255},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid),
+        Line(points={{-46,-52},{-46,68},{54,68},{54,-52},{-46,-52},{-46,-22},{54,-22},
+                  {54,8},{-46,8},{-46,38},{54,38},{54,68},{4,68},{4,-53}},
+            color={0,0,0})}),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+              {100,100}}), graphics={
+        Rectangle(
+          extent={{-40,60},{10,-60}},
+          lineColor={255,255,255},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid),
+        Line(points={{-40,-60},{-40,60},{60,60},{60,-60},{-40,-60},{-40,-30},{60,-30},
+                  {60,0},{-40,0},{-40,30},{60,30},{60,60},{10,60},{10,-61}},
+            color={0,0,0}),
+        Text(
+          extent={{-35,53},{4,38}},
+          lineColor={0,0,0},
+          textString="time"),
+        Text(
+          extent={{13,53},{56,37}},
+          lineColor={0,0,0},
+          textString="y"),
+        Text(
+          extent={{66,-88},{90,-98}},
+          lineColor={0,0,0},
+          textString="time"),
+        Polygon(
+          points={{88,-80},{68,-75},{68,-84},{88,-80}},
+          lineColor={95,95,95},
+          fillColor={95,95,95},
+          fillPattern=FillPattern.Solid),
+        Line(points={{-90,-80},{82,-80}}, color={95,95,95}),
+        Line(points={{-80,58},{-80,-90}}, color={95,95,95}),
+        Polygon(
+          points={{-80,80},{-85,58},{-74,58},{-80,80}},
+          lineColor={95,95,95},
+          fillColor={95,95,95},
+          fillPattern=FillPattern.Solid),
+        Text(
+          extent={{-76,83},{-44,65}},
+          lineColor={0,0,0},
+          textString="y")}),
+        Documentation(info="<html>
+
+<p>
+This block generates an Integer output signal by using a table.
+The time points and y-values are stored in a matrix
+<b>table[i,j]</b>, where the first column table[:,1] contains the
+Real time points and the second column contains the Integer value of the
+output y at this time point.
+</p>
+
+<p>
+An assert is triggered, if no table values are provided, if the
+time points are not strict monotonically increasing, or if
+the second column of the table matrix does not contain Integer values.
+</p>
+
+<p>
+If the simulation time is less than the first table time instant,
+then the output y = table[1,2].<br>
+If the simulation time is greater than the last table time instant,
+then the output y = table[end,2].
+</p>
+
+<p>
+Example:
+</p>
+<pre>
+   table = [  0, 1; 
+              1, 4; 
+            1.5, 5; 
+              2, 6];
+</pre>
+<p>
+results in the following output:
+</p>
+
+<blockquote><p>
+<img src=\"modelica://Modelica/Images/Blocks/Sources/IntegerTable.png\">
+</p></blockquote>
+
+</html>"));
+    end IntegerTable;
 end Sources;

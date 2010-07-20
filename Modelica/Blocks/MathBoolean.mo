@@ -2,64 +2,103 @@ within Modelica.Blocks;
 package MathBoolean
   "Library of Boolean mathematical functions as input/output blocks"
   extends Modelica.Icons.Package;
-  block ShowValue
-    "Show Integer value from numberPort or from number input field in diagram layer dynamically"
-    parameter Boolean use_activePort = true "= true, if activePort enabled"
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-    input Boolean active=false
-      "Boolean variable to visualize if use_activePort=false (time varying)"
-      annotation(Dialog(enable=not use_activePort));
-    Modelica.Blocks.Interfaces.BooleanInput activePort if use_activePort
-      "Boolean variable to be shown in diagram layer if use_activePort = true"
-      annotation (Placement(transformation(extent={{-130,-15},{-100,15}})));
 
-     Modelica.Blocks.Interfaces.BooleanOutput active2;
-  equation
-    if use_activePort then
-       connect(activePort, active2);
-    else
-       active2 = active;
-    end if;
+block MultiSwitch
+    "Set Boolean expression that is associated with the first active input signal"
 
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false,  extent={{-100,
-                -100},{100,100}}), graphics={Text(
-              visible=not use_activePort,
-              extent={{-188,-60},{62,-80}},
+  input Boolean expr[nu]=fill(false, nu)
+      "y = if u[i] then expr[i] else y_default (time varying)"            annotation(Dialog);
+  parameter Boolean use_pre_as_default=true
+      "set true to hold last value as default (y_default = pre(y))"
+        annotation(HideResult=true, choices(__Dymola_checkBox=true));
+  parameter Boolean y_default=false
+      "Default value of output y if all u[i] = false"
+                                                    annotation(Dialog(enable = not use_pre_as_default));
+
+  parameter Integer nu(min=0) = 0 "Number of input connections"
+          annotation(Dialog(connectorSizing=true), HideResult=true);
+
+  Modelica_StateGraph2.Blocks.Interfaces.BooleanVectorInput u[nu]
+      "Set y = expr[i], if u[i] = true"
+    annotation (Placement(transformation(extent={{-110,30},{-90,-30}})));
+  Modelica.Blocks.Interfaces.BooleanOutput y(start=y_default,fixed=true)
+      "Output depending on expression"
+    annotation (Placement(transformation(extent={{300,-10},{320,10}})));
+
+  protected
+  Integer firstActiveIndex;
+equation
+    firstActiveIndex =
+      Modelica_StateGraph2.Blocks.BooleanFunctions.firstTrueIndex(u);
+   y = if firstActiveIndex == 0 then (if use_pre_as_default then pre(y) else y_default) else
+                                     expr[firstActiveIndex];
+  annotation (
+    defaultComponentName="set1",
+    Diagram(coordinateSystem(
+        preserveAspectRatio=false,
+        extent={{-100,-100},{300,100}},
+        grid={1,1}), graphics),
+    Icon(coordinateSystem(
+        preserveAspectRatio=true,
+        extent={{-100,-100},{300,100}},
+        grid={1,1}), graphics={
+            Text(
+              visible=not use_pre_as_default,
+              extent={{-100,-60},{300,-90}},
               lineColor={0,0,0},
-              textString="%active"), Ellipse(
-              extent={{-100,-40},{-20,40}},
-              fillColor=DynamicSelect({235,235,235}, if active2 > 0.5 then {0,
-                  255,0} else {235,235,235}),
+              textString="else: %y_default"),
+            Text(
+              visible=use_pre_as_default,
+              extent={{-100,-60},{300,-90}},
               lineColor={0,0,0},
-              pattern=LinePattern.None,
-              fillPattern=FillPattern.Sphere)}), Documentation(info="<html>
+              textString="else: pre(y)"),
+            Text(
+              extent={{-99,99},{300,59}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Rectangle(
+              extent={{-100,-51},{300,50}},
+              lineColor={255,127,0},
+              fillColor={210,210,210},
+              fillPattern=FillPattern.Solid,
+              borderPattern=BorderPattern.Raised),
+            Text(
+              extent={{-84,16},{273,-15}},
+              lineColor={0,0,0},
+              fillColor={255,246,238},
+              fillPattern=FillPattern.Solid,
+              textString="%expr"),
+            Ellipse(
+              extent={{275,8},{289,-6}},
+              lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
+                        {235,235,235}),
+              fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
+                        {235,235,235}),
+              fillPattern=FillPattern.Solid)}),
+    Documentation(info="<html>
 <p>
-This block viualizes a Boolean variable in a diagram animation.
-The Boolean variable to be visualized can be defined in the following ways:
+The block has a vector of Boolean input signals u[nu] and a vector of
+(time varying) Boolean expressions expr[:]. The output signal y is
+set to expr[i], if i is the first element in the input vector u that is true.
+If all input signals are false, y is set to parameter \"y_default\" or the
+previous value of y is kept if parameter use_pre_as_default = <b>true</b>:
 </p>
 
-<ul>
-<li> If useActivePort = <b>true</b> (which is the default), a Boolean
-     input is present and this input variable is shown.</li>
-
-<li> If useActivePort = <b>false</b> no input connector is present. 
-     Instead, a Boolean input field is activated in the parameter menu
-     and the Boolean expression from this input menu is shown.</li>
-</ul>
-
-<p>
-If the Boolean variable is <b>false</b> the block is \"grey\", otherwise, it is \"green\".
-The two versions of the block are shown in the following image (in the right variant, the
-name of the variable value that is displayed is also shown below the icon):<br>
-<img src=\"modelica://Modelica/Images/MathBoolean/ShowValue.png\">
-</p>
+<blockquote><pre>
+  // Conceptual equation (not valid Modelica)
+  i = 'first element of u[:] that is true';
+  y = <b>if</b> i==0 <b>then</b> (<b>if</b> use_pre_as_default <b>then</b> pre(y) 
+                                          <b>else</b> y_default) 
+      <b>else</b> expr[i];
+</pre></blockquote>
 
 <p>
 The usage is demonstrated, e.g., in example
 <a href=\"modelica://Modelica.Blocks.Examples.BooleanNetwork1\">Modelica.Blocks.Examples.BooleanNetwork1</a>.
 </p>
+
 </html>"));
-  end ShowValue;
+end MultiSwitch;
 
   block And "Logical 'and': y = u[1] and u[2] and ... and u[nu]"
     extends Modelica.Blocks.Interfaces.PartialBooleanMISO;
@@ -331,103 +370,6 @@ The usage is demonstrated, e.g., in example
 </html>"));
   end ChangingEdge;
 
-block MultiSwitch
-    "Set Boolean expression that is associated with the first active input signal"
-
-  input Boolean expr[nu]=fill(false, nu)
-      "y = if u[i] then expr[i] else y_default (time varying)"            annotation(Dialog);
-  parameter Boolean use_pre_as_default=true
-      "set true to hold last value as default (y_default = pre(y))"
-        annotation(HideResult=true, choices(__Dymola_checkBox=true));
-  parameter Boolean y_default=false
-      "Default value of output y if all u[i] = false"
-                                                    annotation(Dialog(enable = not use_pre_as_default));
-
-  parameter Integer nu(min=0) = 0 "Number of input connections"
-          annotation(Dialog(connectorSizing=true), HideResult=true);
-
-  Modelica_StateGraph2.Blocks.Interfaces.BooleanVectorInput u[nu]
-      "Set y = expr[i], if u[i] = true"
-    annotation (Placement(transformation(extent={{-110,30},{-90,-30}})));
-  Modelica.Blocks.Interfaces.BooleanOutput y(start=y_default,fixed=true)
-      "Output depending on expression"
-    annotation (Placement(transformation(extent={{300,-10},{320,10}})));
-
-  protected
-  Integer firstActiveIndex;
-equation
-    firstActiveIndex =
-      Modelica_StateGraph2.Blocks.BooleanFunctions.firstTrueIndex(u);
-   y = if firstActiveIndex == 0 then (if use_pre_as_default then pre(y) else y_default) else
-                                     expr[firstActiveIndex];
-  annotation (
-    defaultComponentName="set1",
-    Diagram(coordinateSystem(
-        preserveAspectRatio=false,
-        extent={{-100,-100},{300,100}},
-        grid={1,1}), graphics),
-    Icon(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{300,100}},
-        grid={1,1}), graphics={
-            Text(
-              visible=not use_pre_as_default,
-              extent={{-100,-60},{300,-90}},
-              lineColor={0,0,0},
-              textString="else: %y_default"),
-            Text(
-              visible=use_pre_as_default,
-              extent={{-100,-60},{300,-90}},
-              lineColor={0,0,0},
-              textString="else: pre(y)"),
-            Text(
-              extent={{-99,99},{300,59}},
-              textString="%name",
-              lineColor={0,0,255}),
-            Rectangle(
-              extent={{-100,-51},{300,50}},
-              lineColor={255,127,0},
-              fillColor={210,210,210},
-              fillPattern=FillPattern.Solid,
-              borderPattern=BorderPattern.Raised),
-            Text(
-              extent={{-84,16},{273,-15}},
-              lineColor={0,0,0},
-              fillColor={255,246,238},
-              fillPattern=FillPattern.Solid,
-              textString="%expr"),
-            Ellipse(
-              extent={{275,8},{289,-6}},
-              lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
-                        {235,235,235}),
-              fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
-                        {235,235,235}),
-              fillPattern=FillPattern.Solid)}),
-    Documentation(info="<html>
-<p>
-The block has a vector of Boolean input signals u[nu] and a vector of
-(time varying) Boolean expressions expr[:]. The output signal y is
-set to expr[i], if i is the first element in the input vector u that is true.
-If all input signals are false, y is set to parameter \"y_default\" or the
-previous value of y is kept if parameter use_pre_as_default = <b>true</b>:
-</p>
-
-<blockquote><pre>
-  // Conceptual equation (not valid Modelica)
-  i = 'first element of u[:] that is true';
-  y = <b>if</b> i==0 <b>then</b> (<b>if</b> use_pre_as_default <b>then</b> pre(y) 
-                                          <b>else</b> y_default) 
-      <b>else</b> expr[i];
-</pre></blockquote>
-
-<p>
-The usage is demonstrated, e.g., in example
-<a href=\"modelica://Modelica.Blocks.Examples.BooleanNetwork1\">Modelica.Blocks.Examples.BooleanNetwork1</a>.
-</p>
-
-</html>"));
-end MultiSwitch;
-
   block OnDelay
     "Delay a rising edge of the input, but do not delay a falling edge."
         extends Modelica.Blocks.Interfaces.PartialBooleanSISO_small;
@@ -486,6 +428,7 @@ The usage is demonstrated, e.g., in example
 
 </html>"));
   end OnDelay;
+
   annotation (Documentation(info="<html>
 <p>
 This package contains basic <b>mathematical operations</b>
