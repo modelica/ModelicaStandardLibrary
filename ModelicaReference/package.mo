@@ -6084,6 +6084,259 @@ or in a \"constrained\" clause to define the constraints of a replaceable class.
 end Partial;
 
 
+class Stream "stream"
+  extends Modelica.Icons.Information;
+  annotation (Documentation(info="<html>
+<p>
+Declare stream variable in a connector to describe bi-directional flow of matter
+</p>
+<h4><font color=\"#008000\">Examples</font></h4>
+
+<blockquote>
+<pre><b>connector</b> FluidPort
+  <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium;
+  Medium.AbsolutePressure        p          \"Pressure in connection point\";
+  <b>flow</b>   Medium.MassFlowRate     m_flow     \"&gt; 0, if flow into component\";
+  <b>stream</b> Medium.SpecificEnthalpy h_outflow  \"h close to port if m_flow &lt; 0\";
+<b>end</b> FluidPort;
+</pre></blockquote>
+<p>
+FluidPort is a stream connector, because a connector variable has the
+stream prefix. The Medium definition and the stream variables are associated
+with the only flow variable (m_flow) that defines a fluid stream.
+The Medium and the stream variables are transported with this flow variable.
+The stream variable h_outflow is the stream property inside the component
+close to the boundary, when fluid flows out of the component into
+the connection point. The stream properties for the other flow direction
+can be inquired with the built-in operator
+<a href=\"modelica://ModelicaReference.Operators.InStream\">inStream()</a>. The value of the
+stream variable corresponding to the actual flow direction can be
+inquired through the built-in operator actualStream().
+</p>
+
+<blockquote>
+<pre><b>model</b> IsenthalpicFlow \"No energy storage/losses, e.g. pressure drop, valve, ...\"
+  <b>replaceable package</b> Medium=Modelica.Media.Interfaces.PartialMedium;
+  FluidPort port_a, port_b:
+  Medium.ThermodynamicState port_a_state_inflow \"State at port_a if inflowing\";
+  Medium.ThermodynamicState port_b_state_inflow \"State at port_b if inflowing\";
+<b>equation</b>
+  // Medium states for inflowing fluid
+  port_a_state_inflow = Medium.setState_phX(port_a.p,
+                                            <b>inStream</b>(port_a.h_outflow));
+  port_b_state_inflow = Medium.setState_phX(port_b.p,
+                                            <b>inStream</b>(port_b.h_outflow));
+  // Mass balance
+  0 = port_a.m_flow + port_b.m_flow;
+
+  // Instantaneous propagation of enthalpy flow between the ports with
+  // isenthalpic state transformation (no storage and no loss of energy)
+  port_a.h_outflow = <b>inStream</b>(port_b.h_outflow);
+  port_b.h_outflow = <b>inStream</b>(port_a.h_outflow);
+
+  // (Regularized) Momentum balance
+  port_a.m_flow = f(port_a.p, port_b.p,
+                    Medium.density(port_a_state_inflow),
+                    Medium.density(port_b_state_inflow));
+<b>end</b> IsenthalpicFlow;
+</pre></blockquote>
+
+<p>When two or more FluidPort (inside) connectors are connected together, then <b>no</b>
+connection equations are generated for <b>stream</b> variables. Instead, these
+equations are constructed by the <b>inStream</b>(..) built-in operator
+(see example model IsenthalpicFlow) above. If two IsenthalpicFlow components
+are connected together:
+</p>
+
+<blockquote><pre>   IsenthalpicFlow dp1;
+   IsenthalpicFlow dp2;
+<b>equation</b>
+  <b>connect</b>(dp1, dp2);
+</pre></blockquote>
+
+<p>
+Then, the following connection equations are generated
+</p>
+
+<blockquote><pre>dp1.p = dp2.p;
+0 = dp1.m_flow + dp2.m_flow;
+</pre></blockquote>
+
+<p>
+Note, no equation for a stream variable is generated. However, the inStream(..)
+operators inside the components provide the \"ideal mixing\" equations:
+</p>
+
+<blockquote><pre>// within dp1:
+  <b>inStream</b>(dp1.port_b.h_outflow) := dp2.port_a.h_outflow;
+
+// within dp2:
+  <b>inStream</b>(dp2.port_a.h_outflow) := dp1.port_b.h_outflow;
+</pre></blockquote>
+
+
+<h4><font color=\"#008000\">Syntax</font></h4>
+
+<PRE>class_definition :
+   [ <B>encapsulated</B> ]
+   [ <B>partial</b> ]
+   ( <B>class</b> | <B>model</b> | <B>record</b> | <B>block</b> | <B>connector</b> | <B>type</b> |
+     <B>package</B> | <b>function</b> )
+   IDENT class_specifier
+
+class_specifier :
+   string_comment composition <B>end</B> IDENT
+   | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
+   | \"=\" <B>enumeration</B> \"(\" ( [enum_list] | \":\" ) \")\" comment
+
+base_prefix :
+   type_prefix
+
+composition  :
+   element_list
+   { <B>public</b> element_list |
+     <B>protected</b> element_list |
+     equation_clause |
+     algorithm_clause
+   }
+   [ <B>external</b> [ language_specification ]
+              [ external_function_call ] [ annotation \";\" ]
+              [ annotation  \";\" ] ]
+
+element_list :
+   { element \";\" | annotation  \";\" }
+
+element :
+   import_clause |
+   extends_clause |
+   [ <B>final</B> ]
+   [ <B>inner</B> | <B>outer</B> ]
+   ( ( class_definition | component_clause) |
+     <B>replaceable</B> ( class_definition | component_clause)
+        [constraining_clause comment])
+
+component_clause:
+   type_prefix type_specifier [ array_subscripts ] component_list
+
+type_prefix :
+   [ <B>flow</b> | <B>stream</b> ]
+   [ <B>discrete</B> | <B>parameter</b> | <B>constant</b> ] [ <B>input</b> | <B>output</b> ]</PRE>
+
+<h4><font color=\"#008000\">Description</font></h4>
+
+<p>
+A detailed description of the stream keyword and the inStream operator is given
+in Chapter 15 and Appendix D of the
+<a href=\"http://www.modelica.org/documents/ModelicaSpec32.pdf\">Modelica Language Specification version 3.2</a>.
+An overview and a rational is provided in a
+<a href=\"modelica://Modelica/help/Documentation/Fluid/Stream-Connectors-Overview-Rationale.pdf\">slide set</a>.
+</p>
+
+<p>
+The two basic variable types in a connector <b>potential</b> (or across) variable
+and <b>flow</b> (or through) variable are not sufficient to describe in a numerically
+sound way the bi-directional flow of matter with convective transport of specific
+quantities, such as specific enthalpy and chemical composition. The values of these
+specific quantities are determined from the upstream side of the flow, i.e., they depend
+on the flow direction. When using across and through variables, the corresponding models
+would include nonlinear systems of equations with Boolean unknowns for the flow directions
+and singularities around zero flow. Such equation systems cannot be solved reliably in
+general. The model formulations can be simplified when formulating two different balance
+equations for the two possible flow directions. This is not possible with across and
+through variables though.
+</p>
+
+<p>
+This fundamental problem is addressed in Modelica 3.1 by
+introducing a third type of connector variable, called stream variable,
+declared with the prefix <b>stream</b>. A stream variable describes a quantity that
+is carried by a flow variable, i.e., a purely convective transport phenomenon.
+The value of the stream variable is the specific property inside the component
+close to the boundary, assuming that matter flows out of the component into the
+connection point. In other words, it is the value the carried quantity would
+have if the fluid was flowing out of the connector, irrespective of the actual flow direction.
+</p>
+
+<p>
+The basic idea is sketched at hand of an example:
+Three connectors c1, c2, c3 with the definition
+</p>
+
+<blockquote><pre>
+<b>connector</b> Demo
+  Real        p;  // potential variable
+  <b>flow</b>   Real m_flow;  // flow variable
+  <b>stream</b> Real h;  // stream variable
+<b>end</b> Demo;
+</pre></blockquote>
+
+<p>
+are connected together with
+</p>
+
+<blockquote><pre>
+<b>connect</b>(c1,c2);
+<b>connect</b>(c1,c3);
+</pre></blockquote>
+
+<p>
+then this leads to the following equations:
+</p>
+
+<blockquote><pre>
+// Potential variables are identical
+c1.p = c2.p;
+c1.p = c3.p;
+
+// The sum of the flow variables is zero
+0 = c1.m_flow + c2.m_flow + c3.m_flow;
+
+/* The sum of the product of flow variables and upstream stream variables is zero
+   (this implicit set of equations is explicitly solved when generating code;
+   the \"&lt;undefined&gt;\" parts are defined in such a way that
+   inStream(..) is continuous).
+*/
+0 = c1.m_flow*(<b>if</b> c1.m_flow > 0 <b>then</b> h_mix <b>else</b> c1.h) +
+    c2.m_flow*(<b>if</b> c2.m_flow > 0 <b>then</b> h_mix <b>else</b> c2.h) +
+    c3.m_flow*(<b>if</b> c3.m_flow > 0 <b>then</b> h_mix <b>else</b> c3.h);
+
+<b>inStream</b>(c1.h) = <b>if</b> c1.m_flow > 0 <b>then</b> h_mix <b>else</b> &lt;undefined&gt;;
+<b>inStream</b>(c2.h) = <b>if</b> c2.m_flow > 0 <b>then</b> h_mix <b>else</b> &lt;undefined&gt;;
+<b>inStream</b>(c3.h) = <b>if</b> c3.m_flow > 0 <b>then</b> h_mix <b>else</b> &lt;undefined&gt;;
+
+
+</pre></blockquote>
+
+<p>
+If at least one variable in a connector has the stream prefix, the connector
+is called <b>stream connector</b> and the corresponding variable is called
+<b>stream variable</b>. The following definitions hold:
+</p>
+
+<ul>
+<li> The stream prefix can only be used in a connector declaration.</li>
+<li> A stream connector must have exactly one scalar variable with the flow prefix.
+     [<i>The idea is that all stream variables of a connector are associated with
+      this flow variable</i>].</li>
+<li> For every outside connector, one equation is generated for every variable
+     with the stream prefix [<i>to describe the propagation of the stream
+     variable along a model hierarchy</i>]. For the exact definition,
+     see the end of section 15.2.</li>
+<li> For inside connectors, variables with the stream prefix do not lead to
+     connection equations.</li>
+<li> Connection equations with stream variables are generated in a
+     model when using the inStream() operator or the actualStream() operator.</li>
+</ul>
+
+<p>
+For further details, see the definition of the
+<a href=\"modelica://ModelicaReference.Operators.InStream\">inStream()</a> operator.
+</p>
+
+</html>"));
+end Stream;
+
+
 class Time "time"
   extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
