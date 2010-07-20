@@ -3041,7 +3041,6 @@ This example is also available in
 </p>
 
 </html>"));
-
   end RadioButtonSource;
 
   block IntegerConstant "Generate constant signal of type Integer"

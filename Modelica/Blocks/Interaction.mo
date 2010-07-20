@@ -3,6 +3,7 @@ package Interaction
   "Library of user interaction blocks to input and to show variables in a diagram animation"
   extends Modelica.Icons.Package;
 
+
   package Show "Library of blocks to show variables in a diagram animation"
     extends Modelica.Icons.Package;
 
