@@ -1,20 +1,21 @@
 within ModelicaTest;
 package Blocks "Test models for Modelica.Blocks"
+extends Modelica.Icons.Library;
   model Continuous
 
-    Modelica.Blocks.Continuous.Integrator integrator 
+    Modelica.Blocks.Continuous.Integrator integrator
       annotation (Placement(transformation(extent={{-60,60},{-40,80}}, rotation=
              0)));
-    Modelica.Blocks.Continuous.LimIntegrator limIntegrator 
+    Modelica.Blocks.Continuous.LimIntegrator limIntegrator
       annotation (Placement(transformation(extent={{-60,20},{-40,40}}, rotation=
              0)));
-    Modelica.Blocks.Continuous.Derivative derivative 
+    Modelica.Blocks.Continuous.Derivative derivative
       annotation (Placement(transformation(extent={{-60,-20},{-40,0}}, rotation=
              0)));
-    Modelica.Blocks.Continuous.FirstOrder firstOrder 
+    Modelica.Blocks.Continuous.FirstOrder firstOrder
       annotation (Placement(transformation(extent={{-60,-60},{-40,-40}},
             rotation=0)));
-    Modelica.Blocks.Continuous.SecondOrder secondOrder 
+    Modelica.Blocks.Continuous.SecondOrder secondOrder
       annotation (Placement(transformation(extent={{-60,-100},{-40,-80}},
             rotation=0)));
     Modelica.Blocks.Continuous.PI pI annotation (Placement(transformation(
@@ -23,26 +24,26 @@ package Blocks "Test models for Modelica.Blocks"
             extent={{-60,-180},{-40,-160}}, rotation=0)));
     Modelica.Blocks.Continuous.LimPID limPID annotation (Placement(
           transformation(extent={{40,60},{60,80}}, rotation=0)));
-    Modelica.Blocks.Continuous.TransferFunction transferFunction(a={1,1}, b={1}) 
+    Modelica.Blocks.Continuous.TransferFunction transferFunction(a={1,1}, b={1})
       annotation (Placement(transformation(extent={{40,-20},{60,0}}, rotation=0)));
     Modelica.Blocks.Continuous.StateSpace stateSpace(
       A=[1,0; 0,1],
       B=[1; 1],
-      C=[1,1]) 
+      C=[1,1])
       annotation (Placement(transformation(extent={{40,-60},{60,-40}}, rotation=
              0)));
-    Modelica.Blocks.Continuous.LowpassButterworth lowpassButterworth 
+    Modelica.Blocks.Continuous.LowpassButterworth lowpassButterworth
       annotation (Placement(transformation(extent={{40,-100},{60,-80}},
             rotation=0)));
-    Modelica.Blocks.Continuous.CriticalDamping criticalDamping(normalized=false) 
+    Modelica.Blocks.Continuous.CriticalDamping criticalDamping(normalized=false)
       annotation (Placement(transformation(extent={{40,-140},{60,-120}},
             rotation=0)));
-    Modelica.Blocks.Sources.Ramp ramp(offset=0.5, startTime=0.5) 
+    Modelica.Blocks.Sources.Ramp ramp(offset=0.5, startTime=0.5)
       annotation (Placement(transformation(extent={{-100,60},{-80,80}},
             rotation=0)));
-    Modelica.Blocks.Sources.Ramp ramp1(offset=0.5, startTime=0.5) 
+    Modelica.Blocks.Sources.Ramp ramp1(offset=0.5, startTime=0.5)
       annotation (Placement(transformation(extent={{0,60},{20,80}}, rotation=0)));
-    Modelica.Blocks.Sources.Constant const(k=1.5) 
+    Modelica.Blocks.Sources.Constant const(k=1.5)
       annotation (Placement(transformation(
           origin={50,30},
           extent={{-10,-10},{10,10}},
@@ -66,7 +67,7 @@ package Blocks "Test models for Modelica.Blocks"
             {-62,-130}}, color={0,0,127}));
     connect(ramp.y, pID.u) annotation (Line(points={{-79,70},{-72,70},{-72,-170},
             {-62,-170}}, color={0,0,127}));
-    connect(ramp1.y, limPID.u_s) 
+    connect(ramp1.y, limPID.u_s)
       annotation (Line(points={{21,70},{38,70}}, color={0,0,127}));
     connect(ramp1.y, transferFunction.u) annotation (Line(points={{21,70},{28,
             70},{28,-10},{38,-10}}, color={0,0,127}));
@@ -76,7 +77,7 @@ package Blocks "Test models for Modelica.Blocks"
             70},{28,-90},{38,-90}}, color={0,0,127}));
     connect(ramp1.y, criticalDamping.u) annotation (Line(points={{21,70},{28,70},
             {28,-130},{38,-130}}, color={0,0,127}));
-    connect(const.y, limPID.u_m) 
+    connect(const.y, limPID.u_m)
       annotation (Line(points={{50,41},{50,58}}, color={0,0,127}));
     connect(sine.y, der1.u) annotation (Line(
         points={{21,-170},{38,-170}},
@@ -162,20 +163,20 @@ package Blocks "Test models for Modelica.Blocks"
 
   model Limiters
 
-    Modelica.Blocks.Nonlinear.Limiter limiter(limitsAtInit=false) 
+    Modelica.Blocks.Nonlinear.Limiter limiter(limitsAtInit=false)
       annotation (Placement(transformation(extent={{-20,40},{0,60}}, rotation=0)));
     Modelica.Blocks.Nonlinear.VariableLimiter variableLimiter(limitsAtInit=
           false) annotation (Placement(transformation(extent={{-20,0},{0,20}},
             rotation=0)));
-    Modelica.Blocks.Nonlinear.DeadZone deadZone(deadZoneAtInit=false) 
+    Modelica.Blocks.Nonlinear.DeadZone deadZone(deadZoneAtInit=false)
       annotation (Placement(transformation(extent={{-20,-40},{0,-20}}, rotation=
              0)));
-    Modelica.Blocks.Sources.Sine sine(amplitude=2) 
+    Modelica.Blocks.Sources.Sine sine(amplitude=2)
       annotation (Placement(transformation(extent={{-60,40},{-40,60}}, rotation=
              0)));
     Modelica.Blocks.Sources.Constant const annotation (Placement(transformation(
             extent={{-80,16},{-60,36}}, rotation=0)));
-    Modelica.Blocks.Sources.Constant const1(k=-1) 
+    Modelica.Blocks.Sources.Constant const1(k=-1)
       annotation (Placement(transformation(extent={{-80,-26},{-60,-6}},
             rotation=0)));
   equation
@@ -202,9 +203,9 @@ package Blocks "Test models for Modelica.Blocks"
       startTime=0.5,
       deltaq={1}) annotation (Placement(transformation(extent={{-60,60},{-40,80}},
             rotation=0)));
-    Modelica.Blocks.Continuous.Integrator integrator 
+    Modelica.Blocks.Continuous.Integrator integrator
       annotation (Placement(transformation(extent={{-20,60},{2,80}}, rotation=0)));
-    Modelica.Blocks.Continuous.Integrator integrator1(y_start=1) 
+    Modelica.Blocks.Continuous.Integrator integrator1(y_start=1)
       annotation (Placement(transformation(extent={{20,60},{42,80}}, rotation=0)));
     Modelica.Blocks.Sources.KinematicPTP kinematicPTP2a(
       qd_max={3},
@@ -212,9 +213,9 @@ package Blocks "Test models for Modelica.Blocks"
       startTime=0.5,
       deltaq={4}) annotation (Placement(transformation(extent={{-60,-20},{-40,0}},
             rotation=0)));
-    Modelica.Blocks.Continuous.Integrator integrator2 
+    Modelica.Blocks.Continuous.Integrator integrator2
       annotation (Placement(transformation(extent={{-20,-20},{2,0}}, rotation=0)));
-    Modelica.Blocks.Continuous.Integrator integrator3(y_start=1) 
+    Modelica.Blocks.Continuous.Integrator integrator3(y_start=1)
       annotation (Placement(transformation(extent={{20,-20},{42,0}}, rotation=0)));
   equation
     connect(kinematicPTP1a.y[1], integrator.u) annotation (Line(points={{-39,70},
@@ -232,58 +233,59 @@ package Blocks "Test models for Modelica.Blocks"
   end KinematicPTP;
 
   model UnitDeduction "Test unit deduction"
-    Modelica.Blocks.Continuous.Integrator integrator 
+
+    Modelica.Blocks.Continuous.Integrator integrator
       annotation (Placement(transformation(extent={{0,30},{20,50}})));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia(J=1, w(start=1)) 
+    Modelica.Mechanics.Rotational.Components.Inertia inertia(J=1, w(start=1))
       annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
-    Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor 
+    Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor
       annotation (Placement(transformation(extent={{-50,60},{-30,80}})));
-    Modelica.Blocks.Math.Gain gain(k=2) 
+    Modelica.Blocks.Math.Gain gain(k=2)
       annotation (Placement(transformation(extent={{0,80},{20,100}})));
-    Modelica.Blocks.Continuous.LimIntegrator limIntegrator(outMax=3) 
+    Modelica.Blocks.Continuous.LimIntegrator limIntegrator(outMax=3)
       annotation (Placement(transformation(extent={{0,0},{20,20}})));
-    Modelica.Blocks.Continuous.Derivative derivative 
+    Modelica.Blocks.Continuous.Derivative derivative
       annotation (Placement(transformation(extent={{0,-30},{20,-10}})));
-    Modelica.Blocks.Continuous.FirstOrder firstOrder(T=2) 
+    Modelica.Blocks.Continuous.FirstOrder firstOrder(T=2)
       annotation (Placement(transformation(extent={{0,-60},{20,-40}})));
-    Modelica.Blocks.Continuous.SecondOrder secondOrder(w=2, D=3) 
+    Modelica.Blocks.Continuous.SecondOrder secondOrder(w=2, D=3)
       annotation (Placement(transformation(extent={{0,-90},{20,-70}})));
-    Modelica.Blocks.Continuous.PI PI(T=2) 
+    Modelica.Blocks.Continuous.PI PI(T=2)
       annotation (Placement(transformation(extent={{60,60},{80,80}})));
-    Modelica.Blocks.Continuous.PID PID(Ti=2, Td=3) 
+    Modelica.Blocks.Continuous.PID PID(Ti=2, Td=3)
       annotation (Placement(transformation(extent={{60,30},{80,50}})));
     Modelica.Blocks.Continuous.LimPID PID1(
       Ti=2,
       Td=3,
       yMax=4) annotation (Placement(transformation(extent={{60,0},{80,20}})));
-    Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(V=10, freqHz=2) 
+    Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(V=10, freqHz=2)
                                                                annotation (
         Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
           origin={120,-20})));
-    Modelica.Electrical.Analog.Basic.Resistor resistor(R=100) 
+    Modelica.Electrical.Analog.Basic.Resistor resistor(R=100)
                                                        annotation (Placement(
           transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
           origin={168,-20})));
-    Modelica.Electrical.Analog.Basic.Ground ground 
+    Modelica.Electrical.Analog.Basic.Ground ground
       annotation (Placement(transformation(extent={{110,-70},{130,-50}})));
     Modelica.Electrical.Analog.Sensors.VoltageSensor voltageSensor annotation (
         Placement(transformation(
           extent={{-10,10},{10,-10}},
           rotation=270,
           origin={190,-20})));
-    Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor 
+    Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor
       annotation (Placement(transformation(extent={{138,10},{158,-10}})));
-    Modelica.Blocks.Math.Product product 
+    Modelica.Blocks.Math.Product product
       annotation (Placement(transformation(extent={{225,15},{235,25}})));
-    Modelica.Blocks.Continuous.Integrator Wsec(k(unit="1")) 
+    Modelica.Blocks.Continuous.Integrator Wsec(k(unit="1"))
       annotation (Placement(transformation(extent={{249,15},{259,25}})));
-    Modelica.Blocks.Continuous.Integrator Vsec(k(unit="1")) 
+    Modelica.Blocks.Continuous.Integrator Vsec(k(unit="1"))
       annotation (Placement(transformation(extent={{246,-26},{258,-14}})));
-    Modelica.Blocks.Continuous.Integrator Asec(k(unit="1")) 
+    Modelica.Blocks.Continuous.Integrator Asec(k(unit="1"))
       annotation (Placement(transformation(extent={{183.5,43.5},{196.5,56.5}})));
   equation
     connect(inertia.flange_b, speedSensor.flange) annotation (Line(
@@ -384,11 +386,11 @@ package Blocks "Test models for Modelica.Blocks"
     block AllOptions
       "Simulates 264 filter blocks and varies all possible options systematically for different orders and different cut-off frequencies"
       extends Modelica.Icons.Example;
-      DifferentInitialization normalized(normalized=true) 
+      DifferentInitialization normalized(normalized=true)
         annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
-      DifferentInitialization notNormalized(normalized=false) 
+      DifferentInitialization notNormalized(normalized=false)
         annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
-      Basic basicWithGain(gain=1.4) 
+      Basic basicWithGain(gain=1.4)
         annotation (Placement(transformation(extent={{-20,40},{0,60}})));
       annotation (experiment(StopTime=1.1), experimentSetupOutput);
     end AllOptions;
@@ -405,7 +407,7 @@ package Blocks "Test models for Modelica.Blocks"
     parameter Modelica.Blocks.Types.Init init=Modelica.Blocks.Types.Init.SteadyState
         "Type of initialization (no init/steady state/initial state/initial output)";
 
-    Modelica.Blocks.Sources.Step step(startTime=0.1, offset=0.1) 
+    Modelica.Blocks.Sources.Step step(startTime=0.1, offset=0.1)
       annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
       Modelica.Blocks.Continuous.Filter CriticalDamping_a(
       analogFilter=Modelica.Blocks.Types.AnalogFilter.CriticalDamping,
@@ -415,7 +417,7 @@ package Blocks "Test models for Modelica.Blocks"
       init=init,
       filterType=filterType,
       f_min=0.8*f_cut1,
-      gain=gain) 
+      gain=gain)
         annotation (Placement(transformation(extent={{-20,40},{0,60}})));
       Modelica.Blocks.Continuous.Filter CriticalDamping_b(
       analogFilter=Modelica.Blocks.Types.AnalogFilter.CriticalDamping,
@@ -425,7 +427,7 @@ package Blocks "Test models for Modelica.Blocks"
       init=init,
       filterType=filterType,
       f_min=0.8*f_cut2,
-      gain=gain) 
+      gain=gain)
         annotation (Placement(transformation(extent={{40,40},{60,60}})));
       Modelica.Blocks.Continuous.Filter Bessel_a(
       normalized=normalized,
@@ -435,7 +437,7 @@ package Blocks "Test models for Modelica.Blocks"
       init=init,
       filterType=filterType,
         f_min=0.8*f_cut1,
-        gain=gain) 
+        gain=gain)
         annotation (Placement(transformation(extent={{-20,0},{0,20}})));
       Modelica.Blocks.Continuous.Filter Bessel_b(
       normalized=normalized,
@@ -445,7 +447,7 @@ package Blocks "Test models for Modelica.Blocks"
       init=init,
       filterType=filterType,
         f_min=0.8*f_cut2,
-        gain=gain) 
+        gain=gain)
         annotation (Placement(transformation(extent={{40,0},{60,20}})));
       Modelica.Blocks.Continuous.Filter Butterworth_a(
       normalized=normalized,
@@ -455,7 +457,7 @@ package Blocks "Test models for Modelica.Blocks"
       init=init,
       filterType=filterType,
       f_min=0.8*f_cut1,
-      gain=gain) 
+      gain=gain)
         annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
       Modelica.Blocks.Continuous.Filter Butterworth_b(
       normalized=normalized,
@@ -465,7 +467,7 @@ package Blocks "Test models for Modelica.Blocks"
       init=init,
       filterType=filterType,
       f_min=0.8*f_cut2,
-      gain=gain) 
+      gain=gain)
         annotation (Placement(transformation(extent={{40,-40},{60,-20}})));
       Modelica.Blocks.Continuous.Filter ChebyshevI_a(
       normalized=normalized,
@@ -475,7 +477,7 @@ package Blocks "Test models for Modelica.Blocks"
       init=init,
       filterType=filterType,
       f_min=0.8*f_cut1,
-      gain=gain) 
+      gain=gain)
         annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
       Modelica.Blocks.Continuous.Filter ChebyshevI_b(
       normalized=normalized,
@@ -485,18 +487,18 @@ package Blocks "Test models for Modelica.Blocks"
       init=init,
       filterType=filterType,
       f_min=0.8*f_cut2,
-      gain=gain) 
+      gain=gain)
         annotation (Placement(transformation(extent={{40,-80},{60,-60}})));
 
       parameter Real gain=1.0
         "Gain (= amplitude of frequency response at zero frequency)";
   equation
-    connect(step.y, CriticalDamping_a.u) 
+    connect(step.y, CriticalDamping_a.u)
                                  annotation (Line(
           points={{-39,50},{-22,50}},
           color={0,0,127},
           smooth=Smooth.None));
-    connect(step.y, CriticalDamping_b.u) 
+    connect(step.y, CriticalDamping_b.u)
                                 annotation (Line(
         points={{-39,50},{-32,50},{-32,70},{20,70},{20,50},{38,50}},
         color={0,0,127},
@@ -509,22 +511,22 @@ package Blocks "Test models for Modelica.Blocks"
         points={{-39,50},{-32,50},{-32,70},{20,70},{20,10},{38,10}},
         color={0,0,127},
         smooth=Smooth.None));
-    connect(Butterworth_a.u, step.y) 
+    connect(Butterworth_a.u, step.y)
                                 annotation (Line(
         points={{-22,-30},{-32,-30},{-32,50},{-39,50}},
         color={0,0,127},
         smooth=Smooth.None));
-    connect(step.y, Butterworth_b.u) 
+    connect(step.y, Butterworth_b.u)
                                 annotation (Line(
         points={{-39,50},{-32,50},{-32,70},{20,70},{20,-30},{38,-30}},
         color={0,0,127},
         smooth=Smooth.None));
-    connect(ChebyshevI_a.u, step.y) 
+    connect(ChebyshevI_a.u, step.y)
                                  annotation (Line(
         points={{-22,-70},{-32,-70},{-32,50},{-39,50}},
         color={0,0,127},
         smooth=Smooth.None));
-    connect(step.y, ChebyshevI_b.u) 
+    connect(step.y, ChebyshevI_b.u)
                                  annotation (Line(
         points={{-39,50},{-32,50},{-32,70},{20,70},{20,-70},{38,-70}},
         color={0,0,127},
@@ -545,25 +547,25 @@ package Blocks "Test models for Modelica.Blocks"
       extends Modelica.Blocks.Interfaces.BlockIcon;
       Basic lowPass(filterType=Modelica.Blocks.Types.FilterType.LowPass,
         normalized=normalized,
-        init=init) 
+        init=init)
         annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
       Basic highPass(filterType=Modelica.Blocks.Types.FilterType.HighPass,
         normalized=normalized,
-        init=init) 
+        init=init)
         annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
       Basic bandPass(
         filterType=Modelica.Blocks.Types.FilterType.BandPass,
         normalized=normalized,
         init=init,
         order1=4,
-        order2=10) 
+        order2=10)
         annotation (Placement(transformation(extent={{-60,-40},{-40,-20}})));
       Basic bandStop(
         filterType=Modelica.Blocks.Types.FilterType.BandStop,
         normalized=normalized,
         init=init,
         order1=4,
-        order2=10) 
+        order2=10)
         annotation (Placement(transformation(extent={{-60,-80},{-40,-60}})));
       parameter Modelica.Blocks.Types.Init init=Modelica.Blocks.Types.Init.SteadyState
         "Type of initialization (no init/steady state/initial state/initial output)";
@@ -573,16 +575,16 @@ package Blocks "Test models for Modelica.Blocks"
     block DifferentInitialization
       extends Modelica.Blocks.Interfaces.BlockIcon;
       DifferentFilterTypes steadyState(init=Modelica.Blocks.Types.Init.SteadyState,
-          normalized=normalized) 
+          normalized=normalized)
         annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
       DifferentFilterTypes initialState(init=Modelica.Blocks.Types.Init.InitialState,
-          normalized=normalized) 
+          normalized=normalized)
         annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
       DifferentFilterTypes initialOutput(init=Modelica.Blocks.Types.Init.InitialOutput,
-          normalized=normalized) 
+          normalized=normalized)
         annotation (Placement(transformation(extent={{-60,-40},{-40,-20}})));
       DifferentFilterTypes noInit(init=Modelica.Blocks.Types.Init.InitialOutput,
-          normalized=normalized) 
+          normalized=normalized)
         annotation (Placement(transformation(extent={{-60,-80},{-40,-60}})));
       parameter Boolean normalized=true;
     equation

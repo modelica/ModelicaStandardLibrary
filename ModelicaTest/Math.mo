@@ -1,5 +1,6 @@
 within ModelicaTest;
 package Math "Test models for Modelica.Math"
+extends Modelica.Icons.Library;
   function ScalarFunctions
     import Modelica.Utilities.Streams;
     import Modelica.Math;

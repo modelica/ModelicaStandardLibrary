@@ -1,5 +1,6 @@
 within ModelicaTest;
 package Utilities "Test functions for Modelica.Utilities"
+extends Modelica.Icons.Library;
   function Strings "Test functions of Modelica.Utilities.Strings"
     import Modelica.Utilities.Streams;
     import Modelica.Utilities.Strings;

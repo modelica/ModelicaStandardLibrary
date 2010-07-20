@@ -1,9 +1,12 @@
 within ModelicaTest;
 package Rotational "Test models for Modelica.Mechanics.Rotational"
+extends Modelica.Icons.Library;
 
   package ForUsersGuide "Models used as screenshot for the users guide"
+  extends Modelica.Icons.Library;
 
   model SimpleDriveTrain
+
     Modelica.Blocks.Sources.Sine sine annotation (Placement(transformation(
               extent={{-80,0},{-60,20}}, rotation=0)));
     Modelica.Mechanics.Rotational.Sources.Torque torque(useSupport=true)
@@ -52,6 +55,7 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
   end SimpleDriveTrain;
 
     model ConnectionPossibilities
+
       Modelica.Mechanics.Rotational.Components.Inertia inertia1
         annotation (Placement(transformation(extent={{-60,40},{-40,60}},
               rotation=0)));
@@ -98,6 +102,7 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
     end ConnectionPossibilities;
 
     model SupportTorque1
+
       Modelica.Blocks.Sources.Sine sine2
                                         annotation (Placement(transformation(
               extent={{-80,0},{-60,20}}, rotation=0)));
@@ -120,8 +125,8 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
                                                      J=1)
         annotation (Placement(transformation(extent={{74,0},{94,20}}, rotation=
                 0)));
-      Modelica.Mechanics.Rotational.Components.BearingFriction bearingFriction1
-        (useSupport=true)
+      Modelica.Mechanics.Rotational.Components.BearingFriction bearingFriction1(
+         useSupport=true)
         annotation (Placement(transformation(extent={{46,0},{66,20}}, rotation=
                 0)));
     equation
@@ -170,6 +175,7 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
     end SupportTorque1;
 
     model Directions
+
       Modelica.Blocks.Sources.Sine sine annotation (Placement(transformation(
               extent={{-80,60},{-60,80}}, rotation=0)));
       Modelica.Mechanics.Rotational.Sources.Torque torque(useSupport=true)
@@ -327,6 +333,7 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
     end Directions;
 
     model Directions2
+
       Modelica.Mechanics.Rotational.Components.Inertia J2(
                                                J=5)
         annotation (Placement(transformation(extent={{-60,55},{-40,75}},
@@ -532,6 +539,7 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
     end Directions2;
 
     model Directions3
+
       Modelica.Mechanics.Rotational.Components.Inertia J1(
                                                J=1)
         annotation (Placement(transformation(extent={{-80,40},{-60,60}},
@@ -593,7 +601,9 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
   end ForUsersGuide;
 
   package InitializationConversion
+  extends Modelica.Icons.Library;
     model Inertia
+
       Modelica.Mechanics.Rotational.Components.Inertia inertia1(phi(start=
               0.0174532925199433), w(start=2))
                                 annotation (Placement(transformation(extent={{
@@ -738,6 +748,7 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
     end Inertia;
 
     model SpringDamper
+
       Modelica.Mechanics.Rotational.Components.SpringDamper springDamper1(
         c=1e4,
         d=10,
@@ -995,6 +1006,7 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
   end TestMove;
 
   model AllComponents
+
     Modelica.Mechanics.Rotational.Components.Inertia inertia(
                                                   J=3)
       annotation (Placement(transformation(extent={{-60,40},{-40,60}}, rotation=
@@ -2017,6 +2029,7 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
   end TestBearingConversion;
 
   model TestFriction "Test friction elements"
+
     Modelica.Mechanics.Rotational.Components.Inertia inertia
       annotation (Placement(transformation(extent={{-8,80},{12,100}}, rotation=
               0)));

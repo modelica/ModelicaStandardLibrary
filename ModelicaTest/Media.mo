@@ -1,6 +1,8 @@
 within ModelicaTest;
 package Media
+extends Modelica.Icons.Library;
   package TestAllProperties
+  extends Modelica.Icons.Library;
     model PartialMediumFunctions
       import SI = Modelica.SIunits;
        replaceable package Medium = Modelica.Media.Interfaces.PartialMedium

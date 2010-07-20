@@ -1,5 +1,6 @@
 within ModelicaTest;
 package MultiBody "Test models for Modelica.Mechanics.MultiBody"
+extends Modelica.Icons.Library;
 
   encapsulated model SphericalDoublePendulum
     "Double pendulum with two spherical joints and two bodies"
@@ -168,6 +169,7 @@ ALT=\"model Examples.Elementary.DoublePendulum\">
   end SphericalDoublePendulum;
 
   package FourbarVariants "Test joints and assembly joints with four bar loop"
+  extends Modelica.Icons.Library;
     model SphericalAndUniversal
       "One kinematic loop with four bars (with Spherical and Universal joint)"
 
@@ -1104,6 +1106,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
   end Frames;
 
   package Forces
+  extends Modelica.Icons.Library;
     model DifferentiationOfForces
       extends Modelica.Icons.Example;
       inner Modelica.Mechanics.MultiBody.World world(gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.
@@ -2360,7 +2363,9 @@ a linear damper is connected here.
   end Forces;
 
   package Joints "Test MultiBody.Joints"
+  extends Modelica.Icons.Library;
     model Revolute
+
       inner Modelica.Mechanics.MultiBody.World world(
                                   animateWorld=false, animateGravity=false)
         annotation (Placement(transformation(extent={{-60,20},{-40,40}},
@@ -2423,6 +2428,7 @@ a linear damper is connected here.
     end Revolute;
 
     model RevoluteInitialization
+
       inner Modelica.Mechanics.MultiBody.World world(
                                   gravityType=Modelica.Mechanics.MultiBody.Types.
             GravityTypes.UniformGravity)
@@ -2488,6 +2494,7 @@ a linear damper is connected here.
     end RevoluteInitialization;
 
     model Prismatic
+
       inner Modelica.Mechanics.MultiBody.World world(
                                   animateWorld=false, animateGravity=false)
         annotation (Placement(transformation(extent={{-60,20},{-40,40}},
@@ -2548,6 +2555,7 @@ a linear damper is connected here.
     end Prismatic;
 
     model Cylindrical
+
       inner Modelica.Mechanics.MultiBody.World world(
                                   animateWorld=false, animateGravity=false)
         annotation (Placement(transformation(extent={{-60,20},{-40,40}},
@@ -2614,6 +2622,7 @@ a linear damper is connected here.
     end Cylindrical;
 
     model Universal
+
       inner Modelica.Mechanics.MultiBody.World world(
                                   animateWorld=false, animateGravity=false)
         annotation (Placement(transformation(extent={{-60,20},{-40,40}},
@@ -2690,6 +2699,7 @@ a linear damper is connected here.
     end Universal;
 
     model Planar
+
       inner Modelica.Mechanics.MultiBody.World world(
                                   animateWorld=false, animateGravity=false)
         annotation (Placement(transformation(extent={{-60,20},{-40,40}},
@@ -2773,6 +2783,7 @@ a linear damper is connected here.
     end Planar;
 
     model Spherical
+
       inner Modelica.Mechanics.MultiBody.World world(
                                   animateWorld=false, animateGravity=false)
         annotation (Placement(transformation(extent={{-60,20},{-40,40}},
@@ -2824,6 +2835,7 @@ a linear damper is connected here.
     end Spherical;
 
     model FreeMotion
+
       inner Modelica.Mechanics.MultiBody.World world(
                                   animateWorld=false, animateGravity=false)
         annotation (Placement(transformation(extent={{-60,20},{-40,40}},
@@ -2879,6 +2891,7 @@ a linear damper is connected here.
     end FreeMotion;
 
     model SphericalSpherical
+
       inner Modelica.Mechanics.MultiBody.World world(
                                   animateWorld=false, animateGravity=false)
         annotation (Placement(transformation(extent={{-60,20},{-40,40}},
@@ -3346,6 +3359,7 @@ a linear damper is connected here.
   end Joints;
 
   package Parts "Test MultiBody.Parts"
+  extends Modelica.Icons.Library;
     model FixedTranslation
       import SI = Modelica.SIunits;
       import Modelica.Mechanics.MultiBody.*;
@@ -4126,6 +4140,7 @@ often possible to use the FreeMotion joint such that the singularity
   end Parts;
 
   package Sensors "Test MultiBody.Sensors"
+  extends Modelica.Icons.Library;
 
     encapsulated model AbsoluteSensor
       "Simple pendulum with one revolute joint and one body"
@@ -5531,6 +5546,7 @@ often possible to use the FreeMotion joint such that the singularity
   end Sensors;
 
   package Visualizers "Test MultiBody.Visualizers"
+  extends Modelica.Icons.Library;
 
     encapsulated model Shapes "Test and show models Visualizers.FixedShape"
       import Modelica.Icons;
@@ -5725,7 +5741,9 @@ often possible to use the FreeMotion joint such that the singularity
   end Visualizers;
 
   package InitializationConversion "Test conversion of the initialization"
+  extends Modelica.Icons.Library;
     model Rotor1D
+
       Modelica.Mechanics.MultiBody.Parts.Rotor1D rotor1D1
         annotation (Placement(transformation(extent={{-70,40},{-50,60}},
               rotation=0)));
@@ -5889,6 +5907,7 @@ often possible to use the FreeMotion joint such that the singularity
     end Rotor1D;
 
     model Joints
+
       inner Modelica.Mechanics.MultiBody.World world
         annotation (Placement(transformation(extent={{-80,60},{-60,80}},
               rotation=0)));
@@ -6102,6 +6121,7 @@ often possible to use the FreeMotion joint such that the singularity
     end Joints;
 
     model Bodies
+
       inner Modelica.Mechanics.MultiBody.World world
         annotation (Placement(transformation(extent={{-80,60},{-60,80}},
               rotation=0)));

@@ -1,7 +1,9 @@
 within ModelicaTest;
 package Translational
+extends Modelica.Icons.Library;
 
   model AllComponents
+
     Modelica.Mechanics.Translational.Components.Mass slidingMass
       annotation (Placement(transformation(extent={{-60,60},{-40,80}}, rotation=
              0)));

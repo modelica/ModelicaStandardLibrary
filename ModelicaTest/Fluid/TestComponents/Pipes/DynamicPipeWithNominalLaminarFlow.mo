@@ -1,6 +1,4 @@
 within ModelicaTest.Fluid.TestComponents.Pipes;
-
-
 model DynamicPipeWithNominalLaminarFlow
   "Test NominalLaminarFlow model subject to varying nNodes and nParallel"
   extends Modelica.Icons.Example;

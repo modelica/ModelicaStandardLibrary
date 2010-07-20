@@ -64,16 +64,14 @@ model TestWallFriction
     p=1.0e5,
     T=Modelica.SIunits.Conversions.from_degC(80))
     annotation (Placement(transformation(extent={{60,-50},{40,-30}}, rotation=0)));
-  Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.TestWallFriction pipe3
-    (
+  Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.TestWallFriction pipe3(
     length=1,
     diameter=0.1,
     redeclare package Medium = Medium,
     roughness=roughness,
     dp_small=0.1)        annotation (Placement(transformation(extent={{0,-20},{
             20,0}}, rotation=0)));
-  Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.TestWallFriction pipe4
-    (
+  Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.TestWallFriction pipe4(
     length=1,
     diameter=0.1,
     from_dp=false,
