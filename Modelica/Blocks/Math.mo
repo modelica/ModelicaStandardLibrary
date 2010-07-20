@@ -570,6 +570,72 @@ All other blocks convert exactly between two different units.
 </html>"));
   end UnitConversions;
 
+  block ShowValue
+    "Show Real value from numberPort or from number input field in diagram layer dynamically"
+    parameter Boolean use_numberPort = true "= true, if numberPort enabled"
+      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+    input Real number = 0.0
+      "Number to visualize if use_numberPort=false (time varying)"
+      annotation(Dialog(enable=not use_numberPort));
+    parameter Integer precision(min=0) = 3
+      "Number of significant digits to be shown";
+
+    Modelica.Blocks.Interfaces.RealInput numberPort if use_numberPort
+      "Number to be shown in diagram layer if use_numberPort = true"
+      annotation (Placement(transformation(extent={{-130,-15},{-100,15}})));
+     Modelica.Blocks.Interfaces.RealOutput number2;
+  equation
+    if use_numberPort then
+       connect(numberPort, number2);
+    else
+       number2 = number;
+    end if;
+
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false,  extent={{-100,
+                -100},{100,100}}), graphics={
+            Rectangle(
+              extent={{100,40},{-100,-40}},
+              lineColor={0,0,255},
+              fillColor={236,233,216},
+              fillPattern=FillPattern.Solid,
+              borderPattern=BorderPattern.Raised),
+            Text(extent={{-94,-34},{96,34}}, textString=DynamicSelect("0.0",
+                  realString(
+                    number2,
+                    1,
+                    integer(precision)))),
+            Text(
+              visible=not use_numberPort,
+              extent={{-150,-50},{150,-70}},
+              lineColor={0,0,0},
+              textString="%number")}), Documentation(info="<html>
+<p>
+This block visualizes a Real number in a diagram animation.
+The number to be visualized can be defined in the following ways:
+</p>
+
+<ul>
+<li> If useNumberPort = <b>true</b> (which is the default), a Real
+     input is present and this input variable is shown.</li>
+
+<li> If useNumberPort = <b>false</b> no input connector is present. 
+     Instead, a Real input field is activated in the parameter menu
+     and the Real expression from this input menu is shown.</li>
+</ul>
+
+<p>
+The two versions of the block are shown in the following image (in the right variant, the
+name of the variable value that is displayed is also shown below the icon):<br>
+<img src=\"modelica://Modelica/Images/Math/ShowValue.png\">
+</p>
+
+<p>
+The usage is demonstrated, e.g., in example
+<a href=\"modelica://Modelica.Blocks.Examples.RealNetwork1\">Modelica.Blocks.Examples.RealNetwork1</a>.
+</p>
+</html>"));
+  end ShowValue;
+
   block InverseBlockConstraints
     "Construct inverse model by requiring that two inputs and two outputs are identical (replaces the previously, unbalanced, TwoInputs and TwoOutputs blocks)"
 
@@ -741,6 +807,173 @@ Example:
             textString="*K")}));
       end MatrixGain;
 
+  block MultiSum "Sum of Reals: y = k[1]*u[1] + k[2]*u[2] + ... + k[n]*u[n]"
+     extends Modelica.Blocks.Interfaces.PartialRealMISO;
+     parameter Real k[nu] = fill(1,nu) "Input gains";
+  equation
+    y = k*u;
+
+    annotation (Icon(graphics={Text(
+              extent={{-200,-110},{200,-140}},
+              lineColor={0,0,0},
+              fillColor={255,213,170},
+              fillPattern=FillPattern.Solid,
+              textString="%k"), Text(
+              extent={{-72,68},{92,-68}},
+              lineColor={0,0,0},
+              fillColor={255,213,170},
+              fillPattern=FillPattern.Solid,
+              textString="+")}), Documentation(info="<html>
+<p>
+This blocks computes the scalar Real output \"y\" as sum of the elements of the
+Real input signal vector u:
+</p>
+<blockquote><pre>
+y = k[1]*u[1] + k[2]*u[2] + ... k[N]*u[N];
+</pre></blockquote>
+
+<p>
+The input connector is a vector of Real input signals.
+When a connection line is drawn, the dimension of the input
+vector is enlarged by one and the connection is automatically
+connected to this new free index (thanks to the 
+connectorSizing annotation).
+</p>
+
+<p>
+The usage is demonstrated, e.g., in example
+<a href=\"modelica://Modelica.Blocks.Examples.RealNetwork1\">Modelica.Blocks.Examples.RealNetwork1</a>.
+</p>
+</html>"));
+  end MultiSum;
+
+  block MultiProduct "Product of Reals: y = u[1]*u[2]* ... *u[n]"
+     extends Modelica.Blocks.Interfaces.PartialRealMISO;
+  equation
+    y = product(u);
+
+    annotation (Icon(graphics={Text(
+              extent={{-74,50},{94,-94}},
+              lineColor={0,0,0},
+              fillColor={255,213,170},
+              fillPattern=FillPattern.Solid,
+              textString="*")}), Documentation(info="<html>
+<p>
+This blocks computes the scalar Real output \"y\" as product of the elements of the
+Real input signal vector u:
+</p>
+<blockquote><pre>
+y = u[1]*u[2]* ... *u[N];
+</pre></blockquote>
+
+<p>
+The input connector is a vector of Real input signals.
+When a connection line is drawn, the dimension of the input
+vector is enlarged by one and the connection is automatically
+connected to this new free index (thanks to the 
+connectorSizing annotation).
+</p>
+
+<p>
+The usage is demonstrated, e.g., in example
+<a href=\"modelica://Modelica.Blocks.Examples.RealNetwork1\">Modelica.Blocks.Examples.RealNetwork1</a>.
+</p>
+</html>"));
+  end MultiProduct;
+
+block MultiSwitch
+    "Set Real expression that is associated with the first active input signal"
+
+    input Real expr[nu]=fill(0.0, nu)
+      "y = if u[i] then expr[i] else y_default (time varying)"            annotation(Dialog);
+    parameter Real y_default=0.0
+      "Default value of output y if all u[i] = false";
+
+    parameter Integer nu(min=0) = 0 "Number of input connections"
+          annotation(Dialog(connectorSizing=true), HideResult=true);
+    parameter Integer precision(min=0) = 3
+      "Number of significant digits to be shown in dynamic diagram layer for y"
+                                                                              annotation(Dialog(tab="Advanced"));
+
+    Modelica.Blocks.Interfaces.BooleanVectorInput u[nu]
+      "Set y = expr[i], if u[i] = true"
+    annotation (Placement(transformation(extent={{-110,30},{-90,-30}})));
+  Modelica.Blocks.Interfaces.RealOutput y(start=y_default,fixed=true)
+      "Output depending on expression"
+    annotation (Placement(transformation(extent={{300,-10},{320,10}})));
+
+
+  protected
+  Integer firstActiveIndex;
+initial equation
+  pre(u) = fill(false,nu);
+equation
+  firstActiveIndex = Modelica.Math.firstTrueIndex(u);
+   y = if firstActiveIndex == 0 then y_default else expr[firstActiveIndex];
+  annotation (defaultComponentName="multiSwitch1",Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{300,100}},
+        grid={1,1}),           graphics), Icon(coordinateSystem(
+        preserveAspectRatio=false,
+        extent={{-100,-100},{300,100}},
+        grid={1,1}), graphics={
+            Rectangle(
+              extent={{-100,-51},{300,50}},
+              lineColor={0,0,0},
+              fillColor={170,213,255},
+              fillPattern=FillPattern.Solid,
+              borderPattern=BorderPattern.Raised),
+            Text(
+              extent={{-86,16},{295,-17}},
+              lineColor={0,0,0},
+              fillColor={255,246,238},
+              fillPattern=FillPattern.Solid,
+              textString="%expr"),
+            Text(
+              extent={{310,-25},{410,-45}},
+              lineColor={0,0,0},
+              textString=DynamicSelect(" ", realString(
+                  y,
+                  1,
+                  integer(precision)))),
+            Text(
+              extent={{-100,-60},{300,-90}},
+              lineColor={0,0,0},
+              textString="else: %y_default"),
+            Text(
+              extent={{-100,100},{300,60}},
+              textString="%name",
+              lineColor={0,0,255})}),
+    Documentation(info="<html>
+<p>
+This block has a vector of Boolean input signals u[nu] and a vector of
+(time varying) Real expressions expr[nu]. The output signal y is
+set to expr[i], if i is the first element in the input vector u that is true. If all input signals are
+false, y is set to parameter \"y_default\".
+</p>
+ 
+<blockquote><pre>
+  // Conceptual equation (not valid Modelica)
+  i = 'first element of u[:] that is true';
+  y = <b>if</b> i==0 <b>then</b> y_default <b>else</b> expr[i];
+</pre></blockquote>
+
+<p>
+The input connector is a vector of Boolean input signals.
+When a connection line is drawn, the dimension of the input
+vector is enlarged by one and the connection is automatically
+connected to this new free index (thanks to the 
+connectorSizing annotation).
+</p>
+
+<p>
+The usage is demonstrated, e.g., in example
+<a href=\"modelica://Modelica.Blocks.Examples.RealNetwork1\">Modelica.Blocks.Examples.RealNetwork1</a>.
+</p>
+
+
+</html>"));
+end MultiSwitch;
+
       block Sum "Output the sum of the elements of the input vector"
         extends Interfaces.MISO;
         parameter Real k[nin]=ones(nin) "Optional: sum coefficients";
@@ -869,7 +1102,8 @@ Example:
             textString="-")}));
       end Feedback;
 
-      block Add "Output the sum of the two inputs"
+      block Add
+    "Output the sum of the two inputs (this is an obsolet block. Use instead MultiSum)"
         extends Interfaces.SI2SO;
         parameter Real k1=+1 "Gain of upper input";
         parameter Real k2=+1 "Gain of lower input";
@@ -985,7 +1219,8 @@ Example:
             textString="k2")}));
       end Add;
 
-      block Add3 "Output the sum of the three inputs"
+      block Add3
+    "Output the sum of the three inputs (this is an obsolet block. Use instead MultiSum)"
         extends Interfaces.BlockIcon;
 
         parameter Real k1=+1 "Gain of upper input";
@@ -1096,7 +1331,9 @@ Example:
             textString="+")}));
       end Add3;
 
-      block Product "Output product of the two inputs"
+
+      block Product
+    "Output product of the two inputs (this is an obsolet block. Use instead MultiProduct)"
         extends Interfaces.SI2SO;
 
       equation
@@ -1142,6 +1379,7 @@ the two inputs <b>u1</b> and <b>u2</b>:
           Line(points={{-15,-25.99},{15,25.99}}, color={0,0,0}),
           Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,255})}));
       end Product;
+
 
       block Division "Output first input divided by second input"
         extends Interfaces.SI2SO;
@@ -1209,6 +1447,7 @@ the two inputs <b>u1</b> and <b>u2</b>:
           Line(points={{-100,60},{-66,60},{-40,30}}, color={0,0,255}),
           Line(points={{-100,-60},{0,-60},{0,-50}}, color={0,0,255})}));
       end Division;
+
 
       block Abs "Output the absolute value of the input"
         extends Interfaces.SISO;

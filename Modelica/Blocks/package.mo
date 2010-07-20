@@ -544,6 +544,101 @@ If a \"circle\" is \"white\", the signal is <b>false</b>. It a
 </html>"));
     end LogicalNetwork1;
 
+    model RealNetwork1
+    "Demonstrates the usage of blocks from Modelica.Blocks.Math"
+
+    extends Modelica.Icons.Example;
+
+    Modelica.Blocks.Math.MultiSum
+                  add(nu=2)
+      annotation (Placement(transformation(extent={{-14,64},{-2,76}})));
+    Sources.Sine sine(amplitude=3, freqHz=0.1)
+      annotation (Placement(transformation(extent={{-96,60},{-76,80}})));
+    Sources.Step        integerStep(height=3, startTime=2)
+      annotation (Placement(transformation(extent={{-60,30},{-40,50}})));
+    Sources.Constant        integerConstant(k=1)
+      annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+    Math.ShowValue        showValue
+      annotation (Placement(transformation(extent={{40,60},{60,80}})));
+    Math.MultiProduct   product(nu=3)
+      annotation (Placement(transformation(extent={{16,24},{28,36}})));
+    Math.ShowValue        showValue1(precision=2)
+      annotation (Placement(transformation(extent={{46,20},{66,40}})));
+    Sources.BooleanPulse booleanPulse1(period=1)
+      annotation (Placement(transformation(extent={{-12,-30},{8,-10}})));
+    Math.MultiSwitch multiSwitch(
+      nu=2,
+      expr={4,6},
+      y_default=2)
+      annotation (Placement(transformation(extent={{28,-60},{68,-40}})));
+    Sources.BooleanPulse booleanPulse2(period=2, width=80)
+      annotation (Placement(transformation(extent={{-12,-70},{8,-50}})));
+    Math.ShowValue        showValue3(use_numberPort=false, number=multiSwitch.y,
+      precision=1)
+      annotation (Placement(transformation(extent={{40,-84},{60,-64}})));
+    equation
+    connect(booleanPulse1.y, multiSwitch.u[1])  annotation (Line(
+        points={{9,-20},{18,-20},{18,-48},{28,-48},{28,-48.5}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(booleanPulse2.y, multiSwitch.u[2])  annotation (Line(
+        points={{9,-60},{18,-60},{18,-52},{28,-52},{28,-51.5}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(sine.y, add.u[1]) annotation (Line(
+        points={{-75,70},{-46.5,70},{-46.5,72.1},{-14,72.1}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(integerStep.y, add.u[2]) annotation (Line(
+        points={{-39,40},{-28,40},{-28,67.9},{-14,67.9}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(add.y, showValue.numberPort) annotation (Line(
+        points={{-0.98,70},{38.5,70}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(add.y, product.u[1]) annotation (Line(
+        points={{-0.98,70},{10,70},{10,32.8},{16,32.8}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(integerStep.y, product.u[2]) annotation (Line(
+        points={{-39,40},{-20,40},{-20,30},{16,30}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(integerConstant.y, product.u[3]) annotation (Line(
+        points={{-39,0},{-20,0},{-20,27.2},{16,27.2}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(product.y, showValue1.numberPort) annotation (Line(
+        points={{29.02,30},{44.5,30}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation(Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
+              -100},{100,100}}),
+                       graphics),
+        experiment(StopTime=10),
+      Documentation(info="<html>
+<p>
+This example demonstrates a network of mathematical Real blocks.
+from package <a href=\"Modelica.Blocks.Math\">Modelica.Blocks.Math</a>.
+Note, that
+</p>
+
+<ul>
+<li> at the right side of the model, several Math.ShowValue blocks
+     are present, that visualize the actual value of the respective Real
+     signal in a diagram animation.</li>
+
+<li> the Boolean values of the input and output signals are visualized
+     in the diagram animation, by the small \"circles\" close to the connectors.
+     If a \"circle\" is \"white\", the signal is <b>false</b>. If a
+     \"circle\" is \"green\", the signal is <b>true</b>.</li>
+</ul>
+
+</html>"),
+      experimentSetupOutput);
+    end RealNetwork1;
+
     model IntegerNetwork1
     "Demonstrates the usage of blocks from Modelica.Blocks.MathInteger"
 
