@@ -965,29 +965,44 @@ Note, that
     extends Modelica.Icons.Example;
 
     Interaction.Show.IntegerValue integerValue
-      annotation (Placement(transformation(extent={{0,40},{20,60}})));
-    annotation(Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-              -100},{100,100}}),
+      annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
+      Sources.IntegerTable integerTable(table=[0,0; 1,2; 2,4; 3,6; 4,4; 6,2])
+        annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+      Sources.TimeTable timeTable(table=[0,0; 1,2.1; 2,4.2; 3,6.3; 4,4.2; 6,2.1; 6,2.1])
+        annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
+      Interaction.Show.RealValue realValue
+        annotation (Placement(transformation(extent={{-40,60},{-20,80}})));
+      Sources.BooleanTable booleanTable(table={1,2,3,4,5,6,7,8,9})
+        annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
+      Interaction.Show.BooleanValue booleanValue
+        annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
+      Sources.RadioButtonSource start(buttonTimeTable={1,3}, reset={stop.on})
+        annotation (Placement(transformation(extent={{24,64},{36,76}})));
+      Sources.RadioButtonSource stop(buttonTimeTable={2,4}, reset={start.on})
+        annotation (Placement(transformation(extent={{48,64},{60,76}})));
+    equation
+      connect(integerTable.y, integerValue.numberPort) annotation (Line(
+          points={{-59,30},{-41.5,30}},
+          color={255,127,0},
+          smooth=Smooth.None));
+      connect(timeTable.y, realValue.numberPort) annotation (Line(
+          points={{-59,70},{-41.5,70}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(booleanTable.y, booleanValue.activePort) annotation (Line(
+          points={{-59,-10},{-41.5,-10}},
+          color={255,0,255},
+          smooth=Smooth.None));
+    annotation(Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
+                {100,100}}),
                        graphics),
         experiment(StopTime=10),
       Documentation(info="<html>
 <p>
-This example demonstrates a network of Boolean blocks
-from package <a href=\"Modelica.Blocks.MathBoolean\">Modelica.Blocks.MathBoolean</a>.
-Note, that
+This example demonstrates a network of blocks
+from package <a href=\"Modelica.Blocks.Interaction\">Modelica.Blocks.Interaction</a>
+to show how diagram animations can be constructed.
 </p>
-
-<ul>
-<li> at the right side of the model, several MathBoolean.ShowValue blocks
-     are present, that visualize the actual value of the respective Boolean
-     signal in a diagram animation (\"green\" means \"true\").</li>
-
-<li> the Boolean values of the input and output signals are visualized
-     in the diagram animation, by the small \"circles\" close to the connectors.
-     If a \"circle\" is \"white\", the signal is <b>false</b>. If a
-     \"circle\" is \"green\", the signal is <b>true</b>.</li>
-
-</ul>
 
 </html>"),
       experimentSetupOutput);

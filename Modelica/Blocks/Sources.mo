@@ -2965,6 +2965,85 @@ changes its value to the negated value of the previous one.
 </html>"));
     end BooleanTable;
 
+  block RadioButtonSource "Boolean signal source that mimis a radio button"
+
+    parameter Modelica.SIunits.Time buttonTimeTable[:]
+      "Time instants where button is pressed";
+    input Boolean reset[:]={false}
+      "Reset button to false, if an element of reset becomes true"
+      annotation (Dialog(group="Time varying expressions"));
+
+    Modelica.Blocks.Interfaces.BooleanOutput on(start=false,fixed=true)
+      annotation (Placement(transformation(extent={{100,-15},{130,15}},
+            rotation=0)));
+  protected
+    Modelica.Blocks.Sources.BooleanTable table(table=buttonTimeTable);
+    parameter Integer nReset = size(reset,1);
+    Boolean pre_reset[nReset];
+  initial equation
+    pre(pre_reset)=fill(false,nReset);
+    pre(reset) = fill(false,nReset);
+  algorithm
+    pre_reset :=pre(reset);
+    when pre_reset then
+       on := false;
+    end when;
+
+    when change(table.y) then
+       on := true;
+    end when;
+
+    annotation (Icon(
+        coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}},initialScale=0.06),
+        graphics={Rectangle(
+            extent={{-100,-100},{100,100}},
+            borderPattern=BorderPattern.Raised,
+            fillColor=DynamicSelect({192,192,192}, if on > 0.5 then {0,255,0} else
+                      {192,192,192}),
+            fillPattern=DynamicSelect(FillPattern.Solid, if on > 0.5 then
+                FillPattern.Solid else FillPattern.Solid),
+            lineColor={128,128,128},
+            lineThickness=0.5), Text(
+            extent={{-300,110},{300,175}},
+            lineColor={0,0,255},
+            textString="%name")}),
+                            Diagram(coordinateSystem(preserveAspectRatio=false,
+                     extent={{-100,-100},{100,100}}),
+                                    graphics),
+        Documentation(info="<html>
+<p>
+Boolean signal source that mimics a radio button: 
+Via a table, a radio button is pressed (i.e., the output 'on' is set to true) and is reset when an element of the Boolean vector
+'reset' becomes true. If both appear at the same time instant, setting
+the button according to the table has a higher priority as reseting
+the button. Example:
+</p>
+
+<pre>
+  RadioButtonSource start(buttonTimeTable={1,3}, reset={stop.on});
+  RadioButtonSource stop (buttonTimeTable={2,4}, reset={start.on});
+</pre>
+
+<p>
+The \"start\" button is pressed at time=1 s and time=3 s,
+whereas the \"stop\" button is pressed at time=2 s and time=4 s.
+This gives the following result:
+</p>
+
+<blockquote>
+<img src=\"modelica://Modelica/Images/Blocks/Sources/RadioButtonSource.png\">
+</blockquote>
+
+<p>
+This example is also available in 
+<a href=\"Modelica.Blocks.Examples.Interaction1\">Modelica.Blocks.Examples.Interaction1</a>
+</p>
+
+</html>"));
+
+  end RadioButtonSource;
+
   block IntegerConstant "Generate constant signal of type Integer"
     parameter Integer k(start=1) "Constant output value";
     extends Interfaces.IntegerSO;
@@ -3132,62 +3211,6 @@ The Integer output y is a step signal:
 </html>"));
   end IntegerStep;
 
-      annotation (
-        Documentation(info="<HTML>
-<p>
-This package contains <b>source</b> components, i.e., blocks which
-have only output signals. These blocks are used as signal generators
-for Real, Integer and Boolean signals.
-</p>
-
-<p>
-All Real source signals (with the exception of the Constant source)
-have at least the following two parameters:
-</p>
-
-<table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>offset</b></td>
-      <td valign=\"top\">Value which is added to the signal</td>
-  </tr>
-  <tr><td valign=\"top\"><b>startTime</b></td>
-      <td valign=\"top\">Start time of signal. For time &lt; startTime,
-                the output y is set to offset.</td>
-  </tr>
-</table>
-
-<p>
-The <b>offset</b> parameter is especially useful in order to shift
-the corresponding source, such that at initial time the system
-is stationary. To determine the corresponding value of offset,
-usually requires a trimming calculation.
-</p>
-</HTML>
-", revisions="<html>
-<ul>
-<li><i>October 21, 2002</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
-       and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
-       Integer sources added. Step, TimeTable and BooleanStep slightly changed.</li>
-<li><i>Nov. 8, 1999</i>
-       by <a href=\"mailto:clauss@eas.iis.fhg.de\">Christoph Clau&szlig;</a>,
-       <a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>,
-       <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       New sources: Exponentials, TimeTable. Trapezoid slightly enhanced
-       (nperiod=-1 is an infinite number of periods).</li>
-<li><i>Oct. 31, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       <a href=\"mailto:clauss@eas.iis.fhg.de\">Christoph Clau&szlig;</a>,
-       <a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>,
-       All sources vectorized. New sources: ExpSine, Trapezoid,
-       BooleanConstant, BooleanStep, BooleanPulse, SampleTrigger.
-       Improved documentation, especially detailed description of
-       signals in diagram layer.</li>
-<li><i>June 29, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized a first version, based on an existing Dymola library
-       of Dieter Moormann and Hilding Elmqvist.</li>
-</ul>
-</html>"));
     block IntegerTable
     "Generate an Integer output signal based on a vector of time instants"
 
@@ -3365,4 +3388,60 @@ results in the following output:
 
 </html>"));
     end IntegerTable;
+      annotation (
+        Documentation(info="<HTML>
+<p>
+This package contains <b>source</b> components, i.e., blocks which
+have only output signals. These blocks are used as signal generators
+for Real, Integer and Boolean signals.
+</p>
+
+<p>
+All Real source signals (with the exception of the Constant source)
+have at least the following two parameters:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign=\"top\"><b>offset</b></td>
+      <td valign=\"top\">Value which is added to the signal</td>
+  </tr>
+  <tr><td valign=\"top\"><b>startTime</b></td>
+      <td valign=\"top\">Start time of signal. For time &lt; startTime,
+                the output y is set to offset.</td>
+  </tr>
+</table>
+
+<p>
+The <b>offset</b> parameter is especially useful in order to shift
+the corresponding source, such that at initial time the system
+is stationary. To determine the corresponding value of offset,
+usually requires a trimming calculation.
+</p>
+</HTML>
+", revisions="<html>
+<ul>
+<li><i>October 21, 2002</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
+       and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
+       Integer sources added. Step, TimeTable and BooleanStep slightly changed.</li>
+<li><i>Nov. 8, 1999</i>
+       by <a href=\"mailto:clauss@eas.iis.fhg.de\">Christoph Clau&szlig;</a>,
+       <a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>,
+       <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+       New sources: Exponentials, TimeTable. Trapezoid slightly enhanced
+       (nperiod=-1 is an infinite number of periods).</li>
+<li><i>Oct. 31, 1999</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+       <a href=\"mailto:clauss@eas.iis.fhg.de\">Christoph Clau&szlig;</a>,
+       <a href=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</a>,
+       All sources vectorized. New sources: ExpSine, Trapezoid,
+       BooleanConstant, BooleanStep, BooleanPulse, SampleTrigger.
+       Improved documentation, especially detailed description of
+       signals in diagram layer.</li>
+<li><i>June 29, 1999</i>
+       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+       Realized a first version, based on an existing Dymola library
+       of Dieter Moormann and Hilding Elmqvist.</li>
+</ul>
+</html>"));
 end Sources;

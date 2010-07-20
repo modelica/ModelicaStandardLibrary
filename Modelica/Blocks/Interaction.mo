@@ -12,19 +12,19 @@ package Interaction
         annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
       input Real number = 0.0
         "Number to visualize if use_numberPort=false (time varying)"
-        annotation(Dialog(enable=not use_numberPort));
-      parameter Integer precision(min=0) = 3
+        annotation(Dialog(enable=not use_numberPort), HideResult=true);
+      parameter Integer significantDigits(min=1) = 2
         "Number of significant digits to be shown";
 
       Modelica.Blocks.Interfaces.RealInput numberPort if use_numberPort
         "Number to be shown in diagram layer if use_numberPort = true"
-        annotation (Placement(transformation(extent={{-130,-15},{-100,15}})));
-       Modelica.Blocks.Interfaces.RealOutput number2;
+        annotation (HideResult=true,Placement(transformation(extent={{-130,-15},{-100,15}})));
+       Modelica.Blocks.Interfaces.RealOutput showNumber;
     equation
       if use_numberPort then
-         connect(numberPort, number2);
+         connect(numberPort, showNumber);
       else
-         number2 = number;
+         showNumber = number;
       end if;
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=false,  extent={{-100,
@@ -36,10 +36,7 @@ package Interaction
                 fillPattern=FillPattern.Solid,
                 borderPattern=BorderPattern.Raised),
               Text(extent={{-94,-34},{96,34}}, textString=DynamicSelect("0.0",
-                    realString(
-                      number2,
-                      1,
-                      integer(precision)))),
+                    String(showNumber, significantDigits=2))),
               Text(
                 visible=not use_numberPort,
                 extent={{-150,-50},{150,-70}},
@@ -62,7 +59,7 @@ The number to be visualized can be defined in the following ways:
 <p>
 The two versions of the block are shown in the following image (in the right variant, the
 name of the variable value that is displayed is also shown below the icon):<br>
-<img src=\"modelica://Modelica/Images/Math/ShowValue.png\">
+<img src=\"modelica://Modelica/Images/Blocks/Interaction/RealValue.png\">
 </p>
 
 <p>
@@ -78,16 +75,16 @@ The usage is demonstrated, e.g., in example
         annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
       input Integer number=0
         "Number to visualize if use_numberPort=false (time varying)"
-        annotation(Dialog(enable=not use_numberPort));
+        annotation(Dialog(enable=not use_numberPort), HideResult=true);
       Modelica.Blocks.Interfaces.IntegerInput numberPort if use_numberPort
         "Number to be shown in diagram layer if use_numberPort = true"
-        annotation (Placement(transformation(extent={{-130,-15},{-100,15}})));
-       Modelica.Blocks.Interfaces.IntegerOutput number2;
+        annotation (HideResult=true,Placement(transformation(extent={{-130,-15},{-100,15}})));
+       Modelica.Blocks.Interfaces.IntegerOutput showNumber;
     equation
       if use_numberPort then
-         connect(numberPort, number2);
+         connect(numberPort, showNumber);
       else
-         number2 = number;
+         showNumber = number;
       end if;
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=false,  extent={{-100,
@@ -98,7 +95,7 @@ The usage is demonstrated, e.g., in example
                 fillColor={236,233,216},
                 fillPattern=FillPattern.Solid,
                 borderPattern=BorderPattern.Raised),
-              Text(extent={{-94,-34},{96,34}}, textString=DynamicSelect("0", String(number2))),
+              Text(extent={{-94,-34},{96,34}}, textString=DynamicSelect("0", String(showNumber))),
               Text(
                 visible=not use_numberPort,
                 extent={{-150,-50},{150,-70}},
@@ -137,17 +134,17 @@ The usage is demonstrated, e.g., in example
         annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
       input Boolean active=false
         "Boolean variable to visualize if use_activePort=false (time varying)"
-        annotation(Dialog(enable=not use_activePort));
+        annotation(Dialog(enable=not use_activePort),HideResult=true);
       Modelica.Blocks.Interfaces.BooleanInput activePort if use_activePort
         "Boolean variable to be shown in diagram layer if use_activePort = true"
-        annotation (Placement(transformation(extent={{-130,-15},{-100,15}})));
+        annotation (HideResult=true,Placement(transformation(extent={{-130,-15},{-100,15}})));
 
-       Modelica.Blocks.Interfaces.BooleanOutput active2;
+       Modelica.Blocks.Interfaces.BooleanOutput showActive;
     equation
       if use_activePort then
-         connect(activePort, active2);
+         connect(activePort, showActive);
       else
-         active2 = active;
+         showActive = active;
       end if;
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=false,  extent={{-100,
@@ -157,13 +154,13 @@ The usage is demonstrated, e.g., in example
                 lineColor={0,0,0},
                 textString="%active"), Ellipse(
                 extent={{-100,-40},{-20,40}},
-                fillColor=DynamicSelect({235,235,235}, if active2 > 0.5 then {0,
+                fillColor=DynamicSelect({235,235,235}, if showActive > 0.5 then {0,
                     255,0} else {235,235,235}),
                 lineColor={0,0,0},
                 pattern=LinePattern.None,
                 fillPattern=FillPattern.Sphere)}), Documentation(info="<html>
 <p>
-This block viualizes a Boolean variable in a diagram animation.
+This block visualizes a Boolean variable in a diagram animation.
 The Boolean variable to be visualized can be defined in the following ways:
 </p>
 
@@ -180,7 +177,7 @@ The Boolean variable to be visualized can be defined in the following ways:
 If the Boolean variable is <b>false</b> the block is \"grey\", otherwise, it is \"green\".
 The two versions of the block are shown in the following image (in the right variant, the
 name of the variable value that is displayed is also shown below the icon):<br>
-<img src=\"modelica://Modelica/Images/MathBoolean/ShowValue.png\">
+<img src=\"modelica://Modelica/Images/Blocks/Interaction/BooleanValue.png\">
 </p>
 
 <p>
