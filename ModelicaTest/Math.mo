@@ -30,6 +30,41 @@ extends Modelica.Icons.Library;
     ok:=true;
   end ScalarFunctions;
 
+  function BooleanFunctions
+    import Modelica.Utilities.Streams;
+    import Modelica.Math;
+    input String logFile = "ModelicaTestLog.txt"
+      "Filename where the log is stored";
+    output Boolean ok;
+  protected
+    Boolean b1[:] = {true, true, true};
+    Boolean b2[:] = {false, false, false};
+    Boolean b3[:] = {false, true, false, true};
+    Boolean b4[:] = {false, true, false};
+  algorithm
+    ok:=false;
+    Streams.print("... Test of Modelica.Math.<Boolean functions>", logFile);
+
+    assert(Math.allTrue(b1) == true,  "allTrue is wrong at (1)");
+    assert(Math.allTrue(b2) == false, "allTrue is wrong at (2)");
+    assert(Math.allTrue(b3) == false, "allTrue is wrong at (3)");
+
+    assert(Math.anyTrue(b1) == true,  "anyTrue is wrong at (1)");
+    assert(Math.anyTrue(b2) == false, "anyTrue is wrong at (2)");
+    assert(Math.anyTrue(b3) == true,  "anyTrue is wrong at (3)");
+
+    assert(Math.oneTrue(b1) == false, "oneTrue is wrong at (1)");
+    assert(Math.oneTrue(b2) == false, "oneTrue is wrong at (2)");
+    assert(Math.oneTrue(b3) == false, "oneTrue is wrong at (3)");
+    assert(Math.oneTrue(b4) == true,  "oneTrue is wrong at (4)");
+
+    assert(Math.firstTrueIndex(b1) == 1, "firstTrueIndex is wrong at (1)");
+    assert(Math.firstTrueIndex(b2) == 0, "firstTrueIndex is wrong at (2)");
+    assert(Math.firstTrueIndex(b3) == 2, "firstTrueIndex is wrong at (3)");
+
+    ok:=true;
+  end BooleanFunctions;
+
   function Polynomials
     "Test functions of Modelica.Media.Incompressible.TableBased.Polynomials_Temp"
     import Modelica.Utilities.Streams;
@@ -440,22 +475,4 @@ extends Modelica.Icons.Library;
     ok := true;
   end Vectors;
 
-  function BooleanFunctions
-    import Modelica.Utilities.Streams;
-    import Modelica.Math;
-    input String logFile = "ModelicaTestLog.txt"
-      "Filename where the log is stored";
-    output Boolean ok;
-  protected
-    Boolean b1[:] = {true, true, true};
-    Boolean b2[:] = {false, false, false};
-    Boolean b3[:] = {false, true, false, true};
-  algorithm
-    ok:=false;
-    Streams.print("... Test of Modelica.Math.<Boolean functions>", logFile);
-
-    assert(allTrue(b1) == true, "allTrue is wrong at (1)");
-
-    ok:=true;
-  end BooleanFunctions;
 end Math;

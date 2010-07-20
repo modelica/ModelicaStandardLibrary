@@ -1,6 +1,8 @@
 within ModelicaTest;
 function TestComplexFunctions
   import Complex;
+  input String logFile = "ModelicaTestLog.txt"
+    "Filename where the log is stored";
   output Boolean success;
 protected
   Complex c1;
@@ -11,6 +13,9 @@ protected
   Real Ref;
   constant Real epsilon=1E-14;
 algorithm
+  success:=false;
+  Modelica.Utilities.Streams.print("... Test of Complex and of Modelica.ComplexMath", logFile);
+
   c1:=Complex(1,1);
   res:=-c1;
   ref:=Complex(-1,-1);

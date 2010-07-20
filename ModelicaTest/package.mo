@@ -27,23 +27,16 @@ algorithm
 
   print("--- Test functions of ModelicaTest library", logFile);
   result := ModelicaTest.Math.ScalarFunctions(logFile);
+  result := ModelicaTest.Math.BooleanFunctions(logFile);
   result := ModelicaTest.Math.Polynomials(logFile);
   result := ModelicaTest.Math.Matrices(logFile);
   result := ModelicaTest.Math.Matrices2();
   result := ModelicaTest.Math.Vectors();
   result := ModelicaTest.Utilities.testAll(logFile);
+  result := ModelicaTest.TestComplexFunctions(logFile);
 
   ok := true;
 end testAllFunctions;
-
-
-
-
-
-
-
-
-
 
 
   annotation (version="1.1",
