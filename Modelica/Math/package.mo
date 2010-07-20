@@ -56,13 +56,13 @@ The default values of \"name\" and \"significantDigits\" are \"\" and 6 respecti
 <h4>Example</h4>
 <blockquote><pre>
   v = {2.12, -4.34, -2.56, -1.67};
-  <b>toString</b>(v);  
+  <b>toString</b>(v);
                          // = \"
                          //           2.12
                          //          -4.34
                          //          -2.56
                          //          -1.67\"
-  <b>toString</b>(v,\"vv\",1);  
+  <b>toString</b>(v,\"vv\",1);
                          // = \"vv =
                          //           2
                          //          -4
@@ -676,7 +676,7 @@ This library provides functions operating on vectors:
        symbolic manipulations)</li>
 
 <li> <a href=\"modelica://Modelica.Math.Vectors.normalize\">normalize</a>(v)
-     - returns vector in direction of v with lenght = 1 and prevents 
+     - returns vector in direction of v with lenght = 1 and prevents
        zero-division for zero vector.</li>
 
 <li> <a href=\"modelica://Modelica.Math.Vectors.reverse\">reverse</a>(v)
@@ -800,7 +800,7 @@ Matrices.<b>toString</b>(A, name=\"\", significantDigits=6);
 The function call \"<code>Matrices.<b>toString</b>(A)</code>\" returns the
 string representation of matrix <b>A</b>.
 With the optional arguments \"name\" and \"significantDigits\", a name and the number of the digits are defined.
-The default values of name and significantDigits are \"\" and 6 respectively. If name==\"\" then the 
+The default values of name and significantDigits are \"\" and 6 respectively. If name==\"\" then the
 prefix \"&lt;name&gt; =\" is leaved out.
 
 
@@ -814,15 +814,15 @@ prefix \"&lt;name&gt; =\" is leaved out.
   //     -2.56   -1.67\";
 
   toString(A,\"A\",1);
-  // = \"A = 
+  // = \"A =
   //         2     -4
   //        -3     -2\"
 </pre></blockquote>
 
 <h4>See also</h4>
-
-
+<p>
 <a href=\"modelica://Modelica.Math.Vectors.toString\">Vectors.toString</a>
+</p>
 
 </HTML>",   revisions="<html>
 </html>"));
@@ -2296,7 +2296,7 @@ The computation is performed by <a href=\"modelica://Modelica.Math.Matrices.LAPA
 <h4>Description</h4>
 
 <p>
-This function returns a vector D, such that B=inv(diagonal(D))*A*diagonal(D) has a 
+This function returns a vector D, such that B=inv(diagonal(D))*A*diagonal(D) has a
 better condition as matrix A, i.e., conditionNumber(B) &le; conditionNumber(A). The elements of D
 are multiples of 2 which means that this function does not introduce round-off errors.
 Balancing attempts to make the norm of each row of B equal to the
@@ -2515,7 +2515,7 @@ To be more precise:
 </p>
 
 <ul>
-<li> rank(A) returns the number of singular values of A that are larger than 
+<li> rank(A) returns the number of singular values of A that are larger than
      max(size(A))*norm(A)*Modelica.Constants.eps.</li>
 <li> rank(A, eps) returns the number of singular values of A that are larger than \"eps\".</li>
 </ul>
@@ -10167,7 +10167,7 @@ See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dhseqr\">Matrices.Lapack.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Matrices.eigenValues\">Matrices.eigenValues</a>, 
+<a href=\"modelica://Modelica.Math.Matrices.eigenValues\">Matrices.eigenValues</a>,
 <a href=\"modelica://Modelica.Math.Matrices.hessenberg\">Matrices.hessenberg</a>
 </p>
 </html>
@@ -10357,10 +10357,10 @@ These functions are usually not useful for an end-user.
     Documentation(info="<HTML>
 <h4>Library content</h4>
 <p>
-This library provides functions operating on matrices. Below, the 
+This library provides functions operating on matrices. Below, the
 functions are ordered according to categories and a typical
-call of the respective function is shown. 
-Most functions are solely an interface to the external 
+call of the respective function is shown.
+Most functions are solely an interface to the external
 <a href=\"modelica://Modelica.Math.Matrices.LAPACK\">LAPACK</a> library.
 Note, A' is a short hand notation of transpose(A):
 </p>
@@ -10398,7 +10398,7 @@ Note, A' is a short hand notation of transpose(A):
      - returns the LU decomposition with row pivoting of a rectangular matrix A.</li>
 
 <li> <a href=\"modelica://Modelica.Math.Matrices.LU_solve\">LU_solve</a>(LU,p,b)
-     - returns solution x of the linear equation L*U*x[p]=b with a b 
+     - returns solution x of the linear equation L*U*x[p]=b with a b
        vector and an LU decomposition from \"LU(..)\".</li>
 
 <li> <a href=\"modelica://Modelica.Math.Matrices.LU_solve2\">LU_solve2</a>(LU,p,B)
@@ -10409,7 +10409,7 @@ Note, A' is a short hand notation of transpose(A):
 <p><b>Matrix Factorizations</b></p>
 <ul>
 <li> (eval,evec) = <a href=\"modelica://Modelica.Math.Matrices.eigenValues\">eigenValues</a>(A)
-     - returns eigen values \"eval\" and eigen vectors \"evec\" for a real, 
+     - returns eigen values \"eval\" and eigen vectors \"evec\" for a real,
        nonsymmetric matrix A in a Real representation.</li>
 
 <li> <a href=\"modelica://Modelica.Math.Matrices.eigenValueMatrix\">eigenValueMatrix</a>(eval)
@@ -10457,7 +10457,7 @@ Note, A' is a short hand notation of transpose(A):
 
 <li> <a href=\"modelica://Modelica.Math.Matrices.rcond\">rcond</a>(A)
      - returns the reciprocal condition number 1/conditionNumber(A) of a square matrix A in the range 0..1.</li>
-  
+
 <li> <a href=\"modelica://Modelica.Math.Matrices.norm\">norm</a>(A)
      - returns the 1-, 2-, or infinity-norm of matrix A.</li>
 
@@ -10467,7 +10467,7 @@ Note, A' is a short hand notation of transpose(A):
 <li> <a href=\"modelica://Modelica.Math.Matrices.nullSpace\">nullSpace</a>(A)
      - returns the null space of matrix A.</li>
 </ul>
-  
+
 <p><b>Matrix Exponentials</b></p>
 <ul>
 <li> <a href=\"modelica://Modelica.Math.Matrices.exp\">exp</a>(A)
@@ -10476,7 +10476,7 @@ Note, A' is a short hand notation of transpose(A):
 
 <li> (phi, gamma) = <a href=\"modelica://Modelica.Math.Matrices.integralExp\">integralExp</a>(A,B)
      - returns the exponential phi=e^A and the integral gamma=integral(exp(A*t)*dt)*B as needed
-       for a discretized system with zero order hold.</li>   
+       for a discretized system with zero order hold.</li>
 
 <li> (phi, gamma, gamma1) = <a href=\"modelica://Modelica.Math.Matrices.integralExpT\">integralExpT</a>(A,B)
      - returns the exponential phi=e^A, the integral gamma=integral(exp(A*t)*dt)*B,
@@ -10491,7 +10491,7 @@ Note, A' is a short hand notation of transpose(A):
 
 <li> <a href=\"modelica://Modelica.Math.Matrices.continuousSylvester\">continuousSylvester</a>(A,B,C)
      - returns solution X of the continuous-time Sylvester equation A*X + X*B = C</li>
- 
+
 <li> <a href=\"modelica://Modelica.Math.Matrices.continuousRiccati\">continuousRiccati</a>(A,B,R,Q)
      - returns solution X of the continuous-time algebraic Riccat equation
        A'*X + X*A - X*B*inv(R)*B'*X + Q = 0</li>
@@ -10501,7 +10501,7 @@ Note, A' is a short hand notation of transpose(A):
 
 <li> <a href=\"modelica://Modelica.Math.Matrices.discreteSylvester\">discreteSylvester</a>(A,B,C)
      - returns solution X of the discrete-time Sylvester equation A*X*B + sgn*X = C</li>
- 
+
 <li> <a href=\"modelica://Modelica.Math.Matrices.discreteRiccati\">discreteRiccati</a>(A,B,R,Q)
      - returns solution X of the discrete-time algebraic Riccat equation
        A'*X*A - X - A'*X*B*inv(R + B'*X*B)*B'*X*A + Q = 0</li>
@@ -11851,6 +11851,118 @@ with u &gt; 0:
 </html>"), Library="ModelicaExternalC");
 end log10;
 
+function allTrue
+  "Returns true, if all elements of the Boolean input vector are true ('and')"
+  extends Modelica.Icons.Function;
+  input Boolean b[:] "Boolean vector";
+  output Boolean result "= true, if all elements of b are true";
+algorithm
+  result := true;
+  for i in 1:size(b,1) loop
+     result := result and b[i];
+  end for;
+    annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+<b>allTrue</b>(b);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Returns <b>true</b> if all elements of the Boolean input vector b are <b>true</b>.
+Otherwise the function returns <b>false</b>.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  Boolean b1[3] = {true, true, true};
+  Boolean b2[3] = {false, true, false};
+  Boolean r1, r2;
+<b>algorithm</b>
+  r1 = allTrue(b1);  // r1 = true
+  r2 = allTrue(b2);  // r2 = false
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Math.anyTrue\">anyTrue</a>,
+<a href=\"modelica://Modelica.Math.oneTrue\">oneTrue</a>,
+<a href=\"modelica://Modelica.Math.firstTrueIndex\">firstTrueIndex</a>.
+</p>
+
+</html>"));
+end allTrue;
+
+function anyTrue
+  "Returns true, if at least on element of the Boolean input vector is true ('or')"
+
+  extends Modelica.Icons.Function;
+  input Boolean b[:];
+  output Boolean result;
+algorithm
+  result := false;
+  for i in 1:size(b,1) loop
+     result := result or b[i];
+  end for;
+  annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+<b>anyTrue</b>(b);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Returns <b>true</b> if at least one elements of the input Boolean vector b is <b>true</b>.
+Otherwise the function returns <b>false</b>.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  Boolean b1[3] = {false, false, false};
+  Boolean b2[3] = {false, true, false};
+  Boolean r1, r2;
+<b>algorithm</b>
+  r1 = anyTrue(b1);  // r1 = false
+  r2 = anyTrue(b2);  // r2 = true
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Math.allTrue\">allTrue</a>,
+<a href=\"modelica://Modelica.Math.oneTrue\">oneTrue</a>,
+<a href=\"modelica://Modelica.Math.firstTrueIndex\">firstTrueIndex</a>.
+</p>
+</html>"));
+end anyTrue;
+
+function firstTrueIndex
+  "Returns the index of the first element of the Boolean vector that is true and returns 0, if no element is true"
+   input Boolean b[:];
+   output Integer index;
+algorithm
+   index :=0;
+   for i in 1:size(b,1) loop
+      if b[i] then
+         index :=i;
+         return;
+      end if;
+   end for;
+end firstTrueIndex;
+
+function oneTrue
+  "Returns true, if exactly one element of the Boolean input vector is true ('xor')"
+
+  extends Modelica.Icons.Function;
+  input Boolean b[:];
+  output Boolean result;
+protected
+  Integer count = 0;
+algorithm
+  for i in 1:size(b,1) loop
+     count := if b[i] then count+1 else count;
+  end for;
+  result :=count == 1;
+end oneTrue;
 
 partial function baseIcon1
   "Basic icon for mathematical function with y-axis on left side"
@@ -12064,7 +12176,7 @@ annotation (
   Documentation(info="<HTML>
 <p>
 This package contains <b>basic mathematical functions</b> (such as sin(..)),
-as well as functions operating on 
+as well as functions operating on
 <a href=\"modelica://Modelica.Math.Vectors\">vectors</a>,
 <a href=\"modelica://Modelica.Math.Matrices\">matrices</a>, and
 <a href=\"modelica://Modelica.Math.Nonlinear\">nonlinear functions</a>.

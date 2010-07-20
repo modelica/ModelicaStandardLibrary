@@ -19,6 +19,10 @@ log
 log10
 baseIcon1
 baseIcon2
+allTrue
+anyTrue
+oneTrue
+firstTrueIndex
+Interfaces
 tempInterpol1
 tempInterpol2
-Interfaces

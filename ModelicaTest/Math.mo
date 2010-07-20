@@ -438,4 +438,23 @@ package Math "Test models for Modelica.Math"
 
     ok := true;
   end Vectors;
+
+  function BooleanFunctions
+    import Modelica.Utilities.Streams;
+    import Modelica.Math;
+    input String logFile = "ModelicaTestLog.txt"
+      "Filename where the log is stored";
+    output Boolean ok;
+  protected
+    Boolean b1[:] = {true, true, true};
+    Boolean b2[:] = {false, false, false};
+    Boolean b3[:] = {false, true, false, true};
+  algorithm
+    ok:=false;
+    Streams.print("... Test of Modelica.Math.<Boolean functions>", logFile);
+
+    assert(allTrue(b1) == true, "allTrue is wrong at (1)");
+
+    ok:=true;
+  end BooleanFunctions;
 end Math;

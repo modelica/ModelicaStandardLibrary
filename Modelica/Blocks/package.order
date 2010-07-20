@@ -4,6 +4,8 @@ Discrete
 Interfaces
 Logical
 Math
+MathInteger
+MathBoolean
 Nonlinear
 Routing
 Sources

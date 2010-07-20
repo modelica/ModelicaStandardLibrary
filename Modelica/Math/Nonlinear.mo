@@ -309,8 +309,6 @@ The following nonlinear equations are solved:
 </html>"));
     end solveNonlinearEquations2;
 
-
-
     package UtilityFunctions
       "Utility functions that are used as function arguments to the examples"
       extends Modelica.Icons.Package;

@@ -544,6 +544,312 @@ If a \"circle\" is \"white\", the signal is <b>false</b>. It a
 </html>"));
     end LogicalNetwork1;
 
+    model IntegerNetwork1
+    "Demonstrates the usage of blocks from Modelica.Blocks.MathInteger"
+
+    extends Modelica.Icons.Example;
+
+    MathInteger.Sum sum(nu=3)
+      annotation (Placement(transformation(extent={{-14,64},{-2,76}})));
+    Sources.Sine sine(amplitude=3, freqHz=0.1)
+      annotation (Placement(transformation(extent={{-100,60},{-80,80}})));
+    Math.RealToInteger realToInteger
+      annotation (Placement(transformation(extent={{-60,60},{-40,80}})));
+    Sources.IntegerStep integerStep(height=3, startTime=2)
+      annotation (Placement(transformation(extent={{-60,30},{-40,50}})));
+    Sources.IntegerConstant integerConstant(k=1)
+      annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+    MathInteger.ShowValue showValue
+      annotation (Placement(transformation(extent={{40,60},{60,80}})));
+    MathInteger.Product product(nu=2)
+      annotation (Placement(transformation(extent={{16,24},{28,36}})));
+    MathInteger.ShowValue showValue1
+      annotation (Placement(transformation(extent={{40,20},{60,40}})));
+    MathInteger.TriggeredAdd triggeredAdd(use_reset=false, use_set=false)
+      annotation (Placement(transformation(extent={{16,-6},{28,6}})));
+    Sources.BooleanPulse booleanPulse1(period=1)
+      annotation (Placement(transformation(extent={{-12,-30},{8,-10}})));
+    MathInteger.ShowValue showValue2
+      annotation (Placement(transformation(extent={{40,-10},{60,10}})));
+    MathInteger.MultiSwitch multiSwitch1(
+      nu=2,
+      expr={4,6},
+      y_default=2,
+      use_pre_as_default=false)
+      annotation (Placement(transformation(extent={{28,-60},{68,-40}})));
+    Sources.BooleanPulse booleanPulse2(period=2, width=80)
+      annotation (Placement(transformation(extent={{-12,-70},{8,-50}})));
+    MathInteger.ShowValue showValue3(use_numberPort=false, number=multiSwitch1.y)
+      annotation (Placement(transformation(extent={{40,-84},{60,-64}})));
+    equation
+    connect(sine.y, realToInteger.u) annotation (Line(
+        points={{-79,70},{-62,70}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(realToInteger.y, sum.u[1]) annotation (Line(
+        points={{-39,70},{-32,70},{-32,72},{-14,72},{-14,72.8}},
+        color={255,127,0},
+        smooth=Smooth.None));
+    connect(integerStep.y, sum.u[2]) annotation (Line(
+        points={{-39,40},{-28,40},{-28,70},{-14,70}},
+        color={255,127,0},
+        smooth=Smooth.None));
+    connect(integerConstant.y, sum.u[3]) annotation (Line(
+        points={{-39,0},{-22,0},{-22,67.2},{-14,67.2}},
+        color={255,127,0},
+        smooth=Smooth.None));
+    connect(sum.y, showValue.numberPort) annotation (Line(
+        points={{-1.1,70},{38.5,70}},
+        color={255,127,0},
+        smooth=Smooth.None));
+    connect(sum.y, product.u[1]) annotation (Line(
+        points={{-1.1,70},{4,70},{4,32.1},{16,32.1}},
+        color={255,127,0},
+        smooth=Smooth.None));
+    connect(integerStep.y, product.u[2]) annotation (Line(
+        points={{-39,40},{-8,40},{-8,27.9},{16,27.9}},
+        color={255,127,0},
+        smooth=Smooth.None));
+    connect(product.y, showValue1.numberPort) annotation (Line(
+        points={{28.9,30},{38.5,30}},
+        color={255,127,0},
+        smooth=Smooth.None));
+    connect(integerConstant.y, triggeredAdd.u) annotation (Line(
+        points={{-39,0},{13.6,0}},
+        color={255,127,0},
+        smooth=Smooth.None));
+    connect(booleanPulse1.y, triggeredAdd.trigger) annotation (Line(
+        points={{9,-20},{18.4,-20},{18.4,-7.2}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(triggeredAdd.y, showValue2.numberPort) annotation (Line(
+        points={{29.2,0},{38.5,0}},
+        color={255,127,0},
+        smooth=Smooth.None));
+    connect(booleanPulse1.y, multiSwitch1.u[1]) annotation (Line(
+        points={{9,-20},{18,-20},{18,-48},{28,-48},{28,-48.5}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(booleanPulse2.y, multiSwitch1.u[2]) annotation (Line(
+        points={{9,-60},{18,-60},{18,-52},{28,-52},{28,-51.5}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    annotation(Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
+                {100,100}}),
+                       graphics),
+        experiment(StopTime=10),
+      Documentation(info="<html>
+<p>
+This example demonstrates a network of Integer blocks.
+from package <a href=\"Modelica.Blocks.MathInteger\">Modelica.Blocks.MathInteger</a>.
+Note, that
+</p>
+
+<ul>
+<li> at the right side of the model, several MathInteger.ShowValue blocks
+     are present, that visualize the actual value of the respective Integer
+     signal in a diagram animation.</li>
+
+<li> the Boolean values of the input and output signals are visualized
+     in the diagram animation, by the small \"circles\" close to the connectors.
+     If a \"circle\" is \"white\", the signal is <b>false</b>. If a
+     \"circle\" is \"green\", the signal is <b>true</b>.</li>
+
+</ul>
+
+</html>"),
+      experimentSetupOutput);
+    end IntegerNetwork1;
+
+    model BooleanNetwork1
+    "Demonstrates the usage of blocks from Modelica.Blocks.MathBoolean"
+
+    extends Modelica.Icons.Example;
+
+    MathBoolean.ShowValue showValue
+      annotation (Placement(transformation(extent={{-36,74},{-16,94}})));
+    MathBoolean.And and1(nu=3)
+      annotation (Placement(transformation(extent={{-58,64},{-46,76}})));
+    Sources.BooleanPulse booleanPulse1(width=20, period=1)
+      annotation (Placement(transformation(extent={{-100,60},{-80,80}})));
+    Sources.BooleanPulse booleanPulse2(period=1, width=80)
+      annotation (Placement(transformation(extent={{-100,-4},{-80,16}})));
+    Sources.BooleanStep booleanStep(startTime=1.5)
+      annotation (Placement(transformation(extent={{-100,28},{-80,48}})));
+    MathBoolean.Or or1(nu=2)
+      annotation (Placement(transformation(extent={{-28,62},{-16,74}})));
+    MathBoolean.Xor xor1(nu=2)
+      annotation (Placement(transformation(extent={{-2,60},{10,72}})));
+    MathBoolean.ShowValue showValue2
+      annotation (Placement(transformation(extent={{-2,74},{18,94}})));
+    MathBoolean.ShowValue showValue3
+      annotation (Placement(transformation(extent={{24,56},{44,76}})));
+    MathBoolean.Nand nand1(nu=2)
+      annotation (Placement(transformation(extent={{22,40},{34,52}})));
+    MathBoolean.Nor or2(nu=2)
+      annotation (Placement(transformation(extent={{46,38},{58,50}})));
+    MathBoolean.ShowValue showValue4
+      annotation (Placement(transformation(extent={{90,34},{110,54}})));
+    MathBoolean.Not nor1
+      annotation (Placement(transformation(extent={{68,40},{76,48}})));
+    MathBoolean.OnDelay onDelay(delayTime=1)
+      annotation (Placement(transformation(extent={{-56,-94},{-48,-86}})));
+    MathBoolean.RisingEdge rising
+      annotation (Placement(transformation(extent={{-56,-15},{-48,-7}})));
+    MathBoolean.MultiSwitch set1(nu=2, expr={false,true})
+      annotation (Placement(transformation(extent={{-30,-23},{10,-3}})));
+    MathBoolean.FallingEdge falling
+      annotation (Placement(transformation(extent={{-56,-32},{-48,-24}})));
+    Sources.BooleanTable booleanTable(table={2,4,6,6.5,7,9,11})
+      annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));
+    MathBoolean.ChangingEdge changing
+      annotation (Placement(transformation(extent={{-56,-59},{-48,-51}})));
+    MathInteger.TriggeredAdd triggeredAdd
+      annotation (Placement(transformation(extent={{14,-56},{26,-44}})));
+    Sources.IntegerConstant integerConstant(k=2)
+      annotation (Placement(transformation(extent={{-20,-60},{0,-40}})));
+    MathInteger.ShowValue showValue1
+      annotation (Placement(transformation(extent={{40,-60},{60,-40}})));
+    MathBoolean.ShowValue showValue5
+      annotation (Placement(transformation(extent={{24,-23},{44,-3}})));
+    MathBoolean.ShowValue showValue6
+      annotation (Placement(transformation(extent={{-32,-100},{-12,-80}})));
+    equation
+    connect(booleanPulse1.y, and1.u[1]) annotation (Line(
+        points={{-79,70},{-68,70},{-68,72.8},{-58,72.8}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(booleanStep.y, and1.u[2]) annotation (Line(
+        points={{-79,38},{-64,38},{-64,70},{-58,70}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(booleanPulse2.y, and1.u[3]) annotation (Line(
+        points={{-79,6},{-62,6},{-62,67.2},{-58,67.2}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(and1.y, or1.u[1]) annotation (Line(
+        points={{-45.1,70},{-36.4,70},{-36.4,70.1},{-28,70.1}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(booleanPulse2.y, or1.u[2]) annotation (Line(
+        points={{-79,6},{-40,6},{-40,65.9},{-28,65.9}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(or1.y, xor1.u[1]) annotation (Line(
+        points={{-15.1,68},{-8,68},{-8,68.1},{-2,68.1}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(booleanPulse2.y, xor1.u[2]) annotation (Line(
+        points={{-79,6},{-12,6},{-12,63.9},{-2,63.9}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(and1.y, showValue.activePort) annotation (Line(
+        points={{-45.1,70},{-42,70},{-42,84},{-37.5,84}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(or1.y, showValue2.activePort) annotation (Line(
+        points={{-15.1,68},{-12,68},{-12,84},{-3.5,84}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(xor1.y, showValue3.activePort) annotation (Line(
+        points={{10.9,66},{22.5,66}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(xor1.y, nand1.u[1]) annotation (Line(
+        points={{10.9,66},{16,66},{16,48.1},{22,48.1}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(booleanPulse2.y, nand1.u[2]) annotation (Line(
+        points={{-79,6},{16,6},{16,44},{22,44},{22,43.9}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(nand1.y, or2.u[1]) annotation (Line(
+        points={{34.9,46},{46,46},{46,46.1}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(booleanPulse2.y, or2.u[2]) annotation (Line(
+        points={{-79,6},{42,6},{42,41.9},{46,41.9}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(or2.y, nor1.u) annotation (Line(
+        points={{58.9,44},{66.4,44}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(nor1.y, showValue4.activePort) annotation (Line(
+        points={{76.8,44},{88.5,44}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(booleanPulse2.y, rising.u)  annotation (Line(
+        points={{-79,6},{-62,6},{-62,-11},{-57.6,-11}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(rising.y, set1.u[1]) annotation (Line(
+        points={{-47.2,-11},{-38.6,-11},{-38.6,-11.5},{-30,-11.5}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(falling.y, set1.u[2]) annotation (Line(
+        points={{-47.2,-28},{-40,-28},{-40,-14.5},{-30,-14.5}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(booleanPulse2.y, falling.u) annotation (Line(
+        points={{-79,6},{-62,6},{-62,-28},{-57.6,-28}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(booleanTable.y, onDelay.u) annotation (Line(
+        points={{-79,-90},{-57.6,-90}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(booleanPulse2.y, changing.u) annotation (Line(
+        points={{-79,6},{-62,6},{-62,-55},{-57.6,-55}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(integerConstant.y, triggeredAdd.u) annotation (Line(
+        points={{1,-50},{11.6,-50}},
+        color={255,127,0},
+        smooth=Smooth.None));
+    connect(changing.y, triggeredAdd.trigger) annotation (Line(
+        points={{-47.2,-55},{-30,-55},{-30,-74},{16.4,-74},{16.4,-57.2}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(triggeredAdd.y, showValue1.numberPort) annotation (Line(
+        points={{27.2,-50},{38.5,-50}},
+        color={255,127,0},
+        smooth=Smooth.None));
+    connect(set1.y, showValue5.activePort) annotation (Line(
+        points={{11,-13},{22.5,-13}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(onDelay.y, showValue6.activePort) annotation (Line(
+        points={{-47.2,-90},{-33.5,-90}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    annotation(Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
+              -100},{100,100}}),
+                       graphics),
+        experiment(StopTime=10),
+      Documentation(info="<html>
+<p>
+This example demonstrates a network of Boolean blocks
+from package <a href=\"Modelica.Blocks.MathBoolean\">Modelica.Blocks.MathBoolean</a>.
+Note, that
+</p>
+
+<ul>
+<li> at the right side of the model, several MathBoolean.ShowValue blocks
+     are present, that visualize the actual value of the respective Boolean
+     signal in a diagram animation (\"green\" means \"true\").</li>
+
+<li> the Boolean values of the input and output signals are visualized
+     in the diagram animation, by the small \"circles\" close to the connectors.
+     If a \"circle\" is \"white\", the signal is <b>false</b>. If a
+     \"circle\" is \"green\", the signal is <b>true</b>.</li>
+
+</ul>
+
+</html>"),
+      experimentSetupOutput);
+    end BooleanNetwork1;
+
   model BusUsage "Demonstrates the usage of a signal bus"
     extends Modelica.Icons.Example;
 
