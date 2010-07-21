@@ -67,7 +67,7 @@ type AnalogFilter = enumeration(
       CriticalDamping "Filter with critical damping",
       Bessel "Bessel filter",
       Butterworth "Butterworth filter",
-      ChebyshevI "ChebyshevI filter")
+      ChebyshevI "Chebyshev I filter")
     "Enumeration defining the method of filtering"
       annotation (Evaluate=true);
 type FilterType = enumeration(

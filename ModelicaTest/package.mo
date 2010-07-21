@@ -33,7 +33,8 @@ algorithm
   result := ModelicaTest.Math.Matrices2();
   result := ModelicaTest.Math.Vectors();
   result := ModelicaTest.Utilities.testAll(logFile);
-  result := ModelicaTest.TestComplexFunctions(logFile);
+  result := ModelicaTest.ComplexMath.ComplexFunctions(logFile);
+  result := ModelicaTest.ComplexMath.ComplexOperations;
 
   ok := true;
 end testAllFunctions;

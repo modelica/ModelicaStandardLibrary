@@ -1783,9 +1783,9 @@ The critical damping filter is defined as
     extends Modelica.Blocks.Interfaces.SISO;
 
     parameter Modelica.Blocks.Types.AnalogFilter analogFilter=Modelica.Blocks.Types.AnalogFilter.CriticalDamping
-      "Analog filter characteristics (CriticalDamping/Bessel/Butterworth/Chebyshev)";
+      "Analog filter characteristics (CriticalDamping/Bessel/Butterworth/ChebyshevI)";
     parameter Modelica.Blocks.Types.FilterType filterType=Modelica.Blocks.Types.FilterType.LowPass
-      "Type of filter (LowPass/HighPass)";
+      "Type of filter (LowPass/HighPass/BandPass/BandStop)";
     parameter Integer order(min=1) = 2 "Order of filter";
     parameter Modelica.SIunits.Frequency f_cut "Cut-off frequency";
     parameter Real gain=1.0

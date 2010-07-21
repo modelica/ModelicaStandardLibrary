@@ -1008,27 +1008,6 @@ to show how diagram animations can be constructed.
       experimentSetupOutput);
     end Interaction1;
 
-    model Interaction2
-    "Demonstrates the usage of blocks from Modelica.Blocks.Interaction.Inputs"
-
-    extends Modelica.Icons.Example;
-
-    Interaction.Inputs.TrigButton trigButton
-      annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
-    annotation(Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                {100,100}}),
-                       graphics),
-        experiment(StopTime=1e+010, Interval=0.1),
-      Documentation(info="<html>
-<p>
-This example demonstrates a network of blocks
-from package <a href=\"Modelica.Blocks.Interaction\">Modelica.Blocks.Interaction</a>
-to show how diagram animations can be constructed.
-</p>
-
-</html>"),
-      experimentSetupOutput);
-    end Interaction2;
 
   model BusUsage "Demonstrates the usage of a signal bus"
     extends Modelica.Icons.Example;

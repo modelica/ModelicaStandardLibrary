@@ -3211,7 +3211,7 @@ The Integer output y is a step signal:
   end IntegerStep;
 
     block IntegerTable
-    "Generate an Integer output signal based on a vector of time instants"
+    "Generate an Integer output signal based on a table matrix with [time, yi] values"
 
       parameter Real table[:, 2] = fill(0, 0, 2)
       "Table matrix (first column: time; second column: y)";
