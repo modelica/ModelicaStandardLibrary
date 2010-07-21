@@ -384,7 +384,7 @@ one continuous Real output signal.
                                                                                 annotation(Dialog(tab="Advanced"));
     parameter Integer nu(min=0)=0 "Number of input connections"
                                                               annotation(Dialog(__Dymola_connectorSizing=true), HideResult=true);
-    Modelica_StateGraph2.Blocks.Interfaces.RealVectorInput u[nu]
+    Modelica.Blocks.Interfaces.RealVectorInput u[nu]
       annotation (Placement(transformation(extent={{-120,70},{-80,-70}})));
     Modelica.Blocks.Interfaces.RealOutput y
       annotation (Placement(transformation(extent={{100,-17},{134,17}})));

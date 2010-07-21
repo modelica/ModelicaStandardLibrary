@@ -18,7 +18,7 @@ block MultiSwitch
   parameter Integer nu(min=0) = 0 "Number of input connections"
           annotation(Dialog(connectorSizing=true), HideResult=true);
 
-  Modelica_StateGraph2.Blocks.Interfaces.BooleanVectorInput u[nu]
+  Modelica.Blocks.Interfaces.BooleanVectorInput u[nu]
       "Set y = expr[i], if u[i] = true"
     annotation (Placement(transformation(extent={{-110,30},{-90,-30}})));
   Modelica.Blocks.Interfaces.BooleanOutput y(start=y_default,fixed=true)
@@ -29,7 +29,7 @@ block MultiSwitch
   Integer firstActiveIndex;
 equation
     firstActiveIndex =
-      Modelica_StateGraph2.Blocks.BooleanFunctions.firstTrueIndex(u);
+      Modelica.Math.firstTrueIndex(u);
    y = if firstActiveIndex == 0 then (if use_pre_as_default then pre(y) else y_default) else
                                      expr[firstActiveIndex];
   annotation (
@@ -87,8 +87,8 @@ previous value of y is kept if parameter use_pre_as_default = <b>true</b>:
 <blockquote><pre>
   // Conceptual equation (not valid Modelica)
   i = 'first element of u[:] that is true';
-  y = <b>if</b> i==0 <b>then</b> (<b>if</b> use_pre_as_default <b>then</b> pre(y) 
-                                          <b>else</b> y_default) 
+  y = <b>if</b> i==0 <b>then</b> (<b>if</b> use_pre_as_default <b>then</b> pre(y)
+                                          <b>else</b> y_default)
       <b>else</b> expr[i];
 </pre></blockquote>
 
@@ -104,7 +104,7 @@ end MultiSwitch;
     extends Modelica.Blocks.Interfaces.PartialBooleanMISO;
 
   equation
-    y = Modelica_StateGraph2.Blocks.BooleanFunctions.allTrue(u);
+    y = Modelica.Math.allTrue(u);
     annotation (defaultComponentName="and1", Icon(graphics={Text(
               extent={{-76,40},{60,-40}},
               lineColor={0,0,0},
@@ -119,7 +119,7 @@ the output is <b>false</b>.
 The input connector is a vector of Boolean input signals.
 When a connection line is drawn, the dimension of the input
 vector is enlarged by one and the connection is automatically
-connected to this new free index (thanks to the 
+connected to this new free index (thanks to the
 connectorSizing annotation).
 </p>
 
@@ -135,7 +135,7 @@ The usage is demonstrated, e.g., in example
     extends Modelica.Blocks.Interfaces.PartialBooleanMISO;
 
   equation
-    y = Modelica_StateGraph2.Blocks.BooleanFunctions.anyTrue(u);
+    y = Modelica.Math.anyTrue(u);
     annotation (defaultComponentName="or1", Icon(graphics={Text(
               extent={{-80,40},{60,-40}},
               lineColor={0,0,0},
@@ -150,7 +150,7 @@ the output is <b>false</b>.
 The input connector is a vector of Boolean input signals.
 When a connection line is drawn, the dimension of the input
 vector is enlarged by one and the connection is automatically
-connected to this new free index (thanks to the 
+connected to this new free index (thanks to the
 connectorSizing annotation).
 </p>
 
@@ -166,7 +166,7 @@ The usage is demonstrated, e.g., in example
     extends Modelica.Blocks.Interfaces.PartialBooleanMISO;
 
   equation
-    y = Modelica_StateGraph2.Blocks.BooleanFunctions.oneTrue(u);
+    y = Modelica.Math.oneTrue(u);
     annotation (defaultComponentName="xor1", Icon(graphics={Text(
               extent={{-80,40},{60,-40}},
               lineColor={0,0,0},
@@ -181,7 +181,7 @@ the output is <b>false</b>.
 The input connector is a vector of Boolean input signals.
 When a connection line is drawn, the dimension of the input
 vector is enlarged by one and the connection is automatically
-connected to this new free index (thanks to the 
+connected to this new free index (thanks to the
 connectorSizing annotation).
 </p>
 
@@ -196,7 +196,7 @@ The usage is demonstrated, e.g., in example
     extends Modelica.Blocks.Interfaces.PartialBooleanMISO;
 
   equation
-    y = not Modelica_StateGraph2.Blocks.BooleanFunctions.allTrue(u);
+    y = not Modelica.Math.allTrue(u);
     annotation (defaultComponentName="nand1", Icon(graphics={Text(
               extent={{-78,36},{64,-30}},
               lineColor={0,0,0},
@@ -211,7 +211,7 @@ the output is <b>false</b>.
 The input connector is a vector of Boolean input signals.
 When a connection line is drawn, the dimension of the input
 vector is enlarged by one and the connection is automatically
-connected to this new free index (thanks to the 
+connected to this new free index (thanks to the
 connectorSizing annotation).
 </p>
 
@@ -226,7 +226,7 @@ The usage is demonstrated, e.g., in example
     extends Modelica.Blocks.Interfaces.PartialBooleanMISO;
 
   equation
-    y = not Modelica_StateGraph2.Blocks.BooleanFunctions.anyTrue(u);
+    y = not Modelica.Math.anyTrue(u);
     annotation (defaultComponentName="nor1", Icon(graphics={Text(
               extent={{-80,40},{60,-40}},
               lineColor={0,0,0},
@@ -241,7 +241,7 @@ the output is <b>true</b>.
 The input connector is a vector of Boolean input signals.
 When a connection line is drawn, the dimension of the input
 vector is enlarged by one and the connection is automatically
-connected to this new free index (thanks to the 
+connected to this new free index (thanks to the
 connectorSizing annotation).
 </p>
 
@@ -271,7 +271,7 @@ the output is <b>true</b>.
 The input connector is a vector of Boolean input signals.
 When a connection line is drawn, the dimension of the input
 vector is enlarged by one and the connection is automatically
-connected to this new free index (thanks to the 
+connected to this new free index (thanks to the
 connectorSizing annotation).
 </p>
 
@@ -356,7 +356,7 @@ The usage is demonstrated, e.g., in example
               smooth=Smooth.None)}),
                                    Documentation(info="<html>
 <p>
-A changing edge, i.e., either rising or falling, 
+A changing edge, i.e., either rising or falling,
 of the Boolean input u results in y = <b>true</b> at this
 time instant. At all other time instants, y = <b>false</b>.
 </p>
@@ -442,7 +442,7 @@ The new features are:
 </p>
 
 <ul>
-<li> If useful, blocks may have an arbitrary number of inputs (e.g., \"And\" block with 2,3,4,... 
+<li> If useful, blocks may have an arbitrary number of inputs (e.g., \"And\" block with 2,3,4,...
      Boolean inputs). This is based on the \"connectorSizing\" annotation which
      allows a tool to conveniently handle vectors of connectors. </li>
 
