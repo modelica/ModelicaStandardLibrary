@@ -2125,7 +2125,7 @@ The calculation in lapack.dgees is performed stepwise, i.e. using the internal m
 </pre></blockquote>
 
 <h4>See also</h4>
-<a href=\"Modelica://Modelica.Math.Matrices.Utilities.reorderRSF\">Math.Matrices.Utilities.reorderRSF</a>
+<a href=\"modelica://Modelica.Math.Matrices.Utilities.reorderRSF\">Math.Matrices.Utilities.reorderRSF</a>
 
 </html> ", revisions="<html>
 <ul>
@@ -2580,7 +2580,7 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Condition_number\">
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica://Modelica.Math.Matrices.rcond\">Matrices.rcond</a>
+<a href=\"modelica://Modelica.Math.Matrices.rcond\">Matrices.rcond</a>
 </p>
 
 </html>", revisions="<html>
@@ -2622,7 +2622,7 @@ r = Matrices.<b>rcond</b>(A);
 <h4>Description</h4>
 <p>
 This function estimates the reciprocal of the condition number (norm(A) * norm(inv(A))) of a general real matrix <b>A</b>, in either the 1-norm or
-the infinity-norm, using the LAPACK function <a href=\"Modelica://Modelica.Math.Matrices.LAPACK.dgecon\">DGECON</a>.
+the infinity-norm, using the LAPACK function <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgecon\">DGECON</a>.
 If rcond(A) is near 1.0, <b>A</b> is well conditioned and <b>A</b> is ill conditioned if rcond(A) is near zero.
 </p>
 
@@ -2640,7 +2640,7 @@ If rcond(A) is near 1.0, <b>A</b> is well conditioned and <b>A</b> is ill condit
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica://Modelica.Math.Matrices.conditionNumber\">Matrices.conditionNumber</a>
+<a href=\"modelica://Modelica.Math.Matrices.conditionNumber\">Matrices.conditionNumber</a>
 </p>
 
 </HTML>", revisions="<html>
@@ -2715,7 +2715,7 @@ Vectors.<b>norm</b>(A*v,p) &le; Matrices.<b>norm</b>(A,p)*Vectors.<b>norm</b>(A,
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica://Modelica.Math.Matrices.frobeniusNorm\">Matrices.frobeniusNorm</a>
+<a href=\"modelica://Modelica.Math.Matrices.frobeniusNorm\">Matrices.frobeniusNorm</a>
 </p>
 
 </HTML>"));
@@ -2756,7 +2756,7 @@ This function computes the Frobenius norm of a general real matrix <b>A</b>, i.e
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica://Modelica.Math.Matrices.norm\">Matrices.norm</a>
+<a href=\"modelica://Modelica.Math.Matrices.norm\">Matrices.norm</a>
 </p>
 
 </html>", revisions="<html>
@@ -2875,7 +2875,7 @@ with
 
 <h4>See also</h4>
 <p>
-<a href=\"Modelica://Modelica.Math.Matrices.singularValues\">Matrices.singularValues</a>
+<a href=\"modelica://Modelica.Math.Matrices.singularValues\">Matrices.singularValues</a>
 </p>
 </html>", revisions="<html>
 <ul>
