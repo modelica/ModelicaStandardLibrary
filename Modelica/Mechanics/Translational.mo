@@ -337,15 +337,15 @@ problems.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Text(
-              extent={{-80,14},{90,0}},
+              extent={{-84,10},{88,2}},
               lineColor={0,0,255},
               textString="positionSensor2.s = positionSensor3.s"),
             Text(
-              extent={{-84,4},{88,-16}},
+              extent={{-78,-4},{86,-12}},
               lineColor={0,0,255},
               textString="positionSensor3.s <>positionSensor1.s"),
             Text(
-              extent={{-82,-80},{94,-92}},
+              extent={{-82,-80},{92,-88}},
               textString="Both systems are equivalent",
               lineColor={0,0,255}),
             Line(
@@ -904,15 +904,15 @@ to see the difference.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Text(
-              extent={{-98,-68},{102,-94}},
+              extent={{-92,-72},{90,-80}},
               textString="positive force => spool moves in positive direction ",
               lineColor={0,0,255}),
             Text(
-              extent={{-32,-46},{38,-62}},
+              extent={{-48,-52},{42,-60}},
               textString="Simulate for 100 s",
               lineColor={0,0,255}),
             Text(
-              extent={{-100,-54},{100,-80}},
+              extent={{-100,-62},{88,-70}},
               lineColor={0,0,255},
               textString="plot spool.s as a function of force.f")}),
         Documentation(info="<html>
@@ -950,7 +950,7 @@ Spool position s as a function of working force f.
 "),     experiment(StopTime=100));
     end PreLoad;
 
-    model ElastoGap "Demonstrate usgae of ElastoGap"
+    model ElastoGap "Demonstrate usage of ElastoGap"
     extends Modelica.Icons.Example;
       Components.Fixed fixed
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
@@ -1113,6 +1113,187 @@ one where the brake is implicitly grounded and one where it is explicitly ground
 </html>"));
     end Brake;
 
+    model HeatLosses "Demonstrate the modeling of heat losses"
+     extends Modelica.Icons.Example;
+      Components.Mass mass1(
+        m=1,
+        s(fixed=true),
+        L=0.1,
+        v(fixed=true))
+        annotation (Placement(transformation(extent={{-42,20},{-22,40}})));
+      Components.SpringDamper springDamper(
+        s_rel(fixed=true),
+        v_rel(fixed=true),
+        c=100,
+        d=10,
+        useHeatPort=true)
+              annotation (Placement(transformation(extent={{-14,20},{6,40}})));
+      Components.Damper damper(d=10, useHeatPort=true)
+        annotation (Placement(transformation(extent={{-10,10},{10,-10}},
+            rotation=-90,
+            origin={-42,-2})));
+      Components.ElastoGap elastoGap(
+        c=100,
+        d=20,
+        s_rel0=-0.02,
+        useHeatPort=true)
+        annotation (Placement(transformation(extent={{-94,-10},{-74,10}})));
+      Components.Fixed fixed1
+        annotation (Placement(transformation(extent={{-52,-28},{-32,-8}})));
+      Sources.Force force
+        annotation (Placement(transformation(extent={{-70,20},{-50,40}})));
+      Blocks.Sources.Sine sine1(freqHz=1, amplitude=20)
+        annotation (Placement(transformation(extent={{-100,20},{-80,40}})));
+      Components.Mass mass2(
+        m=1,
+        L=0.1,
+        s(fixed=false),
+        v(fixed=false))
+        annotation (Placement(transformation(extent={{18,20},{38,40}})));
+      Components.SupportFriction supportFriction(useHeatPort=true)
+        annotation (Placement(transformation(extent={{46,20},{66,40}})));
+      Components.Spring spring(c=100, s_rel(fixed=true))
+        annotation (Placement(transformation(extent={{78,20},{98,40}})));
+      Components.Mass mass3(
+        m=1,
+        L=0.1,
+        s(fixed=false),
+        v(fixed=false))
+        annotation (Placement(transformation(extent={{110,20},{130,40}})));
+      Components.Brake brake(fn_max=10, useHeatPort=true)
+        annotation (Placement(transformation(extent={{142,20},{162,40}})));
+      Blocks.Sources.Sine sine2(amplitude=10, freqHz=2)
+        annotation (Placement(transformation(extent={{120,50},{140,70}})));
+      Components.MassWithStopAndFriction massWithStopAndFriction(
+        L=0.1,
+        m=1,
+        F_prop=0.5,
+        F_Coulomb=1,
+        F_Stribeck=2,
+        fexp=2,
+        smin=0,
+        smax=0.4,
+        v(fixed=true),
+        useHeatPort=true)
+        annotation (Placement(transformation(extent={{172,20},{192,40}})));
+      Thermal.HeatTransfer.Components.Convection convection
+        annotation (Placement(transformation(extent={{40,-30},{60,-50}})));
+      Blocks.Sources.Constant const(k=20)
+        annotation (Placement(transformation(extent={{6,-76},{26,-56}})));
+      Thermal.HeatTransfer.Celsius.FixedTemperature TAmbient(T=25)
+        "Ambient temperature"
+        annotation (Placement(transformation(extent={{94,-50},{74,-30}})));
+      Components.Fixed fixed2
+        annotation (Placement(transformation(extent={{-120,-28},{-100,-8}})));
+    equation
+
+      connect(mass1.flange_b, springDamper.flange_a)
+                                                    annotation (Line(
+          points={{-22,30},{-14,30}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      connect(sine1.y, force.f) annotation (Line(
+          points={{-79,30},{-72,30}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(force.flange, mass1.flange_a) annotation (Line(
+          points={{-50,30},{-42,30}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      connect(mass1.flange_a, damper.flange_a) annotation (Line(
+          points={{-42,30},{-42,8}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      connect(damper.flange_b, fixed1.flange) annotation (Line(
+          points={{-42,-12},{-42,-18}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      connect(springDamper.flange_b, mass2.flange_a) annotation (Line(
+          points={{6,30},{18,30}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      connect(mass2.flange_b, supportFriction.flange_a) annotation (Line(
+          points={{38,30},{46,30}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      connect(supportFriction.flange_b, spring.flange_a) annotation (Line(
+          points={{66,30},{78,30}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      connect(spring.flange_b, mass3.flange_a) annotation (Line(
+          points={{98,30},{110,30}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      connect(mass3.flange_b, brake.flange_a) annotation (Line(
+          points={{130,30},{142,30}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      connect(sine2.y, brake.f_normalized) annotation (Line(
+          points={{141,60},{152,60},{152,41}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(brake.flange_b, massWithStopAndFriction.flange_a) annotation (
+          Line(
+          points={{162,30},{172,30}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      connect(elastoGap.flange_b, mass1.flange_a) annotation (Line(
+          points={{-74,0},{-60,0},{-60,14},{-42,14},{-42,30}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      connect(const.y,convection. Gc) annotation (Line(
+          points={{27,-66},{50,-66},{50,-50}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(TAmbient.port,convection. fluid) annotation (Line(
+          points={{74,-40},{60,-40}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(elastoGap.flange_a, fixed2.flange) annotation (Line(
+          points={{-94,0},{-110,0},{-110,-18}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      connect(elastoGap.heatPort, convection.solid) annotation (Line(
+          points={{-94,-10},{-94,-40},{40,-40}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(damper.heatPort, convection.solid) annotation (Line(
+          points={{-32,8},{-14,8},{-14,-40},{40,-40}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(springDamper.heatPort, convection.solid) annotation (Line(
+          points={{-14,20},{-14,-40},{40,-40}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(supportFriction.heatPort, convection.solid) annotation (Line(
+          points={{46,20},{46,8},{-14,8},{-14,-40},{40,-40}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(brake.heatPort, convection.solid) annotation (Line(
+          points={{142,20},{142,8},{-14,8},{-14,-40},{40,-40}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(massWithStopAndFriction.heatPort, convection.solid) annotation (
+          Line(
+          points={{172,20},{172,8},{-14,8},{-14,-40},{40,-40}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{
+                -140,-100},{200,100}}),
+                          graphics),
+        experiment(StopTime=2),
+        experimentSetupOutput,
+        Documentation(info="<html>
+<p>
+This model demonstrates how to model the dissipated power of a Translational model,
+by enabling the heatPort of all components and connecting these heatPorts via
+a convection element to the environment. The total heat flow generated by the
+elements and transported to the environment
+is present in variable convection.fluid.
+</p>
+</html>"));
+    end HeatLosses;
+
     package Utilities "Utility classes used by the Example models"
       extends Modelica.Icons.Package;
       function GenerateStribeckFrictionTable
@@ -1184,7 +1365,7 @@ simulate them according to the provided description in the models.
             Line(points={{-40,-40},{-80,-80}}, color={0,0,0}),
             Line(points={{0,-40},{0,-10}}, color={0,0,0}),
             Text(
-              extent={{0,-90},{0,-150}},
+              extent={{-150,-90},{150,-130}},
               textString="%name",
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(
@@ -1250,12 +1431,12 @@ A negative force at flange flange_a moves the sliding mass to the negative direc
               fillPattern=FillPattern.Solid),
             Line(points={{-60,-90},{20,-90}}, color={0,0,0}),
             Text(
-              extent={{0,100},{0,40}},
+              extent={{-150,85},{150,45}},
               textString="%name",
               lineColor={0,0,255}),
             Text(
-              extent={{-100,-40},{100,-80}},
-              lineColor={0,0,255},
+              extent={{-150,-45},{150,-75}},
+              lineColor={0,0,0},
               textString="m=%m")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -1334,12 +1515,12 @@ Rod <i>without inertia</i> and two rigidly connected flanges.
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),
             Text(
-              extent={{0,100},{0,40}},
+              extent={{-150,80},{150,40}},
               textString="%name",
               lineColor={0,0,255}),
             Text(
-              extent={{-100,-20},{100,-80}},
-              lineColor={0,0,255},
+              extent={{-150,-30},{150,-60}},
+              lineColor={0,0,0},
               textString="L=%L")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -1406,11 +1587,15 @@ a coupling of the sliding mass with the housing via a spring.
               fillColor={128,128,128},
               fillPattern=FillPattern.Solid),
             Text(
-              extent={{0,110},{0,50}},
+              extent={{-150,90},{150,50}},
               textString="%name",
               lineColor={0,0,255}),
-            Line(points={{-86,0},{-60,0},{-44,-30},{-16,30},{14,-30},{44,30},{
-                  60,0},{84,0}}, color={0,0,0})}),
+            Line(points={{-98,0},{-60,0},{-44,-30},{-16,30},{14,-30},{44,30},{
+                  60,0},{100,0}},color={0,0,0}),
+            Text(
+              extent={{-150,-45},{150,-75}},
+              lineColor={0,0,0},
+              textString="c=%c")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -1424,9 +1609,9 @@ a coupling of the sliding mass with the housing via a spring.
               fillColor={128,128,128},
               fillPattern=FillPattern.Solid),
             Text(
-              extent={{-22,62},{18,87}},
+              extent={{-56,66},{36,81}},
               lineColor={0,0,255},
-              textString="S_rel"),
+              textString="s_rel"),
             Line(points={{-86,0},{-60,0},{-44,-30},{-16,30},{14,-30},{44,30},{
                   60,0},{84,0}}, color={0,0,0})}));
     end Spring;
@@ -1471,9 +1656,18 @@ between two sliding masses.
               fillPattern=FillPattern.Solid),
             Line(points={{-60,-90},{20,-90}}, color={0,0,0}),
             Text(
-              extent={{0,106},{0,46}},
+              extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255})}),
+              lineColor={0,0,255}),
+            Text(
+              extent={{-150,-45},{150,-75}},
+              lineColor={0,0,0},
+              textString="d=%d"),
+            Line(visible=useHeatPort,
+              points={{-100,-100},{-100,-20},{-14,-20}},
+              color={191,0,0},
+              pattern=LinePattern.Dot,
+              smooth=Smooth.None)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -1495,7 +1689,7 @@ between two sliding masses.
               fillColor={128,128,128},
               fillPattern=FillPattern.Solid),
             Text(
-              extent={{-40,68},{38,90}},
+              extent={{-58,68},{42,78}},
               lineColor={128,128,128},
               textString="der(s_rel)")}));
     end Damper;
@@ -1554,9 +1748,22 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
               fillPattern=FillPattern.Solid),
             Line(points={{-57,-18},{23,-18}}, color={0,0,0}),
             Text(
-              extent={{1,140},{1,80}},
+              extent={{-150,120},{150,80}},
               textString="%name",
-              lineColor={0,0,255})}),
+              lineColor={0,0,255}),
+            Text(
+              extent={{-150,-135},{150,-165}},
+              lineColor={0,0,0},
+              textString="d=%d"),
+            Text(
+              extent={{-150,-100},{150,-130}},
+              lineColor={0,0,0},
+              textString="c=%c"),
+            Line(visible=useHeatPort,
+              points={{-100,-100},{-100,-80},{-5,-80}},
+              color={191,0,0},
+              pattern=LinePattern.Dot,
+              smooth=Smooth.None)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -1575,7 +1782,7 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
               fillColor={128,128,128},
               fillPattern=FillPattern.Solid),
             Text(
-              extent={{-21,61},{19,86}},
+              extent={{-63,83},{46,103}},
               lineColor={0,0,255},
               textString="s_rel"),
             Rectangle(
@@ -1628,7 +1835,7 @@ if a positive force is acting on the element and no other force balances this fo
       f_d  = smooth(0, noEvent( if contact then (if f_d2 <  f_c then  f_c else
                                                  if f_d2 > -f_c then -f_c else f_d2) else 0));
       f = f_c + f_d;
-      lossPower = 0;
+      lossPower = f_d*v_rel;
       annotation (
         Window(
           x=0.23,
@@ -1637,8 +1844,8 @@ if a positive force is acting on the element and no other force balances this fo
           height=0.69),
          Documentation(info="<html>
 <p>
-A linear spring damper combination that can lift off.
-The component can be connected between a sliding mass and the housing (model
+This component models a spring damper combination that can lift off.
+It can be connected between a sliding mass and the housing (model
 <a href=\"modelica://Modelica.Mechanics.Translational.Components.Fixed\">Fixed</a>),
 to describe the contact of a sliding mass with the housing.
 </p>
@@ -1728,8 +1935,7 @@ where the different effects are visualized:
 <li> Curve 1 (elastoGap1.f) is the unmodified contact force, i.e., the linear spring/damper
      characteristic. A pulling/sticking force is present at the end of the contact.</li>
 <li> Curve 2 (elastoGap2.f) is the contact force, where the force is explicitly set to
-     zero when pulling/sticking occurs. The contact force is discontinuous at being of
-     the contact.</li>
+     zero when pulling/sticking occurs. The contact force is discontinuous when contact starts.</li>
 <li> Curve 3 (elastoGap3.f) is the ElastoGap model of this library. No discontinuity and no
      pulling/sticking occurs.</li>
 </ol>
@@ -1765,7 +1971,7 @@ where the different effects are visualized:
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),
             Text(
-              extent={{-28,-80},{12,-55}},
+              extent={{-64,-80},{64,-64}},
               lineColor={0,0,255},
               textString="s_rel"),
             Line(points={{-100,-29},{-100,-61}}, color={0,0,0}),
@@ -1782,56 +1988,76 @@ where the different effects are visualized:
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}),
         Icon(coordinateSystem(
-          preserveAspectRatio=false,
+          preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
             Line(points={{-98,0},{-48,0}}, color={0,127,0}),
             Line(
-              points={{-48,34},{-48,-46}},
+              points={{-48,38},{-48,-38}},
               color={0,0,0},
               thickness=1),
-            Line(points={{8,40},{8,2}}, color={0,0,0}),
-            Line(points={{-2,0},{38,0},{38,44},{-2,44}}, color={0,0,0}),
-            Line(points={{38,22},{72,22}}, color={0,0,0}),
+            Line(points={{8,-10},{8,-48}},
+                                        color={0,0,0}),
+            Line(points={{-2,-50},{38,-50},{38,-6},{-2,-6}},
+                                                         color={0,0,0}),
+            Line(points={{38,-28},{72,-28}},
+                                           color={0,0,0}),
             Line(
-              points={{-12,-38},{-12,20}},
+              points={{-12,-38},{-12,36}},
               color={0,0,0},
               thickness=1),
-            Line(points={{-12,22},{8,22}}, color={0,0,0}),
-            Line(points={{-12,-38},{-2,-38}}, color={0,0,0}),
+            Line(points={{-12,-28},{8,-28}},
+                                           color={0,0,0}),
+            Line(points={{-12,24},{-6,24}},   color={0,0,0}),
             Line(points={{72,0},{98,0}}, color={0,127,0}),
             Line(points={{72,22},{72,-42}}, color={0,0,0}),
-            Line(points={{-2,-38},{10,-28},{22,-48},{38,-28},{50,-48},{64,-28},
-                  {72,-40}}, color={0,0,0}),
+            Line(points={{-6,24},{6,34},{18,14},{34,34},{46,14},{60,34},{68,22}},
+                             color={0,0,0}),
             Rectangle(
-              extent={{8,44},{38,0}},
+              extent={{8,-6},{38,-50}},
               lineColor={0,0,0},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),
-            Line(points={{-60,-90},{20,-90}}, color={0,0,0}),
+            Line(points={{-52,-70},{28,-70}}, color={0,0,0}),
             Polygon(
-              points={{50,-90},{20,-80},{20,-100},{50,-90}},
+              points={{58,-70},{28,-60},{28,-80},{58,-70}},
               lineColor={128,128,128},
               fillColor={128,128,128},
               fillPattern=FillPattern.Solid),
             Text(
-              extent={{0,120},{0,60}},
+              extent={{-150,100},{150,60}},
               textString="%name",
-              lineColor={0,0,255})}));
+              lineColor={0,0,255},
+              pattern=LinePattern.Dot),
+            Text(
+              extent={{-150,-125},{150,-95}},
+              lineColor={0,0,0},
+              textString="c=%c"),
+            Text(
+              extent={{-150,-160},{150,-130}},
+              lineColor={0,0,0},
+              textString="d=%d"),
+            Line(points={{68,22},{72,22}},    color={0,0,0}),
+            Line(visible=useHeatPort,
+              points={{-100,-100},{-100,-44},{22,-44},{22,-28}},
+              color={191,0,0},
+              pattern=LinePattern.Dot,
+              smooth=Smooth.None)}));
     end ElastoGap;
 
     model SupportFriction "Coulomb friction in support"
 
       extends
         Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2;
+      extends
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
+         final T=293.15);
+
       parameter Real f_pos[:, 2]=[0, 1]
         "[v, f] Positive sliding friction characteristic (v>=0)";
       parameter Real peak(final min=1) = 1
         "peak*f_pos[1,2] = Maximum friction force for v==0";
       extends Translational.Interfaces.PartialFriction;
-      extends
-        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
-         final T=293.15);
 
       SI.Position s;
       SI.Force f "Friction force";
@@ -1948,8 +2174,8 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 
 
 </HTML>
-"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                100}}), graphics={
+"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+                        graphics={
             Rectangle(
               extent={{-90,10},{90,-10}},
               lineColor={0,127,0},
@@ -2012,13 +2238,21 @@ following references, especially (Armstrong and Canudas de Witt 1996):
               lineColor={95,95,95},
               fillPattern=FillPattern.Solid,
               smooth=Smooth.None,
-              fillColor={175,175,175})}));
+              fillColor={175,175,175}),
+            Line(visible=useHeatPort,
+              points={{-100,-100},{-100,-20},{0,-20}},
+              color={191,0,0},
+              pattern=LinePattern.Dot,
+              smooth=Smooth.None)}));
     end SupportFriction;
 
     model Brake "Brake basend on Coulomb friction"
 
       extends
         Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2;
+      extends
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
+         final T=293.15);
       parameter Real mue_pos[:, 2]=[0, 0.5]
         "[v, f] Positive sliding friction characteristic (v>=0)";
       parameter Real peak(final min=1) = 1
@@ -2027,9 +2261,6 @@ following references, especially (Armstrong and Canudas de Witt 1996):
         "Geometry constant containing friction distribution assumption";
       parameter SI.Force fn_max(final min=0, start=1) "Maximum normal force";
       extends Translational.Interfaces.PartialFriction;
-      extends
-        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
-         final T=293.15);
 
       SI.Position s;
       SI.Force f "Brake friction force";
@@ -2073,7 +2304,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
                    if pre(mode) == Forward then  Modelica.Math.tempInterpol1( v, mue_pos, 2) else
                                                 -Modelica.Math.tempInterpol1(-v, mue_pos, 2));
 
-      lossPower = 0;
+      lossPower = f*v_relfric;
       annotation (
         Documentation(info="<html>
 <p>
@@ -2153,8 +2384,8 @@ following references, especially (Armstrong and Canudas de Witt 1996):
     IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<br><br>
 </dl>
 </HTML>
-"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                100}}), graphics={
+"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+                        graphics={
             Rectangle(
               extent={{-90,10},{90,-10}},
               lineColor={0,127,0},
@@ -2207,6 +2438,15 @@ following references, especially (Armstrong and Canudas de Witt 1996):
             Line(
               points={{0,-50},{0,-60},{-40,-50},{-40,48},{0,60},{0,90}},
               color={0,0,0},
+              smooth=Smooth.None),
+            Text(
+              extent={{-150,-120},{150,-160}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(visible=useHeatPort,
+              points={{-100,-102},{-100,-16},{0,-16}},
+              color={191,0,0},
+              pattern=LinePattern.Dot,
               smooth=Smooth.None)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics));
@@ -2429,6 +2669,9 @@ provided via a signal bus.
       parameter Modelica.SIunits.Force F_Stribeck(start=10) "Stribeck effect";
       parameter Real fexp(final unit="s/m", final min=0, start = 2)
         "Exponential decay";
+    extends
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
+         final T=293.15);
       Integer stopped = if s <= smin + L/2 then -1 else if s >= smax - L/2 then +1 else 0;
     encapsulated partial model PartialFrictionWithStop
         "Base model of Coulomb friction elements with stop"
@@ -2537,18 +2780,22 @@ Additionally, a left and right stop are handled.
                          if startBackward then        F_prop*v - F_Coulomb - F_Stribeck else
                          if pre(mode) == Forward then F_prop*v + F_Coulomb + F_Stribeck*exp(-fexp*abs(v)) else
                                                       F_prop*v - F_Coulomb - F_Stribeck*exp(-fexp*abs(v)));
-    // Define events for hard stops and reinitiliaze the state variables velocity v and position s
+      lossPower = f*v_relfric;
+
+    // Define events for hard stops and reinitilize the state variables velocity v and position s
     algorithm
       when (initial()) then
         assert(s > smin + L/2 or s >= smin + L/2 and v >= 0,
-          "Error in initialization of hard stop. (s - L/2) must be >= smin ");
+          "Error in initialization of hard stop. (s - L/2) must be >= smin\n"+
+          "(s=" + String(s) + ", L=" + String(L) + ", smin=" + String(smin) + ")");
         assert(s < smax - L/2 or s <= smax - L/2 and v <= 0,
-          "Error in initialization of hard stop. (s + L/2) must be <= smax ");
+          "Error in initialization of hard stop. (s + L/2) must be <= smax\n"+
+          "(s=" + String(s) + ", L=" + String(L) + ", smax=" + String(smax) + ")");
       end when;
       when stopped <> 0 then
         reinit(s, if stopped < 0 then smin + L/2 else smax - L/2);
         if (not initial() or stopped*v>0) then
-          reinit(v, 0);
+           reinit(v, 0);
         end if;
       end when;
     /*
@@ -2597,17 +2844,24 @@ force exceeds a threshold value, called the maximum static friction force, compu
 <font color=\"#ff0000\"> <b>This requires the states Stop.s and Stop.v</b> </font>. If these states are eliminated during the index reduction
 the model will not work. To avoid this any inertias should be connected via springs
 to the Stop element, other sliding masses, dampers or hydraulic chambers must be avoided.</p>
-<p>For more details of the used friction model see the following reference: <br> <br>
-Beater P. (1999): <DD><a href=\"http://www.springer.de/cgi-bin/search_book.pl?isbn=3-540-65444-5\">
-Entwurf hydraulischer Maschinen</a>. Springer Verlag Berlin Heidelberg New York.</DL></P>
+<p>For more details of the used friction model see the following reference: </p>
+
+<dl>
+<dt>Beater P. (1999):</dt>
+<dd><a href=\"http://www.springer.de/cgi-bin/search_book.pl?isbn=3-540-65444-5\">
+Entwurf hydraulischer Maschinen</a>. Springer Verlag Berlin Heidelberg New York.</dd>
+</dl>
+
 <P>The friction model is implemented in a \"clean\" way by state events and leads to
 continuous/discrete systems of equations which have to be solved by appropriate
 numerical methods. The method is described in: </P>
 
 <dl>
-Otter M., Elmqvist H., and Mattsson S.E. (1999):
-<i><DD>Hybrid Modeling in Modelica based on the Synchronous Data Flow Principle</i>. CACSD'99, Aug. 22.-26, Hawaii. </DD>
-</DL>
+<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
+<dd><i>Hybrid Modeling in Modelica based on the Synchronous Data Flow Principle</i>. 
+    CACSD'99, Aug. 22.-26, Hawaii. </dd>
+</dl>
+
 <P>More precise friction models take into account the elasticity of the material when
 the two elements are \"stuck\", as well as other effects, like hysteresis. This has
 the advantage that the friction element can be completely described by a differential
@@ -2627,6 +2881,17 @@ Armstrong B. (1991):</dt>
 <DD>A<i> new model for control of systems with friction.</i> IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<BR>
 </DD>
 </DL>
+
+<h4>Optional heatPort</h4>
+<p>
+The dissipated energy is transported in form of heat to the optional heatPort connector 
+that can be enabled via parameter \"useHeatPort\". Independently whether the heatPort is
+or is not enabled, the dissipated power is defined with variable \"lossPower\".
+If contact occurs at the hard stops, the lossPower is not correctly modelled
+at this time instant, because the hard stop would introduce a dirac impulse
+in the lossPower due to the discontinuously changing kinetic energy of the mass 
+(lossPower is the derivative of the kinetic energy at the time instant of the impact).
+</p>
 
 </HTML>
 ",   revisions="<html>
@@ -2673,14 +2938,23 @@ between the stops.</i> </li>
               fillPattern=FillPattern.Solid),
             Line(points={{35,0},{90,0}}, color={0,127,0}),
             Text(
-              extent={{0,100},{0,40}},
+              extent={{-150,80},{150,40}},
               textString="%name",
               lineColor={0,0,255}),
             Line(points={{-50,-90},{-30,-70}}, color={0,0,0}),
             Line(points={{-30,-70},{30,-70}}, color={0,0,0}),
             Line(points={{-30,-90},{-10,-70}}, color={0,0,0}),
             Line(points={{-10,-90},{10,-70}}, color={0,0,0}),
-            Line(points={{10,-90},{30,-70}}, color={0,0,0})}),
+            Line(points={{10,-90},{30,-70}}, color={0,0,0}),
+            Text(
+              extent={{-150,-110},{150,-140}},
+              lineColor={0,0,0},
+              textString="m=%m"),
+            Line(visible=useHeatPort,
+              points={{-100,-100},{-100,-40},{3,-40}},
+              color={191,0,0},
+              pattern=LinePattern.Dot,
+              smooth=Smooth.None)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -2860,7 +3134,7 @@ velocity of model mass1 or of model mass2 as state variables.
               color={0,0,0},
               pattern=LinePattern.Dot),
             Text(
-              extent={{0,110},{0,50}},
+              extent={{-150,90},{150,50}},
               textString="%name",
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(
@@ -3315,7 +3589,7 @@ blocks of the block library Modelica.Blocks.Sources.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Text(
-              extent={{-40,-46},{-140,-80}},
+              extent={{-56,-36},{-178,-66}},
               lineColor={0,0,0},
               textString="s_ref"),
             Rectangle(
@@ -3343,7 +3617,7 @@ blocks of the block library Modelica.Blocks.Sources.
               lineColor={0,0,0},
               textString="exact="),
             Text(
-              extent={{132,-68},{20,-96}},
+              extent={{134,-68},{22,-96}},
               lineColor={0,0,0},
               textString="%exact")}),
         Diagram(coordinateSystem(
@@ -3421,7 +3695,7 @@ blocks of the block library Modelica.Blocks.Sources.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Text(
-              extent={{-38,-48},{-142,-80}},
+              extent={{-54,-36},{-174,-68}},
               lineColor={0,0,0},
               textString="v_ref"),
             Line(points={{-30,-32},{30,-32}}, color={0,0,0}),
@@ -3496,7 +3770,7 @@ blocks of the block library Modelica.Blocks.Source.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Text(
-              extent={{-46,-42},{-140,-70}},
+              extent={{-56,-40},{-166,-68}},
               lineColor={0,0,0},
               textString="a_ref"),
             Line(points={{-30,-32},{30,-32}}, color={0,0,0}),
@@ -3607,7 +3881,7 @@ blocks of the block library Modelica.Blocks.Sources.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Text(
-              extent={{-160,-44},{0,-76}},
+              extent={{-192,-38},{-32,-70}},
               lineColor={0,0,0},
               textString="s,v,a"),
             Line(points={{-30,-32},{30,-32}}, color={0,0,0}),
@@ -3666,11 +3940,11 @@ blocks of Modelica.Blocks.Source.
               fillColor={215,215,215},
               fillPattern=FillPattern.Solid),
             Text(
-              extent={{-100,-40},{-47,-88}},
+              extent={{-150,-32},{-80,-62}},
               lineColor={0,0,0},
               textString="f"),
             Text(
-              extent={{0,109},{0,49}},
+              extent={{-150,90},{150,50}},
               textString="%name",
               lineColor={0,0,255}),
             Line(points={{-30,-60},{30,-60}}, color={0,0,0}),
@@ -3722,7 +3996,7 @@ blocks of Modelica.Blocks.Source.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Text(
-              extent={{0,-40},{0,-100}},
+              extent={{-150,-40},{150,-80}},
               textString="%name",
               lineColor={0,0,255}),
             Polygon(
@@ -3857,7 +4131,7 @@ Model of <b>fixed</b> verlocity of flange, not dependent on force.
                 -100},{100,100}}), graphics={Line(points={{-80,-60},{0,-60},{0,
                   60},{80,60}}, color={0,0,255}), Text(
               extent={{0,-40},{100,-60}},
-              lineColor={0,0,255},
+              lineColor={0,0,0},
               textString="time")}), Documentation(info="<HTML>
 <p>
 Model of a force step at time .<br>
@@ -4796,7 +5070,7 @@ with the Modelica.Blocks blocks.
             Line(points={{-70,0},{-90,0}}, color={0,0,0}),
             Line(points={{70,0},{100,0}}, color={0,0,127}),
             Text(
-              extent={{-118,99},{118,40}},
+              extent={{-150,80},{150,40}},
               textString="%name",
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(
@@ -4844,7 +5118,7 @@ with the Modelica.Blocks blocks.
             Line(points={{-70,0},{-90,0}}, color={0,0,0}),
             Line(points={{70,0},{90,0}}, color={0,0,0}),
             Text(
-              extent={{-117,116},{115,52}},
+              extent={{-150,100},{150,60}},
               textString="%name",
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(
@@ -5025,6 +5299,19 @@ conditions; even if consistent initial conditions are present, most
 numerical DAE integrators can cope at most with index 2 DAEs).
 </p>
 
+<p>
+In version 3.2 of the Modelica Standard Library, all <b>dissipative</b> components
+of the Translational library got an optional <b>heatPort</b> connector to which the 
+dissipated energy is transported in form of heat. This connector is enabled
+via parameter \"useHeatPort\". If the heatPort connector is enabled,
+it must be connected, and if it is not enabled, it must not be connected.
+Independently, whether the heatPort is enabled or not,
+the dissipated power is available from the new variable \"<b>lossPower</b>\" (which is
+positive if heat is flowing out of the heatPort). For an example, see
+<a href=\"modelica://Modelica.Mechanics.Translational.Examples.HeatLosses\">Examples.HeatLosses</a>.
+</p>
+
+
 <dl>
 <dt><b>Library Officer</b>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> <br>
@@ -5069,22 +5356,27 @@ Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Universit&aum
 </HTML>
 ", revisions="<html>
 <ul>
-<li><i>Version 1.0 (January 5, 2000)</i>
-       by Peter Beater <br>
-       Realized a first version based on Modelica library Mechanics.Rotational
-       by Martin Otter and an existing Dymola library onedof.lib by Peter Beater.
-       <br>
-<li><i>Version 1.01 (July 18, 2001)</i>
-       by Peter Beater <br>
-       Assert statement added to \"Stop\", small bug fixes in examples.
-       <br>
-</li>
+<li><i>Version 1.2.0 2010-07-22</i>
+       by Anton Haumer and Martin Otter<br>
+       heatPort introduced for all dissipative elements, and
+       text in icons improved. 
+       <br></li>
+
 <li><i>Version 1.1.0 2007-11-16</i>
        by Anton Haumer<br>
        Redesign for Modelica 3.0-compliance<br>
        Added new components acording to Mechanics.Rotational library
-       <br>
-</li>
+       <br></li>
+
+<li><i>Version 1.01 (July 18, 2001)</i>
+       by Peter Beater <br>
+       Assert statement added to \"Stop\", small bug fixes in examples.
+       <br></li>
+
+<li><i>Version 1.0 (January 5, 2000)</i>
+       by Peter Beater <br>
+       Realized a first version based on Modelica library Mechanics.Rotational
+       by Martin Otter and an existing Dymola library onedof.lib by Peter Beater.</li>
 </ul>
 </html>"));
 end Translational;

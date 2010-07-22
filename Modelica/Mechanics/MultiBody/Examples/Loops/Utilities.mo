@@ -264,7 +264,7 @@ package Utilities "Utility models for Examples.Loops"
             color={0,0,0},
             thickness=1),
           Text(
-            extent={{-150,-124},{164,-186}},
+            extent={{-150,-125},{150,-165}},
             textString="%name",
             lineColor={0,0,255}),
           Line(
@@ -436,10 +436,6 @@ package Utilities "Utility models for Examples.Loops"
             fillColor={255,0,0},
             fillPattern=FillPattern.Solid),
           Text(
-            extent={{-100,120},{100,60}},
-            textString="%name",
-            lineColor={0,0,255}),
-          Text(
             extent={{-135,44},{-99,19}},
             lineColor={128,128,128},
             textString="a"),
@@ -452,7 +448,11 @@ package Utilities "Utility models for Examples.Loops"
                 {12,4}},
             lineColor={255,0,0},
             fillColor={255,0,0},
-            fillPattern=FillPattern.Solid)}),               Diagram(
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{-150,105},{150,65}},
+            textString="%name",
+            lineColor={0,0,255})}),                         Diagram(
           coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -462,10 +462,6 @@ package Utilities "Utility models for Examples.Loops"
             lineColor={0,0,0},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
-          Text(
-            extent={{-100,120},{100,60}},
-            textString="%name",
-            lineColor={0,0,255}),
           Polygon(
             points={{12,5},{70,5},{65,5},{65,16},{90,1},{65,-14},{65,-3},{12,-3},
                 {12,5}},
@@ -921,7 +917,7 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Text(
-            extent={{-137,160},{137,104}},
+            extent={{-150,145},{150,105}},
             lineColor={0,0,255},
             textString="%name"),
           Bitmap(extent={{-97,75},{99,-39}}, fileName=

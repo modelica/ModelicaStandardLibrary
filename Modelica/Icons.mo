@@ -154,7 +154,10 @@ package Icons "Library of icons"
 
     annotation (experiment(StopTime=0.99),Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={Ellipse(extent={{-100,100},{100,-100}},
-              lineColor={95,95,95}), Polygon(
+              lineColor={95,95,95},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+                                     Polygon(
             points={{-36,60},{64,0},{-36,-60},{-36,60}},
             lineColor={0,0,255},
             pattern=LinePattern.None,

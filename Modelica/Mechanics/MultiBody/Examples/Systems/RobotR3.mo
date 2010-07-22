@@ -1930,7 +1930,7 @@ This model contains the mechanical components of the r3 robot
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),
             Text(
-              extent={{-200,280},{200,200}},
+              extent={{-200,250},{200,210}},
               textString="%name",
               lineColor={0,0,255}),
             Text(

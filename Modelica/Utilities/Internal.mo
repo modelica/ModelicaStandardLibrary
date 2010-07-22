@@ -4,14 +4,15 @@ package Internal
   extends Modelica.Icons.Package;
 partial package PartialModelicaServices
     "Interfaces of components requiring a tool specific implementation"
+    extends Modelica.Icons.Package;
   package Animation "Models and functions for 3-dim. animation"
-
+    extends Modelica.Icons.Package;
   partial model PartialShape
         "Different visual shapes with variable size; all data have to be set as modifiers"
 
-        import SI = Modelica.SIunits;
-        import Modelica.Mechanics.MultiBody.Frames;
-        import Modelica.Mechanics.MultiBody.Types;
+      import SI = Modelica.SIunits;
+      import Modelica.Mechanics.MultiBody.Frames;
+      import Modelica.Mechanics.MultiBody.Types;
 
     parameter Types.ShapeType shapeType="box"
           "Type of shape (box, sphere, cylinder, pipecylinder, cone, pipe, beam, gearwheel, spring)";
@@ -61,13 +62,13 @@ partial package PartialModelicaServices
               fillColor={160,160,164},
               fillPattern=FillPattern.Solid),
             Text(
-              extent={{-100,-100},{80,60}},
-              lineColor={0,0,0},
-              textString="%shapeType"),
+                extent={{-100,-60},{80,20}},
+                lineColor={0,0,0},
+                textString="%shapeType"),
             Text(
-              extent={{-132,160},{128,100}},
-              textString="%name",
-              lineColor={0,0,255})}),
+                extent={{-150,150},{150,110}},
+                textString="%name",
+                lineColor={0,0,255})}),
       Documentation(info="<html>
 
 <p>

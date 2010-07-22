@@ -1223,6 +1223,221 @@ Du to a speed dependent force (like driving resistance), we find an eqilibrium a
                 {100,100}}), graphics),
         experiment(StopTime=5));
     end RollingWheel;
+
+    model HeatLosses "Drive train with heat losses"
+       extends Modelica.Icons.Example;
+      Blocks.Sources.Sine sine(freqHz=5, amplitude=20)
+        annotation (Placement(transformation(extent={{-100,20},{-80,40}})));
+      Sources.Torque torque
+        annotation (Placement(transformation(extent={{-68,20},{-48,40}})));
+      Components.Inertia inertia1(J=2,
+        phi(fixed=true, start=0),
+        w(fixed=true, start=0))
+        annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
+      Components.Damper damper(useHeatPort=true, d=10) annotation (Placement(
+            transformation(
+            extent={{10,-10},{-10,10}},
+            rotation=-90,
+            origin={-20,10})));
+      Components.Fixed fixed
+        annotation (Placement(transformation(extent={{-30,-20},{-10,0}})));
+      Thermal.HeatTransfer.Components.Convection convection
+        annotation (Placement(transformation(extent={{14,-40},{34,-60}})));
+      Thermal.HeatTransfer.Celsius.FixedTemperature TAmbient(T=25)
+        "Ambient temperature"
+        annotation (Placement(transformation(extent={{68,-60},{48,-40}})));
+      Blocks.Sources.Constant const(k=20)
+        annotation (Placement(transformation(extent={{-20,-86},{0,-66}})));
+      Components.SpringDamper springDamper(
+        c=1e4,
+        d=20,
+        useHeatPort=true)
+        annotation (Placement(transformation(extent={{-6,20},{14,40}})));
+      Components.Inertia inertia2(J=2,
+        phi(fixed=true, start=0),
+        w(fixed=true, start=0))
+        annotation (Placement(transformation(extent={{24,20},{44,40}})));
+      Components.ElastoBacklash elastoBacklash(
+        c=1e5,
+        d=100,
+        useHeatPort=true,
+        b(displayUnit="rad") = 0.001)
+        annotation (Placement(transformation(extent={{56,20},{76,40}})));
+      Components.Inertia inertia3(J=2,
+        phi(fixed=true, start=0),
+        w(fixed=true, start=0))
+        annotation (Placement(transformation(extent={{88,20},{108,40}})));
+      Components.BearingFriction bearingFriction(useHeatPort=true)
+        annotation (Placement(transformation(extent={{116,20},{136,40}})));
+      Components.Spring spring3(c=1e4)
+        annotation (Placement(transformation(extent={{-62,70},{-42,90}})));
+      Components.Inertia inertia4(J=2,
+        phi(fixed=true, start=0),
+        w(fixed=true, start=0))
+        annotation (Placement(transformation(extent={{-36,70},{-16,90}})));
+      Components.LossyGear lossyGear(
+        ratio=2,
+        lossTable=[0,0.8,0.8,1,1; 1,0.7,0.7,2,2],
+        useHeatPort=true)
+        annotation (Placement(transformation(extent={{-8,70},{12,90}})));
+      Components.Clutch clutch(useHeatPort=true, fn_max=10,
+        phi_rel(fixed=true),
+        w_rel(fixed=true))
+        annotation (Placement(transformation(extent={{20,70},{40,90}})));
+      Components.Inertia inertia5(J=2)
+        annotation (Placement(transformation(extent={{50,70},{70,90}})));
+      Blocks.Sources.Sine sine2(              freqHz=0.2, amplitude=1)
+        annotation (Placement(transformation(extent={{-8,110},{12,130}})));
+      Components.Inertia inertia6(J=2)
+        annotation (Placement(transformation(extent={{108,70},{128,90}})));
+      Components.OneWayClutch oneWayClutch(
+        phi_rel(fixed=true),
+        w_rel(fixed=true),
+        startForward(fixed=true),
+        stuck(fixed=true),
+        fn_max=1,
+        useHeatPort=true)
+        annotation (Placement(transformation(extent={{78,70},{98,90}})));
+      Components.Brake brake(fn_max=2, useHeatPort=true)
+        annotation (Placement(transformation(extent={{136,70},{156,90}})));
+    equation
+
+      connect(sine.y, torque.tau) annotation (Line(
+          points={{-79,30},{-70,30}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(torque.flange, inertia1.flange_a) annotation (Line(
+          points={{-48,30},{-40,30}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(inertia1.flange_b, damper.flange_b) annotation (Line(
+          points={{-20,30},{-20,25},{-20,20},{-20,20}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(damper.flange_a, fixed.flange) annotation (Line(
+          points={{-20,1.77636e-015},{-20,-5},{-20,-5},{-20,-10}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(damper.heatPort, convection.solid) annotation (Line(
+          points={{-30,3.55271e-015},{-40,3.55271e-015},{-40,-50},{14,-50}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(TAmbient.port, convection.fluid) annotation (Line(
+          points={{48,-50},{34,-50}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(const.y, convection.Gc) annotation (Line(
+          points={{1,-76},{24,-76},{24,-60}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(inertia1.flange_b, springDamper.flange_a) annotation (Line(
+          points={{-20,30},{-6,30}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(springDamper.heatPort, convection.solid) annotation (Line(
+          points={{-6,20},{-6,-50},{14,-50}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(springDamper.flange_b, inertia2.flange_a) annotation (Line(
+          points={{14,30},{24,30}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(elastoBacklash.flange_a, inertia2.flange_b) annotation (Line(
+          points={{56,30},{44,30}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(elastoBacklash.heatPort, convection.solid) annotation (Line(
+          points={{56,20},{56,0},{-6,0},{-6,-50},{14,-50}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(elastoBacklash.flange_b, inertia3.flange_a) annotation (Line(
+          points={{76,30},{88,30}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(inertia3.flange_b, bearingFriction.flange_a) annotation (Line(
+          points={{108,30},{116,30}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(convection.solid, bearingFriction.heatPort) annotation (Line(
+          points={{14,-50},{-6,-50},{-6,0},{116,0},{116,20}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(spring3.flange_b, inertia4.flange_a) annotation (Line(
+          points={{-42,80},{-36,80}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(bearingFriction.flange_b, spring3.flange_a) annotation (Line(
+          points={{136,30},{144,30},{144,48},{-66,48},{-66,80},{-62,80}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(inertia4.flange_b, lossyGear.flange_a) annotation (Line(
+          points={{-16,80},{-8,80}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(lossyGear.heatPort, convection.solid) annotation (Line(
+          points={{-8,70},{-8,58},{154,58},{154,0},{-6,0},{-6,-50},{14,-50}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(lossyGear.flange_b, clutch.flange_a) annotation (Line(
+          points={{12,80},{20,80}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(clutch.heatPort, convection.solid) annotation (Line(
+          points={{20,70},{20,58},{154,58},{154,0},{-6,0},{-6,-50},{14,-50}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(clutch.flange_b, inertia5.flange_a) annotation (Line(
+          points={{40,80},{50,80}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(sine2.y, clutch.f_normalized) annotation (Line(
+          points={{13,120},{30,120},{30,91}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(inertia5.flange_b, oneWayClutch.flange_a) annotation (Line(
+          points={{70,80},{78,80}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(oneWayClutch.flange_b, inertia6.flange_a) annotation (Line(
+          points={{98,80},{108,80}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(sine2.y, oneWayClutch.f_normalized) annotation (Line(
+          points={{13,120},{88,120},{88,91}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(inertia6.flange_b, brake.flange_a) annotation (Line(
+          points={{128,80},{136,80}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(sine2.y, brake.f_normalized) annotation (Line(
+          points={{13,120},{146,120},{146,91}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(oneWayClutch.heatPort, convection.solid) annotation (Line(
+          points={{78,70},{78,58},{154,58},{154,0},{-6,0},{-6,-50},{14,-50}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(brake.heatPort, convection.solid) annotation (Line(
+          points={{136,70},{136,58},{154,58},{154,0},{-6,0},{-6,-50},{14,-50}},
+          color={191,0,0},
+          smooth=Smooth.None));
+
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{200,140}}),      graphics), Icon(coordinateSystem(
+              preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
+        experiment(NumberOfIntervals=5000),
+        experimentSetupOutput,
+        Documentation(info="<html>
+<p>
+This model demonstrates how to model the dissipated power of a drive train,
+by enabling the heatPort of all components and connecting these heatPorts via
+a convection element to the environment. The total heat flow generated by the
+elements of the drive train and transported to the environment
+is present in variable convection.fluid.
+</p>
+</html>"));
+    end HeatLosses;
     annotation ( Documentation(info="<html>
 <p>
 This package contains example models to demonstrate the usage of the
@@ -1516,7 +1731,12 @@ between two inertia/gear elements.
             Text(
               extent={{-150,-50},{150,-90}},
               lineColor={0,0,0},
-              textString="d=%d")}),
+              textString="d=%d"),
+            Line(visible=useHeatPort,
+              points={{-100,-100},{-100,-40},{-20,-40},{-20,0}},
+              color={191,0,0},
+              smooth=Smooth.None,
+              pattern=LinePattern.Dot)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -1533,7 +1753,7 @@ between two inertia/gear elements.
             Line(points={{30,0},{96,0}}, color={0,0,0}),
             Line(points={{-68,0},{-68,65}}, color={128,128,128}),
             Text(
-              extent={{-22,62},{18,87}},
+              extent={{-40,66},{33,85}},
               lineColor={0,0,255},
               textString="phi_rel"),
             Line(points={{-68,60},{72,60}}, color={128,128,128}),
@@ -1606,7 +1826,12 @@ to describe a coupling of the element with the housing via a spring/damper.
             Text(
               extent={{-150,-108},{150,-68}},
               lineColor={0,0,0},
-              textString="c=%c")}),
+              textString="c=%c"),
+            Line(visible=useHeatPort,
+              points={{-100,-100},{-100,-55},{-5,-55}},
+              color={191,0,0},
+              pattern=LinePattern.Dot,
+              smooth=Smooth.None)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -1625,7 +1850,7 @@ to describe a coupling of the element with the housing via a spring/damper.
               fillColor={128,128,128},
               fillPattern=FillPattern.Solid),
             Text(
-              extent={{-20,72},{20,97}},
+              extent={{-44,79},{29,91}},
               lineColor={0,0,255},
               textString="phi_rel"),
             Rectangle(
@@ -1690,6 +1915,7 @@ to describe a coupling of the element with the housing via a spring/damper.
                  if phi_diff < 1.5*bMin then c*(phi_diff - bMin) else (c/3)*phi_diff;
          tau_d = d*w_rel;
          tau   = tau_c + tau_d;
+         lossPower = tau_d*w_rel;
       else
      /*
      if abs(b) <= bEps then
@@ -1724,8 +1950,12 @@ to describe a coupling of the element with the housing via a spring/damper.
                       smooth(0, noEvent(if tau_c + tau_d <= 0 then 0 else tau_c + min(tau_c,tau_d))) else
                    if phi_diff < bMin then
                       smooth(0, noEvent(if tau_c + tau_d >= 0 then 0 else tau_c + max(tau_c,tau_d))) else 0;
+         lossPower =  if abs(b) <= bEps then tau_d*w_rel else
+                        if phi_diff > bMax then
+                           smooth(0, noEvent(if tau_c + tau_d <= 0 then 0 else min(tau_c,tau_d)*w_rel)) else
+                        if phi_diff < bMin then
+                           smooth(0, noEvent(if tau_c + tau_d >= 0 then 0 else max(tau_c,tau_d)*w_rel)) else 0;
       end if;
-      lossPower = 0;
       annotation (
         Documentation(info="<html>
 <p>
@@ -1922,7 +2152,12 @@ where the different effects are visualized:
             Text(
               extent={{-152,-92},{148,-52}},
               lineColor={0,0,0},
-              textString="c=%c")}),
+              textString="c=%c"),
+            Line(visible=useHeatPort,
+              points={{-100,-100},{-100,-43},{-34,-43}},
+              color={191,0,0},
+              pattern=LinePattern.Dot,
+              smooth=Smooth.None)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -1941,7 +2176,7 @@ where the different effects are visualized:
               fillColor={128,128,128},
               fillPattern=FillPattern.Solid),
             Text(
-              extent={{-10,70},{30,95}},
+              extent={{-34,77},{40,90}},
               lineColor={128,128,128},
               textString="phi_rel"),
             Rectangle(
@@ -2195,6 +2430,11 @@ following references, especially (Armstrong and Canudas de Witt 1996):
             Line(
               points={{0,-80},{0,-100}},
               color={0,0,0},
+              smooth=Smooth.None),
+            Line(visible=useHeatPort,
+              points={{-100,-100},{-100,-35},{2,-35}},
+              color={191,0,0},
+              pattern=LinePattern.Dot,
               smooth=Smooth.None)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -2263,7 +2503,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
                      if startBackward then       -Modelica.Math.tempInterpol1(-w, mue_pos, 2) else
                      if pre(mode) == Forward then Modelica.Math.tempInterpol1( w, mue_pos, 2) else
                                                  -Modelica.Math.tempInterpol1(-w, mue_pos, 2));
-      lossPower = 0;
+      lossPower = tau*w_relfric;
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -2315,7 +2555,12 @@ following references, especially (Armstrong and Canudas de Witt 1996):
             Text(
               extent={{-150,-180},{150,-140}},
               textString="%name",
-              lineColor={0,0,255})}),
+              lineColor={0,0,255}),
+            Line(visible=useHeatPort,
+              points={{-100,-98},{-100,-70},{0,-70},{0,-40}},
+              color={191,0,0},
+              pattern=LinePattern.Dot,
+              smooth=Smooth.None)}),
         Documentation(info="<html>
 <p>
 This component models a <b>brake</b>, i.e., a component where a frictional
@@ -2460,7 +2705,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
                      if startBackward then       -Modelica.Math.tempInterpol1(-w_rel, mue_pos, 2) else
                      if pre(mode) == Forward then Modelica.Math.tempInterpol1( w_rel, mue_pos, 2) else
                                                  -Modelica.Math.tempInterpol1(-w_rel, mue_pos, 2));
-      lossPower = 0;
+      lossPower = tau*w_relfric;
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -2469,7 +2714,11 @@ following references, especially (Armstrong and Canudas de Witt 1996):
             Text(
               extent={{-150,-110},{150,-70}},
               textString="%name",
-              lineColor={0,0,255})}),
+              lineColor={0,0,255}), Line(visible=useHeatPort,
+              points={{-100,-100},{-100,-40},{0,-40}},
+              color={191,0,0},
+              pattern=LinePattern.Dot,
+              smooth=Smooth.None)}),
         Documentation(info="<html>
 <p>
 This component models a <b>clutch</b>, i.e., a component with
@@ -2586,10 +2835,10 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 
       Real u "Normalized force input signal (0..1)";
       SI.Force fn "Normal force (fn=fn_max*inPort.signal)";
-      Boolean startForward
+      Boolean startForward(start=false)
         "true, if w_rel=0 and start of forward sliding or w_rel > w_small";
-      Boolean locked "true, if w_rel=0 and not sliding";
-      Boolean stuck(final start=false) "w_rel=0 (forward sliding or locked)";
+      Boolean locked(start=false) "true, if w_rel=0 and not sliding";
+      Boolean stuck(start=false) "w_rel=0 (locked or start forward sliding)";
 
     protected
       SI.Torque tau0 "Friction torque for w=0 and sliding";
@@ -2640,7 +2889,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       // Determine configuration
       stuck = locked or w_rel <= 0;
 
-      lossPower = 0;
+      lossPower = if stuck then 0 else tau*w_rel;
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -2654,7 +2903,12 @@ following references, especially (Armstrong and Canudas de Witt 1996):
               points={{-10,30},{50,0},{-10,-30},{-10,30}},
               lineColor={0,0,0},
               fillColor={0,0,0},
-              fillPattern=FillPattern.Solid)}),
+              fillPattern=FillPattern.Solid),
+            Line(visible=useHeatPort,
+              points={{-100,-99},{-100,-40},{0,-40}},
+              color={191,0,0},
+              pattern=LinePattern.Dot,
+              smooth=Smooth.None)}),
         Documentation(info="<html>
 <p>
 This component models a <b>one-way clutch</b>, i.e., a component with
@@ -2810,8 +3064,10 @@ connected to other elements in an appropriate way.
         "Angle between right shaft flange and support";
 
       Real sa(final unit="1") "Path parameter for acceleration and torque loss";
-      SI.AngularVelocity w_a "Angular velocity of flange_a";
-      SI.AngularAcceleration a_a "Angular acceleration of flange_a";
+      SI.AngularVelocity w_a
+        "Angular velocity of flange_a with respect to support";
+      SI.AngularAcceleration a_a
+        "Angular acceleration of flange_a with respect to support";
 
       Real interpolation_result[1, size(lossTable, 2) - 1];
       Real eta_mf1;
@@ -2943,7 +3199,7 @@ Modelica.Constants.eps).
          and w_a > 0 then Forward else if (pre(mode) == Backward or startBackward)
          and w_a < 0 then Backward else Stuck);
 
-      lossPower = 0;
+      lossPower = tauLoss*w_a;
       annotation (Documentation(info="<HTML>
 <p>
 This component models the gear ratio and the <b>losses</b> of
@@ -3058,8 +3314,7 @@ and Simulating the Efficiency of Gearboxes and of Planetary Gearboxes</A>,&quot;
 pp. 257-266, The Modelica Association and Institute of Robotics and Mechatronics,
 Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e. V., March 18-19, 2002.</p>
 </HTML>
-"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}},
+"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Polygon(
               points={{-109,40},{-80,40},{-80,80},{-90,80},{-70,100},{-50,80},{
@@ -3075,7 +3330,12 @@ Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e. V., March 18-19, 2002.</p>
             Text(
               extent={{-145,-49},{155,-79}},
               lineColor={0,0,0},
-              textString="ratio=%ratio")}),
+              textString="ratio=%ratio"),
+            Line(visible=useHeatPort,
+              points={{-100,-100},{-100,-30},{0,-30},{0,0}},
+              color={191,0,0},
+              pattern=LinePattern.Dot,
+              smooth=Smooth.None)}),
         Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
                 {100,100}},
             grid={1,1}), graphics));
@@ -3335,19 +3595,16 @@ in the flanges, are along the axis vector displayed in the icon.
               rotation=0)));
     equation
       connect(flange_a, lossyGear.flange_a)
-        annotation (Line(points={{-100,5.55112e-16},{-90,5.55112e-16},{-90,
-              1.77636e-15},{-80,1.77636e-15},{-80,1.22125e-15},{-60,1.22125e-15}},
-                                                    color={0,0,0}));
+        annotation (Line(points={{-100,0},{-90,0},{-90,1.77636e-015},{-80,
+              1.77636e-015},{-80,0},{-60,0}},       color={0,0,0}));
       connect(lossyGear.flange_b, elastoBacklash.flange_a)
-        annotation (Line(points={{-20,1.22125e-15},{-10,1.22125e-15},{-10,
-              2.4425e-15},{0,2.4425e-15},{0,1.22125e-15},{20,1.22125e-15}},
-                                                  color={0,0,0}));
+        annotation (Line(points={{-20,0},{-10,0},{-10,2.4425e-015},{0,
+              2.4425e-015},{0,0},{20,0}},         color={0,0,0}));
       connect(elastoBacklash.flange_b, flange_b)
-        annotation (Line(points={{60,1.22125e-15},{70,1.22125e-15},{70,
-              1.77636e-15},{80,1.77636e-15},{80,5.55112e-16},{100,5.55112e-16}},
-                                                  color={0,0,0}));
+        annotation (Line(points={{60,0},{70,0},{70,1.77636e-015},{80,
+              1.77636e-015},{80,0},{100,0}},      color={0,0,0}));
       connect(lossyGear.support, support) annotation (Line(
-          points={{-40,-20},{-40,-40},{5.55112e-16,-40},{5.55112e-16,-100}},
+          points={{-40,-20},{-40,-40},{0,-40},{0,-100}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(elastoBacklash.heatPort, internalHeatPort) annotation (Line(
@@ -3382,8 +3639,8 @@ Gearbox.
 </p>
 
 </HTML>
-"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={
+"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+                            graphics={
             Text(
               extent={{-150,150},{150,110}},
               lineColor={0,0,255},
@@ -3391,7 +3648,12 @@ Gearbox.
             Text(
               extent={{-150,70},{150,100}},
               lineColor={0,0,0},
-              textString="ratio=%ratio, c=%c")}),
+              textString="ratio=%ratio, c=%c"),
+            Line(visible=useHeatPort,
+              points={{-100,-100},{-100,-30},{0,-30}},
+              color={191,0,0},
+              pattern=LinePattern.Dot,
+              smooth=Smooth.None)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                         graphics));
@@ -3440,7 +3702,7 @@ This component defines the kinematic constraint:
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={192,192,192}),
             Text(
-              extent={{-151,123},{149,83}},
+              extent={{-150,125},{150,85}},
               lineColor={0,0,255},
               textString="%name"),
             Polygon(
@@ -3460,7 +3722,7 @@ This component defines the kinematic constraint:
               fillColor={160,160,164},
               fillPattern=FillPattern.Solid),
             Text(
-              extent={{-149,78},{151,48}},
+              extent={{-150,80},{150,50}},
               lineColor={0,0,0},
               textString="ratio=%ratio"),
             Line(
@@ -3538,7 +3800,7 @@ This component defines the kinematic constraint:
               fillPattern=FillPattern.Sphere,
               fillColor={192,192,192}),
             Text(
-              extent={{-136,138},{128,76}},
+              extent={{-150,130},{150,90}},
               textString="%name",
               lineColor={0,0,255}),
             Polygon(
@@ -3699,17 +3961,17 @@ no rolling resistance. This component defines the kinematic constraint:
           color={0,0,127},
           smooth=Smooth.None));
       connect(set_phi_start.flange, flange) annotation (Line(
-          points={{5.55112e-16,80},{60,80},{60,5.55112e-16},{100,5.55112e-16}},
+          points={{0,80},{60,80},{60,0},{100,0}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(set_w_start.flange, flange) annotation (Line(
-          points={{5.55112e-16,6.10623e-16},{25,6.10623e-16},{25,1.16573e-15},{
-              50,1.16573e-15},{50,0},{100,0}},
+          points={{0,0},{25,0},{25,1.16573e-015},{50,1.16573e-015},{50,0},{100,
+              0}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(set_w_start.w_start, w_start) annotation (Line(
-          points={{-22,6.66134e-16},{-46.5,6.66134e-16},{-46.5,1.77636e-15},{
-              -71,1.77636e-15},{-71,0},{-120,0}},
+          points={{-22,0},{-46.5,0},{-46.5,1.77636e-015},{-71,1.77636e-015},{
+              -71,0},{-120,0}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(set_a_start.a_start, a_start) annotation (Line(
@@ -3717,11 +3979,11 @@ no rolling resistance. This component defines the kinematic constraint:
           color={0,0,127},
           smooth=Smooth.None));
       connect(set_a_start.flange, flange) annotation (Line(
-          points={{5.55112e-16,-80},{60,-80},{60,5.55112e-16},{100,5.55112e-16}},
+          points={{0,-80},{60,-80},{60,0},{100,0}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(set_flange_tau.flange, flange) annotation (Line(
-          points={{76,-80},{60,-80},{60,5.55112e-16},{100,5.55112e-16}},
+          points={{76,-80},{60,-80},{60,0},{100,0}},
           color={0,0,0},
           smooth=Smooth.None));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -3883,6 +4145,7 @@ velocity of model inertia1 or of model inertia2 as state variables.
               color={0,0,0},
               pattern=LinePattern.Dash)}));
     end RelativeStates;
+
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Rectangle(
@@ -5348,12 +5611,12 @@ and instead the component is internally fixed to ground.
         annotation (Placement(transformation(extent={{10,-97},{30,-77}})));
     equation
       connect(support, internalSupport) annotation (Line(
-          points={{5.55112e-16,-100},{5.55112e-16,-95},{4.4409e-16,-95},{
-              4.4409e-16,-90},{-1.11022e-16,-90},{-1.11022e-16,-80}},
+          points={{0,-100},{0,-95},{4.4409e-016,-95},{4.4409e-016,-90},{0,-90},
+              {0,-80}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(internalSupport, fixed.flange) annotation (Line(
-          points={{-1.11022e-16,-80},{20,-80},{20,-87}},
+          points={{0,-80},{20,-80},{20,-87}},
           color={0,0,0},
           smooth=Smooth.None));
       annotation (
@@ -6359,9 +6622,21 @@ For an introduction, have especially a look at:
 <p>
 In version 3.0 of the Modelica Standard Library, the basic design of the
 library has changed: Previously, bearing connectors could or could not be connected.
-In 3.0, the bearing connector is renamed to \"support\" and this connector
+In 3.0, the bearing connector is renamed to \"<b>support</b>\" and this connector
 is enabled via parameter \"useSupport\". If the support connector is enabled,
 it must be connected, and if it is not enabled, it must not be connected.
+</p>
+
+<p>
+In version 3.2 of the Modelica Standard Library, all <b>dissipative</b> components
+of the Rotational library got an optional <b>heatPort</b> connector to which the 
+dissipated energy is transported in form of heat. This connector is enabled
+via parameter \"useHeatPort\". If the heatPort connector is enabled,
+it must be connected, and if it is not enabled, it must not be connected.
+Independently, whether the heatPort is enabled or not,
+the dissipated power is available from the new variable \"<b>lossPower</b>\" (which is
+positive if heat is flowing out of the heatPort). For an example, see
+<a href=\"modelica://Modelica.Mechanics.Rotational.Examples.HeatLosses\">Examples.HeatLosses</a>.
 </p>
 
 <p>

@@ -148,11 +148,11 @@ definition of the colors used in the MultiBody library
             fillColor={160,160,164},
             fillPattern=FillPattern.Solid),
           Text(
-            extent={{-131,-65},{134,-104}},
+            extent={{-150,-65},{150,-95}},
             lineColor={0,0,0},
             textString="%shapeType"),
           Text(
-            extent={{-131,118},{129,58}},
+            extent={{-150,100},{150,60}},
             textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
@@ -238,11 +238,11 @@ MultiBody.Visualizers.FixedShape2 object is connected");
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Text(
-            extent={{-123,128},{137,68}},
+            extent={{-150,115},{150,75}},
             textString="%name",
             lineColor={0,0,255}),
           Text(
-            extent={{129,-106},{-131,-56}},
+            extent={{150,-90},{-150,-60}},
             lineColor={0,0,0},
             textString="%=r"),
           Polygon(
@@ -548,7 +548,7 @@ vector <b>r</b>.
             textString="z",
             lineColor={0,0,255}),
           Text(
-            extent={{-138,164},{146,102}},
+            extent={{-150,145},{150,105}},
             textString="%name",
             lineColor={0,0,255})}),
       Documentation(info="<HTML>
@@ -645,11 +645,11 @@ parameter menu.
             fillColor={128,128,128},
             fillPattern=FillPattern.Solid),
           Text(
-            extent={{-146,124},{142,62}},
+            extent={{-150,105},{150,65}},
             textString="%name",
             lineColor={0,0,255}),
           Text(
-            extent={{-118,-74},{120,-112}},
+            extent={{-150,-75},{150,-105}},
             lineColor={0,0,0},
             textString="%length")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -694,8 +694,8 @@ parameter menu.
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
 
-    Modelica.Blocks.Interfaces.RealInput r_head[3](each final quantity="Position", each
-        final unit =                                                                               "m")
+    Modelica.Blocks.Interfaces.RealInput r_head[3](each final quantity="Position", each final
+              unit =                                                                               "m")
       "Position vector from origin of frame_a to head of arrow, resolved in frame_a"
       annotation (Placement(transformation(
           origin={0,-120},
@@ -729,7 +729,7 @@ parameter menu.
             fillColor={128,128,128},
             fillPattern=FillPattern.Solid),
           Text(
-            extent={{-146,124},{142,62}},
+            extent={{-150,105},{150,65}},
             textString="%name",
             lineColor={0,0,255}),
           Line(points={{0,-102},{0,-30}}, color={0,0,255})}),
@@ -822,9 +822,9 @@ with respect to frame_a (vector from the origin of frame_a to the arrow tail).
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid),
             Text(
-              extent={{-146,-96},{154,-136}},
-              textString="%name",
-              lineColor={0,0,255})}),           Diagram(coordinateSystem(
+            extent={{-150,-105},{150,-145}},
+            textString="%name",
+            lineColor={0,0,255})}),             Diagram(coordinateSystem(
               preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics),
         Documentation(info="<html>
@@ -938,7 +938,7 @@ library (will be replaced by a color editor).
               fillColor={128,128,128},
               fillPattern=FillPattern.Solid),
             Text(
-              extent={{-146,124},{142,62}},
+              extent={{-150,105},{150,65}},
               textString="%name",
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -1030,7 +1030,7 @@ library (will be replaced by a color editor).
               fillColor={128,128,128},
               fillPattern=FillPattern.Solid),
             Text(
-              extent={{-146,124},{142,62}},
+              extent={{-150,105},{150,65}},
               textString="%name",
               lineColor={0,0,255}),
             Polygon(
@@ -1099,11 +1099,7 @@ library (will be replaced by a color editor).
             Text(
               extent={{-100,-100},{80,60}},
               lineColor={0,0,0},
-              textString="%shapeType"),
-            Text(
-              extent={{-132,160},{128,100}},
-              textString="%name",
-              lineColor={0,0,255})}),
+              textString="%shapeType")}),
          Documentation(info="<HTML>
 <p>
 Model <b>Shape</b> defines a visual shape that is
@@ -1295,7 +1291,7 @@ since they all have frame connectors).
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
-              extent={{-140,164},{148,102}},
+              extent={{-150,145},{150,105}},
               textString="%name",
               lineColor={0,0,255}),
             Polygon(
@@ -1430,7 +1426,7 @@ The diameter and color of all line cylinders are identical.
               fillColor={0,127,255},
               fillPattern=FillPattern.Solid),
             Text(
-              extent={{-140,164},{148,102}},
+              extent={{-150,145},{150,105}},
               textString="%name",
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},

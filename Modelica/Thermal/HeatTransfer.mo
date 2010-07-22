@@ -527,7 +527,8 @@ e.g., with one of the following equations:
 "));
     end ThermalConductor;
 
-    model Convection "Lumped thermal element for heat convection"
+    model Convection
+      "Lumped thermal element for heat convection (Q_flow = Gc*dT)"
       Modelica.SIunits.HeatFlowRate Q_flow "Heat flow rate from solid -> fluid";
       Modelica.SIunits.TemperatureDifference dT "= solid.T - fluid.T";
       Modelica.Blocks.Interfaces.RealInput Gc
@@ -580,7 +581,11 @@ e.g., with one of the following equations:
             Line(points={{56,-30},{76,-20}}, color={191,0,0}),
             Line(points={{56,-10},{76,-20}}, color={191,0,0}),
             Line(points={{56,10},{76,20}}, color={191,0,0}),
-            Line(points={{56,30},{76,20}}, color={191,0,0})}),
+            Line(points={{56,30},{76,20}}, color={191,0,0}),
+            Text(
+              extent={{22,124},{92,98}},
+              lineColor={0,0,0},
+              textString="Gc")}),
         Documentation(info="<HTML>
 <p>
 This is a model of linear heat convection, e.g., the heat transfer
@@ -1665,7 +1670,7 @@ and provides is as output signal.
             Text(
               extent={{0,0},{-100,-100}},
               lineColor={0,0,0},
-              textString="Â°C"),
+              textString="°C"),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
               lineColor={191,0,0},
@@ -1700,7 +1705,7 @@ i.e., it defines a fixed temperature as a boundary condition.
             Text(
               extent={{0,0},{-100,-100}},
               lineColor={0,0,0},
-              textString="Â°C"),
+              textString="°C"),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
               lineColor={191,0,0},
@@ -2792,19 +2797,20 @@ constitutive equations for many types of heat transfer components.
 
     partial model PartialElementaryConditionalHeatPort
       "Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e. for elementary models"
-      parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
-        annotation(Evaluate=true, HideResult=true);
+      parameter Boolean useHeatPort = false "=true, if heatPort is enabled"
+        annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
       parameter Modelica.SIunits.Temperature T=293.15
         "Fixed device temperature if useHeatPort = false"
         annotation(Dialog(enable=not useHeatPort));
       Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(
         final T=TheatPort,
         final Q_flow=-lossPower) if useHeatPort
+        "Optional port to which dissipated losses are transported in form of heat"
         annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}),
          iconTransformation(extent={{-110,-110},{-90,-90}})));
       Modelica.SIunits.Power lossPower
-        "Loss power leaving component via HeatPort";
-      Modelica.SIunits.Temperature TheatPort "Temperature of HeatPort";
+        "Loss power leaving component via heatPort (> 0, if heat is flowing out of component)";
+      Modelica.SIunits.Temperature TheatPort "Temperature of heatPort";
     equation
       if not useHeatPort then
          TheatPort = T;
@@ -2828,11 +2834,12 @@ If this model is used, the loss power has to be provided by an equation in the m
     partial model PartialConditionalHeatPort
       "Partial model to include a conditional HeatPort in order to dissipate losses, used for graphical modeling, i.e. for bulding modelsby drag-and-drop"
       parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
-        annotation(Evaluate=true, HideResult=true);
+        annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
       parameter Modelica.SIunits.Temperature T=293.15
         "Fixed device temperature if useHeatPort = false"
         annotation(Dialog(enable=not useHeatPort));
       Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
+        "Optional port to which dissipated losses are transported in form of heat"
         annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}),
             iconTransformation(extent={{-110,-110},{-90,-90}})));
       Modelica.Thermal.HeatTransfer.Sources.FixedTemperature fixedTemperature(final T=T) if not useHeatPort

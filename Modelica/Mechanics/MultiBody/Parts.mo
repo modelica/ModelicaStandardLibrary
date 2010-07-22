@@ -75,7 +75,7 @@ package Parts
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Text(
-            extent={{150,170},{-142,106}},
+            extent={{150,145},{-150,105}},
             textString="%name",
             lineColor={0,0,255}),
           Line(points={{0,100},{0,-100}}, color={0,0,0}),
@@ -85,7 +85,7 @@ package Parts
           Line(points={{0,40},{-100,100}}, color={0,0,0}),
           Line(points={{0,0},{100,0}}, color={0,0,0}),
           Text(
-            extent={{-146,-104},{154,-148}},
+            extent={{-150,-105},{150,-135}},
             lineColor={0,0,0},
             textString="r=%r")}),
       Documentation(info="<html>
@@ -201,11 +201,11 @@ animation = <b>false</b>.
             fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Text(
-            extent={{-131,101},{129,41}},
+            extent={{-150,85},{150,45}},
             textString="%name",
             lineColor={0,0,255}),
           Text(
-            extent={{127,-72},{-133,-22}},
+            extent={{150,-50},{-150,-20}},
             lineColor={0,0,0},
             textString="%=r"),
           Text(
@@ -475,7 +475,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Text(
-            extent={{-136,79},{132,139}},
+            extent={{-150,80},{150,120}},
             textString="%name",
             lineColor={0,0,255}),
           Rectangle(
@@ -496,7 +496,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
             fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Text(
-            extent={{-144,-52},{143,-89}},
+            extent={{-150,-50},{150,-80}},
             lineColor={0,0,0},
             textString="r=%r"),
           Text(
@@ -570,7 +570,8 @@ the animation may be switched off via parameter animation = <b>false</b>.
     import Modelica.Math.*;
     import Modelica.Mechanics.MultiBody.Types;
     import Modelica.Mechanics.MultiBody.Frames;
-    Interfaces.Frame_a frame_a "Coordinate system fixed at body"
+    Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
+      "Coordinate system fixed at body"
       annotation (Placement(transformation(extent={{-116,-16},{-84,16}},
             rotation=0)));
     parameter Boolean animation=true
@@ -823,11 +824,11 @@ the animation may be switched off via parameter animation = <b>false</b>.
             fillPattern=FillPattern.HorizontalCylinder,
             fillColor={0,127,255}),
           Text(
-            extent={{131,-123},{-129,-73}},
+            extent={{150,-100},{-150,-70}},
             lineColor={0,0,0},
             textString="m=%m"),
           Text(
-            extent={{-128,132},{132,72}},
+            extent={{-150,110},{150,70}},
             textString="%name",
             lineColor={0,0,255}),
           Ellipse(
@@ -1163,11 +1164,11 @@ states and of the \"Advanced\" menu parameters, see model
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Text(
-            extent={{-134,126},{126,66}},
+            extent={{-150,110},{150,70}},
             textString="%name",
             lineColor={0,0,255}),
           Text(
-            extent={{122,-123},{-138,-73}},
+            extent={{-150,-100},{150,-70}},
             lineColor={0,0,0},
             textString="%=r"),
           Rectangle(
@@ -1429,11 +1430,11 @@ states and of the \"Advanced\" menu parameters, see model
             fillColor={0,95,191},
             fillPattern=FillPattern.Solid),
           Text(
-            extent={{-129,100},{131,40}},
+            extent={{-150,90},{150,50}},
             textString="%name",
             lineColor={0,0,255}),
           Text(
-            extent={{130,-98},{-130,-48}},
+            extent={{150,-80},{-150,-50}},
             lineColor={0,0,0},
             textString="%=r"),
           Text(
@@ -1636,11 +1637,11 @@ states and of the \"Advanced\" menu parameters, see model
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Text(
-            extent={{-129,100},{131,40}},
+            extent={{-150,90},{150,50}},
             textString="%name",
             lineColor={0,0,255}),
           Text(
-            extent={{130,-98},{-130,-48}},
+            extent={{150,-80},{-150,-50}},
             lineColor={0,0,0},
             textString="%=r"),
           Rectangle(
@@ -1753,11 +1754,11 @@ the only case where this is done.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Text(
-            extent={{132,-102},{-129,-56}},
+            extent={{150,-90},{-150,-60}},
             lineColor={0,0,0},
             textString="m=%m"),
           Text(
-            extent={{-128,110},{132,55}},
+            extent={{-150,100},{150,60}},
             textString="%name",
             lineColor={0,0,255}),
           Ellipse(
@@ -1858,7 +1859,7 @@ are forced to be used as states.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Text(
-            extent={{-146,60},{154,20}},
+            extent={{-150,60},{150,20}},
             lineColor={0,0,255},
             textString="%name"),
           Line(points={{80,-60},{40,-100}}, color={0,0,0}),
@@ -2243,10 +2244,14 @@ November 3-4, 2003, pp. 149-158</p>
             fillPattern=FillPattern.HorizontalCylinder,
             fillColor={192,192,192}),
           Text(
-            extent={{-148,112},{152,72}},
-            textString="%name=%J",
-            lineColor={0,0,255}),
-          Line(points={{0,-70},{0,-100}}, color={0,0,0})}),
+            extent={{-150,125},{150,85}},
+            lineColor={0,0,255},
+            textString="%name"),
+          Line(points={{0,-70},{0,-100}}, color={0,0,0}),
+          Text(
+            extent={{-150,80},{150,50}},
+            lineColor={0,0,0},
+            textString="%J")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics));
   end Rotor1D;
@@ -2343,7 +2348,7 @@ November 3-4, 2003, pp. 149-158</p>
             fillPattern=FillPattern.HorizontalCylinder,
             fillColor={192,192,192}),
           Text(
-            extent={{-150,178},{150,138}},
+            extent={{-150,180},{150,150}},
             textString="%name=%ratio",
             lineColor={0,0,255}),
           Line(points={{-80,20},{-60,20}}, color={0,0,0}),
@@ -2353,7 +2358,11 @@ November 3-4, 2003, pp. 149-158</p>
           Line(points={{60,20},{80,20}}, color={0,0,0}),
           Line(points={{60,-20},{80,-20}}, color={0,0,0}),
           Line(points={{-70,-20},{-70,-70},{70,-70},{70,-20}}, color={0,0,0}),
-          Line(points={{0,60},{0,-70},{0,-100}}, color={0,0,0})}),
+          Line(points={{0,60},{0,-70},{0,-100}}, color={0,0,0}),
+          Text(
+            extent={{-150,-36},{150,-66}},
+            textString="%name=%ratio",
+            lineColor={0,0,0})}),
         Documentation(
           info="<html>
 <p>This component is used to model a 1-dim. gearbox
@@ -2486,9 +2495,9 @@ November 3-4, 2003, pp. 149-158</p>
               fillColor={215,215,215},
               fillPattern=FillPattern.Solid),
             Text(
-              extent={{-150,122},{150,82}},
-              textString="%name",
-              lineColor={0,0,255})}));
+            extent={{-150,125},{150,85}},
+            textString="%name",
+            lineColor={0,0,255})}));
     end RollingWheel;
 
     model RollingWheelSet
@@ -2687,9 +2696,9 @@ November 3-4, 2003, pp. 149-158</p>
               fillColor={175,175,175},
               fillPattern=FillPattern.Solid),
             Text(
-              extent={{-146,-98},{154,-138}},
-              textString="%name",
-              lineColor={0,0,255}),
+            extent={{-150,-105},{150,-145}},
+            textString="%name",
+            lineColor={0,0,255}),
             Ellipse(
               extent={{42,80},{118,-80}},
               lineColor={0,0,0},

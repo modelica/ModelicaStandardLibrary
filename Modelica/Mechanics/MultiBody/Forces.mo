@@ -82,7 +82,7 @@ package Forces "Components that exert forces and/or torques between frames"
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Text(
-            extent={{-89,-46},{91,-76}},
+            extent={{-100,-46},{100,-76}},
             lineColor={192,192,192},
             textString="resolve"),
           Polygon(
@@ -92,7 +92,7 @@ package Forces "Components that exert forces and/or torques between frames"
             fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Text(
-            extent={{-149,103},{136,42}},
+            extent={{-150,85},{150,45}},
             textString="%name",
             lineColor={0,0,255}),
           Line(
@@ -315,7 +315,7 @@ This leads to the following animation
             lineColor={192,192,192},
             textString="resolve"),
           Text(
-            extent={{-145,-28},{140,-89}},
+            extent={{-150,-40},{150,-80}},
             textString="%name",
             lineColor={0,0,255}),
           Line(
@@ -470,7 +470,7 @@ This leads to the following animation
             lineColor={192,192,192},
             textString="resolve"),
           Text(
-            extent={{-151,-73},{134,-134}},
+            extent={{-150,-75},{150,-115}},
             textString="%name",
             lineColor={0,0,255}),
           Line(
@@ -705,7 +705,7 @@ is resolved in the world frame).
             lineColor={192,192,192},
             textString="resolve"),
           Text(
-            extent={{-136,-52},{149,-113}},
+            extent={{-150,-55},{150,-95}},
             textString="%name",
             lineColor={0,0,255}),
           Line(
@@ -904,7 +904,7 @@ clarity this is not shown in the animation):
             lineColor={192,192,192},
             textString="resolve"),
           Text(
-            extent={{-139,-27},{146,-88}},
+            extent={{-150,-30},{150,-70}},
             textString="%name",
             lineColor={0,0,255}),
           Polygon(
@@ -1160,7 +1160,7 @@ clarity this is not shown in the animation):
             lineColor={192,192,192},
             textString="resolve"),
           Text(
-            extent={{-136,-52},{149,-113}},
+            extent={{-150,-55},{150,-95}},
             textString="%name",
             lineColor={0,0,255}),
           Polygon(
@@ -1481,7 +1481,7 @@ for this situation:
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Text(
-            extent={{-145,-53},{145,-113}},
+            extent={{-150,-55},{150,-95}},
             textString="%name",
             lineColor={0,0,255}),
           Rectangle(
@@ -1900,7 +1900,7 @@ for this situation:
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Text(
-            extent={{-145,-53},{145,-113}},
+            extent={{-150,-55},{150,-95}},
             textString="%name",
             lineColor={0,0,255}),
           Rectangle(
@@ -2157,11 +2157,11 @@ in the other flange connector.
             thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Text(
-            extent={{-130,49},{132,109}},
+            extent={{-150,50},{150,90}},
             textString="%name",
             lineColor={0,0,255}),
           Text(
-            extent={{-141,-92},{125,-51}},
+            extent={{-150,-80},{150,-50}},
             lineColor={0,0,0},
             textString="c=%c"),
           Ellipse(
@@ -2297,13 +2297,18 @@ where a mass is hanging on a damper.
             fillPattern=FillPattern.Solid),
           Line(points={{30,0},{100,0}}, color={0,0,0}),
           Text(
-            extent={{-140,47},{145,105}},
+            extent={{-150,50},{150,90}},
             textString="%name",
             lineColor={0,0,255}),
           Text(
-            extent={{-156,-96},{152,-53}},
+            extent={{-150,-75},{150,-45}},
             lineColor={0,0,0},
-            textString="d=%d")}),
+            textString="d=%d"),
+          Line(visible=useHeatPort,
+            points={{-100,-99},{-100,-25},{-10,-25}},
+            color={191,0,0},
+            pattern=LinePattern.Dot,
+            smooth=Smooth.None)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -2320,7 +2325,7 @@ where a mass is hanging on a damper.
           Line(points={{30,0},{100,0}}, color={0,0,0}),
           Line(points={{-50,60},{50,60}}, color={128,128,128}),
           Text(
-            extent={{-20,60},{10,85}},
+            extent={{-40,64},{23,77}},
             lineColor={128,128,128},
             textString="der(s)"),
           Polygon(
@@ -2395,7 +2400,7 @@ and der(s) is the time derivative of s.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Text(
-            extent={{-131,-166},{114,-108}},
+            extent={{-150,-150},{150,-110}},
             textString="%name",
             lineColor={0,0,255}),
           Line(points={{-80,40},{-60,40},{-45,10},{-15,70},{15,10},{45,70},{60,
@@ -2414,9 +2419,18 @@ and der(s) is the time derivative of s.
           Line(points={{-100,0},{-80,0}}, color={0,0,0}),
           Line(points={{80,0},{100,0}}, color={0,0,0}),
           Text(
-            extent={{-140,72},{138,108}},
+            extent={{-150,70},{150,100}},
             lineColor={0,0,0},
-            textString="c,d=%c,%d")}),
+            textString="d=%d"),
+          Line(visible=useHeatPort,
+            points={{-100,-101},{-100,-80},{-6,-80}},
+            color={191,0,0},
+            pattern=LinePattern.Dot,
+            smooth=Smooth.None),
+          Text(
+            extent={{-150,105},{150,135}},
+            lineColor={0,0,0},
+            textString="c=%c")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -2513,13 +2527,22 @@ force element) and der(s_damper) is the time derivative of s_damper.
           Line(points={{-15,0},{-5,0},{5,-30},{25,30},{45,-30},{65,30},{75,0},{
                 100,0}}, color={0,0,0}),
           Text(
-            extent={{-140,47},{145,105}},
+            extent={{-150,50},{150,90}},
             textString="%name",
             lineColor={0,0,255}),
           Text(
-            extent={{-148,-96},{160,-53}},
+            extent={{-150,-65},{150,-35}},
             lineColor={0,0,0},
-            textString="c,d=%c,%d")}),
+            textString="c=%c"),
+          Line(visible=useHeatPort,
+            points={{-100,-99},{-100,-24},{-45,-24}},
+            color={191,0,0},
+            smooth=Smooth.None,
+            pattern=LinePattern.Dot),
+          Text(
+            extent={{-150,-100},{150,-70}},
+            lineColor={0,0,0},
+            textString="d=%d")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},

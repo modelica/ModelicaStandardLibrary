@@ -1280,7 +1280,7 @@ drag Modelica.Mechanics.MultiBody.World into the top level of your model.",
           fillColor={0,0,0},
           fillPattern=FillPattern.Solid),
         Text(
-          extent={{-140,165},{140,103}},
+          extent={{-150,145},{150,105}},
           textString="%name",
           lineColor={0,0,255}),
         Text(

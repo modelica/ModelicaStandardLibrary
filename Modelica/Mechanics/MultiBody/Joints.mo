@@ -152,11 +152,11 @@ Possible reasons:
             textString="a"),
           Text(
             visible=useAxisFlange,
-            extent={{-150,-155},{150,-95}},
+            extent={{-150,-135},{150,-95}},
             textString="%name",
             lineColor={0,0,255}),
           Text(
-            extent={{-150,-93},{150,-54}},
+            extent={{-150,-90},{150,-60}},
             lineColor={0,0,0},
             textString="n=%n"),
           Rectangle(
@@ -168,7 +168,7 @@ Possible reasons:
             lineColor={0,0,255}),
           Text(
             visible=not useAxisFlange,
-            extent={{-150,55},{150,115}},
+            extent={{-150,60},{150,100}},
             textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
@@ -414,12 +414,12 @@ Possible reasons:
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Text(
-            extent={{-150,-117},{150,-77}},
+            extent={{-150,-110},{150,-80}},
             lineColor={0,0,0},
             textString="n=%n"),
           Text(
             visible=useAxisFlange,
-            extent={{-150,-175},{150,-115}},
+            extent={{-150,-155},{150,-115}},
             textString="%name",
             lineColor={0,0,255}),
           Line(
@@ -450,7 +450,7 @@ Possible reasons:
             color={0,0,0}),
           Text(
             visible=not useAxisFlange,
-            extent={{-150,70},{150,130}},
+            extent={{-150,70},{150,110}},
             textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
@@ -626,11 +626,11 @@ definition of the axes vectors n in the revolute joints of the planar loop.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Text(
-            extent={{-146,70},{143,109}},
+            extent={{-150,70},{150,100}},
             lineColor={0,0,0},
             textString="n=%n"),
           Text(
-            extent={{-137,-125},{139,-68}},
+            extent={{-150,-110},{150,-70}},
             textString="%name",
             lineColor={0,0,255}),
           Rectangle(
@@ -840,11 +840,11 @@ vector \"n\" defining the cylinder axis
             fillColor={192,192,192}),
           Line(points={{0,-50},{0,50}}, color={0,0,0}),
           Text(
-            extent={{-126,116},{134,56}},
+            extent={{-150,100},{150,60}},
             textString="%name",
             lineColor={0,0,255}),
           Text(
-            extent={{-118,-65},{120,-102}},
+            extent={{-150,-65},{150,-95}},
             lineColor={0,0,0},
             textString="n=%n")}));
   end Cylindrical;
@@ -983,7 +983,7 @@ phi_b.start = 45<sup>o</sup>).
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Text(
-            extent={{-134,-70},{126,-130}},
+            extent={{-150,-80},{150,-120}},
             textString="%name",
             lineColor={0,0,255}),
           Rectangle(
@@ -1234,11 +1234,11 @@ s_y.start = 0.5, phi.start = 45<sup>o</sup>).
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Text(
-            extent={{-131,-74},{133,-112}},
+            extent={{-150,-75},{150,-105}},
             lineColor={0,0,0},
             textString="n=%n"),
           Text(
-            extent={{-124,127},{136,67}},
+            extent={{-150,110},{150,70}},
             textString="%name",
             lineColor={0,0,255})}));
   end Planar;
@@ -1514,7 +1514,7 @@ frame_b of the joint.
             fillPattern=FillPattern.Sphere,
             fillColor={160,160,164}),
           Text(
-            extent={{-100,-132},{100,-72}},
+            extent={{-150,-115},{150,-75}},
             textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
@@ -1559,7 +1559,7 @@ frame_b of the joint.
     import Modelica.Math.*;
     import SI = Modelica.SIunits;
 
-    extends Interfaces.PartialTwoFrames;
+    extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
 
     parameter Boolean animation=true
       "= true, if animation shall be enabled (show arrow from frame_a to frame_b)";
@@ -1855,7 +1855,7 @@ frame_b of the joint.
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Text(
-            extent={{136,-35},{-150,-98}},
+            extent={{150,-35},{-150,-75}},
             lineColor={0,0,255},
             textString="%name"),
           Rectangle(
@@ -2138,7 +2138,7 @@ frame_b of the joint.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Text(
-            extent={{-149,111},{141,51}},
+            extent={{-150,90},{150,50}},
             textString="%name",
             lineColor={0,0,255}),
           Rectangle(
@@ -2162,7 +2162,7 @@ frame_b of the joint.
             fillPattern=FillPattern.Sphere,
             fillColor={192,192,192}),
           Text(
-            extent={{-130,-58},{137,-98}},
+            extent={{-150,-60},{150,-90}},
             lineColor={0,0,0},
             textString="%rodLength")}),
       Diagram(coordinateSystem(
@@ -2671,7 +2671,7 @@ the origin of frame_a to the middle of the rod, this might be defined as:
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Text(
-            extent={{-122,-49},{138,-107}},
+            extent={{-150,-50},{150,-90}},
             lineColor={0,0,255},
             textString="%name"),
           Ellipse(
@@ -2753,7 +2753,7 @@ the origin of frame_a to the middle of the rod, this might be defined as:
             lineColor={128,128,128},
             textString="ia"),
           Text(
-            extent={{-24,103},{167,64}},
+            extent={{-24,95},{167,65}},
             lineColor={0,0,0},
             textString="%rRod_ia"),
           Line(
@@ -2994,9 +2994,9 @@ the origin of frame_a to the middle of the rod, this might be defined as:
             fillPattern=FillPattern.HorizontalCylinder,
             fillColor={192,192,192}),
           Text(
-            extent={{-156,186},{152,130}},
-            textString="%name=%ratio",
-            lineColor={0,0,255}),
+            extent={{-150,175},{150,135}},
+            lineColor={0,0,255},
+            textString="%name"),
           Line(points={{-80,20},{-60,20}}, color={0,0,0}),
           Line(points={{-80,-20},{-60,-20}}, color={0,0,0}),
           Line(points={{-10,60},{10,60}}, color={0,0,0}),
@@ -3004,7 +3004,11 @@ the origin of frame_a to the middle of the rod, this might be defined as:
           Line(points={{60,-20},{80,-20}}, color={0,0,0}),
           Line(points={{-70,-20},{-70,-70},{70,-70},{70,-20}}, color={0,0,0}),
           Line(points={{0,60},{0,-70},{0,-100}}, color={0,0,0}),
-          Line(points={{-10,100},{10,100}}, color={0,0,0})}),
+          Line(points={{-10,100},{10,100}}, color={0,0,0}),
+          Text(
+            extent={{-150,-64},{150,-94}},
+            lineColor={0,0,0},
+            textString="%ratio")}),
       Documentation(info="<html>
 <p>This ideal massless joint provides a gear constraint between
 frames <tt>frame_a</tt> and <tt>frame_b</tt>. The axes of rotation
@@ -6725,8 +6729,8 @@ pair of joints\" from Woernle and Hiller is described in:
         annotation (Placement(transformation(extent={{-50,90},{-70,110}},
               rotation=0)));
 
-      Modelica.Blocks.Interfaces.RealInput position_a[3](each final quantity="Position", each
-          final unit =                                                                                   "m")
+      Modelica.Blocks.Interfaces.RealInput position_a[3](each final quantity="Position", each final
+                unit =                                                                                   "m")
         "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint"
         annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
               rotation=0)));
