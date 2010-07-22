@@ -342,7 +342,7 @@ still kept in Modelica.SIunits.</p>
               textString="K"), Text(
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
-              textString="째C")}));
+              textString="캜")}));
     end to_degC;
 
     function from_degC "Convert from 째Celsius to Kelvin"
@@ -359,7 +359,7 @@ still kept in Modelica.SIunits.</p>
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
-              textString="째C"), Text(
+              textString="캜"),  Text(
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="K")}));
@@ -378,7 +378,7 @@ still kept in Modelica.SIunits.</p>
               textString="K"), Text(
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
-              textString="째F")}));
+              textString="캟")}));
     end to_degF;
 
     function from_degF "Convert from 째Fahrenheit to Kelvin"
@@ -394,7 +394,10 @@ still kept in Modelica.SIunits.</p>
               textString="째F"), Text(
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
-              textString="K")}));
+              textString="K"), Text(
+              extent={{-20,100},{-100,20}},
+              lineColor={0,0,0},
+              textString="캟")}));
     end from_degF;
 
     function to_degRk "Convert from Kelvin to 째Rankine"
@@ -408,9 +411,9 @@ still kept in Modelica.SIunits.</p>
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
               textString="K"), Text(
-              extent={{100,-20},{20,-100}},
+              extent={{100,-32},{-18,-100}},
               lineColor={0,0,0},
-              textString="째Rk")}));
+              textString="캲k")}));
     end to_degRk;
 
     function from_degRk "Convert from 째Rankine to Kelvin"
@@ -421,9 +424,9 @@ still kept in Modelica.SIunits.</p>
       Kelvin := (5/9)*Rankine;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{-20,100},{-100,20}},
+              extent={{-8,100},{-100,42}},
               lineColor={0,0,0},
-              textString="째Rk"), Text(
+              textString="캲k"),  Text(
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="K")}));
@@ -437,10 +440,10 @@ still kept in Modelica.SIunits.</p>
       degree := (180.0/Modelica.Constants.pi)*radian;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{-20,100},{-100,20}},
+              extent={{10,100},{-100,46}},
               lineColor={0,0,0},
               textString="rad"), Text(
-              extent={{100,-20},{20,-100}},
+              extent={{100,-44},{-10,-100}},
               lineColor={0,0,0},
               textString="deg")}));
     end to_deg;
@@ -453,10 +456,10 @@ still kept in Modelica.SIunits.</p>
       radian := (Modelica.Constants.pi/180.0)*degree;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{-20,100},{-100,20}},
+              extent={{4,100},{-102,46}},
               lineColor={0,0,0},
               textString="deg"), Text(
-              extent={{100,-20},{20,-100}},
+              extent={{100,-32},{-18,-100}},
               lineColor={0,0,0},
               textString="rad")}));
     end from_deg;
@@ -469,10 +472,10 @@ still kept in Modelica.SIunits.</p>
       rpm := (30/Modelica.Constants.pi)*rs;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{-20,100},{-100,20}},
+              extent={{30,100},{-100,50}},
               lineColor={0,0,0},
               textString="rad/s"), Text(
-              extent={{100,-20},{20,-100}},
+              extent={{100,-52},{-40,-98}},
               lineColor={0,0,0},
               textString="1/min")}));
     end to_rpm;
@@ -486,10 +489,10 @@ still kept in Modelica.SIunits.</p>
       rs := (Modelica.Constants.pi/30)*rpm;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{-20,100},{-100,20}},
+              extent={{14,100},{-102,56}},
               lineColor={0,0,0},
               textString="1/min"), Text(
-              extent={{100,-20},{20,-100}},
+              extent={{100,-56},{-32,-102}},
               lineColor={0,0,0},
               textString="rad/s")}));
     end from_rpm;
@@ -502,10 +505,10 @@ still kept in Modelica.SIunits.</p>
       kmh := 3.6*ms;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{-20,100},{-100,20}},
+              extent={{8,100},{-100,58}},
               lineColor={0,0,0},
               textString="m/s"), Text(
-              extent={{100,-20},{20,-100}},
+              extent={{100,-56},{-16,-100}},
               lineColor={0,0,0},
               textString="km/h")}));
     end to_kmh;
@@ -518,10 +521,10 @@ still kept in Modelica.SIunits.</p>
       ms := kmh/3.6;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{-20,100},{-100,20}},
+              extent={{10,100},{-100,56}},
               lineColor={0,0,0},
               textString="km/h"), Text(
-              extent={{100,-20},{20,-100}},
+              extent={{100,-50},{-20,-100}},
               lineColor={0,0,0},
               textString="m/s")}));
     end from_kmh;
@@ -534,10 +537,10 @@ still kept in Modelica.SIunits.</p>
       day := s/86400;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{-20,100},{-100,20}},
+              extent={{-6,100},{-100,48}},
               lineColor={0,0,0},
               textString="s"), Text(
-              extent={{100,-20},{20,-100}},
+              extent={{100,-48},{-10,-98}},
               lineColor={0,0,0},
               textString="day")}));
     end to_day;
@@ -550,10 +553,10 @@ still kept in Modelica.SIunits.</p>
       s := 86400*day;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{-20,100},{-100,20}},
+              extent={{10,100},{-100,52}},
               lineColor={0,0,0},
               textString="day"), Text(
-              extent={{100,-20},{20,-100}},
+              extent={{100,-54},{20,-100}},
               lineColor={0,0,0},
               textString="s")}));
     end from_day;
@@ -566,10 +569,10 @@ still kept in Modelica.SIunits.</p>
       hour := s/3600;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{-20,100},{-100,20}},
+              extent={{12,100},{-100,50}},
               lineColor={0,0,0},
               textString="s"), Text(
-              extent={{100,-20},{20,-100}},
+              extent={{100,-56},{-20,-100}},
               lineColor={0,0,0},
               textString="hour")}));
     end to_hour;
@@ -582,10 +585,10 @@ still kept in Modelica.SIunits.</p>
       s := 3600*hour;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{-20,100},{-100,20}},
+              extent={{12,100},{-100,58}},
               lineColor={0,0,0},
               textString="hour"), Text(
-              extent={{100,-20},{20,-100}},
+              extent={{100,-50},{16,-100}},
               lineColor={0,0,0},
               textString="s")}));
     end from_hour;
@@ -598,12 +601,12 @@ still kept in Modelica.SIunits.</p>
       minute := s/60;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{-20,100},{-100,20}},
+              extent={{-26,100},{-100,52}},
               lineColor={0,0,0},
               textString="s"), Text(
-              extent={{100,-20},{20,-100}},
+              extent={{100,-54},{-20,-100}},
               lineColor={0,0,0},
-              textString="minute")}));
+              textString="min")}));
     end to_minute;
 
     function from_minute "Convert from minute to second"
@@ -614,10 +617,10 @@ still kept in Modelica.SIunits.</p>
       s := 60*minute;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{-20,100},{-100,20}},
+              extent={{26,100},{-100,48}},
               lineColor={0,0,0},
-              textString="minute"), Text(
-              extent={{100,-20},{20,-100}},
+              textString="min"),    Text(
+              extent={{100,-46},{0,-100}},
               lineColor={0,0,0},
               textString="s")}));
     end from_minute;
@@ -630,12 +633,12 @@ still kept in Modelica.SIunits.</p>
       litre := 1000*m3;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{-20,100},{-100,20}},
+              extent={{100,-56},{0,-100}},
               lineColor={0,0,0},
-              textString="m3"), Text(
-              extent={{100,-20},{20,-100}},
+              textString="litre"),           Text(
+              extent={{6,100},{-100,56}},
               lineColor={0,0,0},
-              textString="litre")}));
+              textString="m3")}));
     end to_litre;
 
     function from_litre "Convert from litre to cubic metre"
@@ -646,10 +649,10 @@ still kept in Modelica.SIunits.</p>
       m3 := litre/1000;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{-20,100},{-100,20}},
+              extent={{-4,100},{-100,62}},
               lineColor={0,0,0},
-              textString="litre"), Text(
-              extent={{100,-20},{20,-100}},
+              textString="litre"),           Text(
+              extent={{100,-56},{-6,-100}},
               lineColor={0,0,0},
               textString="m3")}));
     end from_litre;
@@ -662,13 +665,13 @@ still kept in Modelica.SIunits.</p>
     algorithm
       Coulomb := AmpereHour * 3600;
 
-      annotation (Icon(Text(
-            extent=[-20, 100; -100, 20],
-            style(color=0),
-            string="Ah"), Text(
-            extent=[100, -20; 20, -100],
-            style(color=0),
-            string="C")));
+      annotation (Icon(graphics={         Text(
+              extent={{-2,100},{-100,48}},
+              lineColor={0,0,0},
+              textString="Ah"),     Text(
+              extent={{100,-46},{0,-100}},
+              lineColor={0,0,0},
+              textString="C")}));
     end from_Ah;
 
     function to_Ah "Convert from Coulomb to Ampere hours"
@@ -679,13 +682,13 @@ still kept in Modelica.SIunits.</p>
     algorithm
       AmpereHour := Coulomb/3600;
 
-      annotation (Icon(Text(
-            extent=[-20, 100; -100, 20],
-            style(color=0),
-            string="Ah"), Text(
-            extent=[100, -20; 20, -100],
-            style(color=0),
-            string="C")));
+      annotation (Icon(graphics={         Text(
+              extent={{-18,100},{-100,48}},
+              lineColor={0,0,0},
+              textString="C"),            Text(
+              extent={{100,-48},{2,-100}},
+              lineColor={0,0,0},
+              textString="Ah")}));
     end to_Ah;
 
     function from_Wh "Convert from Watt hour to Joule"
@@ -695,13 +698,13 @@ still kept in Modelica.SIunits.</p>
     algorithm
       Joule := WattHour * 3600;
 
-      annotation (Icon(Text(
-            extent=[-20, 100; -100, 20],
-            style(color=0),
-            string="Wh"), Text(
-            extent=[100, -20; 20, -100],
-            style(color=0),
-            string="C")));
+      annotation (Icon(graphics={            Text(
+              extent={{-20,100},{-100,54}},
+              lineColor={0,0,0},
+              textString="Wh"),  Text(
+              extent={{100,-38},{4,-100}},
+              lineColor={0,0,0},
+              textString="J")}));
     end from_Wh;
 
     function to_Wh "Convert from Joule to Watt hour"
@@ -711,13 +714,13 @@ still kept in Modelica.SIunits.</p>
     algorithm
       WattHour := Joule/3600;
 
-      annotation (Icon(Text(
-            extent=[-20, 100; -100, 20],
-            style(color=0),
-            string="Ah"), Text(
-            extent=[100, -20; 20, -100],
-            style(color=0),
-            string="C")));
+      annotation (Icon(graphics={            Text(
+              extent={{-30,100},{-100,48}},
+              lineColor={0,0,0},
+              textString="J"),      Text(
+              extent={{100,-46},{-14,-100}},
+              lineColor={0,0,0},
+              textString="Wh")}));
     end to_Wh;
 
     function to_kWh "Convert from Joule to kilo Watt hour"
@@ -728,10 +731,10 @@ still kept in Modelica.SIunits.</p>
       kWh := J/3.6e6;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{-20,100},{-100,20}},
+              extent={{-20,100},{-100,54}},
               lineColor={0,0,0},
               textString="J"), Text(
-              extent={{100,-20},{20,-100}},
+              extent={{100,-50},{-10,-100}},
               lineColor={0,0,0},
               textString="kWh")}));
     end to_kWh;
@@ -744,10 +747,10 @@ still kept in Modelica.SIunits.</p>
       J := 3.6e6*kWh;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{-20,100},{-100,20}},
+              extent={{12,100},{-100,52}},
               lineColor={0,0,0},
               textString="kWh"), Text(
-              extent={{100,-20},{20,-100}},
+              extent={{100,-44},{12,-100}},
               lineColor={0,0,0},
               textString="J")}));
     end from_kWh;
@@ -760,10 +763,10 @@ still kept in Modelica.SIunits.</p>
       bar := Pa/1e5;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{-20,100},{-100,20}},
+              extent={{-12,100},{-100,56}},
               lineColor={0,0,0},
-              textString="Pa"), Text(
-              extent={{100,-20},{20,-100}},
+              textString="Pa"),     Text(
+              extent={{98,-52},{-4,-100}},
               lineColor={0,0,0},
               textString="bar")}));
     end to_bar;
@@ -776,12 +779,12 @@ still kept in Modelica.SIunits.</p>
       Pa := 1e5*bar;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{-20,100},{-100,20}},
+              extent={{100,-56},{12,-100}},
               lineColor={0,0,0},
-              textString="bar"), Text(
-              extent={{100,-20},{20,-100}},
+              textString="Pa"),     Text(
+              extent={{2,100},{-100,52}},
               lineColor={0,0,0},
-              textString="Pa")}));
+              textString="bar")}));
     end from_bar;
 
     function to_gps "Convert from kilogram per second to gram per second"
@@ -792,10 +795,10 @@ still kept in Modelica.SIunits.</p>
       gps := 1000*kgps;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{-20,100},{-100,20}},
+              extent={{-12,100},{-100,60}},
               lineColor={0,0,0},
               textString="kg/s"), Text(
-              extent={{100,-20},{20,-100}},
+              extent={{100,-46},{-6,-100}},
               lineColor={0,0,0},
               textString="g/s")}));
     end to_gps;
@@ -808,10 +811,10 @@ still kept in Modelica.SIunits.</p>
       kgps := gps/1000;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{-20,100},{-100,20}},
+              extent={{-8,100},{-100,54}},
               lineColor={0,0,0},
               textString="g/s"), Text(
-              extent={{100,-20},{20,-100}},
+              extent={{100,-44},{-10,-100}},
               lineColor={0,0,0},
               textString="kg/s")}));
     end from_gps;
@@ -844,11 +847,12 @@ still kept in Modelica.SIunits.</p>
 
     algorithm
       w := 2*Modelica.Constants.pi*f;
-      annotation (Inline=true,Icon(graphics={Text(
-              extent={{-20,100},{-100,20}},
+      annotation (Inline=true,Icon(graphics={
+                                    Text(
+              extent={{2,100},{-100,52}},
               lineColor={0,0,0},
-              textString="Hz"), Text(
-              extent={{100,-20},{20,-100}},
+              textString="Hz"),              Text(
+              extent={{100,-56},{12,-100}},
               lineColor={0,0,0},
               textString="1/s")}));
     end from_Hz;
@@ -859,13 +863,14 @@ still kept in Modelica.SIunits.</p>
       output SIunits.Frequency f "frequency";
     algorithm
       f := w/(2*Modelica.Constants.pi);
-      annotation (Inline=true,Icon(graphics={Text(
-              extent={{-20,100},{-100,20}},
+      annotation (Inline=true,Icon(graphics={
+                                    Text(
+              extent={{100,-52},{-2,-100}},
               lineColor={0,0,0},
-              textString="1/s"), Text(
-              extent={{100,-20},{20,-100}},
+              textString="Hz"),              Text(
+              extent={{-12,100},{-100,56}},
               lineColor={0,0,0},
-              textString="Hz")}));
+              textString="1/s")}));
     end to_Hz;
 
     function to_cm2 "Convert from square metre to square centrimetre"
@@ -876,10 +881,10 @@ still kept in Modelica.SIunits.</p>
       cm2 := 0.0001*m2;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{-20,100},{-100,20}},
+              extent={{-20,100},{-100,58}},
               lineColor={0,0,0},
               textString="m/s"), Text(
-              extent={{100,-20},{20,-100}},
+              extent={{100,-50},{-18,-100}},
               lineColor={0,0,0},
               textString="cm2")}));
     end to_cm2;
@@ -892,31 +897,15 @@ still kept in Modelica.SIunits.</p>
       m2 :=10000*cm2;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{-20,100},{-100,20}},
+              extent={{2,100},{-100,58}},
               lineColor={0,0,0},
               textString="cm2"),  Text(
-              extent={{100,-20},{20,-100}},
+              extent={{100,-50},{-16,-98}},
               lineColor={0,0,0},
               textString="m/s")}));
     end from_cm2;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true,
-                     extent={{-100,-100},{100,100}}), graphics={
-          Text(
-            extent={{-33,-7},{-92,-67}},
-            lineColor={0,0,0},
-            lineThickness=1,
-            textString="degC"),
-          Text(
-            extent={{82,-7},{22,-67}},
-            lineColor={0,0,0},
-            textString="K"),
-          Line(points={{-26,-36},{6,-36}}, color={0,0,0}),
-          Polygon(
-            points={{6,-28},{6,-45},{26,-37},{6,-28}},
-            pattern=LinePattern.None,
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255})}),
+                     extent={{-100,-100},{100,100}}), graphics),
                               Documentation(info="<HTML>
 <p>This package provides conversion functions from the non SI Units
 defined in package Modelica.SIunits.Conversions.NonSIunits to the

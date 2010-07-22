@@ -674,17 +674,9 @@ as negative force on the connector frame (the force vector
 is resolved in the world frame).
 "),         Icon(Text(extent=[-132, 99; 128, 39], string="%name"), Polygon(points=[-100,
                      10; 49, 10; 49, 31; 100, 0; 49, -31; 49, -10; -100, -10; -100,
-                    10], style(
-                  color=0,
-                  gradient=0,
-                  fillColor=0,
-                  fillPattern=1))),
+                    10])),
             Diagram(Polygon(points=[-90, 10; 40, 10; 40, 31; 91, 0; 40, -31; 40, -10;
-                     -90, -10; -90, 10], style(
-                  color=0,
-                  gradient=0,
-                  fillColor=0,
-                  fillPattern=1))));
+                     -90, -10; -90, 10])));
         end WorldForceAndTorque;
 
         model FrameForceAndTorque
@@ -875,17 +867,9 @@ as negative force on the connector frame (the force vector
 is resolved in the world frame).
 "),         Icon(Text(extent=[-132, 99; 128, 39], string="%name"), Polygon(points=[-100,
                      10; 49, 10; 49, 31; 100, 0; 49, -31; 49, -10; -100, -10; -100,
-                    10], style(
-                  color=0,
-                  gradient=0,
-                  fillColor=0,
-                  fillPattern=1))),
+                    10])),
             Diagram(Polygon(points=[-90, 10; 40, 10; 40, 31; 91, 0; 40, -31; 40, -10;
-                     -90, -10; -90, 10], style(
-                  color=0,
-                  gradient=0,
-                  fillColor=0,
-                  fillPattern=1))));
+                     -90, -10; -90, 10])));
         end FrameForceAndTorque;
 
         model ForceAndTorque
@@ -1106,17 +1090,9 @@ as negative force on the connector frame (the force vector
 is resolved in the world frame).
 "),         Icon(Text(extent=[-132, 99; 128, 39], string="%name"), Polygon(points=[-100,
                      10; 49, 10; 49, 31; 100, 0; 49, -31; 49, -10; -100, -10; -100,
-                    10], style(
-                  color=0,
-                  gradient=0,
-                  fillColor=0,
-                  fillPattern=1))),
+                    10])),
             Diagram(Polygon(points=[-90, 10; 40, 10; 40, 31; 91, 0; 40, -31; 40, -10;
-                     -90, -10; -90, 10], style(
-                  color=0,
-                  gradient=0,
-                  fillColor=0,
-                  fillPattern=1))));
+                     -90, -10; -90, 10])));
         end ForceAndTorque;
       end Forces;
 
@@ -1632,8 +1608,7 @@ joints.</b>
               "Relative distance offset (distance between frame_a and frame_b = s(t) + s_offset)";
             parameter SI.Position s_guess=0
               "Select the configuration such that at initial time |s(t0)-s_guess|is minimal";
-            parameter Modelica.Mechanics.MultiBody.Types.Axis boxWidthDirection
-              =                                                                 {0,1,0}
+            parameter Modelica.Mechanics.MultiBody.Types.Axis boxWidthDirection={0,1,0}
               "Vector in width direction of box, resolved in frame_a"
               annotation (Evaluate=true, Dialog(tab="Animation", group=
                     "if animation = true", enable=animation));
@@ -2867,8 +2842,8 @@ with negative sign at frame_a.
 
       package Types
         "Constants and types with choices, especially to build menus"
-        type AngularVelocity_degs = Modelica.Icons.TypeReal(final quantity="AngularVelocity", final unit
-              =    "deg/s")
+        type AngularVelocity_degs = Modelica.Icons.TypeReal(final quantity="AngularVelocity", final unit=
+                   "deg/s")
           "Obsolete type. Use Modelica.SIunits.AngularVelocity instead with an appropriate displayUnit"
               annotation (__Dymola_obsolete="Non SI-units should no longer be used. Use Modelica.SIunits.AngularVelocity instead with an appropriate displayUnit");
         type AngularAcceleration_degs2 = Modelica.Icons.TypeReal (final

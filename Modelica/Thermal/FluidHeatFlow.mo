@@ -1819,12 +1819,7 @@ Coolant's mass flow, temperature and enthalpy flow are not affected.<br>
               extent={{-90,90},{90,-90}},
               lineColor={255,0,0},
               fillColor={255,255,255},
-              fillPattern=FillPattern.Solid)}),
-                  Icon(Ellipse(extent=[-90,90; 90,-90], style(
-              color=1,
-              rgbcolor={255,0,0},
-              fillColor=7,
-              rgbfillColor={255,255,255}))));
+              fillPattern=FillPattern.Solid)}));
     end AbsolutePressure;
 
     model VolumeFlow "Enforces constant volume flow"

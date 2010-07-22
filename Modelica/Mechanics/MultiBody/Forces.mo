@@ -578,18 +578,10 @@ is resolved in the world frame).
 "),   Icon(Text(extent=[-132, 99; 128, 39], string="%name",
           lineColor={0,0,255}),                              Polygon(points=[-100,
                10; 49, 10; 49, 31; 100, 0; 49, -31; 49, -10; -100, -10; -100,
-              10], style(
-            color=0,
-            gradient=0,
-            fillColor=0,
-            fillPattern=1),
+              10],
           lineColor={0,0,255})),
       Diagram(Polygon(points=[-90, 10; 40, 10; 40, 31; 91, 0; 40, -31; 40, -10;
-               -90, -10; -90, 10], style(
-            color=0,
-            gradient=0,
-            fillColor=0,
-            fillPattern=1),
+               -90, -10; -90, 10],
           lineColor={0,0,255})));
   end WorldForceAndTorque;
 

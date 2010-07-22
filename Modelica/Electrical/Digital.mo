@@ -2832,6 +2832,7 @@ The simulation stop time has to be 5s.
       end Interfaces;
 
   package Tables "Truth tables for all components of package Digital"
+    extends Modelica.Icons.Package;
 
     import D = Modelica.Electrical.Digital;
     import L = Modelica.Electrical.Digital.Interfaces.Logic;
@@ -3012,30 +3013,7 @@ The simulation stop time has to be 5s.
          {{L.'U',L.'U',L.'U',L.'U'},{L.'U',L.'W',L.'W',L.'W'},{L.'U',L.'W',L.'L',L.'1'},{L.'Z',L.'Z',L.'Z',L.'Z'}}}]
       "Tristate Table by [strength, enable, input] reading, low-active enable";
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics={
-          Rectangle(
-            extent={{-100,-100},{80,50}},
-            fillColor={235,235,235},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Polygon(
-            points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}},
-            fillColor={235,235,235},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Polygon(
-            points={{100,70},{100,-80},{80,-100},{80,50},{100,70}},
-            fillColor={235,235,235},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Text(
-            extent={{-85,35},{65,-85}},
-            lineColor={0,0,255},
-            textString="Library"),
-          Text(
-            extent={{-120,122},{120,73}},
-            lineColor={255,0,0},
-            textString="%name")}),
+              -100},{100,100}}), graphics),
                             Documentation(info="<html>
 
 </html>"));
@@ -3825,8 +3803,8 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
           annotation (extent=[0, -20; 40, 20], Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
                                                        graphics),
-            Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={
+            Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+                             graphics={
             Text(
               extent={{152,-160},{-148,-100}},
               lineColor={0,0,255},
@@ -3843,7 +3821,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
               lineThickness=0.5,
               textString="&"),
             Text(
-              extent={{-20,-60},{20,-100}},
+              extent={{-50,-64},{50,-86}},
               lineColor={0,0,0},
               lineThickness=0.5,
               textString="Gate"),
@@ -3879,20 +3857,7 @@ NandGate with n input values, composed by Nand and sensitive intertial delay.
        realized.</li>
 </ul>
 </HTML>
-"),         Icon(
-              Text(
-                extent=[-40,80; 40,40],
-                style(color=0, thickness=0.5),
-                string="&",
-                lineColor={0,0,255}),
-              Text(
-                extent=[-20, -40; 20, -80],
-                style(color=0, thickness=0.5),
-                string="Gate",
-                lineColor={0,0,255}),
-              Ellipse(extent=[60, -10; 40, 10], style(color=0, thickness=0.5),
-                lineColor={0,0,255})),
-            Diagram);
+"));
         end NandGate;
 
         model OrGate "OrGate with multiple input"
@@ -7002,6 +6967,7 @@ Clock transition definitions:
       end Registers;
 
   package Tristates "Transfergates, Buffers, Inverters, and WiredX"
+      extends Modelica.Icons.Package;
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
       import T = Modelica.Electrical.Digital.Tables;

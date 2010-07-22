@@ -1104,8 +1104,7 @@ is defined as:
 </p>
 <pre>  <b>expandable connector</b> ControlBus
       <b>extends</b> Modelica.Icons.ControlBus;
-      <b>annotation</b> (Icon(Rectangle(extent=[-20, 2; 22, -2],
-                       style(rgbcolor={255,204,51}, thickness=0.5))));
+      <b>annotation</b> (Icon(...));
   <b>end</b> ControlBus;
 </pre>
 <p>

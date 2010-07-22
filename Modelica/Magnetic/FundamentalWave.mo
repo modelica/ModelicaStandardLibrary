@@ -3489,17 +3489,7 @@ according to the following figure.
    SaliencyCageWinding</a>
 </p>
 
-</html>"),          Icon(
-            Text(
-              extent=[0,20; 0,-20],
-              string="%name",
-              style(
-                color=3,
-                rgbcolor={0,0,255},
-                fillColor=45,
-                rgbfillColor={255,128,0},
-                fillPattern=1))),
-          Diagram(graphics));
+</html>"));
       end RotorSaliencyAirGap;
 
       model SymmetricMultiPhaseCageWinding "Symmetrical rotor cage"

@@ -806,17 +806,6 @@ through the sensor is allowed.
       "Specific internal energy in port medium" annotation (extent=[100,-10; 120,10]);
 
   annotation (
-    Diagram(
-        Line(points=[70,0; 100,0], style(rgbcolor={0,0,127})),
-        Line(points=[0,-70; 0,-100], style(color=69))),
-    Icon(
-        Line(points=[70,0; 100,0], style(rgbcolor={0,0,127})),
-        Line(points=[0,-70; 0,-100], style(color=69)),
-        Text(extent=[-126,160; 138,98], string="%name"),
-        Text(
-          extent=[212,-51; 52,-103],
-          style(color=0),
-          string="u")),
     Documentation(info="<HTML>
 <p>
 This component monitors the specific internal energy of the medium in the fluid port. The sensor is
@@ -839,23 +828,6 @@ ideal, i.e., it does not influence the fluid.
     Modelica.Blocks.Interfaces.RealOutput rho_rel(redeclare type SignalType =
           SI.Density) "Relative density signal" annotation (extent=[-10, -80; 10, -100], rotation=90);
     annotation (
-      Icon(
-        Line(points=[-100, 0; -70, 0], style(color=69)),
-        Line(points=[70, 0; 100, 0], style(color=69)),
-        Line(points=[0, -30; 0, -80], style(rgbcolor={0,0,127})),
-        Text(extent=[-140, 94; 144, 34], string="%name"),
-        Text(
-          extent=[92, -62; 34, -122],
-          string="rho_rel",
-          style(color=0))),
-      Diagram(
-        Line(points=[-100, 0; -70, 0], style(color=69)),
-        Line(points=[70, 0; 100, 0], style(color=69)),
-        Line(points=[0, -30; 0, -80], style(rgbcolor={0,0,127})),
-        Text(
-          extent=[64, -74; 32, -102],
-          string="rho_rel",
-          style(color=0))),
       Documentation(info="<HTML>
 <p>
 The relative density \"d(port_a) - d(port_b)\" is determined between
@@ -882,23 +854,6 @@ the two ports of this component and is provided as output signal.
     Modelica.Blocks.Interfaces.RealOutput T_rel(redeclare type SignalType =
           SI.Temperature) "Relative temperature signal" annotation (extent=[-10, -80; 10, -100], rotation=90);
     annotation (
-      Icon(
-        Line(points=[-100, 0; -70, 0], style(color=69)),
-        Line(points=[70, 0; 100, 0], style(color=69)),
-        Line(points=[0, -30; 0, -80], style(rgbcolor={0,0,127})),
-        Text(extent=[-140, 94; 144, 34], string="%name"),
-        Text(
-          extent=[92, -62; 34, -122],
-          string="T_rel",
-          style(color=0))),
-      Diagram(
-        Line(points=[-100, 0; -70, 0], style(color=69)),
-        Line(points=[70, 0; 100, 0], style(color=69)),
-        Line(points=[0, -30; 0, -80], style(rgbcolor={0,0,127})),
-        Text(
-          extent=[64, -74; 32, -102],
-          string="T_rel",
-          style(color=0))),
       Documentation(info="<HTML>
 <p>
 The relative temperature \"T(port_a) - T(port_b)\" is determined between
@@ -923,23 +878,6 @@ the two ports of this component and is provided as output signal.
     Modelica.Blocks.Interfaces.RealOutput h_rel(redeclare type SignalType =
           SI.SpecificEnthalpy) "Relative specific enthalpy signal" annotation (extent=[-10, -80; 10, -100], rotation=90);
     annotation (
-      Icon(
-        Line(points=[-100, 0; -70, 0], style(color=69)),
-        Line(points=[70, 0; 100, 0], style(color=69)),
-        Line(points=[0, -30; 0, -80], style(rgbcolor={0,0,127})),
-        Text(extent=[-140, 94; 144, 34], string="%name"),
-        Text(
-          extent=[92, -62; 34, -122],
-          string="h_rel",
-          style(color=0))),
-      Diagram(
-        Line(points=[-100, 0; -70, 0], style(color=69)),
-        Line(points=[70, 0; 100, 0], style(color=69)),
-        Line(points=[0, -30; 0, -80], style(rgbcolor={0,0,127})),
-        Text(
-          extent=[64, -74; 32, -102],
-          string="h_rel",
-          style(color=0))),
       Documentation(info="<HTML>
 <p>
 The relative specific enthalpy \"port_a.h - port_b.h\" is determined between
@@ -960,23 +898,6 @@ the two ports of this component and is provided as output signal.
     Modelica.Blocks.Interfaces.RealOutput u_rel(redeclare type SignalType =
           SI.SpecificEnergy) "Relative specific internal energy signal" annotation (extent=[-10, -80; 10, -100], rotation=90);
     annotation (
-      Icon(
-        Line(points=[-100, 0; -70, 0], style(color=69)),
-        Line(points=[70, 0; 100, 0], style(color=69)),
-        Line(points=[0, -30; 0, -80], style(rgbcolor={0,0,127})),
-        Text(extent=[-140, 94; 144, 34], string="%name"),
-        Text(
-          extent=[92, -62; 34, -122],
-          string="u_rel",
-          style(color=0))),
-      Diagram(
-        Line(points=[-100, 0; -70, 0], style(color=69)),
-        Line(points=[70, 0; 100, 0], style(color=69)),
-        Line(points=[0, -30; 0, -80], style(rgbcolor={0,0,127})),
-        Text(
-          extent=[64, -74; 32, -102],
-          string="u_rel",
-          style(color=0))),
       Documentation(info="<HTML>
 <p>
 The relative specific internal energy \"u(port_a) - u(port_b)\" is determined between

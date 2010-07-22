@@ -286,7 +286,7 @@ equation
       thickness=0.5));
   connect(heat.port, pipe2.heatPorts)
                                      annotation (Line(
-      points={{-34,90},{-19.9,90},{-19.9,83.2}},
+      points={{-34,90},{-19.9,90},{-19.9,82.4}},
       color={191,0,0},
       thickness=0.5));
   connect(ramp1.y, boundary4.p_in) annotation (Line(
@@ -321,7 +321,7 @@ equation
       thickness=0.5));
   connect(heat1.port, pipe5.heatPorts)
                                       annotation (Line(
-      points={{-52,32},{-19.9,32},{-19.9,25.2}},
+      points={{-52,32},{-19.9,32},{-19.9,24.4}},
       color={191,0,0},
       thickness=0.5));
   connect(boundary2.p_in, ramp.y) annotation (Line(
@@ -344,7 +344,7 @@ equation
       thickness=0.5));
   connect(heat2.port, pipe9.heatPorts)
                                       annotation (Line(
-      points={{-52,-28},{-18.9,-28},{-18.9,-34.8}},
+      points={{-52,-28},{-18.9,-28},{-18.9,-35.6}},
       color={191,0,0},
       thickness=0.5));
   connect(pipe11.port_b, muliPort11.port_a) annotation (Line(
@@ -414,7 +414,5 @@ equation
     experimentSetupOutput,
     Documentation(info="<html>
 Test of different dynamic pipe models. The first system uses explicit junctions, in the third system some of the pipe models are replaced by non-symmetric components.
-</html>"),      extent=[-90,-86; -70,-66],       points=[-22,42; -2,42; -2,32;
-        7.8,32],
-      style(color=69, rgbcolor={0,127,255}));
+</html>"));
 end DynamicPipesAndFittings;

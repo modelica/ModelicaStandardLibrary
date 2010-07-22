@@ -59,8 +59,7 @@ package RobotR3
       __Dymola_Text(
         string="%first",
         index=-1,
-        extent=[-6,3; -6,3],
-        style(color=0, rgbcolor={0,0,0})), Line(
+        extent=[-6,3; -6,3]), Line(
         points={{-12,30},{-12,29},{-9,29},{-9,10},{20,10}},
         color={255,204,51},
         thickness=0.5));
@@ -290,8 +289,7 @@ load inertia.
       __Dymola_Text(
         string="%first",
         index=-1,
-        extent=[-6,3; -6,3],
-        style(color=0, rgbcolor={0,0,0})), Line(
+        extent=[-6,3; -6,3]), Line(
         points={{-80,-10},{-80,-14.5},{-79,-14.5},{-79,-17},{-65,-17},{-65,-65},
             {-25,-65}},
         color={255,204,51},
@@ -301,8 +299,7 @@ load inertia.
       __Dymola_Text(
         string="%first",
         index=-1,
-        extent=[-6,3; -6,3],
-        style(color=0, rgbcolor={0,0,0})), Line(
+        extent=[-6,3; -6,3]), Line(
         points={{-80,-10},{-79,-10},{-79,-15},{-62.5,-15},{-62.5,-45},{-25,-45}},
         color={255,204,51},
         thickness=0.5));
@@ -311,8 +308,7 @@ load inertia.
       __Dymola_Text(
         string="%first",
         index=-1,
-        extent=[-6,3; -6,3],
-        style(color=0, rgbcolor={0,0,0})), Line(
+        extent=[-6,3; -6,3]), Line(
         points={{-80,-10},{-77,-10},{-77,-12.5},{-61,-12.5},{-61,-25},{-25,-25}},
         color={255,204,51},
         thickness=0.5));
@@ -321,8 +317,7 @@ load inertia.
       __Dymola_Text(
         string="%first",
         index=-1,
-        extent=[-6,3; -6,3],
-        style(color=0, rgbcolor={0,0,0})), Line(
+        extent=[-6,3; -6,3]), Line(
         points={{-80,-10},{-60.5,-10},{-60.5,-5},{-25,-5}},
         color={255,204,51},
         thickness=0.5));
@@ -330,8 +325,7 @@ load inertia.
       __Dymola_Text(
         string="%first",
         index=-1,
-        extent=[-6,3; -6,3],
-        style(color=0, rgbcolor={0,0,0})), Line(
+        extent=[-6,3; -6,3]), Line(
         points={{-80,-10},{-77,-10},{-77,-7},{-63,-7},{-63,15},{-25,15}},
         color={255,204,51},
         thickness=0.5));
@@ -339,8 +333,7 @@ load inertia.
       __Dymola_Text(
         string="%first",
         index=-1,
-        extent=[-6,3; -6,3],
-        style(color=0, rgbcolor={0,0,0})), Line(
+        extent=[-6,3; -6,3]), Line(
         points={{-80,-10},{-79,-10},{-79,-5},{-65,-5},{-65,35},{-25,35}},
         color={255,204,51},
         thickness=0.5));
@@ -471,8 +464,7 @@ the connection to this bus) are defined
         __Dymola_Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3],
-          style(color=0, rgbcolor={0,0,0})), Line(
+          extent=[6,3; 6,3]), Line(
           points={{20,0},{100,0}},
           color={255,204,51},
           thickness=0.5));
@@ -657,8 +649,7 @@ motion on the controlBus of the r3 robot.
         __Dymola_Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3],
-          style(color=0, rgbcolor={0,0,0})), Line(
+          extent=[6,3; 6,3]), Line(
           points={{10,80},{80,80},{80,7},{98,7}},
           color={255,204,51},
           thickness=0.5));
@@ -666,8 +657,7 @@ motion on the controlBus of the r3 robot.
         __Dymola_Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3],
-          style(color=0, rgbcolor={0,0,0})), Line(
+          extent=[6,3; 6,3]), Line(
           points={{10,50},{77,50},{77,5},{97,5}},
           color={255,204,51},
           thickness=0.5));
@@ -675,8 +665,7 @@ motion on the controlBus of the r3 robot.
         __Dymola_Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3],
-          style(color=0, rgbcolor={0,0,0})), Line(
+          extent=[6,3; 6,3]), Line(
           points={{10,20},{75,20},{75,3},{96,3}},
           color={255,204,51},
           thickness=0.5));
@@ -684,8 +673,7 @@ motion on the controlBus of the r3 robot.
         __Dymola_Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3],
-          style(color=0, rgbcolor={0,0,0})), Line(
+          extent=[6,3; 6,3]), Line(
           points={{10,-10},{73,-10},{73,0},{100,0}},
           color={255,204,51},
           thickness=0.5));
@@ -693,8 +681,7 @@ motion on the controlBus of the r3 robot.
         __Dymola_Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3],
-          style(color=0, rgbcolor={0,0,0})), Line(
+          extent=[6,3; 6,3]), Line(
           points={{10,-40},{75,-40},{75,-3},{100,-3},{100,0}},
           color={255,204,51},
           thickness=0.5));
@@ -702,8 +689,7 @@ motion on the controlBus of the r3 robot.
         __Dymola_Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3],
-          style(color=0, rgbcolor={0,0,0})), Line(
+          extent=[6,3; 6,3]), Line(
           points={{10,-70},{78,-70},{78,-6},{98,-6}},
           color={255,204,51},
           thickness=0.5));
@@ -829,29 +815,25 @@ motion on the controlBus of the r3 robot.
         __Dymola_Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3],
-          style(color=0, rgbcolor={0,0,0})), Line(points={{-19,-60},{44,-60},{
+          extent=[6,3; 6,3]), Line(points={{-19,-60},{44,-60},{
               44,-8},{102,-8},{102,0},{100,0}}, color={255,0,255}));
       connect(qdd_axisUsed.y, axisControlBus.acceleration_ref) annotation (
         __Dymola_Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3],
-          style(color=0, rgbcolor={0,0,0})), Line(points={{-19,-20},{40,-20},{
+          extent=[6,3; 6,3]), Line(points={{-19,-20},{40,-20},{
               40,-4},{98,-4},{98,0},{100,0}}, color={0,0,127}));
       connect(qd_axisUsed.y, axisControlBus.speed_ref) annotation (
         __Dymola_Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3],
-          style(color=0, rgbcolor={0,0,0})), Line(points={{-19,20},{20,20},{20,
+          extent=[6,3; 6,3]), Line(points={{-19,20},{20,20},{20,
               0},{100,0}}, color={0,0,127}));
       connect(q_axisUsed.y, axisControlBus.angle_ref) annotation (
         __Dymola_Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3],
-          style(color=0, rgbcolor={0,0,0})), Line(points={{-19,60},{40,60},{40,
+          extent=[6,3; 6,3]), Line(points={{-19,60},{40,60},{40,
               4},{96,4}}, color={0,0,127}));
       annotation (defaultComponentName="pathToAxis1",
         Diagram(coordinateSystem(
@@ -1546,36 +1528,31 @@ reference signals. All signals are communicated via the
         __Dymola_Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3],
-          style(color=0, rgbcolor={0,0,0})), Line(points={{51,70},{70,70},{70,
+          extent=[6,3; 6,3]), Line(points={{51,70},{70,70},{70,
               84},{-98,84},{-98,9},{-100,9},{-100,0}}, color={0,0,127}));
       connect(speedSensor.w, axisControlBus.speed) annotation (
         __Dymola_Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3],
-          style(color=0, rgbcolor={0,0,0})), Line(points={{51,50},{74,50},{74,
+          extent=[6,3; 6,3]), Line(points={{51,50},{74,50},{74,
               87},{-100,87},{-100,0}}, color={0,0,127}));
       connect(accSensor.a, axisControlBus.acceleration) annotation (
         __Dymola_Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3],
-          style(color=0, rgbcolor={0,0,0})), Line(points={{51,30},{77,30},{77,
+          extent=[6,3; 6,3]), Line(points={{51,30},{77,30},{77,
               90},{-102,90},{-102,0},{-100,0}}, color={0,0,127}));
       connect(axisControlBus.angle_ref, initializeFlange.phi_start) annotation (
         __Dymola_Text(
           string="%first",
           index=-1,
-          extent=[-6,3; -6,3],
-          style(color=0, rgbcolor={0,0,0})), Line(points={{-100,0},{-100,-7},{
+          extent=[-6,3; -6,3]), Line(points={{-100,0},{-100,-7},{
               -97,-7},{-97,-42},{-42,-42}}, color={0,0,0}));
       connect(axisControlBus.speed_ref, initializeFlange.w_start) annotation (
         __Dymola_Text(
           string="%first",
           index=-1,
-          extent=[-6,3; -6,3],
-          style(color=0, rgbcolor={0,0,0})), Line(points={{-100,0},{-99,0},{-99,
+          extent=[-6,3; -6,3]), Line(points={{-100,0},{-99,0},{-99,
               -50},{-42,-50}}, color={0,0,127}));
       connect(initializeFlange.flange, flange) annotation (Line(points={{-20,
               -50},{80,-50},{80,0},{100,0}}, color={0,0,0}));
