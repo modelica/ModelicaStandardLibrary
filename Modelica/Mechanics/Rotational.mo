@@ -1224,7 +1224,7 @@ Du to a speed dependent force (like driving resistance), we find an eqilibrium a
         experiment(StopTime=5));
     end RollingWheel;
 
-    model HeatLosses "Drive train with heat losses"
+    model HeatLosses "Demonstrate the modeling of heat losses"
        extends Modelica.Icons.Example;
       Blocks.Sources.Sine sine(freqHz=5, amplitude=20)
         annotation (Placement(transformation(extent={{-100,20},{-80,40}})));

@@ -2426,8 +2426,12 @@ This version is a major improvement:
 <ul>
 <li> <b>330</b> models and blocks and <b>270</b> functions are included
      newly in this release.</li>
+
+<li> The icons of the library are newly designed to provide a modern, unified view,
+     see <a href=\"modelica://Modelica.Icons\">Modelica.Icons</a>.</li>
+
 <li> All physical models that dissipate heat (such as electrical elements, electrical
-     motors, bearings etc.), have now an optional heat port to which
+     motors, bearings, dampers, etc.), have now an optional heat port to which
      the dissipated energy is flowing, if activated.
      This will significantly improve design studies about the thermal efficiency
      of technical systems.</li>
@@ -2535,14 +2539,6 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
      Library with functions to compute convective heat transfer and pressure loss characteristics.<br>
      (This library was developed by Thorben Vahlenkamp and Stefan Wischhusen from
      XRG Simulation GmbH).
-    </td></tr>
-
-<tr><td valign=\"top\"><a href=\"modelica://Modelica.Math.Nonlinear\">Modelica.Math.Nonlinear</a></td>
-    <td valign=\"top\">
-    Library of mathematical functions that operate on functions, i.e., have functions as input
-    arguments. This first version consists of functions to integrate a function numerically and to
-    solve one nonlinear algebraic equation in a reliable and efficient way. <br>
-    (This library was developed by Martin Otter, Andreas Pfeifer, and Gerd Schillhuber from DLR-RM).
     </td></tr>
 
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.ComplexMath\">Modelica.ComplexMath</a></td>
@@ -2721,6 +2717,18 @@ to <b style=\"color:blue\">existing</b> libraries:
                       WiredX </td> 
     <td valign=\"top\"> Transfer gates, buffers, inverters and wired node.</td> </tr>
 
+<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Examples.Elementary.</b></td></tr>
+<tr><td valign=\"top\"> HeatLosses </td> 
+    <td valign=\"top\"> Demonstrate the modeling of heat losses. </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.Examples.</b></td></tr>
+<tr><td valign=\"top\"> HeatLosses </td> 
+    <td valign=\"top\"> Demonstrate the modeling of heat losses. </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Mechanics.Translational.Examples.</b></td></tr>
+<tr><td valign=\"top\"> HeatLosses </td> 
+    <td valign=\"top\"> Demonstrate the modeling of heat losses. </td> </tr>
+
 <tr><td colspan=\"2\"><b>Modelica.Math</b></td></tr>
 <tr><td valign=\"top\"> allTrue </td>
     <td valign=\"top\"> Returns true, if all elements of the Boolean input vector are true. </td> </tr>
@@ -2817,6 +2825,39 @@ to <b style=\"color:blue\">existing</b> libraries:
     <td valign=\"top\"> Utility functions for matrices that are used by the newly introduced functions,
                       but are only of interested for a specialist. </td> </tr>
 
+<tr><td colspan=\"2\"><b>Modelica.Math.Nonlinear</b></td></tr>
+<tr><td valign=\"top\"> quadratureLobatto </td>
+    <td valign=\"top\"> Return the integral of an integrand function using an adaptive Lobatto rule.</td> </tr>
+<tr><td valign=\"top\"> solveOneNonlinearEquation </td>
+    <td valign=\"top\"> Solve f(u) = 0 in a very reliable and efficient way
+                      (f(u_min) and f(u_max) must have different signs). </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Math.Nonlinear.Examples.</b></td></tr>
+<tr><td valign=\"top\"> quadratureLobatto1<br>
+                      quadratureLobatto2<br>
+                      solveNonlinearEquations1<br>
+                      solveNonlinearEquations2 </td>
+    <td valign=\"top\"> Examples that demonstrate the usage of the Modelica.Math.Nonlinear functions
+                      to integrate over functions and to solve scalar nonlinear equations. </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Icons.</b></td></tr>
+<tr><td valign=\"top\"> Information<br>
+                      Contact<br>
+                      ReleaseNotes<br>
+                      References<br>
+                      ExamplesPackage<br>
+                      Example<br>
+                      Package<br>
+                      BasesPackage<br>
+                      VariantsPackage<br>
+                      InterfacesPackage<br>
+                      SourcesPackage<br>
+                      SensorsPackage<br>
+                      MaterialPropertiesPackage<br>
+                      MaterialProperty </td>
+    <td valign=\"top\"> New icons to get a unified view on different categories
+                      of packages. </td> </tr>
+
 </table>
 
 
@@ -2828,6 +2869,27 @@ have been <b style=\"color:blue\">improved</b> in a
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><b>Modelica.Mechanics.</b></td></tr>
+<tr><td valign=\"top\"> MultiBody.*<br>
+                      Rotational.*<br>
+                      Translational.*</td>
+    <td valign=\"top\"> All dissipative components in Modelica.Mechanics have now an 
+                      optional heatPort connector to which the dissipated energy is 
+                      transported in form of heat.<br>
+                      All icons in Modelica.Mechanics are unified according to the
+                      Modelica.Blocks library:<br>
+                      \"%name\": width: -150 .. 150, height: 40, color: blue<br>
+                      other text: height: 30, color: black
+                       </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Thermal.</b></td></tr>
+<tr><td valign=\"top\"> HeatTransfer.*</td>
+    <td valign=\"top\"> All icons are unified according to the
+                      Modelica.Blocks library:<br>
+                      \"%name\": width: -150 .. 150, height: 40, color: blue<br>
+                      other text: height: 30, color: black
+                       </td> </tr>
+
 <tr><td colspan=\"2\"><b>Modelica.Math.Matrices</b></td></tr>
 <tr><td valign=\"top\"> QR </td>
     <td valign=\"top\"> A Boolean input \"pivoting\" has been added (now QR(A, pivoting)) to provide QR-decomposition without pivoting (QR(A, false)). Default is pivoting=true.</td> </tr>

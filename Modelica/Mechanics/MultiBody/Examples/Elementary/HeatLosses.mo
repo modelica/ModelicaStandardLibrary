@@ -1,5 +1,5 @@
 within Modelica.Mechanics.MultiBody.Examples.Elementary;
-model HeatLosses "Multi-body system with heat losses modelled"
+model HeatLosses "Demonstrate the modeling of heat losses"
    extends Modelica.Icons.Example;
   inner World                              world annotation (Placement(
         transformation(extent={{-100,40},{-80,60}},rotation=0)));
