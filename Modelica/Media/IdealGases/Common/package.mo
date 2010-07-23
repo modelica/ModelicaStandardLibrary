@@ -893,6 +893,7 @@ required from medium model \""   + mediumName + "\".");
     redeclare function extends density "Return density of ideal gas"
     algorithm
       d := state.p/((state.X*data.R)*state.T);
+      annotation(smoothOrder = 3);
     end density;
 
   redeclare function extends specificEnthalpy "Return specific enthalpy"
@@ -975,6 +976,7 @@ required from medium model \""   + mediumName + "\".");
   redeclare function extends gasConstant "Return gasConstant"
   algorithm
     R := data.R*state.X;
+    annotation(smoothOrder = 3);
   end gasConstant;
 
   redeclare function extends specificHeatCapacityCp
@@ -987,6 +989,7 @@ required from medium model \""   + mediumName + "\".");
     "Return specific heat capacity at constant volume from temperature and gas data"
   algorithm
     cv := {SingleGasNasa.cp_T(data[i], state.T) for i in 1:nX}*state.X -data.R*state.X;
+    annotation(smoothOrder = 1);
   end specificHeatCapacityCv;
 
   function MixEntropy "Return mixing entropy of ideal gases / R"
