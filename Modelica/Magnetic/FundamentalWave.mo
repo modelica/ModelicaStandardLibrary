@@ -1881,9 +1881,9 @@ relationship of the voltage and current space phasor.
       Modelica.SIunits.Current i "Current";
 
       // Local electromagnetic fundamental wave quantities
-      Modelica.SIunits.Complex.MagneticPotentialDifference V_m
+      Modelica.SIunits.ComplexMagneticPotentialDifference  V_m
         "Complex magnetic potential difference";
-      Modelica.SIunits.Complex.MagneticFlux Phi "Complex magnetic flux";
+      Modelica.SIunits.ComplexMagneticFlux  Phi "Complex magnetic flux";
 
       final parameter Complex N=
         effectiveTurns * Modelica.ComplexMath.exp(Complex(0,orientation))
@@ -3344,21 +3344,21 @@ heat <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">
           d=1/L0.d, q=1/L0.q) "Reluctance of the air gap model";
 
         // Complex phasors of magnetic potential differences
-        Modelica.SIunits.Complex.MagneticPotentialDifference V_mss
+        Modelica.SIunits.ComplexMagneticPotentialDifference  V_mss
           "Complex magnetic potential difference of stator w.r.t. stator reference frame";
-        Modelica.SIunits.Complex.MagneticPotentialDifference V_msr
+        Modelica.SIunits.ComplexMagneticPotentialDifference  V_msr
           "Complex magnetic potential difference of stator w.r.t. rotor reference frame";
-        Modelica.SIunits.Complex.MagneticPotentialDifference V_mrr
+        Modelica.SIunits.ComplexMagneticPotentialDifference  V_mrr
           "Complex magnetic potential difference of rotor w.r.t. rotor reference frame";
         // Modelica.SIunits.ComplexMagneticPotentialDifference V_mrs
         //   "Complex magnetic potential difference of rotor w.r.t. stator reference frame";
 
         // Complex phasors of magnetic fluxes
-        Modelica.SIunits.Complex.MagneticFlux Phi_ss
+        Modelica.SIunits.ComplexMagneticFlux  Phi_ss
           "Complex magnetic potential difference of stator w.r.t. stator reference frame";
-        Modelica.SIunits.Complex.MagneticFlux Phi_sr
+        Modelica.SIunits.ComplexMagneticFlux  Phi_sr
           "Complex magnetic potential difference of stator w.r.t. rotor reference frame";
-        Modelica.SIunits.Complex.MagneticFlux Phi_rr
+        Modelica.SIunits.ComplexMagneticFlux  Phi_rr
           "Complex magnetic potential difference of rotor w.r.t. rotor reference frame";
         // Modelica.SIunits.ComplexMagneticFlux Phi_rs
         //   "Complex magnetic potential difference of rotor w.r.t. stator reference frame";
@@ -3890,10 +3890,10 @@ for electric machines.
     model ConstantMagneticPotentialDifference
       "Source with constant magnetic potential difference"
       extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
-      parameter Modelica.SIunits.Complex.MagneticPotentialDifference V_m=
+      parameter Modelica.SIunits.ComplexMagneticPotentialDifference  V_m=
             Complex(re=1, im=0) "Complex magnetic potential difference";
 
-      Modelica.SIunits.Complex.MagneticFlux Phi "Complex magnetic flux";
+      Modelica.SIunits.ComplexMagneticFlux  Phi "Complex magnetic flux";
 
     equation
       // Flux into positive port
@@ -3952,7 +3952,7 @@ Source of constant magneto motive force.
             origin={0,100},
             extent={{-20,-20},{20,20}},
             rotation=270)));
-      Modelica.SIunits.Complex.MagneticFlux Phi "Complex magnetic flux";
+      Modelica.SIunits.ComplexMagneticFlux  Phi "Complex magnetic flux";
 
     equation
       // Flux into positive port
@@ -4002,9 +4002,9 @@ Source of magneto motive force with complex signal input.
     model ConstantFlux "Source of constant magnetic flux"
       extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
 
-      Modelica.SIunits.Complex.MagneticPotentialDifference V_m
+      Modelica.SIunits.ComplexMagneticPotentialDifference  V_m
         "Complex magnetic potential difference";
-      parameter Modelica.SIunits.Complex.MagneticFlux Phi=
+      parameter Modelica.SIunits.ComplexMagneticFlux  Phi=
         Complex(re=1, im=0) "Complex magnetic flux";
 
     equation
@@ -4056,7 +4056,7 @@ Source of constant magnetic flux.
     model SignalFlux "Source of constant magnetic flux"
       extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
 
-      Modelica.SIunits.Complex.MagneticPotentialDifference V_m
+      Modelica.SIunits.ComplexMagneticPotentialDifference  V_m
         "Complex magnetic potential difference";
       Modelica.ComplexBlocks.Interfaces.ComplexInput Phi
         "Complex signal input of magnetic flux"
@@ -4123,7 +4123,7 @@ Source of magnetic flux with complex signal input.
       extends Modelica.Icons.RotationalSensor;
       extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
 
-      Modelica.SIunits.Complex.MagneticPotentialDifference V_m
+      Modelica.SIunits.ComplexMagneticPotentialDifference  V_m
         "Complex magnetic potential difference";
       Modelica.ComplexBlocks.Interfaces.ComplexOutput Phi
         "Complex magnetic flux from por_ p to port_n as output signal"
@@ -4192,7 +4192,7 @@ Source of magnetic flux with complex signal input.
             origin={0,-100},
             extent={{10,-10},{-10,10}},
             rotation=90)));
-      Modelica.SIunits.Complex.MagneticFlux Phi "Complex magnetic flux";
+      Modelica.SIunits.ComplexMagneticFlux  Phi "Complex magnetic flux";
 
     equation
       // Flux into positive port
@@ -4310,9 +4310,9 @@ This package provides sensors for the magnetic potential difference and the magn
 
     connector MagneticPort "Complex magnetic port"
 
-      Modelica.SIunits.Complex.MagneticPotentialDifference V_m
+      Modelica.SIunits.ComplexMagneticPotentialDifference  V_m
         "Complex magnetic potential difference";
-      flow Modelica.SIunits.Complex.MagneticFlux Phi "Complex magnetic flux";
+      flow Modelica.SIunits.ComplexMagneticFlux  Phi "Complex magnetic flux";
 
     annotation (Documentation(info="<html>
 <p>
@@ -4423,9 +4423,9 @@ considers the flux balance of the two ports. Additionally the magnetic potential
 
       extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
 
-      Modelica.SIunits.Complex.MagneticPotentialDifference V_m
+      Modelica.SIunits.ComplexMagneticPotentialDifference  V_m
         "Complex magnetic potential difference";
-      Modelica.SIunits.Complex.MagneticFlux Phi "Complex magnetic flux";
+      Modelica.SIunits.ComplexMagneticFlux  Phi "Complex magnetic flux";
 
     equation
       // Flux into positive port
@@ -4962,6 +4962,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <tr><td>Version</td> <td>Revision</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
 </thead>
 <tbody>
+<tr><td>1.7.1</td><td>4008</td>  <td>2010-07-23</td>  <td>A. Haumer</td>  <td>Adaptions to Complex SIunits</td></tr>
 <tr><td>1.7.1</td><td>3999</td>  <td>2010-07-21</td>  <td>C. Kral</td>  <td>Corrected bug in partial one port models</td></tr>
 <tr><td>1.7.0</td><td>3899</td>  <td>2010-05-31</td>  <td>C. Kral<br>A. Haumer</td>  <td>Changed single phase and symmetrical multi phase winding model<br>Relocated core losses</td></tr>
 <tr><td>1.6.0</td><td>3837</td>  <td>2010-05-05</td>  <td>C. Kral</td>  <td>Renamed all parameters windingAngle to orientation<br>Update due to changed class names in Machines.Icons<br>Exchanged positive and negative stator ports of air gap model</td></tr>

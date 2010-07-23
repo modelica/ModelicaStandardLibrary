@@ -2265,9 +2265,9 @@ Additionally the reference angle is specified in the connector. The time derivat
 
     partial model TwoPlug "Two plugs with pin-adapter"
       parameter Integer m(min=1) = 3 "Number of phases";
-      Modelica.SIunits.Complex.Voltage v[
+      Modelica.SIunits.ComplexVoltage  v[
                                         m];
-      Modelica.SIunits.Complex.Current i[
+      Modelica.SIunits.ComplexCurrent  i[
                                         m];
       Modelica.SIunits.AngularVelocity omega = der(plug_p.reference.gamma);
       PositivePlug plug_p(final m=m)
@@ -2311,9 +2311,9 @@ a <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Plug
 
     partial model OnePort
       parameter Integer m(min=1) = 3 "Number of phases";
-      Modelica.SIunits.Complex.Voltage v[
+      Modelica.SIunits.ComplexVoltage  v[
                                         m];
-      Modelica.SIunits.Complex.Current i[
+      Modelica.SIunits.ComplexCurrent  i[
                                         m];
       Modelica.SIunits.AngularVelocity omega = der(plug_p.reference.gamma);
       PositivePlug plug_p(final m=m)

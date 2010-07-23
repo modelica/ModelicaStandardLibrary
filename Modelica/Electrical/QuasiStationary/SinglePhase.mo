@@ -959,9 +959,9 @@ This model is a simple short cut branch considering the complex voltage <i><u>v<
     protected
       Complex s1(re(final unit="1"), im(final unit="1"));
       Complex s2(re(final unit="1"), im(final unit="1")) "Auxiliary variables";
-      constant Modelica.SIunits.Complex.Voltage unitVoltage=
+      constant Modelica.SIunits.ComplexVoltage  unitVoltage=
                                                            Complex(1,0)  annotation(HideResult=true);
-      constant Modelica.SIunits.Complex.Current unitCurrent=
+      constant Modelica.SIunits.ComplexCurrent  unitCurrent=
                                                            Complex(1,0)  annotation(HideResult=true);
     equation
       Connections.branch(p.reference, n1.reference);
@@ -1075,9 +1075,9 @@ This switch is only intended to be used for structural changes, not for fast swi
       Complex s2(re(final unit="1"), im(final unit="1"));
       Complex s3(re(final unit="1"), im(final unit="1"));
       Complex s4(re(final unit="1"), im(final unit="1")) "Auxiliary variables";
-      constant Modelica.SIunits.Complex.Voltage unitVoltage=
+      constant Modelica.SIunits.ComplexVoltage  unitVoltage=
                                                            Complex(1,0)  annotation(HideResult=true);
-      constant Modelica.SIunits.Complex.Current unitCurrent=
+      constant Modelica.SIunits.ComplexCurrent  unitCurrent=
                                                            Complex(1,0)  annotation(HideResult=true);
     equation
       Connections.branch(p1.reference, n1.reference);
@@ -1195,9 +1195,9 @@ This switch is only intended to be used for structural changes, not for fast swi
             rotation=270)));
     protected
      Complex s(re(final unit="1"), im(final unit="1")) "Auxiliary variable";
-     constant Modelica.SIunits.Complex.Voltage unitVoltage=
+     constant Modelica.SIunits.ComplexVoltage  unitVoltage=
                                                           Complex(1,0)  annotation(HideResult=true);
-     constant Modelica.SIunits.Complex.Current unitCurrent=
+     constant Modelica.SIunits.ComplexCurrent  unitCurrent=
                                                           Complex(1,0)  annotation(HideResult=true);
     equation
      v = (s*unitCurrent)*(if control then 1 else Ron);
@@ -1288,9 +1288,9 @@ This switch is only intended to be used for structural changes, not for fast swi
             rotation=270)));
     protected
         Complex s(re(final unit="1"), im(final unit="1")) "Auxiliary variable";
-        constant Modelica.SIunits.Complex.Voltage unitVoltage=
+        constant Modelica.SIunits.ComplexVoltage  unitVoltage=
                                                              Complex(1,0)  annotation(HideResult=true);
-        constant Modelica.SIunits.Complex.Current unitCurrent=
+        constant Modelica.SIunits.ComplexCurrent  unitCurrent=
                                                              Complex(1,0)  annotation(HideResult=true);
     equation
         v = (s*unitCurrent)*(if control then Ron else 1);
@@ -1506,8 +1506,8 @@ This sensor can be used to measure the complex current.
       Interfaces.NegativePin voltageN
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}}, rotation=
                0)));
-      output Modelica.SIunits.Complex.Current i;
-      output Modelica.SIunits.Complex.Voltage v;
+      output Modelica.SIunits.ComplexCurrent  i;
+      output Modelica.SIunits.ComplexVoltage  v;
       Modelica.ComplexBlocks.Interfaces.ComplexOutput y
         annotation (Placement(transformation(
             origin={-80,-110},
@@ -1760,8 +1760,8 @@ Quasi stationary theory for single phase circuits can be found in the
     extends Modelica.Icons.InterfacesPackage;
 
     connector Pin "Basic connector"
-      Modelica.SIunits.Complex.Voltage v "Complex potential at the node";
-      flow Modelica.SIunits.Complex.Current i
+      Modelica.SIunits.ComplexVoltage  v "Complex potential at the node";
+      flow Modelica.SIunits.ComplexCurrent  i
         "Complex current flowing into the pin";
       annotation (Documentation(info="<html>
 <p>
@@ -1861,8 +1861,8 @@ Additionally the reference angle is specified in the connector. The time derivat
     end NegativePin;
 
     partial model TwoPin "Two pins"
-      Modelica.SIunits.Complex.Voltage v;
-      Modelica.SIunits.Complex.Current i;
+      Modelica.SIunits.ComplexVoltage  v;
+      Modelica.SIunits.ComplexCurrent  i;
       Modelica.SIunits.AngularVelocity omega = der(pin_p.reference.gamma);
       PositivePin pin_p "Positive pin"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
@@ -2036,12 +2036,12 @@ The source partial model relies on the
       import Modelica.ComplexMath.conj;
       import Modelica.ComplexMath.'abs';
       import Modelica.ComplexMath.arg;
-      Modelica.SIunits.Complex.Voltage vQS= pin_pQS.v - pin_nQS.v
+      Modelica.SIunits.ComplexVoltage  vQS= pin_pQS.v - pin_nQS.v
         "AC QS voltage";
-      Modelica.SIunits.Complex.Current iQS= pin_pQS.i "AC QS current";
+      Modelica.SIunits.ComplexCurrent  iQS= pin_pQS.i "AC QS current";
       output Modelica.SIunits.Voltage vQSabs='abs'(vQS) "Abs(AC QS voltage)";
       output Modelica.SIunits.Current iQSabs='abs'(iQS) "Abs(AC QS current)";
-      Modelica.SIunits.Complex.Power sQS= vQS*conj(iQS) "AC QS apparent power";
+      Modelica.SIunits.ComplexPower  sQS= vQS*conj(iQS) "AC QS apparent power";
       Modelica.SIunits.ActivePower pQS = real(sQS) "AC QS active power";
       Modelica.SIunits.ReactivePower qQS = imag(sQS) "AC QS reactive power";
       Modelica.SIunits.Voltage vDC = pin_pDC.v - pin_nDC.v "DC voltage";
