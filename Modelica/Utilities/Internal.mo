@@ -40,35 +40,17 @@ partial package PartialModelicaServices
     input Types.SpecularCoefficient specularCoefficient = 0.7
           "Reflection of ambient light (= 0: light is completely absorbed)"
                                                                         annotation(Dialog);
-    // Real rxry[3, 2];
+    output Real e_x[3](each final unit="1", start={1,0,0})
+          "Unit vector in lengthDirection, resolved in object frame"
+                                                                 annotation (HideResult=true);
+    output Real e_y[3](each final unit="1", start={0,1,0})
+          "Unit vector orthogonal to lengthDirection in the plane of lengthDirection and widthDirection, resolved in object frame"
+       annotation (HideResult=true);
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
-            Rectangle(
-              extent={{-100,-100},{80,60}},
-              lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Polygon(
-              points={{-100,60},{-80,100},{100,100},{80,60},{-100,60}},
-              lineColor={0,0,255},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),
-            Polygon(
-              points={{100,100},{100,-60},{80,-100},{80,60},{100,100}},
-              lineColor={0,0,255},
-              fillColor={160,160,164},
-              fillPattern=FillPattern.Solid),
-            Text(
-                extent={{-100,-60},{80,20}},
-                lineColor={0,0,0},
-                textString="%shapeType"),
-            Text(
-                extent={{-150,150},{150,110}},
-                textString="%name",
-                lineColor={0,0,255})}),
+          grid={2,2}), graphics),
       Documentation(info="<html>
 
 <p>

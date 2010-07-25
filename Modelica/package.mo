@@ -2411,11 +2411,11 @@ versions 3.0, 3.0.1, or 3.1 will work without any changes also with version 3.2.
 
 <blockquote><p>
 A large part of the new classes have been developed with
-partial financial support by 
+partial financial support by
 <a href=\"http://www.bmbf.de/en/index.php\">BMBF</a>
-(BMBF Förderkennzeichen: 01IS07022F) 
+(BMBF Förderkennzeichen: 01IS07022F)
 within the <a href=\"http://www.itea2.org\">ITEA2</a> project
-<a href=\"http://www.eurosyslib.com/\">EUROSYSLIB</a>. 
+<a href=\"http://www.eurosyslib.com/\">EUROSYSLIB</a>.
 We highly appreciate this funding.
 </p></blockquote>
 
@@ -2435,17 +2435,17 @@ This version is a major improvement:
      the dissipated energy is flowing, if activated.
      This will significantly improve design studies about the thermal efficiency
      of technical systems.</li>
-<li> Libraries 
+<li> Libraries
      <a href=\"http://www.modelica.org/libraries/Modelica_FundamentalWave\">Modelica_FundamentalWave</a>
      and
      <a href=\"http://www.modelica.org/libraries/Modelica_QuasiStationary\">Modelica_QuasiStationary</a>
      are included in this version in an improved form.</li>
-<li> From library 
-     <a href=\"http://www.modelica.org/libraries/Modelica_LinearSystems2\">Modelica_LinearSystems2</a>, 
-     the sublibraries 
+<li> From library
+     <a href=\"http://www.modelica.org/libraries/Modelica_LinearSystems2\">Modelica_LinearSystems2</a>,
+     the sublibraries
      Math.Complex, Math.Vectors and Math.Matrices are included in this version
      in an improved form.</li>
-<li> From library 
+<li> From library
      <a href=\"http://www.modelica.org/libraries/Modelica_StateGraph2\">Modelica_StateGraph2</a>,
      the sublibrary Blocks is included in this version in an improved form.</li>
 </ul>
@@ -2484,9 +2484,9 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.ComplexBlocks\">Modelica.ComplexBlocks</a></td>
     <td valign=\"top\">
     Library of basic input/output control blocks with Complex signals.<br>
-    This library is especially useful in combination with the new 
+    This library is especially useful in combination with the new
     <a href=\"modelica://Modelica.Electrical.QuasiStationary\">Modelica.Electrical.QuasiStationary</a>
-    library in order to build up very fast simulations of electrical circuits with periodic 
+    library in order to build up very fast simulations of electrical circuits with periodic
     currents and voltages.<br>
     (This library was developed by Anton Haumer).
     </td></tr>
@@ -2513,7 +2513,7 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
     tolerance of the integrators.<br>
     This library allows very detailed simulations of electronic circuits.
     Work on Level 2 SPICE3 models, i.e., even more detailed models, is under way.
-    Furthermore, a pre-processor is under development to transform automatically 
+    Furthermore, a pre-processor is under development to transform automatically
     a SPICE netlist into a Modelica model, in order that the many available
     SPICE3 models can be directly used in a Modelica model.<br>
     (This library was developed by Fraunhofer Gesellschaft, Dresden).
@@ -2526,7 +2526,7 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
      The library is an alternative approach to the Modelica.Electrical.Machines library.
      A great advantage of this library is the strict object orientation of the
      electrical and magnetic components that the electric machines models are composed of.
-     This allows an easier incorporation of more detailed physical effects of 
+     This allows an easier incorporation of more detailed physical effects of
      electrical machines.
      From a didactic point of view this library is very beneficial for students in the field
      of electrical engineering.<br>
@@ -2617,34 +2617,34 @@ to <b style=\"color:blue\">existing</b> libraries:
                       FallingEdge<br>
                       ChangingEdge<br>
                       OnDelay</td>
-    <td valign=\"top\"> Mathematical blocks for Boolean signals. 
+    <td valign=\"top\"> Mathematical blocks for Boolean signals.
                       Some of these blocks are available also in library
-                      <a href=\"modelica://Modelica.Blocks.Logical\">Logical</a>. 
+                      <a href=\"modelica://Modelica.Blocks.Logical\">Logical</a>.
                       The new design is based on the connectorSizing annotation that allows
-                      the convenient handling of an arbitrary number of input signals 
+                      the convenient handling of an arbitrary number of input signals
                       (e.g., the \"And\" block has 1,2,...,N inputs, instead of only 2 inputs
                       in the <a href=\"modelica://Modelica.Blocks.Logical\">Logical</a> library).
-                      Additionally, the icons are smaller so that the diagram area is 
+                      Additionally, the icons are smaller so that the diagram area is
                       better utilized</td> </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Blocks.Sources</b></td></tr>
 <tr><td valign=\"top\"> RadioButtonSource</td>
     <td valign=\"top\"> Boolean signal source that mimics a radio button. </td> </tr>
 <tr><td valign=\"top\"> IntegerTable</td>
-    <td valign=\"top\"> Generate an Integer output signal based on a table matrix 
+    <td valign=\"top\"> Generate an Integer output signal based on a table matrix
                       with [time, yi] values. </td> </tr>
 
 
 <tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Examples</b></td></tr>
 <tr><td valign=\"top\"> SimpleTriacCircuit,<br>
                       IdealTriacCircuit,<br>
-                      AD_DA_conversion </td> 
+                      AD_DA_conversion </td>
     <td valign=\"top\"> Examples for the newly introduced Analog components. </td> </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Ideal</b></td></tr>
 <tr><td valign=\"top\"> IdealTriac,<br>
                       AD_Converter,<br>
-                      DA_Converter </td> 
+                      DA_Converter </td>
     <td valign=\"top\"> AD and DA converter, ideal triac (based on ideal thyristor). </td> </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Semiconductors</b></td></tr>
@@ -2664,14 +2664,14 @@ to <b style=\"color:blue\">existing</b> libraries:
                        NXFER_example,<br>
                        NRXFER_example,<br>
                        BUF3S_example,<br>
-                       INV3S_example,<br> 
-                       WiredX_example </td> 
+                       INV3S_example,<br>
+                       WiredX_example </td>
     <td valign=\"top\"> Examples for the newly introduced Digital components. </td> </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Electrical.Digital.Interfaces</b></td></tr>
 <tr><td valign=\"top\"> UX01,<br>
                       Strength,<br>
-                      MIMO </td> 
+                      MIMO </td>
     <td valign=\"top\"> Interfaces for the newly introduced Digital components. </td> </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Electrical.Digital.Tables</b></td></tr>
@@ -2682,7 +2682,7 @@ to <b style=\"color:blue\">existing</b> libraries:
                       PXferTable,<br>
                       PRXferTable,<br>
                       Buf3sTable,<br>
-                      Buf3slTable </td> 
+                      Buf3slTable </td>
     <td valign=\"top\"> New Digital table components. </td> </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Electrical.Digital.Delay</b></td></tr>
@@ -2701,7 +2701,7 @@ to <b style=\"color:blue\">existing</b> libraries:
                       DLATREGL,<br>
                       DLATSR,<br>
                       DLATREGSRH,<br>
-                      DLATREGSRL </td> 
+                      DLATREGSRL </td>
     <td valign=\"top\"> Various register components (collection of flipflops and latches)
                       according to the VHDL standard. </td> </tr>
 
@@ -2714,19 +2714,19 @@ to <b style=\"color:blue\">existing</b> libraries:
                       BUF3SL,<br>
                       INV3S,<br>
                       INV3SL,<br>
-                      WiredX </td> 
+                      WiredX </td>
     <td valign=\"top\"> Transfer gates, buffers, inverters and wired node.</td> </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Examples.Elementary.</b></td></tr>
-<tr><td valign=\"top\"> HeatLosses </td> 
+<tr><td valign=\"top\"> HeatLosses </td>
     <td valign=\"top\"> Demonstrate the modeling of heat losses. </td> </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.Examples.</b></td></tr>
-<tr><td valign=\"top\"> HeatLosses </td> 
+<tr><td valign=\"top\"> HeatLosses </td>
     <td valign=\"top\"> Demonstrate the modeling of heat losses. </td> </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Mechanics.Translational.Examples.</b></td></tr>
-<tr><td valign=\"top\"> HeatLosses </td> 
+<tr><td valign=\"top\"> HeatLosses </td>
     <td valign=\"top\"> Demonstrate the modeling of heat losses. </td> </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Math</b></td></tr>
@@ -2873,8 +2873,8 @@ have been <b style=\"color:blue\">improved</b> in a
 <tr><td valign=\"top\"> MultiBody.*<br>
                       Rotational.*<br>
                       Translational.*</td>
-    <td valign=\"top\"> All dissipative components in Modelica.Mechanics have now an 
-                      optional heatPort connector to which the dissipated energy is 
+    <td valign=\"top\"> All dissipative components in Modelica.Mechanics have now an
+                      optional heatPort connector to which the dissipated energy is
                       transported in form of heat.<br>
                       All icons in Modelica.Mechanics are unified according to the
                       Modelica.Blocks library:<br>
@@ -6321,13 +6321,13 @@ class Contact "Contact"
 
 </tr>
 
-<tr><td valign=\"top\"> Modelica.Blocks <br> 
+<tr><td valign=\"top\"> Modelica.Blocks <br>
                       Modelica.Constants </td>
    <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
         (Martin Otter)</td>
 </tr>
 
-<tr><td valign=\"top\"> Modelica.Electrical.Analog<br> 
+<tr><td valign=\"top\"> Modelica.Electrical.Analog<br>
                       Modelica.Electrical.Digital<br>
                       Modelica.Electrical.Spice3 </td>
    <td valign=\"top\"> Fraunhofer Institute for Integrated Circuits, Dresden, Germany<br>
@@ -6728,7 +6728,7 @@ versionBuild=0,
 versionDate="2010-03-24",
 dateModified = "2010-03-15 00:00:00Z",
 revisionId="$Id::                                       $",
-uses(Complex(version="1.0")),
+uses(Complex(version="1.0"), ModelicaServices(version="1.0.1")),
 conversion(
  noneFromVersion="3.1",
  noneFromVersion="3.0.1",

@@ -845,6 +845,7 @@ This shape visualizes the x-y plane by a box
       import SI = Modelica.SIunits;
       import Modelica.Mechanics.MultiBody.Types;
       import Modelica.Mechanics.MultiBody.Frames;
+      import T = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
 
       input Frames.Orientation R=Frames.nullRotation()
         "Orientation object to rotate the world frame into the arrow frame." annotation(Dialog);
@@ -867,8 +868,14 @@ This shape visualizes the x-y plane by a box
 
     protected
       outer Modelica.Mechanics.MultiBody.World world;
-      SI.Length length=Modelica.Math.Vectors.length(
-                                     r_head) "Length of arrow";
+      SI.Length length=Modelica.Math.Vectors.length(r_head) "Length of arrow";
+      Real rxvisobj[3](each final unit="1") = transpose(R.T)*arrowLine.e_x
+        "X-axis unit vector of shape, resolved in world frame"
+          annotation (HideResult=true);
+      SI.Position rvisobj[3] = r + T.resolve1(R.T, r_tail)
+        "Position vector from world frame to shape frame, resolved in world frame"
+          annotation (HideResult=true);
+
       Visualizers.Advanced.Shape arrowLine(
         length=noEvent(max(0, length - diameter*Types.Defaults.
             ArrowHeadLengthFraction)),
@@ -894,7 +901,7 @@ This shape visualizes the x-y plane by a box
         shapeType="cone",
         color=color,
         specularCoefficient=specularCoefficient,
-        r=arrowLine.rvisobj + arrowLine.rxvisobj*arrowLine.length,
+        r=rvisobj + rxvisobj*arrowLine.length,
         R=R) if world.enableAnimation;
 
       annotation (
@@ -952,6 +959,8 @@ library (will be replaced by a color editor).
       import SI = Modelica.SIunits;
       import Modelica.Mechanics.MultiBody.Types;
       import Modelica.Mechanics.MultiBody.Frames;
+      import T = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
+
       input Frames.Orientation R=Frames.nullRotation()
         "Orientation object to rotate the world frame into the arrow frame." annotation(Dialog);
       input SI.Position r[3]={0,0,0}
@@ -973,8 +982,14 @@ library (will be replaced by a color editor).
 
     protected
       outer Modelica.Mechanics.MultiBody.World world;
-      SI.Length length=Modelica.Math.Vectors.length(
-                                     r_head) "Length of arrow";
+      SI.Length length=Modelica.Math.Vectors.length(r_head) "Length of arrow";
+      Real rxvisobj[3](each final unit="1") = transpose(R.T)*arrowLine.e_x
+        "X-axis unit vector of shape, resolved in world frame"
+          annotation (HideResult=true);
+      SI.Position rvisobj[3] = r + T.resolve1(R.T, r_tail)
+        "Position vector from world frame to shape frame, resolved in world frame"
+          annotation (HideResult=true);
+
       SI.Length headLength=noEvent(max(0, min(length, diameter*MultiBody.Types.
           Defaults.ArrowHeadLengthFraction)));
       SI.Length headWidth=noEvent(max(0, diameter*MultiBody.Types.Defaults.
@@ -1001,7 +1016,7 @@ library (will be replaced by a color editor).
         shapeType="cone",
         color=color,
         specularCoefficient=specularCoefficient,
-        r=arrowLine.rvisobj + arrowLine.rxvisobj*arrowLine.length,
+        r=rvisobj + rxvisobj*arrowLine.length,
         R=R) if world.enableAnimation;
       Visualizers.Advanced.Shape arrowHead2(
         length=headLength,
@@ -1012,8 +1027,7 @@ library (will be replaced by a color editor).
         shapeType="cone",
         color=color,
         specularCoefficient=specularCoefficient,
-        r=arrowLine.rvisobj + arrowLine.rxvisobj*(arrowLine.length + 0.5*
-            arrowHead1.length),
+        r=rvisobj + rxvisobj*(arrowLine.length + 0.5*arrowHead1.length),
         R=R) if world.enableAnimation;
 
       annotation (
@@ -1097,9 +1111,13 @@ library (will be replaced by a color editor).
               fillColor={160,160,164},
               fillPattern=FillPattern.Solid),
             Text(
-              extent={{-100,-100},{80,60}},
+              extent={{-100,-54},{80,8}},
               lineColor={0,0,0},
-              textString="%shapeType")}),
+              textString="%shapeType"),
+            Text(
+              extent={{-150,150},{150,110}},
+              lineColor={0,0,255},
+              textString="%name")}),
          Documentation(info="<HTML>
 <p>
 Model <b>Shape</b> defines a visual shape that is
@@ -1107,8 +1125,8 @@ shown at the location of its reference coordinate system, called
 'object frame' below. All describing variables such
 as size and color can vary dynamically (with the only exception
 of parameter shapeType). The default equations in the
-declarations should be modified by providing appropriate equations.
-Model <b>Shape</b> is usually used as a basic building block to
+declarations should be modified by providing appropriate modifier
+quations. Model <b>Shape</b> is usually used as a basic building block to
 implement simpler to use graphical components.
 </p>
 <p>
@@ -1128,9 +1146,9 @@ in the figure represent frame_a of the Shape component.
 </p>
 <p>
 Additionally, external shapes are specified as DXF-files
-(only 3-dim. Face is supported). External shapes must be named \"1\", \"2\"
-etc.. The corresponding definitions should be in files \"1.dxf\",
-\"2.dxf\" etc.Since the DXF-files contain color and dimensions for
+(only 3-dim. Face is supported). External shapes must be named \"1\", \"2\", ... \"N\".
+The corresponding definitions should be in files \"1.dxf\",
+\"2.dxf\" etc. Since the DXF-files contain color and dimensions for
 the individual faces, the corresponding information in the model
 is currently ignored. The DXF-files must be found either in the current
 directory or in the directory where the Shape instance is stored
