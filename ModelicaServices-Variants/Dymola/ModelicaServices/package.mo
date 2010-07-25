@@ -659,6 +659,12 @@ model Shape
   protected
   Real abs_n_x(final unit="1") annotation (HideResult=true);
   Real n_z_aux[3](each final unit="1") annotation (HideResult=true);
+  Real e_x[3](each final unit="1", start={1,0,0})
+      "Unit vector in lengthDirection, resolved in object frame"
+                                                               annotation (HideResult=true);
+  Real e_y[3](each final unit="1", start={0,1,0})
+      "Unit vector orthogonal to lengthDirection in the plane of lengthDirection and widthDirection, resolved in object frame"
+     annotation (HideResult=true);
   output Real Form annotation (HideResult=false);
   public
   output Real rxvisobj[3](each final unit="1")
@@ -670,13 +676,11 @@ model Shape
   output SI.Position rvisobj[3]
       "position vector from world frame to shape frame, resolved in world frame"
     annotation (HideResult=false);
-
   protected
   output SI.Length size[3] "{length,width,height} of shape"
     annotation (HideResult=false);
   output Real Material annotation (HideResult=false);
   output Real Extra annotation (HideResult=false);
-
 equation
   abs_n_x = Modelica.Math.Vectors.length(lengthDirection);
   e_x     = noEvent(if abs_n_x < 1.e-10 then {1,0,0} else lengthDirection/abs_n_x);

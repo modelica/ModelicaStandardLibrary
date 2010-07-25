@@ -40,12 +40,6 @@ partial package PartialModelicaServices
     input Types.SpecularCoefficient specularCoefficient = 0.7
           "Reflection of ambient light (= 0: light is completely absorbed)"
                                                                         annotation(Dialog);
-    output Real e_x[3](each final unit="1", start={1,0,0})
-          "Unit vector in lengthDirection, resolved in object frame"
-                                                                 annotation (HideResult=true);
-    output Real e_y[3](each final unit="1", start={0,1,0})
-          "Unit vector orthogonal to lengthDirection in the plane of lengthDirection and widthDirection, resolved in object frame"
-       annotation (HideResult=true);
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,

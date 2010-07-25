@@ -869,7 +869,8 @@ This shape visualizes the x-y plane by a box
     protected
       outer Modelica.Mechanics.MultiBody.World world;
       SI.Length length=Modelica.Math.Vectors.length(r_head) "Length of arrow";
-      Real rxvisobj[3](each final unit="1") = transpose(R.T)*arrowLine.e_x
+      Real e_x[3](each final unit="1", start={1,0,0}) = noEvent(if length < 1.e-10 then {1,0,0} else r_head/length);
+      Real rxvisobj[3](each final unit="1") = transpose(R.T)*e_x
         "X-axis unit vector of shape, resolved in world frame"
           annotation (HideResult=true);
       SI.Position rvisobj[3] = r + T.resolve1(R.T, r_tail)
@@ -983,7 +984,8 @@ library (will be replaced by a color editor).
     protected
       outer Modelica.Mechanics.MultiBody.World world;
       SI.Length length=Modelica.Math.Vectors.length(r_head) "Length of arrow";
-      Real rxvisobj[3](each final unit="1") = transpose(R.T)*arrowLine.e_x
+      Real e_x[3](each final unit="1", start={1,0,0}) = noEvent(if length < 1.e-10 then {1,0,0} else r_head/length);
+      Real rxvisobj[3](each final unit="1") = transpose(R.T)*e_x
         "X-axis unit vector of shape, resolved in world frame"
           annotation (HideResult=true);
       SI.Position rvisobj[3] = r + T.resolve1(R.T, r_tail)

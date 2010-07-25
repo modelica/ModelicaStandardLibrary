@@ -668,9 +668,7 @@ The interface of this model is documented at
 
 </html>
 "));
-equation
-  e_x ={1,0,0};
-  e_y ={0,1,0};
+
 end Shape;
 end Animation;
 
