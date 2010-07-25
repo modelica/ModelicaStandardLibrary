@@ -1079,8 +1079,8 @@ to the setting of parameters \"useQuaternions\" and
       z_0_fixed=z_0_fixed,
       z_0_start=z_0_start,
       useQuaternions=useQuaternions,
-      enforceStates=enforceStates,
-      sequence_angleStates=sequence_angleStates)
+      sequence_angleStates=sequence_angleStates,
+      enforceStates=false)
       annotation (Placement(transformation(extent={{-27.3333,-70.3333},{13,-30}},
             rotation=0)));
   protected
@@ -1348,8 +1348,8 @@ states and of the \"Advanced\" menu parameters, see model
       z_0_fixed=z_0_fixed,
       z_0_start=z_0_start,
       useQuaternions=useQuaternions,
-      enforceStates=enforceStates,
-      sequence_angleStates=sequence_angleStates)
+      sequence_angleStates=sequence_angleStates,
+      enforceStates=false)
       annotation (Placement(transformation(extent={{-30,-80},{10,-40}},
             rotation=0)));
     FixedTranslation frameTranslation(
@@ -1574,8 +1574,8 @@ states and of the \"Advanced\" menu parameters, see model
       z_0_fixed=z_0_fixed,
       z_0_start=z_0_start,
       useQuaternions=useQuaternions,
-      enforceStates=enforceStates,
-      sequence_angleStates=sequence_angleStates)
+      sequence_angleStates=sequence_angleStates,
+      enforceStates=false)
       annotation (Placement(transformation(extent={{-30,-80},{10,-40}},
             rotation=0)));
     FixedTranslation frameTranslation(
