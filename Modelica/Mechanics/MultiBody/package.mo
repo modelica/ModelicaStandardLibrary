@@ -1061,7 +1061,7 @@ model World
 
   replaceable function gravityAcceleration =
        Modelica.Mechanics.MultiBody.Forces.Internal.standardGravityAcceleration
-      (    gravityType=gravityType, g=g*Modelica.Math.Vectors.normalize(n), mue=mue)
+      (    gravityType=gravityType, g=g*Modelica.Math.Vectors.normalize(n,0.0), mue=mue)
        constrainedby
     Modelica.Mechanics.MultiBody.Interfaces.partialGravityAcceleration
     "Function to compute the gravity acceleration, resolved in world frame"

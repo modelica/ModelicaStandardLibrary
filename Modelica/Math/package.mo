@@ -240,7 +240,7 @@ not the case with function norm(..).
   end length;
 
   function normalize
-    "Return normalized vector such that length = 1Return normalized vector such that length = 1 and prevent zero-division for zero vector"
+    "Return normalized vector such that length = 1 and prevent zero-division for zero vector"
     extends Modelica.Icons.Function;
     input Real v[:] "Vector";
     input Real eps = 100*Modelica.Constants.eps
@@ -248,7 +248,7 @@ not the case with function norm(..).
     output Real result[size(v, 1)] "Input vector v normalized to length=1";
 
   algorithm
-    result := smooth(0,if length(v) >= eps then v/length(v) else v/eps);
+    result := smooth(0,noEvent(if length(v) >= eps then v/length(v) else v/eps));
     annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -11851,118 +11851,6 @@ with u &gt; 0:
 </html>"), Library="ModelicaExternalC");
 end log10;
 
-function allTrue
-  "Returns true, if all elements of the Boolean input vector are true ('and')"
-  extends Modelica.Icons.Function;
-  input Boolean b[:] "Boolean vector";
-  output Boolean result "= true, if all elements of b are true";
-algorithm
-  result := true;
-  for i in 1:size(b,1) loop
-     result := result and b[i];
-  end for;
-    annotation (Documentation(info="<html>
-<h4>Syntax</h4>
-<blockquote><pre>
-<b>allTrue</b>(b);
-</pre></blockquote>
-
-<h4>Description</h4>
-<p>
-Returns <b>true</b> if all elements of the Boolean input vector b are <b>true</b>.
-Otherwise the function returns <b>false</b>.
-</p>
-
-<h4>Example</h4>
-<blockquote><pre>
-  Boolean b1[3] = {true, true, true};
-  Boolean b2[3] = {false, true, false};
-  Boolean r1, r2;
-<b>algorithm</b>
-  r1 = allTrue(b1);  // r1 = true
-  r2 = allTrue(b2);  // r2 = false
-</pre></blockquote>
-
-<h4>See also</h4>
-<p>
-<a href=\"modelica://Modelica.Math.anyTrue\">anyTrue</a>,
-<a href=\"modelica://Modelica.Math.oneTrue\">oneTrue</a>,
-<a href=\"modelica://Modelica.Math.firstTrueIndex\">firstTrueIndex</a>.
-</p>
-
-</html>"));
-end allTrue;
-
-function anyTrue
-  "Returns true, if at least on element of the Boolean input vector is true ('or')"
-
-  extends Modelica.Icons.Function;
-  input Boolean b[:];
-  output Boolean result;
-algorithm
-  result := false;
-  for i in 1:size(b,1) loop
-     result := result or b[i];
-  end for;
-  annotation (Documentation(info="<html>
-<h4>Syntax</h4>
-<blockquote><pre>
-<b>anyTrue</b>(b);
-</pre></blockquote>
-
-<h4>Description</h4>
-<p>
-Returns <b>true</b> if at least one elements of the input Boolean vector b is <b>true</b>.
-Otherwise the function returns <b>false</b>.
-</p>
-
-<h4>Example</h4>
-<blockquote><pre>
-  Boolean b1[3] = {false, false, false};
-  Boolean b2[3] = {false, true, false};
-  Boolean r1, r2;
-<b>algorithm</b>
-  r1 = anyTrue(b1);  // r1 = false
-  r2 = anyTrue(b2);  // r2 = true
-</pre></blockquote>
-
-<h4>See also</h4>
-<p>
-<a href=\"modelica://Modelica.Math.allTrue\">allTrue</a>,
-<a href=\"modelica://Modelica.Math.oneTrue\">oneTrue</a>,
-<a href=\"modelica://Modelica.Math.firstTrueIndex\">firstTrueIndex</a>.
-</p>
-</html>"));
-end anyTrue;
-
-function firstTrueIndex
-  "Returns the index of the first element of the Boolean vector that is true and returns 0, if no element is true"
-   input Boolean b[:];
-   output Integer index;
-algorithm
-   index :=0;
-   for i in 1:size(b,1) loop
-      if b[i] then
-         index :=i;
-         return;
-      end if;
-   end for;
-end firstTrueIndex;
-
-function oneTrue
-  "Returns true, if exactly one element of the Boolean input vector is true ('xor')"
-
-  extends Modelica.Icons.Function;
-  input Boolean b[:];
-  output Boolean result;
-protected
-  Integer count = 0;
-algorithm
-  for i in 1:size(b,1) loop
-     count := if b[i] then count+1 else count;
-  end for;
-  result :=count == 1;
-end oneTrue;
 
 partial function baseIcon1
   "Basic icon for mathematical function with y-axis on left side"
@@ -12006,7 +11894,6 @@ It is expected, that an x-axis is added and a plot of the function.
 </html>"));
 end baseIcon1;
 
-
 partial function baseIcon2
   "Basic icon for mathematical function with y-axis in middle"
 
@@ -12046,6 +11933,124 @@ It is expected, that an x-axis is added and a plot of the function.
 </p>
 </html>"));
 end baseIcon2;
+
+function allTrue
+  "Returns true, if all elements of the Boolean input vector are true ('and')"
+  extends Modelica.Icons.Function;
+  input Boolean b[:] "Boolean vector";
+  output Boolean result "= true, if all elements of b are true";
+algorithm
+  result := true;
+  for i in 1:size(b,1) loop
+     result := result and b[i];
+  end for;
+    annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+<b>allTrue</b>(b);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Returns <b>true</b> if all elements of the Boolean input vector b are <b>true</b>.
+Otherwise the function returns <b>false</b>.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  Boolean b1[3] = {true, true, true};
+  Boolean b2[3] = {false, true, false};
+  Boolean r1, r2;
+<b>algorithm</b>
+  r1 = allTrue(b1);  // r1 = true
+  r2 = allTrue(b2);  // r2 = false
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Math.anyTrue\">anyTrue</a>,
+<a href=\"modelica://Modelica.Math.oneTrue\">oneTrue</a>,
+<a href=\"modelica://Modelica.Math.firstTrueIndex\">firstTrueIndex</a>.
+</p>
+
+</html>"));
+end allTrue;
+
+
+function anyTrue
+  "Returns true, if at least on element of the Boolean input vector is true ('or')"
+
+  extends Modelica.Icons.Function;
+  input Boolean b[:];
+  output Boolean result;
+algorithm
+  result := false;
+  for i in 1:size(b,1) loop
+     result := result or b[i];
+  end for;
+  annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+<b>anyTrue</b>(b);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Returns <b>true</b> if at least one elements of the input Boolean vector b is <b>true</b>.
+Otherwise the function returns <b>false</b>.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  Boolean b1[3] = {false, false, false};
+  Boolean b2[3] = {false, true, false};
+  Boolean r1, r2;
+<b>algorithm</b>
+  r1 = anyTrue(b1);  // r1 = false
+  r2 = anyTrue(b2);  // r2 = true
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Math.allTrue\">allTrue</a>,
+<a href=\"modelica://Modelica.Math.oneTrue\">oneTrue</a>,
+<a href=\"modelica://Modelica.Math.firstTrueIndex\">firstTrueIndex</a>.
+</p>
+</html>"));
+end anyTrue;
+
+
+function oneTrue
+  "Returns true, if exactly one element of the Boolean input vector is true ('xor')"
+
+  extends Modelica.Icons.Function;
+  input Boolean b[:];
+  output Boolean result;
+protected
+  Integer count = 0;
+algorithm
+  for i in 1:size(b,1) loop
+     count := if b[i] then count+1 else count;
+  end for;
+  result :=count == 1;
+end oneTrue;
+
+function firstTrueIndex
+  "Returns the index of the first element of the Boolean vector that is true and returns 0, if no element is true"
+   input Boolean b[:];
+   output Integer index;
+algorithm
+   index :=0;
+   for i in 1:size(b,1) loop
+      if b[i] then
+         index :=i;
+         return;
+      end if;
+   end for;
+end firstTrueIndex;
+
+
+
 
 
 function tempInterpol1

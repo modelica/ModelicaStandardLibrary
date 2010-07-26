@@ -42,8 +42,8 @@ package Joints "Components that constrain the motion between two frames"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter StateSelect stateSelect=StateSelect.prefer
       "Priority to use distance s and v=der(s) as states" annotation(Dialog(tab="Advanced"));
-    final parameter Real e[3](each final unit="1")=Modelica.Math.Vectors.normalize(
-                                               n)
+    final parameter Real e[3](each final unit="1")=
+       Modelica.Math.Vectors.normalize(n,0.0)
       "Unit vector in direction of prismatic axis n";
 
     SI.Position s(start=0, final stateSelect=stateSelect)
@@ -287,7 +287,7 @@ Possible reasons:
   protected
     outer Modelica.Mechanics.MultiBody.World world;
     parameter Real e[3](each final unit="1")=Modelica.Math.Vectors.normalize(
-                                         n)
+                                         n,0.0)
       "Unit vector in direction of rotation axis, resolved in frame_a (= same as in frame_b)";
     Frames.Orientation R_rel
       "Relative orientation object from frame_a to frame_b or from frame_b to frame_a";
@@ -551,14 +551,14 @@ vector \"n\" defining the translation axis
   protected
     outer Modelica.Mechanics.MultiBody.World world;
     parameter Real e[3](each final unit="1")=Modelica.Math.Vectors.normalize(
-                                         n)
+                                         n,0.0)
       "Unit vector in direction of rotation axis, resolved in frame_a (= same as in frame_b)";
     parameter Real nnx_a[3](each final unit="1")=if abs(e[1]) > 0.1 then {0,1,0} else (if abs(e[2])
          > 0.1 then {0,0,1} else {1,0,0})
       "Arbitrary vector that is not aligned with rotation axis n"
       annotation (Evaluate=true);
     parameter Real ey_a[3](each final unit="1")=Modelica.Math.Vectors.normalize(
-                                            cross(e, nnx_a))
+                                            cross(e, nnx_a),0.0)
       "Unit vector orthogonal to axis n of revolute joint, resolved in frame_a"
       annotation (Evaluate=true);
     parameter Real ex_a[3](each final unit="1")=cross(ey_a, e)
@@ -2345,7 +2345,7 @@ that has this property.
                     rRod_ia)
       "Length of rod (distance between origin of frame_a and origin of frame_b)";
     final parameter Real eRod_ia[3](each final unit="1")=Modelica.Math.Vectors.normalize(
-                                                     rRod_ia)
+                                                     rRod_ia,0.0)
       "Unit vector from origin of frame_a to origin of frame_b, resolved in frame_ia";
     final parameter Real e2_ia[3](each final unit="1")=Modelica.Math.Vectors.normalize(
                                                    cross(n1_a, eRod_ia))
@@ -3500,10 +3500,10 @@ November 3-4, 2003, pp. 149-158</p>
         "= true, if total power flowing into this component shall be determined (must be zero)"
         annotation (Dialog(tab="Advanced"));
       final parameter Real eAxis_ia[3](each final unit="1")=Modelica.Math.Vectors.normalize(
-                                                        nAxis_ia)
+                                                        nAxis_ia,0.0)
         "Unit vector from origin of frame_a to origin of frame_b, resolved in frame_ia";
       final parameter Real e2_ia[3](each final unit="1")=Modelica.Math.Vectors.normalize(
-                                                     cross(n1_a, eAxis_ia))
+                                                     cross(n1_a, eAxis_ia),0.0)
         "Unit vector in direction of second rotation axis of universal joint, resolved in frame_ia";
       final parameter Real e3_ia[3](each final unit="1")=cross(eAxis_ia, e2_ia)
         "Unit vector perpendicular to eAxis_ia and e2_ia, resolved in frame_ia";
@@ -5990,7 +5990,7 @@ component).
         "= true, if total power flowing into this component shall be determined (must be zero)"
         annotation (Dialog(tab="Advanced"));
       final parameter Real e_a[3](each final unit="1")=Modelica.Math.Vectors.normalize(
-                                                   n_a)
+                                                   n_a,0.0)
         "Unit vector along axes of rotations, resolved in frame_a";
       final parameter Real e_ia[3](each final unit="1")=jointUSR.e2_ia
         "Unit vector along axes of rotations, resolved in frame_ia";
@@ -6074,6 +6074,7 @@ component).
         R=frame_ib.R) if world.enableAnimation and animation;
     initial equation
       n_b = Frames.resolve2(frame_b.R, Frames.resolve1(frame_a.R, n_a));
+
     equation
       connect(jointUSR.frame_a, frame_a)
         annotation (Line(
@@ -6331,7 +6332,7 @@ are connected by rigid rods.
         "= true, if total power flowing into this component shall be determined (must be zero)"
         annotation (Dialog(tab="Advanced"));
       final parameter Real e_a[3](each final unit="1")=Modelica.Math.Vectors.normalize(
-                                                   n_a)
+                                                   n_a,0.0)
         "Unit vector along axes of rotations, resolved in frame_a";
       final parameter Real e_ia[3](each final unit="1")=jointUSP.e2_ia
         "Unit vector along axes of rotations, resolved in frame_ia";
@@ -6416,6 +6417,7 @@ are connected by rigid rods.
         R=frame_ib.R) if world.enableAnimation and animation;
     initial equation
       e_im = Frames.resolve2(frame_im.R, Frames.resolve1(frame_a.R, e_a));
+
     equation
       connect(jointUSP.frame_a, frame_a)
         annotation (Line(
@@ -6765,7 +6767,7 @@ pair of joints\" from Woernle and Hiller is described in:
 
       final parameter Boolean positiveBranch(fixed=false)
         "Based on phi_guess, selection of one of the two solutions of the non-linear constraint equation";
-      final parameter Real e[3](each final unit="1")=Modelica.Math.Vectors.normalize(              n)
+      final parameter Real e[3](each final unit="1")=Modelica.Math.Vectors.normalize(n,0.0)
         "Unit vector in direction of rotation axis, resolved in frame_a";
 
       SI.Angle phi "Rotation angle of revolute joint";
@@ -7148,7 +7150,7 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
 
       final parameter Boolean positiveBranch(fixed=false)
         "Selection of one of the two solutions of the non-linear constraint equation";
-      final parameter Real e[3](each final unit="1")=Modelica.Math.Vectors.normalize(              n)
+      final parameter Real e[3](each final unit="1")=Modelica.Math.Vectors.normalize(n,0.0)
         "Unit vector in direction of translation axis, resolved in frame_a";
       SI.Position s
         "Relative distance between frame_a and frame_b along axis n = s + s_offset)";
