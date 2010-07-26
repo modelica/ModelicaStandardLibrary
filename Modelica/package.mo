@@ -2908,9 +2908,14 @@ that can lead to wrong simulation results):
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>Mechanics.AAA.</b></td></tr>
-<tr><td valign=\"top\"> XXX </td>
-    <td valign=\"top\"> YYY</td>
+<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Parts.</b></td></tr>
+<tr><td valign=\"top\"> BodyBox<br>
+                      BodyCylinder </td>
+    <td valign=\"top\"> Fixes ticket #373: The \"Center of Mass\" was calculated as normalize(r)*length/2. This is
+                      only correct if the box/cylinder is attached between frame_a and frame_b.
+                      If this is not the case, the calculation is wrong.
+                      The has been fixed by using the correct formula:<br>
+                      r_shape + normalize(lengthDirection)*length/2</td>
 </tr>
 </table>
 

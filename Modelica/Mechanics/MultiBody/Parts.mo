@@ -1321,8 +1321,7 @@ states and of the \"Advanced\" menu parameters, see model
     final parameter SI.Mass m(min=0)=mo - mi "Mass of box";
     final parameter Frames.Orientation R=Frames.from_nxy(r, widthDirection)
       "Orientation object from frame_a to coordinates system spanned by r and widthDirection";
-    final parameter SI.Position r_CM[3]=Modelica.Math.Vectors.normalize(
-                                                         r)*length/2
+    final parameter SI.Position r_CM[3]=r_shape + Modelica.Math.Vectors.normalize(lengthDirection)*length/2
       "Position vector from origin of frame_a to center of mass, resolved in frame_a";
     final parameter SI.Inertia I[3, 3]=Frames.resolveDyade1(R, diagonal({mo*(
         width*width + height*height) - mi*(innerWidth*innerWidth + innerHeight*
@@ -1549,8 +1548,7 @@ states and of the \"Advanced\" menu parameters, see model
     final parameter SI.Mass m(min=0)=mo - mi "Mass of cylinder";
     final parameter Frames.Orientation R=Frames.from_nxy(r, {0,1,0})
       "Orientation object from frame_a to frame spanned by cylinder axis and axis perpendicular to cylinder axis";
-    final parameter SI.Position r_CM[3]=Modelica.Math.Vectors.normalize(
-                                                         r)*length/2
+    final parameter SI.Position r_CM[3]=r_shape + Modelica.Math.Vectors.normalize(lengthDirection)*length/2
       "Position vector from frame_a to center of mass, resolved in frame_a";
     final parameter SI.Inertia I[3, 3]=Frames.resolveDyade1(R, diagonal({(mo*
         radius*radius - mi*innerRadius*innerRadius)/2,I22,I22}))
