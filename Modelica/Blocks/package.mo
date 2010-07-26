@@ -1008,7 +1008,6 @@ to show how diagram animations can be constructed.
       experimentSetupOutput);
     end Interaction1;
 
-
   model BusUsage "Demonstrates the usage of a signal bus"
     extends Modelica.Icons.Example;
 
@@ -1048,7 +1047,7 @@ to show how diagram animations can be constructed.
         color={255,0,255},
         smooth=Smooth.None));
     connect(integerStep.y, controlBus.integerSignal) annotation (Line(
-        points={{-39,-30},{0,-30},{0,10},{30,10}},
+        points={{-39,-30},{0,-30},{0,6},{32,6},{32,10},{30,10}},
         color={255,127,0},
         smooth=Smooth.None));
     connect(part.subControlBus, controlBus.subControlBus) annotation (Line(
@@ -1057,7 +1056,7 @@ to show how diagram animations can be constructed.
         thickness=0.5,
         smooth=Smooth.None));
     connect(gain.u, controlBus.realSignal1) annotation (Line(
-        points={{-38,80},{20,80},{20,10},{30,10}},
+        points={{-38,80},{20,80},{20,18},{32,18},{32,10},{30,10}},
         color={0,0,127},
         smooth=Smooth.None));
     annotation (Documentation(info="<html>
@@ -1185,7 +1184,12 @@ just potential signals. The user might still add different signal names.
       expandable connector ControlBus
         "Empty control bus that is adapted to the signals connected to it"
         extends Modelica.Icons.SignalBus;
-
+        import SI = Modelica.SIunits;
+        SI.AngularVelocity realSignal1 "First Real signal (angular velocity)";
+        SI.Velocity realSignal2 "Second Real signal";
+        Integer integerSignal "Integer signal";
+        Boolean booleanSignal "Boolean signal";
+        SubControlBus subControlBus "Combined signal";
         annotation (
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={Rectangle(
@@ -1200,8 +1204,9 @@ just potential signals. The user might still add different signal names.
 This connector defines the \"expandable connector\" ControlBus that
 is used as bus in the
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
-Note, this connector is \"empty\". When using it, the actual content is
-constructed by the signals connected to this bus.
+Note, this connector contains \"default\" signals that might be utilized
+in a connection (the input/output causalities of the signals 
+are determined from the connections to this bus).
 </p>
 </html>"));
 
@@ -1210,7 +1215,8 @@ constructed by the signals connected to this bus.
       expandable connector SubControlBus
         "Empty sub-control bus that is adapted to the signals connected to it"
         extends Modelica.Icons.SignalSubBus;
-
+        Real myRealSignal;
+        Boolean myBooleanSignal;
         annotation (defaultComponentPrefixes="protected",
                     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={Rectangle(
@@ -1222,76 +1228,14 @@ constructed by the signals connected to this bus.
 This connector defines the \"expandable connector\" SubControlBus that
 is used as sub-bus in the
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
-Note, this connector is \"empty\". When using it, the actual content is
-constructed by the signals connected to this bus.
+Note, this is an expandable connector which has a \"default\" set of
+signals (the input/output causalities of the signals are
+determined from the connections to this bus).
 </p>
 </html>"));
 
       end SubControlBus;
 
-    package InternalConnectors
-        "Internal definitions that are usually not utilized (only indirectly via the expandable connectors)"
-      extends Modelica.Icons.Package;
-
-        expandable connector StandardControlBus
-          "Used to build up the standard control bus (do not use this connector)"
-          extends
-            Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.ControlBus;
-
-          import SI = Modelica.SIunits;
-          SI.AngularVelocity realSignal1 "First Real signal (angular velocity)";
-          SI.Velocity realSignal2 "Second Real signal";
-          Integer integerSignal "Integer signal";
-          Boolean booleanSignal "Boolean signal";
-          StandardSubControlBus subControlBus "Combined signal";
-
-          annotation (
-            Icon(graphics={Rectangle(
-                  extent={{-20,2},{22,-2}},
-                  lineColor={255,204,51},
-                  lineThickness=0.5)}),
-            Documentation(info="<html>
-<p>
-This connector is used to show default signals that might be added
-to the
-<a href=\"modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.ControlBus\">ControlBus</a>.
-</p>
-</html>"));
-
-        end StandardControlBus;
-
-        expandable connector StandardSubControlBus
-          "Used to build up the standard sub-control bus (do not use this connector)"
-          extends
-            Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.SubControlBus;
-
-          Real myRealSignal;
-          Boolean myBooleanSignal;
-
-          annotation (defaultComponentPrefixes="protected",
-                      Icon(graphics={Rectangle(
-                  extent={{-20,2},{22,-2}},
-                  lineColor={255,204,51},
-                  lineThickness=0.5)}),
-            Documentation(info="<html>
-<p>
-This connector is used to show default signals that might be added
-to the
-<a href=\"modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.SubControlBus\">SubControlBus</a>.
-</p>
-</html>"));
-        end StandardSubControlBus;
-        annotation (Documentation(info="<html>
-<p>
-This package contains the \"actual\" default bus definitions needed for the
-<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
-The bus definitions in this package are the default definitions shown in the
-bus menu when connecting a signal to an expandable connector (here: ControlBus
-or SubControlBus). Usually, the connectors of this package should not be
-utilized by a user.
-</p>
-</html>"));
-    end InternalConnectors;
       annotation (Documentation(info="<html>
 <p>
 This package contains the bus definitions needed for the
@@ -1314,7 +1258,7 @@ This package contains the bus definitions needed for the
               rotation=0)));
    equation
       connect(realExpression.y, subControlBus.myRealSignal) annotation (Line(
-          points={{21.3,10},{88,10},{88,0},{100,0}},
+          points={{21.3,10},{88,10},{88,6},{98,6},{98,0},{100,0}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(booleanExpression.y, subControlBus.myBooleanSignal) annotation (
