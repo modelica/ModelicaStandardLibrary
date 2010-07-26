@@ -601,14 +601,14 @@ the animation may be switched off via parameter animation = <b>false</b>.
     SI.Position r_0[3](start={0,0,0}, each stateSelect=if enforceStates then
                 StateSelect.always else StateSelect.avoid)
       "Position vector from origin of world frame to origin of frame_a"
-      annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
+      annotation(Dialog(tab="Initialization", showStartAttribute=true));
     SI.Velocity v_0[3](start={0,0,0}, each stateSelect=if enforceStates then StateSelect.always else
                 StateSelect.avoid)
       "Absolute velocity of frame_a, resolved in world frame (= der(r_0))"
-      annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
+      annotation(Dialog(tab="Initialization", showStartAttribute=true));
     SI.Acceleration a_0[3](start={0,0,0})
       "Absolute acceleration of frame_a resolved in world frame (= der(v_0))"
-      annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
+      annotation(Dialog(tab="Initialization", showStartAttribute=true));
 
     parameter Boolean angles_fixed = false
       "= true, if angles_start are used as initial values, else as guess values"
@@ -976,14 +976,14 @@ to the setting of parameters \"useQuaternions\" and
     SI.Position r_0[3](start={0,0,0}, each stateSelect=if enforceStates then
                 StateSelect.always else StateSelect.avoid)
       "Position vector from origin of world frame to origin of frame_a"
-      annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
+      annotation(Dialog(tab="Initialization", showStartAttribute=true));
     SI.Velocity v_0[3](start={0,0,0}, each stateSelect=if enforceStates then StateSelect.always else
                 StateSelect.avoid)
       "Absolute velocity of frame_a, resolved in world frame (= der(r_0))"
-      annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
+      annotation(Dialog(tab="Initialization", showStartAttribute=true));
     SI.Acceleration a_0[3](start={0,0,0})
       "Absolute acceleration of frame_a resolved in world frame (= der(v_0))"
-      annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
+      annotation(Dialog(tab="Initialization", showStartAttribute=true));
 
     parameter Boolean angles_fixed = false
       "= true, if angles_start are used as initial values, else as guess values"
@@ -1270,14 +1270,14 @@ states and of the \"Advanced\" menu parameters, see model
     SI.Position r_0[3](start={0,0,0}, each stateSelect=if enforceStates then
                 StateSelect.always else StateSelect.avoid)
       "Position vector from origin of world frame to origin of frame_a"
-      annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
+      annotation(Dialog(tab="Initialization", showStartAttribute=true));
     SI.Velocity v_0[3](start={0,0,0}, each stateSelect=if enforceStates then StateSelect.always else
                 StateSelect.avoid)
       "Absolute velocity of frame_a, resolved in world frame (= der(r_0))"
-      annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
+      annotation(Dialog(tab="Initialization", showStartAttribute=true));
     SI.Acceleration a_0[3](start={0,0,0})
       "Absolute acceleration of frame_a resolved in world frame (= der(v_0))"
-      annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
+      annotation(Dialog(tab="Initialization", showStartAttribute=true));
 
     parameter Boolean angles_fixed = false
       "= true, if angles_start are used as initial values, else as guess values"
@@ -1491,14 +1491,14 @@ states and of the \"Advanced\" menu parameters, see model
     SI.Position r_0[3](start={0,0,0}, each stateSelect=if enforceStates then
                 StateSelect.always else StateSelect.avoid)
       "Position vector from origin of world frame to origin of frame_a"
-      annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
+      annotation(Dialog(tab="Initialization", showStartAttribute=true));
     SI.Velocity v_0[3](start={0,0,0}, each stateSelect=if enforceStates then StateSelect.always else
                 StateSelect.avoid)
       "Absolute velocity of frame_a, resolved in world frame (= der(r_0))"
-      annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
+      annotation(Dialog(tab="Initialization", showStartAttribute=true));
     SI.Acceleration a_0[3](start={0,0,0})
       "Absolute acceleration of frame_a resolved in world frame (= der(v_0))"
-      annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
+      annotation(Dialog(tab="Initialization", showStartAttribute=true));
 
     parameter Boolean angles_fixed = false
       "= true, if angles_start are used as initial values, else as guess values"
@@ -1696,13 +1696,13 @@ states and of the \"Advanced\" menu parameters, see model
 
     SI.Position r_0[3](start={0,0,0}, each stateSelect=stateSelect)
       "Position vector from origin of world frame to origin of frame_a, resolved in world frame"
-      annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
+      annotation(Dialog(group="Initialization", showStartAttribute=true));
     SI.Velocity v_0[3](start={0,0,0}, each stateSelect=stateSelect)
       "Absolute velocity of frame_a, resolved in world frame (= der(r_0))"
-      annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
+      annotation(Dialog(group="Initialization", showStartAttribute=true));
     SI.Acceleration a_0[3](start={0,0,0})
       "Absolute acceleration of frame_a resolved in world frame (= der(v_0))"
-      annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
+      annotation(Dialog(group="Initialization", showStartAttribute=true));
 
   protected
     outer Modelica.Mechanics.MultiBody.World world;
@@ -1989,14 +1989,14 @@ November 3-4, 2003, pp. 149-158</p>
         "Angular velocity of frame_a, resolved in frame_a";
     SI.Angle phi(start=0, final stateSelect=stateSelect)
         "Rotation angle of rotor with respect to frame_a (= flange_a.phi = flange_b.phi)"
-      annotation(Dialog(__Dymola_initialDialog=true));
+      annotation(Dialog(showStartAttribute=true));
 
     SI.AngularVelocity w(start=0, stateSelect=stateSelect)
         "Angular velocity of rotor with respect to frame_a"
-      annotation(Dialog(__Dymola_initialDialog=true));
+      annotation(Dialog(showStartAttribute=true));
     SI.AngularAcceleration a(start=0)
         "Angular acceleration of rotor with respect to frame_a"
-      annotation(Dialog(__Dymola_initialDialog=true));
+      annotation(Dialog(showStartAttribute=true));
 
     Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a
         "(left) driving flange (flange axis directed INTO cut plane)"
@@ -2408,12 +2408,12 @@ November 3-4, 2003, pp. 149-158</p>
 
       SI.Angle angles[3](start={0,0,0}, fixed = true, each stateSelect=stateSelect)
       "Angles to rotate world-frame in to frame_a around z-, y-, x-axis"
-        annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
+        annotation(Dialog(group="Initialization", showStartAttribute=true));
 
       SI.AngularVelocity der_angles[3](start={0,0,0}, fixed = true, each
         stateSelect =                                                                stateSelect)
       "Derivative of angles"
-        annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
+        annotation(Dialog(group="Initialization", showStartAttribute=true));
 
       parameter SI.Distance width = 0.035 "Width of wheel" annotation (Dialog(
           tab="Animation",

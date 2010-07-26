@@ -1513,11 +1513,11 @@ at an angle phi0 in the <b>housing</b>. May be used:
       parameter StateSelect stateSelect=StateSelect.default
         "Priority to use phi and w as states" annotation(HideResult=true,Dialog(tab="Advanced"));
       SI.Angle phi(stateSelect=stateSelect)
-        "Absolute rotation angle of component" annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
+        "Absolute rotation angle of component" annotation(Dialog(group="Initialization", showStartAttribute=true));
       SI.AngularVelocity w(stateSelect=stateSelect)
-        "Absolute angular velocity of component (= der(phi))" annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
+        "Absolute angular velocity of component (= der(phi))" annotation(Dialog(group="Initialization", showStartAttribute=true));
       SI.AngularAcceleration a
-        "Absolute angular acceleration of component (= der(w))" annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
+        "Absolute angular acceleration of component (= der(w))" annotation(Dialog(group="Initialization", showStartAttribute=true));
 
     equation
       phi = flange_a.phi;

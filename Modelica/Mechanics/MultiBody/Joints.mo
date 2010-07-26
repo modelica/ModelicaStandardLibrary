@@ -1567,13 +1567,13 @@ frame_b of the joint.
     SI.Position r_rel_a[3](start={0,0,0}, each stateSelect=if enforceStates then
                 StateSelect.always else StateSelect.prefer)
       "Position vector from origin of frame_a to origin of frame_b, resolved in frame_a"
-      annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
+      annotation(Dialog(group="Initialization", showStartAttribute=true));
     SI.Velocity v_rel_a[3](start={0,0,0}, each stateSelect=if enforceStates then StateSelect.always else
                 StateSelect.prefer)
       "= der(r_rel_a), i.e., velocity of origin of frame_b with respect to origin of frame_a, resolved in frame_a"
-      annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
+      annotation(Dialog(group="Initialization", showStartAttribute=true));
     SI.Acceleration a_rel_a[3](start={0,0,0}) "= der(v_rel_a)"
-      annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
+      annotation(Dialog(group="Initialization", showStartAttribute=true));
 
     parameter Boolean angles_fixed = false
       "= true, if angles_start are used as initial values, else as guess values"
@@ -3049,11 +3049,11 @@ November 3-4, 2003, pp. 149-158</p>
 
       SI.Angle angles[3](start={0,0,0}, each stateSelect=stateSelect)
       "Angles to rotate world-frame in to frame_a around z-, y-, x-axis"
-        annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
+        annotation(Dialog(group="Initialization", showStartAttribute=true));
 
       SI.AngularVelocity der_angles[3](start={0,0,0}, each stateSelect=stateSelect)
       "Derivative of angles"
-        annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
+        annotation(Dialog(group="Initialization", showStartAttribute=true));
 
        SI.Position r_road_0[3]
       "Position vector from world frame to contact point on road, resolved in world frame";
