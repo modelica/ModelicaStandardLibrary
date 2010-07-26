@@ -107,6 +107,15 @@ the usage of the MultiBody library
       <img src=\"modelica://Modelica/Images/MultiBody/Examples/Elementary/ThreeSprings_small.png\">
       </td>
   </tr>
+
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.HeatLosses\">HeatLosses</a></td>
+      <td valign=\"top\"> Demonstrate the modeling of heat losses.  </td>
+  </tr>
+
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.UserDefinedGravityField\">UserDefinedGravityField </a></td>
+      <td valign=\"top\"> Demonstrate the modeling of a user-defined gravity field.  </td>
+  </tr>
+
 </table>
 </HTML>"));
 end Elementary;

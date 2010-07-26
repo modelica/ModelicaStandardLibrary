@@ -963,7 +963,7 @@ model World
   parameter Types.GravityTypes gravityType=GravityTypes.UniformGravity
     "Type of gravity field"                                                                                                     annotation (Evaluate=true);
   parameter SI.Acceleration g=9.81 "Constant gravity acceleration"
-    annotation (Dialog(enable=gravityType == GravityTypes.UniformGravity));
+    annotation (Dialog(enable=gravityType == Modelica.Mechanics.MultiBody.Types.GravityTypes.UniformGravity));
   parameter Types.Axis n={0,-1,0}
     "Direction of gravity resolved in world frame (gravity = g*n/length(n))"
     annotation (Evaluate=true, Dialog(enable=gravityType == Modelica.Mechanics.
@@ -972,7 +972,7 @@ model World
     unit="m3/s2",
     min=0) = 3.986e14
     "Gravity field constant (default = field constant of earth)"
-    annotation (Dialog(enable=gravityType == Types.GravityTypes.PointGravity));
+    annotation (Dialog(enable=gravityType == Modelica.Mechanics.MultiBody.Types.GravityTypes.PointGravity));
   parameter Boolean driveTrainMechanics3D=true
     "= true, if 3-dim. mechanical effects of Parts.Mounting1D/Rotor1D/BevelGear1D shall be taken into account";
 
@@ -1058,6 +1058,25 @@ model World
   parameter Real defaultNm_to_m(unit="N.m/m", min=0) = 1000
     "Default scaling of torque arrows (length = torque/defaultNm_to_m)"
     annotation (Dialog(tab="Defaults"));
+
+  replaceable function gravityAcceleration =
+       Modelica.Mechanics.MultiBody.Forces.Internal.standardGravityAcceleration
+      (    gravityType=gravityType, g=g*Modelica.Math.Vectors.normalize(n), mue=mue)
+       constrainedby
+    Modelica.Mechanics.MultiBody.Interfaces.partialGravityAcceleration
+    "Function to compute the gravity acceleration, resolved in world frame"
+       annotation(__Dymola_choicesAllMatching=true,Dialog(enable=gravityType==
+                   Modelica.Mechanics.MultiBody.Types.GravityTypes.NoGravity),
+    Documentation(info="<html>
+<p>Replaceable function to define the gravity field.
+   Default is function 
+   <a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.Internal.standardGravityAcceleration\">standardGravityAcceleration</a>
+   that provides some simple gravity fields (no gravity, constant parallel gravity field,
+   point gravity field).
+   By redeclaring this function, any type of gravity field can be defined, see example
+     <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.UserDefinedGravityField\">Examples.Elementary.UserDefinedGravityField</a>.
+</p>
+</html>"));
 
   /* The World object can only use the Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape model, but no
      other models in package Modelica.Mechanics.MultiBody.Visualizers, since the other models access
@@ -1210,33 +1229,14 @@ protected
     color=gravitySphereColor,
     specularCoefficient=0) if enableAnimation and animateGravity and gravityType == GravityTypes.PointGravity;
 
+/*
   function gravityAcceleration = gravityAccelerationTypes (
       gravityType=gravityType,
       g=g*Modelica.Math.Vectors.normalize(
                                      n),
       mue=mue);
+*/
 
-protected
-  function gravityAccelerationTypes
-    "Gravity field acceleration depending on field type and position"
-    import Modelica.Mechanics.MultiBody.Types.GravityTypes;
-    extends Modelica.Icons.Function;
-    input SI.Position r[3]
-      "Position vector from world frame to actual point, resolved in world frame";
-    input GravityTypes gravityType "Type of gravity field";
-    input SI.Acceleration g[3]
-      "Constant gravity acceleration, resolved in world frame, if gravityType=1";
-    input Real mue(unit="m3/s2")
-      "Field constant of point gravity field, if gravityType=2";
-    output SI.Acceleration gravity[3]
-      "Gravity acceleration at point r, resolved in world frame";
-  algorithm
-    gravity := if gravityType == GravityTypes.UniformGravity then g else
-               if gravityType == GravityTypes.PointGravity then
-                  -(mue/(r*r))*(r/Modelica.Math.Vectors.length(
-                                                r)) else
-                    zeros(3);
-  end gravityAccelerationTypes;
 equation
   Connections.root(frame_b.R);
 
@@ -1326,8 +1326,12 @@ ground. This model serves several purposes:
 <li> It is used to define the <b>gravity field</b> in which a
      multi-body model is present. Default is a uniform gravity
      field where the gravity acceleration vector g is the
-     same at every position. Additionally, a point gravity field
-     can be selected.</li>
+     same at every position. Additionally, a point gravity field or no
+     gravity can be selected. Also, function gravityAcceleration can
+     be redeclared to a user-defined function that computes the gravity
+     acceleration, see example
+     <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.UserDefinedGravityField\">Examples.Elementary.UserDefinedGravityField</a>.
+     </li>
 <li> It is used to define <b>default settings</b> of animation properties
      (e.g. the diameter of a sphere representing by default
      the center of mass of a body, or the diameters of the cylinders

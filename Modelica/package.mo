@@ -2720,6 +2720,8 @@ to <b style=\"color:blue\">existing</b> libraries:
 <tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Examples.Elementary.</b></td></tr>
 <tr><td valign=\"top\"> HeatLosses </td>
     <td valign=\"top\"> Demonstrate the modeling of heat losses. </td> </tr>
+<tr><td valign=\"top\"> UserDefinedGravityField </td>
+    <td valign=\"top\"> Demonstrate the modeling of a user-defined gravity field. </td> </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.Examples.</b></td></tr>
 <tr><td valign=\"top\"> HeatLosses </td>
@@ -2881,7 +2883,11 @@ have been <b style=\"color:blue\">improved</b> in a
                       \"%name\": width: -150 .. 150, height: 40, color: blue<br>
                       other text: height: 30, color: black
                        </td> </tr>
-
+<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.</b></td></tr>
+<tr><td valign=\"top\"> World </td>
+    <td valign=\"top\"> Function gravityAcceleration is made replaceable, so that redeclaration
+                      yields user-defined gravity fields.
+                       </td> </tr>
 <tr><td colspan=\"2\"><b>Modelica.Thermal.</b></td></tr>
 <tr><td valign=\"top\"> HeatTransfer.*</td>
     <td valign=\"top\"> All icons are unified according to the
