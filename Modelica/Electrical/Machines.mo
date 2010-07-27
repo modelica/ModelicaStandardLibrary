@@ -5141,14 +5141,14 @@ These models use package SpacePhasors.
             color={0,0,255},
             smooth=Smooth.None));
         connect(airGapDC.support, internalSupport) annotation (Line(
-            points={{-10,2.33651e-15},{-26,0},{-40,0},{-40,-90},{60,-90},{60,
+            points={{-10,1.83697e-015},{-26,0},{-40,0},{-40,-90},{60,-90},{60,
                 -100}},
             color={0,0,0},
             smooth=Smooth.None));
 
         connect(airGapDC.flange, inertiaRotor.flange_a) annotation (Line(
-            points={{10,-1.33731e-15},{36,-1.33731e-15},{36,7.25006e-16},{70,
-                7.25006e-16}},
+            points={{10,-1.83697e-015},{36,-1.83697e-015},{36,1.22465e-015},{70,
+                1.22465e-015}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(airGapDC.pin_an, brush.p) annotation (Line(
@@ -12035,8 +12035,6 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
 
     partial model PartialBasicInductionMachine
       "Partial model for induction machine"
-      extends PartialBasicMachine(Jr(start=0.29),
-        frictionParameters(wRef(start=2*pi*fsNominal/p)));
       final parameter Integer m=3 "Number of phases";
       parameter Integer p(min=1, start=2) "Number of pole pairs (Integer)";
       parameter Modelica.SIunits.Frequency fsNominal(start=50)
@@ -12059,6 +12057,8 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
       parameter Modelica.SIunits.Inductance Lssigma(start=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal))
         "Stator stray inductance per phase"
          annotation(Dialog(tab="Nominal resistances and inductances"));
+      extends PartialBasicMachine(Jr(start=0.29),
+        frictionParameters(wRef(start=2*pi*fsNominal/p)));
       parameter Machines.Losses.CoreParameters statorCoreParameters(
         final m=3,
         VRef(start=100),
@@ -12588,8 +12588,6 @@ Interfaces and partial models for induction machines
     end InductionMachines;
 
     partial model PartialBasicDCMachine "Partial model for DC machine"
-      extends PartialBasicMachine(Jr(start=0.15),
-        frictionParameters(wRef=wNominal));
       parameter Modelica.SIunits.Temperature TaOperational(start=293.15)
         "Operational armature temperature"
          annotation(Dialog(group="Operational temperatures", enable=not useThermalPort));
@@ -12617,6 +12615,8 @@ Interfaces and partial models for induction machines
       parameter Modelica.SIunits.Inductance La(start=0.0015)
         "Armature inductance"
          annotation(Dialog(tab="Nominal resistances and inductances"));
+      extends PartialBasicMachine(Jr(start=0.15),
+        frictionParameters(wRef=wNominal));
       parameter Machines.Losses.CoreParameters coreParameters(final m=1,
         VRef=ViNominal, wRef=wNominal) "Armature core losses"
         annotation(Dialog(tab="Losses"));
@@ -12694,12 +12694,12 @@ Interfaces and partial models for induction machines
       connect(la.p,ra. n)
         annotation (Line(points={{30,60},{40,60}}, color={0,0,255}));
       connect(thermalPort, internalThermalPort) annotation (Line(
-          points={{5.55112e-16,-100},{5.55112e-16,-95},{6.38379e-16,-95},{
-              6.38379e-16,-90},{0,-90},{0,-80}},
+          points={{0,-100},{0,-95},{6.38379e-016,-95},{6.38379e-016,-90},{0,-90},{0,
+              -80}},
           color={199,0,0},
           smooth=Smooth.None));
       connect(thermalAmbient.thermalPort, internalThermalPort) annotation (Line(
-          points={{-20,-80},{8.32667e-17,-80}},
+          points={{-20,-80},{0,-80}},
           color={199,0,0},
           smooth=Smooth.None));
       connect(brush.n, pin_an) annotation (Line(
@@ -12715,7 +12715,7 @@ Interfaces and partial models for induction machines
           color={0,0,255},
           smooth=Smooth.None));
       connect(strayLoad.flange, inertiaRotor.flange_b) annotation (Line(
-          points={{80,70},{100,70},{100,50},{90,50},{90,-1.72421e-15}},
+          points={{80,70},{100,70},{100,50},{90,50},{90,-1.22465e-015}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(strayLoad.support, internalSupport) annotation (Line(
@@ -12731,27 +12731,26 @@ Interfaces and partial models for induction machines
           color={0,0,255},
           smooth=Smooth.None));
       connect(core.heatPort, internalThermalPort.heatPortCore) annotation (Line(
-          points={{-4.996e-16,70},{-4.996e-16,40},{50,40},{50,-80},{8.32667e-17,
-              -80}},
+          points={{0,70},{0,40},{50,40},{50,-80},{0,-80}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(brush.heatPort, internalThermalPort.heatPortBrush) annotation (Line(
-          points={{-20,50},{-20,40},{50,40},{50,-80},{8.32667e-17,-80}},
+          points={{-20,50},{-20,40},{50,40},{50,-80},{0,-80}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(strayLoad.heatPort, internalThermalPort.heatPortStrayLoad)
         annotation (Line(
-          points={{70,50},{70,40},{50,40},{50,-80},{8.32667e-17,-80}},
+          points={{70,50},{70,40},{50,40},{50,-80},{0,-80}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(friction.heatPort, internalThermalPort.heatPortFriction) annotation (
           Line(
-          points={{80,-40},{50,-40},{50,-80},{8.32667e-17,-80}},
+          points={{80,-40},{50,-40},{50,-80},{0,-80}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(ra.heatPort, internalThermalPort.heatPortArmature) annotation (
           Line(
-          points={{50,50},{50,-80},{8.32667e-17,-80}},
+          points={{50,50},{50,-80},{0,-80}},
           color={191,0,0},
           smooth=Smooth.None));
       annotation (Documentation(info="<HTML>
