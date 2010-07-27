@@ -673,11 +673,12 @@ end Shape;
 end Animation;
 
 
-annotation (preferredView="info",
+annotation (__Dymola_Protection(hideFromBrowser=true),
+preferredView="info",
 version="1.0.1",
 versionDate="2010-07-23",
 versionBuild=0,
-revisionId="$Id:: package.mo 3564 2010-03-13 21:14:40Z #$",
+revisionId="$Id::                                       $",
 uses(Modelica(version="3.2")),
 conversion(noneFromVersion="1.0"),
 Documentation(info="<html>

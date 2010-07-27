@@ -190,7 +190,8 @@ operator record Complex "Complex number with overloaded operators"
 </html>"));
   end 'String';
 
-annotation (version="1.0",
+annotation (__Dymola_Protection(hideFromBrowser=true),
+version="1.0",
 versionBuild=1,
 versionDate="2010-03-24",
 dateModified = "2010-01-26 19:32:58Z",

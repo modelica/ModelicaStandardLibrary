@@ -18,3 +18,16 @@ a tool-specific implementation):
 You need to select one of these implementations or provide your own one.
 The selected ModelicaServices library should be included in the
 library search path of your tool.
+
+
+Note, all the implementations contain the tool specific annotation:
+
+   __Dymola_Protection(hideFromBrowser=true)
+
+in order to not show package ModelicaServices in the package browser
+of Dymola (since this package should not be utilized by a user).
+The package becomes visible, if option
+
+   Edit / Options / Show protected classes in package browser
+
+is enabled in Dymola.
