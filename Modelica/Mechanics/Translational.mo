@@ -1120,26 +1120,26 @@ one where the brake is implicitly grounded and one where it is explicitly ground
         s(fixed=true),
         L=0.1,
         v(fixed=true))
-        annotation (Placement(transformation(extent={{-42,20},{-22,40}})));
+        annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
       Components.SpringDamper springDamper(
         s_rel(fixed=true),
         v_rel(fixed=true),
         c=100,
         d=10,
         useHeatPort=true)
-              annotation (Placement(transformation(extent={{-14,20},{6,40}})));
+              annotation (Placement(transformation(extent={{-10,20},{10,40}})));
       Components.Damper damper(d=10, useHeatPort=true)
         annotation (Placement(transformation(extent={{-10,10},{10,-10}},
             rotation=-90,
-            origin={-42,-2})));
+            origin={-40,-10})));
       Components.ElastoGap elastoGap(
         c=100,
         d=20,
         s_rel0=-0.02,
         useHeatPort=true)
-        annotation (Placement(transformation(extent={{-94,-10},{-74,10}})));
+        annotation (Placement(transformation(extent={{-70,-10},{-50,10}})));
       Components.Fixed fixed1
-        annotation (Placement(transformation(extent={{-52,-28},{-32,-8}})));
+        annotation (Placement(transformation(extent={{-50,-40},{-30,-20}})));
       Sources.Force force
         annotation (Placement(transformation(extent={{-70,20},{-50,40}})));
       Blocks.Sources.Sine sine1(freqHz=1, amplitude=20)
@@ -1149,11 +1149,11 @@ one where the brake is implicitly grounded and one where it is explicitly ground
         L=0.1,
         s(fixed=false),
         v(fixed=false))
-        annotation (Placement(transformation(extent={{18,20},{38,40}})));
+        annotation (Placement(transformation(extent={{20,20},{40,40}})));
       Components.SupportFriction supportFriction(useHeatPort=true)
-        annotation (Placement(transformation(extent={{46,20},{66,40}})));
+        annotation (Placement(transformation(extent={{50,20},{70,40}})));
       Components.Spring spring(c=100, s_rel(fixed=true))
-        annotation (Placement(transformation(extent={{78,20},{98,40}})));
+        annotation (Placement(transformation(extent={{80,20},{100,40}})));
       Components.Mass mass3(
         m=1,
         L=0.1,
@@ -1161,7 +1161,7 @@ one where the brake is implicitly grounded and one where it is explicitly ground
         v(fixed=false))
         annotation (Placement(transformation(extent={{110,20},{130,40}})));
       Components.Brake brake(fn_max=10, useHeatPort=true)
-        annotation (Placement(transformation(extent={{142,20},{162,40}})));
+        annotation (Placement(transformation(extent={{140,20},{160,40}})));
       Blocks.Sources.Sine sine2(amplitude=10, freqHz=2)
         annotation (Placement(transformation(extent={{120,50},{140,70}})));
       Components.MassWithStopAndFriction massWithStopAndFriction(
@@ -1175,21 +1175,21 @@ one where the brake is implicitly grounded and one where it is explicitly ground
         smax=0.4,
         v(fixed=true),
         useHeatPort=true)
-        annotation (Placement(transformation(extent={{172,20},{192,40}})));
+        annotation (Placement(transformation(extent={{170,20},{190,40}})));
       Thermal.HeatTransfer.Components.Convection convection
-        annotation (Placement(transformation(extent={{40,-30},{60,-50}})));
+        annotation (Placement(transformation(extent={{40,-40},{60,-60}})));
       Blocks.Sources.Constant const(k=20)
-        annotation (Placement(transformation(extent={{6,-76},{26,-56}})));
+        annotation (Placement(transformation(extent={{20,-90},{40,-70}})));
       Thermal.HeatTransfer.Celsius.FixedTemperature TAmbient(T=25)
         "Ambient temperature"
-        annotation (Placement(transformation(extent={{94,-50},{74,-30}})));
+        annotation (Placement(transformation(extent={{94,-60},{74,-40}})));
       Components.Fixed fixed2
-        annotation (Placement(transformation(extent={{-120,-28},{-100,-8}})));
+        annotation (Placement(transformation(extent={{-100,-10},{-80,10}})));
     equation
 
       connect(mass1.flange_b, springDamper.flange_a)
                                                     annotation (Line(
-          points={{-22,30},{-14,30}},
+          points={{-20,30},{-10,30}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(sine1.y, force.f) annotation (Line(
@@ -1197,89 +1197,89 @@ one where the brake is implicitly grounded and one where it is explicitly ground
           color={0,0,127},
           smooth=Smooth.None));
       connect(force.flange, mass1.flange_a) annotation (Line(
-          points={{-50,30},{-42,30}},
+          points={{-50,30},{-40,30}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(mass1.flange_a, damper.flange_a) annotation (Line(
-          points={{-42,30},{-42,8}},
+          points={{-40,30},{-40,-1.77636e-015}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(damper.flange_b, fixed1.flange) annotation (Line(
-          points={{-42,-12},{-42,-18}},
+          points={{-40,-20},{-40,-30}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(springDamper.flange_b, mass2.flange_a) annotation (Line(
-          points={{6,30},{18,30}},
+          points={{10,30},{20,30}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(mass2.flange_b, supportFriction.flange_a) annotation (Line(
-          points={{38,30},{46,30}},
+          points={{40,30},{50,30}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(supportFriction.flange_b, spring.flange_a) annotation (Line(
-          points={{66,30},{78,30}},
+          points={{70,30},{80,30}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(spring.flange_b, mass3.flange_a) annotation (Line(
-          points={{98,30},{110,30}},
+          points={{100,30},{110,30}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(mass3.flange_b, brake.flange_a) annotation (Line(
-          points={{130,30},{142,30}},
+          points={{130,30},{140,30}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(sine2.y, brake.f_normalized) annotation (Line(
-          points={{141,60},{152,60},{152,41}},
+          points={{141,60},{150,60},{150,41}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(brake.flange_b, massWithStopAndFriction.flange_a) annotation (
           Line(
-          points={{162,30},{172,30}},
+          points={{160,30},{170,30}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(elastoGap.flange_b, mass1.flange_a) annotation (Line(
-          points={{-74,0},{-60,0},{-60,14},{-42,14},{-42,30}},
+          points={{-50,0},{-40,0},{-40,30}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(const.y,convection. Gc) annotation (Line(
-          points={{27,-66},{50,-66},{50,-50}},
+          points={{41,-80},{50,-80},{50,-60}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(TAmbient.port,convection. fluid) annotation (Line(
-          points={{74,-40},{60,-40}},
+          points={{74,-50},{60,-50}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(elastoGap.flange_a, fixed2.flange) annotation (Line(
-          points={{-94,0},{-110,0},{-110,-18}},
+          points={{-70,0},{-90,0}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(elastoGap.heatPort, convection.solid) annotation (Line(
-          points={{-94,-10},{-94,-40},{40,-40}},
+          points={{-70,-10},{-70,-50},{40,-50}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(damper.heatPort, convection.solid) annotation (Line(
-          points={{-32,8},{-14,8},{-14,-40},{40,-40}},
+          points={{-30,-3.55271e-015},{-20,0},{-10,0},{-10,-50},{40,-50}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(springDamper.heatPort, convection.solid) annotation (Line(
-          points={{-14,20},{-14,-40},{40,-40}},
+          points={{-10,20},{-10,-50},{40,-50}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(supportFriction.heatPort, convection.solid) annotation (Line(
-          points={{46,20},{46,8},{-14,8},{-14,-40},{40,-40}},
+          points={{50,20},{50,0},{-10,0},{-10,-50},{40,-50}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(brake.heatPort, convection.solid) annotation (Line(
-          points={{142,20},{142,8},{-14,8},{-14,-40},{40,-40}},
+          points={{140,20},{140,0},{-10,0},{-10,-50},{40,-50}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(massWithStopAndFriction.heatPort, convection.solid) annotation (
           Line(
-          points={{172,20},{172,8},{-14,8},{-14,-40},{40,-40}},
+          points={{170,20},{170,0},{-10,0},{-10,-50},{40,-50}},
           color={191,0,0},
           smooth=Smooth.None));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{
-                -140,-100},{200,100}}),
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-120,
+                -100},{200,100}}),
                           graphics),
         experiment(StopTime=2),
         experimentSetupOutput,
@@ -1621,8 +1621,7 @@ a coupling of the sliding mass with the housing via a spring.
       parameter SI.TranslationalDampingConstant d(final min=0, start = 0)
         "Damping constant";
       extends
-        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
-         final T=293.15);
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
     equation
       f = d*v_rel;
       lossPower = f*v_rel;
@@ -1702,8 +1701,7 @@ between two sliding masses.
         "Damping constant";
       parameter SI.Position s_rel0=0 "Unstretched spring length";
       extends
-        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
-         final T=293.15);
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
     protected
       Modelica.SIunits.Force f_c "Spring force";
       Modelica.SIunits.Force f_d "Damping force";
@@ -1811,8 +1809,7 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
       parameter Real n(final min=1) = 1
         "Exponent of spring force ( f_c = -c*|s_rel-s_rel0|^n )";
       extends
-        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
-         final T=293.15);
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
 
     /*
 Please note that initialization might fail due to the nonlinear spring characteristic
@@ -2050,8 +2047,7 @@ where the different effects are visualized:
       extends
         Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2;
       extends
-        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
-         final T=293.15);
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
 
       parameter Real f_pos[:, 2]=[0, 1]
         "[v, f] Positive sliding friction characteristic (v>=0)";
@@ -2251,8 +2247,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       extends
         Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2;
       extends
-        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
-         final T=293.15);
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
       parameter Real mue_pos[:, 2]=[0, 0.5]
         "[v, f] Positive sliding friction characteristic (v>=0)";
       parameter Real peak(final min=1) = 1
@@ -2670,8 +2665,7 @@ provided via a signal bus.
       parameter Real fexp(final unit="s/m", final min=0, start = 2)
         "Exponential decay";
     extends
-        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
-         final T=293.15);
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
       Integer stopped = if s <= smin + L/2 then -1 else if s >= smax - L/2 then +1 else 0;
     encapsulated partial model PartialFrictionWithStop
         "Base model of Coulomb friction elements with stop"

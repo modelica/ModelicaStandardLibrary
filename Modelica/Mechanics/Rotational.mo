@@ -1229,7 +1229,7 @@ Du to a speed dependent force (like driving resistance), we find an eqilibrium a
       Blocks.Sources.Sine sine(freqHz=5, amplitude=20)
         annotation (Placement(transformation(extent={{-100,20},{-80,40}})));
       Sources.Torque torque
-        annotation (Placement(transformation(extent={{-68,20},{-48,40}})));
+        annotation (Placement(transformation(extent={{-70,20},{-50,40}})));
       Components.Inertia inertia1(J=2,
         phi(fixed=true, start=0),
         w(fixed=true, start=0))
@@ -1242,44 +1242,44 @@ Du to a speed dependent force (like driving resistance), we find an eqilibrium a
       Components.Fixed fixed
         annotation (Placement(transformation(extent={{-30,-20},{-10,0}})));
       Thermal.HeatTransfer.Components.Convection convection
-        annotation (Placement(transformation(extent={{14,-40},{34,-60}})));
+        annotation (Placement(transformation(extent={{20,-20},{40,-40}})));
       Thermal.HeatTransfer.Celsius.FixedTemperature TAmbient(T=25)
         "Ambient temperature"
-        annotation (Placement(transformation(extent={{68,-60},{48,-40}})));
+        annotation (Placement(transformation(extent={{68,-40},{48,-20}})));
       Blocks.Sources.Constant const(k=20)
-        annotation (Placement(transformation(extent={{-20,-86},{0,-66}})));
+        annotation (Placement(transformation(extent={{0,-70},{20,-50}})));
       Components.SpringDamper springDamper(
         c=1e4,
         d=20,
         useHeatPort=true)
-        annotation (Placement(transformation(extent={{-6,20},{14,40}})));
+        annotation (Placement(transformation(extent={{-10,20},{10,40}})));
       Components.Inertia inertia2(J=2,
         phi(fixed=true, start=0),
         w(fixed=true, start=0))
-        annotation (Placement(transformation(extent={{24,20},{44,40}})));
+        annotation (Placement(transformation(extent={{20,20},{40,40}})));
       Components.ElastoBacklash elastoBacklash(
         c=1e5,
         d=100,
         useHeatPort=true,
         b(displayUnit="rad") = 0.001)
-        annotation (Placement(transformation(extent={{56,20},{76,40}})));
+        annotation (Placement(transformation(extent={{50,20},{70,40}})));
       Components.Inertia inertia3(J=2,
         phi(fixed=true, start=0),
         w(fixed=true, start=0))
-        annotation (Placement(transformation(extent={{88,20},{108,40}})));
+        annotation (Placement(transformation(extent={{80,20},{100,40}})));
       Components.BearingFriction bearingFriction(useHeatPort=true)
-        annotation (Placement(transformation(extent={{116,20},{136,40}})));
+        annotation (Placement(transformation(extent={{110,20},{130,40}})));
       Components.Spring spring3(c=1e4)
-        annotation (Placement(transformation(extent={{-62,70},{-42,90}})));
+        annotation (Placement(transformation(extent={{-70,70},{-50,90}})));
       Components.Inertia inertia4(J=2,
         phi(fixed=true, start=0),
         w(fixed=true, start=0))
-        annotation (Placement(transformation(extent={{-36,70},{-16,90}})));
+        annotation (Placement(transformation(extent={{-40,70},{-20,90}})));
       Components.LossyGear lossyGear(
         ratio=2,
         lossTable=[0,0.8,0.8,1,1; 1,0.7,0.7,2,2],
         useHeatPort=true)
-        annotation (Placement(transformation(extent={{-8,70},{12,90}})));
+        annotation (Placement(transformation(extent={{-10,70},{10,90}})));
       Components.Clutch clutch(useHeatPort=true, fn_max=10,
         phi_rel(fixed=true),
         w_rel(fixed=true))
@@ -1287,9 +1287,9 @@ Du to a speed dependent force (like driving resistance), we find an eqilibrium a
       Components.Inertia inertia5(J=2)
         annotation (Placement(transformation(extent={{50,70},{70,90}})));
       Blocks.Sources.Sine sine2(              freqHz=0.2, amplitude=1)
-        annotation (Placement(transformation(extent={{-8,110},{12,130}})));
+        annotation (Placement(transformation(extent={{0,110},{20,130}})));
       Components.Inertia inertia6(J=2)
-        annotation (Placement(transformation(extent={{108,70},{128,90}})));
+        annotation (Placement(transformation(extent={{110,70},{130,90}})));
       Components.OneWayClutch oneWayClutch(
         phi_rel(fixed=true),
         w_rel(fixed=true),
@@ -1297,17 +1297,17 @@ Du to a speed dependent force (like driving resistance), we find an eqilibrium a
         stuck(fixed=true),
         fn_max=1,
         useHeatPort=true)
-        annotation (Placement(transformation(extent={{78,70},{98,90}})));
+        annotation (Placement(transformation(extent={{80,70},{100,90}})));
       Components.Brake brake(fn_max=2, useHeatPort=true)
-        annotation (Placement(transformation(extent={{136,70},{156,90}})));
+        annotation (Placement(transformation(extent={{140,70},{160,90}})));
     equation
 
       connect(sine.y, torque.tau) annotation (Line(
-          points={{-79,30},{-70,30}},
+          points={{-79,30},{-72,30}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(torque.flange, inertia1.flange_a) annotation (Line(
-          points={{-48,30},{-40,30}},
+          points={{-50,30},{-40,30}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(inertia1.flange_b, damper.flange_b) annotation (Line(
@@ -1319,71 +1319,71 @@ Du to a speed dependent force (like driving resistance), we find an eqilibrium a
           color={0,0,0},
           smooth=Smooth.None));
       connect(damper.heatPort, convection.solid) annotation (Line(
-          points={{-30,3.55271e-015},{-40,3.55271e-015},{-40,-50},{14,-50}},
+          points={{-30,3.55271e-015},{-30,-30},{20,-30}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(TAmbient.port, convection.fluid) annotation (Line(
-          points={{48,-50},{34,-50}},
+          points={{48,-30},{40,-30}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(const.y, convection.Gc) annotation (Line(
-          points={{1,-76},{24,-76},{24,-60}},
+          points={{21,-60},{30,-60},{30,-40}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(inertia1.flange_b, springDamper.flange_a) annotation (Line(
-          points={{-20,30},{-6,30}},
+          points={{-20,30},{-10,30}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(springDamper.heatPort, convection.solid) annotation (Line(
-          points={{-6,20},{-6,-50},{14,-50}},
+          points={{-10,20},{-10,-30},{20,-30}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(springDamper.flange_b, inertia2.flange_a) annotation (Line(
-          points={{14,30},{24,30}},
+          points={{10,30},{20,30}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(elastoBacklash.flange_a, inertia2.flange_b) annotation (Line(
-          points={{56,30},{44,30}},
+          points={{50,30},{40,30}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(elastoBacklash.heatPort, convection.solid) annotation (Line(
-          points={{56,20},{56,0},{-6,0},{-6,-50},{14,-50}},
+          points={{50,20},{50,0},{-10,0},{-10,-30},{20,-30}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(elastoBacklash.flange_b, inertia3.flange_a) annotation (Line(
-          points={{76,30},{88,30}},
+          points={{70,30},{80,30}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(inertia3.flange_b, bearingFriction.flange_a) annotation (Line(
-          points={{108,30},{116,30}},
+          points={{100,30},{110,30}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(convection.solid, bearingFriction.heatPort) annotation (Line(
-          points={{14,-50},{-6,-50},{-6,0},{116,0},{116,20}},
+          points={{20,-30},{-10,-30},{-10,0},{110,0},{110,20}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(spring3.flange_b, inertia4.flange_a) annotation (Line(
-          points={{-42,80},{-36,80}},
+          points={{-50,80},{-40,80}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(bearingFriction.flange_b, spring3.flange_a) annotation (Line(
-          points={{136,30},{144,30},{144,48},{-66,48},{-66,80},{-62,80}},
+          points={{130,30},{130,48},{-70,48},{-70,80}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(inertia4.flange_b, lossyGear.flange_a) annotation (Line(
-          points={{-16,80},{-8,80}},
+          points={{-20,80},{-10,80}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(lossyGear.heatPort, convection.solid) annotation (Line(
-          points={{-8,70},{-8,58},{154,58},{154,0},{-6,0},{-6,-50},{14,-50}},
+          points={{-10,70},{-10,60},{140,60},{140,0},{-10,0},{-10,-30},{20,-30}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(lossyGear.flange_b, clutch.flange_a) annotation (Line(
-          points={{12,80},{20,80}},
+          points={{10,80},{20,80}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(clutch.heatPort, convection.solid) annotation (Line(
-          points={{20,70},{20,58},{154,58},{154,0},{-6,0},{-6,-50},{14,-50}},
+          points={{20,70},{20,60},{140,60},{140,0},{-10,0},{-10,-30},{20,-30}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(clutch.flange_b, inertia5.flange_a) annotation (Line(
@@ -1391,40 +1391,40 @@ Du to a speed dependent force (like driving resistance), we find an eqilibrium a
           color={0,0,0},
           smooth=Smooth.None));
       connect(sine2.y, clutch.f_normalized) annotation (Line(
-          points={{13,120},{30,120},{30,91}},
+          points={{21,120},{30,120},{30,91}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(inertia5.flange_b, oneWayClutch.flange_a) annotation (Line(
-          points={{70,80},{78,80}},
+          points={{70,80},{80,80}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(oneWayClutch.flange_b, inertia6.flange_a) annotation (Line(
-          points={{98,80},{108,80}},
+          points={{100,80},{110,80}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(sine2.y, oneWayClutch.f_normalized) annotation (Line(
-          points={{13,120},{88,120},{88,91}},
+          points={{21,120},{90,120},{90,91}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(inertia6.flange_b, brake.flange_a) annotation (Line(
-          points={{128,80},{136,80}},
+          points={{130,80},{140,80}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(sine2.y, brake.f_normalized) annotation (Line(
-          points={{13,120},{146,120},{146,91}},
+          points={{21,120},{150,120},{150,91}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(oneWayClutch.heatPort, convection.solid) annotation (Line(
-          points={{78,70},{78,58},{154,58},{154,0},{-6,0},{-6,-50},{14,-50}},
+          points={{80,70},{80,60},{140,60},{140,0},{-10,0},{-10,-30},{20,-30}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(brake.heatPort, convection.solid) annotation (Line(
-          points={{136,70},{136,58},{154,58},{154,0},{-6,0},{-6,-50},{14,-50}},
+          points={{140,70},{140,0},{-10,0},{-10,-30},{20,-30}},
           color={191,0,0},
           smooth=Smooth.None));
 
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{200,140}}),      graphics), Icon(coordinateSystem(
+                -100},{180,140}}),      graphics), Icon(coordinateSystem(
               preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
         experiment(NumberOfIntervals=5000),
         experimentSetupOutput,
@@ -1696,8 +1696,7 @@ a coupling of the element with the housing via a spring.
       parameter SI.RotationalDampingConstant d(final min=0, start=0)
         "Damping constant";
       extends
-        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
-         final T=293.15);
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
     equation
       tau = d*w_rel;
       lossPower = tau*w_rel;
@@ -1775,8 +1774,7 @@ between two inertia/gear elements.
       extends
         Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates;
       extends
-        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
-         final T=293.15);
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
     protected
       Modelica.SIunits.Torque tau_c "Spring torque";
       Modelica.SIunits.Torque tau_d "Damping torque";
@@ -1882,8 +1880,7 @@ to describe a coupling of the element with the housing via a spring/damper.
       extends
         Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates;
       extends
-        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
-         final T=293.15);
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
     protected
       final parameter SI.Angle bMax = b/2
         "Backlash in range bMin <= phi_rel - phi_rel0 <= bMax";
@@ -2246,8 +2243,7 @@ where the different effects are visualized:
 
       extends Rotational.Interfaces.PartialFriction;
       extends
-        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
-         final T=293.15);
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
 
       SI.Angle phi
         "Angle between shaft flanges (flange_a, flange_b) and support";
@@ -2456,8 +2452,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 
       extends Rotational.Interfaces.PartialFriction;
       extends
-        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
-         final T=293.15);
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
 
       SI.Angle phi
         "Angle between shaft flanges (flange_a, flange_b) and support";
@@ -2672,8 +2667,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
         "Relative angular acceleration (= der(w_rel))";
       extends Rotational.Interfaces.PartialFriction;
       extends
-        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
-         final T=293.15);
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
 
       Real mue0 "Friction coefficient for w=0 and forward sliding";
       SI.Force fn "Normal force (fn=fn_max*f_normalized)";
@@ -2830,8 +2824,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
         "Relative angular velocity near to zero if jumps due to a reinit(..) of the velocity can occur (set to low value only if such impulses can occur)"
          annotation(Dialog(tab="Advanced"));
       extends
-        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
-         final T=293.15);
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
 
       Real u "Normalized force input signal (0..1)";
       SI.Force fn "Normal force (fn=fn_max*inPort.signal)";
@@ -3056,8 +3049,7 @@ connected to other elements in an appropriate way.
       parameter Real lossTable[:, 5]=[0, 1, 1, 0, 0]
         "Array for mesh efficiencies and bearing friction depending on speed";
       extends
-        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
-         final T=293.15);
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
       Modelica.SIunits.Angle phi_a
         "Angle between left shaft flange and support";
       Modelica.SIunits.Angle phi_b

@@ -2857,6 +2857,33 @@ If this model is used, the loss power has to be provided by an equation in the m
 </html>"),     Diagram(graphics));
     end PartialElementaryConditionalHeatPort;
 
+    partial model PartialElementaryConditionalHeatPortWithoutT
+      "Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e. for elementary models"
+      parameter Boolean useHeatPort = false "=true, if heatPort is enabled"
+        annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(
+        final Q_flow=-lossPower) if useHeatPort
+        "Optional port to which dissipated losses are transported in form of heat"
+        annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}),
+         iconTransformation(extent={{-110,-110},{-90,-90}})));
+      Modelica.SIunits.Power lossPower
+        "Loss power leaving component via heatPort (> 0, if heat is flowing out of component)";
+      annotation (Documentation(info="<html>
+<p>
+This partial model provides a conditional heat port for dissipating losses.
+</p>
+<ul>
+<li>If <b>useHeatPort</b> is set to <b>false</b> (default), no heat port is available, and the thermal loss power is dissipated internally.
+In this case, the parameter <b>T</b> specifies the fixed device temperature (the default for T = 20&deg;C) </li>
+<li>If <b>useHeatPort</b> is set to <b>true</b>, the heat port is available. </li>
+</ul>
+<p>
+If this model is used, the loss power has to be provided by an equation in the model which inherits from PartialElementaryConditionalHeatPort model
+(<b>lossPower = ...</b>). The device temperature <b>TheatPort</b> can be used to describe the influence of the device temperature on the model behaviour.
+</p>
+</html>"),     Diagram(graphics));
+    end PartialElementaryConditionalHeatPortWithoutT;
+
     partial model PartialConditionalHeatPort
       "Partial model to include a conditional HeatPort in order to dissipate losses, used for graphical modeling, i.e. for bulding modelsby drag-and-drop"
       parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
